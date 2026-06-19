@@ -153,6 +153,48 @@
         },
       },
       {
+        key: 'nvidia-q4-fy25',
+        company: 'NVIDIA',
+        period: 'Q4 FY25',
+        periodNote: 'Ending Jan. 2025',
+        currency: '$',
+        unit: 'B',
+        decimals: 1,
+        sourceImage: 'input/processed/nvidia-q4-fy25.png',
+        roundingTolerance: 0.15,
+        revenue: {
+          total: 39.3,
+          notes: ['+12% Q/Q'],
+          items: [
+            { id: 'data_center', label: 'Data Center', value: 35.6, notes: ['+16% Q/Q'] },
+            { id: 'gaming', label: 'Gaming', value: 2.5, notes: ['(22%) Q/Q'] },
+            { id: 'professional_visualization', label: 'Professional Visualization', value: 0.5, notes: ['+5% Q/Q'] },
+            { id: 'automotive', label: 'Automotive', value: 0.6, notes: ['+27% Q/Q'] },
+            { id: 'oem_other', label: 'OEM & Other', value: 0.1, notes: ['+30% Q/Q'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 10.6 },
+          operatingExpenses: {
+            total: 4.7,
+            items: [
+              { id: 'rnd', label: 'Research & Development', value: 3.7, notes: ['9% of revenue', '(0pp) Q/Q'] },
+              { id: 'sga', label: 'Sales, General & Admin', value: 1.0, notes: ['2% of revenue', '(0pp) Q/Q'] },
+            ],
+          },
+          tax: { id: 'tax', label: 'Tax', value: 3.1 },
+        },
+        otherIncome: {
+          total: 1.1,
+          items: [{ id: 'other', label: 'Other', value: 1.1 }],
+        },
+        profit: {
+          gross: { id: 'gross_profit', label: 'Gross profit', value: 28.7, notes: ['73% margin', '(2pp) Q/Q'] },
+          operating: { id: 'operating_profit', label: 'Operating profit', value: 24.0, notes: ['61% margin', '(1pp) Q/Q'] },
+          net: { id: 'net_profit', label: 'Net profit', value: 22.1, notes: ['56% margin', '+1pp Q/Q'] },
+        },
+      },
+      {
         key: 'nvidia-q2-fy26',
         company: 'NVIDIA',
         period: 'Q2 FY26',
