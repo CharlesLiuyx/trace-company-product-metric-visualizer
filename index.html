@@ -68,6 +68,9 @@
         min-height: calc(100vh - var(--toolbar-height));
         transition: grid-template-columns 160ms ease;
       }
+      body.boot-no-motion .app {
+        transition: none;
+      }
       .app.sidebar-collapsed {
         grid-template-columns: 0 minmax(0, 1fr);
       }
@@ -198,7 +201,7 @@
       }
     </style>
   </head>
-  <body>
+  <body class="boot-no-motion">
     <div class="toolbar">
       <button class="btn icon-btn" id="sidebarToggle" aria-label="Collapse dataset panel" aria-expanded="true" aria-controls="datasetPanel" title="Collapse dataset panel">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="m16 9-3 3 3 3"/></svg>
@@ -437,7 +440,28 @@
       }).sort((a, b) => a.company.localeCompare(b.company));
 
       const defaultIndex = sets.findIndex((d) => d.key === 'salesforce-q1-fy27');
-      const activeStart = records[defaultIndex >= 0 ? defaultIndex : 0];
+      function datasetKeyFromHash() {
+        const raw = window.location.hash ? window.location.hash.slice(1) : '';
+        if (!raw) return '';
+        try {
+          return decodeURIComponent(raw);
+        } catch (error) {
+          return raw;
+        }
+      }
+      function recordFromHash() {
+        const key = datasetKeyFromHash();
+        return key ? records.find((record) => record.dataset.key === key) : null;
+      }
+      function syncDatasetHash(record) {
+        const key = record?.dataset?.key;
+        if (!key) return;
+        const nextHash = `#${encodeURIComponent(key)}`;
+        if (window.location.hash === nextHash) return;
+        window.history.replaceState(null, '', nextHash);
+      }
+
+      const activeStart = recordFromHash() || records[defaultIndex >= 0 ? defaultIndex : 0];
       const state = {
         lib: 'd3',
         sort: 'desc',
@@ -531,7 +555,10 @@
           button.addEventListener('click', () => {
             state.company = group.company;
             const next = sortedRecords(group).find((record) => matches(record.searchText, periodSearch.value)) || sortedRecords(group)[0];
-            if (next) state.activeIndex = next.index;
+            if (next) {
+              state.activeIndex = next.index;
+              syncDatasetHash(next);
+            }
             renderAll();
             draw();
           });
@@ -562,6 +589,7 @@
           button.addEventListener('click', () => {
             state.activeIndex = record.index;
             state.company = record.company;
+            syncDatasetHash(record);
             renderAll();
             draw();
           });
@@ -644,6 +672,16 @@
         draw();
       });
 
+      window.addEventListener('hashchange', () => {
+        const record = recordFromHash();
+        if (!record) return;
+        if (record.index === state.activeIndex && record.company === state.company) return;
+        state.activeIndex = record.index;
+        state.company = record.company;
+        renderAll();
+        draw();
+      });
+
       let rt;
       window.addEventListener('resize', () => {
         clearTimeout(rt);
@@ -656,6 +694,11 @@
       syncResponsiveLayout();
       renderAll();
       draw();
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          document.body.classList.remove('boot-no-motion');
+        });
+      });
 
       /* ---- export (works for whichever library is active) ---- */
       const currentSvg = () => document.querySelector('#chart svg');
