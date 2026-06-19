@@ -53,7 +53,10 @@ async function verifyInBrowser(filePath) {
     await page.goto(documentUrl, { waitUntil: 'load' });
     await page.waitForSelector('#chart svg', { timeout: 10000 });
     const d3State = await page.evaluate(() => ({
-      activeDataset: document.querySelector('#activeDatasetName')?.textContent || '',
+      activeDataset:
+        document.querySelector('#activeDatasetName')?.textContent ||
+        document.querySelector('#actionTitle')?.textContent ||
+        '',
       hasSvg: !!document.querySelector('#chart svg'),
       hasReferenceImage: !!document.querySelector('#chart img'),
       svgButtonDisabled: document.querySelector('#svgBtn')?.disabled,

@@ -22,13 +22,178 @@ const svgBtn = document.getElementById('svgBtn');
 const pngBtn = document.getElementById('pngBtn');
 const companiesCsvBtn = document.getElementById('companiesCsvBtn');
 const statementsCsvBtn = document.getElementById('statementsCsvBtn');
+const languageToggle = document.getElementById('languageToggle');
+const languageToggleText = document.getElementById('languageToggleText');
+const themeToggle = document.getElementById('themeToggle');
 const SIDEBAR_WIDTH_KEY = 'sankey.sidebar.width';
 const SIDEBAR_COLLAPSED_KEY = 'sankey.sidebar.collapsed';
 const VIEW_MODE_KEY = 'sankey.view.mode';
+const LANGUAGE_KEY = 'sankey.language';
+const THEME_KEY = 'sankey.theme';
 const SIDEBAR_MIN = 220;
 const SIDEBAR_MAX = 560;
 const SIDEBAR_DEFAULT = 282;
 const DESKTOP_BREAKPOINT = 900;
+const I18N = {
+  en: {
+    documentTitle: 'Income Statement Sankey Visualizer',
+    appTitle: 'Income Statement Sankey Visualizer',
+    byline: 'by',
+    viewModeLabel: 'Data view',
+    viewSankey: 'Sankey',
+    viewSankeyTitle: 'Sankey view',
+    viewTable: 'Table',
+    viewTableTitle: 'Table view',
+    globalSettingsLabel: 'Global settings',
+    languageToggleTitle: 'Switch language to Chinese',
+    languageToggleText: 'EN',
+    themeToggleDark: 'Switch to dark mode',
+    themeToggleLight: 'Switch to light mode',
+    viewActionsLabel: 'View actions',
+    downloadSvg: 'SVG',
+    downloadSvgTitle: 'Download SVG',
+    downloadPng: 'PNG',
+    downloadPngTitle: 'Download PNG',
+    downloadCompaniesCsv: 'Companies CSV',
+    downloadCompaniesCsvTitle: 'Download companies CSV',
+    downloadStatementsCsv: 'Statements CSV',
+    downloadStatementsCsvTitle: 'Download income statements CSV',
+    datasetNavigationLabel: 'Dataset navigation',
+    companyLabel: 'Company',
+    companiesLabel: 'Companies',
+    companySearchPlaceholder: 'Search companies',
+    periodLabel: 'Data point time',
+    periodSortLabel: 'Sort time points',
+    sortDesc: 'Desc',
+    sortDescTitle: 'Newest first',
+    sortAsc: 'Asc',
+    sortAscTitle: 'Oldest first',
+    periodSearchPlaceholder: 'Search time points',
+    periodsLabel: 'Data point times',
+    resizeDatasetPanelLabel: 'Resize dataset panel',
+    incomeStatementsLabel: 'Income Statements',
+    collapseDatasetPanel: 'Collapse dataset panel',
+    showDatasetPanel: 'Show dataset panel',
+    missing: 'Missing',
+    source: 'Source {number}',
+    companiesCountOne: '1 company',
+    companiesCountMany: '{count} companies',
+    statementsCountOne: '1 statement',
+    statementsCountMany: '{count} statements',
+    noCompaniesRegistered: 'No companies registered.',
+    noIncomeStatementsRegistered: 'No income statements registered.',
+    noDataPointSelected: 'No data point selected',
+    noMatchingCompanies: 'No matching companies.',
+    noMatchingTimePoints: 'No matching time points.',
+    latest: 'Latest',
+    tableCompany: 'Company',
+    tableLegalName: 'Legal name',
+    tableTicker: 'Ticker',
+    tableSector: 'Sector',
+    tableIndustry: 'Industry',
+    tableFounded: 'Founded',
+    tableHeadquarters: 'Headquarters',
+    tableFiscalYearEnd: 'Fiscal year end',
+    tableDatasets: 'Datasets',
+    tableLatest: 'Latest',
+    tableWebsite: 'Website',
+    tableDescription: 'Description',
+    tableSources: 'Sources',
+    tableDataset: 'Dataset',
+    tablePeriod: 'Period',
+    tablePeriodEnd: 'Period end',
+    tableRevenue: 'Revenue',
+    tableRevenueItems: 'Revenue items',
+    tableCostOfRevenue: 'Cost of revenue',
+    tableGrossProfit: 'Gross profit',
+    tableOperatingExpenses: 'Operating expenses',
+    tableOpexItems: 'Opex items',
+    tableOperatingProfit: 'Operating profit',
+    tableOtherIncome: 'Other income',
+    tableTax: 'Tax',
+    tableNetProfit: 'Net profit',
+    tableSourceImage: 'Source image',
+  },
+  zh: {
+    documentTitle: '利润表桑基图可视化',
+    appTitle: '利润表桑基图可视化',
+    byline: '作者',
+    viewModeLabel: '数据视图',
+    viewSankey: '桑基图',
+    viewSankeyTitle: '桑基图视图',
+    viewTable: '表格',
+    viewTableTitle: '表格视图',
+    globalSettingsLabel: '全局设置',
+    languageToggleTitle: '切换到英文',
+    languageToggleText: '中',
+    themeToggleDark: '切换到深色模式',
+    themeToggleLight: '切换到浅色模式',
+    viewActionsLabel: '视图操作',
+    downloadSvg: 'SVG',
+    downloadSvgTitle: '下载 SVG',
+    downloadPng: 'PNG',
+    downloadPngTitle: '下载 PNG',
+    downloadCompaniesCsv: '公司 CSV',
+    downloadCompaniesCsvTitle: '下载公司 CSV',
+    downloadStatementsCsv: '报表 CSV',
+    downloadStatementsCsvTitle: '下载利润表 CSV',
+    datasetNavigationLabel: '数据集导航',
+    companyLabel: '公司',
+    companiesLabel: '公司',
+    companySearchPlaceholder: '搜索公司',
+    periodLabel: '数据期间',
+    periodSortLabel: '排序数据期间',
+    sortDesc: '降序',
+    sortDescTitle: '最新优先',
+    sortAsc: '升序',
+    sortAscTitle: '最旧优先',
+    periodSearchPlaceholder: '搜索数据期间',
+    periodsLabel: '数据期间',
+    resizeDatasetPanelLabel: '调整数据集面板宽度',
+    incomeStatementsLabel: '利润表',
+    collapseDatasetPanel: '收起数据集面板',
+    showDatasetPanel: '显示数据集面板',
+    missing: '缺失',
+    source: '来源 {number}',
+    companiesCountOne: '1 家公司',
+    companiesCountMany: '{count} 家公司',
+    statementsCountOne: '1 份报表',
+    statementsCountMany: '{count} 份报表',
+    noCompaniesRegistered: '暂无已注册公司。',
+    noIncomeStatementsRegistered: '暂无已注册利润表。',
+    noDataPointSelected: '未选择数据期间',
+    noMatchingCompanies: '没有匹配的公司。',
+    noMatchingTimePoints: '没有匹配的数据期间。',
+    latest: '最新',
+    tableCompany: '公司',
+    tableLegalName: '法定名称',
+    tableTicker: '股票代码',
+    tableSector: '板块',
+    tableIndustry: '行业',
+    tableFounded: '成立年份',
+    tableHeadquarters: '总部',
+    tableFiscalYearEnd: '财年结束日',
+    tableDatasets: '数据集',
+    tableLatest: '最新期间',
+    tableWebsite: '网站',
+    tableDescription: '描述',
+    tableSources: '来源',
+    tableDataset: '数据集',
+    tablePeriod: '期间',
+    tablePeriodEnd: '期间结束',
+    tableRevenue: '收入',
+    tableRevenueItems: '收入项目',
+    tableCostOfRevenue: '收入成本',
+    tableGrossProfit: '毛利润',
+    tableOperatingExpenses: '运营费用',
+    tableOpexItems: '运营费用项目',
+    tableOperatingProfit: '运营利润',
+    tableOtherIncome: '其他收入',
+    tableTax: '税费',
+    tableNetProfit: '净利润',
+    tableSourceImage: '来源图片',
+  },
+};
 
 function readStoredNumber(key, fallback) {
   try {
@@ -59,6 +224,28 @@ function readStoredViewMode() {
   } catch (error) {
     return 'sankey';
   }
+}
+function readStoredLanguage() {
+  try {
+    return window.localStorage.getItem(LANGUAGE_KEY) === 'zh' ? 'zh' : 'en';
+  } catch (error) {
+    return 'en';
+  }
+}
+function readStoredTheme() {
+  try {
+    return window.localStorage.getItem(THEME_KEY) === 'dark' ? 'dark' : 'light';
+  } catch (error) {
+    return 'light';
+  }
+}
+function t(key, values = {}) {
+  const bundle = I18N[state?.language] || I18N.en;
+  const text = bundle[key] || I18N.en[key] || key;
+  return text.replace(/\{(\w+)\}/g, (_match, name) => values[name] ?? '');
+}
+function countText(oneKey, manyKey, count) {
+  return t(count === 1 ? oneKey : manyKey, { count });
 }
 function clamp(value, min, max) {
   return Math.min(max, Math.max(min, value));
@@ -191,10 +378,62 @@ const state = {
   activeIndex: activeStart?.index || 0,
   company: activeStart?.company || groups[0]?.company || '',
   viewMode: readStoredViewMode(),
+  language: readStoredLanguage(),
+  theme: readStoredTheme(),
   sidebarWidth: readStoredNumber(SIDEBAR_WIDTH_KEY, SIDEBAR_DEFAULT),
   sidebarCollapsed: readStoredBoolean(SIDEBAR_COLLAPSED_KEY, false),
 };
 
+function moonIcon() {
+  return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M12 3a6.7 6.7 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>';
+}
+function sunIcon() {
+  return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>';
+}
+function syncThemeControls() {
+  document.documentElement.dataset.theme = state.theme;
+  themeToggle.innerHTML = state.theme === 'dark' ? moonIcon() : sunIcon();
+  const label = state.theme === 'dark' ? t('themeToggleLight') : t('themeToggleDark');
+  themeToggle.setAttribute('aria-label', label);
+  themeToggle.title = label;
+  themeToggle.setAttribute('aria-pressed', state.theme === 'dark' ? 'true' : 'false');
+}
+function applyStaticTranslations() {
+  document.documentElement.lang = state.language === 'zh' ? 'zh-CN' : 'en';
+  document.querySelectorAll('[data-i18n]').forEach((element) => {
+    element.textContent = t(element.dataset.i18n);
+  });
+  document.querySelectorAll('[data-i18n-title]').forEach((element) => {
+    element.title = t(element.dataset.i18nTitle);
+  });
+  document.querySelectorAll('[data-i18n-aria-label]').forEach((element) => {
+    element.setAttribute('aria-label', t(element.dataset.i18nAriaLabel));
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach((element) => {
+    element.setAttribute('placeholder', t(element.dataset.i18nPlaceholder));
+  });
+  languageToggleText.textContent = t('languageToggleText');
+  languageToggle.setAttribute('aria-label', t('languageToggleTitle'));
+  languageToggle.title = t('languageToggleTitle');
+  syncThemeControls();
+  syncSidebarControls();
+  syncToolbarHeight();
+}
+function setLanguage(language) {
+  if (language !== 'en' && language !== 'zh') return;
+  if (state.language === language) return;
+  state.language = language;
+  writeStoredValue(LANGUAGE_KEY, language);
+  applyStaticTranslations();
+  renderAll();
+}
+function setTheme(theme) {
+  if (theme !== 'light' && theme !== 'dark') return;
+  if (state.theme === theme) return;
+  state.theme = theme;
+  writeStoredValue(THEME_KEY, theme);
+  syncThemeControls();
+}
 function sidebarToggleIcon(expanded) {
   const arrow = expanded ? '<path d="m16 9-3 3 3 3"/>' : '<path d="m13 9 3 3-3 3"/>';
   return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/>${arrow}</svg>`;
@@ -217,8 +456,9 @@ function syncSidebarControls() {
   const expanded = !state.sidebarCollapsed;
   app.classList.toggle('sidebar-collapsed', state.sidebarCollapsed);
   sidebarToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-  sidebarToggle.setAttribute('aria-label', expanded ? 'Collapse dataset panel' : 'Show dataset panel');
-  sidebarToggle.title = expanded ? 'Collapse dataset panel' : 'Show dataset panel';
+  const label = expanded ? t('collapseDatasetPanel') : t('showDatasetPanel');
+  sidebarToggle.setAttribute('aria-label', label);
+  sidebarToggle.title = label;
   sidebarToggle.innerHTML = sidebarToggleIcon(expanded);
   sidebarResizer.tabIndex = expanded && isDesktopLayout() ? 0 : -1;
   sidebarResizer.setAttribute('aria-hidden', expanded && isDesktopLayout() ? 'false' : 'true');
@@ -301,8 +541,8 @@ function safeUrl(url) {
 }
 function linksHtml(urls) {
   const links = (urls || []).map(safeUrl).filter(Boolean);
-  if (!links.length) return '<span class="cell-muted">Missing</span>';
-  return links.map((url, index) => `<a href="${escapeHtml(url)}" target="_blank" rel="noopener">Source ${index + 1}</a>`).join(' ');
+  if (!links.length) return `<span class="cell-muted">${escapeHtml(t('missing'))}</span>`;
+  return links.map((url, index) => `<a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(t('source', { number: index + 1 }))}</a>`).join(' ');
 }
 function websiteHtml(url) {
   const safe = safeUrl(url);
@@ -354,41 +594,41 @@ function renderDataTable(table, columns, rows, emptyText) {
 function renderTables() {
   const companies = companyRows();
   const statements = statementRows();
-  companiesTableCount.textContent = `${companies.length} compan${companies.length === 1 ? 'y' : 'ies'}`;
-  statementsTableCount.textContent = `${statements.length} statement${statements.length === 1 ? '' : 's'}`;
+  companiesTableCount.textContent = countText('companiesCountOne', 'companiesCountMany', companies.length);
+  statementsTableCount.textContent = countText('statementsCountOne', 'statementsCountMany', statements.length);
   renderDataTable(companiesTable, [
-    { label: 'Company', className: 'nowrap', value: (row) => row.company },
-    { label: 'Legal name', className: 'nowrap', value: (row) => row.legalName },
-    { label: 'Ticker', className: 'nowrap', value: (row) => [row.exchange, row.ticker].filter(Boolean).join(': ') },
-    { label: 'Sector', className: 'nowrap', value: (row) => row.sector },
-    { label: 'Industry', className: 'nowrap', value: (row) => row.industry },
-    { label: 'Founded', className: 'nowrap', value: (row) => row.founded },
-    { label: 'Headquarters', className: 'nowrap', value: (row) => row.headquarters },
-    { label: 'Fiscal year end', className: 'nowrap', value: (row) => row.fiscalYearEnd },
-    { label: 'Datasets', className: 'num', value: (row) => row.datasetCount },
-    { label: 'Latest', className: 'nowrap', value: (row) => row.latestPeriod },
-    { label: 'Website', className: 'nowrap', html: (row) => websiteHtml(row.website) },
-    { label: 'Description', className: 'wide', value: (row) => row.description },
-    { label: 'Sources', className: 'nowrap', html: (row) => linksHtml(row.sourceUrls) },
-  ], companies, 'No companies registered.');
+    { label: t('tableCompany'), className: 'nowrap', value: (row) => row.company },
+    { label: t('tableLegalName'), className: 'nowrap', value: (row) => row.legalName },
+    { label: t('tableTicker'), className: 'nowrap', value: (row) => [row.exchange, row.ticker].filter(Boolean).join(': ') },
+    { label: t('tableSector'), className: 'nowrap', value: (row) => row.sector },
+    { label: t('tableIndustry'), className: 'nowrap', value: (row) => row.industry },
+    { label: t('tableFounded'), className: 'nowrap', value: (row) => row.founded },
+    { label: t('tableHeadquarters'), className: 'nowrap', value: (row) => row.headquarters },
+    { label: t('tableFiscalYearEnd'), className: 'nowrap', value: (row) => row.fiscalYearEnd },
+    { label: t('tableDatasets'), className: 'num', value: (row) => row.datasetCount },
+    { label: t('tableLatest'), className: 'nowrap', value: (row) => row.latestPeriod },
+    { label: t('tableWebsite'), className: 'nowrap', html: (row) => websiteHtml(row.website) },
+    { label: t('tableDescription'), className: 'wide', value: (row) => row.description },
+    { label: t('tableSources'), className: 'nowrap', html: (row) => linksHtml(row.sourceUrls) },
+  ], companies, t('noCompaniesRegistered'));
 
   renderDataTable(statementsTable, [
-    { label: 'Dataset', className: 'nowrap', value: (row) => row.record.dataset.key },
-    { label: 'Company', className: 'nowrap', value: (row) => row.record.company },
-    { label: 'Period', className: 'nowrap', value: (row) => row.record.period },
-    { label: 'Period end', className: 'nowrap', value: (row) => row.record.periodNote },
-    { label: 'Revenue', className: 'num', value: (row) => formatAmount(row.financial, row.financial?.revenue?.total) },
-    { label: 'Revenue items', className: 'wide', value: (row) => describeItems(row.financial?.revenue?.items, row.financial) },
-    { label: 'Cost of revenue', className: 'num', value: (row) => formatAmount(row.financial, row.financial?.costs?.costOfRevenue?.value, true) },
-    { label: 'Gross profit', className: 'num', value: (row) => formatAmount(row.financial, row.financial?.profit?.gross?.value) },
-    { label: 'Operating expenses', className: 'num', value: (row) => formatAmount(row.financial, row.financial?.costs?.operatingExpenses?.total, true) },
-    { label: 'Opex items', className: 'wide', value: (row) => describeItems(row.financial?.costs?.operatingExpenses?.items, row.financial) },
-    { label: 'Operating profit', className: 'num', value: (row) => formatAmount(row.financial, row.financial?.profit?.operating?.value) },
-    { label: 'Other income', className: 'num', value: (row) => formatAmount(row.financial, row.financial?.otherIncome?.total || 0) },
-    { label: 'Tax', className: 'num', value: (row) => formatAmount(row.financial, row.financial?.costs?.tax?.value, true) },
-    { label: 'Net profit', className: 'num', value: (row) => formatAmount(row.financial, row.financial?.profit?.net?.value) },
-    { label: 'Source image', className: 'nowrap', value: (row) => row.financial?.sourceImage || '' },
-  ], statements, 'No income statements registered.');
+    { label: t('tableDataset'), className: 'nowrap', value: (row) => row.record.dataset.key },
+    { label: t('tableCompany'), className: 'nowrap', value: (row) => row.record.company },
+    { label: t('tablePeriod'), className: 'nowrap', value: (row) => row.record.period },
+    { label: t('tablePeriodEnd'), className: 'nowrap', value: (row) => row.record.periodNote },
+    { label: t('tableRevenue'), className: 'num', value: (row) => formatAmount(row.financial, row.financial?.revenue?.total) },
+    { label: t('tableRevenueItems'), className: 'wide', value: (row) => describeItems(row.financial?.revenue?.items, row.financial) },
+    { label: t('tableCostOfRevenue'), className: 'num', value: (row) => formatAmount(row.financial, row.financial?.costs?.costOfRevenue?.value, true) },
+    { label: t('tableGrossProfit'), className: 'num', value: (row) => formatAmount(row.financial, row.financial?.profit?.gross?.value) },
+    { label: t('tableOperatingExpenses'), className: 'num', value: (row) => formatAmount(row.financial, row.financial?.costs?.operatingExpenses?.total, true) },
+    { label: t('tableOpexItems'), className: 'wide', value: (row) => describeItems(row.financial?.costs?.operatingExpenses?.items, row.financial) },
+    { label: t('tableOperatingProfit'), className: 'num', value: (row) => formatAmount(row.financial, row.financial?.profit?.operating?.value) },
+    { label: t('tableOtherIncome'), className: 'num', value: (row) => formatAmount(row.financial, row.financial?.otherIncome?.total || 0) },
+    { label: t('tableTax'), className: 'num', value: (row) => formatAmount(row.financial, row.financial?.costs?.tax?.value, true) },
+    { label: t('tableNetProfit'), className: 'num', value: (row) => formatAmount(row.financial, row.financial?.profit?.net?.value) },
+    { label: t('tableSourceImage'), className: 'nowrap', value: (row) => row.financial?.sourceImage || '' },
+  ], statements, t('noIncomeStatementsRegistered'));
 }
 function escapeSelector(value) {
   if (window.CSS?.escape) return window.CSS.escape(value);
@@ -448,13 +688,13 @@ function renderActiveSummary() {
   const record = currentRecord();
   actionTitle.textContent = record
     ? [record.company, [record.period, record.periodNote].filter(Boolean).join(' - ')].filter(Boolean).join(' · ')
-    : 'No data point selected';
+    : t('noDataPointSelected');
 }
 function renderCompanies() {
   const visibleGroups = groups.filter((group) => matches(group.searchText, companySearch.value));
   companyList.innerHTML = '';
   if (!visibleGroups.length) {
-    companyList.innerHTML = '<div class="empty-state">No matching companies.</div>';
+    companyList.innerHTML = `<div class="empty-state">${escapeHtml(t('noMatchingCompanies'))}</div>`;
     return;
   }
   visibleGroups.forEach((group) => {
@@ -467,7 +707,7 @@ function renderCompanies() {
     button.innerHTML = `
       <div class="item-top">
         <span class="item-name">${escapeHtml(group.company)}</span>
-        <span class="item-meta">Latest ${escapeHtml(group.latest.period)}</span>
+        <span class="item-meta">${escapeHtml(t('latest'))} ${escapeHtml(group.latest.period)}</span>
         <span class="count-pill">${group.records.length}</span>
       </div>
     `;
@@ -490,7 +730,7 @@ function renderPeriods() {
   const visibleRecords = sortedRecords(group).filter((record) => matches(record.searchText, periodSearch.value));
   periodList.innerHTML = '';
   if (!visibleRecords.length) {
-    periodList.innerHTML = '<div class="empty-state">No matching time points.</div>';
+    periodList.innerHTML = `<div class="empty-state">${escapeHtml(t('noMatchingTimePoints'))}</div>`;
     return;
   }
   visibleRecords.forEach((record) => {
@@ -564,6 +804,12 @@ viewMode.addEventListener('click', (e) => {
   const button = e.target.closest('button');
   if (!button) return;
   setViewMode(button.dataset.view);
+});
+languageToggle.addEventListener('click', () => {
+  setLanguage(state.language === 'en' ? 'zh' : 'en');
+});
+themeToggle.addEventListener('click', () => {
+  setTheme(state.theme === 'light' ? 'dark' : 'light');
 });
 document.getElementById('periodSort').addEventListener('click', (e) => {
   const button = e.target.closest('button');
@@ -648,6 +894,7 @@ window.addEventListener('resize', () => {
   }, 200);
 });
 
+applyStaticTranslations();
 syncResponsiveLayout();
 renderAll();
 draw();
