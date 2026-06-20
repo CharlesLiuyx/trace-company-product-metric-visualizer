@@ -63,6 +63,10 @@ context separately from period-specific financial statements.
     total: 16.4,
     items: [{ id: 'investments', label: 'Investments', value: 16.4 }],
   },
+  otherExpenses: {
+    total: 0,
+    items: [],
+  },
   profit: {
     gross: { id: 'gross_profit', label: 'Gross profit', value: 61.2 },
     operating: { id: 'operating_profit', label: 'Operating profit', value: 53.5 },
@@ -71,11 +75,13 @@ context separately from period-specific financial statements.
 }
 ```
 
-The `id` fields should match the relevant Sankey node ids when a corresponding
-node exists. The verifier checks every `index.html` dataset script has a
-matching SSOT record, compares key totals and line items against Sankey node
-values, and allows small published-rounding differences via `roundingTolerance`.
-It also checks every company in the financial SSOT has a matching
+Use `otherIncome` for non-operating gains that add to net profit, and
+`otherExpenses` for non-operating costs that subtract from net profit. The `id`
+fields should match the relevant Sankey node ids when a corresponding node
+exists. The verifier checks every `index.html` dataset script has a matching
+SSOT record, compares key totals and line items against Sankey node values, and
+allows small published-rounding differences via `roundingTolerance`. It also
+checks every company in the financial SSOT has a matching
 `data/company-metadata.js` entry.
 
 ---
