@@ -312,15 +312,18 @@
     graph.links.forEach((lk, i) => {
       const sNode = lk.source;
       const tNode = lk.target;
+      const customTint = lk.raw && lk.raw.linkTint;
+      const customLeftTint = typeof customTint === 'string' ? customTint : customTint && customTint.left;
+      const customRightTint = typeof customTint === 'string' ? customTint : customTint && customTint.right;
       // a flow leaving as a cost is solid salmon from the start, so it reads
       // as clearly distinct from the green profit bands at the split point
       const toCost = tNode.type === 'cost';
-      const leftTint = toCost
+      const leftTint = customLeftTint || (toCost
         ? cfg.linkTint.cost
-        : tintOf(sNode) || tintOf(tNode) || cfg.linkTint.source;
-      const rightTint = toCost
+        : tintOf(sNode) || tintOf(tNode) || cfg.linkTint.source);
+      const rightTint = customRightTint || (toCost
         ? cfg.linkTint.cost
-        : tintOf(tNode) || tintOf(sNode) || cfg.linkTint.source;
+        : tintOf(tNode) || tintOf(sNode) || cfg.linkTint.source);
 
       const gid = `lg-${i}`;
       const grad = defs
