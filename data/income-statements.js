@@ -13,6 +13,62 @@
     schemaVersion: 1,
     records: [
       {
+        key: 'tencent-q1-fy26',
+        company: 'Tencent',
+        period: 'Q1 FY26',
+        periodNote: 'Ending Mar. 2026',
+        currency: 'RMB',
+        unit: 'B',
+        decimals: 1,
+        sourceImage: 'input/processed/tencent-q1-fy26.png',
+        roundingTolerance: 0.15,
+        revenue: {
+          total: 196.5,
+          notes: ['+9% Y/Y'],
+          items: [
+            { id: 'gaming', label: 'Gaming', value: 64.2, notes: ['+8% Y/Y'] },
+            { id: 'social_networks', label: 'Social Networks', value: 31.9, notes: ['(2%) Y/Y'] },
+            { id: 'marketing_services', label: 'Marketing Services', value: 38.2, notes: ['+20% Y/Y'] },
+            { id: 'fintech_business_services', label: 'FinTech & Business Services', value: 59.9, notes: ['+9% Y/Y'] },
+            { id: 'others', label: 'Others', value: 2.3, notes: ['+103% Y/Y'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 85.2 },
+          operatingExpenses: {
+            total: 43.9,
+            notes: ['Source chart shows other operating gains as an offset before operating profit.'],
+            items: [
+              { id: 'rnd', label: 'Research & development', value: 22.6, notes: ['12% of revenue', '+1pp Y/Y'] },
+              { id: 'sm', label: 'Sales & marketing', value: 11.3, notes: ['6% of revenue', '+1pp Y/Y'] },
+              { id: 'ga', label: 'General & admin', value: 11.3, notes: ['6% of revenue', '(2pp) Y/Y'] },
+              { id: 'other_operating_gains', label: 'Other operating gains', value: -1.3 },
+            ],
+          },
+          tax: { id: 'tax', label: 'Tax', value: 14.6 },
+        },
+        otherIncome: {
+          total: 6.6,
+          items: [
+            {
+              id: 'investments',
+              label: 'Investments',
+              value: 6.6,
+              notes: ['Aggregated non-operating investment, interest, finance, and associate/JV line items.'],
+            },
+          ],
+        },
+        otherExpenses: {
+          total: 0,
+          items: [],
+        },
+        profit: {
+          gross: { id: 'gross_profit', label: 'Gross profit', value: 111.3, notes: ['57% margin', '+1pp Y/Y'] },
+          operating: { id: 'operating_profit', label: 'Operating profit', value: 67.4, notes: ['34% margin', '+2pp Y/Y'] },
+          net: { id: 'net_profit', label: 'Net profit', value: 59.4, notes: ['30% margin', '+3pp Y/Y'] },
+        },
+      },
+      {
         key: 'alibaba-q4-fy26',
         company: 'Alibaba',
         period: 'Q4 FY26',

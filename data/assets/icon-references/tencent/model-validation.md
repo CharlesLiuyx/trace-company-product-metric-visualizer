@@ -1,6 +1,6 @@
 # Tencent Icon Crop Model Validation
 
-Source reference: `input/pending/tencent-q1-fy26.png`
+Source reference: `input/processed/tencent-q1-fy26.png`
 
 Validation prompt:
 
