@@ -1,6 +1,6 @@
 # 保真循环规则
 
-本文档定义从参考图到 d3-Sankey 输出图的通用保真循环。它不绑定任何具体公司、期间或数据集。
+本文档定义从参考图到 d3-Sankey 输出图的通用保真循环。它不绑定任何具体公司、期间或数据集。相同原则也适用于 company icon 和 company-internal business/segment icon 的 SVG/vector 化子循环。
 
 最终质量由输出图与原图的像素 Diff 决定。人工目视检查只用于解释 Diff 来源、判断是否继续优化，以及确认某些差异是否可接受。
 
@@ -32,9 +32,47 @@
 10. 重复以上步骤，直到必须死磕的问题全部消除，且整体 Diff 改善进入平台期。
 11. 清理临时产物。
 
+## 图标矢量化子循环
+
+Company icon 和 business/segment illustrative icon 可以在整图 d3 循环之前单独跑一个 vector 化子循环。这个子循环的目标是把源图中的图标复刻成可复用 SVG/vector 资产，而不是把源图裁剪当作最终资产。
+
+适用对象：
+
+- 公司标志或公司图标。
+- 公司内部业务线、产品线、分部、segment 的说明性图标。
+- 后续数据集可能重复出现、值得复用的图标。
+
+子循环步骤：
+
+1. 从原始参考图中截取对应 icon 区域，作为 original-icon reference asset。
+2. 先验证 crop 是否准确：
+   - 图标主体结构完整，没有被裁掉。
+   - 图标主体在 crop 中视觉居中。
+   - crop 中没有无关文本、图表线条、连接器残片、水印、相邻图标或背景装饰。
+3. 如果 crop 不满足要求，先重新 crop；不要基于错误 crop 继续矢量化。
+4. 将通过验证的 crop 按目标 chart 尺寸或 icon viewport 对齐，作为 SVG/vector 转换的对比标准。
+5. 渲染候选 SVG/vector icon，候选必须是纯矢量输出，不得包含 `<image>`、位图、源图裁剪、文本截图或前景覆盖层。
+6. 将候选 SVG/vector render 与 crop/aligned reference 按同一尺寸计算 Diff。
+7. 按图标语义区域拆解误差，例如主体轮廓、内部负形、关键笔画、填充色、边界留白。
+8. 调整 SVG geometry、viewBox、path、stroke、fill、transform、尺寸或对齐。
+9. 重复直到图标主体结构稳定、中心和边界留白合理，且继续调参只能带来细微风格差异。
+10. 将通过子循环的 SVG/vector 保存为可复用资产；后续整图 d3 循环只能引用该 vector 资产，不得引用 crop。
+
+图标子循环的输出记录至少包括：
+
+- 原始 crop 路径或临时产物位置。
+- crop 验证结论：主体完整、主体居中、无无关内容。
+- 候选 SVG/vector 路径或资产名称。
+- SVG/vector render 与 crop/aligned reference 的 Diff 指标。
+- 已接受的残留差异及原因。
+
+如果后续数据集出现 materially similar 的图标，优先复用已有 SVG/vector 资产。可以调整 viewBox、transform、size、placement、stroke 或 fill 来适配新图，但不要创建近重复资产。通用语义图标优先使用 `src/icons.js` 中已有 Lucide/vector icon。
+
+Crop 是转换和验证用 reference asset，不是 d3-Sankey runtime asset。即使 crop 本身已经通过验证，也不得将它作为 `<img>`、SVG `<image>`、canvas bitmap、CSS background 或前景 overlay 放入候选图、最终图或 standalone artifact。
+
 ## 必须输出的 Diff 指标
 
-每一轮至少记录这些全图指标：
+每一轮至少记录这些全图指标。整图循环按完整参考图计算；图标矢量化子循环按 icon viewport 或 crop/aligned reference 的完整画布计算。
 
 - `mae`：RGB 平均绝对误差。
 - `similarity`：基于 MAE 的相似度，通常为 `1 - mae / 255`。
@@ -238,9 +276,18 @@ Diff 图：
 
 全图相似度高不代表可以结束。只要存在接口错位、文本交叠、文本位置错误或文本越界，就必须继续修。
 
+图标矢量化子循环收敛时，还必须满足：
+
+1. Crop 已验证准确：主体完整、主体居中、无无关内容。
+2. 候选 icon 是纯 SVG/vector，没有嵌入或覆盖源图像素。
+3. 图标主体结构、关键负形、边界留白和中心位置稳定。
+4. 资产已保存为可复用 vector，整图 d3 循环引用的是 vector 资产而不是 crop。
+
 ## 禁止做法
 
 - 用原图或原图裁剪覆盖候选渲染。
+- 未验证 crop 准确性就开始 SVG/vector 化。
+- 将 icon crop、文本 crop 或任何源图裁剪作为 d3 runtime 资产。
 - 为降低 Diff 复制一个已有标志、图标、节点或文本。
 - 用隐藏文本、缩短文本或降低透明度掩盖布局错误。
 - 只报告全图相似度，不报告分区域 Diff。

@@ -21,11 +21,21 @@ stable datasets and run a d3-sankey fidelity loop automatically.
    - `data/income-statements.js`
    - `data/company-metadata.js` when the company is new
    - `index.html` dataset script registration
-5. Before authoring a new company's first dataset, gather company metadata
+5. If company icons or company-internal business/segment icons need to be
+   reproduced, crop each source icon region from the original reference image
+   as the original-icon reference asset for vector conversion. Validate each
+   crop before vectorizing it:
+   - The icon's main structure is fully included.
+   - The main structure is visually centered in the crop.
+   - No unrelated text, chart marks, connector fragments, watermarks, or
+     neighboring icon parts are included.
+   Re-crop until those checks pass. These crops are reference/conversion
+   assets only and must not be used in d3 runtime output.
+6. Before authoring a new company's first dataset, gather company metadata
    (description, sector, industry, headquarters, website, ticker/exchange when
    available, and source URLs) and add it to `data/company-metadata.js`.
-6. Set `meta.referenceImage` to the processed PNG with exact source dimensions.
-7. Keep `input/pending/` empty except `.gitkeep` after processing.
+7. Set `meta.referenceImage` to the processed PNG with exact source dimensions.
+8. Keep `input/pending/` empty except `.gitkeep` after processing.
 
 ## Dataset Authoring
 
@@ -55,9 +65,11 @@ For company and business icons:
 
 - Treat company icons and company-internal business/segment illustrative icons
   as reusable vector assets.
-- When adding an icon for the first time, crop the source region only as a
-  temporary reference, align it to the chart, convert it to SVG/vector geometry,
-  and save the resulting asset for future reuse.
+- When adding an icon for the first time, first crop the source region as the
+  original-icon reference asset. Use the crop only after checking that the icon
+  subject is complete, centered, and free of unrelated surrounding content.
+  Then align it to the chart, convert it to SVG/vector geometry, and save the
+  resulting vector asset for future reuse.
 - Run a fidelity loop for the SVG conversion itself, comparing the converted
   SVG render against the cropped/aligned reference until the match is stable
   enough.
