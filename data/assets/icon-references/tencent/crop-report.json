@@ -1,12 +1,12 @@
 {
-  "source": "input/pending/tencent-q1-fy26.png",
+  "source": "input/processed/tencent-q1-fy26.png",
   "spec": "input/icon-crop-specs/tencent-q1-fy26.json",
   "background": [
     239,
     239,
     239
   ],
-  "generatedAt": "2026-06-20T06:00:38.073192+00:00",
+  "generatedAt": "2026-06-20T06:13:24.917115+00:00",
   "crops": [
     {
       "key": "tencent-company-wordmark",

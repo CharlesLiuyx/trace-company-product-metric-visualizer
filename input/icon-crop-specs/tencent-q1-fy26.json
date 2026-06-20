@@ -1,5 +1,5 @@
 {
-  "source": "input/pending/tencent-q1-fy26.png",
+  "source": "input/processed/tencent-q1-fy26.png",
   "outputDir": "data/assets/icon-references/tencent",
   "validationSheetDir": "data/assets/icon-references/tencent/validation-sheets",
   "report": "crop-report.json",

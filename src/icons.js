@@ -57,5 +57,111 @@ window.SANKEY_BUSINESS_ICONS = {
     <path d="M43 160L262 60L106 208Z" fill="#12a6ff"/>
     <path d="M106 208L262 60L117 215L104 249Z" fill="#0066bf"/>
     <path d="M117 215L262 60L198 262Z" fill="#0d95f6"/>
+  `,
+  tencentWordmark: `
+    <text x="0" y="132" font-family="Arial,sans-serif" font-style="italic" font-size="170" font-weight="800" fill="#064ee4">Tencent</text>
+    <path d="M768 17L846 81H790L822 136L744 71H800Z" fill="#064ee4"/>
+  `,
+  tencentGamingCluster: `
+    <g transform="translate(0 0)">
+      <path d="M31 74C48 29 98 6 151 13L136 63C112 61 91 71 78 91Z" fill="#b6ef18"/>
+      <path d="M51 137C24 123 12 100 31 74L78 91C70 105 77 116 94 123Z" fill="#ff8e00"/>
+      <path d="M94 123L136 63L207 62L153 113L161 156L110 155Z" fill="#0a63bd"/>
+      <path d="M91 45L143 30L127 54Z" fill="#fff176" opacity="0.9"/>
+      <path d="M70 94L118 83L101 107Z" fill="#fff176" opacity="0.9"/>
+      <text x="217" y="72" font-family="Arial,sans-serif" font-size="57" font-style="italic" font-weight="800" fill="#0b65bd">Tencent</text>
+      <text x="226" y="124" font-family="Arial,sans-serif" font-size="51" font-style="italic" font-weight="800" fill="#2f2f2f">Games</text>
+    </g>
+    <g transform="translate(4 183)">
+      <path d="M0 26L58 5V58L0 46Z" fill="#f2132d"/>
+      <rect x="10" y="30" width="8" height="43" fill="#f2132d"/>
+      <rect x="25" y="24" width="8" height="43" fill="#f2132d"/>
+      <rect x="40" y="18" width="8" height="43" fill="#f2132d"/>
+      <text x="74" y="55" font-family="Arial Black,Arial,sans-serif" font-size="46" font-weight="900" fill="#f2132d">RIOT</text>
+      <text x="74" y="101" font-family="Arial Black,Arial,sans-serif" font-size="46" font-weight="900" fill="#f2132d">GAMES</text>
+    </g>
+    <g transform="translate(305 176)">
+      <path d="M0 0H113V102C113 131 56 151 56 151C56 151 0 131 0 102Z" fill="#1d1d1d"/>
+      <rect x="13" y="13" width="87" height="91" fill="none" stroke="#ffffff" stroke-width="8"/>
+      <text x="56" y="63" text-anchor="middle" font-family="Arial Narrow,Arial,sans-serif" font-size="44" font-weight="800" fill="#ffffff">EPIC</text>
+      <text x="56" y="101" text-anchor="middle" font-family="Arial Narrow,Arial,sans-serif" font-size="33" font-weight="800" fill="#ffffff">GAMES</text>
+    </g>
+    <g transform="translate(445 162)" fill="#1b1b1b" font-family="Arial Black,Arial,sans-serif" font-size="45" font-weight="900">
+      <text x="0" y="42">SUP</text>
+      <text x="0" y="87">ERC</text>
+      <text x="0" y="132">ELL</text>
+    </g>
+  `,
+  tencentSocialCluster: `
+    <g transform="translate(0 0)">
+      <ellipse cx="82" cy="67" rx="70" ry="58" fill="#86d813"/>
+      <ellipse cx="159" cy="123" rx="70" ry="52" fill="#e9e9e9" stroke="#cfcfcf" stroke-width="4"/>
+      <circle cx="63" cy="54" r="11" fill="#333"/>
+      <circle cx="107" cy="54" r="11" fill="#333"/>
+      <circle cx="139" cy="110" r="10" fill="#333"/>
+      <circle cx="184" cy="110" r="10" fill="#333"/>
+      <path d="M38 112L19 151L63 126Z" fill="#86d813"/>
+      <path d="M202 154L230 186L197 171Z" fill="#e9e9e9" stroke="#cfcfcf" stroke-width="4"/>
+    </g>
+    <g transform="translate(285 7)">
+      <ellipse cx="71" cy="141" rx="58" ry="14" fill="#f8a900"/>
+      <path d="M34 61C42 19 101 16 113 61L130 152C134 186 108 217 73 217C38 217 13 186 17 152Z" fill="#050505"/>
+      <ellipse cx="73" cy="137" rx="50" ry="61" fill="#ffffff"/>
+      <path d="M23 96H123V130H23Z" fill="#e91b28"/>
+      <ellipse cx="73" cy="89" rx="49" ry="18" fill="#f3a41a"/>
+      <circle cx="55" cy="52" r="18" fill="#ffffff"/>
+      <circle cx="93" cy="52" r="18" fill="#ffffff"/>
+      <circle cx="58" cy="54" r="8" fill="#262626"/>
+      <path d="M89 52C97 43 108 48 109 58C102 54 96 54 89 52Z" fill="#262626"/>
+    </g>
+    <g transform="translate(112 260)">
+      <path d="M113 0L144 76L226 82L164 135L184 216L113 171L42 216L62 135L0 82L82 76Z" fill="#ffc400"/>
+      <path d="M56 103C95 89 141 91 176 106C136 111 99 130 70 159C95 144 133 135 164 136C130 151 95 170 55 199C77 158 107 131 139 114C109 110 82 110 56 103Z" fill="#ffffff" opacity="0.95"/>
+    </g>
+  `,
+  tencentMarketingCluster: `
+    <g transform="translate(0 0)">
+      <path d="M31 19C52 -4 190 64 205 88C220 112 70 202 36 175C8 152 3 48 31 19Z" fill="#168df2"/>
+      <path d="M18 51C28 20 141 66 157 86C174 107 57 175 31 158C14 147 6 87 18 51Z" fill="#85d817"/>
+      <path d="M0 45C6 21 32 13 58 24L48 169C20 168 4 154 2 131Z" fill="#ff8a00"/>
+      <path d="M76 65L134 100L76 136Z" fill="#ffffff"/>
+    </g>
+    <g transform="translate(265 0)">
+      <path d="M34 100A83 83 0 0 1 117 17" fill="none" stroke="#ffc400" stroke-width="25" stroke-linecap="round"/>
+      <path d="M196 56A83 83 0 0 1 201 158" fill="none" stroke="#33d39a" stroke-width="25" stroke-linecap="round"/>
+      <path d="M180 213A83 83 0 0 1 74 209" fill="none" stroke="#ff1f4f" stroke-width="25" stroke-linecap="round"/>
+      <path d="M94 96C101 55 161 55 168 96L179 161C184 195 154 220 132 204C110 220 80 195 85 161Z" fill="#063bd5"/>
+    </g>
+    <g transform="translate(108 238)">
+      <defs>
+        <linearGradient id="tencent-video-grad" x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0" stop-color="#00b6ff"/>
+          <stop offset="0.45" stop-color="#2756ff"/>
+          <stop offset="1" stop-color="#ff177a"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="210" height="210" rx="48" fill="url(#tencent-video-grad)"/>
+      <path d="M63 45L164 105L63 165Z" fill="none" stroke="#ffffff" stroke-width="7" stroke-linejoin="round"/>
+      <path d="M63 45L103 68V143L63 165Z" fill="none" stroke="#ffffff" stroke-width="7"/>
+      <path d="M103 68L164 105L103 143Z" fill="none" stroke="#ffffff" stroke-width="7"/>
+    </g>
+  `,
+  tencentFintechCluster: `
+    <g transform="translate(65 0)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M61 124H200C238 124 270 93 270 55C270 17 238 -14 200 -14C174 -14 151 1 139 24C128 11 111 3 91 3C56 3 28 30 28 65C28 68 28 71 29 74" stroke="#2c88d5" stroke-width="24"/>
+      <path d="M52 122C20 122 -6 96 -6 64C-6 32 20 6 52 6C75 6 94 19 104 37L140 73" stroke="#22b8b7" stroke-width="24"/>
+      <path d="M123 74L190 123" stroke="#2c88d5" stroke-width="24"/>
+    </g>
+    <g transform="translate(0 202)">
+      <path d="M34 74C41 20 118 20 126 74L155 210C160 239 128 263 82 263C36 263 4 239 9 210Z" fill="#1ca5f2"/>
+      <path d="M38 140L86 187L149 127L158 145L86 218L26 158Z" fill="#fff02a"/>
+      <path d="M9 210L0 248L47 232Z" fill="#1ca5f2"/>
+      <path d="M155 210L164 248L117 232Z" fill="#1ca5f2"/>
+    </g>
+    <g transform="translate(250 215)">
+      <ellipse cx="120" cy="96" rx="112" ry="90" fill="#11a80f"/>
+      <path d="M45 104L94 148L201 63L215 84L93 181L34 126Z" fill="#ffffff"/>
+      <path d="M39 157L11 226L82 181Z" fill="#11a80f"/>
+    </g>
   `
 };
