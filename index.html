@@ -81,27 +81,32 @@
     <div class="app">
       <aside class="dataset-panel" id="datasetPanel" aria-label="Dataset navigation" data-i18n-aria-label="datasetNavigationLabel">
         <section class="panel-section company-section">
-          <label for="companySearch" data-i18n="companyLabel">Company</label>
-          <div class="search-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-            <input id="companySearch" type="search" placeholder="Search companies" autocomplete="off" data-i18n-placeholder="companySearchPlaceholder" />
+          <div class="section-bar company-section-bar">
+            <label for="companySearch" data-i18n="companyLabel">Company</label>
+            <div class="search-box header-search-box" id="companySearchBox">
+              <input id="companySearch" type="search" placeholder="Search companies" autocomplete="off" data-i18n-placeholder="companySearchPlaceholder" />
+            </div>
+            <button class="btn icon-btn search-toggle" id="companySearchToggle" type="button" aria-label="Search companies" aria-expanded="false" aria-controls="companySearchBox" title="Search companies" data-i18n-aria-label="companySearchPlaceholder" data-i18n-title="companySearchPlaceholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+            </button>
           </div>
           <div class="nav-list" id="companyList" role="listbox" aria-label="Companies" data-i18n-aria-label="companiesLabel"></div>
         </section>
 
         <section class="panel-section period-section">
-          <div class="section-bar">
+          <div class="section-bar period-section-bar">
             <label for="periodSearch" data-i18n="periodLabel">Data point time</label>
-            <div class="seg compact" id="periodSort" aria-label="Sort time points" data-i18n-aria-label="periodSortLabel">
-              <button data-sort="desc" class="active" title="Newest first" data-i18n="sortDesc" data-i18n-title="sortDescTitle">Desc</button>
-              <button data-sort="asc" title="Oldest first" data-i18n="sortAsc" data-i18n-title="sortAscTitle">Asc</button>
+            <div class="search-box header-search-box" id="periodSearchBox">
+              <input id="periodSearch" type="search" placeholder="Search time points" autocomplete="off" data-i18n-placeholder="periodSearchPlaceholder" />
+            </div>
+            <div class="panel-icon-actions">
+              <button class="btn icon-btn search-toggle" id="periodSearchToggle" type="button" aria-label="Search time points" aria-expanded="false" aria-controls="periodSearchBox" title="Search time points" data-i18n-aria-label="periodSearchPlaceholder" data-i18n-title="periodSearchPlaceholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+              </button>
+              <button class="btn icon-btn sort-toggle" id="periodSortToggle" type="button" aria-label="Newest first" aria-pressed="true" title="Newest first"></button>
             </div>
           </div>
-          <div class="search-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-            <input id="periodSearch" type="search" placeholder="Search time points" autocomplete="off" data-i18n-placeholder="periodSearchPlaceholder" />
-          </div>
-          <div class="nav-list timeline-list" id="periodList" role="listbox" aria-label="Data point times" data-i18n-aria-label="periodsLabel"></div>
+          <div class="nav-list timeline-list" id="periodList" role="list" aria-label="Data point times" data-i18n-aria-label="periodsLabel"></div>
         </section>
         <div class="sidebar-resizer" id="sidebarResizer" role="separator" aria-orientation="vertical" aria-label="Resize dataset panel" data-i18n-aria-label="resizeDatasetPanelLabel" tabindex="0"></div>
       </aside>
