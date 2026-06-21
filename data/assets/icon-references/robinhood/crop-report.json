@@ -1,0 +1,116 @@
+{
+  "source": "input/processed/robinhood-q1-fy26.png",
+  "spec": "input/icon-crop-specs/robinhood-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-06-21T04:21:35.495264+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 9
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "robinhood-company-feather",
+      "output": "data/assets/icon-references/robinhood/crops/company-feather.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2263,
+        "losslessBytes": 10832,
+        "savingsVsLossless": 0.7911,
+        "metrics": {
+          "meanAbsoluteError": 0.3298,
+          "rootMeanSquareError": 2.1364,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.2528
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 9,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 41423,
+        "transparentPixelRatio": 0.7531
+      },
+      "searchBox": {
+        "x": 1210,
+        "y": 280,
+        "width": 220,
+        "height": 250
+      },
+      "componentCount": 4,
+      "subjectBox": {
+        "x0": 1239,
+        "y0": 299,
+        "x1": 1393,
+        "y1": 509
+      },
+      "cropBox": {
+        "x0": 1210,
+        "y0": 280,
+        "x1": 1430,
+        "y1": 530
+      },
+      "validation": {
+        "width": 220,
+        "height": 250,
+        "foregroundPixels": 12427,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 29,
+          "right": 37,
+          "top": 19,
+          "bottom": 21
+        },
+        "centerOffset": {
+          "x": -0.0182,
+          "y": -0.004
+        },
+        "passes": true
+      },
+      "note": "Robinhood feather company mark only; excludes title, revenue label text, Sankey links, and publisher marks.",
+      "validationSheet": "data/assets/icon-references/robinhood/validation-sheets/robinhood-company-feather.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 263279,
+        "losslessBytes": 263279,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

@@ -25,6 +25,13 @@ window.SANKEY_BRAND = {
 };
 
 window.SANKEY_BUSINESS_ICONS = {
+  robinhoodFeather: `
+    <path d="M75 75L102 43C121 21 143 16 164 21C182 25 188 41 184 64L180 75L149 112L143 58Z" fill="#00c805"/>
+    <path d="M28 229L47 160L39 123L76 75L143 58L138 153L113 183L62 196L137 70L47 160L42 190Z" fill="#00c805"/>
+    <path d="M75 75L143 58L141 70L68 84Z" fill="#f2f2f2"/>
+    <path d="M59 191L137 70L144 63L65 197Z" fill="#f2f2f2"/>
+    <path d="M58 206L116 186L110 200L53 222Z" fill="#00c805"/>
+  `,
   teslaAutoCluster: `
     <g transform="translate(0 18)">
       <g transform="translate(0 7)">
@@ -712,5 +719,160 @@ window.SANKEY_BUSINESS_ICONS = {
     </g>
     <text x="0" y="122" font-family="Arial,Helvetica,sans-serif" font-size="70" font-weight="500" letter-spacing="7" fill="#0082bd">HARMAN</text>
     <text x="132" y="153" font-family="Arial Black,Arial,Helvetica,sans-serif" font-size="16" font-weight="900" fill="#1d1d1d">A SAMSUNG COMPANY</text>
+  `,
+  starbucksCompanySiren: `
+    <defs>
+      <clipPath id="starbucks-siren-face-clip">
+        <circle cx="120" cy="120" r="70"/>
+      </clipPath>
+    </defs>
+    <circle cx="120" cy="120" r="116" fill="#00754a"/>
+    <circle cx="120" cy="120" r="91" fill="#ffffff"/>
+    <circle cx="120" cy="120" r="78" fill="#00754a"/>
+    <g clip-path="url(#starbucks-siren-face-clip)">
+      <rect x="55" y="45" width="130" height="150" fill="#ffffff"/>
+      <path d="M67 94C76 59 103 46 120 46C137 46 164 59 173 94C158 80 141 72 120 72C99 72 82 80 67 94Z" fill="#00754a"/>
+      <path d="M74 184C83 130 86 88 120 88C154 88 157 130 166 184" fill="none" stroke="#00754a" stroke-width="8" stroke-linecap="round"/>
+      <path d="M93 181C100 132 100 96 120 96C140 96 140 132 147 181" fill="none" stroke="#00754a" stroke-width="6" stroke-linecap="round"/>
+      <path d="M69 123C83 113 94 113 103 123M137 123C146 113 157 113 171 123" fill="none" stroke="#00754a" stroke-width="7" stroke-linecap="round"/>
+      <path d="M103 137C110 143 130 143 137 137" fill="none" stroke="#00754a" stroke-width="5" stroke-linecap="round"/>
+      <path d="M108 156C116 163 124 163 132 156" fill="none" stroke="#00754a" stroke-width="5" stroke-linecap="round"/>
+      <path d="M84 54L105 62L120 35L135 62L156 54L147 82H93Z" fill="#ffffff"/>
+      <path d="M120 34L128 51L147 49L135 64L141 83L120 73L99 83L105 64L93 49L112 51Z" fill="#00754a"/>
+      <path d="M61 77C38 96 32 129 45 158C55 135 67 124 86 117" fill="#ffffff"/>
+      <path d="M179 77C202 96 208 129 195 158C185 135 173 124 154 117" fill="#ffffff"/>
+      <path d="M48 104C58 99 67 98 77 105M192 104C182 99 173 98 163 105" fill="none" stroke="#00754a" stroke-width="8" stroke-linecap="round"/>
+    </g>
+    <path d="M31 108C43 103 57 107 67 119M209 108C197 103 183 107 173 119" fill="none" stroke="#ffffff" stroke-width="11" stroke-linecap="round"/>
+    <text x="120" y="31" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="23" font-weight="900" fill="#ffffff" letter-spacing="1">STARBUCKS</text>
+    <text x="120" y="219" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="23" font-weight="900" fill="#ffffff" letter-spacing="2">COFFEE</text>
+  `,
+  starbucksBeverage: `
+    <defs>
+      <linearGradient id="starbucks-cup-amber" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0" stop-color="#c77c45"/>
+        <stop offset="0.55" stop-color="#74442b"/>
+        <stop offset="1" stop-color="#2c1914"/>
+      </linearGradient>
+      <clipPath id="starbucks-cup-clip">
+        <path d="M28 47H137L121 200H45Z"/>
+      </clipPath>
+    </defs>
+    <path d="M108 0L117 4L87 75L78 72Z" fill="#009b5b"/>
+    <ellipse cx="82" cy="49" rx="58" ry="16" fill="#c28a62"/>
+    <path d="M28 47H137L121 200H45Z" fill="url(#starbucks-cup-amber)" stroke="#6a3a25" stroke-width="3"/>
+    <g clip-path="url(#starbucks-cup-clip)" opacity="0.55">
+      <path d="M36 67C62 52 85 89 133 61M35 101C67 86 93 122 129 96M38 145C73 132 90 166 126 139" fill="none" stroke="#e5b083" stroke-width="8"/>
+      <circle cx="57" cy="62" r="7" fill="#e7c49d"/>
+      <circle cx="100" cy="82" r="8" fill="#d1a079"/>
+      <circle cx="75" cy="129" r="7" fill="#c3916d"/>
+    </g>
+    <circle cx="83" cy="126" r="31" fill="#f2f2f2" opacity="0.96"/>
+    <circle cx="83" cy="126" r="27" fill="#00754a"/>
+    <path d="M62 126C69 116 78 111 83 111C88 111 97 116 104 126C95 121 89 121 83 124C77 121 71 121 62 126Z" fill="#ffffff"/>
+    <path d="M68 145C73 129 76 118 83 118C90 118 93 129 98 145" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+  `,
+  starbucksFoodMuffin: `
+    <defs>
+      <linearGradient id="starbucks-muffin-top" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0" stop-color="#d49758"/>
+        <stop offset="0.55" stop-color="#b66d31"/>
+        <stop offset="1" stop-color="#6d3517"/>
+      </linearGradient>
+      <linearGradient id="starbucks-wrapper" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0" stop-color="#f5c18e"/>
+        <stop offset="1" stop-color="#be7439"/>
+      </linearGradient>
+    </defs>
+    <path d="M21 64C18 40 38 22 61 30C71 8 110 8 119 32C145 24 167 44 160 68C151 99 36 99 21 64Z" fill="url(#starbucks-muffin-top)"/>
+    <path d="M41 72H139L126 119H55Z" fill="url(#starbucks-wrapper)"/>
+    <path d="M50 74L58 119M74 74L77 119M98 74L95 119M122 74L114 119" stroke="#9a5529" stroke-width="3" opacity="0.55"/>
+    <g fill="#6f3419">
+      <circle cx="55" cy="47" r="6"/>
+      <circle cx="82" cy="30" r="5"/>
+      <circle cx="108" cy="47" r="7"/>
+      <circle cx="134" cy="58" r="5"/>
+      <circle cx="76" cy="63" r="4"/>
+    </g>
+    <path d="M28 65C50 82 134 82 155 65" fill="none" stroke="#e7b778" stroke-width="5" opacity="0.55"/>
+  `,
+  starbucksPackagedBeverages: `
+    <defs>
+      <linearGradient id="starbucks-bottle-coffee" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0" stop-color="#f0d8a8"/>
+        <stop offset="0.55" stop-color="#c99e68"/>
+        <stop offset="1" stop-color="#9b643d"/>
+      </linearGradient>
+    </defs>
+    ${[0, 42, 84].map((x, i) => `
+      <g transform="translate(${x} ${i === 1 ? -4 : 5})">
+        <rect x="16" y="0" width="26" height="13" rx="3" fill="#7a3f23"/>
+        <path d="M13 13H45L50 96C51 106 44 112 29 112C14 112 7 106 8 96Z" fill="url(#starbucks-bottle-coffee)" stroke="#7a4b2f" stroke-width="3"/>
+        <rect x="13" y="18" width="34" height="10" fill="#f5ead2" opacity="0.88"/>
+        <circle cx="29" cy="62" r="17" fill="#f2f2f2"/>
+        <circle cx="29" cy="62" r="14" fill="#00754a"/>
+        <path d="M18 62C23 56 27 54 29 54C31 54 35 56 40 62C34 59 31 59 29 61C27 59 24 59 18 62Z" fill="#ffffff"/>
+      </g>
+    `).join('')}
+  `,
+  goldmanSachsWordmark: `
+    <rect x="0" y="0" width="244" height="242" fill="#709ac3"/>
+    <text x="12" y="58" font-family="Georgia,Times New Roman,serif" font-size="57" font-weight="900" fill="#ffffff">Goldman</text>
+    <text x="12" y="111" font-family="Georgia,Times New Roman,serif" font-size="57" font-weight="900" fill="#ffffff">Sachs</text>
+  `,
+  yumCompanySpeechBubble: `
+    <g>
+      <path d="M91 209L22 329L188 221C215 224 248 221 280 213C355 193 407 145 397 94C388 43 321 7 236 4C151 1 78 32 52 79C29 120 47 171 91 209Z" fill="#f51421"/>
+      <text x="83" y="153" font-family="Georgia,Times New Roman,serif" font-size="115" font-style="italic" font-weight="700" fill="#ffffff">Yum!</text>
+    </g>
+  `,
+  yumKfcLogo: `
+    <g>
+      <path d="M23 13H197L182 195H38Z" fill="#ffffff" stroke="#161616" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M36 26H78V119H43Z" fill="#f80b2b"/>
+      <path d="M142 26H184L177 119H135Z" fill="#f80b2b"/>
+      <g fill="none" stroke="#111111" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M104 35C84 43 79 66 87 87C94 104 113 111 130 99C148 87 149 60 136 45C127 35 115 32 104 35Z" stroke-width="5"/>
+        <path d="M88 68C105 58 121 58 137 70" stroke-width="5"/>
+        <path d="M98 76C105 70 116 70 122 76M118 81C124 76 133 78 137 85" stroke-width="4"/>
+        <path d="M99 94C111 102 126 101 137 92" stroke-width="5"/>
+        <path d="M111 36C126 28 137 30 144 38M94 45C88 50 83 55 79 64" stroke-width="6"/>
+        <path d="M112 112V151M127 110V151M96 148L113 127L132 148" stroke-width="7"/>
+      </g>
+      <text x="111" y="184" text-anchor="middle" font-family="Georgia,Times New Roman,serif" font-size="60" font-style="italic" font-weight="900" fill="#050505">KFC</text>
+      <text x="199" y="186" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#161616">TM</text>
+    </g>
+  `,
+  yumTacoBellLogo: `
+    <g>
+      <path d="M38 14C62 1 102 9 125 33C146 55 163 58 190 68L190 130H36C34 85 34 48 38 14Z" fill="#7a33a2"/>
+      <path d="M49 23C67 4 108 8 132 30C149 45 165 48 187 54C142 51 100 36 77 22C66 17 56 18 49 23Z" fill="#a38cbd"/>
+      <path d="M45 114C73 82 120 56 175 46C177 61 169 80 151 97C122 124 82 137 45 130Z" fill="#ffffff"/>
+      <path d="M62 103C89 76 131 61 172 56C166 71 151 88 130 101C103 118 78 120 62 103Z" fill="#6b249a"/>
+      <ellipse cx="111" cy="98" rx="24" ry="15" transform="rotate(-22 111 98)" fill="#ffffff"/>
+      <text x="103" y="204" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="62" font-weight="900" fill="#050505">TACO</text>
+      <text x="103" y="264" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="62" font-weight="900" fill="#050505">BELL</text>
+      <text x="188" y="257" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#161616">TM</text>
+    </g>
+  `,
+  yumPizzaHutLogo: `
+    <g>
+      <circle cx="93" cy="88" r="72" fill="#f7333f"/>
+      <path d="M27 111C14 70 35 31 76 17M124 16C159 26 181 58 177 99M34 139C69 164 128 166 159 137" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round"/>
+      <path d="M55 79L112 33L126 70L164 81Z" fill="#ffffff"/>
+      <text x="92" y="107" text-anchor="middle" font-family="Brush Script MT,Segoe Script,cursive" font-size="44" font-style="italic" font-weight="700" fill="#ffffff">Pizza</text>
+      <text x="94" y="139" text-anchor="middle" font-family="Brush Script MT,Segoe Script,cursive" font-size="40" font-style="italic" font-weight="700" fill="#ffffff">Hut</text>
+      <text x="165" y="139" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#f7333f">TM</text>
+    </g>
+  `,
+  yumHabitLogo: `
+    <g>
+      <text x="92" y="30" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="31" font-weight="900" fill="#050505">the</text>
+      <text x="94" y="99" text-anchor="middle" font-family="Impact,Arial Black,Arial,sans-serif" font-size="89" font-weight="900" fill="#c5282c" stroke="#b82728" stroke-width="1">Habit</text>
+      <rect x="24" y="111" width="167" height="5" fill="#f4a51c"/>
+      <text x="95" y="153" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="34" font-weight="900" fill="#050505">BURGER GRILL</text>
+      <rect x="27" y="166" width="166" height="4" fill="#f4a51c"/>
+      <text x="197" y="107" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#161616">TM</text>
+    </g>
   `
 };

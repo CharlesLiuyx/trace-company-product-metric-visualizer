@@ -15,7 +15,7 @@
 3. 将持久源图片移动到：
    - `input/processed/<dataset-key>.png`
 4. 创建或更新：
-   - `data/<dataset-key>.js`
+   - `data/datasets/<dataset-key>.js`
    - `data/income-statements.js`
    - 如果是新公司，更新 `data/company-metadata.js`
    - 在 `index.html` 中注册数据集脚本
@@ -54,7 +54,7 @@
 
 ## Data 与资产布局
 
-保持注册数据集 adapter 位于 `data/<dataset-key>.js`。viewer、standalone builder、SSOT verifier 和项目文档都依赖这个稳定路径。
+保持注册数据集 adapter 位于 `data/datasets/<dataset-key>.js`。viewer、standalone builder、SSOT verifier 和项目文档都依赖这个稳定路径。
 
 可复用 data-adjacent 资产放在 `data/assets/`：
 
@@ -145,7 +145,7 @@ data/assets/
 - `schema`：用于数据集格式约定。
 - `docs`、`feat`、`fix`、`refactor`、`test` 或 `chore`：用于普通改动。
 
-优先使用数据集 key（如 `nvidia-q1-fy27`）、模块（如 `engine`、`icons`、`verify-d3`）或工作流区域（如 `input`、`export`、`d3-mode`）作为 scope。对于新数据集工作，将已处理 PNG、`data/<dataset-key>.js` 和 `index.html` 注册放在同一个 `data(<dataset-key>)` commit 中。如果某个数据集需要可复用的渲染器支持，先拆成单独的 `render(engine)` commit，再提交数据集调校 commit。
+优先使用数据集 key（如 `nvidia-q1-fy27`）、模块（如 `engine`、`icons`、`verify-d3`）或工作流区域（如 `input`、`export`、`d3-mode`）作为 scope。对于新数据集工作，将已处理 PNG、`data/datasets/<dataset-key>.js` 和 `index.html` 注册放在同一个 `data(<dataset-key>)` commit 中。如果某个数据集需要可复用的渲染器支持，先拆成单独的 `render(engine)` commit，再提交数据集调校 commit。
 
 ## 验证清单
 
@@ -154,7 +154,7 @@ data/assets/
 - `input/pending/` 只包含 `.gitkeep`。
 - 新的已处理图片存在于 `input/processed/<dataset-key>.png`。
 - 数据集脚本已在 `index.html` 中注册。
-- `node --check data/<dataset-key>.js` 通过。
+- `node --check data/datasets/<dataset-key>.js` 通过。
 - `node --check data/income-statements.js` 通过。
 - `node --check data/company-metadata.js` 通过。
 - `pnpm verify:ssot` 通过。

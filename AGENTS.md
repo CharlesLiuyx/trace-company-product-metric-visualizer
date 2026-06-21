@@ -18,7 +18,7 @@ reference assets when needed, and run a d3-sankey fidelity loop automatically.
 3. Move the durable source image to:
    - `input/processed/<dataset-key>.png`
 4. Create or update:
-   - `data/<dataset-key>.js`
+   - `data/datasets/<dataset-key>.js`
    - `data/income-statements.js`
    - `data/company-metadata.js` when the company is new
    - `index.html` dataset script registration
@@ -110,7 +110,7 @@ For company and business icons:
 
 ## Data and Asset Layout
 
-Keep registered dataset adapters at `data/<dataset-key>.js`. The viewer,
+Keep registered dataset adapters at `data/datasets/<dataset-key>.js`. The viewer,
 standalone builder, SSOT verifier, and project docs rely on this stable path.
 
 Use `data/assets/` for reusable data-adjacent assets:
@@ -235,7 +235,7 @@ Preferred project types:
 
 Prefer scopes such as a dataset key (`nvidia-q1-fy27`), module (`engine`,
 `icons`, `verify-d3`), or workflow area (`input`, `export`, `d3-mode`). For
-new dataset work, keep the processed PNG, `data/<dataset-key>.js`, and
+new dataset work, keep the processed PNG, `data/datasets/<dataset-key>.js`, and
 `index.html` registration in the same `data(<dataset-key>)` commit. If a
 dataset requires reusable renderer support, split that into a separate
 `render(engine)` commit before the dataset tuning commit.
@@ -247,7 +247,7 @@ Before final response, verify:
 - `input/pending/` contains only `.gitkeep`.
 - New processed image exists at `input/processed/<dataset-key>.png`.
 - Dataset script is registered in `index.html`.
-- `node --check data/<dataset-key>.js` passes.
+- `node --check data/datasets/<dataset-key>.js` passes.
 - `node --check data/income-statements.js` passes.
 - `node --check data/company-metadata.js` passes.
 - `pnpm verify:ssot` passes.

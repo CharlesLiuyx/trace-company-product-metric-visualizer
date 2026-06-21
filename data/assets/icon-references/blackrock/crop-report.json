@@ -1,0 +1,116 @@
+{
+  "source": "input/processed/blackrock-q1-fy26.png",
+  "spec": "input/icon-crop-specs/blackrock-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-06-21T04:21:39.854342+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "blackrock-company-wordmark",
+      "output": "data/assets/icon-references/blackrock/crops/company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 5056,
+        "losslessBytes": 22549,
+        "savingsVsLossless": 0.7758,
+        "metrics": {
+          "meanAbsoluteError": 0.2206,
+          "rootMeanSquareError": 1.13,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 17,
+          "changedPixelRatio": 0.0924
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 62565,
+        "transparentPixelRatio": 0.5906
+      },
+      "searchBox": {
+        "x": 704,
+        "y": 326,
+        "width": 726,
+        "height": 126
+      },
+      "componentCount": 11,
+      "subjectBox": {
+        "x0": 710,
+        "y0": 336,
+        "x1": 1426,
+        "y1": 438
+      },
+      "cropBox": {
+        "x0": 694,
+        "y0": 318,
+        "x1": 1440,
+        "y1": 460
+      },
+      "validation": {
+        "width": 746,
+        "height": 142,
+        "foregroundPixels": 39507,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 16,
+          "right": 14,
+          "top": 18,
+          "bottom": 22
+        },
+        "centerOffset": {
+          "x": 0.0013,
+          "y": -0.0141
+        },
+        "passes": true
+      },
+      "note": "BlackRock company wordmark above the revenue hub; excludes labels, flows, publisher marks, website URL, and bottom attribution badges.",
+      "validationSheet": "data/assets/icon-references/blackrock/validation-sheets/blackrock-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 242282,
+        "losslessBytes": 242282,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

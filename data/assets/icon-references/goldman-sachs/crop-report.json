@@ -1,0 +1,116 @@
+{
+  "source": "input/processed/goldman-sachs-q1-fy26.png",
+  "spec": "input/icon-crop-specs/goldman-sachs-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-06-21T04:21:28.672278+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "goldman-sachs-company-wordmark",
+      "output": "data/assets/icon-references/goldman-sachs/crops/company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2571,
+        "losslessBytes": 11695,
+        "savingsVsLossless": 0.7802,
+        "metrics": {
+          "meanAbsoluteError": 0.2093,
+          "rootMeanSquareError": 0.9736,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 20,
+          "changedPixelRatio": 0.1285
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 10890,
+        "transparentPixelRatio": 0.1562
+      },
+      "searchBox": {
+        "x": 930,
+        "y": 241,
+        "width": 244,
+        "height": 242
+      },
+      "componentCount": 5,
+      "subjectBox": {
+        "x0": 931,
+        "y0": 241,
+        "x1": 1174,
+        "y1": 483
+      },
+      "cropBox": {
+        "x0": 920,
+        "y0": 232,
+        "x1": 1184,
+        "y1": 496
+      },
+      "validation": {
+        "width": 264,
+        "height": 264,
+        "foregroundPixels": 52471,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 11,
+          "right": 10,
+          "top": 9,
+          "bottom": 13
+        },
+        "centerOffset": {
+          "x": 0.0019,
+          "y": -0.0076
+        },
+        "passes": true
+      },
+      "note": "Goldman Sachs company wordmark plaque above the revenue hub; excludes title text, flow marks, metrics, and publisher attribution.",
+      "validationSheet": "data/assets/icon-references/goldman-sachs/validation-sheets/goldman-sachs-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 285949,
+        "losslessBytes": 285949,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

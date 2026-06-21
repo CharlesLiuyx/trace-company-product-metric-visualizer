@@ -1,0 +1,463 @@
+{
+  "source": "input/processed/yum-brands-q1-fy26.png",
+  "spec": "input/icon-crop-specs/yum-brands-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-06-21T04:14:59.799610+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "yum-brands-company-speech-bubble",
+      "output": "data/assets/icon-references/yum-brands/crops/company-speech-bubble.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 5442,
+        "losslessBytes": 23669,
+        "savingsVsLossless": 0.7701,
+        "metrics": {
+          "meanAbsoluteError": 0.4224,
+          "rootMeanSquareError": 1.9594,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 38,
+          "changedPixelRatio": 0.5551
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 61390,
+        "transparentPixelRatio": 0.4473
+      },
+      "searchBox": {
+        "x": 604,
+        "y": 225,
+        "width": 383,
+        "height": 330
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 617,
+        "y0": 231,
+        "x1": 987,
+        "y1": 548
+      },
+      "cropBox": {
+        "x0": 609,
+        "y0": 218,
+        "x1": 1008,
+        "y1": 562
+      },
+      "validation": {
+        "width": 399,
+        "height": 344,
+        "foregroundPixels": 60653,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 21,
+          "top": 13,
+          "bottom": 14
+        },
+        "centerOffset": {
+          "x": -0.0163,
+          "y": -0.0015
+        },
+        "passes": true
+      },
+      "note": "",
+      "validationSheet": "data/assets/icon-references/yum-brands/validation-sheets/yum-brands-company-speech-bubble.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 98212,
+        "losslessBytes": 278783,
+        "savingsVsLossless": 0.6477,
+        "metrics": {
+          "meanAbsoluteError": 0.3209,
+          "rootMeanSquareError": 1.9147,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 62,
+          "changedPixelRatio": 0.0865
+        }
+      }
+    },
+    {
+      "key": "yum-brands-kfc-logo",
+      "output": "data/assets/icon-references/yum-brands/crops/kfc-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 5098,
+        "losslessBytes": 20773,
+        "savingsVsLossless": 0.7546,
+        "metrics": {
+          "meanAbsoluteError": 0.7413,
+          "rootMeanSquareError": 1.7678,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 53,
+          "changedPixelRatio": 0.6936
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 14435,
+        "transparentPixelRatio": 0.2956
+      },
+      "searchBox": {
+        "x": 134,
+        "y": 452,
+        "width": 204,
+        "height": 206
+      },
+      "componentCount": 7,
+      "subjectBox": {
+        "x0": 139,
+        "y0": 456,
+        "x1": 331,
+        "y1": 649
+      },
+      "cropBox": {
+        "x0": 126,
+        "y0": 444,
+        "x1": 346,
+        "y1": 666
+      },
+      "validation": {
+        "width": 220,
+        "height": 222,
+        "foregroundPixels": 17945,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 13,
+          "right": 15,
+          "top": 12,
+          "bottom": 17
+        },
+        "centerOffset": {
+          "x": -0.0045,
+          "y": -0.0113
+        },
+        "passes": true
+      },
+      "note": "",
+      "validationSheet": "data/assets/icon-references/yum-brands/validation-sheets/yum-brands-kfc-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 120766,
+        "losslessBytes": 310606,
+        "savingsVsLossless": 0.6112,
+        "metrics": {
+          "meanAbsoluteError": 0.3309,
+          "rootMeanSquareError": 2.1296,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 69,
+          "changedPixelRatio": 0.0925
+        }
+      }
+    },
+    {
+      "key": "yum-brands-taco-bell-logo",
+      "output": "data/assets/icon-references/yum-brands/crops/taco-bell-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3687,
+        "losslessBytes": 16868,
+        "savingsVsLossless": 0.7814,
+        "metrics": {
+          "meanAbsoluteError": 0.4304,
+          "rootMeanSquareError": 1.9779,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.2403
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 36331,
+        "transparentPixelRatio": 0.663
+      },
+      "searchBox": {
+        "x": 142,
+        "y": 684,
+        "width": 190,
+        "height": 250
+      },
+      "componentCount": 12,
+      "subjectBox": {
+        "x0": 149,
+        "y0": 685,
+        "x1": 309,
+        "y1": 930
+      },
+      "cropBox": {
+        "x0": 134,
+        "y0": 676,
+        "x1": 340,
+        "y1": 942
+      },
+      "validation": {
+        "width": 206,
+        "height": 266,
+        "foregroundPixels": 16916,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 15,
+          "right": 31,
+          "top": 9,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": -0.0388,
+          "y": -0.0056
+        },
+        "passes": true
+      },
+      "note": "",
+      "validationSheet": "data/assets/icon-references/yum-brands/validation-sheets/yum-brands-taco-bell-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 105241,
+        "losslessBytes": 289647,
+        "savingsVsLossless": 0.6367,
+        "metrics": {
+          "meanAbsoluteError": 0.3034,
+          "rootMeanSquareError": 1.8936,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 66,
+          "changedPixelRatio": 0.0848
+        }
+      }
+    },
+    {
+      "key": "yum-brands-pizza-hut-logo",
+      "output": "data/assets/icon-references/yum-brands/crops/pizza-hut-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 3779,
+        "losslessBytes": 16775,
+        "savingsVsLossless": 0.7747,
+        "metrics": {
+          "meanAbsoluteError": 0.4149,
+          "rootMeanSquareError": 1.2754,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 23,
+          "changedPixelRatio": 0.4873
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 17063,
+        "transparentPixelRatio": 0.5154
+      },
+      "searchBox": {
+        "x": 150,
+        "y": 958,
+        "width": 170,
+        "height": 162
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 161,
+        "y0": 961,
+        "x1": 309,
+        "y1": 1100
+      },
+      "cropBox": {
+        "x0": 142,
+        "y0": 950,
+        "x1": 328,
+        "y1": 1128
+      },
+      "validation": {
+        "width": 186,
+        "height": 178,
+        "foregroundPixels": 13798,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 19,
+          "right": 19,
+          "top": 11,
+          "bottom": 28
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0478
+        },
+        "passes": true
+      },
+      "note": "",
+      "validationSheet": "data/assets/icon-references/yum-brands/validation-sheets/yum-brands-pizza-hut-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 119241,
+        "losslessBytes": 331187,
+        "savingsVsLossless": 0.64,
+        "metrics": {
+          "meanAbsoluteError": 0.4102,
+          "rootMeanSquareError": 2.2606,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 70,
+          "changedPixelRatio": 0.1112
+        }
+      }
+    },
+    {
+      "key": "yum-brands-habit-logo",
+      "output": "data/assets/icon-references/yum-brands/crops/habit-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 3881,
+        "losslessBytes": 16211,
+        "savingsVsLossless": 0.7606,
+        "metrics": {
+          "meanAbsoluteError": 0.5758,
+          "rootMeanSquareError": 2.018,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 44,
+          "changedPixelRatio": 0.2376
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 18981,
+        "transparentPixelRatio": 0.5721
+      },
+      "searchBox": {
+        "x": 138,
+        "y": 1132,
+        "width": 194,
+        "height": 142
+      },
+      "componentCount": 17,
+      "subjectBox": {
+        "x0": 150,
+        "y0": 1149,
+        "x1": 313,
+        "y1": 1270
+      },
+      "cropBox": {
+        "x0": 130,
+        "y0": 1124,
+        "x1": 340,
+        "y1": 1282
+      },
+      "validation": {
+        "width": 210,
+        "height": 158,
+        "foregroundPixels": 13584,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 20,
+          "right": 27,
+          "top": 25,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": -0.0167,
+          "y": 0.0411
+        },
+        "passes": true
+      },
+      "note": "",
+      "validationSheet": "data/assets/icon-references/yum-brands/validation-sheets/yum-brands-habit-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 112252,
+        "losslessBytes": 301216,
+        "savingsVsLossless": 0.6273,
+        "metrics": {
+          "meanAbsoluteError": 0.3642,
+          "rootMeanSquareError": 2.0572,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 61,
+          "changedPixelRatio": 0.1006
+        }
+      }
+    }
+  ]
+}
