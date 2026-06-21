@@ -41,6 +41,20 @@ const SIDEBAR_DEFAULT = 282;
 const DESKTOP_BREAKPOINT = 900;
 const QUARTER_TAGS = ['Q4', 'Q3', 'Q2', 'Q1'];
 const ANNUAL_PERIOD_KEY = 'FY';
+const TABLE_COLUMN_SAMPLE_LIMIT = 80;
+const TABLE_OVERSCAN_VIEWPORTS = 2;
+const TABLE_COLUMN_PRESETS = {
+  compact: { min: 54, max: 84, charWidth: 5.8 },
+  text: { min: 84, max: 160, charWidth: 5.8 },
+  id: { min: 116, max: 176, charWidth: 5.8 },
+  money: { min: 86, max: 110, charWidth: 5.8 },
+  link: { min: 72, max: 110, charWidth: 5.6 },
+  url: { min: 108, max: 170, charWidth: 5.3 },
+  wide: { min: 210, max: 330, charWidth: 5.1, wrapFactor: 0.58 },
+  description: { min: 230, max: 370, charWidth: 5.1, wrapFactor: 0.48 },
+};
+const virtualTables = new WeakMap();
+let virtualTableFrame = 0;
 const I18N = {
   en: {
     documentTitle: 'Income Statement Sankey Visualizer',
@@ -696,6 +710,147 @@ function describeItemList(items, record, prefix = '') {
 function describeItems(items, record, prefix = '') {
   return describeItemList(items, record, prefix).join('; ');
 }
+function tableColumnPreset(column) {
+  if (column.widthPreset && TABLE_COLUMN_PRESETS[column.widthPreset]) return TABLE_COLUMN_PRESETS[column.widthPreset];
+  const className = column.className || '';
+  if (className.includes('num')) return TABLE_COLUMN_PRESETS.money;
+  if (className.includes('wide')) return TABLE_COLUMN_PRESETS.wide;
+  if (className.includes('nowrap')) return TABLE_COLUMN_PRESETS.text;
+  return TABLE_COLUMN_PRESETS.text;
+}
+function htmlText(html) {
+  const template = document.createElement('template');
+  template.innerHTML = String(html || '');
+  return clean(template.content.textContent || '');
+}
+function tableCellText(column, row) {
+  if (column.widthValue) return clean(column.widthValue(row));
+  if (column.value) return clean(column.value(row));
+  if (column.html) return htmlText(column.html(row));
+  return '';
+}
+function estimateColumnWidth(column, rows) {
+  const preset = tableColumnPreset(column);
+  const texts = [column.label, ...rows.slice(0, TABLE_COLUMN_SAMPLE_LIMIT).map((row) => tableCellText(column, row))];
+  const nowrap = (column.className || '').includes('nowrap') || (column.className || '').includes('num');
+  const contentChars = texts.reduce((max, text) => {
+    const normalized = clean(text);
+    if (!normalized) return max;
+    if (nowrap) return Math.max(max, Math.min(normalized.length, 34));
+    const longestWord = normalized.split(/[\s,;:/()]+/).reduce((wordMax, word) => Math.max(wordMax, word.length), 0);
+    const wrappedChars = Math.ceil(Math.min(normalized.length, 86) * (preset.wrapFactor || 0.75));
+    return Math.max(max, longestWord, wrappedChars);
+  }, 0);
+  const labelChars = clean(column.label).length + 2;
+  const measured = Math.ceil(Math.max(contentChars, labelChars) * preset.charWidth + 24);
+  return clamp(measured, column.minWidth || preset.min, column.maxWidth || preset.max);
+}
+function tableColumnSizing(columns, rows, targetWidth = 0) {
+  const baseWidths = columns.map((column) => estimateColumnWidth(column, rows));
+  const baseTotal = baseWidths.reduce((sum, width) => sum + width, 0);
+  const targetTotal = Math.max(baseTotal, Math.ceil(targetWidth || 0));
+  const extra = Math.max(0, targetTotal - baseTotal);
+  const growValues = columns.map((column) => Number.isFinite(column.grow) ? Math.max(0, column.grow) : 0);
+  const growTotal = growValues.reduce((sum, value) => sum + value, 0);
+  const widths = baseWidths.map((width, index) => {
+    if (!extra || !growTotal) return width;
+    const grow = growTotal ? growValues[index] : 1;
+    const share = growTotal ? grow / growTotal : 1 / columns.length;
+    return width + extra * share;
+  });
+  const total = widths.reduce((sum, width) => sum + width, 0);
+  return {
+    total,
+    cols: widths.map((width) => ({
+      width,
+      percent: total ? (width / total) * 100 : 100 / columns.length,
+    })),
+  };
+}
+function tableHeaderHeight(table) {
+  const height = table.tHead?.getBoundingClientRect().height || 0;
+  return height || 34;
+}
+function tableRowHeight(table) {
+  const value = Number.parseFloat(getComputedStyle(table).getPropertyValue('--table-row-height'));
+  return Number.isFinite(value) && value > 0 ? value : 96;
+}
+function tableTopInContent(table) {
+  const contentRect = content.getBoundingClientRect();
+  return content.scrollTop + table.getBoundingClientRect().top - contentRect.top;
+}
+function tableBodyTopInContent(table) {
+  return tableTopInContent(table) + tableHeaderHeight(table);
+}
+function tableCellHtml(column, row) {
+  const value = column.html ? column.html(row) : escapeHtml(column.value(row));
+  const title = tableCellText(column, row);
+  return `<td class="${column.className || ''}"${title ? ` title="${escapeHtml(title)}"` : ''}><div class="cell-content">${value}</div></td>`;
+}
+function tableRowHtml(columns, row, rowIndex) {
+  const cells = columns.map((column) => tableCellHtml(column, row)).join('');
+  const attrs = [row.tableAttrs || '', `data-row-index="${rowIndex}"`].filter(Boolean).join(' ');
+  return `<tr class="${row.active ? 'active-row' : ''}" ${attrs}>${cells}</tr>`;
+}
+function virtualRangeFor(table, info, rowHeight, focusIndex = null) {
+  const rows = info.rows;
+  if (!rows.length) return { start: 0, end: 0 };
+  const bufferPx = Math.max(content.clientHeight, 1) * TABLE_OVERSCAN_VIEWPORTS;
+  if (Number.isInteger(focusIndex) && focusIndex >= 0) {
+    const bufferRows = Math.max(1, Math.ceil(bufferPx / rowHeight));
+    return {
+      start: clamp(focusIndex - bufferRows, 0, rows.length),
+      end: clamp(focusIndex + bufferRows + 1, 0, rows.length),
+    };
+  }
+  const bodyTop = tableBodyTopInContent(table);
+  const viewportTop = content.scrollTop;
+  const viewportBottom = viewportTop + content.clientHeight;
+  const start = clamp(Math.floor((viewportTop - bufferPx - bodyTop) / rowHeight), 0, rows.length);
+  const end = clamp(Math.ceil((viewportBottom + bufferPx - bodyTop) / rowHeight), 0, rows.length);
+  return { start, end: Math.max(start, end) };
+}
+function spacerRow(height, colSpan, position) {
+  if (height <= 0) return '';
+  return `<tr class="virtual-spacer virtual-spacer-${position}" aria-hidden="true"><td colspan="${colSpan}"><div style="height: ${height}px"></div></td></tr>`;
+}
+function renderVirtualTableBody(table, force = false, focusIndex = null) {
+  const info = virtualTables.get(table);
+  const tbody = table.tBodies[0];
+  if (!info || !tbody) return;
+  const rowHeight = tableRowHeight(table);
+  const range = virtualRangeFor(table, info, rowHeight, focusIndex);
+  if (!force && info.renderedStart === range.start && info.renderedEnd === range.end && info.rowHeight === rowHeight) return;
+  info.renderedStart = range.start;
+  info.renderedEnd = range.end;
+  info.rowHeight = rowHeight;
+  table.dataset.renderedStart = String(range.start);
+  table.dataset.renderedEnd = String(range.end);
+  table.dataset.totalRows = String(info.rows.length);
+  const topHeight = range.start * rowHeight;
+  const bottomHeight = Math.max(0, (info.rows.length - range.end) * rowHeight);
+  const rowHtml = info.rows
+    .slice(range.start, range.end)
+    .map((row, offset) => tableRowHtml(info.columns, row, range.start + offset))
+    .join('');
+  tbody.innerHTML = [
+    spacerRow(topHeight, info.columns.length, 'top'),
+    rowHtml,
+    spacerRow(bottomHeight, info.columns.length, 'bottom'),
+  ].join('');
+}
+function updateVirtualTables(force = false) {
+  if (state.viewMode !== 'table') return;
+  renderVirtualTableBody(companiesTable, force);
+  renderVirtualTableBody(statementsTable, force);
+}
+function requestVirtualTableUpdate() {
+  if (virtualTableFrame) return;
+  virtualTableFrame = requestAnimationFrame(() => {
+    virtualTableFrame = 0;
+    updateVirtualTables();
+  });
+}
 function safeUrl(url) {
   try {
     const parsed = new URL(url);
@@ -739,67 +894,92 @@ function statementRows() {
       tableAttrs: `data-dataset-key="${escapeHtml(record.dataset.key)}"`,
     }));
 }
-function renderDataTable(table, columns, rows, emptyText) {
+function renderDataTable(table, columns, rows, emptyText, targetWidth = 0) {
   table.className = 'data-table';
+  const sizing = tableColumnSizing(columns, rows, targetWidth);
+  table.style.setProperty('--table-min-width', `${sizing.total}px`);
+  table.closest('.table-wrap')?.style.setProperty('--table-min-width', `${sizing.total}px`);
+  const colgroup = `<colgroup>${sizing.cols.map((col) => `<col style="width: ${col.percent.toFixed(4)}%">`).join('')}</colgroup>`;
   const head = columns.map((column) => `<th class="${column.className || ''}">${escapeHtml(column.label)}</th>`).join('');
   if (!rows.length) {
-    table.innerHTML = `<thead><tr>${head}</tr></thead><tbody><tr><td colspan="${columns.length}"><div class="table-empty">${escapeHtml(emptyText)}</div></td></tr></tbody>`;
+    virtualTables.delete(table);
+    table.innerHTML = `${colgroup}<thead><tr>${head}</tr></thead><tbody><tr><td colspan="${columns.length}"><div class="table-empty">${escapeHtml(emptyText)}</div></td></tr></tbody>`;
     return;
   }
-  const body = rows.map((row) => {
-    const cells = columns.map((column) => {
-      const value = column.html ? column.html(row) : escapeHtml(column.value(row));
-      return `<td class="${column.className || ''}">${value}</td>`;
-    }).join('');
-    const attrs = row.tableAttrs || '';
-    return `<tr class="${row.active ? 'active-row' : ''}"${attrs ? ` ${attrs}` : ''}>${cells}</tr>`;
-  }).join('');
-  table.innerHTML = `<thead><tr>${head}</tr></thead><tbody>${body}</tbody>`;
+  table.innerHTML = `${colgroup}<thead><tr>${head}</tr></thead><tbody></tbody>`;
+  virtualTables.set(table, {
+    columns,
+    rows,
+    renderedStart: -1,
+    renderedEnd: -1,
+    rowHeight: 0,
+  });
+  renderVirtualTableBody(table, true);
 }
 function renderTables() {
   const companies = companyRows();
   const statements = statementRows();
+  const companyColumns = [
+    { label: t('tableCompany'), className: 'nowrap', widthPreset: 'text', maxWidth: 118, grow: 0, value: (row) => row.company },
+    { label: t('tableLegalName'), className: 'nowrap', widthPreset: 'text', minWidth: 116, maxWidth: 150, grow: 0, value: (row) => row.legalName },
+    { label: t('tableTicker'), className: 'nowrap', widthPreset: 'compact', minWidth: 92, maxWidth: 108, grow: 0, value: (row) => [row.exchange, row.ticker].filter(Boolean).join(': ') },
+    { label: t('tableSector'), className: 'nowrap', widthPreset: 'text', minWidth: 108, maxWidth: 126, grow: 0, value: (row) => row.sector },
+    { label: t('tableIndustry'), className: 'nowrap', widthPreset: 'text', minWidth: 132, maxWidth: 160, grow: 0, value: (row) => row.industry },
+    { label: t('tableFounded'), className: 'nowrap', widthPreset: 'compact', minWidth: 76, maxWidth: 80, grow: 0, value: (row) => row.founded },
+    { label: t('tableHeadquarters'), className: 'nowrap', widthPreset: 'text', minWidth: 138, maxWidth: 158, grow: 0, value: (row) => row.headquarters },
+    { label: t('tableFiscalYearEnd'), className: 'nowrap', widthPreset: 'compact', minWidth: 86, maxWidth: 94, grow: 0, value: (row) => row.fiscalYearEnd },
+    { label: t('tableDatasets'), className: 'num', widthPreset: 'compact', minWidth: 70, maxWidth: 76, grow: 0, value: (row) => row.datasetCount },
+    { label: t('tableLatest'), className: 'nowrap', widthPreset: 'compact', minWidth: 72, maxWidth: 78, grow: 0, value: (row) => row.latestPeriod },
+    { label: t('tableWebsite'), className: 'nowrap', widthPreset: 'url', minWidth: 112, maxWidth: 132, grow: 0, html: (row) => websiteHtml(row.website) },
+    { label: t('tableDescription'), className: 'wide', widthPreset: 'description', maxWidth: 330, grow: 1, value: (row) => row.description },
+    { label: t('tableSources'), className: 'nowrap', widthPreset: 'link', minWidth: 78, maxWidth: 86, grow: 0, html: (row) => linksHtml(row.sourceUrls) },
+  ];
+  const statementColumns = [
+    { label: t('tableDataset'), className: 'nowrap', widthPreset: 'id', maxWidth: 160, grow: 0.35, value: (row) => row.record.dataset.key },
+    { label: t('tableCompany'), className: 'nowrap', widthPreset: 'text', maxWidth: 150, grow: 0.6, value: (row) => row.record.company },
+    { label: t('tablePeriod'), className: 'nowrap', widthPreset: 'compact', maxWidth: 78, grow: 0.05, value: (row) => row.record.period },
+    { label: t('tablePeriodEnd'), className: 'nowrap', widthPreset: 'compact', minWidth: 86, maxWidth: 96, grow: 0.1, value: (row) => row.record.periodNote },
+    { label: t('tableRevenue'), className: 'num', widthPreset: 'money', maxWidth: 106, grow: 0, value: (row) => formatAmount(row.financial, row.financial?.revenue?.total) },
+    { label: t('tableRevenueItems'), className: 'wide', widthPreset: 'wide', maxWidth: 340, grow: 2, value: (row) => describeItems(row.financial?.revenue?.items, row.financial) },
+    { label: t('tableCostOfRevenue'), className: 'num', widthPreset: 'money', maxWidth: 112, grow: 0, value: (row) => formatAmount(row.financial, row.financial?.costs?.costOfRevenue?.value, true) },
+    { label: t('tableGrossProfit'), className: 'num', widthPreset: 'money', maxWidth: 108, grow: 0, value: (row) => formatAmount(row.financial, row.financial?.profit?.gross?.value) },
+    { label: t('tableOperatingExpenses'), className: 'num', widthPreset: 'money', maxWidth: 114, grow: 0, value: (row) => formatAmount(row.financial, row.financial?.costs?.operatingExpenses?.total, true) },
+    { label: t('tableOpexItems'), className: 'wide', widthPreset: 'wide', maxWidth: 330, grow: 2, value: (row) => describeItems(row.financial?.costs?.operatingExpenses?.items, row.financial) },
+    { label: t('tableOperatingProfit'), className: 'num', widthPreset: 'money', maxWidth: 112, grow: 0, value: (row) => formatAmount(row.financial, row.financial?.profit?.operating?.value) },
+    { label: t('tableOtherIncome'), className: 'num', widthPreset: 'money', maxWidth: 108, grow: 0, value: (row) => formatAmount(row.financial, row.financial?.otherIncome?.total || 0) },
+    { label: t('tableTax'), className: 'num', widthPreset: 'money', maxWidth: 98, grow: 0, value: (row) => formatAmount(row.financial, row.financial?.costs?.tax?.value, true) },
+    { label: t('tableNetProfit'), className: 'num', widthPreset: 'money', maxWidth: 104, grow: 0, value: (row) => formatAmount(row.financial, row.financial?.profit?.net?.value) },
+    { label: t('tableSourceImage'), className: 'nowrap', widthPreset: 'id', maxWidth: 150, grow: 0.1, value: (row) => row.financial?.sourceImage || '' },
+  ];
   companiesTableCount.textContent = countText('companiesCountOne', 'companiesCountMany', companies.length);
   statementsTableCount.textContent = countText('statementsCountOne', 'statementsCountMany', statements.length);
-  renderDataTable(companiesTable, [
-    { label: t('tableCompany'), className: 'nowrap', value: (row) => row.company },
-    { label: t('tableLegalName'), className: 'nowrap', value: (row) => row.legalName },
-    { label: t('tableTicker'), className: 'nowrap', value: (row) => [row.exchange, row.ticker].filter(Boolean).join(': ') },
-    { label: t('tableSector'), className: 'nowrap', value: (row) => row.sector },
-    { label: t('tableIndustry'), className: 'nowrap', value: (row) => row.industry },
-    { label: t('tableFounded'), className: 'nowrap', value: (row) => row.founded },
-    { label: t('tableHeadquarters'), className: 'nowrap', value: (row) => row.headquarters },
-    { label: t('tableFiscalYearEnd'), className: 'nowrap', value: (row) => row.fiscalYearEnd },
-    { label: t('tableDatasets'), className: 'num', value: (row) => row.datasetCount },
-    { label: t('tableLatest'), className: 'nowrap', value: (row) => row.latestPeriod },
-    { label: t('tableWebsite'), className: 'nowrap', html: (row) => websiteHtml(row.website) },
-    { label: t('tableDescription'), className: 'wide', value: (row) => row.description },
-    { label: t('tableSources'), className: 'nowrap', html: (row) => linksHtml(row.sourceUrls) },
-  ], companies, t('noCompaniesRegistered'));
-
-  renderDataTable(statementsTable, [
-    { label: t('tableDataset'), className: 'nowrap', value: (row) => row.record.dataset.key },
-    { label: t('tableCompany'), className: 'nowrap', value: (row) => row.record.company },
-    { label: t('tablePeriod'), className: 'nowrap', value: (row) => row.record.period },
-    { label: t('tablePeriodEnd'), className: 'nowrap', value: (row) => row.record.periodNote },
-    { label: t('tableRevenue'), className: 'num', value: (row) => formatAmount(row.financial, row.financial?.revenue?.total) },
-    { label: t('tableRevenueItems'), className: 'wide', value: (row) => describeItems(row.financial?.revenue?.items, row.financial) },
-    { label: t('tableCostOfRevenue'), className: 'num', value: (row) => formatAmount(row.financial, row.financial?.costs?.costOfRevenue?.value, true) },
-    { label: t('tableGrossProfit'), className: 'num', value: (row) => formatAmount(row.financial, row.financial?.profit?.gross?.value) },
-    { label: t('tableOperatingExpenses'), className: 'num', value: (row) => formatAmount(row.financial, row.financial?.costs?.operatingExpenses?.total, true) },
-    { label: t('tableOpexItems'), className: 'wide', value: (row) => describeItems(row.financial?.costs?.operatingExpenses?.items, row.financial) },
-    { label: t('tableOperatingProfit'), className: 'num', value: (row) => formatAmount(row.financial, row.financial?.profit?.operating?.value) },
-    { label: t('tableOtherIncome'), className: 'num', value: (row) => formatAmount(row.financial, row.financial?.otherIncome?.total || 0) },
-    { label: t('tableTax'), className: 'num', value: (row) => formatAmount(row.financial, row.financial?.costs?.tax?.value, true) },
-    { label: t('tableNetProfit'), className: 'num', value: (row) => formatAmount(row.financial, row.financial?.profit?.net?.value) },
-    { label: t('tableSourceImage'), className: 'nowrap', value: (row) => row.financial?.sourceImage || '' },
-  ], statements, t('noIncomeStatementsRegistered'));
+  renderDataTable(companiesTable, companyColumns, companies, t('noCompaniesRegistered'), content.clientWidth);
+  renderDataTable(statementsTable, statementColumns, statements, t('noIncomeStatementsRegistered'), content.clientWidth);
 }
 function escapeSelector(value) {
   if (window.CSS?.escape) return window.CSS.escape(value);
   return String(value).replace(/["\\]/g, '\\$&');
 }
+function virtualTableTarget(kind) {
+  const table = kind === 'company' ? companiesTable : statementsTable;
+  const info = virtualTables.get(table);
+  if (!info) return null;
+  if (kind === 'company') {
+    const key = companyKey(state.company);
+    const index = info.rows.findIndex((row) => companyKey(row.company) === key);
+    return index >= 0 ? { table, info, index } : null;
+  }
+  const key = currentRecord()?.dataset?.key;
+  if (!key) return null;
+  const index = info.rows.findIndex((row) => row.record?.dataset?.key === key);
+  return index >= 0 ? { table, info, index } : null;
+}
 function tableRowFor(kind) {
+  const target = virtualTableTarget(kind);
+  if (target) {
+    renderVirtualTableBody(target.table, true, target.index);
+    return target.table.querySelector(`[data-row-index="${target.index}"]`);
+  }
   if (kind === 'company') {
     return companiesTable.querySelector(`[data-company-key="${escapeSelector(companyKey(state.company))}"]`);
   }
@@ -826,8 +1006,24 @@ function scrollActiveTableRow(kind = 'statement') {
   if (state.viewMode !== 'table') return;
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
+      const targetInfo = virtualTableTarget(kind);
+      if (targetInfo) {
+        renderVirtualTableBody(targetInfo.table, true, targetInfo.index);
+        const rowTop = tableBodyTopInContent(targetInfo.table) + targetInfo.index * tableRowHeight(targetInfo.table);
+        fastScrollTo(rowTop - tableHeaderHeight(targetInfo.table) - 8);
+        setTimeout(requestVirtualTableUpdate, 120);
+        return;
+      }
       const row = tableRowFor(kind);
       if (!row) return;
+      const tableWrap = row.closest('.table-wrap');
+      if (tableWrap && tableWrap.scrollHeight > tableWrap.clientHeight) {
+        const wrapTop = tableWrap.getBoundingClientRect().top;
+        const headerHeight = row.closest('table')?.tHead?.getBoundingClientRect().height || 0;
+        const target = tableWrap.scrollTop + row.getBoundingClientRect().top - wrapTop - headerHeight - 8;
+        fastScrollTo(target, 90, tableWrap);
+        return;
+      }
       const contentTop = content.getBoundingClientRect().top;
       const target = content.scrollTop + row.getBoundingClientRect().top - contentTop - 8;
       fastScrollTo(target);
@@ -1131,12 +1327,15 @@ window.addEventListener('hashchange', () => {
   scrollActiveTableRow('statement');
 });
 
+content.addEventListener('scroll', requestVirtualTableUpdate, { passive: true });
+
 let rt;
 window.addEventListener('resize', () => {
   clearTimeout(rt);
   rt = setTimeout(() => {
     syncResponsiveLayout();
     draw();
+    requestVirtualTableUpdate();
   }, 200);
 });
 
