@@ -4,7 +4,7 @@
  *  This file intentionally contains financial data only. It is the place
  *  to maintain comparable reported totals and line items across datasets;
  *  Sankey-specific nodes, links, layout geometry, colors, SVG, and render
- *  overrides stay in data/<dataset-key>.js.
+ *  overrides stay in data/datasets/<dataset-key>.js.
  * ==================================================================== */
 (function (global) {
   'use strict';
@@ -151,6 +151,130 @@
         },
       },
       {
+        key: 'blackrock-q1-fy26',
+        company: 'BlackRock',
+        period: 'Q1 FY26',
+        periodNote: 'Ending Mar. 2026',
+        currency: '$',
+        unit: 'B',
+        decimals: 1,
+        sourceImage: 'input/processed/blackrock-q1-fy26.png',
+        roundingTolerance: 0.15,
+        revenue: {
+          total: 6.7,
+          notes: ['+27% Y/Y'],
+          items: [
+            {
+              id: 'investment_advisory_fees',
+              label: 'Investment advisory, fees & securities lending',
+              value: 5.4,
+              notes: ['+24% Y/Y'],
+            },
+            { id: 'performance_fees', label: 'Investment advisory performance fees', value: 0.3, notes: ['+353% Y/Y'] },
+            { id: 'technology_services', label: 'Technology services', value: 0.5, notes: ['+22% Y/Y'] },
+            { id: 'distribution_fees', label: 'Distribution fees', value: 0.4, notes: ['+21% Y/Y'] },
+            { id: 'advisory_other', label: 'Advisory & other', value: 0.1, notes: ['+19% Y/Y'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: {
+            id: 'cost_of_revenue',
+            label: 'Cost of revenue',
+            value: 0,
+            notes: ['Source chart does not show a separate gross profit or cost-of-revenue layer.'],
+          },
+          operatingExpenses: {
+            total: 3.9,
+            items: [
+              { id: 'compensation_benefits', label: 'Compensation & benefits', value: 2.2 },
+              { id: 'sales_asset_account_expenses', label: 'Sales, asset & Account expenses', value: 1.3 },
+              { id: 'amortization_other', label: 'Amortization & other', value: 0.3 },
+              { id: 'ga', label: 'G&A', value: 0.1 },
+            ],
+          },
+          tax: { id: 'tax', label: 'Tax', value: 0.5 },
+        },
+        otherIncome: {
+          total: 0.028,
+          items: [{ id: 'other', label: 'Other', value: 0.028, valueText: '$28M' }],
+        },
+        otherExpenses: {
+          total: 0,
+          items: [],
+        },
+        profit: {
+          gross: {
+            id: 'gross_profit',
+            label: 'Gross profit',
+            value: 6.7,
+            notes: ['Source chart flows revenue directly to operating profit and operating expenses.'],
+          },
+          operating: { id: 'operating_profit', label: 'Operating profit', value: 2.8, notes: ['42% margin', '+10pp Y/Y'] },
+          net: { id: 'net_profit', label: 'Net income', value: 2.3, notes: ['35% margin', '+6pp Y/Y'] },
+        },
+      },
+      {
+        key: 'goldman-sachs-q1-fy26',
+        company: 'Goldman Sachs',
+        period: 'Q1 FY26',
+        periodNote: 'Ending Mar. 2026',
+        currency: '$',
+        unit: 'B',
+        decimals: 1,
+        sourceImage: 'input/processed/goldman-sachs-q1-fy26.png',
+        roundingTolerance: 0.15,
+        revenue: {
+          total: 17.2,
+          notes: ['+14% Y/Y'],
+          items: [
+            { id: 'global_banking_markets', label: 'Global Banking & Markets', value: 12.7, notes: ['+19% Y/Y', '37% net margin'] },
+            { id: 'asset_wealth_management', label: 'Asset & Wealth Management', value: 4.1, notes: ['+10% Y/Y', '20% net margin'] },
+            { id: 'platform_solutions', label: 'Platform Solutions', value: 0.4, notes: ['(33%) Y/Y', '16% net margin'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: {
+            id: 'provision_for_credit_loss',
+            label: 'Provision for credit loss',
+            value: 0.3,
+            notes: ['Modeled as a pre-pretax cost so the generic SSOT arithmetic matches the banking source chart.'],
+          },
+          operatingExpenses: {
+            total: 10.4,
+            notes: ['Operating expense line items sum to $10.5B because the source chart rounds each item.'],
+            items: [
+              { id: 'compensation_benefits', label: 'Compensation & benefits', value: 5.4 },
+              { id: 'transaction_based', label: 'Transaction based', value: 2.5 },
+              { id: 'market_development', label: 'Market development', value: 0.2 },
+              { id: 'communication_technology', label: 'Communication, Technology', value: 0.6 },
+              { id: 'da', label: 'D&A', value: 0.5 },
+              { id: 'occupancy', label: 'Occupancy', value: 0.3 },
+              { id: 'professional_fees', label: 'Professional fees', value: 0.4 },
+              { id: 'other', label: 'Other', value: 0.6 },
+            ],
+          },
+          tax: { id: 'tax', label: 'Tax', value: 0.9 },
+        },
+        otherIncome: {
+          total: 0,
+          items: [],
+        },
+        otherExpenses: {
+          total: 0,
+          items: [],
+        },
+        profit: {
+          gross: {
+            id: 'gross_profit',
+            label: 'Revenue after credit loss provision',
+            value: 16.9,
+            notes: ['Balancing subtotal; not labeled separately in the source chart.'],
+          },
+          operating: { id: 'pretax_income', label: 'Pretax income', value: 6.5 },
+          net: { id: 'net_income', label: 'Net income', value: 5.6, notes: ['+19% Y/Y'] },
+        },
+      },
+      {
         key: 'tesla-q1-fy26',
         company: 'Tesla',
         period: 'Q1 FY26',
@@ -265,6 +389,67 @@
             value: -2.6,
             notes: ['No separate net income line is shown in the source chart.'],
           },
+        },
+      },
+      {
+        key: 'starbucks-q2-fy26',
+        company: 'Starbucks',
+        period: 'Q2 FY26',
+        periodNote: 'Ending Mar. 2026',
+        currency: '$',
+        unit: 'B',
+        decimals: 1,
+        sourceImage: 'input/processed/starbucks-q2-fy26.png',
+        roundingTolerance: 0.15,
+        revenue: {
+          total: 9.5,
+          notes: ['+9% Y/Y'],
+          items: [
+            { id: 'beverage', label: 'Beverage', value: 5.7, notes: ['+7% Y/Y'] },
+            { id: 'food', label: 'Food', value: 1.8, notes: ['+8% Y/Y'] },
+            {
+              id: 'other_revenue',
+              label: 'Other',
+              value: 2.0,
+              notes: ['+15% Y/Y', 'Packaged beverages, royalty and licensing revenue, ingredients'],
+            },
+          ],
+        },
+        costs: {
+          costOfRevenue: {
+            id: 'cost_of_revenue',
+            label: 'Cost of revenue',
+            value: 7.6,
+            notes: ['Source chart presents cost of revenue as Store opex ($4.4B) plus Product & distribution ($3.2B).'],
+            items: [
+              { id: 'store_opex', label: 'Store opex', value: 4.4 },
+              { id: 'product_distribution', label: 'Product & distribution', value: 3.2 },
+            ],
+          },
+          operatingExpenses: {
+            total: 1.1,
+            notes: ['Rounded source chart line items sum to $1.125B including $25M restructuring.'],
+            items: [
+              { id: 'ga', label: 'General & administrative', value: 0.6 },
+              { id: 'depreciation_amortization', label: 'Depreciation & amortization', value: 0.4 },
+              { id: 'other_opex', label: 'Other opex', value: 0.1 },
+              { id: 'restructuring', label: 'Restructuring', value: 0.025 },
+            ],
+          },
+          tax: { id: 'tax', label: 'Tax', value: 0.2 },
+        },
+        otherIncome: {
+          total: 0.1,
+          items: [{ id: 'other_income', label: 'Other', value: 0.1 }],
+        },
+        otherExpenses: {
+          total: 0.1,
+          items: [{ id: 'other_expense', label: 'Other', value: 0.1 }],
+        },
+        profit: {
+          gross: { id: 'gross_profit', label: 'Gross profit', value: 1.9, notes: ['20% margin', '(1pp) Y/Y'] },
+          operating: { id: 'operating_profit', label: 'Operating profit', value: 0.8, notes: ['9% margin', '+2pp Y/Y'] },
+          net: { id: 'net_profit', label: 'Net profit', value: 0.5, notes: ['5% margin', '+1pp Y/Y'] },
         },
       },
       {
@@ -413,6 +598,64 @@
           gross: { id: 'gross_profit', label: 'Gross profit', value: 607, notes: ['92% margin', '+1pp Y/Y'] },
           operating: { id: 'operating_profit', label: 'Operating profit', value: 183, notes: ['28% margin', '+27pp Y/Y'] },
           net: { id: 'net_profit', label: 'Net profit', value: 204, notes: ['31% margin', '+24pp Y/Y'] },
+        },
+      },
+      {
+        key: 'robinhood-q1-fy26',
+        company: 'Robinhood',
+        period: 'Q1 FY26',
+        periodNote: 'Ending Mar. 2026',
+        currency: '$',
+        unit: 'M',
+        decimals: 0,
+        sourceImage: 'input/processed/robinhood-q1-fy26.png',
+        roundingTolerance: 1.1,
+        revenue: {
+          total: 1067,
+          notes: ['+15% Y/Y'],
+          items: [
+            {
+              id: 'transaction_based',
+              label: 'Transaction-based',
+              value: 623,
+              notes: ['+7% Y/Y'],
+              children: [
+                { id: 'options', label: 'Options', value: 260, notes: ['+8% Y/Y'] },
+                { id: 'crypto', label: 'Crypto', value: 134, notes: ['(47%) Y/Y'] },
+                { id: 'equities', label: 'Equities', value: 82, notes: ['+46% Y/Y'] },
+                { id: 'other_transactions', label: 'Other transactions', value: 147, notes: ['+320% Y/Y'] },
+              ],
+            },
+            { id: 'net_interest', label: 'Net interest', value: 359, notes: ['+24% Y/Y'] },
+            { id: 'other_revenue', label: 'Other revenue', value: 85, notes: ['+57% Y/Y'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: { label: 'Cost of revenue', value: 0, notes: ['No cost-of-revenue subtotal is shown in the source chart.'] },
+          operatingExpenses: {
+            total: 656,
+            items: [
+              { id: 'technology_development', label: 'Technology & development', value: 241 },
+              { id: 'ga', label: 'G&A', value: 174 },
+              { id: 'marketing', label: 'Marketing', value: 107 },
+              { id: 'operations', label: 'Operations', value: 74, notes: ['Source chart aggregates operations and provision for credit losses.'] },
+              { id: 'brokerage_transaction', label: 'Brokerage & transaction', value: 60 },
+            ],
+          },
+          tax: { id: 'tax', label: 'Tax', value: 65 },
+        },
+        otherIncome: {
+          total: 0,
+          items: [],
+        },
+        otherExpenses: {
+          total: 0,
+          items: [],
+        },
+        profit: {
+          gross: { label: 'Revenue before operating expenses', value: 1067 },
+          operating: { id: 'pretax_income', label: 'Pretax income', value: 411 },
+          net: { id: 'net_profit', label: 'Net income', value: 346 },
         },
       },
       {
@@ -811,6 +1054,82 @@
         },
       },
       {
+        key: 'morgan-stanley-q1-fy26',
+        company: 'Morgan Stanley',
+        period: 'Q1 FY26',
+        periodNote: 'Ending Mar. 2026',
+        currency: '$',
+        unit: 'B',
+        decimals: 1,
+        sourceImage: 'input/processed/morgan-stanley-q1-fy26.png',
+        roundingTolerance: 0.2,
+        revenue: {
+          total: 20.6,
+          notes: ['+16% Y/Y', 'Segment revenue detail sums to $20.7B due to rounded segment figures.'],
+          items: [
+            {
+              id: 'institutional_securities',
+              label: 'Institutional Securities',
+              value: 10.7,
+              notes: ['+19% Y/Y', '31% net margin'],
+            },
+            {
+              id: 'wealth_management',
+              label: 'Wealth Management',
+              value: 8.5,
+              notes: ['+16% Y/Y', '24% net margin'],
+            },
+            {
+              id: 'investment_management',
+              label: 'Investment Management',
+              value: 1.5,
+              notes: ['(4%) Y/Y', '16% net margin'],
+            },
+          ],
+        },
+        costs: {
+          costOfRevenue: {
+            id: 'non_interest_expenses',
+            label: 'Noninterest expenses',
+            value: 13.5,
+            notes: ['Noninterest expense detail sums to $13.4B due to rounded line items.'],
+            items: [
+              { id: 'compensation_benefits', label: 'Compensation & benefits', value: 8.5 },
+              { id: 'brokerage_clearing_exchange', label: 'Brokerage, clearing & exchange fees', value: 1.3 },
+              { id: 'information_communications', label: 'Information & communications', value: 1.1 },
+              { id: 'professional_services', label: 'Professional services', value: 0.6 },
+              { id: 'occupancy', label: 'Occupancy', value: 0.5 },
+              { id: 'marketing_business_development', label: 'Marketing & business development', value: 0.3 },
+              { id: 'other_expenses', label: 'Other', value: 1.1 },
+            ],
+          },
+          operatingExpenses: {
+            total: 0.1,
+            notes: ['Mapped to the existing operating-expenses schema slot for financial-institution credit-loss provision.'],
+            items: [{ id: 'operating_expenses', label: 'Provision for credit loss', value: 0.1 }],
+          },
+          tax: { id: 'tax', label: 'Tax', value: 1.4 },
+        },
+        otherIncome: {
+          total: 0,
+          items: [],
+        },
+        otherExpenses: {
+          total: 0,
+          items: [],
+        },
+        profit: {
+          gross: {
+            id: 'pretax_income',
+            label: 'Pre-provision pretax income',
+            value: 7.1,
+            notes: ['Schema adapter subtotal; source chart labels the displayed node as Pretax income.'],
+          },
+          operating: { id: 'pretax_income', label: 'Pretax income', value: 7.0 },
+          net: { id: 'net_income', label: 'Net income', value: 5.6, notes: ['+29% Y/Y'] },
+        },
+      },
+      {
         key: 'apple-q2-fy26',
         company: 'Apple',
         period: 'Q2 FY26',
@@ -1038,6 +1357,83 @@
             value: -56,
             notes: ['No separate net income line is shown in the source chart.'],
           },
+        },
+      },
+      {
+        key: 'hilton-q1-fy26',
+        company: 'Hilton',
+        period: 'Q1 FY26',
+        periodNote: 'Ending Mar. 2026',
+        currency: '$',
+        unit: 'B',
+        decimals: 1,
+        sourceImage: 'input/processed/hilton-q1-fy26.png',
+        roundingTolerance: 0.02,
+        revenue: {
+          total: 2.937,
+          notes: ['+9% Y/Y'],
+          items: [
+            { id: 'franchise_fees', label: 'Franchise fees', value: 0.696, notes: ['+11% Y/Y'] },
+            { id: 'base_management_fees', label: 'Base management fees', value: 0.095, notes: ['+8% Y/Y'] },
+            { id: 'incentive_management_fees', label: 'Incentive management fees', value: 0.076, notes: ['+6% Y/Y'] },
+            { id: 'owned_leased_and_other', label: 'Owned, leased and other', value: 0.249, notes: ['+6% Y/Y'] },
+            { id: 'other_revenue', label: 'Other', value: 0.066, notes: ['+43% Y/Y'] },
+            {
+              id: 'managed_franchised_other_revenue',
+              label: 'Other revenue from managed and franchised properties',
+              value: 1.755,
+              notes: ['+8% Y/Y', 'Reported by Hilton as cost reimbursement revenues.'],
+            },
+          ],
+        },
+        costs: {
+          costOfRevenue: {
+            id: 'cost_of_revenue',
+            label: 'Cost of revenue',
+            value: 0,
+            notes: ['The source chart does not show a gross profit or cost-of-revenue subtotal.'],
+          },
+          operatingExpenses: {
+            total: 2.259,
+            notes: ['Source chart presents Hilton expenses as operating expenses rather than a gross-profit split.'],
+            items: [
+              { id: 'owned_leased_hotels', label: 'Owned, leased hotels', value: 0.235 },
+              { id: 'ga', label: 'G&A', value: 0.103 },
+              { id: 'da', label: 'D&A', value: 0.050 },
+              {
+                id: 'managed_franchised_other_expenses',
+                label: 'Other expenses from managed and franchised properties',
+                value: 1.871,
+                notes: ['Includes reimbursed expenses of $1.849B plus $0.022B of other expenses.'],
+              },
+            ],
+          },
+          tax: { id: 'tax', label: 'Tax', value: 0.135 },
+        },
+        otherIncome: {
+          total: 0,
+          items: [],
+        },
+        otherExpenses: {
+          total: 0.160,
+          items: [
+            {
+              id: 'other_nonoperating',
+              label: 'Other',
+              value: 0.160,
+              notes: ['Interest expense, foreign-currency loss, and other non-operating income, net.'],
+            },
+          ],
+        },
+        profit: {
+          gross: {
+            id: 'gross_profit',
+            label: 'Gross profit',
+            value: 2.937,
+            notes: ['Synthetic SSOT subtotal because the source chart does not show gross profit.'],
+          },
+          operating: { id: 'operating_profit', label: 'Operating profit', value: 0.678, notes: ['23% margin', '+3pp Y/Y'] },
+          net: { id: 'net_profit', label: 'Net profit', value: 0.383, notes: ['13% margin', '+2pp Y/Y'] },
         },
       },
       {
@@ -2061,6 +2457,71 @@
           gross: { id: 'gross_profit', label: 'Gross profit', value: 51.1, notes: ['75% margin', '+2pp Y/Y'] },
           operating: { id: 'operating_profit', label: 'Operating profit', value: 44.3, notes: ['65% margin', '+4pp Y/Y'] },
           net: { id: 'net_profit', label: 'Net profit', value: 43.0, notes: ['63% margin', '+7pp Y/Y'] },
+        },
+      },
+      {
+        key: 'yum-brands-q1-fy26',
+        company: 'Yum! Brands',
+        period: 'Q1 FY26',
+        periodNote: 'Ending Mar. 2026',
+        currency: '$',
+        unit: 'B',
+        decimals: 1,
+        sourceImage: 'input/processed/yum-brands-q1-fy26.png',
+        roundingTolerance: 0.2,
+        revenue: {
+          total: 2.1,
+          notes: [
+            '+15% Y/Y',
+            'Source chart attributes revenue by brand sales; rounded brand items sum to $2.1B.',
+          ],
+          items: [
+            { id: 'kfc', label: 'KFC', value: 0.9, notes: ['+14% Y/Y'] },
+            { id: 'taco_bell', label: 'Taco Bell', value: 0.8, notes: ['+21% Y/Y'] },
+            { id: 'pizza_hut', label: 'Pizza Hut', value: 0.3, notes: ['+10% Y/Y'] },
+            { id: 'habit', label: 'The Habit Burger Grill', value: 0.1, notes: ['+2% Y/Y'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: {
+            id: 'cost_of_revenue',
+            label: 'Cost of revenue',
+            value: 0,
+            notes: ['The source chart does not break out cost of revenue or gross profit.'],
+          },
+          operatingExpenses: {
+            total: 1.5,
+            notes: ['Source chart operating-expense detail sums to $1.4B due to rounding.'],
+            items: [
+              { id: 'company_restaurants', label: 'Company restaurants', value: 0.7 },
+              { id: 'franchise_expenses', label: 'Franchise expenses', value: 0.4 },
+              { id: 'ga', label: 'G&A', value: 0.3 },
+            ],
+          },
+          tax: { id: 'tax', label: 'Tax', value: 0.1 },
+        },
+        otherIncome: {
+          total: 0,
+          items: [],
+        },
+        otherExpenses: {
+          total: 0.1,
+          items: [{ id: 'other', label: 'Other', value: 0.1 }],
+        },
+        profit: {
+          gross: {
+            id: 'gross_profit',
+            label: 'Gross profit',
+            value: 2.1,
+            notes: ['Bookkeeping value for SSOT parity; gross profit is not shown in the source chart.'],
+          },
+          operating: {
+            id: 'operating_profit',
+            label: 'Operating profit',
+            value: 0.6,
+            notes: ['31% margin', '+1pp Y/Y', 'Source chart also shows $46M other operating income feeding operating profit.'],
+          },
+          net: { id: 'net_profit', label: 'Net profit', value: 0.4, notes: ['21% margin', '+7pp Y/Y'] },
         },
       },
     ],

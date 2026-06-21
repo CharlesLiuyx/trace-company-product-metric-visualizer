@@ -9,12 +9,13 @@ data/
   schema.md
   income-statements.js     # pure financial-statement SSOT
   company-metadata.js      # company profile SSOT
-  <dataset-key>.js         # registered Sankey dataset adapters
+  datasets/
+    <dataset-key>.js       # registered Sankey dataset adapters
   assets/
     icon-references/       # reusable icon reference crops and validation
 ```
 
-Keep registered dataset adapters at `data/<dataset-key>.js`. The viewer,
+Keep registered dataset adapters at `data/datasets/<dataset-key>.js`. The viewer,
 standalone builder, and verification scripts load these files directly from
 `index.html`, and the project workflow documents this path as the stable
 dataset convention.

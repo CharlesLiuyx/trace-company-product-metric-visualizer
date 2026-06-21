@@ -1,0 +1,329 @@
+{
+  "source": "input/processed/starbucks-q2-fy26.png",
+  "spec": "input/icon-crop-specs/starbucks-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-06-21T04:22:15.313415+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "starbucks-company-siren",
+      "output": "data/assets/icon-references/starbucks/crops/company-siren.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 6925,
+        "losslessBytes": 39806,
+        "savingsVsLossless": 0.826,
+        "metrics": {
+          "meanAbsoluteError": 0.6299,
+          "rootMeanSquareError": 2.2713,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 45,
+          "changedPixelRatio": 0.3078
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 31360,
+        "transparentPixelRatio": 0.4434
+      },
+      "searchBox": {
+        "x": 760,
+        "y": 262,
+        "width": 260,
+        "height": 246
+      },
+      "componentCount": 4,
+      "subjectBox": {
+        "x0": 775,
+        "y0": 271,
+        "x1": 999,
+        "y1": 497
+      },
+      "cropBox": {
+        "x0": 756,
+        "y0": 254,
+        "x1": 1028,
+        "y1": 514
+      },
+      "validation": {
+        "width": 272,
+        "height": 260,
+        "foregroundPixels": 24213,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 19,
+          "right": 29,
+          "top": 17,
+          "bottom": 17
+        },
+        "centerOffset": {
+          "x": -0.0184,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Starbucks siren company mark above the revenue hub; excludes title, revenue text, flows, and publisher marks.",
+      "validationSheet": "data/assets/icon-references/starbucks/validation-sheets/starbucks-company-siren.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 382383,
+        "losslessBytes": 382383,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "starbucks-business-beverage",
+      "output": "data/assets/icon-references/starbucks/crops/business-beverage.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 58732,
+        "losslessBytes": 58732,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 23323,
+        "transparentPixelRatio": 0.4962
+      },
+      "searchBox": {
+        "x": 118,
+        "y": 408,
+        "width": 178,
+        "height": 240
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 130,
+        "y0": 411,
+        "x1": 280,
+        "y1": 648
+      },
+      "cropBox": {
+        "x0": 112,
+        "y0": 402,
+        "x1": 300,
+        "y1": 652
+      },
+      "validation": {
+        "width": 188,
+        "height": 250,
+        "foregroundPixels": 22755,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 18,
+          "right": 20,
+          "top": 9,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": -0.0053,
+          "y": 0.01
+        },
+        "passes": true
+      },
+      "note": "Iced beverage product image for the Beverage revenue line; excludes value text, label text, and flow marks.",
+      "validationSheet": "data/assets/icon-references/starbucks/validation-sheets/starbucks-business-beverage.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 401135,
+        "losslessBytes": 401135,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "starbucks-business-food",
+      "output": "data/assets/icon-references/starbucks/crops/business-food.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 38833,
+        "losslessBytes": 38833,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 15164,
+        "transparentPixelRatio": 0.5024
+      },
+      "searchBox": {
+        "x": 108,
+        "y": 742,
+        "width": 180,
+        "height": 142
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 130,
+        "y0": 746,
+        "x1": 283,
+        "y1": 882
+      },
+      "cropBox": {
+        "x0": 100,
+        "y0": 736,
+        "x1": 296,
+        "y1": 890
+      },
+      "validation": {
+        "width": 196,
+        "height": 154,
+        "foregroundPixels": 14947,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 30,
+          "right": 13,
+          "top": 10,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0434,
+          "y": 0.0065
+        },
+        "passes": true
+      },
+      "note": "Food product image for the Food revenue line; excludes value text, label text, and flow marks.",
+      "validationSheet": "data/assets/icon-references/starbucks/validation-sheets/starbucks-business-food.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 398744,
+        "losslessBytes": 398744,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "starbucks-business-packaged-beverages",
+      "output": "data/assets/icon-references/starbucks/crops/business-packaged-beverages.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 21095,
+        "losslessBytes": 21095,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 10299,
+        "transparentPixelRatio": 0.5398
+      },
+      "searchBox": {
+        "x": 132,
+        "y": 986,
+        "width": 168,
+        "height": 94
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 154,
+        "y0": 989,
+        "x1": 260,
+        "y1": 1080
+      },
+      "cropBox": {
+        "x0": 126,
+        "y0": 976,
+        "x1": 306,
+        "y1": 1082
+      },
+      "validation": {
+        "width": 180,
+        "height": 106,
+        "foregroundPixels": 8180,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 28,
+          "right": 46,
+          "top": 13,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": -0.05,
+          "y": 0.0519
+        },
+        "passes": true
+      },
+      "note": "Packaged bottled beverage cluster for the Other revenue line; excludes note text, label text, and flow marks.",
+      "validationSheet": "data/assets/icon-references/starbucks/validation-sheets/starbucks-business-packaged-beverages.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 347160,
+        "losslessBytes": 347160,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

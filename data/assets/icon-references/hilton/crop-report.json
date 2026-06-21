@@ -1,0 +1,116 @@
+{
+  "source": "input/processed/hilton-q1-fy26.png",
+  "spec": "input/icon-crop-specs/hilton-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-06-21T04:19:03.618981+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "hilton-company-logo",
+      "output": "data/assets/icon-references/hilton/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 6054,
+        "losslessBytes": 44047,
+        "savingsVsLossless": 0.8626,
+        "metrics": {
+          "meanAbsoluteError": 0.4472,
+          "rootMeanSquareError": 1.7671,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.3685
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 152547,
+        "transparentPixelRatio": 0.8037
+      },
+      "searchBox": {
+        "x": 830,
+        "y": 225,
+        "width": 480,
+        "height": 335
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 847,
+        "y0": 238,
+        "x1": 1281,
+        "y1": 536
+      },
+      "cropBox": {
+        "x0": 815,
+        "y0": 215,
+        "x1": 1335,
+        "y1": 580
+      },
+      "validation": {
+        "width": 520,
+        "height": 365,
+        "foregroundPixels": 29156,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 32,
+          "right": 54,
+          "top": 23,
+          "bottom": 44
+        },
+        "centerOffset": {
+          "x": -0.0212,
+          "y": -0.0288
+        },
+        "passes": true
+      },
+      "note": "Hilton company logo and wordmark near the center of the source chart; excludes revenue labels, connectors, KPI cards, and publisher footer branding.",
+      "validationSheet": "data/assets/icon-references/hilton/validation-sheets/hilton-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 296506,
+        "losslessBytes": 296506,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

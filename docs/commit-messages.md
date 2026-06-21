@@ -37,7 +37,7 @@ data(nvidia-q1-fy27): tune operating expense label placement
 
 | type | 适用场景 |
 |---|---|
-| `data` | 新增、更新或调参 `data/*.js` 数据集，或移动 `input/pending/` 到 `input/processed/` |
+| `data` | 新增、更新或调参 `data/datasets/*.js` 数据集，或移动 `input/pending/` 到 `input/processed/` |
 | `render` | 修改 `src/sankey-engine.js`、图形几何、颜色、字体、导出、交互等渲染行为 |
 | `feat` | 新增用户可见能力，例如新的模式、导航、导出选项 |
 | `fix` | 修复错误行为、计算错误、注册遗漏、UI 失效 |
@@ -77,7 +77,7 @@ Adjusts the explicit node layout to reduce overlap around gross profit while
 keeping all source values unchanged.
 
 Verification:
-- node --check data/nvidia-q4-fy26.js
+- node --check data/datasets/nvidia-q4-fy26.js
 - pnpm verify:d3 -- nvidia-q4-fy26
 - RGB MAE: 12.84, MAE similarity: 0.9496, imageCount: 0
 ```
@@ -108,7 +108,7 @@ chore(deps): pin playwright 1.61.0
 
 ## 拆分提交建议
 
-- 新数据集提交：把 `input/processed/<dataset-key>.png`、`data/<dataset-key>.js`
+- 新数据集提交：把 `input/processed/<dataset-key>.png`、`data/datasets/<dataset-key>.js`
   和 `index.html` 注册放在同一个 `data(<dataset-key>)` 提交中。
 - 渲染器支持提交：如果为了某个数据集新增通用渲染能力，单独用
   `render(engine)` 提交，再用 `data(<dataset-key>)` 提交应用调参。
@@ -122,7 +122,7 @@ chore(deps): pin playwright 1.61.0
 
 | 改动 | 建议检查 |
 |---|---|
-| 数据集 | `node --check data/<dataset-key>.js` 和 `pnpm verify:d3 -- <dataset-key>` |
+| 数据集 | `node --check data/datasets/<dataset-key>.js` 和 `pnpm verify:d3 -- <dataset-key>` |
 | 渲染器 | `node --check src/sankey-engine.js`，并至少验证一个受影响数据集 |
 | 验证脚本 | `node --check scripts/verify-d3.mjs`，并用一个已有数据集跑 `pnpm verify:d3` |
 | 文档 | 检查链接、命令和文件路径是否仍然准确 |

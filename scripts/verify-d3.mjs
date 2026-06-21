@@ -6,7 +6,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { PNG } from 'pngjs';
 import { chromium } from 'playwright';
-import { dataScriptsFromIndex, renderHarnessScripts } from './script-sources.mjs';
+import { datasetScriptForKey, dataScriptsFromIndex, renderHarnessScripts } from './script-sources.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -250,16 +250,17 @@ async function pngMetrics(referencePath, candidatePath, diffPath = null) {
 
 async function main() {
   const { datasetKey, keep } = parseArgs(process.argv);
-  const datasetPath = path.join(rootDir, 'data', `${datasetKey}.js`);
+  const datasetScript = datasetScriptForKey(datasetKey);
+  const datasetPath = path.join(rootDir, datasetScript);
   if (!existsSync(datasetPath)) {
-    throw new Error(`Missing dataset file: data/${datasetKey}.js`);
+    throw new Error(`Missing dataset file: ${datasetScript}`);
   }
 
   const indexHtml = await readFile(path.join(rootDir, 'index.html'), 'utf8');
   const scripts = renderHarnessScripts(indexHtml);
   const datasetScripts = dataScriptsFromIndex(indexHtml);
-  if (!datasetScripts.includes(`data/${datasetKey}.js`)) {
-    throw new Error(`Dataset script is not registered in index.html: data/${datasetKey}.js`);
+  if (!datasetScripts.includes(datasetScript)) {
+    throw new Error(`Dataset script is not registered in index.html: ${datasetScript}`);
   }
 
   await cleanCompare();

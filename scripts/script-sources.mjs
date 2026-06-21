@@ -8,13 +8,19 @@ export function scriptSources(indexHtml) {
   return sources;
 }
 
+export const DATASET_SCRIPT_DIR = 'data/datasets';
+
 const SUPPORT_DATA_SCRIPTS = new Set([
   'data/income-statements.js',
   'data/company-metadata.js',
 ]);
 
+export function datasetScriptForKey(key) {
+  return `${DATASET_SCRIPT_DIR}/${key}.js`;
+}
+
 function isDatasetScript(src) {
-  return /^data\/.+\.js$/.test(src) && !SUPPORT_DATA_SCRIPTS.has(src);
+  return src.startsWith(`${DATASET_SCRIPT_DIR}/`) && src.endsWith('.js') && !SUPPORT_DATA_SCRIPTS.has(src);
 }
 
 export function dataScriptsFromIndex(indexHtml) {

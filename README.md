@@ -131,15 +131,15 @@ verifier, but they are not part of the app runtime or standalone HTML artifact.
 
 ## Add your company
 
-Create a file in `data/`, register it on the global `DATASETS` array, add one
-`<script>` line in `index.html`, add the comparable financial statement record
-to `data/income-statements.js`, and add company-level context to
+Create a file in `data/datasets/`, register it on the global `DATASETS` array,
+add one `<script>` line in `index.html`, add the comparable financial statement
+record to `data/income-statements.js`, and add company-level context to
 `data/company-metadata.js` before registering the first dataset for that
 company. The fastest Sankey path is the high-level helper — you supply the line
 items and it derives every subtotal and flow:
 
 ```js
-// data/my-company-fy25.js
+// data/datasets/my-company-fy25.js
 (window.DATASETS = window.DATASETS || []).push(
   window.SankeyEngine.fromIncomeStatement({
     key: 'my-company-fy25',
@@ -170,7 +170,7 @@ items and it derives every subtotal and flow:
 
 ```html
 <!-- index.html, with the other dataset scripts -->
-<script src="data/my-company-fy25.js"></script>
+<script src="data/datasets/my-company-fy25.js"></script>
 ```
 
 That's it. The helper computes Revenue, Gross / Operating / Net profit and wires
@@ -178,8 +178,8 @@ all the flows for you. Keep `data/income-statements.js` updated with the same
 reported totals and line items, then run `pnpm verify:ssot` to confirm the SSOT
 still covers every registered dataset. For pixel-level control over columns,
 ordering, icons and label placement, author `nodes` + `links` directly instead — see
-[`data/schema.md`](data/schema.md). `data/nvidia-q1-fy27.js` is a full
-hand-authored example; `data/nvidia-from-figures.js` builds the same chart from
+[`data/schema.md`](data/schema.md). `data/datasets/nvidia-q1-fy27.js` is a full
+hand-authored example; `data/datasets/nvidia-from-figures.js` builds the same chart from
 raw figures via the helper.
 
 ## How it's built
@@ -198,7 +198,7 @@ raw figures via the helper.
 | `scripts/extract_icon_crops.py` | spec-driven icon crop extraction and validation           |
 | `data/income-statements.js` | pure financial-statement SSOT for totals and line items       |
 | `data/company-metadata.js`  | company-profile SSOT for Table mode and onboarding checks     |
-| `data/*.js`                 | datasets (one per company/period)                             |
+| `data/datasets/*.js`      | datasets (one per company/period)                             |
 | `data/assets/`              | reusable icon references and validation records               |
 | `vendor/`                   | d3 v7 and d3-sankey — vendored for offline use                |
 
