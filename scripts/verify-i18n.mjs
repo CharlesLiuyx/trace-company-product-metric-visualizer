@@ -8,6 +8,7 @@ import { dataScriptsFromIndex } from './script-sources.mjs';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
+const TRACKED_TRANSLATABLE_ACRONYMS = new Set(['D&A', 'G&A', 'R&D', 'S&M', 'SG&A', 'TAC']);
 
 function readProjectFile(relativePath) {
   return readFileSync(path.join(rootDir, relativePath), 'utf8');
@@ -239,6 +240,7 @@ function looksTranslatable(text) {
   if (!/[A-Za-z]/.test(value)) return false;
   if (/^https?:\/\//i.test(value)) return false;
   if (/^\(?\$?\d[\d.,]*[BMK]?\)?$/i.test(value)) return false;
+  if (TRACKED_TRANSLATABLE_ACRONYMS.has(value)) return true;
   if (/^[A-Z0-9&./ +-]{1,12}$/.test(value)) return false;
   if (/^[\d\s$().,%+-]+[BMK]?$/.test(value)) return false;
   return true;
