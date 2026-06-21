@@ -1458,6 +1458,18 @@ const periodSearchController = createHeaderSearchController({
   toggle: periodSearchToggle,
   render: renderPeriods,
 });
+function isCompanySearchShortcut(e) {
+  return e.shiftKey && !e.altKey && (e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'f';
+}
+function openCompanySearch() {
+  if (state.sidebarCollapsed) setSidebarCollapsed(false);
+  companySearchController.setOpen(true);
+}
+document.addEventListener('keydown', (e) => {
+  if (e.isComposing || !isCompanySearchShortcut(e)) return;
+  e.preventDefault();
+  openCompanySearch();
+});
 companyList.addEventListener('keydown', (e) => {
   if (e.key !== 'ArrowUp' && e.key !== 'ArrowDown') return;
   if (e.altKey || e.ctrlKey || e.metaKey) return;
