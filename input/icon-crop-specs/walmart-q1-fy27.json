@@ -1,0 +1,35 @@
+{
+  "source": "input/processed/walmart-q1-fy27.png",
+  "outputDir": "data/assets/icon-references/walmart",
+  "validationSheetDir": "data/assets/icon-references/walmart/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "walmart-company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "searchBox": { "x": 598, "y": 272, "width": 590, "height": 160 },
+      "cropBox": { "x": 586, "y": 260, "width": 620, "height": 165 },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "note": "Walmart company wordmark and spark above the net-sales hub; excludes title, values, flows, and publisher marks."
+    },
+    {
+      "key": "walmart-business-sams-club-wordmark",
+      "output": "crops/business-sams-club-wordmark.png",
+      "searchBox": { "x": 96, "y": 1150, "width": 282, "height": 44 },
+      "cropBox": { "x": 88, "y": 1138, "width": 300, "height": 62 },
+      "threshold": 18,
+      "minComponentArea": 30,
+      "validation": {
+        "maxCenterOffset": 0.06
+      },
+      "note": "Sam's Club segment wordmark and diamond icon only; excludes values, Y/Y note, flow marks, and bottom publisher marks."
+    }
+  ]
+}

@@ -25,6 +25,30 @@ window.SANKEY_BRAND = {
 };
 
 window.SANKEY_BUSINESS_ICONS = {
+  walmartCompanyWordmark: `
+    <g>
+      <text x="0" y="104" font-family="Arial Rounded MT Bold, Arial, sans-serif" font-size="104" font-weight="800" fill="#0071ce"
+        textLength="430" lengthAdjust="spacingAndGlyphs">Walmart</text>
+      <g transform="translate(490 62)" fill="#ffc220">
+        <rect x="-9" y="-61" width="18" height="50" rx="9"/>
+        <rect x="-9" y="11" width="18" height="50" rx="9"/>
+        <rect x="-9" y="-61" width="18" height="50" rx="9" transform="rotate(60)"/>
+        <rect x="-9" y="-61" width="18" height="50" rx="9" transform="rotate(120)"/>
+        <rect x="-9" y="-61" width="18" height="50" rx="9" transform="rotate(240)"/>
+        <rect x="-9" y="-61" width="18" height="50" rx="9" transform="rotate(300)"/>
+      </g>
+    </g>
+  `,
+  samsClubWordmark: `
+    <g>
+      <text x="0" y="51" font-family="Arial Rounded MT Bold, Arial, sans-serif" font-size="50" font-weight="800" fill="#0067a0"
+        textLength="205" lengthAdjust="spacingAndGlyphs">sam's club</text>
+      <g transform="translate(225 4) scale(0.78)">
+        <path d="M31 0L62 31L31 62L20 51L40 31L20 11Z" fill="#0067a0"/>
+        <path d="M31 0L0 31L31 62L42 51L22 31L42 11Z" fill="#0086c8"/>
+      </g>
+    </g>
+  `,
   hpLogo: `
     <circle cx="150" cy="150" r="140" fill="#0b9bd4"/>
     <g fill="#ffffff" transform="skewX(-13)">
