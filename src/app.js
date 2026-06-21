@@ -1,6 +1,11 @@
 const sets = window.DATASETS || [];
 const companySearch = document.getElementById('companySearch');
+const companySearchToggle = document.getElementById('companySearchToggle');
+const companySection = document.querySelector('.company-section');
 const periodSearch = document.getElementById('periodSearch');
+const periodSearchToggle = document.getElementById('periodSearchToggle');
+const periodSortToggle = document.getElementById('periodSortToggle');
+const periodSection = document.querySelector('.period-section');
 const companyList = document.getElementById('companyList');
 const periodList = document.getElementById('periodList');
 const app = document.querySelector('.app');
@@ -34,6 +39,8 @@ const SIDEBAR_MIN = 220;
 const SIDEBAR_MAX = 560;
 const SIDEBAR_DEFAULT = 282;
 const DESKTOP_BREAKPOINT = 900;
+const QUARTER_TAGS = ['Q4', 'Q3', 'Q2', 'Q1'];
+const ANNUAL_PERIOD_KEY = 'FY';
 const I18N = {
   en: {
     documentTitle: 'Income Statement Sankey Visualizer',
@@ -86,6 +93,9 @@ const I18N = {
     noMatchingCompanies: 'No matching companies.',
     noMatchingTimePoints: 'No matching time points.',
     latest: 'Latest',
+    viewVariantsLabel: 'View variants',
+    defaultVariant: 'Main',
+    annualPeriodTag: 'FY',
     tableCompany: 'Company',
     tableLegalName: 'Legal name',
     tableTicker: 'Ticker',
@@ -165,6 +175,9 @@ const I18N = {
     noMatchingCompanies: '没有匹配的公司。',
     noMatchingTimePoints: '没有匹配的数据期间。',
     latest: '最新',
+    viewVariantsLabel: '视图变体',
+    defaultVariant: '主视图',
+    annualPeriodTag: 'FY',
     tableCompany: '公司',
     tableLegalName: '法定名称',
     tableTicker: '股票代码',
@@ -318,17 +331,78 @@ function periodSortValue(record, fallback) {
   }
   return fallback;
 }
+function fiscalYearLabel(year) {
+  if (!Number.isFinite(year) || year <= 0) return '';
+  return `FY${String(year).slice(-2).padStart(2, '0')}`;
+}
+function periodParts(record) {
+  const text = clean([record.period, record.dataset?.key, record.label].filter(Boolean).join(' '));
+  const fy = text.match(/\bFY\s*(20\d{2}|\d{2})\b/i) || text.match(/\bfy(20\d{2}|\d{2})\b/i);
+  const quarter = text.match(/\bQ\s*([1-4])\b/i) || text.match(/\bq([1-4])[-_\s]?fy/i);
+  let fiscalYearNumber = fy ? Number(fy[1]) : 0;
+  if (fiscalYearNumber && fiscalYearNumber < 100) fiscalYearNumber += 2000;
+  const fiscalYear = fiscalYearLabel(fiscalYearNumber) || clean(record.period) || 'Unspecified';
+  const quarterNumber = quarter ? Number(quarter[1]) : 0;
+  const quarterKey = quarterNumber ? `Q${quarterNumber}` : ANNUAL_PERIOD_KEY;
+  return {
+    fiscalYear,
+    fiscalYearNumber,
+    quarterKey,
+    quarterNumber,
+    yearKey: fiscalYear,
+    isAnnual: !quarterNumber,
+  };
+}
+function titleCaseVariant(value) {
+  const abbreviations = new Set(['ai', 'api', 'aws', 'bu', 'cpu', 'fy', 'gaap', 'gpu', 'iot', 'saas', 'svg', 'ui', 'us', 'yoy']);
+  const text = clean(String(value || '')
+    .replace(/([a-z])([A-Z])/g, '$1 $2')
+    .replace(/[_-]+/g, ' ')
+    .replace(/[()[\]{}]/g, ' '));
+  if (!text) return '';
+  return text.split(' ').map((word) => {
+    const lower = word.toLowerCase();
+    if (abbreviations.has(lower)) return lower.toUpperCase();
+    return lower.charAt(0).toUpperCase() + lower.slice(1);
+  }).join(' ');
+}
+function keyVariantText(record) {
+  const key = clean(record.dataset?.key).toLowerCase();
+  if (!key) return '';
+  const quarterlySuffix = key.match(/\bq[1-4]-fy(?:20)?\d{2}(?:-(.*))?$/i);
+  if (quarterlySuffix) return clean((quarterlySuffix[1] || '').replace(/[-_]+/g, ' '));
+  const annualSuffix = key.match(/\bfy(?:20)?\d{2}(?:-(.*))?$/i);
+  if (annualSuffix) return clean((annualSuffix[1] || '').replace(/[-_]+/g, ' '));
+  const companySlug = companyKey(record.company);
+  let suffix = key;
+  if (companySlug && suffix.startsWith(companySlug)) suffix = suffix.slice(companySlug.length);
+  suffix = suffix
+    .replace(/^-+/, '')
+    .replace(/\bq[1-4]-fy(?:20)?\d{2}\b/i, '')
+    .replace(/\bfy(?:20)?\d{2}\b/i, '')
+    .replace(/^-+|-+$/g, '')
+    .replace(/[-_]+/g, ' ');
+  return clean(suffix);
+}
+function variantFeatureName(record) {
+  const meta = record.dataset?.meta || {};
+  const explicit = meta.variant || meta.variantName || meta.viewVariant || meta.viewVariantName || record.dataset?.variant || record.dataset?.variantName;
+  if (explicit) return titleCaseVariant(explicit);
+  return titleCaseVariant(keyVariantText(record));
+}
 
 const records = sets.map((dataset, index) => {
   const period = periodFor(dataset);
   const periodNote = clean(dataset.meta?.periodNote);
   const company = companyFor(dataset);
   const label = clean(dataset.name || dataset.meta?.title || dataset.key || `Dataset ${index + 1}`);
-  return { dataset, index, company, period, periodNote, label, sortValue: 0 };
+  return { dataset, index, company, period, periodNote, label, sortValue: 0, periodParts: null, variantFeature: '' };
 });
 records.forEach((record, index) => {
   record.sortValue = periodSortValue(record, index);
-  record.searchText = [record.company, record.period, record.periodNote, record.label, record.dataset.key].join(' ');
+  record.periodParts = periodParts(record);
+  record.variantFeature = variantFeatureName(record);
+  record.searchText = [record.company, record.period, record.periodNote, record.variantFeature, record.label, record.dataset.key].join(' ');
 });
 const groups = Array.from(records.reduce((map, record) => {
   if (!map.has(record.company)) map.set(record.company, { company: record.company, records: [] });
@@ -390,6 +464,10 @@ function moonIcon() {
 function sunIcon() {
   return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>';
 }
+function sortIcon(direction) {
+  const arrow = direction === 'asc' ? '<path d="M7 17V7"/><path d="m4 10 3-3 3 3"/>' : '<path d="M7 7v10"/><path d="m4 14 3 3 3-3"/>';
+  return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">${arrow}<path d="M13 8h7"/><path d="M13 12h5"/><path d="M13 16h3"/></svg>`;
+}
 function syncThemeControls() {
   document.documentElement.dataset.theme = state.theme;
   themeToggle.innerHTML = state.theme === 'dark' ? moonIcon() : sunIcon();
@@ -416,6 +494,7 @@ function applyStaticTranslations() {
   languageToggle.setAttribute('aria-label', t('languageToggleTitle'));
   languageToggle.title = t('languageToggleTitle');
   syncThemeControls();
+  syncPeriodSortToggle();
   syncSidebarControls();
   syncToolbarHeight();
 }
@@ -484,9 +563,95 @@ function currentDataset() {
 function groupFor(company) {
   return groups.find((group) => group.company === company) || groups[0];
 }
-function sortedRecords(group) {
+function sortedRecordList(recordList) {
   const direction = state.sort === 'asc' ? 1 : -1;
-  return [...(group?.records || [])].sort((a, b) => direction * (a.sortValue - b.sortValue) || a.period.localeCompare(b.period));
+  return [...(recordList || [])].sort((a, b) =>
+    direction * (a.sortValue - b.sortValue) ||
+    a.period.localeCompare(b.period) ||
+    a.index - b.index
+  );
+}
+function sortedRecords(group) {
+  return sortedRecordList(group?.records || []);
+}
+function sortedVariantRecords(recordList) {
+  return [...(recordList || [])].sort((a, b) =>
+    (a.variantFeature ? 1 : 0) - (b.variantFeature ? 1 : 0) ||
+    a.dataset.key.length - b.dataset.key.length ||
+    a.index - b.index
+  );
+}
+function variantLabel(record) {
+  return record?.variantFeature || t('defaultVariant');
+}
+function recordByIndex(index) {
+  return records.find((record) => record.index === index);
+}
+function selectRecord(record, scrollKind = 'statement') {
+  if (!record) return;
+  state.activeIndex = record.index;
+  state.company = record.company;
+  syncDatasetHash(record);
+  renderAll();
+  draw();
+  scrollActiveTableRow(scrollKind);
+}
+function descriptionForPeriodRecord(record, bucket) {
+  if (!record) return '';
+  const parts = [
+    record.periodParts.quarterKey === ANNUAL_PERIOD_KEY ? t('annualPeriodTag') : record.periodParts.quarterKey,
+    record.periodNote || record.label,
+  ];
+  if ((bucket?.records || []).length > 1 || record.variantFeature) parts.push(variantLabel(record));
+  return parts.map(clean).filter(Boolean).join(' · ');
+}
+function periodTreeFor(group) {
+  const visibleRecords = sortedRecords(group).filter((record) => matches(record.searchText, periodSearch.value));
+  const yearMap = new Map();
+  visibleRecords.forEach((record) => {
+    const parts = record.periodParts;
+    if (!yearMap.has(parts.yearKey)) {
+      yearMap.set(parts.yearKey, {
+        yearKey: parts.yearKey,
+        fiscalYearNumber: parts.fiscalYearNumber,
+        sortValue: record.sortValue,
+        records: [],
+        quarters: new Map(),
+      });
+    }
+    const year = yearMap.get(parts.yearKey);
+    year.records.push(record);
+    year.sortValue = Math.max(year.sortValue, record.sortValue);
+    if (!year.quarters.has(parts.quarterKey)) {
+      year.quarters.set(parts.quarterKey, {
+        key: parts.quarterKey,
+        quarterNumber: parts.quarterNumber,
+        records: [],
+      });
+    }
+    year.quarters.get(parts.quarterKey).records.push(record);
+  });
+  const direction = state.sort === 'asc' ? 1 : -1;
+  return Array.from(yearMap.values())
+    .map((year) => {
+      year.quarters.forEach((quarter) => {
+        quarter.records = sortedVariantRecords(quarter.records);
+      });
+      const activeRecord = year.records.find((record) => record.index === state.activeIndex);
+      const defaultRecord = sortedRecordList(year.records)[0];
+      const selectedQuarterKey = (activeRecord || defaultRecord)?.periodParts.quarterKey || QUARTER_TAGS.find((quarter) => year.quarters.has(quarter)) || ANNUAL_PERIOD_KEY;
+      const selectedBucket = year.quarters.get(selectedQuarterKey);
+      const selectedRecord = activeRecord || selectedBucket?.records[0] || defaultRecord;
+      return {
+        ...year,
+        active: Boolean(activeRecord),
+        selectedQuarterKey,
+        selectedBucket,
+        selectedRecord,
+        description: descriptionForPeriodRecord(selectedRecord, selectedBucket),
+      };
+    })
+    .sort((a, b) => direction * (a.sortValue - b.sortValue) || a.yearKey.localeCompare(b.yearKey));
 }
 function companyKey(company) {
   return normalize(company).replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'company';
@@ -720,6 +885,7 @@ function renderCompanies() {
       }
       renderAll();
       draw();
+      companySearchController.setOpen(false);
       scrollActiveTableRow('company');
     });
     companyList.appendChild(button);
@@ -727,43 +893,71 @@ function renderCompanies() {
 }
 function renderPeriods() {
   const group = groupFor(state.company);
-  const visibleRecords = sortedRecords(group).filter((record) => matches(record.searchText, periodSearch.value));
+  const yearItems = periodTreeFor(group);
   periodList.innerHTML = '';
-  if (!visibleRecords.length) {
+  if (!yearItems.length) {
     periodList.innerHTML = `<div class="empty-state">${escapeHtml(t('noMatchingTimePoints'))}</div>`;
     return;
   }
-  visibleRecords.forEach((record) => {
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'nav-item period-item' + (record.index === state.activeIndex ? ' active' : '');
-    button.setAttribute('role', 'option');
-    button.setAttribute('aria-selected', record.index === state.activeIndex ? 'true' : 'false');
-    button.setAttribute('aria-label', [record.period, record.periodNote || record.label].filter(Boolean).join(', '));
-    const colors = timelineColors(record, group);
-    button.style.setProperty('--timeline-color', colors.dot);
-    button.style.setProperty('--timeline-line-color', colors.line);
-    button.style.setProperty('--timeline-ring-color', colors.ring);
-    button.style.setProperty('--timeline-active-ring-color', colors.activeRing);
-    button.dataset.index = record.index;
-    button.innerHTML = `
+  yearItems.forEach((year) => {
+    const item = document.createElement('div');
+    item.className = 'period-item period-year-item' + (year.active ? ' active' : '');
+    item.setAttribute('role', 'group');
+    item.setAttribute('aria-label', [year.yearKey, year.description].filter(Boolean).join(', '));
+    const colors = timelineColors(year.selectedRecord || year.records[0], group);
+    item.style.setProperty('--timeline-color', colors.dot);
+    item.style.setProperty('--timeline-line-color', colors.line);
+    item.style.setProperty('--timeline-ring-color', colors.ring);
+    item.style.setProperty('--timeline-active-ring-color', colors.activeRing);
+    const tagKeys = [...QUARTER_TAGS];
+    if (year.quarters.has(ANNUAL_PERIOD_KEY)) tagKeys.push(ANNUAL_PERIOD_KEY);
+    const quarterTags = tagKeys.map((tag) => {
+      const bucket = year.quarters.get(tag);
+      const record = bucket?.records[0];
+      const isActive = Boolean(bucket?.records.some((entry) => entry.index === state.activeIndex));
+      const title = record ? [record.period, record.periodNote || record.label].filter(Boolean).join(', ') : `${year.yearKey} ${tag}`;
+      return `
+        <button
+          type="button"
+          class="quarter-tag${isActive ? ' active' : ''}"
+          ${record ? `data-index="${record.index}"` : 'disabled aria-disabled="true"'}
+          title="${escapeHtml(title)}"
+          aria-pressed="${isActive ? 'true' : 'false'}"
+        >${escapeHtml(tag === ANNUAL_PERIOD_KEY ? t('annualPeriodTag') : tag)}</button>
+      `;
+    }).join('');
+    const selectedRecords = year.selectedBucket?.records || [];
+    const showVariants = selectedRecords.length > 1 || selectedRecords.some((record) => record.variantFeature);
+    const variants = showVariants ? `
+      <span class="variant-row" aria-label="${escapeHtml(t('viewVariantsLabel'))}">
+        ${selectedRecords.map((record) => `
+          <button
+            type="button"
+            class="variant-chip${record.index === state.activeIndex ? ' active' : ''}"
+            data-index="${record.index}"
+            title="${escapeHtml(record.label || record.dataset.key)}"
+            aria-pressed="${record.index === state.activeIndex ? 'true' : 'false'}"
+          >${escapeHtml(variantLabel(record))}</button>
+        `).join('')}
+      </span>
+    ` : '';
+    item.innerHTML = `
       <span class="timeline-marker" aria-hidden="true"><span class="timeline-dot"></span></span>
-      <span class="timeline-content">
-        <span class="item-top">
-          <span class="item-name">${escapeHtml(record.period)}</span>
-          <span class="item-meta">${escapeHtml(record.periodNote || record.label)}</span>
+      <span class="timeline-content period-year-content">
+        <span class="period-year-row">
+          <span class="item-name period-year-name">${escapeHtml(year.yearKey)}</span>
+          <span class="quarter-tags">${quarterTags}</span>
         </span>
+        ${variants}
+        <span class="period-description">${escapeHtml(year.description)}</span>
       </span>
     `;
-    button.addEventListener('click', () => {
-      state.activeIndex = record.index;
-      state.company = record.company;
-      syncDatasetHash(record);
-      renderAll();
-      draw();
-      scrollActiveTableRow('statement');
+    item.querySelectorAll('button[data-index]').forEach((button) => {
+      button.addEventListener('click', () => {
+        selectRecord(recordByIndex(Number(button.dataset.index)));
+      });
     });
-    periodList.appendChild(button);
+    periodList.appendChild(item);
   });
 }
 function renderAll() {
@@ -798,8 +992,67 @@ function setViewMode(mode, persist = true) {
   if (mode === 'table') scrollActiveTableRow('statement');
 }
 
-companySearch.addEventListener('input', renderCompanies);
-periodSearch.addEventListener('input', renderPeriods);
+function createHeaderSearchController({ section, input, toggle, render }) {
+  const isOpen = () => section.classList.contains('search-open');
+  const sync = () => {
+    const open = isOpen();
+    const active = open || Boolean(clean(input.value));
+    toggle.classList.toggle('active', active);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  };
+  const setOpen = (open) => {
+    section.classList.toggle('search-open', open);
+    sync();
+    if (open) requestAnimationFrame(() => input.focus());
+  };
+  toggle.addEventListener('click', () => {
+    setOpen(!isOpen());
+  });
+  input.addEventListener('input', () => {
+    render();
+    sync();
+  });
+  input.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    if (input.value) {
+      input.value = '';
+      render();
+    }
+    setOpen(false);
+    toggle.focus();
+  });
+  document.addEventListener('pointerdown', (e) => {
+    if (!isOpen()) return;
+    if (section.contains(e.target)) return;
+    setOpen(false);
+  });
+  return { sync, setOpen };
+}
+function syncPeriodSortToggle() {
+  const isDesc = state.sort === 'desc';
+  const label = isDesc ? t('sortDescTitle') : t('sortAscTitle');
+  periodSortToggle.innerHTML = sortIcon(state.sort);
+  periodSortToggle.title = label;
+  periodSortToggle.setAttribute('aria-label', label);
+  periodSortToggle.setAttribute('aria-pressed', isDesc ? 'true' : 'false');
+}
+const companySearchController = createHeaderSearchController({
+  section: companySection,
+  input: companySearch,
+  toggle: companySearchToggle,
+  render: renderCompanies,
+});
+const periodSearchController = createHeaderSearchController({
+  section: periodSection,
+  input: periodSearch,
+  toggle: periodSearchToggle,
+  render: renderPeriods,
+});
+periodSortToggle.addEventListener('click', () => {
+  state.sort = state.sort === 'desc' ? 'asc' : 'desc';
+  syncPeriodSortToggle();
+  renderPeriods();
+});
 viewMode.addEventListener('click', (e) => {
   const button = e.target.closest('button');
   if (!button) return;
@@ -810,13 +1063,6 @@ languageToggle.addEventListener('click', () => {
 });
 themeToggle.addEventListener('click', () => {
   setTheme(state.theme === 'light' ? 'dark' : 'light');
-});
-document.getElementById('periodSort').addEventListener('click', (e) => {
-  const button = e.target.closest('button');
-  if (!button) return;
-  state.sort = button.dataset.sort;
-  [...button.parentElement.children].forEach((child) => child.classList.toggle('active', child === button));
-  renderPeriods();
 });
 sidebarToggle.addEventListener('click', () => {
   setSidebarCollapsed(!state.sidebarCollapsed);
