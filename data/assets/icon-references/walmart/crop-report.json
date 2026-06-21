@@ -1,0 +1,208 @@
+{
+  "source": "input/processed/walmart-q1-fy27.png",
+  "spec": "input/icon-crop-specs/walmart-q1-fy27.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-06-21T11:09:54.112388+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "walmart-company-wordmark",
+      "output": "data/assets/icon-references/walmart/crops/company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 5012,
+        "losslessBytes": 21993,
+        "savingsVsLossless": 0.7721,
+        "metrics": {
+          "meanAbsoluteError": 0.3282,
+          "rootMeanSquareError": 1.8408,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 44,
+          "changedPixelRatio": 0.2471
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 77588,
+        "transparentPixelRatio": 0.7584
+      },
+      "searchBox": {
+        "x": 598,
+        "y": 272,
+        "width": 590,
+        "height": 160
+      },
+      "componentCount": 14,
+      "subjectBox": {
+        "x0": 601,
+        "y0": 272,
+        "x1": 1188,
+        "y1": 413
+      },
+      "cropBox": {
+        "x0": 586,
+        "y0": 260,
+        "x1": 1206,
+        "y1": 425
+      },
+      "validation": {
+        "width": 620,
+        "height": 165,
+        "foregroundPixels": 23682,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 15,
+          "right": 18,
+          "top": 12,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": -0.0024,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Walmart company wordmark and spark above the net-sales hub; excludes title, values, flows, and publisher marks.",
+      "validationSheet": "data/assets/icon-references/walmart/validation-sheets/walmart-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 128,
+        "bytes": 73613,
+        "losslessBytes": 233492,
+        "savingsVsLossless": 0.6847,
+        "metrics": {
+          "meanAbsoluteError": 0.4032,
+          "rootMeanSquareError": 2.6395,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 69,
+          "changedPixelRatio": 0.0872
+        }
+      }
+    },
+    {
+      "key": "walmart-business-sams-club-wordmark",
+      "output": "data/assets/icon-references/walmart/crops/business-sams-club-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2138,
+        "losslessBytes": 10265,
+        "savingsVsLossless": 0.7917,
+        "metrics": {
+          "meanAbsoluteError": 0.5429,
+          "rootMeanSquareError": 2.1381,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 31,
+          "changedPixelRatio": 0.1924
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 13105,
+        "transparentPixelRatio": 0.7046
+      },
+      "searchBox": {
+        "x": 96,
+        "y": 1150,
+        "width": 282,
+        "height": 44
+      },
+      "componentCount": 10,
+      "subjectBox": {
+        "x0": 98,
+        "y0": 1150,
+        "x1": 374,
+        "y1": 1194
+      },
+      "cropBox": {
+        "x0": 88,
+        "y0": 1138,
+        "x1": 388,
+        "y1": 1200
+      },
+      "validation": {
+        "width": 300,
+        "height": 62,
+        "foregroundPixels": 4432,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 10,
+          "right": 14,
+          "top": 12,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": -0.0067,
+          "y": 0.0484
+        },
+        "passes": true
+      },
+      "note": "Sam's Club segment wordmark and diamond icon only; excludes values, Y/Y note, flow marks, and bottom publisher marks.",
+      "validationSheet": "data/assets/icon-references/walmart/validation-sheets/walmart-business-sams-club-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 128,
+        "bytes": 74154,
+        "losslessBytes": 238227,
+        "savingsVsLossless": 0.6887,
+        "metrics": {
+          "meanAbsoluteError": 0.4222,
+          "rootMeanSquareError": 2.6849,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 68,
+          "changedPixelRatio": 0.0889
+        }
+      }
+    }
+  ]
+}
