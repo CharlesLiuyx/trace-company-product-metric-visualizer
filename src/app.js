@@ -39,13 +39,15 @@ const VIEW_MODE_KEY = 'sankey.view.mode';
 const LANGUAGE_KEY = 'sankey.language';
 const THEME_KEY = 'sankey.theme';
 const COMPANY_SORT_KEY = 'sankey.company.sort';
+const COMPANY_SORT_DIRECTION_KEY = 'sankey.company.sort.direction';
 const COMPANY_SORT_KEYS = ['name', 'recent', 'marketCap', 'netProfit', 'founded'];
+const COMPANY_SORT_DIRECTIONS = ['desc', 'asc'];
 const COMPANY_SORT_CONFIG = {
-  name: { labelKey: 'companySortName', direction: 1 },
-  recent: { labelKey: 'companySortRecent', direction: -1 },
-  marketCap: { labelKey: 'companySortMarketCap', direction: -1 },
-  netProfit: { labelKey: 'companySortNetProfit', direction: -1 },
-  founded: { labelKey: 'companySortFounded', direction: 1 },
+  name: { labelKey: 'companySortName', defaultDirection: 'asc', ascLabelKey: 'companySortNameAsc', descLabelKey: 'companySortNameDesc' },
+  recent: { labelKey: 'companySortRecent', defaultDirection: 'desc', ascLabelKey: 'companySortRecentAsc', descLabelKey: 'companySortRecentDesc' },
+  marketCap: { labelKey: 'companySortMarketCap', defaultDirection: 'desc', ascLabelKey: 'companySortMarketCapAsc', descLabelKey: 'companySortMarketCapDesc' },
+  netProfit: { labelKey: 'companySortNetProfit', defaultDirection: 'desc', ascLabelKey: 'companySortNetProfitAsc', descLabelKey: 'companySortNetProfitDesc' },
+  founded: { labelKey: 'companySortFounded', defaultDirection: 'asc', ascLabelKey: 'companySortFoundedAsc', descLabelKey: 'companySortFoundedDesc' },
 };
 const MONEY_UNIT_MULTIPLIERS = { T: 1e12, B: 1e9, M: 1e6, K: 1e3 };
 // Frankfurter USD rates as of 2026-06-19; used only for cross-currency UI sorting.
@@ -110,12 +112,24 @@ const I18N = I18N_API.ui || {
     companiesLabel: 'Companies',
     companySearchPlaceholder: 'Search companies',
     companySortButton: 'Sort companies',
-    companySortCurrent: 'Sort companies: {sort}',
+    companySortCurrent: 'Sort companies: {sort}, {direction}',
     companySortName: 'Alphabetical',
     companySortRecent: 'Recently updated',
     companySortMarketCap: 'Market cap',
     companySortNetProfit: 'Net profit',
     companySortFounded: 'Founded date',
+    companySortAction: '{sort}: {direction}',
+    companySortDirectionGroup: '{sort} direction',
+    companySortNameAsc: 'A to Z',
+    companySortNameDesc: 'Z to A',
+    companySortRecentAsc: 'Oldest first',
+    companySortRecentDesc: 'Newest first',
+    companySortMarketCapAsc: 'Smallest first',
+    companySortMarketCapDesc: 'Largest first',
+    companySortNetProfitAsc: 'Lowest first',
+    companySortNetProfitDesc: 'Highest first',
+    companySortFoundedAsc: 'Oldest first',
+    companySortFoundedDesc: 'Newest first',
     companySortMetaMarketCap: 'Mkt cap {value}',
     companySortMetaNetProfit: 'Net profit {value}',
     companySortMetaFounded: 'Founded {value}',
@@ -203,12 +217,24 @@ const I18N = I18N_API.ui || {
     companiesLabel: '公司',
     companySearchPlaceholder: '搜索公司',
     companySortButton: '公司排序',
-    companySortCurrent: '公司排序：{sort}',
+    companySortCurrent: '公司排序：{sort}，{direction}',
     companySortName: '字母序',
     companySortRecent: '最近更新',
     companySortMarketCap: '市值',
     companySortNetProfit: '净利润',
     companySortFounded: '成立日期',
+    companySortAction: '{sort}：{direction}',
+    companySortDirectionGroup: '{sort}排序方向',
+    companySortNameAsc: 'A 到 Z',
+    companySortNameDesc: 'Z 到 A',
+    companySortRecentAsc: '最旧优先',
+    companySortRecentDesc: '最新优先',
+    companySortMarketCapAsc: '市值从低到高',
+    companySortMarketCapDesc: '市值从高到低',
+    companySortNetProfitAsc: '净利润从低到高',
+    companySortNetProfitDesc: '净利润从高到低',
+    companySortFoundedAsc: '成立最早优先',
+    companySortFoundedDesc: '成立最新优先',
     companySortMetaMarketCap: '市值 {value}',
     companySortMetaNetProfit: '净利润 {value}',
     companySortMetaFounded: '成立于 {value}',
@@ -328,9 +354,26 @@ function readStoredTheme() {
 function readStoredCompanySort() {
   try {
     const value = window.localStorage.getItem(COMPANY_SORT_KEY);
-    return COMPANY_SORT_KEYS.includes(value) ? value : 'name';
+    const [sortKey] = String(value || '').split(':');
+    return COMPANY_SORT_KEYS.includes(sortKey) ? sortKey : 'name';
   } catch (error) {
     return 'name';
+  }
+}
+function defaultCompanySortDirection(sortKey) {
+  return COMPANY_SORT_CONFIG[sortKey]?.defaultDirection || 'asc';
+}
+function normalizeCompanySortDirection(sortKey, direction) {
+  return COMPANY_SORT_DIRECTIONS.includes(direction) ? direction : defaultCompanySortDirection(sortKey);
+}
+function readStoredCompanySortDirection(sortKey) {
+  try {
+    const legacyValue = String(window.localStorage.getItem(COMPANY_SORT_KEY) || '');
+    const legacyDirection = legacyValue.includes(':') ? legacyValue.split(':')[1] : '';
+    const value = window.localStorage.getItem(COMPANY_SORT_DIRECTION_KEY) || legacyDirection;
+    return normalizeCompanySortDirection(sortKey, value);
+  } catch (error) {
+    return defaultCompanySortDirection(sortKey);
   }
 }
 function t(key, values = {}, language = state?.language) {
@@ -547,9 +590,11 @@ function syncDatasetHash(record) {
 }
 
 const activeStart = recordFromHash() || records[defaultIndex >= 0 ? defaultIndex : 0];
+const storedCompanySort = readStoredCompanySort();
 const state = {
   sort: 'desc',
-  companySort: readStoredCompanySort(),
+  companySort: storedCompanySort,
+  companySortDirection: readStoredCompanySortDirection(storedCompanySort),
   activeIndex: activeStart?.index || 0,
   company: activeStart?.company || groups[0]?.company || '',
   viewMode: readStoredViewMode(),
@@ -569,8 +614,38 @@ function sortIcon(direction) {
   const arrow = direction === 'asc' ? '<path d="M7 17V7"/><path d="m4 10 3-3 3 3"/>' : '<path d="M7 7v10"/><path d="m4 14 3 3 3-3"/>';
   return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">${arrow}<path d="M13 8h7"/><path d="M13 12h5"/><path d="M13 16h3"/></svg>`;
 }
+function directionArrowPath(direction, x = 18) {
+  return direction === 'asc'
+    ? `<path d="M${x} 17V7"/><path d="m${x - 3} 10 3-3 3 3"/>`
+    : `<path d="M${x} 7v10"/><path d="m${x - 3} 14 3 3 3-3"/>`;
+}
+function alphabetArrowPath(direction, x = 18) {
+  return directionArrowPath(direction === 'asc' ? 'desc' : 'asc', x);
+}
+function sortDirectionIcon(direction, sortKey = '') {
+  if (sortKey === 'name') {
+    return `<svg viewBox="0 0 24 24" aria-hidden="true"><text x="4" y="9" fill="currentColor" font-size="8" font-weight="800" stroke="none">A</text><text x="4" y="19" fill="currentColor" font-size="8" font-weight="800" stroke="none">Z</text><g fill="none" stroke="currentColor">${alphabetArrowPath(direction, 18)}</g></svg>`;
+  }
+  return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">${directionArrowPath(direction, 12)}<path d="M8 8h8"/><path d="M9 16h6"/></svg>`;
+}
+function companySortFieldIcon(sortKey, direction = '') {
+  const arrow = direction ? directionArrowPath(direction, 18) : '';
+  if (sortKey === 'recent') {
+    return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="8.5" cy="8.5" r="4.5"/><path d="M8.5 6v3l2 1.2"/><path d="M4 18h8"/><path d="M4 21h5"/>${arrow}</svg>`;
+  }
+  if (sortKey === 'marketCap') {
+    return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M5 18V11"/><path d="M9 18V7"/><path d="M13 18v-4"/><path d="M4 18h10"/><path d="M9 4v3"/>${arrow}</svg>`;
+  }
+  if (sortKey === 'netProfit') {
+    return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M4 16l4-4 3 3 5-7"/><path d="M13 8h3v3"/><path d="M4 20h10"/>${arrow}</svg>`;
+  }
+  if (sortKey === 'founded') {
+    return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="4" y="5" width="10" height="12" rx="1.5"/><path d="M7 3v4"/><path d="M11 3v4"/><path d="M4 9h10"/><path d="M7 12h1"/><path d="M11 12h1"/>${arrow}</svg>`;
+  }
+  return `<svg viewBox="0 0 24 24" aria-hidden="true"><text x="4" y="9" fill="currentColor" font-size="8" font-weight="800" stroke="none">A</text><text x="4" y="19" fill="currentColor" font-size="8" font-weight="800" stroke="none">Z</text><g fill="none" stroke="currentColor">${direction ? alphabetArrowPath(direction, 18) : '<path d="M16 7h4"/><path d="M16 17h4"/>'}</g></svg>`;
+}
 function companySortIcon() {
-  return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M4 7h12"/><path d="M4 12h9"/><path d="M4 17h6"/><path d="m17 14 3 3 3-3"/></svg>';
+  return companySortFieldIcon(state.companySort, state.companySortDirection);
 }
 function syncThemeControls() {
   document.documentElement.dataset.theme = state.theme;
@@ -1104,13 +1179,14 @@ function companySortValue(group, sortKey = state.companySort) {
 }
 function compareCompanyGroups(a, b, language = state.language) {
   const sortKey = COMPANY_SORT_KEYS.includes(state.companySort) ? state.companySort : 'name';
-  const config = COMPANY_SORT_CONFIG[sortKey] || COMPANY_SORT_CONFIG.name;
+  const direction = state.companySortDirection === 'desc' ? -1 : 1;
   if (sortKey !== 'name') {
-    const byMetric = compareNullableNumber(companySortValue(a, sortKey), companySortValue(b, sortKey), config.direction);
+    const byMetric = compareNullableNumber(companySortValue(a, sortKey), companySortValue(b, sortKey), direction);
     if (byMetric) return byMetric;
   }
-  return displayCompanyForGroup(a, language).localeCompare(displayCompanyForGroup(b, language), languageCode(language)) ||
-    a.company.localeCompare(b.company) ||
+  const nameDirection = sortKey === 'name' ? direction : 1;
+  return nameDirection * displayCompanyForGroup(a, language).localeCompare(displayCompanyForGroup(b, language), languageCode(language)) ||
+    nameDirection * a.company.localeCompare(b.company) ||
     (b.latest?.sortValue || 0) - (a.latest?.sortValue || 0);
 }
 function sortedCompanyGroups(groupList) {
@@ -1625,17 +1701,59 @@ function companySortLabel(sortKey = state.companySort) {
   const key = COMPANY_SORT_CONFIG[sortKey]?.labelKey || COMPANY_SORT_CONFIG.name.labelKey;
   return t(key);
 }
+function companySortDirectionLabel(sortKey = state.companySort, direction = state.companySortDirection) {
+  const config = COMPANY_SORT_CONFIG[sortKey] || COMPANY_SORT_CONFIG.name;
+  const labelKey = direction === 'desc' ? config.descLabelKey : config.ascLabelKey;
+  return t(labelKey);
+}
+function companySortActionLabel(sortKey, direction) {
+  return t('companySortAction', {
+    sort: companySortLabel(sortKey),
+    direction: companySortDirectionLabel(sortKey, direction),
+  });
+}
+function renderCompanySortOptions() {
+  if (!companySortOptions) return;
+  companySortOptions.innerHTML = COMPANY_SORT_KEYS.map((sortKey) => {
+    const activeRow = sortKey === state.companySort;
+    const label = companySortLabel(sortKey);
+    const groupLabel = t('companySortDirectionGroup', { sort: label });
+    const directionButtons = COMPANY_SORT_DIRECTIONS.map((direction) => {
+      const active = activeRow && direction === state.companySortDirection;
+      const actionLabel = companySortActionLabel(sortKey, direction);
+      return `
+        <button
+          type="button"
+          class="sort-direction-button${active ? ' active' : ''}"
+          role="menuitemradio"
+          data-company-sort="${escapeHtml(sortKey)}"
+          data-company-sort-direction="${escapeHtml(direction)}"
+          aria-checked="${active ? 'true' : 'false'}"
+          aria-label="${escapeHtml(actionLabel)}"
+          title="${escapeHtml(actionLabel)}"
+        >${sortDirectionIcon(direction, sortKey)}</button>
+      `;
+    }).join('');
+    return `
+      <div class="sort-option-row${activeRow ? ' active' : ''}" role="none" data-company-sort-row="${escapeHtml(sortKey)}">
+        <span class="sort-option-label">
+          <span class="sort-option-icon">${companySortFieldIcon(sortKey)}</span>
+          <span>${escapeHtml(label)}</span>
+        </span>
+        <span class="sort-direction-group" role="group" aria-label="${escapeHtml(groupLabel)}">
+          ${directionButtons}
+        </span>
+      </div>
+    `;
+  }).join('');
+}
 function syncCompanySortControls() {
   if (!companySortToggle || !companySortOptions) return;
-  const label = t('companySortCurrent', { sort: companySortLabel() });
+  renderCompanySortOptions();
+  const label = t('companySortCurrent', { sort: companySortLabel(), direction: companySortDirectionLabel() });
   companySortToggle.innerHTML = companySortIcon();
   companySortToggle.title = label;
   companySortToggle.setAttribute('aria-label', label);
-  [...companySortOptions.querySelectorAll('[data-company-sort]')].forEach((button) => {
-    const active = button.dataset.companySort === state.companySort;
-    button.classList.toggle('active', active);
-    button.setAttribute('aria-checked', active ? 'true' : 'false');
-  });
 }
 function setCompanySortMenuOpen(open) {
   if (!companySortToggle || !companySortOptions) return;
@@ -1643,7 +1761,7 @@ function setCompanySortMenuOpen(open) {
   companySortToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   if (open) {
     requestAnimationFrame(() => {
-      const active = companySortOptions.querySelector('[aria-checked="true"]') || companySortOptions.querySelector('[data-company-sort]');
+      const active = companySortOptions.querySelector('[aria-checked="true"]') || companySortOptions.querySelector('[data-company-sort][data-company-sort-direction]');
       active?.focus({ preventScroll: true });
     });
   }
@@ -1651,14 +1769,17 @@ function setCompanySortMenuOpen(open) {
 function isCompanySortMenuOpen() {
   return companySortToggle?.getAttribute('aria-expanded') === 'true';
 }
-function setCompanySort(sortKey) {
+function setCompanySort(sortKey, direction) {
   if (!COMPANY_SORT_KEYS.includes(sortKey)) return;
-  if (state.companySort === sortKey) {
+  const nextDirection = normalizeCompanySortDirection(sortKey, direction);
+  if (state.companySort === sortKey && state.companySortDirection === nextDirection) {
     setCompanySortMenuOpen(false);
     return;
   }
   state.companySort = sortKey;
+  state.companySortDirection = nextDirection;
   writeStoredValue(COMPANY_SORT_KEY, sortKey);
+  writeStoredValue(COMPANY_SORT_DIRECTION_KEY, nextDirection);
   syncCompanySortControls();
   renderCompanies();
   if (state.viewMode === 'table') renderTables();
@@ -1706,14 +1827,14 @@ companySortToggle?.addEventListener('click', () => {
   setCompanySortMenuOpen(!isCompanySortMenuOpen());
 });
 companySortOptions?.addEventListener('click', (e) => {
-  const button = e.target.closest('[data-company-sort]');
+  const button = e.target.closest('[data-company-sort][data-company-sort-direction]');
   if (!button) return;
-  setCompanySort(button.dataset.companySort);
+  setCompanySort(button.dataset.companySort, button.dataset.companySortDirection);
   companySortToggle.focus();
 });
 companySortOptions?.addEventListener('keydown', (e) => {
-  const buttons = [...companySortOptions.querySelectorAll('[data-company-sort]')];
-  const current = document.activeElement?.closest?.('[data-company-sort]');
+  const buttons = [...companySortOptions.querySelectorAll('[data-company-sort][data-company-sort-direction]')];
+  const current = document.activeElement?.closest?.('[data-company-sort][data-company-sort-direction]');
   const index = current ? buttons.indexOf(current) : -1;
   if (e.key === 'Escape') {
     e.preventDefault();
@@ -1721,7 +1842,11 @@ companySortOptions?.addEventListener('keydown', (e) => {
     companySortToggle.focus();
   } else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
     e.preventDefault();
-    const next = e.key === 'ArrowDown' ? index + 1 : index - 1;
+    const next = e.key === 'ArrowDown' ? index + 2 : index - 2;
+    buttons[clamp(next, 0, buttons.length - 1)]?.focus();
+  } else if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+    e.preventDefault();
+    const next = e.key === 'ArrowRight' ? index + 1 : index - 1;
     buttons[clamp(next, 0, buttons.length - 1)]?.focus();
   } else if (e.key === 'Home' || e.key === 'End') {
     e.preventDefault();
