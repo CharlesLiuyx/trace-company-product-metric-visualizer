@@ -255,27 +255,70 @@ body.is-resizing-sidebar {
 .sort-toggle {
   background: var(--ink); color: var(--on-ink);
 }
+.sort-toggle:hover,
+.sort-toggle:focus-visible,
+.sort-toggle[aria-expanded="true"] {
+  background: var(--ink); color: var(--on-ink);
+  box-shadow: 0 0 0 1px var(--active-border);
+}
+.sort-toggle:hover {
+  filter: brightness(1.08);
+}
+.sort-toggle:focus-visible {
+  outline: 2px solid var(--focus); outline-offset: 2px;
+}
 .sort-menu {
   position: relative;
   display: inline-flex;
 }
 .sort-options {
   position: absolute; top: calc(100% + 4px); right: 0; z-index: 20;
-  min-width: 138px; padding: 4px;
+  min-width: 222px; padding: 5px;
   border: 1px solid var(--line); background: var(--bar); box-shadow: var(--chart-shadow);
 }
-.sort-options button {
-  width: 100%; height: 24px; padding: 0 8px;
-  border: 0; background: transparent; color: var(--text);
-  font: inherit; font-size: 11px; font-weight: 700; text-align: left;
+.sort-option-row {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 8px;
+  min-height: 30px; padding: 3px 4px 3px 8px;
+}
+.sort-option-row:hover {
+  background: var(--hover);
+}
+.sort-option-row.active {
+  background: var(--active-bg);
+}
+.sort-option-row.active:hover {
+  background: var(--table-active-hover);
+}
+.sort-option-label {
+  min-width: 0; display: inline-flex; align-items: center; gap: 7px;
+  color: var(--text-strong); font-size: 11px; font-weight: 800; white-space: nowrap;
+}
+.sort-option-icon,
+.sort-option-icon svg {
+  width: 14px; height: 14px; flex: 0 0 auto;
+}
+.sort-option-icon {
+  color: var(--icon); display: inline-flex; align-items: center; justify-content: center;
+}
+.sort-direction-group {
+  display: inline-grid; grid-template-columns: repeat(2, 22px); gap: 2px;
+}
+.sort-options .sort-direction-button {
+  width: 22px; height: 22px; padding: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid transparent; background: transparent; color: var(--button-text);
+  font: inherit;
   cursor: pointer;
 }
-.sort-options button:hover,
-.sort-options button:focus-visible {
-  background: var(--hover); outline: none;
+.sort-options .sort-direction-button:hover,
+.sort-options .sort-direction-button:focus-visible {
+  background: var(--primary-hover); color: var(--ink); border-color: var(--active-border); outline: none;
 }
-.sort-options button.active {
-  background: var(--ink); color: var(--on-ink);
+.sort-options .sort-direction-button.active {
+  background: var(--ink); color: var(--on-ink); border-color: var(--ink);
+}
+.sort-options .sort-direction-button svg {
+  width: 12px; height: 12px;
 }
 .search-toggle svg,
 .sort-toggle svg {
