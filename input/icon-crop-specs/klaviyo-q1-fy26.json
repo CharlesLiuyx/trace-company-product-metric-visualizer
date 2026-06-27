@@ -1,0 +1,99 @@
+{
+  "source": "input/processed/klaviyo-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/klaviyo/crops",
+  "validationSheetDir": "data/assets/icon-references/klaviyo/validation-sheets",
+  "report": "../crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "compression": {
+    "enabled": true,
+    "paletteColors": [256, 192, 128, 96, 64, 48, 32, 24],
+    "maxMeanAbsoluteError": 1.2,
+    "maxRootMeanSquareError": 3,
+    "maxP99AbsoluteError": 12,
+    "maxMaxChannelDiff": 72
+  },
+  "crops": [
+    {
+      "key": "klaviyo-company-wordmark",
+      "output": "company-wordmark.png",
+      "searchBox": { "x": 962, "y": 240, "width": 540, "height": 175 },
+      "cropBox": { "x": 962, "y": 240, "width": 540, "height": 175 },
+      "threshold": 22,
+      "foreground": {
+        "channels": {
+          "r": [0, 80],
+          "g": [0, 80],
+          "b": [0, 80]
+        }
+      },
+      "minComponentArea": 35,
+      "padding": 26,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "klaviyo-region-united-states-flag",
+      "output": "region-united-states-flag.png",
+      "searchBox": { "x": 105, "y": 525, "width": 68, "height": 48 },
+      "cropBox": { "x": 106, "y": 525, "width": 66, "height": 48 },
+      "threshold": 18,
+      "minComponentArea": 8,
+      "padding": 10,
+      "validation": {
+        "borderBand": 3,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "klaviyo-region-americas-globe",
+      "output": "region-americas-globe.png",
+      "searchBox": { "x": 684, "y": 360, "width": 84, "height": 84 },
+      "cropBox": { "x": 686, "y": 355, "width": 85, "height": 94 },
+      "threshold": 16,
+      "minComponentArea": 12,
+      "padding": 10,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "klaviyo-region-apac-globe",
+      "output": "region-apac-globe.png",
+      "searchBox": { "x": 590, "y": 994, "width": 88, "height": 88 },
+      "cropBox": { "x": 580, "y": 984, "width": 110, "height": 110 },
+      "threshold": 16,
+      "minComponentArea": 12,
+      "padding": 10,
+      "validation": {
+        "borderBand": 3,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "klaviyo-region-emea-globe",
+      "output": "region-emea-globe.png",
+      "searchBox": { "x": 590, "y": 1204, "width": 88, "height": 88 },
+      "cropBox": { "x": 580, "y": 1194, "width": 110, "height": 110 },
+      "threshold": 16,
+      "minComponentArea": 12,
+      "padding": 10,
+      "validation": {
+        "borderBand": 3,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ]
+}

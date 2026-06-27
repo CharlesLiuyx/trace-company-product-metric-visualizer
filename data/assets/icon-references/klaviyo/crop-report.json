@@ -1,0 +1,413 @@
+{
+  "source": "input/processed/klaviyo-q1-fy26.png",
+  "spec": "input/icon-crop-specs/klaviyo-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-06-27T08:26:59.557524+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3,
+      "maxP99AbsoluteError": 12,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "klaviyo-company-wordmark",
+      "output": "data/assets/icon-references/klaviyo/crops/company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 5054,
+        "losslessBytes": 21318,
+        "savingsVsLossless": 0.7629,
+        "metrics": {
+          "meanAbsoluteError": 0.2108,
+          "rootMeanSquareError": 1.0028,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 12,
+          "changedPixelRatio": 0.1005
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 67688,
+        "transparentPixelRatio": 0.7163
+      },
+      "searchBox": {
+        "x": 962,
+        "y": 240,
+        "width": 540,
+        "height": 175
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 962,
+        "y0": 256,
+        "x1": 1502,
+        "y1": 415
+      },
+      "cropBox": {
+        "x0": 962,
+        "y0": 240,
+        "x1": 1502,
+        "y1": 415
+      },
+      "validation": {
+        "width": 540,
+        "height": 175,
+        "foregroundPixels": 19834,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 0,
+          "right": 0,
+          "top": 16,
+          "bottom": 0
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0457
+        },
+        "passes": true
+      },
+      "note": "",
+      "validationSheet": "data/assets/icon-references/klaviyo/validation-sheets/klaviyo-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 249138,
+        "losslessBytes": 249138,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "klaviyo-region-united-states-flag",
+      "output": "data/assets/icon-references/klaviyo/crops/region-united-states-flag.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 4094,
+        "losslessBytes": 4094,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          241,
+          241
+        ],
+        "transparentPixels": 1819,
+        "transparentPixelRatio": 0.5742
+      },
+      "searchBox": {
+        "x": 105,
+        "y": 525,
+        "width": 68,
+        "height": 48
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 118,
+        "y0": 536,
+        "x1": 163,
+        "y1": 569
+      },
+      "cropBox": {
+        "x0": 106,
+        "y0": 525,
+        "x1": 172,
+        "y1": 573
+      },
+      "validation": {
+        "width": 66,
+        "height": 48,
+        "foregroundPixels": 1184,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 9,
+          "top": 11,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": 0.0227,
+          "y": 0.0729
+        },
+        "passes": true
+      },
+      "note": "",
+      "validationSheet": "data/assets/icon-references/klaviyo/validation-sheets/klaviyo-region-united-states-flag.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 304648,
+        "losslessBytes": 304648,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "klaviyo-region-americas-globe",
+      "output": "data/assets/icon-references/klaviyo/crops/region-americas-globe.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 8046,
+        "losslessBytes": 8046,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 3235,
+        "transparentPixelRatio": 0.4049
+      },
+      "searchBox": {
+        "x": 684,
+        "y": 360,
+        "width": 84,
+        "height": 84
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 688,
+        "y0": 373,
+        "x1": 764,
+        "y1": 444
+      },
+      "cropBox": {
+        "x0": 686,
+        "y0": 355,
+        "x1": 771,
+        "y1": 449
+      },
+      "validation": {
+        "width": 85,
+        "height": 94,
+        "foregroundPixels": 1989,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 2,
+          "right": 7,
+          "top": 18,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": -0.0294,
+          "y": 0.0691
+        },
+        "passes": true
+      },
+      "note": "",
+      "validationSheet": "data/assets/icon-references/klaviyo/validation-sheets/klaviyo-region-americas-globe.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 305959,
+        "losslessBytes": 305959,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "klaviyo-region-apac-globe",
+      "output": "data/assets/icon-references/klaviyo/crops/region-apac-globe.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 1684,
+        "losslessBytes": 8348,
+        "savingsVsLossless": 0.7983,
+        "metrics": {
+          "meanAbsoluteError": 1.1954,
+          "rootMeanSquareError": 2.6849,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 31,
+          "changedPixelRatio": 0.4181
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 6974,
+        "transparentPixelRatio": 0.5764
+      },
+      "searchBox": {
+        "x": 590,
+        "y": 994,
+        "width": 88,
+        "height": 88
+      },
+      "componentCount": 4,
+      "subjectBox": {
+        "x0": 605,
+        "y0": 996,
+        "x1": 678,
+        "y1": 1075
+      },
+      "cropBox": {
+        "x0": 580,
+        "y0": 984,
+        "x1": 690,
+        "y1": 1094
+      },
+      "validation": {
+        "width": 110,
+        "height": 110,
+        "foregroundPixels": 2163,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 25,
+          "right": 12,
+          "top": 12,
+          "bottom": 19
+        },
+        "centerOffset": {
+          "x": 0.0591,
+          "y": -0.0318
+        },
+        "passes": true
+      },
+      "note": "",
+      "validationSheet": "data/assets/icon-references/klaviyo/validation-sheets/klaviyo-region-apac-globe.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 295472,
+        "losslessBytes": 295472,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "klaviyo-region-emea-globe",
+      "output": "data/assets/icon-references/klaviyo/crops/region-emea-globe.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1918,
+        "losslessBytes": 10315,
+        "savingsVsLossless": 0.8141,
+        "metrics": {
+          "meanAbsoluteError": 1.1467,
+          "rootMeanSquareError": 2.5506,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 21,
+          "changedPixelRatio": 0.4201
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 6866,
+        "transparentPixelRatio": 0.5674
+      },
+      "searchBox": {
+        "x": 590,
+        "y": 1204,
+        "width": 88,
+        "height": 88
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 606,
+        "y0": 1205,
+        "x1": 678,
+        "y1": 1286
+      },
+      "cropBox": {
+        "x0": 580,
+        "y0": 1194,
+        "x1": 690,
+        "y1": 1304
+      },
+      "validation": {
+        "width": 110,
+        "height": 110,
+        "foregroundPixels": 3422,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 26,
+          "right": 12,
+          "top": 11,
+          "bottom": 18
+        },
+        "centerOffset": {
+          "x": 0.0636,
+          "y": -0.0318
+        },
+        "passes": true
+      },
+      "note": "",
+      "validationSheet": "data/assets/icon-references/klaviyo/validation-sheets/klaviyo-region-emea-globe.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 305772,
+        "losslessBytes": 305772,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

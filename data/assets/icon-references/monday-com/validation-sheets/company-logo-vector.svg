@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="335" height="305" viewBox="0 0 335 305">
+  <rect width="335" height="305" fill="#f2f2f2"/>
+  <rect x="52" y="34" width="75" height="166" rx="37.5" transform="rotate(32 89.5 117)" fill="#ff285f"/>
+  <rect x="180" y="34" width="75" height="166" rx="37.5" transform="rotate(32 217.5 117)" fill="#ffcc00"/>
+  <circle cx="282" cy="158" r="39" fill="#00c875"/>
+  <text x="24" y="265" font-family="Montserrat,Arial,sans-serif" font-size="53" font-weight="800" fill="#333333" textLength="230" lengthAdjust="spacingAndGlyphs">monday</text>
+  <text x="263" y="265" font-family="Montserrat,Arial,sans-serif" font-size="28" font-weight="700" fill="#333333">.com</text>
+</svg>

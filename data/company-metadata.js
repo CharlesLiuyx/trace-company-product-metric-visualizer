@@ -292,6 +292,46 @@
         },
       },
       {
+        key: 'autodesk',
+        name: 'Autodesk',
+        legalName: 'Autodesk, Inc.',
+        ticker: 'ADSK',
+        exchange: 'NASDAQ',
+        marketCap: {
+          valueUsd: 40670000000,
+          asOf: '2026-06-24',
+          source: 'StockAnalysis',
+          sourceUrl: 'https://stockanalysis.com/stocks/adsk/market-cap/',
+        },
+        sector: 'Information Technology',
+        industry: 'Design and make software for architecture, engineering, construction, product design, manufacturing, media, and entertainment',
+        founded: '1982',
+        headquarters: 'San Francisco, California, United States',
+        fiscalYearEnd: 'January 31',
+        website: 'https://www.autodesk.com/',
+        description:
+          'Autodesk provides Design and Make software and services spanning architecture, engineering, construction, product design, manufacturing, media, and entertainment, helping customers design, build, manufacture, and create digital content.',
+        sourceUrls: [
+          'https://www.autodesk.com/company',
+          'https://www.autodesk.com/company/newsroom/corporate-info',
+          'https://investors.autodesk.com/',
+          'https://investors.autodesk.com/static-files/b3be800e-0806-43a4-b40a-9a770dc85d54',
+          'https://adsknews.autodesk.com/en/pressrelease/autodesk-inc-announces-fiscal-2027-first-quarter-results/',
+          'https://stockanalysis.com/stocks/adsk/market-cap/',
+        ],
+        i18n: {
+          zh: {
+            displayName: '欧特克',
+            sector: '信息技术',
+            industry: '面向建筑、工程、施工、产品设计、制造、媒体和娱乐的设计与制造软件',
+            headquarters: '美国加利福尼亚州旧金山',
+            fiscalYearEnd: '1 月 31 日',
+            description:
+              'Autodesk 提供覆盖建筑、工程、施工、产品设计、制造、媒体和娱乐的 Design and Make 软件与服务，帮助客户进行设计、建造、制造和数字内容创作。',
+          },
+        },
+      },
+      {
         key: 'blackrock',
         name: 'BlackRock',
         legalName: 'BlackRock, Inc.',
@@ -738,6 +778,45 @@
         },
       },
       {
+        key: 'klaviyo',
+        name: 'Klaviyo',
+        legalName: 'Klaviyo, Inc.',
+        ticker: 'KVYO',
+        exchange: 'NYSE',
+        marketCap: {
+          valueUsd: 4460000000,
+          asOf: '2026-06-26',
+          source: 'StockAnalysis',
+          sourceUrl: 'https://stockanalysis.com/stocks/kvyo/market-cap/',
+        },
+        sector: 'Information Technology',
+        industry: 'B2C CRM, marketing automation, customer data platform, email, SMS, mobile messaging, customer service, analytics, and AI customer engagement',
+        founded: '2012',
+        headquarters: 'Boston, Massachusetts, United States',
+        fiscalYearEnd: 'December 31',
+        website: 'https://www.klaviyo.com/',
+        description:
+          'Klaviyo provides an autonomous B2C CRM platform built on a customer data platform, combining marketing automation, service, analytics, AI, email, SMS, mobile push, WhatsApp, and other customer engagement channels for consumer brands.',
+        sourceUrls: [
+          'https://investors.klaviyo.com/overview/default.aspx',
+          'https://investors.klaviyo.com/news/news-details/2026/Klaviyo-Delivers-Strong-Q1-2026-Results-28-Revenue-Growth-Record-Operating-Margin-and-Raises-Full-Year-Outlook/default.aspx',
+          'https://www.klaviyo.com/about',
+          'https://www.sec.gov/Archives/edgar/data/1835830/000162828023031916/klaviyoincs-1a.htm',
+          'https://stockanalysis.com/stocks/kvyo/market-cap/',
+        ],
+        i18n: {
+          zh: {
+            displayName: 'Klaviyo',
+            sector: '信息技术',
+            industry: 'B2C CRM、营销自动化、客户数据平台、电子邮件、短信、移动消息、客户服务、分析和 AI 客户互动',
+            headquarters: '美国马萨诸塞州波士顿',
+            fiscalYearEnd: '12 月 31 日',
+            description:
+              'Klaviyo 提供自主型 B2C CRM 平台，以客户数据平台为基础，结合营销自动化、服务、分析、AI、电子邮件、短信、移动推送、WhatsApp 和其他客户互动渠道，服务消费品牌。',
+          },
+        },
+      },
+      {
         key: 'lenovo',
         name: 'Lenovo',
         legalName: 'Lenovo Group Limited',
@@ -856,6 +935,47 @@
         i18n: {
           zh: {
             displayName: '摩根士丹利',
+          },
+        },
+      },
+      {
+        key: 'monday-com',
+        name: 'Monday.com',
+        legalName: 'monday.com Ltd.',
+        aliases: ['monday.com', 'Monday.Com Ltd'],
+        ticker: 'MNDY',
+        exchange: 'NASDAQ',
+        marketCap: {
+          valueUsd: 3110000000,
+          asOf: '2026-06-24',
+          source: 'StockAnalysis',
+          sourceUrl: 'https://stockanalysis.com/stocks/mndy/market-cap/',
+        },
+        sector: 'Information Technology',
+        industry: 'Work management software, CRM, service management, development workflows, AI agents, and SaaS collaboration platforms',
+        founded: '2012',
+        headquarters: 'Tel Aviv, Israel',
+        fiscalYearEnd: 'December 31',
+        website: 'https://monday.com/',
+        description:
+          'Monday.com provides an AI work platform for work management, CRM, service, development, automation, and collaboration workflows, helping organizations connect people, processes, data, and AI agents on one flexible platform.',
+        sourceUrls: [
+          'https://monday.com/',
+          'https://monday.com/p/about/',
+          'https://ir.monday.com/',
+          'https://ir.monday.com/news-and-events/news-releases/news-details/2026/monday-com-Announces-First-Quarter-2026-Results/default.aspx',
+          'https://ir.monday.com/news-and-events/news-releases/news-details/2026/monday-com-Files-its-2025-Annual-Report-on-Form-20-F/default.aspx',
+          'https://stockanalysis.com/stocks/mndy/market-cap/',
+        ],
+        i18n: {
+          zh: {
+            displayName: 'Monday.com',
+            sector: '信息技术',
+            industry: '工作管理软件、CRM、服务管理、开发流程、AI 代理和 SaaS 协作平台',
+            headquarters: '以色列特拉维夫',
+            fiscalYearEnd: '12 月 31 日',
+            description:
+              'Monday.com 提供 AI 工作平台，覆盖工作管理、CRM、服务、开发、自动化和协作流程，帮助组织在同一灵活平台上连接人员、流程、数据和 AI 代理。',
           },
         },
       },

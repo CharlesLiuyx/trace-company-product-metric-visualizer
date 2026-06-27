@@ -1,0 +1,43 @@
+{
+  "source": "input/processed/autodesk-q1-fy27.png",
+  "outputDir": "data/assets/icon-references/autodesk",
+  "validationSheetDir": "data/assets/icon-references/autodesk/validation-sheets",
+  "report": "crop-report.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "autodesk-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": {
+        "x": 688,
+        "y": 222,
+        "width": 435,
+        "height": 248
+      },
+      "cropBox": {
+        "x": 688,
+        "y": 222,
+        "width": 435,
+        "height": 248
+      },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Autodesk company symbol and wordmark above the revenue hub; excludes chart labels, flows, publisher marks, website URL, social badges, and the bottom attribution block."
+    }
+  ]
+}

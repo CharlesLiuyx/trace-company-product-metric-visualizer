@@ -1,0 +1,116 @@
+{
+  "source": "input/processed/monday-com-q1-fy26.png",
+  "spec": "input/icon-crop-specs/monday-com-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-06-27T08:26:59.557087+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "monday-com-company-logo-wordmark",
+      "output": "data/assets/icon-references/monday-com/crops/company-logo-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 4849,
+        "losslessBytes": 23796,
+        "savingsVsLossless": 0.7962,
+        "metrics": {
+          "meanAbsoluteError": 0.3461,
+          "rootMeanSquareError": 1.8332,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 37,
+          "changedPixelRatio": 0.3062
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 63836,
+        "transparentPixelRatio": 0.6248
+      },
+      "searchBox": {
+        "x": 45,
+        "y": 645,
+        "width": 310,
+        "height": 285
+      },
+      "componentCount": 12,
+      "subjectBox": {
+        "x0": 53,
+        "y0": 653,
+        "x1": 349,
+        "y1": 914
+      },
+      "cropBox": {
+        "x0": 30,
+        "y0": 630,
+        "x1": 365,
+        "y1": 935
+      },
+      "validation": {
+        "width": 335,
+        "height": 305,
+        "foregroundPixels": 37121,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 23,
+          "right": 16,
+          "top": 23,
+          "bottom": 21
+        },
+        "centerOffset": {
+          "x": 0.0104,
+          "y": 0.0033
+        },
+        "passes": true
+      },
+      "note": "Monday.com company logo and wordmark on the left side; excludes chart flows, labels, KPI cards, website URL, How They Make Money mark, and App Economy Insights attribution.",
+      "validationSheet": "data/assets/icon-references/monday-com/validation-sheets/monday-com-company-logo-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 243949,
+        "losslessBytes": 243949,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

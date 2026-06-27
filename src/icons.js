@@ -26,6 +26,16 @@ window.SANKEY_BRAND = {
 };
 
 window.SANKEY_BUSINESS_ICONS = {
+  autodeskCompanyLogo: `
+    <g fill="#000000">
+      <g transform="translate(107 1)">
+        <path d="M111 0H197V62H126L0 136V74Z"/>
+        <path d="M123 78H197V136H123V103L161 78Z"/>
+      </g>
+      <text x="0" y="228" font-family="Arial Black, Montserrat, Arial, sans-serif" font-size="57" font-weight="900"
+        textLength="407" lengthAdjust="spacingAndGlyphs">AUTODESK</text>
+    </g>
+  `,
   sonyCompanyWordmark: `
     <text x="0" y="104" font-family="Times New Roman, Georgia, serif" font-size="116" font-weight="900" fill="#000000"
       textLength="467" lengthAdjust="spacingAndGlyphs">SONY</text>
