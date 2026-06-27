@@ -1,0 +1,116 @@
+{
+  "source": "input/processed/autodesk-q1-fy27.png",
+  "spec": "input/icon-crop-specs/autodesk-q1-fy27.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-06-27T08:26:59.560447+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "autodesk-company-logo",
+      "output": "data/assets/icon-references/autodesk/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4386,
+        "losslessBytes": 18861,
+        "savingsVsLossless": 0.7675,
+        "metrics": {
+          "meanAbsoluteError": 0.2503,
+          "rootMeanSquareError": 1.2348,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.0808
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 76282,
+        "transparentPixelRatio": 0.7071
+      },
+      "searchBox": {
+        "x": 688,
+        "y": 222,
+        "width": 435,
+        "height": 248
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 693,
+        "y0": 227,
+        "x1": 1100,
+        "y1": 457
+      },
+      "cropBox": {
+        "x0": 688,
+        "y0": 222,
+        "x1": 1123,
+        "y1": 470
+      },
+      "validation": {
+        "width": 435,
+        "height": 248,
+        "foregroundPixels": 30013,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 5,
+          "right": 23,
+          "top": 5,
+          "bottom": 13
+        },
+        "centerOffset": {
+          "x": -0.0207,
+          "y": -0.0161
+        },
+        "passes": true
+      },
+      "note": "Autodesk company symbol and wordmark above the revenue hub; excludes chart labels, flows, publisher marks, website URL, social badges, and the bottom attribution block.",
+      "validationSheet": "data/assets/icon-references/autodesk/validation-sheets/autodesk-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 257496,
+        "losslessBytes": 257496,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}
