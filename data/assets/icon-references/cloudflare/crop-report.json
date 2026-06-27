@@ -1,0 +1,193 @@
+{
+  "source": "input/processed/cloudflare-q1-fy26.png",
+  "spec": "input/icon-crop-specs/cloudflare-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-06-27T12:45:06.256675+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3,
+      "maxP99AbsoluteError": 12,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "cloudflare-company-cloud-mark",
+      "output": "data/assets/icon-references/cloudflare/crops/company-cloud-mark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1498,
+        "losslessBytes": 6164,
+        "savingsVsLossless": 0.757,
+        "metrics": {
+          "meanAbsoluteError": 0.4402,
+          "rootMeanSquareError": 2.0103,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.67
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 10636,
+        "transparentPixelRatio": 0.33
+      },
+      "searchBox": {
+        "x": 918,
+        "y": 212,
+        "width": 267,
+        "height": 123
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 918,
+        "y0": 212,
+        "x1": 1179,
+        "y1": 331
+      },
+      "cropBox": {
+        "x0": 923,
+        "y0": 212,
+        "x1": 1185,
+        "y1": 335
+      },
+      "validation": {
+        "width": 262,
+        "height": 123,
+        "foregroundPixels": 19080,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": -5,
+          "right": 6,
+          "top": 0,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": -0.021,
+          "y": -0.0163
+        },
+        "passes": true
+      },
+      "note": "Cloudflare orange cloud mark. The crop starts at x=923 to exclude a blue title fragment that overlaps the full rectangular logo cluster; the visible cloud subject remains centered and semantically recognizable.",
+      "validationSheet": "data/assets/icon-references/cloudflare/validation-sheets/cloudflare-company-cloud-mark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 211745,
+        "losslessBytes": 211745,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "cloudflare-company-wordmark",
+      "output": "data/assets/icon-references/cloudflare/crops/company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2369,
+        "losslessBytes": 9974,
+        "savingsVsLossless": 0.7625,
+        "metrics": {
+          "meanAbsoluteError": 0.3304,
+          "rootMeanSquareError": 1.4188,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 25,
+          "changedPixelRatio": 0.1277
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 21877,
+        "transparentPixelRatio": 0.6245
+      },
+      "searchBox": {
+        "x": 635,
+        "y": 338,
+        "width": 565,
+        "height": 62
+      },
+      "componentCount": 10,
+      "subjectBox": {
+        "x0": 640,
+        "y0": 350,
+        "x1": 1172,
+        "y1": 394
+      },
+      "cropBox": {
+        "x0": 635,
+        "y0": 338,
+        "x1": 1200,
+        "y1": 400
+      },
+      "validation": {
+        "width": 565,
+        "height": 62,
+        "foregroundPixels": 9844,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 5,
+          "right": 28,
+          "top": 12,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": -0.0204,
+          "y": 0.0484
+        },
+        "passes": true
+      },
+      "note": "Cloudflare company wordmark near the center of the source chart; excludes the Revenue label, chart flows, KPI cards, website URL, How They Make Money mark, and App Economy Insights attribution.",
+      "validationSheet": "data/assets/icon-references/cloudflare/validation-sheets/cloudflare-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 205797,
+        "losslessBytes": 205797,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

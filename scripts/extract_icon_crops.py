@@ -399,6 +399,7 @@ def filter_pixel(color: tuple[int, int, int], filter_spec: dict[str, Any] | None
 def foreground_mask(image: Image.Image, box: Box, spec: dict[str, Any], background: tuple[int, int, int]) -> list[bytearray]:
     threshold = spec.get("threshold", 24)
     crop = image.crop((box.x0, box.y0, box.x1, box.y1)).convert("RGB")
+    exclude_boxes = exclusion_boxes(spec, box)
 
     if np is not None:
         arr = np.asarray(crop, dtype=np.int16)
@@ -406,6 +407,8 @@ def foreground_mask(image: Image.Image, box: Box, spec: dict[str, Any], backgrou
         distance = np.max(np.abs(arr - bg), axis=2)
         mask = distance >= threshold
         mask &= filter_mask_array(arr, spec.get("foreground"))
+        for exclusion in exclude_boxes:
+            mask[exclusion.y0:exclusion.y1, exclusion.x0:exclusion.x1] = False
         return [bytearray(row.astype(np.uint8).tolist()) for row in mask]
 
     rows: list[bytearray] = []
@@ -417,7 +420,53 @@ def foreground_mask(image: Image.Image, box: Box, spec: dict[str, Any], backgrou
             if distance >= threshold and filter_pixel(color, spec.get("foreground")):
                 row[x] = 1
         rows.append(row)
+    for exclusion in exclude_boxes:
+        for y in range(exclusion.y0, exclusion.y1):
+            for x in range(exclusion.x0, exclusion.x1):
+                rows[y][x] = 0
     return rows
+
+
+def exclusion_boxes(spec: dict[str, Any], crop_box: Box) -> list[Box]:
+    boxes: list[Box] = []
+    for raw in spec.get("excludeBoxes", []):
+        if not raw:
+            continue
+        relative = raw.get("relativeTo") == "crop"
+        x0 = int(raw["x"]) + (crop_box.x0 if relative else 0)
+        y0 = int(raw["y"]) + (crop_box.y0 if relative else 0)
+        x1 = x0 + int(raw["width"])
+        y1 = y0 + int(raw["height"])
+        clipped = Box(
+            max(crop_box.x0, x0),
+            max(crop_box.y0, y0),
+            min(crop_box.x1, x1),
+            min(crop_box.y1, y1),
+        )
+        if clipped.x0 < clipped.x1 and clipped.y0 < clipped.y1:
+            boxes.append(Box(
+                clipped.x0 - crop_box.x0,
+                clipped.y0 - crop_box.y0,
+                clipped.x1 - crop_box.x0,
+                clipped.y1 - crop_box.y0,
+            ))
+    return boxes
+
+
+def apply_exclusions(crop: Image.Image, spec: dict[str, Any], crop_box: Box) -> tuple[Image.Image, int]:
+    boxes = exclusion_boxes(spec, crop_box)
+    if not boxes:
+        return crop, 0
+    out = crop.convert("RGBA")
+    pixels = out.load()
+    excluded_pixels = 0
+    for box in boxes:
+        for y in range(box.y0, box.y1):
+            for x in range(box.x0, box.x1):
+                r, g, b, _a = pixels[x, y]
+                pixels[x, y] = (r, g, b, 0)
+                excluded_pixels += 1
+    return out, excluded_pixels
 
 
 def connected_components(mask: list[bytearray], origin: Box, min_area: int) -> list[dict[str, int]]:
@@ -732,6 +781,7 @@ def main() -> None:
             background_removal,
         )
         crop, background_removal_result = remove_solid_background(crop, crop_background_removal)
+        crop, excluded_pixels = apply_exclusions(crop, spec, crop_box)
         output_path = output_dir / spec["output"]
         crop_compression = save_compressed_png(crop, output_path, compression)
         runtime_output_path = None
@@ -765,6 +815,8 @@ def main() -> None:
             "validation": validation,
             "note": spec.get("note", ""),
         }
+        if excluded_pixels:
+            item["excludedPixels"] = excluded_pixels
         if runtime_output_path:
             item["runtimeOutput"] = str(runtime_output_path.relative_to(ROOT))
         if runtime_compression:

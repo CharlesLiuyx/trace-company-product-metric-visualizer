@@ -1,0 +1,132 @@
+{
+  "source": "input/processed/hubspot-q1-fy26.png",
+  "spec": "input/icon-crop-specs/hubspot-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-06-27T12:45:06.256922+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/hubspot",
+  "crops": [
+    {
+      "key": "hubspot-company-wordmark",
+      "output": "data/assets/icon-references/hubspot/crops/company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4791,
+        "losslessBytes": 22505,
+        "savingsVsLossless": 0.7871,
+        "metrics": {
+          "meanAbsoluteError": 0.2373,
+          "rootMeanSquareError": 1.4042,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.1504
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 74396,
+        "transparentPixelRatio": 0.6666
+      },
+      "searchBox": {
+        "x": 590,
+        "y": 250,
+        "width": 590,
+        "height": 165
+      },
+      "componentCount": 7,
+      "subjectBox": {
+        "x0": 609,
+        "y0": 253,
+        "x1": 1173,
+        "y1": 415
+      },
+      "cropBox": {
+        "x0": 580,
+        "y0": 245,
+        "x1": 1200,
+        "y1": 425
+      },
+      "validation": {
+        "width": 620,
+        "height": 180,
+        "foregroundPixels": 32566,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 29,
+          "right": 27,
+          "top": 8,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": 0.0016,
+          "y": -0.0056
+        },
+        "passes": true
+      },
+      "note": "HubSpot company wordmark and sprocket logo near the top center; excludes title text, revenue labels, chart marks, website URL, How They Make Money mark, and App Economy Insights attribution.",
+      "runtimeOutput": "data/assets/raster-annotations/hubspot/company-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4791,
+        "losslessBytes": 22505,
+        "savingsVsLossless": 0.7871,
+        "metrics": {
+          "meanAbsoluteError": 0.2373,
+          "rootMeanSquareError": 1.4042,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.1504
+        }
+      },
+      "validationSheet": "data/assets/icon-references/hubspot/validation-sheets/hubspot-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 236752,
+        "losslessBytes": 236752,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

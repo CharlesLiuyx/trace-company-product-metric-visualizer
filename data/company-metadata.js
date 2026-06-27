@@ -370,6 +370,44 @@
         },
       },
       {
+        key: 'cloudflare',
+        name: 'Cloudflare',
+        legalName: 'Cloudflare, Inc.',
+        ticker: 'NET',
+        exchange: 'NYSE',
+        marketCap: {
+          valueUsd: 83860000000,
+          asOf: '2026-06-26',
+          source: 'StockAnalysis',
+          sourceUrl: 'https://stockanalysis.com/stocks/net/market-cap/',
+        },
+        sector: 'Information Technology',
+        industry: 'Connectivity cloud, cloud networking, application security, performance, Zero Trust, developer platform, and edge computing services',
+        founded: '2009',
+        headquarters: 'San Francisco, California, United States',
+        fiscalYearEnd: 'December 31',
+        website: 'https://www.cloudflare.com/',
+        description:
+          'Cloudflare provides a connectivity cloud that helps organizations make employees, applications, and networks faster and more secure, spanning cloud networking, security, performance, developer, and edge-computing services on a global network.',
+        sourceUrls: [
+          'https://cloudflare.net/',
+          'https://www.cloudflare.com/about-overview/',
+          'https://www.cloudflare.com/press/press-releases/2026/cloudflare-announces-first-quarter-2026-financial-results/',
+          'https://stockanalysis.com/stocks/net/market-cap/',
+        ],
+        i18n: {
+          zh: {
+            displayName: 'Cloudflare',
+            sector: '信息技术',
+            industry: '连接云、云网络、应用安全、性能、零信任、开发者平台和边缘计算服务',
+            headquarters: '美国加利福尼亚州旧金山',
+            fiscalYearEnd: '12 月 31 日',
+            description:
+              'Cloudflare 提供连接云，帮助组织让员工、应用和网络更快速、更安全，业务覆盖云网络、安全、性能、开发者和边缘计算服务，并运行在全球网络之上。',
+          },
+        },
+      },
+      {
         key: 'coinbase',
         name: 'Coinbase',
         legalName: 'Coinbase Global, Inc.',
@@ -675,6 +713,45 @@
         i18n: {
           zh: {
             displayName: '惠普',
+          },
+        },
+      },
+      {
+        key: 'hubspot',
+        name: 'HubSpot',
+        legalName: 'HubSpot, Inc.',
+        ticker: 'HUBS',
+        exchange: 'NYSE',
+        marketCap: {
+          valueUsd: 9500000000,
+          asOf: '2026-06-26',
+          source: 'StockAnalysis',
+          sourceUrl: 'https://stockanalysis.com/stocks/hubs/market-cap/',
+        },
+        sector: 'Information Technology',
+        industry:
+          'Customer relationship management, marketing automation, sales, service, content management, operations software, and AI-powered customer platform',
+        founded: '2006',
+        headquarters: 'Cambridge, Massachusetts, United States',
+        fiscalYearEnd: 'December 31',
+        website: 'https://www.hubspot.com/',
+        description:
+          'HubSpot provides an agentic customer platform for scaling businesses, combining AI-powered engagement hubs, Smart CRM, app integrations, community, education, and software for marketing, sales, service, content, and operations teams.',
+        sourceUrls: [
+          'https://www.hubspot.com/our-story',
+          'https://ir.hubspot.com/',
+          'https://www.businesswire.com/news/home/20260507857014/en/HubSpot-Reports-Strong-Q1-2026-Results',
+          'https://www.sec.gov/Archives/edgar/data/1404655/000119312526046646/0001193125-26-046646-index.htm',
+        ],
+        i18n: {
+          zh: {
+            displayName: 'HubSpot',
+            sector: '信息技术',
+            industry: '客户关系管理、营销自动化、销售、服务、内容管理、运营软件和 AI 驱动的客户平台',
+            headquarters: '美国马萨诸塞州剑桥',
+            fiscalYearEnd: '12 月 31 日',
+            description:
+              'HubSpot 为成长型企业提供 agentic 客户平台，整合 AI 驱动的互动中心、Smart CRM、应用集成、社区、教育，以及服务营销、销售、客服、内容和运营团队的软件。',
           },
         },
       },
@@ -1806,6 +1883,84 @@
             fiscalYearEnd: '1 月 31 日',
             description:
               '沃尔玛是一家以人为本、技术驱动的全渠道零售商，业务覆盖 Walmart U.S.、Walmart International、Sam\'s Club、门店、会员店、电商网站、移动服务、广告、会员和 marketplace 平台。',
+          },
+        },
+      },
+      {
+        key: 'zoom',
+        name: 'Zoom',
+        legalName: 'Zoom Communications, Inc.',
+        aliases: ['Zoom Video Communications', 'Zoom Video Communications, Inc.'],
+        ticker: 'ZM',
+        exchange: 'NASDAQ',
+        marketCap: {
+          valueUsd: 25360200000,
+          asOf: '2026-06-26',
+          source: 'StockAnalysis',
+          sourceUrl: 'https://stockanalysis.com/stocks/zm/market-cap/',
+        },
+        sector: 'Information Technology',
+        industry: 'AI-first work platform, video communications, team chat, phone, contact center, webinars, and collaboration software',
+        founded: '2011',
+        headquarters: 'San Jose, California, United States',
+        fiscalYearEnd: 'January 31',
+        website: 'https://www.zoom.com/',
+        description:
+          'Zoom provides an AI-first work platform spanning video meetings, Zoom Phone, Team Chat, Zoom Rooms, webinars, contact center, workflow automation, and related collaboration products for individuals, teams, and enterprises.',
+        sourceUrls: [
+          'https://www.zoom.com/en/about/',
+          'https://investors.zoom.us/',
+          'https://investors.zoom.us/news-releases/news-release-details/zoom-communications-reports-financial-results-first-quarter-0',
+          'https://investors.zoom.us/sec-filings/sec-filing/10-q/0001585521-26-000071',
+        ],
+        i18n: {
+          zh: {
+            displayName: 'Zoom',
+            sector: '信息技术',
+            industry: 'AI 优先的工作平台、视频通信、团队聊天、电话、联络中心、网络研讨会和协作软件',
+            headquarters: '美国加利福尼亚州圣何塞',
+            fiscalYearEnd: '1 月 31 日',
+            description:
+              'Zoom 提供 AI 优先的工作平台，覆盖视频会议、Zoom Phone、Team Chat、Zoom Rooms、网络研讨会、联络中心、工作流自动化，以及面向个人、团队和企业的相关协作产品。',
+          },
+        },
+      },
+      {
+        key: 'workday',
+        name: 'Workday',
+        legalName: 'Workday, Inc.',
+        ticker: 'WDAY',
+        exchange: 'NASDAQ',
+        marketCap: {
+          valueUsd: 30680000000,
+          asOf: '2026-06-26',
+          source: 'StockAnalysis',
+          sourceUrl: 'https://stockanalysis.com/stocks/wday/market-cap/',
+        },
+        sector: 'Information Technology',
+        industry: 'Enterprise software, cloud applications for HR, finance, IT, planning, analytics, and AI-powered work agents',
+        founded: '2005',
+        headquarters: 'Pleasanton, California, United States',
+        fiscalYearEnd: 'January 31',
+        website: 'https://www.workday.com/',
+        description:
+          'Workday provides an enterprise AI platform and cloud applications for human resources, finance, IT, planning, analytics, and related work processes used by organizations worldwide.',
+        sourceUrls: [
+          'https://www.workday.com/en-us/company/about-workday/our-story.html',
+          'https://investor.workday.com/',
+          'https://investor.workday.com/resource/faqs/default.aspx',
+          'https://investor.workday.com/news-and-events/press-releases/news-details/2026/Workday-Announces-Fiscal-2027-First-Quarter-Financial-Results/',
+          'https://stockanalysis.com/stocks/wday/market-cap/',
+        ],
+        i18n: {
+          zh: {
+            displayName: 'Workday',
+            sector: '信息技术',
+            industry: '企业软件、面向人力资源、财务、IT、规划、分析和 AI 工作代理的云应用',
+            headquarters: '美国加利福尼亚州普莱森顿',
+            fiscalYearEnd: '1 月 31 日',
+            description:
+              'Workday 提供企业 AI 平台和云应用，覆盖人力资源、财务、IT、规划、分析及相关工作流程，服务全球组织客户。',
           },
         },
       },

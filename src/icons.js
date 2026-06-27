@@ -26,6 +26,14 @@ window.SANKEY_BRAND = {
 };
 
 window.SANKEY_BUSINESS_ICONS = {
+  workdayCompanyLogo: `
+    <g>
+      <path d="M111 96C141 18 292 18 322 96" fill="none" stroke="#ff8b00" stroke-width="24" stroke-linecap="round"/>
+      <text x="0" y="220" font-family="Montserrat,Arial,sans-serif" font-size="130" font-weight="400" fill="#0875b5"
+        textLength="600" lengthAdjust="spacingAndGlyphs">workday</text>
+      <text x="614" y="214" font-family="Montserrat,Arial,sans-serif" font-size="24" font-weight="600" fill="#0875b5">&#174;</text>
+    </g>
+  `,
   autodeskCompanyLogo: `
     <g fill="#000000">
       <g transform="translate(107 1)">
