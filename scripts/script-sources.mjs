@@ -13,6 +13,7 @@ export const DATASET_SCRIPT_DIR = 'data/datasets';
 const SUPPORT_DATA_SCRIPTS = new Set([
   'data/income-statements.js',
   'data/company-metadata.js',
+  'data/dataset-file-metadata.js',
 ]);
 
 export function datasetScriptForKey(key) {

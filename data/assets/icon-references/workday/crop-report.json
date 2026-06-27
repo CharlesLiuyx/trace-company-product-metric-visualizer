@@ -1,0 +1,117 @@
+{
+  "source": "input/processed/workday-q1-fy27.png",
+  "spec": "input/icon-crop-specs/workday-q1-fy27.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-06-27T12:45:06.260263+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "workday-company-logo",
+      "output": "data/assets/icon-references/workday/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 34314,
+        "losslessBytes": 34314,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 148900,
+        "transparentPixelRatio": 0.7997
+      },
+      "searchBox": {
+        "x": 535,
+        "y": 232,
+        "width": 665,
+        "height": 280
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 549,
+        "y0": 238,
+        "x1": 1176,
+        "y1": 491
+      },
+      "cropBox": {
+        "x0": 535,
+        "y0": 232,
+        "x1": 1200,
+        "y1": 512
+      },
+      "validation": {
+        "width": 665,
+        "height": 280,
+        "foregroundPixels": 29645,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 14,
+          "right": 24,
+          "top": 6,
+          "bottom": 21
+        },
+        "centerOffset": {
+          "x": -0.0075,
+          "y": -0.0268
+        },
+        "passes": true
+      },
+      "note": "Workday company wordmark and orange arch above the revenue hub; excludes chart labels, flows, publisher marks, website URL, social badges, and the bottom attribution block.",
+      "excludedPixels": 10710,
+      "validationSheet": "data/assets/icon-references/workday/validation-sheets/workday-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 85416,
+        "losslessBytes": 248035,
+        "savingsVsLossless": 0.6556,
+        "metrics": {
+          "meanAbsoluteError": 0.2804,
+          "rootMeanSquareError": 1.9134,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 65,
+          "changedPixelRatio": 0.074
+        }
+      }
+    }
+  ]
+}

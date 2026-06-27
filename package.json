@@ -4,8 +4,10 @@
   "type": "module",
   "packageManager": "pnpm@11.5.2",
   "scripts": {
-    "build:standalone": "node scripts/build-standalone.mjs",
+    "build:standalone": "node scripts/update-dataset-file-metadata.mjs && node scripts/build-standalone.mjs",
     "check:pending": "node scripts/check-pending-processed.mjs",
+    "update:dataset-file-metadata": "node scripts/update-dataset-file-metadata.mjs",
+    "verify:dataset-file-metadata": "node scripts/update-dataset-file-metadata.mjs --check",
     "verify:standalone": "node scripts/verify-standalone.mjs",
     "verify:d3": "node scripts/verify-d3.mjs",
     "verify:ssot": "node scripts/verify-ssot.mjs",

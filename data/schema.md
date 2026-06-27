@@ -158,7 +158,7 @@ localization overlays describe the same company.
 | sort mode | source fields | notes |
 |---|---|---|
 | Alphabetical | `name`; optional `i18n.<language>.displayName` | Uses the localized display company name. Use `aliases` only for matching financial records to metadata, not for display ordering. |
-| Recently updated | Dataset `meta.period`, dataset key, and `meta.periodNote` | Prefer parseable `Qn FYyy` / `Qn FYyyyy` period text or dataset keys. If no fiscal period is found, the UI falls back to month/year text in `periodNote`, then registration order. |
+| Recently updated | `data/dataset-file-metadata.js` entries generated from registered `data/datasets/<dataset-key>.js` file modification times | Run `pnpm update:dataset-file-metadata` after adding or materially editing dataset files. The UI sorts each company by the newest modified registered dataset file for that company. Missing modification metadata sorts after companies with metadata. |
 | Market cap | `marketCap.valueUsd`, `marketCap.asOf`, `marketCap.source`, `marketCap.sourceUrl` | Store the full market capitalization as a USD number, descending in the UI. Missing values sort after companies with values and display as missing metadata. |
 | Net profit | Latest matching `data/income-statements.js` record: `profit.net.value`, `currency`, `unit`, and parseable period fields | The UI selects the latest dataset for the company, converts the reported net profit to USD using `src/app.js` currency constants, and sorts descending. Do not add latest net profit to company metadata. |
 | Founded date | `founded` | The first four-digit year in the string is used for ascending sort. Keep the human-readable string precise enough for Table display. |

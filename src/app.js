@@ -1,4 +1,5 @@
 const sets = window.DATASETS || [];
+const datasetFileMetadata = window.DATASET_FILE_METADATA || {};
 const companySearch = document.getElementById('companySearch');
 const companySearchToggle = document.getElementById('companySearchToggle');
 const companySortToggle = document.getElementById('companySortToggle');
@@ -133,6 +134,7 @@ const I18N = I18N_API.ui || {
     companySortMetaMarketCap: 'Mkt cap {value}',
     companySortMetaNetProfit: 'Net profit {value}',
     companySortMetaFounded: 'Founded {value}',
+    companySortMetaUpdated: 'Updated {value}',
     periodLabel: 'Data point time',
     periodSortLabel: 'Sort time points',
     sortDesc: 'Desc',
@@ -238,6 +240,7 @@ const I18N = I18N_API.ui || {
     companySortMetaMarketCap: '市值 {value}',
     companySortMetaNetProfit: '净利润 {value}',
     companySortMetaFounded: '成立于 {value}',
+    companySortMetaUpdated: '更新 {value}',
     periodLabel: '数据期间',
     periodSortLabel: '排序数据期间',
     sortDesc: '降序',
@@ -474,6 +477,18 @@ function periodSortValue(record, fallback) {
   }
   return fallback;
 }
+function timestampMs(value) {
+  const number = finiteNumber(value);
+  if (number != null) return number;
+  const time = Date.parse(value);
+  return Number.isFinite(time) ? time : null;
+}
+function datasetFileUpdatedAtMs(dataset) {
+  const key = clean(dataset?.key);
+  if (!key) return null;
+  const entry = datasetFileMetadata.files?.[key] || datasetFileMetadata.files?.[`data/datasets/${key}.js`];
+  return timestampMs(entry?.mtimeMs ?? entry?.mtime);
+}
 function fiscalYearLabel(year) {
   if (!Number.isFinite(year) || year <= 0) return '';
   return `FY${String(year).slice(-2).padStart(2, '0')}`;
@@ -539,10 +554,11 @@ const records = sets.map((dataset, index) => {
   const periodNote = clean(dataset.meta?.periodNote);
   const company = companyFor(dataset);
   const label = clean(dataset.name || dataset.meta?.title || dataset.key || `Dataset ${index + 1}`);
-  return { dataset, index, company, period, periodNote, label, sortValue: 0, periodParts: null, variantFeature: '' };
+  return { dataset, index, company, period, periodNote, label, sortValue: 0, updatedSortValue: null, periodParts: null, variantFeature: '' };
 });
 records.forEach((record, index) => {
   record.sortValue = periodSortValue(record, index);
+  record.updatedSortValue = datasetFileUpdatedAtMs(record.dataset);
   record.periodParts = periodParts(record);
   record.variantFeature = variantFeatureName(record);
   record.searchText = [record.company, record.period, record.periodNote, record.variantFeature, record.label, record.dataset.key].join(' ');
@@ -554,6 +570,8 @@ const groups = Array.from(records.reduce((map, record) => {
 }, new Map()).values()).map((group) => {
   group.records.sort((a, b) => b.sortValue - a.sortValue || a.period.localeCompare(b.period));
   group.latest = group.records[0];
+  group.updatedSortValue = group.records.reduce((latest, record) => Math.max(latest, record.updatedSortValue ?? -Infinity), -Infinity);
+  if (group.updatedSortValue === -Infinity) group.updatedSortValue = null;
   group.searchText = [group.company, ...group.records.map((record) => record.searchText)].join(' ');
   return group;
 }).sort((a, b) => a.company.localeCompare(b.company));
@@ -1214,7 +1232,7 @@ function compareNullableNumber(a, b, direction = -1) {
   return direction * (left - right);
 }
 function companySortValue(group, sortKey = state.companySort) {
-  if (sortKey === 'recent') return group?.latest?.sortValue;
+  if (sortKey === 'recent') return group?.updatedSortValue;
   if (sortKey === 'marketCap') return marketCapValueUsd(group?.company);
   if (sortKey === 'netProfit') return latestNetProfitUsd(group);
   if (sortKey === 'founded') return foundedYear(group?.company);
@@ -1250,7 +1268,16 @@ function formatUsdShort(value, language = state.language) {
   const decimals = scaled >= 100 || unit.suffix === '' ? 0 : scaled >= 10 ? 1 : 2;
   return `${sign}$${scaled.toFixed(decimals)}${unit.suffix}`;
 }
+function formatUpdatedDate(value, language = state.language) {
+  const time = timestampMs(value);
+  if (time == null) return t('missing', {}, language);
+  const locale = languageCode(language) === 'zh' ? 'zh-CN' : 'en-US';
+  return new Intl.DateTimeFormat(locale, { year: 'numeric', month: 'short', day: 'numeric' }).format(new Date(time));
+}
 function companySortMetaText(group) {
+  if (state.companySort === 'recent') {
+    return t('companySortMetaUpdated', { value: formatUpdatedDate(group.updatedSortValue) });
+  }
   if (state.companySort === 'marketCap') {
     return t('companySortMetaMarketCap', { value: formatUsdShort(marketCapValueUsd(group.company)) });
   }
