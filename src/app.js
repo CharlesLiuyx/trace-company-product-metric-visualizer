@@ -25,20 +25,29 @@ const companySection = document.querySelector('.company-section');
 const periodSearch = document.getElementById('periodSearch');
 const periodSearchToggle = document.getElementById('periodSearchToggle');
 const periodSortToggle = document.getElementById('periodSortToggle');
+const periodExpandToggle = document.getElementById('periodExpandToggle');
 const periodSection = document.querySelector('.period-section');
 const companyList = document.getElementById('companyList');
 const periodList = document.getElementById('periodList');
+const periodScrollMeter = document.getElementById('periodScrollMeter');
+const periodScrollThumb = document.getElementById('periodScrollThumb');
 const app = document.querySelector('.app');
 const topShell = document.querySelector('.top-shell');
 const actionTitle = document.getElementById('actionTitle');
 const sidebarToggle = document.getElementById('sidebarToggle');
+const sidebarRestoreToggle = document.getElementById('sidebarRestoreToggle');
 const sidebarResizer = document.getElementById('sidebarResizer');
 const content = document.querySelector('.content');
+const controlStrip = document.querySelector('.control-strip');
+const viewActionbar = document.querySelector('.view-actionbar');
+const metricMode = document.getElementById('metricMode');
 const viewMode = document.getElementById('viewMode');
 const sankeyView = document.getElementById('sankeyView');
 const tableView = document.getElementById('tableView');
 const sankeyActions = document.getElementById('sankeyActions');
 const tableActions = document.getElementById('tableActions');
+const companiesTableSection = document.getElementById('companiesTableSection');
+const statementsTableSection = document.getElementById('statementsTableSection');
 const companiesTable = document.getElementById('companiesTable');
 const statementsTable = document.getElementById('statementsTable');
 const companiesTableCount = document.getElementById('companiesTableCount');
@@ -53,6 +62,8 @@ const themeToggle = document.getElementById('themeToggle');
 const SIDEBAR_WIDTH_KEY = 'sankey.sidebar.width';
 const SIDEBAR_COLLAPSED_KEY = 'sankey.sidebar.collapsed';
 const VIEW_MODE_KEY = 'sankey.view.mode';
+const METRIC_MODE_KEY = 'sankey.metric.mode';
+const PERIOD_EXPANDED_KEY = 'sankey.period.expanded';
 const LANGUAGE_KEY = 'sankey.language';
 const THEME_KEY = 'sankey.theme';
 const COMPANY_SORT_KEY = 'sankey.company.sort';
@@ -61,6 +72,7 @@ const SIDEBAR_MIN = 220;
 const SIDEBAR_MAX = 560;
 const SIDEBAR_DEFAULT = 282;
 const DESKTOP_BREAKPOINT = 900;
+const METRIC_MODES = ['companyInfo', 'incomeStatement'];
 const TABLE_COLUMN_SAMPLE_LIMIT = 80;
 const TABLE_OVERSCAN_VIEWPORTS = 2;
 const TABLE_COLUMN_PRESETS = {
@@ -86,6 +98,12 @@ const I18N = I18N_API.ui || {
     viewSankeyTitle: 'Sankey view',
     viewTable: 'Table',
     viewTableTitle: 'Table view',
+    mainControlsLabel: 'Metric and view controls',
+    metricLabel: 'Metric',
+    metricModeLabel: 'Metric',
+    metricCompanyInfo: 'Company Info',
+    metricIncomeStatement: 'Income Statement',
+    viewLabel: 'View',
     globalSettingsLabel: 'Global settings',
     languageToggleTitle: 'Switch language to Chinese',
     languageToggleText: 'EN',
@@ -133,6 +151,8 @@ const I18N = I18N_API.ui || {
     sortDescTitle: 'Newest first',
     sortAsc: 'Asc',
     sortAscTitle: 'Oldest first',
+    periodExpandTitle: 'Expand time points',
+    periodCollapseTitle: 'Collapse time points',
     periodSearchPlaceholder: 'Search time points',
     periodsLabel: 'Data point times',
     resizeDatasetPanelLabel: 'Resize dataset panel',
@@ -192,6 +212,12 @@ const I18N = I18N_API.ui || {
     viewSankeyTitle: '桑基图视图',
     viewTable: '表格',
     viewTableTitle: '表格视图',
+    mainControlsLabel: '指标与视图控制',
+    metricLabel: '指标',
+    metricModeLabel: '指标',
+    metricCompanyInfo: '公司信息',
+    metricIncomeStatement: '利润表',
+    viewLabel: '视图',
     globalSettingsLabel: '全局设置',
     languageToggleTitle: '切换到英文',
     languageToggleText: '中',
@@ -239,6 +265,8 @@ const I18N = I18N_API.ui || {
     sortDescTitle: '最新优先',
     sortAsc: '升序',
     sortAscTitle: '最旧优先',
+    periodExpandTitle: '展开数据期间',
+    periodCollapseTitle: '收起数据期间',
     periodSearchPlaceholder: '搜索数据期间',
     periodsLabel: '数据期间',
     resizeDatasetPanelLabel: '调整数据集面板宽度',
@@ -328,6 +356,14 @@ function readStoredViewMode() {
     return window.localStorage.getItem(VIEW_MODE_KEY) === 'table' ? 'table' : 'sankey';
   } catch (error) {
     return 'sankey';
+  }
+}
+function readStoredMetricMode() {
+  try {
+    const value = window.localStorage.getItem(METRIC_MODE_KEY);
+    return METRIC_MODES.includes(value) ? value : 'incomeStatement';
+  } catch (error) {
+    return 'incomeStatement';
   }
 }
 function readStoredLanguage() {
@@ -450,13 +486,16 @@ function syncDatasetHash(record) {
 
 const activeStart = recordFromHash() || records[defaultIndex >= 0 ? defaultIndex : 0];
 const storedCompanySort = readStoredCompanySort();
+const storedMetricMode = readStoredMetricMode();
 const state = {
   sort: 'desc',
   companySort: storedCompanySort,
   companySortDirection: readStoredCompanySortDirection(storedCompanySort),
   activeIndex: activeStart?.index || 0,
   company: activeStart?.company || groups[0]?.company || '',
-  viewMode: readStoredViewMode(),
+  metricMode: storedMetricMode,
+  viewMode: storedMetricMode === 'companyInfo' ? 'table' : readStoredViewMode(),
+  periodExpanded: readStoredBoolean(PERIOD_EXPANDED_KEY, false),
   language: readStoredLanguage(),
   theme: readStoredTheme(),
   sidebarWidth: readStoredNumber(SIDEBAR_WIDTH_KEY, SIDEBAR_DEFAULT),
@@ -486,6 +525,11 @@ function sortDirectionIcon(direction, sortKey = '') {
     return `<svg viewBox="0 0 24 24" aria-hidden="true"><text x="4" y="9" fill="currentColor" font-size="8" font-weight="800" stroke="none">A</text><text x="4" y="19" fill="currentColor" font-size="8" font-weight="800" stroke="none">Z</text><g fill="none" stroke="currentColor">${alphabetArrowPath(direction, 18)}</g></svg>`;
   }
   return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">${directionArrowPath(direction, 12)}<path d="M8 8h8"/><path d="M9 16h6"/></svg>`;
+}
+function periodExpandIcon(expanded) {
+  return expanded
+    ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/><path d="m14 10-3 2 3 2"/></svg>'
+    : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h10"/><path d="M4 17h16"/><path d="m17 10 3 2-3 2"/></svg>';
 }
 function companySortFieldIcon(sortKey, direction = '') {
   const arrow = direction ? directionArrowPath(direction, 18) : '';
@@ -534,6 +578,7 @@ function applyStaticTranslations() {
   syncThemeControls();
   syncCompanySortControls();
   syncPeriodSortToggle();
+  syncPeriodExpansionControls();
   syncSidebarControls();
   syncToolbarHeight();
 }
@@ -571,6 +616,10 @@ function applySidebarWidth(width, persist = false) {
 function syncToolbarHeight() {
   const height = Math.ceil(topShell.getBoundingClientRect().height || 52);
   document.documentElement.style.setProperty('--toolbar-height', `${height}px`);
+  const controlHeight = Math.ceil(controlStrip?.getBoundingClientRect().height || 46);
+  const actionHeight = Math.ceil(viewActionbar?.getBoundingClientRect().height || 32);
+  document.documentElement.style.setProperty('--control-strip-height', `${controlHeight}px`);
+  document.documentElement.style.setProperty('--view-actionbar-height', `${actionHeight}px`);
 }
 function syncSidebarControls() {
   const expanded = !state.sidebarCollapsed;
@@ -580,6 +629,14 @@ function syncSidebarControls() {
   sidebarToggle.setAttribute('aria-label', label);
   sidebarToggle.title = label;
   sidebarToggle.innerHTML = sidebarToggleIcon(expanded);
+  if (sidebarRestoreToggle) {
+    const restoreLabel = t('showDatasetPanel');
+    sidebarRestoreToggle.hidden = expanded;
+    sidebarRestoreToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    sidebarRestoreToggle.setAttribute('aria-label', restoreLabel);
+    sidebarRestoreToggle.title = restoreLabel;
+    sidebarRestoreToggle.innerHTML = sidebarToggleIcon(false);
+  }
   sidebarResizer.tabIndex = expanded && isDesktopLayout() ? 0 : -1;
   sidebarResizer.setAttribute('aria-hidden', expanded && isDesktopLayout() ? 'false' : 'true');
 }
@@ -600,6 +657,31 @@ function currentRecord() {
 }
 function currentDataset() {
   return currentRecord()?.dataset || sets[0];
+}
+function isCompanyInfoMetric() {
+  return state.metricMode === 'companyInfo';
+}
+function isIncomeStatementMetric() {
+  return state.metricMode === 'incomeStatement';
+}
+function activeTableKind() {
+  return isCompanyInfoMetric() ? 'company' : 'statement';
+}
+function updatePeriodScrollIndicator() {
+  if (!periodScrollMeter || !periodScrollThumb || !periodList) return;
+  const overflow = periodList.scrollWidth - periodList.clientWidth;
+  const scrollable = isIncomeStatementMetric()
+    && !state.periodExpanded
+    && !periodSection.hidden
+    && overflow > 20;
+  periodScrollMeter.hidden = !scrollable;
+  if (!scrollable) return;
+  const trackWidth = periodScrollMeter.clientWidth || periodList.clientWidth;
+  const maxScroll = Math.max(1, overflow);
+  const thumbWidth = clamp(trackWidth * 0.08, 32, 72);
+  const thumbLeft = (periodList.scrollLeft / maxScroll) * Math.max(0, trackWidth - thumbWidth);
+  periodScrollThumb.style.width = `${thumbWidth.toFixed(1)}px`;
+  periodScrollThumb.style.transform = `translateX(${thumbLeft.toFixed(1)}px)`;
 }
 function localizedDataset(dataset, language = state.language) {
   return cachedLocalizedObject(i18nObjectCaches.datasets, dataset, I18N_API.localizeDataset, language);
@@ -910,12 +992,16 @@ function tableRowHeight(table) {
   const value = Number.parseFloat(getComputedStyle(table).getPropertyValue('--table-row-height'));
   return Number.isFinite(value) && value > 0 ? value : 96;
 }
-function tableTopInContent(table) {
-  const contentRect = content.getBoundingClientRect();
-  return content.scrollTop + table.getBoundingClientRect().top - contentRect.top;
+function tableScrollRoot(table) {
+  return table?.closest?.('.view-pane') || tableView || content;
 }
-function tableBodyTopInContent(table) {
-  return tableTopInContent(table) + tableHeaderHeight(table);
+function tableTopInScrollRoot(table) {
+  const scrollRoot = tableScrollRoot(table);
+  const rootRect = scrollRoot.getBoundingClientRect();
+  return scrollRoot.scrollTop + table.getBoundingClientRect().top - rootRect.top;
+}
+function tableBodyTopInScrollRoot(table) {
+  return tableTopInScrollRoot(table) + tableHeaderHeight(table);
 }
 function tableCellHtml(column, row) {
   const value = column.html ? column.html(row) : escapeHtml(column.value(row));
@@ -930,7 +1016,8 @@ function tableRowHtml(columns, row, rowIndex) {
 function virtualRangeFor(table, info, rowHeight, focusIndex = null) {
   const rows = info.rows;
   if (!rows.length) return { start: 0, end: 0 };
-  const bufferPx = Math.max(content.clientHeight, 1) * TABLE_OVERSCAN_VIEWPORTS;
+  const scrollRoot = tableScrollRoot(table);
+  const bufferPx = Math.max(scrollRoot.clientHeight, 1) * TABLE_OVERSCAN_VIEWPORTS;
   if (Number.isInteger(focusIndex) && focusIndex >= 0) {
     const bufferRows = Math.max(1, Math.ceil(bufferPx / rowHeight));
     return {
@@ -938,9 +1025,9 @@ function virtualRangeFor(table, info, rowHeight, focusIndex = null) {
       end: clamp(focusIndex + bufferRows + 1, 0, rows.length),
     };
   }
-  const bodyTop = tableBodyTopInContent(table);
-  const viewportTop = content.scrollTop;
-  const viewportBottom = viewportTop + content.clientHeight;
+  const bodyTop = tableBodyTopInScrollRoot(table);
+  const viewportTop = scrollRoot.scrollTop;
+  const viewportBottom = viewportTop + scrollRoot.clientHeight;
   const start = clamp(Math.floor((viewportTop - bufferPx - bodyTop) / rowHeight), 0, rows.length);
   const end = clamp(Math.ceil((viewportBottom + bufferPx - bodyTop) / rowHeight), 0, rows.length);
   return { start, end: Math.max(start, end) };
@@ -976,8 +1063,8 @@ function renderVirtualTableBody(table, force = false, focusIndex = null) {
 }
 function updateVirtualTables(force = false) {
   if (state.viewMode !== 'table') return;
-  renderVirtualTableBody(companiesTable, force);
-  renderVirtualTableBody(statementsTable, force);
+  if (isCompanyInfoMetric()) renderVirtualTableBody(companiesTable, force);
+  else renderVirtualTableBody(statementsTable, force);
 }
 function requestVirtualTableUpdate() {
   if (virtualTableFrame) return;
@@ -1265,19 +1352,7 @@ function virtualTableTarget(kind) {
   const index = info.rows.findIndex((row) => row.record?.dataset?.key === key);
   return index >= 0 ? { table, info, index } : null;
 }
-function tableRowFor(kind) {
-  const target = virtualTableTarget(kind);
-  if (target) {
-    renderVirtualTableBody(target.table, true, target.index);
-    return target.table.querySelector(`[data-row-index="${target.index}"]`);
-  }
-  if (kind === 'company') {
-    return companiesTable.querySelector(`[data-company-key="${escapeSelector(companyKey(state.company))}"]`);
-  }
-  const key = currentRecord()?.dataset?.key;
-  return key ? statementsTable.querySelector(`[data-dataset-key="${escapeSelector(key)}"]`) : null;
-}
-function fastScrollTo(top, duration = 90, scrollRoot = content) {
+function fastScrollTo(top, duration = 90, scrollRoot = tableView) {
   if (!scrollRoot) return;
   const start = scrollRoot.scrollTop || 0;
   const max = Math.max(0, scrollRoot.scrollHeight - scrollRoot.clientHeight);
@@ -1298,26 +1373,15 @@ function scrollActiveTableRow(kind = 'statement') {
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       const targetInfo = virtualTableTarget(kind);
-      if (targetInfo) {
-        renderVirtualTableBody(targetInfo.table, true, targetInfo.index);
-        const rowTop = tableBodyTopInContent(targetInfo.table) + targetInfo.index * tableRowHeight(targetInfo.table);
-        fastScrollTo(rowTop - tableHeaderHeight(targetInfo.table) - 8);
-        setTimeout(requestVirtualTableUpdate, 120);
+      if (!targetInfo) {
+        updateVirtualTables(true);
         return;
       }
-      const row = tableRowFor(kind);
-      if (!row) return;
-      const tableWrap = row.closest('.table-wrap');
-      if (tableWrap && tableWrap.scrollHeight > tableWrap.clientHeight) {
-        const wrapTop = tableWrap.getBoundingClientRect().top;
-        const headerHeight = row.closest('table')?.tHead?.getBoundingClientRect().height || 0;
-        const target = tableWrap.scrollTop + row.getBoundingClientRect().top - wrapTop - headerHeight - 8;
-        fastScrollTo(target, 90, tableWrap);
-        return;
-      }
-      const contentTop = content.getBoundingClientRect().top;
-      const target = content.scrollTop + row.getBoundingClientRect().top - contentTop - 8;
-      fastScrollTo(target);
+      renderVirtualTableBody(targetInfo.table, true, targetInfo.index);
+      const scrollRoot = tableScrollRoot(targetInfo.table);
+      const rowTop = tableBodyTopInScrollRoot(targetInfo.table) + targetInfo.index * tableRowHeight(targetInfo.table);
+      fastScrollTo(rowTop - tableHeaderHeight(targetInfo.table) - 8, 90, scrollRoot);
+      setTimeout(requestVirtualTableUpdate, 120);
     });
   });
 }
@@ -1338,6 +1402,10 @@ function timelineColors(record, group) {
 }
 function renderActiveSummary() {
   const record = currentRecord();
+  if (isCompanyInfoMetric()) {
+    actionTitle.textContent = [t('metricCompanyInfo'), displayCompany(record)].filter(Boolean).join(' · ');
+    return;
+  }
   actionTitle.textContent = record
     ? [displayCompany(record), [displayPeriod(record), displayPeriodNote(record)].filter(Boolean).join(' - ')].filter(Boolean).join(' · ')
     : t('noDataPointSelected');
@@ -1355,11 +1423,13 @@ function focusActiveCompanyItem() {
   button.focus({ preventScroll: true });
   button.scrollIntoView({ block: 'nearest' });
 }
-function selectCompanyGroup(group, { closeSearch = false, focusCompany = false, scrollKind = 'company' } = {}) {
+function selectCompanyGroup(group, { closeSearch = false, focusCompany = false, scrollKind = activeTableKind() } = {}) {
   if (!group) return;
   const groupRecords = sortedRecords(group);
   state.company = group.company;
-  const next = groupRecords.find((record) => matches(searchTextForRecord(record), periodSearch.value)) || groupRecords[0];
+  const next = isIncomeStatementMetric()
+    ? groupRecords.find((record) => matches(searchTextForRecord(record), periodSearch.value)) || groupRecords[0]
+    : groupRecords[0];
   if (next) {
     state.activeIndex = next.index;
     syncDatasetHash(next);
@@ -1427,6 +1497,7 @@ function renderPeriods() {
   periodList.innerHTML = '';
   if (!yearItems.length) {
     periodList.innerHTML = `<div class="empty-state">${escapeHtml(t('noMatchingTimePoints'))}</div>`;
+    updatePeriodScrollIndicator();
     return;
   }
   yearItems.forEach((year) => {
@@ -1489,38 +1560,80 @@ function renderPeriods() {
     });
     periodList.appendChild(item);
   });
+  updatePeriodScrollIndicator();
 }
 function renderAll() {
+  syncMetricModeControls();
+  syncPeriodExpansionControls();
   syncViewModeControls();
   renderActiveSummary();
   renderCompanies();
-  renderPeriods();
+  if (isIncomeStatementMetric()) renderPeriods();
   if (state.viewMode === 'table') renderTables();
+  syncToolbarHeight();
+  requestAnimationFrame(updatePeriodScrollIndicator);
+}
+function syncMetricModeControls() {
+  if (!METRIC_MODES.includes(state.metricMode)) state.metricMode = 'incomeStatement';
+  if (isCompanyInfoMetric() && state.viewMode !== 'table') state.viewMode = 'table';
+  app.classList.toggle('metric-company-info', isCompanyInfoMetric());
+  app.classList.toggle('metric-income-statement', isIncomeStatementMetric());
+  periodSection.hidden = !isIncomeStatementMetric();
+  [...metricMode.querySelectorAll('button')].forEach((button) => {
+    const active = button.dataset.metric === state.metricMode;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-pressed', active ? 'true' : 'false');
+  });
 }
 function syncViewModeControls() {
+  if (isCompanyInfoMetric() && state.viewMode !== 'table') state.viewMode = 'table';
+  const isSankey = isIncomeStatementMetric() && state.viewMode === 'sankey';
   const isTable = state.viewMode === 'table';
-  sankeyView.hidden = isTable;
+  sankeyView.hidden = !isSankey;
   tableView.hidden = !isTable;
-  sankeyActions.hidden = isTable;
+  companiesTableSection.hidden = !(isTable && isCompanyInfoMetric());
+  statementsTableSection.hidden = !(isTable && isIncomeStatementMetric());
+  sankeyActions.hidden = !isSankey;
   tableActions.hidden = !isTable;
+  companiesCsvBtn.hidden = !isTable || !isCompanyInfoMetric();
+  statementsCsvBtn.hidden = !isTable || !isIncomeStatementMetric();
   [...viewMode.querySelectorAll('button')].forEach((button) => {
-    const active = button.dataset.view === state.viewMode;
+    const allowed = button.dataset.view === 'table' || isIncomeStatementMetric();
+    const active = allowed && button.dataset.view === state.viewMode;
+    button.hidden = !allowed;
     button.classList.toggle('active', active);
     button.setAttribute('aria-pressed', active ? 'true' : 'false');
   });
   syncToolbarHeight();
 }
 function setViewMode(mode, persist = true) {
+  if (isCompanyInfoMetric()) mode = 'table';
   if (mode !== 'sankey' && mode !== 'table') return;
   if (state.viewMode === mode) {
-    if (mode === 'table') scrollActiveTableRow('statement');
+    if (mode === 'table') scrollActiveTableRow(activeTableKind());
     return;
   }
   state.viewMode = mode;
   if (persist) writeStoredValue(VIEW_MODE_KEY, mode);
   renderAll();
   draw({ renderTable: false, syncView: false });
-  if (mode === 'table') scrollActiveTableRow('statement');
+  if (mode === 'table') scrollActiveTableRow(activeTableKind());
+}
+function setMetricMode(mode, persist = true) {
+  if (!METRIC_MODES.includes(mode)) return;
+  if (state.metricMode === mode) {
+    if (state.viewMode === 'table') scrollActiveTableRow(activeTableKind());
+    return;
+  }
+  state.metricMode = mode;
+  state.viewMode = mode === 'companyInfo' ? 'table' : 'sankey';
+  if (persist) {
+    writeStoredValue(METRIC_MODE_KEY, mode);
+    writeStoredValue(VIEW_MODE_KEY, state.viewMode);
+  }
+  renderAll();
+  draw({ renderTable: false, syncView: false });
+  if (state.viewMode === 'table') scrollActiveTableRow(activeTableKind());
 }
 
 function createHeaderSearchController({ section, input, toggle, render, navigate }) {
@@ -1577,6 +1690,15 @@ function syncPeriodSortToggle() {
   periodSortToggle.title = label;
   periodSortToggle.setAttribute('aria-label', label);
   periodSortToggle.setAttribute('aria-pressed', isDesc ? 'true' : 'false');
+}
+function syncPeriodExpansionControls() {
+  app.classList.toggle('period-expanded', Boolean(state.periodExpanded && isIncomeStatementMetric()));
+  if (!periodExpandToggle) return;
+  const label = state.periodExpanded ? t('periodCollapseTitle') : t('periodExpandTitle');
+  periodExpandToggle.innerHTML = periodExpandIcon(state.periodExpanded);
+  periodExpandToggle.title = label;
+  periodExpandToggle.setAttribute('aria-label', label);
+  periodExpandToggle.setAttribute('aria-expanded', state.periodExpanded ? 'true' : 'false');
 }
 function companySortLabel(sortKey = state.companySort) {
   const key = COMPANY_SORT_CONFIG[sortKey]?.labelKey || COMPANY_SORT_CONFIG.name.labelKey;
@@ -1703,6 +1825,15 @@ periodSortToggle.addEventListener('click', () => {
   state.sort = state.sort === 'desc' ? 'asc' : 'desc';
   syncPeriodSortToggle();
   renderPeriods();
+  requestAnimationFrame(updatePeriodScrollIndicator);
+});
+periodExpandToggle?.addEventListener('click', () => {
+  state.periodExpanded = !state.periodExpanded;
+  writeStoredValue(PERIOD_EXPANDED_KEY, state.periodExpanded);
+  syncPeriodExpansionControls();
+  syncToolbarHeight();
+  updatePeriodScrollIndicator();
+  draw();
 });
 companySortToggle?.addEventListener('click', () => {
   setCompanySortMenuOpen(!isCompanySortMenuOpen());
@@ -1743,6 +1874,11 @@ document.addEventListener('keydown', (e) => {
   if (e.key !== 'Escape' || !isCompanySortMenuOpen()) return;
   setCompanySortMenuOpen(false);
 });
+metricMode.addEventListener('click', (e) => {
+  const button = e.target.closest('button');
+  if (!button) return;
+  setMetricMode(button.dataset.metric);
+});
 viewMode.addEventListener('click', (e) => {
   const button = e.target.closest('button');
   if (!button) return;
@@ -1756,6 +1892,9 @@ themeToggle.addEventListener('click', () => {
 });
 sidebarToggle.addEventListener('click', () => {
   setSidebarCollapsed(!state.sidebarCollapsed);
+});
+sidebarRestoreToggle?.addEventListener('click', () => {
+  setSidebarCollapsed(false);
 });
 
 let sidebarDrag = null;
@@ -1821,7 +1960,8 @@ window.addEventListener('hashchange', () => {
   scrollActiveTableRow('statement');
 });
 
-content.addEventListener('scroll', requestVirtualTableUpdate, { passive: true });
+tableView.addEventListener('scroll', requestVirtualTableUpdate, { passive: true });
+periodList.addEventListener('scroll', updatePeriodScrollIndicator, { passive: true });
 
 let rt;
 window.addEventListener('resize', () => {
@@ -1829,6 +1969,7 @@ window.addEventListener('resize', () => {
   rt = setTimeout(() => {
     syncResponsiveLayout();
     draw();
+    updatePeriodScrollIndicator();
     requestVirtualTableUpdate();
   }, 200);
 });

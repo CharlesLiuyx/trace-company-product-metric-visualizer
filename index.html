@@ -33,10 +33,6 @@
         <a class="repo-link" href="https://github.com/CharlesLiuyx/trace-company-product-metric-visualizer" target="_blank" rel="noopener" title="CharlesLiuyx/trace-company-product-metric-visualizer" aria-label="GitHub repository CharlesLiuyx/trace-company-product-metric-visualizer">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 8.4 22.9c.58.1.8-.25.8-.56v-2.1c-3.26.7-3.95-1.38-3.95-1.38-.53-1.36-1.3-1.72-1.3-1.72-1.06-.72.08-.7.08-.7 1.18.08 1.8 1.22 1.8 1.22 1.04 1.78 2.74 1.26 3.4.96.1-.76.4-1.26.74-1.55-2.6-.3-5.34-1.3-5.34-5.78 0-1.28.46-2.33 1.2-3.15-.12-.3-.52-1.5.12-3.1 0 0 .98-.32 3.18 1.2A11 11 0 0 1 12 5.35c.98 0 1.96.13 2.88.39 2.2-1.52 3.17-1.2 3.17-1.2.64 1.6.24 2.8.12 3.1.75.82 1.2 1.87 1.2 3.15 0 4.5-2.74 5.48-5.35 5.77.42.36.8 1.08.8 2.18v3.22c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
         </a>
-        <div class="seg view-seg" id="viewMode" aria-label="Data view" data-i18n-aria-label="viewModeLabel">
-          <button data-view="sankey" class="active" title="Sankey view" data-i18n="viewSankey" data-i18n-title="viewSankeyTitle">Sankey</button>
-          <button data-view="table" title="Table view" data-i18n="viewTable" data-i18n-title="viewTableTitle">Table</button>
-        </div>
         <div class="utility-controls" aria-label="Global settings" data-i18n-aria-label="globalSettingsLabel">
           <button class="btn utility-btn" id="languageToggle" type="button" aria-label="Switch language to Chinese" title="Switch language to Chinese">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
@@ -47,41 +43,15 @@
           </button>
         </div>
       </div>
-      <div class="actionbar">
-        <button class="btn icon-btn" id="sidebarToggle" aria-label="Collapse dataset panel" aria-expanded="true" aria-controls="datasetPanel" title="Collapse dataset panel">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="m16 9-3 3 3 3"/></svg>
-        </button>
-        <div class="action-title" id="actionTitle"></div>
-        <div class="spacer"></div>
-        <div class="toolbar-actions" aria-label="View actions" data-i18n-aria-label="viewActionsLabel">
-          <div class="action-group" id="sankeyActions">
-            <button class="btn" id="svgBtn" title="Download SVG" data-i18n-title="downloadSvgTitle">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
-              <span data-i18n="downloadSvg">SVG</span>
-            </button>
-            <button class="btn primary" id="pngBtn" title="Download PNG" data-i18n-title="downloadPngTitle">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
-              <span data-i18n="downloadPng">PNG</span>
-            </button>
-          </div>
-          <div class="action-group" id="tableActions" hidden>
-            <button class="btn" id="companiesCsvBtn" title="Download companies CSV" data-i18n-title="downloadCompaniesCsvTitle">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
-              <span data-i18n="downloadCompaniesCsv">Companies CSV</span>
-            </button>
-            <button class="btn primary" id="statementsCsvBtn" title="Download income statements CSV" data-i18n-title="downloadStatementsCsvTitle">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
-              <span data-i18n="downloadStatementsCsv">Statements CSV</span>
-            </button>
-          </div>
-        </div>
-      </div>
     </header>
 
     <div class="app">
       <aside class="dataset-panel" id="datasetPanel" aria-label="Dataset navigation" data-i18n-aria-label="datasetNavigationLabel">
         <section class="panel-section company-section">
           <div class="section-bar company-section-bar">
+            <button class="btn icon-btn panel-collapse-btn" id="sidebarToggle" aria-label="Collapse dataset panel" aria-expanded="true" aria-controls="datasetPanel" title="Collapse dataset panel">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="m16 9-3 3 3 3"/></svg>
+            </button>
             <label for="companySearch" data-i18n="companyLabel">Company</label>
             <div class="search-box header-search-box" id="companySearchBox">
               <input id="companySearch" type="search" placeholder="Search companies" autocomplete="off" data-i18n-placeholder="companySearchPlaceholder" />
@@ -99,28 +69,83 @@
           <div class="nav-list" id="companyList" role="listbox" aria-label="Companies" data-i18n-aria-label="companiesLabel"></div>
         </section>
 
-        <section class="panel-section period-section">
-          <div class="section-bar period-section-bar">
-            <label for="periodSearch" data-i18n="periodLabel">Data point time</label>
-            <div class="search-box header-search-box" id="periodSearchBox">
-              <input id="periodSearch" type="search" placeholder="Search time points" autocomplete="off" data-i18n-placeholder="periodSearchPlaceholder" />
-            </div>
-            <div class="panel-icon-actions">
-              <button class="btn icon-btn search-toggle" id="periodSearchToggle" type="button" aria-label="Search time points" aria-expanded="false" aria-controls="periodSearchBox" title="Search time points" data-i18n-aria-label="periodSearchPlaceholder" data-i18n-title="periodSearchPlaceholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-              </button>
-              <button class="btn icon-btn sort-toggle" id="periodSortToggle" type="button" aria-label="Newest first" aria-pressed="true" title="Newest first"></button>
-            </div>
-          </div>
-          <div class="nav-list timeline-list" id="periodList" role="list" aria-label="Data point times" data-i18n-aria-label="periodsLabel"></div>
-        </section>
         <div class="sidebar-resizer" id="sidebarResizer" role="separator" aria-orientation="vertical" aria-label="Resize dataset panel" data-i18n-aria-label="resizeDatasetPanelLabel" tabindex="0"></div>
       </aside>
 
+      <button class="btn icon-btn floating-sidebar-toggle" id="sidebarRestoreToggle" type="button" aria-label="Show dataset panel" aria-expanded="false" aria-controls="datasetPanel" title="Show dataset panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="m13 9 3 3-3 3"/></svg>
+      </button>
+
       <main class="content">
+        <section class="control-strip" aria-label="Metric and view controls" data-i18n-aria-label="mainControlsLabel">
+          <div class="control-group metric-control">
+            <span class="control-label" data-i18n="metricLabel">Metric</span>
+            <div class="seg control-seg metric-seg" id="metricMode" aria-label="Metric" data-i18n-aria-label="metricModeLabel">
+              <button data-metric="companyInfo" type="button" data-i18n="metricCompanyInfo">Company Info</button>
+              <button data-metric="incomeStatement" type="button" data-i18n="metricIncomeStatement">Income Statement</button>
+            </div>
+          </div>
+
+          <section class="panel-section period-section control-group period-control">
+            <div class="section-bar period-section-bar">
+              <label for="periodSearch" data-i18n="periodLabel">Data point time</label>
+              <div class="search-box header-search-box" id="periodSearchBox">
+                <input id="periodSearch" type="search" placeholder="Search time points" autocomplete="off" data-i18n-placeholder="periodSearchPlaceholder" />
+              </div>
+              <div class="panel-icon-actions">
+                <button class="btn icon-btn search-toggle" id="periodSearchToggle" type="button" aria-label="Search time points" aria-expanded="false" aria-controls="periodSearchBox" title="Search time points" data-i18n-aria-label="periodSearchPlaceholder" data-i18n-title="periodSearchPlaceholder">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+                </button>
+                <button class="btn icon-btn sort-toggle" id="periodSortToggle" type="button" aria-label="Newest first" aria-pressed="true" title="Newest first"></button>
+                <button class="btn icon-btn period-expand-toggle" id="periodExpandToggle" type="button" aria-label="Expand time points" aria-expanded="false" title="Expand time points" data-i18n-aria-label="periodExpandTitle" data-i18n-title="periodExpandTitle">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h10"/><path d="M4 17h16"/><path d="m17 10 3 2-3 2"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="nav-list timeline-list" id="periodList" role="list" aria-label="Data point times" data-i18n-aria-label="periodsLabel"></div>
+            <div class="period-scroll-meter" id="periodScrollMeter" aria-hidden="true" hidden><span id="periodScrollThumb"></span></div>
+          </section>
+
+          <div class="control-group view-control">
+            <span class="control-label" data-i18n="viewLabel">View</span>
+            <div class="seg control-seg view-seg" id="viewMode" aria-label="Data view" data-i18n-aria-label="viewModeLabel">
+              <button data-view="sankey" class="active" title="Sankey view" data-i18n="viewSankey" data-i18n-title="viewSankeyTitle">Sankey</button>
+              <button data-view="table" title="Table view" data-i18n="viewTable" data-i18n-title="viewTableTitle">Table</button>
+            </div>
+          </div>
+        </section>
+
+        <div class="view-actionbar">
+          <span class="view-label" data-i18n="viewLabel">View</span>
+          <div class="action-title" id="actionTitle"></div>
+          <div class="spacer"></div>
+          <div class="toolbar-actions" aria-label="View actions" data-i18n-aria-label="viewActionsLabel">
+            <div class="action-group" id="sankeyActions">
+              <button class="btn" id="svgBtn" title="Download SVG" data-i18n-title="downloadSvgTitle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+                <span data-i18n="downloadSvg">SVG</span>
+              </button>
+              <button class="btn primary" id="pngBtn" title="Download PNG" data-i18n-title="downloadPngTitle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+                <span data-i18n="downloadPng">PNG</span>
+              </button>
+            </div>
+            <div class="action-group" id="tableActions" hidden>
+              <button class="btn" id="companiesCsvBtn" title="Download companies CSV" data-i18n-title="downloadCompaniesCsvTitle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+                <span data-i18n="downloadCompaniesCsv">Companies CSV</span>
+              </button>
+              <button class="btn primary" id="statementsCsvBtn" title="Download income statements CSV" data-i18n-title="downloadStatementsCsvTitle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+                <span data-i18n="downloadStatementsCsv">Statements CSV</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
         <div class="stage view-pane" id="sankeyView"><div class="card"><div id="chart"></div></div></div>
         <div class="table-view view-pane" id="tableView" hidden>
-          <section class="table-section" aria-labelledby="companiesTableTitle">
+          <section class="table-section" id="companiesTableSection" aria-labelledby="companiesTableTitle">
             <div class="table-heading">
               <h2 id="companiesTableTitle" data-i18n="companiesLabel">Companies</h2>
               <span id="companiesTableCount"></span>
@@ -129,7 +154,7 @@
               <table id="companiesTable"></table>
             </div>
           </section>
-          <section class="table-section" aria-labelledby="statementsTableTitle">
+          <section class="table-section" id="statementsTableSection" aria-labelledby="statementsTableTitle">
             <div class="table-heading">
               <h2 id="statementsTableTitle" data-i18n="incomeStatementsLabel">Income Statements</h2>
               <span id="statementsTableCount"></span>
