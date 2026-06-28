@@ -65,15 +65,226 @@
       </g>`;
   }
 
-  const annotations = `
+  function annotations(footerText) {
+    return `
     <g font-family="Montserrat,Arial,sans-serif">
       <text x="562" y="407" font-family="Arial Black,Arial,sans-serif" font-size="195" font-weight="900" letter-spacing="4" fill="${NETFLIX_RED}" textLength="535" lengthAdjust="spacingAndGlyphs">NETFLIX</text>
       ${globeIcon(80, 420, 88, 'ucan')}
       ${globeIcon(80, 743, 88, 'emea')}
       ${globeIcon(80, 976, 88, 'latam')}
       ${globeIcon(84, 1191, 88, 'apac')}
-      <text x="93" y="1327" font-size="29" font-weight="500" fill="${NOTE}">* Including  $2.8B Warner break-up fee</text>
+      <text x="93" y="1327" font-size="29" font-weight="500" fill="${NOTE}">${footerText}</text>
     </g>`;
+  }
+
+  const annotationsEn = annotations('* Including  $2.8B Warner break-up fee');
+  const annotationsZh = annotations('* 包括 $2.8B Warner 解约费');
+
+  const zhLayoutLabels = {
+    ucan: {
+      blocks: [
+        {
+          x: 358, top: 302, anchor: 'middle', lineGap: 12,
+          lines: [
+            { text: '$value', size: 38, weight: 400 },
+            { text: '同比 +14%', size: 27, weight: 400, color: NOTE },
+          ],
+        },
+        {
+          x: 318, top: 426, anchor: 'end', lineGap: 8,
+          lines: [
+            { text: '美国和', size: 39, weight: 800 },
+            { text: '加拿大', size: 39, weight: 800 },
+          ],
+        },
+      ],
+    },
+    emea: {
+      blocks: [
+        {
+          x: 358, top: 630, anchor: 'middle', lineGap: 12,
+          lines: [
+            { text: '$value', size: 38, weight: 400 },
+            { text: '同比 +17%', size: 27, weight: 400, color: NOTE },
+          ],
+        },
+        {
+          x: 318, top: 738, anchor: 'end', lineGap: 8,
+          lines: [
+            { text: '欧洲、中东', size: 39, weight: 800 },
+            { text: '和非洲', size: 39, weight: 800 },
+          ],
+        },
+      ],
+    },
+    latam: {
+      blocks: [
+        {
+          x: 358, top: 906, anchor: 'middle', lineGap: 12,
+          lines: [
+            { text: '$value', size: 38, weight: 400 },
+            { text: '同比 +19%', size: 27, weight: 400, color: NOTE },
+          ],
+        },
+        {
+          x: 318, top: 995, anchor: 'end',
+          lines: [{ text: '拉美', size: 39, weight: 800 }],
+        },
+      ],
+    },
+    apac: {
+      blocks: [
+        {
+          x: 358, top: 1122, anchor: 'middle', lineGap: 12,
+          lines: [
+            { text: '$value', size: 38, weight: 400 },
+            { text: '同比 +20%', size: 27, weight: 400, color: NOTE },
+          ],
+        },
+        {
+          x: 318, top: 1209, anchor: 'end',
+          lines: [{ text: '亚太', size: 39, weight: 800 }],
+        },
+      ],
+    },
+    revenue: {
+      blocks: [
+        {
+          x: 826, top: 528, anchor: 'middle', lineGap: 13,
+          lines: [
+            { text: '收入', size: 40, weight: 800 },
+            { text: '$value', size: 38, weight: 400 },
+            { text: '同比 +16%', size: 27, weight: 400, color: NOTE },
+          ],
+        },
+      ],
+    },
+    gross_profit: {
+      blocks: [
+        {
+          x: 1292, top: 388, anchor: 'middle', lineGap: 12,
+          lines: [
+            { text: '毛利润', size: 39, weight: 800 },
+            { text: '$value', size: 38, weight: 400 },
+            { text: '利润率 52%', size: 27, weight: 400, color: NOTE },
+            { text: '同比 +2 个百分点', size: 27, weight: 400, color: NOTE },
+          ],
+        },
+      ],
+    },
+    cost_of_revenue: {
+      blocks: [
+        {
+          x: 1289, top: 1170, anchor: 'middle', lineGap: 9,
+          lines: [
+            { text: '收入', size: 38, weight: 800 },
+            { text: '成本', size: 38, weight: 800 },
+            { text: '$value', size: 36, weight: 400 },
+          ],
+        },
+      ],
+    },
+    operating_profit: {
+      blocks: [
+        {
+          x: 1760, top: 310, anchor: 'middle', lineGap: 11,
+          lines: [
+            { text: '营业利润', size: 39, weight: 800 },
+            { text: '$value', size: 38, weight: 400 },
+            { text: '利润率 32%', size: 27, weight: 400, color: NOTE },
+            { text: '同比 +1 个百分点', size: 27, weight: 400, color: NOTE },
+          ],
+        },
+      ],
+    },
+    operating_expenses: {
+      blocks: [
+        {
+          x: 1728, top: 850, anchor: 'middle', lineGap: 8,
+          lines: [
+            { text: '运营', size: 38, weight: 800 },
+            { text: '费用', size: 38, weight: 800 },
+            { text: '$value', size: 36, weight: 400 },
+          ],
+        },
+      ],
+    },
+    other_income: {
+      blocks: [
+        {
+          x: 2094, top: 246, anchor: 'middle', lineGap: 8,
+          lines: [
+            { text: '其他 *', size: 31, weight: 800 },
+            { text: '$value', size: 30, weight: 400 },
+          ],
+        },
+      ],
+    },
+    net_profit: {
+      blocks: [
+        {
+          x: 2288, top: 357, anchor: 'start', lineGap: 11,
+          lines: [
+            { text: '净利润', size: 39, weight: 800 },
+            { text: '$value', size: 38, weight: 400 },
+            { text: '利润率 43%', size: 27, weight: 400, color: NOTE },
+            { text: '同比 +16 个百分点', size: 27, weight: 400, color: NOTE },
+          ],
+        },
+      ],
+    },
+    tax: {
+      blocks: [
+        {
+          x: 2330, top: 645, anchor: 'middle', lineGap: 8,
+          lines: [
+            { text: '税费', size: 31, weight: 800 },
+            { text: '$value', size: 30, weight: 400 },
+          ],
+        },
+      ],
+    },
+    technology_development: {
+      blocks: [
+        {
+          x: 2303, top: 792, anchor: 'start', lineGap: 8,
+          lines: [
+            { text: '技术与', size: 31, weight: 800 },
+            { text: '开发', size: 31, weight: 800 },
+            { text: '$value', size: 30, weight: 400 },
+            { text: '占收入 8%', size: 27, weight: 400, color: NOTE },
+            { text: '同比 +0 个百分点', size: 27, weight: 400, color: NOTE },
+          ],
+        },
+      ],
+    },
+    marketing: {
+      blocks: [
+        {
+          x: 2308, top: 1011, anchor: 'start', lineGap: 8,
+          lines: [
+            { text: '市场营销', size: 31, weight: 800 },
+            { text: '$value', size: 30, weight: 400 },
+            { text: '占收入 7%', size: 27, weight: 400, color: NOTE },
+            { text: '同比 +0 个百分点', size: 27, weight: 400, color: NOTE },
+          ],
+        },
+      ],
+    },
+    ga: {
+      blocks: [
+        {
+          x: 2308, top: 1218, anchor: 'start', lineGap: 8,
+          lines: [
+            { text: '管理费用', size: 31, weight: 800 },
+            { text: '$value', size: 30, weight: 400 },
+            { text: '占收入 5%', size: 27, weight: 400, color: NOTE },
+            { text: '同比 +1 个百分点', size: 27, weight: 400, color: NOTE },
+          ],
+        },
+      ],
+    },
+  };
 
   window.DATASETS = window.DATASETS || [];
   window.DATASETS.push({
@@ -120,7 +331,7 @@
       linkOpacity: 1,
       type: { name: 40, value: 38, note: 28, lineGap: 8 },
     },
-    annotationsSvg: annotations,
+    annotationsSvg: annotationsEn,
 
     layout: {
       scale: 30.16,
@@ -391,5 +602,37 @@
       { source: 'operating_expenses', target: 'marketing', value: 0.8, width: 24, sourceOrder: 1, targetOrder: 0 },
       { source: 'operating_expenses', target: 'ga', value: 0.6, width: 17, sourceOrder: 2, targetOrder: 0 },
     ],
+
+    i18n: {
+      zh: {
+        name: 'Netflix · 2026 财年第一季度',
+        meta: {
+          title: 'Netflix 2026 财年第一季度利润表',
+          period: '2026 财年第一季度',
+          periodNote: '截至 2026 年 3 月',
+          titleSize: 112,
+          titleTextLength: 1880,
+        },
+        annotationsSvg: annotationsZh,
+        nodes: {
+          ucan: { label: '美国和加拿大', notes: ['同比 +14%'] },
+          emea: { label: '欧洲、中东和非洲', notes: ['同比 +17%'] },
+          latam: { label: '拉美', notes: ['同比 +19%'] },
+          apac: { label: '亚太', notes: ['同比 +20%'] },
+          revenue: { label: '收入', notes: ['同比 +16%'] },
+          gross_profit: { label: '毛利润', notes: ['利润率 52%', '同比 +2 个百分点'] },
+          cost_of_revenue: { label: '收入成本' },
+          operating_profit: { label: '营业利润', notes: ['利润率 32%', '同比 +1 个百分点'] },
+          operating_expenses: { label: '运营费用' },
+          other_income: { label: '其他 *', notes: ['包括 $2.8B Warner 解约费'] },
+          net_profit: { label: '净利润', notes: ['利润率 43%', '同比 +16 个百分点'] },
+          tax: { label: '税费' },
+          technology_development: { label: '技术与开发', notes: ['占收入 8%', '同比 +0 个百分点'] },
+          marketing: { label: '市场营销', notes: ['占收入 7%', '同比 +0 个百分点'] },
+          ga: { label: '管理费用', notes: ['占收入 5%', '同比 +1 个百分点'] },
+        },
+        layout: { labels: zhLayoutLabels },
+      },
+    },
   });
 })();

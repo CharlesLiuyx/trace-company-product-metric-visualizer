@@ -1268,6 +1268,16 @@
           'https://about.netflix.com/en',
           'https://ir.netflix.net/financials/sec-filings/default.aspx',
         ],
+        i18n: {
+          zh: {
+            sector: '通信服务',
+            industry: '流媒体娱乐、电影、剧集、游戏、直播节目和广告',
+            headquarters: '美国加利福尼亚州洛斯盖托斯',
+            fiscalYearEnd: '12 月 31 日',
+            description:
+              'Netflix 是一家全球娱乐服务公司，提供覆盖多种类型和语言的剧集、电影、游戏、直播节目以及含广告套餐。',
+          },
+        },
       },
       {
         key: 'netease',

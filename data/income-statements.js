@@ -1978,6 +1978,46 @@
           operating: { id: 'operating_profit', label: 'Operating profit', value: 4.0, notes: ['32% margin', '+1pp Y/Y'] },
           net: { id: 'net_profit', label: 'Net profit', value: 5.3, notes: ['43% margin', '+16pp Y/Y'] },
         },
+        i18n: {
+          zh: {
+            period: '2026 财年第一季度',
+            periodNote: '截至 2026 年 3 月',
+            revenue: {
+              notes: ['同比 +16%'],
+              items: [
+                { id: 'ucan', label: '美国和加拿大', notes: ['同比 +14%'] },
+                { id: 'emea', label: '欧洲、中东和非洲', notes: ['同比 +17%'] },
+                { id: 'latam', label: '拉美', notes: ['同比 +19%'] },
+                { id: 'apac', label: '亚太', notes: ['同比 +20%'] },
+              ],
+            },
+            costs: {
+              costOfRevenue: { label: '收入成本' },
+              operatingExpenses: {
+                items: [
+                  { id: 'technology_development', label: '技术与开发', notes: ['占收入 8%', '同比 +0 个百分点'] },
+                  { id: 'marketing', label: '市场营销', notes: ['占收入 7%', '同比 +0 个百分点'] },
+                  { id: 'ga', label: '管理费用', notes: ['占收入 5%', '同比 +1 个百分点'] },
+                ],
+              },
+              tax: { label: '税费' },
+            },
+            otherIncome: {
+              items: [
+                {
+                  id: 'other_income',
+                  label: '其他',
+                  notes: ['包括 $2.8B Warner 解约费'],
+                },
+              ],
+            },
+            profit: {
+              gross: { label: '毛利润', notes: ['利润率 52%', '同比 +2 个百分点'] },
+              operating: { label: '营业利润', notes: ['利润率 32%', '同比 +1 个百分点'] },
+              net: { label: '净利润', notes: ['利润率 43%', '同比 +16 个百分点'] },
+            },
+          },
+        },
       },
       {
         key: 'netease-q1-fy26',
