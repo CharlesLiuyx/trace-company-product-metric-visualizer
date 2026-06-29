@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-06-28T18:22:19.949Z",
+  "generatedAt": "2026-06-29T05:32:27.101Z",
   "source": "dataset view and metric source file modification times",
   "files": {
     "alphabet-q1-fy26": {
@@ -126,6 +126,11 @@
       "path": "data/datasets/elastic-q4-fy26.js",
       "mtimeMs": 1782565522668,
       "mtime": "2026-06-27T13:05:22.668Z"
+    },
+    "figma-q1-fy26": {
+      "path": "data/datasets/figma-q1-fy26.js",
+      "mtimeMs": 1782711147101,
+      "mtime": "2026-06-29T05:32:27.101Z"
     },
     "goldman-sachs-q1-fy26": {
       "path": "data/datasets/goldman-sachs-q1-fy26.js",
