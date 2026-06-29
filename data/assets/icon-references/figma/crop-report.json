@@ -1,0 +1,115 @@
+{
+  "source": "input/processed/figma-q1-fy26.png",
+  "spec": "input/icon-crop-specs/figma-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-06-29T05:38:33.980007+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3,
+      "maxP99AbsoluteError": 12,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "figma-company-app-icon",
+      "output": "data/assets/icon-references/figma/crops/company-app-icon.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2813,
+        "losslessBytes": 22317,
+        "savingsVsLossless": 0.874,
+        "metrics": {
+          "meanAbsoluteError": 0.8958,
+          "rootMeanSquareError": 2.2106,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 53,
+          "changedPixelRatio": 0.7896
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 20106,
+        "transparentPixelRatio": 0.2476
+      },
+      "searchBox": {
+        "x": 735,
+        "y": 225,
+        "width": 290,
+        "height": 275
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 757,
+        "y0": 242,
+        "x1": 1005,
+        "y1": 492
+      },
+      "cropBox": {
+        "x0": 735,
+        "y0": 225,
+        "x1": 1025,
+        "y1": 505
+      },
+      "validation": {
+        "width": 290,
+        "height": 280,
+        "foregroundPixels": 59584,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 22,
+          "right": 20,
+          "top": 17,
+          "bottom": 13
+        },
+        "centerOffset": {
+          "x": 0.0034,
+          "y": 0.0071
+        },
+        "passes": true
+      },
+      "note": "Figma company app icon near the top center; excludes the Revenue label, chart flows, KPI cards, website URL, How They Make Money mark, and App Economy Insights attribution. No separate business or segment icon clusters are present in the source image.",
+      "validationSheet": "data/assets/icon-references/figma/validation-sheets/figma-company-app-icon.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 232742,
+        "losslessBytes": 232742,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

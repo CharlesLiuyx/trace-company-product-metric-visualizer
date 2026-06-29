@@ -1,0 +1,37 @@
+{
+  "source": "input/processed/figma-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/figma/crops",
+  "validationSheetDir": "data/assets/icon-references/figma/validation-sheets",
+  "report": "../crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "compression": {
+    "enabled": true,
+    "paletteColors": [256, 192, 128, 96, 64, 48, 32, 24],
+    "maxMeanAbsoluteError": 1.2,
+    "maxRootMeanSquareError": 3,
+    "maxP99AbsoluteError": 12,
+    "maxMaxChannelDiff": 72
+  },
+  "crops": [
+    {
+      "key": "figma-company-app-icon",
+      "output": "company-app-icon.png",
+      "searchBox": { "x": 735, "y": 225, "width": 290, "height": 275 },
+      "cropBox": { "x": 735, "y": 225, "width": 290, "height": 280 },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "padding": 18,
+      "validation": {
+        "borderBand": 3,
+        "maxCenterOffset": 0.08,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Figma company app icon near the top center; excludes the Revenue label, chart flows, KPI cards, website URL, How They Make Money mark, and App Economy Insights attribution. No separate business or segment icon clusters are present in the source image."
+    }
+  ]
+}
