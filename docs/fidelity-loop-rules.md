@@ -85,8 +85,12 @@ sh scripts/clean-compare.sh
 5. `#chart` 参与截图的元素不得使用 CSS `background-image` 作为像素补丁。
 6. 默认情况下，`#chart > svg image` 数量必须为 `0`。
 7. 只有显式 runtime raster 模式允许 SVG `<image>`，且必须满足本文档的白名单规则。
-8. 左右相邻 label 与 node 的横向 overlap 是 hard fail。
-9. `node --check`、`pnpm verify:ssot`、`pnpm verify:i18n -- --strict <dataset-key>` 等
+8. 同一 node 的同轴 label 与 node 外框不得纵向交叠；目标边界间距为 `5px`，渲染
+   bbox 计算出的间距低于 `4px` 是 hard fail。
+9. 短辅助柱、短横柱或小矩形与其上下同轴 label 的水平中心必须对齐；渲染 bbox 计算出
+   的 `centerDelta > 4px` 是 hard fail。
+10. 左右相邻 label 与 node 的横向 overlap 是 hard fail。
+11. `node --check`、`pnpm verify:ssot`、`pnpm verify:i18n -- --strict <dataset-key>` 等
    数据一致性检查必须按 AGENTS.md 的验证清单执行。
 
 ## Runtime Raster 例外
@@ -295,6 +299,9 @@ node geometry、financial totals、source image 或验证语义。
    参考图明确如此。
 8. 自定义曲线控制点通常应保持水平推进：`source.x1 <= c1x <= c2x <= target.x0`。
    如果参考图要求反向弯出或折返，必须记录原因。
+9. 用户标注支线/辅助线形状错误时，先核对渲染后的 source node bbox、target node bbox
+   和 path 起终点是否与参考图同一接口对齐。不要只调 `curve.c1*`/`curve.c2*`；如果
+   源柱或目标短横柱本身偏离参考位置，应先修 node 几何，再修 `y0`/`y1` 和曲线控制点。
 
 修复优先级：
 
@@ -320,6 +327,8 @@ node geometry、financial totals、source image 或验证语义。
 
 - 上方 label 外框下边界到 node 上边界：`5px ± 1px`。
 - 下方 label 外框上边界到 node 下边界：`5px ± 1px`。
+- 上下同轴 label 外框中心到 node 外框中心的水平差：目标 `0px`，短辅助柱/短横柱不超过
+  `4px`。
 - 同一竖向组相邻 label block 外框间距：`5px ± 1px`。
 - 左右 label 与 node 不得横向交叠，目标边界间距至少 `5px`。
 
@@ -331,6 +340,19 @@ node geometry、financial totals、source image 或验证语义。
 中心线接近，即使二者已经垂直相交，也必须归入上下排列的 label-node 组合，记录负
 `edgeGap`，并视为文本交叠/位置错误继续修复；不能因为 `label.bottom <= node.top` 不
 成立就漏掉。
+
+外框交叠关键检查必须按三段式执行：
+
+1. 在候选图上用加粗红色边框框出同一 node 的 label 渲染外框和柱子/node 渲染外框；
+   外框来自浏览器 `getBBox()` 或等价 DOM bbox，不使用源码坐标估算。
+2. 对这些红框做确定性 bbox 审计：按 `data-node` 归组，凡 label 与 node 的 x 方向有
+   交集且中心线接近，就视为同轴组合；计算 `edgeGap = node.top - label.bottom` 或
+   `edgeGap = label.top - node.bottom`，并记录 label/node `centerX` 差。若
+   `edgeGap < 4px`，算法必须先修到目标 `5px` 间距；若短辅助柱/短横柱
+   `centerDelta > 4px`，必须先把 label 重新居中到 node 中心，再重新渲染复查。
+3. 算法复查通过后，把红框图交给大模型做一次视觉总结，确认是否仍有同组外框交叠、
+   错误归组、相邻文字被挤压或新产生的可见重叠；若有，再修复一轮并记录本轮结论。
+   大模型复核不能替代第 2 步的确定性 bbox hard gate。
 
 短辅助节点也必须做同样检查，包括 `interest`、other income、tax benefit、
 investment gains 等连接到终端利润节点的短横柱或小矩形。若参考图把这类节点画在 label
