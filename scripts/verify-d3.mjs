@@ -573,17 +573,17 @@ function assertPurity(purity) {
 
 function logLabelLayoutAudit(audit) {
   console.log(
-    `label-node layout audit: verticalStacks=${audit.verticalStacks.length} adjacentLabelGaps=${audit.adjacentLabelGaps.length} horizontalSideLabels=${audit.horizontalSideLabels.length} horizontalViolations=${audit.horizontalViolations.length} rule=vertical centerDelta=0px/gap=5px; horizontal overlap forbidden (docs/fidelity-loop-rules.md)`
+    `label-node layout audit: sameAxisLabelNodes=${audit.verticalStacks.length} verticalViolations=${audit.verticalViolations.length} centerViolations=${audit.centerViolations.length} adjacentLabelGaps=${audit.adjacentLabelGaps.length} horizontalSideLabels=${audit.horizontalSideLabels.length} horizontalViolations=${audit.horizontalViolations.length} rule=same-axis vertical gap target 5px/min 4px; short-node centerDelta max 4px; horizontal overlap forbidden (docs/fidelity-loop-rules.md)`
   );
 
   const maxRows = 12;
   audit.verticalStacks.slice(0, maxRows).forEach((item) => {
     console.log(
-      `  vertical ${item.node}#${item.labelIndex} ${item.direction}: centerDelta=${formatPx(item.centerDelta)} edgeGap=${formatPx(item.gap)}`
+      `  same-axis ${item.node}#${item.labelIndex} ${item.direction}: centerDelta=${formatPx(item.centerDelta)} edgeGap=${formatPx(item.gap)} overlap=${formatPx(item.overlap)}`
     );
   });
   if (audit.verticalStacks.length > maxRows) {
-    console.log(`  vertical ... ${audit.verticalStacks.length - maxRows} more`);
+    console.log(`  same-axis ... ${audit.verticalStacks.length - maxRows} more`);
   }
 
   audit.adjacentLabelGaps.slice(0, maxRows).forEach((item) => {
@@ -789,6 +789,8 @@ async function main() {
 
       const horizontalOverlap = (a, b) => Math.min(a.right, b.right) - Math.max(a.left, b.left);
       const verticalOverlap = (a, b) => Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top);
+      const stackedLabelMinGap = 4;
+      const shortNodeCenterMaxDelta = 4;
       const verticalStacks = [];
       const horizontalSideLabels = [];
       const byNode = new Map();
@@ -800,13 +802,13 @@ async function main() {
         if (!byNode.has(label.node)) byNode.set(label.node, []);
         byNode.get(label.node).push(label);
 
-        const above = label.box.bottom <= node.top;
-        const below = label.box.top >= node.bottom;
-        const stacked = (above || below) && horizontalOverlap(label.box, node) > 0;
+        const overlapX = horizontalOverlap(label.box, node);
+        const centerDelta = Math.abs(label.box.centerX - node.centerX);
+        const sameAxisTolerance = Math.max(12, Math.min(40, node.width / 2));
         const verticalOverlapPx = verticalOverlap(label.box, node);
         const sideAdjacent = label.box.centerX < node.left || label.box.centerX > node.right;
         if (verticalOverlapPx > 0 && sideAdjacent) {
-          const overlap = horizontalOverlap(label.box, node);
+          const overlap = overlapX;
           if (label.box.right <= node.left) {
             horizontalSideLabels.push({
               node: label.node,
@@ -837,14 +839,23 @@ async function main() {
           }
         }
 
-        if (!stacked) return;
+        const shortNode = node.height <= 12 || node.width <= 12;
+        const verticallySeparated = label.box.bottom <= node.top || label.box.top >= node.bottom;
+        const sameAxis = overlapX > 0 && (centerDelta <= sameAxisTolerance || (shortNode && verticallySeparated));
+        if (!sameAxis) return;
+
+        const above = label.box.centerY <= node.centerY;
+        const gap = above ? node.top - label.box.bottom : label.box.top - node.bottom;
 
         verticalStacks.push({
           node: label.node,
           labelIndex: label.labelIndex,
           direction: above ? 'above-node' : 'below-node',
-          centerDelta: round(Math.abs(label.box.centerX - node.centerX)),
-          gap: round(above ? node.top - label.box.bottom : label.box.top - node.bottom),
+          centerDelta: round(centerDelta),
+          gap: round(gap),
+          overlap: round(Math.max(0, -gap)),
+          horizontalOverlap: round(overlapX),
+          shortNode,
         });
       });
 
@@ -866,8 +877,10 @@ async function main() {
       });
 
       const horizontalViolations = horizontalSideLabels.filter((item) => item.overlap > 0);
+      const verticalViolations = verticalStacks.filter((item) => item.gap < stackedLabelMinGap);
+      const centerViolations = verticalStacks.filter((item) => item.shortNode && item.centerDelta > shortNodeCenterMaxDelta);
 
-      return { verticalStacks, adjacentLabelGaps, horizontalSideLabels, horizontalViolations };
+      return { verticalStacks, verticalViolations, centerViolations, adjacentLabelGaps, horizontalSideLabels, horizontalViolations };
     });
 
     const renderedRegions = await page.evaluate(() => {
@@ -1055,6 +1068,20 @@ async function main() {
           `  region ${region.region}: mae=${region.mae.toFixed(4)} similarity=${region.similarity.toFixed(6)} changed=${region.changedPixelRatio.toFixed(6)} box=${region.x},${region.y},${region.width},${region.height}`
         );
       });
+    if (labelLayoutAudit.verticalViolations.length) {
+      const details = labelLayoutAudit.verticalViolations
+        .slice(0, 5)
+        .map((item) => `${item.node}#${item.labelIndex} ${item.direction} edgeGap=${formatPx(item.gap)}`)
+        .join(', ');
+      throw new Error(`Label-node vertical gap failed: ${details}`);
+    }
+    if (labelLayoutAudit.centerViolations.length) {
+      const details = labelLayoutAudit.centerViolations
+        .slice(0, 5)
+        .map((item) => `${item.node}#${item.labelIndex} ${item.direction} centerDelta=${formatPx(item.centerDelta)}`)
+        .join(', ');
+      throw new Error(`Label-node short-node center alignment failed: ${details}`);
+    }
     if (labelLayoutAudit.horizontalViolations.length) {
       const details = labelLayoutAudit.horizontalViolations
         .slice(0, 5)
