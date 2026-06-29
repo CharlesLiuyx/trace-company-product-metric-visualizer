@@ -7,18 +7,43 @@ Guidance for agents working in this repository.
 This project turns income-statement reference images into reusable Sankey
 datasets and reusable icon/vector assets. When `input/pending/` contains new
 source PNGs, process them into stable datasets, extract validated icon
-reference assets when needed, and run a d3-sankey fidelity loop automatically.
+reference assets when needed, and run the d3-sankey fidelity loop (manual
+rounds; see `docs/fidelity-loop-rules.md`).
 
 ## Trace Architecture Boundaries
 
 - `docs/trace-specification.zh-CN.md` is the top-level Trace product/model spec.
 - Keep Trace domain normalization in `src/trace-domain.js`; keep `src/app.js`
   focused on UI state, interaction, tables, and view switching.
-- `data/products.js` is the first-class Product SSOT and the home for future
-  time-varying Company/Product relationships. Do not hide Product identity or
+- `data/income-statements.js` (income-statement family) and
+  `data/revenue-metrics.js` (revenue family) are the pure Metric SSOTs;
+  `data/datasets/<dataset-key>.js` is the Sankey View Adapter layer. Both SSOTs
+  are enforced by `verify:ssot` and, in strict mode, `verify:i18n`. Keep Sankey
+  geometry out of both.
+- `data/products.js` is a placeholder for a future first-class Product SSOT
+  (currently empty, not verifier-checked). Do not hide Product identity or
   ownership history inside Sankey adapters.
-- `data/income-statements.js` remains the pure Income Statement Metric SSOT;
-  `data/datasets/<dataset-key>.js` remains the Sankey View Adapter layer.
+- When adding a metric family or SSOT, backfill this file and
+  `docs/trace-specification.zh-CN.md`.
+
+## Commands
+
+Install once; `verify:d3` and `verify:standalone` render in Chromium:
+
+    pnpm install --frozen-lockfile && pnpm exec playwright install chromium
+
+| command | purpose |
+| --- | --- |
+| `pnpm check:pending` | pending-image duplicate / key-collision guard |
+| `pnpm verify:ssot` | income + revenue SSOT ↔ dataset parity (global) |
+| `pnpm verify:i18n -- --strict <key>` | i18n overlay coverage for a dataset |
+| `pnpm verify:d3 -- <key> [--focus <dir>] [--keep] [--language <code>]` | d3 render + auto hard gates; loop per `docs/fidelity-loop-rules.md` |
+| `pnpm verify:dataset-file-metadata` | `data/dataset-file-metadata.js` is current |
+| `pnpm build:standalone` + `pnpm verify:standalone` | build and check the self-contained HTML |
+
+`build:standalone` regenerates `data/dataset-file-metadata.js` first. Manual d3
+rounds archive to `output/compare/<key>/...`; scratch `compare/` is cleaned by
+`sh scripts/clean-compare.sh`.
 
 ## Input Workflow
 
@@ -90,7 +115,8 @@ reference assets when needed, and run a d3-sankey fidelity loop automatically.
 
 ## Dataset Authoring
 
-Prefer the existing project patterns:
+Prefer the existing project patterns; see `data/schema.md` for the full
+low-level dataset format:
 
 - Author registered datasets as high-fidelity adapters with explicit low-level
   `nodes`, `links`, `layout.nodes`, and `layout.labels` tuned against the source
@@ -125,8 +151,8 @@ Prefer the existing project patterns:
   dataset text for every non-default supported language: `name`, `meta.title`,
   `meta.period`, `meta.periodNote`, node labels, notes, and any explicit
   `layout.labels.*.blocks[].lines[].text` that is not `$value`. Localize the
-  matching financial SSOT labels/notes and new company metadata as part of the
-  same workflow.
+  matching income-statement/revenue SSOT labels/notes and new company metadata
+  as part of the same workflow.
 - Do not rely on the global i18n phrase dictionary for fixed-position chart
   text. If a dataset uses explicit `layout.labels`, `annotationsSvg`, KPI
   cards, or other SVG text fragments, add dataset-specific
@@ -175,6 +201,7 @@ For company and business icons:
   they match the source intent.
 - In image embedding mode, load `docs/fidelity-loop-rules.md` for the runtime
   raster exception rules and `data/assets/README.md` for asset layout.
+- Set `meta.logoSvg` to a vector company logo when the source shows one.
 
 ## Data and Asset Layout
 
@@ -257,44 +284,41 @@ dataset requires reusable renderer support, split that into a separate
 
 ## Verification Checklist
 
-Before final response, verify:
+Commands are defined in [Commands](#commands). Always, before final response:
 
-- `input/pending/` contains only `.gitkeep`.
-- New processed image exists at `input/processed/<dataset-key>.png`.
-- Dataset script is registered in `index.html`.
-- `node --check data/datasets/<dataset-key>.js` passes.
-- `node --check data/income-statements.js` passes.
-- `node --check data/company-metadata.js` passes.
+- `node --check` passes on every JS file you changed (datasets, both SSOTs,
+  `data/company-metadata.js`, `src/*`, generated metadata).
 - `pnpm verify:ssot` passes.
-- `pnpm verify:i18n -- --strict <dataset-key>` passes for new or materially
-  changed datasets after their language overlays have been added.
-- For each non-default language on new or materially changed datasets, rendered
-  localized SVG text was inspected for mixed-language leftovers, malformed
-  acronym/punctuation output, overlap, and out-of-canvas bounds. Use browser
-  `getBBox()` or an equivalent rendered-SVG check for edge-sensitive labels;
-  `verify:i18n --strict` alone does not prove fixed-layout text is visually
-  valid.
-- If icon assets were extracted:
-  - `python3 scripts/extract_icon_crops.py --spec input/icon-crop-specs/<dataset-key>.json` passes.
-  - `data/assets/icon-references/<company>/crop-report.json` shows every crop
-    with `passes: true`.
-  - Validation sheets were reviewed with the original image and extracted crop
-    visible together.
-  - `data/assets/icon-references/<company>/model-validation.md` records the
-    model/visual pass result.
-  - Every semantically relevant company and business/segment icon cluster in
-    the source image is either extracted or explicitly documented as skipped.
-  - If image embedding mode is used, the runtime raster checks required by
-    `docs/fidelity-loop-rules.md` pass.
-- If a standalone HTML artifact is required, `pnpm build:standalone` and
-  `pnpm verify:standalone` pass.
-- If renderer code changed, `node --check src/sankey-engine.js` passes.
-- If a d3 fidelity loop is required, `docs/fidelity-loop-rules.md` was loaded
-  and its required verification, purity, metric, localization-layout, and
-  `compare/` cleanup checks were completed. Also verify that the latest Task
-  information is complete, required red-box reference images or closure notes
-  exist, and user-feedback lessons were either added to
-  `docs/fidelity-loop-rules.md` or recorded as dataset-specific exceptions.
+- `input/pending/` contains only `.gitkeep`, or a stop condition is reported.
+
+For a new or materially changed dataset, also:
+
+- Processed image at `input/processed/<dataset-key>.png`; script registered in
+  `index.html`.
+- `pnpm verify:i18n -- --strict <dataset-key>` passes after language overlays
+  are added.
+- `pnpm verify:d3 -- <dataset-key>` passes its hard gates; when a fidelity loop
+  is required, run it per `docs/fidelity-loop-rules.md` with current Task
+  information, a red-box reference image or closure note, and user-feedback
+  lessons folded back into the rules or recorded as a dataset exception.
+- Per non-default language, inspect the rendered localized SVG (`getBBox()` or
+  equivalent) for mixed-language leftovers, malformed acronym/punctuation,
+  overlap, and out-of-canvas bounds; `verify:i18n --strict` does not prove
+  fixed-layout text is valid.
+- `pnpm verify:dataset-file-metadata` passes (refresh with
+  `pnpm update:dataset-file-metadata` if stale).
+
+If icon assets were extracted:
+
+- `python3 scripts/extract_icon_crops.py --spec input/icon-crop-specs/<dataset-key>.json` passes.
+- `crop-report.json` shows every crop `passes: true`; validation sheets reviewed;
+  `model-validation.md` records acceptance.
+- Every relevant company/business cluster is extracted or documented as skipped.
+- For image embedding mode, the runtime raster checks in
+  `docs/fidelity-loop-rules.md` pass.
+
+If a standalone artifact is required, `pnpm build:standalone` then
+`pnpm verify:standalone` pass.
 
 ## Reporting
 

@@ -1,10 +1,18 @@
 # AGENTS.md 中文审阅稿
 
-本文件是根目录 `AGENTS.md` 的中文审阅稿，用于迭代讨论。实际生效的 agent 指令仍以英文版 `AGENTS.md` 为准。
+本文件是根目录 `AGENTS.md` 的中文审阅稿，用于迭代讨论。实际生效的 agent 指令、命令清单与验证清单一律以英文版 `AGENTS.md` 为准；本稿只维护设计背景，不复制命令细节，以免漂移。
 
 ## 目标
 
-本项目将损益表参考图片转换为可复用的 Sankey 数据集和可复用的 icon/vector 资产。当 `input/pending/` 中出现新的源 PNG 时，需要将它们处理成稳定的数据集，在需要时提取并验证 icon reference 资产，并自动运行 d3-sankey 保真度循环。
+本项目将损益表参考图片转换为可复用的 Sankey 数据集和可复用的 icon/vector 资产。当 `input/pending/` 中出现新的源 PNG 时，需要将它们处理成稳定的数据集，在需要时提取并验证 icon reference 资产，并运行 d3-sankey 保真度循环（人工轮次，见 `docs/fidelity-loop-rules.md`）。
+
+## Trace 架构边界
+
+- `docs/trace-specification.zh-CN.md` 是 Trace 顶层产品/模型规格。
+- 领域归一化放在 `src/trace-domain.js`；`src/app.js` 专注 UI 状态、交互、表格与视图切换。
+- `data/income-statements.js`（损益表家族）与 `data/revenue-metrics.js`（收入家族）是纯 Metric SSOT；`data/datasets/<dataset-key>.js` 是 Sankey View Adapter 层。两个 SSOT 都受 `verify:ssot` 校验，strict 模式下还受 `verify:i18n` 校验，且都不得包含 Sankey 几何。
+- `data/products.js` 是未来一等 Product SSOT 的占位（当前为空，暂不被 verifier 校验）。不要把 Product 身份或归属历史藏进 Sankey adapter。
+- 新增 metric 家族或 SSOT 时，回填本稿、英文 `AGENTS.md` 与 `docs/trace-specification.zh-CN.md`。
 
 ## 输入工作流
 
@@ -179,5 +187,6 @@ Runtime raster annotation 规则由 `docs/fidelity-loop-rules.md` 定义。
 - pending input 是否已清空。
 - 纯数据 SSOT 是否已更新。
 - 提取了哪些 icon 资产，以及是否覆盖了全部相关业务簇。
-- 对数据集或渲染器改动，汇报 `docs/fidelity-loop-rules.md` 要求的最终 d3 循环结果。
+- 对数据集或渲染器改动，汇报 `docs/fidelity-loop-rules.md` 要求的最终 d3 循环结果，包括紧凑的 Loop Fidelity Summary、最新 Task 信息和红框参考图状态；未运行循环时说明原因。
+- 用户反馈经验是更新了 `docs/fidelity-loop-rules.md` 还是记录为数据集特例。
 - 任何无法运行的命令。
