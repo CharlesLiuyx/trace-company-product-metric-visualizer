@@ -412,15 +412,15 @@ body.is-resizing-sidebar {
 .period-section.search-open .section-bar > label {
   display: none;
 }
-.company-section.search-open .section-bar > .entity-heading {
-  flex: 0 0 auto;
-}
-.company-section.search-open .section-bar > .entity-heading label {
+.company-section.search-open .section-bar > .section-heading {
   display: none;
 }
 .company-section.search-open .header-search-box,
 .period-section.search-open .header-search-box {
   display: block;
+}
+.company-section.search-open .header-search-box {
+  flex: 1 1 0;
 }
 .search-box input {
   width: 100%; height: 28px; padding: 5px 8px;
