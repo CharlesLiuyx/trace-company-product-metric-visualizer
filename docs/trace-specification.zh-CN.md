@@ -186,6 +186,7 @@ InputFile {
 | Company | `data/company-metadata.js` |
 | Product | `data/products.js` 是一等实体 SSOT 占位；当前暂无 Product 记录，已有产品/业务线多以收入项、图标资产间接出现 |
 | Metric / Income Statement | `data/income-statements.js` 是纯财务 SSOT |
+| Metric / Revenue | `data/revenue-metrics.js` 是收入家族纯 Metric SSOT（多期观测），受 `verify:ssot`/`verify:i18n` 校验 |
 | Metric View Adapter | `data/datasets/<dataset-key>.js` 保存 Sankey 节点、链接与布局 |
 | Trace Domain Catalog | `src/trace-domain.js` 将现有 SSOT 和 View Adapter 规整成 UI 可消费的目录模型 |
 | View / Sankey | `src/sankey-engine.js` |
@@ -198,6 +199,7 @@ InputFile {
 当前阶段的边界：
 
 - `data/income-statements.js` 只保存财务事实，不保存 Sankey 布局；
+- `data/revenue-metrics.js` 保存收入家族多期观测，与 Income Statement SSOT 并列，同样不保存 Sankey 布局；
 - `data/products.js` 当前只建立 Product 和 Company/Product 关系的稳定位置，不改变现有视图；
 - `data/datasets/` 是 View Adapter，不是财务事实源；
 - `src/trace-domain.js` 承担领域归一化和目录构建，`src/app.js` 保持为 UI 控制层；
