@@ -12,6 +12,19 @@ do not put `nodes`, `links`, `layout`, `render`, SVG, colors, or pixel geometry
 in that file. Run `pnpm verify:ssot` after adding or materially changing a
 dataset.
 
+Currency and unit contract (enforced by `pnpm verify:ssot`): every SSOT
+`currency` (income statements, revenue metrics, and `marketCap` without
+`valueUsd`) must resolve through the `src/trace-domain.js` currency aliases to
+a `USD_FX_SNAPSHOT` rate — the UI converts mixed-currency totals and the
+comparison view's shared visual scale to USD through that snapshot, and an
+uncovered currency would otherwise be dropped silently. When adding a dataset
+in a new reporting currency, extend `USD_FX_SNAPSHOT` (dated, sourced) in the
+same change. The Sankey adapter's `meta.currency` mirrors the source image and
+may be `''` when the image shows bare numbers (e.g. an "in RMB" note), but a
+non-empty `meta.currency` must agree with the SSOT currency, and `meta.unit`
+must always equal the SSOT `unit`; cross-company normalization reads the SSOT,
+not the adapter.
+
 `data/company-metadata.js` is the company-profile SSOT. Add or update it before
 registering a new company's first dataset so Table mode can show company-level
 context separately from period-specific financial statements.
