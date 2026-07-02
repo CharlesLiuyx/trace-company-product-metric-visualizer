@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-06-29T17:39:52.844Z",
+  "generatedAt": "2026-07-02T16:39:37.771Z",
   "source": "dataset view and metric source file modification times",
   "files": {
     "alphabet-q1-fy26": {
@@ -136,6 +136,11 @@
       "path": "data/datasets/elastic-q4-fy26.js",
       "mtimeMs": 1782565522668,
       "mtime": "2026-06-27T13:05:22.668Z"
+    },
+    "expedia-q1-fy26": {
+      "path": "data/datasets/expedia-q1-fy26.js",
+      "mtimeMs": 1783010377771,
+      "mtime": "2026-07-02T16:39:37.771Z"
     },
     "figma-q1-fy26": {
       "path": "data/datasets/figma-q1-fy26.js",

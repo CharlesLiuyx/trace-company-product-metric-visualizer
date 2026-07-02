@@ -1,0 +1,442 @@
+{
+  "source": "input/processed/expedia-q1-fy26.png",
+  "spec": "input/icon-crop-specs/expedia-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-02T16:09:39.166123+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "expedia-company-logo",
+      "output": "data/assets/icon-references/expedia/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4330,
+        "losslessBytes": 20487,
+        "savingsVsLossless": 0.7886,
+        "metrics": {
+          "meanAbsoluteError": 0.3191,
+          "rootMeanSquareError": 1.8876,
+          "p99AbsoluteError": 8,
+          "maxChannelDiff": 50,
+          "changedPixelRatio": 0.1248
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 54882,
+        "transparentPixelRatio": 0.6328
+      },
+      "searchBox": {
+        "x": 594,
+        "y": 250,
+        "width": 570,
+        "height": 127
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 594,
+        "y0": 250,
+        "x1": 1156,
+        "y1": 377
+      },
+      "cropBox": {
+        "x0": 584,
+        "y0": 240,
+        "x1": 1174,
+        "y1": 387
+      },
+      "validation": {
+        "width": 590,
+        "height": 147,
+        "foregroundPixels": 27979,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 10,
+          "right": 18,
+          "top": 10,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": -0.0068,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Expedia company logo lockup (navy circle with yellow aircraft plus Expedia wordmark) above the revenue hub; excludes the title, revenue label, and source-value labels.",
+      "validationSheet": "data/assets/icon-references/expedia/validation-sheets/expedia-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 242542,
+        "losslessBytes": 242542,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "expedia-lodging-app-expedia",
+      "output": "data/assets/icon-references/expedia/crops/lodging-app-expedia.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 853,
+        "losslessBytes": 3437,
+        "savingsVsLossless": 0.7518,
+        "metrics": {
+          "meanAbsoluteError": 0.6068,
+          "rootMeanSquareError": 1.5092,
+          "p99AbsoluteError": 7,
+          "maxChannelDiff": 24,
+          "changedPixelRatio": 0.7873
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          201,
+          76
+        ],
+        "transparentPixels": 0,
+        "transparentPixelRatio": 0.0
+      },
+      "searchBox": {
+        "x": 240,
+        "y": 513,
+        "width": 69,
+        "height": 72
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 241,
+        "y0": 517,
+        "x1": 309,
+        "y1": 585
+      },
+      "cropBox": {
+        "x0": 233,
+        "y0": 506,
+        "x1": 315,
+        "y1": 592
+      },
+      "validation": {
+        "width": 82,
+        "height": 86,
+        "foregroundPixels": 4511,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 6,
+          "top": 11,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": 0.0122,
+          "y": 0.0233
+        },
+        "passes": true
+      },
+      "note": "Expedia app icon (yellow rounded square, navy circle, yellow aircraft) in the Lodging segment icon pair; excludes the Vrbo icon and the Lodging label.",
+      "validationSheet": "data/assets/icon-references/expedia/validation-sheets/expedia-lodging-app-expedia.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 276335,
+        "losslessBytes": 276335,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "expedia-lodging-app-vrbo",
+      "output": "data/assets/icon-references/expedia/crops/lodging-app-vrbo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 1110,
+        "losslessBytes": 3806,
+        "savingsVsLossless": 0.7084,
+        "metrics": {
+          "meanAbsoluteError": 0.7455,
+          "rootMeanSquareError": 2.1824,
+          "p99AbsoluteError": 11,
+          "maxChannelDiff": 47,
+          "changedPixelRatio": 0.5074
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          50,
+          97,
+          136
+        ],
+        "transparentPixels": 0,
+        "transparentPixelRatio": 0.0
+      },
+      "searchBox": {
+        "x": 318,
+        "y": 513,
+        "width": 70,
+        "height": 72
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 319,
+        "y0": 513,
+        "x1": 387,
+        "y1": 582
+      },
+      "cropBox": {
+        "x0": 312,
+        "y0": 505,
+        "x1": 396,
+        "y1": 590
+      },
+      "validation": {
+        "width": 84,
+        "height": 85,
+        "foregroundPixels": 4514,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 7,
+          "right": 9,
+          "top": 8,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": -0.0119,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Vrbo app icon (navy rounded square with multicolor striped V) in the Lodging segment icon pair; excludes the Expedia app icon and the Lodging label.",
+      "validationSheet": "data/assets/icon-references/expedia/validation-sheets/expedia-lodging-app-vrbo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 97336,
+        "losslessBytes": 280409,
+        "savingsVsLossless": 0.6529,
+        "metrics": {
+          "meanAbsoluteError": 0.4533,
+          "rootMeanSquareError": 2.4262,
+          "p99AbsoluteError": 12,
+          "maxChannelDiff": 62,
+          "changedPixelRatio": 0.1118
+        }
+      }
+    },
+    {
+      "key": "expedia-air-plane",
+      "output": "data/assets/icon-references/expedia/crops/air-plane.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 1503,
+        "losslessBytes": 6315,
+        "savingsVsLossless": 0.762,
+        "metrics": {
+          "meanAbsoluteError": 1.0747,
+          "rootMeanSquareError": 2.7345,
+          "p99AbsoluteError": 11,
+          "maxChannelDiff": 32,
+          "changedPixelRatio": 0.3598
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 3821,
+        "transparentPixelRatio": 0.6615
+      },
+      "searchBox": {
+        "x": 230,
+        "y": 821,
+        "width": 60,
+        "height": 60
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 230,
+        "y0": 821,
+        "x1": 290,
+        "y1": 881
+      },
+      "cropBox": {
+        "x0": 222,
+        "y0": 813,
+        "x1": 298,
+        "y1": 889
+      },
+      "validation": {
+        "width": 76,
+        "height": 76,
+        "foregroundPixels": 1730,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 8,
+          "top": 8,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Airplane emoji-style icon next to the Air segment label; excludes the Air label text and the source bar.",
+      "validationSheet": "data/assets/icon-references/expedia/validation-sheets/expedia-air-plane.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 318269,
+        "losslessBytes": 318269,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "expedia-advertising-trivago",
+      "output": "data/assets/icon-references/expedia/crops/advertising-trivago.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 833,
+        "losslessBytes": 3388,
+        "savingsVsLossless": 0.7541,
+        "metrics": {
+          "meanAbsoluteError": 1.1364,
+          "rootMeanSquareError": 2.6212,
+          "p99AbsoluteError": 11,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.6852
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 2720,
+        "transparentPixelRatio": 0.3855
+      },
+      "searchBox": {
+        "x": 81,
+        "y": 958,
+        "width": 68,
+        "height": 68
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 81,
+        "y0": 958,
+        "x1": 149,
+        "y1": 1026
+      },
+      "cropBox": {
+        "x0": 74,
+        "y0": 950,
+        "x1": 158,
+        "y1": 1034
+      },
+      "validation": {
+        "width": 84,
+        "height": 84,
+        "foregroundPixels": 4355,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 7,
+          "right": 9,
+          "top": 8,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": -0.0119,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "trivago app icon (white rounded square with the trivago wordmark) next to the Advertising segment label; excludes the Advertising label text.",
+      "validationSheet": "data/assets/icon-references/expedia/validation-sheets/expedia-advertising-trivago.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 99516,
+        "losslessBytes": 262472,
+        "savingsVsLossless": 0.6209,
+        "metrics": {
+          "meanAbsoluteError": 0.3023,
+          "rootMeanSquareError": 1.8708,
+          "p99AbsoluteError": 9,
+          "maxChannelDiff": 64,
+          "changedPixelRatio": 0.0834
+        }
+      }
+    }
+  ]
+}
