@@ -1,9 +1,13 @@
 #!/usr/bin/env node
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
-import { dataScriptsFromIndex } from './script-sources.mjs';
+import {
+  DATASET_SCRIPT_DIR,
+  UNREGISTERED_DATASET_SCRIPTS,
+  dataScriptsFromIndex,
+} from './script-sources.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -246,6 +250,27 @@ function main() {
   const missing = scripts.filter((script) => !existsSync(path.join(rootDir, script)));
   if (missing.length) {
     throw new Error(`Missing registered data script(s): ${missing.join(', ')}`);
+  }
+
+  const registered = new Set(scripts);
+  const onDisk = readdirSync(path.join(rootDir, DATASET_SCRIPT_DIR))
+    .filter((name) => name.endsWith('.js'))
+    .map((name) => `${DATASET_SCRIPT_DIR}/${name}`);
+  const unregistered = onDisk.filter(
+    (script) => !registered.has(script) && !UNREGISTERED_DATASET_SCRIPTS.has(script)
+  );
+  if (unregistered.length) {
+    throw new Error(
+      `Dataset script(s) on disk but not registered in index.html: ${unregistered.join(', ')}`
+    );
+  }
+  const staleExemptions = [...UNREGISTERED_DATASET_SCRIPTS].filter(
+    (script) => registered.has(script) || !onDisk.includes(script)
+  );
+  if (staleExemptions.length) {
+    throw new Error(
+      `Stale UNREGISTERED_DATASET_SCRIPTS entr(y/ies): ${staleExemptions.join(', ')}`
+    );
   }
 
   const { records, revenueRecords, companies, datasets } = loadBrowserData(scripts);
