@@ -833,7 +833,35 @@
         ]
       }
     }
-  }
+  },
+
+  i18n: {
+    zh: {
+      name: 'NVIDIA · 2023 财年第三季度',
+      meta: {
+        title: 'NVIDIA 2023 财年第三季度利润表',
+        period: '2023 财年第三季度',
+        periodNote: '截至 2022 年 10 月',
+      },
+      nodes: {
+        data_center: { label: '数据中心', notes: ['环比 +1%'] },
+        gaming: { label: '游戏', notes: ['环比 (23%)'] },
+        professional_visualization: { label: '专业可视化', notes: ['环比 (60%)'] },
+        automotive: { label: '汽车', notes: ['环比 +14%'] },
+        oem_other: { label: 'OEM 及其他', notes: ['环比 (48%)'] },
+        revenue: { label: '收入', notes: ['环比 (12%)'] },
+        gross_profit: { label: '毛利润', notes: ['利润率 54%', '环比 +10 个百分点'] },
+        cost_of_revenue: { label: '收入成本' },
+        other: { label: '其他' },
+        tax_benefit: { label: '税收收益' },
+        operating_profit: { label: '营业利润', notes: ['利润率 10%', '环比 +3 个百分点'] },
+        operating_expenses: { label: '运营费用' },
+        net_profit: { label: '净利润', notes: ['利润率 11%', '环比 +2 个百分点'] },
+        rnd: { label: '研发' },
+        sga: { label: '销售、一般及行政' },
+      },
+    },
+  },
 };
 
   (window.DATASETS = window.DATASETS || []).push(dataset);

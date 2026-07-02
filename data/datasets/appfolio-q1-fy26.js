@@ -195,7 +195,7 @@
         interest: {
           blocks: [
             {
-              x: 2185, top: 493, anchor: 'middle', lineGap: 8,
+              x: 2178, top: 493, anchor: 'middle', lineGap: 8,
               lines: [
                 { text: 'Interest', size: 31, weight: 800 },
                 { text: '$value', size: 30, weight: 400 },
@@ -344,5 +344,33 @@
       { source: 'operating_expenses', target: 'ga', value: 24.341, width: 39, sourceOrder: 2, targetOrder: 0 },
       { source: 'operating_expenses', target: 'depreciation', value: 5.02, width: 8, sourceOrder: 3, targetOrder: 0 },
     ],
+
+    i18n: {
+      zh: {
+        name: 'AppFolio · 2026 财年第一季度',
+        meta: {
+          title: 'Appfolio 2026 财年第一季度利润表',
+          period: '2026 财年第一季度',
+          periodNote: '截至 2026 年 3 月',
+        },
+        nodes: {
+          core_solutions: { label: '核心解决方案', notes: ['同比 +18%'] },
+          value_added_services: { label: '增值服务', notes: ['同比 +22%'] },
+          other_revenue: { label: '其他', notes: ['同比 (25%)'] },
+          revenue: { label: '收入', notes: ['同比 +20%'] },
+          gross_profit: { label: '毛利润', notes: ['利润率 64%', '同比 +0 个百分点'] },
+          cost_of_revenue: { label: '收入成本' },
+          operating_profit: { label: '营业利润', notes: ['利润率 19%', '同比 +4 个百分点'] },
+          operating_expenses: { label: '运营费用' },
+          interest: { label: '利息' },
+          net_profit: { label: '净利润', notes: ['利润率 16%', '同比 +2 个百分点'] },
+          tax: { label: '税费' },
+          rnd: { label: '研发', notes: ['占收入 19%', '同比 (1 个百分点)'] },
+          sm: { label: '销售与市场', notes: ['占收入 14%', '同比 +0 个百分点'] },
+          ga: { label: '管理费用', notes: ['占收入 9%', '同比 (1 个百分点)'] },
+          depreciation: { label: '折旧', notes: ['占收入 2%', '同比 (1 个百分点)'] },
+        },
+      },
+    },
   });
 })();

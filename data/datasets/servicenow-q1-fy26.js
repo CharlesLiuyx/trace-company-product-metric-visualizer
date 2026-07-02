@@ -122,7 +122,7 @@
         professional_services: {
           blocks: [
             {
-              x: 400, top: 965, anchor: 'middle', lineGap: 12,
+              x: 406, top: 965, anchor: 'middle', lineGap: 12,
               lines: [
                 { text: '$value', size: 39, weight: 400, color: TEAL },
                 { text: '+19% Y/Y', size: 30, weight: 400, color: NOTE },
@@ -141,7 +141,7 @@
         revenue: {
           blocks: [
             {
-              x: 873, top: 505, anchor: 'middle', lineGap: 13,
+              x: 873, top: 494, anchor: 'middle', lineGap: 13,
               lines: [
                 { text: 'Revenue', size: 41, weight: 800 },
                 { text: '$value', size: 41, weight: 400 },
@@ -178,7 +178,7 @@
         operating_profit: {
           blocks: [
             {
-              x: 1810, top: 278, anchor: 'middle', lineGap: 11,
+              x: 1810, top: 273, anchor: 'middle', lineGap: 11,
               lines: [
                 { text: 'Operating profit', size: 40, weight: 800 },
                 { text: '$value', size: 40, weight: 400 },
@@ -350,5 +350,46 @@
       { source: 'operating_expenses', target: 'rnd', value: 0.8, width: 69 },
       { source: 'operating_expenses', target: 'ga', value: 0.3, width: 26 },
     ],
+
+    i18n: {
+      zh: {
+        name: 'ServiceNow · 2026 财年第一季度',
+        meta: {
+          title: 'ServiceNow 2026 财年第一季度利润表',
+        },
+        nodes: {
+          subscription: { label: '订阅' },
+          professional_services: { label: '专业服务' },
+          revenue: { label: '收入' },
+          gross_profit: { label: '毛利润' },
+          cost_of_revenue: { label: '收入成本' },
+          operating_profit: { label: '营业利润' },
+          operating_expenses: { label: '运营费用' },
+          interest: { label: '利息' },
+          net_profit: { label: '净利润' },
+          tax: { label: '税费' },
+          sm: { label: '销售与市场' },
+          rnd: { label: '研发' },
+          ga: { label: '管理费用' },
+        },
+        layout: {
+          labels: {
+            net_profit: {
+              blocks: [
+                {
+                  x: 2445, top: 278, anchor: 'middle', lineGap: 11,
+                  lines: [
+                    { text: '净利润', size: 40, weight: 800 },
+                    { text: '$value', size: 40, weight: 400 },
+                    { text: '利润率 12%', size: 30, weight: 400, color: NOTE },
+                    { text: '同比 (2 个百分点)', size: 30, weight: 400, color: NOTE },
+                  ],
+                },
+              ],
+            },
+          },
+        },
+      },
+    },
   });
 })();

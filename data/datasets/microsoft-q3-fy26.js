@@ -144,7 +144,7 @@
               ],
             },
             {
-              x: 510, top: 480, anchor: 'middle', lineGap: 9,
+              x: 510, top: 474, anchor: 'middle', lineGap: 9,
               lines: [
                 { text: '$value', size: 40, weight: 400, color: NOTE },
                 { text: '+17% Y/Y', size: 28, weight: 400, color: NOTE },
@@ -159,7 +159,7 @@
               lines: [{ text: 'Gaming', size: 38, weight: 800, color: NOTE }],
             },
             {
-              x: 510, top: 706, anchor: 'middle', lineGap: 9,
+              x: 510, top: 704, anchor: 'middle', lineGap: 9,
               lines: [
                 { text: '$value', size: 40, weight: 400, color: NOTE },
                 { text: '(7%) Y/Y', size: 28, weight: 400, color: NOTE },
@@ -174,7 +174,7 @@
               lines: [{ text: 'LinkedIn', size: 38, weight: 800, color: NOTE }],
             },
             {
-              x: 510, top: 838, anchor: 'middle', lineGap: 9,
+              x: 510, top: 836, anchor: 'middle', lineGap: 9,
               lines: [
                 { text: '$value', size: 40, weight: 400, color: NOTE },
                 { text: '+12% Y/Y', size: 28, weight: 400, color: NOTE },
@@ -192,7 +192,7 @@
               ],
             },
             {
-              x: 510, top: 970, anchor: 'middle', lineGap: 9,
+              x: 510, top: 962, anchor: 'middle', lineGap: 9,
               lines: [
                 { text: '$value', size: 40, weight: 400, color: NOTE },
                 { text: '(2%) Y/Y', size: 28, weight: 400, color: NOTE },
@@ -207,7 +207,7 @@
               lines: [{ text: 'Search', size: 38, weight: 800, color: NOTE }],
             },
             {
-              x: 510, top: 1100, anchor: 'middle', lineGap: 9,
+              x: 510, top: 1094, anchor: 'middle', lineGap: 9,
               lines: [
                 { text: '$value', size: 40, weight: 400, color: NOTE },
                 { text: '+9% Y/Y', size: 28, weight: 400, color: NOTE },
@@ -222,7 +222,7 @@
               lines: [{ text: 'Other', size: 38, weight: 800, color: NOTE }],
             },
             {
-              x: 510, top: 1203, anchor: 'middle', lineGap: 9,
+              x: 510, top: 1195, anchor: 'middle', lineGap: 9,
               lines: [
                 { text: '$value', size: 40, weight: 400, color: NOTE },
                 { text: '+16% Y/Y', size: 28, weight: 400, color: NOTE },
@@ -258,7 +258,7 @@
         cost_of_revenue: {
           blocks: [
             {
-              x: 1444, top: 1136, anchor: 'middle', lineGap: 10,
+              x: 1444, top: 1145, anchor: 'middle', lineGap: 10,
               lines: [
                 { text: 'Cost of', size: 40, weight: 800 },
                 { text: 'revenue', size: 40, weight: 800 },
@@ -295,7 +295,7 @@
         other: {
           blocks: [
             {
-              x: 2239, top: 522, anchor: 'middle', lineGap: 10,
+              x: 2268, top: 522, anchor: 'middle', lineGap: 10,
               lines: [
                 { text: 'Other', size: 30, weight: 800 },
                 { text: '$value', size: 30, weight: 400 },
@@ -416,5 +416,36 @@
       { source: 'operating_expenses', target: 'sm', value: 6.8, width: 33, sourceOrder: 1 },
       { source: 'operating_expenses', target: 'ga', value: 1.9, width: 9, sourceOrder: 2 },
     ],
+
+    i18n: {
+      zh: {
+        name: 'Microsoft · 2026 财年第三季度',
+        meta: {
+          title: 'Microsoft 2026 财年第三季度利润表',
+          period: '2026 财年第三季度',
+          periodNote: '截至 2026 年 3 月',
+        },
+        nodes: {
+          server: { label: '服务器' },
+          microsoft_365_commercial: { label: 'Microsoft 365 商业版' },
+          gaming: { label: '游戏' },
+          linkedin: { label: 'LinkedIn' },
+          windows_devices: { label: 'Windows 与设备' },
+          search: { label: '搜索' },
+          other_revenue: { label: '其他' },
+          revenue: { label: '收入' },
+          gross_profit: { label: '毛利润' },
+          cost_of_revenue: { label: '收入成本' },
+          operating_profit: { label: '营业利润' },
+          operating_expenses: { label: '运营费用' },
+          other: { label: '其他' },
+          net_profit: { label: '净利润' },
+          tax: { label: '税费' },
+          rnd: { label: '研发' },
+          sm: { label: '销售与市场' },
+          ga: { label: '管理费用' },
+        },
+      },
+    },
   });
 })();

@@ -150,7 +150,7 @@
         base_management_fees: {
           blocks: [
             {
-              x: 443, top: 388, anchor: 'middle', lineGap: 10,
+              x: 443, top: 379, anchor: 'middle', lineGap: 10,
               lines: [
                 { text: '$value', size: 38, weight: 400 },
                 { text: '+8% Y/Y', size: 29, weight: 400, color: NOTE },
@@ -168,7 +168,7 @@
         incentive_management_fees: {
           blocks: [
             {
-              x: 443, top: 497, anchor: 'middle', lineGap: 10,
+              x: 443, top: 488, anchor: 'middle', lineGap: 10,
               lines: [
                 { text: '$value', size: 38, weight: 400 },
                 { text: '+6% Y/Y', size: 29, weight: 400, color: NOTE },
@@ -186,7 +186,7 @@
         owned_leased_and_other: {
           blocks: [
             {
-              x: 443, top: 620, anchor: 'middle', lineGap: 10,
+              x: 443, top: 611, anchor: 'middle', lineGap: 10,
               lines: [
                 { text: '$value', size: 38, weight: 400 },
                 { text: '+6% Y/Y', size: 29, weight: 400, color: NOTE },
@@ -204,7 +204,7 @@
         other_revenue: {
           blocks: [
             {
-              x: 443, top: 761, anchor: 'middle', lineGap: 10,
+              x: 443, top: 752, anchor: 'middle', lineGap: 10,
               lines: [
                 { text: '$value', size: 38, weight: 400 },
                 { text: '+43% Y/Y', size: 29, weight: 400, color: NOTE },
@@ -216,7 +216,7 @@
         managed_franchised_other_revenue: {
           blocks: [
             {
-              x: 443, top: 880, anchor: 'middle', lineGap: 10,
+              x: 443, top: 876, anchor: 'middle', lineGap: 10,
               lines: [
                 { text: '$value', size: 38, weight: 400 },
                 { text: '+8% Y/Y', size: 29, weight: 400, color: NOTE },
@@ -310,7 +310,7 @@
         owned_leased_hotels: {
           blocks: [
             {
-              x: 2460, top: 748, anchor: 'middle', lineGap: 8,
+              x: 2475, top: 748, anchor: 'middle', lineGap: 8,
               lines: [
                 { text: 'Owned, leased', size: 31, weight: 800 },
                 { text: 'hotels', size: 31, weight: 800 },

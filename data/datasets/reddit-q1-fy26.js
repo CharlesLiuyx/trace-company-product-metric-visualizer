@@ -483,5 +483,34 @@
       { source: 'operating_expenses', target: 'sm', value: 152, width: 128, sourceOrder: 1, targetOrder: 0 },
       { source: 'operating_expenses', target: 'ga', value: 66, width: 56, sourceOrder: 2, targetOrder: 0 },
     ],
+
+    i18n: {
+      zh: {
+        name: 'Reddit · 2026 财年第一季度',
+        meta: {
+          title: 'Reddit 2026 财年第一季度利润表',
+          period: '2026 财年第一季度',
+          periodNote: '截至 2026 年 3 月',
+        },
+        nodes: {
+          advertising: { label: '广告', notes: ['同比 +74%'] },
+          other_revenue: { label: '其他', notes: ['同比 +15%'] },
+          revenue_by_product: { label: '收入', notes: ['同比 +69%'] },
+          united_states: { label: '美国', notes: ['同比 +67%'] },
+          rest_of_world: { label: '世界其他地区', notes: ['同比 +76%'] },
+          revenue: { label: '收入', notes: ['同比 +69%'] },
+          gross_profit: { label: '毛利润', notes: ['利润率 92%', '同比 +1 个百分点'] },
+          cost_of_revenue: { label: '收入成本' },
+          operating_profit: { label: '营业利润', notes: ['利润率 28%', '同比 +27 个百分点'] },
+          operating_expenses: { label: '运营费用' },
+          other_income: { label: '其他' },
+          net_profit: { label: '净利润', notes: ['利润率 31%', '同比 +24 个百分点'] },
+          tax: { label: '税费' },
+          rnd: { label: '研发' },
+          sm: { label: '销售与市场' },
+          ga: { label: '管理费用' },
+        },
+      },
+    },
   });
 })();

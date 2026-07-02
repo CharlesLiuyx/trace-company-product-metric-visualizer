@@ -170,7 +170,7 @@
         qtl: {
           blocks: [
             {
-              x: 773, top: 962, anchor: 'middle', lineGap: 10,
+              x: 773, top: 955, anchor: 'middle', lineGap: 10,
               lines: [
                 { text: 'QTL', size: 40, weight: 800 },
                 { text: '$value', size: 39, weight: 400 },
@@ -183,7 +183,7 @@
         other_revenue: {
           blocks: [
             {
-              x: 773, top: 1263, anchor: 'middle', lineGap: 10,
+              x: 773, top: 1253, anchor: 'middle', lineGap: 10,
               lines: [
                 { text: 'Other', size: 40, weight: 800 },
                 { text: '$value', size: 39, weight: 400 },
@@ -258,7 +258,7 @@
         tax_benefit: {
           blocks: [
             {
-              x: 2090, top: 224, anchor: 'middle', lineGap: 8,
+              x: 2090, top: 222, anchor: 'middle', lineGap: 8,
               lines: [
                 { text: 'Tax', size: 34, weight: 800 },
                 { text: 'benefit', size: 34, weight: 800 },
@@ -373,5 +373,36 @@
       { source: 'operating_expenses', target: 'sga', value: 0.9, targetOrder: 1 },
       { source: 'operating_expenses', target: 'other_opex', value: 0.029, targetOrder: 2 },
     ],
+
+    i18n: {
+      zh: {
+        name: 'Qualcomm · 2026 财年第二季度',
+        meta: {
+          title: 'Qualcomm 2026 财年第二季度利润表',
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 3 月',
+        },
+        nodes: {
+          handsets: { label: '手机', notes: ['同比 (13%)'] },
+          automotive: { label: '汽车', notes: ['同比 +38%'] },
+          iot: { label: '物联网', notes: ['同比 +9%'] },
+          qct: { label: 'QCT', notes: ['同比 (4%)', 'EBIT 利润率 27%'] },
+          qtl: { label: 'QTL', notes: ['同比 +5%', '利润率 72%'] },
+          other_revenue: { label: '其他' },
+          revenue: { label: '收入', notes: ['同比 (3%)'] },
+          gross_profit: { label: '毛利润', notes: ['利润率 54%', '同比 (1 个百分点)'] },
+          cost_of_revenue: { label: '收入成本' },
+          operating_profit: { label: '营业利润', notes: ['利润率 22%', '同比 (7 个百分点)'] },
+          operating_expenses: { label: '运营费用' },
+          tax_benefit: { label: '税收收益' },
+          net_profit: { label: '净利润', notes: ['利润率 70%', '同比 +44 个百分点'] },
+          other_non_operating: { label: '其他' },
+          rnd: { label: '研发', notes: ['占收入 23%', '同比 +3 个百分点'] },
+          sga: { label: '销售、一般及行政', notes: ['占收入 8%', '同比 +2 个百分点'] },
+          other_opex: { label: '其他', notes: ['占收入 0%', '同比 +0 个百分点'] },
+          tax: { label: '税费' },
+        },
+      },
+    },
   });
 })();

@@ -354,5 +354,35 @@
         },
       },
     },
+
+    i18n: {
+      zh: {
+        name: 'Robinhood · 2026 财年第一季度',
+        meta: {
+          title: 'Robinhood 2026 财年第一季度利润表',
+          period: '2026 财年第一季度',
+          periodNote: '截至 2026 年 3 月',
+        },
+        nodes: {
+          options: { label: '期权', notes: ['同比 +8%'] },
+          crypto: { label: '加密资产', notes: ['同比 (47%)'] },
+          equities: { label: '股票', notes: ['同比 +46%'] },
+          other_transactions: { label: '其他交易', notes: ['同比 +320%'] },
+          transaction_based: { label: '交易收入', notes: ['同比 +7%'] },
+          net_interest: { label: '净利息', notes: ['同比 +24%'] },
+          other_revenue: { label: '其他收入', notes: ['同比 +57%'] },
+          revenue: { label: '收入', notes: ['同比 +15%'] },
+          pretax_income: { label: '税前利润' },
+          operating_expenses: { label: '运营费用' },
+          net_profit: { label: '净利润' },
+          tax: { label: '税费' },
+          technology_development: { label: '技术与开发' },
+          ga: { label: '管理费用' },
+          marketing: { label: '市场营销' },
+          operations: { label: '运营' },
+          brokerage_transaction: { label: '经纪与交易' },
+        },
+      },
+    },
   });
 })();

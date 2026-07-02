@@ -381,5 +381,58 @@
       { source: 'cost_of_revenue', target: 'product_cost', value: 49.2, targetOrder: 0 },
       { source: 'cost_of_revenue', target: 'service_cost', value: 7.2, targetOrder: 1 },
     ],
+
+    i18n: {
+      preservedAnnotationText: ['tv'],
+      zh: {
+        name: 'Apple · 2026 财年第二季度',
+        meta: {
+          title: 'Apple 2026 财年第二季度利润表',
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 3 月',
+        },
+        nodes: {
+          iphone: { label: 'iPhone', notes: ['同比 +22%'] },
+          mac: { label: 'Mac', notes: ['同比 +6%'] },
+          ipad: { label: 'iPad', notes: ['同比 +8%'] },
+          wearables: { label: '可穿戴设备、家居与配件', notes: ['同比 +5%'] },
+          products: { label: '产品', notes: ['同比 +17%'] },
+          services: { label: '服务', notes: ['同比 +16%'] },
+          revenue: { label: '收入', notes: ['同比 +17%'] },
+          gross_profit: { label: '毛利润', notes: ['利润率 49%', '同比 +2 个百分点'] },
+          cost_of_revenue: { label: '收入成本' },
+          operating_profit: { label: '营业利润', notes: ['利润率 32%', '同比 +1 个百分点'] },
+          operating_expenses: { label: '运营费用' },
+          product_cost: { label: '产品', notes: ['毛利率 39%'] },
+          service_cost: { label: '服务', notes: ['毛利率 77%'] },
+          net_profit: { label: '净利润', notes: ['利润率 27%', '同比 +1 个百分点'] },
+          tax: { label: '税费' },
+          rnd: { label: '研发', notes: ['占收入 10%', '同比 +1 个百分点'] },
+          sga: { label: '销售、一般及行政', notes: ['占收入 7%', '同比 (0 个百分点)'] },
+        },
+        layout: {
+          labels: {
+            mac: {
+              blocks: [
+                {
+                  x: 368, top: 696, anchor: 'start', lineGap: 12,
+                  lines: [
+                    { text: '$value', size: 39, weight: 400 },
+                    { text: '同比 +6%', size: 28, weight: 400, color: NOTE },
+                  ],
+                },
+                {
+                  x: 201, top: 762, anchor: 'start', lineGap: 7,
+                  lines: [
+                    { text: 'Mac', size: 69, weight: 800 },
+                    { text: 'Air、Pro、Mini', size: 24, weight: 400, color: NOTE },
+                  ],
+                },
+              ],
+            },
+          },
+        },
+      },
+    },
   });
 })();

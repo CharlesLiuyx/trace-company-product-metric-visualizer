@@ -182,7 +182,7 @@
         eliminations: {
           blocks: [
             {
-              x: 1320, top: 1158, anchor: 'middle', lineGap: 8,
+              x: 1347, top: 1158, anchor: 'middle', lineGap: 8,
               lines: [
                 { text: 'Eliminations', size: 34, weight: 800, color: RED_LABEL },
                 { text: '$value', size: 31, weight: 400, color: RED_LABEL },
@@ -449,5 +449,35 @@
         curve: { c1x: 1985, c1y: 1114, c2x: 2118, c2y: 1366 },
       },
     ],
+
+    i18n: {
+      zh: {
+        name: 'Morgan Stanley · 2026 财年第一季度',
+        meta: {
+          title: 'Morgan Stanley 2026 财年第一季度利润表',
+          period: '2026 财年第一季度',
+          periodNote: '截至 2026 年 3 月',
+        },
+        nodes: {
+          institutional_securities: { label: '机构证券', notes: ['同比 +19%', '净利率 31%'] },
+          wealth_management: { label: '财富管理', notes: ['同比 +16%', '净利率 24%'] },
+          investment_management: { label: '投资管理', notes: ['同比 (4%)', '净利率 16%'] },
+          eliminations: { label: '抵销' },
+          revenue: { label: '收入', notes: ['同比 +16%'] },
+          pretax_income: { label: '税前利润' },
+          operating_expenses: { label: '信用损失拨备' },
+          non_interest_expenses: { label: ['非利息', '费用'] },
+          net_income: { label: '净利润', notes: ['同比 +29%'] },
+          tax: { label: '税费' },
+          compensation_benefits: { label: '薪酬与福利' },
+          brokerage_clearing_exchange: { label: '经纪、清算与交易所费用' },
+          information_communications: { label: '信息与通信' },
+          professional_services: { label: '专业服务' },
+          occupancy: { label: '场地占用' },
+          marketing_business_development: { label: '市场与业务开发' },
+          other_expenses: { label: '其他' },
+        },
+      },
+    },
   });
 })();

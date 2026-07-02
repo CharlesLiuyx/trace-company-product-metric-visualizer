@@ -186,7 +186,7 @@
         other_revenue: {
           blocks: [
             {
-              x: 425, top: 1010, anchor: 'middle', lineGap: 10,
+              x: 425, top: 1006, anchor: 'middle', lineGap: 10,
               lines: [
                 { text: '$value', size: 38, weight: 400, color: GREEN },
                 { text: '+15% Y/Y', size: 29, weight: 400, color: NOTE },
@@ -254,7 +254,7 @@
         other_income: {
           blocks: [
             {
-              x: 1731, top: 560, anchor: 'middle', lineGap: 8,
+              x: 1714, top: 560, anchor: 'middle', lineGap: 8,
               lines: [
                 { text: 'Other', size: 34, weight: 800, color: GREEN_LABEL },
                 { text: '$value', size: 34, weight: 400, color: GREEN_LABEL },
@@ -278,7 +278,7 @@
         operating_expenses: {
           blocks: [
             {
-              x: 1823, top: 766, anchor: 'middle', lineGap: 8,
+              x: 1823, top: 776, anchor: 'middle', lineGap: 8,
               lines: [
                 { text: 'Operating', size: 36, weight: 800, color: RED_LABEL },
                 { text: 'expenses', size: 36, weight: 800, color: RED_LABEL },
@@ -367,6 +367,36 @@
               ],
             },
           ],
+        },
+      },
+    },
+
+    i18n: {
+      zh: {
+        name: 'Starbucks · 2026 财年第二季度',
+        meta: {
+          title: 'Starbucks 2026 财年第二季度利润表',
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 3 月',
+        },
+        nodes: {
+          beverage: { label: '饮品', notes: ['同比 +7%'] },
+          food: { label: '食品', notes: ['同比 +8%'] },
+          other_revenue: { label: '其他', notes: ['同比 +15%', '包装饮品、royalty and', 'licensing 收入、ingredients'] },
+          revenue: { label: '收入', notes: ['同比 +9%'] },
+          gross_profit: { label: '毛利润', notes: ['利润率 20%', '同比 (1 个百分点)'] },
+          store_opex: { label: '门店运营费用' },
+          product_distribution: { label: '产品与分销' },
+          other_income: { label: '其他' },
+          operating_profit: { label: '营业利润', notes: ['利润率 9%', '同比 +2 个百分点'] },
+          operating_expenses: { label: '运营费用' },
+          net_profit: { label: '净利润', notes: ['利润率 5%', '同比 +1 个百分点'] },
+          tax: { label: '税费' },
+          other_expense: { label: '其他' },
+          ga: { label: '一般及行政' },
+          depreciation_amortization: { label: '折旧与摊销' },
+          other_opex: { label: '其他运营费用' },
+          restructuring: { label: '重组' },
         },
       },
     },

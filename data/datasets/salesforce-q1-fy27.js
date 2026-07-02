@@ -389,5 +389,34 @@
       { source: 'operating_expenses', target: 'ga', value: 0.7, width: 30 },
       { source: 'operating_expenses', target: 'restructuring', value: 0.1, width: 4 },
     ],
+
+    i18n: {
+      zh: {
+        name: 'Salesforce · 2027 财年第一季度',
+        meta: {
+          title: 'Salesforce 2027 财年第一季度利润表',
+          period: '2027 财年第一季度',
+          periodNote: '截至 2026 年 4 月',
+        },
+        nodes: {
+          agentforce_apps: { label: 'Agentforce 应用' },
+          data360_platform: { label: 'Data 360 无头平台及其他' },
+          subscription_support: { label: '订阅与支持' },
+          professional_services: { label: '专业服务' },
+          revenue: { label: '收入' },
+          gross_profit: { label: '毛利润' },
+          cost_of_revenue: { label: '收入成本' },
+          operating_profit: { label: '营业利润' },
+          operating_expenses: { label: '运营费用' },
+          other: { label: '其他' },
+          net_profit: { label: '净利润' },
+          tax: { label: '税费' },
+          sm: { label: '销售与市场' },
+          rnd: { label: '研发' },
+          ga: { label: '管理费用' },
+          restructuring: { label: '重组' },
+        },
+      },
+    },
   });
 })();

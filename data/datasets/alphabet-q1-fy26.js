@@ -123,7 +123,7 @@
         youtube: {
           blocks: [
             {
-              x: 474, top: 724, anchor: 'middle', lineGap: 10,
+              x: 474, top: 722, anchor: 'middle', lineGap: 10,
               lines: [
                 { text: '$value', size: 38, weight: 400 },
                 { text: '+11% Y/Y', size: 28, weight: 400, color: NOTE },
@@ -161,7 +161,7 @@
         google_play_devices: {
           blocks: [
             {
-              x: 658, top: 979, anchor: 'middle', lineGap: 10,
+              x: 658, top: 976, anchor: 'middle', lineGap: 10,
               lines: [
                 { text: '$value', size: 38, weight: 400, color: YELLOW },
                 { text: '+19% Y/Y', size: 28, weight: 400, color: NOTE },
@@ -197,7 +197,7 @@
         other_revenue: {
           blocks: [
             {
-              x: 950, top: 1299, anchor: 'middle', lineGap: 8,
+              x: 913, top: 1299, anchor: 'middle', lineGap: 8,
               lines: [
                 { text: '$value', size: 36, weight: 400, color: YELLOW },
                 { text: 'Other', size: 38, weight: 800, color: YELLOW },
@@ -416,5 +416,37 @@
       { source: 'operating_expenses', target: 'sm', value: 7.6, width: 24, sourceOrder: 1 },
       { source: 'operating_expenses', target: 'ga', value: 4.3, width: 13, sourceOrder: 2 },
     ],
+
+    i18n: {
+      preservedAnnotationText: ['o', 'g', 'l', 'e'],
+      zh: {
+        name: 'Alphabet · 2026 财年第一季度',
+        meta: {
+          title: 'Alphabet 2026 财年第一季度利润表',
+        },
+        nodes: {
+          search_advertising: { label: '搜索广告' },
+          youtube: { label: 'YouTube' },
+          google_admob: { label: 'Google AdMob' },
+          ad_revenue: { label: '广告收入' },
+          google_play_devices: { label: 'Google Play' },
+          google_cloud: { label: 'Google Cloud' },
+          other_revenue: { label: '其他' },
+          revenue: { label: '收入' },
+          gross_profit: { label: '毛利润' },
+          cost_of_revenue: { label: '收入成本' },
+          operating_profit: { label: '营业利润' },
+          operating_expenses: { label: '运营费用' },
+          other_income: { label: '其他' },
+          cost_other: { label: '其他' },
+          tac: { label: '流量获取成本' },
+          net_profit: { label: '净利润' },
+          tax: { label: '税费' },
+          rnd: { label: '研发' },
+          sm: { label: '销售与市场' },
+          ga: { label: '管理费用' },
+        },
+      },
+    },
   });
 })();

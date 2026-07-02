@@ -379,5 +379,90 @@
       { source: 'operating_expenses', target: 'rnd', value: 1.7, targetOrder: 1 },
       { source: 'operating_expenses', target: 'ga', value: 0.4, targetOrder: 2 },
     ],
+
+    i18n: {
+      zh: {
+        name: 'SAP · 2026 财年第一季度',
+        meta: {
+          title: 'SAP 2026 财年第一季度利润表',
+          period: '2026 财年第一季度',
+          periodNote: '截至 2026 年 3 月',
+        },
+        nodes: {
+          saas_paas: { label: 'SaaS/PaaS', notes: ['同比 +21%'] },
+          iaas: { label: 'IaaS', notes: ['同比 (37%)'] },
+          software_licenses: { label: '软件许可证', notes: ['同比 (37%)'] },
+          software_support: { label: '软件支持', notes: ['同比 (11%)'] },
+          cloud: { label: '云', notes: ['同比 +19%'] },
+          licenses_support: { label: '许可证与支持', notes: ['同比 (12%)'] },
+          services: { label: '服务', notes: ['同比 (6%)'] },
+          revenue: { label: '收入', notes: ['同比 +6%'] },
+          gross_profit: { label: '毛利润', notes: ['利润率 73%', '同比 (0 个百分点)'] },
+          cost_of_revenue: { label: '收入成本' },
+          operating_profit: { label: '营业利润', notes: ['利润率 29%', '同比 +3 个百分点'] },
+          operating_expenses: { label: '运营费用' },
+          net_profit: { label: '净利润', notes: ['利润率 20%', '同比 +0 个百分点'] },
+          tax: { label: '税费' },
+          sm: { label: '销售与市场', notes: ['占收入 22%', '同比 (2 个百分点)'] },
+          rnd: { label: '研发', notes: ['占收入 18%', '同比 (1 个百分点)'] },
+          ga: { label: '管理费用', notes: ['占收入 4%', '同比 (0 个百分点)'] },
+        },
+        layout: {
+          labels: {
+            iaas: {
+              blocks: [
+                {
+                  x: 399, top: 726, anchor: 'middle', lineGap: 9,
+                  lines: [
+                    { text: '$value', size: 38, weight: 400, color: NAVY },
+                    { text: '同比 (37%)', size: 28, weight: 400, color: NOTE },
+                  ],
+                },
+                {
+                  x: 312, top: 789, anchor: 'end',
+                  lines: [{ text: 'IaaS', size: 39, weight: 800, color: NAVY }],
+                },
+              ],
+            },
+            software_licenses: {
+              blocks: [
+                {
+                  x: 399, top: 870, anchor: 'middle', lineGap: 9,
+                  lines: [
+                    { text: '$value', size: 38, weight: 400, color: BLUE },
+                    { text: '同比 (37%)', size: 28, weight: 400, color: NOTE },
+                  ],
+                },
+                {
+                  x: 330, top: 915, anchor: 'end', lineGap: 8,
+                  lines: [
+                    { text: '软件', size: 38, weight: 800, color: BLUE },
+                    { text: '许可证', size: 38, weight: 800, color: BLUE },
+                  ],
+                },
+              ],
+            },
+            software_support: {
+              blocks: [
+                {
+                  x: 399, top: 1010, anchor: 'middle', lineGap: 9,
+                  lines: [
+                    { text: '$value', size: 38, weight: 400, color: BLUE },
+                    { text: '同比 (11%)', size: 28, weight: 400, color: NOTE },
+                  ],
+                },
+                {
+                  x: 329, top: 1099, anchor: 'end', lineGap: 8,
+                  lines: [
+                    { text: '软件', size: 38, weight: 800, color: BLUE },
+                    { text: '支持', size: 38, weight: 800, color: BLUE },
+                  ],
+                },
+              ],
+            },
+          },
+        },
+      },
+    },
   });
 })();

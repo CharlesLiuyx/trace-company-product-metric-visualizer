@@ -285,5 +285,29 @@
       { source: 'operating_expenses', target: 'ga', value: 0.164, sourceOrder: 1, targetOrder: 0 },
       { source: 'operating_expenses', target: 'sm', value: 0.069, sourceOrder: 2, targetOrder: 0 },
     ],
+
+    i18n: {
+      zh: {
+        name: 'CoreWeave · 2026 财年第一季度',
+        meta: {
+          title: 'CoreWeave 2026 财年第一季度利润表',
+          period: '2026 财年第一季度',
+          periodNote: '截至 2026 年 3 月',
+        },
+        nodes: {
+          united_states: { label: '美国', notes: ['同比 +105%'] },
+          rest_of_world: { label: '世界其他地区', notes: ['同比 +236%'] },
+          revenue: { label: '收入', notes: ['同比 +112%'] },
+          gross_profit: { label: '毛利润', notes: ['利润率 66%', '同比 (8 个百分点)'] },
+          cost_of_revenue: { label: '收入成本' },
+          operating_loss: { label: '营业亏损', notes: ['利润率 (7%)', '同比 (4 个百分点)'] },
+          operating_expenses: { label: '运营费用' },
+          rnd: { label: '研发', notes: ['占收入 61%', '同比 +4 个百分点'] },
+          ga: { label: '管理费用', notes: ['占收入 8%', '同比 (10 个百分点)'] },
+          sm: { label: '销售与市场', notes: ['占收入 3%', '同比 +2 个百分点'] },
+          tax: { label: '税费' },
+        },
+      },
+    },
   });
 })();

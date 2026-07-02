@@ -127,7 +127,7 @@
         },
         arf_dry: {
           blocks: [
-            { x: 475, top: 878, anchor: 'middle', lines: [{ text: '$value', size: 39, weight: 400, color: DRY_GREEN }] },
+            { x: 475, top: 875, anchor: 'middle', lines: [{ text: '$value', size: 39, weight: 400, color: DRY_GREEN }] },
             {
               x: 397, top: 891, anchor: 'end', lineGap: 15,
               lines: [
@@ -257,7 +257,7 @@
         other: {
           blocks: [
             {
-              x: 2197, top: 648, anchor: 'start', lineGap: 8,
+              x: 2252, top: 648, anchor: 'middle', lineGap: 8,
               lines: [
                 { text: 'Other', size: 31, weight: 800, color: PROFIT_LABEL },
                 { text: '$value', size: 31, weight: 400, color: PROFIT_LABEL },
@@ -364,5 +364,51 @@
       { source: 'operating_expenses', target: 'rnd', value: 1.2, width: 50, sourceOrder: 0, targetOrder: 0 },
       { source: 'operating_expenses', target: 'sga', value: 0.3, width: 11, sourceOrder: 1, targetOrder: 0 },
     ],
+
+    i18n: {
+      zh: {
+        name: 'ASML · 2026 财年第一季度',
+        meta: {
+          title: 'ASML 2026 财年第一季度利润表',
+          period: '2026 财年第一季度',
+          periodNote: '截至 2026 年 3 月',
+        },
+        nodes: {
+          euv: { label: 'EUV', notes: ['极紫外'] },
+          arfi: { label: 'ArFi', notes: ['氟化氩浸没式'] },
+          arf_dry: { label: 'ArF Dry', notes: ['氟化氩干式'] },
+          krf: { label: 'KrF', notes: ['氟化氪'] },
+          i_line: { label: 'I-line' },
+          metrology_inspection: { label: '量测与检测' },
+          net_system_sales: { label: '系统净销售额', notes: ['同比 +9%'] },
+          installed_base_management: { label: '装机基础管理', notes: ['同比 +24%'] },
+          revenue: { label: '净销售额', notes: ['同比 +13%'] },
+          gross_profit: { label: '毛利润', notes: ['利润率 53%', '同比 (1 个百分点)'] },
+          cost_of_sales: { label: '销售成本' },
+          operating_profit: { label: '营业利润', notes: ['利润率 36%', '同比 +1 个百分点'] },
+          operating_expenses: { label: '运营费用' },
+          other: { label: '其他' },
+          net_profit: { label: '净利润', notes: ['利润率 30%', '同比 +0 个百分点'] },
+          tax: { label: '税费' },
+          rnd: { label: '研发' },
+          sga: { label: '销售、一般及行政' },
+        },
+        layout: {
+          labels: {
+            sga: {
+              blocks: [
+                {
+                  x: 2506, top: 1208, anchor: 'middle', lineGap: 8,
+                  lines: [
+                    { text: '销售、一般及行政', size: 31, weight: 800 },
+                    { text: '$value', size: 30, weight: 400 },
+                  ],
+                },
+              ],
+            },
+          },
+        },
+      },
+    },
   });
 })();

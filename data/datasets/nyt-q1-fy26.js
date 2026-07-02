@@ -493,5 +493,37 @@
       { source: 'operating_expenses', target: 'da', value: 21, width: 17, sourceOrder: 3 },
       { source: 'operating_expenses', target: 'other_expense', value: 4, width: 4, sourceOrder: 4 },
     ],
+
+    i18n: {
+      preservedAnnotationText: ['The New York Times', 'New York'],
+      zh: {
+        name: 'The NYT · 2026 财年第一季度',
+        meta: {
+          title: 'The NYT 2026 财年第一季度利润表',
+          period: '2026 财年第一季度',
+          periodNote: '截至 2026 年 3 月',
+        },
+        nodes: {
+          digital: { label: '数字', notes: ['同比 +16%'] },
+          print: { label: '印刷', notes: ['同比 (1%)'] },
+          subscription: { label: '订阅', notes: ['同比 +11%'] },
+          advertising: { label: '广告', notes: ['同比 (1%)'] },
+          other_revenue: { label: '其他', notes: ['同比 +8%'] },
+          revenue: { label: '收入', notes: ['同比 +12%'] },
+          gross_profit: { label: '毛利润', notes: ['利润率 49%', '同比 +2 个百分点'] },
+          cost_of_revenue: { label: '收入成本' },
+          operating_profit: { label: '营业利润', notes: ['利润率 13%', '同比 +4 个百分点'] },
+          operating_expenses: { label: '运营费用' },
+          interest: { label: '利息' },
+          net_profit: { label: '净利润', notes: ['利润率 12%', '同比 +5 个百分点'] },
+          tax_other: { label: '税费及其他' },
+          ga: { label: '管理费用' },
+          sm: { label: '销售与市场' },
+          product: { label: '产品' },
+          da: { label: '折旧与摊销' },
+          other_expense: { label: '其他' },
+        },
+      },
+    },
   });
 })();

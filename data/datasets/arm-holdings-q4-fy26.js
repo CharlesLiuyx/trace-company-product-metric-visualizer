@@ -341,5 +341,57 @@
       { source: 'operating_expenses', target: 'rnd', value: 698, width: 139, sourceOrder: 0, targetOrder: 0 },
       { source: 'operating_expenses', target: 'sga', value: 322, width: 64, sourceOrder: 1, targetOrder: 0 },
     ],
+
+    i18n: {
+      zh: {
+        name: 'Arm Holdings · 2026 财年第四季度',
+        meta: {
+          title: 'Arm Holdings 2026 财年第四季度利润表',
+          period: '2026 财年第四季度',
+          periodNote: '截至 2026 年 3 月',
+        },
+        nodes: {
+          license_other: { label: '授权及其他', notes: ['同比 +29%', '支持与维护'] },
+          royalty: { label: '版税', notes: ['同比 +11%', '按比例或固定金额'] },
+          revenue_by_type: { label: '收入', notes: ['同比 +20%'] },
+          external_customers: { label: '外部客户', notes: ['同比 +6%'] },
+          related_parties: { label: '关联方', notes: ['同比 +85%', 'Arm 中国', '权益法投资'] },
+          revenue: { label: '收入', notes: ['同比 +20%'] },
+          gross_profit: { label: '毛利润', notes: ['利润率 98%', '同比 +0 个百分点'] },
+          cost_of_sales: { label: '销售成本' },
+          operating_profit: { label: '营业利润', notes: ['利润率 29%', '同比 (4 个百分点)'] },
+          operating_expenses: { label: '运营费用' },
+          other: { label: '其他' },
+          net_profit: { label: '净利润', notes: ['利润率 21%', '同比 +4 个百分点'] },
+          tax: { label: '税费' },
+          rnd: { label: '研发', notes: ['占收入 47%', '同比 +3 个百分点'] },
+          sga: { label: '销售、一般及行政', notes: ['占收入 21%', '同比 +1 个百分点'] },
+        },
+        layout: {
+          labels: {
+            license_other: {
+              blocks: [
+                {
+                  x: 339, top: 554, anchor: 'middle', lineGap: 10,
+                  lines: [
+                    { text: '$value', size: 39, weight: 400 },
+                    { text: '同比 +29%', size: 28, weight: 400, color: NOTE },
+                  ],
+                },
+                {
+                  x: 224, top: 648, anchor: 'end', lineGap: 10,
+                  lines: [
+                    { text: '授权', size: 39, weight: 800 },
+                    { text: '及其他', size: 39, weight: 800 },
+                    { text: '支持与', size: 28, weight: 400, color: NOTE },
+                    { text: '维护', size: 28, weight: 400, color: NOTE },
+                  ],
+                },
+              ],
+            },
+          },
+        },
+      },
+    },
   });
 })();

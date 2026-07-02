@@ -232,7 +232,7 @@
         other: {
           blocks: [
             {
-              x: 2185, top: 633, anchor: 'start', lineGap: 7,
+              x: 2221, top: 633, anchor: 'middle', lineGap: 7,
               lines: [
                 { text: 'Other', size: 31, weight: 800 },
                 { text: '$value', size: 30, weight: 400 },
@@ -325,5 +325,49 @@
       { source: 'operating_expenses', target: 'rnd', value: 2.1, targetOrder: 0 },
       { source: 'operating_expenses', target: 'sga', value: 0.8, targetOrder: 1 },
     ],
+
+    i18n: {
+      zh: {
+        name: 'TSMC · 2026 财年第一季度',
+        meta: {
+          title: 'TSMC 2026 财年第一季度利润表',
+          period: '2026 财年第一季度',
+          periodNote: '截至 2026 年 3 月',
+        },
+        nodes: {
+          hpc: { label: '高性能计算' },
+          smartphones: { label: '智能手机' },
+          iot: { label: '物联网' },
+          automotive: { label: '汽车' },
+          dce: { label: '数字消费电子' },
+          others: { label: '其他' },
+          revenue: { label: '收入', notes: ['同比 +41%'] },
+          gross_profit: { label: '毛利润', notes: ['利润率 66%', '同比 +7 个百分点'] },
+          cost_of_revenue: { label: '收入成本' },
+          operating_profit: { label: '营业利润', notes: ['利润率 58%', '同比 +10 个百分点'] },
+          operating_expenses: { label: '运营费用' },
+          other: { label: '其他' },
+          net_profit: { label: '净利润', notes: ['利润率 51%', '同比 +8 个百分点'] },
+          tax: { label: '税费' },
+          rnd: { label: '研发' },
+          sga: { label: '销售、一般及行政' },
+        },
+        layout: {
+          labels: {
+            sga: {
+              blocks: [
+                {
+                  x: 2518, top: 1110, anchor: 'middle', lineGap: 8,
+                  lines: [
+                    { text: '销售、一般及行政', size: 31, weight: 800 },
+                    { text: '$value', size: 30, weight: 400 },
+                  ],
+                },
+              ],
+            },
+          },
+        },
+      },
+    },
   });
 })();
