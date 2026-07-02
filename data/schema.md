@@ -361,6 +361,12 @@ automatically, so declare only text that identity derivation cannot cover.
 `pnpm verify:i18n` matches whole segments case-insensitively; words inside
 longer translatable sentences are never exempted.
 
+Brand and product terms that intentionally render unchanged in every position
+(node labels, notes, layout lines, and annotations alike — e.g. YouTube,
+iPhone, `Microsoft 365`) are declared once as identity mappings in the
+`EXACT_ZH` dictionary in `src/i18n.js`; `pnpm verify:i18n` treats an
+identity-mapped term as translated wherever it appears.
+
 ### node
 
 | field        | type              | notes                                                       |
