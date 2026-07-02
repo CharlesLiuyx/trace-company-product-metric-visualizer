@@ -9,6 +9,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 const TRACKED_TRANSLATABLE_ACRONYMS = new Set(['D&A', 'G&A', 'R&D', 'S&M', 'SG&A', 'TAC']);
+// Grandfathered brand/logo words for datasets registered before company-identity
+// derivation existed. Do not extend: rely on company metadata identity text, or
+// declare dataset-specific words in `i18n.preservedAnnotationText` in the dataset file.
 const PRESERVED_ANNOTATION_TEXT = new Set([
   '.com',
   'amazon',
@@ -290,12 +293,45 @@ function looksTranslatable(text) {
   return true;
 }
 
-function fallbackItems(items) {
-  return items.filter((item) => (
-    looksTranslatable(item.source) &&
-    !(item.path.startsWith('annotationsSvg.') && PRESERVED_ANNOTATION_TEXT.has(item.source)) &&
-    item.source === item.localized
-  ));
+function companyIdentityTextSet(companies) {
+  const set = new Set();
+  const add = (value) => {
+    const text = clean(value);
+    if (!text) return;
+    set.add(text.toLowerCase());
+    for (const token of text.split(/\s+/)) {
+      const word = token.replace(/^[('"]+|[)'",.]+$/g, '');
+      if (word.length >= 3) set.add(word.toLowerCase());
+    }
+  };
+  for (const company of companies) {
+    add(company.name);
+    add(company.legalName);
+    for (const alias of company.aliases || []) add(alias);
+  }
+  return set;
+}
+
+function datasetPreservedAnnotationText(dataset, companyIdentityText) {
+  const declared = dataset.i18n?.preservedAnnotationText;
+  if (!Array.isArray(declared) || !declared.length) return companyIdentityText;
+  return new Set([
+    ...companyIdentityText,
+    ...declared.map((text) => clean(text).toLowerCase()).filter(Boolean),
+  ]);
+}
+
+function fallbackItems(items, preservedAnnotationText) {
+  return items.filter((item) => {
+    if (!looksTranslatable(item.source)) return false;
+    if (item.path.startsWith('annotationsSvg.')) {
+      if (PRESERVED_ANNOTATION_TEXT.has(item.source)) return false;
+      // Whole-segment matches only: never exempts words inside longer
+      // translatable sentences.
+      if (preservedAnnotationText?.has(clean(item.source).toLowerCase())) return false;
+    }
+    return item.source === item.localized;
+  });
 }
 
 function hasDuplicatedLocalizedTerms(text) {
@@ -331,6 +367,7 @@ function main() {
     }
   }
 
+  const companyIdentityText = companyIdentityTextSet(companies);
   const selectedDatasets = keys.size ? datasets.filter((dataset) => keys.has(dataset.key)) : datasets;
   const selectedRecords = records.filter((record) => !keys.size || keys.has(record.key));
   const selectedRevenueRecords = revenueRecords.filter((record) => !keys.size || keys.has(record.key));
@@ -361,7 +398,10 @@ function main() {
           assert(clean(textItems(node.label).join(' ')), `${dataset.key}: node "${node.id}" localized label is empty for ${language}`, errors);
         }
       }
-      const fallbacks = fallbackItems(collectDatasetTexts(dataset, localized));
+      const fallbacks = fallbackItems(
+        collectDatasetTexts(dataset, localized),
+        datasetPreservedAnnotationText(dataset, companyIdentityText)
+      );
       if (fallbacks.length) {
         const sample = fallbacks.slice(0, 5).map((item) => `${item.path}="${item.source}"`).join('; ');
         const message = `${dataset.key}: ${fallbacks.length} dataset text fallback(s) for ${language}; ${sample}`;

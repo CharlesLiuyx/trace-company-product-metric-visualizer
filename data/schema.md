@@ -340,6 +340,14 @@ that is not `$value` should have a localized equivalent. For helper-built
 datasets, node labels and notes are usually sufficient because the renderer
 builds label blocks from node text.
 
+`i18n.preservedAnnotationText` (optional, `string[]`, not a language overlay) declares
+`annotationsSvg` text segments that intentionally stay untranslated in every
+language — sub-brand and logo words such as `aws` or `Uber Eats`. Company
+name, legal name, and alias words from `data/company-metadata.js` are exempted
+automatically, so declare only text that identity derivation cannot cover.
+`pnpm verify:i18n` matches whole segments case-insensitively; words inside
+longer translatable sentences are never exempted.
+
 ### node
 
 | field        | type              | notes                                                       |
