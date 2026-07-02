@@ -21,6 +21,9 @@
 pnpm verify:d3 -- <dataset-key>
 ```
 
+`pnpm verify:dataset -- <dataset-key>` 会把语法、SSOT、strict i18n、metadata
+与每种语言的 d3 渲染打包成一条命令；单独调某一轮时仍用 `verify:d3`。
+
 如果缺少本地依赖，先安装固定版本工具：
 
 ```sh
