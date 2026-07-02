@@ -560,6 +560,21 @@ body.is-resizing-sidebar {
 .period-year-name {
   flex: 0 0 40px; max-width: 48px;
 }
+button.period-year-name {
+  appearance: none; background: none; border: 0; padding: 0;
+  font: inherit; color: inherit; cursor: pointer; text-align: left;
+}
+button.period-year-name:hover,
+button.period-year-name:focus-visible {
+  text-decoration: underline; text-underline-offset: 3px; outline: none;
+}
+.period-year-name.selected,
+.period-year-name.partial {
+  text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px;
+}
+.period-year-name.partial { text-decoration-style: dashed; text-decoration-thickness: 1px; }
+#periodSelectAllToggle { cursor: pointer; }
+#periodSelectAllToggle:hover { text-decoration: underline; text-underline-offset: 3px; }
 .quarter-tags,
 .variant-row {
   min-width: 0; display: flex; align-items: center; flex-wrap: wrap; gap: 3px;
@@ -581,7 +596,9 @@ body.is-resizing-sidebar {
   outline: none;
 }
 .quarter-tag.active,
-.variant-chip.active {
+.quarter-tag.selected,
+.variant-chip.active,
+.variant-chip.selected {
   background: var(--ink); border-color: var(--ink); color: var(--on-ink);
 }
 .quarter-tag:disabled {
@@ -869,6 +886,8 @@ body.is-resizing-sidebar {
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
+  /* fixed gap at every zoom level (the preview replays this layout in JS —
+     keep in sync with COMPARISON_FLOW_GAP in src/app.js) */
   gap: 8px;
   width: 100%;
 }
@@ -944,11 +963,89 @@ body.is-resizing-sidebar {
 .comparison-chart-host {
   flex: 0 1 auto;
   min-width: 0;
+  position: relative;
 }
 .comparison-chart-host svg {
   display: block;
   width: 100%;
   height: auto;
+}
+/* flat bitmap stand-ins shown only while a zoom gesture previews via
+   transform, so the compositor stretches textures instead of re-rasterizing
+   every vector chart per frame */
+.comparison-zoom-proxy {
+  display: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+/* during a zoom gesture the flow is fully hidden and the overlay canvas below
+   paints the moving picture, so no DOM pixel is invalidated per frame */
+.zoom-previewing .comparison-flow {
+  visibility: hidden;
+}
+.comparison-zoom-overlay {
+  position: fixed;
+  z-index: 4;
+  display: none;
+  pointer-events: none;
+}
+/* frame-rate readout, opt-in via ?fps=1 or localStorage trace-perf-hud=1 */
+.perf-hud {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  z-index: 6;
+  padding: 3px 9px;
+  background: var(--bar);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+}
+.comparison-metric-trend {
+  /* stays in the viewport while the zoomed flow scrolls horizontally */
+  position: sticky;
+  left: 10px;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--bg);
+  box-shadow: var(--chart-shadow);
+}
+.comparison-metric-trend-header {
+  align-items: center;
+}
+.comparison-metric-trend-header strong {
+  flex: 0 1 auto;
+  font-size: 13px;
+}
+.comparison-metric-trend-header span {
+  flex: 1 1 auto;
+}
+.comparison-metric-trend-close {
+  flex: 0 0 auto;
+  height: 22px;
+  min-width: 22px;
+  justify-content: center;
+}
+/* scoped selector outranks the later .trend-canvas-wrap base height */
+.comparison-metric-trend .comparison-metric-trend-canvas-wrap {
+  height: min(36vh, 300px);
+  min-height: 200px;
+  padding: 6px 4px 2px;
+}
+.comparison-chart-host rect.sankey-node.metric-trend-selected {
+  /* paired with vector-effect: non-scaling-stroke set on the rect */
+  stroke: var(--ink);
+  stroke-width: 2.25px;
+}
+.comparison-chart-host path.sankey-link.metric-trend-selected-link {
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.38));
 }
 #sankeyView.comparison-zoomed {
   overflow-x: auto;
