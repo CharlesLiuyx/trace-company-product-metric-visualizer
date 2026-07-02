@@ -508,6 +508,8 @@
     titleCaseVariant,
     keyVariantText,
     variantFeatureName,
+    MONEY_UNIT_MULTIPLIERS,
+    USD_FX_SNAPSHOT,
     unitMultiplier,
     currencyCode,
     currencyUnitsPerUsd,

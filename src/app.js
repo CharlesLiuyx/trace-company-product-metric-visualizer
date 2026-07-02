@@ -5,8 +5,10 @@ const {
   COMPANY_SORT_DIRECTIONS,
   COMPANY_SORT_KEYS,
   QUARTER_TAGS,
+  USD_FX_SNAPSHOT,
   amountValueUsd,
   clean,
+  currencyCode,
   companyKey,
   fallbackCompanyMetadata,
   finiteNumber,
@@ -176,6 +178,10 @@ const I18N = I18N_API.ui || {
     companyMultiExitTitle: 'Exit company multi-select',
     comparisonNoData: 'No data for this metric',
     comparisonScopeSummary: '{count} selected companies',
+    fxConvertedNote: 'Converted to USD · FX as of {asOf}',
+    fxConvertedTitle: 'Mixed reporting currencies: non-USD amounts are converted to USD at {source} rates as of {asOf}.',
+    fxExcludedSuffix: '(excl. {companies})',
+    fxExcludedTitle: 'Missing FX rate for {companies}; excluded from the total.',
     periodLabel: 'Data point time',
     periodSortLabel: 'Sort time points',
     sortDesc: 'Desc',
@@ -313,6 +319,10 @@ const I18N = I18N_API.ui || {
     companyMultiExitTitle: '退出公司多选',
     comparisonNoData: '该指标暂无数据',
     comparisonScopeSummary: '已选择 {count} 家公司',
+    fxConvertedNote: '已折算为美元 · 汇率截至 {asOf}',
+    fxConvertedTitle: '所选公司报表货币不同：非美元金额已按 {source} {asOf} 汇率折算为美元。',
+    fxExcludedSuffix: '（不含 {companies}）',
+    fxExcludedTitle: '缺少 {companies} 的汇率，未计入总额。',
     periodLabel: '数据期间',
     periodSortLabel: '排序数据期间',
     sortDesc: '降序',
@@ -1782,13 +1792,21 @@ function renderRevenueTrendComparison() {
   const yMax = Math.ceil((maxUsd * 1.1) / 1e9) * 1e9 || 10;
   const maxGrowth = Math.max(0, ...allGrowthValues);
   const growthMax = Math.max(10, Math.ceil(maxGrowth / 10) * 10);
-  const latestTotal = chartModels.reduce((sum, model) => {
-    const valueUsd = amountValueUsd(model.latest?.value, model.metric?.currency, model.metric?.unit);
-    return valueUsd == null ? sum : sum + valueUsd;
-  }, 0);
+  const latestUsd = sumUsdRows(chartModels
+    .filter((model) => finiteNumber(model.latest?.value) != null)
+    .map((model) => ({
+      value: model.latest.value,
+      currency: model.metric?.currency,
+      unit: model.metric?.unit,
+      company: displayCompanyName(model.record.company),
+    })));
 
   trendChartTitle.textContent = [t('metricRevenue'), t('comparisonScopeSummary', { count: scopeCompanies().length })].join(' · ');
-  trendChartSubtitle.textContent = latestTotal ? `${t('latest')} ${formatUsdShort(latestTotal)}` : t('noRevenueTrendData');
+  trendChartSubtitle.removeAttribute('title');
+  if (latestUsd.converted || latestUsd.excluded.length) trendChartSubtitle.title = fxTooltip(latestUsd.excluded);
+  trendChartSubtitle.textContent = latestUsd.total || latestUsd.excluded.length
+    ? `${t('latest')} ${formatUsdTotal(latestUsd)}`
+    : t('noRevenueTrendData');
   destroyRevenueTrendChart();
 
   if (!chartModels.length) {
@@ -1970,24 +1988,64 @@ function financialMetricRawValue(financial, metric) {
   if (metric === 'tax') return finiteNumber(financial.costs?.tax?.value);
   return null;
 }
-function formatScopeFinancialTotal(metric) {
+function sumUsdRows(rows) {
+  let total = 0;
+  let converted = false;
+  const excluded = [];
+  rows.forEach((row) => {
+    const valueUsd = amountValueUsd(row.value, row.currency, row.unit);
+    if (valueUsd == null) {
+      excluded.push(row.company);
+      return;
+    }
+    if (currencyCode(row.currency) !== 'USD') converted = true;
+    total += valueUsd;
+  });
+  return { total, converted, excluded };
+}
+function fxTooltip(excluded = []) {
+  const parts = [t('fxConvertedTitle', { source: USD_FX_SNAPSHOT.source, asOf: USD_FX_SNAPSHOT.asOf })];
+  if (excluded.length) parts.push(t('fxExcludedTitle', { companies: excluded.join(', ') }));
+  return parts.join(' ');
+}
+function formatUsdTotal({ total, converted, excluded }) {
+  const suffix = excluded.length ? ` ${t('fxExcludedSuffix', { companies: excluded.join(', ') })}` : '';
+  return `${converted ? '≈' : ''}${formatUsdShort(total)}${suffix}`;
+}
+function scopeFinancialTotalInfo(metric) {
   const rows = scopeFinancialRows()
-    .map(({ financial }) => ({ financial, value: financialMetricRawValue(financial, metric) }))
+    .map(({ record, financial }) => ({ record, financial, value: financialMetricRawValue(financial, metric) }))
     .filter((row) => row.value != null);
-  if (!rows.length) return '';
+  if (!rows.length) return null;
   const first = rows[0].financial;
   const sameUnit = rows.every(({ financial }) => (
-    clean(financial.currency) === clean(first.currency)
+    currencyCode(financial.currency) === currencyCode(first.currency)
     && clean(financial.unit) === clean(first.unit)
     && Number(financial.decimals ?? 1) === Number(first.decimals ?? 1)
   ));
-  const total = rows.reduce((sum, row) => sum + row.value, 0);
-  if (sameUnit) return formatAmount(first, total, ['costOfRevenue', 'operatingExpenses', 'tax'].includes(metric));
-  const totalUsd = rows.reduce((sum, row) => {
-    const valueUsd = financialValueUsd(row.financial, row.value);
-    return valueUsd == null ? sum : sum + valueUsd;
-  }, 0);
-  return formatUsdShort(totalUsd);
+  if (sameUnit) {
+    const total = rows.reduce((sum, row) => sum + row.value, 0);
+    return {
+      text: formatAmount(first, total, ['costOfRevenue', 'operatingExpenses', 'tax'].includes(metric)),
+      converted: false,
+      excluded: [],
+    };
+  }
+  const usd = sumUsdRows(rows.map((row) => ({
+    value: row.value,
+    currency: row.financial.currency,
+    unit: row.financial.unit,
+    company: displayCompany(row.record) || row.record.company,
+  })));
+  return { text: formatUsdTotal(usd), converted: usd.converted, excluded: usd.excluded };
+}
+function formatScopeFinancialTotal(metric) {
+  return scopeFinancialTotalInfo(metric)?.text || '';
+}
+function scopeFxState(infos) {
+  const present = infos.filter(Boolean);
+  const excluded = [...new Set(present.flatMap((info) => info.excluded))];
+  return { active: present.some((info) => info.converted) || excluded.length > 0, excluded };
 }
 function latestFinancialForGroup(group) {
   return group?.latestStatementRecord ? financialFor(group.latestStatementRecord) : group?.latest ? financialFor(group.latest) : null;
@@ -1995,6 +2053,13 @@ function latestFinancialForGroup(group) {
 function latestNetProfitUsd(group) {
   const financial = latestFinancialForGroup(group);
   return financialValueUsd(financial, financial?.profit?.net?.value);
+}
+function latestNetProfitUsdLabel(group) {
+  const financial = latestFinancialForGroup(group);
+  const valueUsd = financialValueUsd(financial, financial?.profit?.net?.value);
+  if (valueUsd == null) return formatUsdShort(null);
+  const approx = currencyCode(financial.currency) !== 'USD' ? '≈' : '';
+  return `${approx}${formatUsdShort(valueUsd)}`;
 }
 function foundedYear(company) {
   const match = clean(metadataFor(company).founded).match(/\b(\d{4})\b/);
@@ -2065,7 +2130,7 @@ function companySortMetaText(group) {
     return t('companySortMetaMarketCap', { value: formatUsdShort(marketCapValueUsd(group.company)) });
   }
   if (state.companySort === 'netProfit') {
-    return t('companySortMetaNetProfit', { value: formatUsdShort(latestNetProfitUsd(group)) });
+    return t('companySortMetaNetProfit', { value: latestNetProfitUsdLabel(group) });
   }
   if (state.companySort === 'founded') {
     return t('companySortMetaFounded', { value: metadataFor(group.company).founded || t('missing') });
@@ -2346,6 +2411,7 @@ function timelineColors(record, group) {
 }
 function renderActiveSummary() {
   const record = currentRecord();
+  actionTitle.removeAttribute('title');
   if (isMultiCompanyScope()) {
     const count = scopeCompanies().length;
     if (isCompanyInfoMetric()) {
@@ -2353,24 +2419,33 @@ function renderActiveSummary() {
       return;
     }
     if (isRevenueMetric()) {
-      const recordsForScope = scopeCompanies().flatMap((company) => revenueRecordsForCompany(company)).filter(Boolean);
-      const latestTotal = recordsForScope.reduce((sum, revenueRecord) => {
-        const value = revenueRecord.latestObservation?.value;
-        const valueUsd = amountValueUsd(value, revenueRecord.metric?.currency, revenueRecord.metric?.unit);
-        return valueUsd == null ? sum : sum + valueUsd;
-      }, 0);
+      const rows = scopeCompanies()
+        .flatMap((company) => revenueRecordsForCompany(company))
+        .filter((revenueRecord) => finiteNumber(revenueRecord?.latestObservation?.value) != null)
+        .map((revenueRecord) => ({
+          value: revenueRecord.latestObservation.value,
+          currency: revenueRecord.metric?.currency,
+          unit: revenueRecord.metric?.unit,
+          company: displayCompanyName(revenueRecord.company),
+        }));
+      const usd = sumUsdRows(rows);
+      if (usd.converted || usd.excluded.length) actionTitle.title = fxTooltip(usd.excluded);
       actionTitle.textContent = [
         t('metricRevenue'),
         t('comparisonScopeSummary', { count }),
-        latestTotal ? formatUsdShort(latestTotal) : '',
+        usd.total || usd.excluded.length ? formatUsdTotal(usd) : '',
       ].filter(Boolean).join(' · ');
       return;
     }
+    const revenueInfo = scopeFinancialTotalInfo('revenue');
+    const netProfitInfo = scopeFinancialTotalInfo('netProfit');
+    const fx = scopeFxState([revenueInfo, netProfitInfo]);
+    if (fx.active) actionTitle.title = fxTooltip(fx.excluded);
     actionTitle.textContent = [
       t('metricIncomeStatement'),
       t('comparisonScopeSummary', { count }),
-      `${t('tableRevenue')} ${formatScopeFinancialTotal('revenue')}`,
-      `${t('tableNetProfit')} ${formatScopeFinancialTotal('netProfit')}`,
+      `${t('tableRevenue')} ${revenueInfo?.text || ''}`,
+      `${t('tableNetProfit')} ${netProfitInfo?.text || ''}`,
     ].filter(Boolean).join(' · ');
     return;
   }
@@ -3099,7 +3174,12 @@ function pxPerDatasetValue(dataset) {
 }
 function pxPerUsdForDataset(dataset) {
   const pxPerValue = pxPerDatasetValue(dataset);
-  const usdPerValue = amountValueUsd(1, dataset?.meta?.currency, dataset?.meta?.unit);
+  // meta.currency mirrors the source image and may be blank (e.g. bare numbers
+  // with an "in RMB" note); the SSOT record carries the reporting currency.
+  const financial = dataset?.key ? financialRecordByKey.get(dataset.key) : null;
+  const usdPerValue = financial
+    ? amountValueUsd(1, financial.currency, financial.unit)
+    : amountValueUsd(1, dataset?.meta?.currency, dataset?.meta?.unit);
   if (pxPerValue == null || usdPerValue == null || usdPerValue === 0) return null;
   return pxPerValue / usdPerValue;
 }
@@ -3140,9 +3220,14 @@ function comparisonFitFactor(records, scaleFactors) {
 function comparisonFinancialLine(record) {
   const financial = financialFor(record);
   if (!financial) return '';
+  const usdEquivalent = (value) => {
+    if (currencyCode(financial.currency) === 'USD') return '';
+    const valueUsd = financialValueUsd(financial, value);
+    return valueUsd == null ? '' : ` ≈${formatUsdShort(valueUsd)}`;
+  };
   return [
-    `${t('tableRevenue')} ${formatAmount(financial, financial.revenue?.total)}`,
-    `${t('tableNetProfit')} ${formatAmount(financial, financial.profit?.net?.value)}`,
+    `${t('tableRevenue')} ${formatAmount(financial, financial.revenue?.total)}${usdEquivalent(financial.revenue?.total)}`,
+    `${t('tableNetProfit')} ${formatAmount(financial, financial.profit?.net?.value)}${usdEquivalent(financial.profit?.net?.value)}`,
   ].filter(Boolean).join(' · ');
 }
 function renderSankeyComparison() {
@@ -3159,10 +3244,14 @@ function renderSankeyComparison() {
 
   const summary = document.createElement('div');
   summary.className = 'comparison-summary';
+  const revenueInfo = scopeFinancialTotalInfo('revenue');
+  const netProfitInfo = scopeFinancialTotalInfo('netProfit');
+  const fx = scopeFxState([revenueInfo, netProfitInfo]);
   summary.innerHTML = `
     <span>${escapeHtml(t('comparisonScopeSummary', { count: companies.length }))}</span>
-    <strong>${escapeHtml(`${t('tableRevenue')} ${formatScopeFinancialTotal('revenue')}`)}</strong>
-    <strong>${escapeHtml(`${t('tableNetProfit')} ${formatScopeFinancialTotal('netProfit')}`)}</strong>
+    <strong>${escapeHtml(`${t('tableRevenue')} ${revenueInfo?.text || ''}`)}</strong>
+    <strong>${escapeHtml(`${t('tableNetProfit')} ${netProfitInfo?.text || ''}`)}</strong>
+    ${fx.active ? `<span class="comparison-summary-note" title="${escapeHtml(fxTooltip(fx.excluded))}">${escapeHtml(t('fxConvertedNote', { asOf: USD_FX_SNAPSHOT.asOf }))}</span>` : ''}
   `;
   sankeyComparison.appendChild(summary);
 

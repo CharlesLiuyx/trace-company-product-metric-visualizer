@@ -873,6 +873,10 @@ body.is-resizing-sidebar {
   color: var(--text-strong);
   font-size: 11px;
 }
+.comparison-summary .comparison-summary-note {
+  margin-left: auto;
+  font-weight: 500;
+}
 .comparison-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
