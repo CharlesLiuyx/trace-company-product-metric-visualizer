@@ -48,7 +48,7 @@ agent 指令以英文版 `AGENTS.md` 为准。
 | --- | --- |
 | `pnpm check:pending` | 待处理图片重复 / key 冲突守卫 |
 | `pnpm verify:dataset -- <key> [--skip-render]` | 单数据集聚合门：语法、SSOT、strict i18n、metadata，然后每种语言各一次 d3 渲染 |
-| `pnpm verify:ssot` | SSOT ↔ 数据集奇偶 + 注册奇偶（全局） |
+| `pnpm verify:ssot` | SSOT ↔ 数据集奇偶 + 注册奇偶 + 货币/单位与汇率覆盖（全局） |
 | `pnpm verify:i18n -- [--strict] [keys]` | i18n 覆盖检查 |
 | `pnpm verify:d3 -- <key> [--focus <dir>] [--keep] [--language <code>] [--round <n>]` | 单次 d3 渲染 + 自动硬门槛；每轮归档到 `output/compare/<key>/` |
 | `pnpm update:dataset-file-metadata` | 重新生成 `data/dataset-file-metadata.js` |
