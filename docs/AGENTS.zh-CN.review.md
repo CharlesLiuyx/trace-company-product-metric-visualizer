@@ -1,192 +1,187 @@
-# AGENTS.md 中文审阅稿
+# AGENTS.md 中文同步镜像
 
-本文件是根目录 `AGENTS.md` 的中文审阅稿，用于迭代讨论。实际生效的 agent 指令、命令清单与验证清单一律以英文版 `AGENTS.md` 为准；本稿只维护设计背景，不复制命令细节，以免漂移。
+本文件是根目录 `AGENTS.md` 的完整中文对照。两份文件必须一起更新；实际生效的
+agent 指令以英文版 `AGENTS.md` 为准。
+
+本仓库的 agent 工作指引。本文件负责"路由"：每条细则只存在于一个属主文档中，
+本文件给出工作流、一行摘要和指针。
+
+## 规则归属表
+
+| 规则领域 | 属主文档 |
+| --- | --- |
+| d3 保真循环：硬门槛、diff 指标、迭代、图标 crop/vector 子循环、本地化布局检查、Task 信息、红框图、Loop Fidelity Summary | `docs/fidelity-loop-rules.md` |
+| 数据集 / SSOT 字段级格式 | `data/schema.md` |
+| 提交信息约定 | `docs/commit-messages.md` |
+| 数据相邻资产布局（图标 crop、raster annotation） | `data/assets/README.md` |
+| Trace 产品与数据模型 | `docs/trace-specification.zh-CN.md` |
+| 人类快速上手、viewer 使用 | `README.md` |
 
 ## 目标
 
-本项目将损益表参考图片转换为可复用的 Sankey 数据集和可复用的 icon/vector 资产。当 `input/pending/` 中出现新的源 PNG 时，需要将它们处理成稳定的数据集，在需要时提取并验证 icon reference 资产，并运行 d3-sankey 保真度循环（人工轮次，见 `docs/fidelity-loop-rules.md`）。
+把 `input/pending/` 中的损益表参考图片转换为稳定的 Sankey 数据集和可复用的
+图标资产，然后通过 d3-sankey 保真循环验证。
 
-## Trace 架构边界
+## 架构边界
 
-- `docs/trace-specification.zh-CN.md` 是 Trace 顶层产品/模型规格。
-- 领域归一化放在 `src/trace-domain.js`；`src/app.js` 专注 UI 状态、交互、表格与视图切换。
-- `data/income-statements.js`（损益表家族）与 `data/revenue-metrics.js`（收入家族）是纯 Metric SSOT；`data/datasets/<dataset-key>.js` 是 Sankey View Adapter 层。两个 SSOT 都受 `verify:ssot` 校验，strict 模式下还受 `verify:i18n` 校验，且都不得包含 Sankey 几何。
-- `data/products.js` 是未来一等 Product SSOT 的占位（当前为空，暂不被 verifier 校验）。不要把 Product 身份或归属历史藏进 Sankey adapter。
-- 新增 metric 家族或 SSOT 时，回填本稿、英文 `AGENTS.md` 与 `docs/trace-specification.zh-CN.md`。
+- `data/income-statements.js`（损益表家族）与 `data/revenue-metrics.js`
+  （收入家族）是纯 Metric SSOT；`data/datasets/<dataset-key>.js` 是 Sankey
+  View Adapter 层——viewer、standalone 构建器与各 verifier 都依赖这个稳定
+  路径。SSOT 中不得出现 Sankey 的 nodes、links、layout、render、SVG、颜色
+  或像素几何。
+- `data/company-metadata.js` 是公司档案 SSOT，驱动 Table 视图；必须在该公司
+  第一个数据集注册之前补全。
+- `data/products.js` 是未来一等 Product SSOT 的空占位（暂不被 verifier
+  校验）。不要把产品身份或归属历史藏进 Sankey adapter。
+- Trace 领域归一化放在 `src/trace-domain.js`；`src/app.js` 专注 UI 状态、
+  交互、表格与视图切换。
+- 新增 metric 家族或 SSOT 时，回填本文件（及英文版）与
+  `docs/trace-specification.zh-CN.md`。
 
-## 输入工作流
+## 命令
 
-1. 检查 `input/pending/`，忽略 `.gitkeep`。
-2. 在移动图片或更新数据之前，先检查每个待处理 PNG 是否已经处理过：
-   - 运行 `pnpm check:pending`，或手动按内容和候选 dataset key 对比
-     `input/processed/`。
-   - 如果发现 `input/processed/` 中已有完全相同的图片，或候选 key 已经存在，
-     则把它视为停止条件。不要对这张待处理图片执行移动、覆盖、创建、更新、
-     裁切、矢量化或验证等后续步骤，只报告重复或冲突。
-   - 如果最终稳定 dataset key 和脚本候选 key 不同，继续前还要用最终 key
-     检查 `input/processed/`、`data/datasets/`、`data/income-statements.js`
-     和 `index.html`。
-3. 为每个新的待处理 PNG 选择稳定的数据集 key：
-   - 使用小写 kebab-case。
-   - 包含公司和期间，例如 `nvidia-q4-fy26`。
-4. 将持久源图片移动到：
-   - `input/processed/<dataset-key>.png`
-5. 创建或更新：
-   - `data/datasets/<dataset-key>.js`
-   - `data/income-statements.js`
-   - 如果是新公司，更新 `data/company-metadata.js`
-   - 在 `index.html` 中注册数据集脚本
-   - 为 `window.SANKEY_I18N.languageCodes` 中列出的每个非默认语言更新
-     dataset、SSOT 和公司 metadata 的 i18n overlay
-6. 如果源图中有公司 icon 或公司内部 business/segment icon，需要先运行 spec-driven icon 提取流程，然后再矢量化或渲染它们：
-   - 创建或更新 `input/icon-crop-specs/<dataset-key>.json`。
-   - 使用 `scripts/extract_icon_crops.py` 将通过验证的 reference crop 写入
-     `data/assets/icon-references/<company>/crops/`。
-   - crop 脚本默认会移除纯色 crop 背景像素并写出透明 PNG。只有当某个 crop
-     需要不同容差、移除所有匹配像素或输出不透明图片时，才调整 spec 中的
-     `backgroundRemoval`。
-   - 将 validation sheet 写入
-     `data/assets/icon-references/<company>/validation-sheets/`。
-   - 在公司资产目录中保留 `crop-report.json` 和 `model-validation.md`。
-   - 除非用户明确缩小范围，否则要提取源图中所有有语义的 company 和
-     business/segment icon cluster，不要只提取一个示例业务簇。
-   - 排除发布方水印、创作者/账号品牌、网站 URL、社交徽标、
-     "how they make money" 标识、署名块，以及没有独立业务 icon 的 `Others`
-     等 segment。
-   矢量化前验证每个 crop：
-   - icon 的主体结构完整包含在 crop 内。
-   - 主体结构在 crop 中视觉居中。
-   - 没有包含无关文字、图表标记、连接线片段、水印或相邻 icon 的部分。
-   反复重新裁切，直到这些检查通过。`data/assets/icon-references/<company>/crops/`
-   下的文件只是 reference/conversion 资产，不得直接在 d3 runtime 输出中引用。
-   当明确使用图片嵌入模式时，在 crop spec 中设置 `runtimeOutputDir`，让已验收的
-   crop 以压缩 runtime 副本写入 `data/assets/raster-annotations/<company>/`。
-7. 在为新公司编写第一个数据集之前，先收集公司元数据（描述、板块、行业、成立日期、总部、财年截止日、网站、股票代码/交易所、可公开核验时的市值及其日期/来源，以及来源 URL），并添加到 `data/company-metadata.js`。
-   同时为每个非默认支持语言添加本地化公司档案字段，至少包含 display name
-   （当不同于默认名称时）、板块、行业、总部、财年截止日和描述。
-8. 将 `meta.referenceImage` 设置为已处理 PNG，并记录准确的源图片尺寸。
-9. 处理完成后，保持 `input/pending/` 为空，只保留 `.gitkeep`。
+安装一次；d3 与 standalone 校验器用 Chromium 渲染：
 
-## 数据集编写
+    pnpm install --frozen-lockfile && pnpm exec playwright install chromium
 
-优先沿用项目中已有模式：
+| 命令 | 用途 |
+| --- | --- |
+| `pnpm check:pending` | 待处理图片重复 / key 冲突守卫 |
+| `pnpm verify:dataset -- <key> [--skip-render]` | 单数据集聚合门：语法、SSOT、strict i18n、metadata，然后每种语言各一次 d3 渲染 |
+| `pnpm verify:ssot` | SSOT ↔ 数据集奇偶 + 注册奇偶（全局） |
+| `pnpm verify:i18n -- [--strict] [keys]` | i18n 覆盖检查 |
+| `pnpm verify:d3 -- <key> [--focus <dir>] [--keep] [--language <code>] [--round <n>]` | 单次 d3 渲染 + 自动硬门槛；每轮归档到 `output/compare/<key>/` |
+| `pnpm update:dataset-file-metadata` | 重新生成 `data/dataset-file-metadata.js` |
+| `pnpm verify:dataset-file-metadata` | 生成的 metadata 是否为最新 |
+| `pnpm build:standalone` | 构建自包含 HTML（先刷新 metadata） |
+| `pnpm verify:standalone` | standalone 产物不依赖任何同级文件 |
+| `sh scripts/clean-compare.sh` | 清理临时 `compare/` 工作区 |
 
-- 已注册数据集应编写为高保真 adapter：使用显式的低层级 `nodes`、`links`、
-  `layout.nodes` 和 `layout.labels`，并按源图调校。
-- 一开始识别源图 label 区域时，要保持每个语义 label 单元完整。不要因为名称、数值、备注、margin 或同比文本在视觉上分开，就把同一节点的相关内容识别成互不相关的区域；先按同一个 node/label 意图归组，再为了排版拆成 `layout.labels.*.blocks` 或换行。
-- 保留源图片中的数值和备注。
-- 不要复现发布方水印、创作者/账号品牌、网站 URL、社交徽标、
-  "how they make money" 标识，或其他与公司损益表语义无关的署名块。把它们视为
-  fidelity loop 中有意跳过的残差，而不是渲染目标。
-- 成本保持为正数；渲染器会将 `type: 'cost'` 格式化为带括号的数值。
-- 在依赖项之后注册新数据集；如果复用了其他数据集，也要在被复用数据集之后注册。
-- 保持 `data/income-statements.js` 作为每个已注册真实数据集的纯财务报表 SSOT。它只应包含可比较的已披露总计、科目、备注、货币、单位、期间和源图片。不要把 Sankey 的 `nodes`、`links`、`layout`、`render`、SVG、颜色或像素几何信息放进 SSOT。
-- 保持 `data/company-metadata.js` 作为公司档案 SSOT。它驱动 Table 视图的公司列表，并应在新公司第一个数据集注册之前更新。
-- 保持 English 作为 canonical/default 数据语言。对于 Sankey 和 Table i18n，添加 `i18n.<language>` overlay，而不是创建平行的数据集文件。这些 overlay 可以包含本地化 display string 和语言特定的文字布局调整，但不得改变 values、links、node geometry、financial totals、source images 或 verification semantics。
-- 当编写或实质性修改数据集时，为每个非默认支持语言本地化所有用户可见的数据集文本：`name`、`meta.title`、`meta.period`、`meta.periodNote`、node labels、notes，以及任何不是 `$value` 的显式 `layout.labels.*.blocks[].lines[].text`。对应的财务 SSOT labels/notes 和新的公司 metadata 也要在同一工作流中本地化。
-- 不要依赖全局 i18n phrase dictionary 来处理固定位置的图表文字。如果某个数据集使用显式 `layout.labels`、`annotationsSvg`、KPI cards 或其他 SVG 文本片段，需要为每一行会随翻译变化的可见文字添加 dataset-specific `i18n.<language>.layout.labels` 或本地化 annotation overrides。只翻译 `nodes[].label` 对固定布局文字来说不够。
-- 将缩写、ampersand、标点密集 label，以及带金额后缀的 label 视为高风险 i18n 文本。例如 `R&D`、`SG&A`、`G&A`、`D&A`、`Online Marketing & Others` 和 `Sales & marketing ($3.1B)`。保留已认可的缩写或提供显式本地化行；不要让通用标点清理把它们拆成错误文本。
-- 对非默认语言布局调校时，检查渲染后的 SVG 文本边界，而不仅是源码坐标。尤其是右侧 `anchor: 'start'` label、左侧 `anchor: 'end'` label、标题、KPI cards 和 annotations，在本地化后必须仍位于 `meta.referenceImage.width` 与 `meta.referenceImage.height` 内。优先使用换行、本地 x/y 调整或本地字号调整，而不是改变 values、links、node geometry 或财务语义。
+## 新数据集流水线
 
-对于公司和业务图标：
+1. 守卫：运行 `pnpm check:pending`（忽略 `.gitkeep`）。`input/processed/`
+   中存在完全相同内容、或候选 key 冲突，都是停止条件——只报告，不要对该
+   图片执行任何移动、创建、更新、裁切或验证。如果最终稳定 key 与脚本候选
+   key 不同，继续前还要用最终 key 检查 `input/processed/`、
+   `data/datasets/`、`data/income-statements.js` 和 `index.html`。
+2. Key：小写 kebab-case，公司 + 期间，例如 `nvidia-q4-fy26`。
+3. 图片：把源 PNG 移到 `input/processed/<dataset-key>.png`，并把
+   `meta.referenceImage` 设为该图片及其精确源尺寸。
+4. 公司（该公司的第一个数据集）：向 `data/company-metadata.js` 添加档案——
+   描述、行业板块、行业、成立时间、总部、财年结束、官网、代码/交易所、
+   市值（含 as-of/来源）与来源 URL——并为每个非默认语言添加本地化档案
+   字段。字段细节见 `data/schema.md`。
+5. SSOT：添加 `data/income-statements.js` 记录——只含可比的报告总额、
+   明细项、注释、币种、单位、期间与源图片。
+6. Adapter：按 `data/schema.md` 编写 `data/datasets/<dataset-key>.js`，
+   作为高保真 adapter，对照源图片调校显式 `nodes`、`links`、
+   `layout.nodes` 与 `layout.labels`。先把每个语义标签单元（名称、数值、
+   注释、利润率、同比）归入同一 node/label 意图，再拆分 blocks 或换行；
+   保留源图的数值与注释；成本保持正数（`type: 'cost'` 渲染为括号值）；
+   出版方水印、创作者品牌、URL 与署名块视为有意跳过的残差，不是渲染目标；
+   当源图展示可矢量化的公司 logo 时设置 `meta.logoSvg`。
+7. 图标（源图含公司或业务/分部图标时）：编写
+   `input/icon-crop-specs/<dataset-key>.json`，运行
+   `python3 scripts/extract_icon_crops.py --spec <该文件>`；脚本移除纯色
+   裁切背景，输出透明的参考 crop、验证清样与 `crop-report.json` 到
+   `data/assets/icon-references/<company>/`。只有主体完整、视觉居中、无
+   无关内容时才接受 crop；不满足则重裁，验收记录写入
+   `model-validation.md`。提取每一个语义相关的图标簇（跳过水印、署名与
+   没有独立图标的分部如 "Others"）。源图标与既有 SVG/vector 资产实质相似
+   时优先复用；通用语义用 `src/icons.js` 的 Lucide 图标。优先矢量转换；
+   raster 嵌入只允许用于通过 `runtimeOutputDir` 写出的已验证图标簇。
+   crop/vector 迭代与 raster 白名单规则：`docs/fidelity-loop-rules.md`；
+   目录布局：`data/assets/README.md`。
+8. i18n：英文是规范语言。为 `window.SANKEY_I18N.languageCodes` 中每个非
+   默认语言添加 `i18n.<language>` 覆盖——绝不创建平行数据集文件——覆盖
+   数据集 `name`、`meta` 字段、节点标签/注释、以及每一行会因翻译而变化的
+   固定 `layout.labels` 或注释文本，同时本地化对应的 SSOT 标签/注释与公司
+   档案。覆盖只做显示层：绝不改变数值、links、节点几何、财务总额、源图片
+   或验证语义。
+9. 注册：在 `index.html` 中把 `<script>` 标签加在依赖项和被复用数据集之后。
+   数据集中有意不翻译的子品牌注释词在 `i18n.preservedAnnotationText` 中
+   声明（见"陷阱"一节）。
+10. 运行 `pnpm verify:dataset -- <dataset-key>`。
+11. 按 `docs/fidelity-loop-rules.md` 运行人工保真循环，每个非默认语言含
+    一轮本地化布局主检查。
+12. 保持 `input/pending/` 只剩 `.gitkeep`。
 
-- 将公司图标以及公司内部业务/segment 示意图标视为可复用资产。图标可以干净矢量化时优先使用 vector；当源图包含品牌专属 bitmap 细节，或用户要求图片嵌入模式时，允许对已验证的公司/业务 icon cluster 使用图片嵌入模式。
-- 第一次添加图标时，先通过 `scripts/extract_icon_crops.py` 和数据集专用 JSON spec 裁切所有相关源图区域，作为 original-icon reference asset。脚本应在裁切后移除纯色 crop 背景并输出透明 PNG。只有在确认主体完整、居中、没有无关周边内容之后，才能使用每个 crop。随后将它转换为可复用的 SVG/vector 几何，或在图片嵌入模式下通过 `runtimeOutputDir` 写出单独的 runtime 副本。
-- 视觉/模型 crop 校验使用每张自动生成的 validation sheet。sheet 同时包含原始源图、高亮 crop 框和裁切结果。验收结论记录在 `data/assets/icon-references/<company>/model-validation.md`。
-- 矢量化 icon 时，加载 `docs/fidelity-loop-rules.md` 并遵循其中的 SVG/vector icon 子循环。
-- 后续数据集中，只要源图标在实质上相似，就复用已有 SVG/vector 图标。优先调整现有 SVG 的 viewBox、transform、尺寸、位置或样式，而不是创建近似重复资产。
-- 当通用语义图标能匹配源图意图时，使用 `src/icons.js` 中的 Lucide/vector 图标。
-- 图片嵌入模式下，加载 `docs/fidelity-loop-rules.md` 获取 runtime raster 例外规则，并加载 `data/assets/README.md` 获取资产布局说明。
+## 陷阱与硬约束
 
-## Data 与资产布局
+- 自动硬门槛（11 条：引擎输出纯度、画布尺寸、字体、无 raster 规则、
+  label-node 间距、SSOT/i18n 一致性）只在
+  `docs/fidelity-loop-rules.md` §自动硬门槛 中枚举——调布局之前先读，
+  不要等跑挂了再读。
+- Label-node 间距目标 5px；渲染 bbox 间隙低于 4px、或短辅助柱中心偏移
+  超过 4px，都是自动硬失败。细节与 bbox 审计流程见
+  `docs/fidelity-loop-rules.md`。
+- `verify:i18n --strict` 只证明覆盖存在，不证明视觉正确。每个非默认语言
+  都要用 `verify:d3 --language <code>` 渲染，并检查文本边界
+  （`getBBox()` 或等价手段）：混排残留、缩写/标点破损、重叠、出画布。
+  高危字符串（`R&D`、`SG&A`、含 `&` 的标签、金额后缀）见
+  `docs/fidelity-loop-rules.md` §本地化布局。
+- `annotationsSvg` 品牌文本：整段命中公司 name、legalName 或 alias 词时
+  自动豁免 i18n fallback 检查；其余有意不翻译的词（如子品牌 `aws`）必须
+  在数据集的 `i18n.preservedAnnotationText` 中声明。不要扩展
+  `scripts/verify-i18n.mjs` 中已冻结的遗留清单。
+- 注册奇偶由 `verify:ssot` 强制：`data/datasets/` 下每个文件都必须在
+  `index.html` 注册，除非列入 `UNREGISTERED_DATASET_SCRIPTS`
+  （`scripts/script-sources.mjs`）。
+- `data/assets/icon-references/` 下的 crop 只是参考/转换资产，绝不能被
+  d3 运行时输出引用；运行时 raster 放在
+  `data/assets/raster-annotations/<company>/`。
+- 数据集 key 确定后，处理过的图片绝不改名。
+- 可分享的最终 HTML 产物必须是 `pnpm build:standalone` 的输出：完全自
+  包含，运行时不需要同级 CSS/JS/字体/数据/PNG 文件。
 
-保持注册数据集 adapter 位于 `data/datasets/<dataset-key>.js`。viewer、standalone builder、SSOT verifier 和项目文档都依赖这个稳定路径。
+## d3-Sankey 保真循环
 
-可复用 data-adjacent 资产放在 `data/assets/`：
+`docs/fidelity-loop-rules.md` 是保真循环行为的唯一事实来源。运行或汇报任何
+循环之前先加载它。用户提出的每个保真修正都要视为流程改进信号：按其
+人工反馈沉淀闭环，把经验泛化进该规则文件，或在循环 Task 信息中记录数据集
+特例。每个人工轮次都要维护当前 Task 信息；注意区域未关闭时，为下一轮产出
+红框参考图。
 
-```text
-data/assets/
-  icon-references/
-    <company>/
-      crops/              # 已验证 icon reference crop
-      validation-sheets/  # 原图 + crop 框审阅 sheet
-      crop-report.json    # 脚本输出和验证指标
-      model-validation.md # 模型/视觉验收记录
-  raster-annotations/
-    <company>/            # 压缩后的 runtime raster annotations
-```
+## 提交信息
 
-`data/assets/icon-references/` 中的 crop 不是 runtime 资产，只用于 SVG/vector 转换和未来复用判断。
-Runtime raster annotation 规则由 `docs/fidelity-loop-rules.md` 定义。
-
-## d3-Sankey 保真度循环
-
-运行或汇报任何 d3-Sankey 保真度循环之前，先加载并遵循
-`docs/fidelity-loop-rules.md`。该文件是 d3 输出纯净性、允许改动范围、
-图片/raster 例外、指标、迭代、本地化布局检查、`compare/` 临时产物处理，
-以及 icon SVG/vector 子循环的 SSOT。
-
-如果 `AGENTS.md`、`README.md` 或其他项目说明与
-`docs/fidelity-loop-rules.md` 在保真度循环行为上不一致，以
-`docs/fidelity-loop-rules.md` 为准。
-
-## 硬性规则
-
-- 当请求可分享的最终 HTML artifact 时，使用 `pnpm build:standalone` 生成 standalone 文件。该 artifact 必须自包含：运行时不应需要同级 CSS、JS、字体、vendor、data 或参考 PNG 文件。
-- 分配稳定数据集 key 后，不要重命名已处理图片。
-
-## Commit Message 约定
-
-遵循 `docs/commit-messages.md` 中的项目约定。使用轻量 Conventional Commits 形态：
-
-```text
-<type>(<scope>): <summary>
-```
-
-使用英文、小写 summary，末尾不加句号。第一行聚焦一个目的；有用时在正文中写验证细节。
-
-首选项目 type：
-
-- `data`：用于数据集文件、已处理输入图片和 `index.html` 数据集注册。
-- `render`：用于 `src/sankey-engine.js` 和可见 SVG/渲染行为。
-- `verify`：用于 `scripts/verify-d3.mjs` 和 d3 保真度检查。
-- `schema`：用于数据集格式约定。
-- `docs`、`feat`、`fix`、`refactor`、`test` 或 `chore`：用于普通改动。
-
-优先使用数据集 key（如 `nvidia-q1-fy27`）、模块（如 `engine`、`icons`、`verify-d3`）或工作流区域（如 `input`、`export`、`d3-mode`）作为 scope。对于新数据集工作，将已处理 PNG、`data/datasets/<dataset-key>.js` 和 `index.html` 注册放在同一个 `data(<dataset-key>)` commit 中。如果某个数据集需要可复用的渲染器支持，先拆成单独的 `render(engine)` commit，再提交数据集调校 commit。
+遵循 `docs/commit-messages.md`：轻量 Conventional Commits
+（`<type>(<scope>): <summary>`，英文小写摘要）。type/scope 表格、以及
+"新数据集的处理后 PNG、adapter 与 `index.html` 注册放进同一个
+`data(<key>)` 提交、可复用渲染器支持拆成前置 `render(engine)` 提交"的
+规则都由该文档拥有。
 
 ## 验证清单
 
-最终回复前，确认：
+始终，在最终回复之前：
 
-- `input/pending/` 只包含 `.gitkeep`。
-- 新的已处理图片存在于 `input/processed/<dataset-key>.png`。
-- 数据集脚本已在 `index.html` 中注册。
-- `node --check data/datasets/<dataset-key>.js` 通过。
-- `node --check data/income-statements.js` 通过。
-- `node --check data/company-metadata.js` 通过。
+- 改过的每个 JS 文件 `node --check` 通过。
 - `pnpm verify:ssot` 通过。
-- 对新增或实质性修改的数据集，在添加语言 overlay 后，`pnpm verify:i18n -- --strict <dataset-key>` 通过。
-- 对新增或实质性修改的数据集，逐个非默认语言检查渲染后的本地化 SVG 文本，确认没有混用语言残留、缩写/标点输出损坏、重叠或超出画布边界。对边缘敏感 label 使用浏览器 `getBBox()` 或等价的 rendered-SVG 检查；仅有 `verify:i18n --strict` 并不能证明固定布局文字在视觉上有效。
-- 如果提取了 icon 资产：
-  - `python3 scripts/extract_icon_crops.py --spec input/icon-crop-specs/<dataset-key>.json` 通过。
-  - `data/assets/icon-references/<company>/crop-report.json` 中每个 crop 都是 `passes: true`。
-  - 已使用同时包含原图和裁切结果的 validation sheet 做视觉/模型检查。
-  - `data/assets/icon-references/<company>/model-validation.md` 记录了模型/视觉验收结果。
-  - 源图中所有有语义的 company 和 business/segment icon cluster 都已提取，或明确记录了跳过原因。
-  - 如果使用图片嵌入模式，通过 `docs/fidelity-loop-rules.md` 要求的 runtime raster 检查。
-- 如果需要 standalone HTML artifact，`pnpm build:standalone` 和 `pnpm verify:standalone` 通过。
-- 如果改动了渲染器代码，`node --check src/sankey-engine.js` 通过。
-- 如果需要 d3 保真度循环，已加载 `docs/fidelity-loop-rules.md`，并完成其中要求的验证、纯净性、指标、本地化布局和 `compare/` 清理检查。
+- `input/pending/` 只剩 `.gitkeep`，或已报告停止条件。
+
+对新增或实质变更的数据集：
+
+- `pnpm verify:dataset -- <dataset-key>` 通过（语法、SSOT、strict i18n、
+  metadata、每种语言各一次 d3 渲染）。
+- 已按 `docs/fidelity-loop-rules.md` 运行人工保真循环，维护了当前 Task
+  信息和红框参考图或关闭说明。
+- 每个非默认语言的渲染 SVG 都经过目视检查——聚合命令不能替代这一步。
+
+如果提取了图标资产：crop 脚本通过，`crop-report.json` 中每个 crop 都
+`passes: true`，验证清样已复核，`model-validation.md` 记录了验收，每个
+相关图标簇都已提取或记录为跳过。
+
+如果需要 standalone 产物：`pnpm build:standalone` 然后
+`pnpm verify:standalone` 通过。
 
 ## 汇报
 
 最终回复中包含：
 
-- 修改过的文件。
-- pending input 是否已清空。
-- 纯数据 SSOT 是否已更新。
-- 提取了哪些 icon 资产，以及是否覆盖了全部相关业务簇。
-- 对数据集或渲染器改动，汇报 `docs/fidelity-loop-rules.md` 要求的最终 d3 循环结果，包括紧凑的 Loop Fidelity Summary、最新 Task 信息和红框参考图状态；未运行循环时说明原因。
-- 用户反馈经验是更新了 `docs/fidelity-loop-rules.md` 还是记录为数据集特例。
-- 任何无法运行的命令。
+- 改动的文件，以及纯数据 SSOT 是否更新。
+- 提取了哪些图标资产，所有相关图标簇是否都已覆盖。
+- 数据集或渲染器变更：`docs/fidelity-loop-rules.md` 要求的紧凑 Loop
+  Fidelity Summary、最新 Task 信息与红框参考图状态——或说明为何没有运行
+  循环。
+- 用户反馈经验是改进了 `docs/fidelity-loop-rules.md`，还是记录为数据集
+  特例。
+- 无法运行的命令。

@@ -131,6 +131,9 @@ another fidelity loop:
    pnpm verify:d3 -- <dataset-key>
    ```
 
+   Or run them all (plus syntax, metadata, and a render per language) in one
+   go with `pnpm verify:dataset -- <dataset-key>`.
+
 For non-default languages, `verify:i18n --strict` confirms overlay coverage but
 does not prove that fixed text fits. For edge-sensitive text such as right-side
 `anchor: 'start'` labels, left-side `anchor: 'end'` labels, titles, KPI cards,
