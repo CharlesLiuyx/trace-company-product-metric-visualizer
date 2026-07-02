@@ -124,6 +124,10 @@ agent 指令以英文版 `AGENTS.md` 为准。
   自动豁免 i18n fallback 检查；其余有意不翻译的词（如子品牌 `aws`）必须
   在数据集的 `i18n.preservedAnnotationText` 中声明。不要扩展
   `scripts/verify-i18n.mjs` 中已冻结的遗留清单。
+- 在任何位置都保持原文的品牌/产品词（YouTube、iPhone、`Microsoft 365`…）
+  在 `EXACT_ZH` 词典（`src/i18n.js`）中以恒等映射声明一次；
+  `verify:i18n` 会在所有路径（标签、注释、布局行、annotations）上把
+  恒等映射词视为已翻译。
 - 注册奇偶由 `verify:ssot` 强制：`data/datasets/` 下每个文件都必须在
   `index.html` 注册，除非列入 `UNREGISTERED_DATASET_SCRIPTS`
   （`scripts/script-sources.mjs`）。
