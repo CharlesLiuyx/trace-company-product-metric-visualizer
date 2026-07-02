@@ -186,7 +186,7 @@
         },
         provision_for_credit_loss: {
           blocks: [
-            { x: 1660, top: 1218, anchor: 'middle', lineGap: 10, lines: [{ text: 'Provision for', size: 35, weight: 800 }, { text: 'credit loss', size: 35, weight: 800 }, { text: '$value', size: 34, weight: 400 }] },
+            { x: 1678, top: 1218, anchor: 'middle', lineGap: 10, lines: [{ text: 'Provision for', size: 35, weight: 800 }, { text: 'credit loss', size: 35, weight: 800 }, { text: '$value', size: 34, weight: 400 }] },
           ],
         },
         net_income: {
@@ -238,6 +238,36 @@
           blocks: [
             { x: RIGHT_LABEL_X, top: 1275, anchor: 'start', lineGap: 8, lines: [{ text: 'Other', size: 30, weight: 800 }, { text: '$value', size: 29, weight: 400 }] },
           ],
+        },
+      },
+    },
+
+    i18n: {
+      zh: {
+        name: 'Goldman Sachs · 2026 财年第一季度',
+        meta: {
+          title: 'Goldman Sachs 2026 财年第一季度利润表',
+          period: '2026 财年第一季度',
+          periodNote: '截至 2026 年 3 月',
+        },
+        nodes: {
+          global_banking_markets: { label: '全球银行与市场', notes: ['同比 +19%', '净利率 37%'] },
+          asset_wealth_management: { label: '资产与财富管理', notes: ['同比 +10%', '净利率 20%'] },
+          platform_solutions: { label: '平台解决方案', notes: ['同比 (33%)', '净利率 16%'] },
+          revenue: { label: '收入', notes: ['同比 +14%'] },
+          pretax_income: { label: '税前利润' },
+          operating_expenses: { label: '运营费用' },
+          provision_for_credit_loss: { label: '信用损失拨备' },
+          net_income: { label: '净利润', notes: ['同比 +19%'] },
+          tax: { label: '税费' },
+          compensation_benefits: { label: '薪酬与福利' },
+          transaction_based: { label: '交易相关' },
+          market_development: { label: '市场开发' },
+          communication_technology: { label: '通信与技术' },
+          da: { label: '折旧与摊销' },
+          occupancy: { label: '场地占用' },
+          professional_fees: { label: '专业费用' },
+          other: { label: '其他' },
         },
       },
     },

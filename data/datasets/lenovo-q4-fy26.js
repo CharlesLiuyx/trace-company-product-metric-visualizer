@@ -427,5 +427,35 @@
       { source: 'operating_expenses', target: 'administrative', value: 0.9, width: 17, sourceOrder: 1, targetOrder: 0 },
       { source: 'operating_expenses', target: 'rnd', value: 0.7, width: 15, sourceOrder: 2, targetOrder: 0 },
     ],
+
+    i18n: {
+      zh: {
+        name: 'Lenovo · 2026 财年第四季度',
+        meta: {
+          title: 'Lenovo 2026 财年第四季度利润表',
+          period: '2026 财年第四季度',
+          periodNote: '截至 2026 年 4 月',
+        },
+        nodes: {
+          idg: { label: 'IDG 智能设备集团' },
+          isg: { label: 'ISG 基础设施方案集团' },
+          ssg: { label: 'SSG 方案与服务集团' },
+          gross_revenue: { label: '总收入' },
+          revenue: { label: '收入' },
+          eliminations: { label: '抵销' },
+          gross_profit: { label: '毛利润' },
+          cost_of_revenue: { label: '收入成本' },
+          other: { label: '其他' },
+          operating_profit: { label: '营业利润' },
+          operating_expenses: { label: '运营费用' },
+          net_profit: { label: '净利润' },
+          financial: { label: '财务' },
+          tax: { label: '税费' },
+          selling_distribution: { label: '销售与分销' },
+          administrative: { label: '行政' },
+          rnd: { label: '研发' },
+        },
+      },
+    },
   });
 })();

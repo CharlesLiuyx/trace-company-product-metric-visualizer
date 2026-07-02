@@ -101,7 +101,7 @@
         investment_advisory_fees: {
           blocks: [
             {
-              x: 444, top: 387, anchor: 'middle', lineGap: 9,
+              x: 444, top: 378, anchor: 'middle', lineGap: 9,
               lines: [
                 { text: '$value', size: 38, weight: 400, color: BLACK },
                 { text: '+24% Y/Y', size: 29, weight: 400, color: NOTE },
@@ -120,7 +120,7 @@
         performance_fees: {
           blocks: [
             {
-              x: 444, top: 760, anchor: 'middle', lineGap: 9,
+              x: 444, top: 751, anchor: 'middle', lineGap: 9,
               lines: [
                 { text: '$value', size: 38, weight: 400, color: BLACK },
                 { text: '+353% Y/Y', size: 29, weight: 400, color: NOTE },
@@ -139,7 +139,7 @@
         technology_services: {
           blocks: [
             {
-              x: 444, top: 895, anchor: 'middle', lineGap: 9,
+              x: 444, top: 886, anchor: 'middle', lineGap: 9,
               lines: [
                 { text: '$value', size: 38, weight: 400, color: BLACK },
                 { text: '+22% Y/Y', size: 29, weight: 400, color: NOTE },
@@ -157,7 +157,7 @@
         distribution_fees: {
           blocks: [
             {
-              x: 444, top: 1041, anchor: 'middle', lineGap: 9,
+              x: 444, top: 1032, anchor: 'middle', lineGap: 9,
               lines: [
                 { text: '$value', size: 38, weight: 400, color: BLACK },
                 { text: '+21% Y/Y', size: 29, weight: 400, color: NOTE },
@@ -172,7 +172,7 @@
         advisory_other: {
           blocks: [
             {
-              x: 444, top: 1188, anchor: 'middle', lineGap: 9,
+              x: 444, top: 1179, anchor: 'middle', lineGap: 9,
               lines: [
                 { text: '$value', size: 38, weight: 400, color: BLACK },
                 { text: '+19% Y/Y', size: 29, weight: 400, color: NOTE },

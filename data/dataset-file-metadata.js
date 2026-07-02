@@ -4,13 +4,13 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-02T16:39:37.771Z",
+  "generatedAt": "2026-07-02T18:31:51.289Z",
   "source": "dataset view and metric source file modification times",
   "files": {
     "alphabet-q1-fy26": {
       "path": "data/datasets/alphabet-q1-fy26.js",
-      "mtimeMs": 1781987119966,
-      "mtime": "2026-06-20T20:25:19.966Z"
+      "mtimeMs": 1783016880692,
+      "mtime": "2026-07-02T18:28:00.692Z"
     },
     "spacex-fy25": {
       "path": "data/datasets/spacex-fy25.js",
@@ -19,8 +19,8 @@
     },
     "alibaba-q4-fy26": {
       "path": "data/datasets/alibaba-q4-fy26.js",
-      "mtimeMs": 1781937775673,
-      "mtime": "2026-06-20T06:42:55.673Z"
+      "mtimeMs": 1783015681559,
+      "mtime": "2026-07-02T18:08:01.559Z"
     },
     "airbnb-q1-fy26": {
       "path": "data/datasets/airbnb-q1-fy26.js",
@@ -29,8 +29,8 @@
     },
     "amd-q1-fy26": {
       "path": "data/datasets/amd-q1-fy26.js",
-      "mtimeMs": 1782020929432,
-      "mtime": "2026-06-21T05:48:49.432Z"
+      "mtimeMs": 1783016580584,
+      "mtime": "2026-07-02T18:23:00.584Z"
     },
     "amazon-q1-fy26": {
       "path": "data/datasets/amazon-q1-fy26.js",
@@ -39,18 +39,18 @@
     },
     "appfolio-q1-fy26": {
       "path": "data/datasets/appfolio-q1-fy26.js",
-      "mtimeMs": 1782013522602,
-      "mtime": "2026-06-21T03:45:22.602Z"
+      "mtimeMs": 1783016923129,
+      "mtime": "2026-07-02T18:28:43.129Z"
     },
     "apple-q2-fy26": {
       "path": "data/datasets/apple-q2-fy26.js",
-      "mtimeMs": 1781984546094,
-      "mtime": "2026-06-20T19:42:26.094Z"
+      "mtimeMs": 1783015681560,
+      "mtime": "2026-07-02T18:08:01.560Z"
     },
     "arm-holdings-q4-fy26": {
       "path": "data/datasets/arm-holdings-q4-fy26.js",
-      "mtimeMs": 1782019602347,
-      "mtime": "2026-06-21T05:26:42.347Z"
+      "mtimeMs": 1783015681560,
+      "mtime": "2026-07-02T18:08:01.560Z"
     },
     "asana-q1-fy27": {
       "path": "data/datasets/asana-q1-fy27.js",
@@ -59,13 +59,13 @@
     },
     "qualcomm-q2-fy26": {
       "path": "data/datasets/qualcomm-q2-fy26.js",
-      "mtimeMs": 1781987466388,
-      "mtime": "2026-06-20T20:31:06.388Z"
+      "mtimeMs": 1783017010301,
+      "mtime": "2026-07-02T18:30:10.301Z"
     },
     "asml-q1-fy26": {
       "path": "data/datasets/asml-q1-fy26.js",
-      "mtimeMs": 1781986133582,
-      "mtime": "2026-06-20T20:08:53.582Z"
+      "mtimeMs": 1783016859425,
+      "mtime": "2026-07-02T18:27:39.425Z"
     },
     "atlassian-q3-fy26": {
       "path": "data/datasets/atlassian-q3-fy26.js",
@@ -84,8 +84,8 @@
     },
     "blackrock-q1-fy26": {
       "path": "data/datasets/blackrock-q1-fy26.js",
-      "mtimeMs": 1782040069329,
-      "mtime": "2026-06-21T11:07:49.329Z"
+      "mtimeMs": 1783016513431,
+      "mtime": "2026-07-02T18:21:53.431Z"
     },
     "coinbase-q1-fy26": {
       "path": "data/datasets/coinbase-q1-fy26.js",
@@ -99,8 +99,8 @@
     },
     "coreweave-q1-fy26": {
       "path": "data/datasets/coreweave-q1-fy26.js",
-      "mtimeMs": 1782020501233,
-      "mtime": "2026-06-21T05:41:41.233Z"
+      "mtimeMs": 1783015681561,
+      "mtime": "2026-07-02T18:08:01.561Z"
     },
     "costco-q3-fy26": {
       "path": "data/datasets/costco-q3-fy26.js",
@@ -149,13 +149,13 @@
     },
     "goldman-sachs-q1-fy26": {
       "path": "data/datasets/goldman-sachs-q1-fy26.js",
-      "mtimeMs": 1782662426071,
-      "mtime": "2026-06-28T16:00:26.071Z"
+      "mtimeMs": 1783016923129,
+      "mtime": "2026-07-02T18:28:43.129Z"
     },
     "hilton-q1-fy26": {
       "path": "data/datasets/hilton-q1-fy26.js",
-      "mtimeMs": 1782071737049,
-      "mtime": "2026-06-21T19:55:37.049Z"
+      "mtimeMs": 1783017063444,
+      "mtime": "2026-07-02T18:31:03.444Z"
     },
     "marriott-q1-fy26": {
       "path": "data/datasets/marriott-q1-fy26.js",
@@ -164,8 +164,8 @@
     },
     "hp-q2-fy26": {
       "path": "data/datasets/hp-q2-fy26.js",
-      "mtimeMs": 1782019881568,
-      "mtime": "2026-06-21T05:31:21.568Z"
+      "mtimeMs": 1783015681561,
+      "mtime": "2026-07-02T18:08:01.561Z"
     },
     "hubspot-q1-fy26": {
       "path": "data/datasets/hubspot-q1-fy26.js",
@@ -174,8 +174,8 @@
     },
     "ibm-q1-fy26": {
       "path": "data/datasets/ibm-q1-fy26.js",
-      "mtimeMs": 1782013408247,
-      "mtime": "2026-06-21T03:43:28.247Z"
+      "mtimeMs": 1783016923129,
+      "mtime": "2026-07-02T18:28:43.129Z"
     },
     "jd-com-q1-fy26": {
       "path": "data/datasets/jd-com-q1-fy26.js",
@@ -194,13 +194,13 @@
     },
     "lenovo-q4-fy26": {
       "path": "data/datasets/lenovo-q4-fy26.js",
-      "mtimeMs": 1782020424760,
-      "mtime": "2026-06-21T05:40:24.760Z"
+      "mtimeMs": 1783015681561,
+      "mtime": "2026-07-02T18:08:01.561Z"
     },
     "sap-q1-fy26": {
       "path": "data/datasets/sap-q1-fy26.js",
-      "mtimeMs": 1782013777739,
-      "mtime": "2026-06-21T03:49:37.739Z"
+      "mtimeMs": 1783015681566,
+      "mtime": "2026-07-02T18:08:01.566Z"
     },
     "shopify-q1-fy26": {
       "path": "data/datasets/shopify-q1-fy26.js",
@@ -209,8 +209,8 @@
     },
     "tsmc-q1-fy26": {
       "path": "data/datasets/tsmc-q1-fy26.js",
-      "mtimeMs": 1781985674000,
-      "mtime": "2026-06-20T20:01:14.000Z"
+      "mtimeMs": 1783016964263,
+      "mtime": "2026-07-02T18:29:24.263Z"
     },
     "tesla-q1-fy26": {
       "path": "data/datasets/tesla-q1-fy26.js",
@@ -219,18 +219,18 @@
     },
     "tencent-q1-fy26": {
       "path": "data/datasets/tencent-q1-fy26.js",
-      "mtimeMs": 1781940261882,
-      "mtime": "2026-06-20T07:24:21.882Z"
+      "mtimeMs": 1783015681566,
+      "mtime": "2026-07-02T18:08:01.566Z"
     },
     "reddit-q1-fy26": {
       "path": "data/datasets/reddit-q1-fy26.js",
-      "mtimeMs": 1781963784239,
-      "mtime": "2026-06-20T13:56:24.239Z"
+      "mtimeMs": 1783015681565,
+      "mtime": "2026-07-02T18:08:01.565Z"
     },
     "robinhood-q1-fy26": {
       "path": "data/datasets/robinhood-q1-fy26.js",
-      "mtimeMs": 1782016317593,
-      "mtime": "2026-06-21T04:31:57.593Z"
+      "mtimeMs": 1783015681565,
+      "mtime": "2026-07-02T18:08:01.565Z"
     },
     "netflix-q1-fy26": {
       "path": "data/datasets/netflix-q1-fy26.js",
@@ -259,13 +259,13 @@
     },
     "roblox-q1-fy26": {
       "path": "data/datasets/roblox-q1-fy26.js",
-      "mtimeMs": 1781985987369,
-      "mtime": "2026-06-20T20:06:27.369Z"
+      "mtimeMs": 1783015681566,
+      "mtime": "2026-07-02T18:08:01.566Z"
     },
     "nyt-q1-fy26": {
       "path": "data/datasets/nyt-q1-fy26.js",
-      "mtimeMs": 1781968257351,
-      "mtime": "2026-06-20T15:10:57.351Z"
+      "mtimeMs": 1783015681565,
+      "mtime": "2026-07-02T18:08:01.565Z"
     },
     "okta-q1-fy27": {
       "path": "data/datasets/okta-q1-fy27.js",
@@ -324,13 +324,13 @@
     },
     "salesforce-q1-fy27": {
       "path": "data/datasets/salesforce-q1-fy27.js",
-      "mtimeMs": 1781841556627,
-      "mtime": "2026-06-19T03:59:16.627Z"
+      "mtimeMs": 1783015681566,
+      "mtime": "2026-07-02T18:08:01.566Z"
     },
     "servicenow-q1-fy26": {
       "path": "data/datasets/servicenow-q1-fy26.js",
-      "mtimeMs": 1782013309296,
-      "mtime": "2026-06-21T03:41:49.296Z"
+      "mtimeMs": 1783017111289,
+      "mtime": "2026-07-02T18:31:51.289Z"
     },
     "snap-q1-fy26": {
       "path": "data/datasets/snap-q1-fy26.js",
@@ -339,8 +339,8 @@
     },
     "samsung-q1-fy26": {
       "path": "data/datasets/samsung-q1-fy26.js",
-      "mtimeMs": 1782013250747,
-      "mtime": "2026-06-21T03:40:50.747Z"
+      "mtimeMs": 1783015681566,
+      "mtime": "2026-07-02T18:08:01.566Z"
     },
     "sony-fy25": {
       "path": "data/datasets/sony-fy25.js",
@@ -349,8 +349,8 @@
     },
     "starbucks-q2-fy26": {
       "path": "data/datasets/starbucks-q2-fy26.js",
-      "mtimeMs": 1782018291991,
-      "mtime": "2026-06-21T05:04:51.991Z"
+      "mtimeMs": 1783017063445,
+      "mtime": "2026-07-02T18:31:03.445Z"
     },
     "synopsys-q2-fy26": {
       "path": "data/datasets/synopsys-q2-fy26.js",
@@ -359,23 +359,23 @@
     },
     "microsoft-q3-fy26": {
       "path": "data/datasets/microsoft-q3-fy26.js",
-      "mtimeMs": 1781984729746,
-      "mtime": "2026-06-20T19:45:29.746Z"
+      "mtimeMs": 1783017111289,
+      "mtime": "2026-07-02T18:31:51.289Z"
     },
     "microsoft-q3-fy26-by-bu": {
       "path": "data/datasets/microsoft-q3-fy26-by-bu.js",
-      "mtimeMs": 1781984609018,
-      "mtime": "2026-06-20T19:43:29.018Z"
+      "mtimeMs": 1783016923129,
+      "mtime": "2026-07-02T18:28:43.129Z"
     },
     "meta-q1-fy26": {
       "path": "data/datasets/meta-q1-fy26.js",
-      "mtimeMs": 1781985921469,
-      "mtime": "2026-06-20T20:05:21.469Z"
+      "mtimeMs": 1783015681561,
+      "mtime": "2026-07-02T18:08:01.561Z"
     },
     "morgan-stanley-q1-fy26": {
       "path": "data/datasets/morgan-stanley-q1-fy26.js",
-      "mtimeMs": 1782017171713,
-      "mtime": "2026-06-21T04:46:11.713Z"
+      "mtimeMs": 1783016923129,
+      "mtime": "2026-07-02T18:28:43.129Z"
     },
     "monday-com-q1-fy26": {
       "path": "data/datasets/monday-com-q1-fy26.js",
@@ -384,78 +384,78 @@
     },
     "nvidia-q1-fy27": {
       "path": "data/datasets/nvidia-q1-fy27.js",
-      "mtimeMs": 1781841556729,
-      "mtime": "2026-06-19T03:59:16.729Z"
+      "mtimeMs": 1783015681563,
+      "mtime": "2026-07-02T18:08:01.563Z"
     },
     "nvidia-q1-fy26": {
       "path": "data/datasets/nvidia-q1-fy26.js",
-      "mtimeMs": 1782134856092,
-      "mtime": "2026-06-22T13:27:36.092Z"
+      "mtimeMs": 1783015681563,
+      "mtime": "2026-07-02T18:08:01.563Z"
     },
     "nvidia-q3-fy23": {
       "path": "data/datasets/nvidia-q3-fy23.js",
-      "mtimeMs": 1782134856093,
-      "mtime": "2026-06-22T13:27:36.093Z"
+      "mtimeMs": 1783015681564,
+      "mtime": "2026-07-02T18:08:01.564Z"
     },
     "nvidia-q4-fy23": {
       "path": "data/datasets/nvidia-q4-fy23.js",
-      "mtimeMs": 1782134856094,
-      "mtime": "2026-06-22T13:27:36.094Z"
+      "mtimeMs": 1783015681564,
+      "mtime": "2026-07-02T18:08:01.564Z"
     },
     "nvidia-q1-fy24": {
       "path": "data/datasets/nvidia-q1-fy24.js",
-      "mtimeMs": 1782134856094,
-      "mtime": "2026-06-22T13:27:36.094Z"
+      "mtimeMs": 1783015681563,
+      "mtime": "2026-07-02T18:08:01.563Z"
     },
     "nvidia-q2-fy24": {
       "path": "data/datasets/nvidia-q2-fy24.js",
-      "mtimeMs": 1782134856095,
-      "mtime": "2026-06-22T13:27:36.095Z"
+      "mtimeMs": 1783015681563,
+      "mtime": "2026-07-02T18:08:01.563Z"
     },
     "nvidia-q3-fy24": {
       "path": "data/datasets/nvidia-q3-fy24.js",
-      "mtimeMs": 1782134856095,
-      "mtime": "2026-06-22T13:27:36.095Z"
+      "mtimeMs": 1783015681564,
+      "mtime": "2026-07-02T18:08:01.564Z"
     },
     "nvidia-q4-fy24": {
       "path": "data/datasets/nvidia-q4-fy24.js",
-      "mtimeMs": 1782134856095,
-      "mtime": "2026-06-22T13:27:36.095Z"
+      "mtimeMs": 1783015681564,
+      "mtime": "2026-07-02T18:08:01.564Z"
     },
     "nvidia-q1-fy25": {
       "path": "data/datasets/nvidia-q1-fy25.js",
-      "mtimeMs": 1782134856096,
-      "mtime": "2026-06-22T13:27:36.096Z"
+      "mtimeMs": 1783015681563,
+      "mtime": "2026-07-02T18:08:01.563Z"
     },
     "nvidia-q2-fy25": {
       "path": "data/datasets/nvidia-q2-fy25.js",
-      "mtimeMs": 1782134856097,
-      "mtime": "2026-06-22T13:27:36.097Z"
+      "mtimeMs": 1783015681563,
+      "mtime": "2026-07-02T18:08:01.563Z"
     },
     "nvidia-q3-fy25": {
       "path": "data/datasets/nvidia-q3-fy25.js",
-      "mtimeMs": 1782134856097,
-      "mtime": "2026-06-22T13:27:36.097Z"
+      "mtimeMs": 1783015681564,
+      "mtime": "2026-07-02T18:08:01.564Z"
     },
     "nvidia-q4-fy25": {
       "path": "data/datasets/nvidia-q4-fy25.js",
-      "mtimeMs": 1782134856097,
-      "mtime": "2026-06-22T13:27:36.097Z"
+      "mtimeMs": 1783015681565,
+      "mtime": "2026-07-02T18:08:01.565Z"
     },
     "nvidia-q2-fy26": {
       "path": "data/datasets/nvidia-q2-fy26.js",
-      "mtimeMs": 1782134856098,
-      "mtime": "2026-06-22T13:27:36.098Z"
+      "mtimeMs": 1783015681564,
+      "mtime": "2026-07-02T18:08:01.564Z"
     },
     "nvidia-q3-fy26": {
       "path": "data/datasets/nvidia-q3-fy26.js",
-      "mtimeMs": 1782134856098,
-      "mtime": "2026-06-22T13:27:36.098Z"
+      "mtimeMs": 1783015681564,
+      "mtime": "2026-07-02T18:08:01.564Z"
     },
     "nvidia-q4-fy26": {
       "path": "data/datasets/nvidia-q4-fy26.js",
-      "mtimeMs": 1782134856098,
-      "mtime": "2026-06-22T13:27:36.098Z"
+      "mtimeMs": 1783015681565,
+      "mtime": "2026-07-02T18:08:01.565Z"
     },
     "data/revenue-metrics.js": {
       "path": "data/revenue-metrics.js",

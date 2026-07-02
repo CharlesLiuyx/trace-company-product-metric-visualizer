@@ -1054,7 +1054,35 @@
         ]
       }
     }
-  }
+  },
+
+  i18n: {
+    zh: {
+      name: 'NVIDIA · 2026 财年第三季度',
+      meta: {
+        title: 'NVIDIA 2026 财年第三季度利润表',
+        period: '2026 财年第三季度',
+        periodNote: '截至 2025 年 10 月',
+      },
+      nodes: {
+        data_center: { label: '数据中心', notes: ['同比 +66%'] },
+        gaming: { label: '游戏', notes: ['同比 +30%'] },
+        professional_visualization: { label: '专业可视化', notes: ['同比 +56%'] },
+        automotive: { label: '汽车', notes: ['同比 +32%'] },
+        oem_other: { label: 'OEM 及其他', notes: ['同比 +79%'] },
+        revenue: { label: '收入', notes: ['同比 +62%'] },
+        gross_profit: { label: '毛利润', notes: ['利润率 73%', '同比 (1 个百分点)'] },
+        cost_of_revenue: { label: '收入成本' },
+        other: { label: '其他' },
+        operating_profit: { label: '营业利润', notes: ['利润率 63%', '同比 +1 个百分点'] },
+        operating_expenses: { label: '运营费用' },
+        net_profit: { label: '净利润', notes: ['利润率 56%', '同比 +1 个百分点'] },
+        tax: { label: '税费' },
+        rnd: { label: '研发', notes: ['占收入 8%', '同比 (1 个百分点)'] },
+        sga: { label: '销售、一般及行政', notes: ['占收入 2%', '同比 (1 个百分点)'] },
+      },
+    },
+  },
 };
 
   (window.DATASETS = window.DATASETS || []).push(dataset);

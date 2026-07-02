@@ -193,4 +193,31 @@
     { source: 'operating_expenses', target: 'rnd', value: 6.3 },
     { source: 'operating_expenses', target: 'sga', value: 1.3 },
   ],
+
+  i18n: {
+    zh: {
+      name: 'NVIDIA · 2027 财年第一季度',
+      meta: {
+        title: 'NVIDIA 2027 财年第一季度利润表',
+        period: '2027 财年第一季度',
+        periodNote: '截至 2026 年 4 月',
+      },
+      nodes: {
+        hyperscale: { label: '超大规模', notes: ['同比 +115%'] },
+        ai_clouds: { label: 'AI 云、工业与企业', notes: ['同比 +74%'] },
+        data_center: { label: '数据中心', notes: ['同比 +92%'] },
+        edge: { label: '边缘计算', notes: ['同比 +29%'] },
+        revenue: { label: '收入', notes: ['同比 +85%'] },
+        gross_profit: { label: '毛利润', notes: ['利润率 75%', '同比 +14 个百分点'] },
+        cost_of_revenue: { label: '收入成本' },
+        investments: { label: '投资收益' },
+        operating_profit: { label: '营业利润', notes: ['利润率 66%', '同比 +16 个百分点'] },
+        operating_expenses: { label: '运营费用' },
+        net_profit: { label: '净利润', notes: ['利润率 71%', '同比 +28 个百分点'] },
+        tax: { label: '税费' },
+        rnd: { label: '研发', notes: ['占收入 8%', '同比 (1 个百分点)'] },
+        sga: { label: '销售、一般及行政', notes: ['占收入 2%', '同比 (1 个百分点)'] },
+      },
+    },
+  },
 });

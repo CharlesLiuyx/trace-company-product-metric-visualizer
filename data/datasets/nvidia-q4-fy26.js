@@ -1040,7 +1040,35 @@
         ]
       }
     }
-  }
+  },
+
+  i18n: {
+    zh: {
+      name: 'NVIDIA · 2026 财年第四季度',
+      meta: {
+        title: 'NVIDIA 2026 财年第四季度利润表',
+        period: '2026 财年第四季度',
+        periodNote: '截至 2026 年 1 月',
+      },
+      nodes: {
+        data_center: { label: '数据中心', notes: ['同比 +75%'] },
+        gaming: { label: '游戏', notes: ['同比 +47%'] },
+        professional_visualization: { label: '专业可视化', notes: ['同比 +159%'] },
+        automotive: { label: '汽车', notes: ['同比 +6%'] },
+        oem_other: { label: 'OEM 及其他', notes: ['同比 +28%'] },
+        revenue: { label: '收入', notes: ['同比 +73%'] },
+        gross_profit: { label: '毛利润', notes: ['利润率 75%', '同比 +2 个百分点'] },
+        cost_of_revenue: { label: '收入成本' },
+        other: { label: '其他' },
+        operating_profit: { label: '营业利润', notes: ['利润率 65%', '同比 +4 个百分点'] },
+        operating_expenses: { label: '运营费用' },
+        net_profit: { label: '净利润', notes: ['利润率 63%', '同比 +7 个百分点'] },
+        tax: { label: '税费' },
+        rnd: { label: '研发', notes: ['占收入 8%', '同比 (1 个百分点)'] },
+        sga: { label: '销售、一般及行政', notes: ['占收入 2%', '同比 (1 个百分点)'] },
+      },
+    },
+  },
 };
 
   (window.DATASETS = window.DATASETS || []).push(dataset);

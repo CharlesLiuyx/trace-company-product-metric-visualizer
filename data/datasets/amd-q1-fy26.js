@@ -198,7 +198,7 @@
         gross_profit: {
           blocks: [
             {
-              x: 1484, top: 398, anchor: 'middle', lineGap: 9,
+              x: 1484, top: 389, anchor: 'middle', lineGap: 9,
               lines: [
                 { text: 'Gross profit', size: 40, weight: 800, color: GREEN_LABEL },
                 { text: '$value', size: 39, weight: 400, color: GREEN_LABEL },
@@ -223,7 +223,7 @@
         operating_profit: {
           blocks: [
             {
-              x: 1926, top: 316, anchor: 'middle', lineGap: 9,
+              x: 1926, top: 311, anchor: 'middle', lineGap: 9,
               lines: [
                 { text: 'Operating profit', size: 40, weight: 800 },
                 { text: '$value', size: 39, weight: 400 },
@@ -248,7 +248,7 @@
         other: {
           blocks: [
             {
-              x: 2220, top: 524, anchor: 'start', lineGap: 7,
+              x: 2264, top: 524, anchor: 'middle', lineGap: 7,
               lines: [
                 { text: 'Other', size: 31, weight: 800, color: GREEN_LABEL },
                 { text: '$value', size: 30, weight: 400, color: GREEN_LABEL },
@@ -359,5 +359,33 @@
       { source: 'operating_expenses', target: 'sga', value: 1.3, width: 44, sourceOrder: 1, targetOrder: 0 },
       { source: 'operating_expenses', target: 'amortization', value: 0.3, width: 8, sourceOrder: 2, targetOrder: 0 },
     ],
+
+    i18n: {
+      zh: {
+        name: 'AMD · 2026 财年第一季度',
+        meta: {
+          title: 'AMD 2026 财年第一季度利润表',
+          period: '2026 财年第一季度',
+          periodNote: '截至 2026 年 3 月',
+        },
+        nodes: {
+          data_center: { label: '数据中心', notes: ['同比 +57%', '营业利润率 28%', '同比 +3 个百分点'] },
+          client: { label: '客户端', notes: ['同比 +26%', '客户端和游戏', '营业利润率 16%', '同比 (1 个百分点)'] },
+          gaming: { label: '游戏', notes: ['同比 +11%'] },
+          embedded: { label: '嵌入式', notes: ['同比 +6%', '营业利润率 39%', '同比 (1 个百分点)'] },
+          revenue: { label: '收入', notes: ['同比 +38%'] },
+          gross_profit: { label: '毛利润', notes: ['利润率 53%', '同比 +3 个百分点'] },
+          cost_of_revenue: { label: '收入成本' },
+          operating_profit: { label: '营业利润', notes: ['利润率 14%', '同比 +4 个百分点'] },
+          operating_expenses: { label: '运营费用' },
+          other: { label: '其他' },
+          net_profit: { label: '净利润', notes: ['利润率 13%', '同比 +4 个百分点'] },
+          tax: { label: '税费' },
+          rnd: { label: '研发', notes: ['占收入 23%', '同比 +0 个百分点'] },
+          sga: { label: '销售、一般及行政', notes: ['占收入 12%', '同比 +0 个百分点'] },
+          amortization: { label: '无形资产摊销', notes: ['占收入 3%', '同比 (1 个百分点)'] },
+        },
+      },
+    },
   });
 })();

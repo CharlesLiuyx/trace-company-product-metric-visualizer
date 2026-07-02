@@ -429,5 +429,37 @@
       { source: 'operating_expenses', target: 'restructuring', value: 0.4, width: 10, sourceOrder: 2, targetOrder: 0 },
       { source: 'operating_expenses', target: 'other_opex', value: 0.1, width: 3, sourceOrder: 3, targetOrder: 0 },
     ],
+
+    i18n: {
+      zh: {
+        name: 'HP · 2026 财年第二季度',
+        meta: {
+          title: 'HP 2026 财年第二季度利润表',
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 4 月',
+        },
+        nodes: {
+          ps_commercial: { label: '商用个人系统', notes: ['同比 +14%'] },
+          ps_consumer: { label: '消费者个人系统', notes: ['同比 +10%'] },
+          printing_supplies: { label: '打印耗材', notes: ['同比 +1%'] },
+          printing_commercial: { label: '商用打印', notes: ['同比 +0%'] },
+          printing_consumer: { label: '消费者打印', notes: ['同比 (10%)'] },
+          personal_systems: { label: '个人系统', notes: ['同比 +13%'] },
+          printing: { label: '打印', notes: ['同比 (0%)'] },
+          revenue: { label: '收入', notes: ['同比 +9%'] },
+          gross_profit: { label: '毛利润', notes: ['利润率 21%', '同比 +0 个百分点'] },
+          cost_of_revenue: { label: '收入成本' },
+          operating_profit: { label: '营业利润', notes: ['利润率 4%', '同比 (1 个百分点)'] },
+          operating_expenses: { label: '运营费用' },
+          net_profit: { label: '净利润', notes: ['利润率 3%', '同比 +0 个百分点'] },
+          other_nonoperating: { label: '其他' },
+          tax: { label: '税费' },
+          sga: { label: '销售、一般及行政', notes: ['占收入 11%', '同比 (1 个百分点)'] },
+          rnd: { label: '研发', notes: ['占收入 3%', '同比 (0 个百分点)'] },
+          restructuring: { label: '重组', notes: ['占收入 3%'] },
+          other_opex: { label: '其他', notes: ['占收入 1%'] },
+        },
+      },
+    },
   });
 })();

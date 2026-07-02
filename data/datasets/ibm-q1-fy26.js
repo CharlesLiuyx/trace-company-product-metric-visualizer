@@ -169,7 +169,7 @@
               lines: [{ text: 'Other', size: 37, weight: 800 }],
             },
             {
-              x: 434, top: 1214, anchor: 'middle',
+              x: 426, top: 1214, anchor: 'middle',
               lines: [{ text: '$value', size: 36, weight: 400 }],
             },
           ],
@@ -214,7 +214,7 @@
         intellectual_property: {
           blocks: [
             {
-              x: 1592, top: 1033, anchor: 'middle', lineGap: 8,
+              x: 1606, top: 1033, anchor: 'middle', lineGap: 8,
               lines: [
                 { text: 'Intellectual', size: 30, weight: 800, color: GREEN_LABEL },
                 { text: 'property', size: 30, weight: 800, color: GREEN_LABEL },
@@ -348,5 +348,34 @@
       { source: 'operating_expenses', target: 'sga', value: 5.1, width: 89, sourceOrder: 0 },
       { source: 'operating_expenses', target: 'rnd', value: 2.2, width: 38, sourceOrder: 1 },
     ],
+
+    i18n: {
+      zh: {
+        name: 'IBM · 2026 财年第一季度',
+        meta: {
+          title: 'IBM 2026 财年第一季度利润表',
+          period: '2026 财年第一季度',
+          periodNote: '截至 2026 年 3 月',
+        },
+        nodes: {
+          software: { label: '软件', notes: ['同比 +11%'] },
+          consulting: { label: '咨询', notes: ['同比 +4%'] },
+          infrastructure: { label: '基础设施', notes: ['同比 +15%'] },
+          financing: { label: '融资', notes: ['同比 +15%'] },
+          other_revenue: { label: '其他' },
+          revenue: { label: '收入', notes: ['同比 +9%'] },
+          gross_profit: { label: '毛利润', notes: ['利润率 56%', '同比 +1 个百分点'] },
+          cost_of_revenue: { label: '收入成本' },
+          intellectual_property: { label: ['知识产权', '知识产权'] },
+          operating_profit: { label: '营业利润', notes: ['利润率 12%', '同比 +1 个百分点'] },
+          operating_expenses: { label: '运营费用' },
+          net_profit: { label: '净利润', notes: ['利润率 8%', '同比 +0 个百分点'] },
+          interest: { label: '利息' },
+          tax: { label: '税费' },
+          sga: { label: '销售、一般及行政', notes: ['占收入 32%', '同比 (2 个百分点)'] },
+          rnd: { label: '研发', notes: ['占收入 14%', '同比 +0 个百分点'] },
+        },
+      },
+    },
   });
 })();

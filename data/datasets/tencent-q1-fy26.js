@@ -211,7 +211,7 @@
         others: {
           blocks: [
             {
-              x: 981, top: 2106, anchor: 'middle', lineGap: 10,
+              x: 968, top: 2106, anchor: 'middle', lineGap: 10,
               lines: [
                 { text: '$value', size: 56, weight: 400, color: GRAY },
                 { text: '+103% Y/Y', size: 36, weight: 400, color: GRAY },
@@ -263,7 +263,7 @@
         other_operating_gains: {
           blocks: [
             {
-              x: 2925, top: 1486, anchor: 'middle', lineGap: 10,
+              x: 2945, top: 1486, anchor: 'middle', lineGap: 10,
               lines: [
                 { text: 'Other', size: 45, weight: 800 },
                 { text: '$value', size: 43, weight: 400 },
@@ -490,5 +490,35 @@
       { source: 'operating_expenses', target: 'sm', value: 11.3, width: 33, sourceOrder: 1 },
       { source: 'operating_expenses', target: 'ga', value: 11.3, width: 33, sourceOrder: 2 },
     ],
+
+    i18n: {
+      zh: {
+        name: 'Tencent · 2026 财年第一季度',
+        meta: {
+          title: 'Tencent 2026 财年第一季度利润表',
+          period: '2026 财年第一季度',
+          periodNote: '截至 2026 年 3 月',
+        },
+        nodes: {
+          gaming: { label: '游戏', notes: ['同比 +8%'] },
+          social_networks: { label: '社交网络', notes: ['同比 (2%)'] },
+          marketing_services: { label: '营销服务', notes: ['同比 +20%'] },
+          fintech_business_services: { label: '金融科技与企业服务', notes: ['同比 +9%'] },
+          others: { label: '其他', notes: ['同比 +103%'] },
+          revenue: { label: '收入', notes: ['同比 +9%'] },
+          gross_profit: { label: '毛利润', notes: ['利润率 57%', '同比 +1 个百分点'] },
+          cost_of_revenue: { label: '收入成本' },
+          other_operating_gains: { label: '其他', notes: ['营业收益'] },
+          operating_profit: { label: '营业利润', notes: ['利润率 34%', '同比 +2 个百分点'] },
+          operating_expenses: { label: '运营费用' },
+          investments: { label: '投资收益' },
+          net_profit: { label: '净利润', notes: ['利润率 30%', '同比 +3 个百分点'] },
+          tax: { label: '税费' },
+          rnd: { label: '研发', notes: ['占收入 12%', '同比 +1 个百分点'] },
+          sm: { label: '销售与市场', notes: ['占收入 6%', '同比 +1 个百分点'] },
+          ga: { label: '管理费用', notes: ['占收入 6%', '同比 (2 个百分点)'] },
+        },
+      },
+    },
   });
 })();

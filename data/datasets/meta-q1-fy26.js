@@ -333,5 +333,55 @@
       { source: 'operating_expenses', target: 'sm', value: 2.9, targetOrder: 1 },
       { source: 'operating_expenses', target: 'ga', value: 2.6, targetOrder: 2 },
     ],
+
+    i18n: {
+      preservedAnnotationText: ['MetaQuest', 'FoA'],
+      zh: {
+        name: 'Meta · 2026 财年第一季度',
+        meta: {
+          title: 'Meta 2026 财年第一季度利润表',
+          period: '2026 财年第一季度',
+          periodNote: '截至 2026 年 3 月',
+        },
+        nodes: {
+          advertising: { label: '广告', notes: ['同比 +33%'] },
+          other_revenue: { label: '其他', notes: ['同比 +74%'] },
+          family_of_apps: { label: '应用家族（FoA）', notes: ['同比 +33%'] },
+          reality_labs: { label: 'Reality Labs（RL）', notes: ['同比 (2%)'] },
+          revenue: { label: '收入', notes: ['同比 +33%'] },
+          gross_profit: { label: '毛利润', notes: ['利润率 82%', '同比 (0 个百分点)'] },
+          cost_of_revenue: { label: '收入成本' },
+          operating_profit: { label: '营业利润', notes: ['利润率 41%', '同比 (1 个百分点)'] },
+          operating_expenses: { label: '运营费用' },
+          tax_benefit: { label: '税收收益' },
+          net_profit: { label: '净利润', notes: ['利润率 48%', '同比 +8 个百分点'] },
+          other: { label: '其他' },
+          rnd: { label: '研发', notes: ['占收入 31%', '同比 +3 个百分点'] },
+          sm: { label: '销售与市场', notes: ['占收入 5%', '同比 (1 个百分点)'] },
+          ga: { label: '管理费用', notes: ['占收入 5%', '同比 (1 个百分点)'] },
+          tax: { label: '税费' },
+        },
+        layout: {
+          labels: {
+            other_revenue: {
+              blocks: [
+                {
+                  x: 524, top: 880, anchor: 'middle', lineGap: 10,
+                  lines: [
+                    { text: '其他', size: 40, weight: 800 },
+                    { text: '$value', size: 39, weight: 400 },
+                    { text: '同比 +74%', size: 28, weight: 400, color: NOTE },
+                  ],
+                },
+                {
+                  x: 154, top: 1011, anchor: 'start',
+                  lines: [{ text: '支付基础设施', size: 23, weight: 400, color: NOTE }],
+                },
+              ],
+            },
+          },
+        },
+      },
+    },
   });
 })();

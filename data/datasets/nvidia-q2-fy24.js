@@ -829,7 +829,35 @@
         ]
       }
     }
-  }
+  },
+
+  i18n: {
+    zh: {
+      name: 'NVIDIA · 2024 财年第二季度',
+      meta: {
+        title: 'NVIDIA 2024 财年第二季度利润表',
+        period: '2024 财年第二季度',
+        periodNote: '截至 2023 年 7 月',
+      },
+      nodes: {
+        data_center: { label: '数据中心', notes: ['环比 +141%'] },
+        gaming: { label: '游戏', notes: ['环比 +11%'] },
+        professional_visualization: { label: '专业可视化', notes: ['环比 +28%'] },
+        automotive: { label: '汽车', notes: ['环比 (15%)'] },
+        oem_other: { label: 'OEM 及其他', notes: ['环比 (14%)'] },
+        revenue: { label: '收入', notes: ['环比 +88%'] },
+        gross_profit: { label: '毛利润', notes: ['利润率 70%', '环比 +5 个百分点'] },
+        cost_of_revenue: { label: '收入成本' },
+        other: { label: '其他' },
+        operating_profit: { label: '营业利润', notes: ['利润率 50%', '环比 +21 个百分点'] },
+        operating_expenses: { label: '运营费用' },
+        net_profit: { label: '净利润', notes: ['利润率 46%', '环比 +17 个百分点'] },
+        tax: { label: '税费' },
+        rnd: { label: '研发' },
+        sga: { label: '销售、一般及行政' },
+      },
+    },
+  },
 };
 
   (window.DATASETS = window.DATASETS || []).push(dataset);

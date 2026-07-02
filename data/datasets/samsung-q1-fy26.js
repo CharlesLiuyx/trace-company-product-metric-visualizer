@@ -140,7 +140,7 @@
         samsung_display: {
           blocks: [
             {
-              x: 469, top: 1059, anchor: 'middle', lineGap: 8,
+              x: 469, top: 1053, anchor: 'middle', lineGap: 8,
               lines: [
                 { text: '$value', size: 38, weight: 400, color: BLUE },
                 { text: '+14% Y/Y', size: 27, weight: 400, color: NOTE },
@@ -151,7 +151,7 @@
         harman: {
           blocks: [
             {
-              x: 469, top: 1205, anchor: 'middle', lineGap: 8,
+              x: 469, top: 1201, anchor: 'middle', lineGap: 8,
               lines: [
                 { text: '$value', size: 38, weight: 400, color: BLUE },
                 { text: '+12% Y/Y', size: 27, weight: 400, color: NOTE },
@@ -236,7 +236,7 @@
         other: {
           blocks: [
             {
-              x: 2262, top: 711, anchor: 'middle', lineGap: 7,
+              x: 2228, top: 711, anchor: 'middle', lineGap: 7,
               lines: [
                 { text: 'Other', size: 31, weight: 800, color: GREEN_LABEL },
                 { text: '$value', size: 30, weight: 400, color: GREEN_LABEL },
@@ -335,5 +335,60 @@
       { source: 'operating_expenses', target: 'rnd', value: 11.3, sourceOrder: 1, targetOrder: 0 },
       { source: 'other', target: 'net_profit', value: 1.6, targetOrder: 1 },
     ],
+
+    i18n: {
+      preservedAnnotationText: ['SAMSUNG DISPLAY', 'A SAMSUNG COMPANY'],
+      zh: {
+        name: 'Samsung · 2026 财年第一季度',
+        meta: {
+          title: 'Samsung 2026 财年第一季度利润表',
+          period: '2026 财年第一季度',
+          periodNote: '截至 2026 年 3 月',
+        },
+        nodes: {
+          device_solutions: { label: '设备解决方案' },
+          device_experience: { label: '设备体验' },
+          samsung_display: { label: '三星显示' },
+          harman: { label: '哈曼' },
+          eliminations: { label: '抵销' },
+          revenue: { label: '销售额', notes: ['同比 +69%'] },
+          gross_profit: { label: '毛利润', notes: ['利润率 61%', '同比 +24 个百分点'] },
+          cost_of_revenue: { label: '收入成本' },
+          operating_profit: { label: '营业利润', notes: ['利润率 43%', '同比 +34 个百分点'] },
+          operating_expenses: { label: '运营费用' },
+          other: { label: '其他' },
+          net_profit: { label: '净利润', notes: ['利润率 35%', '同比 +24 个百分点'] },
+          tax: { label: '税费' },
+          sga: { label: '销售、一般及行政', notes: ['占收入 10%', '同比 (6 个百分点)'] },
+          rnd: { label: '研发', notes: ['占收入 8%', '同比 (3 个百分点)'] },
+        },
+        layout: {
+          labels: {
+            samsung_display: {
+              blocks: [
+                {
+                  x: 469, top: 1053, anchor: 'middle', lineGap: 8,
+                  lines: [
+                    { text: '$value', size: 38, weight: 400, color: BLUE },
+                    { text: '同比 +14%', size: 27, weight: 400, color: NOTE },
+                  ],
+                },
+              ],
+            },
+            harman: {
+              blocks: [
+                {
+                  x: 469, top: 1201, anchor: 'middle', lineGap: 8,
+                  lines: [
+                    { text: '$value', size: 38, weight: 400, color: BLUE },
+                    { text: '同比 +12%', size: 27, weight: 400, color: NOTE },
+                  ],
+                },
+              ],
+            },
+          },
+        },
+      },
+    },
   });
 })();

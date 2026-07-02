@@ -236,7 +236,7 @@
         cost_of_revenue: {
           blocks: [
             {
-              x: 1744, top: 1210, anchor: 'middle', lineGap: 9,
+              x: 1744, top: 1216, anchor: 'middle', lineGap: 9,
               lines: [
                 { text: 'Cost of', size: 40, weight: 800 },
                 { text: 'revenue', size: 40, weight: 800 },
@@ -248,7 +248,7 @@
         operating_loss: {
           blocks: [
             {
-              x: 1965, top: 994, anchor: 'middle', lineGap: 9,
+              x: 1921, top: 994, anchor: 'middle', lineGap: 9,
               lines: [
                 { text: 'Operating', size: 39, weight: 800 },
                 { text: 'loss', size: 39, weight: 800 },
@@ -435,5 +435,50 @@
       { source: 'operating_expenses', target: 'ga', value: 1.4, width: 15, sourceOrder: 2, y0: 863 },
       { source: 'operating_expenses', target: 'amortization_impairment', value: 0.4, width: 4, sourceOrder: 3, y0: 873 },
     ],
+
+    i18n: {
+      preservedAnnotationText: ['Taobao', 'Lazada', 'AliExpress', 'trendyol'],
+      zh: {
+        name: 'Alibaba · 2026 财年第四季度',
+        meta: {
+          title: 'Alibaba 2026 财年第四季度利润表',
+          period: '2026 财年第四季度',
+          periodNote: '截至 2026 年 3 月',
+        },
+        nodes: {
+          china_ecommerce: { label: '中国电子商务', notes: ['同比 +6%'] },
+          international_digital_commerce: { label: '国际数字商业', notes: ['同比 +6%'] },
+          cloud: { label: '云', notes: ['同比 +38%'] },
+          all_others: { label: '所有其他业务', notes: ['同比 (21%)'] },
+          revenue: { label: '收入', notes: ['同比 +3%'] },
+          intersegment_eliminations: { label: '分部间抵销' },
+          gross_profit: { label: '毛利润', notes: ['利润率 35%', '同比 (7 个百分点)'] },
+          cost_of_revenue: { label: '收入成本' },
+          operating_loss: { label: '营业亏损', notes: ['利润率 (0%)', '同比 +12 个百分点'] },
+          operating_expenses: { label: '运营费用' },
+          sm: { label: '销售与市场', notes: ['占收入 22%', '同比 +7 个百分点'] },
+          product_development: { label: '产品开发', notes: ['占收入 8%'] },
+          ga: { label: '一般及行政', notes: ['占收入 4%'] },
+          amortization_impairment: { label: '摊销与减值', notes: ['占收入 1%'] },
+          tax: { label: '税费' },
+        },
+        layout: {
+          labels: {
+            cost_of_revenue: {
+              blocks: [
+                {
+                  x: 1744, top: 1216, anchor: 'middle', lineGap: 9,
+                  lines: [
+                    { text: '收入', size: 40, weight: 800 },
+                    { text: '成本', size: 40, weight: 800 },
+                    { text: '$value', size: 38, weight: 400 },
+                  ],
+                },
+              ],
+            },
+          },
+        },
+      },
+    },
   });
 })();

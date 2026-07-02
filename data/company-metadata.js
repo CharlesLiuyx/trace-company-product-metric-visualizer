@@ -37,6 +37,17 @@
           'https://abc.xyz/investor/other/sec-filings/',
           'https://about.google/',
         ],
+        i18n: {
+          zh: {
+            displayName: 'Alphabet',
+            sector: '通信服务',
+            industry: '互联网服务、数字广告、云计算、软件、设备与其他创新业务',
+            headquarters: '美国加利福尼亚州山景城',
+            fiscalYearEnd: '12 月 31 日',
+            description:
+              'Alphabet 是一家控股公司，旗下最大的业务是 Google，涵盖搜索、YouTube、广告平台、Google Play、设备、订阅、Google Cloud 以及其他长期科技投资。',
+          },
+        },
       },
       {
         key: 'alibaba',
@@ -133,6 +144,17 @@
           'https://ir.amd.com/news-events/press-releases/detail/1284/amd-reports-first-quarter-2026-financial-results',
           'https://ir.amd.com/financial-information/sec-filings/content/0000002488-26-000076/amd-20260328.htm',
         ],
+        i18n: {
+          zh: {
+            displayName: 'AMD',
+            sector: '信息技术',
+            industry: '半导体、高性能计算、AI 加速器、CPU、GPU、FPGA、自适应 SoC、嵌入式系统、AI PC 与游戏',
+            headquarters: '美国加利福尼亚州圣克拉拉',
+            fiscalYearEnd: '12 月最后一个星期六',
+            description:
+              'AMD 设计高性能与 AI 计算产品，涵盖数据中心 CPU 和加速器、客户端处理器、显卡、嵌入式 CPU、FPGA、自适应 SoC、网络、软件以及游戏技术。',
+          },
+        },
       },
       {
         key: 'amazon',
@@ -233,6 +255,17 @@
           'https://ir.appfolioinc.com/node/11981/html',
           'https://www.appfolio.com/',
         ],
+        i18n: {
+          zh: {
+            displayName: 'AppFolio',
+            sector: '信息技术',
+            industry: '房地产软件、物业管理 SaaS、投资管理软件与增值服务',
+            headquarters: '美国加利福尼亚州圣巴巴拉',
+            fiscalYearEnd: '12 月 31 日',
+            description:
+              'AppFolio 提供基于云的房地产业绩平台，帮助物业管理者、房地产投资者及相关客户连接社区、提升运营效率、改善客户体验并优化财务与运营表现。',
+          },
+        },
       },
       {
         key: 'arm-holdings',
@@ -260,6 +293,17 @@
           'https://investors.arm.com/financials/quarterly-annual-results',
           'https://newsroom.arm.com/news/arm-holdings-plc-reports-results-for-the-fourth-quarter-and-fiscal-year-ended-2026',
         ],
+        i18n: {
+          zh: {
+            displayName: 'Arm',
+            sector: '信息技术',
+            industry: '半导体知识产权、计算平台、芯片设计与软件工具',
+            headquarters: '英国英格兰剑桥',
+            fiscalYearEnd: '3 月 31 日',
+            description:
+              'Arm 开发高性能、高能效的 CPU 产品、计算子系统、架构、软件工具及相关半导体 IP，被芯片厂商和科技公司广泛用于边缘设备、PC、数据中心、汽车系统和嵌入式市场。',
+          },
+        },
       },
       {
         key: 'apple',
@@ -616,6 +660,17 @@
           'https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-First-Quarter-2026-Results/',
           'https://s205.q4cdn.com/133937190/files/doc_financials/2026/q1/CoreWeave-1Q26-10-Q.pdf',
         ],
+        i18n: {
+          zh: {
+            displayName: 'CoreWeave',
+            sector: '信息技术',
+            industry: 'AI 云计算、GPU 基础设施、高性能计算、AI 存储、网络与托管软件服务',
+            headquarters: '美国新泽西州利文斯顿',
+            fiscalYearEnd: '12 月 31 日',
+            description:
+              'CoreWeave 提供 AI 原生云平台，整合 GPU 加速计算、存储、网络、编排与托管软件服务，服务于大规模构建和运行 AI 工作负载的 AI 实验室、初创公司及企业客户。',
+          },
+        },
       },
       {
         key: 'costco',
@@ -1128,6 +1183,17 @@
           'https://www.ibm.com/investor/events/earnings-1q26',
           'https://www.sec.gov/Archives/edgar/data/51143/000005114326000010/ibm-20251231.htm',
         ],
+        i18n: {
+          zh: {
+            displayName: 'IBM',
+            sector: '信息技术',
+            industry: '混合云、AI、软件、咨询、基础设施与融资',
+            headquarters: '美国纽约州阿蒙克',
+            fiscalYearEnd: '12 月 31 日',
+            description:
+              'IBM 整合软件、咨询与基础设施，帮助客户在混合云和 AI 环境中运行企业工作负载，产品与服务涵盖 Red Hat、自动化、数据、交易处理、基础设施支持及融资。',
+          },
+        },
       },
       {
         key: 'jd-com',
@@ -1370,6 +1436,17 @@
           'https://investor.atmeta.com/financials/',
           'https://investor.atmeta.com/financials/sec-filings/default.aspx',
         ],
+        i18n: {
+          zh: {
+            displayName: 'Meta',
+            sector: '通信服务',
+            industry: '社交媒体、数字广告、消息服务、AI 与虚拟和增强现实平台',
+            headquarters: '美国加利福尼亚州门洛帕克',
+            fiscalYearEnd: '12 月 31 日',
+            description:
+              'Meta 打造社交、消息、广告、AI 与现实平台产品，覆盖 Facebook、Instagram、Messenger、WhatsApp、Threads、Meta Quest 以及相关开发者和企业服务。',
+          },
+        },
       },
       {
         key: 'morgan-stanley',
@@ -1613,6 +1690,17 @@
           'https://www.nytco.com/investors/',
           'https://www.nytco.com/investors/financials/',
         ],
+        i18n: {
+          zh: {
+            displayName: '纽约时报',
+            sector: '通信服务',
+            industry: '新闻媒体、数字订阅、广告与产品评测服务',
+            headquarters: '美国纽约州纽约',
+            fiscalYearEnd: '12 月 31 日',
+            description:
+              '纽约时报公司是一家以独立新闻为核心的全球媒体机构，业务涵盖数字与印刷订阅、广告以及 Wirecutter、Games、Cooking、Audio 和 The Athletic 等周边产品。',
+          },
+        },
       },
       {
         key: 'okta',
@@ -1945,6 +2033,17 @@
           'https://investor.redditinc.com/overview/default.aspx',
           'https://investor.redditinc.com/financials/sec-filings/default.aspx',
         ],
+        i18n: {
+          zh: {
+            displayName: 'Reddit',
+            sector: '通信服务',
+            industry: '社交媒体、在线社区与数字广告',
+            headquarters: '美国加利福尼亚州旧金山',
+            fiscalYearEnd: '12 月 31 日',
+            description:
+              'Reddit 是围绕用户自建社区组织的社区平台，用户在其中发帖、投票、评论并发现感兴趣的讨论；公司主要通过广告以及数据授权等其他产品变现。',
+          },
+        },
       },
       {
         key: 'robinhood',
@@ -1972,6 +2071,17 @@
           'https://investors.robinhood.com/static-files/981b25a2-29b9-48f5-8839-9273b2e353d9',
           'https://robinhood.com/us/en/',
         ],
+        i18n: {
+          zh: {
+            displayName: 'Robinhood',
+            sector: '金融',
+            industry: '零售经纪、加密资产、顾问服务、数字银行服务与私募市场准入',
+            headquarters: '美国加利福尼亚州门洛帕克',
+            fiscalYearEnd: '12 月 31 日',
+            description:
+              'Robinhood 是一家金融服务公司，通过面向消费者的投资和金融产品提供零售经纪、加密资产、顾问服务、数字银行服务及私募市场准入。',
+          },
+        },
       },
       {
         key: 'roblox',
@@ -1999,6 +2109,17 @@
           'https://ir.roblox.com/financials/quarterly-results/default.aspx',
           'https://ir.roblox.com/financials/sec-filings/default.aspx',
         ],
+        i18n: {
+          zh: {
+            displayName: 'Roblox',
+            sector: '通信服务',
+            industry: '用户生成游戏、沉浸式体验、虚拟经济与数字广告',
+            headquarters: '美国加利福尼亚州圣马特奥',
+            fiscalYearEnd: '12 月 31 日',
+            description:
+              'Roblox 运营全球沉浸式平台，用户在其中发现、游玩并创作多人体验，平台由使用 Roblox Studio 的开发者社区支撑，并通过预订额、虚拟物品、订阅和广告变现。',
+          },
+        },
       },
       {
         key: 'salesforce',
@@ -2127,6 +2248,17 @@
           'https://investor.servicenow.com/financial-resources/financial-performance/default.aspx',
           'https://s205.q4cdn.com/916135447/files/doc_financials/2026/q1/Q1-2026-Fact-Sheet.pdf',
         ],
+        i18n: {
+          zh: {
+            displayName: 'ServiceNow',
+            sector: '信息技术',
+            industry: '企业软件、AI 工作流自动化、IT 服务管理、CRM、安全、人力资源与低代码应用开发',
+            headquarters: '美国加利福尼亚州圣克拉拉',
+            fiscalYearEnd: '12 月 31 日',
+            description:
+              'ServiceNow 提供面向数字化工作流的 AI 平台，覆盖 IT、客户服务、员工体验、创作者工作流、安全、风险、财务、供应链及行业运营。',
+          },
+        },
       },
       {
         key: 'snap',

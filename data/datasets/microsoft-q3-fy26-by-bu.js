@@ -277,7 +277,7 @@
         other: {
           blocks: [
             {
-              x: 2250, top: 621, anchor: 'middle', lineGap: 8,
+              x: 2277, top: 621, anchor: 'middle', lineGap: 8,
               lines: [
                 { text: 'Other', size: 31, weight: 800 },
                 { text: '$value', size: 27, weight: 400 },
@@ -422,5 +422,33 @@
       { source: 'operating_expenses', target: 'sm', value: 6.8, sourceOrder: 1, targetOrder: 0 },
       { source: 'operating_expenses', target: 'ga', value: 1.9, sourceOrder: 2, targetOrder: 0 },
     ],
+
+    i18n: {
+      preservedAnnotationText: ['Linked', 'in'],
+      zh: {
+        name: 'Microsoft · 2026 财年第三季度（按业务部门）',
+        meta: {
+          title: 'Microsoft 2026 财年第三季度利润表',
+          period: '2026 财年第三季度',
+          periodNote: '截至 2026 年 3 月',
+        },
+        nodes: {
+          productivity_business_processes: { label: '生产力与业务流程', notes: ['营业利润率 60%', '同比 +2 个百分点'] },
+          intelligent_cloud: { label: '智能云', notes: ['营业利润率 40%', '同比 (2 个百分点)'] },
+          more_personal_computing: { label: '更多个人计算', notes: ['营业利润率 28%', '同比 +1 个百分点'] },
+          revenue: { label: '收入', notes: ['同比 +18%'] },
+          gross_profit: { label: '毛利润', notes: ['利润率 68%', '同比 (1 个百分点)'] },
+          cost_of_revenue: { label: '收入成本' },
+          operating_profit: { label: '营业利润', notes: ['利润率 46%', '同比 +1 个百分点'] },
+          operating_expenses: { label: '运营费用' },
+          other: { label: '其他' },
+          net_profit: { label: '净利润', notes: ['利润率 38%', '同比 +1 个百分点'] },
+          tax: { label: '税费' },
+          rnd: { label: '研发', notes: ['占收入 11%', '同比 (1 个百分点)'] },
+          sm: { label: '销售与市场', notes: ['占收入 8%', '同比 (1 个百分点)'] },
+          ga: { label: '管理费用', notes: ['占收入 2%', '同比 (0 个百分点)'] },
+        },
+      },
+    },
   });
 })();

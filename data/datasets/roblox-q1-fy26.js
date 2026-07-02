@@ -453,5 +453,33 @@
       { source: 'operating_expenses', target: 'ga', value: 209, sourceOrder: 3, targetOrder: 0 },
       { source: 'operating_expenses', target: 'sm', value: 64, sourceOrder: 4, targetOrder: 0 },
     ],
+
+    i18n: {
+      zh: {
+        name: 'Roblox · 2026 财年第一季度',
+        meta: {
+          title: 'Roblox 2026 财年第一季度利润表',
+          period: '2026 财年第一季度',
+          periodNote: '截至 2026 年 3 月',
+        },
+        nodes: {
+          north_america: { label: '北美', notes: ['同比 +29%'] },
+          europe: { label: '欧洲', notes: ['同比 +52%'] },
+          apac: { label: '亚太', notes: ['同比 +55%'] },
+          rest_of_world: { label: '世界其他地区', notes: ['同比 +64%'] },
+          revenue: { label: '收入', notes: ['同比 +39%'] },
+          gross_profit: { label: '毛利润', notes: ['利润率 80%', '同比 +1 个百分点'] },
+          cost_of_revenue: { label: '收入成本' },
+          operating_loss: { label: '营业亏损', notes: ['利润率 (20%)', '同比 +4 个百分点'] },
+          operating_expenses: { label: '运营费用' },
+          developer_fees: { label: '开发者费用', notes: ['占收入 29%', '同比 +2 个百分点'] },
+          rnd: { label: '研发', notes: ['占收入 29%', '同比 (7 个百分点)'] },
+          infrastructure: { label: '基础设施', notes: ['占收入 22%', '同比 (1 个百分点)'] },
+          ga: { label: '管理费用', notes: ['占收入 14%', '同比 +3 个百分点'] },
+          sm: { label: '销售与市场', notes: ['占收入 4%', '同比 (0 个百分点)'] },
+          tax: { label: '税费' },
+        },
+      },
+    },
   });
 })();
