@@ -27,6 +27,7 @@ function loadBrowserData(scripts) {
   vm.createContext(context);
 
   vm.runInContext(readProjectFile('src/icons.js'), context, { filename: 'src/icons.js' });
+  vm.runInContext(readProjectFile('src/trace-domain.js'), context, { filename: 'src/trace-domain.js' });
   vm.runInContext(readProjectFile('data/income-statements.js'), context, { filename: 'data/income-statements.js' });
   vm.runInContext(readProjectFile('data/revenue-metrics.js'), context, { filename: 'data/revenue-metrics.js' });
   vm.runInContext(readProjectFile('data/company-metadata.js'), context, { filename: 'data/company-metadata.js' });
@@ -39,6 +40,7 @@ function loadBrowserData(scripts) {
     revenueRecords: context.REVENUE_METRIC_SSOT?.records || [],
     companies: context.COMPANY_METADATA?.companies || [],
     datasets: context.DATASETS || [],
+    domain: context.TraceDomain,
   };
 }
 
@@ -195,6 +197,56 @@ function validateArithmetic(record, errors) {
   );
 }
 
+function validateCurrencyCoverage({ records, revenueRecords, companies, datasets, domain }, errors) {
+  if (!domain) {
+    errors.push('src/trace-domain.js did not expose TraceDomain; currency coverage checks cannot run');
+    return;
+  }
+  const { currencyCode, currencyUnitsPerUsd, MONEY_UNIT_MULTIPLIERS } = domain;
+  const knownUnit = (unit) => Object.prototype.hasOwnProperty.call(MONEY_UNIT_MULTIPLIERS, String(unit || '').trim().toUpperCase());
+  // Unknown currencies make amountValueUsd return null, which silently drops the
+  // company from cross-currency totals and comparison scaling at runtime.
+  const assertConvertible = (label, currency, unit) => {
+    assert(
+      currencyUnitsPerUsd(currency) != null,
+      `${label}: currency "${currency}" has no USD rate in trace-domain USD_FX_SNAPSHOT`,
+      errors
+    );
+    assert(knownUnit(unit), `${label}: unknown money unit "${unit}"`, errors);
+  };
+
+  for (const record of records) assertConvertible(record.key, record.currency, record.unit);
+  for (const record of revenueRecords) assertConvertible(`${record.key} (revenue)`, record.currency, record.unit);
+
+  const recordByKey = new Map(records.map((record) => [record.key, record]));
+  for (const dataset of datasets) {
+    const record = recordByKey.get(dataset.key);
+    if (!record) continue;
+    const metaCurrency = String(dataset.meta?.currency ?? '').trim();
+    if (metaCurrency) {
+      assert(
+        currencyCode(metaCurrency) === currencyCode(record.currency),
+        `${dataset.key}: dataset meta.currency "${metaCurrency}" disagrees with SSOT currency "${record.currency}"`,
+        errors
+      );
+    }
+    assert(
+      String(dataset.meta?.unit ?? '') === String(record.unit ?? ''),
+      `${dataset.key}: dataset meta.unit "${dataset.meta?.unit}" disagrees with SSOT unit "${record.unit}"`,
+      errors
+    );
+  }
+
+  for (const company of companies) {
+    const marketCap = company.marketCap;
+    if (!marketCap || typeof marketCap !== 'object') continue;
+    if (Number.isFinite(marketCap.valueUsd ?? marketCap.usd)) continue;
+    const label = company.name || company.key || '<company>';
+    assert(Number.isFinite(marketCap.value), `${label}: marketCap needs valueUsd or a numeric value`, errors);
+    assertConvertible(`${label} marketCap`, marketCap.currency || marketCap.currencyCode || '$', marketCap.unit);
+  }
+}
+
 function dateValue(date) {
   const time = Date.parse(`${date}T00:00:00Z`);
   return Number.isFinite(time) ? time : null;
@@ -273,7 +325,8 @@ function main() {
     );
   }
 
-  const { records, revenueRecords, companies, datasets } = loadBrowserData(scripts);
+  const loaded = loadBrowserData(scripts);
+  const { records, revenueRecords, companies, datasets } = loaded;
   const errors = [];
   const datasetKeys = scripts.map((script) => path.basename(script, '.js'));
   const recordKeys = records.map((record) => record.key);
@@ -299,6 +352,7 @@ function main() {
   assert(new Set(revenueKeys).size === revenueKeys.length, 'Revenue SSOT contains duplicate record keys', errors);
   for (const record of revenueRecords) validateRevenueMetric(record, errors);
   validateCompanyMetadata([...records, ...revenueRecords], companies, errors);
+  validateCurrencyCoverage(loaded, errors);
 
   if (errors.length) {
     console.error(`SSOT verification failed with ${errors.length} error(s):`);
