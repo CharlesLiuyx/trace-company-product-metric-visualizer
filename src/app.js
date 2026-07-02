@@ -15,6 +15,7 @@ const {
   normalize,
   periodFor,
   timestampMs,
+  unitMultiplier,
 } = TraceDomain;
 const traceCatalog = TraceDomain.createCatalog(window);
 const sets = traceCatalog.datasets;
@@ -29,6 +30,8 @@ const periodSearch = document.getElementById('periodSearch');
 const periodSearchToggle = document.getElementById('periodSearchToggle');
 const periodSortToggle = document.getElementById('periodSortToggle');
 const periodExpandToggle = document.getElementById('periodExpandToggle');
+const periodMultiExitToggle = document.getElementById('periodMultiExitToggle');
+const periodSelectAllToggle = document.getElementById('periodSelectAllToggle');
 const periodSection = document.querySelector('.period-section');
 const companyList = document.getElementById('companyList');
 const periodList = document.getElementById('periodList');
@@ -601,6 +604,15 @@ function scopeCompanies() {
 function isMultiCompanyScope() {
   return Boolean(state?.multiCompanyMode && scopeCompanies().length > 1);
 }
+function selectedPeriodRecords() {
+  const list = (state?.selectedPeriodIndexes || [])
+    .map((index) => recordByIndex(index))
+    .filter((record) => record && record.company === state.company);
+  return sortedRecordList(list);
+}
+function isMultiPeriodScope() {
+  return Boolean(state?.multiPeriodMode && state.metricMode === 'incomeStatement' && selectedPeriodRecords().length > 1);
+}
 function metricModesForCompanies(companies = scopeCompanies()) {
   const scope = uniqueCompanies(companies);
   const modes = METRIC_MODES.filter((mode) => scope.some((company) => hasCompanyMetricData(company, mode)));
@@ -662,6 +674,9 @@ const state = {
   company: initialCompany,
   selectedCompanies: initialCompany ? [initialCompany] : [],
   multiCompanyMode: false,
+  selectedPeriodIndexes: [],
+  multiPeriodMode: false,
+  comparisonMetricTrend: null,
   metricMode: storedMetricMode,
   viewMode: storedViewMode,
   periodExpanded: readStoredBoolean(PERIOD_EXPANDED_KEY, false),
@@ -978,6 +993,22 @@ function syncSingleCompanyScope() {
   if (state.multiCompanyMode) return;
   state.selectedCompanies = state.company ? [state.company] : [];
 }
+function setSelectedPeriods(indexes) {
+  const unique = [...new Set(indexes || [])]
+    .filter((index) => recordByIndex(index)?.company === state.company);
+  state.selectedPeriodIndexes = unique;
+  if (unique.length && !unique.includes(state.activeIndex)) {
+    const first = selectedPeriodRecords()[0];
+    if (first) setCompanyActiveRecord(first);
+  }
+  if (state.multiPeriodMode && unique.length <= 1) {
+    state.multiPeriodMode = false;
+  }
+}
+function clearMultiPeriodScope() {
+  state.multiPeriodMode = false;
+  state.selectedPeriodIndexes = [];
+}
 function companiesSupportingMetric(mode = state.metricMode, companies = scopeCompanies()) {
   return uniqueCompanies(companies).filter((company) => hasCompanyMetricData(company, mode));
 }
@@ -1039,6 +1070,7 @@ function recordByIndex(index) {
 }
 function selectRecord(record, scrollKind = 'statement') {
   if (!record) return;
+  clearMultiPeriodScope();
   state.activeIndex = record.index;
   state.company = record.company;
   setCompanyActiveRecord(record);
@@ -2227,13 +2259,16 @@ function companyRows() {
 }
 function statementRows() {
   const scope = selectedCompanySet();
+  const periodScope = new Set(isMultiPeriodScope() ? state.selectedPeriodIndexes : []);
   return tableModelForLanguage().statementRows
     .filter((row) => !state.multiCompanyMode || scope.has(row.record.company))
     .map((row) => ({
       ...row,
-      active: state.multiCompanyMode
-        ? companyActiveIndex(row.record.company) === row.record.index
-        : row.record.index === state.activeIndex,
+      active: periodScope.size
+        ? periodScope.has(row.record.index)
+        : state.multiCompanyMode
+          ? companyActiveIndex(row.record.company) === row.record.index
+          : row.record.index === state.activeIndex,
     }));
 }
 function revenueRows() {
@@ -2455,6 +2490,19 @@ function renderActiveSummary() {
     ].filter(Boolean).join(' · ');
     return;
   }
+  if (isMultiPeriodScope()) {
+    const periodRecords = selectedPeriodRecords();
+    const chronological = [...periodRecords].sort((a, b) => a.sortValue - b.sortValue);
+    const range = [...new Set([chronological[0], chronological[chronological.length - 1]]
+      .map((item) => displayPeriod(item))
+      .filter(Boolean))];
+    actionTitle.textContent = [
+      displayCompanyName(state.company),
+      t('comparisonPeriodScopeSummary', { count: periodRecords.length }),
+      range.join(' → '),
+    ].filter(Boolean).join(' · ');
+    return;
+  }
   if (isCompanyInfoMetric()) {
     actionTitle.textContent = [t('metricCompanyInfo'), displayCompanyName(state.company)].filter(Boolean).join(' · ');
     return;
@@ -2516,6 +2564,7 @@ function syncEntityScopeCounts(companyCount = groups.length) {
 }
 function selectCompanyGroup(group, { closeSearch = false, focusCompany = false, scrollKind = null } = {}) {
   if (!group) return;
+  clearMultiPeriodScope();
   const targetMode = bestMetricModeForCompany(group.company, state.metricMode);
   const targetGroup = groupFor(group.company, targetMode) || group;
   const groupRecords = sortedRecords(targetGroup);
@@ -2547,6 +2596,7 @@ function selectCompanyGroup(group, { closeSearch = false, focusCompany = false, 
 }
 function toggleCompanyInScope(group, { focusCompany = false, closeSearch = false } = {}) {
   if (!group) return;
+  clearMultiPeriodScope();
   const company = group.company;
   let nextCompanies = scopeCompanies();
   if (!state.multiCompanyMode) {
@@ -2586,6 +2636,80 @@ function exitMultiCompanyMode({ render = true, focusCompany = false } = {}) {
   renderAll();
   draw({ renderTable: false, syncView: false });
   if (focusCompany) requestAnimationFrame(focusActiveCompanyItem);
+}
+function finishPeriodScopeChange() {
+  renderAll();
+  draw({ renderTable: false, syncView: false });
+  if (state.viewMode === 'table') scrollActiveTableRow('statement');
+}
+function togglePeriodInScope(record) {
+  if (!record || record.company !== state.company) return;
+  let next = state.selectedPeriodIndexes.slice();
+  if (!state.multiPeriodMode) {
+    exitMultiCompanyMode({ render: false });
+    state.multiPeriodMode = true;
+    next = [state.activeIndex, record.index];
+  } else if (next.includes(record.index)) {
+    if (next.length > 1) next = next.filter((index) => index !== record.index);
+  } else {
+    next.push(record.index);
+    setCompanyActiveRecord(record);
+  }
+  setSelectedPeriods(next);
+  finishPeriodScopeChange();
+}
+function exitMultiPeriodMode({ render = true } = {}) {
+  if (!state.multiPeriodMode && !state.selectedPeriodIndexes.length) return;
+  clearMultiPeriodScope();
+  if (!render) return;
+  finishPeriodScopeChange();
+}
+function visiblePeriodChipRecords(yearItems = periodTreeFor(groupFor(state.company))) {
+  const chips = [];
+  yearItems.forEach((year) => {
+    const tagKeys = [...QUARTER_TAGS];
+    if (year.quarters.has(ANNUAL_PERIOD_KEY)) tagKeys.push(ANNUAL_PERIOD_KEY);
+    tagKeys.forEach((tag) => {
+      const record = year.quarters.get(tag)?.records[0];
+      if (record) chips.push(record);
+    });
+  });
+  return chips;
+}
+function toggleAllVisiblePeriods() {
+  if (state.metricMode !== 'incomeStatement') return;
+  const chips = visiblePeriodChipRecords();
+  if (!chips.length) return;
+  const selected = new Set(state.selectedPeriodIndexes);
+  const allSelected = state.multiPeriodMode && chips.every((record) => selected.has(record.index));
+  if (allSelected) {
+    exitMultiPeriodMode();
+    return;
+  }
+  exitMultiCompanyMode({ render: false });
+  state.multiPeriodMode = true;
+  setSelectedPeriods(chips.map((record) => record.index));
+  finishPeriodScopeChange();
+}
+function toggleYearPeriods(yearKey) {
+  if (state.metricMode !== 'incomeStatement') return;
+  const year = periodTreeFor(groupFor(state.company)).find((item) => item.yearKey === yearKey);
+  if (!year) return;
+  const chips = visiblePeriodChipRecords([year]);
+  if (!chips.length) return;
+  const selected = new Set(state.selectedPeriodIndexes);
+  const allSelected = state.multiPeriodMode && chips.every((record) => selected.has(record.index));
+  let next;
+  if (allSelected) {
+    const chipIndexes = new Set(chips.map((record) => record.index));
+    next = state.selectedPeriodIndexes.filter((index) => !chipIndexes.has(index));
+  } else {
+    exitMultiCompanyMode({ render: false });
+    state.multiPeriodMode = true;
+    next = [...state.selectedPeriodIndexes, ...chips.map((record) => record.index)];
+  }
+  setSelectedPeriods(next);
+  finishPeriodScopeChange();
 }
 function moveCompanySelection(offset, { returnBoundary = false } = {}) {
   const visibleGroups = visibleCompanyGroups();
@@ -2654,6 +2778,10 @@ function renderCompanies() {
 function renderPeriods() {
   const group = groupFor(state.company);
   const yearItems = periodTreeFor(group);
+  const periodScope = new Set(state.multiPeriodMode ? state.selectedPeriodIndexes : []);
+  periodList.setAttribute('aria-multiselectable', state.multiPeriodMode ? 'true' : 'false');
+  if (periodMultiExitToggle) periodMultiExitToggle.hidden = !state.multiPeriodMode;
+  app.classList.toggle('period-multi-selecting', state.multiPeriodMode);
   periodList.innerHTML = '';
   if (!yearItems.length) {
     periodList.innerHTML = `<div class="empty-state">${escapeHtml(t('noMatchingTimePoints'))}</div>`;
@@ -2672,21 +2800,28 @@ function renderPeriods() {
     item.style.setProperty('--timeline-active-ring-color', colors.activeRing);
     const tagKeys = [...QUARTER_TAGS];
     if (year.quarters.has(ANNUAL_PERIOD_KEY)) tagKeys.push(ANNUAL_PERIOD_KEY);
+    let chipCount = 0;
+    let selectedChipCount = 0;
     const quarterTags = tagKeys.map((tag) => {
       const bucket = year.quarters.get(tag);
       const record = bucket?.records[0];
       const isActive = Boolean(bucket?.records.some((entry) => entry.index === state.activeIndex));
+      const isSelected = Boolean(state.multiPeriodMode && bucket?.records.some((entry) => periodScope.has(entry.index)));
+      if (record) chipCount += 1;
+      if (isSelected) selectedChipCount += 1;
       const title = record ? [displayPeriod(record), displayPeriodNote(record) || displayLabel(record)].filter(Boolean).join(', ') : `${year.yearKey} ${tag}`;
       return `
         <button
           type="button"
-          class="quarter-tag${isActive ? ' active' : ''}"
+          class="quarter-tag${isActive ? ' active' : ''}${isSelected ? ' selected' : ''}"
           ${record ? `data-index="${record.index}"` : 'disabled aria-disabled="true"'}
           title="${escapeHtml(title)}"
-          aria-pressed="${isActive ? 'true' : 'false'}"
+          aria-pressed="${(state.multiPeriodMode ? isSelected : isActive) ? 'true' : 'false'}"
         >${escapeHtml(tag === ANNUAL_PERIOD_KEY ? t('annualPeriodTag') : tag)}</button>
       `;
     }).join('');
+    const yearAllSelected = Boolean(state.multiPeriodMode && chipCount && selectedChipCount === chipCount);
+    const yearPartiallySelected = Boolean(selectedChipCount && !yearAllSelected);
     const selectedRecords = year.selectedBucket?.records || [];
     const showVariants = selectedRecords.length > 1 || selectedRecords.some((record) => record.variantFeature);
     const variants = showVariants ? `
@@ -2694,10 +2829,10 @@ function renderPeriods() {
         ${selectedRecords.map((record) => `
           <button
             type="button"
-            class="variant-chip${record.index === state.activeIndex ? ' active' : ''}"
+            class="variant-chip${record.index === state.activeIndex ? ' active' : ''}${periodScope.has(record.index) ? ' selected' : ''}"
             data-index="${record.index}"
             title="${escapeHtml(displayLabel(record) || record.dataset.key)}"
-            aria-pressed="${record.index === state.activeIndex ? 'true' : 'false'}"
+            aria-pressed="${(state.multiPeriodMode ? periodScope.has(record.index) : record.index === state.activeIndex) ? 'true' : 'false'}"
           >${escapeHtml(variantLabel(record))}</button>
         `).join('')}
       </span>
@@ -2706,7 +2841,12 @@ function renderPeriods() {
       <span class="timeline-marker" aria-hidden="true"><span class="timeline-dot"></span></span>
       <span class="timeline-content period-year-content">
         <span class="period-year-row">
-          <span class="item-name period-year-name">${escapeHtml(year.yearKey)}</span>
+          <button
+            type="button"
+            class="item-name period-year-name period-year-toggle${yearAllSelected ? ' selected' : ''}${yearPartiallySelected ? ' partial' : ''}"
+            title="${escapeHtml(t('periodYearToggleTitle', { year: year.yearKey }))}"
+            aria-pressed="${yearAllSelected ? 'true' : 'false'}"
+          >${escapeHtml(year.yearKey)}</button>
           <span class="quarter-tags">${quarterTags}</span>
         </span>
         ${variants}
@@ -2714,9 +2854,17 @@ function renderPeriods() {
       </span>
     `;
     item.querySelectorAll('button[data-index]').forEach((button) => {
-      button.addEventListener('click', () => {
-        selectRecord(recordByIndex(Number(button.dataset.index)));
+      button.addEventListener('click', (event) => {
+        const record = recordByIndex(Number(button.dataset.index));
+        if (event.shiftKey || state.multiPeriodMode) {
+          togglePeriodInScope(record);
+          return;
+        }
+        selectRecord(record);
       });
+    });
+    item.querySelector('.period-year-toggle')?.addEventListener('click', () => {
+      toggleYearPeriods(year.yearKey);
     });
     periodList.appendChild(item);
   });
@@ -3028,6 +3176,13 @@ companyList.addEventListener('keydown', (e) => {
 companyMultiExitToggle?.addEventListener('click', () => {
   exitMultiCompanyMode({ focusCompany: true });
 });
+periodMultiExitToggle?.addEventListener('click', () => {
+  exitMultiPeriodMode();
+});
+periodSelectAllToggle?.addEventListener('click', (event) => {
+  event.preventDefault();
+  toggleAllVisiblePeriods();
+});
 periodSortToggle.addEventListener('click', () => {
   state.sort = state.sort === 'desc' ? 'asc' : 'desc';
   syncPeriodSortToggle();
@@ -3156,6 +3311,7 @@ function clearSingleChart() {
   document.querySelector('#chart')?.replaceChildren();
 }
 function clearSankeyComparison() {
+  destroyComparisonMetricTrendChart();
   if (sankeyComparison) sankeyComparison.replaceChildren();
 }
 function nodeLabelText(node) {
@@ -3216,7 +3372,7 @@ function comparisonAvailableWidth() {
 function comparisonFitFactor(records, scaleFactors) {
   const columns = comparisonColumnCount(Math.max(records.length, 1));
   const availableWidth = comparisonAvailableWidth();
-  const gap = 8;
+  const gap = COMPARISON_FLOW_GAP;
   const widths = records.map((record) => {
     const dataset = localizedDataset(record.dataset);
     const scale = scaleFactors.get(record.dataset.key) || 1;
@@ -3250,6 +3406,21 @@ const COMPARISON_ZOOM_MIN = 1;
 const COMPARISON_ZOOM_STEP = 1.25;
 const COMPARISON_WHEEL_ZOOM_STEP = 1.2;
 const COMPARISON_PINCH_ZOOM_SENSITIVITY = 0.01;
+// the trade-off in this delay: shorter sharpens the blurry preview sooner
+// after the hands stop, longer avoids accidental commits during the
+// micro-pauses inside a continuous pinch; commits are cheap (~45ms measured),
+// so bias toward sharpening fast
+const COMPARISON_ZOOM_COMMIT_DELAY = 140;
+// perf observability: append ?fps=1 to the URL (or set localStorage
+// trace-perf-hud=1) for a live frame-rate HUD plus per-gesture console stats
+const perfHudEnabled = (() => {
+  try {
+    return new URLSearchParams(window.location.search).has('fps')
+      || window.localStorage.getItem('trace-perf-hud') === '1';
+  } catch (error) {
+    return false;
+  }
+})();
 // max zoom is dynamic: it brings the most shrunken chart in the current
 // comparison back to its authored size, where its labels are readable
 let comparisonZoomMax = COMPARISON_ZOOM_MIN;
@@ -3259,7 +3430,10 @@ function clampComparisonZoom(value) {
   return Math.min(comparisonZoomMax, Math.max(COMPARISON_ZOOM_MIN, zoom));
 }
 function comparisonZoomActive() {
-  return state.viewMode === 'sankey' && isMultiCompanyScope();
+  return state.viewMode === 'sankey' && (isMultiCompanyScope() || isMultiPeriodScope());
+}
+function comparisonFlow() {
+  return sankeyComparison?.querySelector('.comparison-flow');
 }
 function applyComparisonZoom() {
   const zoom = clampComparisonZoom(state.comparisonZoom);
@@ -3268,11 +3442,12 @@ function applyComparisonZoom() {
   const zoomed = zoom > COMPARISON_ZOOM_MIN + 0.001;
   sankeyView?.classList.toggle('comparison-zoomed', active && zoomed);
   sankeyComparison?.classList.toggle('zoomed', zoomed);
-  const flow = sankeyComparison?.querySelector('.comparison-flow');
+  const flow = comparisonFlow();
   if (flow) {
     const baseContentWidth = finiteNumber(flow.dataset.baseContentWidth);
-    // scale the flow container with the charts so the wrap layout stays
-    // proportional at every zoom level
+    // scale the flow container with the charts so the wrap pattern stays the
+    // same at every zoom level; gaps stay fixed so small charts never end up
+    // separated by scaled-up whitespace
     flow.style.width = zoomed && baseContentWidth != null ? `${Math.round(baseContentWidth * zoom)}px` : '';
   }
   sankeyComparison?.querySelectorAll('.comparison-chart-host').forEach((host) => {
@@ -3280,47 +3455,1050 @@ function applyComparisonZoom() {
     // floor so browser rounding can never push a packed row past the container
     if (baseWidth != null) host.style.width = `${Math.max(1, Math.floor(baseWidth * zoom))}px`;
   });
+  syncComparisonZoomControls(zoom);
+}
+function syncComparisonZoomControls(zoom = clampComparisonZoom(state.comparisonZoom)) {
   if (!comparisonZoomControls) return;
-  comparisonZoomControls.hidden = !active;
+  comparisonZoomControls.hidden = !comparisonZoomActive();
   zoomFitBtn.textContent = `${Math.round(zoom * 100)}%`;
   zoomInBtn.disabled = zoom >= comparisonZoomMax - 0.001;
-  zoomOutBtn.disabled = !zoomed;
+  zoomOutBtn.disabled = zoom <= COMPARISON_ZOOM_MIN + 0.001;
+}
+// Relaying out every comparison SVG is far too slow to run per wheel event, so
+// zooming is two-phase: gestures preview on a self-painted canvas overlay and
+// the real width-based layout is committed once the gesture pauses, shifting
+// scroll so the anchored content point never moves.
+//
+// The preview deliberately avoids CSS transforms: scaling a composited layer
+// makes the compositor re-rasterize every chart at each new scale, which
+// capped gestures at ~20-25 fps. Instead each chart is pre-rendered to a flat
+// bitmap after render, and during the gesture the flow is hidden while a
+// viewport-sized canvas draws those bitmaps directly — per frame that is just
+// a handful of texture blits and zero layout, style, or raster work.
+const COMPARISON_PROXY_MAX_WIDTH = 2048;
+let comparisonProxyGeneration = 0;
+function comparisonProxyTargetWidth(host, fallbackWidth) {
+  const dpr = window.devicePixelRatio || 1;
+  const baseWidth = finiteNumber(host.dataset.baseWidth) || fallbackWidth;
+  // raster at the current committed zoom (with 2x headroom, capped): after a
+  // deep zoom commits, the refreshed bitmaps keep the next gesture — and the
+  // blurry wait before the next commit — close to sharp; small comparisons
+  // get a higher cap because their total bitmap memory stays modest
+  const cardCount = sankeyComparison?.querySelectorAll('.comparison-chart-host').length || 1;
+  const cap = cardCount <= 6 ? 3072 : COMPARISON_PROXY_MAX_WIDTH;
+  const displayWidth = baseWidth * clampComparisonZoom(state.comparisonZoom);
+  return Math.round(Math.min(cap, Math.max(1, displayWidth * dpr * 2)));
+}
+function buildComparisonZoomProxies() {
+  // one chart per idle slice: rasterizing an SVG into a bitmap takes tens of
+  // milliseconds, and doing all charts in one burst would jank interaction
+  // right after every render
+  const generation = comparisonProxyGeneration;
+  const hosts = [...(sankeyComparison?.querySelectorAll('.comparison-chart-host') || [])];
+  const buildNext = () => {
+    if (generation !== comparisonProxyGeneration) return;
+    const host = hosts.shift();
+    if (!host) return;
+    buildComparisonZoomProxy(host, generation);
+    if (hosts.length) scheduleIdleTask(buildNext);
+  };
+  buildNext();
+}
+function buildComparisonZoomProxy(host, generation) {
+  const svg = host.querySelector('svg');
+  if (!svg) return;
+  const viewBox = svg.viewBox?.baseVal;
+  const width = viewBox?.width;
+  const height = viewBox?.height;
+  if (!width || !height) return;
+  const rasterWidth = comparisonProxyTargetWidth(host, width);
+  const existing = host.querySelector('.comparison-zoom-proxy');
+  // tolerance keeps small zoom adjustments from re-rastering every chart
+  if (existing && existing.width > rasterWidth / 1.4 && existing.width < rasterWidth * 1.4) return;
+  const clone = svg.cloneNode(true);
+  clone.setAttribute('width', String(width));
+  clone.setAttribute('height', String(height));
+  clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+  const url = URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(clone)], { type: 'image/svg+xml;charset=utf-8' }));
+  const image = new Image();
+  image.onload = () => {
+    URL.revokeObjectURL(url);
+    // a re-render may have replaced the comparison while the bitmap decoded
+    if (generation !== comparisonProxyGeneration || !host.isConnected) return;
+    const canvas = document.createElement('canvas');
+    canvas.className = 'comparison-zoom-proxy';
+    canvas.width = rasterWidth;
+    canvas.height = Math.max(1, Math.round(rasterWidth * height / width));
+    canvas.getContext('2d')?.drawImage(image, 0, 0, canvas.width, canvas.height);
+    canvas.setAttribute('aria-hidden', 'true');
+    const previous = host.querySelector('.comparison-zoom-proxy');
+    if (previous) previous.replaceWith(canvas);
+    else host.appendChild(canvas);
+    host.classList.add('has-zoom-proxy');
+  };
+  image.onerror = () => URL.revokeObjectURL(url);
+  image.src = url;
+}
+let comparisonZoomGesture = null;
+let lastZoomCommitMs = null;
+let lastZoomSharpenMs = null;
+function comparisonZoomOverlay() {
+  let overlay = document.getElementById('comparisonZoomOverlay');
+  if (!overlay) {
+    overlay = document.createElement('canvas');
+    overlay.id = 'comparisonZoomOverlay';
+    overlay.className = 'comparison-zoom-overlay';
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(overlay);
+  }
+  return overlay;
+}
+function hideComparisonZoomOverlay() {
+  const overlay = document.getElementById('comparisonZoomOverlay');
+  if (overlay) overlay.style.display = 'none';
+}
+function cancelComparisonZoomGesture() {
+  const gesture = comparisonZoomGesture;
+  if (!gesture) return;
+  window.clearTimeout(gesture.timer);
+  if (gesture.frame) window.cancelAnimationFrame(gesture.frame);
+  comparisonZoomGesture = null;
+  sankeyComparison?.classList.remove('zoom-previewing');
+  hideComparisonZoomOverlay();
 }
 function setComparisonZoom(value, anchor) {
-  const previous = clampComparisonZoom(state.comparisonZoom);
   const next = clampComparisonZoom(value);
-  const flow = sankeyComparison?.querySelector('.comparison-flow');
-  if (!sankeyView || !flow || next === previous) {
+  const flow = comparisonFlow();
+  if (!sankeyView || !flow || !comparisonZoomActive()) {
+    cancelComparisonZoomGesture();
     state.comparisonZoom = next;
     applyComparisonZoom();
     return;
   }
-  // measure before relayout: once widths shrink the browser clamps the scroll
-  // position, and the centering margins around the flow shift, so the anchored
-  // content point must be captured first and mapped back through the measured
-  // flow origin afterwards
-  const viewRect = sankeyView.getBoundingClientRect();
-  const point = anchor || { x: sankeyView.clientWidth / 2, y: sankeyView.clientHeight / 2 };
-  const flowRectBefore = flow.getBoundingClientRect();
-  const contentX = viewRect.left + point.x - flowRectBefore.left;
-  const contentY = viewRect.top + point.y - flowRectBefore.top;
-  const ratio = next / previous;
+  if (!comparisonZoomGesture) {
+    const committed = clampComparisonZoom(state.comparisonZoom);
+    if (next === committed) return;
+    comparisonZoomGesture = {
+      committed,
+      flow,
+      started: false,
+      flowLeft: 0,
+      flowTop: 0,
+      viewLeft: 0,
+      viewTop: 0,
+      viewHalfX: 0,
+      viewHalfY: 0,
+      dpr: 1,
+      overlay: null,
+      ctx: null,
+      tiles: [],
+      placeholderBg: 'rgba(0, 0, 0, 0.05)',
+      scale: 1,
+      tx: 0,
+      ty: 0,
+      pendingZoom: next,
+      pendingAnchor: null,
+      frame: 0,
+      timer: 0,
+      events: 0,
+      applies: 0,
+      startedAt: performance.now(),
+    };
+  }
+  const gesture = comparisonZoomGesture;
+  gesture.pendingZoom = next;
+  gesture.pendingAnchor = anchor || null;
+  gesture.events += 1;
   state.comparisonZoom = next;
+  // wheel events can outpace the display; coalesce them into at most one
+  // style write per frame so the handler itself never queues redundant work
+  if (!gesture.frame) gesture.frame = window.requestAnimationFrame(applyComparisonZoomPreview);
+  window.clearTimeout(gesture.timer);
+  gesture.timer = window.setTimeout(commitComparisonZoom, COMPARISON_ZOOM_COMMIT_DELAY);
+}
+// mirrors the fixed flex gap of .comparison-flow in src/app.css
+const COMPARISON_FLOW_GAP = 8;
+// Exact replay of the committed flex-wrap layout at an arbitrary zoom: greedy
+// row filling, fixed gaps, centered rows, top-aligned cards. The preview draws
+// this instead of a uniform scale of the current geometry so fixed-size chrome
+// (gaps, card borders) stays constant on screen while the charts scale, and
+// the commit still lands pixel-identical to the last preview frame.
+function comparisonPreviewLayout(gesture, zoom) {
+  const width = Math.round(gesture.baseContentWidth * zoom);
+  const items = gesture.cards.map((card) => {
+    const hostWidth = card.hostBase != null ? Math.max(1, Math.floor(card.hostBase * zoom)) : null;
+    return {
+      card,
+      hostWidth,
+      width: hostWidth != null ? hostWidth + card.chromeWidth : card.fixedWidth,
+      height: hostWidth != null ? hostWidth * card.aspect + card.chromeHeight : card.fixedHeight,
+      x: 0,
+      y: 0,
+    };
+  });
+  let rowStart = 0;
+  let x = 0;
+  let y = 0;
+  const closeRow = (end) => {
+    const offset = (width - (x - COMPARISON_FLOW_GAP)) / 2;
+    let rowHeight = 0;
+    for (let index = rowStart; index < end; index += 1) {
+      items[index].x += offset;
+      items[index].y = y;
+      rowHeight = Math.max(rowHeight, items[index].height);
+    }
+    y += rowHeight + COMPARISON_FLOW_GAP;
+  };
+  items.forEach((item, index) => {
+    if (index > rowStart && x + item.width > width + 0.5) {
+      closeRow(index);
+      rowStart = index;
+      x = 0;
+    }
+    item.x = x;
+    x += item.width + COMPARISON_FLOW_GAP;
+  });
+  if (items.length) closeRow(items.length);
+  return { width, height: Math.max(0, y - COMPARISON_FLOW_GAP), items };
+}
+function applyComparisonZoomPreview() {
+  const gesture = comparisonZoomGesture;
+  if (!gesture) return;
+  gesture.frame = 0;
+  const flow = gesture.flow;
+  if (!sankeyView || !flow.isConnected) return;
+  if (!gesture.started) {
+    // one-off measure at the top of the first frame; nothing during the
+    // gesture dirties layout, so these are the only forced reads
+    const viewRect = sankeyView.getBoundingClientRect();
+    const flowRect = flow.getBoundingClientRect();
+    gesture.flowLeft = flowRect.left - viewRect.left + sankeyView.scrollLeft;
+    gesture.flowTop = flowRect.top - viewRect.top + sankeyView.scrollTop;
+    gesture.viewLeft = viewRect.left;
+    gesture.viewTop = viewRect.top;
+    gesture.clientWidth = sankeyView.clientWidth;
+    gesture.clientHeight = sankeyView.clientHeight;
+    gesture.viewHalfX = gesture.clientWidth / 2;
+    gesture.viewHalfY = gesture.clientHeight / 2;
+    gesture.dpr = window.devicePixelRatio || 1;
+    // geometry needed to predict the committed scroll bounds at any scale:
+    // the flow box scales linearly, the chrome around it does not
+    gesture.padRight = Math.max(0, sankeyView.scrollWidth - (gesture.flowLeft + flowRect.width));
+    gesture.padBottom = Math.max(0, sankeyView.scrollHeight - (gesture.flowTop + flowRect.height));
+    gesture.baseContentWidth = finiteNumber(flow.dataset.baseContentWidth)
+      || flowRect.width / Math.max(gesture.committed, 0.001);
+    // per-card geometry for the layout replay: the chart area scales with
+    // zoom, the chrome around it (borders, empty-card boxes) does not
+    gesture.cards = [...flow.querySelectorAll(':scope > .comparison-card')].map((card) => {
+      const cardRect = card.getBoundingClientRect();
+      const host = card.querySelector('.comparison-chart-host');
+      const hostRect = host ? host.getBoundingClientRect() : null;
+      const hostBase = host ? finiteNumber(host.dataset.baseWidth) : null;
+      return {
+        hostBase: hostRect && hostRect.width > 0 ? hostBase : null,
+        aspect: hostRect && hostRect.width > 0 ? hostRect.height / hostRect.width : 0,
+        chromeWidth: hostRect ? cardRect.width - hostRect.width : 0,
+        chromeHeight: hostRect ? cardRect.height - hostRect.height : 0,
+        hostOffsetX: hostRect ? hostRect.left - cardRect.left : 0,
+        hostOffsetY: hostRect ? hostRect.top - cardRect.top : 0,
+        fixedWidth: cardRect.width,
+        fixedHeight: cardRect.height,
+        bitmap: host?.querySelector('.comparison-zoom-proxy') || null,
+      };
+    });
+    const frame = sankeyComparison.querySelector('.comparison-chart-frame');
+    if (frame) gesture.placeholderBg = getComputedStyle(frame).backgroundColor;
+    const overlay = comparisonZoomOverlay();
+    overlay.style.left = `${viewRect.left}px`;
+    overlay.style.top = `${viewRect.top}px`;
+    overlay.style.width = `${viewRect.width}px`;
+    overlay.style.height = `${viewRect.height}px`;
+    const backingWidth = Math.max(1, Math.round(viewRect.width * gesture.dpr));
+    const backingHeight = Math.max(1, Math.round(viewRect.height * gesture.dpr));
+    if (overlay.width !== backingWidth) overlay.width = backingWidth;
+    if (overlay.height !== backingHeight) overlay.height = backingHeight;
+    overlay.style.display = 'block';
+    gesture.overlay = overlay;
+    gesture.ctx = overlay.getContext('2d');
+    if (gesture.ctx) gesture.ctx.imageSmoothingQuality = 'medium';
+    // hide the live flow for the duration of the gesture; the overlay is the
+    // only thing moving, so the DOM stays untouched frame to frame
+    sankeyComparison?.classList.add('zoom-previewing');
+    gesture.started = true;
+  }
+  const point = gesture.pendingAnchor || { x: gesture.viewHalfX, y: gesture.viewHalfY };
+  const scale = gesture.pendingZoom / gesture.committed;
+  // keep the content point under the pointer fixed by inverting the current
+  // preview mapping; scroll reads stay free because layout is never dirtied
+  const scrollLeft = sankeyView.scrollLeft;
+  const scrollTop = sankeyView.scrollTop;
+  const anchorX = point.x + scrollLeft;
+  const anchorY = point.y + scrollTop;
+  const contentX = (anchorX - gesture.flowLeft - gesture.tx) / gesture.scale;
+  const contentY = (anchorY - gesture.flowTop - gesture.ty) / gesture.scale;
+  gesture.tx = anchorX - gesture.flowLeft - scale * contentX;
+  gesture.ty = anchorY - gesture.flowTop - scale * contentY;
+  const layout = comparisonPreviewLayout(gesture, gesture.pendingZoom);
+  // the committed layout is a bounded scroll container (commit resolves to
+  // scroll ≈ current scroll − t, clamped to [0, max]); clamping the preview to
+  // that same range makes content pin to the edges while zooming out instead
+  // of jumping there when the commit lands
+  const maxScrollX = Math.max(0, gesture.flowLeft + layout.width + gesture.padRight - gesture.clientWidth);
+  const maxScrollY = Math.max(0, gesture.flowTop + layout.height + gesture.padBottom - gesture.clientHeight);
+  gesture.tx = Math.min(scrollLeft, Math.max(scrollLeft - maxScrollX, gesture.tx));
+  gesture.ty = Math.min(scrollTop, Math.max(scrollTop - maxScrollY, gesture.ty));
+  gesture.scale = scale;
+  const ctx = gesture.ctx;
+  if (ctx && gesture.overlay) {
+    const dpr = gesture.dpr;
+    const overlayWidth = gesture.overlay.width;
+    const overlayHeight = gesture.overlay.height;
+    ctx.clearRect(0, 0, overlayWidth, overlayHeight);
+    const originX = gesture.flowLeft + gesture.tx - scrollLeft;
+    const originY = gesture.flowTop + gesture.ty - scrollTop;
+    layout.items.forEach((item) => {
+      const card = item.card;
+      const chartWidthPx = item.hostWidth != null ? item.hostWidth : item.width;
+      const chartHeightPx = item.hostWidth != null ? item.hostWidth * card.aspect : item.height;
+      const x = (originX + item.x + card.hostOffsetX) * dpr;
+      const y = (originY + item.y + card.hostOffsetY) * dpr;
+      const width = chartWidthPx * dpr;
+      const height = chartHeightPx * dpr;
+      if (x >= overlayWidth || y >= overlayHeight || x + width <= 0 || y + height <= 0) return;
+      if (card.bitmap) {
+        ctx.drawImage(card.bitmap, x, y, width, height);
+      } else {
+        // bitmap still rendering; keep the card's footprint visible
+        ctx.fillStyle = gesture.placeholderBg;
+        ctx.fillRect(x, y, width, height);
+      }
+    });
+  }
+  syncComparisonZoomControls(gesture.pendingZoom);
+  gesture.applies += 1;
+}
+function commitComparisonZoom() {
+  const gesture = comparisonZoomGesture;
+  if (!gesture) return;
+  const commitStartedAt = performance.now();
+  window.clearTimeout(gesture.timer);
+  if (gesture.frame) window.cancelAnimationFrame(gesture.frame);
+  comparisonZoomGesture = null;
+  sankeyComparison?.classList.remove('zoom-previewing');
+  hideComparisonZoomOverlay();
+  const flow = gesture.flow.isConnected ? gesture.flow : comparisonFlow();
+  if (!sankeyView || !flow) {
+    applyComparisonZoom();
+    return;
+  }
+  if (!gesture.started) {
+    // no preview frame rendered before the commit timer fired; fall back to a
+    // plain anchored relayout
+    const point = gesture.pendingAnchor || { x: sankeyView.clientWidth / 2, y: sankeyView.clientHeight / 2 };
+    const viewRect = sankeyView.getBoundingClientRect();
+    const flowRectBefore = flow.getBoundingClientRect();
+    const contentX = viewRect.left + point.x - flowRectBefore.left;
+    const contentY = viewRect.top + point.y - flowRectBefore.top;
+    const ratio = clampComparisonZoom(state.comparisonZoom) / gesture.committed;
+    applyComparisonZoom();
+    const flowRectAfter = flow.getBoundingClientRect();
+    const flowLeft = flowRectAfter.left - viewRect.left + sankeyView.scrollLeft;
+    const flowTop = flowRectAfter.top - viewRect.top + sankeyView.scrollTop;
+    sankeyView.scrollLeft = flowLeft + contentX * ratio - point.x;
+    sankeyView.scrollTop = flowTop + contentY * ratio - point.y;
+    lastZoomCommitMs = performance.now() - commitStartedAt;
+    scheduleIdleTask(buildComparisonZoomProxies);
+    return;
+  }
+  // capture scroll before relayout: shrinking widths makes the browser clamp
+  // the scroll position ahead of the corrective write below
+  const scrollLeftBefore = sankeyView.scrollLeft;
+  const scrollTopBefore = sankeyView.scrollTop;
   applyComparisonZoom();
-  // flow origin in scroll space; scroll-invariant, so clamping cannot skew it
-  const flowRectAfter = flow.getBoundingClientRect();
-  const flowLeft = flowRectAfter.left - viewRect.left + sankeyView.scrollLeft;
-  const flowTop = flowRectAfter.top - viewRect.top + sankeyView.scrollTop;
-  sankeyView.scrollLeft = flowLeft + contentX * ratio - point.x;
-  sankeyView.scrollTop = flowTop + contentY * ratio - point.y;
+  // the committed layout reproduces the previewed geometry relative to the
+  // flow origin, so shifting scroll by the origin drift keeps the view seamless
+  const viewRect = sankeyView.getBoundingClientRect();
+  const flowRect = flow.getBoundingClientRect();
+  const flowLeft = flowRect.left - viewRect.left + sankeyView.scrollLeft;
+  const flowTop = flowRect.top - viewRect.top + sankeyView.scrollTop;
+  sankeyView.scrollLeft = scrollLeftBefore + flowLeft - gesture.flowLeft - gesture.tx;
+  sankeyView.scrollTop = scrollTopBefore + flowTop - gesture.flowTop - gesture.ty;
+  lastZoomCommitMs = performance.now() - commitStartedAt;
+  // re-raster the bitmaps at the zoom level that just landed so the next
+  // gesture (and its blurry wait) starts from a sharp baseline
+  scheduleIdleTask(buildComparisonZoomProxies);
+  if (perfHudEnabled) {
+    const previewSeconds = Math.max(0.001, (commitStartedAt - gesture.startedAt) / 1000);
+    console.info(
+      `[comparison-zoom] ${gesture.events} events · ${gesture.applies} frames · `
+      + `~${Math.round(gesture.applies / previewSeconds)} fps preview · commit ${lastZoomCommitMs.toFixed(1)}ms`
+    );
+    // double rAF lands after the sharp frame has been produced, so the delta
+    // approximates how long the blur lingered past the last zoom tick
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        lastZoomSharpenMs = performance.now() - commitStartedAt + COMPARISON_ZOOM_COMMIT_DELAY;
+        console.info(`[comparison-zoom] sharp ~${Math.round(lastZoomSharpenMs)}ms after the last tick (${COMPARISON_ZOOM_COMMIT_DELAY}ms wait + relayout + raster)`);
+      });
+    });
+  }
+}
+if (perfHudEnabled && content) {
+  const hud = document.createElement('div');
+  hud.className = 'perf-hud';
+  hud.setAttribute('aria-hidden', 'true');
+  hud.textContent = 'fps —';
+  content.appendChild(hud);
+  const frames = [];
+  let lastFrameAt = performance.now();
+  let lastHudUpdate = 0;
+  const tick = (now) => {
+    frames.push({ at: now, delta: now - lastFrameAt });
+    lastFrameAt = now;
+    while (frames.length && now - frames[0].at > 1000) frames.shift();
+    // refresh the readout sparsely so the HUD itself costs nothing measurable
+    if (now - lastHudUpdate > 150 && frames.length) {
+      lastHudUpdate = now;
+      const avgDelta = frames.reduce((sum, frame) => sum + frame.delta, 0) / frames.length;
+      const worst = frames.reduce((max, frame) => Math.max(max, frame.delta), 0);
+      hud.textContent = [
+        `${Math.round(1000 / Math.max(1, avgDelta))} fps`,
+        `worst ${Math.round(worst)}ms`,
+        lastZoomCommitMs != null ? `commit ${Math.round(lastZoomCommitMs)}ms` : '',
+        lastZoomSharpenMs != null ? `sharpen ${Math.round(lastZoomSharpenMs)}ms` : '',
+      ].filter(Boolean).join(' · ');
+    }
+    window.requestAnimationFrame(tick);
+  };
+  window.requestAnimationFrame(tick);
+}
+/* ---- comparison metric trend ----
+ * Clicking a metric node in a comparison card expands a bar chart of that
+ * metric across the data point times currently in the view, so a company
+ * selected at several times reads as a trend instead of N parallel charts.
+ * Further clicks add metrics to the same chart as grouped bars (clicking a
+ * selected node again drops it); metrics only combine while they share the
+ * company and reporting currency, keeping every bar on one comparable axis.
+ * Clicking a flow between two nodes selects the link instead: both endpoint
+ * metrics join the bars (shared endpoints once), and the right axis switches
+ * from growth to the link's share-of-source percentage over time. */
+let comparisonMetricTrendChart = null;
+function destroyComparisonMetricTrendChart() {
+  if (!comparisonMetricTrendChart) return;
+  comparisonMetricTrendChart.destroy();
+  comparisonMetricTrendChart = null;
+}
+function comparisonScopeRecords() {
+  return isMultiPeriodScope()
+    ? selectedPeriodRecords()
+    : scopeCompanies().map((company) => defaultRecordForCompanyMetric(company, 'incomeStatement')).filter(Boolean);
+}
+// Same caliber = same authored node id within one company's datasets and the
+// same reporting currency; units are convertible via multipliers, currencies
+// are not, so points reported in another currency drop out of the trend.
+function comparisonMetricTrendPoints(records, company, nodeId) {
+  const seen = new Set();
+  const points = [];
+  (records || []).forEach((record) => {
+    if (!record || record.company !== company || seen.has(record.index)) return;
+    seen.add(record.index);
+    const node = (record.dataset?.nodes || []).find((item) => String(item.id) === String(nodeId));
+    const value = finiteNumber(node?.value);
+    if (value == null) return;
+    points.push({ record, node, value });
+  });
+  points.sort((a, b) => a.record.sortValue - b.record.sortValue || a.record.index - b.record.index);
+  if (points.length < 2) return points;
+  const latestCurrency = currencyCode(points[points.length - 1].record.dataset?.meta?.currency || '$');
+  return points.filter((point) => currencyCode(point.record.dataset?.meta?.currency || '$') === latestCurrency);
+}
+function comparisonLinkValue(record, sourceId, targetId) {
+  const link = (record.dataset?.links || []).find((item) => (
+    String(item.source) === sourceId && String(item.target) === targetId
+  ));
+  return finiteNumber(link?.value);
+}
+function comparisonMetricTrendModel(records) {
+  const selection = state.comparisonMetricTrend;
+  const nodeIds = [...new Set((selection?.nodeIds || []).map(String))];
+  const linkSelections = [...new Set((selection?.linkIds || []).map(String))]
+    .map((id) => {
+      const [source, target] = id.split('>');
+      return { id, source, target };
+    })
+    .filter((link) => link.source && link.target);
+  if (!nodeIds.length && !linkSelections.length) return null;
+  // bars = standalone picks plus link endpoints; endpoints shared between
+  // adjacent links (or already picked as nodes) appear once
+  const barIds = [];
+  const pushBarId = (id) => {
+    if (id && !barIds.includes(id)) barIds.push(id);
+  };
+  nodeIds.forEach(pushBarId);
+  linkSelections.forEach((link) => {
+    pushBarId(link.source);
+    pushBarId(link.target);
+  });
+  const candidates = barIds
+    .map((nodeId) => ({ nodeId, points: comparisonMetricTrendPoints(records, selection.company, nodeId) }))
+    .filter((metric) => metric.points.length >= 2);
+  if (!candidates.length) return null;
+  // the first selected metric anchors the caliber; metrics reported in another
+  // currency cannot share its axis and drop out of the chart
+  const anchorMeta = candidates[0].points[candidates[0].points.length - 1].record.dataset?.meta || {};
+  const caliber = {
+    currency: anchorMeta.currency || '$',
+    unit: anchorMeta.unit || '',
+    decimals: typeof anchorMeta.decimals === 'number' ? anchorMeta.decimals : 1,
+  };
+  const alive = new Map(candidates
+    .filter((metric) => {
+      const meta = metric.points[metric.points.length - 1].record.dataset?.meta || {};
+      return currencyCode(meta.currency || '$') === currencyCode(caliber.currency);
+    })
+    .map((metric) => [metric.nodeId, metric]));
+  // a link stays only while both endpoints survived and the flow itself shows
+  // up in at least two periods with a usable denominator
+  const keptLinks = linkSelections.filter((link) => {
+    const source = alive.get(link.source);
+    if (!source || !alive.has(link.target)) return false;
+    const usable = source.points.filter((point) => (
+      point.value && comparisonLinkValue(point.record, link.source, link.target) != null
+    ));
+    return usable.length >= 2;
+  });
+  const keptNodeIds = nodeIds.filter((id) => alive.has(id));
+  if (!keptNodeIds.length && !keptLinks.length) return null;
+  const finalIds = [];
+  const pushFinalId = (id) => {
+    if (!finalIds.includes(id)) finalIds.push(id);
+  };
+  keptNodeIds.forEach(pushFinalId);
+  keptLinks.forEach((link) => {
+    pushFinalId(link.source);
+    pushFinalId(link.target);
+  });
+  const kept = finalIds.map((id) => alive.get(id));
+  // shared period axis = union of the kept metrics' records, chronological
+  const axisByIndex = new Map();
+  kept.forEach((metric) => metric.points.forEach((point) => axisByIndex.set(point.record.index, point.record)));
+  const axisRecords = [...axisByIndex.values()].sort((a, b) => a.sortValue - b.sortValue || a.index - b.index);
+  const periodLabels = axisRecords.map((record) => displayPeriod(record) || record.period);
+  const labelCounts = periodLabels.reduce((map, label) => map.set(label, (map.get(label) || 0) + 1), new Map());
+  const labels = periodLabels.map((label, index) => (
+    labelCounts.get(label) > 1 ? [label, variantLabel(axisRecords[index])].filter(Boolean).join(' · ') : label
+  ));
+  const axisSlots = new Map(axisRecords.map((record, index) => [record.index, index]));
+  const metrics = kept.map((metric) => {
+    const latest = metric.points[metric.points.length - 1];
+    const values = axisRecords.map(() => null);
+    metric.points.forEach((point) => {
+      const meta = point.record.dataset?.meta || {};
+      values[axisSlots.get(point.record.index)] = point.value * (unitMultiplier(meta.unit || '') / unitMultiplier(caliber.unit));
+    });
+    // growth vs the previous data point on the shared axis; a gap on either
+    // side leaves the rate unknowable, not zero
+    const growth = values.map((value, index) => {
+      const previous = index > 0 ? values[index - 1] : null;
+      if (value == null || previous == null || !previous) return null;
+      return ((value - previous) / Math.abs(previous)) * 100;
+    });
+    const localizedNode = (localizedDataset(latest.record.dataset)?.nodes || [])
+      .find((node) => String(node.id) === metric.nodeId);
+    return {
+      nodeId: metric.nodeId,
+      points: metric.points,
+      rawByRecord: new Map(metric.points.map((point) => [point.record.index, point.value])),
+      values,
+      growth,
+      label: labelText(localizedNode?.label) || labelText(latest.node.label) || metric.nodeId,
+      accent: '',
+    };
+  });
+  const metricIndexById = new Map(metrics.map((metric, index) => [metric.nodeId, index]));
+  // per-link share of the source metric (link value / source value, raw units
+  // cancel out) drawn on the right axis instead of growth while links exist
+  const ratios = keptLinks.map((link) => {
+    const sourceIndex = metricIndexById.get(link.source);
+    const targetIndex = metricIndexById.get(link.target);
+    const sourceMetric = metrics[sourceIndex];
+    const values = axisRecords.map((record) => {
+      const raw = sourceMetric.rawByRecord.get(record.index);
+      const linkValue = comparisonLinkValue(record, link.source, link.target);
+      if (raw == null || !raw || linkValue == null) return null;
+      return (linkValue / raw) * 100;
+    });
+    return {
+      id: link.id,
+      source: link.source,
+      target: link.target,
+      sourceIndex,
+      targetIndex,
+      label: `${metrics[targetIndex].label} / ${metrics[sourceIndex].label}`,
+      values,
+    };
+  });
+  return { selection, metrics, labels, caliber, ratios, keptNodeIds };
+}
+// Value labels shrink to the tightest bar spacing, and labels that still
+// cannot fit yield to their left neighbour instead of overlapping; hovering a
+// bar re-labels its whole metric (hovered bar loudest, siblings quieter) so
+// every dropped number stays reachable.
+const comparisonMetricTrendValueLabelsPlugin = {
+  id: 'comparisonMetricTrendValueLabels',
+  afterDatasetsDraw(chart, _args, options) {
+    const { ctx, chartArea } = chart;
+    const fontFamily = options.fontFamily || 'Montserrat, Arial, sans-serif';
+    const formatValue = options.formatValue || ((value) => String(value));
+    const entries = [];
+    chart.data.datasets.forEach((dataset, datasetIndex) => {
+      if (dataset.type === 'line') return; // growth lines carry no value labels
+      if (!chart.isDatasetVisible(datasetIndex)) return;
+      const meta = chart.getDatasetMeta(datasetIndex);
+      if (!meta?.data?.length) return;
+      meta.data.forEach((bar, index) => {
+        const value = dataset.data[index];
+        if (value == null) return;
+        const label = formatValue(value);
+        if (label) entries.push({ bar, datasetIndex, index, label });
+      });
+    });
+    if (!entries.length) return;
+    entries.sort((a, b) => a.bar.x - b.bar.x);
+    ctx.save();
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'bottom';
+    const baseSize = options.fontSize || 12;
+    const minSize = options.minFontSize || 8;
+    // adaptive size: shrink until the widest label fits the tightest bar
+    // spacing, but never below the legibility floor
+    ctx.font = `600 ${baseSize}px ${fontFamily}`;
+    const widest = entries.reduce((max, entry) => Math.max(max, ctx.measureText(entry.label).width), 0);
+    let minSpacing = Infinity;
+    for (let i = 1; i < entries.length; i += 1) {
+      minSpacing = Math.min(minSpacing, entries[i].bar.x - entries[i - 1].bar.x);
+    }
+    if (!Number.isFinite(minSpacing)) minSpacing = chartArea.right - chartArea.left;
+    let fontSize = baseSize;
+    if (widest > minSpacing * 0.94) {
+      fontSize = Math.max(minSize, Math.floor((baseSize * minSpacing * 0.94) / widest));
+    }
+    const measureAt = (entry, size, weight) => {
+      ctx.font = `${weight} ${size}px ${fontFamily}`;
+      const width = ctx.measureText(entry.label).width;
+      const x = clamp(entry.bar.x, chartArea.left + width / 2, chartArea.right - width / 2);
+      return { x, width, left: x - width / 2, right: x + width / 2 };
+    };
+    const draw = (entry, { size, weight, color }) => {
+      const extent = measureAt(entry, size, weight);
+      const y = entry.bar.y - 3 < chartArea.top + size ? entry.bar.y + size + 6 : entry.bar.y - 3;
+      if (options.halo) {
+        ctx.lineWidth = Math.max(2, size / 4);
+        ctx.strokeStyle = options.halo;
+        ctx.strokeText(entry.label, extent.x, y);
+      }
+      ctx.fillStyle = color;
+      ctx.fillText(entry.label, extent.x, y);
+      return extent;
+    };
+    const hover = chart.$metricTrendHover;
+    if (hover && chart.isDatasetVisible(hover.datasetIndex)) {
+      // hover focuses one metric: its bars all get labels while the other
+      // metrics stand back, so a dropped number is one hover away
+      const siblings = entries.filter((entry) => entry.datasetIndex === hover.datasetIndex);
+      const main = siblings.find((entry) => entry.index === hover.index);
+      // the loudest label also carries the growth vs the previous data point
+      const growth = options.growthByDataset?.[hover.datasetIndex]?.[hover.index];
+      if (main && growth != null && Number.isFinite(growth)) {
+        main.label = `${main.label} (${growth >= 0 ? '+' : ''}${formatPercent(growth)})`;
+      }
+      const mainStyle = { size: Math.max(fontSize + 3, 14), weight: 700, color: options.color || '#263238' };
+      const siblingStyle = { size: Math.max(fontSize, 10), weight: 600, color: options.mutedColor || options.color || '#263238' };
+      const mainExtent = main ? draw(main, mainStyle) : null;
+      let lastRight = -Infinity;
+      siblings.forEach((entry) => {
+        if (entry === main) {
+          if (mainExtent) lastRight = Math.max(lastRight, mainExtent.right);
+          return;
+        }
+        const extent = measureAt(entry, siblingStyle.size, siblingStyle.weight);
+        if (extent.left < lastRight + 3) return;
+        if (mainExtent && extent.left < mainExtent.right + 3 && extent.right > mainExtent.left - 3) return;
+        draw(entry, siblingStyle);
+        lastRight = extent.right;
+      });
+      ctx.restore();
+      return;
+    }
+    // static pass: greedy left-to-right, labels that would overlap yield to
+    // their neighbour and stay reachable via hover
+    let lastRight = -Infinity;
+    const staticStyle = { size: fontSize, weight: 600, color: options.color || '#263238' };
+    entries.forEach((entry) => {
+      const extent = measureAt(entry, staticStyle.size, staticStyle.weight);
+      if (extent.left < lastRight + 3) return;
+      draw(entry, staticStyle);
+      lastRight = extent.right;
+    });
+    ctx.restore();
+  },
+};
+// Hovering any bar (or growth-line point) lights up its entire metric so the
+// series reads as one; the plugin above keys its label emphasis off
+// $metricTrendHover, which always stores the metric's bar dataset.
+function comparisonMetricTrendHandleHover(chart, elements) {
+  let next = null;
+  if (elements?.length) {
+    let { datasetIndex, index } = elements[0];
+    const dataset = chart.data.datasets[datasetIndex];
+    let extraDataset = null;
+    if (dataset?.type === 'line' && dataset.$barDatasetIndex != null) {
+      // a ratio line spans two metrics: label its target, light both ends
+      if (dataset.$sourceDatasetIndex != null) extraDataset = dataset.$sourceDatasetIndex;
+      datasetIndex = dataset.$barDatasetIndex;
+    }
+    next = { datasetIndex, index, extraDataset };
+  }
+  const prev = chart.$metricTrendHover || null;
+  if ((prev?.datasetIndex ?? -1) === (next?.datasetIndex ?? -1) && (prev?.index ?? -1) === (next?.index ?? -1)) return;
+  chart.$metricTrendHover = next;
+  const active = [];
+  if (next) {
+    const pushDataset = (targetIndex) => {
+      if (targetIndex == null || !chart.isDatasetVisible(targetIndex)) return;
+      const data = chart.data.datasets[targetIndex]?.data || [];
+      data.forEach((value, index) => {
+        if (value != null) active.push({ datasetIndex: targetIndex, index });
+      });
+    };
+    pushDataset(next.datasetIndex);
+    pushDataset(next.extraDataset);
+    chart.data.datasets.forEach((dataset, index) => {
+      if (dataset.type === 'line' && dataset.$barDatasetIndex === next.datasetIndex) pushDataset(index);
+    });
+  }
+  chart.setActiveElements(active);
+  chart.update('none');
+}
+function createComparisonMetricTrendChartConfig(model) {
+  const ink = cssVar('--ink', '#15436b');
+  const text = cssVar('--text-strong', '#263238');
+  const muted = cssVar('--muted', '#6a7078');
+  const grid = cssVar('--table-cell-line', '#edf0f0');
+  const axis = cssVar('--table-line', '#d9dfdf');
+  const tableBg = cssVar('--table-bg', '#ffffff');
+  const fontFamily = 'Montserrat, Arial, sans-serif';
+  const formatValue = (value) => formatAmount(model.caliber, Number(value));
+  const allValues = model.metrics.flatMap((metric) => metric.values.filter((value) => value != null));
+  const maxValue = Math.max(0, ...allValues);
+  // while links are selected the right axis carries their share-of-source
+  // percentages; otherwise it carries per-metric growth
+  const ratioMode = (model.ratios || []).length > 0;
+  const allRight = (ratioMode
+    ? model.ratios.flatMap((ratio) => ratio.values)
+    : model.metrics.flatMap((metric) => metric.growth)
+  ).filter((value) => value != null && Number.isFinite(value));
+  const growthMax = allRight.length ? Math.max(10, Math.ceil(Math.max(...allRight) / 10) * 10) : 10;
+  const growthMin = allRight.length ? Math.min(0, Math.floor(Math.min(...allRight) / 10) * 10) : 0;
+  const grouped = model.metrics.length > 1;
+  // metrics that share a node colour (e.g. two profit nodes) step up an alpha
+  // ladder so their bars stay tellable apart next to the legend
+  const accentSteps = new Map();
+  const styles = model.metrics.map((metric) => {
+    const accent = clean(metric.accent) || ink;
+    const step = accentSteps.get(accent) || 0;
+    accentSteps.set(accent, step + 1);
+    return {
+      accent,
+      fillAlpha: Math.min(0.22 + step * 0.2, 0.78),
+      borderAlpha: Math.min(0.55 + step * 0.15, 0.95),
+    };
+  });
+  const barDatasets = model.metrics.map((metric, index) => {
+    const { accent, fillAlpha, borderAlpha } = styles[index];
+    return {
+      label: metric.label,
+      order: 2,
+      data: metric.values,
+      backgroundColor: colorWithAlpha(accent, fillAlpha),
+      borderColor: colorWithAlpha(accent, borderAlpha),
+      borderWidth: 1,
+      borderRadius: 4,
+      borderSkipped: false,
+      barPercentage: grouped ? 0.86 : 0.62,
+      categoryPercentage: 0.74,
+      maxBarThickness: 72,
+      hoverBackgroundColor: colorWithAlpha(accent, Math.min(fillAlpha + 0.12, 0.9)),
+      hoverBorderColor: colorWithAlpha(accent, Math.min(borderAlpha + 0.2, 1)),
+    };
+  });
+  const rightAxisLine = (lineColor) => ({
+    type: 'line',
+    yAxisID: 'yGrowth',
+    order: 1,
+    borderColor: lineColor,
+    backgroundColor: lineColor,
+    borderWidth: 1.6,
+    borderDash: [5, 3],
+    tension: 0.25,
+    spanGaps: false,
+    fill: false,
+    pointRadius: 2.2,
+    pointHoverRadius: 4,
+    pointBackgroundColor: tableBg,
+    pointBorderColor: lineColor,
+    pointBorderWidth: 1.2,
+    pointHoverBackgroundColor: tableBg,
+    pointHoverBorderColor: lineColor,
+    pointHoverBorderWidth: 2,
+  });
+  // ratio mode: one line per selected link, share of its source metric, in
+  // the target metric's colour and listed in the legend by its ratio name.
+  // growth mode: one growth line per metric, hidden from the legend and
+  // paired with its bars via $barDatasetIndex.
+  const lineDatasets = ratioMode
+    ? model.ratios.map((ratio) => {
+        const { accent, borderAlpha } = styles[ratio.targetIndex];
+        return {
+          ...rightAxisLine(colorWithAlpha(accent, Math.min(borderAlpha + 0.15, 1))),
+          label: ratio.label,
+          data: ratio.values,
+          $role: 'ratio',
+          $barDatasetIndex: ratio.targetIndex,
+          $sourceDatasetIndex: ratio.sourceIndex,
+        };
+      })
+    : model.metrics.map((metric, index) => {
+        const { accent, borderAlpha } = styles[index];
+        return {
+          ...rightAxisLine(colorWithAlpha(accent, Math.min(borderAlpha + 0.15, 1))),
+          label: metric.label,
+          data: metric.growth,
+          $role: 'growth',
+          $barDatasetIndex: index,
+        };
+      });
+  return {
+    type: 'bar',
+    data: { labels: model.labels, datasets: [...barDatasets, ...lineDatasets] },
+    plugins: [comparisonMetricTrendValueLabelsPlugin],
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      animation: false,
+      layout: { padding: { top: 6, right: 12, bottom: 0, left: 6 } },
+      interaction: { mode: 'nearest', intersect: true },
+      onHover: (event, elements, chart) => comparisonMetricTrendHandleHover(chart, elements),
+      scales: {
+        x: {
+          offset: true,
+          grid: { display: false },
+          border: { color: axis },
+          ticks: { color: muted, font: { family: fontFamily, size: 11, weight: '500' }, maxRotation: 40 },
+        },
+        y: {
+          beginAtZero: true,
+          suggestedMax: maxValue > 0 ? maxValue * 1.16 : 1,
+          grid: { color: grid },
+          border: { color: axis },
+          ticks: {
+            color: muted,
+            count: 6,
+            font: { family: fontFamily, size: 11, weight: '500' },
+            callback: (value) => formatValue(value) || value,
+          },
+        },
+        yGrowth: {
+          position: 'right',
+          suggestedMin: growthMin,
+          suggestedMax: growthMax,
+          grid: { drawOnChartArea: false },
+          border: { color: axis, dash: [5, 3] },
+          ticks: {
+            color: muted,
+            maxTicksLimit: 7,
+            font: { family: fontFamily, size: 11, weight: '500' },
+            callback: (value) => formatPercent(Number(value)) || value,
+          },
+        },
+      },
+      plugins: {
+        legend: {
+          // one entry per metric: the growth lines ride along with their bars
+          display: grouped,
+          position: 'top',
+          align: 'end',
+          labels: {
+            usePointStyle: false,
+            boxWidth: 12,
+            boxHeight: 6,
+            padding: 10,
+            color: muted,
+            font: { family: fontFamily, size: 11, weight: '500' },
+            // growth lines ride along with their bars; ratio lines are their
+            // own legend entries (named "target / source")
+            filter: (item, data) => data.datasets[item.datasetIndex]?.$role !== 'growth',
+          },
+          onClick: (event, item, legend) => {
+            const chart = legend.chart;
+            const clicked = chart.data.datasets[item.datasetIndex];
+            const visible = chart.isDatasetVisible(item.datasetIndex);
+            chart.setDatasetVisibility(item.datasetIndex, !visible);
+            if (clicked?.type !== 'line') {
+              chart.data.datasets.forEach((dataset, index) => {
+                if (dataset.type === 'line' && dataset.$barDatasetIndex === item.datasetIndex) {
+                  chart.setDatasetVisibility(index, !visible);
+                }
+              });
+            }
+            chart.update();
+          },
+        },
+        tooltip: { enabled: false },
+        comparisonMetricTrendValueLabels: {
+          color: text,
+          mutedColor: colorWithAlpha(text, 0.72),
+          halo: cssVar('--table-bg', '#ffffff'),
+          fontFamily,
+          fontSize: 12,
+          minFontSize: 8,
+          formatValue,
+          growthByDataset: model.metrics.map((metric) => metric.growth),
+        },
+      },
+    },
+  };
+}
+function updateComparisonMetricTrendPanel(records = comparisonScopeRecords()) {
+  if (!sankeyComparison) return null;
+  destroyComparisonMetricTrendChart();
+  sankeyComparison.querySelector('.comparison-metric-trend')?.remove();
+  sankeyComparison.querySelectorAll('rect.sankey-node.metric-trend-selected').forEach((rect) => {
+    rect.classList.remove('metric-trend-selected');
+  });
+  sankeyComparison.querySelectorAll('path.sankey-link.metric-trend-selected-link').forEach((path) => {
+    path.classList.remove('metric-trend-selected-link');
+  });
+  const model = comparisonMetricTrendModel(records);
+  if (!model) {
+    state.comparisonMetricTrend = null;
+    return null;
+  }
+  // selections that failed validation (single point, other currency, missing
+  // flow) drop out of the stored state so a later click starts a clean add
+  state.comparisonMetricTrend = {
+    company: model.selection.company,
+    nodeIds: model.keptNodeIds,
+    linkIds: model.ratios.map((ratio) => ratio.id),
+  };
+  // outline every same-caliber node so the expanded metrics stay traceable
+  // across the cards; each metric's first outlined node donates its bar colour
+  model.metrics.forEach((metric) => {
+    const safeNodeId = metric.nodeId.replace(/["\\]/g, '\\$&');
+    const datasetKeys = new Set(metric.points.map((point) => point.record.dataset.key));
+    sankeyComparison.querySelectorAll('.comparison-chart-host').forEach((host) => {
+      if (!datasetKeys.has(host.dataset.datasetKey)) return;
+      host.querySelectorAll(`rect.sankey-node[data-node="${safeNodeId}"]`).forEach((rect) => {
+        rect.classList.add('metric-trend-selected');
+        rect.setAttribute('vector-effect', 'non-scaling-stroke');
+        if (!metric.accent) metric.accent = rect.getAttribute('fill') || '';
+      });
+    });
+  });
+  // selected flows shine across the cards too
+  model.ratios.forEach((ratio) => {
+    const safeSource = ratio.source.replace(/["\\]/g, '\\$&');
+    const safeTarget = ratio.target.replace(/["\\]/g, '\\$&');
+    const datasetKeys = new Set(model.metrics[ratio.sourceIndex].points.map((point) => point.record.dataset.key));
+    sankeyComparison.querySelectorAll('.comparison-chart-host').forEach((host) => {
+      if (!datasetKeys.has(host.dataset.datasetKey)) return;
+      host.querySelectorAll(`path.sankey-link[data-source="${safeSource}"][data-target="${safeTarget}"]`).forEach((path) => {
+        path.classList.add('metric-trend-selected-link');
+      });
+    });
+  });
+
+  const title = [
+    displayCompanyName(model.selection.company),
+    model.metrics.map((metric) => metric.label).join(' / '),
+  ].filter(Boolean).join(' · ');
+  const first = model.labels[0];
+  const last = model.labels[model.labels.length - 1];
+  const subtitle = [
+    t('comparisonMetricTrendPointCount', { count: model.labels.length }),
+    first === last ? first : `${first} → ${last}`,
+  ].filter(Boolean).join(' · ');
+  const panel = document.createElement('section');
+  panel.className = 'comparison-metric-trend';
+  panel.style.maxWidth = `${comparisonAvailableWidth()}px`;
+  panel.innerHTML = `
+    <div class="comparison-card-header comparison-metric-trend-header">
+      <strong>${escapeHtml(title)}</strong>
+      <span>${escapeHtml(subtitle)}</span>
+      <button class="btn icon-btn comparison-metric-trend-close" type="button" aria-label="${escapeHtml(t('comparisonMetricTrendCloseTitle'))}" title="${escapeHtml(t('comparisonMetricTrendCloseTitle'))}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m6 6 12 12"/><path d="M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="trend-canvas-wrap comparison-trend-canvas-wrap comparison-metric-trend-canvas-wrap">
+      <canvas role="img" aria-label="${escapeHtml(`${title} · ${subtitle}`)}"></canvas>
+    </div>
+  `;
+  panel.querySelector('.comparison-metric-trend-close').addEventListener('click', () => {
+    state.comparisonMetricTrend = null;
+    updateComparisonMetricTrendPanel();
+  });
+  sankeyComparison.insertBefore(panel, comparisonFlow());
+  const canvas = panel.querySelector('canvas');
+  if (canvas && window.Chart) {
+    comparisonMetricTrendChart = new window.Chart(canvas, createComparisonMetricTrendChartConfig(model));
+  }
+  return panel;
+}
+function applyComparisonMetricTrendSelection(next) {
+  state.comparisonMetricTrend = next;
+  const panel = updateComparisonMetricTrendPanel();
+  panel?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+}
+function toggleComparisonMetricTrend(record, nodeId) {
+  if (!record || !nodeId) return;
+  const id = String(nodeId);
+  const current = state.comparisonMetricTrend;
+  if (!current || current.company !== record.company) {
+    applyComparisonMetricTrendSelection({ company: record.company, nodeIds: [id], linkIds: [] });
+    return;
+  }
+  const nodeIds = (current.nodeIds || []).includes(id)
+    ? current.nodeIds.filter((item) => item !== id)
+    : [...(current.nodeIds || []), id];
+  const linkIds = current.linkIds || [];
+  applyComparisonMetricTrendSelection(
+    nodeIds.length || linkIds.length ? { company: current.company, nodeIds, linkIds } : null
+  );
+}
+function toggleComparisonMetricTrendLink(record, sourceId, targetId) {
+  if (!record || !sourceId || !targetId) return;
+  const id = `${String(sourceId)}>${String(targetId)}`;
+  const current = state.comparisonMetricTrend;
+  if (!current || current.company !== record.company) {
+    applyComparisonMetricTrendSelection({ company: record.company, nodeIds: [], linkIds: [id] });
+    return;
+  }
+  const linkIds = (current.linkIds || []).includes(id)
+    ? current.linkIds.filter((item) => item !== id)
+    : [...(current.linkIds || []), id];
+  const nodeIds = current.nodeIds || [];
+  applyComparisonMetricTrendSelection(
+    nodeIds.length || linkIds.length ? { company: current.company, nodeIds, linkIds } : null
+  );
 }
 function renderSankeyComparison() {
   if (!sankeyComparison) return;
-  const companies = scopeCompanies();
-  const recordsForCompanies = companies.map((company) => ({
-    company,
-    record: defaultRecordForCompanyMetric(company, 'incomeStatement'),
-  }));
+  const recordsForCompanies = isMultiPeriodScope()
+    ? selectedPeriodRecords().map((record) => ({ company: record.company, record }))
+    : scopeCompanies().map((company) => ({
+        company,
+        record: defaultRecordForCompanyMetric(company, 'incomeStatement'),
+      }));
   const recordsWithData = recordsForCompanies.map((item) => item.record).filter(Boolean);
   const scaleFactors = comparisonScaleFactors(recordsWithData);
   const fitFactor = comparisonFitFactor(recordsWithData, scaleFactors);
@@ -3331,6 +4509,11 @@ function renderSankeyComparison() {
   comparisonZoomMax = Number.isFinite(minScale) && minScale > 0
     ? Math.max(COMPARISON_ZOOM_MIN, 1 / minScale)
     : COMPARISON_ZOOM_MIN;
+  // the flow is rebuilt below, so a pending gesture preview must not commit
+  // against the stale geometry, and in-flight bitmap proxies must not attach
+  cancelComparisonZoomGesture();
+  comparisonProxyGeneration += 1;
+  destroyComparisonMetricTrendChart();
   sankeyComparison.innerHTML = '';
 
   const grid = document.createElement('div');
@@ -3373,12 +4556,30 @@ function renderSankeyComparison() {
     host.dataset.scaleFactor = String(scale);
     grid.appendChild(card);
     window.SankeyEngine.render(host, dataset);
+    host.addEventListener('click', (event) => {
+      const target = event.target instanceof Element ? event.target : null;
+      if (!target) return;
+      const nodeTarget = target.closest('[data-node]');
+      if (nodeTarget) {
+        toggleComparisonMetricTrend(record, nodeTarget.getAttribute('data-node'));
+        return;
+      }
+      const linkTarget = target.closest('path.sankey-link');
+      if (linkTarget) {
+        toggleComparisonMetricTrendLink(record, linkTarget.getAttribute('data-source'), linkTarget.getAttribute('data-target'));
+      }
+    });
   });
+  updateComparisonMetricTrendPanel(recordsForCompanies.map((item) => item.record).filter(Boolean));
   applyComparisonZoom();
+  scheduleIdleTask(buildComparisonZoomProxies);
 }
 function draw({ renderTable = true, syncView = true } = {}) {
   if (syncView) syncViewModeControls();
-  if (!comparisonZoomActive()) applyComparisonZoom();
+  if (!comparisonZoomActive()) {
+    cancelComparisonZoomGesture();
+    applyComparisonZoom();
+  }
   if (state.viewMode === 'table') {
     clearSingleChart();
     clearSankeyComparison();
@@ -3397,7 +4598,7 @@ function draw({ renderTable = true, syncView = true } = {}) {
   }
   const d = localizedDataset(currentDataset());
   const maxWidth = chartWidth(d);
-  const compare = isMultiCompanyScope();
+  const compare = isMultiCompanyScope() || isMultiPeriodScope();
   if (singleChartCard) singleChartCard.hidden = compare;
   if (sankeyComparison) sankeyComparison.hidden = !compare;
   if (compare) {
@@ -3418,6 +4619,7 @@ window.addEventListener('hashchange', () => {
   const record = recordFromHash();
   if (!record) return;
   if (record.index === state.activeIndex && record.company === state.company) return;
+  clearMultiPeriodScope();
   state.activeIndex = record.index;
   state.company = record.company;
   setCompanyActiveRecord(record);
@@ -3445,7 +4647,11 @@ sankeyView?.addEventListener('wheel', (event) => {
   event.preventDefault();
   const { dx, dy } = comparisonWheelDeltas(event);
   if (event.ctrlKey || event.metaKey) {
-    const rect = sankeyView.getBoundingClientRect();
+    // reuse the rect measured at gesture start; a per-event read would force
+    // a layout on every wheel tick
+    const rect = comparisonZoomGesture?.started
+      ? { left: comparisonZoomGesture.viewLeft, top: comparisonZoomGesture.viewTop }
+      : sankeyView.getBoundingClientRect();
     const anchor = { x: event.clientX - rect.left, y: event.clientY - rect.top };
     // trackpad pinch arrives as ctrlKey wheel events with small pixel deltas;
     // notched mouse wheels report large steps and get a fixed factor per notch
@@ -3459,6 +4665,14 @@ sankeyView?.addEventListener('wheel', (event) => {
   const horizontal = event.shiftKey && Math.abs(dx) < Math.abs(dy);
   sankeyView.scrollLeft += horizontal ? dy : dx;
   sankeyView.scrollTop += horizontal ? 0 : dy;
+  const gesture = comparisonZoomGesture;
+  if (gesture) {
+    // panning while a zoom preview is up: repaint the overlay against the new
+    // scroll position and keep the commit deferred until the hands are still
+    if (!gesture.frame) gesture.frame = window.requestAnimationFrame(applyComparisonZoomPreview);
+    window.clearTimeout(gesture.timer);
+    gesture.timer = window.setTimeout(commitComparisonZoom, COMPARISON_ZOOM_COMMIT_DELAY);
+  }
 }, { passive: false });
 
 let rt;

@@ -98,11 +98,14 @@
 
           <section class="panel-section period-section control-group period-control">
             <div class="section-bar period-section-bar">
-              <label for="periodSearch" data-i18n="periodLabel">Data point time</label>
+              <label for="periodSearch" id="periodSelectAllToggle" data-i18n="periodLabel" title="Select or clear all time points" data-i18n-title="periodSelectAllTitle">Data point time</label>
               <div class="search-box header-search-box" id="periodSearchBox">
                 <input id="periodSearch" type="search" placeholder="Search time points" autocomplete="off" data-i18n-placeholder="periodSearchPlaceholder" />
               </div>
               <div class="panel-icon-actions">
+                <button class="btn icon-btn period-multi-exit" id="periodMultiExitToggle" type="button" aria-label="Exit time point multi-select" title="Exit time point multi-select" data-i18n-aria-label="periodMultiExitTitle" data-i18n-title="periodMultiExitTitle" hidden>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h11"/><path d="M4 17h16"/><path d="m16 9 3 3-3 3"/></svg>
+                </button>
                 <button class="btn icon-btn search-toggle" id="periodSearchToggle" type="button" aria-label="Search time points" aria-expanded="false" aria-controls="periodSearchBox" title="Search time points" data-i18n-aria-label="periodSearchPlaceholder" data-i18n-title="periodSearchPlaceholder">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
                 </button>
