@@ -137,6 +137,11 @@ Install once; the d3/standalone verifiers render in Chromium:
   checks; other intentionally untranslated words (sub-brands like `aws`)
   must be declared in the dataset's `i18n.preservedAnnotationText`. Do not
   extend the frozen legacy list in `scripts/verify-i18n.mjs`.
+- Brand and product terms that stay untranslated everywhere (YouTube,
+  iPhone, `Microsoft 365`…) are declared once as identity mappings in the
+  `EXACT_ZH` dictionary (`src/i18n.js`); `verify:i18n` treats an
+  identity-mapped term as translated on every path — labels, notes, layout
+  lines, and annotations.
 - Registration parity is enforced by `verify:ssot`: every file in
   `data/datasets/` must be registered in `index.html` unless listed in
   `UNREGISTERED_DATASET_SCRIPTS` (`scripts/script-sources.mjs`).
