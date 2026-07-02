@@ -1,0 +1,152 @@
+{
+  "source": "input/processed/expedia-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/expedia",
+  "validationSheetDir": "data/assets/icon-references/expedia/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "crops": [
+    {
+      "key": "expedia-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": {
+        "x": 594,
+        "y": 250,
+        "width": 570,
+        "height": 127
+      },
+      "cropBox": {
+        "x": 584,
+        "y": 240,
+        "width": 590,
+        "height": 147
+      },
+      "threshold": 16,
+      "minComponentArea": 60,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.08,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Expedia company logo lockup (navy circle with yellow aircraft plus Expedia wordmark) above the revenue hub; excludes the title, revenue label, and source-value labels."
+    },
+    {
+      "key": "expedia-lodging-app-expedia",
+      "output": "crops/lodging-app-expedia.png",
+      "searchBox": {
+        "x": 240,
+        "y": 513,
+        "width": 69,
+        "height": 72
+      },
+      "cropBox": {
+        "x": 233,
+        "y": 506,
+        "width": 82,
+        "height": 86
+      },
+      "threshold": 16,
+      "minComponentArea": 40,
+      "validation": {
+        "borderBand": 4,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Expedia app icon (yellow rounded square, navy circle, yellow aircraft) in the Lodging segment icon pair; excludes the Vrbo icon and the Lodging label."
+    },
+    {
+      "key": "expedia-lodging-app-vrbo",
+      "output": "crops/lodging-app-vrbo.png",
+      "searchBox": {
+        "x": 318,
+        "y": 513,
+        "width": 70,
+        "height": 72
+      },
+      "cropBox": {
+        "x": 312,
+        "y": 505,
+        "width": 84,
+        "height": 85
+      },
+      "threshold": 16,
+      "minComponentArea": 40,
+      "validation": {
+        "borderBand": 4,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Vrbo app icon (navy rounded square with multicolor striped V) in the Lodging segment icon pair; excludes the Expedia app icon and the Lodging label."
+    },
+    {
+      "key": "expedia-air-plane",
+      "output": "crops/air-plane.png",
+      "searchBox": {
+        "x": 230,
+        "y": 821,
+        "width": 60,
+        "height": 60
+      },
+      "cropBox": {
+        "x": 222,
+        "y": 813,
+        "width": 76,
+        "height": 76
+      },
+      "threshold": 16,
+      "minComponentArea": 30,
+      "validation": {
+        "borderBand": 4,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Airplane emoji-style icon next to the Air segment label; excludes the Air label text and the source bar."
+    },
+    {
+      "key": "expedia-advertising-trivago",
+      "output": "crops/advertising-trivago.png",
+      "searchBox": {
+        "x": 81,
+        "y": 958,
+        "width": 68,
+        "height": 68
+      },
+      "cropBox": {
+        "x": 74,
+        "y": 950,
+        "width": 84,
+        "height": 84
+      },
+      "threshold": 8,
+      "minComponentArea": 40,
+      "validation": {
+        "borderBand": 4,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "trivago app icon (white rounded square with the trivago wordmark) next to the Advertising segment label; excludes the Advertising label text."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding and not part of Expedia's income-statement semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "Source publisher branding, website URL, and footer logo are intentionally excluded."
+    },
+    {
+      "key": "expedia-other-revenue-segment",
+      "reason": "The Other revenue segment has no business icon in the source chart."
+    },
+    {
+      "key": "expedia-stat-cards",
+      "reason": "Gross bookings and Nights booked cards are chart annotations rebuilt as vector SVG, not reusable icon reference assets."
+    }
+  ]
+}
