@@ -286,7 +286,7 @@ function looksTranslatable(text) {
   if (!value || value === '$value') return false;
   if (!/[A-Za-z]/.test(value)) return false;
   if (/^https?:\/\//i.test(value)) return false;
-  if (/^\(?\$?\d[\d.,]*[BMK]?\)?$/i.test(value)) return false;
+  if (/^\(?[$€¥￥]?\d[\d.,]*[BMK]?\)?$/i.test(value)) return false;
   if (TRACKED_TRANSLATABLE_ACRONYMS.has(value)) return true;
   if (/^[A-Z0-9&./ +-]{1,12}$/.test(value)) return false;
   if (/^[\d\s$().,%+-]+[BMK]?$/.test(value)) return false;
@@ -321,9 +321,12 @@ function datasetPreservedAnnotationText(dataset, companyIdentityText) {
   ]);
 }
 
-function fallbackItems(items, preservedAnnotationText) {
+function fallbackItems(items, preservedAnnotationText, isPreservedTerm) {
   return items.filter((item) => {
     if (!looksTranslatable(item.source)) return false;
+    // Shared-dictionary identity mappings (EXACT_ZH term -> itself) declare
+    // brand terms that intentionally render unchanged, on any path.
+    if (isPreservedTerm && isPreservedTerm(item.source)) return false;
     if (item.path.startsWith('annotationsSvg.')) {
       if (PRESERVED_ANNOTATION_TEXT.has(item.source)) return false;
       // Whole-segment matches only: never exempts words inside longer
@@ -386,6 +389,7 @@ function main() {
   }
 
   for (const language of languages.filter((code) => code !== defaultLanguage)) {
+    const isPreservedTerm = (text) => Boolean(i18n.isPreservedTerm && i18n.isPreservedTerm(text, language));
     for (const dataset of selectedDatasets) {
       const localized = i18n.localizeDataset(dataset, language);
       assert(clean(localized.name), `${dataset.key}: localized dataset name is empty for ${language}`, errors);
@@ -400,7 +404,8 @@ function main() {
       }
       const fallbacks = fallbackItems(
         collectDatasetTexts(dataset, localized),
-        datasetPreservedAnnotationText(dataset, companyIdentityText)
+        datasetPreservedAnnotationText(dataset, companyIdentityText),
+        isPreservedTerm
       );
       if (fallbacks.length) {
         const sample = fallbacks.slice(0, 5).map((item) => `${item.path}="${item.source}"`).join('; ');
@@ -422,7 +427,7 @@ function main() {
 
     for (const record of selectedRecords) {
       const localized = i18n.localizeFinancialRecord(record, language);
-      const fallbacks = fallbackItems(collectFinancialTexts(record, localized));
+      const fallbacks = fallbackItems(collectFinancialTexts(record, localized), null, isPreservedTerm);
       if (fallbacks.length) {
         const sample = fallbacks.slice(0, 5).map((item) => `${item.path}="${item.source}"`).join('; ');
         const message = `${record.key}: ${fallbacks.length} financial SSOT fallback(s) for ${language}; ${sample}`;
@@ -436,7 +441,7 @@ function main() {
 
     for (const record of selectedRevenueRecords) {
       const localized = i18n.localizeRevenueMetricRecord(record, language);
-      const fallbacks = fallbackItems(collectRevenueMetricTexts(record, localized));
+      const fallbacks = fallbackItems(collectRevenueMetricTexts(record, localized), null, isPreservedTerm);
       if (fallbacks.length) {
         const sample = fallbacks.slice(0, 5).map((item) => `${item.path}="${item.source}"`).join('; ');
         const message = `${record.key}: ${fallbacks.length} revenue SSOT fallback(s) for ${language}; ${sample}`;
@@ -451,7 +456,7 @@ function main() {
     {
       for (const company of companies.filter((company) => !keys.size || selectedCompanyNames.has(clean(company.name).toLowerCase()) || (company.aliases || []).some((alias) => selectedCompanyNames.has(clean(alias).toLowerCase())))) {
         const localized = i18n.localizeCompanyMetadata(company, language);
-        const fallbacks = fallbackItems(collectCompanyTexts(company, localized));
+        const fallbacks = fallbackItems(collectCompanyTexts(company, localized), null, isPreservedTerm);
         if (fallbacks.length) {
           const sample = fallbacks.slice(0, 3).map((item) => `${item.path}="${item.source}"`).join('; ');
           const message = `${company.key || company.name}: ${fallbacks.length} company metadata fallback(s) for ${language}; ${sample}`;
