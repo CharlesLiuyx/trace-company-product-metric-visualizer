@@ -51,6 +51,10 @@ const viewMode = document.getElementById('viewMode');
 const sankeyView = document.getElementById('sankeyView');
 const singleChartCard = document.getElementById('singleChartCard');
 const sankeyComparison = document.getElementById('sankeyComparison');
+const comparisonZoomControls = document.getElementById('comparisonZoomControls');
+const zoomInBtn = document.getElementById('zoomInBtn');
+const zoomOutBtn = document.getElementById('zoomOutBtn');
+const zoomFitBtn = document.getElementById('zoomFitBtn');
 const trendView = document.getElementById('trendView');
 const tableView = document.getElementById('tableView');
 const trendChart = document.getElementById('trendChart');
@@ -665,6 +669,7 @@ const state = {
   theme: readStoredTheme(),
   sidebarWidth: readStoredNumber(SIDEBAR_WIDTH_KEY, SIDEBAR_DEFAULT),
   sidebarCollapsed: readStoredBoolean(SIDEBAR_COLLAPSED_KEY, false),
+  comparisonZoom: 1,
 };
 
 function moonIcon() {
@@ -2446,6 +2451,7 @@ function renderActiveSummary() {
       t('comparisonScopeSummary', { count }),
       `${t('tableRevenue')} ${revenueInfo?.text || ''}`,
       `${t('tableNetProfit')} ${netProfitInfo?.text || ''}`,
+      fx.active ? t('fxConvertedNote', { asOf: USD_FX_SNAPSHOT.asOf }) : '',
     ].filter(Boolean).join(' · ');
     return;
   }
@@ -3204,18 +3210,28 @@ function comparisonColumnCount(count) {
   if (count === 4) return 2;
   return 3;
 }
+function comparisonAvailableWidth() {
+  return Math.max(1, (sankeyView?.clientWidth || content?.clientWidth || window.innerWidth || 1) - 20);
+}
 function comparisonFitFactor(records, scaleFactors) {
-  const count = Math.max(records.length, 1);
-  const columns = comparisonColumnCount(count);
-  const availableWidth = Math.max(1, (sankeyView?.clientWidth || content?.clientWidth || window.innerWidth || 1) - 20);
+  const columns = comparisonColumnCount(Math.max(records.length, 1));
+  const availableWidth = comparisonAvailableWidth();
   const gap = 8;
-  const columnWidth = Math.max(1, (availableWidth - gap * (columns - 1)) / columns);
-  const maxNaturalWidth = records.reduce((max, record) => {
+  const widths = records.map((record) => {
     const dataset = localizedDataset(record.dataset);
     const scale = scaleFactors.get(record.dataset.key) || 1;
-    return Math.max(max, chartWidth(dataset) * scale);
-  }, 1);
-  return Math.min(1, columnWidth / maxNaturalWidth);
+    return Math.max(1, chartWidth(dataset) * scale);
+  });
+  // pack `columns` charts per row at their USD-normalized widths; the widest
+  // packed row pins the shared factor so every row fits the canvas
+  const cardEdge = 2; // 1px card border on each side sits outside the chart
+  let factor = 1;
+  for (let start = 0; start < widths.length; start += columns) {
+    const row = widths.slice(start, start + columns);
+    const rowWidth = row.reduce((sum, width) => sum + width, 0);
+    factor = Math.min(factor, (availableWidth - gap * (row.length - 1) - cardEdge * row.length) / rowWidth);
+  }
+  return factor;
 }
 function comparisonFinancialLine(record) {
   const financial = financialFor(record);
@@ -3230,6 +3246,74 @@ function comparisonFinancialLine(record) {
     `${t('tableNetProfit')} ${formatAmount(financial, financial.profit?.net?.value)}${usdEquivalent(financial.profit?.net?.value)}`,
   ].filter(Boolean).join(' · ');
 }
+const COMPARISON_ZOOM_MIN = 1;
+const COMPARISON_ZOOM_STEP = 1.25;
+const COMPARISON_WHEEL_ZOOM_STEP = 1.2;
+const COMPARISON_PINCH_ZOOM_SENSITIVITY = 0.01;
+// max zoom is dynamic: it brings the most shrunken chart in the current
+// comparison back to its authored size, where its labels are readable
+let comparisonZoomMax = COMPARISON_ZOOM_MIN;
+function clampComparisonZoom(value) {
+  const zoom = finiteNumber(value);
+  if (zoom == null) return COMPARISON_ZOOM_MIN;
+  return Math.min(comparisonZoomMax, Math.max(COMPARISON_ZOOM_MIN, zoom));
+}
+function comparisonZoomActive() {
+  return state.viewMode === 'sankey' && isMultiCompanyScope();
+}
+function applyComparisonZoom() {
+  const zoom = clampComparisonZoom(state.comparisonZoom);
+  state.comparisonZoom = zoom;
+  const active = comparisonZoomActive();
+  const zoomed = zoom > COMPARISON_ZOOM_MIN + 0.001;
+  sankeyView?.classList.toggle('comparison-zoomed', active && zoomed);
+  sankeyComparison?.classList.toggle('zoomed', zoomed);
+  const flow = sankeyComparison?.querySelector('.comparison-flow');
+  if (flow) {
+    const baseContentWidth = finiteNumber(flow.dataset.baseContentWidth);
+    // scale the flow container with the charts so the wrap layout stays
+    // proportional at every zoom level
+    flow.style.width = zoomed && baseContentWidth != null ? `${Math.round(baseContentWidth * zoom)}px` : '';
+  }
+  sankeyComparison?.querySelectorAll('.comparison-chart-host').forEach((host) => {
+    const baseWidth = finiteNumber(host.dataset.baseWidth);
+    // floor so browser rounding can never push a packed row past the container
+    if (baseWidth != null) host.style.width = `${Math.max(1, Math.floor(baseWidth * zoom))}px`;
+  });
+  if (!comparisonZoomControls) return;
+  comparisonZoomControls.hidden = !active;
+  zoomFitBtn.textContent = `${Math.round(zoom * 100)}%`;
+  zoomInBtn.disabled = zoom >= comparisonZoomMax - 0.001;
+  zoomOutBtn.disabled = !zoomed;
+}
+function setComparisonZoom(value, anchor) {
+  const previous = clampComparisonZoom(state.comparisonZoom);
+  const next = clampComparisonZoom(value);
+  const flow = sankeyComparison?.querySelector('.comparison-flow');
+  if (!sankeyView || !flow || next === previous) {
+    state.comparisonZoom = next;
+    applyComparisonZoom();
+    return;
+  }
+  // measure before relayout: once widths shrink the browser clamps the scroll
+  // position, and the centering margins around the flow shift, so the anchored
+  // content point must be captured first and mapped back through the measured
+  // flow origin afterwards
+  const viewRect = sankeyView.getBoundingClientRect();
+  const point = anchor || { x: sankeyView.clientWidth / 2, y: sankeyView.clientHeight / 2 };
+  const flowRectBefore = flow.getBoundingClientRect();
+  const contentX = viewRect.left + point.x - flowRectBefore.left;
+  const contentY = viewRect.top + point.y - flowRectBefore.top;
+  const ratio = next / previous;
+  state.comparisonZoom = next;
+  applyComparisonZoom();
+  // flow origin in scroll space; scroll-invariant, so clamping cannot skew it
+  const flowRectAfter = flow.getBoundingClientRect();
+  const flowLeft = flowRectAfter.left - viewRect.left + sankeyView.scrollLeft;
+  const flowTop = flowRectAfter.top - viewRect.top + sankeyView.scrollTop;
+  sankeyView.scrollLeft = flowLeft + contentX * ratio - point.x;
+  sankeyView.scrollTop = flowTop + contentY * ratio - point.y;
+}
 function renderSankeyComparison() {
   if (!sankeyComparison) return;
   const companies = scopeCompanies();
@@ -3240,23 +3324,18 @@ function renderSankeyComparison() {
   const recordsWithData = recordsForCompanies.map((item) => item.record).filter(Boolean);
   const scaleFactors = comparisonScaleFactors(recordsWithData);
   const fitFactor = comparisonFitFactor(recordsWithData, scaleFactors);
+  const minScale = recordsWithData.reduce((min, record) => {
+    const scale = (scaleFactors.get(record.dataset.key) || 1) * fitFactor;
+    return Math.min(min, scale);
+  }, Infinity);
+  comparisonZoomMax = Number.isFinite(minScale) && minScale > 0
+    ? Math.max(COMPARISON_ZOOM_MIN, 1 / minScale)
+    : COMPARISON_ZOOM_MIN;
   sankeyComparison.innerHTML = '';
 
-  const summary = document.createElement('div');
-  summary.className = 'comparison-summary';
-  const revenueInfo = scopeFinancialTotalInfo('revenue');
-  const netProfitInfo = scopeFinancialTotalInfo('netProfit');
-  const fx = scopeFxState([revenueInfo, netProfitInfo]);
-  summary.innerHTML = `
-    <span>${escapeHtml(t('comparisonScopeSummary', { count: companies.length }))}</span>
-    <strong>${escapeHtml(`${t('tableRevenue')} ${revenueInfo?.text || ''}`)}</strong>
-    <strong>${escapeHtml(`${t('tableNetProfit')} ${netProfitInfo?.text || ''}`)}</strong>
-    ${fx.active ? `<span class="comparison-summary-note" title="${escapeHtml(fxTooltip(fx.excluded))}">${escapeHtml(t('fxConvertedNote', { asOf: USD_FX_SNAPSHOT.asOf }))}</span>` : ''}
-  `;
-  sankeyComparison.appendChild(summary);
-
   const grid = document.createElement('div');
-  grid.className = `comparison-grid comparison-grid-${Math.min(Math.max(recordsForCompanies.length, 1), 6)}`;
+  grid.className = 'comparison-flow';
+  grid.dataset.baseContentWidth = String(comparisonAvailableWidth());
   sankeyComparison.appendChild(grid);
 
   recordsForCompanies.forEach(({ company, record }) => {
@@ -3277,12 +3356,11 @@ function renderSankeyComparison() {
     const dataset = localizedDataset(record.dataset);
     const width = chartWidth(dataset);
     const scale = (scaleFactors.get(record.dataset.key) || 1) * fitFactor;
+    card.title = [
+      [displayCompany(record), [displayPeriod(record), displayPeriodNote(record)].filter(Boolean).join(' · ')].filter(Boolean).join(' · '),
+      comparisonFinancialLine(record),
+    ].filter(Boolean).join('\n');
     card.innerHTML = `
-      <div class="comparison-card-header">
-        <strong>${escapeHtml(displayCompany(record))}</strong>
-        <span>${escapeHtml([displayPeriod(record), displayPeriodNote(record)].filter(Boolean).join(' · '))}</span>
-      </div>
-      <div class="comparison-card-metrics">${escapeHtml(comparisonFinancialLine(record))}</div>
       <div class="comparison-chart-frame">
         <div class="comparison-chart-host"></div>
       </div>
@@ -3290,15 +3368,17 @@ function renderSankeyComparison() {
     const frame = card.querySelector('.comparison-chart-frame');
     const host = card.querySelector('.comparison-chart-host');
     frame.style.maxWidth = '100%';
-    host.style.width = `${Math.max(1, width * scale)}px`;
+    host.dataset.baseWidth = String(Math.max(1, width * scale));
     host.dataset.datasetKey = record.dataset.key;
     host.dataset.scaleFactor = String(scale);
     grid.appendChild(card);
     window.SankeyEngine.render(host, dataset);
   });
+  applyComparisonZoom();
 }
 function draw({ renderTable = true, syncView = true } = {}) {
   if (syncView) syncViewModeControls();
+  if (!comparisonZoomActive()) applyComparisonZoom();
   if (state.viewMode === 'table') {
     clearSingleChart();
     clearSankeyComparison();
@@ -3350,6 +3430,36 @@ window.addEventListener('hashchange', () => {
 
 tableView.addEventListener('scroll', requestVirtualTableUpdate, { passive: true });
 periodList.addEventListener('scroll', updatePeriodScrollIndicator, { passive: true });
+
+zoomInBtn?.addEventListener('click', () => setComparisonZoom(clampComparisonZoom(state.comparisonZoom) * COMPARISON_ZOOM_STEP));
+zoomOutBtn?.addEventListener('click', () => setComparisonZoom(clampComparisonZoom(state.comparisonZoom) / COMPARISON_ZOOM_STEP));
+zoomFitBtn?.addEventListener('click', () => setComparisonZoom(COMPARISON_ZOOM_MIN));
+function comparisonWheelDeltas(event) {
+  const scale = event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? sankeyView.clientHeight : 1;
+  return { dx: event.deltaX * scale, dy: event.deltaY * scale };
+}
+// Figma-style canvas wheel model: plain wheel pans both axes, shift+wheel pans
+// horizontally, ctrl/cmd+wheel (incl. trackpad pinch) zooms at the pointer.
+sankeyView?.addEventListener('wheel', (event) => {
+  if (!comparisonZoomActive()) return;
+  event.preventDefault();
+  const { dx, dy } = comparisonWheelDeltas(event);
+  if (event.ctrlKey || event.metaKey) {
+    const rect = sankeyView.getBoundingClientRect();
+    const anchor = { x: event.clientX - rect.left, y: event.clientY - rect.top };
+    // trackpad pinch arrives as ctrlKey wheel events with small pixel deltas;
+    // notched mouse wheels report large steps and get a fixed factor per notch
+    const pinch = event.deltaMode === 0 && Math.abs(dy) < 50;
+    const factor = pinch
+      ? Math.exp(-dy * COMPARISON_PINCH_ZOOM_SENSITIVITY)
+      : (dy < 0 ? COMPARISON_WHEEL_ZOOM_STEP : 1 / COMPARISON_WHEEL_ZOOM_STEP);
+    setComparisonZoom(clampComparisonZoom(state.comparisonZoom) * factor, anchor);
+    return;
+  }
+  const horizontal = event.shiftKey && Math.abs(dx) < Math.abs(dy);
+  sankeyView.scrollLeft += horizontal ? dy : dx;
+  sankeyView.scrollTop += horizontal ? 0 : dy;
+}, { passive: false });
 
 let rt;
 window.addEventListener('resize', () => {
