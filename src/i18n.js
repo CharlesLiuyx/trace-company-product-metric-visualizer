@@ -362,6 +362,8 @@
     'Merchandise': '商品',
     'revenues': '收入',
     'Gross profit': '毛利润',
+    'Gross Profit': '毛利润',
+    'Gross revenue': '总收入',
     'Gross': '毛',
     'profit': '利润',
     'Operating profit': '营业利润',
@@ -385,6 +387,7 @@
     'Other expenses': '其他费用',
     'Other expenses from managed and franchised properties': '管理和特许经营物业的其他费用',
     'Tax': '税费',
+    'Tax & other': '税费及其他',
     'Tax benefit': '税收收益',
     'TAC': '流量获取成本',
     'Traffic acquisition costs': '流量获取成本',
@@ -398,6 +401,8 @@
     'Financial': '财务',
     'Provision': '拨备',
     'Provision for': '拨备',
+    'Provision for credit loss': '信用损失拨备',
+    'Provision for credit losses': '信用损失拨备',
     'credit loss': '信用损失',
     'Non interest': '非利息',
     'Compensation': '薪酬',
@@ -490,6 +495,7 @@
     'OEM & Other': 'OEM 及其他',
     'Server': '服务器',
     'Servers': '服务器',
+    'Microsoft 365': 'Microsoft 365',
     'Microsoft 365 Commercial': 'Microsoft 365 商业版',
     'Windows & Devices': 'Windows 与设备',
     'Windows': 'Windows',
@@ -512,6 +518,7 @@
     'Subscription services': '订阅服务',
     'AWS': 'AWS',
     'Google Cloud': 'Google Cloud',
+    'Google Play': 'Google Play',
     'Google Play, devices, and subscriptions': 'Google Play、设备与订阅',
     'YouTube': 'YouTube',
     'YouTube Premium & TV': 'YouTube Premium 与电视',
@@ -531,6 +538,7 @@
     'Other Bets': '其他项目',
     'External Customers': '外部客户',
     'Related parties': '关联方',
+    'Equity method investments': '权益法投资',
     'Core solutions': '核心解决方案',
     'Value Added Services': '增值服务',
     'Value Added': '增值',
@@ -660,6 +668,11 @@
     'Home': '家居',
     'Accessories': '配件',
     'iPhone': 'iPhone',
+    'Mac': 'Mac',
+    'iPad': 'iPad',
+    'AirPods': 'AirPods',
+    'Air, Pro, Mini': 'Air、Pro、Mini',
+    'Wirecutter': 'Wirecutter',
     'Print': '印刷',
     'Digital': '数字',
     'Devices and other': '设备及其他',
@@ -676,9 +689,14 @@
     'Informatica, Mulesoft, Tableau': 'Informatica、Mulesoft、Tableau',
     'Restructuring': '重组',
     'Information &': '信息与',
+    'Information & communications': '信息与通信',
+    'Marketing & business development': '市场与业务开发',
+    'Selling & Distribution': '销售与分销',
     'communications': '通信',
     'Marketing &': '市场与',
     'business dev.': '业务开发',
+    'Brokerage & transaction': '经纪与交易',
+    'Brokerage, clearing & exchange fees': '经纪、清算与交易所费用',
     'Brokerage, clearing': '经纪、清算',
     '& exchange fees': '与交易所费用',
     'AI-optimized Servers': 'AI 优化服务器',
@@ -699,6 +717,8 @@
     'Supplies': '耗材',
     'Printing Commercial': '商用打印',
     'Printing Consumer': '消费者打印',
+    'Personal Systems Commercial': '商用个人系统',
+    'Personal Systems Consumer': '消费者个人系统',
     'Franchise fees': '特许经营费',
     'Base management fees': '基础管理费',
     'Incentive management fees': '激励管理费',
@@ -716,18 +736,24 @@
     'International': '国际',
     'Commerce': '商业',
     'Inter-segment eliminations': '分部间抵销',
+    'Inter-segment Eliminations': '分部间抵销',
     'Inter-segment': '分部间',
     'Smartphones': '智能手机',
     'Intellectual property income offset': '知识产权收入抵减',
     'Family of Apps (FoA)': '应用家族（FoA）',
+    '(FoA)': '(FoA)',
     'Reality Labs (RL)': 'Reality Labs（RL）',
+    'Reality Labs': 'Reality Labs',
+    '(RL)': '(RL)',
     'Digital Consumer Electronics': '数字消费电子',
     'Social Networks': '社交网络',
+    'Marketing Services': '营销服务',
     'FinTech & Business Services': '金融科技与企业服务',
     'Business': '企业服务',
     'Developer fees': '开发者费用',
     'Other opex': '其他运营费用',
     'Other operating gains': '其他营业收益',
+    'operating gains': '营业收益',
     'Space': '航天',
     'Connectivity': '连接服务',
     'Delivery': '配送',
@@ -743,7 +769,9 @@
     'Intellectual': '知识产权',
     'property': '知识产权',
     'Saas/Paas': 'SaaS/PaaS',
+    'SaaS/PaaS': 'SaaS/PaaS',
     'Iaas': 'IaaS',
+    'IaaS': 'IaaS',
     'High Performance': '高性能',
     'Electronics': '电子',
     'Energy generation': '能源发电',
@@ -756,6 +784,8 @@
     'Franchise': '特许经营',
     'distribution': '分销',
     'amortization': '摊销',
+    'Samsung Display': '三星显示',
+    'Harman': '哈曼',
     'Memory, Foundry,': '存储器、晶圆代工、',
     '& System LSI': '系统 LSI',
     'System LSI': '系统 LSI',
@@ -804,6 +834,7 @@
     'IaaS = Infrastructure as a Service': 'IaaS = 基础设施即服务',
     'QCT: CDMA Technologies': 'QCT：CDMA 技术',
     'QTL: Technology Licensing': 'QTL：技术授权',
+    'Technology Licensing': '技术授权',
     '* Including restructuring charges': '* 包括重组费用',
     '* Including $2.8B Warner break-up fee': '* 包括 $2.8B Warner 解约费',
     'How': '如何',
@@ -1058,6 +1089,12 @@
     'Amortization & impairment': ['摊销与', '减值'],
     'Amortization of intangibles': ['无形资产', '摊销'],
     'Traditional Servers & Networking': ['传统服务器', '与网络'],
+    'Support & Maintenance': ['支持与', '维护'],
+    'Percentage or fixed': ['按比例', '或固定金额'],
+    'Software Licenses': ['软件', '许可证'],
+    'Licenses & Support': ['许可证', '与支持'],
+    'Family of Apps (FoA)': ['应用家族', '(FoA)'],
+    'Reality Labs (RL)': ['Reality Labs', '(RL)'],
     'Base management fees': ['基础', '管理费'],
     'Incentive management fees': ['激励', '管理费'],
     'Owned, leased and other': ['自有、租赁', '及其他'],
@@ -1337,8 +1374,10 @@
     }
     let out = value
       .replace(/([+−-]?\d+(?:\.\d+)?[BMK])\s+Y\/Y/gi, (_match, amount) => `同比 ${amount.replace('−', '-')}`)
-      .replace(/([+−-]?\d+(?:\.\d+)?[BMK])\s+Q\/Q/gi, (_match, amount) => `环比 ${amount.replace('−', '-')}`)
-      .replace(/\s*&\s*/g, '，');
+      .replace(/([+−-]?\d+(?:\.\d+)?[BMK])\s+Q\/Q/gi, (_match, amount) => `环比 ${amount.replace('−', '-')}`);
+    // Convert "&" list separators only inside strings that actually carried a
+    // change suffix; plain "&" labels must fall through to the dictionary.
+    if (out !== value) out = out.replace(/\s*&\s*/g, '，');
     return out !== value ? out : text;
   }
 
@@ -1396,6 +1435,16 @@
     const joined = value.replace(/\s+&\s+/g, ' & ');
     if (Object.prototype.hasOwnProperty.call(EXACT_ZH, joined)) return EXACT_ZH[joined];
     return null;
+  }
+
+  // A term is "preserved" when the shared dictionary maps it to itself —
+  // brand and product names (YouTube, iPhone, LinkedIn…) that intentionally
+  // render unchanged in the target language.
+  function isPreservedTerm(text, language) {
+    if (normalizeLanguage(language) !== 'zh') return false;
+    const value = clean(text);
+    if (!value) return false;
+    return exactZh(value) === value;
   }
 
   function translateEmbeddedMoneyLabel(text, language) {
@@ -1743,6 +1792,7 @@
     nextLanguage,
     t,
     text: translateText,
+    isPreservedTerm,
     label: localizeLabel,
     notes: localizeNotes,
     clone,
