@@ -10,6 +10,13 @@ export function scriptSources(indexHtml) {
 
 export const DATASET_SCRIPT_DIR = 'data/datasets';
 
+// Dataset scripts that intentionally stay unregistered in index.html.
+// example-saas-fy25.js is the copyable demo template (internal key
+// acme-cloud-fy25); it is not a real reported statement.
+export const UNREGISTERED_DATASET_SCRIPTS = new Set([
+  'data/datasets/example-saas-fy25.js',
+]);
+
 const SUPPORT_DATA_SCRIPTS = new Set([
   'data/income-statements.js',
   'data/company-metadata.js',
