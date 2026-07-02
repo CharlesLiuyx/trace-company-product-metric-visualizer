@@ -50,7 +50,7 @@ Install once; the d3/standalone verifiers render in Chromium:
 | --- | --- |
 | `pnpm check:pending` | pending-image duplicate / key-collision guard |
 | `pnpm verify:dataset -- <key> [--skip-render]` | aggregate per-dataset gate: syntax, SSOT, strict i18n, metadata, then a d3 render per language |
-| `pnpm verify:ssot` | SSOT ↔ dataset parity plus registration parity (global) |
+| `pnpm verify:ssot` | SSOT ↔ dataset parity, registration parity, and currency/unit + FX coverage (global) |
 | `pnpm verify:i18n -- [--strict] [keys]` | i18n overlay coverage |
 | `pnpm verify:d3 -- <key> [--focus <dir>] [--keep] [--language <code>] [--round <n>]` | one d3 render + auto hard gates; archives each round to `output/compare/<key>/` |
 | `pnpm update:dataset-file-metadata` | regenerate `data/dataset-file-metadata.js` |
