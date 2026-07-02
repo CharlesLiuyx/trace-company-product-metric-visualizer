@@ -1,337 +1,204 @@
 # AGENTS.md
 
-Guidance for agents working in this repository.
+Guidance for agents working in this repository. This file routes: each
+detailed rule lives in exactly one owning document, and this file gives the
+workflow plus a one-line summary and pointer. Keep this file and its Chinese
+mirror `docs/AGENTS.zh-CN.review.md` updated together.
+
+## Rule Ownership Map
+
+| rule domain | owning document |
+| --- | --- |
+| d3 fidelity loop: hard gates, diff metrics, iteration, icon crop/vector subloops, localization layout checks, Task info, red-box images, Loop Fidelity Summary | `docs/fidelity-loop-rules.md` |
+| dataset / SSOT field-level format | `data/schema.md` |
+| commit message convention | `docs/commit-messages.md` |
+| data-adjacent asset layout (icon crops, raster annotations) | `data/assets/README.md` |
+| Trace product and data model | `docs/trace-specification.zh-CN.md` |
+| human quickstart, viewer usage | `README.md` |
 
 ## Goal
 
-This project turns income-statement reference images into reusable Sankey
-datasets and reusable icon/vector assets. When `input/pending/` contains new
-source PNGs, process them into stable datasets, extract validated icon
-reference assets when needed, and run the d3-sankey fidelity loop (manual
-rounds; see `docs/fidelity-loop-rules.md`).
+Turn income-statement reference images from `input/pending/` into stable
+Sankey datasets and reusable icon assets, then verify them through the
+d3-sankey fidelity loop.
 
-## Trace Architecture Boundaries
+## Architecture Boundaries
 
-- `docs/trace-specification.zh-CN.md` is the top-level Trace product/model spec.
-- Keep Trace domain normalization in `src/trace-domain.js`; keep `src/app.js`
-  focused on UI state, interaction, tables, and view switching.
 - `data/income-statements.js` (income-statement family) and
   `data/revenue-metrics.js` (revenue family) are the pure Metric SSOTs;
-  `data/datasets/<dataset-key>.js` is the Sankey View Adapter layer. Both SSOTs
-  are enforced by `verify:ssot` and, in strict mode, `verify:i18n`. Keep Sankey
-  geometry out of both.
-- `data/products.js` is a placeholder for a future first-class Product SSOT
-  (currently empty, not verifier-checked). Do not hide Product identity or
-  ownership history inside Sankey adapters.
+  `data/datasets/<dataset-key>.js` is the Sankey View Adapter layer — a
+  stable path the viewer, standalone builder, and verifiers rely on. Keep
+  Sankey nodes, links, layout, render, SVG, colors, and pixel geometry out of
+  the SSOTs.
+- `data/company-metadata.js` is the company-profile SSOT. It powers the Table
+  view and must be complete before a company's first dataset is registered.
+- `data/products.js` is an empty placeholder for a future Product SSOT (not
+  verifier-checked). Do not hide product identity or ownership history inside
+  Sankey adapters.
+- Keep Trace domain normalization in `src/trace-domain.js`; keep `src/app.js`
+  focused on UI state, interaction, tables, and view switching.
 - When adding a metric family or SSOT, backfill this file and
   `docs/trace-specification.zh-CN.md`.
 
 ## Commands
 
-Install once; `verify:d3` and `verify:standalone` render in Chromium:
+Install once; the d3/standalone verifiers render in Chromium:
 
     pnpm install --frozen-lockfile && pnpm exec playwright install chromium
 
 | command | purpose |
 | --- | --- |
 | `pnpm check:pending` | pending-image duplicate / key-collision guard |
-| `pnpm verify:ssot` | income + revenue SSOT ↔ dataset parity (global) |
-| `pnpm verify:i18n -- --strict <key>` | i18n overlay coverage for a dataset |
-| `pnpm verify:d3 -- <key> [--focus <dir>] [--keep] [--language <code>]` | d3 render + auto hard gates; loop per `docs/fidelity-loop-rules.md` |
-| `pnpm verify:dataset-file-metadata` | `data/dataset-file-metadata.js` is current |
-| `pnpm build:standalone` + `pnpm verify:standalone` | build and check the self-contained HTML |
+| `pnpm verify:dataset -- <key> [--skip-render]` | aggregate per-dataset gate: syntax, SSOT, strict i18n, metadata, then a d3 render per language |
+| `pnpm verify:ssot` | SSOT ↔ dataset parity plus registration parity (global) |
+| `pnpm verify:i18n -- [--strict] [keys]` | i18n overlay coverage |
+| `pnpm verify:d3 -- <key> [--focus <dir>] [--keep] [--language <code>] [--round <n>]` | one d3 render + auto hard gates; archives each round to `output/compare/<key>/` |
+| `pnpm update:dataset-file-metadata` | regenerate `data/dataset-file-metadata.js` |
+| `pnpm verify:dataset-file-metadata` | generated metadata is current |
+| `pnpm build:standalone` | build the self-contained HTML (refreshes metadata first) |
+| `pnpm verify:standalone` | standalone artifact needs no sibling files |
+| `sh scripts/clean-compare.sh` | clean the scratch `compare/` workspace |
 
-`build:standalone` regenerates `data/dataset-file-metadata.js` first. Manual d3
-rounds archive to `output/compare/<key>/...`; scratch `compare/` is cleaned by
-`sh scripts/clean-compare.sh`.
+## New Dataset Pipeline
 
-## Input Workflow
+1. Guard: run `pnpm check:pending` (ignore `.gitkeep`). An exact content
+   match in `input/processed/` or a candidate-key collision is a stop
+   condition — report it and do not move, create, update, crop, or verify
+   anything for that image. If your final stable key differs from the
+   script's candidate key, re-check the final key against
+   `input/processed/`, `data/datasets/`, `data/income-statements.js`, and
+   `index.html` before continuing.
+2. Key: lowercase kebab case, company plus period, e.g. `nvidia-q4-fy26`.
+3. Image: move the source PNG to `input/processed/<dataset-key>.png` and set
+   `meta.referenceImage` to it with the exact source dimensions.
+4. Company (first dataset for a company): add the profile to
+   `data/company-metadata.js` — description, sector, industry, founded,
+   headquarters, fiscal year end, website, ticker/exchange, market cap with
+   as-of/source, and source URLs — plus localized profile fields for every
+   non-default language. Field details: `data/schema.md`.
+5. SSOT: add the `data/income-statements.js` record — comparable reported
+   totals, line items, notes, currency, unit, period, and source image only.
+6. Adapter: author `data/datasets/<dataset-key>.js` per `data/schema.md` as a
+   high-fidelity adapter with explicit `nodes`, `links`, `layout.nodes`, and
+   `layout.labels` tuned against the source image. Keep each semantic label
+   unit (name, value, notes, margin, Y/Y) grouped under one node/label intent
+   before splitting into blocks or lines; preserve source values and notes;
+   keep costs positive (`type: 'cost'` renders parenthesized); treat
+   publisher watermarks, creator branding, URLs, and attribution blocks as
+   intentional skipped residuals, not render targets; set `meta.logoSvg` when
+   the source shows a vector-representable company logo.
+7. Icons (when the source shows company or business/segment icons): author
+   `input/icon-crop-specs/<dataset-key>.json` and run
+   `python3 scripts/extract_icon_crops.py --spec <that file>`; it removes the
+   solid crop background and writes transparent reference crops plus
+   validation sheets and `crop-report.json` under
+   `data/assets/icon-references/<company>/`. Accept a crop only when the
+   subject is complete, visually centered, and free of unrelated content;
+   re-crop until that holds and record acceptance in `model-validation.md`.
+   Extract every semantically relevant cluster (skip watermarks, attribution,
+   and icon-less segments such as "Others"). Reuse existing SVG/vector assets
+   when the source icon is materially similar; use `src/icons.js` Lucide
+   icons for generic semantics. Prefer vector conversion; raster embedding is
+   allowed only for validated clusters written through `runtimeOutputDir`.
+   Crop/vector iteration and raster whitelist rules:
+   `docs/fidelity-loop-rules.md`; folder layout: `data/assets/README.md`.
+8. i18n: English is canonical. Add `i18n.<language>` overlays — never
+   parallel dataset files — for every non-default language in
+   `window.SANKEY_I18N.languageCodes`, covering dataset `name`, `meta`
+   fields, node labels/notes, and every fixed `layout.labels` or annotation
+   line that changes in translation, plus the matching SSOT labels/notes and
+   company profile. Overlays are display-only: never change values, links,
+   node geometry, financial totals, source images, or verification semantics.
+9. Register: add the `<script>` tag in `index.html` after dependencies and
+   after any dataset it reuses. Declare untranslated sub-brand annotation
+   words in the dataset's `i18n.preservedAnnotationText` (see Traps).
+10. Run `pnpm verify:dataset -- <dataset-key>`.
+11. Run the manual fidelity loop per `docs/fidelity-loop-rules.md`, including
+    a localization layout round per non-default language.
+12. Leave `input/pending/` empty except `.gitkeep`.
 
-1. Inspect `input/pending/` and ignore `.gitkeep`.
-2. Before moving images or updating data, check whether each pending PNG has
-   already been processed:
-   - Run `pnpm check:pending`, or manually compare the pending PNG against
-     `input/processed/` by content and candidate dataset key.
-   - Treat exact matches in `input/processed/` and candidate-key collisions as
-     stop conditions. Do not move, overwrite, create, update, crop, vectorize,
-     or verify anything for that pending image; report the duplicate or
-     collision instead.
-   - If the final stable dataset key differs from the script's candidate key,
-     check that final key against `input/processed/`, `data/datasets/`,
-     `data/income-statements.js`, and `index.html` before continuing.
-3. For each new pending PNG, choose a stable dataset key:
-   - Lowercase kebab case.
-   - Include company and period, for example `nvidia-q4-fy26`.
-4. Move the durable source image to:
-   - `input/processed/<dataset-key>.png`
-5. Create or update:
-   - `data/datasets/<dataset-key>.js`
-   - `data/income-statements.js`
-   - `data/company-metadata.js` when the company is new
-   - `index.html` dataset script registration
-   - Dataset, SSOT, and company metadata i18n overlays for every non-default
-     language listed in `window.SANKEY_I18N.languageCodes`
-6. If company icons or company-internal business/segment icons appear in the
-   source image, run the spec-driven icon extraction workflow before
-   vectorizing or rendering them:
-   - Create or update `input/icon-crop-specs/<dataset-key>.json`.
-   - Use `scripts/extract_icon_crops.py` to write validated reference crops to
-     `data/assets/icon-references/<company>/crops/`.
-   - The crop script removes solid crop-background pixels and writes
-     transparent PNGs by default. Tune `backgroundRemoval` in the spec only
-     when a crop needs a different tolerance, all-matching removal, or an
-     opaque output.
-   - Write validation sheets to
-     `data/assets/icon-references/<company>/validation-sheets/`.
-   - Keep `crop-report.json` and `model-validation.md` in the company asset
-     folder.
-   - Extract every semantically relevant company and business/segment icon
-     cluster in the source image unless the user explicitly limits the scope.
-     Do not stop after one sample cluster when the image contains multiple
-     business clusters.
-   - Exclude source publisher watermarks, creator/account branding, website
-     URLs, social badges, "how they make money" marks, attribution blocks, and
-     any segment such as "Others" that has no independent business icon.
-   Validate each crop before vectorizing it:
-   - The icon's main structure is fully included.
-   - The main structure is visually centered in the crop.
-   - No unrelated text, chart marks, connector fragments, watermarks, or
-     neighboring icon parts are included.
-   Re-crop until those checks pass. The files under
-   `data/assets/icon-references/<company>/crops/` are reference/conversion
-   assets only and must not be referenced directly from d3 runtime output.
-   When image embedding mode is explicitly used, set `runtimeOutputDir` in the
-   crop spec so the accepted crops are written as compressed runtime copies
-   under `data/assets/raster-annotations/<company>/`.
-7. Before authoring a new company's first dataset, gather company metadata
-   (description, sector, industry, founded date, headquarters, fiscal year end,
-   website, ticker/exchange, market cap with as-of/source when available, and
-   source URLs) and add it to `data/company-metadata.js`.
-   Also add localized company profile fields for every non-default supported
-   language, including at least display name when it differs, sector, industry,
-   headquarters, fiscal year end, and description.
-8. Set `meta.referenceImage` to the processed PNG with exact source dimensions.
-9. Keep `input/pending/` empty except `.gitkeep` after processing.
+## Traps and Hard Constraints
 
-## Dataset Authoring
-
-Prefer the existing project patterns; see `data/schema.md` for the full
-low-level dataset format:
-
-- Author registered datasets as high-fidelity adapters with explicit low-level
-  `nodes`, `links`, `layout.nodes`, and `layout.labels` tuned against the source
-  image.
-- When first identifying label regions in a source image, keep each semantic
-  label unit intact. Do not split a node's related name, value, notes, margin,
-  or Y/Y text into unrelated regions just because they are visually separated;
-  group them under the same node/label intent first, then split into
-  `layout.labels.*.blocks` or line breaks for placement.
-- Preserve values and notes from the source image.
-- Do not reproduce source publisher watermarks, creator/account branding,
-  website URLs, social badges, "how they make money" marks, or other attribution
-  blocks that are unrelated to the company income-statement semantics. Treat
-  them as intentional skipped residuals in the fidelity loop, not render targets.
-- Keep costs as positive numbers; the renderer formats `type: 'cost'` as
-  parenthesized values.
-- Register new datasets after dependencies and after any dataset they reuse.
-- Keep `data/income-statements.js` as the pure financial-statement SSOT for
-  every registered real dataset. It should contain comparable reported totals,
-  line items, notes, currency, unit, period, and source image only. Do not put
-  Sankey `nodes`, `links`, `layout`, `render`, SVG, colors, or pixel geometry
-  in the SSOT.
-- Keep `data/company-metadata.js` as the company-profile SSOT. It powers the
-  Table view's company list and should be updated before the first dataset for
-  a new company is registered.
-- Keep English as the canonical/default data language. For Sankey and Table
-  i18n, add `i18n.<language>` overlays instead of creating parallel dataset
-  files. These overlays may contain localized display strings and language-
-  specific text layout adjustments, but must not change values, links, node
-  geometry, financial totals, source images, or verification semantics.
-- When authoring or materially changing a dataset, localize all user-visible
-  dataset text for every non-default supported language: `name`, `meta.title`,
-  `meta.period`, `meta.periodNote`, node labels, notes, and any explicit
-  `layout.labels.*.blocks[].lines[].text` that is not `$value`. Localize the
-  matching income-statement/revenue SSOT labels/notes and new company metadata
-  as part of the same workflow.
-- Do not rely on the global i18n phrase dictionary for fixed-position chart
-  text. If a dataset uses explicit `layout.labels`, `annotationsSvg`, KPI
-  cards, or other SVG text fragments, add dataset-specific
-  `i18n.<language>.layout.labels` or localized annotation overrides for every
-  visible line that changes in translation. Translating `nodes[].label` alone
-  is not enough when fixed layout text is present.
-- Treat acronyms, ampersands, punctuation-heavy labels, and labels with money
-  suffixes as high-risk i18n text. Examples include `R&D`, `SG&A`,
-  `G&A`, `D&A`, `Online Marketing & Others`, and
-  `Sales & marketing ($3.1B)`. Preserve approved acronyms or provide explicit
-  localized lines; do not let generic punctuation cleanup split them into
-  malformed text.
-- For non-default language layout tuning, check rendered SVG text bounds, not
-  just source coordinates. In particular, right-side `anchor: 'start'` labels,
-  left-side `anchor: 'end'` labels, titles, KPI cards, and annotations must
-  remain inside `meta.referenceImage.width` and `meta.referenceImage.height`
-  after localization. Prefer line breaks, local x/y adjustments, or local font
-  sizing over changing values, links, node geometry, or financial semantics.
-
-For company and business icons:
-
-- Treat company icons and company-internal business/segment illustrative icons
-  as reusable assets. Prefer vector assets when the icon can be represented
-  cleanly, but image embedding mode is allowed for validated company/business
-  icon clusters when the source contains brand-specific bitmap detail or the
-  user asks for image embedding.
-- When adding icons for the first time, first crop every relevant source region
-  as original-icon reference assets through `scripts/extract_icon_crops.py`.
-  The script must be driven by a dataset-specific JSON spec so the workflow
-  stays reusable across companies. The script should remove the solid crop
-  background and emit a transparent PNG after cropping. Use each crop only after
-  checking that the icon subject is complete, centered, and free of unrelated
-  surrounding content. Then either convert it to SVG/vector geometry for reuse,
-  or, in image embedding mode, write a separate runtime copy through
-  `runtimeOutputDir`.
-- For visual/model crop validation, use the generated validation sheet for each
-  crop. It contains the original source image, the highlighted crop box, and
-  the extracted crop. Record acceptance in
-  `data/assets/icon-references/<company>/model-validation.md`.
-- When vectorizing icons, load `docs/fidelity-loop-rules.md` and follow its
-  SVG/vector icon subloop.
-- For later datasets, reuse existing SVG/vector icons whenever the source icon
-  is materially similar. Adjust the existing SVG viewBox, transform, size,
-  placement, or styling instead of creating near-duplicate assets.
-- Use Lucide/vector icons from `src/icons.js` for generic semantic icons when
-  they match the source intent.
-- In image embedding mode, load `docs/fidelity-loop-rules.md` for the runtime
-  raster exception rules and `data/assets/README.md` for asset layout.
-- Set `meta.logoSvg` to a vector company logo when the source shows one.
-
-## Data and Asset Layout
-
-Keep registered dataset adapters at `data/datasets/<dataset-key>.js`. The viewer,
-standalone builder, SSOT verifier, and project docs rely on this stable path.
-
-Use `data/assets/` for reusable data-adjacent assets:
-
-```text
-data/assets/
-  icon-references/
-    <company>/
-      crops/              # validated icon reference crops
-      validation-sheets/  # original image + crop-box review sheets
-      crop-report.json    # script output and validation metrics
-      model-validation.md # model/visual acceptance record
-  raster-annotations/
-    <company>/            # compressed runtime raster annotations
-```
-
-Reference crops in `data/assets/icon-references/` are not runtime assets. They
-exist to support SVG/vector conversion and future reuse decisions only.
-Runtime raster annotation rules are defined in `docs/fidelity-loop-rules.md`.
+- The auto hard gates (11 items: engine-output purity, canvas size, font,
+  no-raster rules, label-node spacing, SSOT/i18n consistency) are enumerated
+  only in `docs/fidelity-loop-rules.md` §自动硬门槛 — read them before tuning
+  layout, not after a failed run.
+- Label-node spacing targets 5px; a rendered bbox gap under 4px or a short
+  auxiliary column center offset over 4px is an automatic hard fail. Details
+  and the bbox audit procedure: `docs/fidelity-loop-rules.md`.
+- `verify:i18n --strict` proves overlay coverage, not visual validity. For
+  every non-default language, render with `verify:d3 --language <code>` and
+  inspect text bounds (`getBBox()` or equivalent) for mixed-language
+  leftovers, malformed acronyms/punctuation, overlap, and out-of-canvas text.
+  High-risk strings (`R&D`, `SG&A`, ampersand labels, money suffixes):
+  `docs/fidelity-loop-rules.md` §本地化布局.
+- `annotationsSvg` brand text: whole segments matching the company's name,
+  legal name, or alias words are exempted automatically from i18n fallback
+  checks; other intentionally untranslated words (sub-brands like `aws`)
+  must be declared in the dataset's `i18n.preservedAnnotationText`. Do not
+  extend the frozen legacy list in `scripts/verify-i18n.mjs`.
+- Registration parity is enforced by `verify:ssot`: every file in
+  `data/datasets/` must be registered in `index.html` unless listed in
+  `UNREGISTERED_DATASET_SCRIPTS` (`scripts/script-sources.mjs`).
+- Crops under `data/assets/icon-references/` are reference/conversion assets
+  only and must never be referenced from d3 runtime output; runtime rasters
+  live under `data/assets/raster-annotations/<company>/`.
+- Never rename a processed image after its dataset key is assigned.
+- A shareable final HTML artifact must be `pnpm build:standalone` output:
+  fully self-contained, no sibling CSS/JS/font/data/PNG files at runtime.
 
 ## d3-Sankey Fidelity Loop
 
-Before running or reporting any d3-Sankey fidelity loop, load and follow
-`docs/fidelity-loop-rules.md`. That file is the SSOT for d3 output purity,
-allowed changes, image/raster exceptions, metrics, iteration, localization
-layout checks, temporary `compare/` handling, user-feedback learning, red-box
-attention reference images, Task information, final Loop Fidelity Summary, and
-icon SVG/vector subloops.
+`docs/fidelity-loop-rules.md` is the single source of truth for fidelity-loop
+behavior. Load it before running or reporting any loop. Treat every user
+fidelity correction as a process-improvement signal: generalize the lesson
+into that rules file or record a dataset-specific exception in the loop Task
+information, per its 人工反馈沉淀 closure loop. Each manual round maintains
+current Task information and, while attention areas stay open, produces the
+red-box reference image for the next round.
 
-When a user points out a fidelity issue, treat it as a process-improvement
-signal as well as a local fix. Follow `docs/fidelity-loop-rules.md` to either
-generalize the lesson back into the rules or record the dataset-specific
-exception in the loop Task information. Each manual loop round must maintain
-the current Task information and, when there are open attention areas, produce
-the required red-box reference image for the next round.
+## Commit Messages
 
-If `AGENTS.md`, `README.md`, or another project note differs from
-`docs/fidelity-loop-rules.md` on fidelity-loop behavior, follow
-`docs/fidelity-loop-rules.md`.
-
-## Hard Rules
-
-- When a shareable final HTML artifact is requested, produce the standalone
-  file with `pnpm build:standalone`. The artifact must be self-contained: no
-  sibling CSS, JS, font, vendor, data, or reference PNG files should be needed
-  at runtime.
-- Do not rename processed images after assigning a stable dataset key.
-
-## Commit Message Convention
-
-Follow the project convention in `docs/commit-messages.md`. Use the lightweight
-Conventional Commits shape:
-
-```text
-<type>(<scope>): <summary>
-```
-
-Use an English, lowercase summary with no trailing period. Keep the first line
-focused on one purpose, and put verification details in the body when useful.
-
-Preferred project types:
-
-- `data` for dataset files, processed input images, and `index.html` dataset
-  registration.
-- `render` for `src/sankey-engine.js` and visible SVG/rendering behavior.
-- `verify` for `scripts/verify-d3.mjs` and d3 fidelity checks.
-- `schema` for dataset format conventions.
-- `docs`, `feat`, `fix`, `refactor`, `test`, or `chore` for ordinary changes.
-
-Prefer scopes such as a dataset key (`nvidia-q1-fy27`), module (`engine`,
-`icons`, `verify-d3`), or workflow area (`input`, `export`, `d3-mode`). For
-new dataset work, keep the processed PNG, `data/datasets/<dataset-key>.js`, and
-`index.html` registration in the same `data(<dataset-key>)` commit. If a
-dataset requires reusable renderer support, split that into a separate
-`render(engine)` commit before the dataset tuning commit.
+Follow `docs/commit-messages.md`: lightweight Conventional Commits
+(`<type>(<scope>): <summary>`, English lowercase summary). It owns the type
+and scope tables and the rule that a new dataset's processed PNG, adapter,
+and `index.html` registration ship in one `data(<key>)` commit, with reusable
+renderer support split into a prior `render(engine)` commit.
 
 ## Verification Checklist
 
-Commands are defined in [Commands](#commands). Always, before final response:
+Always, before the final response:
 
-- `node --check` passes on every JS file you changed (datasets, both SSOTs,
-  `data/company-metadata.js`, `src/*`, generated metadata).
+- `node --check` passes on every JS file you changed.
 - `pnpm verify:ssot` passes.
 - `input/pending/` contains only `.gitkeep`, or a stop condition is reported.
 
-For a new or materially changed dataset, also:
+For a new or materially changed dataset:
 
-- Processed image at `input/processed/<dataset-key>.png`; script registered in
-  `index.html`.
-- `pnpm verify:i18n -- --strict <dataset-key>` passes after language overlays
-  are added.
-- `pnpm verify:d3 -- <dataset-key>` passes its hard gates; when a fidelity loop
-  is required, run it per `docs/fidelity-loop-rules.md` with current Task
-  information, a red-box reference image or closure note, and user-feedback
-  lessons folded back into the rules or recorded as a dataset exception.
-- Per non-default language, inspect the rendered localized SVG (`getBBox()` or
-  equivalent) for mixed-language leftovers, malformed acronym/punctuation,
-  overlap, and out-of-canvas bounds; `verify:i18n --strict` does not prove
-  fixed-layout text is valid.
-- `pnpm verify:dataset-file-metadata` passes (refresh with
-  `pnpm update:dataset-file-metadata` if stale).
+- `pnpm verify:dataset -- <dataset-key>` passes (syntax, SSOT, strict i18n,
+  metadata, and a d3 render per language).
+- The manual fidelity loop ran per `docs/fidelity-loop-rules.md`, with
+  current Task information and a red-box reference image or closure note.
+- Per non-default language, the rendered SVG was visually inspected — the
+  aggregate command does not replace this step.
 
-If icon assets were extracted:
+If icon assets were extracted: the crop script passes, `crop-report.json`
+shows every crop `passes: true`, validation sheets were reviewed,
+`model-validation.md` records acceptance, and every relevant cluster is
+extracted or documented as skipped.
 
-- `python3 scripts/extract_icon_crops.py --spec input/icon-crop-specs/<dataset-key>.json` passes.
-- `crop-report.json` shows every crop `passes: true`; validation sheets reviewed;
-  `model-validation.md` records acceptance.
-- Every relevant company/business cluster is extracted or documented as skipped.
-- For image embedding mode, the runtime raster checks in
-  `docs/fidelity-loop-rules.md` pass.
-
-If a standalone artifact is required, `pnpm build:standalone` then
+If a standalone artifact is requested: `pnpm build:standalone` then
 `pnpm verify:standalone` pass.
 
 ## Reporting
 
 In the final response, include:
 
-- Files changed.
-- Whether the pure data SSOT was updated.
-- Which icon assets were extracted, and whether all relevant business clusters
-  were accounted for.
-- For dataset or renderer changes, the final d3 loop result required by
-  `docs/fidelity-loop-rules.md`, including the compact Loop Fidelity Summary,
-  latest Task information, and red-box reference image status when a fidelity
-  loop was run. If no loop was run, state why.
+- Files changed, and whether the pure data SSOTs were updated.
+- Icon assets extracted, and whether all relevant clusters were accounted for.
+- For dataset or renderer changes: the compact Loop Fidelity Summary, latest
+  Task information, and red-box reference image status required by
+  `docs/fidelity-loop-rules.md` — or why no loop was run.
 - Whether user-feedback lessons changed `docs/fidelity-loop-rules.md` or were
   recorded as dataset-specific exceptions.
 - Any commands that could not be run.
