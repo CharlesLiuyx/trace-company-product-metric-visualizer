@@ -1,0 +1,166 @@
+{
+  "source": "input/processed/intuit-q3-fy26.png",
+  "outputDir": "data/assets/icon-references/intuit",
+  "runtimeOutputDir": "data/assets/raster-annotations/intuit",
+  "validationSheetDir": "data/assets/icon-references/intuit/validation-sheets",
+  "report": "crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [
+      242,
+      242,
+      242
+    ],
+    "tolerance": 10
+  },
+  "crops": [
+    {
+      "key": "intuit-company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "searchBox": {
+        "x": 698,
+        "y": 256,
+        "width": 568,
+        "height": 120
+      },
+      "cropBox": {
+        "x": 692,
+        "y": 250,
+        "width": 580,
+        "height": 132
+      },
+      "threshold": 16,
+      "minComponentArea": 60,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.08,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Intuit corporate INTUIT wordmark centered above the revenue hub; excludes the chart title above and the Revenue label below."
+    },
+    {
+      "key": "intuit-quickbooks-icon",
+      "output": "crops/quickbooks-icon.png",
+      "searchBox": {
+        "x": 84,
+        "y": 474,
+        "width": 127,
+        "height": 128
+      },
+      "cropBox": {
+        "x": 78,
+        "y": 468,
+        "width": 140,
+        "height": 140
+      },
+      "threshold": 16,
+      "minComponentArea": 40,
+      "validation": {
+        "borderBand": 4,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "QuickBooks app icon (green circle with white qb monogram) in the Global Business Solutions icon pair; excludes the Mailchimp icon and the intuit quickbooks wordmark below."
+    },
+    {
+      "key": "intuit-mailchimp-icon",
+      "output": "crops/mailchimp-icon.png",
+      "searchBox": {
+        "x": 243,
+        "y": 472,
+        "width": 120,
+        "height": 138
+      },
+      "cropBox": {
+        "x": 237,
+        "y": 467,
+        "width": 132,
+        "height": 144
+      },
+      "threshold": 16,
+      "minComponentArea": 40,
+      "validation": {
+        "borderBand": 4,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Mailchimp Freddie mascot head in the Global Business Solutions icon pair; excludes the QuickBooks icon and the intuit mailchimp wordmark below."
+    },
+    {
+      "key": "intuit-turbotax-icon",
+      "output": "crops/turbotax-icon.png",
+      "searchBox": {
+        "x": 199,
+        "y": 839,
+        "width": 66,
+        "height": 64
+      },
+      "cropBox": {
+        "x": 196,
+        "y": 837,
+        "width": 72,
+        "height": 67
+      },
+      "threshold": 16,
+      "minComponentArea": 30,
+      "excludeBoxes": [
+        {
+          "x": 196,
+          "y": 902,
+          "width": 72,
+          "height": 2
+        }
+      ],
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "TurboTax check icon (red circle with white checkmark) above the turbotax wordmark; the turbotax t ascenders start 1px below the circle, so the crop excludes the bottom 2px text strip and uses a 2px border band."
+    },
+    {
+      "key": "intuit-credit-karma-wordmark",
+      "output": "crops/credit-karma-wordmark.png",
+      "searchBox": {
+        "x": 54,
+        "y": 1139,
+        "width": 306,
+        "height": 52
+      },
+      "cropBox": {
+        "x": 50,
+        "y": 1135,
+        "width": 314,
+        "height": 60
+      },
+      "threshold": 16,
+      "minComponentArea": 30,
+      "validation": {
+        "borderBand": 4,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "credit karma green wordmark with trademark mark left of the Credit Karma source bar; excludes the +15% Y/Y note above and the blue source bar to the right."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "intuit-protax-segment",
+      "reason": "The ProTax segment is labeled with plain text only and has no business icon in the source chart."
+    },
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding badge and mini sankey logo, not part of Intuit's income-statement semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "Source publisher branding, website URL watermark, and footer logo are intentionally excluded."
+    }
+  ]
+}

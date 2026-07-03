@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-02T18:31:51.289Z",
+  "generatedAt": "2026-07-03T12:26:13.750Z",
   "source": "dataset view and metric source file modification times",
   "files": {
     "alphabet-q1-fy26": {
@@ -176,6 +176,11 @@
       "path": "data/datasets/ibm-q1-fy26.js",
       "mtimeMs": 1783016923129,
       "mtime": "2026-07-02T18:28:43.129Z"
+    },
+    "intuit-q3-fy26": {
+      "path": "data/datasets/intuit-q3-fy26.js",
+      "mtimeMs": 1783081573750,
+      "mtime": "2026-07-03T12:26:13.750Z"
     },
     "jd-com-q1-fy26": {
       "path": "data/datasets/jd-com-q1-fy26.js",
