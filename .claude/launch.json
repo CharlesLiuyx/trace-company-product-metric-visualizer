@@ -4,8 +4,8 @@
     {
       "name": "static",
       "runtimeExecutable": "node",
-      "runtimeArgs": ["scripts/dev-server.mjs", "--port", "$PORT"],
-      "autoPort": true
+      "runtimeArgs": ["scripts/dev-server.mjs", "--port", "8000"],
+      "port": 8000
     }
   ]
 }
