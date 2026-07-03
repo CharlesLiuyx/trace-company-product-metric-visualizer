@@ -158,6 +158,8 @@ function hideComparisonZoomOverlay() {
   if (overlay) overlay.style.display = 'none';
 }
 function cancelComparisonZoomGesture() {
+  cancelComparisonCardZoom();
+  hideComparisonZoomHint();
   const gesture = comparisonZoomGesture;
   if (!gesture) return;
   window.clearTimeout(gesture.timer);
@@ -165,6 +167,35 @@ function cancelComparisonZoomGesture() {
   comparisonZoomGesture = null;
   sankeyComparison?.classList.remove('zoom-previewing');
   hideComparisonZoomOverlay();
+}
+function createComparisonZoomGesture(flow, committed) {
+  return {
+    committed,
+    flow,
+    started: false,
+    flowLeft: 0,
+    flowTop: 0,
+    viewLeft: 0,
+    viewTop: 0,
+    viewHalfX: 0,
+    viewHalfY: 0,
+    dpr: 1,
+    overlay: null,
+    ctx: null,
+    tiles: [],
+    placeholderBg: 'rgba(0, 0, 0, 0.05)',
+    scale: 1,
+    tx: 0,
+    ty: 0,
+    pendingZoom: committed,
+    pendingAnchor: null,
+    morph: false,
+    frame: 0,
+    timer: 0,
+    events: 0,
+    applies: 0,
+    startedAt: performance.now(),
+  };
 }
 function setComparisonZoom(value, anchor) {
   const next = clampComparisonZoom(value);
@@ -175,35 +206,13 @@ function setComparisonZoom(value, anchor) {
     applyComparisonZoom();
     return;
   }
+  // a manual zoom takes over from a running double-click flight: reveal its
+  // already-committed layout, then gesture from there
+  if (comparisonZoomGesture?.morph) finishComparisonCardZoomFlight();
   if (!comparisonZoomGesture) {
     const committed = clampComparisonZoom(state.comparisonZoom);
     if (next === committed) return;
-    comparisonZoomGesture = {
-      committed,
-      flow,
-      started: false,
-      flowLeft: 0,
-      flowTop: 0,
-      viewLeft: 0,
-      viewTop: 0,
-      viewHalfX: 0,
-      viewHalfY: 0,
-      dpr: 1,
-      overlay: null,
-      ctx: null,
-      tiles: [],
-      placeholderBg: 'rgba(0, 0, 0, 0.05)',
-      scale: 1,
-      tx: 0,
-      ty: 0,
-      pendingZoom: next,
-      pendingAnchor: null,
-      frame: 0,
-      timer: 0,
-      events: 0,
-      applies: 0,
-      startedAt: performance.now(),
-    };
+    comparisonZoomGesture = createComparisonZoomGesture(flow, committed);
   }
   const gesture = comparisonZoomGesture;
   gesture.pendingZoom = next;
@@ -265,6 +274,8 @@ function applyComparisonZoomPreview() {
   const gesture = comparisonZoomGesture;
   if (!gesture) return;
   gesture.frame = 0;
+  // morph flights paint through their own loop in zoomComparisonToCard
+  if (gesture.morph) return;
   const flow = gesture.flow;
   if (!sankeyView || !flow.isConnected) return;
   if (!gesture.started) {
@@ -380,6 +391,11 @@ function applyComparisonZoomPreview() {
 function commitComparisonZoom() {
   const gesture = comparisonZoomGesture;
   if (!gesture) return;
+  if (gesture.morph) {
+    // a morph flight committed its layout up front; ending it is just reveal
+    finishComparisonCardZoomFlight();
+    return;
+  }
   const commitStartedAt = performance.now();
   window.clearTimeout(gesture.timer);
   if (gesture.frame) window.cancelAnimationFrame(gesture.frame);
@@ -443,6 +459,173 @@ function commitComparisonZoom() {
     });
   }
 }
+// Double-click on a chart's title flies the canvas to that chart. The final
+// layout is committed up front — hidden behind the overlay, which keeps
+// showing the pre-zoom frame — and the true start and end screen rects of
+// every chart are measured from the DOM. The overlay then morphs each chart
+// bitmap from its start rect to its end rect, so both endpoints of the
+// flight are real geometry and the reveal lands with no jump.
+const COMPARISON_CARD_ZOOM_DURATION = 120;
+const COMPARISON_CARD_ZOOM_MARGIN = 16;
+let comparisonCardZoomFrame = 0;
+function cancelComparisonCardZoom() {
+  if (!comparisonCardZoomFrame) return;
+  window.cancelAnimationFrame(comparisonCardZoomFrame);
+  comparisonCardZoomFrame = 0;
+}
+function finishComparisonCardZoomFlight() {
+  const gesture = comparisonZoomGesture;
+  if (!gesture || !gesture.morph) return;
+  cancelComparisonCardZoom();
+  window.clearTimeout(gesture.timer);
+  comparisonZoomGesture = null;
+  sankeyComparison?.classList.remove('zoom-previewing');
+  hideComparisonZoomOverlay();
+  syncComparisonZoomControls();
+  // re-raster the bitmaps at the zoom that just landed
+  scheduleIdleTask(buildComparisonZoomProxies);
+}
+function zoomComparisonToCard(cardElement) {
+  const flow = comparisonFlow();
+  if (!sankeyView || !flow || !comparisonZoomActive()) return;
+  hideComparisonZoomHint();
+  // land any in-progress gesture first so the flight starts from committed
+  // geometry (a morph flight just reveals; a wheel preview commits)
+  if (comparisonZoomGesture) commitComparisonZoom();
+  if (comparisonZoomGesture) return;
+  const cards = [...flow.querySelectorAll(':scope > .comparison-card')];
+  const index = cards.indexOf(cardElement);
+  const host = cardElement.querySelector('.comparison-chart-host');
+  const hostBase = host ? finiteNumber(host.dataset.baseWidth) : null;
+  if (index < 0 || !host || hostBase == null) return;
+  const hostRect = host.getBoundingClientRect();
+  const cardRect = cardElement.getBoundingClientRect();
+  if (!(hostRect.width > 0) || !(hostRect.height > 0)) return;
+  const viewRect = sankeyView.getBoundingClientRect();
+  const margin = COMPARISON_CARD_ZOOM_MARGIN;
+  // the chart area scales with zoom, the card chrome around it does not
+  const chromeWidth = cardRect.width - hostRect.width;
+  const chromeHeight = cardRect.height - hostRect.height;
+  const aspect = hostRect.height / hostRect.width;
+  const targetZoom = clampComparisonZoom(Math.min(
+    (Math.max(1, sankeyView.clientWidth - margin * 2) - chromeWidth) / hostBase,
+    (Math.max(1, sankeyView.clientHeight - margin * 2) - chromeHeight) / (hostBase * aspect)
+  ));
+  const startZoom = clampComparisonZoom(state.comparisonZoom);
+  const measureRects = () => cards.map((card) => {
+    const box = card.querySelector('.comparison-chart-host') || card;
+    const rect = box.getBoundingClientRect();
+    return {
+      left: rect.left - viewRect.left,
+      top: rect.top - viewRect.top,
+      width: rect.width,
+      height: rect.height,
+    };
+  });
+  const startRects = measureRects();
+  const bitmaps = cards.map((card) => card.querySelector('.comparison-zoom-proxy'));
+  // freeze the screen behind the overlay, then commit the final layout under it
+  const gesture = createComparisonZoomGesture(flow, startZoom);
+  gesture.morph = true;
+  gesture.started = true;
+  comparisonZoomGesture = gesture;
+  const overlay = comparisonZoomOverlay();
+  const dpr = window.devicePixelRatio || 1;
+  overlay.style.left = `${viewRect.left}px`;
+  overlay.style.top = `${viewRect.top}px`;
+  overlay.style.width = `${viewRect.width}px`;
+  overlay.style.height = `${viewRect.height}px`;
+  const backingWidth = Math.max(1, Math.round(viewRect.width * dpr));
+  const backingHeight = Math.max(1, Math.round(viewRect.height * dpr));
+  if (overlay.width !== backingWidth) overlay.width = backingWidth;
+  if (overlay.height !== backingHeight) overlay.height = backingHeight;
+  overlay.style.display = 'block';
+  const ctx = overlay.getContext('2d');
+  if (ctx) ctx.imageSmoothingQuality = 'medium';
+  const frame = sankeyComparison.querySelector('.comparison-chart-frame');
+  const placeholderBg = frame ? getComputedStyle(frame).backgroundColor : gesture.placeholderBg;
+  sankeyComparison?.classList.add('zoom-previewing');
+  state.comparisonZoom = targetZoom;
+  applyComparisonZoom();
+  // land the scroll on real geometry: center the card, or pin its top/left
+  // edge inside when it cannot fully fit; the browser clamps at content edges
+  const landedRect = cardElement.getBoundingClientRect();
+  const desiredX = landedRect.width > sankeyView.clientWidth - margin * 2
+    ? margin + landedRect.width / 2 : sankeyView.clientWidth / 2;
+  const desiredY = landedRect.height > sankeyView.clientHeight - margin * 2
+    ? margin + landedRect.height / 2 : sankeyView.clientHeight / 2;
+  sankeyView.scrollLeft += landedRect.left - viewRect.left + landedRect.width / 2 - desiredX;
+  sankeyView.scrollTop += landedRect.top - viewRect.top + landedRect.height / 2 - desiredY;
+  const scrollBase = { left: sankeyView.scrollLeft, top: sankeyView.scrollTop };
+  const endRects = measureRects();
+  const startedAt = performance.now();
+  const paintMorphFrame = (eased) => {
+    if (!ctx) return;
+    // wheel panning during the flight shifts the committed DOM; shift the
+    // end rects with it so the reveal stays aligned
+    const scrollDx = sankeyView.scrollLeft - scrollBase.left;
+    const scrollDy = sankeyView.scrollTop - scrollBase.top;
+    ctx.clearRect(0, 0, overlay.width, overlay.height);
+    for (let i = 0; i < cards.length; i += 1) {
+      const from = startRects[i];
+      const to = endRects[i];
+      const x = (from.left + (to.left - scrollDx - from.left) * eased) * dpr;
+      const y = (from.top + (to.top - scrollDy - from.top) * eased) * dpr;
+      const width = (from.width + (to.width - from.width) * eased) * dpr;
+      const height = (from.height + (to.height - from.height) * eased) * dpr;
+      if (x >= overlay.width || y >= overlay.height || x + width <= 0 || y + height <= 0) continue;
+      if (bitmaps[i]) {
+        ctx.drawImage(bitmaps[i], x, y, width, height);
+      } else {
+        // bitmap still rendering; keep the card's footprint visible
+        ctx.fillStyle = placeholderBg;
+        ctx.fillRect(x, y, width, height);
+      }
+    }
+    syncComparisonZoomControls(startZoom * Math.pow(targetZoom / startZoom, eased));
+  };
+  const step = () => {
+    comparisonCardZoomFrame = 0;
+    // a re-render or manual zoom replaced the gesture; stop flying
+    if (comparisonZoomGesture !== gesture) return;
+    const progress = Math.min(1, (performance.now() - startedAt) / COMPARISON_CARD_ZOOM_DURATION);
+    if (progress >= 1) {
+      finishComparisonCardZoomFlight();
+      return;
+    }
+    paintMorphFrame(1 - Math.pow(1 - progress, 3));
+    comparisonCardZoomFrame = window.requestAnimationFrame(step);
+  };
+  // safety net: if rAF stalls (hidden tab), the timer reveals the committed
+  // layout so the live flow never stays hidden behind the overlay
+  gesture.timer = window.setTimeout(finishComparisonCardZoomFlight, COMPARISON_CARD_ZOOM_DURATION + 200);
+  step();
+}
+// One-shot hint tooltip: a single click on a title teaches the double-click
+// gesture without performing it.
+const COMPARISON_ZOOM_HINT_DURATION = 1600;
+let comparisonZoomHintTimer = 0;
+function showComparisonZoomHint(titleRect) {
+  let hint = document.getElementById('comparisonZoomHint');
+  if (!hint) {
+    hint = document.createElement('div');
+    hint.id = 'comparisonZoomHint';
+    hint.className = 'comparison-zoom-hint';
+    hint.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(hint);
+  }
+  hint.textContent = t('comparisonZoomHint');
+  hint.style.left = `${Math.round(titleRect.left + titleRect.width / 2)}px`;
+  hint.style.top = `${Math.round(titleRect.bottom + 8)}px`;
+  hint.classList.add('visible');
+  window.clearTimeout(comparisonZoomHintTimer);
+  comparisonZoomHintTimer = window.setTimeout(hideComparisonZoomHint, COMPARISON_ZOOM_HINT_DURATION);
+}
+function hideComparisonZoomHint() {
+  window.clearTimeout(comparisonZoomHintTimer);
+  comparisonZoomHintTimer = 0;
+  document.getElementById('comparisonZoomHint')?.classList.remove('visible');
+}
 if (perfHudEnabled && content) {
   const hud = document.createElement('div');
   hud.className = 'perf-hud';
@@ -485,6 +668,7 @@ function comparisonWheelDeltas(event) {
 sankeyView?.addEventListener('wheel', (event) => {
   if (!comparisonZoomActive()) return;
   event.preventDefault();
+  if (comparisonZoomHintTimer) hideComparisonZoomHint();
   const { dx, dy } = comparisonWheelDeltas(event);
   if (event.ctrlKey || event.metaKey) {
     // reuse the rect measured at gesture start; a per-event read would force
@@ -506,7 +690,7 @@ sankeyView?.addEventListener('wheel', (event) => {
   sankeyView.scrollLeft += horizontal ? dy : dx;
   sankeyView.scrollTop += horizontal ? 0 : dy;
   const gesture = comparisonZoomGesture;
-  if (gesture) {
+  if (gesture && !gesture.morph) {
     // panning while a zoom preview is up: repaint the overlay against the new
     // scroll position and keep the commit deferred until the hands are still
     if (!gesture.frame) gesture.frame = window.requestAnimationFrame(applyComparisonZoomPreview);
@@ -514,3 +698,28 @@ sankeyView?.addEventListener('wheel', (event) => {
     gesture.timer = window.setTimeout(commitComparisonZoom, COMPARISON_ZOOM_COMMIT_DELAY);
   }
 }, { passive: false });
+// the title's box padded generously — the whole headline band — is the hit
+// area: a single click shows the hint, a double click flies to the chart
+function comparisonCardTitleHit(event) {
+  if (!comparisonZoomActive()) return null;
+  const target = event.target instanceof Element ? event.target : null;
+  const card = target?.closest('.comparison-card');
+  if (!card || card.classList.contains('empty')) return null;
+  const title = card.querySelector('.sankey-title');
+  if (!title) return null;
+  const rect = title.getBoundingClientRect();
+  const pad = Math.max(10, rect.height * 0.6);
+  if (event.clientX < rect.left - pad || event.clientX > rect.right + pad
+    || event.clientY < rect.top - pad || event.clientY > rect.bottom + pad) return null;
+  return { card, rect };
+}
+sankeyComparison?.addEventListener('click', (event) => {
+  const hit = comparisonCardTitleHit(event);
+  if (hit) showComparisonZoomHint(hit.rect);
+});
+sankeyComparison?.addEventListener('dblclick', (event) => {
+  const hit = comparisonCardTitleHit(event);
+  if (!hit) return;
+  event.preventDefault();
+  zoomComparisonToCard(hit.card);
+});
