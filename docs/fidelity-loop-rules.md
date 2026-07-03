@@ -104,6 +104,9 @@ sh scripts/clean-compare.sh
    远离柱子的近邻 label；即使自动 overlap gate 通过，也必须按该柱子的渲染 bbox 复核
    水平中心和 5px 边界距离。毛利、营业利润、营业费用、净利润/净亏损等中间汇总柱属于
    高风险项，人工轮次必须优先检查。
+   固定布局里如果汇总柱 label 被手写成靠左/靠右但视觉上仍属于该柱子的上方或下方，
+   必须按上下同轴组合审计，不得因为自动 bbox 归类没有捕捉到它就接受中心线偏移；
+   修复时优先把 label 的水平中心对齐到柱子中心，再复查是否出现文本与流带/节点重叠。
 10. 左右相邻 label 与 node 的横向 overlap 是 hard fail。
 11. `node --check`、`pnpm verify:ssot`、`pnpm verify:i18n -- --strict <dataset-key>` 等
    数据一致性检查必须按 AGENTS.md 的验证清单执行。
