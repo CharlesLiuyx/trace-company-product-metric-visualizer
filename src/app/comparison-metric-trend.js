@@ -302,7 +302,10 @@ const comparisonMetricTrendValueLabelsPlugin = {
           ctx.strokeStyle = options.halo;
           ctx.strokeText(label, x, y);
         }
-        ctx.fillStyle = dataset.borderColor || options.color || '#263238';
+        // the number takes the point's colour, so a negative reading stays
+        // marked in the sign-aware negative tone
+        ctx.fillStyle = (Array.isArray(dataset.pointBorderColor) && dataset.pointBorderColor[hover.index])
+          || dataset.borderColor || options.color || '#263238';
         ctx.fillText(label, x, y);
       });
       ctx.restore();
@@ -366,6 +369,7 @@ function createComparisonMetricTrendChartConfig(model) {
   const grid = cssVar('--table-cell-line', '#edf0f0');
   const axis = cssVar('--table-line', '#d9dfdf');
   const tableBg = cssVar('--table-bg', '#ffffff');
+  const negativeColor = cssVar('--trend-negative', '#b7433a');
   const fontFamily = 'Montserrat, Arial, sans-serif';
   const formatValue = (value) => formatAmount(model.caliber, Number(value));
   const allValues = model.metrics.flatMap((metric) => metric.values.filter((value) => value != null));
@@ -449,10 +453,18 @@ function createComparisonMetricTrendChartConfig(model) {
       })
     : model.metrics.map((metric, index) => {
         const { accent, borderAlpha } = styles[index];
+        const lineColor = colorWithAlpha(accent, Math.min(borderAlpha + 0.15, 1));
+        // sign-aware rings: growth points below zero swap to the negative
+        // colour so dips read at a glance; the line keeps the metric's accent
+        const pointColors = metric.growth.map((value) => (
+          typeof value === 'number' && value < 0 ? negativeColor : lineColor
+        ));
         return {
-          ...rightAxisLine(colorWithAlpha(accent, Math.min(borderAlpha + 0.15, 1))),
+          ...rightAxisLine(lineColor),
           label: metric.label,
           data: metric.growth,
+          pointBorderColor: pointColors,
+          pointHoverBorderColor: pointColors,
           $role: 'growth',
           $barDatasetIndex: index,
         };
@@ -460,7 +472,7 @@ function createComparisonMetricTrendChartConfig(model) {
   return {
     type: 'bar',
     data: { labels: model.labels, datasets: [...barDatasets, ...lineDatasets] },
-    plugins: [comparisonMetricTrendValueLabelsPlugin],
+    plugins: [percentAxisZeroLinePlugin, comparisonMetricTrendValueLabelsPlugin],
     options: {
       responsive: true,
       maintainAspectRatio: false,
@@ -534,6 +546,10 @@ function createComparisonMetricTrendChartConfig(model) {
           },
         },
         tooltip: { enabled: false },
+        percentAxisZeroLine: {
+          color: colorWithAlpha(muted, 0.5),
+          lineDash: [5, 3],
+        },
         comparisonMetricTrendValueLabels: {
           color: text,
           mutedColor: colorWithAlpha(text, 0.72),

@@ -15,6 +15,29 @@ function destroyRevenueTrendChart() {
   revenueTrendCharts = [];
   revenueTrendHoverSyncing = false;
 }
+/* Shared zero-baseline rule: any trend chart whose right axis carries
+ * percentages (growth or link share) draws a dashed guide at 0% once the
+ * axis spans negative and positive values. Right-axis gridlines stay off the
+ * plot area, so without the guide the sign flip has no visual anchor. */
+const percentAxisZeroLinePlugin = {
+  id: 'percentAxisZeroLine',
+  beforeDatasetsDraw(chart, _args, options) {
+    const scale = chart.scales?.[options.scaleId || 'yGrowth'];
+    const { ctx, chartArea } = chart;
+    if (!scale || !chartArea || !(scale.min < 0 && scale.max > 0)) return;
+    const y = scale.getPixelForValue(0);
+    if (!Number.isFinite(y) || y <= chartArea.top + 1 || y >= chartArea.bottom - 1) return;
+    ctx.save();
+    ctx.strokeStyle = options.color || 'rgba(106, 112, 120, 0.5)';
+    ctx.lineWidth = options.lineWidth || 1;
+    ctx.setLineDash(options.lineDash || [5, 3]);
+    ctx.beginPath();
+    ctx.moveTo(chartArea.left, y);
+    ctx.lineTo(chartArea.right, y);
+    ctx.stroke();
+    ctx.restore();
+  },
+};
 const revenueTrendValueLabelsPlugin = {
   id: 'revenueTrendValueLabels',
   afterDatasetsDraw(chart, _args, options) {
@@ -115,12 +138,14 @@ const revenueTrendHoverGuidePlugin = {
       const radius = options.activePointRadius || 4.4;
       ctx.setLineDash([]);
       ctx.beginPath();
-      ctx.fillStyle = options.activePointHalo || 'rgba(154, 106, 47, 0.14)';
+      ctx.fillStyle = options.activePointHalos?.[activeIndex]
+        || options.activePointHalo || 'rgba(154, 106, 47, 0.14)';
       ctx.arc(point.x, point.y, radius + 3, 0, Math.PI * 2);
       ctx.fill();
       ctx.beginPath();
       ctx.fillStyle = options.activePointFill || '#fff';
-      ctx.strokeStyle = options.activePointBorder || 'rgba(154, 106, 47, 1)';
+      ctx.strokeStyle = options.activePointColors?.[activeIndex]
+        || options.activePointBorder || 'rgba(154, 106, 47, 1)';
       ctx.lineWidth = options.activePointLineWidth || 2.2;
       ctx.arc(point.x, point.y, radius, 0, Math.PI * 2);
       ctx.fill();
@@ -230,6 +255,12 @@ function createRevenueTrendChartConfig({
   const fontFamily = 'Montserrat, Arial, sans-serif';
   const labels = observations.map((observation) => formatTrendDate(observation.date));
   const growthValues = observations.map((observation) => observation.momGrowthPct ?? null);
+  // sign-aware rings: a growth point below zero swaps its ring (and the
+  // hover ring/halo) to the negative colour, so dips read at a glance
+  const negativeColor = cssVar('--trend-negative', '#b7433a');
+  const growthPointColor = (value) => (typeof value === 'number' && value < 0 ? negativeColor : growthColor);
+  const growthPointColors = growthValues.map(growthPointColor);
+  const growthPointHalos = growthValues.map((value) => colorWithAlpha(growthPointColor(value), 0.14));
   const tickSize = compact ? 10 : 12;
   const legendSize = compact ? 10 : 11;
   const valueLabelSize = compact ? 10 : 15;
@@ -277,10 +308,10 @@ function createRevenueTrendChartConfig({
           borderColor: growthColor,
           backgroundColor: growthColor,
           pointBackgroundColor: tableBg,
-          pointBorderColor: growthColor,
+          pointBorderColor: growthPointColors,
           pointBorderWidth: 1.4,
           pointHoverBackgroundColor: tableBg,
-          pointHoverBorderColor: growthColor,
+          pointHoverBorderColor: growthPointColors,
           pointHoverBorderWidth: compact ? 2 : 2.2,
           pointHoverRadius: activePointRadius,
           pointRadius: defaultPointRadius,
@@ -293,8 +324,8 @@ function createRevenueTrendChartConfig({
       ],
     },
     plugins: comparison
-      ? [revenueTrendSyncHoverPlugin, revenueTrendHoverGuidePlugin, revenueTrendValueLabelsPlugin]
-      : [revenueTrendHoverGuidePlugin, revenueTrendValueLabelsPlugin],
+      ? [revenueTrendSyncHoverPlugin, revenueTrendHoverGuidePlugin, percentAxisZeroLinePlugin, revenueTrendValueLabelsPlugin]
+      : [revenueTrendHoverGuidePlugin, percentAxisZeroLinePlugin, revenueTrendValueLabelsPlugin],
     options: {
       responsive: true,
       maintainAspectRatio: false,
@@ -383,6 +414,10 @@ function createRevenueTrendChartConfig({
         tooltip: {
           enabled: false,
         },
+        percentAxisZeroLine: {
+          color: colorWithAlpha(growthColor, 0.38),
+          lineDash: [4, 4],
+        },
         revenueTrendHoverGuide: {
           lineColor: colorWithAlpha(ink, 0.18),
           rangeColor: colorWithAlpha(ink, 0.032),
@@ -392,6 +427,8 @@ function createRevenueTrendChartConfig({
           activePointFill: tableBg,
           activePointBorder: growthColor,
           activePointHalo: colorWithAlpha(growthColor, 0.14),
+          activePointColors: growthPointColors,
+          activePointHalos: growthPointHalos,
           activePointRadius,
           activeGrowthColor: text,
           activeGrowthFontSize: compact ? 10 : 14,
