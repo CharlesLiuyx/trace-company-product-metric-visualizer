@@ -278,7 +278,7 @@ example.
 | `index.html`                | static viewer shell and ordered script registration           |
 | `src/app.css`               | viewer layout, controls, sidebar, and responsive styles       |
 | `src/app/`                  | viewer app modules (classic scripts, ordered in `index.html`, shared top-level scope) |
-| `src/app/dom.js` · `util.js` · `i18n-runtime.js` | DOM refs · generic helpers/formatters · UI strings + localization caches |
+| `src/app/dom.js` · `util.js` · `hotkeys.js` · `i18n-runtime.js` | DOM refs · generic helpers/formatters · modifier-combo shortcut registry · UI strings + localization caches |
 | `src/app/state.js` · `selectors.js` · `financial.js` | prefs + mode rules + UI state/scope · display/search derivations · USD/FX totals + company sort values |
 | `src/app/shell.js` · `controls.js` | theme/language/sidebar/toolbar chrome · metric/view switching + `renderAll()` |
 | `src/app/company-panel.js` · `period-panel.js` | company list, sort menu, multi-select · period tree, timeline, multi-select |

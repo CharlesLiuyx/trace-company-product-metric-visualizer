@@ -36,10 +36,12 @@ function sortDirectionIcon(direction, sortKey = '') {
   }
   return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">${directionArrowPath(direction, 12)}<path d="M8 8h8"/><path d="M9 16h6"/></svg>`;
 }
+// show-more / show-less chevrons: the strip expands downward into wrapped
+// rows, so the toggle reads as "more below" / "fold back up"
 function periodExpandIcon(expanded) {
   return expanded
-    ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/><path d="m14 10-3 2 3 2"/></svg>'
-    : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h10"/><path d="M4 17h16"/><path d="m17 10 3 2-3 2"/></svg>';
+    ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m17 18-5-5-5 5"/><path d="m17 11-5-5-5 5"/></svg>'
+    : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m7 6 5 5 5-5"/><path d="m7 13 5 5 5-5"/></svg>';
 }
 function companySortFieldIcon(sortKey, direction = '') {
   const arrow = direction ? directionArrowPath(direction, 18) : '';
@@ -188,7 +190,7 @@ function createHeaderSearchController({ section, input, toggle, render, navigate
     sync();
   });
   input.addEventListener('keydown', (e) => {
-    if ((e.key === 'ArrowDown' || e.key === 'ArrowUp') && !e.isComposing && !e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
+    if ((e.key === 'ArrowDown' || e.key === 'ArrowUp') && isPlainKeyEvent(e)) {
       if (navigate?.(e.key === 'ArrowDown' ? 1 : -1)) e.preventDefault();
       return;
     }
@@ -248,8 +250,9 @@ sidebarResizer.addEventListener('keydown', (e) => {
   if (!isDesktopLayout() || state.sidebarCollapsed) return;
   const bounds = sidebarBounds();
   let nextWidth = state.sidebarWidth;
-  if (e.key === 'ArrowLeft') nextWidth -= e.shiftKey ? 48 : 16;
-  else if (e.key === 'ArrowRight') nextWidth += e.shiftKey ? 48 : 16;
+  const step = matchesHotkey(e, 'sidebarFastResizeKey') ? 48 : 16;
+  if (e.key === 'ArrowLeft') nextWidth -= step;
+  else if (e.key === 'ArrowRight') nextWidth += step;
   else if (e.key === 'Home') nextWidth = bounds.min;
   else if (e.key === 'End') nextWidth = bounds.max;
   else return;

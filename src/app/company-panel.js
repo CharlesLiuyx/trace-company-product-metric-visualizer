@@ -174,7 +174,7 @@ function renderCompanies() {
       <div class="item-meta company-item-meta">${escapeHtml(companySortMetaText(group))}</div>
     `;
     button.addEventListener('click', (event) => {
-      if (event.shiftKey || state.multiCompanyMode) {
+      if (matchesHotkey(event, 'scopeExtendClick') || state.multiCompanyMode) {
         toggleCompanyInScope(group, { closeSearch: false, focusCompany: true });
         return;
       }
@@ -284,21 +284,18 @@ const companySearchController = createHeaderSearchController({
   navigate: moveCompanySelection,
 });
 
-function isCompanySearchShortcut(e) {
-  return e.shiftKey && !e.altKey && (e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'f';
-}
 function openCompanySearch() {
   if (state.sidebarCollapsed) setSidebarCollapsed(false);
   companySearchController.setOpen(true);
 }
 document.addEventListener('keydown', (e) => {
-  if (e.isComposing || !isCompanySearchShortcut(e)) return;
+  if (e.isComposing || !matchesHotkey(e, 'companySearchKey')) return;
   e.preventDefault();
   openCompanySearch();
 });
 companyList.addEventListener('keydown', (e) => {
   if (e.key !== 'ArrowUp' && e.key !== 'ArrowDown') return;
-  if (e.isComposing || e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  if (!isPlainKeyEvent(e)) return;
   e.preventDefault();
   const result = moveCompanySelection(e.key === 'ArrowDown' ? 1 : -1, { returnBoundary: true });
   if (result === 'boundary') companySearchController.focusInput();

@@ -57,7 +57,10 @@
       nodeDimOpacity: 0.22,
       labelDimOpacity: 0.2,
       focusOpacity: 1,
-      transitionMs: 120,
+      // 0 = apply hover highlight synchronously; any positive value fades
+      // through a d3 transition instead (per-frame style writes on every
+      // node/link/label, so sweeps read as lag on dense charts)
+      transitionMs: 0,
       tooltip: {
         enabled: true,
         referenceWidth: 4686,
@@ -868,6 +871,20 @@
     }
 
     const linkPathByIndex = new Map();
+    // tooltip strings and link geometry are fixed once rendered, so text
+    // metrics (keyed by string — the tooltip font never varies within a
+    // render) and mid-path anchors (keyed by link index) are measured once
+    const tooltipTextBoxCache = new Map();
+    const tooltipAnchorCache = new Map();
+
+    function tooltipAnchorFor(item) {
+      let anchor = tooltipAnchorCache.get(item.lk.index);
+      if (!anchor) {
+        anchor = linkTooltipAnchor(item.path, item.lk);
+        tooltipAnchorCache.set(item.lk.index, anchor);
+      }
+      return anchor;
+    }
 
     function expandTooltipItems(items) {
       const rows = [];
@@ -936,14 +953,25 @@
         .attr('letter-spacing', '0');
 
       const merged = entered.merge(tips);
+      // write → measure → write in separate batch passes: interleaving
+      // getBBox() with rect/transform writes forces one reflow per tooltip,
+      // which dominated node-hover cost on dense charts
+      merged.each(function (item) {
+        d3.select(this).select('text').text(item.text).attr('x', 0).attr('y', 0);
+      });
+      merged.each(function (item) {
+        let textBox = tooltipTextBoxCache.get(item.text);
+        if (!textBox) {
+          const box = d3.select(this).select('text').node().getBBox();
+          textBox = { width: box.width, height: box.height, y: box.y };
+          tooltipTextBoxCache.set(item.text, textBox);
+        }
+        item.textBox = textBox;
+        item.anchor = tooltipAnchorFor(item);
+      });
       merged.each(function (item) {
         const tip = d3.select(this);
-        const text = tip
-          .select('text')
-          .text(item.text)
-          .attr('x', 0)
-          .attr('y', 0);
-        const textBox = text.node().getBBox();
+        const textBox = item.textBox;
         const paddingX = tooltipDim('paddingX', 24);
         const paddingY = tooltipDim('paddingY', 13);
         const width = Math.max(
@@ -957,7 +985,7 @@
           textBox.height + paddingY * 2
         );
         const textY = (height - textBox.height) / 2 - textBox.y;
-        const [ax, ay] = linkTooltipAnchor(item.path, item.lk);
+        const [ax, ay] = item.anchor;
         let x = ax - width / 2;
         let y = ay - height / 2;
 
@@ -965,7 +993,7 @@
         y = Math.max(8, Math.min(H - height - 8, y));
 
         tip.select('rect').attr('width', width).attr('height', height);
-        text.attr('x', width / 2).attr('y', textY);
+        tip.select('text').attr('x', width / 2).attr('y', textY);
         tip.attr('transform', `translate(${x},${y})`);
       });
     }
@@ -1024,17 +1052,23 @@
         return { activeNodes, activeLinks };
       }
 
+      // transitionMs 0 writes the highlight styles synchronously in one pass;
+      // a d3 transition (even at 0ms) only starts on the next timer tick, so
+      // it always costs at least a frame before anything lights up
+      const styled = ixn.transitionMs > 0
+        ? (selection) => selection.interrupt().transition().duration(ixn.transitionMs)
+        : (selection) => selection;
+
+      let focusKey = null;
+      let pendingReset = 0;
+
       function applyHighlight(activeNodes, activeLinks) {
         const activeNodeIds = new Set(Array.from(activeNodes, keyOf));
         const activeLinkIndexes = new Set(Array.from(activeLinks, (lk) => lk.index));
-        const dur = ixn.transitionMs;
 
         linkPaths.filter((lk) => activeLinkIndexes.has(lk.index)).raise();
 
-        linkPaths
-          .interrupt()
-          .transition()
-          .duration(dur)
+        styled(linkPaths)
           .style('stroke-opacity', (lk) =>
             activeLinkIndexes.has(lk.index) ? ixn.focusOpacity : ixn.dimOpacity
           )
@@ -1042,37 +1076,47 @@
             activeLinkIndexes.has(lk.index) ? 'drop-shadow(0 0 5px rgba(0,0,0,0.22))' : null
           );
 
-        nodeRects
-          .interrupt()
-          .transition()
-          .duration(dur)
-          .style('opacity', (n) =>
-            activeNodeIds.has(keyOf(n)) ? ixn.focusOpacity : ixn.nodeDimOpacity
-          );
+        styled(nodeRects).style('opacity', (n) =>
+          activeNodeIds.has(keyOf(n)) ? ixn.focusOpacity : ixn.nodeDimOpacity
+        );
 
-        labelItems
-          .interrupt()
-          .transition()
-          .duration(dur)
-          .style('opacity', (n) =>
-            activeNodeIds.has(keyOf(n)) ? ixn.focusOpacity : ixn.labelDimOpacity
-          );
+        styled(labelItems).style('opacity', (n) =>
+          activeNodeIds.has(keyOf(n)) ? ixn.focusOpacity : ixn.labelDimOpacity
+        );
       }
 
       function resetHighlight() {
-        const dur = ixn.transitionMs;
+        focusKey = null;
         hideLinkTooltip();
-        linkPaths
-          .interrupt()
-          .transition()
-          .duration(dur)
-          .style('stroke-opacity', cfg.linkOpacity)
-          .style('filter', null);
-        nodeRects.interrupt().transition().duration(dur).style('opacity', 1);
-        labelItems.interrupt().transition().duration(dur).style('opacity', 1);
+        styled(linkPaths).style('stroke-opacity', cfg.linkOpacity).style('filter', null);
+        styled(nodeRects).style('opacity', 1);
+        styled(labelItems).style('opacity', 1);
       }
 
+      // Crossing from an element to an adjacent one fires leave then enter;
+      // resetting on the leave would restyle every element twice per crossing
+      // and flash an un-highlighted frame in between. The reset instead waits
+      // one frame and the next enter cancels it, so a sweep across a chart
+      // pays one style pass per element crossed — and none at all when the
+      // pointer moves between a node and its own label (same focus key).
+      const scheduleReset = () => {
+        if (pendingReset) return;
+        pendingReset = global.requestAnimationFrame(() => {
+          pendingReset = 0;
+          resetHighlight();
+        });
+      };
+      const cancelReset = () => {
+        if (!pendingReset) return;
+        global.cancelAnimationFrame(pendingReset);
+        pendingReset = 0;
+      };
+
       const focusNode = (event, n) => {
+        cancelReset();
+        const key = `n:${keyOf(n)}`;
+        if (focusKey === key) return;
+        focusKey = key;
         const ctx = collectNodeContext(n);
         applyHighlight(ctx.activeNodes, ctx.activeLinks);
         const directLinks = [...(n.targetLinks || []), ...(n.sourceLinks || [])];
@@ -1080,14 +1124,18 @@
       };
 
       const focusLink = (event, lk) => {
+        cancelReset();
+        const key = `l:${lk.index}`;
+        if (focusKey === key) return;
+        focusKey = key;
         applyHighlight(new Set([lk.source, lk.target]), new Set([lk]));
         showLinkTooltip(event.currentTarget, lk);
       };
 
-      nodeRects.on('mouseenter', focusNode).on('mouseleave', resetHighlight);
-      labelItems.on('mouseenter', focusNode).on('mouseleave', resetHighlight);
-      linkPaths.on('mouseenter', focusLink).on('mouseleave', resetHighlight);
-      svg.on('mouseleave', resetHighlight);
+      nodeRects.on('mouseenter', focusNode).on('mouseleave', scheduleReset);
+      labelItems.on('mouseenter', focusNode).on('mouseleave', scheduleReset);
+      linkPaths.on('mouseenter', focusLink).on('mouseleave', scheduleReset);
+      svg.on('mouseleave', scheduleReset);
     }
 
     return svg.node();

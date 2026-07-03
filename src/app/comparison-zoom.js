@@ -670,7 +670,7 @@ sankeyView?.addEventListener('wheel', (event) => {
   event.preventDefault();
   if (comparisonZoomHintTimer) hideComparisonZoomHint();
   const { dx, dy } = comparisonWheelDeltas(event);
-  if (event.ctrlKey || event.metaKey) {
+  if (matchesHotkey(event, 'comparisonZoomWheel')) {
     // reuse the rect measured at gesture start; a per-event read would force
     // a layout on every wheel tick
     const rect = comparisonZoomGesture?.started
@@ -686,7 +686,7 @@ sankeyView?.addEventListener('wheel', (event) => {
     setComparisonZoom(clampComparisonZoom(state.comparisonZoom) * factor, anchor);
     return;
   }
-  const horizontal = event.shiftKey && Math.abs(dx) < Math.abs(dy);
+  const horizontal = matchesHotkey(event, 'comparisonPanWheel') && Math.abs(dx) < Math.abs(dy);
   sankeyView.scrollLeft += horizontal ? dy : dx;
   sankeyView.scrollTop += horizontal ? 0 : dy;
   const gesture = comparisonZoomGesture;

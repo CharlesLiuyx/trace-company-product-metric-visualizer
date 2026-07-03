@@ -66,3 +66,6 @@ const revenueCsvBtn = document.getElementById('revenueCsvBtn');
 const languageToggle = document.getElementById('languageToggle');
 const languageToggleText = document.getElementById('languageToggleText');
 const themeToggle = document.getElementById('themeToggle');
+const hotkeyHint = document.getElementById('hotkeyHint');
+const hotkeyHintKeys = document.getElementById('hotkeyHintKeys');
+const hotkeyHintText = document.getElementById('hotkeyHintText');
