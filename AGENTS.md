@@ -35,8 +35,15 @@ d3-sankey fidelity loop.
 - `data/products.js` is an empty placeholder for a future Product SSOT (not
   verifier-checked). Do not hide product identity or ownership history inside
   Sankey adapters.
-- Keep Trace domain normalization in `src/trace-domain.js`; keep `src/app.js`
-  focused on UI state, interaction, tables, and view switching.
+- Keep Trace domain normalization in `src/trace-domain.js`. The viewer app is
+  split across `src/app/` as ordered classic scripts sharing one top-level
+  scope (load order lives in `index.html`): `dom`, `util`, `i18n-runtime`,
+  `state`, `selectors`, `financial` form the base layers; `shell`, `controls`,
+  `company-panel`, `period-panel`, `tables`, `trend`, `comparison-zoom`,
+  `comparison-metric-trend`, `sankey`, `exports` own one UI concern each;
+  `main.js` wires global events and boots last. Put new viewer code in the
+  owning module (module map: `README.md` §How it's built); load-time code may
+  only reference earlier scripts, runtime calls may go either way.
 - When adding a metric family or SSOT, backfill this file and
   `docs/trace-specification.zh-CN.md`.
 
@@ -48,6 +55,9 @@ Install once; the d3/standalone verifiers render in Chromium:
 
 | command | purpose |
 | --- | --- |
+| `pnpm dev` | zero-dependency local static server on port 8000 |
+| `pnpm check` | fast aggregate gate: repo-wide JS syntax sweep, then pending guard, SSOT parity, i18n coverage, metadata freshness (sub-second, no rendering) |
+| `pnpm verify:app` | headless boot + interaction smoke of the modular viewer (`src/app/*`): module count, persisted-prefs boot, hash routing, comparison zoom + metric trend, revenue trend, mobile viewport |
 | `pnpm check:pending` | pending-image duplicate / key-collision guard |
 | `pnpm verify:dataset -- <key> [--skip-render]` | aggregate per-dataset gate: syntax, SSOT, strict i18n, metadata, then a d3 render per language |
 | `pnpm verify:ssot` | SSOT ↔ dataset parity, registration parity, and currency/unit + FX coverage (global) |
@@ -174,9 +184,14 @@ renderer support split into a prior `render(engine)` commit.
 
 Always, before the final response:
 
-- `node --check` passes on every JS file you changed.
-- `pnpm verify:ssot` passes.
+- `pnpm check` passes (repo-wide JS syntax sweep, pending guard, SSOT
+  parity, i18n coverage, dataset-file-metadata freshness).
 - `input/pending/` contains only `.gitkeep`, or a stop condition is reported.
+
+For viewer changes (`src/app/`, `index.html` script order, `src/app.css`):
+
+- `pnpm verify:app` passes — it is the load-order and cross-module wiring
+  regression gate for the shared-top-level-scope module split.
 
 For a new or materially changed dataset:
 
