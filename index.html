@@ -321,7 +321,25 @@
     <script src="data/datasets/nvidia-q3-fy26.js"></script>
     <script src="data/datasets/nvidia-q4-fy26.js"></script>
 
-    <!-- page app (excluded from d3 verification harness) -->
-    <script src="src/app.js"></script>
+    <!-- page app modules (classic scripts sharing top-level scope; load order
+         matters: dom/util/i18n-runtime/state first, views next, main boots
+         last; all excluded from the d3 verification harness) -->
+    <script src="src/app/dom.js"></script>
+    <script src="src/app/util.js"></script>
+    <script src="src/app/i18n-runtime.js"></script>
+    <script src="src/app/state.js"></script>
+    <script src="src/app/selectors.js"></script>
+    <script src="src/app/financial.js"></script>
+    <script src="src/app/shell.js"></script>
+    <script src="src/app/controls.js"></script>
+    <script src="src/app/company-panel.js"></script>
+    <script src="src/app/period-panel.js"></script>
+    <script src="src/app/tables.js"></script>
+    <script src="src/app/trend.js"></script>
+    <script src="src/app/comparison-zoom.js"></script>
+    <script src="src/app/comparison-metric-trend.js"></script>
+    <script src="src/app/sankey.js"></script>
+    <script src="src/app/exports.js"></script>
+    <script src="src/app/main.js"></script>
   </body>
 </html>

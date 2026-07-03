@@ -190,7 +190,7 @@ InputFile {
 | Metric View Adapter | `data/datasets/<dataset-key>.js` 保存 Sankey 节点、链接与布局 |
 | Trace Domain Catalog | `src/trace-domain.js` 将现有 SSOT 和 View Adapter 规整成 UI 可消费的目录模型 |
 | View / Sankey | `src/sankey-engine.js` |
-| View / Table | `src/app.js` |
+| View / Table | `src/app/tables.js`（查看器其余 UI 模块见 `src/app/`，加载顺序在 `index.html`） |
 | Source Image | `input/processed/<dataset-key>.png` 与 `meta.referenceImage` |
 | Pending Input | `input/pending/` |
 | 处理插件雏形 | `scripts/check-pending-processed.mjs`、`scripts/extract_icon_crops.py`、验证脚本 |
@@ -202,7 +202,7 @@ InputFile {
 - `data/revenue-metrics.js` 保存收入家族多期观测，与 Income Statement SSOT 并列，同样不保存 Sankey 布局；
 - `data/products.js` 当前只建立 Product 和 Company/Product 关系的稳定位置，不改变现有视图；
 - `data/datasets/` 是 View Adapter，不是财务事实源；
-- `src/trace-domain.js` 承担领域归一化和目录构建，`src/app.js` 保持为 UI 控制层；
+- `src/trace-domain.js` 承担领域归一化和目录构建，`src/app/` 各模块保持为 UI 控制层；
 - `input/processed/` 的图片是验证参考，不是运行时事实；
 - i18n 覆盖只改变显示文本和文本布局，不改变 Metric 语义、数值或关系。
 

@@ -182,7 +182,7 @@ function runtimeRasterPatcherScript(assetMap) {
 }
 
 function insertRuntimeRasterPatcher(html, assetMap) {
-  const marker = '    <script data-inline-source="src/app.js">';
+  const marker = '    <script data-inline-source="src/app/dom.js">';
   if (!html.includes(marker)) throw new Error('Missing app script marker in standalone HTML');
   return html.replace(marker, `    ${runtimeRasterPatcherScript(assetMap)}\n${marker}`);
 }

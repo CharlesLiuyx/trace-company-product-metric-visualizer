@@ -887,7 +887,7 @@ button.period-year-name:focus-visible {
   align-items: flex-start;
   justify-content: center;
   /* fixed gap at every zoom level (the preview replays this layout in JS —
-     keep in sync with COMPARISON_FLOW_GAP in src/app.js) */
+     keep in sync with COMPARISON_FLOW_GAP in src/app/comparison-zoom.js) */
   gap: 8px;
   width: 100%;
 }
