@@ -41,6 +41,7 @@
   --table-active-hover: #e8f3f8;
   --table-link: #155f8d;
   --trend-growth: #9a6a2f;
+  --trend-negative: #b7433a;
   --metric-tooltip-bg: rgba(255, 255, 255, 0.96);
   --metric-tooltip-border: rgba(42, 47, 52, 0.12);
   --metric-tooltip-shadow: 0 12px 28px rgba(20, 40, 60, 0.14);
@@ -98,6 +99,7 @@
   --table-active-hover: #254842;
   --table-link: #7fd9cd;
   --trend-growth: #f0bd68;
+  --trend-negative: #e99485;
   --metric-tooltip-bg: rgba(35, 35, 33, 0.96);
   --metric-tooltip-border: rgba(230, 227, 216, 0.16);
   --metric-tooltip-shadow: 0 14px 32px rgba(0, 0, 0, 0.38);
