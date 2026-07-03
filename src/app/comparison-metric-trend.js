@@ -11,7 +11,7 @@
  * company and reporting currency, keeping every bar on one comparable axis.
  * Clicking a flow between two nodes selects the link instead: both endpoint
  * metrics join the bars (shared endpoints once), and the right axis switches
- * from growth to the link's share-of-source percentage over time. */
+ * from growth to the link's share of its larger endpoint over time. */
 let comparisonMetricTrendChart = null;
 function destroyComparisonMetricTrendChart() {
   if (!comparisonMetricTrendChart) return;
@@ -146,14 +146,21 @@ function comparisonMetricTrendModel(records) {
     };
   });
   const metricIndexById = new Map(metrics.map((metric, index) => [metric.nodeId, index]));
-  // per-link share of the source metric (link value / source value, raw units
-  // cancel out) drawn on the right axis instead of growth while links exist
+  // per-link share drawn on the right axis instead of growth while links
+  // exist. The denominator is the link's larger endpoint (the aggregate
+  // side): a segment flowing into revenue reads as its share of revenue,
+  // revenue flowing into gross profit reads as margin — dividing by the side
+  // the flow merely passes through would pin the line at ~100%. Numerator
+  // and denominator come from the same record, so raw units cancel out.
   const ratios = keptLinks.map((link) => {
     const sourceIndex = metricIndexById.get(link.source);
     const targetIndex = metricIndexById.get(link.target);
-    const sourceMetric = metrics[sourceIndex];
+    const magnitude = (index) => metrics[index].values.reduce((sum, value) => sum + Math.abs(value || 0), 0);
+    const denominatorIndex = magnitude(targetIndex) > magnitude(sourceIndex) ? targetIndex : sourceIndex;
+    const numeratorIndex = denominatorIndex === sourceIndex ? targetIndex : sourceIndex;
+    const denominatorMetric = metrics[denominatorIndex];
     const values = axisRecords.map((record) => {
-      const raw = sourceMetric.rawByRecord.get(record.index);
+      const raw = denominatorMetric.rawByRecord.get(record.index);
       const linkValue = comparisonLinkValue(record, link.source, link.target);
       if (raw == null || !raw || linkValue == null) return null;
       return (linkValue / raw) * 100;
@@ -164,7 +171,9 @@ function comparisonMetricTrendModel(records) {
       target: link.target,
       sourceIndex,
       targetIndex,
-      label: `${metrics[targetIndex].label} / ${metrics[sourceIndex].label}`,
+      numeratorIndex,
+      denominatorIndex,
+      label: `${metrics[numeratorIndex].label} / ${metrics[denominatorIndex].label}`,
       values,
     };
   });
@@ -229,7 +238,7 @@ const comparisonMetricTrendValueLabelsPlugin = {
       }
       ctx.fillStyle = color;
       ctx.fillText(entry.label, extent.x, y);
-      return extent;
+      return { ...extent, y, size };
     };
     const hover = chart.$metricTrendHover;
     if (hover && chart.isDatasetVisible(hover.datasetIndex)) {
@@ -237,14 +246,22 @@ const comparisonMetricTrendValueLabelsPlugin = {
       // metrics stand back, so a dropped number is one hover away
       const siblings = entries.filter((entry) => entry.datasetIndex === hover.datasetIndex);
       const main = siblings.find((entry) => entry.index === hover.index);
-      // the loudest label also carries the growth vs the previous data point
+      // the loudest label also carries the growth vs the previous data point,
+      // unless the metric's growth line is on screen — then the number rides
+      // the line point instead of doubling up beside the bar value
+      const growthLineVisible = chart.data.datasets.some((dataset, index) => (
+        dataset.$role === 'growth' && dataset.$barDatasetIndex === hover.datasetIndex && chart.isDatasetVisible(index)
+      ));
       const growth = options.growthByDataset?.[hover.datasetIndex]?.[hover.index];
-      if (main && growth != null && Number.isFinite(growth)) {
+      if (main && !growthLineVisible && growth != null && Number.isFinite(growth)) {
         main.label = `${main.label} (${growth >= 0 ? '+' : ''}${formatPercent(growth)})`;
       }
       const mainStyle = { size: Math.max(fontSize + 3, 14), weight: 700, color: options.color || '#263238' };
       const siblingStyle = { size: Math.max(fontSize, 10), weight: 600, color: options.mutedColor || options.color || '#263238' };
       const mainExtent = main ? draw(main, mainStyle) : null;
+      const mainRect = mainExtent
+        ? { left: mainExtent.left, right: mainExtent.right, top: mainExtent.y - mainExtent.size, bottom: mainExtent.y }
+        : null;
       let lastRight = -Infinity;
       siblings.forEach((entry) => {
         if (entry === main) {
@@ -256,6 +273,37 @@ const comparisonMetricTrendValueLabelsPlugin = {
         if (mainExtent && extent.left < mainExtent.right + 3 && extent.right > mainExtent.left - 3) return;
         draw(entry, siblingStyle);
         lastRight = extent.right;
+      });
+      // every right-axis line — link share or growth — gets its own number at
+      // the hovered period, smaller than the bar labels so the percentage
+      // reading stays secondary, dodging the loud label when the line runs
+      // through it
+      chart.data.datasets.forEach((dataset, datasetIndex) => {
+        if (dataset.type !== 'line' || !chart.isDatasetVisible(datasetIndex)) return;
+        if (dataset.$barDatasetIndex !== hover.datasetIndex && dataset.$pairDatasetIndex !== hover.datasetIndex) return;
+        const value = dataset.data?.[hover.index];
+        if (value == null || !Number.isFinite(value)) return;
+        const point = chart.getDatasetMeta(datasetIndex)?.data?.[hover.index];
+        const percent = formatPercent(value);
+        if (!point || !percent) return;
+        const label = dataset.$role === 'growth' && value > 0 ? `+${percent}` : percent;
+        const size = Math.max(minSize, Math.min(fontSize, 10));
+        ctx.font = `600 ${size}px ${fontFamily}`;
+        const width = ctx.measureText(label).width;
+        const x = clamp(point.x, chartArea.left + width / 2, chartArea.right - width / 2);
+        const collides = (baseline) => Boolean(mainRect
+          && x - width / 2 < mainRect.right + 3 && x + width / 2 > mainRect.left - 3
+          && baseline > mainRect.top - 3 && baseline - size < mainRect.bottom + 3);
+        let y = point.y - 5; // baseline: the text sits in [y - size, y]
+        if (y - size < chartArea.top || collides(y)) y = point.y + size + 8;
+        if (collides(y)) y = Math.max(chartArea.top + size, mainRect.top - 4);
+        if (options.halo) {
+          ctx.lineWidth = Math.max(2, size / 4);
+          ctx.strokeStyle = options.halo;
+          ctx.strokeText(label, x, y);
+        }
+        ctx.fillStyle = dataset.borderColor || options.color || '#263238';
+        ctx.fillText(label, x, y);
       });
       ctx.restore();
       return;
@@ -283,8 +331,8 @@ function comparisonMetricTrendHandleHover(chart, elements) {
     const dataset = chart.data.datasets[datasetIndex];
     let extraDataset = null;
     if (dataset?.type === 'line' && dataset.$barDatasetIndex != null) {
-      // a ratio line spans two metrics: label its target, light both ends
-      if (dataset.$sourceDatasetIndex != null) extraDataset = dataset.$sourceDatasetIndex;
+      // a ratio line spans two metrics: label its part side, light both ends
+      if (dataset.$pairDatasetIndex != null) extraDataset = dataset.$pairDatasetIndex;
       datasetIndex = dataset.$barDatasetIndex;
     }
     next = { datasetIndex, index, extraDataset };
@@ -304,7 +352,8 @@ function comparisonMetricTrendHandleHover(chart, elements) {
     pushDataset(next.datasetIndex);
     pushDataset(next.extraDataset);
     chart.data.datasets.forEach((dataset, index) => {
-      if (dataset.type === 'line' && dataset.$barDatasetIndex === next.datasetIndex) pushDataset(index);
+      if (dataset.type !== 'line') return;
+      if (dataset.$barDatasetIndex === next.datasetIndex || dataset.$pairDatasetIndex === next.datasetIndex) pushDataset(index);
     });
   }
   chart.setActiveElements(active);
@@ -382,20 +431,20 @@ function createComparisonMetricTrendChartConfig(model) {
     pointHoverBorderColor: lineColor,
     pointHoverBorderWidth: 2,
   });
-  // ratio mode: one line per selected link, share of its source metric, in
-  // the target metric's colour and listed in the legend by its ratio name.
-  // growth mode: one growth line per metric, hidden from the legend and
-  // paired with its bars via $barDatasetIndex.
+  // ratio mode: one line per selected link, the link's share of its larger
+  // endpoint, in the smaller endpoint's colour ("part / whole" in the
+  // legend). growth mode: one growth line per metric, hidden from the legend
+  // and paired with its bars via $barDatasetIndex.
   const lineDatasets = ratioMode
     ? model.ratios.map((ratio) => {
-        const { accent, borderAlpha } = styles[ratio.targetIndex];
+        const { accent, borderAlpha } = styles[ratio.numeratorIndex];
         return {
           ...rightAxisLine(colorWithAlpha(accent, Math.min(borderAlpha + 0.15, 1))),
           label: ratio.label,
           data: ratio.values,
           $role: 'ratio',
-          $barDatasetIndex: ratio.targetIndex,
-          $sourceDatasetIndex: ratio.sourceIndex,
+          $barDatasetIndex: ratio.numeratorIndex,
+          $pairDatasetIndex: ratio.denominatorIndex,
         };
       })
     : model.metrics.map((metric, index) => {
