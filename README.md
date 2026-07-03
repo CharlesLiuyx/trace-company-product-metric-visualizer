@@ -14,13 +14,18 @@ Drop in a new company's numbers and you get the same chart.
 It's a static site for development and local preview. Either:
 
 ```bash
-# from the project root
-python3 -m http.server 8000
-# then open http://localhost:8000
+# from the project root (zero-dependency static server, no-store caching)
+pnpm dev
+# then open http://127.0.0.1:8000
 ```
 
 …or just **double-click `index.html`** — d3 and d3-sankey are vendored locally
 in `vendor/`, so it works offline as long as the repository files are present.
+
+Before committing, `pnpm check` runs the fast gates (repo-wide JS syntax
+sweep, pending-image guard, SSOT parity, i18n coverage, metadata freshness)
+in under a second; `pnpm verify:app` boot-and-click smokes the viewer app in
+headless Chromium in a few seconds.
 
 For a single self-contained HTML file that does not depend on sibling CSS, JS,
 font, vendor, data, or reference PNG files, build the standalone artifact:
@@ -272,7 +277,14 @@ example.
 |-----------------------------|---------------------------------------------------------------|
 | `index.html`                | static viewer shell and ordered script registration           |
 | `src/app.css`               | viewer layout, controls, sidebar, and responsive styles       |
-| `src/app.js`                | viewer app logic: navigation, mode switching, resizing, export |
+| `src/app/`                  | viewer app modules (classic scripts, ordered in `index.html`, shared top-level scope) |
+| `src/app/dom.js` · `util.js` · `i18n-runtime.js` | DOM refs · generic helpers/formatters · UI strings + localization caches |
+| `src/app/state.js` · `selectors.js` · `financial.js` | prefs + mode rules + UI state/scope · display/search derivations · USD/FX totals + company sort values |
+| `src/app/shell.js` · `controls.js` | theme/language/sidebar/toolbar chrome · metric/view switching + `renderAll()` |
+| `src/app/company-panel.js` · `period-panel.js` | company list, sort menu, multi-select · period tree, timeline, multi-select |
+| `src/app/tables.js` · `trend.js` · `sankey.js` | virtualized tables · revenue trend charts · sankey single/comparison + `draw()` |
+| `src/app/comparison-zoom.js` · `comparison-metric-trend.js` | comparison canvas zoom gestures · node/link metric trend panel |
+| `src/app/exports.js` · `main.js` | SVG/PNG/CSV downloads · global wiring + boot (loads last) |
 | `src/sankey-engine.js`      | **d3-sankey** renderer: layout + custom nodes/links/labels/logo/interactions |
 | `src/icons.js`              | Lucide icon set (inline SVG) + the NVIDIA brand glyph         |
 | `scripts/build-standalone.mjs` | builds the self-contained HTML artifact                    |

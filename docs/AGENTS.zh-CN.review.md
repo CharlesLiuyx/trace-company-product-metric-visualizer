@@ -33,8 +33,15 @@ agent 指令以英文版 `AGENTS.md` 为准。
   第一个数据集注册之前补全。
 - `data/products.js` 是未来一等 Product SSOT 的空占位（暂不被 verifier
   校验）。不要把产品身份或归属历史藏进 Sankey adapter。
-- Trace 领域归一化放在 `src/trace-domain.js`；`src/app.js` 专注 UI 状态、
-  交互、表格与视图切换。
+- Trace 领域归一化放在 `src/trace-domain.js`。查看器应用拆分在 `src/app/`
+  下，以经典 script 顺序加载并共享同一顶层作用域（加载顺序见
+  `index.html`）：`dom`、`util`、`i18n-runtime`、`state`、`selectors`、
+  `financial` 为基础层；`shell`、`controls`、`company-panel`、
+  `period-panel`、`tables`、`trend`、`comparison-zoom`、
+  `comparison-metric-trend`、`sankey`、`exports` 各自负责一个 UI 关注点；
+  `main.js` 负责全局事件接线并最后启动。新查看器代码放进对应归属模块
+  （模块表见 `README.md` §How it's built）；加载期代码只能引用更早的
+  script，运行期调用不受方向限制。
 - 新增 metric 家族或 SSOT 时，回填本文件（及英文版）与
   `docs/trace-specification.zh-CN.md`。
 
@@ -46,6 +53,9 @@ agent 指令以英文版 `AGENTS.md` 为准。
 
 | 命令 | 用途 |
 | --- | --- |
+| `pnpm dev` | 零依赖本地静态服务器，端口 8000 |
+| `pnpm check` | 快速聚合门：全仓 JS 语法扫描，然后 pending 守卫、SSOT 奇偶、i18n 覆盖、metadata 新鲜度（亚秒级，无渲染） |
+| `pnpm verify:app` | 模块化查看器（`src/app/*`）的无头启动 + 交互冒烟：模块数量、持久化偏好启动、hash 路由、对比缩放 + 指标趋势、收入趋势、移动端视口 |
 | `pnpm check:pending` | 待处理图片重复 / key 冲突守卫 |
 | `pnpm verify:dataset -- <key> [--skip-render]` | 单数据集聚合门：语法、SSOT、strict i18n、metadata，然后每种语言各一次 d3 渲染 |
 | `pnpm verify:ssot` | SSOT ↔ 数据集奇偶 + 注册奇偶 + 货币/单位与汇率覆盖（全局） |
@@ -158,9 +168,14 @@ agent 指令以英文版 `AGENTS.md` 为准。
 
 始终，在最终回复之前：
 
-- 改过的每个 JS 文件 `node --check` 通过。
-- `pnpm verify:ssot` 通过。
+- `pnpm check` 通过（全仓 JS 语法扫描、pending 守卫、SSOT 奇偶、i18n
+  覆盖、dataset-file-metadata 新鲜度）。
 - `input/pending/` 只剩 `.gitkeep`，或已报告停止条件。
+
+对查看器改动（`src/app/`、`index.html` script 顺序、`src/app.css`）：
+
+- `pnpm verify:app` 通过——它是共享顶层作用域模块拆分的加载顺序与
+  跨模块接线回归门。
 
 对新增或实质变更的数据集：
 
