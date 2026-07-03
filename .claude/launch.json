@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "static",
-      "runtimeExecutable": "sh",
-      "runtimeArgs": ["-c", "python3 -m http.server \"$PORT\""],
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["scripts/dev-server.mjs", "--port", "$PORT"],
       "autoPort": true
     }
   ]

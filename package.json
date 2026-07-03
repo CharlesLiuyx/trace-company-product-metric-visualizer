@@ -4,8 +4,11 @@
   "type": "module",
   "packageManager": "pnpm@11.5.2",
   "scripts": {
+    "dev": "node scripts/dev-server.mjs --port 8000",
+    "check": "node scripts/check.mjs",
     "build:standalone": "node scripts/update-dataset-file-metadata.mjs && node scripts/build-standalone.mjs",
     "check:pending": "node scripts/check-pending-processed.mjs",
+    "verify:app": "node scripts/verify-app.mjs",
     "update:dataset-file-metadata": "node scripts/update-dataset-file-metadata.mjs",
     "verify:dataset": "node scripts/verify-dataset.mjs",
     "verify:dataset-file-metadata": "node scripts/update-dataset-file-metadata.mjs --check",
