@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-03T12:26:13.750Z",
+  "generatedAt": "2026-07-03T14:18:30.384Z",
   "source": "dataset view and metric source file modification times",
   "files": {
     "alphabet-q1-fy26": {
@@ -41,6 +41,11 @@
       "path": "data/datasets/appfolio-q1-fy26.js",
       "mtimeMs": 1783016923129,
       "mtime": "2026-07-02T18:28:43.129Z"
+    },
+    "applovin-q1-fy26": {
+      "path": "data/datasets/applovin-q1-fy26.js",
+      "mtimeMs": 1783085653797,
+      "mtime": "2026-07-03T13:34:13.797Z"
     },
     "apple-q2-fy26": {
       "path": "data/datasets/apple-q2-fy26.js",
@@ -386,6 +391,11 @@
       "path": "data/datasets/monday-com-q1-fy26.js",
       "mtimeMs": 1782545401575,
       "mtime": "2026-06-27T07:30:01.575Z"
+    },
+    "mongodb-q1-fy27": {
+      "path": "data/datasets/mongodb-q1-fy27.js",
+      "mtimeMs": 1783088310384,
+      "mtime": "2026-07-03T14:18:30.384Z"
     },
     "nvidia-q1-fy27": {
       "path": "data/datasets/nvidia-q1-fy27.js",
