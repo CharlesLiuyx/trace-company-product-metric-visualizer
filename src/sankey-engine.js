@@ -715,6 +715,7 @@
     if (meta.title) {
       const title = svg
         .append('text')
+        .attr('class', 'sankey-title')
         .attr('x', meta.titleX != null ? meta.titleX : W / 2)
         .attr('y', meta.titleY || 120)
         .attr('text-anchor', 'middle')
