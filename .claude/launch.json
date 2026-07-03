@@ -6,6 +6,12 @@
       "runtimeExecutable": "node",
       "runtimeArgs": ["scripts/dev-server.mjs", "--port", "8000"],
       "port": 8000
+    },
+    {
+      "name": "static-auto",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["scripts/dev-server.mjs"],
+      "autoPort": true
     }
   ]
 }

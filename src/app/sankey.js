@@ -90,18 +90,20 @@ function comparisonFitFactor(records, scaleFactors) {
   }
   return factor;
 }
-function comparisonFinancialLine(record) {
-  const financial = financialFor(record);
-  if (!financial) return '';
-  const usdEquivalent = (value) => {
-    if (currencyCode(financial.currency) === 'USD') return '';
-    const valueUsd = financialValueUsd(financial, value);
-    return valueUsd == null ? '' : ` ≈${formatUsdShort(valueUsd)}`;
-  };
-  return [
-    `${t('tableRevenue')} ${formatAmount(financial, financial.revenue?.total)}${usdEquivalent(financial.revenue?.total)}`,
-    `${t('tableNetProfit')} ${formatAmount(financial, financial.profit?.net?.value)}${usdEquivalent(financial.profit?.net?.value)}`,
-  ].filter(Boolean).join(' · ');
+// memo skips the all-card class sweep while the linked scope is unchanged
+// (trend-bar sweeps re-assert the same period many times per second); card
+// rebuilds land on updateComparisonMetricTrendPanel, which re-arms it via
+// the no-arg call
+let comparisonPeriodHoverLinkKey = '';
+function setComparisonPeriodHoverLink(indexes = []) {
+  if (!sankeyComparison) return;
+  const key = indexes.join(',');
+  if (key === comparisonPeriodHoverLinkKey) return;
+  comparisonPeriodHoverLinkKey = key;
+  const scope = new Set(indexes.map(Number));
+  sankeyComparison.querySelectorAll('.comparison-card[data-record-index]').forEach((card) => {
+    card.classList.toggle('hover-linked', scope.has(Number(card.dataset.recordIndex)));
+  });
 }
 
 function renderSankeyComparison() {
@@ -152,10 +154,7 @@ function renderSankeyComparison() {
     const dataset = localizedDataset(record.dataset);
     const width = chartWidth(dataset);
     const scale = (scaleFactors.get(record.dataset.key) || 1) * fitFactor;
-    card.title = [
-      [displayCompany(record), [displayPeriod(record), displayPeriodNote(record)].filter(Boolean).join(' · ')].filter(Boolean).join(' · '),
-      comparisonFinancialLine(record),
-    ].filter(Boolean).join('\n');
+    card.dataset.recordIndex = String(record.index);
     card.innerHTML = `
       <div class="comparison-chart-frame">
         <div class="comparison-chart-host"></div>
@@ -169,17 +168,22 @@ function renderSankeyComparison() {
     host.dataset.scaleFactor = String(scale);
     grid.appendChild(card);
     window.SankeyEngine.render(host, dataset);
+    host.addEventListener('mousedown', (event) => {
+      const target = event.target instanceof Element ? event.target : null;
+      if (!target || !hotkeyClickExtendsSelection(event)) return;
+      if (target.closest('[data-node]') || target.closest('path.sankey-link')) event.preventDefault();
+    });
     host.addEventListener('click', (event) => {
       const target = event.target instanceof Element ? event.target : null;
       if (!target) return;
       const nodeTarget = target.closest('[data-node]');
       if (nodeTarget) {
-        toggleComparisonMetricTrend(record, nodeTarget.getAttribute('data-node'));
+        toggleComparisonMetricTrend(record, nodeTarget.getAttribute('data-node'), event);
         return;
       }
       const linkTarget = target.closest('path.sankey-link');
       if (linkTarget) {
-        toggleComparisonMetricTrendLink(record, linkTarget.getAttribute('data-source'), linkTarget.getAttribute('data-target'));
+        toggleComparisonMetricTrendLink(record, linkTarget.getAttribute('data-source'), linkTarget.getAttribute('data-target'), event);
       }
     });
   });

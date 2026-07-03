@@ -34,6 +34,7 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 8.4 22.9c.58.1.8-.25.8-.56v-2.1c-3.26.7-3.95-1.38-3.95-1.38-.53-1.36-1.3-1.72-1.3-1.72-1.06-.72.08-.7.08-.7 1.18.08 1.8 1.22 1.8 1.22 1.04 1.78 2.74 1.26 3.4.96.1-.76.4-1.26.74-1.55-2.6-.3-5.34-1.3-5.34-5.78 0-1.28.46-2.33 1.2-3.15-.12-.3-.52-1.5.12-3.1 0 0 .98-.32 3.18 1.2A11 11 0 0 1 12 5.35c.98 0 1.96.13 2.88.39 2.2-1.52 3.17-1.2 3.17-1.2.64 1.6.24 2.8.12 3.1.75.82 1.2 1.87 1.2 3.15 0 4.5-2.74 5.48-5.35 5.77.42.36.8 1.08.8 2.18v3.22c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
         </a>
         <div class="utility-controls" aria-label="Global settings" data-i18n-aria-label="globalSettingsLabel">
+          <span class="hotkey-hint" id="hotkeyHint" hidden aria-hidden="true"><kbd id="hotkeyHintKeys"></kbd><span id="hotkeyHintText"></span></span>
           <button class="btn utility-btn" id="languageToggle" type="button" aria-label="Switch language to Chinese" title="Switch language to Chinese">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
             <span id="languageToggleText">EN</span>
@@ -61,7 +62,7 @@
             </div>
             <div class="panel-icon-actions">
               <button class="btn icon-btn company-multi-exit" id="companyMultiExitToggle" type="button" aria-label="Exit company multi-select" title="Exit company multi-select" data-i18n-aria-label="companyMultiExitTitle" data-i18n-title="companyMultiExitTitle" hidden>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h11"/><path d="M4 17h16"/><path d="m16 9 3 3-3 3"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="m14.6 9.4-5.2 5.2"/><path d="m9.4 9.4 5.2 5.2"/></svg>
               </button>
               <button class="btn icon-btn search-toggle" id="companySearchToggle" type="button" aria-label="Search companies" aria-expanded="false" aria-controls="companySearchBox" title="Search companies" data-i18n-aria-label="companySearchPlaceholder" data-i18n-title="companySearchPlaceholder">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
@@ -104,14 +105,14 @@
               </div>
               <div class="panel-icon-actions">
                 <button class="btn icon-btn period-multi-exit" id="periodMultiExitToggle" type="button" aria-label="Exit time point multi-select" title="Exit time point multi-select" data-i18n-aria-label="periodMultiExitTitle" data-i18n-title="periodMultiExitTitle" hidden>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h11"/><path d="M4 17h16"/><path d="m16 9 3 3-3 3"/></svg>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="m14.6 9.4-5.2 5.2"/><path d="m9.4 9.4 5.2 5.2"/></svg>
                 </button>
                 <button class="btn icon-btn search-toggle" id="periodSearchToggle" type="button" aria-label="Search time points" aria-expanded="false" aria-controls="periodSearchBox" title="Search time points" data-i18n-aria-label="periodSearchPlaceholder" data-i18n-title="periodSearchPlaceholder">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
                 </button>
                 <button class="btn icon-btn sort-toggle" id="periodSortToggle" type="button" aria-label="Newest first" aria-pressed="true" title="Newest first"></button>
                 <button class="btn icon-btn period-expand-toggle" id="periodExpandToggle" type="button" aria-label="Expand time points" aria-expanded="false" title="Expand time points" data-i18n-aria-label="periodExpandTitle" data-i18n-title="periodExpandTitle">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h10"/><path d="M4 17h16"/><path d="m17 10 3 2-3 2"/></svg>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m7 6 5 5 5-5"/><path d="m7 13 5 5 5-5"/></svg>
                 </button>
               </div>
             </div>
@@ -329,6 +330,7 @@
          last; all excluded from the d3 verification harness) -->
     <script src="src/app/dom.js"></script>
     <script src="src/app/util.js"></script>
+    <script src="src/app/hotkeys.js"></script>
     <script src="src/app/i18n-runtime.js"></script>
     <script src="src/app/state.js"></script>
     <script src="src/app/selectors.js"></script>

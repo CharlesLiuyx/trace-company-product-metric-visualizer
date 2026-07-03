@@ -7,7 +7,7 @@
 import { chromium } from 'playwright';
 import { startStaticServer } from './dev-server.mjs';
 
-const APP_MODULE_COUNT = 17;
+const APP_MODULE_COUNT = 18;
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);

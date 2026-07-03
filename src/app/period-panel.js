@@ -220,7 +220,7 @@ function renderPeriods() {
         <button
           type="button"
           class="quarter-tag${isActive ? ' active' : ''}${isSelected ? ' selected' : ''}"
-          ${record ? `data-index="${record.index}"` : 'disabled aria-disabled="true"'}
+          ${record ? `data-index="${record.index}" data-hover-indexes="${bucket.records.map((entry) => entry.index).join(',')}"` : 'disabled aria-disabled="true"'}
           title="${escapeHtml(title)}"
           aria-pressed="${(state.multiPeriodMode ? isSelected : isActive) ? 'true' : 'false'}"
         >${escapeHtml(tag === ANNUAL_PERIOD_KEY ? t('annualPeriodTag') : tag)}</button>
@@ -236,7 +236,7 @@ function renderPeriods() {
           <button
             type="button"
             class="variant-chip${record.index === state.activeIndex ? ' active' : ''}${periodScope.has(record.index) ? ' selected' : ''}"
-            data-index="${record.index}"
+            data-index="${record.index}" data-hover-indexes="${record.index}"
             title="${escapeHtml(displayLabel(record) || record.dataset.key)}"
             aria-pressed="${(state.multiPeriodMode ? periodScope.has(record.index) : record.index === state.activeIndex) ? 'true' : 'false'}"
           >${escapeHtml(variantLabel(record))}</button>
@@ -250,6 +250,7 @@ function renderPeriods() {
           <button
             type="button"
             class="item-name period-year-name period-year-toggle${yearAllSelected ? ' selected' : ''}${yearPartiallySelected ? ' partial' : ''}"
+            data-hover-indexes="${year.records.map((record) => record.index).join(',')}"
             title="${escapeHtml(t('periodYearToggleTitle', { year: year.yearKey }))}"
             aria-pressed="${yearAllSelected ? 'true' : 'false'}"
           >${escapeHtml(year.yearKey)}</button>
@@ -262,7 +263,7 @@ function renderPeriods() {
     item.querySelectorAll('button[data-index]').forEach((button) => {
       button.addEventListener('click', (event) => {
         const record = recordByIndex(Number(button.dataset.index));
-        if (event.shiftKey || state.multiPeriodMode) {
+        if (matchesHotkey(event, 'scopeExtendClick') || state.multiPeriodMode) {
           togglePeriodInScope(record);
           return;
         }
@@ -271,6 +272,12 @@ function renderPeriods() {
     });
     item.querySelector('.period-year-toggle')?.addEventListener('click', () => {
       toggleYearPeriods(year.yearKey);
+    });
+    // hovering a period chip (or a year toggle) outlines its comparison card(s)
+    item.querySelectorAll('[data-hover-indexes]').forEach((button) => {
+      const indexes = button.dataset.hoverIndexes.split(',').map(Number);
+      button.addEventListener('mouseenter', () => setComparisonPeriodHoverLink(indexes));
+      button.addEventListener('mouseleave', () => setComparisonPeriodHoverLink());
     });
     periodList.appendChild(item);
   });

@@ -190,7 +190,12 @@ function revenueTrendActiveElements(chart, index) {
       return meta?.data?.[index] && chart.data.datasets[datasetIndex]?.data?.[index] != null;
     });
 }
+/* Hover sync repaints a chart only when its synced index actually moves:
+ * afterEvent fires per mousemove, and unconditionally calling update('none')
+ * on every linked chart meant N full canvas re-renders per pointer event. */
 function setRevenueTrendActiveIndex(chart, index) {
+  if (chart.$trendSyncedIndex === index) return;
+  chart.$trendSyncedIndex = index;
   const active = revenueTrendActiveElements(chart, index);
   const point = chart.getDatasetMeta(0)?.data?.[index];
   chart.setActiveElements(active);
@@ -198,6 +203,11 @@ function setRevenueTrendActiveIndex(chart, index) {
   chart.update('none');
 }
 function clearRevenueTrendActive(chart) {
+  // the source chart's own hover may set active elements without going
+  // through the memo, so an empty memo alone cannot prove there is no state
+  const hadActive = chart.$trendSyncedIndex != null || (chart.getActiveElements?.() || []).length > 0;
+  chart.$trendSyncedIndex = null;
+  if (!hadActive) return;
   chart.setActiveElements([]);
   chart.tooltip?.setActiveElements([], { x: 0, y: 0 });
   chart.update('none');

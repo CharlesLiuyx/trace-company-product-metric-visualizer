@@ -37,8 +37,9 @@ d3-sankey fidelity loop.
   Sankey adapters.
 - Keep Trace domain normalization in `src/trace-domain.js`. The viewer app is
   split across `src/app/` as ordered classic scripts sharing one top-level
-  scope (load order lives in `index.html`): `dom`, `util`, `i18n-runtime`,
-  `state`, `selectors`, `financial` form the base layers; `shell`, `controls`,
+  scope (load order lives in `index.html`): `dom`, `util`, `hotkeys`,
+  `i18n-runtime`, `state`, `selectors`, `financial` form the base layers;
+  `shell`, `controls`,
   `company-panel`, `period-panel`, `tables`, `trend`, `comparison-zoom`,
   `comparison-metric-trend`, `sankey`, `exports` own one UI concern each;
   `main.js` wires global events and boots last. Put new viewer code in the
