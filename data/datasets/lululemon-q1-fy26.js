@@ -173,7 +173,7 @@
         cost_of_sales: { x: 1370, y: 1013, width: 73, height: 183 },
         operating_profit: { x: 1838, y: 459, width: 72, height: 44 },
         operating_expenses: { x: 1837, y: 742, width: 74, height: 172 },
-        other: { x: 2093, y: 393, width: 80, height: 2 },
+        other: { x: 2200, y: 408, width: 74, height: 2 },
         net_profit: { x: 2305, y: 339, width: 72, height: 30 },
         tax: { x: 2304, y: 580, width: 73, height: 14 },
         sga: { x: 2304, y: 847, width: 73, height: 171 },
@@ -202,7 +202,7 @@
               ],
             },
             {
-              x: 234, top: 966, anchor: 'middle', lineGap: 6,
+              x: 234, top: 895, anchor: 'middle', lineGap: 6,
               lines: [
                 { text: 'Direct to', size: 40, weight: 800, color: BLACK },
                 { text: 'consumer', size: 40, weight: 800, color: BLACK },
@@ -220,9 +220,14 @@
               ],
             },
             {
-              x: 234, top: 1200, anchor: 'middle', lineGap: 5,
+              x: 234, top: 1134, anchor: 'middle',
               lines: [
                 { text: 'Other revenue', size: 40, weight: 800, color: BLACK },
+              ],
+            },
+            {
+              x: 234, top: 1192, anchor: 'middle', lineGap: 5,
+              lines: [
                 { text: 'Outlets, temporary locations,', size: 24, weight: 500, color: NOTE },
                 { text: 'wholesale accounts, license and', size: 24, weight: 500, color: NOTE },
                 { text: 'supply arrangement', size: 24, weight: 500, color: NOTE },
@@ -294,7 +299,7 @@
         other: {
           blocks: [
             {
-              x: 2242, top: 418, anchor: 'middle', lineGap: 8,
+              x: 2237, top: 424, anchor: 'middle', lineGap: 8,
               lines: [
                 { text: 'Other', size: 32, weight: 800, color: GREEN_LABEL },
                 { text: '$9M', size: 32, weight: 400, color: GREEN_LABEL },
@@ -457,7 +462,7 @@
                   ],
                 },
                 {
-                  x: 234, top: 966, anchor: 'middle', lineGap: 6,
+                  x: 234, top: 895, anchor: 'middle', lineGap: 6,
                   lines: [
                     { text: '直接面向', size: 40, weight: 800, color: BLACK },
                     { text: '消费者', size: 40, weight: 800, color: BLACK },
@@ -475,9 +480,14 @@
                   ],
                 },
                 {
-                  x: 234, top: 1200, anchor: 'middle', lineGap: 5,
+                  x: 234, top: 1134, anchor: 'middle',
                   lines: [
                     { text: '其他收入', size: 40, weight: 800, color: BLACK },
+                  ],
+                },
+                {
+                  x: 234, top: 1192, anchor: 'middle', lineGap: 5,
+                  lines: [
                     { text: '奥特莱斯、临时店铺、', size: 24, weight: 500, color: NOTE },
                     { text: '批发客户、授权与', size: 24, weight: 500, color: NOTE },
                     { text: '供应安排', size: 24, weight: 500, color: NOTE },
@@ -549,7 +559,7 @@
             other: {
               blocks: [
                 {
-                  x: 2242, top: 418, anchor: 'middle', lineGap: 8,
+                  x: 2237, top: 424, anchor: 'middle', lineGap: 8,
                   lines: [
                     { text: '其他', size: 32, weight: 800, color: GREEN_LABEL },
                     { text: '$9M', size: 32, weight: 400, color: GREEN_LABEL },

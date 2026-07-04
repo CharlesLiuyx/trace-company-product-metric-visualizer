@@ -172,18 +172,18 @@
         cloud_memory: { x: 400, y: 473, width: 72, height: 122 },
         core_data_center: { x: 400, y: 752, width: 72, height: 102 },
         mobile_client: { x: 400, y: 1010, width: 72, height: 102 },
-        automotive_embedded: { x: 400, y: 1269, width: 72, height: 39 },
+        automotive_embedded: { x: 400, y: 1269, width: 72, height: 41 },
         revenue: { x: 868, y: 672, width: 71, height: 369 },
-        gross_profit: { x: 1334, y: 606, width: 73, height: 311 },
-        cost_of_revenue: { x: 1334, y: 1079, width: 73, height: 55 },
+        gross_profit: { x: 1334, y: 606, width: 73, height: 312 },
+        cost_of_revenue: { x: 1334, y: 1079, width: 73, height: 57 },
         operating_profit: { x: 1802, y: 520, width: 72, height: 296 },
         operating_expenses: { x: 1802, y: 988, width: 72, height: 16 },
         net_profit: { x: 2269, y: 458, width: 72, height: 251 },
         tax: { x: 2269, y: 797, width: 72, height: 44 },
-        other_non_operating: { x: 2269, y: 931, width: 72, height: 3 },
+        other_non_operating: { x: 2269, y: 931, width: 72, height: 1 },
         rnd: { x: 2269, y: 1026, width: 72, height: 11 },
         sga: { x: 2269, y: 1154, width: 72, height: 4 },
-        other_opex: { x: 2269, y: 1281, width: 72, height: 3 },
+        other_opex: { x: 2269, y: 1281, width: 72, height: 1 },
       },
       labels: {
         cloud_memory: {
@@ -196,7 +196,7 @@
               ],
             },
             {
-              x: 205, top: 502, anchor: 'middle', lineGap: 7,
+              x: 214, top: 493, anchor: 'middle', lineGap: 7,
               lines: [
                 { text: 'Cloud Memory', size: 40, weight: 800, color: MAGENTA },
                 { text: '78% operating margin', size: 27, weight: 400, color: NOTE },
@@ -214,7 +214,7 @@
               ],
             },
             {
-              x: 205, top: 781, anchor: 'middle', lineGap: 7,
+              x: 214, top: 759, anchor: 'middle', lineGap: 7,
               lines: [
                 { text: 'Core Data Center', size: 40, weight: 800, color: MAGENTA },
                 { text: '83% operating margin', size: 27, weight: 400, color: NOTE },
@@ -232,7 +232,7 @@
               ],
             },
             {
-              x: 205, top: 1039, anchor: 'middle', lineGap: 7,
+              x: 214, top: 1020, anchor: 'middle', lineGap: 7,
               lines: [
                 { text: 'Mobile & Client', size: 40, weight: 800, color: MAGENTA },
                 { text: '86% operating margin', size: 27, weight: 400, color: NOTE },
@@ -250,7 +250,7 @@
               ],
             },
             {
-              x: 205, top: 1298, anchor: 'middle', lineGap: 7,
+              x: 214, top: 1218, anchor: 'middle', lineGap: 7,
               lines: [
                 { text: 'Automotive', size: 40, weight: 800, color: MAGENTA },
                 { text: '& Embedded', size: 40, weight: 800, color: MAGENTA },
@@ -337,7 +337,7 @@
         tax: {
           blocks: [
             {
-              x: 2470, top: 782, anchor: 'middle', lineGap: 6,
+              x: 2457, top: 775, anchor: 'middle', lineGap: 6,
               lines: [
                 { text: 'Tax', size: 40, weight: 800 },
                 { text: '$value', size: 40, weight: 400 },
@@ -348,7 +348,7 @@
         other_non_operating: {
           blocks: [
             {
-              x: 2470, top: 894, anchor: 'middle', lineGap: 6,
+              x: 2457, top: 889, anchor: 'middle', lineGap: 6,
               lines: [
                 { text: 'Other', size: 40, weight: 800 },
                 { text: '$value', size: 40, weight: 400 },
@@ -359,7 +359,7 @@
         rnd: {
           blocks: [
             {
-              x: 2470, top: 1011, anchor: 'middle', lineGap: 6,
+              x: 2457, top: 988, anchor: 'middle', lineGap: 6,
               lines: [
                 { text: 'R&D', size: 40, weight: 800 },
                 { text: '$value', size: 40, weight: 400 },
@@ -370,7 +370,7 @@
         sga: {
           blocks: [
             {
-              x: 2470, top: 1139, anchor: 'middle', lineGap: 6,
+              x: 2457, top: 1112, anchor: 'middle', lineGap: 6,
               lines: [
                 { text: 'SG&A', size: 40, weight: 800 },
                 { text: '$value', size: 40, weight: 400 },
@@ -381,7 +381,7 @@
         other_opex: {
           blocks: [
             {
-              x: 2470, top: 1256, anchor: 'middle', lineGap: 6,
+              x: 2457, top: 1239, anchor: 'middle', lineGap: 6,
               lines: [
                 { text: 'Other', size: 40, weight: 800 },
                 { text: '$value', size: 40, weight: 400 },
@@ -411,20 +411,20 @@
     ],
 
     links: [
-      { source: 'cloud_memory', target: 'revenue', value: 13.8, width: 126, targetOrder: 0 },
+      { source: 'cloud_memory', target: 'revenue', value: 13.8, width: 122, targetOrder: 0 },
       { source: 'core_data_center', target: 'revenue', value: 11.5, width: 102, targetOrder: 1 },
       { source: 'mobile_client', target: 'revenue', value: 11.5, width: 102, targetOrder: 2 },
-      { source: 'automotive_embedded', target: 'revenue', value: 4.6, width: 39, targetOrder: 3 },
-      { source: 'revenue', target: 'gross_profit', value: 35.1, width: 311, sourceOrder: 0, targetOrder: 0, linkTint: GREEN_LINK },
-      { source: 'revenue', target: 'cost_of_revenue', value: 6.4, width: 55, sourceOrder: 1, targetOrder: 0 },
+      { source: 'automotive_embedded', target: 'revenue', value: 4.6, width: 41, targetOrder: 3 },
+      { source: 'revenue', target: 'gross_profit', value: 35.1, width: 312, sourceOrder: 0, targetOrder: 0, linkTint: GREEN_LINK },
+      { source: 'revenue', target: 'cost_of_revenue', value: 6.4, width: 57, sourceOrder: 1, targetOrder: 0 },
       { source: 'gross_profit', target: 'operating_profit', value: 33.3, width: 296, sourceOrder: 0, targetOrder: 0 },
       { source: 'gross_profit', target: 'operating_expenses', value: 1.7, width: 16, sourceOrder: 1, targetOrder: 0 },
       { source: 'operating_profit', target: 'net_profit', value: 28.2, width: 251, sourceOrder: 0, targetOrder: 0 },
       { source: 'operating_profit', target: 'tax', value: 5.0, width: 44, sourceOrder: 1, targetOrder: 0 },
-      { source: 'operating_profit', target: 'other_non_operating', value: 0.1, width: 3, sourceOrder: 2, targetOrder: 0 },
+      { source: 'operating_profit', target: 'other_non_operating', value: 0.1, width: 1, sourceOrder: 2, targetOrder: 0 },
       { source: 'operating_expenses', target: 'rnd', value: 1.3, width: 11, sourceOrder: 0, targetOrder: 0 },
       { source: 'operating_expenses', target: 'sga', value: 0.4, width: 4, sourceOrder: 1, targetOrder: 0 },
-      { source: 'operating_expenses', target: 'other_opex', value: 0.1, width: 3, sourceOrder: 2, targetOrder: 0 },
+      { source: 'operating_expenses', target: 'other_opex', value: 0.1, width: 1, sourceOrder: 2, targetOrder: 0 },
     ],
 
     i18n: {
@@ -469,7 +469,7 @@
                   ],
                 },
                 {
-                  x: 205, top: 502, anchor: 'middle', lineGap: 7,
+                  x: 214, top: 493, anchor: 'middle', lineGap: 7,
                   lines: [
                     { text: '云内存', size: 40, weight: 800, color: MAGENTA },
                     { text: '营业利润率 78%', size: 27, weight: 400, color: NOTE },
@@ -487,7 +487,7 @@
                   ],
                 },
                 {
-                  x: 205, top: 781, anchor: 'middle', lineGap: 7,
+                  x: 214, top: 759, anchor: 'middle', lineGap: 7,
                   lines: [
                     { text: '核心数据中心', size: 40, weight: 800, color: MAGENTA },
                     { text: '营业利润率 83%', size: 27, weight: 400, color: NOTE },
@@ -505,7 +505,7 @@
                   ],
                 },
                 {
-                  x: 205, top: 1039, anchor: 'middle', lineGap: 7,
+                  x: 214, top: 1020, anchor: 'middle', lineGap: 7,
                   lines: [
                     { text: '移动与客户端', size: 40, weight: 800, color: MAGENTA },
                     { text: '营业利润率 86%', size: 27, weight: 400, color: NOTE },
@@ -523,7 +523,7 @@
                   ],
                 },
                 {
-                  x: 205, top: 1298, anchor: 'middle', lineGap: 7,
+                  x: 214, top: 1218, anchor: 'middle', lineGap: 7,
                   lines: [
                     { text: '汽车与嵌入式', size: 40, weight: 800, color: MAGENTA },
                     { text: '营业利润率 75%', size: 27, weight: 400, color: NOTE },
@@ -608,7 +608,7 @@
             tax: {
               blocks: [
                 {
-                  x: 2470, top: 782, anchor: 'middle', lineGap: 6,
+                  x: 2457, top: 775, anchor: 'middle', lineGap: 6,
                   lines: [
                     { text: '税费', size: 40, weight: 800 },
                     { text: '$value', size: 40, weight: 400 },
@@ -619,7 +619,7 @@
             other_non_operating: {
               blocks: [
                 {
-                  x: 2470, top: 894, anchor: 'middle', lineGap: 6,
+                  x: 2457, top: 889, anchor: 'middle', lineGap: 6,
                   lines: [
                     { text: '其他', size: 40, weight: 800 },
                     { text: '$value', size: 40, weight: 400 },
@@ -630,7 +630,7 @@
             rnd: {
               blocks: [
                 {
-                  x: 2470, top: 1011, anchor: 'middle', lineGap: 6,
+                  x: 2457, top: 988, anchor: 'middle', lineGap: 6,
                   lines: [
                     { text: '研发', size: 40, weight: 800 },
                     { text: '$value', size: 40, weight: 400 },
@@ -641,7 +641,7 @@
             sga: {
               blocks: [
                 {
-                  x: 2470, top: 1139, anchor: 'middle', lineGap: 6,
+                  x: 2457, top: 1112, anchor: 'middle', lineGap: 6,
                   lines: [
                     { text: '销售及行政', size: 36, weight: 800 },
                     { text: '$value', size: 40, weight: 400 },
@@ -652,7 +652,7 @@
             other_opex: {
               blocks: [
                 {
-                  x: 2470, top: 1256, anchor: 'middle', lineGap: 6,
+                  x: 2457, top: 1239, anchor: 'middle', lineGap: 6,
                   lines: [
                     { text: '其他', size: 40, weight: 800 },
                     { text: '$value', size: 40, weight: 400 },
