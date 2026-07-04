@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-04T08:12:55.073Z",
+  "generatedAt": "2026-07-04T08:47:34.655Z",
   "source": "dataset view and metric source file modification times",
   "files": {
     "alphabet-q1-fy26": {
@@ -101,6 +101,11 @@
       "path": "data/datasets/broadcom-q2-fy26.js",
       "mtimeMs": 1783142954678,
       "mtime": "2026-07-04T05:29:14.678Z"
+    },
+    "cerebras-q1-fy26": {
+      "path": "data/datasets/cerebras-q1-fy26.js",
+      "mtimeMs": 1783154854655,
+      "mtime": "2026-07-04T08:47:34.655Z"
     },
     "coinbase-q1-fy26": {
       "path": "data/datasets/coinbase-q1-fy26.js",
