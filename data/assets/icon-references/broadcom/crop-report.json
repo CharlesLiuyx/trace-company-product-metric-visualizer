@@ -1,0 +1,265 @@
+{
+  "source": "input/processed/broadcom-q2-fy26.png",
+  "spec": "input/icon-crop-specs/broadcom-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-04T05:27:38.094640+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "broadcom-company-logo",
+      "output": "data/assets/icon-references/broadcom/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2497,
+        "losslessBytes": 10754,
+        "savingsVsLossless": 0.7678,
+        "metrics": {
+          "meanAbsoluteError": 0.4305,
+          "rootMeanSquareError": 1.7092,
+          "p99AbsoluteError": 8,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.6597
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 15169,
+        "transparentPixelRatio": 0.344
+      },
+      "searchBox": {
+        "x": 794,
+        "y": 339,
+        "width": 189,
+        "height": 190
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 794,
+        "y0": 339,
+        "x1": 983,
+        "y1": 529
+      },
+      "cropBox": {
+        "x0": 784,
+        "y0": 329,
+        "x1": 994,
+        "y1": 539
+      },
+      "validation": {
+        "width": 210,
+        "height": 210,
+        "foregroundPixels": 24333,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 10,
+          "right": 11,
+          "top": 10,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": -0.0024,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Broadcom circular signal-wave logo above the revenue hub; excludes the Revenue label, values, flows, and publisher marks.",
+      "validationSheet": "data/assets/icon-references/broadcom/validation-sheets/broadcom-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 282703,
+        "losslessBytes": 282703,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "broadcom-business-semiconductor-solutions",
+      "output": "data/assets/icon-references/broadcom/crops/business-semiconductor-solutions.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1594,
+        "losslessBytes": 5828,
+        "savingsVsLossless": 0.7265,
+        "metrics": {
+          "meanAbsoluteError": 0.4604,
+          "rootMeanSquareError": 1.1916,
+          "p99AbsoluteError": 6,
+          "maxChannelDiff": 10,
+          "changedPixelRatio": 0.3848
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          222,
+          150,
+          163
+        ],
+        "transparentPixels": 0,
+        "transparentPixelRatio": 0.0
+      },
+      "searchBox": {
+        "x": 130,
+        "y": 463,
+        "width": 142,
+        "height": 142
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 130,
+        "y0": 463,
+        "x1": 272,
+        "y1": 605
+      },
+      "cropBox": {
+        "x0": 120,
+        "y0": 453,
+        "x1": 282,
+        "y1": 615
+      },
+      "validation": {
+        "width": 162,
+        "height": 162,
+        "foregroundPixels": 17216,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 10,
+          "right": 10,
+          "top": 10,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Semiconductor solutions crimson chip / circuit icon only; excludes the Semiconductor solutions label, values, notes, and flow marks.",
+      "validationSheet": "data/assets/icon-references/broadcom/validation-sheets/broadcom-business-semiconductor-solutions.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 269206,
+        "losslessBytes": 269206,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "broadcom-business-infrastructure-software",
+      "output": "data/assets/icon-references/broadcom/crops/business-infrastructure-software.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 7368,
+        "losslessBytes": 7368,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          234,
+          235,
+          235
+        ],
+        "transparentPixels": 11640,
+        "transparentPixelRatio": 0.4605
+      },
+      "searchBox": {
+        "x": 138,
+        "y": 930,
+        "width": 158,
+        "height": 122
+      },
+      "componentCount": 5,
+      "subjectBox": {
+        "x0": 138,
+        "y0": 930,
+        "x1": 296,
+        "y1": 1052
+      },
+      "cropBox": {
+        "x0": 128,
+        "y0": 920,
+        "x1": 306,
+        "y1": 1062
+      },
+      "validation": {
+        "width": 178,
+        "height": 142,
+        "foregroundPixels": 12045,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 10,
+          "right": 10,
+          "top": 10,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Infrastructure software blue cloud + code-brackets icon only; excludes the Infrastructure software label, values, notes, and flow marks.",
+      "validationSheet": "data/assets/icon-references/broadcom/validation-sheets/broadcom-business-infrastructure-software.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 268709,
+        "losslessBytes": 268709,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}
