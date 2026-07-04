@@ -101,7 +101,7 @@
         cloud: { x: 810, y: 579, width: 73, height: 168 },
         software: { x: 810, y: 929, width: 73, height: 115 },
         hardware: { x: 810, y: 1188, width: 73, height: 14 },
-        services: { x: 810, y: 1339, width: 73, height: 25 },
+        services: { x: 810, y: 1339, width: 73, height: 29 },
         revenue: { x: 1184, y: 668, width: 73, height: 326 },
         gross_profit: { x: 1558, y: 573, width: 73, height: 214 },
         cost_of_revenue: { x: 1558, y: 985, width: 73, height: 114 },
@@ -110,9 +110,9 @@
         cor_services: { x: 1768, y: 1345, width: 73, height: 8 },
         operating_profit: { x: 1932, y: 486, width: 73, height: 105 },
         operating_expenses: { x: 1932, y: 742, width: 73, height: 109 },
-        net_profit: { x: 2306, y: 381, width: 73, height: 72 },
+        net_profit: { x: 2306, y: 381, width: 73, height: 76 },
         tax: { x: 2306, y: 592, width: 73, height: 17 },
-        interest: { x: 2306, y: 706, width: 73, height: 14 },
+        interest: { x: 2306, y: 706, width: 73, height: 12 },
         rnd: { x: 2306, y: 816, width: 73, height: 44 },
         sm: { x: 2306, y: 958, width: 73, height: 34 },
         restructuring_other: { x: 2306, y: 1097, width: 73, height: 14 },
@@ -141,7 +141,7 @@
               ],
             },
             {
-              x: 296, top: 613, anchor: 'end', lineGap: 8,
+              x: 318, top: 613, anchor: 'end', lineGap: 8,
               lines: [
                 { text: 'Cloud', size: 40, weight: 800, color: DARK },
                 { text: 'applications', size: 40, weight: 800, color: DARK },
@@ -159,7 +159,7 @@
               ],
             },
             {
-              x: 296, top: 853, anchor: 'end', lineGap: 8,
+              x: 318, top: 853, anchor: 'end', lineGap: 8,
               lines: [
                 { text: 'Software', size: 40, weight: 800, color: DARK },
                 { text: 'Support', size: 40, weight: 800, color: DARK },
@@ -177,7 +177,7 @@
               ],
             },
             {
-              x: 296, top: 1073, anchor: 'end', lineGap: 8,
+              x: 318, top: 1039, anchor: 'end', lineGap: 8,
               lines: [
                 { text: 'Software', size: 40, weight: 800, color: DARK },
                 { text: 'License', size: 40, weight: 800, color: DARK },
@@ -212,7 +212,7 @@
         hardware: {
           blocks: [
             {
-              x: 774, top: 1170, anchor: 'end',
+              x: 792, top: 1170, anchor: 'end',
               lines: [{ text: 'Hardware', size: 40, weight: 800, color: DARK }],
             },
             {
@@ -227,7 +227,7 @@
         services: {
           blocks: [
             {
-              x: 774, top: 1332, anchor: 'end',
+              x: 792, top: 1330, anchor: 'end',
               lines: [{ text: 'Services', size: 40, weight: 800, color: DARK }],
             },
             {
@@ -279,10 +279,10 @@
         cor_cloud_software: {
           blocks: [
             {
-              x: 1862, top: 1002, anchor: 'start', lineGap: 8,
+              x: 1882, top: 1023, anchor: 'start', lineGap: 8,
               lines: [
-                { text: 'Cloud &', size: 34, weight: 800, color: RED_LABEL },
-                { text: 'Software ($5.2B)', size: 34, weight: 800, color: RED_LABEL },
+                { text: 'Cloud &', size: 30, weight: 700, color: RED_LABEL },
+                { text: 'Software ($5.2B)', size: 30, weight: 700, color: RED_LABEL },
                 { text: '67% gross margin', size: 27, weight: 400, color: NOTE },
               ],
             },
@@ -291,9 +291,9 @@
         cor_hardware: {
           blocks: [
             {
-              x: 1862, top: 1163, anchor: 'start', lineGap: 8,
+              x: 1882, top: 1190, anchor: 'start', lineGap: 8,
               lines: [
-                { text: 'Hardware ($0.3B)', size: 34, weight: 800, color: RED_LABEL },
+                { text: 'Hardware ($0.3B)', size: 30, weight: 700, color: RED_LABEL },
                 { text: '68% gross margin', size: 27, weight: 400, color: NOTE },
               ],
             },
@@ -302,9 +302,9 @@
         cor_services: {
           blocks: [
             {
-              x: 1862, top: 1273, anchor: 'start', lineGap: 8,
+              x: 1882, top: 1317, anchor: 'start', lineGap: 8,
               lines: [
-                { text: 'Services ($1.2B)', size: 34, weight: 800, color: RED_LABEL },
+                { text: 'Services ($1.2B)', size: 30, weight: 700, color: RED_LABEL },
                 { text: '24% gross margin', size: 27, weight: 400, color: NOTE },
               ],
             },
@@ -326,7 +326,7 @@
         operating_expenses: {
           blocks: [
             {
-              x: 1900, top: 872, anchor: 'middle', lineGap: 8,
+              x: 1960, top: 872, anchor: 'middle', lineGap: 8,
               lines: [
                 { text: 'Operating', size: 40, weight: 800, color: RED_LABEL },
                 { text: 'expenses', size: 40, weight: 800, color: RED_LABEL },
@@ -351,7 +351,7 @@
         tax: {
           blocks: [
             {
-              x: 2450, top: 546, anchor: 'start', lineGap: 8,
+              x: 2458, top: 546, anchor: 'start', lineGap: 8,
               lines: [
                 { text: 'Tax', size: 34, weight: 800, color: RED_LABEL },
                 { text: '($1.1B)', size: 34, weight: 400, color: RED_LABEL },
@@ -362,7 +362,7 @@
         interest: {
           blocks: [
             {
-              x: 2450, top: 660, anchor: 'start', lineGap: 8,
+              x: 2458, top: 660, anchor: 'start', lineGap: 8,
               lines: [
                 { text: 'Interest', size: 34, weight: 800, color: RED_LABEL },
                 { text: '($0.8B)', size: 34, weight: 400, color: RED_LABEL },
@@ -373,7 +373,7 @@
         rnd: {
           blocks: [
             {
-              x: 2384, top: 815, anchor: 'start',
+              x: 2402, top: 815, anchor: 'start',
               lines: [{ text: 'R&D ($2.6B)', size: 34, weight: 800, color: RED_LABEL }],
             },
           ],
@@ -381,7 +381,7 @@
         sm: {
           blocks: [
             {
-              x: 2384, top: 957, anchor: 'start',
+              x: 2402, top: 957, anchor: 'start',
               lines: [{ text: 'S&M ($2.1B)', size: 34, weight: 800, color: RED_LABEL }],
             },
           ],
@@ -389,7 +389,7 @@
         restructuring_other: {
           blocks: [
             {
-              x: 2384, top: 1075, anchor: 'start', lineGap: 8,
+              x: 2402, top: 1075, anchor: 'start', lineGap: 8,
               lines: [
                 { text: 'Restructuring', size: 34, weight: 800, color: RED_LABEL },
                 { text: '& Other', size: 34, weight: 800, color: RED_LABEL },
@@ -401,7 +401,7 @@
         amortization: {
           blocks: [
             {
-              x: 2384, top: 1197, anchor: 'start', lineGap: 8,
+              x: 2402, top: 1197, anchor: 'start', lineGap: 8,
               lines: [
                 { text: 'Amortization', size: 34, weight: 800, color: RED_LABEL },
                 { text: '($0.4B)', size: 34, weight: 400, color: RED_LABEL },
@@ -412,7 +412,7 @@
         ga: {
           blocks: [
             {
-              x: 2384, top: 1317, anchor: 'start',
+              x: 2402, top: 1317, anchor: 'start',
               lines: [{ text: 'G&A ($0.4B)', size: 34, weight: 800, color: RED_LABEL }],
             },
           ],
@@ -465,9 +465,9 @@
       { source: 'revenue', target: 'cost_of_revenue', value: 6.7, width: 112, sourceOrder: 1 },
 
       // cost of revenue -> component cost lines
-      { source: 'cost_of_revenue', target: 'cor_cloud_software', value: 5.2, width: 91, sourceOrder: 0, targetOrder: 0, curve: { c1x: 1660, c2x: 1700 } },
-      { source: 'cost_of_revenue', target: 'cor_hardware', value: 0.3, width: 19, sourceOrder: 1, targetOrder: 0, curve: { c1x: 1650, c2x: 1720 } },
-      { source: 'cost_of_revenue', target: 'cor_services', value: 1.2, width: 8, sourceOrder: 2, targetOrder: 0, curve: { c1x: 1640, c2x: 1730 } },
+      { source: 'cost_of_revenue', target: 'cor_cloud_software', value: 5.2, width: 88, sourceOrder: 0, targetOrder: 0 },
+      { source: 'cost_of_revenue', target: 'cor_hardware', value: 0.3, width: 19, sourceOrder: 1, targetOrder: 0 },
+      { source: 'cost_of_revenue', target: 'cor_services', value: 1.2, width: 8, sourceOrder: 2, targetOrder: 0 },
 
       // gross profit -> operating profit / operating expenses
       { source: 'gross_profit', target: 'operating_profit', value: 6.1, width: 105, sourceOrder: 0 },
@@ -475,15 +475,15 @@
 
       // operating profit -> net profit / tax / interest
       { source: 'operating_profit', target: 'net_profit', value: 4.3, width: 76, sourceOrder: 0, targetOrder: 0 },
-      { source: 'operating_profit', target: 'tax', value: 1.1, width: 17, sourceOrder: 1, targetOrder: 0, curve: { c1x: 2110, c2x: 2260 } },
-      { source: 'operating_profit', target: 'interest', value: 0.8, width: 12, sourceOrder: 2, targetOrder: 0, curve: { c1x: 2090, c2x: 2270 } },
+      { source: 'operating_profit', target: 'tax', value: 1.1, width: 17, sourceOrder: 1, targetOrder: 0 },
+      { source: 'operating_profit', target: 'interest', value: 0.8, width: 12, sourceOrder: 2, targetOrder: 0 },
 
       // operating expenses -> opex lines
-      { source: 'operating_expenses', target: 'rnd', value: 2.6, width: 44, sourceOrder: 0, targetOrder: 0, curve: { c1x: 2110, c2x: 2260 } },
-      { source: 'operating_expenses', target: 'sm', value: 2.1, width: 34, sourceOrder: 1, targetOrder: 0, curve: { c1x: 2100, c2x: 2265 } },
-      { source: 'operating_expenses', target: 'restructuring_other', value: 0.8, width: 14, sourceOrder: 2, targetOrder: 0, curve: { c1x: 2080, c2x: 2270 } },
-      { source: 'operating_expenses', target: 'amortization', value: 0.4, width: 8, sourceOrder: 3, targetOrder: 0, curve: { c1x: 2060, c2x: 2275 } },
-      { source: 'operating_expenses', target: 'ga', value: 0.4, width: 8, sourceOrder: 4, targetOrder: 0, curve: { c1x: 2050, c2x: 2280 } },
+      { source: 'operating_expenses', target: 'rnd', value: 2.6, width: 44, sourceOrder: 0, targetOrder: 0 },
+      { source: 'operating_expenses', target: 'sm', value: 2.1, width: 34, sourceOrder: 1, targetOrder: 0 },
+      { source: 'operating_expenses', target: 'restructuring_other', value: 0.8, width: 14, sourceOrder: 2, targetOrder: 0 },
+      { source: 'operating_expenses', target: 'amortization', value: 0.4, width: 8, sourceOrder: 3, targetOrder: 0 },
+      { source: 'operating_expenses', target: 'ga', value: 0.4, width: 8, sourceOrder: 4, targetOrder: 0 },
     ],
 
     i18n: {
@@ -545,7 +545,7 @@
                   ],
                 },
                 {
-                  x: 296, top: 613, anchor: 'end', lineGap: 8,
+                  x: 318, top: 613, anchor: 'end', lineGap: 8,
                   lines: [
                     { text: '云应用', size: 40, weight: 800, color: DARK },
                   ],
@@ -562,7 +562,7 @@
                   ],
                 },
                 {
-                  x: 296, top: 874, anchor: 'end', lineGap: 8,
+                  x: 318, top: 874, anchor: 'end', lineGap: 8,
                   lines: [
                     { text: '软件支持', size: 40, weight: 800, color: DARK },
                   ],
@@ -579,7 +579,7 @@
                   ],
                 },
                 {
-                  x: 296, top: 1094, anchor: 'end', lineGap: 8,
+                  x: 318, top: 1065, anchor: 'end', lineGap: 8,
                   lines: [
                     { text: '软件许可证', size: 40, weight: 800, color: DARK },
                   ],
@@ -589,7 +589,7 @@
             hardware: {
               blocks: [
                 {
-                  x: 774, top: 1170, anchor: 'end',
+                  x: 792, top: 1170, anchor: 'end',
                   lines: [{ text: '硬件', size: 40, weight: 800, color: DARK }],
                 },
                 {
@@ -604,7 +604,7 @@
             services: {
               blocks: [
                 {
-                  x: 774, top: 1332, anchor: 'end',
+                  x: 792, top: 1330, anchor: 'end',
                   lines: [{ text: '服务', size: 40, weight: 800, color: DARK }],
                 },
                 {
@@ -643,9 +643,9 @@
             cor_cloud_software: {
               blocks: [
                 {
-                  x: 1862, top: 1042, anchor: 'start', lineGap: 8,
+                  x: 1882, top: 1042, anchor: 'start', lineGap: 8,
                   lines: [
-                    { text: '云与软件 ($5.2B)', size: 34, weight: 800, color: RED_LABEL },
+                    { text: '云与软件 ($5.2B)', size: 30, weight: 700, color: RED_LABEL },
                     { text: '毛利率 67%', size: 27, weight: 400, color: NOTE },
                   ],
                 },
@@ -654,9 +654,9 @@
             cor_hardware: {
               blocks: [
                 {
-                  x: 1862, top: 1163, anchor: 'start', lineGap: 8,
+                  x: 1882, top: 1190, anchor: 'start', lineGap: 8,
                   lines: [
-                    { text: '硬件 ($0.3B)', size: 34, weight: 800, color: RED_LABEL },
+                    { text: '硬件 ($0.3B)', size: 30, weight: 700, color: RED_LABEL },
                     { text: '毛利率 68%', size: 27, weight: 400, color: NOTE },
                   ],
                 },
@@ -665,9 +665,9 @@
             cor_services: {
               blocks: [
                 {
-                  x: 1862, top: 1273, anchor: 'start', lineGap: 8,
+                  x: 1882, top: 1317, anchor: 'start', lineGap: 8,
                   lines: [
-                    { text: '服务 ($1.2B)', size: 34, weight: 800, color: RED_LABEL },
+                    { text: '服务 ($1.2B)', size: 30, weight: 700, color: RED_LABEL },
                     { text: '毛利率 24%', size: 27, weight: 400, color: NOTE },
                   ],
                 },
@@ -715,7 +715,7 @@
             tax: {
               blocks: [
                 {
-                  x: 2450, top: 546, anchor: 'start', lineGap: 8,
+                  x: 2458, top: 546, anchor: 'start', lineGap: 8,
                   lines: [
                     { text: '税费', size: 34, weight: 800, color: RED_LABEL },
                     { text: '($1.1B)', size: 34, weight: 400, color: RED_LABEL },
@@ -726,7 +726,7 @@
             interest: {
               blocks: [
                 {
-                  x: 2450, top: 660, anchor: 'start', lineGap: 8,
+                  x: 2458, top: 660, anchor: 'start', lineGap: 8,
                   lines: [
                     { text: '利息', size: 34, weight: 800, color: RED_LABEL },
                     { text: '($0.8B)', size: 34, weight: 400, color: RED_LABEL },
@@ -737,7 +737,7 @@
             rnd: {
               blocks: [
                 {
-                  x: 2384, top: 815, anchor: 'start',
+                  x: 2402, top: 815, anchor: 'start',
                   lines: [{ text: '研发 ($2.6B)', size: 34, weight: 800, color: RED_LABEL }],
                 },
               ],
@@ -745,7 +745,7 @@
             sm: {
               blocks: [
                 {
-                  x: 2384, top: 938, anchor: 'start', lineGap: 8,
+                  x: 2402, top: 938, anchor: 'start', lineGap: 8,
                   lines: [
                     { text: '销售与市场', size: 34, weight: 800, color: RED_LABEL },
                     { text: '($2.1B)', size: 34, weight: 400, color: RED_LABEL },
@@ -756,7 +756,7 @@
             restructuring_other: {
               blocks: [
                 {
-                  x: 2384, top: 1075, anchor: 'start', lineGap: 8,
+                  x: 2402, top: 1075, anchor: 'start', lineGap: 8,
                   lines: [
                     { text: '重组及其他', size: 34, weight: 800, color: RED_LABEL },
                     { text: '($0.8B)', size: 34, weight: 400, color: RED_LABEL },
@@ -767,7 +767,7 @@
             amortization: {
               blocks: [
                 {
-                  x: 2384, top: 1197, anchor: 'start', lineGap: 8,
+                  x: 2402, top: 1197, anchor: 'start', lineGap: 8,
                   lines: [
                     { text: '摊销', size: 34, weight: 800, color: RED_LABEL },
                     { text: '($0.4B)', size: 34, weight: 400, color: RED_LABEL },
@@ -778,7 +778,7 @@
             ga: {
               blocks: [
                 {
-                  x: 2384, top: 1299, anchor: 'start', lineGap: 8,
+                  x: 2402, top: 1299, anchor: 'start', lineGap: 8,
                   lines: [
                     { text: '一般及行政', size: 34, weight: 800, color: RED_LABEL },
                     { text: '($0.4B)', size: 34, weight: 400, color: RED_LABEL },
