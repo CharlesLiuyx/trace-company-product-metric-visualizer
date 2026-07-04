@@ -1,0 +1,80 @@
+{
+  "source": "input/processed/adobe-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/adobe",
+  "validationSheetDir": "data/assets/icon-references/adobe/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding badge and mini sankey logo, not part of Adobe's income-statement semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "Source publisher branding, website URL watermark, and footer logo are intentionally excluded."
+    }
+  ],
+  "crops": [
+    {
+      "key": "adobe-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": { "x": 657, "y": 261, "width": 545, "height": 140 },
+      "cropBox": { "x": 641, "y": 245, "width": 577, "height": 172 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Adobe flag mark and wordmark lockup beside the revenue hub; excludes the black title text, Q2 FY26 stamp, and flows."
+    },
+    {
+      "key": "adobe-business-creative-cloud",
+      "output": "crops/business-creative-cloud.png",
+      "searchBox": { "x": 124, "y": 380, "width": 116, "height": 112 },
+      "cropBox": { "x": 114, "y": 370, "width": 136, "height": 132 },
+      "threshold": 18,
+      "minComponentArea": 12,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.14,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Creative Cloud rainbow-gradient app icon for the Creative & Marketing Professionals source; excludes the Acrobat icon and label text."
+    },
+    {
+      "key": "adobe-business-acrobat",
+      "output": "crops/business-acrobat.png",
+      "searchBox": { "x": 247, "y": 380, "width": 117, "height": 112 },
+      "cropBox": { "x": 237, "y": 370, "width": 137, "height": 132 },
+      "threshold": 18,
+      "minComponentArea": 12,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.14,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Acrobat red app icon for the Creative & Marketing Professionals source; excludes the Creative Cloud icon and label text."
+    },
+    {
+      "key": "adobe-business-consumers",
+      "output": "crops/business-consumers.png",
+      "searchBox": { "x": 186, "y": 662, "width": 115, "height": 116 },
+      "cropBox": { "x": 176, "y": 652, "width": 135, "height": 136 },
+      "threshold": 18,
+      "minComponentArea": 12,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.14,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Adobe flag app icon for the Business Professionals & Consumers source; excludes label text and flows."
+    }
+  ]
+}
