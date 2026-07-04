@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-04T08:47:34.655Z",
+  "generatedAt": "2026-07-04T11:14:34.335Z",
   "source": "dataset view and metric source file modification times",
   "files": {
     "alphabet-q1-fy26": {
@@ -301,6 +301,11 @@
       "path": "data/datasets/okta-q1-fy27.js",
       "mtimeMs": 1782565897913,
       "mtime": "2026-06-27T13:11:37.913Z"
+    },
+    "oracle-q4-fy26": {
+      "path": "data/datasets/oracle-q4-fy26.js",
+      "mtimeMs": 1783163674335,
+      "mtime": "2026-07-04T11:14:34.335Z"
     },
     "palantir-q1-fy26": {
       "path": "data/datasets/palantir-q1-fy26.js",
