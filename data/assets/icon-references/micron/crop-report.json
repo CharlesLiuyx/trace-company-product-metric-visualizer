@@ -1,0 +1,343 @@
+{
+  "source": "input/processed/micron-q3-fy26.png",
+  "spec": "input/icon-crop-specs/micron-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-04T11:00:04.941413+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "micron-company-wordmark",
+      "output": "data/assets/icon-references/micron/crops/company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4262,
+        "losslessBytes": 19206,
+        "savingsVsLossless": 0.7781,
+        "metrics": {
+          "meanAbsoluteError": 0.1805,
+          "rootMeanSquareError": 1.0381,
+          "p99AbsoluteError": 6,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.0759
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 84358,
+        "transparentPixelRatio": 0.7489
+      },
+      "searchBox": {
+        "x": 558,
+        "y": 238,
+        "width": 682,
+        "height": 130
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 564,
+        "y0": 238,
+        "x1": 1234,
+        "y1": 365
+      },
+      "cropBox": {
+        "x0": 546,
+        "y0": 222,
+        "x1": 1250,
+        "y1": 382
+      },
+      "validation": {
+        "width": 704,
+        "height": 160,
+        "foregroundPixels": 24822,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 18,
+          "right": 16,
+          "top": 16,
+          "bottom": 17
+        },
+        "centerOffset": {
+          "x": 0.0014,
+          "y": -0.0031
+        },
+        "passes": true
+      },
+      "note": "",
+      "validationSheet": "data/assets/icon-references/micron/validation-sheets/micron-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 232383,
+        "losslessBytes": 232383,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "micron-business-cloud-memory",
+      "output": "data/assets/icon-references/micron/crops/business-cloud-memory.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2141,
+        "losslessBytes": 12432,
+        "savingsVsLossless": 0.8278,
+        "metrics": {
+          "meanAbsoluteError": 0.7521,
+          "rootMeanSquareError": 1.9732,
+          "p99AbsoluteError": 7,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.3291
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 13410,
+        "transparentPixelRatio": 0.6765
+      },
+      "searchBox": {
+        "x": 138,
+        "y": 388,
+        "width": 144,
+        "height": 90
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 143,
+        "y0": 389,
+        "x1": 278,
+        "y1": 478
+      },
+      "cropBox": {
+        "x0": 126,
+        "y0": 375,
+        "x1": 294,
+        "y1": 493
+      },
+      "validation": {
+        "width": 168,
+        "height": 118,
+        "foregroundPixels": 6320,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 17,
+          "right": 16,
+          "top": 14,
+          "bottom": 15
+        },
+        "centerOffset": {
+          "x": 0.003,
+          "y": -0.0042
+        },
+        "passes": true
+      },
+      "note": "",
+      "validationSheet": "data/assets/icon-references/micron/validation-sheets/micron-business-cloud-memory.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 276078,
+        "losslessBytes": 276078,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "micron-business-core-data-center",
+      "output": "data/assets/icon-references/micron/crops/business-core-data-center.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 8754,
+        "losslessBytes": 8754,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 7551,
+        "transparentPixelRatio": 0.4991
+      },
+      "searchBox": {
+        "x": 164,
+        "y": 654,
+        "width": 96,
+        "height": 94
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 168,
+        "y0": 658,
+        "x1": 260,
+        "y1": 748
+      },
+      "cropBox": {
+        "x0": 150,
+        "y0": 640,
+        "x1": 274,
+        "y1": 762
+      },
+      "validation": {
+        "width": 124,
+        "height": 122,
+        "foregroundPixels": 4413,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 18,
+          "right": 14,
+          "top": 18,
+          "bottom": 14
+        },
+        "centerOffset": {
+          "x": 0.0161,
+          "y": 0.0164
+        },
+        "passes": true
+      },
+      "note": "",
+      "validationSheet": "data/assets/icon-references/micron/validation-sheets/micron-business-core-data-center.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 273671,
+        "losslessBytes": 273671,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "micron-business-mobile-client",
+      "output": "data/assets/icon-references/micron/crops/business-mobile-client.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 1402,
+        "losslessBytes": 5432,
+        "savingsVsLossless": 0.7419,
+        "metrics": {
+          "meanAbsoluteError": 0.829,
+          "rootMeanSquareError": 2.0819,
+          "p99AbsoluteError": 9,
+          "maxChannelDiff": 22,
+          "changedPixelRatio": 0.4565
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 5811,
+        "transparentPixelRatio": 0.5094
+      },
+      "searchBox": {
+        "x": 180,
+        "y": 912,
+        "width": 62,
+        "height": 100
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 181,
+        "y0": 916,
+        "x1": 241,
+        "y1": 1011
+      },
+      "cropBox": {
+        "x0": 165,
+        "y0": 900,
+        "x1": 257,
+        "y1": 1024
+      },
+      "validation": {
+        "width": 92,
+        "height": 124,
+        "foregroundPixels": 2301,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 16,
+          "right": 16,
+          "top": 16,
+          "bottom": 13
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0121
+        },
+        "passes": true
+      },
+      "note": "",
+      "validationSheet": "data/assets/icon-references/micron/validation-sheets/micron-business-mobile-client.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 252946,
+        "losslessBytes": 252946,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

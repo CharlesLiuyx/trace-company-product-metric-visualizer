@@ -1,0 +1,45 @@
+{
+  "source": "input/processed/micron-q3-fy26.png",
+  "outputDir": "data/assets/icon-references/micron/",
+  "validationSheetDir": "data/assets/icon-references/micron/validation-sheets/",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "crops": [
+    {
+      "key": "micron-company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "searchBox": { "x": 558, "y": 238, "width": 682, "height": 130 },
+      "cropBox": { "x": 546, "y": 222, "width": 704, "height": 160 },
+      "threshold": 24,
+      "minComponentArea": 40
+    },
+    {
+      "key": "micron-business-cloud-memory",
+      "output": "crops/business-cloud-memory.png",
+      "searchBox": { "x": 138, "y": 388, "width": 144, "height": 90 },
+      "cropBox": { "x": 126, "y": 375, "width": 168, "height": 118 },
+      "threshold": 20,
+      "minComponentArea": 30
+    },
+    {
+      "key": "micron-business-core-data-center",
+      "output": "crops/business-core-data-center.png",
+      "searchBox": { "x": 164, "y": 654, "width": 96, "height": 94 },
+      "cropBox": { "x": 150, "y": 640, "width": 124, "height": 122 },
+      "threshold": 20,
+      "minComponentArea": 30
+    },
+    {
+      "key": "micron-business-mobile-client",
+      "output": "crops/business-mobile-client.png",
+      "searchBox": { "x": 180, "y": 912, "width": 62, "height": 100 },
+      "cropBox": { "x": 165, "y": 900, "width": 92, "height": 124 },
+      "threshold": 20,
+      "minComponentArea": 30
+    }
+  ]
+}
