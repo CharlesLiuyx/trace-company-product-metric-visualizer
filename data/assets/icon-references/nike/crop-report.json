@@ -1,0 +1,494 @@
+{
+  "source": "input/processed/nike-q4-fy26.png",
+  "spec": "input/icon-crop-specs/nike-q4-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-04T06:19:22.943667+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/nike",
+  "crops": [
+    {
+      "key": "nike-company-logo",
+      "output": "data/assets/icon-references/nike/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4711,
+        "losslessBytes": 23549,
+        "savingsVsLossless": 0.7999,
+        "metrics": {
+          "meanAbsoluteError": 0.125,
+          "rootMeanSquareError": 0.8456,
+          "p99AbsoluteError": 5,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.0467
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 104293,
+        "transparentPixelRatio": 0.6405
+      },
+      "searchBox": {
+        "x": 635,
+        "y": 265,
+        "width": 525,
+        "height": 285
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 646,
+        "y0": 274,
+        "x1": 1152,
+        "y1": 539
+      },
+      "cropBox": {
+        "x0": 627,
+        "y0": 257,
+        "x1": 1168,
+        "y1": 558
+      },
+      "validation": {
+        "width": 541,
+        "height": 301,
+        "foregroundPixels": 56575,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 19,
+          "right": 16,
+          "top": 17,
+          "bottom": 19
+        },
+        "centerOffset": {
+          "x": 0.0028,
+          "y": -0.0033
+        },
+        "passes": true
+      },
+      "note": "Nike wordmark and swoosh above the revenue hub; excludes title text, revenue text, and flows.",
+      "runtimeOutput": "data/assets/raster-annotations/nike/company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4711,
+        "losslessBytes": 23549,
+        "savingsVsLossless": 0.7999,
+        "metrics": {
+          "meanAbsoluteError": 0.125,
+          "rootMeanSquareError": 0.8456,
+          "p99AbsoluteError": 5,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.0467
+        }
+      },
+      "validationSheet": "data/assets/icon-references/nike/validation-sheets/nike-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 244875,
+        "losslessBytes": 244875,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "nike-business-footwear",
+      "output": "data/assets/icon-references/nike/crops/business-footwear.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 29030,
+        "losslessBytes": 29030,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 16791,
+        "transparentPixelRatio": 0.5794
+      },
+      "searchBox": {
+        "x": 121,
+        "y": 507,
+        "width": 193,
+        "height": 128
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 127,
+        "y0": 513,
+        "x1": 309,
+        "y1": 635
+      },
+      "cropBox": {
+        "x0": 114,
+        "y0": 500,
+        "x1": 321,
+        "y1": 640
+      },
+      "validation": {
+        "width": 207,
+        "height": 140,
+        "foregroundPixels": 12088,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 13,
+          "right": 12,
+          "top": 13,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0024,
+          "y": 0.0286
+        },
+        "passes": true
+      },
+      "note": "Running shoe product photo for the Footwear revenue line; excludes value text, label text, and flow marks.",
+      "runtimeOutput": "data/assets/raster-annotations/nike/business-footwear.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 29030,
+        "losslessBytes": 29030,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/nike/validation-sheets/nike-business-footwear.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 312350,
+        "losslessBytes": 312350,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "nike-business-apparel",
+      "output": "data/assets/icon-references/nike/crops/business-apparel.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2368,
+        "losslessBytes": 9823,
+        "savingsVsLossless": 0.7589,
+        "metrics": {
+          "meanAbsoluteError": 0.6198,
+          "rootMeanSquareError": 2.084,
+          "p99AbsoluteError": 7,
+          "maxChannelDiff": 35,
+          "changedPixelRatio": 0.2988
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 21394,
+        "transparentPixelRatio": 0.6523
+      },
+      "searchBox": {
+        "x": 146,
+        "y": 741,
+        "width": 188,
+        "height": 152
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 175,
+        "y0": 754,
+        "x1": 281,
+        "y1": 893
+      },
+      "cropBox": {
+        "x0": 140,
+        "y0": 735,
+        "x1": 340,
+        "y1": 899
+      },
+      "validation": {
+        "width": 200,
+        "height": 164,
+        "foregroundPixels": 11340,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 35,
+          "right": 59,
+          "top": 19,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": -0.06,
+          "y": 0.0396
+        },
+        "passes": true
+      },
+      "note": "T-shirt product photo for the Apparel revenue line; excludes value text, label text, and flow marks.",
+      "runtimeOutput": "data/assets/raster-annotations/nike/business-apparel.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2368,
+        "losslessBytes": 9823,
+        "savingsVsLossless": 0.7589,
+        "metrics": {
+          "meanAbsoluteError": 0.6198,
+          "rootMeanSquareError": 2.084,
+          "p99AbsoluteError": 7,
+          "maxChannelDiff": 35,
+          "changedPixelRatio": 0.2988
+        }
+      },
+      "validationSheet": "data/assets/icon-references/nike/validation-sheets/nike-business-apparel.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 251257,
+        "losslessBytes": 251257,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "nike-business-equipment",
+      "output": "data/assets/icon-references/nike/crops/business-equipment.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 3941,
+        "losslessBytes": 20441,
+        "savingsVsLossless": 0.8072,
+        "metrics": {
+          "meanAbsoluteError": 0.9663,
+          "rootMeanSquareError": 2.7242,
+          "p99AbsoluteError": 12,
+          "maxChannelDiff": 35,
+          "changedPixelRatio": 0.3173
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 19781,
+        "transparentPixelRatio": 0.6849
+      },
+      "searchBox": {
+        "x": 156,
+        "y": 968,
+        "width": 178,
+        "height": 140
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 173,
+        "y0": 989,
+        "x1": 280,
+        "y1": 1096
+      },
+      "cropBox": {
+        "x0": 150,
+        "y0": 962,
+        "x1": 340,
+        "y1": 1114
+      },
+      "validation": {
+        "width": 190,
+        "height": 152,
+        "foregroundPixels": 9054,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 23,
+          "right": 60,
+          "top": 27,
+          "bottom": 18
+        },
+        "centerOffset": {
+          "x": -0.0974,
+          "y": 0.0296
+        },
+        "passes": true
+      },
+      "note": "Basketball product photo for the Equipment revenue line; excludes value text, label text, and flow marks.",
+      "runtimeOutput": "data/assets/raster-annotations/nike/business-equipment.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 3941,
+        "losslessBytes": 20441,
+        "savingsVsLossless": 0.8072,
+        "metrics": {
+          "meanAbsoluteError": 0.9663,
+          "rootMeanSquareError": 2.7242,
+          "p99AbsoluteError": 12,
+          "maxChannelDiff": 35,
+          "changedPixelRatio": 0.3173
+        }
+      },
+      "validationSheet": "data/assets/icon-references/nike/validation-sheets/nike-business-equipment.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 294235,
+        "losslessBytes": 294235,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "nike-business-converse",
+      "output": "data/assets/icon-references/nike/crops/business-converse.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 4336,
+        "losslessBytes": 25734,
+        "savingsVsLossless": 0.8315,
+        "metrics": {
+          "meanAbsoluteError": 1.0353,
+          "rootMeanSquareError": 2.2385,
+          "p99AbsoluteError": 8,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.4407
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 16450,
+        "transparentPixelRatio": 0.5626
+      },
+      "searchBox": {
+        "x": 131,
+        "y": 1161,
+        "width": 203,
+        "height": 124
+      },
+      "componentCount": 5,
+      "subjectBox": {
+        "x0": 144,
+        "y0": 1170,
+        "x1": 323,
+        "y1": 1285
+      },
+      "cropBox": {
+        "x0": 125,
+        "y0": 1155,
+        "x1": 340,
+        "y1": 1291
+      },
+      "validation": {
+        "width": 215,
+        "height": 136,
+        "foregroundPixels": 8465,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 19,
+          "right": 17,
+          "top": 15,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": 0.0047,
+          "y": 0.0331
+        },
+        "passes": true
+      },
+      "note": "Converse high-top sneaker product photo for the Converse revenue line; excludes value text, label text, and flow marks.",
+      "runtimeOutput": "data/assets/raster-annotations/nike/business-converse.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 4336,
+        "losslessBytes": 25734,
+        "savingsVsLossless": 0.8315,
+        "metrics": {
+          "meanAbsoluteError": 1.0353,
+          "rootMeanSquareError": 2.2385,
+          "p99AbsoluteError": 8,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.4407
+        }
+      },
+      "validationSheet": "data/assets/icon-references/nike/validation-sheets/nike-business-converse.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 298107,
+        "losslessBytes": 298107,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

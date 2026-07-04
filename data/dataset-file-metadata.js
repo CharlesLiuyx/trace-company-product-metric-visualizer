@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-04T05:29:14.678Z",
+  "generatedAt": "2026-07-04T07:14:37.594Z",
   "source": "dataset view and metric source file modification times",
   "files": {
     "alphabet-q1-fy26": {
@@ -261,6 +261,11 @@
       "path": "data/datasets/nintendo-fy26.js",
       "mtimeMs": 1782542346642,
       "mtime": "2026-06-27T06:39:06.642Z"
+    },
+    "nike-q4-fy26": {
+      "path": "data/datasets/nike-q4-fy26.js",
+      "mtimeMs": 1783149277594,
+      "mtime": "2026-07-04T07:14:37.594Z"
     },
     "pdd-holdings-q1-fy26": {
       "path": "data/datasets/pdd-holdings-q1-fy26.js",
