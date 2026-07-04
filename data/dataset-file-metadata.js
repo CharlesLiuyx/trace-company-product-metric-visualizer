@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-04T11:15:19.362Z",
+  "generatedAt": "2026-07-04T11:33:12.575Z",
   "source": "dataset view and metric source file modification times",
   "files": {
     "alphabet-q1-fy26": {
@@ -221,6 +221,11 @@
       "path": "data/datasets/lenovo-q4-fy26.js",
       "mtimeMs": 1783015681561,
       "mtime": "2026-07-02T18:08:01.561Z"
+    },
+    "lululemon-q1-fy26": {
+      "path": "data/datasets/lululemon-q1-fy26.js",
+      "mtimeMs": 1783164792575,
+      "mtime": "2026-07-04T11:33:12.575Z"
     },
     "sap-q1-fy26": {
       "path": "data/datasets/sap-q1-fy26.js",
