@@ -1,0 +1,343 @@
+{
+  "source": "input/processed/adobe-q2-fy26.png",
+  "spec": "input/icon-crop-specs/adobe-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-04T07:37:56.581968+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "adobe-company-logo",
+      "output": "data/assets/icon-references/adobe/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4578,
+        "losslessBytes": 18536,
+        "savingsVsLossless": 0.753,
+        "metrics": {
+          "meanAbsoluteError": 0.2724,
+          "rootMeanSquareError": 1.5514,
+          "p99AbsoluteError": 6,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.2897
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 70952,
+        "transparentPixelRatio": 0.7149
+      },
+      "searchBox": {
+        "x": 657,
+        "y": 261,
+        "width": 545,
+        "height": 140
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 657,
+        "y0": 261,
+        "x1": 1202,
+        "y1": 401
+      },
+      "cropBox": {
+        "x0": 641,
+        "y0": 245,
+        "x1": 1218,
+        "y1": 417
+      },
+      "validation": {
+        "width": 577,
+        "height": 172,
+        "foregroundPixels": 25823,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 16,
+          "right": 16,
+          "top": 16,
+          "bottom": 16
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Adobe flag mark and wordmark lockup beside the revenue hub; excludes the black title text, Q2 FY26 stamp, and flows.",
+      "validationSheet": "data/assets/icon-references/adobe/validation-sheets/adobe-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 251542,
+        "losslessBytes": 251542,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "adobe-business-creative-cloud",
+      "output": "data/assets/icon-references/adobe/crops/business-creative-cloud.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 15024,
+        "losslessBytes": 15024,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 4973,
+        "transparentPixelRatio": 0.277
+      },
+      "searchBox": {
+        "x": 124,
+        "y": 380,
+        "width": 116,
+        "height": 112
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 124,
+        "y0": 380,
+        "x1": 240,
+        "y1": 492
+      },
+      "cropBox": {
+        "x0": 114,
+        "y0": 370,
+        "x1": 250,
+        "y1": 502
+      },
+      "validation": {
+        "width": 136,
+        "height": 132,
+        "foregroundPixels": 10572,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 10,
+          "right": 10,
+          "top": 10,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Creative Cloud rainbow-gradient app icon for the Creative & Marketing Professionals source; excludes the Acrobat icon and label text.",
+      "validationSheet": "data/assets/icon-references/adobe/validation-sheets/adobe-business-creative-cloud.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 321195,
+        "losslessBytes": 321195,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "adobe-business-acrobat",
+      "output": "data/assets/icon-references/adobe/crops/business-acrobat.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1353,
+        "losslessBytes": 4956,
+        "savingsVsLossless": 0.727,
+        "metrics": {
+          "meanAbsoluteError": 0.5562,
+          "rootMeanSquareError": 2.4926,
+          "p99AbsoluteError": 12,
+          "maxChannelDiff": 51,
+          "changedPixelRatio": 0.7294
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 4917,
+        "transparentPixelRatio": 0.2719
+      },
+      "searchBox": {
+        "x": 247,
+        "y": 380,
+        "width": 117,
+        "height": 112
+      },
+      "componentCount": 5,
+      "subjectBox": {
+        "x0": 247,
+        "y0": 380,
+        "x1": 364,
+        "y1": 492
+      },
+      "cropBox": {
+        "x0": 237,
+        "y0": 370,
+        "x1": 374,
+        "y1": 502
+      },
+      "validation": {
+        "width": 137,
+        "height": 132,
+        "foregroundPixels": 12265,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 10,
+          "right": 10,
+          "top": 10,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Acrobat red app icon for the Creative & Marketing Professionals source; excludes the Creative Cloud icon and label text.",
+      "validationSheet": "data/assets/icon-references/adobe/validation-sheets/adobe-business-acrobat.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 272635,
+        "losslessBytes": 272635,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "adobe-business-consumers",
+      "output": "data/assets/icon-references/adobe/crops/business-consumers.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1191,
+        "losslessBytes": 5787,
+        "savingsVsLossless": 0.7942,
+        "metrics": {
+          "meanAbsoluteError": 0.565,
+          "rootMeanSquareError": 1.292,
+          "p99AbsoluteError": 6,
+          "maxChannelDiff": 25,
+          "changedPixelRatio": 0.7257
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 5046,
+        "transparentPixelRatio": 0.2748
+      },
+      "searchBox": {
+        "x": 186,
+        "y": 662,
+        "width": 115,
+        "height": 116
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 186,
+        "y0": 662,
+        "x1": 301,
+        "y1": 778
+      },
+      "cropBox": {
+        "x0": 176,
+        "y0": 652,
+        "x1": 311,
+        "y1": 788
+      },
+      "validation": {
+        "width": 135,
+        "height": 136,
+        "foregroundPixels": 10766,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 10,
+          "right": 10,
+          "top": 10,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Adobe flag app icon for the Business Professionals & Consumers source; excludes label text and flows.",
+      "validationSheet": "data/assets/icon-references/adobe/validation-sheets/adobe-business-consumers.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 269901,
+        "losslessBytes": 269901,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

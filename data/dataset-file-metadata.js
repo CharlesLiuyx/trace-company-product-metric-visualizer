@@ -4,13 +4,18 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-04T07:14:37.594Z",
+  "generatedAt": "2026-07-04T08:12:55.073Z",
   "source": "dataset view and metric source file modification times",
   "files": {
     "alphabet-q1-fy26": {
       "path": "data/datasets/alphabet-q1-fy26.js",
       "mtimeMs": 1783016880692,
       "mtime": "2026-07-02T18:28:00.692Z"
+    },
+    "adobe-q2-fy26": {
+      "path": "data/datasets/adobe-q2-fy26.js",
+      "mtimeMs": 1783152775073,
+      "mtime": "2026-07-04T08:12:55.073Z"
     },
     "spacex-fy25": {
       "path": "data/datasets/spacex-fy25.js",
