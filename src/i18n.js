@@ -551,6 +551,7 @@
     '3rd party sellers services': '第三方卖家服务',
     'Subscription services': '订阅服务',
     'AWS': 'AWS',
+    'Converse': 'Converse',
     'TurboTax': 'TurboTax',
     'Credit Karma': 'Credit Karma',
     'ProTax': 'ProTax',
