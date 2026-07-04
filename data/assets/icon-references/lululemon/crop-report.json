@@ -1,0 +1,217 @@
+{
+  "source": "input/processed/lululemon-q1-fy26.png",
+  "spec": "input/icon-crop-specs/lululemon-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-04T10:32:26.250712+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/lululemon",
+  "crops": [
+    {
+      "key": "lululemon-operated-stores-wordmark",
+      "output": "data/assets/icon-references/lululemon/crops/operated-stores-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2272,
+        "losslessBytes": 9598,
+        "savingsVsLossless": 0.7633,
+        "metrics": {
+          "meanAbsoluteError": 0.5527,
+          "rootMeanSquareError": 1.9937,
+          "p99AbsoluteError": 9,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.3174
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 18500,
+        "transparentPixelRatio": 0.6895
+      },
+      "searchBox": {
+        "x": 64,
+        "y": 476,
+        "width": 328,
+        "height": 65
+      },
+      "componentCount": 10,
+      "subjectBox": {
+        "x0": 64,
+        "y0": 476,
+        "x1": 392,
+        "y1": 541
+      },
+      "cropBox": {
+        "x0": 56,
+        "y0": 470,
+        "x1": 400,
+        "y1": 548
+      },
+      "validation": {
+        "width": 344,
+        "height": 78,
+        "foregroundPixels": 7103,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 8,
+          "top": 6,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0064
+        },
+        "passes": true
+      },
+      "note": "lululemon omega mark and wordmark beside the Operated stores revenue line; excludes the 'Operated stores' label below, the node bar to the right, chart flows, and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/lululemon/operated-stores-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2272,
+        "losslessBytes": 9598,
+        "savingsVsLossless": 0.7633,
+        "metrics": {
+          "meanAbsoluteError": 0.5527,
+          "rootMeanSquareError": 1.9937,
+          "p99AbsoluteError": 9,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.3174
+        }
+      },
+      "validationSheet": "data/assets/icon-references/lululemon/validation-sheets/lululemon-operated-stores-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 252934,
+        "losslessBytes": 252934,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "lululemon-direct-to-consumer-phones",
+      "output": "data/assets/icon-references/lululemon/crops/direct-to-consumer-phones.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 18676,
+        "losslessBytes": 41169,
+        "savingsVsLossless": 0.5464,
+        "metrics": {
+          "meanAbsoluteError": 0.8081,
+          "rootMeanSquareError": 2.5684,
+          "p99AbsoluteError": 12,
+          "maxChannelDiff": 61,
+          "changedPixelRatio": 0.305
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 96,
+        "y": 712,
+        "width": 292,
+        "height": 170
+      },
+      "componentCount": 26,
+      "subjectBox": {
+        "x0": 99,
+        "y0": 713,
+        "x1": 384,
+        "y1": 880
+      },
+      "cropBox": {
+        "x0": 84,
+        "y0": 704,
+        "x1": 400,
+        "y1": 890
+      },
+      "validation": {
+        "width": 316,
+        "height": 186,
+        "foregroundPixels": 25982,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 15,
+          "right": 16,
+          "top": 9,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": -0.0016,
+          "y": -0.0027
+        },
+        "passes": true
+      },
+      "note": "Three app-screenshot phones tied to the Direct to consumer revenue line; the phone photo keeps its own frame (background removal disabled) since the grey bezels are subject, not page background; excludes the 'Direct to consumer' label below, chart flows, KPI cards, and bottom publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/lululemon/direct-to-consumer-phones.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 18676,
+        "losslessBytes": 41169,
+        "savingsVsLossless": 0.5464,
+        "metrics": {
+          "meanAbsoluteError": 0.8081,
+          "rootMeanSquareError": 2.5684,
+          "p99AbsoluteError": 12,
+          "maxChannelDiff": 61,
+          "changedPixelRatio": 0.305
+        }
+      },
+      "validationSheet": "data/assets/icon-references/lululemon/validation-sheets/lululemon-direct-to-consumer-phones.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 303955,
+        "losslessBytes": 303955,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}
