@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-04T11:14:34.335Z",
+  "generatedAt": "2026-07-04T11:15:19.362Z",
   "source": "dataset view and metric source file modification times",
   "files": {
     "alphabet-q1-fy26": {
@@ -406,6 +406,11 @@
       "path": "data/datasets/meta-q1-fy26.js",
       "mtimeMs": 1783015681561,
       "mtime": "2026-07-02T18:08:01.561Z"
+    },
+    "micron-q3-fy26": {
+      "path": "data/datasets/micron-q3-fy26.js",
+      "mtimeMs": 1783163719362,
+      "mtime": "2026-07-04T11:15:19.362Z"
     },
     "morgan-stanley-q1-fy26": {
       "path": "data/datasets/morgan-stanley-q1-fy26.js",
