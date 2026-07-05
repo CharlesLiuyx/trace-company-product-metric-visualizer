@@ -176,8 +176,28 @@ agent 指令以英文版 `AGENTS.md` 为准。
 始终，在最终回复之前：
 
 - `pnpm check` 通过（全仓 JS 语法扫描、pending 守卫、SSOT 奇偶、i18n
-  覆盖、dataset-file-metadata 新鲜度）。
+  覆盖、dataset-file-metadata 新鲜度）。基准是"完整本地工作副本上
+  `pnpm check` 全绿"；任何全新检出都会出现两个预期失败——见"环境注意事项"。
 - `input/pending/` 只剩 `.gitkeep`，或已报告停止条件。
+
+### 环境注意事项（全新检出 / 云端 / CI）
+
+`pnpm check` 只有在保留全部本地专有文件及其原始修改时间的工作副本上才会
+全绿。在任何全新克隆/检出——云端 agent、CI 或新的本地克隆——都会出现且
+恰好是以下两个失败，它们不属于回归：
+
+- `verify:ssot` 对源截图有意本地专有、从不入库的数据集报
+  `source image does not exist`（当前为 YipitData 来源的 ARR 收入指标
+  数据集）。绝不为消除该检查而伪造或提交这些图片。
+- `verify:dataset-file-metadata` 报 stale，因为
+  `data/dataset-file-metadata.js` 记录的是绝对文件 mtime，git 在克隆时会把
+  它们重置为检出时刻。绝不在全新检出里运行
+  `pnpm update:dataset-file-metadata` 并提交——那会冲掉有意义的本地 mtime。
+
+在这些环境中只把上述两项当作良性，其余任何 `check` 失败仍需处理；以针对性
+校验器（`pnpm test`、`pnpm verify:dataset`、`pnpm verify:d3`、
+`pnpm verify:app`、`pnpm verify:i18n`、`pnpm verify:standalone`）作为真正
+的门。
 
 对查看器改动（`src/app/`、`index.html` script 顺序、`src/app.css`）：
 
