@@ -1,16 +1,14 @@
 #!/usr/bin/env node
-import { createServer } from 'node:http';
 import { copyFile, cp, mkdir, readFile, readdir, rm, stat, writeFile } from 'node:fs/promises';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync } from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { PNG } from 'pngjs';
 import { chromium } from 'playwright';
 import { datasetScriptForKey, dataScriptsFromIndex, renderHarnessScripts } from './script-sources.mjs';
+import { startStaticServer } from './dev-server.mjs';
+import { rootDir } from './lib/project.mjs';
+import { PROJECT_FONT_FAMILIES, localFontFaces } from './lib/local-fonts.mjs';
+import { formatDiffBoundingBox, pngMetrics } from './lib/png-diff.mjs';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const rootDir = path.resolve(__dirname, '..');
 const compareDir = path.join(rootDir, 'compare');
 const outputCompareDir = path.join(rootDir, 'output', 'compare');
 
@@ -249,85 +247,12 @@ async function archiveCompare(datasetKey, archivePlan) {
   };
 }
 
-function contentType(filePath) {
-  const ext = path.extname(filePath).toLowerCase();
-  return (
-    {
-      '.html': 'text/html; charset=utf-8',
-      '.js': 'text/javascript; charset=utf-8',
-      '.css': 'text/css; charset=utf-8',
-      '.png': 'image/png',
-      '.svg': 'image/svg+xml',
-      '.woff': 'font/woff',
-      '.woff2': 'font/woff2',
-      '.json': 'application/json; charset=utf-8',
-    }[ext] || 'application/octet-stream'
-  );
-}
-
-async function startStaticServer() {
-  const server = createServer(async (req, res) => {
-    try {
-      const requestUrl = new URL(req.url || '/', 'http://127.0.0.1');
-      const pathname = decodeURIComponent(requestUrl.pathname);
-      const relativePath = pathname === '/' ? 'index.html' : pathname.replace(/^\/+/, '');
-      const filePath = path.resolve(rootDir, relativePath);
-      if (!filePath.startsWith(rootDir + path.sep) && filePath !== rootDir) {
-        res.writeHead(403).end('Forbidden');
-        return;
-      }
-      const info = await stat(filePath);
-      if (!info.isFile()) {
-        res.writeHead(404).end('Not found');
-        return;
-      }
-      const body = await readFile(filePath);
-      res.writeHead(200, { 'content-type': contentType(filePath), 'cache-control': 'no-store' });
-      res.end(body);
-    } catch {
-      res.writeHead(404).end('Not found');
-    }
-  });
-
-  await new Promise((resolve, reject) => {
-    server.once('error', reject);
-    server.listen(0, '127.0.0.1', resolve);
-  });
-
-  const address = server.address();
-  return {
-    baseUrl: `http://127.0.0.1:${address.port}`,
-    close: () => new Promise((resolve, reject) => server.close((err) => (err ? reject(err) : resolve()))),
-  };
-}
-
 function toUrl(baseUrl, src) {
   return new URL(src, `${baseUrl}/`).toString();
 }
 
-function localFontFaces() {
-  return [400, 500, 600, 700, 800]
-    .map((weight) => {
-      const fontPath = path.join(
-        rootDir,
-        'node_modules',
-        '@fontsource',
-        'montserrat',
-        'files',
-        `montserrat-latin-${weight}-normal.woff2`
-      );
-      if (!existsSync(fontPath)) {
-        throw new Error(`Missing local Montserrat font file: ${path.relative(rootDir, fontPath)}`);
-      }
-      const fontData = readFileSync(fontPath).toString('base64');
-      return `@font-face {
-      font-family: 'Montserrat';
-      font-style: normal;
-      font-weight: ${weight};
-      src: url('data:font/woff2;base64,${fontData}') format('woff2');
-    }`;
-    })
-    .join('\n');
+function harnessFontFaces() {
+  return localFontFaces(PROJECT_FONT_FAMILIES);
 }
 
 function harnessHtml(baseUrl, scripts) {
@@ -340,7 +265,7 @@ function harnessHtml(baseUrl, scripts) {
   <meta charset="utf-8" />
   <base href="${baseUrl}/" />
   <style>
-    ${localFontFaces()}
+    ${harnessFontFaces()}
     html, body { margin: 0; padding: 0; background: #efefef; }
     #chart { margin: 0; padding: 0; overflow: hidden; }
     #chart svg { display: block; }
@@ -351,169 +276,6 @@ function harnessHtml(baseUrl, scripts) {
   ${scriptTags}
 </body>
 </html>`;
-}
-
-function readPng(filePath) {
-  return PNG.sync.read(readFileSync(filePath));
-}
-
-function emptyDiffBoundingBox() {
-  return null;
-}
-
-function formatDiffBoundingBox(box) {
-  return box ? `${box.x},${box.y},${box.width},${box.height}` : 'none';
-}
-
-function clippedBox(raw, width, height) {
-  const rawX = Number(raw.x) || 0;
-  const rawY = Number(raw.y) || 0;
-  const rawWidth = Number(raw.width) || 0;
-  const rawHeight = Number(raw.height) || 0;
-  const x = Math.max(0, Math.floor(rawX));
-  const y = Math.max(0, Math.floor(rawY));
-  const right = Math.min(width, Math.ceil(rawX + rawWidth));
-  const bottom = Math.min(height, Math.ceil(rawY + rawHeight));
-  return {
-    x,
-    y,
-    width: Math.max(0, right - x),
-    height: Math.max(0, bottom - y),
-  };
-}
-
-function boxMetrics(reference, candidate, rawBox) {
-  const box = clippedBox(rawBox, reference.width, reference.height);
-  const pixels = box.width * box.height;
-  if (!pixels) {
-    return {
-      x: box.x,
-      y: box.y,
-      width: box.width,
-      height: box.height,
-      mae: 0,
-      similarity: 1,
-      maxChannelDiff: 0,
-      samePixelRatio: 1,
-      changedPixelRatio: 0,
-      diffBoundingBox: emptyDiffBoundingBox(),
-    };
-  }
-
-  let total = 0;
-  let same = 0;
-  let max = 0;
-  let minX = Infinity;
-  let minY = Infinity;
-  let maxX = -1;
-  let maxY = -1;
-
-  for (let y = box.y; y < box.y + box.height; y += 1) {
-    for (let x = box.x; x < box.x + box.width; x += 1) {
-      const i = (y * reference.width + x) * 4;
-      const dr = Math.abs(reference.data[i] - candidate.data[i]);
-      const dg = Math.abs(reference.data[i + 1] - candidate.data[i + 1]);
-      const db = Math.abs(reference.data[i + 2] - candidate.data[i + 2]);
-      total += dr + dg + db;
-      if (dr === 0 && dg === 0 && db === 0) {
-        same += 1;
-      } else {
-        minX = Math.min(minX, x);
-        minY = Math.min(minY, y);
-        maxX = Math.max(maxX, x);
-        maxY = Math.max(maxY, y);
-      }
-      max = Math.max(max, dr, dg, db);
-    }
-  }
-
-  const mae = total / (pixels * 3);
-  return {
-    x: box.x,
-    y: box.y,
-    width: box.width,
-    height: box.height,
-    mae,
-    similarity: 1 - mae / 255,
-    maxChannelDiff: max,
-    samePixelRatio: same / pixels,
-    changedPixelRatio: 1 - same / pixels,
-    diffBoundingBox:
-      maxX >= 0
-        ? { x: minX, y: minY, width: maxX - minX + 1, height: maxY - minY + 1 }
-        : emptyDiffBoundingBox(),
-  };
-}
-
-async function pngMetrics(referencePath, candidatePath, diffPath = null, regions = []) {
-  const reference = readPng(referencePath);
-  const candidate = readPng(candidatePath);
-
-  if (reference.width !== candidate.width || reference.height !== candidate.height) {
-    throw new Error(
-      `PNG size mismatch: reference ${reference.width}x${reference.height}, candidate ${candidate.width}x${candidate.height}`
-    );
-  }
-
-  let total = 0;
-  let same = 0;
-  let max = 0;
-  let minX = Infinity;
-  let minY = Infinity;
-  let maxX = -1;
-  let maxY = -1;
-  const pixels = reference.width * reference.height;
-  const diff = diffPath ? new PNG({ width: reference.width, height: reference.height }) : null;
-  for (let i = 0; i < reference.data.length; i += 4) {
-    const dr = Math.abs(reference.data[i] - candidate.data[i]);
-    const dg = Math.abs(reference.data[i + 1] - candidate.data[i + 1]);
-    const db = Math.abs(reference.data[i + 2] - candidate.data[i + 2]);
-    total += dr + dg + db;
-    if (dr === 0 && dg === 0 && db === 0) {
-      same += 1;
-    } else {
-      const pixelIndex = i / 4;
-      const x = pixelIndex % reference.width;
-      const y = Math.floor(pixelIndex / reference.width);
-      minX = Math.min(minX, x);
-      minY = Math.min(minY, y);
-      maxX = Math.max(maxX, x);
-      maxY = Math.max(maxY, y);
-    }
-    max = Math.max(max, dr, dg, db);
-    if (diff) {
-      diff.data[i] = Math.min(255, dr * 4);
-      diff.data[i + 1] = Math.min(255, dg * 4);
-      diff.data[i + 2] = Math.min(255, db * 4);
-      diff.data[i + 3] = 255;
-    }
-  }
-  if (diff) {
-    await writeFile(diffPath, PNG.sync.write(diff));
-  }
-  const mae = total / (pixels * 3);
-  const full = {
-    width: reference.width,
-    height: reference.height,
-    mae,
-    similarity: 1 - mae / 255,
-    maxChannelDiff: max,
-    samePixelRatio: same / pixels,
-    changedPixelRatio: 1 - same / pixels,
-    diffBoundingBox:
-      maxX >= 0
-        ? { x: minX, y: minY, width: maxX - minX + 1, height: maxY - minY + 1 }
-        : emptyDiffBoundingBox(),
-    rgbMae: mae,
-    maeSimilarity: 1 - mae / 255,
-    maxChannelDifference: max,
-  };
-  const regionMetrics = regions.map((region) => ({
-    region: region.region,
-    note: region.note || '',
-    ...boxMetrics(reference, candidate, region),
-  }));
-  return { full, regions: regionMetrics };
 }
 
 function formatPx(value) {
@@ -622,7 +384,8 @@ async function main() {
 
   await cleanCompare();
 
-  const server = await startStaticServer();
+  const server = await startStaticServer({ port: 0 });
+  const baseUrl = server.url.replace(/\/+$/, '');
   let browser;
   const referenceComparePath = path.join(compareDir, `${datasetKey}-reference.png`);
   const localizedSuffix = language && language !== 'en' ? `-${language}` : '';
@@ -637,7 +400,7 @@ async function main() {
     const pageErrors = [];
     page.on('pageerror', (err) => pageErrors.push(err.message));
 
-    await page.setContent(harnessHtml(server.baseUrl, scripts), { waitUntil: 'load' });
+    await page.setContent(harnessHtml(baseUrl, scripts), { waitUntil: 'load' });
 
     const meta = await page.evaluate(({ key, requestedLanguage }) => {
       const dataset = window.DATASETS?.find((item) => item.key === key);
@@ -734,20 +497,32 @@ async function main() {
         height: Math.round(svg.getBoundingClientRect().height),
       };
     }, { key: datasetKey, requestedLanguage: language });
-    const fontStatus = await page.evaluate(() =>
-      document.fonts.ready.then(() => ({
-        montserratLoaded:
-          document.fonts.check('16px Montserrat') || document.fonts.check('16px "Montserrat"'),
+    const fontStatus = await page.evaluate(async (requiredFonts) => {
+      // Explicitly load every project face: data-URI @font-face rules stay
+      // "unloaded" until some text uses them, so a pure fonts.check() would
+      // fail for families/weights the current dataset happens not to use.
+      await Promise.all(
+        requiredFonts.flatMap(({ family, weights }) =>
+          weights.map((weight) => document.fonts.load(`${weight} 16px "${family}"`))
+        )
+      );
+      await document.fonts.ready;
+      const loaded = Object.fromEntries(
+        requiredFonts.map(({ family }) => [family, document.fonts.check(`16px "${family}"`)])
+      );
+      return {
+        loaded,
+        allLoaded: Object.values(loaded).every(Boolean),
         faces: Array.from(document.fonts).map((font) => ({
           family: font.family,
           weight: font.weight,
           status: font.status,
         })),
-      }))
-    );
-    if (!fontStatus.montserratLoaded) {
+      };
+    }, PROJECT_FONT_FAMILIES.map(({ family, weights }) => ({ family, weights })));
+    if (!fontStatus.allLoaded) {
       throw new Error(
-        `Local Montserrat font did not load; refusing to score fallback-font render: ${JSON.stringify(fontStatus)}`
+        `Local fonts did not load; refusing to score fallback-font render: ${JSON.stringify(fontStatus)}`
       );
     }
 
@@ -1046,7 +821,11 @@ async function main() {
     if (archive.reference) {
       console.log(`shared reference: ${archive.reference}${archive.referenceChanged ? '' : ' (unchanged)'}`);
     }
-    console.log(`font: Montserrat loaded=${fontStatus.montserratLoaded}`);
+    console.log(
+      `font: ${Object.entries(fontStatus.loaded)
+        .map(([family, loaded]) => `${family} loaded=${loaded}`)
+        .join(', ')}`
+    );
     console.log(
       `purity: imageCount=${purity.imageCount} expectedRasterAnnotations=${purity.expectedRasterHrefs.length} chartImgCount=${purity.chartImgCount} rasterAllowed=${purity.rasterAllowed}`
     );
