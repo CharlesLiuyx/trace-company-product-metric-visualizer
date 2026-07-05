@@ -597,6 +597,12 @@
       "width": 2667,
       "height": 1500
     },
+    "sea-q4-fy25": {
+      "similarity": 0.963331,
+      "mae": 9.3506,
+      "width": 2667,
+      "height": 1500
+    },
     "servicenow-q1-fy26": {
       "similarity": null,
       "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
