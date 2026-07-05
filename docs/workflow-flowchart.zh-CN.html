@@ -794,7 +794,7 @@ pnpm exec playwright install chromium</span>
       <h3>快速聚合门全绿</h3>
       <span class="cmd">pnpm check</span>
       <p>= 全仓 JS 语法扫描 → 单元测试 → <code>check:pending</code> → <code>verify:ssot</code> → <code>verify:i18n</code> → <code>verify:dataset-file-metadata</code>（秒级、无渲染）。</p>
-      <p class="dim">Fresh checkout（云端 / CI / 新克隆）有且仅有两个预期失败：local-only 源图缺失（YipitData ARR 数据集）、metadata mtime 过期——都不是回归，也不得为消除它们伪造图片或重新生成 metadata。</p>
+      <p class="dim">`pnpm check` 在任何 checkout（云端 / CI / 新克隆）上都应全绿：local-only 源图通过 <code>sourceImage.localOnly: true</code> 显式豁免；metadata 记录 git 提交时间（首次提交前回退 mtime），可在任意机器上确定性再生成。提交新数据集后需重跑 <code>pnpm update:dataset-file-metadata</code> 并提交刷新结果。</p>
     </div>
     <div class="arrow"></div>
     <div class="node">

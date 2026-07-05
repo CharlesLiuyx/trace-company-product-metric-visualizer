@@ -300,32 +300,26 @@ proceed with the pipeline using the new checklist.
 Always, before the final response:
 
 - `pnpm check` passes (repo-wide JS syntax sweep, pending guard, SSOT
-  parity, i18n coverage, dataset-file-metadata freshness). The bar is a
-  green `pnpm check` on a full local working copy; two failures are expected
-  on any fresh checkout — see Environment Caveats.
+  parity, i18n coverage, dataset-file-metadata freshness). `pnpm check` is
+  reproducible: it must be fully green on any working copy, including fresh
+  clones, cloud agents, and CI — see Environment Notes.
 - `input/pending/` contains only `.gitkeep`, or a stop condition is reported.
 
-### Environment Caveats (fresh checkouts, cloud, CI)
+### Environment Notes (fresh checkouts, cloud, CI)
 
-`pnpm check` is only fully green on a working copy that keeps every
-local-only file and its original modification times. On any fresh
-clone/checkout — cloud agent, CI, or a new local clone — exactly two
-failures are expected and are not regressions:
+`pnpm check` is designed to be green on any checkout; CI runs it on every
+push. Two mechanisms keep it reproducible — do not undo them:
 
-- `verify:ssot` reports `source image does not exist` for datasets whose
-  source screenshots are intentionally local-only and never committed
-  (currently the YipitData-sourced ARR revenue-metric datasets). Never
-  fabricate or commit these images to silence the check.
-- `verify:dataset-file-metadata` reports stale because
-  `data/dataset-file-metadata.js` records absolute file mtimes and git
-  resets them to checkout time on clone. Never run
-  `pnpm update:dataset-file-metadata` and commit it from a fresh checkout —
-  it would overwrite the meaningful local mtimes.
-
-In these environments treat only those two as benign, still act on any other
-`check` failure, and rely on the targeted verifiers (`pnpm test`,
-`pnpm verify:dataset`, `pnpm verify:d3`, `pnpm verify:app`, `pnpm verify:i18n`,
-`pnpm verify:standalone`) as the real gate.
+- Source screenshots that are intentionally local-only and never committed
+  (currently the YipitData-sourced ARR revenue-metric datasets) declare
+  `sourceImage.localOnly: true` on their revenue SSOT source entry, which
+  skips the existence check. Never fabricate or commit these images; declare
+  new local-only evidence the same way.
+- `data/dataset-file-metadata.js` records git author times, not filesystem
+  mtimes, so regeneration is deterministic on every machine. A dataset file
+  falls back to its mtime only until its first commit; after committing a
+  new or materially edited dataset, rerun `pnpm update:dataset-file-metadata`
+  and commit the refreshed metadata so `--check` stays green.
 
 For viewer changes (`src/app/`, `index.html` script order, `src/app.css`):
 
