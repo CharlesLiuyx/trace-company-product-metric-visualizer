@@ -11,6 +11,12 @@ importers:
       '@fontsource/montserrat':
         specifier: 5.2.8
         version: 5.2.8
+      '@fontsource/noto-sans':
+        specifier: ^5.2.10
+        version: 5.2.10
+      '@fontsource/roboto':
+        specifier: ^5.2.10
+        version: 5.2.10
       playwright:
         specifier: 1.61.0
         version: 1.61.0
@@ -22,6 +28,12 @@ packages:
 
   '@fontsource/montserrat@5.2.8':
     resolution: {integrity: sha512-xTjLxSbSfCycDB0pwmNsfNvdfWPaDaRQ2LC6yt/ZI7SdvXG52zHnzNYC/09mzuAuWNJyShkteutfCoDgym56hQ==}
+
+  '@fontsource/noto-sans@5.2.10':
+    resolution: {integrity: sha512-J58RVfS/C0Z2VBF+PoU260Tx8cdRGYuS+e3yQe4hYaIYDl0sEVn5CzlLo5zVRvQD0HaIUTV8AZMfqR7rtdEpqQ==}
+
+  '@fontsource/roboto@5.2.10':
+    resolution: {integrity: sha512-8HlA5FtSfz//oFSr2eL7GFXAiE7eIkcGOtx7tjsLKq+as702x9+GU7K95iDeWFapHC4M2hv9RrpXKRTGGBI8Zg==}
 
   fsevents@2.3.2:
     resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
@@ -45,6 +57,10 @@ packages:
 snapshots:
 
   '@fontsource/montserrat@5.2.8': {}
+
+  '@fontsource/noto-sans@5.2.10': {}
+
+  '@fontsource/roboto@5.2.10': {}
 
   fsevents@2.3.2:
     optional: true

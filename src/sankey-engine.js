@@ -23,8 +23,28 @@
     nodePadding: 104,
 
     background: '#efefef',
+    // heading font — chart title, node labels, period stamp: everything that
+    // is not a number or a number's description
     fontFamily:
-      '"Montserrat","Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif',
+      '"Noto Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif',
+    // numeric font — value note/description lines (e.g. "+19% Y/Y") and tooltips;
+    // the big value figure itself routes to amountFontFamily. null → inherit
+    // fontFamily
+    valueFontFamily:
+      '"Roboto",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif',
+    // amount font — the value figure only (e.g. "€6.0B"), keyed off the $value
+    // placeholder. Its note lines and tooltips keep valueFontFamily. null →
+    // inherit valueFontFamily
+    amountFontFamily:
+      '"Noto Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif',
+    // rendered weight for all numeric text (values + descriptions + tooltip);
+    // null → keep each authored weight. 300 = Light.
+    valueWeight: 300,
+    // rendered weight for node label names only (NOT the chart title, which
+    // keeps its authored weight). Overrides per-dataset authored name weights;
+    // null → keep each authored weight. Font routing keys off the AUTHORED
+    // weight, so this changes how heavy a name renders, never which font.
+    labelWeight: 600,
 
     titleColor: '#123e65',
     subtitleColor: '#535353',
@@ -63,9 +83,12 @@
       transitionMs: 0,
       tooltip: {
         enabled: true,
-        referenceWidth: 4686,
+        referenceWidth: 4000,
         scaleWithViewBox: true,
         percentDecimals: 1,
+        // number font on the hover cards; null → inherit valueFontFamily
+        fontFamily:
+          '"Noto Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif',
         fontSize: 40,
         fontWeight: 700,
         textColor: '#35566f',
@@ -419,6 +442,15 @@
 
     const pad = 16;
     const gap = cfg.type.lineGap;
+    // weight overrides: cfg.labelWeight (node names) / cfg.valueWeight (numbers)
+    // win over a line's authored weight when set (null → keep authored). Font
+    // routing is keyed off the authored weight, so these only change how heavy
+    // text renders, never which font.
+    const labelW = (authored) => (cfg.labelWeight != null ? cfg.labelWeight : authored);
+    const numW = (authored) => (cfg.valueWeight != null ? cfg.valueWeight : authored);
+    // the value figure ("€6.0B") gets its own family; falls back to the numeric
+    // font so a null amountFontFamily preserves the old behaviour
+    const amountFont = cfg.amountFontFamily != null ? cfg.amountFontFamily : cfg.valueFontFamily;
     const labelLayout = (data.layout && data.layout.labels) || {};
     const iconLayout = [];
 
@@ -427,11 +459,29 @@
         return block.lines.map((line) => {
           const spec = typeof line === 'string' ? { text: line } : line;
           const text = spec.text === '$value' ? formatValue(n, meta) : spec.text;
+          const authoredW = spec.weight || spec.w || 400;
+          // authoring convention: headings/names are bold (≥700); the value and
+          // its description lines are regular weight → route to the numeric font
+          // by AUTHORED weight. spec.font wins if a dataset sets one explicitly.
+          const isAmount = spec.text === '$value';
+          const numeric = isAmount || authoredW < 700;
+          // render weight: numbers honour cfg.valueWeight, names cfg.labelWeight;
+          // routing is already fixed above, so re-weighting never flips a line's
+          // font family.
+          const w = numeric ? numW(authoredW) : labelW(authoredW);
           return {
             t: text,
             size: spec.size || cfg.type.note,
-            w: spec.weight || spec.w || 400,
+            w,
             c: spec.color || labelColor(n),
+            font:
+              spec.font != null
+                ? spec.font
+                : isAmount
+                  ? amountFont
+                  : numeric
+                    ? cfg.valueFontFamily
+                    : null,
           };
         });
       }
@@ -447,7 +497,7 @@
             out.push({
               t,
               size: nameSize,
-              w: block.nameWeight || 700,
+              w: labelW(block.nameWeight != null ? block.nameWeight : 700),
               c: block.nameColor || labelColor(n),
             })
           );
@@ -455,16 +505,18 @@
           out.push({
             t: formatValue(n, meta),
             size: valueSize,
-            w: block.valueWeight || 400,
+            w: numW(block.valueWeight || 400),
             c: block.valueColor || labelColor(n),
+            font: block.valueFont || amountFont,
           });
         } else if (part === 'notes') {
           (n.notes || []).forEach((nt) =>
             out.push({
               t: nt,
               size: noteSize,
-              w: block.noteWeight || 400,
+              w: numW(block.noteWeight || 400),
               c: block.noteColor || cfg.noteColor,
+              font: block.noteFont || cfg.valueFontFamily,
             })
           );
         }
@@ -510,15 +562,15 @@
       const nameLines = Array.isArray(n.label) ? n.label : n.label ? [n.label] : [];
       const valueLines = [];
       if (n.value != null || n.valueText != null)
-        valueLines.push({ t: formatValue(n, meta), size: cfg.type.value, w: 400, c: labelColor(n) });
+        valueLines.push({ t: formatValue(n, meta), size: cfg.type.value, w: numW(400), c: labelColor(n), font: amountFont });
       (n.notes || []).forEach((nt) =>
-        valueLines.push({ t: nt, size: cfg.type.note, w: 400, c: cfg.noteColor })
+        valueLines.push({ t: nt, size: cfg.type.note, w: numW(400), c: cfg.noteColor, font: cfg.valueFontFamily })
       );
       if (side === 'split-left') {
         const nameOnly = nameLines.map((t) => ({
           t,
           size: cfg.type.name,
-          w: 700,
+          w: labelW(700),
           c: labelColor(n),
         }));
         const nameH =
@@ -550,10 +602,10 @@
         return;
       }
 
-      // lines: name (bold, may wrap), value (regular), notes (gray)
+      // lines: name (heading weight, may wrap), value (regular), notes (gray)
       const lines = [];
       nameLines.forEach((t) =>
-        lines.push({ t, size: cfg.type.name, w: 700, c: labelColor(n) })
+        lines.push({ t, size: cfg.type.name, w: labelW(700), c: labelColor(n) })
       );
       valueLines.forEach((l) => lines.push(l));
       if (!lines.length) return;
@@ -606,7 +658,7 @@
       const localGap = sp.lineGap != null ? sp.lineGap : gap;
       lines.forEach((l) => {
         y += l.size; // baseline of this line
-        g.append('text')
+        const tx = g.append('text')
           .attr('x', x)
           .attr('y', y)
           .attr('text-anchor', anchor)
@@ -614,6 +666,7 @@
           .attr('font-size', l.size)
           .attr('font-weight', l.w)
           .text(l.t);
+        if (l.font) tx.attr('font-family', l.font); // else inherit cfg.fontFamily
         y += localGap;
       });
 
@@ -946,8 +999,9 @@
         .attr('rx', tooltipDim('radius', 7));
       entered
         .append('text')
+        .attr('font-family', tooltipCfg.fontFamily || cfg.valueFontFamily) // null → removed → inherit
         .attr('font-size', tooltipDim('fontSize', 40))
-        .attr('font-weight', tooltipCfg.fontWeight)
+        .attr('font-weight', numW(tooltipCfg.fontWeight))
         .attr('fill', tooltipCfg.textColor)
         .attr('text-anchor', 'middle')
         .attr('letter-spacing', '0');

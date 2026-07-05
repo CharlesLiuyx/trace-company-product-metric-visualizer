@@ -86,17 +86,27 @@ function inlineScript(sourcePath, source) {
 }
 
 function localFontFaces() {
-  return [400, 500, 600, 700, 800]
-    .map((weight) => {
-      const fontPath = `node_modules/@fontsource/montserrat/files/montserrat-latin-${weight}-normal.woff2`;
-      return `@font-face {
-  font-family: 'Montserrat';
+  // Montserrat drives the app chrome; Noto Sans drives the Sankey headings
+  // (chart title + node names) and the value amounts at Light 300; Roboto
+  // drives value note/description lines + tooltip.
+  const families = [
+    { family: 'Montserrat', slug: 'montserrat', weights: [400, 500, 600, 700, 800] },
+    { family: 'Noto Sans', slug: 'noto-sans', weights: [300, 400, 500, 600, 700, 800] },
+    { family: 'Roboto', slug: 'roboto', weights: [300, 400, 500] },
+  ];
+  return families
+    .flatMap(({ family, slug, weights }) =>
+      weights.map((weight) => {
+        const fontPath = `node_modules/@fontsource/${slug}/files/${slug}-latin-${weight}-normal.woff2`;
+        return `@font-face {
+  font-family: '${family}';
   font-style: normal;
   font-weight: ${weight};
   font-display: swap;
   src: url('${readDataUri(fontPath, 'font/woff2')}') format('woff2');
 }`;
-    })
+      })
+    )
     .join('\n\n');
 }
 
