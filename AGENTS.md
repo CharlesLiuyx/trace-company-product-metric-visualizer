@@ -43,11 +43,12 @@ d3-sankey fidelity loop.
 - Keep Trace domain normalization in `src/trace-domain.js`. The viewer app is
   split across `src/app/` as ordered classic scripts sharing one top-level
   scope (load order lives in `index.html`): `dom`, `util`, `hotkeys`,
-  `i18n-runtime`, `state`, `selectors`, `financial` form the base layers;
-  `shell`, `controls`,
-  `company-panel`, `period-panel`, `tables`, `trend`, `comparison-zoom`,
-  `comparison-metric-trend`, `sankey`, `exports` own one UI concern each;
-  `main.js` wires global events and boots last. Put new viewer code in the
+ `i18n-runtime`, `state`, `selectors`, `financial`, `chart-theme` form the
+ base layers;
+ `shell`, `controls`,
+ `company-panel`, `period-panel`, `tables`, `trend`, `comparison-zoom`,
+ `comparison-metric-trend`, `sankey`, `exports` own one UI concern each;
+ `main.js` wires global events and boots last. Put new viewer code in the
   owning module (module map: `README.md` §How it's built); load-time code may
   only reference earlier scripts, runtime calls may go either way.
 - When adding a metric family or SSOT, backfill this file and

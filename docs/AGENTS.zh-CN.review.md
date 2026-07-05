@@ -39,7 +39,7 @@ agent 指令以英文版 `AGENTS.md` 为准。
 - Trace 领域归一化放在 `src/trace-domain.js`。查看器应用拆分在 `src/app/`
   下，以经典 script 顺序加载并共享同一顶层作用域（加载顺序见
   `index.html`）：`dom`、`util`、`hotkeys`、`i18n-runtime`、`state`、
-  `selectors`、`financial` 为基础层；`shell`、`controls`、`company-panel`、
+  `selectors`、`financial`、`chart-theme` 为基础层；`shell`、`controls`、`company-panel`、
   `period-panel`、`tables`、`trend`、`comparison-zoom`、
   `comparison-metric-trend`、`sankey`、`exports` 各自负责一个 UI 关注点；
   `main.js` 负责全局事件接线并最后启动。新查看器代码放进对应归属模块

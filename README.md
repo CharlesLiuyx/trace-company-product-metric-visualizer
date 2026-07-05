@@ -279,7 +279,7 @@ example.
 | `src/app.css`               | viewer layout, controls, sidebar, and responsive styles       |
 | `src/app/`                  | viewer app modules (classic scripts, ordered in `index.html`, shared top-level scope) |
 | `src/app/dom.js` · `util.js` · `hotkeys.js` · `i18n-runtime.js` | DOM refs · generic helpers/formatters · modifier-combo shortcut registry · UI strings + localization caches |
-| `src/app/state.js` · `selectors.js` · `financial.js` | prefs + mode rules + UI state/scope · display/search derivations · USD/FX totals + company sort values |
+| `src/app/state.js` · `selectors.js` · `financial.js` · `chart-theme.js` | prefs + mode rules + UI state/scope · display/search derivations · USD/FX totals + company sort values · shared Chart.js theme tokens/plugins |
 | `src/app/shell.js` · `controls.js` | theme/language/sidebar/toolbar chrome · metric/view switching + `renderAll()` |
 | `src/app/company-panel.js` · `period-panel.js` | company list, sort menu, multi-select · period tree, timeline, multi-select |
 | `src/app/tables.js` · `trend.js` · `sankey.js` | virtualized tables · revenue trend charts · sankey single/comparison + `draw()` |
