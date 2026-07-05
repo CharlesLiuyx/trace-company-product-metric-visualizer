@@ -371,6 +371,9 @@
   };
 
   const EXACT_ZH = {
+    'Tim Hortons': 'Tim Hortons',
+    'Popeyes': 'Popeyes',
+    'Firehouse Subs': 'Firehouse Subs',
     'Data view': '数据视图',
     'Sankey': '桑基图',
     'Table': '表格',
@@ -565,6 +568,8 @@
     'Google Play, devices, and subscriptions': 'Google Play、设备与订阅',
     'YouTube': 'YouTube',
     'YouTube Premium & TV': 'YouTube Premium 与电视',
+    'Spotify Premium': 'Spotify Premium',
+    'Spotify Advertising': 'Spotify Advertising',
     'Google AdMob': 'Google AdMob',
     'Google Ad Manager': 'Google 广告管理平台',
     'AdSense & Google Ad Manager': 'AdSense 与 Google 广告管理平台',
@@ -663,6 +668,18 @@
     'Account expenses': '账户费用',
     'Noninterest expense': '非利息费用',
     'Noninterest expenses': '非利息费用',
+    'US Consumer Services': '美国消费者服务',
+    'Deposits': '存款',
+    'Billed Business': '签单业务',
+    'International Card Services': '国际卡服务',
+    'Global Merchant & Network Service': '全球商户与网络服务',
+    'Business development': '业务拓展',
+    'Card members rewards': '持卡人奖励',
+    'Card Member services': '持卡人服务',
+    'Sales & employee benefits': '销售与员工福利',
+    'Other general operating': '其他一般运营',
+    'Revenue (net of interest expenses)': '收入（扣除利息支出后）',
+    'All Other (noninterest loss)': '所有其他（非利息亏损）',
     'Net system': '系统净',
     'sales': '销售额',
     'Installed base management': '装机基础管理',
@@ -781,6 +798,12 @@
     'Inter-segment eliminations': '分部间抵销',
     'Inter-segment Eliminations': '分部间抵销',
     'Inter-segment': '分部间',
+    'Airbus': 'Airbus',
+    'Defense & Space': '防务与航天',
+    'Defense and Space': '防务与航天',
+    'Defense': '防务',
+    'Helicopters': '直升机',
+    'Selling': '销售',
     'Smartphones': '智能手机',
     'Intellectual property income offset': '知识产权收入抵减',
     'Family of Apps (FoA)': '应用家族（FoA）',
@@ -1127,6 +1150,17 @@
     'Investment advisory, fees & securities lending': ['投资顾问', '费用及', '证券借贷'],
     'Investment advisory performance fees': ['投资顾问', '绩效', '费用'],
     'Compensation & benefits': ['薪酬与', '福利'],
+    'US Consumer Services': ['美国消费者', '服务'],
+    'International Card Services': ['国际', '卡服务'],
+    'Global Merchant & Network Service': ['全球商户', '与网络服务'],
+    'Business development': ['业务', '拓展'],
+    'Card members rewards': ['持卡人', '奖励'],
+    'Card Member services': ['持卡人', '服务'],
+    'Sales & employee benefits': ['销售与员工', '福利'],
+    'Other general operating': ['其他一般', '运营'],
+    'Provision for credit losses': ['信用损失', '拨备'],
+    'Revenue (net of interest expenses)': ['收入', '（扣除利息支出后）'],
+    'All Other (noninterest loss)': ['所有其他', '（非利息亏损）'],
     'Sales, asset & Account expenses': ['销售、资产及账户', '费用'],
     'Amortization & other': ['摊销及', '其他'],
     'Amortization & impairment': ['摊销与', '减值'],
@@ -1427,8 +1461,8 @@
   function translateMargin(text, language) {
     if (normalizeLanguage(language) !== 'zh') return text;
     const value = clean(text);
-    const margin = value.match(/^(\(?\d+(?:\.\d+)?%\)?)\s+(gross|operating|net|adjusted|ebit)?\s*margin$/i);
-    const reverse = value.match(/^(gross|operating|net|adjusted|ebit)\s+margin\s+(\(?\d+(?:\.\d+)?%\)?)$/i);
+    const margin = value.match(/^(\(?\d+(?:\.\d+)?%\)?)\s+(gross|operating|net|adjusted|ebit|pretax|segment)?\s*margin$/i);
+    const reverse = value.match(/^(gross|operating|net|adjusted|ebit|pretax|segment)\s+margin\s+(\(?\d+(?:\.\d+)?%\)?)$/i);
     if (!margin && !reverse) return text;
     const kind = ((margin && margin[2]) || (reverse && reverse[1]) || '').toLowerCase();
     const percent = (margin && margin[1]) || (reverse && reverse[2]);
@@ -1438,6 +1472,8 @@
       kind === 'net' ? '净利率' :
       kind === 'adjusted' ? '调整后利润率' :
       kind === 'ebit' ? 'EBIT 利润率' :
+      kind === 'pretax' ? '税前利润率' :
+      kind === 'segment' ? '分部利润率' :
       '利润率';
     return `${label} ${percent}`;
   }

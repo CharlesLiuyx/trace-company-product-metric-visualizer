@@ -1,0 +1,378 @@
+{
+  "source": "input/processed/airbus-q1-fy26.png",
+  "spec": "input/icon-crop-specs/airbus-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-04T19:32:36.091254+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/airbus",
+  "crops": [
+    {
+      "key": "airbus-a380-tile",
+      "output": "data/assets/icon-references/airbus/crops/commercial-aircraft-a380.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 14071,
+        "losslessBytes": 41287,
+        "savingsVsLossless": 0.6592,
+        "metrics": {
+          "meanAbsoluteError": 0.8819,
+          "rootMeanSquareError": 2.367,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 44,
+          "changedPixelRatio": 0.3526
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 8,
+        "y": 383,
+        "width": 394,
+        "height": 156
+      },
+      "componentCount": 4,
+      "subjectBox": {
+        "x0": 14,
+        "y0": 387,
+        "x1": 400,
+        "y1": 539
+      },
+      "cropBox": {
+        "x0": 6,
+        "y0": 378,
+        "x1": 408,
+        "y1": 538
+      },
+      "validation": {
+        "width": 402,
+        "height": 160,
+        "foregroundPixels": 21163,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 8,
+          "top": 9,
+          "bottom": -1
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0312
+        },
+        "passes": true
+      },
+      "note": "Commercial Aircraft segment icon: a photographic Airbus A380 in house livery, above the 'Airbus' segment label. The airplane nose extends right to ~x399; the cropBox right edge is x408, staying clear of the '(11%) Y/Y' note that begins at ~x409 and the navy segment node bar at x435. Kept as an opaque, background-matched rectangular patch (background removal disabled) because the photo sits on the uniform #f2f2f2 chart background, so the patch blends seamlessly when re-placed at its source coordinates. borderBand is 0 because this is an intentional background-matched patch, not a transparent die-cut icon; subject detection (threshold 18) still centers the crop on the airplane and centerOffset is validated. Excludes the '\u20ac8.4B'/'(11%) Y/Y' value block, the 'Airbus' segment name, and the AIRBUS wordmark.",
+      "runtimeOutput": "data/assets/raster-annotations/airbus/commercial-aircraft-a380.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 14071,
+        "losslessBytes": 41287,
+        "savingsVsLossless": 0.6592,
+        "metrics": {
+          "meanAbsoluteError": 0.8819,
+          "rootMeanSquareError": 2.367,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 44,
+          "changedPixelRatio": 0.3526
+        }
+      },
+      "validationSheet": "data/assets/icon-references/airbus/validation-sheets/airbus-a380-tile.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 292652,
+        "losslessBytes": 292652,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "airbus-h160-tile",
+      "output": "data/assets/icon-references/airbus/crops/helicopters-h160.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 7977,
+        "losslessBytes": 29588,
+        "savingsVsLossless": 0.7304,
+        "metrics": {
+          "meanAbsoluteError": 1.013,
+          "rootMeanSquareError": 2.3913,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.3495
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 30,
+        "y": 675,
+        "width": 356,
+        "height": 126
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 37,
+        "y0": 680,
+        "x1": 379,
+        "y1": 795
+      },
+      "cropBox": {
+        "x0": 28,
+        "y0": 671,
+        "x1": 392,
+        "y1": 805
+      },
+      "validation": {
+        "width": 364,
+        "height": 134,
+        "foregroundPixels": 15728,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 9,
+          "right": 13,
+          "top": 9,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": -0.0055,
+          "y": -0.0037
+        },
+        "passes": true
+      },
+      "note": "Helicopters segment icon: a photographic Airbus H160 helicopter, above the 'Helicopters' segment label. Tail rotor extends right to ~x379; the cropBox right edge is x392, clear of the '\u20ac1.6B'/'+0% Y/Y' value block that begins at ~x417. Opaque background-matched patch (background removal disabled); the photo sits on the uniform #f2f2f2 chart background. borderBand 0 (intentional patch, not a transparent die-cut). Excludes the value block, the 'Helicopters' name below, and the navy segment node bar.",
+      "runtimeOutput": "data/assets/raster-annotations/airbus/helicopters-h160.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 7977,
+        "losslessBytes": 29588,
+        "savingsVsLossless": 0.7304,
+        "metrics": {
+          "meanAbsoluteError": 1.013,
+          "rootMeanSquareError": 2.3913,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.3495
+        }
+      },
+      "validationSheet": "data/assets/icon-references/airbus/validation-sheets/airbus-h160-tile.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 284621,
+        "losslessBytes": 284621,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "airbus-satellite-tile",
+      "output": "data/assets/icon-references/airbus/crops/defense-space-satellite.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 2907,
+        "losslessBytes": 9739,
+        "savingsVsLossless": 0.7015,
+        "metrics": {
+          "meanAbsoluteError": 0.6223,
+          "rootMeanSquareError": 2.4608,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 46,
+          "changedPixelRatio": 0.2145
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 184,
+        "y": 949,
+        "width": 168,
+        "height": 90
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 189,
+        "y0": 953,
+        "x1": 345,
+        "y1": 1039
+      },
+      "cropBox": {
+        "x0": 180,
+        "y0": 944,
+        "x1": 358,
+        "y1": 1039
+      },
+      "validation": {
+        "width": 178,
+        "height": 95,
+        "foregroundPixels": 3520,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 9,
+          "right": 13,
+          "top": 9,
+          "bottom": 0
+        },
+        "centerOffset": {
+          "x": -0.0112,
+          "y": 0.0474
+        },
+        "passes": true
+      },
+      "note": "Defense & Space segment icon: a photographic satellite with two solar arrays, above the 'Defense & Space' segment label. Solar arrays span x189-345; the cropBox right edge is x358, clear of the '\u20ac2.8B'/'+7% Y/Y' value block that begins at ~x417, and the bottom edge y1039 stops just above the 'Defense & Space' name that begins at ~y1040. Opaque background-matched patch (background removal disabled) on the uniform #f2f2f2 chart background. borderBand 0 (intentional patch). Excludes the value block and the segment name.",
+      "runtimeOutput": "data/assets/raster-annotations/airbus/defense-space-satellite.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 2907,
+        "losslessBytes": 9739,
+        "savingsVsLossless": 0.7015,
+        "metrics": {
+          "meanAbsoluteError": 0.6223,
+          "rootMeanSquareError": 2.4608,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 46,
+          "changedPixelRatio": 0.2145
+        }
+      },
+      "validationSheet": "data/assets/icon-references/airbus/validation-sheets/airbus-satellite-tile.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 287288,
+        "losslessBytes": 287288,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "airbus-wordmark",
+      "output": "data/assets/icon-references/airbus/crops/company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4035,
+        "losslessBytes": 15135,
+        "savingsVsLossless": 0.7334,
+        "metrics": {
+          "meanAbsoluteError": 0.413,
+          "rootMeanSquareError": 2.0028,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 30,
+          "changedPixelRatio": 0.0808
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 716,
+        "y": 292,
+        "width": 550,
+        "height": 115
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 721,
+        "y0": 297,
+        "x1": 1261,
+        "y1": 402
+      },
+      "cropBox": {
+        "x0": 711,
+        "y0": 287,
+        "x1": 1271,
+        "y1": 412
+      },
+      "validation": {
+        "width": 560,
+        "height": 125,
+        "foregroundPixels": 32482,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 10,
+          "right": 10,
+          "top": 10,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "AIRBUS company wordmark set in the brand's custom navy logotype, above the Revenue hub. Isolated on the uniform #f2f2f2 chart background with clear margins to the title above (baseline ~y198) and the flows below (~y500). Kept as an opaque background-matched raster patch rather than approximated as bold Arial text, which under-rendered the wordmark width (textLength 286 vs the source 540px). Company name is exempt from i18n fallback checks. Excludes the chart title and all Sankey flows/nodes.",
+      "runtimeOutput": "data/assets/raster-annotations/airbus/company-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4035,
+        "losslessBytes": 15135,
+        "savingsVsLossless": 0.7334,
+        "metrics": {
+          "meanAbsoluteError": 0.413,
+          "rootMeanSquareError": 2.0028,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 30,
+          "changedPixelRatio": 0.0808
+        }
+      },
+      "validationSheet": "data/assets/icon-references/airbus/validation-sheets/airbus-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 259049,
+        "losslessBytes": 259049,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

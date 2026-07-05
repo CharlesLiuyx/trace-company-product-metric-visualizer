@@ -1,0 +1,508 @@
+{
+  "source": "input/processed/rbi-q1-fy26.png",
+  "spec": "input/icon-crop-specs/rbi-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-04T19:14:44.701912+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/rbi",
+  "crops": [
+    {
+      "key": "rbi-company-logo",
+      "output": "data/assets/icon-references/rbi/crops/rbi-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 5411,
+        "losslessBytes": 21940,
+        "savingsVsLossless": 0.7534,
+        "metrics": {
+          "meanAbsoluteError": 0.4914,
+          "rootMeanSquareError": 1.8891,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 37,
+          "changedPixelRatio": 0.3636
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 43509,
+        "transparentPixelRatio": 0.6456
+      },
+      "searchBox": {
+        "x": 712,
+        "y": 232,
+        "width": 218,
+        "height": 274
+      },
+      "componentCount": 27,
+      "subjectBox": {
+        "x0": 712,
+        "y0": 232,
+        "x1": 930,
+        "y1": 506
+      },
+      "cropBox": {
+        "x0": 704,
+        "y0": 226,
+        "x1": 938,
+        "y1": 514
+      },
+      "validation": {
+        "width": 234,
+        "height": 288,
+        "foregroundPixels": 22093,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 8,
+          "top": 6,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0035
+        },
+        "passes": true
+      },
+      "note": "Red 'rbi restaurant brands international' company lockup above the first revenue hub; excludes the blue title and revenue bar/label.",
+      "runtimeOutput": "data/assets/raster-annotations/rbi/rbi-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 5411,
+        "losslessBytes": 21940,
+        "savingsVsLossless": 0.7534,
+        "metrics": {
+          "meanAbsoluteError": 0.4914,
+          "rootMeanSquareError": 1.8891,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 37,
+          "changedPixelRatio": 0.3636
+        }
+      },
+      "validationSheet": "data/assets/icon-references/rbi/validation-sheets/rbi-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 332965,
+        "losslessBytes": 332965,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "rbi-tim-hortons-logo",
+      "output": "data/assets/icon-references/rbi/crops/tim-hortons-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3418,
+        "losslessBytes": 17327,
+        "savingsVsLossless": 0.8027,
+        "metrics": {
+          "meanAbsoluteError": 0.4071,
+          "rootMeanSquareError": 1.5893,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 29,
+          "changedPixelRatio": 0.2474
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 22668,
+        "transparentPixelRatio": 0.759
+      },
+      "searchBox": {
+        "x": 135,
+        "y": 399,
+        "width": 194,
+        "height": 113
+      },
+      "componentCount": 4,
+      "subjectBox": {
+        "x0": 135,
+        "y0": 399,
+        "x1": 329,
+        "y1": 512
+      },
+      "cropBox": {
+        "x0": 123,
+        "y0": 387,
+        "x1": 341,
+        "y1": 524
+      },
+      "validation": {
+        "width": 218,
+        "height": 137,
+        "foregroundPixels": 6673,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 12,
+          "top": 12,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Tim Hortons red script wordmark left of the Tim Hortons segment bar.",
+      "runtimeOutput": "data/assets/raster-annotations/rbi/tim-hortons-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3418,
+        "losslessBytes": 17327,
+        "savingsVsLossless": 0.8027,
+        "metrics": {
+          "meanAbsoluteError": 0.4071,
+          "rootMeanSquareError": 1.5893,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 29,
+          "changedPixelRatio": 0.2474
+        }
+      },
+      "validationSheet": "data/assets/icon-references/rbi/validation-sheets/rbi-tim-hortons-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 338025,
+        "losslessBytes": 338025,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "rbi-burger-king-logo",
+      "output": "data/assets/icon-references/rbi/crops/burger-king-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3406,
+        "losslessBytes": 15201,
+        "savingsVsLossless": 0.7759,
+        "metrics": {
+          "meanAbsoluteError": 0.5488,
+          "rootMeanSquareError": 1.8641,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.5243
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 12975,
+        "transparentPixelRatio": 0.3016
+      },
+      "searchBox": {
+        "x": 148,
+        "y": 545,
+        "width": 174,
+        "height": 185
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 148,
+        "y0": 545,
+        "x1": 322,
+        "y1": 730
+      },
+      "cropBox": {
+        "x0": 134,
+        "y0": 531,
+        "x1": 336,
+        "y1": 744
+      },
+      "validation": {
+        "width": 202,
+        "height": 213,
+        "foregroundPixels": 29989,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 14,
+          "right": 14,
+          "top": 14,
+          "bottom": 14
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Burger King logo (bun lockup on cream badge) left of the Burger King segment bar.",
+      "runtimeOutput": "data/assets/raster-annotations/rbi/burger-king-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3406,
+        "losslessBytes": 15201,
+        "savingsVsLossless": 0.7759,
+        "metrics": {
+          "meanAbsoluteError": 0.5488,
+          "rootMeanSquareError": 1.8641,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.5243
+        }
+      },
+      "validationSheet": "data/assets/icon-references/rbi/validation-sheets/rbi-burger-king-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 342306,
+        "losslessBytes": 342306,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "rbi-popeyes-logo",
+      "output": "data/assets/icon-references/rbi/crops/popeyes-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 4543,
+        "losslessBytes": 23077,
+        "savingsVsLossless": 0.8031,
+        "metrics": {
+          "meanAbsoluteError": 0.5594,
+          "rootMeanSquareError": 1.8121,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 30,
+          "changedPixelRatio": 0.3884
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 25661,
+        "transparentPixelRatio": 0.6132
+      },
+      "searchBox": {
+        "x": 134,
+        "y": 756,
+        "width": 201,
+        "height": 162
+      },
+      "componentCount": 17,
+      "subjectBox": {
+        "x0": 134,
+        "y0": 756,
+        "x1": 335,
+        "y1": 918
+      },
+      "cropBox": {
+        "x0": 122,
+        "y0": 744,
+        "x1": 347,
+        "y1": 930
+      },
+      "validation": {
+        "width": 225,
+        "height": 186,
+        "foregroundPixels": 9948,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 12,
+          "top": 12,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Popeyes Louisiana Kitchen circular emblem and wordmark left of the Popeyes segment bar.",
+      "runtimeOutput": "data/assets/raster-annotations/rbi/popeyes-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 4543,
+        "losslessBytes": 23077,
+        "savingsVsLossless": 0.8031,
+        "metrics": {
+          "meanAbsoluteError": 0.5594,
+          "rootMeanSquareError": 1.8121,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 30,
+          "changedPixelRatio": 0.3884
+        }
+      },
+      "validationSheet": "data/assets/icon-references/rbi/validation-sheets/rbi-popeyes-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 359304,
+        "losslessBytes": 359304,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "rbi-firehouse-subs-logo",
+      "output": "data/assets/icon-references/rbi/crops/firehouse-subs-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 5153,
+        "losslessBytes": 21515,
+        "savingsVsLossless": 0.7605,
+        "metrics": {
+          "meanAbsoluteError": 0.5972,
+          "rootMeanSquareError": 2.0605,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.304
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 16612,
+        "transparentPixelRatio": 0.4693
+      },
+      "searchBox": {
+        "x": 91,
+        "y": 962,
+        "width": 276,
+        "height": 94
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 91,
+        "y0": 972,
+        "x1": 367,
+        "y1": 1056
+      },
+      "cropBox": {
+        "x0": 79,
+        "y0": 950,
+        "x1": 379,
+        "y1": 1068
+      },
+      "validation": {
+        "width": 300,
+        "height": 118,
+        "foregroundPixels": 14630,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 12,
+          "top": 22,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0424
+        },
+        "passes": true
+      },
+      "note": "Firehouse Subs red badge wordmark left of the Firehouse Subs segment bar.",
+      "runtimeOutput": "data/assets/raster-annotations/rbi/firehouse-subs-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 5153,
+        "losslessBytes": 21515,
+        "savingsVsLossless": 0.7605,
+        "metrics": {
+          "meanAbsoluteError": 0.5972,
+          "rootMeanSquareError": 2.0605,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.304
+        }
+      },
+      "validationSheet": "data/assets/icon-references/rbi/validation-sheets/rbi-firehouse-subs-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 321645,
+        "losslessBytes": 321645,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

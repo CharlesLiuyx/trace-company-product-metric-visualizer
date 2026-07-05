@@ -1,0 +1,452 @@
+{
+  "source": "input/processed/coca-cola-q1-fy26.png",
+  "spec": "input/icon-crop-specs/coca-cola-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-04T18:49:24.786062+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/coca-cola",
+  "crops": [
+    {
+      "key": "coca-cola-company-wordmark",
+      "output": "data/assets/icon-references/coca-cola/crops/company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 9844,
+        "losslessBytes": 52340,
+        "savingsVsLossless": 0.8119,
+        "metrics": {
+          "meanAbsoluteError": 0.3656,
+          "rootMeanSquareError": 1.4529,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.1383
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 72743,
+        "transparentPixelRatio": 0.6123
+      },
+      "searchBox": {
+        "x": 744,
+        "y": 255,
+        "width": 578,
+        "height": 186
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 746,
+        "y0": 257,
+        "x1": 1322,
+        "y1": 438
+      },
+      "cropBox": {
+        "x0": 736,
+        "y0": 247,
+        "x1": 1330,
+        "y1": 447
+      },
+      "validation": {
+        "width": 594,
+        "height": 200,
+        "foregroundPixels": 36143,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 10,
+          "right": 8,
+          "top": 10,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": 0.0017,
+          "y": 0.0025
+        },
+        "passes": true
+      },
+      "note": "Black Coca-Cola script wordmark above the revenue flow; excludes the blue title, source values, chart links, and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/coca-cola/company-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 9844,
+        "losslessBytes": 52340,
+        "savingsVsLossless": 0.8119,
+        "metrics": {
+          "meanAbsoluteError": 0.3656,
+          "rootMeanSquareError": 1.4529,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.1383
+        }
+      },
+      "validationSheet": "data/assets/icon-references/coca-cola/validation-sheets/coca-cola-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 275000,
+        "losslessBytes": 275000,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "coca-cola-globe-emea",
+      "output": "data/assets/icon-references/coca-cola/crops/globe-emea.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 10220,
+        "losslessBytes": 10220,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 3598,
+        "transparentPixelRatio": 0.4074
+      },
+      "searchBox": {
+        "x": 205,
+        "y": 373,
+        "width": 81,
+        "height": 81
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 205,
+        "y0": 373,
+        "x1": 286,
+        "y1": 454
+      },
+      "cropBox": {
+        "x0": 198,
+        "y0": 368,
+        "x1": 294,
+        "y1": 460
+      },
+      "validation": {
+        "width": 96,
+        "height": 92,
+        "foregroundPixels": 3422,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 7,
+          "right": 8,
+          "top": 5,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": -0.0052,
+          "y": -0.0054
+        },
+        "passes": true
+      },
+      "note": "EMEA region globe icon (Europe/Africa view); excludes the EMEA label text to its right.",
+      "runtimeOutput": "data/assets/raster-annotations/coca-cola/globe-emea.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 10220,
+        "losslessBytes": 10220,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/coca-cola/validation-sheets/coca-cola-globe-emea.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 326831,
+        "losslessBytes": 326831,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "coca-cola-globe-latam",
+      "output": "data/assets/icon-references/coca-cola/crops/globe-latam.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 7389,
+        "losslessBytes": 7389,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 4287,
+        "transparentPixelRatio": 0.4755
+      },
+      "searchBox": {
+        "x": 201,
+        "y": 561,
+        "width": 88,
+        "height": 81
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 201,
+        "y0": 561,
+        "x1": 283,
+        "y1": 642
+      },
+      "cropBox": {
+        "x0": 196,
+        "y0": 556,
+        "x1": 294,
+        "y1": 648
+      },
+      "validation": {
+        "width": 98,
+        "height": 92,
+        "foregroundPixels": 2014,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 5,
+          "right": 11,
+          "top": 5,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": -0.0306,
+          "y": -0.0054
+        },
+        "passes": true
+      },
+      "note": "LATAM region globe icon (Americas view); excludes the LATAM label text to its right.",
+      "runtimeOutput": "data/assets/raster-annotations/coca-cola/globe-latam.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 7389,
+        "losslessBytes": 7389,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/coca-cola/validation-sheets/coca-cola-globe-latam.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 300267,
+        "losslessBytes": 300267,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "coca-cola-globe-ucan",
+      "output": "data/assets/icon-references/coca-cola/crops/globe-ucan.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 9260,
+        "losslessBytes": 9260,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 3295,
+        "transparentPixelRatio": 0.3502
+      },
+      "searchBox": {
+        "x": 211,
+        "y": 775,
+        "width": 86,
+        "height": 87
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 211,
+        "y0": 775,
+        "x1": 297,
+        "y1": 862
+      },
+      "cropBox": {
+        "x0": 204,
+        "y0": 770,
+        "x1": 300,
+        "y1": 868
+      },
+      "validation": {
+        "width": 96,
+        "height": 98,
+        "foregroundPixels": 2478,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 7,
+          "right": 3,
+          "top": 5,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": 0.0208,
+          "y": -0.0051
+        },
+        "passes": true
+      },
+      "note": "UCAN region globe icon (North America view); excludes the UCAN label text to its right.",
+      "runtimeOutput": "data/assets/raster-annotations/coca-cola/globe-ucan.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 9260,
+        "losslessBytes": 9260,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/coca-cola/validation-sheets/coca-cola-globe-ucan.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 314595,
+        "losslessBytes": 314595,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "coca-cola-globe-apac",
+      "output": "data/assets/icon-references/coca-cola/crops/globe-apac.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 8227,
+        "losslessBytes": 8227,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 3154,
+        "transparentPixelRatio": 0.3809
+      },
+      "searchBox": {
+        "x": 219,
+        "y": 980,
+        "width": 79,
+        "height": 79
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 219,
+        "y0": 980,
+        "x1": 298,
+        "y1": 1059
+      },
+      "cropBox": {
+        "x0": 212,
+        "y0": 975,
+        "x1": 304,
+        "y1": 1065
+      },
+      "validation": {
+        "width": 92,
+        "height": 90,
+        "foregroundPixels": 2163,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 7,
+          "right": 6,
+          "top": 5,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": 0.0054,
+          "y": -0.0056
+        },
+        "passes": true
+      },
+      "note": "APAC region globe icon (Asia-Pacific view); excludes the APAC label text to its right.",
+      "runtimeOutput": "data/assets/raster-annotations/coca-cola/globe-apac.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 8227,
+        "losslessBytes": 8227,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/coca-cola/validation-sheets/coca-cola-globe-apac.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 320066,
+        "losslessBytes": 320066,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}
