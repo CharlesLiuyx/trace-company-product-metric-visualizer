@@ -94540,6 +94540,7 @@
       const viewMode = document.getElementById('viewMode');
       const sankeyView = document.getElementById('sankeyView');
       const singleChartCard = document.getElementById('singleChartCard');
+      const chartHost = document.getElementById('chart');
       const sankeyComparison = document.getElementById('sankeyComparison');
       const comparisonZoomControls = document.getElementById('comparisonZoomControls');
       const zoomInBtn = document.getElementById('zoomInBtn');
@@ -95896,6 +95897,73 @@
         return group.latest ? `${t('latest')} ${displayPeriod(group.latest)}` : t('metricCompanyInfo');
       }
     </script>
+    <script data-inline-source="src/app/chart-theme.js">
+      /* Trace viewer · chart-theme.js
+       * Shared Chart.js layer for the trend views: theme token bundle, the
+       * percent-axis zero-line plugin, and growth-axis helpers reused by
+       * trend.js and comparison-metric-trend.js. */
+
+      function chartTheme() {
+        return {
+          ink: cssVar('--ink', '#15436b'),
+          text: cssVar('--text-strong', '#263238'),
+          muted: cssVar('--muted', '#6a7078'),
+          grid: cssVar('--table-cell-line', '#edf0f0'),
+          axis: cssVar('--table-line', '#d9dfdf'),
+          tableBg: cssVar('--table-bg', '#ffffff'),
+          growthColor: cssVar('--trend-growth', '#9a6a2f'),
+          negativeColor: cssVar('--trend-negative', '#b7433a'),
+          fontFamily: 'Montserrat, Arial, sans-serif',
+        };
+      }
+
+      /* Shared zero-baseline rule: any trend chart whose right axis carries
+       * percentages (growth or link share) draws a dashed guide at 0% once the
+       * axis spans negative and positive values. Right-axis gridlines stay off the
+       * plot area, so without the guide the sign flip has no visual anchor. */
+      const percentAxisZeroLinePlugin = {
+        id: 'percentAxisZeroLine',
+        beforeDatasetsDraw(chart, _args, options) {
+          const scale = chart.scales?.[options.scaleId || 'yGrowth'];
+          const { ctx, chartArea } = chart;
+          if (!scale || !chartArea || !(scale.min < 0 && scale.max > 0)) return;
+          const y = scale.getPixelForValue(0);
+          if (!Number.isFinite(y) || y <= chartArea.top + 1 || y >= chartArea.bottom - 1) return;
+          ctx.save();
+          ctx.strokeStyle = options.color || 'rgba(106, 112, 120, 0.5)';
+          ctx.lineWidth = options.lineWidth || 1;
+          ctx.setLineDash(options.lineDash || [5, 3]);
+          ctx.beginPath();
+          ctx.moveTo(chartArea.left, y);
+          ctx.lineTo(chartArea.right, y);
+          ctx.stroke();
+          ctx.restore();
+        },
+      };
+
+      function finitePercentValues(values) {
+        return (values || []).filter((value) => typeof value === 'number' && Number.isFinite(value));
+      }
+
+      // Right-axis ceilings/floors snap outward to the next 10% step so tick
+      // labels stay round; the ceiling never drops below 10%.
+      function growthAxisMax(values) {
+        const finite = finitePercentValues(values);
+        return finite.length ? Math.max(10, Math.ceil(Math.max(...finite) / 10) * 10) : 10;
+      }
+      function growthAxisMin(values) {
+        const finite = finitePercentValues(values);
+        return finite.length ? Math.min(0, Math.floor(Math.min(...finite) / 10) * 10) : 0;
+      }
+
+      // Sign-aware rings: a growth point below zero swaps its ring to the negative
+      // colour so dips read at a glance; positive points keep the series accent.
+      function signAwareGrowthPointColors(values, positiveColor, negativeColor) {
+        return (values || []).map((value) => (
+          typeof value === 'number' && value < 0 ? negativeColor : positiveColor
+        ));
+      }
+    </script>
     <script data-inline-source="src/app/shell.js">
       /* Trace viewer · shell.js
        * App chrome: theme + language application, static translations, sidebar
@@ -96000,8 +96068,7 @@
         state.language = nextLanguage;
         writeStoredValue(LANGUAGE_KEY, nextLanguage);
         applyStaticTranslations();
-        renderAll();
-        draw({ renderTable: false, syncView: false });
+        refresh();
       }
       function setTheme(theme) {
         if (theme !== 'light' && theme !== 'dark') return;
@@ -96246,6 +96313,14 @@
         syncToolbarHeight();
         requestAnimationFrame(updatePeriodScrollIndicator);
       }
+      /* Single full-refresh entry point after a state change: renderAll() already
+       * synced the view controls and (when in table view) the tables, so draw()
+       * skips both. Call draw() directly only for view-only repaints (resize,
+       * theme change) where sidebar/controls state is untouched. */
+      function refresh() {
+        renderAll();
+        draw({ renderTable: false, syncView: false });
+      }
       function renderMetricModeButtons(availableModes) {
         metricMode.innerHTML = availableModes.map((mode) => {
           const active = mode === state.metricMode;
@@ -96306,8 +96381,7 @@
         }
         state.viewMode = mode;
         if (persist) writeStoredValue(VIEW_MODE_KEY, mode);
-        renderAll();
-        draw({ renderTable: false, syncView: false });
+        refresh();
         if (mode === 'table') scrollActiveTableRow(activeTableKind());
       }
       function setMetricMode(mode, persist = true) {
@@ -96324,8 +96398,7 @@
           writeStoredValue(METRIC_MODE_KEY, mode);
           writeStoredValue(VIEW_MODE_KEY, state.viewMode);
         }
-        renderAll();
-        draw({ renderTable: false, syncView: false });
+        refresh();
         if (state.viewMode === 'table') scrollActiveTableRow(activeTableKind());
       }
 
@@ -96440,8 +96513,7 @@
           clearDatasetHash();
         }
         const targetScrollKind = targetMode === 'companyInfo' ? 'company' : targetMode === 'revenue' ? 'revenue' : 'statement';
-        renderAll();
-        draw({ renderTable: false, syncView: false });
+        refresh();
         if (closeSearch) companySearchController.setOpen(false);
         if (focusCompany) requestAnimationFrame(focusActiveCompanyItem);
         scrollActiveTableRow(scrollKind || targetScrollKind);
@@ -96471,8 +96543,7 @@
         syncMetricCompanySelection();
         writeStoredValue(METRIC_MODE_KEY, state.metricMode);
         writeStoredValue(VIEW_MODE_KEY, state.viewMode);
-        renderAll();
-        draw({ renderTable: false, syncView: false });
+        refresh();
         if (closeSearch) companySearchController.setOpen(false);
         if (focusCompany) requestAnimationFrame(focusActiveCompanyItem);
         if (state.viewMode === 'table') scrollActiveTableRow(activeTableKind());
@@ -96485,8 +96556,7 @@
         state.viewMode = normalizeViewModeForMetric(state.metricMode, state.viewMode);
         syncMetricCompanySelection();
         if (!render) return;
-        renderAll();
-        draw({ renderTable: false, syncView: false });
+        refresh();
         if (focusCompany) requestAnimationFrame(focusActiveCompanyItem);
       }
 
@@ -96750,8 +96820,7 @@
         if (!state.multiCompanyMode) syncSingleCompanyScope();
         else if (!state.selectedCompanies.includes(record.company)) setSelectedCompanies([...state.selectedCompanies, record.company]);
         syncDatasetHash(record);
-        renderAll();
-        draw({ renderTable: false, syncView: false });
+        refresh();
         scrollActiveTableRow(scrollKind);
       }
       function descriptionForPeriodRecord(record, bucket) {
@@ -96829,8 +96898,7 @@
       }
 
       function finishPeriodScopeChange() {
-        renderAll();
-        draw({ renderTable: false, syncView: false });
+        refresh();
         if (state.viewMode === 'table') scrollActiveTableRow('statement');
       }
       function togglePeriodInScope(record) {
@@ -97498,29 +97566,6 @@
         revenueTrendCharts = [];
         revenueTrendHoverSyncing = false;
       }
-      /* Shared zero-baseline rule: any trend chart whose right axis carries
-       * percentages (growth or link share) draws a dashed guide at 0% once the
-       * axis spans negative and positive values. Right-axis gridlines stay off the
-       * plot area, so without the guide the sign flip has no visual anchor. */
-      const percentAxisZeroLinePlugin = {
-        id: 'percentAxisZeroLine',
-        beforeDatasetsDraw(chart, _args, options) {
-          const scale = chart.scales?.[options.scaleId || 'yGrowth'];
-          const { ctx, chartArea } = chart;
-          if (!scale || !chartArea || !(scale.min < 0 && scale.max > 0)) return;
-          const y = scale.getPixelForValue(0);
-          if (!Number.isFinite(y) || y <= chartArea.top + 1 || y >= chartArea.bottom - 1) return;
-          ctx.save();
-          ctx.strokeStyle = options.color || 'rgba(106, 112, 120, 0.5)';
-          ctx.lineWidth = options.lineWidth || 1;
-          ctx.setLineDash(options.lineDash || [5, 3]);
-          ctx.beginPath();
-          ctx.moveTo(chartArea.left, y);
-          ctx.lineTo(chartArea.right, y);
-          ctx.stroke();
-          ctx.restore();
-        },
-      };
       const revenueTrendValueLabelsPlugin = {
         id: 'revenueTrendValueLabels',
         afterDatasetsDraw(chart, _args, options) {
@@ -97739,21 +97784,11 @@
         yTickFormatter = (value) => formatRevenueValue(metric, Number(value)),
         valueLabelFormatter = (value) => formatRevenueValue(metric, value),
       }) {
-        const ink = cssVar('--ink', '#15436b');
-        const text = cssVar('--text-strong', '#263238');
-        const muted = cssVar('--muted', '#6a7078');
-        const grid = cssVar('--table-cell-line', '#edf0f0');
-        const tableBg = cssVar('--table-bg', '#ffffff');
-        const growthColor = cssVar('--trend-growth', '#9a6a2f');
-        const fontFamily = 'Montserrat, Arial, sans-serif';
+        const { ink, text, muted, grid, tableBg, growthColor, negativeColor, fontFamily } = chartTheme();
         const labels = observations.map((observation) => formatTrendDate(observation.date));
         const growthValues = observations.map((observation) => observation.momGrowthPct ?? null);
-        // sign-aware rings: a growth point below zero swaps its ring (and the
-        // hover ring/halo) to the negative colour, so dips read at a glance
-        const negativeColor = cssVar('--trend-negative', '#b7433a');
-        const growthPointColor = (value) => (typeof value === 'number' && value < 0 ? negativeColor : growthColor);
-        const growthPointColors = growthValues.map(growthPointColor);
-        const growthPointHalos = growthValues.map((value) => colorWithAlpha(growthPointColor(value), 0.14));
+        const growthPointColors = signAwareGrowthPointColors(growthValues, growthColor, negativeColor);
+        const growthPointHalos = growthPointColors.map((color) => colorWithAlpha(color, 0.14));
         const tickSize = compact ? 10 : 12;
         const legendSize = compact ? 10 : 11;
         const valueLabelSize = compact ? 10 : 15;
@@ -97843,7 +97878,7 @@
                   display: false,
                 },
                 border: {
-                  color: cssVar('--table-line', '#d9dfdf'),
+                  color: chartTheme().axis,
                 },
                 ticks: {
                   color: muted,
@@ -97860,7 +97895,7 @@
                   color: grid,
                 },
                 border: {
-                  color: cssVar('--table-line', '#d9dfdf'),
+                  color: chartTheme().axis,
                 },
                 ticks: {
                   color: muted,
@@ -97964,8 +97999,7 @@
         ));
         const maxUsd = Math.max(0, ...allUsdValues);
         const yMax = Math.ceil((maxUsd * 1.1) / 1e9) * 1e9 || 10;
-        const maxGrowth = Math.max(0, ...allGrowthValues);
-        const growthMax = Math.max(10, Math.ceil(maxGrowth / 10) * 10);
+        const growthMax = growthAxisMax(allGrowthValues);
         const latestUsd = sumUsdRows(chartModels
           .filter((model) => finiteNumber(model.latest?.value) != null)
           .map((model) => ({
@@ -98007,7 +98041,7 @@
           </div>
         `;
 
-        const ink = cssVar('--ink', '#15436b');
+        const { ink } = chartTheme();
         chartModels.forEach((model, index) => {
           const canvas = document.getElementById(`revenueTrendCanvas-${index}`);
           if (!canvas || !window.Chart) return;
@@ -98090,8 +98124,7 @@
         }
 
         const values = observations.map((observation) => observation.value);
-        const maxGrowth = Math.max(0, ...growthValues.filter((value) => typeof value === 'number' && Number.isFinite(value)));
-        const growthMax = Math.max(10, Math.ceil(maxGrowth / 10) * 10);
+        const growthMax = growthAxisMax(growthValues);
 
         revenueTrendChart = new window.Chart(canvas, createRevenueTrendChartConfig({
           metric,
@@ -99466,14 +99499,7 @@
         },
       };
       function createComparisonMetricTrendChartConfig(model) {
-        const ink = cssVar('--ink', '#15436b');
-        const text = cssVar('--text-strong', '#263238');
-        const muted = cssVar('--muted', '#6a7078');
-        const grid = cssVar('--table-cell-line', '#edf0f0');
-        const axis = cssVar('--table-line', '#d9dfdf');
-        const tableBg = cssVar('--table-bg', '#ffffff');
-        const negativeColor = cssVar('--trend-negative', '#b7433a');
-        const fontFamily = 'Montserrat, Arial, sans-serif';
+        const { ink, text, muted, grid, axis, tableBg, negativeColor, fontFamily } = chartTheme();
         const formatValue = (value) => formatAmount(model.caliber, Number(value));
         const stacked = Boolean(model.sameLayer);
         const valueAxisCollapsed = Boolean(model.hiddenAxes?.value);
@@ -99492,8 +99518,8 @@
           ? model.ratios.flatMap((ratio) => ratio.values)
           : model.metrics.flatMap((metric) => metric.growth)
         ).filter((value) => value != null && Number.isFinite(value));
-        const growthMax = allRight.length ? Math.max(10, Math.ceil(Math.max(...allRight) / 10) * 10) : 10;
-        const growthMin = allRight.length ? Math.min(0, Math.floor(Math.min(...allRight) / 10) * 10) : 0;
+        const growthMax = growthAxisMax(allRight);
+        const growthMin = growthAxisMin(allRight);
         // each axis names its reading; a collapsed axis keeps only this title,
         // marked and muted, as the handle to reopen it
         const axisTitleFor = (axisKey) => {
@@ -99582,11 +99608,8 @@
           : model.metrics.map((metric, index) => {
               const { accent, borderAlpha } = styles[index];
               const lineColor = colorWithAlpha(accent, Math.min(borderAlpha + 0.15, 1));
-              // sign-aware rings: growth points below zero swap to the negative
-              // colour so dips read at a glance; the line keeps the metric's accent
-              const pointColors = metric.growth.map((value) => (
-                typeof value === 'number' && value < 0 ? negativeColor : lineColor
-              ));
+              // the line keeps the metric's accent; only dipped points swap colour
+              const pointColors = signAwareGrowthPointColors(metric.growth, lineColor, negativeColor);
               return {
                 ...rightAxisLine(lineColor),
                 label: metric.label,
@@ -99693,7 +99716,7 @@
               comparisonMetricTrendValueLabels: {
                 color: text,
                 mutedColor: colorWithAlpha(text, 0.72),
-                halo: cssVar('--table-bg', '#ffffff'),
+                halo: tableBg,
                 fontFamily,
                 fontSize: 12,
                 minFontSize: 8,
@@ -99905,7 +99928,7 @@
         return d.render?.height || window.SankeyEngine.DEFAULTS?.height || 1462;
       }
       function clearSingleChart() {
-        document.querySelector('#chart')?.replaceChildren();
+        chartHost?.replaceChildren();
       }
       function clearSankeyComparison() {
         destroyComparisonMetricTrendChart();
@@ -100124,8 +100147,8 @@
         clearSankeyComparison();
         if (singleChartCard) singleChartCard.style.maxWidth = maxWidth + 'px';
         if (d) window.SankeyEngine.render('#chart', d);
-        svgBtn.disabled = !document.querySelector('#chart svg');
-        pngBtn.disabled = !document.querySelector('#chart svg');
+        svgBtn.disabled = !chartHost?.querySelector('svg');
+        pngBtn.disabled = !chartHost?.querySelector('svg');
       }
     </script>
     <script data-inline-source="src/app/exports.js">
@@ -100133,7 +100156,7 @@
        * Download actions: SVG/PNG of the current sankey and the three CSVs. */
 
       /* ---- export ---- */
-      const currentSvg = () => document.querySelector('#chart svg');
+      const currentSvg = () => chartHost?.querySelector('svg');
       function downloadText(filename, text, type = 'text/csv;charset=utf-8') {
         const a = document.createElement('a');
         a.href = URL.createObjectURL(new Blob([text], { type }));
@@ -100259,8 +100282,7 @@
         setCompanyActiveRecord(record);
         if (!state.multiCompanyMode) syncSingleCompanyScope();
         else if (!state.selectedCompanies.includes(record.company)) setSelectedCompanies([...state.selectedCompanies, record.company]);
-        renderAll();
-        draw({ renderTable: false, syncView: false });
+        refresh();
         scrollActiveTableRow('statement');
       });
 
@@ -100277,8 +100299,7 @@
 
       applyStaticTranslations();
       syncResponsiveLayout();
-      renderAll();
-      draw({ renderTable: false, syncView: false });
+      refresh();
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           document.body.classList.remove('boot-no-motion');

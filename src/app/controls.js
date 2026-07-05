@@ -83,6 +83,14 @@ function renderAll() {
   syncToolbarHeight();
   requestAnimationFrame(updatePeriodScrollIndicator);
 }
+/* Single full-refresh entry point after a state change: renderAll() already
+ * synced the view controls and (when in table view) the tables, so draw()
+ * skips both. Call draw() directly only for view-only repaints (resize,
+ * theme change) where sidebar/controls state is untouched. */
+function refresh() {
+  renderAll();
+  draw({ renderTable: false, syncView: false });
+}
 function renderMetricModeButtons(availableModes) {
   metricMode.innerHTML = availableModes.map((mode) => {
     const active = mode === state.metricMode;
@@ -143,8 +151,7 @@ function setViewMode(mode, persist = true) {
   }
   state.viewMode = mode;
   if (persist) writeStoredValue(VIEW_MODE_KEY, mode);
-  renderAll();
-  draw({ renderTable: false, syncView: false });
+  refresh();
   if (mode === 'table') scrollActiveTableRow(activeTableKind());
 }
 function setMetricMode(mode, persist = true) {
@@ -161,8 +168,7 @@ function setMetricMode(mode, persist = true) {
     writeStoredValue(METRIC_MODE_KEY, mode);
     writeStoredValue(VIEW_MODE_KEY, state.viewMode);
   }
-  renderAll();
-  draw({ renderTable: false, syncView: false });
+  refresh();
   if (state.viewMode === 'table') scrollActiveTableRow(activeTableKind());
 }
 

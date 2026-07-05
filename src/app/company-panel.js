@@ -72,8 +72,7 @@ function selectCompanyGroup(group, { closeSearch = false, focusCompany = false, 
     clearDatasetHash();
   }
   const targetScrollKind = targetMode === 'companyInfo' ? 'company' : targetMode === 'revenue' ? 'revenue' : 'statement';
-  renderAll();
-  draw({ renderTable: false, syncView: false });
+  refresh();
   if (closeSearch) companySearchController.setOpen(false);
   if (focusCompany) requestAnimationFrame(focusActiveCompanyItem);
   scrollActiveTableRow(scrollKind || targetScrollKind);
@@ -103,8 +102,7 @@ function toggleCompanyInScope(group, { focusCompany = false, closeSearch = false
   syncMetricCompanySelection();
   writeStoredValue(METRIC_MODE_KEY, state.metricMode);
   writeStoredValue(VIEW_MODE_KEY, state.viewMode);
-  renderAll();
-  draw({ renderTable: false, syncView: false });
+  refresh();
   if (closeSearch) companySearchController.setOpen(false);
   if (focusCompany) requestAnimationFrame(focusActiveCompanyItem);
   if (state.viewMode === 'table') scrollActiveTableRow(activeTableKind());
@@ -117,8 +115,7 @@ function exitMultiCompanyMode({ render = true, focusCompany = false } = {}) {
   state.viewMode = normalizeViewModeForMetric(state.metricMode, state.viewMode);
   syncMetricCompanySelection();
   if (!render) return;
-  renderAll();
-  draw({ renderTable: false, syncView: false });
+  refresh();
   if (focusCompany) requestAnimationFrame(focusActiveCompanyItem);
 }
 

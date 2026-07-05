@@ -9,7 +9,7 @@ function chartHeight(d) {
   return d.render?.height || window.SankeyEngine.DEFAULTS?.height || 1462;
 }
 function clearSingleChart() {
-  document.querySelector('#chart')?.replaceChildren();
+  chartHost?.replaceChildren();
 }
 function clearSankeyComparison() {
   destroyComparisonMetricTrendChart();
@@ -228,6 +228,6 @@ function draw({ renderTable = true, syncView = true } = {}) {
   clearSankeyComparison();
   if (singleChartCard) singleChartCard.style.maxWidth = maxWidth + 'px';
   if (d) window.SankeyEngine.render('#chart', d);
-  svgBtn.disabled = !document.querySelector('#chart svg');
-  pngBtn.disabled = !document.querySelector('#chart svg');
+  svgBtn.disabled = !chartHost?.querySelector('svg');
+  pngBtn.disabled = !chartHost?.querySelector('svg');
 }
