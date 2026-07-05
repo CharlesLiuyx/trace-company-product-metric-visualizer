@@ -9,6 +9,8 @@ export function scriptSources(indexHtml) {
 }
 
 export const DATASET_SCRIPT_DIR = 'data/datasets';
+export const INCOME_STATEMENT_SCRIPT_DIR = 'data/income-statements';
+export const COMPANY_METADATA_SCRIPT_DIR = 'data/company-metadata';
 
 // Dataset scripts that intentionally stay unregistered in index.html.
 // example-saas-fy25.js is the copyable demo template (internal key
@@ -17,22 +19,28 @@ export const UNREGISTERED_DATASET_SCRIPTS = new Set([
   'data/datasets/example-saas-fy25.js',
 ]);
 
-const SUPPORT_DATA_SCRIPTS = new Set([
-  'data/income-statements.js',
-  'data/company-metadata.js',
-  'data/dataset-file-metadata.js',
-]);
-
 export function datasetScriptForKey(key) {
   return `${DATASET_SCRIPT_DIR}/${key}.js`;
 }
 
+function isScriptInDir(src, dir) {
+  return src.startsWith(`${dir}/`) && src.endsWith('.js');
+}
+
 function isDatasetScript(src) {
-  return src.startsWith(`${DATASET_SCRIPT_DIR}/`) && src.endsWith('.js') && !SUPPORT_DATA_SCRIPTS.has(src);
+  return isScriptInDir(src, DATASET_SCRIPT_DIR);
 }
 
 export function dataScriptsFromIndex(indexHtml) {
   return scriptSources(indexHtml).filter(isDatasetScript);
+}
+
+export function incomeStatementScriptsFromIndex(indexHtml) {
+  return scriptSources(indexHtml).filter((src) => isScriptInDir(src, INCOME_STATEMENT_SCRIPT_DIR));
+}
+
+export function companyMetadataScriptsFromIndex(indexHtml) {
+  return scriptSources(indexHtml).filter((src) => isScriptInDir(src, COMPANY_METADATA_SCRIPT_DIR));
 }
 
 export function renderHarnessScripts(indexHtml) {
@@ -42,8 +50,12 @@ export function renderHarnessScripts(indexHtml) {
     'src/icons.js',
     'src/sankey-engine.js',
     'src/i18n.js',
-    'data/income-statements.js',
   ]);
 
-  return scriptSources(indexHtml).filter((src) => renderRuntime.has(src) || isDatasetScript(src));
+  return scriptSources(indexHtml).filter(
+    (src) =>
+      renderRuntime.has(src) ||
+      isDatasetScript(src) ||
+      isScriptInDir(src, INCOME_STATEMENT_SCRIPT_DIR)
+  );
 }

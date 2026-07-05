@@ -78,13 +78,13 @@ another fidelity loop:
    stop before moving images, editing data, extracting icons, or running the d3
    loop for that pending image. If you choose a different final dataset key than
    the script's candidate, check that final key against `input/processed/`,
-   `data/datasets/`, `data/income-statements.js`, and `index.html` before
+   `data/datasets/`, `data/income-statements/<company-key>.js`, and `index.html` before
    continuing.
 3. After processing, move the durable reference image to `input/processed/` and
    name it with the dataset key, for example `salesforce-q1-fy27.png`.
 4. Set `meta.referenceImage` on the matching dataset to that processed path.
 5. If this is a new company, add the company profile to
-   `data/company-metadata.js` first: description, sector, industry, founded
+   `data/company-metadata/<company-key>.js` first: description, sector, industry, founded
    date, headquarters, fiscal year end, website, ticker/exchange, market cap
    with as-of/source when available, and source URLs.
 6. If the source contains company or business/segment icons that need to be
@@ -102,16 +102,16 @@ another fidelity loop:
    decision in `model-validation.md`. Extract every semantically relevant
    business cluster unless the task explicitly narrows the scope.
 7. Add or update the matching pure-data record in
-   `data/income-statements.js`. This file is the comparable financial
+   `data/income-statements/<company-key>.js`. This file is the comparable financial
    statement SSOT: reported totals, line items, notes, currency and units only,
    with no Sankey layout or render settings.
 8. Add localized display text for every non-default language in
    `window.SANKEY_I18N.languageCodes`:
    - `data/datasets/<dataset-key>.js`: `name`, `meta.title`, period labels,
      node labels/notes, and explicit fixed-layout label text.
-   - `data/income-statements.js`: financial line-item labels and notes used by
+   - `data/income-statements/<company-key>.js`: financial line-item labels and notes used by
      Table mode.
-   - `data/company-metadata.js`: company profile fields when the company is new
+   - `data/company-metadata/<company-key>.js`: company profile fields when the company is new
      or profile text changes.
    Language overlays may tune text layout such as `titleTextLength`, but should
    not change values, links, node positions, or financial semantics.
@@ -199,8 +199,8 @@ verifier, but they are not part of the app runtime or standalone HTML artifact.
 
 Create a file in `data/datasets/`, register it on the global `DATASETS` array,
 add one `<script>` line in `index.html`, add the comparable financial statement
-record to `data/income-statements.js`, and add company-level context to
-`data/company-metadata.js` before registering the first dataset for that
+record to `data/income-statements/<company-key>.js`, and add company-level context to
+`data/company-metadata/<company-key>.js` before registering the first dataset for that
 company. Registered datasets are authored as high-fidelity adapters: define the
 node/link graph explicitly, then tune `layout.nodes` and `layout.labels` against
 the processed reference image.
@@ -265,7 +265,7 @@ const dataset = {
 <script src="data/datasets/my-company-fy25.js"></script>
 ```
 
-Keep `data/income-statements.js` updated with the same reported totals and line
+Keep `data/income-statements/<company-key>.js` updated with the same reported totals and line
 items, then run `pnpm verify:ssot` to confirm the SSOT still covers every
 registered dataset. See [`data/schema.md`](data/schema.md) for the full
 low-level format. `data/datasets/nvidia-q1-fy27.js` is a compact hand-authored
@@ -291,8 +291,8 @@ example.
 | `scripts/verify-standalone.mjs` | opens the artifact via `file://` and checks d3 rendering |
 | `scripts/script-sources.mjs`| shared script classification for page and verifier harnesses  |
 | `scripts/extract_icon_crops.py` | spec-driven icon crop extraction and validation           |
-| `data/income-statements.js` | pure financial-statement SSOT for totals and line items       |
-| `data/company-metadata.js`  | company-profile SSOT for Table mode and onboarding checks     |
+| `data/income-statements/<company-key>.js` | pure financial-statement SSOT for totals and line items       |
+| `data/company-metadata/<company-key>.js`  | company-profile SSOT for Table mode and onboarding checks     |
 | `data/datasets/*.js`      | datasets (one per company/period)                             |
 | `data/assets/`              | reusable icon references and validation records               |
 | `vendor/`                   | d3 v7 and d3-sankey — vendored for offline use                |

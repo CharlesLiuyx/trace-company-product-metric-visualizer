@@ -4,7 +4,7 @@
  * d3-sankey layout with pure SVG/vector annotations plus one approved
  * runtime raster (Mailchimp Freddie mascot).
  *
- * Source-chart quirks mirrored here (see data/income-statements.js):
+ * Source-chart quirks mirrored here (see data/income-statements/intuit.js):
  * - Consumer ($5.3B) is fed by TurboTax + Credit Karma + ProTax;
  *   Global Business Solutions ($3.3B) has no drawn sub-segments.
  * - "Other $27M" non-operating income is drawn as a hairline that

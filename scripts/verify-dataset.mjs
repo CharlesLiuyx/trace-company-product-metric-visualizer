@@ -10,10 +10,11 @@ import { loadClassicScripts } from './lib/vm-browser.mjs';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Per-company income-statement and company-metadata SSOT files are not
+// listed here: the verify:ssot step loads all of them in a VM, which
+// surfaces syntax errors with the same fidelity as node --check.
 const SUPPORT_DATA_FILES = [
-  'data/income-statements.js',
   'data/revenue-metrics.js',
-  'data/company-metadata.js',
   'data/dataset-file-metadata.js',
 ];
 

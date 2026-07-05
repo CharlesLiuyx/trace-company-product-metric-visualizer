@@ -1,6 +1,10 @@
 #!/usr/bin/env node
-import { dataScriptsFromIndex } from './script-sources.mjs';
-import { assert, readProjectFile } from './lib/project.mjs';
+import {
+  COMPANY_METADATA_SCRIPT_DIR,
+  INCOME_STATEMENT_SCRIPT_DIR,
+  dataScriptsFromIndex,
+} from './script-sources.mjs';
+import { assert, listScripts, readProjectFile } from './lib/project.mjs';
 import { loadClassicScripts } from './lib/vm-browser.mjs';
 
 const TRACKED_TRANSLATABLE_ACRONYMS = new Set(['D&A', 'G&A', 'R&D', 'S&M', 'SG&A', 'TAC']);
@@ -46,9 +50,9 @@ function loadBrowserData() {
     'src/icons.js',
     'src/sankey-engine.js',
     'src/i18n.js',
-    'data/income-statements.js',
+    ...listScripts(INCOME_STATEMENT_SCRIPT_DIR),
     'data/revenue-metrics.js',
-    'data/company-metadata.js',
+    ...listScripts(COMPANY_METADATA_SCRIPT_DIR),
     ...dataScriptsFromIndex(readProjectFile('index.html')),
   ]);
 

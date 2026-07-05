@@ -2,11 +2,15 @@
 import { existsSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import {
+  COMPANY_METADATA_SCRIPT_DIR,
   DATASET_SCRIPT_DIR,
+  INCOME_STATEMENT_SCRIPT_DIR,
   UNREGISTERED_DATASET_SCRIPTS,
+  companyMetadataScriptsFromIndex,
   dataScriptsFromIndex,
+  incomeStatementScriptsFromIndex,
 } from './script-sources.mjs';
-import { assert, readProjectFile, rootDir } from './lib/project.mjs';
+import { assert, listScripts, readProjectFile, rootDir } from './lib/project.mjs';
 import { loadClassicScripts } from './lib/vm-browser.mjs';
 
 function dataScripts() {
@@ -17,9 +21,9 @@ function loadBrowserData(scripts) {
   const context = loadClassicScripts([
     'src/icons.js',
     'src/trace-domain.js',
-    'data/income-statements.js',
+    ...listScripts(INCOME_STATEMENT_SCRIPT_DIR),
     'data/revenue-metrics.js',
-    'data/company-metadata.js',
+    ...listScripts(COMPANY_METADATA_SCRIPT_DIR),
     ...scripts,
   ]);
 
@@ -281,7 +285,24 @@ function validateRevenueMetric(record, errors) {
   }
 }
 
+// Registration parity for the per-company SSOT script directories: every
+// file on disk must be registered in index.html and vice versa, otherwise
+// the browser and the VM verifiers would see different data.
+function assertSsotRegistrationParity(indexHtml, dir, registeredScripts, label) {
+  const onDisk = listScripts(dir);
+  const registered = new Set(registeredScripts);
+  const unregistered = onDisk.filter((script) => !registered.has(script));
+  if (unregistered.length) {
+    throw new Error(`${label} script(s) on disk but not registered in index.html: ${unregistered.join(', ')}`);
+  }
+  const missing = registeredScripts.filter((script) => !existsSync(path.join(rootDir, script)));
+  if (missing.length) {
+    throw new Error(`Registered ${label} script(s) missing on disk: ${missing.join(', ')}`);
+  }
+}
+
 function main() {
+  const indexHtml = readProjectFile('index.html');
   const scripts = dataScripts();
   const missing = scripts.filter((script) => !existsSync(path.join(rootDir, script)));
   if (missing.length) {
@@ -308,6 +329,18 @@ function main() {
       `Stale UNREGISTERED_DATASET_SCRIPTS entr(y/ies): ${staleExemptions.join(', ')}`
     );
   }
+  assertSsotRegistrationParity(
+    indexHtml,
+    INCOME_STATEMENT_SCRIPT_DIR,
+    incomeStatementScriptsFromIndex(indexHtml),
+    'income-statement SSOT'
+  );
+  assertSsotRegistrationParity(
+    indexHtml,
+    COMPANY_METADATA_SCRIPT_DIR,
+    companyMetadataScriptsFromIndex(indexHtml),
+    'company-metadata SSOT'
+  );
 
   const loaded = loadBrowserData(scripts);
   const { records, revenueRecords, companies, datasets } = loaded;

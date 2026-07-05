@@ -24,14 +24,19 @@ d3-sankey fidelity loop.
 
 ## Architecture Boundaries
 
-- `data/income-statements.js` (income-statement family) and
-  `data/revenue-metrics.js` (revenue family) are the pure Metric SSOTs;
-  `data/datasets/<dataset-key>.js` is the Sankey View Adapter layer — a
-  stable path the viewer, standalone builder, and verifiers rely on. Keep
-  Sankey nodes, links, layout, render, SVG, colors, and pixel geometry out of
-  the SSOTs.
-- `data/company-metadata.js` is the company-profile SSOT. It powers the Table
-  view and must be complete before a company's first dataset is registered.
+- `data/income-statements/<company-key>.js` (income-statement family,
+  per-company files) and `data/revenue-metrics.js` (revenue family) are the
+  pure Metric SSOTs; `data/datasets/<dataset-key>.js` is the Sankey View
+  Adapter layer — a stable path the viewer, standalone builder, and
+  verifiers rely on. Keep Sankey nodes, links, layout, render, SVG, colors,
+  and pixel geometry out of the SSOTs.
+- `data/company-metadata/<company-key>.js` is the company-profile SSOT (one
+  file per company; the file name is the metadata `key`). It powers the
+  Table view and must be complete before a company's first dataset is
+  registered.
+- Per-company SSOT files must be registered as `<script>` tags in
+  `index.html`; `verify:ssot` enforces disk ↔ registration parity and
+  `pnpm sync:index-datasets` repairs it.
 - `data/products.js` is an empty placeholder for a future Product SSOT (not
   verifier-checked). Do not hide product identity or ownership history inside
   Sankey adapters.
@@ -60,7 +65,7 @@ Install once; the d3/standalone verifiers render in Chromium:
 | `pnpm check` | fast aggregate gate: repo-wide JS syntax sweep, then pending guard, SSOT parity, i18n coverage, metadata freshness (sub-second, no rendering) |
 | `pnpm verify:app` | headless boot + interaction smoke of the modular viewer (`src/app/*`): module count, persisted-prefs boot, hash routing, comparison zoom + metric trend, revenue trend, mobile viewport |
 | `pnpm check:pending` | pending-image duplicate / key-collision guard |
-| `pnpm sync:index-datasets` | order-preserving sync of `index.html` dataset `<script>` tags with `data/datasets/` (append missing, drop stale; `--check` reports drift) |
+| `pnpm sync:index-datasets` | order-preserving sync of `index.html` data `<script>` tags with `data/datasets/`, `data/income-statements/`, and `data/company-metadata/` (append missing, drop stale; `--check` reports drift) |
 | `pnpm verify:dataset -- <key> [--skip-render]` | aggregate per-dataset gate: syntax, SSOT, strict i18n, metadata, then a d3 render per language |
 | `pnpm verify:ssot` | SSOT ↔ dataset parity, registration parity, and currency/unit + FX coverage (global) |
 | `pnpm verify:i18n -- [--strict] [keys]` | i18n overlay coverage |
@@ -74,22 +79,25 @@ Install once; the d3/standalone verifiers render in Chromium:
 ## New Dataset Pipeline
 
 1. Guard: run `pnpm check:pending` (ignore `.gitkeep`). An exact content
-   match in `input/processed/` or a candidate-key collision is a stop
-   condition — report it and do not move, create, update, crop, or verify
-   anything for that image. If your final stable key differs from the
-   script's candidate key, re-check the final key against
-   `input/processed/`, `data/datasets/`, `data/income-statements.js`, and
-   `index.html` before continuing.
+ match in `input/processed/` or a candidate-key collision is a stop
+ condition — report it and do not move, create, update, crop, or verify
+ anything for that image. If your final stable key differs from the
+ script's candidate key, re-check the final key against
+ `input/processed/`, `data/datasets/`, `data/income-statements/`, and
+ `index.html` before continuing.
 2. Key: lowercase kebab case, company plus period, e.g. `nvidia-q4-fy26`.
 3. Image: move the source PNG to `input/processed/<dataset-key>.png` and set
    `meta.referenceImage` to it with the exact source dimensions.
-4. Company (first dataset for a company): add the profile to
-   `data/company-metadata.js` — description, sector, industry, founded,
-   headquarters, fiscal year end, website, ticker/exchange, market cap with
-   as-of/source, and source URLs — plus localized profile fields for every
-   non-default language. Field details: `data/schema.md`.
-5. SSOT: add the `data/income-statements.js` record — comparable reported
-   totals, line items, notes, currency, unit, period, and source image only.
+4. Company (first dataset for a company): create
+   `data/company-metadata/<company-key>.js` — description, sector, industry,
+   founded, headquarters, fiscal year end, website, ticker/exchange, market
+   cap with as-of/source, and source URLs — plus localized profile fields
+   for every non-default language, and register it in `index.html`. Field
+   details: `data/schema.md`.
+5. SSOT: add the record to `data/income-statements/<company-key>.js`
+   (create the file and register it in `index.html` for a new company) —
+   comparable reported totals, line items, notes, currency, unit, period,
+   and source image only.
 6. Adapter: author `data/datasets/<dataset-key>.js` per `data/schema.md` as a
    high-fidelity adapter with explicit `nodes`, `links`, `layout.nodes`, and
    `layout.labels` tuned against the source image. Keep each semantic label
