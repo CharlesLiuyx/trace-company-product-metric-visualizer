@@ -153,6 +153,19 @@
     return 'above';
   }
 
+  // Canvas-size defaults derived from the dataset itself: fidelity datasets
+  // must render at exactly meta.referenceImage dimensions (hard gate G2), so
+  // when a reference image is declared it beats the NVIDIA-sized DEFAULTS
+  // canvas. Explicit data.render.width/height still win over both.
+  function referenceCanvasDefaults(data) {
+    const ref = data?.meta?.referenceImage;
+    const width = Number(ref?.width);
+    const height = Number(ref?.height);
+    return Number.isFinite(width) && width > 0 && Number.isFinite(height) && height > 0
+      ? { width, height }
+      : {};
+  }
+
   function buildFixedGraph(nodes, links, data, cfg) {
     const layout = data.layout || {};
     const fixed = layout.nodes || {};
@@ -270,7 +283,10 @@
       throw new Error('d3 and d3-sankey must be loaded before sankey-engine.js');
     }
     const d3 = global.d3;
-    const cfg = deepMerge(deepMerge(DEFAULTS, data.render || {}), overrides);
+    const cfg = deepMerge(
+      deepMerge(deepMerge(DEFAULTS, referenceCanvasDefaults(data)), data.render || {}),
+      overrides
+    );
     const meta = data.meta || {};
     const ICONS = global.SANKEY_ICONS || {};
 
@@ -1201,6 +1217,6 @@
     // Pure helpers exposed for unit tests and tooling; render() behavior is
     // unchanged. buildFixedGraph expects render()'s preprocessed inputs:
     // nodes with an index field and links as { source, target, value, raw }.
-    helpers: { deepMerge, formatValue, trimFixed, autoSide, buildFixedGraph },
+    helpers: { deepMerge, formatValue, trimFixed, autoSide, buildFixedGraph, referenceCanvasDefaults },
   };
 })(window);

@@ -2,11 +2,14 @@
  * Sankey view: chart sizing, USD-normalized comparison scaling, the
  * comparison grid render, and the top-level draw() dispatcher. */
 
+/* Canvas sizing mirrors the engine's config precedence: explicit
+ * render.width/height, then meta.referenceImage dimensions, then the
+ * engine DEFAULTS canvas. */
 function chartWidth(d) {
-  return d.render?.width || window.SankeyEngine.DEFAULTS?.width || 2862;
+  return d.render?.width || d.meta?.referenceImage?.width || window.SankeyEngine.DEFAULTS?.width || 2862;
 }
 function chartHeight(d) {
-  return d.render?.height || window.SankeyEngine.DEFAULTS?.height || 1462;
+  return d.render?.height || d.meta?.referenceImage?.height || window.SankeyEngine.DEFAULTS?.height || 1462;
 }
 function clearSingleChart() {
   chartHost?.replaceChildren();
