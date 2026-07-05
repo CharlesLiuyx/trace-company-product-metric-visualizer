@@ -6,12 +6,9 @@
 // an in-process static server; no build step involved.
 import { chromium } from 'playwright';
 import { startStaticServer } from './dev-server.mjs';
+import { assert } from './lib/project.mjs';
 
-const APP_MODULE_COUNT = 18;
-
-function assert(condition, message) {
-  if (!condition) throw new Error(message);
-}
+const APP_MODULE_COUNT = 20;
 
 const { url, close } = await startStaticServer({ port: 0 });
 const browser = await chromium.launch();
@@ -150,6 +147,33 @@ await scenario('boot: mobile viewport', async (page) => {
   const hasSvg = await page.evaluate(() => Boolean(document.querySelector('#chart svg')));
   assert(hasSvg, 'no sankey svg at mobile width');
 }, { viewport: { width: 375, height: 812 } });
+
+// Regression: localized dataset clones cached against a manifest stub must
+// be invalidated when the full adapter upgrades the stub in place.
+await scenario('boot: zh sankey + progressive-load company switch', async (page) => {
+  await boot(page);
+  await page.waitForFunction(() => Boolean(document.querySelector('#chart svg')), { timeout: 15000 });
+  await page.evaluate(() => {
+    const target = groups.find((group) => group.company !== state.company && group.records.length);
+    selectCompanyGroup(target);
+  });
+  await page.waitForFunction(
+    () => Boolean(document.querySelector('#chart svg')) && !document.querySelector('.chart-loading'),
+    { timeout: 15000 }
+  );
+  const zhState = await page.evaluate(() => ({
+    lang: document.documentElement.lang,
+    nodes: document.querySelectorAll('#chart svg .sankey-node').length,
+  }));
+  assert(zhState.lang === 'zh-CN', `expected zh-CN, got ${zhState.lang}`);
+  assert(zhState.nodes > 0, 'zh sankey rendered no nodes');
+}, {
+  init: () => {
+    localStorage.setItem('sankey.language', 'zh');
+    localStorage.setItem('sankey.metric.mode', 'incomeStatement');
+    localStorage.setItem('sankey.view.mode', 'sankey');
+  },
+});
 
 await browser.close();
 await close();

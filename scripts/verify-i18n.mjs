@@ -1,13 +1,7 @@
 #!/usr/bin/env node
-import { existsSync, readFileSync } from 'node:fs';
-import path from 'node:path';
-import vm from 'node:vm';
-import { fileURLToPath } from 'node:url';
-import { dataScriptsFromIndex } from './script-sources.mjs';
+import { assert } from './lib/project.mjs';
+import { loadBrowserData as loadSharedBrowserData } from './lib/browser-data-loader.mjs';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const rootDir = path.resolve(__dirname, '..');
 const TRACKED_TRANSLATABLE_ACRONYMS = new Set(['D&A', 'G&A', 'R&D', 'S&M', 'SG&A', 'TAC']);
 // Grandfathered brand/logo words for datasets registered before company-identity
 // derivation existed. Do not extend: rely on company metadata identity text, or
@@ -40,10 +34,6 @@ const PRESERVED_ANNOTATION_TEXT = new Set([
   'Yum!',
 ]);
 
-function readProjectFile(relativePath) {
-  return readFileSync(path.join(rootDir, relativePath), 'utf8');
-}
-
 function parseArgs(argv) {
   const strict = argv.includes('--strict');
   const keys = argv.filter((arg) => arg !== '--strict' && arg !== '--');
@@ -51,34 +41,7 @@ function parseArgs(argv) {
 }
 
 function loadBrowserData() {
-  const context = { console };
-  context.window = context;
-  context.document = undefined;
-  vm.createContext(context);
-
-  for (const script of [
-    'src/icons.js',
-    'src/sankey-engine.js',
-    'src/i18n.js',
-    'data/income-statements.js',
-    'data/revenue-metrics.js',
-    'data/company-metadata.js',
-    ...dataScriptsFromIndex(readProjectFile('index.html')),
-  ]) {
-    vm.runInContext(readProjectFile(script), context, { filename: script });
-  }
-
-  return {
-    i18n: context.SANKEY_I18N,
-    datasets: context.DATASETS || [],
-    records: context.INCOME_STATEMENT_SSOT?.records || [],
-    revenueRecords: context.REVENUE_METRIC_SSOT?.records || [],
-    companies: context.COMPANY_METADATA?.companies || [],
-  };
-}
-
-function assert(condition, message, errors) {
-  if (!condition) errors.push(message);
+  return loadSharedBrowserData({ runtime: ['src/sankey-engine.js', 'src/i18n-dictionaries.js', 'src/i18n.js'] });
 }
 
 function clean(value) {

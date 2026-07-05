@@ -7,7 +7,7 @@
  * approved runtime raster annotations (extracted via
  * input/icon-crop-specs/lululemon-q1-fy26.json).
  *
- * Source-chart quirks mirrored here (see data/income-statements.js):
+ * Source-chart quirks mirrored here (see data/income-statements/lululemon.js):
  * - Operated stores / Direct to consumer / Other revenue and Revenue are
  *   drawn as solid black bars (not the engine's default teal/near-black
  *   source/hub palette); their outgoing flow bands are grey, not black.

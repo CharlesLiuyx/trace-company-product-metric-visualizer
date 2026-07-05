@@ -5,7 +5,7 @@
  * photos rendered as approved runtime raster annotations (extracted via
  * input/icon-crop-specs/nike-q4-fy26.json).
  *
- * Source-chart quirks mirrored here (see data/income-statements.js):
+ * Source-chart quirks mirrored here (see data/income-statements/nike.js):
  * - Footwear/Apparel/Equipment/Converse and Revenue are drawn as solid
  *   black bars (not the engine's default teal/near-black source/hub
  *   palette); their outgoing flow bands are grey, not black.

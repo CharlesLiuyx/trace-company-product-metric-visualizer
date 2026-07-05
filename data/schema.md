@@ -5,7 +5,7 @@ write `nodes` + `links` by hand and tune `layout.nodes` / `layout.labels`
 against the processed reference image. The resulting `{ meta, nodes, links }`
 object is what `SankeyEngine.render(selector, data)` consumes.
 
-Separately, `data/income-statements.js` is the pure financial-statement SSOT.
+Separately, `data/income-statements/<company-key>.js` is the pure financial-statement SSOT.
 Every registered real dataset should have one matching record there. Keep it to
 reported totals, line items, notes, currency, units, and source metadata only;
 do not put `nodes`, `links`, `layout`, `render`, SVG, colors, or pixel geometry
@@ -25,7 +25,7 @@ non-empty `meta.currency` must agree with the SSOT currency, and `meta.unit`
 must always equal the SSOT `unit`; cross-company normalization reads the SSOT,
 not the adapter.
 
-`data/company-metadata.js` is the company-profile SSOT. Add or update it before
+`data/company-metadata/<company-key>.js` is the company-profile SSOT. Add or update it before
 registering a new company's first dataset so Table mode can show company-level
 context separately from period-specific financial statements.
 
@@ -120,11 +120,11 @@ is needed. Do not create parallel dataset files per language.
 Use `otherIncome` for non-operating gains that add to net profit, and
 `otherExpenses` for non-operating costs that subtract from net profit. The `id`
 fields should match the relevant Sankey node ids when a corresponding node
-exists. The verifier checks every `index.html` dataset script has a matching
+exists. The verifier checks every manifest-registered dataset script has a matching
 SSOT record, compares key totals and line items against Sankey node values, and
 allows small published-rounding differences via `roundingTolerance`. It also
 checks every company in the financial SSOT has a matching
-`data/company-metadata.js` entry.
+`data/company-metadata/<company-key>.js` entry.
 
 ### Revenue metric record
 
@@ -160,7 +160,10 @@ checks every company in the financial SSOT has a matching
     {
       name: 'YipitData',
       url: 'https://www.yipitdata.com/',
-      sourceImage: { src: 'input/processed/example.png', width: 1125, height: 1412 },
+      // localOnly declares evidence that intentionally never gets committed
+      // (e.g. licensed screenshots); verifiers keep the path for provenance
+      // but skip the file-existence check.
+      sourceImage: { src: 'input/processed/example.png', width: 1125, height: 1412, localOnly: true },
     },
   ],
   confidence: 0.72,
@@ -228,7 +231,7 @@ Table view, also keep `founded`, `headquarters`, `fiscalYearEnd`, `website`,
 `ticker`, `exchange`, and public-company `marketCap` data current enough for
 sorting and display. Do not duplicate period-specific financials in company
 metadata; latest-period revenue, currency, unit, and net profit belong in
-`data/income-statements.js`.
+`data/income-statements/<company-key>.js`.
 
 ---
 
@@ -274,9 +277,9 @@ localization overlays describe the same company.
 | sort mode | source fields | notes |
 |---|---|---|
 | Alphabetical | `name`; optional `i18n.<language>.displayName` | Uses the localized display company name. Use `aliases` only for matching financial records to metadata, not for display ordering. |
-| Recently updated | `data/dataset-file-metadata.js` entries generated from registered `data/datasets/<dataset-key>.js` file modification times | Run `pnpm update:dataset-file-metadata` after adding or materially editing dataset files. The UI sorts each company by the newest modified registered dataset file for that company. Missing modification metadata sorts after companies with metadata. |
+| Recently updated | `data/dataset-file-metadata.js` entries generated from the latest git author time of each registered `data/datasets/<dataset-key>.js` file (filesystem mtime only until a file's first commit) | Run `pnpm update:dataset-file-metadata` after committing a new or materially edited dataset file, and commit the refreshed metadata. The UI sorts each company by the newest updated registered dataset file for that company. Missing update metadata sorts after companies with metadata. |
 | Market cap | Prefer `marketCap.valueUsd`; otherwise use `marketCap.value`, `marketCap.currency`, `marketCap.unit`, plus `marketCap.asOf`, `marketCap.source`, `marketCap.sourceUrl` | The UI normalizes market cap to USD using the dated FX snapshot (`USD_FX_SNAPSHOT` in `src/trace-domain.js`, applied by `src/app/financial.js`) before sorting descending. Missing or unsupported-currency values sort after companies with values and display as missing metadata. |
-| Net profit | Latest matching `data/income-statements.js` record: `profit.net.value`, `currency`, `unit`, and parseable period fields | The UI selects the latest dataset for the company, converts the reported net profit to USD using the same dated FX snapshot, and sorts descending. Do not add latest net profit to company metadata. |
+| Net profit | Latest matching `data/income-statements/<company-key>.js` record: `profit.net.value`, `currency`, `unit`, and parseable period fields | The UI selects the latest dataset for the company, converts the reported net profit to USD using the same dated FX snapshot, and sorts descending. Do not add latest net profit to company metadata. |
 | Founded date | `founded` | The first four-digit year in the string is used for ascending sort. Keep the human-readable string precise enough for Table display. |
 
 When a sort value is missing, the company sorts after companies with a numeric
@@ -356,7 +359,7 @@ builds label blocks from node text.
 `i18n.preservedAnnotationText` (optional, `string[]`, not a language overlay) declares
 `annotationsSvg` text segments that intentionally stay untranslated in every
 language — sub-brand and logo words such as `aws` or `Uber Eats`. Company
-name, legal name, and alias words from `data/company-metadata.js` are exempted
+name, legal name, and alias words from `data/company-metadata/<company-key>.js` are exempted
 automatically, so declare only text that identity derivation cannot cover.
 `pnpm verify:i18n` matches whole segments case-insensitively; words inside
 longer translatable sentences are never exempted.
@@ -364,7 +367,7 @@ longer translatable sentences are never exempted.
 Brand and product terms that intentionally render unchanged in every position
 (node labels, notes, layout lines, and annotations alike — e.g. YouTube,
 iPhone, `Microsoft 365`) are declared once as identity mappings in the
-`EXACT_ZH` dictionary in `src/i18n.js`; `pnpm verify:i18n` treats an
+`EXACT_ZH` dictionary in `src/i18n-dictionaries.js`; `pnpm verify:i18n` treats an
 identity-mapped term as translated wherever it appears.
 
 ### node

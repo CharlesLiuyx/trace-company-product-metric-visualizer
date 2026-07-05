@@ -6,13 +6,10 @@
 import { spawnSync } from 'node:child_process';
 import { readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import vm from 'node:vm';
+import { rootDir } from './lib/project.mjs';
 
-const __filename = fileURLToPath(import.meta.url);
-const rootDir = path.resolve(path.dirname(__filename), '..');
-
-const SCAN_DIRS = ['src', 'data', 'scripts'];
+const SCAN_DIRS = ['src', 'data', 'scripts', 'tests'];
 const SKIP_DIRS = new Set(['node_modules', '__pycache__', 'assets']);
 
 function jsFiles(dir) {
@@ -60,9 +57,33 @@ function runVerifier(script, args = []) {
   return lastLine.length > 100 ? `${lastLine.slice(0, 97)}...` : lastLine;
 }
 
+function runUnitTests() {
+  const result = spawnSync(process.execPath, ['--test', 'tests/*.test.mjs'], {
+    cwd: rootDir,
+    encoding: 'utf8',
+  });
+  const summary = {};
+  for (const line of result.stdout.split('\n')) {
+    const match = line.match(/^# (tests|pass|fail) (\d+)$/);
+    if (match) summary[match[1]] = Number(match[2]);
+  }
+  if (result.status !== 0) {
+    const failures = result.stdout
+      .split('\n')
+      .filter((line) => line.startsWith('not ok'))
+      .slice(0, 10)
+      .join('\n');
+    throw new Error(`unit tests failed (${summary.fail ?? '?'} failing):\n${failures || result.stderr.trim()}`);
+  }
+  return `${summary.pass ?? '?'} unit tests passed`;
+}
+
 const steps = [
   ['syntax', checkSyntax],
+  ['test', runUnitTests],
   ['check:pending', () => runVerifier('check-pending-processed.mjs')],
+  ['verify:app-globals', () => runVerifier('verify-app-globals.mjs')],
+  ['verify:dataset-manifest', () => runVerifier('update-dataset-manifest.mjs', ['--check'])],
   ['verify:ssot', () => runVerifier('verify-ssot.mjs')],
   ['verify:i18n', () => runVerifier('verify-i18n.mjs')],
   ['verify:dataset-file-metadata', () => runVerifier('update-dataset-file-metadata.mjs', ['--check'])],

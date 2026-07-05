@@ -56,10 +56,8 @@ function selectCompanyGroup(group, { closeSearch = false, focusCompany = false, 
   if (!state.multiCompanyMode) syncSingleCompanyScope();
   else if (!state.selectedCompanies.includes(group.company)) setSelectedCompanies([...state.selectedCompanies, group.company]);
   if (state.metricMode !== targetMode) {
-    state.metricMode = targetMode;
-    state.viewMode = defaultViewModeForMetric(targetMode);
-    writeStoredValue(METRIC_MODE_KEY, state.metricMode);
-    writeStoredValue(VIEW_MODE_KEY, state.viewMode);
+    // record selection happens below, so skip the reconcile pass
+    commitMetricViewMode(targetMode, defaultViewModeForMetric(targetMode), { reconcile: false });
   }
   const next = targetMode === 'incomeStatement'
     ? groupRecords.find((record) => matches(searchTextForRecord(record), periodSearch.value)) || groupRecords[0]
@@ -72,8 +70,7 @@ function selectCompanyGroup(group, { closeSearch = false, focusCompany = false, 
     clearDatasetHash();
   }
   const targetScrollKind = targetMode === 'companyInfo' ? 'company' : targetMode === 'revenue' ? 'revenue' : 'statement';
-  renderAll();
-  draw({ renderTable: false, syncView: false });
+  refresh();
   if (closeSearch) companySearchController.setOpen(false);
   if (focusCompany) requestAnimationFrame(focusActiveCompanyItem);
   scrollActiveTableRow(scrollKind || targetScrollKind);
@@ -98,13 +95,8 @@ function toggleCompanyInScope(group, { focusCompany = false, closeSearch = false
   }
 
   setSelectedCompanies(nextCompanies);
-  state.metricMode = normalizeMetricModeForScope(state.metricMode);
-  state.viewMode = normalizeViewModeForMetric(state.metricMode, state.viewMode);
-  syncMetricCompanySelection();
-  writeStoredValue(METRIC_MODE_KEY, state.metricMode);
-  writeStoredValue(VIEW_MODE_KEY, state.viewMode);
-  renderAll();
-  draw({ renderTable: false, syncView: false });
+  commitMetricViewMode(state.metricMode);
+  refresh();
   if (closeSearch) companySearchController.setOpen(false);
   if (focusCompany) requestAnimationFrame(focusActiveCompanyItem);
   if (state.viewMode === 'table') scrollActiveTableRow(activeTableKind());
@@ -113,12 +105,10 @@ function exitMultiCompanyMode({ render = true, focusCompany = false } = {}) {
   if (!state.multiCompanyMode) return;
   state.multiCompanyMode = false;
   syncSingleCompanyScope();
-  state.metricMode = normalizeMetricModeForScope(state.metricMode);
-  state.viewMode = normalizeViewModeForMetric(state.metricMode, state.viewMode);
-  syncMetricCompanySelection();
+  // scope collapse must not overwrite the user's persisted mode preference
+  commitMetricViewMode(state.metricMode, state.viewMode, { persist: false });
   if (!render) return;
-  renderAll();
-  draw({ renderTable: false, syncView: false });
+  refresh();
   if (focusCompany) requestAnimationFrame(focusActiveCompanyItem);
 }
 

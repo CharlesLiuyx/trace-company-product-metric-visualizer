@@ -101,8 +101,7 @@ function setLanguage(language) {
   state.language = nextLanguage;
   writeStoredValue(LANGUAGE_KEY, nextLanguage);
   applyStaticTranslations();
-  renderAll();
-  draw({ renderTable: false, syncView: false });
+  refresh();
 }
 function setTheme(theme) {
   if (theme !== 'light' && theme !== 'dark') return;
@@ -110,6 +109,12 @@ function setTheme(theme) {
   state.theme = theme;
   writeStoredValue(THEME_KEY, theme);
   syncThemeControls();
+  // Chart.js charts read theme tokens (cssVar via chartTheme()) only at
+  // creation time, so already-rendered trend/comparison charts keep stale
+  // colors until rebuilt. Theme change is the view-only repaint case the
+  // refresh() note in controls.js describes: sidebar/controls state is
+  // untouched, so draw() alone is enough.
+  draw();
 }
 function sidebarToggleIcon(expanded) {
   const arrow = expanded ? '<path d="m16 9-3 3 3 3"/>' : '<path d="m13 9 3 3-3 3"/>';

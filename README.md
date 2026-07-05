@@ -23,9 +23,12 @@ pnpm dev
 in `vendor/`, so it works offline as long as the repository files are present.
 
 Before committing, `pnpm check` runs the fast gates (repo-wide JS syntax
-sweep, pending-image guard, SSOT parity, i18n coverage, metadata freshness)
-in under a second; `pnpm verify:app` boot-and-click smokes the viewer app in
-headless Chromium in a few seconds.
+sweep, unit tests, pending-image guard, app-globals static gate,
+dataset-manifest freshness, SSOT parity, i18n coverage, metadata freshness)
+in a few seconds; `pnpm verify:app` boot-and-click smokes the viewer app in
+headless Chromium in a few seconds. `pnpm check` is reproducible — it is
+green on any fresh checkout, and CI (`.github/workflows/ci.yml`) runs it
+plus the render gates on every push and pull request.
 
 For a single self-contained HTML file that does not depend on sibling CSS, JS,
 font, vendor, data, or reference PNG files, build the standalone artifact:
@@ -78,13 +81,13 @@ another fidelity loop:
    stop before moving images, editing data, extracting icons, or running the d3
    loop for that pending image. If you choose a different final dataset key than
    the script's candidate, check that final key against `input/processed/`,
-   `data/datasets/`, `data/income-statements.js`, and `index.html` before
-   continuing.
+   `data/datasets/`, `data/income-statements/<company-key>.js`, and
+   `data/dataset-manifest.js` before continuing.
 3. After processing, move the durable reference image to `input/processed/` and
    name it with the dataset key, for example `salesforce-q1-fy27.png`.
 4. Set `meta.referenceImage` on the matching dataset to that processed path.
 5. If this is a new company, add the company profile to
-   `data/company-metadata.js` first: description, sector, industry, founded
+   `data/company-metadata/<company-key>.js` first: description, sector, industry, founded
    date, headquarters, fiscal year end, website, ticker/exchange, market cap
    with as-of/source when available, and source URLs.
 6. If the source contains company or business/segment icons that need to be
@@ -102,16 +105,16 @@ another fidelity loop:
    decision in `model-validation.md`. Extract every semantically relevant
    business cluster unless the task explicitly narrows the scope.
 7. Add or update the matching pure-data record in
-   `data/income-statements.js`. This file is the comparable financial
+   `data/income-statements/<company-key>.js`. This file is the comparable financial
    statement SSOT: reported totals, line items, notes, currency and units only,
    with no Sankey layout or render settings.
 8. Add localized display text for every non-default language in
    `window.SANKEY_I18N.languageCodes`:
    - `data/datasets/<dataset-key>.js`: `name`, `meta.title`, period labels,
      node labels/notes, and explicit fixed-layout label text.
-   - `data/income-statements.js`: financial line-item labels and notes used by
+   - `data/income-statements/<company-key>.js`: financial line-item labels and notes used by
      Table mode.
-   - `data/company-metadata.js`: company profile fields when the company is new
+   - `data/company-metadata/<company-key>.js`: company profile fields when the company is new
      or profile text changes.
    Language overlays may tune text layout such as `titleTextLength`, but should
    not change values, links, node positions, or financial semantics.
@@ -197,10 +200,13 @@ verifier, but they are not part of the app runtime or standalone HTML artifact.
 
 ## Add your company
 
-Create a file in `data/datasets/`, register it on the global `DATASETS` array,
-add one `<script>` line in `index.html`, add the comparable financial statement
-record to `data/income-statements.js`, and add company-level context to
-`data/company-metadata.js` before registering the first dataset for that
+Create a file in `data/datasets/` that pushes onto the global `DATASETS`
+array, run `pnpm sync:index-datasets` to register it in the generated
+`data/dataset-manifest.js` (dataset adapters no longer get `index.html`
+tags; the viewer stubs them from the manifest at boot and loads adapter
+scripts progressively), add the comparable financial statement record to
+`data/income-statements/<company-key>.js`, and add company-level context to
+`data/company-metadata/<company-key>.js` before registering the first dataset for that
 company. Registered datasets are authored as high-fidelity adapters: define the
 node/link graph explicitly, then tune `layout.nodes` and `layout.labels` against
 the processed reference image.
@@ -260,12 +266,12 @@ const dataset = {
 (window.DATASETS = window.DATASETS || []).push(dataset);
 ```
 
-```html
-<!-- index.html, with the other dataset scripts -->
-<script src="data/datasets/my-company-fy25.js"></script>
+```bash
+# registers the new file in data/dataset-manifest.js (generated)
+pnpm sync:index-datasets
 ```
 
-Keep `data/income-statements.js` updated with the same reported totals and line
+Keep `data/income-statements/<company-key>.js` updated with the same reported totals and line
 items, then run `pnpm verify:ssot` to confirm the SSOT still covers every
 registered dataset. See [`data/schema.md`](data/schema.md) for the full
 low-level format. `data/datasets/nvidia-q1-fy27.js` is a compact hand-authored
@@ -278,22 +284,30 @@ example.
 | `index.html`                | static viewer shell and ordered script registration           |
 | `src/app.css`               | viewer layout, controls, sidebar, and responsive styles       |
 | `src/app/`                  | viewer app modules (classic scripts, ordered in `index.html`, shared top-level scope) |
-| `src/app/dom.js` · `util.js` · `hotkeys.js` · `i18n-runtime.js` | DOM refs · generic helpers/formatters · modifier-combo shortcut registry · UI strings + localization caches |
-| `src/app/state.js` · `selectors.js` · `financial.js` | prefs + mode rules + UI state/scope · display/search derivations · USD/FX totals + company sort values |
+| `src/app/dom.js` · `util.js` · `dataset-loader.js` · `hotkeys.js` · `i18n-runtime.js` | DOM refs · generic helpers/formatters · progressive adapter loading over the registry · modifier-combo shortcut registry · localization caches over `SANKEY_I18N` |
+| `src/app/state.js` · `selectors.js` · `financial.js` · `chart-theme.js` | prefs + mode rules + UI state/scope · display/search derivations · USD/FX totals + company sort values · shared Chart.js theme tokens/plugins |
 | `src/app/shell.js` · `controls.js` | theme/language/sidebar/toolbar chrome · metric/view switching + `renderAll()` |
 | `src/app/company-panel.js` · `period-panel.js` | company list, sort menu, multi-select · period tree, timeline, multi-select |
 | `src/app/tables.js` · `trend.js` · `sankey.js` | virtualized tables · revenue trend charts · sankey single/comparison + `draw()` |
 | `src/app/comparison-zoom.js` · `comparison-metric-trend.js` | comparison canvas zoom gestures · node/link metric trend panel |
 | `src/app/exports.js` · `main.js` | SVG/PNG/CSV downloads · global wiring + boot (loads last) |
-| `src/sankey-engine.js`      | **d3-sankey** renderer: layout + custom nodes/links/labels/logo/interactions |
+| `src/sankey-engine.js`      | **d3-sankey** renderer: layout + custom nodes/links/labels/logo/interactions; label passes exposed as pure helpers |
+| `src/dataset-registry.js`   | manifest-driven dataset stubs + in-place adapter upgrades on `DATASETS.push` |
+| `src/i18n-dictionaries.js` · `src/i18n.js` | per-language translation data · language-neutral rule pipeline + UI dictionary + overlays |
 | `src/icons.js`              | Lucide icon set (inline SVG) + the NVIDIA brand glyph         |
-| `scripts/build-standalone.mjs` | builds the self-contained HTML artifact                    |
+| `scripts/build-standalone.mjs` | builds the self-contained HTML artifact (inlines all adapters) |
 | `scripts/verify-standalone.mjs` | opens the artifact via `file://` and checks d3 rendering |
+| `scripts/verify-app-globals.mjs` | static gate for shared-scope duplicate declarations and load order |
+| `scripts/verify-render-regression.mjs` | batch render + similarity baseline gate (`data/render-baselines.json`) |
+| `scripts/update-dataset-manifest.mjs` | regenerates `data/dataset-manifest.js` (dataset registration SSOT) |
 | `scripts/script-sources.mjs`| shared script classification for page and verifier harnesses  |
-| `scripts/extract_icon_crops.py` | spec-driven icon crop extraction and validation           |
-| `data/income-statements.js` | pure financial-statement SSOT for totals and line items       |
-| `data/company-metadata.js`  | company-profile SSOT for Table mode and onboarding checks     |
+| `scripts/lib/`              | shared verifier internals: project paths, VM loader, data-loading stacks, render harness, fonts, PNG diff, compare archive, d3 hard gates |
+| `tests/*.test.mjs`          | node:test unit tests (`pnpm test`): engine layout + label passes, trace-domain, i18n, png-diff, script sources, dataset registry, hard gates |
+| `scripts/extract_icon_crops.py` | spec-driven icon crop extraction and validation (deps: `scripts/requirements.txt`) |
+| `data/income-statements/<company-key>.js` | pure financial-statement SSOT for totals and line items       |
+| `data/company-metadata/<company-key>.js`  | company-profile SSOT for Table mode and onboarding checks     |
 | `data/datasets/*.js`      | datasets (one per company/period)                             |
+| `data/dataset-manifest.js`  | generated dataset registration manifest (navigation stubs + script paths) |
 | `data/assets/`              | reusable icon references and validation records               |
 | `vendor/`                   | d3 v7 and d3-sankey — vendored for offline use                |
 

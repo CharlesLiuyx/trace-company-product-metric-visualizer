@@ -2,7 +2,7 @@
  * Download actions: SVG/PNG of the current sankey and the three CSVs. */
 
 /* ---- export ---- */
-const currentSvg = () => document.querySelector('#chart svg');
+const currentSvg = () => chartHost?.querySelector('svg');
 function downloadText(filename, text, type = 'text/csv;charset=utf-8') {
   const a = document.createElement('a');
   a.href = URL.createObjectURL(new Blob([text], { type }));

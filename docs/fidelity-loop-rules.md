@@ -1,826 +1,592 @@
 # 保真循环规则
 
-本文档是 d3-Sankey 保真循环、runtime raster 例外、图标 crop/vector
-子循环、本地化固定布局检查和最终输出概要的 SSOT。其他项目文档如果与本文档冲突，
-以本文档为准。
+本文档是 d3-Sankey 保真循环、runtime raster 例外、图标 crop/vector 子循环、
+本地化固定布局检查和最终输出概要的 SSOT。其他项目文档与本文档冲突时，以本
+文档为准。
 
-质量判定以像素 Diff 为主要量化证据，但最终验收不是无条件追求最低 Diff。
-必须先把差异按语义分类：结构错误、文本/关联错误、可优化视觉差异、可接受残留、
-无语义跳过项。无语义或与公司损益表无关的内容不得为了降低 Diff 被复刻进候选图。
+全部硬规则带稳定编号：G（自动硬门槛）、B（盲点必查）、R（raster 白名单）、
+L（连接线）、T（Label-node/文本）、A（注释容器）、Z（本地化）、I（图标子循环）。
+红框 region、Task 信息、人工反馈与轮次记录一律引用编号，禁止转述指代。
 
-效率目标：新数据集应在 3 个人工轮次内消除所有人眼显著错误（“误差分类”中的
-“必须死磕”项），4-5 轮内完全收敛。轮次的首要产出是关闭人眼显著错误，不是压低
-全图 Diff；不得为亚可见的像素改善追加轮次。达成手段是两条：渲染前测量让首轮
-就接近原图（见“第 0 轮：渲染前测量”），以及按 sweep 分层批量检查、避免一轮
-只查一个方向（见“保真循环流程”）。
+## 导读与阅读路径
 
-保真循环的最终目标是把人工指出的问题逐步转化为可重复执行的检查规则，让后续数据集
-处理后不再依赖用户逐块指出明显问题。用户每次提出修正意见，都必须视为流程缺口信号：
-先修当前问题，再把可泛化经验沉淀到本文档；如果只是当前数据集特例，则写入该轮 Task
-信息和最终记录。
+| 时刻 | 必读章节 |
+| --- | --- |
+| 首轮开始前 | 总则 → 自动硬门槛 → 自动门槛与人工盲点对照表 → 执行入口 → 第 0 轮：渲染前测量 |
+| 每轮执行中 | 保真循环流程 → 本轮 sweep 覆盖方向的专项协议（L / T / A / Z / I）→ 并行与分派 |
+| 每轮结束前 | 红框参考图和 Task 信息 → 每轮记录模板 → 总则的退出置信度判断 |
+| 收敛与汇报 | 收敛标准 → 最终输出概要 → 人工反馈沉淀 |
+| 改数据或渲染器前 | 允许的改动范围 → 禁止做法 → Runtime Raster 例外 |
 
-## 执行入口
+## 总则
 
-创建或实质修改数据集后，运行确定性的 d3 验证脚本：
+质量判定：
 
-```sh
-pnpm verify:d3 -- <dataset-key>
-```
+- 像素 Diff 是主要量化证据，但验收不是无条件追求最低 Diff。差异必须先按语义
+  分类：结构错误、文本/关联错误、可优化视觉差异、可接受残留、无语义跳过。
+- 无语义或与公司损益表无关的内容，不得为降低 Diff 被复刻进候选图。
 
-`pnpm verify:dataset -- <dataset-key>` 会把语法、SSOT、strict i18n、metadata
-与每种语言的 d3 渲染打包成一条命令；单独调某一轮时仍用 `verify:d3`。
+流程目标：把人工指出的问题逐步转化为可重复执行的编号规则，让后续数据集不再
+依赖用户逐块指出明显问题。每次用户修正都是流程缺口信号：先修当前问题，再按
+「人工反馈沉淀」把可泛化经验写回本文档；数据集特例写入该轮 Task 信息。
 
-如果缺少本地依赖，先安装固定版本工具：
+轮次预算与退出置信度：
 
-```sh
-pnpm install --frozen-lockfile
-pnpm exec playwright install chromium
-```
-
-在 Codex desktop 或受限 sandbox 环境中，`pnpm verify:d3` 需要一开始就使用提权
-shell 权限运行。脚本会绑定本地 `127.0.0.1` 临时服务器；在 sandbox 内先试可能因
-`listen EPERM: operation not permitted 127.0.0.1` 失败。
-
-`pnpm verify:d3 -- <dataset-key>` 会：
-
-- 启动本地静态服务器。
-- 在最小 d3 harness 中执行 `SankeyEngine.render('#chart', data)`。
-- 截取 `#chart > svg`。
-- 运行输出纯净性、runtime raster、SVG 尺寸、字体和 label-node 横向 overlap 哨兵。
-- 计算全图 Diff 指标。
-- 自动输出 DOM 派生区域 Diff 指标。
-- 写入 `compare/<dataset-key>-metrics.json`。
-- 将候选图、Diff 图和 metrics JSON 归档到
-  `output/compare/<dataset-key>/<round>-<improvement>-<focus>/`。
-- 将共享参考图复制到 `output/compare/<dataset-key>/<dataset-key>-reference.png`。
-- 默认清理 `compare/`。
-
-人工保真轮次必须传入本轮主检查方向：
-
-```sh
-pnpm verify:d3 -- <dataset-key> --focus "<主检查方向>"
-```
-
-归档目录名使用 `{轮次}-{提升了多少}-{主检查方向}`。轮次默认按当前 dataset 的已有
-archive 目录数量自动递增并补零，也可以用 `--round <n>` 覆盖。`提升了多少` 默认按
-当前全图 `similarity` 减去上一轮同语言 archive 的 `similarity` 计算，例如
-`sim+0.000123`；没有上一轮可比 archive 时使用 `baseline`。主检查方向会被转换为适合
-文件夹名的短 slug。sweep 轮次直接用层级名作为主检查方向，例如 `structure-sweep`、
-`text-sweep`、`polish-l10n-sweep`。
-
-普通自动哨兵可以不保留 scratch 文件。人工保真轮次如果需要同时看原图、候选图和
-Diff 图，应使用：
-
-```sh
-pnpm verify:d3 -- <dataset-key> --focus "<主检查方向>" --keep
-```
-
-保留 `compare/` 后，结束前必须运行：
-
-```sh
-sh scripts/clean-compare.sh
-```
-
-最终记录应引用 `output/compare/...` 归档产物；`compare/` 只是临时 scratch。
+- 标准预算：3 个 sweep 轮内清空人眼显著错误（「必须死磕」项），4–5 轮完全
+  收敛。轮次的首要产出是关闭显著错误，不是压全图 Diff。达成手段：第 0 轮
+  渲染前测量让首轮就接近原图 + sweep 分层批量检查。
+- 每轮结束必须做一次**退出置信度判断**：基于当前上下文（G1–G11 状态、B 系列
+  盲点是否查完、开放红框、backlog、残差分类）回答「人工现在 Review 是否还会
+  提出修改意见」。高置信（死磕清单空 + 盲点查完 + 仅剩可接受残留）→ 立即按
+  收敛标准收敛，不再开轮；低置信 → 下一轮只打剩余最高风险项。
+- 用户提出修改建议后，下一轮以反馈项为主方向定向优化，不做泛化重扫，避免
+  烧轮次。
+- **反微调停机规则**：自动硬门槛全过且死磕清单空后，预计新一轮全图
+  similarity 提升低于约 0.0005 即不得开轮，剩余差异记为可接受残留并收敛。
+  同方向候选值必须在同一轮内并行试完、统一取舍、归档一次，不得拆多轮。
 
 ## 自动硬门槛
 
-以下检查是每轮都可以运行的自动哨兵，不算人工主检查方向。失败时先修这些问题，再继续
-任何局部保真判断。
+每轮都先运行的自动哨兵，不算人工主检查方向。失败先修，再做任何局部保真判断。
 
-1. 候选图必须是 `SankeyEngine.render()` 产生的 d3/SVG 输出。
-2. SVG 尺寸必须等于 `meta.referenceImage.width` 和 `meta.referenceImage.height`。
-3. 本地 Montserrat 字体必须加载成功；不能用 fallback font 计分。
-4. `#chart` 中不得出现 `<img>`、`canvas`、`foreignObject`、`picture`、`video`、
-   `iframe`、`object` 或 `embed`。
-5. `#chart` 参与截图的元素不得使用 CSS `background-image` 作为像素补丁。
-6. 默认情况下，`#chart > svg image` 数量必须为 `0`。
-7. 只有显式 runtime raster 模式允许 SVG `<image>`，且必须满足本文档的白名单规则。
-8. 同一 node 的同轴 label 与 node 外框不得纵向交叠；目标边界间距为 `5px`，渲染
-   bbox 计算出的间距低于 `4px` 是 hard fail。
-9. 短辅助柱、短横柱或小矩形与其上下同轴 label 的水平中心必须对齐；渲染 bbox 计算出
-   的 `centerDelta > 4px` 是 hard fail。
-   当源图语义显示 label 属于某根柱子的正上方或正下方时，不能把它降级成左侧、右侧或
-   远离柱子的近邻 label；即使自动 overlap gate 通过，也必须按该柱子的渲染 bbox 复核
-   水平中心和 5px 边界距离。毛利、营业利润、营业费用、净利润/净亏损等中间汇总柱属于
-   高风险项，人工轮次必须优先检查。
-   固定布局里如果汇总柱 label 被手写成靠左/靠右但视觉上仍属于该柱子的上方或下方，
-   必须按上下同轴组合审计，不得因为自动 bbox 归类没有捕捉到它就接受中心线偏移；
-   修复时优先把 label 的水平中心对齐到柱子中心，再复查是否出现文本与流带/节点重叠。
-10. 左右相邻 label 与 node 的横向 overlap 是 hard fail。
-11. `node --check`、`pnpm verify:ssot`、`pnpm verify:i18n -- --strict <dataset-key>` 等
-   数据一致性检查必须按 AGENTS.md 的验证清单执行。
+- G1 候选图必须是 `SankeyEngine.render()` 产生的 d3/SVG 输出。
+- G2 SVG 尺寸必须等于 `meta.referenceImage.width` 和 `meta.referenceImage.height`。
+- G3 本地 Montserrat 字体必须加载成功；不得用 fallback font 计分。
+- G4 `#chart` 中不得出现 `<img>`、canvas、foreignObject、picture、video、
+  iframe、object 或 embed。
+- G5 `#chart` 参与截图的元素不得使用 CSS `background-image` 作为像素补丁。
+- G6 默认情况下 `#chart > svg image` 数量必须为 0。
+- G7 只有显式 runtime raster 模式允许 SVG `<image>`，且必须满足 R 系列白名单。
+- G8 同一 node 的同轴 label 与 node 外框不得纵向交叠；目标边界间距 5px，
+  渲染 bbox 间距低于 4px 是 hard fail。
+- G9 短辅助柱、短横柱或小矩形与其上下同轴 label 的水平中心必须对齐；渲染
+  bbox 的 `centerDelta > 4px` 是 hard fail（人工延伸见 T2）。
+- G10 左右相邻 label 与 node 的横向 overlap 是 hard fail。
+- G11 `node --check`、`pnpm verify:ssot`、`pnpm verify:i18n -- --strict <key>`
+  等数据一致性检查必须按 `docs/dynamic-dataset-workflow.md` 的验证清单执行。
+
+## 自动门槛与人工盲点对照表
+
+门槛看不见的检查必须由人工在对应 sweep 轮补上；「自动化候选」仅为未来工程
+标记，不改变当前人工义务。
+
+| 编号 | 关联门槛 | 门槛已覆盖 | 盲点（门槛看不见） | 人工必查 | 自动化候选 |
+| --- | --- | --- | --- | --- | --- |
+| B1 | G8/G9 | 同轴纵向间距、短柱水平中心 | 手写靠左/右但视觉属柱正上/正下的汇总 label 不入同轴归组 | T2 | 是 |
+| B2 | G10 | 侧置 label 横向交叠 | 不判侧置 label 与源图的水平距离是否一致 | T6 | 是 |
+| B3 | G10 | 同上 | 不判侧置 label 垂直中心对齐；单行 label 高风险 | T7 | 是 |
+| B4 | G8 | 同轴归组按 x 相交 | value/note block 放错 x 时被判非同轴而漏检 | T9 | 是 |
+| B5 | G8/G10 | 仅审计 `layout.labels` ↔ node | `annotationsSvg` 文字与相邻 `layout.labels` 交叠不审 | A6 | 是 |
+| B6 | G2 | 仅判 SVG 画布尺寸 | 不判文本 bbox 越出画布（本地化后高发） | Z5 | 是 |
+| B7 | G6/G7 | raster 数量与来源 | 不判隐形锚点柱是否多出可见柱/绿痕 | T12 | 否（视觉判定） |
+| B8 | 无 | — | 多入/出节点 Σlink.width 与节点高度的 rounding 空隙/溢出 | L11 | 是 |
+| B9 | 无 | — | hub/深色源 profit 流带渐变 vs 源图纯色 | L12 | 是 |
+| B10 | G11 | 数据一致性 | link 拓扑与源图一致性、tooltip 语义分母 | L8/L14 | 部分 |
 
 ## Runtime Raster 例外
 
-默认禁止在 d3 输出中使用任何源图像素、源图裁剪、前景覆盖层、锁定背景或位图补丁。
+默认禁止在 d3 输出中使用任何源图像素、源图裁剪、前景覆盖层、锁定背景或位图
+补丁。唯一例外是显式图片嵌入模式，必须同时满足：
 
-唯一例外是显式图片嵌入模式。只有同时满足以下条件时，d3 输出中才允许 SVG
-`<image>`：
-
-- 源区域是有语义的公司、业务线、产品线或 segment icon cluster。
-- crop 已通过 spec-driven 提取和验证，并记录在
+- R1 源区域是有语义的公司、业务线、产品线或 segment icon cluster。
+- R2 crop 已通过 spec-driven 提取和验证，并记录在
   `data/assets/icon-references/<company>/crop-report.json` 与 `model-validation.md`。
-- runtime 文件由 crop spec 的 `runtimeOutputDir` 生成或同步，且位于
+- R3 runtime 文件由 crop spec 的 `runtimeOutputDir` 生成或同步，位于
   `data/assets/raster-annotations/<company>/`。
-- dataset 通过 `data.rasterAnnotations` 引用该 runtime 文件。
-- dataset 显式设置 `render.allowRasterAnnotations = true`。
-- `pnpm verify:d3` 报告 `rasterAllowed: true`。
-- SVG image 数量等于 `data.rasterAnnotations` 数量。
-- 每个 image href 都在 `data/assets/raster-annotations/` 下，文件存在，且不得指向
-  `input/processed/`、`data/assets/icon-references/`、外部 URL 或 data URI。
+- R4 dataset 通过 `data.rasterAnnotations` 引用该 runtime 文件。
+- R5 dataset 显式设置 `render.allowRasterAnnotations = true`。
+- R6 `pnpm verify:d3` 报告 `rasterAllowed: true`。
+- R7 SVG image 数量等于 `data.rasterAnnotations` 数量。
+- R8 每个 image href 都在 `data/assets/raster-annotations/` 下且文件存在；
+  不得指向 `input/processed/`、`data/assets/icon-references/`、外部 URL 或
+  data URI。
+- R9 `icon-references/<company>/crops/` 下的 crop 是 reference/conversion
+  asset，即使已验证也不得被 dataset 直接作为 `<img>`、SVG `<image>`、canvas
+  bitmap、CSS background 或前景 overlay 引用；需要嵌入时用 `runtimeOutputDir`
+  生成单独 runtime copy。
 
-`data/assets/icon-references/<company>/crops/` 下的 crop 是 reference/conversion asset，
-不是 runtime asset。即使 crop 已通过验证，也不得被 dataset 直接作为 `<img>`、SVG
-`<image>`、canvas bitmap、CSS background 或前景 overlay 引用。需要图片嵌入时，使用
-`runtimeOutputDir` 生成单独 runtime copy。
-
-来源发布方水印、创作者/账号品牌、网站 URL、社交徽标、"how they make money" 标识、
-署名条和其他 attribution 内容不属于 runtime raster 例外。
-
-## 第 0 轮：渲染前测量
-
-历史轮次消耗的最大来源是首轮几何靠估、后续轮次逐个纠偏：跨 10+ 轮才收敛的数据集，
-其后期修复项（socket 错位、短柱 x/y/height、label 中心、side label 距离）几乎全部
-可以在写 dataset 时一次做对。因此创建 dataset adapter 时，必须先从参考图直接测量，
-再写 `layout.nodes` 和 `layout.labels`；不允许先粗排、再靠保真轮次逼近。
-
-进入第 1 轮之前，至少完成以下测量并直接写入 dataset：
-
-- 画布尺寸与各列节点的 x 位置。
-- 每个短辅助柱、短横柱和终端柱的像素 bbox（x/y/width/height）。
-- 逐条从原图追踪 link 拓扑：source、target、socket 位置，特别是 waterfall 区、
-  绕行带和多入口目标柱（口径同“连接线和终端接口”一节）。
-- 每个 label 的锚点位置、anchor 方向和语义归组（名称/数值/备注/margin/Y/Y 同组）。
-- 注释容器、KPI/stat card 和徽章的容器 bbox。
-
-测量可以用任何可复现方式（局部 crop 读坐标、取色器、脚本均可），关键是首轮渲染
-就以测量值起步，而不是以估算值起步。
-
-## 保真循环流程
-
-人工轮次按 sweep 分层批量检查，而不是一轮只查一个方向。标准轮次预算是 3 轮
-sweep，必要时加 1-2 轮升级深查：
-
-- 第 1 轮 结构 sweep：输出纯净性、尺寸、裁剪、画布边界；节点几何、列位置、节点
-  高度、基础流带宽度；多入口/多出口连接线顺序和 socket；终端短横柱、辅助流端点、
-  自定义 curve 控制点。
-- 第 2 轮 文本 sweep：label-node 外框、文本交叠、文本位置与归属；注释容器内部
-  对齐、KPI/stat card、徽章和脚注。
-- 第 3 轮 润色与本地化 sweep：颜色、透明度、图标细节和字体抗锯齿残留；每种
-  非默认语言的固定布局检查（命令与口径同“本地化布局”一节；每种语言的渲染各自
-  归档为一轮，同属本层级）。
-
-每轮必须把本层 sweep 覆盖范围内的人眼显著错误（“误差分类”中的“必须死磕”项）
-一次性修完，不要把同层问题拆到多轮。自动哨兵每轮都运行；人工深查、局部 crop
-对照、bbox 审计和解释性记录集中在本轮 sweep 覆盖的方向上。sweep 轮覆盖某方向时，
-该方向的专项章节（“连接线和终端接口”、“Label-node 和文本布局”、“注释容器”、
-“本地化布局”）按原口径在该轮内适用。
-
-单方向深查轮次是升级手段，不是默认流程，只在以下情况使用：
-
-- 自动硬门槛反复失败且原因不明。
-- 用户反馈重开了某个方向。
-- sweep 轮发现某方向的问题在本轮内修不完，或需要逐条 bbox 审计才能定位。
-
-自动硬门槛已覆盖的检查（纯净性、尺寸、字体、raster 白名单、label-node 间距与
-中心对齐）不再单独安排人工主查轮次；人工精力集中在门槛看不见的语义正确性上，
-例如 link 拓扑是否与原图一致、文本是否属于正确节点、label 是否与原图同位。
-
-每轮步骤：
-
-1. 清理上一轮 scratch，或确认本轮使用新的 archive。
-2. 运行自动哨兵。
-3. 确定本轮 sweep 层级或升级方向，更新 Task 信息、冻结清单、重开项和 backlog。
-4. 渲染候选图，获取原图、候选图、Diff 图和 metrics JSON。
-5. 读取全图指标和与本轮 sweep 覆盖方向相关的分区域指标。
-6. 对本轮覆盖方向的高 Diff 区域和人眼显著错误分类：必须死磕、需要优化、
-   可接受残留、无语义跳过。
-7. 只针对本轮 sweep 覆盖的方向修改数据、布局、矢量资产或渲染器，把本层能修的
-   问题一次修完，并按同一口径复查。
-8. 本轮结束前，基于复查后的最终判断，在原图上用红框标注本轮覆盖方向的问题或
-   下一轮必须关注的区域；若没有开放问题，在 Task 信息中明确记录无开放红框。
-9. 本轮覆盖的每个方向若通过，分别记录证据并冻结；未通过的方向进入升级深查或
-   下一轮继续，直到通过或明确降级。
-10. 更新 Task 信息，列出已经主查、已冻结、重开、backlog、红框 region 和下一轮主方向。
-11. 进入细微调参阶段时，可以围绕当前方向并行尝试多个候选值，统一用同一套指标取舍。
-
-如果观察到本轮 sweep 层级之外的新问题：属于更早层级的（例如文本轮发现结构错误）
-立即修，因为它会使本层判断失效；属于更晚层级的只记录到 backlog，由对应 sweep 轮
-处理。自动硬门槛失败、画布裁剪和明显文本越界始终立即处理。
-
-连接线主查方向必须逐条从原图追踪 source、target、socket 和是否绕过中间柱。不要只按
-财务算式或节点邻近关系推断 link。对于 waterfall-like 调整区，例如营业利润、投资/税费、
-净利润/净亏损，结果柱和调整项柱可能共享同一目标或平行进入同一目标；若原图显示一条带子
-绕过某个结果柱，就不得把该结果柱写成中间节点。细税线、短横线和多入口目标要记录显式
-`y0`/`y1` 或 curve 控制点，并在 Task 信息中说明每条线对应的原图关系。
-如果用户指出连接线仍然错误，不要只继续调 curve；必须先复核连接线两端节点自身的
-原图像素 bbox，尤其是短柱的 `x/y/height`。源柱或目标柱的垂直位置错位时，任何
-`y0`/`y1` 都只是对错误锚点的补丁；应先把节点和同轴 label 移到原图高度，再重新调整
-socket 和曲线。
-短距离多输入目标柱要额外检查目标柱高度是否等于或足以容纳输入带宽之和，且每条输入带
-在目标边界上的垂直区间必须连续对齐。默认水平 link 在短距离上容易呈现为硬矩形；如果
-源图显示为弯曲过渡，必须为这些短 link 写显式 cubic control points，并用局部 crop
-确认连接过程平滑、没有直角、台阶、空档或不该出现的重叠。
-
-link 流带颜色核对：渲染器默认把非 cost 目标的 link 画成 `source.tint -> target.tint`
-渐变，只有 cost 目标才用纯 salmon。当 hub 或 source 节点是黑/深色（如 App Economy
-黑色 Revenue hub），毛利/营业利润等 profit 流带会被默认渲染成 `gray -> green` 渐变，
-而源图通常显示为从节点边缘起就是纯 profit 色。结构 sweep 轮必须对每条 hub/深色 source
-出发的 profit link，在紧邻源节点处（源节点右缘外几 px）取色对照源图；若源图是纯色而
-候选是渐变，用该 link 的显式 `linkTint` 覆盖为纯 profit 色，不要靠改节点 tint 掩盖。
-
-发布方 rounding 导致某节点的分项数值之和与该节点自身报告总值不完全相等时（例如
-segment 合计 $10.9B 但 hub 报告 $11.0B），必须对每一个有多条 `sourceLinks` 或
-`targetLinks` 的节点显式核对：这些 link 的 `width` 之和是否等于该节点的
-`layout.nodes` 高度。宽度之和小于节点高度会在节点边缘留下一段没有任何 link 覆盖的
-空隙（表现为节点实心矩形边缘露出一截背景色，与相邻细带断开），宽度之和大于节点高度
-则会在节点边缘外溢出。先用局部 crop 检查参考图在该节点边缘是否显示为连续贴合、无
-空隙的合并色块；如果参考图确认连续无空隙，应把差额计入该组内最大的一条 link 的
-`width`（而不是留空隙，也不必按比例摊薄到每条 link，以免每条都产生可见形变），因为
-最大的 link 通常占比高、几 px 的额外宽度不会在其自身端点造成可辨识的形变；再复查该
-link 另一端点（通常是该 link 的源节点或目标节点自身矩形）是否因此产生新的可见空隙
-或溢出，若产生新问题需重新分配到另一条 link。禁止只对被用户标注的方向单独修，其余
-同类节点的宽度之和不核对——同一 dataset 内所有多入口/多出口节点都要按同一口径核对。
-当人工反馈要求某个已连接节点“往上/往下移动”时，必须把节点、同属 label、所有相关
-`y0`/`y1` 和 curve 控制点作为一个联动系统处理。移动后要重新核算目标柱的 stacked
-intervals，并用局部 crop 检查目标边界处的端点是否仍然贴合；不能只移动柱子或文字。
-当用户指出 hover tooltip 百分比错误时，必须明确记录该 link 的语义分母。对
-waterfall-like 区域、隐藏桥接、结果柱和调整项共用目标柱等启发式容易误判的关系，
-优先在 dataset link 上写 `percent` 或 `percentText`，而不是依赖 renderer 自动从
-source/target 分支数量推断。
-
-## 人工反馈沉淀
-
-用户指出的错位、遗漏、误判或“看起来不对”的区域，不能只作为一次性修补项处理。
-每次收到人工修正建议后，必须完成以下闭环：
-
-1. 把用户文字、截图红框或 Diff 标注转成稳定 region，并归入一个主检查方向。
-2. 判断这是通用流程缺口、某类图表的高风险盲点，还是当前数据集特例。
-3. 对通用流程缺口或可复用盲点，更新本文档中的对应检查规则、优先级、记录模板或禁止
-   做法，措辞要能指导下一次独立处理。
-4. 对当前数据集特例，在该轮 Task 信息中记录原因、区域、修复方式和是否需要重开冻结项。
-5. 修复后复查用户标注区域，记录修复前后的局部指标和视觉结论。
-
-只有在经验已沉淀到本文档或已明确记录为数据集特例后，才能在最终响应中声称该人工反馈
-已处理完毕。不要把用户反馈仅写成聊天总结或临时 TODO。
-
-## 红框参考图和 Task 信息
-
-每轮人工保真循环结束前，必须基于本轮主检查方向生成一张“红框参考图”。该图以原始
-reference image 为底图，只用红色外框标注本轮发现的问题区域、下一轮必须关注的区域，
-或用户明确指出且尚未冻结的区域。
-
-红框参考图要求：
-
-- 使用原图作为底图，不使用候选图、Diff 图或截图拼贴作为底图。
-- 红框必须圈住完整语义区域，例如完整 label、完整节点接口、完整注释容器或完整图标
-  cluster；不要只圈单个高 Diff 像素块。
-- 红框可以带短编号，但不要遮挡要检查的文字、节点边缘或连接线接口。
-- 每个红框编号必须在 Task 信息中对应一个 region 名称、bbox、主检查方向、问题分类和
-  下一步动作。
-- 可接受残留和无语义跳过项通常不加红框；如果为了避免下一轮误追这些区域而标注，必须
-  在 Task 信息中明确写为 `accepted` 或 `skip`。
-- 红框图应和本轮 archive 放在一起，推荐路径为
-  `output/compare/<dataset-key>/<round>-<improvement>-<focus>/<dataset-key>-attention-reference.png`。
-- 下一轮开始时，必须同时参考上一轮红框图、metrics JSON、候选图和 Diff 图。
-
-每轮都要维护 Task 信息。Task 信息可以在轮次记录中维护，但必须足够稳定，能让下一轮
-无需重新询问用户就知道主检查方向和关注区域。
-
-Task 信息至少包含：
-
-- dataset key、轮次号、archive 路径、红框参考图路径。
-- 当前主检查方向（sweep 层级或升级方向）。
-- 已作为主方向检查并冻结的方向。
-- 已重开的方向和重开原因。
-- Backlog 中尚未主查的方向。
-- 本轮红框 region 清单：编号、bbox、问题分类、对应指标、下一步动作。
-- 用户反馈沉淀：已更新的规则、数据集特例或仍需处理的经验项。
-- 下一轮主检查方向和进入条件。
-
-## 最终输出概要
-
-当 Workflow 处理新增或实质修改的数据集、渲染器、图标资产或本地化固定布局后，最终
-大模型输出必须包含一个紧凑的 `Loop Fidelity Summary`。它不是完整轮次记录的替代品；
-完整证据仍以最新 Task 信息、metrics JSON、候选图、Diff 图和 archive 为准。
-
-如果本次工作没有运行 d3 保真循环，仍要在最终输出中明确写出
-`Loop Fidelity Summary: not run`，并说明原因，例如只修改文档、遇到重复 pending 图、
-没有 `dataset`/`render` 变更，或命令因环境限制无法执行。不要让读者误以为已经完成
-视觉保真验证。
-
-`Loop Fidelity Summary` 应保持可扫读，通常 5 到 9 行，至少包含：
-
-- Scope：dataset key、检查语言、是否包含图标 crop/vector 或 runtime raster。
-- Status：`not run`、`auto checks only`、`in progress`、`converged` 或 `blocked`。
-- Latest round：轮次、主检查方向、archive 路径、metrics JSON 路径。
-- Gates：自动硬门槛通过/失败摘要，包括 purity、尺寸、字体、raster、label-node overlap、
-  SSOT/i18n/语法。
-- Metrics：最新全图 `mae`、`similarity`、`changedPixelRatio`、`diffBoundingBox`。
-- Frozen/open：已冻结主方向、仍开放红框 region 或 backlog；没有开放项时写明 closure。
-- Red-box：红框参考图路径，或无开放红框的关闭说明。
-- Localization：非默认语言固定布局检查状态；未涉及时写 `not applicable`。
-- Feedback learning：用户反馈经验是否更新本文档、记录为数据集特例，或不适用。
-
-最终输出可以引用文件路径，不应粘贴整份 metrics JSON 或完整 Task 信息。若用户要求更
-详细记录，再展开最新 Task 信息、分区域指标和红框 region 表。
-
-## 冻结和重开
-
-一个方向只有在本轮记录包含候选图、参考图、Diff 图、相关局部指标和明确结论后，才可
-冻结。若该方向仍有未处理红框 region，或 Task 信息中没有记录对应结论，不得冻结。
-同一 sweep 轮可以同时冻结多个方向，只要每个方向都有各自的证据和结论；冻结不要求
-该方向单独占用过一轮。
-
-冻结后不再重复人工深查同一组 crop、bbox 表或目视说明，除非出现以下情况：
-
-- 相关节点、链接、标签、注释、语言覆盖、图标资产或渲染器逻辑被改动。
-- 自动验证出现纯净性失败、尺寸变化、横向 label-node overlap、文本越界、路径端点异常。
-- 用户标注区域局部指标显著回退。
-- 用户再次指出同一方向问题。
-
-被重开的方向必须重新成为某一轮主检查方向；不要在其他方向轮次里顺手修、顺手验。
-
-## Diff 指标
-
-全图循环按完整参考图计算。图标 vector 子循环按 icon viewport 或 crop/aligned reference
-的完整画布计算。
-
-每轮至少记录：
-
-- `mae`：RGB 平均绝对误差。
-- `similarity`：`1 - mae / 255`。
-- `maxChannelDiff`：单通道最大差异。
-- `samePixelRatio`：完全相同像素比例。
-- `changedPixelRatio`：有变化像素比例。
-- `diffBoundingBox`：差异像素的外接矩形。
-
-`pnpm verify:d3` 会自动为渲染 DOM 派生区域输出 Diff，例如边界、节点、链接、标签、
-annotation、runtime raster 等。区域报告位于 metrics JSON 的 `regions` 数组中。
-
-如果用户提供 Diff 图、截图红框或文字指出具体错位区域，必须把每个标注区域转成稳定
-region，并在对应主检查方向记录修复前后的 `mae`、`similarity`、`changedPixelRatio`。
-自动区域不能覆盖该标注时，可以用同一口径手工计算并在记录中说明。修复后的下一轮红框
-参考图必须删除已冻结区域，或把该区域明确标为已解决，避免后续继续围绕已关闭问题调参。
-
-识别 label 区域时，优先保证语义完整度。同一节点的名称、数值、备注、margin、Y/Y
-文本和紧邻图标应先作为同一个 label 意图归组，再根据排版需要拆成 blocks 或 lines。
-不要为了局部像素或空白把完整 label 语义拆成互不相关的优化区域。
-
-## 无语义跳过项
-
-以下内容不进入候选渲染、调参目标、图标资产或 runtime raster 例外：
-
-- 来源发布方水印。
-- 创作者/账号品牌。
-- 网站 URL。
-- 社交徽标或社交账号。
-- "how they make money" 出品方标识。
-- 署名条、attribution block。
-- 与公司损益表语义无关的装饰残片。
-- 没有独立业务图标的 `Others` 类 segment。
-
-这些区域可以在记录中标为跳过项。它们会贡献全图 Diff，但不得为了降低 Diff 被补画。
+来源发布方水印、创作者品牌、URL、社交徽标、"how they make money" 标识、
+署名条等 attribution 内容不属于本例外（见「无语义跳过项」）。
 
 ## 允许的改动范围
 
 整图 d3 循环只能通过 d3-compatible 改动改善输出：
 
-- `data.layout.nodes`
-- `data.layout.labels`
-- `data.render` 尺寸、颜色、透明度和排版
-- link 顺序、`sourceOrder`、`targetOrder`、显式 `y0`/`y1`、固定 socket 或 `curve`
-- vector logo 或 vector icon
-- 已批准的 runtime raster annotations
-- 渲染器对 SVG 几何、路径或文本控制的通用支持
+- `data.layout.nodes`、`data.layout.labels`；
+- `data.render` 尺寸、颜色、透明度和排版；
+- link 顺序、`sourceOrder`、`targetOrder`、显式 `y0`/`y1`、固定 socket、`curve`；
+- vector logo / vector icon；已批准的 runtime raster annotations（R 系列）；
+- 渲染器对 SVG 几何、路径或文本控制的通用支持。
 
-不得通过 Reference mode、直接 `<img>`、整张源图、未批准 crop、临时 overlay、CSS
-background、canvas 或锁定背景降低 Diff。
+不得通过 Reference mode、直接 `<img>`、整张源图、未批准 crop、临时 overlay、
+CSS background、canvas 或锁定背景降低 Diff。本地化 overlay 只能改变显示文字
+与语言特定排版（Z7）。
 
-本地化 overlay 只能改变显示文字和语言特定文本排版。不得改变 values、links、
-node geometry、financial totals、source image 或验证语义。
+## 执行入口
+
+创建或实质修改数据集后运行：
+
+```sh
+pnpm verify:d3 -- <dataset-key> [--focus "<主检查方向>"] [--keep] [--language <code>] [--round <n>]
+```
+
+`pnpm verify:dataset -- <dataset-key>` 把语法、SSOT、strict i18n、metadata 与
+每种语言的 d3 渲染打包成一条命令；单独调某一轮仍用 `verify:d3`。依赖安装：
+`pnpm install --frozen-lockfile && pnpm exec playwright install chromium`。
+受限 sandbox 中需一开始就用提权 shell 运行（脚本绑定 `127.0.0.1` 临时服务器，
+否则可能 `listen EPERM`）。
+
+`verify:d3` 每次运行：起本地静态服务器 → 最小 harness 执行
+`SankeyEngine.render('#chart', data)` → 截取 `#chart > svg` → 跑 G 系列哨兵 →
+计算全图与 DOM 派生分区域 Diff → 写 `compare/<key>-metrics.json` → 归档到
+`output/compare/<key>/<round>-<improvement>-<focus>/` 并复制共享参考图 →
+默认清理 `compare/`。
+
+归档命名：轮次按该 dataset 已有 archive 数自动递增补零（`--round` 可覆盖）；
+`improvement` 为全图 similarity 相对上一轮同语言 archive 的差值（如
+`sim+0.000123`；无上一轮用 `baseline`）；`focus` 转为短 slug，sweep 轮直接用
+层级名（`structure-sweep`、`text-sweep`、`polish-l10n-sweep`）。
+
+人工轮次必须传 `--focus`。需要并排看原图/候选/Diff 时加 `--keep`，结束前必须
+`sh scripts/clean-compare.sh`。最终记录引用 `output/compare/` 归档；
+`compare/` 只是临时 scratch。
+
+## 第 0 轮：渲染前测量
+
+输入：`docs/dynamic-dataset-workflow.md` 的输入分型与粗对象盘点结果
+（其 §Object Taxonomy 是对象类型清单的属主）。本节对该盘点清单逐对象精细
+测量，不重新推导对象列表。输出：直接写入 dataset 的测量值。
+
+进入第 1 轮之前，至少完成以下测量并直接写入 dataset：
+
+- 画布尺寸与各列节点的 x 位置。
+- 每个短辅助柱、短横柱和终端柱的像素 bbox（x/y/width/height）。
+- 逐条从原图追踪 link 拓扑：source、target、socket 位置，特别是 waterfall
+  区、绕行带和多入口目标柱（口径同 L8）。
+- 每个 label 的锚点位置、anchor 方向和语义归组（口径同 T11）。
+- 注释容器、KPI/stat card 和徽章的容器 bbox。
+
+测量方式任意但必须可复现（局部 crop 读坐标、取色器、脚本均可）；首轮渲染
+必须以测量值起步，不允许先粗排、再靠保真轮次逼近。
+
+【案例 → 规则依据】跨 10+ 轮才收敛的历史数据集，其后期修复项（socket 错位、
+短柱 x/y/height、label 中心、侧置 label 距离）几乎全部可在写 dataset 时一次
+做对——这是 3 轮预算成立的前提。
+
+## 保真循环流程
+
+人工轮次按 sweep 分层批量检查，标准预算 3 轮，必要时加 1–2 轮升级深查：
+
+- 第 1 轮 结构 sweep：输出纯净性、尺寸、裁剪、画布边界；节点几何、列位置、
+  节点高度、流带宽度；多入口/出口顺序与 socket；终端短横柱、辅助流端点、
+  自定义 curve；L8–L14 全部核对。
+- 第 2 轮 文本 sweep：T 系列（label-node 外框、文本交叠、位置与归属）+
+  A 系列（注释容器内部对齐、KPI/stat card、徽章、脚注）。
+- 第 3 轮 润色与本地化 sweep：颜色、透明度、图标细节、字体抗锯齿残留；
+  每种非默认语言按 Z 系列检查（每语言渲染各自归档为一轮，同属本层级）。
+
+每轮必须把本层 sweep 覆盖范围内的人眼显著错误一次修完，不把同层问题拆到多轮。
+自动哨兵每轮都跑；人工深查集中在门槛看不见的语义正确性上（对照 B 系列盲点表）：
+link 拓扑是否与原图一致、文本是否属于正确节点、label 是否与原图同位。
+
+单方向深查轮是升级手段，仅在以下情况使用：自动硬门槛反复失败且原因不明；
+用户反馈重开了某方向；sweep 轮发现本轮修不完或需逐条 bbox 审计。
+
+每轮步骤：
+
+1. 清理上一轮 scratch，或确认本轮使用新 archive。
+2. 运行自动哨兵（G1–G11）。
+3. 确定本轮 sweep 层级或升级方向；更新 Task 信息、冻结清单、重开项、backlog。
+4. 渲染候选图，获取原图、候选图、Diff 图和 metrics JSON。
+5. 读取全图指标和与本轮覆盖方向相关的分区域指标。
+6. 对本轮覆盖方向的高 Diff 区域和人眼显著错误做误差分类。
+7. 只针对本轮覆盖方向修改数据、布局、矢量资产或渲染器，按专项协议
+   （L/T/A/Z/I）把本层能修的一次修完并同口径复查。
+8. 生成本轮红框参考图；无开放问题则在 Task 信息中明确记录无开放红框。
+9. 通过的方向分别记录证据并冻结；未通过的进入升级深查或下一轮。
+10. 更新 Task 信息；做退出置信度判断（总则），决定立即收敛或下一轮主方向。
+
+层级外新问题：属更早层级的立即修（会使本层判断失效）；属更晚层级的记入
+backlog。自动硬门槛失败、画布裁剪、明显文本越界始终立即处理。
+
+## 并行与分派
+
+执行模型的属主是 `docs/dynamic-dataset-workflow.md` §Execution Model；本节只
+列循环特有细则。分派不降门槛：同一套自动哨兵与记录要求，主 Agent 复核并对
+结果负责。
+
+- 轮内并行：同方向候选值并行试、同一套指标取舍、一次归档（总则停机规则）。
+- 每语言渲染相互独立，可并行 shell 执行。
+- 可分派 Subagent：渲染与指标采集、bbox 报告收割、按已确认 region 清单绘制
+  红框、verifier 命令执行。
+- 只归主 Agent：误差分诊与分类、修复决策、冻结/重开/收敛判定、退出置信度
+  判断、人工反馈沉淀。
+
+## 冻结和重开
+
+一个方向只有在本轮记录包含候选图、参考图、Diff 图、相关局部指标和明确结论后
+才可冻结；仍有未处理红框 region 或缺结论的不得冻结。同一 sweep 轮可同时冻结
+多个方向（各有证据即可），冻结不要求该方向单独占用一轮。
+
+冻结后不再重复人工深查，除非：
+
+- 相关节点、链接、标签、注释、语言覆盖、图标资产或渲染器逻辑被改动；
+- 自动验证出现纯净性失败、尺寸变化、横向 overlap、文本越界、路径端点异常；
+- 用户标注区域局部指标显著回退；
+- 用户再次指出同一方向问题。
+
+被重开的方向必须重新成为某一轮主检查方向；不得在其他方向轮次里顺手修、顺手验。
 
 ## 连接线和终端接口
 
-当本轮覆盖连接线接口、节点/流带结构、终端短横柱、辅助流接口、用户标注接口（结构
-sweep 轮或升级深查轮），或相关冻结项被重开时，必须检查所有有多条 `sourceLinks`
-或 `targetLinks` 的节点。
-检查口径以渲染后的 SVG path 和 node bbox 为准，不以源码 link 数组位置、node `order`
-或上一轮视觉印象为准。
+触发条件：结构 sweep 轮或升级深查轮覆盖连接线接口、节点/流带结构、终端短横
+柱、辅助流接口、用户标注接口，或相关冻结项被重开 → 必须检查所有有多条
+`sourceLinks` 或 `targetLinks` 的节点。检查口径：渲染后的 SVG path 和 node
+bbox，不以源码 link 数组位置、node `order` 或上一轮视觉印象为准。
 
-硬性规则：
+- L1 多入口节点按实际进入节点边缘的垂直位置，自上而下列出 `source -> target`
+  顺序，对照参考图。
+- L2 多出口节点按实际离开节点边缘的垂直位置，同口径列出并对照。
+- L3 `sourceOrder` 只控制源节点出口堆叠，`targetOrder` 只控制目标节点入口堆叠。
+- L4 同一目标节点同时接收主经营利润与 other income/expense、tax benefit、
+  interest、investment gains 等辅助流时，单独核对目标端上下层级；同一源节点
+  同时分出净利润、税费、费用项时，单独核对源端上下层级。
+- L5 有显式 `curve`、`y0`/`y1`、固定 socket 或自定义宽度的高风险连接，记录
+  path 起终点、stroke width、source bbox、target bbox。
+- L6 连接线中心线应落在对应节点外框内，stroke 不应明显越出节点可接收范围，
+  除非参考图明确如此。
+- L7 自定义曲线控制点保持水平推进：`source.x1 <= c1x <= c2x <= target.x0`；
+  反向弯出或折返必须记录参考图依据。
+- L8 逐条从原图追踪 link 拓扑（source、target、socket、是否绕过中间柱），
+  不得按财务算式或节点邻近推断。waterfall 区的结果柱与调整项柱可能共享同一
+  目标或平行进入；原图显示带子绕过某结果柱时，不得把该结果柱写成中间节点。
+  细税线、短横线和多入口目标记录显式 `y0`/`y1` 或控制点，并在 Task 信息中
+  说明每条线对应的原图关系。
+- L9 用户指出连接线错误时，先复核两端节点自身的原图像素 bbox（尤其短柱的
+  x/y/height），把节点和同轴 label 移到原图高度后再调 socket 与曲线；节点
+  错位时任何 `y0`/`y1` 都只是对错误锚点的补丁。
+- L10 短距离多入口目标柱：高度须等于或足以容纳输入带宽之和，且每条输入带在
+  目标边界的垂直区间连续对齐；源图显示弯曲过渡的短 link 必须写显式 cubic
+  控制点，用局部 crop 确认平滑、无直角、台阶、空档或多余重叠。
+- L11 rounding 宽度核算：发布方 rounding 使分项和 ≠ 节点报告总值时，对每个
+  多入/出节点核对 Σlink.width 是否等于该节点 `layout.nodes` 高度——偏小会在
+  节点边缘露出背景色空隙，偏大会溢出。先用局部 crop 确认参考图该边缘连续
+  无空隙；确认后把差额计入组内最大的一条 link 的 `width`（不留空隙、不按
+  比例摊薄），再复查该 link 另一端点无新空隙/溢出，有则改配到另一条。同一
+  dataset 内所有多入/出节点按同一口径核对，不得只修被用户标注的方向。
+- L12 流带取色：渲染器默认把非 cost 目标的 link 画成
+  `source.tint -> target.tint` 渐变，cost 目标为纯 salmon。结构 sweep 轮必须
+  对每条从 hub 或深色 source 出发的 profit link，在紧邻源节点右缘外几 px 取色
+  对照源图；源图为纯色而候选为渐变时，用该 link 的显式 `linkTint` 覆盖为纯
+  profit 色，不得靠改节点 tint 掩盖。
+  【案例】App Economy 黑色 Revenue hub 的毛利带默认被渲染成 gray→green 渐变，
+  而源图从节点边缘起即纯 profit 色。
+- L13 节点联动移动：人工反馈要求节点「上/下移」时，把节点、同属 label、所有
+  相关 `y0`/`y1` 和 curve 控制点作为一个联动系统处理；移动后重算目标柱
+  stacked intervals，并用局部 crop 复查目标边界端点贴合。
+- L14 tooltip 百分比：用户指出 hover 百分比错误时，明确记录该 link 的语义
+  分母；waterfall 区、隐藏桥接、结果柱与调整项共用目标等启发式易误判的关系，
+  优先在 dataset link 上写 `percent` 或 `percentText`，不依赖 renderer 推断。
 
-1. 多入口节点按实际进入节点边缘的垂直位置，从上到下列出 `source -> target` 顺序，
-   对照参考图。
-2. 多出口节点按实际离开节点边缘的垂直位置，从上到下列出 `source -> target` 顺序，
-   对照参考图。
-3. `sourceOrder` 只控制源节点出口堆叠，`targetOrder` 只控制目标节点入口堆叠。
-4. 同一目标节点同时接收主经营利润、other income/expense、tax benefit、interest、
-   investment gains 等辅助流时，必须单独核对目标端上下层级。
-5. 同一源节点同时分出净利润、税费、费用项或其他扣减时，必须单独核对源端上下层级。
-6. 对有显式 `curve`、`y0`、`y1`、固定 socket 或自定义 link width 的高风险连接，记录
-   path 起点、终点、stroke width、source bbox、target bbox。
-7. 连接线中心线应落在对应节点外框内，stroke 宽度不应明显越出节点可接收范围，除非
-   参考图明确如此。
-8. 自定义曲线控制点通常应保持水平推进：`source.x1 <= c1x <= c2x <= target.x0`。
-   如果参考图要求反向弯出或折返，必须记录原因。
-9. 用户标注支线/辅助线形状错误时，先核对渲染后的 source node bbox、target node bbox
-   和 path 起终点是否与参考图同一接口对齐。不要只调 `curve.c1*`/`curve.c2*`；如果
-   源柱或目标短横柱本身偏离参考位置，应先修 node 几何，再修 `y0`/`y1` 和曲线控制点。
-
-修复优先级：
-
-- 入口顺序错误，先改 `targetOrder`。
-- 出口顺序错误，先改 `sourceOrder`。
-- 顺序正确但端点错位，再改 `y0`/`y1`、节点几何或曲线控制点。
-- 终端列整体偏移时，先修整列 `layout.nodes`，再校验 link 端点和 label。
-- 细辅助流宽度与短横柱高度不匹配时，先按参考局部 bbox 调整 link `width` 和节点高度。
-
-不要通过改颜色、透明度、节点覆盖或标签位置掩盖接口错位。
+修复优先级：入口顺序错 → `targetOrder`；出口顺序错 → `sourceOrder`；顺序对但
+端点错位 → `y0`/`y1`、节点几何或控制点；终端列整体偏移 → 先整列
+`layout.nodes` 再校验端点与 label；细辅助流宽度与短横柱高度不匹配 → 按参考
+局部 bbox 调 link `width` 和节点高度。不得用颜色、透明度、节点覆盖或移动标签
+掩盖接口错位。
 
 ## Label-node 和文本布局
 
-当本轮覆盖 label-node、文本交叠、文本位置、本地化布局（文本 sweep 轮、本地化
-sweep 轮或升级深查轮），或相关冻结项被重开时，必须用浏览器 `getBBox()` 或等价
-渲染结果检查文本外框。源码中的 `top`、`x`、`lineGap`
-和字体大小只是排版输入，不能替代真实外框。
+触发条件：文本 sweep 轮、本地化 sweep 轮或升级深查轮覆盖 label-node、文本
+交叠、文本位置、本地化布局，或相关冻结项被重开。检查口径：浏览器 `getBBox()`
+或等价渲染外框；源码中的 `top`、`x`、`lineGap`、字号只是排版输入。
 
-上下排列指 label 位于相关柱子上方或下方，二者形成同一竖向视觉组。该组的水平中心线
-应一致。左右排列指 label 位于柱子左侧或右侧，二者形成同一横向视觉组。该组的垂直
-中心线应一致。
+定义：上下排列 = label 与柱子构成同一竖向视觉组，水平中心线应一致；左右排列 =
+构成同一横向视觉组，垂直中心线应一致。
 
-默认间距目标：
-
-- 上方 label 外框下边界到 node 上边界：`5px ± 1px`。
-- 下方 label 外框上边界到 node 下边界：`5px ± 1px`。
-- 上下同轴 label 外框中心到 node 外框中心的水平差：目标 `0px`，短辅助柱/短横柱不超过
-  `4px`。
-- 同一竖向组相邻 label block 外框间距：`5px ± 1px`。
-- 左右 label 与 node 不得横向交叠，目标边界间距至少 `5px`。侧置 label 与 node 的**水平
-  距离**（`anchor:end` 的右缘 x、或 `anchor:start` 的左缘 x）是 auto-gate 盲点：哨兵只判
-  是否交叠，不判距离是否复刻源图。不要默认用 `nodeX0 - 小 pad`（如 12px）贴着柱子放
-  side name label；必须测量源图该组 label 的实际右/左缘 x，并让渲染 bbox 的对应边缘落在
-  同一 x。App Economy 分部图的左侧 segment name 通常整组右对齐在离柱子 ~25–30px 处，贴
-  柱会被读成“右侧交叠”。四个同列 side label 用同一右缘 x，避免逐个不一致。
-- 左右（侧置）label 外框垂直中心到 node 外框垂直中心的差：目标 `0px`，不超过 `4px`。
-  自动哨兵对侧置 label 只报 `edgeGap`/`verticalOverlap`，不判定垂直中心是否对齐，是一个
-  auto-gate 盲点，因此每个侧置 name label 都必须用渲染 bbox 手动核对
-  `labelCenterY ≈ nodeCenterY`。单行侧置 name label 是高风险项：渲染器把字形放在 block
-  `top` 下方约一行 ascent 处，多行 label 因为多行平均而不明显，单行 label 若把 `top` 直接
-  设成源图字形顶端会整体偏低约 8–12px（例如某柱 name 比柱心低 12px）。修复口径是按
-  `nodeCenterY` 反推 `top`，而不是照抄源图字形顶端。
-
-如果参考图明确使用不同间距，或为避免文本越界/交叠必须偏离，可以破例；破例必须记录
-原因。距离达到 20px 量级或更远时，必须有参考图依据或明确避让理由。
-
-高风险盲点：同一节点可能同时有侧置 name label 和与柱子同轴的 value/note label，
-尤其是高度很小的 source、cost 或辅助节点。如果同轴 label 与柱子在水平方向有交集或
-中心线接近，即使二者已经垂直相交，也必须归入上下排列的 label-node 组合，记录负
-`edgeGap`，并视为文本交叠/位置错误继续修复；不能因为 `label.bottom <= node.top` 不
-成立就漏掉。
-
-外框交叠关键检查必须按三段式执行：
-
-1. 在候选图上用加粗红色边框框出同一 node 的 label 渲染外框和柱子/node 渲染外框；
-   外框来自浏览器 `getBBox()` 或等价 DOM bbox，不使用源码坐标估算。
-2. 对这些红框做确定性 bbox 审计：按 `data-node` 归组，凡 label 与 node 的 x 方向有
-   交集且中心线接近，就视为同轴组合；计算 `edgeGap = node.top - label.bottom` 或
-   `edgeGap = label.top - node.bottom`，并记录 label/node `centerX` 差。若
-   `edgeGap < 4px`，算法必须先修到目标 `5px` 间距；若短辅助柱/短横柱
-   `centerDelta > 4px`，必须先把 label 重新居中到 node 中心，再重新渲染复查。
-3. 算法复查通过后，把红框图交给大模型做一次视觉总结，确认是否仍有同组外框交叠、
-   错误归组、相邻文字被挤压或新产生的可见重叠；若有，再修复一轮并记录本轮结论。
-   大模型复核不能替代第 2 步的确定性 bbox hard gate。
-
-短辅助节点也必须做同样检查，包括 `interest`、other income、tax benefit、
-investment gains 等连接到终端利润节点的短横柱或小矩形。若参考图把这类节点画在 label
-正上方或正下方，节点位置必须以自身 label 外框为主要参照，不能被主流带或终端节点牵引
-到斜上方、远上方或旁边。
-
-短 source 柱（如 Professional Services、Other 等只有几 px 高的收入分项）的
-数值/备注 block 必须以该柱的渲染 centerX 为锚点，正上方居中排列，不能因为文字扫描
-误捕相邻的 name label 而把它放到柱子侧面。这类 block 一旦被放到远离柱心的 x，同轴
-overlap gate 会因为水平不相交而判它“非同轴”从而漏检，属于 auto-gate 盲点；因此每个
-本应位于柱子正上/正下的 value/note block，都必须手动核对 `block.x ≈ nodeCenterX`，不能
-只依赖 gate 是否报同轴。
-
-源图把 interest、other income 等极小的利润加项画成“只有一条细流带 + 一条水平引导线、
-没有可见节点柱”时，不得为它渲染出可见的节点柱：把该锚点节点的 `color` 设成背景色让柱子
-隐形（保留它做 link 的源锚点），用 link 曲线 + `annotationsSvg` 引导线还原视觉，使该终端
-区只保留一个可见柱（净利润柱）。渲染层顺序是 links → nodes → labels → `annotationsSvg`，
-所以背景色节点不会盖住随后绘制的引导线。审查这类区域时要数“可见绿色柱”的数量，
-确认与源图一致（通常只有终端利润柱一个），避免同时出现隐藏锚点柱和引导线两条横向绿痕。
+- T1 间距目标：上方 label 外框下边界到 node 上边界 `5px ± 1px`；下方 label
+  外框上边界到 node 下边界 `5px ± 1px`；同竖向组相邻 label block 间距
+  `5px ± 1px`。
+- T2 同轴水平中心差目标 0px，短辅助柱/短横柱不超过 4px（G9 的人工延伸）：
+  源图语义显示 label 属于柱正上/正下时，不得降级为左右或远邻 label；固定布局
+  里手写靠左/靠右但视觉仍属柱上/下的汇总柱 label（毛利、营业利润、营业费用、
+  净利润/净亏损为高风险），必须按上下同轴组合审计；修复先把 label 水平中心
+  对齐到柱心，再复查是否产生新交叠。
+- T3 破例（参考图确实不同间距，或为避免越界/交叠）必须记录原因；间距达
+  20px 量级必须有参考图依据或明确避让理由。
+- T4 侧置 label 与 node 不得横向交叠，目标边界间距至少 5px。
+- T5 三段式外框审计：① 在候选图上用红框画出同一 node 的 label 与 node 渲染
+  外框（来源为 DOM bbox，不用源码坐标估算）；② 确定性 bbox 审计：按
+  `data-node` 归组，x 方向有交集且中心接近即视为同轴组合，计算
+  `edgeGap`，`edgeGap < 4px` 先修到 5px，短柱 `centerDelta > 4px` 先居中再
+  重渲染复查；③ 算法通过后把红框图交给模型做视觉复核（同组交叠、错误归组、
+  文字被挤压、新重叠）——模型复核不替代 ② 的确定性 hard gate。
+- T6 侧置 label 水平距离（盲点 B2）：测量源图该组 label 的实际右/左缘 x，让
+  渲染 bbox 对应边缘落在同一 x；不得默认用 `nodeX0 - 小 pad` 贴柱放置；同列
+  side label 用同一对齐缘。
+  【案例】App Economy 分部图左侧 segment name 整组右对齐在离柱 ~25–30px 处，
+  贴柱会被读成「右侧交叠」。
+- T7 侧置 label 垂直中心（盲点 B3）：每个侧置 name label 手动核对
+  `labelCenterY ≈ nodeCenterY`（≤4px）。单行侧置 label 高风险：渲染器把字形
+  放在 block `top` 下方约一行 ascent 处，修复口径是按 `nodeCenterY` 反推
+  `top`，不照抄源图字形顶端。
+  【案例】照抄字形顶端会使单行 name label 整体偏低约 8–12px。
+- T8 同节点侧置 name + 同轴 value/note 组合（高风险盲点）：同轴 label 与柱子
+  x 方向有交集或中心线接近时，即使二者垂直相交也归入上下排列组合，记录负
+  `edgeGap` 并按交叠修复；不因 `label.bottom <= node.top` 不成立而漏掉。
+- T9 短 source 柱的 value/note block（盲点 B4）：以该柱渲染 centerX 为锚点
+  正上方居中；每个本应位于柱正上/正下的 block 手动核对
+  `block.x ≈ nodeCenterX`，不能只依赖 gate 是否报同轴。
+- T10 短辅助节点（interest、other income、tax benefit、investment gains 等）
+  做同样检查；参考图把这类节点画在自身 label 正上/正下时，节点位置以 label
+  外框为主要参照，不得被主流带或终端节点牵引到别处。
+- T11 语义归组：同一节点的名称、数值、备注、margin、Y/Y 文本和紧邻图标先
+  作为同一 label 意图归组，再按排版拆 blocks/lines；不得为局部像素或空白把
+  完整 label 语义拆成互不相关的优化区域。
+- T12 隐形锚点柱（盲点 B7）：源图把极小利润加项画成「细流带 + 水平引导线、
+  无可见柱」时，不得渲染可见节点柱——锚点节点 `color` 设为背景色（保留 link
+  锚点），用 link 曲线 + `annotationsSvg` 引导线还原；水平引导线若在源图中
+  可见，必须按其像素 bbox 单独画出，锚点 bbox 放在引导线末端，曲线从该末端
+  进入目标柱，不得把隐藏锚点留在上游主柱附近导致引导线缺失或连接线斜穿。
+  渲染层序为 links → nodes → labels → annotations，背景色节点不会盖住引导线。
+  审查时数「可见绿色柱」数量与源图一致（通常仅终端利润柱一个）。
 
 ## 注释容器
 
-`annotationsSvg` 中的 KPI/stat card、黑色胶囊、图例框、徽章、脚注卡片和图标加文字
-组合不属于 `layout.labels`，但仍是图表语义的一部分。
+`annotationsSvg` 中的 KPI/stat card、黑色胶囊、图例框、徽章、脚注卡片和
+图标加文字组合不属于 `layout.labels`，但仍是图表语义的一部分。触发条件：
+文本 sweep 轮或升级深查轮覆盖注释容器，或相关冻结项被重开。
 
-当本轮覆盖注释容器、KPI/stat card、徽章、脚注、本地化注释文本（文本 sweep 轮或
-升级深查轮），或相关冻结项被重开时，必须：
-
-1. 识别容器外框，例如 `<rect>`、胶囊背景、badge 背景或等价 path。
-2. 取容器内部所有语义文字和图标的 union 外框。
-3. 如果参考图意图是居中，检查内部 union 外框中心是否与容器中心一致，或保持参考图
-   中同样的轻微偏移。
-4. 如果参考图意图是左对齐、右对齐或顶部对齐，检查对应边距和组内行距。
-5. 内容不能贴边，尤其是底边、右边和圆角区域。
-6. 非默认语言替换注释文字后，重新检查 union 外框是否仍在容器内且不越界。
-7. `annotationsSvg` 里的品牌 logo、wordmark、脚注等文字若与相邻的 `layout.labels`
-   节点标签（尤其源节点的“数值在上”block）在同一水平带内，必须用渲染 bbox 手动核对二者
-   右/左边界不交叠。自动 label-node overlap gate 只审计 `layout.labels` ↔ node，不审计
-   `annotationsSvg` 文字 ↔ `layout.labels`，这是一个 auto-gate 盲点：annotation 里的
-   wordmark 比源图渲染得更宽时会悄悄压到相邻数值标签上却不报错。修复时优先把 wordmark
-   收窄或整体左移到与相邻数值标签留出 ≥5px 间距，再复核 wordmark 自身左缘没有贴到画布边。
-
-优先让 helper 以容器中心、内容组高度、行高和边距推导 baseline。若保留手写 baseline，
-必须记录容器 bbox、内部 union bbox、中心差和四边边距。
+- A1 识别容器外框（`<rect>`、胶囊背景、badge 背景或等价 path）。
+- A2 取容器内部所有语义文字和图标的 union 外框。
+- A3 居中意图：union 中心与容器中心一致，或保持参考图同样的轻微偏移。
+- A4 左/右/顶对齐意图：检查对应边距和组内行距。
+- A5 内容不得贴边，尤其底边、右边和圆角区域。
+- A6 annotations 文字 ↔ `layout.labels` 交叠（盲点 B5）：`annotationsSvg` 里
+  的品牌 wordmark、脚注等与相邻节点标签（尤其源节点「数值在上」block）同处
+  一条水平带时，用渲染 bbox 手动核对边界不交叠；wordmark 过宽时优先收窄或
+  整体左移到 ≥5px 间距，再复核其左缘不贴画布边。
+- A7 非默认语言替换注释文字后，重查 union 外框仍在容器内且不越界。
+- A8 优先让 helper 以容器中心、内容组高度、行高和边距推导 baseline；保留
+  手写 baseline 时记录容器 bbox、union bbox、中心差和四边边距。
 
 ## 本地化布局
 
-英文保真循环通过，只说明默认语言输出稳定，不能证明中文或其他语言的固定布局文本也
-稳定。
+英文循环通过只说明默认语言稳定，不证明其他语言的固定布局文本稳定。
 
-每次新增或实质修改 `i18n.<language>` 覆盖时，必须安排本地化布局检查：
-
-```sh
-pnpm verify:d3 -- <dataset-key> --language zh --keep
-```
-
-该检查通常作为第 3 轮润色与本地化 sweep 的一部分完成，不需要额外追加独立轮次；
-只有发现本轮修不完的本地化问题时，才升级为单独的本地化深查轮次。
-
-本地化渲染的 Diff 仍以英文参考图为基准，只用于辅助定位；是否通过重点看输出纯净性、
-bbox 审计、混排/标点/缩写是否正确、文本是否越界或重叠。
-
-检查范围：
-
-- `layout.labels.*.blocks[].lines[].text`
-- `annotationsSvg`
-- KPI/stat card
-- title 和 period stamp
-- `.sankey-label[data-node]`
-- 图标旁标签和底部期间标记
-
-高风险字符串必须显式确认：`R&D`、`SG&A`、`G&A`、`D&A`、带 `&` 的组合标签、带金额
-后缀的标签，以及中英混排品牌/产品名。不允许出现无意半翻译、英文残留、错误中文逗号、
-或缩写被拆成 `R，D`、`SG，A`。
-
-英文缩写类侧置标签本地化后常会显著变长，例如地区缩写扩展为中文区域名。检查这类
-左/右侧 label 时，不能沿用英文 `anchor: start` 和原始 x 坐标；必须用渲染 bbox 确认
-翻译后的外框没有压到节点，并让同一侧同一列的 label 以靠近节点的一侧边缘对齐。必要时
-把长区域名拆成多行，并重新检查短标签是否仍与同列边缘对齐。
-
-处理顺序：
-
-1. 先补 dataset-level `i18n.<language>.layout.labels` 或 localized `annotationsSvg`。
-2. 对越界文本，优先拆行、调整该语言覆盖中的局部 `x`/`top`、减小局部字号或使用
-   合适的 `textLength`。
-3. 不要为适配翻译改变财务值、links、node geometry、source image 或验证语义。
-4. 品牌名、ticker、单位缩写或正式产品英文名可以有意保留，但必须记录。
+- Z1 触发：每次新增或实质修改 `i18n.<language>` 覆盖，必须做本地化布局检查：
+  `pnpm verify:d3 -- <dataset-key> --language zh --keep`。通常作为第 3 轮
+  sweep 的一部分完成；本轮修不完才升级为单独深查轮。
+- Z2 判定：本地化渲染的 Diff 仍以英文参考图为基准，只用于辅助定位；通过与否
+  看输出纯净性、bbox 审计、混排/标点/缩写正确性、越界与重叠。
+- Z3 检查范围：`layout.labels.*.blocks[].lines[].text`、`annotationsSvg`、
+  KPI/stat card、title 与 period stamp、`.sankey-label[data-node]`、图标旁
+  标签、底部期间标记。
+- Z4 高风险字符串显式确认：`R&D`、`SG&A`、`G&A`、`D&A`、带 `&` 组合标签、
+  金额后缀标签、中英混排品牌/产品名；不允许半翻译、英文残留、错误中文逗号、
+  或缩写被拆成 `R，D`、`SG，A`。
+- Z5 越界（盲点 B6）：文本渲染 bbox 必须在画布内。英文缩写类侧置标签翻译后
+  常显著变长：不得沿用英文 `anchor` 和原始 x；渲染 bbox 不得压到节点；同侧
+  同列 label 以靠近节点的一侧边缘对齐；必要时拆行并复查短标签仍对齐。
+- Z6 处理顺序：先补 dataset 级 `i18n.<language>.layout.labels` 或本地化
+  `annotationsSvg`；越界优先拆行、调整该语言覆盖内的局部 `x`/`top`、减小局部
+  字号或使用合适 `textLength`。
+- Z7 禁改：不得为适配翻译改变财务值、links、node geometry、source image 或
+  验证语义。
+- Z8 品牌名、ticker、单位缩写或正式产品英文名可以有意保留，但必须记录。
 
 ## 图标 Crop 和 Vector 子循环
 
-Company icon 和 business/segment illustrative icon 可以在整图 d3 循环之前单独跑
-crop/vector 子循环。目标是得到可复用 vector 资产，或在显式图片嵌入模式下得到已批准
-runtime raster copy；不是把 reference crop 当最终资产。
-
-适用对象：
-
-- 公司标志或公司图标。
-- 公司内部业务线、产品线、分部、segment 的说明性图标。
-- 后续数据集可能重复出现、值得复用的图标。
-
-步骤：
-
-1. 为当前数据集创建或更新 `input/icon-crop-specs/<dataset-key>.json`。
-2. 用 `scripts/extract_icon_crops.py` 提取所有有语义的 company icon 和 business/segment
-   icon cluster。除非任务明确缩小范围，不要只提取示例业务簇。
-3. crop 输出到 `data/assets/icon-references/<company>/crops/`。
-4. validation sheet 输出到 `data/assets/icon-references/<company>/validation-sheets/`。
-5. 保留 `crop-report.json`。
-6. 用 validation sheet 验证主体完整、居中、无无关文本/线条/水印/相邻图标。
-   注意 `crop-report.json` 每个 crop 的 `backgroundRemoval.transparentPixelRatio`：接近 0
-   说明背景没被抠掉。当某个 crop 的主体（如 wordmark、满框 logo）几乎铺满取景框时，
-   自动背景采样会把主体颜色当成背景、导致什么都不删；此时必须在 spec 的
-   `backgroundRemoval.color` 显式钉住画布底色（如 `[242,242,242]`）再重跑，不要依赖
-   自动采样。
-7. 验收结果写入 `model-validation.md`。
-8. 如果 crop 不准确，先重新 crop，不要基于错误 crop 继续 vector 化或 runtime 输出。
-9. vector 子循环中，候选必须是纯 SVG/vector，不得包含 `<image>`、位图、文本截图或覆盖层。
-10. 将候选 vector render 与 crop/aligned reference 按同一尺寸计算 Diff。
-11. 调整 geometry、viewBox、path、stroke、fill、transform、尺寸或对齐。
-12. 收敛后保存为可复用资产。
-
-Vector 资产落点：
-
-- 通用或可复用 company/business vector 优先放在 `src/icons.js` 的 `SANKEY_BUSINESS_ICONS`
-  或相关 icon 集合。
-- 数据集一次性 logo 可放在 dataset 内的 `meta.logoSvg` 或局部 helper。
-- validation render、vector diff 等证据放在对应 `validation-sheets/` 或记录文件中。
-- 后续 materially similar 图标优先复用已有 vector；可调整 viewBox、transform、size、
-  placement、stroke 或 fill，不创建近重复资产。
+- I1 适用与目标：公司标志/图标、业务线/产品线/segment 说明性图标、可能复用
+  的图标；可先于整图循环单独跑。目标是可复用 vector 资产或白名单 runtime
+  raster copy；reference crop 不是最终资产。
+- I2 为当前数据集创建/更新 `input/icon-crop-specs/<dataset-key>.json`，用
+  `scripts/extract_icon_crops.py` 提取所有有语义的 cluster；除非任务明确缩小
+  范围，不得只提取示例簇。
+- I3 输出落点：crops 到 `data/assets/icon-references/<company>/crops/`，
+  validation sheet 到同目录 `validation-sheets/`，保留 `crop-report.json`。
+- I4 验收：主体完整、视觉居中、无无关文本/线条/水印/相邻图标；crop 不准确
+  先重新 crop，不得基于错误 crop 继续 vector 化或 runtime 输出。
+- I5 背景去除：`crop-report.json` 中 `transparentPixelRatio` 接近 0 说明背景
+  没被抠掉，须在 spec 的 `backgroundRemoval.color` 显式钉住画布底色重跑，
+  不依赖自动采样。
+  【案例】主体（wordmark、满框 logo）几乎铺满取景框时，自动背景采样会把主体
+  颜色当成背景，导致什么都不删。
+- I6 验收结果写入 `model-validation.md`。
+- I7 vector 子循环：候选必须是纯 SVG/vector（不含 `<image>`、位图、文本截图
+  或覆盖层）；与 crop/aligned reference 按同一尺寸计算 Diff；调整 geometry、
+  viewBox、path、stroke、fill、transform、尺寸或对齐直至收敛。
+- I8 资产落点：通用/可复用 vector 优先放 `src/icons.js` 的
+  `SANKEY_BUSINESS_ICONS` 或相关 icon 集合；一次性 logo 放 dataset 的
+  `meta.logoSvg` 或局部 helper；validation render、vector diff 等证据放对应
+  `validation-sheets/` 或记录文件。
+- I9 复用优先：后续 materially similar 图标复用已有 vector（可调 viewBox、
+  transform、size、placement、stroke、fill），不创建近重复资产。
+- I10 子循环收敛条件：crop 已验证准确；候选是纯 vector；图标主体结构、关键
+  负形、边界留白和中心位置稳定；资产已存为可复用 vector 或 runtime raster
+  copy 已按 R 系列生成。
 
 ## 误差分类和修复优先级
 
-必须死磕：
+必须死磕（人眼显著错误，轮内必须关闭）：
 
-- 桑基接口没有对齐。
-- 节点入口或出口顺序错误。
-- 流带端点没有贴合节点边缘。
-- 终端短横柱或整列终端节点漂移。
-- 细辅助流 stroke width、`y0`/`y1` 或 socket 超出短横柱 bbox。
-- 自定义曲线反向弯出、下坠再上升或进入目标前折返。
-- 文本交叠、压到节点/流带、图标与文字重叠。
-- 文本属于错误节点，方向错误，或名称/数值/备注顺序错误。
-- label-node 外框关系无法解释，或本地化文本越界/裁切。
+- 桑基接口未对齐；节点入口/出口顺序错误；流带端点未贴合节点边缘。
+- 终端短横柱或整列终端节点漂移；细辅助流 stroke width、`y0`/`y1` 或 socket
+  超出短横柱 bbox；自定义曲线反向弯出、下坠再上升或进入目标前折返。
+- 文本交叠、压到节点/流带、图标与文字重叠；文本属于错误节点、方向错误或
+  名称/数值/备注顺序错误。
+- label-node 外框关系无法解释；本地化文本越界/裁切。
 - 注释容器内部内容偏心、贴边或与参考图意图不符。
 
-需要优化：
+需要优化：节点矩形位置/宽高偏移；流带宽度或层级顺序明显不同；标题位置或字号
+明显偏离；颜色、透明度、背景色偏差较大；图标尺寸或位置影响读图。
 
-- 节点矩形位置、宽度或高度偏移。
-- 流带宽度或层级顺序明显不同。
-- 标题位置或字号明显偏离。
-- 颜色、透明度、背景色偏差较大。
-- 图标尺寸或位置影响读图。
+可接受残留：字体渲染与抗锯齿差异；浏览器/系统/缩放的亚像素差异；手绘曲线
+纹理与 d3 曲线的细小差异；语义正确但外形略不同的 vector 图标；不含重复/裁剪/
+语义错误的品牌细节差异；不影响层级区分的轻微色差；背景或阴影低强度噪声。
 
-可以接受的残留：
+下一轮选择：先按 sweep 层级顺序推进（结构 → 文本 → 润色/本地化）。只有当某
+方向未冻结或被重开、需升级深查时，按以下优先级安排单方向轮次：① 自动硬门槛
+失败 ② 尺寸/裁剪/画布边界 ③ 连接线接口、socket、终端短横柱 ④ 节点位置与
+尺寸 ⑤ 流带宽度、顺序、端点贴合 ⑥ 文本交叠 ⑦ 文本位置/居中/对齐/邻近关系
+⑧ 文本越界 ⑨ 标题、图例、期间标记、注释容器 ⑩ 颜色、透明度、图标、字体
+抗锯齿残留。
 
-- 字体渲染和抗锯齿差异。
-- 浏览器、系统或缩放倍率造成的亚像素差异。
-- 手绘曲线纹理与 d3 曲线的细小差异。
-- 语义正确但外形略不同的 vector 图标。
-- 品牌标志细节差异，只要没有重复、裁剪或语义错误。
-- 轻微颜色偏差，且不影响层级区分。
-- 背景或阴影中的低强度噪声。
+## 无语义跳过项
 
-选择下一轮时，先按 sweep 层级顺序推进：结构 → 文本 → 润色/本地化。只有当某方向
-未冻结或被重开、需要升级深查时，才按以下优先级安排单方向轮次：
+以下内容不进入候选渲染、调参目标、图标资产或 runtime raster 例外：来源发布方
+水印；创作者/账号品牌；网站 URL；社交徽标或社交账号；"how they make money"
+出品方标识；署名条、attribution block；与损益表语义无关的装饰残片；没有独立
+业务图标的 `Others` 类 segment。
 
-1. 自动硬门槛失败。
-2. 尺寸、裁剪、画布边界。
-3. 连接线接口、socket、终端短横柱。
-4. 节点位置和节点尺寸。
-5. 流带宽度、顺序和端点贴合。
-6. 文本交叠。
-7. 文本位置、居中、对齐和关联对象邻近关系。
-8. 文本越界。
-9. 标题、图例、期间标记和注释容器。
-10. 颜色、透明度、图标和字体抗锯齿残留。
+这些区域可在记录中标为跳过项；它们会贡献全图 Diff，但不得为降低 Diff 被补画。
+
+## Diff 指标
+
+全图循环按完整参考图计算；图标 vector 子循环按 icon viewport 或 crop/aligned
+reference 的完整画布计算。每轮至少记录：
+
+- `mae`（RGB 平均绝对误差）、`similarity`（`1 - mae / 255`）、
+  `maxChannelDiff`、`samePixelRatio`、`changedPixelRatio`、`diffBoundingBox`。
+
+`pnpm verify:d3` 自动为渲染 DOM 派生区域（边界、节点、链接、标签、annotation、
+runtime raster 等）输出分区域 Diff，位于 metrics JSON 的 `regions` 数组。
+
+用户提供的 Diff 图、截图红框或文字标注必须转成稳定 region，在对应主检查方向
+记录修复前后的 `mae`、`similarity`、`changedPixelRatio`；自动区域不能覆盖时
+用同一口径手工计算并说明。修复后的下一轮红框参考图必须删除已冻结区域或标注
+已解决。识别 label 区域时按 T11 优先保证语义完整度。
+
+## 红框参考图和 Task 信息
+
+每轮人工循环结束前，基于本轮主检查方向生成红框参考图：
+
+- 以原始 reference image 为底图，不用候选图、Diff 图或截图拼贴。
+- 红框圈住完整语义区域（完整 label、完整节点接口、完整注释容器、完整图标
+  cluster），不只圈高 Diff 像素块；可带短编号，但不遮挡待检查内容。
+- 每个红框编号在 Task 信息中对应一条 region 记录。
+- 可接受残留和无语义跳过项通常不加红框；为防下一轮误追而标注时，必须在
+  Task 信息中明确写 `accepted` 或 `skip`。
+- 推荐路径：
+  `output/compare/<key>/<round>-<improvement>-<focus>/<key>-attention-reference.png`。
+- 下一轮开始时，必须同时参考上一轮红框图、metrics JSON、候选图和 Diff 图。
+
+Task 信息每轮维护，须稳定到下一轮无需重新询问用户。字段清单（唯一定义处）：
+
+1. dataset key、轮次号、archive 路径、红框参考图路径。
+2. 当前主检查方向（sweep 层级或升级方向）。
+3. 已主查并冻结的方向。
+4. 已重开的方向和重开原因。
+5. Backlog 中尚未主查的方向。
+6. 红框 region 清单：编号、region 名、bbox、问题分类、违反规则编号、对应
+   指标、下一步动作。
+7. 用户反馈沉淀：已更新/新增的规则编号、数据集特例、仍待处理项。
+8. 本轮退出置信度结论（高/低 + 依据）。
+9. 下一轮主检查方向和进入条件。
 
 ## 每轮记录模板
 
+字段引用式模板——各字段定义见括号内小节，不在模板中重复罗列：
+
 ```text
-Task 信息：
-- dataset key:
-- 轮次号:
-- archive:
-- 红框参考图:
-- 当前主检查方向（sweep 层级或升级方向）:
-- 已主查并冻结方向:
-- 重开方向和原因:
-- Backlog 主方向:
-- 下一轮主检查方向:
-
-Loop Fidelity Summary：
-- Scope:
-- Status:
-- Latest round:
-- Gates:
-- Metrics:
-- Frozen/open:
-- Red-box:
-- Localization:
-- Feedback learning:
-
-轮次：
-本轮主检查方向（sweep 层级或升级方向）：
-本轮覆盖并冻结的方向：
-冻结清单：
-重开项：
-Backlog：
-
-命令：
-候选图：
-原图：
-Diff 图：
-Metrics JSON：
-Archive：
-红框参考图：
-
-自动硬门槛：
-- purity:
-- SVG size:
-- font:
-- raster annotations:
-- label-node horizontal overlap:
-- SSOT/i18n/语法:
-
-全图指标：
-- mae:
-- similarity:
-- maxChannelDiff:
-- samePixelRatio:
-- changedPixelRatio:
-- diffBoundingBox:
-
-本轮主方向分区域指标：
-| region | x | y | width | height | mae | similarity | maxChannelDiff | changedPixelRatio | note |
-|--------|---|---|-------|--------|-----|------------|----------------|-------------------|------|
-
-红框 region 清单：
-| id | region | x | y | width | height | 分类 | 下一步动作 |
-|----|--------|---|---|-------|--------|------|------------|
-
-本轮主方向深查：
-
-连接线/终端接口（相关时）：
-- 多入口 targetOrder：
-- 多出口 sourceOrder：
-- 高风险 path 端点、stroke width、source/target bbox：
-- 自定义 curve 控制点：
-- 用户标注区域修复前后指标：
-
-Label-node/文本（相关时）：
-- 上下排列 centerX：
-- 默认 5px ± 1px 间距或破例原因：
-- 同轴 value/note 是否有负 edgeGap 或 bbox 交叠：
-- 左右 side label 是否 overlap：
-- 短辅助节点是否贴合自身 label：
-
-注释容器（相关时）：
-- 容器 bbox：
-- 内部 union bbox：
-- 中心差和四边边距：
-- 破例原因：
-
-本地化（相关时）：
-- 检查语言：
-- 固定布局文本覆盖：
-- 混排、标点、缩写：
-- bbox 越界或重叠：
-- 有意保留英文项：
-
-误差分类：
-- 必须死磕：
-- 需要优化：
-- 可以接受的残留：
-- 无语义跳过：
-
-用户反馈沉淀：
-- 本轮用户反馈：
-- 泛化经验：
-- 已更新规则：
-- 数据集特例：
-
-本轮修复：
-并行试值：
-本轮新冻结项：
-本轮保持冻结且未重复深查的方向：
-下一轮计划：
+- Task 信息：按「红框参考图和 Task 信息」字段清单 1–9 逐项更新。
+- 证据路径：命令、候选图、原图、Diff 图、metrics JSON、archive、红框图。
+- 自动硬门槛：G1–G11 逐项 pass/fail。
+- 全图指标：按「Diff 指标」六项。
+- 本轮主方向分区域指标：| region | bbox | mae | similarity | maxChannelDiff | changedPixelRatio | note |
+- 红框 region 清单：| id | region | bbox | 分类 | 违反规则编号 | 下一步 |
+- 方向专项结论：本轮覆盖方向按 L / T / A / Z / I 协议记录并引用规则编号；未覆盖方向不填。
+- 误差分类：必须死磕 / 需要优化 / 可接受残留 / 无语义跳过。
+- 用户反馈沉淀：反馈 → 处置（更新规则编号 / 新增规则 / 数据集特例）。
+- 本轮修复、并行试值、新冻结项、保持冻结项、下一轮计划与退出置信度结论。
 ```
+
+## 最终输出概要
+
+Workflow 处理新增或实质修改的数据集、渲染器、图标资产或本地化固定布局后，
+最终输出必须包含紧凑的 `Loop Fidelity Summary`（5–9 行，可扫读）。它不替代
+完整轮次记录；完整证据以最新 Task 信息、metrics JSON、候选图、Diff 图和
+archive 为准。未运行循环时必须写 `Loop Fidelity Summary: not run` 并说明原因
+（仅文档改动、重复 pending 图、无 dataset/render 变更、环境限制等）。
+
+字段：
+
+- Scope：dataset key、检查语言、是否含图标 crop/vector 或 runtime raster。
+- Status：`not run` / `auto checks only` / `in progress` / `converged` / `blocked`。
+- Latest round：轮次、主检查方向、archive 路径、metrics JSON 路径。
+- Gates：G1–G11 通过/失败摘要。
+- Metrics：最新全图 `mae`、`similarity`、`changedPixelRatio`、`diffBoundingBox`。
+- Frozen/open：已冻结方向、开放红框 region 或 backlog；无开放项写明 closure。
+- Red-box：红框参考图路径，或无开放红框的关闭说明。
+- Localization：非默认语言固定布局检查状态；未涉及写 `not applicable`。
+- Feedback learning：用户反馈经验更新了哪些规则编号、记录为特例，或不适用。
+
+最终输出引用文件路径即可，不粘贴整份 metrics JSON 或完整 Task 信息。
 
 ## 收敛标准
 
-反微调停机规则：自动硬门槛全部通过、“必须死磕”清单没有开放项后，如果预计新一轮
-只能带来全图 similarity 约 0.0005 以下的改善，就不得开启该轮；把剩余差异记录为
-可接受残留并收敛。同一方向的候选值试验必须在同一轮内并行完成、归档一次，不得拆成
-多个 archive 轮次。
-
 整个保真循环可以结束，必须同时满足：
 
-1. 自动硬门槛通过。
+1. 自动硬门槛（G1–G11）通过。
 2. 候选图纯净，没有使用未批准源图像素。
-3. 必须死磕的问题域都已被某轮 sweep 或升级深查覆盖、记录证据并冻结；sweep 轮
-   覆盖即可，不要求每个方向单独占用一轮。
+3. 「必须死磕」问题域都已被某轮 sweep 或升级深查覆盖、记录证据并冻结
+   （sweep 覆盖即可，不要求每方向单独占一轮）。
 4. 冻结清单没有被相关改动或自动回归信号重开。
-5. Backlog 为空，或剩余项均记录为可接受残留、无语义跳过或明确不属于当前任务范围。
+5. Backlog 为空，或剩余项均为可接受残留、无语义跳过或明确超范围。
 6. 本轮主方向分区域 Diff 没有新的结构性高误差区域。
-7. 全图 Diff 指标相较上一轮没有明显可操作改善空间。
-8. 用户标注区域已经逐一复查，并记录修复前后指标。
-9. 新增或修改过的非默认语言覆盖已经通过本地化布局检查（通常为第 3 轮 sweep 的
-   一部分）。
-10. 最新 Task 信息完整，列出所有已主查、已冻结、重开和 backlog 的主检查方向。
-11. 每个未冻结或刚修复的用户标注区域，都有对应红框参考图记录或明确关闭说明。
-12. 用户反馈中的通用经验已沉淀到本文档，数据集特例已记录在 Task 信息中。
+7. 全图 Diff 相较上一轮没有明显可操作改善空间。
+8. 用户标注区域已逐一复查，并记录修复前后指标。
+9. 新增或修改过的非默认语言覆盖已通过本地化布局检查（Z 系列）。
+10. 最新 Task 信息完整，列出所有已主查、已冻结、重开和 backlog 方向。
+11. 每个未冻结或刚修复的用户标注区域，有红框记录或明确关闭说明。
+12. 用户反馈中的通用经验已沉淀到本文档，特例已记录在 Task 信息中。
 13. 可接受残留和所有破例都记录原因。
 
-收敛时不要求全方向人工重查。全图相似度高不代表可以结束；但已冻结且未被重开的方向
-不应在最后一轮重复深查。
+收敛即退出置信度判断为「高」的正式确认（总则）。收敛不要求全方向人工重查；
+全图相似度高不代表可以结束；已冻结且未重开的方向不应在最后一轮重复深查。
+图标 vector 子循环的收敛另须满足 I10。
 
-图标 vector 子循环收敛还必须满足：
+## 人工反馈沉淀
 
-- Crop 已验证准确。
-- 候选 icon 是纯 SVG/vector。
-- 图标主体结构、关键负形、边界留白和中心位置稳定。
-- 资产已保存为可复用 vector，或 runtime raster copy 已按白名单生成。
+用户指出的错位、遗漏、误判或「看起来不对」的区域，不能只作为一次性修补项。
+每次收到人工修正后必须完成闭环：
+
+1. 把用户文字、截图红框或 Diff 标注转成稳定 region，归入一个主检查方向，并
+   标注违反的规则编号（无对应规则时标「规则缺口」）。
+2. 判断这是通用流程缺口、某类图表的高风险盲点，还是当前数据集特例。
+3. 通用缺口/可复用盲点 → 更新本文档对应编号规则、新增规则或补充盲点对照表，
+   措辞要能指导下一次独立处理。
+4. 数据集特例 → 在该轮 Task 信息记录原因、区域、修复方式和是否重开冻结项。
+5. 修复后复查用户标注区域，记录修复前后局部指标和视觉结论。
+6. 反馈处理轮以反馈项为主方向定向优化（总则），不做泛化重扫。
+
+只有经验已沉淀（规则更新或特例记录）后，才能在最终响应中声称该反馈已处理
+完毕；不得只写成聊天总结或临时 TODO。
 
 ## 禁止做法
 
-- 用原图或原图裁剪覆盖候选渲染。
-- 未验证 crop 准确性就开始 vector 化或 runtime 输出。
-- 将 `icon-references` crop 直接作为 d3 runtime asset。
+- 用原图或原图裁剪覆盖候选渲染（违反 G1、G4–G7）。
+- 未验证 crop 准确性就开始 vector 化或 runtime 输出（违反 I4）。
+- 将 `icon-references` crop 直接作为 d3 runtime asset（违反 R9）。
 - 为降低 Diff 复制无语义 attribution 内容。
 - 用隐藏文本、缩短文本或降低透明度掩盖布局错误。
 - 只报告全图相似度，不报告分区域证据。
@@ -828,7 +594,9 @@ Label-node/文本（相关时）：
 - 收到用户修正意见后只修当前像素，不沉淀可复用检查经验。
 - 把接口错位、文本不可读或文本越界当成风格差异接受。
 - 在没有 Diff 图、metrics JSON 和主方向分区域指标的情况下声称已经收敛。
-- 最终输出只写“已通过”或“已收敛”，但没有提供 `Loop Fidelity Summary` 或未运行原因。
-- 首轮渲染前不做参考图测量，靠多轮渲染逼近节点几何和 link 拓扑。
+- 最终输出只写「已通过」「已收敛」，但没有 `Loop Fidelity Summary` 或未运行
+  原因。
+- 首轮渲染前不做第 0 轮测量，靠多轮渲染逼近节点几何和 link 拓扑。
 - 把同一 sweep 层级内一轮能修完的问题拆成多个轮次。
-- 在“必须死磕”清单已清空后，为 0.0005 量级以下的 similarity 提升开启新轮次。
+- 「必须死磕」清单已清空后，为 0.0005 量级以下的 similarity 提升开启新轮次
+  （违反总则反微调停机规则）。
