@@ -6,9 +6,9 @@ import { createServer } from 'node:http';
 import { createReadStream, existsSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { rootDir } from './lib/project.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
-const rootDir = path.resolve(path.dirname(__filename), '..');
 
 const MIME_BY_EXT = {
   '.html': 'text/html; charset=utf-8',

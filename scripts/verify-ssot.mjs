@@ -1,39 +1,27 @@
 #!/usr/bin/env node
-import { existsSync, readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readdirSync } from 'node:fs';
 import path from 'node:path';
-import vm from 'node:vm';
-import { fileURLToPath } from 'node:url';
 import {
   DATASET_SCRIPT_DIR,
   UNREGISTERED_DATASET_SCRIPTS,
   dataScriptsFromIndex,
 } from './script-sources.mjs';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const rootDir = path.resolve(__dirname, '..');
-
-function readProjectFile(relativePath) {
-  return readFileSync(path.join(rootDir, relativePath), 'utf8');
-}
+import { assert, readProjectFile, rootDir } from './lib/project.mjs';
+import { loadClassicScripts } from './lib/vm-browser.mjs';
 
 function dataScripts() {
   return dataScriptsFromIndex(readProjectFile('index.html'));
 }
 
 function loadBrowserData(scripts) {
-  const context = { console };
-  context.window = context;
-  vm.createContext(context);
-
-  vm.runInContext(readProjectFile('src/icons.js'), context, { filename: 'src/icons.js' });
-  vm.runInContext(readProjectFile('src/trace-domain.js'), context, { filename: 'src/trace-domain.js' });
-  vm.runInContext(readProjectFile('data/income-statements.js'), context, { filename: 'data/income-statements.js' });
-  vm.runInContext(readProjectFile('data/revenue-metrics.js'), context, { filename: 'data/revenue-metrics.js' });
-  vm.runInContext(readProjectFile('data/company-metadata.js'), context, { filename: 'data/company-metadata.js' });
-  for (const script of scripts) {
-    vm.runInContext(readProjectFile(script), context, { filename: script });
-  }
+  const context = loadClassicScripts([
+    'src/icons.js',
+    'src/trace-domain.js',
+    'data/income-statements.js',
+    'data/revenue-metrics.js',
+    'data/company-metadata.js',
+    ...scripts,
+  ]);
 
   return {
     records: context.INCOME_STATEMENT_SSOT?.records || [],
@@ -42,10 +30,6 @@ function loadBrowserData(scripts) {
     datasets: context.DATASETS || [],
     domain: context.TraceDomain,
   };
-}
-
-function assert(condition, message, errors) {
-  if (!condition) errors.push(message);
 }
 
 function fmt(value) {

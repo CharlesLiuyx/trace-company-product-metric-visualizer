@@ -2,16 +2,8 @@
 import { createHash } from 'node:crypto';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { dataScriptsFromIndex, datasetScriptForKey } from './script-sources.mjs';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const rootDir = path.resolve(__dirname, '..');
-
-function projectPath(...segments) {
-  return path.join(rootDir, ...segments);
-}
+import { projectPath } from './lib/project.mjs';
 
 function relativeProjectPath(...segments) {
   return path.join(...segments).split(path.sep).join('/');

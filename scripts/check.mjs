@@ -6,11 +6,8 @@
 import { spawnSync } from 'node:child_process';
 import { readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import vm from 'node:vm';
-
-const __filename = fileURLToPath(import.meta.url);
-const rootDir = path.resolve(path.dirname(__filename), '..');
+import { rootDir } from './lib/project.mjs';
 
 const SCAN_DIRS = ['src', 'data', 'scripts'];
 const SKIP_DIRS = new Set(['node_modules', '__pycache__', 'assets']);

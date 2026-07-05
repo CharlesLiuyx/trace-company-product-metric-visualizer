@@ -6,12 +6,9 @@
 // an in-process static server; no build step involved.
 import { chromium } from 'playwright';
 import { startStaticServer } from './dev-server.mjs';
+import { assert } from './lib/project.mjs';
 
 const APP_MODULE_COUNT = 18;
-
-function assert(condition, message) {
-  if (!condition) throw new Error(message);
-}
 
 const { url, close } = await startStaticServer({ port: 0 });
 const browser = await chromium.launch();
