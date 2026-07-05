@@ -1,10 +1,13 @@
-# New Dataset Workflow
+# Dynamic Dataset Workflow
 
-Owning document for the end-to-end new-dataset workflow: the numbered pipeline,
-operational traps, the pre-response verification checklist, and reporting
-requirements. `AGENTS.md` §Workflow gives the high-level phase overview and
-points here; load this file before processing a pending image in
-`input/pending/`.
+Owning document for the dynamic dataset workflow — the end-to-end process for
+turning a pending image into a verified dataset. It is *dynamic*, not a frozen
+checklist: the fidelity loop folds every user correction back into the rules
+(`docs/fidelity-loop-rules.md` 人工反馈沉淀), so these steps keep evolving. It
+holds the numbered pipeline, operational traps, the pre-response verification
+checklist, and reporting requirements. `AGENTS.md` §Workflow gives the
+high-level phase overview and points here; load it before processing a pending
+image in `input/pending/`.
 
 Related owning docs: field-level dataset/SSOT format is `data/schema.md`, the
 d3 fidelity loop is `docs/fidelity-loop-rules.md`, commit conventions are

@@ -10,7 +10,7 @@ agent 指令以英文版 `AGENTS.md` 为准。
 
 | 规则领域 | 属主文档 |
 | --- | --- |
-| 新数据集工作流：流水线步骤、操作陷阱、回复前验证清单、汇报 | `docs/dataset-workflow.md` |
+| 动态数据集工作流：流水线步骤、操作陷阱、回复前验证清单、汇报 | `docs/dynamic-dataset-workflow.md` |
 | d3 保真循环：硬门槛、diff 指标、迭代、图标 crop/vector 子循环、本地化布局检查、Task 信息、红框图、Loop Fidelity Summary | `docs/fidelity-loop-rules.md` |
 | 数据集 / SSOT 字段级格式 | `data/schema.md` |
 | 提交信息约定 | `docs/commit-messages.md` |
@@ -76,7 +76,7 @@ agent 指令以英文版 `AGENTS.md` 为准。
 ## 工作流
 
 把一张 pending 图片变成已验证数据集分五个阶段。完整的编号流水线、操作陷阱、
-最终回复前的验证清单与汇报要求都在 `docs/dataset-workflow.md`——处理 pending
+最终回复前的验证清单与汇报要求都在 `docs/dynamic-dataset-workflow.md`——处理 pending
 图片之前先加载它。
 
 1. 接入与守卫——运行 `pnpm check:pending`，然后确定 `<公司>-<期间>` key，把
@@ -91,7 +91,7 @@ agent 指令以英文版 `AGENTS.md` 为准。
 5. 收尾——`pnpm check` 全绿，`input/pending/` 恢复为只剩 `.gitkeep`，然后按
    `docs/commit-messages.md` 提交。
 
-每次最终回复之前，满足 `docs/dataset-workflow.md` 中的回复前验证清单与汇报
+每次最终回复之前，满足 `docs/dynamic-dataset-workflow.md` 中的回复前验证清单与汇报
 要求。
 
 ## d3-Sankey 保真循环

@@ -10,7 +10,7 @@ together.
 
 | rule domain | owning document |
 | --- | --- |
-| new dataset workflow: pipeline steps, operational traps, pre-response verification checklist, reporting | `docs/dataset-workflow.md` |
+| dynamic dataset workflow: pipeline steps, operational traps, pre-response verification checklist, reporting | `docs/dynamic-dataset-workflow.md` |
 | d3 fidelity loop: hard gates, diff metrics, iteration, icon crop/vector subloops, localization layout checks, Task info, red-box images, Loop Fidelity Summary | `docs/fidelity-loop-rules.md` |
 | dataset / SSOT field-level format | `data/schema.md` |
 | commit message convention | `docs/commit-messages.md` |
@@ -83,7 +83,7 @@ Install once; the d3/standalone verifiers render in Chromium:
 
 Turning a pending image into a verified dataset runs in five phases. The full
 numbered pipeline, operational traps, pre-response verification checklist, and
-reporting requirements live in `docs/dataset-workflow.md` — load it before
+reporting requirements live in `docs/dynamic-dataset-workflow.md` — load it before
 processing a pending image.
 
 1. Intake & guard — run `pnpm check:pending`, then assign the
@@ -101,7 +101,7 @@ processing a pending image.
    then commit per `docs/commit-messages.md`.
 
 Before every final response, satisfy the pre-response Verification Checklist
-and Reporting requirements in `docs/dataset-workflow.md`.
+and Reporting requirements in `docs/dynamic-dataset-workflow.md`.
 
 ## d3-Sankey Fidelity Loop
 
