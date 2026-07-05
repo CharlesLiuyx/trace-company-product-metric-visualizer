@@ -1,12 +1,9 @@
 #!/usr/bin/env node
 import { readFile, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { dataScriptsFromIndex } from './script-sources.mjs';
+import { projectPath, readProjectFile } from './lib/project.mjs';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const rootDir = path.resolve(__dirname, '..');
 const outputPath = 'data/dataset-file-metadata.js';
 const metricSourceFiles = [
   'data/revenue-metrics.js',
@@ -19,16 +16,8 @@ function parseArgs(argv) {
   return { check: argv.includes('--check') };
 }
 
-function projectPath(relativePath) {
-  return path.join(rootDir, relativePath);
-}
-
 function datasetKeyForScript(script) {
   return path.basename(script, '.js');
-}
-
-async function readProjectFile(relativePath) {
-  return readFile(projectPath(relativePath), 'utf8');
 }
 
 async function datasetEntries() {

@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 import { spawnSync } from 'node:child_process';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync } from 'node:fs';
 import path from 'node:path';
-import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
 import { dataScriptsFromIndex, datasetScriptForKey } from './script-sources.mjs';
+import { readProjectFile, rootDir } from './lib/project.mjs';
+import { loadClassicScripts } from './lib/vm-browser.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const rootDir = path.resolve(__dirname, '..');
 
 const SUPPORT_DATA_FILES = [
   'data/income-statements.js',
@@ -32,18 +32,8 @@ function parseArgs(argv) {
   return { datasetKey: positional[0], skipRender };
 }
 
-function readProjectFile(relativePath) {
-  return readFileSync(path.join(rootDir, relativePath), 'utf8');
-}
-
 function nonDefaultLanguages() {
-  const context = { console };
-  context.window = context;
-  context.document = undefined;
-  vm.createContext(context);
-  for (const script of ['src/icons.js', 'src/sankey-engine.js', 'src/i18n.js']) {
-    vm.runInContext(readProjectFile(script), context, { filename: script });
-  }
+  const context = loadClassicScripts(['src/icons.js', 'src/sankey-engine.js', 'src/i18n.js']);
   const i18n = context.SANKEY_I18N;
   if (!i18n?.languageCodes) {
     throw new Error('Could not derive language codes from src/i18n.js');

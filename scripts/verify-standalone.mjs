@@ -1,12 +1,10 @@
 #!/usr/bin/env node
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { pathToFileURL } from 'node:url';
 import { chromium } from 'playwright';
+import { assert, rootDir } from './lib/project.mjs';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const rootDir = path.resolve(__dirname, '..');
 const defaultHtml = 'output/trace-company-product-metric-visualizer.html';
 
 function parseArgs(argv) {
@@ -14,10 +12,6 @@ function parseArgs(argv) {
   const html = args[0] || defaultHtml;
   if (args.length > 1) throw new Error(`Unknown argument(s): ${args.slice(1).join(' ')}`);
   return { html };
-}
-
-function assert(condition, message) {
-  if (!condition) throw new Error(message);
 }
 
 function inspectMarkup(filePath) {
