@@ -10,6 +10,7 @@ const {
   autoSide,
   buildFixedGraph,
   referenceCanvasDefaults,
+  canvasSize,
   buildLabelSpecs,
   decollideSideLabels,
 } = SankeyEngine.helpers;
@@ -79,6 +80,21 @@ test('canvas precedence: render size beats reference image beats DEFAULTS', () =
   );
   assert.equal(cfg.width, 3000, 'explicit render.width wins');
   assert.equal(cfg.height, 1500, 'reference image height fills the gap');
+});
+
+test('canvasSize resolves the effective canvas under the render precedence', () => {
+  const data = { meta: { referenceImage: { src: 'x.png', width: 2667, height: 1500 } }, render: { width: 3000 } };
+  assert.deepEqual(plain(canvasSize(data)), { width: 3000, height: 1500 });
+  assert.deepEqual(
+    plain(canvasSize({ meta: { referenceImage: { src: 'x.png', width: 2667, height: 1500 } } })),
+    { width: 2667, height: 1500 },
+    'reference image dimensions win over DEFAULTS'
+  );
+  assert.deepEqual(
+    plain(canvasSize({})),
+    { width: SankeyEngine.DEFAULTS.width, height: SankeyEngine.DEFAULTS.height },
+    'DEFAULTS canvas is the final fallback'
+  );
 });
 
 function fixtureGraph({ layout, links: linkSpecs }) {
