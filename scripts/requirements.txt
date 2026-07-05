@@ -1,0 +1,9 @@
+# Python dependencies for scripts/extract_icon_crops.py
+# (the Node toolchain manages everything else via pnpm).
+#
+#   python3 -m pip install -r scripts/requirements.txt
+#
+# Pillow is required; numpy is optional but recommended — the crop script
+# falls back to a slower pure-Pillow path when numpy is unavailable.
+Pillow>=10.0
+numpy>=1.26
