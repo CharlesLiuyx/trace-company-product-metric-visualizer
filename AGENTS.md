@@ -63,7 +63,8 @@ Install once; the d3/standalone verifiers render in Chromium:
 | command | purpose |
 | --- | --- |
 | `pnpm dev` | zero-dependency local static server on port 8000 |
-| `pnpm check` | fast aggregate gate: repo-wide JS syntax sweep, then pending guard, SSOT parity, i18n coverage, metadata freshness (sub-second, no rendering) |
+| `pnpm check` | fast aggregate gate: repo-wide JS syntax sweep, unit tests, then pending guard, SSOT parity, i18n coverage, metadata freshness (seconds, no rendering) |
+| `pnpm test` | node:test unit tests in `tests/` — engine layout math, trace-domain parsing/FX, i18n translation rules, png-diff metrics, script-source parsing |
 | `pnpm verify:app` | headless boot + interaction smoke of the modular viewer (`src/app/*`): module count, persisted-prefs boot, hash routing, comparison zoom + metric trend, revenue trend, mobile viewport |
 | `pnpm check:pending` | pending-image duplicate / key-collision guard |
 | `pnpm sync:index-datasets` | order-preserving sync of `index.html` data `<script>` tags with `data/datasets/`, `data/income-statements/`, and `data/company-metadata/` (append missing, drop stale; `--check` reports drift) |

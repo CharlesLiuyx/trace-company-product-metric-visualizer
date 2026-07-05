@@ -57,7 +57,8 @@ agent 指令以英文版 `AGENTS.md` 为准。
 | 命令 | 用途 |
 | --- | --- |
 | `pnpm dev` | 零依赖本地静态服务器，端口 8000 |
-| `pnpm check` | 快速聚合门：全仓 JS 语法扫描，然后 pending 守卫、SSOT 奇偶、i18n 覆盖、metadata 新鲜度（亚秒级，无渲染） |
+| `pnpm check` | 快速聚合门：全仓 JS 语法扫描、单元测试，然后 pending 守卫、SSOT 奇偶、i18n 覆盖、metadata 新鲜度（秒级，无渲染） |
+| `pnpm test` | `tests/` 下的 node:test 单元测试——引擎布局数学、trace-domain 解析/汇率、i18n 翻译规则、png-diff 指标、script-source 解析 |
 | `pnpm verify:app` | 模块化查看器（`src/app/*`）的无头启动 + 交互冒烟：模块数量、持久化偏好启动、hash 路由、对比缩放 + 指标趋势、收入趋势、移动端视口 |
 | `pnpm check:pending` | 待处理图片重复 / key 冲突守卫 |
 | `pnpm sync:index-datasets` | 保持顺序地同步 `index.html` 数据 `<script>` 标签与 `data/datasets/`、`data/income-statements/`、`data/company-metadata/`（追加缺失、删除失效；`--check` 只报告漂移） |

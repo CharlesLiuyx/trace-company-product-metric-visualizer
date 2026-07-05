@@ -290,6 +290,8 @@ example.
 | `scripts/build-standalone.mjs` | builds the self-contained HTML artifact                    |
 | `scripts/verify-standalone.mjs` | opens the artifact via `file://` and checks d3 rendering |
 | `scripts/script-sources.mjs`| shared script classification for page and verifier harnesses  |
+| `scripts/lib/`              | shared verifier internals: project paths, VM loader, fonts, PNG diff, compare archive, d3 hard gates |
+| `tests/*.test.mjs`          | node:test unit tests (`pnpm test`): engine layout, trace-domain, i18n, png-diff, script sources, hard gates |
 | `scripts/extract_icon_crops.py` | spec-driven icon crop extraction and validation           |
 | `data/income-statements/<company-key>.js` | pure financial-statement SSOT for totals and line items       |
 | `data/company-metadata/<company-key>.js`  | company-profile SSOT for Table mode and onboarding checks     |
