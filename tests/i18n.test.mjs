@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { loadClassicScripts } from './helpers/vm-load.mjs';
 
-const { SANKEY_I18N } = loadClassicScripts(['src/icons.js', 'src/i18n.js']);
+const { SANKEY_I18N } = loadClassicScripts(['src/icons.js', 'src/i18n-dictionaries.js', 'src/i18n.js']);
 const zh = (value) => SANKEY_I18N.text(value, 'zh');
 
 test('normalizeLanguage accepts exact codes, defaults everything else', () => {

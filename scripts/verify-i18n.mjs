@@ -41,7 +41,7 @@ function parseArgs(argv) {
 }
 
 function loadBrowserData() {
-  return loadSharedBrowserData({ runtime: ['src/sankey-engine.js', 'src/i18n.js'] });
+  return loadSharedBrowserData({ runtime: ['src/sankey-engine.js', 'src/i18n-dictionaries.js', 'src/i18n.js'] });
 }
 
 function clean(value) {

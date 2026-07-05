@@ -34,7 +34,7 @@ function parseArgs(argv) {
 }
 
 function nonDefaultLanguages() {
-  const context = loadClassicScripts(['src/icons.js', 'src/sankey-engine.js', 'src/i18n.js']);
+  const context = loadClassicScripts(['src/icons.js', 'src/sankey-engine.js', 'src/i18n-dictionaries.js', 'src/i18n.js']);
   const i18n = context.SANKEY_I18N;
   if (!i18n?.languageCodes) {
     throw new Error('Could not derive language codes from src/i18n.js');
