@@ -223,6 +223,13 @@ socket 和曲线。
 源图显示为弯曲过渡，必须为这些短 link 写显式 cubic control points，并用局部 crop
 确认连接过程平滑、没有直角、台阶、空档或不该出现的重叠。
 
+link 流带颜色核对：渲染器默认把非 cost 目标的 link 画成 `source.tint -> target.tint`
+渐变，只有 cost 目标才用纯 salmon。当 hub 或 source 节点是黑/深色（如 App Economy
+黑色 Revenue hub），毛利/营业利润等 profit 流带会被默认渲染成 `gray -> green` 渐变，
+而源图通常显示为从节点边缘起就是纯 profit 色。结构 sweep 轮必须对每条 hub/深色 source
+出发的 profit link，在紧邻源节点处（源节点右缘外几 px）取色对照源图；若源图是纯色而
+候选是渐变，用该 link 的显式 `linkTint` 覆盖为纯 profit 色，不要靠改节点 tint 掩盖。
+
 发布方 rounding 导致某节点的分项数值之和与该节点自身报告总值不完全相等时（例如
 segment 合计 $10.9B 但 hub 报告 $11.0B），必须对每一个有多条 `sourceLinks` 或
 `targetLinks` 的节点显式核对：这些 link 的 `width` 之和是否等于该节点的
@@ -450,7 +457,19 @@ sweep 轮或升级深查轮），或相关冻结项被重开时，必须用浏�
 - 上下同轴 label 外框中心到 node 外框中心的水平差：目标 `0px`，短辅助柱/短横柱不超过
   `4px`。
 - 同一竖向组相邻 label block 外框间距：`5px ± 1px`。
-- 左右 label 与 node 不得横向交叠，目标边界间距至少 `5px`。
+- 左右 label 与 node 不得横向交叠，目标边界间距至少 `5px`。侧置 label 与 node 的**水平
+  距离**（`anchor:end` 的右缘 x、或 `anchor:start` 的左缘 x）是 auto-gate 盲点：哨兵只判
+  是否交叠，不判距离是否复刻源图。不要默认用 `nodeX0 - 小 pad`（如 12px）贴着柱子放
+  side name label；必须测量源图该组 label 的实际右/左缘 x，并让渲染 bbox 的对应边缘落在
+  同一 x。App Economy 分部图的左侧 segment name 通常整组右对齐在离柱子 ~25–30px 处，贴
+  柱会被读成“右侧交叠”。四个同列 side label 用同一右缘 x，避免逐个不一致。
+- 左右（侧置）label 外框垂直中心到 node 外框垂直中心的差：目标 `0px`，不超过 `4px`。
+  自动哨兵对侧置 label 只报 `edgeGap`/`verticalOverlap`，不判定垂直中心是否对齐，是一个
+  auto-gate 盲点，因此每个侧置 name label 都必须用渲染 bbox 手动核对
+  `labelCenterY ≈ nodeCenterY`。单行侧置 name label 是高风险项：渲染器把字形放在 block
+  `top` 下方约一行 ascent 处，多行 label 因为多行平均而不明显，单行 label 若把 `top` 直接
+  设成源图字形顶端会整体偏低约 8–12px（例如某柱 name 比柱心低 12px）。修复口径是按
+  `nodeCenterY` 反推 `top`，而不是照抄源图字形顶端。
 
 如果参考图明确使用不同间距，或为避免文本越界/交叠必须偏离，可以破例；破例必须记录
 原因。距离达到 20px 量级或更远时，必须有参考图依据或明确避让理由。
@@ -479,6 +498,20 @@ investment gains 等连接到终端利润节点的短横柱或小矩形。若参
 正上方或正下方，节点位置必须以自身 label 外框为主要参照，不能被主流带或终端节点牵引
 到斜上方、远上方或旁边。
 
+短 source 柱（如 Professional Services、Other 等只有几 px 高的收入分项）的
+数值/备注 block 必须以该柱的渲染 centerX 为锚点，正上方居中排列，不能因为文字扫描
+误捕相邻的 name label 而把它放到柱子侧面。这类 block 一旦被放到远离柱心的 x，同轴
+overlap gate 会因为水平不相交而判它“非同轴”从而漏检，属于 auto-gate 盲点；因此每个
+本应位于柱子正上/正下的 value/note block，都必须手动核对 `block.x ≈ nodeCenterX`，不能
+只依赖 gate 是否报同轴。
+
+源图把 interest、other income 等极小的利润加项画成“只有一条细流带 + 一条水平引导线、
+没有可见节点柱”时，不得为它渲染出可见的节点柱：把该锚点节点的 `color` 设成背景色让柱子
+隐形（保留它做 link 的源锚点），用 link 曲线 + `annotationsSvg` 引导线还原视觉，使该终端
+区只保留一个可见柱（净利润柱）。渲染层顺序是 links → nodes → labels → `annotationsSvg`，
+所以背景色节点不会盖住随后绘制的引导线。审查这类区域时要数“可见绿色柱”的数量，
+确认与源图一致（通常只有终端利润柱一个），避免同时出现隐藏锚点柱和引导线两条横向绿痕。
+
 ## 注释容器
 
 `annotationsSvg` 中的 KPI/stat card、黑色胶囊、图例框、徽章、脚注卡片和图标加文字
@@ -494,6 +527,12 @@ investment gains 等连接到终端利润节点的短横柱或小矩形。若参
 4. 如果参考图意图是左对齐、右对齐或顶部对齐，检查对应边距和组内行距。
 5. 内容不能贴边，尤其是底边、右边和圆角区域。
 6. 非默认语言替换注释文字后，重新检查 union 外框是否仍在容器内且不越界。
+7. `annotationsSvg` 里的品牌 logo、wordmark、脚注等文字若与相邻的 `layout.labels`
+   节点标签（尤其源节点的“数值在上”block）在同一水平带内，必须用渲染 bbox 手动核对二者
+   右/左边界不交叠。自动 label-node overlap gate 只审计 `layout.labels` ↔ node，不审计
+   `annotationsSvg` 文字 ↔ `layout.labels`，这是一个 auto-gate 盲点：annotation 里的
+   wordmark 比源图渲染得更宽时会悄悄压到相邻数值标签上却不报错。修复时优先把 wordmark
+   收窄或整体左移到与相邻数值标签留出 ≥5px 间距，再复核 wordmark 自身左缘没有贴到画布边。
 
 优先让 helper 以容器中心、内容组高度、行高和边距推导 baseline。若保留手写 baseline，
 必须记录容器 bbox、内部 union bbox、中心差和四边边距。
@@ -562,6 +601,11 @@ runtime raster copy；不是把 reference crop 当最终资产。
 4. validation sheet 输出到 `data/assets/icon-references/<company>/validation-sheets/`。
 5. 保留 `crop-report.json`。
 6. 用 validation sheet 验证主体完整、居中、无无关文本/线条/水印/相邻图标。
+   注意 `crop-report.json` 每个 crop 的 `backgroundRemoval.transparentPixelRatio`：接近 0
+   说明背景没被抠掉。当某个 crop 的主体（如 wordmark、满框 logo）几乎铺满取景框时，
+   自动背景采样会把主体颜色当成背景、导致什么都不删；此时必须在 spec 的
+   `backgroundRemoval.color` 显式钉住画布底色（如 `[242,242,242]`）再重跑，不要依赖
+   自动采样。
 7. 验收结果写入 `model-validation.md`。
 8. 如果 crop 不准确，先重新 crop，不要基于错误 crop 继续 vector 化或 runtime 输出。
 9. vector 子循环中，候选必须是纯 SVG/vector，不得包含 `<image>`、位图、文本截图或覆盖层。
