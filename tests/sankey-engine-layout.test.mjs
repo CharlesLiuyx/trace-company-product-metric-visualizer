@@ -176,7 +176,7 @@ test('buildLabelSpecs builds auto side labels with name/value/notes lines', () =
   const spec = specs[0];
   assert.equal(spec.side, 'above', 'profit in a middle column defaults to above');
   assert.equal(spec.anchor, 'middle');
-  assert.deepEqual(spec.lines.map((l) => l.t), ['Gross profit', '$60B', '70% margin']);
+  assert.deepEqual(plain(spec.lines.map((l) => l.t)), ['Gross profit', '$60B', '70% margin']);
   const blockH = CFG.type.name + CFG.type.value + CFG.type.note + CFG.type.lineGap * 2;
   assert.equal(spec.blockH, blockH);
   assert.equal(spec.top, n.y0 - 16 - blockH, 'above block sits fully above the node top');
@@ -199,13 +199,13 @@ test('buildLabelSpecs expands $value and honors lineGap/labelYOffset in custom b
   assert.equal(spec.anchor, 'end');
   assert.equal(spec.top, 107, 'block.top + labelYOffset');
   assert.equal(spec.lineGap, 4);
-  assert.deepEqual(spec.lines.map((l) => l.t), ['Gross', '$60B']);
+  assert.deepEqual(plain(spec.lines.map((l) => l.t)), ['Gross', '$60B']);
 });
 
 test('buildLabelSpecs splits split-left labels into name and value blocks', () => {
   const n = labelNode({ labelSide: 'split-left' });
   const { specs } = buildLabelSpecs({ nodes: [n] }, {}, CFG, META, 3);
-  assert.deepEqual(specs.map((s) => s.side), ['split-name', 'split-value']);
+  assert.deepEqual(plain(specs.map((s) => s.side)), ['split-name', 'split-value']);
   assert.equal(specs[0].x, n.x0 - 42, 'name block hangs left of the node');
   assert.equal(specs[1].top, n.y0 - 35 - specs[1].blockH, 'value block sits above the node');
 });
