@@ -1,0 +1,217 @@
+{
+  "source": "input/processed/didi-q1-fy26.png",
+  "spec": "input/icon-crop-specs/didi-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-04T15:14:58.329148+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/didi",
+  "crops": [
+    {
+      "key": "didi-company-logo",
+      "output": "data/assets/icon-references/didi/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2996,
+        "losslessBytes": 11784,
+        "savingsVsLossless": 0.7458,
+        "metrics": {
+          "meanAbsoluteError": 0.3676,
+          "rootMeanSquareError": 1.0595,
+          "p99AbsoluteError": 5,
+          "maxChannelDiff": 30,
+          "changedPixelRatio": 0.4129
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 43982,
+        "transparentPixelRatio": 0.4825
+      },
+      "searchBox": {
+        "x": 555,
+        "y": 250,
+        "width": 555,
+        "height": 180
+      },
+      "componentCount": 7,
+      "subjectBox": {
+        "x0": 571,
+        "y0": 268,
+        "x1": 1089,
+        "y1": 428
+      },
+      "cropBox": {
+        "x0": 565,
+        "y0": 262,
+        "x1": 1095,
+        "y1": 434
+      },
+      "validation": {
+        "width": 530,
+        "height": 172,
+        "foregroundPixels": 29297,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 6,
+          "right": 6,
+          "top": 6,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "DiDi brand lockup: orange DiDi glyph plus grey 'DiDi' wordmark, centered below the title; excludes the title, 'in RMB' note, Revenue label, and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/didi/company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2996,
+        "losslessBytes": 11784,
+        "savingsVsLossless": 0.7458,
+        "metrics": {
+          "meanAbsoluteError": 0.3676,
+          "rootMeanSquareError": 1.0595,
+          "p99AbsoluteError": 5,
+          "maxChannelDiff": 30,
+          "changedPixelRatio": 0.4129
+        }
+      },
+      "validationSheet": "data/assets/icon-references/didi/validation-sheets/didi-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 221646,
+        "losslessBytes": 221646,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "didi-china-mobility-tile",
+      "output": "data/assets/icon-references/didi/crops/china-mobility-tile.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2059,
+        "losslessBytes": 5055,
+        "savingsVsLossless": 0.5927,
+        "metrics": {
+          "meanAbsoluteError": 0.5049,
+          "rootMeanSquareError": 2.5841,
+          "p99AbsoluteError": 10,
+          "maxChannelDiff": 58,
+          "changedPixelRatio": 0.1969
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 130,
+        "y": 482,
+        "width": 190,
+        "height": 160
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 151,
+        "y0": 502,
+        "x1": 303,
+        "y1": 624
+      },
+      "cropBox": {
+        "x0": 139,
+        "y0": 490,
+        "x1": 315,
+        "y1": 636
+      },
+      "validation": {
+        "width": 176,
+        "height": 146,
+        "foregroundPixels": 12482,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 12,
+          "top": 12,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "China Mobility segment app-icon tile: white rounded square with the orange DiDi glyph and soft shadow, above the China Mobility label. Kept as an opaque rectangular crop because the tile sits on the uniform #f2f2f2 chart background, so the gray corners and soft shadow blend seamlessly when re-placed at the source coordinates. borderBand is 0 because this is an intentional background-matched patch rather than a transparent die-cut icon, so the edge-foreground clipping check does not apply; subject detection (threshold 8) still centers the crop on the tile and centerOffset is validated. Excludes the segment text and the Revenue flow.",
+      "runtimeOutput": "data/assets/raster-annotations/didi/china-mobility-tile.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2059,
+        "losslessBytes": 5055,
+        "savingsVsLossless": 0.5927,
+        "metrics": {
+          "meanAbsoluteError": 0.5049,
+          "rootMeanSquareError": 2.5841,
+          "p99AbsoluteError": 10,
+          "maxChannelDiff": 58,
+          "changedPixelRatio": 0.1969
+        }
+      },
+      "validationSheet": "data/assets/icon-references/didi/validation-sheets/didi-china-mobility-tile.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 230930,
+        "losslessBytes": 230930,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

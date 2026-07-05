@@ -231,6 +231,43 @@
         },
       },
       {
+        key: 'american-express',
+        name: 'American Express',
+        legalName: 'American Express Company',
+        ticker: 'AXP',
+        exchange: 'NYSE',
+        marketCap: {
+          valueUsd: 225000000000,
+          asOf: '2026-06-18',
+          source: 'StockAnalysis',
+          sourceUrl: 'https://stockanalysis.com/stocks/axp/market-cap/',
+        },
+        sector: 'Financials',
+        industry: 'Payment card services, charge and credit cards, merchant acquiring, network services, card member lending, and travel-related services',
+        founded: '1850',
+        headquarters: 'New York, New York, United States',
+        fiscalYearEnd: 'December 31',
+        website: 'https://www.americanexpress.com/',
+        description:
+          'American Express is a globally integrated payments company operating a card-issuing, merchant-acquiring, and card network business across US Consumer Services, Commercial Services, International Card Services, and Global Merchant & Network Services.',
+        sourceUrls: [
+          'https://www.americanexpress.com/',
+          'https://about.americanexpress.com/',
+          'https://ir.americanexpress.com/',
+        ],
+        i18n: {
+          zh: {
+            displayName: '美国运通',
+            sector: '金融',
+            industry: '支付卡服务、签账卡与信用卡、商户收单、网络服务、持卡人借贷及旅行相关服务',
+            headquarters: '美国纽约州纽约市',
+            fiscalYearEnd: '12 月 31 日',
+            description:
+              'American Express 是一家全球一体化支付公司，经营发卡、商户收单和卡网络业务，涵盖美国消费者服务、商务服务、国际卡服务以及全球商户与网络服务。',
+          },
+        },
+      },
+      {
         key: 'anthropic',
         name: 'Anthropic',
         legalName: 'Anthropic PBC',
@@ -639,6 +676,43 @@
         },
       },
       {
+        key: 'boeing',
+        name: 'Boeing',
+        legalName: 'The Boeing Company',
+        ticker: 'BA',
+        exchange: 'NYSE',
+        marketCap: {
+          valueUsd: 170000000000,
+          asOf: '2026-06-30',
+          source: 'StockAnalysis',
+          sourceUrl: 'https://stockanalysis.com/stocks/ba/market-cap/',
+        },
+        sector: 'Industrials',
+        industry: 'Aerospace and defense: commercial airplanes, defense, space and security systems, and aftermarket global services',
+        founded: '1916',
+        headquarters: 'Arlington, Virginia, United States',
+        fiscalYearEnd: 'December 31',
+        website: 'https://www.boeing.com/',
+        description:
+          'Boeing is a global aerospace company that develops, manufactures, and services commercial jetliners, military aircraft, satellites, defense and space systems, and provides aftermarket support through its Commercial Airplanes, Defense, Space & Security, and Global Services segments.',
+        sourceUrls: [
+          'https://www.boeing.com/company',
+          'https://investors.boeing.com/',
+          'https://stockanalysis.com/stocks/ba/market-cap/',
+        ],
+        i18n: {
+          zh: {
+            displayName: '波音',
+            sector: '工业',
+            industry: '航空航天与国防：商用飞机、国防、太空与安全系统，以及售后全球服务',
+            headquarters: '美国弗吉尼亚州阿灵顿',
+            fiscalYearEnd: '12 月 31 日',
+            description:
+              'Boeing 是一家全球航空航天公司，研发、制造并维护商用客机、军用飞机、卫星、国防与太空系统，并通过商用飞机、国防·太空与安全、全球服务三大部门提供售后支持。',
+          },
+        },
+      },
+      {
         key: 'broadcom',
         name: 'Broadcom',
         legalName: 'Broadcom Inc.',
@@ -672,6 +746,43 @@
             fiscalYearEnd: '最接近 10 月 31 日的星期日',
             description:
               'Broadcom 设计、开发并供应广泛的半导体与基础设施软件解决方案，涵盖数据中心网络、宽带、无线、服务器存储连接，以及包含大型机、分布式、网络安全与云基础设施在内的企业软件。',
+          },
+        },
+      },
+      {
+        key: 'c3-ai',
+        name: 'C3.ai',
+        legalName: 'C3.ai, Inc.',
+        ticker: 'AI',
+        exchange: 'NYSE',
+        marketCap: {
+          valueUsd: 1410000000,
+          asOf: '2026-06-22',
+          source: 'StockAnalysis',
+          sourceUrl: 'https://stockanalysis.com/stocks/ai/market-cap/',
+        },
+        sector: 'Information Technology',
+        industry: 'Enterprise AI application software, generative AI, and predictive analytics platform',
+        founded: '2009',
+        headquarters: 'Redwood City, California, United States',
+        fiscalYearEnd: 'April 30',
+        website: 'https://c3.ai/',
+        description:
+          'C3.ai is an enterprise AI application software company that provides a family of turnkey AI applications and the C3 AI Platform for developing, deploying, and operating large-scale predictive and generative AI applications across industries.',
+        sourceUrls: [
+          'https://ir.c3.ai/',
+          'https://c3.ai/company/about-us/',
+          'https://stockanalysis.com/stocks/ai/market-cap/',
+        ],
+        i18n: {
+          zh: {
+            displayName: 'C3.ai',
+            sector: '信息技术',
+            industry: '企业级 AI 应用软件、生成式 AI 与预测分析平台',
+            headquarters: '美国加利福尼亚州红木城',
+            fiscalYearEnd: '4 月 30 日',
+            description:
+              'C3.ai 是一家企业级 AI 应用软件公司，提供一系列开箱即用的 AI 应用以及 C3 AI 平台，帮助各行业开发、部署和运行大规模预测式与生成式 AI 应用。',
           },
         },
       },
@@ -747,6 +858,44 @@
             fiscalYearEnd: '12 月 31 日',
             description:
               'Cloudflare 提供连接云，帮助组织让员工、应用和网络更快速、更安全，业务覆盖云网络、安全、性能、开发者和边缘计算服务，并运行在全球网络之上。',
+          },
+        },
+      },
+      {
+        key: 'coca-cola',
+        name: 'Coca-Cola',
+        legalName: 'The Coca-Cola Company',
+        ticker: 'KO',
+        exchange: 'NYSE',
+        marketCap: {
+          valueUsd: 300000000000,
+          asOf: '2026-06-18',
+          source: 'StockAnalysis',
+          sourceUrl: 'https://stockanalysis.com/stocks/ko/market-cap/',
+        },
+        sector: 'Consumer Staples',
+        industry: 'Nonalcoholic beverages — sparkling soft drinks, water, sports, coffee, tea, and juice brands sold as concentrates and finished products through a global bottling system',
+        founded: '1886',
+        headquarters: 'Atlanta, Georgia, United States',
+        fiscalYearEnd: 'December 31',
+        website: 'https://www.coca-colacompany.com/',
+        description:
+          'The Coca-Cola Company is a global beverage company that manufactures, markets, and sells nonalcoholic beverage concentrates, syrups, and finished drinks — including sparkling soft drinks, water, sports drinks, coffee, tea, and juice — through a worldwide network of company-owned operations and independent bottling partners.',
+        sourceUrls: [
+          'https://www.coca-colacompany.com/about-us',
+          'https://investors.coca-colacompany.com/',
+          'https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=KO&type=10-Q',
+          'https://stockanalysis.com/stocks/ko/market-cap/',
+        ],
+        i18n: {
+          zh: {
+            displayName: '可口可乐',
+            sector: '日常消费品',
+            industry: '非酒精饮料——碳酸软饮、水、运动饮料、咖啡、茶和果汁品牌，以浓缩液和成品形式通过全球装瓶体系销售',
+            headquarters: '美国佐治亚州亚特兰大',
+            fiscalYearEnd: '12 月 31 日',
+            description:
+              '可口可乐公司是一家全球饮料企业，通过遍布全球的自营业务和独立装瓶合作伙伴网络，生产、营销并销售非酒精饮料浓缩液、糖浆和成品饮料，涵盖碳酸软饮、水、运动饮料、咖啡、茶和果汁。',
           },
         },
       },
@@ -860,6 +1009,45 @@
         },
       },
       {
+        key: 'crowdstrike',
+        name: 'CrowdStrike',
+        legalName: 'CrowdStrike Holdings, Inc.',
+        ticker: 'CRWD',
+        exchange: 'NASDAQ',
+        marketCap: {
+          valueUsd: 121000000000,
+          asOf: '2026-07-02',
+          source: 'StockAnalysis',
+          sourceUrl: 'https://stockanalysis.com/stocks/crwd/market-cap/',
+        },
+        sector: 'Information Technology',
+        industry: 'Cybersecurity, cloud-native endpoint and cloud protection, threat intelligence, identity protection, and security operations software delivered through the Falcon platform',
+        founded: '2011',
+        headquarters: 'Austin, Texas, United States',
+        fiscalYearEnd: 'January 31',
+        website: 'https://www.crowdstrike.com/',
+        description:
+          'CrowdStrike provides cloud-native cybersecurity through its Falcon platform, delivering endpoint, cloud, identity, and data protection alongside threat intelligence and managed security services on a subscription basis.',
+        sourceUrls: [
+          'https://www.crowdstrike.com/en-us/about-us/',
+          'https://ir.crowdstrike.com/',
+          'https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=CRWD&type=10-K',
+          'https://stockanalysis.com/stocks/crwd/market-cap/',
+          'https://www.linkedin.com/company/crowdstrike/',
+        ],
+        i18n: {
+          zh: {
+            displayName: 'CrowdStrike',
+            sector: '信息技术',
+            industry: '网络安全，通过 Falcon 平台以订阅方式提供云原生端点与云防护、威胁情报、身份保护和安全运营软件',
+            headquarters: '美国得克萨斯州奥斯汀',
+            fiscalYearEnd: '1 月 31 日',
+            description:
+              'CrowdStrike 通过 Falcon 平台提供云原生网络安全，以订阅方式交付端点、云、身份和数据防护，并配套威胁情报与托管安全服务。',
+          },
+        },
+      },
+      {
         key: 'datadog',
         name: 'Datadog',
         legalName: 'Datadog, Inc.',
@@ -935,6 +1123,44 @@
             fiscalYearEnd: '截至最接近 1 月 31 日的星期五的 52 或 53 周期间',
             description:
               'Dell Technologies 提供 IT 硬件、软件和服务解决方案，覆盖 AI 优化服务器、传统服务器与网络、存储、商用和消费客户端设备、外设及相关基础设施服务。',
+          },
+        },
+      },
+      {
+        key: 'didi',
+        name: 'DiDi',
+        legalName: 'DiDi Global Inc.',
+        aliases: ['Didi', 'Didi Chuxing', 'DiDi Global', '滴滴出行', '滴滴'],
+        ticker: 'DIDIY',
+        exchange: 'OTC Markets',
+        marketCap: {
+          valueUsd: 15330000000,
+          asOf: '2026-07-04',
+          source: 'StockAnalysis',
+          sourceUrl: 'https://stockanalysis.com/quote/otc/DIDIY/market-cap/',
+        },
+        sector: 'Industrials',
+        industry: 'Ride-hailing, shared mobility, and transportation technology',
+        founded: '2012',
+        headquarters: 'Beijing, China',
+        fiscalYearEnd: 'December 31',
+        website: 'https://www.didiglobal.com/',
+        description:
+          'DiDi Global is a Chinese mobility technology platform providing app-based ride-hailing, taxi, chauffeur, and other transportation services in China and overseas, reported across China Mobility, International, and Other Initiatives segments.',
+        sourceUrls: [
+          'https://www.didiglobal.com/',
+          'https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1764757&type=&dateb=&owner=include&count=40',
+          'https://stockanalysis.com/quote/otc/DIDIY/market-cap/',
+        ],
+        i18n: {
+          zh: {
+            displayName: '滴滴',
+            sector: '工业',
+            industry: '网约车、共享出行和交通出行技术',
+            headquarters: '中国北京',
+            fiscalYearEnd: '12 月 31 日',
+            description:
+              'DiDi Global（滴滴出行）是一家中国出行科技平台，提供基于 App 的网约车、出租车、代驾及其他交通出行服务，业务覆盖中国及海外市场，按中国出行、国际业务和其他新业务三大分部披露。',
           },
         },
       },
@@ -1345,6 +1571,43 @@
         },
       },
       {
+        key: 'intel',
+        name: 'Intel',
+        legalName: 'Intel Corporation',
+        ticker: 'INTC',
+        exchange: 'NASDAQ',
+        marketCap: {
+          valueUsd: 638400000000,
+          asOf: '2026-07-01',
+          source: 'StockAnalysis',
+          sourceUrl: 'https://stockanalysis.com/stocks/intc/market-cap/',
+        },
+        sector: 'Information Technology',
+        industry: 'Semiconductors, x86 CPUs, GPUs, AI accelerators, programmable logic, and foundry manufacturing services',
+        founded: '1968',
+        headquarters: 'Santa Clara, California, United States',
+        fiscalYearEnd: 'Last Saturday in December',
+        website: 'https://www.intel.com/',
+        description:
+          'Intel designs and manufactures semiconductors, spanning client-computing and data-center CPUs, GPUs and AI accelerators, and Intel Foundry contract chip-manufacturing services for external and internal customers.',
+        sourceUrls: [
+          'https://www.intel.com/content/www/us/en/company-overview/company-overview.html',
+          'https://www.intc.com/',
+          'https://www.intc.com/news-events/press-releases',
+        ],
+        i18n: {
+          zh: {
+            displayName: '英特尔',
+            sector: '信息技术',
+            industry: '半导体、x86 CPU、GPU、AI 加速器、可编程逻辑与晶圆代工制造服务',
+            headquarters: '美国加利福尼亚州圣克拉拉',
+            fiscalYearEnd: '12 月最后一个星期六',
+            description:
+              '英特尔设计并制造半导体，业务涵盖客户端计算与数据中心 CPU、GPU 与 AI 加速器，以及为外部和内部客户提供芯片代工制造的 Intel Foundry。',
+          },
+        },
+      },
+      {
         key: 'intuit',
         name: 'Intuit',
         legalName: 'Intuit Inc.',
@@ -1603,6 +1866,81 @@
         },
       },
       {
+        key: 'mastercard',
+        name: 'Mastercard',
+        legalName: 'Mastercard Incorporated',
+        ticker: 'MA',
+        exchange: 'NYSE',
+        marketCap: {
+          valueUsd: 535000000000,
+          asOf: '2026-06-18',
+          source: 'StockAnalysis',
+          sourceUrl: 'https://stockanalysis.com/stocks/ma/market-cap/',
+        },
+        sector: 'Financials',
+        industry: 'Transaction and payment processing services, payment network, and value-added services and solutions',
+        founded: '1966',
+        headquarters: 'Purchase, New York, United States',
+        fiscalYearEnd: 'December 31',
+        website: 'https://www.mastercard.com/',
+        description:
+          'Mastercard is a global payments technology company that connects consumers, financial institutions, merchants, governments, and businesses through its payment network, earning revenue from domestic and cross-border transaction fees, transaction processing, and value-added services and solutions.',
+        sourceUrls: [
+          'https://www.mastercard.com/global/en/vision/who-we-are.html',
+          'https://investor.mastercard.com/',
+          'https://stockanalysis.com/stocks/ma/market-cap/',
+        ],
+        i18n: {
+          zh: {
+            displayName: 'Mastercard',
+            sector: '金融',
+            industry: '交易与支付处理服务、支付网络以及增值服务与解决方案',
+            headquarters: '美国纽约州珀切斯',
+            fiscalYearEnd: '12 月 31 日',
+            description:
+              'Mastercard 是一家全球支付技术公司，通过其支付网络连接消费者、金融机构、商户、政府和企业，收入来自境内与跨境交易费、交易处理以及增值服务与解决方案。',
+          },
+        },
+      },
+      {
+        key: 'meituan',
+        name: 'Meituan',
+        legalName: 'Meituan',
+        aliases: ['Meituan Dianping', '美团'],
+        ticker: '3690',
+        exchange: 'HKEX',
+        marketCap: {
+          valueUsd: 95000000000,
+          asOf: '2026-06-26',
+          source: 'StockAnalysis',
+          sourceUrl: 'https://stockanalysis.com/quote/hkg/3690/',
+        },
+        sector: 'Consumer Discretionary',
+        industry: 'On-demand food delivery, local-services and in-store commerce, hotel and travel booking, community retail, and new initiatives',
+        founded: '2010',
+        headquarters: 'Beijing, China',
+        fiscalYearEnd: 'December 31',
+        website: 'https://www.meituan.com/',
+        description:
+          'Meituan is a Chinese technology platform for local consumer products and retail services, spanning on-demand food delivery, in-store dining, hotel and travel booking, and community retail, reported across a Core Local Commerce segment and a New Initiatives segment.',
+        sourceUrls: [
+          'https://about.meituan.com/en',
+          'https://media-meituan.todayir.com/',
+          'https://stockanalysis.com/quote/hkg/3690/',
+        ],
+        i18n: {
+          zh: {
+            displayName: '美团',
+            sector: '非必需消费品',
+            industry: '即时餐饮外卖、本地生活与到店消费、酒店与旅行预订、社区零售以及新业务',
+            headquarters: '中国北京',
+            fiscalYearEnd: '12 月 31 日',
+            description:
+              '美团是一家中国本地生活服务与零售科技平台，业务涵盖即时餐饮外卖、到店餐饮、酒店与旅行预订以及社区零售，按核心本地商业和新业务两大分部披露。',
+          },
+        },
+      },
+      {
         key: 'microsoft',
         name: 'Microsoft',
         legalName: 'Microsoft Corporation',
@@ -1672,6 +2010,43 @@
         },
       },
       {
+        key: 'sandisk',
+        name: 'Sandisk',
+        legalName: 'Sandisk Corporation',
+        ticker: 'SNDK',
+        exchange: 'NASDAQ',
+        marketCap: {
+          valueUsd: 14000000000,
+          asOf: '2026-06-18',
+          source: 'StockAnalysis',
+          sourceUrl: 'https://stockanalysis.com/stocks/sndk/market-cap/',
+        },
+        sector: 'Information Technology',
+        industry: 'Semiconductors, NAND flash memory and storage (SSDs, memory cards, flash drives)',
+        founded: '1988 (spun off from Western Digital as a standalone company in 2025)',
+        headquarters: 'Milpitas, California, United States',
+        fiscalYearEnd: 'Friday nearest June 30',
+        website: 'https://www.sandisk.com/',
+        description:
+          'Sandisk designs and manufactures NAND flash memory and storage products — including SSDs, memory cards, and USB flash drives — for datacenter, edge, and consumer markets. It became a standalone public company after Western Digital spun off its flash memory business in 2025.',
+        sourceUrls: [
+          'https://www.sandisk.com/about',
+          'https://investors.sandisk.com/',
+          'https://stockanalysis.com/stocks/sndk/market-cap/',
+        ],
+        i18n: {
+          zh: {
+            displayName: '闪迪',
+            sector: '信息技术',
+            industry: '半导体、NAND 闪存与存储（固态硬盘、存储卡、闪存盘）',
+            headquarters: '美国加利福尼亚州米尔皮塔斯',
+            fiscalYearEnd: '最接近 6 月 30 日的星期五',
+            description:
+              '闪迪（Sandisk）设计并制造 NAND 闪存与存储产品，包括固态硬盘、存储卡和 U 盘，服务于数据中心、边缘和消费级市场。2025 年西部数据将其闪存业务分拆后，闪迪成为独立上市公司。',
+          },
+        },
+      },
+      {
         key: 'meta',
         name: 'Meta',
         legalName: 'Meta Platforms, Inc.',
@@ -1736,6 +2111,42 @@
         i18n: {
           zh: {
             displayName: '摩根士丹利',
+          },
+        },
+      },
+      {
+        key: 'moodys',
+        name: "Moody's",
+        legalName: "Moody's Corporation",
+        ticker: 'MCO',
+        exchange: 'NYSE',
+        marketCap: {
+          valueUsd: 90000000000,
+          asOf: '2026-06-18',
+          source: 'StockAnalysis',
+          sourceUrl: 'https://stockanalysis.com/stocks/mco/market-cap/',
+        },
+        sector: 'Financials',
+        industry: 'Credit ratings, risk assessment, financial analytics, research, and data',
+        founded: '1909',
+        headquarters: 'New York, New York, United States',
+        fiscalYearEnd: 'December 31',
+        website: 'https://www.moodys.com/',
+        description:
+          "Moody's is a global integrated risk assessment firm operating through Moody's Investors Service, which provides credit ratings and research, and Moody's Analytics, which provides financial intelligence, data, analytical tools, and decision solutions for risk management.",
+        sourceUrls: [
+          'https://www.moodys.com/web/en/us/about.html',
+          'https://ir.moodys.com/',
+        ],
+        i18n: {
+          zh: {
+            displayName: '穆迪',
+            sector: '金融',
+            industry: '信用评级、风险评估、金融分析、研究与数据',
+            headquarters: '美国纽约州纽约',
+            fiscalYearEnd: '12 月 31 日',
+            description:
+              '穆迪是全球综合风险评估公司，通过穆迪投资者服务（提供信用评级与研究）和穆迪分析（提供金融情报、数据、分析工具与决策解决方案）开展业务。',
           },
         },
       },
@@ -2599,6 +3010,44 @@
         },
       },
       {
+        key: 'spotify',
+        name: 'Spotify',
+        legalName: 'Spotify Technology S.A.',
+        ticker: 'SPOT',
+        exchange: 'NYSE',
+        marketCap: {
+          valueUsd: 133000000000,
+          asOf: '2026-06-26',
+          source: 'StockAnalysis',
+          sourceUrl: 'https://stockanalysis.com/stocks/spot/market-cap/',
+        },
+        sector: 'Communication Services',
+        industry: 'Audio streaming and media services — music, podcasts, and audiobooks',
+        founded: '2006',
+        headquarters: 'Stockholm, Sweden',
+        fiscalYearEnd: 'December 31',
+        website: 'https://www.spotify.com/',
+        description:
+          'Spotify is an audio streaming platform offering music, podcasts, and audiobooks through an ad-supported free tier and paid Premium subscriptions, connecting creators and advertisers with a global listener base.',
+        sourceUrls: [
+          'https://www.spotify.com/us/about-us/contact/',
+          'https://investors.spotify.com/home/default.aspx',
+          'https://investors.spotify.com/financials/default.aspx',
+          'https://stockanalysis.com/stocks/spot/market-cap/',
+        ],
+        i18n: {
+          zh: {
+            displayName: 'Spotify',
+            sector: '通信服务',
+            industry: '音频流媒体与媒体服务——音乐、播客和有声书',
+            headquarters: '瑞典斯德哥尔摩',
+            fiscalYearEnd: '12 月 31 日',
+            description:
+              'Spotify 是一家音频流媒体平台，通过广告支持的免费层和付费 Premium 订阅提供音乐、播客和有声书，连接创作者、广告主与全球听众。',
+          },
+        },
+      },
+      {
         key: 'snap',
         name: 'Snap',
         legalName: 'Snap Inc.',
@@ -2993,6 +3442,43 @@
         },
       },
       {
+        key: 'unitedhealth',
+        name: 'UnitedHealth Group',
+        legalName: 'UnitedHealth Group Incorporated',
+        aliases: ['UnitedHealth', 'UnitedHealthcare', 'UNH'],
+        ticker: 'UNH',
+        exchange: 'NYSE',
+        marketCap: {
+          valueUsd: 285000000000,
+          asOf: '2026-06-30',
+          source: 'StockAnalysis',
+          sourceUrl: 'https://stockanalysis.com/stocks/unh/market-cap/',
+        },
+        sector: 'Health Care',
+        industry: 'Health insurance, managed care, pharmacy benefits, health services, and data analytics',
+        founded: '1977',
+        headquarters: 'Minnetonka, Minnesota, United States',
+        fiscalYearEnd: 'December 31',
+        website: 'https://www.unitedhealthgroup.com/',
+        description:
+          'UnitedHealth Group is a diversified health care company operating through UnitedHealthcare, which provides health benefits and insurance coverage, and Optum, which delivers health services across care delivery (Optum Health), pharmacy services (Optum Rx), and data and analytics (Optum Insight).',
+        sourceUrls: [
+          'https://www.unitedhealthgroup.com/about.html',
+          'https://www.unitedhealthgroup.com/investors.html',
+        ],
+        i18n: {
+          zh: {
+            displayName: '联合健康集团',
+            sector: '医疗保健',
+            industry: '健康保险、管理式医疗、药品福利管理、健康服务与数据分析',
+            headquarters: '美国明尼苏达州明尼通卡',
+            fiscalYearEnd: '12 月 31 日',
+            description:
+              '联合健康集团是一家多元化医疗保健公司，通过 UnitedHealthcare（提供健康福利与保险保障）和 Optum（涵盖医疗服务 Optum Health、药房服务 Optum Rx 以及数据与分析 Optum Insight）开展业务。',
+          },
+        },
+      },
+      {
         key: 'warner-bros',
         name: 'Warner Bros. Discovery',
         legalName: 'Warner Bros. Discovery, Inc.',
@@ -3070,6 +3556,43 @@
             fiscalYearEnd: '1 月 31 日',
             description:
               '沃尔玛是一家以人为本、技术驱动的全渠道零售商，业务覆盖 Walmart U.S.、Walmart International、Sam\'s Club、门店、会员店、电商网站、移动服务、广告、会员和 marketplace 平台。',
+          },
+        },
+      },
+      {
+        key: 'docusign',
+        name: 'DocuSign',
+        legalName: 'Docusign, Inc.',
+        aliases: ['Docusign', 'DocuSign, Inc.'],
+        ticker: 'DOCU',
+        exchange: 'NASDAQ',
+        marketCap: {
+          valueUsd: 16500000000,
+          asOf: '2026-06-30',
+          source: 'StockAnalysis (approximate)',
+          sourceUrl: 'https://stockanalysis.com/stocks/docu/market-cap/',
+        },
+        sector: 'Information Technology',
+        industry: 'Electronic signature, contract lifecycle management, and intelligent agreement management software',
+        founded: '2003',
+        headquarters: 'San Francisco, California, United States',
+        fiscalYearEnd: 'January 31',
+        website: 'https://www.docusign.com/',
+        description:
+          'DocuSign provides an intelligent agreement management platform, best known for its e-signature product, alongside contract lifecycle management, document generation, and workflow tools for individuals, businesses, and enterprises.',
+        sourceUrls: [
+          'https://www.docusign.com/company',
+          'https://investor.docusign.com/',
+        ],
+        i18n: {
+          zh: {
+            displayName: 'DocuSign',
+            sector: '信息技术',
+            industry: '电子签名、合同全生命周期管理与智能协议管理软件',
+            headquarters: '美国加利福尼亚州旧金山',
+            fiscalYearEnd: '1 月 31 日',
+            description:
+              'DocuSign 提供智能协议管理平台，以电子签名产品著称，同时提供合同全生命周期管理、文档生成，以及面向个人、企业和大型组织的工作流工具。',
           },
         },
       },
@@ -3191,6 +3714,45 @@
         },
       },
       {
+        key: 'restaurant-brands-international',
+        name: 'Restaurant Brands International',
+        legalName: 'Restaurant Brands International Inc.',
+        aliases: ['RBI', 'Restaurant Brands'],
+        ticker: 'QSR',
+        exchange: 'NYSE',
+        marketCap: {
+          valueUsd: 30500000000,
+          asOf: '2026-06-30',
+          source: 'StockAnalysis',
+          sourceUrl: 'https://stockanalysis.com/stocks/qsr/market-cap/',
+        },
+        sector: 'Consumer Discretionary',
+        industry: 'Quick-service restaurants, franchising, restaurant supply chain, and advertising operations',
+        founded: '2014',
+        headquarters: 'Toronto, Ontario, Canada',
+        fiscalYearEnd: 'December 31',
+        website: 'https://www.rbi.com/',
+        description:
+          'Restaurant Brands International owns and franchises the Tim Hortons, Burger King, Popeyes, and Firehouse Subs restaurant brands, earning revenue from franchise and property income, company-operated restaurants, supply chain sales, and advertising funds across its Tim Hortons, Burger King, Popeyes, Firehouse Subs, International, and Restaurant Holdings segments.',
+        sourceUrls: [
+          'https://www.rbi.com/English/who-we-are/default.aspx',
+          'https://www.rbi.com/English/investors/default.aspx',
+          'https://www.rbi.com/English/investors/news-events/press-releases/default.aspx',
+          'https://stockanalysis.com/stocks/qsr/market-cap/',
+        ],
+        i18n: {
+          zh: {
+            displayName: 'Restaurant Brands International',
+            sector: '非必需消费品',
+            industry: '快餐餐厅、特许经营、餐厅供应链和广告运营',
+            headquarters: '加拿大安大略省多伦多',
+            fiscalYearEnd: '12 月 31 日',
+            description:
+              'Restaurant Brands International 拥有并特许经营 Tim Hortons、Burger King、Popeyes 和 Firehouse Subs 餐厅品牌，通过特许经营及物业收入、自营餐厅、供应链销售和广告基金获取收入，业务涵盖 Tim Hortons、Burger King、Popeyes、Firehouse Subs、国际和 Restaurant Holdings 各分部。',
+          },
+        },
+      },
+      {
         key: 'oracle',
         name: 'Oracle',
         legalName: 'Oracle Corporation',
@@ -3225,6 +3787,196 @@
             fiscalYearEnd: '5 月 31 日',
             description:
               '甲骨文是一家企业技术公司，其云与许可证业务涵盖 Oracle 云基础设施（OCI）、云端与本地应用、数据库与中间件软件、软件支持与许可证、硬件以及服务。',
+          },
+        },
+      },
+      {
+        key: 'fox',
+        name: 'FOX',
+        legalName: 'Fox Corporation',
+        ticker: 'FOXA / FOX',
+        exchange: 'NASDAQ',
+        marketCap: {
+          valueUsd: 27000000000,
+          asOf: '2026-06-18',
+          source: 'StockAnalysis',
+          sourceUrl: 'https://stockanalysis.com/stocks/foxa/market-cap/',
+        },
+        sector: 'Communication Services',
+        industry: 'Broadcast television, cable news, sports, and streaming media',
+        founded: '2019',
+        headquarters: 'New York City, New York, United States',
+        fiscalYearEnd: 'June 30',
+        website: 'https://www.foxcorporation.com/',
+        description:
+          'FOX Corporation is a U.S. media company that produces and distributes news, sports, and entertainment. Its brands include the FOX broadcast network, FOX News Media (Fox News Channel and Fox Business), FOX Sports (including FS1 and FS2), FOX Television Stations, MyNetworkTV, and the ad-supported streaming service Tubi.',
+        sourceUrls: [
+          'https://www.foxcorporation.com/',
+          'https://investor.foxcorporation.com/',
+          'https://www.foxcorporation.com/about/',
+        ],
+        i18n: {
+          zh: {
+            displayName: 'FOX',
+            sector: '通信服务',
+            industry: '广播电视、有线新闻、体育与流媒体',
+            headquarters: '美国纽约州纽约市',
+            fiscalYearEnd: '6 月 30 日',
+            description:
+              'FOX Corporation（福克斯公司）是一家美国媒体公司，负责制作和分发新闻、体育与娱乐内容，旗下品牌包括 FOX 广播电视网、FOX News Media（Fox News Channel 与 Fox Business）、FOX Sports（含 FS1 与 FS2）、FOX 电视台群、MyNetworkTV，以及广告支持的流媒体服务 Tubi。',
+          },
+        },
+      },
+      {
+        key: 'veeva',
+        name: 'Veeva Systems',
+        legalName: 'Veeva Systems Inc.',
+        ticker: 'VEEV',
+        exchange: 'NYSE',
+        marketCap: {
+          valueUsd: 44000000000,
+          asOf: '2026-06-18',
+          source: 'StockAnalysis',
+          sourceUrl: 'https://stockanalysis.com/stocks/veev/market-cap/',
+        },
+        sector: 'Health Care',
+        industry: 'Health Care Technology (cloud software for the life sciences industry)',
+        founded: '2007',
+        headquarters: 'Pleasanton, California, United States',
+        fiscalYearEnd: 'January 31',
+        website: 'https://www.veeva.com/',
+        description:
+          'Veeva Systems is a cloud-software company built for the global life sciences industry. Its two families are Commercial Solutions, anchored by the Veeva CRM customer-engagement suite, and R&D Solutions, anchored by the Veeva Vault content and data-management platform spanning clinical, regulatory, quality, and safety.',
+        sourceUrls: [
+          'https://www.veeva.com/',
+          'https://ir.veeva.com/',
+          'https://www.veeva.com/products/',
+        ],
+        i18n: {
+          zh: {
+            displayName: 'Veeva Systems',
+            sector: '医疗健康',
+            industry: '医疗健康科技（面向生命科学行业的云软件）',
+            headquarters: '美国加利福尼亚州普莱森顿',
+            fiscalYearEnd: '1 月 31 日',
+            description:
+              'Veeva Systems 是一家专为全球生命科学行业打造的云软件公司。其两大产品族为商业化解决方案（Commercial Solutions，以 Veeva CRM 客户互动套件为核心）和研发解决方案（R&D Solutions，以覆盖临床、法规、质量与安全的 Veeva Vault 内容与数据管理平台为核心）。',
+          },
+        },
+      },
+      {
+        key: 'pepsico',
+        name: 'PepsiCo',
+        legalName: 'PepsiCo, Inc.',
+        aliases: ['PepsiCo, Inc.'],
+        ticker: 'PEP',
+        exchange: 'NASDAQ',
+        marketCap: {
+          valueUsd: 190000000000,
+          asOf: '2026-07-02',
+          source: 'StockAnalysis',
+          sourceUrl: 'https://stockanalysis.com/stocks/pep/market-cap/',
+        },
+        sector: 'Consumer Staples',
+        industry: 'Food and beverage manufacturing (snacks, beverages, and convenient foods)',
+        founded: '1965',
+        headquarters: 'Purchase, New York, United States',
+        fiscalYearEnd: 'Last Saturday in December',
+        website: 'https://www.pepsico.com/',
+        description:
+          'PepsiCo is a global food and beverage company whose portfolio of snacks, beverages, and convenient foods is sold in more than 200 countries and territories, with brands including Lay’s, Quaker, Pepsi, Gatorade, Doritos, and SodaStream. It reports across a North America foods and beverages business plus the International Beverages Franchise, Latin America (LATAM), Europe, Middle East and Africa (EMEA), and Asia Pacific (APAC) divisions.',
+        sourceUrls: [
+          'https://www.pepsico.com/',
+          'https://www.pepsico.com/our-brands',
+          'https://investors.pepsico.com/',
+        ],
+        i18n: {
+          zh: {
+            displayName: '百事公司',
+            sector: '必需消费品',
+            industry: '食品与饮料制造（零食、饮料及便捷食品）',
+            headquarters: '美国纽约州珀切斯',
+            fiscalYearEnd: '12 月最后一个星期六',
+            description:
+              '百事公司是一家全球食品与饮料公司，其零食、饮料和便捷食品组合在全球 200 多个国家和地区销售，旗下品牌包括乐事（Lay’s）、桂格（Quaker）、百事可乐（Pepsi）、佳得乐（Gatorade）、多力多滋（Doritos）和 SodaStream。公司按北美食品与饮料业务，以及国际饮料特许经营（IB franchise）、拉丁美洲（LATAM）、欧洲中东非洲（EMEA）和亚太（APAC）等分部进行报告。',
+          },
+        },
+      },
+      {
+        key: 'visa',
+        name: 'Visa',
+        legalName: 'Visa Inc.',
+        aliases: ['Visa Inc.'],
+        ticker: 'V',
+        exchange: 'NYSE',
+        marketCap: {
+          valueUsd: 640000000000,
+          asOf: '2026-07-02',
+          source: 'StockAnalysis',
+          sourceUrl: 'https://stockanalysis.com/stocks/v/market-cap/',
+        },
+        sector: 'Financials',
+        industry: 'Payment technology and transaction processing (card network operating VisaNet, connecting consumers, merchants, financial institutions, and governments)',
+        founded: '1958',
+        headquarters: 'San Francisco, California, United States',
+        fiscalYearEnd: 'September 30',
+        website: 'https://www.visa.com/',
+        description:
+          'Visa is a global payments technology company that operates VisaNet, a transaction processing network connecting consumers, merchants, financial institutions, and governments across more than 200 countries and territories. It earns service, data processing, international transaction, and other revenues by enabling digital payments, and returns value to card issuers through client incentives.',
+        sourceUrls: [
+          'https://www.visa.com/about-visa.html',
+          'https://investor.visa.com/',
+          'https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=V&type=10-K',
+          'https://stockanalysis.com/stocks/v/market-cap/',
+          'https://www.linkedin.com/company/visa/',
+        ],
+        i18n: {
+          zh: {
+            displayName: 'Visa',
+            sector: '金融',
+            industry: '支付技术与交易处理（运营 VisaNet 卡组织网络，连接消费者、商户、金融机构和政府）',
+            headquarters: '美国加利福尼亚州旧金山',
+            fiscalYearEnd: '9 月 30 日',
+            description:
+              'Visa 是一家全球支付技术公司，运营的 VisaNet 交易处理网络连接了 200 多个国家和地区的消费者、商户、金融机构与政府。公司通过服务、数据处理、国际交易等业务赋能数字支付获取收入，并以客户激励的形式向发卡机构返还价值。',
+          },
+        },
+      },
+      {
+        key: 'airbus',
+        name: 'Airbus',
+        legalName: 'Airbus SE',
+        ticker: 'AIR',
+        exchange: 'Euronext Paris',
+        marketCap: {
+          valueUsd: 170000000000,
+          asOf: '2026-06-18',
+          source: 'StockAnalysis',
+          sourceUrl: 'https://stockanalysis.com/quote/epa/AIR/market-cap/',
+        },
+        sector: 'Industrials',
+        industry: 'Aerospace and defense — commercial aircraft, helicopters, defense, and space systems',
+        founded: '1970',
+        headquarters: 'Leiden, Netherlands (operational headquarters in Toulouse, France)',
+        fiscalYearEnd: 'December 31',
+        website: 'https://www.airbus.com/',
+        description:
+          'Airbus is a European aerospace corporation that designs, manufactures, and sells commercial aircraft, helicopters, and defense and space systems. Its business is organized into three segments — Airbus (commercial aircraft), Airbus Helicopters, and Airbus Defence and Space — serving airlines, operators, governments, and institutions worldwide.',
+        sourceUrls: [
+          'https://www.airbus.com/en/who-we-are',
+          'https://www.airbus.com/en/investors',
+          'https://www.airbus.com/en/investors/financial-results-annual-reports',
+          'https://stockanalysis.com/quote/epa/AIR/',
+        ],
+        i18n: {
+          zh: {
+            displayName: '空中客车',
+            sector: '工业',
+            industry: '航空航天与国防——商用飞机、直升机、防务与航天系统',
+            headquarters: '荷兰莱顿（运营总部位于法国图卢兹）',
+            fiscalYearEnd: '12 月 31 日',
+            description:
+              '空中客车是一家欧洲航空航天公司，设计、制造并销售商用飞机、直升机以及防务与航天系统。其业务分为三大板块——空中客车（商用飞机）、空客直升机、空客防务与航天，面向全球航空公司、运营商、政府和机构。',
           },
         },
       },

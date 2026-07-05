@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-04T13:21:52.198Z",
+  "generatedAt": "2026-07-05T04:49:18.271Z",
   "source": "dataset view and metric source file modification times",
   "files": {
     "alphabet-q1-fy26": {
@@ -32,6 +32,11 @@
       "mtimeMs": 1782726202237,
       "mtime": "2026-06-29T09:43:22.237Z"
     },
+    "airbus-q1-fy26": {
+      "path": "data/datasets/airbus-q1-fy26.js",
+      "mtimeMs": 1783226958271,
+      "mtime": "2026-07-05T04:49:18.271Z"
+    },
     "amd-q1-fy26": {
       "path": "data/datasets/amd-q1-fy26.js",
       "mtimeMs": 1783016580584,
@@ -41,6 +46,11 @@
       "path": "data/datasets/amazon-q1-fy26.js",
       "mtimeMs": 1782042803790,
       "mtime": "2026-06-21T11:53:23.790Z"
+    },
+    "american-express-q1-fy26": {
+      "path": "data/datasets/american-express-q1-fy26.js",
+      "mtimeMs": 1783192961941,
+      "mtime": "2026-07-04T19:22:41.941Z"
     },
     "appfolio-q1-fy26": {
       "path": "data/datasets/appfolio-q1-fy26.js",
@@ -97,15 +107,35 @@
       "mtimeMs": 1783016513431,
       "mtime": "2026-07-02T18:21:53.431Z"
     },
+    "boeing-q1-fy26": {
+      "path": "data/datasets/boeing-q1-fy26.js",
+      "mtimeMs": 1783225911301,
+      "mtime": "2026-07-05T04:31:51.301Z"
+    },
     "broadcom-q2-fy26": {
       "path": "data/datasets/broadcom-q2-fy26.js",
       "mtimeMs": 1783142954678,
       "mtime": "2026-07-04T05:29:14.678Z"
     },
+    "c3-ai-q4-fy26": {
+      "path": "data/datasets/c3-ai-q4-fy26.js",
+      "mtimeMs": 1783183300156,
+      "mtime": "2026-07-04T16:41:40.156Z"
+    },
     "cerebras-q1-fy26": {
       "path": "data/datasets/cerebras-q1-fy26.js",
       "mtimeMs": 1783154854655,
       "mtime": "2026-07-04T08:47:34.655Z"
+    },
+    "coca-cola-q1-fy26": {
+      "path": "data/datasets/coca-cola-q1-fy26.js",
+      "mtimeMs": 1783190987039,
+      "mtime": "2026-07-04T18:49:47.039Z"
+    },
+    "pepsico-q1-fy26": {
+      "path": "data/datasets/pepsico-q1-fy26.js",
+      "mtimeMs": 1783190006959,
+      "mtime": "2026-07-04T18:33:26.959Z"
     },
     "coinbase-q1-fy26": {
       "path": "data/datasets/coinbase-q1-fy26.js",
@@ -127,6 +157,11 @@
       "mtimeMs": 1782069340599,
       "mtime": "2026-06-21T19:15:40.599Z"
     },
+    "crowdstrike-q1-fy27": {
+      "path": "data/datasets/crowdstrike-q1-fy27.js",
+      "mtimeMs": 1783184902888,
+      "mtime": "2026-07-04T17:08:22.888Z"
+    },
     "datadog-q1-fy26": {
       "path": "data/datasets/datadog-q1-fy26.js",
       "mtimeMs": 1782569781027,
@@ -137,6 +172,11 @@
       "mtimeMs": 1782072199241,
       "mtime": "2026-06-21T20:03:19.241Z"
     },
+    "didi-q1-fy26": {
+      "path": "data/datasets/didi-q1-fy26.js",
+      "mtimeMs": 1783180392352,
+      "mtime": "2026-07-04T15:53:12.352Z"
+    },
     "digital-ocean-q1-fy26": {
       "path": "data/datasets/digital-ocean-q1-fy26.js",
       "mtimeMs": 1782542346641,
@@ -146,6 +186,11 @@
       "path": "data/datasets/disney-q2-fy26-by-segment.js",
       "mtimeMs": 1782572415121,
       "mtime": "2026-06-27T15:00:15.121Z"
+    },
+    "docusign-q1-fy27": {
+      "path": "data/datasets/docusign-q1-fy27.js",
+      "mtimeMs": 1783184148503,
+      "mtime": "2026-07-04T16:55:48.503Z"
     },
     "duolingo-q1-fy26": {
       "path": "data/datasets/duolingo-q1-fy26.js",
@@ -167,6 +212,11 @@
       "mtimeMs": 1782711282453,
       "mtime": "2026-06-29T05:34:42.453Z"
     },
+    "fox-q3-fy26": {
+      "path": "data/datasets/fox-q3-fy26.js",
+      "mtimeMs": 1783182222104,
+      "mtime": "2026-07-04T16:23:42.104Z"
+    },
     "goldman-sachs-q1-fy26": {
       "path": "data/datasets/goldman-sachs-q1-fy26.js",
       "mtimeMs": 1783016923129,
@@ -182,6 +232,11 @@
       "mtimeMs": 1782754792844,
       "mtime": "2026-06-29T17:39:52.844Z"
     },
+    "mastercard-q1-fy26": {
+      "path": "data/datasets/mastercard-q1-fy26.js",
+      "mtimeMs": 1783189229853,
+      "mtime": "2026-07-04T18:20:29.853Z"
+    },
     "hp-q2-fy26": {
       "path": "data/datasets/hp-q2-fy26.js",
       "mtimeMs": 1783015681561,
@@ -196,6 +251,11 @@
       "path": "data/datasets/ibm-q1-fy26.js",
       "mtimeMs": 1783016923129,
       "mtime": "2026-07-02T18:28:43.129Z"
+    },
+    "intel-q1-fy26": {
+      "path": "data/datasets/intel-q1-fy26.js",
+      "mtimeMs": 1783188676067,
+      "mtime": "2026-07-04T18:11:16.067Z"
     },
     "intuit-q3-fy26": {
       "path": "data/datasets/intuit-q3-fy26.js",
@@ -337,6 +397,11 @@
       "mtimeMs": 1782565522690,
       "mtime": "2026-06-27T13:05:22.690Z"
     },
+    "unitedhealth-q1-fy26": {
+      "path": "data/datasets/unitedhealth-q1-fy26.js",
+      "mtimeMs": 1783194091981,
+      "mtime": "2026-07-04T19:41:31.981Z"
+    },
     "warner-bros-q1-fy26": {
       "path": "data/datasets/warner-bros-q1-fy26.js",
       "mtimeMs": 1782570468966,
@@ -362,6 +427,11 @@
       "mtimeMs": 1782043174433,
       "mtime": "2026-06-21T11:59:34.433Z"
     },
+    "rbi-q1-fy26": {
+      "path": "data/datasets/rbi-q1-fy26.js",
+      "mtimeMs": 1783194925817,
+      "mtime": "2026-07-04T19:55:25.817Z"
+    },
     "salesforce-q1-fy27": {
       "path": "data/datasets/salesforce-q1-fy27.js",
       "mtimeMs": 1783015681566,
@@ -371,6 +441,11 @@
       "path": "data/datasets/servicenow-q1-fy26.js",
       "mtimeMs": 1783017111289,
       "mtime": "2026-07-02T18:31:51.289Z"
+    },
+    "spotify-q1-fy26": {
+      "path": "data/datasets/spotify-q1-fy26.js",
+      "mtimeMs": 1783187280426,
+      "mtime": "2026-07-04T17:48:00.426Z"
     },
     "snap-q1-fy26": {
       "path": "data/datasets/snap-q1-fy26.js",
@@ -412,15 +487,30 @@
       "mtimeMs": 1783015681561,
       "mtime": "2026-07-02T18:08:01.561Z"
     },
+    "meituan-q1-fy26": {
+      "path": "data/datasets/meituan-q1-fy26.js",
+      "mtimeMs": 1783176620594,
+      "mtime": "2026-07-04T14:50:20.594Z"
+    },
     "micron-q3-fy26": {
       "path": "data/datasets/micron-q3-fy26.js",
       "mtimeMs": 1783168374486,
       "mtime": "2026-07-04T12:32:54.486Z"
     },
+    "sandisk-q3-fy26": {
+      "path": "data/datasets/sandisk-q3-fy26.js",
+      "mtimeMs": 1783186602952,
+      "mtime": "2026-07-04T17:36:42.952Z"
+    },
     "morgan-stanley-q1-fy26": {
       "path": "data/datasets/morgan-stanley-q1-fy26.js",
       "mtimeMs": 1783016923129,
       "mtime": "2026-07-02T18:28:43.129Z"
+    },
+    "moodys-q1-fy26": {
+      "path": "data/datasets/moodys-q1-fy26.js",
+      "mtimeMs": 1783190173681,
+      "mtime": "2026-07-04T18:36:13.681Z"
     },
     "monday-com-q1-fy26": {
       "path": "data/datasets/monday-com-q1-fy26.js",
@@ -506,6 +596,16 @@
       "path": "data/datasets/nvidia-q4-fy26.js",
       "mtimeMs": 1783015681565,
       "mtime": "2026-07-02T18:08:01.565Z"
+    },
+    "veeva-q1-fy27": {
+      "path": "data/datasets/veeva-q1-fy27.js",
+      "mtimeMs": 1783187258497,
+      "mtime": "2026-07-04T17:47:38.497Z"
+    },
+    "visa-q2-fy26": {
+      "path": "data/datasets/visa-q2-fy26.js",
+      "mtimeMs": 1783189733687,
+      "mtime": "2026-07-04T18:28:53.687Z"
     },
     "data/revenue-metrics.js": {
       "path": "data/revenue-metrics.js",

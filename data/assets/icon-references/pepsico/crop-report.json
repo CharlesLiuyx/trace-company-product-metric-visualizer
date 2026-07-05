@@ -1,0 +1,828 @@
+{
+  "source": "input/processed/pepsico-q1-fy26.png",
+  "spec": "input/icon-crop-specs/pepsico-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-04T18:15:44.650726+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/pepsico",
+  "crops": [
+    {
+      "key": "pepsico-company-logo",
+      "output": "data/assets/icon-references/pepsico/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2416,
+        "losslessBytes": 11253,
+        "savingsVsLossless": 0.7853,
+        "metrics": {
+          "meanAbsoluteError": 0.5838,
+          "rootMeanSquareError": 2.2415,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 46,
+          "changedPixelRatio": 0.6034
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 14730,
+        "transparentPixelRatio": 0.408
+      },
+      "searchBox": {
+        "x": 1003,
+        "y": 270,
+        "width": 469,
+        "height": 70
+      },
+      "componentCount": 7,
+      "subjectBox": {
+        "x0": 1006,
+        "y0": 273,
+        "x1": 1470,
+        "y1": 338
+      },
+      "cropBox": {
+        "x0": 1000,
+        "y0": 267,
+        "x1": 1475,
+        "y1": 343
+      },
+      "validation": {
+        "width": 475,
+        "height": 76,
+        "foregroundPixels": 19967,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 6,
+          "right": 5,
+          "top": 6,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0011,
+          "y": 0.0066
+        },
+        "passes": true
+      },
+      "note": "PEPSICO navy wordmark above the revenue hub; excludes the title, revenue label, and the multicolor globe below it.",
+      "runtimeOutput": "data/assets/raster-annotations/pepsico/company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2416,
+        "losslessBytes": 11253,
+        "savingsVsLossless": 0.7853,
+        "metrics": {
+          "meanAbsoluteError": 0.5838,
+          "rootMeanSquareError": 2.2415,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 46,
+          "changedPixelRatio": 0.6034
+        }
+      },
+      "validationSheet": "data/assets/icon-references/pepsico/validation-sheets/pepsico-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 244496,
+        "losslessBytes": 244496,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "pepsico-foods-lays-quaker",
+      "output": "data/assets/icon-references/pepsico/crops/foods-lays-quaker.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 7607,
+        "losslessBytes": 30573,
+        "savingsVsLossless": 0.7512,
+        "metrics": {
+          "meanAbsoluteError": 1.1812,
+          "rootMeanSquareError": 2.7405,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 27,
+          "changedPixelRatio": 0.5528
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 12932,
+        "transparentPixelRatio": 0.453
+      },
+      "searchBox": {
+        "x": 30,
+        "y": 429,
+        "width": 238,
+        "height": 111
+      },
+      "componentCount": 10,
+      "subjectBox": {
+        "x0": 33,
+        "y0": 432,
+        "x1": 261,
+        "y1": 538
+      },
+      "cropBox": {
+        "x0": 27,
+        "y0": 426,
+        "x1": 271,
+        "y1": 543
+      },
+      "validation": {
+        "width": 244,
+        "height": 117,
+        "foregroundPixels": 13320,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 6,
+          "right": 10,
+          "top": 6,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": -0.0082,
+          "y": 0.0043
+        },
+        "passes": true
+      },
+      "note": "Lay's and Quaker brand marks for the Foods revenue line; excludes the 'Foods' label text to the right.",
+      "runtimeOutput": "data/assets/raster-annotations/pepsico/foods-lays-quaker.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 7607,
+        "losslessBytes": 30573,
+        "savingsVsLossless": 0.7512,
+        "metrics": {
+          "meanAbsoluteError": 1.1812,
+          "rootMeanSquareError": 2.7405,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 27,
+          "changedPixelRatio": 0.5528
+        }
+      },
+      "validationSheet": "data/assets/icon-references/pepsico/validation-sheets/pepsico-foods-lays-quaker.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 311346,
+        "losslessBytes": 311346,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "pepsico-beverages-pepsi",
+      "output": "data/assets/icon-references/pepsico/crops/beverages-pepsi.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2678,
+        "losslessBytes": 12070,
+        "savingsVsLossless": 0.7781,
+        "metrics": {
+          "meanAbsoluteError": 0.7241,
+          "rootMeanSquareError": 2.0274,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 31,
+          "changedPixelRatio": 0.4097
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 6257,
+        "transparentPixelRatio": 0.3358
+      },
+      "searchBox": {
+        "x": 54,
+        "y": 706,
+        "width": 130,
+        "height": 131
+      },
+      "componentCount": 7,
+      "subjectBox": {
+        "x0": 57,
+        "y0": 709,
+        "x1": 182,
+        "y1": 835
+      },
+      "cropBox": {
+        "x0": 51,
+        "y0": 703,
+        "x1": 187,
+        "y1": 840
+      },
+      "validation": {
+        "width": 136,
+        "height": 137,
+        "foregroundPixels": 8401,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 6,
+          "right": 5,
+          "top": 6,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0037,
+          "y": 0.0036
+        },
+        "passes": true
+      },
+      "note": "Round Pepsi globe logo for the PepsiCo Beverages revenue line; excludes the 'PepsiCo Beverages' label text.",
+      "runtimeOutput": "data/assets/raster-annotations/pepsico/beverages-pepsi.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2678,
+        "losslessBytes": 12070,
+        "savingsVsLossless": 0.7781,
+        "metrics": {
+          "meanAbsoluteError": 0.7241,
+          "rootMeanSquareError": 2.0274,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 31,
+          "changedPixelRatio": 0.4097
+        }
+      },
+      "validationSheet": "data/assets/icon-references/pepsico/validation-sheets/pepsico-beverages-pepsi.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 309684,
+        "losslessBytes": 309684,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "pepsico-ib-sodastream",
+      "output": "data/assets/icon-references/pepsico/crops/ib-sodastream.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2474,
+        "losslessBytes": 12681,
+        "savingsVsLossless": 0.8049,
+        "metrics": {
+          "meanAbsoluteError": 1.1535,
+          "rootMeanSquareError": 2.8027,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.4323
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 10293,
+        "transparentPixelRatio": 0.578
+      },
+      "searchBox": {
+        "x": 489,
+        "y": 862,
+        "width": 100,
+        "height": 162
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 495,
+        "y0": 866,
+        "x1": 587,
+        "y1": 1021
+      },
+      "cropBox": {
+        "x0": 486,
+        "y0": 859,
+        "x1": 592,
+        "y1": 1027
+      },
+      "validation": {
+        "width": 106,
+        "height": 168,
+        "foregroundPixels": 6133,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 9,
+          "right": 5,
+          "top": 7,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": 0.0189,
+          "y": 0.003
+        },
+        "passes": true
+      },
+      "note": "SodaStream Pepsi bottle for the IB franchise revenue line; excludes the 'IB franchise' label text to the right.",
+      "runtimeOutput": "data/assets/raster-annotations/pepsico/ib-sodastream.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2474,
+        "losslessBytes": 12681,
+        "savingsVsLossless": 0.8049,
+        "metrics": {
+          "meanAbsoluteError": 1.1535,
+          "rootMeanSquareError": 2.8027,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.4323
+        }
+      },
+      "validationSheet": "data/assets/icon-references/pepsico/validation-sheets/pepsico-ib-sodastream.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 283710,
+        "losslessBytes": 283710,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "pepsico-revenue-globe",
+      "output": "data/assets/icon-references/pepsico/crops/revenue-globe.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 128,
+        "bytes": 3761,
+        "losslessBytes": 13944,
+        "savingsVsLossless": 0.7303,
+        "metrics": {
+          "meanAbsoluteError": 1.0056,
+          "rootMeanSquareError": 2.6585,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.5359
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 6386,
+        "transparentPixelRatio": 0.4705
+      },
+      "searchBox": {
+        "x": 1179,
+        "y": 359,
+        "width": 110,
+        "height": 111
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 1182,
+        "y0": 362,
+        "x1": 1287,
+        "y1": 468
+      },
+      "cropBox": {
+        "x0": 1176,
+        "y0": 356,
+        "x1": 1292,
+        "y1": 473
+      },
+      "validation": {
+        "width": 116,
+        "height": 117,
+        "foregroundPixels": 4292,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 6,
+          "right": 5,
+          "top": 6,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0043,
+          "y": 0.0043
+        },
+        "passes": true
+      },
+      "note": "Multicolor wireframe globe above the Revenue hub; excludes the PEPSICO wordmark above and the Revenue label below.",
+      "runtimeOutput": "data/assets/raster-annotations/pepsico/revenue-globe.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 128,
+        "bytes": 3761,
+        "losslessBytes": 13944,
+        "savingsVsLossless": 0.7303,
+        "metrics": {
+          "meanAbsoluteError": 1.0056,
+          "rootMeanSquareError": 2.6585,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.5359
+        }
+      },
+      "validationSheet": "data/assets/icon-references/pepsico/validation-sheets/pepsico-revenue-globe.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 371113,
+        "losslessBytes": 371113,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "pepsico-globe-north-america",
+      "output": "data/assets/icon-references/pepsico/crops/globe-north-america.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 9275,
+        "losslessBytes": 9275,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 3491,
+        "transparentPixelRatio": 0.3635
+      },
+      "searchBox": {
+        "x": 809,
+        "y": 305,
+        "width": 92,
+        "height": 92
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 812,
+        "y0": 308,
+        "x1": 899,
+        "y1": 395
+      },
+      "cropBox": {
+        "x0": 806,
+        "y0": 302,
+        "x1": 904,
+        "y1": 400
+      },
+      "validation": {
+        "width": 98,
+        "height": 98,
+        "foregroundPixels": 2539,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 6,
+          "right": 5,
+          "top": 6,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0051,
+          "y": 0.0051
+        },
+        "passes": true
+      },
+      "note": "North America globe above the North America node.",
+      "runtimeOutput": "data/assets/raster-annotations/pepsico/globe-north-america.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 9275,
+        "losslessBytes": 9275,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/pepsico/validation-sheets/pepsico-globe-north-america.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 312032,
+        "losslessBytes": 312032,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "pepsico-globe-latam",
+      "output": "data/assets/icon-references/pepsico/crops/globe-latam.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 7308,
+        "losslessBytes": 7308,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 3774,
+        "transparentPixelRatio": 0.4459
+      },
+      "searchBox": {
+        "x": 559,
+        "y": 1033,
+        "width": 86,
+        "height": 86
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 562,
+        "y0": 1036,
+        "x1": 643,
+        "y1": 1117
+      },
+      "cropBox": {
+        "x0": 556,
+        "y0": 1030,
+        "x1": 648,
+        "y1": 1122
+      },
+      "validation": {
+        "width": 92,
+        "height": 92,
+        "foregroundPixels": 2037,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 6,
+          "right": 5,
+          "top": 6,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0054,
+          "y": 0.0054
+        },
+        "passes": true
+      },
+      "note": "Latin America globe to the left of the LATAM label.",
+      "runtimeOutput": "data/assets/raster-annotations/pepsico/globe-latam.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 7308,
+        "losslessBytes": 7308,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/pepsico/validation-sheets/pepsico-globe-latam.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 303713,
+        "losslessBytes": 303713,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "pepsico-globe-emea",
+      "output": "data/assets/icon-references/pepsico/crops/globe-emea.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 19215,
+        "losslessBytes": 19215,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 7532,
+        "transparentPixelRatio": 0.3983
+      },
+      "searchBox": {
+        "x": 484,
+        "y": 1177,
+        "width": 185,
+        "height": 93
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 487,
+        "y0": 1183,
+        "x1": 667,
+        "y1": 1268
+      },
+      "cropBox": {
+        "x0": 481,
+        "y0": 1174,
+        "x1": 672,
+        "y1": 1273
+      },
+      "validation": {
+        "width": 191,
+        "height": 99,
+        "foregroundPixels": 7416,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 6,
+          "right": 5,
+          "top": 9,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0026,
+          "y": 0.0202
+        },
+        "passes": true
+      },
+      "note": "Two EMEA globes (Europe and Africa/Middle East) to the left of the EMEA label.",
+      "runtimeOutput": "data/assets/raster-annotations/pepsico/globe-emea.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 19215,
+        "losslessBytes": 19215,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/pepsico/validation-sheets/pepsico-globe-emea.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 295683,
+        "losslessBytes": 295683,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "pepsico-globe-apac",
+      "output": "data/assets/icon-references/pepsico/crops/globe-apac.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 8295,
+        "losslessBytes": 8295,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 3090,
+        "transparentPixelRatio": 0.3731
+      },
+      "searchBox": {
+        "x": 575,
+        "y": 1321,
+        "width": 85,
+        "height": 85
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 578,
+        "y0": 1324,
+        "x1": 658,
+        "y1": 1404
+      },
+      "cropBox": {
+        "x0": 572,
+        "y0": 1318,
+        "x1": 663,
+        "y1": 1409
+      },
+      "validation": {
+        "width": 91,
+        "height": 91,
+        "foregroundPixels": 2254,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 6,
+          "right": 5,
+          "top": 6,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0055,
+          "y": 0.0055
+        },
+        "passes": true
+      },
+      "note": "Asia Pacific globe to the left of the APAC label.",
+      "runtimeOutput": "data/assets/raster-annotations/pepsico/globe-apac.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 8295,
+        "losslessBytes": 8295,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/pepsico/validation-sheets/pepsico-globe-apac.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 318567,
+        "losslessBytes": 318567,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,307 @@
+{
+  "source": "input/processed/fox-q3-fy26.png",
+  "spec": "input/icon-crop-specs/fox-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-04T15:49:33.915985+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/fox",
+  "crops": [
+    {
+      "key": "fox-company-wordmark",
+      "output": "data/assets/icon-references/fox/crops/company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3127,
+        "losslessBytes": 12790,
+        "savingsVsLossless": 0.7555,
+        "metrics": {
+          "meanAbsoluteError": 0.1416,
+          "rootMeanSquareError": 0.9135,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 32,
+          "changedPixelRatio": 0.0755
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 24949,
+        "transparentPixelRatio": 0.3414
+      },
+      "searchBox": {
+        "x": 806,
+        "y": 268,
+        "width": 378,
+        "height": 162
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 806,
+        "y0": 268,
+        "x1": 1184,
+        "y1": 430
+      },
+      "cropBox": {
+        "x0": 792,
+        "y0": 256,
+        "x1": 1198,
+        "y1": 436
+      },
+      "validation": {
+        "width": 406,
+        "height": 180,
+        "foregroundPixels": 44083,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 14,
+          "right": 14,
+          "top": 12,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0167
+        },
+        "passes": true
+      },
+      "note": "Blue FOX wordmark above the revenue flow; excludes the title, source values, chart links, and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/fox/company-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3127,
+        "losslessBytes": 12790,
+        "savingsVsLossless": 0.7555,
+        "metrics": {
+          "meanAbsoluteError": 0.1416,
+          "rootMeanSquareError": 0.9135,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 32,
+          "changedPixelRatio": 0.0755
+        }
+      },
+      "validationSheet": "data/assets/icon-references/fox/validation-sheets/fox-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 235578,
+        "losslessBytes": 235578,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "fox-cable-network-cluster",
+      "output": "data/assets/icon-references/fox/crops/cable-network-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 21410,
+        "losslessBytes": 21410,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 30735,
+        "transparentPixelRatio": 0.536
+      },
+      "searchBox": {
+        "x": 14,
+        "y": 327,
+        "width": 213,
+        "height": 233
+      },
+      "componentCount": 11,
+      "subjectBox": {
+        "x0": 14,
+        "y0": 327,
+        "x1": 226,
+        "y1": 560
+      },
+      "cropBox": {
+        "x0": 4,
+        "y0": 315,
+        "x1": 228,
+        "y1": 571
+      },
+      "validation": {
+        "width": 224,
+        "height": 256,
+        "foregroundPixels": 24759,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 10,
+          "right": 2,
+          "top": 12,
+          "bottom": 11
+        },
+        "centerOffset": {
+          "x": 0.0179,
+          "y": 0.002
+        },
+        "passes": true
+      },
+      "note": "Cable Network Programming brand cluster: Fox News Channel, Fox Business, FS1, FS2. The Cable Network Programming label text is x-interleaved with the logos (starts x184/x208 on the upper rows while FS1/FS2 reach x225), so the two label-text fragments are blanked via excludeBoxes; excludes the segment label, values, margin text, and flow marks.",
+      "excludedPixels": 5288,
+      "runtimeOutput": "data/assets/raster-annotations/fox/cable-network-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 21410,
+        "losslessBytes": 21410,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/fox/validation-sheets/fox-cable-network-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 282877,
+        "losslessBytes": 282877,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "fox-television-cluster",
+      "output": "data/assets/icon-references/fox/crops/television-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 4778,
+        "losslessBytes": 19926,
+        "savingsVsLossless": 0.7602,
+        "metrics": {
+          "meanAbsoluteError": 0.7016,
+          "rootMeanSquareError": 2.6402,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.2905
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 25102,
+        "transparentPixelRatio": 0.5311
+      },
+      "searchBox": {
+        "x": 66,
+        "y": 707,
+        "width": 145,
+        "height": 259
+      },
+      "componentCount": 12,
+      "subjectBox": {
+        "x0": 66,
+        "y0": 707,
+        "x1": 211,
+        "y1": 966
+      },
+      "cropBox": {
+        "x0": 54,
+        "y0": 695,
+        "x1": 221,
+        "y1": 978
+      },
+      "validation": {
+        "width": 167,
+        "height": 283,
+        "foregroundPixels": 21475,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 10,
+          "top": 12,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": 0.006,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Television brand cluster: Fox, Fox TV Stations, MyNetworkTV, Tubi; excludes the segment label, values, margin text, and flow marks.",
+      "runtimeOutput": "data/assets/raster-annotations/fox/television-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 4778,
+        "losslessBytes": 19926,
+        "savingsVsLossless": 0.7602,
+        "metrics": {
+          "meanAbsoluteError": 0.7016,
+          "rootMeanSquareError": 2.6402,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.2905
+        }
+      },
+      "validationSheet": "data/assets/icon-references/fox/validation-sheets/fox-television-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 270754,
+        "losslessBytes": 270754,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}
