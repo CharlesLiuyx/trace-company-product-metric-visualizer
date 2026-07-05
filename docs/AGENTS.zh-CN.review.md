@@ -57,6 +57,7 @@ agent 指令以英文版 `AGENTS.md` 为准。
 | `pnpm check` | 快速聚合门：全仓 JS 语法扫描，然后 pending 守卫、SSOT 奇偶、i18n 覆盖、metadata 新鲜度（亚秒级，无渲染） |
 | `pnpm verify:app` | 模块化查看器（`src/app/*`）的无头启动 + 交互冒烟：模块数量、持久化偏好启动、hash 路由、对比缩放 + 指标趋势、收入趋势、移动端视口 |
 | `pnpm check:pending` | 待处理图片重复 / key 冲突守卫 |
+| `pnpm sync:index-datasets` | 保持顺序地同步 `index.html` 数据集 `<script>` 标签与 `data/datasets/`（追加缺失、删除失效；`--check` 只报告漂移） |
 | `pnpm verify:dataset -- <key> [--skip-render]` | 单数据集聚合门：语法、SSOT、strict i18n、metadata，然后每种语言各一次 d3 渲染 |
 | `pnpm verify:ssot` | SSOT ↔ 数据集奇偶 + 注册奇偶 + 货币/单位与汇率覆盖（全局） |
 | `pnpm verify:i18n -- [--strict] [keys]` | i18n 覆盖检查 |

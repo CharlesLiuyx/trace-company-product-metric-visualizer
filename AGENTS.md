@@ -60,6 +60,7 @@ Install once; the d3/standalone verifiers render in Chromium:
 | `pnpm check` | fast aggregate gate: repo-wide JS syntax sweep, then pending guard, SSOT parity, i18n coverage, metadata freshness (sub-second, no rendering) |
 | `pnpm verify:app` | headless boot + interaction smoke of the modular viewer (`src/app/*`): module count, persisted-prefs boot, hash routing, comparison zoom + metric trend, revenue trend, mobile viewport |
 | `pnpm check:pending` | pending-image duplicate / key-collision guard |
+| `pnpm sync:index-datasets` | order-preserving sync of `index.html` dataset `<script>` tags with `data/datasets/` (append missing, drop stale; `--check` reports drift) |
 | `pnpm verify:dataset -- <key> [--skip-render]` | aggregate per-dataset gate: syntax, SSOT, strict i18n, metadata, then a d3 render per language |
 | `pnpm verify:ssot` | SSOT ↔ dataset parity, registration parity, and currency/unit + FX coverage (global) |
 | `pnpm verify:i18n -- [--strict] [keys]` | i18n overlay coverage |
