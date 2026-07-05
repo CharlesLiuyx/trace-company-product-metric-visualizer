@@ -44,7 +44,7 @@ The pipeline is not strictly serial. Dependency-wise it forms four groups:
   loop: candidate-value trials within one round (already required by
   `docs/fidelity-loop-rules.md` 反微调停机规则), and per-language renders,
   which are independent processes and may run in parallel shells.
-- **G4 — serial close-out (step 13 plus the Verification Checklist and
+- **G4 — serial close-out (step 14 plus the Verification Checklist and
   Reporting below).**
 
 ### Difficulty-based executor routing
@@ -81,7 +81,7 @@ returns.
    anything for that image. If your final stable key differs from the
    script's candidate key, re-check the final key against
    `input/processed/`, `data/datasets/`, `data/income-statements/`, and
-   `index.html` before continuing.
+   `data/dataset-manifest.js` before continuing.
 2. Key: lowercase kebab case, company plus period, e.g. `nvidia-q4-fy26`.
 3. Image: move the source PNG to `input/processed/<dataset-key>.png` and set
    `meta.referenceImage` to it with the exact source dimensions.
@@ -162,19 +162,26 @@ returns.
    line that changes in translation, plus the matching SSOT labels/notes and
    company profile. Overlays are display-only: never change values, links,
    node geometry, financial totals, source images, or verification semantics.
-10. Register: add the `<script>` tag in `index.html` after dependencies and
-    after any dataset it reuses. Declare untranslated sub-brand annotation
-    words in the dataset's `i18n.preservedAnnotationText` (see Traps).
+10. Register: run `pnpm sync:index-datasets` — it appends the dataset to the
+    generated `data/dataset-manifest.js` (the registration SSOT; adapters no
+    longer get `index.html` tags). When the dataset reuses another, keep it
+    after its dependency in manifest order. Declare untranslated sub-brand
+    annotation words in the dataset's `i18n.preservedAnnotationText` (see
+    Traps).
 
 ### Phase P4 — Verify (G3)
 
 11. Run `pnpm verify:dataset -- <dataset-key>`.
 12. Run the manual fidelity loop per `docs/fidelity-loop-rules.md`, including
     a localization layout round per non-default language.
+13. After the loop converges, record the dataset's pixel-similarity baseline
+    with `pnpm verify:render-regression -- --update` and commit the refreshed
+    `data/render-baselines.json`; the batch regression gate protects every
+    tuned dataset from future engine-wide changes.
 
 ### Phase P5 — Close out (G4)
 
-13. Leave `input/pending/` empty except `.gitkeep`, then satisfy the
+14. Leave `input/pending/` empty except `.gitkeep`, then satisfy the
     Verification Checklist and Reporting sections below.
 
 ## Object Taxonomy
@@ -282,12 +289,14 @@ proceed with the pipeline using the new checklist.
   extend the frozen legacy list in `scripts/verify-i18n.mjs`.
 - Brand and product terms that stay untranslated everywhere (YouTube,
   iPhone, `Microsoft 365`…) are declared once as identity mappings in the
-  `EXACT_ZH` dictionary (`src/i18n.js`); `verify:i18n` treats an
-  identity-mapped term as translated on every path — labels, notes, layout
-  lines, and annotations.
+  `EXACT_ZH` dictionary (`src/i18n-dictionaries.js`); `verify:i18n` treats
+  an identity-mapped term as translated on every path — labels, notes,
+  layout lines, and annotations.
 - Registration parity is enforced by `verify:ssot`: every file in
-  `data/datasets/` must be registered in `index.html` unless listed in
-  `UNREGISTERED_DATASET_SCRIPTS` (`scripts/script-sources.mjs`).
+  `data/datasets/` must be registered in the generated
+  `data/dataset-manifest.js` unless listed in
+  `UNREGISTERED_DATASET_SCRIPTS` (`scripts/script-sources.mjs`); run
+  `pnpm sync:index-datasets` to repair drift.
 - Crops under `data/assets/icon-references/` are reference/conversion assets
   only and must never be referenced from d3 runtime output; runtime rasters
   live under `data/assets/raster-annotations/<company>/`.
@@ -300,32 +309,26 @@ proceed with the pipeline using the new checklist.
 Always, before the final response:
 
 - `pnpm check` passes (repo-wide JS syntax sweep, pending guard, SSOT
-  parity, i18n coverage, dataset-file-metadata freshness). The bar is a
-  green `pnpm check` on a full local working copy; two failures are expected
-  on any fresh checkout — see Environment Caveats.
+  parity, i18n coverage, dataset-file-metadata freshness). `pnpm check` is
+  reproducible: it must be fully green on any working copy, including fresh
+  clones, cloud agents, and CI — see Environment Notes.
 - `input/pending/` contains only `.gitkeep`, or a stop condition is reported.
 
-### Environment Caveats (fresh checkouts, cloud, CI)
+### Environment Notes (fresh checkouts, cloud, CI)
 
-`pnpm check` is only fully green on a working copy that keeps every
-local-only file and its original modification times. On any fresh
-clone/checkout — cloud agent, CI, or a new local clone — exactly two
-failures are expected and are not regressions:
+`pnpm check` is designed to be green on any checkout; CI runs it on every
+push. Two mechanisms keep it reproducible — do not undo them:
 
-- `verify:ssot` reports `source image does not exist` for datasets whose
-  source screenshots are intentionally local-only and never committed
-  (currently the YipitData-sourced ARR revenue-metric datasets). Never
-  fabricate or commit these images to silence the check.
-- `verify:dataset-file-metadata` reports stale because
-  `data/dataset-file-metadata.js` records absolute file mtimes and git
-  resets them to checkout time on clone. Never run
-  `pnpm update:dataset-file-metadata` and commit it from a fresh checkout —
-  it would overwrite the meaningful local mtimes.
-
-In these environments treat only those two as benign, still act on any other
-`check` failure, and rely on the targeted verifiers (`pnpm test`,
-`pnpm verify:dataset`, `pnpm verify:d3`, `pnpm verify:app`, `pnpm verify:i18n`,
-`pnpm verify:standalone`) as the real gate.
+- Source screenshots that are intentionally local-only and never committed
+  (currently the YipitData-sourced ARR revenue-metric datasets) declare
+  `sourceImage.localOnly: true` on their revenue SSOT source entry, which
+  skips the existence check. Never fabricate or commit these images; declare
+  new local-only evidence the same way.
+- `data/dataset-file-metadata.js` records git author times, not filesystem
+  mtimes, so regeneration is deterministic on every machine. A dataset file
+  falls back to its mtime only until its first commit; after committing a
+  new or materially edited dataset, rerun `pnpm update:dataset-file-metadata`
+  and commit the refreshed metadata so `--check` stays green.
 
 For viewer changes (`src/app/`, `index.html` script order, `src/app.css`):
 

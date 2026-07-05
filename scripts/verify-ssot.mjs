@@ -7,33 +7,14 @@ import {
   INCOME_STATEMENT_SCRIPT_DIR,
   UNREGISTERED_DATASET_SCRIPTS,
   companyMetadataScriptsFromIndex,
-  dataScriptsFromIndex,
   incomeStatementScriptsFromIndex,
+  registeredDatasetScripts,
 } from './script-sources.mjs';
 import { assert, listScripts, readProjectFile, rootDir } from './lib/project.mjs';
-import { loadClassicScripts } from './lib/vm-browser.mjs';
+import { loadBrowserData } from './lib/browser-data-loader.mjs';
 
 function dataScripts() {
-  return dataScriptsFromIndex(readProjectFile('index.html'));
-}
-
-function loadBrowserData(scripts) {
-  const context = loadClassicScripts([
-    'src/icons.js',
-    'src/trace-domain.js',
-    ...listScripts(INCOME_STATEMENT_SCRIPT_DIR),
-    'data/revenue-metrics.js',
-    ...listScripts(COMPANY_METADATA_SCRIPT_DIR),
-    ...scripts,
-  ]);
-
-  return {
-    records: context.INCOME_STATEMENT_SSOT?.records || [],
-    revenueRecords: context.REVENUE_METRIC_SSOT?.records || [],
-    companies: context.COMPANY_METADATA?.companies || [],
-    datasets: context.DATASETS || [],
-    domain: context.TraceDomain,
-  };
+  return registeredDatasetScripts();
 }
 
 function fmt(value) {
@@ -279,7 +260,10 @@ function validateRevenueMetric(record, errors) {
   for (const source of record.sources || []) {
     assert(source.name, `${record.key}: source missing name`, errors);
     assert(source.url, `${record.key}: source missing url`, errors);
-    if (source.sourceImage?.src) {
+    // sourceImage.localOnly declares evidence that intentionally never gets
+    // committed (e.g. licensed screenshots); the record keeps the path for
+    // local provenance without failing fresh checkouts or CI.
+    if (source.sourceImage?.src && source.sourceImage.localOnly !== true) {
       assert(existsSync(path.join(rootDir, source.sourceImage.src)), `${record.key}: source image does not exist: ${source.sourceImage.src}`, errors);
     }
   }
@@ -318,7 +302,7 @@ function main() {
   );
   if (unregistered.length) {
     throw new Error(
-      `Dataset script(s) on disk but not registered in index.html: ${unregistered.join(', ')}`
+      `Dataset script(s) on disk but not registered in the dataset manifest: ${unregistered.join(', ')} (run pnpm sync:index-datasets)`
     );
   }
   const staleExemptions = [...UNREGISTERED_DATASET_SCRIPTS].filter(
@@ -342,7 +326,7 @@ function main() {
     'company-metadata SSOT'
   );
 
-  const loaded = loadBrowserData(scripts);
+  const loaded = loadBrowserData({ runtime: ['src/trace-domain.js'], datasetScripts: scripts });
   const { records, revenueRecords, companies, datasets } = loaded;
   const errors = [];
   const datasetKeys = scripts.map((script) => path.basename(script, '.js'));

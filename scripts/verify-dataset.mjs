@@ -3,7 +3,7 @@ import { spawnSync } from 'node:child_process';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { dataScriptsFromIndex, datasetScriptForKey } from './script-sources.mjs';
+import { datasetScriptForKey, registeredDatasetScripts } from './script-sources.mjs';
 import { readProjectFile, rootDir } from './lib/project.mjs';
 import { loadClassicScripts } from './lib/vm-browser.mjs';
 
@@ -34,7 +34,7 @@ function parseArgs(argv) {
 }
 
 function nonDefaultLanguages() {
-  const context = loadClassicScripts(['src/icons.js', 'src/sankey-engine.js', 'src/i18n.js']);
+  const context = loadClassicScripts(['src/icons.js', 'src/sankey-engine.js', 'src/i18n-dictionaries.js', 'src/i18n.js']);
   const i18n = context.SANKEY_I18N;
   if (!i18n?.languageCodes) {
     throw new Error('Could not derive language codes from src/i18n.js');
@@ -70,7 +70,7 @@ function main() {
   const steps = [];
 
   const datasetScript = datasetScriptForKey(datasetKey);
-  const registered = dataScriptsFromIndex(readProjectFile('index.html')).includes(datasetScript);
+  const registered = registeredDatasetScripts().includes(datasetScript);
   const syntaxTargets = SUPPORT_DATA_FILES.filter((file) => existsSync(path.join(rootDir, file)));
   if (existsSync(path.join(rootDir, datasetScript))) syntaxTargets.unshift(datasetScript);
 

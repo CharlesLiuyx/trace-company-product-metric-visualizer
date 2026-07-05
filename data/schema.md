@@ -120,7 +120,7 @@ is needed. Do not create parallel dataset files per language.
 Use `otherIncome` for non-operating gains that add to net profit, and
 `otherExpenses` for non-operating costs that subtract from net profit. The `id`
 fields should match the relevant Sankey node ids when a corresponding node
-exists. The verifier checks every `index.html` dataset script has a matching
+exists. The verifier checks every manifest-registered dataset script has a matching
 SSOT record, compares key totals and line items against Sankey node values, and
 allows small published-rounding differences via `roundingTolerance`. It also
 checks every company in the financial SSOT has a matching
@@ -160,7 +160,10 @@ checks every company in the financial SSOT has a matching
     {
       name: 'YipitData',
       url: 'https://www.yipitdata.com/',
-      sourceImage: { src: 'input/processed/example.png', width: 1125, height: 1412 },
+      // localOnly declares evidence that intentionally never gets committed
+      // (e.g. licensed screenshots); verifiers keep the path for provenance
+      // but skip the file-existence check.
+      sourceImage: { src: 'input/processed/example.png', width: 1125, height: 1412, localOnly: true },
     },
   ],
   confidence: 0.72,
@@ -274,7 +277,7 @@ localization overlays describe the same company.
 | sort mode | source fields | notes |
 |---|---|---|
 | Alphabetical | `name`; optional `i18n.<language>.displayName` | Uses the localized display company name. Use `aliases` only for matching financial records to metadata, not for display ordering. |
-| Recently updated | `data/dataset-file-metadata.js` entries generated from registered `data/datasets/<dataset-key>.js` file modification times | Run `pnpm update:dataset-file-metadata` after adding or materially editing dataset files. The UI sorts each company by the newest modified registered dataset file for that company. Missing modification metadata sorts after companies with metadata. |
+| Recently updated | `data/dataset-file-metadata.js` entries generated from the latest git author time of each registered `data/datasets/<dataset-key>.js` file (filesystem mtime only until a file's first commit) | Run `pnpm update:dataset-file-metadata` after committing a new or materially edited dataset file, and commit the refreshed metadata. The UI sorts each company by the newest updated registered dataset file for that company. Missing update metadata sorts after companies with metadata. |
 | Market cap | Prefer `marketCap.valueUsd`; otherwise use `marketCap.value`, `marketCap.currency`, `marketCap.unit`, plus `marketCap.asOf`, `marketCap.source`, `marketCap.sourceUrl` | The UI normalizes market cap to USD using the dated FX snapshot (`USD_FX_SNAPSHOT` in `src/trace-domain.js`, applied by `src/app/financial.js`) before sorting descending. Missing or unsupported-currency values sort after companies with values and display as missing metadata. |
 | Net profit | Latest matching `data/income-statements/<company-key>.js` record: `profit.net.value`, `currency`, `unit`, and parseable period fields | The UI selects the latest dataset for the company, converts the reported net profit to USD using the same dated FX snapshot, and sorts descending. Do not add latest net profit to company metadata. |
 | Founded date | `founded` | The first four-digit year in the string is used for ascending sort. Keep the human-readable string precise enough for Table display. |
@@ -364,7 +367,7 @@ longer translatable sentences are never exempted.
 Brand and product terms that intentionally render unchanged in every position
 (node labels, notes, layout lines, and annotations alike — e.g. YouTube,
 iPhone, `Microsoft 365`) are declared once as identity mappings in the
-`EXACT_ZH` dictionary in `src/i18n.js`; `pnpm verify:i18n` treats an
+`EXACT_ZH` dictionary in `src/i18n-dictionaries.js`; `pnpm verify:i18n` treats an
 identity-mapped term as translated wherever it appears.
 
 ### node

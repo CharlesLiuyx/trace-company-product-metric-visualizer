@@ -160,16 +160,19 @@
     return fallback;
   }
 
+  function fileEntryUpdatedAtMs(entry) {
+    return timestampMs(entry?.updatedAtMs ?? entry?.updatedAt ?? entry?.mtimeMs ?? entry?.mtime);
+  }
+
   function datasetFileUpdatedAtMs(dataset, datasetFileMetadata = {}) {
     const key = clean(dataset?.key);
     if (!key) return null;
     const entry = datasetFileMetadata.files?.[key] || datasetFileMetadata.files?.[`data/datasets/${key}.js`];
-    return timestampMs(entry?.mtimeMs ?? entry?.mtime);
+    return fileEntryUpdatedAtMs(entry);
   }
 
   function sourceFileUpdatedAtMs(relativePath, datasetFileMetadata = {}) {
-    const entry = datasetFileMetadata.files?.[relativePath];
-    return timestampMs(entry?.mtimeMs ?? entry?.mtime);
+    return fileEntryUpdatedAtMs(datasetFileMetadata.files?.[relativePath]);
   }
 
   function maxUpdatedAt(...values) {

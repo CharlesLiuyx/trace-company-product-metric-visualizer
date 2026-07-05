@@ -109,7 +109,8 @@ chore(deps): pin playwright 1.61.0
 ## 拆分提交建议
 
 - 新数据集提交：把 `input/processed/<dataset-key>.png`、`data/datasets/<dataset-key>.js`
-  和 `index.html` 注册放在同一个 `data(<dataset-key>)` 提交中。
+  和 `data/dataset-manifest.js` 注册（`pnpm sync:index-datasets` 生成）放在
+  同一个 `data(<dataset-key>)` 提交中。
 - 渲染器支持提交：如果为了某个数据集新增通用渲染能力，单独用
   `render(engine)` 提交，再用 `data(<dataset-key>)` 提交应用调参。
 - 验证脚本提交：任何改变 d3 评分、纯度断言或截图流程的改动，用
