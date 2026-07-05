@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-05T06:43:41.000Z",
+  "generatedAt": "2026-07-05T11:45:57.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -729,8 +729,8 @@
     },
     "data/revenue-metrics.js": {
       "path": "data/revenue-metrics.js",
-      "updatedAtMs": 1782678894000,
-      "updatedAt": "2026-06-28T20:34:54.000Z",
+      "updatedAtMs": 1783251957000,
+      "updatedAt": "2026-07-05T11:45:57.000Z",
       "timeSource": "git"
     }
   }
