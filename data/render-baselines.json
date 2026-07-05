@@ -711,6 +711,12 @@
       "width": 2667,
       "height": 1500
     },
+    "xiaomi-q4-fy25": {
+      "similarity": 0.972876,
+      "mae": 6.9165,
+      "width": 2667,
+      "height": 1500
+    },
     "yum-brands-q1-fy26": {
       "similarity": null,
       "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
