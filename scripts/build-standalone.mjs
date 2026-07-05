@@ -2,7 +2,7 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
-import { scriptSources } from './script-sources.mjs';
+import { DATASET_MANIFEST_SCRIPT, registeredDatasetScripts, scriptSources } from './script-sources.mjs';
 import { projectPath, readProjectFile, rootDir } from './lib/project.mjs';
 import { PROJECT_FONT_FAMILIES, localFontFaces } from './lib/local-fonts.mjs';
 
@@ -105,7 +105,16 @@ async function inlineScripts(html) {
   return html.replace(/<script\b[^>]*\bsrc=["']([^"']+)["'][^>]*><\/script>/gi, (_tag, src) => {
     const source = scriptContents.get(src);
     if (source == null) throw new Error(`Unexpected script source: ${src}`);
-    return inlineScript(src, source);
+    const inlined = inlineScript(src, source);
+    if (src !== DATASET_MANIFEST_SCRIPT) return inlined;
+    // The manifest only registers stubs; the standalone artifact must be
+    // self-contained, so every adapter is inlined right after it (manifest
+    // order). Their pushes upgrade the stubs before the app modules boot,
+    // which makes the progressive loader a no-op.
+    const adapters = registeredDatasetScripts()
+      .map((adapterSrc) => inlineScript(adapterSrc, readProjectFile(adapterSrc)))
+      .join('\n    ');
+    return `${inlined}\n    ${adapters}`;
   });
 }
 

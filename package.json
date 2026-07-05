@@ -10,6 +10,8 @@
     "build:standalone": "node scripts/update-dataset-file-metadata.mjs && node scripts/build-standalone.mjs",
     "check:pending": "node scripts/check-pending-processed.mjs",
     "sync:index-datasets": "node scripts/sync-index-datasets.mjs",
+    "update:dataset-manifest": "node scripts/update-dataset-manifest.mjs",
+    "verify:dataset-manifest": "node scripts/update-dataset-manifest.mjs --check",
     "verify:app": "node scripts/verify-app.mjs",
     "verify:app-globals": "node scripts/verify-app-globals.mjs",
     "update:dataset-file-metadata": "node scripts/update-dataset-file-metadata.mjs",

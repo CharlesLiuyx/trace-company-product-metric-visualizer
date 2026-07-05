@@ -11,8 +11,8 @@
 import { readFile, stat, writeFile } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 import path from 'node:path';
-import { dataScriptsFromIndex } from './script-sources.mjs';
-import { projectPath, readProjectFile, rootDir } from './lib/project.mjs';
+import { registeredDatasetScripts } from './script-sources.mjs';
+import { projectPath, rootDir } from './lib/project.mjs';
 
 const outputPath = 'data/dataset-file-metadata.js';
 const metricSourceFiles = [
@@ -75,7 +75,7 @@ async function fileEntry(relativePath, gitTimes) {
 
 async function collectEntries() {
   const gitTimes = gitAuthorTimesMs();
-  const scripts = dataScriptsFromIndex(readProjectFile('index.html'));
+  const scripts = registeredDatasetScripts();
   const entries = [];
   for (const script of scripts) {
     entries.push([datasetKeyForScript(script), await fileEntry(script, gitTimes)]);

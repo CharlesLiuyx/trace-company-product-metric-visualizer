@@ -8,7 +8,7 @@ import { chromium } from 'playwright';
 import { startStaticServer } from './dev-server.mjs';
 import { assert } from './lib/project.mjs';
 
-const APP_MODULE_COUNT = 19;
+const APP_MODULE_COUNT = 20;
 
 const { url, close } = await startStaticServer({ port: 0 });
 const browser = await chromium.launch();

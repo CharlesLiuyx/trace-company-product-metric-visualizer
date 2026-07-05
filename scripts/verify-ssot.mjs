@@ -7,14 +7,14 @@ import {
   INCOME_STATEMENT_SCRIPT_DIR,
   UNREGISTERED_DATASET_SCRIPTS,
   companyMetadataScriptsFromIndex,
-  dataScriptsFromIndex,
   incomeStatementScriptsFromIndex,
+  registeredDatasetScripts,
 } from './script-sources.mjs';
 import { assert, listScripts, readProjectFile, rootDir } from './lib/project.mjs';
 import { loadBrowserData } from './lib/browser-data-loader.mjs';
 
 function dataScripts() {
-  return dataScriptsFromIndex(readProjectFile('index.html'));
+  return registeredDatasetScripts();
 }
 
 function fmt(value) {
@@ -302,7 +302,7 @@ function main() {
   );
   if (unregistered.length) {
     throw new Error(
-      `Dataset script(s) on disk but not registered in index.html: ${unregistered.join(', ')}`
+      `Dataset script(s) on disk but not registered in the dataset manifest: ${unregistered.join(', ')} (run pnpm sync:index-datasets)`
     );
   }
   const staleExemptions = [...UNREGISTERED_DATASET_SCRIPTS].filter(
