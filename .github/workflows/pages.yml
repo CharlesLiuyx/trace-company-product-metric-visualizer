@@ -1,0 +1,66 @@
+name: Deploy Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Build site artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf _site
+          mkdir -p _site/data/assets _site/input
+
+          cp index.html _site/
+          cp -R src vendor _site/
+
+          cp -R data/company-metadata _site/data/
+          cp -R data/datasets _site/data/
+          cp -R data/income-statements _site/data/
+          cp -R data/assets/raster-annotations _site/data/assets/
+          # dataset registration manifest: the viewer boots from it and
+          # progressively loads the adapter scripts above
+          cp data/dataset-manifest.js _site/data/
+          cp data/dataset-file-metadata.js _site/data/
+          cp data/products.js _site/data/
+          cp data/revenue-metrics.js _site/data/
+
+          cp -R input/processed _site/input/
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

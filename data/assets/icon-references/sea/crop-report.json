@@ -1,0 +1,350 @@
+{
+  "source": "input/processed/sea-q4-fy25.png",
+  "spec": "input/icon-crop-specs/sea-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-05T14:30:15.315002+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "sea-company-logo-lockup",
+      "output": "data/assets/icon-references/sea/crops/company-logo-lockup.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 5035,
+        "losslessBytes": 23780,
+        "savingsVsLossless": 0.7883,
+        "metrics": {
+          "meanAbsoluteError": 0.3967,
+          "rootMeanSquareError": 1.9134,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 51,
+          "changedPixelRatio": 0.2383
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 53243,
+        "transparentPixelRatio": 0.6112
+      },
+      "searchBox": {
+        "x": 690,
+        "y": 300,
+        "width": 550,
+        "height": 190
+      },
+      "componentCount": 12,
+      "subjectBox": {
+        "x0": 695,
+        "y0": 332,
+        "x1": 1108,
+        "y1": 490
+      },
+      "cropBox": {
+        "x0": 677,
+        "y0": 314,
+        "x1": 1126,
+        "y1": 508
+      },
+      "validation": {
+        "width": 449,
+        "height": 194,
+        "foregroundPixels": 32043,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 18,
+          "right": 18,
+          "top": 18,
+          "bottom": 18
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Sea company logo lockup centered above the Revenue node: multicolor globe, sea wordmark, and 'connecting the dots' tagline. Excludes the title, flow ribbons, revenue label, and publisher marks.",
+      "validationSheet": "data/assets/icon-references/sea/validation-sheets/sea-company-logo-lockup.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 266242,
+        "losslessBytes": 266242,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "sea-business-shopee-lockup",
+      "output": "data/assets/icon-references/sea/crops/business-shopee-lockup.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 3086,
+        "losslessBytes": 14386,
+        "savingsVsLossless": 0.7855,
+        "metrics": {
+          "meanAbsoluteError": 0.4132,
+          "rootMeanSquareError": 1.9065,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.258
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 29863,
+        "transparentPixelRatio": 0.7436
+      },
+      "searchBox": {
+        "x": 95,
+        "y": 505,
+        "width": 330,
+        "height": 150
+      },
+      "componentCount": 13,
+      "subjectBox": {
+        "x0": 123,
+        "y0": 523,
+        "x1": 398,
+        "y1": 645
+      },
+      "cropBox": {
+        "x0": 115,
+        "y0": 515,
+        "x1": 406,
+        "y1": 653
+      },
+      "validation": {
+        "width": 291,
+        "height": 138,
+        "foregroundPixels": 8921,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 8,
+          "top": 8,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Shopee business logo lockup: orange shopping-bag icon, Shopee wordmark, and E-commerce descriptor. Excludes the Shopee revenue value block and flow node.",
+      "validationSheet": "data/assets/icon-references/sea/validation-sheets/sea-business-shopee-lockup.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 271255,
+        "losslessBytes": 271255,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "sea-business-monee-lockup",
+      "output": "data/assets/icon-references/sea/crops/business-monee-lockup.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2774,
+        "losslessBytes": 12253,
+        "savingsVsLossless": 0.7736,
+        "metrics": {
+          "meanAbsoluteError": 0.4773,
+          "rootMeanSquareError": 2.1984,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.148
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 20399,
+        "transparentPixelRatio": 0.7081
+      },
+      "searchBox": {
+        "x": 85,
+        "y": 755,
+        "width": 360,
+        "height": 175
+      },
+      "componentCount": 20,
+      "subjectBox": {
+        "x0": 131,
+        "y0": 847,
+        "x1": 406,
+        "y1": 930
+      },
+      "cropBox": {
+        "x0": 123,
+        "y0": 839,
+        "x1": 414,
+        "y1": 938
+      },
+      "validation": {
+        "width": 291,
+        "height": 99,
+        "foregroundPixels": 7610,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 8,
+          "top": 8,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Monee business logo lockup: blue monee wordmark with wave accent and Digital Financial Services descriptor. Excludes the Monee revenue value block and flow node.",
+      "validationSheet": "data/assets/icon-references/sea/validation-sheets/sea-business-monee-lockup.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 271218,
+        "losslessBytes": 271218,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "sea-business-garena-lockup",
+      "output": "data/assets/icon-references/sea/crops/business-garena-lockup.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3507,
+        "losslessBytes": 16509,
+        "savingsVsLossless": 0.7876,
+        "metrics": {
+          "meanAbsoluteError": 0.5497,
+          "rootMeanSquareError": 2.2503,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 38,
+          "changedPixelRatio": 0.247
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 27478,
+        "transparentPixelRatio": 0.7651
+      },
+      "searchBox": {
+        "x": 80,
+        "y": 940,
+        "width": 360,
+        "height": 180
+      },
+      "componentCount": 19,
+      "subjectBox": {
+        "x0": 112,
+        "y0": 995,
+        "x1": 388,
+        "y1": 1102
+      },
+      "cropBox": {
+        "x0": 104,
+        "y0": 987,
+        "x1": 396,
+        "y1": 1110
+      },
+      "validation": {
+        "width": 292,
+        "height": 123,
+        "foregroundPixels": 7063,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 8,
+          "top": 8,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Garena business logo lockup: red dragon icon, Garena wordmark, and Digital Entertainment descriptor. Excludes the Garena revenue value block and flow node.",
+      "validationSheet": "data/assets/icon-references/sea/validation-sheets/sea-business-garena-lockup.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 277861,
+        "losslessBytes": 277861,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

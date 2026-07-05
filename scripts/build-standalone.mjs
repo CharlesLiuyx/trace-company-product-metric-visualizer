@@ -1,13 +1,11 @@
 #!/usr/bin/env node
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, writeFile } from 'node:fs/promises';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { scriptSources } from './script-sources.mjs';
+import { DATASET_MANIFEST_SCRIPT, registeredDatasetScripts, scriptSources } from './script-sources.mjs';
+import { projectPath, readProjectFile, rootDir } from './lib/project.mjs';
+import { PROJECT_FONT_FAMILIES, localFontFaces } from './lib/local-fonts.mjs';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const rootDir = path.resolve(__dirname, '..');
 const defaultOutput = 'output/trace-company-product-metric-visualizer.html';
 const runtimeRasterAssetRe = /(['"])(data\/assets\/raster-annotations\/[^'"]+\.(?:png|jpe?g|webp|svg))\1/g;
 const runtimeRasterDir = 'data/assets/raster-annotations';
@@ -29,14 +27,6 @@ function parseArgs(argv) {
   }
   if (args.length) throw new Error(`Unknown argument(s): ${args.join(' ')}`);
   return { output: defaultOutput };
-}
-
-function projectPath(relativePath) {
-  return path.join(rootDir, relativePath);
-}
-
-async function readProjectFile(relativePath) {
-  return readFile(projectPath(relativePath), 'utf8');
 }
 
 function readDataUri(relativePath, mimeType) {
@@ -85,29 +75,8 @@ function inlineScript(sourcePath, source) {
   return `<script data-inline-source="${escapeHtmlAttr(sourcePath)}">\n${indentBlock(escapeInlineScript(source), 6)}\n    </script>`;
 }
 
-function localFontFaces() {
-  // Montserrat drives the app chrome; Noto Sans drives the Sankey headings
-  // (chart title + node names) and the value amounts at Light 300; Roboto
-  // drives value note/description lines + tooltip.
-  const families = [
-    { family: 'Montserrat', slug: 'montserrat', weights: [400, 500, 600, 700, 800] },
-    { family: 'Noto Sans', slug: 'noto-sans', weights: [300, 400, 500, 600, 700, 800] },
-    { family: 'Roboto', slug: 'roboto', weights: [300, 400, 500] },
-  ];
-  return families
-    .flatMap(({ family, slug, weights }) =>
-      weights.map((weight) => {
-        const fontPath = `node_modules/@fontsource/${slug}/files/${slug}-latin-${weight}-normal.woff2`;
-        return `@font-face {
-  font-family: '${family}';
-  font-style: normal;
-  font-weight: ${weight};
-  font-display: swap;
-  src: url('${readDataUri(fontPath, 'font/woff2')}') format('woff2');
-}`;
-      })
-    )
-    .join('\n\n');
+function standaloneFontFaces() {
+  return localFontFaces(PROJECT_FONT_FAMILIES.map((family) => ({ ...family, display: 'swap' })));
 }
 
 function stripExternalFontLinks(html) {
@@ -118,8 +87,8 @@ function stripExternalFontLinks(html) {
 }
 
 async function inlineStyles(html) {
-  const appCss = await readProjectFile('src/app.css');
-  const css = `${localFontFaces()}\n\n/* src/app.css */\n${appCss}`;
+  const appCss = readProjectFile('src/app.css');
+  const css = `${standaloneFontFaces()}\n\n/* src/app.css */\n${appCss}`;
   const styleTag = `<style data-inline-source="src/app.css">\n${indentBlock(css, 6)}\n    </style>`;
   const stylesheetRe = /\n\s*<link\s+rel="stylesheet"\s+href="src\/app\.css"\s*\/>/;
   if (!stylesheetRe.test(html)) throw new Error('Missing app stylesheet link in index.html');
@@ -130,13 +99,22 @@ async function inlineScripts(html) {
   const sources = scriptSources(html);
   const scriptContents = new Map();
   for (const src of sources) {
-    scriptContents.set(src, await readProjectFile(src));
+    scriptContents.set(src, readProjectFile(src));
   }
 
   return html.replace(/<script\b[^>]*\bsrc=["']([^"']+)["'][^>]*><\/script>/gi, (_tag, src) => {
     const source = scriptContents.get(src);
     if (source == null) throw new Error(`Unexpected script source: ${src}`);
-    return inlineScript(src, source);
+    const inlined = inlineScript(src, source);
+    if (src !== DATASET_MANIFEST_SCRIPT) return inlined;
+    // The manifest only registers stubs; the standalone artifact must be
+    // self-contained, so every adapter is inlined right after it (manifest
+    // order). Their pushes upgrade the stubs before the app modules boot,
+    // which makes the progressive loader a no-op.
+    const adapters = registeredDatasetScripts()
+      .map((adapterSrc) => inlineScript(adapterSrc, readProjectFile(adapterSrc)))
+      .join('\n    ');
+    return `${inlined}\n    ${adapters}`;
   });
 }
 
@@ -191,10 +169,15 @@ function runtimeRasterPatcherScript(assetMap) {
   return inlineScript('runtime-raster-asset-map', source);
 }
 
+// Matches the dedicated marker comment in index.html so insertion no longer
+// depends on the exact indentation of a neighboring script tag.
+const rasterPatcherMarkerRe = /[ \t]*<!--\s*standalone:runtime-raster-patcher\b[\s\S]*?-->/;
+
 function insertRuntimeRasterPatcher(html, assetMap) {
-  const marker = '    <script data-inline-source="src/app/dom.js">';
-  if (!html.includes(marker)) throw new Error('Missing app script marker in standalone HTML');
-  return html.replace(marker, `    ${runtimeRasterPatcherScript(assetMap)}\n${marker}`);
+  if (!rasterPatcherMarkerRe.test(html)) {
+    throw new Error('Missing <!-- standalone:runtime-raster-patcher --> marker in index.html');
+  }
+  return html.replace(rasterPatcherMarkerRe, `    ${runtimeRasterPatcherScript(assetMap)}`);
 }
 
 function addBuildBanner(html) {
@@ -207,7 +190,7 @@ function addBuildBanner(html) {
 
 async function main() {
   const { output } = parseArgs(process.argv);
-  let html = await readProjectFile('index.html');
+  let html = readProjectFile('index.html');
   html = stripExternalFontLinks(html);
   html = await inlineStyles(html);
   html = await inlineScripts(html);

@@ -1,51 +1,20 @@
 #!/usr/bin/env node
-import { existsSync, readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readdirSync } from 'node:fs';
 import path from 'node:path';
-import vm from 'node:vm';
-import { fileURLToPath } from 'node:url';
 import {
+  COMPANY_METADATA_SCRIPT_DIR,
   DATASET_SCRIPT_DIR,
+  INCOME_STATEMENT_SCRIPT_DIR,
   UNREGISTERED_DATASET_SCRIPTS,
-  dataScriptsFromIndex,
+  companyMetadataScriptsFromIndex,
+  incomeStatementScriptsFromIndex,
+  registeredDatasetScripts,
 } from './script-sources.mjs';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const rootDir = path.resolve(__dirname, '..');
-
-function readProjectFile(relativePath) {
-  return readFileSync(path.join(rootDir, relativePath), 'utf8');
-}
+import { assert, listScripts, readProjectFile, rootDir } from './lib/project.mjs';
+import { loadBrowserData } from './lib/browser-data-loader.mjs';
 
 function dataScripts() {
-  return dataScriptsFromIndex(readProjectFile('index.html'));
-}
-
-function loadBrowserData(scripts) {
-  const context = { console };
-  context.window = context;
-  vm.createContext(context);
-
-  vm.runInContext(readProjectFile('src/icons.js'), context, { filename: 'src/icons.js' });
-  vm.runInContext(readProjectFile('src/trace-domain.js'), context, { filename: 'src/trace-domain.js' });
-  vm.runInContext(readProjectFile('data/income-statements.js'), context, { filename: 'data/income-statements.js' });
-  vm.runInContext(readProjectFile('data/revenue-metrics.js'), context, { filename: 'data/revenue-metrics.js' });
-  vm.runInContext(readProjectFile('data/company-metadata.js'), context, { filename: 'data/company-metadata.js' });
-  for (const script of scripts) {
-    vm.runInContext(readProjectFile(script), context, { filename: script });
-  }
-
-  return {
-    records: context.INCOME_STATEMENT_SSOT?.records || [],
-    revenueRecords: context.REVENUE_METRIC_SSOT?.records || [],
-    companies: context.COMPANY_METADATA?.companies || [],
-    datasets: context.DATASETS || [],
-    domain: context.TraceDomain,
-  };
-}
-
-function assert(condition, message, errors) {
-  if (!condition) errors.push(message);
+  return registeredDatasetScripts();
 }
 
 function fmt(value) {
@@ -291,13 +260,33 @@ function validateRevenueMetric(record, errors) {
   for (const source of record.sources || []) {
     assert(source.name, `${record.key}: source missing name`, errors);
     assert(source.url, `${record.key}: source missing url`, errors);
-    if (source.sourceImage?.src) {
+    // sourceImage.localOnly declares evidence that intentionally never gets
+    // committed (e.g. licensed screenshots); the record keeps the path for
+    // local provenance without failing fresh checkouts or CI.
+    if (source.sourceImage?.src && source.sourceImage.localOnly !== true) {
       assert(existsSync(path.join(rootDir, source.sourceImage.src)), `${record.key}: source image does not exist: ${source.sourceImage.src}`, errors);
     }
   }
 }
 
+// Registration parity for the per-company SSOT script directories: every
+// file on disk must be registered in index.html and vice versa, otherwise
+// the browser and the VM verifiers would see different data.
+function assertSsotRegistrationParity(indexHtml, dir, registeredScripts, label) {
+  const onDisk = listScripts(dir);
+  const registered = new Set(registeredScripts);
+  const unregistered = onDisk.filter((script) => !registered.has(script));
+  if (unregistered.length) {
+    throw new Error(`${label} script(s) on disk but not registered in index.html: ${unregistered.join(', ')}`);
+  }
+  const missing = registeredScripts.filter((script) => !existsSync(path.join(rootDir, script)));
+  if (missing.length) {
+    throw new Error(`Registered ${label} script(s) missing on disk: ${missing.join(', ')}`);
+  }
+}
+
 function main() {
+  const indexHtml = readProjectFile('index.html');
   const scripts = dataScripts();
   const missing = scripts.filter((script) => !existsSync(path.join(rootDir, script)));
   if (missing.length) {
@@ -313,7 +302,7 @@ function main() {
   );
   if (unregistered.length) {
     throw new Error(
-      `Dataset script(s) on disk but not registered in index.html: ${unregistered.join(', ')}`
+      `Dataset script(s) on disk but not registered in the dataset manifest: ${unregistered.join(', ')} (run pnpm sync:index-datasets)`
     );
   }
   const staleExemptions = [...UNREGISTERED_DATASET_SCRIPTS].filter(
@@ -324,8 +313,20 @@ function main() {
       `Stale UNREGISTERED_DATASET_SCRIPTS entr(y/ies): ${staleExemptions.join(', ')}`
     );
   }
+  assertSsotRegistrationParity(
+    indexHtml,
+    INCOME_STATEMENT_SCRIPT_DIR,
+    incomeStatementScriptsFromIndex(indexHtml),
+    'income-statement SSOT'
+  );
+  assertSsotRegistrationParity(
+    indexHtml,
+    COMPANY_METADATA_SCRIPT_DIR,
+    companyMetadataScriptsFromIndex(indexHtml),
+    'company-metadata SSOT'
+  );
 
-  const loaded = loadBrowserData(scripts);
+  const loaded = loadBrowserData({ runtime: ['src/trace-domain.js'], datasetScripts: scripts });
   const { records, revenueRecords, companies, datasets } = loaded;
   const errors = [];
   const datasetKeys = scripts.map((script) => path.basename(script, '.js'));

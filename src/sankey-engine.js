@@ -153,6 +153,246 @@
     return 'above';
   }
 
+  // Canvas-size defaults derived from the dataset itself: fidelity datasets
+  // must render at exactly meta.referenceImage dimensions (hard gate G2), so
+  // when a reference image is declared it beats the NVIDIA-sized DEFAULTS
+  // canvas. Explicit data.render.width/height still win over both.
+  function referenceCanvasDefaults(data) {
+    const ref = data?.meta?.referenceImage;
+    const width = Number(ref?.width);
+    const height = Number(ref?.height);
+    return Number.isFinite(width) && width > 0 && Number.isFinite(height) && height > 0
+      ? { width, height }
+      : {};
+  }
+
+  // Effective canvas size for a dataset, computed through the same config
+  // merge render() applies (data.render beats meta.referenceImage beats
+  // DEFAULTS). The viewer sizes chart cards with this so card geometry can
+  // never drift from the rendered SVG's viewBox.
+  function canvasSize(data) {
+    const d = data || {};
+    const cfg = deepMerge(deepMerge(DEFAULTS, referenceCanvasDefaults(d)), d.render || {});
+    return { width: cfg.width, height: cfg.height };
+  }
+
+  // horizontal padding between a node face and its side label block
+  const LABEL_PAD = 16;
+
+  /* ---- pure label layout (pass 1 + pass 2) ----
+   * buildLabelSpecs turns graph nodes plus layout.labels into positioned
+   * text-block specs; decollideSideLabels resolves same-side overlaps.
+   * render() only does the DOM work with the returned specs, so both passes
+   * are unit-testable without a browser. */
+  function buildLabelSpecs(graph, data, cfg, meta, nCols) {
+    const gap = cfg.type.lineGap;
+    // weight overrides: cfg.labelWeight (node names) / cfg.valueWeight (numbers)
+    // win over a line's authored weight when set (null → keep authored). Font
+    // routing is keyed off the authored weight, so these only change how heavy
+    // text renders, never which font.
+    const labelW = (authored) => (cfg.labelWeight != null ? cfg.labelWeight : authored);
+    const numW = (authored) => (cfg.valueWeight != null ? cfg.valueWeight : authored);
+    // the value figure ("€6.0B") gets its own family; falls back to the numeric
+    // font so a null amountFontFamily preserves the old behaviour
+    const amountFont = cfg.amountFontFamily != null ? cfg.amountFontFamily : cfg.valueFontFamily;
+    const labelLayout = (data.layout && data.layout.labels) || {};
+    const labelColor = (n) => n.labelColor || (cfg.palette[n.type] || cfg.palette.source).label;
+
+    function customLines(n, block) {
+      if (block.lines) {
+        return block.lines.map((line) => {
+          const spec = typeof line === 'string' ? { text: line } : line;
+          const text = spec.text === '$value' ? formatValue(n, meta) : spec.text;
+          const authoredW = spec.weight || spec.w || 400;
+          // authoring convention: headings/names are bold (≥700); the value and
+          // its description lines are regular weight → route to the numeric font
+          // by AUTHORED weight. spec.font wins if a dataset sets one explicitly.
+          const isAmount = spec.text === '$value';
+          const numeric = isAmount || authoredW < 700;
+          // render weight: numbers honour cfg.valueWeight, names cfg.labelWeight;
+          // routing is already fixed above, so re-weighting never flips a line's
+          // font family.
+          const w = numeric ? numW(authoredW) : labelW(authoredW);
+          return {
+            t: text,
+            size: spec.size || cfg.type.note,
+            w,
+            c: spec.color || labelColor(n),
+            font:
+              spec.font != null
+                ? spec.font
+                : isAmount
+                  ? amountFont
+                  : numeric
+                    ? cfg.valueFontFamily
+                    : null,
+          };
+        });
+      }
+      const parts = block.parts || ['name', 'value', 'notes'];
+      const out = [];
+      const nameLines = Array.isArray(n.label) ? n.label : n.label ? [n.label] : [];
+      const nameSize = block.nameSize || cfg.type.name;
+      const valueSize = block.valueSize || cfg.type.value;
+      const noteSize = block.noteSize || cfg.type.note;
+      parts.forEach((part) => {
+        if (part === 'name') {
+          nameLines.forEach((t) =>
+            out.push({
+              t,
+              size: nameSize,
+              w: labelW(block.nameWeight != null ? block.nameWeight : 700),
+              c: block.nameColor || labelColor(n),
+            })
+          );
+        } else if (part === 'value' && (n.value != null || n.valueText != null)) {
+          out.push({
+            t: formatValue(n, meta),
+            size: valueSize,
+            w: numW(block.valueWeight || 400),
+            c: block.valueColor || labelColor(n),
+            font: block.valueFont || amountFont,
+          });
+        } else if (part === 'notes') {
+          (n.notes || []).forEach((nt) =>
+            out.push({
+              t: nt,
+              size: noteSize,
+              w: numW(block.noteWeight || 400),
+              c: block.noteColor || cfg.noteColor,
+              font: block.noteFont || cfg.valueFontFamily,
+            })
+          );
+        }
+      });
+      return out;
+    }
+
+    const specs = [];
+    const iconLayout = [];
+    graph.nodes.forEach((n) => {
+      const side = n.labelSide || autoSide(n, nCols);
+      const cx = (n.x0 + n.x1) / 2;
+      const cy = (n.y0 + n.y1) / 2;
+      const custom = labelLayout[n.id];
+      if (custom && custom.blocks) {
+        custom.blocks.forEach((block) => {
+          const lines = customLines(n, block);
+          if (!lines.length) return;
+          const localGap = block.lineGap != null ? block.lineGap : gap;
+          const blockTop =
+            block.top != null ? block.top + (cfg.labelYOffset || 0) : block.top;
+          const blockH =
+            lines.reduce((a, l) => a + l.size, 0) + localGap * (lines.length - 1);
+          specs.push({
+            n,
+            side: 'custom',
+            cx,
+            anchor: block.anchor || 'middle',
+            x: block.x,
+            lines,
+            blockH,
+            top: blockTop,
+            lineGap: localGap,
+            drawIcons: false,
+          });
+        });
+        if (custom.icons) {
+          iconLayout.push(Object.assign({ n }, custom.icons));
+        }
+        return;
+      }
+
+      const nameLines = Array.isArray(n.label) ? n.label : n.label ? [n.label] : [];
+      const valueLines = [];
+      if (n.value != null || n.valueText != null)
+        valueLines.push({ t: formatValue(n, meta), size: cfg.type.value, w: numW(400), c: labelColor(n), font: amountFont });
+      (n.notes || []).forEach((nt) =>
+        valueLines.push({ t: nt, size: cfg.type.note, w: numW(400), c: cfg.noteColor, font: cfg.valueFontFamily })
+      );
+      if (side === 'split-left') {
+        const nameOnly = nameLines.map((t) => ({
+          t,
+          size: cfg.type.name,
+          w: labelW(700),
+          c: labelColor(n),
+        }));
+        const nameH =
+          nameOnly.reduce((a, l) => a + l.size, 0) + gap * Math.max(0, nameOnly.length - 1);
+        const valueH =
+          valueLines.reduce((a, l) => a + l.size, 0) + gap * Math.max(0, valueLines.length - 1);
+        specs.push({
+          n,
+          side: 'split-name',
+          cx,
+          anchor: 'end',
+          x: n.x0 - 42,
+          lines: nameOnly,
+          blockH: nameH,
+          top: cy - nameH / 2,
+          drawIcons: false,
+        });
+        specs.push({
+          n,
+          side: 'split-value',
+          cx,
+          anchor: 'middle',
+          x: cx,
+          lines: valueLines,
+          blockH: valueH,
+          top: n.y0 - 35 - valueH,
+          drawIcons: false,
+        });
+        return;
+      }
+
+      // lines: name (heading weight, may wrap), value (regular), notes (gray)
+      const lines = [];
+      nameLines.forEach((t) =>
+        lines.push({ t, size: cfg.type.name, w: labelW(700), c: labelColor(n) })
+      );
+      valueLines.forEach((l) => lines.push(l));
+      if (!lines.length) return;
+
+      const blockH = lines.reduce((a, l) => a + l.size, 0) + gap * (lines.length - 1);
+
+      let anchor, x, top;
+      if (side === 'left') {
+        anchor = 'end';
+        x = n.x0 - LABEL_PAD;
+        top = cy - blockH / 2;
+      } else if (side === 'right') {
+        anchor = 'start';
+        x = n.x1 + LABEL_PAD;
+        top = cy - blockH / 2;
+      } else if (side === 'below') {
+        anchor = 'middle';
+        x = cx;
+        top = n.y1 + LABEL_PAD + 4;
+      } else {
+        // above — block sits fully above the node top
+        anchor = 'middle';
+        x = cx;
+        top = n.y0 - LABEL_PAD - blockH;
+      }
+      specs.push({ n, side, cx, anchor, x, lines, blockH, top, drawIcons: true });
+    });
+
+    return { specs, iconLayout };
+  }
+
+  // keep side labels from overlapping (push later ones down)
+  function decollideSideLabels(specs, minGap = 11) {
+    ['left', 'right'].forEach((s) => {
+      const grp = specs.filter((sp) => sp.side === s).sort((a, b) => a.top - b.top);
+      for (let i = 1; i < grp.length; i++) {
+        const need = grp[i - 1].top + grp[i - 1].blockH + minGap;
+        if (grp[i].top < need) grp[i].top = need;
+      }
+    });
+    return specs;
+  }
+
   function buildFixedGraph(nodes, links, data, cfg) {
     const layout = data.layout || {};
     const fixed = layout.nodes || {};
@@ -270,7 +510,10 @@
       throw new Error('d3 and d3-sankey must be loaded before sankey-engine.js');
     }
     const d3 = global.d3;
-    const cfg = deepMerge(deepMerge(DEFAULTS, data.render || {}), overrides);
+    const cfg = deepMerge(
+      deepMerge(deepMerge(DEFAULTS, referenceCanvasDefaults(data)), data.render || {}),
+      overrides
+    );
     const meta = data.meta || {};
     const ICONS = global.SANKEY_ICONS || {};
 
@@ -352,8 +595,6 @@
     /* ---------- colour resolvers ---------- */
     const nodeColor = (n) =>
       n.color || (cfg.palette[n.type] || cfg.palette.source).node;
-    const labelColor = (n) =>
-      n.labelColor || (cfg.palette[n.type] || cfg.palette.source).label;
     const tintOf = (n) => {
       if (n.linkTint) return n.linkTint;
       const t = cfg.linkTint[n.type];
@@ -440,209 +681,39 @@
     /* ---------- labels ---------- */
     const labelLayer = svg.append('g').attr('class', 'labels');
 
-    const pad = 16;
+    const pad = LABEL_PAD;
     const gap = cfg.type.lineGap;
-    // weight overrides: cfg.labelWeight (node names) / cfg.valueWeight (numbers)
-    // win over a line's authored weight when set (null → keep authored). Font
-    // routing is keyed off the authored weight, so these only change how heavy
-    // text renders, never which font.
-    const labelW = (authored) => (cfg.labelWeight != null ? cfg.labelWeight : authored);
-    const numW = (authored) => (cfg.valueWeight != null ? cfg.valueWeight : authored);
-    // the value figure ("€6.0B") gets its own family; falls back to the numeric
-    // font so a null amountFontFamily preserves the old behaviour
-    const amountFont = cfg.amountFontFamily != null ? cfg.amountFontFamily : cfg.valueFontFamily;
-    const labelLayout = (data.layout && data.layout.labels) || {};
-    const iconLayout = [];
 
-    function customLines(n, block) {
-      if (block.lines) {
-        return block.lines.map((line) => {
-          const spec = typeof line === 'string' ? { text: line } : line;
-          const text = spec.text === '$value' ? formatValue(n, meta) : spec.text;
-          const authoredW = spec.weight || spec.w || 400;
-          // authoring convention: headings/names are bold (≥700); the value and
-          // its description lines are regular weight → route to the numeric font
-          // by AUTHORED weight. spec.font wins if a dataset sets one explicitly.
-          const isAmount = spec.text === '$value';
-          const numeric = isAmount || authoredW < 700;
-          // render weight: numbers honour cfg.valueWeight, names cfg.labelWeight;
-          // routing is already fixed above, so re-weighting never flips a line's
-          // font family.
-          const w = numeric ? numW(authoredW) : labelW(authoredW);
-          return {
-            t: text,
-            size: spec.size || cfg.type.note,
-            w,
-            c: spec.color || labelColor(n),
-            font:
-              spec.font != null
-                ? spec.font
-                : isAmount
-                  ? amountFont
-                  : numeric
-                    ? cfg.valueFontFamily
-                    : null,
-          };
-        });
-      }
-      const parts = block.parts || ['name', 'value', 'notes'];
-      const out = [];
-      const nameLines = Array.isArray(n.label) ? n.label : n.label ? [n.label] : [];
-      const nameSize = block.nameSize || cfg.type.name;
-      const valueSize = block.valueSize || cfg.type.value;
-      const noteSize = block.noteSize || cfg.type.note;
-      parts.forEach((part) => {
-        if (part === 'name') {
-          nameLines.forEach((t) =>
-            out.push({
-              t,
-              size: nameSize,
-              w: labelW(block.nameWeight != null ? block.nameWeight : 700),
-              c: block.nameColor || labelColor(n),
-            })
-          );
-        } else if (part === 'value' && (n.value != null || n.valueText != null)) {
-          out.push({
-            t: formatValue(n, meta),
-            size: valueSize,
-            w: numW(block.valueWeight || 400),
-            c: block.valueColor || labelColor(n),
-            font: block.valueFont || amountFont,
-          });
-        } else if (part === 'notes') {
-          (n.notes || []).forEach((nt) =>
-            out.push({
-              t: nt,
-              size: noteSize,
-              w: numW(block.noteWeight || 400),
-              c: block.noteColor || cfg.noteColor,
-              font: block.noteFont || cfg.valueFontFamily,
-            })
-          );
-        }
-      });
-      return out;
+    // each icon is a nested <svg> carrying Lucide's inner markup, drawn
+    // stroked (handles multi-element icons, not just single paths); shared by
+    // the auto icon row and custom layout icon placement. Returns whether the
+    // icon was drawn so custom rows only advance past drawn icons.
+    function drawIconSvg(n, name, x, y, sz, opts = {}) {
+      const markup = ICONS[name];
+      if (!markup) return false;
+      labelLayer
+        .append('svg')
+        .datum(n)
+        .attr('class', 'sankey-label sankey-icon')
+        .attr('data-node', keyOf(n))
+        .attr('x', x)
+        .attr('y', y)
+        .attr('width', sz)
+        .attr('height', sz)
+        .attr('viewBox', '0 0 24 24')
+        .attr('fill', 'none')
+        .attr('stroke', opts.stroke || n.iconColor || '#3a3f45')
+        .attr('stroke-width', opts.strokeWidth || 1.85)
+        .attr('stroke-linecap', 'round')
+        .attr('stroke-linejoin', 'round')
+        .style('cursor', 'pointer')
+        .html(markup);
+      return true;
     }
 
-    // ---- pass 1: build a label spec per node ----
-    const specs = [];
-    graph.nodes.forEach((n) => {
-      const side = n.labelSide || autoSide(n, nCols);
-      const cx = (n.x0 + n.x1) / 2;
-      const cy = (n.y0 + n.y1) / 2;
-      const custom = labelLayout[n.id];
-      if (custom && custom.blocks) {
-        custom.blocks.forEach((block) => {
-          const lines = customLines(n, block);
-          if (!lines.length) return;
-          const localGap = block.lineGap != null ? block.lineGap : gap;
-          const blockTop =
-            block.top != null ? block.top + (cfg.labelYOffset || 0) : block.top;
-          const blockH =
-            lines.reduce((a, l) => a + l.size, 0) + localGap * (lines.length - 1);
-          specs.push({
-            n,
-            side: 'custom',
-            cx,
-            anchor: block.anchor || 'middle',
-            x: block.x,
-            lines,
-            blockH,
-            top: blockTop,
-            lineGap: localGap,
-            drawIcons: false,
-          });
-        });
-        if (custom.icons) {
-          iconLayout.push(Object.assign({ n }, custom.icons));
-        }
-        return;
-      }
-
-      const nameLines = Array.isArray(n.label) ? n.label : n.label ? [n.label] : [];
-      const valueLines = [];
-      if (n.value != null || n.valueText != null)
-        valueLines.push({ t: formatValue(n, meta), size: cfg.type.value, w: numW(400), c: labelColor(n), font: amountFont });
-      (n.notes || []).forEach((nt) =>
-        valueLines.push({ t: nt, size: cfg.type.note, w: numW(400), c: cfg.noteColor, font: cfg.valueFontFamily })
-      );
-      if (side === 'split-left') {
-        const nameOnly = nameLines.map((t) => ({
-          t,
-          size: cfg.type.name,
-          w: labelW(700),
-          c: labelColor(n),
-        }));
-        const nameH =
-          nameOnly.reduce((a, l) => a + l.size, 0) + gap * Math.max(0, nameOnly.length - 1);
-        const valueH =
-          valueLines.reduce((a, l) => a + l.size, 0) + gap * Math.max(0, valueLines.length - 1);
-        specs.push({
-          n,
-          side: 'split-name',
-          cx,
-          anchor: 'end',
-          x: n.x0 - 42,
-          lines: nameOnly,
-          blockH: nameH,
-          top: cy - nameH / 2,
-          drawIcons: false,
-        });
-        specs.push({
-          n,
-          side: 'split-value',
-          cx,
-          anchor: 'middle',
-          x: cx,
-          lines: valueLines,
-          blockH: valueH,
-          top: n.y0 - 35 - valueH,
-          drawIcons: false,
-        });
-        return;
-      }
-
-      // lines: name (heading weight, may wrap), value (regular), notes (gray)
-      const lines = [];
-      nameLines.forEach((t) =>
-        lines.push({ t, size: cfg.type.name, w: labelW(700), c: labelColor(n) })
-      );
-      valueLines.forEach((l) => lines.push(l));
-      if (!lines.length) return;
-
-      const blockH = lines.reduce((a, l) => a + l.size, 0) + gap * (lines.length - 1);
-
-      let anchor, x, top;
-      if (side === 'left') {
-        anchor = 'end';
-        x = n.x0 - pad;
-        top = cy - blockH / 2;
-      } else if (side === 'right') {
-        anchor = 'start';
-        x = n.x1 + pad;
-        top = cy - blockH / 2;
-      } else if (side === 'below') {
-        anchor = 'middle';
-        x = cx;
-        top = n.y1 + pad + 4;
-      } else {
-        // above — block sits fully above the node top
-        anchor = 'middle';
-        x = cx;
-        top = n.y0 - pad - blockH;
-      }
-      specs.push({ n, side, cx, anchor, x, lines, blockH, top, drawIcons: true });
-    });
-
-    // ---- pass 2: keep side labels from overlapping (push later ones down) ----
-    const minGap = 11;
-    ['left', 'right'].forEach((s) => {
-      const grp = specs.filter((sp) => sp.side === s).sort((a, b) => a.top - b.top);
-      for (let i = 1; i < grp.length; i++) {
-        const need = grp[i - 1].top + grp[i - 1].blockH + minGap;
-        if (grp[i].top < need) grp[i].top = need;
-      }
-    });
+    // ---- pass 1 + 2 (pure): build specs, then de-collide side labels ----
+    const { specs, iconLayout } = buildLabelSpecs(graph, data, cfg, meta, nCols);
+    decollideSideLabels(specs);
 
     // ---- pass 3: render text + optional icons ----
     specs.forEach((sp) => {
@@ -680,28 +751,8 @@
         else ix = cx - totalW / 2;
         const iy = side === 'above' ? top - sz - 12 : y + 10;
 
-        // each icon is a nested <svg> carrying Lucide's inner markup, drawn
-        // stroked (handles multi-element icons, not just single paths)
         n.icons.forEach((name, k) => {
-          const markup = ICONS[name];
-          if (!markup) return;
-          labelLayer
-            .append('svg')
-            .datum(n)
-            .attr('class', 'sankey-label sankey-icon')
-            .attr('data-node', keyOf(n))
-            .attr('x', ix + k * (sz + sgap))
-            .attr('y', iy)
-            .attr('width', sz)
-            .attr('height', sz)
-            .attr('viewBox', '0 0 24 24')
-            .attr('fill', 'none')
-            .attr('stroke', n.iconColor || '#3a3f45')
-            .attr('stroke-width', 1.85)
-            .attr('stroke-linecap', 'round')
-            .attr('stroke-linejoin', 'round')
-            .style('cursor', 'pointer')
-            .html(markup);
+          drawIconSvg(n, name, ix + k * (sz + sgap), iy, sz);
         });
       }
     });
@@ -712,27 +763,10 @@
       const sizes = ic.sizes || [];
       let x = ic.x;
       icons.forEach((name, k) => {
-        const markup = ICONS[name];
-        if (!markup) return;
         const sz = sizes[k] || ic.size || n.iconSize || 30;
-        labelLayer
-          .append('svg')
-          .datum(n)
-          .attr('class', 'sankey-label sankey-icon')
-          .attr('data-node', keyOf(n))
-          .attr('x', x)
-          .attr('y', ic.y)
-          .attr('width', sz)
-          .attr('height', sz)
-          .attr('viewBox', '0 0 24 24')
-          .attr('fill', 'none')
-          .attr('stroke', ic.color || n.iconColor || '#3a3f45')
-          .attr('stroke-width', ic.strokeWidth || 1.85)
-          .attr('stroke-linecap', 'round')
-          .attr('stroke-linejoin', 'round')
-          .style('cursor', 'pointer')
-          .html(markup);
-        x += sz + (ic.gap || 10);
+        if (drawIconSvg(n, name, x, ic.y, sz, { stroke: ic.color, strokeWidth: ic.strokeWidth })) {
+          x += sz + (ic.gap || 10);
+        }
       });
     });
 
@@ -1001,7 +1035,9 @@
         .append('text')
         .attr('font-family', tooltipCfg.fontFamily || cfg.valueFontFamily) // null → removed → inherit
         .attr('font-size', tooltipDim('fontSize', 40))
-        .attr('font-weight', numW(tooltipCfg.fontWeight))
+        // numW lives inside buildLabelSpecs now; inline its cfg.valueWeight
+        // override so the tooltip weight resolves in render scope
+        .attr('font-weight', cfg.valueWeight != null ? cfg.valueWeight : tooltipCfg.fontWeight)
         .attr('fill', tooltipCfg.textColor)
         .attr('text-anchor', 'middle')
         .attr('letter-spacing', '0');
@@ -1195,5 +1231,24 @@
     return svg.node();
   }
 
-  global.SankeyEngine = { render, DEFAULTS };
+  global.SankeyEngine = {
+    render,
+    DEFAULTS,
+    // Pure helpers exposed for unit tests, tooling, and the viewer's chart
+    // sizing (canvasSize); render() behavior is unchanged. buildFixedGraph
+    // expects render()'s preprocessed inputs: nodes with an index field and
+    // links as { source, target, value, raw }; buildLabelSpecs/
+    // decollideSideLabels are render()'s label passes 1 + 2.
+    helpers: {
+      deepMerge,
+      formatValue,
+      trimFixed,
+      autoSide,
+      buildFixedGraph,
+      referenceCanvasDefaults,
+      canvasSize,
+      buildLabelSpecs,
+      decollideSideLabels,
+    },
+  };
 })(window);

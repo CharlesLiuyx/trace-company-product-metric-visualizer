@@ -17,7 +17,7 @@ If a pending PNG already matches an image in `processed/`, or if its candidate
 dataset key would overwrite an existing processed image, stop before moving the
 image or changing dataset files. If the final dataset key differs from the
 script's candidate key, check the final key in `processed/`, `data/datasets/`,
-`data/income-statements.js`, and `index.html` before continuing.
+`data/income-statements/`, and `index.html` before continuing.
 
 Run an icon crop spec with:
 

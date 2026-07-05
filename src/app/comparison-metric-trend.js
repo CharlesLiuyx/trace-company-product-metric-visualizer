@@ -634,14 +634,7 @@ const comparisonMetricTrendHoverPlugin = {
   },
 };
 function createComparisonMetricTrendChartConfig(model) {
-  const ink = cssVar('--ink', '#15436b');
-  const text = cssVar('--text-strong', '#263238');
-  const muted = cssVar('--muted', '#6a7078');
-  const grid = cssVar('--table-cell-line', '#edf0f0');
-  const axis = cssVar('--table-line', '#d9dfdf');
-  const tableBg = cssVar('--table-bg', '#ffffff');
-  const negativeColor = cssVar('--trend-negative', '#b7433a');
-  const fontFamily = 'Montserrat, Arial, sans-serif';
+  const { ink, text, muted, grid, axis, tableBg, negativeColor, fontFamily } = chartTheme();
   const formatValue = (value) => formatAmount(model.caliber, Number(value));
   const stacked = Boolean(model.sameLayer);
   const valueAxisCollapsed = Boolean(model.hiddenAxes?.value);
@@ -660,8 +653,8 @@ function createComparisonMetricTrendChartConfig(model) {
     ? model.ratios.flatMap((ratio) => ratio.values)
     : model.metrics.flatMap((metric) => metric.growth)
   ).filter((value) => value != null && Number.isFinite(value));
-  const growthMax = allRight.length ? Math.max(10, Math.ceil(Math.max(...allRight) / 10) * 10) : 10;
-  const growthMin = allRight.length ? Math.min(0, Math.floor(Math.min(...allRight) / 10) * 10) : 0;
+  const growthMax = growthAxisMax(allRight);
+  const growthMin = growthAxisMin(allRight);
   // each axis names its reading; a collapsed axis keeps only this title,
   // marked and muted, as the handle to reopen it
   const axisTitleFor = (axisKey) => {
@@ -750,11 +743,8 @@ function createComparisonMetricTrendChartConfig(model) {
     : model.metrics.map((metric, index) => {
         const { accent, borderAlpha } = styles[index];
         const lineColor = colorWithAlpha(accent, Math.min(borderAlpha + 0.15, 1));
-        // sign-aware rings: growth points below zero swap to the negative
-        // colour so dips read at a glance; the line keeps the metric's accent
-        const pointColors = metric.growth.map((value) => (
-          typeof value === 'number' && value < 0 ? negativeColor : lineColor
-        ));
+        // the line keeps the metric's accent; only dipped points swap colour
+        const pointColors = signAwareGrowthPointColors(metric.growth, lineColor, negativeColor);
         return {
           ...rightAxisLine(lineColor),
           label: metric.label,
@@ -861,7 +851,7 @@ function createComparisonMetricTrendChartConfig(model) {
         comparisonMetricTrendValueLabels: {
           color: text,
           mutedColor: colorWithAlpha(text, 0.72),
-          halo: cssVar('--table-bg', '#ffffff'),
+          halo: tableBg,
           fontFamily,
           fontSize: 12,
           minFontSize: 8,

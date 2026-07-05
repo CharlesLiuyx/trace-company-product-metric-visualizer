@@ -28,8 +28,7 @@ function selectRecord(record, scrollKind = 'statement') {
   if (!state.multiCompanyMode) syncSingleCompanyScope();
   else if (!state.selectedCompanies.includes(record.company)) setSelectedCompanies([...state.selectedCompanies, record.company]);
   syncDatasetHash(record);
-  renderAll();
-  draw({ renderTable: false, syncView: false });
+  refresh();
   scrollActiveTableRow(scrollKind);
 }
 function descriptionForPeriodRecord(record, bucket) {
@@ -107,8 +106,7 @@ function timelineColors(record, group) {
 }
 
 function finishPeriodScopeChange() {
-  renderAll();
-  draw({ renderTable: false, syncView: false });
+  refresh();
   if (state.viewMode === 'table') scrollActiveTableRow('statement');
 }
 function togglePeriodInScope(record) {

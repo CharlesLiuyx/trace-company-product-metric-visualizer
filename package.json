@@ -6,14 +6,20 @@
   "scripts": {
     "dev": "node scripts/dev-server.mjs --port 8000",
     "check": "node scripts/check.mjs",
+    "test": "node --test \"tests/*.test.mjs\"",
     "build:standalone": "node scripts/update-dataset-file-metadata.mjs && node scripts/build-standalone.mjs",
     "check:pending": "node scripts/check-pending-processed.mjs",
+    "sync:index-datasets": "node scripts/sync-index-datasets.mjs",
+    "update:dataset-manifest": "node scripts/update-dataset-manifest.mjs",
+    "verify:dataset-manifest": "node scripts/update-dataset-manifest.mjs --check",
     "verify:app": "node scripts/verify-app.mjs",
+    "verify:app-globals": "node scripts/verify-app-globals.mjs",
     "update:dataset-file-metadata": "node scripts/update-dataset-file-metadata.mjs",
     "verify:dataset": "node scripts/verify-dataset.mjs",
     "verify:dataset-file-metadata": "node scripts/update-dataset-file-metadata.mjs --check",
     "verify:standalone": "node scripts/verify-standalone.mjs",
     "verify:d3": "node scripts/verify-d3.mjs",
+    "verify:render-regression": "node scripts/verify-render-regression.mjs",
     "verify:ssot": "node scripts/verify-ssot.mjs",
     "verify:i18n": "node scripts/verify-i18n.mjs"
   },
@@ -21,6 +27,8 @@
     "@fontsource/montserrat": "5.2.8",
     "@fontsource/noto-sans": "^5.2.10",
     "@fontsource/roboto": "^5.2.10",
+    "acorn": "^8.17.0",
+    "acorn-walk": "^8.3.5",
     "playwright": "1.61.0",
     "pngjs": "7.0.0"
   }
