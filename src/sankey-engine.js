@@ -585,8 +585,6 @@
     /* ---------- colour resolvers ---------- */
     const nodeColor = (n) =>
       n.color || (cfg.palette[n.type] || cfg.palette.source).node;
-    const labelColor = (n) =>
-      n.labelColor || (cfg.palette[n.type] || cfg.palette.source).label;
     const tintOf = (n) => {
       if (n.linkTint) return n.linkTint;
       const t = cfg.linkTint[n.type];
