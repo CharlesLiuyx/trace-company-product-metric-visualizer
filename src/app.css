@@ -642,6 +642,13 @@ button.period-year-name:focus-visible {
   color: var(--muted); background: var(--soft); font-size: 11px; line-height: 1.3;
 }
 
+/* transient placeholder while a dataset adapter script loads */
+.chart-loading {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 220px; padding: 24px;
+  color: var(--muted); font-size: 13px;
+}
+
 .content {
   position: relative;
   min-width: 0; min-height: 0; height: 100%;

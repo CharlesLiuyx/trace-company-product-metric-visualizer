@@ -3,7 +3,7 @@ import { copyFile, readFile, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { chromium } from 'playwright';
-import { datasetScriptForKey, dataScriptsFromIndex, renderHarnessScripts } from './script-sources.mjs';
+import { datasetScriptForKey, registeredDatasetScripts, renderHarnessScripts } from './script-sources.mjs';
 import { startStaticServer } from './dev-server.mjs';
 import { rootDir } from './lib/project.mjs';
 import { formatDiffBoundingBox, pngMetrics } from './lib/png-diff.mjs';
@@ -126,9 +126,9 @@ async function main() {
 
   const indexHtml = await readFile(path.join(rootDir, 'index.html'), 'utf8');
   const scripts = renderHarnessScripts(indexHtml);
-  const datasetScripts = dataScriptsFromIndex(indexHtml);
+  const datasetScripts = registeredDatasetScripts();
   if (!datasetScripts.includes(datasetScript)) {
-    throw new Error(`Dataset script is not registered in index.html: ${datasetScript}`);
+    throw new Error(`Dataset script is not registered in the dataset manifest: ${datasetScript} (run pnpm sync:index-datasets)`);
   }
 
   await cleanCompare();

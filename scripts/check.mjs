@@ -83,6 +83,7 @@ const steps = [
   ['test', runUnitTests],
   ['check:pending', () => runVerifier('check-pending-processed.mjs')],
   ['verify:app-globals', () => runVerifier('verify-app-globals.mjs')],
+  ['verify:dataset-manifest', () => runVerifier('update-dataset-manifest.mjs', ['--check'])],
   ['verify:ssot', () => runVerifier('verify-ssot.mjs')],
   ['verify:i18n', () => runVerifier('verify-i18n.mjs')],
   ['verify:dataset-file-metadata', () => runVerifier('update-dataset-file-metadata.mjs', ['--check'])],

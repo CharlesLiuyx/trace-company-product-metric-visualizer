@@ -1,32 +1,34 @@
 #!/usr/bin/env node
-// Keeps the index.html data <script> registration blocks in sync with the
-// data script directories on disk (Sankey dataset adapters, per-company
-// income-statement SSOT files, company-metadata SSOT files), closing the
-// "file on disk but never registered" authoring gap before verify:ssot
-// fails on it. Existing registration order is preserved because dataset
-// load order can matter when a dataset reuses another: missing scripts are
-// appended (alphabetically) after the last registered tag of their family,
-// and tags whose files were deleted are removed. `--check` reports drift
-// without writing. UNREGISTERED_DATASET_SCRIPTS entries stay untouched.
+// Keeps every data registration surface in sync with the data script
+// directories on disk, closing the "file on disk but never registered"
+// authoring gap before verify:ssot fails on it:
+//
+// - per-company SSOT files (income statements, company metadata) register as
+//   index.html <script> tags: missing tags are appended (alphabetically)
+//   after the last registered tag of their family, deleted files' tags are
+//   removed;
+// - Sankey dataset adapters register in the generated
+//   data/dataset-manifest.js — this script delegates to
+//   scripts/update-dataset-manifest.mjs, which preserves existing manifest
+//   order (dataset load order can matter when a dataset reuses another) and
+//   appends new files. UNREGISTERED_DATASET_SCRIPTS entries stay untouched.
+//
+// `--check` reports drift without writing.
 import { existsSync, writeFileSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import {
   COMPANY_METADATA_SCRIPT_DIR,
-  DATASET_SCRIPT_DIR,
   INCOME_STATEMENT_SCRIPT_DIR,
-  UNREGISTERED_DATASET_SCRIPTS,
   companyMetadataScriptsFromIndex,
-  dataScriptsFromIndex,
   incomeStatementScriptsFromIndex,
 } from './script-sources.mjs';
 import { listScripts, projectPath, readProjectFile } from './lib/project.mjs';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 const FAMILIES = [
-  {
-    label: 'dataset',
-    dir: DATASET_SCRIPT_DIR,
-    registeredFromIndex: dataScriptsFromIndex,
-    exemptions: UNREGISTERED_DATASET_SCRIPTS,
-  },
   {
     label: 'income-statement SSOT',
     dir: INCOME_STATEMENT_SCRIPT_DIR,
@@ -79,6 +81,15 @@ function appendMissingTags(html, anchorScript, missing) {
   return html.replace(anchor, `${anchor}${insertion}`);
 }
 
+function syncDatasetManifest(check) {
+  const args = [path.join(__dirname, 'update-dataset-manifest.mjs')];
+  if (check) args.push('--check');
+  const result = spawnSync(process.execPath, args, { cwd: projectPath(), encoding: 'utf8' });
+  const output = `${result.stdout}${result.stderr}`.trim();
+  if (output) console.log(output);
+  return result.status === 0;
+}
+
 function main() {
   const { check } = parseArgs(process.argv);
   let html = readProjectFile('index.html');
@@ -107,26 +118,32 @@ function main() {
     removed += stale.length;
   }
 
+  const manifestOk = syncDatasetManifest(check);
+
   const drift = appended + removed;
   if (check) {
     const totalRegistered = FAMILIES.reduce((total, family) => total + family.registeredFromIndex(html).length, 0);
-    if (inSync === totalRegistered) {
-      console.log(`index.html data script registration is in sync (${totalRegistered} script(s)).`);
+    if (inSync === totalRegistered && manifestOk) {
+      console.log(`data registration is in sync (${totalRegistered} index.html SSOT script(s); manifest current).`);
       return;
     }
-    console.error('index.html data script registration is out of sync. Run pnpm sync:index-datasets.');
+    console.error('data registration is out of sync. Run pnpm sync:index-datasets.');
     process.exit(1);
   }
 
+  if (!manifestOk) {
+    throw new Error('Dataset manifest regeneration failed; see output above.');
+  }
+
   if (!drift) {
-    console.log(`index.html data script registration is in sync (${inSync} script(s)).`);
+    console.log(`index.html SSOT registration is in sync (${inSync} script(s)); dataset manifest refreshed.`);
     return;
   }
 
   writeFileSync(projectPath('index.html'), html);
   console.log(
     `updated index.html: +${appended} appended, -${removed} removed. ` +
-      'Review dataset load order if a new dataset reuses another, then run pnpm update:dataset-file-metadata.'
+      'Review dataset load order if a new dataset reuses another (manifest order), then run pnpm update:dataset-file-metadata.'
   );
 }
 

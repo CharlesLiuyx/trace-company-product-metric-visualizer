@@ -29,7 +29,7 @@ import { existsSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { chromium } from 'playwright';
-import { dataScriptsFromIndex, renderHarnessScripts } from './script-sources.mjs';
+import { registeredDatasetScripts, renderHarnessScripts } from './script-sources.mjs';
 import { startStaticServer } from './dev-server.mjs';
 import { projectPath, readProjectFile, rootDir } from './lib/project.mjs';
 import { pngMetrics } from './lib/png-diff.mjs';
@@ -184,7 +184,7 @@ async function main() {
   const { update, concurrency, tolerance: toleranceOverride, keys } = parseArgs(process.argv);
   const indexHtml = readProjectFile('index.html');
   const harnessScripts = renderHarnessScripts(indexHtml);
-  const registeredKeys = dataScriptsFromIndex(indexHtml).map((script) => path.basename(script, '.js'));
+  const registeredKeys = registeredDatasetScripts().map((script) => path.basename(script, '.js'));
   const registeredSet = new Set(registeredKeys);
 
   for (const key of keys) {

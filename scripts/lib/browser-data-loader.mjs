@@ -7,9 +7,9 @@
 import {
   COMPANY_METADATA_SCRIPT_DIR,
   INCOME_STATEMENT_SCRIPT_DIR,
-  dataScriptsFromIndex,
+  registeredDatasetScripts,
 } from '../script-sources.mjs';
-import { listScripts, readProjectFile } from './project.mjs';
+import { listScripts } from './project.mjs';
 import { loadClassicScripts } from './vm-browser.mjs';
 
 export function loadBrowserData({ runtime = [], datasetScripts = null } = {}) {
@@ -19,7 +19,7 @@ export function loadBrowserData({ runtime = [], datasetScripts = null } = {}) {
     ...listScripts(INCOME_STATEMENT_SCRIPT_DIR),
     'data/revenue-metrics.js',
     ...listScripts(COMPANY_METADATA_SCRIPT_DIR),
-    ...(datasetScripts ?? dataScriptsFromIndex(readProjectFile('index.html'))),
+    ...(datasetScripts ?? registeredDatasetScripts()),
   ]);
 
   return {

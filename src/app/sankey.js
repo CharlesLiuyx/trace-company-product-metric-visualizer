@@ -194,12 +194,45 @@ function renderSankeyComparison() {
   applyComparisonZoom();
   scheduleIdleTask(buildComparisonZoomProxies);
 }
+/* Adapter keys the sankey view needs fully loaded before it can draw. The
+ * comparison flow includes every period of each scoped company because the
+ * metric-trend panel charts node/link values across periods. */
+function sankeyDrawDatasetKeys(compare) {
+  if (!compare) return [currentRecord()?.dataset?.key].filter(Boolean);
+  const scopedRecords = isMultiPeriodScope()
+    ? selectedPeriodRecords()
+    : scopeCompanies().map((company) => defaultRecordForCompanyMetric(company, 'incomeStatement')).filter(Boolean);
+  const keys = new Set(scopedRecords.map((record) => record.dataset.key));
+  for (const company of new Set(scopedRecords.map((record) => record.company))) {
+    const group = metricGroupForCompany(company, 'incomeStatement');
+    (group?.records || []).forEach((record) => keys.add(record.dataset.key));
+  }
+  return [...keys];
+}
+let sankeyDrawGeneration = 0;
+function renderSankeyLoading(compare) {
+  const message = `<div class="chart-loading" role="status">${escapeHtml(t('datasetLoading'))}</div>`;
+  if (singleChartCard) singleChartCard.hidden = compare;
+  if (sankeyComparison) sankeyComparison.hidden = !compare;
+  if (compare) {
+    clearSingleChart();
+    clearSankeyComparison();
+    if (sankeyComparison) sankeyComparison.innerHTML = message;
+  } else {
+    clearSankeyComparison();
+    if (chartHost) chartHost.innerHTML = message;
+  }
+  svgBtn.disabled = true;
+  pngBtn.disabled = true;
+}
 function draw({ renderTable = true, syncView = true } = {}) {
   if (syncView) syncViewModeControls();
   if (!comparisonZoomActive()) {
     cancelComparisonZoomGesture();
     applyComparisonZoom();
   }
+  // any in-flight deferred draw is superseded by this call
+  const drawGeneration = ++sankeyDrawGeneration;
   if (state.viewMode === 'table') {
     clearSingleChart();
     clearSankeyComparison();
@@ -216,9 +249,18 @@ function draw({ renderTable = true, syncView = true } = {}) {
     pngBtn.disabled = true;
     return;
   }
+  const compare = isMultiCompanyScope() || isMultiPeriodScope();
+  const neededKeys = sankeyDrawDatasetKeys(compare);
+  if (!datasetsReady(neededKeys)) {
+    renderSankeyLoading(compare);
+    ensureDatasetsLoaded(neededKeys).then(() => {
+      if (drawGeneration !== sankeyDrawGeneration) return;
+      draw({ renderTable, syncView: false });
+    });
+    return;
+  }
   const d = localizedDataset(currentDataset());
   const maxWidth = chartWidth(d);
-  const compare = isMultiCompanyScope() || isMultiPeriodScope();
   if (singleChartCard) singleChartCard.hidden = compare;
   if (sankeyComparison) sankeyComparison.hidden = !compare;
   if (compare) {

@@ -5,6 +5,7 @@ import {
   dataScriptsFromIndex,
   incomeStatementScriptsFromIndex,
   companyMetadataScriptsFromIndex,
+  registeredDatasetScripts,
   renderHarnessScripts,
   datasetScriptForKey,
 } from '../scripts/script-sources.mjs';
@@ -59,29 +60,40 @@ test('renderHarnessScripts excludes the viewer app, chart.js, and trace-domain',
   assert.ok(harness.includes('src/sankey-engine.js'));
   assert.ok(harness.includes('src/i18n.js'));
   assert.ok(harness.includes('data/income-statements/alpha.js'), 'per-company SSOT files feed the harness');
-  assert.ok(harness.includes('data/datasets/alpha-q1-fy26.js'));
+  assert.ok(harness.includes('data/datasets/alpha-q1-fy26.js'), 'fixture dataset tags still feed the harness');
   assert.ok(!harness.includes('vendor/chart.umd.min.js'));
   assert.ok(!harness.includes('src/trace-domain.js'));
   assert.ok(!harness.some((src) => src.startsWith('src/app/')), 'app modules stay out of the d3 harness');
   assert.ok(!harness.includes('data/company-metadata/alpha.js'));
+  assert.ok(!harness.includes('data/dataset-manifest.js'), 'the manifest itself never loads in the harness');
 });
 
 test('datasetScriptForKey builds the stable adapter path', () => {
   assert.equal(datasetScriptForKey('nvidia-q4-fy26'), 'data/datasets/nvidia-q4-fy26.js');
 });
 
-test('the real index.html parses consistently across family filters', () => {
+test('the real registration surfaces parse consistently', () => {
   const html = readProjectFile('index.html');
   const all = scriptSources(html);
-  const datasets = dataScriptsFromIndex(html);
+  const datasets = registeredDatasetScripts();
   const statements = incomeStatementScriptsFromIndex(html);
   const companies = companyMetadataScriptsFromIndex(html);
-  assert.ok(datasets.length >= 100, `expected 100+ datasets, got ${datasets.length}`);
+  assert.ok(datasets.length >= 100, `expected 100+ manifest datasets, got ${datasets.length}`);
   assert.ok(statements.length >= 100, `expected 100+ statement files, got ${statements.length}`);
   assert.ok(companies.length >= 100, `expected 100+ company files, got ${companies.length}`);
-  for (const script of [...datasets, ...statements, ...companies]) {
+  assert.equal(dataScriptsFromIndex(html).length, 0, 'index.html no longer carries dataset tags');
+  assert.ok(all.includes('data/dataset-manifest.js'), 'index.html loads the generated manifest');
+  assert.ok(all.includes('src/dataset-registry.js'), 'index.html loads the registry before the manifest');
+  assert.ok(
+    all.indexOf('src/dataset-registry.js') < all.indexOf('data/dataset-manifest.js'),
+    'registry precedes the manifest'
+  );
+  for (const script of [...statements, ...companies]) {
     assert.ok(all.includes(script));
   }
   const harness = renderHarnessScripts(html);
   assert.ok(!harness.some((src) => src.startsWith('src/app/')));
+  for (const script of datasets) {
+    assert.ok(harness.includes(script), `harness includes manifest dataset ${script}`);
+  }
 });
