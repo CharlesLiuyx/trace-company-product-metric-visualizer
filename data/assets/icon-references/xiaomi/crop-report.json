@@ -1,0 +1,547 @@
+{
+  "source": "input/processed/xiaomi-q4-fy25.png",
+  "spec": "input/icon-crop-specs/xiaomi-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-05T11:27:20.132369+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/xiaomi",
+  "crops": [
+    {
+      "key": "xiaomi-company-logo",
+      "output": "data/assets/icon-references/xiaomi/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2665,
+        "losslessBytes": 9796,
+        "savingsVsLossless": 0.728,
+        "metrics": {
+          "meanAbsoluteError": 0.4632,
+          "rootMeanSquareError": 1.3814,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 34,
+          "changedPixelRatio": 0.6919
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 36543,
+        "transparentPixelRatio": 0.3097
+      },
+      "searchBox": {
+        "x": 980,
+        "y": 240,
+        "width": 330,
+        "height": 325
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 991,
+        "y0": 248,
+        "x1": 1294,
+        "y1": 551
+      },
+      "cropBox": {
+        "x0": 972,
+        "y0": 232,
+        "x1": 1318,
+        "y1": 573
+      },
+      "validation": {
+        "width": 346,
+        "height": 341,
+        "foregroundPixels": 68496,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 19,
+          "right": 24,
+          "top": 16,
+          "bottom": 22
+        },
+        "centerOffset": {
+          "x": -0.0072,
+          "y": -0.0088
+        },
+        "passes": true
+      },
+      "note": "Xiaomi rounded-square Mi logo centered above the Revenue hub; excludes title, Revenue label, flows, and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/xiaomi/company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2665,
+        "losslessBytes": 9796,
+        "savingsVsLossless": 0.728,
+        "metrics": {
+          "meanAbsoluteError": 0.4632,
+          "rootMeanSquareError": 1.3814,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 34,
+          "changedPixelRatio": 0.6919
+        }
+      },
+      "validationSheet": "data/assets/icon-references/xiaomi/validation-sheets/xiaomi-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 258227,
+        "losslessBytes": 258227,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "xiaomi-business-smartphones-product-cluster",
+      "output": "data/assets/icon-references/xiaomi/crops/smartphones-product-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 29002,
+        "losslessBytes": 29002,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 10576,
+        "transparentPixelRatio": 0.3495
+      },
+      "searchBox": {
+        "x": 104,
+        "y": 398,
+        "width": 182,
+        "height": 144
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 119,
+        "y0": 409,
+        "x1": 281,
+        "y1": 535
+      },
+      "cropBox": {
+        "x0": 98,
+        "y0": 392,
+        "x1": 292,
+        "y1": 548
+      },
+      "validation": {
+        "width": 194,
+        "height": 156,
+        "foregroundPixels": 19553,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 21,
+          "right": 11,
+          "top": 17,
+          "bottom": 13
+        },
+        "centerOffset": {
+          "x": 0.0258,
+          "y": 0.0128
+        },
+        "passes": true
+      },
+      "note": "Four Xiaomi smartphones attached to the Smartphones revenue line; excludes the Smartphones label, value block, and chart links.",
+      "runtimeOutput": "data/assets/raster-annotations/xiaomi/smartphones-product-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 29002,
+        "losslessBytes": 29002,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/xiaomi/validation-sheets/xiaomi-business-smartphones-product-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 329017,
+        "losslessBytes": 329017,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "xiaomi-business-iot-lifestyle-tablet-laptop",
+      "output": "data/assets/icon-references/xiaomi/crops/iot-lifestyle-tablet-laptop.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 10665,
+        "losslessBytes": 10665,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 7419,
+        "transparentPixelRatio": 0.5822
+      },
+      "searchBox": {
+        "x": 70,
+        "y": 680,
+        "width": 96,
+        "height": 96
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 76,
+        "y0": 690,
+        "x1": 163,
+        "y1": 763
+      },
+      "cropBox": {
+        "x0": 60,
+        "y0": 680,
+        "x1": 178,
+        "y1": 788
+      },
+      "validation": {
+        "width": 118,
+        "height": 108,
+        "foregroundPixels": 5295,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 16,
+          "right": 15,
+          "top": 10,
+          "bottom": 25
+        },
+        "centerOffset": {
+          "x": 0.0042,
+          "y": -0.0694
+        },
+        "passes": true
+      },
+      "note": "Tablet/laptop device image for the IoT & Lifestyle revenue line; split from the adjacent product cluster to exclude value text.",
+      "runtimeOutput": "data/assets/raster-annotations/xiaomi/iot-lifestyle-tablet-laptop.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 10665,
+        "losslessBytes": 10665,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/xiaomi/validation-sheets/xiaomi-business-iot-lifestyle-tablet-laptop.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 311146,
+        "losslessBytes": 311146,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "xiaomi-business-iot-lifestyle-appliance",
+      "output": "data/assets/icon-references/xiaomi/crops/iot-lifestyle-appliance.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1893,
+        "losslessBytes": 9071,
+        "savingsVsLossless": 0.7913,
+        "metrics": {
+          "meanAbsoluteError": 1.0313,
+          "rootMeanSquareError": 2.2114,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 13,
+          "changedPixelRatio": 0.4084
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 10580,
+        "transparentPixelRatio": 0.656
+      },
+      "searchBox": {
+        "x": 184,
+        "y": 674,
+        "width": 92,
+        "height": 126
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 193,
+        "y0": 674,
+        "x1": 259,
+        "y1": 779
+      },
+      "cropBox": {
+        "x0": 174,
+        "y0": 666,
+        "x1": 286,
+        "y1": 810
+      },
+      "validation": {
+        "width": 112,
+        "height": 144,
+        "foregroundPixels": 5269,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 19,
+          "right": 27,
+          "top": 8,
+          "bottom": 31
+        },
+        "centerOffset": {
+          "x": -0.0357,
+          "y": -0.0799
+        },
+        "passes": true
+      },
+      "note": "Speaker/appliance image for the IoT & Lifestyle revenue line; excludes label, value block, and flow marks.",
+      "runtimeOutput": "data/assets/raster-annotations/xiaomi/iot-lifestyle-appliance.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1893,
+        "losslessBytes": 9071,
+        "savingsVsLossless": 0.7913,
+        "metrics": {
+          "meanAbsoluteError": 1.0313,
+          "rootMeanSquareError": 2.2114,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 13,
+          "changedPixelRatio": 0.4084
+        }
+      },
+      "validationSheet": "data/assets/icon-references/xiaomi/validation-sheets/xiaomi-business-iot-lifestyle-appliance.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 283961,
+        "losslessBytes": 283961,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "xiaomi-business-iot-lifestyle-watch",
+      "output": "data/assets/icon-references/xiaomi/crops/iot-lifestyle-watch.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 8772,
+        "losslessBytes": 8772,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 5583,
+        "transparentPixelRatio": 0.6618
+      },
+      "searchBox": {
+        "x": 288,
+        "y": 688,
+        "width": 52,
+        "height": 102
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 289,
+        "y0": 692,
+        "x1": 339,
+        "y1": 767
+      },
+      "cropBox": {
+        "x0": 278,
+        "y0": 686,
+        "x1": 352,
+        "y1": 800
+      },
+      "validation": {
+        "width": 74,
+        "height": 114,
+        "foregroundPixels": 2683,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 11,
+          "right": 13,
+          "top": 6,
+          "bottom": 33
+        },
+        "centerOffset": {
+          "x": -0.0135,
+          "y": -0.1184
+        },
+        "passes": true
+      },
+      "note": "Watch image for the IoT & Lifestyle revenue line; crop stops before the adjacent value/Y/Y text.",
+      "excludedPixels": 1368,
+      "runtimeOutput": "data/assets/raster-annotations/xiaomi/iot-lifestyle-watch.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 8772,
+        "losslessBytes": 8772,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/xiaomi/validation-sheets/xiaomi-business-iot-lifestyle-watch.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 304956,
+        "losslessBytes": 304956,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "xiaomi-business-smart-ev-car",
+      "output": "data/assets/icon-references/xiaomi/crops/smart-ev-car.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 37558,
+        "losslessBytes": 37558,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 16566,
+        "transparentPixelRatio": 0.4834
+      },
+      "searchBox": {
+        "x": 905,
+        "y": 1248,
+        "width": 278,
+        "height": 112
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 913,
+        "y0": 1256,
+        "x1": 1175,
+        "y1": 1351
+      },
+      "cropBox": {
+        "x0": 895,
+        "y0": 1248,
+        "x1": 1193,
+        "y1": 1363
+      },
+      "validation": {
+        "width": 298,
+        "height": 115,
+        "foregroundPixels": 17668,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 18,
+          "right": 18,
+          "top": 8,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0174
+        },
+        "passes": true
+      },
+      "note": "Blue Xiaomi EV photo attached to the Smart EV, AI and other revenue line; excludes the segment label, value block, and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/xiaomi/smart-ev-car.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 37558,
+        "losslessBytes": 37558,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/xiaomi/validation-sheets/xiaomi-business-smart-ev-car.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 303853,
+        "losslessBytes": 303853,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}
