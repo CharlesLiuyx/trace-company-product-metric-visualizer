@@ -24,13 +24,16 @@ agent 指令以英文版 `AGENTS.md` 为准。
 
 ## 架构边界
 
-- `data/income-statements.js`（损益表家族）与 `data/revenue-metrics.js`
-  （收入家族）是纯 Metric SSOT；`data/datasets/<dataset-key>.js` 是 Sankey
-  View Adapter 层——viewer、standalone 构建器与各 verifier 都依赖这个稳定
-  路径。SSOT 中不得出现 Sankey 的 nodes、links、layout、render、SVG、颜色
-  或像素几何。
-- `data/company-metadata.js` 是公司档案 SSOT，驱动 Table 视图；必须在该公司
-  第一个数据集注册之前补全。
+- `data/income-statements/<company-key>.js`（损益表家族，按公司分文件）与
+  `data/revenue-metrics.js`（收入家族）是纯 Metric SSOT；
+  `data/datasets/<dataset-key>.js` 是 Sankey View Adapter 层——viewer、
+  standalone 构建器与各 verifier 都依赖这个稳定路径。SSOT 中不得出现
+  Sankey 的 nodes、links、layout、render、SVG、颜色或像素几何。
+- `data/company-metadata/<company-key>.js` 是公司档案 SSOT（每公司一个
+  文件，文件名即档案 `key`），驱动 Table 视图；必须在该公司第一个数据集
+  注册之前补全。
+- 按公司拆分的 SSOT 文件必须在 `index.html` 注册 `<script>` 标签；
+  `verify:ssot` 强制磁盘 ↔ 注册一致性，`pnpm sync:index-datasets` 负责修复。
 - `data/products.js` 是未来一等 Product SSOT 的空占位（暂不被 verifier
   校验）。不要把产品身份或归属历史藏进 Sankey adapter。
 - Trace 领域归一化放在 `src/trace-domain.js`。查看器应用拆分在 `src/app/`
@@ -57,7 +60,7 @@ agent 指令以英文版 `AGENTS.md` 为准。
 | `pnpm check` | 快速聚合门：全仓 JS 语法扫描，然后 pending 守卫、SSOT 奇偶、i18n 覆盖、metadata 新鲜度（亚秒级，无渲染） |
 | `pnpm verify:app` | 模块化查看器（`src/app/*`）的无头启动 + 交互冒烟：模块数量、持久化偏好启动、hash 路由、对比缩放 + 指标趋势、收入趋势、移动端视口 |
 | `pnpm check:pending` | 待处理图片重复 / key 冲突守卫 |
-| `pnpm sync:index-datasets` | 保持顺序地同步 `index.html` 数据集 `<script>` 标签与 `data/datasets/`（追加缺失、删除失效；`--check` 只报告漂移） |
+| `pnpm sync:index-datasets` | 保持顺序地同步 `index.html` 数据 `<script>` 标签与 `data/datasets/`、`data/income-statements/`、`data/company-metadata/`（追加缺失、删除失效；`--check` 只报告漂移） |
 | `pnpm verify:dataset -- <key> [--skip-render]` | 单数据集聚合门：语法、SSOT、strict i18n、metadata，然后每种语言各一次 d3 渲染 |
 | `pnpm verify:ssot` | SSOT ↔ 数据集奇偶 + 注册奇偶 + 货币/单位与汇率覆盖（全局） |
 | `pnpm verify:i18n -- [--strict] [keys]` | i18n 覆盖检查 |
@@ -74,16 +77,18 @@ agent 指令以英文版 `AGENTS.md` 为准。
    中存在完全相同内容、或候选 key 冲突，都是停止条件——只报告，不要对该
    图片执行任何移动、创建、更新、裁切或验证。如果最终稳定 key 与脚本候选
    key 不同，继续前还要用最终 key 检查 `input/processed/`、
-   `data/datasets/`、`data/income-statements.js` 和 `index.html`。
+   `data/datasets/`、`data/income-statements/` 和 `index.html`。
 2. Key：小写 kebab-case，公司 + 期间，例如 `nvidia-q4-fy26`。
 3. 图片：把源 PNG 移到 `input/processed/<dataset-key>.png`，并把
    `meta.referenceImage` 设为该图片及其精确源尺寸。
-4. 公司（该公司的第一个数据集）：向 `data/company-metadata.js` 添加档案——
-   描述、行业板块、行业、成立时间、总部、财年结束、官网、代码/交易所、
-   市值（含 as-of/来源）与来源 URL——并为每个非默认语言添加本地化档案
-   字段。字段细节见 `data/schema.md`。
-5. SSOT：添加 `data/income-statements.js` 记录——只含可比的报告总额、
-   明细项、注释、币种、单位、期间与源图片。
+4. 公司（该公司的第一个数据集）：创建
+   `data/company-metadata/<company-key>.js` 档案——描述、行业板块、行业、
+   成立时间、总部、财年结束、官网、代码/交易所、市值（含 as-of/来源）与
+   来源 URL——并为每个非默认语言添加本地化档案字段，同时在 `index.html`
+   注册。字段细节见 `data/schema.md`。
+5. SSOT：向 `data/income-statements/<company-key>.js` 添加记录（新公司需
+   创建该文件并在 `index.html` 注册）——只含可比的报告总额、明细项、注释、
+   币种、单位、期间与源图片。
 6. Adapter：按 `data/schema.md` 编写 `data/datasets/<dataset-key>.js`，
    作为高保真 adapter，对照源图片调校显式 `nodes`、`links`、
    `layout.nodes` 与 `layout.labels`。先把每个语义标签单元（名称、数值、

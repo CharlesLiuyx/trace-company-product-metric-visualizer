@@ -2,8 +2,8 @@
 import { createHash } from 'node:crypto';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
-import { dataScriptsFromIndex, datasetScriptForKey } from './script-sources.mjs';
-import { projectPath } from './lib/project.mjs';
+import { INCOME_STATEMENT_SCRIPT_DIR, dataScriptsFromIndex, datasetScriptForKey } from './script-sources.mjs';
+import { listScripts, projectPath } from './lib/project.mjs';
 
 function relativeProjectPath(...segments) {
   return path.join(...segments).split(path.sep).join('/');
@@ -45,8 +45,9 @@ function loadRegisteredDatasetScripts() {
 }
 
 function loadIncomeStatementSource() {
-  const sourcePath = projectPath('data', 'income-statements.js');
-  return existsSync(sourcePath) ? readFileSync(sourcePath, 'utf8') : '';
+  return listScripts(INCOME_STATEMENT_SCRIPT_DIR)
+    .map((script) => readFileSync(projectPath(script), 'utf8'))
+    .join('\n');
 }
 
 function datasetStatus(key, registeredScripts, incomeStatementSource) {

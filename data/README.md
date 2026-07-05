@@ -13,9 +13,12 @@ financial values, links, node geometry, and verification semantics are not.
 data/
   README.md
   schema.md
-  income-statements.js     # pure financial-statement SSOT
-  company-metadata.js      # company profile SSOT
+  income-statements/
+    <company-key>.js       # pure financial-statement SSOT, one file per company
+  company-metadata/
+    <company-key>.js       # company profile SSOT, one file per company
   products.js              # first-class Product catalog and time-varying ownership links
+  revenue-metrics.js       # revenue-metric SSOT
   dataset-file-metadata.js # generated dataset file modification-time metadata
   datasets/
     <dataset-key>.js       # registered Sankey dataset adapters
@@ -23,16 +26,22 @@ data/
     icon-references/       # reusable icon reference crops and validation
 ```
 
+Per-company SSOT files append to the shared `INCOME_STATEMENT_SSOT` /
+`COMPANY_METADATA` globals and must be registered as `<script>` tags in
+`index.html` (alphabetical); `verify:ssot` enforces disk ↔ registration
+parity and `pnpm sync:index-datasets` repairs drift. The file name is the
+company metadata `key`.
+
 Keep registered dataset adapters at `data/datasets/<dataset-key>.js`. The viewer,
 standalone builder, and verification scripts load these files directly from
 `index.html`, and the project workflow documents this path as the stable
 dataset convention.
 
-`company-metadata.js` powers both the Table company profile and the Company
-navigator sort modes. In addition to the verifier-required profile fields, keep
-`founded` and public-company `marketCap.valueUsd/asOf/sourceUrl` populated when
-reliable sources are available. Latest net profit for sorting stays in
-`income-statements.js`, not company metadata.
+`company-metadata/<company-key>.js` powers both the Table company profile and
+the Company navigator sort modes. In addition to the verifier-required profile
+fields, keep `founded` and public-company `marketCap.valueUsd/asOf/sourceUrl`
+populated when reliable sources are available. Latest net profit for sorting
+stays in `income-statements/<company-key>.js`, not company metadata.
 
 `products.js` is the Product SSOT introduced by the Trace top-level
 specification. Product records and time-varying Company/Product relationships

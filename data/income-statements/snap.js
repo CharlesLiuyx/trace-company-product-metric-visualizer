@@ -1,0 +1,96 @@
+/* Pure income-statement SSOT records. Financial data only — Sankey view
+ * geometry stays in data/datasets/<dataset-key>.js. Format: data/schema.md. */
+(function (global) {
+  'use strict';
+
+  const ssot = (global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || {
+    schemaVersion: 1,
+    records: [],
+  });
+
+  ssot.records.push(
+    {
+      key: 'snap-q1-fy26',
+      company: 'Snap',
+      period: 'Q1 FY26',
+      periodNote: 'Ending Mar. 2026',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/snap-q1-fy26.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 1529,
+        notes: ['+12% Y/Y'],
+        items: [
+          { id: 'north_america', label: 'North America', value: 851, notes: ['+2% Y/Y'] },
+          { id: 'europe', label: 'Europe', value: 324, notes: ['+45% Y/Y'] },
+          { id: 'rest_of_world', label: 'Rest of world', value: 354, notes: ['+15% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 665 },
+        operatingExpenses: {
+          total: 938,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 478, notes: ['31% of revenue', '+0pp Y/Y'] },
+            { id: 'sm', label: 'S&M', value: 239, notes: ['16% of revenue', '(3pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 221, notes: ['14% of revenue', '(3pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0 },
+      },
+      otherIncome: {
+        total: 0,
+        items: [],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 864, notes: ['57% margin', '+3pp Y/Y'] },
+        operating: { id: 'operating_loss', label: 'Operating loss', value: -74, notes: ['(5%) margin', '+9pp Y/Y'] },
+        net: {
+          id: 'operating_loss',
+          label: 'Operating loss',
+          value: -74,
+          notes: ['No separate net income line is shown in the source chart.'],
+        },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第一季度',
+          periodNote: '截至 2026 年 3 月',
+          revenue: {
+            notes: ['同比 +12%'],
+            items: [
+              { label: '北美', notes: ['同比 +2%'] },
+              { label: '欧洲', notes: ['同比 +45%'] },
+              { label: '世界其他地区', notes: ['同比 +15%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { label: '研发', notes: ['占收入 31%', '同比 +0 个百分点'] },
+                { label: '销售与营销', notes: ['占收入 16%', '同比 (3 个百分点)'] },
+                { label: '管理费用', notes: ['占收入 14%', '同比 (3 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 57%', '同比 +3 个百分点'] },
+            operating: { label: '营业亏损', notes: ['利润率 (5%)', '同比 +9 个百分点'] },
+            net: {
+              label: '营业亏损',
+              notes: ['源图未显示单独的净利润/净亏损项目。'],
+            },
+          },
+        },
+      },
+    }
+  );
+})(window);

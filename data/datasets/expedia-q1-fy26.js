@@ -3,7 +3,7 @@
  * Reconstructed from input/processed/expedia-q1-fy26.png as a fixed
  * d3-sankey layout with pure SVG/vector annotations.
  *
- * Source-chart quirks mirrored here (see data/income-statements.js):
+ * Source-chart quirks mirrored here (see data/income-statements/expedia.js):
  * - GAAP opex is $2.798B, but the chart cannot draw the negative
  *   "Legal reserves, occupancy tax and other" credit ($-64M), so the
  *   drawn opex bar sums the five positive items ($2.862B) and the
