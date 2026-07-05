@@ -125,3 +125,19 @@ CI（`.github/workflows/ci.yml`）在每次 push 到 `main` 与每个 pull reque
 “新数据集的处理后 PNG、adapter 与 manifest 注册放进同一个
 `data(<key>)` 提交、可复用渲染器支持拆成前置 `render(engine)` 提交”的
 规则都由该文档拥有。
+
+## Cursor Cloud 专用说明
+
+环境是静态站点加 Node 工具链：依赖（`pnpm install --frozen-lockfile`）和
+固定版本的 Playwright Chromium（`pnpm exec playwright install chromium`）
+由启动更新脚本刷新，无需重新安装。本 VM 的非显性注意事项：
+
+- 用 `pnpm dev` 运行应用（`http://127.0.0.1:8000` 上的零依赖静态服务器）。
+  它是长驻进程——在后台/tmux 会话中启动，不要用阻塞的前台调用。
+- `input/processed/` 下的参考图只部分提交入库；许多数据集的 PNG 留在其
+  作者本机。对这些 key，`pnpm verify:d3 -- <key>` 会在复制参考图时因
+  ENOENT 失败。引擎级改动请改用 `pnpm verify:render-regression`：它渲染
+  所有已注册数据集、应用硬门禁，并对缺本地参考图的 key 跳过相似度计分。
+- `pnpm check`、`pnpm test`、`pnpm verify:app`、`pnpm build:standalone`、
+  `pnpm verify:standalone`，以及对有本地参考图的数据集（如
+  `airbnb-q1-fy26`）跑 `pnpm verify:d3`，在全新检出上全部绿色。
