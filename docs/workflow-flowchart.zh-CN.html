@@ -371,7 +371,7 @@
       <ul>
         <li>按盘点清单逐对象精细测量</li>
         <li>显式 nodes/links/layout</li>
-        <li>zh overlay · <code>index.html</code> 注册</li>
+        <li>zh overlay · manifest 注册</li>
       </ul>
     </a>
     <span class="ov-arrow">→</span>
@@ -451,7 +451,7 @@ pnpm exec playwright install chromium</span>
       <ul>
         <li>对每张 pending PNG 计算 <b>sha256</b>，与 <code>input/processed/</code> 全部图片做精确内容比对；</li>
         <li>从文件名推导<b>候选 dataset key</b>（去掉 <code>page-N</code> 前缀、<code>income-statement</code> 后缀，转小写 kebab）；</li>
-        <li>检查候选 key 是否已有四类 artifact：processed 图片、<code>data/datasets/&lt;key&gt;.js</code>、<code>index.html</code> 注册、损益表 SSOT 记录。</li>
+        <li>检查候选 key 是否已有四类 artifact：processed 图片、<code>data/datasets/&lt;key&gt;.js</code>、manifest 注册、损益表 SSOT 记录。</li>
       </ul>
       <div class="refdoc">实现：<code>scripts/check-pending-processed.mjs</code></div>
     </div>
@@ -475,7 +475,7 @@ pnpm exec playwright install chromium</span>
           <div class="badges"><span class="badge manual">人工</span></div>
           <h3>确定最终稳定 key</h3>
           <p>小写 kebab：<code>&lt;company&gt;-&lt;period&gt;</code>，如 <code>nvidia-q4-fy26</code>。</p>
-          <p class="dim">若最终 key ≠ 脚本候选 key：须再到 <code>input/processed/</code>、<code>data/datasets/</code>、<code>data/income-statements/</code>、<code>index.html</code> 四处复查最终 key 无冲突。</p>
+          <p class="dim">若最终 key ≠ 脚本候选 key：须再到 <code>input/processed/</code>、<code>data/datasets/</code>、<code>data/income-statements/</code>、<code>data/dataset-manifest.js</code> 四处复查最终 key 无冲突。</p>
         </div>
       </div>
     </div>
@@ -679,15 +679,15 @@ pnpm exec playwright install chromium</span>
         <li>对每种非默认语言（当前 <code>zh</code>）加 <code>i18n.&lt;language&gt;</code> overlay——<b>绝不建平行数据集文件</b>；</li>
         <li>覆盖 dataset <code>name</code> / <code>meta</code> / node labels+notes / 每条会变化的固定 <code>layout.labels</code> 与 annotation 行，以及 SSOT labels/notes、公司档案；</li>
         <li>overlay 仅限显示层：不得改 values、links、node 几何、财务总额、源图、验证语义；</li>
-        <li>有意不翻译的子品牌词（如 <code>aws</code>）→ dataset 的 <code>i18n.preservedAnnotationText</code>；全局不翻译品牌词（YouTube、iPhone…）→ <code>src/i18n.js</code> 的 <code>EXACT_ZH</code> 恒等映射。</li>
+        <li>有意不翻译的子品牌词（如 <code>aws</code>）→ dataset 的 <code>i18n.preservedAnnotationText</code>；全局不翻译品牌词（YouTube、iPhone…）→ <code>src/i18n-dictionaries.js</code> 的 <code>EXACT_ZH</code> 恒等映射。</li>
       </ul>
     </div>
     <div class="arrow"></div>
     <div class="node">
       <span class="sid">P3.4</span>
       <div class="badges"><span class="badge mixed">混合</span></div>
-      <h3>注册进 <code>index.html</code></h3>
-      <p>在依赖脚本与被复用数据集之后追加 <code>&lt;script&gt;</code> 标签。磁盘 ↔ 注册奇偶由 <code>verify:ssot</code> 强制，漂移可用：</p>
+      <h3>注册进 dataset manifest</h3>
+      <p>运行 <code>pnpm sync:index-datasets</code> 追加到生成的 <code>data/dataset-manifest.js</code>（dataset 不再有 <code>index.html</code> 标签；被复用数据集须保持在依赖之后的 manifest 顺序）。磁盘 ↔ 注册奇偶由 <code>verify:ssot</code> 强制，漂移可用：</p>
       <span class="cmd">pnpm sync:index-datasets</span>
     </div>
   </div>
@@ -793,7 +793,7 @@ pnpm exec playwright install chromium</span>
       <div class="badges"><span class="badge auto">自动</span></div>
       <h3>快速聚合门全绿</h3>
       <span class="cmd">pnpm check</span>
-      <p>= 全仓 JS 语法扫描 → 单元测试 → <code>check:pending</code> → <code>verify:ssot</code> → <code>verify:i18n</code> → <code>verify:dataset-file-metadata</code>（秒级、无渲染）。</p>
+      <p>= 全仓 JS 语法扫描 → 单元测试 → <code>check:pending</code> → <code>verify:app-globals</code> → <code>verify:dataset-manifest</code> → <code>verify:ssot</code> → <code>verify:i18n</code> → <code>verify:dataset-file-metadata</code>（秒级、无渲染）。</p>
       <p class="dim">`pnpm check` 在任何 checkout（云端 / CI / 新克隆）上都应全绿：local-only 源图通过 <code>sourceImage.localOnly: true</code> 显式豁免；metadata 记录 git 提交时间（首次提交前回退 mtime），可在任意机器上确定性再生成。提交新数据集后需重跑 <code>pnpm update:dataset-file-metadata</code> 并提交刷新结果。</p>
     </div>
     <div class="arrow"></div>
@@ -803,7 +803,7 @@ pnpm exec playwright install chromium</span>
       <h3>按约定提交</h3>
       <p>轻量 Conventional Commits：<code>&lt;type&gt;(&lt;scope&gt;): &lt;summary&gt;</code>（英文小写）。</p>
       <ul>
-        <li>新数据集 = <b>一个</b> <code>data(&lt;key&gt;)</code> 提交：processed PNG + adapter + <code>index.html</code> 注册；</li>
+        <li>新数据集 = <b>一个</b> <code>data(&lt;key&gt;)</code> 提交：processed PNG + adapter + manifest 注册；</li>
         <li>为它新增的通用渲染能力 → 拆成<b>前置</b> <code>render(engine)</code> 提交；</li>
         <li>正文写清运行过的验证命令与关键指标（不得把 Reference 模式结果写成 d3 验证结果）。</li>
       </ul>
@@ -887,7 +887,7 @@ pnpm exec playwright install chromium</span>
         <tr><td><code>data/assets/raster-annotations/&lt;company&gt;/</code></td><td>白名单 runtime raster（条件，须 <code>render.allowRasterAnnotations</code>）</td><td>P2.3d</td></tr>
         <tr><td><code>src/icons.js</code> / <code>meta.logoSvg</code></td><td>可复用 vector 图标 / 一次性 logo</td><td>P2.3d</td></tr>
         <tr><td><code>data/datasets/&lt;key&gt;.js</code></td><td>Sankey 视图 adapter（nodes/links/layout + i18n overlay）</td><td>P3.2–3.3</td></tr>
-        <tr><td><code>index.html</code></td><td>dataset <code>&lt;script&gt;</code> 注册</td><td>P3.4</td></tr>
+        <tr><td><code>data/dataset-manifest.js</code></td><td>dataset 注册（生成物，<code>pnpm sync:index-datasets</code>）</td><td>P3.4</td></tr>
         <tr><td><code>output/compare/&lt;key&gt;/&lt;round&gt;-&lt;improvement&gt;-&lt;focus&gt;/</code></td><td>每轮归档：候选图、Diff 图、metrics JSON、红框参考图</td><td>P4.2–4.4</td></tr>
         <tr><td><code>compare/</code></td><td>临时 scratch（<code>--keep</code> 后用 <code>scripts/clean-compare.sh</code> 清理）</td><td>P4.2</td></tr>
         <tr><td><code>data/dataset-file-metadata.js</code></td><td>Recently-updated 排序用的生成 metadata（本地维护，云端不重生成）</td><td>P5.2</td></tr>
