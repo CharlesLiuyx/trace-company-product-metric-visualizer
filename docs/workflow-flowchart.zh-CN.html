@@ -60,20 +60,63 @@
   .swatch.loop    { background: var(--orange-bg); border-color: var(--orange); border-style: dashed; }
   .swatch.artifact{ background: var(--green-bg); border-color: var(--green); }
 
-  /* ---- 阶段总览 mini-map ---- */
-  .minimap {
-    display: flex; flex-wrap: wrap; gap: 6px; align-items: stretch;
-    margin: 14px 0 34px;
+  /* ---- 层级导航 ---- */
+  .layer-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .layer-nav a {
+    text-decoration: none; font-size: .8rem; font-weight: 600; color: var(--ink);
+    background: var(--card); border: 1px solid var(--line); border-radius: 999px;
+    padding: 4px 14px;
   }
-  .minimap a {
-    flex: 1 1 150px; text-decoration: none; color: var(--ink);
-    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
-    padding: 10px 12px; font-size: .82rem; position: relative;
+  .layer-nav a:hover { border-color: var(--teal); }
+  .layer-nav a .no { color: var(--teal); font-weight: 700; margin-right: 6px; }
+
+  /* ---- 层横幅 ---- */
+  .layer-banner { display: flex; align-items: baseline; gap: 10px; margin: 34px 0 12px; }
+  .layer-banner .tag {
+    flex: none; background: var(--ink); color: #fff; font-size: .72rem; font-weight: 700;
+    border-radius: 6px; padding: 2px 10px; letter-spacing: .06em;
   }
-  .minimap a:hover { border-color: var(--teal); }
-  .minimap .k { display: block; font-weight: 700; font-size: .78rem; color: var(--teal); }
-  .minimap .t { display: block; font-weight: 600; margin-top: 2px; }
-  .minimap .d { display: block; color: var(--muted); margin-top: 2px; font-size: .76rem; }
+  .layer-banner h2 { margin: 0; font-size: 1.15rem; }
+  .layer-banner .hint { font-size: .78rem; color: var(--muted); }
+
+  /* ---- 第 1 层：一屏总览 ---- */
+  .overview {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: 18px 18px 14px; margin-bottom: 8px;
+  }
+  .ov-essence { text-align: center; font-size: .88rem; color: var(--muted); margin: 0 0 16px; }
+  .ov-essence b { color: var(--ink); }
+  .ov-flow { display: flex; align-items: stretch; justify-content: center; }
+  .ov-endcap {
+    align-self: center; flex: none; max-width: 108px; text-align: center;
+    background: var(--ink); color: #fff; border-radius: 10px;
+    padding: 10px 9px; font-size: .72rem; font-weight: 600; line-height: 1.5;
+  }
+  .ov-endcap.out { background: var(--green); }
+  .ov-endcap code { background: rgba(255,255,255,.16); color: #fff; font-size: .62rem; padding: 1px 3px; word-break: break-all; }
+  .ov-card {
+    flex: 1 1 150px; min-width: 0; display: flex; flex-direction: column;
+    text-decoration: none; color: var(--ink);
+    background: #fbfbfd; border: 1px solid var(--line); border-radius: 12px;
+    padding: 10px 11px 11px;
+  }
+  .ov-card:hover { border-color: var(--teal); background: #f6fbfc; }
+  .ov-card .pnum { font-size: .7rem; font-weight: 800; color: var(--teal); letter-spacing: .05em; }
+  .ov-card .pname { font-weight: 700; font-size: .9rem; margin: 1px 0 5px; }
+  .ov-card ul { margin: 0; padding-left: 15px; font-size: .73rem; color: #3c4250; }
+  .ov-card li { margin: 1px 0; }
+  .ov-card .pcmd { margin-top: auto; padding-top: 7px; }
+  .ov-card .pcmd code {
+    background: var(--code-bg); color: var(--code-ink);
+    font-size: .66rem; padding: 2px 6px; border-radius: 5px;
+    display: inline-block; max-width: 100%; white-space: normal; word-break: break-all;
+  }
+  .ov-tags { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; margin-top: 7px; }
+  .ov-tag { font-size: .65rem; font-weight: 700; border-radius: 999px; padding: 1px 8px; background: #fff; }
+  .ov-tag.stop { color: var(--red); border: 1px solid var(--red); }
+  .ov-tag.loop { color: var(--orange); border: 1.5px dashed var(--orange); }
+  .ov-arrow { align-self: center; flex: none; color: #8a919f; font-size: 1rem; font-weight: 700; padding: 0 4px; }
+  .ov-note { margin: 14px 4px 2px; font-size: .74rem; color: var(--muted); text-align: center; }
 
   /* ---- 阶段分组 ---- */
   section.phase {
@@ -156,7 +199,7 @@
   }
   .decision .q-note { display: block; font-weight: 400; font-size: .76rem; color: #7c5d1d; }
   .branches { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; margin-top: 12px; }
-  .branch { display: flex; flex-direction: column; }
+  .branch { display: flex; flex-direction: column; min-width: 0; }
   .branch-tag {
     align-self: center; font-size: .74rem; font-weight: 700; color: var(--muted);
     border: 1px solid var(--line); background: #fff; border-radius: 999px;
@@ -203,20 +246,23 @@
     cursor: pointer; font-weight: 700; font-size: .95rem; padding: 12px 0;
     list-style-position: inside;
   }
-  details.appendix .body { padding: 2px 2px 16px; font-size: .86rem; }
+  details.appendix .body { padding: 2px 2px 16px; font-size: .86rem; overflow-x: auto; }
   details.appendix ol, details.appendix ul { padding-left: 22px; margin: 6px 0; }
   details.appendix li { margin: 3px 0; }
   table.map { border-collapse: collapse; width: 100%; font-size: .82rem; }
   table.map th, table.map td { border: 1px solid var(--line); padding: 6px 10px; text-align: left; vertical-align: top; }
   table.map th { background: #f3f4f8; }
 
-  h2.appendix-head { font-size: 1.1rem; margin: 40px 0 8px; }
   footer.page { margin-top: 36px; font-size: .78rem; color: var(--muted); }
 
   @media (max-width: 860px) {
     .branches { grid-template-columns: 1fr; }
     .sweeps { grid-template-columns: 1fr; }
     .phase-head .owner { display: none; }
+    .layer-banner .hint { display: none; }
+    .ov-flow { flex-direction: column; align-items: stretch; }
+    .ov-endcap { max-width: none; }
+    .ov-arrow { transform: rotate(90deg); padding: 3px 0; }
   }
   @media print {
     body { background: #fff; }
@@ -233,9 +279,15 @@
   <h1>Workflow 全流程图：一张 Input 图片 → 已验证数据集</h1>
   <p class="sub">
     本页把「把一张损益表参考图从 <code>input/pending/</code> 变成已验证 Sankey 数据集」的完整流程
-    画成可 Review 的流程图：五个阶段、全部停止条件、图标子循环与 d3 保真循环。
-    每个节点标注了自动化程度与规则出处，节点编号（P1.1、D1 …）可直接用于流程优化讨论。
+    画成可 Review 的流程图，按粒度分三层：<b>第 1 层</b> 一屏总览（先看全局），
+    <b>第 2 层</b> 阶段详图（逐节点，含全部停止条件、图标子循环与 d3 保真循环），
+    <b>第 3 层</b> 规则附录。节点标注自动化程度与规则出处，编号（P1.1、D1 …）可直接用于流程优化讨论。
   </p>
+  <nav class="layer-nav" aria-label="层级导航">
+    <a href="#layer-1"><span class="no">第 1 层</span>一屏总览</a>
+    <a href="#layer-2"><span class="no">第 2 层</span>阶段详图（逐节点）</a>
+    <a href="#layer-3"><span class="no">第 3 层</span>规则附录（A–D）</a>
+  </nav>
   <p class="sources">
     信息来源（规则属主文档）：<code>AGENTS.md</code> §Workflow ·
     <code>docs/dynamic-dataset-workflow.md</code> ·
@@ -260,14 +312,81 @@
   <span class="item"><span class="badge cond">条件</span>视源图而定</span>
 </div>
 
-<nav class="minimap" aria-label="阶段总览">
-  <a href="#phase-0"><span class="k">P0</span><span class="t">环境准备</span><span class="d">一次性安装</span></a>
-  <a href="#phase-1"><span class="k">P1</span><span class="t">接入与守卫</span><span class="d">查重 → 定 key → 移图</span></a>
-  <a href="#phase-2"><span class="k">P2</span><span class="t">数据 SSOT</span><span class="d">公司档案 · 损益表 · 图标子循环</span></a>
-  <a href="#phase-3"><span class="k">P3</span><span class="t">Adapter 与 i18n</span><span class="d">先测量 → 写 adapter → 注册</span></a>
-  <a href="#phase-4"><span class="k">P4</span><span class="t">验证</span><span class="d">聚合门 + 人工保真循环</span></a>
-  <a href="#phase-5"><span class="k">P5</span><span class="t">收尾</span><span class="d">check 全绿 → 提交 → 汇报</span></a>
-</nav>
+<!-- ==================== 第 1 层：一屏总览 ==================== -->
+<div class="layer-banner" id="layer-1">
+  <span class="tag">第 1 层</span>
+  <h2>一屏总览</h2>
+  <span class="hint">五个阶段 · 两个循环 · 一个停止条件；点击阶段卡进入第 2 层详图</span>
+</div>
+
+<section class="overview" aria-label="一屏总览">
+  <p class="ov-essence"><b>守卫查重</b> → <b>纯数据 SSOT</b> → <b>视图 Adapter</b> → <b>渲染验证收敛</b> → <b>提交与汇报</b></p>
+  <div class="ov-flow">
+    <div class="ov-endcap">输入<br />源图 PNG<br /><code>input/pending</code></div>
+    <span class="ov-arrow">→</span>
+    <a class="ov-card" href="#phase-1">
+      <span class="pnum">P1</span>
+      <span class="pname">接入与守卫</span>
+      <ul>
+        <li>sha256 查重 + key 冲突守卫</li>
+        <li>定稳定 key，移入 processed（永不改名）</li>
+      </ul>
+      <span class="pcmd"><code>check:pending</code></span>
+      <span class="ov-tags"><span class="ov-tag stop">D1 命中 → STOP 仅报告</span></span>
+    </a>
+    <span class="ov-arrow">→</span>
+    <a class="ov-card" href="#phase-2">
+      <span class="pnum">P2</span>
+      <span class="pname">数据 SSOT</span>
+      <ul>
+        <li>公司档案（新公司先建）</li>
+        <li>损益表纯数据记录 + FX 覆盖</li>
+      </ul>
+      <span class="ov-tags"><span class="ov-tag loop">↺ 图标 crop/vector 子循环（条件）</span></span>
+    </a>
+    <span class="ov-arrow">→</span>
+    <a class="ov-card" href="#phase-3">
+      <span class="pnum">P3</span>
+      <span class="pname">Adapter 与 i18n</span>
+      <ul>
+        <li>第 0 轮渲染前测量</li>
+        <li>显式 nodes/links/layout</li>
+        <li>zh overlay · <code>index.html</code> 注册</li>
+      </ul>
+    </a>
+    <span class="ov-arrow">→</span>
+    <a class="ov-card" href="#phase-4">
+      <span class="pnum">P4</span>
+      <span class="pname">验证</span>
+      <ul>
+        <li>聚合门：语法 / SSOT / i18n / 每语言渲染</li>
+        <li>11 项自动硬门槛 + sweep×3 人工</li>
+      </ul>
+      <span class="pcmd"><code>verify:dataset</code></span>
+      <span class="ov-tags"><span class="ov-tag loop">↺ d3 保真循环 3–5 轮收敛</span></span>
+    </a>
+    <span class="ov-arrow">→</span>
+    <a class="ov-card" href="#phase-5">
+      <span class="pnum">P5</span>
+      <span class="pname">收尾</span>
+      <ul>
+        <li>pending 只剩 <code>.gitkeep</code></li>
+        <li><code>check</code> 全绿 + 约定提交 + 汇报</li>
+      </ul>
+      <span class="pcmd"><code>data(&lt;key&gt;)</code></span>
+    </a>
+    <span class="ov-arrow">→</span>
+    <div class="ov-endcap out">产物<br />已验证数据集<br />+ 归档</div>
+  </div>
+  <p class="ov-note">P0 环境准备（一次性安装）与全部判定细节见第 2 层；颜色与徽章含义见上方图例。</p>
+</section>
+
+<!-- ==================== 第 2 层：阶段详图 ==================== -->
+<div class="layer-banner" id="layer-2">
+  <span class="tag">第 2 层</span>
+  <h2>阶段详图（逐节点）</h2>
+  <span class="hint">编号 P· / D· 与徽章标注自动化程度、命令与规则出处</span>
+</div>
 
 <!-- ==================== P0 ==================== -->
 <section class="phase" id="phase-0">
@@ -635,8 +754,12 @@ pnpm exec playwright install chromium</span>
   </div>
 </section>
 
-<!-- ==================== 附录 ==================== -->
-<h2 class="appendix-head">附录（Review 优化时的关键上下文）</h2>
+<!-- ==================== 第 3 层：规则附录 ==================== -->
+<div class="layer-banner" id="layer-3">
+  <span class="tag">第 3 层</span>
+  <h2>规则附录</h2>
+  <span class="hint">Review 优化时的关键上下文：完整判定标准与产物地图</span>
+</div>
 
 <details class="appendix" id="appendix-a">
   <summary>A · 自动硬门槛 11 项（每轮先过，失败先修 — <code>docs/fidelity-loop-rules.md</code> §自动硬门槛）</summary>
@@ -721,8 +844,9 @@ pnpm exec playwright install chromium</span>
 </details>
 
 <footer class="page">
-  本页为流程 Review 辅助文档：自包含单文件（内联 CSS、无外部依赖、可离线打开），内容与上述属主文档同步；
-  流程规则本身以属主文档为准。生成于仓库 <code>docs/workflow-flowchart.zh-CN.html</code>。
+  本页为流程 Review 辅助文档：自包含单文件（内联 CSS、无外部依赖、可离线打开），按「一屏总览 → 阶段详图 →
+  规则附录」三层组织，内容与上述属主文档同步；流程规则本身以属主文档为准。
+  生成于仓库 <code>docs/workflow-flowchart.zh-CN.html</code>。
 </footer>
 
 </div>
