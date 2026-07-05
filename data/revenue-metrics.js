@@ -69,6 +69,9 @@
               src: 'input/processed/anthropic-arr-annualized-revenue-yipit-2025-08-2026-06.png',
               width: 2656,
               height: 609,
+              // Licensed screenshot kept out of the repository on purpose;
+              // verifiers skip the existence check for localOnly evidence.
+              localOnly: true,
             },
           },
         ],
@@ -155,6 +158,9 @@
               src: 'input/processed/openai-arr-annualized-revenue-yipit-2025-08-2026-06.png',
               width: 1125,
               height: 1412,
+              // Licensed screenshot kept out of the repository on purpose;
+              // verifiers skip the existence check for localOnly evidence.
+              localOnly: true,
             },
           },
         ],

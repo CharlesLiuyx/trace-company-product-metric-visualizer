@@ -279,7 +279,10 @@ function validateRevenueMetric(record, errors) {
   for (const source of record.sources || []) {
     assert(source.name, `${record.key}: source missing name`, errors);
     assert(source.url, `${record.key}: source missing url`, errors);
-    if (source.sourceImage?.src) {
+    // sourceImage.localOnly declares evidence that intentionally never gets
+    // committed (e.g. licensed screenshots); the record keeps the path for
+    // local provenance without failing fresh checkouts or CI.
+    if (source.sourceImage?.src && source.sourceImage.localOnly !== true) {
       assert(existsSync(path.join(rootDir, source.sourceImage.src)), `${record.key}: source image does not exist: ${source.sourceImage.src}`, errors);
     }
   }
