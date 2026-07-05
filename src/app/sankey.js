@@ -2,14 +2,15 @@
  * Sankey view: chart sizing, USD-normalized comparison scaling, the
  * comparison grid render, and the top-level draw() dispatcher. */
 
-/* Canvas sizing mirrors the engine's config precedence: explicit
- * render.width/height, then meta.referenceImage dimensions, then the
- * engine DEFAULTS canvas. */
+/* Canvas sizing comes from the engine's own config merge
+ * (SankeyEngine.helpers.canvasSize), so card geometry follows the exact
+ * precedence render() applies: explicit render.width/height, then
+ * meta.referenceImage dimensions, then the engine DEFAULTS canvas. */
 function chartWidth(d) {
-  return d.render?.width || d.meta?.referenceImage?.width || window.SankeyEngine.DEFAULTS?.width || 2862;
+  return window.SankeyEngine.helpers.canvasSize(d).width;
 }
 function chartHeight(d) {
-  return d.render?.height || d.meta?.referenceImage?.height || window.SankeyEngine.DEFAULTS?.height || 1462;
+  return window.SankeyEngine.helpers.canvasSize(d).height;
 }
 function clearSingleChart() {
   chartHost?.replaceChildren();

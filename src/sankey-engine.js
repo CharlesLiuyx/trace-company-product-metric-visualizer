@@ -166,6 +166,16 @@
       : {};
   }
 
+  // Effective canvas size for a dataset, computed through the same config
+  // merge render() applies (data.render beats meta.referenceImage beats
+  // DEFAULTS). The viewer sizes chart cards with this so card geometry can
+  // never drift from the rendered SVG's viewBox.
+  function canvasSize(data) {
+    const d = data || {};
+    const cfg = deepMerge(deepMerge(DEFAULTS, referenceCanvasDefaults(d)), d.render || {});
+    return { width: cfg.width, height: cfg.height };
+  }
+
   // horizontal padding between a node face and its side label block
   const LABEL_PAD = 16;
 
@@ -1224,10 +1234,11 @@
   global.SankeyEngine = {
     render,
     DEFAULTS,
-    // Pure helpers exposed for unit tests and tooling; render() behavior is
-    // unchanged. buildFixedGraph expects render()'s preprocessed inputs:
-    // nodes with an index field and links as { source, target, value, raw };
-    // buildLabelSpecs/decollideSideLabels are render()'s label passes 1 + 2.
+    // Pure helpers exposed for unit tests, tooling, and the viewer's chart
+    // sizing (canvasSize); render() behavior is unchanged. buildFixedGraph
+    // expects render()'s preprocessed inputs: nodes with an index field and
+    // links as { source, target, value, raw }; buildLabelSpecs/
+    // decollideSideLabels are render()'s label passes 1 + 2.
     helpers: {
       deepMerge,
       formatValue,
@@ -1235,6 +1246,7 @@
       autoSide,
       buildFixedGraph,
       referenceCanvasDefaults,
+      canvasSize,
       buildLabelSpecs,
       decollideSideLabels,
     },
