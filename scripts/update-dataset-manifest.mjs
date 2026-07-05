@@ -90,6 +90,7 @@ function buildManifest(scripts) {
   const context = loadClassicScripts([
     'src/icons.js',
     'src/sankey-engine.js',
+    'src/i18n-dictionaries.js',
     'src/i18n.js',
     'src/trace-domain.js',
     ...listScripts('data/income-statements'),
