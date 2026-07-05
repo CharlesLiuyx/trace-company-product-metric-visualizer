@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-05T17:04:10.343Z",
+  "generatedAt": "2026-07-05T18:28:06.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -741,9 +741,9 @@
     },
     "broadcom-q1-fy26": {
       "path": "data/datasets/broadcom-q1-fy26.js",
-      "updatedAtMs": 1783271050343,
-      "updatedAt": "2026-07-05T17:04:10.343Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783276086000,
+      "updatedAt": "2026-07-05T18:28:06.000Z",
+      "timeSource": "git"
     },
     "data/revenue-metrics.js": {
       "path": "data/revenue-metrics.js",
