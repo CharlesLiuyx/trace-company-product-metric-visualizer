@@ -11,29 +11,10 @@ import {
   incomeStatementScriptsFromIndex,
 } from './script-sources.mjs';
 import { assert, listScripts, readProjectFile, rootDir } from './lib/project.mjs';
-import { loadClassicScripts } from './lib/vm-browser.mjs';
+import { loadBrowserData } from './lib/browser-data-loader.mjs';
 
 function dataScripts() {
   return dataScriptsFromIndex(readProjectFile('index.html'));
-}
-
-function loadBrowserData(scripts) {
-  const context = loadClassicScripts([
-    'src/icons.js',
-    'src/trace-domain.js',
-    ...listScripts(INCOME_STATEMENT_SCRIPT_DIR),
-    'data/revenue-metrics.js',
-    ...listScripts(COMPANY_METADATA_SCRIPT_DIR),
-    ...scripts,
-  ]);
-
-  return {
-    records: context.INCOME_STATEMENT_SSOT?.records || [],
-    revenueRecords: context.REVENUE_METRIC_SSOT?.records || [],
-    companies: context.COMPANY_METADATA?.companies || [],
-    datasets: context.DATASETS || [],
-    domain: context.TraceDomain,
-  };
 }
 
 function fmt(value) {
@@ -345,7 +326,7 @@ function main() {
     'company-metadata SSOT'
   );
 
-  const loaded = loadBrowserData(scripts);
+  const loaded = loadBrowserData({ runtime: ['src/trace-domain.js'], datasetScripts: scripts });
   const { records, revenueRecords, companies, datasets } = loaded;
   const errors = [];
   const datasetKeys = scripts.map((script) => path.basename(script, '.js'));
