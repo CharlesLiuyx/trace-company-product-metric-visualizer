@@ -2727,6 +2727,29 @@
             }
           }
         }
+      },
+      {
+        "key": "xiaomi-q4-fy25",
+        "src": "data/datasets/xiaomi-q4-fy25.js",
+        "data": {
+          "name": "Xiaomi · Q4 FY25",
+          "company": "Xiaomi",
+          "meta": {
+            "title": "Xiaomi Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "小米 · 2025 财年第四季度",
+              "meta": {
+                "title": "小米 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
       }
     ]
   };
