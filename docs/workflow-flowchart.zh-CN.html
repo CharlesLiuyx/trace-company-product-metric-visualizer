@@ -115,6 +115,19 @@
   .ov-tag { font-size: .65rem; font-weight: 700; border-radius: 999px; padding: 1px 8px; background: #fff; }
   .ov-tag.stop { color: var(--red); border: 1px solid var(--red); }
   .ov-tag.loop { color: var(--orange); border: 1.5px dashed var(--orange); }
+  .ov-tag.par { color: #0f3d91; border: 1.5px dashed #0f3d91; }
+  .ov-tag.branch { color: var(--violet); border: 1px solid var(--violet); }
+
+  /* 并行轨道条 */
+  .par-strip {
+    border: 1.5px dashed #0f3d91; background: #eef3fc; border-radius: 10px;
+    padding: 10px 14px; font-size: .82rem; color: #1e2c4d;
+  }
+  .par-strip b { color: #0f3d91; }
+  .par-strip .lanes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 6px; }
+  .par-strip .lane { background: #fff; border: 1px solid #c7d4ee; border-radius: 8px; padding: 7px 10px; font-size: .78rem; }
+  .par-strip .lane b { display: block; font-size: .78rem; margin-bottom: 2px; }
+  @media (max-width: 860px) { .par-strip .lanes { grid-template-columns: 1fr; } }
   .ov-arrow { align-self: center; flex: none; color: #8a919f; font-size: 1rem; font-weight: 700; padding: 0 4px; }
   .ov-note { margin: 14px 4px 2px; font-size: .74rem; color: var(--muted); text-align: center; }
 
@@ -181,6 +194,7 @@
   .badge.manual { background: #7a3d99; color: #fff; }
   .badge.mixed  { background: linear-gradient(90deg,#0f3d91 50%,#7a3d99 50%); color: #fff; }
   .badge.cond   { background: #fff; color: var(--amber); border-color: var(--amber); }
+  .badge.sub    { background: #fff; color: var(--teal); border-color: var(--teal); }
 
   /* ---- 箭头 ---- */
   .arrow { display: flex; flex-direction: column; align-items: center; height: 26px; flex: none; }
@@ -199,6 +213,7 @@
   }
   .decision .q-note { display: block; font-weight: 400; font-size: .76rem; color: #7c5d1d; }
   .branches { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; margin-top: 12px; }
+  .branches.three { grid-template-columns: 1fr 1fr 1fr; }
   .branch { display: flex; flex-direction: column; min-width: 0; }
   .branch-tag {
     align-self: center; font-size: .74rem; font-weight: 700; color: var(--muted);
@@ -256,7 +271,7 @@
   footer.page { margin-top: 36px; font-size: .78rem; color: var(--muted); }
 
   @media (max-width: 860px) {
-    .branches { grid-template-columns: 1fr; }
+    .branches, .branches.three { grid-template-columns: 1fr; }
     .sweeps { grid-template-columns: 1fr; }
     .phase-head .owner { display: none; }
     .layer-banner .hint { display: none; }
@@ -286,7 +301,7 @@
   <nav class="layer-nav" aria-label="层级导航">
     <a href="#layer-1"><span class="no">第 1 层</span>一屏总览</a>
     <a href="#layer-2"><span class="no">第 2 层</span>阶段详图（逐节点）</a>
-    <a href="#layer-3"><span class="no">第 3 层</span>规则附录（A–D）</a>
+    <a href="#layer-3"><span class="no">第 3 层</span>规则附录（A–F）</a>
   </nav>
   <p class="sources">
     信息来源（规则属主文档）：<code>AGENTS.md</code> §Workflow ·
@@ -310,6 +325,7 @@
   <span class="item"><span class="badge manual">人工</span>人工判断</span>
   <span class="item"><span class="badge mixed">混合</span>脚本 + 人工</span>
   <span class="item"><span class="badge cond">条件</span>视源图而定</span>
+  <span class="item"><span class="badge sub">Subagent 可代</span>低难度可分派（附录 E）</span>
 </div>
 
 <!-- ==================== 第 1 层：一屏总览 ==================== -->
@@ -337,19 +353,23 @@
     <span class="ov-arrow">→</span>
     <a class="ov-card" href="#phase-2">
       <span class="pnum">P2</span>
-      <span class="pname">数据 SSOT</span>
+      <span class="pname">源盘点与数据 SSOT</span>
       <ul>
-        <li>公司档案（新公司先建）</li>
-        <li>损益表纯数据记录 + FX 覆盖</li>
+        <li>粗看全图：输入分型 + 对象盘点</li>
+        <li>公司档案 · 损益表纯数据记录</li>
       </ul>
-      <span class="ov-tags"><span class="ov-tag loop">↺ 图标 crop/vector 子循环（条件）</span></span>
+      <span class="ov-tags">
+        <span class="ov-tag branch">D0 收入指标类 → 数据支线</span>
+        <span class="ov-tag par">∥ G1：SSOT ∥ 盘点/测量 ∥ 图标</span>
+        <span class="ov-tag loop">↺ 图标 crop/vector 子循环（条件）</span>
+      </span>
     </a>
     <span class="ov-arrow">→</span>
     <a class="ov-card" href="#phase-3">
       <span class="pnum">P3</span>
       <span class="pname">Adapter 与 i18n</span>
       <ul>
-        <li>第 0 轮渲染前测量</li>
+        <li>按盘点清单逐对象精细测量</li>
         <li>显式 nodes/links/layout</li>
         <li>zh overlay · <code>index.html</code> 注册</li>
       </ul>
@@ -474,17 +494,65 @@ pnpm exec playwright install chromium</span>
 <section class="phase" id="phase-2">
   <div class="phase-head">
     <span class="num">P2</span>
-    <h2>数据 SSOT<span class="en">纯数据层，先于视图</span></h2>
-    <span class="owner">出处：<code>docs/dynamic-dataset-workflow.md</code> 步骤 4–5、7 · <code>data/schema.md</code> · <code>data/assets/README.md</code></span>
+    <h2>源盘点与数据 SSOT<span class="en">先分型盘点，再写纯数据层</span></h2>
+    <span class="owner">出处：<code>docs/dynamic-dataset-workflow.md</code> 步骤 4–7、§Object Taxonomy、§Execution Model · <code>data/schema.md</code> · <code>data/assets/README.md</code></span>
   </div>
   <div class="flow">
+    <div class="node">
+      <span class="sid">P2.0</span>
+      <div class="badges"><span class="badge manual">人工</span></div>
+      <h3>粗看全图：输入分型 + 对象盘点（先于一切精细工作）</h3>
+      <ul>
+        <li><b>分型</b>：对照对象类型清单（附录 F / §Object Taxonomy）判定输入类型——A 损益表 Sankey 信息图（标准 / <code>-by-segment</code> / <code>-by-bu</code> 变体）、B 收入指标时间序列（如 ARR）、或未识别新类型；</li>
+        <li><b>盘点</b>：按该类型清单枚举全部对象实例并计数，每个对象标记 <b>渲染目标 / 仅数据 / 有意跳过</b>；</li>
+        <li>盘点结果下游复用：SSOT 完整性核对（P2.2）、图标 crop 范围（P2.3）、label 归组（P3.2）、i18n 覆盖（P3.3）、汇报中的对象对账；</li>
+        <li>之后才允许进入逐对象精细测量（P3.1）。</li>
+      </ul>
+    </div>
+    <div class="arrow"></div>
+    <div class="decision">D0 · 输入类型？<span class="q-note">按附录 F 清单判定；未识别类型 → 先扩清单再继续</span></div>
+    <div class="branches three">
+      <div class="branch">
+        <span class="branch-tag">B · 收入指标（ARR 等）</span>
+        <div class="node data">
+          <span class="sid">P2.B</span>
+          <div class="badges"><span class="badge manual">人工</span></div>
+          <h3>数据支线（无渲染）</h3>
+          <p>公司档案 + <code>data/revenue-metrics.js</code> 记录（观测序列、事件旗标、方法论 notes、conditions、来源、confidence/lineage）+ i18n。</p>
+          <p class="dim">不建 Sankey adapter、不跑图标子循环与保真循环；<code>verify:dataset</code> 对 revenue-metric key 自动跳过渲染步。</p>
+        </div>
+      </div>
+      <div class="branch">
+        <span class="branch-tag yes">A · 损益表 Sankey</span>
+        <div class="node"><span class="sid">—</span><h3>走完整管线（P2.1 起）</h3><p class="dim">对象家族：节点/流带结构、label 单元、注释容器、图标/品牌资产、有意跳过项。</p></div>
+      </div>
+      <div class="branch">
+        <span class="branch-tag">未识别新类型</span>
+        <div class="node stop">
+          <span class="sid">HOLD</span>
+          <h3>暂停精细工作</h3>
+          <p>先为新类型定义对象清单并扩展 §Object Taxonomy（新 metric 家族/SSOT 需回填 <code>AGENTS.md</code> 与 Trace 规格），再继续。</p>
+        </div>
+      </div>
+    </div>
+    <div class="arrow tall"></div>
+    <div class="par-strip">
+      <b>∥ 并行组 G1（Execution Model）</b>——P2.0 完成后，三条轨道只依赖已定 key 的参考图，可并行推进：
+      <div class="lanes">
+        <div class="lane"><b>Track A · 数据</b>P2.1 公司档案 → P2.2 损益表 SSOT（含 i18n 字段）</div>
+        <div class="lane"><b>Track B · 视觉</b>P3.1 逐对象精细测量（以 P2.0 盘点为输入）</div>
+        <div class="lane"><b>Track C · 图标（条件）</b>P2.3 crop/vector 子循环（范围来自 P2.0 盘点）</div>
+      </div>
+      <p style="margin:6px 0 0; font-size:.74rem;">P3.2 adapter 编写需 Track A 数值 + Track B 几何后串行开始；Track C 收敛后在注释/图标环节接入。低难度轨道可分派 Subagent（附录 E）。</p>
+    </div>
+    <div class="arrow tall"></div>
     <div class="decision">D2 · 是该公司的第一个数据集？</div>
     <div class="branches">
       <div class="branch">
         <span class="branch-tag yes">是</span>
         <div class="node data">
           <span class="sid">P2.1</span>
-          <div class="badges"><span class="badge manual">人工</span></div>
+          <div class="badges"><span class="badge manual">人工</span><span class="badge sub">Subagent 可代</span></div>
           <h3>创建公司档案 SSOT</h3>
           <p><code>data/company-metadata/&lt;company-key&gt;.js</code>：description、sector、industry、founded、headquarters、fiscalYearEnd、website、ticker/exchange、marketCap（含 asOf/source）、sourceUrls，<b>加每种非默认语言的本地化 profile</b>，并注册进 <code>index.html</code>。</p>
           <p class="dim">必须在该公司第一个数据集注册前补全（驱动 Table 视图）。</p>
@@ -524,7 +592,7 @@ pnpm exec playwright install chromium</span>
             <div class="arrow"></div>
             <div class="node">
               <span class="sid">P2.3b</span>
-              <div class="badges"><span class="badge auto">自动</span></div>
+              <div class="badges"><span class="badge auto">自动</span><span class="badge sub">Subagent 可代</span></div>
               <h3>运行提取脚本</h3>
               <span class="cmd">python3 scripts/extract_icon_crops.py \
   --spec input/icon-crop-specs/&lt;dataset-key&gt;.json</span>
@@ -572,14 +640,14 @@ pnpm exec playwright install chromium</span>
   <div class="phase-head">
     <span class="num">P3</span>
     <h2>Adapter 与 i18n<span class="en">Sankey 视图适配层</span></h2>
-    <span class="owner">出处：<code>docs/dynamic-dataset-workflow.md</code> 步骤 6、8–9 · <code>data/schema.md</code> · <code>docs/fidelity-loop-rules.md</code> §第 0 轮</span>
+    <span class="owner">出处：<code>docs/dynamic-dataset-workflow.md</code> 步骤 8–10 · <code>data/schema.md</code> · <code>docs/fidelity-loop-rules.md</code> §第 0 轮</span>
   </div>
   <div class="flow">
     <div class="node">
       <span class="sid">P3.1</span>
       <div class="badges"><span class="badge manual">人工</span></div>
-      <h3>第 0 轮：渲染前测量（写 adapter 之前）</h3>
-      <p>直接从参考图测量，<b>不允许先粗排、再靠保真轮次逼近</b>：</p>
+      <h3>精细测量（第 0 轮，写 adapter 之前）——粗盘点之后的第二遍</h3>
+      <p>以 <b>P2.0 的对象盘点清单为输入</b>逐对象测量，不重新推导对象列表；直接从参考图测量，<b>不允许先粗排、再靠保真轮次逼近</b>（可与 Track A/C 并行，见 G1）：</p>
       <ul>
         <li>画布尺寸、各列节点 x 位置；</li>
         <li>每个短辅助柱 / 短横柱 / 终端柱的像素 bbox（x/y/width/height）；</li>
@@ -605,7 +673,7 @@ pnpm exec playwright install chromium</span>
     <div class="arrow"></div>
     <div class="node data">
       <span class="sid">P3.3</span>
-      <div class="badges"><span class="badge manual">人工</span></div>
+      <div class="badges"><span class="badge manual">人工</span><span class="badge sub">初稿可代</span></div>
       <h3>i18n overlay（英文为规范源）</h3>
       <ul>
         <li>对每种非默认语言（当前 <code>zh</code>）加 <code>i18n.&lt;language&gt;</code> overlay——<b>绝不建平行数据集文件</b>；</li>
@@ -636,7 +704,7 @@ pnpm exec playwright install chromium</span>
   <div class="flow">
     <div class="node">
       <span class="sid">P4.1</span>
-      <div class="badges"><span class="badge auto">自动</span></div>
+      <div class="badges"><span class="badge auto">自动</span><span class="badge sub">Subagent 可代</span></div>
       <h3>单数据集聚合门</h3>
       <span class="cmd">pnpm verify:dataset -- &lt;dataset-key&gt;</span>
       <p>按序执行，任一步失败即终止：</p>
@@ -648,6 +716,7 @@ pnpm exec playwright install chromium</span>
         <li>⑤ <code>verify:d3 &lt;key&gt;</code>：默认语言渲染 + 自动硬门槛；</li>
         <li>⑥ <code>verify:d3 &lt;key&gt; --language zh</code>：每种非默认语言各渲染一次。</li>
       </ul>
+      <p class="dim">聚合脚本内部按序执行；人工轮次单独调 <code>verify:d3</code> 时，不同语言的渲染互相独立，可并行 shell 执行。</p>
     </div>
     <div class="arrow tall"></div>
     <div class="loop">
@@ -655,7 +724,7 @@ pnpm exec playwright install chromium</span>
       <div class="flow">
         <div class="node">
           <span class="sid">P4.2</span>
-          <div class="badges"><span class="badge auto">自动</span></div>
+          <div class="badges"><span class="badge auto">自动</span><span class="badge sub">采集可代</span></div>
           <h3>每轮渲染 + 自动哨兵 + 归档</h3>
           <span class="cmd">pnpm verify:d3 -- &lt;dataset-key&gt; --focus "&lt;本轮主检查方向&gt;" [--keep]</span>
           <ul>
@@ -675,7 +744,7 @@ pnpm exec playwright install chromium</span>
             <div class="sweep"><span class="r">第 2 轮</span><b>文本 sweep</b>label-node 外框三段式 bbox 审计、文本归属与位置；注释容器 / KPI card / 徽章 / 脚注内部对齐。</div>
             <div class="sweep"><span class="r">第 3 轮</span><b>润色 + 本地化 sweep</b>颜色、透明度、图标细节；每种非默认语言 <code>--language zh --keep</code> 渲染，getBBox 查混排残留、R&amp;D / SG&amp;A 缩写、越界、重叠。</div>
           </div>
-          <p class="dim" style="margin-top:8px;">每轮把本层能修的问题一次修完；更早层级的新问题立即修，更晚层级的记入 backlog。单方向深查轮只用于：门槛反复失败、用户重开、sweep 内修不完。</p>
+          <p class="dim" style="margin-top:8px;">每轮把本层能修的问题一次修完；更早层级的新问题立即修，更晚层级的记入 backlog。单方向深查轮只用于：门槛反复失败、用户重开、sweep 内修不完。轮次间串行；轮内并行试值 + 每语言渲染可并行（附录 E）。分诊、修复与冻结/收敛判定始终由主 Agent 负责。</p>
         </div>
         <div class="arrow"></div>
         <div class="node">
@@ -745,6 +814,7 @@ pnpm exec playwright install chromium</span>
       <h3>最终回复必含汇报项</h3>
       <ul>
         <li>变更文件清单，纯数据 SSOT 是否更新；</li>
+        <li>新数据集：粗盘点判定的输入类型 + 对象对账摘要（渲染 / 仅数据 / 跳过计数，逐对象有着落）；</li>
         <li>提取的图标资产，全部相关 cluster 已覆盖或记录为跳过；</li>
         <li>紧凑 <b>Loop Fidelity Summary</b> + 最新 Task 信息 + 红框图状态（或未运行循环的原因）；</li>
         <li>用户反馈经验是沉淀进规则文档、还是记为数据集特例；</li>
@@ -820,6 +890,7 @@ pnpm exec playwright install chromium</span>
         <tr><td><code>output/compare/&lt;key&gt;/&lt;round&gt;-&lt;improvement&gt;-&lt;focus&gt;/</code></td><td>每轮归档：候选图、Diff 图、metrics JSON、红框参考图</td><td>P4.2–4.4</td></tr>
         <tr><td><code>compare/</code></td><td>临时 scratch（<code>--keep</code> 后用 <code>scripts/clean-compare.sh</code> 清理）</td><td>P4.2</td></tr>
         <tr><td><code>data/dataset-file-metadata.js</code></td><td>Recently-updated 排序用的生成 metadata（本地维护，云端不重生成）</td><td>P5.2</td></tr>
+        <tr><td><code>data/revenue-metrics.js</code></td><td>收入指标纯数据 SSOT 记录（B 类输入的数据支线终点，无渲染产物）</td><td>P2.B</td></tr>
       </tbody>
     </table>
   </div>
@@ -831,7 +902,7 @@ pnpm exec playwright install chromium</span>
     <table class="map">
       <thead><tr><th>规则领域</th><th>属主文档</th></tr></thead>
       <tbody>
-        <tr><td>动态数据集工作流：流水线步骤、操作陷阱、回复前验证清单、汇报</td><td><code>docs/dynamic-dataset-workflow.md</code></td></tr>
+        <tr><td>动态数据集工作流：流水线步骤、执行模型（并行组 + 分派）、对象类型清单、操作陷阱、回复前验证清单、汇报</td><td><code>docs/dynamic-dataset-workflow.md</code></td></tr>
         <tr><td>d3 保真循环：硬门槛、Diff 指标、迭代、图标子循环、本地化检查、Task 信息、红框图、Loop Fidelity Summary</td><td><code>docs/fidelity-loop-rules.md</code></td></tr>
         <tr><td>数据集 / SSOT 字段级格式</td><td><code>data/schema.md</code></td></tr>
         <tr><td>提交信息约定</td><td><code>docs/commit-messages.md</code></td></tr>
@@ -840,6 +911,73 @@ pnpm exec playwright install chromium</span>
         <tr><td>人类快速上手、viewer 使用</td><td><code>README.md</code></td></tr>
       </tbody>
     </table>
+  </div>
+</details>
+
+<details class="appendix" id="appendix-e">
+  <summary>E · 执行模型：并行组与难度分派（<code>docs/dynamic-dataset-workflow.md</code> §Execution Model）</summary>
+  <div class="body">
+    <p><b>并行组</b>（依赖关系决定，可交错推进或分派 Subagent）：</p>
+    <ul>
+      <li><b>G0 串行门</b>：P1 守卫 → 定 key → 移图。守卫未过，一切不得开始；停止条件终止全程。</li>
+      <li><b>G1 并行准备</b>：P2.0 粗盘点先行定范围，随后三轨并行——Track A 数据（P2.1 公司档案 → P2.2 损益表 SSOT 及 i18n 字段）∥ Track B 视觉（P3.1 逐对象精细测量）∥ Track C 图标（P2.3 子循环，条件）。</li>
+      <li><b>G2 串行编写</b>：P3.2 adapter（需 A 数值 + B 几何）→ P3.3 dataset overlay（需 adapter 定稿文案）→ P3.4 注册；Track C 收敛后随时接入。</li>
+      <li><b>G3 验证</b>：P4.1 聚合门 → 保真循环。轮次间串行；轮内并行试值（同轮归档一次）、每语言渲染可并行 shell。</li>
+      <li><b>G4 串行收尾</b>：P5。</li>
+    </ul>
+    <p><b>难度分派</b>（分派不降门槛：同一套 verifier 把关，主 Agent 复核并对结果负责）：</p>
+    <table class="map">
+      <thead><tr><th>步骤</th><th>难度</th><th>执行者</th></tr></thead>
+      <tbody>
+        <tr><td>P1 守卫 / 移图（脚本判定）</td><td>低</td><td>皆可；停止条件与最终 key 由主 Agent 确认</td></tr>
+        <tr><td>P2.0 输入分型 + 对象盘点</td><td>中</td><td>主 Agent——分型错误会级联污染全部下游</td></tr>
+        <tr><td>P2.1 公司档案（资料检索/填表）</td><td>中</td><td>Subagent 可代；主 Agent 复核来源</td></tr>
+        <tr><td>P2.2 损益表 SSOT（财务语义/rounding/货币契约）</td><td>高</td><td>主 Agent</td></tr>
+        <tr><td>P2.3 图标：跑脚本</td><td>低</td><td>Subagent 可代</td></tr>
+        <tr><td>P2.3 图标：spec 框选 + 验收判断</td><td>高</td><td>主 Agent——验收结论进 runtime 资产</td></tr>
+        <tr><td>P3.1–3.2 精细测量 + adapter 编写</td><td>高</td><td>主 Agent</td></tr>
+        <tr><td>P3.3 i18n overlay 初稿</td><td>低–中</td><td>Subagent 可代；主 Agent 复核高风险串（R&amp;D、SG&amp;A、金额后缀、中英混排品牌）</td></tr>
+        <tr><td>P3.4 注册 / <code>sync:index-datasets</code></td><td>低</td><td>皆可</td></tr>
+        <tr><td>P4.1 各 verifier 命令执行</td><td>低</td><td>皆可（廉价 shell 命令）</td></tr>
+        <tr><td>P4 循环：分诊、修复、冻结/收敛判定</td><td>高</td><td>主 Agent</td></tr>
+        <tr><td>P4 循环：渲染/指标采集、bbox 报告收割、按已确认清单画红框</td><td>低</td><td>Subagent 可代——region 与分类先由主 Agent 定</td></tr>
+        <tr><td>P5 收尾、提交、汇报</td><td>中</td><td>主 Agent</td></tr>
+      </tbody>
+    </table>
+  </div>
+</details>
+
+<details class="appendix" id="appendix-f">
+  <summary>F · 对象类型清单：P2.0 粗盘点对照表（<code>docs/dynamic-dataset-workflow.md</code> §Object Taxonomy）</summary>
+  <div class="body">
+    <p><b>A 类 · 损益表 Sankey 信息图</b>——变体：标准 / <code>-by-segment</code>（如 Disney）/ <code>-by-bu</code>（如 Microsoft）；对象家族相同，流语义不同（分部经营利润 + Eliminations 取代完整成本瀑布）。</p>
+    <table class="map">
+      <thead><tr><th>对象家族</th><th>成员</th><th>处置</th></tr></thead>
+      <tbody>
+        <tr><td>图表结构（nodes + links）</td><td>收入分部 source 柱（可含子分部）、中心 Revenue hub、中间利润柱（毛利/营业）、成本柱（COGS、R&amp;D / S&amp;M / G&amp;A 拆分、税）、终端利润/亏损柱、短辅助柱（interest、other income、investments、eliminations）、流带（端点渐变、waterfall 调整区、绕行带、多入口堆叠 socket）、仅引导线流的隐形锚点节点</td><td>渲染目标</td></tr>
+        <tr><td>Label 单元（<code>layout.labels</code>）</td><td>大标题、期间戳（period + periodNote）、逐节点归组 label（名称/数值/备注/margin/Y-Y 一个语义单元）、密集终端列的侧置 label、短柱上下居中 value block</td><td>渲染目标</td></tr>
+        <tr><td>注释容器（<code>annotationsSvg</code>）</td><td>KPI/stat card、黑色胶囊、图例框、徽章、脚注卡片、拆小额的圆角 callout 胶囊（如 Disney <code>SVOD $0.6B / Other $0.7B</code>）、极小利润加项的水平引导线</td><td>渲染目标</td></tr>
+        <tr><td>图标/品牌资产</td><td>公司 logo（vector <code>meta.logoSvg</code>）、注释里的品牌 wordmark、业务/segment 图标簇（验证 crop → vector 转换，或白名单 runtime raster）、通用 Lucide 图标（<code>src/icons.js</code>）</td><td>渲染目标（经 P2.3 子循环）</td></tr>
+        <tr><td>有意跳过项</td><td>发布方水印、创作者品牌（"HOW THEY MAKE MONEY"、<code>appeconomyinsights.com</code>、App Economy Insights wordmark）、URL、社交徽标、署名条、装饰残片、无独立图标的 <code>Others</code> 类 segment</td><td>跳过——不渲染、不 crop、不为压 Diff 补画</td></tr>
+      </tbody>
+    </table>
+    <p>仓库现状（121 个 adapter）：<code>logoSvg</code> ×76 · <code>annotationsSvg</code> ×87 · runtime <code>rasterAnnotations</code> ×23 · <code>linkTint</code> ×120 · <code>valueText</code> ×80 · <code>labelSide</code> ×16 · 自定义 <code>curve</code> ×24 · 显式 <code>y0/y1</code> ×15 · <code>preservedAnnotationText</code> ×15；82 家公司已有图标参考。</p>
+    <p><b>B 类 · 收入指标时间序列（ARR 等）</b>——现例：YipitData 年化 ARR / 收入运行率（Anthropic、OpenAI；源图有意仅本地保留）。无 Sankey adapter、无渲染循环，对象全部落入 <code>data/revenue-metrics.js</code>，viewer 自绘趋势图。</p>
+    <table class="map">
+      <thead><tr><th>对象</th><th>落点字段</th></tr></thead>
+      <tbody>
+        <tr><td>指标身份（名称、家族、主体公司）</td><td><code>displayName</code> / <code>metricFamily</code> / <code>metricName</code> / <code>subjectType</code> / <code>subjectId</code></td></tr>
+        <tr><td>时间框架（期间、观测频率）</td><td><code>period</code> / <code>periodNote</code> / <code>frequency</code></td></tr>
+        <tr><td>观测序列（逐期数值 + 环比）与最新值摘要</td><td><code>observations[].date/value/momGrowthPct</code>、<code>value.latest*</code></td></tr>
+        <tr><td>特定日期事件旗标（如 Coding 突破、Agent AI 爆发、YEP 半年）</td><td>对应观测的 <code>notes</code></td></tr>
+        <tr><td>方法论警示（系统性低估/高估）</td><td>附到每个受影响观测的 <code>notes</code></td></tr>
+        <tr><td>定义与条件（地域、口径、时间粒度、并表）</td><td><code>definition</code> / <code>conditions</code></td></tr>
+        <tr><td>货币与单位（同一 FX 覆盖契约）</td><td><code>currency</code> / <code>unit</code> / <code>decimals</code></td></tr>
+        <tr><td>来源身份（供应商名/URL/类型、源图）——仅记录不渲染，品牌同 A 类跳过规则</td><td><code>sources[]</code></td></tr>
+        <tr><td>置信度与转录谱系</td><td><code>confidence</code> / <code>lineage</code></td></tr>
+      </tbody>
+    </table>
+    <p><b>未识别新类型</b>：暂停精细工作，先定义新类型对象清单并扩展 §Object Taxonomy（新 metric 家族/SSOT 按架构规则回填 <code>AGENTS.md</code> 与 Trace 规格），再继续管线。</p>
   </div>
 </details>
 
