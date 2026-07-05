@@ -744,7 +744,7 @@ pnpm exec playwright install chromium</span>
             <div class="sweep"><span class="r">第 2 轮</span><b>文本 sweep</b>label-node 外框三段式 bbox 审计、文本归属与位置；注释容器 / KPI card / 徽章 / 脚注内部对齐。</div>
             <div class="sweep"><span class="r">第 3 轮</span><b>润色 + 本地化 sweep</b>颜色、透明度、图标细节；每种非默认语言 <code>--language zh --keep</code> 渲染，getBBox 查混排残留、R&amp;D / SG&amp;A 缩写、越界、重叠。</div>
           </div>
-          <p class="dim" style="margin-top:8px;">每轮把本层能修的问题一次修完；更早层级的新问题立即修，更晚层级的记入 backlog。单方向深查轮只用于：门槛反复失败、用户重开、sweep 内修不完。轮次间串行；轮内并行试值 + 每语言渲染可并行（附录 E）。分诊、修复与冻结/收敛判定始终由主 Agent 负责。</p>
+          <p class="dim" style="margin-top:8px;">每轮把本层能修的问题一次修完；人工深查对照规则文档 B 系列盲点表（门槛看不见的检查）。更早层级的新问题立即修，更晚层级的记入 backlog。单方向深查轮只用于：门槛反复失败、用户重开、sweep 内修不完。轮次间串行；轮内并行试值 + 每语言渲染可并行（附录 E）。分诊、修复与冻结/收敛判定始终由主 Agent 负责。</p>
         </div>
         <div class="arrow"></div>
         <div class="node">
@@ -754,8 +754,9 @@ pnpm exec playwright install chromium</span>
           <ul>
             <li><b>误差分类</b>：必须死磕 / 需要优化 / 可接受残留 / 无语义跳过（无语义内容不得为压 Diff 补画）；</li>
             <li><b>红框参考图</b>：以原图为底，红框圈完整语义区域，存 <code>…/&lt;key&gt;-attention-reference.png</code>；无开放问题则在 Task 信息中记「无开放红框」；</li>
-            <li><b>Task 信息</b>：轮次、archive、主方向、已冻结、重开、backlog、红框 region 清单、下一轮方向；</li>
-            <li><b>用户反馈沉淀</b>：可泛化经验更新 <code>docs/fidelity-loop-rules.md</code>，数据集特例记入 Task 信息，然后才能声称已处理。</li>
+            <li><b>Task 信息</b>：轮次、archive、主方向、已冻结、重开、backlog、红框 region 清单（含违反规则编号）、下一轮方向；</li>
+            <li><b>用户反馈沉淀</b>：可泛化经验更新 <code>docs/fidelity-loop-rules.md</code> 的编号规则，数据集特例记入 Task 信息，然后才能声称已处理；反馈处理轮以反馈项为主方向定向优化；</li>
+            <li><b>退出置信度判断</b>：基于门槛 / B 系列盲点 / 开放红框 / backlog 回答「人工现在 Review 是否还会提意见」——高置信立即收敛不再开轮，低置信下一轮只打最高风险项。</li>
           </ul>
         </div>
         <div class="arrow"></div>
@@ -832,7 +833,7 @@ pnpm exec playwright install chromium</span>
 </div>
 
 <details class="appendix" id="appendix-a">
-  <summary>A · 自动硬门槛 11 项（每轮先过，失败先修 — <code>docs/fidelity-loop-rules.md</code> §自动硬门槛）</summary>
+  <summary>A · 自动硬门槛 G1–G11（每轮先过，失败先修；门槛盲点须按 B 系列人工必查 — <code>docs/fidelity-loop-rules.md</code> §自动硬门槛）</summary>
   <div class="body">
     <ol>
       <li>候选图必须是 <code>SankeyEngine.render()</code> 产生的 d3/SVG 输出；</li>
