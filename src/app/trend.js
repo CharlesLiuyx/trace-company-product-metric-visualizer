@@ -15,29 +15,6 @@ function destroyRevenueTrendChart() {
   revenueTrendCharts = [];
   revenueTrendHoverSyncing = false;
 }
-/* Shared zero-baseline rule: any trend chart whose right axis carries
- * percentages (growth or link share) draws a dashed guide at 0% once the
- * axis spans negative and positive values. Right-axis gridlines stay off the
- * plot area, so without the guide the sign flip has no visual anchor. */
-const percentAxisZeroLinePlugin = {
-  id: 'percentAxisZeroLine',
-  beforeDatasetsDraw(chart, _args, options) {
-    const scale = chart.scales?.[options.scaleId || 'yGrowth'];
-    const { ctx, chartArea } = chart;
-    if (!scale || !chartArea || !(scale.min < 0 && scale.max > 0)) return;
-    const y = scale.getPixelForValue(0);
-    if (!Number.isFinite(y) || y <= chartArea.top + 1 || y >= chartArea.bottom - 1) return;
-    ctx.save();
-    ctx.strokeStyle = options.color || 'rgba(106, 112, 120, 0.5)';
-    ctx.lineWidth = options.lineWidth || 1;
-    ctx.setLineDash(options.lineDash || [5, 3]);
-    ctx.beginPath();
-    ctx.moveTo(chartArea.left, y);
-    ctx.lineTo(chartArea.right, y);
-    ctx.stroke();
-    ctx.restore();
-  },
-};
 const revenueTrendValueLabelsPlugin = {
   id: 'revenueTrendValueLabels',
   afterDatasetsDraw(chart, _args, options) {
@@ -256,21 +233,11 @@ function createRevenueTrendChartConfig({
   yTickFormatter = (value) => formatRevenueValue(metric, Number(value)),
   valueLabelFormatter = (value) => formatRevenueValue(metric, value),
 }) {
-  const ink = cssVar('--ink', '#15436b');
-  const text = cssVar('--text-strong', '#263238');
-  const muted = cssVar('--muted', '#6a7078');
-  const grid = cssVar('--table-cell-line', '#edf0f0');
-  const tableBg = cssVar('--table-bg', '#ffffff');
-  const growthColor = cssVar('--trend-growth', '#9a6a2f');
-  const fontFamily = 'Montserrat, Arial, sans-serif';
+  const { ink, text, muted, grid, tableBg, growthColor, negativeColor, fontFamily } = chartTheme();
   const labels = observations.map((observation) => formatTrendDate(observation.date));
   const growthValues = observations.map((observation) => observation.momGrowthPct ?? null);
-  // sign-aware rings: a growth point below zero swaps its ring (and the
-  // hover ring/halo) to the negative colour, so dips read at a glance
-  const negativeColor = cssVar('--trend-negative', '#b7433a');
-  const growthPointColor = (value) => (typeof value === 'number' && value < 0 ? negativeColor : growthColor);
-  const growthPointColors = growthValues.map(growthPointColor);
-  const growthPointHalos = growthValues.map((value) => colorWithAlpha(growthPointColor(value), 0.14));
+  const growthPointColors = signAwareGrowthPointColors(growthValues, growthColor, negativeColor);
+  const growthPointHalos = growthPointColors.map((color) => colorWithAlpha(color, 0.14));
   const tickSize = compact ? 10 : 12;
   const legendSize = compact ? 10 : 11;
   const valueLabelSize = compact ? 10 : 15;
@@ -360,7 +327,7 @@ function createRevenueTrendChartConfig({
             display: false,
           },
           border: {
-            color: cssVar('--table-line', '#d9dfdf'),
+            color: chartTheme().axis,
           },
           ticks: {
             color: muted,
@@ -377,7 +344,7 @@ function createRevenueTrendChartConfig({
             color: grid,
           },
           border: {
-            color: cssVar('--table-line', '#d9dfdf'),
+            color: chartTheme().axis,
           },
           ticks: {
             color: muted,
@@ -481,8 +448,7 @@ function renderRevenueTrendComparison() {
   ));
   const maxUsd = Math.max(0, ...allUsdValues);
   const yMax = Math.ceil((maxUsd * 1.1) / 1e9) * 1e9 || 10;
-  const maxGrowth = Math.max(0, ...allGrowthValues);
-  const growthMax = Math.max(10, Math.ceil(maxGrowth / 10) * 10);
+  const growthMax = growthAxisMax(allGrowthValues);
   const latestUsd = sumUsdRows(chartModels
     .filter((model) => finiteNumber(model.latest?.value) != null)
     .map((model) => ({
@@ -524,7 +490,7 @@ function renderRevenueTrendComparison() {
     </div>
   `;
 
-  const ink = cssVar('--ink', '#15436b');
+  const { ink } = chartTheme();
   chartModels.forEach((model, index) => {
     const canvas = document.getElementById(`revenueTrendCanvas-${index}`);
     if (!canvas || !window.Chart) return;
@@ -607,8 +573,7 @@ function renderRevenueTrend() {
   }
 
   const values = observations.map((observation) => observation.value);
-  const maxGrowth = Math.max(0, ...growthValues.filter((value) => typeof value === 'number' && Number.isFinite(value)));
-  const growthMax = Math.max(10, Math.ceil(maxGrowth / 10) * 10);
+  const growthMax = growthAxisMax(growthValues);
 
   revenueTrendChart = new window.Chart(canvas, createRevenueTrendChartConfig({
     metric,
