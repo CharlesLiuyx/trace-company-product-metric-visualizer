@@ -3,7 +3,16 @@ import assert from 'node:assert/strict';
 import { loadClassicScripts } from './helpers/vm-load.mjs';
 
 const { SankeyEngine } = loadClassicScripts(['src/sankey-engine.js']);
-const { deepMerge, formatValue, trimFixed, autoSide, buildFixedGraph, referenceCanvasDefaults } = SankeyEngine.helpers;
+const {
+  deepMerge,
+  formatValue,
+  trimFixed,
+  autoSide,
+  buildFixedGraph,
+  referenceCanvasDefaults,
+  buildLabelSpecs,
+  decollideSideLabels,
+} = SankeyEngine.helpers;
 
 // vm-created objects have a different realm's prototypes, which trips
 // deepStrictEqual's prototype check; a JSON round-trip normalizes them
@@ -138,4 +147,86 @@ test('buildFixedGraph falls back to column-derived x and cfg margins', () => {
   assert.equal(revenue.x1 - revenue.x0, 80, 'cfg.nodeWidth fallback');
   const gross = graph.nodes.find((n) => n.id === 'gross');
   assert.equal(gross.x0, 100 + 426, 'default column stride');
+});
+
+/* ---- label passes (buildLabelSpecs + decollideSideLabels) ---- */
+
+const CFG = SankeyEngine.DEFAULTS;
+const META = { currency: '$', unit: 'B', decimals: 1 };
+
+function labelNode(overrides = {}) {
+  return {
+    id: 'gross',
+    label: 'Gross profit',
+    value: 60,
+    type: 'profit',
+    col: 1,
+    x0: 500,
+    x1: 580,
+    y0: 200,
+    y1: 400,
+    ...overrides,
+  };
+}
+
+test('buildLabelSpecs builds auto side labels with name/value/notes lines', () => {
+  const n = labelNode({ notes: ['70% margin'] });
+  const { specs } = buildLabelSpecs({ nodes: [n] }, {}, CFG, META, 3);
+  assert.equal(specs.length, 1);
+  const spec = specs[0];
+  assert.equal(spec.side, 'above', 'profit in a middle column defaults to above');
+  assert.equal(spec.anchor, 'middle');
+  assert.deepEqual(spec.lines.map((l) => l.t), ['Gross profit', '$60B', '70% margin']);
+  const blockH = CFG.type.name + CFG.type.value + CFG.type.note + CFG.type.lineGap * 2;
+  assert.equal(spec.blockH, blockH);
+  assert.equal(spec.top, n.y0 - 16 - blockH, 'above block sits fully above the node top');
+});
+
+test('buildLabelSpecs expands $value and honors lineGap/labelYOffset in custom blocks', () => {
+  const n = labelNode();
+  const data = {
+    layout: {
+      labels: {
+        gross: { blocks: [{ x: 10, top: 100, anchor: 'end', lineGap: 4, lines: [{ text: 'Gross' }, { text: '$value' }] }] },
+      },
+    },
+  };
+  const cfg = deepMerge(CFG, { labelYOffset: 7 });
+  const { specs } = buildLabelSpecs({ nodes: [n] }, data, cfg, META, 3);
+  assert.equal(specs.length, 1);
+  const spec = specs[0];
+  assert.equal(spec.side, 'custom');
+  assert.equal(spec.anchor, 'end');
+  assert.equal(spec.top, 107, 'block.top + labelYOffset');
+  assert.equal(spec.lineGap, 4);
+  assert.deepEqual(spec.lines.map((l) => l.t), ['Gross', '$60B']);
+});
+
+test('buildLabelSpecs splits split-left labels into name and value blocks', () => {
+  const n = labelNode({ labelSide: 'split-left' });
+  const { specs } = buildLabelSpecs({ nodes: [n] }, {}, CFG, META, 3);
+  assert.deepEqual(specs.map((s) => s.side), ['split-name', 'split-value']);
+  assert.equal(specs[0].x, n.x0 - 42, 'name block hangs left of the node');
+  assert.equal(specs[1].top, n.y0 - 35 - specs[1].blockH, 'value block sits above the node');
+});
+
+test('buildLabelSpecs collects custom icon layouts', () => {
+  const n = labelNode({ icons: ['server'] });
+  const data = { layout: { labels: { gross: { blocks: [{ lines: ['Gross'] }], icons: { x: 12, y: 34 } } } } };
+  const { iconLayout } = buildLabelSpecs({ nodes: [n] }, data, CFG, META, 3);
+  assert.equal(iconLayout.length, 1);
+  assert.equal(iconLayout[0].x, 12);
+  assert.equal(iconLayout[0].n, n);
+});
+
+test('decollideSideLabels pushes overlapping same-side labels down', () => {
+  const specs = [
+    { side: 'left', top: 100, blockH: 50 },
+    { side: 'left', top: 120, blockH: 30 },
+    { side: 'right', top: 110, blockH: 40 },
+  ];
+  decollideSideLabels(specs);
+  assert.equal(specs[0].top, 100);
+  assert.equal(specs[1].top, 100 + 50 + 11, 'second left label lands below the first plus the 11px min gap');
+  assert.equal(specs[2].top, 110, 'right side is independent');
 });
