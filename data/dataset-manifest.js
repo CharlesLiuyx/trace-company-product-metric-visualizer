@@ -2750,6 +2750,29 @@
             }
           }
         }
+      },
+      {
+        "key": "sea-q4-fy25",
+        "src": "data/datasets/sea-q4-fy25.js",
+        "data": {
+          "name": "Sea · Q4 FY25",
+          "company": "Sea",
+          "meta": {
+            "title": "Sea Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Sea · 2025 财年第四季度",
+              "meta": {
+                "title": "Sea 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

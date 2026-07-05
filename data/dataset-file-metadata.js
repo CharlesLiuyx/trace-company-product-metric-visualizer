@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-05T11:52:49.000Z",
+  "generatedAt": "2026-07-05T14:49:38.511Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -732,6 +732,12 @@
       "updatedAtMs": 1783252369000,
       "updatedAt": "2026-07-05T11:52:49.000Z",
       "timeSource": "git"
+    },
+    "sea-q4-fy25": {
+      "path": "data/datasets/sea-q4-fy25.js",
+      "updatedAtMs": 1783262978511,
+      "updatedAt": "2026-07-05T14:49:38.511Z",
+      "timeSource": "mtime"
     },
     "data/revenue-metrics.js": {
       "path": "data/revenue-metrics.js",
