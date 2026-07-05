@@ -19,7 +19,9 @@ data/
     <company-key>.js       # company profile SSOT, one file per company
   products.js              # first-class Product catalog and time-varying ownership links
   revenue-metrics.js       # revenue-metric SSOT
+  dataset-manifest.js      # generated dataset registration manifest (stubs + script paths)
   dataset-file-metadata.js # generated dataset last-updated metadata (git times)
+  render-baselines.json    # generated per-dataset pixel-similarity baselines
   datasets/
     <dataset-key>.js       # registered Sankey dataset adapters
   assets/
@@ -32,10 +34,18 @@ Per-company SSOT files append to the shared `INCOME_STATEMENT_SSOT` /
 parity and `pnpm sync:index-datasets` repairs drift. The file name is the
 company metadata `key`.
 
-Keep registered dataset adapters at `data/datasets/<dataset-key>.js`. The viewer,
-standalone builder, and verification scripts load these files directly from
-`index.html`, and the project workflow documents this path as the stable
-dataset convention.
+Keep registered dataset adapters at `data/datasets/<dataset-key>.js`. They
+register in the generated `data/dataset-manifest.js` (run
+`pnpm sync:index-datasets`), not as `index.html` tags: the viewer boots from
+lightweight manifest stubs and loads adapter scripts progressively, while
+the standalone builder and verification harnesses load every adapter from
+the manifest's ordered list. The project workflow documents this path as
+the stable dataset convention.
+
+`render-baselines.json` records each registered dataset's d3-render pixel
+similarity against its reference image; `pnpm verify:render-regression`
+fails any dataset that drops below its baseline (record new baselines with
+`-- --update` on a machine that has `input/processed/`).
 
 `company-metadata/<company-key>.js` powers both the Table company profile and
 the Company navigator sort modes. In addition to the verifier-required profile

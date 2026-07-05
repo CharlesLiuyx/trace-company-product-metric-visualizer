@@ -120,7 +120,7 @@ is needed. Do not create parallel dataset files per language.
 Use `otherIncome` for non-operating gains that add to net profit, and
 `otherExpenses` for non-operating costs that subtract from net profit. The `id`
 fields should match the relevant Sankey node ids when a corresponding node
-exists. The verifier checks every `index.html` dataset script has a matching
+exists. The verifier checks every manifest-registered dataset script has a matching
 SSOT record, compares key totals and line items against Sankey node values, and
 allows small published-rounding differences via `roundingTolerance`. It also
 checks every company in the financial SSOT has a matching
@@ -367,7 +367,7 @@ longer translatable sentences are never exempted.
 Brand and product terms that intentionally render unchanged in every position
 (node labels, notes, layout lines, and annotations alike — e.g. YouTube,
 iPhone, `Microsoft 365`) are declared once as identity mappings in the
-`EXACT_ZH` dictionary in `src/i18n.js`; `pnpm verify:i18n` treats an
+`EXACT_ZH` dictionary in `src/i18n-dictionaries.js`; `pnpm verify:i18n` treats an
 identity-mapped term as translated wherever it appears.
 
 ### node

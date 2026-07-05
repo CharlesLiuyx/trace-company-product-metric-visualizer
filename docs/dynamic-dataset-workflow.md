@@ -44,7 +44,7 @@ The pipeline is not strictly serial. Dependency-wise it forms four groups:
   loop: candidate-value trials within one round (already required by
   `docs/fidelity-loop-rules.md` 反微调停机规则), and per-language renders,
   which are independent processes and may run in parallel shells.
-- **G4 — serial close-out (step 13 plus the Verification Checklist and
+- **G4 — serial close-out (step 14 plus the Verification Checklist and
   Reporting below).**
 
 ### Difficulty-based executor routing
@@ -81,7 +81,7 @@ returns.
    anything for that image. If your final stable key differs from the
    script's candidate key, re-check the final key against
    `input/processed/`, `data/datasets/`, `data/income-statements/`, and
-   `index.html` before continuing.
+   `data/dataset-manifest.js` before continuing.
 2. Key: lowercase kebab case, company plus period, e.g. `nvidia-q4-fy26`.
 3. Image: move the source PNG to `input/processed/<dataset-key>.png` and set
    `meta.referenceImage` to it with the exact source dimensions.
@@ -162,19 +162,26 @@ returns.
    line that changes in translation, plus the matching SSOT labels/notes and
    company profile. Overlays are display-only: never change values, links,
    node geometry, financial totals, source images, or verification semantics.
-10. Register: add the `<script>` tag in `index.html` after dependencies and
-    after any dataset it reuses. Declare untranslated sub-brand annotation
-    words in the dataset's `i18n.preservedAnnotationText` (see Traps).
+10. Register: run `pnpm sync:index-datasets` — it appends the dataset to the
+    generated `data/dataset-manifest.js` (the registration SSOT; adapters no
+    longer get `index.html` tags). When the dataset reuses another, keep it
+    after its dependency in manifest order. Declare untranslated sub-brand
+    annotation words in the dataset's `i18n.preservedAnnotationText` (see
+    Traps).
 
 ### Phase P4 — Verify (G3)
 
 11. Run `pnpm verify:dataset -- <dataset-key>`.
 12. Run the manual fidelity loop per `docs/fidelity-loop-rules.md`, including
     a localization layout round per non-default language.
+13. After the loop converges, record the dataset's pixel-similarity baseline
+    with `pnpm verify:render-regression -- --update` and commit the refreshed
+    `data/render-baselines.json`; the batch regression gate protects every
+    tuned dataset from future engine-wide changes.
 
 ### Phase P5 — Close out (G4)
 
-13. Leave `input/pending/` empty except `.gitkeep`, then satisfy the
+14. Leave `input/pending/` empty except `.gitkeep`, then satisfy the
     Verification Checklist and Reporting sections below.
 
 ## Object Taxonomy
@@ -282,12 +289,14 @@ proceed with the pipeline using the new checklist.
   extend the frozen legacy list in `scripts/verify-i18n.mjs`.
 - Brand and product terms that stay untranslated everywhere (YouTube,
   iPhone, `Microsoft 365`…) are declared once as identity mappings in the
-  `EXACT_ZH` dictionary (`src/i18n.js`); `verify:i18n` treats an
-  identity-mapped term as translated on every path — labels, notes, layout
-  lines, and annotations.
+  `EXACT_ZH` dictionary (`src/i18n-dictionaries.js`); `verify:i18n` treats
+  an identity-mapped term as translated on every path — labels, notes,
+  layout lines, and annotations.
 - Registration parity is enforced by `verify:ssot`: every file in
-  `data/datasets/` must be registered in `index.html` unless listed in
-  `UNREGISTERED_DATASET_SCRIPTS` (`scripts/script-sources.mjs`).
+  `data/datasets/` must be registered in the generated
+  `data/dataset-manifest.js` unless listed in
+  `UNREGISTERED_DATASET_SCRIPTS` (`scripts/script-sources.mjs`); run
+  `pnpm sync:index-datasets` to repair drift.
 - Crops under `data/assets/icon-references/` are reference/conversion assets
   only and must never be referenced from d3 runtime output; runtime rasters
   live under `data/assets/raster-annotations/<company>/`.
