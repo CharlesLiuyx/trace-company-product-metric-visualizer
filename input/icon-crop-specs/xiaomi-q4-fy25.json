@@ -1,0 +1,89 @@
+{
+  "source": "input/processed/xiaomi-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/xiaomi",
+  "runtimeOutputDir": "data/assets/raster-annotations/xiaomi",
+  "validationSheetDir": "data/assets/icon-references/xiaomi/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [242, 242, 242]
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Bottom-left HOW THEY MAKE MONEY publisher badge and mini sankey mark, not part of Xiaomi income-statement semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "appeconomyinsights.com URL watermark and bottom-right APP ECONOMY INSIGHTS attribution are intentionally excluded."
+    }
+  ],
+  "crops": [
+    {
+      "key": "xiaomi-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": { "x": 980, "y": 240, "width": 330, "height": 325 },
+      "cropBox": { "x": 972, "y": 232, "width": 346, "height": 341 },
+      "threshold": 16,
+      "minComponentArea": 60,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Xiaomi rounded-square Mi logo centered above the Revenue hub; excludes title, Revenue label, flows, and publisher marks."
+    },
+    {
+      "key": "xiaomi-business-smartphones-product-cluster",
+      "output": "crops/smartphones-product-cluster.png",
+      "searchBox": { "x": 104, "y": 398, "width": 182, "height": 144 },
+      "cropBox": { "x": 98, "y": 392, "width": 194, "height": 156 },
+      "threshold": 12,
+      "minComponentArea": 24,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Four Xiaomi smartphones attached to the Smartphones revenue line; excludes the Smartphones label, value block, and chart links."
+    },
+    {
+      "key": "xiaomi-business-iot-lifestyle-tablet-laptop",
+      "output": "crops/iot-lifestyle-tablet-laptop.png",
+      "searchBox": { "x": 70, "y": 680, "width": 96, "height": 96 },
+      "cropBox": { "x": 60, "y": 680, "width": 118, "height": 108 },
+      "threshold": 12,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Tablet/laptop device image for the IoT & Lifestyle revenue line; split from the adjacent product cluster to exclude value text."
+    },
+    {
+      "key": "xiaomi-business-iot-lifestyle-appliance",
+      "output": "crops/iot-lifestyle-appliance.png",
+      "searchBox": { "x": 184, "y": 674, "width": 92, "height": 126 },
+      "cropBox": { "x": 174, "y": 666, "width": 112, "height": 144 },
+      "threshold": 12,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Speaker/appliance image for the IoT & Lifestyle revenue line; excludes label, value block, and flow marks."
+    },
+    {
+      "key": "xiaomi-business-iot-lifestyle-watch",
+      "output": "crops/iot-lifestyle-watch.png",
+      "searchBox": { "x": 288, "y": 688, "width": 52, "height": 102 },
+      "cropBox": { "x": 278, "y": 686, "width": 74, "height": 114 },
+      "excludeBoxes": [
+        { "x": 340, "y": 686, "width": 12, "height": 114 }
+      ],
+      "threshold": 12,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Watch image for the IoT & Lifestyle revenue line; crop stops before the adjacent value/Y/Y text."
+    },
+    {
+      "key": "xiaomi-business-smart-ev-car",
+      "output": "crops/smart-ev-car.png",
+      "searchBox": { "x": 905, "y": 1248, "width": 278, "height": 112 },
+      "cropBox": { "x": 895, "y": 1248, "width": 298, "height": 115 },
+      "threshold": 12,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Blue Xiaomi EV photo attached to the Smart EV, AI and other revenue line; excludes the segment label, value block, and publisher marks."
+    }
+  ]
+}

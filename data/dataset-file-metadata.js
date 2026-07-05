@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-05T06:42:45.016Z",
+  "generatedAt": "2026-07-05T11:48:04.451Z",
   "source": "dataset view and metric source file modification times",
   "files": {
     "alphabet-q1-fy26": {
@@ -204,8 +204,8 @@
     },
     "expedia-q1-fy26": {
       "path": "data/datasets/expedia-q1-fy26.js",
-      "mtimeMs": 1783233765012,
-      "mtime": "2026-07-05T06:42:45.012Z"
+      "mtimeMs": 1783236217176,
+      "mtime": "2026-07-05T07:23:37.176Z"
     },
     "figma-q1-fy26": {
       "path": "data/datasets/figma-q1-fy26.js",
@@ -259,8 +259,8 @@
     },
     "intuit-q3-fy26": {
       "path": "data/datasets/intuit-q3-fy26.js",
-      "mtimeMs": 1783233765012,
-      "mtime": "2026-07-05T06:42:45.012Z"
+      "mtimeMs": 1783236217176,
+      "mtime": "2026-07-05T07:23:37.176Z"
     },
     "jd-com-q1-fy26": {
       "path": "data/datasets/jd-com-q1-fy26.js",
@@ -284,8 +284,8 @@
     },
     "lululemon-q1-fy26": {
       "path": "data/datasets/lululemon-q1-fy26.js",
-      "mtimeMs": 1783233765012,
-      "mtime": "2026-07-05T06:42:45.012Z"
+      "mtimeMs": 1783236217177,
+      "mtime": "2026-07-05T07:23:37.177Z"
     },
     "sap-q1-fy26": {
       "path": "data/datasets/sap-q1-fy26.js",
@@ -339,8 +339,8 @@
     },
     "nike-q4-fy26": {
       "path": "data/datasets/nike-q4-fy26.js",
-      "mtimeMs": 1783233765016,
-      "mtime": "2026-07-05T06:42:45.016Z"
+      "mtimeMs": 1783236217179,
+      "mtime": "2026-07-05T07:23:37.179Z"
     },
     "pdd-holdings-q1-fy26": {
       "path": "data/datasets/pdd-holdings-q1-fy26.js",
@@ -606,6 +606,11 @@
       "path": "data/datasets/visa-q2-fy26.js",
       "mtimeMs": 1783189733687,
       "mtime": "2026-07-04T18:28:53.687Z"
+    },
+    "xiaomi-q4-fy25": {
+      "path": "data/datasets/xiaomi-q4-fy25.js",
+      "mtimeMs": 1783252084451,
+      "mtime": "2026-07-05T11:48:04.451Z"
     },
     "data/revenue-metrics.js": {
       "path": "data/revenue-metrics.js",
