@@ -91196,9 +91196,6 @@
       })();
     </script>
 
-    <!-- page app modules (classic scripts sharing top-level scope; load order
-         matters: dom/util/i18n-runtime/state first, views next, main boots
-         last; all excluded from the d3 verification harness) -->
     <script data-inline-source="runtime-raster-asset-map">
       (function () {
         const rasterAssets = {
@@ -91357,6 +91354,9 @@
         });
       })();
     </script>
+    <!-- page app modules (classic scripts sharing top-level scope; load order
+         matters: dom/util/i18n-runtime/state first, views next, main boots
+         last; all excluded from the d3 verification harness) -->
     <script data-inline-source="src/app/dom.js">
       /* Trace viewer · dom.js
        * DOM element references shared by every src/app module. No logic here.
