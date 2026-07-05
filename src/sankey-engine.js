@@ -674,6 +674,33 @@
     const pad = LABEL_PAD;
     const gap = cfg.type.lineGap;
 
+    // each icon is a nested <svg> carrying Lucide's inner markup, drawn
+    // stroked (handles multi-element icons, not just single paths); shared by
+    // the auto icon row and custom layout icon placement. Returns whether the
+    // icon was drawn so custom rows only advance past drawn icons.
+    function drawIconSvg(n, name, x, y, sz, opts = {}) {
+      const markup = ICONS[name];
+      if (!markup) return false;
+      labelLayer
+        .append('svg')
+        .datum(n)
+        .attr('class', 'sankey-label sankey-icon')
+        .attr('data-node', keyOf(n))
+        .attr('x', x)
+        .attr('y', y)
+        .attr('width', sz)
+        .attr('height', sz)
+        .attr('viewBox', '0 0 24 24')
+        .attr('fill', 'none')
+        .attr('stroke', opts.stroke || n.iconColor || '#3a3f45')
+        .attr('stroke-width', opts.strokeWidth || 1.85)
+        .attr('stroke-linecap', 'round')
+        .attr('stroke-linejoin', 'round')
+        .style('cursor', 'pointer')
+        .html(markup);
+      return true;
+    }
+
     // ---- pass 1 + 2 (pure): build specs, then de-collide side labels ----
     const { specs, iconLayout } = buildLabelSpecs(graph, data, cfg, meta, nCols);
     decollideSideLabels(specs);
@@ -714,28 +741,8 @@
         else ix = cx - totalW / 2;
         const iy = side === 'above' ? top - sz - 12 : y + 10;
 
-        // each icon is a nested <svg> carrying Lucide's inner markup, drawn
-        // stroked (handles multi-element icons, not just single paths)
         n.icons.forEach((name, k) => {
-          const markup = ICONS[name];
-          if (!markup) return;
-          labelLayer
-            .append('svg')
-            .datum(n)
-            .attr('class', 'sankey-label sankey-icon')
-            .attr('data-node', keyOf(n))
-            .attr('x', ix + k * (sz + sgap))
-            .attr('y', iy)
-            .attr('width', sz)
-            .attr('height', sz)
-            .attr('viewBox', '0 0 24 24')
-            .attr('fill', 'none')
-            .attr('stroke', n.iconColor || '#3a3f45')
-            .attr('stroke-width', 1.85)
-            .attr('stroke-linecap', 'round')
-            .attr('stroke-linejoin', 'round')
-            .style('cursor', 'pointer')
-            .html(markup);
+          drawIconSvg(n, name, ix + k * (sz + sgap), iy, sz);
         });
       }
     });
@@ -746,27 +753,10 @@
       const sizes = ic.sizes || [];
       let x = ic.x;
       icons.forEach((name, k) => {
-        const markup = ICONS[name];
-        if (!markup) return;
         const sz = sizes[k] || ic.size || n.iconSize || 30;
-        labelLayer
-          .append('svg')
-          .datum(n)
-          .attr('class', 'sankey-label sankey-icon')
-          .attr('data-node', keyOf(n))
-          .attr('x', x)
-          .attr('y', ic.y)
-          .attr('width', sz)
-          .attr('height', sz)
-          .attr('viewBox', '0 0 24 24')
-          .attr('fill', 'none')
-          .attr('stroke', ic.color || n.iconColor || '#3a3f45')
-          .attr('stroke-width', ic.strokeWidth || 1.85)
-          .attr('stroke-linecap', 'round')
-          .attr('stroke-linejoin', 'round')
-          .style('cursor', 'pointer')
-          .html(markup);
-        x += sz + (ic.gap || 10);
+        if (drawIconSvg(n, name, x, ic.y, sz, { stroke: ic.color, strokeWidth: ic.strokeWidth })) {
+          x += sz + (ic.gap || 10);
+        }
       });
     });
 
