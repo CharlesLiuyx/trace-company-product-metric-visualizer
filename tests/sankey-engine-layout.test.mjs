@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { loadClassicScripts } from './helpers/vm-load.mjs';
 
 const { SankeyEngine } = loadClassicScripts(['src/sankey-engine.js']);
-const { deepMerge, formatValue, trimFixed, autoSide, buildFixedGraph } = SankeyEngine.helpers;
+const { deepMerge, formatValue, trimFixed, autoSide, buildFixedGraph, referenceCanvasDefaults } = SankeyEngine.helpers;
 
 // vm-created objects have a different realm's prototypes, which trips
 // deepStrictEqual's prototype check; a JSON round-trip normalizes them
@@ -47,6 +47,29 @@ test('autoSide picks label side from column and type', () => {
   assert.equal(autoSide({ col: 2 }, 3), 'right');
   assert.equal(autoSide({ col: 1, type: 'cost' }, 3), 'below');
   assert.equal(autoSide({ col: 1, type: 'profit' }, 3), 'above');
+});
+
+test('referenceCanvasDefaults uses meta.referenceImage dimensions', () => {
+  assert.deepEqual(
+    plain(referenceCanvasDefaults({ meta: { referenceImage: { src: 'x.png', width: 2667, height: 1500 } } })),
+    { width: 2667, height: 1500 }
+  );
+});
+
+test('referenceCanvasDefaults is empty without a usable reference image', () => {
+  assert.deepEqual(plain(referenceCanvasDefaults({})), {});
+  assert.deepEqual(plain(referenceCanvasDefaults({ meta: { referenceImage: 'x.png' } })), {});
+  assert.deepEqual(plain(referenceCanvasDefaults({ meta: { referenceImage: { src: 'x.png', width: 0, height: 10 } } })), {});
+});
+
+test('canvas precedence: render size beats reference image beats DEFAULTS', () => {
+  const data = { meta: { referenceImage: { src: 'x.png', width: 2667, height: 1500 } }, render: { width: 3000 } };
+  const cfg = deepMerge(
+    deepMerge(deepMerge(SankeyEngine.DEFAULTS, referenceCanvasDefaults(data)), data.render),
+    null
+  );
+  assert.equal(cfg.width, 3000, 'explicit render.width wins');
+  assert.equal(cfg.height, 1500, 'reference image height fills the gap');
 });
 
 function fixtureGraph({ layout, links: linkSpecs }) {
