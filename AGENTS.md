@@ -142,23 +142,20 @@ renderer support split into a prior `render(engine)` commit.
 
 ## Cursor Cloud specific instructions
 
-Environment is a static site: dependencies (`pnpm install --frozen-lockfile`)
-and the pinned Chromium (`pnpm exec playwright install chromium`) are refreshed
-by the startup update script, so you do not need to reinstall them. Non-obvious
-caveats for this VM:
+The environment is a static site plus Node tooling: dependencies
+(`pnpm install --frozen-lockfile`) and the pinned Playwright Chromium
+(`pnpm exec playwright install chromium`) are refreshed by the startup update
+script, so you do not need to reinstall them. Non-obvious caveats for this VM:
 
 - Run the app with `pnpm dev` (zero-dependency static server on
   `http://127.0.0.1:8000`). It is a long-running process — start it in a
   background/tmux session, not a blocking foreground call.
-- The pinned `playwright@1.61.0` ships Chromium 149. Under this browser,
-  `pnpm verify:d3` currently fails its font gate ("Local Montserrat font did
-  not load"): only the weight-800 face loads while the default weight-400 face
-  stays `unloaded`, so `document.fonts.check('16px Montserrat')` is false. This
-  is independent of dependency install (the woff2 files are present under
-  `node_modules/@fontsource/montserrat/files/`). The headless viewer smoke test
-  `pnpm verify:app` does render and passes.
-- `pnpm check` can fail on repo data state rather than the environment: it
-  aborts if any registered dataset references a missing `input/processed/*.png`
-  (SSOT parity) or if `data/dataset-file-metadata.js` is stale (regenerate with
-  `pnpm update:dataset-file-metadata`). Treat those as data tasks, not setup
-  failures.
+- Reference images under `input/processed/` are only partially committed;
+  many datasets' PNGs stay on their author's machine. For those keys
+  `pnpm verify:d3 -- <key>` fails with ENOENT when copying the reference.
+  For engine-wide changes use `pnpm verify:render-regression` instead: it
+  renders every registered dataset, applies the hard gates, and skips
+  similarity scoring for keys without a local reference image.
+- `pnpm check`, `pnpm test`, `pnpm verify:app`, `pnpm build:standalone`,
+  `pnpm verify:standalone`, and `pnpm verify:d3` on a dataset with a local
+  reference (e.g. `airbnb-q1-fy26`) all run green on a fresh checkout.
