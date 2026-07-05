@@ -1,11 +1,6 @@
 #!/usr/bin/env node
-import {
-  COMPANY_METADATA_SCRIPT_DIR,
-  INCOME_STATEMENT_SCRIPT_DIR,
-  dataScriptsFromIndex,
-} from './script-sources.mjs';
-import { assert, listScripts, readProjectFile } from './lib/project.mjs';
-import { loadClassicScripts } from './lib/vm-browser.mjs';
+import { assert } from './lib/project.mjs';
+import { loadBrowserData as loadSharedBrowserData } from './lib/browser-data-loader.mjs';
 
 const TRACKED_TRANSLATABLE_ACRONYMS = new Set(['D&A', 'G&A', 'R&D', 'S&M', 'SG&A', 'TAC']);
 // Grandfathered brand/logo words for datasets registered before company-identity
@@ -46,23 +41,7 @@ function parseArgs(argv) {
 }
 
 function loadBrowserData() {
-  const context = loadClassicScripts([
-    'src/icons.js',
-    'src/sankey-engine.js',
-    'src/i18n.js',
-    ...listScripts(INCOME_STATEMENT_SCRIPT_DIR),
-    'data/revenue-metrics.js',
-    ...listScripts(COMPANY_METADATA_SCRIPT_DIR),
-    ...dataScriptsFromIndex(readProjectFile('index.html')),
-  ]);
-
-  return {
-    i18n: context.SANKEY_I18N,
-    datasets: context.DATASETS || [],
-    records: context.INCOME_STATEMENT_SSOT?.records || [],
-    revenueRecords: context.REVENUE_METRIC_SSOT?.records || [],
-    companies: context.COMPANY_METADATA?.companies || [],
-  };
+  return loadSharedBrowserData({ runtime: ['src/sankey-engine.js', 'src/i18n.js'] });
 }
 
 function clean(value) {
