@@ -140,6 +140,11 @@ sh scripts/clean-compare.sh
 
 ## 第 0 轮：渲染前测量
 
+进入本节之前，必须先完成 `docs/dynamic-dataset-workflow.md` 的输入分型与粗对象盘点
+（其 §Object Taxonomy 是对象类型清单的属主）：先粗看全图判定输入类型、按该类型清单
+枚举全部对象实例并标记渲染/仅数据/跳过，再进入本节的逐对象精细测量；本节测量的对象
+列表以该盘点为输入，不重新推导。
+
 历史轮次消耗的最大来源是首轮几何靠估、后续轮次逐个纠偏：跨 10+ 轮才收敛的数据集，
 其后期修复项（socket 错位、短柱 x/y/height、label 中心、side label 距离）几乎全部
 可以在写 dataset 时一次做对。因此创建 dataset adapter 时，必须先从参考图直接测量，

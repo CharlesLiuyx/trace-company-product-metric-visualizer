@@ -10,7 +10,7 @@ agent 指令以英文版 `AGENTS.md` 为准。
 
 | 规则领域 | 属主文档 |
 | --- | --- |
-| 动态数据集工作流：流水线步骤、操作陷阱、回复前验证清单、汇报 | `docs/dynamic-dataset-workflow.md` |
+| 动态数据集工作流：流水线步骤、执行模型（并行组、agent 分派）、输入类型对象清单、操作陷阱、回复前验证清单、汇报 | `docs/dynamic-dataset-workflow.md` |
 | d3 保真循环：硬门槛、diff 指标、迭代、图标 crop/vector 子循环、本地化布局检查、Task 信息、红框图、Loop Fidelity Summary | `docs/fidelity-loop-rules.md` |
 | 数据集 / SSOT 字段级格式 | `data/schema.md` |
 | 提交信息约定 | `docs/commit-messages.md` |
@@ -81,11 +81,13 @@ agent 指令以英文版 `AGENTS.md` 为准。
 
 1. 接入与守卫——运行 `pnpm check:pending`，然后确定 `<公司>-<期间>` key，把
    PNG 移到 `input/processed/<dataset-key>.png`。
-2. 数据 SSOT——公司档案（该公司的第一个数据集）、
-   `data/income-statements/<company-key>.js` 记录，以及可选的图标
-   crop/vector 子循环。
-3. Adapter 与 i18n——对照源图片编写 `data/datasets/<dataset-key>.js`，添加
-   `i18n.<language>` 覆盖，并在 `index.html` 注册 `<script>`。
+2. 源盘点与数据 SSOT——先粗看全图：按工作流文档的对象类型清单判定输入类型
+   （含收入指标类的纯数据支线）并盘点全部对象；然后并行推进公司档案（该
+   公司的第一个数据集）、`data/income-statements/<company-key>.js` 记录，
+   以及可选的图标 crop/vector 子循环。
+3. Adapter 与 i18n——按第 2 阶段盘点清单逐对象精细测量、对照源图片编写
+   `data/datasets/<dataset-key>.js`，添加 `i18n.<language>` 覆盖，并在
+   `index.html` 注册 `<script>`。
 4. 验证——运行 `pnpm verify:dataset -- <dataset-key>`，然后人工 d3 保真循环
    （`docs/fidelity-loop-rules.md`）。
 5. 收尾——`pnpm check` 全绿，`input/pending/` 恢复为只剩 `.gitkeep`，然后按
