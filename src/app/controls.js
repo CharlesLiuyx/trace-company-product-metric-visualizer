@@ -154,6 +154,23 @@ function setViewMode(mode, persist = true) {
   refresh();
   if (mode === 'table') scrollActiveTableRow(activeTableKind());
 }
+/* Single write path for the metric/view mode pair after a scope or metric
+ * change: normalize both against the current scope, optionally reconcile the
+ * metric's company/record selection, and persist. Callers own the follow-up
+ * refresh()/draw(). Keep every state.metricMode/state.viewMode mutation
+ * outside boot going through here (or through setViewMode for view-only
+ * switches); syncMetricModeControls only re-normalizes defensively for
+ * paths that mutate scope directly (e.g. hash routing). */
+function commitMetricViewMode(metricMode, viewMode = state.viewMode, { persist = true, reconcile = true } = {}) {
+  state.metricMode = normalizeMetricModeForScope(metricMode);
+  if (reconcile) syncMetricCompanySelection();
+  state.metricMode = normalizeMetricModeForScope(state.metricMode);
+  state.viewMode = normalizeViewModeForMetric(state.metricMode, viewMode);
+  if (persist) {
+    writeStoredValue(METRIC_MODE_KEY, state.metricMode);
+    writeStoredValue(VIEW_MODE_KEY, state.viewMode);
+  }
+}
 function setMetricMode(mode, persist = true) {
   if (!METRIC_MODES.includes(mode)) return;
   if (!metricModesForScope().includes(mode)) return;
@@ -161,13 +178,7 @@ function setMetricMode(mode, persist = true) {
     if (state.viewMode === 'table') scrollActiveTableRow(activeTableKind());
     return;
   }
-  state.metricMode = mode;
-  state.viewMode = defaultViewModeForMetric(mode);
-  syncMetricCompanySelection();
-  if (persist) {
-    writeStoredValue(METRIC_MODE_KEY, mode);
-    writeStoredValue(VIEW_MODE_KEY, state.viewMode);
-  }
+  commitMetricViewMode(mode, defaultViewModeForMetric(mode), { persist });
   refresh();
   if (state.viewMode === 'table') scrollActiveTableRow(activeTableKind());
 }
