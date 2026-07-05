@@ -1195,5 +1195,12 @@
     return svg.node();
   }
 
-  global.SankeyEngine = { render, DEFAULTS };
+  global.SankeyEngine = {
+    render,
+    DEFAULTS,
+    // Pure helpers exposed for unit tests and tooling; render() behavior is
+    // unchanged. buildFixedGraph expects render()'s preprocessed inputs:
+    // nodes with an index field and links as { source, target, value, raw }.
+    helpers: { deepMerge, formatValue, trimFixed, autoSide, buildFixedGraph },
+  };
 })(window);
