@@ -1037,7 +1037,9 @@
         .append('text')
         .attr('font-family', tooltipCfg.fontFamily || cfg.valueFontFamily) // null → removed → inherit
         .attr('font-size', tooltipDim('fontSize', 40))
-        .attr('font-weight', numW(tooltipCfg.fontWeight))
+        // numW lives inside buildLabelSpecs now; inline its cfg.valueWeight
+        // override so the tooltip weight resolves in render scope
+        .attr('font-weight', cfg.valueWeight != null ? cfg.valueWeight : tooltipCfg.fontWeight)
         .attr('fill', tooltipCfg.textColor)
         .attr('text-anchor', 'middle')
         .attr('letter-spacing', '0');
