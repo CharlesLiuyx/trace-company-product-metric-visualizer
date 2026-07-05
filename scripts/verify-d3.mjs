@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { copyFile, cp, mkdir, readFile, readdir, rm, stat, writeFile } from 'node:fs/promises';
+import { copyFile, readFile, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { chromium } from 'playwright';
@@ -8,9 +8,8 @@ import { startStaticServer } from './dev-server.mjs';
 import { rootDir } from './lib/project.mjs';
 import { PROJECT_FONT_FAMILIES, localFontFaces } from './lib/local-fonts.mjs';
 import { formatDiffBoundingBox, pngMetrics } from './lib/png-diff.mjs';
-
-const compareDir = path.join(rootDir, 'compare');
-const outputCompareDir = path.join(rootDir, 'output', 'compare');
+import { archiveCompare, cleanCompare, compareDir, createArchivePlan } from './lib/compare-workspace.mjs';
+import { assertPurity } from './lib/d3-hard-gates.mjs';
 
 function usage() {
   console.error(
@@ -72,181 +71,6 @@ function parseArgs(argv) {
   return { datasetKey, keep, language, round, focus };
 }
 
-async function cleanCompare() {
-  if (!existsSync(compareDir)) return;
-  const entries = await readdir(compareDir, { withFileTypes: true });
-  await Promise.all(
-    entries
-      .filter((entry) => entry.name !== '.gitkeep')
-      .map((entry) => rm(path.join(compareDir, entry.name), { recursive: true, force: true }))
-  );
-  await writeFile(path.join(compareDir, '.gitkeep'), '');
-}
-
-async function filesEqual(leftPath, rightPath) {
-  if (!existsSync(rightPath)) return false;
-  const [left, right] = await Promise.all([readFile(leftPath), readFile(rightPath)]);
-  return left.equals(right);
-}
-
-async function copyFileIfDifferent(sourcePath, outputPath) {
-  if (await filesEqual(sourcePath, outputPath)) return false;
-  await copyFile(sourcePath, outputPath);
-  return true;
-}
-
-function archiveSegment(value, fallback) {
-  const segment = String(value || '')
-    .trim()
-    .normalize('NFKC')
-    .toLowerCase()
-    .replace(/[\\/]/g, '-')
-    .replace(/[:*?"<>|]/g, '-')
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-|-$/g, '');
-  return (segment || fallback).slice(0, 96).replace(/-+$/g, '') || fallback;
-}
-
-function roundSegment(round) {
-  return String(round).padStart(2, '0');
-}
-
-function improvementSegment(previousFull, currentFull) {
-  if (!previousFull || typeof previousFull.similarity !== 'number') return 'baseline';
-  const delta = currentFull.similarity - previousFull.similarity;
-  const sign = delta >= 0 ? '+' : '';
-  return `sim${sign}${delta.toFixed(6)}`;
-}
-
-async function existingArchiveDirs(datasetCompareDir) {
-  if (!existsSync(datasetCompareDir)) return [];
-  const entries = await readdir(datasetCompareDir, { withFileTypes: true });
-  const dirs = await Promise.all(
-    entries
-      .filter((entry) => entry.isDirectory())
-      .map(async (entry) => {
-        const dirPath = path.join(datasetCompareDir, entry.name);
-        const info = await stat(dirPath);
-        return { name: entry.name, path: dirPath, mtimeMs: info.mtimeMs };
-      })
-  );
-  return dirs.sort((a, b) => b.mtimeMs - a.mtimeMs || b.name.localeCompare(a.name));
-}
-
-async function readJson(filePath) {
-  try {
-    return JSON.parse(await readFile(filePath, 'utf8'));
-  } catch {
-    return null;
-  }
-}
-
-async function latestPreviousMetrics(archiveDirs, language) {
-  for (const dir of archiveDirs) {
-    let files = [];
-    try {
-      files = await readdir(dir.path, { withFileTypes: true });
-    } catch {
-      continue;
-    }
-
-    const metricsFiles = files
-      .filter((entry) => entry.isFile() && entry.name.endsWith('-metrics.json'))
-      .map((entry) => path.join(dir.path, entry.name));
-
-    for (const metricsFile of metricsFiles) {
-      const metrics = await readJson(metricsFile);
-      if (!metrics?.full) continue;
-      if (language && metrics.language && metrics.language !== language) continue;
-      return {
-        archive: path.relative(rootDir, dir.path),
-        full: metrics.full,
-      };
-    }
-  }
-  return null;
-}
-
-async function uniqueArchiveDir(datasetCompareDir, archiveName) {
-  let candidate = path.join(datasetCompareDir, archiveName);
-  if (!existsSync(candidate)) return candidate;
-
-  for (let suffix = 2; suffix < 1000; suffix += 1) {
-    candidate = path.join(datasetCompareDir, `${archiveName}-${suffix}`);
-    if (!existsSync(candidate)) return candidate;
-  }
-
-  throw new Error(`Could not create unique archive directory for ${archiveName}`);
-}
-
-async function createArchivePlan(datasetKey, options) {
-  const datasetCompareDir = path.join(outputCompareDir, datasetKey);
-  const existingDirs = await existingArchiveDirs(datasetCompareDir);
-  const previous = await latestPreviousMetrics(existingDirs, options.language);
-  const round = options.round || existingDirs.length + 1;
-  const roundName = roundSegment(round);
-  const improvement = improvementSegment(previous?.full, options.fullMetrics);
-  const focus = archiveSegment(options.focus, 'unspecified');
-  const archiveName = `${roundName}-${improvement}-${focus}`;
-  const archiveDir = await uniqueArchiveDir(datasetCompareDir, archiveName);
-
-  return {
-    datasetCompareDir,
-    archiveDir,
-    archiveName: path.basename(archiveDir),
-    round: roundName,
-    improvement,
-    focus,
-    previousArchive: previous?.archive || null,
-  };
-}
-
-async function archiveCompare(datasetKey, archivePlan) {
-  const datasetCompareDir = archivePlan.datasetCompareDir;
-  const archiveDir = archivePlan.archiveDir;
-  const referenceName = `${datasetKey}-reference.png`;
-  await mkdir(archiveDir, { recursive: true });
-  const entries = await readdir(compareDir, { withFileTypes: true });
-  const archived = [];
-  let reference = null;
-  let referenceChanged = false;
-
-  for (const entry of entries) {
-    if (entry.name === '.gitkeep') continue;
-    const sourcePath = path.join(compareDir, entry.name);
-
-    if (!entry.isDirectory() && entry.name === referenceName) {
-      const outputPath = path.join(datasetCompareDir, entry.name);
-      referenceChanged = await copyFileIfDifferent(sourcePath, outputPath);
-      reference = path.relative(rootDir, outputPath);
-      continue;
-    }
-
-    const outputPath = path.join(archiveDir, entry.name);
-
-    if (entry.isDirectory()) {
-      await cp(sourcePath, outputPath, { recursive: true });
-    } else {
-      await copyFile(sourcePath, outputPath);
-    }
-
-    archived.push(path.relative(rootDir, outputPath));
-  }
-
-  return {
-    dir: path.relative(rootDir, archiveDir),
-    name: archivePlan.archiveName,
-    round: archivePlan.round,
-    improvement: archivePlan.improvement,
-    focus: archivePlan.focus,
-    previousArchive: archivePlan.previousArchive,
-    files: archived,
-    reference,
-    referenceChanged,
-  };
-}
-
 function toUrl(baseUrl, src) {
   return new URL(src, `${baseUrl}/`).toString();
 }
@@ -280,57 +104,6 @@ function harnessHtml(baseUrl, scripts) {
 
 function formatPx(value) {
   return Number.isFinite(value) ? `${value.toFixed(1)}px` : 'n/a';
-}
-
-function rasterHrefPath(href) {
-  return String(href || '').split(/[?#]/)[0];
-}
-
-function isApprovedRasterHref(href) {
-  const clean = rasterHrefPath(href);
-  return /^data\/assets\/raster-annotations\/[^?#]+\.(?:png|jpe?g|webp|svg)$/i.test(clean);
-}
-
-function assertRasterFilesExist(hrefs) {
-  const missing = hrefs
-    .map(rasterHrefPath)
-    .filter((href) => isApprovedRasterHref(href) && !existsSync(path.join(rootDir, href)));
-  if (missing.length) {
-    throw new Error(`Missing runtime raster annotation file(s): ${missing.join(', ')}`);
-  }
-}
-
-function assertPurity(purity) {
-  const failures = [];
-  if (purity.chartImgCount !== 0) {
-    failures.push(`chartImgCount=${purity.chartImgCount}`);
-  }
-  if (purity.forbiddenElements.length) {
-    failures.push(`forbiddenElements=${purity.forbiddenElements.join(',')}`);
-  }
-  if (purity.backgroundImageElements.length) {
-    failures.push(`backgroundImageElements=${purity.backgroundImageElements.slice(0, 5).join(',')}`);
-  }
-
-  const expected = purity.expectedRasterHrefs.map(rasterHrefPath);
-  const actual = purity.imageHrefs.map(rasterHrefPath);
-  if (actual.length && !purity.rasterAllowed) {
-    failures.push(`imageCount=${actual.length} but rasterAllowed=false`);
-  }
-  if (actual.length !== expected.length) {
-    failures.push(`imageCount=${actual.length} expectedRasterAnnotations=${expected.length}`);
-  }
-  const unexpected = actual.filter((href) => !expected.includes(href));
-  const missing = expected.filter((href) => !actual.includes(href));
-  const unapproved = actual.filter((href) => !isApprovedRasterHref(href));
-  if (unexpected.length) failures.push(`unexpectedRasterHrefs=${unexpected.join(',')}`);
-  if (missing.length) failures.push(`missingRasterHrefs=${missing.join(',')}`);
-  if (unapproved.length) failures.push(`unapprovedRasterHrefs=${unapproved.join(',')}`);
-
-  if (failures.length) {
-    throw new Error(`Purity failed: ${failures.join('; ')}`);
-  }
-  assertRasterFilesExist(actual);
 }
 
 function logLabelLayoutAudit(audit) {
