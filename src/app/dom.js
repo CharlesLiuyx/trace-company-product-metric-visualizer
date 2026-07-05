@@ -37,6 +37,7 @@ const metricMode = document.getElementById('metricMode');
 const viewMode = document.getElementById('viewMode');
 const sankeyView = document.getElementById('sankeyView');
 const singleChartCard = document.getElementById('singleChartCard');
+const chartHost = document.getElementById('chart');
 const sankeyComparison = document.getElementById('sankeyComparison');
 const comparisonZoomControls = document.getElementById('comparisonZoomControls');
 const zoomInBtn = document.getElementById('zoomInBtn');

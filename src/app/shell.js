@@ -101,8 +101,7 @@ function setLanguage(language) {
   state.language = nextLanguage;
   writeStoredValue(LANGUAGE_KEY, nextLanguage);
   applyStaticTranslations();
-  renderAll();
-  draw({ renderTable: false, syncView: false });
+  refresh();
 }
 function setTheme(theme) {
   if (theme !== 'light' && theme !== 'dark') return;

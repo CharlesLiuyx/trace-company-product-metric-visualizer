@@ -11,8 +11,7 @@ window.addEventListener('hashchange', () => {
   setCompanyActiveRecord(record);
   if (!state.multiCompanyMode) syncSingleCompanyScope();
   else if (!state.selectedCompanies.includes(record.company)) setSelectedCompanies([...state.selectedCompanies, record.company]);
-  renderAll();
-  draw({ renderTable: false, syncView: false });
+  refresh();
   scrollActiveTableRow('statement');
 });
 
@@ -29,8 +28,7 @@ window.addEventListener('resize', () => {
 
 applyStaticTranslations();
 syncResponsiveLayout();
-renderAll();
-draw({ renderTable: false, syncView: false });
+refresh();
 requestAnimationFrame(() => {
   requestAnimationFrame(() => {
     document.body.classList.remove('boot-no-motion');
