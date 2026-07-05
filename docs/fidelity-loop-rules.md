@@ -109,7 +109,7 @@ sh scripts/clean-compare.sh
    修复时优先把 label 的水平中心对齐到柱子中心，再复查是否出现文本与流带/节点重叠。
 10. 左右相邻 label 与 node 的横向 overlap 是 hard fail。
 11. `node --check`、`pnpm verify:ssot`、`pnpm verify:i18n -- --strict <dataset-key>` 等
-   数据一致性检查必须按 `docs/dataset-workflow.md` 的验证清单执行。
+   数据一致性检查必须按 `docs/dynamic-dataset-workflow.md` 的验证清单执行。
 
 ## Runtime Raster 例外
 
