@@ -98,9 +98,19 @@ async function readBaselines() {
   return JSON.parse(await readFile(target, 'utf8'));
 }
 
-function renderBaselineSource(results, previousBaselines, tolerance) {
-  const baselines = {};
-  for (const result of results.slice().sort((a, b) => a.key.localeCompare(b.key))) {
+// Merges this run's results over the previous baselines. A subset --update
+// (explicit keys) only touches the rendered keys; baselines for keys outside
+// the run — and keys whose local reference image is absent — are preserved,
+// never erased. Stale keys (no longer registered) are dropped only on a
+// full-catalog update.
+function renderBaselineSource(results, previousBaselines, tolerance, { fullRun, registeredKeys }) {
+  const baselines = { ...previousBaselines };
+  if (fullRun) {
+    for (const key of Object.keys(baselines)) {
+      if (!registeredKeys.has(key)) delete baselines[key];
+    }
+  }
+  for (const result of results) {
     if (result.similarity != null) {
       baselines[result.key] = {
         similarity: Number(result.similarity.toFixed(6)),
@@ -108,11 +118,7 @@ function renderBaselineSource(results, previousBaselines, tolerance) {
         width: result.width,
         height: result.height,
       };
-    } else if (previousBaselines[result.key]?.similarity != null) {
-      // The reference image is local-only and absent here; keep the baseline
-      // recorded on a machine that has it instead of erasing it.
-      baselines[result.key] = previousBaselines[result.key];
-    } else {
+    } else if (baselines[result.key]?.similarity == null) {
       baselines[result.key] = {
         similarity: null,
         note: 'reference image not present when recorded; re-run --update on a machine with input/processed/',
@@ -121,12 +127,17 @@ function renderBaselineSource(results, previousBaselines, tolerance) {
       };
     }
   }
+  const sorted = Object.fromEntries(
+    Object.keys(baselines)
+      .sort((a, b) => a.localeCompare(b))
+      .map((key) => [key, baselines[key]])
+  );
   return `${JSON.stringify(
     {
       generatedBy: 'pnpm verify:render-regression -- --update',
       language: LANGUAGE,
       similarityTolerance: tolerance,
-      baselines,
+      baselines: sorted,
     },
     null,
     2
@@ -243,11 +254,14 @@ async function main() {
     results.sort((a, b) => a.key.localeCompare(b.key));
 
     if (update) {
-      const source = renderBaselineSource(results, baselines, tolerance);
+      const source = renderBaselineSource(results, baselines, tolerance, {
+        fullRun: !keys.length,
+        registeredKeys: registeredSet,
+      });
       await writeFile(projectPath(BASELINE_PATH), source);
       const scored = results.filter((result) => result.similarity != null).length;
       console.log(
-        `wrote ${BASELINE_PATH}: ${results.length} baseline(s) (${scored} scored locally), tolerance ${tolerance}`
+        `wrote ${BASELINE_PATH}: ${results.length} rendered (${scored} scored locally), tolerance ${tolerance}`
       );
     } else {
       for (const result of results) {
