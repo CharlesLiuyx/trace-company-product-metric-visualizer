@@ -4,596 +4,602 @@
   "similarityTolerance": 0.003,
   "baselines": {
     "adobe-q2-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.968671,
+      "mae": 7.989,
       "width": 2667,
       "height": 1500
     },
     "airbnb-q1-fy26": {
-      "similarity": 0.962691,
-      "mae": 9.5137,
+      "similarity": 0.961953,
+      "mae": 9.7019,
       "width": 2667,
       "height": 1500
     },
     "airbus-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.969961,
+      "mae": 7.6601,
       "width": 2667,
       "height": 1500
     },
     "alibaba-q4-fy26": {
-      "similarity": 0.957125,
-      "mae": 10.9331,
+      "similarity": 0.956641,
+      "mae": 11.0567,
       "width": 2980,
       "height": 1678
     },
     "alphabet-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.948934,
+      "mae": 13.0217,
       "width": 2667,
       "height": 1500
     },
     "amazon-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.951087,
+      "mae": 12.4728,
       "width": 2667,
       "height": 1500
     },
     "amd-q1-fy26": {
-      "similarity": 0.958345,
-      "mae": 10.622,
+      "similarity": 0.956943,
+      "mae": 10.9796,
       "width": 2667,
       "height": 1500
     },
     "american-express-q1-fy26": {
-      "similarity": 0.956986,
-      "mae": 10.9686,
+      "similarity": 0.956359,
+      "mae": 11.1285,
       "width": 2667,
       "height": 1500
     },
     "appfolio-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.954127,
+      "mae": 11.6977,
       "width": 2667,
       "height": 1500
     },
     "apple-q2-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.956033,
+      "mae": 11.2115,
       "width": 2667,
       "height": 1500
     },
     "applovin-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.963956,
+      "mae": 9.1911,
       "width": 2667,
       "height": 1500
     },
     "arm-holdings-q4-fy26": {
-      "similarity": 0.961302,
-      "mae": 9.868,
+      "similarity": 0.960558,
+      "mae": 10.0576,
       "width": 2667,
       "height": 1500
     },
     "asana-q1-fy27": {
-      "similarity": 0.964482,
-      "mae": 9.057,
+      "similarity": 0.963761,
+      "mae": 9.241,
       "width": 2667,
       "height": 1500
     },
     "asml-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.97277,
+      "mae": 6.9436,
       "width": 2667,
       "height": 1500
     },
     "atlassian-q3-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.95328,
+      "mae": 11.9136,
       "width": 2667,
       "height": 1500
     },
     "autodesk-q1-fy27": {
-      "similarity": 0.968095,
-      "mae": 8.1357,
+      "similarity": 0.966995,
+      "mae": 8.4164,
       "width": 2667,
       "height": 1500
     },
     "berkshire-hathaway-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.967409,
+      "mae": 8.3108,
       "width": 2667,
       "height": 1500
     },
     "blackrock-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.95986,
+      "mae": 10.2358,
       "width": 2667,
       "height": 1500
     },
     "boeing-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.970151,
+      "mae": 7.6115,
+      "width": 2667,
+      "height": 1500
+    },
+    "broadcom-q1-fy26": {
+      "similarity": 0.95914,
+      "mae": 10.4192,
       "width": 2667,
       "height": 1500
     },
     "broadcom-q2-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.961774,
+      "mae": 9.7476,
       "width": 2667,
       "height": 1500
     },
     "c3-ai-q4-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.974622,
+      "mae": 6.4715,
       "width": 2667,
       "height": 1500
     },
     "cerebras-q1-fy26": {
-      "similarity": 0.975299,
-      "mae": 6.2987,
+      "similarity": 0.975701,
+      "mae": 6.1962,
       "width": 2667,
       "height": 1500
     },
     "cloudflare-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.971068,
+      "mae": 7.3778,
       "width": 2667,
       "height": 1500
     },
     "coca-cola-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.973639,
+      "mae": 6.7222,
       "width": 2667,
       "height": 1500
     },
     "coinbase-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.952775,
+      "mae": 12.0423,
       "width": 2667,
       "height": 1500
     },
     "coreweave-q1-fy26": {
-      "similarity": 0.959162,
-      "mae": 10.4137,
+      "similarity": 0.958062,
+      "mae": 10.6942,
       "width": 2667,
       "height": 1500
     },
     "costco-q3-fy26": {
-      "similarity": 0.962167,
-      "mae": 9.6474,
+      "similarity": 0.961784,
+      "mae": 9.7451,
       "width": 2667,
       "height": 1500
     },
     "crowdstrike-q1-fy27": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.973631,
+      "mae": 6.724,
       "width": 2667,
       "height": 1500
     },
     "datadog-q1-fy26": {
-      "similarity": 0.973588,
-      "mae": 6.735,
+      "similarity": 0.972766,
+      "mae": 6.9446,
       "width": 2667,
       "height": 1500
     },
     "dell-q1-fy27": {
-      "similarity": 0.967799,
-      "mae": 8.2114,
+      "similarity": 0.967065,
+      "mae": 8.3985,
       "width": 2667,
       "height": 1500
     },
     "didi-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.977199,
+      "mae": 5.8142,
       "width": 2667,
       "height": 1500
     },
     "digital-ocean-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.967691,
+      "mae": 8.2388,
       "width": 2667,
       "height": 1500
     },
     "disney-q2-fy26-by-segment": {
-      "similarity": 0.960688,
-      "mae": 10.0246,
+      "similarity": 0.959857,
+      "mae": 10.2365,
       "width": 2667,
       "height": 1500
     },
     "docusign-q1-fy27": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.96993,
+      "mae": 7.668,
       "width": 2667,
       "height": 1500
     },
     "duolingo-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.959446,
+      "mae": 10.3414,
       "width": 2667,
       "height": 1500
     },
     "elastic-q4-fy26": {
-      "similarity": 0.972113,
-      "mae": 7.1112,
+      "similarity": 0.971931,
+      "mae": 7.1577,
       "width": 2667,
       "height": 1500
     },
     "expedia-q1-fy26": {
-      "similarity": 0.974921,
-      "mae": 6.3953,
+      "similarity": 0.97435,
+      "mae": 6.5407,
       "width": 2667,
       "height": 1500
     },
     "figma-q1-fy26": {
-      "similarity": 0.964768,
-      "mae": 8.9841,
+      "similarity": 0.964123,
+      "mae": 9.1486,
       "width": 2667,
       "height": 1500
     },
     "fox-q3-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.979036,
+      "mae": 5.3458,
       "width": 2667,
       "height": 1500
     },
     "goldman-sachs-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.96779,
+      "mae": 8.2137,
       "width": 2667,
       "height": 1500
     },
     "hilton-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.96466,
+      "mae": 9.0116,
       "width": 2667,
       "height": 1500
     },
     "hp-q2-fy26": {
-      "similarity": 0.968743,
-      "mae": 7.9704,
+      "similarity": 0.968007,
+      "mae": 8.1583,
       "width": 2667,
       "height": 1500
     },
     "hubspot-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.974746,
+      "mae": 6.4398,
       "width": 2667,
       "height": 1500
     },
     "ibm-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.969799,
+      "mae": 7.7012,
       "width": 2667,
       "height": 1500
     },
     "intel-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.968705,
+      "mae": 7.9803,
       "width": 2667,
       "height": 1500
     },
     "intuit-q3-fy26": {
-      "similarity": 0.973838,
-      "mae": 6.6714,
+      "similarity": 0.973368,
+      "mae": 6.7911,
       "width": 2667,
       "height": 1500
     },
     "jd-com-q1-fy26": {
-      "similarity": 0.971668,
-      "mae": 7.2248,
+      "similarity": 0.970724,
+      "mae": 7.4653,
       "width": 2667,
       "height": 1500
     },
     "klarna-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.950675,
+      "mae": 12.578,
       "width": 2667,
       "height": 1500
     },
     "klaviyo-q1-fy26": {
-      "similarity": 0.958662,
-      "mae": 10.5413,
+      "similarity": 0.957643,
+      "mae": 10.8009,
       "width": 2667,
       "height": 1500
     },
     "lenovo-q4-fy26": {
-      "similarity": 0.970317,
-      "mae": 7.5691,
+      "similarity": 0.968423,
+      "mae": 8.0521,
       "width": 2667,
       "height": 1500
     },
     "lululemon-q1-fy26": {
-      "similarity": 0.953861,
-      "mae": 11.7655,
+      "similarity": 0.952756,
+      "mae": 12.0473,
       "width": 2667,
       "height": 1500
     },
     "marriott-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.958821,
+      "mae": 10.5005,
       "width": 2667,
       "height": 1500
     },
     "mastercard-q1-fy26": {
-      "similarity": 0.970618,
-      "mae": 7.4924,
+      "similarity": 0.96984,
+      "mae": 7.6907,
       "width": 2667,
       "height": 1500
     },
     "meituan-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.972421,
+      "mae": 7.0326,
       "width": 2667,
       "height": 1500
     },
     "meta-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.958731,
+      "mae": 10.5235,
       "width": 2667,
       "height": 1500
     },
     "micron-q3-fy26": {
-      "similarity": 0.962822,
-      "mae": 9.4804,
+      "similarity": 0.961606,
+      "mae": 9.7906,
       "width": 2667,
       "height": 1500
     },
     "microsoft-q3-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.964801,
+      "mae": 8.9759,
       "width": 2667,
       "height": 1500
     },
     "microsoft-q3-fy26-by-bu": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.958006,
+      "mae": 10.7084,
       "width": 2667,
       "height": 1500
     },
     "monday-com-q1-fy26": {
-      "similarity": 0.966458,
-      "mae": 8.5532,
+      "similarity": 0.96627,
+      "mae": 8.6011,
       "width": 2667,
       "height": 1500
     },
     "mongodb-q1-fy27": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.95816,
+      "mae": 10.6693,
       "width": 2667,
       "height": 1500
     },
     "moodys-q1-fy26": {
-      "similarity": 0.966697,
-      "mae": 8.4922,
+      "similarity": 0.965777,
+      "mae": 8.7268,
       "width": 2667,
       "height": 1500
     },
     "morgan-stanley-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.95472,
+      "mae": 11.5463,
       "width": 2667,
       "height": 1500
     },
     "netease-q1-fy26": {
-      "similarity": 0.971787,
-      "mae": 7.1944,
+      "similarity": 0.971054,
+      "mae": 7.3811,
       "width": 2667,
       "height": 1500
     },
     "netflix-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.960568,
+      "mae": 10.0552,
       "width": 2667,
       "height": 1500
     },
     "nike-q4-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.969462,
+      "mae": 7.7871,
       "width": 2667,
       "height": 1500
     },
     "nintendo-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.966146,
+      "mae": 8.6329,
       "width": 2667,
       "height": 1500
     },
     "nvidia-q1-fy24": {
-      "similarity": 0.957247,
-      "mae": 10.9019,
+      "similarity": 0.957116,
+      "mae": 10.9354,
       "width": 2920,
       "height": 1418
     },
     "nvidia-q1-fy25": {
-      "similarity": 0.947793,
-      "mae": 13.3127,
+      "similarity": 0.947025,
+      "mae": 13.5087,
       "width": 2988,
       "height": 1462
     },
     "nvidia-q1-fy26": {
-      "similarity": 0.952248,
-      "mae": 12.1769,
+      "similarity": 0.952009,
+      "mae": 12.2377,
       "width": 2990,
       "height": 1464
     },
     "nvidia-q1-fy27": {
-      "similarity": 0.940502,
-      "mae": 15.1719,
+      "similarity": 0.939886,
+      "mae": 15.3291,
       "width": 2862,
       "height": 1462
     },
     "nvidia-q2-fy24": {
-      "similarity": 0.959399,
-      "mae": 10.3533,
+      "similarity": 0.959563,
+      "mae": 10.3113,
       "width": 2922,
       "height": 1424
     },
     "nvidia-q2-fy25": {
-      "similarity": 0.955607,
-      "mae": 11.3202,
+      "similarity": 0.954173,
+      "mae": 11.6858,
       "width": 2970,
       "height": 1482
     },
     "nvidia-q2-fy26": {
-      "similarity": 0.952415,
-      "mae": 12.1343,
+      "similarity": 0.951533,
+      "mae": 12.3591,
       "width": 3002,
       "height": 1484
     },
     "nvidia-q3-fy23": {
-      "similarity": 0.956045,
-      "mae": 11.2085,
+      "similarity": 0.955731,
+      "mae": 11.2887,
       "width": 2890,
       "height": 1396
     },
     "nvidia-q3-fy24": {
-      "similarity": 0.961109,
-      "mae": 9.9173,
+      "similarity": 0.960653,
+      "mae": 10.0335,
       "width": 2918,
       "height": 1436
     },
     "nvidia-q3-fy25": {
-      "similarity": 0.951233,
-      "mae": 12.4356,
+      "similarity": 0.95067,
+      "mae": 12.5792,
       "width": 2976,
       "height": 1486
     },
     "nvidia-q3-fy26": {
-      "similarity": 0.952126,
-      "mae": 12.2079,
+      "similarity": 0.95198,
+      "mae": 12.2451,
       "width": 2996,
       "height": 1488
     },
     "nvidia-q4-fy23": {
-      "similarity": 0.948095,
-      "mae": 13.2358,
+      "similarity": 0.946698,
+      "mae": 13.592,
       "width": 2930,
       "height": 1428
     },
     "nvidia-q4-fy24": {
-      "similarity": 0.953529,
-      "mae": 11.85,
+      "similarity": 0.952572,
+      "mae": 12.0942,
       "width": 2924,
       "height": 1436
     },
     "nvidia-q4-fy25": {
-      "similarity": 0.95007,
-      "mae": 12.732,
+      "similarity": 0.949712,
+      "mae": 12.8235,
       "width": 2986,
       "height": 1490
     },
     "nvidia-q4-fy26": {
-      "similarity": 0.948938,
-      "mae": 13.0208,
+      "similarity": 0.94881,
+      "mae": 13.0533,
       "width": 3004,
       "height": 1496
     },
     "nyt-q1-fy26": {
-      "similarity": 0.950362,
-      "mae": 12.6576,
+      "similarity": 0.949485,
+      "mae": 12.8814,
       "width": 4686,
       "height": 2636
     },
     "okta-q1-fy27": {
-      "similarity": 0.959439,
-      "mae": 10.3432,
+      "similarity": 0.95828,
+      "mae": 10.6385,
       "width": 2667,
       "height": 1500
     },
     "oracle-q4-fy26": {
-      "similarity": 0.962122,
-      "mae": 9.6588,
+      "similarity": 0.960721,
+      "mae": 10.0161,
       "width": 2667,
       "height": 1500
     },
     "palantir-q1-fy26": {
-      "similarity": 0.969685,
-      "mae": 7.7304,
+      "similarity": 0.968667,
+      "mae": 7.99,
       "width": 2667,
       "height": 1500
     },
     "paramount-q1-fy26": {
-      "similarity": 0.968847,
-      "mae": 7.9439,
+      "similarity": 0.968068,
+      "mae": 8.1426,
       "width": 2667,
       "height": 1500
     },
     "paycom-q1-fy26": {
-      "similarity": 0.962591,
-      "mae": 9.5392,
+      "similarity": 0.961652,
+      "mae": 9.7787,
       "width": 2667,
       "height": 1500
     },
     "pdd-holdings-q1-fy26": {
-      "similarity": 0.949532,
-      "mae": 12.8694,
+      "similarity": 0.948958,
+      "mae": 13.0157,
       "width": 2667,
       "height": 1500
     },
     "pepsico-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.977699,
+      "mae": 5.6868,
       "width": 2667,
       "height": 1500
     },
     "pinterest-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.964657,
+      "mae": 9.0124,
       "width": 2667,
       "height": 1500
     },
     "qualcomm-q2-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.960895,
+      "mae": 9.9719,
       "width": 2667,
       "height": 1500
     },
     "rbi-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.959155,
+      "mae": 10.4154,
       "width": 2667,
       "height": 1500
     },
     "reddit-q1-fy26": {
-      "similarity": 0.947258,
-      "mae": 13.4493,
+      "similarity": 0.946465,
+      "mae": 13.6514,
       "width": 4686,
       "height": 2636
     },
     "robinhood-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.955213,
+      "mae": 11.4206,
       "width": 2667,
       "height": 1500
     },
     "roblox-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.957553,
+      "mae": 10.8241,
       "width": 2667,
       "height": 1500
     },
     "salesforce-q1-fy27": {
-      "similarity": 0.913565,
-      "mae": 22.0409,
+      "similarity": 0.912657,
+      "mae": 22.2724,
       "width": 2958,
       "height": 1490
     },
     "samsung-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.9562,
+      "mae": 11.1689,
       "width": 2667,
       "height": 1500
     },
     "sandisk-q3-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.974419,
+      "mae": 6.5233,
       "width": 2667,
       "height": 1500
     },
     "sap-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.97127,
+      "mae": 7.3262,
       "width": 2667,
       "height": 1500
     },
@@ -604,134 +610,134 @@
       "height": 1500
     },
     "servicenow-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.963467,
+      "mae": 9.3158,
       "width": 2667,
       "height": 1500
     },
     "shopify-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.953464,
+      "mae": 11.8667,
       "width": 2667,
       "height": 1500
     },
     "snap-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.974089,
+      "mae": 6.6072,
       "width": 2667,
       "height": 1500
     },
     "sony-fy25": {
-      "similarity": 0.966177,
-      "mae": 8.6247,
+      "similarity": 0.965116,
+      "mae": 8.8954,
       "width": 2667,
       "height": 1500
     },
     "spacex-fy25": {
-      "similarity": 0.955799,
-      "mae": 11.2712,
+      "similarity": 0.955114,
+      "mae": 11.446,
       "width": 4000,
       "height": 2250
     },
     "spotify-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.970618,
+      "mae": 7.4924,
       "width": 2667,
       "height": 1500
     },
     "starbucks-q2-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.95558,
+      "mae": 11.3271,
       "width": 2667,
       "height": 1500
     },
     "synopsys-q2-fy26": {
-      "similarity": 0.972147,
-      "mae": 7.1026,
+      "similarity": 0.971044,
+      "mae": 7.3838,
       "width": 2667,
       "height": 1500
     },
     "tencent-q1-fy26": {
-      "similarity": 0.971741,
-      "mae": 7.2061,
+      "similarity": 0.971455,
+      "mae": 7.2791,
       "width": 4686,
       "height": 2634
     },
     "tesla-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.947838,
+      "mae": 13.3013,
       "width": 2667,
       "height": 1500
     },
     "tsmc-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.971842,
+      "mae": 7.1804,
       "width": 2667,
       "height": 1500
     },
     "uber-q1-fy26": {
-      "similarity": 0.954683,
-      "mae": 11.5558,
+      "similarity": 0.954592,
+      "mae": 11.5791,
       "width": 2892,
       "height": 1456
     },
     "uipath-q1-fy27": {
-      "similarity": 0.967874,
-      "mae": 8.1922,
+      "similarity": 0.967539,
+      "mae": 8.2776,
       "width": 2667,
       "height": 1500
     },
     "unitedhealth-q1-fy26": {
-      "similarity": 0.970307,
-      "mae": 7.5717,
+      "similarity": 0.969315,
+      "mae": 7.8246,
       "width": 2667,
       "height": 1500
     },
     "veeva-q1-fy27": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.977667,
+      "mae": 5.6949,
       "width": 2667,
       "height": 1500
     },
     "visa-q2-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.968026,
+      "mae": 8.1535,
       "width": 2667,
       "height": 1500
     },
     "walmart-q1-fy27": {
-      "similarity": 0.969561,
-      "mae": 7.7619,
+      "similarity": 0.969221,
+      "mae": 7.8487,
       "width": 2667,
       "height": 1500
     },
     "warner-bros-q1-fy26": {
-      "similarity": 0.972663,
-      "mae": 6.9708,
+      "similarity": 0.971509,
+      "mae": 7.2651,
       "width": 2667,
       "height": 1500
     },
     "workday-q1-fy27": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.954971,
+      "mae": 11.4824,
       "width": 2667,
       "height": 1500
     },
     "xiaomi-q4-fy25": {
-      "similarity": 0.972876,
-      "mae": 6.9165,
+      "similarity": 0.97179,
+      "mae": 7.1936,
       "width": 2667,
       "height": 1500
     },
     "yum-brands-q1-fy26": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.952798,
+      "mae": 12.0364,
       "width": 2667,
       "height": 1500
     },
     "zoom-q1-fy27": {
-      "similarity": null,
-      "note": "reference image not present when recorded; re-run --update on a machine with input/processed/",
+      "similarity": 0.959179,
+      "mae": 10.4093,
       "width": 2667,
       "height": 1500
     }

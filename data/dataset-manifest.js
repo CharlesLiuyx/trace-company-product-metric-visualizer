@@ -2773,6 +2773,29 @@
             }
           }
         }
+      },
+      {
+        "key": "broadcom-q1-fy26",
+        "src": "data/datasets/broadcom-q1-fy26.js",
+        "data": {
+          "name": "Broadcom · Q1 FY26",
+          "company": "Broadcom",
+          "meta": {
+            "title": "Broadcom Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Broadcom · 2026 财年第一季度",
+              "meta": {
+                "title": "Broadcom 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
       }
     ]
   };
