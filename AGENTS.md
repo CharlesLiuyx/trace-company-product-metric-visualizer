@@ -10,7 +10,7 @@ together.
 
 | rule domain | owning document |
 | --- | --- |
-| dynamic dataset workflow: pipeline steps, operational traps, pre-response verification checklist, reporting | `docs/dynamic-dataset-workflow.md` |
+| dynamic dataset workflow: pipeline steps, execution model (parallel groups, agent routing), input-type object taxonomy, operational traps, pre-response verification checklist, reporting | `docs/dynamic-dataset-workflow.md` |
 | d3 fidelity loop: hard gates, diff metrics, iteration, icon crop/vector subloops, localization layout checks, Task info, red-box images, Loop Fidelity Summary | `docs/fidelity-loop-rules.md` |
 | dataset / SSOT field-level format | `data/schema.md` |
 | commit message convention | `docs/commit-messages.md` |
@@ -89,12 +89,16 @@ processing a pending image.
 1. Intake & guard — run `pnpm check:pending`, then assign the
    `<company>-<period>` key and move the PNG to
    `input/processed/<dataset-key>.png`.
-2. Data SSOTs — company metadata (first dataset for a company), the
+2. Source inventory & data SSOTs — coarse whole-image pass first: classify
+   the input type against the workflow doc's Object Taxonomy (incl. the
+   revenue-metric data-only branch) and inventory every object, then, in
+   parallel tracks, company metadata (first dataset for a company), the
    `data/income-statements/<company-key>.js` record, and the optional icon
    crop/vector subloop.
-3. Adapter & i18n — author `data/datasets/<dataset-key>.js` measured against
-   the source image, add `i18n.<language>` overlays, and register the
-   `<script>` in `index.html`.
+3. Adapter & i18n — author `data/datasets/<dataset-key>.js` measured
+   object-by-object against the source image (fine pass over the phase 2
+   inventory), add `i18n.<language>` overlays, and register the `<script>`
+   in `index.html`.
 4. Verify — run `pnpm verify:dataset -- <dataset-key>`, then the manual d3
    fidelity loop (`docs/fidelity-loop-rules.md`).
 5. Close out — `pnpm check` green, `input/pending/` back to only `.gitkeep`,
