@@ -1,13 +1,24 @@
 #!/usr/bin/env node
+// Generates data/dataset-file-metadata.js: one reproducible "last updated"
+// timestamp per registered dataset script (plus the metric source files),
+// consumed by the Company navigator's Recently updated sort.
+//
+// Timestamps come from git author times (`git log --format=%at`), so any
+// fresh checkout regenerates byte-identical content and `--check` can gate
+// commits and CI. Files with no git history yet (a dataset mid-authoring)
+// fall back to filesystem mtime until their first commit; after that commit,
+// rerun this script so the recorded time switches to the git time.
 import { readFile, stat, writeFile } from 'node:fs/promises';
+import { spawnSync } from 'node:child_process';
 import path from 'node:path';
-import { dataScriptsFromIndex } from './script-sources.mjs';
-import { projectPath, readProjectFile } from './lib/project.mjs';
+import { registeredDatasetScripts } from './script-sources.mjs';
+import { projectPath, rootDir } from './lib/project.mjs';
 
 const outputPath = 'data/dataset-file-metadata.js';
 const metricSourceFiles = [
   'data/revenue-metrics.js',
 ];
+const trackedRoots = ['data/datasets', ...metricSourceFiles];
 
 function parseArgs(argv) {
   const allowed = new Set(['--check']);
@@ -20,46 +31,66 @@ function datasetKeyForScript(script) {
   return path.basename(script, '.js');
 }
 
-async function datasetEntries() {
-  const scripts = dataScriptsFromIndex(await readProjectFile('index.html'));
+// Latest git author time per repo-relative path, from a single `git log`
+// walk (newest commit first, so the first occurrence of a path wins).
+// Returns an empty map when git is unavailable, which degrades every file
+// to the mtime fallback instead of failing the generator.
+function gitAuthorTimesMs() {
+  const result = spawnSync(
+    'git',
+    ['log', '--format=commit:%at', '--name-only', '--no-renames', '--', ...trackedRoots],
+    { cwd: rootDir, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 }
+  );
+  if (result.status !== 0 || result.error) return new Map();
+  const times = new Map();
+  let currentMs = null;
+  for (const line of result.stdout.split('\n')) {
+    const commit = line.match(/^commit:(\d+)$/);
+    if (commit) {
+      currentMs = Number(commit[1]) * 1000;
+      continue;
+    }
+    const file = line.trim();
+    if (!file || currentMs == null || times.has(file)) continue;
+    times.set(file, currentMs);
+  }
+  return times;
+}
+
+async function fileEntry(relativePath, gitTimes) {
+  let updatedAtMs = gitTimes.get(relativePath) ?? null;
+  let source = 'git';
+  if (updatedAtMs == null) {
+    const info = await stat(projectPath(relativePath));
+    updatedAtMs = Math.round(info.mtimeMs);
+    source = 'mtime';
+  }
+  return {
+    path: relativePath,
+    updatedAtMs,
+    updatedAt: new Date(updatedAtMs).toISOString(),
+    timeSource: source,
+  };
+}
+
+async function collectEntries() {
+  const gitTimes = gitAuthorTimesMs();
+  const scripts = registeredDatasetScripts();
   const entries = [];
   for (const script of scripts) {
-    const info = await stat(projectPath(script));
-    const mtimeMs = Math.round(info.mtimeMs);
-    entries.push([
-      datasetKeyForScript(script),
-      {
-        path: script,
-        mtimeMs,
-        mtime: new Date(mtimeMs).toISOString(),
-      },
-    ]);
+    entries.push([datasetKeyForScript(script), await fileEntry(script, gitTimes)]);
+  }
+  for (const relativePath of metricSourceFiles) {
+    entries.push([relativePath, await fileEntry(relativePath, gitTimes)]);
   }
   return entries;
 }
 
-async function fileEntry(relativePath) {
-  const info = await stat(projectPath(relativePath));
-  const mtimeMs = Math.round(info.mtimeMs);
-  return [
-    relativePath,
-    {
-      path: relativePath,
-      mtimeMs,
-      mtime: new Date(mtimeMs).toISOString(),
-    },
-  ];
-}
-
-async function sourceFileEntries() {
-  return Promise.all(metricSourceFiles.map(fileEntry));
-}
-
 function renderSource(entries) {
-  const maxMtimeMs = entries.reduce((max, [, entry]) => Math.max(max, entry.mtimeMs || 0), 0);
+  const maxUpdatedAtMs = entries.reduce((max, [, entry]) => Math.max(max, entry.updatedAtMs || 0), 0);
   const metadata = {
-    generatedAt: maxMtimeMs ? new Date(maxMtimeMs).toISOString() : '',
-    source: 'dataset view and metric source file modification times',
+    generatedAt: maxUpdatedAtMs ? new Date(maxUpdatedAtMs).toISOString() : '',
+    source: 'git author times of dataset view and metric source files (fs mtime until first commit)',
     files: Object.fromEntries(entries),
   };
   const body = JSON.stringify(metadata, null, 2);
@@ -68,10 +99,7 @@ function renderSource(entries) {
 
 async function main() {
   const { check } = parseArgs(process.argv);
-  const source = renderSource([
-    ...await datasetEntries(),
-    ...await sourceFileEntries(),
-  ]);
+  const source = renderSource(await collectEntries());
   const target = projectPath(outputPath);
   if (check) {
     let existing = '';

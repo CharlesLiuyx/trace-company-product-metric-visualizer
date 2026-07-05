@@ -2,7 +2,7 @@
 import { createHash } from 'node:crypto';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
-import { INCOME_STATEMENT_SCRIPT_DIR, dataScriptsFromIndex, datasetScriptForKey } from './script-sources.mjs';
+import { INCOME_STATEMENT_SCRIPT_DIR, datasetScriptForKey, registeredDatasetScripts } from './script-sources.mjs';
 import { listScripts, projectPath } from './lib/project.mjs';
 
 function relativeProjectPath(...segments) {
@@ -39,9 +39,7 @@ function escapeRegex(value) {
 }
 
 function loadRegisteredDatasetScripts() {
-  const indexPath = projectPath('index.html');
-  if (!existsSync(indexPath)) return new Set();
-  return new Set(dataScriptsFromIndex(readFileSync(indexPath, 'utf8')));
+  return new Set(registeredDatasetScripts());
 }
 
 function loadIncomeStatementSource() {

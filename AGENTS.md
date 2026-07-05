@@ -33,25 +33,32 @@ d3-sankey fidelity loop.
   verifiers rely on. Keep Sankey nodes, links, layout, render, SVG, colors,
   and pixel geometry out of the SSOTs.
 - `data/company-metadata/<company-key>.js` is the company-profile SSOT (one
-  file per company; the file name is the metadata `key`). It powers the
-  Table view and must be complete before a company's first dataset is
-  registered.
+ file per company; the file name is the metadata `key`). It powers the
+ Table view and must be complete before a company's first dataset is
+ registered.
 - Per-company SSOT files must be registered as `<script>` tags in
-  `index.html`; `verify:ssot` enforces disk ↔ registration parity and
-  `pnpm sync:index-datasets` repairs it.
+ `index.html`; dataset adapters register in the generated
+ `data/dataset-manifest.js` (never hand-edited) and are progressively
+ loaded by the viewer through `src/dataset-registry.js` +
+ `src/app/dataset-loader.js`. `verify:ssot` enforces disk ↔ registration
+ parity for both surfaces and `pnpm sync:index-datasets` repairs them.
 - `data/products.js` is an empty placeholder for a future Product SSOT (not
   verifier-checked). Do not hide product identity or ownership history inside
   Sankey adapters.
-- Keep Trace domain normalization in `src/trace-domain.js`. The viewer app is
-  split across `src/app/` as ordered classic scripts sharing one top-level
-  scope (load order lives in `index.html`): `dom`, `util`, `hotkeys`,
-  `i18n-runtime`, `state`, `selectors`, `financial`, `chart-theme` form the
-  base layers; `shell`, `controls`, `company-panel`, `period-panel`,
-  `tables`, `trend`, `comparison-zoom`, `comparison-metric-trend`, `sankey`,
-  `exports` own one UI concern each; `main.js` wires global events and boots
-  last. Put new viewer code in the owning module (module map: `README.md`
-  §How it's built); load-time code may only reference earlier scripts,
-  runtime calls may go either way.
+- Keep Trace domain normalization in `src/trace-domain.js`; zh translation
+ data lives in `src/i18n-dictionaries.js` (loads before `src/i18n.js`,
+ which keeps the language-neutral rule pipeline). The viewer app is
+ split across `src/app/` as ordered classic scripts sharing one top-level
+ scope (load order lives in `index.html`): `dom`, `util`, `dataset-loader`,
+ `hotkeys`, `i18n-runtime`, `state`, `selectors`, `financial`,
+ `chart-theme` form the base layers; `shell`, `controls`, `company-panel`,
+ `period-panel`, `tables`, `trend`, `comparison-zoom`,
+ `comparison-metric-trend`, `sankey`, `exports` own one UI concern each;
+ `main.js` wires global events and boots last. Put new viewer code in the
+ owning module (module map: `README.md` §How it's built). Load-time code
+ may only reference earlier scripts, runtime calls may go either way —
+ `pnpm check` enforces this and cross-file duplicate declarations
+ statically (`verify:app-globals`).
 - When adding a metric family or SSOT, backfill this file and
   `docs/trace-specification.zh-CN.md`.
 
@@ -64,20 +71,27 @@ Install once; the d3/standalone verifiers render in Chromium:
 | command | purpose |
 | --- | --- |
 | `pnpm dev` | zero-dependency local static server on port 8000 |
-| `pnpm check` | fast aggregate gate: repo-wide JS syntax sweep, unit tests, then pending guard, SSOT parity, i18n coverage, metadata freshness (seconds, no rendering) |
-| `pnpm test` | node:test unit tests in `tests/` — engine layout math, trace-domain parsing/FX, i18n translation rules, png-diff metrics, script-source parsing |
+| `pnpm check` | fast aggregate gate: repo-wide JS syntax sweep, unit tests, then pending guard, app-globals static gate, dataset-manifest freshness, SSOT parity, i18n coverage, metadata freshness (seconds, no rendering); reproducible — green on any fresh checkout, and CI runs it on every push |
+| `pnpm test` | node:test unit tests in `tests/` — engine layout math + label passes, trace-domain parsing/FX, i18n translation rules, png-diff metrics, script-source parsing, dataset registry |
 | `pnpm verify:app` | headless boot + interaction smoke of the modular viewer (`src/app/*`): module count, persisted-prefs boot, hash routing, comparison zoom + metric trend, revenue trend, mobile viewport |
+| `pnpm verify:app-globals` | static gate for the shared-top-level-scope contract: cross-file duplicate declarations and load-time references to later scripts (also part of `pnpm check`) |
 | `pnpm check:pending` | pending-image duplicate / key-collision guard |
-| `pnpm sync:index-datasets` | order-preserving sync of `index.html` data `<script>` tags with `data/datasets/`, `data/income-statements/`, and `data/company-metadata/` (append missing, drop stale; `--check` reports drift) |
+| `pnpm sync:index-datasets` | syncs every data registration surface with disk: `index.html` SSOT `<script>` tags (income statements, company metadata) and the generated dataset manifest (`--check` reports drift) |
+| `pnpm update:dataset-manifest` / `pnpm verify:dataset-manifest` | regenerate / freshness-check `data/dataset-manifest.js` (dataset registration SSOT) |
 | `pnpm verify:dataset -- <key> [--skip-render]` | aggregate per-dataset gate: syntax, SSOT, strict i18n, metadata, then a d3 render per language |
 | `pnpm verify:ssot` | SSOT ↔ dataset parity, registration parity, and currency/unit + FX coverage (global) |
 | `pnpm verify:i18n -- [--strict] [keys]` | i18n overlay coverage |
 | `pnpm verify:d3 -- <key> [--focus <dir>] [--keep] [--language <code>] [--round <n>]` | one d3 render + auto hard gates; archives each round to `output/compare/<key>/` |
-| `pnpm update:dataset-file-metadata` | regenerate `data/dataset-file-metadata.js` |
+| `pnpm verify:render-regression [-- <keys>] [--update]` | batch-renders every registered dataset through the purity/size hard gates and fails similarity drops beyond tolerance vs `data/render-baselines.json`; `--update` re-records baselines (reference images are local-only, so machines without `input/processed/` gate hard-gates only) |
+| `pnpm update:dataset-file-metadata` | regenerate `data/dataset-file-metadata.js` from git author times (rerun + commit after committing a new/edited dataset) |
 | `pnpm verify:dataset-file-metadata` | generated metadata is current |
-| `pnpm build:standalone` | build the self-contained HTML (refreshes metadata first) |
+| `pnpm build:standalone` | build the self-contained HTML (refreshes metadata first; inlines all dataset adapters) |
 | `pnpm verify:standalone` | standalone artifact needs no sibling files |
 | `sh scripts/clean-compare.sh` | clean the scratch `compare/` workspace |
+
+CI (`.github/workflows/ci.yml`) runs `pnpm check`, `verify:app`, a
+`verify:d3` smoke render, `verify:render-regression`, and the standalone
+build + verification on every push to `main` and every pull request.
 
 ## Workflow
 
@@ -97,10 +111,11 @@ processing a pending image.
    crop/vector subloop.
 3. Adapter & i18n — author `data/datasets/<dataset-key>.js` measured
    object-by-object against the source image (fine pass over the phase 2
-   inventory), add `i18n.<language>` overlays, and register the `<script>`
-   in `index.html`.
+   inventory), add `i18n.<language>` overlays, and register it via
+   `pnpm sync:index-datasets` (regenerates the dataset manifest).
 4. Verify — run `pnpm verify:dataset -- <dataset-key>`, then the manual d3
-   fidelity loop (`docs/fidelity-loop-rules.md`).
+   fidelity loop (`docs/fidelity-loop-rules.md`), then record the render
+   baseline with `pnpm verify:render-regression -- --update`.
 5. Close out — `pnpm check` green, `input/pending/` back to only `.gitkeep`,
    then commit per `docs/commit-messages.md`.
 
@@ -122,5 +137,5 @@ red-box reference image for the next round.
 Follow `docs/commit-messages.md`: lightweight Conventional Commits
 (`<type>(<scope>): <summary>`, English lowercase summary). It owns the type
 and scope tables and the rule that a new dataset's processed PNG, adapter,
-and `index.html` registration ship in one `data(<key>)` commit, with reusable
+and manifest registration ship in one `data(<key>)` commit, with reusable
 renderer support split into a prior `render(engine)` commit.

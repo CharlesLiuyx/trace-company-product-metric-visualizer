@@ -33,5 +33,8 @@ requestAnimationFrame(() => {
   requestAnimationFrame(() => {
     document.body.classList.remove('boot-no-motion');
     prewarmI18nCaches();
+    // hydrate the remaining dataset adapters in idle time so comparison and
+    // navigation interactions behave like the eager-loading app did
+    scheduleIdleTask(preloadRemainingDatasets);
   });
 });
