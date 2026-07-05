@@ -33,6 +33,10 @@ function languageObjectCache(cache, language = state.language) {
 function cachedLocalizedObject(cache, source, localizer, language = state.language) {
   const code = languageCode(language);
   if (!source || typeof source !== 'object' || code === (I18N_API.defaultLanguage || 'en') || !localizer) return source;
+  // Manifest stubs upgrade in place when their adapter script arrives, so a
+  // WeakMap keyed on the object would keep serving the pre-upgrade clone
+  // (no nodes/links). Localize stubs on the fly and only cache full objects.
+  if (source.__datasetStub) return localizer(source, code);
   const byLanguage = languageObjectCache(cache, code);
   if (!byLanguage.has(source)) byLanguage.set(source, localizer(source, code));
   return byLanguage.get(source);
