@@ -96,6 +96,89 @@
           },
         },
       },
+    },
+    {
+      key: 'coreweave-fy25',
+      company: 'CoreWeave',
+      period: 'FY25',
+      periodNote: 'Fiscal year 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/coreweave-fy25.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 5.1,
+        notes: ['+167% Y/Y', 'Geographic split shown in the source chart: United States $4.8B (+167% Y/Y), Rest of World $0.3B (+179% Y/Y).'],
+        items: [
+          { id: 'committed_contracts', label: 'Committed Contracts', value: 4.7, notes: ['+156% Y/Y'] },
+          { id: 'on_demand_services', label: 'On-demand Services', value: 0.4, notes: ['+456% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 1.5 },
+        operatingExpenses: {
+          total: 3.7,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 2.9, notes: ['57% of revenue', '+7pp Y/Y'] },
+            {
+              id: 'ga',
+              label: 'G&A',
+              value: 0.7,
+              notes: ['13% of revenue', '+6pp Y/Y', 'Source chart displays this rounded value as ($0.7M).'],
+            },
+            { id: 'sm', label: 'S&M', value: 0.1, notes: ['3% of revenue', '+2pp Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0 },
+      },
+      otherIncome: {
+        total: 0,
+        items: [],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 3.7, notes: ['72% margin', '(3pp) Y/Y'] },
+        operating: { id: 'operating_loss', label: 'Operating loss', value: -0.046, notes: ['(1%) margin', '(18pp) Y/Y'] },
+        net: {
+          id: 'operating_loss',
+          label: 'Operating loss',
+          value: -0.046,
+          notes: ['No separate net loss line is shown in the source chart.'],
+        },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年',
+          periodNote: '2025 财年',
+          revenue: {
+            notes: ['同比 +167%', '来源图显示的地区拆分：美国 $4.8B（同比 +167%），世界其他地区 $0.3B（同比 +179%）。'],
+            items: [
+              { id: 'committed_contracts', label: '已承诺合同', notes: ['同比 +156%'] },
+              { id: 'on_demand_services', label: '按需服务', notes: ['同比 +456%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 57%', '同比 +7 个百分点'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 13%', '同比 +6 个百分点', '来源图将该四舍五入值显示为 ($0.7M)。'] },
+                { id: 'sm', label: '销售与市场', notes: ['占收入 3%', '同比 +2 个百分点'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 72%', '同比 (3 个百分点)'] },
+            operating: { label: '营业亏损', notes: ['利润率 (1%)', '同比 (18 个百分点)'] },
+            net: { label: '营业亏损', notes: ['来源图未单独显示净亏损项目。'] },
+          },
+        },
+      },
     }
   );
 })(window);

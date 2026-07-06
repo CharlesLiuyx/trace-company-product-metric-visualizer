@@ -1,0 +1,400 @@
+{
+  "source": "input/processed/adidas-q4-fy25.png",
+  "spec": "input/icon-crop-specs/adidas-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-06T15:13:12.291231+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/adidas",
+  "crops": [
+    {
+      "key": "adidas-company-logo",
+      "output": "data/assets/icon-references/adidas/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4593,
+        "losslessBytes": 23985,
+        "savingsVsLossless": 0.8085,
+        "metrics": {
+          "meanAbsoluteError": 0.1751,
+          "rootMeanSquareError": 0.989,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.081
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 84708,
+        "transparentPixelRatio": 0.6403
+      },
+      "searchBox": {
+        "x": 648,
+        "y": 260,
+        "width": 410,
+        "height": 300
+      },
+      "componentCount": 7,
+      "subjectBox": {
+        "x0": 652,
+        "y0": 287,
+        "x1": 1049,
+        "y1": 555
+      },
+      "cropBox": {
+        "x0": 642,
+        "y0": 254,
+        "x1": 1066,
+        "y1": 566
+      },
+      "validation": {
+        "width": 424,
+        "height": 312,
+        "foregroundPixels": 42729,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 10,
+          "right": 17,
+          "top": 33,
+          "bottom": 11
+        },
+        "centerOffset": {
+          "x": -0.0083,
+          "y": 0.0353
+        },
+        "passes": true
+      },
+      "note": "Adidas mountain mark and wordmark above the revenue hub; excludes title, revenue text, and flows.",
+      "runtimeOutput": "data/assets/raster-annotations/adidas/company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4593,
+        "losslessBytes": 23985,
+        "savingsVsLossless": 0.8085,
+        "metrics": {
+          "meanAbsoluteError": 0.1751,
+          "rootMeanSquareError": 0.989,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.081
+        }
+      },
+      "validationSheet": "data/assets/icon-references/adidas/validation-sheets/adidas-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 249105,
+        "losslessBytes": 249105,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "adidas-business-footwear",
+      "output": "data/assets/icon-references/adidas/crops/business-footwear.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 5579,
+        "losslessBytes": 33073,
+        "savingsVsLossless": 0.8313,
+        "metrics": {
+          "meanAbsoluteError": 1.0775,
+          "rootMeanSquareError": 2.3367,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 25,
+          "changedPixelRatio": 0.4529
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 18808,
+        "transparentPixelRatio": 0.5532
+      },
+      "searchBox": {
+        "x": 121,
+        "y": 500,
+        "width": 185,
+        "height": 155
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 123,
+        "y0": 500,
+        "x1": 281,
+        "y1": 655
+      },
+      "cropBox": {
+        "x0": 114,
+        "y0": 492,
+        "x1": 314,
+        "y1": 662
+      },
+      "validation": {
+        "width": 200,
+        "height": 170,
+        "foregroundPixels": 14541,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 9,
+          "right": 33,
+          "top": 8,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": -0.06,
+          "y": 0.0029
+        },
+        "passes": true
+      },
+      "note": "White sneaker product photo for the Footwear revenue line; excludes value text, label text, and flow marks.",
+      "runtimeOutput": "data/assets/raster-annotations/adidas/business-footwear.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 5579,
+        "losslessBytes": 33073,
+        "savingsVsLossless": 0.8313,
+        "metrics": {
+          "meanAbsoluteError": 1.0775,
+          "rootMeanSquareError": 2.3367,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 25,
+          "changedPixelRatio": 0.4529
+        }
+      },
+      "validationSheet": "data/assets/icon-references/adidas/validation-sheets/adidas-business-footwear.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 327293,
+        "losslessBytes": 327293,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "adidas-business-apparel",
+      "output": "data/assets/icon-references/adidas/crops/business-apparel.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 6683,
+        "losslessBytes": 35013,
+        "savingsVsLossless": 0.8091,
+        "metrics": {
+          "meanAbsoluteError": 1.1941,
+          "rootMeanSquareError": 2.5149,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 28,
+          "changedPixelRatio": 0.6103
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 13067,
+        "transparentPixelRatio": 0.3897
+      },
+      "searchBox": {
+        "x": 118,
+        "y": 814,
+        "width": 190,
+        "height": 154
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 120,
+        "y0": 814,
+        "x1": 308,
+        "y1": 964
+      },
+      "cropBox": {
+        "x0": 112,
+        "y0": 808,
+        "x1": 314,
+        "y1": 974
+      },
+      "validation": {
+        "width": 202,
+        "height": 166,
+        "foregroundPixels": 20061,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 6,
+          "top": 6,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": 0.005,
+          "y": -0.012
+        },
+        "passes": true
+      },
+      "note": "Red track jacket product photo for the Apparel revenue line; excludes value text, label text, and flow marks.",
+      "runtimeOutput": "data/assets/raster-annotations/adidas/business-apparel.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 6683,
+        "losslessBytes": 35013,
+        "savingsVsLossless": 0.8091,
+        "metrics": {
+          "meanAbsoluteError": 1.1941,
+          "rootMeanSquareError": 2.5149,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 28,
+          "changedPixelRatio": 0.6103
+        }
+      },
+      "validationSheet": "data/assets/icon-references/adidas/validation-sheets/adidas-business-apparel.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 335086,
+        "losslessBytes": 335086,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "adidas-business-accessories-gear",
+      "output": "data/assets/icon-references/adidas/crops/business-accessories-gear.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 28591,
+        "losslessBytes": 28591,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 13281,
+        "transparentPixelRatio": 0.4497
+      },
+      "searchBox": {
+        "x": 122,
+        "y": 1078,
+        "width": 202,
+        "height": 122
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 122,
+        "y0": 1078,
+        "x1": 299,
+        "y1": 1180
+      },
+      "cropBox": {
+        "x0": 116,
+        "y0": 1070,
+        "x1": 330,
+        "y1": 1208
+      },
+      "validation": {
+        "width": 214,
+        "height": 138,
+        "foregroundPixels": 15655,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 6,
+          "right": 31,
+          "top": 8,
+          "bottom": 28
+        },
+        "centerOffset": {
+          "x": -0.0584,
+          "y": -0.0725
+        },
+        "passes": true
+      },
+      "note": "Duffle bag product photo for the Accessories & Gear revenue line; excludes value text, label text, and flow marks.",
+      "runtimeOutput": "data/assets/raster-annotations/adidas/business-accessories-gear.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 28591,
+        "losslessBytes": 28591,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/adidas/validation-sheets/adidas-business-accessories-gear.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 301028,
+        "losslessBytes": 301028,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}
