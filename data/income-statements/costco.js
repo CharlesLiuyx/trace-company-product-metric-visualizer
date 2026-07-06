@@ -10,6 +10,78 @@
 
   ssot.records.push(
     {
+      key: 'costco-q2-fy26',
+      company: 'Costco',
+      period: 'Q2 FY26',
+      periodNote: 'Ending Feb. 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/costco-q2-fy26.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 69.6,
+        notes: ['+9% Y/Y'],
+        items: [
+          { id: 'net_sales', label: 'Net Sales', value: 68.2, notes: ['+9% Y/Y'] },
+          { id: 'membership_fee', label: 'Membership Fee', value: 1.4, notes: ['+14% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'merchandise_costs', label: 'Merchandise costs', value: 60.7 },
+        operatingExpenses: {
+          total: 6.3,
+          items: [
+            { id: 'operating_expenses', label: 'SG&A expenses', value: 6.3 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.7 },
+      },
+      otherIncome: {
+        total: 0.1,
+        items: [{ id: 'interest', label: 'Interest', value: 0.1 }],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 8.9, notes: ['12.8% margin', '+0.2pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 2.6, notes: ['3.7% margin', '+0.1pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 2.0, notes: ['2.9% margin', '+0.1pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 2 月',
+          revenue: {
+            notes: ['同比 +9%'],
+            items: [
+              { id: 'net_sales', label: '净销售额', notes: ['同比 +9%'] },
+              { id: 'membership_fee', label: '会员费', notes: ['同比 +14%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '商品成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'operating_expenses', label: '销售、一般及行政费用' },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: {
+            items: [{ id: 'interest', label: '利息' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 12.8%', '同比 +0.2 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 3.7%', '同比 +0.1 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 2.9%', '同比 +0.1 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'costco-q3-fy26',
       company: 'Costco',
       period: 'Q3 FY26',

@@ -10,6 +10,128 @@
 
   ssot.records.push(
     {
+      key: 'mongodb-q4-fy26',
+      company: 'MongoDB',
+      period: 'Q4 FY26',
+      periodNote: 'Ending Jan. 2026',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/mongodb-q4-fy26.png',
+      roundingTolerance: 1.2,
+      revenue: {
+        total: 695,
+        notes: ['+27% Y/Y'],
+        items: [
+          {
+            id: 'subscription',
+            label: 'Subscription',
+            value: 673,
+            notes: ['+27% Y/Y'],
+            children: [
+              { id: 'atlas', label: 'Atlas', value: 503, notes: ['+29% Y/Y', '72% of revenue', '+1pp Y/Y'] },
+              { id: 'other_subscription', label: 'Other subscription', value: 170, notes: ['+20% Y/Y'] },
+            ],
+          },
+          { id: 'services', label: 'Services', value: 22, notes: ['+26% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          id: 'cost_of_revenue',
+          label: 'Cost of revenue',
+          value: 187,
+        },
+        operatingExpenses: {
+          total: 507,
+          notes: ['Visible operating-expense line items sum to $508M because the source chart rounds values.'],
+          items: [
+            { id: 'sm', label: 'Sales & marketing', value: 249, notes: ['36% of revenue', '(3pp) Y/Y'] },
+            { id: 'rnd', label: 'Research & development', value: 189, notes: ['27% of revenue', '(0pp) Y/Y'] },
+            { id: 'ga', label: 'General & admin', value: 70, notes: ['10% of revenue', '(0pp) Y/Y'] },
+          ],
+        },
+        tax: {
+          label: 'Tax',
+          value: 0,
+          notes: ['No separate tax line is shown in the source chart.'],
+        },
+      },
+      otherIncome: {
+        total: 15,
+        items: [{ id: 'interest_other', label: 'Interest & other', value: 15 }],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 508, notes: ['73% margin', '+0pp Y/Y'] },
+        operating: {
+          id: 'operating_profit',
+          label: 'Operating profit',
+          value: 0,
+          notes: ['0% margin', '(3pp) Y/Y', 'Gross profit less operating expenses differs by $1M due to rounded source-chart values.'],
+        },
+        net: {
+          id: 'net_profit',
+          label: 'Net profit',
+          value: 16,
+          notes: ['Operating profit plus interest & other differs by $1M due to rounded source-chart values.'],
+        },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第四季度',
+          periodNote: '截至 2026 年 1 月',
+          revenue: {
+            notes: ['同比 +27%'],
+            items: [
+              {
+                id: 'subscription',
+                label: '订阅',
+                notes: ['同比 +27%'],
+                children: [
+                  { id: 'atlas', label: 'Atlas', notes: ['同比 +29%', '占收入 72%', '同比 +1 个百分点'] },
+                  { id: 'other_subscription', label: '其他订阅', notes: ['同比 +20%'] },
+                ],
+              },
+              { id: 'services', label: '服务', notes: ['同比 +26%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              notes: ['可见营业费用明细因项目取整合计为 $508M。'],
+              items: [
+                { id: 'sm', label: '销售与市场', notes: ['占收入 36%', '同比 (3 个百分点)'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 27%', '同比 (0 个百分点)'] },
+                { id: 'ga', label: '一般及行政', notes: ['占收入 10%', '同比 (0 个百分点)'] },
+              ],
+            },
+            tax: {
+              label: '税费',
+              notes: ['来源图未展示单独税费项目。'],
+            },
+          },
+          otherIncome: {
+            items: [{ id: 'interest_other', label: '利息及其他' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 73%', '同比 +0 个百分点'] },
+            operating: {
+              label: '营业利润',
+              notes: ['利润率 0%', '同比 (3 个百分点)', '毛利润减营业费用因来源图数值取整相差 $1M。'],
+            },
+            net: {
+              label: '净利润',
+              notes: ['营业利润加利息及其他因来源图数值取整相差 $1M。'],
+            },
+          },
+        },
+      },
+    },
+    {
       key: 'mongodb-q1-fy27',
       company: 'MongoDB',
       period: 'Q1 FY27',

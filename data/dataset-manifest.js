@@ -2980,6 +2980,328 @@
             }
           }
         }
+      },
+      {
+        "key": "costco-q2-fy26",
+        "src": "data/datasets/costco-q2-fy26.js",
+        "data": {
+          "name": "Costco · Q2 FY26",
+          "company": "Costco",
+          "meta": {
+            "title": "Costco Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Feb. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Costco · 2026 财年第二季度",
+              "meta": {
+                "title": "Costco 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 2 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "asana-q4-fy26",
+        "src": "data/datasets/asana-q4-fy26.js",
+        "data": {
+          "name": "Asana · Q4 FY26",
+          "company": "Asana",
+          "meta": {
+            "title": "Asana Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Asana · 2026 财年第四季度",
+              "meta": {
+                "title": "Asana 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "docusign-q4-fy26",
+        "src": "data/datasets/docusign-q4-fy26.js",
+        "data": {
+          "name": "DocuSign · Q4 FY26",
+          "company": "DocuSign",
+          "meta": {
+            "title": "DocuSign Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "DocuSign · 2026 财年第四季度",
+              "meta": {
+                "title": "DocuSign 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "uipath-q4-fy26",
+        "src": "data/datasets/uipath-q4-fy26.js",
+        "data": {
+          "name": "UiPath · Q4 FY26",
+          "company": "UiPath",
+          "meta": {
+            "title": "UiPath Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "UiPath · 2026 财年第四季度",
+              "meta": {
+                "title": "UiPath 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "crowdstrike-q4-fy26",
+        "src": "data/datasets/crowdstrike-q4-fy26.js",
+        "data": {
+          "name": "CrowdStrike · Q4 FY26",
+          "company": "CrowdStrike",
+          "meta": {
+            "title": "CrowdStrike Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "CrowdStrike · 2026 财年第四季度",
+              "meta": {
+                "title": "CrowdStrike 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "didi-q4-fy25",
+        "src": "data/datasets/didi-q4-fy25.js",
+        "data": {
+          "name": "DiDi · Q4 FY25",
+          "company": "DiDi",
+          "meta": {
+            "title": "Didi Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "DiDi · 2025 财年第四季度",
+              "meta": {
+                "title": "Didi 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "jd-com-q4-fy25",
+        "src": "data/datasets/jd-com-q4-fy25.js",
+        "data": {
+          "name": "JD.com · Q4 FY25",
+          "company": "JD.com",
+          "meta": {
+            "title": "JD.com Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "JD.com · 2025 财年第四季度",
+              "meta": {
+                "title": "JD.com 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "meituan-q4-fy25",
+        "src": "data/datasets/meituan-q4-fy25.js",
+        "data": {
+          "name": "Meituan · Q4 FY25",
+          "company": "Meituan",
+          "meta": {
+            "title": "Meituan Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Meituan · 2025 财年第四季度",
+              "meta": {
+                "title": "Meituan 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mongodb-q4-fy26",
+        "src": "data/datasets/mongodb-q4-fy26.js",
+        "data": {
+          "name": "MongoDB · Q4 FY26",
+          "company": "MongoDB",
+          "meta": {
+            "title": "MongoDB Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "MongoDB · 2026 财年第四季度",
+              "meta": {
+                "title": "MongoDB 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "okta-q4-fy26",
+        "src": "data/datasets/okta-q4-fy26.js",
+        "data": {
+          "name": "Okta · Q4 FY26",
+          "company": "Okta",
+          "meta": {
+            "title": "Okta Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Okta · 2026 财年第四季度",
+              "meta": {
+                "title": "Okta 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pdd-holdings-q4-fy25",
+        "src": "data/datasets/pdd-holdings-q4-fy25.js",
+        "data": {
+          "name": "PDD Holdings · Q4 FY25",
+          "company": "PDD Holdings",
+          "meta": {
+            "title": "PDD Holdings Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "PDD Holdings · 2025 财年第四季度",
+              "meta": {
+                "title": "PDD Holdings 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tencent-q4-fy25",
+        "src": "data/datasets/tencent-q4-fy25.js",
+        "data": {
+          "name": "Tencent · Q4 FY25",
+          "company": "Tencent",
+          "meta": {
+            "title": "Tencent Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tencent · 2025 财年第四季度",
+              "meta": {
+                "title": "Tencent 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "veeva-q4-fy26",
+        "src": "data/datasets/veeva-q4-fy26.js",
+        "data": {
+          "name": "Veeva Systems · Q4 FY26",
+          "company": "Veeva Systems",
+          "meta": {
+            "title": "Veeva Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Veeva Systems · 2026 财年第四季度",
+              "meta": {
+                "title": "Veeva 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "c3-ai-q2-fy26",
+        "src": "data/datasets/c3-ai-q2-fy26.js",
+        "data": {
+          "name": "C3.ai · Q2 FY26",
+          "company": "C3.ai",
+          "meta": {
+            "title": "C3.ai Q2 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "C3.ai · 2026 财年第二季度",
+              "meta": {
+                "title": "C3.ai 2026 财年第二季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

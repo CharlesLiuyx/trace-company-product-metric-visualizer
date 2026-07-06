@@ -91,6 +91,89 @@
           },
         },
       },
+    },
+    {
+      key: 'pdd-holdings-q4-fy25',
+      company: 'PDD Holdings',
+      period: 'Q4 FY25',
+      periodNote: 'Ending Dec. 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/pdd-holdings-q4-fy25.png',
+      roundingTolerance: 0.25,
+      revenue: {
+        total: 17.7,
+        notes: ['+12% Y/Y'],
+        items: [
+          {
+            id: 'online_marketing',
+            label: 'Online Marketing & Others',
+            value: 8.6,
+            notes: ['+5% Y/Y', 'Performance-based services'],
+          },
+          { id: 'transaction_services', label: 'Transaction Services', value: 9.1, notes: ['+19% Y/Y', 'Merchant fee'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 7.9 },
+        operatingExpenses: {
+          total: 5.9,
+          notes: ['R&D, sales and marketing, and G&A line items sum to $5.8B because the source chart rounds to one decimal place.'],
+          items: [
+            { id: 'sm', label: 'Sales & marketing', value: 4.9, notes: ['28% of revenue', '(1pp) Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 0.7, notes: ['4% of revenue', '+1pp Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 0.2, notes: ['1% of revenue', '(1pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 1.2 },
+      },
+      otherIncome: {
+        total: 0.8,
+        items: [{ id: 'other', label: 'Other', value: 0.8 }],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 9.8, notes: ['55% margin', '(1pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 4.0, notes: ['22% margin', '(1pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 3.5, notes: ['20% margin', '(5pp) Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度',
+          periodNote: '截至 2025 年 12 月',
+          revenue: {
+            notes: ['同比 +12%'],
+            items: [
+              { label: '在线营销及其他', notes: ['同比 +5%', '基于绩效的服务'] },
+              { label: '交易服务', notes: ['同比 +19%', '商户费用'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              notes: ['研发、销售与市场、管理费用明细合计为 58 亿美元，因为源图按一位小数四舍五入。'],
+              items: [
+                { label: '销售与市场', notes: ['占收入 28%', '同比 (1 个百分点)'] },
+                { label: '研发', notes: ['占收入 4%', '同比 +1 个百分点'] },
+                { label: '管理费用', notes: ['占收入 1%', '同比 (1 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: {
+            items: [{ label: '其他' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 55%', '同比 (1 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 22%', '同比 (1 个百分点)'] },
+            net: { label: '净利润', notes: ['利润率 20%', '同比 (5 个百分点)'] },
+          },
+        },
+      },
     }
   );
 })(window);

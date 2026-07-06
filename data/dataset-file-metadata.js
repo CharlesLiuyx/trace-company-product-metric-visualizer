@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-06T15:37:03.000Z",
+  "generatedAt": "2026-07-06T17:31:06.249Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -792,6 +792,90 @@
       "updatedAtMs": 1783352223000,
       "updatedAt": "2026-07-06T15:37:03.000Z",
       "timeSource": "git"
+    },
+    "costco-q2-fy26": {
+      "path": "data/datasets/costco-q2-fy26.js",
+      "updatedAtMs": 1783356793106,
+      "updatedAt": "2026-07-06T16:53:13.106Z",
+      "timeSource": "mtime"
+    },
+    "asana-q4-fy26": {
+      "path": "data/datasets/asana-q4-fy26.js",
+      "updatedAtMs": 1783358826554,
+      "updatedAt": "2026-07-06T17:27:06.554Z",
+      "timeSource": "mtime"
+    },
+    "docusign-q4-fy26": {
+      "path": "data/datasets/docusign-q4-fy26.js",
+      "updatedAtMs": 1783357019116,
+      "updatedAt": "2026-07-06T16:56:59.116Z",
+      "timeSource": "mtime"
+    },
+    "uipath-q4-fy26": {
+      "path": "data/datasets/uipath-q4-fy26.js",
+      "updatedAtMs": 1783359066249,
+      "updatedAt": "2026-07-06T17:31:06.249Z",
+      "timeSource": "mtime"
+    },
+    "crowdstrike-q4-fy26": {
+      "path": "data/datasets/crowdstrike-q4-fy26.js",
+      "updatedAtMs": 1783352958782,
+      "updatedAt": "2026-07-06T15:49:18.782Z",
+      "timeSource": "mtime"
+    },
+    "didi-q4-fy25": {
+      "path": "data/datasets/didi-q4-fy25.js",
+      "updatedAtMs": 1783352918449,
+      "updatedAt": "2026-07-06T15:48:38.449Z",
+      "timeSource": "mtime"
+    },
+    "jd-com-q4-fy25": {
+      "path": "data/datasets/jd-com-q4-fy25.js",
+      "updatedAtMs": 1783356622562,
+      "updatedAt": "2026-07-06T16:50:22.562Z",
+      "timeSource": "mtime"
+    },
+    "meituan-q4-fy25": {
+      "path": "data/datasets/meituan-q4-fy25.js",
+      "updatedAtMs": 1783353035394,
+      "updatedAt": "2026-07-06T15:50:35.394Z",
+      "timeSource": "mtime"
+    },
+    "mongodb-q4-fy26": {
+      "path": "data/datasets/mongodb-q4-fy26.js",
+      "updatedAtMs": 1783353226744,
+      "updatedAt": "2026-07-06T15:53:46.744Z",
+      "timeSource": "mtime"
+    },
+    "okta-q4-fy26": {
+      "path": "data/datasets/okta-q4-fy26.js",
+      "updatedAtMs": 1783352867824,
+      "updatedAt": "2026-07-06T15:47:47.824Z",
+      "timeSource": "mtime"
+    },
+    "pdd-holdings-q4-fy25": {
+      "path": "data/datasets/pdd-holdings-q4-fy25.js",
+      "updatedAtMs": 1783352806481,
+      "updatedAt": "2026-07-06T15:46:46.481Z",
+      "timeSource": "mtime"
+    },
+    "tencent-q4-fy25": {
+      "path": "data/datasets/tencent-q4-fy25.js",
+      "updatedAtMs": 1783356466879,
+      "updatedAt": "2026-07-06T16:47:46.879Z",
+      "timeSource": "mtime"
+    },
+    "veeva-q4-fy26": {
+      "path": "data/datasets/veeva-q4-fy26.js",
+      "updatedAtMs": 1783357130577,
+      "updatedAt": "2026-07-06T16:58:50.577Z",
+      "timeSource": "mtime"
+    },
+    "c3-ai-q2-fy26": {
+      "path": "data/datasets/c3-ai-q2-fy26.js",
+      "updatedAtMs": 1783357045879,
+      "updatedAt": "2026-07-06T16:57:25.879Z",
+      "timeSource": "mtime"
     },
     "data/revenue-metrics.js": {
       "path": "data/revenue-metrics.js",
