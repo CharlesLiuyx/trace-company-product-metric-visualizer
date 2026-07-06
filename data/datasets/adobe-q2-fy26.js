@@ -156,7 +156,7 @@
         sm: { x: 2337, y: 753, width: 72, height: 110 },
         rnd: { x: 2337, y: 941, width: 72, height: 63 },
         ga: { x: 2337, y: 1096, width: 72, height: 28 },
-        amortization: { x: 2337, y: 1124, width: 72, height: 2 },
+        amortization: { x: 2337, y: 1223, width: 72, height: 2 },
       },
       labels: {
         creative_marketing: {
@@ -260,7 +260,7 @@
         operating_expenses: {
           blocks: [
             {
-              x: 1905, top: 935, anchor: 'middle', lineGap: 8,
+              x: 1905, top: 938, anchor: 'middle', lineGap: 8,
               lines: [
                 { text: 'Operating', size: 40, weight: 800 },
                 { text: 'expenses', size: 40, weight: 800 },
@@ -564,7 +564,7 @@
             operating_expenses: {
               blocks: [
                 {
-                  x: 1905, top: 935, anchor: 'middle', lineGap: 13,
+                  x: 1905, top: 938, anchor: 'middle', lineGap: 13,
                   lines: [
                     { text: '营业', size: 40, weight: 800 },
                     { text: '费用', size: 40, weight: 800 },

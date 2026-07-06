@@ -2796,6 +2796,52 @@
             }
           }
         }
+      },
+      {
+        "key": "alibaba-q3-fy26",
+        "src": "data/datasets/alibaba-q3-fy26.js",
+        "data": {
+          "name": "Alibaba · Q3 FY26",
+          "company": "Alibaba",
+          "meta": {
+            "title": "Alibaba Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Alibaba · 2026 财年第三季度",
+              "meta": {
+                "title": "Alibaba 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "adobe-q1-fy26",
+        "src": "data/datasets/adobe-q1-fy26.js",
+        "data": {
+          "name": "Adobe · Q1 FY26",
+          "company": "Adobe",
+          "meta": {
+            "title": "Adobe Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Feb. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Adobe · 2026 财年第一季度",
+              "meta": {
+                "title": "Adobe 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 2 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

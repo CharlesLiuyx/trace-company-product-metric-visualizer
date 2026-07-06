@@ -3,9 +3,15 @@
   "language": "en",
   "similarityTolerance": 0.003,
   "baselines": {
+    "adobe-q1-fy26": {
+      "similarity": 0.969309,
+      "mae": 7.8262,
+      "width": 2667,
+      "height": 1500
+    },
     "adobe-q2-fy26": {
-      "similarity": 0.968671,
-      "mae": 7.989,
+      "similarity": 0.968801,
+      "mae": 7.9558,
       "width": 2667,
       "height": 1500
     },
@@ -18,6 +24,12 @@
     "airbus-q1-fy26": {
       "similarity": 0.969961,
       "mae": 7.6601,
+      "width": 2667,
+      "height": 1500
+    },
+    "alibaba-q3-fy26": {
+      "similarity": 0.951717,
+      "mae": 12.3121,
       "width": 2667,
       "height": 1500
     },

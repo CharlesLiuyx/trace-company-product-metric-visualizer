@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-05T18:28:06.000Z",
+  "generatedAt": "2026-07-06T03:47:01.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -15,8 +15,8 @@
     },
     "adobe-q2-fy26": {
       "path": "data/datasets/adobe-q2-fy26.js",
-      "updatedAtMs": 1783153146000,
-      "updatedAt": "2026-07-04T08:19:06.000Z",
+      "updatedAtMs": 1783309621000,
+      "updatedAt": "2026-07-06T03:47:01.000Z",
       "timeSource": "git"
     },
     "spacex-fy25": {
@@ -743,6 +743,18 @@
       "path": "data/datasets/broadcom-q1-fy26.js",
       "updatedAtMs": 1783276086000,
       "updatedAt": "2026-07-05T18:28:06.000Z",
+      "timeSource": "git"
+    },
+    "alibaba-q3-fy26": {
+      "path": "data/datasets/alibaba-q3-fy26.js",
+      "updatedAtMs": 1783309621000,
+      "updatedAt": "2026-07-06T03:47:01.000Z",
+      "timeSource": "git"
+    },
+    "adobe-q1-fy26": {
+      "path": "data/datasets/adobe-q1-fy26.js",
+      "updatedAtMs": 1783309621000,
+      "updatedAt": "2026-07-06T03:47:01.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {
