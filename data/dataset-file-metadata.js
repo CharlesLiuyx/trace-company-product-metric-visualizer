@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-06T03:47:01.000Z",
+  "generatedAt": "2026-07-06T15:37:03.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -755,6 +755,42 @@
       "path": "data/datasets/adobe-q1-fy26.js",
       "updatedAtMs": 1783309621000,
       "updatedAt": "2026-07-06T03:47:01.000Z",
+      "timeSource": "git"
+    },
+    "coreweave-fy25": {
+      "path": "data/datasets/coreweave-fy25.js",
+      "updatedAtMs": 1783352223000,
+      "updatedAt": "2026-07-06T15:37:03.000Z",
+      "timeSource": "git"
+    },
+    "adidas-q4-fy25": {
+      "path": "data/datasets/adidas-q4-fy25.js",
+      "updatedAtMs": 1783352223000,
+      "updatedAt": "2026-07-06T15:37:03.000Z",
+      "timeSource": "git"
+    },
+    "lululemon-fy25": {
+      "path": "data/datasets/lululemon-fy25.js",
+      "updatedAtMs": 1783352223000,
+      "updatedAt": "2026-07-06T15:37:03.000Z",
+      "timeSource": "git"
+    },
+    "micron-q2-fy26": {
+      "path": "data/datasets/micron-q2-fy26.js",
+      "updatedAtMs": 1783352223000,
+      "updatedAt": "2026-07-06T15:37:03.000Z",
+      "timeSource": "git"
+    },
+    "nike-q3-fy26": {
+      "path": "data/datasets/nike-q3-fy26.js",
+      "updatedAtMs": 1783352223000,
+      "updatedAt": "2026-07-06T15:37:03.000Z",
+      "timeSource": "git"
+    },
+    "marvell-q4-fy26": {
+      "path": "data/datasets/marvell-q4-fy26.js",
+      "updatedAtMs": 1783352223000,
+      "updatedAt": "2026-07-06T15:37:03.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {

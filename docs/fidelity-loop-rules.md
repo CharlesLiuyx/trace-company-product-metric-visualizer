@@ -333,9 +333,10 @@ bbox，不以源码 link 数组位置、node `order` 或上一轮视觉印象为
 - T8 同节点侧置 name + 同轴 value/note 组合（高风险盲点）：同轴 label 与柱子
   x 方向有交集或中心线接近时，即使二者垂直相交也归入上下排列组合，记录负
   `edgeGap` 并按交叠修复；不因 `label.bottom <= node.top` 不成立而漏掉。
-- T9 短 source 柱的 value/note block（盲点 B4）：以该柱渲染 centerX 为锚点
-  正上方居中；每个本应位于柱正上/正下的 block 手动核对
-  `block.x ≈ nodeCenterX`，不能只依赖 gate 是否报同轴。
+- T9 短 source 柱的 value/name/note block（盲点 B4）：以该柱渲染 centerX
+  为锚点正上方或正下方居中；每个本应位于柱正上/正下的 block 手动核对
+  `block.x ≈ nodeCenterX`，不能只依赖 gate 是否报同轴，也不能把 name/note
+  block 误当成侧置 label 后漏掉居中检查。
 - T10 短辅助节点（interest、other income、tax benefit、investment gains 等）
   做同样检查；参考图把这类节点画在自身 label 正上/正下时，节点位置以 label
   外框为主要参照，不得被主流带或终端节点牵引到别处。
@@ -357,6 +358,10 @@ bbox，不以源码 link 数组位置、node `order` 或上一轮视觉印象为
   【案例】Alibaba Q3 FY26 的 `Other $0.2B` 是可见短绿柱，不能缩成 3px 锚点；
   其 label 属于短柱正下方的同轴组合，应以短柱中心居中；`Investments` label
   应上移靠近自身短绿柱，而不是停留在远离柱子的默认位置。
+- T14 可见短横辅助柱端点：用户指出「短横柱过长/过短」时，必须在原图局部 crop
+  上逐行量测直线段的 `x0..x1`，区分直线段、弯曲连接线和文字像素；修复以
+  `layout.nodes.width`/`x` 还原可见直线段长度，并同步重算同轴 label 中心，
+  不得沿用默认短节点宽度或只靠移动曲线端点遮盖长度误差。
 
 ## 注释容器
 

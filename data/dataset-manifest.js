@@ -2842,6 +2842,144 @@
             }
           }
         }
+      },
+      {
+        "key": "coreweave-fy25",
+        "src": "data/datasets/coreweave-fy25.js",
+        "data": {
+          "name": "CoreWeave · FY25",
+          "company": "CoreWeave",
+          "meta": {
+            "title": "CoreWeave FY25 Income Statement",
+            "period": "FY25",
+            "periodNote": "Fiscal year 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "CoreWeave · 2025 财年",
+              "meta": {
+                "title": "CoreWeave 2025 财年利润表",
+                "period": "2025 财年",
+                "periodNote": "2025 财年"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "adidas-q4-fy25",
+        "src": "data/datasets/adidas-q4-fy25.js",
+        "data": {
+          "name": "Adidas · Q4 FY25",
+          "company": "Adidas",
+          "meta": {
+            "title": "Adidas Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Adidas · 2025 财年第四季度",
+              "meta": {
+                "title": "Adidas 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lululemon-fy25",
+        "src": "data/datasets/lululemon-fy25.js",
+        "data": {
+          "name": "lululemon · FY25",
+          "company": "lululemon athletica",
+          "meta": {
+            "title": "Lululemon FY25 Income Statement",
+            "period": "FY25",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "lululemon · 2025 财年",
+              "meta": {
+                "title": "Lululemon 2025 财年利润表",
+                "period": "2025 财年",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "micron-q2-fy26",
+        "src": "data/datasets/micron-q2-fy26.js",
+        "data": {
+          "name": "Micron · Q2 FY26",
+          "company": "Micron",
+          "meta": {
+            "title": "Micron Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Feb. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Micron · 2026 财年第二季度",
+              "meta": {
+                "title": "Micron 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 2 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nike-q3-fy26",
+        "src": "data/datasets/nike-q3-fy26.js",
+        "data": {
+          "name": "Nike · Q3 FY26",
+          "company": "Nike",
+          "meta": {
+            "title": "Nike Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Feb. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Nike · 2026 财年第三季度",
+              "meta": {
+                "title": "Nike 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 2 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "marvell-q4-fy26",
+        "src": "data/datasets/marvell-q4-fy26.js",
+        "data": {
+          "name": "Marvell · Q4 FY26",
+          "company": "Marvell",
+          "meta": {
+            "title": "Marvell Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Marvell · 2026 财年第四季度",
+              "meta": {
+                "title": "Marvell 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

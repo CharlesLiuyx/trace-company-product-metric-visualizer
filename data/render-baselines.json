@@ -3,6 +3,12 @@
   "language": "en",
   "similarityTolerance": 0.003,
   "baselines": {
+    "adidas-q4-fy25": {
+      "similarity": 0.96185,
+      "mae": 9.7283,
+      "width": 2667,
+      "height": 1500
+    },
     "adobe-q1-fy26": {
       "similarity": 0.969309,
       "mae": 7.8262,
@@ -171,6 +177,12 @@
       "width": 2667,
       "height": 1500
     },
+    "coreweave-fy25": {
+      "similarity": 0.961322,
+      "mae": 9.8628,
+      "width": 2667,
+      "height": 1500
+    },
     "coreweave-q1-fy26": {
       "similarity": 0.958062,
       "mae": 10.6942,
@@ -321,6 +333,12 @@
       "width": 2667,
       "height": 1500
     },
+    "lululemon-fy25": {
+      "similarity": 0.94505,
+      "mae": 14.0123,
+      "width": 2667,
+      "height": 1500
+    },
     "lululemon-q1-fy26": {
       "similarity": 0.952756,
       "mae": 12.0473,
@@ -330,6 +348,12 @@
     "marriott-q1-fy26": {
       "similarity": 0.958821,
       "mae": 10.5005,
+      "width": 2667,
+      "height": 1500
+    },
+    "marvell-q4-fy26": {
+      "similarity": 0.968513,
+      "mae": 8.0291,
       "width": 2667,
       "height": 1500
     },
@@ -348,6 +372,12 @@
     "meta-q1-fy26": {
       "similarity": 0.958731,
       "mae": 10.5235,
+      "width": 2667,
+      "height": 1500
+    },
+    "micron-q2-fy26": {
+      "similarity": 0.961116,
+      "mae": 9.9154,
       "width": 2667,
       "height": 1500
     },
@@ -402,6 +432,12 @@
     "netflix-q1-fy26": {
       "similarity": 0.960568,
       "mae": 10.0552,
+      "width": 2667,
+      "height": 1500
+    },
+    "nike-q3-fy26": {
+      "similarity": 0.970031,
+      "mae": 7.642,
       "width": 2667,
       "height": 1500
     },
@@ -725,7 +761,7 @@
     },
     "warner-bros-q1-fy26": {
       "similarity": 0.971509,
-      "mae": 7.2651,
+      "mae": 7.2652,
       "width": 2667,
       "height": 1500
     },

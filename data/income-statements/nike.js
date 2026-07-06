@@ -90,6 +90,88 @@
           },
         },
       },
+    },
+    {
+      key: 'nike-q3-fy26',
+      company: 'Nike',
+      period: 'Q3 FY26',
+      periodNote: 'Ending Feb. 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/nike-q3-fy26.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 11.3,
+        notes: ['+0% Y/Y', 'China (7%) Y/Y', 'RoW +1% Y/Y'],
+        items: [
+          { id: 'footwear', label: 'Footwear', value: 7.4, notes: ['+2% Y/Y'] },
+          { id: 'apparel', label: 'Apparel', value: 3.2, notes: ['(0%) Y/Y'] },
+          { id: 'equipment', label: 'Equipment', value: 0.5, notes: ['(2%) Y/Y'] },
+          { id: 'converse', label: 'Converse', value: 0.3, notes: ['(30%) Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 6.7 },
+        operatingExpenses: {
+          total: 4.0,
+          items: [
+            { id: 'overhead', label: 'Overhead', value: 2.9, notes: ['26% of revenue', '+1pp Y/Y'] },
+            { id: 'demand_creation', label: 'Demand Creation', value: 1.1, notes: ['10% of revenue', '+0pp Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.1 },
+      },
+      otherIncome: {
+        total: 0.1,
+        items: [
+          { id: 'other', label: 'Other', value: 0.1 },
+        ],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 4.5, notes: ['40% margin', '(1pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 0.6, notes: ['5% margin', '(2pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 0.5, notes: ['5% margin', '(2pp) Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第三季度',
+          periodNote: '截至 2026 年 2 月',
+          revenue: {
+            notes: ['同比 +0%', '中国同比 (7%)', '其他地区同比 +1%'],
+            items: [
+              { id: 'footwear', label: '鞋类', notes: ['同比 +2%'] },
+              { id: 'apparel', label: '服装', notes: ['同比 (0%)'] },
+              { id: 'equipment', label: '装备', notes: ['同比 (2%)'] },
+              { id: 'converse', label: 'Converse', notes: ['同比 (30%)'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '销售成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'overhead', label: '管理费用', notes: ['占收入 26%', '同比 +1 个百分点'] },
+                { id: 'demand_creation', label: '需求创造费用', notes: ['占收入 10%', '同比 +0 个百分点'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: {
+            items: [
+              { id: 'other', label: '其他' },
+            ],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 40%', '同比 (1 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 5%', '同比 (2 个百分点)'] },
+            net: { label: '净利润', notes: ['利润率 5%', '同比 (2 个百分点)'] },
+          },
+        },
+      },
     }
   );
 })(window);
