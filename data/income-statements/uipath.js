@@ -93,6 +93,95 @@
           },
         },
       },
+    },
+    {
+      key: 'uipath-q4-fy26',
+      company: 'UiPath',
+      period: 'Q4 FY26',
+      periodNote: 'Ending Jan. 2026',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/uipath-q4-fy26.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 481,
+        notes: ['+14% Y/Y'],
+        items: [
+          { id: 'subscription', label: 'Subscription', value: 251, notes: ['+17% Y/Y', '84% gross margin'] },
+          { id: 'licenses', label: 'Licenses', value: 216, notes: ['+9% Y/Y', '99% gross margin'] },
+          {
+            id: 'professional_services',
+            label: 'Professional services',
+            value: 14,
+            notes: ['+29% Y/Y', '(126%) gross margin'],
+          },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 74 },
+        operatingExpenses: {
+          total: 327,
+          items: [
+            { id: 'sm', label: 'S&M', value: 178, notes: ['37% of revenue', '(5pp) Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 95, notes: ['20% of revenue', '(4pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 54, notes: ['11% of revenue', '(0pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0, notes: ['Source chart shows a $12M tax benefit instead of tax expense.'] },
+      },
+      otherIncome: {
+        total: 24,
+        items: [
+          { id: 'interest', label: 'Interest', value: 12 },
+          { id: 'tax_benefit', label: 'Tax benefit', value: 12 },
+        ],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 407, notes: ['85% margin', '(0pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 80, notes: ['17% margin', '+9pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 104, notes: ['22% margin', '+9pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第四季度',
+          periodNote: '截至 2026 年 1 月',
+          revenue: {
+            notes: ['同比 +14%'],
+            items: [
+              { id: 'subscription', label: '订阅', notes: ['同比 +17%', '毛利率 84%'] },
+              { id: 'licenses', label: '许可证', notes: ['同比 +9%', '毛利率 99%'] },
+              { id: 'professional_services', label: '专业服务', notes: ['同比 +29%', '毛利率 (126%)'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'sm', label: '销售与营销', notes: ['占收入 37%', '同比 (5 个百分点)'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 20%', '同比 (4 个百分点)'] },
+                { id: 'ga', label: '一般及行政', notes: ['占收入 11%', '同比 (0 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费', notes: ['来源图显示 $12M 税收收益，而不是税费。'] },
+          },
+          otherIncome: {
+            items: [
+              { id: 'interest', label: '利息' },
+              { id: 'tax_benefit', label: '税收收益' },
+            ],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 85%', '同比 (0 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 17%', '同比 +9 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 22%', '同比 +9 个百分点'] },
+          },
+        },
+      },
     }
   );
 })(window);

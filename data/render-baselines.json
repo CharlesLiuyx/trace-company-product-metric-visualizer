@@ -99,6 +99,12 @@
       "width": 2667,
       "height": 1500
     },
+    "asana-q4-fy26": {
+      "similarity": 0.963057,
+      "mae": 9.4205,
+      "width": 2667,
+      "height": 1500
+    },
     "asml-q1-fy26": {
       "similarity": 0.97277,
       "mae": 6.9436,
@@ -147,6 +153,12 @@
       "width": 2667,
       "height": 1500
     },
+    "c3-ai-q2-fy26": {
+      "similarity": 0.970068,
+      "mae": 7.6326,
+      "width": 2667,
+      "height": 1500
+    },
     "c3-ai-q4-fy26": {
       "similarity": 0.974622,
       "mae": 6.4715,
@@ -189,6 +201,12 @@
       "width": 2667,
       "height": 1500
     },
+    "costco-q2-fy26": {
+      "similarity": 0.950321,
+      "mae": 12.668,
+      "width": 2667,
+      "height": 1500
+    },
     "costco-q3-fy26": {
       "similarity": 0.961784,
       "mae": 9.7451,
@@ -198,6 +216,12 @@
     "crowdstrike-q1-fy27": {
       "similarity": 0.973631,
       "mae": 6.724,
+      "width": 2667,
+      "height": 1500
+    },
+    "crowdstrike-q4-fy26": {
+      "similarity": 0.972405,
+      "mae": 7.0368,
       "width": 2667,
       "height": 1500
     },
@@ -219,6 +243,12 @@
       "width": 2667,
       "height": 1500
     },
+    "didi-q4-fy25": {
+      "similarity": 0.976003,
+      "mae": 6.1192,
+      "width": 2667,
+      "height": 1500
+    },
     "digital-ocean-q1-fy26": {
       "similarity": 0.967691,
       "mae": 8.2388,
@@ -234,6 +264,12 @@
     "docusign-q1-fy27": {
       "similarity": 0.96993,
       "mae": 7.668,
+      "width": 2667,
+      "height": 1500
+    },
+    "docusign-q4-fy26": {
+      "similarity": 0.971381,
+      "mae": 7.2979,
       "width": 2667,
       "height": 1500
     },
@@ -315,6 +351,12 @@
       "width": 2667,
       "height": 1500
     },
+    "jd-com-q4-fy25": {
+      "similarity": 0.969356,
+      "mae": 7.8141,
+      "width": 2667,
+      "height": 1500
+    },
     "klarna-q1-fy26": {
       "similarity": 0.950675,
       "mae": 12.578,
@@ -369,6 +411,12 @@
       "width": 2667,
       "height": 1500
     },
+    "meituan-q4-fy25": {
+      "similarity": 0.966853,
+      "mae": 8.4525,
+      "width": 2667,
+      "height": 1500
+    },
     "meta-q1-fy26": {
       "similarity": 0.958731,
       "mae": 10.5235,
@@ -408,6 +456,12 @@
     "mongodb-q1-fy27": {
       "similarity": 0.95816,
       "mae": 10.6693,
+      "width": 2667,
+      "height": 1500
+    },
+    "mongodb-q4-fy26": {
+      "similarity": 0.956875,
+      "mae": 10.9968,
       "width": 2667,
       "height": 1500
     },
@@ -555,6 +609,12 @@
       "width": 2667,
       "height": 1500
     },
+    "okta-q4-fy26": {
+      "similarity": 0.959344,
+      "mae": 10.3673,
+      "width": 2667,
+      "height": 1500
+    },
     "oracle-q4-fy26": {
       "similarity": 0.960721,
       "mae": 10.0161,
@@ -582,6 +642,12 @@
     "pdd-holdings-q1-fy26": {
       "similarity": 0.948958,
       "mae": 13.0157,
+      "width": 2667,
+      "height": 1500
+    },
+    "pdd-holdings-q4-fy25": {
+      "similarity": 0.951748,
+      "mae": 12.3042,
       "width": 2667,
       "height": 1500
     },
@@ -711,6 +777,12 @@
       "width": 4686,
       "height": 2634
     },
+    "tencent-q4-fy25": {
+      "similarity": 0.970466,
+      "mae": 7.5312,
+      "width": 2667,
+      "height": 1500
+    },
     "tesla-q1-fy26": {
       "similarity": 0.947838,
       "mae": 13.3013,
@@ -735,6 +807,12 @@
       "width": 2667,
       "height": 1500
     },
+    "uipath-q4-fy26": {
+      "similarity": 0.967581,
+      "mae": 8.2668,
+      "width": 2667,
+      "height": 1500
+    },
     "unitedhealth-q1-fy26": {
       "similarity": 0.969315,
       "mae": 7.8246,
@@ -744,6 +822,12 @@
     "veeva-q1-fy27": {
       "similarity": 0.977667,
       "mae": 5.6949,
+      "width": 2667,
+      "height": 1500
+    },
+    "veeva-q4-fy26": {
+      "similarity": 0.97631,
+      "mae": 6.0409,
       "width": 2667,
       "height": 1500
     },
