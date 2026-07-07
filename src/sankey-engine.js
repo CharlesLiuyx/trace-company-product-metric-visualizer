@@ -755,6 +755,24 @@
           drawIconSvg(n, name, ix + k * (sz + sgap), iy, sz);
         });
       }
+
+      // Multi-line labels have visual gaps between text rows; this keeps the
+      // whole rendered label box hoverable without changing visible pixels.
+      const labelNode = g.node();
+      if (labelNode && typeof labelNode.getBBox === 'function') {
+        const hit = labelNode.getBBox();
+        if (hit && hit.width > 0 && hit.height > 0) {
+          g.insert('rect', ':first-child')
+            .attr('class', 'sankey-label-hitbox')
+            .attr('x', hit.x)
+            .attr('y', hit.y)
+            .attr('width', hit.width)
+            .attr('height', hit.height)
+            .attr('fill', '#ffffff')
+            .attr('fill-opacity', 0)
+            .style('pointer-events', 'all');
+        }
+      }
     });
 
     iconLayout.forEach((ic) => {
