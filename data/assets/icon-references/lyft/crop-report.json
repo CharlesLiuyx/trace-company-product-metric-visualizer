@@ -1,0 +1,250 @@
+{
+  "source": "input/processed/lyft-fy25.png",
+  "spec": "input/icon-crop-specs/lyft-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-07T20:01:28.450121+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 5
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "lyft-company-app-logo",
+      "output": "data/assets/icon-references/lyft/crops/lyft-company-app-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 8535,
+        "losslessBytes": 12838,
+        "savingsVsLossless": 0.3352,
+        "metrics": {
+          "meanAbsoluteError": 0.2553,
+          "rootMeanSquareError": 1.3765,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 25,
+          "changedPixelRatio": 0.0912
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 747,
+        "y": 258,
+        "width": 207,
+        "height": 207
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 747,
+        "y0": 258,
+        "x1": 953,
+        "y1": 464
+      },
+      "cropBox": {
+        "x0": 737,
+        "y0": 248,
+        "x1": 964,
+        "y1": 475
+      },
+      "validation": {
+        "width": 227,
+        "height": 227,
+        "foregroundPixels": 32295,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 10,
+          "right": 11,
+          "top": 10,
+          "bottom": 11
+        },
+        "centerOffset": {
+          "x": -0.0022,
+          "y": -0.0022
+        },
+        "passes": true
+      },
+      "note": "Lyft square app logo above the revenue hub; retained as reference only, runtime uses pure SVG.",
+      "validationSheet": "data/assets/icon-references/lyft/validation-sheets/lyft-company-app-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 244745,
+        "losslessBytes": 244745,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "lyft-rideshare-car-cluster",
+      "output": "data/assets/icon-references/lyft/crops/lyft-rideshare-car-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 29660,
+        "losslessBytes": 29660,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 5,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 17736,
+        "transparentPixelRatio": 0.3919
+      },
+      "searchBox": {
+        "x": 45,
+        "y": 590,
+        "width": 260,
+        "height": 128
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 53,
+        "y0": 600,
+        "x1": 305,
+        "y1": 714
+      },
+      "cropBox": {
+        "x0": 35,
+        "y0": 580,
+        "x1": 327,
+        "y1": 735
+      },
+      "validation": {
+        "width": 292,
+        "height": 155,
+        "foregroundPixels": 15655,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 18,
+          "right": 22,
+          "top": 20,
+          "bottom": 21
+        },
+        "centerOffset": {
+          "x": -0.0068,
+          "y": -0.0032
+        },
+        "passes": true
+      },
+      "note": "Rideshare car illustration and shadow; excludes the Rideshare text label and adjacent Sankey node.",
+      "excludedPixels": 6500,
+      "validationSheet": "data/assets/icon-references/lyft/validation-sheets/lyft-rideshare-car-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 251947,
+        "losslessBytes": 251947,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "lyft-rentals-phone-cluster",
+      "output": "data/assets/icon-references/lyft/crops/lyft-rentals-phone-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 38450,
+        "losslessBytes": 38450,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 5,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 8909,
+        "transparentPixelRatio": 0.212
+      },
+      "searchBox": {
+        "x": 86,
+        "y": 902,
+        "width": 196,
+        "height": 190
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 92,
+        "y0": 906,
+        "x1": 277,
+        "y1": 1083
+      },
+      "cropBox": {
+        "x0": 80,
+        "y0": 896,
+        "x1": 288,
+        "y1": 1098
+      },
+      "validation": {
+        "width": 208,
+        "height": 202,
+        "foregroundPixels": 10323,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 11,
+          "top": 10,
+          "bottom": 15
+        },
+        "centerOffset": {
+          "x": 0.0024,
+          "y": -0.0124
+        },
+        "passes": true
+      },
+      "note": "Rentals mobile-app phone cluster; excludes the Rentals text label.",
+      "validationSheet": "data/assets/icon-references/lyft/validation-sheets/lyft-rentals-phone-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 314444,
+        "losslessBytes": 314444,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

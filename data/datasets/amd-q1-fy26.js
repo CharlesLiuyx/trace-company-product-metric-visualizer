@@ -140,7 +140,7 @@
               lines: [{ text: 'Client', size: 40, weight: 800 }],
             },
             {
-              x: 534, top: 916, anchor: 'end', lineGap: 8,
+              x: 534, top: 890, anchor: 'end', lineGap: 8,
               lines: [
                 { text: 'Client and Gaming', size: 28, weight: 400, color: NOTE },
                 { text: '16% operating margin', size: 28, weight: 400, color: NOTE },
@@ -152,7 +152,7 @@
         gaming: {
           blocks: [
             {
-              x: 604, top: 946, anchor: 'middle', lineGap: 10,
+              x: 604, top: 968, anchor: 'middle', lineGap: 10,
               lines: [
                 { text: '$value', size: 39, weight: 400 },
                 { text: '+11% Y/Y', size: 28, weight: 400, color: NOTE },
@@ -211,7 +211,7 @@
         cost_of_revenue: {
           blocks: [
             {
-              x: 1484, top: 1145, anchor: 'middle', lineGap: 8,
+              x: 1484, top: 1147, anchor: 'middle', lineGap: 8,
               lines: [
                 { text: 'Cost of', size: 36, weight: 800 },
                 { text: 'revenue', size: 36, weight: 800 },
@@ -347,13 +347,13 @@
       { source: 'data_center', target: 'revenue', value: 5.8, targetOrder: 0 },
       { source: 'client', target: 'revenue', value: 2.9, targetOrder: 1 },
       { source: 'gaming', target: 'revenue', value: 0.7, targetOrder: 2 },
-      { source: 'embedded', target: 'revenue', value: 0.9, targetOrder: 3 },
+      { source: 'embedded', target: 'revenue', value: 0.9, targetOrder: 3, y0: 1258.25 },
       { source: 'revenue', target: 'gross_profit', value: 5.4, sourceOrder: 0, targetOrder: 0, linkTint: GREEN_LINK },
       { source: 'revenue', target: 'cost_of_revenue', value: 4.8, sourceOrder: 1, targetOrder: 0 },
       { source: 'gross_profit', target: 'operating_profit', value: 1.5, sourceOrder: 0, targetOrder: 0 },
       { source: 'gross_profit', target: 'operating_expenses', value: 3.9, sourceOrder: 1, targetOrder: 0 },
       { source: 'operating_profit', target: 'net_profit', value: 1.3, width: 44, sourceOrder: 0, targetOrder: 0 },
-      { source: 'operating_profit', target: 'tax', value: 0.2, sourceOrder: 1, targetOrder: 0 },
+      { source: 'operating_profit', target: 'tax', value: 0.2, width: 9, y0: 533, sourceOrder: 1, targetOrder: 0 },
       { source: 'other', target: 'net_profit', value: 0.1, width: 5, sourceOrder: 0, targetOrder: 1, linkTint: { left: GREEN_LABEL, right: GREEN_LINK } },
       { source: 'operating_expenses', target: 'rnd', value: 2.4, width: 86, sourceOrder: 0, targetOrder: 0 },
       { source: 'operating_expenses', target: 'sga', value: 1.3, width: 44, sourceOrder: 1, targetOrder: 0 },

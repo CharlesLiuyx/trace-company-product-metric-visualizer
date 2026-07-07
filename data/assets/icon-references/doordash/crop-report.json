@@ -1,0 +1,272 @@
+{
+  "source": "input/processed/doordash-q4-fy25.png",
+  "spec": "input/icon-crop-specs/doordash-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-07T19:50:12.117365+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "doordash-company-mark",
+      "output": "data/assets/icon-references/doordash/crops/company-mark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1150,
+        "losslessBytes": 4593,
+        "savingsVsLossless": 0.7496,
+        "metrics": {
+          "meanAbsoluteError": 0.2106,
+          "rootMeanSquareError": 1.2035,
+          "p99AbsoluteError": 3.0,
+          "maxChannelDiff": 44,
+          "changedPixelRatio": 0.4407
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 24222,
+        "transparentPixelRatio": 0.5581
+      },
+      "searchBox": {
+        "x": 735,
+        "y": 300,
+        "width": 280,
+        "height": 155
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 750,
+        "y0": 308,
+        "x1": 991,
+        "y1": 444
+      },
+      "cropBox": {
+        "x0": 735,
+        "y0": 300,
+        "x1": 1015,
+        "y1": 455
+      },
+      "validation": {
+        "width": 280,
+        "height": 155,
+        "foregroundPixels": 18504,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 15,
+          "right": 24,
+          "top": 8,
+          "bottom": 11
+        },
+        "centerOffset": {
+          "x": -0.0161,
+          "y": -0.0097
+        },
+        "passes": true
+      },
+      "note": "DoorDash company mark above the revenue hub; excludes revenue labels and chart flows.",
+      "validationSheet": "data/assets/icon-references/doordash/validation-sheets/doordash-company-mark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 234494,
+        "losslessBytes": 234494,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "doordash-left-wordmark",
+      "output": "data/assets/icon-references/doordash/crops/left-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1450,
+        "losslessBytes": 8059,
+        "savingsVsLossless": 0.8201,
+        "metrics": {
+          "meanAbsoluteError": 0.4848,
+          "rootMeanSquareError": 1.8126,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 26,
+          "changedPixelRatio": 0.2937
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 12131,
+        "transparentPixelRatio": 0.7115
+      },
+      "searchBox": {
+        "x": 76,
+        "y": 520,
+        "width": 275,
+        "height": 62
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 88,
+        "y0": 532,
+        "x1": 337,
+        "y1": 560
+      },
+      "cropBox": {
+        "x0": 76,
+        "y0": 520,
+        "x1": 351,
+        "y1": 582
+      },
+      "validation": {
+        "width": 275,
+        "height": 62,
+        "foregroundPixels": 2870,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 14,
+          "top": 12,
+          "bottom": 22
+        },
+        "centerOffset": {
+          "x": -0.0036,
+          "y": -0.0806
+        },
+        "passes": true
+      },
+      "note": "DoorDash segment wordmark next to the United States label.",
+      "validationSheet": "data/assets/icon-references/doordash/validation-sheets/doordash-left-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 245736,
+        "losslessBytes": 245736,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "wolt-deliveroo-cluster",
+      "output": "data/assets/icon-references/doordash/crops/wolt-deliveroo-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3214,
+        "losslessBytes": 15710,
+        "savingsVsLossless": 0.7954,
+        "metrics": {
+          "meanAbsoluteError": 0.5372,
+          "rootMeanSquareError": 2.0256,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.2624
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 25933,
+        "transparentPixelRatio": 0.6833
+      },
+      "searchBox": {
+        "x": 62,
+        "y": 912,
+        "width": 275,
+        "height": 138
+      },
+      "componentCount": 13,
+      "subjectBox": {
+        "x0": 69,
+        "y0": 920,
+        "x1": 326,
+        "y1": 1042
+      },
+      "cropBox": {
+        "x0": 62,
+        "y0": 912,
+        "x1": 337,
+        "y1": 1050
+      },
+      "validation": {
+        "width": 275,
+        "height": 138,
+        "foregroundPixels": 7918,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 7,
+          "right": 11,
+          "top": 8,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": -0.0073,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "International sub-brand cluster with Wolt and Deliveroo; excludes the International text label and publisher marks.",
+      "validationSheet": "data/assets/icon-references/doordash/validation-sheets/wolt-deliveroo-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 268080,
+        "losslessBytes": 268080,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

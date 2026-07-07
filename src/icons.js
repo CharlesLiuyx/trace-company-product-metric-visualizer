@@ -816,6 +816,12 @@ window.SANKEY_BUSINESS_ICONS = {
     <path d="M356 11H468V123H412V67H356Z" fill="#050505"/>
     <path d="M412 67L468 11V67Z" fill="#f2f2f2"/>
   `,
+  analogDevicesCompanyWordmark: `
+    <rect x="0" y="0" width="130" height="130" fill="#0067a5"/>
+    <path d="M30 22L106 65L30 108Z" fill="#ffffff"/>
+    <text x="150" y="56" font-family="Arial Black,Arial,Helvetica,sans-serif" font-size="56" font-weight="900" textLength="360" lengthAdjust="spacingAndGlyphs" fill="#0067a5">ANALOG</text>
+    <text x="150" y="119" font-family="Arial Black,Arial,Helvetica,sans-serif" font-size="56" font-weight="900" textLength="360" lengthAdjust="spacingAndGlyphs" fill="#0067a5">DEVICES</text>
+  `,
   amdDataCenterCluster: `
     <defs>
       <linearGradient id="amd-epyc-ring" x1="0" x2="1" y1="0" y2="1">

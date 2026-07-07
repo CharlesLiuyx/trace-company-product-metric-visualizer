@@ -270,7 +270,7 @@
         other_income: {
           blocks: [
             {
-              x: 2192, top: 227, anchor: 'middle', lineGap: 10,
+              x: 2211, top: 227, anchor: 'middle', lineGap: 10,
               lines: [
                 { text: 'Other', size: 31, weight: 800 },
                 { text: '$value', size: 30, weight: 400 },
