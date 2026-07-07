@@ -108,7 +108,7 @@ function logLabelLayoutAudit(audit) {
 
   audit.horizontalSideLabels.slice(0, maxRows).forEach((item) => {
     console.log(
-      `  horizontal ${item.node}#${item.labelIndex} ${item.side}: edgeGap=${formatPx(item.gap)} overlap=${formatPx(item.overlap)} verticalOverlap=${formatPx(item.verticalOverlap)}`
+      `  horizontal ${item.node}#${item.labelIndex} ${item.side}: edgeGap=${formatPx(item.gap)} overlap=${formatPx(item.overlap)} verticalCenterDelta=${formatPx(item.verticalCenterDelta)} verticalOverlap=${formatPx(item.verticalOverlap)}`
     );
   });
   if (audit.horizontalSideLabels.length > maxRows) {
