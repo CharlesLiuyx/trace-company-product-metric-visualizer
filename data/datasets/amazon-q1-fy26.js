@@ -115,7 +115,7 @@
               ],
             },
             {
-              x: 428, top: 282, anchor: 'middle', lineGap: 8,
+              x: 428, top: 280, anchor: 'middle', lineGap: 8,
               lines: [
                 { text: '$value', size: 34, weight: 400, color: '#111111' },
                 { text: '+12% Y/Y', size: 23, weight: 400, color: NOTE },
@@ -130,7 +130,7 @@
               lines: [{ text: 'Physical Store', size: 38, weight: 800, color: '#111111' }],
             },
             {
-              x: 428, top: 532, anchor: 'middle', lineGap: 8,
+              x: 428, top: 523, anchor: 'middle', lineGap: 8,
               lines: [
                 { text: '$value', size: 34, weight: 400, color: '#111111' },
                 { text: '+5% Y/Y', size: 23, weight: 400, color: NOTE },
@@ -149,7 +149,7 @@
               ],
             },
             {
-              x: 428, top: 643, anchor: 'middle', lineGap: 8,
+              x: 428, top: 641, anchor: 'middle', lineGap: 8,
               lines: [
                 { text: '$value', size: 34, weight: 400, color: '#111111' },
                 { text: '+14% Y/Y', size: 23, weight: 400, color: NOTE },
@@ -164,7 +164,7 @@
               lines: [{ text: 'Advertising', size: 38, weight: 800, color: '#111111' }],
             },
             {
-              x: 428, top: 828, anchor: 'middle', lineGap: 8,
+              x: 428, top: 818, anchor: 'middle', lineGap: 8,
               lines: [
                 { text: '$value', size: 34, weight: 400, color: '#111111' },
                 { text: '+24% Y/Y', size: 23, weight: 400, color: NOTE },
@@ -201,11 +201,11 @@
         other_revenue: {
           blocks: [
             {
-              x: 250, top: 1312, anchor: 'end',
+              x: 345, top: 1312, anchor: 'end',
               lines: [{ text: 'Other', size: 38, weight: 800, color: '#111111' }],
             },
             {
-              x: 428, top: 1235, anchor: 'middle', lineGap: 8,
+              x: 428, top: 1254, anchor: 'middle', lineGap: 8,
               lines: [
                 { text: '$value', size: 34, weight: 400, color: '#111111' },
                 { text: '+25% Y/Y', size: 23, weight: 400, color: NOTE },
@@ -456,7 +456,7 @@
                   ],
                 },
                 {
-                  x: 428, top: 643, anchor: 'middle', lineGap: 8,
+                  x: 428, top: 641, anchor: 'middle', lineGap: 8,
                   lines: [
                     { text: '$value', size: 34, weight: 400, color: '#111111' },
                     { text: '同比 +14%', size: 23, weight: 400, color: NOTE },

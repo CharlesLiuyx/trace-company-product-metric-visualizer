@@ -1,0 +1,614 @@
+{
+  "source": "input/processed/salesforce-q4-fy26.png",
+  "spec": "input/icon-crop-specs/salesforce-q4-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-07T18:50:57.868889+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "salesforce-company-cloud-logo",
+      "output": "data/assets/icon-references/salesforce/crops/company-cloud-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 3599,
+        "losslessBytes": 17975,
+        "savingsVsLossless": 0.7998,
+        "metrics": {
+          "meanAbsoluteError": 0.2439,
+          "rootMeanSquareError": 1.7187,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.0734
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 41243,
+        "transparentPixelRatio": 0.4213
+      },
+      "searchBox": {
+        "x": 1034,
+        "y": 222,
+        "width": 356,
+        "height": 258
+      },
+      "componentCount": 5,
+      "subjectBox": {
+        "x0": 1044,
+        "y0": 233,
+        "x1": 1379,
+        "y1": 468
+      },
+      "cropBox": {
+        "x0": 1028,
+        "y0": 218,
+        "x1": 1396,
+        "y1": 484
+      },
+      "validation": {
+        "width": 368,
+        "height": 266,
+        "foregroundPixels": 53245,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 16,
+          "right": 17,
+          "top": 15,
+          "bottom": 16
+        },
+        "centerOffset": {
+          "x": -0.0014,
+          "y": -0.0019
+        },
+        "passes": true
+      },
+      "note": "Salesforce cloud company logo only; excludes chart title, revenue labels, flows, website mark, and publisher attribution.",
+      "validationSheet": "data/assets/icon-references/salesforce/validation-sheets/salesforce-company-cloud-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 101149,
+        "losslessBytes": 296155,
+        "savingsVsLossless": 0.6585,
+        "metrics": {
+          "meanAbsoluteError": 0.4109,
+          "rootMeanSquareError": 2.4041,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 66,
+          "changedPixelRatio": 0.0928
+        }
+      }
+    },
+    {
+      "key": "salesforce-business-sales-icon",
+      "output": "data/assets/icon-references/salesforce/crops/business-sales-icon.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 1598,
+        "losslessBytes": 7590,
+        "savingsVsLossless": 0.7895,
+        "metrics": {
+          "meanAbsoluteError": 1.0781,
+          "rootMeanSquareError": 2.6495,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 31,
+          "changedPixelRatio": 0.5074
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          235,
+          236,
+          236
+        ],
+        "transparentPixels": 5017,
+        "transparentPixelRatio": 0.3111
+      },
+      "searchBox": {
+        "x": 220,
+        "y": 360,
+        "width": 112,
+        "height": 116
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 224,
+        "y0": 366,
+        "x1": 329,
+        "y1": 472
+      },
+      "cropBox": {
+        "x0": 214,
+        "y0": 354,
+        "x1": 340,
+        "y1": 482
+      },
+      "validation": {
+        "width": 126,
+        "height": 128,
+        "foregroundPixels": 10438,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 10,
+          "right": 11,
+          "top": 12,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": -0.004,
+          "y": 0.0078
+        },
+        "passes": true
+      },
+      "note": "Sales business icon only; excludes the Sales label, value, flow bar, and connector.",
+      "validationSheet": "data/assets/icon-references/salesforce/validation-sheets/salesforce-business-sales-icon.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 103619,
+        "losslessBytes": 304512,
+        "savingsVsLossless": 0.6597,
+        "metrics": {
+          "meanAbsoluteError": 0.4889,
+          "rootMeanSquareError": 2.4749,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 59,
+          "changedPixelRatio": 0.1345
+        }
+      }
+    },
+    {
+      "key": "salesforce-business-service-icon",
+      "output": "data/assets/icon-references/salesforce/crops/business-service-icon.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1405,
+        "losslessBytes": 8352,
+        "savingsVsLossless": 0.8318,
+        "metrics": {
+          "meanAbsoluteError": 0.8669,
+          "rootMeanSquareError": 2.6462,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 37,
+          "changedPixelRatio": 0.4397
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 7566,
+        "transparentPixelRatio": 0.5725
+      },
+      "searchBox": {
+        "x": 196,
+        "y": 584,
+        "width": 102,
+        "height": 92
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 198,
+        "y0": 590,
+        "x1": 298,
+        "y1": 674
+      },
+      "cropBox": {
+        "x0": 190,
+        "y0": 574,
+        "x1": 308,
+        "y1": 686
+      },
+      "validation": {
+        "width": 118,
+        "height": 112,
+        "foregroundPixels": 5521,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 10,
+          "top": 16,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": -0.0085,
+          "y": 0.0179
+        },
+        "passes": true
+      },
+      "note": "Service heart icon only; excludes the Service label, value, flow bar, and connector.",
+      "validationSheet": "data/assets/icon-references/salesforce/validation-sheets/salesforce-business-service-icon.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 114438,
+        "losslessBytes": 326096,
+        "savingsVsLossless": 0.6491,
+        "metrics": {
+          "meanAbsoluteError": 0.43,
+          "rootMeanSquareError": 2.3747,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 56,
+          "changedPixelRatio": 0.1107
+        }
+      }
+    },
+    {
+      "key": "salesforce-business-platform-slack-icon",
+      "output": "data/assets/icon-references/salesforce/crops/business-platform-slack-icon.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2400,
+        "losslessBytes": 9597,
+        "savingsVsLossless": 0.7499,
+        "metrics": {
+          "meanAbsoluteError": 0.6227,
+          "rootMeanSquareError": 2.1749,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 44,
+          "changedPixelRatio": 0.5408
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 9611,
+        "transparentPixelRatio": 0.4711
+      },
+      "searchBox": {
+        "x": 60,
+        "y": 760,
+        "width": 124,
+        "height": 138
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 69,
+        "y0": 772,
+        "x1": 184,
+        "y1": 888
+      },
+      "cropBox": {
+        "x0": 54,
+        "y0": 754,
+        "x1": 190,
+        "y1": 904
+      },
+      "validation": {
+        "width": 136,
+        "height": 150,
+        "foregroundPixels": 10739,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 15,
+          "right": 6,
+          "top": 18,
+          "bottom": 16
+        },
+        "centerOffset": {
+          "x": 0.0331,
+          "y": 0.0067
+        },
+        "passes": true
+      },
+      "note": "Slack-style platform icon cluster only; excludes the Platform / Slack & Other label, values, and connector.",
+      "validationSheet": "data/assets/icon-references/salesforce/validation-sheets/salesforce-business-platform-slack-icon.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 314098,
+        "losslessBytes": 314098,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "salesforce-business-marketing-commerce-icon",
+      "output": "data/assets/icon-references/salesforce/crops/business-marketing-commerce-icon.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 13667,
+        "losslessBytes": 13667,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 12453,
+        "transparentPixelRatio": 0.6024
+      },
+      "searchBox": {
+        "x": 94,
+        "y": 984,
+        "width": 120,
+        "height": 130
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 106,
+        "y0": 991,
+        "x1": 214,
+        "y1": 1103
+      },
+      "cropBox": {
+        "x0": 84,
+        "y0": 974,
+        "x1": 220,
+        "y1": 1126
+      },
+      "validation": {
+        "width": 136,
+        "height": 152,
+        "foregroundPixels": 6588,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 22,
+          "right": 6,
+          "top": 17,
+          "bottom": 23
+        },
+        "centerOffset": {
+          "x": 0.0588,
+          "y": -0.0197
+        },
+        "passes": true
+      },
+      "note": "Marketing & Commerce magnifier icon only; excludes the business label, value, flow bar, and connector.",
+      "excludedPixels": 860,
+      "validationSheet": "data/assets/icon-references/salesforce/validation-sheets/salesforce-business-marketing-commerce-icon.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 119276,
+        "losslessBytes": 330844,
+        "savingsVsLossless": 0.6395,
+        "metrics": {
+          "meanAbsoluteError": 0.4475,
+          "rootMeanSquareError": 2.4951,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 57,
+          "changedPixelRatio": 0.1148
+        }
+      }
+    },
+    {
+      "key": "salesforce-business-integration-mulesoft-icon",
+      "output": "data/assets/icon-references/salesforce/crops/business-integration-mulesoft-icon.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 3117,
+        "losslessBytes": 14968,
+        "savingsVsLossless": 0.7918,
+        "metrics": {
+          "meanAbsoluteError": 1.0706,
+          "rootMeanSquareError": 2.7227,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 30,
+          "changedPixelRatio": 0.5386
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 8189,
+        "transparentPixelRatio": 0.4701
+      },
+      "searchBox": {
+        "x": 96,
+        "y": 1152,
+        "width": 122,
+        "height": 116
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 102,
+        "y0": 1158,
+        "x1": 210,
+        "y1": 1266
+      },
+      "cropBox": {
+        "x0": 90,
+        "y0": 1146,
+        "x1": 224,
+        "y1": 1276
+      },
+      "validation": {
+        "width": 134,
+        "height": 130,
+        "foregroundPixels": 6969,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 14,
+          "top": 12,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": -0.0075,
+          "y": 0.0077
+        },
+        "passes": true
+      },
+      "note": "Integration & Analytics MuleSoft-style circular icon only; excludes text labels, values, publisher marks, and connector.",
+      "validationSheet": "data/assets/icon-references/salesforce/validation-sheets/salesforce-business-integration-mulesoft-icon.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 125965,
+        "losslessBytes": 352268,
+        "savingsVsLossless": 0.6424,
+        "metrics": {
+          "meanAbsoluteError": 0.4575,
+          "rootMeanSquareError": 2.3581,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 57,
+          "changedPixelRatio": 0.1288
+        }
+      }
+    },
+    {
+      "key": "salesforce-business-integration-tableau-icon",
+      "output": "data/assets/icon-references/salesforce/crops/business-integration-tableau-icon.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 2757,
+        "losslessBytes": 2757,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 10846,
+        "transparentPixelRatio": 0.8356
+      },
+      "searchBox": {
+        "x": 104,
+        "y": 1268,
+        "width": 124,
+        "height": 112
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 138,
+        "y0": 1281,
+        "x1": 228,
+        "y1": 1370
+      },
+      "cropBox": {
+        "x0": 124,
+        "y0": 1274,
+        "x1": 242,
+        "y1": 1384
+      },
+      "validation": {
+        "width": 118,
+        "height": 110,
+        "foregroundPixels": 1947,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 14,
+          "right": 14,
+          "top": 7,
+          "bottom": 14
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0318
+        },
+        "passes": true
+      },
+      "note": "Integration & Analytics Tableau mark only; excludes MuleSoft, text labels, values, publisher marks, and connector.",
+      "excludedPixels": 1540,
+      "validationSheet": "data/assets/icon-references/salesforce/validation-sheets/salesforce-business-integration-tableau-icon.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 106905,
+        "losslessBytes": 299511,
+        "savingsVsLossless": 0.6431,
+        "metrics": {
+          "meanAbsoluteError": 0.4369,
+          "rootMeanSquareError": 2.3816,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 70,
+          "changedPixelRatio": 0.112
+        }
+      }
+    }
+  ]
+}

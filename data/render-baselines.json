@@ -21,6 +21,12 @@
       "width": 2667,
       "height": 1500
     },
+    "adyen-h2-fy25": {
+      "similarity": 0.959087,
+      "mae": 10.4327,
+      "width": 2667,
+      "height": 1500
+    },
     "airbnb-q1-fy26": {
       "similarity": 0.961953,
       "mae": 9.7019,
@@ -46,26 +52,50 @@
       "height": 1678
     },
     "alphabet-q1-fy26": {
-      "similarity": 0.948934,
-      "mae": 13.0217,
+      "similarity": 0.948939,
+      "mae": 13.0206,
+      "width": 2667,
+      "height": 1500
+    },
+    "alphabet-q4-fy25": {
+      "similarity": 0.950649,
+      "mae": 12.5845,
       "width": 2667,
       "height": 1500
     },
     "amazon-q1-fy26": {
-      "similarity": 0.951087,
-      "mae": 12.4728,
+      "similarity": 0.951338,
+      "mae": 12.4089,
+      "width": 2667,
+      "height": 1500
+    },
+    "amazon-q4-fy25": {
+      "similarity": 0.95378,
+      "mae": 11.786,
       "width": 2667,
       "height": 1500
     },
     "amd-q1-fy26": {
-      "similarity": 0.956943,
-      "mae": 10.9796,
+      "similarity": 0.957196,
+      "mae": 10.9151,
+      "width": 2667,
+      "height": 1500
+    },
+    "amd-q4-fy25": {
+      "similarity": 0.959812,
+      "mae": 10.2478,
       "width": 2667,
       "height": 1500
     },
     "american-express-q1-fy26": {
       "similarity": 0.956359,
       "mae": 11.1285,
+      "width": 2667,
+      "height": 1500
+    },
+    "analog-devices-q1-fy26": {
+      "similarity": 0.971234,
+      "mae": 7.3354,
       "width": 2667,
       "height": 1500
     },
@@ -81,9 +111,21 @@
       "width": 2667,
       "height": 1500
     },
+    "applied-materials-q1-fy26": {
+      "similarity": 0.967175,
+      "mae": 8.3705,
+      "width": 2667,
+      "height": 1500
+    },
     "applovin-q1-fy26": {
       "similarity": 0.963956,
       "mae": 9.1911,
+      "width": 2667,
+      "height": 1500
+    },
+    "arm-holdings-q3-fy26": {
+      "similarity": 0.961746,
+      "mae": 9.7548,
       "width": 2667,
       "height": 1500
     },
@@ -165,6 +207,12 @@
       "width": 2667,
       "height": 1500
     },
+    "cadence-q4-fy25": {
+      "similarity": 0.968034,
+      "mae": 8.1514,
+      "width": 2667,
+      "height": 1500
+    },
     "cerebras-q1-fy26": {
       "similarity": 0.975701,
       "mae": 6.1962,
@@ -237,6 +285,12 @@
       "width": 2667,
       "height": 1500
     },
+    "dell-q4-fy26": {
+      "similarity": 0.96456,
+      "mae": 9.0372,
+      "width": 2667,
+      "height": 1500
+    },
     "didi-q1-fy26": {
       "similarity": 0.977199,
       "mae": 5.8142,
@@ -270,6 +324,12 @@
     "docusign-q4-fy26": {
       "similarity": 0.971381,
       "mae": 7.2979,
+      "width": 2667,
+      "height": 1500
+    },
+    "doordash-q4-fy25": {
+      "similarity": 0.964232,
+      "mae": 9.1207,
       "width": 2667,
       "height": 1500
     },
@@ -309,9 +369,21 @@
       "width": 2667,
       "height": 1500
     },
+    "grab-q4-fy25": {
+      "similarity": 0.956801,
+      "mae": 11.0157,
+      "width": 2667,
+      "height": 1500
+    },
     "hilton-q1-fy26": {
       "similarity": 0.96466,
       "mae": 9.0116,
+      "width": 2667,
+      "height": 1500
+    },
+    "hp-q1-fy26": {
+      "similarity": 0.969,
+      "mae": 7.905,
       "width": 2667,
       "height": 1500
     },
@@ -330,6 +402,12 @@
     "ibm-q1-fy26": {
       "similarity": 0.969799,
       "mae": 7.7012,
+      "width": 2667,
+      "height": 1500
+    },
+    "instacart-q4-fy25": {
+      "similarity": 0.950213,
+      "mae": 12.6957,
       "width": 2667,
       "height": 1500
     },
@@ -369,6 +447,12 @@
       "width": 2667,
       "height": 1500
     },
+    "lenovo-q3-fy26": {
+      "similarity": 0.968346,
+      "mae": 8.0717,
+      "width": 2667,
+      "height": 1500
+    },
     "lenovo-q4-fy26": {
       "similarity": 0.968423,
       "mae": 8.0521,
@@ -384,6 +468,12 @@
     "lululemon-q1-fy26": {
       "similarity": 0.952756,
       "mae": 12.0473,
+      "width": 2667,
+      "height": 1500
+    },
+    "lyft-fy25": {
+      "similarity": 0.967578,
+      "mae": 8.2676,
       "width": 2667,
       "height": 1500
     },
@@ -663,9 +753,21 @@
       "width": 2667,
       "height": 1500
     },
+    "qualcomm-q1-fy26": {
+      "similarity": 0.961608,
+      "mae": 9.7899,
+      "width": 2667,
+      "height": 1500
+    },
     "qualcomm-q2-fy26": {
       "similarity": 0.960895,
       "mae": 9.9719,
+      "width": 2667,
+      "height": 1500
+    },
+    "qualcomm-q4-fy25": {
+      "similarity": 0.962875,
+      "mae": 9.4668,
       "width": 2667,
       "height": 1500
     },
@@ -687,6 +789,12 @@
       "width": 2667,
       "height": 1500
     },
+    "robinhood-q4-fy25": {
+      "similarity": 0.953276,
+      "mae": 11.9146,
+      "width": 2667,
+      "height": 1500
+    },
     "roblox-q1-fy26": {
       "similarity": 0.957553,
       "mae": 10.8241,
@@ -698,6 +806,12 @@
       "mae": 22.2724,
       "width": 2958,
       "height": 1490
+    },
+    "salesforce-q4-fy26": {
+      "similarity": 0.940895,
+      "mae": 15.0719,
+      "width": 2667,
+      "height": 1500
     },
     "samsung-q1-fy26": {
       "similarity": 0.9562,
@@ -759,9 +873,21 @@
       "width": 2667,
       "height": 1500
     },
+    "spotify-q4-fy25": {
+      "similarity": 0.967519,
+      "mae": 8.2826,
+      "width": 2667,
+      "height": 1500
+    },
     "starbucks-q2-fy26": {
       "similarity": 0.95558,
       "mae": 11.3271,
+      "width": 2667,
+      "height": 1500
+    },
+    "synopsys-q1-fy26": {
+      "similarity": 0.971456,
+      "mae": 7.2786,
       "width": 2667,
       "height": 1500
     },
@@ -795,11 +921,23 @@
       "width": 2667,
       "height": 1500
     },
+    "twilio-q4-fy25": {
+      "similarity": 0.971157,
+      "mae": 7.355,
+      "width": 2667,
+      "height": 1500
+    },
     "uber-q1-fy26": {
       "similarity": 0.954592,
       "mae": 11.5791,
       "width": 2892,
       "height": 1456
+    },
+    "uber-q4-fy25": {
+      "similarity": 0.955868,
+      "mae": 11.2537,
+      "width": 2667,
+      "height": 1500
     },
     "uipath-q1-fy27": {
       "similarity": 0.967539,
@@ -840,6 +978,12 @@
     "walmart-q1-fy27": {
       "similarity": 0.969221,
       "mae": 7.8487,
+      "width": 2667,
+      "height": 1500
+    },
+    "walmart-q4-fy26": {
+      "similarity": 0.970533,
+      "mae": 7.5142,
       "width": 2667,
       "height": 1500
     },

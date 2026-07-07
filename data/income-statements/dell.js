@@ -125,6 +125,123 @@
           },
         },
       },
+    },
+    {
+      key: 'dell-q4-fy26',
+      company: 'Dell',
+      period: 'Q4 FY26',
+      periodNote: 'Ending Jan. 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/dell-q4-fy26.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 33.4,
+        notes: ['+39% Y/Y'],
+        items: [
+          {
+            id: 'isg',
+            label: 'ISG (Infrastructure)',
+            value: 19.6,
+            notes: ['+73% Y/Y'],
+            children: [
+              { id: 'ai_optimized_servers', label: 'AI-optimized Servers', value: 9.0, notes: ['+342% Y/Y'] },
+              {
+                id: 'traditional_servers_networking',
+                label: 'Traditional server & networking',
+                value: 5.8,
+                notes: ['+27% Y/Y'],
+              },
+              { id: 'storage', label: 'Storage', value: 4.8, notes: ['+2% Y/Y'] },
+            ],
+          },
+          {
+            id: 'csg',
+            label: 'CSG (Client)',
+            value: 13.5,
+            notes: ['+14% Y/Y'],
+            children: [
+              { id: 'commercial', label: 'Commercial', value: 11.6, notes: ['+16% Y/Y'] },
+              { id: 'consumer', label: 'Consumer', value: 1.9, notes: ['(0%) Y/Y'] },
+            ],
+          },
+          { id: 'other_revenue', label: 'Other', value: 0.3 },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 26.6 },
+        operatingExpenses: {
+          total: 3.6,
+          items: [
+            { id: 'sga', label: 'SG&A', value: 2.8, notes: ['9% of revenue', '(3pp) Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 0.8, notes: ['2% of revenue', '(1pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.5 },
+      },
+      otherIncome: {
+        total: 0,
+        items: [],
+      },
+      otherExpenses: {
+        total: 0.3,
+        items: [{ id: 'other_expense', label: 'Other', value: 0.3 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 6.7, notes: ['20% margin', '(4pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 3.1, notes: ['9% margin', '+0pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 2.3, notes: ['7% margin', '+0pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第四季度',
+          periodNote: '截至 2026 年 1 月',
+          revenue: {
+            notes: ['同比 +39%'],
+            items: [
+              {
+                id: 'isg',
+                label: 'ISG（基础设施）',
+                notes: ['同比 +73%'],
+                children: [
+                  { id: 'ai_optimized_servers', label: 'AI 优化服务器', notes: ['同比 +342%'] },
+                  { id: 'traditional_servers_networking', label: '传统服务器与网络', notes: ['同比 +27%'] },
+                  { id: 'storage', label: '存储', notes: ['同比 +2%'] },
+                ],
+              },
+              {
+                id: 'csg',
+                label: 'CSG（客户端）',
+                notes: ['同比 +14%'],
+                children: [
+                  { id: 'commercial', label: '商业', notes: ['同比 +16%'] },
+                  { id: 'consumer', label: '消费者', notes: ['同比 (0%)'] },
+                ],
+              },
+              { id: 'other_revenue', label: '其他' },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'sga', label: '销售、一般及行政', notes: ['占收入 9%', '同比 (3 个百分点)'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 2%', '同比 (1 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherExpenses: {
+            items: [{ id: 'other_expense', label: '其他' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 20%', '同比 (4 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 9%', '同比 +0 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 7%', '同比 +0 个百分点'] },
+          },
+        },
+      },
     }
   );
 })(window);

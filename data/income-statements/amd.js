@@ -102,6 +102,100 @@
           },
         },
       },
+    },
+    {
+      key: 'amd-q4-fy25',
+      company: 'AMD',
+      period: 'Q4 FY25',
+      periodNote: 'Ending Dec. 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/amd-q4-fy25.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 10.27,
+        notes: ['+34% Y/Y'],
+        items: [
+          { id: 'data_center', label: 'Data Center', value: 5.38, notes: ['+39% Y/Y', '33% operating margin', '+3pp Y/Y'] },
+          {
+            id: 'client',
+            label: 'Client',
+            value: 3.097,
+            notes: ['+34% Y/Y', 'Client and Gaming', '18% operating margin', '+1pp Y/Y'],
+          },
+          { id: 'gaming', label: 'Gaming', value: 0.843, notes: ['+50% Y/Y'] },
+          { id: 'embedded', label: 'Embedded', value: 0.95, notes: ['+3% Y/Y', '38% operating margin', '(2pp) Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 4.693 },
+        operatingExpenses: {
+          total: 3.825,
+          items: [
+            { id: 'rnd', label: 'Research & development', value: 2.33, notes: ['23% of revenue', '+0pp Y/Y'] },
+            { id: 'sga', label: 'Sales, General & Admin', value: 1.198, notes: ['12% of revenue', '+1pp Y/Y'] },
+            { id: 'amortization', label: 'Amortization of intangibles', value: 0.297, notes: ['3% of revenue', '(1pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.455 },
+      },
+      otherIncome: {
+        total: 0.214,
+        items: [
+          {
+            id: 'other',
+            label: 'Other',
+            value: 0.214,
+            notes: ['Net impact of interest expense, other income, equity income, and discontinued operations.'],
+          },
+        ],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 5.577, notes: ['54% margin', '+4pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 1.752, notes: ['17% margin', '+6pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 1.511, notes: ['15% margin', '+8pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度',
+          periodNote: '截至 2025 年 12 月',
+          revenue: {
+            notes: ['同比 +34%'],
+            items: [
+              { id: 'data_center', label: '数据中心', notes: ['同比 +39%', '营业利润率 33%', '同比 +3 个百分点'] },
+              { id: 'client', label: '客户端', notes: ['同比 +34%', '客户端和游戏', '营业利润率 18%', '同比 +1 个百分点'] },
+              { id: 'gaming', label: '游戏', notes: ['同比 +50%'] },
+              { id: 'embedded', label: '嵌入式', notes: ['同比 +3%', '营业利润率 38%', '同比 (2 个百分点)'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 23%', '同比 +0 个百分点'] },
+                { id: 'sga', label: '销售、一般及行政', notes: ['占收入 12%', '同比 +1 个百分点'] },
+                { id: 'amortization', label: '无形资产摊销', notes: ['占收入 3%', '同比 (1 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: {
+            items: [
+              { id: 'other', label: '其他', notes: ['利息费用、其他收入、权益收益和终止经营的净影响。'] },
+            ],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 54%', '同比 +4 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 17%', '同比 +6 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 15%', '同比 +8 个百分点'] },
+          },
+        },
+      },
     }
   );
 })(window);

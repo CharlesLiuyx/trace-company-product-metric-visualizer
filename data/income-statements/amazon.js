@@ -10,6 +10,109 @@
 
   ssot.records.push(
     {
+      key: 'amazon-q4-fy25',
+      company: 'Amazon',
+      period: 'Q4 FY25',
+      periodNote: 'Ending Dec. 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/amazon-q4-fy25.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 213.4,
+        notes: ['+14% Y/Y'],
+        items: [
+          { id: 'online_stores', label: 'Online Stores', value: 83.0, notes: ['+10% Y/Y'] },
+          { id: 'physical_store', label: 'Physical Store', value: 5.9, notes: ['+5% Y/Y'] },
+          {
+            id: 'third_party_seller_services',
+            label: '3rd party sellers services',
+            value: 52.8,
+            notes: ['+11% Y/Y'],
+          },
+          { id: 'advertising', label: 'Advertising', value: 21.3, notes: ['+23% Y/Y'] },
+          { id: 'subscription', label: 'Subscription', value: 13.1, notes: ['+14% Y/Y'] },
+          { id: 'aws', label: 'AWS', value: 35.6, notes: ['+24% Y/Y'] },
+          { id: 'other_revenue', label: 'Other', value: 1.7, notes: ['+7% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 110.0 },
+        operatingExpenses: {
+          total: 78.4,
+          items: [
+            { id: 'fulfillment', label: 'Fulfillment', value: 30.8, notes: ['14% of revenue', '(0pp) Y/Y'] },
+            { id: 'technology_content', label: 'Technology & content', value: 29.4, notes: ['14% of revenue', '+1pp Y/Y'] },
+            { id: 'sm', label: 'S&M', value: 14.2, notes: ['7% of revenue', '(0pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 2.7, notes: ['1% of revenue', '(0pp) Y/Y'] },
+            { id: 'other_opex', label: 'Other opex', value: 1.3 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 4.9 },
+      },
+      otherIncome: {
+        total: 1.2,
+        items: [{ id: 'other_income', label: 'Other', value: 1.2 }],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 103.4, notes: ['48% margin', '+1pp Y/Y'] },
+        operating: {
+          id: 'operating_profit',
+          label: 'Operating profit',
+          value: 25.0,
+          notes: ['12% margin', '+0pp Y/Y', 'AWS $12.5B', 'Other $12.5B'],
+        },
+        net: { id: 'net_profit', label: 'Net profit', value: 21.2, notes: ['10% margin', '+3pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度',
+          periodNote: '截至 2025 年 12 月',
+          revenue: {
+            notes: ['同比 +14%'],
+            items: [
+              { id: 'online_stores', label: '线上商店', notes: ['同比 +10%'] },
+              { id: 'physical_store', label: '实体商店', notes: ['同比 +5%'] },
+              { id: 'third_party_seller_services', label: '第三方卖家服务', notes: ['同比 +11%'] },
+              { id: 'advertising', label: '广告', notes: ['同比 +23%'] },
+              { id: 'subscription', label: '订阅', notes: ['同比 +14%'] },
+              { id: 'aws', label: 'AWS', notes: ['同比 +24%'] },
+              { id: 'other_revenue', label: '其他', notes: ['同比 +7%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '销售成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'fulfillment', label: '履约', notes: ['占收入 14%', '同比 (0 个百分点)'] },
+                { id: 'technology_content', label: '技术与内容', notes: ['占收入 14%', '同比 +1 个百分点'] },
+                { id: 'sm', label: '销售与市场', notes: ['占收入 7%', '同比 (0 个百分点)'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 1%', '同比 (0 个百分点)'] },
+                { id: 'other_opex', label: '其他运营费用' },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: {
+            items: [{ id: 'other_income', label: '其他' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 48%', '同比 +1 个百分点'] },
+            operating: {
+              label: '营业利润',
+              notes: ['利润率 12%', '同比 +0 个百分点', 'AWS 业务 $12.5B', '其他业务 $12.5B'],
+            },
+            net: { label: '净利润', notes: ['利润率 10%', '同比 +3 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'amazon-q1-fy26',
       company: 'Amazon',
       period: 'Q1 FY26',

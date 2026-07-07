@@ -10,6 +10,97 @@
 
   ssot.records.push(
     {
+      key: 'lenovo-q3-fy26',
+      company: 'Lenovo',
+      period: 'Q3 FY26',
+      periodNote: 'Ending Jan. 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/lenovo-q3-fy26.png',
+      roundingTolerance: 0.2,
+      revenue: {
+        total: 22.2,
+        notes: ['+18% Y/Y'],
+        items: [
+          { id: 'idg', label: 'IDG Intelligent Devices Group', value: 15.8, notes: ['+14% Y/Y', '7% operating margin'] },
+          { id: 'isg', label: 'ISG Infrastructure Solutions Group', value: 5.2, notes: ['+31% Y/Y', '(0%) operating margin'] },
+          { id: 'ssg', label: 'SSG Solutions & Services Group', value: 2.7, notes: ['+18% Y/Y', '22% operating margin'] },
+          {
+            label: 'Eliminations',
+            value: -1.4,
+            notes: ['Shown as an eliminations outflow before consolidated revenue in the source chart.'],
+          },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 18.9 },
+        operatingExpenses: {
+          total: 2.4,
+          items: [
+            { id: 'selling_distribution', label: 'Selling/Distribution', value: 1.1, notes: ['5% of revenue', '(0pp) Y/Y'] },
+            { id: 'administrative', label: 'Administrative', value: 0.7, notes: ['3% of revenue', '(0pp) Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 0.6, notes: ['3% of revenue', '(0pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.2 },
+      },
+      otherIncome: {
+        total: 0,
+        items: [],
+      },
+      otherExpenses: {
+        total: 0.1,
+        items: [{ id: 'financial', label: 'Financial', value: 0.1 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 3.3, notes: ['15% margin', '(1pp) Y/Y'] },
+        operating: {
+          id: 'operating_profit',
+          label: 'Operating profit',
+          value: 0.9,
+          notes: ['4% margin', '+1pp Y/Y', 'Source chart rounds operating profit, financial, tax, and net profit to one decimal.'],
+        },
+        net: { id: 'net_profit', label: 'Net profit', value: 0.5, notes: ['3% margin', '(1pp) Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第三季度',
+          periodNote: '截至 2026 年 1 月',
+          revenue: {
+            notes: ['同比 +18%'],
+            items: [
+              { id: 'idg', label: 'IDG 智能设备集团', notes: ['同比 +14%', '营业利润率 7%'] },
+              { id: 'isg', label: 'ISG 基础设施方案集团', notes: ['同比 +31%', '营业利润率 (0%)'] },
+              { id: 'ssg', label: 'SSG 方案与服务集团', notes: ['同比 +18%', '营业利润率 22%'] },
+              { id: 'undefined', label: '抵销', notes: ['来源图显示为合并收入前的抵销流出。'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'selling_distribution', label: '销售/分销', notes: ['占收入 5%', '同比 (0 个百分点)'] },
+                { id: 'administrative', label: '行政', notes: ['占收入 3%', '同比 (0 个百分点)'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 3%', '同比 (0 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherExpenses: {
+            items: [
+              { id: 'financial', label: '财务' },
+            ],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 15%', '同比 (1 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 4%', '同比 +1 个百分点', '来源图将营业利润、财务、税费和净利润四舍五入到一位小数。'] },
+            net: { label: '净利润', notes: ['利润率 3%', '同比 (1 个百分点)'] },
+          },
+        },
+      },
+    },
+    {
       key: 'lenovo-q4-fy26',
       company: 'Lenovo',
       period: 'Q4 FY26',
