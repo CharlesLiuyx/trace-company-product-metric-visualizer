@@ -248,6 +248,7 @@ export function auditLabelLayout(page) {
             side: 'left-of-node',
             gap: round(node.left - label.box.right),
             overlap: 0,
+            verticalCenterDelta: round(Math.abs(label.box.centerY - node.centerY)),
             verticalOverlap: round(verticalOverlapPx),
           });
         } else if (label.box.left >= node.right) {
@@ -257,6 +258,7 @@ export function auditLabelLayout(page) {
             side: 'right-of-node',
             gap: round(label.box.left - node.right),
             overlap: 0,
+            verticalCenterDelta: round(Math.abs(label.box.centerY - node.centerY)),
             verticalOverlap: round(verticalOverlapPx),
           });
         } else if (overlap > 0) {
@@ -266,6 +268,7 @@ export function auditLabelLayout(page) {
             side: label.box.centerX < node.centerX ? 'left-overlap' : 'right-overlap',
             gap: round(-overlap),
             overlap: round(overlap),
+            verticalCenterDelta: round(Math.abs(label.box.centerY - node.centerY)),
             verticalOverlap: round(verticalOverlapPx),
           });
         }
