@@ -79,7 +79,7 @@ L（连接线）、T（Label-node/文本）、A（注释容器）、Z（本地�
 | B5 | G8/G10 | 仅审计 `layout.labels` ↔ node | `annotationsSvg` 文字与相邻 `layout.labels`、主标题或期间标记交叠不审 | A6 | 是 |
 | B6 | G2 | 仅判 SVG 画布尺寸 | 不判文本 bbox 越出画布（本地化后高发） | Z5 | 是 |
 | B7 | G6/G7 | raster 数量与来源 | 不判隐形锚点柱是否多出可见柱/绿痕 | T12 | 否（视觉判定） |
-| B8 | 无 | — | 多入/出接口只看 `Σlink.width`，会漏掉整组 socket 起点偏移、分项间距错误，或把源图有意留缝误判成 rounding 空隙 | L5/L11 | 是 |
+| B8 | 无 | — | 接口若先按颜色/path 分段，会把相接的异色流带误判为留缝；等宽模型还会漏掉同一 link 两端可见宽度不同 | L5/L11 | 是 |
 | B9 | 无 | — | hub/深色源 profit 流带渐变 vs 源图纯色 | L12 | 是 |
 | B10 | G11 | 数据一致性 | link 拓扑与源图一致性、tooltip 语义分母 | L8/L14 | 部分 |
 
@@ -162,9 +162,12 @@ pnpm verify:d3 -- <dataset-key> [--focus "<主检查方向>"] [--keep] [--langua
 - 画布尺寸与各列节点的 x 位置。
 - 每个短辅助柱、短横柱和终端柱的像素 bbox（x/y/width/height）。
 - 逐条从原图追踪 link 拓扑：source、target，以及两端 socket 的
-  `top / bottom / center / visible width`；逐个接口判定是连续分区、间隔式
-  socket，还是源图明确存在的轻微重叠/越界，特别关注 waterfall 区、绕行带和
-  多入/出节点（口径同 L8/L11）。不得只按财务值或 `Σlink.width` 反推接口。
+  `top / bottom / center / visible width`。接口测量固定分两步：先把所有非背景
+  link 像素合并为 binary occupancy union，量外缘覆盖与真实背景空档；再按颜色、
+  path 身份和顺序拆出内部边界。异色相接不等于间隔，同色相接也不能证明只有一
+  条 link。逐个接口据此判定连续覆盖、间隔式 socket、重叠或越界，特别关注
+  waterfall 区、绕行带和多入/出节点（口径同 L8/L11）。不得只按财务值、单一
+  颜色 mask 或 `Σlink.width` 反推接口。
 - 每个 label 的锚点位置、anchor 方向和语义归组（口径同 T11）。
 - 注释容器、KPI/stat card 和徽章的容器 bbox。
 
@@ -181,9 +184,10 @@ pnpm verify:d3 -- <dataset-key> [--focus "<主检查方向>"] [--keep] [--langua
 
 - 第 1 轮 结构 sweep：输出纯净性、尺寸、裁剪、画布边界；节点几何、列位置、
   节点高度、流带宽度；多入口/出口顺序与 socket；终端短横柱、辅助流端点、
-  自定义 curve；L8–L15 全部核对。每个多入/出接口须先按 L11 分类为连续分区
-  或间隔式 socket，再判断 width、`y0`/`y1` 和 curve，禁止用宽度和强行填满
-  节点边缘代替接口拓扑判断。
+  自定义 curve；L8–L15 全部核对。每个多入/出接口须先按 L11 用 binary
+  occupancy union 判定外缘是连续覆盖还是存在真实背景空档，再拆内部 link
+  分区并判断双端 width、`y0`/`y1` 和 curve；禁止按颜色分段直接推断 socket
+  间距，也禁止用无依据加粗代替接口拓扑判断。
 - 第 2 轮 文本 sweep：T 系列（label-node 外框、文本交叠、位置与归属）+
   A 系列（注释容器内部对齐、KPI/stat card、徽章、脚注）。
 - 第 3 轮 润色与本地化 sweep：颜色、透明度、图标细节、字体抗锯齿残留；
@@ -256,11 +260,13 @@ bbox，不以源码 link 数组位置、node `order` 或上一轮视觉印象为
   interest、investment gains 等辅助流时，单独核对目标端上下层级；同一源节点
   同时分出净利润、税费、费用项时，单独核对源端上下层级。
 - L5 有显式 `curve`、`y0`/`y1`、固定 socket 或自定义宽度的高风险连接，须在
-  source 和 target 两端分别记录 path 端点、stroke width、socket interval
-  （`top / bottom / center`）以及 node bbox；只记录一条中心线或只看源码数字
-  不足以证明接口贴合。
-- L6 连接线中心线应落在对应节点外框内，stroke 不应明显越出节点可接收范围，
-  除非参考图明确如此。
+  source 和 target 两端分别记录 path 端点、可见宽度、socket interval
+  （`top / bottom / center`）以及 node bbox；若两端宽度不同，分别记录
+  `sourceWidth` / `targetWidth`，不得用一个 stroke width 代替。只记录中心线、
+  只看源码数字或只看单色 mask 都不足以证明接口贴合。
+- L6 先比较所有相关 link 的 binary occupancy union 与节点接口外缘：不得有
+  参考图不存在的背景空档或溢出。中心线、单条 link 和内部颜色边界随后检查；
+  参考图明确显示流带越出节点 bbox 时，按量测保留，不能为了数学齐平裁掉。
 - L7 自定义曲线控制点保持水平推进：`source.x1 <= c1x <= c2x <= target.x0`；
   反向弯出或折返必须记录参考图依据。
 - L8 逐条从原图追踪 link 拓扑（source、target、socket、是否绕过中间柱），
@@ -269,29 +275,34 @@ bbox，不以源码 link 数组位置、node `order` 或上一轮视觉印象为
   细税线、短横线和多入口目标记录显式 `y0`/`y1` 或控制点，并在 Task 信息中
   说明每条线对应的原图关系。
 - L9 用户指出连接线错误时，先复核两端节点自身的原图像素 bbox（尤其短柱的
-  x/y/height）；节点 bbox 错则先联动节点与 label，节点 bbox 对则进入 L11，
-  对照每条 socket interval 判断是 width 错还是 center/间距错。节点错位时任何
-  `y0`/`y1` 都只是对错误锚点的补丁；width 已对时也不得靠加粗流带掩盖 socket
-  偏移。
-- L10 短距离多入口目标柱：当参考图显示目标边界为连续分区时，高度须等于或
-  足以容纳输入带宽之和，且每条输入带在目标边界的垂直区间连续对齐；参考图若
-  明确为间隔式入口，则按 L11 保留间距。源图显示弯曲过渡的短 link 必须写显式
-  cubic 控制点，用局部 crop 确认平滑、无直角、台阶、非预期空档或多余重叠。
-- L11 接口拓扑与 rounding 核算：`node.height - Σlink.width` 只是诊断量，不是
-  必须归零的恒等式。对每个多入/出接口按以下同一决策顺序处理：
-  1. 在 source、target 两端分别量测 node bbox 与每条 socket interval，并把
-     参考接口分类为「连续分区」或「间隔式 socket」；抗锯齿造成的 1px 边缘只
-     在完整 interval 形态确认后记录为残留。
-  2. **连续分区**：要求各 interval 的 union 覆盖参考节点边缘且无非预期空隙/
-     溢出。只有确认差额来自 rounding，且同一 link 的另一端也能接受该 width
-     后，才把差额计入组内最大 link；不得默认执行，也不得按比例摊薄。
-  3. **间隔式 socket**：保持已由目标短柱或参考带宽确认的 `width`，用显式
-     `y0`/`y1` 还原每条 center 与间距；不得为了让 `Σlink.width == node.height`
-     而加粗流带、抹掉参考留缝。间距或轻微越出 node bbox 必须有原图量测依据。
-  4. 两端独立复查：source 修复不得破坏 target，反之亦然。若源图要求同一带两
-     端宽度不同（taper）而当前 renderer 只能画等宽 stroke，记录 renderer 能力
-     缺口并升级实现或明确取舍，不得用移动节点、颜色或覆盖层伪装。
-  单入口/单出口也按同一分类检查；同一 dataset 的所有多入/出接口都要审计，
+  x/y/height）；节点 bbox 错则先联动节点与 label，节点 bbox 对则进入 L11。
+  先查整个接口 occupancy union 的外缘/背景空档，再查内部 link 的 width、center
+  和顺序；不得跳过 union 而直接移动 `y0`/`y1`。节点错位时坐标修补无效，双端
+  width 已对时也不得靠加粗流带掩盖 socket 偏移。
+- L10 短距离多入口目标柱：当参考图的 binary occupancy union 为连续覆盖时，
+  候选 union 也必须连续并复现参考外缘；之后再核对各输入带内部边界。参考图若
+  确有背景间隔，则按 L11 保留。源图显示弯曲过渡的短 link 必须写显式 cubic
+  控制点，用局部 crop 确认平滑、无直角、台阶、非预期空档或多余重叠。
+- L11 接口占用拓扑、双端宽度与 rounding：`node.height - Σlink.width` 只是诊断
+  量，不是接口分类器；颜色分段也不是背景间隔。每个 source/target 接口按以下
+  顺序处理：
+  1. **先判占用 union**：以邻近背景色建立 binary mask，把该接口所有 link 像素
+     合并后量 `top / bottom / connected intervals`。单一连续 interval 才是连续
+     覆盖；只有 interval 之间存在真实背景像素才是间隔式 socket。异色流带在
+     同一像素边界相接仍属连续；同色区域须在稍远、路径已分离的位置追踪身份。
+  2. **再拆内部边界**：在 union 结论冻结后，按 path 身份、颜色、顺序和远端追踪
+     逐条量 source/target interval。抗锯齿 1px 容差只能用于已确认的边缘，不能
+     把数像素背景带解释成颜色过渡。
+  3. **连续覆盖**：候选 union 必须复现参考外缘且无额外背景空档。若差额只是
+     rounding，可调整分项宽度或参考中真实存在的重叠；不得机械把差额塞给最大
+     link，也不得为了 `Σlink.width == node.height` 删除参考中的越界/重叠。
+  4. **间隔式 socket**：按参考保留每个 interval 的 center、width 与背景间距，
+     用显式 `y0`/`y1` 定位；不得以连续填满为默认目标。
+  5. **双端独立建模**：同一 link 的 source 与 target 分别量 width/center。两端
+     宽度不同就使用 `sourceWidth` / `targetWidth` 和闭合填充 ribbon 做 taper；
+     等宽 stroke 加坐标补丁只能移动空档，不能同时满足两端。修一端后必须复查
+     另一端及中段分离形态。
+  单入口/单出口也按同一顺序检查；同一 dataset 的所有多入/出接口都要审计，
   不得只修被用户标注的节点。
 - L12 流带取色：渲染器默认把非 cost 目标的 link 画成
   `source.tint -> target.tint` 渐变，cost 目标为纯 salmon。结构 sweep 轮必须
@@ -306,19 +317,21 @@ bbox，不以源码 link 数组位置、node `order` 或上一轮视觉印象为
 - L14 tooltip 百分比：用户指出 hover 百分比错误时，明确记录该 link 的语义
   分母；waterfall 区、隐藏桥接、结果柱与调整项共用目标等启发式易误判的关系，
   优先在 dataset link 上写 `percent` 或 `percentText`，不依赖 renderer 推断。
-- L15 竖直节点接口端面：SVG link 使用 `stroke-linecap: butt` 时，端面方向由
-  路径端点切线决定；连接竖直节点边的 link 必须水平进入/离开节点，让端面与
-  节点边竖直贴齐。自定义 cubic 的源端控制点必须满足 `c1y = y0`，目标端控制
-  点必须满足 `c2y = y1`（允许 ±0.5px 抗锯齿/半像素差）；若源图明确显示斜切，
-  必须在 Task 信息记录例外。用户指出“连接处不严丝合缝/应该竖直”时，先修
-  端点切线，再调整体弧度。
+- L15 竖直节点接口端面：无论 link 是 `stroke-linecap: butt` 的等宽中心线，还是
+  L11 的闭合 tapered ribbon，连接竖直节点边时都必须水平进入/离开，使端面与
+  节点边竖直贴齐。自定义 cubic 的源端中心控制点满足 `c1y = y0`，目标端满足
+  `c2y = y1`；ribbon 的上下边界控制点分别按 source/target 半宽同步偏移（允许
+  ±0.5px 抗锯齿/半像素差）。若源图明确显示斜切，必须在 Task 信息记录例外。
+  用户指出“连接处不严丝合缝/应该竖直”时，先修端点切线与上下边界，再调
+  整体弧度。
 
 修复优先级：先确认节点 bbox；节点错 → 联动 `layout.nodes`、label 和相关端点；
-节点对但入口/出口顺序错 → `targetOrder` / `sourceOrder`；顺序与 width 对但
-socket center/间距错 → 显式 `y0`/`y1`；width 与参考两端都不符 → 按 L11 调
-`width` 或节点高度；端点区间对但端面倾斜 → 按 L15 调 curve 控制点；终端列
-整体偏移 → 先整列 `layout.nodes` 再校验端点与 label。不得用颜色、透明度、节点
-覆盖、移动标签或无依据加粗流带掩盖接口错位。
+节点对 → 先修整个 occupancy union 的外缘与真实背景空档；union 对后，内部顺序
+错 → `targetOrder` / `sourceOrder`，内部 center/间距错 → 显式 `y0`/`y1`；同一
+link 两端宽度不同 → `sourceWidth` / `targetWidth` + tapered ribbon；双端宽度同错
+才调统一 `width` 或节点高度；端点区间对但端面倾斜 → 按 L15 调 curve 控制点；
+终端列整体偏移 → 先整列 `layout.nodes` 再校验端点与 label。不得用颜色、透明度、
+节点覆盖、移动标签或等宽 stroke 的坐标补丁掩盖接口错位。
 
 ## Label-node 和文本布局
 
@@ -625,7 +638,10 @@ archive 为准。未运行循环时必须写 `Loop Fidelity Summary: not run` �
    从「怎么量」到「怎么判」再到「怎么修」口径一致；修改后做一次全文冲突检索，
    确认没有旧规则仍要求相反动作。
 5. 数据集特例 → 在该轮 Task 信息记录原因、区域、修复方式和是否重开冻结项。
-6. 修复后复查用户标注区域，记录修复前后局部指标和视觉结论。
+6. 修复后按用户标注的完整 region 和其最小判定单元复查，记录修复前后局部指标、
+   关键 interval/bbox 与视觉结论；不能用全图 similarity 或只看一种颜色代替。
+   用户再次指出同一区域未修复时，上一轮收敛结论立即失效，重开该 region，并
+   修正导致误判的测量方法或规则抽象，不能只再调一组像素。
 7. 反馈处理轮以反馈项为主方向定向优化（总则），不做泛化重扫。
 
 只有经验已沉淀（规则更新或特例记录）后，才能在最终响应中声称该反馈已处理
@@ -641,7 +657,8 @@ archive 为准。未运行循环时必须写 `Loop Fidelity Summary: not run` �
 - 只报告全图相似度，不报告分区域证据。
 - 进入下一轮却没有上一轮红框参考图和最新 Task 信息。
 - 收到用户修正意见后只修当前像素，或不做归属/冲突审计就机械追加重叠规则。
-- 把接口错位、文本不可读或文本越界当成风格差异接受。
+- 跳过 binary occupancy union，按颜色/path 分段直接判断接口留缝，或把接口错位、
+  文本不可读、文本越界当成风格差异接受。
 - 在没有 Diff 图、metrics JSON 和主方向分区域指标的情况下声称已经收敛。
 - 最终输出只写「已通过」「已收敛」，但没有 `Loop Fidelity Summary` 或未运行
   原因。
