@@ -3888,6 +3888,29 @@
             }
           }
         }
+      },
+      {
+        "key": "peloton-q2-fy26",
+        "src": "data/datasets/peloton-q2-fy26.js",
+        "data": {
+          "name": "Peloton · Q2 FY26",
+          "company": "Peloton",
+          "meta": {
+            "title": "Peloton Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Peloton · 2026 财年第二季度",
+              "meta": {
+                "title": "Peloton 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

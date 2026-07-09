@@ -1,0 +1,320 @@
+{
+  "source": "input/processed/peloton-q2-fy26.png",
+  "spec": "input/icon-crop-specs/peloton-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-09T19:02:49.126678+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/peloton",
+  "crops": [
+    {
+      "key": "peloton-company-wordmark",
+      "output": "data/assets/icon-references/peloton/crops/company-wordmark-q2-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 6275,
+        "losslessBytes": 28990,
+        "savingsVsLossless": 0.7835,
+        "metrics": {
+          "meanAbsoluteError": 0.2104,
+          "rootMeanSquareError": 1.0755,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 17,
+          "changedPixelRatio": 0.0872
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 120362,
+        "transparentPixelRatio": 0.7929
+      },
+      "searchBox": {
+        "x": 568,
+        "y": 240,
+        "width": 690,
+        "height": 220
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 578,
+        "y0": 250,
+        "x1": 1247,
+        "y1": 449
+      },
+      "cropBox": {
+        "x0": 568,
+        "y0": 240,
+        "x1": 1258,
+        "y1": 460
+      },
+      "validation": {
+        "width": 690,
+        "height": 220,
+        "foregroundPixels": 27782,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 10,
+          "right": 11,
+          "top": 10,
+          "bottom": 11
+        },
+        "centerOffset": {
+          "x": -0.0007,
+          "y": -0.0023
+        },
+        "passes": true
+      },
+      "note": "Peloton company logo and wordmark above the revenue hub; excludes the chart title, gross-profit callout, flows, and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/peloton/company-wordmark-q2-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 6275,
+        "losslessBytes": 28990,
+        "savingsVsLossless": 0.7835,
+        "metrics": {
+          "meanAbsoluteError": 0.2104,
+          "rootMeanSquareError": 1.0755,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 17,
+          "changedPixelRatio": 0.0872
+        }
+      },
+      "validationSheet": "data/assets/icon-references/peloton/validation-sheets/peloton-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 240009,
+        "losslessBytes": 240009,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "peloton-connected-fitness-bike",
+      "output": "data/assets/icon-references/peloton/crops/connected-fitness-bike-q2-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 7615,
+        "losslessBytes": 38057,
+        "savingsVsLossless": 0.7999,
+        "metrics": {
+          "meanAbsoluteError": 1.0671,
+          "rootMeanSquareError": 2.6541,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.3692
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 42883,
+        "transparentPixelRatio": 0.678
+      },
+      "searchBox": {
+        "x": 145,
+        "y": 270,
+        "width": 275,
+        "height": 230
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 157,
+        "y0": 287,
+        "x1": 391,
+        "y1": 495
+      },
+      "cropBox": {
+        "x0": 145,
+        "y0": 270,
+        "x1": 420,
+        "y1": 500
+      },
+      "validation": {
+        "width": 275,
+        "height": 230,
+        "foregroundPixels": 18786,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 29,
+          "top": 17,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": -0.0309,
+          "y": 0.0261
+        },
+        "passes": true
+      },
+      "note": "Peloton connected-fitness bike product cluster; excludes the Connected Fitness Products label, revenue values, flow marks, and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/peloton/connected-fitness-bike-q2-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 7615,
+        "losslessBytes": 38057,
+        "savingsVsLossless": 0.7999,
+        "metrics": {
+          "meanAbsoluteError": 1.0671,
+          "rootMeanSquareError": 2.6541,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.3692
+        }
+      },
+      "validationSheet": "data/assets/icon-references/peloton/validation-sheets/peloton-connected-fitness-bike.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 300745,
+        "losslessBytes": 300745,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "peloton-subscription-app-icon",
+      "output": "data/assets/icon-references/peloton/crops/subscription-app-icon-q2-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2015,
+        "losslessBytes": 7901,
+        "savingsVsLossless": 0.745,
+        "metrics": {
+          "meanAbsoluteError": 0.432,
+          "rootMeanSquareError": 1.6307,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 17,
+          "changedPixelRatio": 0.1327
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 9220,
+        "transparentPixelRatio": 0.2194
+      },
+      "searchBox": {
+        "x": 165,
+        "y": 795,
+        "width": 205,
+        "height": 205
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 177,
+        "y0": 807,
+        "x1": 362,
+        "y1": 992
+      },
+      "cropBox": {
+        "x0": 165,
+        "y0": 795,
+        "x1": 370,
+        "y1": 1000
+      },
+      "validation": {
+        "width": 205,
+        "height": 205,
+        "foregroundPixels": 28544,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 8,
+          "top": 12,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0098,
+          "y": 0.0098
+        },
+        "passes": true
+      },
+      "note": "Peloton subscription app icon; excludes the Subscriptions label, revenue values, flow marks, KPI cards, and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/peloton/subscription-app-icon-q2-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2015,
+        "losslessBytes": 7901,
+        "savingsVsLossless": 0.745,
+        "metrics": {
+          "meanAbsoluteError": 0.432,
+          "rootMeanSquareError": 1.6307,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 17,
+          "changedPixelRatio": 0.1327
+        }
+      },
+      "validationSheet": "data/assets/icon-references/peloton/validation-sheets/peloton-subscription-app-icon.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 254592,
+        "losslessBytes": 254592,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}
