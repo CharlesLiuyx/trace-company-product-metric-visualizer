@@ -1039,6 +1039,12 @@
       "updatedAt": "2026-07-09T19:16:47.000Z",
       "timeSource": "git"
     },
+    "global-payments-q4-fy25": {
+      "path": "data/datasets/global-payments-q4-fy25.js",
+      "updatedAtMs": 1783628040136,
+      "updatedAt": "2026-07-09T20:14:00.136Z",
+      "timeSource": "mtime"
+    },
     "data/revenue-metrics.js": {
       "path": "data/revenue-metrics.js",
       "updatedAtMs": 1783251957000,

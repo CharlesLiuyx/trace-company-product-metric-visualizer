@@ -3911,6 +3911,29 @@
             }
           }
         }
+      },
+      {
+        "key": "global-payments-q4-fy25",
+        "src": "data/datasets/global-payments-q4-fy25.js",
+        "data": {
+          "name": "Global Payments · Q4 FY25",
+          "company": "Global Payments",
+          "meta": {
+            "title": "Global Payment Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Global Payments · 2025 财年第四季度",
+              "meta": {
+                "title": "Global Payments 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

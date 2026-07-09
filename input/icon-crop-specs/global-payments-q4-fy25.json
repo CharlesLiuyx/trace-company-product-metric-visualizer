@@ -1,0 +1,30 @@
+{
+  "source": "input/processed/global-payments-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/global-payments",
+  "validationSheetDir": "data/assets/icon-references/global-payments/validation-sheets",
+  "report": "global-payments-q4-fy25-crop-report.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "crops": [
+    {
+      "key": "global-payments-q4-fy25-company-wordmark",
+      "output": "crops/company-wordmark-q4-fy25.png",
+      "searchBox": { "x": 590, "y": 325, "width": 900, "height": 165 },
+      "cropBox": { "x": 600, "y": 333, "width": 880, "height": 150 },
+      "backgroundRemoval": { "color": [242, 242, 242], "tolerance": 6 },
+      "threshold": 18,
+      "minComponentArea": 30,
+      "padding": 8,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.04,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Global Payments company wordmark only; excludes the chart title, financial labels, and publisher attribution."
+    }
+  ]
+}
