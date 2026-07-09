@@ -413,3 +413,18 @@ identity-mapped term as translated wherever it appears.
 Link colour is derived automatically from the two endpoints' types (a teal→teal,
 green→green, or green→salmon gradient), so you only specify the flow amount.
 Keep flows conserved (sum of a node's inflows ≈ its outflows) for clean bars.
+
+Fixed-layout adapters may use measured endpoint geometry:
+
+| field | type | notes |
+|---|---|---|
+| `width` | number | default equal width at both ends; falls back to `value * layout.scale` |
+| `sourceWidth` / `targetWidth` | number | independently measured visible widths; specifying either renders a closed tapered ribbon, with the missing side falling back to `width` |
+| `y0` / `y1` | number | explicit source/target center positions |
+| `sourceOrder` / `targetOrder` | number | vertical stacking order at the source/target face |
+| `curve` | object | optional `x0`, `x1`, `c1x`, `c1y`, `c2x`, `c2y` cubic controls |
+
+Use endpoint-specific widths only when the reference shows different source and
+target intervals. Measure the complete non-background interface union before
+splitting internal links by colour or identity; do not use `sourceWidth` /
+`targetWidth` to hide an incorrect node bbox or socket order.

@@ -9,6 +9,7 @@ const {
   trimFixed,
   autoSide,
   buildFixedGraph,
+  taperedLinkPath,
   referenceCanvasDefaults,
   canvasSize,
   buildLabelSpecs,
@@ -154,6 +155,46 @@ test('buildFixedGraph honors sourceOrder and explicit y overrides', () => {
   const toGross = graph.links.find((l) => l.raw.target === 'gross');
   assert.ok(toCost.y0 < toGross.y0, 'sourceOrder reorders the stacking');
   assert.equal(toCost.y1, 777, 'raw y1 override wins');
+});
+
+test('buildFixedGraph stacks endpoint-specific widths independently', () => {
+  const graph = fixtureGraph({
+    layout: {
+      nodes: {
+        revenue: { x: 100, y: 50, height: 200 },
+        gross: { x: 500, y: 300, height: 120 },
+        cost: { x: 500, y: 500, height: 80 },
+      },
+    },
+    links: [
+      { source: 'revenue', target: 'gross', value: 60, width: 120, sourceWidth: 125, targetWidth: 122 },
+      { source: 'revenue', target: 'cost', value: 40, width: 80, sourceWidth: 75, targetWidth: 84 },
+    ],
+  });
+  const [toGross, toCost] = graph.links;
+  assert.equal(toGross.y0, 50 + 125 / 2);
+  assert.equal(toCost.y0, 50 + 125 + 75 / 2);
+  assert.equal(toGross.y1, 300 + 122 / 2);
+  assert.equal(toCost.y1, 500 + 84 / 2);
+  assert.equal(toGross.width, 120, 'authored width remains available as the semantic fallback');
+  assert.equal(toGross.sourceWidth, 125);
+  assert.equal(toGross.targetWidth, 122);
+});
+
+test('taperedLinkPath builds closed source/target-width boundaries', () => {
+  const path = taperedLinkPath({
+    source: { x1: 100 },
+    target: { x0: 300 },
+    y0: 80,
+    y1: 160,
+    sourceWidth: 40,
+    targetWidth: 20,
+    raw: {},
+  });
+  assert.equal(
+    path,
+    'M100,60C200,60,200,150,300,150L300,170C200,170,200,100,100,100Z'
+  );
 });
 
 test('buildFixedGraph falls back to column-derived x and cfg margins', () => {

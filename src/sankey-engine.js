@@ -425,7 +425,16 @@
       const source = byId.get(l.raw.source);
       const target = byId.get(l.raw.target);
       const width = l.raw.width != null ? l.raw.width : l.value * ky;
-      const link = Object.assign({}, l, { index: i, source, target, width });
+      const sourceWidth = l.raw.sourceWidth != null ? l.raw.sourceWidth : width;
+      const targetWidth = l.raw.targetWidth != null ? l.raw.targetWidth : width;
+      const link = Object.assign({}, l, {
+        index: i,
+        source,
+        target,
+        width,
+        sourceWidth,
+        targetWidth,
+      });
       source.sourceLinks.push(link);
       target.targetLinks.push(link);
       return link;
@@ -441,13 +450,13 @@
       n.targetLinks.sort((a, b) => sortLinks(a, b, 'targetOrder'));
       let sy = n.y0;
       n.sourceLinks.forEach((l) => {
-        l.y0 = sy + l.width / 2;
-        sy += l.width;
+        l.y0 = sy + l.sourceWidth / 2;
+        sy += l.sourceWidth;
       });
       let ty = n.y0;
       n.targetLinks.forEach((l) => {
-        l.y1 = ty + l.width / 2;
-        ty += l.width;
+        l.y1 = ty + l.targetWidth / 2;
+        ty += l.targetWidth;
       });
     });
 
@@ -457,6 +466,26 @@
     });
 
     return { nodes: graphNodes, links: graphLinks };
+  }
+
+  function taperedLinkPath(lk) {
+    const curve = lk.raw && lk.raw.curve;
+    const x0 = curve && curve.x0 != null ? curve.x0 : lk.source.x1;
+    const x1 = curve && curve.x1 != null ? curve.x1 : lk.target.x0;
+    const c1x = curve && curve.c1x != null ? curve.c1x : (x0 + x1) / 2;
+    const c2x = curve && curve.c2x != null ? curve.c2x : (x0 + x1) / 2;
+    const c1y = curve && curve.c1y != null ? curve.c1y : lk.y0;
+    const c2y = curve && curve.c2y != null ? curve.c2y : lk.y1;
+    const sourceHalf = Math.max(1, lk.sourceWidth) / 2;
+    const targetHalf = Math.max(1, lk.targetWidth) / 2;
+
+    return [
+      `M${x0},${lk.y0 - sourceHalf}`,
+      `C${c1x},${c1y - sourceHalf},${c2x},${c2y - targetHalf},${x1},${lk.y1 - targetHalf}`,
+      `L${x1},${lk.y1 + targetHalf}`,
+      `C${c2x},${c2y + targetHalf},${c1x},${c1y + sourceHalf},${x0},${lk.y0 + sourceHalf}`,
+      'Z',
+    ].join('');
   }
 
   function appendSvgFragments(parent, fragments, className) {
@@ -586,6 +615,12 @@
       });
     }
 
+    graph.links.forEach((lk) => {
+      const raw = lk.raw || {};
+      lk.sourceWidth = raw.sourceWidth != null ? raw.sourceWidth : lk.width;
+      lk.targetWidth = raw.targetWidth != null ? raw.targetWidth : lk.width;
+    });
+
     // preserve the author's display value (sankey overwrites .value)
     const authoredValue = new Map(data.nodes.map((n) => [n.id, n.value]));
     graph.nodes.forEach((n) => {
@@ -644,20 +679,33 @@
       grad.append('stop').attr('offset', '0%').attr('stop-color', leftTint);
       grad.append('stop').attr('offset', '100%').attr('stop-color', rightTint);
 
-      linkLayer
+      const variableWidth =
+        (lk.raw && lk.raw.sourceWidth != null) ||
+        (lk.raw && lk.raw.targetWidth != null);
+      const path = linkLayer
         .append('path')
         .datum(lk)
         .attr('class', 'sankey-link')
         .attr('data-source', keyOf(sNode))
         .attr('data-target', keyOf(tNode))
-        .attr('d', linkPath(lk))
-        .attr('fill', 'none')
-        .attr('stroke', `url(#${gid})`)
-        .attr('stroke-width', Math.max(1, lk.width))
-        .attr('stroke-opacity', cfg.linkOpacity)
-        .attr('stroke-linecap', 'butt')
-        .style('pointer-events', 'stroke')
+        .attr('d', variableWidth ? taperedLinkPath(lk) : linkPath(lk))
         .style('cursor', 'pointer');
+
+      if (variableWidth) {
+        path
+          .attr('fill', `url(#${gid})`)
+          .attr('fill-opacity', cfg.linkOpacity)
+          .attr('stroke', 'none')
+          .style('pointer-events', 'all');
+      } else {
+        path
+          .attr('fill', 'none')
+          .attr('stroke', `url(#${gid})`)
+          .attr('stroke-width', Math.max(1, lk.width))
+          .attr('stroke-opacity', cfg.linkOpacity)
+          .attr('stroke-linecap', 'butt')
+          .style('pointer-events', 'stroke');
+      }
     });
 
     /* ---------- nodes ---------- */
@@ -1263,6 +1311,7 @@
       trimFixed,
       autoSide,
       buildFixedGraph,
+      taperedLinkPath,
       referenceCanvasDefaults,
       canvasSize,
       buildLabelSpecs,
