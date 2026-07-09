@@ -609,6 +609,12 @@
       "width": 2667,
       "height": 1500
     },
+    "nu-q4-fy25": {
+      "similarity": 0.974995,
+      "mae": 6.3762,
+      "width": 2667,
+      "height": 1500
+    },
     "nvidia-q1-fy24": {
       "similarity": 0.957116,
       "mae": 10.9354,
