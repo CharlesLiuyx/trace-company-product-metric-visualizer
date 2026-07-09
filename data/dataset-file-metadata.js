@@ -1045,6 +1045,12 @@
       "updatedAt": "2026-07-09T20:23:57.000Z",
       "timeSource": "git"
     },
+    "nu-q4-fy25": {
+      "path": "data/datasets/nu-q4-fy25.js",
+      "updatedAtMs": 1783629023000,
+      "updatedAt": "2026-07-09T20:30:23.000Z",
+      "timeSource": "git"
+    },
     "data/revenue-metrics.js": {
       "path": "data/revenue-metrics.js",
       "updatedAtMs": 1783251957000,
