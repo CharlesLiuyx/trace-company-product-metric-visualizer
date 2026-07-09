@@ -363,6 +363,12 @@
       "width": 2667,
       "height": 1500
     },
+    "global-payments-q4-fy25": {
+      "similarity": 0.980415,
+      "mae": 4.9941,
+      "width": 2667,
+      "height": 1500
+    },
     "goldman-sachs-q1-fy26": {
       "similarity": 0.96779,
       "mae": 8.2137,

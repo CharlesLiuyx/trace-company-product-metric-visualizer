@@ -1,0 +1,116 @@
+{
+  "source": "input/processed/global-payments-q4-fy25.png",
+  "spec": "input/icon-crop-specs/global-payments-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-09T20:07:27.074021+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "global-payments-q4-fy25-company-wordmark",
+      "output": "data/assets/icon-references/global-payments/crops/company-wordmark-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 7489,
+        "losslessBytes": 34863,
+        "savingsVsLossless": 0.7852,
+        "metrics": {
+          "meanAbsoluteError": 0.3229,
+          "rootMeanSquareError": 1.6062,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.1261
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 91837,
+        "transparentPixelRatio": 0.6957
+      },
+      "searchBox": {
+        "x": 590,
+        "y": 325,
+        "width": 900,
+        "height": 165
+      },
+      "componentCount": 15,
+      "subjectBox": {
+        "x0": 610,
+        "y0": 343,
+        "x1": 1470,
+        "y1": 470
+      },
+      "cropBox": {
+        "x0": 600,
+        "y0": 333,
+        "x1": 1480,
+        "y1": 483
+      },
+      "validation": {
+        "width": 880,
+        "height": 150,
+        "foregroundPixels": 32500,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 10,
+          "right": 10,
+          "top": 10,
+          "bottom": 13
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.01
+        },
+        "passes": true
+      },
+      "note": "Global Payments company wordmark only; excludes the chart title, financial labels, and publisher attribution.",
+      "validationSheet": "data/assets/icon-references/global-payments/validation-sheets/global-payments-q4-fy25-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 201476,
+        "losslessBytes": 201476,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}
