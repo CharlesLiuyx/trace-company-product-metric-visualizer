@@ -3842,6 +3842,29 @@
             }
           }
         }
+      },
+      {
+        "key": "netease-q4-fy25",
+        "src": "data/datasets/netease-q4-fy25.js",
+        "data": {
+          "name": "NetEase · Q4 FY25",
+          "company": "NetEase",
+          "meta": {
+            "title": "NetEase Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "NetEase · 2025 财年第四季度",
+              "meta": {
+                "title": "NetEase 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
       }
     ]
   };
