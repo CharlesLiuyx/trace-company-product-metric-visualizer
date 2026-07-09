@@ -424,16 +424,16 @@
       { source: 'revenue', target: 'gross_profit', value: 2.5, width: 222, sourceOrder: 0 },
       { source: 'revenue', target: 'cost_of_revenue', value: 1.4, width: 123, sourceOrder: 1 },
 
-      { source: 'gross_profit', target: 'operating_profit', value: 1.2, width: 104, sourceOrder: 0, targetOrder: 0 },
-      { source: 'gross_profit', target: 'operating_expenses', value: 1.3, width: 116, sourceOrder: 1, targetOrder: 0 },
+      { source: 'gross_profit', target: 'operating_profit', value: 1.2, width: 104, sourceWidth: 106, targetWidth: 107, y0: 617, y1: 511.5, sourceOrder: 0, targetOrder: 0 },
+      { source: 'gross_profit', target: 'operating_expenses', value: 1.3, width: 116, sourceWidth: 119, targetWidth: 120, y0: 729.5, y1: 831, sourceOrder: 1, targetOrder: 0 },
 
-      { source: 'operating_profit', target: 'net_profit', value: 0.9, width: 78, y0: 498, sourceOrder: 0, targetOrder: 0 },
-      { source: 'operating_profit', target: 'tax', value: 0.2, width: 14, y0: 548, sourceOrder: 1 },
-      { source: 'operating_profit', target: 'other', value: 0.1, width: 7, y0: 560, sourceOrder: 2 },
+      { source: 'operating_profit', target: 'net_profit', value: 0.9, width: 78, sourceWidth: 81, targetWidth: 82, y0: 498.5, y1: 438, sourceOrder: 0, targetOrder: 0 },
+      { source: 'operating_profit', target: 'tax', value: 0.2, width: 14, sourceWidth: 17, targetWidth: 17, y0: 547.5, y1: 606.5, sourceOrder: 1 },
+      { source: 'operating_profit', target: 'other', value: 0.1, width: 7, sourceWidth: 9, targetWidth: 10, y0: 560.5, y1: 715, sourceOrder: 2 },
 
-      { source: 'operating_expenses', target: 'rnd', value: 0.6, width: 54, y0: 799, sourceOrder: 0 },
-      { source: 'operating_expenses', target: 'sm', value: 0.6, width: 48, y0: 852.5, sourceOrder: 1 },
-      { source: 'operating_expenses', target: 'ga', value: 0.2, width: 11, y0: 884, sourceOrder: 2 },
+      { source: 'operating_expenses', target: 'rnd', value: 0.6, width: 54, sourceWidth: 56, targetWidth: 58, y0: 799, y1: 845, sourceOrder: 0 },
+      { source: 'operating_expenses', target: 'sm', value: 0.6, width: 48, sourceWidth: 50, targetWidth: 52, y0: 852, y1: 1041, sourceOrder: 1 },
+      { source: 'operating_expenses', target: 'ga', value: 0.2, width: 11, sourceWidth: 14, targetWidth: 15, y0: 884, y1: 1220.5, sourceOrder: 2 },
     ],
     i18n: {
       zh: {
