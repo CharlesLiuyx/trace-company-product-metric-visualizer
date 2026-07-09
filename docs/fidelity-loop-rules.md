@@ -76,7 +76,7 @@ L（连接线）、T（Label-node/文本）、A（注释容器）、Z（本地�
 | B2 | G10 | 侧置 label 横向交叠 | 不判侧置 label 与源图的水平距离是否一致 | T6 | 是 |
 | B3 | G10 | 同上 | 不判侧置 label 垂直中心对齐；单行 label 高风险 | T7 | 是 |
 | B4 | G8 | 同轴归组按 x 相交 | value/note block 放错 x 时被判非同轴而漏检 | T9 | 是 |
-| B5 | G8/G10 | 仅审计 `layout.labels` ↔ node | `annotationsSvg` 文字与相邻 `layout.labels` 交叠不审 | A6 | 是 |
+| B5 | G8/G10 | 仅审计 `layout.labels` ↔ node | `annotationsSvg` 文字与相邻 `layout.labels`、主标题或期间标记交叠不审 | A6 | 是 |
 | B6 | G2 | 仅判 SVG 画布尺寸 | 不判文本 bbox 越出画布（本地化后高发） | Z5 | 是 |
 | B7 | G6/G7 | raster 数量与来源 | 不判隐形锚点柱是否多出可见柱/绿痕 | T12 | 否（视觉判定） |
 | B8 | 无 | — | 多入/出接口只看 `Σlink.width`，会漏掉整组 socket 起点偏移、分项间距错误，或把源图有意留缝误判成 rounding 空隙 | L5/L11 | 是 |
@@ -402,10 +402,13 @@ socket center/间距错 → 显式 `y0`/`y1`；width 与参考两端都不符 �
 - A3 居中意图：union 中心与容器中心一致，或保持参考图同样的轻微偏移。
 - A4 左/右/顶对齐意图：检查对应边距和组内行距。
 - A5 内容不得贴边，尤其底边、右边和圆角区域。
-- A6 annotations 文字 ↔ `layout.labels` 交叠（盲点 B5）：`annotationsSvg` 里
-  的品牌 wordmark、脚注等与相邻节点标签（尤其源节点「数值在上」block）同处
-  一条水平带时，用渲染 bbox 手动核对边界不交叠；wordmark 过宽时优先收窄或
-  整体左移到 ≥5px 间距，再复核其左缘不贴画布边。
+- A6 annotations 文字 ↔ 邻近文本交叠（盲点 B5）：`annotationsSvg` 里的单位
+  标签、品牌 wordmark、脚注等必须与相邻 `layout.labels`、主标题和期间标记逐一
+  用渲染 bbox 核对，边界不得交叠且目标间距 ≥5px。不能只检查 baseline 或依赖
+  自动 label-node audit；title 的 `textLength`、字体或本地化文案变化后必须重查。
+  修复时先按参考图移动 annotation 整组；wordmark 过宽时再收窄或整体侧移，并
+  复核外缘不贴画布边。【案例】Sony Q3 FY25 的 `in yen` 基线误放进标题带，自动
+  门槛全绿仍发生可见交叠；应量测参考图的完整单位标签 bbox 后恢复其 x/y。
 - A7 非默认语言替换注释文字后，重查 union 外框仍在容器内且不越界。
 - A8 优先让 helper 以容器中心、内容组高度、行高和边距推导 baseline；保留
   手写 baseline 时记录容器 bbox、union bbox、中心差和四边边距。
