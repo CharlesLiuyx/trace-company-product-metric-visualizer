@@ -427,13 +427,13 @@
       { source: 'gross_profit', target: 'operating_profit', value: 1.2, width: 104, sourceOrder: 0, targetOrder: 0 },
       { source: 'gross_profit', target: 'operating_expenses', value: 1.3, width: 116, sourceOrder: 1, targetOrder: 0 },
 
-      { source: 'operating_profit', target: 'net_profit', value: 0.9, width: 78, sourceOrder: 0, targetOrder: 0 },
-      { source: 'operating_profit', target: 'tax', value: 0.2, width: 14, sourceOrder: 1 },
-      { source: 'operating_profit', target: 'other', value: 0.1, width: 7, sourceOrder: 2 },
+      { source: 'operating_profit', target: 'net_profit', value: 0.9, width: 78, y0: 498, sourceOrder: 0, targetOrder: 0 },
+      { source: 'operating_profit', target: 'tax', value: 0.2, width: 14, y0: 548, sourceOrder: 1 },
+      { source: 'operating_profit', target: 'other', value: 0.1, width: 7, y0: 560, sourceOrder: 2 },
 
-      { source: 'operating_expenses', target: 'rnd', value: 0.6, width: 54, sourceOrder: 0 },
-      { source: 'operating_expenses', target: 'sm', value: 0.6, width: 48, sourceOrder: 1 },
-      { source: 'operating_expenses', target: 'ga', value: 0.2, width: 11, sourceOrder: 2 },
+      { source: 'operating_expenses', target: 'rnd', value: 0.6, width: 54, y0: 799, sourceOrder: 0 },
+      { source: 'operating_expenses', target: 'sm', value: 0.6, width: 48, y0: 852.5, sourceOrder: 1 },
+      { source: 'operating_expenses', target: 'ga', value: 0.2, width: 11, y0: 884, sourceOrder: 2 },
     ],
     i18n: {
       zh: {
