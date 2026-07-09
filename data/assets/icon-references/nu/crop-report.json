@@ -1,0 +1,194 @@
+{
+  "source": "input/processed/nu-q4-fy25.png",
+  "spec": "input/icon-crop-specs/nu-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-09T20:04:58.198113+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "nu-company-symbol",
+      "output": "data/assets/icon-references/nu/crops/company-symbol.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2534,
+        "losslessBytes": 10839,
+        "savingsVsLossless": 0.7662,
+        "metrics": {
+          "meanAbsoluteError": 0.2066,
+          "rootMeanSquareError": 1.076,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.4162
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 66039,
+        "transparentPixelRatio": 0.587
+      },
+      "searchBox": {
+        "x": 935,
+        "y": 230,
+        "width": 420,
+        "height": 240
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 942,
+        "y0": 238,
+        "x1": 1348,
+        "y1": 463
+      },
+      "cropBox": {
+        "x0": 920,
+        "y0": 225,
+        "x1": 1370,
+        "y1": 475
+      },
+      "validation": {
+        "width": 450,
+        "height": 250,
+        "foregroundPixels": 46148,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 22,
+          "right": 22,
+          "top": 13,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.002
+        },
+        "passes": true
+      },
+      "note": "Nu company symbol above the revenue hub; excludes the title, Revenue label, flows, and publisher marks.",
+      "validationSheet": "data/assets/icon-references/nu/validation-sheets/nu-company-symbol.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 252231,
+        "losslessBytes": 252231,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "nu-credit-card-cluster",
+      "output": "data/assets/icon-references/nu/crops/credit-card-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 4477,
+        "losslessBytes": 27711,
+        "savingsVsLossless": 0.8384,
+        "metrics": {
+          "meanAbsoluteError": 0.9649,
+          "rootMeanSquareError": 2.8366,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 46,
+          "changedPixelRatio": 0.3193
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 31182,
+        "transparentPixelRatio": 0.6785
+      },
+      "searchBox": {
+        "x": 112,
+        "y": 244,
+        "width": 205,
+        "height": 194
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 117,
+        "y0": 249,
+        "x1": 295,
+        "y1": 433
+      },
+      "cropBox": {
+        "x0": 103,
+        "y0": 238,
+        "x1": 325,
+        "y1": 445
+      },
+      "validation": {
+        "width": 222,
+        "height": 207,
+        "foregroundPixels": 14701,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 14,
+          "right": 30,
+          "top": 11,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": -0.036,
+          "y": -0.0024
+        },
+        "passes": true
+      },
+      "note": "Two Nu credit cards tied to the Credit card interest-income source; excludes the nearby amount, label, and title.",
+      "validationSheet": "data/assets/icon-references/nu/validation-sheets/nu-credit-card-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 316631,
+        "losslessBytes": 316631,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

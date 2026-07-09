@@ -3934,6 +3934,29 @@
             }
           }
         }
+      },
+      {
+        "key": "nu-q4-fy25",
+        "src": "data/datasets/nu-q4-fy25.js",
+        "data": {
+          "name": "Nu · Q4 FY25",
+          "company": "Nu",
+          "meta": {
+            "title": "Nu Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Nu · 2025 财年第四季度",
+              "meta": {
+                "title": "Nu 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

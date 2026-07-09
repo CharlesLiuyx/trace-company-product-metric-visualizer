@@ -1,0 +1,52 @@
+{
+  "source": "input/processed/nu-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/nu",
+  "validationSheetDir": "data/assets/icon-references/nu/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "nu-company-symbol",
+      "output": "crops/company-symbol.png",
+      "searchBox": { "x": 935, "y": 230, "width": 420, "height": 240 },
+      "cropBox": { "x": 920, "y": 225, "width": 450, "height": 250 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "validation": {
+        "maxCenterOffset": 0.08
+      },
+      "note": "Nu company symbol above the revenue hub; excludes the title, Revenue label, flows, and publisher marks."
+    },
+    {
+      "key": "nu-credit-card-cluster",
+      "output": "crops/credit-card-cluster.png",
+      "searchBox": { "x": 112, "y": 244, "width": 205, "height": 194 },
+      "cropBox": { "x": 103, "y": 238, "width": 222, "height": 207 },
+      "threshold": 14,
+      "minComponentArea": 20,
+      "validation": {
+        "maxCenterOffset": 0.12
+      },
+      "note": "Two Nu credit cards tied to the Credit card interest-income source; excludes the nearby amount, label, and title."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding and not part of Nu's income-statement semantics."
+    },
+    {
+      "key": "publisher-website",
+      "reason": "The appeconomyinsights.com URL is source attribution and intentionally excluded."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "The App Economy Insights wordmark and social badge are source attribution and intentionally excluded."
+    }
+  ]
+}
