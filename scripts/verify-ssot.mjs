@@ -117,6 +117,8 @@ function validateDatasetParity(record, dataset, errors) {
 
   for (const item of flattenItems(record.revenue.items)) checkNode(item, 'revenue item');
   for (const item of record.costs.operatingExpenses.items || []) checkNode(item, 'operating expense item');
+  for (const item of record.operatingOtherIncome?.items || []) checkNode(item, 'operating other income item');
+  for (const item of record.operatingOtherExpenses?.items || []) checkNode(item, 'operating other expense item');
   for (const item of record.otherIncome?.items || []) checkNode(item, 'other income item');
   for (const item of record.otherExpenses?.items || []) checkNode(item, 'other expense item');
 }
@@ -125,6 +127,10 @@ function validateArithmetic(record, errors) {
   const tolerance = record.roundingTolerance ?? 0.15;
   const revenueItems = sum(record.revenue.items);
   const opexItems = sum(record.costs.operatingExpenses.items);
+  const operatingOtherIncomeItems = sum(record.operatingOtherIncome?.items);
+  const operatingOtherIncomeTotal = record.operatingOtherIncome?.total || 0;
+  const operatingOtherExpenseItems = sum(record.operatingOtherExpenses?.items);
+  const operatingOtherExpenseTotal = record.operatingOtherExpenses?.total || 0;
   const otherItems = sum(record.otherIncome?.items);
   const otherTotal = record.otherIncome?.total || 0;
   const otherExpenseItems = sum(record.otherExpenses?.items);
@@ -141,6 +147,20 @@ function validateArithmetic(record, errors) {
   assertClose(revenueItems, record.revenue.total, tolerance, `${record.key}: revenue item sum`, errors);
   checkChildSums(record.revenue.items, 'revenue');
   assertClose(opexItems, record.costs.operatingExpenses.total, tolerance, `${record.key}: operating expense item sum`, errors);
+  assertClose(
+    operatingOtherIncomeItems,
+    operatingOtherIncomeTotal,
+    tolerance,
+    `${record.key}: operating other income item sum`,
+    errors
+  );
+  assertClose(
+    operatingOtherExpenseItems,
+    operatingOtherExpenseTotal,
+    tolerance,
+    `${record.key}: operating other expense item sum`,
+    errors
+  );
   assertClose(otherItems, otherTotal, tolerance, `${record.key}: other income item sum`, errors);
   assertClose(otherExpenseItems, otherExpenseTotal, tolerance, `${record.key}: other expense item sum`, errors);
   assertClose(
@@ -151,7 +171,7 @@ function validateArithmetic(record, errors) {
     errors
   );
   assertClose(
-    record.profit.gross.value - record.costs.operatingExpenses.total,
+    record.profit.gross.value - record.costs.operatingExpenses.total + operatingOtherIncomeTotal - operatingOtherExpenseTotal,
     record.profit.operating.value,
     tolerance,
     `${record.key}: operating profit arithmetic`,

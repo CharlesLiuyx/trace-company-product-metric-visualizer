@@ -86,6 +86,14 @@ is needed. Do not create parallel dataset files per language.
     },
     tax: { id: 'tax', label: 'Tax', value: 11.6 },
   },
+  operatingOtherIncome: {
+    total: 0,
+    items: [],
+  },
+  operatingOtherExpenses: {
+    total: 0,
+    items: [],
+  },
   otherIncome: {
     total: 16.4,
     items: [{ id: 'investments', label: 'Investments', value: 16.4 }],
@@ -117,8 +125,11 @@ is needed. Do not create parallel dataset files per language.
 }
 ```
 
-Use `otherIncome` for non-operating gains that add to net profit, and
-`otherExpenses` for non-operating costs that subtract from net profit. The `id`
+Use `operatingOtherIncome` / `operatingOtherExpenses` for source-chart adjustments
+that explicitly enter before operating profit. Use `otherIncome` for non-operating
+gains that add after operating profit on the path to net profit, and
+`otherExpenses` for non-operating costs that subtract on that same path. Omit the
+optional operating-stage fields when both totals are zero. The `id`
 fields should match the relevant Sankey node ids when a corresponding node
 exists. The verifier checks every manifest-registered dataset script has a matching
 SSOT record, compares key totals and line items against Sankey node values, and
