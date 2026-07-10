@@ -183,6 +183,7 @@
       width: 2667,
       height: 1500,
       background: '#f2f2f2',
+      interfaceAudit: { mode: 'error' },
       allowRasterAnnotations: true,
       titleColor: TITLE,
       subtitleColor: NOTE,
