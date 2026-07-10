@@ -42,6 +42,15 @@ test('installManifest pushes one navigable stub per entry', () => {
   assert.deepEqual([...registry.pendingKeys()], ['alpha-q1-fy26', 'beta-q2-fy26']);
 });
 
+test('installManifest is idempotent for pending stubs', () => {
+  const { registry, datasets } = freshRegistry();
+  registry.installManifest(MANIFEST);
+  const firstStub = datasets[0];
+  registry.installManifest(MANIFEST);
+  assert.equal(datasets.length, 2, 'a repeated install must not append duplicate stubs');
+  assert.equal(datasets[0], firstStub, 'the original stub identity survives a repeated install');
+});
+
 test('a later adapter push upgrades its stub in place (same object identity)', () => {
   const { registry, datasets } = freshRegistry();
   registry.installManifest(MANIFEST);

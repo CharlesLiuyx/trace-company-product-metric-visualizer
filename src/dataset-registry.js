@@ -64,7 +64,7 @@
     (manifest?.datasets || []).forEach((entry) => {
       if (!entry || !entry.key) return;
       srcByKey.set(entry.key, entry.src || '');
-      if (loadedKeys.has(entry.key)) return;
+      if (loadedKeys.has(entry.key) || stubByKey.has(entry.key)) return;
       const stub = Object.assign({ key: entry.key, __datasetStub: true }, entry.data);
       stubByKey.set(entry.key, stub);
       nativePush.call(datasets, stub);

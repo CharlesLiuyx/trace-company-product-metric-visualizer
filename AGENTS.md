@@ -61,7 +61,7 @@ already exists.
 - Per-company SSOT files must be registered as `<script>` tags in
  `index.html`; dataset adapters register in the generated
  `data/dataset-manifest.js` (never hand-edited) and are progressively
- loaded by the viewer through `src/dataset-registry.js` +
+ loaded on demand by the viewer through `src/dataset-registry.js` +
  `src/app/dataset-loader.js`. `verify:ssot` enforces disk ↔ registration
  parity for both surfaces and `pnpm sync:index-datasets` repairs them.
 - `data/products.js` is an empty placeholder for a future Product SSOT (not
@@ -110,11 +110,13 @@ Install once; the d3/standalone verifiers render in Chromium:
 | `pnpm record:baseline -- <key> [...]` | explicit subset-only compatibility mutation for future-regression baselines; writes atomically only after every selected render/structure check passes |
 | `pnpm update:dataset-file-metadata` | regenerate `data/dataset-file-metadata.js` from git author times (rerun + commit after committing a new/edited dataset) |
 | `pnpm verify:dataset-file-metadata` | generated metadata is current |
+| `pnpm build:site` / `pnpm verify:site` | build the optimized Pages runtime projection / browser-check its deferred bundles, on-demand Adapter budget, lazy Chart runtime, and company-switch path |
 | `pnpm build:standalone` | build the self-contained HTML without mutating tracked metadata; inlines all dataset adapters |
 | `pnpm verify:standalone` | standalone artifact needs no sibling files |
 | `sh scripts/clean-compare.sh` | clean legacy top-level scratch files only; `verify:d3` owns/cleans each private `compare/runs/` directory, so never use global deletion during concurrent runs |
 
-CI (`.github/workflows/ci.yml`) runs `pnpm check`, `verify:app`, a
+CI (`.github/workflows/ci.yml`) runs `pnpm check`, `verify:app`, the Pages
+build + loading-budget verification, a
 `verify:d3` smoke render, `verify:render-regression`, and the standalone
 build + verification on every push to `main` and every pull request.
 

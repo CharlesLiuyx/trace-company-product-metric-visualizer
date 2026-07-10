@@ -977,8 +977,15 @@ function updateComparisonMetricTrendPanel(records = comparisonScopeRecords()) {
 }
 function applyComparisonMetricTrendSelection(next) {
   state.comparisonMetricTrend = next;
-  const panel = updateComparisonMetricTrendPanel();
-  panel?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  const showPanel = () => {
+    const panel = updateComparisonMetricTrendPanel();
+    panel?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  };
+  if (!window.Chart) {
+    viewRuntimeLoader.ensureChart().then(showPanel).catch((error) => console.error(error));
+    return;
+  }
+  showPanel();
 }
 // Combo selections replace the whole selection at once instead of toggling:
 // solo keeps only the clicked object, layer keeps the clicked node plus every

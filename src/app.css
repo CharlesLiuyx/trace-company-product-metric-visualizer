@@ -648,6 +648,7 @@ button.period-year-name:focus-visible {
   min-height: 220px; padding: 24px;
   color: var(--muted); font-size: 13px;
 }
+.chart-loading-error { flex-direction: column; gap: 12px; }
 
 .content {
   position: relative;

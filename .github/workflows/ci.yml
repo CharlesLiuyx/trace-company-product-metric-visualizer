@@ -26,6 +26,9 @@ jobs:
       - run: pnpm exec playwright install --with-deps chromium
       # Headless boot + interaction smoke of the modular viewer.
       - run: pnpm verify:app
+      # Build the Pages projection and enforce its request/lazy-loading budgets.
+      - run: pnpm build:site
+      - run: pnpm verify:site
       # One d3 render as a pipeline smoke: hard gates + pixel metrics.
       - run: pnpm verify:d3 -- salesforce-q1-fy27
       # Batch-render every registered dataset through the purity/size hard

@@ -274,7 +274,15 @@ function renderPeriods() {
     // hovering a period chip (or a year toggle) outlines its comparison card(s)
     item.querySelectorAll('[data-hover-indexes]').forEach((button) => {
       const indexes = button.dataset.hoverIndexes.split(',').map(Number);
-      button.addEventListener('mouseenter', () => setComparisonPeriodHoverLink(indexes));
+      const prefetchPeriodDataset = () => {
+        const record = button.dataset.index ? recordByIndex(Number(button.dataset.index)) : null;
+        datasetLoader.prefetch([record?.dataset?.key]);
+      };
+      button.addEventListener('mouseenter', () => {
+        prefetchPeriodDataset();
+        setComparisonPeriodHoverLink(indexes);
+      });
+      button.addEventListener('focus', prefetchPeriodDataset, { once: true });
       button.addEventListener('mouseleave', () => setComparisonPeriodHoverLink());
     });
     periodList.appendChild(item);

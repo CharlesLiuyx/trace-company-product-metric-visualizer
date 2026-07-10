@@ -3,6 +3,41 @@
  * percent-axis zero-line plugin, and growth-axis helpers reused by
  * trend.js and comparison-metric-trend.js. */
 
+const viewRuntimeLoader = (() => {
+  let chartPromise = null;
+
+  function ensureChart() {
+    if (window.Chart) return Promise.resolve(window.Chart);
+    if (chartPromise) return chartPromise;
+    const src = window.__TRACE_RUNTIME_ASSETS__?.chart;
+    if (!src) return Promise.reject(new Error('Chart runtime source is not configured'));
+    chartPromise = new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = src;
+      script.dataset.runtime = 'chart';
+      script.onload = () => {
+        if (window.Chart) {
+          resolve(window.Chart);
+          return;
+        }
+        chartPromise = null;
+        script.remove();
+        reject(new Error('Chart runtime loaded without registering Chart'));
+      };
+      script.onerror = () => {
+        chartPromise = null;
+        script.remove();
+        reject(new Error(`Failed to load Chart runtime: ${src}`));
+      };
+      document.head.appendChild(script);
+    });
+    return chartPromise;
+  }
+
+  return Object.freeze({ ensureChart });
+})();
+
 function chartTheme() {
   return {
     ink: cssVar('--ink', '#15436b'),
