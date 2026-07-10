@@ -1,0 +1,30 @@
+{
+  "source": "input/processed/paypal-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/paypal",
+  "runtimeOutputDir": "data/assets/raster-annotations/paypal",
+  "validationSheetDir": "data/assets/icon-references/paypal/validation-sheets",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "crops": [
+    {
+      "key": "paypal-company-wordmark",
+      "output": "crops/company-wordmark-q4-fy25.png",
+      "runtimeOutput": "company-wordmark-q4-fy25.png",
+      "searchBox": { "x": 600, "y": 235, "width": 640, "height": 180 },
+      "cropBox": { "x": 600, "y": 235, "width": 636, "height": 177 },
+      "note": "PayPal company mark and wordmark above the revenue hub; excludes the title, chart labels, and publisher attribution."
+    },
+    {
+      "key": "paypal-transaction-revenues-paypal-venmo-icons",
+      "output": "crops/transaction-revenues-paypal-venmo-icons-q4-fy25.png",
+      "runtimeOutput": "transaction-revenues-paypal-venmo-icons-q4-fy25.png",
+      "searchBox": { "x": 45, "y": 420, "width": 380, "height": 210 },
+      "cropBox": { "x": 45, "y": 415, "width": 378, "height": 214 },
+      "note": "PayPal and Venmo icon cluster for transaction revenues; excludes the value, description, source bar, and publisher marks."
+    }
+  ]
+}
