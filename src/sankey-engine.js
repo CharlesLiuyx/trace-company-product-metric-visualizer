@@ -148,6 +148,21 @@
       .replace(/(\.\d*?)0+$/, '$1');
   }
 
+  function percentOf(value, denominator, decimals = 1) {
+    const numerator = Number(value);
+    const base = Number(denominator);
+    if (!Number.isFinite(numerator) || !Number.isFinite(base) || base === 0) return '';
+    return `${trimFixed((numerator / base) * 100, decimals)}%`;
+  }
+
+  function nodeHoverDenominator(node) {
+    if (!node) return 0;
+    const authored = Number(node.dv);
+    if (Number.isFinite(authored) && authored !== 0) return authored;
+    const computed = Number(node.value);
+    return Number.isFinite(computed) ? computed : 0;
+  }
+
   // default label side when a node doesn't specify one
   function autoSide(node, nCols) {
     if (node.col === 0) return 'left';
@@ -1010,25 +1025,33 @@
     function linkPercent(lk, denominatorOverride) {
       const raw = lk.raw || {};
       if (isHiddenBridgeLink(lk)) return '';
+      const decimals = tooltipCfg && tooltipCfg.percentDecimals != null ? tooltipCfg.percentDecimals : 1;
+      const value = numericLinkValue(lk);
+      const contextualDenominator = Number(denominatorOverride);
+
+      // A node hover is a question about the hovered node: every adjacent
+      // link is the numerator and that node's authored value is the shared
+      // denominator. The same link can therefore show a different share when
+      // reached from its opposite endpoint. Link-authored percentages remain
+      // the fallback for a direct link hover, where no node context exists.
+      if (Number.isFinite(contextualDenominator) && contextualDenominator !== 0) {
+        return percentOf(value, contextualDenominator, decimals);
+      }
+
       if (raw.percentText != null) return String(raw.percentText);
       if (raw.percentageText != null) return String(raw.percentageText);
 
       const explicit = raw.percent != null ? raw.percent : raw.percentage;
-      const decimals = tooltipCfg && tooltipCfg.percentDecimals != null ? tooltipCfg.percentDecimals : 1;
       if (explicit != null && Number.isFinite(Number(explicit))) {
         const pct = Math.abs(Number(explicit)) <= 1 ? Number(explicit) * 100 : Number(explicit);
         return `${trimFixed(pct, decimals)}%`;
       }
 
-      const value = numericLinkValue(lk);
       const sourceLinks = lk.source && lk.source.sourceLinks ? lk.source.sourceLinks : [];
       const targetLinks = lk.target && lk.target.targetLinks ? lk.target.targetLinks : [];
       const sourceTotal = linkSum(sourceLinks);
       const targetTotal = linkSum(targetLinks);
-      let denominator =
-        denominatorOverride && Number.isFinite(Number(denominatorOverride))
-          ? Number(denominatorOverride)
-          : 0;
+      let denominator = 0;
 
       if (!denominator) {
         const bridgeDenominator = hiddenBridgeDenominator(lk);
@@ -1041,7 +1064,7 @@
       }
 
       if (!denominator) return '';
-      return `${trimFixed((value / denominator) * 100, decimals)}%`;
+      return percentOf(value, denominator, decimals);
     }
 
     function linkTooltipAnchor(path, lk) {
@@ -1210,6 +1233,13 @@
       const linkPaths = linkLayer.selectAll('path.sankey-link');
       const nodeRects = nodeLayer.selectAll('rect.sankey-node');
       const labelItems = labelLayer.selectAll('.sankey-label');
+      // Some source charts use a callout-shaped micro-flow: its visible
+      // guide line and label are annotations, while the financial node is
+      // intentionally too small to be a practical pointer target. A
+      // data-node annotated group lets that pure-SVG callout participate in
+      // the same hover context without making its visual geometry a node.
+      const annotationItems = svg.selectAll('.sankey-interactive-annotation[data-node]');
+      const nodeByKey = new Map(graph.nodes.map((node) => [keyOf(node), node]));
       linkPaths.each(function (lk) {
         linkPathByIndex.set(lk.index, this);
       });
@@ -1278,6 +1308,11 @@
         styled(labelItems).style('opacity', (n) =>
           activeNodeIds.has(keyOf(n)) ? ixn.focusOpacity : ixn.labelDimOpacity
         );
+        styled(annotationItems).style('opacity', function () {
+          return activeNodeIds.has(this.getAttribute('data-node'))
+            ? ixn.focusOpacity
+            : ixn.labelDimOpacity;
+        });
       }
 
       function resetHighlight() {
@@ -1286,6 +1321,7 @@
         styled(linkPaths).style('stroke-opacity', cfg.linkOpacity).style('filter', null);
         styled(nodeRects).style('opacity', 1);
         styled(labelItems).style('opacity', 1);
+        styled(annotationItems).style('opacity', 1);
       }
 
       // Crossing from an element to an adjacent one fires leave then enter;
@@ -1315,7 +1351,14 @@
         const ctx = collectNodeContext(n);
         applyHighlight(ctx.activeNodes, ctx.activeLinks);
         const directLinks = [...(n.targetLinks || []), ...(n.sourceLinks || [])];
-        showLinkTooltips(directLinks.map((lk) => ({ path: linkPathByIndex.get(lk.index), lk })));
+        const denominatorOverride = nodeHoverDenominator(n);
+        showLinkTooltips(
+          directLinks.map((lk) => ({
+            path: linkPathByIndex.get(lk.index),
+            lk,
+            denominatorOverride,
+          }))
+        );
       };
 
       const focusLink = (event, lk) => {
@@ -1329,6 +1372,13 @@
 
       nodeRects.on('mouseenter', focusNode).on('mouseleave', scheduleReset);
       labelItems.on('mouseenter', focusNode).on('mouseleave', scheduleReset);
+      annotationItems
+        .on('mouseenter', function (event) {
+          const node = nodeByKey.get(this.getAttribute('data-node'));
+          if (node) focusNode(event, node);
+        })
+        .on('mouseleave', scheduleReset)
+        .style('cursor', 'pointer');
       linkPaths.on('mouseenter', focusLink).on('mouseleave', scheduleReset);
       svg.on('mouseleave', scheduleReset);
     }
@@ -1348,6 +1398,8 @@
       deepMerge,
       formatValue,
       trimFixed,
+      percentOf,
+      nodeHoverDenominator,
       autoSide,
       buildFixedGraph,
       taperedLinkPath,

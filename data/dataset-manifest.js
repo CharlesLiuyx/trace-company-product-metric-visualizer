@@ -4213,6 +4213,121 @@
         }
       },
       {
+        "key": "global-e-q4-fy25",
+        "src": "data/datasets/global-e-q4-fy25.js",
+        "data": {
+          "name": "Global-e · Q4 FY25",
+          "company": "Global-e",
+          "meta": {
+            "title": "Global-e Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Global-e · 2025 财年第四季度",
+              "meta": {
+                "title": "Global-e 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intuit-q2-fy26",
+        "src": "data/datasets/intuit-q2-fy26.js",
+        "data": {
+          "name": "Intuit · Q2 FY26",
+          "company": "Intuit",
+          "meta": {
+            "title": "Intuit Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Intuit · 2026 财年第二季度",
+              "meta": {
+                "title": "Intuit 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mercadolibre-q4-fy25",
+        "src": "data/datasets/mercadolibre-q4-fy25.js",
+        "data": {
+          "name": "MercadoLibre · Q4 FY25",
+          "company": "MercadoLibre",
+          "meta": {
+            "title": "MercadoLibre Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美客多 · 2025 财年第四季度",
+              "meta": {
+                "title": "美客多 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "shopify-q4-fy25",
+        "src": "data/datasets/shopify-q4-fy25.js",
+        "data": {
+          "name": "Shopify · Q4 FY25",
+          "company": "Shopify",
+          "meta": {
+            "title": "Shopify Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Quarter ended Dec. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Shopify · 2025 财年第四季度",
+              "meta": {
+                "title": "Shopify 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "affirm-q2-fy26",
+        "src": "data/datasets/affirm-q2-fy26.js",
+        "data": {
+          "name": "Affirm · Q2 FY26",
+          "company": "Affirm",
+          "meta": {
+            "title": "Affirm Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Affirm · 2026 财年第二季度",
+              "meta": {
+                "title": "Affirm 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
         "key": "paypal-q4-fy25",
         "src": "data/datasets/paypal-q4-fy25.js",
         "data": {
@@ -4236,23 +4351,207 @@
         }
       },
       {
-        "key": "global-e-q4-fy25",
-        "src": "data/datasets/global-e-q4-fy25.js",
+        "key": "chime-q4-fy25",
+        "src": "data/datasets/chime-q4-fy25.js",
         "data": {
-          "name": "Global-e · Q4 FY25",
-          "company": "Global-e",
+          "name": "Chime · Q4 FY25",
+          "company": "Chime",
           "meta": {
-            "title": "Global-e Q4 FY25 Income Statement",
+            "title": "Chime Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Quarter ended Dec. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Chime · 2025 财年第四季度",
+              "meta": {
+                "title": "Chime 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "coca-cola-q4-fy25",
+        "src": "data/datasets/coca-cola-q4-fy25.js",
+        "data": {
+          "name": "Coca-Cola · Q4 FY25",
+          "company": "Coca-Cola",
+          "meta": {
+            "title": "Coca-Cola Q4 FY25 Income Statement",
             "period": "Q4 FY25",
             "periodNote": "Ending Dec. 2025"
           },
           "i18n": {
             "zh": {
-              "name": "Global-e · 2025 财年第四季度",
+              "name": "Coca-Cola · 2025 财年第四季度",
               "meta": {
-                "title": "Global-e 2025 财年第四季度利润表",
+                "title": "可口可乐 2025 财年第四季度利润表",
                 "period": "2025 财年第四季度",
                 "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "etsy-q4-fy25",
+        "src": "data/datasets/etsy-q4-fy25.js",
+        "data": {
+          "name": "Etsy · Q4 FY25",
+          "company": "Etsy",
+          "meta": {
+            "title": "Etsy Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Etsy · 2025 财年第四季度",
+              "meta": {
+                "title": "Etsy 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "domino-s-q4-fy25",
+        "src": "data/datasets/domino-s-q4-fy25.js",
+        "data": {
+          "name": "Domino's · Q4 FY25",
+          "company": "Domino's",
+          "meta": {
+            "title": "Domino's Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Quarter ended Dec. 28, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "达美乐 · 2025 财年第四季度",
+              "meta": {
+                "title": "达美乐 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月 28 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mcdonald-s-q4-fy25",
+        "src": "data/datasets/mcdonald-s-q4-fy25.js",
+        "data": {
+          "name": "McDonald's · Q4 FY25",
+          "company": "McDonald's",
+          "meta": {
+            "title": "McDonald's Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "麦当劳 · 2025 财年第四季度",
+              "meta": {
+                "title": "麦当劳 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "rbi-q4-fy25",
+        "src": "data/datasets/rbi-q4-fy25.js",
+        "data": {
+          "name": "RBI · Q4 FY25",
+          "company": "Restaurant Brands International",
+          "meta": {
+            "title": "RBI Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "RBI · 2025 财年第四季度",
+              "meta": {
+                "title": "RBI 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "yum-brands-q4-fy25",
+        "src": "data/datasets/yum-brands-q4-fy25.js",
+        "data": {
+          "name": "Yum! Brands · Q4 FY25",
+          "company": "Yum! Brands",
+          "meta": {
+            "title": "Yum! Brands Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Yum! Brands · 2025 财年第四季度",
+              "meta": {
+                "title": "Yum! Brands 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pepsico-q4-fy25",
+        "src": "data/datasets/pepsico-q4-fy25.js",
+        "data": {
+          "name": "PepsiCo · Q4 FY25",
+          "company": "PepsiCo",
+          "meta": {
+            "title": "PepsiCo Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "百事公司 · 2025 财年第四季度",
+              "meta": {
+                "title": "百事公司 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "chipotle-q4-fy25",
+        "src": "data/datasets/chipotle-q4-fy25.js",
+        "data": {
+          "name": "Chipotle · Q4 FY25",
+          "company": "Chipotle",
+          "meta": {
+            "title": "Chipotle Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Quarter ended Dec. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Chipotle · 2025 财年第四季度",
+              "meta": {
+                "title": "Chipotle 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月 31 日的季度"
               }
             }
           }

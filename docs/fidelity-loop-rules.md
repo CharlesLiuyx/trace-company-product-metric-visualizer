@@ -6,7 +6,9 @@
 
 全部硬规则带稳定编号：G（自动硬门槛）、B（盲点必查）、R（raster 白名单）、
 L（连接线）、T（Label-node/文本）、A（注释容器）、Z（本地化）、I（图标子循环）。
-红框 region、Task 信息、人工反馈与轮次记录一律引用编号，禁止转述指代。
+红框 region、Task 信息、人工反馈与轮次记录一律引用编号，禁止转述指代。非规则
+对象使用独立 namespace：region 为 `REG-001`，反馈为 `FB-001`，人工决策为
+`DEC-001`；不得把 `R1/R2` 等规则编号复用成 region ID。
 
 ## 导读与阅读路径
 
@@ -142,9 +144,10 @@ G12 启用与迁移口径：
 | B7 | G6/G7 | raster 数量与来源 | 不判隐形锚点柱是否多出可见柱/绿痕 | T12 | 不适合（视觉判定） |
 | B8 | G12 | 可见接口计数、node-bbox 内 union 外缘/interval、path 端点、端面切线与 link 几何 containment；同时保留未裁切 raster intervals | 自动分色不能可靠区分 source raster 晕边与真实绘制外溢，也不能判定同色相接和 per-link 语义身份；`mode=warning` / `referenceStatus=not-scored` 不构成 pass | L5/L6/L8/L11/L15 | 部分（G12 几何/union 已 gate） |
 | B9 | 无 | — | hub/深色源 profit 流带渐变 vs 源图纯色 | L12 | 待自动化 |
-| B10 | G11 | 数据一致性 | link 拓扑与源图一致性、tooltip 语义分母 | L8/L14 | 部分（数据侧已 gate） |
+| B10 | G11 | 数据一致性 | link 拓扑与源图一致性、tooltip 语义分母 | L8/L14 | 部分（数据侧 + 节点 hover 分母单测已 gate） |
 | B11 | 无 | — | 闭合 tapered ribbon 的 path 周长中点会把 Hover 百分比 Tag 错放到目标端 | L16 | 待自动化 |
 | B12 | 无 | — | 多入/出节点 Σlink.width 与节点高度的 rounding 空隙/溢出 | L11 | 待自动化 |
+| B13 | G8 | label ↔ 自身 node 的同轴净空 | 不检查位于两柱之间的完整 label 组与上/下相邻 node 的跨对象净空 | T15 | 待自动化 |
 
 ### 重复触发升级
 
@@ -216,24 +219,29 @@ pnpm verify:d3 -- <dataset-key> [--focus "<主检查方向>"] [--keep] [--langua
 
 `verify:d3` 每次运行：起本地静态服务器 → 最小 harness 执行
 `SankeyEngine.render('#chart', data)` → 截取 `#chart > svg` → 跑 G 系列哨兵 →
-计算全图与 DOM 派生分区域 Diff → 写 `compare/<key>-metrics.json` 和
-`compare/<key>[-<language>]-interface-audit.json` → 在结构 sweep 生成
-`compare/<key>[-<language>]-interface-contact-sheet.png` → 归档到
-`output/compare/<key>/<round>-<improvement>-<focus>/` 并复制共享参考图 → 默认
-清理 `compare/`。非结构轮仍须在 metrics 中报告 G12 状态；若接口相关几何发生
+计算全图与 DOM 派生分区域 Diff → 在私有
+`compare/runs/<key>-<language>-<run-id>/` 写 provisional metrics、interface audit
+与 contact sheet → page error、label 与当前 G12 enforcement 等自动门槛全部通过
+后，才以 sibling temp directory + rename 原子归档到
+`output/compare/<key>/<round>-<improvement>-<focus>/`。accepted archive 自带
+reference 和 `fidelity-run.json`；共享参考图只在 archive 成功后更新。失败 run
+不得晋级 archive 或成为 previous；默认只清理当前 run，`--keep` 会打印并保留
+该 run 的私有 scratch。非结构轮仍须在 metrics 中报告 G12 状态；若接口相关几何发生
 变化，必须重新生成 audit 与 contact sheet，并重开结构方向。metrics JSON 同时
 输出 `labelLayoutAudit`（同轴组 `centerDelta`/`gap`、侧置 label
 `gap`/`verticalCenterDelta`、相邻 label 间距）；T5 ②、T7 和 B3 的人工核对以
 该字段为数据源，禁止用手工重测替代或凭视觉印象跳过。
 
-归档命名：轮次按该 dataset 已有 archive 数自动递增补零（`--round` 可覆盖）；
-`improvement` 为全图 similarity 相对上一轮同语言 archive 的差值（如
+归档命名：轮次按该 dataset 的兼容 accepted archive 数自动递增补零（`--round`
+可覆盖）；previous 必须匹配 dataset、language、run kind、reference hash 与
+`fidelity-run/1` protocol version，失败/旧格式/身份不兼容 archive 不参与比较。
+`improvement` 为全图 similarity 相对 previous compatible accepted archive 的差值（如
 `sim+0.000123`；无上一轮用 `baseline`）；`focus` 转为短 slug，sweep 轮直接用
 层级名（`structure-sweep`、`text-sweep`、`polish-l10n-sweep`）。
 
-人工轮次必须传 `--focus`。需要并排看原图/候选/Diff 时加 `--keep`，结束前必须
-`sh scripts/clean-compare.sh`。最终记录引用 `output/compare/` 归档；
-`compare/` 只是临时 scratch。
+人工轮次必须传 `--focus`。需要并排看原图/候选/Diff 时加 `--keep`，并使用命令
+打印的 `run scratch` 路径；不得在并发 run 存在时全局清理 `compare/`。最终记录
+引用 `output/compare/` accepted 归档；`compare/runs/` 只是私有临时 scratch。
 
 ## 第 0 轮：渲染前测量
 
@@ -326,6 +334,7 @@ metrics JSON 的 `labelLayoutAudit` 与该清单互核，`centerDelta`、`edgeGa
 | waterfall 调整区/绕行带 | L8、L14 | 每条带：原图对应关系、语义分母 |
 | 深色 hub/深色源出发的 profit 流带 | L12 | 每条：近源缘取色结论 |
 | hub/中间聚合柱贴附名称块 | T2 | 中心差、5px 边距 |
+| 相邻中间柱之间放置完整 label 组 | T1、T5、T15 | label ↔ 上/下相邻柱的两侧 bbox 净空 |
 | 侧置 label 列（整组 start/end 对齐） | T4、T6、T7、Z5 | 对齐缘 x、`verticalCenterDelta` |
 | 细流带 + 水平引导线、无可见柱 | T12（与 T13 辨析） | 可见柱计数 = 源图 |
 | `annotationsSvg` wordmark/脚注与 label 同水平带 | A6 | 渲染 bbox 边界间距 |
@@ -509,9 +518,16 @@ Interface Matrix 与 G12 interface audit，不以源码 link 数组位置、node
 - L13 节点联动移动：人工反馈要求节点「上/下移」时，把节点、同属 label、所有
   相关 `y0`/`y1` 和 curve 控制点作为一个联动系统处理；移动后重算目标柱
   stacked intervals，并用局部 crop 复查目标边界端点贴合。
-- L14 tooltip 百分比：用户指出 hover 百分比错误时，明确记录该 link 的语义
-  分母；waterfall 区、隐藏桥接、结果柱与调整项共用目标等启发式易误判的关系，
-  优先在 dataset link 上写 `percent` 或 `percentText`，不依赖 renderer 推断。
+- L14 tooltip 百分比：hover 节点时，以**当前 hover 的节点 authored value** 为
+  共同分母、每条相邻 link 的 value 为分子；同一条 link 从两端节点进入 hover
+  时允许显示不同百分比。例如 `operating_profit → net_profit` 为 `114`，hover
+  `operating_profit=118` 显示 `96.6%`，hover `net_profit=130` 显示 `87.7%`。
+  hovered 节点的 authored value 优先于 d3 按流量重算的 node value，避免分项
+  rounding 改写报表口径。直接 hover link、没有节点上下文时，才按 link 的语义
+  分母解析：`percent` / `percentText` 优先，其次使用 renderer 的分流/汇流推断。
+  waterfall 区、隐藏桥接、结果柱与调整项共用目标等启发式易误判的 link-hover
+  关系，必须在 dataset link 上写 `percent` 或 `percentText`。节点 hover 分母行为
+  由 `tests/sankey-engine-layout.test.mjs` 纳入 `pnpm check` gate。
 - L15 竖直节点接口端面：无论 link 是 `stroke-linecap: butt` 的等宽中心线，还是
   L11 的闭合 tapered ribbon，连接竖直节点边时都必须水平进入/离开，使端面与
   节点边竖直贴齐。自定义 cubic 的源端中心控制点满足 `c1y = y0`，目标端满足
@@ -594,8 +610,17 @@ link 两端宽度不同 → `sourceWidth` / `targetWidth` + tapered ribbon；双
   锚点），用 link 曲线 + `annotationsSvg` 引导线还原；水平引导线若在源图中
   可见，必须按其像素 bbox 单独画出，锚点 bbox 放在引导线末端，曲线从该末端
   进入目标柱，不得把隐藏锚点留在上游主柱附近导致引导线缺失或连接线斜穿。
+  若名称/金额改由 annotation 绘制，该完整 annotation 组必须加
+  `class="sankey-interactive-annotation" data-node="<node-id>"` 和覆盖名称、金额、
+  引导线的透明 hitbox；否则语义节点虽存在却无法从其可见文案 Hover。
   渲染层序为 links → nodes → labels → annotations，背景色节点不会盖住引导线。
   审查时数「可见绿色柱」数量与源图一致（通常仅终端利润柱一个）。
+- T12a 交互式引导标注：隐藏锚点的名称/数值若以 `annotationsSvg` 呈现，且该标注
+  是用户理解或触发该 financial node 的唯一可见入口，必须包进带
+  `class="sankey-interactive-annotation" data-node="<node-id>"` 的 `<g>`，并提供不改变
+  像素的透明 hitbox。其 hover 必须进入该 node 的同一上下游高亮与 tooltip 语义；
+  不能因为透明锚点而失去 hover。标签应以引导线的视觉中心/终点为锚点，而不是以
+  隐形 node bbox 强行居中；平滑曲线的 source、target 切线仍按 L15 审查。
 - T13 可见短辅助柱不得消失：源图已画出短水平柱/短矩形（即使只有 1–3px 高）
   时，必须保留第 0 轮测得的可见 bbox；不得为了通过 G8/G9 或避让文字，把
   `width`/`height` 缩到肉眼不可见、改成透明锚点，或只留下连接线。若同轴
@@ -608,6 +633,12 @@ link 两端宽度不同 → `sourceWidth` / `targetWidth` + tapered ribbon；双
   上逐行量测直线段的 `x0..x1`，区分直线段、弯曲连接线和文字像素；修复以
   `layout.nodes.width`/`x` 还原可见直线段长度，并同步重算同轴 label 中心，
   不得沿用默认短节点宽度或只靠移动曲线端点遮盖长度误差。
+- T15 相邻节点的竖向净空（盲点 B13）：同一列中一个节点的 label 被排在其上方
+  节点与自身 node 之间时，除审计 label ↔ 自身 node 外，必须同时以渲染 bbox
+  审计该 label ↔ 上方相邻 node 的净空；两边目标均为至少 5px，任何交叠都是
+  hard fail。可用竖向走廊高度不足以容纳完整语义组时，优先缩小该组字号/行距或
+  改写换行，再在两柱之间重新定位；不得只把 label 移到自身柱前而压到上方柱。
+  本地化后重新执行，不能因中文变短而跳过英文的走廊审计。
 
 ## 注释容器
 
@@ -686,6 +717,9 @@ link 两端宽度不同 → `sourceWidth` / `targetWidth` + tapered ribbon；双
 - I10 子循环收敛条件：crop 已验证准确；候选是纯 vector；图标主体结构、关键
   负形、边界留白和中心位置稳定；资产已存为可复用 vector 或 runtime raster
   copy 已按 R 系列生成。
+- I11 Logo 单一所有权：`meta.logoSvg` 已由渲染器自动放在 hub 上方；不得再在
+  `annotationsSvg` 复刻同一个公司 logo。若必须以 annotation 自定义定位，移除
+  `meta.logoSvg`，并在检查中确认渲染图只有一个该 logo 的语义实例。
 
 ## 误差分类和修复优先级
 

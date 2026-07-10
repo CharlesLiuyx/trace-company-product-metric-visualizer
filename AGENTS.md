@@ -10,6 +10,11 @@ together.
 
 | rule domain | owning document |
 | --- | --- |
+| fast-loaded domain and architecture context | `CONTEXT.md`, then `docs/architecture/README.md` |
+| target dataset lifecycle: state scopes, lifecycle objects, input-type Adapters, seal invalidation, migration | `docs/architecture/dataset-lifecycle.md` |
+| target verification/publication architecture: evidence, baseline, verify/record/publish semantics, CAS, Release | `docs/architecture/verification-publication.md` |
+| machine-readable lifecycle protocol/state/Adapter contract | `docs/architecture/lifecycle-contract.json` (`pnpm verify:architecture` enforces parity) |
+| accepted architecture decisions | `docs/adr/` (start with `docs/adr/0001-dataset-build-transactions.md`) |
 | dynamic dataset workflow: pipeline steps, execution model (parallel groups, agent routing), input-type object taxonomy, operational traps, pre-response verification checklist, reporting | `docs/dynamic-dataset-workflow.md` |
 | d3 fidelity loop: hard gates, diff metrics, iteration, icon crop/vector subloops, localization layout checks, Task info, red-box images, Loop Fidelity Summary | `docs/fidelity-loop-rules.md` |
 | dataset / SSOT field-level format | `data/schema.md` |
@@ -25,6 +30,23 @@ Sankey datasets and reusable icon assets, then verify them through the
 d3-sankey fidelity loop.
 
 ## Architecture Boundaries
+
+Load `CONTEXT.md` and `docs/architecture/README.md` before changing the dataset
+lifecycle, verifier orchestration, generated registration/metadata, baseline,
+standalone release, or their docs. The architecture directory distinguishes
+the current Implementation from the accepted target. Until a migration
+milestone is implemented, the commands and operational steps below remain
+authoritative; never present a target command or atomicity guarantee as if it
+already exists.
+
+- The target separates three state scopes: `DatasetBuild`,
+  `PublicationBatch`, and `ReleaseAttempt`. A build-local `FidelityRun`
+  produces evidence but has no canonical-write authority. The governing
+  decision is `docs/adr/0001-dataset-build-transactions.md`.
+- In the target command vocabulary, `verify:*` is read-only, `record:*`
+  writes build-local evidence or staging, `publish:*` is the only canonical
+  mutation, and `release:*` acts on a published digest. Current command names
+  are transitional and do not yet uniformly satisfy that contract.
 
 - `data/income-statements/<company-key>.js` (income-statement family,
   per-company files) and `data/revenue-metrics.js` (revenue family) are the
@@ -71,23 +93,26 @@ Install once; the d3/standalone verifiers render in Chromium:
 | command | purpose |
 | --- | --- |
 | `pnpm dev` | zero-dependency local static server on port 8000 |
-| `pnpm check` | fast aggregate gate: repo-wide JS syntax sweep, unit tests, then pending guard, app-globals static gate, dataset-manifest freshness, SSOT parity, i18n coverage, metadata freshness (seconds, no rendering); reproducible — green on any fresh checkout, and CI runs it on every push |
+| `pnpm check` | fast aggregate gate: repo-wide JS syntax, unit tests, pending guard, architecture/app-global contracts, manifest freshness, SSOT parity, i18n coverage, metadata freshness (seconds, no rendering); reproducible on fresh checkouts and run by CI |
 | `pnpm test` | node:test unit tests in `tests/` — engine layout math + label passes, trace-domain parsing/FX, i18n translation rules, png-diff metrics, script-source parsing, dataset registry |
 | `pnpm verify:app` | headless boot + interaction smoke of the modular viewer (`src/app/*`): module count, persisted-prefs boot, hash routing, comparison zoom + metric trend, revenue trend, mobile viewport |
 | `pnpm verify:app-globals` | static gate for the shared-top-level-scope contract: cross-file duplicate declarations and load-time references to later scripts (also part of `pnpm check`) |
-| `pnpm check:pending` | pending-image duplicate / key-collision guard |
+| `pnpm verify:architecture` | enforce lifecycle protocol/state/Adapter parity, command mutation semantics, architecture routes, and local context-document links (also part of `pnpm check`) |
+| `pnpm check:pending [-- --file input/pending/<file>.png --key <final-key>]` | pending-image duplicate / key-collision guard; use `--file` for one Build and `--key` after naming, omit both only to audit the shared queue |
+| `pnpm record:intake -- <pending.png> --key <key> --adapter <kind> [--availability <policy>]` | record an ignored per-item `INTAKED` Build manifest with Source and canonical-base digests; does not move or publish the Source |
 | `pnpm sync:index-datasets` | syncs every data registration surface with disk: `index.html` SSOT `<script>` tags (income statements, company metadata) and the generated dataset manifest (`--check` reports drift) |
 | `pnpm update:dataset-manifest` / `pnpm verify:dataset-manifest` | regenerate / freshness-check `data/dataset-manifest.js` (dataset registration SSOT) |
 | `pnpm verify:dataset -- <key> [--skip-render]` | aggregate per-dataset gate: syntax, SSOT, strict i18n, metadata, then a d3 render per language |
 | `pnpm verify:ssot` | SSOT ↔ dataset parity, registration parity, and currency/unit + FX coverage (global) |
 | `pnpm verify:i18n -- [--strict] [keys]` | i18n overlay coverage |
 | `pnpm verify:d3 -- <key> [--focus <dir>] [--keep] [--language <code>] [--round <n>]` | one d3 render + auto hard gates; archives each round to `output/compare/<key>/` |
-| `pnpm verify:render-regression [-- <keys>] [--update]` | batch-renders every registered dataset through the purity/size hard gates and fails similarity drops beyond tolerance vs `data/render-baselines.json`; `--update` re-records baselines (reference images are local-only, so machines without `input/processed/` gate hard-gates only) |
+| `pnpm verify:render-regression [-- <keys>]` | read-only batch render regression against `data/render-baselines.json` (reference images are local-only, so machines without them run render hard gates only) |
+| `pnpm record:baseline -- <key> [...]` | explicit subset-only compatibility mutation for future-regression baselines; writes atomically only after every selected render/structure check passes |
 | `pnpm update:dataset-file-metadata` | regenerate `data/dataset-file-metadata.js` from git author times (rerun + commit after committing a new/edited dataset) |
 | `pnpm verify:dataset-file-metadata` | generated metadata is current |
-| `pnpm build:standalone` | build the self-contained HTML (refreshes metadata first; inlines all dataset adapters) |
+| `pnpm build:standalone` | build the self-contained HTML without mutating tracked metadata; inlines all dataset adapters |
 | `pnpm verify:standalone` | standalone artifact needs no sibling files |
-| `sh scripts/clean-compare.sh` | clean the scratch `compare/` workspace |
+| `sh scripts/clean-compare.sh` | clean legacy top-level scratch files only; `verify:d3` owns/cleans each private `compare/runs/` directory, so never use global deletion during concurrent runs |
 
 CI (`.github/workflows/ci.yml`) runs `pnpm check`, `verify:app`, a
 `verify:d3` smoke render, `verify:render-regression`, and the standalone
@@ -98,11 +123,16 @@ build + verification on every push to `main` and every pull request.
 Turning a pending image into a verified dataset runs in five phases. The full
 numbered pipeline, operational traps, pre-response verification checklist, and
 reporting requirements live in `docs/dynamic-dataset-workflow.md` — load it before
-processing a pending image.
+processing a pending image. This is the current executable workflow. Its
+transactional target and M0–M5 migration are owned by
+`docs/architecture/README.md`; do not silently mix target state claims into a
+current run.
 
-1. Intake & guard — run `pnpm check:pending`, then assign the
-   `<company>-<period>` key and move the PNG to
-   `input/processed/<dataset-key>.png`.
+1. Intake & guard — select one item, run `pnpm check:pending -- --file ...`,
+   assign the `<company>-<period>` key and Adapter, then run
+   `pnpm record:intake`. Keep the Source in pending until coarse inventory is
+   durable; the current compatibility workflow moves only that item to
+   `input/processed/<dataset-key>.png` before authoring.
 2. Source inventory & data SSOTs — coarse whole-image pass first: classify
    the input type against the workflow doc's Object Taxonomy (incl. the
    revenue-metric data-only branch) and inventory every object, then, in
@@ -114,10 +144,12 @@ processing a pending image.
    inventory), add `i18n.<language>` overlays, and register it via
    `pnpm sync:index-datasets` (regenerates the dataset manifest).
 4. Verify — run `pnpm verify:dataset -- <dataset-key>`, then the manual d3
-   fidelity loop (`docs/fidelity-loop-rules.md`), then record the render
-   baseline with `pnpm verify:render-regression -- --update`.
-5. Close out — `pnpm check` green, `input/pending/` back to only `.gitkeep`,
-   then commit per `docs/commit-messages.md`.
+   fidelity loop (`docs/fidelity-loop-rules.md`), rerun the aggregate gate
+   after the final change, then use `pnpm record:baseline -- <dataset-key>`
+   and the read-only per-key render regression gate.
+5. Close out — `pnpm check` green and the selected pending item resolved;
+   unrelated items may remain in the shared queue. Commit per
+   `docs/commit-messages.md`.
 
 Before every final response, satisfy the pre-response Verification Checklist
 and Reporting requirements in `docs/dynamic-dataset-workflow.md`.

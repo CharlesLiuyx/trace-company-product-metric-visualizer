@@ -1,0 +1,119 @@
+# Architecture Context
+
+This directory is the fast-loading architecture index for dataset ingestion,
+fidelity verification, canonical publication, and release. It describes the
+accepted target architecture without pretending that unimplemented commands
+or storage guarantees already exist.
+
+## Read order
+
+1. [`CONTEXT.md`](../../CONTEXT.md) — domain and architecture vocabulary.
+2. [`dataset-lifecycle.md`](dataset-lifecycle.md) — the three state scopes,
+   build objects, input-type Adapters, and hash invalidation.
+3. [`verification-publication.md`](verification-publication.md) — evidence,
+   baseline, command semantics, CAS publication, and release.
+4. [`lifecycle-contract.json`](lifecycle-contract.json) — machine-readable
+   protocol names, states, transitions, Adapters, and invariants.
+5. [`ADR-0001`](../adr/0001-dataset-build-transactions.md) — accepted decision,
+   alternatives, and consequences.
+6. Operational owners when doing current work:
+   [`dynamic-dataset-workflow.md`](../dynamic-dataset-workflow.md) and
+   [`fidelity-loop-rules.md`](../fidelity-loop-rules.md).
+
+## Architecture summary
+
+The target has three state scopes with different ownership and retry rules:
+
+```text
+DatasetBuild
+  INTAKED -> AUTHORED -> CLOSED -> BASELINE_STAGED -> SEALED
+
+PublicationBatch
+  PLANNED -> PUBLISHED
+          -> CONFLICTED -> new plan + reseal
+
+ReleaseAttempt
+  PENDING -> RELEASED
+          -> RELEASE_FAILED -> new attempt for the same published digest
+```
+
+A `FidelityRun` is an immutable, build-local evidence transaction. It may be
+retried or replaced without changing canonical data. Only a fresh `SEALED`
+build can enter a `PublicationBatch`; only a `PUBLISHED` canonical digest can
+start a `ReleaseAttempt`.
+
+The target deepens four Modules:
+
+| Module | Interface responsibility | Implementation hidden behind the Seam |
+| --- | --- | --- |
+| Dataset Build Transaction | advance one Source-derived build through explicit states | intake, inventory, authoring validation, Adapter routing, invalidation |
+| Fidelity Run | produce immutable evidence for one authored digest | private workspace, rendering, Diff, gates, manual attestation, archive finalization |
+| Publication | plan and atomically publish a set of sealed contributions | global projections, path claims, baseline ledger, metadata, CAS and recovery |
+| Release | build or deploy one published digest | standalone build, hosted release, retries and receipts |
+
+These are **Deep** Modules: callers get high Leverage from small lifecycle
+operations, while ordering, recovery, and correctness retain Locality inside
+the owning Module. Income Statement and Revenue Metric are real Adapters at
+the input-type Seam; future input types add an Adapter instead of branching
+through every caller.
+
+## Non-negotiable invariants
+
+- `verify:*` is read-only; `record:*` writes only build-local evidence or
+  staging; `publish:*` is the only canonical mutation; `release:*` acts on an
+  already-published digest.
+- A staged baseline is future regression evidence. It cannot prove the build
+  that produced it is correct.
+- `SEALED` binds exact source, authored, renderer, protocol, locale, closure,
+  staged-baseline, projection, and base-canonical digests. A changed input
+  invalidates the seal.
+- Publication uses compare-and-swap against `baseCanonicalDigest`. A genuine
+  conflict is not retried or silently rebased; it requires a new plan and a
+  new seal against the new base.
+- Release failure never rolls back a successful Publication.
+
+## Current versus target
+
+| concern | current Implementation | accepted target |
+| --- | --- | --- |
+| intake | `record:intake` records per-item Source/base digests; compatibility authoring still later moves the selected Source to `processed/` | full isolated `DatasetBuild` workspace and Publication-owned Source projection |
+| authoring | canonical paths are edited directly | isolated build workspace plus `ArtifactManifest` |
+| fidelity | `verify:d3` now uses a private `FidelityRun` workspace and accepts an archive only after its enforced automatic gates pass; manual closure remains external | typed run results plus build-local manual closure and `FidelityResult` |
+| baseline | `record:baseline` is subset-only and failure-atomic, but still mutates the canonical ledger | `BASELINE_STAGED`, then publish with the sealed build |
+| registration and metadata | multiple generators mutate shared files | pure projections inside one `PublicationBatch` |
+| standalone | build no longer refreshes tracked metadata, but still reads the live worktree | isolated Release from an immutable published digest |
+
+The current column remains executable until the matching milestone below is
+implemented. Target terminology must not be presented as an available CLI
+before then.
+
+## Migration milestones
+
+| milestone | implementation status | outcome |
+| --- | --- | --- |
+| M0 — record the decision | implemented | architecture owners, vocabulary, invariants, and ADR exist |
+| M1 — isolate FidelityRun | implemented for automatic `verify:d3` evidence (`fidelity-run/1`) | private run workspace, accepted manifest, no archive before enforced gates complete |
+| M2 — introduce DatasetBuild | foundation implemented | per-item `record:intake` plus versioned state/invalidation contract; isolated authoring workspace and full Adapter execution remain pending |
+| M3 — close and stage | safety slice implemented | no-key baseline ratchets are forbidden and writes are failure-atomic; machine closure, true `BASELINE_STAGED`, and fresh seal recording remain pending |
+| M4 — publish atomically | pending | pure projectors, `baseCanonicalDigest`, path claims, CAS, conflict/replan/reseal |
+| M5 — separate Release | partial | standalone no longer mutates metadata and the base architecture contract checker is active; immutable published-input Release, attempt receipts, generated views, and Release-specific contract checks remain pending |
+
+Each milestone must run in shadow or compatibility mode until its observable
+results match the current verifier behavior. Do not delete an old Interface
+until tests at the new Deep Module's Interface cover its behavior.
+
+`pnpm verify:architecture` keeps the machine-readable contract, executable
+protocol constants, Adapter/ChangeImpact values, command semantics, context
+routes, and local architecture-document links in sync. It is part of
+`pnpm check`.
+
+## Ownership
+
+- This index owns loading order, the architecture synopsis, and milestones.
+- [`dataset-lifecycle.md`](dataset-lifecycle.md) owns lifecycle objects,
+  states, transitions, Adapter responsibilities, and seal invalidation.
+- [`verification-publication.md`](verification-publication.md) owns evidence
+  semantics, baseline restrictions, canonical publication, retry rules, and
+  Release separation.
+- Operational step-by-step instructions remain in the existing workflow and
+  fidelity documents until migrated.

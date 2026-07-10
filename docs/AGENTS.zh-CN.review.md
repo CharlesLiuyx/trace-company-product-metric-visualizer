@@ -10,6 +10,11 @@ agent 指令以英文版 `AGENTS.md` 为准。
 
 | 规则领域 | 属主文档 |
 | --- | --- |
+| 快速装载的领域与架构上下文 | `CONTEXT.md`，然后 `docs/architecture/README.md` |
+| 目标数据集生命周期：状态作用域、生命周期对象、输入类型 Adapter、seal 失效、迁移 | `docs/architecture/dataset-lifecycle.md` |
+| 目标验证/发布架构：证据、baseline、verify/record/publish 语义、CAS、Release | `docs/architecture/verification-publication.md` |
+| 机器可读 lifecycle protocol/state/Adapter 契约 | `docs/architecture/lifecycle-contract.json`（由 `pnpm verify:architecture` 强制奇偶） |
+| 已接受的架构决策 | `docs/adr/`（从 `docs/adr/0001-dataset-build-transactions.md` 开始） |
 | 动态数据集工作流：流水线步骤、执行模型（并行组、agent 分派）、输入类型对象清单、操作陷阱、回复前验证清单、汇报 | `docs/dynamic-dataset-workflow.md` |
 | d3 保真循环：硬门槛、diff 指标、迭代、图标 crop/vector 子循环、本地化布局检查、Task 信息、红框图、Loop Fidelity Summary | `docs/fidelity-loop-rules.md` |
 | 数据集 / SSOT 字段级格式 | `data/schema.md` |
@@ -24,6 +29,20 @@ agent 指令以英文版 `AGENTS.md` 为准。
 图标资产，然后通过 d3-sankey 保真循环验证。
 
 ## 架构边界
+
+修改数据集生命周期、verifier 编排、生成的注册/metadata、baseline、standalone
+Release 或其文档之前，先加载 `CONTEXT.md` 与
+`docs/architecture/README.md`。architecture 目录明确区分当前
+Implementation 与已接受的目标架构。在某个迁移里程碑落地之前，下面的命令与
+操作步骤仍然权威；不得把目标命令或原子性保证说成已经存在。
+
+- 目标架构拆分三个状态作用域：`DatasetBuild`、`PublicationBatch` 与
+  `ReleaseAttempt`。build-local `FidelityRun` 只产出证据，没有 canonical
+  写权限。治理该决定的文档是
+  `docs/adr/0001-dataset-build-transactions.md`。
+- 在目标命令词汇中，`verify:*` 只读，`record:*` 只写 build-local 证据或
+  staging，`publish:*` 是唯一 canonical mutation，`release:*` 只作用于
+  已发布 digest。当前命令名仍处于迁移期，尚未统一满足该契约。
 
 - `data/income-statements/<company-key>.js`（损益表家族，按公司分文件）与
   `data/revenue-metrics.js`（收入家族）是纯 Metric SSOT；
@@ -64,23 +83,26 @@ agent 指令以英文版 `AGENTS.md` 为准。
 | 命令 | 用途 |
 | --- | --- |
 | `pnpm dev` | 零依赖本地静态服务器，端口 8000 |
-| `pnpm check` | 快速聚合门：全仓 JS 语法扫描、单元测试，然后 pending 守卫、app 全局静态门、dataset manifest 新鲜度、SSOT 奇偶、i18n 覆盖、metadata 新鲜度（秒级，无渲染）；可复现——任何 fresh checkout 上都应全绿，CI 每次 push 都会运行 |
+| `pnpm check` | 快速聚合门：全仓 JS 语法、单元测试、pending 守卫、architecture/app-global 契约、manifest 新鲜度、SSOT 奇偶、i18n 与 metadata 新鲜度（秒级，无渲染）；fresh checkout 可复现且由 CI 运行 |
 | `pnpm test` | `tests/` 下的 node:test 单元测试——引擎布局数学与标签排版、trace-domain 解析/汇率、i18n 翻译规则、png-diff 指标、script-source 解析、dataset registry |
 | `pnpm verify:app` | 模块化查看器（`src/app/*`）的无头启动 + 交互冒烟：模块数量、持久化偏好启动、hash 路由、对比缩放 + 指标趋势、收入趋势、移动端视口 |
 | `pnpm verify:app-globals` | 共享顶层作用域契约的静态门：跨文件重复顶层声明、加载期引用晚加载 script（也包含在 `pnpm check` 中） |
-| `pnpm check:pending` | 待处理图片重复 / key 冲突守卫 |
+| `pnpm verify:architecture` | 强制生命周期 protocol/state/Adapter 奇偶、命令 mutation 语义、架构路由和本地上下文文档链接（也包含在 `pnpm check` 中） |
+| `pnpm check:pending [-- --file input/pending/<file>.png --key <final-key>]` | 待处理图片重复 / key 冲突守卫；单个 Build 用 `--file`，定名后加 `--key`，全部省略时只审计共享队列 |
+| `pnpm record:intake -- <pending.png> --key <key> --adapter <kind> [--availability <policy>]` | 记录忽略的 per-item `INTAKED` Build manifest（含 Source 与 canonical-base digest），不移动或发布 Source |
 | `pnpm sync:index-datasets` | 同步全部数据注册面与磁盘：`index.html` SSOT `<script>` 标签（损益表、公司档案）与生成的 dataset manifest（`--check` 只报告漂移） |
 | `pnpm update:dataset-manifest` / `pnpm verify:dataset-manifest` | 重新生成 / 校验 `data/dataset-manifest.js`（数据集注册 SSOT） |
 | `pnpm verify:dataset -- <key> [--skip-render]` | 单数据集聚合门：语法、SSOT、strict i18n、metadata，然后每种语言各一次 d3 渲染 |
 | `pnpm verify:ssot` | SSOT ↔ 数据集奇偶 + 注册奇偶 + 货币/单位与汇率覆盖（全局） |
 | `pnpm verify:i18n -- [--strict] [keys]` | i18n 覆盖检查 |
 | `pnpm verify:d3 -- <key> [--focus <dir>] [--keep] [--language <code>] [--round <n>]` | 单次 d3 渲染 + 自动硬门槛；每轮归档到 `output/compare/<key>/` |
-| `pnpm verify:render-regression [-- <keys>] [--update]` | 批量渲染全部注册数据集过纯度/尺寸硬门槛，并对照 `data/render-baselines.json` 拦截 similarity 下降；`--update` 重录基线（参考图 local-only，无 `input/processed/` 的机器只跑硬门槛） |
+| `pnpm verify:render-regression [-- <keys>]` | 只读批量渲染，对照 `data/render-baselines.json` 拦截回归；缺本地参考图时只跑渲染硬门槛 |
+| `pnpm record:baseline -- <key> [...]` | 显式、仅子集的兼容期 future-regression baseline mutation；所有所选 render/structure 检查通过后才原子写入 |
 | `pnpm update:dataset-file-metadata` | 从 git 提交时间重新生成 `data/dataset-file-metadata.js`（提交新/改数据集后需重跑并提交刷新结果） |
 | `pnpm verify:dataset-file-metadata` | 生成的 metadata 是否为最新 |
-| `pnpm build:standalone` | 构建自包含 HTML（先刷新 metadata；内联全部数据集 adapter） |
+| `pnpm build:standalone` | 构建自包含 HTML，不修改已跟踪 metadata；内联全部数据集 adapter |
 | `pnpm verify:standalone` | standalone 产物不依赖任何同级文件 |
-| `sh scripts/clean-compare.sh` | 清理临时 `compare/` 工作区 |
+| `sh scripts/clean-compare.sh` | 只清理旧的顶层 scratch；`verify:d3` 自己管理/清理私有 `compare/runs/`，并发时禁止全局删除 |
 
 CI（`.github/workflows/ci.yml`）在每次 push 到 `main` 与每个 pull request
 上运行 `pnpm check`、`verify:app`、一次 `verify:d3` 冒烟渲染、
@@ -90,10 +112,14 @@ CI（`.github/workflows/ci.yml`）在每次 push 到 `main` 与每个 pull reque
 
 把一张 pending 图片变成已验证数据集分五个阶段。完整的编号流水线、操作陷阱、
 最终回复前的验证清单与汇报要求都在 `docs/dynamic-dataset-workflow.md`——处理 pending
-图片之前先加载它。
+图片之前先加载它。这是当前可执行工作流；其事务化目标与 M0–M5 迁移由
+`docs/architecture/README.md` 拥有，不得在一次当前流程执行中静默混入目标状态
+断言。
 
-1. 接入与守卫——运行 `pnpm check:pending`，然后确定 `<公司>-<期间>` key，把
-   PNG 移到 `input/processed/<dataset-key>.png`。
+1. 接入与守卫——选择一个 item，运行 `pnpm check:pending -- --file ...`，确定
+   `<公司>-<期间>` key 与 Adapter，再运行 `pnpm record:intake`。粗盘点持久化前
+   Source 留在 pending；当前兼容流程只把该 item 移到
+   `input/processed/<dataset-key>.png` 后再 authoring。
 2. 源盘点与数据 SSOT——先粗看全图：按工作流文档的对象类型清单判定输入类型
    （含收入指标类的纯数据支线）并盘点全部对象；然后并行推进公司档案（该
    公司的第一个数据集）、`data/income-statements/<company-key>.js` 记录，
@@ -102,10 +128,10 @@ CI（`.github/workflows/ci.yml`）在每次 push 到 `main` 与每个 pull reque
    `data/datasets/<dataset-key>.js`，添加 `i18n.<language>` 覆盖，然后用
    `pnpm sync:index-datasets` 注册（重新生成 dataset manifest）。
 4. 验证——运行 `pnpm verify:dataset -- <dataset-key>`，然后人工 d3 保真循环
-   （`docs/fidelity-loop-rules.md`），最后用
-   `pnpm verify:render-regression -- --update` 记录渲染基线。
-5. 收尾——`pnpm check` 全绿，`input/pending/` 恢复为只剩 `.gitkeep`，然后按
-   `docs/commit-messages.md` 提交。
+   （`docs/fidelity-loop-rules.md`）；最后一次修改后重跑聚合门，再用
+   `pnpm record:baseline -- <dataset-key>` 与只读的 per-key render regression gate。
+5. 收尾——`pnpm check` 全绿且选中的 pending item 已解决；共享队列可保留其他
+   item。然后按 `docs/commit-messages.md` 提交。
 
 每次最终回复之前，满足 `docs/dynamic-dataset-workflow.md` 中的回复前验证清单与汇报
 要求。

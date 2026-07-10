@@ -3,7 +3,41 @@ import { createHash } from 'node:crypto';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { INCOME_STATEMENT_SCRIPT_DIR, datasetScriptForKey, registeredDatasetScripts } from './script-sources.mjs';
-import { listScripts, projectPath } from './lib/project.mjs';
+import { listScripts, projectPath, rootDir } from './lib/project.mjs';
+
+function usage() {
+  console.error('Usage: pnpm check:pending [-- --file input/pending/<file>.png [--key <final-dataset-key>]]');
+}
+
+function parseArgs(argv) {
+  const args = argv.slice(2).filter((arg) => arg !== '--');
+  const files = [];
+  let key = '';
+  for (let index = 0; index < args.length; index += 1) {
+    const arg = args[index];
+    if (arg !== '--file' && arg !== '--key') {
+      usage();
+      process.exit(2);
+    }
+    const value = args[index + 1];
+    index += 1;
+    if (!value || value.startsWith('--')) {
+      usage();
+      process.exit(2);
+    }
+    if (arg === '--file') files.push(value);
+    else key = value;
+  }
+  if (key && files.length !== 1) {
+    usage();
+    process.exit(2);
+  }
+  if (key && normalizeDatasetKey(key) !== key) {
+    usage();
+    process.exit(2);
+  }
+  return { files, key };
+}
 
 function relativeProjectPath(...segments) {
   return path.join(...segments).split(path.sep).join('/');
@@ -90,12 +124,42 @@ function buildProcessedIndex() {
   return byHash;
 }
 
+function selectedPendingNames(requestedFiles, availableNames) {
+  if (!requestedFiles.length) return new Set(availableNames);
+  const pendingRoot = projectPath('input', 'pending');
+  const selected = new Set();
+  for (const requested of requestedFiles) {
+    const absolute = path.resolve(rootDir, requested);
+    if (path.dirname(absolute) !== pendingRoot || !/\.png$/i.test(absolute)) {
+      throw new Error(`--file must name a PNG directly under input/pending/: ${requested}`);
+    }
+    const name = path.basename(absolute);
+    if (!availableNames.includes(name)) throw new Error(`Pending PNG does not exist: ${requested}`);
+    selected.add(name);
+  }
+  return selected;
+}
+
+function groupBy(records, keyForRecord) {
+  const groups = new Map();
+  for (const record of records) {
+    const key = keyForRecord(record);
+    const group = groups.get(key) || [];
+    group.push(record);
+    groups.set(key, group);
+  }
+  return groups;
+}
+
 function main() {
+  const { files: requestedFiles, key: finalKey } = parseArgs(process.argv);
   const pendingFiles = pngFiles(projectPath('input', 'pending'));
   if (!pendingFiles.length) {
     console.log('Pending check passed: no PNG files in input/pending/.');
     return;
   }
+
+  const selectedNames = selectedPendingNames(requestedFiles, pendingFiles);
 
   const registeredScripts = loadRegisteredDatasetScripts();
   const incomeStatementSource = loadIncomeStatementSource();
@@ -103,12 +167,39 @@ function main() {
   const blocked = [];
   const fresh = [];
 
-  for (const fileName of pendingFiles) {
+  const pendingRecords = pendingFiles.map((fileName) => {
     const pendingPath = relativeProjectPath('input', 'pending', fileName);
-    const pendingHash = fileHash(pendingPath);
+    return {
+      fileName,
+      pendingPath,
+      pendingHash: fileHash(pendingPath),
+      candidateKey: datasetKeyFromFileName(fileName),
+    };
+  });
+  const pendingByHash = groupBy(pendingRecords, (record) => record.pendingHash);
+  const pendingByKey = groupBy(pendingRecords, (record) => record.candidateKey);
+
+  for (const record of pendingRecords) {
+    if (!selectedNames.has(record.fileName)) continue;
+    const { pendingPath, pendingHash } = record;
+    const candidateKey = finalKey || record.candidateKey;
     const exactMatches = processedByHash.get(pendingHash) || [];
-    const candidateKey = datasetKeyFromFileName(fileName);
     const candidateStatus = datasetStatus(candidateKey, registeredScripts, incomeStatementSource);
+
+    const sameHashPending = pendingByHash.get(pendingHash) || [];
+    const sameKeyPending = finalKey
+      ? [record, ...pendingRecords.filter((item) => item.fileName !== record.fileName && item.candidateKey === candidateKey)]
+      : (pendingByKey.get(candidateKey) || []);
+    if (sameHashPending.length > 1 || sameKeyPending.length > 1) {
+      blocked.push({
+        type: 'pending-collision',
+        pendingPath,
+        key: candidateKey,
+        sameHash: sameHashPending.map((item) => item.pendingPath),
+        sameKey: sameKeyPending.map((item) => item.pendingPath),
+      });
+      continue;
+    }
 
     if (exactMatches.length) {
       blocked.push({
@@ -143,19 +234,24 @@ function main() {
         for (const match of item.matches) {
           console.error(`  - ${match.relativePath} (${statusText(match.status)})`);
         }
-      } else {
+      } else if (item.type === 'key-collision') {
         console.error(
           `- ${item.pendingPath} maps to existing dataset key "${item.key}" with different PNG content (${statusText(
             item.status
           )})`
         );
+      } else {
+        console.error(`- ${item.pendingPath} collides with another pending item for key "${item.key}":`);
+        if (item.sameHash.length > 1) console.error(`  same content: ${item.sameHash.join(', ')}`);
+        if (item.sameKey.length > 1) console.error(`  same candidate key: ${item.sameKey.join(', ')}`);
       }
     }
     console.error('Do not move, overwrite, or update dataset files for these pending image(s).');
     process.exit(1);
   }
 
-  console.log(`Pending check passed: ${fresh.length} new PNG file(s) ready for processing.`);
+  const scope = requestedFiles.length ? 'selected item(s)' : 'queue';
+  console.log(`Pending check passed for ${scope}: ${fresh.length} new PNG file(s) ready for processing.`);
   for (const item of fresh) console.log(`- ${item.pendingPath} -> candidate key: ${item.key}`);
 }
 

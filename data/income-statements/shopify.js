@@ -137,6 +137,126 @@
           },
         },
       },
+    },
+    {
+      key: 'shopify-q4-fy25',
+      company: 'Shopify',
+      period: 'Q4 FY25',
+      periodNote: 'Quarter ended Dec. 31, 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/shopify-q4-fy25.png',
+      roundingTolerance: 0.03,
+      revenue: {
+        total: 3.672,
+        notes: ['+31% Y/Y'],
+        items: [
+          { id: 'merchant_solutions', label: 'Merchant Solutions', value: 2.895, notes: ['+35% Y/Y'] },
+          {
+            id: 'subscription_solutions',
+            label: 'Subscription Solutions',
+            value: 0.777,
+            notes: ['+17% Y/Y'],
+            children: [
+              {
+                id: 'shopify_plus',
+                label: 'Shopify Plus',
+                value: 0.221,
+                valueText: '$0.2B',
+                notes: ['+17% Y/Y', 'Source chart rounds subscription sub-lines to $0.2B and $0.6B.'],
+              },
+              {
+                id: 'other_subscription',
+                label: 'Other',
+                value: 0.556,
+                valueText: '$0.6B',
+                notes: ['+17% Y/Y', 'Source chart rounds subscription sub-lines to $0.2B and $0.6B.'],
+              },
+            ],
+          },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          id: 'cost_of_revenue',
+          label: 'Cost of revenue',
+          value: 1.979,
+          items: [
+            { id: 'merchant_cost', label: 'Merchant', value: 1.831, notes: ['37% gross margin'] },
+            { id: 'subscription_cost', label: 'Subscription', value: 0.148, notes: ['81% gross margin'] },
+          ],
+        },
+        operatingExpenses: {
+          total: 1.062,
+          items: [
+            { id: 'sm', label: 'S&M', value: 0.433, notes: ['12% of revenue', '(1pp) Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 0.390, notes: ['11% of revenue', '(2pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 0.125, notes: ['3% of revenue', '(1pp) Y/Y'] },
+            { id: 'loan_losses', label: 'Loan losses', value: 0.114, notes: ['3% of revenue', '+0pp Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0 },
+      },
+      otherIncome: {
+        total: 0.112,
+        items: [{ id: 'other', label: 'Other', value: 0.112 }],
+      },
+      otherExpenses: {
+        total: 0.149,
+        items: [{ id: 'investments', label: 'Investments', value: 0.149 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 1.693, notes: ['46% margin', '(2pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 0.631, notes: ['17% margin', '+1pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 0.594, notes: ['16% margin', '+10pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度',
+          periodNote: '截至 2025 年 12 月 31 日的季度',
+          revenue: {
+            notes: ['同比 +31%'],
+            items: [
+              { id: 'merchant_solutions', label: '商家解决方案', notes: ['同比 +35%'] },
+              {
+                id: 'subscription_solutions',
+                label: '订阅解决方案',
+                notes: ['同比 +17%'],
+                children: [
+                  { id: 'shopify_plus', label: 'Shopify Plus 方案', notes: ['同比 +17%', '来源图将订阅收入子项四舍五入为 $0.2B 和 $0.6B。'] },
+                  { id: 'other_subscription', label: '其他', notes: ['同比 +17%', '来源图将订阅收入子项四舍五入为 $0.2B 和 $0.6B。'] },
+                ],
+              },
+            ],
+          },
+          costs: {
+            costOfRevenue: {
+              label: '收入成本',
+              items: [
+                { id: 'merchant_cost', label: '商家', notes: ['毛利率 37%'] },
+                { id: 'subscription_cost', label: '订阅', notes: ['毛利率 81%'] },
+              ],
+            },
+            operatingExpenses: {
+              items: [
+                { id: 'sm', label: '销售与市场', notes: ['占收入 12%', '同比 (1 个百分点)'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 11%', '同比 (2 个百分点)'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 3%', '同比 (1 个百分点)'] },
+                { id: 'loan_losses', label: '贷款损失', notes: ['占收入 3%', '同比 +0 个百分点'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: { items: [{ id: 'other', label: '其他' }] },
+          otherExpenses: { items: [{ id: 'investments', label: '投资' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 46%', '同比 (2 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 17%', '同比 +1 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 16%', '同比 +10 个百分点'] },
+          },
+        },
+      },
     }
   );
 })(window);
