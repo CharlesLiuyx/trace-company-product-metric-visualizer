@@ -1,0 +1,226 @@
+{
+  "source": "input/processed/paypal-q4-fy25.png",
+  "spec": "input/icon-crop-specs/paypal-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-10T06:30:17.723045+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/paypal",
+  "crops": [
+    {
+      "key": "paypal-company-wordmark",
+      "output": "data/assets/icon-references/paypal/crops/company-wordmark-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4056,
+        "losslessBytes": 20996,
+        "savingsVsLossless": 0.8068,
+        "metrics": {
+          "meanAbsoluteError": 0.4982,
+          "rootMeanSquareError": 2.6266,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 51,
+          "changedPixelRatio": 0.2024
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 74602,
+        "transparentPixelRatio": 0.6627
+      },
+      "searchBox": {
+        "x": 600,
+        "y": 235,
+        "width": 640,
+        "height": 180
+      },
+      "componentCount": 7,
+      "subjectBox": {
+        "x0": 615,
+        "y0": 249,
+        "x1": 1221,
+        "y1": 398
+      },
+      "cropBox": {
+        "x0": 600,
+        "y0": 235,
+        "x1": 1236,
+        "y1": 412
+      },
+      "validation": {
+        "width": 636,
+        "height": 177,
+        "foregroundPixels": 35035,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 15,
+          "right": 15,
+          "top": 14,
+          "bottom": 14
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "PayPal company mark and wordmark above the revenue hub; excludes the title, chart labels, and publisher attribution.",
+      "runtimeOutput": "data/assets/raster-annotations/paypal/company-wordmark-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4056,
+        "losslessBytes": 20996,
+        "savingsVsLossless": 0.8068,
+        "metrics": {
+          "meanAbsoluteError": 0.4982,
+          "rootMeanSquareError": 2.6266,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 51,
+          "changedPixelRatio": 0.2024
+        }
+      },
+      "validationSheet": "data/assets/icon-references/paypal/validation-sheets/paypal-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 277915,
+        "losslessBytes": 277915,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "paypal-transaction-revenues-paypal-venmo-icons",
+      "output": "data/assets/icon-references/paypal/crops/transaction-revenues-paypal-venmo-icons-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2752,
+        "losslessBytes": 12486,
+        "savingsVsLossless": 0.7796,
+        "metrics": {
+          "meanAbsoluteError": 0.4293,
+          "rootMeanSquareError": 1.9675,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 54,
+          "changedPixelRatio": 0.4299
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 24797,
+        "transparentPixelRatio": 0.3065
+      },
+      "searchBox": {
+        "x": 45,
+        "y": 420,
+        "width": 380,
+        "height": 210
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 58,
+        "y0": 436,
+        "x1": 410,
+        "y1": 608
+      },
+      "cropBox": {
+        "x0": 45,
+        "y0": 415,
+        "x1": 423,
+        "y1": 629
+      },
+      "validation": {
+        "width": 378,
+        "height": 214,
+        "foregroundPixels": 47673,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 13,
+          "right": 13,
+          "top": 21,
+          "bottom": 21
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "PayPal and Venmo icon cluster for transaction revenues; excludes the value, description, source bar, and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/paypal/transaction-revenues-paypal-venmo-icons-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2752,
+        "losslessBytes": 12486,
+        "savingsVsLossless": 0.7796,
+        "metrics": {
+          "meanAbsoluteError": 0.4293,
+          "rootMeanSquareError": 1.9675,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 54,
+          "changedPixelRatio": 0.4299
+        }
+      },
+      "validationSheet": "data/assets/icon-references/paypal/validation-sheets/paypal-transaction-revenues-paypal-venmo-icons.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 277566,
+        "losslessBytes": 277566,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

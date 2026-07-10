@@ -4211,6 +4211,29 @@
             }
           }
         }
+      },
+      {
+        "key": "paypal-q4-fy25",
+        "src": "data/datasets/paypal-q4-fy25.js",
+        "data": {
+          "name": "PayPal · Q4 FY25",
+          "company": "PayPal",
+          "meta": {
+            "title": "PayPal Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Quarter ended Dec. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "PayPal · 2025 财年第四季度",
+              "meta": {
+                "title": "PayPal 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
       }
     ]
   };
