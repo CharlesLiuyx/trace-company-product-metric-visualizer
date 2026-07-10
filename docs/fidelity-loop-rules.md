@@ -35,7 +35,7 @@ L（连接线）、T（Label-node/文本）、A（注释容器）、Z（本地�
 - 标准预算：3 个 sweep 轮内清空人眼显著错误（「必须死磕」项），4–5 轮完全
   收敛。轮次的首要产出是关闭显著错误，不是压全图 Diff。达成手段：第 0 轮
   渲染前测量让首轮就接近原图 + sweep 分层批量检查。
-- 每轮结束必须做一次**退出置信度判断**：基于当前上下文（G1–G11 状态、B 系列
+- 每轮结束必须做一次**退出置信度判断**：基于当前上下文（G1–G12 状态、B 系列
   盲点是否查完、命中清单核对状态、开放红框、backlog、残差分类）回答「人工
   现在 Review 是否还会提出修改意见」。高置信（死磕清单空 + 盲点查完 + 命中
   清单关闭 + 仅剩可接受残留）→ 立即按收敛标准收敛，不再开轮；低置信 →
@@ -65,13 +65,71 @@ L（连接线）、T（Label-node/文本）、A（注释容器）、Z（本地�
 - G10 左右相邻 label 与 node 的横向 overlap 是 hard fail。
 - G11 `node --check`、`pnpm verify:ssot`、`pnpm verify:i18n -- --strict <key>`
   等数据一致性检查必须按 `docs/dynamic-dataset-workflow.md` 的验证清单执行。
+- G12 **Interface Fidelity**：所有存在可见 link 像素的 source/target 节点端面都
+  必须进入审计。自动报告的 `coverageBasis=candidate-rendered-visible-interfaces`：其
+  `expectedInterfaces`/`expectedInterfaceIds` 来自候选 SVG 已渲染 path 的可见
+  `(node, side)`，工具不会仅凭 reference 像素自动推断 reference-only 的语义接口。
+  完整 G12 范围由第 0 轮 reference Interface Matrix 与候选报告 ID 取并集后，以
+  语义 node/link 身份人工 reconcile；reference 可评分时，candidate-only 与
+  reference-only 都必须建行并判 fail；reference 不存在时，候选行记
+  `not-scored`，不能误称 candidate-only fail。自动报告对每个候选可见行至少检查
+  以下判定单元：path 端点是否落在
+  node edge、竖直端面的进入或离开切线是否水平、每条候选 link 的几何 interval
+  是否完整包含在 node 的垂直 bbox 内、候选与参考的 binary occupancy
+  union 外缘和 connected
+  interval 数是否一致。SVG 几何检查以 chart 坐标执行：端点到 node edge、端点
+  切线或 ribbon 上下边界的偏差均不超过 `0.5px`（同 L15）；raster occupancy
+  比较对已确认的抗锯齿边缘允许 `±1px`；该 raster 容差不得用于放宽 SVG 几何，
+  link interval 越出 node bbox 超过 `0.5px` 即为 hard fail。mask 须在 node edge 外侧 `1–3px` 的首个
+  稳定探针带量测，reference/candidate 使用同一相对位置、背景取样与颜色/alpha
+  阈值，并把阈值写入报告。reference/candidate 的原始 raster intervals 必须保留
+  在报告中；用于接口 topology/boundary 自动评分前，两者都裁到 node 的垂直 bbox，
+  避免把缩放、重采样或抗锯齿晕边反写成 SVG 几何。先消除孤立的 1px 抗锯齿
+  孔洞/毛刺，再计算 interval；
+  归一化后 connected interval 数不一致，或在 node bbox 内出现 reference 不存在/
+  候选丢失的 `≥2px` 连续纵向背景空档/占用，均为 hard fail。内部 per-link 边界能可靠追踪时
+  一并比较；同色相接、交叠等身份无法自动判定时，union 仍为 hard gate，内部
+  边界标为人工证据待核，不能由自动分色猜测通过。
+
+G12 报告的状态轴互不替代：`mode` 是 `error/warning/off`，`candidateStatus` 是
+`passed/failed`，`referenceStatus` 是 `passed/failed/not-scored`。证据汇总
+`status` 的值域也是 `passed/failed/not-scored`：任一 candidate/reference fail
+优先得 `failed`，否则 reference not-scored 得 `not-scored`，其余为 `passed`。
+`enforcementStatus` 按固定优先级派生：① `mode=off` → `not-enforced`；②
+`status=failed` → error mode 为 `failed`、warning mode 为 `warning`；③
+`status=not-scored` → `not-scored`；④ `status=passed` → error mode 为 `passed`、
+warning mode 为 `warning`。即使处于迁移期 warning，候选几何失败仍写
+`candidateStatus=failed`；即使没有 reference，内部几何失败也不能被
+`referenceStatus=not-scored` 遮蔽。自动报告只有 `mode=error`、
+`candidateStatus=passed`、`referenceStatus=passed`、`enforcementStatus=passed`，
+且 `audit.summary.auditedInterfaces == audit.summary.expectedInterfaces`、
+`audit.summary.failedInterfaces == 0`、`audit.summary.pendingInterfaces == 0`、
+`audit.summary.notScoredInterfaces == 0`，才可写成 pass；这只是必要
+条件。结构冻结和收敛还必须使用 reconciled Interface Matrix 证明完整并集范围同样
+满足七字段闭合，防止 reference-only 接口被候选报告漏掉。
+
+G12 启用与迁移口径：
+
+- 新增或实质修改的数据集必须声明 `render.interfaceAudit: { mode: 'error' }`；此时
+  G12 失败会阻断验证、结构冻结和收敛。
+- 尚未迁移的存量数据集即使未声明该字段，也必须产出 interface audit；迁移期只
+  以 `mode=warning` 执行，不得写成 interface pass，也不得以该结果冻结
+  该数据集的结构方向。
+- `mode=off` 只允许临时诊断，不能用于新增/实质修改数据集、结构冻结或收敛；
+  最终证据必须改回 error mode 重跑。
+- 本地 reference image 不存在时，仍执行 path/node 内部几何检查，但 reference
+  occupancy 比较必须明确写 `referenceStatus=not-scored`，不能伪装成 pass，也
+  不能作为完整接口保真或收敛证据。此口径适用于能在无 reference 下继续运行的
+  audit helper/其他 runner；`verify:d3` 保留既有 missing-reference 早停契约，不会
+  为缺图任务伪造 not-scored 报告，早停本身也不构成 G12 通过。
 
 ## 自动门槛与人工盲点对照表
 
 门槛看不见的检查必须由人工在对应 sweep 轮补上。「自动化状态」跟踪每个盲点
 的工程落地进度，取值：`待自动化`、`已报告未 gate`（verify:d3 已输出量化
-字段但未纳入 hard fail）、`已 gate`、`不适合`（纯视觉判定）。状态不改变
-当前人工义务；推进状态的义务见「重复触发升级」。
+字段但未纳入 hard fail）、`部分`（部分判定已 gate，仍有人工盲点）、`已 gate`、
+`不适合`（纯视觉判定）。状态不改变当前人工义务；推进状态的义务见
+「重复触发升级」。
 
 | 编号 | 关联门槛 | 门槛已覆盖 | 盲点（门槛看不见） | 人工必查 | 自动化状态 |
 | --- | --- | --- | --- | --- | --- |
@@ -82,10 +140,11 @@ L（连接线）、T（Label-node/文本）、A（注释容器）、Z（本地�
 | B5 | G8/G10 | 仅审计 `layout.labels` ↔ node | `annotationsSvg` 文字与相邻 `layout.labels`、主标题或期间标记交叠不审 | A6 | 待自动化 |
 | B6 | G2 | 仅判 SVG 画布尺寸 | 不判文本 bbox 越出画布（本地化后高发） | Z5 | 待自动化 |
 | B7 | G6/G7 | raster 数量与来源 | 不判隐形锚点柱是否多出可见柱/绿痕 | T12 | 不适合（视觉判定） |
-| B8 | 无 | — | 接口若先按颜色/path 分段，会把相接的异色流带误判为留缝；等宽模型还会漏掉同一 link 两端可见宽度不同 | L5/L11 | 待自动化 |
+| B8 | G12 | 可见接口计数、node-bbox 内 union 外缘/interval、path 端点、端面切线与 link 几何 containment；同时保留未裁切 raster intervals | 自动分色不能可靠区分 source raster 晕边与真实绘制外溢，也不能判定同色相接和 per-link 语义身份；`mode=warning` / `referenceStatus=not-scored` 不构成 pass | L5/L6/L8/L11/L15 | 部分（G12 几何/union 已 gate） |
 | B9 | 无 | — | hub/深色源 profit 流带渐变 vs 源图纯色 | L12 | 待自动化 |
 | B10 | G11 | 数据一致性 | link 拓扑与源图一致性、tooltip 语义分母 | L8/L14 | 部分（数据侧已 gate） |
-| B11 | 无 | — | 多入/出节点 Σlink.width 与节点高度的 rounding 空隙/溢出 | L11 | 待自动化 |
+| B11 | 无 | — | 闭合 tapered ribbon 的 path 周长中点会把 Hover 百分比 Tag 错放到目标端 | L16 | 待自动化 |
+| B12 | 无 | — | 多入/出节点 Σlink.width 与节点高度的 rounding 空隙/溢出 | L11 | 待自动化 |
 
 ### 重复触发升级
 
@@ -157,12 +216,15 @@ pnpm verify:d3 -- <dataset-key> [--focus "<主检查方向>"] [--keep] [--langua
 
 `verify:d3` 每次运行：起本地静态服务器 → 最小 harness 执行
 `SankeyEngine.render('#chart', data)` → 截取 `#chart > svg` → 跑 G 系列哨兵 →
-计算全图与 DOM 派生分区域 Diff → 写 `compare/<key>-metrics.json` → 归档到
-`output/compare/<key>/<round>-<improvement>-<focus>/` 并复制共享参考图 →
-默认清理 `compare/`。metrics JSON 同时输出 `labelLayoutAudit`（同轴组
-`centerDelta`/`gap`、侧置 label `gap`/`verticalCenterDelta`、相邻 label
-间距）；T5 ②、T7 和 B3 的人工核对以该字段为数据源，禁止用手工重测替代或
-凭视觉印象跳过。
+计算全图与 DOM 派生分区域 Diff → 写 `compare/<key>-metrics.json` 和
+`compare/<key>[-<language>]-interface-audit.json` → 在结构 sweep 生成
+`compare/<key>[-<language>]-interface-contact-sheet.png` → 归档到
+`output/compare/<key>/<round>-<improvement>-<focus>/` 并复制共享参考图 → 默认
+清理 `compare/`。非结构轮仍须在 metrics 中报告 G12 状态；若接口相关几何发生
+变化，必须重新生成 audit 与 contact sheet，并重开结构方向。metrics JSON 同时
+输出 `labelLayoutAudit`（同轴组 `centerDelta`/`gap`、侧置 label
+`gap`/`verticalCenterDelta`、相邻 label 间距）；T5 ②、T7 和 B3 的人工核对以
+该字段为数据源，禁止用手工重测替代或凭视觉印象跳过。
 
 归档命名：轮次按该 dataset 已有 archive 数自动递增补零（`--round` 可覆盖）；
 `improvement` 为全图 similarity 相对上一轮同语言 archive 的差值（如
@@ -177,7 +239,8 @@ pnpm verify:d3 -- <dataset-key> [--focus "<主检查方向>"] [--keep] [--langua
 
 输入：`docs/dynamic-dataset-workflow.md` 的输入分型与粗对象盘点结果
 （其 §Object Taxonomy 是对象类型清单的属主）。本节对该盘点清单逐对象精细
-测量，不重新推导对象列表。输出：直接写入 dataset 的测量值。
+测量，不重新推导对象列表。输出：直接写入 dataset 的测量值，并建立强制
+`Interface Matrix`；没有完整 reference 侧矩阵不得进入第 1 轮。
 
 进入第 1 轮之前，至少完成以下测量并直接写入 dataset：
 
@@ -192,6 +255,47 @@ pnpm verify:d3 -- <dataset-key> [--focus "<主检查方向>"] [--keep] [--langua
   颜色 mask 或 `Σlink.width` 反推接口。
 - 每个 label 的锚点位置、anchor 方向和语义归组（口径同 T11）。
 - 注释容器、KPI/stat card 和徽章的容器 bbox。
+
+`Interface Matrix` 的最小判定单元是每个存在可见 link 像素的 `(node, side)`，
+不是整条长曲线；单入口/单出口、短辅助流和 waterfall 接口一律纳入。第 0 轮先
+填满 reference 侧，结构 sweep 首次渲染后把自动报告的 candidate IDs 合并进来，
+补 candidate 与结论。完整 `matrix.summary.expectedInterfaces` 是 reference Matrix
+与 candidate 报告 ID 的并集；audit JSON 自身因
+`coverageBasis=candidate-rendered-visible-interfaces` 只统计
+候选集合，不能直接充当完整 Matrix 汇总。每行至少包含：
+
+| 字段 | 要求 |
+| --- | --- |
+| `node / side` | 节点标识，以及 `source/right` 或 `target/left` 端面 |
+| `reference node bbox` | 原图节点的 `x0/y0/x1/y1` |
+| `reference union intervals` | 所有非背景 link 像素合并后的 interval、外缘、`continuous/gapped` 拓扑，以及相对 node bbox 的 `within/overflow`；union 本身不能证明 per-link overlap |
+| `reference per-link intervals` | 每条 link 的身份、`top/bottom/center/width` 与可证实的 overlap；无法可靠拆分时明确写 `manual-pending`，不得猜测 |
+| `candidate intervals` | 候选图同口径的 union 与 per-link interval |
+| `boundary deltas` | 候选相对参考的 `top/bottom/center/width` 差值 |
+| `endpoint / tangent` | path 端点是否落在 node edge、竖直端面是否水平进入/离开 |
+| `result` | `pass/fail/documented-exception/manual-pending/not-scored`，以及 G12/L11/L15 证据路径 |
+
+矩阵与 audit 使用同一组 canonical 字段名，但 coverage 不同，必须分 namespace
+报告、禁止混算：`audit.summary.*` 只代表 candidate-rendered-visible 自动覆盖，
+`matrix.summary.*` 代表 reference inventory 与 candidate report reconciled 后的完整
+并集，是冻结/收敛的权威汇总。两者都包含 `expectedInterfaces`、
+`auditedInterfaces`、`passedInterfaces`、`failedInterfaces`、
+`documentedExceptions`、`pendingInterfaces`、`notScoredInterfaces`，并各自满足：
+
+```text
+auditedInterfaces = passedInterfaces + failedInterfaces +
+  documentedExceptions + pendingInterfaces + notScoredInterfaces
+```
+
+完整性另要求 `auditedInterfaces == expectedInterfaces`；G12 pass 还要求
+`passedInterfaces + documentedExceptions == expectedInterfaces`。reference 可评分
+时，candidate-only 或 reference-only 端面计入 `matrix.summary.expectedInterfaces`
+并判 fail；reference 不存在时，候选行计入 `notScoredInterfaces`，不得冒充
+candidate-only fail。`documented-exception` 只能表示候选有证据地复现参考中的
+真实间隔、重叠或斜切，不能豁免候选与参考不一致，也不能豁免竖直 node 接口的
+候选几何 containment；每项都必须链接局部
+reference crop。矩阵可写入 Task 信息或独立 Markdown/JSON，但必须随首次结构
+sweep 和每次结构重开轮归档。
 
 测量方式任意但必须可复现（局部 crop 读坐标、取色器、脚本均可）；首轮渲染
 必须以测量值起步，不允许先粗排、再靠保真轮次逼近。
@@ -239,10 +343,15 @@ metrics JSON 的 `labelLayoutAudit` 与该清单互核，`centerDelta`、`edgeGa
 
 - 第 1 轮 结构 sweep：输出纯净性、尺寸、裁剪、画布边界；节点几何、列位置、
   节点高度、流带宽度；多入口/出口顺序与 socket；终端短横柱、辅助流端点、
-  自定义 curve；L8–L15 全部核对。每个多入/出接口须先按 L11 用 binary
-  occupancy union 判定外缘是连续覆盖还是存在真实背景空档，再拆内部 link
-  分区并判断双端 width、`y0`/`y1` 和 curve；禁止按颜色分段直接推断 socket
-  间距，也禁止用无依据加粗代替接口拓扑判断。
+  自定义 curve；L1–L16 全部核对。必须完成所有可见 source/target 端面的
+  Interface Matrix candidate 侧、G12 interface audit 和 interface contact sheet，
+  并 reconcile reference Matrix 与 candidate report，证明完整并集范围满足
+  `matrix.summary.auditedInterfaces == matrix.summary.expectedInterfaces` 且
+  `matrix.summary.failedInterfaces == 0`。每个
+  接口须先按 L11 用 binary occupancy union 判定外缘是连续覆盖还是存在真实背景
+  空档，再拆内部 link 分区并判断双端 width、`y0`/`y1` 和 curve；禁止按颜色分段
+  直接推断 socket 间距，也禁止用无依据加粗代替接口拓扑判断。多入/出、短辅助流
+  和 waterfall 接口只是高风险子集，不是审计范围的边界。
 - 第 2 轮 文本 sweep：T 系列（label-node 外框、文本交叠、位置与归属）+
   A 系列（注释容器内部对齐、KPI/stat card、徽章、脚注）。
 - 第 3 轮 润色与本地化 sweep：颜色、透明度、图标细节、字体抗锯齿残留；
@@ -259,16 +368,21 @@ metrics JSON 的 `labelLayoutAudit` 与该清单互核，`centerDelta`、`edgeGa
 每轮步骤：
 
 1. 清理上一轮 scratch，或确认本轮使用新 archive。
-2. 运行自动哨兵（G1–G11）。
-3. 确定本轮 sweep 层级或升级方向；更新 Task 信息、冻结清单、重开项、
-   backlog 和命中清单核对状态。
-4. 渲染候选图，获取原图、候选图、Diff 图和 metrics JSON。
-5. 读取全图指标和与本轮覆盖方向相关的分区域指标。
+2. 运行自动哨兵（G1–G12）；G12 分别记录 `mode/status/candidateStatus/
+   referenceStatus/enforcementStatus`，不得把 `mode=warning` 与
+   `referenceStatus=not-scored` 合并成一个状态或写成 pass。
+3. 确定本轮 sweep 层级或升级方向；更新 Task 信息、冻结清单、重开项、backlog
+   和命中清单核对状态。
+4. 渲染候选图，获取原图、候选图、Diff 图和 metrics JSON；结构方向同时获取
+   interface audit JSON 与 interface contact sheet。
+5. 读取全图指标和与本轮覆盖方向相关的分区域指标；结构方向逐行核对 Interface
+   Matrix，不能用整条 link region 的聚合指标替代端面判定。
 6. 对本轮覆盖方向的高 Diff 区域和人眼显著错误做误差分类。
 7. 只针对本轮覆盖方向修改数据、布局、矢量资产或渲染器，按专项协议
    （L/T/A/Z/I）把本层能修的一次修完并同口径复查。
 8. 生成本轮红框参考图；无开放问题则在 Task 信息中明确记录无开放红框。
-9. 通过的方向分别记录证据并冻结；未通过的进入升级深查或下一轮。
+9. 通过的方向分别记录证据并冻结；结构方向还必须满足 G12、Interface Matrix
+   完整性与 contact sheet 证据要求。未通过的进入升级深查或下一轮。
 10. 更新 Task 信息；做退出置信度判断（总则），决定立即收敛或下一轮主方向。
 
 层级外新问题：属更早层级的立即修（会使本层判断失效）；属更晚层级的记入
@@ -291,13 +405,22 @@ backlog。自动硬门槛失败、画布裁剪、明显文本越界始终立即�
 
 一个方向只有在本轮记录包含候选图、参考图、Diff 图、相关局部指标和明确结论后
 才可冻结；仍有未处理红框 region 或缺结论的不得冻结。同一 sweep 轮可同时冻结
-多个方向（各有证据即可），冻结不要求该方向单独占用一轮。
+多个方向（各有证据即可），冻结不要求该方向单独占用一轮。结构方向另须归档
+完整 Interface Matrix、interface audit JSON 与 contact sheet，并满足
+`matrix.summary.auditedInterfaces == matrix.summary.expectedInterfaces`、
+`matrix.summary.failedInterfaces == 0`、`matrix.summary.pendingInterfaces == 0`、
+`matrix.summary.notScoredInterfaces == 0`；所有
+`documented-exception` 都须有 reference crop 证明候选复现的是源图意图。
+`mode=warning`、`referenceStatus=not-scored`、缺失接口或只检查用户
+红框区域均不得冻结结构方向。
 
 冻结后不再重复人工深查，除非：
 
 - 相关节点、链接、标签、注释、语言覆盖、图标资产或渲染器逻辑被改动；
 - 自动验证出现纯净性失败、尺寸变化、横向 overlap、文本越界、路径端点异常；
 - 用户标注区域局部指标显著回退；
+- interface audit 的 G12 接口数量、union interval、端点或切线检查回退，或报告
+  的任一维度从满足 pass 条件变成 warning、fail 或 not-scored；
 - 用户再次指出同一方向问题。
 
 被重开的方向必须重新成为某一轮主检查方向；不得在其他方向轮次里顺手修、顺手验。
@@ -305,9 +428,11 @@ backlog。自动硬门槛失败、画布裁剪、明显文本越界始终立即�
 ## 连接线和终端接口
 
 触发条件：结构 sweep 轮或升级深查轮覆盖连接线接口、节点/流带结构、终端短横
-柱、辅助流接口、用户标注接口，或相关冻结项被重开 → 必须检查所有有多条
-`sourceLinks` 或 `targetLinks` 的节点。检查口径：渲染后的 SVG path 和 node
-bbox，不以源码 link 数组位置、node `order` 或上一轮视觉印象为准。
+柱、辅助流接口、用户标注接口，或相关冻结项被重开 → 必须检查 dataset 中所有
+存在可见 link 像素的 source/target 节点端面；单入口/单出口与多入口/多出口同属
+强制范围，后者只是高风险子集。检查口径：渲染后的 SVG path、node bbox、
+Interface Matrix 与 G12 interface audit，不以源码 link 数组位置、node `order`、
+用户是否画箭头或上一轮视觉印象为准。
 
 - L1 多入口节点按实际进入节点边缘的垂直位置，自上而下列出 `source -> target`
   顺序，对照参考图。
@@ -323,7 +448,11 @@ bbox，不以源码 link 数组位置、node `order` 或上一轮视觉印象为
   只看源码数字或只看单色 mask 都不足以证明接口贴合。
 - L6 先比较所有相关 link 的 binary occupancy union 与节点接口外缘：不得有
   参考图不存在的背景空档或溢出。中心线、单条 link 和内部颜色边界随后检查；
-  参考图明确显示流带越出节点 bbox 时，按量测保留，不能为了数学齐平裁掉。
+  raster 中超出 node bbox 的抗锯齿、缩放或重采样晕边只作为像素证据，不得直接
+  写进 `sourceWidth` / `targetWidth` / `y0` / `y1`。候选 SVG 几何须先在 node bbox
+  内严丝合缝。参考图疑似存在语义性流带越界而非 raster 晕边时，保留 raw interval
+  和局部 crop 作为 reference-only 残差记录，但不得用 `documented-exception` 放宽
+  候选几何 containment。
 - L7 自定义曲线控制点保持水平推进：`source.x1 <= c1x <= c2x <= target.x0`；
   反向弯出或折返必须记录参考图依据。
 - L8 逐条从原图追踪 link 拓扑（source、target、socket、是否绕过中间柱），
@@ -347,20 +476,29 @@ bbox，不以源码 link 数组位置、node `order` 或上一轮视觉印象为
      合并后量 `top / bottom / connected intervals`。单一连续 interval 才是连续
      覆盖；只有 interval 之间存在真实背景像素才是间隔式 socket。异色流带在
      同一像素边界相接仍属连续；同色区域须在稍远、路径已分离的位置追踪身份。
+     同时把 raster occupancy 与 SVG 几何 interval 分栏记录；raster 外缘不得反向
+     覆盖 node bbox 的几何真值。
   2. **再拆内部边界**：在 union 结论冻结后，按 path 身份、颜色、顺序和远端追踪
      逐条量 source/target interval。抗锯齿 1px 容差只能用于已确认的边缘，不能
      把数像素背景带解释成颜色过渡。
   3. **连续覆盖**：候选 union 必须复现参考外缘且无额外背景空档。若差额只是
      rounding，可调整分项宽度或参考中真实存在的重叠；不得机械把差额塞给最大
-     link，也不得为了 `Σlink.width == node.height` 删除参考中的越界/重叠。
+     link，也不得为了 `Σlink.width == node.height` 删除参考中经 L11 证实的内部重叠。
   4. **间隔式 socket**：按参考保留每个 interval 的 center、width 与背景间距，
      用显式 `y0`/`y1` 定位；不得以连续填满为默认目标。
   5. **双端独立建模**：同一 link 的 source 与 target 分别量 width/center。两端
      宽度不同就使用 `sourceWidth` / `targetWidth` 和闭合填充 ribbon 做 taper；
      等宽 stroke 加坐标补丁只能移动空档，不能同时满足两端。修一端后必须复查
      另一端及中段分离形态。
-  单入口/单出口也按同一顺序检查；同一 dataset 的所有多入/出接口都要审计，
-  不得只修被用户标注的节点。
+  6. **固化证据并按语义取舍**：把 reference/candidate 的 node bbox、union 与
+     per-link intervals、边界差、端点、切线和结果写入 Interface Matrix；引用
+     interface audit JSON、contact sheet 与必要的局部 crop。整条 link region
+     的平均 Diff、源码 width 或口头“看起来接上了”都不能替代这组证据。接口
+     局部拓扑和端面指标改善、且没有引入其他 hard fail 时，即使全图 similarity
+     小幅下降，也必须选择接口语义正确的版本；全图指标不得否决局部结构事实。
+  单入口/单出口也按同一顺序检查；同一 dataset 的所有可见 source/target 接口
+  都要审计，不得只修多入/出节点或被用户标注的节点。自动报告无法可靠拆分内部
+  per-link 身份时，union 仍须通过 G12，内部边界由人工按本规则补证后方可冻结。
 - L12 流带取色：渲染器默认把非 cost 目标的 link 画成
   `source.tint -> target.tint` 渐变，cost 目标为纯 salmon。结构 sweep 轮必须
   对每条从 hub 或深色 source 出发的 profit link，在紧邻源节点右缘外几 px 取色
@@ -380,7 +518,16 @@ bbox，不以源码 link 数组位置、node `order` 或上一轮视觉印象为
   `c2y = y1`；ribbon 的上下边界控制点分别按 source/target 半宽同步偏移（允许
   ±0.5px 抗锯齿/半像素差）。若源图明确显示斜切，必须在 Task 信息记录例外。
   用户指出“连接处不严丝合缝/应该竖直”时，先修端点切线与上下边界，再调
-  整体弧度。
+  整体弧度。连续 ribbon 填满 node 边缘时，源图为直角矩形则 node 半径设为 0，
+  不得让圆角削出接口角缝；两端量测高度不同则用 `sourceWidth` /
+  `targetWidth` taper 分别填满两端 interval，不能靠改变错误一端的 node 高度
+  或保留未连接的色带掩盖。
+- L16 Hover 百分比 Tag 位置：Tag 的中心必须锚定到 link 中心曲线的视觉中点；
+  不得对闭合 tapered ribbon 使用整条 SVG path 周长的 50%，因为该 path 包含
+  上下边界与两端封口，周长中点会落到目标端附近。默认与自定义 cubic 均按
+  中心线参数 `t = 0.5` 计算；Tag 卡片以该点为中心，仅在触碰画布边缘时允许
+  clamp。hover 一个 node 同时显示多条 link 时，每个 Tag 都须独立落在各自
+  中心线上，并检查相邻卡片不遮挡。
 
 修复优先级：先确认节点 bbox；节点错 → 联动 `layout.nodes`、label 和相关端点；
 节点对 → 先修整个 occupancy union 的外缘与真实背景空档；union 对后，内部顺序
@@ -584,12 +731,18 @@ reference 的完整画布计算。每轮至少记录：
   `maxChannelDiff`、`samePixelRatio`、`changedPixelRatio`、`diffBoundingBox`。
 
 `pnpm verify:d3` 自动为渲染 DOM 派生区域（边界、节点、链接、标签、annotation、
-runtime raster 等）输出分区域 Diff，位于 metrics JSON 的 `regions` 数组。
+runtime raster 等）输出分区域 Diff，位于 metrics JSON 的 `regions` 数组。连接线
+另须以每个 `(node, side)` 端面为最小判定单元输出 interface audit；覆盖整条曲线
+的 link region 会稀释数像素接口错误，不能作为 G12、L11 或结构冻结的唯一证据。
+interface audit 至少记录五个状态字段、七个 canonical 汇总字段、union interval、
+边界差、per-link 可判区间、端点与切线结果。
 
 用户提供的 Diff 图、截图红框或文字标注必须转成稳定 region，在对应主检查方向
 记录修复前后的 `mae`、`similarity`、`changedPixelRatio`；自动区域不能覆盖时
 用同一口径手工计算并说明。修复后的下一轮红框参考图必须删除已冻结区域或标注
-已解决。识别 label 区域时按 T11 优先保证语义完整度。
+已解决。识别 label 区域时按 T11 优先保证语义完整度。连接线反馈还必须记录修复
+前后的 union/per-link interval 与 G12 结果；局部接口事实优先于全图 similarity，
+不能因全图指标小幅回退撤销一个已证明语义正确的接口修复。
 
 ## 红框参考图和 Task 信息
 
@@ -604,6 +757,17 @@ runtime raster 等）输出分区域 Diff，位于 metrics JSON 的 `regions` �
 - 推荐路径：
   `output/compare/<key>/<round>-<improvement>-<focus>/<key>-attention-reference.png`。
 - 下一轮开始时，必须同时参考上一轮红框图、metrics JSON、候选图和 Diff 图。
+
+结构 sweep 或结构重开轮还必须生成 interface contact sheet：每行对应一个
+`(node, side)`，左侧放 reference 局部 crop，右侧放 candidate 同尺度 crop，并
+叠加 node bbox、union 外缘和可可靠识别的 per-link interval。pass（含规则内
+容差）用绿色，`manual-pending` / `not-scored` 用黄色，fail 用红色；
+`documented-exception` 用绿色但必须加 `E` 标记与 reference crop 链接。不得只列
+失败接口。自动 sheet 以 candidate report 为 coverage；reconcile 发现的
+reference-only 行必须人工追加到同一 sheet 或配套补充 sheet，并计入 Matrix 汇总。
+contact sheet 与
+`<key>[-<language>]-interface-audit.json`、Interface Matrix 一起归档，供人眼在
+同一视图确认审计无漏项。
 
 Task 信息每轮维护，须稳定到下一轮无需重新询问用户。字段清单（唯一定义处）：
 
@@ -620,17 +784,22 @@ Task 信息每轮维护，须稳定到下一轮无需重新询问用户。字段
 9. 下一轮主检查方向和进入条件。
 10. 高风险模式命中清单：命中特征、必查规则编号、逐对象核对状态
     （未查/已查/已修），以及第 0 轮清单的落盘位置。
+11. Interface audit：五个状态字段；分别列 `audit.summary.*` 与权威的
+    `matrix.summary.*` 七字段、两者 coverage/差异和 reconciliation 结论；附
+    Interface Matrix、`<key>[-<language>]-interface-audit.json` 与 contact sheet
+    路径。非结构轮写明沿用哪一轮证据，或因几何变化已重开。
 
 ## 每轮记录模板
 
 字段引用式模板——各字段定义见括号内小节，不在模板中重复罗列：
 
 ```text
-- Task 信息：按「红框参考图和 Task 信息」字段清单 1–10 逐项更新。
+- Task 信息：按「红框参考图和 Task 信息」字段清单 1–11 逐项更新。
 - 证据路径：命令、候选图、原图、Diff 图、metrics JSON、archive、红框图。
-- 自动硬门槛：G1–G11 逐项 pass/fail。
+- 自动硬门槛：G1–G12 逐项 pass/fail；G12 单列五个状态字段，不得把 warning 或 not-scored 并入 pass。
 - 全图指标：按「Diff 指标」六项。
 - 本轮主方向分区域指标：| region | bbox | mae | similarity | maxChannelDiff | changedPixelRatio | note |
+- Interface audit：`audit.summary.*` 与 `matrix.summary.*` 各自七字段 + reconciliation + Matrix/audit/contact sheet 路径 + 失败/例外/待核接口清单。
 - 红框 region 清单：| id | region | bbox | 分类 | 违反规则编号 | 下一步 |
 - 方向专项结论：本轮覆盖方向按 L / T / A / Z / I 协议记录并引用规则编号；未覆盖方向不填。
 - 误差分类：必须死磕 / 需要优化 / 可接受残留 / 无语义跳过。
@@ -652,7 +821,9 @@ archive 为准。未运行循环时必须写 `Loop Fidelity Summary: not run` �
 - Scope：dataset key、检查语言、是否含图标 crop/vector 或 runtime raster。
 - Status：`not run` / `auto checks only` / `in progress` / `converged` / `blocked`。
 - Latest round：轮次、主检查方向、archive 路径、metrics JSON 路径。
-- Gates：G1–G11 通过/失败摘要。
+- Gates：G1–G12 通过/失败摘要；G12 同时给出五个状态字段、
+  `audit.summary.*` 与权威 `matrix.summary.*`、reconciliation 结论及 interface
+  audit/contact sheet 路径，不满足完整 pass 条件的维度不得计入通过。
 - Metrics：最新全图 `mae`、`similarity`、`changedPixelRatio`、`diffBoundingBox`。
 - Frozen/open：已冻结方向、开放红框 region 或 backlog；无开放项写明 closure。
 - Red-box：红框参考图路径，或无开放红框的关闭说明。
@@ -666,7 +837,10 @@ archive 为准。未运行循环时必须写 `Loop Fidelity Summary: not run` �
 
 整个保真循环可以结束，必须同时满足：
 
-1. 自动硬门槛（G1–G11）通过。
+1. 自动硬门槛（G1–G12）通过；新增或实质修改的数据集已声明
+   `render.interfaceAudit: { mode: 'error' }`。`mode=warning` 或
+   `referenceStatus=not-scored` 不等于 G12 通过，不能据此宣布该数据集完成接口
+   保真收敛。
 2. 候选图纯净，没有使用未批准源图像素。
 3. 「必须死磕」问题域都已被某轮 sweep 或升级深查覆盖、记录证据并冻结
    （sweep 覆盖即可，不要求每方向单独占一轮）。
@@ -677,12 +851,17 @@ archive 为准。未运行循环时必须写 `Loop Fidelity Summary: not run` �
 7. 本轮主方向分区域 Diff 没有新的结构性高误差区域。
 8. 全图 Diff 相较上一轮没有明显可操作改善空间。
 9. 用户标注区域已逐一复查，并记录修复前后指标。
-10. 新增或修改过的非默认语言覆盖已通过本地化布局检查（Z 系列）。
-11. 最新 Task 信息完整，列出所有已主查、已冻结、重开和 backlog 方向。
-12. 每个未冻结或刚修复的用户标注区域，有红框记录或明确关闭说明。
-13. 用户反馈中的通用经验已按归因分类沉淀到本文档（含自动化状态推进），
+10. Interface Matrix 覆盖全部可见 source/target 端面，满足
+   `matrix.summary.auditedInterfaces == matrix.summary.expectedInterfaces`、
+   `matrix.summary.failedInterfaces == 0`、`matrix.summary.pendingInterfaces == 0`、
+   `matrix.summary.notScoredInterfaces == 0`；audit JSON 和 contact sheet 已归档，
+   所有 `matrix.summary.documentedExceptions` 都有 reference crop 证据。
+11. 新增或修改过的非默认语言覆盖已通过本地化布局检查（Z 系列）。
+12. 最新 Task 信息完整，列出所有已主查、已冻结、重开和 backlog 方向。
+13. 每个未冻结或刚修复的用户标注区域，有红框记录或明确关闭说明。
+14. 用户反馈中的通用经验已按归因分类沉淀到本文档（含自动化状态推进），
     特例已记录在 Task 信息中。
-14. 可接受残留和所有破例都记录原因。
+15. 可接受残留和所有破例都记录原因。
 
 收敛即退出置信度判断为「高」的正式确认（总则）。收敛不要求全方向人工重查；
 全图相似度高不代表可以结束；已冻结且未重开的方向不应在最后一轮重复深查。
@@ -730,6 +909,8 @@ archive 为准。未运行循环时必须写 `Loop Fidelity Summary: not run` �
 - 为降低 Diff 复制无语义 attribution 内容。
 - 用隐藏文本、缩短文本或降低透明度掩盖布局错误。
 - 只报告全图相似度，不报告分区域证据。
+- 以全图 similarity、整条 link region 的平均 Diff 或 render baseline 通过，覆盖
+  G12/interface 局部失败；接口语义证据改善时仅因全图 similarity 小幅下降而回退。
 - 进入下一轮却没有上一轮红框参考图和最新 Task 信息。
 - 收到用户修正意见后只修当前像素，或不做归属/冲突审计就机械追加重叠规则。
 - 对重复触发的编号规则仅加长规则文本，不推进自动化状态、不纳入命中清单
@@ -738,6 +919,12 @@ archive 为准。未运行循环时必须写 `Loop Fidelity Summary: not run` �
   同型排查。
 - 跳过 binary occupancy union，按颜色/path 分段直接判断接口留缝，或把接口错位、
   文本不可读、文本越界当成风格差异接受。
+- 结构 sweep 只检查多入/出节点、用户红框接口或失败接口，未覆盖单入/单出及其余
+  可见端面；没有完整 Interface Matrix、interface audit 与 contact sheet 就冻结
+  结构方向。
+- 把 `mode=warning`、`referenceStatus=not-scored`、或内部 per-link
+  `manual-pending` 写成 interface pass；用 `documented-exception` 豁免候选与
+  reference 不一致，或省略七字段计数恒等式中的未关闭接口。
 - 在没有 Diff 图、metrics JSON 和主方向分区域指标的情况下声称已经收敛。
 - 最终输出只写「已通过」「已收敛」，但没有 `Loop Fidelity Summary` 或未运行
   原因。

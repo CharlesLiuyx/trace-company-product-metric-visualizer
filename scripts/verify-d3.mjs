@@ -10,6 +10,12 @@ import { formatDiffBoundingBox, pngMetrics } from './lib/png-diff.mjs';
 import { archiveCompare, cleanCompare, compareDir, createArchivePlan } from './lib/compare-workspace.mjs';
 import { assertPurity } from './lib/d3-hard-gates.mjs';
 import {
+  assertInterfaceAudit,
+  buildInterfaceAudit,
+  collectCandidateInterfaceGeometry,
+  writeInterfaceContactSheet,
+} from './lib/interface-fidelity.mjs';
+import {
   assertProjectFontsLoaded,
   auditLabelLayout,
   collectRenderedRegions,
@@ -141,6 +147,8 @@ async function main() {
   const candidatePath = path.join(compareDir, `${datasetKey}${localizedSuffix}-d3.png`);
   const diffPath = path.join(compareDir, `${datasetKey}${localizedSuffix}-pixel-diff-x4.png`);
   const metricsPath = path.join(compareDir, `${datasetKey}${localizedSuffix}-metrics.json`);
+  const interfaceAuditPath = path.join(compareDir, `${datasetKey}${localizedSuffix}-interface-audit.json`);
+  const interfaceContactSheetPath = path.join(compareDir, `${datasetKey}${localizedSuffix}-interface-contact-sheet.png`);
 
   try {
     browser = await chromium.launch({ headless: true });
@@ -155,6 +163,7 @@ async function main() {
     const labelLayoutAudit = await auditLabelLayout(page);
 
     const renderedRegions = await collectRenderedRegions(page);
+    const interfaceGeometry = await collectCandidateInterfaceGeometry(page, datasetKey, language);
 
     assertPurity(purity);
     if (purity.width !== meta.width || purity.height !== meta.height) {
@@ -165,6 +174,25 @@ async function main() {
 
     const referencePath = path.join(rootDir, meta.referenceSrc);
     await copyFile(referencePath, referenceComparePath);
+    const interfaceAudit = buildInterfaceAudit({
+      geometry: interfaceGeometry,
+      candidatePath,
+      referencePath,
+    });
+    await writeFile(interfaceAuditPath, `${JSON.stringify(interfaceAudit, null, 2)}\n`);
+    const contactPage = await context.newPage();
+    try {
+      const urlForProjectPath = (filePath) =>
+        `${baseUrl}/${path.relative(rootDir, filePath).split(path.sep).map(encodeURIComponent).join('/')}`;
+      await writeInterfaceContactSheet(contactPage, {
+        report: interfaceAudit,
+        referenceUrl: urlForProjectPath(referencePath),
+        candidateUrl: urlForProjectPath(candidatePath),
+        outputPath: interfaceContactSheetPath,
+      });
+    } finally {
+      await contactPage.close();
+    }
     const metrics = await pngMetrics(referencePath, candidatePath, diffPath, renderedRegions);
     const archivePlan = await createArchivePlan(datasetKey, {
       focus,
@@ -185,6 +213,16 @@ async function main() {
           full: metrics.full,
           regions: metrics.regions,
           labelLayoutAudit,
+          interfaceAudit: {
+            path: path.relative(rootDir, interfaceAuditPath),
+            contactSheet: path.relative(rootDir, interfaceContactSheetPath),
+            mode: interfaceAudit.mode,
+            status: interfaceAudit.status,
+            enforcementStatus: interfaceAudit.enforcementStatus,
+            candidateStatus: interfaceAudit.candidateStatus,
+            referenceStatus: interfaceAudit.referenceStatus,
+            summary: interfaceAudit.summary,
+          },
           archive: {
             dir: path.relative(rootDir, archivePlan.archiveDir),
             name: archivePlan.archiveName,
@@ -225,6 +263,11 @@ async function main() {
       `purity: imageCount=${purity.imageCount} expectedRasterAnnotations=${purity.expectedRasterHrefs.length} chartImgCount=${purity.chartImgCount} rasterAllowed=${purity.rasterAllowed}`
     );
     logLabelLayoutAudit(labelLayoutAudit);
+    console.log(
+      `G12 interface audit: mode=${interfaceAudit.mode} status=${interfaceAudit.status} enforcement=${interfaceAudit.enforcementStatus} candidate=${interfaceAudit.candidateStatus} reference=${interfaceAudit.referenceStatus} expected=${interfaceAudit.summary.expectedInterfaces} audited=${interfaceAudit.summary.auditedInterfaces} passed=${interfaceAudit.summary.passedInterfaces} failed=${interfaceAudit.summary.failedInterfaces} pending=${interfaceAudit.summary.pendingInterfaces} exceptions=${interfaceAudit.summary.documentedExceptions} notScored=${interfaceAudit.summary.notScoredInterfaces} violations=${interfaceAudit.summary.violations}`
+    );
+    console.log(`interface report: ${archive.dir}/${path.basename(interfaceAuditPath)}`);
+    console.log(`interface contact sheet: ${archive.dir}/${path.basename(interfaceContactSheetPath)}`);
     console.log(`viewport: ${metrics.full.width}x${metrics.full.height}`);
     console.log(`RGB MAE: ${metrics.full.mae.toFixed(4)}`);
     console.log(`MAE similarity: ${metrics.full.similarity.toFixed(6)}`);
@@ -263,6 +306,7 @@ async function main() {
         .join(', ');
       throw new Error(`Label-node horizontal overlap failed: ${details}`);
     }
+    assertInterfaceAudit(interfaceAudit);
   } finally {
     if (browser) await browser.close();
     await server.close();

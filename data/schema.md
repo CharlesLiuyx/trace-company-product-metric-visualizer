@@ -326,6 +326,31 @@ canonical company name, then latest-period recency.
 | `logoSvg`     | string  | inner SVG markup drawn above the hub node (optional)         |
 | `logoViewBox` / `logoWidth` / `logoHeight` | — | size/coords for `logoSvg`              |
 
+### render interface audit
+
+Fixed-layout datasets that are new or materially changed must opt into the
+reference-backed connector gate:
+
+```js
+render: {
+  interfaceAudit: { mode: 'error' },
+}
+```
+
+`mode: 'error'` makes `pnpm verify:d3` fail when G12 finds a missing interface,
+an unexpected occupancy interval/gap, a path endpoint off its node edge, or a
+non-horizontal vertical-node tangent. Legacy datasets without this declaration
+are still inventoried and reported in migration-warning mode; a warning is not
+interface-fidelity evidence and cannot be recorded as a G12 pass. When the
+reference image is unavailable, reference occupancy is `not-scored` even though
+the path/node geometry checks can still run.
+
+The interface report and contact sheet are verifier artifacts, not SSOT data.
+Do not put reference pixel intervals into the income-statement SSOT or an i18n
+overlay. Author measured `sourceWidth`, `targetWidth`, `y0`, and `y1` on links as
+needed; the detailed measurement and acceptance rules live in
+`docs/fidelity-loop-rules.md` (G12 and L5-L15).
+
 ### i18n overlay
 
 Dataset overlays are keyed by language code:
