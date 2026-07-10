@@ -362,7 +362,23 @@ export function buildInterfaceAuditFromPngs({
       ? scanInterfaceOccupancy(candidatePng, item, { ...thresholds, background: candidateBackground.rgb })
       : null;
     const renderedComparison = candidateRaster
-      ? compareOccupancyIntervals(item.candidateUnion, candidateRaster.intervals, thresholds)
+      ? {
+          ...compareOccupancyIntervals(
+            item.candidateUnion,
+            clipIntervalsToNode(
+              candidateRaster.intervals,
+              item.nodeBox,
+              thresholds.antiAliasTolerance
+            ),
+            thresholds
+          ),
+          normalization: {
+            mode: 'clip-candidate-raster-halo-to-node-bbox',
+            nodeTop: item.nodeBox.top,
+            nodeBottom: item.nodeBox.bottom,
+            candidateRawIntervals: candidateRaster.intervals,
+          },
+        }
       : null;
     if (renderedComparison && !renderedComparison.passed) {
       renderedComparison.violations.forEach((violation) => {

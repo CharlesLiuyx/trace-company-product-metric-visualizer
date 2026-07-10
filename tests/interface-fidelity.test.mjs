@@ -258,6 +258,24 @@ test('reference raster halo outside the node is recorded but cannot enlarge cand
   );
 });
 
+test('candidate raster halo is recorded but clipped before rendered-geometry scoring', () => {
+  const candidate = paintBand(solidPng(), { top: 2, bottom: 23 });
+  const reference = paintBand(solidPng(), { top: 2, bottom: 23 });
+  const report = buildInterfaceAuditFromPngs({
+    geometry: geometry('error'),
+    candidatePng: candidate,
+    referencePng: reference,
+  });
+
+  assert.equal(report.status, 'passed');
+  assert.deepEqual(report.interfaces[0].candidateRaster.intervals, [{ top: 2, bottom: 23 }]);
+  assert.deepEqual(report.interfaces[0].renderedComparison.reference, [{ top: 5, bottom: 20 }]);
+  assert.equal(
+    report.interfaces[0].renderedComparison.normalization.mode,
+    'clip-candidate-raster-halo-to-node-bbox'
+  );
+});
+
 test('missing reference is explicitly not-scored when candidate geometry and raster agree', () => {
   const candidate = paintBand(solidPng(), { top: 5, bottom: 20 });
   const report = buildInterfaceAuditFromPngs({ geometry: geometry('error'), candidatePng: candidate });
