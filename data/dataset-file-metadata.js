@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-10T05:24:41.000Z",
+  "generatedAt": "2026-07-10T05:39:01.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -1029,8 +1029,8 @@
     },
     "nintendo-9m-fy26": {
       "path": "data/datasets/nintendo-9m-fy26.js",
-      "updatedAtMs": 1783661081000,
-      "updatedAt": "2026-07-10T05:24:41.000Z",
+      "updatedAtMs": 1783661941000,
+      "updatedAt": "2026-07-10T05:39:01.000Z",
       "timeSource": "git"
     },
     "sony-q3-fy25": {
@@ -1041,38 +1041,38 @@
     },
     "take-two-q3-fy26": {
       "path": "data/datasets/take-two-q3-fy26.js",
-      "updatedAtMs": 1783661081000,
-      "updatedAt": "2026-07-10T05:24:41.000Z",
+      "updatedAtMs": 1783661941000,
+      "updatedAt": "2026-07-10T05:39:01.000Z",
       "timeSource": "git"
     },
     "snap-q4-fy25": {
       "path": "data/datasets/snap-q4-fy25.js",
-      "updatedAtMs": 1783661081000,
-      "updatedAt": "2026-07-10T05:24:41.000Z",
+      "updatedAtMs": 1783661941000,
+      "updatedAt": "2026-07-10T05:39:01.000Z",
       "timeSource": "git"
     },
     "reddit-q4-fy25": {
       "path": "data/datasets/reddit-q4-fy25.js",
-      "updatedAtMs": 1783661081000,
-      "updatedAt": "2026-07-10T05:24:41.000Z",
+      "updatedAtMs": 1783661941000,
+      "updatedAt": "2026-07-10T05:39:01.000Z",
       "timeSource": "git"
     },
     "pinterest-q4-fy25": {
       "path": "data/datasets/pinterest-q4-fy25.js",
-      "updatedAtMs": 1783661081000,
-      "updatedAt": "2026-07-10T05:24:41.000Z",
+      "updatedAtMs": 1783661941000,
+      "updatedAt": "2026-07-10T05:39:01.000Z",
       "timeSource": "git"
     },
     "match-group-q4-fy25": {
       "path": "data/datasets/match-group-q4-fy25.js",
-      "updatedAtMs": 1783661081000,
-      "updatedAt": "2026-07-10T05:24:41.000Z",
+      "updatedAtMs": 1783661941000,
+      "updatedAt": "2026-07-10T05:39:01.000Z",
       "timeSource": "git"
     },
     "duolingo-q4-fy25": {
       "path": "data/datasets/duolingo-q4-fy25.js",
-      "updatedAtMs": 1783661081000,
-      "updatedAt": "2026-07-10T05:24:41.000Z",
+      "updatedAtMs": 1783661941000,
+      "updatedAt": "2026-07-10T05:39:01.000Z",
       "timeSource": "git"
     },
     "peloton-q2-fy26": {
@@ -1089,8 +1089,8 @@
     },
     "zillow-q4-fy25": {
       "path": "data/datasets/zillow-q4-fy25.js",
-      "updatedAtMs": 1783661081000,
-      "updatedAt": "2026-07-10T05:24:41.000Z",
+      "updatedAtMs": 1783661941000,
+      "updatedAt": "2026-07-10T05:39:01.000Z",
       "timeSource": "git"
     },
     "block-fy25": {
