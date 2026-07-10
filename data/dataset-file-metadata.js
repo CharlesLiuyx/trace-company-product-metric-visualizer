@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-09T19:16:47.000Z",
+  "generatedAt": "2026-07-09T20:50:33.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -1041,8 +1041,8 @@
     },
     "global-payments-q4-fy25": {
       "path": "data/datasets/global-payments-q4-fy25.js",
-      "updatedAtMs": 1783628637000,
-      "updatedAt": "2026-07-09T20:23:57.000Z",
+      "updatedAtMs": 1783630233000,
+      "updatedAt": "2026-07-09T20:50:33.000Z",
       "timeSource": "git"
     },
     "nu-q4-fy25": {
