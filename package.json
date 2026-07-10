@@ -8,6 +8,7 @@
     "check": "node scripts/check.mjs",
     "test": "node --test \"tests/*.test.mjs\"",
     "build:standalone": "node scripts/update-dataset-file-metadata.mjs && node scripts/build-standalone.mjs",
+    "audit:interface-risk": "node scripts/audit-interface-risk.mjs",
     "check:pending": "node scripts/check-pending-processed.mjs",
     "sync:index-datasets": "node scripts/sync-index-datasets.mjs",
     "update:dataset-manifest": "node scripts/update-dataset-manifest.mjs",
