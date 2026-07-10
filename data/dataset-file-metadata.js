@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-10T07:56:18.906Z",
+  "generatedAt": "2026-07-10T11:48:18.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -1125,27 +1125,27 @@
     },
     "intuit-q2-fy26": {
       "path": "data/datasets/intuit-q2-fy26.js",
-      "updatedAtMs": 1783665460709,
-      "updatedAt": "2026-07-10T06:37:40.709Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783684098000,
+      "updatedAt": "2026-07-10T11:48:18.000Z",
+      "timeSource": "git"
     },
     "mercadolibre-q4-fy25": {
       "path": "data/datasets/mercadolibre-q4-fy25.js",
-      "updatedAtMs": 1783665359710,
-      "updatedAt": "2026-07-10T06:35:59.710Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783684098000,
+      "updatedAt": "2026-07-10T11:48:18.000Z",
+      "timeSource": "git"
     },
     "shopify-q4-fy25": {
       "path": "data/datasets/shopify-q4-fy25.js",
-      "updatedAtMs": 1783665950024,
-      "updatedAt": "2026-07-10T06:45:50.024Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783684098000,
+      "updatedAt": "2026-07-10T11:48:18.000Z",
+      "timeSource": "git"
     },
     "affirm-q2-fy26": {
       "path": "data/datasets/affirm-q2-fy26.js",
-      "updatedAtMs": 1783665608516,
-      "updatedAt": "2026-07-10T06:40:08.516Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783684098000,
+      "updatedAt": "2026-07-10T11:48:18.000Z",
+      "timeSource": "git"
     },
     "paypal-q4-fy25": {
       "path": "data/datasets/paypal-q4-fy25.js",
@@ -1155,57 +1155,57 @@
     },
     "chime-q4-fy25": {
       "path": "data/datasets/chime-q4-fy25.js",
-      "updatedAtMs": 1783665622039,
-      "updatedAt": "2026-07-10T06:40:22.039Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783684098000,
+      "updatedAt": "2026-07-10T11:48:18.000Z",
+      "timeSource": "git"
     },
     "coca-cola-q4-fy25": {
       "path": "data/datasets/coca-cola-q4-fy25.js",
-      "updatedAtMs": 1783668955747,
-      "updatedAt": "2026-07-10T07:35:55.747Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783684098000,
+      "updatedAt": "2026-07-10T11:48:18.000Z",
+      "timeSource": "git"
     },
     "etsy-q4-fy25": {
       "path": "data/datasets/etsy-q4-fy25.js",
-      "updatedAtMs": 1783669496830,
-      "updatedAt": "2026-07-10T07:44:56.830Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783684098000,
+      "updatedAt": "2026-07-10T11:48:18.000Z",
+      "timeSource": "git"
     },
     "domino-s-q4-fy25": {
       "path": "data/datasets/domino-s-q4-fy25.js",
-      "updatedAtMs": 1783668445130,
-      "updatedAt": "2026-07-10T07:27:25.130Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783684098000,
+      "updatedAt": "2026-07-10T11:48:18.000Z",
+      "timeSource": "git"
     },
     "mcdonald-s-q4-fy25": {
       "path": "data/datasets/mcdonald-s-q4-fy25.js",
-      "updatedAtMs": 1783669464596,
-      "updatedAt": "2026-07-10T07:44:24.596Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783684098000,
+      "updatedAt": "2026-07-10T11:48:18.000Z",
+      "timeSource": "git"
     },
     "rbi-q4-fy25": {
       "path": "data/datasets/rbi-q4-fy25.js",
-      "updatedAtMs": 1783670178906,
-      "updatedAt": "2026-07-10T07:56:18.906Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783684098000,
+      "updatedAt": "2026-07-10T11:48:18.000Z",
+      "timeSource": "git"
     },
     "yum-brands-q4-fy25": {
       "path": "data/datasets/yum-brands-q4-fy25.js",
-      "updatedAtMs": 1783668278477,
-      "updatedAt": "2026-07-10T07:24:38.477Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783684098000,
+      "updatedAt": "2026-07-10T11:48:18.000Z",
+      "timeSource": "git"
     },
     "pepsico-q4-fy25": {
       "path": "data/datasets/pepsico-q4-fy25.js",
-      "updatedAtMs": 1783668734206,
-      "updatedAt": "2026-07-10T07:32:14.206Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783684098000,
+      "updatedAt": "2026-07-10T11:48:18.000Z",
+      "timeSource": "git"
     },
     "chipotle-q4-fy25": {
       "path": "data/datasets/chipotle-q4-fy25.js",
-      "updatedAtMs": 1783669912649,
-      "updatedAt": "2026-07-10T07:51:52.649Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783684098000,
+      "updatedAt": "2026-07-10T11:48:18.000Z",
+      "timeSource": "git"
     },
     "data/revenue-metrics.js": {
       "path": "data/revenue-metrics.js",
