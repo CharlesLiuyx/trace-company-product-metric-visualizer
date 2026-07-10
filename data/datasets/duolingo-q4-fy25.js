@@ -86,6 +86,7 @@
       width: 2667,
       height: 1500,
       background: '#f2f2f2',
+      interfaceAudit: { mode: 'error' },
       allowRasterAnnotations: true,
       titleColor: TITLE,
       subtitleColor: NOTE,
@@ -401,7 +402,7 @@
       { source: 'gross_profit', target: 'operating_profit', value: 43.454, width: h(43.454), sourceOrder: 0, targetOrder: 0 },
       { source: 'gross_profit', target: 'operating_expenses', value: 162.415, width: h(162.415), sourceOrder: 1, targetOrder: 0 },
 
-      { source: 'operating_profit', target: 'net_profit', value: 30.358, width: h(30.907), sourceOrder: 0, targetOrder: 0, percentText: '70%' },
+      { source: 'operating_profit', target: 'net_profit', value: 30.358, width: h(30.907), sourceWidth: h(30.907), targetWidth: h(30.358), sourceOrder: 0, targetOrder: 0, percentText: '70%' },
       { source: 'operating_profit', target: 'tax', value: 12.547, width: h(12.547), sourceOrder: 1, targetOrder: 0 },
       { source: 'interest', target: 'net_profit', value: 11.596, width: h(11.596), sourceOrder: 0, targetOrder: 1 },
 

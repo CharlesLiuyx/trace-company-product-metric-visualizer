@@ -346,8 +346,8 @@
       "height": 1500
     },
     "duolingo-q4-fy25": {
-      "similarity": 0.982048,
-      "mae": 4.5778,
+      "similarity": 0.982021,
+      "mae": 4.5848,
       "width": 2667,
       "height": 1500
     },
@@ -514,8 +514,8 @@
       "height": 1500
     },
     "match-group-q4-fy25": {
-      "similarity": 0.974657,
-      "mae": 6.4624,
+      "similarity": 0.974946,
+      "mae": 6.3887,
       "width": 2667,
       "height": 1500
     },
@@ -808,8 +808,8 @@
       "height": 1500
     },
     "pinterest-q4-fy25": {
-      "similarity": 0.965605,
-      "mae": 8.7707,
+      "similarity": 0.965451,
+      "mae": 8.81,
       "width": 2667,
       "height": 1500
     },
@@ -844,8 +844,8 @@
       "height": 2636
     },
     "reddit-q4-fy25": {
-      "similarity": 0.973712,
-      "mae": 6.7035,
+      "similarity": 0.973556,
+      "mae": 6.7432,
       "width": 2667,
       "height": 1500
     },
@@ -922,8 +922,8 @@
       "height": 1500
     },
     "snap-q4-fy25": {
-      "similarity": 0.972224,
-      "mae": 7.0829,
+      "similarity": 0.972227,
+      "mae": 7.0822,
       "width": 2667,
       "height": 1500
     },
@@ -976,8 +976,8 @@
       "height": 1500
     },
     "take-two-q3-fy26": {
-      "similarity": 0.968737,
-      "mae": 7.9719,
+      "similarity": 0.968616,
+      "mae": 8.0029,
       "width": 2667,
       "height": 1500
     },
@@ -1102,8 +1102,8 @@
       "height": 1500
     },
     "zillow-q4-fy25": {
-      "similarity": 0.983037,
-      "mae": 4.3257,
+      "similarity": 0.981036,
+      "mae": 4.8358,
       "width": 2667,
       "height": 1500
     },

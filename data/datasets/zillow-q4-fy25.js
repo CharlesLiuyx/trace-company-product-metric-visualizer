@@ -234,6 +234,7 @@
       width: 2667,
       height: 1500,
       background: BACKGROUND,
+      interfaceAudit: { mode: 'error' },
       titleColor: TITLE,
       subtitleColor: NOTE,
       noteColor: NOTE,
@@ -462,24 +463,25 @@
     ],
 
     links: [
-      { source: 'residential', target: 'revenue', value: 418, width: 225, y0: 531.5, y1: 695.5, sourceOrder: 0, targetOrder: 0 },
-      { source: 'rentals', target: 'revenue', value: 168, width: 89, y0: 818.5, y1: 854, sourceOrder: 0, targetOrder: 1 },
-      { source: 'home_loans', target: 'revenue', value: 57, width: 26, y0: 996.5, y1: 914, sourceOrder: 0, targetOrder: 2 },
-      { source: 'other', target: 'revenue', value: 11, width: 6, y0: 1135.5, y1: 931.5, sourceOrder: 0, targetOrder: 3 },
+      { source: 'residential', target: 'revenue', value: 418, width: 224, sourceWidth: 224, targetWidth: 224, y0: 532, y1: 697, sourceOrder: 0, targetOrder: 0 },
+      { source: 'rentals', target: 'revenue', value: 168, width: 90, sourceWidth: 87, targetWidth: 90, y0: 818.5, y1: 854, sourceOrder: 0, targetOrder: 1 },
+      { source: 'home_loans', target: 'revenue', value: 57, width: 28, sourceWidth: 25, targetWidth: 28, y0: 996.5, y1: 913, sourceOrder: 0, targetOrder: 2 },
+      { source: 'other', target: 'revenue', value: 11, width: 7, sourceWidth: 5, targetWidth: 7, y0: 1135.5, y1: 930.5, sourceOrder: 0, targetOrder: 3 },
 
       { source: 'revenue', target: 'gross_profit', value: 476, width: 255, y0: 712.5, y1: 608, sourceOrder: 0, targetOrder: 0, linkTint: GREEN_LINK },
       { source: 'revenue', target: 'cost_of_revenue', value: 178, width: 95, y0: 886.5, y1: 1038, sourceOrder: 1, targetOrder: 0 },
 
-      { source: 'gross_profit', target: 'operating_expenses', value: 476, width: 255, y0: 608, y1: 709, sourceOrder: 0, targetOrder: 0, linkTint: RED_LINK },
+      { source: 'gross_profit', target: 'operating_expenses', value: 476, width: 255, sourceWidth: 255, targetWidth: 254, y0: 608, y1: 709, sourceOrder: 0, targetOrder: 0, linkTint: RED_LINK },
       {
-        source: 'operating_loss', target: 'operating_expenses', value: 11, width: 2,
-        y0: 947, y1: 836, sourceOrder: 0, targetOrder: 1, linkTint: RED_LINK,
-        curve: { x0: 1682, x1: 1802, c1x: 1730, c1y: 947, c2x: 1750, c2y: 836 },
+        source: 'operating_loss', target: 'operating_expenses', value: 11, width: 1,
+        sourceWidth: 1, targetWidth: 1,
+        y0: 946.5, y1: 835.5, sourceOrder: 0, targetOrder: 1, linkTint: RED_LINK,
+        curve: { x0: 1682, x1: 1802, c1x: 1730, c1y: 946.5, c2x: 1750, c2y: 835.5 },
       },
 
-      { source: 'operating_expenses', target: 'sm', value: 205, width: 110, y0: 635.5, y1: 470, sourceOrder: 0, targetOrder: 0 },
-      { source: 'operating_expenses', target: 'product', value: 154, width: 77, y0: 731, y1: 731.5, sourceOrder: 1, targetOrder: 0 },
-      { source: 'operating_expenses', target: 'ga', value: 128, width: 66, y0: 803.5, y1: 967.5, sourceOrder: 2, targetOrder: 0 },
+      { source: 'operating_expenses', target: 'sm', value: 205, width: 111, sourceWidth: 111, targetWidth: 109, y0: 637.5, y1: 470.5, sourceOrder: 0, targetOrder: 0 },
+      { source: 'operating_expenses', target: 'product', value: 154, width: 77, sourceWidth: 77, targetWidth: 76, y0: 731.5, y1: 732, sourceOrder: 1, targetOrder: 0 },
+      { source: 'operating_expenses', target: 'ga', value: 128, width: 66, sourceWidth: 66, targetWidth: 65, y0: 803, y1: 967.5, sourceOrder: 2, targetOrder: 0 },
     ],
 
     i18n: {

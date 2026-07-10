@@ -220,6 +220,7 @@
       width: 2667,
       height: 1500,
       background: '#f2f2f2',
+      interfaceAudit: { mode: 'error' },
       allowRasterAnnotations: true,
       titleColor: TITLE,
       subtitleColor: NOTE,
@@ -287,26 +288,26 @@
     ],
     links: [
       { source: 'tinder', target: 'revenue', value: 464, sourceWidth: 179, targetWidth: 179, y0: 453.5, y1: 698.5, linkTint: TINDER_LINK },
-      { source: 'hinge', target: 'revenue', value: 187, sourceWidth: 70, targetWidth: 70, y0: 738, y1: 825, linkTint: GRAY_LINK },
-      { source: 'asia', target: 'revenue', value: 66, sourceWidth: 23, targetWidth: 24, y0: 927.5, y1: 875, linkTint: ASIA_LINK },
-      { source: 'evergreen_emerging', target: 'revenue', value: 145, sourceWidth: 54, targetWidth: 55, y0: 1110, y1: 915.5, linkTint: ORANGE_LINK },
+      { source: 'hinge', target: 'revenue', value: 187, sourceWidth: 70, targetWidth: 72, y0: 738, y1: 824, linkTint: GRAY_LINK },
+      { source: 'asia', target: 'revenue', value: 66, sourceWidth: 22, targetWidth: 27, y0: 928, y1: 873.5, linkTint: ASIA_LINK },
+      { source: 'evergreen_emerging', target: 'revenue', value: 145, sourceWidth: 54, targetWidth: 57, y0: 1110, y1: 915.5, linkTint: ORANGE_LINK },
       { source: 'indirect', target: 'revenue', value: 18, sourceWidth: 5, targetWidth: 5, y0: 1285.5, y1: 946.5, linkTint: GRAY_LINK },
 
       { source: 'revenue', target: 'gross_profit', value: 656, sourceWidth: 254, targetWidth: 254, y0: 736, y1: 619, linkTint: GREEN_LINK },
-      { source: 'revenue', target: 'cost_of_revenue', value: 222, sourceWidth: 84, targetWidth: 85, y0: 907, y1: 1012.5, linkTint: RED_LINK },
+      { source: 'revenue', target: 'cost_of_revenue', value: 222, sourceWidth: 86, targetWidth: 85, y0: 906, y1: 1012.5, linkTint: RED_LINK },
 
-      { source: 'gross_profit', target: 'operating_profit', value: 285, sourceWidth: 109, targetWidth: 109, y0: 546.5, y1: 458.5, linkTint: GREEN_LINK },
-      { source: 'gross_profit', target: 'operating_expenses', value: 371, sourceWidth: 142, targetWidth: 143, y0: 675, y1: 787.5, linkTint: RED_LINK },
+      { source: 'gross_profit', target: 'operating_profit', value: 285, sourceWidth: 110, targetWidth: 108, y0: 547, y1: 458, linkTint: GREEN_LINK },
+      { source: 'gross_profit', target: 'operating_expenses', value: 371, sourceWidth: 144, targetWidth: 143, y0: 674, y1: 787.5, linkTint: RED_LINK },
 
       { source: 'operating_profit', target: 'net_profit', value: 210, sourceWidth: 80, targetWidth: 79, y0: 444, y1: 354.5, linkTint: GREEN_LINK },
-      { source: 'operating_profit', target: 'tax', value: 45, sourceWidth: 15, targetWidth: 15, y0: 493.5, y1: 552.5, linkTint: RED_LINK },
-      { source: 'operating_profit', target: 'other_non_operating', value: 30, sourceWidth: 9, targetWidth: 8, y0: 508, y1: 652, linkTint: RED_LINK },
+      { source: 'operating_profit', target: 'tax', value: 45, sourceWidth: 17, targetWidth: 15, y0: 492.5, y1: 552.5, linkTint: RED_LINK },
+      { source: 'operating_profit', target: 'other_non_operating', value: 30, sourceWidth: 11, targetWidth: 8, y0: 506.5, y1: 652, linkTint: RED_LINK },
 
-      { source: 'operating_expenses', target: 'sm', value: 151, sourceWidth: 57, targetWidth: 57, y0: 744.5, y1: 804.5, linkTint: RED_LINK },
-      { source: 'operating_expenses', target: 'product', value: 109, sourceWidth: 41, targetWidth: 40, y0: 795.5, y1: 948, linkTint: RED_LINK },
-      { source: 'operating_expenses', target: 'ga', value: 89, sourceWidth: 32, targetWidth: 33, y0: 835, y1: 1081.5, linkTint: RED_LINK },
-      { source: 'operating_expenses', target: 'da', value: 12, sourceWidth: 2, targetWidth: 3, y0: 855, y1: 1201.5, linkTint: RED_LINK },
-      { source: 'operating_expenses', target: 'other_operating', value: 9, sourceWidth: 1, targetWidth: 1, y0: 858.5, y1: 1317.5, linkTint: RED_LINK },
+      { source: 'operating_expenses', target: 'sm', value: 151, sourceWidth: 59, targetWidth: 57, y0: 745.5, y1: 804.5, linkTint: RED_LINK },
+      { source: 'operating_expenses', target: 'product', value: 109, sourceWidth: 42, targetWidth: 40, y0: 796, y1: 948, linkTint: RED_LINK },
+      { source: 'operating_expenses', target: 'ga', value: 89, sourceWidth: 34, targetWidth: 33, y0: 834, y1: 1081.5, linkTint: RED_LINK },
+      { source: 'operating_expenses', target: 'da', value: 12, sourceWidth: 5, targetWidth: 3, y0: 853.5, y1: 1201.5, linkTint: RED_LINK },
+      { source: 'operating_expenses', target: 'other_operating', value: 9, sourceWidth: 3, targetWidth: 1, y0: 857.5, y1: 1317.5, linkTint: RED_LINK },
     ],
     i18n: {
       zh: {
