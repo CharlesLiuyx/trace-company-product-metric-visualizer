@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-09T20:50:33.000Z",
+  "generatedAt": "2026-07-10T05:24:41.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -399,8 +399,8 @@
     },
     "nintendo-fy26": {
       "path": "data/datasets/nintendo-fy26.js",
-      "updatedAtMs": 1782542246000,
-      "updatedAt": "2026-06-27T06:37:26.000Z",
+      "updatedAtMs": 1783661081000,
+      "updatedAt": "2026-07-10T05:24:41.000Z",
       "timeSource": "git"
     },
     "nike-q4-fy26": {
@@ -1027,10 +1027,52 @@
       "updatedAt": "2026-07-09T18:45:25.000Z",
       "timeSource": "git"
     },
+    "nintendo-9m-fy26": {
+      "path": "data/datasets/nintendo-9m-fy26.js",
+      "updatedAtMs": 1783661081000,
+      "updatedAt": "2026-07-10T05:24:41.000Z",
+      "timeSource": "git"
+    },
     "sony-q3-fy25": {
       "path": "data/datasets/sony-q3-fy25.js",
       "updatedAtMs": 1783622219000,
       "updatedAt": "2026-07-09T18:36:59.000Z",
+      "timeSource": "git"
+    },
+    "take-two-q3-fy26": {
+      "path": "data/datasets/take-two-q3-fy26.js",
+      "updatedAtMs": 1783661081000,
+      "updatedAt": "2026-07-10T05:24:41.000Z",
+      "timeSource": "git"
+    },
+    "snap-q4-fy25": {
+      "path": "data/datasets/snap-q4-fy25.js",
+      "updatedAtMs": 1783661081000,
+      "updatedAt": "2026-07-10T05:24:41.000Z",
+      "timeSource": "git"
+    },
+    "reddit-q4-fy25": {
+      "path": "data/datasets/reddit-q4-fy25.js",
+      "updatedAtMs": 1783661081000,
+      "updatedAt": "2026-07-10T05:24:41.000Z",
+      "timeSource": "git"
+    },
+    "pinterest-q4-fy25": {
+      "path": "data/datasets/pinterest-q4-fy25.js",
+      "updatedAtMs": 1783661081000,
+      "updatedAt": "2026-07-10T05:24:41.000Z",
+      "timeSource": "git"
+    },
+    "match-group-q4-fy25": {
+      "path": "data/datasets/match-group-q4-fy25.js",
+      "updatedAtMs": 1783661081000,
+      "updatedAt": "2026-07-10T05:24:41.000Z",
+      "timeSource": "git"
+    },
+    "duolingo-q4-fy25": {
+      "path": "data/datasets/duolingo-q4-fy25.js",
+      "updatedAtMs": 1783661081000,
+      "updatedAt": "2026-07-10T05:24:41.000Z",
       "timeSource": "git"
     },
     "peloton-q2-fy26": {
@@ -1039,10 +1081,40 @@
       "updatedAt": "2026-07-09T19:16:47.000Z",
       "timeSource": "git"
     },
+    "nyt-q4-fy25": {
+      "path": "data/datasets/nyt-q4-fy25.js",
+      "updatedAtMs": 1783661081000,
+      "updatedAt": "2026-07-10T05:24:41.000Z",
+      "timeSource": "git"
+    },
+    "zillow-q4-fy25": {
+      "path": "data/datasets/zillow-q4-fy25.js",
+      "updatedAtMs": 1783661081000,
+      "updatedAt": "2026-07-10T05:24:41.000Z",
+      "timeSource": "git"
+    },
+    "block-fy25": {
+      "path": "data/datasets/block-fy25.js",
+      "updatedAtMs": 1783660852000,
+      "updatedAt": "2026-07-10T05:20:52.000Z",
+      "timeSource": "git"
+    },
     "global-payments-q4-fy25": {
       "path": "data/datasets/global-payments-q4-fy25.js",
       "updatedAtMs": 1783630233000,
       "updatedAt": "2026-07-09T20:50:33.000Z",
+      "timeSource": "git"
+    },
+    "nu-q4-fy25": {
+      "path": "data/datasets/nu-q4-fy25.js",
+      "updatedAtMs": 1783661081000,
+      "updatedAt": "2026-07-10T05:24:41.000Z",
+      "timeSource": "git"
+    },
+    "toast-q4-fy25": {
+      "path": "data/datasets/toast-q4-fy25.js",
+      "updatedAtMs": 1783661081000,
+      "updatedAt": "2026-07-10T05:24:41.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {
