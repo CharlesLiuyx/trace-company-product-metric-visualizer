@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-10T11:48:18.000Z",
+  "generatedAt": "2026-07-10T14:25:40.839Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -1206,6 +1206,114 @@
       "updatedAtMs": 1783684098000,
       "updatedAt": "2026-07-10T11:48:18.000Z",
       "timeSource": "git"
+    },
+    "hershey-q4-fy25": {
+      "path": "data/datasets/hershey-q4-fy25.js",
+      "updatedAtMs": 1783687308525,
+      "updatedAt": "2026-07-10T12:41:48.525Z",
+      "timeSource": "mtime"
+    },
+    "hilton-q4-fy25": {
+      "path": "data/datasets/hilton-q4-fy25.js",
+      "updatedAtMs": 1783686567274,
+      "updatedAt": "2026-07-10T12:29:27.274Z",
+      "timeSource": "mtime"
+    },
+    "astrazeneca-q4-fy25": {
+      "path": "data/datasets/astrazeneca-q4-fy25.js",
+      "updatedAtMs": 1783687973817,
+      "updatedAt": "2026-07-10T12:52:53.817Z",
+      "timeSource": "mtime"
+    },
+    "booking-q4-fy25": {
+      "path": "data/datasets/booking-q4-fy25.js",
+      "updatedAtMs": 1783686535876,
+      "updatedAt": "2026-07-10T12:28:55.876Z",
+      "timeSource": "mtime"
+    },
+    "pfizer-q4-fy25": {
+      "path": "data/datasets/pfizer-q4-fy25.js",
+      "updatedAtMs": 1783687590064,
+      "updatedAt": "2026-07-10T12:46:30.064Z",
+      "timeSource": "mtime"
+    },
+    "kraft-heinz-q4-fy25": {
+      "path": "data/datasets/kraft-heinz-q4-fy25.js",
+      "updatedAtMs": 1783689352920,
+      "updatedAt": "2026-07-10T13:15:52.920Z",
+      "timeSource": "mtime"
+    },
+    "eli-lilly-q4-fy25": {
+      "path": "data/datasets/eli-lilly-q4-fy25.js",
+      "updatedAtMs": 1783687097825,
+      "updatedAt": "2026-07-10T12:38:17.825Z",
+      "timeSource": "mtime"
+    },
+    "amgen-q4-fy25": {
+      "path": "data/datasets/amgen-q4-fy25.js",
+      "updatedAtMs": 1783687101449,
+      "updatedAt": "2026-07-10T12:38:21.449Z",
+      "timeSource": "mtime"
+    },
+    "mondelez-q4-fy25": {
+      "path": "data/datasets/mondelez-q4-fy25.js",
+      "updatedAtMs": 1783687342823,
+      "updatedAt": "2026-07-10T12:42:22.823Z",
+      "timeSource": "mtime"
+    },
+    "novo-nordisk-q4-fy25": {
+      "path": "data/datasets/novo-nordisk-q4-fy25.js",
+      "updatedAtMs": 1783687618412,
+      "updatedAt": "2026-07-10T12:46:58.412Z",
+      "timeSource": "mtime"
+    },
+    "airbnb-fy25": {
+      "path": "data/datasets/airbnb-fy25.js",
+      "updatedAtMs": 1783693403639,
+      "updatedAt": "2026-07-10T14:23:23.639Z",
+      "timeSource": "mtime"
+    },
+    "expedia-q4-fy25": {
+      "path": "data/datasets/expedia-q4-fy25.js",
+      "updatedAtMs": 1783692315551,
+      "updatedAt": "2026-07-10T14:05:15.551Z",
+      "timeSource": "mtime"
+    },
+    "abbvie-q4-fy25": {
+      "path": "data/datasets/abbvie-q4-fy25.js",
+      "updatedAtMs": 1783693165123,
+      "updatedAt": "2026-07-10T14:19:25.123Z",
+      "timeSource": "mtime"
+    },
+    "moodys-q4-fy25": {
+      "path": "data/datasets/moodys-q4-fy25.js",
+      "updatedAtMs": 1783692648407,
+      "updatedAt": "2026-07-10T14:10:48.407Z",
+      "timeSource": "mtime"
+    },
+    "merck-q4-fy25": {
+      "path": "data/datasets/merck-q4-fy25.js",
+      "updatedAtMs": 1783693540839,
+      "updatedAt": "2026-07-10T14:25:40.839Z",
+      "timeSource": "mtime"
+    },
+    "novartis-q4-fy25": {
+      "path": "data/datasets/novartis-q4-fy25.js",
+      "updatedAtMs": 1783693272567,
+      "updatedAt": "2026-07-10T14:21:12.567Z",
+      "timeSource": "mtime"
+    },
+    "align-q4-fy25": {
+      "path": "data/datasets/align-q4-fy25.js",
+      "updatedAtMs": 1783693013498,
+      "updatedAt": "2026-07-10T14:16:53.498Z",
+      "timeSource": "mtime"
+    },
+    "tripadvisor-q4-fy25": {
+      "path": "data/datasets/tripadvisor-q4-fy25.js",
+      "updatedAtMs": 1783693534900,
+      "updatedAt": "2026-07-10T14:25:34.900Z",
+      "timeSource": "mtime"
     },
     "data/revenue-metrics.js": {
       "path": "data/revenue-metrics.js",

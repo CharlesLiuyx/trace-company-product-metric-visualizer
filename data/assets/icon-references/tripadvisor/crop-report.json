@@ -1,0 +1,414 @@
+{
+  "source": "input/processed/tripadvisor-q4-fy25.png",
+  "spec": "input/icon-crop-specs/tripadvisor-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-10T14:04:54.547283+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/tripadvisor",
+  "crops": [
+    {
+      "key": "tripadvisor-company-logo",
+      "output": "data/assets/icon-references/tripadvisor/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 6241,
+        "losslessBytes": 28860,
+        "savingsVsLossless": 0.7837,
+        "metrics": {
+          "meanAbsoluteError": 0.3863,
+          "rootMeanSquareError": 2.146,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 61,
+          "changedPixelRatio": 0.1793
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 95179,
+        "transparentPixelRatio": 0.6707
+      },
+      "searchBox": {
+        "x": 594,
+        "y": 292,
+        "width": 776,
+        "height": 160
+      },
+      "componentCount": 14,
+      "subjectBox": {
+        "x0": 605,
+        "y0": 295,
+        "x1": 1352,
+        "y1": 452
+      },
+      "cropBox": {
+        "x0": 602,
+        "y0": 270,
+        "x1": 1365,
+        "y1": 456
+      },
+      "validation": {
+        "width": 763,
+        "height": 186,
+        "foregroundPixels": 43282,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 3,
+          "right": 13,
+          "top": 25,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": -0.0066,
+          "y": 0.0565
+        },
+        "passes": true
+      },
+      "note": "Tripadvisor owl roundel and wordmark above the revenue hub; excludes the page title and the gross-profit label.",
+      "runtimeOutput": "data/assets/raster-annotations/tripadvisor/company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 6241,
+        "losslessBytes": 28860,
+        "savingsVsLossless": 0.7837,
+        "metrics": {
+          "meanAbsoluteError": 0.3863,
+          "rootMeanSquareError": 2.146,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 61,
+          "changedPixelRatio": 0.1793
+        }
+      },
+      "validationSheet": "data/assets/icon-references/tripadvisor/validation-sheets/tripadvisor-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 259834,
+        "losslessBytes": 259834,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "tripadvisor-hotel-other-icon",
+      "output": "data/assets/icon-references/tripadvisor/crops/hotel-other-icon.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1616,
+        "losslessBytes": 8324,
+        "savingsVsLossless": 0.8059,
+        "metrics": {
+          "meanAbsoluteError": 0.408,
+          "rootMeanSquareError": 1.9404,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 31,
+          "changedPixelRatio": 0.2049
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 8386,
+        "transparentPixelRatio": 0.4193
+      },
+      "searchBox": {
+        "x": 18,
+        "y": 399,
+        "width": 118,
+        "height": 111
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 24,
+        "y0": 400,
+        "x1": 133,
+        "y1": 509
+      },
+      "cropBox": {
+        "x0": 4,
+        "y0": 386,
+        "x1": 150,
+        "y1": 523
+      },
+      "validation": {
+        "width": 146,
+        "height": 137,
+        "foregroundPixels": 11439,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 20,
+          "right": 17,
+          "top": 14,
+          "bottom": 14
+        },
+        "centerOffset": {
+          "x": 0.0103,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Hotel & Other Tripadvisor app-icon cluster; excludes the Hotel & Other label and source node.",
+      "runtimeOutput": "data/assets/raster-annotations/tripadvisor/hotel-other-icon.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1616,
+        "losslessBytes": 8324,
+        "savingsVsLossless": 0.8059,
+        "metrics": {
+          "meanAbsoluteError": 0.408,
+          "rootMeanSquareError": 1.9404,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 31,
+          "changedPixelRatio": 0.2049
+        }
+      },
+      "validationSheet": "data/assets/icon-references/tripadvisor/validation-sheets/tripadvisor-hotel-other-icon.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 299640,
+        "losslessBytes": 299640,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "tripadvisor-experiences-icon",
+      "output": "data/assets/icon-references/tripadvisor/crops/experiences-icon.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1013,
+        "losslessBytes": 4938,
+        "savingsVsLossless": 0.7949,
+        "metrics": {
+          "meanAbsoluteError": 0.8795,
+          "rootMeanSquareError": 2.1364,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 47,
+          "changedPixelRatio": 0.6544
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 6590,
+        "transparentPixelRatio": 0.3566
+      },
+      "searchBox": {
+        "x": 14,
+        "y": 742,
+        "width": 120,
+        "height": 115
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 40,
+        "y0": 763,
+        "x1": 106,
+        "y1": 833
+      },
+      "cropBox": {
+        "x0": 2,
+        "y0": 730,
+        "x1": 134,
+        "y1": 870
+      },
+      "validation": {
+        "width": 132,
+        "height": 140,
+        "foregroundPixels": 2000,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 38,
+          "right": 28,
+          "top": 33,
+          "bottom": 37
+        },
+        "centerOffset": {
+          "x": 0.0379,
+          "y": -0.0143
+        },
+        "passes": true
+      },
+      "note": "Experiences (Viator) rounded-square logo; excludes the Experiences label and source node.",
+      "runtimeOutput": "data/assets/raster-annotations/tripadvisor/experiences-icon.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1013,
+        "losslessBytes": 4938,
+        "savingsVsLossless": 0.7949,
+        "metrics": {
+          "meanAbsoluteError": 0.8795,
+          "rootMeanSquareError": 2.1364,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 47,
+          "changedPixelRatio": 0.6544
+        }
+      },
+      "validationSheet": "data/assets/icon-references/tripadvisor/validation-sheets/tripadvisor-experiences-icon.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 265272,
+        "losslessBytes": 265272,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "tripadvisor-thefork-icon",
+      "output": "data/assets/icon-references/tripadvisor/crops/thefork-icon.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1209,
+        "losslessBytes": 4809,
+        "savingsVsLossless": 0.7486,
+        "metrics": {
+          "meanAbsoluteError": 0.3241,
+          "rootMeanSquareError": 1.3389,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 24,
+          "changedPixelRatio": 0.2142
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 9213,
+        "transparentPixelRatio": 0.4446
+      },
+      "searchBox": {
+        "x": 15,
+        "y": 1044,
+        "width": 121,
+        "height": 114
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 17,
+        "y0": 1046,
+        "x1": 127,
+        "y1": 1155
+      },
+      "cropBox": {
+        "x0": 2,
+        "y0": 1031,
+        "x1": 150,
+        "y1": 1171
+      },
+      "validation": {
+        "width": 148,
+        "height": 140,
+        "foregroundPixels": 8694,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 15,
+          "right": 23,
+          "top": 15,
+          "bottom": 16
+        },
+        "centerOffset": {
+          "x": -0.027,
+          "y": -0.0036
+        },
+        "passes": true
+      },
+      "note": "TheFork rounded-square fork logo; excludes the TheFork label and source node.",
+      "runtimeOutput": "data/assets/raster-annotations/tripadvisor/thefork-icon.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1209,
+        "losslessBytes": 4809,
+        "savingsVsLossless": 0.7486,
+        "metrics": {
+          "meanAbsoluteError": 0.3241,
+          "rootMeanSquareError": 1.3389,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 24,
+          "changedPixelRatio": 0.2142
+        }
+      },
+      "validationSheet": "data/assets/icon-references/tripadvisor/validation-sheets/tripadvisor-thefork-icon.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 273471,
+        "losslessBytes": 273471,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

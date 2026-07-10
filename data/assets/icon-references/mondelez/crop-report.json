@@ -1,0 +1,870 @@
+{
+  "source": "input/processed/mondelez-q4-fy25.png",
+  "spec": "input/icon-crop-specs/mondelez-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-10T12:28:34.519181+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 12
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/mondelez",
+  "crops": [
+    {
+      "key": "mondelez-company-wordmark",
+      "output": "data/assets/icon-references/mondelez/crops/company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 7042,
+        "losslessBytes": 34825,
+        "savingsVsLossless": 0.7978,
+        "metrics": {
+          "meanAbsoluteError": 0.2035,
+          "rootMeanSquareError": 1.2473,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 32,
+          "changedPixelRatio": 0.0822
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 12,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 115904,
+        "transparentPixelRatio": 0.7635
+      },
+      "searchBox": {
+        "x": 630,
+        "y": 260,
+        "width": 650,
+        "height": 190
+      },
+      "componentCount": 25,
+      "subjectBox": {
+        "x0": 652,
+        "y0": 284,
+        "x1": 1236,
+        "y1": 425
+      },
+      "cropBox": {
+        "x0": 610,
+        "y0": 245,
+        "x1": 1300,
+        "y1": 465
+      },
+      "validation": {
+        "width": 690,
+        "height": 220,
+        "foregroundPixels": 34327,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 42,
+          "right": 64,
+          "top": 39,
+          "bottom": 40
+        },
+        "centerOffset": {
+          "x": -0.0159,
+          "y": -0.0023
+        },
+        "passes": true
+      },
+      "note": "Mondel\u0113z International company wordmark above the revenue hub; excludes the title and chart labels.",
+      "runtimeOutput": "data/assets/raster-annotations/mondelez/company-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 7042,
+        "losslessBytes": 34825,
+        "savingsVsLossless": 0.7978,
+        "metrics": {
+          "meanAbsoluteError": 0.2035,
+          "rootMeanSquareError": 1.2473,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 32,
+          "changedPixelRatio": 0.0822
+        }
+      },
+      "validationSheet": "data/assets/icon-references/mondelez/validation-sheets/mondelez-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 271197,
+        "losslessBytes": 271197,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "oreo",
+      "output": "data/assets/icon-references/mondelez/crops/oreo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 3406,
+        "losslessBytes": 14126,
+        "savingsVsLossless": 0.7589,
+        "metrics": {
+          "meanAbsoluteError": 1.1616,
+          "rootMeanSquareError": 2.7786,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 32,
+          "changedPixelRatio": 0.4366
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 12,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 7988,
+        "transparentPixelRatio": 0.5739
+      },
+      "searchBox": {
+        "x": 0,
+        "y": 390,
+        "width": 174,
+        "height": 86
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 5,
+        "y0": 402,
+        "x1": 164,
+        "y1": 463
+      },
+      "cropBox": {
+        "x0": 0,
+        "y0": 392,
+        "x1": 174,
+        "y1": 472
+      },
+      "validation": {
+        "width": 174,
+        "height": 80,
+        "foregroundPixels": 3810,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 5,
+          "right": 10,
+          "top": 10,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": -0.0144,
+          "y": 0.0063
+        },
+        "passes": true
+      },
+      "note": "Oreo brand wordmark for Biscuits & Baked Snacks.",
+      "runtimeOutput": "data/assets/raster-annotations/mondelez/oreo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 3406,
+        "losslessBytes": 14126,
+        "savingsVsLossless": 0.7589,
+        "metrics": {
+          "meanAbsoluteError": 1.1616,
+          "rootMeanSquareError": 2.7786,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 32,
+          "changedPixelRatio": 0.4366
+        }
+      },
+      "validationSheet": "data/assets/icon-references/mondelez/validation-sheets/oreo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 300933,
+        "losslessBytes": 300933,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "clif-bar",
+      "output": "data/assets/icon-references/mondelez/crops/clif-bar.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 1278,
+        "losslessBytes": 8031,
+        "savingsVsLossless": 0.8409,
+        "metrics": {
+          "meanAbsoluteError": 0.8778,
+          "rootMeanSquareError": 2.5309,
+          "p99AbsoluteError": 11.81,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.5567
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 12,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 4633,
+        "transparentPixelRatio": 0.3804
+      },
+      "searchBox": {
+        "x": 0,
+        "y": 468,
+        "width": 174,
+        "height": 76
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 13,
+        "y0": 478,
+        "x1": 161,
+        "y1": 529
+      },
+      "cropBox": {
+        "x0": 0,
+        "y0": 469,
+        "x1": 174,
+        "y1": 539
+      },
+      "validation": {
+        "width": 174,
+        "height": 70,
+        "foregroundPixels": 5181,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 13,
+          "right": 13,
+          "top": 9,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0071
+        },
+        "passes": true
+      },
+      "note": "CLIF BAR brand wordmark for Biscuits & Baked Snacks.",
+      "runtimeOutput": "data/assets/raster-annotations/mondelez/clif-bar.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 1278,
+        "losslessBytes": 8031,
+        "savingsVsLossless": 0.8409,
+        "metrics": {
+          "meanAbsoluteError": 0.8778,
+          "rootMeanSquareError": 2.5309,
+          "p99AbsoluteError": 11.81,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.5567
+        }
+      },
+      "validationSheet": "data/assets/icon-references/mondelez/validation-sheets/clif-bar.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 275599,
+        "losslessBytes": 275599,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "chips-ahoy",
+      "output": "data/assets/icon-references/mondelez/crops/chips-ahoy.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 22231,
+        "losslessBytes": 22231,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 12,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 8863,
+        "transparentPixelRatio": 0.424
+      },
+      "searchBox": {
+        "x": 0,
+        "y": 540,
+        "width": 156,
+        "height": 136
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 17,
+        "y0": 553,
+        "x1": 146,
+        "y1": 667
+      },
+      "cropBox": {
+        "x0": 0,
+        "y0": 540,
+        "x1": 156,
+        "y1": 674
+      },
+      "validation": {
+        "width": 156,
+        "height": 134,
+        "foregroundPixels": 9079,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 17,
+          "right": 10,
+          "top": 13,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": 0.0224,
+          "y": 0.0224
+        },
+        "passes": true
+      },
+      "note": "Chips Ahoy! brand wordmark for Biscuits & Baked Snacks.",
+      "runtimeOutput": "data/assets/raster-annotations/mondelez/chips-ahoy.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 22231,
+        "losslessBytes": 22231,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/mondelez/validation-sheets/chips-ahoy.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 356438,
+        "losslessBytes": 356438,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "milka",
+      "output": "data/assets/icon-references/mondelez/crops/milka.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1686,
+        "losslessBytes": 7590,
+        "savingsVsLossless": 0.7779,
+        "metrics": {
+          "meanAbsoluteError": 0.3466,
+          "rootMeanSquareError": 1.3701,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 17,
+          "changedPixelRatio": 0.2872
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 12,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 10932,
+        "transparentPixelRatio": 0.7306
+      },
+      "searchBox": {
+        "x": 0,
+        "y": 704,
+        "width": 174,
+        "height": 84
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 18,
+        "y0": 714,
+        "x1": 160,
+        "y1": 784
+      },
+      "cropBox": {
+        "x0": 0,
+        "y0": 706,
+        "x1": 174,
+        "y1": 792
+      },
+      "validation": {
+        "width": 174,
+        "height": 86,
+        "foregroundPixels": 3929,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 18,
+          "right": 14,
+          "top": 8,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0115,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Milka brand wordmark for Chocolate.",
+      "runtimeOutput": "data/assets/raster-annotations/mondelez/milka.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1686,
+        "losslessBytes": 7590,
+        "savingsVsLossless": 0.7779,
+        "metrics": {
+          "meanAbsoluteError": 0.3466,
+          "rootMeanSquareError": 1.3701,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 17,
+          "changedPixelRatio": 0.2872
+        }
+      },
+      "validationSheet": "data/assets/icon-references/mondelez/validation-sheets/milka.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 285668,
+        "losslessBytes": 285668,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "cadbury",
+      "output": "data/assets/icon-references/mondelez/crops/cadbury.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1734,
+        "losslessBytes": 9090,
+        "savingsVsLossless": 0.8092,
+        "metrics": {
+          "meanAbsoluteError": 0.4704,
+          "rootMeanSquareError": 1.6921,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 27,
+          "changedPixelRatio": 0.2315
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 12,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 12113,
+        "transparentPixelRatio": 0.7911
+      },
+      "searchBox": {
+        "x": 0,
+        "y": 786,
+        "width": 174,
+        "height": 76
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 21,
+        "y0": 804,
+        "x1": 164,
+        "y1": 862
+      },
+      "cropBox": {
+        "x0": 0,
+        "y0": 786,
+        "x1": 174,
+        "y1": 874
+      },
+      "validation": {
+        "width": 174,
+        "height": 88,
+        "foregroundPixels": 2998,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 21,
+          "right": 10,
+          "top": 18,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": 0.0316,
+          "y": 0.0341
+        },
+        "passes": true
+      },
+      "note": "Cadbury brand wordmark for Chocolate.",
+      "runtimeOutput": "data/assets/raster-annotations/mondelez/cadbury.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1734,
+        "losslessBytes": 9090,
+        "savingsVsLossless": 0.8092,
+        "metrics": {
+          "meanAbsoluteError": 0.4704,
+          "rootMeanSquareError": 1.6921,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 27,
+          "changedPixelRatio": 0.2315
+        }
+      },
+      "validationSheet": "data/assets/icon-references/mondelez/validation-sheets/cadbury.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 290600,
+        "losslessBytes": 290600,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "toblerone",
+      "output": "data/assets/icon-references/mondelez/crops/toblerone.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 1704,
+        "losslessBytes": 6597,
+        "savingsVsLossless": 0.7417,
+        "metrics": {
+          "meanAbsoluteError": 0.5146,
+          "rootMeanSquareError": 2.1706,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.1669
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 12,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 12328,
+        "transparentPixelRatio": 0.8435
+      },
+      "searchBox": {
+        "x": 0,
+        "y": 872,
+        "width": 174,
+        "height": 64
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 17,
+        "y0": 898,
+        "x1": 160,
+        "y1": 930
+      },
+      "cropBox": {
+        "x0": 0,
+        "y0": 870,
+        "x1": 174,
+        "y1": 954
+      },
+      "validation": {
+        "width": 174,
+        "height": 84,
+        "foregroundPixels": 2077,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 17,
+          "right": 14,
+          "top": 28,
+          "bottom": 24
+        },
+        "centerOffset": {
+          "x": 0.0086,
+          "y": 0.0238
+        },
+        "passes": true
+      },
+      "note": "Toblerone brand wordmark for Chocolate.",
+      "runtimeOutput": "data/assets/raster-annotations/mondelez/toblerone.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 1704,
+        "losslessBytes": 6597,
+        "savingsVsLossless": 0.7417,
+        "metrics": {
+          "meanAbsoluteError": 0.5146,
+          "rootMeanSquareError": 2.1706,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.1669
+        }
+      },
+      "validationSheet": "data/assets/icon-references/mondelez/validation-sheets/toblerone.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 273876,
+        "losslessBytes": 273876,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "sour-patch-kids",
+      "output": "data/assets/icon-references/mondelez/crops/sour-patch-kids.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 5384,
+        "losslessBytes": 23533,
+        "savingsVsLossless": 0.7712,
+        "metrics": {
+          "meanAbsoluteError": 0.7266,
+          "rootMeanSquareError": 2.2123,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 49,
+          "changedPixelRatio": 0.3176
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 12,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 13999,
+        "transparentPixelRatio": 0.5609
+      },
+      "searchBox": {
+        "x": 0,
+        "y": 936,
+        "width": 160,
+        "height": 120
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 25,
+        "y0": 954,
+        "x1": 148,
+        "y1": 1056
+      },
+      "cropBox": {
+        "x0": 0,
+        "y0": 932,
+        "x1": 160,
+        "y1": 1088
+      },
+      "validation": {
+        "width": 160,
+        "height": 156,
+        "foregroundPixels": 10769,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 25,
+          "right": 12,
+          "top": 22,
+          "bottom": 32
+        },
+        "centerOffset": {
+          "x": 0.0406,
+          "y": -0.0321
+        },
+        "passes": true
+      },
+      "note": "Sour Patch Kids brand wordmark for Gum & Candy.",
+      "runtimeOutput": "data/assets/raster-annotations/mondelez/sour-patch-kids.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 5384,
+        "losslessBytes": 23533,
+        "savingsVsLossless": 0.7712,
+        "metrics": {
+          "meanAbsoluteError": 0.7266,
+          "rootMeanSquareError": 2.2123,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 49,
+          "changedPixelRatio": 0.3176
+        }
+      },
+      "validationSheet": "data/assets/icon-references/mondelez/validation-sheets/sour-patch-kids.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 365500,
+        "losslessBytes": 365500,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "ritz",
+      "output": "data/assets/icon-references/mondelez/crops/ritz.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 128,
+        "bytes": 3834,
+        "losslessBytes": 13969,
+        "savingsVsLossless": 0.7255,
+        "metrics": {
+          "meanAbsoluteError": 0.9514,
+          "rootMeanSquareError": 2.7627,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 38,
+          "changedPixelRatio": 0.3624
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 12,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 15241,
+        "transparentPixelRatio": 0.635
+      },
+      "searchBox": {
+        "x": 0,
+        "y": 1130,
+        "width": 150,
+        "height": 116
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 29,
+        "y0": 1157,
+        "x1": 133,
+        "y1": 1246
+      },
+      "cropBox": {
+        "x0": 0,
+        "y0": 1118,
+        "x1": 160,
+        "y1": 1268
+      },
+      "validation": {
+        "width": 160,
+        "height": 150,
+        "foregroundPixels": 8745,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 29,
+          "right": 27,
+          "top": 39,
+          "bottom": 22
+        },
+        "centerOffset": {
+          "x": 0.0063,
+          "y": 0.0567
+        },
+        "passes": true
+      },
+      "note": "Ritz brand wordmark for Cheese & Grocery.",
+      "runtimeOutput": "data/assets/raster-annotations/mondelez/ritz.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 128,
+        "bytes": 3834,
+        "losslessBytes": 13969,
+        "savingsVsLossless": 0.7255,
+        "metrics": {
+          "meanAbsoluteError": 0.9514,
+          "rootMeanSquareError": 2.7627,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 38,
+          "changedPixelRatio": 0.3624
+        }
+      },
+      "validationSheet": "data/assets/icon-references/mondelez/validation-sheets/ritz.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 315474,
+        "losslessBytes": 315474,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

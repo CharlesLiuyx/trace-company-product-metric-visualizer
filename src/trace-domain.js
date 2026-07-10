@@ -46,7 +46,7 @@
 
   const MONEY_UNIT_MULTIPLIERS = Object.freeze({ T: 1e12, B: 1e9, M: 1e6, K: 1e3 });
   // Frankfurter USD rates as of 2026-06-26 from
-  // https://api.frankfurter.app/latest?from=USD&to=EUR,CNY,JPY,KRW,HKD,GBP
+  // https://api.frankfurter.app/latest?from=USD&to=EUR,CNY,JPY,KRW,HKD,GBP,DKK
   // Used only for cross-currency UI sorting/export normalization.
   const USD_FX_SNAPSHOT = Object.freeze({
     asOf: '2026-06-26',
@@ -62,6 +62,7 @@
       KRW: 1536.47,
       HKD: 7.8421,
       GBP: 0.75654,
+      DKK: 6.5372,
     }),
   });
 
@@ -82,6 +83,7 @@
     HKD: 'HKD',
     '£': 'GBP',
     GBP: 'GBP',
+    DKK: 'DKK',
   });
 
   const QUARTER_TAGS = Object.freeze(['Q4', 'Q3', 'Q2', 'Q1']);

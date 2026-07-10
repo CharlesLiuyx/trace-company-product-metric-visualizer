@@ -1,0 +1,602 @@
+{
+  "source": "input/processed/abbvie-q4-fy25.png",
+  "spec": "input/icon-crop-specs/abbvie-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-10T14:04:11.102839+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/abbvie",
+  "crops": [
+    {
+      "key": "abbvie-company-wordmark",
+      "output": "data/assets/icon-references/abbvie/crops/company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4433,
+        "losslessBytes": 20577,
+        "savingsVsLossless": 0.7846,
+        "metrics": {
+          "meanAbsoluteError": 0.3403,
+          "rootMeanSquareError": 1.6419,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 37,
+          "changedPixelRatio": 0.1952
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 60291,
+        "transparentPixelRatio": 0.6625
+      },
+      "searchBox": {
+        "x": 650,
+        "y": 245,
+        "width": 610,
+        "height": 120
+      },
+      "componentCount": 7,
+      "subjectBox": {
+        "x0": 653,
+        "y0": 246,
+        "x1": 1228,
+        "y1": 351
+      },
+      "cropBox": {
+        "x0": 630,
+        "y0": 235,
+        "x1": 1280,
+        "y1": 375
+      },
+      "validation": {
+        "width": 650,
+        "height": 140,
+        "foregroundPixels": 18471,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 23,
+          "right": 52,
+          "top": 11,
+          "bottom": 24
+        },
+        "centerOffset": {
+          "x": -0.0223,
+          "y": -0.0464
+        },
+        "passes": true
+      },
+      "note": "Complete AbbVie wordmark above the Revenue hub; excludes the title and all chart text.",
+      "runtimeOutput": "data/assets/raster-annotations/abbvie/company-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4433,
+        "losslessBytes": 20577,
+        "savingsVsLossless": 0.7846,
+        "metrics": {
+          "meanAbsoluteError": 0.3403,
+          "rootMeanSquareError": 1.6419,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 37,
+          "changedPixelRatio": 0.1952
+        }
+      },
+      "validationSheet": "data/assets/icon-references/abbvie/validation-sheets/abbvie-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 269237,
+        "losslessBytes": 269237,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "abbvie-immunology-products",
+      "output": "data/assets/icon-references/abbvie/crops/immunology-products.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 3362,
+        "losslessBytes": 15160,
+        "savingsVsLossless": 0.7782,
+        "metrics": {
+          "meanAbsoluteError": 0.6445,
+          "rootMeanSquareError": 2.6239,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 49,
+          "changedPixelRatio": 0.1866
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 25197,
+        "transparentPixelRatio": 0.8228
+      },
+      "searchBox": {
+        "x": 10,
+        "y": 355,
+        "width": 145,
+        "height": 145
+      },
+      "componentCount": 38,
+      "subjectBox": {
+        "x0": 10,
+        "y0": 375,
+        "x1": 126,
+        "y1": 500
+      },
+      "cropBox": {
+        "x0": 0,
+        "y0": 340,
+        "x1": 175,
+        "y1": 515
+      },
+      "validation": {
+        "width": 175,
+        "height": 175,
+        "foregroundPixels": 4767,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 10,
+          "right": 49,
+          "top": 35,
+          "bottom": 15
+        },
+        "centerOffset": {
+          "x": -0.1114,
+          "y": 0.0571
+        },
+        "passes": true
+      },
+      "note": "Humira and Skyrizi product-wordmark cluster for Immunology; excludes the segment label, value, notes, and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/abbvie/immunology-products.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 3362,
+        "losslessBytes": 15160,
+        "savingsVsLossless": 0.7782,
+        "metrics": {
+          "meanAbsoluteError": 0.6445,
+          "rootMeanSquareError": 2.6239,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 49,
+          "changedPixelRatio": 0.1866
+        }
+      },
+      "validationSheet": "data/assets/icon-references/abbvie/validation-sheets/abbvie-immunology-products.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 329553,
+        "losslessBytes": 329553,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "abbvie-oncology-imbruvica",
+      "output": "data/assets/icon-references/abbvie/crops/oncology-imbruvica.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 1945,
+        "losslessBytes": 8395,
+        "savingsVsLossless": 0.7683,
+        "metrics": {
+          "meanAbsoluteError": 0.6041,
+          "rootMeanSquareError": 2.5336,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 47,
+          "changedPixelRatio": 0.2134
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 12710,
+        "transparentPixelRatio": 0.8083
+      },
+      "searchBox": {
+        "x": 10,
+        "y": 650,
+        "width": 165,
+        "height": 65
+      },
+      "componentCount": 15,
+      "subjectBox": {
+        "x0": 14,
+        "y0": 650,
+        "x1": 171,
+        "y1": 702
+      },
+      "cropBox": {
+        "x0": 0,
+        "y0": 640,
+        "x1": 185,
+        "y1": 725
+      },
+      "validation": {
+        "width": 185,
+        "height": 85,
+        "foregroundPixels": 2779,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 14,
+          "right": 14,
+          "top": 10,
+          "bottom": 23
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0765
+        },
+        "passes": true
+      },
+      "note": "Imbruvica (ibrutinib) product mark for Oncology; excludes the segment label and revenue ribbon.",
+      "runtimeOutput": "data/assets/raster-annotations/abbvie/oncology-imbruvica.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 1945,
+        "losslessBytes": 8395,
+        "savingsVsLossless": 0.7683,
+        "metrics": {
+          "meanAbsoluteError": 0.6041,
+          "rootMeanSquareError": 2.5336,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 47,
+          "changedPixelRatio": 0.2134
+        }
+      },
+      "validationSheet": "data/assets/icon-references/abbvie/validation-sheets/abbvie-oncology-imbruvica.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 291500,
+        "losslessBytes": 291500,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "abbvie-aesthetics-botox-cosmetic",
+      "output": "data/assets/icon-references/abbvie/crops/aesthetics-botox-cosmetic.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 1950,
+        "losslessBytes": 7891,
+        "savingsVsLossless": 0.7529,
+        "metrics": {
+          "meanAbsoluteError": 0.4731,
+          "rootMeanSquareError": 1.6435,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.2108
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 9997,
+        "transparentPixelRatio": 0.8112
+      },
+      "searchBox": {
+        "x": 18,
+        "y": 800,
+        "width": 138,
+        "height": 55
+      },
+      "componentCount": 14,
+      "subjectBox": {
+        "x0": 20,
+        "y0": 800,
+        "x1": 156,
+        "y1": 848
+      },
+      "cropBox": {
+        "x0": 8,
+        "y0": 788,
+        "x1": 166,
+        "y1": 866
+      },
+      "validation": {
+        "width": 158,
+        "height": 78,
+        "foregroundPixels": 1710,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 10,
+          "top": 12,
+          "bottom": 18
+        },
+        "centerOffset": {
+          "x": 0.0063,
+          "y": -0.0385
+        },
+        "passes": true
+      },
+      "note": "Botox Cosmetic product mark for Aesthetics; excludes the segment label and revenue ribbon.",
+      "runtimeOutput": "data/assets/raster-annotations/abbvie/aesthetics-botox-cosmetic.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 1950,
+        "losslessBytes": 7891,
+        "savingsVsLossless": 0.7529,
+        "metrics": {
+          "meanAbsoluteError": 0.4731,
+          "rootMeanSquareError": 1.6435,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.2108
+        }
+      },
+      "validationSheet": "data/assets/icon-references/abbvie/validation-sheets/abbvie-aesthetics-botox-cosmetic.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 297481,
+        "losslessBytes": 297481,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "abbvie-neuroscience-botox",
+      "output": "data/assets/icon-references/abbvie/crops/neuroscience-botox.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 1336,
+        "losslessBytes": 5838,
+        "savingsVsLossless": 0.7712,
+        "metrics": {
+          "meanAbsoluteError": 0.5241,
+          "rootMeanSquareError": 2.2329,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.2226
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 9070,
+        "transparentPixelRatio": 0.7846
+      },
+      "searchBox": {
+        "x": 15,
+        "y": 965,
+        "width": 150,
+        "height": 45
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 17,
+        "y0": 965,
+        "x1": 162,
+        "y1": 995
+      },
+      "cropBox": {
+        "x0": 5,
+        "y0": 953,
+        "x1": 175,
+        "y1": 1021
+      },
+      "validation": {
+        "width": 170,
+        "height": 68,
+        "foregroundPixels": 2130,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 13,
+          "top": 12,
+          "bottom": 26
+        },
+        "centerOffset": {
+          "x": -0.0029,
+          "y": -0.1029
+        },
+        "passes": true
+      },
+      "note": "Botox product mark for Neuroscience; excludes the Neuroscience label at its right edge.",
+      "runtimeOutput": "data/assets/raster-annotations/abbvie/neuroscience-botox.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 1336,
+        "losslessBytes": 5838,
+        "savingsVsLossless": 0.7712,
+        "metrics": {
+          "meanAbsoluteError": 0.5241,
+          "rootMeanSquareError": 2.2329,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.2226
+        }
+      },
+      "validationSheet": "data/assets/icon-references/abbvie/validation-sheets/abbvie-neuroscience-botox.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 283542,
+        "losslessBytes": 283542,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "abbvie-eye-care-ozurdex",
+      "output": "data/assets/icon-references/abbvie/crops/eye-care-ozurdex.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2609,
+        "losslessBytes": 11055,
+        "savingsVsLossless": 0.764,
+        "metrics": {
+          "meanAbsoluteError": 0.6496,
+          "rootMeanSquareError": 2.2173,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.2301
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 12954,
+        "transparentPixelRatio": 0.7549
+      },
+      "searchBox": {
+        "x": 25,
+        "y": 1095,
+        "width": 145,
+        "height": 80
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 32,
+        "y0": 1109,
+        "x1": 160,
+        "y1": 1175
+      },
+      "cropBox": {
+        "x0": 15,
+        "y0": 1083,
+        "x1": 180,
+        "y1": 1187
+      },
+      "validation": {
+        "width": 165,
+        "height": 104,
+        "foregroundPixels": 3854,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 17,
+          "right": 20,
+          "top": 26,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": -0.0091,
+          "y": 0.0673
+        },
+        "passes": true
+      },
+      "note": "Ozurdex product mark for Eye Care; excludes the segment label, value, notes, and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/abbvie/eye-care-ozurdex.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2609,
+        "losslessBytes": 11055,
+        "savingsVsLossless": 0.764,
+        "metrics": {
+          "meanAbsoluteError": 0.6496,
+          "rootMeanSquareError": 2.2173,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.2301
+        }
+      },
+      "validationSheet": "data/assets/icon-references/abbvie/validation-sheets/abbvie-eye-care-ozurdex.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 311488,
+        "losslessBytes": 311488,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

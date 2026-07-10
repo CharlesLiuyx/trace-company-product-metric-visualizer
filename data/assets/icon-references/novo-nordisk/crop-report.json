@@ -1,0 +1,602 @@
+{
+  "source": "input/processed/novo-nordisk-q4-fy25.png",
+  "spec": "input/icon-crop-specs/novo-nordisk-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-10T12:30:42.230749+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/novo-nordisk",
+  "crops": [
+    {
+      "key": "novo-nordisk-diabetes-care-products",
+      "output": "data/assets/icon-references/novo-nordisk/crops/diabetes-care-products.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2235,
+        "losslessBytes": 8294,
+        "savingsVsLossless": 0.7305,
+        "metrics": {
+          "meanAbsoluteError": 0.7984,
+          "rootMeanSquareError": 2.5418,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.3588
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 8303,
+        "transparentPixelRatio": 0.5549
+      },
+      "searchBox": {
+        "x": 12,
+        "y": 470,
+        "width": 270,
+        "height": 50
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 20,
+        "y0": 470,
+        "x1": 268,
+        "y1": 518
+      },
+      "cropBox": {
+        "x0": 15,
+        "y0": 465,
+        "x1": 273,
+        "y1": 523
+      },
+      "validation": {
+        "width": 258,
+        "height": 58,
+        "foregroundPixels": 6229,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 5,
+          "right": 5,
+          "top": 5,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/novo-nordisk/diabetes-care-products.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2235,
+        "losslessBytes": 8294,
+        "savingsVsLossless": 0.7305,
+        "metrics": {
+          "meanAbsoluteError": 0.7984,
+          "rootMeanSquareError": 2.5418,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.3588
+        }
+      },
+      "validationSheet": "data/assets/icon-references/novo-nordisk/validation-sheets/novo-nordisk-diabetes-care-products.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 272556,
+        "losslessBytes": 272556,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "novo-nordisk-victoza",
+      "output": "data/assets/icon-references/novo-nordisk/crops/victoza.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 1877,
+        "losslessBytes": 6840,
+        "savingsVsLossless": 0.7256,
+        "metrics": {
+          "meanAbsoluteError": 0.8931,
+          "rootMeanSquareError": 2.4842,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 28,
+          "changedPixelRatio": 0.3409
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 6641,
+        "transparentPixelRatio": 0.6815
+      },
+      "searchBox": {
+        "x": 48,
+        "y": 530,
+        "width": 180,
+        "height": 58
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 56,
+        "y0": 530,
+        "x1": 214,
+        "y1": 578
+      },
+      "cropBox": {
+        "x0": 51,
+        "y0": 525,
+        "x1": 219,
+        "y1": 583
+      },
+      "validation": {
+        "width": 168,
+        "height": 58,
+        "foregroundPixels": 2790,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 5,
+          "right": 5,
+          "top": 5,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/novo-nordisk/victoza.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 1877,
+        "losslessBytes": 6840,
+        "savingsVsLossless": 0.7256,
+        "metrics": {
+          "meanAbsoluteError": 0.8931,
+          "rootMeanSquareError": 2.4842,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 28,
+          "changedPixelRatio": 0.3409
+        }
+      },
+      "validationSheet": "data/assets/icon-references/novo-nordisk/validation-sheets/novo-nordisk-victoza.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 281591,
+        "losslessBytes": 281591,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "novo-nordisk-insulin-products",
+      "output": "data/assets/icon-references/novo-nordisk/crops/insulin-products.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2576,
+        "losslessBytes": 10741,
+        "savingsVsLossless": 0.7602,
+        "metrics": {
+          "meanAbsoluteError": 0.5817,
+          "rootMeanSquareError": 2.3823,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 44,
+          "changedPixelRatio": 0.2204
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 18524,
+        "transparentPixelRatio": 0.7839
+      },
+      "searchBox": {
+        "x": 52,
+        "y": 733,
+        "width": 200,
+        "height": 93
+      },
+      "componentCount": 15,
+      "subjectBox": {
+        "x0": 65,
+        "y0": 738,
+        "x1": 246,
+        "y1": 820
+      },
+      "cropBox": {
+        "x0": 50,
+        "y0": 723,
+        "x1": 261,
+        "y1": 835
+      },
+      "validation": {
+        "width": 211,
+        "height": 112,
+        "foregroundPixels": 4744,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 15,
+          "right": 15,
+          "top": 15,
+          "bottom": 15
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/novo-nordisk/insulin-products.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2576,
+        "losslessBytes": 10741,
+        "savingsVsLossless": 0.7602,
+        "metrics": {
+          "meanAbsoluteError": 0.5817,
+          "rootMeanSquareError": 2.3823,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 44,
+          "changedPixelRatio": 0.2204
+        }
+      },
+      "validationSheet": "data/assets/icon-references/novo-nordisk/validation-sheets/novo-nordisk-insulin-products.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 287666,
+        "losslessBytes": 287666,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "novo-nordisk-wegovy",
+      "output": "data/assets/icon-references/novo-nordisk/crops/obesity-care-products.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 2854,
+        "losslessBytes": 9968,
+        "savingsVsLossless": 0.7137,
+        "metrics": {
+          "meanAbsoluteError": 1.0406,
+          "rootMeanSquareError": 2.5909,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 37,
+          "changedPixelRatio": 0.4489
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 5826,
+        "transparentPixelRatio": 0.5716
+      },
+      "searchBox": {
+        "x": 298,
+        "y": 1032,
+        "width": 214,
+        "height": 48
+      },
+      "componentCount": 5,
+      "subjectBox": {
+        "x0": 304,
+        "y0": 1041,
+        "x1": 502,
+        "y1": 1080
+      },
+      "cropBox": {
+        "x0": 299,
+        "y0": 1036,
+        "x1": 507,
+        "y1": 1085
+      },
+      "validation": {
+        "width": 208,
+        "height": 49,
+        "foregroundPixels": 3872,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 5,
+          "right": 5,
+          "top": 5,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/novo-nordisk/obesity-care-products.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 2854,
+        "losslessBytes": 9968,
+        "savingsVsLossless": 0.7137,
+        "metrics": {
+          "meanAbsoluteError": 1.0406,
+          "rootMeanSquareError": 2.5909,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 37,
+          "changedPixelRatio": 0.4489
+        }
+      },
+      "validationSheet": "data/assets/icon-references/novo-nordisk/validation-sheets/novo-nordisk-wegovy.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 286474,
+        "losslessBytes": 286474,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "novo-nordisk-saxenda",
+      "output": "data/assets/icon-references/novo-nordisk/crops/saxenda.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 2260,
+        "losslessBytes": 8954,
+        "savingsVsLossless": 0.7476,
+        "metrics": {
+          "meanAbsoluteError": 0.9927,
+          "rootMeanSquareError": 2.4891,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 38,
+          "changedPixelRatio": 0.4155
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 5616,
+        "transparentPixelRatio": 0.6096
+      },
+      "searchBox": {
+        "x": 298,
+        "y": 1082,
+        "width": 214,
+        "height": 47
+      },
+      "componentCount": 7,
+      "subjectBox": {
+        "x0": 316,
+        "y0": 1082,
+        "x1": 494,
+        "y1": 1121
+      },
+      "cropBox": {
+        "x0": 311,
+        "y0": 1077,
+        "x1": 499,
+        "y1": 1126
+      },
+      "validation": {
+        "width": 188,
+        "height": 49,
+        "foregroundPixels": 3033,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 5,
+          "right": 5,
+          "top": 5,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/novo-nordisk/saxenda.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 2260,
+        "losslessBytes": 8954,
+        "savingsVsLossless": 0.7476,
+        "metrics": {
+          "meanAbsoluteError": 0.9927,
+          "rootMeanSquareError": 2.4891,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 38,
+          "changedPixelRatio": 0.4155
+        }
+      },
+      "validationSheet": "data/assets/icon-references/novo-nordisk/validation-sheets/novo-nordisk-saxenda.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 291833,
+        "losslessBytes": 291833,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "novo-nordisk-rare-disease-products",
+      "output": "data/assets/icon-references/novo-nordisk/crops/rare-disease-products.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2905,
+        "losslessBytes": 13058,
+        "savingsVsLossless": 0.7775,
+        "metrics": {
+          "meanAbsoluteError": 0.4521,
+          "rootMeanSquareError": 1.9187,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.1469
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 22306,
+        "transparentPixelRatio": 0.865
+      },
+      "searchBox": {
+        "x": 308,
+        "y": 1223,
+        "width": 212,
+        "height": 66
+      },
+      "componentCount": 10,
+      "subjectBox": {
+        "x0": 319,
+        "y0": 1228,
+        "x1": 500,
+        "y1": 1275
+      },
+      "cropBox": {
+        "x0": 289,
+        "y0": 1198,
+        "x1": 530,
+        "y1": 1305
+      },
+      "validation": {
+        "width": 241,
+        "height": 107,
+        "foregroundPixels": 2881,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 30,
+          "right": 30,
+          "top": 30,
+          "bottom": 30
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/novo-nordisk/rare-disease-products.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2905,
+        "losslessBytes": 13058,
+        "savingsVsLossless": 0.7775,
+        "metrics": {
+          "meanAbsoluteError": 0.4521,
+          "rootMeanSquareError": 1.9187,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.1469
+        }
+      },
+      "validationSheet": "data/assets/icon-references/novo-nordisk/validation-sheets/novo-nordisk-rare-disease-products.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 284411,
+        "losslessBytes": 284411,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

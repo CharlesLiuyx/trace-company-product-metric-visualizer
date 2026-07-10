@@ -518,16 +518,27 @@ Interface Matrix 与 G12 interface audit，不以源码 link 数组位置、node
 - L13 节点联动移动：人工反馈要求节点「上/下移」时，把节点、同属 label、所有
   相关 `y0`/`y1` 和 curve 控制点作为一个联动系统处理；移动后重算目标柱
   stacked intervals，并用局部 crop 复查目标边界端点贴合。
-- L14 tooltip 百分比：hover 节点时，以**当前 hover 的节点 authored value** 为
-  共同分母、每条相邻 link 的 value 为分子；同一条 link 从两端节点进入 hover
-  时允许显示不同百分比。例如 `operating_profit → net_profit` 为 `114`，hover
-  `operating_profit=118` 显示 `96.6%`，hover `net_profit=130` 显示 `87.7%`。
-  hovered 节点的 authored value 优先于 d3 按流量重算的 node value，避免分项
-  rounding 改写报表口径。直接 hover link、没有节点上下文时，才按 link 的语义
-  分母解析：`percent` / `percentText` 优先，其次使用 renderer 的分流/汇流推断。
-  waterfall 区、隐藏桥接、结果柱与调整项共用目标等启发式易误判的 link-hover
-  关系，必须在 dataset link 上写 `percent` 或 `percentText`。节点 hover 分母行为
-  由 `tests/sankey-engine-layout.test.mjs` 纳入 `pnpm check` gate。
+- L14 tooltip 百分比：所有节点金额均使用 authored value 的 magnitude（绝对值），
+  不得用 d3 按流量重算的 node value 改写报表口径。对显式声明
+  `hoverPercentMode: 'contribution'` 的 waterfall contribution link，无论
+  incoming/outgoing 是否 singleton、指针位于 source 节点、target 节点、label 或
+  link，一律显示 `|link.value| / |target（结果柱）authored magnitude|`。贡献率的
+  分母不得随 hover surface 改变；否则单一路径 source link 会错误显示为 100%。该
+  模式只用于「一笔调整对结果柱的贡献」而非两柱
+  留存/比较关系。其余 link 的 hover 节点时，incoming 与
+  outgoing 两侧分别按 `data.links` 图拓扑中的 **distinct 对端 node 数量**判断；
+  平行重复 link 不得虚增对端数量，独立 SVG annotation/guide 也不得把单一来源或
+  去向误判为多来源/多去向。同侧 distinct 对端 `> 1` 时，该侧每条 link 显示
+  `link magnitude / 当前节点 authored magnitude`；同侧 distinct 对端 `<= 1` 且
+  确有一个对端时，显示 `当前节点 authored magnitude / 该对端 authored magnitude`；
+  没有对端时该侧不显示 tooltip。两侧必须独立计算并同时保留各自 tooltip，不能因
+  另一侧分叉或未分叉而抑制本侧。直接 hover link 时始终显示
+  `min(|source authored value|, |target authored value|) /
+  max(|source authored value|, |target authored value|)`，与方向无关，并忽略
+  `link.value`、`percent`、`percentage`、`percentText` 与 `percentageText`。分母为
+  `0` 时不显示 tooltip；因此两端均为 `0` 的 `0 / 0` 不得显示，也不得产生
+  `NaN` / `Infinity`。这些节点与 link hover 行为由
+  `tests/sankey-engine-layout.test.mjs` 纳入 `pnpm check` gate。
 - L15 竖直节点接口端面：无论 link 是 `stroke-linecap: butt` 的等宽中心线，还是
   L11 的闭合 tapered ribbon，连接竖直节点边时都必须水平进入/离开，使端面与
   节点边竖直贴齐。自定义 cubic 的源端中心控制点满足 `c1y = y0`，目标端满足
@@ -619,8 +630,17 @@ link 两端宽度不同 → `sourceWidth` / `targetWidth` + tapered ribbon；双
   是用户理解或触发该 financial node 的唯一可见入口，必须包进带
   `class="sankey-interactive-annotation" data-node="<node-id>"` 的 `<g>`，并提供不改变
   像素的透明 hitbox。其 hover 必须进入该 node 的同一上下游高亮与 tooltip 语义；
-  不能因为透明锚点而失去 hover。标签应以引导线的视觉中心/终点为锚点，而不是以
-  隐形 node bbox 强行居中；平滑曲线的 source、target 切线仍按 L15 审查。
+  不能因为透明锚点而失去 hover。若可见引导线语义上代表一笔流入/流出，标注还必须
+  声明连接两端的 node，并把实算百分比 Tooltip 锚定在引导线上（不得退化为仅显示节点
+  名称/金额）。若 annotation 只是补充 guide、没有对应 `data.links`（含
+  `interactionOnly`）连接，则它不纳入两端节点的 distinct 对端计数；随节点 hover
+  一同显示时，自己的卡片仍按两端 authored magnitude 的小值/大值计算。若它与一条
+  graph link 表达同一连接，则合并为一个 tooltip、保留 annotation 锚点，并按 L14 的
+  节点侧规则计算。直接 hover 引导线一律按两端 authored magnitude 的小值/大值计算，
+  不得使用自定义分母或 `percent` / `percentText` 覆盖。没有这种连接语义的纯 callout
+  才显示 node tooltip。
+  标签应以引导线的视觉中心/终点为锚点，而不是以隐形 node bbox 强行居中；平滑曲线的
+  source、target 切线仍按 L15 审查。
 - T13 可见短辅助柱不得消失：源图已画出短水平柱/短矩形（即使只有 1–3px 高）
   时，必须保留第 0 轮测得的可见 bbox；不得为了通过 G8/G9 或避让文字，把
   `width`/`height` 缩到肉眼不可见、改成透明锚点，或只留下连接线。若同轴
@@ -683,6 +703,12 @@ link 两端宽度不同 → `sourceWidth` / `targetWidth` + tapered ribbon；双
 - Z6 处理顺序：先补 dataset 级 `i18n.<language>.layout.labels` 或本地化
   `annotationsSvg`；越界优先拆行、调整该语言覆盖内的局部 `x`/`top`、减小局部
   字号或使用合适 `textLength`。
+- Z6a runtime raster 避让：本地化后，逐一检查每个 runtime raster 的**可见主体**
+  与同一语义区内新增/扩展的文字 bbox；图标或品牌簇遮挡文字时，可在
+  `i18n.<language>.rasterAnnotations` 中提供该语言的完整 raster 列表并仅调整该
+  annotation 的 `x`/`y`（保持 `href`、尺寸和所有 node/link geometry 不变）。主体
+  与文字目标净空至少 5px；不得缩小到不可辨认、隐藏资产，或把本地化问题反写到
+  英文参考布局。重跑该语言 render 后，以实际 SVG image bbox 和文字 bbox 复核。
 - Z7 禁改：不得为适配翻译改变财务值、links、node geometry、source image 或
   验证语义。
 - Z8 品牌名、ticker、单位缩写或正式产品英文名可以有意保留，但必须记录。

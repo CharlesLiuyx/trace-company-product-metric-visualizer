@@ -145,6 +145,85 @@
           },
         },
       },
+    },
+    {
+      key: 'expedia-q4-fy25',
+      company: 'Expedia',
+      period: 'Q4 FY25',
+      periodNote: 'Quarter ended Dec. 31, 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/expedia-q4-fy25.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 3.5,
+        notes: ['+11% Y/Y'],
+        items: [
+          { id: 'lodging', label: 'Lodging', value: 2.8, notes: ['+11% Y/Y'] },
+          { id: 'air', label: 'Air', value: 0.1, notes: ['(4%) Y/Y'] },
+          { id: 'advertising', label: 'Advertising', value: 0.3, notes: ['+27% Y/Y'] },
+          { id: 'other_revenue', label: 'Other', value: 0.3, notes: ['+9% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 0.3 },
+        operatingExpenses: {
+          total: 2.8,
+          items: [
+            { id: 'sm', label: 'Sales & marketing', value: 1.9, notes: ['54% of revenue', '(1pp) Y/Y'] },
+            { id: 'technology', label: 'Technology', value: 0.3 },
+            { id: 'amortization', label: 'Amortization', value: 0.2 },
+            { id: 'ga', label: 'G&A', value: 0.2 },
+            { id: 'other_opex', label: 'Other', value: 0.1 },
+          ],
+        },
+        tax: { label: 'Tax', value: 0, notes: ['No separate tax bar appears in the source infographic.'] },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: {
+        total: 0.2,
+        items: [{ id: 'other_non_operating', label: 'Other', value: 0.2 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 3.2, notes: ['90% margin', '+1pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 0.4, notes: ['12% margin', '+5pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 0.2, notes: ['6% margin', '(3pp) Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度',
+          periodNote: '截至 2025 年 12 月 31 日的季度',
+          revenue: {
+            notes: ['同比 +11%'],
+            items: [
+              { id: 'lodging', label: '住宿', notes: ['同比 +11%'] },
+              { id: 'air', label: '机票', notes: ['同比 (4%)'] },
+              { id: 'advertising', label: '广告', notes: ['同比 +27%'] },
+              { id: 'other_revenue', label: '其他', notes: ['同比 +9%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'sm', label: '销售与市场', notes: ['占收入 54%', '同比 (1 个百分点)'] },
+                { id: 'technology', label: '技术' },
+                { id: 'amortization', label: '摊销' },
+                { id: 'ga', label: '管理费用' },
+                { id: 'other_opex', label: '其他' },
+              ],
+            },
+            tax: { label: '税费', notes: ['来源信息图未单列税费柱。'] },
+          },
+          otherExpenses: { items: [{ id: 'other_non_operating', label: '其他' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 90%', '同比 +1 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 12%', '同比 +5 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 6%', '同比 (3 个百分点)'] },
+          },
+        },
+      },
     }
   );
 })(window);

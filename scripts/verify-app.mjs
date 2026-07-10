@@ -92,16 +92,23 @@ await scenario('routing: deep link + hashchange', async (page) => {
   assert(second === keys[1], `hashchange landed on ${second}, expected ${keys[1]}`);
 });
 
-await scenario('sankey hover: percentages are relative to the hovered node', async (page) => {
+await scenario('sankey hover: node branching and endpoint ratio rules', async (page) => {
   await boot(page, `${url}#affirm-q2-fy26`);
 
-  async function hoverPercentages(nodeId) {
-    await page.hover(`#chart rect.sankey-node[data-node="${nodeId}"]`);
+  async function visiblePercentages() {
     return page.evaluate(() => (
       [...document.querySelectorAll('#chart g.sankey-link-tooltip text')]
         .map((text) => text.textContent)
         .sort()
     ));
+  }
+
+  async function hoverPercentages(nodeId, { useLabel = false } = {}) {
+    const selector = useLabel
+      ? `#chart .sankey-label[data-node="${nodeId}"]`
+      : `#chart rect.sankey-node[data-node="${nodeId}"]`;
+    await page.hover(selector);
+    return visiblePercentages();
   }
 
   const netProfit = await hoverPercentages('net_profit');
@@ -112,8 +119,27 @@ await scenario('sankey hover: percentages are relative to the hovered node', asy
 
   const operatingProfit = await hoverPercentages('operating_profit');
   assert(
-    operatingProfit.join('|') === ['100%', '3.4%', '96.6%'].sort().join('|'),
-    `operating profit hover expected 100% + 3.4% + 96.6%, got ${operatingProfit.join(' + ')}`
+    operatingProfit.join('|') === ['10.5%', '3.4%', '96.6%'].sort().join('|'),
+    `operating profit hover expected 10.5% + 3.4% + 96.6%, got ${operatingProfit.join(' + ')}`
+  );
+
+  // The authored Tax bar is one source pixel tall (sub-pixel after fit), so
+  // use its engine-owned label hit area to exercise the same focusNode path.
+  const tax = await hoverPercentages('tax', { useLabel: true });
+  assert(tax.join('|') === '3.4%', `tax hover expected 3.4%, got ${tax.join(' + ')}`);
+
+  await page.hover('#chart path.sankey-link[data-source="operating_profit"][data-target="net_profit"]');
+  const retainedLink = await visiblePercentages();
+  assert(
+    retainedLink.join('|') === '90.8%',
+    `operating profit → net profit link hover expected 90.8%, got ${retainedLink.join(' + ')}`
+  );
+
+  await boot(page, `${url}#kraft-heinz-q4-fy25`);
+  const kraftNetProfit = await hoverPercentages('net_profit');
+  assert(
+    kraftNetProfit.join('|') === ['16.7%', '54.5%'].sort().join('|'),
+    `Kraft Heinz net profit hover expected 16.7% + 54.5% (and no 100%), got ${kraftNetProfit.join(' + ')}`
   );
 });
 
