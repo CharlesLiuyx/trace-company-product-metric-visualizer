@@ -92,6 +92,17 @@ await scenario('routing: deep link + hashchange', async (page) => {
   assert(second === keys[1], `hashchange landed on ${second}, expected ${keys[1]}`);
 });
 
+await scenario('period: Nintendo FY26 variants render YTD then active 9M', async (page) => {
+  await boot(page, `${url}#nintendo-9m-fy26`);
+  await page.waitForSelector('#periodList .variant-chip.active', { timeout: 15000 });
+  const labels = await page.evaluate(() => ({
+    active: document.querySelector('#periodList .variant-chip.active')?.textContent.trim(),
+    all: [...document.querySelectorAll('#periodList .variant-chip')].map((chip) => chip.textContent.trim()),
+  }));
+  assert(labels.active === '9M', `expected active interim variant label 9M, got ${labels.active}`);
+  assert(labels.all.join('|') === 'YTD|9M', `expected variant order YTD | 9M, got ${labels.all.join(' | ')}`);
+});
+
 await scenario('comparison: multi-select + zoom + metric trend', async (page) => {
   await boot(page);
   await page.evaluate(() => {
