@@ -35,6 +35,7 @@
       title: 'Nintendo FY26 Income Statement',
       period: 'FY26',
       periodNote: 'Ending Mar. 2026',
+      variant: 'YTD',
       currency: '¥',
       unit: 'B',
       decimals: 0,
@@ -261,7 +262,7 @@
         other_income: {
           blocks: [
             {
-              x: 2169, top: 309, anchor: 'start', lineGap: 9,
+              x: 2169, top: 307, anchor: 'start', lineGap: 9,
               lines: [
                 { text: 'Other', size: 31, weight: 800, color: GREEN_LABEL },
                 { text: '$value', size: 31, weight: 400, color: GREEN_LABEL },
@@ -580,7 +581,7 @@
             other_income: {
               blocks: [
                 {
-                  x: 2169, top: 309, anchor: 'start', lineGap: 9,
+                  x: 2169, top: 307, anchor: 'start', lineGap: 9,
                   lines: [
                     { text: '其他', size: 31, weight: 800, color: GREEN_LABEL },
                     { text: '$value', size: 31, weight: 400, color: GREEN_LABEL },

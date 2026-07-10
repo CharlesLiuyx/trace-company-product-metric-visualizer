@@ -1,0 +1,501 @@
+{
+  "source": "input/processed/match-group-q4-fy25.png",
+  "spec": "input/icon-crop-specs/match-group-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-09T18:53:29.706527+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/match-group",
+  "crops": [
+    {
+      "key": "match-group-company-logo",
+      "output": "data/assets/icon-references/match-group/crops/company-logo-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 4126,
+        "losslessBytes": 22506,
+        "savingsVsLossless": 0.8167,
+        "metrics": {
+          "meanAbsoluteError": 0.512,
+          "rootMeanSquareError": 2.3047,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 47,
+          "changedPixelRatio": 0.3314
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 44263,
+        "transparentPixelRatio": 0.6747
+      },
+      "searchBox": {
+        "x": 760,
+        "y": 240,
+        "width": 320,
+        "height": 205
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 776,
+        "y0": 257,
+        "x1": 1069,
+        "y1": 431
+      },
+      "cropBox": {
+        "x0": 760,
+        "y0": 240,
+        "x1": 1080,
+        "y1": 445
+      },
+      "validation": {
+        "width": 320,
+        "height": 205,
+        "foregroundPixels": 19732,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 16,
+          "right": 11,
+          "top": 17,
+          "bottom": 14
+        },
+        "centerOffset": {
+          "x": 0.0078,
+          "y": 0.0073
+        },
+        "passes": true
+      },
+      "note": "Match Group MG mark above the revenue hub; excludes title, revenue label, and flows.",
+      "runtimeOutput": "data/assets/raster-annotations/match-group/company-logo-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 4126,
+        "losslessBytes": 22506,
+        "savingsVsLossless": 0.8167,
+        "metrics": {
+          "meanAbsoluteError": 0.512,
+          "rootMeanSquareError": 2.3047,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 47,
+          "changedPixelRatio": 0.3314
+        }
+      },
+      "validationSheet": "data/assets/icon-references/match-group/validation-sheets/match-group-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 96482,
+        "losslessBytes": 288444,
+        "savingsVsLossless": 0.6655,
+        "metrics": {
+          "meanAbsoluteError": 0.4419,
+          "rootMeanSquareError": 2.6079,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 69,
+          "changedPixelRatio": 0.0988
+        }
+      }
+    },
+    {
+      "key": "match-group-brand-tinder",
+      "output": "data/assets/icon-references/match-group/crops/brand-tinder-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1619,
+        "losslessBytes": 7646,
+        "savingsVsLossless": 0.7883,
+        "metrics": {
+          "meanAbsoluteError": 1.1362,
+          "rootMeanSquareError": 2.3065,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.7828
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 7060,
+        "transparentPixelRatio": 0.2042
+      },
+      "searchBox": {
+        "x": 96,
+        "y": 360,
+        "width": 182,
+        "height": 190
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 102,
+        "y0": 372,
+        "x1": 271,
+        "y1": 541
+      },
+      "cropBox": {
+        "x0": 96,
+        "y0": 360,
+        "x1": 278,
+        "y1": 550
+      },
+      "validation": {
+        "width": 182,
+        "height": 190,
+        "foregroundPixels": 21615,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 6,
+          "right": 7,
+          "top": 12,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": -0.0027,
+          "y": 0.0079
+        },
+        "passes": true
+      },
+      "note": "Tinder flame app icon; excludes the adjacent Tinder label and revenue text.",
+      "runtimeOutput": "data/assets/raster-annotations/match-group/brand-tinder-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1619,
+        "losslessBytes": 7646,
+        "savingsVsLossless": 0.7883,
+        "metrics": {
+          "meanAbsoluteError": 1.1362,
+          "rootMeanSquareError": 2.3065,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.7828
+        }
+      },
+      "validationSheet": "data/assets/icon-references/match-group/validation-sheets/match-group-brand-tinder.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 286264,
+        "losslessBytes": 286264,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "match-group-brand-hinge",
+      "output": "data/assets/icon-references/match-group/crops/brand-hinge-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 840,
+        "losslessBytes": 3094,
+        "savingsVsLossless": 0.7285,
+        "metrics": {
+          "meanAbsoluteError": 0.1899,
+          "rootMeanSquareError": 0.9629,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.1097
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 7263,
+        "transparentPixelRatio": 0.2909
+      },
+      "searchBox": {
+        "x": 108,
+        "y": 650,
+        "width": 158,
+        "height": 158
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 119,
+        "y0": 661,
+        "x1": 255,
+        "y1": 796
+      },
+      "cropBox": {
+        "x0": 108,
+        "y0": 650,
+        "x1": 266,
+        "y1": 808
+      },
+      "validation": {
+        "width": 158,
+        "height": 158,
+        "foregroundPixels": 15742,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 11,
+          "right": 11,
+          "top": 11,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0032
+        },
+        "passes": true
+      },
+      "note": "Hinge app icon; excludes the adjacent Hinge label and revenue text.",
+      "runtimeOutput": "data/assets/raster-annotations/match-group/brand-hinge-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 840,
+        "losslessBytes": 3094,
+        "savingsVsLossless": 0.7285,
+        "metrics": {
+          "meanAbsoluteError": 0.1899,
+          "rootMeanSquareError": 0.9629,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.1097
+        }
+      },
+      "validationSheet": "data/assets/icon-references/match-group/validation-sheets/match-group-brand-hinge.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 263199,
+        "losslessBytes": 263199,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "match-group-brand-asia-cluster",
+      "output": "data/assets/icon-references/match-group/crops/brand-asia-cluster-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 17833,
+        "losslessBytes": 17833,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 14735,
+        "transparentPixelRatio": 0.4576
+      },
+      "searchBox": {
+        "x": 35,
+        "y": 855,
+        "width": 280,
+        "height": 115
+      },
+      "componentCount": 10,
+      "subjectBox": {
+        "x0": 45,
+        "y0": 872,
+        "x1": 308,
+        "y1": 951
+      },
+      "cropBox": {
+        "x0": 35,
+        "y0": 855,
+        "x1": 315,
+        "y1": 970
+      },
+      "validation": {
+        "width": 280,
+        "height": 115,
+        "foregroundPixels": 12261,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 10,
+          "right": 7,
+          "top": 17,
+          "bottom": 19
+        },
+        "centerOffset": {
+          "x": 0.0054,
+          "y": -0.0087
+        },
+        "passes": true
+      },
+      "note": "Three-app Match Group Asia icon cluster; excludes Asia label, revenue text, and flow marks.",
+      "runtimeOutput": "data/assets/raster-annotations/match-group/brand-asia-cluster-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 17833,
+        "losslessBytes": 17833,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/match-group/validation-sheets/match-group-brand-asia-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 286208,
+        "losslessBytes": 286208,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "match-group-brand-evergreen-emerging-cluster",
+      "output": "data/assets/icon-references/match-group/crops/brand-evergreen-emerging-cluster-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 4256,
+        "losslessBytes": 17249,
+        "savingsVsLossless": 0.7533,
+        "metrics": {
+          "meanAbsoluteError": 1.1959,
+          "rootMeanSquareError": 2.6664,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 35,
+          "changedPixelRatio": 0.5511
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 10071,
+        "transparentPixelRatio": 0.3534
+      },
+      "searchBox": {
+        "x": 4,
+        "y": 1018,
+        "width": 190,
+        "height": 150
+      },
+      "componentCount": 7,
+      "subjectBox": {
+        "x0": 9,
+        "y0": 1025,
+        "x1": 188,
+        "y1": 1152
+      },
+      "cropBox": {
+        "x0": 4,
+        "y0": 1018,
+        "x1": 194,
+        "y1": 1168
+      },
+      "validation": {
+        "width": 190,
+        "height": 150,
+        "foregroundPixels": 17561,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 5,
+          "right": 6,
+          "top": 7,
+          "bottom": 16
+        },
+        "centerOffset": {
+          "x": -0.0026,
+          "y": -0.03
+        },
+        "passes": true
+      },
+      "note": "Eight-app Evergreen & Emerging icon cluster; excludes the business label, revenue text, and flow marks.",
+      "runtimeOutput": "data/assets/raster-annotations/match-group/brand-evergreen-emerging-cluster-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 4256,
+        "losslessBytes": 17249,
+        "savingsVsLossless": 0.7533,
+        "metrics": {
+          "meanAbsoluteError": 1.1959,
+          "rootMeanSquareError": 2.6664,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 35,
+          "changedPixelRatio": 0.5511
+        }
+      },
+      "validationSheet": "data/assets/icon-references/match-group/validation-sheets/match-group-brand-evergreen-emerging-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 317286,
+        "losslessBytes": 317286,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

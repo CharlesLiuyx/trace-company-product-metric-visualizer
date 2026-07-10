@@ -2,6 +2,7 @@
   "source": "input/processed/nyt-q1-fy26.png",
   "outputDir": "data/assets/icon-references/nyt",
   "validationSheetDir": "data/assets/icon-references/nyt/validation-sheets",
+  "runtimeOutputDir": "data/assets/raster-annotations/nyt",
   "report": "crop-report.json",
   "backgroundSampleBlocks": [
     [0, 0, 80, 80],

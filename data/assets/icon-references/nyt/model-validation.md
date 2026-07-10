@@ -16,3 +16,17 @@ Validated on 2026-06-20 against `input/processed/nyt-q1-fy26.png`.
 - App Economy Insights footer logo/social badge.
 
 All crop entries in `crop-report.json` show `passes: true`.
+
+## Q4 FY25 Reuse
+
+Validated on 2026-07-10 against `input/processed/nyt-q4-fy25.png`.
+
+- The Q4 FY25 source reuses the same four icon/wordmark artworks at a uniform
+  lower resolution, so the accepted Q1 FY26 crops are materially similar and
+  no duplicate Q4 crop spec is needed.
+- The crop spec now writes separate compressed runtime copies to
+  `data/assets/raster-annotations/nyt/`; the Q4 adapter references only those
+  whitelisted runtime files, never the reference crops.
+- Digital device, Print newspapers, The New York Times wordmark, and
+  Wirecutter wordmark were visually rechecked against Q4 and accepted.
+- The three publisher/attribution areas remain intentionally skipped.

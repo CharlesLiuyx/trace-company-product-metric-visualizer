@@ -104,6 +104,105 @@
           },
         },
       },
+    },
+    {
+      key: 'duolingo-q4-fy25',
+      company: 'Duolingo',
+      period: 'Q4 FY25',
+      periodNote: 'Ending Dec. 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/duolingo-q4-fy25.png',
+      roundingTolerance: 0.65,
+      revenue: {
+        total: 282.868,
+        notes: ['+35% Y/Y'],
+        items: [
+          { id: 'subscription', label: 'Subscription', value: 242.286, notes: ['+39% Y/Y'] },
+          {
+            id: 'other_revenue',
+            label: 'Other',
+            value: 40.582,
+            notes: [
+              '+15% Y/Y',
+              'Comprises advertising $20.221M, Duolingo English Test $10.283M, in-app purchases $9.551M, and other $0.527M.',
+            ],
+          },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 76.999 },
+        operatingExpenses: {
+          total: 162.415,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 79.556, notes: ['28% of revenue', '(4pp) Y/Y'] },
+            { id: 'sm', label: 'S&M', value: 34.371, notes: ['12% of revenue', '+0pp Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 48.488, notes: ['17% of revenue', '(5pp) Y/Y'] },
+          ],
+        },
+        tax: {
+          id: 'tax',
+          label: 'Tax',
+          value: 12.547,
+          notes: ['Provision for income taxes; the source infographic displays this as ($12M).'],
+        },
+      },
+      otherIncome: {
+        total: 11.596,
+        items: [{ id: 'interest', label: 'Interest', value: 11.596 }],
+      },
+      otherExpenses: {
+        total: 0.549,
+        items: [{ label: 'Other expense, net', value: 0.549, notes: ['Data-only reported line item not shown as a separate source-chart object.'] }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 205.869, notes: ['73% margin', '+1pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 43.454, notes: ['15% margin', '+9pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 41.954 },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度',
+          periodNote: '截至 2025 年 12 月',
+          revenue: {
+            notes: ['同比 +35%'],
+            items: [
+              { id: 'subscription', label: '订阅', notes: ['同比 +39%'] },
+              {
+                id: 'other_revenue',
+                label: '其他',
+                notes: ['同比 +15%', '包括广告 $20.221M、Duolingo English Test $10.283M、应用内购买 $9.551M 和其他 $0.527M。'],
+              },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 28%', '同比 (4 个百分点)'] },
+                { id: 'sm', label: '销售与营销', notes: ['占收入 12%', '同比 +0 个百分点'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 17%', '同比 (5 个百分点)'] },
+              ],
+            },
+            tax: {
+              label: '税费',
+              notes: ['所得税费用；来源图将其显示为 ($12M)。'],
+            },
+          },
+          otherIncome: {
+            items: [{ id: 'interest', label: '利息' }],
+          },
+          otherExpenses: {
+            items: [{ label: '其他费用净额', notes: ['仅数据项，来源图未将其单独画为图表对象。'] }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 73%', '同比 +1 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 15%', '同比 +9 个百分点'] },
+            net: { label: '净利润' },
+          },
+        },
+      },
     }
   );
 })(window);
