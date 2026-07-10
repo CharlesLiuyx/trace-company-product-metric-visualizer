@@ -1,0 +1,300 @@
+{
+  "source": "input/processed/flutter-q4-fy25.png",
+  "spec": "input/icon-crop-specs/flutter-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-10T17:14:31.638219+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/flutter",
+  "crops": [
+    {
+      "key": "flutter-company-wordmark",
+      "output": "data/assets/icon-references/flutter/crops/company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4642,
+        "losslessBytes": 15684,
+        "savingsVsLossless": 0.704,
+        "metrics": {
+          "meanAbsoluteError": 0.3338,
+          "rootMeanSquareError": 1.6168,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 25,
+          "changedPixelRatio": 0.0957
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 820,
+        "y": 264,
+        "width": 625,
+        "height": 142
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 822,
+        "y0": 264,
+        "x1": 1445,
+        "y1": 406
+      },
+      "cropBox": {
+        "x0": 808,
+        "y0": 254,
+        "x1": 1458,
+        "y1": 420
+      },
+      "validation": {
+        "width": 650,
+        "height": 166,
+        "foregroundPixels": 35321,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 14,
+          "right": 13,
+          "top": 10,
+          "bottom": 14
+        },
+        "centerOffset": {
+          "x": 0.0008,
+          "y": -0.012
+        },
+        "passes": true
+      },
+      "note": "Flutter wordmark and glyph above the revenue flow; opaque background-matched crop preserves the custom lockup while excluding the title and Sportsbook label.",
+      "runtimeOutput": "data/assets/raster-annotations/flutter/company-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4642,
+        "losslessBytes": 15684,
+        "savingsVsLossless": 0.704,
+        "metrics": {
+          "meanAbsoluteError": 0.3338,
+          "rootMeanSquareError": 1.6168,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 25,
+          "changedPixelRatio": 0.0957
+        }
+      },
+      "validationSheet": "data/assets/icon-references/flutter/validation-sheets/flutter-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 239118,
+        "losslessBytes": 239118,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "fanduel-us-brand",
+      "output": "data/assets/icon-references/flutter/crops/fanduel-us-brand.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1957,
+        "losslessBytes": 6983,
+        "savingsVsLossless": 0.7197,
+        "metrics": {
+          "meanAbsoluteError": 0.3383,
+          "rootMeanSquareError": 1.4427,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 18,
+          "changedPixelRatio": 0.1089
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 22,
+        "y": 628,
+        "width": 282,
+        "height": 60
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 26,
+        "y0": 628,
+        "x1": 304,
+        "y1": 688
+      },
+      "cropBox": {
+        "x0": 14,
+        "y0": 620,
+        "x1": 314,
+        "y1": 696
+      },
+      "validation": {
+        "width": 300,
+        "height": 76,
+        "foregroundPixels": 5977,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 10,
+          "top": 8,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0033,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "FanDuel shield-and-wordmark cluster for the US segment; excludes the separate US flag/text and source value label.",
+      "runtimeOutput": "data/assets/raster-annotations/flutter/fanduel-us-brand.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1957,
+        "losslessBytes": 6983,
+        "savingsVsLossless": 0.7197,
+        "metrics": {
+          "meanAbsoluteError": 0.3383,
+          "rootMeanSquareError": 1.4427,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 18,
+          "changedPixelRatio": 0.1089
+        }
+      },
+      "validationSheet": "data/assets/icon-references/flutter/validation-sheets/fanduel-us-brand.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 244627,
+        "losslessBytes": 244627,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "flutter-international-brand-cluster",
+      "output": "data/assets/icon-references/flutter/crops/international-brand-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 12460,
+        "losslessBytes": 34565,
+        "savingsVsLossless": 0.6395,
+        "metrics": {
+          "meanAbsoluteError": 0.5718,
+          "rootMeanSquareError": 2.2734,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 65,
+          "changedPixelRatio": 0.1922
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 90,
+        "y": 1018,
+        "width": 340,
+        "height": 182
+      },
+      "componentCount": 25,
+      "subjectBox": {
+        "x0": 94,
+        "y0": 1021,
+        "x1": 430,
+        "y1": 1178
+      },
+      "cropBox": {
+        "x0": 78,
+        "y0": 1008,
+        "x1": 442,
+        "y1": 1212
+      },
+      "validation": {
+        "width": 364,
+        "height": 204,
+        "foregroundPixels": 20611,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 16,
+          "right": 12,
+          "top": 13,
+          "bottom": 34
+        },
+        "centerOffset": {
+          "x": 0.0055,
+          "y": -0.0515
+        },
+        "passes": true
+      },
+      "note": "International brand cluster with Betfair, Sportsbet, Sky Betting & Gaming, Paddy Power, Sisal, and PokerStars; excludes the International label, node, and publisher footer.",
+      "runtimeOutput": "data/assets/raster-annotations/flutter/international-brand-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 12460,
+        "losslessBytes": 34565,
+        "savingsVsLossless": 0.6395,
+        "metrics": {
+          "meanAbsoluteError": 0.5718,
+          "rootMeanSquareError": 2.2734,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 65,
+          "changedPixelRatio": 0.1922
+        }
+      },
+      "validationSheet": "data/assets/icon-references/flutter/validation-sheets/flutter-international-brand-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 101234,
+        "losslessBytes": 287689,
+        "savingsVsLossless": 0.6481,
+        "metrics": {
+          "meanAbsoluteError": 0.398,
+          "rootMeanSquareError": 2.3674,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 68,
+          "changedPixelRatio": 0.0943
+        }
+      }
+    }
+  ]
+}

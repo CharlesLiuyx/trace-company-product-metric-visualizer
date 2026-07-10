@@ -5,6 +5,12 @@ high-fidelity **View** artifacts. A dataset change is handled by three scopes:
 `DatasetBuild`, `PublicationBatch`, and `ReleaseAttempt`; a `FidelityRun` is
 build-local evidence, not publication state.
 
+Within a Sankey View, **Hover Share（所占比例）** is renderer-owned rather
+than Adapter-configurable. Its Interface has two surface rules: node hover
+derives a directional share from that node's distinct incoming/outgoing
+relationships, while link hover compares the smaller authored endpoint amount
+with the larger. All amounts use absolute authored magnitudes.
+
 Architecture vocabulary is **Module**, **Interface**, **Implementation**,
 **Depth**, **Deep/Shallow**, **Seam**, **Adapter**, **Leverage**, and
 **Locality**. The two current input-type Adapters are Income Statement and

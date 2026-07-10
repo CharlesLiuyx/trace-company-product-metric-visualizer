@@ -416,16 +416,14 @@
 
       {
         source: 'interest',
-        target: 'net_profit',
-        value: 0.3,
+        target: 'net_profit', value: 0.3,
         width: 6,
         targetOrder: 1,
         curve: { c1x: 2290, c1y: 446, c2x: 2310, c2y: 407 },
       },
       {
         source: 'operating_profit',
-        target: 'net_profit',
-        value: 0.5,
+        target: 'net_profit', value: 0.5,
         width: 4,
         sourceOrder: 0,
         targetOrder: 0,

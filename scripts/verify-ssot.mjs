@@ -44,6 +44,29 @@ function normalize(value) {
   return String(value || '').toLowerCase().replace(/\s+/g, ' ').trim();
 }
 
+const DEPRECATED_HOVER_SHARE_FIELDS = [
+  'hoverPercentMode',
+  'nodeHoverPercentDenominator',
+  'percent',
+  'percentage',
+  'percentText',
+  'percentageText',
+];
+
+function validateHoverShareContract(dataset, errors) {
+  for (const link of dataset.links || []) {
+    const source = typeof link.source === 'object' ? link.source?.id : link.source;
+    const target = typeof link.target === 'object' ? link.target?.id : link.target;
+    for (const field of DEPRECATED_HOVER_SHARE_FIELDS) {
+      assert(
+        !Object.prototype.hasOwnProperty.call(link, field),
+        `${dataset.key}: link ${source} -> ${target} uses deprecated Hover Share override "${field}"; the renderer derives shares from authored amounts and topology`,
+        errors
+      );
+    }
+  }
+}
+
 function validateRecordShape(record, errors) {
   const forbidden = ['nodes', 'links', 'layout', 'render'];
   for (const field of forbidden) {
@@ -94,6 +117,7 @@ function validateCompanyMetadata(records, companies, errors) {
 function validateDatasetParity(record, dataset, errors) {
   const tolerance = record.roundingTolerance ?? 0.15;
   const nodeById = new Map((dataset.nodes || []).map((node) => [node.id, node]));
+  validateHoverShareContract(dataset, errors);
   const checkNode = (item, label) => {
     if (!item?.id) return;
     const node = nodeById.get(item.id);

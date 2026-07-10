@@ -1,0 +1,306 @@
+{
+  "source": "input/processed/hims-hers-q4-fy25.png",
+  "spec": "input/icon-crop-specs/hims-hers-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-10T17:10:02.430449+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/hims-hers",
+  "crops": [
+    {
+      "key": "hims-hers-company-wordmark-q4-fy25",
+      "output": "data/assets/icon-references/hims-hers/crops/company-wordmark-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 5073,
+        "losslessBytes": 25547,
+        "savingsVsLossless": 0.8014,
+        "metrics": {
+          "meanAbsoluteError": 0.3763,
+          "rootMeanSquareError": 2.303,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 35,
+          "changedPixelRatio": 0.0815
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 72408,
+        "transparentPixelRatio": 0.7134
+      },
+      "searchBox": {
+        "x": 480,
+        "y": 270,
+        "width": 700,
+        "height": 145
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 498,
+        "y0": 283,
+        "x1": 1161,
+        "y1": 390
+      },
+      "cropBox": {
+        "x0": 480,
+        "y0": 270,
+        "x1": 1180,
+        "y1": 415
+      },
+      "validation": {
+        "width": 700,
+        "height": 145,
+        "foregroundPixels": 27765,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 18,
+          "right": 19,
+          "top": 13,
+          "bottom": 25
+        },
+        "centerOffset": {
+          "x": -0.0007,
+          "y": -0.0414
+        },
+        "passes": true
+      },
+      "note": "Complete Hims & Hers company wordmark above the Revenue hub. Excludes title text, financial labels, ribbons, KPI cards, and publisher attribution. A vector wordmark is used at runtime.",
+      "runtimeOutput": "data/assets/raster-annotations/hims-hers/company-wordmark-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 5073,
+        "losslessBytes": 25547,
+        "savingsVsLossless": 0.8014,
+        "metrics": {
+          "meanAbsoluteError": 0.3763,
+          "rootMeanSquareError": 2.303,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 35,
+          "changedPixelRatio": 0.0815
+        }
+      },
+      "validationSheet": "data/assets/icon-references/hims-hers/validation-sheets/hims-hers-company-wordmark-q4-fy25.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 240357,
+        "losslessBytes": 240357,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "hims-hers-online-revenue-hims-card-q4-fy25",
+      "output": "data/assets/icon-references/hims-hers/crops/online-revenue-hims-card-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1002,
+        "losslessBytes": 5012,
+        "savingsVsLossless": 0.8001,
+        "metrics": {
+          "meanAbsoluteError": 0.967,
+          "rootMeanSquareError": 2.051,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.8841
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 2449,
+        "transparentPixelRatio": 0.1206
+      },
+      "searchBox": {
+        "x": 40,
+        "y": 738,
+        "width": 143,
+        "height": 142
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 64,
+        "y0": 788,
+        "x1": 160,
+        "y1": 822
+      },
+      "cropBox": {
+        "x0": 40,
+        "y0": 738,
+        "x1": 183,
+        "y1": 880
+      },
+      "validation": {
+        "width": 143,
+        "height": 142,
+        "foregroundPixels": 1512,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 24,
+          "right": 23,
+          "top": 50,
+          "bottom": 58
+        },
+        "centerOffset": {
+          "x": 0.0035,
+          "y": -0.0282
+        },
+        "passes": true
+      },
+      "note": "Hims brand card for the Online revenue source. Excludes the source label, value, growth note, flow ribbon, and publisher attribution.",
+      "runtimeOutput": "data/assets/raster-annotations/hims-hers/online-revenue-hims-card-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1002,
+        "losslessBytes": 5012,
+        "savingsVsLossless": 0.8001,
+        "metrics": {
+          "meanAbsoluteError": 0.967,
+          "rootMeanSquareError": 2.051,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.8841
+        }
+      },
+      "validationSheet": "data/assets/icon-references/hims-hers/validation-sheets/hims-hers-online-revenue-hims-card-q4-fy25.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 246283,
+        "losslessBytes": 246283,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "hims-hers-online-revenue-hers-card-q4-fy25",
+      "output": "data/assets/icon-references/hims-hers/crops/online-revenue-hers-card-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 9814,
+        "losslessBytes": 9814,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 2850,
+        "transparentPixelRatio": 0.1404
+      },
+      "searchBox": {
+        "x": 188,
+        "y": 738,
+        "width": 143,
+        "height": 142
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 191,
+        "y0": 740,
+        "x1": 326,
+        "y1": 875
+      },
+      "cropBox": {
+        "x0": 188,
+        "y0": 738,
+        "x1": 331,
+        "y1": 880
+      },
+      "validation": {
+        "width": 143,
+        "height": 142,
+        "foregroundPixels": 16617,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 3,
+          "right": 5,
+          "top": 2,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": -0.007,
+          "y": -0.0106
+        },
+        "passes": true
+      },
+      "note": "Hers brand card for the Online revenue source. Excludes the source label, value, growth note, flow ribbon, and publisher attribution.",
+      "runtimeOutput": "data/assets/raster-annotations/hims-hers/online-revenue-hers-card-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 9814,
+        "losslessBytes": 9814,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/hims-hers/validation-sheets/hims-hers-online-revenue-hers-card-q4-fy25.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 268408,
+        "losslessBytes": 268408,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

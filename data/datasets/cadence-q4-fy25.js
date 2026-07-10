@@ -373,8 +373,7 @@
 
       {
         source: 'operating_profit',
-        target: 'net_profit',
-        value: 358,
+        target: 'net_profit', value: 358,
         width: 67,
         sourceOrder: 0,
         targetOrder: 0,
@@ -392,8 +391,7 @@
       },
       {
         source: 'other_income',
-        target: 'net_profit',
-        value: 30,
+        target: 'net_profit', value: 30,
         width: 4,
         sourceOrder: 0,
         targetOrder: 1,

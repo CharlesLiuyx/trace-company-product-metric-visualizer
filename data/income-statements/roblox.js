@@ -94,6 +94,81 @@
           },
         },
       },
+    },
+    {
+      key: 'roblox-q4-fy25',
+      company: 'Roblox',
+      period: 'Q4 FY25',
+      periodNote: 'Ending Dec. 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/roblox-q4-fy25.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 1415,
+        notes: ['+43% Y/Y'],
+        items: [
+          { id: 'north_america', label: 'North America', value: 836, notes: ['+34% Y/Y'] },
+          { id: 'europe', label: 'Europe', value: 281, notes: ['+54% Y/Y'] },
+          { id: 'apac', label: 'APAC', value: 164, notes: ['+59% Y/Y'] },
+          { id: 'rest_of_world', label: 'Rest of world', value: 134, notes: ['+69% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 315 },
+        operatingExpenses: {
+          total: 1459,
+          items: [
+            { id: 'developer_fees', label: 'Developer fees', value: 477, notes: ['34% of revenue', '+5pp Y/Y'] },
+            { id: 'infrastructure', label: 'Infrastructure', value: 410, notes: ['29% of revenue', '(7pp) Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 329, notes: ['23% of revenue', '+1pp Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 164, notes: ['12% of revenue', '+1pp Y/Y'] },
+            { id: 'sm', label: 'S&M', value: 79, notes: ['6% of revenue', '+1pp Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0 },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 1100, notes: ['78% margin', '(0pp) Y/Y'] },
+        operating: { id: 'operating_loss', label: 'Operating loss', value: -359, notes: ['(25%) margin', '+1pp Y/Y'] },
+        net: { id: 'operating_loss', label: 'Operating loss', value: -359, notes: ['No separate net income line is shown in the source chart.'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度',
+          periodNote: '截至 2025 年 12 月',
+          revenue: {
+            notes: ['同比 +43%'],
+            items: [
+              { id: 'north_america', label: '北美', notes: ['同比 +34%'] },
+              { id: 'europe', label: '欧洲', notes: ['同比 +54%'] },
+              { id: 'apac', label: '亚太', notes: ['同比 +59%'] },
+              { id: 'rest_of_world', label: '世界其他地区', notes: ['同比 +69%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'developer_fees', label: '开发者费用', notes: ['占收入 34%', '同比 +5 个百分点'] },
+                { id: 'infrastructure', label: '基础设施', notes: ['占收入 29%', '同比 (7 个百分点)'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 23%', '同比 +1 个百分点'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 12%', '同比 +1 个百分点'] },
+                { id: 'sm', label: '销售与市场', notes: ['占收入 6%', '同比 +1 个百分点'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 78%', '同比 (0 个百分点)'] },
+            operating: { label: '营业亏损', notes: ['利润率 (25%)', '同比 +1 个百分点'] },
+            net: { label: '营业亏损', notes: ['来源图未单独显示净利润项目。'] },
+          },
+        },
+      },
     }
   );
 })(window);

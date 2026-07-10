@@ -398,8 +398,8 @@
        * bar bottom from below (no drawn source bar in the original). The
        * op-profit bar splits into net (46px) + tax (19px), closing the
        * right-edge socket with no visible gap. */
-      { source: 'operating_profit', target: 'net_profit', value: 1.6, percent: 72.7, width: 46, sourceOrder: 0, targetOrder: 0 },
-      { source: 'operating_profit', target: 'tax', value: 0.7, percent: 31.8, width: 19, sourceOrder: 1, targetOrder: 0, linkTint: RED_LINK },
+      { source: 'operating_profit', target: 'net_profit', value: 1.6, width: 46, sourceOrder: 0, targetOrder: 0 },
+      { source: 'operating_profit', target: 'tax', value: 0.7, width: 19, sourceOrder: 1, targetOrder: 0, linkTint: RED_LINK },
       { source: 'other', target: 'net_profit', value: 0.028, width: 2, sourceOrder: 0, targetOrder: 1 },
 
       /* Operating expenses -> SG&A (essentially the whole bar) +

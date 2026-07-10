@@ -10,6 +10,91 @@
 
   ssot.records.push(
     {
+      key: 'paramount-q4-fy25',
+      company: 'Paramount',
+      period: 'Q4 FY25',
+      periodNote: 'Quarter ended Dec. 31, 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/paramount-q4-fy25.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 8.148,
+        notes: ['+2% Y/Y', 'Official Q4 2025 total revenue; source chart displays $8.1B.'],
+        items: [
+          { id: 'direct_to_consumer', label: 'Direct to consumer', value: 2.213, notes: ['+10% Y/Y', '(7%) adjusted OIBDA margin', '+7pp Y/Y'] },
+          { id: 'tv_media', label: 'TV Media', value: 4.714, notes: ['(5%) Y/Y', '23% adjusted OIBDA margin', '+4pp Y/Y'] },
+          { id: 'filmed_entertainment', label: 'Filmed Entertainment', value: 1.256, notes: ['+16% Y/Y', '(9%) adjusted OIBDA margin', '(6pp) Y/Y'] },
+          { id: 'eliminations', label: 'Eliminations', value: -0.035, notes: ['The source chart shows eliminations as ($35M).'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          label: 'Cost of revenue',
+          value: 0,
+          notes: ['The source chart directly bridges revenue and operating loss to costs and expenses; no separate gross-profit or cost-of-revenue layer is shown.'],
+        },
+        operatingExpenses: {
+          total: 8.487,
+          notes: ['Official Q4 2025 total costs and expenses, calculated as $8.148B revenue plus $0.339B operating loss; source chart displays ($8.5B).'],
+          items: [
+            { id: 'operating', label: 'Operating', value: 5.8 },
+            { id: 'sga', label: 'SG&A', value: 1.8 },
+            { id: 'restructuring', label: 'Restructuring', value: 0.5 },
+            { id: 'amortization', label: 'Amortization', value: 0.346, notes: ['Source chart rounds this visible amount to ($0.4B).'] },
+            { id: 'other', label: 'Other', value: 0.041, notes: ['Source chart displays ($41M).'] },
+          ],
+        },
+        tax: {
+          label: 'Tax',
+          value: 0,
+          notes: ['The source chart ends at operating loss and does not show a separate tax line.'],
+        },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { label: 'Gross profit bridge', value: 8.148, notes: ['SSOT bridge for arithmetic only; source chart does not display gross profit.'] },
+        operating: { id: 'operating_loss', label: 'Operating loss', value: -0.339, notes: ['(4%) margin', '(6pp) Y/Y'] },
+        net: { id: 'operating_loss', label: 'Operating loss', value: -0.339, notes: ['No separate net income or net loss line is shown in the source chart.'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度',
+          periodNote: '截至 2025 年 12 月 31 日的季度',
+          revenue: {
+            notes: ['同比 +2%', '官方 2025 年第四季度总收入为 $8.148B；来源图表显示为 $8.1B。'],
+            items: [
+              { id: 'direct_to_consumer', label: '直接面向消费者', notes: ['同比 +10%', '调整后 OIBDA 利润率 (7%)', '同比 +7 个百分点'] },
+              { id: 'tv_media', label: '电视媒体', notes: ['同比 (5%)', '调整后 OIBDA 利润率 23%', '同比 +4 个百分点'] },
+              { id: 'filmed_entertainment', label: '影视娱乐', notes: ['同比 +16%', '调整后 OIBDA 利润率 (9%)', '同比 (6 个百分点)'] },
+              { id: 'eliminations', label: '抵销', notes: ['来源图表将抵销显示为 ($35M)。'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本', notes: ['来源图表将收入和营业亏损直接桥接至成本和费用；未显示单独毛利润或收入成本层。'] },
+            operatingExpenses: {
+              notes: ['官方 2025 年第四季度成本和费用总额，按 $8.148B 收入加 $0.339B 营业亏损计算；来源图表显示为 ($8.5B)。'],
+              items: [
+                { id: 'operating', label: '运营成本' },
+                { id: 'sga', label: '销售、一般及行政' },
+                { id: 'restructuring', label: '重组' },
+                { id: 'amortization', label: '摊销', notes: ['来源图表将此可见金额四舍五入为 ($0.4B)。'] },
+                { id: 'other', label: '其他', notes: ['来源图表显示为 ($41M)。'] },
+              ],
+            },
+            tax: { label: '税费', notes: ['来源图表止于营业亏损，未显示单独的税费项目。'] },
+          },
+          profit: {
+            gross: { label: '毛利润桥接', notes: ['仅用于 SSOT 算术桥接；来源图表未显示毛利润。'] },
+            operating: { label: '营业亏损', notes: ['利润率 (4%)', '同比 (6 个百分点)'] },
+            net: { label: '营业亏损', notes: ['来源图表未显示单独的净利润或净亏损项目。'] },
+          },
+        },
+      },
+    },
+    {
       key: 'paramount-q1-fy26',
       company: 'Paramount',
       period: 'Q1 FY26',

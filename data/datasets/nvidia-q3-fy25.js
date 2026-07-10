@@ -311,8 +311,7 @@
     },
     {
       "source": "other",
-      "target": "net_profit",
-      "value": 0.4,
+      "target": "net_profit", "value": 0.4,
       "targetOrder": 1,
       "y0": 652.5,
       "y1": 590,
@@ -324,8 +323,7 @@
     },
     {
       "source": "operating_profit",
-      "target": "net_profit",
-      "value": 18.900000000000002,
+      "target": "net_profit", "value": 18.900000000000002,
       "targetOrder": 0
     },
     {

@@ -118,8 +118,7 @@
       { source: 'pretax_income', target: 'tax', value: 56, width: 12, sourceOrder: 1, targetOrder: 0 },
       {
         source: 'other_income',
-        target: 'net_profit',
-        value: 11,
+        target: 'net_profit', value: 11,
         width: 3,
         sourceOrder: 0,
         targetOrder: 0,

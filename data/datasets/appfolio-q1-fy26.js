@@ -313,8 +313,7 @@
 
       {
         source: 'interest',
-        target: 'net_profit',
-        value: 2.353,
+        target: 'net_profit', value: 2.353,
         width: 4,
         sourceOrder: 0,
         targetOrder: 1,
@@ -322,8 +321,7 @@
       },
       {
         source: 'operating_profit',
-        target: 'net_profit',
-        value: 40.071,
+        target: 'net_profit', value: 40.071,
         width: 64,
         sourceOrder: 0,
         targetOrder: 0,

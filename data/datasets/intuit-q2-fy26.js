@@ -436,8 +436,8 @@
       /* Waterfall region: the drawn op-profit -> net-profit band is the
        * $0.7B net bar minus the $14M "Other" hairline that backfills the
        * bar bottom from mid-air (no drawn source bar in the original). */
-      { source: 'operating_profit', target: 'net_profit', value: 0.7, percent: 77.8, width: 60, sourceWidth: 60, targetWidth: 60, sourceOrder: 0, targetOrder: 0 },
-      { source: 'operating_profit', target: 'tax', value: 0.2, percent: 22.2, width: 14, sourceWidth: 16, targetWidth: 16, sourceOrder: 1, targetOrder: 0, linkTint: RED_LINK },
+      { source: 'operating_profit', target: 'net_profit', value: 0.7, width: 60, sourceWidth: 60, targetWidth: 60, sourceOrder: 0, targetOrder: 0 },
+      { source: 'operating_profit', target: 'tax', value: 0.2, width: 14, sourceWidth: 16, targetWidth: 16, sourceOrder: 1, targetOrder: 0, linkTint: RED_LINK },
       { source: 'other', target: 'net_profit', value: 0.014, width: 2, sourceWidth: 2, targetWidth: 2, sourceOrder: 0, targetOrder: 1, y0: 470, y1: 416.5, curve: { c1x: 2233, c1y: 470, c2x: 2245, c2y: 416.5 } },
 
       { source: 'operating_expenses', target: 'sm', value: 1.4, width: 121, sourceWidth: 121, targetWidth: 121, sourceOrder: 0, targetOrder: 0 },

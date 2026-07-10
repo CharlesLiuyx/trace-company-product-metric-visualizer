@@ -606,8 +606,7 @@
 
       {
         source: 'operating_profit',
-        target: 'net_profit',
-        value: 1,
+        target: 'net_profit', value: 1,
         width: 2,
         sourceOrder: 0,
         targetOrder: 0,
@@ -616,8 +615,7 @@
       },
       {
         source: 'interest_other',
-        target: 'net_profit',
-        value: 15,
+        target: 'net_profit', value: 15,
         width: 4,
         sourceOrder: 0,
         targetOrder: 1,

@@ -1,0 +1,292 @@
+{
+  "source": "input/processed/roku-q4-fy25.png",
+  "spec": "input/icon-crop-specs/roku-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-10T16:06:38.037766+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/roku",
+  "crops": [
+    {
+      "key": "roku-company-wordmark",
+      "output": "data/assets/icon-references/roku/crops/company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 3063,
+        "losslessBytes": 13363,
+        "savingsVsLossless": 0.7708,
+        "metrics": {
+          "meanAbsoluteError": 0.1612,
+          "rootMeanSquareError": 1.0659,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 45,
+          "changedPixelRatio": 0.0822
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 40973,
+        "transparentPixelRatio": 0.5027
+      },
+      "searchBox": {
+        "x": 662,
+        "y": 304,
+        "width": 478,
+        "height": 149
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 669,
+        "y0": 308,
+        "x1": 1116,
+        "y1": 448
+      },
+      "cropBox": {
+        "x0": 654,
+        "y0": 296,
+        "x1": 1148,
+        "y1": 461
+      },
+      "validation": {
+        "width": 494,
+        "height": 165,
+        "foregroundPixels": 37633,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 15,
+          "right": 32,
+          "top": 12,
+          "bottom": 13
+        },
+        "centerOffset": {
+          "x": -0.0172,
+          "y": -0.003
+        },
+        "passes": true
+      },
+      "note": "Roku wordmark centered above the revenue hub; excludes the page title and income-statement labels.",
+      "runtimeOutput": "data/assets/raster-annotations/roku/company-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 3063,
+        "losslessBytes": 13363,
+        "savingsVsLossless": 0.7708,
+        "metrics": {
+          "meanAbsoluteError": 0.1612,
+          "rootMeanSquareError": 1.0659,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 45,
+          "changedPixelRatio": 0.0822
+        }
+      },
+      "validationSheet": "data/assets/icon-references/roku/validation-sheets/roku-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 230631,
+        "losslessBytes": 230631,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "roku-platform-tv-screen",
+      "output": "data/assets/icon-references/roku/crops/platform-tv-screen.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 24775,
+        "losslessBytes": 24775,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 4365,
+        "transparentPixelRatio": 0.1764
+      },
+      "searchBox": {
+        "x": 145,
+        "y": 531,
+        "width": 180,
+        "height": 107
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 145,
+        "y0": 531,
+        "x1": 324,
+        "y1": 638
+      },
+      "cropBox": {
+        "x0": 136,
+        "y0": 522,
+        "x1": 334,
+        "y1": 647
+      },
+      "validation": {
+        "width": 198,
+        "height": 125,
+        "foregroundPixels": 19570,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 9,
+          "right": 10,
+          "top": 9,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": -0.0025,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Platform television screen and stand only; excludes Platform label, value, revenue ribbon, and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/roku/platform-tv-screen.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 24775,
+        "losslessBytes": 24775,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/roku/validation-sheets/roku-platform-tv-screen.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 289324,
+        "losslessBytes": 289324,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "roku-devices-remote-cluster",
+      "output": "data/assets/icon-references/roku/crops/devices-remote-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 15743,
+        "losslessBytes": 15743,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 11039,
+        "transparentPixelRatio": 0.4615
+      },
+      "searchBox": {
+        "x": 130,
+        "y": 929,
+        "width": 211,
+        "height": 83
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 130,
+        "y0": 930,
+        "x1": 331,
+        "y1": 1012
+      },
+      "cropBox": {
+        "x0": 120,
+        "y0": 918,
+        "x1": 350,
+        "y1": 1022
+      },
+      "validation": {
+        "width": 230,
+        "height": 104,
+        "foregroundPixels": 12425,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 10,
+          "right": 19,
+          "top": 12,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": -0.0196,
+          "y": 0.0096
+        },
+        "passes": true
+      },
+      "note": "Devices remote and player cluster only; excludes the Devices label, value, flow ribbon, and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/roku/devices-remote-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 15743,
+        "losslessBytes": 15743,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/roku/validation-sheets/roku-devices-remote-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 255685,
+        "losslessBytes": 255685,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

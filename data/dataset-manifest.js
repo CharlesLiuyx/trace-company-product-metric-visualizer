@@ -4968,6 +4968,734 @@
             }
           }
         }
+      },
+      {
+        "key": "fortinet-q4-fy25",
+        "src": "data/datasets/fortinet-q4-fy25.js",
+        "data": {
+          "name": "Fortinet · Q4 FY25",
+          "company": "Fortinet",
+          "meta": {
+            "title": "Fortinet Q4 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Fortinet · 2025 财年第四季度",
+              "meta": {
+                "title": "Fortinet 2025 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "cisco-q2-fy26",
+        "src": "data/datasets/cisco-q2-fy26.js",
+        "data": {
+          "name": "Cisco · Q2 FY26",
+          "company": "Cisco",
+          "meta": {
+            "title": "Cisco Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "思科 · 2026 财年第二季度",
+              "meta": {
+                "title": "思科 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "marriott-q4-fy25",
+        "src": "data/datasets/marriott-q4-fy25.js",
+        "data": {
+          "name": "Marriott · Q4 FY25",
+          "company": "Marriott",
+          "meta": {
+            "title": "Marriott Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Quarter ended Dec. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Marriott · 2025 财年第四季度",
+              "meta": {
+                "title": "Marriott 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nutanix-q2-fy26",
+        "src": "data/datasets/nutanix-q2-fy26.js",
+        "data": {
+          "name": "Nutanix · Q2 FY26",
+          "company": "Nutanix",
+          "meta": {
+            "title": "Nutanix Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Nutanix · 2026 财年第二季度",
+              "meta": {
+                "title": "Nutanix 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "zscaler-q2-fy26",
+        "src": "data/datasets/zscaler-q2-fy26.js",
+        "data": {
+          "name": "Zscaler · Q2 FY26",
+          "company": "Zscaler",
+          "meta": {
+            "title": "Zscaler Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Zscaler · 2026 财年第二季度",
+              "meta": {
+                "title": "Zscaler 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "t-mobile-us-q4-fy25",
+        "src": "data/datasets/t-mobile-us-q4-fy25.js",
+        "data": {
+          "name": "T-Mobile US · Q4 FY25",
+          "company": "T-Mobile US",
+          "meta": {
+            "title": "T-Mobile US Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美国 T-Mobile · 2025 财年第四季度",
+              "meta": {
+                "title": "美国 T-Mobile 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "palo-alto-q2-fy26",
+        "src": "data/datasets/palo-alto-q2-fy26.js",
+        "data": {
+          "name": "Palo Alto Networks · Q2 FY26",
+          "company": "Palo Alto Networks",
+          "meta": {
+            "title": "Palo Alto Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "帕洛阿尔托网络 · 2026 财年第二季度",
+              "meta": {
+                "title": "帕洛阿尔托网络 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "dynatrace-q3-fy26",
+        "src": "data/datasets/dynatrace-q3-fy26.js",
+        "data": {
+          "name": "Dynatrace · Q3 FY26",
+          "company": "Dynatrace",
+          "meta": {
+            "title": "Dynatrace Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Dynatrace · 2026 财年第三季度",
+              "meta": {
+                "title": "Dynatrace 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 1 月的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "snowflake-q4-fy26",
+        "src": "data/datasets/snowflake-q4-fy26.js",
+        "data": {
+          "name": "Snowflake · Q4 FY26",
+          "company": "Snowflake",
+          "meta": {
+            "title": "Snowflake Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Snowflake · 2026 财年第四季度",
+              "meta": {
+                "title": "Snowflake 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "arista-q4-fy25",
+        "src": "data/datasets/arista-q4-fy25.js",
+        "data": {
+          "name": "Arista · Q4 FY25",
+          "company": "Arista",
+          "meta": {
+            "title": "Arista Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "阿里斯塔网络 · 2025 财年第四季度",
+              "meta": {
+                "title": "阿里斯塔网络 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月 31 日"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "the-trade-desk-q4-fy25",
+        "src": "data/datasets/the-trade-desk-q4-fy25.js",
+        "data": {
+          "name": "The Trade Desk · Q4 FY25",
+          "company": "The Trade Desk",
+          "meta": {
+            "title": "The Trade Desk Q4 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "The Trade Desk · 2025 财年第四季度",
+              "meta": {
+                "title": "The Trade Desk 2025 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "warner-bros-q4-fy25",
+        "src": "data/datasets/warner-bros-q4-fy25.js",
+        "data": {
+          "name": "Warner Bros. Discovery · Q4 FY25",
+          "company": "Warner Bros. Discovery",
+          "meta": {
+            "title": "Warner Bros. Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Warner Bros. Discovery · 2025 财年第四季度",
+              "meta": {
+                "title": "Warner Bros. 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "axon-q4-fy25",
+        "src": "data/datasets/axon-q4-fy25.js",
+        "data": {
+          "name": "Axon · Q4 FY25",
+          "company": "Axon",
+          "meta": {
+            "title": "AXON Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Axon · 2025 财年第四季度",
+              "meta": {
+                "title": "Axon 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "paramount-q4-fy25",
+        "src": "data/datasets/paramount-q4-fy25.js",
+        "data": {
+          "name": "Paramount · Q4 FY25",
+          "company": "Paramount",
+          "meta": {
+            "title": "Paramount Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Quarter ended Dec. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Paramount · 2025 财年第四季度",
+              "meta": {
+                "title": "Paramount 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "roblox-q4-fy25",
+        "src": "data/datasets/roblox-q4-fy25.js",
+        "data": {
+          "name": "Roblox · Q4 FY25",
+          "company": "Roblox",
+          "meta": {
+            "title": "Roblox Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Roblox · 2025 财年第四季度",
+              "meta": {
+                "title": "Roblox 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "live-nation-fy25",
+        "src": "data/datasets/live-nation-fy25.js",
+        "data": {
+          "name": "Live Nation · FY25",
+          "company": "Live Nation",
+          "meta": {
+            "title": "Live Nation FY25 Income Statement",
+            "period": "FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Live Nation · 2025 财年",
+              "meta": {
+                "title": "Live Nation 2025 财年利润表",
+                "period": "2025 财年",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "applovin-q4-fy25",
+        "src": "data/datasets/applovin-q4-fy25.js",
+        "data": {
+          "name": "AppLovin · Q4 FY25",
+          "company": "AppLovin",
+          "meta": {
+            "title": "AppLovin Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Quarter ended Dec. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AppLovin · 2025 财年第四季度",
+              "meta": {
+                "title": "AppLovin 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "figma-q4-fy25",
+        "src": "data/datasets/figma-q4-fy25.js",
+        "data": {
+          "name": "Figma · Q4 FY25",
+          "company": "Figma",
+          "meta": {
+            "title": "Figma Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Quarter ended Dec. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Figma · 2025 财年第四季度",
+              "meta": {
+                "title": "Figma 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amc-q4-fy25",
+        "src": "data/datasets/amc-q4-fy25.js",
+        "data": {
+          "name": "AMC Entertainment · Q4 FY25",
+          "company": "AMC Entertainment",
+          "meta": {
+            "title": "AMC Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Three months ended Dec. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AMC 娱乐 · 2025 财年第四季度",
+              "meta": {
+                "title": "AMC 娱乐 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月 31 日的三个月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "roku-q4-fy25",
+        "src": "data/datasets/roku-q4-fy25.js",
+        "data": {
+          "name": "Roku · Q4 FY25",
+          "company": "Roku",
+          "meta": {
+            "title": "Roku Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Quarter ended Dec. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Roku · 2025 财年第四季度",
+              "meta": {
+                "title": "Roku 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "paycom-q4-fy25",
+        "src": "data/datasets/paycom-q4-fy25.js",
+        "data": {
+          "name": "Paycom · Q4 FY25",
+          "company": "Paycom",
+          "meta": {
+            "title": "Paycom Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Paycom · 2025 财年第四季度",
+              "meta": {
+                "title": "Paycom 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "coupang-q4-fy25",
+        "src": "data/datasets/coupang-q4-fy25.js",
+        "data": {
+          "name": "Coupang · Q4 FY25",
+          "company": "Coupang",
+          "meta": {
+            "title": "Coupang Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "酷澎 · 2025 财年第四季度",
+              "meta": {
+                "title": "酷澎 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "datadog-q4-fy25",
+        "src": "data/datasets/datadog-q4-fy25.js",
+        "data": {
+          "name": "Datadog · Q4 FY25",
+          "company": "Datadog",
+          "meta": {
+            "title": "Datadog Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Quarter ended Dec. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Datadog · 2025 财年第四季度",
+              "meta": {
+                "title": "Datadog 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hims-hers-q4-fy25",
+        "src": "data/datasets/hims-hers-q4-fy25.js",
+        "data": {
+          "name": "Hims & Hers · Q4 FY25",
+          "company": "Hims & Hers",
+          "meta": {
+            "title": "Hims & Hers Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Quarter ended Dec. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Hims & Hers · 2025 财年第四季度",
+              "meta": {
+                "title": "Hims & Hers 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hubspot-q4-fy25",
+        "src": "data/datasets/hubspot-q4-fy25.js",
+        "data": {
+          "name": "HubSpot · Q4 FY25",
+          "company": "HubSpot",
+          "meta": {
+            "title": "HubSpot Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HubSpot · 2025 财年第四季度",
+              "meta": {
+                "title": "HubSpot 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "procore-q4-fy25",
+        "src": "data/datasets/procore-q4-fy25.js",
+        "data": {
+          "name": "Procore · Q4 FY25",
+          "company": "Procore",
+          "meta": {
+            "title": "Procore Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Procore · 2025 财年第四季度",
+              "meta": {
+                "title": "Procore 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "palantir-q4-fy25",
+        "src": "data/datasets/palantir-q4-fy25.js",
+        "data": {
+          "name": "Palantir · Q4 FY25",
+          "company": "Palantir",
+          "meta": {
+            "title": "Palantir Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Palantir · 2025 财年第四季度",
+              "meta": {
+                "title": "Palantir 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tempus-ai-q4-fy25",
+        "src": "data/datasets/tempus-ai-q4-fy25.js",
+        "data": {
+          "name": "Tempus AI · Q4 FY25",
+          "company": "Tempus AI",
+          "meta": {
+            "title": "Tempus AI Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tempus AI · 2025 财年第四季度",
+              "meta": {
+                "title": "Tempus AI 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "draftkings-q4-fy25",
+        "src": "data/datasets/draftkings-q4-fy25.js",
+        "data": {
+          "name": "DraftKings · Q4 FY25",
+          "company": "DraftKings",
+          "meta": {
+            "title": "DraftKings Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Three months ended Dec. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "DraftKings · 2025 财年第四季度",
+              "meta": {
+                "title": "DraftKings 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月 31 日的三个月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "elastic-q3-fy26",
+        "src": "data/datasets/elastic-q3-fy26.js",
+        "data": {
+          "name": "Elastic · Q3 FY26",
+          "company": "Elastic",
+          "meta": {
+            "title": "Elastic Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Elastic · 2026 财年第三季度",
+              "meta": {
+                "title": "Elastic 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "flutter-q4-fy25",
+        "src": "data/datasets/flutter-q4-fy25.js",
+        "data": {
+          "name": "Flutter Entertainment · Q4 FY25",
+          "company": "Flutter Entertainment",
+          "meta": {
+            "title": "Flutter Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Flutter Entertainment · 2025 财年第四季度",
+              "meta": {
+                "title": "Flutter 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amer-sports-q4-fy25",
+        "src": "data/datasets/amer-sports-q4-fy25.js",
+        "data": {
+          "name": "Amer Sports · Q4 FY25",
+          "company": "Amer Sports",
+          "meta": {
+            "title": "Amer Sports Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "亚玛芬体育 · 2025 财年第四季度",
+              "meta": {
+                "title": "亚玛芬体育 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

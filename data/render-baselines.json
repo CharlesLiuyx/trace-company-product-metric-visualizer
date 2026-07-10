@@ -99,6 +99,12 @@
       "width": 2667,
       "height": 1500
     },
+    "amc-q4-fy25": {
+      "similarity": 0.960778,
+      "mae": 10.0017,
+      "width": 2667,
+      "height": 1500
+    },
     "amd-q1-fy26": {
       "similarity": 0.957196,
       "mae": 10.9151,
@@ -108,6 +114,12 @@
     "amd-q4-fy25": {
       "similarity": 0.959812,
       "mae": 10.2478,
+      "width": 2667,
+      "height": 1500
+    },
+    "amer-sports-q4-fy25": {
+      "similarity": 0.968555,
+      "mae": 8.0184,
       "width": 2667,
       "height": 1500
     },
@@ -150,6 +162,18 @@
     "applovin-q1-fy26": {
       "similarity": 0.963956,
       "mae": 9.1911,
+      "width": 2667,
+      "height": 1500
+    },
+    "applovin-q4-fy25": {
+      "similarity": 0.976994,
+      "mae": 5.8665,
+      "width": 2667,
+      "height": 1500
+    },
+    "arista-q4-fy25": {
+      "similarity": 0.976555,
+      "mae": 5.9786,
       "width": 2667,
       "height": 1500
     },
@@ -198,6 +222,12 @@
     "autodesk-q1-fy27": {
       "similarity": 0.966995,
       "mae": 8.4164,
+      "width": 2667,
+      "height": 1500
+    },
+    "axon-q4-fy25": {
+      "similarity": 0.968377,
+      "mae": 8.0639,
       "width": 2667,
       "height": 1500
     },
@@ -279,6 +309,12 @@
       "width": 2667,
       "height": 1500
     },
+    "cisco-q2-fy26": {
+      "similarity": 0.972253,
+      "mae": 7.0754,
+      "width": 2667,
+      "height": 1500
+    },
     "cloudflare-q1-fy26": {
       "similarity": 0.971068,
       "mae": 7.3778,
@@ -327,6 +363,12 @@
       "width": 2667,
       "height": 1500
     },
+    "coupang-q4-fy25": {
+      "similarity": 0.972347,
+      "mae": 7.0515,
+      "width": 2667,
+      "height": 1500
+    },
     "crowdstrike-q1-fy27": {
       "similarity": 0.973631,
       "mae": 6.724,
@@ -342,6 +384,12 @@
     "datadog-q1-fy26": {
       "similarity": 0.972766,
       "mae": 6.9446,
+      "width": 2667,
+      "height": 1500
+    },
+    "datadog-q4-fy25": {
+      "similarity": 0.980745,
+      "mae": 4.9101,
       "width": 2667,
       "height": 1500
     },
@@ -405,6 +453,12 @@
       "width": 2667,
       "height": 1500
     },
+    "draftkings-q4-fy25": {
+      "similarity": 0.973484,
+      "mae": 6.7615,
+      "width": 2667,
+      "height": 1500
+    },
     "duolingo-q1-fy26": {
       "similarity": 0.959446,
       "mae": 10.3414,
@@ -414,6 +468,12 @@
     "duolingo-q4-fy25": {
       "similarity": 0.982021,
       "mae": 4.5848,
+      "width": 2667,
+      "height": 1500
+    },
+    "elastic-q3-fy26": {
+      "similarity": 0.969194,
+      "mae": 7.8555,
       "width": 2667,
       "height": 1500
     },
@@ -450,6 +510,24 @@
     "figma-q1-fy26": {
       "similarity": 0.964123,
       "mae": 9.1486,
+      "width": 2667,
+      "height": 1500
+    },
+    "figma-q4-fy25": {
+      "similarity": 0.970824,
+      "mae": 7.44,
+      "width": 2667,
+      "height": 1500
+    },
+    "flutter-q4-fy25": {
+      "similarity": 0.961407,
+      "mae": 9.8413,
+      "width": 2667,
+      "height": 1500
+    },
+    "fortinet-q4-fy25": {
+      "similarity": 0.971506,
+      "mae": 7.2661,
       "width": 2667,
       "height": 1500
     },
@@ -501,6 +579,12 @@
       "width": 2667,
       "height": 1500
     },
+    "hims-hers-q4-fy25": {
+      "similarity": 0.96638,
+      "mae": 8.5732,
+      "width": 2667,
+      "height": 1500
+    },
     "hp-q1-fy26": {
       "similarity": 0.969,
       "mae": 7.905,
@@ -516,6 +600,12 @@
     "hubspot-q1-fy26": {
       "similarity": 0.974746,
       "mae": 6.4398,
+      "width": 2667,
+      "height": 1500
+    },
+    "hubspot-q4-fy25": {
+      "similarity": 0.976502,
+      "mae": 5.9919,
       "width": 2667,
       "height": 1500
     },
@@ -591,6 +681,12 @@
       "width": 2667,
       "height": 1500
     },
+    "live-nation-fy25": {
+      "similarity": 0.958142,
+      "mae": 10.6739,
+      "width": 2667,
+      "height": 1500
+    },
     "lululemon-fy25": {
       "similarity": 0.94505,
       "mae": 14.0123,
@@ -612,6 +708,12 @@
     "marriott-q1-fy26": {
       "similarity": 0.958821,
       "mae": 10.5005,
+      "width": 2667,
+      "height": 1500
+    },
+    "marriott-q4-fy25": {
+      "similarity": 0.960195,
+      "mae": 10.1504,
       "width": 2667,
       "height": 1500
     },
@@ -795,6 +897,12 @@
       "width": 2667,
       "height": 1500
     },
+    "nutanix-q2-fy26": {
+      "similarity": 0.973296,
+      "mae": 6.8096,
+      "width": 2667,
+      "height": 1500
+    },
     "nvidia-q1-fy24": {
       "similarity": 0.957116,
       "mae": 10.9354,
@@ -921,15 +1029,39 @@
       "width": 2667,
       "height": 1500
     },
+    "palantir-q4-fy25": {
+      "similarity": 0.971507,
+      "mae": 7.2658,
+      "width": 2667,
+      "height": 1500
+    },
+    "palo-alto-q2-fy26": {
+      "similarity": 0.969654,
+      "mae": 7.7382,
+      "width": 2667,
+      "height": 1500
+    },
     "paramount-q1-fy26": {
       "similarity": 0.968068,
       "mae": 8.1426,
       "width": 2667,
       "height": 1500
     },
+    "paramount-q4-fy25": {
+      "similarity": 0.952695,
+      "mae": 12.0627,
+      "width": 2667,
+      "height": 1500
+    },
     "paycom-q1-fy26": {
       "similarity": 0.961652,
       "mae": 9.7787,
+      "width": 2667,
+      "height": 1500
+    },
+    "paycom-q4-fy25": {
+      "similarity": 0.970745,
+      "mae": 7.46,
       "width": 2667,
       "height": 1500
     },
@@ -984,6 +1116,12 @@
     "pinterest-q4-fy25": {
       "similarity": 0.965451,
       "mae": 8.81,
+      "width": 2667,
+      "height": 1500
+    },
+    "procore-q4-fy25": {
+      "similarity": 0.97258,
+      "mae": 6.9921,
       "width": 2667,
       "height": 1500
     },
@@ -1044,6 +1182,18 @@
     "roblox-q1-fy26": {
       "similarity": 0.957553,
       "mae": 10.8241,
+      "width": 2667,
+      "height": 1500
+    },
+    "roblox-q4-fy25": {
+      "similarity": 0.96687,
+      "mae": 8.4481,
+      "width": 2667,
+      "height": 1500
+    },
+    "roku-q4-fy25": {
+      "similarity": 0.970848,
+      "mae": 7.4337,
       "width": 2667,
       "height": 1500
     },
@@ -1113,6 +1263,12 @@
       "width": 2667,
       "height": 1500
     },
+    "snowflake-q4-fy26": {
+      "similarity": 0.963057,
+      "mae": 9.4205,
+      "width": 2667,
+      "height": 1500
+    },
     "sony-fy25": {
       "similarity": 0.965116,
       "mae": 8.8954,
@@ -1161,9 +1317,21 @@
       "width": 2667,
       "height": 1500
     },
+    "t-mobile-us-q4-fy25": {
+      "similarity": 0.973024,
+      "mae": 6.879,
+      "width": 2667,
+      "height": 1500
+    },
     "take-two-q3-fy26": {
       "similarity": 0.968616,
       "mae": 8.0029,
+      "width": 2667,
+      "height": 1500
+    },
+    "tempus-ai-q4-fy25": {
+      "similarity": 0.960044,
+      "mae": 10.1888,
       "width": 2667,
       "height": 1500
     },
@@ -1182,6 +1350,12 @@
     "tesla-q1-fy26": {
       "similarity": 0.947838,
       "mae": 13.3013,
+      "width": 2667,
+      "height": 1500
+    },
+    "the-trade-desk-q4-fy25": {
+      "similarity": 0.965665,
+      "mae": 8.7555,
       "width": 2667,
       "height": 1500
     },
@@ -1272,6 +1446,12 @@
     "warner-bros-q1-fy26": {
       "similarity": 0.971509,
       "mae": 7.2651,
+      "width": 2667,
+      "height": 1500
+    },
+    "warner-bros-q4-fy25": {
+      "similarity": 0.97055,
+      "mae": 7.5097,
       "width": 2667,
       "height": 1500
     },

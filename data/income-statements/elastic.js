@@ -119,6 +119,120 @@
           },
         },
       },
+    },
+    {
+      key: 'elastic-q3-fy26',
+      company: 'Elastic',
+      period: 'Q3 FY26',
+      periodNote: 'Ending Jan. 2026',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/elastic-q3-fy26.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 450,
+        notes: ['+18% Y/Y'],
+        items: [
+          {
+            id: 'subscription',
+            label: 'Subscription',
+            value: 426,
+            notes: ['+19% Y/Y'],
+            children: [
+              { id: 'cloud', label: 'Cloud', value: 219, notes: ['+21% Y/Y', '49% of revenue', '+1pp Y/Y'] },
+              { id: 'other_subscription', label: 'Other subscription', value: 207, notes: ['+16% Y/Y'] },
+            ],
+          },
+          { id: 'service', label: 'Service', value: 24, notes: ['+1% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 106 },
+        operatingExpenses: {
+          total: 343,
+          items: [
+            { id: 'sm', label: 'S&M', value: 177, notes: ['39% of revenue', '(1pp) Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 114, notes: ['25% of revenue', '+1pp Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 52, notes: ['11% of revenue', '+0pp Y/Y'] },
+          ],
+        },
+        tax: {
+          label: 'Tax',
+          value: 0,
+          notes: ['No separate tax expense line is shown; the chart instead shows a $2M tax benefit.'],
+        },
+      },
+      otherIncome: {
+        total: 8,
+        items: [
+          { id: 'tax_benefit', label: 'Tax benefit', value: 2 },
+          { id: 'other', label: 'Other', value: 6 },
+        ],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 344, notes: ['76% margin', '+2pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 1, notes: ['0% margin', '+1pp Y/Y'] },
+        net: {
+          id: 'net_profit',
+          label: 'Net profit',
+          value: 8,
+          notes: ['The displayed gross-to-net bridge rounds to $9M (Operating profit $1M + Tax benefit $2M + Other $6M).'],
+        },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第三季度',
+          periodNote: '截至 2026 年 1 月',
+          revenue: {
+            notes: ['同比 +18%'],
+            items: [
+              {
+                id: 'subscription',
+                label: '订阅',
+                notes: ['同比 +19%'],
+                children: [
+                  { id: 'cloud', label: '云', notes: ['同比 +21%', '占收入 49%', '同比 +1 个百分点'] },
+                  { id: 'other_subscription', label: '其他订阅', notes: ['同比 +16%'] },
+                ],
+              },
+              { id: 'service', label: '服务', notes: ['同比 +1%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'sm', label: '销售与市场', notes: ['占收入 39%', '同比 (1 个百分点)'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 25%', '同比 +1 个百分点'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 11%', '同比 +0 个百分点'] },
+              ],
+            },
+            tax: {
+              label: '税费',
+              notes: ['来源图未显示单独的税费项目，而是显示 $2M 的税收收益。'],
+            },
+          },
+          otherIncome: {
+            items: [
+              { id: 'tax_benefit', label: '税收收益' },
+              { id: 'other', label: '其他' },
+            ],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 76%', '同比 +2 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 0%', '同比 +1 个百分点'] },
+            net: {
+              label: '净利润',
+              notes: ['图表显示的毛利至净利润桥接合计为 $9M（营业利润 $1M + 税收收益 $2M + 其他 $6M），与净利润 $8M 存在四舍五入差异。'],
+            },
+          },
+        },
+      },
     }
   );
 })(window);

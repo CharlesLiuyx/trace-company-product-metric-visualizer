@@ -141,53 +141,66 @@
     return node.type === 'cost' ? `(${body})` : body;
   }
 
-  function trimFixed(value, decimals) {
-    return value
-      .toFixed(decimals)
-      .replace(/\.0+$/, '')
-      .replace(/(\.\d*?)0+$/, '$1');
-  }
+  // Hover Share is renderer-owned: Adapters provide authored amounts and
+  // topology, while the hovered surface alone selects one of two formulas.
+  // Keeping the arithmetic behind this small Interface prevents per-dataset
+  // flags from changing what "share" means.
+  const HoverShare = (() => {
+    function trim(value, decimals) {
+      return value
+        .toFixed(decimals)
+        .replace(/\.0+$/, '')
+        .replace(/(\.\d*?)0+$/, '$1');
+    }
 
-  function percentOf(value, denominator, decimals = 1) {
-    const numerator = Number(value);
-    const base = Number(denominator);
-    if (!Number.isFinite(numerator) || !Number.isFinite(base) || base === 0) return '';
-    return `${trimFixed((numerator / base) * 100, decimals)}%`;
-  }
+    function format(numeratorValue, denominatorValue, decimals = 1) {
+      const numerator = Number(numeratorValue);
+      const denominator = Number(denominatorValue);
+      if (!Number.isFinite(numerator) || !Number.isFinite(denominator) || denominator === 0) {
+        return '';
+      }
+      return `${trim((numerator / denominator) * 100, decimals)}%`;
+    }
 
-  function nodeHoverDenominator(node) {
-    if (!node) return 0;
-    const authored = Number(node.dv);
-    if (Number.isFinite(authored) && authored !== 0) return authored;
-    const computed = Number(node.value);
-    return Number.isFinite(computed) ? computed : 0;
-  }
+    function nodeAmount(node) {
+      if (!node) return 0;
+      const authored = Number(node.dv);
+      if (Number.isFinite(authored)) return Math.abs(authored);
+      const computed = Number(node.value);
+      return Number.isFinite(computed) ? Math.abs(computed) : 0;
+    }
 
-  function nodeMagnitude(node) {
-    if (!node) return 0;
-    const authored = Number(node.dv);
-    if (Number.isFinite(authored)) return Math.abs(authored);
-    const computed = Number(node.value);
-    return Number.isFinite(computed) ? Math.abs(computed) : 0;
-  }
+    function linkAmount(link) {
+      const raw = link && link.raw ? link.raw : {};
+      const value = raw.value != null ? raw.value : link && link.value;
+      const numeric = Number(value);
+      return Number.isFinite(numeric) ? Math.abs(numeric) : 0;
+    }
 
-  function linkValueMagnitude(link) {
-    const raw = link && link.raw ? link.raw : {};
-    const value = raw.value != null ? raw.value : link && link.value;
-    const numeric = Number(value);
-    return Number.isFinite(numeric) ? Math.abs(numeric) : 0;
-  }
+    function forNode({
+      link,
+      hoveredNode,
+      oppositeNode,
+      distinctOppositeCount,
+      decimals = 1,
+    }) {
+      const count = Number(distinctOppositeCount);
+      if (!link || !hoveredNode || !oppositeNode || !Number.isFinite(count) || count < 1) {
+        return '';
+      }
+      return count > 1
+        ? format(linkAmount(link), nodeAmount(hoveredNode), decimals)
+        : format(nodeAmount(hoveredNode), nodeAmount(oppositeNode), decimals);
+    }
 
-  function isContributionLink(link) {
-    return Boolean(link && link.raw && link.raw.hoverPercentMode === 'contribution');
-  }
+    function forLink(link, decimals = 1) {
+      const source = nodeAmount(link && link.source);
+      const target = nodeAmount(link && link.target);
+      return format(Math.min(source, target), Math.max(source, target), decimals);
+    }
 
-  // A contribution link explains one receiving/result bar. Its denominator
-  // must therefore be stable across source-node, target-node, and link hover;
-  // using the hovered source would turn a one-to-one contribution into 100%.
-  function contributionLinkPercent(link, decimals = 1) {
-    return percentOf(linkValueMagnitude(link), nodeMagnitude(link && link.target), decimals);
-  }
+    return Object.freeze({ format, nodeAmount, linkAmount, forNode, forLink });
+  })();
 
   function sameNode(left, right) {
     if (left === right) return true;
@@ -223,41 +236,6 @@
 
   function distinctAdjacentNodeCount(node, links) {
     return groupAdjacentLinks(node, links).length;
-  }
-
-  // Node hover evaluates incoming and outgoing sides independently. A split
-  // or merge explains each adjacent flow as a share of the hovered bar; a
-  // singleton side compares the hovered bar itself with that side's one
-  // opposite bar. Authored magnitudes win over d3's computed flow totals.
-  function nodeHoverLinkPercent(
-    link,
-    hoveredNode,
-    adjacentNodeCount,
-    decimals = 1,
-    singletonOppositeNode = null
-  ) {
-    if (isContributionLink(link)) {
-      return contributionLinkPercent(link, decimals);
-    }
-    const current = nodeMagnitude(hoveredNode);
-    if (Number(adjacentNodeCount) > 1) {
-      return percentOf(linkValueMagnitude(link), current, decimals);
-    }
-    const other = singletonOppositeNode || oppositeNode(link, hoveredNode);
-    return percentOf(current, nodeMagnitude(other), decimals);
-  }
-
-  // A direct link normally compares its endpoint bars. A contribution link is
-  // directional: its amount is normalized to the receiving (target) bar.
-  function linkHoverPercent(link, decimals = 1) {
-    if (isContributionLink(link)) {
-      return contributionLinkPercent(link, decimals);
-    }
-    const source = nodeMagnitude(link && link.source);
-    const target = nodeMagnitude(link && link.target);
-    const larger = Math.max(source, target);
-    if (larger === 0) return '';
-    return percentOf(Math.min(source, target), larger, decimals);
   }
 
   // default label side when a node doesn't specify one
@@ -1083,36 +1061,18 @@
       return (Number.isFinite(value) ? value : fallback) * tooltipScale;
     };
 
-    function isBackgroundTint(value) {
-      const color = String(value == null ? '' : value).trim().toLowerCase();
-      const background = String(cfg.background || '').trim().toLowerCase();
-      return (
-        Boolean(color) &&
-        (color === background || color === 'transparent' || color === 'none')
-      );
-    }
-
-    function isHiddenBridgeLink(lk) {
-      const raw = lk.raw || {};
-      const tint = raw.linkTint;
-      if (!tint) return false;
-      const colors =
-        typeof tint === 'string' ? [tint] : [tint.left, tint.right].filter((v) => v != null);
-      return colors.length > 0 && colors.every(isBackgroundTint);
-    }
-
-    function linkPercent(lk, hoveredNode, adjacentNodeCount, singletonOppositeNode) {
-      if (isHiddenBridgeLink(lk)) return '';
+    function hoverShareText(lk, hoveredNode, adjacentNodeCount) {
+      if (lk.raw && lk.raw.showTooltip === false) return '';
       const decimals = tooltipCfg && tooltipCfg.percentDecimals != null ? tooltipCfg.percentDecimals : 1;
       return hoveredNode
-        ? nodeHoverLinkPercent(
-            lk,
+        ? HoverShare.forNode({
+            link: lk,
             hoveredNode,
-            adjacentNodeCount,
+            oppositeNode: oppositeNode(lk, hoveredNode),
+            distinctOppositeCount: adjacentNodeCount,
             decimals,
-            singletonOppositeNode
-          )
-        : linkHoverPercent(lk, decimals);
+          })
+        : HoverShare.forLink(lk, decimals);
     }
 
     function linkTooltipAnchor(path, lk) {
@@ -1149,57 +1109,19 @@
       return anchor;
     }
 
-    function expandTooltipItems(items) {
-      const rows = [];
-      const seen = new Set();
-
-      function add(item) {
-        const lk = item.lk;
-        if (!lk || seen.has(lk.index)) return;
-        seen.add(lk.index);
-        rows.push(item);
-      }
-
-      (items || []).forEach((item) => {
-        if (!isHiddenBridgeLink(item.lk)) {
-          add(item);
-          return;
-        }
-
-        const downstream = item.lk.target && item.lk.target.sourceLinks
-          ? item.lk.target.sourceLinks.filter((lk) => !isHiddenBridgeLink(lk))
-          : [];
-        const expandedAdjacentNodeCount = Math.max(
-          Number(item.adjacentNodeCount) || 0,
-          distinctAdjacentNodeCount(item.lk.target, downstream)
-        );
-        downstream.forEach((lk) =>
-          add(Object.assign({}, item, {
-            path: linkPathByIndex.get(lk.index),
-            lk,
-            adjacentNodeCount: expandedAdjacentNodeCount,
-            singletonOppositeNode: lk.target,
-          }))
-        );
-      });
-
-      return rows;
-    }
-
     function showLinkTooltips(items) {
       if (!linkTooltipLayer) return;
       const directRows = (items || [])
         .filter((item) => item && !item.lk && item.text && Array.isArray(item.anchor))
         .map((item) => ({ key: item.key || `annotation:${item.text}`, text: item.text, anchor: item.anchor }));
-      const linkRows = expandTooltipItems((items || []).filter((item) => item && item.lk))
+      const linkRows = (items || []).filter((item) => item && item.lk)
         .map((item) =>
           Object.assign({}, item, {
             key: `link:${item.lk.index}`,
-            text: linkPercent(
+            text: hoverShareText(
               item.lk,
               item.hoveredNode,
-              item.adjacentNodeCount,
-              item.singletonOppositeNode
+              item.adjacentNodeCount
             ),
             anchor: tooltipAnchorFor(item),
           })
@@ -1359,8 +1281,11 @@
 
         linkPaths.filter((lk) => activeLinkIndexes.has(lk.index)).raise();
 
+        // Links are either stroked centerlines or filled tapered ribbons.
+        // stroke-opacity leaves the latter untouched, so dim/focus must use
+        // path opacity to give both geometries the same hover behaviour.
         styled(linkPaths)
-          .style('stroke-opacity', (lk) =>
+          .style('opacity', (lk) =>
             activeLinkIndexes.has(lk.index) ? ixn.focusOpacity : ixn.dimOpacity
           )
           .style('filter', (lk) =>
@@ -1384,7 +1309,10 @@
       function resetHighlight() {
         focusKey = null;
         hideLinkTooltip();
-        styled(linkPaths).style('stroke-opacity', cfg.linkOpacity).style('filter', null);
+        styled(linkPaths)
+          .style('opacity', null)
+          .style('stroke-opacity', null)
+          .style('filter', null);
         styled(nodeRects).style('opacity', 1);
         styled(labelItems).style('opacity', 1);
         styled(annotationItems).style('opacity', 1);
@@ -1409,6 +1337,25 @@
         pendingReset = 0;
       };
 
+      function aggregateGroupLink(group) {
+        const links = group.realLinks.length
+          ? group.realLinks
+          : group.annotations.length
+            ? [group.annotations[0].semanticLink]
+            : [];
+        if (!links.length) return null;
+        if (links.length === 1) return links[0];
+        const representative = links[0];
+        const aggregateValue = links.reduce(
+          (sum, lk) => sum + HoverShare.linkAmount(lk),
+          0
+        );
+        return Object.assign({}, representative, {
+          value: aggregateValue,
+          raw: Object.assign({}, representative.raw, { value: aggregateValue }),
+        });
+      }
+
       function nodeSideTooltipItems(hoveredNode, realLinks, annotationLinks, adjacentNodeCount, side) {
         const groups = new Map();
         const ensureGroup = (other) => {
@@ -1432,12 +1379,11 @@
           ? tooltipCfg.percentDecimals
           : 1;
         return Array.from(groups.values()).map((group) => {
-          // An annotation and an interactionOnly graph link may describe the
-          // same semantic micro-flow. Prefer the annotation's authored anchor
-          // and emit one endpoint row rather than duplicate percentages. A
-          // standalone guide is supplemental (not graph topology), so its
-          // ratio follows direct-link endpoint semantics and cannot turn a
-          // singleton node side into a split/merge.
+          const semanticLink = aggregateGroupLink(group);
+          // An annotation and a graph link may describe the same semantic
+          // relationship. Prefer the annotation's authored anchor, but keep
+          // the formula owned by the node-hover surface and de-duplicate the
+          // shared endpoint.
           if (group.annotations.length) {
             const annotation = group.annotations[0];
             let anchor = annotation.anchor;
@@ -1447,14 +1393,13 @@
             }
             return Object.assign({}, annotation, {
               anchor,
-              text: group.realLinks.length
-                ? nodeHoverLinkPercent(
-                    annotation.semanticLink,
-                    hoveredNode,
-                    adjacentNodeCount,
-                    decimals
-                  )
-                : linkHoverPercent(annotation.semanticLink, decimals),
+              text: HoverShare.forNode({
+                link: semanticLink,
+                hoveredNode,
+                oppositeNode: group.other,
+                distinctOppositeCount: adjacentNodeCount,
+                decimals,
+              }),
             });
           }
 
@@ -1471,22 +1416,15 @@
           // Parallel links to one endpoint are one source/destination for the
           // branching rule. Aggregate their values and show a single card.
           const representative = group.realLinks[0];
-          const aggregateValue = group.realLinks.reduce(
-            (sum, lk) => sum + linkValueMagnitude(lk),
-            0
-          );
-          const aggregateLink = Object.assign({}, representative, {
-            value: aggregateValue,
-            raw: Object.assign({}, representative.raw, { value: aggregateValue }),
-          });
           return {
             key: `node-link-group:${keyOf(hoveredNode)}:${side}:${group.key}`,
-            text: nodeHoverLinkPercent(
-              aggregateLink,
+            text: HoverShare.forNode({
+              link: semanticLink,
               hoveredNode,
-              adjacentNodeCount,
-              decimals
-            ),
+              oppositeNode: group.other,
+              distinctOppositeCount: adjacentNodeCount,
+              decimals,
+            }),
             anchor: tooltipAnchorFor({
               path: linkPathByIndex.get(representative.index),
               lk: representative,
@@ -1510,12 +1448,18 @@
         const outgoingAnnotations = annotationTooltipItems.filter((item) =>
           sameNode(item.semanticLink.source, n)
         );
-        // Only graph links define how many source/destination bars a node has.
-        // A standalone SVG guide may provide an extra percentage card, but it
-        // must not change a singleton side into a split/merge (Kraft Heinz's
-        // Other callout is the canonical regression case).
-        const incomingNodeCount = distinctAdjacentNodeCount(n, incomingLinks);
-        const outgoingNodeCount = distinctAdjacentNodeCount(n, outgoingLinks);
+        // Every endpoint-declared relationship participates in the same
+        // distinct source/destination count, regardless of whether it is
+        // rendered as a Sankey path or an SVG annotation. Matching graph and
+        // annotation links de-duplicate naturally by opposite node.
+        const incomingNodeCount = distinctAdjacentNodeCount(
+          n,
+          incomingLinks.concat(incomingAnnotations.map((item) => item.semanticLink))
+        );
+        const outgoingNodeCount = distinctAdjacentNodeCount(
+          n,
+          outgoingLinks.concat(outgoingAnnotations.map((item) => item.semanticLink))
+        );
 
         // An annotated micro-flow has no drawable d3 link, but it remains a
         // semantic part of either endpoint's hover context. Keep its label
@@ -1561,8 +1505,8 @@
           semanticLink: {
             source: numerator,
             target: denominator,
-            value: nodeMagnitude(numerator),
-            raw: { value: nodeMagnitude(numerator) },
+            value: HoverShare.nodeAmount(numerator),
+            raw: { value: HoverShare.nodeAmount(numerator) },
           },
         };
       }
@@ -1594,10 +1538,18 @@
         const key = `a:${keyOf(item.numerator)}:${keyOf(item.denominator)}`;
         if (focusKey === key) return;
         focusKey = key;
-        applyHighlight(new Set([node, item.numerator, item.denominator]), new Set());
+        // An annotation can sit on a source-matched visible bridge that is
+        // represented separately from the annotation's semantic link. Reuse
+        // the annotated node's graph context so hover keeps every connected
+        // rendered ribbon bright; hiding this annotation's percentage must
+        // never make an otherwise visible bridge appear to disappear.
+        const ctx = collectNodeContext(node);
+        ctx.activeNodes.add(item.numerator);
+        ctx.activeNodes.add(item.denominator);
+        applyHighlight(ctx.activeNodes, ctx.activeLinks);
         if (!item.anchor) item.anchor = d3.pointer(event, svg.node());
         const decimals = tooltipCfg && tooltipCfg.percentDecimals != null ? tooltipCfg.percentDecimals : 1;
-        item.text = linkHoverPercent(item.semanticLink, decimals);
+        item.text = HoverShare.forLink(item.semanticLink, decimals);
         showLinkTooltips([item]);
       };
 
@@ -1627,15 +1579,9 @@
     helpers: {
       deepMerge,
       formatValue,
-      trimFixed,
-      percentOf,
-      nodeHoverDenominator,
-      nodeMagnitude,
-      linkValueMagnitude,
+      hoverShare: HoverShare,
       groupAdjacentLinks,
       distinctAdjacentNodeCount,
-      nodeHoverLinkPercent,
-      linkHoverPercent,
       autoSide,
       buildFixedGraph,
       taperedLinkPath,

@@ -10,6 +10,81 @@
 
   ssot.records.push(
     {
+      key: 'palantir-q4-fy25',
+      company: 'Palantir',
+      period: 'Q4 FY25',
+      periodNote: 'Ending Dec. 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/palantir-q4-fy25.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 1407,
+        notes: ['+70% Y/Y'],
+        items: [
+          { id: 'commercial', label: 'Commercial', value: 677, notes: ['+82% Y/Y'] },
+          { id: 'government', label: 'Government', value: 730, notes: ['+60% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 216 },
+        operatingExpenses: {
+          total: 615,
+          items: [
+            { id: 'sm', label: 'S&M', value: 302, notes: ['21% of revenue', '(13pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 170, notes: ['12% of revenue', '(10pp) Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 144, notes: ['10% of revenue', '(11pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 10 },
+      },
+      otherIncome: {
+        total: 63,
+        items: [{ id: 'interest', label: 'Interest', value: 63 }],
+      },
+      otherExpenses: {
+        total: 17,
+        items: [{ id: 'other', label: 'Other', value: 17 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 1191, notes: ['85% margin', '+6pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 575, notes: ['41% margin', '+40pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 612, notes: ['43% margin', '+34pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度',
+          periodNote: '截至 2025 年 12 月',
+          revenue: {
+            notes: ['同比 +70%'],
+            items: [
+              { label: '商业', notes: ['同比 +82%'] },
+              { label: '政府', notes: ['同比 +60%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { label: '销售与营销', notes: ['占收入 21%', '同比 (13 个百分点)'] },
+                { label: '管理费用', notes: ['占收入 12%', '同比 (10 个百分点)'] },
+                { label: '研发', notes: ['占收入 10%', '同比 (11 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: { items: [{ label: '利息' }] },
+          otherExpenses: { items: [{ label: '其他' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 85%', '同比 +6 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 41%', '同比 +40 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 43%', '同比 +34 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'palantir-q1-fy26',
       company: 'Palantir',
       period: 'Q1 FY26',
