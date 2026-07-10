@@ -205,7 +205,7 @@
   }
 
   function titleCaseVariant(value) {
-    const abbreviations = new Set(['ai', 'api', 'aws', 'bu', 'cpu', 'fy', 'gaap', 'gpu', 'iot', 'saas', 'svg', 'ui', 'us', 'yoy']);
+    const abbreviations = new Set(['ai', 'api', 'aws', 'bu', 'cpu', 'fy', 'gaap', 'gpu', 'iot', 'saas', 'svg', 'ui', 'us', 'yoy', 'ytd']);
     const text = clean(String(value || '')
       .replace(/([a-z])([A-Z])/g, '$1 $2')
       .replace(/[_-]+/g, ' ')
@@ -237,10 +237,18 @@
     return clean(suffix);
   }
 
+  function reportingSpanVariantText(record) {
+    const period = clean(record.period || record.dataset?.meta?.period);
+    const match = period.match(/^(3M|6M|9M|H1|H2|YTD)\b/i);
+    return match ? match[1].toUpperCase() : '';
+  }
+
   function variantFeatureName(record) {
     const meta = record.dataset?.meta || {};
     const explicit = meta.variant || meta.variantName || meta.viewVariant || meta.viewVariantName || record.dataset?.variant || record.dataset?.variantName;
     if (explicit) return titleCaseVariant(explicit);
+    const reportingSpan = reportingSpanVariantText(record);
+    if (reportingSpan) return reportingSpan;
     return titleCaseVariant(keyVariantText(record));
   }
 
@@ -510,6 +518,7 @@
     periodParts,
     titleCaseVariant,
     keyVariantText,
+    reportingSpanVariantText,
     variantFeatureName,
     unitMultiplier,
     currencyCode,

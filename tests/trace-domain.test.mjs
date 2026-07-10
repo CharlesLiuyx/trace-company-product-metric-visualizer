@@ -14,6 +14,8 @@ const {
   periodSortValue,
   periodParts,
   fiscalYearLabel,
+  reportingSpanVariantText,
+  variantFeatureName,
   currencyCode,
   currencyUnitsPerUsd,
   amountValueUsd,
@@ -90,6 +92,16 @@ test('periodParts parses quarterly and annual records', () => {
   const fromKey = periodParts({ period: '', dataset: { key: 'nvidia-q2-fy24' } });
   assert.equal(fromKey.quarterNumber, 2);
   assert.equal(fromKey.fiscalYearNumber, 2024);
+});
+
+test('interim reporting spans keep their label while an annual record can use explicit YTD', () => {
+  const record = {
+    period: '9M FY26',
+    dataset: { key: 'nintendo-9m-fy26', meta: { period: '9M FY26' } },
+  };
+  assert.equal(reportingSpanVariantText(record), '9M');
+  assert.equal(variantFeatureName(record), '9M');
+  assert.equal(variantFeatureName({ period: 'FY26', dataset: { key: 'nintendo-fy26', meta: { period: 'FY26', variant: 'YTD' } } }), 'YTD');
 });
 
 test('fiscalYearLabel renders two-digit FY labels', () => {

@@ -69,6 +69,10 @@ function pickDisplayMeta(meta) {
   if (meta?.title) out.title = meta.title;
   if (meta?.period) out.period = meta.period;
   if (meta?.periodNote) out.periodNote = meta.periodNote;
+  if (meta?.variant) out.variant = meta.variant;
+  if (meta?.variantName) out.variantName = meta.variantName;
+  if (meta?.viewVariant) out.viewVariant = meta.viewVariant;
+  if (meta?.viewVariantName) out.viewVariantName = meta.viewVariantName;
   return out;
 }
 
