@@ -21,6 +21,9 @@
 
     nodeWidth: 82,
     nodePadding: 104,
+    // Set to 0 for sources whose rectangular terminals meet full-height
+    // ribbons without rounded-corner seam pixels.
+    nodeRadius: 1.5,
 
     background: '#efefef',
     // heading font — chart title, node labels, period stamp: everything that
@@ -488,6 +491,35 @@
     ].join('');
   }
 
+  function cubicPointAt(p0, p1, p2, p3, t) {
+    const mt = 1 - t;
+    return (
+      mt * mt * mt * p0 +
+      3 * mt * mt * t * p1 +
+      3 * mt * t * t * p2 +
+      t * t * t * p3
+    );
+  }
+
+  function linkCenterlinePoint(lk, fraction = 0.5) {
+    const curve = lk.raw && lk.raw.curve;
+    const x0 = curve && curve.x0 != null ? curve.x0 : lk.source.x1;
+    const x1 = curve && curve.x1 != null ? curve.x1 : lk.target.x0;
+    const c1x = curve && curve.c1x != null ? curve.c1x : (x0 + x1) / 2;
+    const c2x = curve && curve.c2x != null ? curve.c2x : (x0 + x1) / 2;
+    const c1y = curve && curve.c1y != null ? curve.c1y : lk.y0;
+    const c2y = curve && curve.c2y != null ? curve.c2y : lk.y1;
+    const numericFraction = Number(fraction);
+    const t = Number.isFinite(numericFraction)
+      ? Math.max(0, Math.min(1, numericFraction))
+      : 0.5;
+
+    return [
+      cubicPointAt(x0, c1x, c2x, x1, t),
+      cubicPointAt(lk.y0, c1y, c2y, lk.y1, t),
+    ];
+  }
+
   function appendSvgFragments(parent, fragments, className) {
     const list = Array.isArray(fragments) ? fragments : [fragments];
     const html = list
@@ -722,7 +754,7 @@
         .attr('width', n.x1 - n.x0)
         .attr('height', Math.max(1, n.y1 - n.y0))
         .attr('fill', nodeColor(n))
-        .attr('rx', 1.5)
+        .attr('rx', cfg.nodeRadius)
         .style('cursor', 'pointer');
     });
 
@@ -1013,6 +1045,13 @@
     }
 
     function linkTooltipAnchor(path, lk) {
+      // Variable-width links render as closed ribbon outlines. Measuring half
+      // of that outline's perimeter lands on the target-side boundary, not in
+      // the visual middle of the flow. Anchor every tag to the actual cubic
+      // centerline instead, matching both tapered ribbons and stroke links.
+      const centerlinePoint = linkCenterlinePoint(lk);
+      if (centerlinePoint.every(Number.isFinite)) return centerlinePoint;
+
       if (path && isFn(path.getTotalLength) && isFn(path.getPointAtLength)) {
         const length = path.getTotalLength();
         if (Number.isFinite(length) && length > 0) {
@@ -1026,7 +1065,7 @@
     const linkPathByIndex = new Map();
     // tooltip strings and link geometry are fixed once rendered, so text
     // metrics (keyed by string — the tooltip font never varies within a
-    // render) and mid-path anchors (keyed by link index) are measured once
+    // render) and centerline anchors (keyed by link index) are measured once
     const tooltipTextBoxCache = new Map();
     const tooltipAnchorCache = new Map();
 
@@ -1312,6 +1351,7 @@
       autoSide,
       buildFixedGraph,
       taperedLinkPath,
+      linkCenterlinePoint,
       referenceCanvasDefaults,
       canvasSize,
       buildLabelSpecs,
