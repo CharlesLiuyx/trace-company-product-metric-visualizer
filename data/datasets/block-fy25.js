@@ -211,6 +211,7 @@
       width: 2667,
       height: 1500,
       background: BG,
+      interfaceAudit: { mode: 'error' },
       nodeRadius: 0,
       allowRasterAnnotations: true,
       labelWeight: 600,
@@ -275,18 +276,18 @@
       { id: 'other_operating', col: 4, order: 7, type: 'cost', label: 'Other', value: 0.1, valueText: '($0.1B)', color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
     ],
     links: [
-      { source: 'commerce_enablement', target: 'revenue', value: 11.5, sourceWidth: 204, targetWidth: 204, y0: 622, y1: 764.5, linkTint: GRAY_LINK },
-      { source: 'financial_solutions', target: 'revenue', value: 4.2, sourceWidth: 73, targetWidth: 73, y0: 905.5, y1: 905.5, linkTint: GRAY_LINK },
+      { source: 'commerce_enablement', target: 'revenue', value: 11.5, sourceWidth: 204, targetWidth: 206, y0: 622, y1: 766, linkTint: GRAY_LINK },
+      { source: 'financial_solutions', target: 'revenue', value: 4.2, sourceWidth: 73, targetWidth: 77, y0: 905.5, y1: 907.5, linkTint: GRAY_LINK },
       { source: 'bitcoin_ecosystem', target: 'revenue', value: 8.5, sourceWidth: 150, targetWidth: 150, y0: 1163, y1: 1021, linkTint: GRAY_LINK },
 
-      { source: 'revenue', target: 'gross_profit', value: 10.4, sourceWidth: 184, targetWidth: 184, y0: 754.5, y1: 668, linkTint: GREEN_LINK },
-      { source: 'revenue', target: 'cost_of_revenue', value: 13.8, sourceWidth: 246, targetWidth: 246, y0: 973, y1: 1053, linkTint: RED_LINK },
+      { source: 'revenue', target: 'gross_profit', value: 10.4, sourceWidth: 184, targetWidth: 184, y0: 755, y1: 668, linkTint: GREEN_LINK },
+      { source: 'revenue', target: 'cost_of_revenue', value: 13.8, sourceWidth: 249, targetWidth: 246, y0: 971.5, y1: 1053, linkTint: RED_LINK },
 
       { source: 'gross_profit', target: 'operating_profit', value: 1.7, sourceWidth: 29, targetWidth: 29, y0: 590.5, y1: 505.5, linkTint: GREEN_LINK },
-      { source: 'gross_profit', target: 'operating_expenses', value: 8.7, sourceWidth: 153, targetWidth: 153, y0: 683.5, y1: 775.5, linkTint: RED_LINK },
+      { source: 'gross_profit', target: 'operating_expenses', value: 8.7, sourceWidth: 155, targetWidth: 153, y0: 682.5, y1: 775.5, linkTint: RED_LINK },
 
-      { source: 'operating_profit', target: 'net_profit', value: 1.3, sourceWidth: 21, targetWidth: 21, y0: 501.5, y1: 395.5, linkTint: GREEN_LINK },
-      { source: 'operating_profit', target: 'tax', value: 0.4, sourceWidth: 5, targetWidth: 5, y0: 516, y1: 595.5, linkTint: RED_LINK },
+      { source: 'operating_profit', target: 'net_profit', value: 1.3, sourceWidth: 22, targetWidth: 21, y0: 502, y1: 395.5, linkTint: GREEN_LINK },
+      { source: 'operating_profit', target: 'tax', value: 0.4, sourceWidth: 6, targetWidth: 5, y0: 516, y1: 595.5, linkTint: RED_LINK },
       { source: 'operating_profit', target: 'other_non_operating', value: 0, sourceWidth: 1, targetWidth: 1, y0: 519.5, y1: 690.5, linkTint: RED_LINK },
 
       { source: 'operating_expenses', target: 'product_development', value: 2.9, sourceWidth: 51.3, targetWidth: 50, y0: 724.65, y1: 784, linkTint: RED_LINK },
