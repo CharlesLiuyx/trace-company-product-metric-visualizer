@@ -1,0 +1,400 @@
+{
+  "source": "input/processed/block-fy25.png",
+  "spec": "input/icon-crop-specs/block-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-09T20:05:01.380264+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/block",
+  "crops": [
+    {
+      "key": "block-company-logo",
+      "output": "data/assets/icon-references/block/crops/company-logo-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 50603,
+        "losslessBytes": 50603,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 34962,
+        "transparentPixelRatio": 0.5188
+      },
+      "searchBox": {
+        "x": 815,
+        "y": 205,
+        "width": 230,
+        "height": 293
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 835,
+        "y0": 212,
+        "x1": 1024,
+        "y1": 491
+      },
+      "cropBox": {
+        "x0": 815,
+        "y0": 205,
+        "x1": 1045,
+        "y1": 498
+      },
+      "validation": {
+        "width": 230,
+        "height": 293,
+        "foregroundPixels": 30006,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 20,
+          "right": 21,
+          "top": 7,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": -0.0022,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Complete Block multicolor cube and BLOCK wordmark above the revenue hub; excludes title, Revenue label, and ribbons.",
+      "runtimeOutput": "data/assets/raster-annotations/block/company-logo-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 50603,
+        "losslessBytes": 50603,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/block/validation-sheets/block-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 307463,
+        "losslessBytes": 307463,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "block-commerce-enablement-icon",
+      "output": "data/assets/icon-references/block/crops/commerce-enablement-icon-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 425,
+        "losslessBytes": 1264,
+        "savingsVsLossless": 0.6638,
+        "metrics": {
+          "meanAbsoluteError": 0.4037,
+          "rootMeanSquareError": 1.2066,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 14,
+          "changedPixelRatio": 0.276
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 2667,
+        "transparentPixelRatio": 0.4384
+      },
+      "searchBox": {
+        "x": 76,
+        "y": 567,
+        "width": 78,
+        "height": 78
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 86,
+        "y0": 577,
+        "x1": 145,
+        "y1": 636
+      },
+      "cropBox": {
+        "x0": 76,
+        "y0": 567,
+        "x1": 154,
+        "y1": 645
+      },
+      "validation": {
+        "width": 78,
+        "height": 78,
+        "foregroundPixels": 2472,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 10,
+          "right": 9,
+          "top": 10,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": 0.0064,
+          "y": 0.0064
+        },
+        "passes": true
+      },
+      "note": "Commerce Enablement Square-style tile; excludes the business label, margin note, and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/block/commerce-enablement-icon-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 425,
+        "losslessBytes": 1264,
+        "savingsVsLossless": 0.6638,
+        "metrics": {
+          "meanAbsoluteError": 0.4037,
+          "rootMeanSquareError": 1.2066,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 14,
+          "changedPixelRatio": 0.276
+        }
+      },
+      "validationSheet": "data/assets/icon-references/block/validation-sheets/block-commerce-enablement-icon.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 230203,
+        "losslessBytes": 230203,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "block-financial-solutions-icon",
+      "output": "data/assets/icon-references/block/crops/financial-solutions-icon-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 613,
+        "losslessBytes": 2388,
+        "savingsVsLossless": 0.7433,
+        "metrics": {
+          "meanAbsoluteError": 0.465,
+          "rootMeanSquareError": 2.0726,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 34,
+          "changedPixelRatio": 0.1456
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 3245,
+        "transparentPixelRatio": 0.5334
+      },
+      "searchBox": {
+        "x": 78,
+        "y": 865,
+        "width": 78,
+        "height": 78
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 90,
+        "y0": 876,
+        "x1": 144,
+        "y1": 931
+      },
+      "cropBox": {
+        "x0": 78,
+        "y0": 865,
+        "x1": 156,
+        "y1": 943
+      },
+      "validation": {
+        "width": 78,
+        "height": 78,
+        "foregroundPixels": 2500,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 12,
+          "top": 11,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0064
+        },
+        "passes": true
+      },
+      "note": "Financial Solutions green dollar tile; excludes the business label, margin note, and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/block/financial-solutions-icon-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 613,
+        "losslessBytes": 2388,
+        "savingsVsLossless": 0.7433,
+        "metrics": {
+          "meanAbsoluteError": 0.465,
+          "rootMeanSquareError": 2.0726,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 34,
+          "changedPixelRatio": 0.1456
+        }
+      },
+      "validationSheet": "data/assets/icon-references/block/validation-sheets/block-financial-solutions-icon.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 255186,
+        "losslessBytes": 255186,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "block-bitcoin-ecosystem-icon",
+      "output": "data/assets/icon-references/block/crops/bitcoin-ecosystem-icon-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 841,
+        "losslessBytes": 3073,
+        "savingsVsLossless": 0.7263,
+        "metrics": {
+          "meanAbsoluteError": 0.5333,
+          "rootMeanSquareError": 2.2068,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 34,
+          "changedPixelRatio": 0.4109
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 3625,
+        "transparentPixelRatio": 0.5958
+      },
+      "searchBox": {
+        "x": 79,
+        "y": 1121,
+        "width": 78,
+        "height": 78
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 91,
+        "y0": 1133,
+        "x1": 146,
+        "y1": 1188
+      },
+      "cropBox": {
+        "x0": 79,
+        "y0": 1121,
+        "x1": 157,
+        "y1": 1199
+      },
+      "validation": {
+        "width": 78,
+        "height": 78,
+        "foregroundPixels": 2111,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 11,
+          "top": 12,
+          "bottom": 11
+        },
+        "centerOffset": {
+          "x": 0.0064,
+          "y": 0.0064
+        },
+        "passes": true
+      },
+      "note": "Bitcoin Ecosystem orange bitcoin tile; excludes the business label, margin note, and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/block/bitcoin-ecosystem-icon-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 841,
+        "losslessBytes": 3073,
+        "savingsVsLossless": 0.7263,
+        "metrics": {
+          "meanAbsoluteError": 0.5333,
+          "rootMeanSquareError": 2.2068,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 34,
+          "changedPixelRatio": 0.4109
+        }
+      },
+      "validationSheet": "data/assets/icon-references/block/validation-sheets/block-bitcoin-ecosystem-icon.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 268635,
+        "losslessBytes": 268635,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

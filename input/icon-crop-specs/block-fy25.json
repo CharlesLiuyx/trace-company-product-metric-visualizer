@@ -1,0 +1,74 @@
+{
+  "source": "input/processed/block-fy25.png",
+  "outputDir": "data/assets/icon-references/block",
+  "runtimeOutputDir": "data/assets/raster-annotations/block",
+  "validationSheetDir": "data/assets/icon-references/block/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [242, 242, 242],
+    "tolerance": 10
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding and decorative mini-Sankey mark are not part of Block's income-statement semantics."
+    },
+    {
+      "key": "publisher-website",
+      "reason": "The appeconomyinsights.com footer URL is source attribution, not company or financial-statement content."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "The App Economy Insights footer logo and wordmark are source attribution and are intentionally excluded."
+    }
+  ],
+  "crops": [
+    {
+      "key": "block-company-logo",
+      "output": "crops/company-logo-fy25.png",
+      "runtimeOutput": "company-logo-fy25.png",
+      "searchBox": { "x": 815, "y": 205, "width": 230, "height": 293 },
+      "cropBox": { "x": 815, "y": 205, "width": 230, "height": 293 },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 4, "maxCenterOffset": 0.08, "maxForbiddenForegroundPixels": 0 },
+      "note": "Complete Block multicolor cube and BLOCK wordmark above the revenue hub; excludes title, Revenue label, and ribbons."
+    },
+    {
+      "key": "block-commerce-enablement-icon",
+      "output": "crops/commerce-enablement-icon-fy25.png",
+      "runtimeOutput": "commerce-enablement-icon-fy25.png",
+      "searchBox": { "x": 76, "y": 567, "width": 78, "height": 78 },
+      "cropBox": { "x": 76, "y": 567, "width": 78, "height": 78 },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 4, "maxCenterOffset": 0.04, "maxForbiddenForegroundPixels": 0 },
+      "note": "Commerce Enablement Square-style tile; excludes the business label, margin note, and source bar."
+    },
+    {
+      "key": "block-financial-solutions-icon",
+      "output": "crops/financial-solutions-icon-fy25.png",
+      "runtimeOutput": "financial-solutions-icon-fy25.png",
+      "searchBox": { "x": 78, "y": 865, "width": 78, "height": 78 },
+      "cropBox": { "x": 78, "y": 865, "width": 78, "height": 78 },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 4, "maxCenterOffset": 0.04, "maxForbiddenForegroundPixels": 0 },
+      "note": "Financial Solutions green dollar tile; excludes the business label, margin note, and source bar."
+    },
+    {
+      "key": "block-bitcoin-ecosystem-icon",
+      "output": "crops/bitcoin-ecosystem-icon-fy25.png",
+      "runtimeOutput": "bitcoin-ecosystem-icon-fy25.png",
+      "searchBox": { "x": 79, "y": 1121, "width": 78, "height": 78 },
+      "cropBox": { "x": 79, "y": 1121, "width": 78, "height": 78 },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 4, "maxCenterOffset": 0.04, "maxForbiddenForegroundPixels": 0 },
+      "note": "Bitcoin Ecosystem orange bitcoin tile; excludes the business label, margin note, and source bar."
+    }
+  ]
+}
