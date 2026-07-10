@@ -653,9 +653,10 @@ pnpm exec playwright install chromium</span>
         <li>每个短辅助柱 / 短横柱 / 终端柱的像素 bbox（x/y/width/height）；</li>
         <li>逐条追踪 link 拓扑：source、target、socket，特别是 waterfall 区、绕行带、多入口目标柱；</li>
         <li>每个 label 的锚点、anchor 方向、语义归组（名称/数值/备注/margin/Y-Y 同组）；</li>
-        <li>注释容器、KPI/stat card、徽章的容器 bbox。</li>
+        <li>注释容器、KPI/stat card、徽章的容器 bbox；</li>
+        <li>测量逐对象落盘为<b>第 0 轮清单</b>；首轮渲染后与 metrics JSON 的 <code>labelLayoutAudit</code> 互核，超标当场修；并按规则文档「高风险模式命中清单」登记本数据集的定制必查规则集。</li>
       </ul>
-      <div class="refdoc">历史教训：跨 10+ 轮才收敛的数据集，其后期修复项几乎全部可以在首轮测量时一次做对。</div>
+      <div class="refdoc">历史教训：跨 10+ 轮才收敛的数据集，其后期修复项几乎全部可以在首轮测量时一次做对；已收敛数据集的返工几乎全是第 0 轮清单缺失或未互核导致的 label 系统性偏移。</div>
     </div>
     <div class="arrow"></div>
     <div class="node data">
@@ -744,7 +745,7 @@ pnpm exec playwright install chromium</span>
             <div class="sweep"><span class="r">第 2 轮</span><b>文本 sweep</b>label-node 外框三段式 bbox 审计、文本归属与位置；注释容器 / KPI card / 徽章 / 脚注内部对齐。</div>
             <div class="sweep"><span class="r">第 3 轮</span><b>润色 + 本地化 sweep</b>颜色、透明度、图标细节；每种非默认语言 <code>--language zh --keep</code> 渲染，getBBox 查混排残留、R&amp;D / SG&amp;A 缩写、越界、重叠。</div>
           </div>
-          <p class="dim" style="margin-top:8px;">每轮把本层能修的问题一次修完；人工深查对照规则文档 B 系列盲点表（门槛看不见的检查）。更早层级的新问题立即修，更晚层级的记入 backlog。单方向深查轮只用于：门槛反复失败、用户重开、sweep 内修不完。轮次间串行；轮内并行试值 + 每语言渲染可并行（附录 E）。分诊、修复与冻结/收敛判定始终由主 Agent 负责。</p>
+          <p class="dim" style="margin-top:8px;">每轮把本层能修的问题一次修完；人工深查对照规则文档 B 系列盲点表与本数据集的高风险模式命中清单（门槛看不见的检查）。更早层级的新问题立即修，更晚层级的记入 backlog。单方向深查轮只用于：门槛反复失败、用户重开、sweep 内修不完。轮次间串行；轮内并行试值 + 每语言渲染可并行（附录 E）。分诊、修复与冻结/收敛判定始终由主 Agent 负责。</p>
         </div>
         <div class="arrow"></div>
         <div class="node">
@@ -754,13 +755,13 @@ pnpm exec playwright install chromium</span>
           <ul>
             <li><b>误差分类</b>：必须死磕 / 需要优化 / 可接受残留 / 无语义跳过（无语义内容不得为压 Diff 补画）；</li>
             <li><b>红框参考图</b>：以原图为底，红框圈完整语义区域，存 <code>…/&lt;key&gt;-attention-reference.png</code>；无开放问题则在 Task 信息中记「无开放红框」；</li>
-            <li><b>Task 信息</b>：轮次、archive、主方向、已冻结、重开、backlog、红框 region 清单（含违反规则编号）、下一轮方向；</li>
-            <li><b>用户反馈沉淀</b>：可泛化经验更新 <code>docs/fidelity-loop-rules.md</code> 的编号规则，数据集特例记入 Task 信息，然后才能声称已处理；反馈处理轮以反馈项为主方向定向优化；</li>
-            <li><b>退出置信度判断</b>：基于门槛 / B 系列盲点 / 开放红框 / backlog 回答「人工现在 Review 是否还会提意见」——高置信立即收敛不再开轮，低置信下一轮只打最高风险项。</li>
+            <li><b>Task 信息</b>：轮次、archive、主方向、已冻结、重开、backlog、红框 region 清单（含违反规则编号）、命中清单核对状态、下一轮方向；</li>
+            <li><b>用户反馈沉淀</b>：先归因（规则缺失 / 执行缺口 / 口径模糊）——执行缺口须按「重复触发升级」推进自动化状态或纳入清单产物，不得只加长规则文本；可泛化经验更新 <code>docs/fidelity-loop-rules.md</code> 的编号规则，数据集特例记入 Task 信息，然后才能声称已处理；反馈处理轮以反馈项为主方向定向优化；</li>
+            <li><b>退出置信度判断</b>：基于门槛 / B 系列盲点 / 命中清单核对状态 / 开放红框 / backlog 回答「人工现在 Review 是否还会提意见」——高置信立即收敛不再开轮，低置信下一轮只打最高风险项。</li>
           </ul>
         </div>
         <div class="arrow"></div>
-        <div class="decision" style="min-width:340px;">D4 · 收敛标准全部满足？<span class="q-note">硬门槛通过 + 死磕清单清空 + backlog 关闭 + 本地化通过 + Task/红框完整（13 条，见附录 B）</span></div>
+        <div class="decision" style="min-width:340px;">D4 · 收敛标准全部满足？<span class="q-note">硬门槛通过 + 死磕清单清空 + 命中清单关闭 + backlog 关闭 + 本地化通过 + Task/红框完整（14 条，见附录 B）</span></div>
         <div class="loop-back">未收敛 → 下一轮 sweep 前进或升级深查；死磕清单已空且预计 similarity 提升 &lt; 0.0005 时禁止再开新轮</div>
       </div>
     </div>
@@ -852,12 +853,13 @@ pnpm exec playwright install chromium</span>
 </details>
 
 <details class="appendix" id="appendix-b">
-  <summary>B · 保真循环收敛标准 13 条（<code>docs/fidelity-loop-rules.md</code> §收敛标准）</summary>
+  <summary>B · 保真循环收敛标准 14 条（<code>docs/fidelity-loop-rules.md</code> §收敛标准）</summary>
   <div class="body">
     <ol>
       <li>自动硬门槛通过；</li>
       <li>候选图纯净，未使用未批准源图像素；</li>
       <li>「必须死磕」问题域均已被 sweep 或升级深查覆盖、记录证据并冻结；</li>
+      <li>高风险模式命中清单全部关闭（每条命中规则逐对象核对并记录）；</li>
       <li>冻结清单未被相关改动或自动回归信号重开；</li>
       <li>backlog 为空，或剩余项均为可接受残留 / 无语义跳过 / 明确超范围；</li>
       <li>本轮主方向分区域 Diff 无新的结构性高误差区域；</li>
@@ -866,7 +868,7 @@ pnpm exec playwright install chromium</span>
       <li>新增/修改过的非默认语言覆盖通过本地化布局检查；</li>
       <li>最新 Task 信息完整（已主查 / 已冻结 / 重开 / backlog）；</li>
       <li>每个未冻结或刚修复的用户标注区域有红框记录或关闭说明；</li>
-      <li>用户反馈通用经验已沉淀进规则文档，特例已记入 Task 信息；</li>
+      <li>用户反馈通用经验已按归因分类沉淀进规则文档，特例已记入 Task 信息；</li>
       <li>可接受残留与所有破例记录原因。</li>
     </ol>
     <p>反微调停机规则：死磕清单清空后，预计新一轮全图 similarity 提升 &lt; 0.0005 时不得开启。</p>
