@@ -1,0 +1,116 @@
+{
+  "source": "input/processed/procore-q4-fy25.png",
+  "spec": "input/icon-crop-specs/procore-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-10T17:11:17.882984+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "procore-company-wordmark",
+      "output": "data/assets/icon-references/procore/crops/company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 4354,
+        "losslessBytes": 18773,
+        "savingsVsLossless": 0.7681,
+        "metrics": {
+          "meanAbsoluteError": 0.6106,
+          "rootMeanSquareError": 2.2273,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.2233
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 41111,
+        "transparentPixelRatio": 0.5113
+      },
+      "searchBox": {
+        "x": 530,
+        "y": 260,
+        "width": 670,
+        "height": 120
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 544,
+        "y0": 275,
+        "x1": 1171,
+        "y1": 357
+      },
+      "cropBox": {
+        "x0": 530,
+        "y0": 260,
+        "x1": 1200,
+        "y1": 380
+      },
+      "validation": {
+        "width": 670,
+        "height": 120,
+        "foregroundPixels": 33100,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 14,
+          "right": 29,
+          "top": 15,
+          "bottom": 23
+        },
+        "centerOffset": {
+          "x": -0.0112,
+          "y": -0.0333
+        },
+        "passes": true
+      },
+      "note": "Procore wordmark in the top-center identity area. It excludes the Revenue label, chart ribbons, KPI cards, How They Make Money mark, App Economy Insights URL, watermark, and publisher attribution. The crop is validation-only; the adapter uses a pure-SVG wordmark reconstruction.",
+      "validationSheet": "data/assets/icon-references/procore/validation-sheets/procore-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 188534,
+        "losslessBytes": 188534,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

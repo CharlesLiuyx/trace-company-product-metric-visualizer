@@ -409,8 +409,8 @@
       { source: 'gross_profit', target: 'operating_profit', value: 0.382, width: 46, sourceOrder: 0, targetOrder: 0 },
       { source: 'gross_profit', target: 'operating_expenses', value: 1.164, width: 139, sourceOrder: 1, targetOrder: 0 },
 
-      { source: 'operating_profit', target: 'investments', value: 0.382, percent: 39.7, width: 46, sourceOrder: 0, targetOrder: 1, linkTint: RED_LINK, y0: 524, y1: 491.5, curve: { x1: 2268, c1x: 2078, c1y: 524, c2x: 2168, c2y: 480 } },
-      { source: 'net_loss', target: 'investments', value: 0.581, percent: 60.3, width: 69, sourceOrder: 0, targetOrder: 0, y0: 421.5, y1: 435, curve: { x1: 2268, c1x: 2223, c1y: 421.5, c2x: 2242, c2y: 435 } },
+      { source: 'operating_profit', target: 'investments', value: 0.382, width: 46, sourceOrder: 0, targetOrder: 1, linkTint: RED_LINK, y0: 524, y1: 491.5, curve: { x1: 2268, c1x: 2078, c1y: 524, c2x: 2168, c2y: 480 } },
+      { source: 'net_loss', target: 'investments', value: 0.581, width: 69, sourceOrder: 0, targetOrder: 0, y0: 421.5, y1: 435, curve: { x1: 2268, c1x: 2223, c1y: 421.5, c2x: 2242, c2y: 435 } },
       { source: 'operating_profit', target: 'tax', value: 0.022, width: 2, sourceOrder: 1, targetOrder: 0, y0: 547, y1: 644, curve: { c1x: 2040, c1y: 547, c2x: 2170, c2y: 644 } },
 
       { source: 'cost_of_revenue', target: 'merchant_cost', value: 1.476, width: 176, sourceOrder: 0, targetOrder: 0 },

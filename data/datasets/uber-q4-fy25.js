@@ -535,8 +535,7 @@
       { source: 'operating_profit', target: 'net_profit', value: 0.3, width: 8, sourceOrder: 0, targetOrder: 0 },
       {
         source: 'tax_benefit',
-        target: 'net_profit',
-        value: 0.04,
+        target: 'net_profit', value: 0.04,
         width: 2,
         targetOrder: 1,
         y1: 316,

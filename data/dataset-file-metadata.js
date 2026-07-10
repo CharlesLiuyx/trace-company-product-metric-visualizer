@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-10T14:40:36.000Z",
+  "generatedAt": "2026-07-10T19:17:52.483Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -1314,6 +1314,198 @@
       "updatedAtMs": 1783694436000,
       "updatedAt": "2026-07-10T14:40:36.000Z",
       "timeSource": "git"
+    },
+    "fortinet-q4-fy25": {
+      "path": "data/datasets/fortinet-q4-fy25.js",
+      "updatedAtMs": 1783711043404,
+      "updatedAt": "2026-07-10T19:17:23.404Z",
+      "timeSource": "mtime"
+    },
+    "cisco-q2-fy26": {
+      "path": "data/datasets/cisco-q2-fy26.js",
+      "updatedAtMs": 1783711043366,
+      "updatedAt": "2026-07-10T19:17:23.366Z",
+      "timeSource": "mtime"
+    },
+    "marriott-q4-fy25": {
+      "path": "data/datasets/marriott-q4-fy25.js",
+      "updatedAtMs": 1783711043437,
+      "updatedAt": "2026-07-10T19:17:23.437Z",
+      "timeSource": "mtime"
+    },
+    "nutanix-q2-fy26": {
+      "path": "data/datasets/nutanix-q2-fy26.js",
+      "updatedAtMs": 1783711043468,
+      "updatedAt": "2026-07-10T19:17:23.468Z",
+      "timeSource": "mtime"
+    },
+    "zscaler-q2-fy26": {
+      "path": "data/datasets/zscaler-q2-fy26.js",
+      "updatedAtMs": 1783697243978,
+      "updatedAt": "2026-07-10T15:27:23.978Z",
+      "timeSource": "mtime"
+    },
+    "t-mobile-us-q4-fy25": {
+      "path": "data/datasets/t-mobile-us-q4-fy25.js",
+      "updatedAtMs": 1783711043535,
+      "updatedAt": "2026-07-10T19:17:23.535Z",
+      "timeSource": "mtime"
+    },
+    "palo-alto-q2-fy26": {
+      "path": "data/datasets/palo-alto-q2-fy26.js",
+      "updatedAtMs": 1783711043490,
+      "updatedAt": "2026-07-10T19:17:23.490Z",
+      "timeSource": "mtime"
+    },
+    "dynatrace-q3-fy26": {
+      "path": "data/datasets/dynatrace-q3-fy26.js",
+      "updatedAtMs": 1783711043395,
+      "updatedAt": "2026-07-10T19:17:23.395Z",
+      "timeSource": "mtime"
+    },
+    "snowflake-q4-fy26": {
+      "path": "data/datasets/snowflake-q4-fy26.js",
+      "updatedAtMs": 1783697464967,
+      "updatedAt": "2026-07-10T15:31:04.967Z",
+      "timeSource": "mtime"
+    },
+    "arista-q4-fy25": {
+      "path": "data/datasets/arista-q4-fy25.js",
+      "updatedAtMs": 1783711043343,
+      "updatedAt": "2026-07-10T19:17:23.343Z",
+      "timeSource": "mtime"
+    },
+    "the-trade-desk-q4-fy25": {
+      "path": "data/datasets/the-trade-desk-q4-fy25.js",
+      "updatedAtMs": 1783711043541,
+      "updatedAt": "2026-07-10T19:17:23.541Z",
+      "timeSource": "mtime"
+    },
+    "warner-bros-q4-fy25": {
+      "path": "data/datasets/warner-bros-q4-fy25.js",
+      "updatedAtMs": 1783700193882,
+      "updatedAt": "2026-07-10T16:16:33.882Z",
+      "timeSource": "mtime"
+    },
+    "axon-q4-fy25": {
+      "path": "data/datasets/axon-q4-fy25.js",
+      "updatedAtMs": 1783700272986,
+      "updatedAt": "2026-07-10T16:17:52.986Z",
+      "timeSource": "mtime"
+    },
+    "paramount-q4-fy25": {
+      "path": "data/datasets/paramount-q4-fy25.js",
+      "updatedAtMs": 1783701290098,
+      "updatedAt": "2026-07-10T16:34:50.098Z",
+      "timeSource": "mtime"
+    },
+    "roblox-q4-fy25": {
+      "path": "data/datasets/roblox-q4-fy25.js",
+      "updatedAtMs": 1783699941393,
+      "updatedAt": "2026-07-10T16:12:21.393Z",
+      "timeSource": "mtime"
+    },
+    "live-nation-fy25": {
+      "path": "data/datasets/live-nation-fy25.js",
+      "updatedAtMs": 1783711043432,
+      "updatedAt": "2026-07-10T19:17:23.432Z",
+      "timeSource": "mtime"
+    },
+    "applovin-q4-fy25": {
+      "path": "data/datasets/applovin-q4-fy25.js",
+      "updatedAtMs": 1783711043341,
+      "updatedAt": "2026-07-10T19:17:23.341Z",
+      "timeSource": "mtime"
+    },
+    "figma-q4-fy25": {
+      "path": "data/datasets/figma-q4-fy25.js",
+      "updatedAtMs": 1783700082596,
+      "updatedAt": "2026-07-10T16:14:42.596Z",
+      "timeSource": "mtime"
+    },
+    "amc-q4-fy25": {
+      "path": "data/datasets/amc-q4-fy25.js",
+      "updatedAtMs": 1783700451032,
+      "updatedAt": "2026-07-10T16:20:51.032Z",
+      "timeSource": "mtime"
+    },
+    "roku-q4-fy25": {
+      "path": "data/datasets/roku-q4-fy25.js",
+      "updatedAtMs": 1783711043514,
+      "updatedAt": "2026-07-10T19:17:23.514Z",
+      "timeSource": "mtime"
+    },
+    "paycom-q4-fy25": {
+      "path": "data/datasets/paycom-q4-fy25.js",
+      "updatedAtMs": 1783711043494,
+      "updatedAt": "2026-07-10T19:17:23.494Z",
+      "timeSource": "mtime"
+    },
+    "coupang-q4-fy25": {
+      "path": "data/datasets/coupang-q4-fy25.js",
+      "updatedAtMs": 1783711072483,
+      "updatedAt": "2026-07-10T19:17:52.483Z",
+      "timeSource": "mtime"
+    },
+    "datadog-q4-fy25": {
+      "path": "data/datasets/datadog-q4-fy25.js",
+      "updatedAtMs": 1783711043378,
+      "updatedAt": "2026-07-10T19:17:23.378Z",
+      "timeSource": "mtime"
+    },
+    "hims-hers-q4-fy25": {
+      "path": "data/datasets/hims-hers-q4-fy25.js",
+      "updatedAtMs": 1783711043413,
+      "updatedAt": "2026-07-10T19:17:23.413Z",
+      "timeSource": "mtime"
+    },
+    "hubspot-q4-fy25": {
+      "path": "data/datasets/hubspot-q4-fy25.js",
+      "updatedAtMs": 1783711043417,
+      "updatedAt": "2026-07-10T19:17:23.417Z",
+      "timeSource": "mtime"
+    },
+    "procore-q4-fy25": {
+      "path": "data/datasets/procore-q4-fy25.js",
+      "updatedAtMs": 1783704082242,
+      "updatedAt": "2026-07-10T17:21:22.242Z",
+      "timeSource": "mtime"
+    },
+    "palantir-q4-fy25": {
+      "path": "data/datasets/palantir-q4-fy25.js",
+      "updatedAtMs": 1783711043489,
+      "updatedAt": "2026-07-10T19:17:23.489Z",
+      "timeSource": "mtime"
+    },
+    "tempus-ai-q4-fy25": {
+      "path": "data/datasets/tempus-ai-q4-fy25.js",
+      "updatedAtMs": 1783704514909,
+      "updatedAt": "2026-07-10T17:28:34.909Z",
+      "timeSource": "mtime"
+    },
+    "draftkings-q4-fy25": {
+      "path": "data/datasets/draftkings-q4-fy25.js",
+      "updatedAtMs": 1783711043391,
+      "updatedAt": "2026-07-10T19:17:23.391Z",
+      "timeSource": "mtime"
+    },
+    "elastic-q3-fy26": {
+      "path": "data/datasets/elastic-q3-fy26.js",
+      "updatedAtMs": 1783711043395,
+      "updatedAt": "2026-07-10T19:17:23.395Z",
+      "timeSource": "mtime"
+    },
+    "flutter-q4-fy25": {
+      "path": "data/datasets/flutter-q4-fy25.js",
+      "updatedAtMs": 1783711043403,
+      "updatedAt": "2026-07-10T19:17:23.403Z",
+      "timeSource": "mtime"
+    },
+    "amer-sports-q4-fy25": {
+      "path": "data/datasets/amer-sports-q4-fy25.js",
+      "updatedAtMs": 1783711043332,
+      "updatedAt": "2026-07-10T19:17:23.332Z",
+      "timeSource": "mtime"
     },
     "data/revenue-metrics.js": {
       "path": "data/revenue-metrics.js",

@@ -494,8 +494,7 @@
       { source: 'operating_profit', target: 'tax', value: 59.5, width: 33, sourceOrder: 1, targetOrder: 0 },
       {
         source: 'other',
-        target: 'net_profit',
-        value: 5.0,
+        target: 'net_profit', value: 5.0,
         width: 3,
         sourceOrder: 0,
         targetOrder: 1,

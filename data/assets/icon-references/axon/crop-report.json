@@ -1,0 +1,319 @@
+{
+  "source": "input/processed/axon-q4-fy25.png",
+  "spec": "input/icon-crop-specs/axon-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-10T16:03:42.635755+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3,
+      "maxP99AbsoluteError": 12,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/axon",
+  "crops": [
+    {
+      "key": "axon-business-personal-sensors-taser-cluster-q4-fy25",
+      "output": "data/assets/icon-references/axon/crops/business-personal-sensors-taser-cluster-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 3937,
+        "losslessBytes": 17236,
+        "savingsVsLossless": 0.7716,
+        "metrics": {
+          "meanAbsoluteError": 0.493,
+          "rootMeanSquareError": 1.9385,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.2479
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 29423,
+        "transparentPixelRatio": 0.6761
+      },
+      "searchBox": {
+        "x": 58,
+        "y": 416,
+        "width": 340,
+        "height": 128
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 66,
+        "y0": 420,
+        "x1": 392,
+        "y1": 543
+      },
+      "cropBox": {
+        "x0": 58,
+        "y0": 416,
+        "x1": 398,
+        "y1": 544
+      },
+      "validation": {
+        "width": 340,
+        "height": 128,
+        "foregroundPixels": 13634,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 6,
+          "top": 4,
+          "bottom": 1
+        },
+        "centerOffset": {
+          "x": 0.0029,
+          "y": 0.0117
+        },
+        "passes": true
+      },
+      "note": "TASER weapon, Axon bolt roundel, and TASER wordmark for the Personal Sensors revenue segment. Excludes its value/label, flow ribbon, Revenue hub, source branding, and other attribution.",
+      "runtimeOutput": "data/assets/raster-annotations/axon/business-personal-sensors-taser-cluster-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 3937,
+        "losslessBytes": 17236,
+        "savingsVsLossless": 0.7716,
+        "metrics": {
+          "meanAbsoluteError": 0.493,
+          "rootMeanSquareError": 1.9385,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.2479
+        }
+      },
+      "validationSheet": "data/assets/icon-references/axon/validation-sheets/axon-business-personal-sensors-taser-cluster-q4-fy25.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 233967,
+        "losslessBytes": 233967,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "axon-company-mark-q4-fy25",
+      "output": "data/assets/icon-references/axon/crops/company-mark-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2134,
+        "losslessBytes": 10145,
+        "savingsVsLossless": 0.7897,
+        "metrics": {
+          "meanAbsoluteError": 0.1841,
+          "rootMeanSquareError": 1.0358,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.0608
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 25373,
+        "transparentPixelRatio": 0.5881
+      },
+      "searchBox": {
+        "x": 1088,
+        "y": 307,
+        "width": 219,
+        "height": 197
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 1090,
+        "y0": 310,
+        "x1": 1307,
+        "y1": 502
+      },
+      "cropBox": {
+        "x0": 1088,
+        "y0": 307,
+        "x1": 1307,
+        "y1": 504
+      },
+      "validation": {
+        "width": 219,
+        "height": 197,
+        "foregroundPixels": 17632,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 2,
+          "right": 0,
+          "top": 3,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": 0.0046,
+          "y": 0.0025
+        },
+        "passes": true
+      },
+      "note": "Black Axon company mark shown above the Revenue hub. Excludes Revenue labels, financial flows, the title, website URL, publisher marks, and attribution.",
+      "runtimeOutput": "data/assets/raster-annotations/axon/company-mark-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2134,
+        "losslessBytes": 10145,
+        "savingsVsLossless": 0.7897,
+        "metrics": {
+          "meanAbsoluteError": 0.1841,
+          "rootMeanSquareError": 1.0358,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.0608
+        }
+      },
+      "validationSheet": "data/assets/icon-references/axon/validation-sheets/axon-company-mark-q4-fy25.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 239180,
+        "losslessBytes": 239180,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "axon-business-platform-solutions-evidence-wordmark-q4-fy25",
+      "output": "data/assets/icon-references/axon/crops/business-platform-solutions-evidence-wordmark-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1725,
+        "losslessBytes": 8777,
+        "savingsVsLossless": 0.8035,
+        "metrics": {
+          "meanAbsoluteError": 0.9993,
+          "rootMeanSquareError": 2.2113,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 23,
+          "changedPixelRatio": 0.4087
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 6562,
+        "transparentPixelRatio": 0.6031
+      },
+      "searchBox": {
+        "x": 418,
+        "y": 1021,
+        "width": 351,
+        "height": 31
+      },
+      "componentCount": 13,
+      "subjectBox": {
+        "x0": 421,
+        "y0": 1021,
+        "x1": 759,
+        "y1": 1044
+      },
+      "cropBox": {
+        "x0": 418,
+        "y0": 1021,
+        "x1": 769,
+        "y1": 1052
+      },
+      "validation": {
+        "width": 351,
+        "height": 31,
+        "foregroundPixels": 3760,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 3,
+          "right": 10,
+          "top": 0,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": -0.01,
+          "y": -0.129
+        },
+        "passes": true
+      },
+      "note": "Evidence.com wordmark for the Platform Solutions revenue segment. Excludes the segment label and value, Revenue flow, publisher marks, website URL, and attribution.",
+      "runtimeOutput": "data/assets/raster-annotations/axon/business-platform-solutions-evidence-wordmark-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1725,
+        "losslessBytes": 8777,
+        "savingsVsLossless": 0.8035,
+        "metrics": {
+          "meanAbsoluteError": 0.9993,
+          "rootMeanSquareError": 2.2113,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 23,
+          "changedPixelRatio": 0.4087
+        }
+      },
+      "validationSheet": "data/assets/icon-references/axon/validation-sheets/axon-business-platform-solutions-evidence-wordmark-q4-fy25.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 216245,
+        "losslessBytes": 216245,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

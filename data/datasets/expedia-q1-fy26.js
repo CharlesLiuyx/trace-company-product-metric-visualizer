@@ -445,15 +445,15 @@
       /* The drawn gross->operating band is the residual after the five
        * drawn opex items (~$0.19B, 20px); the link keeps the GAAP
        * operating-profit value for tooltips. */
-      { source: 'gross_profit', target: 'operating_profit', value: 0.251, percent: 8.2, width: 20, sourceOrder: 0, targetOrder: 0 },
-      { source: 'gross_profit', target: 'operating_expenses', value: 2.798, percent: 91.8, width: 324, sourceOrder: 1, targetOrder: 0, linkTint: RED_LINK },
+      { source: 'gross_profit', target: 'operating_profit', value: 0.251, width: 20, sourceOrder: 0, targetOrder: 0 },
+      { source: 'gross_profit', target: 'operating_expenses', value: 2.798, width: 324, sourceOrder: 1, targetOrder: 0, linkTint: RED_LINK },
       { source: 'other_income', target: 'operating_profit', value: 0.060, width: 6, sourceOrder: 0, targetOrder: 1, y0: 478, y1: 424 },
 
       /* Operating profit plus joined other income flow on into the
        * combined non-operating "Other" outflow (interest expense +
        * other, net + tax); the $12M net loss backfills the rest. */
-      { source: 'operating_profit', target: 'other', value: 0.311, percent: 96.3, width: 27, sourceOrder: 0, targetOrder: 0, linkTint: RED_LINK },
-      { source: 'net_loss', target: 'other', value: 0.012, percent: 3.7, width: 3, sourceOrder: 0, targetOrder: 1, y0: 430.5, y1: 344.5, linkTint: '#d06a6a', curve: { c1x: 2248, c1y: 430.5, c2x: 2258, c2y: 344.5 } },
+      { source: 'operating_profit', target: 'other', value: 0.311, width: 27, sourceOrder: 0, targetOrder: 0, linkTint: RED_LINK },
+      { source: 'net_loss', target: 'other', value: 0.012, width: 3, sourceOrder: 0, targetOrder: 1, y0: 430.5, y1: 344.5, linkTint: '#d06a6a', curve: { c1x: 2248, c1y: 430.5, c2x: 2258, c2y: 344.5 } },
 
       { source: 'operating_expenses', target: 'sm', value: 2.058, width: 233, sourceOrder: 0, targetOrder: 0 },
       { source: 'operating_expenses', target: 'technology', value: 0.324, width: 35, sourceOrder: 1, targetOrder: 0 },

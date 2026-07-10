@@ -1,0 +1,483 @@
+{
+  "source": "input/processed/amer-sports-q4-fy25.png",
+  "spec": "input/icon-crop-specs/amer-sports-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-10T17:32:08.904141+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/amer-sports",
+  "crops": [
+    {
+      "key": "amer-sports-company-logo",
+      "output": "data/assets/icon-references/amer-sports/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4438,
+        "losslessBytes": 23601,
+        "savingsVsLossless": 0.812,
+        "metrics": {
+          "meanAbsoluteError": 0.3647,
+          "rootMeanSquareError": 1.9943,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 37,
+          "changedPixelRatio": 0.134
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 75857,
+        "transparentPixelRatio": 0.7265
+      },
+      "searchBox": {
+        "x": 760,
+        "y": 260,
+        "width": 430,
+        "height": 210
+      },
+      "componentCount": 12,
+      "subjectBox": {
+        "x0": 779,
+        "y0": 260,
+        "x1": 1174,
+        "y1": 459
+      },
+      "cropBox": {
+        "x0": 748,
+        "y0": 250,
+        "x1": 1202,
+        "y1": 480
+      },
+      "validation": {
+        "width": 454,
+        "height": 230,
+        "foregroundPixels": 20441,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 31,
+          "right": 28,
+          "top": 10,
+          "bottom": 21
+        },
+        "centerOffset": {
+          "x": 0.0033,
+          "y": -0.0239
+        },
+        "passes": true
+      },
+      "note": "Amer Sports sail mark and wordmark above the Revenue hub; excludes the title, Revenue label, and chart ribbons.",
+      "runtimeOutput": "data/assets/raster-annotations/amer-sports/company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4438,
+        "losslessBytes": 23601,
+        "savingsVsLossless": 0.812,
+        "metrics": {
+          "meanAbsoluteError": 0.3647,
+          "rootMeanSquareError": 1.9943,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 37,
+          "changedPixelRatio": 0.134
+        }
+      },
+      "validationSheet": "data/assets/icon-references/amer-sports/validation-sheets/amer-sports-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 255346,
+        "losslessBytes": 255346,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "technical-apparel-brands",
+      "output": "data/assets/icon-references/amer-sports/crops/technical-apparel-brands.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 34164,
+        "losslessBytes": 34164,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 37529,
+        "transparentPixelRatio": 0.695
+      },
+      "searchBox": {
+        "x": 25,
+        "y": 468,
+        "width": 258,
+        "height": 182
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 26,
+        "y0": 473,
+        "x1": 282,
+        "y1": 643
+      },
+      "cropBox": {
+        "x0": 18,
+        "y0": 460,
+        "x1": 288,
+        "y1": 660
+      },
+      "validation": {
+        "width": 270,
+        "height": 200,
+        "foregroundPixels": 15632,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 6,
+          "top": 13,
+          "bottom": 17
+        },
+        "centerOffset": {
+          "x": 0.0037,
+          "y": -0.01
+        },
+        "passes": true
+      },
+      "note": "Technical Apparel puffer, beanie, Arc'teryx, and Peak Performance cluster; a blue-only filter removes the adjacent Technical Apparel label while preserving the full black product wordmarks.",
+      "excludedPixels": 1700,
+      "transparentColorPixels": 11,
+      "runtimeOutput": "data/assets/raster-annotations/amer-sports/technical-apparel-brands.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 34164,
+        "losslessBytes": 34164,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/amer-sports/validation-sheets/technical-apparel-brands.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 294725,
+        "losslessBytes": 294725,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "outdoor-performance-salomon",
+      "output": "data/assets/icon-references/amer-sports/crops/outdoor-performance-salomon.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 3244,
+        "losslessBytes": 14509,
+        "savingsVsLossless": 0.7764,
+        "metrics": {
+          "meanAbsoluteError": 0.9849,
+          "rootMeanSquareError": 2.595,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 19,
+          "changedPixelRatio": 0.3371
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 12774,
+        "transparentPixelRatio": 0.6695
+      },
+      "searchBox": {
+        "x": 25,
+        "y": 790,
+        "width": 160,
+        "height": 90
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 28,
+        "y0": 795,
+        "x1": 164,
+        "y1": 879
+      },
+      "cropBox": {
+        "x0": 18,
+        "y0": 782,
+        "x1": 198,
+        "y1": 888
+      },
+      "validation": {
+        "width": 180,
+        "height": 106,
+        "foregroundPixels": 6064,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 10,
+          "right": 34,
+          "top": 13,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": -0.0667,
+          "y": 0.0189
+        },
+        "passes": true
+      },
+      "note": "Salomon shoe and wordmark for Outdoor Performance; excludes the business label, Atomic marks, values, and link.",
+      "runtimeOutput": "data/assets/raster-annotations/amer-sports/outdoor-performance-salomon.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 3244,
+        "losslessBytes": 14509,
+        "savingsVsLossless": 0.7764,
+        "metrics": {
+          "meanAbsoluteError": 0.9849,
+          "rootMeanSquareError": 2.595,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 19,
+          "changedPixelRatio": 0.3371
+        }
+      },
+      "validationSheet": "data/assets/icon-references/amer-sports/validation-sheets/outdoor-performance-salomon.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 280940,
+        "losslessBytes": 280940,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "outdoor-performance-atomic",
+      "output": "data/assets/icon-references/amer-sports/crops/outdoor-performance-atomic.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 9336,
+        "losslessBytes": 9336,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 17559,
+        "transparentPixelRatio": 0.8361
+      },
+      "searchBox": {
+        "x": 55,
+        "y": 900,
+        "width": 200,
+        "height": 90
+      },
+      "componentCount": 5,
+      "subjectBox": {
+        "x0": 55,
+        "y0": 900,
+        "x1": 226,
+        "y1": 968
+      },
+      "cropBox": {
+        "x0": 50,
+        "y0": 895,
+        "x1": 260,
+        "y1": 995
+      },
+      "validation": {
+        "width": 210,
+        "height": 100,
+        "foregroundPixels": 2904,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 5,
+          "right": 34,
+          "top": 5,
+          "bottom": 27
+        },
+        "centerOffset": {
+          "x": -0.069,
+          "y": -0.11
+        },
+        "passes": true
+      },
+      "note": "Atomic ski illustration, mark, and wordmark for Outdoor Performance. The adjacent Performance-label fragment in the upper-right corner is explicitly transparent-masked; values and links are excluded.",
+      "excludedPixels": 2100,
+      "runtimeOutput": "data/assets/raster-annotations/amer-sports/outdoor-performance-atomic.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 9336,
+        "losslessBytes": 9336,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/amer-sports/validation-sheets/outdoor-performance-atomic.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 252587,
+        "losslessBytes": 252587,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "ball-racquet-brands",
+      "output": "data/assets/icon-references/amer-sports/crops/ball-racquet-brands.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 6815,
+        "losslessBytes": 29087,
+        "savingsVsLossless": 0.7657,
+        "metrics": {
+          "meanAbsoluteError": 0.6472,
+          "rootMeanSquareError": 2.2382,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.2076
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 44768,
+        "transparentPixelRatio": 0.7959
+      },
+      "searchBox": {
+        "x": 25,
+        "y": 1015,
+        "width": 230,
+        "height": 205
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 37,
+        "y0": 1015,
+        "x1": 219,
+        "y1": 1201
+      },
+      "cropBox": {
+        "x0": 15,
+        "y0": 1005,
+        "x1": 265,
+        "y1": 1230
+      },
+      "validation": {
+        "width": 250,
+        "height": 225,
+        "foregroundPixels": 10887,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 22,
+          "right": 46,
+          "top": 10,
+          "bottom": 29
+        },
+        "centerOffset": {
+          "x": -0.048,
+          "y": -0.0422
+        },
+        "passes": true
+      },
+      "note": "Ball & Racquet basketball, tennis-racket, and Wilson-wordmark cluster; excludes the business label, values, and link.",
+      "runtimeOutput": "data/assets/raster-annotations/amer-sports/ball-racquet-brands.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 6815,
+        "losslessBytes": 29087,
+        "savingsVsLossless": 0.7657,
+        "metrics": {
+          "meanAbsoluteError": 0.6472,
+          "rootMeanSquareError": 2.2382,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.2076
+        }
+      },
+      "validationSheet": "data/assets/icon-references/amer-sports/validation-sheets/ball-racquet-brands.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 290605,
+        "losslessBytes": 290605,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

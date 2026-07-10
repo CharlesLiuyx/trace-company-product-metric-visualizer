@@ -1,0 +1,226 @@
+{
+  "source": "input/processed/live-nation-fy25.png",
+  "spec": "input/icon-crop-specs/live-nation-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-10T16:05:12.865452+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/live-nation",
+  "crops": [
+    {
+      "key": "live-nation-company-logo",
+      "output": "data/assets/icon-references/live-nation/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4651,
+        "losslessBytes": 17615,
+        "savingsVsLossless": 0.736,
+        "metrics": {
+          "meanAbsoluteError": 0.4044,
+          "rootMeanSquareError": 2.0339,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.2791
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 63756,
+        "transparentPixelRatio": 0.5811
+      },
+      "searchBox": {
+        "x": 570,
+        "y": 270,
+        "width": 665,
+        "height": 165
+      },
+      "componentCount": 23,
+      "subjectBox": {
+        "x0": 578,
+        "y0": 276,
+        "x1": 1226,
+        "y1": 423
+      },
+      "cropBox": {
+        "x0": 570,
+        "y0": 270,
+        "x1": 1235,
+        "y1": 435
+      },
+      "validation": {
+        "width": 665,
+        "height": 165,
+        "foregroundPixels": 45011,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 9,
+          "top": 6,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": -0.0008,
+          "y": -0.0182
+        },
+        "passes": true
+      },
+      "note": "Live Nation Entertainment company wordmark above the Revenue hub; includes the complete red frame and Entertainment line, but excludes the chart title, values, flows, and publisher attribution.",
+      "runtimeOutput": "data/assets/raster-annotations/live-nation/company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4651,
+        "losslessBytes": 17615,
+        "savingsVsLossless": 0.736,
+        "metrics": {
+          "meanAbsoluteError": 0.4044,
+          "rootMeanSquareError": 2.0339,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.2791
+        }
+      },
+      "validationSheet": "data/assets/icon-references/live-nation/validation-sheets/live-nation-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 239648,
+        "losslessBytes": 239648,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "live-nation-concerts-brand-cluster",
+      "output": "data/assets/icon-references/live-nation/crops/concerts-brand-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 7135,
+        "losslessBytes": 31409,
+        "savingsVsLossless": 0.7728,
+        "metrics": {
+          "meanAbsoluteError": 0.9236,
+          "rootMeanSquareError": 2.5754,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 50,
+          "changedPixelRatio": 0.3845
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 28753,
+        "transparentPixelRatio": 0.5076
+      },
+      "searchBox": {
+        "x": 125,
+        "y": 637,
+        "width": 240,
+        "height": 236
+      },
+      "componentCount": 17,
+      "subjectBox": {
+        "x0": 141,
+        "y0": 641,
+        "x1": 352,
+        "y1": 869
+      },
+      "cropBox": {
+        "x0": 125,
+        "y0": 637,
+        "x1": 365,
+        "y1": 873
+      },
+      "validation": {
+        "width": 240,
+        "height": 236,
+        "foregroundPixels": 22208,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 16,
+          "right": 13,
+          "top": 4,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": 0.0063,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Concerts segment's stacked Live Nation, Ticketmaster, House of Blues, and VIP Nation brand-wordmark cluster; excludes the Concerts label, value, source bar, and publisher attribution.",
+      "runtimeOutput": "data/assets/raster-annotations/live-nation/concerts-brand-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 7135,
+        "losslessBytes": 31409,
+        "savingsVsLossless": 0.7728,
+        "metrics": {
+          "meanAbsoluteError": 0.9236,
+          "rootMeanSquareError": 2.5754,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 50,
+          "changedPixelRatio": 0.3845
+        }
+      },
+      "validationSheet": "data/assets/icon-references/live-nation/validation-sheets/live-nation-concerts-brand-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 319712,
+        "losslessBytes": 319712,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

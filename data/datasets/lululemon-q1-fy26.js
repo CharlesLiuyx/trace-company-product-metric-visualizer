@@ -402,8 +402,8 @@
        * $0.2B net bar minus the $9M "Other" hairline that backfills the
        * bar bottom from below (no drawn source bar in the original). The
        * op-profit bar (44px) splits into net (29px) + tax (14px). */
-      { source: 'operating_profit', target: 'net_profit', value: 0.2, percent: 66.7, width: 28, sourceOrder: 0, targetOrder: 0 },
-      { source: 'operating_profit', target: 'tax', value: 0.1, percent: 33.3, width: 14, sourceOrder: 1, targetOrder: 0, linkTint: RED_LINK },
+      { source: 'operating_profit', target: 'net_profit', value: 0.2, width: 28, sourceOrder: 0, targetOrder: 0 },
+      { source: 'operating_profit', target: 'tax', value: 0.1, width: 14, sourceOrder: 1, targetOrder: 0, linkTint: RED_LINK },
       { source: 'other', target: 'net_profit', value: 0.009, width: 2, sourceOrder: 0, targetOrder: 1 },
 
       /* Operating expenses -> SG&A (essentially the whole bar, 170px) +

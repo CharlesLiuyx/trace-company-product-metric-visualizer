@@ -528,12 +528,12 @@
       { source: 'gross_profit', target: 'operating_expenses', value: 606, width: 155, sourceOrder: 1, targetOrder: 0 },
 
       {
-        source: 'operating_profit', target: 'other', value: 57, percent: 55.3, width: 14,
+        source: 'operating_profit', target: 'other', value: 57, width: 14,
         sourceOrder: 0, targetOrder: 1, y0: 441, y1: 516, linkTint: RED_LINK,
         curve: { c1x: 1970, c1y: 441, c2x: 2140, c2y: 516 },
       },
       {
-        source: 'net_loss', target: 'other', value: 45, percent: 43.7, width: 12,
+        source: 'net_loss', target: 'other', value: 45, width: 12,
         sourceOrder: 0, targetOrder: 0, y0: 440, y1: 503, linkTint: RED_LINK,
         curve: { c1x: 2250, c1y: 440, c2x: 2266, c2y: 503 },
       },

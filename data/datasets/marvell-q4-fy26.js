@@ -285,8 +285,7 @@
       { source: 'operating_profit', target: 'net_profit', value: 0.4, width: 55, sourceOrder: 0, targetOrder: 0, linkTint: GREEN_LINK },
       {
         source: 'tax_benefit',
-        target: 'net_profit',
-        value: 0.015,
+        target: 'net_profit', value: 0.015,
         width: 3,
         targetOrder: 1,
         y1: 526,

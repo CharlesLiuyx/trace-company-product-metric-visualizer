@@ -133,5 +133,116 @@
         },
       },
     }
+    ,
+    {
+      key: 'marriott-q4-fy25',
+      company: 'Marriott',
+      period: 'Q4 FY25',
+      periodNote: 'Quarter ended Dec. 31, 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/marriott-q4-fy25.png',
+      roundingTolerance: 0.05,
+      revenue: {
+        total: 6.690,
+        notes: ['+4% Y/Y'],
+        items: [
+          { id: 'base_management_fees', label: 'Base management fees', value: 0.343, notes: ['+3% Y/Y'] },
+          { id: 'franchise_fees', label: 'Franchise fees', value: 0.843, notes: ['+6% Y/Y'] },
+          { id: 'incentive_management_fees', label: 'Incentive management fees', value: 0.239, notes: ['+16% Y/Y'] },
+          { id: 'owned_leased_and_other_revenue', label: 'Owned, leased, and other revenue', value: 0.457, notes: ['+9% Y/Y'] },
+          { id: 'cost_reimbursement', label: 'Cost reimbursement revenue', value: 4.857, notes: ['+3% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          id: 'contract_investment_amortization',
+          label: 'Contract investment amortization',
+          value: 0.049,
+          notes: ['Source chart shows this as Amortization ($49M) before the Revenue node.'],
+        },
+        operatingExpenses: {
+          total: 5.913,
+          notes: [
+            'Official total operating costs and expenses; the source chart omits the $29M restructuring and merger-related charges and other line item.',
+          ],
+          items: [
+            { id: 'owned_leased_other_direct_costs', label: 'Owned, leased, and other direct costs', value: 0.416 },
+            { id: 'ga', label: 'G&A', value: 0.241 },
+            { id: 'da', label: 'D&A', value: 0.059 },
+            { id: 'reimbursed_expenses', label: 'Reimbursed expenses', value: 5.168 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.137 },
+      },
+      otherExpenses: {
+        total: 0.195,
+        items: [
+          {
+            id: 'other_nonoperating',
+            label: 'Other',
+            value: 0.195,
+            notes: ['Net interest expense, gains and other income, interest income, and equity in earnings.'],
+          },
+        ],
+      },
+      profit: {
+        gross: {
+          id: 'gross_profit',
+          label: 'Gross profit',
+          value: 6.690,
+          notes: ['Bookkeeping subtotal; the source chart does not show gross profit.'],
+        },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 0.777, notes: ['12% margin', '(0pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 0.445, notes: ['7% margin', '(0pp) Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度',
+          periodNote: '截至 2025 年 12 月 31 日的季度',
+          revenue: {
+            notes: ['同比 +4%'],
+            items: [
+              { id: 'base_management_fees', label: '基础管理费', notes: ['同比 +3%'] },
+              { id: 'franchise_fees', label: '特许经营费', notes: ['同比 +6%'] },
+              { id: 'incentive_management_fees', label: '激励管理费', notes: ['同比 +16%'] },
+              { id: 'owned_leased_and_other_revenue', label: '自有、租赁及其他收入', notes: ['同比 +9%'] },
+              { id: 'cost_reimbursement', label: '成本报销收入', notes: ['同比 +3%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: {
+              label: '合同投资摊销',
+              notes: ['来源图在收入节点前将该项目显示为 Amortization ($49M)。'],
+            },
+            operatingExpenses: {
+              notes: ['官方运营成本和费用合计；来源图未拆分 $29M 重组、并购相关费用及其他项目。'],
+              items: [
+                { id: 'owned_leased_other_direct_costs', label: '自有、租赁及其他直接成本' },
+                { id: 'ga', label: '管理费用' },
+                { id: 'da', label: '折旧与摊销' },
+                { id: 'reimbursed_expenses', label: '报销费用' },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherExpenses: {
+            items: [
+              {
+                id: 'other_nonoperating',
+                label: '其他',
+                notes: ['净利息费用、其他收益、利息收入及权益法收益。'],
+              },
+            ],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['账面核对小计；来源图未显示毛利润。'] },
+            operating: { label: '营业利润', notes: ['利润率 12%', '同比 (0 个百分点)'] },
+            net: { label: '净利润', notes: ['利润率 7%', '同比 (0 个百分点)'] },
+          },
+        },
+      },
+    }
   );
 })(window);

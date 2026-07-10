@@ -1,0 +1,139 @@
+{
+  "source": "input/processed/coupang-q4-fy25.png",
+  "spec": "input/icon-crop-specs/coupang-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-10T17:10:01.391177+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/coupang",
+  "crops": [
+    {
+      "key": "coupang-developing-offerings-brands",
+      "output": "data/assets/icon-references/coupang/crops/developing-offerings-brands.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 2831,
+        "losslessBytes": 11615,
+        "savingsVsLossless": 0.7563,
+        "metrics": {
+          "meanAbsoluteError": 0.6837,
+          "rootMeanSquareError": 2.2977,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 53,
+          "changedPixelRatio": 0.393
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 15922,
+        "transparentPixelRatio": 0.6098
+      },
+      "searchBox": {
+        "x": 132,
+        "y": 941,
+        "width": 272,
+        "height": 96
+      },
+      "componentCount": 13,
+      "subjectBox": {
+        "x0": 159,
+        "y0": 966,
+        "x1": 370,
+        "y1": 1020
+      },
+      "cropBox": {
+        "x0": 132,
+        "y0": 941,
+        "x1": 404,
+        "y1": 1037
+      },
+      "validation": {
+        "width": 272,
+        "height": 96,
+        "foregroundPixels": 3129,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 27,
+          "right": 34,
+          "top": 25,
+          "bottom": 17
+        },
+        "centerOffset": {
+          "x": -0.0129,
+          "y": 0.0417
+        },
+        "passes": true
+      },
+      "note": "Coupang Eats app icon and Coupang Play wordmark above the Developing Offerings source bar; excludes the segment label, source bar, KPI card, ribbons, and publisher attribution.",
+      "runtimeOutput": "data/assets/raster-annotations/coupang/developing-offerings-brands.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 2831,
+        "losslessBytes": 11615,
+        "savingsVsLossless": 0.7563,
+        "metrics": {
+          "meanAbsoluteError": 0.6837,
+          "rootMeanSquareError": 2.2977,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 53,
+          "changedPixelRatio": 0.393
+        }
+      },
+      "validationSheet": "data/assets/icon-references/coupang/validation-sheets/coupang-developing-offerings-brands.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 81438,
+        "losslessBytes": 220232,
+        "savingsVsLossless": 0.6302,
+        "metrics": {
+          "meanAbsoluteError": 0.1975,
+          "rootMeanSquareError": 1.3999,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 51,
+          "changedPixelRatio": 0.0603
+        }
+      }
+    }
+  ]
+}

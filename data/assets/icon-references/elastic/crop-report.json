@@ -1,12 +1,12 @@
 {
-  "source": "input/processed/elastic-q4-fy26.png",
-  "spec": "input/icon-crop-specs/elastic-q4-fy26.json",
+  "source": "input/processed/elastic-q3-fy26.png",
+  "spec": "input/icon-crop-specs/elastic-q3-fy26.json",
   "background": [
     242,
     242,
     242
   ],
-  "generatedAt": "2026-06-27T13:44:10.063557+00:00",
+  "generatedAt": "2026-07-10T17:15:56.532756+00:00",
   "compression": {
     "enabled": true,
     "paletteColors": [
@@ -41,15 +41,15 @@
         "enabled": true,
         "mode": "palette",
         "colors": 32,
-        "bytes": 4698,
-        "losslessBytes": 24464,
-        "savingsVsLossless": 0.808,
+        "bytes": 4805,
+        "losslessBytes": 24954,
+        "savingsVsLossless": 0.8074,
         "metrics": {
-          "meanAbsoluteError": 0.513,
-          "rootMeanSquareError": 2.5174,
-          "p99AbsoluteError": 12.0,
+          "meanAbsoluteError": 0.4623,
+          "rootMeanSquareError": 2.4106,
+          "p99AbsoluteError": 11.0,
           "maxChannelDiff": 49,
-          "changedPixelRatio": 0.1117
+          "changedPixelRatio": 0.0983
         }
       },
       "backgroundRemoval": {
@@ -61,8 +61,8 @@
           242,
           242
         ],
-        "transparentPixels": 74477,
-        "transparentPixelRatio": 0.6882
+        "transparentPixels": 90907,
+        "transparentPixelRatio": 0.7273
       },
       "searchBox": {
         "x": 800,
@@ -72,32 +72,32 @@
       },
       "componentCount": 14,
       "subjectBox": {
-        "x0": 820,
-        "y0": 241,
-        "x1": 1334,
-        "y1": 406
+        "x0": 838,
+        "y0": 235,
+        "x1": 1352,
+        "y1": 401
       },
       "cropBox": {
-        "x0": 800,
-        "y0": 230,
-        "x1": 1355,
+        "x0": 770,
+        "y0": 225,
+        "x1": 1395,
         "y1": 425
       },
       "validation": {
-        "width": 555,
-        "height": 195,
-        "foregroundPixels": 26887,
+        "width": 625,
+        "height": 200,
+        "foregroundPixels": 27184,
         "edgeForegroundPixels": 0,
         "forbiddenForegroundPixels": 0,
         "margins": {
-          "left": 20,
-          "right": 21,
-          "top": 11,
-          "bottom": 19
+          "left": 68,
+          "right": 43,
+          "top": 10,
+          "bottom": 24
         },
         "centerOffset": {
-          "x": -0.0009,
-          "y": -0.0205
+          "x": 0.02,
+          "y": -0.035
         },
         "passes": true
       },
@@ -106,16 +106,16 @@
       "validationSheetCompression": {
         "enabled": true,
         "mode": "palette",
-        "colors": 192,
-        "bytes": 80864,
-        "losslessBytes": 227639,
-        "savingsVsLossless": 0.6448,
+        "colors": 256,
+        "bytes": 89672,
+        "losslessBytes": 238705,
+        "savingsVsLossless": 0.6243,
         "metrics": {
-          "meanAbsoluteError": 0.2172,
-          "rootMeanSquareError": 1.4604,
-          "p99AbsoluteError": 7.0,
-          "maxChannelDiff": 58,
-          "changedPixelRatio": 0.0677
+          "meanAbsoluteError": 0.1972,
+          "rootMeanSquareError": 1.3937,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 55,
+          "changedPixelRatio": 0.062
         }
       }
     }

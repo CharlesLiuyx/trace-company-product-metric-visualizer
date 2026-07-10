@@ -1,0 +1,289 @@
+{
+  "source": "input/processed/draftkings-q4-fy25.png",
+  "spec": "input/icon-crop-specs/draftkings-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-10T17:13:50.995524+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/draftkings",
+  "crops": [
+    {
+      "key": "draftkings-company-wordmark",
+      "output": "data/assets/icon-references/draftkings/crops/company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 31166,
+        "losslessBytes": 31166,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 87758,
+        "transparentPixelRatio": 0.6933
+      },
+      "searchBox": {
+        "x": 620,
+        "y": 220,
+        "width": 485,
+        "height": 261
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 631,
+        "y0": 236,
+        "x1": 1098,
+        "y1": 473
+      },
+      "cropBox": {
+        "x0": 620,
+        "y0": 220,
+        "x1": 1105,
+        "y1": 481
+      },
+      "validation": {
+        "width": 485,
+        "height": 261,
+        "foregroundPixels": 37497,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 11,
+          "right": 7,
+          "top": 16,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0041,
+          "y": 0.0153
+        },
+        "passes": true
+      },
+      "note": "DraftKings crown-and-wordmark above the Revenue hub; excludes the Revenue label below and the chart title above.",
+      "excludedPixels": 7760,
+      "runtimeOutput": "data/assets/raster-annotations/draftkings/company-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 31166,
+        "losslessBytes": 31166,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/draftkings/validation-sheets/draftkings-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 267467,
+        "losslessBytes": 267467,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "draftkings-online-gaming-badge",
+      "output": "data/assets/icon-references/draftkings/crops/online-gaming-badge.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2257,
+        "losslessBytes": 8518,
+        "savingsVsLossless": 0.735,
+        "metrics": {
+          "meanAbsoluteError": 0.4047,
+          "rootMeanSquareError": 1.857,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 23,
+          "changedPixelRatio": 0.0971
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 14,
+        "y": 407,
+        "width": 154,
+        "height": 154
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 22,
+        "y0": 415,
+        "x1": 160,
+        "y1": 553
+      },
+      "cropBox": {
+        "x0": 14,
+        "y0": 407,
+        "x1": 168,
+        "y1": 561
+      },
+      "validation": {
+        "width": 154,
+        "height": 154,
+        "foregroundPixels": 16649,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 8,
+          "top": 8,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Green Sportsbook & Casino segment badge, including its crown, monogram, and text while excluding the Online Gaming label.",
+      "runtimeOutput": "data/assets/raster-annotations/draftkings/online-gaming-badge.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2257,
+        "losslessBytes": 8518,
+        "savingsVsLossless": 0.735,
+        "metrics": {
+          "meanAbsoluteError": 0.4047,
+          "rootMeanSquareError": 1.857,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 23,
+          "changedPixelRatio": 0.0971
+        }
+      },
+      "validationSheet": "data/assets/icon-references/draftkings/validation-sheets/draftkings-online-gaming-badge.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 293440,
+        "losslessBytes": 293440,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "draftkings-gaming-software-badge",
+      "output": "data/assets/icon-references/draftkings/crops/gaming-software-badge.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2135,
+        "losslessBytes": 6188,
+        "savingsVsLossless": 0.655,
+        "metrics": {
+          "meanAbsoluteError": 0.323,
+          "rootMeanSquareError": 2.1535,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 47,
+          "changedPixelRatio": 0.072
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 14,
+        "y": 570,
+        "width": 154,
+        "height": 154
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 22,
+        "y0": 577,
+        "x1": 160,
+        "y1": 715
+      },
+      "cropBox": {
+        "x0": 14,
+        "y0": 570,
+        "x1": 168,
+        "y1": 724
+      },
+      "validation": {
+        "width": 154,
+        "height": 154,
+        "foregroundPixels": 18603,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 8,
+          "top": 7,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0065
+        },
+        "passes": true
+      },
+      "note": "Black Fantasy segment badge, including its crown, monogram, and text while excluding the Gaming Software label.",
+      "runtimeOutput": "data/assets/raster-annotations/draftkings/gaming-software-badge.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2135,
+        "losslessBytes": 6188,
+        "savingsVsLossless": 0.655,
+        "metrics": {
+          "meanAbsoluteError": 0.323,
+          "rootMeanSquareError": 2.1535,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 47,
+          "changedPixelRatio": 0.072
+        }
+      },
+      "validationSheet": "data/assets/icon-references/draftkings/validation-sheets/draftkings-gaming-software-badge.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 270733,
+        "losslessBytes": 270733,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

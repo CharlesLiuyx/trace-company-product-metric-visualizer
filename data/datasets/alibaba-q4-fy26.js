@@ -419,8 +419,7 @@
       { source: 'gross_profit', target: 'operating_expenses', value: 12.2, width: 119, sourceOrder: 0, targetOrder: 0 },
       {
         source: 'operating_expenses',
-        target: 'operating_loss',
-        value: 0.1,
+        target: 'operating_loss', value: 0.1,
         width: 1.5,
         sourceOrder: 4,
         targetOrder: 0,

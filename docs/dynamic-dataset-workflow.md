@@ -239,6 +239,16 @@ Object checklist, grouped by render intent:
   (endpoint-tinted gradients, waterfall adjustment area, bypass ribbons,
   multi-entry stacked sockets), and invisible anchor nodes for
   guide-line-only flows.
+- Hover Share semantics: author amounts and semantic topology only; the
+  renderer owns the formula and Adapters must not provide percentage overrides.
+  On node hover, inspect incoming and outgoing sides independently: multiple
+  distinct opposite nodes show each relationship over the current node, while
+  a singleton side shows current node over its opposite. Endpoint-declared SVG
+  annotations count as semantic relationships and de-duplicate matching graph
+  links. Direct link/guide hover always shows smaller authored endpoint over
+  larger authored endpoint. Confirm node, label, link, and guide surfaces with
+  absolute values, including loss/negative nodes and legitimate results above
+  100%.
 - Label units (`layout.labels`): chart title, period stamp
   (period + periodNote), per-node label groups — name, value, notes,
   margin, Y/Y kept as one semantic unit — side labels for dense terminal

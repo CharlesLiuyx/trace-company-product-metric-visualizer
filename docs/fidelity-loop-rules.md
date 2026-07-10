@@ -144,7 +144,7 @@ G12 启用与迁移口径：
 | B7 | G6/G7 | raster 数量与来源 | 不判隐形锚点柱是否多出可见柱/绿痕 | T12 | 不适合（视觉判定） |
 | B8 | G12 | 可见接口计数、node-bbox 内 union 外缘/interval、path 端点、端面切线与 link 几何 containment；同时保留未裁切 raster intervals | 自动分色不能可靠区分 source raster 晕边与真实绘制外溢，也不能判定同色相接和 per-link 语义身份；`mode=warning` / `referenceStatus=not-scored` 不构成 pass | L5/L6/L8/L11/L15 | 部分（G12 几何/union 已 gate） |
 | B9 | 无 | — | hub/深色源 profit 流带渐变 vs 源图纯色 | L12 | 待自动化 |
-| B10 | G11 | 数据一致性 | link 拓扑与源图一致性、tooltip 语义分母 | L8/L14 | 部分（数据侧 + 节点 hover 分母单测已 gate） |
+| B10 | G11 | 数据一致性 | link 拓扑与源图一致性、Hover Share surface 语义 | L8/L14 | 部分（数据侧 + node/link hover 公式单测已 gate） |
 | B11 | 无 | — | 闭合 tapered ribbon 的 path 周长中点会把 Hover 百分比 Tag 错放到目标端 | L16 | 待自动化 |
 | B12 | 无 | — | 多入/出节点 Σlink.width 与节点高度的 rounding 空隙/溢出 | L11 | 待自动化 |
 | B13 | G8 | label ↔ 自身 node 的同轴净空 | 不检查位于两柱之间的完整 label 组与上/下相邻 node 的跨对象净空 | T15 | 待自动化 |
@@ -329,7 +329,7 @@ metrics JSON 的 `labelLayoutAudit` 与该清单互核，`centerDelta`、`edgeGa
 
 | 源图特征（对象盘点可判） | 必查规则 | 逐对象核对产物 |
 | --- | --- | --- |
-| 可见短辅助柱/短横柱（interest、other income、tax、investments…） | G9、T2、T9、T10、T13、T14、L10、L11 | 每根短柱：bbox、同轴 label 中心差、link 宽度 |
+| 可见短辅助柱/短横柱（interest、other income、tax、investments、net-profit terminal…） | G9、T2、T9、T10、T13、T14、L10、L11 | 每根短柱：bbox、同轴 label 中心差、link 宽度 |
 | 多入/出节点及单入出结果柱 | L1–L4、L8、L11 | 每节点：进出顺序对照、Σlink.width vs 柱高 |
 | waterfall 调整区/绕行带 | L8、L14 | 每条带：原图对应关系、语义分母 |
 | 深色 hub/深色源出发的 profit 流带 | L12 | 每条：近源缘取色结论 |
@@ -338,6 +338,7 @@ metrics JSON 的 `labelLayoutAudit` 与该清单互核，`centerDelta`、`edgeGa
 | 侧置 label 列（整组 start/end 对齐） | T4、T6、T7、Z5 | 对齐缘 x、`verticalCenterDelta` |
 | 细流带 + 水平引导线、无可见柱 | T12（与 T13 辨析） | 可见柱计数 = 源图 |
 | `annotationsSvg` wordmark/脚注与 label 同水平带 | A6 | 渲染 bbox 边界间距 |
+| 负空间流带注释（背景色 path 横跨两个柱面，内含产品/金额文字） | A1–A5、A9、L5、L15、G12 | 左/右锚点、上下极值、文字组 bbox、两端接口 crop、完整语义区域指标；若上下露出 node face，另记完整 node bbox |
 | 自定义 curve、显式 `y0`/`y1`、固定 socket | L5、L7、L15 | 端点切线竖直、控制点单调 |
 | 图标 cluster（主体铺满取景框） | I2–I5 | `transparentPixelRatio`、验收记录 |
 
@@ -518,27 +519,35 @@ Interface Matrix 与 G12 interface audit，不以源码 link 数组位置、node
 - L13 节点联动移动：人工反馈要求节点「上/下移」时，把节点、同属 label、所有
   相关 `y0`/`y1` 和 curve 控制点作为一个联动系统处理；移动后重算目标柱
   stacked intervals，并用局部 crop 复查目标边界端点贴合。
-- L14 tooltip 百分比：所有节点金额均使用 authored value 的 magnitude（绝对值），
-  不得用 d3 按流量重算的 node value 改写报表口径。对显式声明
-  `hoverPercentMode: 'contribution'` 的 waterfall contribution link，无论
-  incoming/outgoing 是否 singleton、指针位于 source 节点、target 节点、label 或
-  link，一律显示 `|link.value| / |target（结果柱）authored magnitude|`。贡献率的
-  分母不得随 hover surface 改变；否则单一路径 source link 会错误显示为 100%。该
-  模式只用于「一笔调整对结果柱的贡献」而非两柱
-  留存/比较关系。其余 link 的 hover 节点时，incoming 与
-  outgoing 两侧分别按 `data.links` 图拓扑中的 **distinct 对端 node 数量**判断；
-  平行重复 link 不得虚增对端数量，独立 SVG annotation/guide 也不得把单一来源或
-  去向误判为多来源/多去向。同侧 distinct 对端 `> 1` 时，该侧每条 link 显示
-  `link magnitude / 当前节点 authored magnitude`；同侧 distinct 对端 `<= 1` 且
-  确有一个对端时，显示 `当前节点 authored magnitude / 该对端 authored magnitude`；
-  没有对端时该侧不显示 tooltip。两侧必须独立计算并同时保留各自 tooltip，不能因
-  另一侧分叉或未分叉而抑制本侧。直接 hover link 时始终显示
+- L14 Hover Share（所占比例）：公式由 renderer 统一拥有，Adapter 只提供 authored
+  amount 与 semantic topology，不得提供百分比模式或自定义分母。所有节点与 link
+  金额均取 authored magnitude（绝对值），不得用 d3 按流量重算的 node value 改写
+  报表口径。
+
+  Hover node 或其 label 时，incoming 与 outgoing 两侧独立判断 **distinct 对端
+  semantic node 数量**。计数同时覆盖 graph links 与声明 numerator/denominator 的
+  SVG annotation；同一 graph link 的 annotation 只计一次。平行 links 指向同一对端
+  时视为一个来源/去向，其 link amount 聚合后显示一张 Tag。
+
+  - 同侧 distinct 对端 `> 1`：每个来源/去向显示
+    `|aggregated link value| / |当前 node authored value|`；
+  - 同侧恰有一个对端：显示
+    `|当前 node authored value| / |对端 node authored value|`；
+  - 同侧没有对端：不显示 Tag。
+
+  Hover link 或带 endpoint 的 guide 本身时，始终显示
   `min(|source authored value|, |target authored value|) /
-  max(|source authored value|, |target authored value|)`，与方向无关，并忽略
-  `link.value`、`percent`、`percentage`、`percentText` 与 `percentageText`。分母为
-  `0` 时不显示 tooltip；因此两端均为 `0` 的 `0 / 0` 不得显示，也不得产生
-  `NaN` / `Infinity`。这些节点与 link hover 行为由
-  `tests/sankey-engine-layout.test.mjs` 纳入 `pnpm check` gate。
+  max(|source authored value|, |target authored value|)`，与方向无关并忽略
+  `link.value`。同一关系在 node 与 link 两种 surface 上允许得到不同结果：例如
+  Datadog Q4 FY25 的 Operating profit 有多个去向，hover 该 node 时其 Net profit
+  流为 `9 / 9 = 100%`，直接 hover link 时为 `9 / 47 = 19.1%`。Coupang 的 `$8M`
+  与 `($34M)` singleton 关系，在 `$8M` node 为 `23.5%`、在 `($34M)` node 为
+  `425%`、在 link 上仍为 `23.5%`。方向性结果超过 100% 合法，不得 clamp。
+
+  `hoverPercentMode`、`nodeHoverPercentDenominator`、`percent`、`percentage`、
+  `percentText`、`percentageText` 均为禁止字段，由 `verify:ssot` 拒绝。分母为 `0`
+  时不显示 Tag；`0 / 0` 不得产生 `NaN` / `Infinity`。这些规则由
+  `tests/sankey-engine-layout.test.mjs` 与浏览器级 `verify:app` gate 覆盖。
 - L15 竖直节点接口端面：无论 link 是 `stroke-linecap: butt` 的等宽中心线，还是
   L11 的闭合 tapered ribbon，连接竖直节点边时都必须水平进入/离开，使端面与
   节点边竖直贴齐。自定义 cubic 的源端中心控制点满足 `c1y = y0`，目标端满足
@@ -555,6 +564,26 @@ Interface Matrix 与 G12 interface audit，不以源码 link 数组位置、node
   中心线参数 `t = 0.5` 计算；Tag 卡片以该点为中心，仅在触碰画布边缘时允许
   clamp。hover 一个 node 同时显示多条 link 时，每个 Tag 都须独立落在各自
   中心线上，并检查相邻卡片不遮挡。
+
+  源图中的某些曲线只承担瀑布图的视觉路由（例如绕经短横柱后再进入真正结果
+  引导线），并不表示一笔独立、可报告的 financial link。这种桥接 curve 可以
+  设置 `showTooltip: false`，但仅限其真正的经济关系已由带 endpoint 的 annotation
+  或 `interactionOnly` link 声明时；不得用它隐藏一个本应按 L14 显示金额比例的
+  真实连接。若源图或交互需求要求 hover 同一节点时同时展示 bridge 与其后续 guide
+  的两张 Tag，则 bridge 是独立可报告关系，**不得**设置 `showTooltip: false`；两张
+  Tag 分别锚定各自的中心线，并都按 L14 的 authored magnitude 口径计算。annotation
+  与同一 `interactionOnly` link 共存时合并为一个 semantic relationship：node hover
+  走 node-side 规则，直接 hover annotation 才走较小 endpoint / 较大 endpoint。
+  `showTooltip: false` 只抑制该 bridge 的百分比卡片，绝不能改变其可见性或 hover
+  高亮。`linkTint` 恰好等于背景色或透明色也不得隐式替换、展开或抑制该 relationship；
+  视觉路由若不应显示 Tag，必须显式使用 `showTooltip: false` 并保留真正的 semantic
+  link/annotation。hover annotation 时，必须沿其 `data-node` 的完整图上下文收集 active links；
+  不能只高亮 annotation 的端点节点、把与之连续的 source-matched 可见 bridge 淡化到
+  看似消失。高亮的透明度须施加到整条 SVG path（`opacity`），而非只修改
+  `stroke-opacity`：后者对 `sourceWidth` / `targetWidth` 生成的 fill 型 tapered
+  ribbon 不生效。若居中 Tag 会遮住短 annotation guide 的大部分或全部可见长度，
+  可把 Tag 锚到 guide 一侧的已量测空白区；须保留与该 guide 的清晰邻近关系，且不得
+  覆盖 guide、柱体或标签。
 
 修复优先级：先确认节点 bbox；节点错 → 联动 `layout.nodes`、label 和相关端点；
 节点对 → 先修整个 occupancy union 的外缘与真实背景空档；union 对后，内部顺序
@@ -629,16 +658,14 @@ link 两端宽度不同 → `sourceWidth` / `targetWidth` + tapered ribbon；双
 - T12a 交互式引导标注：隐藏锚点的名称/数值若以 `annotationsSvg` 呈现，且该标注
   是用户理解或触发该 financial node 的唯一可见入口，必须包进带
   `class="sankey-interactive-annotation" data-node="<node-id>"` 的 `<g>`，并提供不改变
-  像素的透明 hitbox。其 hover 必须进入该 node 的同一上下游高亮与 tooltip 语义；
+  像素的透明 hitbox。其 hover 必须进入该 node 的同一上下游高亮与 Hover Share 语义；
   不能因为透明锚点而失去 hover。若可见引导线语义上代表一笔流入/流出，标注还必须
   声明连接两端的 node，并把实算百分比 Tooltip 锚定在引导线上（不得退化为仅显示节点
-  名称/金额）。若 annotation 只是补充 guide、没有对应 `data.links`（含
-  `interactionOnly`）连接，则它不纳入两端节点的 distinct 对端计数；随节点 hover
-  一同显示时，自己的卡片仍按两端 authored magnitude 的小值/大值计算。若它与一条
-  graph link 表达同一连接，则合并为一个 tooltip、保留 annotation 锚点，并按 L14 的
-  节点侧规则计算。直接 hover 引导线一律按两端 authored magnitude 的小值/大值计算，
-  不得使用自定义分母或 `percent` / `percentText` 覆盖。没有这种连接语义的纯 callout
-  才显示 node tooltip。
+  名称/金额）。只要 annotation 声明了两端，它就是 semantic relationship，并纳入两端
+  node 的 distinct 对端计数；若与 graph link 表达同一连接则按对端去重、使用真实 link
+  amount 并保留 annotation 锚点。随 node hover 时按 L14 的 node-side 规则计算；直接
+  hover 引导线时按两端 authored magnitude 的小值/大值计算。没有端点语义的纯 callout
+  才回退为普通 node hover。
   标签应以引导线的视觉中心/终点为锚点，而不是以隐形 node bbox 强行居中；平滑曲线的
   source、target 切线仍按 L15 审查。
 - T13 可见短辅助柱不得消失：源图已画出短水平柱/短矩形（即使只有 1–3px 高）
@@ -681,6 +708,15 @@ link 两端宽度不同 → `sourceWidth` / `targetWidth` + tapered ribbon；双
 - A7 非默认语言替换注释文字后，重查 union 外框仍在容器内且不越界。
 - A8 优先让 helper 以容器中心、内容组高度、行高和边距推导 baseline；保留
   手写 baseline 时记录容器 bbox、union bbox、中心差和四边边距。
+- A9 **负空间流带注释**：当背景色的 annotation path 视觉上切开一条已有流带、
+  横跨两个柱面并承载产品/金额文字时，它是完整的流带容器，不是可近似为居中
+  胶囊的浮层。第 0 轮须在 reference 局部 crop 量测左右锚点（必须贴对应柱面或
+  柱角）、上/下极值、经过的可见 node face 和文字组 bbox；候选必须复现两端连接
+  与极值，再按完整语义区域记录修复前后局部指标。若 path 经过可见端面，G12 的
+  occupancy/接口 crop 也必须确认它没有提前遮挡 node face。不得只移动文字或用
+  缩短的卡片 path 代替原图的跨柱通道。若 path 上下仍露出同色的竖直 node face，
+  该产品类别必须作为真实 Sankey node 盘点：记录其完整 bbox、左右 link，并让
+  G12 审计两端；不得因中段被白色标签带遮挡而退化为 data-only 直连关系。
 
 ## 本地化布局
 

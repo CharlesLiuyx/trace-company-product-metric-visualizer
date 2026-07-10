@@ -1,0 +1,131 @@
+{
+  "source": "input/processed/dynatrace-q3-fy26.png",
+  "spec": "input/icon-crop-specs/dynatrace-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-10T15:19:45.635329+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3,
+      "maxP99AbsoluteError": 12,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/dynatrace",
+  "crops": [
+    {
+      "key": "dynatrace-company-logo",
+      "output": "data/assets/icon-references/dynatrace/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 4100,
+        "losslessBytes": 18084,
+        "savingsVsLossless": 0.7733,
+        "metrics": {
+          "meanAbsoluteError": 0.2915,
+          "rootMeanSquareError": 1.4762,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 48,
+          "changedPixelRatio": 0.2471
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 65515,
+        "transparentPixelRatio": 0.7283
+      },
+      "searchBox": {
+        "x": 684,
+        "y": 225,
+        "width": 346,
+        "height": 260
+      },
+      "componentCount": 11,
+      "subjectBox": {
+        "x0": 713,
+        "y0": 225,
+        "x1": 1003,
+        "y1": 485
+      },
+      "cropBox": {
+        "x0": 684,
+        "y0": 225,
+        "x1": 1030,
+        "y1": 485
+      },
+      "validation": {
+        "width": 346,
+        "height": 260,
+        "foregroundPixels": 22935,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 29,
+          "right": 27,
+          "top": 0,
+          "bottom": 0
+        },
+        "centerOffset": {
+          "x": 0.0029,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Dynatrace cube and wordmark at the top-center of the source. Excludes the title, Revenue label, financial chart, website URL, How They Make Money mark, and App Economy Insights attribution.",
+      "runtimeOutput": "data/assets/raster-annotations/dynatrace/company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 4100,
+        "losslessBytes": 18084,
+        "savingsVsLossless": 0.7733,
+        "metrics": {
+          "meanAbsoluteError": 0.2915,
+          "rootMeanSquareError": 1.4762,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 48,
+          "changedPixelRatio": 0.2471
+        }
+      },
+      "validationSheet": "data/assets/icon-references/dynatrace/validation-sheets/dynatrace-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 242979,
+        "losslessBytes": 242979,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

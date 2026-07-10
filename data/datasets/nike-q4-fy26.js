@@ -364,8 +364,8 @@
       /* Waterfall region: the drawn op-profit -> net-profit band is the
        * $1.1B net bar minus the $0.1B "Other" hairline that backfills the
        * bar bottom from below (no drawn source bar in the original). */
-      { source: 'operating_profit', target: 'net_profit', value: 1.0, percent: 76.9, width: 31, sourceOrder: 0, targetOrder: 0 },
-      { source: 'operating_profit', target: 'tax', value: 0.3, percent: 23.1, width: 10, sourceOrder: 1, targetOrder: 0, linkTint: RED_LINK },
+      { source: 'operating_profit', target: 'net_profit', value: 1.0, width: 31, sourceOrder: 0, targetOrder: 0 },
+      { source: 'operating_profit', target: 'tax', value: 0.3, width: 10, sourceOrder: 1, targetOrder: 0, linkTint: RED_LINK },
       { source: 'other', target: 'net_profit', value: 0.1, width: 2, sourceOrder: 0, targetOrder: 1 },
 
       /* overhead + demand_creation summed to 130px vs the 134px

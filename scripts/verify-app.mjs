@@ -117,7 +117,7 @@ await scenario('routing: deep link + hashchange', async (page) => {
   assert(second === keys[1], `hashchange landed on ${second}, expected ${keys[1]}`);
 });
 
-await scenario('sankey hover: node branching and endpoint ratio rules', async (page) => {
+await scenario('sankey hover: unified node and link share rules', async (page) => {
   await boot(page, `${url}#affirm-q2-fy26`);
 
   async function visiblePercentages() {
@@ -132,7 +132,10 @@ await scenario('sankey hover: node branching and endpoint ratio rules', async (p
     const selector = useLabel
       ? `#chart .sankey-label[data-node="${nodeId}"]`
       : `#chart rect.sankey-node[data-node="${nodeId}"]`;
-    await page.hover(selector);
+    // Short fixed-layout bars can be sub-pixel after the viewer fit. Force the
+    // same pointer event onto the rendered SVG owner instead of letting
+    // Playwright reject a valid 1px interaction target as too small to hit.
+    await page.locator(selector).hover({ force: true });
     return visiblePercentages();
   }
 
@@ -153,7 +156,7 @@ await scenario('sankey hover: node branching and endpoint ratio rules', async (p
   const tax = await hoverPercentages('tax', { useLabel: true });
   assert(tax.join('|') === '3.4%', `tax hover expected 3.4%, got ${tax.join(' + ')}`);
 
-  await page.hover('#chart path.sankey-link[data-source="operating_profit"][data-target="net_profit"]');
+  await page.locator('#chart path.sankey-link[data-source="operating_profit"][data-target="net_profit"]').hover({ force: true });
   const retainedLink = await visiblePercentages();
   assert(
     retainedLink.join('|') === '90.8%',
@@ -163,8 +166,34 @@ await scenario('sankey hover: node branching and endpoint ratio rules', async (p
   await boot(page, `${url}#kraft-heinz-q4-fy25`);
   const kraftNetProfit = await hoverPercentages('net_profit');
   assert(
-    kraftNetProfit.join('|') === ['16.7%', '54.5%'].sort().join('|'),
-    `Kraft Heinz net profit hover expected 16.7% + 54.5% (and no 100%), got ${kraftNetProfit.join(' + ')}`
+    kraftNetProfit.join('|') === ['16.7%', '100%'].sort().join('|'),
+    `Kraft Heinz net profit hover expected both semantic sources as shares of net profit (16.7% + 100%), got ${kraftNetProfit.join(' + ')}`
+  );
+
+  await boot(page, `${url}#datadog-q4-fy25`);
+  const datadogOperatingProfit = await hoverPercentages('operating_profit');
+  assert(
+    datadogOperatingProfit.join('|') === ['1.2%', '100%', '77.8%'].sort().join('|'),
+    `Datadog operating profit hover expected 1.2% incoming share + 100% retained outflow + 77.8% tax outflow, got ${datadogOperatingProfit.join(' + ')}`
+  );
+  await page.locator('#chart path.sankey-link[data-source="operating_profit"][data-target="net_profit"]').hover({ force: true });
+  const datadogResultLink = await visiblePercentages();
+  assert(
+    datadogResultLink.join('|') === '19.1%',
+    `Datadog operating profit → net profit link hover expected 19.1%, got ${datadogResultLink.join(' + ')}`
+  );
+
+  await boot(page, `${url}#coupang-q4-fy25`);
+  const coupangOther = await hoverPercentages('other', { useLabel: true });
+  assert(
+    coupangOther.join('|') === ['130.8%', '425%'].sort().join('|'),
+    `Coupang Other hover expected directional singleton shares 425% incoming + 130.8% outgoing, got ${coupangOther.join(' + ')}`
+  );
+  await page.locator('#chart path.sankey-link[data-source="operating_profit"][data-target="other"]').dispatchEvent('mouseenter');
+  const coupangBridge = await visiblePercentages();
+  assert(
+    coupangBridge.join('|') === '23.5%',
+    `Coupang operating profit → Other link hover expected smaller/larger endpoint share 23.5%, got ${coupangBridge.join(' + ')}`
   );
 });
 

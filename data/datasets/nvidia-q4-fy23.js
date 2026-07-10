@@ -328,8 +328,7 @@
     },
     {
       "source": "other",
-      "target": "net_profit",
-      "value": 0.032,
+      "target": "net_profit", "value": 0.032,
       "targetOrder": 1,
       "curve": {
         "c1x": 2547,
@@ -339,8 +338,7 @@
     },
     {
       "source": "tax_benefit",
-      "target": "net_profit",
-      "value": 0.1,
+      "target": "net_profit", "value": 0.1,
       "targetOrder": 2,
       "curve": {
         "c1x": 2547,
@@ -350,8 +348,7 @@
     },
     {
       "source": "operating_profit",
-      "target": "net_profit",
-      "value": 1.1999999999999997,
+      "target": "net_profit", "value": 1.1999999999999997,
       "targetOrder": 0,
       "width": 60
     },

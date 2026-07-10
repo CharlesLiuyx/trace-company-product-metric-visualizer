@@ -163,7 +163,7 @@
       // DKK 2.4B of other income. Keep the source-measured ribbon geometry
       // explicit; its semantic value drives hover percentages (91.1% / 8.9%).
       { source: 'operating_profit', target: 'net_profit', value: 24.5, sourceWidth: 112, targetWidth: 112, y0: 546, y1: 461, linkTint: GREEN_LINK },
-      { source: 'operating_profit', target: 'tax', value: 7.3, sourceWidth: 30, targetWidth: 30, y0: 608, y1: 726, linkTint: RED_LINK, nodeHoverPercentDenominator: 'source' },
+      { source: 'operating_profit', target: 'tax', value: 7.3, sourceWidth: 30, targetWidth: 30, y0: 608, y1: 726, linkTint: RED_LINK },
       { source: 'operating_expenses', target: 'sales_distribution', value: 15.9, sourceWidth: 67, targetWidth: 67, y0: 833.5, y1: 951.5, linkTint: RED_LINK },
       { source: 'operating_expenses', target: 'rnd', value: 14.6, sourceWidth: 61, targetWidth: 57, y0: 897.5, y1: 1146.5, linkTint: RED_LINK },
       { source: 'operating_expenses', target: 'admin_other', value: 1.7, sourceWidth: 7, targetWidth: 7, y0: 931.5, y1: 1324.5, linkTint: RED_LINK },

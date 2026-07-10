@@ -403,7 +403,7 @@
       { source: 'revenue', target: 'gross_profit', value: 3.1, width: 158, sourceOrder: 0, targetOrder: 0, linkTint: GREEN_LINK },
       { source: 'revenue', target: 'cost_of_sales', value: 3.0, width: 150, sourceOrder: 1, targetOrder: 0, linkTint: RED_LINK },
 
-      { source: 'gross_profit', target: 'operating_profit', value: 0.159, percentText: '5.1%', width: 8, sourceOrder: 0, targetOrder: 0, linkTint: GREEN_LINK },
+      { source: 'gross_profit', target: 'operating_profit', value: 0.159, width: 8, sourceOrder: 0, targetOrder: 0, linkTint: GREEN_LINK },
       { source: 'gross_profit', target: 'operating_expenses', value: 3.0, width: 150, sourceOrder: 1, targetOrder: 0, linkTint: RED_LINK },
       { source: 'other', target: 'operating_profit', value: 0.041, width: 2, sourceOrder: 0, targetOrder: 1, linkTint: GREEN_LINK },
 

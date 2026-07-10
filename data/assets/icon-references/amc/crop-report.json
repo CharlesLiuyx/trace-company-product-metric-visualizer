@@ -1,0 +1,292 @@
+{
+  "source": "input/processed/amc-q4-fy25.png",
+  "spec": "input/icon-crop-specs/amc-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-10T16:05:57.694441+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/amc",
+  "crops": [
+    {
+      "key": "amc-admissions-tickets",
+      "output": "data/assets/icon-references/amc/crops/admissions-tickets.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 128,
+        "bytes": 4757,
+        "losslessBytes": 23506,
+        "savingsVsLossless": 0.7976,
+        "metrics": {
+          "meanAbsoluteError": 1.1382,
+          "rootMeanSquareError": 2.6974,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 25,
+          "changedPixelRatio": 0.4062
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 13365,
+        "transparentPixelRatio": 0.538
+      },
+      "searchBox": {
+        "x": 230,
+        "y": 415,
+        "width": 195,
+        "height": 150
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 249,
+        "y0": 434,
+        "x1": 413,
+        "y1": 556
+      },
+      "cropBox": {
+        "x0": 241,
+        "y0": 426,
+        "x1": 421,
+        "y1": 564
+      },
+      "validation": {
+        "width": 180,
+        "height": 138,
+        "foregroundPixels": 9166,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 8,
+          "top": 8,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Admissions segment icon: the angled AMC ticket pair above the Admissions label. The box includes both ticket corners and excludes the revenue value block above and the label below.",
+      "runtimeOutput": "data/assets/raster-annotations/amc/admissions-tickets.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 128,
+        "bytes": 4757,
+        "losslessBytes": 23506,
+        "savingsVsLossless": 0.7976,
+        "metrics": {
+          "meanAbsoluteError": 1.1382,
+          "rootMeanSquareError": 2.6974,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 25,
+          "changedPixelRatio": 0.4062
+        }
+      },
+      "validationSheet": "data/assets/icon-references/amc/validation-sheets/amc-admissions-tickets.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 345934,
+        "losslessBytes": 345934,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "amc-food-beverage",
+      "output": "data/assets/icon-references/amc/crops/food-beverage.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 29910,
+        "losslessBytes": 29910,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 7580,
+        "transparentPixelRatio": 0.369
+      },
+      "searchBox": {
+        "x": 255,
+        "y": 645,
+        "width": 150,
+        "height": 165
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 276,
+        "y0": 657,
+        "x1": 390,
+        "y1": 799
+      },
+      "cropBox": {
+        "x0": 268,
+        "y0": 649,
+        "x1": 398,
+        "y1": 807
+      },
+      "validation": {
+        "width": 130,
+        "height": 158,
+        "foregroundPixels": 12710,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 8,
+          "top": 8,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Food & Beverage segment icon: the Coca-Cola cup, popcorn tub, and popcorn cluster above the source label. The box excludes the revenue value and the two-line label.",
+      "runtimeOutput": "data/assets/raster-annotations/amc/food-beverage.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 29910,
+        "losslessBytes": 29910,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/amc/validation-sheets/amc-food-beverage.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 398210,
+        "losslessBytes": 398210,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "amc-other-theatre-seat",
+      "output": "data/assets/icon-references/amc/crops/other-theatre-seat.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 14137,
+        "losslessBytes": 14137,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 8125,
+        "transparentPixelRatio": 0.5173
+      },
+      "searchBox": {
+        "x": 260,
+        "y": 925,
+        "width": 140,
+        "height": 120
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 276,
+        "y0": 928,
+        "x1": 392,
+        "y1": 1031
+      },
+      "cropBox": {
+        "x0": 268,
+        "y0": 920,
+        "x1": 400,
+        "y1": 1039
+      },
+      "validation": {
+        "width": 132,
+        "height": 119,
+        "foregroundPixels": 7523,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 8,
+          "top": 8,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Other theatre segment icon: the red recliner above the Other theatre label. The box excludes the source value and the label/description block.",
+      "runtimeOutput": "data/assets/raster-annotations/amc/other-theatre-seat.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 14137,
+        "losslessBytes": 14137,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/amc/validation-sheets/amc-other-theatre-seat.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 336007,
+        "losslessBytes": 336007,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}
