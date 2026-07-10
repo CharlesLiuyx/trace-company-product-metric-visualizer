@@ -1,56 +1,89 @@
 /* Trace viewer · dataset-loader.js
- * Progressive dataset-adapter loading on top of TraceDatasetRegistry:
- * on-demand script injection for the keys a view needs now, plus an
- * idle-time preload sweep that hydrates the rest of the catalog. In
- * environments without a manifest (standalone build, verify harnesses)
- * every dataset is already loaded and all of this is a no-op. */
+ * Deep Runtime Data Loader Module on top of TraceDatasetRegistry.
+ *
+ * Callers express intent through a small Interface: ready(), ensure(), and
+ * prefetch(). Request deduplication, script registration checks, failure
+ * recovery, and network-aware speculative fetches stay in the Implementation.
+ * Standalone/render harnesses have no manifest, so every operation is a no-op. */
 
-const datasetRegistry = window.TraceDatasetRegistry || null;
-const injectedDatasetKeys = new Set();
-const DATASET_PRELOAD_CHUNK = 12;
+const datasetLoader = (() => {
+  const registry = window.TraceDatasetRegistry || null;
+  const loadPromises = new Map();
+  const prefetchLinks = new Map();
 
-function injectDatasetScript(key) {
-  if (!datasetRegistry || datasetRegistry.isLoaded(key) || injectedDatasetKeys.has(key)) return;
-  const src = datasetRegistry.srcForKey(key);
-  if (!src) return;
-  injectedDatasetKeys.add(key);
-  const script = document.createElement('script');
-  // classic script with ordered execution: adapters may rely on loading
-  // after a dataset they reuse, so in-flight injections keep insertion order
-  script.async = false;
-  script.src = src;
-  script.onerror = () => {
-    injectedDatasetKeys.delete(key);
-    console.error(`Failed to load dataset script: ${src}`);
-  };
-  document.head.appendChild(script);
-}
+  function uniqueKnownKeys(keys = []) {
+    return [...new Set(keys.filter(Boolean))]
+      .filter((key) => registry?.isKnown(key));
+  }
 
-/* True when every requested key has its full adapter available (unknown
- * keys count as ready: no script will ever arrive for them). */
-function datasetsReady(keys = []) {
-  if (!datasetRegistry) return true;
-  return keys.every((key) => !key || !datasetRegistry.isKnown(key) || datasetRegistry.isLoaded(key));
-}
+  function ready(keys = []) {
+    if (!registry) return true;
+    return uniqueKnownKeys(keys).every((key) => registry.isLoaded(key));
+  }
 
-/* Injects any missing adapter scripts and resolves once they have all
- * registered (upgrading their stubs in place). */
-function ensureDatasetsLoaded(keys = []) {
-  if (!datasetRegistry) return Promise.resolve();
-  const wanted = [...new Set(keys.filter(Boolean))];
-  wanted.forEach(injectDatasetScript);
-  return datasetRegistry.whenLoaded(wanted);
-}
+  function loadOne(key) {
+    if (!registry || !registry.isKnown(key) || registry.isLoaded(key)) return Promise.resolve();
+    if (loadPromises.has(key)) return loadPromises.get(key);
+    const src = registry.srcForKey(key);
+    if (!src) return Promise.reject(new Error(`Missing dataset source for ${key}`));
 
-/* Idle-time hydration of every remaining adapter, in manifest order and in
- * small chunks so boot interactions stay responsive. After the sweep
- * finishes, every interaction behaves exactly like the eager-loading app. */
-function preloadRemainingDatasets() {
-  if (!datasetRegistry) return;
-  const pending = datasetRegistry
-    .pendingKeys()
-    .filter((key) => !injectedDatasetKeys.has(key));
-  if (!pending.length) return;
-  pending.slice(0, DATASET_PRELOAD_CHUNK).forEach(injectDatasetScript);
-  scheduleIdleTask(preloadRemainingDatasets);
-}
+    const promise = new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      // Dynamic classic scripts default to async. Disabling async keeps
+      // manifest insertion order when one ensure() call needs several keys,
+      // while the browser may still fetch those files concurrently.
+      script.async = false;
+      script.src = src;
+      script.dataset.datasetKey = key;
+      script.onload = () => {
+        loadPromises.delete(key);
+        if (registry.isLoaded(key)) {
+          resolve();
+          return;
+        }
+        script.remove();
+        reject(new Error(`Dataset script did not register ${key}`));
+      };
+      script.onerror = () => {
+        loadPromises.delete(key);
+        script.remove();
+        reject(new Error(`Failed to load dataset script: ${src}`));
+      };
+      document.head.appendChild(script);
+    });
+    loadPromises.set(key, promise);
+    return promise;
+  }
+
+  function ensure(keys = []) {
+    return Promise.all(uniqueKnownKeys(keys).map(loadOne)).then(() => undefined);
+  }
+
+  function allowsIntentPrefetch() {
+    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    if (connection?.saveData) return false;
+    return !/^(slow-)?2g$/i.test(connection?.effectiveType || '');
+  }
+
+  function prefetch(keys = []) {
+    if (!registry || !allowsIntentPrefetch()) return;
+    uniqueKnownKeys(keys).forEach((key) => {
+      if (registry.isLoaded(key) || loadPromises.has(key) || prefetchLinks.has(key)) return;
+      const src = registry.srcForKey(key);
+      if (!src) return;
+      const link = document.createElement('link');
+      link.rel = 'prefetch';
+      link.as = 'script';
+      link.href = src;
+      link.dataset.datasetKey = key;
+      link.onerror = () => {
+        prefetchLinks.delete(key);
+        link.remove();
+      };
+      prefetchLinks.set(key, link);
+      document.head.appendChild(link);
+    });
+  }
+
+  return Object.freeze({ ready, ensure, prefetch });
+})();

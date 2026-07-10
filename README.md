@@ -30,6 +30,19 @@ headless Chromium in a few seconds. `pnpm check` is reproducible — it is
 green on any fresh checkout, and CI (`.github/workflows/ci.yml`) runs it
 plus the render gates on every push and pull request.
 
+The deployed Pages artifact is a generated runtime projection rather than a
+copy of every source file. Build and exercise its loading budgets with:
+
+```bash
+pnpm build:site
+pnpm verify:site
+```
+
+The production page downloads three ordered `defer` bundles in parallel,
+loads only the active Sankey dataset Adapter, prefetches a target only after
+pointer/keyboard intent, and loads Chart.js on the first Trend or metric-trend
+interaction. Fidelity-only files under `input/processed/` are not deployed.
+
 For a single self-contained HTML file that does not depend on sibling CSS, JS,
 font, vendor, data, or reference PNG files, build the standalone artifact:
 
@@ -305,8 +318,8 @@ example.
 | `index.html`                | static viewer shell and ordered script registration           |
 | `src/app.css`               | viewer layout, controls, sidebar, and responsive styles       |
 | `src/app/`                  | viewer app modules (classic scripts, ordered in `index.html`, shared top-level scope) |
-| `src/app/dom.js` · `util.js` · `dataset-loader.js` · `hotkeys.js` · `i18n-runtime.js` | DOM refs · generic helpers/formatters · progressive adapter loading over the registry · modifier-combo shortcut registry · localization caches over `SANKEY_I18N` |
-| `src/app/state.js` · `selectors.js` · `financial.js` · `chart-theme.js` | prefs + mode rules + UI state/scope · display/search derivations · USD/FX totals + company sort values · shared Chart.js theme tokens/plugins |
+| `src/app/dom.js` · `util.js` · `dataset-loader.js` · `hotkeys.js` · `i18n-runtime.js` | DOM refs · generic helpers/formatters · on-demand Adapter loading, intent prefetch, and retry · modifier-combo shortcut registry · localization caches over `SANKEY_I18N` |
+| `src/app/state.js` · `selectors.js` · `financial.js` · `chart-theme.js` | prefs + mode rules + UI state/scope · display/search derivations · USD/FX totals + company sort values · shared Chart.js theme plus lazy runtime loading |
 | `src/app/shell.js` · `controls.js` | theme/language/sidebar/toolbar chrome · metric/view switching + `renderAll()` |
 | `src/app/company-panel.js` · `period-panel.js` | company list, sort menu, multi-select · period tree, timeline, multi-select |
 | `src/app/tables.js` · `trend.js` · `sankey.js` | virtualized tables · revenue trend charts · sankey single/comparison + `draw()` |
@@ -316,6 +329,7 @@ example.
 | `src/dataset-registry.js`   | manifest-driven dataset stubs + in-place adapter upgrades on `DATASETS.push` |
 | `src/i18n-dictionaries.js` · `src/i18n.js` | per-language translation data · language-neutral rule pipeline + UI dictionary + overlays |
 | `src/icons.js`              | Lucide icon set (inline SVG) + the NVIDIA brand glyph         |
+| `scripts/build-site.mjs` · `verify-site.mjs` | builds the optimized Pages projection and enforces request/on-demand-loading budgets |
 | `scripts/build-standalone.mjs` | builds the self-contained HTML artifact (inlines all adapters) |
 | `scripts/verify-standalone.mjs` | opens the artifact via `file://` and checks d3 rendering |
 | `scripts/verify-app-globals.mjs` | static gate for shared-scope duplicate declarations and load order |

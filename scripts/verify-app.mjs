@@ -40,16 +40,41 @@ async function boot(page, target = url) {
 
 await scenario('boot: default sankey', async (page) => {
   await boot(page);
+  await page.waitForTimeout(1200);
   const state = await page.evaluate(() => ({
     scripts: document.querySelectorAll('script[src^="src/app/"]').length,
     hasSvg: Boolean(document.querySelector('#chart svg')),
     actionTitle: document.getElementById('actionTitle').textContent,
     companies: document.querySelectorAll('#companyList .company-item').length,
+    pendingDatasets: window.TraceDatasetRegistry?.pendingKeys().length || 0,
+    totalDatasets: window.__DATASET_MANIFEST__?.datasets?.length || 0,
   }));
   assert(state.scripts === APP_MODULE_COUNT, `expected ${APP_MODULE_COUNT} app scripts, got ${state.scripts}`);
   assert(state.hasSvg, 'no sankey svg rendered');
   assert(state.actionTitle.trim(), 'empty action title');
   assert(state.companies > 0, 'company list empty');
+  assert(
+    state.pendingDatasets >= state.totalDatasets - 2,
+    `idle boot hydrated too many adapters (${state.totalDatasets - state.pendingDatasets}/${state.totalDatasets})`
+  );
+});
+
+await scenario('dataset loading: failure is retryable', async (page) => {
+  const adapterPattern = '**/data/datasets/affirm-q2-fy26.js';
+  let failedOnce = false;
+  await page.route(adapterPattern, async (route) => {
+    if (!failedOnce) {
+      failedOnce = true;
+      await route.abort('failed');
+      return;
+    }
+    await route.continue();
+  });
+  await page.goto(`${url}#affirm-q2-fy26`, { waitUntil: 'domcontentloaded' });
+  await page.waitForSelector('.chart-loading-error button', { timeout: 15000 });
+  await page.click('.chart-loading-error button');
+  await page.waitForSelector('#chart svg', { timeout: 15000 });
+  assert(failedOnce, 'adapter request was not intercepted');
 });
 
 await scenario('boot: persisted zh + dark + table prefs', async (page) => {

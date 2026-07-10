@@ -226,6 +226,30 @@ function renderSankeyLoading(compare) {
   svgBtn.disabled = true;
   pngBtn.disabled = true;
 }
+function renderSankeyLoadError(compare) {
+  const message = `
+    <div class="chart-loading chart-loading-error" role="alert">
+      <span>${escapeHtml(t('datasetLoadError'))}</span>
+      <button class="btn" type="button">${escapeHtml(t('datasetLoadRetry'))}</button>
+    </div>
+  `;
+  if (singleChartCard) singleChartCard.hidden = compare;
+  if (sankeyComparison) sankeyComparison.hidden = !compare;
+  if (compare) {
+    clearSingleChart();
+    clearSankeyComparison();
+    if (sankeyComparison) sankeyComparison.innerHTML = message;
+  } else {
+    clearSankeyComparison();
+    if (chartHost) chartHost.innerHTML = message;
+  }
+  const host = compare ? sankeyComparison : chartHost;
+  host?.querySelector('button')?.addEventListener('click', () => {
+    draw({ renderTable: false, syncView: false });
+  }, { once: true });
+  svgBtn.disabled = true;
+  pngBtn.disabled = true;
+}
 function draw({ renderTable = true, syncView = true } = {}) {
   if (syncView) syncViewModeControls();
   if (!comparisonZoomActive()) {
@@ -245,6 +269,22 @@ function draw({ renderTable = true, syncView = true } = {}) {
   if (state.viewMode === 'trend') {
     clearSingleChart();
     clearSankeyComparison();
+    if (!window.Chart) {
+      renderChartRuntimeState('loading');
+      viewRuntimeLoader.ensureChart()
+        .then(() => {
+          if (drawGeneration !== sankeyDrawGeneration) return;
+          draw({ renderTable, syncView: false });
+        })
+        .catch((error) => {
+          console.error(error);
+          if (drawGeneration !== sankeyDrawGeneration) return;
+          renderChartRuntimeState('error');
+        });
+      svgBtn.disabled = true;
+      pngBtn.disabled = true;
+      return;
+    }
     renderRevenueTrend();
     svgBtn.disabled = true;
     pngBtn.disabled = true;
@@ -252,12 +292,18 @@ function draw({ renderTable = true, syncView = true } = {}) {
   }
   const compare = isMultiCompanyScope() || isMultiPeriodScope();
   const neededKeys = sankeyDrawDatasetKeys(compare);
-  if (!datasetsReady(neededKeys)) {
+  if (!datasetLoader.ready(neededKeys)) {
     renderSankeyLoading(compare);
-    ensureDatasetsLoaded(neededKeys).then(() => {
-      if (drawGeneration !== sankeyDrawGeneration) return;
-      draw({ renderTable, syncView: false });
-    });
+    datasetLoader.ensure(neededKeys)
+      .then(() => {
+        if (drawGeneration !== sankeyDrawGeneration) return;
+        draw({ renderTable, syncView: false });
+      })
+      .catch((error) => {
+        console.error(error);
+        if (drawGeneration !== sankeyDrawGeneration) return;
+        renderSankeyLoadError(compare);
+      });
     return;
   }
   const d = localizedDataset(currentDataset());

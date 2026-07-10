@@ -583,3 +583,19 @@ function renderRevenueTrend() {
     growthMax,
   }));
 }
+
+function renderChartRuntimeState(kind) {
+  if (!trendChart) return;
+  const isError = kind === 'error';
+  trendChart.innerHTML = `
+    <div class="chart-loading${isError ? ' chart-loading-error' : ''}" role="${isError ? 'alert' : 'status'}">
+      <span>${escapeHtml(t(isError ? 'chartRuntimeLoadError' : 'chartRuntimeLoading'))}</span>
+      ${isError ? `<button class="btn" type="button">${escapeHtml(t('datasetLoadRetry'))}</button>` : ''}
+    </div>
+  `;
+  if (isError) {
+    trendChart.querySelector('button')?.addEventListener('click', () => {
+      draw({ renderTable: false, syncView: false });
+    }, { once: true });
+  }
+}

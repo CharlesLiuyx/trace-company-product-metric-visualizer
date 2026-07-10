@@ -275,20 +275,6 @@ function revenueRows() {
     }));
 }
 
-function prewarmI18nCaches() {
-  const languages = (I18N_API.languageCodes || Object.keys(I18N))
-    .map((language) => languageCode(language))
-    .filter((language, index, list) => language && list.indexOf(language) === index);
-  const pending = languages.filter((language) => language !== languageCode());
-  let index = 0;
-  const run = () => {
-    const language = pending[index];
-    index += 1;
-    if (language) tableModelForLanguage(language);
-    if (index < pending.length) scheduleIdleTask(run);
-  };
-  if (pending.length) scheduleIdleTask(run);
-}
 function renderDataTable(table, columns, rows, emptyText, targetWidth = 0) {
   table.className = 'data-table';
   const sizing = tableColumnSizing(columns, rows, targetWidth);

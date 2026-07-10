@@ -55,7 +55,7 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
 - 按公司拆分的 SSOT 文件必须在 `index.html` 注册 `<script>` 标签；数据集
   adapter 则注册在生成的 `data/dataset-manifest.js`（禁止手改），由
   `src/dataset-registry.js` + `src/app/dataset-loader.js` 在 viewer 中
-  渐进加载。`verify:ssot` 对两个注册面都强制磁盘 ↔ 注册一致性，
+  按需加载。`verify:ssot` 对两个注册面都强制磁盘 ↔ 注册一致性，
   `pnpm sync:index-datasets` 负责修复。
 - `data/products.js` 是未来一等 Product SSOT 的空占位（暂不被 verifier
   校验）。不要把产品身份或归属历史藏进 Sankey adapter。
@@ -100,12 +100,13 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
 | `pnpm record:baseline -- <key> [...]` | 显式、仅子集的兼容期 future-regression baseline mutation；所有所选 render/structure 检查通过后才原子写入 |
 | `pnpm update:dataset-file-metadata` | 从 git 提交时间重新生成 `data/dataset-file-metadata.js`（提交新/改数据集后需重跑并提交刷新结果） |
 | `pnpm verify:dataset-file-metadata` | 生成的 metadata 是否为最新 |
+| `pnpm build:site` / `pnpm verify:site` | 构建优化后的 Pages runtime projection / 用浏览器校验 defer bundle、按需 Adapter 预算、Chart runtime 延迟加载与公司切换路径 |
 | `pnpm build:standalone` | 构建自包含 HTML，不修改已跟踪 metadata；内联全部数据集 adapter |
 | `pnpm verify:standalone` | standalone 产物不依赖任何同级文件 |
 | `sh scripts/clean-compare.sh` | 只清理旧的顶层 scratch；`verify:d3` 自己管理/清理私有 `compare/runs/`，并发时禁止全局删除 |
 
 CI（`.github/workflows/ci.yml`）在每次 push 到 `main` 与每个 pull request
-上运行 `pnpm check`、`verify:app`、一次 `verify:d3` 冒烟渲染、
+上运行 `pnpm check`、`verify:app`、Pages 构建 + 加载预算校验、一次 `verify:d3` 冒烟渲染、
 `verify:render-regression`，以及 standalone 构建 + 验证。
 
 ## 工作流
