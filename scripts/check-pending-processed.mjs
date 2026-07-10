@@ -134,8 +134,12 @@ function selectedPendingNames(requestedFiles, availableNames) {
       throw new Error(`--file must name a PNG directly under input/pending/: ${requested}`);
     }
     const name = path.basename(absolute);
-    if (!availableNames.includes(name)) throw new Error(`Pending PNG does not exist: ${requested}`);
-    selected.add(name);
+    // macOS filesystems can retain decomposed Unicode filenames while shell
+    // expansion normalizes the argument. Compare canonically, then retain the
+    // on-disk spelling for subsequent filesystem reads.
+    const matchedName = availableNames.find((availableName) => availableName.normalize('NFC') === name.normalize('NFC'));
+    if (!matchedName) throw new Error(`Pending PNG does not exist: ${requested}`);
+    selected.add(matchedName);
   }
   return selected;
 }

@@ -1,0 +1,306 @@
+{
+  "source": "input/processed/align-q4-fy25.png",
+  "spec": "input/icon-crop-specs/align-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-10T14:16:19.375305+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/align",
+  "crops": [
+    {
+      "key": "align-company-wordmark",
+      "output": "data/assets/icon-references/align/crops/align-company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3385,
+        "losslessBytes": 14977,
+        "savingsVsLossless": 0.774,
+        "metrics": {
+          "meanAbsoluteError": 0.436,
+          "rootMeanSquareError": 2.233,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 38,
+          "changedPixelRatio": 0.2959
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 123417,
+        "transparentPixelRatio": 0.7068
+      },
+      "searchBox": {
+        "x": 555,
+        "y": 260,
+        "width": 635,
+        "height": 275
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 589,
+        "y0": 272,
+        "x1": 1119,
+        "y1": 512
+      },
+      "cropBox": {
+        "x0": 555,
+        "y0": 260,
+        "x1": 1190,
+        "y1": 535
+      },
+      "validation": {
+        "width": 635,
+        "height": 275,
+        "foregroundPixels": 42641,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 34,
+          "right": 71,
+          "top": 12,
+          "bottom": 23
+        },
+        "centerOffset": {
+          "x": -0.0291,
+          "y": -0.02
+        },
+        "passes": true
+      },
+      "note": "Align lowercase corporate wordmark and cyan dot above Revenue; excludes the report title and Revenue label. The custom letterforms are retained as a validated raster because text-font approximation is materially inaccurate.",
+      "runtimeOutput": "data/assets/raster-annotations/align/align-company-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3385,
+        "losslessBytes": 14977,
+        "savingsVsLossless": 0.774,
+        "metrics": {
+          "meanAbsoluteError": 0.436,
+          "rootMeanSquareError": 2.233,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 38,
+          "changedPixelRatio": 0.2959
+        }
+      },
+      "validationSheet": "data/assets/icon-references/align/validation-sheets/align-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 214845,
+        "losslessBytes": 214845,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "clear-aligners-product",
+      "output": "data/assets/icon-references/align/crops/clear-aligners-product.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 6869,
+        "losslessBytes": 39110,
+        "savingsVsLossless": 0.8244,
+        "metrics": {
+          "meanAbsoluteError": 1.1736,
+          "rootMeanSquareError": 2.8204,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.4175
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 25101,
+        "transparentPixelRatio": 0.5831
+      },
+      "searchBox": {
+        "x": 80,
+        "y": 540,
+        "width": 210,
+        "height": 205
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 116,
+        "y0": 560,
+        "x1": 272,
+        "y1": 737
+      },
+      "cropBox": {
+        "x0": 80,
+        "y0": 540,
+        "x1": 290,
+        "y1": 745
+      },
+      "validation": {
+        "width": 210,
+        "height": 205,
+        "foregroundPixels": 17832,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 36,
+          "right": 18,
+          "top": 20,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0429,
+          "y": 0.0293
+        },
+        "passes": true
+      },
+      "note": "Open black Align case and blue clear-aligner product cluster for Clear Aligners; excludes the value, Y/Y, label, and flow ribbon.",
+      "runtimeOutput": "data/assets/raster-annotations/align/clear-aligners-product.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 6869,
+        "losslessBytes": 39110,
+        "savingsVsLossless": 0.8244,
+        "metrics": {
+          "meanAbsoluteError": 1.1736,
+          "rootMeanSquareError": 2.8204,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.4175
+        }
+      },
+      "validationSheet": "data/assets/icon-references/align/validation-sheets/clear-aligners-product.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 314530,
+        "losslessBytes": 314530,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "systems-services-scanner",
+      "output": "data/assets/icon-references/align/crops/systems-services-scanner.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 14435,
+        "losslessBytes": 14435,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 15861,
+        "transparentPixelRatio": 0.5693
+      },
+      "searchBox": {
+        "x": 150,
+        "y": 925,
+        "width": 140,
+        "height": 199
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 176,
+        "y0": 938,
+        "x1": 272,
+        "y1": 1121
+      },
+      "cropBox": {
+        "x0": 150,
+        "y0": 925,
+        "x1": 290,
+        "y1": 1124
+      },
+      "validation": {
+        "width": 140,
+        "height": 199,
+        "foregroundPixels": 6814,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 26,
+          "right": 18,
+          "top": 13,
+          "bottom": 3
+        },
+        "centerOffset": {
+          "x": 0.0286,
+          "y": 0.0251
+        },
+        "passes": true
+      },
+      "note": "Align iTero-style scanner/cart product cluster for Systems & Services; excludes the value, Y/Y, label, and flow ribbon.",
+      "runtimeOutput": "data/assets/raster-annotations/align/systems-services-scanner.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 14435,
+        "losslessBytes": 14435,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/align/validation-sheets/systems-services-scanner.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 246537,
+        "losslessBytes": 246537,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

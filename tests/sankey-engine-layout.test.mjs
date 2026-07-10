@@ -9,6 +9,12 @@ const {
   trimFixed,
   percentOf,
   nodeHoverDenominator,
+  nodeMagnitude,
+  linkValueMagnitude,
+  groupAdjacentLinks,
+  distinctAdjacentNodeCount,
+  nodeHoverLinkPercent,
+  linkHoverPercent,
   autoSide,
   buildFixedGraph,
   taperedLinkPath,
@@ -56,21 +62,116 @@ test('trimFixed strips trailing zeros', () => {
   assert.equal(trimFixed(1.25, 2), '1.25');
 });
 
-test('node hover percentages use the hovered node as the denominator', () => {
-  const netProfit = { value: 130, dv: 130 };
-  const operatingProfit = { value: 118, dv: 118 };
-
-  assert.equal(percentOf(114, nodeHoverDenominator(netProfit), 1), '87.7%');
-  assert.equal(percentOf(16, nodeHoverDenominator(netProfit), 1), '12.3%');
-  assert.equal(percentOf(114, nodeHoverDenominator(operatingProfit), 1), '96.6%');
-  assert.equal(percentOf(4, nodeHoverDenominator(operatingProfit), 1), '3.4%');
-});
-
 test('node hover denominator prefers the authored value over the graph flow sum', () => {
   assert.equal(nodeHoverDenominator({ dv: 1005, value: 1006 }), 1005);
   assert.equal(nodeHoverDenominator({ value: 130 }), 130);
   assert.equal(nodeHoverDenominator(null), 0);
+  assert.equal(nodeMagnitude({ dv: -40, value: 99 }), 40, 'ratios use authored magnitudes');
+  assert.equal(nodeMagnitude({ dv: 0, value: 99 }), 0, 'authored zero is not replaced by d3 flow');
   assert.equal(percentOf(1, 0, 1), '');
+});
+
+test('node hover applies singleton and split rules independently on each side', () => {
+  const revenue = { id: 'revenue', dv: 1123, value: 1123 };
+  const operatingProfit = { id: 'operating_profit', dv: 118, value: 118 };
+  const netProfit = { id: 'net_profit', dv: 130, value: 130 };
+  const tax = { id: 'tax', dv: 4, value: 4 };
+  const incoming = { source: revenue, target: operatingProfit, value: 118, raw: { value: 118 } };
+  const retained = { source: operatingProfit, target: netProfit, value: 114, raw: { value: 114 } };
+  const taxFlow = { source: operatingProfit, target: tax, value: 4, raw: { value: 4 } };
+  operatingProfit.targetLinks = [incoming];
+  operatingProfit.sourceLinks = [retained, taxFlow];
+
+  const incomingCount = distinctAdjacentNodeCount(operatingProfit, operatingProfit.targetLinks);
+  const outgoingCount = distinctAdjacentNodeCount(operatingProfit, operatingProfit.sourceLinks);
+  assert.equal(incomingCount, 1);
+  assert.equal(outgoingCount, 2);
+  assert.equal(nodeHoverLinkPercent(incoming, operatingProfit, incomingCount), '10.5%');
+  assert.equal(nodeHoverLinkPercent(retained, operatingProfit, outgoingCount), '96.6%');
+  assert.equal(nodeHoverLinkPercent(taxFlow, operatingProfit, outgoingCount), '3.4%');
+  assert.equal(nodeHoverLinkPercent(taxFlow, tax, 1), '3.4%', 'a terminal singleton is current / upstream');
+});
+
+test('node hover shows each source as a share of a multi-source bar', () => {
+  const operatingProfit = { id: 'operating_profit', dv: 118 };
+  const otherIncome = { id: 'other_income', dv: 16 };
+  const netProfit = { id: 'net_profit', dv: 130 };
+  const retained = { source: operatingProfit, target: netProfit, value: 114, raw: { value: 114 } };
+  const other = { source: otherIncome, target: netProfit, value: 16, raw: { value: 16 } };
+  const incoming = [retained, other];
+  const count = distinctAdjacentNodeCount(netProfit, incoming);
+
+  assert.equal(count, 2);
+  assert.equal(nodeHoverLinkPercent(retained, netProfit, count), '87.7%');
+  assert.equal(nodeHoverLinkPercent(other, netProfit, count), '12.3%');
+});
+
+test('node hover counts distinct opposite bars rather than duplicate links', () => {
+  const source = { id: 'source', dv: 100 };
+  const hovered = { id: 'hovered', dv: 50 };
+  const links = [20, 30].map((value) => ({
+    source,
+    target: hovered,
+    value,
+    raw: { value },
+  }));
+
+  const groups = groupAdjacentLinks(hovered, links);
+  assert.equal(distinctAdjacentNodeCount(hovered, links), 1);
+  assert.equal(groups.length, 1);
+  assert.equal(groups[0].links.reduce((sum, link) => sum + linkValueMagnitude(link), 0), 50);
+  assert.equal(nodeHoverLinkPercent(links[0], hovered, 1), '50%');
+});
+
+test('node hover can resolve a singleton hidden-bridge expansion against its visible target', () => {
+  const hovered = { id: 'revenue', dv: 100 };
+  const hidden = { id: 'hidden', dv: 80 };
+  const visibleTarget = { id: 'profit', dv: 40 };
+  const expandedLink = { source: hidden, target: visibleTarget, value: 40, raw: { value: 40 } };
+
+  assert.equal(
+    nodeHoverLinkPercent(expandedLink, hovered, 1, 1, visibleTarget),
+    '250%',
+    'the visible target remains the singleton denominator after bridge expansion'
+  );
+});
+
+test('direct link hover is smaller endpoint / larger endpoint', () => {
+  const source = { id: 'source', dv: 118 };
+  const target = { id: 'target', dv: 130 };
+  const link = { source, target, value: 114, raw: { value: 114, percentText: '96.6%' } };
+
+  assert.equal(linkHoverPercent(link), '90.8%', 'link value and authored percent do not override endpoints');
+  assert.equal(linkValueMagnitude({ value: -4, raw: {} }), 4);
+  assert.equal(linkHoverPercent({ source: { dv: -40 }, target: { dv: 100 } }), '40%');
+  assert.equal(linkHoverPercent({ source: { dv: 50 }, target: { dv: 50 } }), '100%');
+  assert.equal(linkHoverPercent({ source: { dv: 0 }, target: { dv: 100 } }), '0%');
+  assert.equal(linkHoverPercent({ source: { dv: 0 }, target: { dv: 0 } }), '');
+});
+
+test('contribution links use their amount over the receiving bar on every hover surface', () => {
+  const operatingProfit = { id: 'operating_profit', dv: 2.5 };
+  const otherIncome = { id: 'other_income', dv: 0.6 };
+  const netProfit = { id: 'net_profit', dv: 2.5 };
+  const contribution = {
+    source: operatingProfit,
+    target: netProfit,
+    value: 1.9,
+    raw: { value: 1.9, hoverPercentMode: 'contribution' },
+  };
+  const otherContribution = {
+    source: otherIncome,
+    target: netProfit,
+    value: 0.6,
+    raw: { value: 0.6, hoverPercentMode: 'contribution' },
+  };
+
+  assert.equal(nodeHoverLinkPercent(contribution, operatingProfit, 1), '76%', 'source node hover keeps the result-bar denominator');
+  assert.equal(nodeHoverLinkPercent(contribution, netProfit, 1), '76%', 'target node hover keeps the result-bar denominator');
+  assert.equal(nodeHoverLinkPercent(otherContribution, otherIncome, 1), '24%', 'a one-to-one source contribution is not 100%');
+  assert.equal(nodeHoverLinkPercent(otherContribution, netProfit, 1), '24%');
+  assert.equal(linkHoverPercent(contribution), '76%', 'direct hover normalizes contribution to target');
+  assert.equal(linkHoverPercent(otherContribution), '24%');
 });
 
 test('autoSide picks label side from column and type', () => {

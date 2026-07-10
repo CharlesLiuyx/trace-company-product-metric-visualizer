@@ -1,0 +1,430 @@
+{
+  "source": "input/processed/astrazeneca-q4-fy25.png",
+  "spec": "input/icon-crop-specs/astrazeneca-q4-fy25.json",
+  "background": [
+    245,
+    245,
+    245
+  ],
+  "generatedAt": "2026-07-10T12:32:31.509405+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 12
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "astrazeneca-company-logo",
+      "output": "data/assets/icon-references/astrazeneca/crops/company-logo-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 37359,
+        "losslessBytes": 37359,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 12,
+        "background": [
+          245,
+          245,
+          245
+        ],
+        "transparentPixels": 123859,
+        "transparentPixelRatio": 0.7847
+      },
+      "searchBox": {
+        "x": 610,
+        "y": 250,
+        "width": 700,
+        "height": 135
+      },
+      "componentCount": 12,
+      "subjectBox": {
+        "x0": 624,
+        "y0": 250,
+        "x1": 1310,
+        "y1": 382
+      },
+      "cropBox": {
+        "x0": 570,
+        "y0": 190,
+        "x1": 1340,
+        "y1": 395
+      },
+      "validation": {
+        "width": 770,
+        "height": 205,
+        "foregroundPixels": 25749,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 54,
+          "right": 30,
+          "top": 60,
+          "bottom": 13
+        },
+        "centerOffset": {
+          "x": 0.0156,
+          "y": 0.1146
+        },
+        "passes": true
+      },
+      "note": "AstraZeneca wordmark and yellow emblem above the revenue hub; the overlapping page title strip is excluded.",
+      "excludedPixels": 9240,
+      "validationSheet": "data/assets/icon-references/astrazeneca/validation-sheets/astrazeneca-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 283551,
+        "losslessBytes": 283551,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "tagrisso-brand",
+      "output": "data/assets/icon-references/astrazeneca/crops/tagrisso-brand.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 1678,
+        "losslessBytes": 6751,
+        "savingsVsLossless": 0.7514,
+        "metrics": {
+          "meanAbsoluteError": 0.831,
+          "rootMeanSquareError": 2.4714,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 54,
+          "changedPixelRatio": 0.2868
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 12,
+        "background": [
+          245,
+          245,
+          245
+        ],
+        "transparentPixels": 5298,
+        "transparentPixelRatio": 0.7298
+      },
+      "searchBox": {
+        "x": 180,
+        "y": 510,
+        "width": 150,
+        "height": 44
+      },
+      "componentCount": 10,
+      "subjectBox": {
+        "x0": 187,
+        "y0": 517,
+        "x1": 314,
+        "y1": 544
+      },
+      "cropBox": {
+        "x0": 175,
+        "y0": 510,
+        "x1": 340,
+        "y1": 554
+      },
+      "validation": {
+        "width": 165,
+        "height": 44,
+        "foregroundPixels": 1728,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 26,
+          "top": 7,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": -0.0424,
+          "y": -0.0341
+        },
+        "passes": true
+      },
+      "note": "Tagrisso oncology brand cluster below the Oncology label.",
+      "validationSheet": "data/assets/icon-references/astrazeneca/validation-sheets/tagrisso-brand.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 294553,
+        "losslessBytes": 294553,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "forxiga-brand",
+      "output": "data/assets/icon-references/astrazeneca/crops/forxiga-brand.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 1038,
+        "losslessBytes": 3909,
+        "savingsVsLossless": 0.7345,
+        "metrics": {
+          "meanAbsoluteError": 0.5244,
+          "rootMeanSquareError": 2.3448,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 48,
+          "changedPixelRatio": 0.1535
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 12,
+        "background": [
+          245,
+          245,
+          245
+        ],
+        "transparentPixels": 7314,
+        "transparentPixelRatio": 0.8605
+      },
+      "searchBox": {
+        "x": 210,
+        "y": 760,
+        "width": 110,
+        "height": 52
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 213,
+        "y0": 760,
+        "x1": 282,
+        "y1": 800
+      },
+      "cropBox": {
+        "x0": 205,
+        "y0": 752,
+        "x1": 330,
+        "y1": 820
+      },
+      "validation": {
+        "width": 125,
+        "height": 68,
+        "foregroundPixels": 1009,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 48,
+          "top": 8,
+          "bottom": 20
+        },
+        "centerOffset": {
+          "x": -0.16,
+          "y": -0.0882
+        },
+        "passes": true
+      },
+      "note": "Forxiga cardiovascular, renal and metabolism brand cluster.",
+      "validationSheet": "data/assets/icon-references/astrazeneca/validation-sheets/forxiga-brand.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 99037,
+        "losslessBytes": 291355,
+        "savingsVsLossless": 0.6601,
+        "metrics": {
+          "meanAbsoluteError": 0.3921,
+          "rootMeanSquareError": 2.4492,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 70,
+          "changedPixelRatio": 0.089
+        }
+      }
+    },
+    {
+      "key": "symbicort-brand",
+      "output": "data/assets/icon-references/astrazeneca/crops/symbicort-brand.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 8485,
+        "losslessBytes": 8485,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 12,
+        "background": [
+          245,
+          245,
+          245
+        ],
+        "transparentPixels": 11683,
+        "transparentPixelRatio": 0.8113
+      },
+      "searchBox": {
+        "x": 190,
+        "y": 925,
+        "width": 150,
+        "height": 56
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 197,
+        "y0": 930,
+        "x1": 298,
+        "y1": 972
+      },
+      "cropBox": {
+        "x0": 180,
+        "y0": 922,
+        "x1": 360,
+        "y1": 1002
+      },
+      "validation": {
+        "width": 180,
+        "height": 80,
+        "foregroundPixels": 1720,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 17,
+          "right": 62,
+          "top": 8,
+          "bottom": 30
+        },
+        "centerOffset": {
+          "x": -0.125,
+          "y": -0.1375
+        },
+        "passes": true
+      },
+      "note": "Symbicort respiratory and immunology brand cluster; the adjacent category-label tails are excluded.",
+      "excludedPixels": 3420,
+      "validationSheet": "data/assets/icon-references/astrazeneca/validation-sheets/symbicort-brand.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 99322,
+        "losslessBytes": 287282,
+        "savingsVsLossless": 0.6543,
+        "metrics": {
+          "meanAbsoluteError": 0.3846,
+          "rootMeanSquareError": 2.4432,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 69,
+          "changedPixelRatio": 0.086
+        }
+      }
+    },
+    {
+      "key": "synagis-brand",
+      "output": "data/assets/icon-references/astrazeneca/crops/synagis-brand.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1454,
+        "losslessBytes": 6511,
+        "savingsVsLossless": 0.7767,
+        "metrics": {
+          "meanAbsoluteError": 0.726,
+          "rootMeanSquareError": 2.423,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 51,
+          "changedPixelRatio": 0.2136
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 12,
+        "background": [
+          245,
+          245,
+          245
+        ],
+        "transparentPixels": 8058,
+        "transparentPixelRatio": 0.8123
+      },
+      "searchBox": {
+        "x": 190,
+        "y": 1075,
+        "width": 130,
+        "height": 64
+      },
+      "componentCount": 10,
+      "subjectBox": {
+        "x0": 196,
+        "y0": 1083,
+        "x1": 294,
+        "y1": 1125
+      },
+      "cropBox": {
+        "x0": 180,
+        "y0": 1075,
+        "x1": 335,
+        "y1": 1139
+      },
+      "validation": {
+        "width": 155,
+        "height": 64,
+        "foregroundPixels": 1628,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 16,
+          "right": 41,
+          "top": 8,
+          "bottom": 14
+        },
+        "centerOffset": {
+          "x": -0.0806,
+          "y": -0.0469
+        },
+        "passes": true
+      },
+      "note": "Synagis vaccines and immune-oncology brand cluster.",
+      "validationSheet": "data/assets/icon-references/astrazeneca/validation-sheets/synagis-brand.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 296462,
+        "losslessBytes": 296462,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

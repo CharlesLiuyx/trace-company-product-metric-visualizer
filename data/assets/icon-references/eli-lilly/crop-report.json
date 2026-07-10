@@ -1,0 +1,482 @@
+{
+  "source": "input/processed/eli-lilly-q4-fy25.png",
+  "spec": "input/icon-crop-specs/eli-lilly-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-10T12:38:24.985282+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/eli-lilly",
+  "crops": [
+    {
+      "key": "eli-lilly-wordmark",
+      "output": "data/assets/icon-references/eli-lilly/crops/company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 30702,
+        "losslessBytes": 30702,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 114239,
+        "transparentPixelRatio": 0.7752
+      },
+      "searchBox": {
+        "x": 651,
+        "y": 257,
+        "width": 438,
+        "height": 246
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 662,
+        "y0": 261,
+        "x1": 1089,
+        "y1": 502
+      },
+      "cropBox": {
+        "x0": 631,
+        "y0": 230,
+        "x1": 1119,
+        "y1": 532
+      },
+      "validation": {
+        "width": 488,
+        "height": 302,
+        "foregroundPixels": 26049,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 31,
+          "right": 30,
+          "top": 31,
+          "bottom": 30
+        },
+        "centerOffset": {
+          "x": 0.001,
+          "y": 0.0017
+        },
+        "passes": true
+      },
+      "note": "Red Lilly wordmark above the Revenue hub; an overlapping gray source ribbon is transparently excluded.",
+      "excludedPixels": 3780,
+      "runtimeOutput": "data/assets/raster-annotations/eli-lilly/company-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 30702,
+        "losslessBytes": 30702,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/eli-lilly/validation-sheets/eli-lilly-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 279506,
+        "losslessBytes": 279506,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "eli-lilly-cardiometabolic-brands",
+      "output": "data/assets/icon-references/eli-lilly/crops/cardiometabolic-brands.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 38961,
+        "losslessBytes": 38961,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 67949,
+        "transparentPixelRatio": 0.7924
+      },
+      "searchBox": {
+        "x": 53,
+        "y": 296,
+        "width": 321,
+        "height": 220
+      },
+      "componentCount": 47,
+      "subjectBox": {
+        "x0": 67,
+        "y0": 299,
+        "x1": 340,
+        "y1": 505
+      },
+      "cropBox": {
+        "x0": 31,
+        "y0": 269,
+        "x1": 381,
+        "y1": 514
+      },
+      "validation": {
+        "width": 350,
+        "height": 245,
+        "foregroundPixels": 9189,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 36,
+          "right": 41,
+          "top": 30,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": -0.0071,
+          "y": 0.0429
+        },
+        "passes": true
+      },
+      "note": "Mounjaro, Zepbound, Trulicity, and Jardiance brand-mark cluster. The crop ends above the Cardiometabolic Health label; the small upper-right exclusion removes only the adjacent $14.5B and growth note while preserving the full Jardiance icon.",
+      "excludedPixels": 3960,
+      "runtimeOutput": "data/assets/raster-annotations/eli-lilly/cardiometabolic-brands.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 38961,
+        "losslessBytes": 38961,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/eli-lilly/validation-sheets/eli-lilly-cardiometabolic-brands.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 307602,
+        "losslessBytes": 307602,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "eli-lilly-oncology-verzenio",
+      "output": "data/assets/icon-references/eli-lilly/crops/oncology-verzenio.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 1800,
+        "losslessBytes": 7502,
+        "savingsVsLossless": 0.7601,
+        "metrics": {
+          "meanAbsoluteError": 0.5018,
+          "rootMeanSquareError": 2.11,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 51,
+          "changedPixelRatio": 0.2483
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 13273,
+        "transparentPixelRatio": 0.7688
+      },
+      "searchBox": {
+        "x": 108,
+        "y": 690,
+        "width": 196,
+        "height": 71
+      },
+      "componentCount": 10,
+      "subjectBox": {
+        "x0": 134,
+        "y0": 693,
+        "x1": 297,
+        "y1": 751
+      },
+      "cropBox": {
+        "x0": 102,
+        "y0": 684,
+        "x1": 310,
+        "y1": 767
+      },
+      "validation": {
+        "width": 208,
+        "height": 83,
+        "foregroundPixels": 3609,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 32,
+          "right": 13,
+          "top": 9,
+          "bottom": 16
+        },
+        "centerOffset": {
+          "x": 0.0457,
+          "y": -0.0422
+        },
+        "passes": true
+      },
+      "note": "Verzenio mark for the Oncology revenue source; excludes the Oncology label.",
+      "runtimeOutput": "data/assets/raster-annotations/eli-lilly/oncology-verzenio.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 1800,
+        "losslessBytes": 7502,
+        "savingsVsLossless": 0.7601,
+        "metrics": {
+          "meanAbsoluteError": 0.5018,
+          "rootMeanSquareError": 2.11,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 51,
+          "changedPixelRatio": 0.2483
+        }
+      },
+      "validationSheet": "data/assets/icon-references/eli-lilly/validation-sheets/eli-lilly-oncology-verzenio.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 275722,
+        "losslessBytes": 275722,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "eli-lilly-immunology-taltz",
+      "output": "data/assets/icon-references/eli-lilly/crops/immunology-taltz.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1786,
+        "losslessBytes": 7889,
+        "savingsVsLossless": 0.7736,
+        "metrics": {
+          "meanAbsoluteError": 0.6198,
+          "rootMeanSquareError": 2.2574,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 38,
+          "changedPixelRatio": 0.2314
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 11617,
+        "transparentPixelRatio": 0.7889
+      },
+      "searchBox": {
+        "x": 145,
+        "y": 842,
+        "width": 143,
+        "height": 83
+      },
+      "componentCount": 17,
+      "subjectBox": {
+        "x0": 163,
+        "y0": 848,
+        "x1": 269,
+        "y1": 922
+      },
+      "cropBox": {
+        "x0": 139,
+        "y0": 836,
+        "x1": 294,
+        "y1": 931
+      },
+      "validation": {
+        "width": 155,
+        "height": 95,
+        "foregroundPixels": 2695,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 24,
+          "right": 25,
+          "top": 12,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": -0.0032,
+          "y": 0.0158
+        },
+        "passes": true
+      },
+      "note": "Taltz mark for the Immunology revenue source; excludes the Immunology label.",
+      "runtimeOutput": "data/assets/raster-annotations/eli-lilly/immunology-taltz.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1786,
+        "losslessBytes": 7889,
+        "savingsVsLossless": 0.7736,
+        "metrics": {
+          "meanAbsoluteError": 0.6198,
+          "rootMeanSquareError": 2.2574,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 38,
+          "changedPixelRatio": 0.2314
+        }
+      },
+      "validationSheet": "data/assets/icon-references/eli-lilly/validation-sheets/eli-lilly-immunology-taltz.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 296591,
+        "losslessBytes": 296591,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "eli-lilly-neuroscience-emgality",
+      "output": "data/assets/icon-references/eli-lilly/crops/neuroscience-emgality.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2758,
+        "losslessBytes": 11651,
+        "savingsVsLossless": 0.7633,
+        "metrics": {
+          "meanAbsoluteError": 0.515,
+          "rootMeanSquareError": 1.8715,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 38,
+          "changedPixelRatio": 0.1986
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 18516,
+        "transparentPixelRatio": 0.8163
+      },
+      "searchBox": {
+        "x": 105,
+        "y": 984,
+        "width": 200,
+        "height": 95
+      },
+      "componentCount": 27,
+      "subjectBox": {
+        "x0": 136,
+        "y0": 989,
+        "x1": 285,
+        "y1": 1067
+      },
+      "cropBox": {
+        "x0": 99,
+        "y0": 978,
+        "x1": 311,
+        "y1": 1085
+      },
+      "validation": {
+        "width": 212,
+        "height": 107,
+        "foregroundPixels": 3569,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 37,
+          "right": 26,
+          "top": 11,
+          "bottom": 18
+        },
+        "centerOffset": {
+          "x": 0.0259,
+          "y": -0.0327
+        },
+        "passes": true
+      },
+      "note": "Emgality mark for the Neurosciences revenue source; excludes the Neurosciences label.",
+      "runtimeOutput": "data/assets/raster-annotations/eli-lilly/neuroscience-emgality.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2758,
+        "losslessBytes": 11651,
+        "savingsVsLossless": 0.7633,
+        "metrics": {
+          "meanAbsoluteError": 0.515,
+          "rootMeanSquareError": 1.8715,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 38,
+          "changedPixelRatio": 0.1986
+        }
+      },
+      "validationSheet": "data/assets/icon-references/eli-lilly/validation-sheets/eli-lilly-neuroscience-emgality.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 288382,
+        "losslessBytes": 288382,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

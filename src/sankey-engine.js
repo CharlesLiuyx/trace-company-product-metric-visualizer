@@ -163,6 +163,103 @@
     return Number.isFinite(computed) ? computed : 0;
   }
 
+  function nodeMagnitude(node) {
+    if (!node) return 0;
+    const authored = Number(node.dv);
+    if (Number.isFinite(authored)) return Math.abs(authored);
+    const computed = Number(node.value);
+    return Number.isFinite(computed) ? Math.abs(computed) : 0;
+  }
+
+  function linkValueMagnitude(link) {
+    const raw = link && link.raw ? link.raw : {};
+    const value = raw.value != null ? raw.value : link && link.value;
+    const numeric = Number(value);
+    return Number.isFinite(numeric) ? Math.abs(numeric) : 0;
+  }
+
+  function isContributionLink(link) {
+    return Boolean(link && link.raw && link.raw.hoverPercentMode === 'contribution');
+  }
+
+  // A contribution link explains one receiving/result bar. Its denominator
+  // must therefore be stable across source-node, target-node, and link hover;
+  // using the hovered source would turn a one-to-one contribution into 100%.
+  function contributionLinkPercent(link, decimals = 1) {
+    return percentOf(linkValueMagnitude(link), nodeMagnitude(link && link.target), decimals);
+  }
+
+  function sameNode(left, right) {
+    if (left === right) return true;
+    if (!left || !right) return false;
+    if (left.id != null && right.id != null) return String(left.id) === String(right.id);
+    return left.index != null && right.index != null && left.index === right.index;
+  }
+
+  function oppositeNode(link, node) {
+    if (!link) return null;
+    if (sameNode(link.source, node)) return link.target;
+    if (sameNode(link.target, node)) return link.source;
+    return null;
+  }
+
+  function adjacentNodeKey(node) {
+    if (node && node.id != null) return `id:${node.id}`;
+    if (node && node.index != null) return `index:${node.index}`;
+    return node;
+  }
+
+  function groupAdjacentLinks(node, links) {
+    const groups = new Map();
+    (links || []).forEach((link) => {
+      const other = oppositeNode(link, node);
+      if (!other) return;
+      const key = adjacentNodeKey(other);
+      if (!groups.has(key)) groups.set(key, { key, node: other, links: [] });
+      groups.get(key).links.push(link);
+    });
+    return Array.from(groups.values());
+  }
+
+  function distinctAdjacentNodeCount(node, links) {
+    return groupAdjacentLinks(node, links).length;
+  }
+
+  // Node hover evaluates incoming and outgoing sides independently. A split
+  // or merge explains each adjacent flow as a share of the hovered bar; a
+  // singleton side compares the hovered bar itself with that side's one
+  // opposite bar. Authored magnitudes win over d3's computed flow totals.
+  function nodeHoverLinkPercent(
+    link,
+    hoveredNode,
+    adjacentNodeCount,
+    decimals = 1,
+    singletonOppositeNode = null
+  ) {
+    if (isContributionLink(link)) {
+      return contributionLinkPercent(link, decimals);
+    }
+    const current = nodeMagnitude(hoveredNode);
+    if (Number(adjacentNodeCount) > 1) {
+      return percentOf(linkValueMagnitude(link), current, decimals);
+    }
+    const other = singletonOppositeNode || oppositeNode(link, hoveredNode);
+    return percentOf(current, nodeMagnitude(other), decimals);
+  }
+
+  // A direct link normally compares its endpoint bars. A contribution link is
+  // directional: its amount is normalized to the receiving (target) bar.
+  function linkHoverPercent(link, decimals = 1) {
+    if (isContributionLink(link)) {
+      return contributionLinkPercent(link, decimals);
+    }
+    const source = nodeMagnitude(link && link.source);
+    const target = nodeMagnitude(link && link.target);
+    const larger = Math.max(source, target);
+    if (larger === 0) return '';
+    return percentOf(Math.min(source, target), larger, decimals);
+  }
+
   // default label side when a node doesn't specify one
   function autoSide(node, nCols) {
     if (node.col === 0) return 'left';
@@ -701,6 +798,10 @@
     }
 
     graph.links.forEach((lk, i) => {
+      // An annotation-only link participates in hover semantics and node
+      // context, while its source-matched vector guide is authored through
+      // annotationsSvg instead of a second rendered Sankey path.
+      if (lk.raw && lk.raw.interactionOnly) return;
       const sNode = lk.source;
       const tNode = lk.target;
       const customTint = lk.raw && lk.raw.linkTint;
@@ -982,16 +1083,6 @@
       return (Number.isFinite(value) ? value : fallback) * tooltipScale;
     };
 
-    function numericLinkValue(lk) {
-      const raw = lk.raw || {};
-      const v = raw.value != null ? raw.value : lk.value;
-      return Number.isFinite(Number(v)) ? Number(v) : 0;
-    }
-
-    function linkSum(linksToSum) {
-      return (linksToSum || []).reduce((sum, lk) => sum + numericLinkValue(lk), 0);
-    }
-
     function isBackgroundTint(value) {
       const color = String(value == null ? '' : value).trim().toLowerCase();
       const background = String(cfg.background || '').trim().toLowerCase();
@@ -1010,61 +1101,18 @@
       return colors.length > 0 && colors.every(isBackgroundTint);
     }
 
-    function hiddenBridgeDenominator(lk) {
-      const hiddenIncoming = (lk.source && lk.source.targetLinks ? lk.source.targetLinks : []).filter(
-        isHiddenBridgeLink
-      );
-      if (hiddenIncoming.length !== 1) return 0;
-      const upstreamSourceLinks =
-        hiddenIncoming[0].source && hiddenIncoming[0].source.sourceLinks
-          ? hiddenIncoming[0].source.sourceLinks
-          : [];
-      return linkSum(upstreamSourceLinks);
-    }
-
-    function linkPercent(lk, denominatorOverride) {
-      const raw = lk.raw || {};
+    function linkPercent(lk, hoveredNode, adjacentNodeCount, singletonOppositeNode) {
       if (isHiddenBridgeLink(lk)) return '';
       const decimals = tooltipCfg && tooltipCfg.percentDecimals != null ? tooltipCfg.percentDecimals : 1;
-      const value = numericLinkValue(lk);
-      const contextualDenominator = Number(denominatorOverride);
-
-      // A node hover is a question about the hovered node: every adjacent
-      // link is the numerator and that node's authored value is the shared
-      // denominator. The same link can therefore show a different share when
-      // reached from its opposite endpoint. Link-authored percentages remain
-      // the fallback for a direct link hover, where no node context exists.
-      if (Number.isFinite(contextualDenominator) && contextualDenominator !== 0) {
-        return percentOf(value, contextualDenominator, decimals);
-      }
-
-      if (raw.percentText != null) return String(raw.percentText);
-      if (raw.percentageText != null) return String(raw.percentageText);
-
-      const explicit = raw.percent != null ? raw.percent : raw.percentage;
-      if (explicit != null && Number.isFinite(Number(explicit))) {
-        const pct = Math.abs(Number(explicit)) <= 1 ? Number(explicit) * 100 : Number(explicit);
-        return `${trimFixed(pct, decimals)}%`;
-      }
-
-      const sourceLinks = lk.source && lk.source.sourceLinks ? lk.source.sourceLinks : [];
-      const targetLinks = lk.target && lk.target.targetLinks ? lk.target.targetLinks : [];
-      const sourceTotal = linkSum(sourceLinks);
-      const targetTotal = linkSum(targetLinks);
-      let denominator = 0;
-
-      if (!denominator) {
-        const bridgeDenominator = hiddenBridgeDenominator(lk);
-        if (bridgeDenominator > 0) denominator = bridgeDenominator;
-      }
-      if (!denominator) {
-        if (sourceLinks.length > 1 && sourceTotal > 0) denominator = sourceTotal;
-        else if (targetLinks.length > 1 && targetTotal > 0) denominator = targetTotal;
-        else denominator = sourceTotal || targetTotal;
-      }
-
-      if (!denominator) return '';
-      return percentOf(value, denominator, decimals);
+      return hoveredNode
+        ? nodeHoverLinkPercent(
+            lk,
+            hoveredNode,
+            adjacentNodeCount,
+            decimals,
+            singletonOppositeNode
+          )
+        : linkHoverPercent(lk, decimals);
     }
 
     function linkTooltipAnchor(path, lk) {
@@ -1105,27 +1153,33 @@
       const rows = [];
       const seen = new Set();
 
-      function add(item, denominatorOverride) {
+      function add(item) {
         const lk = item.lk;
         if (!lk || seen.has(lk.index)) return;
         seen.add(lk.index);
-        rows.push(Object.assign({}, item, { denominatorOverride }));
+        rows.push(item);
       }
 
       (items || []).forEach((item) => {
         if (!isHiddenBridgeLink(item.lk)) {
-          add(item, item.denominatorOverride);
+          add(item);
           return;
         }
 
         const downstream = item.lk.target && item.lk.target.sourceLinks
           ? item.lk.target.sourceLinks.filter((lk) => !isHiddenBridgeLink(lk))
           : [];
-        const denominator = linkSum(
-          item.lk.source && item.lk.source.sourceLinks ? item.lk.source.sourceLinks : []
+        const expandedAdjacentNodeCount = Math.max(
+          Number(item.adjacentNodeCount) || 0,
+          distinctAdjacentNodeCount(item.lk.target, downstream)
         );
         downstream.forEach((lk) =>
-          add({ path: linkPathByIndex.get(lk.index), lk }, denominator)
+          add(Object.assign({}, item, {
+            path: linkPathByIndex.get(lk.index),
+            lk,
+            adjacentNodeCount: expandedAdjacentNodeCount,
+            singletonOppositeNode: lk.target,
+          }))
         );
       });
 
@@ -1134,16 +1188,29 @@
 
     function showLinkTooltips(items) {
       if (!linkTooltipLayer) return;
-      const rows = expandTooltipItems(items)
+      const directRows = (items || [])
+        .filter((item) => item && !item.lk && item.text && Array.isArray(item.anchor))
+        .map((item) => ({ key: item.key || `annotation:${item.text}`, text: item.text, anchor: item.anchor }));
+      const linkRows = expandTooltipItems((items || []).filter((item) => item && item.lk))
         .map((item) =>
-          Object.assign({}, item, { text: linkPercent(item.lk, item.denominatorOverride) })
+          Object.assign({}, item, {
+            key: `link:${item.lk.index}`,
+            text: linkPercent(
+              item.lk,
+              item.hoveredNode,
+              item.adjacentNodeCount,
+              item.singletonOppositeNode
+            ),
+            anchor: tooltipAnchorFor(item),
+          })
         )
         .filter((item) => item.text);
+      const rows = directRows.concat(linkRows);
 
       linkTooltipLayer.style('display', rows.length ? null : 'none');
       const tips = linkTooltipLayer
         .selectAll('g.sankey-link-tooltip')
-        .data(rows, (item) => item.lk.index);
+        .data(rows, (item) => item.key);
 
       tips.exit().remove();
 
@@ -1185,7 +1252,6 @@
           tooltipTextBoxCache.set(item.text, textBox);
         }
         item.textBox = textBox;
-        item.anchor = tooltipAnchorFor(item);
       });
       merged.each(function (item) {
         const tip = d3.select(this);
@@ -1343,21 +1409,127 @@
         pendingReset = 0;
       };
 
+      function nodeSideTooltipItems(hoveredNode, realLinks, annotationLinks, adjacentNodeCount, side) {
+        const groups = new Map();
+        const ensureGroup = (other) => {
+          const key = adjacentNodeKey(other);
+          if (!groups.has(key)) {
+            groups.set(key, { key, other, realLinks: [], annotations: [] });
+          }
+          return groups.get(key);
+        };
+
+        realLinks.forEach((lk) => {
+          const other = oppositeNode(lk, hoveredNode);
+          if (other) ensureGroup(other).realLinks.push(lk);
+        });
+        annotationLinks.forEach((item) => {
+          const other = oppositeNode(item.semanticLink, hoveredNode);
+          if (other) ensureGroup(other).annotations.push(item);
+        });
+
+        const decimals = tooltipCfg && tooltipCfg.percentDecimals != null
+          ? tooltipCfg.percentDecimals
+          : 1;
+        return Array.from(groups.values()).map((group) => {
+          // An annotation and an interactionOnly graph link may describe the
+          // same semantic micro-flow. Prefer the annotation's authored anchor
+          // and emit one endpoint row rather than duplicate percentages. A
+          // standalone guide is supplemental (not graph topology), so its
+          // ratio follows direct-link endpoint semantics and cannot turn a
+          // singleton node side into a split/merge.
+          if (group.annotations.length) {
+            const annotation = group.annotations[0];
+            let anchor = annotation.anchor;
+            if (!anchor && group.realLinks.length) {
+              const lk = group.realLinks[0];
+              anchor = tooltipAnchorFor({ path: linkPathByIndex.get(lk.index), lk });
+            }
+            return Object.assign({}, annotation, {
+              anchor,
+              text: group.realLinks.length
+                ? nodeHoverLinkPercent(
+                    annotation.semanticLink,
+                    hoveredNode,
+                    adjacentNodeCount,
+                    decimals
+                  )
+                : linkHoverPercent(annotation.semanticLink, decimals),
+            });
+          }
+
+          if (group.realLinks.length === 1) {
+            const lk = group.realLinks[0];
+            return {
+              path: linkPathByIndex.get(lk.index),
+              lk,
+              hoveredNode,
+              adjacentNodeCount,
+            };
+          }
+
+          // Parallel links to one endpoint are one source/destination for the
+          // branching rule. Aggregate their values and show a single card.
+          const representative = group.realLinks[0];
+          const aggregateValue = group.realLinks.reduce(
+            (sum, lk) => sum + linkValueMagnitude(lk),
+            0
+          );
+          const aggregateLink = Object.assign({}, representative, {
+            value: aggregateValue,
+            raw: Object.assign({}, representative.raw, { value: aggregateValue }),
+          });
+          return {
+            key: `node-link-group:${keyOf(hoveredNode)}:${side}:${group.key}`,
+            text: nodeHoverLinkPercent(
+              aggregateLink,
+              hoveredNode,
+              adjacentNodeCount,
+              decimals
+            ),
+            anchor: tooltipAnchorFor({
+              path: linkPathByIndex.get(representative.index),
+              lk: representative,
+            }),
+          };
+        });
+      }
+
       const focusNode = (event, n) => {
         cancelReset();
         const key = `n:${keyOf(n)}`;
         if (focusKey === key) return;
         focusKey = key;
         const ctx = collectNodeContext(n);
+        const incomingLinks = [...(n.targetLinks || [])];
+        const outgoingLinks = [...(n.sourceLinks || [])];
+        const annotationTooltipItems = annotationTooltipItemsForNode(n);
+        const incomingAnnotations = annotationTooltipItems.filter((item) =>
+          sameNode(item.semanticLink.target, n)
+        );
+        const outgoingAnnotations = annotationTooltipItems.filter((item) =>
+          sameNode(item.semanticLink.source, n)
+        );
+        // Only graph links define how many source/destination bars a node has.
+        // A standalone SVG guide may provide an extra percentage card, but it
+        // must not change a singleton side into a split/merge (Kraft Heinz's
+        // Other callout is the canonical regression case).
+        const incomingNodeCount = distinctAdjacentNodeCount(n, incomingLinks);
+        const outgoingNodeCount = distinctAdjacentNodeCount(n, outgoingLinks);
+
+        // An annotated micro-flow has no drawable d3 link, but it remains a
+        // semantic part of either endpoint's hover context. Keep its label
+        // bright and render its real percentage alongside regular links.
+        annotationTooltipItems.forEach((item) => {
+          ctx.activeNodes.add(item.numerator);
+          ctx.activeNodes.add(item.denominator);
+        });
         applyHighlight(ctx.activeNodes, ctx.activeLinks);
-        const directLinks = [...(n.targetLinks || []), ...(n.sourceLinks || [])];
-        const denominatorOverride = nodeHoverDenominator(n);
         showLinkTooltips(
-          directLinks.map((lk) => ({
-            path: linkPathByIndex.get(lk.index),
-            lk,
-            denominatorOverride,
-          }))
+          nodeSideTooltipItems(n, incomingLinks, incomingAnnotations, incomingNodeCount, 'incoming')
+            .concat(
+              nodeSideTooltipItems(n, outgoingLinks, outgoingAnnotations, outgoingNodeCount, 'outgoing')
+            )
         );
       };
 
@@ -1370,12 +1542,70 @@
         showLinkTooltip(event.currentTarget, lk);
       };
 
+      function annotationLinkTooltipItem(annotation) {
+        const node = nodeByKey.get(annotation.getAttribute('data-node'));
+        const numerator = nodeByKey.get(annotation.getAttribute('data-link-numerator'));
+        const denominator = nodeByKey.get(annotation.getAttribute('data-link-denominator'));
+        if (!node || !numerator || !denominator) return null;
+
+        const anchorXAttr = annotation.getAttribute('data-link-anchor-x');
+        const anchorYAttr = annotation.getAttribute('data-link-anchor-y');
+        const anchorX = anchorXAttr != null && anchorXAttr.trim() ? Number(anchorXAttr) : NaN;
+        const anchorY = anchorYAttr != null && anchorYAttr.trim() ? Number(anchorYAttr) : NaN;
+        return {
+          key: `annotation-link:${keyOf(numerator)}:${keyOf(denominator)}`,
+          anchor: Number.isFinite(anchorX) && Number.isFinite(anchorY) ? [anchorX, anchorY] : null,
+          node,
+          numerator,
+          denominator,
+          semanticLink: {
+            source: numerator,
+            target: denominator,
+            value: nodeMagnitude(numerator),
+            raw: { value: nodeMagnitude(numerator) },
+          },
+        };
+      }
+
+      function annotationTooltipItemsForNode(node) {
+        const items = [];
+        annotationItems.each(function () {
+          const item = annotationLinkTooltipItem(this);
+          if (item && (sameNode(item.numerator, node) || sameNode(item.denominator, node))) items.push(item);
+        });
+        return items;
+      }
+
+      // A few source charts express a financially meaningful micro-flow as an
+      // SVG guide annotation rather than a drawable d3 link. When the
+      // annotation declares its numerator and denominator nodes, give it the
+      // same percentage-tooltip treatment as a real link, anchored on the
+      // guide itself rather than on the label hitbox.
+      const focusAnnotation = (event, annotation) => {
+        const item = annotationLinkTooltipItem(annotation);
+        const node = item ? item.node : nodeByKey.get(annotation.getAttribute('data-node'));
+        if (!item) {
+          if (!node) return;
+          focusNode(event, node);
+          return;
+        }
+
+        cancelReset();
+        const key = `a:${keyOf(item.numerator)}:${keyOf(item.denominator)}`;
+        if (focusKey === key) return;
+        focusKey = key;
+        applyHighlight(new Set([node, item.numerator, item.denominator]), new Set());
+        if (!item.anchor) item.anchor = d3.pointer(event, svg.node());
+        const decimals = tooltipCfg && tooltipCfg.percentDecimals != null ? tooltipCfg.percentDecimals : 1;
+        item.text = linkHoverPercent(item.semanticLink, decimals);
+        showLinkTooltips([item]);
+      };
+
       nodeRects.on('mouseenter', focusNode).on('mouseleave', scheduleReset);
       labelItems.on('mouseenter', focusNode).on('mouseleave', scheduleReset);
       annotationItems
         .on('mouseenter', function (event) {
-          const node = nodeByKey.get(this.getAttribute('data-node'));
-          if (node) focusNode(event, node);
+          focusAnnotation(event, this);
         })
         .on('mouseleave', scheduleReset)
         .style('cursor', 'pointer');
@@ -1400,6 +1630,12 @@
       trimFixed,
       percentOf,
       nodeHoverDenominator,
+      nodeMagnitude,
+      linkValueMagnitude,
+      groupAdjacentLinks,
+      distinctAdjacentNodeCount,
+      nodeHoverLinkPercent,
+      linkHoverPercent,
       autoSide,
       buildFixedGraph,
       taperedLinkPath,

@@ -3,6 +3,12 @@
   "language": "en",
   "similarityTolerance": 0.003,
   "baselines": {
+    "abbvie-q4-fy25": {
+      "similarity": 0.970328,
+      "mae": 7.5664,
+      "width": 2667,
+      "height": 1500
+    },
     "adidas-q4-fy25": {
       "similarity": 0.96185,
       "mae": 9.7283,
@@ -33,6 +39,12 @@
       "width": 2667,
       "height": 1500
     },
+    "airbnb-fy25": {
+      "similarity": 0.973953,
+      "mae": 6.642,
+      "width": 2667,
+      "height": 1500
+    },
     "airbnb-q1-fy26": {
       "similarity": 0.961953,
       "mae": 9.7019,
@@ -56,6 +68,12 @@
       "mae": 11.0567,
       "width": 2980,
       "height": 1678
+    },
+    "align-q4-fy25": {
+      "similarity": 0.975485,
+      "mae": 6.2512,
+      "width": 2667,
+      "height": 1500
     },
     "alphabet-q1-fy26": {
       "similarity": 0.948939,
@@ -96,6 +114,12 @@
     "american-express-q1-fy26": {
       "similarity": 0.956359,
       "mae": 11.1285,
+      "width": 2667,
+      "height": 1500
+    },
+    "amgen-q4-fy25": {
+      "similarity": 0.959727,
+      "mae": 10.2696,
       "width": 2667,
       "height": 1500
     },
@@ -159,6 +183,12 @@
       "width": 2667,
       "height": 1500
     },
+    "astrazeneca-q4-fy25": {
+      "similarity": 0.957199,
+      "mae": 10.9143,
+      "width": 2667,
+      "height": 1500
+    },
     "atlassian-q3-fy26": {
       "similarity": 0.95328,
       "mae": 11.9136,
@@ -192,6 +222,12 @@
     "boeing-q1-fy26": {
       "similarity": 0.970151,
       "mae": 7.6115,
+      "width": 2667,
+      "height": 1500
+    },
+    "booking-q4-fy25": {
+      "similarity": 0.975833,
+      "mae": 6.1627,
       "width": 2667,
       "height": 1500
     },
@@ -387,6 +423,12 @@
       "width": 2667,
       "height": 1500
     },
+    "eli-lilly-q4-fy25": {
+      "similarity": 0.970147,
+      "mae": 7.6125,
+      "width": 2667,
+      "height": 1500
+    },
     "etsy-q4-fy25": {
       "similarity": 0.965471,
       "mae": 8.8048,
@@ -396,6 +438,12 @@
     "expedia-q1-fy26": {
       "similarity": 0.97435,
       "mae": 6.5407,
+      "width": 2667,
+      "height": 1500
+    },
+    "expedia-q4-fy25": {
+      "similarity": 0.97027,
+      "mae": 7.5812,
       "width": 2667,
       "height": 1500
     },
@@ -435,9 +483,21 @@
       "width": 2667,
       "height": 1500
     },
+    "hershey-q4-fy25": {
+      "similarity": 0.96254,
+      "mae": 9.5523,
+      "width": 2667,
+      "height": 1500
+    },
     "hilton-q1-fy26": {
       "similarity": 0.96466,
       "mae": 9.0116,
+      "width": 2667,
+      "height": 1500
+    },
+    "hilton-q4-fy25": {
+      "similarity": 0.965636,
+      "mae": 8.7628,
       "width": 2667,
       "height": 1500
     },
@@ -510,6 +570,12 @@
     "klaviyo-q1-fy26": {
       "similarity": 0.957643,
       "mae": 10.8009,
+      "width": 2667,
+      "height": 1500
+    },
+    "kraft-heinz-q4-fy25": {
+      "similarity": 0.964368,
+      "mae": 9.0862,
       "width": 2667,
       "height": 1500
     },
@@ -591,6 +657,12 @@
       "width": 2667,
       "height": 1500
     },
+    "merck-q4-fy25": {
+      "similarity": 0.972159,
+      "mae": 7.0996,
+      "width": 2667,
+      "height": 1500
+    },
     "meta-q1-fy26": {
       "similarity": 0.958731,
       "mae": 10.5235,
@@ -627,6 +699,12 @@
       "width": 2667,
       "height": 1500
     },
+    "mondelez-q4-fy25": {
+      "similarity": 0.966024,
+      "mae": 8.6638,
+      "width": 2667,
+      "height": 1500
+    },
     "mongodb-q1-fy27": {
       "similarity": 0.95816,
       "mae": 10.6693,
@@ -642,6 +720,12 @@
     "moodys-q1-fy26": {
       "similarity": 0.965777,
       "mae": 8.7268,
+      "width": 2667,
+      "height": 1500
+    },
+    "moodys-q4-fy25": {
+      "similarity": 0.966498,
+      "mae": 8.5431,
       "width": 2667,
       "height": 1500
     },
@@ -690,6 +774,18 @@
     "nintendo-fy26": {
       "similarity": 0.966176,
       "mae": 8.6252,
+      "width": 2667,
+      "height": 1500
+    },
+    "novartis-q4-fy25": {
+      "similarity": 0.974772,
+      "mae": 6.433,
+      "width": 2667,
+      "height": 1500
+    },
+    "novo-nordisk-q4-fy25": {
+      "similarity": 0.953635,
+      "mae": 11.823,
       "width": 2667,
       "height": 1500
     },
@@ -870,6 +966,12 @@
     "pepsico-q4-fy25": {
       "similarity": 0.968018,
       "mae": 8.1554,
+      "width": 2667,
+      "height": 1500
+    },
+    "pfizer-q4-fy25": {
+      "similarity": 0.962863,
+      "mae": 9.47,
       "width": 2667,
       "height": 1500
     },
@@ -1086,6 +1188,12 @@
     "toast-q4-fy25": {
       "similarity": 0.977001,
       "mae": 5.8647,
+      "width": 2667,
+      "height": 1500
+    },
+    "tripadvisor-q4-fy25": {
+      "similarity": 0.963648,
+      "mae": 9.2697,
       "width": 2667,
       "height": 1500
     },

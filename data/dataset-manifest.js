@@ -4556,6 +4556,418 @@
             }
           }
         }
+      },
+      {
+        "key": "hershey-q4-fy25",
+        "src": "data/datasets/hershey-q4-fy25.js",
+        "data": {
+          "name": "Hershey · Q4 FY25",
+          "company": "Hershey",
+          "meta": {
+            "title": "Hershey Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "好时 · 2025 财年第四季度",
+              "meta": {
+                "title": "好时 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hilton-q4-fy25",
+        "src": "data/datasets/hilton-q4-fy25.js",
+        "data": {
+          "name": "Hilton · Q4 FY25",
+          "company": "Hilton",
+          "meta": {
+            "title": "Hilton Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Hilton · 2025 财年第四季度",
+              "meta": {
+                "title": "Hilton 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "astrazeneca-q4-fy25",
+        "src": "data/datasets/astrazeneca-q4-fy25.js",
+        "data": {
+          "name": "AstraZeneca · Q4 FY25",
+          "company": "AstraZeneca",
+          "meta": {
+            "title": "AstraZeneca Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "阿斯利康 · 2025 财年第四季度",
+              "meta": {
+                "title": "阿斯利康 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "booking-q4-fy25",
+        "src": "data/datasets/booking-q4-fy25.js",
+        "data": {
+          "name": "Booking Holdings · Q4 FY25",
+          "company": "Booking Holdings",
+          "meta": {
+            "title": "Booking Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "缤客控股 · 2025 财年第四季度",
+              "meta": {
+                "title": "缤客控股 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pfizer-q4-fy25",
+        "src": "data/datasets/pfizer-q4-fy25.js",
+        "data": {
+          "name": "Pfizer · Q4 FY25",
+          "company": "Pfizer",
+          "meta": {
+            "title": "Pfizer Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Quarter ended Dec. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "辉瑞 · 2025 财年第四季度",
+              "meta": {
+                "title": "辉瑞 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "kraft-heinz-q4-fy25",
+        "src": "data/datasets/kraft-heinz-q4-fy25.js",
+        "data": {
+          "name": "Kraft Heinz · Q4 FY25",
+          "company": "Kraft Heinz",
+          "meta": {
+            "title": "Kraft Heinz Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "卡夫亨氏 · 2025 财年第四季度",
+              "meta": {
+                "title": "卡夫亨氏 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "eli-lilly-q4-fy25",
+        "src": "data/datasets/eli-lilly-q4-fy25.js",
+        "data": {
+          "name": "Eli Lilly · Q4 FY25",
+          "company": "Eli Lilly",
+          "meta": {
+            "title": "Eli Lilly Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "礼来 · 2025 财年第四季度",
+              "meta": {
+                "title": "礼来 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amgen-q4-fy25",
+        "src": "data/datasets/amgen-q4-fy25.js",
+        "data": {
+          "name": "Amgen · Q4 FY25",
+          "company": "Amgen",
+          "meta": {
+            "title": "Amgen Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "安进 · 2025 财年第四季度",
+              "meta": {
+                "title": "安进 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mondelez-q4-fy25",
+        "src": "data/datasets/mondelez-q4-fy25.js",
+        "data": {
+          "name": "Mondelēz · Q4 FY25",
+          "company": "Mondelēz International",
+          "meta": {
+            "title": "Mondelēz Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "亿滋国际 · 2025 财年第四季度",
+              "meta": {
+                "title": "亿滋国际 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "novo-nordisk-q4-fy25",
+        "src": "data/datasets/novo-nordisk-q4-fy25.js",
+        "data": {
+          "name": "Novo Nordisk · Q4 FY25",
+          "company": "Novo Nordisk",
+          "meta": {
+            "title": "Novo Nordisk Q4 FY25 Income Statement",
+            "period": "in DKK"
+          },
+          "i18n": {
+            "zh": {
+              "name": "诺和诺德 · 2025 财年第四季度",
+              "meta": {
+                "title": "诺和诺德 2025 财年第四季度利润表",
+                "period": "单位：丹麦克朗"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "airbnb-fy25",
+        "src": "data/datasets/airbnb-fy25.js",
+        "data": {
+          "name": "Airbnb · FY25",
+          "company": "Airbnb",
+          "meta": {
+            "title": "Airbnb FY25 Income Statement",
+            "period": "FY25",
+            "periodNote": "Year ended Dec. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Airbnb · 2025 财年",
+              "meta": {
+                "title": "Airbnb 2025 财年利润表",
+                "period": "2025 财年",
+                "periodNote": "截至 2025 年 12 月 31 日的年度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "expedia-q4-fy25",
+        "src": "data/datasets/expedia-q4-fy25.js",
+        "data": {
+          "name": "Expedia · Q4 FY25",
+          "company": "Expedia",
+          "meta": {
+            "title": "Expedia Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Expedia · 2025 财年第四季度",
+              "meta": {
+                "title": "Expedia 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "abbvie-q4-fy25",
+        "src": "data/datasets/abbvie-q4-fy25.js",
+        "data": {
+          "name": "AbbVie · Q4 FY25",
+          "company": "AbbVie",
+          "meta": {
+            "title": "AbbVie Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Quarter ended Dec. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "艾伯维 · 2025 财年第四季度",
+              "meta": {
+                "title": "艾伯维 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "moodys-q4-fy25",
+        "src": "data/datasets/moodys-q4-fy25.js",
+        "data": {
+          "name": "Moody's · Q4 FY25",
+          "company": "Moody's",
+          "meta": {
+            "title": "Moody’s Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Quarter ended Dec. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "穆迪 · 2025 财年第四季度",
+              "meta": {
+                "title": "穆迪 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "merck-q4-fy25",
+        "src": "data/datasets/merck-q4-fy25.js",
+        "data": {
+          "name": "Merck · Q4 FY25",
+          "company": "Merck",
+          "meta": {
+            "title": "Merck Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Quarter ended Dec. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "默沙东 · 2025 财年第四季度",
+              "meta": {
+                "title": "默沙东 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "novartis-q4-fy25",
+        "src": "data/datasets/novartis-q4-fy25.js",
+        "data": {
+          "name": "Novartis · Q4 FY25",
+          "company": "Novartis",
+          "meta": {
+            "title": "Novartis Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Quarter ended Dec. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "诺华 · 2025 财年第四季度",
+              "meta": {
+                "title": "诺华 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "align-q4-fy25",
+        "src": "data/datasets/align-q4-fy25.js",
+        "data": {
+          "name": "Align Technology · Q4 FY25",
+          "company": "Align Technology",
+          "meta": {
+            "title": "Align Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "爱齐科技 · 2025 财年第四季度",
+              "meta": {
+                "title": "爱齐科技 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tripadvisor-q4-fy25",
+        "src": "data/datasets/tripadvisor-q4-fy25.js",
+        "data": {
+          "name": "Tripadvisor · Q4 FY25",
+          "company": "Tripadvisor",
+          "meta": {
+            "title": "Tripadvisor Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Quarter ended Dec. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "猫途鹰 · 2025 财年第四季度",
+              "meta": {
+                "title": "猫途鹰 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
       }
     ]
   };

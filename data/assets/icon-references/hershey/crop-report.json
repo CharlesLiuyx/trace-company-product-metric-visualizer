@@ -1,0 +1,386 @@
+{
+  "source": "input/processed/hershey-q4-fy25.png",
+  "spec": "input/icon-crop-specs/hershey-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-10T12:41:56.731008+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/hershey",
+  "crops": [
+    {
+      "key": "hershey-company-wordmark",
+      "output": "data/assets/icon-references/hershey/crops/company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 6776,
+        "losslessBytes": 36871,
+        "savingsVsLossless": 0.8162,
+        "metrics": {
+          "meanAbsoluteError": 0.4182,
+          "rootMeanSquareError": 1.3594,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.3839
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 103756,
+        "transparentPixelRatio": 0.6198
+      },
+      "searchBox": {
+        "x": 660,
+        "y": 250,
+        "width": 600,
+        "height": 250
+      },
+      "componentCount": 26,
+      "subjectBox": {
+        "x0": 675,
+        "y0": 269,
+        "x1": 1240,
+        "y1": 475
+      },
+      "cropBox": {
+        "x0": 650,
+        "y0": 240,
+        "x1": 1270,
+        "y1": 510
+      },
+      "validation": {
+        "width": 620,
+        "height": 270,
+        "foregroundPixels": 61748,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 25,
+          "right": 30,
+          "top": 29,
+          "bottom": 35
+        },
+        "centerOffset": {
+          "x": -0.004,
+          "y": -0.0111
+        },
+        "passes": true
+      },
+      "note": "The burgundy Hershey wordmark above net sales; excludes the title, revenue labels, and chart flows.",
+      "runtimeOutput": "data/assets/raster-annotations/hershey/company-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 6776,
+        "losslessBytes": 36871,
+        "savingsVsLossless": 0.8162,
+        "metrics": {
+          "meanAbsoluteError": 0.4182,
+          "rootMeanSquareError": 1.3594,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.3839
+        }
+      },
+      "validationSheet": "data/assets/icon-references/hershey/validation-sheets/hershey-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 248643,
+        "losslessBytes": 248643,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "north-america-confectionery-products",
+      "output": "data/assets/icon-references/hershey/crops/north-america-confectionery-products.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 35282,
+        "losslessBytes": 35282,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 30230,
+        "transparentPixelRatio": 0.6543
+      },
+      "searchBox": {
+        "x": 150,
+        "y": 410,
+        "width": 200,
+        "height": 190
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 192,
+        "y0": 430,
+        "x1": 328,
+        "y1": 578
+      },
+      "cropBox": {
+        "x0": 140,
+        "y0": 400,
+        "x1": 360,
+        "y1": 610
+      },
+      "validation": {
+        "width": 220,
+        "height": 210,
+        "foregroundPixels": 15513,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 52,
+          "right": 32,
+          "top": 30,
+          "bottom": 32
+        },
+        "centerOffset": {
+          "x": 0.0455,
+          "y": -0.0048
+        },
+        "passes": true
+      },
+      "note": "Jolly Rancher and Reese's product-pack cluster for North America Confectionery; excludes value and label text.",
+      "runtimeOutput": "data/assets/raster-annotations/hershey/north-america-confectionery-products.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 35282,
+        "losslessBytes": 35282,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/hershey/validation-sheets/north-america-confectionery-products.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 320101,
+        "losslessBytes": 320101,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "north-america-salty-snacks-products",
+      "output": "data/assets/icon-references/hershey/crops/north-america-salty-snacks-products.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 45980,
+        "losslessBytes": 45980,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 24915,
+        "transparentPixelRatio": 0.5158
+      },
+      "searchBox": {
+        "x": 150,
+        "y": 760,
+        "width": 210,
+        "height": 190
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 177,
+        "y0": 774,
+        "x1": 353,
+        "y1": 932
+      },
+      "cropBox": {
+        "x0": 140,
+        "y0": 750,
+        "x1": 370,
+        "y1": 960
+      },
+      "validation": {
+        "width": 230,
+        "height": 210,
+        "foregroundPixels": 21161,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 37,
+          "right": 17,
+          "top": 24,
+          "bottom": 28
+        },
+        "centerOffset": {
+          "x": 0.0435,
+          "y": -0.0095
+        },
+        "passes": true
+      },
+      "note": "Dot's Pretzels and SkinnyPop product-pack cluster for North America Salty Snacks; excludes value and label text.",
+      "runtimeOutput": "data/assets/raster-annotations/hershey/north-america-salty-snacks-products.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 45980,
+        "losslessBytes": 45980,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/hershey/validation-sheets/north-america-salty-snacks-products.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 341732,
+        "losslessBytes": 341732,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "international-products",
+      "output": "data/assets/icon-references/hershey/crops/international-products.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 6334,
+        "losslessBytes": 20460,
+        "savingsVsLossless": 0.6904,
+        "metrics": {
+          "meanAbsoluteError": 1.102,
+          "rootMeanSquareError": 2.7975,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 37,
+          "changedPixelRatio": 0.3498
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 17006,
+        "transparentPixelRatio": 0.6516
+      },
+      "searchBox": {
+        "x": 185,
+        "y": 1110,
+        "width": 160,
+        "height": 130
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 226,
+        "y0": 1118,
+        "x1": 316,
+        "y1": 1233
+      },
+      "cropBox": {
+        "x0": 175,
+        "y0": 1105,
+        "x1": 355,
+        "y1": 1250
+      },
+      "validation": {
+        "width": 180,
+        "height": 145,
+        "foregroundPixels": 8847,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 51,
+          "right": 39,
+          "top": 13,
+          "bottom": 17
+        },
+        "centerOffset": {
+          "x": 0.0333,
+          "y": -0.0138
+        },
+        "passes": true
+      },
+      "note": "Kisses and snack product-pack cluster for International; starts below the Salty Snacks margin and ends above the International label.",
+      "runtimeOutput": "data/assets/raster-annotations/hershey/international-products.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 6334,
+        "losslessBytes": 20460,
+        "savingsVsLossless": 0.6904,
+        "metrics": {
+          "meanAbsoluteError": 1.102,
+          "rootMeanSquareError": 2.7975,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 37,
+          "changedPixelRatio": 0.3498
+        }
+      },
+      "validationSheet": "data/assets/icon-references/hershey/validation-sheets/international-products.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 298981,
+        "losslessBytes": 298981,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

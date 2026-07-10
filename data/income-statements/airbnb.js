@@ -10,6 +10,86 @@
 
   ssot.records.push(
     {
+      key: 'airbnb-fy25',
+      company: 'Airbnb',
+      period: 'FY25',
+      periodNote: 'Year ended Dec. 31, 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/airbnb-fy25.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 12.2,
+        notes: ['+10% Y/Y', 'Regional revenue items sum to $12.3B because the source chart rounds each region.'],
+        items: [
+          { id: 'north_america', label: 'North America', value: 5.2, notes: ['+4% Y/Y'] },
+          { id: 'emea', label: 'EMEA', value: 4.7, notes: ['+14% Y/Y'] },
+          { id: 'latam', label: 'LATAM', value: 1.2, notes: ['+20% Y/Y'] },
+          { id: 'apac', label: 'APAC', value: 1.2, notes: ['+17% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 2.1 },
+        operatingExpenses: {
+          total: 7.6,
+          items: [
+            { id: 'sm', label: 'S&M', value: 2.6, notes: ['21% of revenue', '+2pp Y/Y'] },
+            { id: 'product', label: 'Product', value: 2.4, notes: ['19% of revenue', '+1pp Y/Y'] },
+            { id: 'support', label: 'Support', value: 1.3, notes: ['11% of revenue', '(1pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 1.3, notes: ['11% of revenue', '+0pp Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.6 },
+      },
+      otherIncome: {
+        total: 0.6,
+        items: [{ id: 'other_income', label: 'Other', value: 0.6 }],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 10.2, notes: ['83% margin', '(0pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 2.5, notes: ['21% margin', '(2pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 2.5, notes: ['21% margin', '(3pp) Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年',
+          periodNote: '截至 2025 年 12 月 31 日的年度',
+          revenue: {
+            notes: ['同比 +10%', '由于来源图对各地区四舍五入，地区收入明细合计为 $12.3B。'],
+            items: [
+              { id: 'north_america', label: '北美', notes: ['同比 +4%'] },
+              { id: 'emea', label: '欧洲、中东和非洲', notes: ['同比 +14%'] },
+              { id: 'latam', label: '拉美', notes: ['同比 +20%'] },
+              { id: 'apac', label: '亚太', notes: ['同比 +17%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'sm', label: '销售与市场', notes: ['占收入 21%', '同比 +2 个百分点'] },
+                { id: 'product', label: '产品', notes: ['占收入 19%', '同比 +1 个百分点'] },
+                { id: 'support', label: '客服支持', notes: ['占收入 11%', '同比 (1 个百分点)'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 11%', '同比 +0 个百分点'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: { items: [{ id: 'other_income', label: '其他' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 83%', '同比 (0 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 21%', '同比 (2 个百分点)'] },
+            net: { label: '净利润', notes: ['利润率 21%', '同比 (3 个百分点)'] },
+          },
+        },
+      },
+    },
+    {
       key: 'airbnb-q1-fy26',
       company: 'Airbnb',
       period: 'Q1 FY26',

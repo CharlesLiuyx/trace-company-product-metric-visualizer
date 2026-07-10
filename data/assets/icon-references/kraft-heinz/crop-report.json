@@ -1,0 +1,452 @@
+{
+  "source": "input/processed/kraft-heinz-q4-fy25.png",
+  "spec": "input/icon-crop-specs/kraft-heinz-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-10T12:23:59.126693+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/kraft-heinz",
+  "crops": [
+    {
+      "key": "kraft-heinz-company-logo",
+      "output": "data/assets/icon-references/kraft-heinz/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 5940,
+        "losslessBytes": 23952,
+        "savingsVsLossless": 0.752,
+        "metrics": {
+          "meanAbsoluteError": 0.3177,
+          "rootMeanSquareError": 1.6921,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.214
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 54685,
+        "transparentPixelRatio": 0.6695
+      },
+      "searchBox": {
+        "x": 655,
+        "y": 270,
+        "width": 595,
+        "height": 125
+      },
+      "componentCount": 11,
+      "subjectBox": {
+        "x0": 680,
+        "y0": 286,
+        "x1": 1247,
+        "y1": 382
+      },
+      "cropBox": {
+        "x0": 650,
+        "y0": 265,
+        "x1": 1255,
+        "y1": 400
+      },
+      "validation": {
+        "width": 605,
+        "height": 135,
+        "foregroundPixels": 26258,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 30,
+          "right": 8,
+          "top": 21,
+          "bottom": 18
+        },
+        "centerOffset": {
+          "x": 0.0182,
+          "y": 0.0111
+        },
+        "passes": true
+      },
+      "note": "Kraft Heinz two-color wordmark above the net-sales hub; excludes the page title and net-sales label.",
+      "runtimeOutput": "data/assets/raster-annotations/kraft-heinz/company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 5940,
+        "losslessBytes": 23952,
+        "savingsVsLossless": 0.752,
+        "metrics": {
+          "meanAbsoluteError": 0.3177,
+          "rootMeanSquareError": 1.6921,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.214
+        }
+      },
+      "validationSheet": "data/assets/icon-references/kraft-heinz/validation-sheets/kraft-heinz-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 252059,
+        "losslessBytes": 252059,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "kraft-heinz-accelerate-sauces",
+      "output": "data/assets/icon-references/kraft-heinz/crops/accelerate-sauces.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 29647,
+        "losslessBytes": 29647,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 18736,
+        "transparentPixelRatio": 0.6199
+      },
+      "searchBox": {
+        "x": 15,
+        "y": 505,
+        "width": 185,
+        "height": 145
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 30,
+        "y0": 526,
+        "x1": 172,
+        "y1": 640
+      },
+      "cropBox": {
+        "x0": 10,
+        "y0": 500,
+        "x1": 205,
+        "y1": 655
+      },
+      "validation": {
+        "width": 195,
+        "height": 155,
+        "foregroundPixels": 11002,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 20,
+          "right": 33,
+          "top": 26,
+          "bottom": 15
+        },
+        "centerOffset": {
+          "x": -0.0333,
+          "y": 0.0355
+        },
+        "passes": true
+      },
+      "note": "Heinz ketchup, French's mustard, and Miracle Whip cluster for Accelerate.",
+      "runtimeOutput": "data/assets/raster-annotations/kraft-heinz/accelerate-sauces.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 29647,
+        "losslessBytes": 29647,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/kraft-heinz/validation-sheets/kraft-heinz-accelerate-sauces.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 330565,
+        "losslessBytes": 330565,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "kraft-heinz-accelerate-home-bake",
+      "output": "data/assets/icon-references/kraft-heinz/crops/accelerate-home-bake.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 15268,
+        "losslessBytes": 15268,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 4752,
+        "transparentPixelRatio": 0.4132
+      },
+      "searchBox": {
+        "x": 55,
+        "y": 650,
+        "width": 105,
+        "height": 90
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 60,
+        "y0": 657,
+        "x1": 153,
+        "y1": 736
+      },
+      "cropBox": {
+        "x0": 50,
+        "y0": 645,
+        "x1": 165,
+        "y1": 745
+      },
+      "validation": {
+        "width": 115,
+        "height": 100,
+        "foregroundPixels": 6659,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 10,
+          "right": 12,
+          "top": 12,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": -0.0087,
+          "y": 0.015
+        },
+        "passes": true
+      },
+      "note": "Home Bake product package for Accelerate; excludes the adjacent strategy text.",
+      "runtimeOutput": "data/assets/raster-annotations/kraft-heinz/accelerate-home-bake.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 15268,
+        "losslessBytes": 15268,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/kraft-heinz/validation-sheets/kraft-heinz-accelerate-home-bake.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 349958,
+        "losslessBytes": 349958,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "kraft-heinz-protect-products",
+      "output": "data/assets/icon-references/kraft-heinz/crops/protect-products.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 29444,
+        "losslessBytes": 29444,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 19704,
+        "transparentPixelRatio": 0.6568
+      },
+      "searchBox": {
+        "x": 75,
+        "y": 838,
+        "width": 140,
+        "height": 190
+      },
+      "componentCount": 4,
+      "subjectBox": {
+        "x0": 107,
+        "y0": 866,
+        "x1": 214,
+        "y1": 1007
+      },
+      "cropBox": {
+        "x0": 70,
+        "y0": 833,
+        "x1": 220,
+        "y1": 1033
+      },
+      "validation": {
+        "width": 150,
+        "height": 200,
+        "foregroundPixels": 9330,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 37,
+          "right": 6,
+          "top": 33,
+          "bottom": 26
+        },
+        "centerOffset": {
+          "x": 0.1033,
+          "y": 0.0175
+        },
+        "passes": true
+      },
+      "note": "Kool-Aid product cluster for Protect.",
+      "runtimeOutput": "data/assets/raster-annotations/kraft-heinz/protect-products.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 29444,
+        "losslessBytes": 29444,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/kraft-heinz/validation-sheets/kraft-heinz-protect-products.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 329359,
+        "losslessBytes": 329359,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "kraft-heinz-balance-products",
+      "output": "data/assets/icon-references/kraft-heinz/crops/balance-products.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 19870,
+        "losslessBytes": 19870,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 5451,
+        "transparentPixelRatio": 0.3871
+      },
+      "searchBox": {
+        "x": 129,
+        "y": 1119,
+        "width": 100,
+        "height": 118
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 140,
+        "y0": 1120,
+        "x1": 219,
+        "y1": 1237
+      },
+      "cropBox": {
+        "x0": 124,
+        "y0": 1114,
+        "x1": 234,
+        "y1": 1242
+      },
+      "validation": {
+        "width": 110,
+        "height": 128,
+        "foregroundPixels": 8611,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 16,
+          "right": 15,
+          "top": 6,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0045,
+          "y": 0.0039
+        },
+        "passes": true
+      },
+      "note": "Maxwell House can for Balance.",
+      "runtimeOutput": "data/assets/raster-annotations/kraft-heinz/balance-products.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 19870,
+        "losslessBytes": 19870,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/kraft-heinz/validation-sheets/kraft-heinz-balance-products.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 360750,
+        "losslessBytes": 360750,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

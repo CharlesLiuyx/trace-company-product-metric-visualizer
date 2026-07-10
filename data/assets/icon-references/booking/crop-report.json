@@ -1,0 +1,421 @@
+{
+  "source": "input/processed/booking-q4-fy25.png",
+  "spec": "input/icon-crop-specs/booking-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-10T12:21:36.563630+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/booking",
+  "crops": [
+    {
+      "key": "booking-company-logo",
+      "output": "data/assets/icon-references/booking/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 5747,
+        "losslessBytes": 30676,
+        "savingsVsLossless": 0.8127,
+        "metrics": {
+          "meanAbsoluteError": 0.4188,
+          "rootMeanSquareError": 2.1549,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 38,
+          "changedPixelRatio": 0.1365
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 79671,
+        "transparentPixelRatio": 0.7954
+      },
+      "searchBox": {
+        "x": 798,
+        "y": 288,
+        "width": 598,
+        "height": 135
+      },
+      "componentCount": 15,
+      "subjectBox": {
+        "x0": 937,
+        "y0": 292,
+        "x1": 1330,
+        "y1": 417
+      },
+      "cropBox": {
+        "x0": 784,
+        "y0": 276,
+        "x1": 1410,
+        "y1": 436
+      },
+      "validation": {
+        "width": 626,
+        "height": 160,
+        "foregroundPixels": 17237,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 153,
+          "right": 80,
+          "top": 16,
+          "bottom": 19
+        },
+        "centerOffset": {
+          "x": 0.0583,
+          "y": -0.0094
+        },
+        "passes": true
+      },
+      "note": "Booking Holdings dot-grid and wordmark above the revenue hub; excludes the title and operating-profit label.",
+      "runtimeOutput": "data/assets/raster-annotations/booking/company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 5747,
+        "losslessBytes": 30676,
+        "savingsVsLossless": 0.8127,
+        "metrics": {
+          "meanAbsoluteError": 0.4188,
+          "rootMeanSquareError": 2.1549,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 38,
+          "changedPixelRatio": 0.1365
+        }
+      },
+      "validationSheet": "data/assets/icon-references/booking/validation-sheets/booking-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 248356,
+        "losslessBytes": 248356,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "booking-merchant-brands",
+      "output": "data/assets/icon-references/booking/crops/merchant-brands.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 4919,
+        "losslessBytes": 21545,
+        "savingsVsLossless": 0.7717,
+        "metrics": {
+          "meanAbsoluteError": 0.6273,
+          "rootMeanSquareError": 2.3009,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 49,
+          "changedPixelRatio": 0.2518
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 30020,
+        "transparentPixelRatio": 0.7581
+      },
+      "searchBox": {
+        "x": 9,
+        "y": 544,
+        "width": 156,
+        "height": 194
+      },
+      "componentCount": 24,
+      "subjectBox": {
+        "x0": 12,
+        "y0": 557,
+        "x1": 164,
+        "y1": 730
+      },
+      "cropBox": {
+        "x0": 0,
+        "y0": 532,
+        "x1": 180,
+        "y1": 752
+      },
+      "validation": {
+        "width": 180,
+        "height": 220,
+        "foregroundPixels": 8352,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 16,
+          "top": 25,
+          "bottom": 22
+        },
+        "centerOffset": {
+          "x": -0.0111,
+          "y": 0.0068
+        },
+        "passes": true
+      },
+      "note": "Merchant business brand cluster: Booking.com, priceline, Rentalcars.com, agoda, and the color dots; excludes the Merchant label and revenue node.",
+      "runtimeOutput": "data/assets/raster-annotations/booking/merchant-brands.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 4919,
+        "losslessBytes": 21545,
+        "savingsVsLossless": 0.7717,
+        "metrics": {
+          "meanAbsoluteError": 0.6273,
+          "rootMeanSquareError": 2.3009,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 49,
+          "changedPixelRatio": 0.2518
+        }
+      },
+      "validationSheet": "data/assets/icon-references/booking/validation-sheets/booking-merchant-brands.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 303493,
+        "losslessBytes": 303493,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "booking-agency-brand",
+      "output": "data/assets/icon-references/booking/crops/agency-brand.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1425,
+        "losslessBytes": 7193,
+        "savingsVsLossless": 0.8019,
+        "metrics": {
+          "meanAbsoluteError": 0.2441,
+          "rootMeanSquareError": 1.4197,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.0916
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 11145,
+        "transparentPixelRatio": 0.3639
+      },
+      "searchBox": {
+        "x": 20,
+        "y": 859,
+        "width": 148,
+        "height": 154
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 24,
+        "y0": 860,
+        "x1": 167,
+        "y1": 1002
+      },
+      "cropBox": {
+        "x0": 8,
+        "y0": 848,
+        "x1": 182,
+        "y1": 1024
+      },
+      "validation": {
+        "width": 174,
+        "height": 176,
+        "foregroundPixels": 18585,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 16,
+          "right": 15,
+          "top": 12,
+          "bottom": 22
+        },
+        "centerOffset": {
+          "x": 0.0029,
+          "y": -0.0284
+        },
+        "passes": true
+      },
+      "note": "Booking.com rounded-square Agency brand icon; excludes the Agency label and revenue node.",
+      "runtimeOutput": "data/assets/raster-annotations/booking/agency-brand.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1425,
+        "losslessBytes": 7193,
+        "savingsVsLossless": 0.8019,
+        "metrics": {
+          "meanAbsoluteError": 0.2441,
+          "rootMeanSquareError": 1.4197,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.0916
+        }
+      },
+      "validationSheet": "data/assets/icon-references/booking/validation-sheets/booking-agency-brand.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 256203,
+        "losslessBytes": 256203,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "booking-advertising-brands",
+      "output": "data/assets/icon-references/booking/crops/advertising-brands.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 1918,
+        "losslessBytes": 7997,
+        "savingsVsLossless": 0.7602,
+        "metrics": {
+          "meanAbsoluteError": 0.4897,
+          "rootMeanSquareError": 2.3564,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.2261
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 22066,
+        "transparentPixelRatio": 0.7787
+      },
+      "searchBox": {
+        "x": 11,
+        "y": 1052,
+        "width": 157,
+        "height": 130
+      },
+      "componentCount": 12,
+      "subjectBox": {
+        "x0": 28,
+        "y0": 1062,
+        "x1": 154,
+        "y1": 1178
+      },
+      "cropBox": {
+        "x0": 0,
+        "y0": 1040,
+        "x1": 184,
+        "y1": 1194
+      },
+      "validation": {
+        "width": 184,
+        "height": 154,
+        "foregroundPixels": 5767,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 28,
+          "right": 30,
+          "top": 22,
+          "bottom": 16
+        },
+        "centerOffset": {
+          "x": -0.0054,
+          "y": 0.0195
+        },
+        "passes": true
+      },
+      "note": "Advertising & Other brand cluster: KAYAK and OpenTable; excludes the Advertising & Other label and revenue node.",
+      "runtimeOutput": "data/assets/raster-annotations/booking/advertising-brands.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 1918,
+        "losslessBytes": 7997,
+        "savingsVsLossless": 0.7602,
+        "metrics": {
+          "meanAbsoluteError": 0.4897,
+          "rootMeanSquareError": 2.3564,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.2261
+        }
+      },
+      "validationSheet": "data/assets/icon-references/booking/validation-sheets/booking-advertising-brands.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 90005,
+        "losslessBytes": 260364,
+        "savingsVsLossless": 0.6543,
+        "metrics": {
+          "meanAbsoluteError": 0.3729,
+          "rootMeanSquareError": 2.2417,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 71,
+          "changedPixelRatio": 0.0959
+        }
+      }
+    }
+  ]
+}

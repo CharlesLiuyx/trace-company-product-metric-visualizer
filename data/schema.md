@@ -448,8 +448,29 @@ Fixed-layout adapters may use measured endpoint geometry:
 | `y0` / `y1` | number | explicit source/target center positions |
 | `sourceOrder` / `targetOrder` | number | vertical stacking order at the source/target face |
 | `curve` | object | optional `x0`, `x1`, `c1x`, `c1y`, `c2x`, `c2y` cubic controls |
+| `hoverPercentMode` | `'contribution'` | opt-in waterfall semantics: use `|link.value| / |target (result) bar's authored value|`, consistently for source-node, target-node, and direct-link hover |
 
 Use endpoint-specific widths only when the reference shows different source and
 target intervals. Measure the complete non-background interface union before
 splitting internal links by colour or identity; do not use `sourceWidth` /
 `targetWidth` to hide an incorrect node bbox or socket order.
+
+Hover percentages use authored magnitudes. An opt-in
+`hoverPercentMode: 'contribution'` link is a directed waterfall contribution:
+it always shows `|link.value| / |target (result) node value|`, whether the
+pointer is on its source node, target node, label, or the link itself. The
+denominator must not change with the hovered surface: otherwise a one-to-one
+source link incorrectly becomes 100%. Use it where a link is a contribution to
+a result bar, rather than a two-bar retention/comparison relationship. Other
+links remain renderer-defined: on
+node hover, incoming and outgoing sides independently branch on their distinct
+opposite-node counts from `data.links`: a side with multiple endpoints shows
+each link magnitude over the hovered node's authored magnitude; a side with
+exactly one endpoint shows the hovered node's authored magnitude over that
+endpoint's authored magnitude, while a side with no endpoint shows nothing.
+Both sides remain visible. Standalone SVG annotation guides do not change those
+counts; their supplemental cards use the same smaller-endpoint/larger-endpoint
+ratio as a direct link hover. Direct hover of a non-contribution link uses the
+smaller endpoint authored magnitude over the larger one; `0 / 0` produces no
+tooltip. `percent`, `percentage`, `percentText`, and `percentageText` do not
+control hover, and `nodeHoverPercentDenominator` is not a supported schema field.
