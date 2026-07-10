@@ -4234,6 +4234,29 @@
             }
           }
         }
+      },
+      {
+        "key": "global-e-q4-fy25",
+        "src": "data/datasets/global-e-q4-fy25.js",
+        "data": {
+          "name": "Global-e · Q4 FY25",
+          "company": "Global-e",
+          "meta": {
+            "title": "Global-e Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Global-e · 2025 财年第四季度",
+              "meta": {
+                "title": "Global-e 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

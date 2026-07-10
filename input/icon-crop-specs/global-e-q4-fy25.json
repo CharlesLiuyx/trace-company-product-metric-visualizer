@@ -1,0 +1,39 @@
+{
+  "source": "input/processed/global-e-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/global-e",
+  "validationSheetDir": "data/assets/icon-references/global-e/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [242, 242, 242],
+    "tolerance": 10
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding and its decorative mini-Sankey are attribution, not Global-e income-statement content."
+    },
+    {
+      "key": "publisher-website",
+      "reason": "The appeconomyinsights.com footer URL is source attribution, not company or financial-statement content."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "The App Economy Insights footer logo and wordmark are source attribution and are intentionally excluded."
+    }
+  ],
+  "crops": [
+    {
+      "key": "global-e-company-logo",
+      "output": "crops/company-logo-q4-fy25.png",
+      "searchBox": { "x": 575, "y": 255, "width": 635, "height": 155 },
+      "cropBox": { "x": 565, "y": 245, "width": 655, "height": 175 },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 5, "maxCenterOffset": 0.1, "maxForbiddenForegroundPixels": 0 },
+      "note": "Complete Global-e company wordmark above the revenue hub; excludes the title, financial labels, and Sankey ribbons."
+    }
+  ]
+}

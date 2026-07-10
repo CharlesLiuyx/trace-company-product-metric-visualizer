@@ -1,0 +1,116 @@
+{
+  "source": "input/processed/global-e-q4-fy25.png",
+  "spec": "input/icon-crop-specs/global-e-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-10T06:37:32.924481+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "global-e-company-logo",
+      "output": "data/assets/icon-references/global-e/crops/company-logo-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 7880,
+        "losslessBytes": 34015,
+        "savingsVsLossless": 0.7683,
+        "metrics": {
+          "meanAbsoluteError": 0.5479,
+          "rootMeanSquareError": 1.6535,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 37,
+          "changedPixelRatio": 0.4146
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 68095,
+        "transparentPixelRatio": 0.5941
+      },
+      "searchBox": {
+        "x": 575,
+        "y": 255,
+        "width": 635,
+        "height": 155
+      },
+      "componentCount": 7,
+      "subjectBox": {
+        "x0": 585,
+        "y0": 263,
+        "x1": 1196,
+        "y1": 395
+      },
+      "cropBox": {
+        "x0": 565,
+        "y0": 245,
+        "x1": 1220,
+        "y1": 420
+      },
+      "validation": {
+        "width": 655,
+        "height": 175,
+        "foregroundPixels": 38492,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 20,
+          "right": 24,
+          "top": 18,
+          "bottom": 25
+        },
+        "centerOffset": {
+          "x": -0.0031,
+          "y": -0.02
+        },
+        "passes": true
+      },
+      "note": "Complete Global-e company wordmark above the revenue hub; excludes the title, financial labels, and Sankey ribbons.",
+      "validationSheet": "data/assets/icon-references/global-e/validation-sheets/global-e-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 221505,
+        "losslessBytes": 221505,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}
