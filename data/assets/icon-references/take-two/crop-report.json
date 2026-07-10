@@ -1,0 +1,543 @@
+{
+  "source": "input/processed/take-two-q3-fy26.png",
+  "spec": "input/icon-crop-specs/take-two-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-09T17:45:30.236667+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/take-two",
+  "crops": [
+    {
+      "key": "take-two-company-logo",
+      "output": "data/assets/icon-references/take-two/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1550,
+        "losslessBytes": 7086,
+        "savingsVsLossless": 0.7813,
+        "metrics": {
+          "meanAbsoluteError": 0.2761,
+          "rootMeanSquareError": 2.1193,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.0432
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 32277,
+        "transparentPixelRatio": 0.5434
+      },
+      "searchBox": {
+        "x": 585,
+        "y": 300,
+        "width": 250,
+        "height": 205
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 590,
+        "y0": 313,
+        "x1": 828,
+        "y1": 488
+      },
+      "cropBox": {
+        "x0": 574,
+        "y0": 292,
+        "x1": 844,
+        "y1": 512
+      },
+      "validation": {
+        "width": 270,
+        "height": 220,
+        "foregroundPixels": 26807,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 16,
+          "right": 16,
+          "top": 21,
+          "bottom": 24
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0068
+        },
+        "passes": true
+      },
+      "note": "T2 corporate logo above the platform revenue flows; excludes the title, source labels, and trademark-adjacent chart content.",
+      "runtimeOutput": "data/assets/raster-annotations/take-two/company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1550,
+        "losslessBytes": 7086,
+        "savingsVsLossless": 0.7813,
+        "metrics": {
+          "meanAbsoluteError": 0.2761,
+          "rootMeanSquareError": 2.1193,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.0432
+        }
+      },
+      "validationSheet": "data/assets/icon-references/take-two/validation-sheets/take-two-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 87540,
+        "losslessBytes": 234835,
+        "savingsVsLossless": 0.6272,
+        "metrics": {
+          "meanAbsoluteError": 0.2398,
+          "rootMeanSquareError": 1.7235,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 66,
+          "changedPixelRatio": 0.0676
+        }
+      }
+    },
+    {
+      "key": "take-two-mobile-store-icons",
+      "output": "data/assets/icon-references/take-two/crops/mobile-store-icons.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 1910,
+        "losslessBytes": 6638,
+        "savingsVsLossless": 0.7123,
+        "metrics": {
+          "meanAbsoluteError": 0.5351,
+          "rootMeanSquareError": 2.1959,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 50,
+          "changedPixelRatio": 0.3438
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 16507,
+        "transparentPixelRatio": 0.6217
+      },
+      "searchBox": {
+        "x": 105,
+        "y": 425,
+        "width": 205,
+        "height": 100
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 114,
+        "y0": 432,
+        "x1": 299,
+        "y1": 515
+      },
+      "cropBox": {
+        "x0": 94,
+        "y0": 416,
+        "x1": 319,
+        "y1": 534
+      },
+      "validation": {
+        "width": 225,
+        "height": 118,
+        "foregroundPixels": 9146,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 20,
+          "right": 20,
+          "top": 16,
+          "bottom": 19
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0127
+        },
+        "passes": true
+      },
+      "note": "App Store and Google Play icons associated with Mobile revenue; excludes the Includes Zynga qualifier and financial labels.",
+      "runtimeOutput": "data/assets/raster-annotations/take-two/mobile-store-icons.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 1910,
+        "losslessBytes": 6638,
+        "savingsVsLossless": 0.7123,
+        "metrics": {
+          "meanAbsoluteError": 0.5351,
+          "rootMeanSquareError": 2.1959,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 50,
+          "changedPixelRatio": 0.3438
+        }
+      },
+      "validationSheet": "data/assets/icon-references/take-two/validation-sheets/take-two-mobile-store-icons.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 80703,
+        "losslessBytes": 242512,
+        "savingsVsLossless": 0.6672,
+        "metrics": {
+          "meanAbsoluteError": 0.3701,
+          "rootMeanSquareError": 2.146,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 71,
+          "changedPixelRatio": 0.0938
+        }
+      }
+    },
+    {
+      "key": "take-two-console-cluster",
+      "output": "data/assets/icon-references/take-two/crops/console-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2724,
+        "losslessBytes": 11878,
+        "savingsVsLossless": 0.7707,
+        "metrics": {
+          "meanAbsoluteError": 0.4927,
+          "rootMeanSquareError": 2.2024,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.2644
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 25459,
+        "transparentPixelRatio": 0.6691
+      },
+      "searchBox": {
+        "x": 48,
+        "y": 704,
+        "width": 282,
+        "height": 110
+      },
+      "componentCount": 11,
+      "subjectBox": {
+        "x0": 54,
+        "y0": 716,
+        "x1": 324,
+        "y1": 814
+      },
+      "cropBox": {
+        "x0": 36,
+        "y0": 692,
+        "x1": 338,
+        "y1": 818
+      },
+      "validation": {
+        "width": 302,
+        "height": 126,
+        "foregroundPixels": 10902,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 18,
+          "right": 14,
+          "top": 24,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": 0.0066,
+          "y": 0.0794
+        },
+        "passes": true
+      },
+      "note": "PlayStation, Xbox, and Nintendo Switch platform-icon cluster for Console revenue; excludes the Console label and values.",
+      "runtimeOutput": "data/assets/raster-annotations/take-two/console-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2724,
+        "losslessBytes": 11878,
+        "savingsVsLossless": 0.7707,
+        "metrics": {
+          "meanAbsoluteError": 0.4927,
+          "rootMeanSquareError": 2.2024,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.2644
+        }
+      },
+      "validationSheet": "data/assets/icon-references/take-two/validation-sheets/take-two-console-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 90235,
+        "losslessBytes": 243730,
+        "savingsVsLossless": 0.6298,
+        "metrics": {
+          "meanAbsoluteError": 0.2445,
+          "rootMeanSquareError": 1.6763,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 69,
+          "changedPixelRatio": 0.0693
+        }
+      }
+    },
+    {
+      "key": "take-two-steam-icon",
+      "output": "data/assets/icon-references/take-two/crops/steam-icon.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 1273,
+        "losslessBytes": 5036,
+        "savingsVsLossless": 0.7472,
+        "metrics": {
+          "meanAbsoluteError": 0.8252,
+          "rootMeanSquareError": 2.5352,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.3577
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 6994,
+        "transparentPixelRatio": 0.6344
+      },
+      "searchBox": {
+        "x": 172,
+        "y": 908,
+        "width": 84,
+        "height": 90
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 178,
+        "y0": 920,
+        "x1": 248,
+        "y1": 991
+      },
+      "cropBox": {
+        "x0": 162,
+        "y0": 896,
+        "x1": 266,
+        "y1": 1002
+      },
+      "validation": {
+        "width": 104,
+        "height": 106,
+        "foregroundPixels": 3082,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 16,
+          "right": 18,
+          "top": 24,
+          "bottom": 11
+        },
+        "centerOffset": {
+          "x": -0.0096,
+          "y": 0.0613
+        },
+        "passes": true
+      },
+      "note": "Steam icon associated with PC & other revenue; excludes the PC & other label and financial values.",
+      "runtimeOutput": "data/assets/raster-annotations/take-two/steam-icon.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 1273,
+        "losslessBytes": 5036,
+        "savingsVsLossless": 0.7472,
+        "metrics": {
+          "meanAbsoluteError": 0.8252,
+          "rootMeanSquareError": 2.5352,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.3577
+        }
+      },
+      "validationSheet": "data/assets/icon-references/take-two/validation-sheets/take-two-steam-icon.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 99112,
+        "losslessBytes": 278246,
+        "savingsVsLossless": 0.6438,
+        "metrics": {
+          "meanAbsoluteError": 0.3662,
+          "rootMeanSquareError": 2.15,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 71,
+          "changedPixelRatio": 0.1083
+        }
+      }
+    },
+    {
+      "key": "take-two-studio-portfolio",
+      "output": "data/assets/icon-references/take-two/crops/studio-portfolio.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 4854,
+        "losslessBytes": 24106,
+        "savingsVsLossless": 0.7986,
+        "metrics": {
+          "meanAbsoluteError": 0.62,
+          "rootMeanSquareError": 2.1587,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.4122
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 42679,
+        "transparentPixelRatio": 0.5879
+      },
+      "searchBox": {
+        "x": 65,
+        "y": 1255,
+        "width": 575,
+        "height": 110
+      },
+      "componentCount": 16,
+      "subjectBox": {
+        "x0": 77,
+        "y0": 1269,
+        "x1": 630,
+        "y1": 1365
+      },
+      "cropBox": {
+        "x0": 52,
+        "y0": 1253,
+        "x1": 652,
+        "y1": 1374
+      },
+      "validation": {
+        "width": 600,
+        "height": 121,
+        "foregroundPixels": 26053,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 25,
+          "right": 22,
+          "top": 16,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": 0.0025,
+          "y": 0.0289
+        },
+        "passes": true
+      },
+      "note": "Rockstar Games, Private Division, 2K, and Zynga portfolio logo cluster below Net bookings; excludes the KPI capsule and publisher attribution marks.",
+      "runtimeOutput": "data/assets/raster-annotations/take-two/studio-portfolio.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 4854,
+        "losslessBytes": 24106,
+        "savingsVsLossless": 0.7986,
+        "metrics": {
+          "meanAbsoluteError": 0.62,
+          "rootMeanSquareError": 2.1587,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.4122
+        }
+      },
+      "validationSheet": "data/assets/icon-references/take-two/validation-sheets/take-two-studio-portfolio.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 128,
+        "bytes": 74441,
+        "losslessBytes": 234305,
+        "savingsVsLossless": 0.6823,
+        "metrics": {
+          "meanAbsoluteError": 0.4199,
+          "rootMeanSquareError": 2.6435,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 69,
+          "changedPixelRatio": 0.0897
+        }
+      }
+    }
+  ]
+}

@@ -16,3 +16,14 @@ Validated on 2026-06-20 against `input/processed/reddit-q1-fy26.png`.
 - App Economy Insights footer logo/social badge.
 
 All crop entries in `crop-report.json` show `passes: true`.
+
+## Q4 FY25 Runtime Raster Acceptance
+
+Validated on 2026-07-10 against `input/processed/reddit-q4-fy25.png`.
+
+- `reddit-q4-fy25-company-wordmark`: complete Reddit mascot-head logo and wordmark; centered; excludes the chart title and financial labels.
+- `reddit-q4-fy25-united-states-flag`: complete United States flag; centered; excludes the region label and values.
+- `reddit-q4-fy25-rest-of-world-globe`: complete globe icon; centered; excludes the Rest of World label and values.
+- `reddit-q4-fy25-snoo-mascot`: complete Snoo mascot; centered; excludes chart labels, website URL, and publisher attribution.
+
+All four Q4 FY25 entries pass `reddit-q4-fy25-crop-report.json`. Their compressed runtime copies are intentionally used only by `reddit-q4-fy25` through the approved `rasterAnnotations` allowlist.

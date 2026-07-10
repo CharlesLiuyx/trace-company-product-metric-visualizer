@@ -154,7 +154,10 @@ returns.
    (`type: 'cost'` renders parenthesized); treat publisher watermarks,
    creator branding, URLs, and attribution blocks as intentional skipped
    residuals, not render targets; set `meta.logoSvg` when the source shows
-   a vector-representable company logo.
+   a vector-representable company logo. New or materially changed fixed-layout
+   datasets must declare `render.interfaceAudit: { mode: 'error' }`; the G12
+   artifacts and required Interface Matrix follow
+   `docs/fidelity-loop-rules.md` and do not belong in the financial SSOT.
 9. i18n: English is canonical. Add `i18n.<language>` overlays — never
    parallel dataset files — for every non-default language in
    `window.SANKEY_I18N.languageCodes`, covering dataset `name`, `meta`
@@ -301,6 +304,12 @@ proceed with the pipeline using the new checklist.
   only and must never be referenced from d3 runtime output; runtime rasters
   live under `data/assets/raster-annotations/<company>/`.
 - Never rename a processed image after its dataset key is assigned.
+- Interim reporting spans (`3M`, `6M`, `9M`, `H1`, `H2`, `YTD`) share the
+  fiscal-year bucket with the annual record but must use the span as their
+  viewer variant label unless explicitly overridden; never let them fall back
+  to `Main`. An explicit dataset variant may also rename the annual/default
+  record (for example `YTD`) while an interim record retains `9M`. After adding
+  one, verify every chip's intended label, left-to-right order, and active state.
 - A shareable final HTML artifact must be `pnpm build:standalone` output:
   fully self-contained, no sibling CSS/JS/font/data/PNG files at runtime.
 

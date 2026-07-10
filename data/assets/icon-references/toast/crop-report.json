@@ -1,0 +1,110 @@
+{
+  "source": "input/processed/toast-q4-fy25.png",
+  "spec": "input/icon-crop-specs/toast-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-09T20:56:14.426387+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "toast-company-logo",
+      "output": "data/assets/icon-references/toast/crops/company-logo-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 25755,
+        "losslessBytes": 25755,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 66016,
+        "transparentPixelRatio": 0.5868
+      },
+      "searchBox": {
+        "x": 532,
+        "y": 249,
+        "width": 601,
+        "height": 164
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 540,
+        "y0": 257,
+        "x1": 1125,
+        "y1": 405
+      },
+      "cropBox": {
+        "x0": 520,
+        "y0": 240,
+        "x1": 1145,
+        "y1": 420
+      },
+      "validation": {
+        "width": 625,
+        "height": 180,
+        "foregroundPixels": 28569,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 20,
+          "right": 20,
+          "top": 17,
+          "bottom": 15
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0056
+        },
+        "passes": true
+      },
+      "note": "Complete Toast bread icon and orange wordmark above the revenue hub; excludes the title, Revenue label, and ribbons.",
+      "transparentColorPixels": 17915,
+      "validationSheet": "data/assets/icon-references/toast/validation-sheets/toast-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 244709,
+        "losslessBytes": 244709,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

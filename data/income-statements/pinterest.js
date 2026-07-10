@@ -96,5 +96,54 @@
         },
       },
     }
+    ,
+    {
+      key: 'pinterest-q4-fy25',
+      company: 'Pinterest',
+      period: 'Q4 FY25',
+      periodNote: 'Ending Dec. 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/pinterest-q4-fy25.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 1319,
+        notes: ['+14% Y/Y'],
+        items: [
+          { id: 'us_canada', label: 'US & Canada', value: 979, notes: ['+9% Y/Y'] },
+          { id: 'europe', label: 'Europe', value: 245, notes: ['+25% Y/Y'] },
+          { id: 'rest_of_world', label: 'Rest of the world', value: 96, notes: ['+65% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 227 },
+        operatingExpenses: {
+          total: 791,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 365, notes: ['28% of revenue', '(0pp) Y/Y'] },
+            { id: 'sm', label: 'S&M', value: 303, notes: ['23% of revenue', '(1pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 123, notes: ['9% of revenue', '+0pp Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 51 },
+      },
+      otherIncome: { total: 27, items: [{ id: 'other', label: 'Other', value: 27 }] },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 1093, notes: ['83% margin', '(0pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 301, notes: ['23% margin', '+0pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 277, notes: ['21% margin'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度', periodNote: '截至 2025 年 12 月',
+          revenue: { notes: ['同比 +14%'], items: [{ label: '美国和加拿大', notes: ['同比 +9%'] }, { label: '欧洲', notes: ['同比 +25%'] }, { label: '世界其他地区', notes: ['同比 +65%'] }] },
+          costs: { costOfRevenue: { label: '收入成本' }, operatingExpenses: { items: [{ label: '研发', notes: ['占收入 28%', '同比 0 个百分点'] }, { label: '销售与营销', notes: ['占收入 23%', '同比 (1 个百分点)'] }, { label: '管理费用', notes: ['占收入 9%', '同比 0 个百分点'] }] }, tax: { label: '税费' } },
+          otherIncome: { items: [{ label: '其他' }] },
+          profit: { gross: { label: '毛利润', notes: ['利润率 83%', '同比 0 个百分点'] }, operating: { label: '营业利润', notes: ['利润率 23%', '同比 +0 个百分点'] }, net: { label: '净利润', notes: ['利润率 21%'] } },
+        },
+      },
+    }
   );
 })(window);

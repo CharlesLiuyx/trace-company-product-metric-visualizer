@@ -1,0 +1,421 @@
+{
+  "source": "input/processed/zillow-q4-fy25.png",
+  "spec": "input/icon-crop-specs/zillow-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-09T20:17:34.714108+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/zillow",
+  "crops": [
+    {
+      "key": "zillow-company-wordmark",
+      "output": "data/assets/icon-references/zillow/crops/company-wordmark-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4243,
+        "losslessBytes": 18775,
+        "savingsVsLossless": 0.774,
+        "metrics": {
+          "meanAbsoluteError": 0.3515,
+          "rootMeanSquareError": 1.7112,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 26,
+          "changedPixelRatio": 0.14
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 55299,
+        "transparentPixelRatio": 0.6909
+      },
+      "searchBox": {
+        "x": 569,
+        "y": 265,
+        "width": 658,
+        "height": 84
+      },
+      "componentCount": 12,
+      "subjectBox": {
+        "x0": 569,
+        "y0": 265,
+        "x1": 1226,
+        "y1": 349
+      },
+      "cropBox": {
+        "x0": 553,
+        "y0": 249,
+        "x1": 1243,
+        "y1": 365
+      },
+      "validation": {
+        "width": 690,
+        "height": 116,
+        "foregroundPixels": 17983,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 16,
+          "right": 17,
+          "top": 16,
+          "bottom": 16
+        },
+        "centerOffset": {
+          "x": -0.0007,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Zillow Group company wordmark above the revenue hub; excludes the chart title, revenue label, and flow marks.",
+      "runtimeOutput": "data/assets/raster-annotations/zillow/company-wordmark-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4243,
+        "losslessBytes": 18775,
+        "savingsVsLossless": 0.774,
+        "metrics": {
+          "meanAbsoluteError": 0.3515,
+          "rootMeanSquareError": 1.7112,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 26,
+          "changedPixelRatio": 0.14
+        }
+      },
+      "validationSheet": "data/assets/icon-references/zillow/validation-sheets/zillow-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 230528,
+        "losslessBytes": 230528,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "zillow-premier-agent-wordmark",
+      "output": "data/assets/icon-references/zillow/crops/premier-agent-wordmark-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3191,
+        "losslessBytes": 14513,
+        "savingsVsLossless": 0.7801,
+        "metrics": {
+          "meanAbsoluteError": 0.4667,
+          "rootMeanSquareError": 1.9658,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.327
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 28126,
+        "transparentPixelRatio": 0.6837
+      },
+      "searchBox": {
+        "x": 69,
+        "y": 454,
+        "width": 310,
+        "height": 91
+      },
+      "componentCount": 23,
+      "subjectBox": {
+        "x0": 69,
+        "y0": 454,
+        "x1": 379,
+        "y1": 545
+      },
+      "cropBox": {
+        "x0": 54,
+        "y0": 439,
+        "x1": 394,
+        "y1": 560
+      },
+      "validation": {
+        "width": 340,
+        "height": 121,
+        "foregroundPixels": 12419,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 15,
+          "right": 15,
+          "top": 15,
+          "bottom": 15
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Zillow Premier Agent business wordmark for Residential revenue; excludes the Residential label, value text, and flow marks.",
+      "runtimeOutput": "data/assets/raster-annotations/zillow/premier-agent-wordmark-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3191,
+        "losslessBytes": 14513,
+        "savingsVsLossless": 0.7801,
+        "metrics": {
+          "meanAbsoluteError": 0.4667,
+          "rootMeanSquareError": 1.9658,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.327
+        }
+      },
+      "validationSheet": "data/assets/icon-references/zillow/validation-sheets/zillow-premier-agent-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 84918,
+        "losslessBytes": 240169,
+        "savingsVsLossless": 0.6464,
+        "metrics": {
+          "meanAbsoluteError": 0.3077,
+          "rootMeanSquareError": 2.0713,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 65,
+          "changedPixelRatio": 0.0769
+        }
+      }
+    },
+    {
+      "key": "zillow-rentals-wordmark",
+      "output": "data/assets/icon-references/zillow/crops/rentals-wordmark-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2844,
+        "losslessBytes": 12635,
+        "savingsVsLossless": 0.7749,
+        "metrics": {
+          "meanAbsoluteError": 0.415,
+          "rootMeanSquareError": 1.7567,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 35,
+          "changedPixelRatio": 0.3032
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 22605,
+        "transparentPixelRatio": 0.7043
+      },
+      "searchBox": {
+        "x": 104,
+        "y": 761,
+        "width": 242,
+        "height": 88
+      },
+      "componentCount": 17,
+      "subjectBox": {
+        "x0": 104,
+        "y0": 761,
+        "x1": 346,
+        "y1": 849
+      },
+      "cropBox": {
+        "x0": 89,
+        "y0": 746,
+        "x1": 361,
+        "y1": 864
+      },
+      "validation": {
+        "width": 272,
+        "height": 118,
+        "foregroundPixels": 8786,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 15,
+          "right": 15,
+          "top": 15,
+          "bottom": 15
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Zillow Rentals business wordmark; excludes value text, node and link marks, and publisher attribution.",
+      "runtimeOutput": "data/assets/raster-annotations/zillow/rentals-wordmark-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2844,
+        "losslessBytes": 12635,
+        "savingsVsLossless": 0.7749,
+        "metrics": {
+          "meanAbsoluteError": 0.415,
+          "rootMeanSquareError": 1.7567,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 35,
+          "changedPixelRatio": 0.3032
+        }
+      },
+      "validationSheet": "data/assets/icon-references/zillow/validation-sheets/zillow-rentals-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 247634,
+        "losslessBytes": 247634,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "zillow-home-loans-wordmark",
+      "output": "data/assets/icon-references/zillow/crops/home-loans-wordmark-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2641,
+        "losslessBytes": 14879,
+        "savingsVsLossless": 0.8225,
+        "metrics": {
+          "meanAbsoluteError": 0.5037,
+          "rootMeanSquareError": 2.1424,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 47,
+          "changedPixelRatio": 0.2626
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 24023,
+        "transparentPixelRatio": 0.7459
+      },
+      "searchBox": {
+        "x": 92,
+        "y": 949,
+        "width": 271,
+        "height": 77
+      },
+      "componentCount": 17,
+      "subjectBox": {
+        "x0": 92,
+        "y0": 949,
+        "x1": 363,
+        "y1": 1026
+      },
+      "cropBox": {
+        "x0": 77,
+        "y0": 934,
+        "x1": 378,
+        "y1": 1041
+      },
+      "validation": {
+        "width": 301,
+        "height": 107,
+        "foregroundPixels": 7546,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 15,
+          "right": 15,
+          "top": 15,
+          "bottom": 15
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Zillow Home Loans business wordmark; excludes value text, node and link marks, and publisher attribution.",
+      "runtimeOutput": "data/assets/raster-annotations/zillow/home-loans-wordmark-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2641,
+        "losslessBytes": 14879,
+        "savingsVsLossless": 0.8225,
+        "metrics": {
+          "meanAbsoluteError": 0.5037,
+          "rootMeanSquareError": 2.1424,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 47,
+          "changedPixelRatio": 0.2626
+        }
+      },
+      "validationSheet": "data/assets/icon-references/zillow/validation-sheets/zillow-home-loans-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 242711,
+        "losslessBytes": 242711,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

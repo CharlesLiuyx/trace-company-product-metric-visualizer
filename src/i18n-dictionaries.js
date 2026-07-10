@@ -41,6 +41,8 @@
   };
 
   const EXACT_ZH = {
+    'Tinder': 'Tinder',
+    'Hinge': 'Hinge',
     'Tim Hortons': 'Tim Hortons',
     'Popeyes': 'Popeyes',
     'Firehouse Subs': 'Firehouse Subs',

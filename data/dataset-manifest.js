@@ -1486,7 +1486,8 @@
           "meta": {
             "title": "Nintendo FY26 Income Statement",
             "period": "FY26",
-            "periodNote": "Ending Mar. 2026"
+            "periodNote": "Ending Mar. 2026",
+            "variant": "YTD"
           },
           "i18n": {
             "zh": {
@@ -3867,6 +3868,29 @@
         }
       },
       {
+        "key": "nintendo-9m-fy26",
+        "src": "data/datasets/nintendo-9m-fy26.js",
+        "data": {
+          "name": "Nintendo · 9M FY26",
+          "company": "Nintendo",
+          "meta": {
+            "title": "Nintendo 9M FY26 Income Statement",
+            "period": "9M FY26",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Nintendo · 2026 财年前 9 个月",
+              "meta": {
+                "title": "Nintendo 2026 财年前 9 个月利润表",
+                "period": "2026 财年前 9 个月",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
         "key": "sony-q3-fy25",
         "src": "data/datasets/sony-q3-fy25.js",
         "data": {
@@ -3890,6 +3914,144 @@
         }
       },
       {
+        "key": "take-two-q3-fy26",
+        "src": "data/datasets/take-two-q3-fy26.js",
+        "data": {
+          "name": "Take-Two · Q3 FY26",
+          "company": "Take-Two",
+          "meta": {
+            "title": "Take-Two Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Take-Two · 2026 财年第三季度",
+              "meta": {
+                "title": "Take-Two 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "snap-q4-fy25",
+        "src": "data/datasets/snap-q4-fy25.js",
+        "data": {
+          "name": "Snap · Q4 FY25",
+          "company": "Snap",
+          "meta": {
+            "title": "Snap Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Snap · 2025 财年第四季度",
+              "meta": {
+                "title": "Snap 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "reddit-q4-fy25",
+        "src": "data/datasets/reddit-q4-fy25.js",
+        "data": {
+          "name": "Reddit · Q4 FY25",
+          "company": "Reddit",
+          "meta": {
+            "title": "Reddit Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Reddit · 2025 财年第四季度",
+              "meta": {
+                "title": "Reddit 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pinterest-q4-fy25",
+        "src": "data/datasets/pinterest-q4-fy25.js",
+        "data": {
+          "name": "Pinterest · Q4 FY25",
+          "company": "Pinterest",
+          "meta": {
+            "title": "Pinterest Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Pinterest · 2025 财年第四季度",
+              "meta": {
+                "title": "Pinterest 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "match-group-q4-fy25",
+        "src": "data/datasets/match-group-q4-fy25.js",
+        "data": {
+          "name": "Match Group · Q4 FY25",
+          "company": "Match Group",
+          "meta": {
+            "title": "Match Group Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Match Group · 2025 财年第四季度",
+              "meta": {
+                "title": "Match Group 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "duolingo-q4-fy25",
+        "src": "data/datasets/duolingo-q4-fy25.js",
+        "data": {
+          "name": "Duolingo · Q4 FY25",
+          "company": "Duolingo",
+          "meta": {
+            "title": "Duolingo Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Duolingo · 2025 财年第四季度",
+              "meta": {
+                "title": "Duolingo 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
         "key": "peloton-q2-fy26",
         "src": "data/datasets/peloton-q2-fy26.js",
         "data": {
@@ -3906,6 +4068,52 @@
               "meta": {
                 "title": "Peloton 2026 财年第二季度利润表",
                 "period": "2026 财年第二季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nyt-q4-fy25",
+        "src": "data/datasets/nyt-q4-fy25.js",
+        "data": {
+          "name": "The NYT - Q4 FY25",
+          "company": "The New York Times Company",
+          "meta": {
+            "title": "The NYT Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "The NYT · 2025 财年第四季度",
+              "meta": {
+                "title": "The NYT 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "zillow-q4-fy25",
+        "src": "data/datasets/zillow-q4-fy25.js",
+        "data": {
+          "name": "Zillow · Q4 FY25",
+          "company": "Zillow",
+          "meta": {
+            "title": "Zillow Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Zillow · 2025 财年第四季度",
+              "meta": {
+                "title": "Zillow 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
                 "periodNote": "截至 2025 年 12 月"
               }
             }
@@ -3951,6 +4159,52 @@
               "name": "Global Payments · 2025 财年第四季度",
               "meta": {
                 "title": "Global Payments 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nu-q4-fy25",
+        "src": "data/datasets/nu-q4-fy25.js",
+        "data": {
+          "name": "Nu · Q4 FY25",
+          "company": "Nu",
+          "meta": {
+            "title": "Nu Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Nu · 2025 财年第四季度",
+              "meta": {
+                "title": "Nu 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "toast-q4-fy25",
+        "src": "data/datasets/toast-q4-fy25.js",
+        "data": {
+          "name": "Toast · Q4 FY25",
+          "company": "Toast",
+          "meta": {
+            "title": "Toast Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Toast · 2025 财年第四季度",
+              "meta": {
+                "title": "Toast 2025 财年第四季度利润表",
                 "period": "2025 财年第四季度",
                 "periodNote": "截至 2025 年 12 月"
               }

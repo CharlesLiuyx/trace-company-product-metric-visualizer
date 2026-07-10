@@ -345,6 +345,12 @@
       "width": 2667,
       "height": 1500
     },
+    "duolingo-q4-fy25": {
+      "similarity": 0.982048,
+      "mae": 4.5778,
+      "width": 2667,
+      "height": 1500
+    },
     "elastic-q4-fy26": {
       "similarity": 0.971931,
       "mae": 7.1577,
@@ -507,6 +513,12 @@
       "width": 2667,
       "height": 1500
     },
+    "match-group-q4-fy25": {
+      "similarity": 0.974657,
+      "mae": 6.4624,
+      "width": 2667,
+      "height": 1500
+    },
     "meituan-q1-fy26": {
       "similarity": 0.972421,
       "mae": 7.0326,
@@ -609,9 +621,21 @@
       "width": 2667,
       "height": 1500
     },
+    "nintendo-9m-fy26": {
+      "similarity": 0.959683,
+      "mae": 10.2809,
+      "width": 2667,
+      "height": 1500
+    },
     "nintendo-fy26": {
-      "similarity": 0.966146,
-      "mae": 8.6329,
+      "similarity": 0.966176,
+      "mae": 8.6252,
+      "width": 2667,
+      "height": 1500
+    },
+    "nu-q4-fy25": {
+      "similarity": 0.973818,
+      "mae": 6.6765,
       "width": 2667,
       "height": 1500
     },
@@ -711,6 +735,12 @@
       "width": 4686,
       "height": 2636
     },
+    "nyt-q4-fy25": {
+      "similarity": 0.971384,
+      "mae": 7.2971,
+      "width": 2667,
+      "height": 1500
+    },
     "okta-q1-fy27": {
       "similarity": 0.95828,
       "mae": 10.6385,
@@ -777,6 +807,12 @@
       "width": 2667,
       "height": 1500
     },
+    "pinterest-q4-fy25": {
+      "similarity": 0.965605,
+      "mae": 8.7707,
+      "width": 2667,
+      "height": 1500
+    },
     "qualcomm-q1-fy26": {
       "similarity": 0.961608,
       "mae": 9.7899,
@@ -806,6 +842,12 @@
       "mae": 13.6514,
       "width": 4686,
       "height": 2636
+    },
+    "reddit-q4-fy25": {
+      "similarity": 0.973712,
+      "mae": 6.7035,
+      "width": 2667,
+      "height": 1500
     },
     "robinhood-q1-fy26": {
       "similarity": 0.955213,
@@ -879,6 +921,12 @@
       "width": 2667,
       "height": 1500
     },
+    "snap-q4-fy25": {
+      "similarity": 0.972224,
+      "mae": 7.0829,
+      "width": 2667,
+      "height": 1500
+    },
     "sony-fy25": {
       "similarity": 0.965116,
       "mae": 8.8954,
@@ -927,6 +975,12 @@
       "width": 2667,
       "height": 1500
     },
+    "take-two-q3-fy26": {
+      "similarity": 0.968737,
+      "mae": 7.9719,
+      "width": 2667,
+      "height": 1500
+    },
     "tencent-q1-fy26": {
       "similarity": 0.971455,
       "mae": 7.2791,
@@ -942,6 +996,12 @@
     "tesla-q1-fy26": {
       "similarity": 0.947838,
       "mae": 13.3013,
+      "width": 2667,
+      "height": 1500
+    },
+    "toast-q4-fy25": {
+      "similarity": 0.977001,
+      "mae": 5.8647,
       "width": 2667,
       "height": 1500
     },
@@ -1019,7 +1079,7 @@
     },
     "warner-bros-q1-fy26": {
       "similarity": 0.971509,
-      "mae": 7.2652,
+      "mae": 7.2651,
       "width": 2667,
       "height": 1500
     },
@@ -1038,6 +1098,12 @@
     "yum-brands-q1-fy26": {
       "similarity": 0.952798,
       "mae": 12.0364,
+      "width": 2667,
+      "height": 1500
+    },
+    "zillow-q4-fy25": {
+      "similarity": 0.983037,
+      "mae": 4.3257,
       "width": 2667,
       "height": 1500
     },
