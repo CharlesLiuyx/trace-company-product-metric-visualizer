@@ -1,0 +1,320 @@
+{
+  "source": "input/processed/chime-q4-fy25.png",
+  "spec": "input/icon-crop-specs/chime-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-10T06:31:21.796976+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/chime",
+  "crops": [
+    {
+      "key": "chime-company-wordmark",
+      "output": "data/assets/icon-references/chime/crops/company-wordmark-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4041,
+        "losslessBytes": 17148,
+        "savingsVsLossless": 0.7643,
+        "metrics": {
+          "meanAbsoluteError": 0.436,
+          "rootMeanSquareError": 2.0467,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.3157
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 67726,
+        "transparentPixelRatio": 0.6904
+      },
+      "searchBox": {
+        "x": 640,
+        "y": 280,
+        "width": 530,
+        "height": 170
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 659,
+        "y0": 294,
+        "x1": 1150,
+        "y1": 434
+      },
+      "cropBox": {
+        "x0": 635,
+        "y0": 275,
+        "x1": 1180,
+        "y1": 455
+      },
+      "validation": {
+        "width": 545,
+        "height": 180,
+        "foregroundPixels": 26453,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 24,
+          "right": 30,
+          "top": 19,
+          "bottom": 21
+        },
+        "centerOffset": {
+          "x": -0.0055,
+          "y": -0.0056
+        },
+        "passes": true
+      },
+      "note": "Complete Chime wordmark above the revenue hub; excludes title text, Revenue labels, KPI cards, ribbons, and publisher attribution. A vector wordmark is used at runtime.",
+      "runtimeOutput": "data/assets/raster-annotations/chime/company-wordmark-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4041,
+        "losslessBytes": 17148,
+        "savingsVsLossless": 0.7643,
+        "metrics": {
+          "meanAbsoluteError": 0.436,
+          "rootMeanSquareError": 2.0467,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.3157
+        }
+      },
+      "validationSheet": "data/assets/icon-references/chime/validation-sheets/chime-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 255901,
+        "losslessBytes": 255901,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "chime-payment-revenue-card",
+      "output": "data/assets/icon-references/chime/crops/payment-revenue-card-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2048,
+        "losslessBytes": 12575,
+        "savingsVsLossless": 0.8371,
+        "metrics": {
+          "meanAbsoluteError": 0.6788,
+          "rootMeanSquareError": 2.2159,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 48,
+          "changedPixelRatio": 0.3325
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 17606,
+        "transparentPixelRatio": 0.6619
+      },
+      "searchBox": {
+        "x": 105,
+        "y": 470,
+        "width": 190,
+        "height": 140
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 126,
+        "y0": 484,
+        "x1": 278,
+        "y1": 599
+      },
+      "cropBox": {
+        "x0": 105,
+        "y0": 470,
+        "x1": 295,
+        "y1": 610
+      },
+      "validation": {
+        "width": 190,
+        "height": 140,
+        "foregroundPixels": 8975,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 21,
+          "right": 17,
+          "top": 14,
+          "bottom": 11
+        },
+        "centerOffset": {
+          "x": 0.0105,
+          "y": 0.0107
+        },
+        "passes": true
+      },
+      "note": "Payment revenue Chime Card illustration only; excludes the segment label, values, notes, and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/chime/payment-revenue-card-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2048,
+        "losslessBytes": 12575,
+        "savingsVsLossless": 0.8371,
+        "metrics": {
+          "meanAbsoluteError": 0.6788,
+          "rootMeanSquareError": 2.2159,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 48,
+          "changedPixelRatio": 0.3325
+        }
+      },
+      "validationSheet": "data/assets/icon-references/chime/validation-sheets/chime-payment-revenue-card.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 287477,
+        "losslessBytes": 287477,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "chime-platform-related-revenue-phone",
+      "output": "data/assets/icon-references/chime/crops/platform-related-revenue-phone-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 3785,
+        "losslessBytes": 19320,
+        "savingsVsLossless": 0.8041,
+        "metrics": {
+          "meanAbsoluteError": 0.7099,
+          "rootMeanSquareError": 2.3059,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.2648
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 20861,
+        "transparentPixelRatio": 0.6729
+      },
+      "searchBox": {
+        "x": 100,
+        "y": 830,
+        "width": 190,
+        "height": 155
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 127,
+        "y0": 840,
+        "x1": 277,
+        "y1": 967
+      },
+      "cropBox": {
+        "x0": 95,
+        "y0": 830,
+        "x1": 295,
+        "y1": 985
+      },
+      "validation": {
+        "width": 200,
+        "height": 155,
+        "foregroundPixels": 6979,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 32,
+          "right": 18,
+          "top": 10,
+          "bottom": 18
+        },
+        "centerOffset": {
+          "x": 0.035,
+          "y": -0.0258
+        },
+        "passes": true
+      },
+      "note": "Platform-related revenue mobile-app illustration only; excludes the segment label, values, notes, and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/chime/platform-related-revenue-phone-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 3785,
+        "losslessBytes": 19320,
+        "savingsVsLossless": 0.8041,
+        "metrics": {
+          "meanAbsoluteError": 0.7099,
+          "rootMeanSquareError": 2.3059,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.2648
+        }
+      },
+      "validationSheet": "data/assets/icon-references/chime/validation-sheets/chime-platform-related-revenue-phone.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 308509,
+        "losslessBytes": 308509,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

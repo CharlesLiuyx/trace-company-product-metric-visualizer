@@ -1,5 +1,5 @@
 {
-  "generatedBy": "pnpm verify:render-regression -- --update",
+  "generatedBy": "pnpm record:baseline -- <dataset-key> [...]",
   "language": "en",
   "similarityTolerance": 0.003,
   "baselines": {
@@ -24,6 +24,12 @@
     "adyen-h2-fy25": {
       "similarity": 0.959087,
       "mae": 10.4327,
+      "width": 2667,
+      "height": 1500
+    },
+    "affirm-q2-fy26": {
+      "similarity": 0.961015,
+      "mae": 9.9411,
       "width": 2667,
       "height": 1500
     },
@@ -225,6 +231,18 @@
       "width": 2667,
       "height": 1500
     },
+    "chime-q4-fy25": {
+      "similarity": 0.973066,
+      "mae": 6.8682,
+      "width": 2667,
+      "height": 1500
+    },
+    "chipotle-q4-fy25": {
+      "similarity": 0.955225,
+      "mae": 11.4177,
+      "width": 2667,
+      "height": 1500
+    },
     "cloudflare-q1-fy26": {
       "similarity": 0.971068,
       "mae": 7.3778,
@@ -234,6 +252,12 @@
     "coca-cola-q1-fy26": {
       "similarity": 0.973639,
       "mae": 6.7222,
+      "width": 2667,
+      "height": 1500
+    },
+    "coca-cola-q4-fy25": {
+      "similarity": 0.969236,
+      "mae": 7.8448,
       "width": 2667,
       "height": 1500
     },
@@ -333,6 +357,12 @@
       "width": 2667,
       "height": 1500
     },
+    "domino-s-q4-fy25": {
+      "similarity": 0.957759,
+      "mae": 10.7716,
+      "width": 2667,
+      "height": 1500
+    },
     "doordash-q4-fy25": {
       "similarity": 0.964232,
       "mae": 9.1207,
@@ -354,6 +384,12 @@
     "elastic-q4-fy26": {
       "similarity": 0.971931,
       "mae": 7.1577,
+      "width": 2667,
+      "height": 1500
+    },
+    "etsy-q4-fy25": {
+      "similarity": 0.965471,
+      "mae": 8.8048,
       "width": 2667,
       "height": 1500
     },
@@ -441,6 +477,12 @@
       "width": 2667,
       "height": 1500
     },
+    "intuit-q2-fy26": {
+      "similarity": 0.969702,
+      "mae": 7.726,
+      "width": 2667,
+      "height": 1500
+    },
     "intuit-q3-fy26": {
       "similarity": 0.973368,
       "mae": 6.7911,
@@ -525,6 +567,12 @@
       "width": 2667,
       "height": 1500
     },
+    "mcdonald-s-q4-fy25": {
+      "similarity": 0.960839,
+      "mae": 9.9861,
+      "width": 2667,
+      "height": 1500
+    },
     "meituan-q1-fy26": {
       "similarity": 0.972421,
       "mae": 7.0326,
@@ -534,6 +582,12 @@
     "meituan-q4-fy25": {
       "similarity": 0.966853,
       "mae": 8.4525,
+      "width": 2667,
+      "height": 1500
+    },
+    "mercadolibre-q4-fy25": {
+      "similarity": 0.97228,
+      "mae": 7.0685,
       "width": 2667,
       "height": 1500
     },
@@ -813,6 +867,12 @@
       "width": 2667,
       "height": 1500
     },
+    "pepsico-q4-fy25": {
+      "similarity": 0.968018,
+      "mae": 8.1554,
+      "width": 2667,
+      "height": 1500
+    },
     "pinterest-q1-fy26": {
       "similarity": 0.964657,
       "mae": 9.0124,
@@ -846,6 +906,12 @@
     "rbi-q1-fy26": {
       "similarity": 0.959155,
       "mae": 10.4154,
+      "width": 2667,
+      "height": 1500
+    },
+    "rbi-q4-fy25": {
+      "similarity": 0.942811,
+      "mae": 14.5831,
       "width": 2667,
       "height": 1500
     },
@@ -924,6 +990,12 @@
     "shopify-q1-fy26": {
       "similarity": 0.953464,
       "mae": 11.8667,
+      "width": 2667,
+      "height": 1500
+    },
+    "shopify-q4-fy25": {
+      "similarity": 0.969571,
+      "mae": 7.7593,
       "width": 2667,
       "height": 1500
     },
@@ -1110,6 +1182,12 @@
     "yum-brands-q1-fy26": {
       "similarity": 0.952798,
       "mae": 12.0364,
+      "width": 2667,
+      "height": 1500
+    },
+    "yum-brands-q4-fy25": {
+      "similarity": 0.954453,
+      "mae": 11.6144,
       "width": 2667,
       "height": 1500
     },

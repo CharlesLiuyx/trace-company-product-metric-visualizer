@@ -1,0 +1,116 @@
+{
+  "source": "input/processed/affirm-q2-fy26.png",
+  "spec": "input/icon-crop-specs/affirm-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-10T06:41:12.571941+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "affirm-company-logo",
+      "output": "data/assets/icon-references/affirm/crops/company-logo-q2-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 3902,
+        "losslessBytes": 20087,
+        "savingsVsLossless": 0.8057,
+        "metrics": {
+          "meanAbsoluteError": 0.2752,
+          "rootMeanSquareError": 1.9625,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 37,
+          "changedPixelRatio": 0.1183
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 102553,
+        "transparentPixelRatio": 0.7095
+      },
+      "searchBox": {
+        "x": 1050,
+        "y": 255,
+        "width": 570,
+        "height": 235
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 1060,
+        "y0": 263,
+        "x1": 1606,
+        "y1": 482
+      },
+      "cropBox": {
+        "x0": 1040,
+        "y0": 250,
+        "x1": 1630,
+        "y1": 495
+      },
+      "validation": {
+        "width": 590,
+        "height": 245,
+        "foregroundPixels": 41073,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 20,
+          "right": 24,
+          "top": 13,
+          "bottom": 13
+        },
+        "centerOffset": {
+          "x": -0.0034,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Complete Affirm black wordmark and purple arch above the revenue hub; excludes the title, Revenue label, ribbons, and publisher attribution.",
+      "validationSheet": "data/assets/icon-references/affirm/validation-sheets/affirm-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 287952,
+        "losslessBytes": 287952,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

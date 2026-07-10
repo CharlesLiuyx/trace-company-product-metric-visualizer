@@ -10,6 +10,62 @@
 
   ssot.records.push(
     {
+      key: 'yum-brands-q4-fy25',
+      company: 'Yum! Brands',
+      period: 'Q4 FY25',
+      periodNote: 'Ending Dec. 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/yum-brands-q4-fy25.png',
+      roundingTolerance: 0.2,
+      revenue: {
+        total: 2.5,
+        notes: ['+6% Y/Y', 'Source chart attributes revenue by brand sales; rounded brand items sum to $2.5B.'],
+        items: [
+          { id: 'kfc', label: 'KFC', value: 1.0, notes: ['+8% Y/Y'] },
+          { id: 'taco_bell', label: 'Taco Bell', value: 1.0, notes: ['+7% Y/Y'] },
+          { id: 'pizza_hut', label: 'Pizza Hut', value: 0.3, notes: ['+3% Y/Y'] },
+          { id: 'habit', label: 'The Habit Burger Grill', value: 0.2, notes: ['(9%) Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 0, notes: ['The source chart does not break out cost of revenue or gross profit.'] },
+        operatingExpenses: {
+          total: 1.8,
+          items: [
+            { id: 'company_restaurants', label: 'Company restaurants', value: 0.8 },
+            { id: 'franchise_expenses', label: 'Franchise expenses', value: 0.6 },
+            { id: 'ga', label: 'G&A', value: 0.4 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.1 },
+      },
+      operatingOtherIncome: { total: 0.015, items: [{ id: 'other_income', label: 'Other', value: 0.015 }] },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: { total: 0.1, items: [{ id: 'other', label: 'Other', value: 0.1, notes: ['Source label rounds the reported $18M amount to ($0.1B).'] }] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 2.5, notes: ['Bookkeeping value for SSOT parity; gross profit is not shown in the source chart.'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 0.7, notes: ['29% margin', '+2pp Y/Y', 'Source chart also shows $15M other operating income feeding operating profit.'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 0.5, notes: ['21% margin', '+3pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度', periodNote: '截至 2025 年 12 月',
+          revenue: { notes: ['同比 +6%', '来源图表按品牌销售额归因收入；四舍五入后的品牌项目合计为 $2.5B。'], items: [
+            { id: 'kfc', label: 'KFC', notes: ['同比 +8%'] }, { id: 'taco_bell', label: '塔可钟', notes: ['同比 +7%'] },
+            { id: 'pizza_hut', label: '必胜客', notes: ['同比 +3%'] }, { id: 'habit', label: 'Habit 汉堡烤吧', notes: ['同比 -9%'] },
+          ] },
+          costs: { costOfRevenue: { label: '收入成本', notes: ['来源图表未拆分收入成本或毛利润。'] }, operatingExpenses: { items: [
+            { id: 'company_restaurants', label: '公司自营餐厅' }, { id: 'franchise_expenses', label: '特许经营费用' }, { id: 'ga', label: '管理费用' },
+          ] }, tax: { label: '税费' } },
+          operatingOtherIncome: { items: [{ id: 'other_income', label: '其他' }] },
+          otherExpenses: { items: [{ id: 'other', label: '其他', notes: ['来源标签将报告的 $18M 四舍五入为 ($0.1B)。'] }] },
+          profit: { gross: { label: '毛利润', notes: ['用于 SSOT 对齐的账面值；来源图表未显示毛利润。'] }, operating: { label: '营业利润', notes: ['利润率 29%', '同比 +2 个百分点', '来源图表还显示 $15M 其他营业收入流入营业利润。'] }, net: { label: '净利润', notes: ['利润率 21%', '同比 +3 个百分点'] } },
+        },
+      },
+    },
+    {
       key: 'yum-brands-q1-fy26',
       company: 'Yum! Brands',
       period: 'Q1 FY26',

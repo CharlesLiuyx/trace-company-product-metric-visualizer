@@ -7,6 +7,8 @@ const {
   deepMerge,
   formatValue,
   trimFixed,
+  percentOf,
+  nodeHoverDenominator,
   autoSide,
   buildFixedGraph,
   taperedLinkPath,
@@ -52,6 +54,23 @@ test('trimFixed strips trailing zeros', () => {
   assert.equal(trimFixed(1.5, 2), '1.5');
   assert.equal(trimFixed(2, 2), '2');
   assert.equal(trimFixed(1.25, 2), '1.25');
+});
+
+test('node hover percentages use the hovered node as the denominator', () => {
+  const netProfit = { value: 130, dv: 130 };
+  const operatingProfit = { value: 118, dv: 118 };
+
+  assert.equal(percentOf(114, nodeHoverDenominator(netProfit), 1), '87.7%');
+  assert.equal(percentOf(16, nodeHoverDenominator(netProfit), 1), '12.3%');
+  assert.equal(percentOf(114, nodeHoverDenominator(operatingProfit), 1), '96.6%');
+  assert.equal(percentOf(4, nodeHoverDenominator(operatingProfit), 1), '3.4%');
+});
+
+test('node hover denominator prefers the authored value over the graph flow sum', () => {
+  assert.equal(nodeHoverDenominator({ dv: 1005, value: 1006 }), 1005);
+  assert.equal(nodeHoverDenominator({ value: 130 }), 130);
+  assert.equal(nodeHoverDenominator(null), 0);
+  assert.equal(percentOf(1, 0, 1), '');
 });
 
 test('autoSide picks label side from column and type', () => {

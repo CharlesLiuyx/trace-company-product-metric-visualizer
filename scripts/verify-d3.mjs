@@ -7,7 +7,15 @@ import { datasetScriptForKey, registeredDatasetScripts, renderHarnessScripts } f
 import { startStaticServer } from './dev-server.mjs';
 import { rootDir } from './lib/project.mjs';
 import { formatDiffBoundingBox, pngMetrics } from './lib/png-diff.mjs';
-import { archiveCompare, cleanCompare, compareDir, createArchivePlan } from './lib/compare-workspace.mjs';
+import {
+  FIDELITY_PROTOCOL_VERSION,
+  cleanupFidelityRun,
+  createFidelityRun,
+  finalizeFidelityRun,
+  hashFile,
+  hashFiles,
+  markFidelityRunFailed,
+} from './lib/compare-workspace.mjs';
 import { assertPurity } from './lib/d3-hard-gates.mjs';
 import {
   assertInterfaceAudit,
@@ -122,6 +130,30 @@ function logLabelLayoutAudit(audit) {
   }
 }
 
+function assertLabelLayoutAudit(audit) {
+  if (audit.verticalViolations.length) {
+    const details = audit.verticalViolations
+      .slice(0, 5)
+      .map((item) => `${item.node}#${item.labelIndex} ${item.direction} edgeGap=${formatPx(item.gap)}`)
+      .join(', ');
+    throw new Error(`Label-node vertical gap failed: ${details}`);
+  }
+  if (audit.centerViolations.length) {
+    const details = audit.centerViolations
+      .slice(0, 5)
+      .map((item) => `${item.node}#${item.labelIndex} ${item.direction} centerDelta=${formatPx(item.centerDelta)}`)
+      .join(', ');
+    throw new Error(`Label-node short-node center alignment failed: ${details}`);
+  }
+  if (audit.horizontalViolations.length) {
+    const details = audit.horizontalViolations
+      .slice(0, 5)
+      .map((item) => `${item.node}#${item.labelIndex} ${item.side} overlap=${formatPx(item.overlap)}`)
+      .join(', ');
+    throw new Error(`Label-node horizontal overlap failed: ${details}`);
+  }
+}
+
 async function main() {
   const { datasetKey, keep, language, round, focus } = parseArgs(process.argv);
   const datasetScript = datasetScriptForKey(datasetKey);
@@ -137,18 +169,23 @@ async function main() {
     throw new Error(`Dataset script is not registered in the dataset manifest: ${datasetScript} (run pnpm sync:index-datasets)`);
   }
 
-  await cleanCompare();
-
+  const i18nScripts = new Set(['src/i18n-dictionaries.js', 'src/i18n.js']);
+  const renderIdentityPaths = scripts
+    .filter((script) => !script.startsWith('data/') && !i18nScripts.has(script))
+    .map((script) => path.join(rootDir, script));
+  const i18nIdentityPaths = scripts
+    .filter((script) => i18nScripts.has(script))
+    .map((script) => path.join(rootDir, script));
+  const [datasetHash, renderHash, i18nHash] = await Promise.all([
+    hashFile(datasetPath),
+    hashFiles(renderIdentityPaths),
+    hashFiles(i18nIdentityPaths),
+  ]);
   const server = await startStaticServer({ port: 0 });
   const baseUrl = server.url.replace(/\/+$/, '');
   let browser;
-  const referenceComparePath = path.join(compareDir, `${datasetKey}-reference.png`);
-  const localizedSuffix = language && language !== 'en' ? `-${language}` : '';
-  const candidatePath = path.join(compareDir, `${datasetKey}${localizedSuffix}-d3.png`);
-  const diffPath = path.join(compareDir, `${datasetKey}${localizedSuffix}-pixel-diff-x4.png`);
-  const metricsPath = path.join(compareDir, `${datasetKey}${localizedSuffix}-metrics.json`);
-  const interfaceAuditPath = path.join(compareDir, `${datasetKey}${localizedSuffix}-interface-audit.json`);
-  const interfaceContactSheetPath = path.join(compareDir, `${datasetKey}${localizedSuffix}-interface-contact-sheet.png`);
+  let run;
+  let accepted = false;
 
   try {
     browser = await chromium.launch({ headless: true });
@@ -156,12 +193,32 @@ async function main() {
     const { page, pageErrors } = await openHarnessPage(context, { baseUrl, scripts });
 
     const meta = await datasetRenderMeta(page, datasetKey, language);
+    const referencePath = path.join(rootDir, meta.referenceSrc);
+    run = await createFidelityRun({
+      identity: {
+        dataset: datasetKey,
+        language: meta.language,
+        runKind: 'fidelity',
+        referenceHash: await hashFile(referencePath),
+        protocolVersion: FIDELITY_PROTOCOL_VERSION,
+        datasetHash,
+        renderHash,
+        i18nHash,
+      },
+    });
+    const {
+      reference: referenceComparePath,
+      candidate: candidatePath,
+      diff: diffPath,
+      metrics: metricsPath,
+      interfaceAudit: interfaceAuditPath,
+      interfaceContactSheet: interfaceContactSheetPath,
+    } = run.artifacts;
+
     await page.setViewportSize({ width: meta.width, height: meta.height });
     const purity = await renderDatasetForPurity(page, datasetKey, language);
     const fontStatus = await assertProjectFontsLoaded(page);
-
     const labelLayoutAudit = await auditLabelLayout(page);
-
     const renderedRegions = await collectRenderedRegions(page);
     const interfaceGeometry = await collectCandidateInterfaceGeometry(page, datasetKey, language);
 
@@ -171,8 +228,6 @@ async function main() {
     }
 
     await page.locator('#chart > svg').screenshot({ path: candidatePath });
-
-    const referencePath = path.join(rootDir, meta.referenceSrc);
     await copyFile(referencePath, referenceComparePath);
     const interfaceAudit = buildInterfaceAudit({
       geometry: interfaceGeometry,
@@ -194,55 +249,48 @@ async function main() {
       await contactPage.close();
     }
     const metrics = await pngMetrics(referencePath, candidatePath, diffPath, renderedRegions);
-    const archivePlan = await createArchivePlan(datasetKey, {
+    const metricsDocument = {
+      dataset: datasetKey,
+      language: meta.language,
+      reference: path.relative(rootDir, referencePath),
+      candidate: path.relative(rootDir, candidatePath),
+      diff: path.relative(rootDir, diffPath),
+      purity,
+      full: metrics.full,
+      regions: metrics.regions,
+      labelLayoutAudit,
+      interfaceAudit: {
+        path: path.relative(rootDir, interfaceAuditPath),
+        contactSheet: path.relative(rootDir, interfaceContactSheetPath),
+        mode: interfaceAudit.mode,
+        status: interfaceAudit.status,
+        enforcementStatus: interfaceAudit.enforcementStatus,
+        candidateStatus: interfaceAudit.candidateStatus,
+        referenceStatus: interfaceAudit.referenceStatus,
+        summary: interfaceAudit.summary,
+      },
+    };
+    // Keep failed-run evidence private. finalizeFidelityRun overwrites this
+    // draft with the accepted archive identity only after every gate passes.
+    await writeFile(metricsPath, `${JSON.stringify(metricsDocument, null, 2)}\n`);
+
+    if (pageErrors.length) {
+      throw new Error(`Page errors during render; no comparison archive accepted:\n${pageErrors.join('\n')}`);
+    }
+    assertLabelLayoutAudit(labelLayoutAudit);
+    assertInterfaceAudit(interfaceAudit);
+
+    const archive = await finalizeFidelityRun(run, {
       focus,
       fullMetrics: metrics.full,
-      language: meta.language,
+      metricsDocument,
       round,
     });
-    await writeFile(
-      metricsPath,
-      `${JSON.stringify(
-        {
-          dataset: datasetKey,
-          language: meta.language,
-          reference: path.relative(rootDir, referencePath),
-          candidate: path.relative(rootDir, candidatePath),
-          diff: path.relative(rootDir, diffPath),
-          purity,
-          full: metrics.full,
-          regions: metrics.regions,
-          labelLayoutAudit,
-          interfaceAudit: {
-            path: path.relative(rootDir, interfaceAuditPath),
-            contactSheet: path.relative(rootDir, interfaceContactSheetPath),
-            mode: interfaceAudit.mode,
-            status: interfaceAudit.status,
-            enforcementStatus: interfaceAudit.enforcementStatus,
-            candidateStatus: interfaceAudit.candidateStatus,
-            referenceStatus: interfaceAudit.referenceStatus,
-            summary: interfaceAudit.summary,
-          },
-          archive: {
-            dir: path.relative(rootDir, archivePlan.archiveDir),
-            name: archivePlan.archiveName,
-            round: archivePlan.round,
-            improvement: archivePlan.improvement,
-            focus: archivePlan.focus,
-            previousArchive: archivePlan.previousArchive,
-          },
-        },
-        null,
-        2
-      )}\n`
-    );
-    const archive = await archiveCompare(datasetKey, archivePlan);
-    if (pageErrors.length) {
-      throw new Error(`Page errors during render; comparison artifacts archived at ${archive.dir}:\n${pageErrors.join('\n')}`);
-    }
+    accepted = true;
 
     console.log(`dataset: ${datasetKey}`);
     console.log(`language: ${meta.language}`);
+    console.log(`run id: ${run.runId}`);
     console.log(`reference: ${keep ? path.relative(rootDir, referenceComparePath) : path.relative(rootDir, referencePath)}`);
     console.log(`candidate: ${keep ? path.relative(rootDir, candidatePath) : '(scratch cleaned)'}`);
     console.log(`diff: ${keep ? path.relative(rootDir, diffPath) : '(scratch cleaned)'}`);
@@ -251,7 +299,9 @@ async function main() {
     console.log(`archive round: ${archive.round}`);
     console.log(`archive improvement: ${archive.improvement}${archive.previousArchive ? ` vs ${archive.previousArchive}` : ' (baseline)'}`);
     console.log(`archive focus: ${archive.focus}`);
-    if (archive.reference) {
+    if (archive.sharedReferenceError) {
+      console.log(`shared reference mirror: failed (${archive.sharedReferenceError}); archived reference: ${archive.reference}`);
+    } else if (archive.reference) {
       console.log(`shared reference: ${archive.reference}${archive.referenceChanged ? '' : ' (unchanged)'}`);
     }
     console.log(
@@ -285,32 +335,25 @@ async function main() {
           `  region ${region.region}: mae=${region.mae.toFixed(4)} similarity=${region.similarity.toFixed(6)} changed=${region.changedPixelRatio.toFixed(6)} box=${region.x},${region.y},${region.width},${region.height}`
         );
       });
-    if (labelLayoutAudit.verticalViolations.length) {
-      const details = labelLayoutAudit.verticalViolations
-        .slice(0, 5)
-        .map((item) => `${item.node}#${item.labelIndex} ${item.direction} edgeGap=${formatPx(item.gap)}`)
-        .join(', ');
-      throw new Error(`Label-node vertical gap failed: ${details}`);
+  } catch (error) {
+    if (run && !accepted) {
+      try {
+        await markFidelityRunFailed(run, error);
+      } catch (manifestError) {
+        console.error(`Could not record failed fidelity run: ${manifestError.message}`);
+      }
     }
-    if (labelLayoutAudit.centerViolations.length) {
-      const details = labelLayoutAudit.centerViolations
-        .slice(0, 5)
-        .map((item) => `${item.node}#${item.labelIndex} ${item.direction} centerDelta=${formatPx(item.centerDelta)}`)
-        .join(', ');
-      throw new Error(`Label-node short-node center alignment failed: ${details}`);
-    }
-    if (labelLayoutAudit.horizontalViolations.length) {
-      const details = labelLayoutAudit.horizontalViolations
-        .slice(0, 5)
-        .map((item) => `${item.node}#${item.labelIndex} ${item.side} overlap=${formatPx(item.overlap)}`)
-        .join(', ');
-      throw new Error(`Label-node horizontal overlap failed: ${details}`);
-    }
-    assertInterfaceAudit(interfaceAudit);
+    throw error;
   } finally {
     if (browser) await browser.close();
     await server.close();
-    if (!keep) await cleanCompare();
+    if (run) {
+      if (keep) {
+        console.log(`run scratch: ${path.relative(rootDir, run.scratchDir)}`);
+      } else {
+        await cleanupFidelityRun(run);
+      }
+    }
   }
 }
 

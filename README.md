@@ -23,7 +23,7 @@ pnpm dev
 in `vendor/`, so it works offline as long as the repository files are present.
 
 Before committing, `pnpm check` runs the fast gates (repo-wide JS syntax
-sweep, unit tests, pending-image guard, app-globals static gate,
+sweep, unit tests, pending-image guard, architecture/app-global contracts,
 dataset-manifest freshness, SSOT parity, i18n coverage, metadata freshness)
 in a few seconds; `pnpm verify:app` boot-and-click smokes the viewer app in
 headless Chromium in a few seconds. `pnpm check` is reproducible — it is
@@ -71,10 +71,10 @@ Use this workflow when a new reference image is added and the chart needs
 another fidelity loop:
 
 1. Put new, unprocessed source PNGs in `input/pending/`.
-2. Before processing anything, run the pending guard:
+2. Select one item and run its pending guard:
 
    ```bash
-   pnpm check:pending
+   pnpm check:pending -- --file input/pending/<file>.png --key <dataset-key>
    ```
 
    If it reports an exact processed-image match or an existing-key collision,
@@ -83,8 +83,18 @@ another fidelity loop:
    the script's candidate, check that final key against `input/processed/`,
    `data/datasets/`, `data/income-statements/<company-key>.js`, and
    `data/dataset-manifest.js` before continuing.
-3. After processing, move the durable reference image to `input/processed/` and
-   name it with the dataset key, for example `salesforce-q1-fy27.png`.
+3. Choose the final key and input-type Adapter, then record intake before
+   moving the Source:
+
+   ```bash
+   pnpm record:intake -- input/pending/<file>.png --key <dataset-key> \
+     --adapter <income-statement|revenue-metric> \
+     --availability <published|local-only|restricted>
+   ```
+
+   Complete the coarse object inventory, then move only that selected durable
+   reference to `input/processed/<dataset-key>.png` for the current
+   compatibility workflow. Other pending items may remain in the shared queue.
 4. Set `meta.referenceImage` on the matching dataset to that processed path.
 5. If this is a new company, add the company profile to
    `data/company-metadata/<company-key>.js` first: description, sector, industry, founded
@@ -142,6 +152,14 @@ another fidelity loop:
    Or run them all (plus syntax, metadata, and a render per language) in one
    go with `pnpm verify:dataset -- <dataset-key>`.
 
+11. After the final manual fidelity change, rerun `verify:dataset`, then record
+    only that key's future-regression baseline and verify it read-only:
+
+    ```bash
+    pnpm record:baseline -- <dataset-key>
+    pnpm verify:render-regression -- <dataset-key>
+    ```
+
 For non-default languages, `verify:i18n --strict` confirms overlay coverage but
 does not prove that fixed text fits. For edge-sensitive text such as right-side
 `anchor: 'start'` labels, left-side `anchor: 'end'` labels, titles, KPI cards,
@@ -152,14 +170,17 @@ equivalent browser check and make sure text stays within
 The verifier starts its own static server, renders a bare d3 SVG for the
 dataset, screenshots `#chart > svg`, asserts that no source image or unapproved
 SVG `<image>` is present, computes pixel metrics against `meta.referenceImage`,
-and cleans `compare/`. Datasets that explicitly set
+and cleans only that run's private `compare/runs/` workspace. It promotes an
+accepted archive only after the currently enforced automatic gates pass.
+Datasets that explicitly set
 `render.allowRasterAnnotations` may render approved runtime images from
 `data/assets/raster-annotations/`. Use `pnpm verify:d3 -- <dataset-key> --keep`
 when you need to inspect the candidate PNG.
 
-`compare/` is a scratch directory. Keep incoming assets in `input/pending/` and
-stable app references in `input/processed/`; do not rely on old files in
-`compare/` between runs.
+`compare/runs/` contains per-run scratch. Keep incoming assets in
+`input/pending/` and stable app references in `input/processed/`; do not rely
+on scratch between runs. Accepted evidence lives under
+`output/compare/<dataset-key>/` with a `fidelity-run.json` identity manifest.
 
 For a **d3-sankey fidelity loop**, the rendered output under comparison must be
 the SVG produced by `SankeyEngine.render()` / d3-sankey. Do not compare against

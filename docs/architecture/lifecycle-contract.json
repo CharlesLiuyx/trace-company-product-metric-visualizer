@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "contractStatus": "accepted-target-with-migration-status-in-README",
+  "currentImplementationStatusDocument": "docs/architecture/README.md#migration-milestones",
+  "protocols": {
+    "datasetBuild": "dataset-build/v1",
+    "fidelityRun": "fidelity-run/1",
+    "publication": "dataset-publication/v1"
+  },
+  "operationClasses": {
+    "verify": "canonical-read-only",
+    "record": "build-local-write",
+    "publish": "canonical-compare-and-swap",
+    "release": "published-digest-only"
+  },
+  "scopes": {
+    "DatasetBuild": {
+      "states": [
+        "INTAKED",
+        "AUTHORED",
+        "CLOSED",
+        "BASELINE_STAGED",
+        "SEALED"
+      ],
+      "transitions": [
+        ["INTAKED", "AUTHORED"],
+        ["AUTHORED", "CLOSED"],
+        ["CLOSED", "BASELINE_STAGED"],
+        ["BASELINE_STAGED", "SEALED"]
+      ]
+    },
+    "PublicationBatch": {
+      "states": ["PLANNED", "PUBLISHED", "CONFLICTED"],
+      "transitions": [
+        ["PLANNED", "PUBLISHED"],
+        ["PLANNED", "CONFLICTED"]
+      ],
+      "conflictRecovery": "new-plan-reverify-reseal"
+    },
+    "ReleaseAttempt": {
+      "states": ["PENDING", "RELEASED", "RELEASE_FAILED"],
+      "transitions": [
+        ["PENDING", "RELEASED"],
+        ["PENDING", "RELEASE_FAILED"]
+      ],
+      "retryCreatesNewAttempt": true
+    }
+  },
+  "adapters": ["income-statement", "revenue-metric"],
+  "sourceAvailability": ["published", "local-only", "restricted"],
+  "changeImpact": [
+    "new-dataset",
+    "geometry",
+    "render-engine",
+    "interaction",
+    "localized-layout",
+    "display-text-only",
+    "asset",
+    "financial-data-only",
+    "company-metadata-only",
+    "docs-only"
+  ],
+  "durableObjects": [
+    "ChangeImpact",
+    "VerificationPlan",
+    "ArtifactManifest",
+    "FidelityResult"
+  ],
+  "invariants": {
+    "baselinePurpose": "future-regression-only",
+    "baselineMayProveProducingBuild": false,
+    "releaseFailureRollsBackPublication": false,
+    "publicationConflictRetryableWithoutNewPlan": false
+  }
+}

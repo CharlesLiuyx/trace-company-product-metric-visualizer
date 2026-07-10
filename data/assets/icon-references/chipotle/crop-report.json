@@ -1,0 +1,292 @@
+{
+  "source": "input/processed/chipotle-q4-fy25.png",
+  "spec": "input/icon-crop-specs/chipotle-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-10T07:20:34.648838+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/chipotle",
+  "crops": [
+    {
+      "key": "chipotle-company-logo",
+      "output": "data/assets/icon-references/chipotle/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 8923,
+        "losslessBytes": 44201,
+        "savingsVsLossless": 0.7981,
+        "metrics": {
+          "meanAbsoluteError": 0.5938,
+          "rootMeanSquareError": 2.3315,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.5364
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 26399,
+        "transparentPixelRatio": 0.3033
+      },
+      "searchBox": {
+        "x": 1207,
+        "y": 230,
+        "width": 277,
+        "height": 277
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 1207,
+        "y0": 230,
+        "x1": 1484,
+        "y1": 507
+      },
+      "cropBox": {
+        "x0": 1198,
+        "y0": 220,
+        "x1": 1493,
+        "y1": 515
+      },
+      "validation": {
+        "width": 295,
+        "height": 295,
+        "foregroundPixels": 50773,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 9,
+          "right": 9,
+          "top": 10,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0034
+        },
+        "passes": true
+      },
+      "note": "Chipotle Mexican Grill company logo above the revenue hub; excludes the revenue text and surrounding flows.",
+      "runtimeOutput": "data/assets/raster-annotations/chipotle/company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 8923,
+        "losslessBytes": 44201,
+        "savingsVsLossless": 0.7981,
+        "metrics": {
+          "meanAbsoluteError": 0.5938,
+          "rootMeanSquareError": 2.3315,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.5364
+        }
+      },
+      "validationSheet": "data/assets/icon-references/chipotle/validation-sheets/chipotle-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 360033,
+        "losslessBytes": 360033,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "chipotle-business-in-restaurant",
+      "output": "data/assets/icon-references/chipotle/crops/business-in-restaurant.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 35724,
+        "losslessBytes": 35724,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 17361,
+        "transparentPixelRatio": 0.4704
+      },
+      "searchBox": {
+        "x": 66,
+        "y": 442,
+        "width": 285,
+        "height": 99
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 72,
+        "y0": 447,
+        "x1": 345,
+        "y1": 540
+      },
+      "cropBox": {
+        "x0": 56,
+        "y0": 430,
+        "x1": 361,
+        "y1": 551
+      },
+      "validation": {
+        "width": 305,
+        "height": 121,
+        "foregroundPixels": 18749,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 16,
+          "right": 16,
+          "top": 17,
+          "bottom": 11
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0248
+        },
+        "passes": true
+      },
+      "note": "Chipotle restaurant exterior for the In-restaurant revenue line; excludes the value, label, flow, and attribution marks.",
+      "runtimeOutput": "data/assets/raster-annotations/chipotle/business-in-restaurant.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 35724,
+        "losslessBytes": 35724,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/chipotle/validation-sheets/chipotle-business-in-restaurant.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 307942,
+        "losslessBytes": 307942,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "chipotle-business-digital-sales",
+      "output": "data/assets/icon-references/chipotle/crops/business-digital-sales.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 38585,
+        "losslessBytes": 38585,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 19221,
+        "transparentPixelRatio": 0.444
+      },
+      "searchBox": {
+        "x": 130,
+        "y": 654,
+        "width": 171,
+        "height": 200
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 135,
+        "y0": 654,
+        "x1": 281,
+        "y1": 854
+      },
+      "cropBox": {
+        "x0": 118,
+        "y0": 642,
+        "x1": 313,
+        "y1": 864
+      },
+      "validation": {
+        "width": 195,
+        "height": 222,
+        "foregroundPixels": 23277,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 17,
+          "right": 32,
+          "top": 12,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": -0.0385,
+          "y": 0.0045
+        },
+        "passes": true
+      },
+      "note": "Phone and Chipotle app cluster for the Digital sales revenue line; excludes the value, label, and surrounding flow.",
+      "runtimeOutput": "data/assets/raster-annotations/chipotle/business-digital-sales.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 38585,
+        "losslessBytes": 38585,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/chipotle/validation-sheets/chipotle-business-digital-sales.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 354236,
+        "losslessBytes": 354236,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

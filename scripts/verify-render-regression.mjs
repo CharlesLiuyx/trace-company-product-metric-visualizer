@@ -12,7 +12,8 @@
 // Usage:
 //   pnpm verify:render-regression                 # gate all registered keys
 //   pnpm verify:render-regression -- <key> [...]  # gate a subset
-//   pnpm verify:render-regression -- --update     # re-record baselines
+//   pnpm record:baseline -- <key> [...]           # mutate canonical baselines
+//   pnpm verify:render-regression -- <key> --update # compatible mutation entry
 //   options: --concurrency <n> (default 4), --tolerance <similarity drop>
 //
 // Baselines live in data/render-baselines.json (canonical language: en).
@@ -20,14 +21,19 @@
 // rendered dataset. Reference images under input/processed/ are local-only
 // (gitignored), so similarity is compared only for keys whose reference
 // exists on this machine; other keys are rendered, hard-gated, and counted
-// as skipped. --update never erases a baseline recorded elsewhere: keys
-// without a local reference keep their previous value.
+// as skipped. Baseline recording is an explicit, subset-only canonical
+// mutation: at least one key is required, unselected keys are preserved, and
+// the baseline file is atomically replaced only after every render and
+// structure check succeeds. Keys without a local reference keep their
+// previous value.
 // Failing candidates and amplified diffs are written to
 // output/render-regression/ for inspection.
-import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, readFile, rename, rm, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
+import { randomUUID } from 'node:crypto';
 import os from 'node:os';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
 import { registeredDatasetScripts, renderHarnessScripts } from './script-sources.mjs';
 import { startStaticServer } from './dev-server.mjs';
@@ -47,12 +53,23 @@ const DEFAULT_TOLERANCE = 0.003;
 const LANGUAGE = 'en';
 
 function usage() {
-  console.error(
-    'Usage: pnpm verify:render-regression [-- <dataset-key> ...] [--update] [--concurrency <n>] [--tolerance <similarity-drop>]'
-  );
+  console.error(`Usage:
+  pnpm verify:render-regression [-- <dataset-key> ...] [--concurrency <n>] [--tolerance <similarity-drop>]
+  pnpm record:baseline -- <dataset-key> [...] [--concurrency <n>] [--tolerance <similarity-drop>]
+
+Canonical mutation compatibility entry:
+  pnpm verify:render-regression -- <dataset-key> [...] --update
+
+--update records canonical baselines and therefore requires at least one explicit dataset key.`);
 }
 
-function parseArgs(argv) {
+function argumentError(message) {
+  const error = new Error(message);
+  error.code = 'ERR_USAGE';
+  return error;
+}
+
+export function parseArgs(argv) {
   const args = argv.slice(2);
   let update = false;
   let concurrency = 4;
@@ -69,8 +86,7 @@ function parseArgs(argv) {
       concurrency = Number(args[index + 1]);
       index += 1;
       if (!Number.isInteger(concurrency) || concurrency < 1 || concurrency > 16) {
-        usage();
-        process.exit(2);
+        throw argumentError('--concurrency must be an integer from 1 to 16');
       }
       continue;
     }
@@ -78,16 +94,19 @@ function parseArgs(argv) {
       tolerance = Number(args[index + 1]);
       index += 1;
       if (!Number.isFinite(tolerance) || tolerance < 0 || tolerance > 1) {
-        usage();
-        process.exit(2);
+        throw argumentError('--tolerance must be a number from 0 to 1');
       }
       continue;
     }
     if (arg.startsWith('--')) {
-      usage();
-      process.exit(2);
+      throw argumentError(`Unknown option: ${arg}`);
     }
     keys.push(arg);
+  }
+  if (update && keys.length === 0) {
+    throw argumentError(
+      '--update is a canonical mutation and requires at least one explicit dataset key; full-catalog baseline ratchets are forbidden'
+    );
   }
   return { update, concurrency, tolerance, keys };
 }
@@ -95,21 +114,35 @@ function parseArgs(argv) {
 async function readBaselines() {
   const target = projectPath(BASELINE_PATH);
   if (!existsSync(target)) return null;
-  return JSON.parse(await readFile(target, 'utf8'));
+  return parseBaselineSource(await readFile(target, 'utf8'), BASELINE_PATH);
 }
 
-// Merges this run's results over the previous baselines. A subset --update
-// (explicit keys) only touches the rendered keys; baselines for keys outside
-// the run — and keys whose local reference image is absent — are preserved,
-// never erased. Stale keys (no longer registered) are dropped only on a
-// full-catalog update.
-function renderBaselineSource(results, previousBaselines, tolerance, { fullRun, registeredKeys }) {
-  const baselines = { ...previousBaselines };
-  if (fullRun) {
-    for (const key of Object.keys(baselines)) {
-      if (!registeredKeys.has(key)) delete baselines[key];
-    }
+export function parseBaselineSource(source, sourceName = BASELINE_PATH) {
+  let parsed;
+  try {
+    parsed = JSON.parse(source);
+  } catch (error) {
+    throw new Error(`Invalid ${sourceName}: ${error.message}`);
   }
+  if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+    throw new Error(`Invalid ${sourceName}: expected a JSON object`);
+  }
+  if (!parsed.baselines || typeof parsed.baselines !== 'object' || Array.isArray(parsed.baselines)) {
+    throw new Error(`Invalid ${sourceName}: baselines must be an object`);
+  }
+  if (
+    parsed.similarityTolerance != null &&
+    (!Number.isFinite(parsed.similarityTolerance) || parsed.similarityTolerance < 0 || parsed.similarityTolerance > 1)
+  ) {
+    throw new Error(`Invalid ${sourceName}: similarityTolerance must be a number from 0 to 1`);
+  }
+  return parsed;
+}
+
+// Merges a subset run over previous baselines. Baselines for keys outside the
+// run — and keys whose local reference image is absent — are preserved.
+export function renderBaselineSource(results, previousBaselines, tolerance) {
+  const baselines = { ...previousBaselines };
   for (const result of results) {
     if (result.similarity != null) {
       baselines[result.key] = {
@@ -134,7 +167,7 @@ function renderBaselineSource(results, previousBaselines, tolerance, { fullRun, 
   );
   return `${JSON.stringify(
     {
-      generatedBy: 'pnpm verify:render-regression -- --update',
+      generatedBy: 'pnpm record:baseline -- <dataset-key> [...]',
       language: LANGUAGE,
       similarityTolerance: tolerance,
       baselines: sorted,
@@ -142,6 +175,28 @@ function renderBaselineSource(results, previousBaselines, tolerance, { fullRun, 
     null,
     2
   )}\n`;
+}
+
+// The caller must pass the complete problem set for the run. This keeps the
+// safety condition adjacent to the only canonical write path, so a future
+// caller cannot accidentally publish a partial/failed render batch.
+export async function recordBaselineUpdate({ targetPath, source, problems }) {
+  if (!Array.isArray(problems)) {
+    throw new TypeError('recordBaselineUpdate requires the complete problems array');
+  }
+  if (problems.length) {
+    throw new Error(`Refusing to record canonical baselines with ${problems.length} unresolved problem(s)`);
+  }
+  const temporaryPath = path.join(
+    path.dirname(targetPath),
+    `.${path.basename(targetPath)}.${process.pid}.${randomUUID()}.tmp`
+  );
+  try {
+    await writeFile(temporaryPath, source, { flag: 'wx' });
+    await rename(temporaryPath, targetPath);
+  } finally {
+    await rm(temporaryPath, { force: true });
+  }
 }
 
 async function renderDataset(page, pageErrors, key, scratchDir) {
@@ -253,17 +308,7 @@ async function main() {
 
     results.sort((a, b) => a.key.localeCompare(b.key));
 
-    if (update) {
-      const source = renderBaselineSource(results, baselines, tolerance, {
-        fullRun: !keys.length,
-        registeredKeys: registeredSet,
-      });
-      await writeFile(projectPath(BASELINE_PATH), source);
-      const scored = results.filter((result) => result.similarity != null).length;
-      console.log(
-        `wrote ${BASELINE_PATH}: ${results.length} rendered (${scored} scored locally), tolerance ${tolerance}`
-      );
-    } else {
+    if (!update) {
       for (const result of results) {
         const baseline = baselines[result.key];
         if (!baseline) continue; // already reported as a structure error
@@ -281,7 +326,8 @@ async function main() {
         } else if (delta > tolerance) {
           console.log(
             `note ${result.key}: similarity ${fmtSim(result.similarity)} improved ${fmtSim(delta)} over baseline ` +
-              `${fmtSim(baseline.similarity)} — ratchet it in with pnpm verify:render-regression -- --update`
+              `${fmtSim(baseline.similarity)} — record this canonical mutation with ` +
+              `pnpm record:baseline -- ${result.key}`
           );
         }
       }
@@ -301,13 +347,24 @@ async function main() {
     for (const problem of problems) console.error(`- ${problem}`);
     process.exit(1);
   }
+  if (update) {
+    const source = renderBaselineSource(results, baselines, tolerance);
+    await recordBaselineUpdate({ targetPath: projectPath(BASELINE_PATH), source, problems });
+    console.log(
+      `recorded canonical ${BASELINE_PATH}: ${results.length} rendered (${scored} scored locally), tolerance ${tolerance}`
+    );
+  }
   console.log(
     `render regression passed: ${results.length} dataset(s) rendered, ${scored} ${update ? 'recorded' : 'within tolerance'}` +
       `${skipped ? `, ${skipped} without a local reference image (hard gates only)` : ''} in ${elapsed}s (tolerance ${tolerance}, language ${LANGUAGE}).`
   );
 }
 
-main().catch((err) => {
-  console.error(err.stack || err.message);
-  process.exit(1);
-});
+const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (isDirectRun) {
+  main().catch((err) => {
+    if (err.code === 'ERR_USAGE') usage();
+    console.error(err.stack || err.message);
+    process.exit(err.code === 'ERR_USAGE' ? 2 : 1);
+  });
+}

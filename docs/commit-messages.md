@@ -119,14 +119,12 @@ chore(deps): pin playwright 1.61.0
 
 ## 提交前检查
 
-按改动类型选择检查，不需要每次都全部运行：
-
-| 改动 | 建议检查 |
-|---|---|
-| 数据集 | `node --check data/datasets/<dataset-key>.js` 和 `pnpm verify:d3 -- <dataset-key>` |
-| 渲染器 | `node --check src/sankey-engine.js`，并至少验证一个受影响数据集 |
-| 验证脚本 | `node --check scripts/verify-d3.mjs`，并用一个已有数据集跑 `pnpm verify:d3` |
-| 文档 | 检查链接、命令和文件路径是否仍然准确 |
+本文档只拥有 commit 格式和原子提交边界，不拥有另一份验证矩阵。按
+[`docs/dynamic-dataset-workflow.md`](dynamic-dataset-workflow.md) 的当前
+Verification Checklist 执行；架构迁移后的 `ChangeImpact → VerificationPlan`
+语义由 [`docs/architecture/`](architecture/README.md) 拥有。不得用本提交规范中
+较短的示例命令替代工作流要求的 fresh final verification、人工 closure 或
+per-key baseline 记录。
 
 提交信息里的验证结果应与实际运行命令一致。不要把 Reference 模式、
 源图 `<img>` 或源图裁剪覆盖层的结果写成 d3-sankey 验证结果。

@@ -75,20 +75,35 @@ returns.
 
 ### Phase P1 — Intake & guard (G0, serial)
 
-1. Guard: run `pnpm check:pending` (ignore `.gitkeep`). An exact content
-   match in `input/processed/` or a candidate-key collision is a stop
-   condition — report it and do not move, create, update, crop, or verify
-   anything for that image. If your final stable key differs from the
-   script's candidate key, re-check the final key against
-   `input/processed/`, `data/datasets/`, `data/income-statements/`, and
-   `data/dataset-manifest.js` before continuing.
+1. Select one pending PNG and guard that item with
+   `pnpm check:pending -- --file input/pending/<file>.png --key <dataset-key>`
+   once the final key is known (the initial candidate-only pass may omit
+   `--key`; ignore `.gitkeep`). Running `pnpm check:pending` without `--file` audits the
+   whole discovery queue, but an unrelated pending item is not the
+   transaction state or close-out condition for the selected Build. An exact
+   content match, pending-to-pending collision, or candidate-key collision
+   for the selected item is a stop condition — report it and do not move,
+   create, update, crop, or verify anything for that image. If the final key
+   differs from the script's candidate key, re-run the selected-item guard
+   after naming the file accordingly and check the final key against the
+   existing canonical artifacts.
 2. Key: lowercase kebab case, company plus period, e.g. `nvidia-q4-fy26`.
-3. Image: move the source PNG to `input/processed/<dataset-key>.png` and set
-   `meta.referenceImage` to it with the exact source dimensions.
+3. Type-only intake: inspect the whole image only far enough to select the
+   `income-statement` or `revenue-metric` Adapter, then record an immutable
+   per-item intake before moving the Source:
+
+       pnpm record:intake -- input/pending/<file>.png --key <dataset-key> \
+         --adapter <income-statement|revenue-metric> \
+         --availability <published|local-only|restricted>
+
+   This writes an ignored Build manifest under `output/builds/`, including
+   Source hash/dimensions and `baseCanonicalDigest`; it does not move the
+   PNG, register data, or write another canonical file. Preserve the reported
+   Build ID and manifest path in Task information.
 
 ### Phase P2 — Source inventory & data SSOTs (G1, parallel tracks)
 
-4. Input typing & coarse object inventory (Track B; do this first — it
+4. Confirmed input typing & coarse object inventory (Track B; do this first — it
    seeds the other tracks): look at the whole image coarsely before any
    fine measurement or file authoring.
    - Classify the input type against §Object Taxonomy: income-statement
@@ -110,6 +125,12 @@ returns.
      it so the final report can state that every object is accounted for.
    - Only after the inventory is complete move to fine, per-object
      measurement (step 8 / `docs/fidelity-loop-rules.md` §第 0 轮).
+   - Current compatibility step, until atomic Publication milestone M4:
+     after the inventory is durable, move the selected Source to
+     `input/processed/<dataset-key>.png`, set `meta.referenceImage` to that
+     path with the exact intake dimensions, and leave unrelated pending
+     items untouched. The Build manifest is the recovery identity; file
+     existence is no longer the only record that intake happened.
 5. Company (Track A; first dataset for a company): create
    `data/company-metadata/<company-key>.js` — description, sector, industry,
    founded, headquarters, fiscal year end, website, ticker/exchange, market
@@ -177,14 +198,21 @@ returns.
 11. Run `pnpm verify:dataset -- <dataset-key>`.
 12. Run the manual fidelity loop per `docs/fidelity-loop-rules.md`, including
     a localization layout round per non-default language.
-13. After the loop converges, record the dataset's pixel-similarity baseline
-    with `pnpm verify:render-regression -- --update` and commit the refreshed
-    `data/render-baselines.json`; the batch regression gate protects every
-    tuned dataset from future engine-wide changes.
+13. After the last fidelity change, run `pnpm verify:dataset -- <dataset-key>`
+    again so every required language and automatic gate is fresh. Then record
+    only this dataset's future-regression baseline with
+    `pnpm record:baseline -- <dataset-key>`, followed by the read-only
+    `pnpm verify:render-regression -- <dataset-key>`. Baseline recording is an
+    explicit canonical mutation during the M1–M3 compatibility period: it is
+    subset-only, writes only after all render/structure checks pass, and must
+    never be used as proof that the Build which produced it is correct. M3/M4
+    replace this compatibility write with `BASELINE_STAGED` plus Publication.
 
 ### Phase P5 — Close out (G4)
 
-14. Leave `input/pending/` empty except `.gitkeep`, then satisfy the
+14. Confirm that the selected pending item was either recorded and moved to
+    its compatibility processed path, or stopped with an explicit reason.
+    Other items may remain in the shared discovery queue. Then satisfy the
     Verification Checklist and Reporting sections below.
 
 ## Object Taxonomy
@@ -317,11 +345,13 @@ proceed with the pipeline using the new checklist.
 
 Always, before the final response:
 
-- `pnpm check` passes (repo-wide JS syntax sweep, pending guard, SSOT
-  parity, i18n coverage, dataset-file-metadata freshness). `pnpm check` is
+- `pnpm check` passes (repo-wide JS syntax/tests, pending guard, architecture
+  and app-global contracts, SSOT parity, i18n coverage, dataset-file-metadata freshness). `pnpm check` is
   reproducible: it must be fully green on any working copy, including fresh
   clones, cloud agents, and CI — see Environment Notes.
-- `input/pending/` contains only `.gitkeep`, or a stop condition is reported.
+- The selected pending item has a Build manifest and a compatibility
+  processed path, or its stop condition is reported. Unrelated pending items
+  may remain in the shared discovery queue.
 
 ### Environment Notes (fresh checkouts, cloud, CI)
 
@@ -368,7 +398,8 @@ In the final response, include:
 - Files changed, and whether the pure data SSOTs were updated.
 - For new datasets: the input type from the coarse pass and an object
   inventory summary (rendered / data-only / skipped counts), confirming
-  every inventoried object is accounted for.
+  every inventoried object is accounted for, plus the Build ID/manifest path
+  recorded by `record:intake`.
 - Icon assets extracted, and whether all relevant clusters were accounted for.
 - For dataset or renderer changes: the compact Loop Fidelity Summary, latest
   Task information, and red-box reference image status required by

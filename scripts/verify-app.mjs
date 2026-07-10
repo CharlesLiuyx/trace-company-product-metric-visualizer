@@ -92,6 +92,31 @@ await scenario('routing: deep link + hashchange', async (page) => {
   assert(second === keys[1], `hashchange landed on ${second}, expected ${keys[1]}`);
 });
 
+await scenario('sankey hover: percentages are relative to the hovered node', async (page) => {
+  await boot(page, `${url}#affirm-q2-fy26`);
+
+  async function hoverPercentages(nodeId) {
+    await page.hover(`#chart rect.sankey-node[data-node="${nodeId}"]`);
+    return page.evaluate(() => (
+      [...document.querySelectorAll('#chart g.sankey-link-tooltip text')]
+        .map((text) => text.textContent)
+        .sort()
+    ));
+  }
+
+  const netProfit = await hoverPercentages('net_profit');
+  assert(
+    netProfit.join('|') === ['12.3%', '87.7%'].sort().join('|'),
+    `net profit hover expected 12.3% + 87.7%, got ${netProfit.join(' + ')}`
+  );
+
+  const operatingProfit = await hoverPercentages('operating_profit');
+  assert(
+    operatingProfit.join('|') === ['100%', '3.4%', '96.6%'].sort().join('|'),
+    `operating profit hover expected 100% + 3.4% + 96.6%, got ${operatingProfit.join(' + ')}`
+  );
+});
+
 await scenario('period: Nintendo FY26 variants render YTD then active 9M', async (page) => {
   await boot(page, `${url}#nintendo-9m-fy26`);
   await page.waitForSelector('#periodList .variant-chip.active', { timeout: 15000 });

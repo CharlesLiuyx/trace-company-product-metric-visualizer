@@ -82,6 +82,7 @@ const steps = [
   ['syntax', checkSyntax],
   ['test', runUnitTests],
   ['check:pending', () => runVerifier('check-pending-processed.mjs')],
+  ['verify:architecture', () => runVerifier('verify-architecture-contract.mjs')],
   ['verify:app-globals', () => runVerifier('verify-app-globals.mjs')],
   ['verify:dataset-manifest', () => runVerifier('update-dataset-manifest.mjs', ['--check'])],
   ['verify:ssot', () => runVerifier('verify-ssot.mjs')],
