@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-10T05:42:23.000Z",
+  "generatedAt": "2026-07-10T06:45:40.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -1115,6 +1115,12 @@
       "path": "data/datasets/toast-q4-fy25.js",
       "updatedAtMs": 1783661081000,
       "updatedAt": "2026-07-10T05:24:41.000Z",
+      "timeSource": "git"
+    },
+    "paypal-q4-fy25": {
+      "path": "data/datasets/paypal-q4-fy25.js",
+      "updatedAtMs": 1783665940000,
+      "updatedAt": "2026-07-10T06:45:40.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {
