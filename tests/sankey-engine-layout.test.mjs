@@ -10,6 +10,7 @@ const {
   autoSide,
   buildFixedGraph,
   taperedLinkPath,
+  linkCenterlinePoint,
   referenceCanvasDefaults,
   canvasSize,
   buildLabelSpecs,
@@ -195,6 +196,32 @@ test('taperedLinkPath builds closed source/target-width boundaries', () => {
     path,
     'M100,60C200,60,200,150,300,150L300,170C200,170,200,100,100,100Z'
   );
+});
+
+test('linkCenterlinePoint anchors tapered ribbons at the cubic centerline midpoint', () => {
+  const link = {
+    source: { x1: 100 },
+    target: { x0: 300 },
+    y0: 80,
+    y1: 160,
+    sourceWidth: 40,
+    targetWidth: 20,
+    raw: {},
+  };
+  assert.deepEqual(plain(linkCenterlinePoint(link)), [200, 120]);
+});
+
+test('linkCenterlinePoint follows authored custom curve geometry', () => {
+  const link = {
+    source: { x1: 100 },
+    target: { x0: 400 },
+    y0: 100,
+    y1: 220,
+    raw: {
+      curve: { x0: 120, x1: 380, c1x: 160, c2x: 320, c1y: 80, c2y: 260 },
+    },
+  };
+  assert.deepEqual(plain(linkCenterlinePoint(link)), [242.5, 167.5]);
 });
 
 test('buildFixedGraph falls back to column-derived x and cfg margins', () => {
