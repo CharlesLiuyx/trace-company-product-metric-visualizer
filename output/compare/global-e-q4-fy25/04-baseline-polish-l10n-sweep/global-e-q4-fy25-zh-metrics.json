@@ -1,0 +1,990 @@
+{
+  "dataset": "global-e-q4-fy25",
+  "language": "zh",
+  "reference": "input/processed/global-e-q4-fy25.png",
+  "candidate": "compare/global-e-q4-fy25-zh-d3.png",
+  "diff": "compare/global-e-q4-fy25-zh-pixel-diff-x4.png",
+  "purity": {
+    "imageCount": 0,
+    "imageHrefs": [],
+    "expectedRasterHrefs": [],
+    "rasterAllowed": false,
+    "chartImgCount": 0,
+    "forbiddenElements": [],
+    "backgroundImageElements": [],
+    "viewBox": "0 0 2667 1500",
+    "width": 2667,
+    "height": 1500
+  },
+  "full": {
+    "width": 2667,
+    "height": 1500,
+    "mae": 11.272679331750197,
+    "similarity": 0.9557934143852933,
+    "maxChannelDiff": 242,
+    "samePixelRatio": 0.9028026496687914,
+    "changedPixelRatio": 0.09719735033120858,
+    "diffBoundingBox": {
+      "x": 91,
+      "y": 0,
+      "width": 2576,
+      "height": 1500
+    },
+    "rgbMae": 11.272679331750197,
+    "maeSimilarity": 0.9557934143852933,
+    "maxChannelDifference": 242
+  },
+  "regions": [
+    {
+      "region": "edge:top",
+      "note": "canvas boundary sentinel",
+      "x": 0,
+      "y": 0,
+      "width": 2667,
+      "height": 80,
+      "mae": 0.0011248593925759281,
+      "similarity": 0.9999955887866958,
+      "maxChannelDiff": 3,
+      "samePixelRatio": 0.9996250468691413,
+      "changedPixelRatio": 0.00037495313085866844,
+      "diffBoundingBox": {
+        "x": 2666,
+        "y": 0,
+        "width": 1,
+        "height": 80
+      }
+    },
+    {
+      "region": "edge:bottom",
+      "note": "canvas boundary sentinel",
+      "x": 0,
+      "y": 1420,
+      "width": 2667,
+      "height": 80,
+      "mae": 10.497628421447319,
+      "similarity": 0.9588328297198144,
+      "maxChannelDiff": 242,
+      "samePixelRatio": 0.9092754030746156,
+      "changedPixelRatio": 0.09072459692538437,
+      "diffBoundingBox": {
+        "x": 137,
+        "y": 1420,
+        "width": 2530,
+        "height": 80
+      }
+    },
+    {
+      "region": "edge:left",
+      "note": "canvas boundary sentinel",
+      "x": 0,
+      "y": 0,
+      "width": 80,
+      "height": 1500,
+      "mae": 0,
+      "similarity": 1,
+      "maxChannelDiff": 0,
+      "samePixelRatio": 1,
+      "changedPixelRatio": 0,
+      "diffBoundingBox": null
+    },
+    {
+      "region": "edge:right",
+      "note": "canvas boundary sentinel",
+      "x": 2587,
+      "y": 0,
+      "width": 80,
+      "height": 1500,
+      "mae": 0.6738833333333333,
+      "similarity": 0.9973573202614379,
+      "maxChannelDiff": 140,
+      "samePixelRatio": 0.9798333333333333,
+      "changedPixelRatio": 0.020166666666666666,
+      "diffBoundingBox": {
+        "x": 2587,
+        "y": 0,
+        "width": 80,
+        "height": 1500
+      }
+    },
+    {
+      "region": "node:service_fees",
+      "note": "rendered node bbox",
+      "x": 389,
+      "y": 520,
+      "width": 71,
+      "height": 185,
+      "mae": 0,
+      "similarity": 1,
+      "maxChannelDiff": 0,
+      "samePixelRatio": 1,
+      "changedPixelRatio": 0,
+      "diffBoundingBox": null
+    },
+    {
+      "region": "node:fulfillment",
+      "note": "rendered node bbox",
+      "x": 389,
+      "y": 938,
+      "width": 71,
+      "height": 201,
+      "mae": 0,
+      "similarity": 1,
+      "maxChannelDiff": 0,
+      "samePixelRatio": 1,
+      "changedPixelRatio": 0,
+      "diffBoundingBox": null
+    },
+    {
+      "region": "node:revenue",
+      "note": "rendered node bbox",
+      "x": 856,
+      "y": 640,
+      "width": 70,
+      "height": 389,
+      "mae": 0,
+      "similarity": 1,
+      "maxChannelDiff": 0,
+      "samePixelRatio": 1,
+      "changedPixelRatio": 0,
+      "diffBoundingBox": null
+    },
+    {
+      "region": "node:gross_profit",
+      "note": "rendered node bbox",
+      "x": 1323,
+      "y": 520,
+      "width": 71,
+      "height": 177,
+      "mae": 0,
+      "similarity": 1,
+      "maxChannelDiff": 0,
+      "samePixelRatio": 1,
+      "changedPixelRatio": 0,
+      "diffBoundingBox": null
+    },
+    {
+      "region": "node:cost_of_revenue",
+      "note": "rendered node bbox",
+      "x": 1323,
+      "y": 929,
+      "width": 71,
+      "height": 209,
+      "mae": 0,
+      "similarity": 1,
+      "maxChannelDiff": 0,
+      "samePixelRatio": 1,
+      "changedPixelRatio": 0,
+      "diffBoundingBox": null
+    },
+    {
+      "region": "node:operating_profit",
+      "note": "rendered node bbox",
+      "x": 1791,
+      "y": 413,
+      "width": 70,
+      "height": 71,
+      "mae": 0,
+      "similarity": 1,
+      "maxChannelDiff": 0,
+      "samePixelRatio": 1,
+      "changedPixelRatio": 0,
+      "diffBoundingBox": null
+    },
+    {
+      "region": "node:operating_expenses",
+      "note": "rendered node bbox",
+      "x": 1791,
+      "y": 688,
+      "width": 70,
+      "height": 104,
+      "mae": 0,
+      "similarity": 1,
+      "maxChannelDiff": 0,
+      "samePixelRatio": 1,
+      "changedPixelRatio": 0,
+      "diffBoundingBox": null
+    },
+    {
+      "region": "node:net_profit",
+      "note": "rendered node bbox",
+      "x": 2257,
+      "y": 304,
+      "width": 71,
+      "height": 70,
+      "mae": 0,
+      "similarity": 1,
+      "maxChannelDiff": 0,
+      "samePixelRatio": 1,
+      "changedPixelRatio": 0,
+      "diffBoundingBox": null
+    },
+    {
+      "region": "node:other",
+      "note": "rendered node bbox",
+      "x": 2257,
+      "y": 577,
+      "width": 71,
+      "height": 2,
+      "mae": 29.666666666666668,
+      "similarity": 0.8836601307189542,
+      "maxChannelDiff": 33,
+      "samePixelRatio": 0,
+      "changedPixelRatio": 1,
+      "diffBoundingBox": {
+        "x": 2257,
+        "y": 577,
+        "width": 71,
+        "height": 2
+      }
+    },
+    {
+      "region": "node:sm",
+      "note": "rendered node bbox",
+      "x": 2257,
+      "y": 739,
+      "width": 71,
+      "height": 49,
+      "mae": 0,
+      "similarity": 1,
+      "maxChannelDiff": 0,
+      "samePixelRatio": 1,
+      "changedPixelRatio": 0,
+      "diffBoundingBox": null
+    },
+    {
+      "region": "node:rnd",
+      "note": "rendered node bbox",
+      "x": 2257,
+      "y": 981,
+      "width": 71,
+      "height": 36,
+      "mae": 0,
+      "similarity": 1,
+      "maxChannelDiff": 0,
+      "samePixelRatio": 1,
+      "changedPixelRatio": 0,
+      "diffBoundingBox": null
+    },
+    {
+      "region": "node:ga",
+      "note": "rendered node bbox",
+      "x": 2257,
+      "y": 1220,
+      "width": 71,
+      "height": 15,
+      "mae": 0,
+      "similarity": 1,
+      "maxChannelDiff": 0,
+      "samePixelRatio": 1,
+      "changedPixelRatio": 0,
+      "diffBoundingBox": null
+    },
+    {
+      "region": "link:service_fees->revenue#0",
+      "note": "rendered path bbox padded by 2px",
+      "x": 458,
+      "y": 518,
+      "width": 400,
+      "height": 310,
+      "mae": 4.499206989247312,
+      "similarity": 0.9823560510225595,
+      "maxChannelDiff": 180,
+      "samePixelRatio": 0.9336129032258065,
+      "changedPixelRatio": 0.06638709677419352,
+      "diffBoundingBox": {
+        "x": 458,
+        "y": 518,
+        "width": 400,
+        "height": 310
+      }
+    },
+    {
+      "region": "link:fulfillment->revenue#1",
+      "note": "rendered path bbox padded by 2px",
+      "x": 458,
+      "y": 824,
+      "width": 400,
+      "height": 317,
+      "mae": 4.168049421661409,
+      "similarity": 0.9836547081503474,
+      "maxChannelDiff": 180,
+      "samePixelRatio": 0.936711356466877,
+      "changedPixelRatio": 0.06328864353312302,
+      "diffBoundingBox": {
+        "x": 458,
+        "y": 824,
+        "width": 400,
+        "height": 317
+      }
+    },
+    {
+      "region": "link:revenue->gross_profit#2",
+      "note": "rendered path bbox padded by 2px",
+      "x": 924,
+      "y": 518,
+      "width": 401,
+      "height": 304,
+      "mae": 4.1432575359846,
+      "similarity": 0.9837519312314329,
+      "maxChannelDiff": 180,
+      "samePixelRatio": 0.9322745767161045,
+      "changedPixelRatio": 0.06772542328389553,
+      "diffBoundingBox": {
+        "x": 924,
+        "y": 518,
+        "width": 401,
+        "height": 304
+      }
+    },
+    {
+      "region": "link:revenue->cost_of_revenue#3",
+      "note": "rendered path bbox padded by 2px",
+      "x": 924,
+      "y": 818,
+      "width": 401,
+      "height": 322,
+      "mae": 3.5077471951591,
+      "similarity": 0.9862441286464348,
+      "maxChannelDiff": 199,
+      "samePixelRatio": 0.9435107882467744,
+      "changedPixelRatio": 0.05648921175322563,
+      "diffBoundingBox": {
+        "x": 924,
+        "y": 818,
+        "width": 401,
+        "height": 322
+      }
+    },
+    {
+      "region": "link:gross_profit->operating_profit#4",
+      "note": "rendered path bbox padded by 2px",
+      "x": 1392,
+      "y": 411,
+      "width": 401,
+      "height": 183,
+      "mae": 4.244157366147473,
+      "similarity": 0.9833562456229511,
+      "maxChannelDiff": 242,
+      "samePixelRatio": 0.9252006595533026,
+      "changedPixelRatio": 0.07479934044669745,
+      "diffBoundingBox": {
+        "x": 1392,
+        "y": 411,
+        "width": 401,
+        "height": 183
+      }
+    },
+    {
+      "region": "link:gross_profit->operating_expenses#5",
+      "note": "rendered path bbox padded by 2px",
+      "x": 1392,
+      "y": 590,
+      "width": 401,
+      "height": 204,
+      "mae": 2.6257232735155576,
+      "similarity": 0.9897030459862135,
+      "maxChannelDiff": 205,
+      "samePixelRatio": 0.9483521588186397,
+      "changedPixelRatio": 0.05164784118136034,
+      "diffBoundingBox": {
+        "x": 1392,
+        "y": 590,
+        "width": 401,
+        "height": 204
+      }
+    },
+    {
+      "region": "link:operating_profit->net_profit#6",
+      "note": "rendered path bbox padded by 37px",
+      "x": 1824,
+      "y": 302,
+      "width": 470,
+      "height": 183,
+      "mae": 3.9441382784947487,
+      "similarity": 0.9845327910647265,
+      "maxChannelDiff": 242,
+      "samePixelRatio": 0.9354028601325427,
+      "changedPixelRatio": 0.0645971398674573,
+      "diffBoundingBox": {
+        "x": 1824,
+        "y": 302,
+        "width": 470,
+        "height": 183
+      }
+    },
+    {
+      "region": "link:operating_profit->other#7",
+      "note": "rendered path bbox padded by 2px",
+      "x": 1859,
+      "y": 481,
+      "width": 400,
+      "height": 100,
+      "mae": 1.1525166666666666,
+      "similarity": 0.9954803267973856,
+      "maxChannelDiff": 130,
+      "samePixelRatio": 0.950825,
+      "changedPixelRatio": 0.04917499999999997,
+      "diffBoundingBox": {
+        "x": 1859,
+        "y": 481,
+        "width": 400,
+        "height": 99
+      }
+    },
+    {
+      "region": "link:operating_expenses->sm#8",
+      "note": "rendered path bbox padded by 2px",
+      "x": 1859,
+      "y": 686,
+      "width": 400,
+      "height": 104,
+      "mae": 2.9572435897435896,
+      "similarity": 0.988402966314731,
+      "maxChannelDiff": 209,
+      "samePixelRatio": 0.9201201923076923,
+      "changedPixelRatio": 0.07987980769230774,
+      "diffBoundingBox": {
+        "x": 1859,
+        "y": 686,
+        "width": 400,
+        "height": 104
+      }
+    },
+    {
+      "region": "link:operating_expenses->rnd#9",
+      "note": "rendered path bbox padded by 2px",
+      "x": 1859,
+      "y": 736,
+      "width": 400,
+      "height": 283,
+      "mae": 8.04168433451119,
+      "similarity": 0.9684639830019169,
+      "maxChannelDiff": 242,
+      "samePixelRatio": 0.8846819787985866,
+      "changedPixelRatio": 0.11531802120141343,
+      "diffBoundingBox": {
+        "x": 1859,
+        "y": 736,
+        "width": 400,
+        "height": 283
+      }
+    },
+    {
+      "region": "link:operating_expenses->ga#10",
+      "note": "rendered path bbox padded by 2px",
+      "x": 1859,
+      "y": 773,
+      "width": 400,
+      "height": 464,
+      "mae": 5.628931393678161,
+      "similarity": 0.9779257592404778,
+      "maxChannelDiff": 242,
+      "samePixelRatio": 0.9185614224137931,
+      "changedPixelRatio": 0.08143857758620687,
+      "diffBoundingBox": {
+        "x": 1859,
+        "y": 773,
+        "width": 400,
+        "height": 464
+      }
+    },
+    {
+      "region": "label:service_fees#0",
+      "note": "rendered label bbox",
+      "x": 359,
+      "y": 423,
+      "width": 131,
+      "height": 86,
+      "mae": 36.10716610450322,
+      "similarity": 0.8584032701784188,
+      "maxChannelDiff": 180,
+      "samePixelRatio": 0.656577312266998,
+      "changedPixelRatio": 0.343422687733002,
+      "diffBoundingBox": {
+        "x": 362,
+        "y": 430,
+        "width": 128,
+        "height": 75
+      }
+    },
+    {
+      "region": "label:service_fees#1",
+      "note": "rendered label bbox",
+      "x": 223,
+      "y": 587,
+      "width": 120,
+      "height": 55,
+      "mae": 59.785606060606064,
+      "similarity": 0.7655466428995841,
+      "maxChannelDiff": 180,
+      "samePixelRatio": 0.47424242424242424,
+      "changedPixelRatio": 0.5257575757575758,
+      "diffBoundingBox": {
+        "x": 223,
+        "y": 596,
+        "width": 120,
+        "height": 39
+      }
+    },
+    {
+      "region": "label:fulfillment#2",
+      "note": "rendered label bbox",
+      "x": 359,
+      "y": 841,
+      "width": 131,
+      "height": 86,
+      "mae": 33.65332268181549,
+      "similarity": 0.8680261855615079,
+      "maxChannelDiff": 180,
+      "samePixelRatio": 0.6670513048109356,
+      "changedPixelRatio": 0.33294869518906445,
+      "diffBoundingBox": {
+        "x": 362,
+        "y": 843,
+        "width": 127,
+        "height": 80
+      }
+    },
+    {
+      "region": "label:fulfillment#3",
+      "note": "rendered label bbox",
+      "x": 175,
+      "y": 1009,
+      "width": 160,
+      "height": 55,
+      "mae": 59.70969696969697,
+      "similarity": 0.7658443256090315,
+      "maxChannelDiff": 180,
+      "samePixelRatio": 0.46488636363636365,
+      "changedPixelRatio": 0.5351136363636364,
+      "diffBoundingBox": {
+        "x": 175,
+        "y": 1018,
+        "width": 160,
+        "height": 39
+      }
+    },
+    {
+      "region": "label:revenue#4",
+      "note": "rendered label bbox",
+      "x": 825,
+      "y": 488,
+      "width": 132,
+      "height": 135,
+      "mae": 38.45254395809951,
+      "similarity": 0.8492057099682372,
+      "maxChannelDiff": 180,
+      "samePixelRatio": 0.6452300785634119,
+      "changedPixelRatio": 0.35476992143658814,
+      "diffBoundingBox": {
+        "x": 825,
+        "y": 496,
+        "width": 132,
+        "height": 123
+      }
+    },
+    {
+      "region": "label:gross_profit#5",
+      "note": "rendered label bbox",
+      "x": 1255,
+      "y": 326,
+      "width": 207,
+      "height": 170,
+      "mae": 29.299346405228757,
+      "similarity": 0.8851006023324363,
+      "maxChannelDiff": 242,
+      "samePixelRatio": 0.7134697357203751,
+      "changedPixelRatio": 0.2865302642796249,
+      "diffBoundingBox": {
+        "x": 1255,
+        "y": 335,
+        "width": 207,
+        "height": 161
+      }
+    },
+    {
+      "region": "label:cost_of_revenue#6",
+      "note": "rendered label bbox",
+      "x": 1293,
+      "y": 1153,
+      "width": 131,
+      "height": 133,
+      "mae": 44.602364690351834,
+      "similarity": 0.8250887659201889,
+      "maxChannelDiff": 242,
+      "samePixelRatio": 0.6539631521551972,
+      "changedPixelRatio": 0.3460368478448028,
+      "diffBoundingBox": {
+        "x": 1294,
+        "y": 1158,
+        "width": 130,
+        "height": 126
+      }
+    },
+    {
+      "region": "label:operating_profit#7",
+      "note": "rendered label bbox",
+      "x": 1715,
+      "y": 219,
+      "width": 222,
+      "height": 170,
+      "mae": 26.910104221868927,
+      "similarity": 0.8944701795220826,
+      "maxChannelDiff": 242,
+      "samePixelRatio": 0.7268680445151033,
+      "changedPixelRatio": 0.27313195548489666,
+      "diffBoundingBox": {
+        "x": 1715,
+        "y": 226,
+        "width": 222,
+        "height": 163
+      }
+    },
+    {
+      "region": "label:operating_expenses#8",
+      "note": "rendered label bbox",
+      "x": 1748,
+      "y": 809,
+      "width": 156,
+      "height": 99,
+      "mae": 54.649464732798066,
+      "similarity": 0.7856883735968703,
+      "maxChannelDiff": 242,
+      "samePixelRatio": 0.5911033411033411,
+      "changedPixelRatio": 0.40889665889665894,
+      "diffBoundingBox": {
+        "x": 1748,
+        "y": 812,
+        "width": 156,
+        "height": 93
+      }
+    },
+    {
+      "region": "label:net_profit#9",
+      "note": "rendered label bbox",
+      "x": 2357,
+      "y": 280,
+      "width": 221,
+      "height": 170,
+      "mae": 30.012394641114366,
+      "similarity": 0.882304334740728,
+      "maxChannelDiff": 242,
+      "samePixelRatio": 0.7169017833377695,
+      "changedPixelRatio": 0.28309821666223045,
+      "diffBoundingBox": {
+        "x": 2357,
+        "y": 289,
+        "width": 220,
+        "height": 161
+      }
+    },
+    {
+      "region": "label:other#10",
+      "note": "rendered label bbox",
+      "x": 2408,
+      "y": 531,
+      "width": 83,
+      "height": 81,
+      "mae": 57.957211562298575,
+      "similarity": 0.7727168174027507,
+      "maxChannelDiff": 242,
+      "samePixelRatio": 0.548118399524022,
+      "changedPixelRatio": 0.45188160047597803,
+      "diffBoundingBox": {
+        "x": 2409,
+        "y": 537,
+        "width": 82,
+        "height": 74
+      }
+    },
+    {
+      "region": "label:sm#11",
+      "note": "rendered label bbox",
+      "x": 2403,
+      "y": 724,
+      "width": 223,
+      "height": 150,
+      "mae": 28.02990533134031,
+      "similarity": 0.8900788026221949,
+      "maxChannelDiff": 242,
+      "samePixelRatio": 0.7359641255605381,
+      "changedPixelRatio": 0.26403587443946186,
+      "diffBoundingBox": {
+        "x": 2403,
+        "y": 730,
+        "width": 221,
+        "height": 144
+      }
+    },
+    {
+      "region": "label:rnd#12",
+      "note": "rendered label bbox",
+      "x": 2403,
+      "y": 953,
+      "width": 208,
+      "height": 150,
+      "mae": 23.174839743589743,
+      "similarity": 0.9091182755153343,
+      "maxChannelDiff": 242,
+      "samePixelRatio": 0.7693910256410257,
+      "changedPixelRatio": 0.23060897435897432,
+      "diffBoundingBox": {
+        "x": 2403,
+        "y": 960,
+        "width": 206,
+        "height": 143
+      }
+    },
+    {
+      "region": "label:ga#13",
+      "note": "rendered label bbox",
+      "x": 2403,
+      "y": 1183,
+      "width": 208,
+      "height": 150,
+      "mae": 25.382596153846155,
+      "similarity": 0.900460407239819,
+      "maxChannelDiff": 242,
+      "samePixelRatio": 0.7495192307692308,
+      "changedPixelRatio": 0.25048076923076923,
+      "diffBoundingBox": {
+        "x": 2404,
+        "y": 1190,
+        "width": 205,
+        "height": 143
+      }
+    },
+    {
+      "region": "annotation:0",
+      "note": "annotationsSvg group bbox",
+      "x": 91,
+      "y": 578,
+      "width": 2237,
+      "height": 769,
+      "mae": 4.469336584017971,
+      "similarity": 0.9824731898665962,
+      "maxChannelDiff": 242,
+      "samePixelRatio": 0.9474408706161245,
+      "changedPixelRatio": 0.052559129383875525,
+      "diffBoundingBox": {
+        "x": 91,
+        "y": 578,
+        "width": 2237,
+        "height": 765
+      }
+    },
+    {
+      "region": "direct-group:6",
+      "note": "unclassified top-level SVG group bbox",
+      "x": 0,
+      "y": 0,
+      "width": 566,
+      "height": 167,
+      "mae": 15.935182638257055,
+      "similarity": 0.9375090876931096,
+      "maxChannelDiff": 221,
+      "samePixelRatio": 0.8939611942193352,
+      "changedPixelRatio": 0.10603880578066482,
+      "diffBoundingBox": {
+        "x": 216,
+        "y": 101,
+        "width": 350,
+        "height": 66
+      }
+    },
+    {
+      "region": "direct-text:7",
+      "note": "title or period text bbox",
+      "x": 209,
+      "y": 62,
+      "width": 2249,
+      "height": 175,
+      "mae": 49.44773084333778,
+      "similarity": 0.8060873300261263,
+      "maxChannelDiff": 242,
+      "samePixelRatio": 0.6737445213745792,
+      "changedPixelRatio": 0.3262554786254208,
+      "diffBoundingBox": {
+        "x": 216,
+        "y": 92,
+        "width": 2235,
+        "height": 145
+      }
+    }
+  ],
+  "labelLayoutAudit": {
+    "verticalStacks": [
+      {
+        "node": "service_fees",
+        "labelIndex": 0,
+        "direction": "above-node",
+        "centerDelta": 0,
+        "gap": 11,
+        "overlap": 0,
+        "horizontalOverlap": 71,
+        "shortNode": false
+      },
+      {
+        "node": "fulfillment",
+        "labelIndex": 2,
+        "direction": "above-node",
+        "centerDelta": 0,
+        "gap": 11,
+        "overlap": 0,
+        "horizontalOverlap": 71,
+        "shortNode": false
+      },
+      {
+        "node": "revenue",
+        "labelIndex": 4,
+        "direction": "above-node",
+        "centerDelta": 0,
+        "gap": 17,
+        "overlap": 0,
+        "horizontalOverlap": 70,
+        "shortNode": false
+      },
+      {
+        "node": "gross_profit",
+        "labelIndex": 5,
+        "direction": "above-node",
+        "centerDelta": 0,
+        "gap": 24,
+        "overlap": 0,
+        "horizontalOverlap": 71,
+        "shortNode": false
+      },
+      {
+        "node": "cost_of_revenue",
+        "labelIndex": 6,
+        "direction": "below-node",
+        "centerDelta": 0,
+        "gap": 15,
+        "overlap": 0,
+        "horizontalOverlap": 71,
+        "shortNode": false
+      },
+      {
+        "node": "operating_profit",
+        "labelIndex": 7,
+        "direction": "above-node",
+        "centerDelta": 0,
+        "gap": 24,
+        "overlap": 0,
+        "horizontalOverlap": 70,
+        "shortNode": false
+      },
+      {
+        "node": "operating_expenses",
+        "labelIndex": 8,
+        "direction": "below-node",
+        "centerDelta": 0,
+        "gap": 17,
+        "overlap": 0,
+        "horizontalOverlap": 70,
+        "shortNode": false
+      }
+    ],
+    "verticalViolations": [],
+    "centerViolations": [],
+    "adjacentLabelGaps": [],
+    "horizontalSideLabels": [
+      {
+        "node": "service_fees",
+        "labelIndex": 1,
+        "side": "left-of-node",
+        "gap": 46,
+        "overlap": 0,
+        "verticalCenterDelta": 2,
+        "verticalOverlap": 55
+      },
+      {
+        "node": "fulfillment",
+        "labelIndex": 3,
+        "side": "left-of-node",
+        "gap": 54,
+        "overlap": 0,
+        "verticalCenterDelta": 2,
+        "verticalOverlap": 55
+      },
+      {
+        "node": "net_profit",
+        "labelIndex": 9,
+        "side": "right-of-node",
+        "gap": 29,
+        "overlap": 0,
+        "verticalCenterDelta": 26,
+        "verticalOverlap": 70
+      },
+      {
+        "node": "other",
+        "labelIndex": 10,
+        "side": "right-of-node",
+        "gap": 80,
+        "overlap": 0,
+        "verticalCenterDelta": 6.5,
+        "verticalOverlap": 2
+      },
+      {
+        "node": "sm",
+        "labelIndex": 11,
+        "side": "right-of-node",
+        "gap": 75,
+        "overlap": 0,
+        "verticalCenterDelta": 35.5,
+        "verticalOverlap": 49
+      },
+      {
+        "node": "rnd",
+        "labelIndex": 12,
+        "side": "right-of-node",
+        "gap": 75,
+        "overlap": 0,
+        "verticalCenterDelta": 29,
+        "verticalOverlap": 36
+      },
+      {
+        "node": "ga",
+        "labelIndex": 13,
+        "side": "right-of-node",
+        "gap": 75,
+        "overlap": 0,
+        "verticalCenterDelta": 30.5,
+        "verticalOverlap": 15
+      }
+    ],
+    "horizontalViolations": []
+  },
+  "interfaceAudit": {
+    "path": "compare/global-e-q4-fy25-zh-interface-audit.json",
+    "contactSheet": "compare/global-e-q4-fy25-zh-interface-contact-sheet.png",
+    "mode": "error",
+    "status": "passed",
+    "enforcementStatus": "passed",
+    "candidateStatus": "passed",
+    "referenceStatus": "passed",
+    "summary": {
+      "expectedInterfaces": 16,
+      "auditedInterfaces": 16,
+      "passedInterfaces": 16,
+      "failedInterfaces": 0,
+      "documentedExceptions": 0,
+      "pendingInterfaces": 0,
+      "notScoredInterfaces": 0,
+      "interfaces": 16,
+      "links": 11,
+      "passed": 16,
+      "failed": 0,
+      "notScored": 0,
+      "violations": 0
+    }
+  },
+  "archive": {
+    "dir": "output/compare/global-e-q4-fy25/04-baseline-polish-l10n-sweep",
+    "name": "04-baseline-polish-l10n-sweep",
+    "round": "04",
+    "improvement": "baseline",
+    "focus": "polish-l10n-sweep",
+    "previousArchive": null
+  }
+}
