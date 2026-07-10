@@ -3913,6 +3913,29 @@
         }
       },
       {
+        "key": "block-fy25",
+        "src": "data/datasets/block-fy25.js",
+        "data": {
+          "name": "Block · FY25",
+          "company": "Block",
+          "meta": {
+            "title": "Block FY25 Income Statement",
+            "period": "FY25",
+            "periodNote": "Year ended Dec. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Block · 2025 财年",
+              "meta": {
+                "title": "Block 2025 财年利润表",
+                "period": "2025 财年",
+                "periodNote": "截至 2025 年 12 月 31 日的年度"
+              }
+            }
+          }
+        }
+      },
+      {
         "key": "global-payments-q4-fy25",
         "src": "data/datasets/global-payments-q4-fy25.js",
         "data": {
@@ -3928,29 +3951,6 @@
               "name": "Global Payments · 2025 财年第四季度",
               "meta": {
                 "title": "Global Payments 2025 财年第四季度利润表",
-                "period": "2025 财年第四季度",
-                "periodNote": "截至 2025 年 12 月"
-              }
-            }
-          }
-        }
-      },
-      {
-        "key": "nu-q4-fy25",
-        "src": "data/datasets/nu-q4-fy25.js",
-        "data": {
-          "name": "Nu · Q4 FY25",
-          "company": "Nu",
-          "meta": {
-            "title": "Nu Q4 FY25 Income Statement",
-            "period": "Q4 FY25",
-            "periodNote": "Ending Dec. 2025"
-          },
-          "i18n": {
-            "zh": {
-              "name": "Nu · 2025 财年第四季度",
-              "meta": {
-                "title": "Nu 2025 财年第四季度利润表",
                 "period": "2025 财年第四季度",
                 "periodNote": "截至 2025 年 12 月"
               }
