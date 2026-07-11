@@ -134,7 +134,7 @@ export function createDatasetBuild(input, options = {}) {
   );
 }
 
-function authoredPayload(command) {
+function authoredPayload(build, command) {
   invariant(Array.isArray(command.artifacts) && command.artifacts.length > 0, 'ARTIFACTS_REQUIRED', 'Authored artifacts are required');
   const artifacts = command.artifacts
     .map((artifact, index) => {
@@ -144,24 +144,107 @@ function authoredPayload(command) {
     })
     .sort((left, right) => left.path.localeCompare(right.path));
   invariant(command.inventory && typeof command.inventory === 'object', 'INVENTORY_REQUIRED', 'Object inventory is required');
-  assertDigest(command.inventory.digest, 'Inventory digest');
+  const inventoryDigest = command.inventory.inventoryDigest || command.inventory.digest;
+  assertDigest(inventoryDigest, 'Inventory digest');
   const changeImpact = [...new Set(command.changeImpact || [])].sort();
   invariant(changeImpact.length > 0, 'CHANGE_IMPACT_REQUIRED', 'At least one ChangeImpact is required');
   for (const impact of changeImpact) {
     invariant(CHANGE_IMPACT_SET.has(impact), 'CHANGE_IMPACT_INVALID', `Unsupported ChangeImpact: ${impact}`);
   }
+  let verificationPlan = null;
+  if (command.verificationPlan) {
+    const planDigest = command.verificationPlan.planDigest || command.verificationPlan.digest;
+    assertDigest(planDigest, 'VerificationPlan digest');
+    invariant(
+      command.verificationPlan.datasetKey === build.key,
+      'VERIFICATION_PLAN_INVALID',
+      'VerificationPlan dataset key does not match the Build'
+    );
+    invariant(
+      command.verificationPlan.adapter === build.adapter,
+      'VERIFICATION_PLAN_INVALID',
+      'VerificationPlan Adapter does not match the Build'
+    );
+    invariant(
+      Array.isArray(command.verificationPlan.requiredLocales) && command.verificationPlan.requiredLocales.length > 0,
+      'VERIFICATION_PLAN_INVALID',
+      'VerificationPlan requires at least one locale'
+    );
+    invariant(
+      Array.isArray(command.verificationPlan.changeImpact),
+      'VERIFICATION_PLAN_INVALID',
+      'VerificationPlan ChangeImpact is required'
+    );
+    invariant(
+      digestValue([...command.verificationPlan.changeImpact].sort()) === digestValue(changeImpact),
+      'VERIFICATION_PLAN_INVALID',
+      'VerificationPlan ChangeImpact does not match the authored command'
+    );
+    verificationPlan = { ...command.verificationPlan, digest: planDigest };
+  }
   const snapshot = {
     artifacts,
-    inventory: command.inventory,
+    inventory: { ...command.inventory, digest: inventoryDigest },
     changeImpact,
+    ...(verificationPlan ? { verificationPlan } : {}),
   };
-  return { ...snapshot, snapshotDigest: digestValue(snapshot) };
+  return {
+    ...snapshot,
+    ...(verificationPlan ? { verificationPlanDigest: verificationPlan.digest } : {}),
+    snapshotDigest: digestValue(snapshot),
+  };
 }
 
 function closurePayload(build, command) {
   const authored = [...build.receipts].reverse().find((receipt) => receipt.state === 'AUTHORED')?.payload;
   invariant(authored, 'AUTHORED_REQUIRED', 'Closure requires an authored snapshot');
   invariant(command.snapshotDigest === authored.snapshotDigest, 'STALE_SNAPSHOT', 'Closure evidence does not match the authored snapshot');
+  let fidelityResult = null;
+  if (authored.verificationPlan) {
+    invariant(command.fidelityResult && typeof command.fidelityResult === 'object', 'FIDELITY_RESULT_REQUIRED', 'Versioned closure requires a FidelityResult');
+  }
+  if (command.fidelityResult) {
+    const result = command.fidelityResult;
+    assertDigest(result.resultDigest, 'FidelityResult digest');
+    invariant(result.status === 'accepted', 'FIDELITY_RESULT_NOT_ACCEPTED', 'FidelityResult must be accepted before Build closure');
+    invariant(result.subject?.buildId === build.buildId, 'FIDELITY_RESULT_MISMATCH', 'FidelityResult Build does not match');
+    invariant(result.subject?.key === build.key, 'FIDELITY_RESULT_MISMATCH', 'FidelityResult dataset key does not match');
+    invariant(result.subject?.authoredDigest === authored.snapshotDigest, 'STALE_FIDELITY_RESULT', 'FidelityResult authored digest is stale');
+    invariant(
+      !authored.verificationPlanDigest || result.subject?.verificationPlanDigest === authored.verificationPlanDigest,
+      'STALE_FIDELITY_RESULT',
+      'FidelityResult VerificationPlan digest is stale'
+    );
+    fidelityResult = {
+      resultDigest: result.resultDigest,
+      status: result.status,
+      subject: result.subject,
+    };
+  }
+  let reviewObjects = null;
+  if (authored.verificationPlan) {
+    invariant(command.reviewObjects && typeof command.reviewObjects === 'object', 'REVIEW_OBJECTS_REQUIRED', 'Versioned closure requires review object references');
+    const expectedKinds = {
+      fidelityResult: 'fidelity-result',
+      feedbackLedger: 'feedback-ledger',
+    };
+    reviewObjects = {};
+    for (const [field, kind] of Object.entries(expectedKinds)) {
+      const reference = command.reviewObjects[field];
+      invariant(reference?.kind === kind, 'REVIEW_OBJECTS_INVALID', `${field} must reference a ${kind} object`);
+      assertDigest(reference.digest, `${field} object digest`);
+      invariant(typeof reference.path === 'string' && reference.path, 'REVIEW_OBJECTS_INVALID', `${field} object path is required`);
+      reviewObjects[field] = { kind, digest: reference.digest, path: reference.path };
+    }
+    const feedbackRecords = command.reviewObjects.feedbackRecords || [];
+    invariant(Array.isArray(feedbackRecords), 'REVIEW_OBJECTS_INVALID', 'feedbackRecords must be an array');
+    reviewObjects.feedbackRecords = feedbackRecords.map((reference, index) => {
+      invariant(reference?.kind === 'feedback-record', 'REVIEW_OBJECTS_INVALID', `feedbackRecords[${index}] must reference a feedback-record object`);
+      assertDigest(reference.digest, `feedbackRecords[${index}] digest`);
+      invariant(typeof reference.path === 'string' && reference.path, 'REVIEW_OBJECTS_INVALID', `feedbackRecords[${index}] path is required`);
+      return { kind: reference.kind, digest: reference.digest, path: reference.path };
+    });
+  }
   const evidence = command.evidence || {};
   const requiredAxes = ['candidate', 'reference', 'process', 'human'];
   for (const axis of requiredAxes) {
@@ -173,7 +256,12 @@ function closurePayload(build, command) {
       : ['passed'];
     invariant(allowed.includes(item.status), 'CLOSURE_INVALID', `${axis} evidence must be ${allowed.join(' or ')}`);
   }
-  const payload = { snapshotDigest: authored.snapshotDigest, evidence };
+  const payload = {
+    snapshotDigest: authored.snapshotDigest,
+    evidence,
+    ...(fidelityResult ? { fidelityResult } : {}),
+    ...(reviewObjects ? { reviewObjects } : {}),
+  };
   return { ...payload, closureDigest: digestValue(payload) };
 }
 
@@ -243,7 +331,7 @@ export function advanceDatasetBuild(build, command, options = {}) {
 
   if (command.type === 'record-authored') {
     invariant(['INTAKED', 'AUTHORED', 'CLOSED', 'BASELINE_STAGED'].includes(build.state), 'STATE_PRECONDITION', 'Cannot author from the current state');
-    return nextReceipt(build, 'AUTHORED', authoredPayload(command), now);
+    return nextReceipt(build, 'AUTHORED', authoredPayload(build, command), now);
   }
   if (command.type === 'record-closed') {
     invariant(build.state === 'AUTHORED', 'STATE_PRECONDITION', 'Closure requires AUTHORED state');

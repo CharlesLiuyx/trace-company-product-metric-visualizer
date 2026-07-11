@@ -154,7 +154,7 @@ another fidelity loop:
    pnpm exec playwright install chromium
    ```
 
-10. Run the deterministic data, i18n, and d3 checks:
+10. Run the deterministic data, i18n, and d3 diagnostics:
 
    ```bash
    pnpm verify:ssot
@@ -163,10 +163,49 @@ another fidelity loop:
    ```
 
    Or run them all (plus syntax, metadata, and a render per language) in one
-   go with `pnpm verify:dataset -- <dataset-key>`.
+   go with `pnpm verify:dataset -- <dataset-key>`. Both commands are read-only:
+   `verify:d3` never archives or advances a manual round, even when `--focus`
+   is supplied. A machine-green result is diagnostic evidence, not human
+   acceptance or convergence.
 
-11. After the final manual fidelity change, rerun `verify:dataset`, then record
-    only that key's future-regression baseline and verify it read-only:
+11. When a candidate is ready for human review, bind it to the Build and
+    record durable evidence for every required language:
+
+    ```bash
+    pnpm record:build -- prepare-review <build-id> --input <review-input.json>
+    # The command prints a reviewToken used by review.json.
+    pnpm record:verification -- <build-id> --json
+    pnpm record:fidelity -- <dataset-key> --build <build-id> --focus "structure-text-l10n-review"
+    pnpm record:fidelity -- <dataset-key> --build <build-id> --focus "structure-text-l10n-review" --language zh
+    pnpm record:build -- finish <build-id> --review <review.json>
+    ```
+
+    `record:fidelity` writes `evidence-ready`, not accepted, evidence. The
+    review JSON binds the printed `reviewToken` (legacy `packetDigest` remains
+    readable), the `record:verification` reference, fidelity manifests, human attestation, region/risk/feedback
+    decisions, and the Interface Matrix. Missing human acceptance stays
+    `review-pending`; rejected or blocked review does not close the Build.
+    After a requested change, edit the candidate and prepare a new review so
+    the old attestation cannot carry over to changed digests.
+
+12. Only after `finish` records an accepted `FidelityResult`, stage the
+    future-regression baseline, rerun fresh read-only checks, seal, and verify
+    close-out:
+
+    ```bash
+    pnpm record:build -- stage-baseline <build-id> --input <baseline.json>
+    pnpm verify:dataset -- <dataset-key>
+    pnpm record:build -- seal <build-id>
+    pnpm record:build -- inspect <build-id>
+    pnpm verify:closeout -- <build-id>
+    ```
+
+    The Revenue Metric Adapter records render/fidelity and baseline decisions
+    as explicit `notApplicable` facts instead of silently skipping axes.
+    `SEALED` is a fresh build-local close-out state, not publication. Atomic M4
+    Publication is not implemented yet. Where the current compatibility
+    runtime still needs a canonical render baseline, `record:baseline` remains
+    a separate transitional mutation and cannot prove the producing Build:
 
     ```bash
     pnpm record:baseline -- <dataset-key>
@@ -183,8 +222,11 @@ equivalent browser check and make sure text stays within
 The verifier starts its own static server, renders a bare d3 SVG for the
 dataset, screenshots `#chart > svg`, asserts that no source image or unapproved
 SVG `<image>` is present, computes pixel metrics against `meta.referenceImage`,
-and cleans only that run's private `compare/runs/` workspace. It promotes an
-accepted archive only after the currently enforced automatic gates pass.
+and cleans only that run's private `compare/runs/` workspace. `verify:d3` is a
+read-only diagnostic and promotes no archive. Use Build-bound
+`record:fidelity -- <dataset-key> --build <build-id> --focus <dir>` when the same checks must
+become durable review evidence; automatic gates can produce only
+`evidence-ready`, never human acceptance.
 Datasets that explicitly set
 `render.allowRasterAnnotations` may render approved runtime images from
 `data/assets/raster-annotations/`. Use `pnpm verify:d3 -- <dataset-key> --keep`
@@ -192,8 +234,11 @@ when you need to inspect the candidate PNG.
 
 `compare/runs/` contains per-run scratch. Keep incoming assets in
 `input/pending/` and stable app references in `input/processed/`; do not rely
-on scratch between runs. Accepted evidence lives under
+on scratch between runs. Durable `record:fidelity` evidence lives under
 `output/compare/<dataset-key>/` with a `fidelity-run.json` identity manifest.
+Only evidence whose identity includes the current Build, authored digest, and
+Verification Plan digest participates in the new close-out. An explicit-focus
+recording without `--build` is legacy compatibility evidence only.
 
 For a **d3-sankey fidelity loop**, the rendered output under comparison must be
 the SVG produced by `SankeyEngine.render()` / d3-sankey. Do not compare against

@@ -100,20 +100,28 @@ Install once; the d3/standalone verifiers render in Chromium:
 | `pnpm verify:architecture` | enforce lifecycle protocol/state/Adapter parity, command mutation semantics, architecture routes, and local context-document links (also part of `pnpm check`) |
 | `pnpm check:pending [-- --file input/pending/<file>.png --key <final-key>]` | pending-image duplicate / key-collision guard; use `--file` for one Build and `--key` after naming, omit both only to audit the shared queue |
 | `pnpm record:intake -- <pending.png> --key <key> --adapter <kind> [--availability <policy>]` | record an ignored per-item `INTAKED` Build manifest with Source and canonical-base digests; does not move or publish the Source |
+| `pnpm record:build -- prepare-review <build-id> --input <review-input.json>` | hash authored artifacts, persist the Object Inventory and Verification Plan, advance the Build to `AUTHORED`, and return a `reviewToken`; this records no human acceptance |
+| `pnpm record:verification -- <build-id> [--json]` | run the non-render dataset consistency profile and record Build-bound `dataset-verification/v1` evidence; pass its returned reference to `finish` |
+| `pnpm record:fidelity -- <key> --focus <dir> [--language <code>] --build <build-id>` | record durable, Build-bound automatic evidence as `evidence-ready`; run once per required language. Without `--build`, explicit-focus output is legacy compatibility evidence only and cannot close a Build |
+| `pnpm record:build -- finish <build-id> --review <review.json>` | consume the `reviewToken` (legacy `packetDigest` is accepted), automatic evidence, human attestation, region/risk/feedback decisions, and Interface Matrix; only an accepted `FidelityResult` advances to `CLOSED` |
+| `pnpm record:build -- stage-baseline <build-id> --input <baseline.json>` | record a build-local, `future-regression-only` baseline stage; Revenue Metric records an explicit `notApplicable` disposition |
+| `pnpm record:build -- seal <build-id>` | recompute artifact freshness and record `SEALED` only for an accepted, closed, baseline-staged Build with fresh exact digests; does not publish canonical data |
+| `pnpm record:build -- inspect <build-id> [--json]` | read historical/effective state, freshness, review status, Task information, and Loop Fidelity Summary without mutation |
+| `pnpm verify:closeout -- <build-id> [--json]` | read-only close-out gate: requires historical and effective `SEALED`, fresh inputs, and an accepted human review |
 | `pnpm sync:index-datasets` | syncs every data registration surface with disk: `index.html` SSOT `<script>` tags (income statements, company metadata) and the generated dataset manifest (`--check` reports drift) |
 | `pnpm update:dataset-manifest` / `pnpm verify:dataset-manifest` | regenerate / freshness-check `data/dataset-manifest.js` (dataset registration SSOT) |
-| `pnpm verify:dataset -- <key> [--skip-render]` | aggregate per-dataset gate: syntax, SSOT, strict i18n, metadata, then a d3 render per language |
+| `pnpm verify:dataset -- <key> [--skip-render]` | read-only aggregate diagnostic: syntax, SSOT, strict i18n, metadata, then a read-only d3 render per language |
 | `pnpm verify:ssot` | SSOT ↔ dataset parity, registration parity, and currency/unit + FX coverage (global) |
 | `pnpm verify:i18n -- [--strict] [keys]` | i18n overlay coverage |
-| `pnpm verify:d3 -- <key> [--focus <dir>] [--keep] [--language <code>] [--round <n>]` | one d3 render + auto hard gates; archives each round to `output/compare/<key>/` |
+| `pnpm verify:d3 -- <key> [--focus <dir>] [--keep] [--language <code>] [--round <n>]` | read-only d3 diagnostic + automatic hard gates; it never archives or advances manual-round lineage, even with `--focus` |
 | `pnpm verify:render-regression [-- <keys>]` | read-only batch render regression against `data/render-baselines.json` (reference images are local-only, so machines without them run render hard gates only) |
-| `pnpm record:baseline -- <key> [...]` | explicit subset-only compatibility mutation for future-regression baselines; writes atomically only after every selected render/structure check passes |
+| `pnpm record:baseline -- <key> [...]` | transitional canonical baseline compatibility mutation outside the new Build close-out verdict; M4 Publication has not replaced it, and it cannot prove the producing Build correct |
 | `pnpm update:dataset-file-metadata` | regenerate `data/dataset-file-metadata.js` from git author times (rerun + commit after committing a new/edited dataset) |
 | `pnpm verify:dataset-file-metadata` | generated metadata is current |
 | `pnpm build:site` / `pnpm verify:site` | build the optimized Pages runtime projection / browser-check its deferred bundles, on-demand Adapter budget, lazy Chart runtime, and company-switch path |
 | `pnpm build:standalone` | build the self-contained HTML without mutating tracked metadata; inlines all dataset adapters |
 | `pnpm verify:standalone` | standalone artifact needs no sibling files |
-| `sh scripts/clean-compare.sh` | clean legacy top-level scratch files only; `verify:d3` owns/cleans each private `compare/runs/` directory, so never use global deletion during concurrent runs |
+| `sh scripts/clean-compare.sh` | clean legacy top-level scratch files only; d3 diagnostic/evidence runs own and clean their private `compare/runs/` directories, so never use global deletion during concurrent runs |
 
 CI (`.github/workflows/ci.yml`) runs `pnpm check`, `verify:app`, the Pages
 build + loading-budget verification, a
@@ -145,13 +153,21 @@ current run.
    object-by-object against the source image (fine pass over the phase 2
    inventory), add `i18n.<language>` overlays, and register it via
    `pnpm sync:index-datasets` (regenerates the dataset manifest).
-4. Verify — run `pnpm verify:dataset -- <dataset-key>`, then the manual d3
-   fidelity loop (`docs/fidelity-loop-rules.md`), rerun the aggregate gate
-   after the final change, then use `pnpm record:baseline -- <dataset-key>`
-   and the read-only per-key render regression gate.
-5. Close out — `pnpm check` green and the selected pending item resolved;
-   unrelated items may remain in the shared queue. Commit per
-   `docs/commit-messages.md`.
+4. Verify and review — use `verify:dataset` / `verify:d3` only for read-only
+   diagnostics. Run `record:build prepare-review`, record dataset consistency
+   with `record:verification`, then record each required language with
+   Build-bound `record:fidelity`; present those `evidence-ready`
+   artifacts for human review and pass the structured attestation to
+   `record:build finish`. An automatic pass is neither accepted nor converged;
+   only an accepted, fresh `FidelityResult` advances the Build to `CLOSED`.
+   Revenue Metric plans explicitly mark Sankey/render evidence
+   `notApplicable` instead of silently omitting it.
+5. Close out — record the build-local future-regression stage, run fresh
+   final checks, then `record:build seal` and `verify:closeout`. Finish with
+   `pnpm check`, resolve the selected pending item, and commit per
+   `docs/commit-messages.md`; unrelated queue items may remain. `SEALED` is
+   not `PUBLISHED`: atomic M4 Publication is still unimplemented, and the
+   compatibility canonical baseline path remains separate.
 
 Before every final response, satisfy the pre-response Verification Checklist
 and Reporting requirements in `docs/dynamic-dataset-workflow.md`.
@@ -162,9 +178,12 @@ and Reporting requirements in `docs/dynamic-dataset-workflow.md`.
 behavior. Load it before running or reporting any loop. Treat every user
 fidelity correction as a process-improvement signal: generalize the lesson
 into that rules file or record a dataset-specific exception in the loop Task
-information, per its 人工反馈沉淀 closure loop. Each manual round maintains
+information, per its 人工反馈沉淀 closure loop. Record durable review
+candidates with Build-bound `record:fidelity`; plain `verify:d3` remains
+diagnostic and never creates a round. Each actual human round maintains
 current Task information and, while attention areas stay open, produces the
-red-box reference image for the next round.
+red-box reference image for the next round. Machine evidence alone must be
+reported as `review-pending`, never as accepted or converged.
 
 ## Commit Messages
 

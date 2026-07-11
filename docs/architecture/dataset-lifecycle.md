@@ -76,7 +76,23 @@ digest. Evidence from different authored digests or plan versions cannot be
 combined. Multiple runs may exist, but `CLOSED` names the exact accepted run
 or compatible accepted evidence set it consumes.
 
+The current review-evidence protocol is `fidelity-run/2`. Its durable
+automatic terminal is `EVIDENCE_READY`, not human acceptance. `verify:d3`
+uses only ephemeral diagnostic scratch; `record:fidelity` is the operation
+that may finalize a build-bound `evidence-ready` archive. Manual decisions are
+joined later by the Dataset Build Module rather than inferred from this run.
+
 ## Durable lifecycle objects
+
+### ObjectInventory
+
+`ObjectInventory` accounts for every coarsely inventoried Source object with a
+stable object ID and exactly one disposition: `render`, `data-only`, or
+`skip`. Render/data objects require explicit authored mappings; skipped
+objects require a reason. Source features such as `centered-side-label`, text,
+annotation proximity, visible short nodes, and visible interfaces compile to
+required checks. Duplicate identities, duplicate mapping ownership, and a
+missing mapping are hard failures before review preparation.
 
 ### ChangeImpact
 
@@ -115,6 +131,31 @@ list. It declares:
 Local execution and CI consume the same plan. A plan change invalidates any
 closure or seal that depended on its old digest.
 
+The implemented compiler takes the selected Adapter, `ChangeImpact`, and
+`ObjectInventory`. Income Statement plans require visual/reference/manual
+closure; Revenue Metric plans explicitly mark Sankey fidelity and its future
+render baseline `notApplicable` rather than relying on absence.
+
+### ReviewPacket
+
+`ReviewPacket` is the content-addressed handoff from authored preparation to
+automatic and human review. It binds `buildId`, authored digest, Verification
+Plan digest, required locales, and references to the recorded inventory and
+Plan. `record:build prepare-review` returns its digest as a `reviewToken`;
+`finish` consumes that token (`packetDigest` remains a compatibility alias).
+The token identifies the packet and cannot select a different Build.
+
+### DatasetVerification
+
+`DatasetVerification` is Build-bound, non-render consistency evidence produced
+by `record:verification`. It runs the current dataset profile for syntax, SSOT,
+strict i18n, and generated metadata with rendering skipped, then binds the pass
+to the Build, Adapter, authored digest, and Verification Plan digest. A failed
+check records no ready object; a Build or authored-file change during the run
+invalidates the result. Income Statement and Revenue Metric closure both require
+this evidence; Sankey render evidence remains an additional Income Statement
+obligation.
+
 ### ArtifactManifest
 
 `ArtifactManifest` is the immutable inventory of build inputs and outputs:
@@ -145,6 +186,25 @@ future projection path, but never the evidence identity.
 - run status and result digest.
 
 It contains facts and decisions, not canonical mutations.
+
+The current result joins `fidelity-run/2` automatic evidence with a
+`ManualAttestation`, stable `RegionDecision` records, derived risk checks,
+Interface Matrix facts, attention/red-box closure, and a `FeedbackLedger`.
+Machine-green evidence without the required attestation remains
+`review-pending`; open regions, open feedback, incomplete Matrix coverage, or
+a required recurrence upgrade prevent `accepted`.
+
+### ManualAttestation, RegionDecision, and FeedbackLedger
+
+`ManualAttestation` binds reviewer, decision, authored digest, and Plan digest.
+It is the explicit human judgment boundary. Each `RegionDecision` uses a
+stable `REG-###` identity, disposition, rules, and evidence digests.
+`FeedbackRecord` uses stable feedback/region/rule identities and records
+cause, before/after evidence, remedy, and automation disposition. The
+`FeedbackLedger` is a deterministic projection across build-local records;
+the second cross-Build execution-gap occurrence requires an automation
+disposition. These objects remain build-local and do not mutate canonical
+data.
 
 ## Input-type Adapter Seam
 
@@ -197,6 +257,11 @@ Queries must report both the historical state and effective freshness. A
 historical `SEALED` label with mismatched current digests is stale and cannot
 be published.
 
+This distinction is implemented for authored files: inspection re-hashes the
+current bytes. If any recorded artifact is missing or its digest changes, the
+historical `SEALED` receipt remains auditable while `effectiveState` becomes
+`AUTHORED` and `fresh` becomes false.
+
 ## Transition invariants
 
 - One Build is serial by version; different Builds may run in parallel.
@@ -213,11 +278,18 @@ be published.
 
 ## Current Implementation note
 
-The versioned state and self-baseline/CAS invariants have an executable
-foundation in `scripts/lib/dataset-build.mjs`; `record:intake` persists the
-`INTAKED` receipt under ignored `output/builds/`. The later state records are
-currently exercised through the Module's test Interface, not exposed as
-authoring commands. Authoring, registration, baseline Publication, and
-metadata still use compatibility paths until M2–M4 land. See the live status
-table in [`README.md`](README.md); this target contract must not be used to
-claim that a pending target command already exists.
+The M3 shadow/compatibility path is now executable through the deep
+`prepareBuildReview`, `finishReviewedBuild`, `stageReviewedBaseline`,
+`sealReviewedBuild`, and `inspectBuildCloseout` Interfaces, surfaced by
+`record:build`. Together with `record:verification`, it records content-addressed
+inventory, Plan, ReviewPacket, DatasetVerification, FidelityResult,
+FeedbackLedger, closure, staged baseline, and seal objects
+under the per-Build store. `inspect` also produces `CloseoutReport`, Task
+information, and Loop Fidelity Summary as pure Views over those objects.
+
+This is not M4. Authored canonical paths are still edited directly, the old
+canonical baseline command remains a compatibility path, and no atomic
+Publication or path-claim CAS exists. The current seal operation re-hashes
+authored files and requires an accepted closure before recording `SEALED`; it
+does not yet rerun the complete Adapter final-verification profile required by
+the target. See the live status table in [`README.md`](README.md).

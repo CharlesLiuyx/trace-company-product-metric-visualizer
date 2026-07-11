@@ -19,7 +19,7 @@ d3 fidelity loop is `docs/fidelity-loop-rules.md`, commit conventions are
 
 ### Parallel groups
 
-The pipeline is not strictly serial. Dependency-wise it forms four groups:
+The pipeline is not strictly serial. Dependency-wise it forms five groups:
 
 - **G0 — serial gate (steps 1–3).** Guard, key, image move. Nothing else may
   start before the guard passes and the key + processed image are frozen; a
@@ -29,7 +29,7 @@ The pipeline is not strictly serial. Dependency-wise it forms four groups:
   (as interleaved work or delegated subagents):
   - Track A (data): company metadata (step 5), then the financial SSOT
     record (step 6), plus their i18n fields.
-  - Track B (visual): input typing + coarse object inventory (step 4), then
+  - Track B (visual): input typing + durable `ObjectInventory` (step 4), then
     the fine pre-render measurement (start of step 8).
   - Track C (icons, conditional): the crop/vector subloop (step 7). Its
     cluster scope comes from the step 4 inventory, so it starts after the
@@ -38,12 +38,12 @@ The pipeline is not strictly serial. Dependency-wise it forms four groups:
   values and Track B geometry; dataset i18n overlays need the adapter's
   final label text; registration follows. Icon assets from Track C plug in
   here whenever they converge.
-- **G3 — verification (steps 11–12).** `verify:dataset` first, then the
-  manual fidelity loop. Loop rounds are inherently serial (each round reacts
-  to the previous render), but two parallel affordances exist inside the
-  loop: candidate-value trials within one round (already required by
-  `docs/fidelity-loop-rules.md` 反微调停机规则), and per-language renders,
-  which are independent processes and may run in parallel shells.
+- **G3 — verification and review (steps 11–13).** Prepare the authored
+  snapshot and `ReviewPacket`, record Build-bound dataset verification and
+  `fidelity-run/2` evidence, then finish human review, stage the baseline,
+  and seal. Fidelity rounds are inherently
+  serial per direction, while candidate-value trials within a round and
+  independent locale evidence may run in parallel.
 - **G4 — serial close-out (step 14 plus the Verification Checklist and
   Reporting below).**
 
@@ -66,10 +66,11 @@ returns.
 | 8 fine measurement + adapter authoring | high | main agent |
 | 9 i18n overlays: first draft | low–medium | subagent OK; main agent re-checks high-risk strings (`R&D`, `SG&A`, money suffixes, mixed-script brand names) |
 | 10 registration / `sync:index-datasets` | low | either |
-| 11 `verify:dataset` and other verifier runs | low | either — cheap shell commands |
-| 12 fidelity loop: triage, fixes, freeze/converge decisions | high | main agent |
-| 12 fidelity loop: render/metrics collection, bbox report harvesting, red-box drawing from a confirmed region list | low | subagent OK — after the main agent decides the regions and classifications |
-| 13 close-out, commits, reporting | medium | main agent |
+| 11 prepare review (`ObjectInventory` → `VerificationPlan` / `ReviewPacket`) | medium | main agent — the durable inventory, impacts, locales, and authored mappings define every later obligation |
+| 12 fidelity loop: triage, fixes, RegionDecision / feedback decisions | high | main agent |
+| 12 dataset verification and fidelity evidence collection | low | subagent OK — use `record:verification` for consistency and `record:fidelity` for render evidence; `verify:d3` remains diagnostic |
+| 13 finish review, stage baseline, fresh seal | medium | main agent |
+| 14 close-out verification, commits, reporting | medium | main agent |
 
 ## New Dataset Pipeline
 
@@ -99,7 +100,7 @@ returns.
    This writes an ignored Build manifest under `output/builds/`, including
    Source hash/dimensions and `baseCanonicalDigest`; it does not move the
    PNG, register data, or write another canonical file. Preserve the reported
-   Build ID and manifest path in Task information.
+   Build ID and manifest path in the durable review working record.
 
 ### Phase P2 — Source inventory & data SSOTs (G1, parallel tracks)
 
@@ -116,10 +117,16 @@ returns.
      then stop at data-level verification — no Sankey adapter, no icon
      subloop, no d3 fidelity loop (`verify:dataset` skips render for
      revenue-metric keys).
-   - Enumerate every object instance against that type's checklist, tagging
-     each as render target, data-only, or intentionally skipped, and count
-     them (segments, cost items, KPI/stat cards, icon clusters, annotation
-     containers, callout pills, watermarks). The inventory drives SSOT
+   - Enumerate every object instance against that type's checklist and persist
+     it as `ObjectInventory` (`object-inventory/v1`): stable lowercase object
+     ID, kind, `render` / `data-only` / `skip` disposition, authored mapping,
+     render-risk features, and a reason for every skip. A prose list or only
+     three counts is not durable inventory. Use features such as
+     `text`, `annotation-near-label`, `visible-short-node`, and
+     `visible-interface` wherever the source object exhibits them. Add
+     `centered-side-label` only when the source intent is vertical centering,
+     not for top-aligned or grouped side labels. The
+     inventory drives SSOT
      completeness (step 6 cross-check), icon crop scope (step 7), label
      grouping (step 8), i18n coverage (step 9), and the skip list — record
      it so the final report can state that every object is accounted for.
@@ -193,27 +200,69 @@ returns.
     annotation words in the dataset's `i18n.preservedAnnotationText` (see
     Traps).
 
-### Phase P4 — Verify (G3)
+### Phase P4 — Verify and review (G3)
 
-11. Run `pnpm verify:dataset -- <dataset-key>`.
-12. Run the manual fidelity loop per `docs/fidelity-loop-rules.md`, including
-    a localization layout round per non-default language.
-13. After the last fidelity change, run `pnpm verify:dataset -- <dataset-key>`
-    again so every required language and automatic gate is fresh. Then record
-    only this dataset's future-regression baseline with
-    `pnpm record:baseline -- <dataset-key>`, followed by the read-only
-    `pnpm verify:render-regression -- <dataset-key>`. Baseline recording is an
-    explicit canonical mutation during the M1–M3 compatibility period: it is
-    subset-only, writes only after all render/structure checks pass, and must
-    never be used as proof that the Build which produced it is correct. M3/M4
-    replace this compatibility write with `BASELINE_STAGED` plus Publication.
+11. Prepare review from the completed `ObjectInventory`, authored artifact
+    paths, `ChangeImpact`, and required locales:
+
+        pnpm record:build -- prepare-review <build-id> --input <review-input.json>
+
+    This records the `AUTHORED` snapshot, compiles the Adapter-owned
+    `VerificationPlan`, and emits a content-addressed `ReviewPacket` plus its
+    printed `reviewToken`. Keep that token: the finish JSON must cite it
+    (`packetDigest` remains compatibility input only). The Plan expands
+    ObjectInventory features into mandatory checks; callers cannot omit a hit
+    or invent `notApplicable`.
+12. Run `pnpm verify:dataset -- <dataset-key>` for read-only diagnostics, then
+    record Build-bound consistency evidence and keep the returned object
+    reference for finish:
+
+        pnpm record:verification -- <build-id> --json
+
+    For Income Statement, run the manual loop next. `verify:d3` is diagnostic only: it writes no durable
+    review archive and an automatic pass is never human acceptance. Every
+    durable human-review round uses the Build and Packet identity:
+
+        pnpm record:fidelity -- <dataset-key> --build <build-id> \
+          --focus <direction> [--language <code>] [--round <n>]
+
+    A successful command records `fidelity-run/2` `evidence-ready` artifacts;
+    it does **not** record `accepted`. Repeat after every authored change and
+    for every required locale, per `docs/fidelity-loop-rules.md`.
+13. After the final authored change, prepare a fresh Packet if its digest is
+    stale, rerun `record:verification` plus every affected locale evidence,
+    and finish with a review JSON containing the `reviewToken`, returned
+    `verificationReference`, `ManualAttestation`, stable `RegionDecision`
+    records, attention status (open red-box digest or closed closure note),
+    the Adapter-required Matrix (reconciled Interface Matrix for Income
+    Statement), and any `FeedbackRecord` entries:
+
+        pnpm record:build -- finish <build-id> --review <review.json>
+
+    Only an `accepted` `FidelityResult` can move the Build to `CLOSED`; machine
+    green with no attestation remains `review-pending`. Then stage the
+    future-regression baseline build-locally, rerun the fresh read-only final
+    checks, and seal:
+
+        pnpm record:build -- stage-baseline <build-id> --input <baseline.json>
+        pnpm verify:dataset -- <dataset-key>
+        pnpm record:build -- seal <build-id>
+
+    `seal` takes no caller verification JSON: it recomputes current authored
+    artifact freshness and records the seal only when the exact inputs remain
+    valid. The staged baseline cannot prove its producing Build. The old canonical
+    `pnpm record:baseline -- <dataset-key>` command remains only for an
+    explicitly declared legacy compatibility operation; it is not a normal
+    new-Build close-out path. M4 atomic Publication is still pending.
 
 ### Phase P5 — Close out (G4)
 
 14. Confirm that the selected pending item was either recorded and moved to
     its compatibility processed path, or stopped with an explicit reason.
-    Other items may remain in the shared discovery queue. Then satisfy the
-    Verification Checklist and Reporting sections below.
+    Other items may remain in the shared discovery queue. Run
+    `pnpm verify:closeout -- <build-id>`; it requires historical and effective
+    `SEALED`, fresh inputs, and accepted review. Then satisfy the Verification
+    Checklist and Reporting sections below.
 
 ## Object Taxonomy
 
@@ -310,15 +359,23 @@ proceed with the pipeline using the new checklist.
 
 ## Traps and Hard Constraints
 
-- The auto hard gates (11 items: engine-output purity, canvas size, font,
-  no-raster rules, label-node spacing, SSOT/i18n consistency) are enumerated
+- The auto hard gates (G1–G12: engine-output purity, canvas size, font,
+  no-raster rules, label-node spacing, SSOT/i18n consistency, and Interface
+  fidelity) are enumerated
   only in `docs/fidelity-loop-rules.md` §自动硬门槛 — read them before tuning
   layout, not after a failed run.
 - Label-node spacing targets 5px; a rendered bbox gap under 4px or a short
   auxiliary column center offset over 4px is an automatic hard fail. Details
   and the bbox audit procedure: `docs/fidelity-loop-rules.md`.
+- Every evidence render reports `textLayoutAudit` and
+  `annotationLayoutAudit`. They become mandatory `FidelityResult` risk gates
+  when `ObjectInventory` contains `text` or `annotation-near-label`: text
+  overflow and annotation/protected-text overlap counts must be zero. Missing
+  audit fields remain open; they are not silently treated as pass.
 - `verify:i18n --strict` proves overlay coverage, not visual validity. For
-  every non-default language, render with `verify:d3 --language <code>` and
+  every non-default language, collect durable review evidence with
+  `pnpm record:fidelity -- <dataset-key> --build <build-id> --focus polish-l10n-sweep --language <code>`
+  (use `verify:d3` only for an earlier diagnostic) and
   inspect text bounds (`getBBox()` or equivalent) for mixed-language
   leftovers, malformed acronyms/punctuation, overlap, and out-of-canvas text.
   High-risk strings (`R&D`, `SG&A`, ampersand labels, money suffixes):
@@ -388,10 +445,19 @@ For a new or materially changed dataset:
 
 - `pnpm verify:dataset -- <dataset-key>` passes (syntax, SSOT, strict i18n,
   metadata, and a d3 render per language).
-- The manual fidelity loop ran per `docs/fidelity-loop-rules.md`, with
-  current Task information and a red-box reference image or closure note.
+- The durable `ObjectInventory`, `VerificationPlan`, `ReviewPacket`, and
+  `dataset-verification/v1` evidence match the current authored digest. Income
+  Statement required locales also have `fidelity-run/2` `evidence-ready`
+  records created by `record:fidelity`; Revenue Metric render/manual axes are
+  Adapter-owned `notApplicable` and must not receive Sankey evidence.
+- The manual loop finished with an accepted `FidelityResult`, closed attention
+  (red-box reference or closure note), complete Interface Matrix, no open
+  Feedback Ledger item, no pending recurrence upgrade, and no failed/open risk
+  check. `verify:d3` diagnostic output alone satisfies none of these.
 - Per non-default language, the rendered SVG was visually inspected — the
   aggregate command does not replace this step.
+- `pnpm verify:closeout -- <build-id>` passes after baseline staging and the
+  fresh seal; historical `SEALED` with stale effective state does not pass.
 
 If icon assets were extracted: the crop script passes, `crop-report.json`
 shows every crop `passes: true`, validation sheets were reviewed,
@@ -406,14 +472,16 @@ If a standalone artifact is requested: `pnpm build:standalone` then
 In the final response, include:
 
 - Files changed, and whether the pure data SSOTs were updated.
-- For new datasets: the input type from the coarse pass and an object
-  inventory summary (rendered / data-only / skipped counts), confirming
-  every inventoried object is accounted for, plus the Build ID/manifest path
-  recorded by `record:intake`.
+- For new datasets: the input type, `ObjectInventory` digest and
+  rendered/data-only/skipped summary, confirming every object is mapped or has
+  an explicit skip reason, plus the Build ID/manifest path from intake.
 - Icon assets extracted, and whether all relevant clusters were accounted for.
-- For dataset or renderer changes: the compact Loop Fidelity Summary, latest
-  Task information, and red-box reference image status required by
-  `docs/fidelity-loop-rules.md` — or why no loop was run.
+- For dataset or renderer changes: use
+  `pnpm record:build -- inspect <build-id>` and
+  report its `CloseoutReport`-derived Task information and Loop Fidelity
+  Summary, including historical/effective state and red-box status. Their
+  status/confidence are derived from review, blockers, freshness, and state;
+  never hand-fill or override them.
 - Whether user-feedback lessons changed `docs/fidelity-loop-rules.md` or were
   recorded as dataset-specific exceptions.
 - Any commands that could not be run.

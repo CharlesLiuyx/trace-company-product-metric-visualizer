@@ -66,6 +66,22 @@ async function main() {
   assert.equal(contract.invariants.baselineMayProveProducingBuild, false, 'self-baseline must stay forbidden');
   assert.equal(contract.invariants.releaseFailureRollsBackPublication, false, 'Release failure must not roll back Publication');
   assert.equal(contract.invariants.publicationConflictRetryableWithoutNewPlan, false, 'CAS conflict must require a new plan');
+  assert.equal(contract.invariants.automaticEvidenceMayCloseBuild, false, 'automatic evidence must not close a Build');
+  assert.equal(contract.invariants.humanAttestationRequiredForIncomeStatement, true, 'Income Statement closure must require human attestation');
+  assert.equal(contract.invariants.verifyCommandsWriteDurableEvidence, false, 'verify:* must remain read-only');
+  for (const objectName of [
+    'ObjectInventory',
+    'VerificationPlan',
+    'DatasetVerification',
+    'ReviewPacket',
+    'ManualAttestation',
+    'RegionDecision',
+    'FeedbackRecord',
+    'FeedbackLedger',
+    'FidelityResult',
+  ]) {
+    assert.ok(contract.durableObjects.includes(objectName), `lifecycle contract must include ${objectName}`);
+  }
   assert.equal(contract.scopes.ReleaseAttempt.retryCreatesNewAttempt, true, 'Release retry must create a new Attempt');
   assert.equal(
     contract.currentImplementationStatusDocument,
@@ -75,8 +91,20 @@ async function main() {
 
   const packageJson = JSON.parse(await readFile(projectPath('package.json'), 'utf8'));
   assert.ok(packageJson.scripts['record:intake'], 'package.json must expose record:intake');
+  assert.ok(packageJson.scripts['record:fidelity'], 'package.json must expose record:fidelity');
+  assert.ok(packageJson.scripts['record:verification'], 'package.json must expose record:verification');
+  assert.ok(packageJson.scripts['record:build'], 'package.json must expose record:build');
   assert.ok(packageJson.scripts['record:baseline'], 'package.json must expose record:baseline');
+  assert.ok(packageJson.scripts['verify:closeout'], 'package.json must expose verify:closeout');
   assert.ok(!packageJson.scripts['build:standalone'].includes('update-dataset-file-metadata'), 'build:standalone must not mutate tracked metadata');
+
+  const [verifyD3, recordFidelity] = await Promise.all([
+    readFile(projectPath('scripts/verify-d3.mjs'), 'utf8'),
+    readFile(projectPath('scripts/record-fidelity.mjs'), 'utf8'),
+  ]);
+  assert.match(verifyD3, /operation:\s*'verify'/, 'verify:d3 must enter the read-only operation class');
+  assert.match(recordFidelity, /operation:\s*'record'/, 'record:fidelity must own durable review evidence');
+  assert.match(verifyD3, /automatic pass is not human acceptance/, 'verify:d3 must disclaim human acceptance');
 
   const [agents, mirror] = await Promise.all([
     readFile(projectPath('AGENTS.md'), 'utf8'),

@@ -2,6 +2,7 @@
 import { copyFile, readFile, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
 import { datasetScriptForKey, registeredDatasetScripts, renderHarnessScripts } from './script-sources.mjs';
 import { startStaticServer } from './dev-server.mjs';
@@ -9,6 +10,7 @@ import { rootDir } from './lib/project.mjs';
 import { formatDiffBoundingBox, pngMetrics } from './lib/png-diff.mjs';
 import {
   FIDELITY_PROTOCOL_VERSION,
+  LEGACY_FIDELITY_PROTOCOL_VERSION,
   cleanupFidelityRun,
   createFidelityRun,
   finalizeFidelityRun,
@@ -16,6 +18,7 @@ import {
   hashFiles,
   markFidelityRunFailed,
 } from './lib/compare-workspace.mjs';
+import { readDatasetBuild } from './lib/dataset-build-store.mjs';
 import { assertPurity } from './lib/d3-hard-gates.mjs';
 import {
   assertInterfaceAudit,
@@ -26,6 +29,7 @@ import {
 import {
   assertProjectFontsLoaded,
   auditLabelLayout,
+  auditTextAndAnnotationLayout,
   collectRenderedRegions,
   datasetRenderMeta,
   openHarnessPage,
@@ -34,16 +38,19 @@ import {
 
 function usage() {
   console.error(
-    'Usage: pnpm verify:d3 -- <dataset-key> [--keep] [--language <code>] [--round <n>] [--focus <main-check-direction>]'
+    'Usage:\n' +
+      '  pnpm verify:d3 -- <dataset-key> [--keep] [--language <code>] [--focus <diagnostic-direction>]\n' +
+      '  pnpm record:fidelity -- <dataset-key> --focus <review-direction> [--build <build-id>] [--keep] [--language <code>] [--round <n>]'
   );
 }
 
-function parseArgs(argv) {
+export function parseArgs(argv) {
   const args = argv.slice(2);
   let keep = false;
   let language = 'en';
   let round = null;
   let focus = 'unspecified';
+  let buildId = '';
   const positional = [];
 
   for (let index = 0; index < args.length; index += 1) {
@@ -81,6 +88,15 @@ function parseArgs(argv) {
       }
       continue;
     }
+    if (arg === '--build') {
+      buildId = args[index + 1];
+      index += 1;
+      if (!buildId || buildId.startsWith('--')) {
+        usage();
+        process.exit(2);
+      }
+      continue;
+    }
     positional.push(arg);
   }
 
@@ -89,7 +105,22 @@ function parseArgs(argv) {
     usage();
     process.exit(2);
   }
-  return { datasetKey, keep, language, round, focus };
+  if (buildId && focus === 'unspecified') {
+    throw new Error('--build records review evidence and therefore requires an explicit --focus');
+  }
+  return { datasetKey, keep, language, round, focus, buildId };
+}
+
+export function fidelityExecutionMode({ buildId, focus }) {
+  return fidelityExecutionModeForOperation({ buildId, focus }, 'verify');
+}
+
+export function fidelityExecutionModeForOperation({ buildId, focus }, operation) {
+  if (operation === 'verify') return 'diagnostic';
+  if (operation !== 'record') throw new Error(`Unsupported fidelity operation class: ${operation}`);
+  if (buildId) return 'review-evidence';
+  if (focus && focus !== 'unspecified') return 'legacy-manual';
+  throw new Error('record:fidelity requires an explicit --focus');
 }
 
 function formatPx(value) {
@@ -154,8 +185,14 @@ function assertLabelLayoutAudit(audit) {
   }
 }
 
-async function main() {
-  const { datasetKey, keep, language, round, focus } = parseArgs(process.argv);
+export async function main(argv = process.argv, runtime = {}) {
+  const operation = runtime.operation || 'verify';
+  const options = parseArgs(argv);
+  if (operation === 'verify' && options.buildId) {
+    throw new Error('--build is only valid with record:fidelity; verify:d3 is read-only');
+  }
+  const { datasetKey, keep, language, round, focus, buildId } = options;
+  const executionMode = fidelityExecutionModeForOperation(options, operation);
   const datasetScript = datasetScriptForKey(datasetKey);
   const datasetPath = path.join(rootDir, datasetScript);
   if (!existsSync(datasetPath)) {
@@ -181,11 +218,32 @@ async function main() {
     hashFiles(renderIdentityPaths),
     hashFiles(i18nIdentityPaths),
   ]);
+  let reviewIdentity = {};
+  if (executionMode === 'review-evidence') {
+    const build = await readDatasetBuild(buildId);
+    if (build.key !== datasetKey) {
+      throw new Error(`Dataset Build ${buildId} belongs to ${build.key}, not ${datasetKey}`);
+    }
+    const authored = [...(build.receipts || [])].reverse().find((receipt) => receipt.state === 'AUTHORED');
+    if (!authored) {
+      throw new Error(`Dataset Build ${buildId} must be AUTHORED before recording fidelity review evidence`);
+    }
+    const verificationPlanDigest =
+      authored.payload?.verificationPlan?.digest || authored.payload?.verificationPlanDigest;
+    if (!verificationPlanDigest) {
+      throw new Error(`Dataset Build ${buildId} has no versioned VerificationPlan; record the authored snapshot first`);
+    }
+    reviewIdentity = {
+      buildId,
+      authoredDigest: authored.payload.snapshotDigest,
+      verificationPlanDigest,
+    };
+  }
   const server = await startStaticServer({ port: 0 });
   const baseUrl = server.url.replace(/\/+$/, '');
   let browser;
   let run;
-  let accepted = false;
+  let completed = false;
 
   try {
     browser = await chromium.launch({ headless: true });
@@ -198,12 +256,21 @@ async function main() {
       identity: {
         dataset: datasetKey,
         language: meta.language,
-        runKind: 'fidelity',
+        runKind:
+          executionMode === 'review-evidence'
+            ? 'fidelity-review'
+            : executionMode === 'legacy-manual'
+              ? 'fidelity'
+              : 'diagnostic',
         referenceHash: await hashFile(referencePath),
-        protocolVersion: FIDELITY_PROTOCOL_VERSION,
+        protocolVersion:
+          executionMode === 'legacy-manual'
+            ? LEGACY_FIDELITY_PROTOCOL_VERSION
+            : FIDELITY_PROTOCOL_VERSION,
         datasetHash,
         renderHash,
         i18nHash,
+        ...reviewIdentity,
       },
     });
     const {
@@ -219,6 +286,7 @@ async function main() {
     const purity = await renderDatasetForPurity(page, datasetKey, language);
     const fontStatus = await assertProjectFontsLoaded(page);
     const labelLayoutAudit = await auditLabelLayout(page);
+    const { textLayoutAudit, annotationLayoutAudit } = await auditTextAndAnnotationLayout(page);
     const renderedRegions = await collectRenderedRegions(page);
     const interfaceGeometry = await collectCandidateInterfaceGeometry(page, datasetKey, language);
 
@@ -259,6 +327,8 @@ async function main() {
       full: metrics.full,
       regions: metrics.regions,
       labelLayoutAudit,
+      textLayoutAudit,
+      annotationLayoutAudit,
       interfaceAudit: {
         path: path.relative(rootDir, interfaceAuditPath),
         contactSheet: path.relative(rootDir, interfaceContactSheetPath),
@@ -280,29 +350,39 @@ async function main() {
     assertLabelLayoutAudit(labelLayoutAudit);
     assertInterfaceAudit(interfaceAudit);
 
-    const archive = await finalizeFidelityRun(run, {
-      focus,
-      fullMetrics: metrics.full,
-      metricsDocument,
-      round,
-    });
-    accepted = true;
+    const archive =
+      executionMode === 'diagnostic'
+        ? null
+        : await finalizeFidelityRun(run, {
+            focus,
+            fullMetrics: metrics.full,
+            metricsDocument,
+            round,
+            status: executionMode === 'review-evidence' ? 'evidence-ready' : 'accepted',
+          });
+    completed = true;
 
     console.log(`dataset: ${datasetKey}`);
     console.log(`language: ${meta.language}`);
+    console.log(`execution mode: ${executionMode}`);
     console.log(`run id: ${run.runId}`);
     console.log(`reference: ${keep ? path.relative(rootDir, referenceComparePath) : path.relative(rootDir, referencePath)}`);
     console.log(`candidate: ${keep ? path.relative(rootDir, candidatePath) : '(scratch cleaned)'}`);
     console.log(`diff: ${keep ? path.relative(rootDir, diffPath) : '(scratch cleaned)'}`);
     console.log(`metrics: ${keep ? path.relative(rootDir, metricsPath) : '(scratch cleaned)'}`);
-    console.log(`archive: ${archive.dir}`);
-    console.log(`archive round: ${archive.round}`);
-    console.log(`archive improvement: ${archive.improvement}${archive.previousArchive ? ` vs ${archive.previousArchive}` : ' (baseline)'}`);
-    console.log(`archive focus: ${archive.focus}`);
-    if (archive.sharedReferenceError) {
-      console.log(`shared reference mirror: failed (${archive.sharedReferenceError}); archived reference: ${archive.reference}`);
-    } else if (archive.reference) {
-      console.log(`shared reference: ${archive.reference}${archive.referenceChanged ? '' : ' (unchanged)'}`);
+    if (archive) {
+      console.log(`archive: ${archive.dir}`);
+      console.log(`archive status: ${executionMode === 'review-evidence' ? 'evidence-ready (human review required)' : 'legacy accepted (not Build closure)'}`);
+      console.log(`archive round: ${archive.round}`);
+      console.log(`archive improvement: ${archive.improvement}${archive.previousArchive ? ` vs ${archive.previousArchive}` : ' (baseline)'}`);
+      console.log(`archive focus: ${archive.focus}`);
+      if (archive.sharedReferenceError) {
+        console.log(`shared reference mirror: failed (${archive.sharedReferenceError}); archived reference: ${archive.reference}`);
+      } else if (archive.reference) {
+        console.log(`shared reference: ${archive.reference}${archive.referenceChanged ? '' : ' (unchanged)'}`);
+      }
+    } else {
+      console.log('archive: none (read-only diagnostic; automatic pass is not human acceptance)');
     }
     console.log(
       `font: ${Object.entries(fontStatus.loaded)
@@ -314,10 +394,20 @@ async function main() {
     );
     logLabelLayoutAudit(labelLayoutAudit);
     console.log(
+      `text layout audit: checked=${textLayoutAudit.checkedTexts} overflow=${textLayoutAudit.overflowViolations.length} tolerance=${textLayoutAudit.tolerance}px`
+    );
+    console.log(
+      `annotation clearance audit: annotations=${annotationLayoutAudit.checkedAnnotationTexts} protected=${annotationLayoutAudit.checkedProtectedTexts} overlaps=${annotationLayoutAudit.overlapViolations.length} tolerance=${annotationLayoutAudit.tolerance}px`
+    );
+    console.log(
       `G12 interface audit: mode=${interfaceAudit.mode} status=${interfaceAudit.status} enforcement=${interfaceAudit.enforcementStatus} candidate=${interfaceAudit.candidateStatus} reference=${interfaceAudit.referenceStatus} expected=${interfaceAudit.summary.expectedInterfaces} audited=${interfaceAudit.summary.auditedInterfaces} passed=${interfaceAudit.summary.passedInterfaces} failed=${interfaceAudit.summary.failedInterfaces} pending=${interfaceAudit.summary.pendingInterfaces} exceptions=${interfaceAudit.summary.documentedExceptions} notScored=${interfaceAudit.summary.notScoredInterfaces} violations=${interfaceAudit.summary.violations}`
     );
-    console.log(`interface report: ${archive.dir}/${path.basename(interfaceAuditPath)}`);
-    console.log(`interface contact sheet: ${archive.dir}/${path.basename(interfaceContactSheetPath)}`);
+    console.log(
+      `interface report: ${archive ? `${archive.dir}/${path.basename(interfaceAuditPath)}` : keep ? path.relative(rootDir, interfaceAuditPath) : '(diagnostic scratch cleaned)'}`
+    );
+    console.log(
+      `interface contact sheet: ${archive ? `${archive.dir}/${path.basename(interfaceContactSheetPath)}` : keep ? path.relative(rootDir, interfaceContactSheetPath) : '(diagnostic scratch cleaned)'}`
+    );
     console.log(`viewport: ${metrics.full.width}x${metrics.full.height}`);
     console.log(`RGB MAE: ${metrics.full.mae.toFixed(4)}`);
     console.log(`MAE similarity: ${metrics.full.similarity.toFixed(6)}`);
@@ -336,7 +426,7 @@ async function main() {
         );
       });
   } catch (error) {
-    if (run && !accepted) {
+    if (run && !completed) {
       try {
         await markFidelityRunFailed(run, error);
       } catch (manifestError) {
@@ -357,7 +447,10 @@ async function main() {
   }
 }
 
-main().catch((err) => {
-  console.error(err.stack || err.message);
-  process.exit(1);
-});
+const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (isDirectRun) {
+  main(process.argv, { operation: 'verify' }).catch((err) => {
+    console.error(err.stack || err.message);
+    process.exit(1);
+  });
+}

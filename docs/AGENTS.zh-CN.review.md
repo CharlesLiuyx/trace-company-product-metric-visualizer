@@ -90,20 +90,28 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
 | `pnpm verify:architecture` | 强制生命周期 protocol/state/Adapter 奇偶、命令 mutation 语义、架构路由和本地上下文文档链接（也包含在 `pnpm check` 中） |
 | `pnpm check:pending [-- --file input/pending/<file>.png --key <final-key>]` | 待处理图片重复 / key 冲突守卫；单个 Build 用 `--file`，定名后加 `--key`，全部省略时只审计共享队列 |
 | `pnpm record:intake -- <pending.png> --key <key> --adapter <kind> [--availability <policy>]` | 记录忽略的 per-item `INTAKED` Build manifest（含 Source 与 canonical-base digest），不移动或发布 Source |
+| `pnpm record:build -- prepare-review <build-id> --input <review-input.json>` | 对 authored artifacts 取 hash，持久化对象盘点与 Verification Plan，把 Build 推进到 `AUTHORED` 并返回 `reviewToken`；这一步不记录人工接受 |
+| `pnpm record:verification -- <build-id> [--json]` | 运行非渲染的数据一致性 profile，并记录 Build-bound `dataset-verification/v1` 证据；返回的 reference 必须传给 `finish` |
+| `pnpm record:fidelity -- <key> --focus <dir> [--language <code>] --build <build-id>` | 持久化 Build-bound 自动证据为 `evidence-ready`，每种 required language 各跑一次；不带 `--build` 的显式 focus 产物仅为旧兼容证据，不能关闭 Build |
+| `pnpm record:build -- finish <build-id> --review <review.json>` | 消费 `reviewToken`（兼容旧 `packetDigest`）、自动证据、人工 attestation、region/risk/feedback 决定与 Interface Matrix；只有 accepted `FidelityResult` 才推进到 `CLOSED` |
+| `pnpm record:build -- stage-baseline <build-id> --input <baseline.json>` | 记录 build-local、仅供未来回归的 baseline stage；Revenue Metric 会显式记录 `notApplicable` |
+| `pnpm record:build -- seal <build-id>` | 内部重算 artifact 新鲜度；仅当 Build 已人工接受、关闭、stage baseline 且 exact digests 新鲜时记录 `SEALED`，不发布 canonical 数据 |
+| `pnpm record:build -- inspect <build-id> [--json]` | 只读查看历史/有效状态、新鲜度、Review 状态、Task 信息与 Loop Fidelity Summary |
+| `pnpm verify:closeout -- <build-id> [--json]` | 只读收尾门：历史与有效状态都必须为 `SEALED`、输入新鲜且人工 Review 已 accepted |
 | `pnpm sync:index-datasets` | 同步全部数据注册面与磁盘：`index.html` SSOT `<script>` 标签（损益表、公司档案）与生成的 dataset manifest（`--check` 只报告漂移） |
 | `pnpm update:dataset-manifest` / `pnpm verify:dataset-manifest` | 重新生成 / 校验 `data/dataset-manifest.js`（数据集注册 SSOT） |
-| `pnpm verify:dataset -- <key> [--skip-render]` | 单数据集聚合门：语法、SSOT、strict i18n、metadata，然后每种语言各一次 d3 渲染 |
+| `pnpm verify:dataset -- <key> [--skip-render]` | 只读单数据集聚合诊断：语法、SSOT、strict i18n、metadata，然后每种语言各一次只读 d3 渲染 |
 | `pnpm verify:ssot` | SSOT ↔ 数据集奇偶 + 注册奇偶 + 货币/单位与汇率覆盖（全局） |
 | `pnpm verify:i18n -- [--strict] [keys]` | i18n 覆盖检查 |
-| `pnpm verify:d3 -- <key> [--focus <dir>] [--keep] [--language <code>] [--round <n>]` | 单次 d3 渲染 + 自动硬门槛；每轮归档到 `output/compare/<key>/` |
+| `pnpm verify:d3 -- <key> [--focus <dir>] [--keep] [--language <code>] [--round <n>]` | 只读 d3 诊断 + 自动硬门槛；即使传 `--focus` 也不归档、不推进人工轮次 lineage |
 | `pnpm verify:render-regression [-- <keys>]` | 只读批量渲染，对照 `data/render-baselines.json` 拦截回归；缺本地参考图时只跑渲染硬门槛 |
-| `pnpm record:baseline -- <key> [...]` | 显式、仅子集的兼容期 future-regression baseline mutation；所有所选 render/structure 检查通过后才原子写入 |
+| `pnpm record:baseline -- <key> [...]` | 新 Build 收尾 verdict 之外的过渡期 canonical baseline 兼容 mutation；M4 Publication 尚未替代它，也不能证明产生它的 Build 正确 |
 | `pnpm update:dataset-file-metadata` | 从 git 提交时间重新生成 `data/dataset-file-metadata.js`（提交新/改数据集后需重跑并提交刷新结果） |
 | `pnpm verify:dataset-file-metadata` | 生成的 metadata 是否为最新 |
 | `pnpm build:site` / `pnpm verify:site` | 构建优化后的 Pages runtime projection / 用浏览器校验 defer bundle、按需 Adapter 预算、Chart runtime 延迟加载与公司切换路径 |
 | `pnpm build:standalone` | 构建自包含 HTML，不修改已跟踪 metadata；内联全部数据集 adapter |
 | `pnpm verify:standalone` | standalone 产物不依赖任何同级文件 |
-| `sh scripts/clean-compare.sh` | 只清理旧的顶层 scratch；`verify:d3` 自己管理/清理私有 `compare/runs/`，并发时禁止全局删除 |
+| `sh scripts/clean-compare.sh` | 只清理旧的顶层 scratch；d3 诊断/证据 run 各自管理并清理私有 `compare/runs/`，并发时禁止全局删除 |
 
 CI（`.github/workflows/ci.yml`）在每次 push 到 `main` 与每个 pull request
 上运行 `pnpm check`、`verify:app`、Pages 构建 + 加载预算校验、一次 `verify:d3` 冒烟渲染、
@@ -128,11 +136,19 @@ CI（`.github/workflows/ci.yml`）在每次 push 到 `main` 与每个 pull reque
 3. Adapter 与 i18n——按第 2 阶段盘点清单逐对象精细测量、对照源图片编写
    `data/datasets/<dataset-key>.js`，添加 `i18n.<language>` 覆盖，然后用
    `pnpm sync:index-datasets` 注册（重新生成 dataset manifest）。
-4. 验证——运行 `pnpm verify:dataset -- <dataset-key>`，然后人工 d3 保真循环
-   （`docs/fidelity-loop-rules.md`）；最后一次修改后重跑聚合门，再用
-   `pnpm record:baseline -- <dataset-key>` 与只读的 per-key render regression gate。
-5. 收尾——`pnpm check` 全绿且选中的 pending item 已解决；共享队列可保留其他
-   item。然后按 `docs/commit-messages.md` 提交。
+4. 验证与 Review——`verify:dataset` / `verify:d3` 只用于只读诊断。先运行
+   `record:build prepare-review`，用 `record:verification` 持久化数据一致性证据，
+   再用 Build-bound `record:fidelity` 持久化每种
+   required language 的 `evidence-ready` 证据；把这些证据交给人 Review，并将
+   结构化 attestation 传给 `record:build finish`。机器通过既不叫 accepted，
+   也不叫 converged；只有新鲜且 accepted 的 `FidelityResult` 才把 Build 推进到
+   `CLOSED`。Revenue Metric plan 会显式把 Sankey/render 证据标为
+   `notApplicable`，不得用缺席冒充不适用。
+5. 收尾——记录 build-local future-regression stage，跑新鲜的最终检查，再执行
+   `record:build seal` 与 `verify:closeout`。最后让 `pnpm check` 全绿、解决选中的
+   pending item，并按 `docs/commit-messages.md` 提交；共享队列可保留其他 item。
+   `SEALED` 不等于 `PUBLISHED`：原子 M4 Publication 仍未实现，兼容 canonical
+   baseline 路径仍与新闭环分离。
 
 每次最终回复之前，满足 `docs/dynamic-dataset-workflow.md` 中的回复前验证清单与汇报
 要求。
@@ -142,8 +158,10 @@ CI（`.github/workflows/ci.yml`）在每次 push 到 `main` 与每个 pull reque
 `docs/fidelity-loop-rules.md` 是保真循环行为的唯一事实来源。运行或汇报任何
 循环之前先加载它。用户提出的每个保真修正都要视为流程改进信号：按其
 人工反馈沉淀闭环，把经验泛化进该规则文件，或在循环 Task 信息中记录数据集
-特例。每个人工轮次都要维护当前 Task 信息；注意区域未关闭时，为下一轮产出
-红框参考图。
+特例。持久 review candidate 必须用 Build-bound `record:fidelity` 记录；普通
+`verify:d3` 只是诊断，不产生人工轮次。每个真实人工轮次都要维护当前 Task
+信息；注意区域未关闭时，为下一轮产出红框参考图。只有机器证据时必须报告为
+`review-pending`，不得写 accepted 或 converged。
 
 ## 提交信息
 

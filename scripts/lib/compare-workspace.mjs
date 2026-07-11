@@ -13,7 +13,8 @@ import { rootDir } from './project.mjs';
 
 export const compareDir = path.join(rootDir, 'compare');
 export const outputCompareDir = path.join(rootDir, 'output', 'compare');
-export const FIDELITY_PROTOCOL_VERSION = 'fidelity-run/1';
+export const LEGACY_FIDELITY_PROTOCOL_VERSION = 'fidelity-run/1';
+export const FIDELITY_PROTOCOL_VERSION = 'fidelity-run/2';
 
 const RUN_MANIFEST_NAME = 'fidelity-run.json';
 const ARCHIVED_ARTIFACT_KEYS = Object.freeze([
@@ -31,6 +32,7 @@ const PREVIOUS_IDENTITY_KEYS = Object.freeze([
   'referenceHash',
   'protocolVersion',
 ]);
+const COMPARABLE_RUN_STATUSES = new Set(['accepted', 'evidence-ready', 'reviewed']);
 
 export function archiveSegment(value, fallback) {
   const segment = String(value || '')
@@ -87,10 +89,20 @@ function normalizeIdentity(identity) {
     datasetHash: String(identity?.datasetHash || ''),
     renderHash: String(identity?.renderHash || ''),
     i18nHash: String(identity?.i18nHash || ''),
+    ...(identity?.buildId ? { buildId: String(identity.buildId) } : {}),
+    ...(identity?.authoredDigest ? { authoredDigest: String(identity.authoredDigest) } : {}),
+    ...(identity?.verificationPlanDigest
+      ? { verificationPlanDigest: String(identity.verificationPlanDigest) }
+      : {}),
   };
 
-  for (const [key, value] of Object.entries(normalized)) {
+  for (const [key, value] of Object.entries(normalized).filter(([key]) => !['buildId', 'authoredDigest', 'verificationPlanDigest'].includes(key))) {
     if (!value) throw new Error(`Missing fidelity run identity field: ${key}`);
+  }
+  if (normalized.protocolVersion === FIDELITY_PROTOCOL_VERSION && normalized.runKind === 'fidelity-review') {
+    for (const key of ['buildId', 'authoredDigest', 'verificationPlanDigest']) {
+      if (!normalized[key]) throw new Error(`Missing reviewed fidelity run identity field: ${key}`);
+    }
   }
   assertSafeSegment(normalized.dataset, 'dataset');
   assertSafeSegment(normalized.language, 'language');
@@ -99,7 +111,16 @@ function normalizeIdentity(identity) {
 }
 
 export function previousIdentityMatches(left, right) {
-  return PREVIOUS_IDENTITY_KEYS.every((key) => left?.[key] === right?.[key]);
+  const keys = [...PREVIOUS_IDENTITY_KEYS];
+  if (
+    left?.protocolVersion === FIDELITY_PROTOCOL_VERSION ||
+    right?.protocolVersion === FIDELITY_PROTOCOL_VERSION
+  ) {
+    if (left?.runKind === 'fidelity-review' || right?.runKind === 'fidelity-review') {
+      keys.push('buildId', 'authoredDigest', 'verificationPlanDigest');
+    }
+  }
+  return keys.every((key) => left?.[key] === right?.[key]);
 }
 
 function artifactNames(dataset, language) {
@@ -197,7 +218,7 @@ export async function cleanupFidelityRun(run) {
   await rm(resolvedScratch, { recursive: true, force: true });
 }
 
-async function acceptedRuns(run) {
+async function comparableRuns(run) {
   const datasetDir = path.join(run.outputRoot, run.identity.dataset);
   if (!existsSync(datasetDir)) return [];
   const entries = await readdir(datasetDir, { withFileTypes: true });
@@ -207,7 +228,7 @@ async function acceptedRuns(run) {
     if (!entry.isDirectory() || entry.name.startsWith('.')) continue;
     const archiveDir = path.join(datasetDir, entry.name);
     const manifest = await readJson(path.join(archiveDir, RUN_MANIFEST_NAME));
-    if (manifest?.status !== 'accepted') continue;
+    if (!COMPARABLE_RUN_STATUSES.has(manifest?.status)) continue;
     if (!previousIdentityMatches(manifest.identity, run.identity)) continue;
     const metricsName = path.basename(manifest.artifacts?.metrics || '');
     if (!metricsName) continue;
@@ -219,7 +240,7 @@ async function acceptedRuns(run) {
       archive: relativeToProject(run, archiveDir),
       manifest,
       full: metrics.full,
-      timestamp: Date.parse(manifest.acceptedAt) || info.mtimeMs,
+      timestamp: Date.parse(manifest.reviewedAt || manifest.evidenceReadyAt || manifest.acceptedAt) || info.mtimeMs,
     });
   }
 
@@ -229,7 +250,7 @@ async function acceptedRuns(run) {
 }
 
 export async function findPreviousAcceptedRun(run) {
-  return (await acceptedRuns(run))[0] || null;
+  return (await comparableRuns(run))[0] || null;
 }
 
 function roundSegment(round) {
@@ -237,7 +258,7 @@ function roundSegment(round) {
 }
 
 export async function planFidelityRun(run, options) {
-  const previousRuns = await acceptedRuns(run);
+  const previousRuns = await comparableRuns(run);
   const previous = previousRuns[0] || null;
   const numericRound = options.round || previousRuns.length + 1;
   const round = roundSegment(numericRound);
@@ -302,6 +323,10 @@ function archiveNameForSuffix(baseName, suffix) {
 
 export async function finalizeFidelityRun(run, options) {
   await assertDeclaredArtifacts(run);
+  const status = options.status || 'accepted';
+  if (!COMPARABLE_RUN_STATUSES.has(status)) {
+    throw new Error(`Unsupported finalized fidelity status: ${status}`);
+  }
   const plan = await planFidelityRun(run, options);
   await mkdir(plan.datasetCompareDir, { recursive: true });
   const temporaryDir = await mkdtemp(path.join(plan.datasetCompareDir, `.${plan.archiveBaseName}.tmp-`));
@@ -313,7 +338,7 @@ export async function finalizeFidelityRun(run, options) {
       await copyFile(run.artifacts[key], path.join(temporaryDir, run.artifactNames[key]));
     }
 
-    const acceptedAt = new Date().toISOString();
+    const finalizedAt = new Date().toISOString();
 
     for (let suffix = 1; suffix < 1000; suffix += 1) {
       const archiveName = archiveNameForSuffix(plan.archiveBaseName, suffix);
@@ -359,8 +384,10 @@ export async function finalizeFidelityRun(run, options) {
         },
         archive,
       };
-      const manifest = scratchManifest(run, 'accepted', {
-        acceptedAt,
+      const manifest = scratchManifest(run, status, {
+        ...(status === 'accepted' ? { acceptedAt: finalizedAt } : {}),
+        ...(status === 'evidence-ready' ? { evidenceReadyAt: finalizedAt } : {}),
+        ...(status === 'reviewed' ? { reviewedAt: finalizedAt } : {}),
         archive,
         artifacts: acceptedArtifacts,
       });
