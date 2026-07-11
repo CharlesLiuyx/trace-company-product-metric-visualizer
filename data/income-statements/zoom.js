@@ -90,6 +90,88 @@
           },
         },
       },
+    },
+    {
+      key: 'zoom-q4-fy26',
+      company: 'Zoom',
+      period: 'Q4 FY26',
+      periodNote: 'Ending Jan. 2026',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/zoom-q4-fy26.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 1247,
+        notes: ['+5% Y/Y'],
+        items: [
+          { id: 'enterprise', label: 'Enterprise', value: 757, notes: ['+7% Y/Y'] },
+          { id: 'online', label: 'Online', value: 490, notes: ['+3% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 296 },
+        operatingExpenses: {
+          total: 701,
+          items: [
+            { id: 'sm', label: 'S&M', value: 360, notes: ['29% of revenue', '(1pp) Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 223, notes: ['18% of revenue', '(0pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 119, notes: ['10% of revenue', '+1pp Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 190 },
+      },
+      otherIncome: {
+        total: 613,
+        items: [
+          { id: 'investments', label: 'Investments', value: 532 },
+          { id: 'other', label: 'Other', value: 81 },
+        ],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 951, notes: ['76% margin', '+1pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 250, notes: ['20% margin', '+1pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 674, notes: ['54% margin', '+23pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第四季度',
+          periodNote: '截至 2026 年 1 月',
+          revenue: {
+            notes: ['同比 +5%'],
+            items: [
+              { id: 'enterprise', label: '企业', notes: ['同比 +7%'] },
+              { id: 'online', label: '线上', notes: ['同比 +3%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'sm', label: '销售与市场', notes: ['占收入 29%', '同比 (1 个百分点)'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 18%', '同比 (0 个百分点)'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 10%', '同比 +1 个百分点'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: {
+            items: [
+              { id: 'investments', label: '投资' },
+              { id: 'other', label: '其他' },
+            ],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 76%', '同比 +1 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 20%', '同比 +1 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 54%', '同比 +23 个百分点'] },
+          },
+        },
+      },
     }
   );
 })(window);

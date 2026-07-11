@@ -5696,6 +5696,98 @@
             }
           }
         }
+      },
+      {
+        "key": "zoom-q4-fy26",
+        "src": "data/datasets/zoom-q4-fy26.js",
+        "data": {
+          "name": "Zoom · Q4 FY26",
+          "company": "Zoom",
+          "meta": {
+            "title": "Zoom Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Zoom · 2026 财年第四季度",
+              "meta": {
+                "title": "Zoom 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "atlassian-q2-fy26",
+        "src": "data/datasets/atlassian-q2-fy26.js",
+        "data": {
+          "name": "Atlassian · Q2 FY26",
+          "company": "Atlassian",
+          "meta": {
+            "title": "Atlassian Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Atlassian · 2026 财年第二季度",
+              "meta": {
+                "title": "Atlassian 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "cloudflare-q4-fy25",
+        "src": "data/datasets/cloudflare-q4-fy25.js",
+        "data": {
+          "name": "Cloudflare · Q4 FY25",
+          "company": "Cloudflare",
+          "meta": {
+            "title": "Cloudflare Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Quarter ended Dec. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Cloudflare · 2025 财年第四季度",
+              "meta": {
+                "title": "Cloudflare 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "workday-q4-fy26",
+        "src": "data/datasets/workday-q4-fy26.js",
+        "data": {
+          "name": "Workday · Q4 FY26",
+          "company": "Workday",
+          "meta": {
+            "title": "Workday Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Workday · 2026 财年第四季度",
+              "meta": {
+                "title": "Workday 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
       }
     ]
   };
