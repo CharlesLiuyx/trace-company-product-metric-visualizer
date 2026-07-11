@@ -44,11 +44,13 @@ start a `ReleaseAttempt`.
 
 `pending/`, `processing/`, and `processed/` are Source locators, not additional
 states. The current compatibility implementation has `record:intake` claim a
-selected Source into the Build-local `processing/` locator and lease. Only an
-accepted, fresh `SEALED` Build that passes close-out may be compatibility-
-promoted to `processed/`; moving the same bytes does not change their digest
-identity. M4 replaces that compatibility promotion with a Publication-owned
-Source projection.
+selected Source into the Build-local `processing/` locator and lease. The only
+current relocation authority is an explicit operator statement that human
+review is complete, or that local work was pushed and merged into `main`.
+Either signal directly no-clobber moves every current processing PNG to
+`processed/`, without creating lifecycle receipts. Moving the same bytes does
+not change their digest identity. M4 replaces this transitional relocation
+with a Publication-owned Source projection.
 
 The target deepens four Modules:
 
@@ -77,7 +79,7 @@ through every caller.
 - `SEALED` binds exact source, authored, renderer, protocol, locale, closure,
   staged-baseline, projection, and base-canonical digests. A changed input
   invalidates the seal.
-- Source location is not Source identity: claiming or promoting identical bytes
+- Source location is not Source identity: claiming or relocating identical bytes
   does not add a `DatasetBuild` state or change their digest. A missing or
   mismatched working locator is a recovery/freshness failure, never an implied
   transition.
@@ -91,7 +93,7 @@ through every caller.
 | concern | current Implementation | accepted target |
 | --- | --- | --- |
 | intake | `record:intake` records per-item Source/base digests and claims the selected file from `pending/` into the Build-local `processing/` working locator and lease | full isolated `DatasetBuild` workspace with the same digest-bound claim semantics |
-| Source projection | after accepted review, fresh `SEALED`, and successful close-out, the compatibility workflow promotes the same bytes from `processing/` to `processed/`; this is not M4 Publication | Publication alone materializes the stable processed Source projection as part of the planned canonical result |
+| Source projection | an explicit operator completion signal is the only relocation authority and directly no-clobber moves all processing PNGs, without implying Build closure or M4 Publication | Publication alone materializes the stable processed Source projection as part of the planned canonical result |
 | authoring and Plan | canonical paths are still edited directly; the shadow path records a typed `ObjectInventory`, compiles the Adapter/ChangeImpact-driven `VerificationPlan`, hashes authored files, and returns a content-addressed `ReviewPacket` token | isolated build workspace plus complete `ArtifactManifest` and Adapter execution |
 | verification and fidelity | `record:verification` records Build-bound non-render consistency evidence; `verify:d3` is read-only diagnostic execution; `record:fidelity` alone may archive durable `fidelity-run/2` `evidence-ready` artifacts bound to Build/authored/Plan digests; legacy unbound archives remain compatibility-only | typed automatic evidence plus the complete Adapter verification profile |
 | human closure | `record:build finish` consumes the Review token, automatic evidence, `ManualAttestation`, `RegionDecision`, risk/Matrix facts, and `FeedbackLedger`; only an accepted `FidelityResult` records `CLOSED` | the same deep Interface as the sole operational closure path |

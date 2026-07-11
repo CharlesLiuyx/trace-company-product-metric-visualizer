@@ -7,7 +7,6 @@ import path from 'node:path';
 import { buildClaimedSourceIndex } from '../scripts/check-pending-processed.mjs';
 import {
   claimPendingSource,
-  promoteProcessingSource,
   resolveSourcePath,
   restorePendingSource,
   sourceDigest,
@@ -173,78 +172,4 @@ test('resolveSourcePath falls back from processed to processing and prefers the 
     resolveSourcePath(stableUri, { projectRoot: fixture.projectRoot }),
     fixture.processedPath
   );
-});
-
-test('promoteProcessingSource verifies the digest, moves once, and is idempotent', async (t) => {
-  const fixture = await sourceFixture(t);
-  await writeFile(fixture.processingPath, fixture.bytes);
-  const wrongDigest = `sha256:${'f'.repeat(64)}`;
-
-  await assert.rejects(
-    promoteProcessingSource({
-      key: fixture.key,
-      expectedDigest: wrongDigest,
-      projectRoot: fixture.projectRoot,
-    }),
-    (error) => error.code === 'PROCESSING_SOURCE_DIGEST_MISMATCH'
-  );
-  assert.deepEqual(await readFile(fixture.processingPath), fixture.bytes);
-  assert.equal(existsSync(fixture.processedPath), false);
-
-  const promoted = await promoteProcessingSource({
-    key: fixture.key,
-    expectedDigest: fixture.expectedDigest,
-    projectRoot: fixture.projectRoot,
-  });
-  assert.equal(promoted.alreadyCompleted, false);
-  assert.equal(promoted.recoveredDuplicate, false);
-  assert.equal(existsSync(fixture.processingPath), false);
-  assert.deepEqual(await readFile(fixture.processedPath), fixture.bytes);
-
-  const repeated = await promoteProcessingSource({
-    key: fixture.key,
-    expectedDigest: fixture.expectedDigest,
-    projectRoot: fixture.projectRoot,
-  });
-  assert.equal(repeated.alreadyCompleted, true);
-  assert.equal(repeated.recoveredDuplicate, false);
-  assert.deepEqual(await readFile(fixture.processedPath), fixture.bytes);
-});
-
-test('promoteProcessingSource never overwrites a conflicting processed Source', async (t) => {
-  const fixture = await sourceFixture(t);
-  const conflictingBytes = Buffer.from('different final bytes');
-  await Promise.all([
-    writeFile(fixture.processingPath, fixture.bytes),
-    writeFile(fixture.processedPath, conflictingBytes),
-  ]);
-
-  await assert.rejects(
-    promoteProcessingSource({
-      key: fixture.key,
-      expectedDigest: fixture.expectedDigest,
-      projectRoot: fixture.projectRoot,
-    }),
-    (error) => error.code === 'PROCESSED_SOURCE_COLLISION'
-  );
-  assert.deepEqual(await readFile(fixture.processingPath), fixture.bytes);
-  assert.deepEqual(await readFile(fixture.processedPath), conflictingBytes);
-});
-
-test('promoteProcessingSource recovers an exact duplicate left at both locators', async (t) => {
-  const fixture = await sourceFixture(t);
-  await Promise.all([
-    writeFile(fixture.processingPath, fixture.bytes),
-    writeFile(fixture.processedPath, fixture.bytes),
-  ]);
-
-  const result = await promoteProcessingSource({
-    key: fixture.key,
-    expectedDigest: fixture.expectedDigest,
-    projectRoot: fixture.projectRoot,
-  });
-  assert.equal(result.alreadyCompleted, true);
-  assert.equal(result.recoveredDuplicate, true);
-  assert.equal(existsSync(fixture.processingPath), false);
-  assert.deepEqual(await readFile(fixture.processedPath), fixture.bytes);
 });

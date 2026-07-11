@@ -84,7 +84,7 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
 | --- | --- |
 | `pnpm dev` | 零依赖本地静态服务器，端口 8000 |
 | `pnpm check` | 快速聚合门：全仓 JS 语法、单元测试、pending 守卫、architecture/app-global 契约、manifest 新鲜度、SSOT 奇偶、i18n 与 metadata 新鲜度（秒级，无渲染）；`input/processing/` 中的在途文件不会让这个全局门失败；fresh checkout 可复现且由 CI 运行 |
-| `pnpm test` | `tests/` 下的 node:test 单元测试——Source claim/promotion、引擎布局数学与标签排版、trace-domain 解析/汇率、i18n 翻译规则、png-diff 指标、script-source 解析、dataset registry |
+| `pnpm test` | `tests/` 下的 node:test 单元测试——Source claim/relocation、引擎布局数学与标签排版、trace-domain 解析/汇率、i18n 翻译规则、png-diff 指标、script-source 解析、dataset registry |
 | `pnpm verify:app` | 模块化查看器（`src/app/*`）的无头启动 + 交互冒烟：模块数量、持久化偏好启动、hash 路由、对比缩放 + 指标趋势、收入趋势、移动端视口 |
 | `pnpm verify:app-globals` | 共享顶层作用域契约的静态门：跨文件重复顶层声明、加载期引用晚加载 script（也包含在 `pnpm check` 中） |
 | `pnpm verify:architecture` | 强制生命周期 protocol/state/Adapter 奇偶、命令 mutation 语义、架构路由和本地上下文文档链接（也包含在 `pnpm check` 中） |
@@ -98,7 +98,6 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
 | `pnpm record:build -- seal <build-id>` | 内部重算 artifact 新鲜度；仅当 Build 已人工接受、关闭、stage baseline 且 exact digests 新鲜时记录 `SEALED`，不发布 canonical 数据 |
 | `pnpm record:build -- inspect <build-id> [--json]` | 只读查看历史/有效状态、新鲜度、Review 状态、Task 信息与 Loop Fidelity Summary |
 | `pnpm verify:closeout -- <build-id> [--json]` | 只读收尾门：历史与有效状态都必须为 `SEALED`、输入新鲜且人工 Review 已 accepted |
-| `pnpm complete:source -- <build-id>` | `verify:closeout` 通过后，复核 intake digest，并以 no-clobber 方式把选中的 Source 从 `input/processing/<key>.png` 提升到稳定的 `input/processed/<key>.png`；仅为兼容路径，不是 M4 Publication |
 | `pnpm sync:index-datasets` | 同步全部数据注册面与磁盘：`index.html` SSOT `<script>` 标签（损益表、公司档案）与生成的 dataset manifest（`--check` 只报告漂移） |
 | `pnpm update:dataset-manifest` / `pnpm verify:dataset-manifest` | 重新生成 / 校验 `data/dataset-manifest.js`（数据集注册 SSOT） |
 | `pnpm verify:dataset -- <key> [--skip-render]` | 只读单数据集聚合诊断：语法、SSOT、strict i18n、metadata，然后每种语言各一次只读 d3 渲染 |
@@ -126,6 +125,16 @@ CI（`.github/workflows/ci.yml`）在每次 push 到 `main` 与每个 pull reque
 `docs/architecture/README.md` 拥有，不得在一次当前流程执行中静默混入目标状态
 断言。
 
+显式的操作者完成信号是当前唯一的 Source relocation 授权。只要用户说人工审阅
+已完成（包括“人工审阅完毕”），或说明本地工作已经推送到远端并合入 `main`，就把
+`input/processing/` 当前的全部 PNG 视为已审阅。先检查目标目录是否存在同名文件，
+然后把它们全部直接移动到 `input/processed/`；绝不覆盖已有文件。这个由操作者
+明确触发的批量移动不要求 Build ID、结构化 attestation、baseline staging、seal
+或 `verify:closeout`。没有信号时，即使 Build close-out 通过也继续留在 processing。
+移动只改变 Source locator，不伪造
+DatasetBuild receipt，也不表示 M4 Publication。细则由
+`docs/dynamic-dataset-workflow.md` 负责。
+
 1. 接入与守卫——选择一个 item，先运行候选
    `pnpm check:pending -- --file ...` 守卫，确定 `<公司>-<期间>` key 与
    Adapter，用 `--key` 重跑守卫，再运行 `pnpm record:intake`。最终守卫通过后，
@@ -151,13 +160,14 @@ CI（`.github/workflows/ci.yml`）在每次 push 到 `main` 与每个 pull reque
    也不叫 converged；只有新鲜且 accepted 的 `FidelityResult` 才把 Build 推进到
    `CLOSED`。Revenue Metric plan 会显式把 Sankey/render 证据标为
    `notApplicable`，不得用缺席冒充不适用。
-5. 收尾——记录 build-local future-regression stage，跑新鲜的最终检查，再执行
-   `record:build seal` 与 `verify:closeout`。只有 accepted、fresh 的 sealed Build
-   通过这个只读门后，才运行 `pnpm complete:source -- <build-id>`，复核 digest
-   并把 Source 从 `processing/` 提升到 `processed/`。最后让 `pnpm check` 全绿，
+5. 收尾——若已收到操作者完成信号，先检查整批同名目标，再直接以 no-clobber
+   方式把 `processing/` 中的全部 PNG 移到 `processed/`；否则全部留在 processing。
+   需要正式 Build 审计时，记录 build-local future-regression stage，跑新鲜的最终
+   检查，再执行 `record:build seal` 与 `verify:closeout`；该只读门不移动 Source。
+   最后让 `pnpm check` 全绿，
    并按 `docs/commit-messages.md` 提交；共享队列与其他在途 processing claim
    可以保留，processing 非空不会让全局检查失败。processed 图片永不改名。
-   这个兼容提升不等于 `PUBLISHED`：原子 M4 Publication 仍未实现，兼容
+   这个兼容 relocation 不等于 `PUBLISHED`：原子 M4 Publication 仍未实现，兼容
    canonical baseline 路径仍与新闭环分离。
 
 每次最终回复之前，满足 `docs/dynamic-dataset-workflow.md` 中的回复前验证清单与汇报

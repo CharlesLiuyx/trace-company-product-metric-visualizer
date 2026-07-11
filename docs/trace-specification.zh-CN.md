@@ -198,7 +198,7 @@ InputFile {
 | View / Table | `src/app/tables.js`（查看器其余 UI 模块见 `src/app/`，加载顺序在 `index.html`） |
 | Source Image | `input/processed/<dataset-key>.png` 与 `meta.referenceImage` |
 | Pending Input | `input/pending/` |
-| Processing Input | `input/processing/<dataset-key>.png`；`record:intake` 守卫通过后立即 no-clobber 领取，并保留到 accepted、fresh close-out 完成 |
+| Processing Input | `input/processing/<dataset-key>.png`；`record:intake` 守卫通过后立即 no-clobber 领取，并保留到 accepted、fresh close-out 完成或操作者明确发出批量审阅完成信号 |
 | 处理插件雏形 | `scripts/check-pending-processed.mjs`、`scripts/extract_icon_crops.py`、验证脚本 |
 | 可复用资产 | `data/assets/` |
 
@@ -212,10 +212,11 @@ InputFile {
 - authored Source reference 始终指向最终稳定的
   `input/processed/<dataset-key>.png`；活动 Build 期间，本地工具可按 intake
   记录的稳定 key 回退到 `input/processing/<dataset-key>.png`；
-- 只有 accepted、fresh 的 `SEALED` Build 通过 `verify:closeout` 后，
-  `complete:source` 才能复核 digest 并把 processing Source 提升为 processed；
-  processing 非空不应让全局 `pnpm check` 失败；这个提升是兼容路径，不是 M4
-  Publication；
+- Source relocation 的唯一当前授权是用户明确说人工审阅完毕，或本地工作已推送
+  并合入 `main`；收到信号后，把当前全部 processing PNG 视为已审阅，先检查整批
+  同名冲突，再直接移动到 processed，不补造 Build receipt；单独通过 Build
+  close-out 不移动文件；processing 非空不应让全局 `pnpm check` 失败；该移动不是
+  M4 Publication；
 - `input/processed/` 的图片是验证参考，不是运行时事实；
 - processed 图片一经物化永不改名或覆盖；
 - i18n 覆盖只改变显示文本和文本布局，不改变 Metric 语义、数值或关系。
