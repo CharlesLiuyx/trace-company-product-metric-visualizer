@@ -2,7 +2,9 @@
 
 版本：0.1
 
-本文定义 Trace 的最顶层产品与数据模型。当前仓库是该模型的第一阶段实现：围绕 Company / Product 的 Metric，先把 Income Statement 结构化，并用 Sankey 与 Table 视图表达。
+本文定义 Trace 的最顶层产品与数据模型。当前仓库围绕 Company / Product 的
+Metric，已把 Income Statement 与 Revenue Metric 结构化，并分别通过 Sankey、
+Table 与 Trend 视图表达。
 
 ## 1. 产品定位
 
@@ -56,7 +58,9 @@ Metric 是 Trace 最重要的关注点。一个有效 Metric 必须完整描述�
 - 来源：至少来自一个可追溯 Source，或来自可追溯观测的推理结果；
 - 置信度：说明当前系统对该值的可信程度。
 
-当前项目关注的 Metric 家族是 Income Statement。收入、成本、毛利、运营利润、税、净利润等都是该家族下的结构化指标。
+当前项目实现了两个 Metric 家族：Income Statement（收入、成本、毛利、运营
+利润、税、净利润等结构化指标）与 Revenue Metric（多期收入/ARR 观测、条件、
+事件、来源与置信度）。
 
 ### Source
 
@@ -71,9 +75,10 @@ View 是一组 Metric 的表达方式，不是事实来源。
 当前仓库实现了：
 
 - Sankey：用于表达 Income Statement 的流向、成本与利润结构；
-- Table：用于表达公司资料和利润表结构化数据。
+- Table：用于表达公司资料和利润表结构化数据；
+- Trend：用于表达 Revenue Metric 等多期观测。
 
-未来 View 可以包括时间序列、排行榜、对比表、网络图、地图等。
+未来 View 可以包括排行榜、更多对比表、网络图、地图等。
 
 ## 3. 关系模型
 
@@ -193,6 +198,7 @@ InputFile {
 | View / Table | `src/app/tables.js`（查看器其余 UI 模块见 `src/app/`，加载顺序在 `index.html`） |
 | Source Image | `input/processed/<dataset-key>.png` 与 `meta.referenceImage` |
 | Pending Input | `input/pending/` |
+| Processing Input | `input/processing/<dataset-key>.png`；`record:intake` 守卫通过后立即 no-clobber 领取，并保留到 accepted、fresh close-out 完成 |
 | 处理插件雏形 | `scripts/check-pending-processed.mjs`、`scripts/extract_icon_crops.py`、验证脚本 |
 | 可复用资产 | `data/assets/` |
 
@@ -203,7 +209,15 @@ InputFile {
 - `data/products.js` 当前只建立 Product 和 Company/Product 关系的稳定位置，不改变现有视图；
 - `data/datasets/` 是 View Adapter，不是财务事实源；
 - `src/trace-domain.js` 承担领域归一化和目录构建，`src/app/` 各模块保持为 UI 控制层；
+- authored Source reference 始终指向最终稳定的
+  `input/processed/<dataset-key>.png`；活动 Build 期间，本地工具可按 intake
+  记录的稳定 key 回退到 `input/processing/<dataset-key>.png`；
+- 只有 accepted、fresh 的 `SEALED` Build 通过 `verify:closeout` 后，
+  `complete:source` 才能复核 digest 并把 processing Source 提升为 processed；
+  processing 非空不应让全局 `pnpm check` 失败；这个提升是兼容路径，不是 M4
+  Publication；
 - `input/processed/` 的图片是验证参考，不是运行时事实；
+- processed 图片一经物化永不改名或覆盖；
 - i18n 覆盖只改变显示文本和文本布局，不改变 Metric 语义、数值或关系。
 
 ## 8. Income Statement 当前规格

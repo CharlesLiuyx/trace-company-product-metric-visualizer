@@ -93,13 +93,13 @@ Install once; the d3/standalone verifiers render in Chromium:
 | command | purpose |
 | --- | --- |
 | `pnpm dev` | zero-dependency local static server on port 8000 |
-| `pnpm check` | fast aggregate gate: repo-wide JS syntax, unit tests, pending guard, architecture/app-global contracts, manifest freshness, SSOT parity, i18n coverage, metadata freshness (seconds, no rendering); reproducible on fresh checkouts and run by CI |
-| `pnpm test` | node:test unit tests in `tests/` — engine layout math + label passes, trace-domain parsing/FX, i18n translation rules, png-diff metrics, script-source parsing, dataset registry |
+| `pnpm check` | fast aggregate gate: repo-wide JS syntax, unit tests, pending guard, architecture/app-global contracts, manifest freshness, SSOT parity, i18n coverage, metadata freshness (seconds, no rendering); active files in `input/processing/` do not fail this global gate; reproducible on fresh checkouts and run by CI |
+| `pnpm test` | node:test unit tests in `tests/` — Source claim/promotion, engine layout math + label passes, trace-domain parsing/FX, i18n translation rules, png-diff metrics, script-source parsing, dataset registry |
 | `pnpm verify:app` | headless boot + interaction smoke of the modular viewer (`src/app/*`): module count, persisted-prefs boot, hash routing, comparison zoom + metric trend, revenue trend, mobile viewport |
 | `pnpm verify:app-globals` | static gate for the shared-top-level-scope contract: cross-file duplicate declarations and load-time references to later scripts (also part of `pnpm check`) |
 | `pnpm verify:architecture` | enforce lifecycle protocol/state/Adapter parity, command mutation semantics, architecture routes, and local context-document links (also part of `pnpm check`) |
-| `pnpm check:pending [-- --file input/pending/<file>.png --key <final-key>]` | pending-image duplicate / key-collision guard; use `--file` for one Build and `--key` after naming, omit both only to audit the shared queue |
-| `pnpm record:intake -- <pending.png> --key <key> --adapter <kind> [--availability <policy>]` | record an ignored per-item `INTAKED` Build manifest with Source and canonical-base digests; does not move or publish the Source |
+| `pnpm check:pending [-- --file input/pending/<file>.png --key <final-key>]` | pending duplicate / active-processing claim / processed and key-collision guard; use `--file` for one Build and `--key` after naming, omit both only to audit the shared queue |
+| `pnpm record:intake -- <pending.png> --key <key> --adapter <kind> [--availability <policy>]` | after the selected guard passes, record an ignored per-item `INTAKED` Build manifest and immediately no-clobber claim the Source at `input/processing/<key>.png`; this is not Publication |
 | `pnpm record:build -- prepare-review <build-id> --input <review-input.json>` | hash authored artifacts, persist the Object Inventory and Verification Plan, advance the Build to `AUTHORED`, and return a `reviewToken`; this records no human acceptance |
 | `pnpm record:verification -- <build-id> [--json]` | run the non-render dataset consistency profile and record Build-bound `dataset-verification/v1` evidence; pass its returned reference to `finish` |
 | `pnpm record:fidelity -- <key> --focus <dir> [--language <code>] --build <build-id>` | record durable, Build-bound automatic evidence as `evidence-ready`; run once per required language. Without `--build`, explicit-focus output is legacy compatibility evidence only and cannot close a Build |
@@ -108,6 +108,7 @@ Install once; the d3/standalone verifiers render in Chromium:
 | `pnpm record:build -- seal <build-id>` | recompute artifact freshness and record `SEALED` only for an accepted, closed, baseline-staged Build with fresh exact digests; does not publish canonical data |
 | `pnpm record:build -- inspect <build-id> [--json]` | read historical/effective state, freshness, review status, Task information, and Loop Fidelity Summary without mutation |
 | `pnpm verify:closeout -- <build-id> [--json]` | read-only close-out gate: requires historical and effective `SEALED`, fresh inputs, and an accepted human review |
+| `pnpm complete:source -- <build-id>` | after `verify:closeout` passes, recheck the intake digest and no-clobber promote the selected Source from `input/processing/<key>.png` to its stable `input/processed/<key>.png`; compatibility path only, not M4 Publication |
 | `pnpm sync:index-datasets` | syncs every data registration surface with disk: `index.html` SSOT `<script>` tags (income statements, company metadata) and the generated dataset manifest (`--check` reports drift) |
 | `pnpm update:dataset-manifest` / `pnpm verify:dataset-manifest` | regenerate / freshness-check `data/dataset-manifest.js` (dataset registration SSOT) |
 | `pnpm verify:dataset -- <key> [--skip-render]` | read-only aggregate diagnostic: syntax, SSOT, strict i18n, metadata, then a read-only d3 render per language |
@@ -138,35 +139,45 @@ transactional target and M0–M5 migration are owned by
 `docs/architecture/README.md`; do not silently mix target state claims into a
 current run.
 
-1. Intake & guard — select one item, run `pnpm check:pending -- --file ...`,
-   assign the `<company>-<period>` key and Adapter, then run
-   `pnpm record:intake`. Keep the Source in pending until coarse inventory is
-   durable; the current compatibility workflow moves only that item to
-   `input/processed/<dataset-key>.png` before authoring.
+1. Intake & guard — select one item, run its candidate
+   `pnpm check:pending -- --file ...` guard, assign the
+   `<company>-<period>` key and Adapter, rerun the guard with `--key`, then run
+   `pnpm record:intake`. After the final guard passes, intake immediately makes a
+   no-clobber claim at `input/processing/<dataset-key>.png`; keep the Source
+   there throughout inventory, authoring, crop, fidelity, and close-out.
 2. Source inventory & data SSOTs — coarse whole-image pass first: classify
    the input type against the workflow doc's Object Taxonomy (incl. the
    revenue-metric data-only branch) and inventory every object, then, in
    parallel tracks, company metadata (first dataset for a company), the
-   `data/income-statements/<company-key>.js` record, and the optional icon
+   Adapter-owned Metric SSOT (`data/income-statements/<company-key>.js` or
+   `data/revenue-metrics.js`), and the optional Income Statement icon
    crop/vector subloop.
-3. Adapter & i18n — author `data/datasets/<dataset-key>.js` measured
+3. Adapter & i18n — for Income Statement, author
+   `data/datasets/<dataset-key>.js` measured
    object-by-object against the source image (fine pass over the phase 2
    inventory), add `i18n.<language>` overlays, and register it via
-   `pnpm sync:index-datasets` (regenerates the dataset manifest).
+   `pnpm sync:index-datasets` (regenerates the dataset manifest). Authored
+   references always use the final `input/processed/<dataset-key>.png` path;
+   local tools may fall back to the active Build's same-key processing claim.
+   Revenue Metric remains data-only and creates no Sankey Adapter.
 4. Verify and review — use `verify:dataset` / `verify:d3` only for read-only
    diagnostics. Run `record:build prepare-review`, record dataset consistency
-   with `record:verification`, then record each required language with
-   Build-bound `record:fidelity`; present those `evidence-ready`
+   with `record:verification`, then, for Income Statement, record each required
+   language with Build-bound `record:fidelity`; present those `evidence-ready`
    artifacts for human review and pass the structured attestation to
    `record:build finish`. An automatic pass is neither accepted nor converged;
    only an accepted, fresh `FidelityResult` advances the Build to `CLOSED`.
    Revenue Metric plans explicitly mark Sankey/render evidence
    `notApplicable` instead of silently omitting it.
 5. Close out — record the build-local future-regression stage, run fresh
-   final checks, then `record:build seal` and `verify:closeout`. Finish with
-   `pnpm check`, resolve the selected pending item, and commit per
-   `docs/commit-messages.md`; unrelated queue items may remain. `SEALED` is
-   not `PUBLISHED`: atomic M4 Publication is still unimplemented, and the
+   final checks, then `record:build seal` and `verify:closeout`. Only after an
+   accepted, fresh sealed Build passes that read-only gate, run
+   `pnpm complete:source -- <build-id>` to digest-check and promote its Source
+   from `processing/` to `processed/`. Finish with `pnpm check` and commit per
+   `docs/commit-messages.md`; unrelated pending items and active processing
+   claims may remain, and a non-empty processing directory does not fail the
+   global check. Never rename a processed image. This compatibility promotion
+   is not `PUBLISHED`: atomic M4 Publication is still unimplemented, and the
    compatibility canonical baseline path remains separate.
 
 Before every final response, satisfy the pre-response Verification Checklist

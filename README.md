@@ -41,7 +41,8 @@ pnpm verify:site
 The production page downloads three ordered `defer` bundles in parallel,
 loads only the active Sankey dataset Adapter, prefetches a target only after
 pointer/keyboard intent, and loads Chart.js on the first Trend or metric-trend
-interaction. Fidelity-only files under `input/processed/` are not deployed.
+interaction. Fidelity-only files under `input/processing/` and
+`input/processed/` are not deployed.
 
 For a single self-contained HTML file that does not depend on sibling CSS, JS,
 font, vendor, data, or reference PNG files, build the standalone artifact:
@@ -55,8 +56,8 @@ The generated file is
 `output/trace-company-product-metric-visualizer.html`. It inlines the viewer CSS,
 all ordered scripts, the shared local Montserrat, Noto Sans, and Roboto font
 manifest, and datasets. It does not
-inline or request processed reference PNGs; those remain verification inputs
-only.
+inline or request active processing or processed reference PNGs; those remain
+verification inputs only.
 
 Pick datasets from the left Company / Data point time navigator, and
 use the top **Sankey / Table** switch to choose the view. Sankey mode exports
@@ -81,41 +82,53 @@ localized lines instead of relying on generic phrase replacement.
 
 ## Visual loop workflow
 
-Use this workflow when a new reference image is added and the chart needs
-another fidelity loop:
+Use this workflow when a new reference image is added. Income Statement takes
+the Sankey fidelity branch; Revenue Metric takes the data-only branch:
 
 1. Put new, unprocessed source PNGs in `input/pending/`.
 2. Select one item and run its pending guard:
 
    ```bash
-   pnpm check:pending -- --file input/pending/<file>.png --key <dataset-key>
+   pnpm check:pending -- --file input/pending/<file>.png
    ```
 
-   If it reports an exact processed-image match or an existing-key collision,
-   stop before moving images, editing data, extracting icons, or running the d3
-   loop for that pending image. If you choose a different final dataset key than
-   the script's candidate, check that final key against `input/processed/`,
-   `data/datasets/`, `data/income-statements/<company-key>.js`, and
-   `data/dataset-manifest.js` before continuing.
-3. Choose the final key and input-type Adapter, then record intake before
-   moving the Source:
+   A pending-to-pending collision, exact processing/processed-image match, or
+   existing-key collision is a stop condition: do not move images, edit data,
+   extract icons, or run the d3 loop for that item.
+3. Choose the final key and input-type Adapter, rerun the selected-item guard
+   with that key, then record and claim the Source:
 
    ```bash
+   pnpm check:pending -- --file input/pending/<file>.png --key <dataset-key>
    pnpm record:intake -- input/pending/<file>.png --key <dataset-key> \
      --adapter <income-statement|revenue-metric> \
      --availability <published|local-only|restricted>
    ```
 
-   Complete the coarse object inventory, then move only that selected durable
-   reference to `input/processed/<dataset-key>.png` for the current
-   compatibility workflow. Other pending items may remain in the shared queue.
-4. Set `meta.referenceImage` on the matching dataset to that processed path.
+   If the final key differs from the candidate, this final guard checks it
+   against `input/processing/`, `input/processed/`, `data/datasets/`,
+   `data/income-statements/<company-key>.js`, and `data/dataset-manifest.js`.
+
+   After the selected guard passes, `record:intake` records the immutable
+   Source identity and immediately makes a no-clobber claim by moving the PNG
+   to `input/processing/<dataset-key>.png`. Keep it there throughout inventory,
+   authoring, icon crop work, fidelity review, sealing, and close-out. An
+   existing processing destination is a stop condition and is never
+   overwritten. `--availability` is Source-access policy, not the lifecycle
+   state `PUBLISHED`. Other pending items may remain in the shared queue.
+4. Set every authored Source reference to the final stable path,
+   `input/processed/<dataset-key>.png`, even though the bytes are still in
+   `input/processing/`. For Income Statement this includes
+   `meta.referenceImage`; Revenue Metric uses its SSOT `sourceImage`. Local
+   tools may resolve the missing final path through the active Build's same-key
+   processing claim.
 5. If this is a new company, add the company profile to
    `data/company-metadata/<company-key>.js` first: description, sector, industry, founded
    date, headquarters, fiscal year end, website, ticker/exchange, market cap
    with as-of/source when available, and source URLs.
-6. If the source contains company or business/segment icons that need to be
-   reproduced, create `input/icon-crop-specs/<dataset-key>.json` and run:
+6. For an Income Statement, if the source contains company or business/segment
+   icons that need to be reproduced, create
+   `input/icon-crop-specs/<dataset-key>.json` and run:
 
    ```bash
    python3 scripts/extract_icon_crops.py --spec input/icon-crop-specs/<dataset-key>.json
@@ -127,17 +140,22 @@ another fidelity loop:
    `crop-report.json`. Review every validation sheet with the original image,
    crop box, and extracted crop visible together, then record the pass/fail
    decision in `model-validation.md`. Extract every semantically relevant
-   business cluster unless the task explicitly narrows the scope.
-7. Add or update the matching pure-data record in
-   `data/income-statements/<company-key>.js`. This file is the comparable financial
-   statement SSOT: reported totals, line items, notes, currency and units only,
-   with no Sankey layout or render settings.
+   business cluster unless the task explicitly narrows the scope. Authored
+   crop/source references still use the final processed path; local crop
+   tooling may use the same-key processing fallback.
+7. Add or update the matching pure-data record. Income Statement uses
+   `data/income-statements/<company-key>.js`; Revenue Metric uses
+   `data/revenue-metrics.js`. Both are Metric SSOTs with no Sankey layout or
+   render settings. Revenue Metric creates no Sankey Adapter or fidelity run;
+   its Verification Plan records those axes as explicit `notApplicable`.
 8. Add localized display text for every non-default language in
    `window.SANKEY_I18N.languageCodes`:
-   - `data/datasets/<dataset-key>.js`: `name`, `meta.title`, period labels,
+   - Income Statement `data/datasets/<dataset-key>.js`: `name`, `meta.title`, period labels,
      node labels/notes, and explicit fixed-layout label text.
    - `data/income-statements/<company-key>.js`: financial line-item labels and notes used by
      Table mode.
+   - `data/revenue-metrics.js`: Revenue Metric labels, notes, conditions, and
+     source display text.
    - `data/company-metadata/<company-key>.js`: company profile fields when the company is new
      or profile text changes.
    Language overlays may tune text layout such as `titleTextLength`, but should
@@ -155,35 +173,42 @@ another fidelity loop:
    pnpm exec playwright install chromium
    ```
 
-10. Run the deterministic data, i18n, and d3 diagnostics:
+10. Run the deterministic data and i18n diagnostics, plus d3 diagnostics for
+    Income Statement:
 
    ```bash
    pnpm verify:ssot
    pnpm verify:i18n -- --strict <dataset-key>
+   # Income Statement only:
    pnpm verify:d3 -- <dataset-key>
    ```
 
-   Or run them all (plus syntax, metadata, and a render per language) in one
-   go with `pnpm verify:dataset -- <dataset-key>`. Both commands are read-only:
+   Or run the applicable profile (plus syntax and metadata) in one go with
+   `pnpm verify:dataset -- <dataset-key>`; Revenue Metric skips rendering.
+   The verify commands are read-only:
    `verify:d3` never archives or advances a manual round, even when `--focus`
    is supplied. A machine-green result is diagnostic evidence, not human
    acceptance or convergence.
 
 11. When a candidate is ready for human review, bind it to the Build and
-    record durable evidence for every required language:
+    record the Adapter-required durable evidence:
 
     ```bash
     pnpm record:build -- prepare-review <build-id> --input <review-input.json>
     # The command prints a reviewToken used by review.json.
     pnpm record:verification -- <build-id> --json
+    # Income Statement only, once per required language:
     pnpm record:fidelity -- <dataset-key> --build <build-id> --focus "structure-text-l10n-review"
     pnpm record:fidelity -- <dataset-key> --build <build-id> --focus "structure-text-l10n-review" --language zh
     pnpm record:build -- finish <build-id> --review <review.json>
     ```
 
-    `record:fidelity` writes `evidence-ready`, not accepted, evidence. The
+    For Income Statement, `record:fidelity` writes `evidence-ready`, not
+    accepted, evidence. Revenue Metric supplies no fidelity manifest because
+    its Plan records that axis as `notApplicable`. The
     review JSON binds the printed `reviewToken` (legacy `packetDigest` remains
-    readable), the `record:verification` reference, fidelity manifests, human attestation, region/risk/feedback
+    readable), the `record:verification` reference, applicable fidelity
+    manifests, human attestation, region/risk/feedback
     decisions, and the Interface Matrix. Missing human acceptance stays
     `review-pending`; rejected or blocked review does not close the Build.
     After a requested change, edit the candidate and prepare a new review so
@@ -199,12 +224,20 @@ another fidelity loop:
     pnpm record:build -- seal <build-id>
     pnpm record:build -- inspect <build-id>
     pnpm verify:closeout -- <build-id>
+    pnpm complete:source -- <build-id>
+    pnpm check
     ```
 
     The Revenue Metric Adapter records render/fidelity and baseline decisions
     as explicit `notApplicable` facts instead of silently skipping axes.
-    `SEALED` is a fresh build-local close-out state, not publication. Atomic M4
-    Publication is not implemented yet. Where the current compatibility
+    Run `complete:source` only after the read-only close-out gate passes. It
+    rechecks the intake digest, refuses to overwrite an existing destination,
+    and promotes `input/processing/<dataset-key>.png` to the stable
+    `input/processed/<dataset-key>.png`. Never rename a processed image.
+    A non-empty `input/processing/` may contain other active Builds and does
+    not fail the global `pnpm check`. `SEALED` and this compatibility Source
+    promotion are not publication; atomic M4 Publication is not implemented
+    yet. Where the current compatibility
     runtime still needs a canonical render baseline, `record:baseline` remains
     a separate transitional mutation and cannot prove the producing Build:
 
@@ -233,9 +266,12 @@ Datasets that explicitly set
 `data/assets/raster-annotations/`. Use `pnpm verify:d3 -- <dataset-key> --keep`
 when you need to inspect the candidate PNG.
 
-`compare/runs/` contains per-run scratch. Keep incoming assets in
-`input/pending/` and stable app references in `input/processed/`; do not rely
-on scratch between runs. Durable `record:fidelity` evidence lives under
+`compare/runs/` contains per-run scratch. Keep unclaimed assets in
+`input/pending/`, active claimed Sources in `input/processing/`, and stable
+verification references in `input/processed/`; do not rely on scratch between runs.
+Authored references always name the final processed path, while local tools
+may fall back to the active Build's same-key processing claim. Durable
+`record:fidelity` evidence lives under
 `output/compare/<dataset-key>/` with a `fidelity-run.json` identity manifest.
 Only evidence whose identity includes the current Build, authored digest, and
 Verification Plan digest participates in the new close-out. An explicit-focus
@@ -277,6 +313,10 @@ The viewer renders only the editable d3-sankey SVG from
 `src/sankey-engine.js`. Processed reference PNGs are kept in
 `input/processed/` and referenced by `meta.referenceImage` for the fidelity
 verifier, but they are not part of the app runtime or standalone HTML artifact.
+During an active Build, the reference remains in `input/processing/` through
+close-out and local tooling resolves it through the same-key processing claim;
+only `complete:source` rechecks the recorded digest and materializes the
+authored processed path after close-out.
 
 Typography follows content roles rather than page inheritance: App Chrome
 (toolbar, sidebar, controls, actionbar) uses Montserrat; View product text in

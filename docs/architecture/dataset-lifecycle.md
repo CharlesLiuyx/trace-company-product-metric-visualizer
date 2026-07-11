@@ -20,7 +20,7 @@ INTAKED -> AUTHORED -> CLOSED -> BASELINE_STAGED -> SEALED
 
 | state | meaning | required durable result |
 | --- | --- | --- |
-| `INTAKED` | key, Source digest, dimensions, provenance, availability, input-type selection, and base canonical snapshot are fixed | intake record |
+| `INTAKED` | key, Source digest, dimensions, provenance, availability, input-type selection, and base canonical snapshot are fixed; the current compatibility implementation also claims the working Source locator | intake record |
 | `AUTHORED` | the selected Adapter accepts the inventory and authored contribution | `ArtifactManifest` |
 | `CLOSED` | the required verification evidence and human decisions close with no open requirement | closure digest plus accepted `FidelityResult` references |
 | `BASELINE_STAGED` | a future-regression record has been derived from the closed candidate but is not canonical | staged baseline artifact bound to the closure digest |
@@ -28,6 +28,34 @@ INTAKED -> AUTHORED -> CLOSED -> BASELINE_STAGED -> SEALED
 
 States are append-only facts, not mutable labels. Rework records an explicit
 reopen/invalidation event and retains prior evidence for audit.
+
+### Source identity, working locator, and projection
+
+The Source digest identifies immutable bytes. A filesystem path locates or
+projects those bytes; moving an exact digest does not create a lifecycle state,
+rewrite Source identity, or invalidate evidence by itself.
+
+The current compatibility workflow uses three directory roles:
+
+- `input/pending/` is the unclaimed discovery queue;
+- `input/processing/` is the Build-local working locator and filesystem lease.
+  After the guard, key, and input-type selection succeed, `record:intake`
+  durably fixes Source identity and claims the selected file here before
+  inventory or authoring begins;
+- `input/processed/` is the stable compatibility projection. Promotion from
+  `processing/` is allowed only for the same digest after accepted human
+  closure, fresh `SEALED`, and a successful close-out gate.
+
+Directory existence is never authoritative state. A crash may leave a locator
+and Build record temporarily out of sync; recovery reconciles them by Build ID,
+key, and digest without inferring a transition or overwriting another file. A
+missing working file, a destination collision, or changed bytes is a hard
+recovery/freshness failure.
+
+The processed promotion above is explicitly transitional. In the target M4
+architecture, a `PublicationBatch` owns the stable Source projection together
+with the rest of the planned canonical result; sealing alone has no canonical-
+write authority.
 
 ### 2. PublicationBatch
 
@@ -171,7 +199,8 @@ availability policy for every Source/evidence artifact
 ```
 
 Each reference is content-addressed. A filesystem path may be a locator or a
-future projection path, but never the evidence identity.
+future projection path, but never the evidence identity. The working and stable
+Source paths follow the locator/projection rules above.
 
 ### FidelityResult
 
@@ -253,6 +282,11 @@ Invalidation is explicit:
 | staged baseline content or policy | `BASELINE_STAGED`; reseal without using it as proof |
 | canonical base before publish | Publication becomes `CONFLICTED`; replan and reseal against the new base |
 
+Relocating the exact Source bytes from `pending/` to `processing/`, or from
+`processing/` to the stable projection, is not a changed input. The Build keeps
+the intake digest identity; every claim, recovery, and promotion must verify
+the bytes against it. A digest mismatch follows the Source-bytes row above.
+
 Queries must report both the historical state and effective freshness. A
 historical `SEALED` label with mismatched current digests is stale and cannot
 be published.
@@ -265,6 +299,8 @@ historical `SEALED` receipt remains auditable while `effectiveState` becomes
 ## Transition invariants
 
 - One Build is serial by version; different Builds may run in parallel.
+- The `processing/` locator is a per-key working lease, not a state transition;
+  claims and promotions must be no-clobber and digest-checked.
 - Every state-changing operation has an idempotency identity and an expected
   aggregate version.
 - Artifacts are stored and hash-verified before a state event references
@@ -287,9 +323,15 @@ FeedbackLedger, closure, staged baseline, and seal objects
 under the per-Build store. `inspect` also produces `CloseoutReport`, Task
 information, and Loop Fidelity Summary as pure Views over those objects.
 
+At current intake, `record:intake` also claims the selected Source from
+`pending/` to the Build-local `processing/` locator. After accepted review, a
+fresh seal, and successful close-out, the compatibility workflow promotes the
+same digest to `processed/`. Neither filesystem move adds a DatasetBuild state.
+
 This is not M4. Authored canonical paths are still edited directly, the old
 canonical baseline command remains a compatibility path, and no atomic
-Publication or path-claim CAS exists. The current seal operation re-hashes
+Publication or path-claim CAS exists; the processed Source move is likewise a
+compatibility projection rather than Publication. The current seal operation re-hashes
 authored files and requires an accepted closure before recording `SEALED`; it
 does not yet rerun the complete Adapter final-verification profile required by
 the target. See the live status table in [`README.md`](README.md).

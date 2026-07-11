@@ -12,6 +12,7 @@ import {
 } from './script-sources.mjs';
 import { assert, listScripts, readProjectFile, rootDir } from './lib/project.mjs';
 import { loadBrowserData } from './lib/browser-data-loader.mjs';
+import { resolveSourcePath } from './lib/source-lifecycle.mjs';
 
 function dataScripts() {
   return registeredDatasetScripts();
@@ -308,7 +309,11 @@ function validateRevenueMetric(record, errors) {
     // committed (e.g. licensed screenshots); the record keeps the path for
     // local provenance without failing fresh checkouts or CI.
     if (source.sourceImage?.src && source.sourceImage.localOnly !== true) {
-      assert(existsSync(path.join(rootDir, source.sourceImage.src)), `${record.key}: source image does not exist: ${source.sourceImage.src}`, errors);
+      assert(
+        existsSync(resolveSourcePath(source.sourceImage.src)),
+        `${record.key}: source image does not exist: ${source.sourceImage.src}`,
+        errors
+      );
     }
   }
 }

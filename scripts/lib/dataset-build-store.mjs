@@ -64,6 +64,26 @@ export async function initializeDatasetBuild(build, options = {}) {
   return { build, manifestPath };
 }
 
+/** Roll back only a just-created intake whose Source claim did not succeed. */
+export async function discardInitializedDatasetBuild(buildId, options = {}) {
+  const buildRoot = options.buildRoot || DEFAULT_BUILD_ROOT;
+  const buildDir = buildDirectory(buildId, buildRoot);
+  const build = await readDatasetBuild(buildId, { buildRoot });
+  if (
+    build.state !== 'INTAKED' ||
+    build.revision !== 0 ||
+    !Array.isArray(build.receipts) ||
+    build.receipts.length !== 1 ||
+    existsSync(path.join(buildDir, '.record.lock'))
+  ) {
+    throw buildError(
+      'BUILD_DISCARD_FORBIDDEN',
+      `Only an unlocked, just-created INTAKED Build may be discarded: ${buildId}`
+    );
+  }
+  await rm(buildDir, { recursive: true, force: false });
+}
+
 export async function readDatasetBuild(buildId, options = {}) {
   const manifestPath = datasetBuildManifestPath(buildId, options);
   let source;
@@ -244,6 +264,39 @@ export async function inspectDatasetBuild(buildId, options = {}) {
   const baselineReceipt = latestReceipt(build, 'BASELINE_STAGED');
   const sealReceipt = latestReceipt(build, 'SEALED');
   const staleArtifacts = [];
+  const staleSources = [];
+
+  for (const source of build.sources || []) {
+    // Legacy manifests recorded only the intake URI. New manifests add a
+    // stable final locator plus the build-local working locator, which makes
+    // Source freshness checkable across pending -> processing -> processed.
+    if (!source.processedUri && !source.processingUri) continue;
+    const locators = [...new Set([source.processingUri, source.processedUri].filter(Boolean))]
+      .map((uri) => ({ uri, absolute: path.resolve(projectRoot, uri) }));
+    const outside = locators.filter(
+      ({ absolute }) => absolute !== path.resolve(projectRoot) && !absolute.startsWith(`${path.resolve(projectRoot)}${path.sep}`)
+    );
+    if (outside.length) {
+      staleSources.push(...outside.map(({ uri }) => ({ uri, reason: 'outside-project-root' })));
+      continue;
+    }
+    const present = locators.filter(({ absolute }) => existsSync(absolute));
+    if (!present.length) {
+      staleSources.push({ uri: source.processedUri || source.processingUri, reason: 'missing' });
+      continue;
+    }
+    for (const { uri, absolute } of present) {
+      const actualDigest = await digestFile(absolute);
+      if (actualDigest !== source.digest) {
+        staleSources.push({
+          uri,
+          reason: 'digest-mismatch',
+          expected: source.digest,
+          actual: actualDigest,
+        });
+      }
+    }
+  }
 
   for (const artifact of authoredReceipt?.payload?.artifacts || []) {
     const absolute = path.resolve(projectRoot, artifact.path);
@@ -275,6 +328,10 @@ export async function inspectDatasetBuild(buildId, options = {}) {
       effectiveState = state;
     }
   };
+  if (staleSources.length) {
+    downgradeTo('INTAKED');
+    reasons.push('source-stale');
+  }
   if (authoredReceipt && staleArtifacts.length) {
     downgradeTo('AUTHORED');
     reasons.push('authored-artifact-stale');
@@ -309,6 +366,7 @@ export async function inspectDatasetBuild(buildId, options = {}) {
     effectiveState,
     fresh: reasons.length === 0,
     reasons: [...new Set(reasons)],
+    staleSources,
     staleArtifacts,
     digests: {
       source: build.receipts?.[0]?.payload?.sourceSetDigest || null,

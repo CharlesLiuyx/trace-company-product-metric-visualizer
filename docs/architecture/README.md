@@ -42,11 +42,19 @@ retried or replaced without changing canonical data. Only a fresh `SEALED`
 build can enter a `PublicationBatch`; only a `PUBLISHED` canonical digest can
 start a `ReleaseAttempt`.
 
+`pending/`, `processing/`, and `processed/` are Source locators, not additional
+states. The current compatibility implementation has `record:intake` claim a
+selected Source into the Build-local `processing/` locator and lease. Only an
+accepted, fresh `SEALED` Build that passes close-out may be compatibility-
+promoted to `processed/`; moving the same bytes does not change their digest
+identity. M4 replaces that compatibility promotion with a Publication-owned
+Source projection.
+
 The target deepens four Modules:
 
 | Module | Interface responsibility | Implementation hidden behind the Seam |
 | --- | --- | --- |
-| Dataset Build Transaction | advance one Source-derived build through explicit states | intake, typed inventory and Plan compilation, review closure, staging, freshness, invalidation |
+| Dataset Build Transaction | advance one Source-derived build through explicit states | intake and working-Source claim, typed inventory and Plan compilation, review closure, staging, freshness, invalidation |
 | Fidelity Run | produce immutable automatic evidence for one authored digest | private workspace, rendering, Diff, gates, evidence-ready archive finalization |
 | Publication | plan and atomically publish a set of sealed contributions | global projections, path claims, baseline ledger, metadata, CAS and recovery |
 | Release | build or deploy one published digest | standalone build, hosted release, retries and receipts |
@@ -69,6 +77,10 @@ through every caller.
 - `SEALED` binds exact source, authored, renderer, protocol, locale, closure,
   staged-baseline, projection, and base-canonical digests. A changed input
   invalidates the seal.
+- Source location is not Source identity: claiming or promoting identical bytes
+  does not add a `DatasetBuild` state or change their digest. A missing or
+  mismatched working locator is a recovery/freshness failure, never an implied
+  transition.
 - Publication uses compare-and-swap against `baseCanonicalDigest`. A genuine
   conflict is not retried or silently rebased; it requires a new plan and a
   new seal against the new base.
@@ -78,7 +90,8 @@ through every caller.
 
 | concern | current Implementation | accepted target |
 | --- | --- | --- |
-| intake | `record:intake` records per-item Source/base digests; compatibility authoring still later moves the selected Source to `processed/` | full isolated `DatasetBuild` workspace and Publication-owned Source projection |
+| intake | `record:intake` records per-item Source/base digests and claims the selected file from `pending/` into the Build-local `processing/` working locator and lease | full isolated `DatasetBuild` workspace with the same digest-bound claim semantics |
+| Source projection | after accepted review, fresh `SEALED`, and successful close-out, the compatibility workflow promotes the same bytes from `processing/` to `processed/`; this is not M4 Publication | Publication alone materializes the stable processed Source projection as part of the planned canonical result |
 | authoring and Plan | canonical paths are still edited directly; the shadow path records a typed `ObjectInventory`, compiles the Adapter/ChangeImpact-driven `VerificationPlan`, hashes authored files, and returns a content-addressed `ReviewPacket` token | isolated build workspace plus complete `ArtifactManifest` and Adapter execution |
 | verification and fidelity | `record:verification` records Build-bound non-render consistency evidence; `verify:d3` is read-only diagnostic execution; `record:fidelity` alone may archive durable `fidelity-run/2` `evidence-ready` artifacts bound to Build/authored/Plan digests; legacy unbound archives remain compatibility-only | typed automatic evidence plus the complete Adapter verification profile |
 | human closure | `record:build finish` consumes the Review token, automatic evidence, `ManualAttestation`, `RegionDecision`, risk/Matrix facts, and `FeedbackLedger`; only an accepted `FidelityResult` records `CLOSED` | the same deep Interface as the sole operational closure path |
@@ -98,7 +111,7 @@ before then.
 | --- | --- | --- |
 | M0 — record the decision | implemented | architecture owners, vocabulary, invariants, and ADR exist |
 | M1 — isolate FidelityRun | implemented with operation separation and `fidelity-run/2` review identity | `verify:d3` remains ephemeral/read-only; `record:fidelity` alone finalizes durable automatic evidence, with legacy v1 archives explicitly non-closure |
-| M2 — introduce DatasetBuild | foundation implemented | per-item `record:intake`, versioned state/storage, content-addressed objects, and historical/effective freshness exist; isolated authoring workspace remains pending |
+| M2 — introduce DatasetBuild | foundation implemented | per-item `record:intake` plus a Build-local working-Source claim, versioned state/storage, content-addressed objects, and historical/effective freshness exist; isolated authoring workspace remains pending |
 | M3 — close and stage | shadow/compatibility safety slice implemented end to end | `ObjectInventory -> VerificationPlan -> ReviewPacket -> DatasetVerification + FidelityResult -> CLOSED -> BASELINE_STAGED -> freshness-checked SEALED`, plus inspection/Views; full Adapter final-profile sealing and primary-workflow cutover remain pending |
 | M4 — publish atomically | pending | pure projectors, `baseCanonicalDigest`, path claims, CAS, conflict/replan/reseal |
 | M5 — separate Release | partial | standalone no longer mutates metadata and the base architecture contract checker is active; immutable published-input Release, attempt receipts, generated views, and Release-specific contract checks remain pending |

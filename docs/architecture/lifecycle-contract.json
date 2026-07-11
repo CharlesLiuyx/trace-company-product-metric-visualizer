@@ -48,6 +48,13 @@
   },
   "adapters": ["income-statement", "revenue-metric"],
   "sourceAvailability": ["published", "local-only", "restricted"],
+  "sourceLocations": {
+    "pending": "unclaimed",
+    "processing": "build-local-working-locator",
+    "processed": "compatibility-complete-projection",
+    "processingIsDatasetBuildState": false,
+    "processedPromotionRequiresFreshAcceptedCloseout": true
+  },
   "changeImpact": [
     "new-dataset",
     "geometry",
@@ -80,6 +87,7 @@
     "publicationConflictRetryableWithoutNewPlan": false,
     "automaticEvidenceMayCloseBuild": false,
     "humanAttestationRequiredForIncomeStatement": true,
-    "verifyCommandsWriteDurableEvidence": false
+    "verifyCommandsWriteDurableEvidence": false,
+    "sourceRelocationChangesIdentity": false
   }
 }

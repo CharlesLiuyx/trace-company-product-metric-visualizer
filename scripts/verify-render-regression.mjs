@@ -39,6 +39,7 @@ import { registeredDatasetScripts, renderHarnessScripts } from './script-sources
 import { startStaticServer } from './dev-server.mjs';
 import { projectPath, readProjectFile, rootDir } from './lib/project.mjs';
 import { pngMetrics } from './lib/png-diff.mjs';
+import { resolveSourcePath } from './lib/source-lifecycle.mjs';
 import { assertPurity } from './lib/d3-hard-gates.mjs';
 import {
   assertProjectFontsLoaded,
@@ -224,7 +225,7 @@ async function renderLanguageForGates(page, pageErrors, key, language) {
 async function renderDataset(page, pageErrors, key, scratchDir, requiredLanguages) {
   const primary = await renderLanguageForGates(page, pageErrors, key, LANGUAGE);
   const { meta } = primary;
-  const referencePath = path.join(rootDir, meta.referenceSrc);
+  const referencePath = resolveSourcePath(meta.referenceSrc);
   let result;
   if (!existsSync(referencePath)) {
     // Reference images are local-only inputs (gitignored); render + hard
