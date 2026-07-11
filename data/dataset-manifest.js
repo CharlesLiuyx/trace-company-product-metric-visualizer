@@ -5788,6 +5788,353 @@
             }
           }
         }
+      },
+      {
+        "key": "docebo-q4-fy25",
+        "src": "data/datasets/docebo-q4-fy25.js",
+        "data": {
+          "name": "Docebo · Q4 FY25",
+          "company": "Docebo",
+          "meta": {
+            "title": "Docebo Q4 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Docebo · 2025 财年第四季度",
+              "meta": {
+                "title": "Docebo 2025 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ford-fy25",
+        "src": "data/datasets/ford-fy25.js",
+        "data": {
+          "name": "Ford · FY25",
+          "company": "Ford",
+          "meta": {
+            "title": "Ford FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "福特 · 2025 财年",
+              "meta": {
+                "title": "福特 2025 财年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "klarna-q4-fy25",
+        "src": "data/datasets/klarna-q4-fy25.js",
+        "data": {
+          "name": "Klarna · Q4 FY25",
+          "company": "Klarna",
+          "meta": {
+            "title": "Klarna Q4 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Klarna · 2025 财年第四季度",
+              "meta": {
+                "title": "Klarna 2025 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "autodesk-q4-fy26",
+        "src": "data/datasets/autodesk-q4-fy26.js",
+        "data": {
+          "name": "Autodesk · Q4 FY26",
+          "company": "Autodesk",
+          "meta": {
+            "title": "Autodesk Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Autodesk · 2026 财年第四季度",
+              "meta": {
+                "title": "Autodesk 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "loreal-fy25",
+        "src": "data/datasets/loreal-fy25.js",
+        "data": {
+          "name": "L’Oréal · FY25",
+          "company": "L'Oréal",
+          "meta": {
+            "title": "L’Oréal FY25 Income Statement",
+            "period": "FY25",
+            "periodNote": "Year ended Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "欧莱雅 · 2025 财年",
+              "meta": {
+                "title": "欧莱雅 2025 财年利润表",
+                "period": "2025 财年",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "monday-q4-fy25",
+        "src": "data/datasets/monday-q4-fy25.js",
+        "data": {
+          "name": "Monday.com · Q4 FY25",
+          "company": "Monday.com",
+          "meta": {
+            "title": "Monday.com Q4 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Monday.com · 2025 财年第四季度",
+              "meta": {
+                "title": "Monday.com 2025 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ferrari-q4-fy25",
+        "src": "data/datasets/ferrari-q4-fy25.js",
+        "data": {
+          "name": "Ferrari · Q4 FY25",
+          "company": "Ferrari",
+          "meta": {
+            "title": "Ferrari Q4 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "法拉利 · 2025 财年第四季度",
+              "meta": {
+                "title": "法拉利 2025 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "digitalocean-q4-fy25",
+        "src": "data/datasets/digitalocean-q4-fy25.js",
+        "data": {
+          "name": "DigitalOcean · Q4 FY25",
+          "company": "DigitalOcean",
+          "meta": {
+            "title": "DigitalOcean Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "DigitalOcean · 2025 财年第四季度",
+              "meta": {
+                "title": "DigitalOcean 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "fiserv-q4-fy25",
+        "src": "data/datasets/fiserv-q4-fy25.js",
+        "data": {
+          "name": "Fiserv · Q4 FY25",
+          "company": "Fiserv",
+          "meta": {
+            "title": "Fiserv Q4 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Fiserv · 2025 财年第四季度",
+              "meta": {
+                "title": "Fiserv 2025 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "circle-q4-fy25",
+        "src": "data/datasets/circle-q4-fy25.js",
+        "data": {
+          "name": "Circle · Q4 FY25",
+          "company": "Circle",
+          "meta": {
+            "title": "Circle Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Circle · 2025 财年第四季度",
+              "meta": {
+                "title": "Circle 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "birkenstock-q1-fy26",
+        "src": "data/datasets/birkenstock-q1-fy26.js",
+        "data": {
+          "name": "Birkenstock · Q1 FY26",
+          "company": "Birkenstock",
+          "meta": {
+            "title": "Birkenstock Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "勃肯 · 2026 财年第一季度",
+              "meta": {
+                "title": "勃肯 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "coinbase-q4-fy25",
+        "src": "data/datasets/coinbase-q4-fy25.js",
+        "data": {
+          "name": "Coinbase · Q4 FY25",
+          "company": "Coinbase",
+          "meta": {
+            "title": "Coinbase Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Coinbase · 2025 财年第四季度",
+              "meta": {
+                "title": "Coinbase 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "airbus-fy25",
+        "src": "data/datasets/airbus-fy25.js",
+        "data": {
+          "name": "Airbus · FY25",
+          "company": "Airbus",
+          "meta": {
+            "title": "Airbus FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "空中客车 · 2025 财年",
+              "meta": {
+                "title": "空中客车 2025 财年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "teladoc-q4-fy25",
+        "src": "data/datasets/teladoc-q4-fy25.js",
+        "data": {
+          "name": "Teladoc Health · Q4 FY25",
+          "company": "Teladoc Health",
+          "meta": {
+            "title": "Teladoc Q4 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Teladoc Health · 2025 财年第四季度",
+              "meta": {
+                "title": "Teladoc 2025 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "klaviyo-q4-fy25",
+        "src": "data/datasets/klaviyo-q4-fy25.js",
+        "data": {
+          "name": "Klaviyo · Q4 FY25",
+          "company": "Klaviyo",
+          "meta": {
+            "title": "Klaviyo Q4 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Klaviyo · 2025 财年第四季度",
+              "meta": {
+                "title": "Klaviyo 2025 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hermes-fy25",
+        "src": "data/datasets/hermes-fy25.js",
+        "data": {
+          "name": "Hermès · FY25",
+          "company": "Hermès",
+          "meta": {
+            "title": "Hermès FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "爱马仕 · 2025 财年",
+              "meta": {
+                "title": "爱马仕 2025 财年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "kering-fy25",
+        "src": "data/datasets/kering-fy25.js",
+        "data": {
+          "name": "Kering · FY25",
+          "company": "Kering",
+          "meta": {
+            "title": "Kering FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "开云集团 · 2025 财年",
+              "meta": {
+                "title": "开云集团 2025 财年利润表"
+              }
+            }
+          }
+        }
       }
     ]
   };

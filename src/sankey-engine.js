@@ -91,7 +91,7 @@
         percentDecimals: 1,
         // number font on the hover cards; null → inherit valueFontFamily
         fontFamily:
-          '"Noto Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif',
+          '"Roboto",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif',
         fontSize: 40,
         fontWeight: 700,
         textColor: '#35566f',
@@ -141,10 +141,10 @@
     return node.type === 'cost' ? `(${body})` : body;
   }
 
-  // Hover Share is renderer-owned: Adapters provide authored amounts and
-  // topology, while the hovered surface alone selects one of two formulas.
-  // Keeping the arithmetic behind this small Interface prevents per-dataset
-  // flags from changing what "share" means.
+  // Hover Share is renderer-owned: adapters provide authored amounts and
+  // topology, while every interactive surface uses the same endpoint-ratio
+  // formula. Keeping the arithmetic behind this small Interface prevents
+  // per-dataset flags from changing what "share" means.
   const HoverShare = (() => {
     function trim(value, decimals) {
       return value
@@ -188,9 +188,7 @@
       if (!link || !hoveredNode || !oppositeNode || !Number.isFinite(count) || count < 1) {
         return '';
       }
-      return count > 1
-        ? format(linkAmount(link), nodeAmount(hoveredNode), decimals)
-        : format(nodeAmount(hoveredNode), nodeAmount(oppositeNode), decimals);
+      return forLink(link, decimals);
     }
 
     function forLink(link, decimals = 1) {
@@ -616,11 +614,48 @@
       .filter((fragment) => fragment != null && String(fragment).trim())
       .map(String)
       .join('\n');
-    if (!html) return;
+    if (!html) return null;
     if (/<image(?:\s|>)/i.test(html)) {
       throw new Error('Sankey SVG annotations cannot contain <image> elements');
     }
-    parent.append('g').attr('class', className).html(html);
+    return parent.append('g').attr('class', className).html(html);
+  }
+
+  function primaryFontFamily(value) {
+    return String(value || '')
+      .split(',')[0]
+      .trim()
+      .replace(/^["']|["']$/g, '')
+      .toLowerCase();
+  }
+
+  // annotationsSvg is a mixed extension seam: product copy is the default,
+  // while a dataset opts a smallest complete Logo/wordmark ancestor into the
+  // brand role. Concentrating the default here keeps old inherited or inline
+  // dataset fonts from leaking through every Adapter and every export surface.
+  function normalizeAnnotationTypography(layer, cfg) {
+    if (!layer) return;
+    const layerNode = layer.node();
+    layer.selectAll('text, tspan, textPath').each(function () {
+      if (this.closest('[data-typography-role="brand"]')) return;
+
+      let current = this;
+      let authoredFamily = '';
+      while (current && current !== layerNode) {
+        authoredFamily = current.style?.fontFamily || current.getAttribute?.('font-family') || '';
+        if (authoredFamily) break;
+        current = current.parentElement;
+      }
+
+      // Roboto is an intentional numeric-note role only when it is the
+      // authored primary family. Do not match the Roboto fallback embedded in
+      // the Noto Sans stack.
+      const family = primaryFontFamily(authoredFamily) === 'roboto'
+        ? cfg.valueFontFamily || cfg.fontFamily
+        : cfg.fontFamily;
+      this.style?.removeProperty('font-family');
+      this.setAttribute('font-family', family);
+    });
   }
 
   function appendRasterAnnotations(parent, annotations) {
@@ -690,7 +725,10 @@
       .attr('y', 0)
       .attr('width', W)
       .attr('height', H)
-      .attr('fill', cfg.background);
+      .attr('fill', cfg.background)
+      // Decorative backdrop must never sit on the pointer-event hit path of
+      // Sankey nodes, links, or short bars.
+      .style('pointer-events', 'none');
 
     const defs = svg.append('defs');
 
@@ -837,7 +875,12 @@
     /* ---------- nodes ---------- */
     const nodeLayer = svg.append('g').attr('class', 'nodes');
 
+    const configuredNodeHitTarget = cfg.interaction && cfg.interaction.nodeHitTarget;
+    const nodeHitTarget = configuredNodeHitTarget == null
+      ? 24
+      : Math.max(0, Number(configuredNodeHitTarget) || 0);
     graph.nodes.forEach((n) => {
+      const nodeHeight = n.y1 - n.y0;
       nodeLayer
         .append('rect')
         .datum(n)
@@ -850,6 +893,26 @@
         .attr('fill', nodeColor(n))
         .attr('rx', cfg.nodeRadius)
         .style('cursor', 'pointer');
+
+      // Reference-faithful short bars can be only a few viewBox pixels high.
+      // Preserve their measured visible geometry, but give the actual bar an
+      // accessible transparent hover target rather than requiring users to
+      // hunt for a sub-pixel strip after responsive scaling.
+      if (nodeHitTarget > nodeHeight) {
+        nodeLayer
+          .append('rect')
+          .datum(n)
+          .attr('class', 'sankey-node-hitbox')
+          .attr('data-node', keyOf(n))
+          .attr('x', n.x0)
+          .attr('y', n.y0 + nodeHeight / 2 - nodeHitTarget / 2)
+          .attr('width', n.x1 - n.x0)
+          .attr('height', nodeHitTarget)
+          .attr('fill', '#ffffff')
+          .attr('fill-opacity', 0)
+          .style('cursor', 'pointer')
+          .style('pointer-events', 'all');
+      }
     });
 
     /* ---------- labels ---------- */
@@ -963,7 +1026,8 @@
     });
 
     if (data.annotationsSvg) {
-      appendSvgFragments(svg, data.annotationsSvg, 'sankey-annotations');
+      const annotationLayer = appendSvgFragments(svg, data.annotationsSvg, 'sankey-annotations');
+      normalizeAnnotationTypography(annotationLayer, cfg);
     }
 
     if (data.rasterAnnotations) {
@@ -984,7 +1048,11 @@
       // sit just above the hub's text label, clamped below the title
       const labelTop = hub._labelTop != null ? hub._labelTop : cfg.margin.top;
       const ly = meta.logoY != null ? meta.logoY : Math.max(86, labelTop - lh - 10);
-      const lg = svg.append('g').attr('transform', `translate(${lx},${ly})`);
+      const lg = svg
+        .append('g')
+        .attr('class', 'sankey-logo')
+        .attr('data-typography-role', 'brand')
+        .attr('transform', `translate(${lx},${ly})`);
       lg.append('svg')
         .attr('width', lw)
         .attr('height', lh)
@@ -1014,7 +1082,10 @@
     }
 
     /* ---------- period stamp (top-right corner, clear of nodes) ---------- */
-    if (meta.period || meta.periodNote) {
+    // Fixed-layout source charts sometimes put the reporting period in the
+    // title itself and have no separate period stamp. Suppress it explicitly
+    // instead of positioning real text outside the SVG viewport.
+    if ((meta.period || meta.periodNote) && !meta.hidePeriodStamp) {
       const px = meta.periodX != null ? meta.periodX : W - 210;
       const periodY = meta.periodY != null ? meta.periodY : 222;
       const periodNoteY = meta.periodNoteY != null ? meta.periodNoteY : 276;
@@ -1219,7 +1290,7 @@
     if (cfg.interaction && cfg.interaction.enabled) {
       const ixn = cfg.interaction;
       const linkPaths = linkLayer.selectAll('path.sankey-link');
-      const nodeRects = nodeLayer.selectAll('rect.sankey-node');
+      const nodeRects = nodeLayer.selectAll('rect.sankey-node, rect.sankey-node-hitbox');
       const labelItems = labelLayer.selectAll('.sankey-label');
       // Some source charts use a callout-shaped micro-flow: its visible
       // guide line and label are annotations, while the financial node is

@@ -24,7 +24,7 @@
   }
 
   const annotations = `
-    <g font-family="Montserrat,Arial,sans-serif">
+    <g font-family="Montserrat,Arial,sans-serif" data-typography-role="brand">
       ${appleGlyph(98, 508, 40)}
       <text x="144" y="548" font-family="Arial,sans-serif" font-size="45" font-weight="700" fill="${BLACK}">iPhone</text>
 

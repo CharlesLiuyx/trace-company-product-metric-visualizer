@@ -30,7 +30,7 @@
     </g>`;
 
   const robloxWordmark = `
-    <g transform="translate(665 306)">
+    <g transform="translate(665 306)" data-typography-role="brand">
       <text x="0" y="79" font-family="Arial Black,Arial,sans-serif" font-size="86" font-weight="900" fill="#000000">R</text>
       <g transform="translate(107 10) rotate(12 37 37)">
         <rect x="0" y="0" width="74" height="74" fill="#000000"/>

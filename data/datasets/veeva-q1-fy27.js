@@ -26,7 +26,7 @@
   // Reusable "Veeva <sub>" wordmark: orange "Veeva" + gray triangle accent
   // over the first letter, plus a gray sub-brand word (CRM / Vault).
   const veevaMark = (x, baseline, veevaLen, sub, subX, subLen, subWeight) => `
-    <g font-family="Montserrat,Arial,sans-serif" font-weight="700">
+    <g font-family="Montserrat,Arial,sans-serif" font-weight="700" data-typography-role="brand">
       <polygon points="${x + 3},${baseline - 33} ${x + 22},${baseline - 33} ${x + 12.5},${baseline - 16}" fill="${GRAY}"/>
       <text x="${x}" y="${baseline}" font-size="46" textLength="${veevaLen}" lengthAdjust="spacingAndGlyphs" fill="${ORANGE}">Veeva</text>
       <text x="${subX}" y="${baseline}" font-size="46" font-weight="${subWeight}" textLength="${subLen}" lengthAdjust="spacingAndGlyphs" fill="${GRAY}">${sub}</text>

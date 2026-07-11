@@ -3,6 +3,11 @@
 import { cp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import {
+  PROJECT_FONT_FAMILIES,
+  fontFileName,
+  fontPackageRelativePath,
+} from './lib/local-fonts.mjs';
 
 const rootDir = path.resolve(fileURLToPath(new URL('..', import.meta.url)));
 const outputDir = path.join(rootDir, '_site');
@@ -18,12 +23,6 @@ const deferredRuntimeAssets = Object.freeze({
     output: 'assets/chart.js',
   }),
 });
-const runtimeFontFamilies = Object.freeze([
-  { family: 'Montserrat', packageName: 'montserrat', filePrefix: 'montserrat', weights: [400, 500, 600, 700, 800] },
-  { family: 'Noto Sans', packageName: 'noto-sans', filePrefix: 'noto-sans', weights: [300, 400, 500, 600, 700, 800] },
-  { family: 'Roboto', packageName: 'roboto', filePrefix: 'roboto', weights: [300, 400, 500] },
-]);
-
 function projectPath(relativePath) {
   const absolutePath = path.resolve(rootDir, relativePath);
   if (absolutePath !== rootDir && !absolutePath.startsWith(`${rootDir}${path.sep}`)) {
@@ -125,10 +124,12 @@ function productionIndex(sourceHtml, scripts) {
     .replace(/\s*<link\b[^>]*href=["']https:\/\/fonts\.(?:googleapis|gstatic)\.com[^>]*>/gi, '');
   const appStylesheet = '<link rel="stylesheet" href="src/app.css" />';
   if (!withoutExternalFonts.includes(appStylesheet)) throw new Error('index.html has no src/app.css stylesheet link');
+  const fontPreloads = PROJECT_FONT_FAMILIES.map(({ slug, weights }) => {
+    const weight = weights.includes(400) ? 400 : weights[0];
+    return `<link rel="preload" href="assets/fonts/${fontFileName(slug, weight)}" as="font" type="font/woff2" crossorigin />`;
+  });
   const withRuntimeFonts = withoutExternalFonts.replace(appStylesheet, [
-    '<link rel="preload" href="assets/fonts/montserrat-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />',
-    '<link rel="preload" href="assets/fonts/noto-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />',
-    '<link rel="preload" href="assets/fonts/roboto-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />',
+    ...fontPreloads,
     '<link rel="stylesheet" href="assets/fonts.css" />',
     appStylesheet,
   ].join('\n    '));
@@ -188,10 +189,10 @@ async function emitRuntimeFonts() {
   const fontDir = path.join(bundleDir, 'fonts');
   await mkdir(fontDir, { recursive: true });
   const faces = [];
-  for (const family of runtimeFontFamilies) {
+  for (const family of PROJECT_FONT_FAMILIES) {
     for (const weight of family.weights) {
-      const file = `${family.filePrefix}-latin-${weight}-normal.woff2`;
-      const source = projectPath(`node_modules/@fontsource/${family.packageName}/files/${file}`);
+      const file = fontFileName(family.slug, weight);
+      const source = projectPath(fontPackageRelativePath(family.slug, weight));
       await cp(source, path.join(fontDir, file), { force: true });
       faces.push([
         '@font-face {',

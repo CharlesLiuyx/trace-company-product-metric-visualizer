@@ -12,7 +12,7 @@
   const RED = '#cc0000'; const RED_LABEL = '#941100'; const RED_LINK = '#e08585';
   const icons = window.SANKEY_BUSINESS_ICONS || {};
   const icon = (name, x, y, scale) => `<g transform="translate(${x} ${y}) scale(${scale})">${icons[name] || ''}</g>`;
-  const annotations = `<g font-family="Montserrat,Arial,sans-serif">${icon('yumCompanySpeechBubble', 610, 229, 0.91)}${icon('yumKfcLogo', 125, 444, 0.96)}${icon('yumTacoBellLogo', 136, 684, 0.91)}${icon('yumPizzaHutLogo', 148, 955, 0.87)}${icon('yumHabitLogo', 141, 1138, 0.78)}</g>`;
+  const annotations = `<g font-family="Montserrat,Arial,sans-serif" data-typography-role="brand">${icon('yumCompanySpeechBubble', 610, 229, 0.91)}${icon('yumKfcLogo', 125, 444, 0.96)}${icon('yumTacoBellLogo', 136, 684, 0.91)}${icon('yumPizzaHutLogo', 148, 955, 0.87)}${icon('yumHabitLogo', 141, 1138, 0.78)}</g>`;
   const block = (x, top, lines, anchor = 'middle', lineGap = 8) => ({ blocks: [{ x, top, anchor, lineGap, lines }] });
   const labelLines = (name, value, notes, color, size = 39, valueSize = 38) => [
     ...(Array.isArray(name) ? name : [name]).map((text) => ({ text, size, weight: 800, ...(color ? { color } : {}) })),

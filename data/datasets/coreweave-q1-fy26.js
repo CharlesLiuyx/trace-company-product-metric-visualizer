@@ -18,7 +18,7 @@
   const RIGHT_LABEL_X = 2390;
 
   const annotations = `
-    <g font-family="Montserrat,Arial,sans-serif">
+    <g font-family="Montserrat,Arial,sans-serif" data-typography-role="brand">
       <svg x="650" y="230" width="530" height="330" viewBox="0 0 530 330" overflow="visible">
         ${BUSINESS_ICONS.coreweaveCompanyLogo || ''}
       </svg>

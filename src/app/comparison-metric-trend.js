@@ -248,7 +248,7 @@ function toggleComparisonMetricTrendAxis(axisKey) {
 // thin for a static share stay blank until hover reveals them.
 function comparisonMetricTrendDrawStackedLabels(chart, options) {
   const { ctx, chartArea } = chart;
-  const fontFamily = options.fontFamily || 'Montserrat, Arial, sans-serif';
+  const fontFamily = options.fontFamily || chartTheme().fontFamily;
   const formatValue = options.formatValue || ((value) => String(value));
   const totals = [];
   const stackTop = [];
@@ -379,7 +379,7 @@ const comparisonMetricTrendValueLabelsPlugin = {
       return;
     }
     const { ctx, chartArea } = chart;
-    const fontFamily = options.fontFamily || 'Montserrat, Arial, sans-serif';
+    const fontFamily = options.fontFamily || chartTheme().fontFamily;
     const formatValue = options.formatValue || ((value) => String(value));
     const entries = [];
     chart.data.datasets.forEach((dataset, datasetIndex) => {

@@ -163,6 +163,26 @@ async function evidenceFromManifest(locator, context) {
   const metrics = manifest.artifacts?.metrics
     ? await readJsonLocator(manifest.artifacts.metrics, context.projectRoot)
     : null;
+  invariant(metrics && typeof metrics === 'object', 'EVIDENCE_METRICS_REQUIRED', `Fidelity evidence has no metrics document: ${locator}`);
+  const loadedFonts = metrics.fontStatus?.loaded;
+  invariant(
+    metrics.fontStatus?.allLoaded === true &&
+      loadedFonts &&
+      Object.keys(loadedFonts).length > 0 &&
+      Object.values(loadedFonts).every(Boolean),
+    'EVIDENCE_FONT_STATUS_INVALID',
+    `Fidelity evidence did not prove every project font loaded: ${locator}`
+  );
+  const typography = metrics.typographyAudit;
+  invariant(
+    typography?.schemaVersion === 1 &&
+      typography.ruleId === 'G3' &&
+      typography.status === 'passed' &&
+      Array.isArray(typography.violations) &&
+      typography.violations.length === 0,
+    'EVIDENCE_TYPOGRAPHY_INVALID',
+    `Fidelity evidence has no passing G3 typography audit: ${locator}`
+  );
   const digest = digestFidelityValue({ manifest, artifactDigests });
   return {
     locale: manifest.identity.language,

@@ -23,7 +23,7 @@
     <g transform="translate(${x} ${y}) scale(${scale})">${BUSINESS_ICONS[name] || ''}</g>`;
 
   const annotations = `
-    <g font-family="Montserrat,Arial,sans-serif">
+    <g font-family="Montserrat,Arial,sans-serif" data-typography-role="brand">
       ${icon('googleWordmark', 55, 500, 1.07)}
       ${icon('youtubeWordmark', 56, 782, 0.76)}
       ${icon('googleAdMobWordmark', 28, 903, 0.63)}

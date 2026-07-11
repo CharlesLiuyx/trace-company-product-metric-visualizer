@@ -10,6 +10,91 @@
 
   ssot.records.push(
     {
+      key: 'monday-q4-fy25',
+      company: 'Monday.com',
+      period: 'Q4 FY25',
+      periodNote: 'Ending Dec. 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/monday-q4-fy25.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 334,
+        notes: ['+25% Y/Y'],
+        items: [{ id: 'revenue', label: 'Revenue', value: 334, notes: ['+25% Y/Y'] }],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 37 },
+        operatingExpenses: {
+          total: 294,
+          notes: ['Source chart operating-expense detail sums to $295M because of displayed rounding.'],
+          items: [
+            { id: 'sm', label: 'Sales & marketing', value: 171, notes: ['51% of revenue', '+1pp Y/Y'] },
+            { id: 'rnd', label: 'Research & development', value: 85, notes: ['25% of revenue', '+2pp Y/Y'] },
+            { id: 'ga', label: 'General & admin', value: 39, notes: ['12% of revenue', '+0pp Y/Y'] },
+          ],
+        },
+        tax: {
+          label: 'Tax',
+          value: 0,
+          notes: ['No tax expense is shown; the source chart instead shows a $61M tax benefit.'],
+        },
+      },
+      otherIncome: {
+        total: 75,
+        items: [
+          { id: 'finance', label: 'Finance', value: 14 },
+          { id: 'tax_benefit', label: 'Tax benefit', value: 61 },
+        ],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 297, notes: ['89% margin', '+0pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 2, notes: ['1% margin', '(3pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 77 },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度',
+          periodNote: '截至 2025 年 12 月',
+          revenue: {
+            notes: ['同比 +25%'],
+            items: [{ id: 'revenue', label: '收入', notes: ['同比 +25%'] }],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              notes: ['来源图中的营业费用明细因显示值四舍五入合计为 $295M。'],
+              items: [
+                { id: 'sm', label: '销售与市场', notes: ['占收入 51%', '同比 +1 个百分点'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 25%', '同比 +2 个百分点'] },
+                { id: 'ga', label: '一般及行政', notes: ['占收入 12%', '同比 +0 个百分点'] },
+              ],
+            },
+            tax: {
+              label: '税费',
+              notes: ['来源图未显示税费，而是显示 $61M 的税收收益。'],
+            },
+          },
+          otherIncome: {
+            items: [
+              { id: 'finance', label: '财务收入' },
+              { id: 'tax_benefit', label: '税收收益' },
+            ],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 89%', '同比 +0 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 1%', '同比 (3 个百分点)'] },
+            net: { label: '净利润' },
+          },
+        },
+      },
+    },
+    {
       key: 'monday-com-q1-fy26',
       company: 'Monday.com',
       period: 'Q1 FY26',

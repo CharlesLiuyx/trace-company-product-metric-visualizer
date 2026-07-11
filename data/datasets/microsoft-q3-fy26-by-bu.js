@@ -30,7 +30,7 @@
     </g>`;
 
   const annotations = `
-    <g font-family="Montserrat,Arial,sans-serif">
+    <g font-family="Montserrat,Arial,sans-serif" data-typography-role="brand">
       <defs>
         <linearGradient id="ms-bybu-azure-left" x1="0" x2="1" y1="0" y2="1">
           <stop offset="0" stop-color="#0b4f98"/>

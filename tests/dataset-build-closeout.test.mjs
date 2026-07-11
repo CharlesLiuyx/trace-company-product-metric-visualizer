@@ -59,7 +59,7 @@ function inventory(key) {
   };
 }
 
-async function writeEvidence(root, prepared, verticalCenterDelta = 0) {
+async function writeEvidence(root, prepared, verticalCenterDelta = 0, options = {}) {
   const archive = path.join(root, 'output', 'compare', prepared.build.key, '01-baseline-structure-sweep');
   await mkdir(archive, { recursive: true });
   const names = {
@@ -74,6 +74,27 @@ async function writeEvidence(root, prepared, verticalCenterDelta = 0) {
     const contents = kind === 'metrics'
       ? JSON.stringify({
           full: { similarity: 0.97 },
+          ...(options.includeFontStatus === false
+            ? {}
+            : {
+                fontStatus: {
+                  loaded: { Montserrat: true, 'Noto Sans': true, Roboto: true },
+                  allLoaded: options.fontsLoaded !== false,
+                },
+              }),
+          ...(options.includeTypographyAudit === false
+            ? {}
+            : {
+                typographyAudit: {
+                  schemaVersion: 1,
+                  ruleId: 'G3',
+                  status: options.typographyStatus || 'passed',
+                  violations:
+                    options.typographyStatus === 'failed'
+                      ? [{ code: 'product-text-uses-montserrat' }]
+                      : [],
+                },
+              }),
           labelLayoutAudit: {
             horizontalSideLabels: [{ node: 'revenue', labelIndex: 0, verticalCenterDelta }],
           },
@@ -131,6 +152,21 @@ function matrix() {
       pendingInterfaces: 0,
       notScoredInterfaces: 0,
     },
+  };
+}
+
+function pendingReviewInput(prepared, evidenceManifest, verificationReference) {
+  return {
+    buildId: prepared.build.buildId,
+    packetDigest: prepared.packetReference.digest,
+    evidenceManifests: [evidenceManifest],
+    verificationReference,
+    attestation: null,
+    regions: [],
+    attention: { status: 'closed', closureNote: 'No open red-box region remains.' },
+    feedback: [],
+    riskChecks: [],
+    interfaceMatrix: matrix(),
   };
 }
 
@@ -202,6 +238,43 @@ test('automatic evidence without human attestation cannot close a Build', async 
   assert.equal(inspection.reviewStatus, 'review-pending');
   assert.equal(inspection.report.status, 'review-pending');
   assert.match(inspection.taskInformation, /review=review-pending/);
+});
+
+test('review rejects fidelity evidence without a passing G3 typography audit', async (t) => {
+  for (const scenario of [
+    { name: 'missing audit', options: { includeTypographyAudit: false } },
+    { name: 'failed audit', options: { typographyStatus: 'failed' } },
+  ]) {
+    const { root, buildRoot, prepared } = await prepare(t);
+    const evidenceManifest = await writeEvidence(root, prepared, 0, scenario.options);
+    const verificationReference = await writeDatasetVerification(root, buildRoot, prepared);
+    await assert.rejects(
+      finishReviewedBuild(
+        pendingReviewInput(prepared, evidenceManifest, verificationReference),
+        { buildRoot, projectRoot: root, now }
+      ),
+      (error) => {
+        assert.equal(error.code, 'EVIDENCE_TYPOGRAPHY_INVALID', scenario.name);
+        return true;
+      }
+    );
+  }
+});
+
+test('review rejects fidelity evidence without a passing project font status', async (t) => {
+  const { root, buildRoot, prepared } = await prepare(t);
+  const evidenceManifest = await writeEvidence(root, prepared, 0, { fontsLoaded: false });
+  const verificationReference = await writeDatasetVerification(root, buildRoot, prepared);
+  await assert.rejects(
+    finishReviewedBuild(
+      pendingReviewInput(prepared, evidenceManifest, verificationReference),
+      { buildRoot, projectRoot: root, now }
+    ),
+    (error) => {
+      assert.equal(error.code, 'EVIDENCE_FONT_STATUS_INVALID');
+      return true;
+    }
+  );
 });
 
 test('render evidence cannot close a Build without Build-bound dataset consistency evidence', async (t) => {

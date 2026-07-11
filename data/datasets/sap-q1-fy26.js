@@ -21,7 +21,7 @@
 
   const annotations = `
     <g font-family="Montserrat,Arial,sans-serif">
-      <g transform="translate(1010 253)">
+      <g transform="translate(1010 253)" data-typography-role="brand">
         <defs>
           <linearGradient id="sap-logo-gradient" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0" stop-color="#12b7e7"/>

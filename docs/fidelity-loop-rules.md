@@ -55,7 +55,18 @@ build-local `FeedbackRecord`，再进入派生 Feedback Ledger。
 
 - G1 候选图必须是 `SankeyEngine.render()` 产生的 d3/SVG 输出。
 - G2 SVG 尺寸必须等于 `meta.referenceImage.width` 和 `meta.referenceImage.height`。
-- G3 本地 Montserrat 字体必须加载成功；不得用 fallback font 计分。
+- G3 **Typography** 分成三个同时成立的门禁：
+  - G3a 共享 font manifest 中 Montserrat、Noto Sans、Roboto 的全部本地
+    font face 必须加载成功；不得用 fallback font 计分。
+  - G3b 最终 Sankey DOM 中的产品文本必须使用 View 字体角色
+    （Noto Sans，或数值说明 / Hover Tooltip 的 Roboto），computed
+    `font-family` 不得在任何 fallback 位置包含 Montserrat。
+  - G3c 仅最近祖先显式带
+    `data-typography-role="brand"` 的 Logo、wordmark 或品牌插图文本豁免
+    G3b，其字体不受限制。不得给整个 `.sankey-annotations`、主 SVG
+    或普通 label 容器标记 brand。
+  当前项目字体文件是 Latin 子集；中文 glyph 仍允许走操作系统 CJK
+  fallback，不将这一已知边界误报为 G3a 失败。
 - G4 `#chart` 中不得出现 `<img>`、canvas、foreignObject、picture、video、
   iframe、object 或 embed。
 - G5 `#chart` 参与截图的元素不得使用 CSS `background-image` 作为像素补丁。
@@ -366,7 +377,7 @@ metrics JSON 的 `labelLayoutAudit` 与该清单互核，`centerDelta`、`edgeGa
 | 源图特征（对象盘点可判） | 必查规则 | 逐对象核对产物 |
 | --- | --- | --- |
 | 可见短辅助柱/短横柱（interest、other income、tax、investments、net-profit terminal…） | G9、T2、T9、T10、T13、T14、L10、L11 | 每根短柱：bbox、同轴 label 中心差、link 宽度 |
-| 多入/出节点及单入出结果柱 | L1–L4、L8、L11 | 每节点：进出顺序对照、Σlink.width vs 柱高 |
+| 多入/出节点及单入出结果柱 | L1–L4、L8、L11 | 每节点：进出顺序对照、每条入/出 link 的边缘顺位与 `sourceOrder`/`targetOrder`/显式 socket 对照、Σlink.width vs 柱高 |
 | waterfall 调整区/绕行带 | L8、L14 | 每条带：原图对应关系、语义分母 |
 | 深色 hub/深色源出发的 profit 流带 | L12 | 每条：近源缘取色结论 |
 | hub/中间聚合柱贴附名称块 | T2 | 中心差、5px 边距 |
@@ -563,25 +574,19 @@ Interface Matrix 与 G12 interface audit，不以源码 link 数组位置、node
   金额均取 authored magnitude（绝对值），不得用 d3 按流量重算的 node value 改写
   报表口径。
 
-  Hover node 或其 label 时，incoming 与 outgoing 两侧独立判断 **distinct 对端
-  semantic node 数量**。计数同时覆盖 graph links 与声明 numerator/denominator 的
+  Hover node 或其 label 时，incoming 与 outgoing 两侧仍按 **distinct 对端
+  semantic node** 分组。计数同时覆盖 graph links 与声明 numerator/denominator 的
   SVG annotation；同一 graph link 的 annotation 只计一次。平行 links 指向同一对端
-  时视为一个来源/去向，其 link amount 聚合后显示一张 Tag。
+  时视为一个来源/去向，合并为一张 Tag；没有对端则不显示 Tag。分组只决定 Tag 的
+  数量，**不改变百分比公式**。
 
-  - 同侧 distinct 对端 `> 1`：每个来源/去向显示
-    `|aggregated link value| / |当前 node authored value|`；
-  - 同侧恰有一个对端：显示
-    `|当前 node authored value| / |对端 node authored value|`；
-  - 同侧没有对端：不显示 Tag。
-
-  Hover link 或带 endpoint 的 guide 本身时，始终显示
+  Hover node、其 label、link，或带 endpoint 的 guide 时，始终显示
   `min(|source authored value|, |target authored value|) /
   max(|source authored value|, |target authored value|)`，与方向无关并忽略
-  `link.value`。同一关系在 node 与 link 两种 surface 上允许得到不同结果：例如
-  Datadog Q4 FY25 的 Operating profit 有多个去向，hover 该 node 时其 Net profit
-  流为 `9 / 9 = 100%`，直接 hover link 时为 `9 / 47 = 19.1%`。Coupang 的 `$8M`
-  与 `($34M)` singleton 关系，在 `$8M` node 为 `23.5%`、在 `($34M)` node 为
-  `425%`、在 link 上仍为 `23.5%`。方向性结果超过 100% 合法，不得 clamp。
+  `link.value`。同一 semantic relationship 在所有 hover surface 上必须得到同一
+  结果：例如 Airbus FY25 的 Operating profit → Net profit 为
+  `5.0 / 5.2 = 96.2%`，Other → Net profit 为 `0.9 / 5.0 = 18%`。不得因一个
+  target 同时有多条流入就改用 target 值作统一分母，避免显示相加超过 100% 的伪构成比。
 
   `hoverPercentMode`、`nodeHoverPercentDenominator`、`percent`、`percentage`、
   `percentText`、`percentageText` 均为禁止字段，由 `verify:ssot` 拒绝。分母为 `0`
@@ -612,7 +617,7 @@ Interface Matrix 与 G12 interface audit，不以源码 link 数组位置、node
   的两张 Tag，则 bridge 是独立可报告关系，**不得**设置 `showTooltip: false`；两张
   Tag 分别锚定各自的中心线，并都按 L14 的 authored magnitude 口径计算。annotation
   与同一 `interactionOnly` link 共存时合并为一个 semantic relationship：node hover
-  走 node-side 规则，直接 hover annotation 才走较小 endpoint / 较大 endpoint。
+  与直接 hover annotation 都按较小 endpoint / 较大 endpoint 计算。
   `showTooltip: false` 只抑制该 bridge 的百分比卡片，绝不能改变其可见性或 hover
   高亮。`linkTint` 恰好等于背景色或透明色也不得隐式替换、展开或抑制该 relationship；
   视觉路由若不应显示 Tag，必须显式使用 `showTooltip: false` 并保留真正的 semantic
@@ -702,8 +707,8 @@ link 两端宽度不同 → `sourceWidth` / `targetWidth` + tapered ribbon；双
   声明连接两端的 node，并把实算百分比 Tooltip 锚定在引导线上（不得退化为仅显示节点
   名称/金额）。只要 annotation 声明了两端，它就是 semantic relationship，并纳入两端
   node 的 distinct 对端计数；若与 graph link 表达同一连接则按对端去重、使用真实 link
-  amount 并保留 annotation 锚点。随 node hover 时按 L14 的 node-side 规则计算；直接
-  hover 引导线时按两端 authored magnitude 的小值/大值计算。没有端点语义的纯 callout
+  amount 并保留 annotation 锚点。随 node hover 或直接 hover 引导线时，均按两端
+  authored magnitude 的小值/大值计算。没有端点语义的纯 callout
   才回退为普通 node hover。
   标签应以引导线的视觉中心/终点为锚点，而不是以隐形 node bbox 强行居中；平滑曲线的
   source、target 切线仍按 L15 审查。

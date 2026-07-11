@@ -19,7 +19,7 @@
   const annotations = `
     <g font-family="Montserrat,Arial,sans-serif">
       <text x="89" y="267" font-size="38" font-weight="800" fill="${TITLE}">By Business Segment</text>
-      <text x="606" y="397" font-family="Arial,Helvetica,sans-serif" font-size="126" font-weight="400" textLength="760" lengthAdjust="spacingAndGlyphs" fill="${BLACK}">Morgan Stanley</text>
+      <text x="606" y="397" font-family="Arial,Helvetica,sans-serif" font-size="126" font-weight="400" textLength="760" lengthAdjust="spacingAndGlyphs" fill="${BLACK}" data-typography-role="brand">Morgan Stanley</text>
 
       <g fill="${BLACK}" font-family="Montserrat,Arial,sans-serif">
         <rect x="123" y="1108" width="242" height="149" rx="30"/>

@@ -10,6 +10,94 @@
 
   ssot.records.push(
     {
+      key: 'klarna-q4-fy25',
+      company: 'Klarna',
+      period: 'Q4 FY25',
+      periodNote: 'Quarter ended Dec. 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/klarna-q4-fy25.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 1082,
+        notes: ['+38% Y/Y'],
+        items: [
+          { id: 'transaction_revenue', label: 'Transaction revenue', value: 743, notes: ['+24% Y/Y'] },
+          { id: 'gain_on_sale_consumer_receivables', label: 'Gain on sale of consumer receivables', value: 73, notes: ['NM'] },
+          { id: 'interest', label: 'Interest', value: 267, notes: ['+47% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          label: 'Transaction margin costs',
+          value: 710,
+          items: [
+            { id: 'provision_credit_losses', label: 'Provision for credit losses', value: 250 },
+            { id: 'processing_servicing_costs', label: 'Processing and servicing costs', value: 250 },
+            { id: 'funding_costs', label: 'Funding costs', value: 210 },
+          ],
+        },
+        operatingExpenses: {
+          total: 384,
+          items: [
+            { id: 'tech_product_development', label: 'Tech & product development', value: 102 },
+            { id: 'sales_marketing', label: 'Sales & marketing', value: 106 },
+            { id: 'customer_service_operations', label: 'Customer service & operations', value: 51 },
+            { id: 'general_administrative', label: 'General & administrative', value: 66 },
+            { id: 'da_impairment', label: 'D&A and impairment', value: 59 },
+          ],
+        },
+        tax: { label: 'Tax', value: 0, notes: ['No separate tax line is shown in the source chart.'] },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'transaction_margin', label: 'Transaction margin dollars', value: 372, notes: ['+17% Y/Y'] },
+        operating: { id: 'operating_loss', label: 'Operating loss', value: -11, notes: ['(1%) margin', '+12pp Y/Y'] },
+        net: { id: 'operating_loss', label: 'Operating loss', value: -11, notes: ['No separate net income line is shown in the source chart.'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度',
+          periodNote: '截至 2025 年 12 月的季度',
+          revenue: {
+            notes: ['同比 +38%'],
+            items: [
+              { id: 'transaction_revenue', label: '交易收入', notes: ['同比 +24%'] },
+              { id: 'gain_on_sale_consumer_receivables', label: '出售消费者应收账款收益', notes: ['无意义可比数'] },
+              { id: 'interest', label: '利息', notes: ['同比 +47%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: {
+              label: '交易毛利成本',
+              items: [
+                { id: 'provision_credit_losses', label: '信用损失准备金' },
+                { id: 'processing_servicing_costs', label: '处理和服务成本' },
+                { id: 'funding_costs', label: '融资成本' },
+              ],
+            },
+            operatingExpenses: {
+              items: [
+                { id: 'tech_product_development', label: '技术与产品开发' },
+                { id: 'sales_marketing', label: '销售与营销' },
+                { id: 'customer_service_operations', label: '客服与运营' },
+                { id: 'general_administrative', label: '一般及行政' },
+                { id: 'da_impairment', label: '折旧、摊销及减值' },
+              ],
+            },
+            tax: { label: '税费', notes: ['来源图未单列税费。'] },
+          },
+          profit: {
+            gross: { label: '交易毛利额', notes: ['同比 +17%'] },
+            operating: { label: '营业亏损', notes: ['利润率 (1%)', '同比 +12 个百分点'] },
+            net: { label: '营业亏损', notes: ['来源图未单独显示净利润项目。'] },
+          },
+        },
+      },
+    },
+    {
       key: 'klarna-q1-fy26',
       company: 'Klarna',
       period: 'Q1 FY26',

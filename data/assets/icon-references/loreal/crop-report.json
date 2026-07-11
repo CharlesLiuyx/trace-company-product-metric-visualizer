@@ -1,0 +1,414 @@
+{
+  "source": "input/processed/loreal-fy25.png",
+  "spec": "input/icon-crop-specs/loreal-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-11T06:33:49.060246+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/loreal",
+  "crops": [
+    {
+      "key": "loreal-professional-products-brands",
+      "output": "data/assets/icon-references/loreal/crops/professional-products-brands.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3624,
+        "losslessBytes": 16093,
+        "savingsVsLossless": 0.7748,
+        "metrics": {
+          "meanAbsoluteError": 0.7799,
+          "rootMeanSquareError": 2.2686,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 25,
+          "changedPixelRatio": 0.2659
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 20714,
+        "transparentPixelRatio": 0.7505
+      },
+      "searchBox": {
+        "x": 0,
+        "y": 318,
+        "width": 184,
+        "height": 150
+      },
+      "componentCount": 26,
+      "subjectBox": {
+        "x0": 23,
+        "y0": 325,
+        "x1": 167,
+        "y1": 464
+      },
+      "cropBox": {
+        "x0": 0,
+        "y0": 318,
+        "x1": 184,
+        "y1": 468
+      },
+      "validation": {
+        "width": 184,
+        "height": 150,
+        "foregroundPixels": 5753,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 23,
+          "right": 17,
+          "top": 7,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": 0.0163,
+          "y": 0.01
+        },
+        "passes": true
+      },
+      "note": "L\u2019Or\u00e9al Professionnel, K\u00e9rastase, and Redken wordmark cluster for Professional Products; excludes the division label and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/loreal/professional-products-brands.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3624,
+        "losslessBytes": 16093,
+        "savingsVsLossless": 0.7748,
+        "metrics": {
+          "meanAbsoluteError": 0.7799,
+          "rootMeanSquareError": 2.2686,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 25,
+          "changedPixelRatio": 0.2659
+        }
+      },
+      "validationSheet": "data/assets/icon-references/loreal/validation-sheets/loreal-professional-products-brands.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 305964,
+        "losslessBytes": 305964,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "loreal-consumer-products-brands",
+      "output": "data/assets/icon-references/loreal/crops/consumer-products-brands.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 3908,
+        "losslessBytes": 16668,
+        "savingsVsLossless": 0.7655,
+        "metrics": {
+          "meanAbsoluteError": 0.6862,
+          "rootMeanSquareError": 2.1032,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 37,
+          "changedPixelRatio": 0.2457
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 21459,
+        "transparentPixelRatio": 0.7573
+      },
+      "searchBox": {
+        "x": 0,
+        "y": 572,
+        "width": 184,
+        "height": 154
+      },
+      "componentCount": 35,
+      "subjectBox": {
+        "x0": 19,
+        "y0": 588,
+        "x1": 183,
+        "y1": 710
+      },
+      "cropBox": {
+        "x0": 0,
+        "y0": 572,
+        "x1": 184,
+        "y1": 726
+      },
+      "validation": {
+        "width": 184,
+        "height": 154,
+        "foregroundPixels": 5872,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 19,
+          "right": 1,
+          "top": 16,
+          "bottom": 16
+        },
+        "centerOffset": {
+          "x": 0.0489,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "L\u2019Or\u00e9al Paris, Garnier, and Maybelline New York wordmark cluster for Consumer Products; excludes the division label and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/loreal/consumer-products-brands.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 3908,
+        "losslessBytes": 16668,
+        "savingsVsLossless": 0.7655,
+        "metrics": {
+          "meanAbsoluteError": 0.6862,
+          "rootMeanSquareError": 2.1032,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 37,
+          "changedPixelRatio": 0.2457
+        }
+      },
+      "validationSheet": "data/assets/icon-references/loreal/validation-sheets/loreal-consumer-products-brands.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 304914,
+        "losslessBytes": 304914,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "loreal-luxe-brands",
+      "output": "data/assets/icon-references/loreal/crops/loreal-luxe-brands.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3059,
+        "losslessBytes": 13491,
+        "savingsVsLossless": 0.7733,
+        "metrics": {
+          "meanAbsoluteError": 0.4618,
+          "rootMeanSquareError": 1.7252,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 22,
+          "changedPixelRatio": 0.1644
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 25141,
+        "transparentPixelRatio": 0.8526
+      },
+      "searchBox": {
+        "x": 0,
+        "y": 881,
+        "width": 194,
+        "height": 152
+      },
+      "componentCount": 26,
+      "subjectBox": {
+        "x0": 21,
+        "y0": 892,
+        "x1": 176,
+        "y1": 1023
+      },
+      "cropBox": {
+        "x0": 0,
+        "y0": 881,
+        "x1": 194,
+        "y1": 1033
+      },
+      "validation": {
+        "width": 194,
+        "height": 152,
+        "foregroundPixels": 3627,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 21,
+          "right": 18,
+          "top": 11,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": 0.0077,
+          "y": 0.0033
+        },
+        "passes": true
+      },
+      "note": "Lanc\u00f4me, Giorgio Armani Beauty, and Helena Rubinstein wordmark cluster for L\u2019Or\u00e9al Luxe; excludes the division label and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/loreal/loreal-luxe-brands.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3059,
+        "losslessBytes": 13491,
+        "savingsVsLossless": 0.7733,
+        "metrics": {
+          "meanAbsoluteError": 0.4618,
+          "rootMeanSquareError": 1.7252,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 22,
+          "changedPixelRatio": 0.1644
+        }
+      },
+      "validationSheet": "data/assets/icon-references/loreal/validation-sheets/loreal-luxe-brands.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 289140,
+        "losslessBytes": 289140,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "loreal-active-cosmetics-brands",
+      "output": "data/assets/icon-references/loreal/crops/active-cosmetics-brands.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 3355,
+        "losslessBytes": 15815,
+        "savingsVsLossless": 0.7879,
+        "metrics": {
+          "meanAbsoluteError": 0.5109,
+          "rootMeanSquareError": 1.6333,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 14,
+          "changedPixelRatio": 0.2221
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 24895,
+        "transparentPixelRatio": 0.7921
+      },
+      "searchBox": {
+        "x": 0,
+        "y": 1128,
+        "width": 194,
+        "height": 162
+      },
+      "componentCount": 20,
+      "subjectBox": {
+        "x0": 30,
+        "y0": 1135,
+        "x1": 164,
+        "y1": 1271
+      },
+      "cropBox": {
+        "x0": 0,
+        "y0": 1128,
+        "x1": 194,
+        "y1": 1290
+      },
+      "validation": {
+        "width": 194,
+        "height": 162,
+        "foregroundPixels": 5502,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 30,
+          "right": 30,
+          "top": 7,
+          "bottom": 19
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.037
+        },
+        "passes": true
+      },
+      "note": "La Roche-Posay, Vichy, and CeraVe wordmark cluster for Active Cosmetics; excludes the division label and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/loreal/active-cosmetics-brands.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 3355,
+        "losslessBytes": 15815,
+        "savingsVsLossless": 0.7879,
+        "metrics": {
+          "meanAbsoluteError": 0.5109,
+          "rootMeanSquareError": 1.6333,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 14,
+          "changedPixelRatio": 0.2221
+        }
+      },
+      "validationSheet": "data/assets/icon-references/loreal/validation-sheets/loreal-active-cosmetics-brands.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 295316,
+        "losslessBytes": 295316,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

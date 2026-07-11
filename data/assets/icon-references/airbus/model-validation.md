@@ -87,3 +87,36 @@ raster annotations (`render.allowRasterAnnotations = true`,
 `data.rasterAnnotations`), following the Boeing/DiDi/Meituan segment-tile
 precedent, because the photographic imagery and the custom wordmark logotype
 cannot be reproduced with the Montserrat text/vector stack used for labels.
+
+## FY25 additions
+
+Source: `input/processed/airbus-fy25.png` (2667×1500)
+Spec: `input/icon-crop-specs/airbus-fy25.json`
+Report: `data/assets/icon-references/airbus/crop-report-fy25.json`
+
+The FY25 source reuses the same H160 helicopter tile and AIRBUS wordmark as
+the validated Q1 FY26 source, so it reuses those existing runtime assets. Its
+commercial-aircraft and satellite labels sit closer to the photos, requiring
+two tighter, opaque background-matched patches.
+
+### airbus-a380-fy25-tile
+
+- Crop: `crops/commercial-aircraft-a380-fy25.png` (402×142); runtime copy
+  `data/assets/raster-annotations/airbus/commercial-aircraft-a380-fy25.png`.
+- Source placement: x=6, y=378, w=402, h=142. The A380 is complete and the
+  crop ends at y=520, above the FY25 Airbus label.
+- Script validation: **passes** — zero edge/forbidden foreground pixels and
+  center offset `(0.0, -0.0563)`.
+- Visual/model check (validation sheet reviewed): **accepted**. The crop has
+  the complete aircraft and contains no label, value block, link, or node.
+
+### airbus-satellite-fy25-tile
+
+- Crop: `crops/defense-space-satellite-fy25.png` (178×70); runtime copy
+  `data/assets/raster-annotations/airbus/defense-space-satellite-fy25.png`.
+- Source placement: x=180, y=944, w=178, h=70. It preserves the satellite
+  bus and both solar-array ends while stopping above the FY25 segment label.
+- Script validation: **passes** — zero edge/forbidden foreground pixels and
+  center offset `(-0.1039, -0.05)`.
+- Visual/model check (validation sheet reviewed): **accepted**. The crop has
+  no value text, segment label, or navy source node.

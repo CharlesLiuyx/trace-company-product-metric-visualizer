@@ -28,7 +28,7 @@
     </g>`;
 
   const redditWordmark = `
-    <g transform="translate(482 392)">
+    <g transform="translate(482 392)" data-typography-role="brand">
       <g>
         <path d="M96 209 C38 199 0 157 0 105 C0 46 49 0 111 0 C174 0 223 46 223 105 C223 159 184 201 126 210 L41 239 Z" fill="${ORANGE}"/>
         <circle cx="111" cy="103" r="78" fill="#ffffff"/>

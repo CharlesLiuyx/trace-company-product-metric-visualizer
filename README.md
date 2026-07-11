@@ -53,7 +53,8 @@ pnpm verify:standalone
 
 The generated file is
 `output/trace-company-product-metric-visualizer.html`. It inlines the viewer CSS,
-all ordered scripts, local Montserrat font files, and datasets. It does not
+all ordered scripts, the shared local Montserrat, Noto Sans, and Roboto font
+manifest, and datasets. It does not
 inline or request processed reference PNGs; those remain verification inputs
 only.
 
@@ -276,6 +277,15 @@ The viewer renders only the editable d3-sankey SVG from
 `src/sankey-engine.js`. Processed reference PNGs are kept in
 `input/processed/` and referenced by `meta.referenceImage` for the fidelity
 verifier, but they are not part of the app runtime or standalone HTML artifact.
+
+Typography follows content roles rather than page inheritance: App Chrome
+(toolbar, sidebar, controls, actionbar) uses Montserrat; View product text in
+Sankey, Trend, Comparison, and Table uses Noto Sans; Sankey numeric notes and
+Hover Tooltips use Roboto. Brand-faithful Logo/wordmark artwork may use any
+font, but brand text inside `annotationsSvg` must have the nearest explicit
+`data-typography-role="brand"` ancestor. The renderer adds that role around
+`meta.logoSvg` automatically. Development, render verification, production,
+and standalone builds share one family/weight manifest.
 
 ## Add your company
 

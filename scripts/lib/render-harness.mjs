@@ -158,17 +158,43 @@ export async function assertProjectFontsLoaded(page) {
       )
     );
     await document.fonts.ready;
+    await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    const faces = Array.from(document.fonts).map((font) => ({
+      family: String(font.family || '').replace(/^['"]|['"]$/g, ''),
+      weight: String(font.weight || ''),
+      style: String(font.style || ''),
+      status: font.status,
+    }));
+    const loadedFaces = Object.fromEntries(
+      requiredFonts.map(({ family, weights }) => [
+        family,
+        Object.fromEntries(
+          weights.map((weight) => [
+            weight,
+            faces.some(
+              (face) =>
+                face.family === family &&
+                Number(face.weight) === weight &&
+                face.style === 'normal' &&
+                face.status === 'loaded'
+            ),
+          ])
+        ),
+      ])
+    );
     const loaded = Object.fromEntries(
-      requiredFonts.map(({ family }) => [family, document.fonts.check(`16px "${family}"`)])
+      requiredFonts.map(({ family }) => [
+        family,
+        document.fonts.check(`16px "${family}"`) &&
+          Object.values(loadedFaces[family]).every(Boolean),
+      ])
     );
     return {
+      requiredFonts,
       loaded,
       allLoaded: Object.values(loaded).every(Boolean),
-      faces: Array.from(document.fonts).map((font) => ({
-        family: font.family,
-        weight: font.weight,
-        status: font.status,
-      })),
+      loadedFaces,
+      faces,
     };
   }, PROJECT_FONT_FAMILIES.map(({ family, weights }) => ({ family, weights })));
   if (!fontStatus.allLoaded) {
@@ -177,6 +203,207 @@ export async function assertProjectFontsLoaded(page) {
     );
   }
   return fontStatus;
+}
+
+const PRODUCT_FONT_FAMILIES = new Set(['noto sans', 'roboto']);
+const FORBIDDEN_PRODUCT_FONT_FAMILIES = new Set(['montserrat']);
+
+function parsedFontFamilies(fontFamily) {
+  return String(fontFamily || '')
+    .split(',')
+    .map((family) => family.trim().replace(/^(['"])(.*)\1$/, '$2').trim())
+    .filter(Boolean);
+}
+
+function typographyViolation(record, code, reason) {
+  return {
+    code,
+    reason,
+    text: record.text,
+    element: record.element,
+    role: record.role,
+    fontFamily: record.fontFamily,
+    selectorPath: record.selectorPath,
+  };
+}
+
+// Pure classifier shared by the browser collector and unit tests. Semantic
+// counts are based on SVG <text> elements, while run-level checks also include
+// descendant <tspan>/<textPath> elements so an inline font override cannot
+// evade the final-DOM policy.
+export function classifyTypographyAudit({
+  dataset = '',
+  language = '',
+  texts = [],
+  runs = [],
+  invalidBrandScopes = [],
+}) {
+  if (!Array.isArray(texts) || !Array.isArray(runs) || !Array.isArray(invalidBrandScopes)) {
+    throw new TypeError('Typography audit texts, runs, and invalidBrandScopes must be arrays');
+  }
+
+  const inventory = texts.map((record) => ({
+    ...record,
+    primaryFontFamily: parsedFontFamilies(record.fontFamily)[0] || '',
+  }));
+  const textRuns = runs.map((record) => ({
+    ...record,
+    primaryFontFamily: parsedFontFamilies(record.fontFamily)[0] || '',
+  }));
+  const violations = invalidBrandScopes.map((scope) => ({
+    code: 'invalid-brand-role-scope',
+    reason: 'brand-role-must-use-a-minimal-brand-graphic-wrapper',
+    text: '',
+    element: scope.element || '',
+    role: 'brand',
+    fontFamily: '',
+    selectorPath: scope.selectorPath || '',
+  }));
+
+  for (const record of textRuns) {
+    const families = parsedFontFamilies(record.fontFamily);
+    const normalized = families.map((family) => family.toLowerCase());
+    if (!families.length) {
+      violations.push(
+        typographyViolation(record, 'text-missing-font-family', 'rendered-text-has-no-computed-font-family')
+      );
+      continue;
+    }
+    if (record.role === 'brand') continue;
+    if (normalized.some((family) => FORBIDDEN_PRODUCT_FONT_FAMILIES.has(family))) {
+      violations.push(
+        typographyViolation(
+          record,
+          'product-text-uses-montserrat',
+          'product-text-computed-font-family-contains-montserrat'
+        )
+      );
+      continue;
+    }
+    if (!PRODUCT_FONT_FAMILIES.has(normalized[0])) {
+      violations.push(
+        typographyViolation(
+          record,
+          'product-text-uses-unapproved-font',
+          'product-text-primary-font-must-be-noto-sans-or-roboto'
+        )
+      );
+    }
+  }
+
+  const familyCounts = { product: {}, brand: {} };
+  for (const record of inventory) {
+    const family = record.primaryFontFamily || '(missing)';
+    const role = record.role === 'brand' ? 'brand' : 'product';
+    familyCounts[role][family] = (familyCounts[role][family] || 0) + 1;
+  }
+
+  return {
+    schemaVersion: 1,
+    ruleId: 'G3',
+    status: violations.length ? 'failed' : 'passed',
+    dataset: String(dataset || ''),
+    language: String(language || ''),
+    checkedTextCount: inventory.length,
+    checkedTextRuns: textRuns.length,
+    productTextCount: inventory.filter((record) => record.role !== 'brand').length,
+    brandTextCount: inventory.filter((record) => record.role === 'brand').length,
+    familyCounts,
+    inventory,
+    textRuns,
+    invalidBrandScopes,
+    violations,
+  };
+}
+
+// Read-only final-DOM audit. The root selector is configurable so the same
+// policy can inspect a live Sankey or a reattached serialized export.
+export async function typographyAudit(page, options = {}) {
+  const collected = await page.evaluate(({ rootSelector, dataset, language }) => {
+    const svg = document.querySelector(rootSelector);
+    if (!svg) throw new Error(`Typography audit root not found: ${rootSelector}`);
+
+    const normalizeText = (element) =>
+      String(element.textContent || '').replace(/\s+/g, ' ').trim();
+    const selectorSegment = (element) => {
+      const tag = element.tagName.toLowerCase();
+      const id = element.getAttribute('id');
+      const classes = String(element.getAttribute('class') || '')
+        .trim()
+        .split(/\s+/)
+        .filter(Boolean)
+        .map((name) => `.${name}`)
+        .join('');
+      const node = element.getAttribute('data-node');
+      const role = element.getAttribute('data-typography-role');
+      const siblings = element.parentElement
+        ? Array.from(element.parentElement.children).filter((sibling) => sibling.tagName === element.tagName)
+        : [];
+      const position = siblings.length > 1 ? `:nth-of-type(${siblings.indexOf(element) + 1})` : '';
+      return `${tag}${id ? `#${id}` : ''}${classes}${node ? `[data-node="${node}"]` : ''}${role ? `[data-typography-role="${role}"]` : ''}${position}`;
+    };
+    const selectorPath = (element) => {
+      const segments = [];
+      let current = element;
+      while (current) {
+        segments.unshift(selectorSegment(current));
+        if (current === svg) break;
+        current = current.parentElement;
+      }
+      return segments.join(' > ');
+    };
+    const recordFor = (element) => {
+      const style = window.getComputedStyle(element);
+      return {
+        text: normalizeText(element),
+        element: element.tagName.toLowerCase(),
+        role: element.closest('[data-typography-role="brand"]') ? 'brand' : 'product',
+        fontFamily: String(style.fontFamily || ''),
+        fontWeight: String(style.fontWeight || ''),
+        selectorPath: selectorPath(element),
+      };
+    };
+
+    const texts = Array.from(svg.querySelectorAll('text')).map(recordFor);
+    const runs = Array.from(svg.querySelectorAll('text, text tspan, text textPath')).map(recordFor);
+    const invalidBrandElements = [];
+    if (svg.getAttribute('data-typography-role') === 'brand') invalidBrandElements.push(svg);
+    invalidBrandElements.push(
+      ...svg.querySelectorAll(
+        '.sankey-annotations[data-typography-role="brand"], .sankey-label[data-typography-role="brand"]'
+      )
+    );
+    const invalidBrandScopes = [...new Set(invalidBrandElements)].map((element) => ({
+      element: element.tagName.toLowerCase(),
+      selectorPath: selectorPath(element),
+    }));
+
+    return { dataset, language, texts, runs, invalidBrandScopes };
+  }, {
+    rootSelector: options.rootSelector || '#chart > svg',
+    dataset: options.dataset || '',
+    language: options.language || '',
+  });
+  return classifyTypographyAudit(collected);
+}
+
+export function assertTypographyAudit(audit) {
+  if (audit?.status === 'passed' && Array.isArray(audit.violations) && audit.violations.length === 0) {
+    return audit;
+  }
+  const violations = Array.isArray(audit?.violations) ? audit.violations : [];
+  const details = violations
+    .slice(0, 5)
+    .map((violation) => {
+      const text = violation.text ? ` ${JSON.stringify(violation.text)}` : '';
+      const font = violation.fontFamily ? ` font=${JSON.stringify(violation.fontFamily)}` : '';
+      const selector = violation.selectorPath ? ` at ${violation.selectorPath}` : '';
+      return `${violation.code || 'invalid-audit'}${text}${font}${selector}`;
+    })
+    .join('; ');
+  throw new Error(
+    `Typography audit failed (G3): ${violations.length || 'invalid'} violation(s)${details ? `: ${details}` : ''}`
+  );
 }
 
 const TEXT_LAYOUT_TOLERANCE = 0.5;

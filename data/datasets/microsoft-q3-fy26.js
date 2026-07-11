@@ -34,7 +34,7 @@
     <g transform="translate(${x} ${y}) scale(${scale})">${BUSINESS_ICONS[name] || ''}</g>`;
 
   const annotations = `
-    <g font-family="Montserrat,Arial,sans-serif">
+    <g font-family="Montserrat,Arial,sans-serif" data-typography-role="brand">
       ${icon('microsoftAzure', 317, 323, 0.77)}
       ${icon('microsoft365Commercial', 325, 564, 0.90)}
       ${icon('microsoftXbox', 317, 737, 0.88)}

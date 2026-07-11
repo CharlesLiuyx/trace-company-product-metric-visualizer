@@ -1,0 +1,602 @@
+{
+  "source": "input/processed/hermes-fy25.png",
+  "spec": "input/icon-crop-specs/hermes-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-11T06:36:50.693403+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/hermes",
+  "crops": [
+    {
+      "key": "hermes-brandmark",
+      "output": "data/assets/icon-references/hermes/crops/hermes-brandmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 8030,
+        "losslessBytes": 36841,
+        "savingsVsLossless": 0.782,
+        "metrics": {
+          "meanAbsoluteError": 0.4395,
+          "rootMeanSquareError": 2.0854,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.2372
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 108883,
+        "transparentPixelRatio": 0.7609
+      },
+      "searchBox": {
+        "x": 720,
+        "y": 220,
+        "width": 510,
+        "height": 250
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 726,
+        "y0": 237,
+        "x1": 1193,
+        "y1": 447
+      },
+      "cropBox": {
+        "x0": 710,
+        "y0": 210,
+        "x1": 1240,
+        "y1": 480
+      },
+      "validation": {
+        "width": 530,
+        "height": 270,
+        "foregroundPixels": 27832,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 16,
+          "right": 47,
+          "top": 27,
+          "bottom": 33
+        },
+        "centerOffset": {
+          "x": -0.0292,
+          "y": -0.0111
+        },
+        "passes": true
+      },
+      "note": "Herm\u00e8s carriage-and-wordmark cluster above the revenue hub; excludes the chart title, revenue label, and ribbons.",
+      "runtimeOutput": "data/assets/raster-annotations/hermes/hermes-brandmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 8030,
+        "losslessBytes": 36841,
+        "savingsVsLossless": 0.782,
+        "metrics": {
+          "meanAbsoluteError": 0.4395,
+          "rootMeanSquareError": 2.0854,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.2372
+        }
+      },
+      "validationSheet": "data/assets/icon-references/hermes/validation-sheets/hermes-brandmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 279691,
+        "losslessBytes": 279691,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "leather-goods-saddlery",
+      "output": "data/assets/icon-references/hermes/crops/leather-goods-saddlery.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2002,
+        "losslessBytes": 10836,
+        "savingsVsLossless": 0.8152,
+        "metrics": {
+          "meanAbsoluteError": 0.9002,
+          "rootMeanSquareError": 2.6078,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.3394
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 12422,
+        "transparentPixelRatio": 0.6625
+      },
+      "searchBox": {
+        "x": 15,
+        "y": 370,
+        "width": 110,
+        "height": 130
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 22,
+        "y0": 383,
+        "x1": 109,
+        "y1": 477
+      },
+      "cropBox": {
+        "x0": 8,
+        "y0": 360,
+        "x1": 133,
+        "y1": 510
+      },
+      "validation": {
+        "width": 125,
+        "height": 150,
+        "foregroundPixels": 6002,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 14,
+          "right": 24,
+          "top": 23,
+          "bottom": 33
+        },
+        "centerOffset": {
+          "x": -0.04,
+          "y": -0.0333
+        },
+        "passes": true
+      },
+      "note": "Handbag product image for the Leather Goods & Saddlery revenue line; excludes labels and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/hermes/leather-goods-saddlery.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2002,
+        "losslessBytes": 10836,
+        "savingsVsLossless": 0.8152,
+        "metrics": {
+          "meanAbsoluteError": 0.9002,
+          "rootMeanSquareError": 2.6078,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.3394
+        }
+      },
+      "validationSheet": "data/assets/icon-references/hermes/validation-sheets/leather-goods-saddlery.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 295483,
+        "losslessBytes": 295483,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "ready-to-wear-accessories",
+      "output": "data/assets/icon-references/hermes/crops/ready-to-wear-accessories.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2483,
+        "losslessBytes": 10850,
+        "savingsVsLossless": 0.7712,
+        "metrics": {
+          "meanAbsoluteError": 0.7434,
+          "rootMeanSquareError": 2.4328,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 44,
+          "changedPixelRatio": 0.2281
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 14745,
+        "transparentPixelRatio": 0.7802
+      },
+      "searchBox": {
+        "x": 12,
+        "y": 600,
+        "width": 125,
+        "height": 115
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 17,
+        "y0": 631,
+        "x1": 117,
+        "y1": 691
+      },
+      "cropBox": {
+        "x0": 4,
+        "y0": 590,
+        "x1": 144,
+        "y1": 725
+      },
+      "validation": {
+        "width": 140,
+        "height": 135,
+        "foregroundPixels": 4088,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 13,
+          "right": 27,
+          "top": 41,
+          "bottom": 34
+        },
+        "centerOffset": {
+          "x": -0.05,
+          "y": 0.0259
+        },
+        "passes": true
+      },
+      "note": "Belt product image for the Ready-to-wear & Accessories revenue line; excludes labels and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/hermes/ready-to-wear-accessories.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2483,
+        "losslessBytes": 10850,
+        "savingsVsLossless": 0.7712,
+        "metrics": {
+          "meanAbsoluteError": 0.7434,
+          "rootMeanSquareError": 2.4328,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 44,
+          "changedPixelRatio": 0.2281
+        }
+      },
+      "validationSheet": "data/assets/icon-references/hermes/validation-sheets/ready-to-wear-accessories.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 306621,
+        "losslessBytes": 306621,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "silk-textiles",
+      "output": "data/assets/icon-references/hermes/crops/silk-textiles.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2033,
+        "losslessBytes": 10302,
+        "savingsVsLossless": 0.8027,
+        "metrics": {
+          "meanAbsoluteError": 0.4869,
+          "rootMeanSquareError": 2.3216,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 59,
+          "changedPixelRatio": 0.1376
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 25183,
+        "transparentPixelRatio": 0.8684
+      },
+      "searchBox": {
+        "x": 10,
+        "y": 740,
+        "width": 130,
+        "height": 175
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 24,
+        "y0": 751,
+        "x1": 112,
+        "y1": 846
+      },
+      "cropBox": {
+        "x0": 2,
+        "y0": 728,
+        "x1": 147,
+        "y1": 928
+      },
+      "validation": {
+        "width": 145,
+        "height": 200,
+        "foregroundPixels": 3623,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 22,
+          "right": 35,
+          "top": 23,
+          "bottom": 82
+        },
+        "centerOffset": {
+          "x": -0.0448,
+          "y": -0.1475
+        },
+        "passes": true
+      },
+      "note": "Silk scarf product image for the Silk & Textiles revenue line; excludes labels and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/hermes/silk-textiles.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2033,
+        "losslessBytes": 10302,
+        "savingsVsLossless": 0.8027,
+        "metrics": {
+          "meanAbsoluteError": 0.4869,
+          "rootMeanSquareError": 2.3216,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 59,
+          "changedPixelRatio": 0.1376
+        }
+      },
+      "validationSheet": "data/assets/icon-references/hermes/validation-sheets/silk-textiles.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 278810,
+        "losslessBytes": 278810,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "perfume-beauty",
+      "output": "data/assets/icon-references/hermes/crops/perfume-beauty.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1080,
+        "losslessBytes": 6330,
+        "savingsVsLossless": 0.8294,
+        "metrics": {
+          "meanAbsoluteError": 0.8187,
+          "rootMeanSquareError": 2.7402,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 51,
+          "changedPixelRatio": 0.2927
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 13389,
+        "transparentPixelRatio": 0.7607
+      },
+      "searchBox": {
+        "x": 34,
+        "y": 1025,
+        "width": 84,
+        "height": 145
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 45,
+        "y0": 1025,
+        "x1": 103,
+        "y1": 1129
+      },
+      "cropBox": {
+        "x0": 24,
+        "y0": 1015,
+        "x1": 134,
+        "y1": 1175
+      },
+      "validation": {
+        "width": 110,
+        "height": 160,
+        "foregroundPixels": 3757,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 21,
+          "right": 31,
+          "top": 10,
+          "bottom": 46
+        },
+        "centerOffset": {
+          "x": -0.0455,
+          "y": -0.1125
+        },
+        "passes": true
+      },
+      "note": "Perfume bottle image for the Perfume & Beauty revenue line; excludes labels and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/hermes/perfume-beauty.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1080,
+        "losslessBytes": 6330,
+        "savingsVsLossless": 0.8294,
+        "metrics": {
+          "meanAbsoluteError": 0.8187,
+          "rootMeanSquareError": 2.7402,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 51,
+          "changedPixelRatio": 0.2927
+        }
+      },
+      "validationSheet": "data/assets/icon-references/hermes/validation-sheets/perfume-beauty.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 270957,
+        "losslessBytes": 270957,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "watches",
+      "output": "data/assets/icon-references/hermes/crops/watches.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 3148,
+        "losslessBytes": 12490,
+        "savingsVsLossless": 0.748,
+        "metrics": {
+          "meanAbsoluteError": 1.1507,
+          "rootMeanSquareError": 2.8443,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.3669
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 9156,
+        "transparentPixelRatio": 0.6166
+      },
+      "searchBox": {
+        "x": 30,
+        "y": 1170,
+        "width": 92,
+        "height": 110
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 36,
+        "y0": 1179,
+        "x1": 116,
+        "y1": 1267
+      },
+      "cropBox": {
+        "x0": 22,
+        "y0": 1158,
+        "x1": 132,
+        "y1": 1293
+      },
+      "validation": {
+        "width": 110,
+        "height": 135,
+        "foregroundPixels": 5345,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 14,
+          "right": 16,
+          "top": 21,
+          "bottom": 26
+        },
+        "centerOffset": {
+          "x": -0.0091,
+          "y": -0.0185
+        },
+        "passes": true
+      },
+      "note": "Watch product image for the Watches revenue line; excludes labels and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/hermes/watches.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 3148,
+        "losslessBytes": 12490,
+        "savingsVsLossless": 0.748,
+        "metrics": {
+          "meanAbsoluteError": 1.1507,
+          "rootMeanSquareError": 2.8443,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.3669
+        }
+      },
+      "validationSheet": "data/assets/icon-references/hermes/validation-sheets/watches.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 323549,
+        "losslessBytes": 323549,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

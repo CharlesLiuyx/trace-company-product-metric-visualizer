@@ -54,7 +54,7 @@
     </svg>`;
 
   const annotations = `
-    <g font-family="Montserrat,Arial,sans-serif">
+    <g font-family="Montserrat,Arial,sans-serif" data-typography-role="brand">
       <text x="576" y="322" fill="#000000" font-size="98" font-weight="800" letter-spacing="1">BROADCOM</text>
       <text x="1188" y="263" fill="#000000" font-size="23" font-weight="700">®</text>
       ${svgIcon(SEMI_ICON, 128, 461, 145, 145, '0 0 100 100')}

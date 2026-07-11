@@ -42,9 +42,11 @@ import { pngMetrics } from './lib/png-diff.mjs';
 import { assertPurity } from './lib/d3-hard-gates.mjs';
 import {
   assertProjectFontsLoaded,
+  assertTypographyAudit,
   datasetRenderMeta,
   openHarnessPage,
   renderDatasetForPurity,
+  typographyAudit,
 } from './lib/render-harness.mjs';
 
 const BASELINE_PATH = 'data/render-baselines.json';
@@ -199,36 +201,67 @@ export async function recordBaselineUpdate({ targetPath, source, problems }) {
   }
 }
 
-async function renderDataset(page, pageErrors, key, scratchDir) {
+async function renderLanguageForGates(page, pageErrors, key, language) {
   const errorsBefore = pageErrors.length;
-  const meta = await datasetRenderMeta(page, key, LANGUAGE);
+  const meta = await datasetRenderMeta(page, key, language);
   await page.setViewportSize({ width: meta.width, height: meta.height });
-  const purity = await renderDatasetForPurity(page, key, LANGUAGE);
+  const purity = await renderDatasetForPurity(page, key, language);
   assertPurity(purity);
   if (purity.width !== meta.width || purity.height !== meta.height) {
     throw new Error(`SVG size mismatch: expected ${meta.width}x${meta.height}, got ${purity.width}x${purity.height}`);
   }
+  const renderedTypographyAudit = await typographyAudit(page, {
+    dataset: key,
+    language: meta.language,
+  });
+  assertTypographyAudit(renderedTypographyAudit);
   if (pageErrors.length > errorsBefore) {
-    throw new Error(`Page errors during render:\n${pageErrors.slice(errorsBefore).join('\n')}`);
+    throw new Error(`Page errors during ${meta.language} render:\n${pageErrors.slice(errorsBefore).join('\n')}`);
   }
+  return { meta, typographyAudit: renderedTypographyAudit };
+}
+
+async function renderDataset(page, pageErrors, key, scratchDir, requiredLanguages) {
+  const primary = await renderLanguageForGates(page, pageErrors, key, LANGUAGE);
+  const { meta } = primary;
   const referencePath = path.join(rootDir, meta.referenceSrc);
+  let result;
   if (!existsSync(referencePath)) {
     // Reference images are local-only inputs (gitignored); render + hard
     // gates still ran, but there is nothing to score against here.
-    return { key, similarity: null, mae: null, width: meta.width, height: meta.height, skippedReason: 'reference image not present' };
+    result = {
+      key,
+      similarity: null,
+      mae: null,
+      width: meta.width,
+      height: meta.height,
+      skippedReason: 'reference image not present',
+    };
+  } else {
+    const candidatePath = path.join(scratchDir, `${key}-d3.png`);
+    await page.locator('#chart > svg').screenshot({ path: candidatePath });
+    const metrics = await pngMetrics(referencePath, candidatePath);
+    result = {
+      key,
+      similarity: metrics.full.similarity,
+      mae: metrics.full.mae,
+      width: meta.width,
+      height: meta.height,
+      candidatePath,
+      referencePath,
+    };
   }
-  const candidatePath = path.join(scratchDir, `${key}-d3.png`);
-  await page.locator('#chart > svg').screenshot({ path: candidatePath });
-  const metrics = await pngMetrics(referencePath, candidatePath);
-  return {
-    key,
-    similarity: metrics.full.similarity,
-    mae: metrics.full.mae,
-    width: meta.width,
-    height: meta.height,
-    candidatePath,
-    referencePath,
-  };
+
+  // Pixel baselines remain canonical English only. Every other viewer locale
+  // still gets the same final-DOM typography hard gate without being compared
+  // against the English reference image.
+  const typographyAudits = { [meta.language]: primary.typographyAudit };
+  for (const language of requiredLanguages) {
+    if (!language || language === LANGUAGE || typographyAudits[language]) continue;
+    const localized = await renderLanguageForGates(page, pageErrors, key, language);
+    typographyAudits[localized.meta.language] = localized.typographyAudit;
+  }
+  return { ...result, typographyAudits };
 }
 
 async function keepFailureArtifacts(result) {
@@ -293,11 +326,15 @@ async function main() {
       const context = await browser.newContext({ viewport: { width: 1280, height: 720 }, deviceScaleFactor: 1 });
       const { page, pageErrors } = await openHarnessPage(context, { baseUrl, scripts: harnessScripts });
       await assertProjectFontsLoaded(page);
+      const requiredLanguages = await page.evaluate(() => {
+        const languages = window.SANKEY_I18N?.languageCodes;
+        return Array.isArray(languages) && languages.length ? languages : ['en'];
+      });
       for (;;) {
         const key = queue.shift();
         if (!key) break;
         try {
-          results.push(await renderDataset(page, pageErrors, key, scratchDir));
+          results.push(await renderDataset(page, pageErrors, key, scratchDir, requiredLanguages));
         } catch (error) {
           failures.push({ key, reason: error.message });
         }

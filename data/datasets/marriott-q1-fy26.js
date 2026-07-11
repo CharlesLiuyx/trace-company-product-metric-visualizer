@@ -18,7 +18,7 @@
   const BLACK = '#000000';
 
   const marriottLogo = `
-    <g fill="${BLACK}">
+    <g fill="${BLACK}" data-typography-role="brand">
       <text x="1038" y="345" font-family="Arial Black,Montserrat,Arial,sans-serif" font-size="145" font-weight="900" letter-spacing="-7">Marriott</text>
       <text x="1139" y="407" font-family="Montserrat,Arial,sans-serif" font-size="43" font-weight="800" letter-spacing="8" textLength="500" lengthAdjust="spacingAndGlyphs">INTERNATIONAL</text>
     </g>`;

@@ -30,7 +30,7 @@
     </g>`;
 
   const merchantCluster = (labels) => `
-    <g font-family="Montserrat,Arial,sans-serif" transform="translate(145 610)">
+    <g font-family="Montserrat,Arial,sans-serif" transform="translate(145 610)" data-typography-role="brand">
       <rect x="0" y="0" width="570" height="284" rx="142" fill="${SHOP_GREEN}" stroke="#59852e" stroke-width="4"/>
       <text x="43" y="170" font-size="62" font-style="italic" font-weight="800" fill="#ffffff">${labels.shopify}</text>
       <g font-size="34" font-style="italic" font-weight="500" fill="#ffffff">
@@ -44,7 +44,7 @@
     </g>`;
 
   const shopifyPlusWordmark = (labels) => `
-    <g font-family="Montserrat,Arial,sans-serif" transform="translate(78 1038)">
+    <g font-family="Montserrat,Arial,sans-serif" transform="translate(78 1038)" data-typography-role="brand">
       <text x="0" y="0" font-size="45" font-style="italic" font-weight="900" fill="${BLACK}">${labels.shopifyPlus}</text>
     </g>`;
 

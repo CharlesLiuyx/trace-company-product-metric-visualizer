@@ -305,12 +305,18 @@ Object checklist, grouped by render intent:
 - Annotation containers (`annotationsSvg`): KPI/stat cards, black capsules,
   legend boxes, badges, footnote cards, rounded callout pills that break out
   small values (e.g. Disney's `SVOD $0.6B / Other $0.7B`), and horizontal
-  guide lines for tiny profit add-ins.
+  guide lines for tiny profit add-ins. Annotation text is product text by
+  default. Wrap only a true Logo, wordmark, trademark lockup, or brand
+  illustration in the smallest complete
+  `<g data-typography-role="brand">`; never mark the mixed annotation container.
 - Icon/brand assets: company logo (vector `meta.logoSvg`), brand wordmarks
   drawn as annotations, segment/business icon clusters (validated crops →
   vector conversion, or whitelisted runtime raster via
   `data/assets/raster-annotations/`), and generic Lucide icons
-  (`src/icons.js`).
+  (`src/icons.js`). `meta.logoSvg` receives the brand typography role from the
+  renderer. Every `SANKEY_BUSINESS_ICONS` placement in `annotationsSvg` must
+  mark its own dataset wrapper explicitly; the shared fragment is not an
+  implicit exemption.
 - Intentionally skipped (never render targets, never crop targets):
   publisher watermarks, creator/account branding (e.g. the
   "HOW THEY MAKE MONEY" mark, `appeconomyinsights.com`, App Economy
@@ -384,7 +390,10 @@ proceed with the pipeline using the new checklist.
   legal name, or alias words are exempted automatically from i18n fallback
   checks; other intentionally untranslated words (sub-brands like `aws`)
   must be declared in the dataset's `i18n.preservedAnnotationText`. Do not
-  extend the frozen legacy list in `scripts/verify-i18n.mjs`.
+  extend the frozen legacy list in `scripts/verify-i18n.mjs`. This translation
+  exemption is independent from typography: the rendered SVG still needs the
+  explicit nearest `data-typography-role="brand"` ancestor when the text is a
+  visual brand asset.
 - Brand and product terms that stay untranslated everywhere (YouTube,
   iPhone, `Microsoft 365`…) are declared once as identity mappings in the
   `EXACT_ZH` dictionary (`src/i18n-dictionaries.js`); `verify:i18n` treats

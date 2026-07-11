@@ -41,6 +41,12 @@
   };
 
   const EXACT_ZH = {
+    'Gucci': 'Gucci',
+    'Saint Laurent': 'Saint Laurent',
+    'Bottega Veneta': 'Bottega Veneta',
+    'SAINT LAURENT': 'SAINT LAURENT',
+    'BOTTEGA VENETA': 'BOTTEGA VENETA',
+    'BetterHelp': 'BetterHelp',
     'Tinder': 'Tinder',
     'Hinge': 'Hinge',
     'Tim Hortons': 'Tim Hortons',

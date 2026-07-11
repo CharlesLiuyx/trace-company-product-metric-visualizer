@@ -1,5 +1,8 @@
 :root {
   color-scheme: light;
+  --font-ui-chrome: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-view: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-view-number: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
   --page-bg: #dfe3e3;
   --bg: #eef1f0;
   --ink: #15436b;
@@ -117,7 +120,7 @@ html, body {
   min-height: 0;
   overflow: hidden;
   background: var(--page-bg);
-  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--font-ui-chrome);
   color: var(--text);
 }
 .top-shell {
@@ -878,6 +881,7 @@ button.period-year-name:focus-visible {
   overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: contain;
+  font-family: var(--font-view);
 }
 .stage { padding: 10px; display: flex; justify-content: center; align-items: flex-start; }
 .card {

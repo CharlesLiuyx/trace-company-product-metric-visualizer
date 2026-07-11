@@ -38,6 +38,26 @@ async function boot(page, target = url) {
   await page.waitForSelector('#chart svg, #tableView:not([hidden]), #trendView:not([hidden])', { timeout: 15000 });
 }
 
+function primaryFontFamily(value) {
+  return String(value || '').split(',')[0].trim().replace(/^(['"])(.*)\1$/, '$2');
+}
+
+function assertPrimaryFont(value, expected, label) {
+  assert(
+    primaryFontFamily(value) === expected,
+    `${label} expected ${expected}, got ${value || 'no computed font'}`
+  );
+}
+
+async function computedFonts(page, selectors) {
+  return page.evaluate((entries) => Object.fromEntries(
+    Object.entries(entries).map(([name, selector]) => {
+      const element = document.querySelector(selector);
+      return [name, element ? getComputedStyle(element).fontFamily : ''];
+    })
+  ), selectors);
+}
+
 await scenario('boot: default sankey', async (page) => {
   await boot(page);
   await page.waitForTimeout(1200);
@@ -57,6 +77,62 @@ await scenario('boot: default sankey', async (page) => {
     state.pendingDatasets >= state.totalDatasets - 2,
     `idle boot hydrated too many adapters (${state.totalDatasets - state.pendingDatasets}/${state.totalDatasets})`
   );
+});
+
+await scenario('typography: Chrome and View scopes survive theme + language changes', async (page) => {
+  await boot(page);
+  const selectors = {
+    toolbar: '.toolbar',
+    sidebar: '#datasetPanel',
+    actionbar: '.view-actionbar',
+    sankeyView: '#sankeyView',
+  };
+  const assertRoles = async (phase) => {
+    const fonts = await computedFonts(page, selectors);
+    assertPrimaryFont(fonts.toolbar, 'Montserrat', `${phase} toolbar`);
+    assertPrimaryFont(fonts.sidebar, 'Montserrat', `${phase} sidebar`);
+    assertPrimaryFont(fonts.actionbar, 'Montserrat', `${phase} View actionbar`);
+    assertPrimaryFont(fonts.sankeyView, 'Noto Sans', `${phase} Sankey View pane`);
+    const chartFont = await page.evaluate(() => chartTheme().fontFamily);
+    assertPrimaryFont(chartFont, 'Noto Sans', `${phase} Chart.js theme`);
+  };
+
+  await assertRoles('initial');
+  await page.click('#themeToggle');
+  await page.click('#languageToggle');
+  await page.waitForTimeout(200);
+  await assertRoles('after theme/language switch');
+});
+
+await scenario('typography: SVG export preserves explicit brand roles', async (page) => {
+  await boot(page, `${url}#monday-com-q1-fy26`);
+  const result = await page.evaluate(() => {
+    const liveSvg = document.querySelector('#chart > svg');
+    const productMontserrat = [...liveSvg.querySelectorAll('text, tspan, textPath')]
+      .filter((element) => !element.closest('[data-typography-role="brand"]'))
+      .filter((element) => /Montserrat/i.test(getComputedStyle(element).fontFamily))
+      .map((element) => element.textContent.trim());
+    const liveBrandText = [...liveSvg.querySelectorAll('[data-typography-role="brand"] text')]
+      .find((element) => /Montserrat/i.test(getComputedStyle(element).fontFamily));
+    const exported = new DOMParser().parseFromString(svgString(), 'image/svg+xml');
+    const exportedBrandText = [...exported.querySelectorAll('[data-typography-role="brand"] text')]
+      .find((element) => /Montserrat/i.test(
+        `${element.getAttribute('font-family') || ''},${element.getAttribute('style') || ''}`
+      ));
+    return {
+      productMontserrat,
+      liveBrandText: liveBrandText?.textContent.trim() || '',
+      exportedBrandRoleCount: exported.querySelectorAll('[data-typography-role="brand"]').length,
+      exportedBrandText: exportedBrandText?.textContent.trim() || '',
+    };
+  });
+  assert(
+    result.productMontserrat.length === 0,
+    `SVG product text still uses Montserrat: ${result.productMontserrat.join(' | ')}`
+  );
+  assert(result.liveBrandText, 'live SVG has no explicitly scoped Montserrat brand text');
+  assert(result.exportedBrandRoleCount > 0, 'serialized SVG lost data-typography-role="brand"');
+  assert(result.exportedBrandText, 'serialized SVG lost the brand-faithful Montserrat wordmark');
 });
 
 await scenario('dataset loading: failure is retryable', async (page) => {
@@ -89,6 +165,14 @@ await scenario('boot: persisted zh + dark + table prefs', async (page) => {
   assert(state.lang === 'zh-CN', `expected zh-CN, got ${state.lang}`);
   assert(state.theme === 'dark', `expected dark theme, got ${state.theme}`);
   assert(state.tableVisible && state.companiesVisible, 'company info table not shown');
+  const fonts = await computedFonts(page, {
+    tablePane: '#tableView',
+    tableHeading: '#companiesTableTitle',
+    tableCell: '#companiesTable tbody td',
+  });
+  assertPrimaryFont(fonts.tablePane, 'Noto Sans', 'persisted Table View pane');
+  assertPrimaryFont(fonts.tableHeading, 'Noto Sans', 'persisted Table heading');
+  assertPrimaryFont(fonts.tableCell, 'Noto Sans', 'persisted Table cell');
 }, {
   init: () => {
     localStorage.setItem('sankey.language', 'zh');
@@ -140,15 +224,20 @@ await scenario('sankey hover: unified node and link share rules', async (page) =
   }
 
   const netProfit = await hoverPercentages('net_profit');
+  const tooltipFont = await page.evaluate(() => {
+    const text = document.querySelector('#chart g.sankey-link-tooltip text');
+    return text ? getComputedStyle(text).fontFamily : '';
+  });
+  assertPrimaryFont(tooltipFont, 'Roboto', 'Sankey hover tooltip');
   assert(
-    netProfit.join('|') === ['12.3%', '87.7%'].sort().join('|'),
-    `net profit hover expected 12.3% + 87.7%, got ${netProfit.join(' + ')}`
+    netProfit.join('|') === ['12.3%', '90.8%'].sort().join('|'),
+    `net profit hover expected 12.3% + 90.8%, got ${netProfit.join(' + ')}`
   );
 
   const operatingProfit = await hoverPercentages('operating_profit');
   assert(
-    operatingProfit.join('|') === ['10.5%', '3.4%', '96.6%'].sort().join('|'),
-    `operating profit hover expected 10.5% + 3.4% + 96.6%, got ${operatingProfit.join(' + ')}`
+    operatingProfit.join('|') === ['10.5%', '3.4%', '90.8%'].sort().join('|'),
+    `operating profit hover expected 10.5% + 3.4% + 90.8%, got ${operatingProfit.join(' + ')}`
   );
 
   // The authored Tax bar is one source pixel tall (sub-pixel after fit), so
@@ -163,18 +252,25 @@ await scenario('sankey hover: unified node and link share rules', async (page) =
     `operating profit → net profit link hover expected 90.8%, got ${retainedLink.join(' + ')}`
   );
 
+  await boot(page, `${url}#airbus-fy25`);
+  const airbusNetProfit = await hoverPercentages('net_profit');
+  assert(
+    airbusNetProfit.join('|') === ['18%', '4%', '96.2%'].sort().join('|'),
+    `Airbus net profit hover expected 96.2% + 18% + 4%, got ${airbusNetProfit.join(' + ')}`
+  );
+
   await boot(page, `${url}#kraft-heinz-q4-fy25`);
   const kraftNetProfit = await hoverPercentages('net_profit');
   assert(
-    kraftNetProfit.join('|') === ['16.7%', '100%'].sort().join('|'),
-    `Kraft Heinz net profit hover expected both semantic sources as shares of net profit (16.7% + 100%), got ${kraftNetProfit.join(' + ')}`
+    kraftNetProfit.join('|') === ['16.7%', '54.5%'].sort().join('|'),
+    `Kraft Heinz net profit hover expected endpoint ratios 16.7% + 54.5%, got ${kraftNetProfit.join(' + ')}`
   );
 
   await boot(page, `${url}#datadog-q4-fy25`);
   const datadogOperatingProfit = await hoverPercentages('operating_profit');
   assert(
-    datadogOperatingProfit.join('|') === ['1.2%', '100%', '77.8%'].sort().join('|'),
-    `Datadog operating profit hover expected 1.2% incoming share + 100% retained outflow + 77.8% tax outflow, got ${datadogOperatingProfit.join(' + ')}`
+    datadogOperatingProfit.join('|') === ['1.2%', '19.1%', '77.8%'].sort().join('|'),
+    `Datadog operating profit hover expected endpoint ratios 1.2% + 19.1% + 77.8%, got ${datadogOperatingProfit.join(' + ')}`
   );
   await page.locator('#chart path.sankey-link[data-source="operating_profit"][data-target="net_profit"]').hover({ force: true });
   const datadogResultLink = await visiblePercentages();
@@ -186,8 +282,8 @@ await scenario('sankey hover: unified node and link share rules', async (page) =
   await boot(page, `${url}#coupang-q4-fy25`);
   const coupangOther = await hoverPercentages('other', { useLabel: true });
   assert(
-    coupangOther.join('|') === ['130.8%', '425%'].sort().join('|'),
-    `Coupang Other hover expected directional singleton shares 425% incoming + 130.8% outgoing, got ${coupangOther.join(' + ')}`
+    coupangOther.join('|') === ['23.5%', '76.5%'].sort().join('|'),
+    `Coupang Other hover expected endpoint ratios 23.5% + 76.5%, got ${coupangOther.join(' + ')}`
   );
   await page.locator('#chart path.sankey-link[data-source="operating_profit"][data-target="other"]').dispatchEvent('mouseenter');
   const coupangBridge = await visiblePercentages();
@@ -236,6 +332,26 @@ await scenario('comparison: multi-select + zoom + metric trend', async (page) =>
   await page.waitForTimeout(400);
   const trendPanel = await page.evaluate(() => Boolean(document.querySelector('#sankeyComparison canvas')));
   assert(trendPanel, 'metric trend panel did not open on node click');
+  const typography = await page.evaluate(() => {
+    const config = createComparisonMetricTrendChartConfig({
+      labels: ['FY25', 'FY26'],
+      metrics: [{ label: 'Revenue', values: [1, 2], growth: [null, 100], accent: '#155077' }],
+      ratios: [],
+      caliber: { currency: '$', unit: 'B' },
+      sameLayer: false,
+      hiddenAxes: { value: false, percent: false },
+    });
+    const options = config.options;
+    const card = document.querySelector('#sankeyComparison .comparison-card');
+    return {
+      card: card ? getComputedStyle(card).fontFamily : '',
+      axis: options.scales?.x?.ticks?.font?.family || '',
+      labels: options.plugins?.comparisonMetricTrendValueLabels?.fontFamily || '',
+    };
+  });
+  assertPrimaryFont(typography.card, 'Noto Sans', 'Comparison card');
+  assertPrimaryFont(typography.axis, 'Noto Sans', 'Comparison metric axis');
+  assertPrimaryFont(typography.labels, 'Noto Sans', 'Comparison metric custom labels');
 });
 
 await scenario('revenue: trend view renders', async (page) => {
@@ -256,12 +372,43 @@ await scenario('revenue: trend view renders', async (page) => {
     return;
   }
   assert(result.trendVisible && result.canvas, 'revenue trend chart missing');
+  const assertTrendTypography = async (phase) => {
+    const typography = await page.evaluate(() => {
+      const options = revenueTrendChart?.config?._config?.options
+        || revenueTrendChart?.config?.options
+        || {};
+      const heading = document.querySelector('#trendView .trend-heading');
+      return {
+        heading: heading ? getComputedStyle(heading).fontFamily : '',
+        axis: options.scales?.x?.ticks?.font?.family || '',
+        hoverGuide: options.plugins?.revenueTrendHoverGuide?.fontFamily || '',
+        valueLabels: options.plugins?.revenueTrendValueLabels?.fontFamily || '',
+      };
+    });
+    assertPrimaryFont(typography.heading, 'Noto Sans', `${phase} Trend heading`);
+    assertPrimaryFont(typography.axis, 'Noto Sans', `${phase} Trend axis`);
+    assertPrimaryFont(typography.hoverGuide, 'Noto Sans', `${phase} Trend hover guide`);
+    assertPrimaryFont(typography.valueLabels, 'Noto Sans', `${phase} Trend value labels`);
+  };
+  await assertTrendTypography('initial');
+  await page.click('#themeToggle');
+  await page.click('#languageToggle');
+  await page.waitForTimeout(300);
+  await assertTrendTypography('after theme/language switch');
 });
 
 await scenario('boot: mobile viewport', async (page) => {
   await boot(page);
   const hasSvg = await page.evaluate(() => Boolean(document.querySelector('#chart svg')));
   assert(hasSvg, 'no sankey svg at mobile width');
+  const fonts = await computedFonts(page, {
+    toolbar: '.toolbar',
+    actionbar: '.view-actionbar',
+    sankeyView: '#sankeyView',
+  });
+  assertPrimaryFont(fonts.toolbar, 'Montserrat', 'mobile toolbar');
+  assertPrimaryFont(fonts.actionbar, 'Montserrat', 'mobile View actionbar');
+  assertPrimaryFont(fonts.sankeyView, 'Noto Sans', 'mobile Sankey View pane');
 }, { viewport: { width: 375, height: 812 } });
 
 // Regression: localized dataset clones cached against a manifest stub must
