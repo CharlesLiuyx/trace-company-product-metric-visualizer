@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-10T20:10:47.777Z",
+  "generatedAt": "2026-07-11T05:35:17.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -1509,27 +1509,27 @@
     },
     "zoom-q4-fy26": {
       "path": "data/datasets/zoom-q4-fy26.js",
-      "updatedAtMs": 1783714097487,
-      "updatedAt": "2026-07-10T20:08:17.487Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783748117000,
+      "updatedAt": "2026-07-11T05:35:17.000Z",
+      "timeSource": "git"
     },
     "atlassian-q2-fy26": {
       "path": "data/datasets/atlassian-q2-fy26.js",
-      "updatedAtMs": 1783714188826,
-      "updatedAt": "2026-07-10T20:09:48.826Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783748117000,
+      "updatedAt": "2026-07-11T05:35:17.000Z",
+      "timeSource": "git"
     },
     "cloudflare-q4-fy25": {
       "path": "data/datasets/cloudflare-q4-fy25.js",
-      "updatedAtMs": 1783714213237,
-      "updatedAt": "2026-07-10T20:10:13.237Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783748117000,
+      "updatedAt": "2026-07-11T05:35:17.000Z",
+      "timeSource": "git"
     },
     "workday-q4-fy26": {
       "path": "data/datasets/workday-q4-fy26.js",
-      "updatedAtMs": 1783714247777,
-      "updatedAt": "2026-07-10T20:10:47.777Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783748117000,
+      "updatedAt": "2026-07-11T05:35:17.000Z",
+      "timeSource": "git"
     },
     "data/revenue-metrics.js": {
       "path": "data/revenue-metrics.js",
