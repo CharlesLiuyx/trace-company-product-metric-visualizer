@@ -819,7 +819,7 @@ pnpm exec playwright install chromium</span>
       <h3>已授权的 Source 批量移动 + 快速聚合门全绿</h3>
       <span class="cmd">pnpm check</span>
       <p>收到操作者完成信号时，确认整批 Source 已直接移动到 processed；无信号时确认它们继续留在 processing。共享 pending 队列可以保留。</p>
-      <p>= 全仓 JS 语法扫描 → 单元测试 → <code>check:pending</code> → <code>verify:architecture</code> → <code>verify:app-globals</code> → <code>verify:dataset-manifest</code> → <code>verify:ssot</code> → <code>verify:i18n</code> → <code>verify:dataset-file-metadata</code>（秒级、无渲染）。</p>
+      <p>= 全仓 JS 语法扫描 → 单元测试 → <code>check:pending</code> → <code>verify:architecture</code> → <code>verify:app-globals</code> → <code>verify:dataset-manifest</code> → <code>verify:render-baselines --structure-only</code> → <code>verify:ssot</code> → <code>verify:i18n</code> → <code>verify:dataset-file-metadata</code>（秒级、无渲染）。</p>
       <p class="dim"><code>input/processing/</code> 非空代表可能有其他活动 Build，不得让全局 <code>pnpm check</code> 失败。该检查在任何 checkout（云端 / CI / 新克隆）上都应全绿：local-only 源图通过 <code>sourceImage.localOnly: true</code> 显式豁免；metadata 记录 git 提交时间（首次提交前回退 mtime），可在任意机器上确定性再生成。提交新数据集后需重跑 <code>pnpm update:dataset-file-metadata</code> 并提交刷新结果。</p>
     </div>
     <div class="arrow"></div>

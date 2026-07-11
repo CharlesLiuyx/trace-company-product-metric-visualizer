@@ -22,6 +22,7 @@ agent 指令以英文版 `AGENTS.md` 为准。
 | 数据相邻资产布局（图标 crop、raster annotation） | `data/assets/README.md` |
 | Trace 产品与数据模型 | `docs/trace-specification.zh-CN.md` |
 | 人类快速上手、viewer 使用 | `README.md` |
+| CI 检查作用、ChangeImpact 路由、性能基线、Pages artifact 交接 | `docs/ci-verification.zh-CN.md` |
 
 ## 目标
 
@@ -83,7 +84,8 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
 | 命令 | 用途 |
 | --- | --- |
 | `pnpm dev` | 零依赖本地静态服务器，端口 8000 |
-| `pnpm check` | 快速聚合门：全仓 JS 语法、单元测试、pending 守卫、architecture/app-global 契约、manifest 新鲜度、SSOT 奇偶、i18n 与 metadata 新鲜度（秒级，无渲染）；`input/processing/` 中的在途文件不会让这个全局门失败；fresh checkout 可复现且由 CI 运行 |
+| `pnpm plan:ci -- --base <sha> --head <sha>` | 把 Git diff 保守分类为 CI 验证计划；缺 SHA 或未知可执行影响一律回退完整浏览器套件 |
+| `pnpm check` | 快速聚合门：全仓 JS 语法、单元测试、pending 守卫、architecture/app-global 契约、manifest 与 render-baseline 结构新鲜度、SSOT 奇偶、i18n 与 metadata 新鲜度（秒级，无渲染）；`input/processing/` 中的在途文件不会让这个全局门失败；fresh checkout 可复现且由 CI 运行 |
 | `pnpm test` | `tests/` 下的 node:test 单元测试——Source claim/relocation、引擎布局数学与标签排版、trace-domain 解析/汇率、i18n 翻译规则、png-diff 指标、script-source 解析、dataset registry |
 | `pnpm verify:app` | 模块化查看器（`src/app/*`）的无头启动 + 交互冒烟：模块数量、持久化偏好启动、hash 路由、对比缩放 + 指标趋势、收入趋势、移动端视口 |
 | `pnpm verify:app-globals` | 共享顶层作用域契约的静态门：跨文件重复顶层声明、加载期引用晚加载 script（也包含在 `pnpm check` 中） |
@@ -113,9 +115,11 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
 | `pnpm verify:standalone` | standalone 产物不依赖任何同级文件 |
 | `sh scripts/clean-compare.sh` | 只清理旧的顶层 scratch；d3 诊断/证据 run 各自管理并清理私有 `compare/runs/`，并发时禁止全局删除 |
 
-CI（`.github/workflows/ci.yml`）在每次 push 到 `main` 与每个 pull request
-上运行 `pnpm check`、`verify:app`、Pages 构建 + 加载预算校验、一次 `verify:d3` 冒烟渲染、
-`verify:render-regression`，以及 standalone 构建 + 验证。
+CI（`.github/workflows/ci.yml`）始终运行 `pnpm check`，再由 ChangeImpact
+计划选择 app、Pages、d3 diagnostic、全量/changed-key render 与 standalone
+检查；未知可执行影响回退完整套件。`main` 上直接把同一次运行验证过的 `_site`
+artifact 交给 Pages deploy，不再二次 checkout/install/build。每个检查的白话作用、
+原理、盲区与触发矩阵由 `docs/ci-verification.zh-CN.md` 统一说明。
 
 ## 工作流
 
