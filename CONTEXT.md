@@ -27,6 +27,12 @@ Architecture vocabulary is **Module**, **Interface**, **Implementation**,
 **Locality**. The two current input-type Adapters are Income Statement and
 Revenue Metric.
 
+The **CI Verification Plan Module** derives a conservative check set from a
+Git diff using the same `ChangeImpact` language. Its Interface returns fast,
+app, site, d3 diagnostic, render scope/keys, standalone, and site-projection
+facts. Unknown executable impact and missing diff identity select the complete
+suite; they never select an empty plan.
+
 The current M3 shadow/compatibility safety slice now exercises this build-local
 chain end to end:
 

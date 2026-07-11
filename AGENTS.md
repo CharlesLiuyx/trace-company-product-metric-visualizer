@@ -22,6 +22,7 @@ together.
 | data-adjacent asset layout (icon crops, raster annotations) | `data/assets/README.md` |
 | Trace product and data model | `docs/trace-specification.zh-CN.md` |
 | human quickstart, viewer usage | `README.md` |
+| CI check purpose, ChangeImpact routing, performance baseline, Pages artifact handoff | `docs/ci-verification.zh-CN.md` |
 
 ## Goal
 
@@ -93,7 +94,8 @@ Install once; the d3/standalone verifiers render in Chromium:
 | command | purpose |
 | --- | --- |
 | `pnpm dev` | zero-dependency local static server on port 8000 |
-| `pnpm check` | fast aggregate gate: repo-wide JS syntax, unit tests, pending guard, architecture/app-global contracts, manifest freshness, SSOT parity, i18n coverage, metadata freshness (seconds, no rendering); active files in `input/processing/` do not fail this global gate; reproducible on fresh checkouts and run by CI |
+| `pnpm plan:ci -- --base <sha> --head <sha>` | classify a Git diff into the conservative CI verification plan; missing/unknown executable impact falls back to the full browser suite |
+| `pnpm check` | fast aggregate gate: repo-wide JS syntax, unit tests, pending guard, architecture/app-global contracts, manifest and render-baseline structure freshness, SSOT parity, i18n coverage, metadata freshness (seconds, no rendering); active files in `input/processing/` do not fail this global gate; reproducible on fresh checkouts and run by CI |
 | `pnpm test` | node:test unit tests in `tests/` — Source claim/relocation, engine layout math + label passes, trace-domain parsing/FX, i18n translation rules, png-diff metrics, script-source parsing, dataset registry |
 | `pnpm verify:app` | headless boot + interaction smoke of the modular viewer (`src/app/*`): module count, persisted-prefs boot, hash routing, comparison zoom + metric trend, revenue trend, mobile viewport |
 | `pnpm verify:app-globals` | static gate for the shared-top-level-scope contract: cross-file duplicate declarations and load-time references to later scripts (also part of `pnpm check`) |
@@ -123,10 +125,13 @@ Install once; the d3/standalone verifiers render in Chromium:
 | `pnpm verify:standalone` | standalone artifact needs no sibling files |
 | `sh scripts/clean-compare.sh` | clean legacy top-level scratch files only; d3 diagnostic/evidence runs own and clean their private `compare/runs/` directories, so never use global deletion during concurrent runs |
 
-CI (`.github/workflows/ci.yml`) runs `pnpm check`, `verify:app`, the Pages
-build + loading-budget verification, a
-`verify:d3` smoke render, `verify:render-regression`, and the standalone
-build + verification on every push to `main` and every pull request.
+CI (`.github/workflows/ci.yml`) always runs `pnpm check`, then uses the
+ChangeImpact plan to select app, Pages, d3 diagnostic, full/changed-key render,
+and standalone checks. Unknown executable impact falls back to the complete
+suite. On `main`, the exact verified `_site` artifact is handed to the Pages
+deploy job without a second checkout/install/build. The plain-language
+purpose, mechanism, blind spots, and trigger matrix for every check live in
+`docs/ci-verification.zh-CN.md`.
 
 ## Workflow
 

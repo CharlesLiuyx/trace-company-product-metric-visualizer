@@ -14,7 +14,7 @@
 //   pnpm verify:render-regression -- <key> [...]  # gate a subset
 //   pnpm record:baseline -- <key> [...]           # mutate canonical baselines
 //   pnpm verify:render-regression -- <key> --update # compatible mutation entry
-//   options: --concurrency <n> (default 4), --tolerance <similarity drop>
+//   options: --concurrency <n> (default 4), --tolerance <similarity drop>, --structure-only
 //
 // Baselines live in data/render-baselines.json (canonical language: en).
 // Purity, canvas-size, and page-error hard gates always apply to every
@@ -58,6 +58,7 @@ const LANGUAGE = 'en';
 function usage() {
   console.error(`Usage:
   pnpm verify:render-regression [-- <dataset-key> ...] [--concurrency <n>] [--tolerance <similarity-drop>]
+  pnpm verify:render-regression --structure-only
   pnpm record:baseline -- <dataset-key> [...] [--concurrency <n>] [--tolerance <similarity-drop>]
 
 Canonical mutation compatibility entry:
@@ -75,6 +76,7 @@ function argumentError(message) {
 export function parseArgs(argv) {
   const args = argv.slice(2);
   let update = false;
+  let structureOnly = false;
   let concurrency = 4;
   let tolerance = null;
   const keys = [];
@@ -83,6 +85,10 @@ export function parseArgs(argv) {
     if (arg === '--') continue;
     if (arg === '--update') {
       update = true;
+      continue;
+    }
+    if (arg === '--structure-only') {
+      structureOnly = true;
       continue;
     }
     if (arg === '--concurrency') {
@@ -111,7 +117,10 @@ export function parseArgs(argv) {
       '--update is a canonical mutation and requires at least one explicit dataset key; full-catalog baseline ratchets are forbidden'
     );
   }
-  return { update, concurrency, tolerance, keys };
+  if (structureOnly && (update || keys.length > 0 || tolerance != null)) {
+    throw argumentError('--structure-only cannot be combined with dataset keys, --update, or --tolerance');
+  }
+  return { update, structureOnly, concurrency, tolerance, keys };
 }
 
 async function readBaselines() {
@@ -281,7 +290,7 @@ function fmtSim(value) {
 }
 
 async function main() {
-  const { update, concurrency, tolerance: toleranceOverride, keys } = parseArgs(process.argv);
+  const { update, structureOnly, concurrency, tolerance: toleranceOverride, keys } = parseArgs(process.argv);
   const indexHtml = readProjectFile('index.html');
   const harnessScripts = renderHarnessScripts(indexHtml);
   const registeredKeys = registeredDatasetScripts().map((script) => path.basename(script, '.js'));
@@ -299,16 +308,15 @@ async function main() {
   const tolerance = toleranceOverride ?? baselineFile?.similarityTolerance ?? DEFAULT_TOLERANCE;
   const baselines = baselineFile?.baselines || {};
 
-  const structureErrors = [];
-  if (!update) {
-    for (const key of targetKeys) {
-      if (!baselines[key]) structureErrors.push(`missing baseline for registered dataset: ${key}`);
-    }
-    if (!keys.length) {
-      for (const key of Object.keys(baselines)) {
-        if (!registeredSet.has(key)) structureErrors.push(`stale baseline for unregistered dataset: ${key}`);
-      }
-    }
+  const structureErrors = update
+    ? []
+    : baselineStructureProblems({ targetKeys, registeredKeys, baselines, fullCatalog: keys.length === 0 });
+  if (structureErrors.length) {
+    throw new Error(`render baseline structure failed (${structureErrors.length} problem(s)):\n${structureErrors.map((item) => `- ${item}`).join('\n')}`);
+  }
+  if (structureOnly) {
+    console.log(`Render baseline structure passed: ${registeredKeys.length} registered dataset(s), no missing or stale entries.`);
+    return;
   }
 
   const server = await startStaticServer({ port: 0 });
@@ -379,7 +387,7 @@ async function main() {
   const elapsed = ((Date.now() - startedAt) / 1000).toFixed(1);
   const scored = results.filter((result) => result.similarity != null).length;
   const skipped = results.length - scored;
-  const problems = [...structureErrors, ...failures.map((failure) => `${failure.key}: ${failure.reason}`)];
+  const problems = failures.map((failure) => `${failure.key}: ${failure.reason}`);
   if (problems.length) {
     console.error(`render regression FAILED (${results.length} rendered, ${problems.length} problem(s), ${elapsed}s):`);
     for (const problem of problems) console.error(`- ${problem}`);
@@ -396,6 +404,20 @@ async function main() {
     `render regression passed: ${results.length} dataset(s) rendered, ${scored} ${update ? 'recorded' : 'within tolerance'}` +
       `${skipped ? `, ${skipped} without a local reference image (hard gates only)` : ''} in ${elapsed}s (tolerance ${tolerance}, language ${LANGUAGE}).`
   );
+}
+
+export function baselineStructureProblems({ targetKeys, registeredKeys, baselines, fullCatalog }) {
+  const registeredSet = new Set(registeredKeys);
+  const problems = [];
+  for (const key of targetKeys) {
+    if (!baselines[key]) problems.push(`missing baseline for registered dataset: ${key}`);
+  }
+  if (fullCatalog) {
+    for (const key of Object.keys(baselines)) {
+      if (!registeredSet.has(key)) problems.push(`stale baseline for unregistered dataset: ${key}`);
+    }
+  }
+  return problems;
 }
 
 const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);

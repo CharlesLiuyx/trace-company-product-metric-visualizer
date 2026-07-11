@@ -481,7 +481,8 @@ proceed with the pipeline using the new checklist.
 Always, before the final response:
 
 - `pnpm check` passes (repo-wide JS syntax/tests, pending guard, architecture
-  and app-global contracts, SSOT parity, i18n coverage, dataset-file-metadata freshness). `pnpm check` is
+  and app-global contracts, manifest and render-baseline structure freshness,
+  SSOT parity, i18n coverage, dataset-file-metadata freshness). `pnpm check` is
   reproducible: it must be fully green on any working copy, including fresh
   clones, cloud agents, and CI — see Environment Notes. A non-empty
   `input/processing/` is valid evidence of active work and must not make this
