@@ -19,6 +19,7 @@ import {
   markFidelityRunFailed,
 } from './lib/compare-workspace.mjs';
 import { readDatasetBuild } from './lib/dataset-build-store.mjs';
+import { resolveSourcePath } from './lib/source-lifecycle.mjs';
 import { assertPurity } from './lib/d3-hard-gates.mjs';
 import {
   assertInterfaceAudit,
@@ -253,7 +254,7 @@ export async function main(argv = process.argv, runtime = {}) {
     const { page, pageErrors } = await openHarnessPage(context, { baseUrl, scripts });
 
     const meta = await datasetRenderMeta(page, datasetKey, language);
-    const referencePath = path.join(rootDir, meta.referenceSrc);
+    const referencePath = resolveSourcePath(meta.referenceSrc);
     run = await createFidelityRun({
       identity: {
         dataset: datasetKey,
@@ -326,7 +327,7 @@ export async function main(argv = process.argv, runtime = {}) {
     const metricsDocument = {
       dataset: datasetKey,
       language: meta.language,
-      reference: path.relative(rootDir, referencePath),
+      reference: meta.referenceSrc,
       candidate: path.relative(rootDir, candidatePath),
       diff: path.relative(rootDir, diffPath),
       purity,

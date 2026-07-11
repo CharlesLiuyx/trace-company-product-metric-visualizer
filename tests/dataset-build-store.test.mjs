@@ -12,6 +12,7 @@ import {
   recordBuildObject,
   recordDatasetBuildCommand,
 } from '../scripts/lib/dataset-build-store.mjs';
+import { promoteProcessingSource } from '../scripts/lib/source-lifecycle.mjs';
 
 const now = () => '2026-07-11T04:00:00.000Z';
 const digest = (value) => digestValue({ value });
@@ -99,4 +100,76 @@ test('inspect reports effective AUTHORED when an authored artifact changes', asy
   assert.equal(inspection.effectiveState, 'AUTHORED');
   assert.equal(inspection.fresh, false);
   assert.equal(inspection.staleArtifacts[0].reason, 'digest-mismatch');
+});
+
+test('inspect follows a new-style Source across processing freshness and processed promotion', async (t) => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'dataset-build-source-freshness-test-'));
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const buildRoot = path.join(root, 'output', 'builds');
+  const key = 'example-source-q4-fy25';
+  const processingUri = `input/processing/${key}.png`;
+  const processedUri = `input/processed/${key}.png`;
+  const processingPath = path.join(root, processingUri);
+  const processedPath = path.join(root, processedUri);
+  const artifactPath = path.join(root, 'data', 'datasets', `${key}.js`);
+  const sourceBytes = Buffer.from('immutable reference image bytes');
+  const artifactBytes = Buffer.from('export const marker = 1;\n');
+  await Promise.all([
+    mkdir(path.dirname(processingPath), { recursive: true }),
+    mkdir(path.dirname(artifactPath), { recursive: true }),
+  ]);
+  await Promise.all([
+    writeFile(processingPath, sourceBytes),
+    writeFile(artifactPath, artifactBytes),
+  ]);
+
+  const build = createDatasetBuild({
+    key,
+    adapter: 'income-statement',
+    baseCanonicalDigest: digest('canonical-source-v1'),
+    sources: [{
+      uri: 'input/pending/upload.png',
+      processingUri,
+      processedUri,
+      availability: 'local-only',
+      digest: fileDigest(sourceBytes),
+    }],
+  }, { now, id: () => 'build-source-freshness' });
+  await initializeDatasetBuild(build, { buildRoot });
+  await recordDatasetBuildCommand(build.buildId, {
+    type: 'record-authored',
+    expectedRevision: build.revision,
+    artifacts: [{
+      path: `data/datasets/${key}.js`,
+      digest: fileDigest(artifactBytes),
+      role: 'view-adapter',
+    }],
+    inventory: { digest: digest('source-inventory'), rendered: 1, dataOnly: 0, skipped: 0 },
+    changeImpact: ['new-dataset'],
+  }, { buildRoot, now });
+
+  const working = await inspectDatasetBuild(build.buildId, { buildRoot, projectRoot: root });
+  assert.equal(working.fresh, true);
+  assert.equal(working.effectiveState, 'AUTHORED');
+  assert.deepEqual(working.staleSources, []);
+
+  await writeFile(processingPath, 'tampered bytes');
+  const stale = await inspectDatasetBuild(build.buildId, { buildRoot, projectRoot: root });
+  assert.equal(stale.fresh, false);
+  assert.equal(stale.effectiveState, 'INTAKED');
+  assert(stale.reasons.includes('source-stale'));
+  assert.equal(stale.staleSources[0].reason, 'digest-mismatch');
+  assert.equal(stale.staleSources[0].uri, processingUri);
+
+  await writeFile(processingPath, sourceBytes);
+  await promoteProcessingSource({
+    key,
+    expectedDigest: fileDigest(sourceBytes),
+    projectRoot: root,
+  });
+  assert.deepEqual(await readFile(processedPath), sourceBytes);
+  const promoted = await inspectDatasetBuild(build.buildId, { buildRoot, projectRoot: root });
+  assert.equal(promoted.fresh, true);
+  assert.equal(promoted.effectiveState, 'AUTHORED');
+  assert.deepEqual(promoted.staleSources, []);
 });

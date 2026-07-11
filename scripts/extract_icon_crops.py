@@ -84,6 +84,22 @@ def project_path(value: str) -> Path:
     return path if path.is_absolute() else ROOT / path
 
 
+def source_project_path(value: str) -> Path:
+    """Resolve a stable processed locator during an active Source claim."""
+    resolved = project_path(value)
+    if resolved.exists():
+        return resolved
+    try:
+        relative = resolved.relative_to(ROOT)
+    except ValueError:
+        return resolved
+    if len(relative.parts) == 3 and relative.parts[:2] == ("input", "processed"):
+        processing = ROOT / "input" / "processing" / relative.name
+        if processing.exists():
+            return processing
+    return resolved
+
+
 def normalize_png_compression(raw: dict[str, Any] | None, no_compress: bool = False) -> dict[str, Any]:
     config = dict(DEFAULT_PNG_COMPRESSION)
     if raw:
@@ -747,7 +763,8 @@ def main() -> None:
     args = parse_args()
     spec_path = project_path(args.spec)
     config = json.loads(spec_path.read_text())
-    source_path = project_path(config["source"])
+    source_locator = project_path(config["source"])
+    source_path = source_project_path(config["source"])
     output_dir = project_path(config["outputDir"])
     output_dir.mkdir(parents=True, exist_ok=True)
     validation_sheet_dir = project_path(config["validationSheetDir"]) if config.get("validationSheetDir") else None
@@ -758,7 +775,7 @@ def main() -> None:
     image = Image.open(source_path).convert("RGB")
     background = tuple(config.get("background") or sample_background(image, config.get("backgroundSampleBlocks")))
     report: dict[str, Any] = {
-        "source": str(source_path.relative_to(ROOT)),
+        "source": str(source_locator.relative_to(ROOT)),
         "spec": str(spec_path.relative_to(ROOT)),
         "background": list(background),
         "generatedAt": datetime.now(timezone.utc).isoformat(),

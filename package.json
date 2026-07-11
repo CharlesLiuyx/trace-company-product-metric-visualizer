@@ -13,6 +13,7 @@
     "audit:interface-risk": "node scripts/audit-interface-risk.mjs",
     "check:pending": "node scripts/check-pending-processed.mjs",
     "record:intake": "node scripts/record-intake.mjs",
+    "complete:source": "node scripts/complete-source.mjs",
     "record:fidelity": "node scripts/record-fidelity.mjs",
     "record:verification": "node scripts/record-verification.mjs",
     "record:build": "node scripts/record-build.mjs",

@@ -5,6 +5,14 @@ high-fidelity **View** artifacts. A dataset change is handled by three scopes:
 `DatasetBuild`, `PublicationBatch`, and `ReleaseAttempt`; a `FidelityRun` is
 build-local evidence, not publication state.
 
+Source folders are operational locators, not a fourth lifecycle scope.
+`record:intake` fixes the Source digest and claims the selected file from
+`input/pending/` into the Build-local `input/processing/` working locator and
+lease. The same bytes are compatibility-promoted to `input/processed/` only
+after an accepted, fresh `SEALED` Build passes close-out. Relocation does not
+change Source digest identity. In the target M4 architecture, Publication owns
+the stable processed Source projection.
+
 Within a Sankey View, **Hover Share（所占比例）** is renderer-owned rather
 than Adapter-configurable. Its Interface has two surface rules: node hover
 derives a directional share from that node's distinct incoming/outgoing

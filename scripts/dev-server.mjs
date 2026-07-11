@@ -7,6 +7,7 @@ import { createReadStream, existsSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { rootDir } from './lib/project.mjs';
+import { resolveSourcePath } from './lib/source-lifecycle.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 
@@ -33,6 +34,9 @@ function resolveRequestPath(root, requestUrl) {
   if (resolved !== root && !resolved.startsWith(root + path.sep)) return null;
   if (existsSync(resolved) && statSync(resolved).isDirectory()) {
     return path.join(resolved, 'index.html');
+  }
+  if (!existsSync(resolved) && path.resolve(root) === rootDir) {
+    return resolveSourcePath(resolved, { projectRoot: root });
   }
   return resolved;
 }

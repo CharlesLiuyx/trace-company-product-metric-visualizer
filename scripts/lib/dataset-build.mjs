@@ -92,11 +92,20 @@ function normalizeSources(sources) {
       `Source ${index} has unsupported availability`
     );
     assertDigest(source.digest, `Source ${index} digest`);
+    for (const field of ['processingUri', 'processedUri']) {
+      invariant(
+        source[field] == null || (typeof source[field] === 'string' && source[field]),
+        'SOURCE_INVALID',
+        `Source ${index} ${field} must be a non-empty string when supplied`
+      );
+    }
     return {
       uri: source.uri,
       availability: source.availability,
       digest: source.digest,
       role: source.role || 'primary-reference',
+      ...(source.processingUri == null ? {} : { processingUri: source.processingUri }),
+      ...(source.processedUri == null ? {} : { processedUri: source.processedUri }),
       ...(source.width == null ? {} : { width: source.width }),
       ...(source.height == null ? {} : { height: source.height }),
     };

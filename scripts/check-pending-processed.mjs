@@ -2,6 +2,7 @@
 import { createHash } from 'node:crypto';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { INCOME_STATEMENT_SCRIPT_DIR, datasetScriptForKey, registeredDatasetScripts } from './script-sources.mjs';
 import { listScripts, projectPath, rootDir } from './lib/project.mjs';
 
@@ -51,8 +52,8 @@ function pngFiles(dir) {
     .sort((a, b) => a.localeCompare(b));
 }
 
-function fileHash(relativePath) {
-  return createHash('sha256').update(readFileSync(projectPath(relativePath))).digest('hex');
+function fileHash(relativePath, projectRoot = rootDir) {
+  return createHash('sha256').update(readFileSync(path.join(projectRoot, relativePath))).digest('hex');
 }
 
 function normalizeDatasetKey(value) {
@@ -83,6 +84,7 @@ function loadIncomeStatementSource() {
 }
 
 function datasetStatus(key, registeredScripts, incomeStatementSource) {
+  const processingImage = relativeProjectPath('input', 'processing', `${key}.png`);
   const processedImage = relativeProjectPath('input', 'processed', `${key}.png`);
   const datasetScript = datasetScriptForKey(key);
   const ssotKeyRe = new RegExp(`\\bkey\\s*:\\s*['"]${escapeRegex(key)}['"]`);
@@ -91,6 +93,7 @@ function datasetStatus(key, registeredScripts, incomeStatementSource) {
   );
 
   return {
+    processingImage: existsSync(projectPath(processingImage)),
     processedImage: existsSync(projectPath(processedImage)),
     datasetScript: existsSync(projectPath(datasetScript)),
     indexRegistration: registeredScripts.has(datasetScript),
@@ -100,6 +103,7 @@ function datasetStatus(key, registeredScripts, incomeStatementSource) {
 
 function statusText(status) {
   return [
+    `processing=${status.processingImage ? 'yes' : 'no'}`,
     `processed=${status.processedImage ? 'yes' : 'no'}`,
     `dataset=${status.datasetScript ? 'yes' : 'no'}`,
     `index=${status.indexRegistration ? 'yes' : 'no'}`,
@@ -108,18 +112,20 @@ function statusText(status) {
 }
 
 function hasExistingArtifact(status) {
-  return status.processedImage || status.datasetScript || status.indexRegistration || status.ssotRecord;
+  return status.processingImage || status.processedImage || status.datasetScript || status.indexRegistration || status.ssotRecord;
 }
 
-function buildProcessedIndex() {
+export function buildClaimedSourceIndex(projectRoot = rootDir) {
   const byHash = new Map();
-  for (const fileName of pngFiles(projectPath('input', 'processed'))) {
-    const relativePath = relativeProjectPath('input', 'processed', fileName);
-    const hash = fileHash(relativePath);
-    const key = datasetKeyFromFileName(fileName);
-    const matches = byHash.get(hash) || [];
-    matches.push({ key, relativePath });
-    byHash.set(hash, matches);
+  for (const state of ['processing', 'processed']) {
+    for (const fileName of pngFiles(path.join(projectRoot, 'input', state))) {
+      const relativePath = relativeProjectPath('input', state, fileName);
+      const hash = fileHash(relativePath, projectRoot);
+      const key = datasetKeyFromFileName(fileName);
+      const matches = byHash.get(hash) || [];
+      matches.push({ key, state, relativePath });
+      byHash.set(hash, matches);
+    }
   }
   return byHash;
 }
@@ -167,7 +173,7 @@ function main() {
 
   const registeredScripts = loadRegisteredDatasetScripts();
   const incomeStatementSource = loadIncomeStatementSource();
-  const processedByHash = buildProcessedIndex();
+  const claimedByHash = buildClaimedSourceIndex();
   const blocked = [];
   const fresh = [];
 
@@ -187,7 +193,7 @@ function main() {
     if (!selectedNames.has(record.fileName)) continue;
     const { pendingPath, pendingHash } = record;
     const candidateKey = finalKey || record.candidateKey;
-    const exactMatches = processedByHash.get(pendingHash) || [];
+    const exactMatches = claimedByHash.get(pendingHash) || [];
     const candidateStatus = datasetStatus(candidateKey, registeredScripts, incomeStatementSource);
 
     const sameHashPending = pendingByHash.get(pendingHash) || [];
@@ -207,7 +213,7 @@ function main() {
 
     if (exactMatches.length) {
       blocked.push({
-        type: 'already-processed',
+        type: exactMatches.some((match) => match.state === 'processing') ? 'already-processing' : 'already-processed',
         pendingPath,
         matches: exactMatches.map((match) => ({
           ...match,
@@ -233,8 +239,9 @@ function main() {
   if (blocked.length) {
     console.error('Pending check stopped the workflow before processing:');
     for (const item of blocked) {
-      if (item.type === 'already-processed') {
-        console.error(`- ${item.pendingPath} matches existing processed image(s):`);
+      if (item.type === 'already-processed' || item.type === 'already-processing') {
+        const label = item.type === 'already-processing' ? 'claimed Source image(s)' : 'processed image(s)';
+        console.error(`- ${item.pendingPath} matches existing ${label}:`);
         for (const match of item.matches) {
           console.error(`  - ${match.relativePath} (${statusText(match.status)})`);
         }
@@ -250,7 +257,7 @@ function main() {
         if (item.sameKey.length > 1) console.error(`  same candidate key: ${item.sameKey.join(', ')}`);
       }
     }
-    console.error('Do not move, overwrite, or update dataset files for these pending image(s).');
+    console.error('Do not claim, overwrite, or update dataset files for these pending image(s).');
     process.exit(1);
   }
 
@@ -259,4 +266,5 @@ function main() {
   for (const item of fresh) console.log(`- ${item.pendingPath} -> candidate key: ${item.key}`);
 }
 
-main();
+const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (isDirectRun) main();

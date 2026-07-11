@@ -62,6 +62,23 @@ async function main() {
   assert.deepEqual(contract.scopes.DatasetBuild.states, DATASET_BUILD_STATES, 'DatasetBuild state drift');
   assert.deepEqual(sorted(contract.adapters), sorted(DATASET_ADAPTERS), 'Adapter drift');
   assert.deepEqual(sorted(contract.sourceAvailability), sorted(SOURCE_AVAILABILITY), 'Source availability drift');
+  assert.equal(contract.sourceLocations.pending, 'unclaimed', 'pending Source location semantics drift');
+  assert.equal(
+    contract.sourceLocations.processing,
+    'build-local-working-locator',
+    'processing Source location semantics drift'
+  );
+  assert.equal(
+    contract.sourceLocations.processed,
+    'compatibility-complete-projection',
+    'processed Source location semantics drift'
+  );
+  assert.equal(contract.sourceLocations.processingIsDatasetBuildState, false, 'processing must not become a Build state');
+  assert.equal(
+    contract.sourceLocations.processedPromotionRequiresFreshAcceptedCloseout,
+    true,
+    'processed promotion must require accepted fresh close-out'
+  );
   assert.deepEqual(sorted(contract.changeImpact), sorted(CHANGE_IMPACTS), 'ChangeImpact drift');
   assert.equal(contract.invariants.baselineMayProveProducingBuild, false, 'self-baseline must stay forbidden');
   assert.equal(contract.invariants.releaseFailureRollsBackPublication, false, 'Release failure must not roll back Publication');
@@ -69,6 +86,7 @@ async function main() {
   assert.equal(contract.invariants.automaticEvidenceMayCloseBuild, false, 'automatic evidence must not close a Build');
   assert.equal(contract.invariants.humanAttestationRequiredForIncomeStatement, true, 'Income Statement closure must require human attestation');
   assert.equal(contract.invariants.verifyCommandsWriteDurableEvidence, false, 'verify:* must remain read-only');
+  assert.equal(contract.invariants.sourceRelocationChangesIdentity, false, 'Source relocation must preserve digest identity');
   for (const objectName of [
     'ObjectInventory',
     'VerificationPlan',
@@ -91,6 +109,8 @@ async function main() {
 
   const packageJson = JSON.parse(await readFile(projectPath('package.json'), 'utf8'));
   assert.ok(packageJson.scripts['record:intake'], 'package.json must expose record:intake');
+  assert.ok(packageJson.scripts['complete:source'], 'package.json must expose complete:source');
+  assert.ok(existsSync(projectPath('input', 'processing', '.gitkeep')), 'input/processing must be a stable workspace directory');
   assert.ok(packageJson.scripts['record:fidelity'], 'package.json must expose record:fidelity');
   assert.ok(packageJson.scripts['record:verification'], 'package.json must expose record:verification');
   assert.ok(packageJson.scripts['record:build'], 'package.json must expose record:build');

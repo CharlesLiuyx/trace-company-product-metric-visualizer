@@ -21,9 +21,10 @@ d3 fidelity loop is `docs/fidelity-loop-rules.md`, commit conventions are
 
 The pipeline is not strictly serial. Dependency-wise it forms five groups:
 
-- **G0 — serial gate (steps 1–3).** Guard, key, image move. Nothing else may
-  start before the guard passes and the key + processed image are frozen; a
-  stop condition ends the whole run.
+- **G0 — serial gate (steps 1–3).** Guard, key, and Source claim. Nothing else
+  may start before the guard passes and `record:intake` has no-clobber claimed
+  the Source as `input/processing/<dataset-key>.png`; a stop condition ends
+  the whole run.
 - **G1 — parallel preparation (steps 4–7).** Everything here depends only on
   the frozen key + reference image, so the three tracks may run concurrently
   (as interleaved work or delegated subagents):
@@ -45,7 +46,9 @@ The pipeline is not strictly serial. Dependency-wise it forms five groups:
   serial per direction, while candidate-value trials within a round and
   independent locale evidence may run in parallel.
 - **G4 — serial close-out (step 14 plus the Verification Checklist and
-  Reporting below).**
+  Reporting below).** Verify the accepted, fresh sealed Build first, then
+  promote its claimed Source from `processing/` to `processed/` through the
+  compatibility command.
 
 ### Difficulty-based executor routing
 
@@ -57,7 +60,7 @@ returns.
 
 | step | difficulty | executor |
 | --- | --- | --- |
-| 1–3 guard / key / image move | low | either — script output decides; main agent confirms stop conditions and the final key |
+| 1–3 guard / key / Source claim | low | either — script output decides; main agent confirms stop conditions, the final key, and the no-clobber `processing/` claim |
 | 4 input typing + object inventory | medium | main agent — misclassification cascades into every later step |
 | 5 company metadata | medium | subagent OK (web research, field filling); main agent reviews sources |
 | 6 financial SSOT record | high | main agent — financial semantics, rounding, currency contract |
@@ -70,7 +73,7 @@ returns.
 | 12 fidelity loop: triage, fixes, RegionDecision / feedback decisions | high | main agent |
 | 12 dataset verification and fidelity evidence collection | low | subagent OK — use `record:verification` for consistency and `record:fidelity` for render evidence; `verify:d3` remains diagnostic |
 | 13 finish review, stage baseline, fresh seal | medium | main agent |
-| 14 close-out verification, commits, reporting | medium | main agent |
+| 14 close-out verification, Source promotion, commits, reporting | medium | main agent |
 
 ## New Dataset Pipeline
 
@@ -82,25 +85,32 @@ returns.
    `--key`; ignore `.gitkeep`). Running `pnpm check:pending` without `--file` audits the
    whole discovery queue, but an unrelated pending item is not the
    transaction state or close-out condition for the selected Build. An exact
-   content match, pending-to-pending collision, or candidate-key collision
-   for the selected item is a stop condition — report it and do not move,
-   create, update, crop, or verify anything for that image. If the final key
-   differs from the script's candidate key, re-run the selected-item guard
-   after naming the file accordingly and check the final key against the
-   existing canonical artifacts.
+   content match in `processing/` or `processed/`, a pending-to-pending
+   collision, or a candidate-key collision for the selected item is a stop
+   condition — report it and do not move, create, update, crop, or verify
+   anything for that image. If the final key differs from the script's
+   candidate key, re-run the selected-item guard after naming the file
+   accordingly and check the final key against both active processing claims
+   and existing canonical artifacts.
 2. Key: lowercase kebab case, company plus period, e.g. `nvidia-q4-fy26`.
 3. Type-only intake: inspect the whole image only far enough to select the
-   `income-statement` or `revenue-metric` Adapter, then record an immutable
-   per-item intake before moving the Source:
+   `income-statement` or `revenue-metric` Adapter, then record and claim the
+   per-item Source:
 
        pnpm record:intake -- input/pending/<file>.png --key <dataset-key> \
          --adapter <income-statement|revenue-metric> \
          --availability <published|local-only|restricted>
 
-   This writes an ignored Build manifest under `output/builds/`, including
-   Source hash/dimensions and `baseCanonicalDigest`; it does not move the
-   PNG, register data, or write another canonical file. Preserve the reported
-   Build ID and manifest path in the durable review working record.
+   `--availability` is Source-access policy; its value `published` is not the
+   lifecycle state `PUBLISHED` and does not mean M4 Publication occurred.
+   After its selected-item guard passes, `record:intake` writes an ignored
+   Build manifest under `output/builds/`, including Source hash/dimensions and
+   `baseCanonicalDigest`, and immediately makes a no-clobber claim by moving
+   the PNG to `input/processing/<dataset-key>.png`. A successful intake must
+   leave no selected copy in `pending/`; an existing processing destination
+   is a stop condition and must never be overwritten. Preserve the reported
+   Build ID, manifest path, and processing path in the durable review working
+   record. This is a local compatibility claim, not canonical Publication.
 
 ### Phase P2 — Source inventory & data SSOTs (G1, parallel tracks)
 
@@ -132,12 +142,11 @@ returns.
      it so the final report can state that every object is accounted for.
    - Only after the inventory is complete move to fine, per-object
      measurement (step 8 / `docs/fidelity-loop-rules.md` §第 0 轮).
-   - Current compatibility step, until atomic Publication milestone M4:
-     after the inventory is durable, move the selected Source to
-     `input/processed/<dataset-key>.png`, set `meta.referenceImage` to that
-     path with the exact intake dimensions, and leave unrelated pending
-     items untouched. The Build manifest is the recovery identity; file
-     existence is no longer the only record that intake happened.
+   - Keep the selected Source at `input/processing/<dataset-key>.png` for the
+     entire inventory, authoring, crop, fidelity, and close-out workflow. Do
+     not promote it early merely because inventory or authoring is complete.
+     The Build manifest plus Source digest is the recovery identity; directory
+     presence alone is not acceptance.
 5. Company (Track A; first dataset for a company): create
    `data/company-metadata/<company-key>.js` — description, sector, industry,
    founded, headquarters, fiscal year end, website, ticker/exchange, market
@@ -149,7 +158,11 @@ returns.
    (create the file and register it in `index.html` for a new company) —
    comparable reported totals, line items, notes, currency, unit, period,
    and source image only. Cross-check line items against the step 4
-   inventory so no segment or cost object is silently dropped.
+   inventory so no segment or cost object is silently dropped. Author every
+   durable Source reference with its final stable path,
+   `input/processed/<dataset-key>.png`, even while the bytes remain under
+   `input/processing/`; local tools may resolve that missing final path to the
+   same-key processing claim for the active Build.
 7. Icons (Track C; when the step 4 inventory lists company or
    business/segment icon clusters): author
    `input/icon-crop-specs/<dataset-key>.json` and run
@@ -164,6 +177,9 @@ returns.
    when the source icon is materially similar; use `src/icons.js` Lucide
    icons for generic semantics. Prefer vector conversion; raster embedding is
    allowed only for validated clusters written through `runtimeOutputDir`.
+   Keep authored crop/source references on the final `input/processed/` path;
+   during the active Build, the crop tooling may use the same-key local
+   fallback to `input/processing/`.
    Crop/vector iteration and raster whitelist rules:
    `docs/fidelity-loop-rules.md`; folder layout: `data/assets/README.md`.
 
@@ -182,8 +198,12 @@ returns.
    (`type: 'cost'` renders parenthesized); treat publisher watermarks,
    creator branding, URLs, and attribution blocks as intentional skipped
    residuals, not render targets; set `meta.logoSvg` when the source shows
-   a vector-representable company logo. New or materially changed fixed-layout
-   datasets must declare `render.interfaceAudit: { mode: 'error' }`; the G12
+   a vector-representable company logo. Set `meta.referenceImage.src` to the
+   final `input/processed/<dataset-key>.png` path and use the exact intake
+   dimensions; diagnostic and fidelity tools may read the active Build's
+   same-key `processing/` claim while that final path is not yet materialized. New or
+   materially changed fixed-layout datasets must declare
+   `render.interfaceAudit: { mode: 'error' }`; the G12
    artifacts and required Interface Matrix follow
    `docs/fidelity-loop-rules.md` and do not belong in the financial SSOT.
 9. i18n: English is canonical. Add `i18n.<language>` overlays — never
@@ -257,12 +277,25 @@ returns.
 
 ### Phase P5 — Close out (G4)
 
-14. Confirm that the selected pending item was either recorded and moved to
-    its compatibility processed path, or stopped with an explicit reason.
-    Other items may remain in the shared discovery queue. Run
-    `pnpm verify:closeout -- <build-id>`; it requires historical and effective
-    `SEALED`, fresh inputs, and accepted review. Then satisfy the Verification
-    Checklist and Reporting sections below.
+14. Confirm that the selected pending item was either claimed at
+    `input/processing/<dataset-key>.png` or stopped with an explicit reason.
+    Other items may remain in the shared discovery queue, and unrelated active
+    claims may remain in `processing/`. First run the read-only close-out gate:
+
+        pnpm verify:closeout -- <build-id>
+
+    It requires historical and effective `SEALED`, fresh inputs, and accepted
+    review. Only after it passes, promote the exact claimed Source:
+
+        pnpm complete:source -- <build-id>
+
+    `complete:source` rechecks the intake digest and final path, refuses to
+    overwrite an existing destination, and moves
+    `input/processing/<dataset-key>.png` to the stable
+    `input/processed/<dataset-key>.png`. Never rename a processed image. This
+    Source promotion is the current compatibility path; it is not atomic M4
+    Publication and must not be reported as `PUBLISHED`. Then satisfy the
+    Verification Checklist and Reporting sections below.
 
 ## Object Taxonomy
 
@@ -407,7 +440,18 @@ proceed with the pipeline using the new checklist.
 - Crops under `data/assets/icon-references/` are reference/conversion assets
   only and must never be referenced from d3 runtime output; runtime rasters
   live under `data/assets/raster-annotations/<company>/`.
-- Never rename a processed image after its dataset key is assigned.
+- Keep an active Build's Source in `input/processing/<dataset-key>.png` until
+  accepted, fresh close-out passes. Authored references still name the final
+  `input/processed/<dataset-key>.png`; local tooling may fall back to that
+  Build's same-key `processing/` claim.
+- Treat an abnormal or stranded processing claim as a recovery condition, not
+  a queue item. Inspect it through the Build ID and recorded Source digest;
+  never overwrite it or silently move it back to `pending/`. If explicit safe
+  recovery is unavailable, stop and report the condition rather than inventing
+  an unimplemented abandon/requeue command.
+- Never rename or overwrite a processed image after its dataset key is
+  assigned; use `complete:source` for the one allowed processing-to-processed
+  promotion.
 - Interim reporting spans (`3M`, `6M`, `9M`, `H1`, `H2`, `YTD`) share the
   fiscal-year bucket with the annual record but must use the span as their
   viewer variant label unless explicitly overridden; never let them fall back
@@ -424,10 +468,14 @@ Always, before the final response:
 - `pnpm check` passes (repo-wide JS syntax/tests, pending guard, architecture
   and app-global contracts, SSOT parity, i18n coverage, dataset-file-metadata freshness). `pnpm check` is
   reproducible: it must be fully green on any working copy, including fresh
-  clones, cloud agents, and CI — see Environment Notes.
-- The selected pending item has a Build manifest and a compatibility
-  processed path, or its stop condition is reported. Unrelated pending items
-  may remain in the shared discovery queue.
+  clones, cloud agents, and CI — see Environment Notes. A non-empty
+  `input/processing/` is valid evidence of active work and must not make this
+  global check fail.
+- The selected pending item has a Build manifest, passed
+  `pnpm verify:closeout -- <build-id>`, and was digest-checked and promoted by
+  `pnpm complete:source -- <build-id>` to its compatibility processed path;
+  otherwise its stop condition is reported. Unrelated pending items and
+  unrelated active processing claims may remain.
 
 ### Environment Notes (fresh checkouts, cloud, CI)
 
@@ -467,6 +515,10 @@ For a new or materially changed dataset:
   aggregate command does not replace this step.
 - `pnpm verify:closeout -- <build-id>` passes after baseline staging and the
   fresh seal; historical `SEALED` with stale effective state does not pass.
+- `pnpm complete:source -- <build-id>` passes only after that close-out gate,
+  and the selected Source exists at `input/processed/<dataset-key>.png` with
+  no remaining selected claim under `input/processing/`. This compatibility
+  promotion is not M4 Publication.
 
 If icon assets were extracted: the crop script passes, `crop-report.json`
 shows every crop `passes: true`, validation sheets were reviewed,
@@ -484,6 +536,10 @@ In the final response, include:
 - For new datasets: the input type, `ObjectInventory` digest and
   rendered/data-only/skipped summary, confirming every object is mapped or has
   an explicit skip reason, plus the Build ID/manifest path from intake.
+- For the selected Source: the intake processing claim, the passing
+  `verify:closeout` result, and the digest-checked final processed path returned
+  by `complete:source`; if promotion did not occur, report the exact stop or
+  recovery condition instead of calling the Source complete.
 - Icon assets extracted, and whether all relevant clusters were accounted for.
 - For dataset or renderer changes: use
   `pnpm record:build -- inspect <build-id>` and

@@ -83,13 +83,13 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
 | 命令 | 用途 |
 | --- | --- |
 | `pnpm dev` | 零依赖本地静态服务器，端口 8000 |
-| `pnpm check` | 快速聚合门：全仓 JS 语法、单元测试、pending 守卫、architecture/app-global 契约、manifest 新鲜度、SSOT 奇偶、i18n 与 metadata 新鲜度（秒级，无渲染）；fresh checkout 可复现且由 CI 运行 |
-| `pnpm test` | `tests/` 下的 node:test 单元测试——引擎布局数学与标签排版、trace-domain 解析/汇率、i18n 翻译规则、png-diff 指标、script-source 解析、dataset registry |
+| `pnpm check` | 快速聚合门：全仓 JS 语法、单元测试、pending 守卫、architecture/app-global 契约、manifest 新鲜度、SSOT 奇偶、i18n 与 metadata 新鲜度（秒级，无渲染）；`input/processing/` 中的在途文件不会让这个全局门失败；fresh checkout 可复现且由 CI 运行 |
+| `pnpm test` | `tests/` 下的 node:test 单元测试——Source claim/promotion、引擎布局数学与标签排版、trace-domain 解析/汇率、i18n 翻译规则、png-diff 指标、script-source 解析、dataset registry |
 | `pnpm verify:app` | 模块化查看器（`src/app/*`）的无头启动 + 交互冒烟：模块数量、持久化偏好启动、hash 路由、对比缩放 + 指标趋势、收入趋势、移动端视口 |
 | `pnpm verify:app-globals` | 共享顶层作用域契约的静态门：跨文件重复顶层声明、加载期引用晚加载 script（也包含在 `pnpm check` 中） |
 | `pnpm verify:architecture` | 强制生命周期 protocol/state/Adapter 奇偶、命令 mutation 语义、架构路由和本地上下文文档链接（也包含在 `pnpm check` 中） |
-| `pnpm check:pending [-- --file input/pending/<file>.png --key <final-key>]` | 待处理图片重复 / key 冲突守卫；单个 Build 用 `--file`，定名后加 `--key`，全部省略时只审计共享队列 |
-| `pnpm record:intake -- <pending.png> --key <key> --adapter <kind> [--availability <policy>]` | 记录忽略的 per-item `INTAKED` Build manifest（含 Source 与 canonical-base digest），不移动或发布 Source |
+| `pnpm check:pending [-- --file input/pending/<file>.png --key <final-key>]` | pending 重复 / 活动 processing claim / processed 与 key 冲突守卫；单个 Build 用 `--file`，定名后加 `--key`，全部省略时只审计共享队列 |
+| `pnpm record:intake -- <pending.png> --key <key> --adapter <kind> [--availability <policy>]` | 选中项守卫通过后，记录忽略的 per-item `INTAKED` Build manifest，并立即以 no-clobber 方式把 Source 领取到 `input/processing/<key>.png`；这不是 Publication |
 | `pnpm record:build -- prepare-review <build-id> --input <review-input.json>` | 对 authored artifacts 取 hash，持久化对象盘点与 Verification Plan，把 Build 推进到 `AUTHORED` 并返回 `reviewToken`；这一步不记录人工接受 |
 | `pnpm record:verification -- <build-id> [--json]` | 运行非渲染的数据一致性 profile，并记录 Build-bound `dataset-verification/v1` 证据；返回的 reference 必须传给 `finish` |
 | `pnpm record:fidelity -- <key> --focus <dir> [--language <code>] --build <build-id>` | 持久化 Build-bound 自动证据为 `evidence-ready`，每种 required language 各跑一次；不带 `--build` 的显式 focus 产物仅为旧兼容证据，不能关闭 Build |
@@ -98,6 +98,7 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
 | `pnpm record:build -- seal <build-id>` | 内部重算 artifact 新鲜度；仅当 Build 已人工接受、关闭、stage baseline 且 exact digests 新鲜时记录 `SEALED`，不发布 canonical 数据 |
 | `pnpm record:build -- inspect <build-id> [--json]` | 只读查看历史/有效状态、新鲜度、Review 状态、Task 信息与 Loop Fidelity Summary |
 | `pnpm verify:closeout -- <build-id> [--json]` | 只读收尾门：历史与有效状态都必须为 `SEALED`、输入新鲜且人工 Review 已 accepted |
+| `pnpm complete:source -- <build-id>` | `verify:closeout` 通过后，复核 intake digest，并以 no-clobber 方式把选中的 Source 从 `input/processing/<key>.png` 提升到稳定的 `input/processed/<key>.png`；仅为兼容路径，不是 M4 Publication |
 | `pnpm sync:index-datasets` | 同步全部数据注册面与磁盘：`index.html` SSOT `<script>` 标签（损益表、公司档案）与生成的 dataset manifest（`--check` 只报告漂移） |
 | `pnpm update:dataset-manifest` / `pnpm verify:dataset-manifest` | 重新生成 / 校验 `data/dataset-manifest.js`（数据集注册 SSOT） |
 | `pnpm verify:dataset -- <key> [--skip-render]` | 只读单数据集聚合诊断：语法、SSOT、strict i18n、metadata，然后每种语言各一次只读 d3 渲染 |
@@ -125,30 +126,39 @@ CI（`.github/workflows/ci.yml`）在每次 push 到 `main` 与每个 pull reque
 `docs/architecture/README.md` 拥有，不得在一次当前流程执行中静默混入目标状态
 断言。
 
-1. 接入与守卫——选择一个 item，运行 `pnpm check:pending -- --file ...`，确定
-   `<公司>-<期间>` key 与 Adapter，再运行 `pnpm record:intake`。粗盘点持久化前
-   Source 留在 pending；当前兼容流程只把该 item 移到
-   `input/processed/<dataset-key>.png` 后再 authoring。
+1. 接入与守卫——选择一个 item，先运行候选
+   `pnpm check:pending -- --file ...` 守卫，确定 `<公司>-<期间>` key 与
+   Adapter，用 `--key` 重跑守卫，再运行 `pnpm record:intake`。最终守卫通过后，
+   intake 立即以 no-clobber 方式把 Source 领取到
+   `input/processing/<dataset-key>.png`；盘点、authoring、crop、fidelity 与
+   close-out 全程都保留在那里。
 2. 源盘点与数据 SSOT——先粗看全图：按工作流文档的对象类型清单判定输入类型
    （含收入指标类的纯数据支线）并盘点全部对象；然后并行推进公司档案（该
-   公司的第一个数据集）、`data/income-statements/<company-key>.js` 记录，
-   以及可选的图标 crop/vector 子循环。
-3. Adapter 与 i18n——按第 2 阶段盘点清单逐对象精细测量、对照源图片编写
-   `data/datasets/<dataset-key>.js`，添加 `i18n.<language>` 覆盖，然后用
-   `pnpm sync:index-datasets` 注册（重新生成 dataset manifest）。
+   公司的第一个数据集）、Adapter 所属 Metric SSOT
+   （`data/income-statements/<company-key>.js` 或 `data/revenue-metrics.js`），
+   以及 Income Statement 可选的图标 crop/vector 子循环。
+3. Adapter 与 i18n——Income Statement 按第 2 阶段盘点清单逐对象精细测量、
+   对照源图片编写 `data/datasets/<dataset-key>.js`，添加 `i18n.<language>` 覆盖，然后用
+   `pnpm sync:index-datasets` 注册（重新生成 dataset manifest）。authored
+   reference 始终写最终的 `input/processed/<dataset-key>.png` 路径；本地工具
+   可以回退到活动 Build 下同 key 的 processing claim。Revenue Metric 保持
+   data-only，不创建 Sankey Adapter。
 4. 验证与 Review——`verify:dataset` / `verify:d3` 只用于只读诊断。先运行
-   `record:build prepare-review`，用 `record:verification` 持久化数据一致性证据，
-   再用 Build-bound `record:fidelity` 持久化每种
+   `record:build prepare-review`，用 `record:verification` 持久化数据一致性证据；
+   Income Statement 再用 Build-bound `record:fidelity` 持久化每种
    required language 的 `evidence-ready` 证据；把这些证据交给人 Review，并将
    结构化 attestation 传给 `record:build finish`。机器通过既不叫 accepted，
    也不叫 converged；只有新鲜且 accepted 的 `FidelityResult` 才把 Build 推进到
    `CLOSED`。Revenue Metric plan 会显式把 Sankey/render 证据标为
    `notApplicable`，不得用缺席冒充不适用。
 5. 收尾——记录 build-local future-regression stage，跑新鲜的最终检查，再执行
-   `record:build seal` 与 `verify:closeout`。最后让 `pnpm check` 全绿、解决选中的
-   pending item，并按 `docs/commit-messages.md` 提交；共享队列可保留其他 item。
-   `SEALED` 不等于 `PUBLISHED`：原子 M4 Publication 仍未实现，兼容 canonical
-   baseline 路径仍与新闭环分离。
+   `record:build seal` 与 `verify:closeout`。只有 accepted、fresh 的 sealed Build
+   通过这个只读门后，才运行 `pnpm complete:source -- <build-id>`，复核 digest
+   并把 Source 从 `processing/` 提升到 `processed/`。最后让 `pnpm check` 全绿，
+   并按 `docs/commit-messages.md` 提交；共享队列与其他在途 processing claim
+   可以保留，processing 非空不会让全局检查失败。processed 图片永不改名。
+   这个兼容提升不等于 `PUBLISHED`：原子 M4 Publication 仍未实现，兼容
+   canonical baseline 路径仍与新闭环分离。
 
 每次最终回复之前，满足 `docs/dynamic-dataset-workflow.md` 中的回复前验证清单与汇报
 要求。

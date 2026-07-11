@@ -37,7 +37,7 @@ data(nvidia-q1-fy27): tune operating expense label placement
 
 | type | 适用场景 |
 |---|---|
-| `data` | 新增、更新或调参 `data/datasets/*.js` 数据集，或移动 `input/pending/` 到 `input/processed/` |
+| `data` | 新增、更新或调参 `data/datasets/*.js` 数据集，或把已通过 close-out 的 Source 从 `input/processing/` 提升到 `input/processed/` |
 | `render` | 修改 `src/sankey-engine.js`、图形几何、颜色、字体、导出、交互等渲染行为 |
 | `feat` | 新增用户可见能力，例如新的模式、导航、导出选项 |
 | `fix` | 修复错误行为、计算错误、注册遗漏、UI 失效 |
@@ -108,9 +108,15 @@ chore(deps): pin playwright 1.61.0
 
 ## 拆分提交建议
 
-- 新数据集提交：把 `input/processed/<dataset-key>.png`、`data/datasets/<dataset-key>.js`
-  和 `data/dataset-manifest.js` 注册（`pnpm sync:index-datasets` 生成）放在
-  同一个 `data(<dataset-key>)` 提交中。
+- 新数据集提交：把 `data/datasets/<dataset-key>.js` 和
+  `data/dataset-manifest.js` 注册（`pnpm sync:index-datasets` 生成）放在同一个
+  `data(<dataset-key>)` 提交中；仅当 Source availability 允许提交时，才把
+  `input/processed/<dataset-key>.png` 放入同一提交。`local-only` / `restricted`
+  Source 即使已在本机完成提升也不得伪造、强制纳入 Git 或改写 availability。
+  `input/processing/` 是被忽略的在途 claim：只有 accepted、fresh 的 sealed Build
+  通过 `verify:closeout`，并由 `pnpm complete:source -- <build-id>` 复核 digest、
+  no-clobber 提升后，processed PNG 才算完成。这个 Source 提升是兼容路径，不是
+  M4 Publication；processed 图片永不改名或覆盖。
 - 渲染器支持提交：如果为了某个数据集新增通用渲染能力，单独用
   `render(engine)` 提交，再用 `data(<dataset-key>)` 提交应用调参。
 - 验证脚本提交：任何改变 d3 评分、纯度断言或截图流程的改动，用
