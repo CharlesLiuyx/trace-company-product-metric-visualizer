@@ -331,7 +331,7 @@ async function main() {
   if (result.claim.recoveredDuplicate) console.log('source recovery: reconciled an interrupted same-digest claim');
   console.log(`base canonical: ${result.build.baseCanonicalDigest}`);
   console.log(`manifest: ${result.manifestPath}`);
-  console.log('Source claimed in input/processing/; promote it only after accepted fresh close-out.');
+  console.log('Source claimed in input/processing/; it stays there until an explicit operator completion signal authorizes direct batch relocation.');
 }
 
 const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);

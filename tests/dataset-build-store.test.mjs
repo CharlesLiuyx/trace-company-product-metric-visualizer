@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, readFile, rename, rm, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
@@ -12,7 +12,6 @@ import {
   recordBuildObject,
   recordDatasetBuildCommand,
 } from '../scripts/lib/dataset-build-store.mjs';
-import { promoteProcessingSource } from '../scripts/lib/source-lifecycle.mjs';
 
 const now = () => '2026-07-11T04:00:00.000Z';
 const digest = (value) => digestValue({ value });
@@ -151,7 +150,7 @@ test('inspect treats a re-authored Build as fresh while retaining historical clo
   assert.deepEqual(inspection.reasons, []);
 });
 
-test('inspect follows a new-style Source across processing freshness and processed promotion', async (t) => {
+test('inspect follows a new-style Source across processing freshness and direct relocation', async (t) => {
   const root = await mkdtemp(path.join(os.tmpdir(), 'dataset-build-source-freshness-test-'));
   t.after(() => rm(root, { recursive: true, force: true }));
   const buildRoot = path.join(root, 'output', 'builds');
@@ -215,14 +214,11 @@ test('inspect follows a new-style Source across processing freshness and process
   assert.equal(stale.staleSources[0].uri, processingUri);
 
   await writeFile(processingPath, sourceBytes);
-  await promoteProcessingSource({
-    key,
-    expectedDigest: fileDigest(sourceBytes),
-    projectRoot: root,
-  });
+  await mkdir(path.dirname(processedPath), { recursive: true });
+  await rename(processingPath, processedPath);
   assert.deepEqual(await readFile(processedPath), sourceBytes);
-  const promoted = await inspectDatasetBuild(build.buildId, { buildRoot, projectRoot: root });
-  assert.equal(promoted.fresh, true);
-  assert.equal(promoted.effectiveState, 'AUTHORED');
-  assert.deepEqual(promoted.staleSources, []);
+  const relocated = await inspectDatasetBuild(build.buildId, { buildRoot, projectRoot: root });
+  assert.equal(relocated.fresh, true);
+  assert.equal(relocated.effectiveState, 'AUTHORED');
+  assert.deepEqual(relocated.staleSources, []);
 });

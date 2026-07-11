@@ -305,18 +305,18 @@ export async function inspectDatasetBuild(buildId, options = {}) {
       continue;
     }
     if (!existsSync(absolute)) {
-      // A completed Source is deliberately promoted from its build-local
-      // processing locator to its stable processed locator after close-out.
+      // An operator completion signal may relocate a Source from its
+      // build-local processing locator to its stable processed locator.
       // That relocation preserves Source identity, so an authored reference
       // artifact captured at the working locator remains fresh when the
       // matching processed projection exists with the same intake digest.
-      const promotedSource = (build.sources || []).find((source) =>
+      const relocatedSource = (build.sources || []).find((source) =>
         source.processingUri === artifact.path
         && source.digest === artifact.digest
         && source.processedUri
       );
-      if (promotedSource) {
-        const processedPath = path.resolve(projectRoot, promotedSource.processedUri);
+      if (relocatedSource) {
+        const processedPath = path.resolve(projectRoot, relocatedSource.processedUri);
         if (
           processedPath.startsWith(`${path.resolve(projectRoot)}${path.sep}`)
           && existsSync(processedPath)

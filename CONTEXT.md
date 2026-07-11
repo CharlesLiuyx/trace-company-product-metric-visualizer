@@ -8,10 +8,13 @@ build-local evidence, not publication state.
 Source folders are operational locators, not a fourth lifecycle scope.
 `record:intake` fixes the Source digest and claims the selected file from
 `input/pending/` into the Build-local `input/processing/` working locator and
-lease. The same bytes are compatibility-promoted to `input/processed/` only
-after an accepted, fresh `SEALED` Build passes close-out. Relocation does not
-change Source digest identity. In the target M4 architecture, Publication owns
-the stable processed Source projection.
+lease. The Source remains there until the operator explicitly states that
+human review is complete, or that local work was pushed and merged into
+`main`; either statement authorizes a direct no-clobber relocation of every
+current processing PNG to `input/processed/`. This is the only current
+relocation trigger. It changes no Source digest identity and fabricates no
+Build state. In the target M4 architecture, Publication replaces this
+transitional operation and owns the stable processed Source projection.
 
 Within a Sankey View, **Hover Share（所占比例）** is renderer-owned rather
 than Adapter-configurable. Its Interface has two surface rules: node hover

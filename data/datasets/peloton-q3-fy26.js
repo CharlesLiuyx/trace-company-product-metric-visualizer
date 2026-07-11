@@ -76,7 +76,7 @@
       ], 'middle', 12)],
     },
     net_profit: {
-      blocks: [block(2498, 281, [
+      blocks: [block(isZh ? 2510 : 2498, 281, [
         line(isZh ? '净利润' : 'Net profit', 40, 800, GREEN_LABEL),
         line('$value', 39, 400, GREEN_LABEL),
         line(isZh ? '利润率 4%' : '4% margin', 29, 400, NOTE),
