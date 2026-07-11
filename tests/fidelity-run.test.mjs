@@ -55,6 +55,16 @@ function finalizationOptions(similarity, round = 1) {
     fullMetrics: { similarity },
     metricsDocument: {
       dataset: baseIdentity.dataset,
+      fontStatus: {
+        loaded: { Montserrat: true, 'Noto Sans': true, Roboto: true },
+        allLoaded: true,
+      },
+      typographyAudit: {
+        schemaVersion: 1,
+        ruleId: 'G3',
+        status: 'passed',
+        violations: [],
+      },
       full: { similarity },
     },
     round,
@@ -125,6 +135,9 @@ test('parallel fidelity runs keep private scratch and finalize without cross-arc
   );
   assert.equal(leftMetrics.candidate, `${leftArchive.dir}/example-fy25-d3.png`);
   assert.equal(leftMetrics.diff, `${leftArchive.dir}/example-fy25-pixel-diff-x4.png`);
+  assert.equal(leftMetrics.fontStatus.allLoaded, true);
+  assert.equal(leftMetrics.typographyAudit.status, 'passed');
+  assert.deepEqual(leftMetrics.typographyAudit.violations, []);
 
   await cleanupFidelityRun(left);
   await assert.rejects(stat(left.scratchDir), { code: 'ENOENT' });

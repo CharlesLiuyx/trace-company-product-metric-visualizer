@@ -16,16 +16,18 @@
   const NOTE = '#757575';
 
   const hiltonLogo = `
-    <g transform="translate(830 238)" fill="none" stroke="${BLUE}" stroke-linecap="round" stroke-linejoin="round">
-      <ellipse cx="236" cy="87" rx="120" ry="80" stroke-width="8"/>
-      <ellipse cx="236" cy="113" rx="62" ry="51" stroke-width="7"/>
-      <path d="M118 126 C91 72 132 25 208 17" stroke-width="7"/>
-      <path d="M355 124 C381 74 342 24 267 17" stroke-width="7"/>
-      <rect x="200" y="35" width="35" height="89" fill="${BLUE}" stroke="none"/>
-      <rect x="253" y="35" width="35" height="100" fill="${BLUE}" stroke="none"/>
-      <rect x="222" y="76" width="43" height="12" fill="${BLUE}" stroke="none"/>
-    </g>
-    <text x="1066" y="535" text-anchor="middle" font-family="Georgia,Times New Roman,serif" font-size="151" font-weight="700" textLength="430" lengthAdjust="spacingAndGlyphs" fill="${BLUE}">Hilton</text>`;
+    <g data-typography-role="brand">
+      <g transform="translate(830 238)" fill="none" stroke="${BLUE}" stroke-linecap="round" stroke-linejoin="round">
+        <ellipse cx="236" cy="87" rx="120" ry="80" stroke-width="8"/>
+        <ellipse cx="236" cy="113" rx="62" ry="51" stroke-width="7"/>
+        <path d="M118 126 C91 72 132 25 208 17" stroke-width="7"/>
+        <path d="M355 124 C381 74 342 24 267 17" stroke-width="7"/>
+        <rect x="200" y="35" width="35" height="89" fill="${BLUE}" stroke="none"/>
+        <rect x="253" y="35" width="35" height="100" fill="${BLUE}" stroke="none"/>
+        <rect x="222" y="76" width="43" height="12" fill="${BLUE}" stroke="none"/>
+      </g>
+      <text x="1066" y="535" text-anchor="middle" font-family="Georgia,Times New Roman,serif" font-size="151" font-weight="700" textLength="430" lengthAdjust="spacingAndGlyphs" fill="${BLUE}">Hilton</text>
+    </g>`;
 
   const statsCard = (x, y, width, lines) => `
     <g>

@@ -4,8 +4,17 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { chromium } from 'playwright';
 import { assert, rootDir } from './lib/project.mjs';
+import {
+  assertProjectFontsLoaded,
+  assertTypographyAudit,
+  typographyAudit,
+} from './lib/render-harness.mjs';
 
 const defaultHtml = 'output/trace-company-product-metric-visualizer.html';
+
+function primaryFontFamily(value) {
+  return String(value || '').split(',')[0].trim().replace(/^(['"])(.*)\1$/, '$2');
+}
 
 function parseArgs(argv) {
   const args = argv.slice(2);
@@ -91,17 +100,56 @@ async function verifyInBrowser(filePath) {
   try {
     await page.goto(documentUrl, { waitUntil: 'load' });
     await page.waitForSelector('#chart svg', { timeout: 10000 });
+    const fontStatus = await assertProjectFontsLoaded(page);
     const d3State = await page.evaluate(() => ({
       activeDataset:
         document.querySelector('#activeDatasetName')?.textContent ||
         document.querySelector('#actionTitle')?.textContent ||
         '',
+      activeDatasetKey:
+        (typeof currentDataset === 'function' && currentDataset()?.key) ||
+        (typeof currentRecord === 'function' && currentRecord()?.dataset?.key) ||
+        '',
+      language:
+        (typeof state !== 'undefined' && state?.language) ||
+        document.documentElement.lang ||
+        'en',
       hasSvg: !!document.querySelector('#chart svg'),
       hasReferenceImage: !!document.querySelector('#chart img'),
       svgButtonDisabled: document.querySelector('#svgBtn')?.disabled,
       montserratLoaded:
         document.fonts.check('16px Montserrat') || document.fonts.check('16px "Montserrat"'),
     }));
+    const renderedTypographyAudit = await typographyAudit(page, {
+      dataset: d3State.activeDatasetKey,
+      language: d3State.language,
+    });
+    assertTypographyAudit(renderedTypographyAudit);
+    const fontBoundaries = await page.evaluate(() => {
+      const font = (selector) => {
+        const element = document.querySelector(selector);
+        return element ? getComputedStyle(element).fontFamily : '';
+      };
+      return {
+        toolbar: font('.toolbar'),
+        sidebar: font('#datasetPanel'),
+        actionbar: font('.view-actionbar'),
+        sankeyView: font('#sankeyView'),
+        chartTheme: typeof chartTheme === 'function' ? chartTheme().fontFamily : '',
+      };
+    });
+    for (const role of ['toolbar', 'sidebar', 'actionbar']) {
+      assert(
+        primaryFontFamily(fontBoundaries[role]) === 'Montserrat',
+        `Standalone ${role} expected Montserrat, got ${fontBoundaries[role] || 'no computed font'}`
+      );
+    }
+    for (const role of ['sankeyView', 'chartTheme']) {
+      assert(
+        primaryFontFamily(fontBoundaries[role]) === 'Noto Sans',
+        `Standalone ${role} expected Noto Sans, got ${fontBoundaries[role] || 'no computed font'}`
+      );
+    }
 
     assert(!pageErrors.length, `Page errors:\n${pageErrors.join('\n')}`);
     assert(!externalRequests.length, `Standalone HTML made external request(s):\n${externalRequests.join('\n')}`);
@@ -139,7 +187,19 @@ async function verifyInBrowser(filePath) {
       rasterResults.push({ key, count: images.count });
     }
 
-    console.log(JSON.stringify({ d3State, rasterDatasets: rasterResults }, null, 2));
+    console.log(
+      JSON.stringify(
+        {
+          d3State,
+          fontStatus,
+          fontBoundaries,
+          typographyAudit: renderedTypographyAudit,
+          rasterDatasets: rasterResults,
+        },
+        null,
+        2
+      )
+    );
   } finally {
     await browser.close();
   }

@@ -19,7 +19,7 @@
   const RIGHT_LABEL_X = 2428;
 
   const mondayLogo = (word = 'monday') => `
-    <g transform="translate(30 630)">
+    <g transform="translate(30 630)" data-typography-role="brand">
       <rect x="52" y="34" width="75" height="166" rx="37.5" transform="rotate(32 89.5 117)" fill="${LOGO_RED}"/>
       <rect x="180" y="34" width="75" height="166" rx="37.5" transform="rotate(32 217.5 117)" fill="${LOGO_YELLOW}"/>
       <circle cx="282" cy="158" r="39" fill="${LOGO_GREEN}"/>

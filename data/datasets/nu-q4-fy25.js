@@ -35,7 +35,7 @@
     </g>`;
 
   const creditCardCluster = `
-    <g aria-label="Nu credit cards">
+    <g aria-label="Nu credit cards" data-typography-role="brand">
       <defs>
         <linearGradient id="nu-card-purple-a" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0" stop-color="#52237d"/><stop offset="0.55" stop-color="#8d28dd"/><stop offset="1" stop-color="#5d159f"/>

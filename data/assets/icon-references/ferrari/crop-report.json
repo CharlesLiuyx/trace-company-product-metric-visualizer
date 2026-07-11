@@ -1,0 +1,386 @@
+{
+  "source": "input/processed/ferrari-q4-fy25.png",
+  "spec": "input/icon-crop-specs/ferrari-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-11T06:29:54.831676+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/ferrari",
+  "crops": [
+    {
+      "key": "ferrari-company-crest-and-wordmark-q4-fy25",
+      "output": "data/assets/icon-references/ferrari/crops/company-crest-and-wordmark-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 7480,
+        "losslessBytes": 32974,
+        "savingsVsLossless": 0.7732,
+        "metrics": {
+          "meanAbsoluteError": 0.5042,
+          "rootMeanSquareError": 2.2312,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 62,
+          "changedPixelRatio": 0.3002
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 68645,
+        "transparentPixelRatio": 0.5903
+      },
+      "searchBox": {
+        "x": 818,
+        "y": 245,
+        "width": 330,
+        "height": 330
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 839,
+        "y0": 250,
+        "x1": 1132,
+        "y1": 566
+      },
+      "cropBox": {
+        "x0": 812,
+        "y0": 240,
+        "x1": 1154,
+        "y1": 580
+      },
+      "validation": {
+        "width": 342,
+        "height": 340,
+        "foregroundPixels": 45908,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 27,
+          "right": 22,
+          "top": 10,
+          "bottom": 14
+        },
+        "centerOffset": {
+          "x": 0.0073,
+          "y": -0.0059
+        },
+        "passes": true
+      },
+      "note": "Ferrari prancing-horse crest and wordmark above the Revenue hub. Excludes the chart title, revenue label and values, Sankey ribbons, source-image publisher marks, website URL, and footer attribution.",
+      "runtimeOutput": "data/assets/raster-annotations/ferrari/company-crest-and-wordmark-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 7480,
+        "losslessBytes": 32974,
+        "savingsVsLossless": 0.7732,
+        "metrics": {
+          "meanAbsoluteError": 0.5042,
+          "rootMeanSquareError": 2.2312,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 62,
+          "changedPixelRatio": 0.3002
+        }
+      },
+      "validationSheet": "data/assets/icon-references/ferrari/validation-sheets/ferrari-company-crest-and-wordmark-q4-fy25.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 279669,
+        "losslessBytes": 279669,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "ferrari-cars-and-spare-parts-q4-fy25",
+      "output": "data/assets/icon-references/ferrari/crops/cars-and-spare-parts-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 31376,
+        "losslessBytes": 31376,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 11014,
+        "transparentPixelRatio": 0.4553
+      },
+      "searchBox": {
+        "x": 190,
+        "y": 608,
+        "width": 252,
+        "height": 96
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 205,
+        "y0": 609,
+        "x1": 427,
+        "y1": 693
+      },
+      "cropBox": {
+        "x0": 190,
+        "y0": 608,
+        "x1": 442,
+        "y1": 704
+      },
+      "validation": {
+        "width": 252,
+        "height": 96,
+        "foregroundPixels": 13007,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 15,
+          "right": 15,
+          "top": 1,
+          "bottom": 11
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0521
+        },
+        "passes": true
+      },
+      "note": "Yellow Ferrari road-car illustration for the Cars and spare parts revenue source. Excludes the source value, source label, black source bar, and gray Sankey ribbon.",
+      "runtimeOutput": "data/assets/raster-annotations/ferrari/cars-and-spare-parts-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 31376,
+        "losslessBytes": 31376,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/ferrari/validation-sheets/ferrari-cars-and-spare-parts-q4-fy25.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 283093,
+        "losslessBytes": 283093,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "ferrari-sponsorships-commercial-brands-q4-fy25",
+      "output": "data/assets/icon-references/ferrari/crops/sponsorships-commercial-brands-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 26681,
+        "losslessBytes": 26681,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 12615,
+        "transparentPixelRatio": 0.5574
+      },
+      "searchBox": {
+        "x": 174,
+        "y": 861,
+        "width": 246,
+        "height": 92
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 187,
+        "y0": 861,
+        "x1": 409,
+        "y1": 937
+      },
+      "cropBox": {
+        "x0": 174,
+        "y0": 861,
+        "x1": 420,
+        "y1": 953
+      },
+      "validation": {
+        "width": 246,
+        "height": 92,
+        "foregroundPixels": 9694,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 13,
+          "right": 11,
+          "top": 0,
+          "bottom": 16
+        },
+        "centerOffset": {
+          "x": 0.0041,
+          "y": -0.087
+        },
+        "passes": true
+      },
+      "note": "Scuderia Ferrari Formula One car illustration for the Sponsorships, commercial & brands revenue source. Excludes the source value, source label, black source bar, and gray Sankey ribbon.",
+      "runtimeOutput": "data/assets/raster-annotations/ferrari/sponsorships-commercial-brands-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 26681,
+        "losslessBytes": 26681,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/ferrari/validation-sheets/ferrari-sponsorships-commercial-brands-q4-fy25.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 276015,
+        "losslessBytes": 276015,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "ferrari-other-engine-q4-fy25",
+      "output": "data/assets/icon-references/ferrari/crops/other-engine-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 5647,
+        "losslessBytes": 22382,
+        "savingsVsLossless": 0.7477,
+        "metrics": {
+          "meanAbsoluteError": 1.0531,
+          "rootMeanSquareError": 2.604,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 34,
+          "changedPixelRatio": 0.3262
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 15908,
+        "transparentPixelRatio": 0.6655
+      },
+      "searchBox": {
+        "x": 94,
+        "y": 1093,
+        "width": 166,
+        "height": 144
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 112,
+        "y0": 1122,
+        "x1": 233,
+        "y1": 1226
+      },
+      "cropBox": {
+        "x0": 94,
+        "y0": 1093,
+        "x1": 260,
+        "y1": 1237
+      },
+      "validation": {
+        "width": 166,
+        "height": 144,
+        "foregroundPixels": 7853,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 18,
+          "right": 27,
+          "top": 29,
+          "bottom": 11
+        },
+        "centerOffset": {
+          "x": -0.0271,
+          "y": 0.0625
+        },
+        "passes": true
+      },
+      "note": "Engine illustration for the Other revenue source. Excludes the source value, source label, black source bar, and gray Sankey ribbon.",
+      "runtimeOutput": "data/assets/raster-annotations/ferrari/other-engine-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 5647,
+        "losslessBytes": 22382,
+        "savingsVsLossless": 0.7477,
+        "metrics": {
+          "meanAbsoluteError": 1.0531,
+          "rootMeanSquareError": 2.604,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 34,
+          "changedPixelRatio": 0.3262
+        }
+      },
+      "validationSheet": "data/assets/icon-references/ferrari/validation-sheets/ferrari-other-engine-q4-fy25.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 304425,
+        "losslessBytes": 304425,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

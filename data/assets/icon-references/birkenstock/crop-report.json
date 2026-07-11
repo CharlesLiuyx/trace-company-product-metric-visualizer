@@ -1,0 +1,293 @@
+{
+  "source": "input/processed/birkenstock-q1-fy26.png",
+  "spec": "input/icon-crop-specs/birkenstock-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-11T06:32:26.166025+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/birkenstock",
+  "crops": [
+    {
+      "key": "birkenstock-business-to-business-sandal",
+      "output": "data/assets/icon-references/birkenstock/crops/business-to-business-sandal.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 18676,
+        "losslessBytes": 60945,
+        "savingsVsLossless": 0.6936,
+        "metrics": {
+          "meanAbsoluteError": 1.1856,
+          "rootMeanSquareError": 2.6285,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.4811
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 52,
+        "y": 365,
+        "width": 365,
+        "height": 190
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 68,
+        "y0": 384,
+        "x1": 412,
+        "y1": 550
+      },
+      "cropBox": {
+        "x0": 52,
+        "y0": 365,
+        "x1": 417,
+        "y1": 555
+      },
+      "validation": {
+        "width": 365,
+        "height": 190,
+        "foregroundPixels": 33839,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 16,
+          "right": 5,
+          "top": 19,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0151,
+          "y": 0.0368
+        },
+        "passes": true
+      },
+      "note": "Business-to-Business segment illustration: the complete two-strap sandal, including the outsole and both buckles, isolated above the B2B label. Kept as an opaque #f2f2f2 background-matched patch for exact source placement; the crop excludes the \u20ac215M / +18% Y/Y value block, the segment text, and the source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/birkenstock/business-to-business-sandal.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 18676,
+        "losslessBytes": 60945,
+        "savingsVsLossless": 0.6936,
+        "metrics": {
+          "meanAbsoluteError": 1.1856,
+          "rootMeanSquareError": 2.6285,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.4811
+        }
+      },
+      "validationSheet": "data/assets/icon-references/birkenstock/validation-sheets/birkenstock-business-to-business-sandal.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 344781,
+        "losslessBytes": 344781,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "birkenstock-direct-to-consumer-store",
+      "output": "data/assets/icon-references/birkenstock/crops/direct-to-consumer-store.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 36952,
+        "losslessBytes": 81216,
+        "savingsVsLossless": 0.545,
+        "metrics": {
+          "meanAbsoluteError": 1.1341,
+          "rootMeanSquareError": 2.2813,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 48,
+          "changedPixelRatio": 0.6186
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 58,
+        "y": 720,
+        "width": 350,
+        "height": 228
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 86,
+        "y0": 736,
+        "x1": 395,
+        "y1": 940
+      },
+      "cropBox": {
+        "x0": 58,
+        "y0": 720,
+        "x1": 408,
+        "y1": 948
+      },
+      "validation": {
+        "width": 350,
+        "height": 228,
+        "foregroundPixels": 51260,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 28,
+          "right": 13,
+          "top": 16,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0214,
+          "y": 0.0175
+        },
+        "passes": true
+      },
+      "note": "Direct-to-Consumer segment illustration: the complete Birkenstock storefront, including the roof, facade and entrance, isolated above the DTC label. Kept as an opaque #f2f2f2 background-matched patch for exact source placement; the crop excludes the \u20ac186M / +4% Y/Y value block, the segment text, and the source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/birkenstock/direct-to-consumer-store.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 36952,
+        "losslessBytes": 81216,
+        "savingsVsLossless": 0.545,
+        "metrics": {
+          "meanAbsoluteError": 1.1341,
+          "rootMeanSquareError": 2.2813,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 48,
+          "changedPixelRatio": 0.6186
+        }
+      },
+      "validationSheet": "data/assets/icon-references/birkenstock/validation-sheets/birkenstock-direct-to-consumer-store.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 382046,
+        "losslessBytes": 382046,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "birkenstock-company-wordmark",
+      "output": "data/assets/icon-references/birkenstock/crops/company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 6245,
+        "losslessBytes": 17466,
+        "savingsVsLossless": 0.6424,
+        "metrics": {
+          "meanAbsoluteError": 0.3771,
+          "rootMeanSquareError": 1.7529,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 27,
+          "changedPixelRatio": 0.091
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 618,
+        "y": 278,
+        "width": 646,
+        "height": 135
+      },
+      "componentCount": 12,
+      "subjectBox": {
+        "x0": 640,
+        "y0": 290,
+        "x1": 1243,
+        "y1": 396
+      },
+      "cropBox": {
+        "x0": 618,
+        "y0": 278,
+        "x1": 1264,
+        "y1": 413
+      },
+      "validation": {
+        "width": 646,
+        "height": 135,
+        "foregroundPixels": 42722,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 22,
+          "right": 21,
+          "top": 12,
+          "bottom": 17
+        },
+        "centerOffset": {
+          "x": 0.0008,
+          "y": -0.0185
+        },
+        "passes": true
+      },
+      "note": "BIRKENSTOCK company wordmark in the source\u2019s custom blue logotype, placed above the revenue hub. Kept as an opaque #f2f2f2 background-matched patch because the custom mark cannot be faithfully reconstructed with the available text stack. The crop excludes the title and all Sankey flows and nodes.",
+      "runtimeOutput": "data/assets/raster-annotations/birkenstock/company-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 6245,
+        "losslessBytes": 17466,
+        "savingsVsLossless": 0.6424,
+        "metrics": {
+          "meanAbsoluteError": 0.3771,
+          "rootMeanSquareError": 1.7529,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 27,
+          "changedPixelRatio": 0.091
+        }
+      },
+      "validationSheet": "data/assets/icon-references/birkenstock/validation-sheets/birkenstock-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 276047,
+        "losslessBytes": 276047,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

@@ -10,6 +10,91 @@
 
   ssot.records.push(
     {
+      key: 'airbus-fy25',
+      company: 'Airbus',
+      period: 'FY25',
+      periodNote: 'Ending Dec. 2025',
+      currency: '€',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/airbus-fy25.png',
+      roundingTolerance: 0.2,
+      revenue: {
+        total: 73.4,
+        notes: ['+6% Y/Y'],
+        items: [
+          { id: 'airbus_segment', label: 'Airbus', value: 52.6, notes: ['+4% Y/Y', '9% EBIT margin'] },
+          { id: 'helicopters', label: 'Helicopters', value: 9.0, notes: ['+13% Y/Y', '11% EBIT margin'] },
+          { id: 'defense_space', label: 'Defense & Space', value: 13.4, notes: ['+11% Y/Y', '5% EBIT margin'] },
+          { id: 'inter_segment', label: 'Inter-segment', value: -1.5 },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 62.5 },
+        operatingExpenses: {
+          total: 5.7,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 3.2, notes: ['4% of revenue', '(0pp) Y/Y'] },
+            { id: 'administrative', label: 'Administrative', value: 1.7, notes: ['2% of revenue', '(0pp) Y/Y'] },
+            { id: 'selling', label: 'Selling', value: 0.9, notes: ['1% of revenue', '(0pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 1.4 },
+      },
+      otherIncome: {
+        total: 1.1,
+        items: [
+          { id: 'other_income', label: 'Other', value: 0.9 },
+          { id: 'interest', label: 'Interest', value: 0.2 },
+        ],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 11.0, notes: ['15% margin', '(0pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 5.2, notes: ['7% margin', '+0pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 5.0, notes: ['7% margin', '+1pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          periodNote: '截至 2025 年 12 月',
+          revenue: {
+            notes: ['同比 +6%'],
+            items: [
+              { id: 'airbus_segment', label: '空中客车', notes: ['同比 +4%', '9% EBIT 利润率'] },
+              { id: 'helicopters', label: '直升机', notes: ['同比 +13%', '11% EBIT 利润率'] },
+              { id: 'defense_space', label: '防务与航天', notes: ['同比 +11%', '5% EBIT 利润率'] },
+              { id: 'inter_segment', label: '分部间抵销' },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '销售成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 4%', '同比 (0 个百分点)'] },
+                { id: 'administrative', label: '行政', notes: ['占收入 2%', '同比 (0 个百分点)'] },
+                { id: 'selling', label: '销售', notes: ['占收入 1%', '同比 (0 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: {
+            items: [
+              { id: 'other_income', label: '其他' },
+              { id: 'interest', label: '利息' },
+            ],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 15%', '同比 (0 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 7%', '同比 +0 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 7%', '同比 +1 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'airbus-q1-fy26',
       company: 'Airbus',
       period: 'Q1 FY26',

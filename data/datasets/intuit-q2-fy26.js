@@ -85,7 +85,7 @@
     </g>`;
 
   const annotations = `
-    <g font-family="Montserrat,Arial,sans-serif">
+    <g font-family="Montserrat,Arial,sans-serif" data-typography-role="brand">
       ${quickbooksIcon}
       ${turbotaxIcon}
       ${wordmarks}

@@ -32,9 +32,9 @@
 
   const annotations = `
     <g font-family="Montserrat,Arial,sans-serif">
-      <g transform="translate(52 566) scale(0.78)">${businessIcons.teslaAutoCluster || ''}</g>
-      <g transform="translate(34 1094) scale(0.95)">${businessIcons.teslaEnergyCluster || ''}</g>
-      <g transform="translate(640 1254) scale(0.82)">${businessIcons.teslaCharger || ''}</g>
+      <g transform="translate(52 566) scale(0.78)" data-typography-role="brand">${businessIcons.teslaAutoCluster || ''}</g>
+      <g transform="translate(34 1094) scale(0.95)" data-typography-role="brand">${businessIcons.teslaEnergyCluster || ''}</g>
+      <g transform="translate(640 1254) scale(0.82)" data-typography-role="brand">${businessIcons.teslaCharger || ''}</g>
       ${metricCard(2058, 'Production', '408K', '+13% Y/Y')}
       ${metricCard(2255, 'Deliveries', '358K', '+6% Y/Y')}
     </g>`;
@@ -462,9 +462,9 @@
         },
         annotationsSvg: `
           <g font-family="Montserrat,Arial,sans-serif">
-            <g transform="translate(52 566) scale(0.78)">${businessIcons.teslaAutoCluster || ''}</g>
-            <g transform="translate(34 1094) scale(0.95)">${businessIcons.teslaEnergyCluster || ''}</g>
-            <g transform="translate(640 1254) scale(0.82)">${businessIcons.teslaCharger || ''}</g>
+            <g transform="translate(52 566) scale(0.78)" data-typography-role="brand">${businessIcons.teslaAutoCluster || ''}</g>
+            <g transform="translate(34 1094) scale(0.95)" data-typography-role="brand">${businessIcons.teslaEnergyCluster || ''}</g>
+            <g transform="translate(640 1254) scale(0.82)" data-typography-role="brand">${businessIcons.teslaCharger || ''}</g>
             ${metricCard(2058, '产量', '408K', '同比 +13%')}
             ${metricCard(2255, '交付量', '358K', '同比 +6%')}
           </g>`,

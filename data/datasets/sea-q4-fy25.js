@@ -61,15 +61,21 @@
   const callout = (L) => `
     <g>
       <path d="M2012 278 H2289 Q2310 278 2310 300 V511 Q2310 534 2288 534 H2021 Q2007 534 2007 520 V506 L1970 478 L2007 450 V302 Q2007 278 2012 278 Z" fill="${BG}" stroke="${BLUE}" stroke-width="3"/>
-      ${shopeeBag(2026, 291, 0.47)}
-      <text x="2068" y="323" font-size="31" font-weight="500" fill="${SHOPEE}">Shopee</text>
+      <g data-typography-role="brand">
+        ${shopeeBag(2026, 291, 0.47)}
+        <text x="2068" y="323" font-size="31" font-weight="500" fill="${SHOPEE}">Shopee</text>
+      </g>
       <text x="2212" y="323" font-size="30" font-weight="400" fill="${GREEN_LABEL}">$0.1B</text>
-      <text x="2028" y="385" font-family="Arial Rounded MT Bold,Arial,sans-serif" font-size="38" font-weight="900" fill="${MONEE}">monee</text>
-      <path d="M2035 397 C2051 388 2066 388 2081 397" fill="none" stroke="${SHOPEE}" stroke-width="4" stroke-linecap="round"/>
-      <path d="M2082 397 C2096 389 2112 389 2126 397" fill="none" stroke="${GARENA}" stroke-width="4" stroke-linecap="round"/>
+      <g data-typography-role="brand">
+        <text x="2028" y="385" font-family="Arial Rounded MT Bold,Arial,sans-serif" font-size="38" font-weight="900" fill="${MONEE}">monee</text>
+        <path d="M2035 397 C2051 388 2066 388 2081 397" fill="none" stroke="${SHOPEE}" stroke-width="4" stroke-linecap="round"/>
+        <path d="M2082 397 C2096 389 2112 389 2126 397" fill="none" stroke="${GARENA}" stroke-width="4" stroke-linecap="round"/>
+      </g>
       <text x="2212" y="385" font-size="30" font-weight="400" fill="${GREEN_LABEL}">$0.3B</text>
-      ${garenaGlyph(2025, 412, 0.34)}
-      <text x="2078" y="445" font-size="31" font-weight="500" fill="${GARENA}">Garena</text>
+      <g data-typography-role="brand">
+        ${garenaGlyph(2025, 412, 0.34)}
+        <text x="2078" y="445" font-size="31" font-weight="500" fill="${GARENA}">Garena</text>
+      </g>
       <text x="2212" y="445" font-size="30" font-weight="400" fill="${GREEN_LABEL}">$0.4B</text>
       <text x="2070" y="505" font-size="30" font-weight="800" fill="${NOTE}">${L.other}</text>
       <text x="2212" y="505" font-size="30" font-weight="500" fill="${RED_LABEL}">($0.2B)</text>
@@ -79,18 +85,24 @@
     <g font-family="Montserrat,Arial,sans-serif">
       <path d="M1748 551 H1824" fill="none" stroke="${GREEN_LINK}" stroke-width="2.2" stroke-linecap="round"/>
 
-      ${shopeeBag(122, 524, 1.0)}
-      <text x="213" y="604" font-size="59" font-weight="400" fill="${SHOPEE}">Shopee</text>
+      <g data-typography-role="brand">
+        ${shopeeBag(122, 524, 1.0)}
+        <text x="213" y="604" font-size="59" font-weight="400" fill="${SHOPEE}">Shopee</text>
+      </g>
       <text x="210" y="646" font-size="26" font-weight="400" fill="${NOTE}">${L.ecommerce}</text>
 
-      <text x="101" y="894" font-family="Arial Rounded MT Bold,Arial,sans-serif" font-size="78" font-weight="900" fill="${MONEE}">monee</text>
-      <path d="M106 915 C128 900 151 900 174 915" fill="none" stroke="${SHOPEE}" stroke-width="6" stroke-linecap="round"/>
-      <path d="M178 915 C201 900 227 900 250 915" fill="none" stroke="${GARENA}" stroke-width="6" stroke-linecap="round"/>
-      <rect x="384" y="850" width="13" height="13" transform="rotate(45 390.5 856.5)" fill="${SHOPEE}"/>
+      <g data-typography-role="brand">
+        <text x="101" y="894" font-family="Arial Rounded MT Bold,Arial,sans-serif" font-size="78" font-weight="900" fill="${MONEE}">monee</text>
+        <path d="M106 915 C128 900 151 900 174 915" fill="none" stroke="${SHOPEE}" stroke-width="6" stroke-linecap="round"/>
+        <path d="M178 915 C201 900 227 900 250 915" fill="none" stroke="${GARENA}" stroke-width="6" stroke-linecap="round"/>
+        <rect x="384" y="850" width="13" height="13" transform="rotate(45 390.5 856.5)" fill="${SHOPEE}"/>
+      </g>
       <text x="102" y="932" font-size="27" font-weight="400" fill="${NOTE}">${L.digitalFinancialServices}</text>
 
-      ${garenaGlyph(74, 979, 0.73)}
-      <text x="206" y="1056" font-size="59" font-weight="400" fill="${GARENA}">Garena</text>
+      <g data-typography-role="brand">
+        ${garenaGlyph(74, 979, 0.73)}
+        <text x="206" y="1056" font-size="59" font-weight="400" fill="${GARENA}">Garena</text>
+      </g>
       <text x="158" y="1098" font-size="27" font-weight="400" fill="${NOTE}">${L.digitalEntertainment}</text>
 
       ${kpiCard(

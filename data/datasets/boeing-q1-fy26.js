@@ -31,12 +31,14 @@
    * "BOEING" wordmark is set in Montserrat bold-italic to approximate the
    * custom brand type. Company name is exempt from i18n fallback checks. */
   const boeingLogo = `
-    <g fill="${LOGO_BLUE}">
-      <circle cx="748" cy="368" r="43" fill="none" stroke="${LOGO_BLUE}" stroke-width="6.5"/>
-      <path d="M700 416 L744 372 L808 316 L800 330 L742 392 L714 420 Z"/>
-      <path d="M726 366 C752 385 778 402 806 409 C832 415 856 415 878 411 C852 419 824 424 800 421 C784 419 774 412 764 405 C760 415 754 423 745 429 C752 415 754 401 749 392 C741 384 733 375 726 366 Z"/>
-    </g>
-    <text x="880" y="391" font-family="Montserrat,Arial,sans-serif" font-size="72" font-weight="800" font-style="italic" textLength="460" lengthAdjust="spacingAndGlyphs" letter-spacing="1" fill="${LOGO_BLUE}">BOEING</text>`;
+    <g data-typography-role="brand">
+      <g fill="${LOGO_BLUE}">
+        <circle cx="748" cy="368" r="43" fill="none" stroke="${LOGO_BLUE}" stroke-width="6.5"/>
+        <path d="M700 416 L744 372 L808 316 L800 330 L742 392 L714 420 Z"/>
+        <path d="M726 366 C752 385 778 402 806 409 C832 415 856 415 878 411 C852 419 824 424 800 421 C784 419 774 412 764 405 C760 415 754 423 745 429 C752 415 754 401 749 392 C741 384 733 375 726 366 Z"/>
+      </g>
+      <text x="880" y="391" font-family="Montserrat,Arial,sans-serif" font-size="72" font-weight="800" font-style="italic" textLength="460" lengthAdjust="spacingAndGlyphs" letter-spacing="1" fill="${LOGO_BLUE}">BOEING</text>
+    </g>`;
 
   const CARD_BASELINES = [50, 92, 128];
   const statsCard = (x, y, width, height, lines) => `

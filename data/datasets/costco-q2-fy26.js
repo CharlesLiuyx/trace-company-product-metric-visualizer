@@ -18,7 +18,7 @@
   const BUSINESS_ICONS = window.SANKEY_BUSINESS_ICONS || {};
 
   const icon = (name, x, y, scale = 1) => `
-    <g transform="translate(${x} ${y}) scale(${scale})">${BUSINESS_ICONS[name] || ''}</g>`;
+    <g transform="translate(${x} ${y}) scale(${scale})" data-typography-role="brand">${BUSINESS_ICONS[name] || ''}</g>`;
 
   const kpiCard = (x, width, lines) => `
     <g>
@@ -30,7 +30,7 @@
     </g>`;
 
   const membershipCardsZh = (x, y) => `
-    <g transform="translate(${x} ${y})">
+    <g transform="translate(${x} ${y})" data-typography-role="brand">
       <g>
         <rect x="0" y="5" width="145" height="96" rx="8" fill="#ffffff" stroke="#9ea3a8" stroke-width="1.4"/>
         <text x="15" y="39" font-family="Arial Black, Arial, sans-serif" font-size="29" font-style="italic" font-weight="900"

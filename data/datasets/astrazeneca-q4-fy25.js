@@ -25,10 +25,12 @@
 
   const brandAnnotationsEn = `
     <g font-family="Montserrat,Arial,sans-serif">
-      <text x="187" y="543" font-size="23" font-weight="700" fill="#333">TAGRISSO</text><text x="187" y="561" font-size="12" fill="#555">osimertinib</text>
-      <text x="216" y="805" font-size="24" font-weight="700" fill="#f05a3c">forxiga</text>
-      <text x="200" y="978" font-size="20" font-weight="700" fill="#e54d42">Symbicort</text>
-      <text x="198" y="1126" font-size="22" font-weight="700" fill="#1d5d8e">SYNAGIS</text><text x="198" y="1142" font-size="11" fill="#777">PALIVIZUMAB</text>
+      <g data-typography-role="brand">
+        <text x="187" y="543" font-size="23" font-weight="700" fill="#333">TAGRISSO</text><text x="187" y="561" font-size="12" fill="#555">osimertinib</text>
+        <text x="216" y="805" font-size="24" font-weight="700" fill="#f05a3c">forxiga</text>
+        <text x="200" y="978" font-size="20" font-weight="700" fill="#e54d42">Symbicort</text>
+        <text x="198" y="1126" font-size="22" font-weight="700" fill="#1d5d8e">SYNAGIS</text><text x="198" y="1142" font-size="11" fill="#777">PALIVIZUMAB</text>
+      </g>
       <g class="sankey-interactive-annotation" data-node="operating_other_income"><path d="M1718 581 H1790 C1820 581 1820 527 1844 527" fill="none" stroke="${GREEN_LINK}" stroke-width="2"/><rect x="1708" y="590" width="120" height="91" fill="transparent"/><text x="1768" y="630" text-anchor="middle" font-size="31" font-weight="800" fill="${GREEN_LABEL}">Other</text><text x="1768" y="670" text-anchor="middle" font-size="31" fill="${GREEN_LABEL}">$0.1B</text></g>
     </g>`;
 

@@ -24,7 +24,7 @@
 
   const annotations = `
     <g font-family="Montserrat,Arial,sans-serif">
-      <text x="689" y="394" font-family="Arial Black,Arial,sans-serif" font-size="152" font-weight="900" textLength="526" lengthAdjust="spacingAndGlyphs" fill="#e60012">Lenovo</text>
+      <text x="689" y="394" font-family="Arial Black,Arial,sans-serif" font-size="152" font-weight="900" textLength="526" lengthAdjust="spacingAndGlyphs" fill="#e60012" data-typography-role="brand">Lenovo</text>
       <g fill="${NOTE}" font-weight="700">
         <text x="1900" y="1184" text-anchor="middle" font-size="42">Q4 FY26</text>
         <text x="1900" y="1231" text-anchor="middle" font-size="30" font-weight="500">Ending Apr. 2026</text>

@@ -28,7 +28,7 @@
     </svg>`;
 
   const annotations = `
-    <g font-family="Montserrat,Arial,sans-serif">
+    <g font-family="Montserrat,Arial,sans-serif" data-typography-role="brand">
       ${svgIcon('amdDataCenterCluster', 58, 356, 188, 310, '0 0 197 325')}
       ${svgIcon('amdRyzenWordmark', 40, 785, 205, 123, '0 0 232 139')}
       ${svgIcon('amdRadeonBadge', 63, 988, 170, 139, '0 0 195 160')}

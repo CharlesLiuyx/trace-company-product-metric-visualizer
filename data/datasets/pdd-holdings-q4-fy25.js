@@ -41,7 +41,7 @@
     </g>`;
 
   const buildAnnotations = (wordmark) => `
-    <g font-family="Montserrat,Arial,sans-serif">
+    <g font-family="Montserrat,Arial,sans-serif" data-typography-role="brand">
       ${heartLogo(818, 242, 214, 180, 38)}
       <text x="666" y="510" font-family="Arial Black,Arial,sans-serif" font-size="82" font-weight="900" fill="#000000">${wordmark}</text>
       ${pinduoduoAppIcon}

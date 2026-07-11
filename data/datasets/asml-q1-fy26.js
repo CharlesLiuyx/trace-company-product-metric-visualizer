@@ -27,7 +27,7 @@
   const NOTE = '#757575';
 
   const annotations = `
-    <g font-family="Montserrat,Arial,sans-serif">
+    <g font-family="Montserrat,Arial,sans-serif" data-typography-role="brand">
       <text x="1221" y="385" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="162" font-weight="900" textLength="446" lengthAdjust="spacingAndGlyphs" fill="${NAVY}">ASML</text>
     </g>`;
 

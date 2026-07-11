@@ -19,8 +19,8 @@
 
   const annotations = `
     <g font-family="Montserrat,Arial,sans-serif">
-      <g transform="translate(84 516) scale(1.36)">${BUSINESS_ICONS.metaFamilyAppsCluster || ''}</g>
-      <g transform="translate(500 1188)">${BUSINESS_ICONS.metaQuestWordmark || ''}</g>
+      <g transform="translate(84 516) scale(1.36)" data-typography-role="brand">${BUSINESS_ICONS.metaFamilyAppsCluster || ''}</g>
+      <g transform="translate(500 1188)" data-typography-role="brand">${BUSINESS_ICONS.metaQuestWordmark || ''}</g>
 
       <g transform="translate(1829 222)">
         <path d="M18 0H288C302 0 310 9 310 23V78C310 92 302 101 288 101H178L155 122L132 101H18C6 101 0 92 0 78V23C0 9 6 0 18 0Z" fill="none" stroke="${BLUE_LABEL}" stroke-width="4"/>

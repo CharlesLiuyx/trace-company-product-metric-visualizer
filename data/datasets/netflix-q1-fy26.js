@@ -68,7 +68,7 @@
   function annotations(footerText) {
     return `
     <g font-family="Montserrat,Arial,sans-serif">
-      <text x="562" y="407" font-family="Arial Black,Arial,sans-serif" font-size="195" font-weight="900" letter-spacing="4" fill="${NETFLIX_RED}" textLength="535" lengthAdjust="spacingAndGlyphs">NETFLIX</text>
+      <text x="562" y="407" font-family="Arial Black,Arial,sans-serif" font-size="195" font-weight="900" letter-spacing="4" fill="${NETFLIX_RED}" textLength="535" lengthAdjust="spacingAndGlyphs" data-typography-role="brand">NETFLIX</text>
       ${globeIcon(80, 420, 88, 'ucan')}
       ${globeIcon(80, 743, 88, 'emea')}
       ${globeIcon(80, 976, 88, 'latam')}

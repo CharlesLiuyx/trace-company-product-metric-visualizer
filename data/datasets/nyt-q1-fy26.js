@@ -24,7 +24,7 @@
     </g>`;
 
   const digitalDevice = `
-    <g transform="translate(58 780)">
+    <g transform="translate(58 780)" data-typography-role="brand">
       <rect x="12" y="4" width="215" height="150" rx="6" fill="#111111"/>
       <rect x="23" y="16" width="193" height="120" fill="#f2f3f4"/>
       <rect x="44" y="35" width="58" height="78" fill="#ffffff" stroke="#d3d4d5" stroke-width="3"/>
@@ -66,14 +66,14 @@
     </g>`;
 
   const nytWordmark = `
-    <g transform="translate(1995 432)" fill="#000000" font-family="Old English Text MT,UnifrakturMaguntia,Georgia,Times New Roman,serif" font-weight="900" text-anchor="middle">
+    <g transform="translate(1995 432)" fill="#000000" font-family="Old English Text MT,UnifrakturMaguntia,Georgia,Times New Roman,serif" font-weight="900" text-anchor="middle" data-typography-role="brand">
       <text x="0" y="118" font-size="112">The</text>
       <text x="0" y="255" font-size="128">New York</text>
       <text x="0" y="390" font-size="128">Times</text>
     </g>`;
 
   const wirecutterWordmark = `
-    <g transform="translate(370 1917)" fill="#000000" font-family="Georgia,Times New Roman,serif">
+    <g transform="translate(370 1917)" fill="#000000" font-family="Georgia,Times New Roman,serif" data-typography-role="brand">
       <text x="0" y="64" font-size="54" font-weight="900">T</text>
       <rect x="58" y="18" width="3" height="55" fill="#000000" opacity="0.65"/>
       <text x="78" y="68" font-family="Arial Black,Arial,sans-serif" font-size="58" font-weight="900">Wirecutter</text>

@@ -26,12 +26,14 @@
 
   const annotations = `
     <g font-family="Montserrat,Arial,sans-serif">
-      <rect x="151" y="294" width="124" height="124" rx="18" fill="#000000"/>
-      <text x="213" y="373" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="500" fill="#ffffff">uber</text>
+      <g data-typography-role="brand">
+        <rect x="151" y="294" width="124" height="124" rx="18" fill="#000000"/>
+        <text x="213" y="373" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="500" fill="#ffffff">uber</text>
 
-      <text x="69" y="795" font-family="Arial,sans-serif" font-size="58" font-weight="500" fill="#001f28">Uber</text>
-      <text x="216" y="795" font-family="Arial,sans-serif" font-size="58" font-weight="800" fill="#09c64f">Eats</text>
-      <text x="68" y="1090" font-family="Arial,sans-serif" font-size="50" font-weight="500" fill="#000000">Uber Freight</text>
+        <text x="69" y="795" font-family="Arial,sans-serif" font-size="58" font-weight="500" fill="#001f28">Uber</text>
+        <text x="216" y="795" font-family="Arial,sans-serif" font-size="58" font-weight="800" fill="#09c64f">Eats</text>
+        <text x="68" y="1090" font-family="Arial,sans-serif" font-size="50" font-weight="500" fill="#000000">Uber Freight</text>
+      </g>
 
       ${card(9, 176, 'Trips', '3.6B', '+20% Y/Y')}
       ${card(191, 191, 'MAPC', '199M', '+17% Y/Y')}
@@ -428,12 +430,14 @@
         },
         annotationsSvg: `
           <g font-family="Montserrat,Arial,sans-serif">
-            <rect x="151" y="294" width="124" height="124" rx="18" fill="#000000"/>
-            <text x="213" y="373" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="500" fill="#ffffff">uber</text>
+            <g data-typography-role="brand">
+              <rect x="151" y="294" width="124" height="124" rx="18" fill="#000000"/>
+              <text x="213" y="373" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="500" fill="#ffffff">uber</text>
 
-            <text x="69" y="795" font-family="Arial,sans-serif" font-size="58" font-weight="500" fill="#001f28">Uber</text>
-            <text x="216" y="795" font-family="Arial,sans-serif" font-size="58" font-weight="800" fill="#09c64f">Eats</text>
-            <text x="68" y="1090" font-family="Arial,sans-serif" font-size="50" font-weight="500" fill="#000000">Uber Freight</text>
+              <text x="69" y="795" font-family="Arial,sans-serif" font-size="58" font-weight="500" fill="#001f28">Uber</text>
+              <text x="216" y="795" font-family="Arial,sans-serif" font-size="58" font-weight="800" fill="#09c64f">Eats</text>
+              <text x="68" y="1090" font-family="Arial,sans-serif" font-size="50" font-weight="500" fill="#000000">Uber Freight</text>
+            </g>
 
             ${card(9, 176, '行程', '3.6B', '同比 +20%')}
             ${card(191, 191, '月活用户', '199M', '同比 +17%')}

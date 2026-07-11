@@ -3,11 +3,17 @@
 // `_site`; this verifier only serves that output and exercises it as a user
 // would, so source-mode behavior cannot hide regressions in the deployed
 // loading chain.
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { chromium } from 'playwright';
 import { startStaticServer } from './dev-server.mjs';
+import { PROJECT_FONT_FAMILIES, fontFileName } from './lib/local-fonts.mjs';
 import { projectPath } from './lib/project.mjs';
+import {
+  assertProjectFontsLoaded,
+  assertTypographyAudit,
+  typographyAudit,
+} from './lib/render-harness.mjs';
 
 const SITE_ROOT = projectPath('_site');
 const FIRST_RENDER_TIMEOUT_MS = 15_000;
@@ -15,6 +21,36 @@ const IDLE_OBSERVATION_MS = 1_500;
 const SCRIPT_TAG_BUDGET = 4;
 const DEFER_BUNDLE_BUDGET = 3;
 const BOOT_ADAPTER_REQUEST_BUDGET = 2;
+
+function primaryFontFamily(value) {
+  return String(value || '').split(',')[0].trim().replace(/^(['"])(.*)\1$/, '$2');
+}
+
+function expectedFontFaces() {
+  return PROJECT_FONT_FAMILIES.flatMap(({ family, slug, weights }) => weights.map((weight) => ({
+    family,
+    weight,
+    display: 'swap',
+    src: `./fonts/${fontFileName(slug, weight)}`,
+  })));
+}
+
+function parseFontFaces(css) {
+  return [...css.matchAll(/@font-face\s*\{([^}]+)\}/g)].map((match) => {
+    const block = match[1];
+    const family = /font-family:\s*(['"])(.*?)\1/.exec(block)?.[2] || '';
+    const weight = Number(/font-weight:\s*(\d+)/.exec(block)?.[1]);
+    const display = /font-display:\s*([^;\s]+)/.exec(block)?.[1] || '';
+    const src = /src:\s*url\((['"]?)([^'")]+)\1\)/.exec(block)?.[2] || '';
+    return { family, weight, display, src };
+  });
+}
+
+function sortedInventory(items) {
+  return [...items].sort((a, b) => (
+    `${a.family}\0${a.weight}\0${a.src}`.localeCompare(`${b.family}\0${b.weight}\0${b.src}`)
+  ));
+}
 
 function adapterPath(requestUrl) {
   try {
@@ -48,6 +84,9 @@ function printSummary(metrics, origin) {
   console.log(`  pending after ${IDLE_OBSERVATION_MS}ms   ${value(metrics.pendingAfterIdle)} / > 0`);
   console.log(`  company switch         ${value(metrics.switchLabel)} (${duration(metrics.switchMs)})`);
   console.log(`  lazy Chart runtime     ${value(metrics.chartRuntime)} (${duration(metrics.chartRuntimeMs)})`);
+  console.log(`  project font faces     ${value(metrics.fontFaces)}`);
+  console.log(`  typography roles       ${value(metrics.typographyRoles)}`);
+  console.log(`  Sankey typography      ${value(metrics.sankeyTypography)}`);
   console.log(`  page errors            ${value(metrics.pageErrors)} / 0`);
 }
 
@@ -73,12 +112,36 @@ try {
   const foundationOutput = path.join(SITE_ROOT, 'assets', 'foundation.js');
   const productionHtml = readFileSync(path.join(SITE_ROOT, 'index.html'), 'utf8');
   const fontStylesheet = path.join(SITE_ROOT, 'assets', 'fonts.css');
+  const fontDir = path.join(SITE_ROOT, 'assets', 'fonts');
+  const expectedFaces = expectedFontFaces();
+  const expectedFiles = expectedFaces.map((face) => path.basename(face.src)).sort();
+  const expectedPreloads = PROJECT_FONT_FAMILIES.map(({ slug, weights }) => (
+    `assets/fonts/${fontFileName(slug, weights.includes(400) ? 400 : weights[0])}`
+  )).sort();
   if (/fonts\.(?:googleapis|gstatic)\.com/i.test(productionHtml)) {
     failures.push('production index still depends on Google Fonts');
   }
-  if (!existsSync(fontStylesheet)) failures.push('missing self-hosted font stylesheet: assets/fonts.css');
-  else if (!/font-display:\s*swap/.test(readFileSync(fontStylesheet, 'utf8'))) {
-    failures.push('self-hosted font stylesheet does not use font-display: swap');
+  const actualPreloads = [...productionHtml.matchAll(
+    /<link\b(?=[^>]*\brel="preload")(?=[^>]*\bas="font")[^>]*\bhref="([^"]+\.woff2)"[^>]*>/g
+  )].map((match) => match[1]).sort();
+  if (JSON.stringify(actualPreloads) !== JSON.stringify(expectedPreloads)) {
+    failures.push(`font preloads do not match the project manifest: ${JSON.stringify(actualPreloads)}`);
+  }
+  if (!existsSync(fontStylesheet)) {
+    failures.push('missing self-hosted font stylesheet: assets/fonts.css');
+  } else {
+    const actualFaces = parseFontFaces(readFileSync(fontStylesheet, 'utf8'));
+    if (JSON.stringify(sortedInventory(actualFaces)) !== JSON.stringify(sortedInventory(expectedFaces))) {
+      failures.push(`self-hosted font faces do not match the project manifest: ${JSON.stringify(actualFaces)}`);
+    }
+  }
+  if (!existsSync(fontDir)) {
+    failures.push('missing self-hosted font directory: assets/fonts');
+  } else {
+    const actualFiles = readdirSync(fontDir).filter((file) => file.endsWith('.woff2')).sort();
+    if (JSON.stringify(actualFiles) !== JSON.stringify(expectedFiles)) {
+      failures.push(`self-hosted font files do not match the project manifest: ${JSON.stringify(actualFiles)}`);
+    }
   }
   if (!existsSync(chartOutput)) failures.push('missing lazy Chart.js asset: assets/chart.js');
   else if (!readFileSync(chartOutput).equals(readFileSync(chartSource))) {
@@ -115,6 +178,49 @@ try {
   await page.goto(server.url, { waitUntil: 'domcontentloaded' });
   await page.waitForSelector('#chart svg', { timeout: FIRST_RENDER_TIMEOUT_MS });
   metrics.firstSvgMs = Date.now() - navigationStartedAt;
+  const fontStatus = await assertProjectFontsLoaded(page);
+  metrics.fontFaces = `${fontStatus.faces.filter((face) => face.status === 'loaded').length}/${expectedFaces.length} loaded`;
+  const activeTypographyIdentity = await page.evaluate(() => ({
+    dataset:
+      (typeof currentDataset === 'function' && currentDataset()?.key) ||
+      (typeof currentRecord === 'function' && currentRecord()?.dataset?.key) ||
+      '',
+    language: (typeof state !== 'undefined' && state?.language) || 'en',
+  }));
+  const sankeyTypography = await typographyAudit(page, activeTypographyIdentity);
+  assertTypographyAudit(sankeyTypography);
+  metrics.sankeyTypography =
+    `${sankeyTypography.status}, product=${sankeyTypography.productTextCount}, ` +
+    `brand=${sankeyTypography.brandTextCount}`;
+
+  const typographyState = await page.evaluate(() => {
+    const font = (selector) => {
+      const element = document.querySelector(selector);
+      return element ? getComputedStyle(element).fontFamily : '';
+    };
+    return {
+      toolbar: font('.toolbar'),
+      sidebar: font('#datasetPanel'),
+      actionbar: font('.view-actionbar'),
+      sankeyView: font('#sankeyView'),
+      chartTheme: chartTheme().fontFamily,
+    };
+  });
+  const expectedTypography = {
+    toolbar: 'Montserrat',
+    sidebar: 'Montserrat',
+    actionbar: 'Montserrat',
+    sankeyView: 'Noto Sans',
+    chartTheme: 'Noto Sans',
+  };
+  for (const [role, expected] of Object.entries(expectedTypography)) {
+    if (primaryFontFamily(typographyState[role]) !== expected) {
+      failures.push(`production ${role} expected ${expected}, got ${typographyState[role] || 'no computed font'}`);
+    }
+  }
+  metrics.typographyRoles = Object.entries(typographyState)
+    .map(([role, family]) => `${role}=${primaryFontFamily(family) || 'missing'}`)
+    .join(', ');
 
   const bootState = await page.evaluate(() => {
     const externalScripts = [...document.querySelectorAll('script[src]')];
@@ -261,6 +367,23 @@ try {
     metrics.chartRuntime = `${revenueTarget}, ${chartRequestDelta} request`;
     if (chartRequestDelta !== 1) {
       failures.push(`first Trend interaction requested Chart.js ${chartRequestDelta} times (expected 1)`);
+    }
+    const trendTypography = await page.evaluate(() => {
+      const options = revenueTrendChart?.config?._config?.options
+        || revenueTrendChart?.config?.options
+        || {};
+      const heading = document.querySelector('#trendView .trend-heading');
+      return {
+        heading: heading ? getComputedStyle(heading).fontFamily : '',
+        axis: options.scales?.x?.ticks?.font?.family || '',
+        hoverGuide: options.plugins?.revenueTrendHoverGuide?.fontFamily || '',
+        valueLabels: options.plugins?.revenueTrendValueLabels?.fontFamily || '',
+      };
+    });
+    for (const [role, family] of Object.entries(trendTypography)) {
+      if (primaryFontFamily(family) !== 'Noto Sans') {
+        failures.push(`production Trend ${role} expected Noto Sans, got ${family || 'no font'}`);
+      }
     }
   }
 

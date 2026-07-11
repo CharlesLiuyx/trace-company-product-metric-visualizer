@@ -26,8 +26,10 @@
     </g>`;
   const annotations = (isZh) => `
     <g font-family="Montserrat,Arial,sans-serif">
-      <text x="241" y="653" text-anchor="middle" font-family="Georgia,serif" font-size="61" fill="${ORANGE}">Etsy</text>
-      <text x="241" y="715" text-anchor="middle" font-size="52" font-weight="800" fill="#e51a0c">depop</text>
+      <g data-typography-role="brand">
+        <text x="241" y="653" text-anchor="middle" font-family="Georgia,serif" font-size="61" fill="${ORANGE}">Etsy</text>
+        <text x="241" y="715" text-anchor="middle" font-size="52" font-weight="800" fill="#e51a0c">depop</text>
+      </g>
       ${statCard(80, 163, [{ text: 'GMS', size: 28, weight: 800 }, { text: '$3.6B', size: 28 }, { text: isZh ? '同比 (4)%' : '(4)% Y/Y', size: 22 }])}
       ${statCard(251, 333, [{ text: isZh ? '活跃卖家' : 'Active sellers', size: 27, weight: 800 }, { text: '8.8M', size: 28 }, { text: isZh ? '同比 +8%' : '+8% Y/Y', size: 22 }])}
       ${statCard(589, 330, [{ text: isZh ? '活跃买家' : 'Active buyers', size: 27, weight: 800 }, { text: '93.5M', size: 28 }, { text: isZh ? '同比 (2)%' : '(2)% Y/Y', size: 22 }])}

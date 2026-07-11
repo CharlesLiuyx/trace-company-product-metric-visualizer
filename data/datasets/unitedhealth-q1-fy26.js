@@ -28,7 +28,7 @@
 
   // App Economy "UNITEDHEALTH" small-caps wordmark, centred over the hub.
   const wordmark = (parts) => `
-    <g font-family="Montserrat,Arial,sans-serif" font-weight="800" fill="${NAVY}"
+    <g font-family="Montserrat,Arial,sans-serif" font-weight="800" fill="${NAVY}" data-typography-role="brand"
        text-anchor="middle" letter-spacing="1">
       <text x="990" y="349">
         <tspan font-size="102">${parts[0]}</tspan><tspan font-size="76">${parts[1]}</tspan><tspan font-size="102">${parts[2]}</tspan><tspan font-size="76">${parts[3]}</tspan>
@@ -54,10 +54,12 @@
   const annotations = (parts, uhcLine1, uhcLine2, optum, navyVal, navyMargin, orangeVal, orangeMargin) => `
     ${wordmark(parts)}
     <g font-family="Montserrat,Arial,sans-serif">
-      ${uhcShield}
-      <text x="182" y="1179" font-family="Georgia,'Times New Roman',serif" font-size="34" font-weight="700" fill="${NAVY}">${uhcLine1}</text>
-      <text x="182" y="1214" font-family="Georgia,'Times New Roman',serif" font-size="34" font-weight="700" fill="${NAVY}">${uhcLine2}</text>
-      <text x="521" y="1211" font-size="50" font-weight="800" fill="${CARD_ORANGE}">${optum}</text>
+      <g data-typography-role="brand">
+        ${uhcShield}
+        <text x="182" y="1179" font-family="Georgia,'Times New Roman',serif" font-size="34" font-weight="700" fill="${NAVY}">${uhcLine1}</text>
+        <text x="182" y="1214" font-family="Georgia,'Times New Roman',serif" font-size="34" font-weight="700" fill="${NAVY}">${uhcLine2}</text>
+      </g>
+      <text x="521" y="1211" font-size="50" font-weight="800" fill="${CARD_ORANGE}" data-typography-role="brand">${optum}</text>
       ${segCard(28, 465, CARD_NAVY, navyVal, navyMargin)}
       ${segCard(500, 466, CARD_ORANGE, orangeVal, orangeMargin)}
     </g>`;

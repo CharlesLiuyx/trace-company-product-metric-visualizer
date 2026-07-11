@@ -103,6 +103,99 @@
           },
         },
       },
+    },
+    {
+      key: 'klaviyo-q4-fy25',
+      company: 'Klaviyo',
+      period: 'Q4 FY25',
+      periodNote: 'Quarter ended Dec. 31, 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/klaviyo-q4-fy25.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 350,
+        notes: ['+30% Y/Y'],
+        items: [
+          {
+            id: 'americas',
+            label: 'Americas',
+            value: 223,
+            notes: ['+24% Y/Y'],
+            children: [
+              { id: 'united_states', label: 'United States', value: 206, notes: ['+24% Y/Y'] },
+              { id: 'other_americas', label: 'Other Americas', value: 17, notes: ['+28% Y/Y'] },
+            ],
+          },
+          { id: 'apac', label: 'APAC', value: 37, notes: ['+34% Y/Y'] },
+          { id: 'emea', label: 'EMEA', value: 90, notes: ['+44% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 97 },
+        operatingExpenses: {
+          total: 255,
+          notes: ['S&M, R&D, and G&A add to $254M due to rounded source-chart values.'],
+          items: [
+            { id: 'sm', label: 'S&M', value: 128, notes: ['37% of revenue', '(7pp) Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 77, notes: ['22% of revenue', '(4pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 49, notes: ['14% of revenue', '(2pp) Y/Y'] },
+          ],
+        },
+        tax: { label: 'Tax', value: 0 },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 253, notes: ['72% margin', '(1pp) Y/Y'] },
+        operating: { id: 'operating_loss', label: 'Operating loss', value: -2, notes: ['(1%) margin', '+12pp Y/Y'] },
+        net: {
+          id: 'operating_loss',
+          label: 'Operating loss',
+          value: -2,
+          notes: ['No separate net loss line is shown in the source chart.'],
+        },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度',
+          periodNote: '截至 2025 年 12 月 31 日的季度',
+          revenue: {
+            notes: ['同比 +30%'],
+            items: [
+              {
+                id: 'americas',
+                label: '美洲',
+                notes: ['同比 +24%'],
+                children: [
+                  { id: 'united_states', label: '美国', notes: ['同比 +24%'] },
+                  { id: 'other_americas', label: '美洲其他地区', notes: ['同比 +28%'] },
+                ],
+              },
+              { id: 'apac', label: '亚太', notes: ['同比 +34%'] },
+              { id: 'emea', label: '欧洲、中东和非洲', notes: ['同比 +44%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              notes: ['销售与营销、研发和管理费用合计为 $254M，因来源图数值取整相差 $1M。'],
+              items: [
+                { id: 'sm', label: '销售与营销', notes: ['占收入 37%', '同比 (7 个百分点)'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 22%', '同比 (4 个百分点)'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 14%', '同比 (2 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 72%', '同比 (1 个百分点)'] },
+            operating: { label: '营业亏损', notes: ['利润率 (1%)', '同比 +12 个百分点'] },
+            net: { label: '营业亏损', notes: ['来源图未单独显示净亏损项目。'] },
+          },
+        },
+      },
     }
   );
 })(window);

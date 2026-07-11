@@ -27,7 +27,7 @@
 
   const annotations = `
     <g font-family="Montserrat,Arial,sans-serif">
-      <g fill="#c74634" font-family="Arial,Helvetica,sans-serif">
+      <g fill="#c74634" font-family="Arial,Helvetica,sans-serif" data-typography-role="brand">
         <text x="163" y="429" font-size="38" font-weight="800" letter-spacing="1">ORACLE</text>
         <text x="163" y="465" font-size="38" font-weight="800" letter-spacing="1">CLOUD</text>
         <text x="163" y="503" font-size="30" font-weight="500">Infrastructure</text>
@@ -496,7 +496,7 @@
         },
         annotationsSvg: `
     <g font-family="Montserrat,Arial,sans-serif">
-      <g fill="#c74634" font-family="Arial,Helvetica,sans-serif">
+      <g fill="#c74634" font-family="Arial,Helvetica,sans-serif" data-typography-role="brand">
         <text x="163" y="429" font-size="38" font-weight="800" letter-spacing="1">ORACLE</text>
         <text x="163" y="465" font-size="38" font-weight="800" letter-spacing="1">CLOUD</text>
         <text x="163" y="503" font-size="30" font-weight="500">基础设施</text>

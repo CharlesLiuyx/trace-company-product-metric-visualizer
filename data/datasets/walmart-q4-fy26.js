@@ -22,7 +22,7 @@
   const BUSINESS_ICONS = window.SANKEY_BUSINESS_ICONS || {};
 
   const icon = (name, x, y, scale = 1) => `
-    <g transform="translate(${x} ${y}) scale(${scale})">${BUSINESS_ICONS[name] || ''}</g>`;
+    <g transform="translate(${x} ${y}) scale(${scale})" data-typography-role="brand">${BUSINESS_ICONS[name] || ''}</g>`;
 
   const kpiCard = (x, width, lines) => `
     <g>

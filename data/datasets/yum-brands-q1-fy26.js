@@ -28,7 +28,7 @@
     <g transform="translate(${x} ${y}) scale(${scale})">${BUSINESS_ICONS[name] || ''}</g>`;
 
   const annotations = `
-    <g font-family="Montserrat,Arial,sans-serif">
+    <g font-family="Montserrat,Arial,sans-serif" data-typography-role="brand">
       ${icon('yumCompanySpeechBubble', 610, 229, 0.91)}
       ${icon('yumKfcLogo', 125, 444, 0.96)}
       ${icon('yumTacoBellLogo', 136, 684, 0.91)}

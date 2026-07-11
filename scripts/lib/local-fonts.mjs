@@ -6,19 +6,27 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { projectPath } from './project.mjs';
 
-// Single owner of the font roles the renderer depends on (keep in sync with
-// the Google Fonts link in index.html): Montserrat drives the app chrome and
-// dataset annotation text; Noto Sans drives the Sankey headings (chart title
-// + node names) and the value amounts; Roboto drives value note/description
-// lines + tooltip.
-export const PROJECT_FONT_FAMILIES = [
-  { family: 'Montserrat', slug: 'montserrat', weights: [400, 500, 600, 700, 800] },
-  { family: 'Noto Sans', slug: 'noto-sans', weights: [300, 400, 500, 600, 700, 800] },
-  { family: 'Roboto', slug: 'roboto', weights: [300, 400, 500] },
-];
+// Single owner of every project-hosted font face. Montserrat drives app
+// chrome and remains available to explicitly scoped brand graphics; Noto Sans
+// drives View product text and Sankey headings/amounts; Roboto drives Sankey
+// value notes/descriptions and hover tooltips. Keep the development-only
+// Google Fonts link in index.html aligned through the typography policy test.
+export const PROJECT_FONT_FAMILIES = Object.freeze([
+  { family: 'Montserrat', slug: 'montserrat', weights: Object.freeze([400, 500, 600, 700, 800]) },
+  { family: 'Noto Sans', slug: 'noto-sans', weights: Object.freeze([300, 400, 500, 600, 700, 800]) },
+  { family: 'Roboto', slug: 'roboto', weights: Object.freeze([300, 400, 500]) },
+].map(Object.freeze));
+
+export function fontFileName(slug, weight) {
+  return `${slug}-latin-${weight}-normal.woff2`;
+}
+
+export function fontPackageRelativePath(slug, weight) {
+  return `node_modules/@fontsource/${slug}/files/${fontFileName(slug, weight)}`;
+}
 
 export function fontDataUri(slug, weight) {
-  const relativePath = `node_modules/@fontsource/${slug}/files/${slug}-latin-${weight}-normal.woff2`;
+  const relativePath = fontPackageRelativePath(slug, weight);
   const fontPath = projectPath(relativePath);
   if (!existsSync(fontPath)) {
     throw new Error(`Missing local font file: ${relativePath}`);

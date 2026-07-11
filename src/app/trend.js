@@ -35,7 +35,7 @@ const revenueTrendValueLabelsPlugin = {
       const label = options.formatValue ? options.formatValue(dataset.data[index]) : String(dataset.data[index]);
       const fontSize = isActive ? (options.activeFontSize || options.fontSize || 15) : (options.fontSize || 15);
       ctx.fillStyle = isActive ? (options.activeColor || options.color || '#263238') : (options.color || '#263238');
-      ctx.font = `${isActive ? 700 : 600} ${fontSize}px ${options.fontFamily || 'Montserrat, Arial, sans-serif'}`;
+      ctx.font = `${isActive ? 700 : 600} ${fontSize}px ${options.fontFamily || chartTheme().fontFamily}`;
       const textWidth = ctx.measureText(label).width;
       const x = clamp(point.x, chartArea.left + textWidth / 2, chartArea.right - textWidth / 2);
       const y = point.y - 12 < chartArea.top ? point.y + 28 : point.y - 12;
@@ -132,7 +132,7 @@ const revenueTrendHoverGuidePlugin = {
       if (typeof growthValue === 'number' && Number.isFinite(growthValue)) {
         const label = options.formatGrowthValue ? options.formatGrowthValue(growthValue) : `${growthValue}%`;
         const fontSize = options.activeGrowthFontSize || 14;
-        ctx.font = `700 ${fontSize}px ${options.fontFamily || 'Montserrat, Arial, sans-serif'}`;
+        ctx.font = `700 ${fontSize}px ${options.fontFamily || chartTheme().fontFamily}`;
         ctx.textAlign = 'center';
         const textWidth = ctx.measureText(label).width;
         const labelX = clamp(point.x, chartArea.left + textWidth / 2, chartArea.right - textWidth / 2);

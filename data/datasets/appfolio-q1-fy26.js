@@ -17,7 +17,7 @@
   const WORDMARK = '#191c29';
 
   const annotations = `
-    <g font-family="Montserrat,Arial,sans-serif">
+    <g font-family="Montserrat,Arial,sans-serif" data-typography-role="brand">
       <text x="871" y="439" text-anchor="middle" font-family="Arial Rounded MT Bold,Arial Black,Arial,sans-serif" font-size="165" font-weight="900" textLength="535" lengthAdjust="spacingAndGlyphs" fill="${WORDMARK}">appfolio</text>
     </g>`;
 

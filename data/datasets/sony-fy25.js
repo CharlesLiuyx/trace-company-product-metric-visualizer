@@ -35,7 +35,7 @@
     return `
       <g font-family="Montserrat,Arial,sans-serif">
         <text x="58" y="258" font-size="40" font-weight="800" fill="${TITLE}">${unitText}</text>
-        <g transform="translate(801 334)">${sonyWordmark}</g>
+        <g transform="translate(801 334)" data-typography-role="brand">${sonyWordmark}</g>
       </g>`;
   }
 

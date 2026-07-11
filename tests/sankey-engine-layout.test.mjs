@@ -72,7 +72,7 @@ test('hover share amounts prefer authored values and always use magnitudes', () 
   assert.equal(hoverShare.linkAmount({ value: 99, raw: { value: -7 } }), 7);
 });
 
-test('node hover applies singleton and split rules independently on each side', () => {
+test('node hover uses endpoint ratios for singleton and split relationships', () => {
   const revenue = { id: 'revenue', dv: 1123, value: 1123 };
   const operatingProfit = { id: 'operating_profit', dv: 118, value: 118 };
   const netProfit = { id: 'net_profit', dv: 130, value: 130 };
@@ -88,12 +88,12 @@ test('node hover applies singleton and split rules independently on each side', 
   assert.equal(incomingCount, 1);
   assert.equal(outgoingCount, 2);
   assert.equal(nodeShare(incoming, operatingProfit, incomingCount), '10.5%');
-  assert.equal(nodeShare(retained, operatingProfit, outgoingCount), '96.6%');
+  assert.equal(nodeShare(retained, operatingProfit, outgoingCount), '90.8%');
   assert.equal(nodeShare(taxFlow, operatingProfit, outgoingCount), '3.4%');
   assert.equal(nodeShare(taxFlow, tax, 1), '3.4%', 'a terminal singleton is current / upstream');
 });
 
-test('node hover shows each source as a share of a multi-source bar', () => {
+test('node hover uses endpoint ratios for every source of a multi-source bar', () => {
   const operatingProfit = { id: 'operating_profit', dv: 118 };
   const otherIncome = { id: 'other_income', dv: 16 };
   const netProfit = { id: 'net_profit', dv: 130 };
@@ -103,7 +103,7 @@ test('node hover shows each source as a share of a multi-source bar', () => {
   const count = distinctAdjacentNodeCount(netProfit, incoming);
 
   assert.equal(count, 2);
-  assert.equal(nodeShare(retained, netProfit, count), '87.7%');
+  assert.equal(nodeShare(retained, netProfit, count), '90.8%');
   assert.equal(nodeShare(other, netProfit, count), '12.3%');
 });
 
@@ -142,7 +142,7 @@ test('direct link hover is smaller endpoint / larger endpoint', () => {
   assert.equal(linkShare({ source: { dv: 0 }, target: { dv: 0 } }), '');
 });
 
-test('hover surface and node topology are the only share-formula selectors', () => {
+test('node and link hover use the same endpoint-ratio formula', () => {
   const operatingProfit = { id: 'operating_profit', dv: 2.5 };
   const otherIncome = { id: 'other_income', dv: 0.6 };
   const netProfit = { id: 'net_profit', dv: 2.5 };
@@ -159,15 +159,15 @@ test('hover surface and node topology are the only share-formula selectors', () 
     raw: { value: 0.6 },
   };
 
-  assert.equal(nodeShare(retained, operatingProfit, 1), '100%', 'singleton source compares its bar with the opposite bar');
-  assert.equal(nodeShare(retained, netProfit, 2), '76%', 'multi-source target uses link over current bar');
+  assert.equal(nodeShare(retained, operatingProfit, 1), '100%');
+  assert.equal(nodeShare(retained, netProfit, 2), '100%');
   assert.equal(nodeShare(other, otherIncome, 1), '24%');
   assert.equal(nodeShare(other, netProfit, 2), '24%');
   assert.equal(linkShare(retained), '100%', 'direct hover compares endpoint bars, not link amount');
   assert.equal(linkShare(other), '24%');
 });
 
-test('singleton node shares are directional while direct link shares are always smaller over larger', () => {
+test('node shares use smaller endpoint over larger endpoint regardless of direction', () => {
   const operatingProfit = { id: 'operating_profit', dv: 0.008 };
   const other = { id: 'other', dv: -0.034 };
   const bridge = {
@@ -178,11 +178,11 @@ test('singleton node shares are directional while direct link shares are always 
   };
 
   assert.equal(nodeShare(bridge, operatingProfit, 1), '23.5%');
-  assert.equal(nodeShare(bridge, other, 1), '425%');
+  assert.equal(nodeShare(bridge, other, 1), '23.5%');
   assert.equal(linkShare(bridge), '23.5%');
 });
 
-test('the same relationship can show different shares on node and link hover', () => {
+test('the same relationship has one share across node and link hover', () => {
   const operatingProfit = { id: 'operating_profit', dv: 9 };
   const netProfit = { id: 'net_profit', dv: 47 };
   const resultFlow = {
@@ -192,7 +192,7 @@ test('the same relationship can show different shares on node and link hover', (
     raw: { value: 9 },
   };
 
-  assert.equal(nodeShare(resultFlow, operatingProfit, 2), '100%');
+  assert.equal(nodeShare(resultFlow, operatingProfit, 2), '19.1%');
   assert.equal(nodeShare(resultFlow, netProfit, 2), '19.1%');
   assert.equal(linkShare(resultFlow, 1), '19.1%');
 });

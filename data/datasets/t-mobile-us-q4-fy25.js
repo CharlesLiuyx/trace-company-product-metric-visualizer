@@ -16,7 +16,7 @@
   // The source centres this wordmark above the source-to-hub span, not above
   // the Revenue node. It is therefore an annotation rather than meta.logoSvg.
   const tMobileWordmark = `
-    <g transform="translate(607 249)" fill="${PINK}">
+    <g transform="translate(607 249)" fill="${PINK}" data-typography-role="brand">
       <path d="M0 0H114V34H79V142H35V34H0Z"/>
       <rect x="10" y="68" width="22" height="27"/><rect x="82" y="68" width="22" height="27"/>
       <text x="150" y="139" font-family="Georgia,Times New Roman,serif" font-size="143" font-weight="400" letter-spacing="-7" textLength="525" lengthAdjust="spacingAndGlyphs">Mobile</text>

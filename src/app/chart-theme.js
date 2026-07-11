@@ -48,7 +48,7 @@ function chartTheme() {
     tableBg: cssVar('--table-bg', '#ffffff'),
     growthColor: cssVar('--trend-growth', '#9a6a2f'),
     negativeColor: cssVar('--trend-negative', '#b7433a'),
-    fontFamily: 'Montserrat, Arial, sans-serif',
+    fontFamily: cssVar('--font-view', "'Noto Sans', Arial, sans-serif"),
   };
 }
 

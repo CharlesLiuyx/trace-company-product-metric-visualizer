@@ -1,0 +1,208 @@
+{
+  "source": "input/processed/airbus-fy25.png",
+  "spec": "input/icon-crop-specs/airbus-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-11T06:40:04.064235+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/airbus",
+  "crops": [
+    {
+      "key": "airbus-a380-fy25-tile",
+      "output": "data/assets/icon-references/airbus/crops/commercial-aircraft-a380-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 13925,
+        "losslessBytes": 40910,
+        "savingsVsLossless": 0.6596,
+        "metrics": {
+          "meanAbsoluteError": 0.9835,
+          "rootMeanSquareError": 2.5097,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 46,
+          "changedPixelRatio": 0.3983
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 8,
+        "y": 383,
+        "width": 394,
+        "height": 132
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 14,
+        "y0": 383,
+        "x1": 400,
+        "y1": 499
+      },
+      "cropBox": {
+        "x0": 6,
+        "y0": 378,
+        "x1": 408,
+        "y1": 520
+      },
+      "validation": {
+        "width": 402,
+        "height": 142,
+        "foregroundPixels": 20986,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 8,
+          "top": 5,
+          "bottom": 21
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0563
+        },
+        "passes": true
+      },
+      "note": "Commercial Aircraft segment icon. The FY25 Airbus label begins immediately below the aircraft, so this opaque background-matched crop ends at y=520 and excludes the label, value block, and navy segment node.",
+      "runtimeOutput": "data/assets/raster-annotations/airbus/commercial-aircraft-a380-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 13925,
+        "losslessBytes": 40910,
+        "savingsVsLossless": 0.6596,
+        "metrics": {
+          "meanAbsoluteError": 0.9835,
+          "rootMeanSquareError": 2.5097,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 46,
+          "changedPixelRatio": 0.3983
+        }
+      },
+      "validationSheet": "data/assets/icon-references/airbus/validation-sheets/airbus-a380-fy25-tile.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 293298,
+        "losslessBytes": 293298,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "airbus-satellite-fy25-tile",
+      "output": "data/assets/icon-references/airbus/crops/defense-space-satellite-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 2196,
+        "losslessBytes": 7026,
+        "savingsVsLossless": 0.6874,
+        "metrics": {
+          "meanAbsoluteError": 0.5589,
+          "rootMeanSquareError": 2.145,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 37,
+          "changedPixelRatio": 0.1945
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 184,
+        "y": 949,
+        "width": 168,
+        "height": 62
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 189,
+        "y0": 949,
+        "x1": 312,
+        "y1": 1002
+      },
+      "cropBox": {
+        "x0": 180,
+        "y0": 944,
+        "x1": 358,
+        "y1": 1014
+      },
+      "validation": {
+        "width": 178,
+        "height": 70,
+        "foregroundPixels": 2371,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 9,
+          "right": 46,
+          "top": 5,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": -0.1039,
+          "y": -0.05
+        },
+        "passes": true
+      },
+      "note": "Defense & Space segment icon. The FY25 label begins directly below the satellite, so this opaque background-matched crop ends at y=1014 and excludes the label, value block, and navy segment node.",
+      "runtimeOutput": "data/assets/raster-annotations/airbus/defense-space-satellite-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 2196,
+        "losslessBytes": 7026,
+        "savingsVsLossless": 0.6874,
+        "metrics": {
+          "meanAbsoluteError": 0.5589,
+          "rootMeanSquareError": 2.145,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 37,
+          "changedPixelRatio": 0.1945
+        }
+      },
+      "validationSheet": "data/assets/icon-references/airbus/validation-sheets/airbus-satellite-fy25-tile.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 274056,
+        "losslessBytes": 274056,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

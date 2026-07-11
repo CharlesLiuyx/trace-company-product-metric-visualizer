@@ -28,12 +28,14 @@
 
   const annotations = (L) => `
     <g font-family="Montserrat,Arial,sans-serif">
-      <rect x="157" y="355" width="113" height="113" rx="15" fill="#000000"/>
-      <text x="213" y="427" text-anchor="middle" font-family="Arial,sans-serif" font-size="39" font-weight="500" fill="#ffffff">Uber</text>
+      <g data-typography-role="brand">
+        <rect x="157" y="355" width="113" height="113" rx="15" fill="#000000"/>
+        <text x="213" y="427" text-anchor="middle" font-family="Arial,sans-serif" font-size="39" font-weight="500" fill="#ffffff">Uber</text>
 
-      <text x="84" y="804" font-family="Arial,sans-serif" font-size="57" font-weight="500" fill="#001f28">Uber</text>
-      <text x="218" y="804" font-family="Arial,sans-serif" font-size="57" font-weight="800" fill="#09c64f">Eats</text>
-      <text x="84" y="1073" font-family="Arial,sans-serif" font-size="48" font-weight="500" fill="#000000">Uber Freight</text>
+        <text x="84" y="804" font-family="Arial,sans-serif" font-size="57" font-weight="500" fill="#001f28">Uber</text>
+        <text x="218" y="804" font-family="Arial,sans-serif" font-size="57" font-weight="800" fill="#09c64f">Eats</text>
+        <text x="84" y="1073" font-family="Arial,sans-serif" font-size="48" font-weight="500" fill="#000000">Uber Freight</text>
+      </g>
 
       ${card(31, 157, L.trips, '3.8B', L.tripsYoy)}
       ${card(194, 170, 'MAPC', '202M', L.mapcYoy)}

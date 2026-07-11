@@ -28,7 +28,7 @@
     </g>`;
 
   const merchantCluster = (labels) => `
-    <g font-family="Montserrat,Arial,sans-serif" transform="translate(145 600)">
+    <g font-family="Montserrat,Arial,sans-serif" transform="translate(145 600)" data-typography-role="brand">
       <rect x="0" y="0" width="570" height="284" rx="142" fill="${SHOP_GREEN}" stroke="#59852e" stroke-width="4"/>
       <text x="43" y="170" font-size="62" font-style="italic" font-weight="800" fill="#ffffff">${labels.shopify}</text>
       <g font-size="34" font-style="italic" font-weight="500" fill="#ffffff">
@@ -37,7 +37,7 @@
         <text x="332" y="202">${labels.balance}</text><text x="332" y="238">${labels.markets}</text>
       </g>
     </g>`;
-  const shopifyPlusWordmark = (text) => `<g font-family="Montserrat,Arial,sans-serif" transform="translate(78 1024)"><text x="0" y="0" font-size="45" font-style="italic" font-weight="900" fill="${BLACK}">${text}</text></g>`;
+  const shopifyPlusWordmark = (text) => `<g font-family="Montserrat,Arial,sans-serif" transform="translate(78 1024)" data-typography-role="brand"><text x="0" y="0" font-size="45" font-style="italic" font-weight="900" fill="${BLACK}">${text}</text></g>`;
   const annotations = (labels) => `<g>${merchantCluster(labels)}${shopifyPlusWordmark(labels.shopifyPlus)}</g>`;
   const annotationsEn = annotations({ shopify: 'shopify', shopifyPlus: 'shopifyplus', capital: 'Capital', appStore: 'App Store', payments: 'Payments', fulfillment: 'Fulfillment', balance: 'Balance', markets: 'Markets' });
   const annotationsZh = annotations({ shopify: 'Shopify', shopifyPlus: 'Shopify Plus', capital: '资金', appStore: '应用商店', payments: '支付', fulfillment: '履约', balance: '余额', markets: '市场' });

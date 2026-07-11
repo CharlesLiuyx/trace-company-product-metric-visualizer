@@ -17,7 +17,7 @@
   const BUSINESS_ICONS = window.SANKEY_BUSINESS_ICONS || {};
 
   const svgIcon = (name, x, y, width, height, viewBox) => `
-    <svg x="${x}" y="${y}" width="${width}" height="${height}" viewBox="${viewBox}" overflow="visible">
+    <svg x="${x}" y="${y}" width="${width}" height="${height}" viewBox="${viewBox}" overflow="visible" data-typography-role="brand">
       ${BUSINESS_ICONS[name] || ''}
     </svg>`;
 

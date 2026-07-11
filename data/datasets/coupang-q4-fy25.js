@@ -223,8 +223,7 @@
       { source: 'revenue', target: 'cost_of_revenue', value: 6.3, sourceWidth: 250, targetWidth: 250, y0: 884, y1: 978, linkTint: RED_LINK },
       { source: 'gross_profit', target: 'operating_profit', value: 0.008, sourceWidth: 4, targetWidth: 4, y0: 532, y1: 441, linkTint: GREEN_LINK },
       { source: 'gross_profit', target: 'operating_expenses', value: 2.5, sourceWidth: 100, targetWidth: 100, y0: 581, y1: 678, linkTint: RED_LINK },
-      // This is a semantic bridge: direct hover compares its endpoint bars;
-      // node hover follows the directional singleton rule for that endpoint.
+      // This is a semantic bridge: every hover surface compares its endpoint bars.
       { source: 'operating_profit', target: 'other', value: 0.034, sourceWidth: 4, targetWidth: 3, y0: 441, y1: 532.5, linkTint: RED_LINK, curve: { c1x: 2070, c1y: 441, c2x: 2200, c2y: 532.5 } },
       { source: 'other', target: 'net_loss', value: 0.034, sourceWidth: 0, targetWidth: 0, y0: 532.5, y1: 578, interactionOnly: true, curve: { x0: 2310, x1: 2256, c1x: 2294, c1y: 533, c2x: 2276, c2y: 560 } },
     ],

@@ -323,8 +323,29 @@ canonical company name, then latest-period recency.
 | `unit`        | string  | appended to values (e.g. `"B"`, `"M"`)                       |
 | `decimals`    | number  | decimal places for non-integers, default `1`                 |
 | `referenceImage` | object \| string | processed PNG for Reference mode, e.g. `{ src, width, height }` |
-| `logoSvg`     | string  | inner SVG markup drawn above the hub node (optional)         |
+| `logoSvg`     | string  | inner SVG markup drawn above the hub node (optional); the renderer wraps it with `data-typography-role="brand"` |
 | `logoViewBox` / `logoWidth` / `logoHeight` | — | size/coords for `logoSvg`              |
+
+### SVG typography roles
+
+`annotationsSvg` is product text by default. Product labels, KPI copy, values,
+notes, and financial callouts use the renderer-owned View typography roles;
+they must not use Montserrat. A real Logo, wordmark, trademark lockup, or brand
+illustration inside the mixed annotation layer must mark its smallest complete
+ancestor explicitly:
+
+```html
+<g data-typography-role="brand">
+  <!-- brand-faithful vector markup; any font family is allowed here -->
+</g>
+```
+
+`meta.logoSvg` receives this wrapper automatically. A dataset that places a
+`window.SANKEY_BUSINESS_ICONS` fragment in `annotationsSvg` must still mark the
+placement wrapper; the shared string does not transfer a DOM role. Do not mark
+the whole `.sankey-annotations` layer, a normal node label, a KPI card, or plain
+company/product-name text as brand. Raster annotations contain no inspectable
+DOM text and remain governed by the existing raster whitelist.
 
 ### render interface audit
 

@@ -22,7 +22,7 @@
     </svg>`;
 
   const annotations = `
-    <g font-family="Montserrat,Arial,sans-serif">
+    <g font-family="Montserrat,Arial,sans-serif" data-typography-role="brand">
       ${svgIcon('armHoldingsCompanyWordmark', 695, 274, 530, 188, '0 0 565 205')}
     </g>`;
 

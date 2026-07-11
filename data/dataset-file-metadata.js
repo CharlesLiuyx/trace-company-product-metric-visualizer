@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-11T05:35:17.000Z",
+  "generatedAt": "2026-07-11T07:24:50.730Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -1530,6 +1530,108 @@
       "updatedAtMs": 1783748117000,
       "updatedAt": "2026-07-11T05:35:17.000Z",
       "timeSource": "git"
+    },
+    "docebo-q4-fy25": {
+      "path": "data/datasets/docebo-q4-fy25.js",
+      "updatedAtMs": 1783753826494,
+      "updatedAt": "2026-07-11T07:10:26.494Z",
+      "timeSource": "mtime"
+    },
+    "ford-fy25": {
+      "path": "data/datasets/ford-fy25.js",
+      "updatedAtMs": 1783752082984,
+      "updatedAt": "2026-07-11T06:41:22.984Z",
+      "timeSource": "mtime"
+    },
+    "klarna-q4-fy25": {
+      "path": "data/datasets/klarna-q4-fy25.js",
+      "updatedAtMs": 1783751963597,
+      "updatedAt": "2026-07-11T06:39:23.597Z",
+      "timeSource": "mtime"
+    },
+    "autodesk-q4-fy26": {
+      "path": "data/datasets/autodesk-q4-fy26.js",
+      "updatedAtMs": 1783752215318,
+      "updatedAt": "2026-07-11T06:43:35.318Z",
+      "timeSource": "mtime"
+    },
+    "loreal-fy25": {
+      "path": "data/datasets/loreal-fy25.js",
+      "updatedAtMs": 1783754388015,
+      "updatedAt": "2026-07-11T07:19:48.015Z",
+      "timeSource": "mtime"
+    },
+    "monday-q4-fy25": {
+      "path": "data/datasets/monday-q4-fy25.js",
+      "updatedAtMs": 1783753792097,
+      "updatedAt": "2026-07-11T07:09:52.097Z",
+      "timeSource": "mtime"
+    },
+    "ferrari-q4-fy25": {
+      "path": "data/datasets/ferrari-q4-fy25.js",
+      "updatedAtMs": 1783752046422,
+      "updatedAt": "2026-07-11T06:40:46.422Z",
+      "timeSource": "mtime"
+    },
+    "digitalocean-q4-fy25": {
+      "path": "data/datasets/digitalocean-q4-fy25.js",
+      "updatedAtMs": 1783752558174,
+      "updatedAt": "2026-07-11T06:49:18.174Z",
+      "timeSource": "mtime"
+    },
+    "fiserv-q4-fy25": {
+      "path": "data/datasets/fiserv-q4-fy25.js",
+      "updatedAtMs": 1783752119457,
+      "updatedAt": "2026-07-11T06:41:59.457Z",
+      "timeSource": "mtime"
+    },
+    "circle-q4-fy25": {
+      "path": "data/datasets/circle-q4-fy25.js",
+      "updatedAtMs": 1783752468645,
+      "updatedAt": "2026-07-11T06:47:48.645Z",
+      "timeSource": "mtime"
+    },
+    "birkenstock-q1-fy26": {
+      "path": "data/datasets/birkenstock-q1-fy26.js",
+      "updatedAtMs": 1783752269019,
+      "updatedAt": "2026-07-11T06:44:29.019Z",
+      "timeSource": "mtime"
+    },
+    "coinbase-q4-fy25": {
+      "path": "data/datasets/coinbase-q4-fy25.js",
+      "updatedAtMs": 1783752837080,
+      "updatedAt": "2026-07-11T06:53:57.080Z",
+      "timeSource": "mtime"
+    },
+    "airbus-fy25": {
+      "path": "data/datasets/airbus-fy25.js",
+      "updatedAtMs": 1783754171914,
+      "updatedAt": "2026-07-11T07:16:11.914Z",
+      "timeSource": "mtime"
+    },
+    "teladoc-q4-fy25": {
+      "path": "data/datasets/teladoc-q4-fy25.js",
+      "updatedAtMs": 1783752442719,
+      "updatedAt": "2026-07-11T06:47:22.719Z",
+      "timeSource": "mtime"
+    },
+    "klaviyo-q4-fy25": {
+      "path": "data/datasets/klaviyo-q4-fy25.js",
+      "updatedAtMs": 1783752583675,
+      "updatedAt": "2026-07-11T06:49:43.675Z",
+      "timeSource": "mtime"
+    },
+    "hermes-fy25": {
+      "path": "data/datasets/hermes-fy25.js",
+      "updatedAtMs": 1783754690730,
+      "updatedAt": "2026-07-11T07:24:50.730Z",
+      "timeSource": "mtime"
+    },
+    "kering-fy25": {
+      "path": "data/datasets/kering-fy25.js",
+      "updatedAtMs": 1783753719651,
+      "updatedAt": "2026-07-11T07:08:39.651Z",
+      "timeSource": "mtime"
     },
     "data/revenue-metrics.js": {
       "path": "data/revenue-metrics.js",

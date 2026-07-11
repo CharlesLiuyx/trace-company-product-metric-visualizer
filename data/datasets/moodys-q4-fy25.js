@@ -20,7 +20,7 @@
   const RIGHT_X = 2488;
 
   const wordmark = (label) => `
-    <g font-family="Montserrat,Arial,sans-serif">
+    <g font-family="Montserrat,Arial,sans-serif" data-typography-role="brand">
       <text x="1367" y="384" text-anchor="middle" font-size="112" font-weight="800"
             letter-spacing="1" textLength="505" lengthAdjust="spacingAndGlyphs"
             fill="${NAVY}">${label}</text>

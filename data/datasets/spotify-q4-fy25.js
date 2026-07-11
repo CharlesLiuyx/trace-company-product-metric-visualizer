@@ -41,18 +41,22 @@
   const annotations = (L) => `
     <g font-family="Montserrat,Arial,sans-serif">
       <g>
-        <circle cx="118" cy="691" r="45" fill="${BLACK}"/>
-        ${waves(118, 694, 45, SPGREEN)}
-        <text x="176" y="688" font-size="47" font-weight="800" fill="${BLACK}">Spotify</text>
-        <text x="176" y="729" font-size="47" font-weight="800" fill="${BLACK}">Premium</text>
+        <g data-typography-role="brand">
+          <circle cx="118" cy="691" r="45" fill="${BLACK}"/>
+          ${waves(118, 694, 45, SPGREEN)}
+          <text x="176" y="688" font-size="47" font-weight="800" fill="${BLACK}">Spotify</text>
+          <text x="176" y="729" font-size="47" font-weight="800" fill="${BLACK}">Premium</text>
+        </g>
         <text x="232" y="775" text-anchor="middle" font-size="30" font-weight="500" fill="${NOTE}">${L.pNote1}</text>
         <text x="233" y="813" text-anchor="middle" font-size="30" font-weight="500" fill="${NOTE}">${L.pNote2}</text>
       </g>
       <g>
-        <circle cx="60" cy="1039" r="27" fill="${BLACK}"/>
-        ${waves(60, 1041, 27, SPGREEN)}
-        <text x="104" y="1053" font-size="30" font-weight="800" fill="${BLACK}">Spotify</text>
-        <text x="224" y="1053" font-size="30" font-weight="500" fill="${BLACK}">Advertising</text>
+        <g data-typography-role="brand">
+          <circle cx="60" cy="1039" r="27" fill="${BLACK}"/>
+          ${waves(60, 1041, 27, SPGREEN)}
+          <text x="104" y="1053" font-size="30" font-weight="800" fill="${BLACK}">Spotify</text>
+          <text x="224" y="1053" font-size="30" font-weight="500" fill="${BLACK}">Advertising</text>
+        </g>
         <text x="233" y="1096" text-anchor="middle" font-size="30" font-weight="500" fill="${NOTE}">${L.aNote1}</text>
         <text x="233" y="1134" text-anchor="middle" font-size="30" font-weight="500" fill="${NOTE}">${L.aNote2}</text>
       </g>

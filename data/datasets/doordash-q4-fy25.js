@@ -31,7 +31,7 @@
     </g>`;
 
   const brandAnnotations = `
-    <g>
+    <g data-typography-role="brand">
       <text x="86" y="558" font-family="Montserrat,Arial,sans-serif" font-size="41" font-weight="800" textLength="250" lengthAdjust="spacingAndGlyphs" fill="${DOORDASH_RED}">DOORDASH</text>
 
       <g transform="translate(-60 0)">

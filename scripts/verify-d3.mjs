@@ -28,12 +28,14 @@ import {
 } from './lib/interface-fidelity.mjs';
 import {
   assertProjectFontsLoaded,
+  assertTypographyAudit,
   auditLabelLayout,
   auditTextAndAnnotationLayout,
   collectRenderedRegions,
   datasetRenderMeta,
   openHarnessPage,
   renderDatasetForPurity,
+  typographyAudit,
 } from './lib/render-harness.mjs';
 
 function usage() {
@@ -283,10 +285,14 @@ export async function main(argv = process.argv, runtime = {}) {
     } = run.artifacts;
 
     await page.setViewportSize({ width: meta.width, height: meta.height });
-    const purity = await renderDatasetForPurity(page, datasetKey, language);
     const fontStatus = await assertProjectFontsLoaded(page);
+    const purity = await renderDatasetForPurity(page, datasetKey, language);
     const labelLayoutAudit = await auditLabelLayout(page);
     const { textLayoutAudit, annotationLayoutAudit } = await auditTextAndAnnotationLayout(page);
+    const renderedTypographyAudit = await typographyAudit(page, {
+      dataset: datasetKey,
+      language: meta.language,
+    });
     const renderedRegions = await collectRenderedRegions(page);
     const interfaceGeometry = await collectCandidateInterfaceGeometry(page, datasetKey, language);
 
@@ -324,6 +330,8 @@ export async function main(argv = process.argv, runtime = {}) {
       candidate: path.relative(rootDir, candidatePath),
       diff: path.relative(rootDir, diffPath),
       purity,
+      fontStatus,
+      typographyAudit: renderedTypographyAudit,
       full: metrics.full,
       regions: metrics.regions,
       labelLayoutAudit,
@@ -347,6 +355,7 @@ export async function main(argv = process.argv, runtime = {}) {
     if (pageErrors.length) {
       throw new Error(`Page errors during render; no comparison archive accepted:\n${pageErrors.join('\n')}`);
     }
+    assertTypographyAudit(renderedTypographyAudit);
     assertLabelLayoutAudit(labelLayoutAudit);
     assertInterfaceAudit(interfaceAudit);
 
@@ -388,6 +397,9 @@ export async function main(argv = process.argv, runtime = {}) {
       `font: ${Object.entries(fontStatus.loaded)
         .map(([family, loaded]) => `${family} loaded=${loaded}`)
         .join(', ')}`
+    );
+    console.log(
+      `typography audit: status=${renderedTypographyAudit.status} product=${renderedTypographyAudit.productTextCount} brand=${renderedTypographyAudit.brandTextCount} runs=${renderedTypographyAudit.checkedTextRuns} violations=${renderedTypographyAudit.violations.length} rule=G3`
     );
     console.log(
       `purity: imageCount=${purity.imageCount} expectedRasterAnnotations=${purity.expectedRasterHrefs.length} chartImgCount=${purity.chartImgCount} rasterAllowed=${purity.rasterAllowed}`

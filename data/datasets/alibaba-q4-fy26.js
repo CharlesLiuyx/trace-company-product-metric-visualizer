@@ -18,7 +18,7 @@
   const BUSINESS_ICONS = window.SANKEY_BUSINESS_ICONS || {};
 
   const annotations = `
-    <g font-family="Montserrat,Arial,sans-serif">
+    <g font-family="Montserrat,Arial,sans-serif" data-typography-role="brand">
       <g transform="translate(760 352)" fill="${ORANGE}">
         <path d="M24 47 C52 4 137 -7 139 34 C141 72 84 95 36 89 C10 86 -8 70 4 54 C18 35 50 25 86 23 C54 29 32 40 24 55 C15 76 63 78 96 61 C122 47 130 27 112 19 C86 6 45 19 24 47 Z"/>
         <path d="M72 43 l34 -13 -8 23 -10 -8 c-18 10 -36 14 -54 11 16 -3 31 -7 45 -16 Z" fill="#ffffff"/>

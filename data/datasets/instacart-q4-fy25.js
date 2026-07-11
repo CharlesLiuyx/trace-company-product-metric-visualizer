@@ -19,7 +19,7 @@
   const CARROT_GREEN = '#00b912';
 
   const instacartLogo = (word) => `
-    <g transform="translate(380 286)">
+    <g transform="translate(380 286)" data-typography-role="brand">
       <path d="M33 18 L33 66" stroke="${CARROT_GREEN}" stroke-width="19" stroke-linecap="round"/>
       <path d="M33 66 C15 49 8 36 7 17 C22 22 31 33 33 50" fill="${CARROT_GREEN}"/>
       <path d="M33 66 C53 51 63 36 63 18 C47 22 37 34 33 50" fill="${CARROT_GREEN}"/>
