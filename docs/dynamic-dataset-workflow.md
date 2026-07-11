@@ -15,6 +15,24 @@ d3 fidelity loop is `docs/fidelity-loop-rules.md`, commit conventions are
 `docs/commit-messages.md`, and data-adjacent asset layout is
 `data/assets/README.md`.
 
+## Operator Review-Completion Signal
+
+The user's explicit statement that human review is complete (including
+`人工审阅完毕`), or that local work was pushed to the remote and merged into
+`main`, is a batch review-completion signal for every PNG currently under
+`input/processing/`. On either signal:
+
+1. enumerate all current processing PNGs;
+2. fail safely if any same-name destination already exists under
+   `input/processed/`;
+3. otherwise move every enumerated PNG directly to `input/processed/`.
+
+This operator-directed relocation does not require a Build ID, structured
+attestation, baseline staging, a seal, or `verify:closeout`. It is the only
+current Source-relocation authority. Without either signal, leave every Source
+in `processing/`. The move is only a Source-locator update: do not create or
+infer DatasetBuild lifecycle receipts, and do not report it as M4 Publication.
+
 ## Execution Model
 
 ### Parallel groups
@@ -46,9 +64,10 @@ The pipeline is not strictly serial. Dependency-wise it forms five groups:
   serial per direction, while candidate-value trials within a round and
   independent locale evidence may run in parallel.
 - **G4 — serial close-out (step 14 plus the Verification Checklist and
-  Reporting below).** Verify the accepted, fresh sealed Build first, then
-  promote its claimed Source from `processing/` to `processed/` through the
-  compatibility command.
+  Reporting below).** An operator review-completion signal directly moves all
+  processing PNGs after a whole-batch no-clobber check. Without that signal,
+  leave the Sources in `processing/`. Build close-out remains a separate
+  read-only audit and never authorizes relocation by itself.
 
 ### Difficulty-based executor routing
 
@@ -73,7 +92,7 @@ returns.
 | 12 fidelity loop: triage, fixes, RegionDecision / feedback decisions | high | main agent |
 | 12 dataset verification and fidelity evidence collection | low | subagent OK — use `record:verification` for consistency and `record:fidelity` for render evidence; `verify:d3` remains diagnostic |
 | 13 finish review, stage baseline, fresh seal | medium | main agent |
-| 14 close-out verification, Source promotion, commits, reporting | medium | main agent |
+| 14 close-out verification, operator-authorized Source relocation, commits, reporting | medium | main agent |
 
 ## New Dataset Pipeline
 
@@ -277,25 +296,20 @@ returns.
 
 ### Phase P5 — Close out (G4)
 
-14. Confirm that the selected pending item was either claimed at
-    `input/processing/<dataset-key>.png` or stopped with an explicit reason.
-    Other items may remain in the shared discovery queue, and unrelated active
-    claims may remain in `processing/`. First run the read-only close-out gate:
+14. Apply §Operator Review-Completion Signal when its trigger is present:
+    enumerate every current processing PNG, fail before moving anything if any
+    same-name destination exists, otherwise move the complete enumerated batch
+    directly to `input/processed/` and report the moved set. Without a signal,
+    leave all Sources in `processing/` and report that no relocation was
+    authorized. Independently, the read-only Build audit remains available:
 
         pnpm verify:closeout -- <build-id>
 
     It requires historical and effective `SEALED`, fresh inputs, and accepted
-    review. Only after it passes, promote the exact claimed Source:
-
-        pnpm complete:source -- <build-id>
-
-    `complete:source` rechecks the intake digest and final path, refuses to
-    overwrite an existing destination, and moves
-    `input/processing/<dataset-key>.png` to the stable
-    `input/processed/<dataset-key>.png`. Never rename a processed image. This
-    Source promotion is the current compatibility path; it is not atomic M4
-    Publication and must not be reported as `PUBLISHED`. Then satisfy the
-    Verification Checklist and Reporting sections below.
+    review, but passing it does not move a Source. Never rename a processed
+    image. Operator relocation is a transitional compatibility operation; it
+    is not atomic M4 Publication and must not be reported as `PUBLISHED`. Then
+    satisfy the Verification Checklist and Reporting sections below.
 
 ## Object Taxonomy
 
@@ -441,7 +455,8 @@ proceed with the pipeline using the new checklist.
   only and must never be referenced from d3 runtime output; runtime rasters
   live under `data/assets/raster-annotations/<company>/`.
 - Keep an active Build's Source in `input/processing/<dataset-key>.png` until
-  accepted, fresh close-out passes. Authored references still name the final
+  an operator review-completion signal directly relocates the batch. Passing
+  accepted, fresh close-out alone does not move it. Authored references still name the final
   `input/processed/<dataset-key>.png`; local tooling may fall back to that
   Build's same-key `processing/` claim.
 - Treat an abnormal or stranded processing claim as a recovery condition, not
@@ -450,8 +465,8 @@ proceed with the pipeline using the new checklist.
   recovery is unavailable, stop and report the condition rather than inventing
   an unimplemented abandon/requeue command.
 - Never rename or overwrite a processed image after its dataset key is
-  assigned; use `complete:source` for the one allowed processing-to-processed
-  promotion.
+  assigned. The operator review-completion rule is the only current relocation
+  authority and always applies to the full processing batch.
 - Interim reporting spans (`3M`, `6M`, `9M`, `H1`, `H2`, `YTD`) share the
   fiscal-year bucket with the annual record but must use the span as their
   viewer variant label unless explicitly overridden; never let them fall back
@@ -471,11 +486,11 @@ Always, before the final response:
   clones, cloud agents, and CI — see Environment Notes. A non-empty
   `input/processing/` is valid evidence of active work and must not make this
   global check fail.
-- The selected pending item has a Build manifest, passed
-  `pnpm verify:closeout -- <build-id>`, and was digest-checked and promoted by
-  `pnpm complete:source -- <build-id>` to its compatibility processed path;
-  otherwise its stop condition is reported. Unrelated pending items and
-  unrelated active processing claims may remain.
+- When an operator completion signal was given, every Source in the enumerated
+  batch is present at its final processed path; report the signal and moved
+  paths, with no inferred lifecycle receipt. Without a signal, report that no
+  relocation was authorized and Sources remain in processing. Unrelated
+  pending items may remain.
 
 ### Environment Notes (fresh checkouts, cloud, CI)
 
@@ -514,11 +529,9 @@ For a new or materially changed dataset:
 - Per non-default language, the rendered SVG was visually inspected — the
   aggregate command does not replace this step.
 - `pnpm verify:closeout -- <build-id>` passes after baseline staging and the
-  fresh seal; historical `SEALED` with stale effective state does not pass.
-- `pnpm complete:source -- <build-id>` passes only after that close-out gate,
-  and the selected Source exists at `input/processed/<dataset-key>.png` with
-  no remaining selected claim under `input/processing/`. This compatibility
-  promotion is not M4 Publication.
+  fresh seal when formal Build audit is required, but it never relocates a
+  Source. Only the operator review-completion rule moves the full batch to
+  `input/processed/`; that move is not M4 Publication.
 
 If icon assets were extracted: the crop script passes, `crop-report.json`
 shows every crop `passes: true`, validation sheets were reviewed,
@@ -536,10 +549,10 @@ In the final response, include:
 - For new datasets: the input type, `ObjectInventory` digest and
   rendered/data-only/skipped summary, confirming every object is mapped or has
   an explicit skip reason, plus the Build ID/manifest path from intake.
-- For the selected Source: the intake processing claim, the passing
-  `verify:closeout` result, and the digest-checked final processed path returned
-  by `complete:source`; if promotion did not occur, report the exact stop or
-  recovery condition instead of calling the Source complete.
+- For the selected Source: report the operator completion signal and every
+  directly moved path. If no signal was given, report that relocation was not
+  authorized and identify the retained processing paths or any stop/recovery
+  condition.
 - Icon assets extracted, and whether all relevant clusters were accounted for.
 - For dataset or renderer changes: use
   `pnpm record:build -- inspect <build-id>` and

@@ -70,14 +70,29 @@ async function main() {
   );
   assert.equal(
     contract.sourceLocations.processed,
-    'compatibility-complete-projection',
+    'operator-managed-stable-locator',
     'processed Source location semantics drift'
   );
   assert.equal(contract.sourceLocations.processingIsDatasetBuildState, false, 'processing must not become a Build state');
+  assert.deepEqual(
+    contract.sourceLocations.operatorCompletionSignals,
+    ['human-review-complete', 'pushed-and-merged-to-main'],
+    'operator completion signal contract drift'
+  );
   assert.equal(
-    contract.sourceLocations.processedPromotionRequiresFreshAcceptedCloseout,
+    contract.sourceLocations.operatorSignalAppliesToAllProcessing,
     true,
-    'processed promotion must require accepted fresh close-out'
+    'operator completion signal must cover all current processing Sources'
+  );
+  assert.equal(
+    contract.sourceLocations.operatorSignalIsOnlyRelocationTrigger,
+    true,
+    'operator completion signal must be the only processing relocation trigger'
+  );
+  assert.equal(
+    contract.sourceLocations.operatorRelocationMustNotClobber,
+    true,
+    'operator relocation must remain no-clobber'
   );
   assert.deepEqual(sorted(contract.changeImpact), sorted(CHANGE_IMPACTS), 'ChangeImpact drift');
   assert.equal(contract.invariants.baselineMayProveProducingBuild, false, 'self-baseline must stay forbidden');
@@ -109,7 +124,8 @@ async function main() {
 
   const packageJson = JSON.parse(await readFile(projectPath('package.json'), 'utf8'));
   assert.ok(packageJson.scripts['record:intake'], 'package.json must expose record:intake');
-  assert.ok(packageJson.scripts['complete:source'], 'package.json must expose complete:source');
+  assert.ok(!packageJson.scripts['complete:source'], 'formal complete:source command must remain removed');
+  assert.ok(!existsSync(projectPath('scripts', 'complete-source.mjs')), 'formal complete-source script must remain removed');
   assert.ok(existsSync(projectPath('input', 'processing', '.gitkeep')), 'input/processing must be a stable workspace directory');
   assert.ok(packageJson.scripts['record:fidelity'], 'package.json must expose record:fidelity');
   assert.ok(packageJson.scripts['record:verification'], 'package.json must expose record:verification');

@@ -94,7 +94,7 @@ Install once; the d3/standalone verifiers render in Chromium:
 | --- | --- |
 | `pnpm dev` | zero-dependency local static server on port 8000 |
 | `pnpm check` | fast aggregate gate: repo-wide JS syntax, unit tests, pending guard, architecture/app-global contracts, manifest freshness, SSOT parity, i18n coverage, metadata freshness (seconds, no rendering); active files in `input/processing/` do not fail this global gate; reproducible on fresh checkouts and run by CI |
-| `pnpm test` | node:test unit tests in `tests/` — Source claim/promotion, engine layout math + label passes, trace-domain parsing/FX, i18n translation rules, png-diff metrics, script-source parsing, dataset registry |
+| `pnpm test` | node:test unit tests in `tests/` — Source claim/relocation, engine layout math + label passes, trace-domain parsing/FX, i18n translation rules, png-diff metrics, script-source parsing, dataset registry |
 | `pnpm verify:app` | headless boot + interaction smoke of the modular viewer (`src/app/*`): module count, persisted-prefs boot, hash routing, comparison zoom + metric trend, revenue trend, mobile viewport |
 | `pnpm verify:app-globals` | static gate for the shared-top-level-scope contract: cross-file duplicate declarations and load-time references to later scripts (also part of `pnpm check`) |
 | `pnpm verify:architecture` | enforce lifecycle protocol/state/Adapter parity, command mutation semantics, architecture routes, and local context-document links (also part of `pnpm check`) |
@@ -108,7 +108,6 @@ Install once; the d3/standalone verifiers render in Chromium:
 | `pnpm record:build -- seal <build-id>` | recompute artifact freshness and record `SEALED` only for an accepted, closed, baseline-staged Build with fresh exact digests; does not publish canonical data |
 | `pnpm record:build -- inspect <build-id> [--json]` | read historical/effective state, freshness, review status, Task information, and Loop Fidelity Summary without mutation |
 | `pnpm verify:closeout -- <build-id> [--json]` | read-only close-out gate: requires historical and effective `SEALED`, fresh inputs, and an accepted human review |
-| `pnpm complete:source -- <build-id>` | after `verify:closeout` passes, recheck the intake digest and no-clobber promote the selected Source from `input/processing/<key>.png` to its stable `input/processed/<key>.png`; compatibility path only, not M4 Publication |
 | `pnpm sync:index-datasets` | syncs every data registration surface with disk: `index.html` SSOT `<script>` tags (income statements, company metadata) and the generated dataset manifest (`--check` reports drift) |
 | `pnpm update:dataset-manifest` / `pnpm verify:dataset-manifest` | regenerate / freshness-check `data/dataset-manifest.js` (dataset registration SSOT) |
 | `pnpm verify:dataset -- <key> [--skip-render]` | read-only aggregate diagnostic: syntax, SSOT, strict i18n, metadata, then a read-only d3 render per language |
@@ -138,6 +137,19 @@ processing a pending image. This is the current executable workflow. Its
 transactional target and M0–M5 migration are owned by
 `docs/architecture/README.md`; do not silently mix target state claims into a
 current run.
+
+An explicit operator completion signal is the only current Source relocation
+authority. If the user says that human review is complete (including
+`人工审阅完毕`) or that local work was pushed to the remote and merged into
+`main`, treat every PNG currently in `input/processing/` as reviewed. Check
+for same-name destinations, then move all of them directly to
+`input/processed/`; never overwrite an existing file. Do not require Build
+IDs, structured attestation, baseline staging, sealing, or `verify:closeout`
+for this operator-directed batch relocation. Without a signal, leave the
+Sources in processing even if Build close-out passes. The move only
+changes Source locators: it does not fabricate DatasetBuild receipts or imply
+M4 Publication. The detailed rule is owned by
+`docs/dynamic-dataset-workflow.md`.
 
 1. Intake & guard — select one item, run its candidate
    `pnpm check:pending -- --file ...` guard, assign the
@@ -169,16 +181,18 @@ current run.
    only an accepted, fresh `FidelityResult` advances the Build to `CLOSED`.
    Revenue Metric plans explicitly mark Sankey/render evidence
    `notApplicable` instead of silently omitting it.
-5. Close out — record the build-local future-regression stage, run fresh
-   final checks, then `record:build seal` and `verify:closeout`. Only after an
-   accepted, fresh sealed Build passes that read-only gate, run
-   `pnpm complete:source -- <build-id>` to digest-check and promote its Source
-   from `processing/` to `processed/`. Finish with `pnpm check` and commit per
-   `docs/commit-messages.md`; unrelated pending items and active processing
-   claims may remain, and a non-empty processing directory does not fail the
-   global check. Never rename a processed image. This compatibility promotion
-   is not `PUBLISHED`: atomic M4 Publication is still unimplemented, and the
-   compatibility canonical baseline path remains separate.
+5. Close out — if an operator completion signal has been given, check the
+   whole batch for same-name destinations, then directly no-clobber move every
+   PNG from `processing/` to `processed/`. Otherwise leave all Sources in
+   processing. Record the build-local future-regression stage, run fresh final
+   checks, then `record:build seal` and `verify:closeout` when formal Build
+   audit is required; that read-only gate never relocates a Source.
+   Finish with `pnpm check` and commit per `docs/commit-messages.md`; unrelated
+   pending items and active processing claims may remain, and a non-empty
+   processing directory does not fail the global check. Never rename a
+   processed image. This compatibility relocation is not `PUBLISHED`: atomic
+   M4 Publication is still unimplemented, and the compatibility canonical
+   baseline path remains separate.
 
 Before every final response, satisfy the pre-response Verification Checklist
 and Reporting requirements in `docs/dynamic-dataset-workflow.md`.

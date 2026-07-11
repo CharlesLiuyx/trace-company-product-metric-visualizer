@@ -224,19 +224,21 @@ the Sankey fidelity branch; Revenue Metric takes the data-only branch:
     pnpm record:build -- seal <build-id>
     pnpm record:build -- inspect <build-id>
     pnpm verify:closeout -- <build-id>
-    pnpm complete:source -- <build-id>
     pnpm check
     ```
 
     The Revenue Metric Adapter records render/fidelity and baseline decisions
     as explicit `notApplicable` facts instead of silently skipping axes.
-    Run `complete:source` only after the read-only close-out gate passes. It
-    rechecks the intake digest, refuses to overwrite an existing destination,
-    and promotes `input/processing/<dataset-key>.png` to the stable
-    `input/processed/<dataset-key>.png`. Never rename a processed image.
+    `verify:closeout` is a read-only Build audit; passing it does not move the
+    Source. The Source remains in `input/processing/` until the user explicitly
+    confirms human review is complete, or that local work was pushed and
+    merged into `main`. That signal is the only current relocation authority:
+    after checking the whole batch for same-name conflicts, directly move all
+    current processing PNGs to `input/processed/`. Never rename or overwrite a
+    processed image.
     A non-empty `input/processing/` may contain other active Builds and does
     not fail the global `pnpm check`. `SEALED` and this compatibility Source
-    promotion are not publication; atomic M4 Publication is not implemented
+    relocation are not publication; atomic M4 Publication is not implemented
     yet. Where the current compatibility
     runtime still needs a canonical render baseline, `record:baseline` remains
     a separate transitional mutation and cannot prove the producing Build:
@@ -245,6 +247,12 @@ the Sankey fidelity branch; Revenue Metric takes the data-only branch:
     pnpm record:baseline -- <dataset-key>
     pnpm verify:render-regression -- <dataset-key>
     ```
+
+    Operator shortcut: if the user explicitly says human review is complete,
+    or that local work was pushed and merged into `main`, treat every current
+    processing PNG as reviewed and directly move the whole batch to
+    `input/processed/` after a same-name destination check. This locator-only
+    shortcut does not create Build receipts or imply Publication.
 
 For non-default languages, `verify:i18n --strict` confirms overlay coverage but
 does not prove that fixed text fits. For edge-sensitive text such as right-side
@@ -313,10 +321,11 @@ The viewer renders only the editable d3-sankey SVG from
 `src/sankey-engine.js`. Processed reference PNGs are kept in
 `input/processed/` and referenced by `meta.referenceImage` for the fidelity
 verifier, but they are not part of the app runtime or standalone HTML artifact.
-During an active Build, the reference remains in `input/processing/` through
-close-out and local tooling resolves it through the same-key processing claim;
-only `complete:source` rechecks the recorded digest and materializes the
-authored processed path after close-out.
+During an active Build, the reference remains in `input/processing/` and local
+tooling resolves it through the same-key processing claim. Only an explicit
+operator completion signal directly no-clobber moves all current processing
+PNGs to `input/processed/`; passing Build close-out alone does not move them or
+infer Build state.
 
 Typography follows content roles rather than page inheritance: App Chrome
 (toolbar, sidebar, controls, actionbar) uses Montserrat; View product text in
