@@ -85,6 +85,7 @@ const steps = [
   ['verify:architecture', () => runVerifier('verify-architecture-contract.mjs')],
   ['verify:app-globals', () => runVerifier('verify-app-globals.mjs')],
   ['verify:dataset-manifest', () => runVerifier('update-dataset-manifest.mjs', ['--check'])],
+  ['verify:render-baselines', () => runVerifier('verify-render-regression.mjs', ['--structure-only'])],
   ['verify:ssot', () => runVerifier('verify-ssot.mjs')],
   ['verify:i18n', () => runVerifier('verify-i18n.mjs')],
   ['verify:dataset-file-metadata', () => runVerifier('update-dataset-file-metadata.mjs', ['--check'])],

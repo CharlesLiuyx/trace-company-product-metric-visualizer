@@ -4,38 +4,118 @@ on:
   push:
     branches: [main]
   pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   check:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    outputs:
+      site_projection: ${{ steps.plan.outputs.site_projection }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout complete history
+        uses: actions/checkout@v6
         with:
-          # verify:dataset-file-metadata derives timestamps from git history.
+          # Dataset timestamps and the ChangeImpact planner both need history.
           fetch-depth: 0
+
       - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: 22
           cache: pnpm
-      - run: pnpm install --frozen-lockfile
-      # Fast aggregate gate: syntax sweep, unit tests, pending guard, SSOT
-      # parity, i18n coverage, metadata freshness (no rendering).
-      - run: pnpm check
-      - run: pnpm exec playwright install --with-deps chromium
-      # Headless boot + interaction smoke of the modular viewer.
-      - run: pnpm verify:app
-      # Build the Pages projection and enforce its request/lazy-loading budgets.
-      - run: pnpm build:site
-      - run: pnpm verify:site
-      # One d3 render as a pipeline smoke: hard gates + pixel metrics.
-      - run: pnpm verify:d3 -- salesforce-q1-fy27
-      # Batch-render every registered dataset through the purity/size hard
-      # gates. Reference images are local-only, so CI cannot score pixel
-      # similarity; the similarity baseline gate runs on machines that hold
-      # input/processed/ (see data/render-baselines.json).
-      - run: pnpm verify:render-regression
-      # The standalone artifact must build and stay self-contained.
-      - run: pnpm build:standalone
-      - run: pnpm verify:standalone
+
+      - name: Plan checks from ChangeImpact
+        id: plan
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before || '0000000000000000000000000000000000000000' }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: pnpm plan:ci -- --base "$BASE_SHA" --head "$HEAD_SHA" --github-output "$GITHUB_OUTPUT"
+
+      - name: Install JavaScript dependencies
+        run: pnpm install --frozen-lockfile
+
+      # Always run the deterministic gate. It owns syntax, unit tests, pending
+      # collisions, architecture/app-global contracts, generated projections,
+      # SSOT/i18n parity, render-baseline structure, and metadata freshness.
+      - name: Fast deterministic checks
+        run: pnpm check
+
+      - name: Install Chromium and OS dependencies
+        if: >-
+          steps.plan.outputs.needs_browser == 'true' ||
+          (github.event_name != 'pull_request' && github.ref == 'refs/heads/main' &&
+          steps.plan.outputs.site_projection == 'true')
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Verify viewer interactions
+        if: steps.plan.outputs.verify_app == 'true'
+        run: pnpm verify:app
+
+      - name: Build Pages projection
+        if: steps.plan.outputs.build_site == 'true'
+        run: pnpm build:site
+
+      - name: Verify Pages loading and interaction budgets
+        if: >-
+          steps.plan.outputs.verify_site == 'true' ||
+          (github.event_name != 'pull_request' && github.ref == 'refs/heads/main' &&
+          steps.plan.outputs.site_projection == 'true')
+        run: pnpm verify:site
+
+      # The diagnostic smoke exercises the complete reference/diff/interface
+      # pipeline. Dataset hard gates live in render regression below.
+      - name: Verify complete d3 diagnostic pipeline
+        if: steps.plan.outputs.d3_smoke == 'true'
+        run: pnpm verify:d3 -- salesforce-q1-fy27
+
+      - name: Verify all registered renders
+        if: steps.plan.outputs.render_scope == 'full'
+        run: pnpm verify:render-regression
+
+      - name: Verify changed Dataset Adapter renders
+        if: steps.plan.outputs.render_scope == 'changed'
+        run: pnpm verify:render-regression -- ${{ steps.plan.outputs.render_keys }}
+
+      - name: Build standalone projection
+        if: steps.plan.outputs.build_standalone == 'true'
+        run: pnpm build:standalone
+
+      - name: Verify standalone is self-contained
+        if: steps.plan.outputs.verify_standalone == 'true'
+        run: pnpm verify:standalone
+
+      # The exact Pages artifact verified above is the one deployed below;
+      # the old second checkout/install/build workflow was intentionally removed.
+      - name: Upload verified Pages artifact
+        if: >-
+          github.event_name != 'pull_request' && github.ref == 'refs/heads/main' &&
+          steps.plan.outputs.site_projection == 'true'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./_site
+
+  deploy:
+    name: Deploy Pages
+    needs: check
+    if: >-
+      needs.check.result == 'success' && needs.check.outputs.site_projection == 'true' &&
+      github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy verified artifact
+        id: deployment
+        uses: actions/deploy-pages@v5

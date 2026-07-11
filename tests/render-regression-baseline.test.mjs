@@ -4,6 +4,7 @@ import { mkdtemp, readFile, readdir, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import {
+  baselineStructureProblems,
   parseArgs,
   recordBaselineUpdate,
   renderBaselineSource,
@@ -17,6 +18,35 @@ test('--update rejects a full-catalog baseline ratchet without explicit keys', (
   assert.deepEqual(
     parseArgs(['node', 'verify-render-regression.mjs', '--update', 'alpha-q1-fy26']).keys,
     ['alpha-q1-fy26']
+  );
+});
+
+test('--structure-only is read-only and rejects incompatible render options', () => {
+  assert.equal(
+    parseArgs(['node', 'verify-render-regression.mjs', '--structure-only']).structureOnly,
+    true
+  );
+  assert.throws(
+    () => parseArgs(['node', 'verify-render-regression.mjs', '--structure-only', 'alpha-q1-fy26']),
+    /cannot be combined/
+  );
+});
+
+test('baseline structure fails before rendering for missing and stale entries', () => {
+  assert.deepEqual(
+    baselineStructureProblems({
+      targetKeys: ['alpha-q1-fy26', 'beta-q2-fy26'],
+      registeredKeys: ['alpha-q1-fy26', 'beta-q2-fy26'],
+      baselines: {
+        'alpha-q1-fy26': { similarity: 0.9 },
+        'stale-q4-fy25': { similarity: 0.8 },
+      },
+      fullCatalog: true,
+    }),
+    [
+      'missing baseline for registered dataset: beta-q2-fy26',
+      'stale baseline for unregistered dataset: stale-q4-fy25',
+    ]
   );
 });
 

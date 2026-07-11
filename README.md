@@ -24,11 +24,13 @@ in `vendor/`, so it works offline as long as the repository files are present.
 
 Before committing, `pnpm check` runs the fast gates (repo-wide JS syntax
 sweep, unit tests, pending-image guard, architecture/app-global contracts,
-dataset-manifest freshness, SSOT parity, i18n coverage, metadata freshness)
+dataset-manifest and render-baseline structure freshness, SSOT parity, i18n coverage, metadata freshness)
 in a few seconds; `pnpm verify:app` boot-and-click smokes the viewer app in
 headless Chromium in a few seconds. `pnpm check` is reproducible — it is
-green on any fresh checkout, and CI (`.github/workflows/ci.yml`) runs it
-plus the render gates on every push and pull request.
+green on any fresh checkout. CI (`.github/workflows/ci.yml`) always runs it,
+then uses a conservative ChangeImpact plan to select changed-key or full
+browser/render gates; unknown executable changes fall back to the full suite.
+See `docs/ci-verification.zh-CN.md` for every check's purpose and mechanism.
 
 The deployed Pages artifact is a generated runtime projection rather than a
 copy of every source file. Build and exercise its loading budgets with:
@@ -437,6 +439,7 @@ example.
 | `scripts/build-standalone.mjs` | builds the self-contained HTML artifact (inlines all adapters) |
 | `scripts/verify-standalone.mjs` | opens the artifact via `file://` and checks d3 rendering |
 | `scripts/verify-app-globals.mjs` | static gate for shared-scope duplicate declarations and load order |
+| `scripts/plan-ci.mjs` · `scripts/lib/ci-plan.mjs` | Git diff Adapter + tested ChangeImpact planning Module for CI check selection |
 | `scripts/verify-render-regression.mjs` | batch render + similarity baseline gate (`data/render-baselines.json`) |
 | `scripts/update-dataset-manifest.mjs` | regenerates `data/dataset-manifest.js` (dataset registration SSOT) |
 | `scripts/script-sources.mjs`| shared script classification for page and verifier harnesses  |
