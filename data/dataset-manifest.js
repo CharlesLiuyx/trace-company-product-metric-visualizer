@@ -6135,6 +6135,347 @@
             }
           }
         }
+      },
+      {
+        "key": "applied-materials-q2-fy26",
+        "src": "data/datasets/applied-materials-q2-fy26.js",
+        "data": {
+          "name": "Applied Materials · Q2 FY26",
+          "company": "Applied Materials",
+          "meta": {
+            "title": "Applied Materials Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Apr. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Applied Materials · 2026 财年第二季度",
+              "meta": {
+                "title": "Applied Materials 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sea-q1-fy26",
+        "src": "data/datasets/sea-q1-fy26.js",
+        "data": {
+          "name": "Sea · Q1 FY26",
+          "company": "Sea",
+          "meta": {
+            "title": "Sea Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Sea · 2026 财年第一季度",
+              "meta": {
+                "title": "Sea 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "analog-devices-q2-fy26",
+        "src": "data/datasets/analog-devices-q2-fy26.js",
+        "data": {
+          "name": "Analog Devices · Q2 FY26",
+          "company": "Analog Devices",
+          "meta": {
+            "title": "Analog Devices Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Apr. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Analog Devices · 2026 财年第二季度",
+              "meta": {
+                "title": "Analog Devices 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "twilio-q1-fy26",
+        "src": "data/datasets/twilio-q1-fy26.js",
+        "data": {
+          "name": "Twilio · Q1 FY26",
+          "company": "Twilio",
+          "meta": {
+            "title": "Twilio Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Twilio · 2026 财年第一季度",
+              "meta": {
+                "title": "Twilio 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "instacart-q1-fy26",
+        "src": "data/datasets/instacart-q1-fy26.js",
+        "data": {
+          "name": "Instacart · Q1 FY26",
+          "company": "Instacart",
+          "meta": {
+            "title": "Instacart Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Instacart · 2026 财年第一季度",
+              "meta": {
+                "title": "Instacart 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "best-buy-q1-fy27",
+        "src": "data/datasets/best-buy-q1-fy27.js",
+        "data": {
+          "name": "Best Buy · Q1 FY27",
+          "company": "Best Buy",
+          "meta": {
+            "title": "Best Buy Q1 FY27 Income Statement",
+            "period": "Q1 FY27",
+            "periodNote": "Ending Apr. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "百思买 · 2027 财年第一季度",
+              "meta": {
+                "title": "百思买 2027 财年第一季度利润表",
+                "period": "2027 财年第一季度",
+                "periodNote": "截至 2026 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "grab-q1-fy26",
+        "src": "data/datasets/grab-q1-fy26.js",
+        "data": {
+          "name": "Grab · Q1 FY26",
+          "company": "Grab",
+          "meta": {
+            "title": "Grab Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Grab · 2026 财年第一季度",
+              "meta": {
+                "title": "Grab 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "target-q1-fy27",
+        "src": "data/datasets/target-q1-fy27.js",
+        "data": {
+          "name": "Target · Q1 FY27",
+          "company": "Target",
+          "meta": {
+            "title": "Target Q1 FY27 Income Statement",
+            "period": "Q1 FY27",
+            "periodNote": "Ending May 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "塔吉特 · 2027 财年第一季度",
+              "meta": {
+                "title": "塔吉特 2027 财年第一季度利润表",
+                "period": "2027 财年第一季度",
+                "periodNote": "截至 2026 年 5 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "doordash-q1-fy26",
+        "src": "data/datasets/doordash-q1-fy26.js",
+        "data": {
+          "name": "DoorDash · Q1 FY26",
+          "company": "DoorDash",
+          "meta": {
+            "title": "DoorDash Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "DoorDash · 2026 财年第一季度",
+              "meta": {
+                "title": "DoorDash 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "take-two-q4-fy26",
+        "src": "data/datasets/take-two-q4-fy26.js",
+        "data": {
+          "name": "Take-Two · Q4 FY26",
+          "company": "Take-Two",
+          "meta": {
+            "title": "Take-Two Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending Apr. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Take-Two · 2026 财年第四季度",
+              "meta": {
+                "title": "Take-Two 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "coupang-q1-fy26",
+        "src": "data/datasets/coupang-q1-fy26.js",
+        "data": {
+          "name": "Coupang · Q1 FY26",
+          "company": "Coupang",
+          "meta": {
+            "title": "Coupang Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "酷澎 · 2026 财年第一季度",
+              "meta": {
+                "title": "酷澎 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "zillow-q1-fy26",
+        "src": "data/datasets/zillow-q1-fy26.js",
+        "data": {
+          "name": "Zillow · Q1 FY26",
+          "company": "Zillow",
+          "meta": {
+            "title": "Zillow Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Zillow · 2026 财年第一季度",
+              "meta": {
+                "title": "Zillow 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "match-group-q1-fy26",
+        "src": "data/datasets/match-group-q1-fy26.js",
+        "data": {
+          "name": "Match Group · Q1 FY26",
+          "company": "Match Group",
+          "meta": {
+            "title": "Match Group Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Match Group · 2026 财年第一季度",
+              "meta": {
+                "title": "Match Group 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "block-q1-fy26",
+        "src": "data/datasets/block-q1-fy26.js",
+        "data": {
+          "name": "Block · Q1 FY26",
+          "company": "Block",
+          "meta": {
+            "title": "Block Q1 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Block · 2026 财年第一季度",
+              "meta": {
+                "title": "Block 2026 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "peloton-q3-fy26",
+        "src": "data/datasets/peloton-q3-fy26.js",
+        "data": {
+          "name": "Peloton · Q3 FY26",
+          "company": "Peloton",
+          "meta": {
+            "title": "Peloton Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Peloton · 2026 财年第三季度",
+              "meta": {
+                "title": "Peloton 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

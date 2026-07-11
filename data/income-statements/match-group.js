@@ -108,5 +108,88 @@
         },
       },
     }
+    ,
+    {
+      key: 'match-group-q1-fy26',
+      company: 'Match Group',
+      period: 'Q1 FY26',
+      periodNote: 'Ending Mar. 2026',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/match-group-q1-fy26.png',
+      roundingTolerance: 2.1,
+      revenue: {
+        total: 864,
+        notes: ['+4% Y/Y'],
+        items: [
+          { id: 'tinder', label: 'Tinder', value: 455, notes: ['+2% Y/Y'] },
+          { id: 'hinge', label: 'Hinge', value: 194, notes: ['+28% Y/Y'] },
+          { id: 'asia', label: 'Asia', value: 60, notes: ['(7%) Y/Y'] },
+          { id: 'evergreen_emerging', label: 'Evergreen & Emerging', value: 139, notes: ['(7%) Y/Y'] },
+          { id: 'indirect', label: 'Indirect', value: 16, notes: ['(14%) Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 211 },
+        operatingExpenses: {
+          total: 417,
+          items: [
+            { id: 'sm', label: 'S&M', value: 163, notes: ['19% of revenue', '(0pp) Y/Y'] },
+            { id: 'product', label: 'Product', value: 117, notes: ['14% of revenue', '(1pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 89, notes: ['10% of revenue', '(3pp) Y/Y'] },
+            { id: 'da', label: 'D&A', value: 48, notes: ['6% of revenue', '+2pp Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 34 },
+      },
+      otherIncome: {
+        total: 0,
+        items: [],
+      },
+      otherExpenses: {
+        total: 36,
+        items: [{ id: 'other_non_operating', label: 'Other', value: 36 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 653, notes: ['76% margin', '+4pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 236, notes: ['27% margin', '+7pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 167, notes: ['19% margin', '+5pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第一季度',
+          periodNote: '截至 2026 年 3 月',
+          revenue: {
+            notes: ['同比 +4%'],
+            items: [
+              { id: 'tinder', label: 'Tinder', notes: ['同比 +2%'] },
+              { id: 'hinge', label: 'Hinge', notes: ['同比 +28%'] },
+              { id: 'asia', label: '亚洲', notes: ['同比 (7%)'] },
+              { id: 'evergreen_emerging', label: '常青与新兴品牌', notes: ['同比 (7%)'] },
+              { id: 'indirect', label: '间接收入', notes: ['同比 (14%)'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'sm', label: '销售与市场', notes: ['占收入 19%', '同比 (0 个百分点)'] },
+                { id: 'product', label: '产品开发', notes: ['占收入 14%', '同比 (1 个百分点)'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 10%', '同比 (3 个百分点)'] },
+                { id: 'da', label: '折旧及摊销', notes: ['占收入 6%', '同比 +2 个百分点'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherExpenses: { items: [{ id: 'other_non_operating', label: '其他' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 76%', '同比 +4 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 27%', '同比 +7 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 19%', '同比 +5 个百分点'] },
+          },
+        },
+      },
+    }
   );
 })(window);

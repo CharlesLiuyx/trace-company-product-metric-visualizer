@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-11T08:14:38.000Z",
+  "generatedAt": "2026-07-11T17:02:34.472Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -1632,6 +1632,96 @@
       "updatedAtMs": 1783757678000,
       "updatedAt": "2026-07-11T08:14:38.000Z",
       "timeSource": "git"
+    },
+    "applied-materials-q2-fy26": {
+      "path": "data/datasets/applied-materials-q2-fy26.js",
+      "updatedAtMs": 1783780370183,
+      "updatedAt": "2026-07-11T14:32:50.183Z",
+      "timeSource": "mtime"
+    },
+    "sea-q1-fy26": {
+      "path": "data/datasets/sea-q1-fy26.js",
+      "updatedAtMs": 1783789354472,
+      "updatedAt": "2026-07-11T17:02:34.472Z",
+      "timeSource": "mtime"
+    },
+    "analog-devices-q2-fy26": {
+      "path": "data/datasets/analog-devices-q2-fy26.js",
+      "updatedAtMs": 1783780301995,
+      "updatedAt": "2026-07-11T14:31:41.995Z",
+      "timeSource": "mtime"
+    },
+    "twilio-q1-fy26": {
+      "path": "data/datasets/twilio-q1-fy26.js",
+      "updatedAtMs": 1783780518515,
+      "updatedAt": "2026-07-11T14:35:18.515Z",
+      "timeSource": "mtime"
+    },
+    "instacart-q1-fy26": {
+      "path": "data/datasets/instacart-q1-fy26.js",
+      "updatedAtMs": 1783789351598,
+      "updatedAt": "2026-07-11T17:02:31.598Z",
+      "timeSource": "mtime"
+    },
+    "best-buy-q1-fy27": {
+      "path": "data/datasets/best-buy-q1-fy27.js",
+      "updatedAtMs": 1783780561866,
+      "updatedAt": "2026-07-11T14:36:01.866Z",
+      "timeSource": "mtime"
+    },
+    "grab-q1-fy26": {
+      "path": "data/datasets/grab-q1-fy26.js",
+      "updatedAtMs": 1783789323716,
+      "updatedAt": "2026-07-11T17:02:03.716Z",
+      "timeSource": "mtime"
+    },
+    "target-q1-fy27": {
+      "path": "data/datasets/target-q1-fy27.js",
+      "updatedAtMs": 1783789343302,
+      "updatedAt": "2026-07-11T17:02:23.302Z",
+      "timeSource": "mtime"
+    },
+    "doordash-q1-fy26": {
+      "path": "data/datasets/doordash-q1-fy26.js",
+      "updatedAtMs": 1783780325865,
+      "updatedAt": "2026-07-11T14:32:05.865Z",
+      "timeSource": "mtime"
+    },
+    "take-two-q4-fy26": {
+      "path": "data/datasets/take-two-q4-fy26.js",
+      "updatedAtMs": 1783780582606,
+      "updatedAt": "2026-07-11T14:36:22.606Z",
+      "timeSource": "mtime"
+    },
+    "coupang-q1-fy26": {
+      "path": "data/datasets/coupang-q1-fy26.js",
+      "updatedAtMs": 1783780471979,
+      "updatedAt": "2026-07-11T14:34:31.979Z",
+      "timeSource": "mtime"
+    },
+    "zillow-q1-fy26": {
+      "path": "data/datasets/zillow-q1-fy26.js",
+      "updatedAtMs": 1783780526006,
+      "updatedAt": "2026-07-11T14:35:26.006Z",
+      "timeSource": "mtime"
+    },
+    "match-group-q1-fy26": {
+      "path": "data/datasets/match-group-q1-fy26.js",
+      "updatedAtMs": 1783780480704,
+      "updatedAt": "2026-07-11T14:34:40.704Z",
+      "timeSource": "mtime"
+    },
+    "block-q1-fy26": {
+      "path": "data/datasets/block-q1-fy26.js",
+      "updatedAtMs": 1783780664547,
+      "updatedAt": "2026-07-11T14:37:44.547Z",
+      "timeSource": "mtime"
+    },
+    "peloton-q3-fy26": {
+      "path": "data/datasets/peloton-q3-fy26.js",
+      "updatedAtMs": 1783780670010,
+      "updatedAt": "2026-07-11T14:37:50.010Z",
+      "timeSource": "mtime"
     },
     "data/revenue-metrics.js": {
       "path": "data/revenue-metrics.js",

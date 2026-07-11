@@ -10,6 +10,61 @@
 
   ssot.records.push(
     {
+      key: 'zillow-q1-fy26',
+      company: 'Zillow',
+      period: 'Q1 FY26',
+      periodNote: 'Ending Mar. 2026',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/zillow-q1-fy26.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 708,
+        notes: ['+18% Y/Y'],
+        items: [
+          { id: 'residential', label: 'Residential', value: 450, notes: ['+8% Y/Y'] },
+          { id: 'rentals', label: 'Rentals', value: 183, notes: ['+42% Y/Y'] },
+          { id: 'home_loans', label: 'Home Loans', value: 64, notes: ['+56% Y/Y'] },
+          { id: 'other_revenue', label: 'Other', value: 11, notes: ['Flat Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 189 },
+        operatingExpenses: {
+          total: 483,
+          items: [
+            { id: 'sm', label: 'S&M', value: 210, notes: ['30% of revenue', '(3pp) Y/Y'] },
+            { id: 'product', label: 'Product', value: 150, notes: ['21% of revenue', '(4pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 123, notes: ['17% of revenue', '(3pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax_interest', label: 'Tax & interest', value: 6 },
+      },
+      otherIncome: { total: 16, items: [{ id: 'other_income', label: 'Other', value: 16 }] },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 519, notes: ['73% margin', '(3pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 36, notes: ['5% margin', '+7pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 46, notes: ['6% margin', '+5pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第一季度', periodNote: '截至 2026 年 3 月',
+          revenue: { notes: ['同比 +18%'], items: [
+            { id: 'residential', label: '住宅业务', notes: ['同比 +8%'] }, { id: 'rentals', label: '租赁', notes: ['同比 +42%'] },
+            { id: 'home_loans', label: '住房贷款', notes: ['同比 +56%'] }, { id: 'other_revenue', label: '其他', notes: ['同比持平'] },
+          ] },
+          costs: { costOfRevenue: { label: '收入成本' }, operatingExpenses: { items: [
+            { id: 'sm', label: '销售与市场', notes: ['占收入 30%', '同比 (3 个百分点)'] }, { id: 'product', label: '产品', notes: ['占收入 21%', '同比 (4 个百分点)'] },
+            { id: 'ga', label: '管理费用', notes: ['占收入 17%', '同比 (3 个百分点)'] },
+          ] }, tax: { label: '税费及利息' } },
+          otherIncome: { items: [{ id: 'other_income', label: '其他' }] },
+          profit: { gross: { label: '毛利润', notes: ['利润率 73%', '同比 (3 个百分点)'] }, operating: { label: '营业利润', notes: ['利润率 5%', '同比 +7 个百分点'] }, net: { label: '净利润', notes: ['利润率 6%', '同比 +5 个百分点'] } },
+        },
+      },
+    },
+    {
       key: 'zillow-q4-fy25',
       company: 'Zillow',
       period: 'Q4 FY25',
