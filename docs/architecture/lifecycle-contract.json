@@ -51,9 +51,15 @@
   "sourceLocations": {
     "pending": "unclaimed",
     "processing": "build-local-working-locator",
-    "processed": "compatibility-complete-projection",
+    "processed": "operator-managed-stable-locator",
     "processingIsDatasetBuildState": false,
-    "processedPromotionRequiresFreshAcceptedCloseout": true
+    "operatorCompletionSignals": [
+      "human-review-complete",
+      "pushed-and-merged-to-main"
+    ],
+    "operatorSignalAppliesToAllProcessing": true,
+    "operatorSignalIsOnlyRelocationTrigger": true,
+    "operatorRelocationMustNotClobber": true
   },
   "changeImpact": [
     "new-dataset",

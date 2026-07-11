@@ -42,9 +42,11 @@ The current compatibility workflow uses three directory roles:
   After the guard, key, and input-type selection succeed, `record:intake`
   durably fixes Source identity and claims the selected file here before
   inventory or authoring begins;
-- `input/processed/` is the stable compatibility projection. Promotion from
-  `processing/` is allowed only for the same digest after accepted human
-  closure, fresh `SEALED`, and a successful close-out gate.
+- `input/processed/` is the stable compatibility locator. An explicit operator
+  completion signal is the only current relocation authority and directly
+  no-clobber moves every current processing PNG here; passing Build close-out
+  alone does not move files, and relocation records no Build transition or
+  receipt.
 
 Directory existence is never authoritative state. A crash may leave a locator
 and Build record temporarily out of sync; recovery reconciles them by Build ID,
@@ -52,7 +54,7 @@ key, and digest without inferring a transition or overwriting another file. A
 missing working file, a destination collision, or changed bytes is a hard
 recovery/freshness failure.
 
-The processed promotion above is explicitly transitional. In the target M4
+The processed relocation above is explicitly transitional. In the target M4
 architecture, a `PublicationBatch` owns the stable Source projection together
 with the rest of the planned canonical result; sealing alone has no canonical-
 write authority.
@@ -284,7 +286,7 @@ Invalidation is explicit:
 
 Relocating the exact Source bytes from `pending/` to `processing/`, or from
 `processing/` to the stable projection, is not a changed input. The Build keeps
-the intake digest identity; every claim, recovery, and promotion must verify
+the intake digest identity; every claim and recovery must verify
 the bytes against it. A digest mismatch follows the Source-bytes row above.
 
 Queries must report both the historical state and effective freshness. A
@@ -300,7 +302,9 @@ historical `SEALED` receipt remains auditable while `effectiveState` becomes
 
 - One Build is serial by version; different Builds may run in parallel.
 - The `processing/` locator is a per-key working lease, not a state transition;
-  claims and promotions must be no-clobber and digest-checked.
+  intake claims are no-clobber and digest-checked. Its only current relocation
+  authority is the explicit operator completion signal, which moves the whole
+  processing batch no-clobber without lifecycle receipt synthesis.
 - Every state-changing operation has an idempotency identity and an expected
   aggregate version.
 - Artifacts are stored and hash-verified before a state event references
@@ -324,9 +328,12 @@ under the per-Build store. `inspect` also produces `CloseoutReport`, Task
 information, and Loop Fidelity Summary as pure Views over those objects.
 
 At current intake, `record:intake` also claims the selected Source from
-`pending/` to the Build-local `processing/` locator. After accepted review, a
-fresh seal, and successful close-out, the compatibility workflow promotes the
-same digest to `processed/`. Neither filesystem move adds a DatasetBuild state.
+`pending/` to the Build-local `processing/` locator. The user's explicit
+statement that human review is complete, or that local work was pushed and
+merged into `main`, is the only current authority to relocate Sources: after a
+whole-batch no-clobber check, every processing PNG moves directly to
+`processed/`. Passing Build close-out alone does not move a Source. Neither
+filesystem move adds or infers a DatasetBuild state.
 
 This is not M4. Authored canonical paths are still edited directly, the old
 canonical baseline command remains a compatibility path, and no atomic

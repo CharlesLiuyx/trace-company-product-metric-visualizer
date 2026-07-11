@@ -396,14 +396,14 @@
       <span class="pnum">P5</span>
       <span class="pname">收尾</span>
       <ul>
-        <li>stage baseline → fresh seal → closeout gate</li>
-        <li>digest 复核 → processing 提升为 processed</li>
+        <li>stage baseline → fresh seal → closeout 只读审计</li>
+        <li>仅操作者完成信号授权直接批量移动</li>
         <li><code>check</code> 全绿 + 提交 + 汇报；尚非 Publication</li>
       </ul>
-      <span class="pcmd"><code>record:build · verify:closeout · complete:source</code></span>
+      <span class="pcmd"><code>record:build · verify:closeout · direct mv</code></span>
     </a>
     <span class="ov-arrow">→</span>
-    <div class="ov-endcap out">产物<br />fresh SEALED Build + processed Source<br />（非 PUBLISHED）</div>
+    <div class="ov-endcap out">产物<br />信号触发后得到 processed Source；Build 审计另有 fresh SEALED 状态<br />（非 PUBLISHED）</div>
   </div>
   <p class="ov-note">P0 环境准备（一次性安装）与全部判定细节见第 2 层；颜色与徽章含义见上方图例。</p>
 </section>
@@ -447,7 +447,7 @@ pnpm exec playwright install chromium</span>
       <span class="sid">P1.1</span>
       <div class="badges"><span class="badge manual">人工</span></div>
       <h3>新源图 PNG 放入 <code>input/pending/</code></h3>
-      <p class="dim"><code>pending/</code> 是未领取队列；<code>processing/</code> 存放活动 Build 已领取的 Source；<code>processed/</code> 存放 close-out 后的稳定参考图。</p>
+      <p class="dim"><code>pending/</code> 是未领取队列；<code>processing/</code> 存放活动 Build 已领取的 Source；<code>processed/</code> 存放正式 close-out 或操作者完成信号后移动的稳定参考图。</p>
     </div>
     <div class="arrow"></div>
     <div class="node">
@@ -494,7 +494,7 @@ pnpm exec playwright install chromium</span>
       <div class="badges"><span class="badge auto">自动</span></div>
       <h3><code>record:intake</code> 领取到 <code>input/processing/&lt;dataset-key&gt;.png</code></h3>
       <span class="cmd">pnpm record:intake -- input/pending/&lt;file&gt;.png --key &lt;dataset-key&gt; --adapter &lt;kind&gt; [--availability &lt;policy&gt;]</span>
-      <p>最终守卫通过后立即 no-clobber 移动并记录精确 digest / 宽高；目标已存在就停止，绝不覆盖。<code>--availability published</code> 只是 Source 访问策略，不代表 lifecycle <code>PUBLISHED</code>。Source 在盘点、authoring、crop、fidelity、seal 与 close-out 全程留在 processing；这只是兼容 claim，不是 Publication。异常 / stranded claim 必须按 Build ID + Source digest 显式恢复，不得覆盖或静默退回 pending。</p>
+      <p>最终守卫通过后立即 no-clobber 移动并记录精确 digest / 宽高；目标已存在就停止，绝不覆盖。<code>--availability published</code> 只是 Source 访问策略，不代表 lifecycle <code>PUBLISHED</code>。Source 在盘点、authoring、crop、fidelity、seal 与 close-out 全程留在 processing；若用户说人工审阅完毕，或本地工作已推送并合入 main，则在检查同名冲突后直接把当前全部 processing PNG 移到 processed。这只是 locator 操作，不补造 Build receipt，也不是 Publication。异常 / stranded claim 必须按 Build ID + Source digest 显式恢复，不得覆盖或静默退回 pending。</p>
     </div>
   </div>
 </section>
@@ -802,23 +802,23 @@ pnpm exec playwright install chromium</span>
     <div class="node">
       <span class="sid">P5.1</span>
       <div class="badges"><span class="badge mixed">混合</span></div>
-      <h3>Build-local baseline stage → fresh seal → close-out gate → Source 提升</h3>
-      <span class="cmd">pnpm record:build -- stage-baseline &lt;build-id&gt; --input &lt;baseline.json&gt;<br />pnpm verify:dataset -- &lt;dataset-key&gt;<br />pnpm record:build -- seal &lt;build-id&gt;<br />pnpm record:build -- inspect &lt;build-id&gt; [--json]<br />pnpm verify:closeout -- &lt;build-id&gt; [--json]<br />pnpm complete:source -- &lt;build-id&gt;</span>
+      <h3>Build-local baseline stage → fresh seal → close-out audit；操作者信号 → Source 批量移动</h3>
+      <span class="cmd">pnpm record:build -- stage-baseline &lt;build-id&gt; --input &lt;baseline.json&gt;<br />pnpm verify:dataset -- &lt;dataset-key&gt;<br />pnpm record:build -- seal &lt;build-id&gt;<br />pnpm record:build -- inspect &lt;build-id&gt; [--json]<br />pnpm verify:closeout -- &lt;build-id&gt; [--json]</span>
       <ul>
         <li>stage 只供未来回归，不能反过来证明产生它的 Build；Revenue Metric Adapter 显式记录 baseline <code>notApplicable</code>；</li>
         <li><code>seal</code> 不接收人工拼装的 verification JSON，而是内部重算当前 artifact freshness；任一 exact digest 已变即拒绝；</li>
         <li><code>verify:closeout</code> 只读要求 historical/effective 都为 <code>SEALED</code>、fresh 且 human review accepted。</li>
-        <li>只有 close-out 通过后，<code>complete:source</code> 才复核 intake digest、拒绝覆盖，并把 <code>processing/&lt;key&gt;.png</code> 提升到稳定的 <code>processed/&lt;key&gt;.png</code>；processed 永不改名。</li>
+        <li><code>verify:closeout</code> 通过也不移动 Source。只有操作者完成信号授权 relocation：先检查整批同名冲突，再直接移动当前全部 processing PNG，不补造 lifecycle receipt；无信号则继续留在 processing。processed 永不改名。</li>
       </ul>
-      <p class="dim"><code>SEALED</code> 与 Source 提升都不是 <code>PUBLISHED</code>：这只是当前兼容路径，M4 原子 Publication 仍未实现。现有 <code>record:baseline</code> 若因兼容 runtime 仍需执行，它是新 close-out verdict 之外的 transitional canonical mutation，不能作为本 Build 的通过证据。</p>
+      <p class="dim"><code>SEALED</code> 与 Source relocation 都不是 <code>PUBLISHED</code>：后者只是当前兼容操作，M4 原子 Publication 仍未实现。现有 <code>record:baseline</code> 若因兼容 runtime 仍需执行，它是新 close-out verdict 之外的 transitional canonical mutation，不能作为本 Build 的通过证据。</p>
     </div>
     <div class="arrow"></div>
     <div class="node">
       <span class="sid">P5.2</span>
       <div class="badges"><span class="badge auto">自动</span></div>
-      <h3>选中的 Source 已提升 + 快速聚合门全绿</h3>
+      <h3>已授权的 Source 批量移动 + 快速聚合门全绿</h3>
       <span class="cmd">pnpm check</span>
-      <p>确认选中的 processing claim 已由 <code>complete:source</code> digest 复核并提升到 processed；共享 pending 队列与其他活动 processing claim 可以保留。</p>
+      <p>收到操作者完成信号时，确认整批 Source 已直接移动到 processed；无信号时确认它们继续留在 processing。共享 pending 队列可以保留。</p>
       <p>= 全仓 JS 语法扫描 → 单元测试 → <code>check:pending</code> → <code>verify:architecture</code> → <code>verify:app-globals</code> → <code>verify:dataset-manifest</code> → <code>verify:ssot</code> → <code>verify:i18n</code> → <code>verify:dataset-file-metadata</code>（秒级、无渲染）。</p>
       <p class="dim"><code>input/processing/</code> 非空代表可能有其他活动 Build，不得让全局 <code>pnpm check</code> 失败。该检查在任何 checkout（云端 / CI / 新克隆）上都应全绿：local-only 源图通过 <code>sourceImage.localOnly: true</code> 显式豁免；metadata 记录 git 提交时间（首次提交前回退 mtime），可在任意机器上确定性再生成。提交新数据集后需重跑 <code>pnpm update:dataset-file-metadata</code> 并提交刷新结果。</p>
     </div>
@@ -906,8 +906,8 @@ pnpm exec playwright install chromium</span>
     <table class="map">
       <thead><tr><th>产物路径</th><th>角色</th><th>产生阶段</th></tr></thead>
       <tbody>
-        <tr><td><code>input/processing/&lt;key&gt;.png</code></td><td>活动 Build 的 no-clobber Source claim；盘点到 close-out 全程保留</td><td>P1.4</td></tr>
-        <tr><td><code>input/processed/&lt;key&gt;.png</code></td><td>close-out 后 digest 复核提升的稳定参考图（永不改名；验证输入，不进 runtime；非 M4 Publication）</td><td>P5.1</td></tr>
+        <tr><td><code>input/processing/&lt;key&gt;.png</code></td><td>活动 Build 的 no-clobber Source claim；保留到正式 close-out 或操作者完成信号</td><td>P1.4</td></tr>
+        <tr><td><code>input/processed/&lt;key&gt;.png</code></td><td>仅由操作者完成信号直接移动形成的稳定参考图（永不改名；验证输入，不进 runtime；非 M4 Publication）</td><td>P5.1</td></tr>
         <tr><td><code>data/company-metadata/&lt;company&gt;.js</code></td><td>公司档案 SSOT（新公司）+ <code>index.html</code> 注册</td><td>P2.1</td></tr>
         <tr><td><code>data/income-statements/&lt;company&gt;.js</code></td><td>损益表纯数据 SSOT + <code>index.html</code> 注册</td><td>P2.2</td></tr>
         <tr><td><code>input/icon-crop-specs/&lt;key&gt;.json</code></td><td>图标裁剪 spec（条件）</td><td>P2.3a</td></tr>
@@ -953,7 +953,7 @@ pnpm exec playwright install chromium</span>
       <li><b>G1 并行准备</b>：P2.0 粗盘点先行定范围，随后三轨并行——Track A 数据（P2.1 公司档案 → P2.2 损益表 SSOT 及 i18n 字段）∥ Track B 视觉（P3.1 逐对象精细测量）∥ Track C 图标（P2.3 子循环，条件）。</li>
       <li><b>G2 串行编写</b>：P3.2 adapter（需 A 数值 + B 几何）→ P3.3 dataset overlay（需 adapter 定稿文案）→ P3.4 注册；Track C 收敛后随时接入。</li>
       <li><b>G3 验证与 Review</b>：P4.1 只读诊断 → prepare-review → Build-bound evidence → human finish。轮次间串行；轮内并行试值、每语言 evidence 可并行 shell；只有人工 accepted 结果可关闭 Build。</li>
-      <li><b>G4 串行收尾</b>：P5 build-local baseline stage → fresh seal → read-only closeout → <code>complete:source</code> digest 复核、processing→processed 提升 → check / 提交 / 汇报；兼容提升不冒充尚未实现的 M4 Publication。</li>
+      <li><b>G4 串行收尾</b>：操作者完成信号先做整批 no-clobber 检查，再直接批量移动；无信号则留在 processing。Build-local baseline stage → fresh seal → read-only closeout 只负责审计，不授权移动；最后 check / 提交 / 汇报，且不冒充尚未实现的 M4 Publication。</li>
     </ul>
     <p><b>难度分派</b>（分派不降门槛：同一套 verifier 把关，主 Agent 复核并对结果负责）：</p>
     <table class="map">
@@ -971,7 +971,7 @@ pnpm exec playwright install chromium</span>
         <tr><td>P4.1 各只读 verifier 命令执行</td><td>低</td><td>皆可（廉价 shell 命令；不归档、不作人工结论）</td></tr>
         <tr><td>P4 循环：分诊、修复、冻结/收敛判定</td><td>高</td><td>主 Agent</td></tr>
         <tr><td>P4 循环：渲染/指标采集、bbox 报告收割、按已确认清单画红框</td><td>低</td><td>Subagent 可代——region 与分类先由主 Agent 定</td></tr>
-        <tr><td>P5 baseline stage、seal、closeout、Source 提升、提交、汇报</td><td>中</td><td>主 Agent</td></tr>
+        <tr><td>P5 操作者信号直接批量移动；无信号留在 processing；baseline stage、seal、closeout 独立审计；再提交、汇报</td><td>中</td><td>主 Agent</td></tr>
       </tbody>
     </table>
   </div>
