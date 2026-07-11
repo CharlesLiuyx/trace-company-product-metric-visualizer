@@ -305,6 +305,26 @@ export async function inspectDatasetBuild(buildId, options = {}) {
       continue;
     }
     if (!existsSync(absolute)) {
+      // A completed Source is deliberately promoted from its build-local
+      // processing locator to its stable processed locator after close-out.
+      // That relocation preserves Source identity, so an authored reference
+      // artifact captured at the working locator remains fresh when the
+      // matching processed projection exists with the same intake digest.
+      const promotedSource = (build.sources || []).find((source) =>
+        source.processingUri === artifact.path
+        && source.digest === artifact.digest
+        && source.processedUri
+      );
+      if (promotedSource) {
+        const processedPath = path.resolve(projectRoot, promotedSource.processedUri);
+        if (
+          processedPath.startsWith(`${path.resolve(projectRoot)}${path.sep}`)
+          && existsSync(processedPath)
+          && (await digestFile(processedPath)) === artifact.digest
+        ) {
+          continue;
+        }
+      }
       staleArtifacts.push({ path: artifact.path, reason: 'missing' });
       continue;
     }
@@ -336,23 +356,47 @@ export async function inspectDatasetBuild(buildId, options = {}) {
     downgradeTo('AUTHORED');
     reasons.push('authored-artifact-stale');
   }
-  if (closureReceipt && closureReceipt.payload.snapshotDigest !== authoredReceipt?.payload?.snapshotDigest) {
+  // A new authored snapshot deliberately supersedes any older review closure.
+  // Its historical receipt remains useful for audit, but must not make the
+  // current AUTHORED Build unreviewable.
+  if (
+    closureReceipt
+    && (stateRank.get(build.state) ?? -1) >= (stateRank.get('CLOSED') ?? Infinity)
+    && closureReceipt.payload.snapshotDigest !== authoredReceipt?.payload?.snapshotDigest
+  ) {
     downgradeTo('AUTHORED');
     reasons.push('closure-snapshot-stale');
   }
-  if (baselineReceipt && baselineReceipt.payload.closureDigest !== closureReceipt?.payload?.closureDigest) {
+  if (
+    baselineReceipt
+    && (stateRank.get(build.state) ?? -1) >= (stateRank.get('BASELINE_STAGED') ?? Infinity)
+    && baselineReceipt.payload.closureDigest !== closureReceipt?.payload?.closureDigest
+  ) {
     downgradeTo('CLOSED');
     reasons.push('baseline-closure-stale');
   }
-  if (sealReceipt && sealReceipt.payload.snapshotDigest !== authoredReceipt?.payload?.snapshotDigest) {
+  if (
+    sealReceipt
+    && (stateRank.get(build.state) ?? -1) >= (stateRank.get('SEALED') ?? Infinity)
+    && sealReceipt.payload.snapshotDigest !== authoredReceipt?.payload?.snapshotDigest
+  ) {
     downgradeTo('AUTHORED');
     reasons.push('seal-input-stale');
   }
-  if (sealReceipt && sealReceipt.payload.closureDigest !== closureReceipt?.payload?.closureDigest) {
+  if (
+    sealReceipt
+    && (stateRank.get(build.state) ?? -1) >= (stateRank.get('SEALED') ?? Infinity)
+    && sealReceipt.payload.closureDigest !== closureReceipt?.payload?.closureDigest
+  ) {
     downgradeTo('CLOSED');
     reasons.push('seal-input-stale');
   }
-  if (sealReceipt && options.currentCanonicalDigest && sealReceipt.payload.baseCanonicalDigest !== options.currentCanonicalDigest) {
+  if (
+    sealReceipt
+    && (stateRank.get(build.state) ?? -1) >= (stateRank.get('SEALED') ?? Infinity)
+    && options.currentCanonicalDigest
+    && sealReceipt.payload.baseCanonicalDigest !== options.currentCanonicalDigest
+  ) {
     downgradeTo('BASELINE_STAGED');
     reasons.push('canonical-base-stale');
   }

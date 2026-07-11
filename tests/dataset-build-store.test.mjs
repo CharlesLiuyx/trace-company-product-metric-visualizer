@@ -102,6 +102,55 @@ test('inspect reports effective AUTHORED when an authored artifact changes', asy
   assert.equal(inspection.staleArtifacts[0].reason, 'digest-mismatch');
 });
 
+test('inspect treats a re-authored Build as fresh while retaining historical closure receipts', async (t) => {
+  const { root, buildRoot, artifactPath, build } = await fixture(t);
+  const original = await readFile(artifactPath);
+  let current = await recordDatasetBuildCommand(build.buildId, {
+    type: 'record-authored',
+    expectedRevision: build.revision,
+    artifacts: [{ path: 'data/datasets/example-q4-fy25.js', digest: fileDigest(original), role: 'view-adapter' }],
+    inventory: { digest: digest('inventory-v1'), rendered: 1, dataOnly: 0, skipped: 0 },
+    changeImpact: ['geometry'],
+  }, { buildRoot, now });
+  const firstSnapshot = current.receipts.at(-1).payload.snapshotDigest;
+  current = await recordDatasetBuildCommand(build.buildId, {
+    type: 'record-closed',
+    expectedRevision: current.revision,
+    snapshotDigest: firstSnapshot,
+    evidence: {
+      candidate: { status: 'passed', digest: digest('candidate') },
+      reference: { status: 'passed', digest: digest('reference') },
+      process: { status: 'passed', digest: digest('process') },
+      human: { status: 'passed', digest: digest('human') },
+    },
+  }, { buildRoot, now });
+  const closureDigest = current.receipts.at(-1).payload.closureDigest;
+  current = await recordDatasetBuildCommand(build.buildId, {
+    type: 'stage-baseline',
+    expectedRevision: current.revision,
+    closureDigest,
+    disposition: 'recorded',
+    use: 'future-regression-only',
+    metrics: { similarity: 0.95, mae: 1, width: 1200, height: 800 },
+  }, { buildRoot, now });
+
+  const revised = 'export const marker = 2;\n';
+  await writeFile(artifactPath, revised);
+  await recordDatasetBuildCommand(build.buildId, {
+    type: 'record-authored',
+    expectedRevision: current.revision,
+    artifacts: [{ path: 'data/datasets/example-q4-fy25.js', digest: fileDigest(revised), role: 'view-adapter' }],
+    inventory: { digest: digest('inventory-v2'), rendered: 1, dataOnly: 0, skipped: 0 },
+    changeImpact: ['geometry'],
+  }, { buildRoot, now });
+
+  const inspection = await inspectDatasetBuild(build.buildId, { buildRoot, projectRoot: root });
+  assert.equal(inspection.historicalState, 'AUTHORED');
+  assert.equal(inspection.effectiveState, 'AUTHORED');
+  assert.equal(inspection.fresh, true);
+  assert.deepEqual(inspection.reasons, []);
+});
+
 test('inspect follows a new-style Source across processing freshness and processed promotion', async (t) => {
   const root = await mkdtemp(path.join(os.tmpdir(), 'dataset-build-source-freshness-test-'));
   t.after(() => rm(root, { recursive: true, force: true }));
@@ -143,6 +192,10 @@ test('inspect follows a new-style Source across processing freshness and process
       path: `data/datasets/${key}.js`,
       digest: fileDigest(artifactBytes),
       role: 'view-adapter',
+    }, {
+      path: processingUri,
+      digest: fileDigest(sourceBytes),
+      role: 'reference-image-working-claim',
     }],
     inventory: { digest: digest('source-inventory'), rendered: 1, dataOnly: 0, skipped: 0 },
     changeImpact: ['new-dataset'],
