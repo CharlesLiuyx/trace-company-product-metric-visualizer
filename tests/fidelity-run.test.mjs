@@ -4,6 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
 import {
+  FIDELITY_PROTOCOL_VERSION,
   cleanupFidelityRun,
   createFidelityRun,
   finalizeFidelityRun,
@@ -189,4 +190,49 @@ test('previous comparison requires matching dataset, language, run kind, referen
   assert.equal(previous.manifest.identity.datasetHash, 'dataset-a');
   assert.equal(previous.manifest.identity.renderHash, 'render-a');
   assert.equal(previous.manifest.identity.i18nHash, 'i18n-a');
+});
+
+test('review evidence uses fidelity-run/2 identity and remains automation-only evidence', async (t) => {
+  const root = await testRoot(t);
+  await assert.rejects(
+    createRun(root, {
+      protocolVersion: FIDELITY_PROTOCOL_VERSION,
+      runKind: 'fidelity-review',
+    }),
+    /Missing reviewed fidelity run identity field/
+  );
+
+  const identity = {
+    protocolVersion: FIDELITY_PROTOCOL_VERSION,
+    runKind: 'fidelity-review',
+    buildId: 'build-example',
+    authoredDigest: 'sha256:authored',
+    verificationPlanDigest: 'sha256:plan',
+  };
+  const run = await createRun(root, identity);
+  await seedArtifacts(run, 'review');
+  const archived = await finalizeFidelityRun(run, {
+    ...finalizationOptions(0.94),
+    status: 'evidence-ready',
+  });
+  const manifest = JSON.parse(await readFile(path.join(root, archived.dir, 'fidelity-run.json'), 'utf8'));
+  assert.equal(manifest.status, 'evidence-ready');
+  assert.ok(manifest.evidenceReadyAt);
+  assert.equal(manifest.acceptedAt, undefined);
+
+  const next = await createRun(root, identity);
+  const previous = await findPreviousAcceptedRun(next);
+  assert.equal(previous?.manifest.status, 'evidence-ready');
+
+  const changedAuthored = await createRun(root, {
+    ...identity,
+    authoredDigest: 'sha256:authored-v2',
+  });
+  assert.equal(await findPreviousAcceptedRun(changedAuthored), null);
+
+  const changedBuild = await createRun(root, {
+    ...identity,
+    buildId: 'build-other',
+  });
+  assert.equal(await findPreviousAcceptedRun(changedBuild), null);
 });

@@ -179,6 +179,230 @@ export async function assertProjectFontsLoaded(page) {
   return fontStatus;
 }
 
+const TEXT_LAYOUT_TOLERANCE = 0.5;
+
+function normalizeLayoutItem(item, family, index) {
+  if (!item || typeof item !== 'object') {
+    throw new TypeError(`${family}[${index}] must be an object`);
+  }
+  const source = item.bbox && typeof item.bbox === 'object' ? item.bbox : item;
+  const bbox = {};
+  for (const field of ['x', 'y', 'width', 'height']) {
+    if (!Number.isFinite(source[field])) {
+      throw new TypeError(`${family}[${index}].bbox.${field} must be finite`);
+    }
+    bbox[field] = source[field];
+  }
+  if (bbox.width < 0 || bbox.height < 0) {
+    throw new RangeError(`${family}[${index}] bbox dimensions cannot be negative`);
+  }
+  return {
+    identity: String(item.identity || `${family}:${index}`),
+    text: String(item.text || ''),
+    bbox,
+  };
+}
+
+function boxEdges(item) {
+  return {
+    left: item.bbox.x,
+    top: item.bbox.y,
+    right: item.bbox.x + item.bbox.width,
+    bottom: item.bbox.y + item.bbox.height,
+  };
+}
+
+// Pure layout classifier shared by the browser-backed render audit and unit
+// tests. SVG user-space bboxes may drift by a subpixel across Chromium/font
+// builds, so only overflow or overlap greater than 0.5px is actionable.
+export function classifyTextAndAnnotationLayout({
+  width,
+  height,
+  texts = [],
+  annotations = [],
+  protectedTexts = [],
+}) {
+  if (!Number.isFinite(width) || width <= 0 || !Number.isFinite(height) || height <= 0) {
+    throw new RangeError('Text layout canvas width and height must be positive finite numbers');
+  }
+  if (!Array.isArray(texts) || !Array.isArray(annotations) || !Array.isArray(protectedTexts)) {
+    throw new TypeError('texts, annotations, and protectedTexts must be arrays');
+  }
+
+  const normalizedTexts = texts.map((item, index) => normalizeLayoutItem(item, 'texts', index));
+  const normalizedAnnotations = annotations.map((item, index) =>
+    normalizeLayoutItem(item, 'annotations', index)
+  );
+  const normalizedProtected = protectedTexts.map((item, index) =>
+    normalizeLayoutItem(item, 'protectedTexts', index)
+  );
+
+  const overflowViolations = [];
+  for (const item of normalizedTexts) {
+    const edges = boxEdges(item);
+    const overflow = {
+      left: Math.max(0, -edges.left),
+      top: Math.max(0, -edges.top),
+      right: Math.max(0, edges.right - width),
+      bottom: Math.max(0, edges.bottom - height),
+    };
+    if (Object.values(overflow).some((amount) => amount > TEXT_LAYOUT_TOLERANCE)) {
+      overflowViolations.push({
+        identity: item.identity,
+        text: item.text,
+        bbox: item.bbox,
+        overflow,
+      });
+    }
+  }
+
+  const overlapViolations = [];
+  for (const annotation of normalizedAnnotations) {
+    const annotationEdges = boxEdges(annotation);
+    for (const protectedText of normalizedProtected) {
+      if (annotation.identity === protectedText.identity) continue;
+      const protectedEdges = boxEdges(protectedText);
+      const overlapWidth = Math.min(annotationEdges.right, protectedEdges.right)
+        - Math.max(annotationEdges.left, protectedEdges.left);
+      const overlapHeight = Math.min(annotationEdges.bottom, protectedEdges.bottom)
+        - Math.max(annotationEdges.top, protectedEdges.top);
+      if (overlapWidth <= TEXT_LAYOUT_TOLERANCE || overlapHeight <= TEXT_LAYOUT_TOLERANCE) continue;
+      overlapViolations.push({
+        annotation: {
+          identity: annotation.identity,
+          text: annotation.text,
+          bbox: annotation.bbox,
+        },
+        protectedText: {
+          identity: protectedText.identity,
+          text: protectedText.text,
+          bbox: protectedText.bbox,
+        },
+        intersection: {
+          x: Math.max(annotationEdges.left, protectedEdges.left),
+          y: Math.max(annotationEdges.top, protectedEdges.top),
+          width: overlapWidth,
+          height: overlapHeight,
+        },
+      });
+    }
+  }
+
+  return {
+    textLayoutAudit: {
+      tolerance: TEXT_LAYOUT_TOLERANCE,
+      width,
+      height,
+      checkedTexts: normalizedTexts.length,
+      overflowViolations,
+    },
+    annotationLayoutAudit: {
+      tolerance: TEXT_LAYOUT_TOLERANCE,
+      checkedAnnotationTexts: normalizedAnnotations.length,
+      checkedProtectedTexts: normalizedProtected.length,
+      overlapViolations,
+    },
+  };
+}
+
+// Browser-backed collector. It converts every text bbox into the outer SVG's
+// user space (including ancestor transforms), then delegates all decisions to
+// classifyTextAndAnnotationLayout so browser and unit-test semantics cannot
+// diverge.
+export async function auditTextAndAnnotationLayout(page) {
+  const geometry = await page.evaluate(() => {
+    const svg = document.querySelector('#chart > svg');
+    if (!svg) throw new Error('SankeyEngine.render did not create #chart > svg');
+
+    const viewBox = svg.viewBox?.baseVal;
+    const clientBox = svg.getBoundingClientRect();
+    const width = viewBox?.width > 0
+      ? viewBox.width
+      : Number(svg.getAttribute('width')) || clientBox.width;
+    const height = viewBox?.height > 0
+      ? viewBox.height
+      : Number(svg.getAttribute('height')) || clientBox.height;
+    const rootScreenMatrix = svg.getScreenCTM();
+
+    const transformPoint = (matrix, x, y) => {
+      if (!matrix) return { x, y };
+      return {
+        x: matrix.a * x + matrix.c * y + matrix.e,
+        y: matrix.b * x + matrix.d * y + matrix.f,
+      };
+    };
+    const bboxInRootSpace = (element) => {
+      let box;
+      try {
+        box = element.getBBox();
+      } catch {
+        return null;
+      }
+      let matrix = null;
+      const elementScreenMatrix = element.getScreenCTM();
+      if (rootScreenMatrix && elementScreenMatrix) {
+        try {
+          matrix = rootScreenMatrix.inverse().multiply(elementScreenMatrix);
+        } catch {
+          matrix = null;
+        }
+      }
+      const points = [
+        transformPoint(matrix, box.x, box.y),
+        transformPoint(matrix, box.x + box.width, box.y),
+        transformPoint(matrix, box.x, box.y + box.height),
+        transformPoint(matrix, box.x + box.width, box.y + box.height),
+      ];
+      const xs = points.map((point) => point.x);
+      const ys = points.map((point) => point.y);
+      const left = Math.min(...xs);
+      const top = Math.min(...ys);
+      const right = Math.max(...xs);
+      const bottom = Math.max(...ys);
+      return { x: left, y: top, width: right - left, height: bottom - top };
+    };
+    const textValue = (element) => String(element.textContent || '').replace(/\s+/g, ' ').trim();
+    const isPeriodText = (element) => {
+      const parent = element.parentElement;
+      return parent?.parentElement === svg
+        && parent.tagName.toLowerCase() === 'g'
+        && !parent.getAttribute('class');
+    };
+
+    const texts = [];
+    const annotations = [];
+    const protectedTexts = [];
+    Array.from(svg.querySelectorAll('text')).forEach((element, index) => {
+      const annotation = element.closest('.sankey-annotations');
+      const label = element.closest('.sankey-label');
+      const title = element.matches('.sankey-title');
+      const period = isPeriodText(element);
+      const node = label?.getAttribute('data-node');
+      const role = annotation
+        ? 'annotation'
+        : label
+          ? `label${node ? `:${node}` : ''}`
+          : title
+            ? 'title'
+            : period
+              ? 'period'
+              : 'text';
+      const item = {
+        identity: `${role}#${index}`,
+        text: textValue(element),
+        bbox: bboxInRootSpace(element),
+      };
+      if (!item.bbox) return;
+      texts.push(item);
+      if (annotation) annotations.push(item);
+      if (!annotation && (label || title || period)) protectedTexts.push(item);
+    });
+
+    return { width, height, texts, annotations, protectedTexts };
+  });
+  return classifyTextAndAnnotationLayout(geometry);
+}
+
 // Rendered-bbox audit of the label-node spacing hard gates (G8-G10 in
 // docs/fidelity-loop-rules.md): same-axis vertical gap >= 4px, short-node
 // center delta <= 4px, horizontal side-label overlap forbidden.

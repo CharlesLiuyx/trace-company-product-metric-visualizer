@@ -4,7 +4,7 @@
   "currentImplementationStatusDocument": "docs/architecture/README.md#migration-milestones",
   "protocols": {
     "datasetBuild": "dataset-build/v1",
-    "fidelityRun": "fidelity-run/1",
+    "fidelityRun": "fidelity-run/2",
     "publication": "dataset-publication/v1"
   },
   "operationClasses": {
@@ -63,13 +63,23 @@
   "durableObjects": [
     "ChangeImpact",
     "VerificationPlan",
+    "DatasetVerification",
     "ArtifactManifest",
-    "FidelityResult"
+    "FidelityResult",
+    "ObjectInventory",
+    "ManualAttestation",
+    "RegionDecision",
+    "FeedbackRecord",
+    "FeedbackLedger",
+    "ReviewPacket"
   ],
   "invariants": {
     "baselinePurpose": "future-regression-only",
     "baselineMayProveProducingBuild": false,
     "releaseFailureRollsBackPublication": false,
-    "publicationConflictRetryableWithoutNewPlan": false
+    "publicationConflictRetryableWithoutNewPlan": false,
+    "automaticEvidenceMayCloseBuild": false,
+    "humanAttestationRequiredForIncomeStatement": true,
+    "verifyCommandsWriteDurableEvidence": false
   }
 }

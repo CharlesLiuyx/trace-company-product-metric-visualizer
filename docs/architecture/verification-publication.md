@@ -40,6 +40,25 @@ mark render/fidelity steps `notApplicable`. All plans still produce a
 machine-readable `FidelityResult` or equivalent verification result and a
 fresh seal.
 
+The implemented M3 shadow/compatibility lane exposes the same ordering through
+the Dataset Build Module:
+
+```text
+record:build prepare-review -> ReviewPacket reviewToken + AUTHORED
+record:verification          -> dataset-verification/v1 consistency evidence
+record:fidelity --build ... -> fidelity-run/2 evidence-ready
+record:build finish         -> review-pending, or accepted FidelityResult -> CLOSED
+record:build stage-baseline -> BASELINE_STAGED
+record:build seal           -> re-hash authored files + SEALED
+record:build inspect / verify:closeout
+```
+
+`prepareBuildReview`, `finishReviewedBuild`, `stageReviewedBaseline`,
+`sealReviewedBuild`, and `inspectBuildCloseout` are the deep Module
+Interfaces behind that CLI. The review token is the digest of the recorded
+ReviewPacket; a JSON document cannot redirect an operation to another Build.
+This lane is not yet the primary canonical-publication workflow.
+
 ### Evidence purposes
 
 Every evidence item declares one purpose:
@@ -59,32 +78,43 @@ accidental acceptance gate.
 ## FidelityRun finalization
 
 Each run has a private workspace and immutable run identity. Candidate images,
-Diffs, metrics, interface audit, contact sheet, red-box image, and Task
-information are provisional until all automatic steps for that run have
-resolved.
+Diffs, metrics, interface audit, and contact sheet are provisional until all
+automatic steps for that run have resolved. Human region decisions, feedback,
+attention closure, and the final attestation belong to the subsequent Build
+review, not to automatic rendering.
 
 Finalization order is:
 
 1. Produce provisional artifacts in the private workspace.
 2. Run page-error, purity, size, label, interface, localization, and other
    plan gates.
-3. Record manual evidence where required.
-4. Build and hash the complete `FidelityResult`.
-5. Atomically record an accepted, rejected, blocked, or aborted result.
-6. Only then expose an archive as accepted previous evidence.
+3. In a `record:*` operation, atomically promote the automatic artifacts with
+   an unambiguous `evidence-ready` or failed status.
+4. Separately record manual evidence where required.
+5. Build and hash the complete `FidelityResult`.
+6. Only an accepted result may contribute to Build closure.
 
 A failed run may retain diagnostic artifacts, but its status and archive must
 unambiguously say failed. It cannot become the previous accepted round merely
 because files were written.
 
-Current M1 Implementation uses protocol `fidelity-run/1`. `verify:d3` keeps
-its compatibility name, writes only to a private run workspace, and promotes
-an `accepted` archive after the currently enforced automatic page, purity,
-size, label, and Interface gates pass. That run-level `accepted` status is not
-`DatasetBuild.CLOSED`: manual attestation, reconciled Matrix completeness, and
-feedback closure remain Build-level obligations until M3 records them in a
-`FidelityResult`. Changing the run identity or acceptance semantics requires
-a protocol-version bump.
+Current review evidence uses `fidelity-run/2`. `verify:d3` is strictly
+read-only diagnostic execution: it may use ephemeral scratch but does not
+promote any archive, even when automatic page, purity, size, label, text,
+annotation, and Interface audits complete. `record:fidelity` is the only fidelity
+operation that may archive durable evidence. With `--build`, the archive is
+bound to Build, authored, and Verification Plan digests and is finalized as
+`evidence-ready (human review required)`. Unbound legacy manual archives retain
+the v1 compatibility identity and explicitly do not imply Build closure.
+
+`evidence-ready` is not `ACCEPTED` and is not `DatasetBuild.CLOSED`.
+`record:verification` first records the non-render dataset consistency profile
+against the current Build/authored/Plan identity. `finishReviewedBuild` requires
+that reference, re-hashes the fidelity evidence artifacts, and reconciles required
+locales, attestation, regions, risk checks, Interface Matrix, attention status,
+and the `FeedbackLedger`, then creates the deterministic `FidelityResult`.
+Missing attestation or any open obligation produces `review-pending` rather
+than inferred success.
 
 ## Baseline does not prove itself
 
@@ -113,6 +143,13 @@ writes atomically only after all selected render/structure checks pass, but
 it is not yet true build-local staging. Batch baseline changes require their
 own explicit scope and Verification Plan.
 
+In parallel, the M3 shadow lane now has true build-local staging:
+`stageReviewedBaseline` consumes the exact closure digest, records Income
+Statement metrics with `future-regression-only`, and records the Revenue
+Metric baseline as explicitly `not-applicable`. It does not update the
+canonical baseline ledger. The compatibility command and the shadow staging
+object must not be described as one transaction.
+
 ## SEALED final verification
 
 Sealing is a fresh, non-mutating check after closure and baseline staging. It
@@ -124,6 +161,28 @@ The seal verifier must not repair registration, regenerate metadata, update a
 baseline, archive a provisional run, or build a release artifact. If any
 input differs, it returns a stale-input result; the Build reopens at the
 recovery point defined in the lifecycle document.
+
+The target above is not fully implemented. The current shadow
+`sealReviewedBuild` takes no caller pass JSON: it internally inspects and
+re-hashes the authored files, requires the Build to be `BASELINE_STAGED` with
+an accepted closure, and only then records `SEALED`. This removes the previous
+caller-asserted pass hole, but it is still a compatibility safety check, not a
+complete rerun of the Adapter's final-verification profile. Documentation and
+reports must not equate the current seal receipt with that future profile.
+
+After sealing, inspection preserves both truths. `historicalState=SEALED`
+records what happened; if an authored file is missing or its bytes change,
+`effectiveState=AUTHORED` and `fresh=false`. `verify:closeout` succeeds only
+when historical and effective states are both `SEALED`, freshness is true,
+and review status is `accepted`.
+
+## Reporting Views
+
+`inspectBuildCloseout` may join the recorded `FidelityResult` and
+`FeedbackLedger` into a deterministic `CloseoutReport`, then render Task
+information and Loop Fidelity Summary. These are pure Views: status and
+confidence are derived from structured facts, and the rendered text is never
+fed back as evidence, attestation, or a state-transition input.
 
 ## Publication planning
 
@@ -209,10 +268,14 @@ compatibility rule is replace, not layer indefinitely:
 
 - first wrap existing render and data verifiers as evidence-producing
   Adapters in shadow mode;
-- move run artifacts to private workspaces and make result finalization
-  atomic;
-- introduce build objects and staged baselines without changing canonical
-  output;
+- keep `verify:d3` read-only and route durable automatic evidence through
+  `record:fidelity`;
+- record ObjectInventory, Plan, ReviewPacket, human decisions, FeedbackLedger,
+  and FidelityResult through the Build Module;
+- exercise closure, build-local baseline staging, freshness inspection, and
+  sealing in shadow/compatibility mode without changing canonical output;
+- replace the current freshness-only seal check with the complete Adapter
+  final-verification profile;
 - turn manifest, registration, baseline, and metadata writers into pure
   projectors;
 - add canonical CAS and only then route mutations through `publish:*`;

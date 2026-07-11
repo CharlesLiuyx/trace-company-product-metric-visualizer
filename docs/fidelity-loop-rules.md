@@ -6,7 +6,7 @@
 
 全部硬规则带稳定编号：G（自动硬门槛）、B（盲点必查）、R（raster 白名单）、
 L（连接线）、T（Label-node/文本）、A（注释容器）、Z（本地化）、I（图标子循环）。
-红框 region、Task 信息、人工反馈与轮次记录一律引用编号，禁止转述指代。非规则
+红框 region、派生 Task 信息、人工反馈与轮次记录一律引用编号，禁止转述指代。非规则
 对象使用独立 namespace：region 为 `REG-001`，反馈为 `FB-001`，人工决策为
 `DEC-001`；不得把 `R1/R2` 等规则编号复用成 region ID。
 
@@ -16,7 +16,7 @@ L（连接线）、T（Label-node/文本）、A（注释容器）、Z（本地�
 | --- | --- |
 | 首轮开始前 | 总则 → 自动硬门槛 → 自动门槛与人工盲点对照表 → 执行入口 → 第 0 轮：渲染前测量 → 高风险模式命中清单 |
 | 每轮执行中 | 保真循环流程 → 本轮 sweep 覆盖方向的专项协议（L / T / A / Z / I）→ 并行与分派 |
-| 每轮结束前 | 红框参考图和 Task 信息 → 每轮记录模板 → 总则的退出置信度判断 |
+| 每轮结束前 | 红框参考图、RegionDecision 与 attention → 每轮记录模板 → 未关闭项判断 |
 | 收敛与汇报 | 收敛标准 → 最终输出概要 → 人工反馈沉淀 |
 | 改数据或渲染器前 | 允许的改动范围 → 禁止做法 → Runtime Raster 例外 |
 
@@ -30,18 +30,19 @@ L（连接线）、T（Label-node/文本）、A（注释容器）、Z（本地�
 
 流程目标：把人工指出的问题逐步转化为可重复执行的编号规则，让后续数据集不再
 依赖用户逐块指出明显问题。每次用户修正都是流程缺口信号：先修当前问题，再按
-「人工反馈沉淀」把可泛化经验写回本文档；数据集特例写入该轮 Task 信息。
+「人工反馈沉淀」把可泛化经验写回本文档；每条实际反馈与数据集特例持久化为
+build-local `FeedbackRecord`，再进入派生 Feedback Ledger。
 
-轮次预算与退出置信度：
+轮次预算与退出判断：
 
 - 标准预算：3 个 sweep 轮内清空人眼显著错误（「必须死磕」项），4–5 轮完全
   收敛。轮次的首要产出是关闭显著错误，不是压全图 Diff。达成手段：第 0 轮
   渲染前测量让首轮就接近原图 + sweep 分层批量检查。
-- 每轮结束必须做一次**退出置信度判断**：基于当前上下文（G1–G12 状态、B 系列
-  盲点是否查完、命中清单核对状态、开放红框、backlog、残差分类）回答「人工
-  现在 Review 是否还会提出修改意见」。高置信（死磕清单空 + 盲点查完 + 命中
-  清单关闭 + 仅剩可接受残留）→ 立即按收敛标准收敛，不再开轮；低置信 →
-  下一轮只打剩余最高风险项。
+- 每轮结束只记录事实：G1–G12、B 系列命中检查、开放 `REG-*`、backlog、风险
+  measurements、Matrix 与 attention 状态。若仍有开放项，下一轮只打最高风险项；
+  全部关闭则进入 `finish`。不得由 Agent 手填「高/低置信」或 `converged`；最终
+  status/confidence 由 `CloseoutReport` 根据 blockers、freshness、review 与 Build
+  historical/effective state 派生。
 - 用户提出修改建议后，下一轮以反馈项为主方向定向优化，不做泛化重扫，避免
   烧轮次。
 - **反微调停机规则**：自动硬门槛全过且死磕清单空后，预计新一轮全图
@@ -128,8 +129,9 @@ G12 启用与迁移口径：
 ## 自动门槛与人工盲点对照表
 
 门槛看不见的检查必须由人工在对应 sweep 轮补上。「自动化状态」跟踪每个盲点
-的工程落地进度，取值：`待自动化`、`已报告未 gate`（verify:d3 已输出量化
-字段但未纳入 hard fail）、`部分`（部分判定已 gate，仍有人工盲点）、`已 gate`、
+的工程落地进度，取值：`待自动化`、`已报告未 gate`（只输出量化字段）、
+`条件 gate`（`ObjectInventory` 命中特征后由 VerificationPlan/FidelityResult 拦截）、
+`部分`（部分判定已 gate，仍有人工盲点）、`已 gate`、
 `不适合`（纯视觉判定）。状态不改变当前人工义务；推进状态的义务见
 「重复触发升级」。
 
@@ -137,10 +139,10 @@ G12 启用与迁移口径：
 | --- | --- | --- | --- | --- | --- |
 | B1 | G8/G9 | 同轴纵向间距、短柱水平中心 | 手写靠左/右但视觉属柱正上/正下的汇总 label 不入同轴归组 | T2 | 待自动化 |
 | B2 | G10 | 侧置 label 横向交叠 | 不判侧置 label 与源图的水平距离是否一致 | T6 | 待自动化 |
-| B3 | G10 | 同上 | 不判侧置 label 垂直中心对齐；单行 label 高风险 | T7 | 已报告未 gate（`labelLayoutAudit` 的 `verticalCenterDelta`） |
+| B3 | G10 | 同上 | 源图意图为垂直居中的侧置 label；单行 label 高风险 | T7 | 条件 gate：`centered-side-label` → `labelLayoutAudit.verticalCenterDelta <= 4px`；顶对齐/分组侧标不触发 |
 | B4 | G8 | 同轴归组按 x 相交 | value/note block 放错 x 时被判非同轴而漏检 | T9 | 待自动化 |
-| B5 | G8/G10 | 仅审计 `layout.labels` ↔ node | `annotationsSvg` 文字与相邻 `layout.labels`、主标题或期间标记交叠不审 | A6 | 待自动化 |
-| B6 | G2 | 仅判 SVG 画布尺寸 | 不判文本 bbox 越出画布（本地化后高发） | Z5 | 待自动化 |
+| B5 | G8/G10 | 仅审计 `layout.labels` ↔ node | `annotationsSvg` 文字与相邻 `layout.labels`、主标题或期间标记交叠 | A6 | 条件 gate：`annotation-near-label` → `annotationLayoutAudit.overlapViolations == 0` |
+| B6 | G2 | 仅判 SVG 画布尺寸 | 文本 bbox 越出画布（本地化后高发） | Z5 | 条件 gate：`text` → `textLayoutAudit.overflowViolations == 0` |
 | B7 | G6/G7 | raster 数量与来源 | 不判隐形锚点柱是否多出可见柱/绿痕 | T12 | 不适合（视觉判定） |
 | B8 | G12 | 可见接口计数、node-bbox 内 union 外缘/interval、path 端点、端面切线与 link 几何 containment；同时保留未裁切 raster intervals | 自动分色不能可靠区分 source raster 晕边与真实绘制外溢，也不能判定同色相接和 per-link 语义身份；`mode=warning` / `referenceStatus=not-scored` 不构成 pass | L5/L6/L8/L11/L15 | 部分（G12 几何/union 已 gate） |
 | B9 | 无 | — | hub/深色源 profit 流带渐变 vs 源图纯色 | L12 | 待自动化 |
@@ -160,9 +162,14 @@ G12 启用与迁移口径：
 - 执行缺口禁止以「把规则文本写得更长」收尾。处置优先级：升级为自动硬门槛
   gate > 在 `verify:d3` 审计报告中输出量化字段（更新对照表自动化状态）>
   纳入第 0 轮清单或高风险模式命中清单的必填核对产物 > 改写规则文本。
-- 同一编号规则第二次因用户反馈触发（含在同批其他数据集上复现同型问题）
-  时，当轮必须交付上述前三种升级之一；确属纯视觉判定无法自动化的，在对照
-  表标 `不适合` 并在 Task 信息记录理由。
+- 每条反馈必须记录稳定 `FB-*` / `REG-*`、Build、`ruleIds`、归因
+  (`rule-missing|execution-gap|ambiguous-rule`)、open/closed、before/after evidence
+  digest、remedy 与 supersession；不得只留在 Markdown 或聊天里。Feedback Ledger
+  按 rule ID 跨 Build 计算 occurrence，supersession fork 会阻断。
+- 同一编号规则在第二个 Build 出现 `execution-gap` 时，Ledger 自动产生
+  `automationUpgradeRequired`。当轮必须记录 `hard-gate`、`quantified-audit`、
+  `required-checklist` 之一；确属纯视觉判定则记录 `not-suitable` 加理由。缺少该
+  disposition 会阻断 `FidelityResult` acceptance 与 Build closure。
 
 ## Runtime Raster 例外
 
@@ -205,43 +212,70 @@ CSS background、canvas 或锁定背景降低 Diff。本地化 overlay 只能改
 
 ## 执行入口
 
-创建或实质修改数据集后运行：
+先用当前 `ObjectInventory`、authored artifacts、ChangeImpact 和 required locales
+准备 Build review；命令会编译 `VerificationPlan`、记录 `AUTHORED` 并打印
+`reviewToken`：
 
 ```sh
-pnpm verify:d3 -- <dataset-key> [--focus "<主检查方向>"] [--keep] [--language <code>] [--round <n>]
+pnpm record:build -- prepare-review <build-id> --input <review-input.json>
 ```
 
-`pnpm verify:dataset -- <dataset-key>` 把语法、SSOT、strict i18n、metadata 与
-每种语言的 d3 渲染打包成一条命令；单独调某一轮仍用 `verify:d3`。依赖安装：
+`verify:d3` 永远属于只读 diagnostic：
+
+```sh
+pnpm verify:d3 -- <dataset-key> [--keep] [--language <code>]
+```
+
+它可以快速看候选、Diff 和量化报告，但不产生 durable review evidence，不更新
+共享 previous，不得写成 `accepted`，也不能参与 `CLOSED`。`verify:dataset` 中的
+d3 调用同样只是 diagnostic。人工轮次必须改用：
+
+```sh
+pnpm record:fidelity -- <dataset-key> --build <build-id> \
+  --focus "<主检查方向>" [--keep] [--language <code>] [--round <n>]
+```
+
+`record:fidelity` 写 build-bound、content-addressed 的 `fidelity-run/2`
+`evidence-ready` archive；其 identity 固定 Build、authored digest、VerificationPlan
+digest、reference、locale 与 run kind。`evidence-ready` 只表示自动证据完整并通过
+本轮 enforcement，明确不等于人工 review 或 `FidelityResult.accepted`。
+
+依赖安装：
 `pnpm install --frozen-lockfile && pnpm exec playwright install chromium`。
 受限 sandbox 中需一开始就用提权 shell 运行（脚本绑定 `127.0.0.1` 临时服务器，
 否则可能 `listen EPERM`）。
 
-`verify:d3` 每次运行：起本地静态服务器 → 最小 harness 执行
+两种入口都起本地静态服务器 → 最小 harness 执行
 `SankeyEngine.render('#chart', data)` → 截取 `#chart > svg` → 跑 G 系列哨兵 →
 计算全图与 DOM 派生分区域 Diff → 在私有
 `compare/runs/<key>-<language>-<run-id>/` 写 provisional metrics、interface audit
-与 contact sheet → page error、label 与当前 G12 enforcement 等自动门槛全部通过
-后，才以 sibling temp directory + rename 原子归档到
-`output/compare/<key>/<round>-<improvement>-<focus>/`。accepted archive 自带
-reference 和 `fidelity-run.json`；共享参考图只在 archive 成功后更新。失败 run
-不得晋级 archive 或成为 previous；默认只清理当前 run，`--keep` 会打印并保留
-该 run 的私有 scratch。非结构轮仍须在 metrics 中报告 G12 状态；若接口相关几何发生
+与 contact sheet。diagnostic 到此结束且默认清理 scratch；只有
+`record:fidelity` 在 page error、label 与当前 G12 enforcement 等自动检查通过后，
+才以 sibling temp directory + rename 原子归档到
+`output/compare/<key>/<round>-<improvement>-<focus>/`，状态固定为
+`evidence-ready`。失败 run 不得晋级或成为 compatible previous；`--keep` 会打印
+并保留当前私有 scratch。非结构轮仍须在 metrics 中报告 G12 状态；若接口相关几何发生
 变化，必须重新生成 audit 与 contact sheet，并重开结构方向。metrics JSON 同时
 输出 `labelLayoutAudit`（同轴组 `centerDelta`/`gap`、侧置 label
 `gap`/`verticalCenterDelta`、相邻 label 间距）；T5 ②、T7 和 B3 的人工核对以
-该字段为数据源，禁止用手工重测替代或凭视觉印象跳过。
+该字段为数据源。每次 render 还输出 `textLayoutAudit` 与
+`annotationLayoutAudit`；`ObjectInventory` 命中 `centered-side-label`、`text` 或
+`annotation-near-label` 后，prepare-review 将它们编译为条件 risk gates，finish
+分别要求侧置中心差不超过 4px、文本 overflow 为 0、annotation/protected-text
+overlap 为 0。旧 evidence 缺字段时状态为 open，不得凭视觉补写 pass。
 
-归档命名：轮次按该 dataset 的兼容 accepted archive 数自动递增补零（`--round`
-可覆盖）；previous 必须匹配 dataset、language、run kind、reference hash 与
-`fidelity-run/1` protocol version，失败/旧格式/身份不兼容 archive 不参与比较。
-`improvement` 为全图 similarity 相对 previous compatible accepted archive 的差值（如
+归档命名：轮次按该 Build 的 compatible evidence archives 自动递增补零（`--round`
+可覆盖）；previous 必须匹配 dataset、language、run kind、reference hash、Build、
+authored/plan digest 与 `fidelity-run/2`，失败、legacy accepted、旧协议或身份不兼容
+archive 不参与 Build review comparison。`improvement` 为全图 similarity 相对
+previous compatible evidence 的差值（如
 `sim+0.000123`；无上一轮用 `baseline`）；`focus` 转为短 slug，sweep 轮直接用
 层级名（`structure-sweep`、`text-sweep`、`polish-l10n-sweep`）。
 
-人工轮次必须传 `--focus`。需要并排看原图/候选/Diff 时加 `--keep`，并使用命令
-打印的 `run scratch` 路径；不得在并发 run 存在时全局清理 `compare/`。最终记录
-引用 `output/compare/` accepted 归档；`compare/runs/` 只是私有临时 scratch。
+人工轮次必须传 `--build` 与 `--focus`。需要并排看原图/候选/Diff 时加
+`--keep`，并使用命令打印的 `run scratch` 路径；不得在并发 run 存在时全局清理
+`compare/`。最终 review JSON 引用 `output/compare/` 的 `evidence-ready` manifest；
+`compare/runs/` 只是私有临时 scratch。
 
 ## 第 0 轮：渲染前测量
 
@@ -302,13 +336,14 @@ auditedInterfaces = passedInterfaces + failedInterfaces +
 candidate-only fail。`documented-exception` 只能表示候选有证据地复现参考中的
 真实间隔、重叠或斜切，不能豁免候选与参考不一致，也不能豁免竖直 node 接口的
 候选几何 containment；每项都必须链接局部
-reference crop。矩阵可写入 Task 信息或独立 Markdown/JSON，但必须随首次结构
+reference crop。矩阵必须作为结构化 review JSON 或其 content-addressed artifact，随首次结构
 sweep 和每次结构重开轮归档。
 
 测量方式任意但必须可复现（局部 crop 读坐标、取色器、脚本均可）；首轮渲染
 必须以测量值起步，不允许先粗排、再靠保真轮次逼近。
 
-测量结果必须逐对象落盘为**第 0 轮清单**（写入该轮 Task 信息），至少覆盖：
+测量结果必须逐对象落盘为**第 0 轮清单**，并以 `ObjectInventory` object ID 关联；
+`prepare-review` 将命中特征编译进 `VerificationPlan`。清单至少覆盖：
 每根短柱的 bbox、每个侧置 label 组的对齐缘 x、每个同轴 value/name block 的
 top 与 centerX、每个多入/出节点的 Σlink.width 核算。首轮渲染后立即用
 metrics JSON 的 `labelLayoutAudit` 与该清单互核，`centerDelta`、`edgeGap`、
@@ -324,7 +359,8 @@ metrics JSON 的 `labelLayoutAudit` 与该清单互核，`centerDelta`、`edgeGa
 
 规则库随反馈沉淀持续增长，逐条通读无法保证执行率；每个数据集实际只命中
 其中一小部分。第 0 轮结束时，必须按下表把源图命中的高风险特征转成该数据
-集的定制必查清单（**命中清单**），写入 Task 信息（字段 10）。特征以
+集的定制必查清单（**命中清单**）。命中必须先写入 `ObjectInventory.features`，
+再由 `prepare-review` 编译为 required checks；不得只写 Markdown。特征以
 `docs/dynamic-dataset-workflow.md` §Object Taxonomy 的对象盘点结果判定。
 
 | 源图特征（对象盘点可判） | 必查规则 | 逐对象核对产物 |
@@ -335,9 +371,10 @@ metrics JSON 的 `labelLayoutAudit` 与该清单互核，`centerDelta`、`edgeGa
 | 深色 hub/深色源出发的 profit 流带 | L12 | 每条：近源缘取色结论 |
 | hub/中间聚合柱贴附名称块 | T2 | 中心差、5px 边距 |
 | 相邻中间柱之间放置完整 label 组 | T1、T5、T15 | label ↔ 上/下相邻柱的两侧 bbox 净空 |
-| 侧置 label 列（整组 start/end 对齐） | T4、T6、T7、Z5 | 对齐缘 x、`verticalCenterDelta` |
+| 源图意图为垂直居中的侧置 label（标 `centered-side-label`；顶对齐/分组侧标不标） | B3、T4、T6、T7、Z5 | 对齐缘 x、`verticalCenterDelta <= 4px` |
+| 任一候选 SVG rendered text（标 `text`） | B6、Z5 | `textLayoutAudit` 覆盖该 locale，`overflowViolations == 0` |
 | 细流带 + 水平引导线、无可见柱 | T12（与 T13 辨析） | 可见柱计数 = 源图 |
-| `annotationsSvg` wordmark/脚注与 label 同水平带 | A6 | 渲染 bbox 边界间距 |
+| `annotationsSvg` wordmark/脚注与 label/title/period 同水平带（标 `annotation-near-label`） | B5、A6 | `annotationLayoutAudit` 覆盖该 locale，`overlapViolations == 0` |
 | 负空间流带注释（背景色 path 横跨两个柱面，内含产品/金额文字） | A1–A5、A9、L5、L15、G12 | 左/右锚点、上下极值、文字组 bbox、两端接口 crop、完整语义区域指标；若上下露出 node face，另记完整 node bbox |
 | 自定义 curve、显式 `y0`/`y1`、固定 socket | L5、L7、L15 | 端点切线竖直、控制点单调 |
 | 图标 cluster（主体铺满取景框） | I2–I5 | `transparentPixelRatio`、验收记录 |
@@ -381,8 +418,8 @@ metrics JSON 的 `labelLayoutAudit` 与该清单互核，`centerDelta`、`edgeGa
 2. 运行自动哨兵（G1–G12）；G12 分别记录 `mode/status/candidateStatus/
    referenceStatus/enforcementStatus`，不得把 `mode=warning` 与
    `referenceStatus=not-scored` 合并成一个状态或写成 pass。
-3. 确定本轮 sweep 层级或升级方向；更新 Task 信息、冻结清单、重开项、backlog
-   和命中清单核对状态。
+3. 确定本轮 sweep 层级或升级方向；更新待提交的 RegionDecision、冻结/重开项、
+   backlog 和 ObjectInventory 命中核对状态。
 4. 渲染候选图，获取原图、候选图、Diff 图和 metrics JSON；结构方向同时获取
    interface audit JSON 与 interface contact sheet。
 5. 读取全图指标和与本轮覆盖方向相关的分区域指标；结构方向逐行核对 Interface
@@ -390,10 +427,12 @@ metrics JSON 的 `labelLayoutAudit` 与该清单互核，`centerDelta`、`edgeGa
 6. 对本轮覆盖方向的高 Diff 区域和人眼显著错误做误差分类。
 7. 只针对本轮覆盖方向修改数据、布局、矢量资产或渲染器，按专项协议
    （L/T/A/Z/I）把本层能修的一次修完并同口径复查。
-8. 生成本轮红框参考图；无开放问题则在 Task 信息中明确记录无开放红框。
+8. 生成本轮红框参考图并记录 `attention: open + referenceDigest`；无开放问题则
+   记录 `attention: closed + closureNote`。
 9. 通过的方向分别记录证据并冻结；结构方向还必须满足 G12、Interface Matrix
    完整性与 contact sheet 证据要求。未通过的进入升级深查或下一轮。
-10. 更新 Task 信息；做退出置信度判断（总则），决定立即收敛或下一轮主方向。
+10. 更新 RegionDecision / FeedbackRecord 草稿与 attention；有开放 blocker 就进入
+    下一轮最高风险方向，没有则提交 `finish`。不得手填退出 confidence。
 
 层级外新问题：属更早层级的立即修（会使本层判断失效）；属更晚层级的记入
 backlog。自动硬门槛失败、画布裁剪、明显文本越界始终立即处理。
@@ -408,8 +447,8 @@ backlog。自动硬门槛失败、画布裁剪、明显文本越界始终立即�
 - 每语言渲染相互独立，可并行 shell 执行。
 - 可分派 Subagent：渲染与指标采集、bbox 报告收割、按已确认 region 清单绘制
   红框、verifier 命令执行。
-- 只归主 Agent：误差分诊与分类、修复决策、冻结/重开/收敛判定、退出置信度
-  判断、人工反馈沉淀。
+- 只归主 Agent：误差分诊与分类、修复决策、冻结/重开判定、ManualAttestation、
+  RegionDecision、attention 与人工反馈归因。最终收敛状态由 CloseoutReport 派生。
 
 ## 冻结和重开
 
@@ -468,7 +507,7 @@ Interface Matrix 与 G12 interface audit，不以源码 link 数组位置、node
 - L8 逐条从原图追踪 link 拓扑（source、target、socket、是否绕过中间柱），
   不得按财务算式或节点邻近推断。waterfall 区的结果柱与调整项柱可能共享同一
   目标或平行进入；原图显示带子绕过某结果柱时，不得把该结果柱写成中间节点。
-  细税线、短横线和多入口目标记录显式 `y0`/`y1` 或控制点，并在 Task 信息中
+  细税线、短横线和多入口目标记录显式 `y0`/`y1` 或控制点，并在对应 RegionDecision 中
   说明每条线对应的原图关系。
 - L9 用户指出连接线错误时，先复核两端节点自身的原图像素 bbox（尤其短柱的
   x/y/height）；节点 bbox 错则先联动节点与 label，节点 bbox 对则进入 L11。
@@ -552,7 +591,7 @@ Interface Matrix 与 G12 interface audit，不以源码 link 数组位置、node
   L11 的闭合 tapered ribbon，连接竖直节点边时都必须水平进入/离开，使端面与
   节点边竖直贴齐。自定义 cubic 的源端中心控制点满足 `c1y = y0`，目标端满足
   `c2y = y1`；ribbon 的上下边界控制点分别按 source/target 半宽同步偏移（允许
-  ±0.5px 抗锯齿/半像素差）。若源图明确显示斜切，必须在 Task 信息记录例外。
+  ±0.5px 抗锯齿/半像素差）。若源图明确显示斜切，必须在 RegionDecision 记录例外。
   用户指出“连接处不严丝合缝/应该竖直”时，先修端点切线与上下边界，再调
   整体弧度。连续 ribbon 填满 node 边缘时，源图为直角矩形则 node 半径设为 0，
   不得让圆角削出接口角缝；两端量测高度不同则用 `sourceWidth` /
@@ -722,9 +761,10 @@ link 两端宽度不同 → `sourceWidth` / `targetWidth` + tapered ribbon；双
 
 英文循环通过只说明默认语言稳定，不证明其他语言的固定布局文本稳定。
 
-- Z1 触发：每次新增或实质修改 `i18n.<language>` 覆盖，必须做本地化布局检查：
-  `pnpm verify:d3 -- <dataset-key> --language zh --keep`。通常作为第 3 轮
-  sweep 的一部分完成；本轮修不完才升级为单独深查轮。
+- Z1 触发：每次新增或实质修改 `i18n.<language>` 覆盖，必须记录本地化布局
+  evidence：`pnpm record:fidelity -- <dataset-key> --build <build-id> --focus polish-l10n-sweep --language zh --keep`；
+  `verify:d3 --language zh` 只用于诊断。
+  通常作为第 3 轮 sweep 的一部分完成；本轮修不完才升级为单独深查轮。
 - Z2 判定：本地化渲染的 Diff 仍以英文参考图为基准，只用于辅助定位；通过与否
   看输出纯净性、bbox 审计、混排/标点/缩写正确性、越界与重叠。
 - Z3 检查范围：`layout.labels.*.blocks[].lines[].text`、`annotationsSvg`、
@@ -826,8 +866,9 @@ reference 的完整画布计算。每轮至少记录：
 - `mae`（RGB 平均绝对误差）、`similarity`（`1 - mae / 255`）、
   `maxChannelDiff`、`samePixelRatio`、`changedPixelRatio`、`diffBoundingBox`。
 
-`pnpm verify:d3` 自动为渲染 DOM 派生区域（边界、节点、链接、标签、annotation、
-runtime raster 等）输出分区域 Diff，位于 metrics JSON 的 `regions` 数组。连接线
+`verify:d3` 与 `record:fidelity` 使用同一 render audit，为 DOM 派生区域（边界、
+节点、链接、标签、annotation、runtime raster 等）输出分区域 Diff，位于 metrics
+JSON 的 `regions` 数组。连接线
 另须以每个 `(node, side)` 端面为最小判定单元输出 interface audit；覆盖整条曲线
 的 link region 会稀释数像素接口错误，不能作为 G12、L11 或结构冻结的唯一证据。
 interface audit 至少记录五个状态字段、七个 canonical 汇总字段、union interval、
@@ -840,16 +881,17 @@ interface audit 至少记录五个状态字段、七个 canonical 汇总字段�
 前后的 union/per-link interval 与 G12 结果；局部接口事实优先于全图 similarity，
 不能因全图指标小幅回退撤销一个已证明语义正确的接口修复。
 
-## 红框参考图和 Task 信息
+## 红框、结构化 Review 与派生 Task 信息
 
 每轮人工循环结束前，基于本轮主检查方向生成红框参考图：
 
 - 以原始 reference image 为底图，不用候选图、Diff 图或截图拼贴。
 - 红框圈住完整语义区域（完整 label、完整节点接口、完整注释容器、完整图标
   cluster），不只圈高 Diff 像素块；可带短编号，但不遮挡待检查内容。
-- 每个红框编号在 Task 信息中对应一条 region 记录。
+- 每个红框编号使用稳定 `REG-*`，并在 finish JSON 中对应一条 content-addressed
+  `RegionDecision`。
 - 可接受残留和无语义跳过项通常不加红框；为防下一轮误追而标注时，必须在
-  Task 信息中明确写 `accepted` 或 `skip`。
+  RegionDecision 中明确写 `accepted` 或 `skipped`。
 - 推荐路径：
   `output/compare/<key>/<round>-<improvement>-<focus>/<key>-attention-reference.png`。
 - 下一轮开始时，必须同时参考上一轮红框图、metrics JSON、候选图和 Diff 图。
@@ -865,69 +907,78 @@ contact sheet 与
 `<key>[-<language>]-interface-audit.json`、Interface Matrix 一起归档，供人眼在
 同一视图确认审计无漏项。
 
-Task 信息每轮维护，须稳定到下一轮无需重新询问用户。字段清单（唯一定义处）：
+循环中的 durable truth 不是手写 Task Markdown，而是：Build-bound
+`dataset-verification/v1`、`fidelity-run/2` evidence manifests、stable
+`RegionDecision`、Interface Matrix、risk checks、
+`FeedbackRecord`，以及 attention：有开放红框时为
+`{status:"open", referenceDigest}`，无开放红框时为
+`{status:"closed", closureNote}`。finish JSON 还必须引用 prepare-review 打印的
+`reviewToken` 和 `ManualAttestation`。任一 open region、open attention、Matrix
+pending/not-scored/fail、risk failure、open feedback 或 recurrence upgrade 都使
+`FidelityResult` 不能 accepted。
 
-1. dataset key、轮次号、archive 路径、红框参考图路径。
-2. 当前主检查方向（sweep 层级或升级方向）。
-3. 已主查并冻结的方向。
-4. 已重开的方向和重开原因。
-5. Backlog 中尚未主查的方向。
-6. 红框 region 清单：编号、region 名、bbox、问题分类、违反规则编号、对应
-   指标、下一步动作。
-7. 用户反馈沉淀：已更新/新增的规则编号、归因分类（规则缺失/执行缺口/口径
-   模糊）、数据集特例、仍待处理项。
-8. 本轮退出置信度结论（高/低 + 依据）。
-9. 下一轮主检查方向和进入条件。
-10. 高风险模式命中清单：命中特征、必查规则编号、逐对象核对状态
-    （未查/已查/已修），以及第 0 轮清单的落盘位置。
-11. Interface audit：五个状态字段；分别列 `audit.summary.*` 与权威的
-    `matrix.summary.*` 七字段、两者 coverage/差异和 reconciliation 结论；附
-    Interface Matrix、`<key>[-<language>]-interface-audit.json` 与 contact sheet
-    路径。非结构轮写明沿用哪一轮证据，或因几何变化已重开。
+当前可执行关闭顺序是：
+
+```sh
+pnpm record:verification -- <build-id> --json
+pnpm record:build -- finish <build-id> --review <review.json>
+pnpm record:build -- stage-baseline <build-id> --input <baseline.json>
+pnpm verify:dataset -- <dataset-key>
+pnpm record:build -- seal <build-id>
+pnpm verify:closeout -- <build-id>
+```
+
+review JSON 必须引用 `record:verification` 返回的 `verificationReference`；Income
+Statement 还引用每个 required locale 的 fidelity manifest。`finish` 只在
+`FidelityResult.status=accepted` 时写 `CLOSED`；`seal` 不接受 caller
+verification JSON，而是重新核对当前 authored artifact freshness。baseline 只作
+future-regression，不能进入其 producing Build 的 verdict。这些命令只写
+build-local state；M4 canonical Publication 尚未落地。
+
+`Task information` 是 `CloseoutReport` 的 deterministic Markdown View：
+
+```sh
+pnpm record:build -- inspect <build-id>
+```
+
+该 View 统一显示 historical/effective state、freshness、review status、authored /
+plan / result / closure / seal / ledger digests、locales 和 automatic evidence、
+blockers、RegionDecision、red-box/closure、risk checks、Matrix 七字段，以及
+Feedback recurrence/upgrade。它由结构化对象重新生成，禁止手改或把 Markdown
+反向当作 evidence。
 
 ## 每轮记录模板
 
-字段引用式模板——各字段定义见括号内小节，不在模板中重复罗列：
+每轮先准备结构化输入，Markdown 只在 inspect 时派生：
 
 ```text
-- Task 信息：按「红框参考图和 Task 信息」字段清单 1–11 逐项更新。
-- 证据路径：命令、候选图、原图、Diff 图、metrics JSON、archive、红框图。
+- `record:verification` reference：Build-bound data/schema/source/i18n consistency evidence。
+- `record:fidelity` evidence manifest：候选图、原图、Diff、metrics、audit、contact sheet。
 - 自动硬门槛：G1–G12 逐项 pass/fail；G12 单列五个状态字段，不得把 warning 或 not-scored 并入 pass。
 - 全图指标：按「Diff 指标」六项。
 - 本轮主方向分区域指标：| region | bbox | mae | similarity | maxChannelDiff | changedPixelRatio | note |
 - Interface audit：`audit.summary.*` 与 `matrix.summary.*` 各自七字段 + reconciliation + Matrix/audit/contact sheet 路径 + 失败/例外/待核接口清单。
-- 红框 region 清单：| id | region | bbox | 分类 | 违反规则编号 | 下一步 |
+- RegionDecision：稳定 `REG-*`、bbox、status、ruleIds、evidence digests、note。
+- attention：open reference digest 或 closed closure note；不得缺省。
 - 方向专项结论：本轮覆盖方向按 L / T / A / Z / I 协议记录并引用规则编号；未覆盖方向不填。
 - 误差分类：必须死磕 / 需要优化 / 可接受残留 / 无语义跳过。
-- 用户反馈沉淀：反馈 → 归因（规则缺失 / 执行缺口 / 口径模糊）→ 处置
-  （更新规则编号 / 新增规则 / 自动化升级 / 数据集特例）。
-- 本轮修复、并行试值、新冻结项、保持冻结项、下一轮计划与退出置信度结论。
+- FeedbackRecord：稳定 `FB-*`/`REG-*`、ruleIds、cause、before/after evidence、
+  remedy、status、supersedes 和 automationDisposition。
+- 本轮修复、并行试值、新冻结项、保持冻结项与下一轮开放方向；不写 confidence。
 ```
 
 ## 最终输出概要
 
 Workflow 处理新增或实质修改的数据集、渲染器、图标资产或本地化固定布局后，
-最终输出必须包含紧凑的 `Loop Fidelity Summary`（5–9 行，可扫读）。它不替代
-完整轮次记录；完整证据以最新 Task 信息、metrics JSON、候选图、Diff 图和
-archive 为准。未运行循环时必须写 `Loop Fidelity Summary: not run` 并说明原因
-（仅文档改动、重复 pending 图、无 dataset/render 变更、环境限制等）。
+最终输出必须使用同一 `CloseoutReport` 派生的紧凑 `Loop Fidelity Summary`；它与
+Task information 共享同一 report digest，不是第二套人工结论。状态只可能由
+Implementation 派生为 `review-pending`、`in-progress`、`blocked` 或
+`converged`：只有 accepted review + historical/effective `SEALED` + fresh + no
+blocker 才是 `converged/high`；机器全绿但缺 ManualAttestation 必须是
+`review-pending/low`，stale seal 必须降级。caller 禁止提供 status/confidence。
 
-字段：
-
-- Scope：dataset key、检查语言、是否含图标 crop/vector 或 runtime raster。
-- Status：`not run` / `auto checks only` / `in progress` / `converged` / `blocked`。
-- Latest round：轮次、主检查方向、archive 路径、metrics JSON 路径。
-- Gates：G1–G12 通过/失败摘要；G12 同时给出五个状态字段、
-  `audit.summary.*` 与权威 `matrix.summary.*`、reconciliation 结论及 interface
-  audit/contact sheet 路径，不满足完整 pass 条件的维度不得计入通过。
-- Metrics：最新全图 `mae`、`similarity`、`changedPixelRatio`、`diffBoundingBox`。
-- Frozen/open：已冻结方向、开放红框 region 或 backlog；无开放项写明 closure。
-- Red-box：红框参考图路径，或无开放红框的关闭说明。
-- Localization：非默认语言固定布局检查状态；未涉及写 `not applicable`。
-- Feedback learning：用户反馈经验的归因分类（规则缺失/执行缺口/口径模糊）
-  与处置——更新的规则编号、推进的自动化状态、记录为特例，或不适用。
-
-最终输出引用文件路径即可，不粘贴整份 metrics JSON 或完整 Task 信息。
+没有 Build review scope（如纯文档改动）时，在最终响应说明 `not run` 与原因，
+不得伪造 CloseoutReport。最终输出引用 evidence/report 路径即可，不粘贴整份 JSON。
 
 ## 收敛标准
 
@@ -953,13 +1004,17 @@ archive 为准。未运行循环时必须写 `Loop Fidelity Summary: not run` �
    `matrix.summary.notScoredInterfaces == 0`；audit JSON 和 contact sheet 已归档，
    所有 `matrix.summary.documentedExceptions` 都有 reference crop 证据。
 11. 新增或修改过的非默认语言覆盖已通过本地化布局检查（Z 系列）。
-12. 最新 Task 信息完整，列出所有已主查、已冻结、重开和 backlog 方向。
-13. 每个未冻结或刚修复的用户标注区域，有红框记录或明确关闭说明。
-14. 用户反馈中的通用经验已按归因分类沉淀到本文档（含自动化状态推进），
-    特例已记录在 Task 信息中。
+12. `ReviewPacket`、所有 required locale evidence、ManualAttestation、
+    RegionDecision、risk checks 与 FidelityResult 都绑定当前 authored/plan digest。
+13. 每个未冻结或刚修复的用户标注区域有稳定 `REG-*`；attention 有开放红框
+    reference digest 或明确 closure note，不能缺省。
+14. 用户反馈已持久化为 `FeedbackRecord` 并进入 Ledger；没有 open feedback，
+    第二次跨 Build execution-gap 没有未处理的 automation upgrade。
 15. 可接受残留和所有破例都记录原因。
 
-收敛即退出置信度判断为「高」的正式确认（总则）。收敛不要求全方向人工重查；
+满足以上条件后可提交 finish；只有 `FidelityResult.status=accepted` 才能 `CLOSED`。
+baseline staged 且 fresh seal 完成后，`verify:closeout` 通过，CloseoutReport 才派生
+`converged/high`。收敛不要求全方向人工重查；
 全图相似度高不代表可以结束；已冻结且未重开的方向不应在最后一轮重复深查。
 图标 vector 子循环的收敛另须满足 I10。
 
@@ -968,11 +1023,11 @@ archive 为准。未运行循环时必须写 `Loop Fidelity Summary: not run` �
 用户指出的错位、遗漏、误判或「看起来不对」的区域，不能只作为一次性修补项。
 每次收到人工修正后必须完成闭环：
 
-1. 把用户文字、截图红框或 Diff 标注转成稳定 region，归入一个主检查方向，并
-   标注违反的规则编号（无对应规则时标「规则缺口」）。
-2. 归因分类（口径同「重复触发升级」）：规则缺失、执行缺口（规则已存在但
-   未对每个适用对象执行）还是口径模糊；并判断是通用流程缺口、某类图表的
-   高风险盲点，还是当前数据集特例。
+1. 把用户文字、截图红框或 Diff 标注转成稳定 `FB-*` / `REG-*`，归入一个主检查
+   方向并创建 build-local `FeedbackRecord`；标注违反的 rule IDs（无对应规则时
+   仍需稳定描述，而不是临时 TODO）。
+2. 用 Ledger 固定口径归因：`rule-missing`、`execution-gap` 或
+   `ambiguous-rule`；并判断是通用流程缺口、某类图表高风险盲点还是数据集特例。
 3. 通用缺口/可复用盲点 → 先做规则结构审计：定位现有 owning rule、B 系列盲点、
    上游第 0 轮测量/执行入口，以及下游 sweep/收敛/禁止项。已有 owner 时优先重写
    现有规则并删改冲突的绝对表述；只有确实无归属时才新增编号，禁止在相邻规则
@@ -983,19 +1038,21 @@ archive 为准。未运行循环时必须写 `Loop Fidelity Summary: not run` �
 5. 同步维护受影响的盲点映射、前置测量、执行检查与修复优先级，让一条决策链
    从「怎么量」到「怎么判」再到「怎么修」口径一致；修改后做一次全文冲突检索，
    确认没有旧规则仍要求相反动作。
-6. 数据集特例 → 在该轮 Task 信息记录原因、区域、修复方式和是否重开冻结项。
+6. 数据集特例 → 在 FeedbackRecord/RegionDecision 记录原因、区域、remedy、
+   before/after evidence digest 和是否重开冻结项。
 7. 修复后按用户标注的完整 region 和其最小判定单元复查，记录修复前后局部指标、
    关键 interval/bbox 与视觉结论；不能用全图 similarity 或只看一种颜色代替。
    用户再次指出同一区域未修复时，上一轮收敛结论立即失效，重开该 region，并
    修正导致误判的测量方法或规则抽象，不能只再调一组像素。
 8. 返工任何已收敛数据集时，先判定问题违反的规则编号，再对同一波次提交的
-   其余数据集做同型排查（同一规则编号、同类对象），结果记入 Task 信息；
-   同型问题在两个及以上数据集复现，即按「重复触发升级」处置——批量波次
-   中同一执行缺口会系统性复制到整批数据集。
+   其余数据集做同型排查，并将结果各自持久化。Ledger 按 rule ID 统计跨 Build
+   occurrence；第二个 Build 复现 execution-gap 就必须产生 automationDisposition，
+   否则 closure 被拦截。
 9. 反馈处理轮以反馈项为主方向定向优化（总则），不做泛化重扫。
 
-只有经验已沉淀（规则更新或特例记录）后，才能在最终响应中声称该反馈已处理
-完毕；不得只写成聊天总结或临时 TODO。
+只有 FeedbackRecord 已 closed、before/after evidence 与 remedy 完整，且所需
+规则/自动化升级已落地后，才能在最终响应中声称反馈已处理；不得只写聊天总结、
+手写 Task Markdown 或临时 TODO。
 
 ## 禁止做法
 
@@ -1007,7 +1064,8 @@ archive 为准。未运行循环时必须写 `Loop Fidelity Summary: not run` �
 - 只报告全图相似度，不报告分区域证据。
 - 以全图 similarity、整条 link region 的平均 Diff 或 render baseline 通过，覆盖
   G12/interface 局部失败；接口语义证据改善时仅因全图 similarity 小幅下降而回退。
-- 进入下一轮却没有上一轮红框参考图和最新 Task 信息。
+- 进入下一轮却没有上一轮 red-box reference、evidence manifest 和当前
+  RegionDecision/FeedbackRecord 草稿。
 - 收到用户修正意见后只修当前像素，或不做归属/冲突审计就机械追加重叠规则。
 - 对重复触发的编号规则仅加长规则文本，不推进自动化状态、不纳入命中清单
   必填产物（违反重复触发升级）。
@@ -1022,8 +1080,10 @@ archive 为准。未运行循环时必须写 `Loop Fidelity Summary: not run` �
   `manual-pending` 写成 interface pass；用 `documented-exception` 豁免候选与
   reference 不一致，或省略七字段计数恒等式中的未关闭接口。
 - 在没有 Diff 图、metrics JSON 和主方向分区域指标的情况下声称已经收敛。
-- 最终输出只写「已通过」「已收敛」，但没有 `Loop Fidelity Summary` 或未运行
-  原因。
+- 把 `verify:d3` diagnostic 或 `fidelity-run/2 evidence-ready` 写成 accepted、
+  Build closure 或 human approval。
+- 手填 Task information / Loop Fidelity Summary 的 status 或 confidence；二者必须
+  由同一 CloseoutReport 派生。最终输出只写「已通过」「已收敛」也不合格。
 - 首轮渲染前不做第 0 轮测量，靠多轮渲染逼近节点几何和 link 拓扑。
 - 第 0 轮测量不落盘清单、首轮渲染后不与 `labelLayoutAudit` 互核，把可一次
   修完的系统性偏移推给后续轮次。

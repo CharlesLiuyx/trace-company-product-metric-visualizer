@@ -46,8 +46,8 @@ The target deepens four Modules:
 
 | Module | Interface responsibility | Implementation hidden behind the Seam |
 | --- | --- | --- |
-| Dataset Build Transaction | advance one Source-derived build through explicit states | intake, inventory, authoring validation, Adapter routing, invalidation |
-| Fidelity Run | produce immutable evidence for one authored digest | private workspace, rendering, Diff, gates, manual attestation, archive finalization |
+| Dataset Build Transaction | advance one Source-derived build through explicit states | intake, typed inventory and Plan compilation, review closure, staging, freshness, invalidation |
+| Fidelity Run | produce immutable automatic evidence for one authored digest | private workspace, rendering, Diff, gates, evidence-ready archive finalization |
 | Publication | plan and atomically publish a set of sealed contributions | global projections, path claims, baseline ledger, metadata, CAS and recovery |
 | Release | build or deploy one published digest | standalone build, hosted release, retries and receipts |
 
@@ -62,6 +62,8 @@ through every caller.
 - `verify:*` is read-only; `record:*` writes only build-local evidence or
   staging; `publish:*` is the only canonical mutation; `release:*` acts on an
   already-published digest.
+- Automatic evidence is necessary but cannot stand in for a human attestation,
+  region decisions, or feedback closure.
 - A staged baseline is future regression evidence. It cannot prove the build
   that produced it is correct.
 - `SEALED` binds exact source, authored, renderer, protocol, locale, closure,
@@ -77,9 +79,12 @@ through every caller.
 | concern | current Implementation | accepted target |
 | --- | --- | --- |
 | intake | `record:intake` records per-item Source/base digests; compatibility authoring still later moves the selected Source to `processed/` | full isolated `DatasetBuild` workspace and Publication-owned Source projection |
-| authoring | canonical paths are edited directly | isolated build workspace plus `ArtifactManifest` |
-| fidelity | `verify:d3` now uses a private `FidelityRun` workspace and accepts an archive only after its enforced automatic gates pass; manual closure remains external | typed run results plus build-local manual closure and `FidelityResult` |
-| baseline | `record:baseline` is subset-only and failure-atomic, but still mutates the canonical ledger | `BASELINE_STAGED`, then publish with the sealed build |
+| authoring and Plan | canonical paths are still edited directly; the shadow path records a typed `ObjectInventory`, compiles the Adapter/ChangeImpact-driven `VerificationPlan`, hashes authored files, and returns a content-addressed `ReviewPacket` token | isolated build workspace plus complete `ArtifactManifest` and Adapter execution |
+| verification and fidelity | `record:verification` records Build-bound non-render consistency evidence; `verify:d3` is read-only diagnostic execution; `record:fidelity` alone may archive durable `fidelity-run/2` `evidence-ready` artifacts bound to Build/authored/Plan digests; legacy unbound archives remain compatibility-only | typed automatic evidence plus the complete Adapter verification profile |
+| human closure | `record:build finish` consumes the Review token, automatic evidence, `ManualAttestation`, `RegionDecision`, risk/Matrix facts, and `FeedbackLedger`; only an accepted `FidelityResult` records `CLOSED` | the same deep Interface as the sole operational closure path |
+| baseline | the shadow path records true build-local `BASELINE_STAGED`; the old `record:baseline` remains a subset-only, failure-atomic compatibility mutation of the canonical ledger | publish the staged baseline with the sealed contribution |
+| seal and inspection | `record:build seal` recomputes current authored-file freshness and records `SEALED` without caller-supplied pass JSON; it does **not** yet rerun a complete Adapter final profile. `inspect` reports historical and effective state | complete read-only Adapter final profile followed by seal recording |
+| reporting | inspection generates `CloseoutReport`, Task information, and Loop Fidelity Summary as pure Views | stable Views over immutable published/build-local facts |
 | registration and metadata | multiple generators mutate shared files | pure projections inside one `PublicationBatch` |
 | standalone | build no longer refreshes tracked metadata, but still reads the live worktree | isolated Release from an immutable published digest |
 
@@ -92,9 +97,9 @@ before then.
 | milestone | implementation status | outcome |
 | --- | --- | --- |
 | M0 — record the decision | implemented | architecture owners, vocabulary, invariants, and ADR exist |
-| M1 — isolate FidelityRun | implemented for automatic `verify:d3` evidence (`fidelity-run/1`) | private run workspace, accepted manifest, no archive before enforced gates complete |
-| M2 — introduce DatasetBuild | foundation implemented | per-item `record:intake` plus versioned state/invalidation contract; isolated authoring workspace and full Adapter execution remain pending |
-| M3 — close and stage | safety slice implemented | no-key baseline ratchets are forbidden and writes are failure-atomic; machine closure, true `BASELINE_STAGED`, and fresh seal recording remain pending |
+| M1 — isolate FidelityRun | implemented with operation separation and `fidelity-run/2` review identity | `verify:d3` remains ephemeral/read-only; `record:fidelity` alone finalizes durable automatic evidence, with legacy v1 archives explicitly non-closure |
+| M2 — introduce DatasetBuild | foundation implemented | per-item `record:intake`, versioned state/storage, content-addressed objects, and historical/effective freshness exist; isolated authoring workspace remains pending |
+| M3 — close and stage | shadow/compatibility safety slice implemented end to end | `ObjectInventory -> VerificationPlan -> ReviewPacket -> DatasetVerification + FidelityResult -> CLOSED -> BASELINE_STAGED -> freshness-checked SEALED`, plus inspection/Views; full Adapter final-profile sealing and primary-workflow cutover remain pending |
 | M4 — publish atomically | pending | pure projectors, `baseCanonicalDigest`, path claims, CAS, conflict/replan/reseal |
 | M5 — separate Release | partial | standalone no longer mutates metadata and the base architecture contract checker is active; immutable published-input Release, attempt receipts, generated views, and Release-specific contract checks remain pending |
 

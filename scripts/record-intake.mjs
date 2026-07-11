@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { createHash } from 'node:crypto';
 import { existsSync } from 'node:fs';
-import { mkdir, readFile, readdir, rename, rm, stat, writeFile } from 'node:fs/promises';
+import { readFile, readdir, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
@@ -11,6 +11,7 @@ import {
   SOURCE_AVAILABILITY,
   createDatasetBuild,
 } from './lib/dataset-build.mjs';
+import { initializeDatasetBuild } from './lib/dataset-build-store.mjs';
 import { projectPath, rootDir } from './lib/project.mjs';
 
 const BUILD_ROOT = projectPath('output', 'builds');
@@ -117,21 +118,6 @@ async function activeBuildForKey(key) {
   return null;
 }
 
-async function writeManifest(build) {
-  const buildDir = path.join(BUILD_ROOT, build.buildId);
-  const manifestPath = path.join(buildDir, 'manifest.json');
-  await mkdir(BUILD_ROOT, { recursive: true });
-  await mkdir(buildDir, { recursive: false });
-  const temporaryPath = path.join(buildDir, '.manifest.json.tmp');
-  try {
-    await writeFile(temporaryPath, `${JSON.stringify(build, null, 2)}\n`, { flag: 'wx' });
-    await rename(temporaryPath, manifestPath);
-  } finally {
-    await rm(temporaryPath, { force: true });
-  }
-  return manifestPath;
-}
-
 export async function recordIntake(options) {
   const absoluteSource = sourcePath(options.source);
   const relativeSource = path.relative(rootDir, absoluteSource).split(path.sep).join('/');
@@ -166,7 +152,7 @@ export async function recordIntake(options) {
       height: png.height,
     }],
   });
-  const manifestPath = await writeManifest(build);
+  const { manifestPath } = await initializeDatasetBuild(build, { buildRoot: BUILD_ROOT });
   return { build, manifestPath: path.relative(rootDir, manifestPath).split(path.sep).join('/') };
 }
 

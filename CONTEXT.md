@@ -16,6 +16,27 @@ Architecture vocabulary is **Module**, **Interface**, **Implementation**,
 **Locality**. The two current input-type Adapters are Income Statement and
 Revenue Metric.
 
+The current M3 shadow/compatibility safety slice now exercises this build-local
+chain end to end:
+
+```text
+ObjectInventory -> VerificationPlan -> ReviewPacket
+  -> dataset-verification/v1 consistency evidence
+  -> fidelity-run/2 EVIDENCE_READY
+  -> ManualAttestation + RegionDecision + FeedbackLedger
+  -> FidelityResult -> CLOSED -> BASELINE_STAGED -> fresh SEALED
+```
+
+`verify:d3` is read-only diagnostic execution and never records durable
+evidence. `record:fidelity` owns durable automatic evidence; its
+`evidence-ready` result still requires human review and cannot close a Build.
+`record:build` exposes the deep prepare-review, finish-reviewed, stage, seal,
+and inspect operations. A stored `SEALED` receipt is historical fact, while
+inspection computes effective freshness: changing an authored file makes a
+historical `SEALED` Build effectively `AUTHORED`. `CloseoutReport`, Task
+information, and Loop Fidelity Summary are generated Views over structured
+Build objects, not acceptance inputs.
+
 Load context in this order:
 
 1. [Architecture index](docs/architecture/README.md)

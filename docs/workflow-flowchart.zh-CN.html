@@ -289,7 +289,7 @@
 </head>
 <body>
 <div style="margin:16px auto 0;max-width:1180px;border:2px solid #b45309;background:#fffbeb;padding:12px 16px;color:#78350f;font:600 14px/1.5 system-ui,sans-serif;">
-  本页是辅助 View，不拥有规则。快速装载架构请先读 <code>CONTEXT.md</code> 与
+  本页是辅助 View，不拥有规则；它只投影属主文档，也不定义或覆盖规则。快速装载架构请先读 <code>CONTEXT.md</code> 与
   <code>docs/architecture/README.md</code>；当前操作以
   <code>docs/dynamic-dataset-workflow.md</code> 和 <code>docs/fidelity-loop-rules.md</code>
   为准。计数、命令或状态与属主文档冲突时，以属主文档为准。
@@ -342,7 +342,7 @@
 </div>
 
 <section class="overview" aria-label="一屏总览">
-  <p class="ov-essence"><b>守卫查重</b> → <b>纯数据 SSOT</b> → <b>视图 Adapter</b> → <b>渲染验证收敛</b> → <b>提交与汇报</b></p>
+  <p class="ov-essence"><b>守卫查重</b> → <b>纯数据 SSOT</b> → <b>视图 Adapter</b> → <b>只读诊断 + 人工 Review</b> → <b>Build 收尾</b></p>
   <div class="ov-flow">
     <div class="ov-endcap">输入<br />源图 PNG<br /><code>input/pending</code></div>
     <span class="ov-arrow">→</span>
@@ -383,26 +383,26 @@
     <span class="ov-arrow">→</span>
     <a class="ov-card" href="#phase-4">
       <span class="pnum">P4</span>
-      <span class="pname">验证</span>
+      <span class="pname">验证与 Review</span>
       <ul>
-        <li>聚合门：语法 / SSOT / i18n / 每语言渲染</li>
-        <li>G1–G12 自动门槛 + sweep×3 人工</li>
+        <li>只读诊断：语法 / SSOT / i18n / 每语言渲染</li>
+        <li>Build-bound evidence-ready + 人工 attestation</li>
       </ul>
-      <span class="pcmd"><code>verify:dataset</code></span>
-      <span class="ov-tags"><span class="ov-tag loop">↺ d3 保真循环 3–5 轮收敛</span></span>
+      <span class="pcmd"><code>verify:dataset · record:verification · record:fidelity</code></span>
+      <span class="ov-tags"><span class="ov-tag loop">↺ d3 保真循环；机器通过不等于 accepted</span></span>
     </a>
     <span class="ov-arrow">→</span>
     <a class="ov-card" href="#phase-5">
       <span class="pnum">P5</span>
       <span class="pname">收尾</span>
       <ul>
-        <li>选中的 pending item 已记录并解决</li>
-        <li><code>check</code> 全绿 + 约定提交 + 汇报</li>
+        <li>stage baseline → fresh seal → closeout gate</li>
+        <li><code>check</code> 全绿 + 提交 + 汇报；尚非 Publication</li>
       </ul>
-      <span class="pcmd"><code>data(&lt;key&gt;)</code></span>
+      <span class="pcmd"><code>record:build · verify:closeout</code></span>
     </a>
     <span class="ov-arrow">→</span>
-    <div class="ov-endcap out">产物<br />已验证数据集<br />+ 归档</div>
+    <div class="ov-endcap out">产物<br />fresh SEALED Build<br />（非 PUBLISHED）</div>
   </div>
   <p class="ov-note">P0 环境准备（一次性安装）与全部判定细节见第 2 层；颜色与徽章含义见上方图例。</p>
 </section>
@@ -706,16 +706,16 @@ pnpm exec playwright install chromium</span>
 <section class="phase" id="phase-4">
   <div class="phase-head">
     <span class="num">P4</span>
-    <h2>验证<span class="en">聚合门 + 人工保真循环</span></h2>
+    <h2>验证与 Review<span class="en">只读诊断 + durable evidence + human decision</span></h2>
     <span class="owner">出处：<code>docs/fidelity-loop-rules.md</code>（循环 SSOT）· <code>scripts/verify-dataset.mjs</code></span>
   </div>
   <div class="flow">
     <div class="node">
       <span class="sid">P4.1</span>
       <div class="badges"><span class="badge auto">自动</span><span class="badge sub">Subagent 可代</span></div>
-      <h3>单数据集聚合门</h3>
+      <h3>只读单数据集聚合诊断</h3>
       <span class="cmd">pnpm verify:dataset -- &lt;dataset-key&gt;</span>
-      <p>按序执行，任一步失败即终止：</p>
+      <p>按序执行，任一步失败即终止；全程不写 durable evidence：</p>
       <ul>
         <li>① <code>node --check</code>：dataset 与支持数据文件语法；</li>
         <li>② <code>verify:ssot</code>：SSOT ↔ dataset 数值奇偶、注册奇偶、货币/单位 + FX 覆盖；</li>
@@ -724,7 +724,7 @@ pnpm exec playwright install chromium</span>
         <li>⑤ <code>verify:d3 &lt;key&gt;</code>：默认语言渲染 + 自动硬门槛；</li>
         <li>⑥ <code>verify:d3 &lt;key&gt; --language zh</code>：每种非默认语言各渲染一次。</li>
       </ul>
-      <p class="dim">聚合脚本内部按序执行；人工轮次单独调 <code>verify:d3</code> 时，不同语言的渲染互相独立，可并行 shell 执行。</p>
+      <p class="dim">聚合脚本内部按序执行；<code>verify:d3</code> 即使带 <code>--focus</code> 也只是只读 diagnostic，不归档、不增加 manual round。机器全绿只能说明自动检查通过，不能写 accepted 或 converged。</p>
     </div>
     <div class="arrow tall"></div>
     <div class="loop">
@@ -733,13 +733,16 @@ pnpm exec playwright install chromium</span>
         <div class="node">
           <span class="sid">P4.2</span>
           <div class="badges"><span class="badge auto">自动</span><span class="badge sub">采集可代</span></div>
-          <h3>每轮渲染 + 自动哨兵 + 归档</h3>
-          <span class="cmd">pnpm verify:d3 -- &lt;dataset-key&gt; --focus "&lt;本轮主检查方向&gt;" [--keep]</span>
+          <h3>准备 Review + 记录 Build-bound 证据</h3>
+          <span class="cmd">pnpm record:build -- prepare-review &lt;build-id&gt; --input &lt;review-input.json&gt;<br />pnpm record:verification -- &lt;build-id&gt; --json<br />pnpm record:fidelity -- &lt;dataset-key&gt; --build &lt;build-id&gt; --focus "&lt;本轮主检查方向&gt;" [--language &lt;code&gt;]</span>
           <ul>
+            <li><code>prepare-review</code> 固化 authored artifacts、对象盘点与 Verification Plan，返回供 <code>review.json</code> 绑定的 <code>reviewToken</code>；</li>
+            <li><code>record:verification</code> 运行非渲染一致性 profile，返回的 Build-bound reference 是 finish 的必填输入；</li>
             <li>起本地静态服务器 → 最小 harness 执行 <code>SankeyEngine.render('#chart', data)</code> → 截取 <code>#chart &gt; svg</code>；</li>
             <li>运行<b>自动门槛 G1–G12</b>：完整定义只见 <code>docs/fidelity-loop-rules.md</code>；失败先修，再谈保真；</li>
             <li>计算全图 + DOM 派生分区域 Diff：<code>mae</code> / <code>similarity</code> / <code>changedPixelRatio</code> / <code>diffBoundingBox</code> / <code>regions[]</code>；</li>
-            <li>归档：<code>output/compare/&lt;key&gt;/&lt;round&gt;-&lt;improvement&gt;-&lt;focus&gt;/</code>（候选图、Diff 图、metrics JSON）；<code>compare/</code> 只是临时 scratch，<code>--keep</code> 后须 <code>sh scripts/clean-compare.sh</code>。</li>
+            <li>每种 required language 各记录一次 <code>evidence-ready</code> archive；只有带当前 Build、authored digest 与 plan digest 的 identity 才能进入新闭环。无 <code>--build</code> 的显式-focus <code>record:fidelity</code> 仅为旧兼容证据；</li>
+            <li><code>compare/</code> 只是当前 run 的临时 scratch；durable archive 本身仍不是人工 accepted。</li>
           </ul>
         </div>
         <div class="arrow"></div>
@@ -759,24 +762,25 @@ pnpm exec playwright install chromium</span>
           <span class="sid">P4.4</span>
           <div class="badges"><span class="badge manual">人工</span></div>
           <h3>每轮闭环产物</h3>
+          <span class="cmd">pnpm record:build -- finish &lt;build-id&gt; --review &lt;review.json&gt;</span>
           <ul>
             <li><b>误差分类</b>：必须死磕 / 需要优化 / 可接受残留 / 无语义跳过（无语义内容不得为压 Diff 补画）；</li>
             <li><b>红框参考图</b>：以原图为底，红框圈完整语义区域，存 <code>…/&lt;key&gt;-attention-reference.png</code>；无开放问题则在 Task 信息中记「无开放红框」；</li>
-            <li><b>Task 信息</b>：轮次、archive、主方向、已冻结、重开、backlog、红框 region 清单（含违反规则编号）、命中清单核对状态、下一轮方向；</li>
-            <li><b>用户反馈沉淀</b>：先归因（规则缺失 / 执行缺口 / 口径模糊）——执行缺口须按「重复触发升级」推进自动化状态或纳入清单产物，不得只加长规则文本；可泛化经验更新 <code>docs/fidelity-loop-rules.md</code> 的编号规则，数据集特例记入 Task 信息，然后才能声称已处理；反馈处理轮以反馈项为主方向定向优化；</li>
-            <li><b>退出置信度判断</b>：基于门槛 / B 系列盲点 / 命中清单核对状态 / 开放红框 / backlog 回答「人工现在 Review 是否还会提意见」——高置信立即收敛不再开轮，低置信下一轮只打最高风险项。</li>
+            <li><b>结构化 Review</b>：持久化稳定 <code>RegionDecision</code>、attention、risk checks、Interface Matrix 与 <code>ManualAttestation</code>；Task information 由 <code>record:build inspect</code> 从这些事实派生，禁止手填 status/confidence；</li>
+            <li><b>用户反馈沉淀</b>：写入带稳定 <code>FB-*</code>/<code>REG-*</code>、归因、before/after evidence、remedy 与 automationDisposition 的 <code>FeedbackRecord</code>；第二次跨 Build execution-gap 未升级自动化会阻断 closure；</li>
+            <li><b>finish 判定</b>：校验 reviewToken、dataset-verification reference、每语言 fidelity evidence、human attestation、regions、attention、risk、feedback 与 Matrix。缺 attestation 是 <code>review-pending</code>，reject/block 均不关闭 Build。</li>
           </ul>
         </div>
         <div class="arrow"></div>
-        <div class="decision" style="min-width:340px;">D4 · 收敛标准全部满足？<span class="q-note">硬门槛通过 + 死磕清单清空 + 命中清单关闭 + backlog 关闭 + 本地化通过 + Task/红框完整（15 条，见附录 B）</span></div>
-        <div class="loop-back">未收敛 → 下一轮 sweep 前进或升级深查；死磕清单已空且预计 similarity 提升 &lt; 0.0005 时禁止再开新轮</div>
+        <div class="decision" style="min-width:340px;">D4 · 人工 Review accepted 且 blockers 全关？<span class="q-note">硬门槛通过 + attestation 存在 + regions/risk/feedback/Matrix 全闭合 + 本地化通过 + Task/红框完整</span></div>
+        <div class="loop-back">review-pending / rejected / blocked → 修复后重新 prepare-review，旧 attestation 不得跨 digest 沿用；死磕清单已空且预计 similarity 提升 &lt; 0.0005 时禁止再开新轮</div>
       </div>
     </div>
     <div class="arrow tall"></div>
     <div class="node artifact">
       <span class="sid">P4.5</span>
-      <h3>循环收敛</h3>
-      <p>剩余差异记录为可接受残留 / 无语义跳过；冻结清单与最新 Task 信息完整；产出面向最终回复的 <b>Loop Fidelity Summary</b>（5–9 行）。</p>
+      <h3>人工 Review accepted → Build <code>CLOSED</code></h3>
+      <p>只有 fresh accepted <code>FidelityResult</code> 才能关闭 Build；机器 evidence-ready 不够。<code>inspect</code> 从同一份 <code>CloseoutReport</code> 派生 Task information 与 <b>Loop Fidelity Summary</b>，不再维护第二套口头结论。</p>
     </div>
   </div>
 </section>
@@ -792,15 +796,23 @@ pnpm exec playwright install chromium</span>
   <div class="flow">
     <div class="node">
       <span class="sid">P5.1</span>
-      <div class="badges"><span class="badge manual">人工</span></div>
-      <h3>选中的 <code>input/pending/</code> item 已记录并解决</h3>
+      <div class="badges"><span class="badge mixed">混合</span></div>
+      <h3>Build-local baseline stage → fresh seal → close-out gate</h3>
+      <span class="cmd">pnpm record:build -- stage-baseline &lt;build-id&gt; --input &lt;baseline.json&gt;<br />pnpm verify:dataset -- &lt;dataset-key&gt;<br />pnpm record:build -- seal &lt;build-id&gt;<br />pnpm record:build -- inspect &lt;build-id&gt; [--json]<br />pnpm verify:closeout -- &lt;build-id&gt; [--json]</span>
+      <ul>
+        <li>stage 只供未来回归，不能反过来证明产生它的 Build；Revenue Metric Adapter 显式记录 baseline <code>notApplicable</code>；</li>
+        <li><code>seal</code> 不接收人工拼装的 verification JSON，而是内部重算当前 artifact freshness；任一 exact digest 已变即拒绝；</li>
+        <li><code>verify:closeout</code> 只读要求 historical/effective 都为 <code>SEALED</code>、fresh 且 human review accepted。</li>
+      </ul>
+      <p class="dim"><code>SEALED</code> 不是 <code>PUBLISHED</code>：M4 原子 Publication 仍未实现。现有 <code>record:baseline</code> 若因兼容 runtime 仍需执行，它是新 close-out verdict 之外的 transitional canonical mutation，不能作为本 Build 的通过证据。</p>
     </div>
     <div class="arrow"></div>
     <div class="node">
       <span class="sid">P5.2</span>
       <div class="badges"><span class="badge auto">自动</span></div>
-      <h3>快速聚合门全绿</h3>
+      <h3>选中的 pending item 已解决 + 快速聚合门全绿</h3>
       <span class="cmd">pnpm check</span>
+      <p>确认选中的 <code>input/pending/</code> item 已由 Build 记录并按兼容流程解决；共享队列可以保留其他 item。</p>
       <p>= 全仓 JS 语法扫描 → 单元测试 → <code>check:pending</code> → <code>verify:architecture</code> → <code>verify:app-globals</code> → <code>verify:dataset-manifest</code> → <code>verify:ssot</code> → <code>verify:i18n</code> → <code>verify:dataset-file-metadata</code>（秒级、无渲染）。</p>
       <p class="dim">`pnpm check` 在任何 checkout（云端 / CI / 新克隆）上都应全绿：local-only 源图通过 <code>sourceImage.localOnly: true</code> 显式豁免；metadata 记录 git 提交时间（首次提交前回退 mtime），可在任意机器上确定性再生成。提交新数据集后需重跑 <code>pnpm update:dataset-file-metadata</code> 并提交刷新结果。</p>
     </div>
@@ -897,8 +909,9 @@ pnpm exec playwright install chromium</span>
         <tr><td><code>src/icons.js</code> / <code>meta.logoSvg</code></td><td>可复用 vector 图标 / 一次性 logo</td><td>P2.3d</td></tr>
         <tr><td><code>data/datasets/&lt;key&gt;.js</code></td><td>Sankey 视图 adapter（nodes/links/layout + i18n overlay）</td><td>P3.2–3.3</td></tr>
         <tr><td><code>data/dataset-manifest.js</code></td><td>dataset 注册（生成物，<code>pnpm sync:index-datasets</code>）</td><td>P3.4</td></tr>
-        <tr><td><code>output/compare/&lt;key&gt;/&lt;round&gt;-&lt;improvement&gt;-&lt;focus&gt;/</code></td><td>每轮归档：候选图、Diff 图、metrics JSON、红框参考图</td><td>P4.2–4.4</td></tr>
-        <tr><td><code>compare/</code></td><td>临时 scratch（<code>--keep</code> 后用 <code>scripts/clean-compare.sh</code> 清理）</td><td>P4.2</td></tr>
+        <tr><td><code>output/builds/&lt;build-id&gt;/</code></td><td>build-local manifest、ObjectInventory、VerificationPlan、review packet/token、FidelityResult、Feedback Ledger、baseline stage 与 seal receipts</td><td>P1.3、P4.2–P5.1</td></tr>
+        <tr><td><code>output/compare/&lt;key&gt;/&lt;round&gt;-&lt;improvement&gt;-&lt;focus&gt;/</code></td><td><code>record:fidelity</code> durable evidence：候选图、Diff、metrics、Interface audit/contact sheet 与 identity；Build-bound 时为 <code>evidence-ready</code>，不是 human accepted</td><td>P4.2–4.4</td></tr>
+        <tr><td><code>compare/runs/</code></td><td>d3 diagnostic/evidence 的 per-run 临时 scratch；<code>verify:d3</code> 不把它晋级为 archive</td><td>P4.1–4.2</td></tr>
         <tr><td><code>data/dataset-file-metadata.js</code></td><td>Recently-updated 排序用的生成 metadata（本地维护，云端不重生成）</td><td>P5.2</td></tr>
         <tr><td><code>data/revenue-metrics.js</code></td><td>收入指标纯数据 SSOT 记录（B 类输入的数据支线终点，无渲染产物）</td><td>P2.B</td></tr>
       </tbody>
@@ -932,8 +945,8 @@ pnpm exec playwright install chromium</span>
       <li><b>G0 串行门</b>：P1 守卫 → 定 key → 移图。守卫未过，一切不得开始；停止条件终止全程。</li>
       <li><b>G1 并行准备</b>：P2.0 粗盘点先行定范围，随后三轨并行——Track A 数据（P2.1 公司档案 → P2.2 损益表 SSOT 及 i18n 字段）∥ Track B 视觉（P3.1 逐对象精细测量）∥ Track C 图标（P2.3 子循环，条件）。</li>
       <li><b>G2 串行编写</b>：P3.2 adapter（需 A 数值 + B 几何）→ P3.3 dataset overlay（需 adapter 定稿文案）→ P3.4 注册；Track C 收敛后随时接入。</li>
-      <li><b>G3 验证</b>：P4.1 聚合门 → 保真循环。轮次间串行；轮内并行试值（同轮归档一次）、每语言渲染可并行 shell。</li>
-      <li><b>G4 串行收尾</b>：P5。</li>
+      <li><b>G3 验证与 Review</b>：P4.1 只读诊断 → prepare-review → Build-bound evidence → human finish。轮次间串行；轮内并行试值、每语言 evidence 可并行 shell；只有人工 accepted 结果可关闭 Build。</li>
+      <li><b>G4 串行收尾</b>：P5 build-local baseline stage → fresh seal → read-only closeout → check / 提交 / 汇报；不冒充尚未实现的 M4 Publication。</li>
     </ul>
     <p><b>难度分派</b>（分派不降门槛：同一套 verifier 把关，主 Agent 复核并对结果负责）：</p>
     <table class="map">
@@ -948,10 +961,10 @@ pnpm exec playwright install chromium</span>
         <tr><td>P3.1–3.2 精细测量 + adapter 编写</td><td>高</td><td>主 Agent</td></tr>
         <tr><td>P3.3 i18n overlay 初稿</td><td>低–中</td><td>Subagent 可代；主 Agent 复核高风险串（R&amp;D、SG&amp;A、金额后缀、中英混排品牌）</td></tr>
         <tr><td>P3.4 注册 / <code>sync:index-datasets</code></td><td>低</td><td>皆可</td></tr>
-        <tr><td>P4.1 各 verifier 命令执行</td><td>低</td><td>皆可（廉价 shell 命令）</td></tr>
+        <tr><td>P4.1 各只读 verifier 命令执行</td><td>低</td><td>皆可（廉价 shell 命令；不归档、不作人工结论）</td></tr>
         <tr><td>P4 循环：分诊、修复、冻结/收敛判定</td><td>高</td><td>主 Agent</td></tr>
         <tr><td>P4 循环：渲染/指标采集、bbox 报告收割、按已确认清单画红框</td><td>低</td><td>Subagent 可代——region 与分类先由主 Agent 定</td></tr>
-        <tr><td>P5 收尾、提交、汇报</td><td>中</td><td>主 Agent</td></tr>
+        <tr><td>P5 baseline stage、seal、closeout、提交、汇报</td><td>中</td><td>主 Agent</td></tr>
       </tbody>
     </table>
   </div>
