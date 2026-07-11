@@ -33,6 +33,7 @@
       sourceUrls: [
         'https://www.zillowgroup.com/about-us/',
         'https://investors.zillowgroup.com/financials/annual-reports-and-proxies/default.aspx',
+        'https://investors.zillowgroup.com/news-and-events/news/news-details/2026/Zillow-Group-Reports-First-Quarter-2026-Financial-Results/default.aspx',
         'https://investors.zillowgroup.com/news-and-events/news/news-details/2026/Zillow-Group-Reports-Fourth-Quarter-and-Full-Year-2025-Financial-Results/default.aspx',
         'https://stockanalysis.com/stocks/zg/market-cap/',
       ],

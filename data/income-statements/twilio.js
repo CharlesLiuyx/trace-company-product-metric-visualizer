@@ -132,6 +132,85 @@
           },
         },
       },
+    },
+    {
+      key: 'twilio-q1-fy26',
+      company: 'Twilio',
+      period: 'Q1 FY26',
+      periodNote: 'Ending Mar. 2026',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/twilio-q1-fy26.png',
+      roundingTolerance: 6.5,
+      revenue: {
+        total: 1407,
+        notes: ['+20% Y/Y'],
+        items: [
+          { id: 'united_states', label: 'United States', value: 899, notes: ['+20% Y/Y'] },
+          { id: 'international', label: 'International', value: 508, notes: ['+20% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 723 },
+        operatingExpenses: {
+          total: 577,
+          notes: ['R&D, S&M, and G&A line items sum to $576M because the source chart rounds each item.'],
+          items: [
+            { id: 'rnd', label: 'R&D', value: 262, notes: ['19% of revenue', '(3pp) Y/Y'] },
+            { id: 'sm', label: 'S&M', value: 211, notes: ['15% of revenue', '(3pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 103, notes: ['7% of revenue', '(1pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 12 },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: {
+        total: 5,
+        items: [{ id: 'other', label: 'Other', value: 5 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 684, notes: ['49% margin', '(1pp) Y/Y'] },
+        operating: {
+          id: 'operating_profit', label: 'Operating profit', value: 108,
+          notes: ['8% margin', '+6pp Y/Y', 'Gross profit less operating expenses totals $107M; the source chart reports $108M due to rounded line items.'],
+        },
+        net: {
+          id: 'net_profit', label: 'Net profit', value: 90,
+          notes: ['6% margin', '+5pp Y/Y', 'Operating profit less Tax and Other totals $91M; the source chart reports $90M due to rounded line items.'],
+        },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第一季度',
+          periodNote: '截至 2026 年 3 月',
+          revenue: {
+            notes: ['同比 +20%'],
+            items: [
+              { id: 'united_states', label: '美国', notes: ['同比 +20%'] },
+              { id: 'international', label: '国际', notes: ['同比 +20%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              notes: ['研发、销售与市场、管理费用项目因来源图逐项取整合计为 $576M。'],
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 19%', '同比 (3 个百分点)'] },
+                { id: 'sm', label: '销售与市场', notes: ['占收入 15%', '同比 (3 个百分点)'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 7%', '同比 (1 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherExpenses: { items: [{ id: 'other', label: '其他' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 49%', '同比 (1 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 8%', '同比 +6 个百分点', '毛利润减运营费用合计为 $107M；来源图因项目取整报告 $108M 营业利润。'] },
+            net: { label: '净利润', notes: ['利润率 6%', '同比 +5 个百分点', '营业利润减税费和其他项目合计为 $91M；来源图因项目取整报告 $90M 净利润。'] },
+          },
+        },
+      },
     }
   );
 })(window);

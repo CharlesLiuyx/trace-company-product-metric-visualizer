@@ -101,4 +101,85 @@
       },
     }
   );
+
+  ssot.records.push(
+    {
+      key: 'analog-devices-q2-fy26',
+      company: 'Analog Devices',
+      period: 'Q2 FY26',
+      periodNote: 'Ending Apr. 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/analog-devices-q2-fy26.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 3.623465,
+        notes: ['+37% Y/Y'],
+        items: [
+          { id: 'industrial', label: 'Industrial', value: 1.799413, notes: ['+56% Y/Y'] },
+          { id: 'automotive', label: 'Automotive', value: 0.871565, notes: ['+2% Y/Y'] },
+          { id: 'communications', label: 'Communications', value: 0.554728, notes: ['+79% Y/Y'] },
+          { id: 'consumer', label: 'Consumer', value: 0.397759, notes: ['+23% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 1.183667 },
+        operatingExpenses: {
+          total: 1.060118,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 0.509323, notes: ['14% of revenue', '(3pp) Y/Y'] },
+            { id: 'sga', label: 'SG&A', value: 0.36281, notes: ['10% of revenue', '(1pp) Y/Y'] },
+            { id: 'amortization', label: 'Amortization', value: 0.187985, notes: ['5% of revenue', '(2pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.148478 },
+      },
+      otherIncome: {
+        total: 0,
+        items: [],
+      },
+      otherExpenses: {
+        total: 0.054852,
+        items: [{ id: 'interest', label: 'Interest', value: 0.054852 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 2.439798, notes: ['67% margin', '+6pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 1.37968, notes: ['38% margin', '+12pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 1.17635, notes: ['32% margin', '+11pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 4 月',
+          revenue: {
+            notes: ['同比 +37%'],
+            items: [
+              { id: 'industrial', label: '工业', notes: ['同比 +56%'] },
+              { id: 'automotive', label: '汽车', notes: ['同比 +2%'] },
+              { id: 'communications', label: '通信', notes: ['同比 +79%'] },
+              { id: 'consumer', label: '消费者', notes: ['同比 +23%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '销售成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 14%', '同比 (3 个百分点)'] },
+                { id: 'sga', label: '销售及管理', notes: ['占收入 10%', '同比 (1 个百分点)'] },
+                { id: 'amortization', label: '摊销', notes: ['占收入 5%', '同比 (2 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherExpenses: { items: [{ id: 'interest', label: '利息' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 67%', '同比 +6 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 38%', '同比 +12 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 32%', '同比 +11 个百分点'] },
+          },
+        },
+      },
+    }
+  );
 })(window);
