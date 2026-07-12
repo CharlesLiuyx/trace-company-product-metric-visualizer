@@ -39,7 +39,7 @@ const ENFORCEMENT_GROUPS = Object.freeze({
   'build-gate': Object.freeze(['G11']),
   'conditional-gate': Object.freeze([
     'B3', 'B5', 'B6', 'B7', 'B15',
-    'T7', 'T12', 'T13',
+    'T7', 'T13',
     'A6',
     'Z5',
   ]),

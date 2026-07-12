@@ -5,8 +5,8 @@
   "protocols": {
     "datasetBuild": "dataset-build/v1",
     "fidelityRun": "fidelity-run/2",
-    "objectInventory": "object-inventory/v2",
-    "verificationPlan": "verification-plan/v2",
+    "objectInventory": "object-inventory/v3",
+    "verificationPlan": "verification-plan/v3",
     "reviewPacket": "review-packet/v2",
     "datasetVerification": "dataset-verification/v1",
     "interfaceMatrix": "interface-matrix/v1",

@@ -84,6 +84,84 @@
           },
         },
       },
+    },
+    {
+      key: 'dynatrace-q4-fy26',
+      company: 'Dynatrace',
+      period: 'Q4 FY26',
+      periodNote: 'Ending Apr. 2026',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/dynatrace-q4-fy26.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 532,
+        notes: ['+19% Y/Y'],
+        items: [
+          { id: 'subscription', label: 'Subscription', value: 506, notes: ['+19% Y/Y'] },
+          { id: 'service', label: 'Service', value: 26, notes: ['+20% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 101 },
+        operatingExpenses: {
+          total: 393,
+          items: [
+            { id: 'sm', label: 'S&M', value: 183, notes: ['34% of revenue', '(2pp) Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 131, notes: ['25% of revenue', '+1pp Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 60, notes: ['11% of revenue', '(0pp) Y/Y'] },
+            { id: 'other_expense', label: 'Other', value: 19 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 29 },
+      },
+      otherIncome: {
+        total: 10,
+        items: [{ id: 'other_income', label: 'Other', value: 10 }],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 430, notes: ['81% margin', '+0pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 37, notes: ['7% margin', '(3pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 18, notes: ['3% margin', '(6pp) Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第四季度',
+          periodNote: '截至 2026 年 4 月的季度',
+          revenue: {
+            notes: ['同比 +19%'],
+            items: [
+              { id: 'subscription', label: '订阅', notes: ['同比 +19%'] },
+              { id: 'service', label: '服务', notes: ['同比 +20%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'sm', label: '销售与市场', notes: ['占收入 34%', '同比 (2 个百分点)'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 25%', '同比 +1 个百分点'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 11%', '同比 (0 个百分点)'] },
+                { id: 'other_expense', label: '其他' },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: {
+            items: [{ id: 'other_income', label: '其他' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 81%', '同比 +0 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 7%', '同比 (3 个百分点)'] },
+            net: { label: '净利润', notes: ['利润率 3%', '同比 (6 个百分点)'] },
+          },
+        },
+      },
     }
   );
 })(window);

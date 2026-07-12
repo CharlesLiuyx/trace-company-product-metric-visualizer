@@ -38,6 +38,7 @@ test('default fidelity rule contract preserves the complete catalog and feature 
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.B14, 'manual');
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.L11, 'quantified-audit');
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T14, 'manual');
+  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T12, 'manual');
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T16, 'manual');
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.I11, 'manual');
   assert.deepEqual(FIDELITY_RULE_CONTRACT.featureMappings['visible-short-node'], ['T14']);

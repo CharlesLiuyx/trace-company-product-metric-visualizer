@@ -129,8 +129,9 @@ test('node paint audit rejects duplicate semantic node IDs', () => {
   assert.throws(() => assertNodePaintAudit(audit), /duplicate semantic IDs: tax/);
 });
 
-test('node face expectations are compiled from v2 intent and legacy short-node checks', () => {
+test('node face expectations are compiled from v3 intent and legacy short-node checks', () => {
   const expectations = nodeFaceExpectationsFromPlan({
+    protocol: 'verification-plan/v3',
     requiredChecks: [
       { id: 'feature:visible-node-face', evidenceTargets: ['nodes.revenue', 'nodes.tax'] },
       { id: 'feature:visible-short-node', evidenceTargets: ['nodes.tax', 'nodes.interest'] },
@@ -141,7 +142,16 @@ test('node face expectations are compiled from v2 intent and legacy short-node c
   assert.deepEqual(expectations, {
     visible: ['interest', 'revenue', 'tax'],
     hidden: ['balance-anchor'],
+    complete: true,
   });
+});
+
+test('v3 node paint audit rejects every rendered node omitted from inventory intent', () => {
+  const audit = classify([node('revenue'), node('unplanned')]);
+  assert.throws(
+    () => assertNodePaintAudit(audit, { visible: ['revenue'], hidden: [], complete: true }),
+    /unplanned=unclassified/
+  );
 });
 
 function labelAudit(labelBox, nodeBox = { x: 100, y: 100, width: 20, height: 4 }) {

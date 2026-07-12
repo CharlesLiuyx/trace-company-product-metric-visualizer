@@ -514,7 +514,7 @@ pnpm exec playwright install chromium</span>
       <h3>粗看全图：输入分型 + 对象盘点（先于一切精细工作）</h3>
       <ul>
         <li><b>分型</b>：对照对象类型清单（附录 D / §Object Taxonomy）判定输入类型——A 损益表 Sankey 信息图（标准 / <code>-by-segment</code> / <code>-by-bu</code> 变体）、B 收入指标时间序列（如 ARR）、或未识别新类型；</li>
-        <li><b>盘点</b>：持久化 <code>object-inventory/v2</code>；按类型清单枚举全部对象，每个对象记录<b>渲染目标 / 仅数据 / 有意跳过</b>、authored mapping、risk features 与来源证据；</li>
+        <li><b>盘点</b>：持久化 <code>object-inventory/v3</code>；按类型清单枚举全部对象，每个对象记录<b>渲染目标 / 仅数据 / 有意跳过</b>、authored mapping、risk features 与来源证据；</li>
         <li>盘点结果下游复用：SSOT 完整性核对（P2.2）、图标 crop 范围（P2.3）、label 归组（P3.2）、i18n 覆盖（P3.3）、汇报中的对象对账；</li>
         <li>之后才允许进入逐对象精细测量（P3.1）。</li>
       </ul>
@@ -659,7 +659,7 @@ pnpm exec playwright install chromium</span>
       <span class="sid">P3.1</span>
       <div class="badges"><span class="badge manual">人工</span></div>
       <h3>Preflight（写 adapter 之前）——粗盘点之后的第二遍</h3>
-      <p>以 <b>P2.0 的 <code>object-inventory/v2</code></b> 为输入逐对象测量，不重新推导对象列表；直接把 node、link/socket、label、annotation 和 reference Interface Matrix 事实写入 authored/review 输入，不能先粗排再靠多次 evidence run 逼近。字段与通过标准只见 <code>docs/fidelity-loop-rules.md</code> §2。</p>
+      <p>以 <b>P2.0 的 <code>object-inventory/v3</code></b> 为输入逐对象测量，不重新推导对象列表；直接把 node、link/socket、label、annotation 和 reference Interface Matrix 事实写入 authored/review 输入，不能先粗排再靠多次 evidence run 逼近。字段与通过标准只见 <code>docs/fidelity-loop-rules.md</code> §2。</p>
     </div>
     <div class="arrow"></div>
     <div class="node data">
@@ -732,7 +732,7 @@ pnpm exec playwright install chromium</span>
           <h3>准备 Review + 记录 Build-bound 证据</h3>
           <span class="cmd">pnpm record:build -- prepare-review &lt;build-id&gt; --input &lt;review-input.json&gt;<br />pnpm record:verification -- &lt;build-id&gt; --json<br />pnpm record:fidelity -- &lt;dataset-key&gt; --build &lt;build-id&gt; --focus "&lt;sweep-stage&gt;" [--language &lt;code&gt;]</span>
           <ul>
-            <li><code>prepare-review</code> 固化 authored artifacts、<code>object-inventory/v2</code> 与 <code>verification-plan/v2</code>，返回供 <code>review.json</code> 绑定的 <code>reviewToken</code>；</li>
+            <li><code>prepare-review</code> 固化 authored artifacts、<code>object-inventory/v3</code> 与 <code>verification-plan/v3</code>，返回供 <code>review.json</code> 绑定的 <code>reviewToken</code>；</li>
             <li><code>record:verification</code> 独立运行非渲染一致性 profile；它不是每次 raster evidence run 的一部分，返回的 Build-bound reference 是 finish 的必填输入；</li>
             <li>起本地静态服务器 → 最小 harness 执行 <code>SankeyEngine.render('#chart', data)</code> → 截取 <code>#chart &gt; svg</code>；</li>
             <li>运行 Plan 选中的 <b>render gates</b>；G11 由上一项独立 <code>record:verification</code> 证据提供。完整定义只见 <code>docs/fidelity-loop-rules.md</code>；</li>

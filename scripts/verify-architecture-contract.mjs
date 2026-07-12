@@ -88,7 +88,10 @@ async function verifyFidelityRuleContract({ workflow, flowchart }) {
   const featureMappings = Object.fromEntries(
     Object.entries(FEATURE_REQUIRED_CHECKS)
       .sort(([left], [right]) => left.localeCompare(right))
-      .map(([feature, check]) => [feature, [...check.ruleIds].sort((left, right) => left.localeCompare(right))])
+      .map(([feature, configured]) => {
+        const checks = Array.isArray(configured) ? configured : [configured];
+        return [feature, checks.flatMap((check) => check.ruleIds).sort((left, right) => left.localeCompare(right))];
+      })
   );
   assert.deepEqual(
     featureMappings,

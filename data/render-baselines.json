@@ -267,6 +267,12 @@
       "width": 2667,
       "height": 1500
     },
+    "axon-q1-fy26": {
+      "similarity": 0.966351,
+      "mae": 8.5805,
+      "width": 2667,
+      "height": 1500
+    },
     "axon-q4-fy25": {
       "similarity": 0.968377,
       "mae": 8.0639,
@@ -1536,6 +1542,12 @@
     "snap-q4-fy25": {
       "similarity": 0.972227,
       "mae": 7.0822,
+      "width": 2667,
+      "height": 1500
+    },
+    "snowflake-q1-fy27": {
+      "similarity": 0.963366,
+      "mae": 9.3417,
       "width": 2667,
       "height": 1500
     },

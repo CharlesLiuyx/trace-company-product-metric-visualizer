@@ -147,7 +147,7 @@ returns.
      subloop, no d3 fidelity loop (`verify:dataset` skips render for
      revenue-metric keys).
    - Enumerate every object instance against that type's checklist and persist
-     it as `ObjectInventory` (`object-inventory/v2`): stable lowercase object
+     it as `ObjectInventory` (`object-inventory/v3`): stable lowercase object
      ID, kind, `render` / `data-only` / `skip` disposition, authored mapping,
      required locales, render-risk features, source evidence, and a reason for
      every skip. A prose list or only three counts is not durable inventory.
@@ -156,6 +156,10 @@ returns.
      marks short visible faces, while `specified-label-weight` records a
      source-backed heading weight. The full feature/evidence contract lives in
      `docs/fidelity-loop-rules.md` §2; do not restate its visual tests here.
+     Treat `visible-node-face` as the conservative default. `hidden-anchor` is
+     an exception that must satisfy the structured native-pixel confirmation
+     contract and compile both candidate-paint automation and an independent
+     global manual source-confirmation check.
      The inventory drives SSOT
      completeness (step 6 cross-check), icon crop scope (step 7), label
      grouping (step 8), i18n coverage (step 9), and the skip list — record
@@ -250,15 +254,16 @@ returns.
 
         pnpm record:build -- prepare-review <build-id> --input <review-input.json>
 
-    This records the `AUTHORED` snapshot, compiles `verification-plan/v2`,
+    This records the `AUTHORED` snapshot, compiles `verification-plan/v3`,
     and emits a content-addressed `ReviewPacket` plus its
     printed `reviewToken`. Keep that token: the finish JSON must cite it
     (`packetDigest` remains compatibility input only). The Plan expands
     ObjectInventory features into mandatory checks with enforcement, object
     and locale scope; callers cannot omit a hit or invent `notApplicable`.
-    Historical v1 inventories, Plans, Packets, and Results remain inspectable,
-    but an unfinished v1 review must rerun this step to create v2 inventory,
-    Plan and Packet inputs before `finish`; there is no lenient close-out path.
+    Historical v1/v2 inventories and Plans, plus historical Packets and Results,
+    remain inspectable, but an unfinished v1/v2 review must rerun this step to
+    create v3 inventory and Plan inputs before `finish`; there is no lenient
+    close-out path.
 12. Run `pnpm verify:dataset -- <dataset-key>` for read-only diagnostics, then
     record Build-bound consistency evidence and keep the returned object
     reference for finish:
@@ -565,6 +570,8 @@ In the final response, include:
   recorded as dataset-specific exceptions.
 - For dataset or renderer work containing short nodes: report expected visible
   face count, confirmed visible face count, T12 hidden-anchor count, and
-  unclassified count per required locale. Any mismatch or nonzero
+  unclassified count per required locale. For every nonzero hidden-anchor
+  count, also report the bound native-pixel evidence and the independent
+  source-confirmation decision. Any mismatch or nonzero
   unclassified count must be reported as open, not converged.
 - Any commands that could not be run.

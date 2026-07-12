@@ -88,13 +88,57 @@ async function normalizeArtifacts(artifacts, projectRoot) {
   return normalized.sort((left, right) => left.path.localeCompare(right.path));
 }
 
+function assertHiddenAnchorEvidenceBound(build, inventory, artifacts) {
+  const hiddenObjects = inventory.objects.filter((object) => object.features.includes('hidden-anchor'));
+  if (hiddenObjects.length === 0) return;
+
+  const sourceByLocator = new Map();
+  for (const source of build.sources || []) {
+    for (const locator of [source.uri, source.processingUri, source.processedUri].filter(Boolean)) {
+      sourceByLocator.set(locator, source);
+    }
+  }
+  const referenceArtifacts = new Map(
+    artifacts.filter((artifact) => artifact.role === 'reference-image')
+      .map((artifact) => [artifact.path, artifact])
+  );
+
+  for (const object of hiddenObjects) {
+    const evidence = object.featureEvidence['hidden-anchor'];
+    const sourceLocator = evidence.locator.split('#', 1)[0];
+    const source = sourceByLocator.get(sourceLocator);
+    invariant(
+      source,
+      'HIDDEN_ANCHOR_SOURCE_MISMATCH',
+      `Hidden anchor ${object.id} crop locator is not bound to a Build Source: ${sourceLocator}`
+    );
+    const artifact = referenceArtifacts.get(sourceLocator);
+    invariant(
+      artifact && artifact.digest === source.digest && evidence.digest === source.digest,
+      'HIDDEN_ANCHOR_SOURCE_DIGEST_MISMATCH',
+      `Hidden anchor ${object.id} must bind its crop, reference-image artifact, and Build Source to one digest`
+    );
+    invariant(
+      Number.isInteger(source.width) && Number.isInteger(source.height) && source.width > 0 && source.height > 0,
+      'HIDDEN_ANCHOR_SOURCE_DIMENSIONS_REQUIRED',
+      `Hidden anchor ${object.id} requires Build Source dimensions`
+    );
+    const [x, y, width, height] = evidence.referenceBBox;
+    invariant(
+      x + width <= source.width && y + height <= source.height,
+      'HIDDEN_ANCHOR_REFERENCE_BBOX_OUT_OF_BOUNDS',
+      `Hidden anchor ${object.id} referenceBBox exceeds the Build Source dimensions`
+    );
+  }
+}
+
 function planForFidelityResult(authored) {
   const plan = authored?.verificationPlan;
   invariant(plan, 'VERIFICATION_PLAN_REQUIRED', 'The authored snapshot has no VerificationPlan');
   invariant(
-    plan.schemaVersion === 2 && plan.protocol === 'verification-plan/v2',
+    plan.schemaVersion === 3 && plan.protocol === 'verification-plan/v3',
     'VERIFICATION_PLAN_STALE',
-    'Finishing review requires VerificationPlan v2; prepare a fresh review packet'
+    'Finishing review requires VerificationPlan v3; prepare a fresh review packet'
   );
   return {
     digest: authored.verificationPlanDigest || plan.digest || plan.planDigest,
@@ -117,6 +161,7 @@ export async function prepareBuildReview(input, options = {}) {
     requiredLocales: input.requiredLocales,
   });
   const artifacts = await normalizeArtifacts(input.artifacts, projectRoot);
+  assertHiddenAnchorEvidenceBound(build, inventory, artifacts);
   const [inventoryReference, planReference] = await Promise.all([
     recordBuildObject(build.buildId, 'object-inventory', inventory, { buildRoot, projectRoot }),
     recordBuildObject(build.buildId, 'verification-plan', verificationPlan, { buildRoot, projectRoot }),

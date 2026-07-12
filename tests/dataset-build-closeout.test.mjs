@@ -42,6 +42,85 @@ async function fixture(t, key = 'example-q4-fy25') {
   return { root, buildRoot, build, artifact };
 }
 
+test('prepare-review binds a hidden-anchor claim to the exact Build Source digest and bbox', async (t) => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'dataset-build-hidden-anchor-test-'));
+  const buildRoot = path.join(root, 'output', 'builds');
+  const key = 'hidden-anchor-q4-fy25';
+  const sourcePath = `input/processing/${key}.png`;
+  const adapterPath = `data/datasets/${key}.js`;
+  const sourceBytes = 'source-image-bytes';
+  const sourceDigest = bytesDigest(sourceBytes);
+  await mkdir(path.join(root, 'input', 'processing'), { recursive: true });
+  await mkdir(path.join(root, 'data', 'datasets'), { recursive: true });
+  await writeFile(path.join(root, sourcePath), sourceBytes);
+  await writeFile(path.join(root, adapterPath), 'export const marker = 1;\n');
+  const build = createDatasetBuild({
+    key,
+    adapter: 'income-statement',
+    baseCanonicalDigest: digest('canonical-v1'),
+    sources: [{
+      uri: `input/pending/${key}.png`,
+      processingUri: sourcePath,
+      processedUri: `input/processed/${key}.png`,
+      availability: 'local-only',
+      digest: sourceDigest,
+      width: 400,
+      height: 300,
+    }],
+  }, { now, id: () => `build-${key}` });
+  await initializeDatasetBuild(build, { buildRoot });
+  t.after(() => rm(root, { recursive: true, force: true }));
+
+  const hiddenInventory = (evidenceDigest) => ({
+    datasetKey: key,
+    objects: [{
+      id: 'node:guide-end',
+      kind: 'hidden-anchor',
+      disposition: 'render',
+      mapping: [{ role: 'render', target: 'nodes.guide_end' }],
+      features: ['hidden-anchor'],
+      featureEvidence: {
+        'hidden-anchor': {
+          source: 'reference-crop',
+          locator: `${sourcePath}#guide-end`,
+          digest: evidenceDigest,
+          referenceBBox: [120, 200, 72, 1],
+          inspectionMethod: 'native-scale-crop-and-pixel-scan',
+          classificationClaim: 'no-visible-node-face-observed',
+          reason: 'The native crop contains only a guide endpoint and no independent node face.',
+        },
+      },
+    }],
+  });
+  const artifacts = [
+    { path: sourcePath, role: 'reference-image' },
+    { path: adapterPath, role: 'view-adapter' },
+  ];
+
+  await assert.rejects(
+    prepareBuildReview({
+      buildId: build.buildId,
+      inventory: hiddenInventory(digest('wrong-source')),
+      artifacts,
+      changeImpact: ['geometry'],
+      requiredLocales: ['en'],
+    }, { buildRoot, projectRoot: root, now }),
+    (error) => error.code === 'HIDDEN_ANCHOR_SOURCE_DIGEST_MISMATCH'
+  );
+
+  const prepared = await prepareBuildReview({
+    buildId: build.buildId,
+    inventory: hiddenInventory(sourceDigest),
+    artifacts,
+    changeImpact: ['geometry'],
+    requiredLocales: ['en'],
+  }, { buildRoot, projectRoot: root, now });
+  const preparedPlan = prepared.build.receipts.at(-1).payload.verificationPlan;
+  const checks = Object.fromEntries(preparedPlan.requiredChecks.map((check) => [check.id, check]));
+  assert.equal(checks['feature:hidden-anchor'].evidenceKind, 'node-paint-audit');
+  assert.equal(checks['feature:hidden-anchor-source-confirmation'].enforcement, 'manual');
+});
+
 function inventory(key) {
   return {
     datasetKey: key,

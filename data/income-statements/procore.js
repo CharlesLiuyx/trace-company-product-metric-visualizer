@@ -81,4 +81,79 @@
       },
     },
   });
+
+  ssot.records.push({
+    key: 'procore-q1-fy26',
+    company: 'Procore',
+    period: 'Q1 FY26',
+    periodNote: 'Ending Mar. 2026',
+    currency: '$',
+    unit: 'M',
+    decimals: 0,
+    sourceImage: 'input/processed/procore-q1-fy26.png',
+    roundingTolerance: 1.1,
+    revenue: {
+      total: 359,
+      notes: ['+16% Y/Y'],
+      items: [
+        { id: 'united_states', label: 'United States', value: 305, notes: ['+15% Y/Y'] },
+        { id: 'rest_of_world', label: 'Rest of World', value: 54, notes: ['+17% Y/Y'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 71 },
+      operatingExpenses: {
+        total: 303,
+        notes: ['Visible operating-expense line items sum to $304M because the source chart rounds values.'],
+        items: [
+          { id: 'sm', label: 'Sales & marketing', value: 149, notes: ['42% of revenue', '(3pp) Y/Y'] },
+          { id: 'rnd', label: 'Research & development', value: 86, notes: ['24% of revenue', '(4pp) Y/Y'] },
+          { id: 'ga', label: 'General & administrative', value: 69, notes: ['19% of revenue', '+1pp Y/Y'] },
+        ],
+      },
+      tax: { label: 'Tax', value: 0, notes: ['No separate tax line is shown in the source chart.'] },
+    },
+    otherIncome: { total: 0, items: [] },
+    otherExpenses: { total: 0, items: [] },
+    profit: {
+      gross: { id: 'gross_profit', label: 'Gross profit', value: 288, notes: ['80% margin', '+1pp Y/Y'] },
+      operating: { id: 'operating_loss', label: 'Operating loss', value: -16, notes: ['(4%) margin', '+8pp Y/Y'] },
+      net: {
+        id: 'operating_loss',
+        label: 'Operating loss',
+        value: -16,
+        notes: ['No separate net income or net loss line is shown in the source chart.'],
+      },
+    },
+    i18n: {
+      zh: {
+        period: '2026 财年第一季度',
+        periodNote: '截至 2026 年 3 月',
+        revenue: {
+          notes: ['同比 +16%'],
+          items: [
+            { id: 'united_states', label: '美国', notes: ['同比 +15%'] },
+            { id: 'rest_of_world', label: '世界其他地区', notes: ['同比 +17%'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: { label: '收入成本' },
+          operatingExpenses: {
+            notes: ['可见营业费用明细合计为 $304M，差异来自来源图数值四舍五入。'],
+            items: [
+              { id: 'sm', label: '销售与营销', notes: ['占收入 42%', '同比 (3 个百分点)'] },
+              { id: 'rnd', label: '研发', notes: ['占收入 24%', '同比 (4 个百分点)'] },
+              { id: 'ga', label: '一般及行政', notes: ['占收入 19%', '同比 +1 个百分点'] },
+            ],
+          },
+          tax: { label: '税费', notes: ['来源图未显示单独的税费项目。'] },
+        },
+        profit: {
+          gross: { label: '毛利润', notes: ['利润率 80%', '同比 +1 个百分点'] },
+          operating: { label: '营业亏损', notes: ['利润率 (4%)', '同比 +8 个百分点'] },
+          net: { label: '营业亏损', notes: ['来源图未单独显示净利润或净亏损项目。'] },
+        },
+      },
+    },
+  });
 })(window);

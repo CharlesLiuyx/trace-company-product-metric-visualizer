@@ -347,6 +347,7 @@ export function nodeFaceExpectationsFromPlan(plan) {
   return {
     visible: [...new Set([...explicitVisible, ...legacyVisible])].sort(),
     hidden: [...new Set(targetsFor('feature:hidden-anchor'))].sort(),
+    complete: plan?.protocol === 'verification-plan/v3',
   };
 }
 
@@ -365,6 +366,12 @@ export function assertNodePaintAudit(audit, expectations = {}) {
     const node = byId.get(id);
     if (!node) failures.push(`${id}=missing`);
     else if (node.faceVisible) failures.push(`${id}=unexpected-paint`);
+  }
+  if (expectations.complete) {
+    const classified = new Set([...(expectations.visible || []), ...(expectations.hidden || [])]);
+    for (const id of byId.keys()) {
+      if (!classified.has(id)) failures.push(`${id}=unclassified`);
+    }
   }
   if (failures.length) {
     throw new Error(`Node face paint failed: ${failures.join(', ')}`);

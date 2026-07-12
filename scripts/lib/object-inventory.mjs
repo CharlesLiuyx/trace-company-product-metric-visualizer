@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
 
-export const OBJECT_INVENTORY_PROTOCOL = 'object-inventory/v2';
+export const OBJECT_INVENTORY_PROTOCOL = 'object-inventory/v3';
+export const HISTORICAL_OBJECT_INVENTORY_PROTOCOL = 'object-inventory/v2';
 export const LEGACY_OBJECT_INVENTORY_PROTOCOL = 'object-inventory/v1';
 export const OBJECT_DISPOSITIONS = Object.freeze(['render', 'data-only', 'skip']);
 export const OBJECT_MAPPING_ROLES = Object.freeze(['render', 'data', 'asset', 'i18n']);
@@ -30,6 +31,8 @@ const LEGACY_FEATURE_SET = new Set([
   'visible-interface',
 ]);
 const DIGEST_RE = /^sha256:[a-f0-9]{64}$/;
+export const HIDDEN_ANCHOR_CLASSIFICATION_CLAIM = 'no-visible-node-face-observed';
+export const HIDDEN_ANCHOR_INSPECTION_METHOD = 'native-scale-crop-and-pixel-scan';
 
 function invariant(condition, code, message) {
   if (condition) return;
@@ -80,7 +83,22 @@ function normalizeMappings(object, index) {
   );
 }
 
-function normalizeFeatureEvidence(object, features) {
+function normalizeReferenceBBox(raw, objectId, feature) {
+  invariant(
+    Array.isArray(raw) && raw.length === 4 && raw.every(Number.isInteger),
+    'OBJECT_FEATURE_REFERENCE_BBOX_INVALID',
+    `Object ${objectId} evidence for ${feature} needs an integer referenceBBox [x, y, width, height]`
+  );
+  const [x, y, width, height] = raw;
+  invariant(
+    x >= 0 && y >= 0 && width > 0 && height > 0,
+    'OBJECT_FEATURE_REFERENCE_BBOX_INVALID',
+    `Object ${objectId} evidence for ${feature} referenceBBox must have non-negative origin and positive size`
+  );
+  return [x, y, width, height];
+}
+
+function normalizeFeatureEvidence(object, features, { strictHiddenEvidence = true } = {}) {
   const input = object.featureEvidence == null ? {} : object.featureEvidence;
   invariant(
     input && typeof input === 'object' && !Array.isArray(input),
@@ -115,6 +133,19 @@ function normalizeFeatureEvidence(object, features) {
       );
       evidence.expectedWeight = raw.expectedWeight;
     }
+    if (raw.referenceBBox != null) {
+      evidence.referenceBBox = normalizeReferenceBBox(raw.referenceBBox, object.id, feature);
+    }
+    if (raw.classificationClaim != null) {
+      const classificationClaim = String(raw.classificationClaim).trim();
+      invariant(classificationClaim, 'OBJECT_FEATURE_EVIDENCE_INVALID', `Object ${object.id} evidence for ${feature} has an empty classificationClaim`);
+      evidence.classificationClaim = classificationClaim;
+    }
+    if (raw.inspectionMethod != null) {
+      const inspectionMethod = String(raw.inspectionMethod).trim();
+      invariant(inspectionMethod, 'OBJECT_FEATURE_EVIDENCE_INVALID', `Object ${object.id} evidence for ${feature} has an empty inspectionMethod`);
+      evidence.inspectionMethod = inspectionMethod;
+    }
     normalized[feature] = evidence;
   }
 
@@ -123,8 +154,34 @@ function normalizeFeatureEvidence(object, features) {
       invariant(normalized[feature], 'OBJECT_FEATURE_EVIDENCE_REQUIRED', `Object ${object.id} feature ${feature} needs source evidence`);
     }
   }
-  if (features.includes('hidden-anchor')) {
-    invariant(normalized['hidden-anchor']?.reason, 'OBJECT_FEATURE_EVIDENCE_REQUIRED', `Hidden anchor ${object.id} needs an evidence reason`);
+  if (features.includes('hidden-anchor') && strictHiddenEvidence) {
+    const evidence = normalized['hidden-anchor'];
+    invariant(evidence?.reason, 'OBJECT_FEATURE_EVIDENCE_REQUIRED', `Hidden anchor ${object.id} needs an evidence reason`);
+    invariant(
+      evidence?.locator?.includes('#'),
+      'HIDDEN_ANCHOR_REFERENCE_CROP_REQUIRED',
+      `Hidden anchor ${object.id} needs a reference crop locator with a stable fragment`
+    );
+    invariant(
+      evidence?.referenceBBox,
+      'HIDDEN_ANCHOR_REFERENCE_BBOX_REQUIRED',
+      `Hidden anchor ${object.id} needs a native-pixel referenceBBox`
+    );
+    invariant(
+      evidence?.digest,
+      'HIDDEN_ANCHOR_SOURCE_DIGEST_REQUIRED',
+      `Hidden anchor ${object.id} needs the immutable Source digest`
+    );
+    invariant(
+      evidence?.inspectionMethod === HIDDEN_ANCHOR_INSPECTION_METHOD,
+      'HIDDEN_ANCHOR_INSPECTION_REQUIRED',
+      `Hidden anchor ${object.id} must use inspectionMethod ${HIDDEN_ANCHOR_INSPECTION_METHOD}`
+    );
+    invariant(
+      evidence?.classificationClaim === HIDDEN_ANCHOR_CLASSIFICATION_CLAIM,
+      'HIDDEN_ANCHOR_CLASSIFICATION_CLAIM_REQUIRED',
+      `Hidden anchor ${object.id} must explicitly claim ${HIDDEN_ANCHOR_CLASSIFICATION_CLAIM}; ambiguous nodes default to visible-node-face`
+    );
   }
   if (features.includes('specified-label-weight')) {
     invariant(
@@ -142,7 +199,7 @@ function hasNodeRenderMapping(object, mapping) {
   return object.id.startsWith('node:') || /(^|-)node$|(^|-)node-|anchor/i.test(object.kind);
 }
 
-function normalizeObject(object, index, { legacy = false } = {}) {
+function normalizeObject(object, index, { legacy = false, strictHiddenEvidence = true } = {}) {
   invariant(object && typeof object === 'object', 'OBJECT_INVALID', `Object ${index} must be an object`);
   invariant(typeof object.id === 'string' && STABLE_ID_RE.test(object.id), 'OBJECT_ID_INVALID', `Object ${index} needs a stable lowercase id`);
   invariant(typeof object.kind === 'string' && STABLE_ID_RE.test(object.kind), 'OBJECT_KIND_INVALID', `Object ${object.id} needs a stable kind`);
@@ -157,7 +214,7 @@ function normalizeObject(object, index, { legacy = false } = {}) {
       `Object ${object.id} has unsupported feature: ${feature}`
     );
   }
-  const featureEvidence = legacy ? null : normalizeFeatureEvidence(object, features);
+  const featureEvidence = legacy ? null : normalizeFeatureEvidence(object, features, { strictHiddenEvidence });
 
   if (object.disposition === 'skip') {
     invariant(mapping.length === 0, 'SKIPPED_OBJECT_MAPPED', `Skipped object ${object.id} must not have authored mappings`);
@@ -183,7 +240,7 @@ function normalizeObject(object, index, { legacy = false } = {}) {
       invariant(
         faceIntents.length === 1,
         'NODE_FACE_INTENT_REQUIRED',
-        `Node-mapped object ${object.id} must declare exactly one of visible-node-face or hidden-anchor`
+        `Node-mapped object ${object.id} must declare exactly one of visible-node-face or hidden-anchor; ambiguity defaults to visible-node-face`
       );
     }
     if (!legacy && features.includes('visible-short-node')) {
@@ -222,20 +279,29 @@ export function createObjectInventory(input) {
   );
   invariant(Array.isArray(input.objects) && input.objects.length > 0, 'INVENTORY_EMPTY', 'ObjectInventory needs at least one object');
 
-  const legacy = input.protocol === LEGACY_OBJECT_INVENTORY_PROTOCOL ||
-    (input.protocol == null && input.schemaVersion === 1);
+  const protocol = input.protocol || (
+    input.schemaVersion === 1 ? LEGACY_OBJECT_INVENTORY_PROTOCOL :
+      input.schemaVersion === 2 ? HISTORICAL_OBJECT_INVENTORY_PROTOCOL :
+        OBJECT_INVENTORY_PROTOCOL
+  );
+  const legacy = protocol === LEGACY_OBJECT_INVENTORY_PROTOCOL;
+  const historicalV2 = protocol === HISTORICAL_OBJECT_INVENTORY_PROTOCOL;
   if (input.protocol != null) {
     invariant(
-      input.protocol === OBJECT_INVENTORY_PROTOCOL || input.protocol === LEGACY_OBJECT_INVENTORY_PROTOCOL,
+      [OBJECT_INVENTORY_PROTOCOL, HISTORICAL_OBJECT_INVENTORY_PROTOCOL, LEGACY_OBJECT_INVENTORY_PROTOCOL].includes(input.protocol),
       'INVENTORY_PROTOCOL_INVALID',
       `Unsupported ObjectInventory protocol: ${input.protocol}`
     );
   }
   if (input.schemaVersion != null) {
-    invariant(input.schemaVersion === (legacy ? 1 : 2), 'INVENTORY_VERSION_INVALID', 'ObjectInventory schemaVersion does not match its protocol');
+    const expectedVersion = legacy ? 1 : historicalV2 ? 2 : 3;
+    invariant(input.schemaVersion === expectedVersion, 'INVENTORY_VERSION_INVALID', 'ObjectInventory schemaVersion does not match its protocol');
   }
 
-  const objects = input.objects.map((object, index) => normalizeObject(object, index, { legacy }))
+  const objects = input.objects.map((object, index) => normalizeObject(object, index, {
+    legacy,
+    strictHiddenEvidence: !legacy && !historicalV2,
+  }))
     .sort((left, right) => left.id.localeCompare(right.id));
   const objectIds = new Set();
   const mappingOwners = new Map();
@@ -260,8 +326,8 @@ export function createObjectInventory(input) {
     ])
   );
   const value = {
-    schemaVersion: legacy ? 1 : 2,
-    protocol: legacy ? LEGACY_OBJECT_INVENTORY_PROTOCOL : OBJECT_INVENTORY_PROTOCOL,
+    schemaVersion: legacy ? 1 : historicalV2 ? 2 : 3,
+    protocol,
     datasetKey: input.datasetKey,
     objects,
     summary,
