@@ -347,6 +347,26 @@ the whole `.sankey-annotations` layer, a normal node label, a KPI card, or plain
 company/product-name text as brand. Raster annotations contain no inspectable
 DOM text and remain governed by the existing raster whitelist.
 
+### Semantic annotation labels
+
+Use `layout.labels.<node-id>` for Sankey node name/value/note copy by default.
+If the reference image proves that a node's copy must instead be a bespoke
+callout or guide in `annotationsSvg`, its `ObjectInventory` node object must
+map `annotations.*`, declare `semantic-annotation`, and bind a native-pixel
+source crop, bbox, Source digest, inspection method, classification claim, and
+reason. The SVG group must be explicit:
+
+```html
+<g class="sankey-interactive-annotation" data-node="other_income">
+  <text>Other</text>
+  <text>$0.1B</text>
+</g>
+```
+
+The renderer inserts a transparent `.sankey-annotation-hitbox` for each such
+group. This is not a substitute for source classification: generic KPI, brand,
+or decorative annotations must not claim a Sankey node merely to obtain hover.
+
 ### render interface audit
 
 Fixed-layout datasets that are new or materially changed must opt into the

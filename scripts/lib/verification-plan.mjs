@@ -16,6 +16,10 @@ export const FEATURE_REQUIRED_CHECKS = Object.freeze({
   'centered-side-label': Object.freeze({ axis: 'render', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'label-layout-audit', ruleIds: Object.freeze(['B3', 'T7']) }),
   text: Object.freeze({ axis: 'render', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'text-layout-audit', ruleIds: Object.freeze(['B6', 'Z5']) }),
   'annotation-near-label': Object.freeze({ axis: 'render', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'annotation-layout-audit', ruleIds: Object.freeze(['A6', 'B5']) }),
+  'semantic-annotation': Object.freeze([
+    Object.freeze({ checkId: 'semantic-annotation', axis: 'interaction', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'annotation-semantics-audit', ruleIds: Object.freeze(['A10', 'B16']) }),
+    Object.freeze({ checkId: 'semantic-annotation-source-classification', axis: 'render', enforcement: 'manual', localeScope: 'global', evidenceKind: 'manual-decision', ruleIds: Object.freeze(['T17']) }),
+  ]),
   'visible-short-node': Object.freeze({ axis: 'render', enforcement: 'manual', localeScope: 'required-locales', evidenceKind: 'manual-decision', ruleIds: Object.freeze(['T14']) }),
   'visible-interface': Object.freeze({ axis: 'render', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'interface-audit', ruleIds: Object.freeze(['G12', 'L11']) }),
   'visible-node-face': Object.freeze({ axis: 'render', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'node-paint-audit', ruleIds: Object.freeze(['B15', 'T13']) }),
@@ -112,6 +116,8 @@ function renderTargetsForFeature(object, feature) {
   } else if (['centered-side-label', 'text', 'specified-label-weight'].includes(feature)) {
     predicate = (target) => /label/i.test(target);
   } else if (feature === 'annotation-near-label') {
+    predicate = (target) => /annotation/i.test(target);
+  } else if (feature === 'semantic-annotation') {
     predicate = (target) => /annotation/i.test(target);
   } else if (feature === 'visible-interface') {
     predicate = (target) => /link|interface/i.test(target);
