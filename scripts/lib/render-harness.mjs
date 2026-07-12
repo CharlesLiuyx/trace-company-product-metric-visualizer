@@ -420,6 +420,12 @@ export function assertPlannedRenderAudits(plan, audits) {
         }
         if ((audit.overlapViolations || []).length > 0) failures.push(`${check.id}=overlap`);
       }
+    } else if (check.evidenceKind === 'annotation-semantics-audit') {
+      const audit = audits.semanticAnnotationAudit;
+      if (!audit) failures.push(`${check.id}=missing-audit`);
+      else if ((audit.violations || []).length > 0) {
+        failures.push(`${check.id}=${audit.violations.map((item) => `${item.nodeId}:${item.code}`).join(',')}`);
+      }
     }
   }
   if (failures.length) {
@@ -909,6 +915,110 @@ export async function auditTextAndAnnotationLayout(page) {
     return { width, height, texts, annotations, protectedTexts };
   });
   return classifyTextAndAnnotationLayout(geometry);
+}
+
+function annotationNodeIdFromObjectId(objectId) {
+  const match = String(objectId || '').match(/^node:(.+)$/);
+  return match ? match[1].replace(/-/g, '_') : '';
+}
+
+export function semanticAnnotationNodeIdsFromPlan(plan) {
+  const checks = Array.isArray(plan?.requiredChecks) ? plan.requiredChecks : [];
+  return [...new Set(
+    checks
+      .filter((check) => check.id === 'feature:semantic-annotation')
+      .flatMap((check) => check.objectIds || [])
+      .map(annotationNodeIdFromObjectId)
+      .filter(Boolean)
+  )].sort();
+}
+
+// Pure classifier so synthetic evidence tests and browser collection share
+// exactly the same semantic-annotation contract.
+export function classifySemanticAnnotationAudit({
+  annotations = [],
+  expectedNodeIds = [],
+  unboundNodeLikeTexts = [],
+} = {}) {
+  if (!Array.isArray(annotations) || !Array.isArray(expectedNodeIds) || !Array.isArray(unboundNodeLikeTexts)) {
+    throw new TypeError('Semantic annotation audit inputs must be arrays');
+  }
+  const expected = [...new Set(expectedNodeIds.map((id) => String(id || '').trim()).filter(Boolean))].sort();
+  const normalized = annotations.map((item, index) => ({
+    nodeId: String(item?.nodeId || '').trim(),
+    interactive: item?.interactive === true,
+    nodeExists: item?.nodeExists === true,
+    textCount: Number.isInteger(item?.textCount) ? item.textCount : 0,
+    hasHitbox: item?.hasHitbox === true,
+    index,
+  }));
+  const violations = [];
+  for (const nodeId of expected) {
+    const matches = normalized.filter((item) => item.nodeId === nodeId);
+    if (!matches.length) {
+      violations.push({ nodeId, code: 'missing-semantic-annotation' });
+      continue;
+    }
+    if (!matches.some((item) => item.interactive)) violations.push({ nodeId, code: 'missing-interactive-class' });
+    if (!matches.some((item) => item.nodeExists)) violations.push({ nodeId, code: 'unknown-data-node' });
+    if (!matches.some((item) => item.textCount > 0)) violations.push({ nodeId, code: 'missing-annotation-text' });
+    if (!matches.some((item) => item.hasHitbox)) violations.push({ nodeId, code: 'missing-annotation-hitbox' });
+  }
+  for (const item of unboundNodeLikeTexts) {
+    const nodeId = String(item?.nodeId || '').trim();
+    if (expected.includes(nodeId)) violations.push({ nodeId, code: 'unbound-node-like-text' });
+  }
+  return {
+    schemaVersion: 1,
+    expectedNodeIds: expected,
+    checkedAnnotations: normalized.length,
+    semanticAnnotationNodeIds: [...new Set(normalized.filter((item) => item.nodeId).map((item) => item.nodeId))].sort(),
+    unboundNodeLikeTexts: unboundNodeLikeTexts.map((item) => ({
+      nodeId: String(item?.nodeId || '').trim(),
+      text: String(item?.text || '').trim(),
+    })),
+    violations,
+  };
+}
+
+// Collects annotation semantics after the renderer has inserted its standard
+// transparent hitboxes. A node-like text in the annotation layer is only
+// valid when its semantic node is explicitly interactive.
+export async function auditSemanticAnnotations(page, { datasetKey, language, expectedNodeIds = [] } = {}) {
+  const collected = await page.evaluate(({ key, requestedLanguage }) => {
+    const svg = document.querySelector('#chart > svg');
+    if (!svg) throw new Error('SankeyEngine.render did not create #chart > svg');
+    const dataset = window.DATASETS?.find((item) => item.key === key);
+    const localized = requestedLanguage && requestedLanguage !== 'en'
+      ? window.SANKEY_I18N?.localizeDataset?.(dataset, requestedLanguage)
+      : dataset;
+    const normalize = (value) => String(value || '').replace(/\s+/g, ' ').trim().toLocaleLowerCase();
+    const nodeIdsByLabel = new Map();
+    for (const node of localized?.nodes || []) {
+      for (const label of (Array.isArray(node.label) ? node.label : [node.label])) {
+        const text = normalize(label);
+        if (text) nodeIdsByLabel.set(text, node.id);
+      }
+    }
+    const renderedNodeIds = new Set(Array.from(svg.querySelectorAll('.sankey-node[data-node]'))
+      .map((element) => element.getAttribute('data-node'))
+      .filter(Boolean));
+    const annotations = Array.from(svg.querySelectorAll('.sankey-annotations .sankey-interactive-annotation'))
+      .map((element) => ({
+        nodeId: element.getAttribute('data-node') || '',
+        interactive: element.classList.contains('sankey-interactive-annotation'),
+        nodeExists: renderedNodeIds.has(element.getAttribute('data-node') || ''),
+        textCount: element.querySelectorAll('text').length,
+        hasHitbox: Boolean(element.querySelector(':scope > .sankey-annotation-hitbox')),
+      }));
+    const unboundNodeLikeTexts = Array.from(svg.querySelectorAll('.sankey-annotations text'))
+      .filter((element) => !element.closest('.sankey-interactive-annotation[data-node]'))
+      .map((element) => ({ text: String(element.textContent || '').replace(/\s+/g, ' ').trim() }))
+      .map((item) => ({ ...item, nodeId: nodeIdsByLabel.get(normalize(item.text)) || '' }))
+      .filter((item) => item.nodeId);
+    return { annotations, unboundNodeLikeTexts };
+  }, { key: datasetKey, requestedLanguage: language || 'en' });
+  return classifySemanticAnnotationAudit({ ...collected, expectedNodeIds });
 }
 
 // Rendered-bbox audit of the label-node spacing hard gates (G8-G10 in

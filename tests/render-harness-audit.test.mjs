@@ -6,6 +6,7 @@ import {
   assertRawSvgCanvas,
   classifyLabelLayoutAudit,
   classifyNodePaintAudit,
+  classifySemanticAnnotationAudit,
   nodeFaceExpectationsFromPlan,
 } from '../scripts/lib/render-harness.mjs';
 
@@ -248,5 +249,49 @@ test('Build-bound render evidence cannot archive a failed planned text, annotati
       annotationLayoutAudit: { checkedAnnotationTexts: 0, overlapViolations: [] },
     }),
     /center-delta.*overflow.*no-rendered-annotation/
+  );
+});
+
+test('semantic annotations require a bound node, text, and renderer hitbox', () => {
+  const passingAudit = classifySemanticAnnotationAudit({
+    expectedNodeIds: ['other_income'],
+    annotations: [{
+      nodeId: 'other_income',
+      interactive: true,
+      nodeExists: true,
+      textCount: 2,
+      hasHitbox: true,
+    }],
+  });
+  assert.deepEqual(passingAudit.violations, []);
+
+  const plan = {
+    requiredChecks: [{
+      id: 'feature:semantic-annotation',
+      enforcement: 'conditional-gate',
+      evidenceKind: 'annotation-semantics-audit',
+      objectIds: ['node:other-income'],
+    }],
+  };
+  assert.doesNotThrow(() => assertPlannedRenderAudits(plan, { semanticAnnotationAudit: passingAudit }));
+
+  const failedAudit = classifySemanticAnnotationAudit({
+    expectedNodeIds: ['other_income'],
+    annotations: [{
+      nodeId: 'other_income',
+      interactive: true,
+      nodeExists: true,
+      textCount: 2,
+      hasHitbox: false,
+    }],
+    unboundNodeLikeTexts: [{ nodeId: 'other_income', text: 'Other' }],
+  });
+  assert.deepEqual(
+    failedAudit.violations.map((item) => item.code),
+    ['missing-annotation-hitbox', 'unbound-node-like-text']
+  );
+  assert.throws(
+    () => assertPlannedRenderAudits(plan, { semanticAnnotationAudit: failedAudit }),
+    /other_income:missing-annotation-hitbox.*other_income:unbound-node-like-text/
   );
 });

@@ -369,6 +369,19 @@ function derivedRiskChecks(plan, evidence) {
       });
     }
   }
+  if (requiredIds.has('feature:semantic-annotation')) {
+    for (const item of evidence) {
+      const audit = item.metrics?.semanticAnnotationAudit;
+      checks.push({
+        id: `B16-A10-semantic-annotation:${item.locale}`,
+        status: audit ? 'passed' : 'open',
+        measurements: audit
+          ? [{ id: 'violation-count', value: audit.violations?.length || 0, operator: 'eq', threshold: 0 }]
+          : [],
+        ...(audit ? {} : { reason: 'The evidence predates semantic-annotation measurement' }),
+      });
+    }
+  }
   return checks;
 }
 
@@ -401,6 +414,16 @@ function checkFeatureEvidence(check, entry) {
     return Boolean(audit) &&
       ((check.objectIds || []).length === 0 || Number(audit.checkedAnnotationTexts) > 0) &&
       (audit.overlapViolations?.length || 0) === 0;
+  }
+  if (check.evidenceKind === 'annotation-semantics-audit') {
+    const audit = entry.metrics?.semanticAnnotationAudit;
+    const expectedNodes = (check.objectIds || [])
+      .map((objectId) => String(objectId).match(/^node:(.+)$/)?.[1]?.replace(/-/g, '_'))
+      .filter(Boolean);
+    const auditedNodes = new Set(audit?.semanticAnnotationNodeIds || []);
+    return Boolean(audit) &&
+      expectedNodes.every((nodeId) => auditedNodes.has(nodeId)) &&
+      (audit.violations?.length || 0) === 0;
   }
   if (check.evidenceKind === 'interface-audit') {
     return entry.interfaceAudit?.enforcementStatus === 'passed';

@@ -163,7 +163,12 @@ returns.
      Every Sankey-node object must choose exactly one node-face intent:
      `visible-node-face` or `hidden-anchor`; `visible-short-node` additionally
      marks short visible faces, while `specified-label-weight` records a
-     source-backed heading weight. The full feature/evidence contract lives in
+     source-backed heading weight. Before choosing `annotationsSvg`, classify
+     each nearby text group from the reference: node name/value/note copy uses
+     `layout.labels` by default; a genuine bespoke node callout/guide must be
+     recorded on its `node:*` object as `semantic-annotation` with native-pixel
+     source evidence and an interactive `data-node` surface. The full
+     feature/evidence contract lives in
      `docs/fidelity-loop-rules.md` §2; do not restate its visual tests here.
      Treat `visible-node-face` as the conservative default. `hidden-anchor` is
      an exception that must satisfy the structured native-pixel confirmation
@@ -393,6 +398,10 @@ Object checklist, grouped by render intent:
   default. Wrap only a true Logo, wordmark, trademark lockup, or brand
   illustration in the smallest complete
   `<g data-typography-role="brand">`; never mark the mixed annotation container.
+  A node-like name/value is not automatically an annotation: classify it
+  against the reference first. Prefer `layout.labels`; only a true bespoke
+  node callout/guide uses `semantic-annotation`, which requires an interactive
+  `sankey-interactive-annotation[data-node]` group and source-backed evidence.
 - Icon/brand assets: company logo (vector `meta.logoSvg`), brand wordmarks
   drawn as annotations, segment/business icon clusters (validated crops →
   vector conversion, or whitelisted runtime raster via

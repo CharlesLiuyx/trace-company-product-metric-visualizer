@@ -31,6 +31,7 @@ const CHECK_EVIDENCE_KINDS = new Set([
   'label-layout-audit',
   'text-layout-audit',
   'annotation-layout-audit',
+  'annotation-semantics-audit',
   'node-paint-audit',
   'manual-decision',
 ]);
