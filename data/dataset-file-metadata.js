@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-12T07:31:53.976Z",
+  "generatedAt": "2026-07-12T07:35:09.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -1815,27 +1815,27 @@
     },
     "cisco-q3-fy26": {
       "path": "data/datasets/cisco-q3-fy26.js",
-      "updatedAtMs": 1783839945631,
-      "updatedAt": "2026-07-12T07:05:45.631Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783841709000,
+      "updatedAt": "2026-07-12T07:35:09.000Z",
+      "timeSource": "git"
     },
     "nutanix-q3-fy26": {
       "path": "data/datasets/nutanix-q3-fy26.js",
-      "updatedAtMs": 1783841513976,
-      "updatedAt": "2026-07-12T07:31:53.976Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783841709000,
+      "updatedAt": "2026-07-12T07:35:09.000Z",
+      "timeSource": "git"
     },
     "arista-q1-fy26": {
       "path": "data/datasets/arista-q1-fy26.js",
-      "updatedAtMs": 1783840130320,
-      "updatedAt": "2026-07-12T07:08:50.320Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783841709000,
+      "updatedAt": "2026-07-12T07:35:09.000Z",
+      "timeSource": "git"
     },
     "the-trade-desk-q1-fy26": {
       "path": "data/datasets/the-trade-desk-q1-fy26.js",
-      "updatedAtMs": 1783839945382,
-      "updatedAt": "2026-07-12T07:05:45.382Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783841709000,
+      "updatedAt": "2026-07-12T07:35:09.000Z",
+      "timeSource": "git"
     },
     "data/revenue-metrics.js": {
       "path": "data/revenue-metrics.js",
