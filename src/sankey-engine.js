@@ -1028,6 +1028,31 @@
     if (data.annotationsSvg) {
       const annotationLayer = appendSvgFragments(svg, data.annotationsSvg, 'sankey-annotations');
       normalizeAnnotationTypography(annotationLayer, cfg);
+      // Semantic annotation labels have the same interaction guarantee as
+      // renderer-owned labels: a practical transparent target spans their
+      // whole measured group, not only individual painted glyphs. Adapters
+      // still must opt in with the class + data-node contract; this merely
+      // makes that contract reliable at every responsive scale.
+      annotationLayer?.selectAll('.sankey-interactive-annotation[data-node]').each(function () {
+        if (this.querySelector(':scope > .sankey-annotation-hitbox')) return;
+        let hit;
+        try {
+          hit = this.getBBox();
+        } catch {
+          return;
+        }
+        if (!hit || hit.width <= 0 || hit.height <= 0) return;
+        d3.select(this)
+          .insert('rect', ':first-child')
+          .attr('class', 'sankey-annotation-hitbox')
+          .attr('x', hit.x)
+          .attr('y', hit.y)
+          .attr('width', hit.width)
+          .attr('height', hit.height)
+          .attr('fill', '#ffffff')
+          .attr('fill-opacity', 0)
+          .style('pointer-events', 'all');
+      });
     }
 
     if (data.rasterAnnotations) {
