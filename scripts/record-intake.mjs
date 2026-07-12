@@ -29,7 +29,7 @@ function usage() {
   console.error(`Usage:
   pnpm record:intake -- <input/pending/source.png> --key <dataset-key> \\
     --adapter <income-statement|revenue-metric> \\
-    [--availability <published|local-only|restricted>] [--json]
+    [--availability <public|local-only|restricted>] [--json]
 
 This records an INTAKED Dataset Build and immediately claims the Source at
 input/processing/<dataset-key>.png. It does not write canonical data.`);
@@ -60,7 +60,11 @@ export function parseArgs(argv) {
       if (!value || value.startsWith('--')) throw usageError(`${arg} requires a value`);
       if (arg === '--key') key = value;
       if (arg === '--adapter') adapter = value;
-      if (arg === '--availability') availability = value;
+      if (arg === '--availability') {
+        // Legacy alias: the old value collided with the lifecycle state
+        // PUBLISHED and was renamed; normalize so stored manifests converge.
+        availability = value === 'published' ? 'public' : value;
+      }
       continue;
     }
     if (arg.startsWith('--')) throw usageError(`Unknown option: ${arg}`);

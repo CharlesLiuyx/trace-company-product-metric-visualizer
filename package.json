@@ -29,7 +29,7 @@
     "verify:dataset-file-metadata": "node scripts/update-dataset-file-metadata.mjs --check",
     "verify:standalone": "node scripts/verify-standalone.mjs",
     "verify:d3": "node scripts/verify-d3.mjs",
-    "record:baseline": "node scripts/verify-render-regression.mjs --update",
+    "compat:baseline": "node scripts/verify-render-regression.mjs --update",
     "verify:render-regression": "node scripts/verify-render-regression.mjs",
     "verify:ssot": "node scripts/verify-ssot.mjs",
     "verify:i18n": "node scripts/verify-i18n.mjs"

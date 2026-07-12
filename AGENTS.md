@@ -44,10 +44,13 @@ already exists.
   `PublicationBatch`, and `ReleaseAttempt`. A build-local `FidelityRun`
   produces evidence but has no canonical-write authority. The governing
   decision is `docs/adr/0001-dataset-build-transactions.md`.
-- In the target command vocabulary, `verify:*` is read-only, `record:*`
-  writes build-local evidence or staging, `publish:*` is the only canonical
-  mutation, and `release:*` acts on a published digest. Current command names
-  are transitional and do not yet uniformly satisfy that contract.
+- In the command vocabulary, `verify:*` is read-only, `record:*` writes
+  build-local evidence or staging, `publish:*` is the only canonical
+  mutation, and `release:*` acts on a published digest. Implemented
+  `verify:*` / `record:*` commands satisfy that contract; `compat:baseline`
+  is deliberately named outside the classes because it mutates the canonical
+  baseline ledger until M4 Publication replaces it, and `publish:*` /
+  `release:*` remain unimplemented target vocabulary.
 
 - `data/income-statements/<company-key>.js` (income-statement family,
   per-company files) and `data/revenue-metrics.js` (revenue family) are the
@@ -107,7 +110,7 @@ Install once; the d3/standalone verifiers render in Chromium:
 | `pnpm record:fidelity -- <key> --focus <dir> [--language <code>] --build <build-id>` | record durable, Build-bound automatic evidence as `evidence-ready`; run once per required language. Without `--build`, explicit-focus output is legacy compatibility evidence only and cannot close a Build |
 | `pnpm record:build -- finish <build-id> --review <review.json>` | consume the `reviewToken` (legacy `packetDigest` is accepted), automatic evidence, human attestation, region/risk/feedback decisions, and Interface Matrix; only an accepted `FidelityResult` advances to `CLOSED` |
 | `pnpm record:build -- stage-baseline <build-id> --input <baseline.json>` | record a build-local, `future-regression-only` baseline stage; Revenue Metric records an explicit `notApplicable` disposition |
-| `pnpm record:build -- seal <build-id>` | recompute artifact freshness and record `SEALED` only for an accepted, closed, baseline-staged Build with fresh exact digests; does not publish canonical data |
+| `pnpm record:build -- seal <build-id>` | recompute artifact freshness, rerun the Adapter final profile (non-render consistency plus per-locale render hard gates for Income Statement), and record `SEALED` only for an accepted, closed, baseline-staged Build with fresh exact digests; does not publish canonical data |
 | `pnpm record:build -- inspect <build-id> [--json]` | read historical/effective state, freshness, review status, Task information, and Loop Fidelity Summary without mutation |
 | `pnpm verify:closeout -- <build-id> [--json]` | read-only close-out gate: requires historical and effective `SEALED`, fresh inputs, and an accepted human review |
 | `pnpm sync:index-datasets` | syncs every data registration surface with disk: `index.html` SSOT `<script>` tags (income statements, company metadata) and the generated dataset manifest (`--check` reports drift) |
@@ -117,7 +120,7 @@ Install once; the d3/standalone verifiers render in Chromium:
 | `pnpm verify:i18n -- [--strict] [keys]` | i18n overlay coverage |
 | `pnpm verify:d3 -- <key> [--focus <dir>] [--keep] [--language <code>] [--round <n>]` | read-only d3 diagnostic + automatic hard gates; it never archives or advances manual-round lineage, even with `--focus` |
 | `pnpm verify:render-regression [-- <keys>]` | read-only batch render regression against `data/render-baselines.json` (reference images are local-only, so machines without them run render hard gates only) |
-| `pnpm record:baseline -- <key> [...]` | transitional canonical baseline compatibility mutation outside the new Build close-out verdict; M4 Publication has not replaced it, and it cannot prove the producing Build correct |
+| `pnpm compat:baseline -- <key> [...]` | canonical baseline ledger mutation, deliberately named outside the verify/record/publish/release classes; M4 Publication has not replaced it, and it cannot prove the producing Build correct |
 | `pnpm update:dataset-file-metadata` | regenerate `data/dataset-file-metadata.js` from git author times (rerun + commit after committing a new/edited dataset) |
 | `pnpm verify:dataset-file-metadata` | generated metadata is current |
 | `pnpm build:site` / `pnpm verify:site` | build the optimized Pages runtime projection / browser-check its deferred bundles, on-demand Adapter budget, lazy Chart runtime, and company-switch path |
@@ -143,23 +146,21 @@ transactional target and M0–M5 migration are owned by
 `docs/architecture/README.md`; do not silently mix target state claims into a
 current run.
 
-An explicit operator completion signal is the only current Source relocation
-authority. If the user says that human review is complete (including
-`人工审阅完毕`) or that local work was pushed to the remote and merged into
-`main`, treat every PNG currently in `input/processing/` as reviewed. Check
-for same-name destinations, then move all of them directly to
-`input/processed/`; never overwrite an existing file. Do not require Build
-IDs, structured attestation, baseline staging, sealing, or `verify:closeout`
-for this operator-directed batch relocation. Without a signal, leave the
-Sources in processing even if Build close-out passes. The move only
-changes Source locators: it does not fabricate DatasetBuild receipts or imply
-M4 Publication. The detailed rule is owned by
-`docs/dynamic-dataset-workflow.md`.
+An explicit operator completion signal (human review complete, including
+`人工审阅完毕`, or local work pushed and merged into `main`) is the only
+current Source-relocation authority: enumerate the processing batch, present
+the list for the operator's confirmation, then no-clobber move the confirmed
+PNGs to `input/processed/`. Without a signal, leave every Source in
+processing even if Build close-out passes. The move only changes Source
+locators — no DatasetBuild receipts, not M4 Publication. The owning
+definition (including the confirmation and failure steps) is
+`docs/dynamic-dataset-workflow.md` §Operator Review-Completion Signal.
 
 1. Intake & guard — select one item, run its candidate
    `pnpm check:pending -- --file ...` guard, assign the
-   `<company>-<period>` key and Adapter, rerun the guard with `--key`, then run
-   `pnpm record:intake`. After the final guard passes, intake immediately makes a
+   `<company>-<period>` key and Adapter, then run `pnpm record:intake`; it
+   reruns the definitive `--key` guard internally (a manual `--key` rerun is
+   optional fast-fail). After that guard passes, intake immediately makes a
    no-clobber claim at `input/processing/<dataset-key>.png`; keep the Source
    there throughout inventory, authoring, crop, fidelity, and close-out.
 2. Source inventory & data SSOTs — coarse whole-image pass first: classify
@@ -184,14 +185,18 @@ M4 Publication. The detailed rule is owned by
    artifacts for human review and pass the structured attestation to
    `record:build finish`. An automatic pass is neither accepted nor converged;
    only an accepted, fresh `FidelityResult` advances the Build to `CLOSED`.
-   Revenue Metric plans explicitly mark Sankey/render evidence
-   `notApplicable` instead of silently omitting it.
-5. Close out — if an operator completion signal has been given, check the
-   whole batch for same-name destinations, then directly no-clobber move every
-   PNG from `processing/` to `processed/`. Otherwise leave all Sources in
-   processing. Record the build-local future-regression stage, run fresh final
-   checks, then `record:build seal` and `verify:closeout` when formal Build
-   audit is required; that read-only gate never relocates a Source.
+   Then stage the build-local future-regression baseline and seal
+   (`record:build stage-baseline` / `seal`; seal reruns the Adapter final
+   profile itself — non-render consistency plus per-locale render hard
+   gates). Revenue Metric plans explicitly mark
+   Sankey/render evidence `notApplicable` instead of silently omitting it.
+5. Close out — apply the operator review-completion rule when its trigger is
+   present (enumerate the batch, obtain the operator's confirmation of the
+   list, then no-clobber move the confirmed PNGs); otherwise leave all
+   Sources in processing. Run `verify:closeout` per the close-out requirement
+   policy owned by `docs/dynamic-dataset-workflow.md` step 13 (an accepted
+   `FidelityResult` is the merge floor; skipped staging/seal/closeout must be
+   reported with the reason); that read-only gate never relocates a Source.
    Finish with `pnpm check` and commit per `docs/commit-messages.md`; unrelated
    pending items and active processing claims may remain, and a non-empty
    processing directory does not fail the global check. Never rename a

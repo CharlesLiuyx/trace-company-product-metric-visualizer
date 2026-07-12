@@ -97,17 +97,17 @@ the Sankey fidelity branch; Revenue Metric takes the data-only branch:
    A pending-to-pending collision, exact processing/processed-image match, or
    existing-key collision is a stop condition: do not move images, edit data,
    extract icons, or run the d3 loop for that item.
-3. Choose the final key and input-type Adapter, rerun the selected-item guard
-   with that key, then record and claim the Source:
+3. Choose the final key and input-type Adapter, then record and claim the
+   Source (`record:intake` reruns the definitive selected-item guard with the
+   final key internally; a manual `--key` rerun is optional fast-fail):
 
    ```bash
-   pnpm check:pending -- --file input/pending/<file>.png --key <dataset-key>
    pnpm record:intake -- input/pending/<file>.png --key <dataset-key> \
      --adapter <income-statement|revenue-metric> \
-     --availability <published|local-only|restricted>
+     --availability <public|local-only|restricted>
    ```
 
-   If the final key differs from the candidate, this final guard checks it
+   If the final key differs from the candidate, the guard checks it
    against `input/processing/`, `input/processed/`, `data/datasets/`,
    `data/income-statements/<company-key>.js`, and `data/dataset-manifest.js`.
 
@@ -116,8 +116,9 @@ the Sankey fidelity branch; Revenue Metric takes the data-only branch:
    to `input/processing/<dataset-key>.png`. Keep it there throughout inventory,
    authoring, icon crop work, fidelity review, sealing, and close-out. An
    existing processing destination is a stop condition and is never
-   overwritten. `--availability` is Source-access policy, not the lifecycle
-   state `PUBLISHED`. Other pending items may remain in the shared queue.
+   overwritten. `--availability` is Source-access policy (`published` remains
+   a legacy alias for `public`). Other pending items may remain in the shared
+   queue.
 4. Set every authored Source reference to the final stable path,
    `input/processed/<dataset-key>.png`, even though the bytes are still in
    `input/processing/`. For Income Statement this includes
@@ -222,39 +223,35 @@ the Sankey fidelity branch; Revenue Metric takes the data-only branch:
 
     ```bash
     pnpm record:build -- stage-baseline <build-id> --input <baseline.json>
-    pnpm verify:dataset -- <dataset-key>
     pnpm record:build -- seal <build-id>
     pnpm record:build -- inspect <build-id>
     pnpm verify:closeout -- <build-id>
     pnpm check
     ```
 
+    `seal` reruns the Adapter final profile itself (non-render consistency
+    plus, for Income Statement, the render hard gates per required locale),
+    so no manual pre-seal `verify:dataset` run is needed.
     The Revenue Metric Adapter records render/fidelity and baseline decisions
     as explicit `notApplicable` facts instead of silently skipping axes.
     `verify:closeout` is a read-only Build audit; passing it does not move the
-    Source. The Source remains in `input/processing/` until the user explicitly
-    confirms human review is complete, or that local work was pushed and
-    merged into `main`. That signal is the only current relocation authority:
-    after checking the whole batch for same-name conflicts, directly move all
-    current processing PNGs to `input/processed/`. Never rename or overwrite a
-    processed image.
+    Source. The Source remains in `input/processing/` until an explicit
+    operator review-completion signal; the batch is enumerated and confirmed
+    by the operator before the no-clobber move to `input/processed/` (owning
+    rule: `docs/dynamic-dataset-workflow.md` §Operator Review-Completion
+    Signal). Never rename or overwrite a processed image.
     A non-empty `input/processing/` may contain other active Builds and does
     not fail the global `pnpm check`. `SEALED` and this compatibility Source
     relocation are not publication; atomic M4 Publication is not implemented
     yet. Where the current compatibility
-    runtime still needs a canonical render baseline, `record:baseline` remains
-    a separate transitional mutation and cannot prove the producing Build:
+    runtime still needs a canonical render baseline, `compat:baseline`
+    (renamed from `record:baseline`) remains a separate transitional mutation
+    and cannot prove the producing Build:
 
     ```bash
-    pnpm record:baseline -- <dataset-key>
+    pnpm compat:baseline -- <dataset-key>
     pnpm verify:render-regression -- <dataset-key>
     ```
-
-    Operator shortcut: if the user explicitly says human review is complete,
-    or that local work was pushed and merged into `main`, treat every current
-    processing PNG as reviewed and directly move the whole batch to
-    `input/processed/` after a same-name destination check. This locator-only
-    shortcut does not create Build receipts or imply Publication.
 
 For non-default languages, `verify:i18n --strict` confirms overlay coverage but
 does not prove that fixed text fits. For edge-sensitive text such as right-side

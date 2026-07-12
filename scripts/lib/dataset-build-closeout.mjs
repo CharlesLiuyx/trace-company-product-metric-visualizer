@@ -1,3 +1,4 @@
+import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { existsSync } from 'node:fs';
 import { readFile, readdir } from 'node:fs/promises';
@@ -878,8 +879,40 @@ export async function stageReviewedBaseline(input, options = {}) {
   });
 }
 
+const SEAL_CONSISTENCY_PROFILE = 'verify:dataset --skip-render';
+const SEAL_RENDER_PROFILE = 'verify:d3';
+
+function defaultSealProfileRunner({ key, projectRoot }) {
+  return spawnSync(
+    process.execPath,
+    [path.join(projectRoot, 'scripts', 'verify-dataset.mjs'), key, '--skip-render'],
+    { cwd: projectRoot, encoding: 'utf8' }
+  );
+}
+
+function defaultRenderProfileRunner({ key, locale, projectRoot }) {
+  return spawnSync(
+    process.execPath,
+    [path.join(projectRoot, 'scripts', 'verify-d3.mjs'), key, '--language', locale],
+    { cwd: projectRoot, encoding: 'utf8' }
+  );
+}
+
+function runOutputDigest(run) {
+  return `sha256:${createHash('sha256')
+    .update(String(run?.stdout || ''))
+    .update('\0')
+    .update(String(run?.stderr || ''))
+    .digest('hex')}`;
+}
+
+function runExitStatus(run) {
+  return Number.isInteger(run?.status) ? run.status : run?.exitCode;
+}
+
 export async function sealReviewedBuild(input, options = {}) {
   const buildRoot = options.buildRoot || DEFAULT_BUILD_ROOT;
+  const projectRoot = options.projectRoot || rootDir;
   const build = await readDatasetBuild(input.buildId, { buildRoot });
   const inspection = await inspectDatasetBuild(build.buildId, {
     ...options,
@@ -889,6 +922,54 @@ export async function sealReviewedBuild(input, options = {}) {
   const closure = latestReceipt(build, 'CLOSED');
   invariant(build.state === 'BASELINE_STAGED' && authored && closure, 'BUILD_NOT_BASELINE_STAGED', 'Build must be BASELINE_STAGED before sealing');
   invariant(inspection.fresh, 'SEAL_INPUT_STALE', `Build inputs are stale: ${inspection.reasons.join(', ')}`);
+  const now = options.now || (() => new Date().toISOString());
+  const finalProfiles = [];
+
+  const runSealProfile = options.runSealProfile || defaultSealProfileRunner;
+  const consistencyRun = await runSealProfile({ key: build.key, buildId: build.buildId, projectRoot });
+  const consistencyStatus = runExitStatus(consistencyRun);
+  invariant(consistencyStatus === 0, 'SEAL_PROFILE_FAILED', `Non-render dataset consistency profile failed for ${build.key}`, {
+    status: consistencyStatus ?? null,
+    stdout: String(consistencyRun?.stdout || ''),
+    stderr: String(consistencyRun?.stderr || ''),
+  });
+  finalProfiles.push({
+    profile: SEAL_CONSISTENCY_PROFILE,
+    status: 'passed',
+    outputDigest: runOutputDigest(consistencyRun),
+    checkedAt: now(),
+  });
+
+  // Income Statement seals rerun the render hard gates fresh for every
+  // required locale; Revenue Metric render obligations are Adapter-owned
+  // notApplicable and record no render profile row.
+  if (build.adapter === 'income-statement') {
+    const requiredLocales = authored.payload.verificationPlan?.requiredLocales;
+    invariant(
+      Array.isArray(requiredLocales) && requiredLocales.length > 0,
+      'SEAL_PLAN_LOCALES_REQUIRED',
+      'Sealing an Income Statement Build requires the authored VerificationPlan locales'
+    );
+    const runRenderProfile = options.runRenderProfile || defaultRenderProfileRunner;
+    for (const locale of requiredLocales) {
+      const renderRun = await runRenderProfile({ key: build.key, locale, buildId: build.buildId, projectRoot });
+      const renderStatus = runExitStatus(renderRun);
+      invariant(renderStatus === 0, 'SEAL_RENDER_PROFILE_FAILED', `Render final profile failed for ${build.key} (${locale})`, {
+        locale,
+        status: renderStatus ?? null,
+        stdout: String(renderRun?.stdout || ''),
+        stderr: String(renderRun?.stderr || ''),
+      });
+      finalProfiles.push({
+        profile: SEAL_RENDER_PROFILE,
+        locale,
+        status: 'passed',
+        outputDigest: runOutputDigest(renderRun),
+        checkedAt: now(),
+      });
+    }
+  }
+
   return recordDatasetBuildCommand(build.buildId, {
     type: 'seal',
     expectedRevision: build.revision,
@@ -896,11 +977,12 @@ export async function sealReviewedBuild(input, options = {}) {
     snapshotDigest: authored.payload.snapshotDigest,
     closureDigest: closure.payload.closureDigest,
     baseCanonicalDigest: build.baseCanonicalDigest,
-    acceptedAt: (options.now || (() => new Date().toISOString()))(),
+    acceptedAt: now(),
     verdictInputDigests: Object.values(closure.payload.evidence).map((item) => item.digest),
+    finalProfiles,
   }, {
     buildRoot,
-    projectRoot: options.projectRoot || rootDir,
+    projectRoot,
     requireFresh: true,
     now: options.now,
   });

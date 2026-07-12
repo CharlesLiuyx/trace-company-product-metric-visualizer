@@ -19,19 +19,27 @@ d3 fidelity loop is `docs/fidelity-loop-rules.md`, commit conventions are
 
 The user's explicit statement that human review is complete (including
 `人工审阅完毕`), or that local work was pushed to the remote and merged into
-`main`, is a batch review-completion signal for every PNG currently under
+`main`, is a batch review-completion signal for the PNGs currently under
 `input/processing/`. On either signal:
 
 1. enumerate all current processing PNGs;
-2. fail safely if any same-name destination already exists under
-   `input/processed/`;
-3. otherwise move every enumerated PNG directly to `input/processed/`.
+2. present the complete enumerated list (dataset keys and paths) to the
+   operator and wait for their explicit confirmation before moving anything —
+   the confirmed list is the relocation scope, so a Source the operator did
+   not mean to promote (for example another Build still mid-work) is pulled
+   out here instead of silently entering `processed/`;
+3. fail safely if any same-name destination for a confirmed PNG already
+   exists under `input/processed/`;
+4. otherwise move every confirmed PNG directly to `input/processed/` and
+   report the moved set.
 
 This operator-directed relocation does not require a Build ID, structured
 attestation, baseline staging, a seal, or `verify:closeout`. It is the only
-current Source-relocation authority. Without either signal, leave every Source
-in `processing/`. The move is only a Source-locator update: do not create or
-infer DatasetBuild lifecycle receipts, and do not report it as M4 Publication.
+current Source-relocation authority, and this section is the single owning
+definition of the rule — other documents may only summarize it in one line
+and point here. Without either signal, leave every Source in `processing/`.
+The move is only a Source-locator update: do not create or infer DatasetBuild
+lifecycle receipts, and do not report it as M4 Publication.
 
 ## Execution Model
 
@@ -64,10 +72,11 @@ The pipeline is not strictly serial. Dependency-wise it forms five groups:
   value trials within one human iteration and independent locale evidence runs
   may run in parallel.
 - **E4 — serial close-out (step 14 plus the Verification Checklist and
-  Reporting below).** An operator review-completion signal directly moves all
-  processing PNGs after a whole-batch no-clobber check. Without that signal,
-  leave the Sources in `processing/`. Build close-out remains a separate
-  read-only audit and never authorizes relocation by itself.
+  Reporting below).** An operator review-completion signal moves the
+  processing batch only after the operator confirms the enumerated list
+  (§Operator Review-Completion Signal). Without that signal, leave the
+  Sources in `processing/`. Build close-out remains a separate read-only
+  audit and never authorizes relocation by itself.
 
 ### Difficulty-based executor routing
 
@@ -108,9 +117,9 @@ returns.
    collision, or a candidate-key collision for the selected item is a stop
    condition — report it and do not move, create, update, crop, or verify
    anything for that image. If the final key differs from the script's
-   candidate key, re-run the selected-item guard after naming the file
-   accordingly and check the final key against both active processing claims
-   and existing canonical artifacts.
+   candidate key, name the file accordingly; `record:intake` reruns the
+   definitive selected-item guard with `--key` internally, so a manual
+   `--key` rerun before intake is an optional fast-fail, not a required step.
 2. Key: lowercase kebab case, company plus period, e.g. `nvidia-q4-fy26`.
 3. Type-only intake: inspect the whole image only far enough to select the
    `income-statement` or `revenue-metric` Adapter, then record and claim the
@@ -118,10 +127,10 @@ returns.
 
        pnpm record:intake -- input/pending/<file>.png --key <dataset-key> \
          --adapter <income-statement|revenue-metric> \
-         --availability <published|local-only|restricted>
+         --availability <public|local-only|restricted>
 
-   `--availability` is Source-access policy; its value `published` is not the
-   lifecycle state `PUBLISHED` and does not mean M4 Publication occurred.
+   `--availability` is Source-access policy (`published` remains a legacy
+   input alias for `public`).
    After its selected-item guard passes, `record:intake` writes an ignored
    Build manifest under `output/builds/`, including Source hash/dimensions and
    `baseCanonicalDigest`, and immediately makes a no-clobber claim by moving
@@ -264,14 +273,17 @@ returns.
     remain inspectable, but an unfinished v1/v2 review must rerun this step to
     create v3 inventory and Plan inputs before `finish`; there is no lenient
     close-out path.
-12. Run `pnpm verify:dataset -- <dataset-key>` for read-only diagnostics, then
-    record Build-bound consistency evidence and keep the returned object
+12. Record Build-bound consistency evidence and keep the returned object
     reference for finish:
 
         pnpm record:verification -- <build-id> --json
 
-    For Income Statement, run the manual loop next. `verify:d3` is diagnostic only: it writes no durable
-    review archive and an automatic pass is never human acceptance. Every
+    It runs the non-render dataset profile (syntax, SSOT, strict i18n,
+    generated metadata), so a separate upfront `verify:dataset` pass adds no
+    coverage. Use `verify:dataset` / `verify:d3` only when a read-only
+    diagnostic is wanted without recording evidence: neither writes a durable
+    review archive, and an automatic pass is never human acceptance.
+    For Income Statement, run the manual loop next. Every
     durable evidence run uses the Build and Packet identity:
 
         pnpm record:fidelity -- <dataset-key> --build <build-id> \
@@ -299,28 +311,41 @@ returns.
     an `accepted` `FidelityResult` can move the Build to
     `CLOSED`; machine
     green with no attestation remains `review-pending`. Then stage the
-    future-regression baseline build-locally, rerun the fresh read-only final
-    checks, and seal:
+    future-regression baseline build-locally and seal:
 
         pnpm record:build -- stage-baseline <build-id> --input <baseline.json>
-        pnpm verify:dataset -- <dataset-key>
         pnpm record:build -- seal <build-id>
 
     `seal` takes no caller verification JSON: it recomputes current authored
-    artifact freshness and records the seal only when the exact inputs remain
-    valid. The staged baseline cannot prove its producing Build. The old canonical
-    `pnpm record:baseline -- <dataset-key>` command remains only for an
-    explicitly declared legacy compatibility operation; it is not a normal
-    new-Build close-out path. M4 atomic Publication is still pending.
+    artifact freshness and reruns the Adapter final profile itself — the
+    non-render consistency profile plus, for Income Statement, the d3 render
+    hard gates for every required Plan locale (the Source reference must
+    still resolve through the processing claim or processed path) — and
+    records the seal only when everything passes with the exact inputs
+    still valid; a manual pre-seal `verify:dataset` run is not part of
+    the pipeline. The staged baseline cannot prove its producing Build. The
+    canonical `pnpm compat:baseline -- <dataset-key>` command (renamed from
+    `record:baseline` so the `record:*` class stays build-local) remains only
+    for an explicitly declared legacy compatibility operation; it is not a
+    normal new-Build close-out path. M4 atomic Publication is still pending.
+
+    Close-out requirement policy (owning definition): pushing or merging a
+    new or materially changed dataset to `main` requires an accepted
+    `FidelityResult` (Build `CLOSED`). Baseline staging, `seal`, and
+    `verify:closeout` are the recommended complete close-out and are
+    mandatory whenever a formal Build audit is requested; until M4
+    Publication lands, merging without them is permitted only when the final
+    report explicitly names the skipped steps and the reason.
 
 ### Phase P5 — Close out (E4)
 
 14. Apply §Operator Review-Completion Signal when its trigger is present:
-    enumerate every current processing PNG, fail before moving anything if any
-    same-name destination exists, otherwise move the complete enumerated batch
-    directly to `input/processed/` and report the moved set. Without a signal,
-    leave all Sources in `processing/` and report that no relocation was
-    authorized. Independently, the read-only Build audit remains available:
+    enumerate every current processing PNG, present the complete list for the
+    operator's confirmation, and only after confirmation no-clobber move the
+    confirmed batch to `input/processed/` and report the moved set. Without a
+    signal, leave all Sources in `processing/` and report that no relocation
+    was authorized. Independently, the read-only Build audit remains
+    available per the step 13 close-out requirement policy:
 
         pnpm verify:closeout -- <build-id>
 
@@ -381,12 +406,6 @@ Object checklist, grouped by render intent:
   "HOW THEY MAKE MONEY" mark, `appeconomyinsights.com`, App Economy
   Insights wordmark), website URLs, social badges, attribution blocks,
   decorative residue, and icon-less `Others` segments.
-
-Current repo footprint (grounding for reviewers): 121 dataset adapters;
-`logoSvg` in 76, `annotationsSvg` in 87, runtime `rasterAnnotations` in 23,
-explicit `linkTint` in 120, `valueText` in 80, `labelSide` in 16, custom
-link `curve` in 24, explicit `y0`/`y1` in 15, `preservedAnnotationText` in
-15; icon references exist for 82 companies.
 
 ### Type B — revenue-metric time series (e.g. ARR)
 
@@ -458,7 +477,8 @@ proceed with the pipeline using the new checklist.
   only and must never be referenced from d3 runtime output; runtime rasters
   live under `data/assets/raster-annotations/<company>/`.
 - Keep an active Build's Source in `input/processing/<dataset-key>.png` until
-  an operator review-completion signal directly relocates the batch. Passing
+  an operator review-completion signal — confirmed against the enumerated
+  batch — relocates it. Passing
   accepted, fresh close-out alone does not move it. Authored references still name the final
   `input/processed/<dataset-key>.png`; local tooling may fall back to that
   Build's same-key `processing/` claim.
@@ -469,7 +489,8 @@ proceed with the pipeline using the new checklist.
   an unimplemented abandon/requeue command.
 - Never rename or overwrite a processed image after its dataset key is
   assigned. The operator review-completion rule is the only current relocation
-  authority and always applies to the full processing batch.
+  authority; it enumerates the full processing batch and moves the subset the
+  operator confirms.
 - Interim reporting spans (`3M`, `6M`, `9M`, `H1`, `H2`, `YTD`) share the
   fiscal-year bucket with the annual record but must use the span as their
   viewer variant label unless explicitly overridden; never let them fall back
@@ -490,11 +511,12 @@ Always, before the final response:
   clones, cloud agents, and CI — see Environment Notes. A non-empty
   `input/processing/` is valid evidence of active work and must not make this
   global check fail.
-- When an operator completion signal was given, every Source in the enumerated
-  batch is present at its final processed path; report the signal and moved
-  paths, with no inferred lifecycle receipt. Without a signal, report that no
-  relocation was authorized and Sources remain in processing. Unrelated
-  pending items may remain.
+- When an operator completion signal was given and the enumerated batch was
+  confirmed, every confirmed Source is present at its final processed path;
+  report the signal, the confirmed list, and the moved paths, with no
+  inferred lifecycle receipt. Without a signal, report that no relocation was
+  authorized and Sources remain in processing. Unrelated pending items may
+  remain.
 
 ### Environment Notes (fresh checkouts, cloud, CI)
 
@@ -519,9 +541,12 @@ For viewer changes (`src/app/`, `index.html` script order, `src/app.css`):
 
 For a new or materially changed dataset:
 
-- `pnpm verify:dataset -- <dataset-key>` passes (syntax, SSOT, strict i18n,
-  metadata, and a d3 render per language).
-- The durable `ObjectInventory` v2, `VerificationPlan` v2, `ReviewPacket`, and
+- The dataset profile is green through recorded evidence: Build-bound
+  `dataset-verification/v1` consistency evidence (recorded by
+  `record:verification` and rerun inside `seal`) plus the per-language render
+  evidence below. A separate `pnpm verify:dataset -- <dataset-key>` run
+  remains an optional read-only diagnostic, not a required step.
+- The durable `ObjectInventory` v3, `VerificationPlan` v3, `ReviewPacket`, and
   `dataset-verification/v1` evidence match the current authored digest. Income
   Statement required locales also have `fidelity-run/2` `evidence-ready`
   records created by `record:fidelity`; Revenue Metric render/manual axes are
@@ -535,8 +560,10 @@ For a new or materially changed dataset:
 - Per non-default language, the rendered SVG was visually inspected — the
   aggregate command does not replace this step.
 - `pnpm verify:closeout -- <build-id>` passes after baseline staging and the
-  fresh seal when formal Build audit is required, but it never relocates a
-  Source. Only the operator review-completion rule moves the full batch to
+  fresh seal per the step 13 close-out requirement policy (an accepted
+  `FidelityResult` is the merge floor; skipped staging/seal/closeout must be
+  named in the report with the reason), but it never relocates a Source. Only
+  the operator review-completion rule moves the confirmed batch to
   `input/processed/`; that move is not M4 Publication.
 
 If icon assets were extracted: the crop script passes, `crop-report.json`
@@ -555,10 +582,10 @@ In the final response, include:
 - For new datasets: the input type, `ObjectInventory` digest and
   rendered/data-only/skipped summary, confirming every object is mapped or has
   an explicit skip reason, plus the Build ID/manifest path from intake.
-- For the selected Source: report the operator completion signal and every
-  directly moved path. If no signal was given, report that relocation was not
-  authorized and identify the retained processing paths or any stop/recovery
-  condition.
+- For the selected Source: report the operator completion signal, the
+  confirmed enumerated list, and every directly moved path. If no signal was
+  given, report that relocation was not authorized and identify the retained
+  processing paths or any stop/recovery condition.
 - Icon assets extracted, and whether all relevant clusters were accounted for.
 - For dataset or renderer changes: use
   `pnpm record:build -- inspect <build-id>` and

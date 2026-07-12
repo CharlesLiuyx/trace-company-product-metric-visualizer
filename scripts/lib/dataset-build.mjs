@@ -9,7 +9,7 @@ export const DATASET_BUILD_STATES = Object.freeze([
   'SEALED',
 ]);
 export const DATASET_ADAPTERS = Object.freeze(['income-statement', 'revenue-metric']);
-export const SOURCE_AVAILABILITY = Object.freeze(['published', 'local-only', 'restricted']);
+export const SOURCE_AVAILABILITY = Object.freeze(['public', 'local-only', 'restricted']);
 export const CHANGE_IMPACTS = Object.freeze([
   'new-dataset',
   'geometry',
@@ -320,6 +320,31 @@ function sealPayload(build, command) {
   for (const axis of Object.values(closure.evidence)) {
     invariant(verdictInputs.has(axis.digest), 'SEAL_INVALID', 'SEALED verdict must include every closure evidence digest');
   }
+  let finalProfiles = null;
+  if (command.finalProfiles !== undefined && command.finalProfiles !== null) {
+    invariant(
+      Array.isArray(command.finalProfiles) && command.finalProfiles.length > 0,
+      'SEAL_INVALID',
+      'finalProfiles must be a non-empty array'
+    );
+    finalProfiles = command.finalProfiles.map((profile, index) => {
+      invariant(profile && typeof profile === 'object', 'SEAL_INVALID', `finalProfiles[${index}] must be an object`);
+      invariant(typeof profile.profile === 'string' && profile.profile, 'SEAL_INVALID', `finalProfiles[${index}].profile is required`);
+      invariant(profile.status === 'passed', 'SEAL_VERIFICATION_FAILED', 'Seal final profile must pass');
+      assertDigest(profile.outputDigest, `finalProfiles[${index}] output`);
+      assertTimestamp(profile.checkedAt, `finalProfiles[${index}].checkedAt`);
+      if (profile.locale !== undefined && profile.locale !== null) {
+        invariant(typeof profile.locale === 'string' && profile.locale, 'SEAL_INVALID', `finalProfiles[${index}].locale must be a locale code`);
+      }
+      return {
+        profile: profile.profile,
+        status: 'passed',
+        outputDigest: profile.outputDigest,
+        checkedAt: profile.checkedAt,
+        ...(profile.locale ? { locale: profile.locale } : {}),
+      };
+    });
+  }
   const payload = {
     status: 'passed',
     snapshotDigest: authored.snapshotDigest,
@@ -328,6 +353,7 @@ function sealPayload(build, command) {
     verdictInputDigests: [...verdictInputs].sort(),
     acceptedAt: command.acceptedAt,
     baseCanonicalDigest: build.baseCanonicalDigest,
+    ...(finalProfiles ? { finalProfiles } : {}),
   };
   return { ...payload, sealDigest: digestValue(payload) };
 }

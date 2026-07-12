@@ -492,8 +492,8 @@ pnpm verify:d3 -- kering-fy25 --language en
    Montserrat。
 2. 品牌图形不应因本次清理而变化；如变化，优先检查 brand role、字体加载时序和
    wrapper 继承。
-3. 不得自动运行 `pnpm record:baseline -- ...` 批量覆盖 canonical baseline。
-4. `record:baseline` 是兼容性 canonical mutation，不是本次实现的默认步骤；只有在
+3. 不得自动运行 `pnpm compat:baseline -- ...` 批量覆盖 canonical baseline。
+4. `compat:baseline`（原 `record:baseline`）是兼容性 canonical mutation，不是本次实现的默认步骤；只有在
    完成视觉 Review 且获得明确授权后才可执行。
 5. 自动证据仍然只是 `evidence-ready`，不能表述为人工 accepted 或 converged。
 

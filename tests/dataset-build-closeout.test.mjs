@@ -712,10 +712,36 @@ test('reviewed evidence closes, stages, seals, and becomes stale when authored b
     metrics: { similarity: 0.97, mae: 7.65, width: 2667, height: 1500 },
   }, { buildRoot, projectRoot: root, now });
   assert.equal(staged.state, 'BASELINE_STAGED');
+  const profileCalls = [];
+  const renderCalls = [];
   const sealed = await sealReviewedBuild({
     buildId: prepared.build.buildId,
-  }, { buildRoot, projectRoot: root, now });
+  }, {
+    buildRoot,
+    projectRoot: root,
+    now,
+    runSealProfile: (request) => {
+      profileCalls.push(request);
+      return { status: 0, stdout: 'consistency ok\n', stderr: '' };
+    },
+    runRenderProfile: (request) => {
+      renderCalls.push(request);
+      return { status: 0, stdout: 'render gates ok\n', stderr: '' };
+    },
+  });
   assert.equal(sealed.state, 'SEALED');
+  assert.equal(profileCalls.length, 1);
+  assert.equal(profileCalls[0].key, prepared.build.key);
+  assert.deepEqual(renderCalls.map((call) => call.locale), ['en']);
+  const sealPayload = sealed.receipts.at(-1).payload;
+  assert.equal(sealPayload.finalProfiles.length, 2);
+  assert.equal(sealPayload.finalProfiles[0].profile, 'verify:dataset --skip-render');
+  assert.equal(sealPayload.finalProfiles[0].status, 'passed');
+  assert.match(sealPayload.finalProfiles[0].outputDigest, /^sha256:[a-f0-9]{64}$/);
+  assert.deepEqual(
+    sealPayload.finalProfiles.slice(1).map((row) => [row.profile, row.locale]),
+    [['verify:d3', 'en']]
+  );
   const fresh = await inspectBuildCloseout(prepared.build.buildId, { buildRoot, projectRoot: root });
   assert.equal(fresh.fresh, true);
   assert.equal(fresh.report.status, 'converged');
@@ -763,12 +789,84 @@ test('Revenue Metric closes through consistency evidence with Sankey fidelity ex
     now,
   });
   assert.equal(staged.receipts.at(-1).payload.disposition, 'not-applicable');
+  const revenueRenderCalls = [];
   const sealed = await sealReviewedBuild({ buildId: prepared.build.buildId }, {
     buildRoot,
     projectRoot: root,
     now,
+    runSealProfile: () => ({ status: 0, stdout: 'consistency ok\n', stderr: '' }),
+    runRenderProfile: (request) => {
+      revenueRenderCalls.push(request);
+      return { status: 0, stdout: '', stderr: '' };
+    },
   });
   assert.equal(sealed.state, 'SEALED');
+  assert.deepEqual(revenueRenderCalls, []);
+  const sealPayload = sealed.receipts.at(-1).payload;
+  assert.deepEqual(sealPayload.finalProfiles.map((row) => row.profile), ['verify:dataset --skip-render']);
+});
+
+test('seal refuses to record when a locale render final profile fails', async (t) => {
+  const { root, buildRoot, prepared } = await prepare(t);
+  const evidenceManifest = await writeEvidence(root, prepared, 0);
+  const verificationReference = await writeDatasetVerification(root, buildRoot, prepared);
+  await finishReviewedBuild({
+    buildId: prepared.build.buildId,
+    packetDigest: prepared.packetReference.digest,
+    evidenceManifests: [evidenceManifest],
+    verificationReference,
+    attestation: { reviewer: 'human:reviewer', decision: 'accepted' },
+    regions: [],
+    attention: { status: 'closed', closureNote: 'No open red-box region remains.' },
+    feedback: [],
+    riskChecks: [],
+    manualCheckDecisions: manualCheckDecisions(),
+    interfaceMatrix: matrix(),
+  }, { buildRoot, projectRoot: root, now });
+  await stageReviewedBaseline({
+    buildId: prepared.build.buildId,
+    metrics: { similarity: 0.97, mae: 7.65, width: 2667, height: 1500 },
+  }, { buildRoot, projectRoot: root, now });
+  await assert.rejects(
+    sealReviewedBuild({ buildId: prepared.build.buildId }, {
+      buildRoot,
+      projectRoot: root,
+      now,
+      runSealProfile: () => ({ status: 0, stdout: 'consistency ok\n', stderr: '' }),
+      runRenderProfile: () => ({ status: 1, stdout: '', stderr: 'G8 label clearance failed' }),
+    }),
+    (error) => error.code === 'SEAL_RENDER_PROFILE_FAILED' && error.details.locale === 'en'
+  );
+  const after = await inspectBuildCloseout(prepared.build.buildId, { buildRoot, projectRoot: root });
+  assert.equal(after.historicalState, 'BASELINE_STAGED');
+});
+
+test('seal refuses to record when the non-render consistency profile fails', async (t) => {
+  const { root, buildRoot, prepared } = await prepareRevenueMetric(t);
+  const verificationReference = await writeDatasetVerification(root, buildRoot, prepared);
+  await finishReviewedBuild({
+    buildId: prepared.build.buildId,
+    reviewToken: prepared.reviewToken,
+    verificationReference,
+    attestation: { reviewer: 'human:data-reviewer', decision: 'accepted' },
+    regions: [],
+    attention: { status: 'closed', closureNote: 'No visual red-box surface applies.' },
+    feedback: [],
+    riskChecks: [],
+    interfaceMatrix: null,
+  }, { buildRoot, projectRoot: root, now });
+  await stageReviewedBaseline({ buildId: prepared.build.buildId }, { buildRoot, projectRoot: root, now });
+  await assert.rejects(
+    sealReviewedBuild({ buildId: prepared.build.buildId }, {
+      buildRoot,
+      projectRoot: root,
+      now,
+      runSealProfile: () => ({ status: 1, stdout: '', stderr: 'ssot mismatch' }),
+    }),
+    (error) => error.code === 'SEAL_PROFILE_FAILED'
+  );
+  const after = await inspectBuildCloseout(prepared.build.buildId, { buildRoot, projectRoot: root });
+  assert.equal(after.historicalState, 'BASELINE_STAGED');
 });
 
 test('Revenue Metric display-text review uses dataset consistency without render metrics', async (t) => {
@@ -875,7 +973,13 @@ test('inspect keeps a historical SEALED FidelityResult v1 readable', async (t) =
     buildId: prepared.build.buildId,
     metrics: { similarity: 0.97 },
   }, { buildRoot, projectRoot: root, now });
-  await sealReviewedBuild({ buildId: prepared.build.buildId }, { buildRoot, projectRoot: root, now });
+  await sealReviewedBuild({ buildId: prepared.build.buildId }, {
+    buildRoot,
+    projectRoot: root,
+    now,
+    runSealProfile: () => ({ status: 0, stdout: 'consistency ok\n', stderr: '' }),
+    runRenderProfile: () => ({ status: 0, stdout: 'render gates ok\n', stderr: '' }),
+  });
 
   const inspection = await inspectBuildCloseout(prepared.build.buildId, { buildRoot, projectRoot: root });
   assert.equal(inspection.historicalState, 'SEALED');
