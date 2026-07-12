@@ -7179,6 +7179,479 @@
             }
           }
         }
+      },
+      {
+        "key": "hims-hers-q1-fy26",
+        "src": "data/datasets/hims-hers-q1-fy26.js",
+        "data": {
+          "name": "Hims & Hers · Q1 FY26",
+          "company": "Hims & Hers",
+          "meta": {
+            "title": "Hims & Hers Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Quarter ended Mar. 31, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Hims & Hers · 2026 财年第一季度",
+              "meta": {
+                "title": "Hims & Hers 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "on-q1-fy26",
+        "src": "data/datasets/on-q1-fy26.js",
+        "data": {
+          "name": "On · Q1 FY26",
+          "company": "On",
+          "meta": {
+            "title": "On Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "昂跑 · 2026 财年第一季度",
+              "meta": {
+                "title": "昂跑 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "circle-q1-fy26",
+        "src": "data/datasets/circle-q1-fy26.js",
+        "data": {
+          "name": "Circle · Q1 FY26",
+          "company": "Circle",
+          "meta": {
+            "title": "Circle Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Circle · 2026 财年第一季度",
+              "meta": {
+                "title": "Circle 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "fiserv-q1-fy26",
+        "src": "data/datasets/fiserv-q1-fy26.js",
+        "data": {
+          "name": "Fiserv · Q1 FY26",
+          "company": "Fiserv",
+          "meta": {
+            "title": "Fiserv Q1 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Fiserv · 2026 财年第一季度",
+              "meta": {
+                "title": "Fiserv 2026 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ferrari-q1-fy26",
+        "src": "data/datasets/ferrari-q1-fy26.js",
+        "data": {
+          "name": "Ferrari · Q1 FY26",
+          "company": "Ferrari",
+          "meta": {
+            "title": "Ferrari Q1 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "法拉利 · 2026 财年第一季度",
+              "meta": {
+                "title": "法拉利 2026 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "aramco-q1-fy26",
+        "src": "data/datasets/aramco-q1-fy26.js",
+        "data": {
+          "name": "Saudi Aramco · Q1 FY26",
+          "company": "Saudi Aramco",
+          "meta": {
+            "title": "Aramco Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "沙特阿美 · 2026 财年第一季度",
+              "meta": {
+                "title": "沙特阿美 2026 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nio-q1-fy26",
+        "src": "data/datasets/nio-q1-fy26.js",
+        "data": {
+          "name": "NIO · Q1 FY26",
+          "company": "NIO",
+          "meta": {
+            "title": "NIO Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "蔚来 · 2026 财年第一季度",
+              "meta": {
+                "title": "蔚来 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "celsius-q1-fy26",
+        "src": "data/datasets/celsius-q1-fy26.js",
+        "data": {
+          "name": "Celsius · Q1 FY26",
+          "company": "Celsius",
+          "meta": {
+            "title": "Celsius Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 31, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Celsius · 2026 财年第一季度",
+              "meta": {
+                "title": "Celsius 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月 31 日"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "chevron-q1-fy26",
+        "src": "data/datasets/chevron-q1-fy26.js",
+        "data": {
+          "name": "Chevron · Q1 FY26",
+          "company": "Chevron",
+          "meta": {
+            "title": "Chevron Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "雪佛龙 · 2026 财年第一季度",
+              "meta": {
+                "title": "雪佛龙 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "chime-q1-fy26",
+        "src": "data/datasets/chime-q1-fy26.js",
+        "data": {
+          "name": "Chime · Q1 FY26",
+          "company": "Chime",
+          "meta": {
+            "title": "Chime Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Quarter ended Mar. 31, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Chime · 2026 财年第一季度",
+              "meta": {
+                "title": "Chime 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lowes-q1-fy26",
+        "src": "data/datasets/lowes-q1-fy26.js",
+        "data": {
+          "name": "Lowe's · Q1 FY26",
+          "company": "Lowe's",
+          "meta": {
+            "title": "Lowe's Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Apr. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "劳氏 · 2026 财年第一季度",
+              "meta": {
+                "title": "劳氏 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sentinelone-q1-fy27",
+        "src": "data/datasets/sentinelone-q1-fy27.js",
+        "data": {
+          "name": "SentinelOne · Q1 FY27",
+          "company": "SentinelOne",
+          "meta": {
+            "title": "SentinelOne Q1 FY27 Income Statement",
+            "period": "Q1 FY27",
+            "periodNote": "Ending Apr. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "SentinelOne · 2027 财年第一季度",
+              "meta": {
+                "title": "SentinelOne 2027 财年第一季度利润表",
+                "period": "2027 财年第一季度",
+                "periodNote": "截至 2026 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hpe-q2-fy26",
+        "src": "data/datasets/hpe-q2-fy26.js",
+        "data": {
+          "name": "HPE · Q2 FY26",
+          "company": "HPE",
+          "meta": {
+            "title": "HPE Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Apr. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "慧与 · 2026 财年第二季度",
+              "meta": {
+                "title": "慧与 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "palo-alto-q3-fy26",
+        "src": "data/datasets/palo-alto-q3-fy26.js",
+        "data": {
+          "name": "Palo Alto Networks · Q3 FY26",
+          "company": "Palo Alto Networks",
+          "meta": {
+            "title": "Palo Alto Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Apr. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "帕洛阿尔托网络 · 2026 财年第三季度",
+              "meta": {
+                "title": "帕洛阿尔托网络 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "rubrik-q1-fy27",
+        "src": "data/datasets/rubrik-q1-fy27.js",
+        "data": {
+          "name": "Rubrik · Q1 FY27",
+          "company": "Rubrik",
+          "meta": {
+            "title": "Rubrik Q1 FY27 Income Statement",
+            "period": "Q1 FY27",
+            "periodNote": "Ending Apr. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Rubrik · 2027 财年第一季度",
+              "meta": {
+                "title": "Rubrik 2027 财年第一季度利润表",
+                "period": "2027 财年第一季度",
+                "periodNote": "截至 2026 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "home-depot-q1-fy26",
+        "src": "data/datasets/home-depot-q1-fy26.js",
+        "data": {
+          "name": "Home Depot · Q1 FY26",
+          "company": "Home Depot",
+          "meta": {
+            "title": "Home Depot Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Three months ended May 3, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "家得宝 · 2026 财年第一季度",
+              "meta": {
+                "title": "家得宝 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 5 月 3 日的三个月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "gitlab-q1-fy27",
+        "src": "data/datasets/gitlab-q1-fy27.js",
+        "data": {
+          "name": "GitLab · Q1 FY27",
+          "company": "GitLab",
+          "meta": {
+            "title": "GitLab Q1 FY27 Income Statement",
+            "period": "Q1 FY27",
+            "periodNote": "Ending Apr. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "GitLab · 2027 财年第一季度",
+              "meta": {
+                "title": "GitLab 2027 财年第一季度利润表",
+                "period": "2027 财年第一季度",
+                "periodNote": "截至 2026 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "samsara-q1-fy27",
+        "src": "data/datasets/samsara-q1-fy27.js",
+        "data": {
+          "name": "Samsara · Q1 FY27",
+          "company": "Samsara",
+          "meta": {
+            "title": "Samsara Q1 FY27 Income Statement",
+            "period": "Q1 FY27",
+            "periodNote": "Ending Apr. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Samsara · 2027 财年第一季度",
+              "meta": {
+                "title": "Samsara 2027 财年第一季度利润表",
+                "period": "2027 财年第一季度",
+                "periodNote": "截至 2026 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "accenture-q3-fy26",
+        "src": "data/datasets/accenture-q3-fy26.js",
+        "data": {
+          "name": "Accenture · Q3 FY26",
+          "company": "Accenture",
+          "meta": {
+            "title": "Accenture Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending May 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "埃森哲 · 2026 财年第三季度",
+              "meta": {
+                "title": "埃森哲 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 5 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "fedex-q4-fy26",
+        "src": "data/datasets/fedex-q4-fy26.js",
+        "data": {
+          "name": "FedEx · Q4 FY26",
+          "company": "FedEx",
+          "meta": {
+            "title": "FedEx Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending May 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "联邦快递 · 2026 财年第四季度",
+              "meta": {
+                "title": "联邦快递 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 5 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "gamestop-q1-fy26",
+        "src": "data/datasets/gamestop-q1-fy26.js",
+        "data": {
+          "name": "GameStop · Q1 FY26",
+          "company": "GameStop",
+          "meta": {
+            "title": "GameStop Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending May 2, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "游戏驿站 · 2026 财年第一季度",
+              "meta": {
+                "title": "游戏驿站 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 5 月 2 日"
+              }
+            }
+          }
+        }
       }
     ]
   };

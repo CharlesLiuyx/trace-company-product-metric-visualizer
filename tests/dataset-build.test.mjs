@@ -112,6 +112,21 @@ test('SEALED rejects a verdict that cites the current staged baseline', () => {
   );
 });
 
+test('SEALED Build re-authors with an explicit reopen marker while retaining prior seal', () => {
+  const build = sealed(baselineStaged(closed(authored(intake()))));
+  const reauthored = advanceDatasetBuild(build, {
+    type: 'record-authored',
+    expectedRevision: build.revision,
+    artifacts: [{ path: `data/datasets/${build.key}.js`, digest: digest('corrected-adapter') }],
+    inventory: { digest: digest('corrected-inventory'), rendered: 8, dataOnly: 1, skipped: 2 },
+    changeImpact: ['geometry', 'interaction'],
+  }, { now });
+
+  assert.equal(reauthored.state, 'AUTHORED');
+  assert.equal(reauthored.receipts.at(-2).state, 'SEALED');
+  assert.equal(reauthored.receipts.at(-1).payload.reopenedFrom, 'SEALED');
+});
+
 test('revenue-metric Adapter records baseline as explicitly not applicable', () => {
   let build = authored(intake('revenue-metric', 'example-arr-2026'));
   const snapshot = build.receipts.at(-1).payload;

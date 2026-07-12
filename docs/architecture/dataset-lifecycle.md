@@ -26,8 +26,11 @@ INTAKED -> AUTHORED -> CLOSED -> BASELINE_STAGED -> SEALED
 | `BASELINE_STAGED` | a future-regression record has been derived from the closed candidate but is not canonical | staged baseline artifact bound to the closure digest |
 | `SEALED` | a fresh, read-only final verification accepts the exact build inputs and publication contribution | seal digest and `acceptedAt` |
 
-States are append-only facts, not mutable labels. Rework records an explicit
-reopen/invalidation event and retains prior evidence for audit.
+States are append-only facts, not mutable labels. Rework records a new
+`AUTHORED` receipt with `reopenedFrom` when it follows `CLOSED`,
+`BASELINE_STAGED`, or `SEALED`; it retains the prior evidence and seal for
+audit, while making that earlier closure ineligible for the new authored
+snapshot.
 
 ### Source identity, working locator, and projection
 

@@ -1,0 +1,508 @@
+{
+  "source": "input/processed/home-depot-q1-fy26.png",
+  "spec": "input/icon-crop-specs/home-depot-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-12T13:22:47.395110+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/home-depot",
+  "crops": [
+    {
+      "key": "home-depot-company-logo",
+      "output": "data/assets/icon-references/home-depot/crops/company-logo-q1-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4564,
+        "losslessBytes": 24085,
+        "savingsVsLossless": 0.8105,
+        "metrics": {
+          "meanAbsoluteError": 0.5151,
+          "rootMeanSquareError": 1.668,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 24,
+          "changedPixelRatio": 0.3963
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 6176,
+        "transparentPixelRatio": 0.1037
+      },
+      "searchBox": {
+        "x": 806,
+        "y": 246,
+        "width": 244,
+        "height": 244
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 813,
+        "y0": 253,
+        "x1": 1044,
+        "y1": 484
+      },
+      "cropBox": {
+        "x0": 806,
+        "y0": 246,
+        "x1": 1050,
+        "y1": 490
+      },
+      "validation": {
+        "width": 244,
+        "height": 244,
+        "foregroundPixels": 35658,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 7,
+          "right": 6,
+          "top": 7,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": 0.002,
+          "y": 0.002
+        },
+        "passes": true
+      },
+      "note": "The Home Depot square wordmark only; excludes the Net Sales label, all Sankey nodes, and publisher attribution.",
+      "runtimeOutput": "data/assets/raster-annotations/home-depot/company-logo-q1-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4564,
+        "losslessBytes": 24085,
+        "savingsVsLossless": 0.8105,
+        "metrics": {
+          "meanAbsoluteError": 0.5151,
+          "rootMeanSquareError": 1.668,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 24,
+          "changedPixelRatio": 0.3963
+        }
+      },
+      "validationSheet": "data/assets/icon-references/home-depot/validation-sheets/q1-fy26/home-depot-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 338917,
+        "losslessBytes": 338917,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "home-depot-building-materials-icons",
+      "output": "data/assets/icon-references/home-depot/crops/building-materials-icons-q1-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2980,
+        "losslessBytes": 12327,
+        "savingsVsLossless": 0.7583,
+        "metrics": {
+          "meanAbsoluteError": 0.467,
+          "rootMeanSquareError": 1.9319,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.1934
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 35516,
+        "transparentPixelRatio": 0.8109
+      },
+      "searchBox": {
+        "x": 44,
+        "y": 320,
+        "width": 365,
+        "height": 120
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 50,
+        "y0": 333,
+        "x1": 401,
+        "y1": 431
+      },
+      "cropBox": {
+        "x0": 44,
+        "y0": 320,
+        "x1": 409,
+        "y1": 440
+      },
+      "validation": {
+        "width": 365,
+        "height": 120,
+        "foregroundPixels": 4405,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 6,
+          "right": 8,
+          "top": 13,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": -0.0027,
+          "y": 0.0167
+        },
+        "passes": true
+      },
+      "note": "Building Materials' orange line-art business-icon cluster only; excludes all labels, values, notes, and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/home-depot/building-materials-icons-q1-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2980,
+        "losslessBytes": 12327,
+        "savingsVsLossless": 0.7583,
+        "metrics": {
+          "meanAbsoluteError": 0.467,
+          "rootMeanSquareError": 1.9319,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.1934
+        }
+      },
+      "validationSheet": "data/assets/icon-references/home-depot/validation-sheets/q1-fy26/home-depot-building-materials-icons.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 260411,
+        "losslessBytes": 260411,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "home-depot-decor-icons",
+      "output": "data/assets/icon-references/home-depot/crops/decor-icons-q1-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 3068,
+        "losslessBytes": 11978,
+        "savingsVsLossless": 0.7439,
+        "metrics": {
+          "meanAbsoluteError": 0.8886,
+          "rootMeanSquareError": 2.2354,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.495
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 15780,
+        "transparentPixelRatio": 0.5089
+      },
+      "searchBox": {
+        "x": 84,
+        "y": 600,
+        "width": 304,
+        "height": 102
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 99,
+        "y0": 606,
+        "x1": 374,
+        "y1": 694
+      },
+      "cropBox": {
+        "x0": 84,
+        "y0": 600,
+        "x1": 388,
+        "y1": 702
+      },
+      "validation": {
+        "width": 304,
+        "height": 102,
+        "foregroundPixels": 8296,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 15,
+          "right": 14,
+          "top": 6,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0016,
+          "y": -0.0098
+        },
+        "passes": true
+      },
+      "note": "Decor's orange line-art furnishing cluster only; excludes all labels, values, notes, and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/home-depot/decor-icons-q1-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 3068,
+        "losslessBytes": 11978,
+        "savingsVsLossless": 0.7439,
+        "metrics": {
+          "meanAbsoluteError": 0.8886,
+          "rootMeanSquareError": 2.2354,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.495
+        }
+      },
+      "validationSheet": "data/assets/icon-references/home-depot/validation-sheets/q1-fy26/home-depot-decor-icons.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 264458,
+        "losslessBytes": 264458,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "home-depot-hardlines-icons",
+      "output": "data/assets/icon-references/home-depot/crops/hardlines-icons-q1-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2144,
+        "losslessBytes": 9172,
+        "savingsVsLossless": 0.7662,
+        "metrics": {
+          "meanAbsoluteError": 0.537,
+          "rootMeanSquareError": 2.1046,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 45,
+          "changedPixelRatio": 0.2057
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 21181,
+        "transparentPixelRatio": 0.7971
+      },
+      "searchBox": {
+        "x": 120,
+        "y": 850,
+        "width": 258,
+        "height": 103
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 136,
+        "y0": 856,
+        "x1": 352,
+        "y1": 944
+      },
+      "cropBox": {
+        "x0": 120,
+        "y0": 850,
+        "x1": 378,
+        "y1": 953
+      },
+      "validation": {
+        "width": 258,
+        "height": 103,
+        "foregroundPixels": 3150,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 16,
+          "right": 26,
+          "top": 6,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": -0.0194,
+          "y": -0.0146
+        },
+        "passes": true
+      },
+      "note": "Hardlines' orange line-art vehicle and power-tool cluster only; excludes all labels, values, notes, and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/home-depot/hardlines-icons-q1-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2144,
+        "losslessBytes": 9172,
+        "savingsVsLossless": 0.7662,
+        "metrics": {
+          "meanAbsoluteError": 0.537,
+          "rootMeanSquareError": 2.1046,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 45,
+          "changedPixelRatio": 0.2057
+        }
+      },
+      "validationSheet": "data/assets/icon-references/home-depot/validation-sheets/q1-fy26/home-depot-hardlines-icons.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 266001,
+        "losslessBytes": 266001,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "home-depot-other-distributor-logos",
+      "output": "data/assets/icon-references/home-depot/crops/other-distributor-logos-q1-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2220,
+        "losslessBytes": 9007,
+        "savingsVsLossless": 0.7535,
+        "metrics": {
+          "meanAbsoluteError": 0.6492,
+          "rootMeanSquareError": 1.9293,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.2712
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 11705,
+        "transparentPixelRatio": 0.7513
+      },
+      "searchBox": {
+        "x": 144,
+        "y": 1082,
+        "width": 205,
+        "height": 76
+      },
+      "componentCount": 15,
+      "subjectBox": {
+        "x0": 150,
+        "y0": 1093,
+        "x1": 337,
+        "y1": 1147
+      },
+      "cropBox": {
+        "x0": 144,
+        "y0": 1082,
+        "x1": 349,
+        "y1": 1158
+      },
+      "validation": {
+        "width": 205,
+        "height": 76,
+        "foregroundPixels": 3274,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 6,
+          "right": 12,
+          "top": 11,
+          "bottom": 11
+        },
+        "centerOffset": {
+          "x": -0.0146,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Other segment's SRS Distribution and GMS company-logo cluster only; excludes its label, value, note, source bar, and publisher footer.",
+      "runtimeOutput": "data/assets/raster-annotations/home-depot/other-distributor-logos-q1-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2220,
+        "losslessBytes": 9007,
+        "savingsVsLossless": 0.7535,
+        "metrics": {
+          "meanAbsoluteError": 0.6492,
+          "rootMeanSquareError": 1.9293,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.2712
+        }
+      },
+      "validationSheet": "data/assets/icon-references/home-depot/validation-sheets/q1-fy26/home-depot-other-distributor-logos.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 275258,
+        "losslessBytes": 275258,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

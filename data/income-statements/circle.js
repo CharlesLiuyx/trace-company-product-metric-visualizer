@@ -106,4 +106,103 @@
       },
     },
   });
+
+  ssot.records.push({
+    key: 'circle-q1-fy26',
+    company: 'Circle',
+    period: 'Q1 FY26',
+    periodNote: 'Ending Mar. 2026',
+    currency: '$',
+    unit: 'M',
+    decimals: 0,
+    sourceImage: 'input/processed/circle-q1-fy26.png',
+    roundingTolerance: 1.1,
+    revenue: {
+      total: 694,
+      notes: ['+20% Y/Y'],
+      items: [
+        { id: 'reserve_income', label: 'Reserve income', value: 652, notes: ['+17% Y/Y'] },
+        { id: 'other_revenue', label: 'Other revenue', value: 42, notes: ['+101% Y/Y'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: {
+        id: 'distribution_transaction_costs',
+        label: 'Distribution and transaction costs',
+        value: 407,
+      },
+      operatingExpenses: {
+        total: 242,
+        items: [
+          { id: 'compensation', label: 'Compensation', value: 138 },
+          { id: 'general_admin', label: 'General & admin', value: 57 },
+          { id: 'depreciation_amortization', label: 'Depreciation & amortization', value: 27 },
+          { id: 'it_infrastructure', label: 'IT Infrastructure', value: 13 },
+          { id: 'marketing_other', label: 'Marketing & other', value: 7 },
+        ],
+      },
+      tax: { id: 'tax', label: 'Tax', value: 1 },
+    },
+    otherIncome: {
+      total: 12,
+      items: [{ id: 'other_income', label: 'Other', value: 12 }],
+    },
+    otherExpenses: {
+      total: 0,
+      items: [],
+    },
+    profit: {
+      gross: {
+        label: 'Revenue less distribution and transaction costs (derived)',
+        value: 287,
+        notes: ['Derived as revenue less distribution and transaction costs; this subtotal is not rendered in the source chart.'],
+      },
+      operating: {
+        id: 'operating_profit',
+        label: 'Operating profit',
+        value: 45,
+        notes: ['3% margin', '(4pp) Y/Y'],
+      },
+      net: {
+        id: 'net_profit',
+        label: 'Net profit',
+        value: 55,
+        notes: ['8% margin', '-15% Y/Y'],
+      },
+    },
+    i18n: {
+      zh: {
+        period: '2026 财年第一季度',
+        periodNote: '截至 2026 年 3 月',
+        revenue: {
+          notes: ['同比 +20%'],
+          items: [
+            { id: 'reserve_income', label: '储备金收益', notes: ['同比 +17%'] },
+            { id: 'other_revenue', label: '其他收入', notes: ['同比 +101%'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: { label: '分发与交易成本' },
+          operatingExpenses: {
+            items: [
+              { id: 'compensation', label: '薪酬' },
+              { id: 'general_admin', label: '一般及行政费用' },
+              { id: 'depreciation_amortization', label: '折旧及摊销' },
+              { id: 'it_infrastructure', label: 'IT 基础设施' },
+              { id: 'marketing_other', label: '市场营销及其他' },
+            ],
+          },
+          tax: { label: '税费' },
+        },
+        otherIncome: {
+          items: [{ id: 'other_income', label: '其他' }],
+        },
+        profit: {
+          gross: { label: '收入扣除分发与交易成本（推导值）', notes: ['由收入减去分发与交易成本推导；该小计未在来源图中绘制。'] },
+          operating: { label: '营业利润', notes: ['利润率 3%', '同比（4 个百分点）'] },
+          net: { label: '净利润', notes: ['利润率 8%', '同比 -15%'] },
+        },
+      },
+    },
+  });
 })(window);

@@ -122,7 +122,8 @@ test('amountValueUsd converts via the FX snapshot and money units', () => {
   assert.equal(amountValueUsd(2, '$', 'B'), 2e9);
   const eur = currencyUnitsPerUsd('€');
   assert.ok(Math.abs(amountValueUsd(1, '€', 'B') - 1e9 / eur) < 1e-6);
-  assert.equal(amountValueUsd(5, 'CHF', 'B'), null, 'unknown currency yields null, not a wrong number');
+  const chf = currencyUnitsPerUsd('CHF');
+  assert.ok(Math.abs(amountValueUsd(5, 'CHF', 'B') - 5e9 / chf) < 1e-6);
   assert.equal(amountValueUsd('n/a', '$', 'B'), null);
 });
 

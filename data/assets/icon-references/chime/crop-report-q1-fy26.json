@@ -1,0 +1,226 @@
+{
+  "source": "input/processed/chime-q1-fy26.png",
+  "spec": "input/icon-crop-specs/chime-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-12T12:54:54.965817+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/chime",
+  "crops": [
+    {
+      "key": "chime-payment-revenue-card",
+      "output": "data/assets/icon-references/chime/crops/payment-revenue-card-q1-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1893,
+        "losslessBytes": 12440,
+        "savingsVsLossless": 0.8478,
+        "metrics": {
+          "meanAbsoluteError": 0.718,
+          "rootMeanSquareError": 2.3986,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.3325
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 17613,
+        "transparentPixelRatio": 0.6621
+      },
+      "searchBox": {
+        "x": 105,
+        "y": 450,
+        "width": 190,
+        "height": 140
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 126,
+        "y0": 451,
+        "x1": 278,
+        "y1": 566
+      },
+      "cropBox": {
+        "x0": 105,
+        "y0": 450,
+        "x1": 295,
+        "y1": 590
+      },
+      "validation": {
+        "width": 190,
+        "height": 140,
+        "foregroundPixels": 8970,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 21,
+          "right": 17,
+          "top": 1,
+          "bottom": 24
+        },
+        "centerOffset": {
+          "x": 0.0105,
+          "y": -0.0821
+        },
+        "passes": true
+      },
+      "note": "Payment revenue Chime Card illustration only; excludes the segment label, values, notes, and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/chime/payment-revenue-card-q1-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1893,
+        "losslessBytes": 12440,
+        "savingsVsLossless": 0.8478,
+        "metrics": {
+          "meanAbsoluteError": 0.718,
+          "rootMeanSquareError": 2.3986,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.3325
+        }
+      },
+      "validationSheet": "data/assets/icon-references/chime/validation-sheets/q1-fy26/chime-payment-revenue-card.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 298951,
+        "losslessBytes": 298951,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "chime-platform-related-revenue-phone",
+      "output": "data/assets/icon-references/chime/crops/platform-related-revenue-phone-q1-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 3811,
+        "losslessBytes": 19307,
+        "savingsVsLossless": 0.8026,
+        "metrics": {
+          "meanAbsoluteError": 0.7113,
+          "rootMeanSquareError": 2.2888,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 38,
+          "changedPixelRatio": 0.2649
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 20845,
+        "transparentPixelRatio": 0.6724
+      },
+      "searchBox": {
+        "x": 100,
+        "y": 830,
+        "width": 190,
+        "height": 155
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 127,
+        "y0": 838,
+        "x1": 277,
+        "y1": 966
+      },
+      "cropBox": {
+        "x0": 95,
+        "y0": 830,
+        "x1": 295,
+        "y1": 985
+      },
+      "validation": {
+        "width": 200,
+        "height": 155,
+        "foregroundPixels": 6983,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 32,
+          "right": 18,
+          "top": 8,
+          "bottom": 19
+        },
+        "centerOffset": {
+          "x": 0.035,
+          "y": -0.0355
+        },
+        "passes": true
+      },
+      "note": "Platform-related revenue mobile-app illustration only; excludes the segment label, value, source bar, and footer content.",
+      "runtimeOutput": "data/assets/raster-annotations/chime/platform-related-revenue-phone-q1-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 3811,
+        "losslessBytes": 19307,
+        "savingsVsLossless": 0.8026,
+        "metrics": {
+          "meanAbsoluteError": 0.7113,
+          "rootMeanSquareError": 2.2888,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 38,
+          "changedPixelRatio": 0.2649
+        }
+      },
+      "validationSheet": "data/assets/icon-references/chime/validation-sheets/q1-fy26/chime-platform-related-revenue-phone.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 320839,
+        "losslessBytes": 320839,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,386 @@
+{
+  "source": "input/processed/on-q1-fy26.png",
+  "spec": "input/icon-crop-specs/on-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-12T12:41:21.881839+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/on",
+  "crops": [
+    {
+      "key": "on-company-logo",
+      "output": "data/assets/icon-references/on/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1977,
+        "losslessBytes": 8828,
+        "savingsVsLossless": 0.7761,
+        "metrics": {
+          "meanAbsoluteError": 0.1937,
+          "rootMeanSquareError": 0.9933,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.1114
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 29962,
+        "transparentPixelRatio": 0.5752
+      },
+      "searchBox": {
+        "x": 1260,
+        "y": 220,
+        "width": 184,
+        "height": 290
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 1300,
+        "y0": 230,
+        "x1": 1439,
+        "y1": 501
+      },
+      "cropBox": {
+        "x0": 1280,
+        "y0": 220,
+        "x1": 1459,
+        "y1": 511
+      },
+      "validation": {
+        "width": 179,
+        "height": 291,
+        "foregroundPixels": 18393,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 20,
+          "right": 20,
+          "top": 10,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "On's black logo above the right-hand Revenue hub; excludes the title, revenue label, Sankey flows, and publisher branding.",
+      "runtimeOutput": "data/assets/raster-annotations/on/company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1977,
+        "losslessBytes": 8828,
+        "savingsVsLossless": 0.7761,
+        "metrics": {
+          "meanAbsoluteError": 0.1937,
+          "rootMeanSquareError": 0.9933,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.1114
+        }
+      },
+      "validationSheet": "data/assets/icon-references/on/validation-sheets/on-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 209339,
+        "losslessBytes": 209339,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "on-shoes-product",
+      "output": "data/assets/icon-references/on/crops/shoes-product.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 39113,
+        "losslessBytes": 39113,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 25351,
+        "transparentPixelRatio": 0.5968
+      },
+      "searchBox": {
+        "x": 136,
+        "y": 590,
+        "width": 226,
+        "height": 172
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 148,
+        "y0": 607,
+        "x1": 356,
+        "y1": 753
+      },
+      "cropBox": {
+        "x0": 134,
+        "y0": 590,
+        "x1": 370,
+        "y1": 770
+      },
+      "validation": {
+        "width": 236,
+        "height": 180,
+        "foregroundPixels": 15686,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 14,
+          "right": 14,
+          "top": 17,
+          "bottom": 17
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Blue running shoe associated with Shoes revenue; excludes the Shoes label, value text, node bar, and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/on/shoes-product.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 39113,
+        "losslessBytes": 39113,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/on/validation-sheets/on-shoes-product.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 286383,
+        "losslessBytes": 286383,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "on-apparel-product",
+      "output": "data/assets/icon-references/on/crops/apparel-product.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 24528,
+        "losslessBytes": 24528,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 16154,
+        "transparentPixelRatio": 0.4915
+      },
+      "searchBox": {
+        "x": 168,
+        "y": 860,
+        "width": 154,
+        "height": 180
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 181,
+        "y0": 871,
+        "x1": 322,
+        "y1": 1040
+      },
+      "cropBox": {
+        "x0": 165,
+        "y0": 861,
+        "x1": 338,
+        "y1": 1051
+      },
+      "validation": {
+        "width": 173,
+        "height": 190,
+        "foregroundPixels": 16682,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 16,
+          "right": 16,
+          "top": 10,
+          "bottom": 11
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0026
+        },
+        "passes": true
+      },
+      "note": "Orange apparel shirt associated with Apparel revenue; excludes the Apparel label, value text, node bar, and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/on/apparel-product.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 24528,
+        "losslessBytes": 24528,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/on/validation-sheets/on-apparel-product.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 270838,
+        "losslessBytes": 270838,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "on-accessories-product",
+      "output": "data/assets/icon-references/on/crops/accessories-product.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2877,
+        "losslessBytes": 15003,
+        "savingsVsLossless": 0.8082,
+        "metrics": {
+          "meanAbsoluteError": 0.6136,
+          "rootMeanSquareError": 1.868,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 29,
+          "changedPixelRatio": 0.3763
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 15167,
+        "transparentPixelRatio": 0.6128
+      },
+      "searchBox": {
+        "x": 130,
+        "y": 1127,
+        "width": 208,
+        "height": 104
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 145,
+        "y0": 1137,
+        "x1": 336,
+        "y1": 1223
+      },
+      "cropBox": {
+        "x0": 128,
+        "y0": 1125,
+        "x1": 353,
+        "y1": 1235
+      },
+      "validation": {
+        "width": 225,
+        "height": 110,
+        "foregroundPixels": 9541,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 17,
+          "right": 17,
+          "top": 12,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Black cap associated with Accessories revenue; excludes the Accessories label, value text, node bar, and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/on/accessories-product.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2877,
+        "losslessBytes": 15003,
+        "savingsVsLossless": 0.8082,
+        "metrics": {
+          "meanAbsoluteError": 0.6136,
+          "rootMeanSquareError": 1.868,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 29,
+          "changedPixelRatio": 0.3763
+        }
+      },
+      "validationSheet": "data/assets/icon-references/on/validation-sheets/on-accessories-product.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 231352,
+        "losslessBytes": 231352,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

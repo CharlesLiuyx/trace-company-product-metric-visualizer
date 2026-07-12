@@ -102,6 +102,8 @@ preflight 至少逐对象记录：
 - 每个 label 的语义组、anchor、渲染目标位置；名称、金额、备注、margin、Y/Y 不拆散归属。
 - 注释容器、内容 union、图标 cluster 和受保护文本的 bbox。
 
+固定 `layout.labels.<node>.blocks` 的纵向位置必须逐组从当前参考图测量：记录文字 union（或逐行 bbox）、`block.top`、x/anchor，以及它与 node/link 的关系。同公司相邻期间或相邻对象只能作为视觉语言参考，不能作为坐标来源。每次改变 `top`、行距、字号或 `textLength` 后，必须在下一次 text sweep 中逐 locale 对照候选与参考的 top/bottom/anchor；任何未测量或明显偏移的组都以 reference red-box 重开 text stage。
+
 测量值直接用于第一版 Adapter；不能先粗排，再靠多次 evidence run 逼近。
 
 ### Interface Matrix v1
