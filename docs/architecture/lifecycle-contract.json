@@ -5,6 +5,12 @@
   "protocols": {
     "datasetBuild": "dataset-build/v1",
     "fidelityRun": "fidelity-run/2",
+    "objectInventory": "object-inventory/v2",
+    "verificationPlan": "verification-plan/v2",
+    "reviewPacket": "review-packet/v2",
+    "datasetVerification": "dataset-verification/v1",
+    "interfaceMatrix": "interface-matrix/v1",
+    "fidelityResult": "fidelity-result/v2",
     "publication": "dataset-publication/v1"
   },
   "operationClasses": {
@@ -78,6 +84,7 @@
     "VerificationPlan",
     "DatasetVerification",
     "ArtifactManifest",
+    "InterfaceMatrix",
     "FidelityResult",
     "ObjectInventory",
     "ManualAttestation",

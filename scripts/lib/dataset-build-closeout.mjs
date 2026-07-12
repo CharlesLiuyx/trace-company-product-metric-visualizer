@@ -6,9 +6,14 @@ import {
   createFeedbackRecord,
   projectFeedbackLedger,
 } from './feedback-ledger.mjs';
-import { createFidelityResult, digestFidelityValue } from './fidelity-result.mjs';
+import {
+  createFidelityResult,
+  createInterfaceMatrix,
+  digestFidelityValue,
+} from './fidelity-result.mjs';
 import { createObjectInventory } from './object-inventory.mjs';
 import { compileVerificationPlan } from './verification-plan.mjs';
+import { assertInterfaceEvidenceReady } from './interface-fidelity.mjs';
 import {
   createCloseoutReport,
   renderLoopFidelitySummary,
@@ -25,7 +30,7 @@ import {
 } from './dataset-build-store.mjs';
 import { rootDir } from './project.mjs';
 
-export const REVIEW_PACKET_PROTOCOL = 'review-packet/v1';
+export const REVIEW_PACKET_PROTOCOL = 'review-packet/v2';
 
 function closeoutError(code, message, details = undefined) {
   const error = new Error(message);
@@ -86,10 +91,16 @@ async function normalizeArtifacts(artifacts, projectRoot) {
 function planForFidelityResult(authored) {
   const plan = authored?.verificationPlan;
   invariant(plan, 'VERIFICATION_PLAN_REQUIRED', 'The authored snapshot has no VerificationPlan');
+  invariant(
+    plan.schemaVersion === 2 && plan.protocol === 'verification-plan/v2',
+    'VERIFICATION_PLAN_STALE',
+    'Finishing review requires VerificationPlan v2; prepare a fresh review packet'
+  );
   return {
     digest: authored.verificationPlanDigest || plan.digest || plan.planDigest,
     requiredLocales: plan.requiredLocales,
     changeImpact: plan.changeImpact,
+    requiredChecks: plan.requiredChecks,
   };
 }
 
@@ -120,7 +131,7 @@ export async function prepareBuildReview(input, options = {}) {
   }, { buildRoot, projectRoot, now: options.now });
   const authoredPayload = authored.receipts.at(-1).payload;
   const packetValue = {
-    schemaVersion: 1,
+    schemaVersion: 2,
     protocol: REVIEW_PACKET_PROTOCOL,
     kind: 'review-packet',
     buildId: build.buildId,
@@ -164,6 +175,13 @@ async function evidenceFromManifest(locator, context) {
     ? await readJsonLocator(manifest.artifacts.metrics, context.projectRoot)
     : null;
   invariant(metrics && typeof metrics === 'object', 'EVIDENCE_METRICS_REQUIRED', `Fidelity evidence has no metrics document: ${locator}`);
+  invariant(
+    manifest.identity?.dataset === context.key &&
+      metrics.dataset === manifest.identity.dataset &&
+      metrics.language === manifest.identity.language,
+    'EVIDENCE_METRICS_IDENTITY_MISMATCH',
+    `Fidelity metrics dataset/language do not match the Build manifest: ${locator}`
+  );
   const loadedFonts = metrics.fontStatus?.loaded;
   invariant(
     metrics.fontStatus?.allLoaded === true &&
@@ -183,6 +201,50 @@ async function evidenceFromManifest(locator, context) {
     'EVIDENCE_TYPOGRAPHY_INVALID',
     `Fidelity evidence has no passing G3 typography audit: ${locator}`
   );
+  invariant(
+    manifest.artifacts?.interfaceAudit && manifest.artifacts?.interfaceContactSheet,
+    'EVIDENCE_INTERFACE_ARTIFACT_REQUIRED',
+    `Fidelity evidence must archive the G12 audit and contact sheet: ${locator}`
+  );
+  const interfaceAudit = await readJsonLocator(manifest.artifacts.interfaceAudit, context.projectRoot);
+  const interfaceMetrics = metrics.interfaceAudit;
+  invariant(
+    interfaceAudit?.gate === 'G12' && interfaceAudit.version >= 3,
+    'EVIDENCE_INTERFACE_AUDIT_INVALID',
+    `Fidelity evidence has no current G12 interface audit: ${locator}`
+  );
+  invariant(
+    interfaceAudit.dataset === metrics.dataset && interfaceAudit.language === metrics.language,
+    'EVIDENCE_INTERFACE_IDENTITY_MISMATCH',
+    `G12 audit dataset/language do not match its metrics document: ${locator}`
+  );
+  const nodePaintAudit = metrics.nodePaintAudit;
+  invariant(
+    nodePaintAudit?.schemaVersion === 1 &&
+      nodePaintAudit.dataset === metrics.dataset &&
+      nodePaintAudit.language === metrics.language,
+    'EVIDENCE_NODE_PAINT_IDENTITY_MISMATCH',
+    `Node paint audit dataset/language do not match its metrics document: ${locator}`
+  );
+  try {
+    assertInterfaceEvidenceReady(interfaceAudit);
+  } catch (error) {
+    throw closeoutError(
+      'EVIDENCE_INTERFACE_AUDIT_NOT_PASSED',
+      `G12 must be enforced and fully passed (candidate plus reference): ${locator}; ${error.message}`
+    );
+  }
+  invariant(
+    interfaceMetrics?.path === manifest.artifacts.interfaceAudit &&
+      interfaceMetrics.contactSheet === manifest.artifacts.interfaceContactSheet &&
+      interfaceMetrics.mode === interfaceAudit.mode &&
+      interfaceMetrics.status === interfaceAudit.status &&
+      interfaceMetrics.enforcementStatus === interfaceAudit.enforcementStatus &&
+      interfaceMetrics.candidateStatus === interfaceAudit.candidateStatus &&
+      interfaceMetrics.referenceStatus === interfaceAudit.referenceStatus,
+    'EVIDENCE_INTERFACE_IDENTITY_MISMATCH',
+    `G12 metrics do not identify the archived audit artifacts: ${locator}`
+  );
   const digest = digestFidelityValue({ manifest, artifactDigests });
   return {
     locale: manifest.identity.language,
@@ -190,6 +252,8 @@ async function evidenceFromManifest(locator, context) {
     digest,
     metrics,
     manifest,
+    artifactDigests,
+    interfaceAudit,
     locator,
   };
 }
@@ -211,7 +275,7 @@ function derivedRiskChecks(plan, evidence) {
   const checks = [];
   if (requiredIds.has('feature:centered-side-label')) {
     const featureCheck = plan.requiredChecks.find((check) => check.id === 'feature:centered-side-label');
-    const expectedNodes = new Set((featureCheck.evidenceTargets || []).map((target) => target.split('.').at(-1)));
+    const expectedNodes = new Set((featureCheck.evidenceTargets || []).map((target) => target.split(/[.:/]/).at(-1)));
     for (const item of evidence) {
       const sideLabels = (item.metrics?.labelLayoutAudit?.horizontalSideLabels || [])
         .filter((label) => expectedNodes.has(label.node));
@@ -262,6 +326,199 @@ function derivedRiskChecks(plan, evidence) {
   return checks;
 }
 
+function nodePaintRecords(metrics) {
+  const audit = metrics?.nodePaintAudit;
+  const records = audit?.nodes || audit?.records || audit?.items || [];
+  return Array.isArray(records) ? records : [];
+}
+
+function nodePaintId(record) {
+  return record?.nodeId || record?.node || record?.id || null;
+}
+
+function checkFeatureEvidence(check, entry) {
+  const expectedTargets = (check.evidenceTargets || []).map((target) => target.split(/[.:/]/).at(-1));
+  if (check.evidenceKind === 'label-layout-audit') {
+    const labels = entry.metrics?.labelLayoutAudit?.horizontalSideLabels || [];
+    return Boolean(entry.metrics?.labelLayoutAudit) && expectedTargets.every((target) => labels.some((label) =>
+      label.node === target && Number.isFinite(Number(label.verticalCenterDelta)) && Number(label.verticalCenterDelta) <= 4
+    ));
+  }
+  if (check.evidenceKind === 'text-layout-audit') {
+    const audit = entry.metrics?.textLayoutAudit;
+    return Boolean(audit) &&
+      ((check.objectIds || []).length === 0 || Number(audit.checkedTexts) > 0) &&
+      (audit.overflowViolations?.length || 0) === 0;
+  }
+  if (check.evidenceKind === 'annotation-layout-audit') {
+    const audit = entry.metrics?.annotationLayoutAudit;
+    return Boolean(audit) &&
+      ((check.objectIds || []).length === 0 || Number(audit.checkedAnnotationTexts) > 0) &&
+      (audit.overlapViolations?.length || 0) === 0;
+  }
+  if (check.evidenceKind === 'interface-audit') {
+    return entry.interfaceAudit?.enforcementStatus === 'passed';
+  }
+  if (check.evidenceKind === 'node-paint-audit') {
+    const records = nodePaintRecords(entry.metrics);
+    const byId = new Map(records.map((record) => [nodePaintId(record), record]));
+    const visible = check.id !== 'feature:hidden-anchor';
+    return expectedTargets.length > 0 && expectedTargets.every((target) => {
+      const record = byId.get(target);
+      return record && record.faceVisible === visible;
+    });
+  }
+  return false;
+}
+
+function localeEvidenceForCheck(check, entry, consistency) {
+  if (!entry) return null;
+  if (check.evidenceKind === 'dataset-consistency') {
+    return {
+      passed: consistency.status === 'passed',
+      evidenceDigests: [consistency.digest],
+    };
+  }
+  if (check.evidenceKind === 'fidelity-run') {
+    return { passed: entry.status === 'passed', evidenceDigests: [entry.digest] };
+  }
+  if (check.evidenceKind === 'full-review-profile') {
+    return {
+      passed: entry.status === 'passed' && consistency.status === 'passed',
+      evidenceDigests: [consistency.digest, entry.digest],
+    };
+  }
+  if (check.evidenceKind === 'interface-audit') {
+    const evidenceDigests = [
+      entry.artifactDigests?.reference,
+      entry.artifactDigests?.interfaceAudit,
+      entry.artifactDigests?.interfaceContactSheet,
+    ].filter(Boolean);
+    invariant(evidenceDigests.length === 3, 'CHECK_EVIDENCE_PROVIDER_MISSING', `Check ${check.id} needs archived reference, interface audit, and contact sheet`);
+    return { passed: checkFeatureEvidence(check, entry), evidenceDigests };
+  }
+  if (['label-layout-audit', 'text-layout-audit', 'annotation-layout-audit', 'node-paint-audit'].includes(check.evidenceKind)) {
+    invariant(entry.artifactDigests?.metrics, 'CHECK_EVIDENCE_PROVIDER_MISSING', `Check ${check.id} needs the archived metrics document`);
+    return {
+      passed: checkFeatureEvidence(check, entry),
+      evidenceDigests: [entry.artifactDigests.metrics],
+    };
+  }
+  throw closeoutError('CHECK_EVIDENCE_PROVIDER_INVALID', `No locale evidence provider exists for ${check.id}/${check.evidenceKind}`);
+}
+
+function deriveCheckResults(
+  plan,
+  evidenceEntries,
+  consistency,
+  manualCheckDecisions = [],
+  authoredArtifacts = []
+) {
+  const entriesByLocale = new Map(evidenceEntries.map((entry) => [entry.locale, entry]));
+  const results = [];
+  for (const check of plan.requiredChecks) {
+    if (check.enforcement === 'manual') continue;
+    if (check.localeScope === 'global') {
+      let status;
+      let evidenceDigests;
+      if (check.evidenceKind === 'dataset-consistency') {
+        status = consistency.status === 'passed' ? 'passed' : 'failed';
+        evidenceDigests = [consistency.digest];
+      } else if (check.evidenceKind === 'verification-plan') {
+        const planDigest = plan.planDigest || plan.digest;
+        invariant(planDigest, 'CHECK_EVIDENCE_PROVIDER_MISSING', `Check ${check.id} needs the VerificationPlan digest`);
+        status = 'passed';
+        evidenceDigests = [planDigest];
+      } else {
+        throw closeoutError('CHECK_EVIDENCE_PROVIDER_INVALID', `No global evidence provider exists for ${check.id}/${check.evidenceKind}`);
+      }
+      results.push({
+        checkId: check.id,
+        status,
+        source: 'automatic',
+        objectIds: [...(check.objectIds || [])],
+        evidenceDigests,
+      });
+      continue;
+    }
+    for (const locale of plan.requiredLocales) {
+      const entry = entriesByLocale.get(locale);
+      if (!entry) continue;
+      const derived = localeEvidenceForCheck(check, entry, consistency);
+      results.push({
+        checkId: check.id,
+        locale,
+        status: derived.passed ? 'passed' : 'failed',
+        source: 'automatic',
+        objectIds: [...(check.objectIds || [])],
+        evidenceDigests: derived.evidenceDigests,
+      });
+    }
+  }
+
+  invariant(Array.isArray(manualCheckDecisions), 'MANUAL_CHECK_DECISIONS_INVALID', 'manualCheckDecisions must be an array');
+  const checkById = new Map(plan.requiredChecks.map((check) => [check.id, check]));
+  const entriesByManualLocale = new Map(evidenceEntries.map((entry) => [entry.locale, entry]));
+  const globalEvidenceDigests = new Set([
+    consistency.digest,
+    plan.planDigest,
+    plan.inventoryDigest,
+    ...authoredArtifacts.map((artifact) => artifact.digest),
+  ].filter(Boolean));
+  for (const [index, decision] of manualCheckDecisions.entries()) {
+    invariant(decision && typeof decision === 'object', 'MANUAL_CHECK_DECISIONS_INVALID', `manualCheckDecisions[${index}] must be an object`);
+    const check = checkById.get(decision.checkId);
+    invariant(check?.enforcement === 'manual', 'MANUAL_CHECK_DECISION_NOT_ALLOWED', `Check ${decision.checkId || index} is not a required manual check`);
+    const locale = decision.locale == null ? null : String(decision.locale).trim();
+    invariant(
+      (check.localeScope === 'global' && locale == null) ||
+        (check.localeScope === 'required-locales' && plan.requiredLocales.includes(locale)),
+      'MANUAL_CHECK_DECISIONS_INVALID',
+      `Manual check ${check.id} has an invalid locale`
+    );
+    invariant(
+      Array.isArray(decision.evidenceDigests) && decision.evidenceDigests.length > 0,
+      'MANUAL_CHECK_EVIDENCE_MISMATCH',
+      `Manual check ${check.id}${locale ? `@${locale}` : ''} needs bound evidence`
+    );
+    const evidenceDigests = [...new Set(decision.evidenceDigests.map(String))].sort();
+    const featureEvidenceDigests = new Set(check.featureEvidenceDigests || []);
+    if (locale != null) {
+      const entry = entriesByManualLocale.get(locale);
+      invariant(entry, 'MANUAL_CHECK_EVIDENCE_MISMATCH', `Manual check ${check.id}@${locale} has no locale evidence run`);
+      const localeEvidenceDigests = new Set([
+        entry.digest,
+        ...Object.values(entry.artifactDigests || {}),
+      ].filter(Boolean));
+      const allowed = new Set([...localeEvidenceDigests, ...featureEvidenceDigests]);
+      invariant(
+        evidenceDigests.some((digest) => localeEvidenceDigests.has(digest)) &&
+          evidenceDigests.every((digest) => allowed.has(digest)),
+        'MANUAL_CHECK_EVIDENCE_MISMATCH',
+        `Manual check ${check.id}@${locale} cites evidence outside that locale run`
+      );
+    } else {
+      const allowed = new Set([...globalEvidenceDigests, ...featureEvidenceDigests]);
+      invariant(
+        evidenceDigests.some((digest) => globalEvidenceDigests.has(digest)) &&
+          evidenceDigests.every((digest) => allowed.has(digest)),
+        'MANUAL_CHECK_EVIDENCE_MISMATCH',
+        `Manual check ${check.id} cites evidence outside the Build-bound global evidence`
+      );
+    }
+    results.push({
+      checkId: check.id,
+      ...(locale == null ? {} : { locale }),
+      status: decision.status,
+      source: 'manual',
+      objectIds: [...(check.objectIds || [])],
+      evidenceDigests,
+      ...(decision.note == null ? {} : { note: String(decision.note) }),
+    });
+  }
+  return results;
+}
+
 async function feedbackRecordsInBuildRoot(buildRoot) {
   if (!existsSync(buildRoot)) return [];
   const records = [];
@@ -280,8 +537,82 @@ async function feedbackRecordsInBuildRoot(buildRoot) {
 
 async function normalizeMatrix(input, projectRoot) {
   if (input == null) return null;
-  if (typeof input === 'string') return readJsonLocator(input, projectRoot);
-  return input;
+  const value = typeof input === 'string' ? await readJsonLocator(input, projectRoot) : input;
+  return createInterfaceMatrix(value);
+}
+
+function validateMatrixEvidence(matrix, evidenceEntries, required) {
+  if (!required) return;
+  invariant(
+    matrix,
+    'INTERFACE_MATRIX_REQUIRED',
+    'New-dataset, geometry, and render-engine review require interface-matrix/v1'
+  );
+  const auditedIds = new Set(evidenceEntries.flatMap((entry) => entry.interfaceAudit?.expectedInterfaceIds || []));
+  const candidateIds = new Set(matrix.rows.filter((row) => row.candidate).map((row) => row.id));
+  invariant(
+    JSON.stringify([...auditedIds].sort()) === JSON.stringify([...candidateIds].sort()),
+    'INTERFACE_MATRIX_CANDIDATE_COVERAGE_MISMATCH',
+    'Interface Matrix candidate rows must exactly cover the automatic G12 candidate interfaces'
+  );
+  const evidenceSets = evidenceEntries.map((entry) => ({
+    audit: entry.artifactDigests?.interfaceAudit,
+    contactSheet: entry.artifactDigests?.interfaceContactSheet,
+  }));
+  for (const row of matrix.rows) {
+    invariant(
+      evidenceSets.some((digests) =>
+        digests.audit === row.evidenceDigests.audit &&
+        digests.contactSheet === row.evidenceDigests.contactSheet
+      ),
+      'INTERFACE_MATRIX_EVIDENCE_MISMATCH',
+      `Interface Matrix row ${row.id} does not bind to one archived evidence run`
+    );
+    for (const entry of evidenceEntries) {
+      const auditRow = entry.interfaceAudit?.interfaces?.find((item) => item.id === row.id);
+      if (!auditRow) continue;
+      invariant(
+        auditRow.node === row.node && auditRow.face === row.side,
+        'INTERFACE_MATRIX_GEOMETRY_MISMATCH',
+        `Interface Matrix row ${row.id} names a different node face than G12`
+      );
+      const auditCandidate = {
+        nodeBbox: {
+          left: auditRow.nodeBox?.left,
+          right: auditRow.nodeBox?.right,
+          top: auditRow.nodeBox?.top,
+          bottom: auditRow.nodeBox?.bottom,
+        },
+        unionIntervals: (auditRow.candidateUnion || [])
+          .map((interval) => ({ top: interval.top, bottom: interval.bottom }))
+          .sort((left, right) => left.top - right.top || left.bottom - right.bottom),
+        linkIntervals: (auditRow.links || [])
+          .map((link) => ({
+            linkId: link.link,
+            top: link.interval?.top,
+            bottom: link.interval?.bottom,
+          }))
+          .sort((left, right) => left.linkId.localeCompare(right.linkId) || left.top - right.top || left.bottom - right.bottom),
+      };
+      invariant(
+        digestFidelityValue(auditCandidate) === digestFidelityValue(row.candidate),
+        'INTERFACE_MATRIX_GEOMETRY_MISMATCH',
+        `Interface Matrix row ${row.id} candidate geometry does not match the archived G12 row`
+      );
+      const auditIntent = auditRow.coverageIntent === 'full-face' ? 'full-face' : 'reference';
+      invariant(
+        auditIntent === row.coverageIntent,
+        'INTERFACE_MATRIX_COVERAGE_INTENT_MISMATCH',
+        `Interface Matrix row ${row.id} conflicts with the G12 coverage intent`
+      );
+      invariant(
+        /^sha256:[a-f0-9]{64}$/.test(String(auditRow.referenceCropDigest || '')) &&
+          auditRow.referenceCropDigest === row.evidenceDigests.referenceCrop,
+        'INTERFACE_MATRIX_REFERENCE_CROP_MISMATCH',
+        `Interface Matrix row ${row.id} does not bind to the deterministic G12 reference crop`
+      );
+    }
+  }
 }
 
 export async function finishReviewedBuild(input, options = {}) {
@@ -296,6 +627,11 @@ export async function finishReviewedBuild(input, options = {}) {
     kind: 'review-packet',
     digest: input.reviewToken || input.packetDigest,
   }, { buildRoot });
+  invariant(
+    packet.schemaVersion === 2 && packet.protocol === REVIEW_PACKET_PROTOCOL,
+    'REVIEW_PACKET_STALE',
+    'Finishing review requires a fresh review-packet/v2'
+  );
   const { packetDigest, ...packetValue } = packet;
   invariant(packetDigest === digestFidelityValue(packetValue), 'REVIEW_PACKET_DIGEST_MISMATCH', 'Review packet digest does not match its content');
   invariant(packet.authoredDigest === authored.snapshotDigest, 'REVIEW_PACKET_STALE', 'Review packet was prepared for an older authored snapshot');
@@ -323,6 +659,7 @@ export async function finishReviewedBuild(input, options = {}) {
       evidenceEntries = await Promise.all(input.evidenceManifests.map((locator) =>
         evidenceFromManifest(locator, {
           buildId: build.buildId,
+          key: build.key,
           authoredDigest: authored.snapshotDigest,
           verificationPlanDigest: plan.digest,
           projectRoot,
@@ -374,6 +711,19 @@ export async function finishReviewedBuild(input, options = {}) {
     ...derivedRiskChecks(authored.verificationPlan, evidenceEntries),
     ...(input.riskChecks || []),
   ];
+  const interfaceMatrix = await normalizeMatrix(input.interfaceMatrix, projectRoot);
+  const matrixRequired = build.adapter === 'income-statement'
+    && plan.changeImpact.some((impact) =>
+      impact === 'geometry' || impact === 'new-dataset' || impact === 'render-engine'
+    );
+  validateMatrixEvidence(interfaceMatrix, evidenceEntries, matrixRequired);
+  const checkResults = deriveCheckResults(
+    authored.verificationPlan,
+    evidenceEntries,
+    automaticEvidence.consistency,
+    input.manualCheckDecisions || [],
+    authored.artifacts || []
+  );
   const fidelityResult = createFidelityResult({
     buildId: build.buildId,
     key: build.key,
@@ -381,12 +731,13 @@ export async function finishReviewedBuild(input, options = {}) {
     authoredDigest: authored.snapshotDigest,
     verificationPlan: plan,
     automaticEvidence,
+    checkResults,
     attestation,
     regions: input.regions || [],
     attention: input.attention,
     feedbackSummary: { openItems, automationUpgradesRequired },
     riskChecks,
-    interfaceMatrix: await normalizeMatrix(input.interfaceMatrix, projectRoot),
+    interfaceMatrix,
   });
 
   const feedbackReferences = [];

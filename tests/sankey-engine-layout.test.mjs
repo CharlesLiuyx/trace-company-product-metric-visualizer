@@ -63,7 +63,7 @@ test('hover share formatting strips trailing zeros and rejects a zero denominato
   assert.equal(hoverShare.format(1, 0, 1), '');
 });
 
-test('hover share amounts prefer authored values and always use magnitudes', () => {
+test('Hover Share regression prefers authored endpoint magnitudes', () => {
   assert.equal(hoverShare.nodeAmount({ dv: -40, value: 99 }), 40);
   assert.equal(hoverShare.nodeAmount({ dv: 0, value: 99 }), 0, 'authored zero is not replaced by d3 flow');
   assert.equal(hoverShare.nodeAmount({ value: -130 }), 130);
@@ -356,7 +356,7 @@ test('taperedLinkPath builds closed source/target-width boundaries', () => {
   );
 });
 
-test('linkCenterlinePoint anchors tapered ribbons at the cubic centerline midpoint', () => {
+test('Tooltip centerline regression anchors tapered ribbons at the cubic midpoint', () => {
   const link = {
     source: { x1: 100 },
     target: { x0: 300 },

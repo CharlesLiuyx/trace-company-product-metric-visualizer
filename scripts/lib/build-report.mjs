@@ -145,7 +145,9 @@ function normalizeRiskChecks(result) {
 
 function normalizeMatrix(result) {
   const required = result.subject.adapter === 'income-statement'
-    && result.verificationPlan.changeImpact.some((impact) => impact === 'geometry' || impact === 'new-dataset');
+    && result.verificationPlan.changeImpact.some((impact) =>
+      impact === 'geometry' || impact === 'new-dataset' || impact === 'render-engine'
+    );
   if (!result.interfaceMatrix) return { required, digest: null, summary: null };
   return {
     required,

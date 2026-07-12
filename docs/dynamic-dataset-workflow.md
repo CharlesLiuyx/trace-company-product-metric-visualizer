@@ -2,8 +2,8 @@
 
 Owning document for the dynamic dataset workflow — the end-to-end process for
 turning a pending image into a verified dataset. It is *dynamic*, not a frozen
-checklist: the fidelity loop folds every user correction back into the rules
-(`docs/fidelity-loop-rules.md` 人工反馈沉淀), so these steps keep evolving. It
+checklist: the fidelity loop turns every user correction into a rule,
+required check, or dataset-specific decision, so these steps keep evolving. It
 holds the numbered pipeline, the execution model (parallel groups and
 main-agent/subagent routing), the input-type object taxonomy, operational
 traps, the pre-response verification checklist, and reporting requirements.
@@ -39,11 +39,11 @@ infer DatasetBuild lifecycle receipts, and do not report it as M4 Publication.
 
 The pipeline is not strictly serial. Dependency-wise it forms five groups:
 
-- **G0 — serial gate (steps 1–3).** Guard, key, and Source claim. Nothing else
+- **E0 — serial gate (steps 1–3).** Guard, key, and Source claim. Nothing else
   may start before the guard passes and `record:intake` has no-clobber claimed
   the Source as `input/processing/<dataset-key>.png`; a stop condition ends
   the whole run.
-- **G1 — parallel preparation (steps 4–7).** Everything here depends only on
+- **E1 — parallel preparation (steps 4–7).** Everything here depends only on
   the frozen key + reference image, so the three tracks may run concurrently
   (as interleaved work or delegated subagents):
   - Track A (data): company metadata (step 5), then the financial SSOT
@@ -53,17 +53,17 @@ The pipeline is not strictly serial. Dependency-wise it forms five groups:
   - Track C (icons, conditional): the crop/vector subloop (step 7). Its
     cluster scope comes from the step 4 inventory, so it starts after the
     coarse pass — still parallel to Tracks A and B.
-- **G2 — serial authoring (steps 8–10).** Adapter authoring needs Track A
+- **E2 — serial authoring (steps 8–10).** Adapter authoring needs Track A
   values and Track B geometry; dataset i18n overlays need the adapter's
   final label text; registration follows. Icon assets from Track C plug in
   here whenever they converge.
-- **G3 — verification and review (steps 11–13).** Prepare the authored
+- **E3 — verification and review (steps 11–13).** Prepare the authored
   snapshot and `ReviewPacket`, record Build-bound dataset verification and
   `fidelity-run/2` evidence, then finish human review, stage the baseline,
-  and seal. Fidelity rounds are inherently
-  serial per direction, while candidate-value trials within a round and
-  independent locale evidence may run in parallel.
-- **G4 — serial close-out (step 14 plus the Verification Checklist and
+  and seal. Sweep stages are serial when one depends on another; candidate-
+  value trials within one human iteration and independent locale evidence runs
+  may run in parallel.
+- **E4 — serial close-out (step 14 plus the Verification Checklist and
   Reporting below).** An operator review-completion signal directly moves all
   processing PNGs after a whole-batch no-clobber check. Without that signal,
   leave the Sources in `processing/`. Build close-out remains a separate
@@ -96,7 +96,7 @@ returns.
 
 ## New Dataset Pipeline
 
-### Phase P1 — Intake & guard (G0, serial)
+### Phase P1 — Intake & guard (E0, serial)
 
 1. Select one pending PNG and guard that item with
    `pnpm check:pending -- --file input/pending/<file>.png --key <dataset-key>`
@@ -131,7 +131,7 @@ returns.
    Build ID, manifest path, and processing path in the durable review working
    record. This is a local compatibility claim, not canonical Publication.
 
-### Phase P2 — Source inventory & data SSOTs (G1, parallel tracks)
+### Phase P2 — Source inventory & data SSOTs (E1, parallel tracks)
 
 4. Confirmed input typing & coarse object inventory (Track B; do this first — it
    seeds the other tracks): look at the whole image coarsely before any
@@ -147,20 +147,21 @@ returns.
      subloop, no d3 fidelity loop (`verify:dataset` skips render for
      revenue-metric keys).
    - Enumerate every object instance against that type's checklist and persist
-     it as `ObjectInventory` (`object-inventory/v1`): stable lowercase object
+     it as `ObjectInventory` (`object-inventory/v2`): stable lowercase object
      ID, kind, `render` / `data-only` / `skip` disposition, authored mapping,
-     render-risk features, and a reason for every skip. A prose list or only
-     three counts is not durable inventory. Use features such as
-     `text`, `annotation-near-label`, `visible-short-node`, and
-     `visible-interface` wherever the source object exhibits them. Add
-     `centered-side-label` only when the source intent is vertical centering,
-     not for top-aligned or grouped side labels. The
-     inventory drives SSOT
+     required locales, render-risk features, source evidence, and a reason for
+     every skip. A prose list or only three counts is not durable inventory.
+     Every Sankey-node object must choose exactly one node-face intent:
+     `visible-node-face` or `hidden-anchor`; `visible-short-node` additionally
+     marks short visible faces, while `specified-label-weight` records a
+     source-backed heading weight. The full feature/evidence contract lives in
+     `docs/fidelity-loop-rules.md` §2; do not restate its visual tests here.
+     The inventory drives SSOT
      completeness (step 6 cross-check), icon crop scope (step 7), label
      grouping (step 8), i18n coverage (step 9), and the skip list — record
      it so the final report can state that every object is accounted for.
    - Only after the inventory is complete move to fine, per-object
-     measurement (step 8 / `docs/fidelity-loop-rules.md` §第 0 轮).
+     measurement (step 8 / `docs/fidelity-loop-rules.md` §2).
    - Keep the selected Source at `input/processing/<dataset-key>.png` for the
      entire inventory, authoring, crop, fidelity, and close-out workflow. Do
      not promote it early merely because inventory or authoring is complete.
@@ -202,13 +203,14 @@ returns.
    Crop/vector iteration and raster whitelist rules:
    `docs/fidelity-loop-rules.md`; folder layout: `data/assets/README.md`.
 
-### Phase P3 — Adapter & i18n (G2, serial)
+### Phase P3 — Adapter & i18n (E2, serial)
 
-8. Adapter: first run the fine pre-render measurement of
-   `docs/fidelity-loop-rules.md` §第 0 轮, walking the step 4 inventory
-   object by object (canvas and column x positions, per-bar pixel bboxes,
-   link topology with sockets, label anchors and grouping, annotation
-   container bboxes). Then author `data/datasets/<dataset-key>.js` per
+8. Adapter: first run the preflight measurement in
+   `docs/fidelity-loop-rules.md` §2, walking the step 4 inventory object by
+   object. Persist the measured node, link/socket, label, annotation and
+   Interface Matrix inputs required there; after the first candidate render,
+   collect its candidate-side Matrix rows and `nodePaintAudit`. Then author
+   `data/datasets/<dataset-key>.js` per
    `data/schema.md` as a high-fidelity adapter with explicit `nodes`,
    `links`, `layout.nodes`, and `layout.labels` tuned against the source
    image. Keep each semantic label unit (name, value, notes, margin, Y/Y)
@@ -217,14 +219,16 @@ returns.
    (`type: 'cost'` renders parenthesized); treat publisher watermarks,
    creator branding, URLs, and attribution blocks as intentional skipped
    residuals, not render targets; set `meta.logoSvg` when the source shows
-   a vector-representable company logo. Set `meta.referenceImage.src` to the
-   final `input/processed/<dataset-key>.png` path and use the exact intake
+   a vector-representable company logo. Node-face classification and paint
+   acceptance are owned by the fidelity rules; this workflow only requires
+   their Plan checks and evidence to be present. Set `meta.referenceImage.src` to the final
+   `input/processed/<dataset-key>.png` path and use the exact intake
    dimensions; diagnostic and fidelity tools may read the active Build's
    same-key `processing/` claim while that final path is not yet materialized. New or
    materially changed fixed-layout datasets must declare
-   `render.interfaceAudit: { mode: 'error' }`; the G12
-   artifacts and required Interface Matrix follow
-   `docs/fidelity-loop-rules.md` and do not belong in the financial SSOT.
+   `render.interfaceAudit: { mode: 'error' }`. A `fullFaceIds` entry is valid
+   only with the matching `interface-matrix/v1` row and provenance described
+   by `data/schema.md`; interface artifacts do not belong in the financial SSOT.
 9. i18n: English is canonical. Add `i18n.<language>` overlays — never
    parallel dataset files — for every non-default language in
    `window.SANKEY_I18N.languageCodes`, covering dataset `name`, `meta`
@@ -239,19 +243,22 @@ returns.
     annotation words in the dataset's `i18n.preservedAnnotationText` (see
     Traps).
 
-### Phase P4 — Verify and review (G3)
+### Phase P4 — Verify and review (E3)
 
 11. Prepare review from the completed `ObjectInventory`, authored artifact
     paths, `ChangeImpact`, and required locales:
 
         pnpm record:build -- prepare-review <build-id> --input <review-input.json>
 
-    This records the `AUTHORED` snapshot, compiles the Adapter-owned
-    `VerificationPlan`, and emits a content-addressed `ReviewPacket` plus its
+    This records the `AUTHORED` snapshot, compiles `verification-plan/v2`,
+    and emits a content-addressed `ReviewPacket` plus its
     printed `reviewToken`. Keep that token: the finish JSON must cite it
     (`packetDigest` remains compatibility input only). The Plan expands
-    ObjectInventory features into mandatory checks; callers cannot omit a hit
-    or invent `notApplicable`.
+    ObjectInventory features into mandatory checks with enforcement, object
+    and locale scope; callers cannot omit a hit or invent `notApplicable`.
+    Historical v1 inventories, Plans, Packets, and Results remain inspectable,
+    but an unfinished v1 review must rerun this step to create v2 inventory,
+    Plan and Packet inputs before `finish`; there is no lenient close-out path.
 12. Run `pnpm verify:dataset -- <dataset-key>` for read-only diagnostics, then
     record Build-bound consistency evidence and keep the returned object
     reference for finish:
@@ -260,25 +267,32 @@ returns.
 
     For Income Statement, run the manual loop next. `verify:d3` is diagnostic only: it writes no durable
     review archive and an automatic pass is never human acceptance. Every
-    durable human-review round uses the Build and Packet identity:
+    durable evidence run uses the Build and Packet identity:
 
         pnpm record:fidelity -- <dataset-key> --build <build-id> \
           --focus <direction> [--language <code>] [--round <n>]
 
     A successful command records `fidelity-run/2` `evidence-ready` artifacts;
     it does **not** record `accepted`. Repeat after every authored change and
-    for every required locale, per `docs/fidelity-loop-rules.md`.
+    for every required locale, per `docs/fidelity-loop-rules.md`. Each run
+    supplies scoped automatic results, including `nodePaintAudit` and the
+    candidate interface layer; the complete Interface Matrix and genuinely
+    manual checks are reconciled during review.
 13. After the final authored change, prepare a fresh Packet if its digest is
     stale, rerun `record:verification` plus every affected locale evidence,
     and finish with a review JSON containing the `reviewToken`, returned
-    `verificationReference`, `ManualAttestation`, stable `RegionDecision`
-    records, attention status (open red-box digest or closed closure note),
-    the Adapter-required Matrix (reconciled Interface Matrix for Income
-    Statement), and any `FeedbackRecord` entries:
+    `verificationReference`, `ManualAttestation`, `manualCheckDecisions`,
+    stable `RegionDecision` records, attention status (open red-box digest or
+    closed closure note), the Adapter-required `interface-matrix/v1`, and any
+    `FeedbackRecord` entries:
 
         pnpm record:build -- finish <build-id> --review <review.json>
 
-    Only an `accepted` `FidelityResult` can move the Build to `CLOSED`; machine
+    Finish must consume each global Plan check once and each locale-scoped
+    check once per required locale, producing `FidelityResult` v2
+    `checkResults`; missing/duplicate/wrong-scope evidence is a blocker. Only
+    an `accepted` `FidelityResult` can move the Build to
+    `CLOSED`; machine
     green with no attestation remains `review-pending`. Then stage the
     future-regression baseline build-locally, rerun the fresh read-only final
     checks, and seal:
@@ -294,7 +308,7 @@ returns.
     explicitly declared legacy compatibility operation; it is not a normal
     new-Build close-out path. M4 atomic Publication is still pending.
 
-### Phase P5 — Close out (G4)
+### Phase P5 — Close out (E4)
 
 14. Apply §Operator Review-Completion Signal when its trigger is present:
     enumerate every current processing PNG, fail before moving anything if any
@@ -314,7 +328,7 @@ returns.
 ## Object Taxonomy
 
 Owned here; step 4 classifies against it, and the fine measurement of
-`docs/fidelity-loop-rules.md` §第 0 轮 refines the same object list rather
+`docs/fidelity-loop-rules.md` §2 refines the same object list rather
 than re-deriving it. When user review adjusts this taxonomy, update this
 section — not per-dataset notes — so the next run inherits the lesson.
 
@@ -335,16 +349,9 @@ Object checklist, grouped by render intent:
   (endpoint-tinted gradients, waterfall adjustment area, bypass ribbons,
   multi-entry stacked sockets), and invisible anchor nodes for
   guide-line-only flows.
-- Hover Share semantics: author amounts and semantic topology only; the
-  renderer owns the formula and Adapters must not provide percentage overrides.
-  On node hover, inspect incoming and outgoing sides independently: multiple
-  distinct opposite nodes show each relationship over the current node, while
-  a singleton side shows current node over its opposite. Endpoint-declared SVG
-  annotations count as semantic relationships and de-duplicate matching graph
-  links. Direct link/guide hover always shows smaller authored endpoint over
-  larger authored endpoint. Confirm node, label, link, and guide surfaces with
-  absolute values, including loss/negative nodes and legitimate results above
-  100%.
+- Hover Share semantics: inventory authored endpoints and semantic
+  relationships only. The renderer-owned formula and surface grouping are
+  defined once in `CONTEXT.md`; Adapters must not provide percentage overrides.
 - Label units (`layout.labels`): chart title, period stamp
   (period + periodNote), per-node label groups — name, value, notes,
   margin, Y/Y kept as one semantic unit — side labels for dense terminal
@@ -412,27 +419,18 @@ proceed with the pipeline using the new checklist.
 
 ## Traps and Hard Constraints
 
-- The auto hard gates (G1–G12: engine-output purity, canvas size, font,
-  no-raster rules, label-node spacing, SSOT/i18n consistency, and Interface
-  fidelity) are enumerated
-  only in `docs/fidelity-loop-rules.md` §自动硬门槛 — read them before tuning
-  layout, not after a failed run.
-- Label-node spacing targets 5px; a rendered bbox gap under 4px or a short
-  auxiliary column center offset over 4px is an automatic hard fail. Details
-  and the bbox audit procedure: `docs/fidelity-loop-rules.md`.
-- Every evidence render reports `textLayoutAudit` and
-  `annotationLayoutAudit`. They become mandatory `FidelityResult` risk gates
-  when `ObjectInventory` contains `text` or `annotation-near-label`: text
-  overflow and annotation/protected-text overlap counts must be zero. Missing
-  audit fields remain open; they are not silently treated as pass.
+- The canonical G/B/R/L/T/A/Z/I definitions, thresholds and evidence semantics
+  live only in `docs/fidelity-loop-rules.md`. This workflow invokes those
+  checks; it must not duplicate or reinterpret them.
+- Every Plan-required automatic or manual check must produce a scoped
+  `checkResults` entry. Missing audit fields and missing manual decisions remain
+  open; they are never silently treated as pass.
 - `verify:i18n --strict` proves overlay coverage, not visual validity. For
   every non-default language, collect durable review evidence with
   `pnpm record:fidelity -- <dataset-key> --build <build-id> --focus polish-l10n-sweep --language <code>`
   (use `verify:d3` only for an earlier diagnostic) and
-  inspect text bounds (`getBBox()` or equivalent) for mixed-language
-  leftovers, malformed acronyms/punctuation, overlap, and out-of-canvas text.
-  High-risk strings (`R&D`, `SG&A`, ampersand labels, money suffixes):
-  `docs/fidelity-loop-rules.md` §本地化布局.
+  inspect all Plan-required layout checks. Detailed acceptance criteria are in
+  `docs/fidelity-loop-rules.md` §5.
 - `annotationsSvg` brand text: whole segments matching the company's name,
   legal name, or alias words are exempted automatically from i18n fallback
   checks; other intentionally untranslated words (sub-brands like `aws`)
@@ -518,15 +516,17 @@ For a new or materially changed dataset:
 
 - `pnpm verify:dataset -- <dataset-key>` passes (syntax, SSOT, strict i18n,
   metadata, and a d3 render per language).
-- The durable `ObjectInventory`, `VerificationPlan`, `ReviewPacket`, and
+- The durable `ObjectInventory` v2, `VerificationPlan` v2, `ReviewPacket`, and
   `dataset-verification/v1` evidence match the current authored digest. Income
   Statement required locales also have `fidelity-run/2` `evidence-ready`
   records created by `record:fidelity`; Revenue Metric render/manual axes are
   Adapter-owned `notApplicable` and must not receive Sankey evidence.
-- The manual loop finished with an accepted `FidelityResult`, closed attention
-  (red-box reference or closure note), complete Interface Matrix, no open
-  Feedback Ledger item, no pending recurrence upgrade, and no failed/open risk
-  check. `verify:d3` diagnostic output alone satisfies none of these.
+- The manual loop finished with an accepted `FidelityResult` v2 whose
+  `checkResults` consume every global Plan check once and every locale-scoped
+  check once per required locale, with closed attention,
+  Plan-required complete `interface-matrix/v1`, no open Feedback Ledger item, no pending
+  recurrence upgrade, and no failed/open check. `verify:d3` diagnostic output
+  alone satisfies none of these.
 - Per non-default language, the rendered SVG was visually inspected — the
   aggregate command does not replace this step.
 - `pnpm verify:closeout -- <build-id>` passes after baseline staging and the
@@ -563,4 +563,8 @@ In the final response, include:
   never hand-fill or override them.
 - Whether user-feedback lessons changed `docs/fidelity-loop-rules.md` or were
   recorded as dataset-specific exceptions.
+- For dataset or renderer work containing short nodes: report expected visible
+  face count, confirmed visible face count, T12 hidden-anchor count, and
+  unclassified count per required locale. Any mismatch or nonzero
+  unclassified count must be reported as open, not converged.
 - Any commands that could not be run.

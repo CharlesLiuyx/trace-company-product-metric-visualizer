@@ -6476,6 +6476,349 @@
             }
           }
         }
+      },
+      {
+        "key": "health-equity-q1-fy27",
+        "src": "data/datasets/health-equity-q1-fy27.js",
+        "data": {
+          "name": "HealthEquity · Q1 FY27",
+          "company": "HealthEquity",
+          "meta": {
+            "title": "HealthEquity Q1 FY27 Income Statement",
+            "period": "Q1 FY27",
+            "periodNote": "Ending Apr. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HealthEquity · 2027 财年第一季度",
+              "meta": {
+                "title": "HealthEquity 2027 财年第一季度利润表",
+                "period": "2027 财年第一季度",
+                "periodNote": "截至 2026 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mercadolibre-q1-fy26",
+        "src": "data/datasets/mercadolibre-q1-fy26.js",
+        "data": {
+          "name": "MercadoLibre · Q1 FY26",
+          "company": "MercadoLibre",
+          "meta": {
+            "title": "MercadoLibre Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美客多 · 2026 财年第一季度",
+              "meta": {
+                "title": "美客多 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tripadvisor-q1-fy26",
+        "src": "data/datasets/tripadvisor-q1-fy26.js",
+        "data": {
+          "name": "Tripadvisor · Q1 FY26",
+          "company": "Tripadvisor",
+          "meta": {
+            "title": "Tripadvisor Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Quarter ended Mar. 31, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "猫途鹰 · 2026 财年第一季度",
+              "meta": {
+                "title": "猫途鹰 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "novo-nordisk-q1-fy26",
+        "src": "data/datasets/novo-nordisk-q1-fy26.js",
+        "data": {
+          "name": "Novo Nordisk · Q1 FY26",
+          "company": "Novo Nordisk",
+          "meta": {
+            "title": "Novo Nordisk Q1 FY26 Income Statement",
+            "period": "in DKK"
+          },
+          "i18n": {
+            "zh": {
+              "name": "诺和诺德 · 2026 财年第一季度",
+              "meta": {
+                "title": "诺和诺德 2026 财年第一季度利润表",
+                "period": "单位：丹麦克朗"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nu-q1-fy26",
+        "src": "data/datasets/nu-q1-fy26.js",
+        "data": {
+          "name": "Nu · Q1 FY26",
+          "company": "Nu",
+          "meta": {
+            "title": "Nu Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Nu · 2026 财年第一季度",
+              "meta": {
+                "title": "Nu 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "global-e-q1-fy26",
+        "src": "data/datasets/global-e-q1-fy26.js",
+        "data": {
+          "name": "Global-e · Q1 FY26",
+          "company": "Global-e",
+          "meta": {
+            "title": "Global-e Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Global-e · 2026 财年第一季度",
+              "meta": {
+                "title": "Global-e 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "dlocal-q1-fy26",
+        "src": "data/datasets/dlocal-q1-fy26.js",
+        "data": {
+          "name": "dLocal · Q1 FY26",
+          "company": "dLocal",
+          "meta": {
+            "title": "dLocal Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "dLocal · 2026 财年第一季度",
+              "meta": {
+                "title": "dLocal 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "affirm-q3-fy26",
+        "src": "data/datasets/affirm-q3-fy26.js",
+        "data": {
+          "name": "Affirm · Q3 FY26",
+          "company": "Affirm",
+          "meta": {
+            "title": "Affirm Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Affirm · 2026 财年第三季度",
+              "meta": {
+                "title": "Affirm 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "paypal-q1-fy26",
+        "src": "data/datasets/paypal-q1-fy26.js",
+        "data": {
+          "name": "PayPal · Q1 FY26",
+          "company": "PayPal",
+          "meta": {
+            "title": "PayPal Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Quarter ended Mar. 31, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "PayPal · 2026 财年第一季度",
+              "meta": {
+                "title": "PayPal 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pfizer-q1-fy26",
+        "src": "data/datasets/pfizer-q1-fy26.js",
+        "data": {
+          "name": "Pfizer · Q1 FY26",
+          "company": "Pfizer",
+          "meta": {
+            "title": "Pfizer Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Quarter ended Mar. 31, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "辉瑞 · 2026 财年第一季度",
+              "meta": {
+                "title": "辉瑞 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "toast-q1-fy26",
+        "src": "data/datasets/toast-q1-fy26.js",
+        "data": {
+          "name": "Toast · Q1 FY26",
+          "company": "Toast",
+          "meta": {
+            "title": "Toast Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Toast · 2026 财年第一季度",
+              "meta": {
+                "title": "Toast 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mcdonald-s-q1-fy26",
+        "src": "data/datasets/mcdonald-s-q1-fy26.js",
+        "data": {
+          "name": "McDonald's · Q1 FY26",
+          "company": "McDonald's",
+          "meta": {
+            "title": "McDonald's Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "麦当劳 · 2026 财年第一季度",
+              "meta": {
+                "title": "麦当劳 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "kraft-heinz-q1-fy26",
+        "src": "data/datasets/kraft-heinz-q1-fy26.js",
+        "data": {
+          "name": "Kraft Heinz · Q1 FY26",
+          "company": "Kraft Heinz",
+          "meta": {
+            "title": "Kraft Heinz Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "卡夫亨氏 · 2026 财年第一季度",
+              "meta": {
+                "title": "卡夫亨氏 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "novartis-q1-fy26",
+        "src": "data/datasets/novartis-q1-fy26.js",
+        "data": {
+          "name": "Novartis · Q1 FY26",
+          "company": "Novartis",
+          "meta": {
+            "title": "Novartis Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Quarter ended Mar. 31, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "诺华 · 2026 财年第一季度",
+              "meta": {
+                "title": "诺华 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hershey-q1-fy26",
+        "src": "data/datasets/hershey-q1-fy26.js",
+        "data": {
+          "name": "Hershey · Q1 FY26",
+          "company": "Hershey",
+          "meta": {
+            "title": "Hershey Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 29, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "好时 · 2026 财年第一季度",
+              "meta": {
+                "title": "好时 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月 29 日"
+              }
+            }
+          }
+        }
       }
     ]
   };

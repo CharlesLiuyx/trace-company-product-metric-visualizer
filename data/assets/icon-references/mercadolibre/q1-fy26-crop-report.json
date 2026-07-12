@@ -1,0 +1,637 @@
+{
+  "source": "input/processed/mercadolibre-q1-fy26.png",
+  "spec": "input/icon-crop-specs/mercadolibre-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-11T19:29:43.100339+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 9
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/mercadolibre/q1-fy26",
+  "crops": [
+    {
+      "key": "mercadolibre-q1-fy26-corporate-handshake",
+      "output": "data/assets/icon-references/mercadolibre/crops/q1-fy26/corporate-handshake.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 6114,
+        "losslessBytes": 28654,
+        "savingsVsLossless": 0.7866,
+        "metrics": {
+          "meanAbsoluteError": 0.6476,
+          "rootMeanSquareError": 1.6653,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 26,
+          "changedPixelRatio": 0.4883
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 9,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 13574,
+        "transparentPixelRatio": 0.3013
+      },
+      "searchBox": {
+        "x": 1148,
+        "y": 247,
+        "width": 248,
+        "height": 163
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 1157,
+        "y0": 247,
+        "x1": 1394,
+        "y1": 410
+      },
+      "cropBox": {
+        "x0": 1144,
+        "y0": 242,
+        "x1": 1400,
+        "y1": 418
+      },
+      "validation": {
+        "width": 256,
+        "height": 176,
+        "foregroundPixels": 20454,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 13,
+          "right": 6,
+          "top": 5,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0137,
+          "y": -0.0085
+        },
+        "passes": true
+      },
+      "note": "Mercado Libre corporate handshake above Net Revenue; excludes title, revenue label, and flow ribbons.",
+      "runtimeOutput": "data/assets/raster-annotations/mercadolibre/q1-fy26/corporate-handshake.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 6114,
+        "losslessBytes": 28654,
+        "savingsVsLossless": 0.7866,
+        "metrics": {
+          "meanAbsoluteError": 0.6476,
+          "rootMeanSquareError": 1.6653,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 26,
+          "changedPixelRatio": 0.4883
+        }
+      },
+      "validationSheet": "data/assets/icon-references/mercadolibre/validation-sheets/q1-fy26/mercadolibre-q1-fy26-corporate-handshake.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 123832,
+        "losslessBytes": 355414,
+        "savingsVsLossless": 0.6516,
+        "metrics": {
+          "meanAbsoluteError": 0.4254,
+          "rootMeanSquareError": 2.337,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 61,
+          "changedPixelRatio": 0.1096
+        }
+      }
+    },
+    {
+      "key": "mercadolibre-q1-fy26-commerce-brand",
+      "output": "data/assets/icon-references/mercadolibre/crops/q1-fy26/commerce-brand.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 6096,
+        "losslessBytes": 26948,
+        "savingsVsLossless": 0.7738,
+        "metrics": {
+          "meanAbsoluteError": 0.7208,
+          "rootMeanSquareError": 2.0332,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 35,
+          "changedPixelRatio": 0.382
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 9,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 22709,
+        "transparentPixelRatio": 0.5011
+      },
+      "searchBox": {
+        "x": 70,
+        "y": 400,
+        "width": 398,
+        "height": 112
+      },
+      "componentCount": 13,
+      "subjectBox": {
+        "x0": 76,
+        "y0": 400,
+        "x1": 465,
+        "y1": 502
+      },
+      "cropBox": {
+        "x0": 64,
+        "y0": 394,
+        "x1": 476,
+        "y1": 504
+      },
+      "validation": {
+        "width": 412,
+        "height": 110,
+        "foregroundPixels": 17128,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 11,
+          "top": 6,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": 0.0012,
+          "y": 0.0182
+        },
+        "passes": true
+      },
+      "note": "Mercado Libre marketplace handshake and wordmark for intermediation and advertising revenue.",
+      "runtimeOutput": "data/assets/raster-annotations/mercadolibre/q1-fy26/commerce-brand.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 6096,
+        "losslessBytes": 26948,
+        "savingsVsLossless": 0.7738,
+        "metrics": {
+          "meanAbsoluteError": 0.7208,
+          "rootMeanSquareError": 2.0332,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 35,
+          "changedPixelRatio": 0.382
+        }
+      },
+      "validationSheet": "data/assets/icon-references/mercadolibre/validation-sheets/q1-fy26/mercadolibre-q1-fy26-commerce-brand.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 317868,
+        "losslessBytes": 317868,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "mercadolibre-q1-fy26-ads-brand",
+      "output": "data/assets/icon-references/mercadolibre/crops/q1-fy26/ads-brand.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 1840,
+        "losslessBytes": 8545,
+        "savingsVsLossless": 0.7847,
+        "metrics": {
+          "meanAbsoluteError": 1.0194,
+          "rootMeanSquareError": 2.8851,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.3334
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 9,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 6492,
+        "transparentPixelRatio": 0.6819
+      },
+      "searchBox": {
+        "x": 235,
+        "y": 581,
+        "width": 160,
+        "height": 48
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 240,
+        "y0": 581,
+        "x1": 386,
+        "y1": 614
+      },
+      "cropBox": {
+        "x0": 230,
+        "y0": 577,
+        "x1": 400,
+        "y1": 633
+      },
+      "validation": {
+        "width": 170,
+        "height": 56,
+        "foregroundPixels": 2446,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 10,
+          "right": 14,
+          "top": 4,
+          "bottom": 19
+        },
+        "centerOffset": {
+          "x": -0.0118,
+          "y": -0.1339
+        },
+        "passes": true
+      },
+      "note": "Mercado Ads mini-logo attached to the commerce source.",
+      "runtimeOutput": "data/assets/raster-annotations/mercadolibre/q1-fy26/ads-brand.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 1840,
+        "losslessBytes": 8545,
+        "savingsVsLossless": 0.7847,
+        "metrics": {
+          "meanAbsoluteError": 1.0194,
+          "rootMeanSquareError": 2.8851,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.3334
+        }
+      },
+      "validationSheet": "data/assets/icon-references/mercadolibre/validation-sheets/q1-fy26/mercadolibre-q1-fy26-ads-brand.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 112166,
+        "losslessBytes": 324034,
+        "savingsVsLossless": 0.6538,
+        "metrics": {
+          "meanAbsoluteError": 0.4151,
+          "rootMeanSquareError": 2.5244,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 65,
+          "changedPixelRatio": 0.0974
+        }
+      }
+    },
+    {
+      "key": "mercadolibre-q1-fy26-envios-brand",
+      "output": "data/assets/icon-references/mercadolibre/crops/q1-fy26/envios-brand.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 3963,
+        "losslessBytes": 17945,
+        "savingsVsLossless": 0.7792,
+        "metrics": {
+          "meanAbsoluteError": 0.9826,
+          "rootMeanSquareError": 2.7925,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.4196
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 9,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 13786,
+        "transparentPixelRatio": 0.5942
+      },
+      "searchBox": {
+        "x": 218,
+        "y": 672,
+        "width": 278,
+        "height": 76
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 224,
+        "y0": 672,
+        "x1": 477,
+        "y1": 735
+      },
+      "cropBox": {
+        "x0": 212,
+        "y0": 666,
+        "x1": 502,
+        "y1": 746
+      },
+      "validation": {
+        "width": 290,
+        "height": 80,
+        "foregroundPixels": 7421,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 25,
+          "top": 6,
+          "bottom": 11
+        },
+        "centerOffset": {
+          "x": -0.0224,
+          "y": -0.0312
+        },
+        "passes": true
+      },
+      "note": "Mercado Envios handshake and wordmark for product sales and shipping fees.",
+      "runtimeOutput": "data/assets/raster-annotations/mercadolibre/q1-fy26/envios-brand.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 3963,
+        "losslessBytes": 17945,
+        "savingsVsLossless": 0.7792,
+        "metrics": {
+          "meanAbsoluteError": 0.9826,
+          "rootMeanSquareError": 2.7925,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.4196
+        }
+      },
+      "validationSheet": "data/assets/icon-references/mercadolibre/validation-sheets/q1-fy26/mercadolibre-q1-fy26-envios-brand.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 105391,
+        "losslessBytes": 322969,
+        "savingsVsLossless": 0.6737,
+        "metrics": {
+          "meanAbsoluteError": 0.4507,
+          "rootMeanSquareError": 2.5652,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 72,
+          "changedPixelRatio": 0.1039
+        }
+      }
+    },
+    {
+      "key": "mercadolibre-q1-fy26-pago-brand",
+      "output": "data/assets/icon-references/mercadolibre/crops/q1-fy26/pago-brand.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 6723,
+        "losslessBytes": 30160,
+        "savingsVsLossless": 0.7771,
+        "metrics": {
+          "meanAbsoluteError": 0.9052,
+          "rootMeanSquareError": 2.6586,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 53,
+          "changedPixelRatio": 0.2876
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 9,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 25946,
+        "transparentPixelRatio": 0.5115
+      },
+      "searchBox": {
+        "x": 66,
+        "y": 860,
+        "width": 433,
+        "height": 120
+      },
+      "componentCount": 12,
+      "subjectBox": {
+        "x0": 73,
+        "y0": 860,
+        "x1": 498,
+        "y1": 967
+      },
+      "cropBox": {
+        "x0": 60,
+        "y0": 854,
+        "x1": 505,
+        "y1": 968
+      },
+      "validation": {
+        "width": 445,
+        "height": 114,
+        "foregroundPixels": 18642,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 13,
+          "right": 7,
+          "top": 6,
+          "bottom": 1
+        },
+        "centerOffset": {
+          "x": 0.0067,
+          "y": 0.0219
+        },
+        "passes": true
+      },
+      "note": "Mercado Pago handshake and wordmark for payment-solution revenue.",
+      "runtimeOutput": "data/assets/raster-annotations/mercadolibre/q1-fy26/pago-brand.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 6723,
+        "losslessBytes": 30160,
+        "savingsVsLossless": 0.7771,
+        "metrics": {
+          "meanAbsoluteError": 0.9052,
+          "rootMeanSquareError": 2.6586,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 53,
+          "changedPixelRatio": 0.2876
+        }
+      },
+      "validationSheet": "data/assets/icon-references/mercadolibre/validation-sheets/q1-fy26/mercadolibre-q1-fy26-pago-brand.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 110735,
+        "losslessBytes": 317916,
+        "savingsVsLossless": 0.6517,
+        "metrics": {
+          "meanAbsoluteError": 0.3887,
+          "rootMeanSquareError": 2.4798,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 64,
+          "changedPixelRatio": 0.0926
+        }
+      }
+    },
+    {
+      "key": "mercadolibre-q1-fy26-credito-brand",
+      "output": "data/assets/icon-references/mercadolibre/crops/q1-fy26/credito-brand.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 6052,
+        "losslessBytes": 30722,
+        "savingsVsLossless": 0.803,
+        "metrics": {
+          "meanAbsoluteError": 0.852,
+          "rootMeanSquareError": 2.5493,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.3172
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 9,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 27470,
+        "transparentPixelRatio": 0.5226
+      },
+      "searchBox": {
+        "x": 66,
+        "y": 1160,
+        "width": 426,
+        "height": 108
+      },
+      "componentCount": 17,
+      "subjectBox": {
+        "x0": 75,
+        "y0": 1160,
+        "x1": 492,
+        "y1": 1268
+      },
+      "cropBox": {
+        "x0": 60,
+        "y0": 1154,
+        "x1": 498,
+        "y1": 1274
+      },
+      "validation": {
+        "width": 438,
+        "height": 120,
+        "foregroundPixels": 19598,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 15,
+          "right": 6,
+          "top": 6,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": 0.0103,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Mercado Credito handshake and wordmark for interest income.",
+      "runtimeOutput": "data/assets/raster-annotations/mercadolibre/q1-fy26/credito-brand.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 6052,
+        "losslessBytes": 30722,
+        "savingsVsLossless": 0.803,
+        "metrics": {
+          "meanAbsoluteError": 0.852,
+          "rootMeanSquareError": 2.5493,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.3172
+        }
+      },
+      "validationSheet": "data/assets/icon-references/mercadolibre/validation-sheets/q1-fy26/mercadolibre-q1-fy26-credito-brand.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 111324,
+        "losslessBytes": 319971,
+        "savingsVsLossless": 0.6521,
+        "metrics": {
+          "meanAbsoluteError": 0.3926,
+          "rootMeanSquareError": 2.3303,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 64,
+          "changedPixelRatio": 0.0929
+        }
+      }
+    }
+  ]
+}

@@ -11,7 +11,7 @@ const item = (identity, text, x, y, width, height) => ({
   bbox: { x, y, width, height },
 });
 
-test('classifies SVG text that exceeds the canvas beyond the 0.5px tolerance', () => {
+test('localization-bbox regression catches rendered text beyond the 0.5px canvas tolerance', () => {
   const left = item('label:left', 'Revenue', -0.6, 10, 20, 8);
   const right = item('period:right', 'FY25', 90, 20, 10.6, 8);
   const result = classifyTextAndAnnotationLayout({
@@ -47,7 +47,7 @@ test('accepts normal text and subpixel edge drift within tolerance', () => {
   assert.deepEqual(result.textLayoutAudit.overflowViolations, []);
 });
 
-test('reports intersection between annotation text and protected label/title/period text', () => {
+test('annotation-overlap regression reports intersection with protected label/title/period text', () => {
   const annotation = item('annotation:kpi', '$4.2B', 10, 10, 30, 12);
   const label = item('label:revenue', 'Revenue', 35, 15, 30, 12);
   const result = classifyTextAndAnnotationLayout({

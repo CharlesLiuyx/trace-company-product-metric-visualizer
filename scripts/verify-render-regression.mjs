@@ -42,11 +42,15 @@ import { pngMetrics } from './lib/png-diff.mjs';
 import { resolveSourcePath } from './lib/source-lifecycle.mjs';
 import { assertPurity } from './lib/d3-hard-gates.mjs';
 import {
+  assertNodePaintAudit,
   assertProjectFontsLoaded,
+  assertRawSvgCanvas,
   assertTypographyAudit,
+  auditNodePaint,
   datasetRenderMeta,
   openHarnessPage,
   renderDatasetForPurity,
+  sizeRenderedSvgForCapture,
   typographyAudit,
 } from './lib/render-harness.mjs';
 
@@ -217,9 +221,17 @@ async function renderLanguageForGates(page, pageErrors, key, language) {
   await page.setViewportSize({ width: meta.width, height: meta.height });
   const purity = await renderDatasetForPurity(page, key, language);
   assertPurity(purity);
-  if (purity.width !== meta.width || purity.height !== meta.height) {
-    throw new Error(`SVG size mismatch: expected ${meta.width}x${meta.height}, got ${purity.width}x${purity.height}`);
+  assertRawSvgCanvas(purity, meta);
+  const captureSize = await sizeRenderedSvgForCapture(page, meta.width, meta.height);
+  if (captureSize.width !== meta.width || captureSize.height !== meta.height) {
+    throw new Error(
+      `SVG capture size mismatch: expected ${meta.width}x${meta.height}, got ${captureSize.width}x${captureSize.height}`
+    );
   }
+  const nodePaintAudit = await auditNodePaint(page, { dataset: key, language: meta.language });
+  // Catalog regression has no Build-local inventory, but still rejects
+  // ambiguous duplicate semantic IDs and records every face for inspection.
+  assertNodePaintAudit(nodePaintAudit);
   const renderedTypographyAudit = await typographyAudit(page, {
     dataset: key,
     language: meta.language,
@@ -228,7 +240,7 @@ async function renderLanguageForGates(page, pageErrors, key, language) {
   if (pageErrors.length > errorsBefore) {
     throw new Error(`Page errors during ${meta.language} render:\n${pageErrors.slice(errorsBefore).join('\n')}`);
   }
-  return { meta, typographyAudit: renderedTypographyAudit };
+  return { meta, purity, captureSize, nodePaintAudit, typographyAudit: renderedTypographyAudit };
 }
 
 async function renderDataset(page, pageErrors, key, scratchDir, requiredLanguages) {
@@ -266,12 +278,14 @@ async function renderDataset(page, pageErrors, key, scratchDir, requiredLanguage
   // still gets the same final-DOM typography hard gate without being compared
   // against the English reference image.
   const typographyAudits = { [meta.language]: primary.typographyAudit };
+  const nodePaintAudits = { [meta.language]: primary.nodePaintAudit };
   for (const language of requiredLanguages) {
     if (!language || language === LANGUAGE || typographyAudits[language]) continue;
     const localized = await renderLanguageForGates(page, pageErrors, key, language);
     typographyAudits[localized.meta.language] = localized.typographyAudit;
+    nodePaintAudits[localized.meta.language] = localized.nodePaintAudit;
   }
-  return { ...result, typographyAudits };
+  return { ...result, typographyAudits, nodePaintAudits };
 }
 
 async function keepFailureArtifacts(result) {

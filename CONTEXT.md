@@ -17,10 +17,19 @@ Build state. In the target M4 architecture, Publication replaces this
 transitional operation and owns the stable processed Source projection.
 
 Within a Sankey View, **Hover Share（所占比例）** is renderer-owned rather
-than Adapter-configurable. Its Interface has two surface rules: node hover
-derives a directional share from that node's distinct incoming/outgoing
-relationships, while link hover compares the smaller authored endpoint amount
-with the larger. All amounts use absolute authored magnitudes.
+than Adapter-configurable. Every semantic relationship uses one formula on
+every hover surface (node, node label, link, or endpoint-declared guide):
+`min(|source authored value|, |target authored value|) /
+max(|source authored value|, |target authored value|)`. It is direction-
+independent, ignores the d3-computed node value and `link.value`, and shows no
+card when the larger endpoint is zero.
+
+On node or node-label hover, incoming and outgoing sides are still grouped
+independently by **distinct opposite semantic node**. That grouping controls
+only how many Tags are shown and de-duplicates matching graph-link and SVG-
+annotation surfaces; it never changes the formula. Parallel links to the same
+opposite node are one semantic relationship. Adapters provide authored
+amounts and topology only and cannot override the percentage.
 
 Architecture vocabulary is **Module**, **Interface**, **Implementation**,
 **Depth**, **Deep/Shallow**, **Seam**, **Adapter**, **Leverage**, and
@@ -37,11 +46,11 @@ The current M3 shadow/compatibility safety slice now exercises this build-local
 chain end to end:
 
 ```text
-ObjectInventory -> VerificationPlan -> ReviewPacket
+ObjectInventory v2 -> VerificationPlan v2 -> ReviewPacket
   -> dataset-verification/v1 consistency evidence
   -> fidelity-run/2 EVIDENCE_READY
   -> ManualAttestation + RegionDecision + FeedbackLedger
-  -> FidelityResult -> CLOSED -> BASELINE_STAGED -> fresh SEALED
+  -> FidelityResult v2 + checkResults -> CLOSED -> BASELINE_STAGED -> fresh SEALED
 ```
 
 `verify:d3` is read-only diagnostic execution and never records durable

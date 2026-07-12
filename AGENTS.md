@@ -16,7 +16,7 @@ together.
 | machine-readable lifecycle protocol/state/Adapter contract | `docs/architecture/lifecycle-contract.json` (`pnpm verify:architecture` enforces parity) |
 | accepted architecture decisions | `docs/adr/` (start with `docs/adr/0001-dataset-build-transactions.md`) |
 | dynamic dataset workflow: pipeline steps, execution model (parallel groups, agent routing), input-type object taxonomy, operational traps, pre-response verification checklist, reporting | `docs/dynamic-dataset-workflow.md` |
-| d3 fidelity loop: hard gates, diff metrics, iteration, icon crop/vector subloops, localization layout checks, Task info, red-box images, Loop Fidelity Summary | `docs/fidelity-loop-rules.md` |
+| d3 fidelity: canonical numbered rules, preflight measurement, three-stage sweep state machine, automatic/manual evidence, acceptance conditions | `docs/fidelity-loop-rules.md`; machine enforcement/feature/alias mirror: `scripts/lib/fidelity-rule-contract.mjs` (`pnpm verify:architecture` enforces parity) |
 | dataset / SSOT field-level format | `data/schema.md` |
 | commit message convention | `docs/commit-messages.md` |
 | data-adjacent asset layout (icon crops, raster annotations) | `data/assets/README.md` |
@@ -205,15 +205,15 @@ and Reporting requirements in `docs/dynamic-dataset-workflow.md`.
 ## d3-Sankey Fidelity Loop
 
 `docs/fidelity-loop-rules.md` is the single source of truth for fidelity-loop
-behavior. Load it before running or reporting any loop. Treat every user
-fidelity correction as a process-improvement signal: generalize the lesson
-into that rules file or record a dataset-specific exception in the loop Task
-information, per its 人工反馈沉淀 closure loop. Record durable review
-candidates with Build-bound `record:fidelity`; plain `verify:d3` remains
-diagnostic and never creates a round. Each actual human round maintains
-current Task information and, while attention areas stay open, produces the
-red-box reference image for the next round. Machine evidence alone must be
-reported as `review-pending`, never as accepted or converged.
+behavior. Load it before running or reporting any loop. It owns each canonical
+G/B/R/L/T/A/Z/I definition exactly once; secondary docs may invoke IDs but may
+not restate their formulas or thresholds. Treat every user correction as a
+process-improvement signal: fix the current problem, classify it as a missing
+rule, execution gap, or ambiguous rule, then add an automated/required check
+or a dataset-specific evidence-bound decision. Record durable candidates with
+Build-bound `record:fidelity`; plain `verify:d3` remains diagnostic and never
+creates an evidence run. Machine evidence alone must be reported as
+`review-pending`, never as accepted or converged.
 
 ## Commit Messages
 

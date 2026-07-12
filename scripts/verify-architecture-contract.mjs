@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
 import { existsSync } from 'node:fs';
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import {
   CHANGE_IMPACTS,
@@ -11,7 +11,21 @@ import {
   SOURCE_AVAILABILITY,
 } from './lib/dataset-build.mjs';
 import { FIDELITY_PROTOCOL_VERSION } from './lib/compare-workspace.mjs';
+import { DATASET_VERIFICATION_PROTOCOL } from './lib/dataset-verification.mjs';
+import { REVIEW_PACKET_PROTOCOL } from './lib/dataset-build-closeout.mjs';
+import {
+  FIDELITY_RESULT_PROTOCOL,
+  INTERFACE_MATRIX_PROTOCOL,
+} from './lib/fidelity-result.mjs';
+import {
+  FIDELITY_RULE_CONTRACT,
+  assertNoSecondaryFidelityRuleDefinitions,
+  extractFidelityRuleReferences,
+  validateFidelityRuleDocument,
+} from './lib/fidelity-rule-contract.mjs';
 import { projectPath, rootDir } from './lib/project.mjs';
+import { OBJECT_INVENTORY_PROTOCOL } from './lib/object-inventory.mjs';
+import { FEATURE_REQUIRED_CHECKS, VERIFICATION_PLAN_PROTOCOL } from './lib/verification-plan.mjs';
 
 const CONTRACT_PATH = 'docs/architecture/lifecycle-contract.json';
 const CONTEXT_DOCS = [
@@ -42,23 +56,91 @@ async function verifyLocalMarkdownLinks(relativePath) {
   }
 }
 
-async function verifyFidelityRuleNamespaces() {
+async function executableScriptPaths(directory) {
+  const entries = await readdir(directory, { withFileTypes: true });
+  const paths = [];
+  for (const entry of entries) {
+    const absolute = path.join(directory, entry.name);
+    if (entry.isDirectory()) paths.push(...await executableScriptPaths(absolute));
+    else if (entry.isFile() && entry.name.endsWith('.mjs')) paths.push(absolute);
+  }
+  return paths;
+}
+
+async function verifyFidelityRuleContract({ workflow, flowchart }) {
   const source = await readFile(projectPath('docs/fidelity-loop-rules.md'), 'utf8');
-  const defined = new Set();
-  for (const match of source.matchAll(/^\s*-\s+([GRLTAZI]\d+[a-z]?)\b/gm)) defined.add(match[1]);
-  for (const match of source.matchAll(/^\|\s*(B\d+)\s*\|/gm)) defined.add(match[1]);
-  const referenced = new Set([...source.matchAll(/\b([GBRLTAZI]\d+[a-z]?)\b/g)].map((match) => match[1]));
-  const missing = [...referenced].filter((id) => !defined.has(id)).sort();
-  assert.deepEqual(missing, [], `fidelity rules reference undefined IDs: ${missing.join(', ')}`);
+  const document = validateFidelityRuleDocument(source);
   assert.match(source, /REG-001/, 'fidelity rules must reserve the region namespace');
   assert.match(source, /FB-001/, 'fidelity rules must reserve the feedback namespace');
-  assert.match(source, /DEC-001/, 'fidelity rules must reserve the decision namespace');
+
+  assertNoSecondaryFidelityRuleDefinitions(workflow, 'docs/dynamic-dataset-workflow.md');
+  assertNoSecondaryFidelityRuleDefinitions(flowchart, 'docs/workflow-flowchart.zh-CN.html');
+  for (const [label, secondarySource] of [
+    ['docs/dynamic-dataset-workflow.md', workflow],
+    ['docs/workflow-flowchart.zh-CN.html', flowchart],
+  ]) {
+    const unknown = extractFidelityRuleReferences(secondarySource).filter(
+      (id) => !(id in FIDELITY_RULE_CONTRACT.enforcements) && !(id in FIDELITY_RULE_CONTRACT.aliases)
+    );
+    assert.deepEqual(unknown, [], `${label} references unknown fidelity rule IDs`);
+  }
+
+  const featureMappings = Object.fromEntries(
+    Object.entries(FEATURE_REQUIRED_CHECKS)
+      .sort(([left], [right]) => left.localeCompare(right))
+      .map(([feature, check]) => [feature, [...check.ruleIds].sort((left, right) => left.localeCompare(right))])
+  );
+  assert.deepEqual(
+    featureMappings,
+    FIDELITY_RULE_CONTRACT.featureMappings,
+    'ObjectInventory feature-to-rule mapping drift'
+  );
+
+  const excluded = new Set([
+    projectPath('scripts/lib/fidelity-rule-contract.mjs'),
+    projectPath('scripts/verify-architecture-contract.mjs'),
+  ]);
+  const declaredCodeIds = new Set(FIDELITY_RULE_CONTRACT.codeRuleIds);
+  const usedCodeIds = new Set();
+  const undeclaredCodeIds = new Map();
+  for (const scriptPath of await executableScriptPaths(projectPath('scripts'))) {
+    if (excluded.has(scriptPath)) continue;
+    const scriptSource = await readFile(scriptPath, 'utf8');
+    for (const id of extractFidelityRuleReferences(scriptSource)) {
+      usedCodeIds.add(id);
+      if (declaredCodeIds.has(id)) continue;
+      const locations = undeclaredCodeIds.get(id) || [];
+      locations.push(path.relative(rootDir, scriptPath));
+      undeclaredCodeIds.set(id, locations);
+    }
+  }
+  assert.deepEqual(
+    [...undeclaredCodeIds].map(([id, locations]) => `${id}:${[...new Set(locations)].join(',')}`),
+    [],
+    'executable scripts use fidelity rule IDs outside FIDELITY_CODE_RULE_IDS'
+  );
+  assert.deepEqual(
+    [...usedCodeIds].sort((left, right) => left.localeCompare(right)),
+    FIDELITY_RULE_CONTRACT.codeRuleIds,
+    'FIDELITY_CODE_RULE_IDS must exactly match executable script references'
+  );
+  return document.definitions.length;
 }
 
 async function main() {
   const contract = JSON.parse(await readFile(projectPath(CONTRACT_PATH), 'utf8'));
   assert.equal(contract.protocols.datasetBuild, DATASET_BUILD_PROTOCOL, 'dataset-build protocol drift');
   assert.equal(contract.protocols.fidelityRun, FIDELITY_PROTOCOL_VERSION, 'fidelity-run protocol drift');
+  assert.equal(contract.protocols.objectInventory, OBJECT_INVENTORY_PROTOCOL, 'ObjectInventory protocol drift');
+  assert.equal(contract.protocols.verificationPlan, VERIFICATION_PLAN_PROTOCOL, 'VerificationPlan protocol drift');
+  assert.equal(contract.protocols.reviewPacket, REVIEW_PACKET_PROTOCOL, 'ReviewPacket protocol drift');
+  assert.equal(
+    contract.protocols.datasetVerification,
+    DATASET_VERIFICATION_PROTOCOL,
+    'DatasetVerification protocol drift'
+  );
+  assert.equal(contract.protocols.interfaceMatrix, INTERFACE_MATRIX_PROTOCOL, 'Interface Matrix protocol drift');
+  assert.equal(contract.protocols.fidelityResult, FIDELITY_RESULT_PROTOCOL, 'FidelityResult protocol drift');
   assert.deepEqual(contract.scopes.DatasetBuild.states, DATASET_BUILD_STATES, 'DatasetBuild state drift');
   assert.deepEqual(sorted(contract.adapters), sorted(DATASET_ADAPTERS), 'Adapter drift');
   assert.deepEqual(sorted(contract.sourceAvailability), sorted(SOURCE_AVAILABILITY), 'Source availability drift');
@@ -109,6 +191,7 @@ async function main() {
     'ReviewPacket',
     'ManualAttestation',
     'RegionDecision',
+    'InterfaceMatrix',
     'FeedbackRecord',
     'FeedbackLedger',
     'FidelityResult',
@@ -151,8 +234,9 @@ async function main() {
     assert.match(source, /docs\/architecture\/README\.md/, `${name} must route the architecture index`);
   }
 
-  const [flowchart, inputReadme, dataReadme] = await Promise.all([
+  const [flowchart, workflow, inputReadme, dataReadme] = await Promise.all([
     readFile(projectPath('docs/workflow-flowchart.zh-CN.html'), 'utf8'),
+    readFile(projectPath('docs/dynamic-dataset-workflow.md'), 'utf8'),
     readFile(projectPath('input/README.md'), 'utf8'),
     readFile(projectPath('data/README.md'), 'utf8'),
   ]);
@@ -162,10 +246,11 @@ async function main() {
   assert.match(dataReadme, /registered in\s+`data\/dataset-manifest\.js`/, 'data README must describe manifest-based dataset registration');
 
   await Promise.all(CONTEXT_DOCS.map(verifyLocalMarkdownLinks));
-  await verifyFidelityRuleNamespaces();
+  const fidelityRuleCount = await verifyFidelityRuleContract({ workflow, flowchart });
   console.log(
     `architecture contract passed: ${DATASET_BUILD_STATES.length} Build states, ` +
-      `${DATASET_ADAPTERS.length} Adapters, ${CHANGE_IMPACTS.length} ChangeImpact values, ${CONTEXT_DOCS.length} context docs`
+      `${DATASET_ADAPTERS.length} Adapters, ${CHANGE_IMPACTS.length} ChangeImpact values, ` +
+      `${fidelityRuleCount} fidelity rules, ${CONTEXT_DOCS.length} context docs`
   );
 }
 

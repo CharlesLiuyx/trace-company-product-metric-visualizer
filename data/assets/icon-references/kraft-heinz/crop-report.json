@@ -1,12 +1,12 @@
 {
-  "source": "input/processed/kraft-heinz-q4-fy25.png",
-  "spec": "input/icon-crop-specs/kraft-heinz-q4-fy25.json",
+  "source": "input/processed/kraft-heinz-q1-fy26.png",
+  "spec": "input/icon-crop-specs/kraft-heinz-q1-fy26.json",
   "background": [
     242,
     242,
     242
   ],
-  "generatedAt": "2026-07-10T12:23:59.126693+00:00",
+  "generatedAt": "2026-07-11T19:25:54.044568+00:00",
   "compression": {
     "enabled": true,
     "paletteColors": [
@@ -41,9 +41,9 @@
         "enabled": true,
         "mode": "palette",
         "colors": 48,
-        "bytes": 5940,
+        "bytes": 5892,
         "losslessBytes": 23952,
-        "savingsVsLossless": 0.752,
+        "savingsVsLossless": 0.754,
         "metrics": {
           "meanAbsoluteError": 0.3177,
           "rootMeanSquareError": 1.6921,
@@ -65,10 +65,10 @@
         "transparentPixelRatio": 0.6695
       },
       "searchBox": {
-        "x": 655,
-        "y": 270,
-        "width": 595,
-        "height": 125
+        "x": 650,
+        "y": 265,
+        "width": 605,
+        "height": 135
       },
       "componentCount": 11,
       "subjectBox": {
@@ -86,7 +86,7 @@
       "validation": {
         "width": 605,
         "height": 135,
-        "foregroundPixels": 26258,
+        "foregroundPixels": 26015,
         "edgeForegroundPixels": 0,
         "forbiddenForegroundPixels": 0,
         "margins": {
@@ -101,15 +101,15 @@
         },
         "passes": true
       },
-      "note": "Kraft Heinz two-color wordmark above the net-sales hub; excludes the page title and net-sales label.",
+      "note": "Kraft Heinz two-color wordmark above the net-sales hub; excludes the title and net-sales label.",
       "runtimeOutput": "data/assets/raster-annotations/kraft-heinz/company-logo.png",
       "runtimeCompression": {
         "enabled": true,
         "mode": "palette",
         "colors": 48,
-        "bytes": 5940,
+        "bytes": 5892,
         "losslessBytes": 23952,
-        "savingsVsLossless": 0.752,
+        "savingsVsLossless": 0.754,
         "metrics": {
           "meanAbsoluteError": 0.3177,
           "rootMeanSquareError": 1.6921,
@@ -123,20 +123,20 @@
         "enabled": true,
         "mode": "rgb-lossless",
         "colors": null,
-        "bytes": 252059,
-        "losslessBytes": 252059,
+        "bytes": 247689,
+        "losslessBytes": 247689,
         "savingsVsLossless": 0.0
       }
     },
     {
-      "key": "kraft-heinz-accelerate-sauces",
-      "output": "data/assets/icon-references/kraft-heinz/crops/accelerate-sauces.png",
+      "key": "kraft-heinz-north-america-kool-aid",
+      "output": "data/assets/icon-references/kraft-heinz/crops/north-america-kool-aid.png",
       "compression": {
         "enabled": true,
         "mode": "rgba-lossless",
         "colors": null,
-        "bytes": 29647,
-        "losslessBytes": 29647,
+        "bytes": 29268,
+        "losslessBytes": 29268,
         "savingsVsLossless": 0.0
       },
       "backgroundRemoval": {
@@ -148,75 +148,155 @@
           242,
           242
         ],
-        "transparentPixels": 18736,
-        "transparentPixelRatio": 0.6199
+        "transparentPixels": 12668,
+        "transparentPixelRatio": 0.552
       },
       "searchBox": {
-        "x": 15,
-        "y": 505,
+        "x": 20,
+        "y": 240,
+        "width": 170,
+        "height": 185
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 31,
+        "y0": 262,
+        "x1": 138,
+        "y1": 404
+      },
+      "cropBox": {
+        "x0": 17,
+        "y0": 248,
+        "x1": 152,
+        "y1": 418
+      },
+      "validation": {
+        "width": 135,
+        "height": 170,
+        "foregroundPixels": 9132,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 14,
+          "right": 14,
+          "top": 14,
+          "bottom": 14
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Kool-Aid product-pack cluster for North America.",
+      "runtimeOutput": "data/assets/raster-annotations/kraft-heinz/north-america-kool-aid.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 29268,
+        "losslessBytes": 29268,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/kraft-heinz/validation-sheets/kraft-heinz-north-america-kool-aid.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 354263,
+        "losslessBytes": 354263,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "kraft-heinz-north-america-condiments",
+      "output": "data/assets/icon-references/kraft-heinz/crops/north-america-condiments.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 29462,
+        "losslessBytes": 29462,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 12560,
+        "transparentPixelRatio": 0.5203
+      },
+      "searchBox": {
+        "x": 195,
+        "y": 245,
         "width": 185,
-        "height": 145
+        "height": 155
       },
       "componentCount": 1,
       "subjectBox": {
-        "x0": 30,
-        "y0": 526,
-        "x1": 172,
-        "y1": 640
+        "x0": 213,
+        "y0": 269,
+        "x1": 355,
+        "y1": 383
       },
       "cropBox": {
-        "x0": 10,
-        "y0": 500,
-        "x1": 205,
-        "y1": 655
+        "x0": 199,
+        "y0": 255,
+        "x1": 369,
+        "y1": 397
       },
       "validation": {
-        "width": 195,
-        "height": 155,
-        "foregroundPixels": 11002,
+        "width": 170,
+        "height": 142,
+        "foregroundPixels": 10635,
         "edgeForegroundPixels": 0,
         "forbiddenForegroundPixels": 0,
         "margins": {
-          "left": 20,
-          "right": 33,
-          "top": 26,
-          "bottom": 15
+          "left": 14,
+          "right": 14,
+          "top": 14,
+          "bottom": 14
         },
         "centerOffset": {
-          "x": -0.0333,
-          "y": 0.0355
+          "x": 0.0,
+          "y": 0.0
         },
         "passes": true
       },
-      "note": "Heinz ketchup, French's mustard, and Miracle Whip cluster for Accelerate.",
-      "runtimeOutput": "data/assets/raster-annotations/kraft-heinz/accelerate-sauces.png",
+      "note": "Heinz ketchup, French's mustard, and Miracle Whip cluster for North America.",
+      "runtimeOutput": "data/assets/raster-annotations/kraft-heinz/north-america-condiments.png",
       "runtimeCompression": {
         "enabled": true,
         "mode": "rgba-lossless",
         "colors": null,
-        "bytes": 29647,
-        "losslessBytes": 29647,
+        "bytes": 29462,
+        "losslessBytes": 29462,
         "savingsVsLossless": 0.0
       },
-      "validationSheet": "data/assets/icon-references/kraft-heinz/validation-sheets/kraft-heinz-accelerate-sauces.png",
+      "validationSheet": "data/assets/icon-references/kraft-heinz/validation-sheets/kraft-heinz-north-america-condiments.png",
       "validationSheetCompression": {
         "enabled": true,
         "mode": "rgb-lossless",
         "colors": null,
-        "bytes": 330565,
-        "losslessBytes": 330565,
+        "bytes": 349604,
+        "losslessBytes": 349604,
         "savingsVsLossless": 0.0
       }
     },
     {
-      "key": "kraft-heinz-accelerate-home-bake",
-      "output": "data/assets/icon-references/kraft-heinz/crops/accelerate-home-bake.png",
+      "key": "kraft-heinz-international-developed-maxwell-house",
+      "output": "data/assets/icon-references/kraft-heinz/crops/international-developed-maxwell-house.png",
       "compression": {
         "enabled": true,
         "mode": "rgba-lossless",
         "colors": null,
-        "bytes": 15268,
-        "losslessBytes": 15268,
+        "bytes": 19819,
+        "losslessBytes": 19819,
         "savingsVsLossless": 0.0
       },
       "backgroundRemoval": {
@@ -228,75 +308,75 @@
           242,
           242
         ],
-        "transparentPixels": 4752,
-        "transparentPixelRatio": 0.4132
+        "transparentPixels": 6972,
+        "transparentPixelRatio": 0.4463
       },
       "searchBox": {
-        "x": 55,
-        "y": 650,
-        "width": 105,
-        "height": 90
+        "x": 65,
+        "y": 435,
+        "width": 135,
+        "height": 160
       },
-      "componentCount": 1,
+      "componentCount": 2,
       "subjectBox": {
-        "x0": 60,
-        "y0": 657,
-        "x1": 153,
-        "y1": 736
+        "x0": 88,
+        "y0": 447,
+        "x1": 167,
+        "y1": 565
       },
       "cropBox": {
-        "x0": 50,
-        "y0": 645,
-        "x1": 165,
-        "y1": 745
+        "x0": 74,
+        "y0": 435,
+        "x1": 181,
+        "y1": 581
       },
       "validation": {
-        "width": 115,
-        "height": 100,
-        "foregroundPixels": 6659,
+        "width": 107,
+        "height": 146,
+        "foregroundPixels": 8462,
         "edgeForegroundPixels": 0,
         "forbiddenForegroundPixels": 0,
         "margins": {
-          "left": 10,
-          "right": 12,
+          "left": 14,
+          "right": 14,
           "top": 12,
-          "bottom": 9
+          "bottom": 16
         },
         "centerOffset": {
-          "x": -0.0087,
-          "y": 0.015
+          "x": 0.0,
+          "y": -0.0137
         },
         "passes": true
       },
-      "note": "Home Bake product package for Accelerate; excludes the adjacent strategy text.",
-      "runtimeOutput": "data/assets/raster-annotations/kraft-heinz/accelerate-home-bake.png",
+      "note": "Maxwell House coffee can for International Developed Markets.",
+      "runtimeOutput": "data/assets/raster-annotations/kraft-heinz/international-developed-maxwell-house.png",
       "runtimeCompression": {
         "enabled": true,
         "mode": "rgba-lossless",
         "colors": null,
-        "bytes": 15268,
-        "losslessBytes": 15268,
+        "bytes": 19819,
+        "losslessBytes": 19819,
         "savingsVsLossless": 0.0
       },
-      "validationSheet": "data/assets/icon-references/kraft-heinz/validation-sheets/kraft-heinz-accelerate-home-bake.png",
+      "validationSheet": "data/assets/icon-references/kraft-heinz/validation-sheets/kraft-heinz-international-developed-maxwell-house.png",
       "validationSheetCompression": {
         "enabled": true,
         "mode": "rgb-lossless",
         "colors": null,
-        "bytes": 349958,
-        "losslessBytes": 349958,
+        "bytes": 332450,
+        "losslessBytes": 332450,
         "savingsVsLossless": 0.0
       }
     },
     {
-      "key": "kraft-heinz-protect-products",
-      "output": "data/assets/icon-references/kraft-heinz/crops/protect-products.png",
+      "key": "kraft-heinz-emerging-markets-home-bake",
+      "output": "data/assets/icon-references/kraft-heinz/crops/emerging-markets-home-bake.png",
       "compression": {
         "enabled": true,
         "mode": "rgba-lossless",
         "colors": null,
-        "bytes": 29444,
-        "losslessBytes": 29444,
+        "bytes": 15341,
+        "losslessBytes": 15341,
         "savingsVsLossless": 0.0
       },
       "backgroundRemoval": {
@@ -308,143 +388,63 @@
           242,
           242
         ],
-        "transparentPixels": 19704,
-        "transparentPixelRatio": 0.6568
+        "transparentPixels": 6219,
+        "transparentPixelRatio": 0.4803
       },
       "searchBox": {
-        "x": 75,
-        "y": 838,
-        "width": 140,
-        "height": 190
-      },
-      "componentCount": 4,
-      "subjectBox": {
-        "x0": 107,
-        "y0": 866,
-        "x1": 214,
-        "y1": 1007
-      },
-      "cropBox": {
-        "x0": 70,
-        "y0": 833,
-        "x1": 220,
-        "y1": 1033
-      },
-      "validation": {
-        "width": 150,
-        "height": 200,
-        "foregroundPixels": 9330,
-        "edgeForegroundPixels": 0,
-        "forbiddenForegroundPixels": 0,
-        "margins": {
-          "left": 37,
-          "right": 6,
-          "top": 33,
-          "bottom": 26
-        },
-        "centerOffset": {
-          "x": 0.1033,
-          "y": 0.0175
-        },
-        "passes": true
-      },
-      "note": "Kool-Aid product cluster for Protect.",
-      "runtimeOutput": "data/assets/raster-annotations/kraft-heinz/protect-products.png",
-      "runtimeCompression": {
-        "enabled": true,
-        "mode": "rgba-lossless",
-        "colors": null,
-        "bytes": 29444,
-        "losslessBytes": 29444,
-        "savingsVsLossless": 0.0
-      },
-      "validationSheet": "data/assets/icon-references/kraft-heinz/validation-sheets/kraft-heinz-protect-products.png",
-      "validationSheetCompression": {
-        "enabled": true,
-        "mode": "rgb-lossless",
-        "colors": null,
-        "bytes": 329359,
-        "losslessBytes": 329359,
-        "savingsVsLossless": 0.0
-      }
-    },
-    {
-      "key": "kraft-heinz-balance-products",
-      "output": "data/assets/icon-references/kraft-heinz/crops/balance-products.png",
-      "compression": {
-        "enabled": true,
-        "mode": "rgba-lossless",
-        "colors": null,
-        "bytes": 19870,
-        "losslessBytes": 19870,
-        "savingsVsLossless": 0.0
-      },
-      "backgroundRemoval": {
-        "enabled": true,
-        "mode": "edge-connected",
-        "tolerance": 8,
-        "background": [
-          242,
-          242,
-          242
-        ],
-        "transparentPixels": 5451,
-        "transparentPixelRatio": 0.3871
-      },
-      "searchBox": {
-        "x": 129,
-        "y": 1119,
-        "width": 100,
-        "height": 118
+        "x": 220,
+        "y": 390,
+        "width": 145,
+        "height": 125
       },
       "componentCount": 1,
       "subjectBox": {
-        "x0": 140,
-        "y0": 1120,
-        "x1": 219,
-        "y1": 1237
+        "x0": 243,
+        "y0": 401,
+        "x1": 336,
+        "y1": 480
       },
       "cropBox": {
-        "x0": 124,
-        "y0": 1114,
-        "x1": 234,
-        "y1": 1242
+        "x0": 229,
+        "y0": 387,
+        "x1": 350,
+        "y1": 494
       },
       "validation": {
-        "width": 110,
-        "height": 128,
-        "foregroundPixels": 8611,
+        "width": 121,
+        "height": 107,
+        "foregroundPixels": 6563,
         "edgeForegroundPixels": 0,
         "forbiddenForegroundPixels": 0,
         "margins": {
-          "left": 16,
-          "right": 15,
-          "top": 6,
-          "bottom": 5
+          "left": 14,
+          "right": 14,
+          "top": 14,
+          "bottom": 14
         },
         "centerOffset": {
-          "x": 0.0045,
-          "y": 0.0039
+          "x": 0.0,
+          "y": 0.0
         },
         "passes": true
       },
-      "note": "Maxwell House can for Balance.",
-      "runtimeOutput": "data/assets/raster-annotations/kraft-heinz/balance-products.png",
+      "note": "Home Bake product-pack cluster for Emerging Markets.",
+      "runtimeOutput": "data/assets/raster-annotations/kraft-heinz/emerging-markets-home-bake.png",
       "runtimeCompression": {
         "enabled": true,
         "mode": "rgba-lossless",
         "colors": null,
-        "bytes": 19870,
-        "losslessBytes": 19870,
+        "bytes": 15341,
+        "losslessBytes": 15341,
         "savingsVsLossless": 0.0
       },
-      "validationSheet": "data/assets/icon-references/kraft-heinz/validation-sheets/kraft-heinz-balance-products.png",
+      "validationSheet": "data/assets/icon-references/kraft-heinz/validation-sheets/kraft-heinz-emerging-markets-home-bake.png",
       "validationSheetCompression": {
         "enabled": true,
         "mode": "rgb-lossless",
         "colors": null,
-        "bytes": 360750,
-        "losslessBytes": 360750,
+        "bytes": 335528,
+        "losslessBytes": 335528,
         "savingsVsLossless": 0.0
       }
     }

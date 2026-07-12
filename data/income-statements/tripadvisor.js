@@ -102,4 +102,99 @@
       },
     },
   });
+
+  ssot.records.push({
+    key: 'tripadvisor-q1-fy26',
+    company: 'Tripadvisor',
+    period: 'Q1 FY26',
+    periodNote: 'Quarter ended Mar. 31, 2026',
+    currency: '$',
+    unit: 'M',
+    decimals: 0,
+    sourceImage: 'input/processed/tripadvisor-q1-fy26.png',
+    roundingTolerance: 5,
+    revenue: {
+      total: 382,
+      notes: ['(4%) Y/Y'],
+      items: [
+        {
+          id: 'experiences', label: 'Experiences', value: 168,
+          notes: ['+8% Y/Y', 'Tours and activities marketplace', '(11%) adjusted margin'],
+        },
+        {
+          id: 'hotels_other', label: 'Hotels & Other', value: 158,
+          notes: ['(20%) Y/Y', 'Legacy media and advertising', '23% adjusted margin'],
+        },
+        {
+          id: 'thefork', label: 'TheFork', value: 57,
+          notes: ['+23% Y/Y', 'Restaurant reservations', '8% adjusted margin'],
+        },
+        {
+          id: 'eliminations', label: 'Eliminations', value: -1,
+          notes: ['Intersegment eliminations shown as ($1M) in the source chart.'],
+        },
+      ],
+    },
+    costs: {
+      costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 33 },
+      operatingExpenses: {
+        total: 375,
+        notes: ['The source displays a $375M total while its listed operating-expense lines sum to $376M; the $1M presentation gap is retained.'],
+        items: [
+          { id: 'sm', label: 'S&M', value: 178, notes: ['46% of revenue', '+3pp Y/Y'] },
+          { id: 'personnel', label: 'Personnel', value: 130, notes: ['34% of revenue', '(2pp) Y/Y'] },
+          { id: 'technology', label: 'Technology', value: 25, notes: ['7% of revenue', '+1pp Y/Y'] },
+          { id: 'da', label: 'D&A', value: 25, notes: ['6% of revenue', '+1pp Y/Y'] },
+          { id: 'ga', label: 'G&A', value: 15, notes: ['3% of revenue', '+0pp Y/Y'] },
+          { id: 'restructuring', label: 'Restructuring', value: 3, notes: [] },
+        ],
+      },
+      tax: { label: 'Tax', value: 0, notes: ['No tax line is shown in the source operating-income bridge.'] },
+    },
+    otherIncome: { total: 0, items: [] },
+    otherExpenses: { total: 0, items: [] },
+    profit: {
+      gross: { id: 'gross_profit', label: 'Gross profit', value: 350, notes: ['91% margin', '(2pp) Y/Y'] },
+      operating: { id: 'operating_loss', label: 'Operating loss', value: -25, notes: ['(7%) margin', '(3pp) Y/Y'] },
+      net: {
+        id: 'operating_loss', label: 'Operating loss', value: -25,
+        notes: ['No separate net income or net loss line is shown in the source chart.'],
+      },
+    },
+    i18n: {
+      zh: {
+        period: '2026 财年第一季度',
+        periodNote: '截至 2026 年 3 月 31 日的季度',
+        revenue: {
+          notes: ['同比 (4%)'],
+          items: [
+            { id: 'experiences', label: '体验业务', notes: ['同比 +8%', '观光与活动市场', '调整后利润率 (11%)'] },
+            { id: 'hotels_other', label: '酒店及其他', notes: ['同比 (20%)', '传统媒体与广告', '调整后利润率 23%'] },
+            { id: 'thefork', label: 'TheFork（餐厅预订）', notes: ['同比 +23%', '餐厅预订', '调整后利润率 8%'] },
+            { id: 'eliminations', label: '抵销', notes: ['来源图表显示分部间抵销为 ($1M)。'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: { label: '收入成本' },
+          operatingExpenses: {
+            notes: ['来源图表显示总运营费用为 $375M，所列费用项合计为 $376M；保留该 $1M 展示差额。'],
+            items: [
+              { id: 'sm', label: '销售与营销', notes: ['占收入 46%', '同比 +3 个百分点'] },
+              { id: 'personnel', label: '人员', notes: ['占收入 34%', '同比 (2 个百分点)'] },
+              { id: 'technology', label: '技术', notes: ['占收入 7%', '同比 +1 个百分点'] },
+              { id: 'da', label: '折旧与摊销', notes: ['占收入 6%', '同比 +1 个百分点'] },
+              { id: 'ga', label: '管理费用', notes: ['占收入 3%', '同比 +0 个百分点'] },
+              { id: 'restructuring', label: '重组', notes: [] },
+            ],
+          },
+          tax: { label: '税费', notes: ['来源营业利润桥未显示税费项目。'] },
+        },
+        profit: {
+          gross: { label: '毛利润', notes: ['利润率 91%', '同比 (2 个百分点)'] },
+          operating: { label: '营业亏损', notes: ['利润率 (7%)', '同比 (3 个百分点)'] },
+          net: { label: '营业亏损', notes: ['来源图表未显示单独的净利润或净亏损项目。'] },
+        },
+      },
+    },
+  });
 })(window);

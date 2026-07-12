@@ -51,7 +51,7 @@ test('accepts Noto Sans and Roboto product text plus explicitly scoped brand tex
   assert.doesNotThrow(() => assertTypographyAudit(audit));
 });
 
-test('rejects Montserrat anywhere in a product font-family stack', () => {
+test('font-role regression rejects Montserrat anywhere in a product font-family stack', () => {
   const audit = classify({
     texts: [record({ fontFamily: '"Noto Sans", Montserrat, sans-serif' })],
   });

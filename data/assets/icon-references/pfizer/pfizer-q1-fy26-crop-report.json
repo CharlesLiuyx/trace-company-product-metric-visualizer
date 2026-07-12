@@ -1,0 +1,414 @@
+{
+  "source": "input/processed/pfizer-q1-fy26.png",
+  "spec": "input/icon-crop-specs/pfizer-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-11T19:28:08.804507+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/pfizer",
+  "crops": [
+    {
+      "key": "pfizer-q1-company-wordmark",
+      "output": "data/assets/icon-references/pfizer/crops/pfizer-q1-company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 5818,
+        "losslessBytes": 30102,
+        "savingsVsLossless": 0.8067,
+        "metrics": {
+          "meanAbsoluteError": 0.2315,
+          "rootMeanSquareError": 1.4319,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.2689
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 134029,
+        "transparentPixelRatio": 0.7364
+      },
+      "searchBox": {
+        "x": 790,
+        "y": 220,
+        "width": 680,
+        "height": 245
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 825,
+        "y0": 241,
+        "x1": 1438,
+        "y1": 465
+      },
+      "cropBox": {
+        "x0": 780,
+        "y0": 210,
+        "x1": 1480,
+        "y1": 470
+      },
+      "validation": {
+        "width": 700,
+        "height": 260,
+        "foregroundPixels": 46780,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 45,
+          "right": 42,
+          "top": 31,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0021,
+          "y": 0.05
+        },
+        "passes": true
+      },
+      "note": "Pfizer emblem and wordmark centered above the Biopharma and Revenue flow; excludes the title and financial labels.",
+      "runtimeOutput": "data/assets/raster-annotations/pfizer/pfizer-q1-company-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 5818,
+        "losslessBytes": 30102,
+        "savingsVsLossless": 0.8067,
+        "metrics": {
+          "meanAbsoluteError": 0.2315,
+          "rootMeanSquareError": 1.4319,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.2689
+        }
+      },
+      "validationSheet": "data/assets/icon-references/pfizer/validation-sheets/pfizer-q1-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 269671,
+        "losslessBytes": 269671,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "pfizer-q1-primary-care-products",
+      "output": "data/assets/icon-references/pfizer/crops/pfizer-q1-primary-care-products.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 6461,
+        "losslessBytes": 32095,
+        "savingsVsLossless": 0.7987,
+        "metrics": {
+          "meanAbsoluteError": 0.727,
+          "rootMeanSquareError": 2.6379,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 45,
+          "changedPixelRatio": 0.223
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 47690,
+        "transparentPixelRatio": 0.7998
+      },
+      "searchBox": {
+        "x": 0,
+        "y": 370,
+        "width": 220,
+        "height": 245
+      },
+      "componentCount": 33,
+      "subjectBox": {
+        "x0": 32,
+        "y0": 388,
+        "x1": 216,
+        "y1": 600
+      },
+      "cropBox": {
+        "x0": 0,
+        "y0": 360,
+        "x1": 225,
+        "y1": 625
+      },
+      "validation": {
+        "width": 225,
+        "height": 265,
+        "foregroundPixels": 11097,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 32,
+          "right": 9,
+          "top": 28,
+          "bottom": 25
+        },
+        "centerOffset": {
+          "x": 0.0511,
+          "y": 0.0057
+        },
+        "passes": true
+      },
+      "note": "Eliquis, Paxlovid, and Prevnar 20 product-wordmark cluster for Primary Care; excludes financial labels and the source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/pfizer/pfizer-q1-primary-care-products.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 6461,
+        "losslessBytes": 32095,
+        "savingsVsLossless": 0.7987,
+        "metrics": {
+          "meanAbsoluteError": 0.727,
+          "rootMeanSquareError": 2.6379,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 45,
+          "changedPixelRatio": 0.223
+        }
+      },
+      "validationSheet": "data/assets/icon-references/pfizer/validation-sheets/pfizer-q1-primary-care-products.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 323176,
+        "losslessBytes": 323176,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "pfizer-q1-specialty-care-vyndaqel",
+      "output": "data/assets/icon-references/pfizer/crops/pfizer-q1-specialty-care-vyndaqel.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 3204,
+        "losslessBytes": 14579,
+        "savingsVsLossless": 0.7802,
+        "metrics": {
+          "meanAbsoluteError": 0.4226,
+          "rootMeanSquareError": 1.853,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 38,
+          "changedPixelRatio": 0.1401
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 25623,
+        "transparentPixelRatio": 0.8436
+      },
+      "searchBox": {
+        "x": 0,
+        "y": 720,
+        "width": 220,
+        "height": 115
+      },
+      "componentCount": 10,
+      "subjectBox": {
+        "x0": 18,
+        "y0": 737,
+        "x1": 197,
+        "y1": 799
+      },
+      "cropBox": {
+        "x0": 0,
+        "y0": 710,
+        "x1": 225,
+        "y1": 845
+      },
+      "validation": {
+        "width": 225,
+        "height": 135,
+        "foregroundPixels": 4548,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 18,
+          "right": 28,
+          "top": 27,
+          "bottom": 46
+        },
+        "centerOffset": {
+          "x": -0.0222,
+          "y": -0.0704
+        },
+        "passes": true
+      },
+      "note": "Vyndaqel product-wordmark cluster for Specialty Care; excludes financial labels and the source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/pfizer/pfizer-q1-specialty-care-vyndaqel.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 3204,
+        "losslessBytes": 14579,
+        "savingsVsLossless": 0.7802,
+        "metrics": {
+          "meanAbsoluteError": 0.4226,
+          "rootMeanSquareError": 1.853,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 38,
+          "changedPixelRatio": 0.1401
+        }
+      },
+      "validationSheet": "data/assets/icon-references/pfizer/validation-sheets/pfizer-q1-specialty-care-vyndaqel.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 292923,
+        "losslessBytes": 292923,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "pfizer-q1-oncology-ibrance",
+      "output": "data/assets/icon-references/pfizer/crops/pfizer-q1-oncology-ibrance.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2486,
+        "losslessBytes": 10981,
+        "savingsVsLossless": 0.7736,
+        "metrics": {
+          "meanAbsoluteError": 0.488,
+          "rootMeanSquareError": 2.3302,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 44,
+          "changedPixelRatio": 0.1327
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 25081,
+        "transparentPixelRatio": 0.8445
+      },
+      "searchBox": {
+        "x": 0,
+        "y": 975,
+        "width": 220,
+        "height": 115
+      },
+      "componentCount": 20,
+      "subjectBox": {
+        "x0": 8,
+        "y0": 986,
+        "x1": 214,
+        "y1": 1058
+      },
+      "cropBox": {
+        "x0": 0,
+        "y0": 965,
+        "x1": 220,
+        "y1": 1100
+      },
+      "validation": {
+        "width": 220,
+        "height": 135,
+        "foregroundPixels": 4369,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 6,
+          "top": 21,
+          "bottom": 42
+        },
+        "centerOffset": {
+          "x": 0.0045,
+          "y": -0.0778
+        },
+        "passes": true
+      },
+      "note": "Ibrance product-wordmark cluster for Oncology; excludes financial labels and the source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/pfizer/pfizer-q1-oncology-ibrance.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2486,
+        "losslessBytes": 10981,
+        "savingsVsLossless": 0.7736,
+        "metrics": {
+          "meanAbsoluteError": 0.488,
+          "rootMeanSquareError": 2.3302,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 44,
+          "changedPixelRatio": 0.1327
+        }
+      },
+      "validationSheet": "data/assets/icon-references/pfizer/validation-sheets/pfizer-q1-oncology-ibrance.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 284309,
+        "losslessBytes": 284309,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

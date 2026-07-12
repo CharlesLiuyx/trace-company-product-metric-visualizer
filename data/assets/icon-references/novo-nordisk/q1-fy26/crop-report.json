@@ -1,0 +1,132 @@
+{
+  "source": "input/processed/novo-nordisk-q1-fy26.png",
+  "spec": "input/icon-crop-specs/novo-nordisk-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-11T19:34:29.201957+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/novo-nordisk/q1-fy26",
+  "crops": [
+    {
+      "key": "novo-nordisk-q1-fy26-company-logo",
+      "output": "data/assets/icon-references/novo-nordisk/q1-fy26/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 7807,
+        "losslessBytes": 35065,
+        "savingsVsLossless": 0.7774,
+        "metrics": {
+          "meanAbsoluteError": 0.246,
+          "rootMeanSquareError": 0.9621,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 12,
+          "changedPixelRatio": 0.1577
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 76235,
+        "transparentPixelRatio": 0.7276
+      },
+      "searchBox": {
+        "x": 1020,
+        "y": 221,
+        "width": 390,
+        "height": 280
+      },
+      "componentCount": 17,
+      "subjectBox": {
+        "x0": 1029,
+        "y0": 221,
+        "x1": 1410,
+        "y1": 496
+      },
+      "cropBox": {
+        "x0": 1029,
+        "y0": 221,
+        "x1": 1410,
+        "y1": 496
+      },
+      "validation": {
+        "width": 381,
+        "height": 275,
+        "foregroundPixels": 19323,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/novo-nordisk/q1-fy26/company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 7807,
+        "losslessBytes": 35065,
+        "savingsVsLossless": 0.7774,
+        "metrics": {
+          "meanAbsoluteError": 0.246,
+          "rootMeanSquareError": 0.9621,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 12,
+          "changedPixelRatio": 0.1577
+        }
+      },
+      "validationSheet": "data/assets/icon-references/novo-nordisk/q1-fy26/validation-sheets/novo-nordisk-q1-fy26-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 307071,
+        "losslessBytes": 307071,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

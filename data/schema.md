@@ -354,19 +354,25 @@ reference-backed connector gate:
 
 ```js
 render: {
-  interfaceAudit: { mode: 'error' },
+  interfaceAudit: {
+    mode: 'error',
+    fullFaceIds: ['gross_profit:left', 'gross_profit:right'],
+  },
 }
 ```
 
-`mode: 'error'` makes `pnpm verify:d3` fail when G12 finds a missing interface,
-an unexpected occupancy interval/gap, a path endpoint off its node edge, or a
-non-horizontal vertical-node tangent. Legacy datasets without this declaration
-are still inventoried and reported in migration-warning mode; a warning is not
-interface-fidelity evidence and cannot be recorded as a G12 pass. When the
-reference image is unavailable, reference occupancy is `not-scored` even though
-the path/node geometry checks can still run.
+`mode` accepts `error`, `warning`, or `off`. New or materially changed fixed-
+layout datasets use `error`; the acceptance meaning, migration behavior and
+geometry thresholds are owned by `docs/fidelity-loop-rules.md`.
 
-The interface report and contact sheet are verifier artifacts, not SSOT data.
+`fullFaceIds` is optional and contains semantic
+`'<node-id>:left|right'` interface IDs whose declared coverage intent is
+`full-face`. Each ID must have a matching `interface-matrix/v1` row with
+reference measurement or design-spec provenance; the Adapter field alone is
+not acceptance evidence. Do not use it for a real socket gap.
+
+The Interface Matrix, report and contact sheet are verifier artifacts, not
+SSOT data.
 Do not put reference pixel intervals into the income-statement SSOT or an i18n
 overlay. Author measured `sourceWidth`, `targetWidth`, `y0`, and `y1` on links as
 needed; the detailed measurement and acceptance rules live in
@@ -476,28 +482,10 @@ target intervals. Measure the complete non-background interface union before
 splitting internal links by colour or identity; do not use `sourceWidth` /
 `targetWidth` to hide an incorrect node bbox or socket order.
 
-Hover Share（所占比例）is renderer-owned and always uses absolute authored
-magnitudes. Adapters provide amounts and semantic topology; they do not select
-or override the formula.
-
-On node or node-label hover, incoming and outgoing sides are evaluated
-independently. Each side counts distinct opposite semantic nodes across graph
-links plus endpoint-declared SVG annotations; a matching graph link and
-annotation count once. Parallel links to the same opposite node are one
-relationship and their link amounts are aggregated for display.
-
-- More than one distinct opposite node: each relationship shows
-  `|aggregated link value| / |hovered node authored value|`.
-- Exactly one distinct opposite node: it shows
-  `|hovered node authored value| / |opposite node authored value|`.
-- No opposite node: that side shows no percentage card.
-
-On direct link or endpoint-declared annotation hover, the relationship shows
-`min(|source authored value|, |target authored value|) /
-max(|source authored value|, |target authored value|)`. The result is
-direction-independent and ignores `link.value`; `0 / 0` produces no card.
-Values above 100% are valid for directional singleton node hover and are not
-clamped.
+Hover Share（所占比例）is renderer-owned. Adapters provide authored amounts
+and semantic topology only; the single human-readable surface/formula contract
+lives in `CONTEXT.md` and the fidelity acceptance rule lives in
+`docs/fidelity-loop-rules.md`.
 
 `hoverPercentMode`, `nodeHoverPercentDenominator`, `percent`, `percentage`,
 `percentText`, and `percentageText` are not supported link fields;

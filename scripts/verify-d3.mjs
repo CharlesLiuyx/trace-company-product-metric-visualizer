@@ -23,19 +23,26 @@ import { resolveSourcePath } from './lib/source-lifecycle.mjs';
 import { assertPurity } from './lib/d3-hard-gates.mjs';
 import {
   assertInterfaceAudit,
+  assertInterfaceEvidenceReady,
   buildInterfaceAudit,
   collectCandidateInterfaceGeometry,
   writeInterfaceContactSheet,
 } from './lib/interface-fidelity.mjs';
 import {
+  assertNodePaintAudit,
+  assertPlannedRenderAudits,
   assertProjectFontsLoaded,
+  assertRawSvgCanvas,
   assertTypographyAudit,
   auditLabelLayout,
+  auditNodePaint,
   auditTextAndAnnotationLayout,
   collectRenderedRegions,
   datasetRenderMeta,
+  nodeFaceExpectationsFromPlan,
   openHarnessPage,
   renderDatasetForPurity,
+  sizeRenderedSvgForCapture,
   typographyAudit,
 } from './lib/render-harness.mjs';
 
@@ -222,6 +229,7 @@ export async function main(argv = process.argv, runtime = {}) {
     hashFiles(i18nIdentityPaths),
   ]);
   let reviewIdentity = {};
+  let reviewPlan = null;
   if (executionMode === 'review-evidence') {
     const build = await readDatasetBuild(buildId);
     if (build.key !== datasetKey) {
@@ -236,6 +244,7 @@ export async function main(argv = process.argv, runtime = {}) {
     if (!verificationPlanDigest) {
       throw new Error(`Dataset Build ${buildId} has no versioned VerificationPlan; record the authored snapshot first`);
     }
+    reviewPlan = authored.payload?.verificationPlan || null;
     reviewIdentity = {
       buildId,
       authoredDigest: authored.payload.snapshotDigest,
@@ -288,18 +297,44 @@ export async function main(argv = process.argv, runtime = {}) {
     await page.setViewportSize({ width: meta.width, height: meta.height });
     const fontStatus = await assertProjectFontsLoaded(page);
     const purity = await renderDatasetForPurity(page, datasetKey, language);
+
+    // G2 evaluates the renderer's own canvas contract. Fixed screenshot
+    // sizing is allowed only after the raw viewBox/size has passed.
+    assertPurity(purity);
+    assertRawSvgCanvas(purity, meta);
+    const captureSize = await sizeRenderedSvgForCapture(page, meta.width, meta.height);
+    if (captureSize.width !== meta.width || captureSize.height !== meta.height) {
+      throw new Error(
+        `SVG capture size mismatch: expected ${meta.width}x${meta.height}, got ${captureSize.width}x${captureSize.height}`
+      );
+    }
+
     const labelLayoutAudit = await auditLabelLayout(page);
     const { textLayoutAudit, annotationLayoutAudit } = await auditTextAndAnnotationLayout(page);
     const renderedTypographyAudit = await typographyAudit(page, {
       dataset: datasetKey,
       language: meta.language,
     });
+    const nodePaintAudit = await auditNodePaint(page, {
+      dataset: datasetKey,
+      language: meta.language,
+    });
     const renderedRegions = await collectRenderedRegions(page);
     const interfaceGeometry = await collectCandidateInterfaceGeometry(page, datasetKey, language);
 
-    assertPurity(purity);
-    if (purity.width !== meta.width || purity.height !== meta.height) {
-      throw new Error(`SVG size mismatch: expected ${meta.width}x${meta.height}, got ${purity.width}x${purity.height}`);
+    // Diagnostics report all faces without claiming inventory intent. A
+    // Build-bound run must prove every planned visible/hidden node per locale.
+    const nodeFaceExpectations = nodeFaceExpectationsFromPlan(reviewPlan);
+    assertNodePaintAudit(
+      nodePaintAudit,
+      executionMode === 'review-evidence' ? nodeFaceExpectations : {}
+    );
+    if (executionMode === 'review-evidence') {
+      assertPlannedRenderAudits(reviewPlan, {
+        labelLayoutAudit,
+        textLayoutAudit,
+        annotationLayoutAudit,
+      });
     }
 
     await page.locator('#chart > svg').screenshot({ path: candidatePath });
@@ -331,8 +366,10 @@ export async function main(argv = process.argv, runtime = {}) {
       candidate: path.relative(rootDir, candidatePath),
       diff: path.relative(rootDir, diffPath),
       purity,
+      captureSize,
       fontStatus,
       typographyAudit: renderedTypographyAudit,
+      nodePaintAudit,
       full: metrics.full,
       regions: metrics.regions,
       labelLayoutAudit,
@@ -359,6 +396,7 @@ export async function main(argv = process.argv, runtime = {}) {
     assertTypographyAudit(renderedTypographyAudit);
     assertLabelLayoutAudit(labelLayoutAudit);
     assertInterfaceAudit(interfaceAudit);
+    if (executionMode === 'review-evidence') assertInterfaceEvidenceReady(interfaceAudit);
 
     const archive =
       executionMode === 'diagnostic'
@@ -404,6 +442,12 @@ export async function main(argv = process.argv, runtime = {}) {
     );
     console.log(
       `purity: imageCount=${purity.imageCount} expectedRasterAnnotations=${purity.expectedRasterHrefs.length} chartImgCount=${purity.chartImgCount} rasterAllowed=${purity.rasterAllowed}`
+    );
+    console.log(
+      `G2 canvas: rawViewBox=${purity.viewBox || 'missing'} rawWidth=${purity.widthAttribute || 'responsive'} rawHeight=${purity.heightAttribute || 'responsive'} capture=${captureSize.width}x${captureSize.height}`
+    );
+    console.log(
+      `node paint audit: checked=${nodePaintAudit.checkedNodes} visible=${nodePaintAudit.visibleNodeIds.length} invisible=${nodePaintAudit.invisibleNodeIds.length} expectedVisible=${nodeFaceExpectations.visible.length} expectedHidden=${nodeFaceExpectations.hidden.length}`
     );
     logLabelLayoutAudit(labelLayoutAudit);
     console.log(

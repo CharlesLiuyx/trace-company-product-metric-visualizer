@@ -116,13 +116,19 @@ joined later by the Dataset Build Module rather than inferred from this run.
 
 ### ObjectInventory
 
-`ObjectInventory` accounts for every coarsely inventoried Source object with a
+`object-inventory/v2` accounts for every coarsely inventoried Source object with a
 stable object ID and exactly one disposition: `render`, `data-only`, or
 `skip`. Render/data objects require explicit authored mappings; skipped
 objects require a reason. Source features such as `centered-side-label`, text,
 annotation proximity, visible short nodes, and visible interfaces compile to
 required checks. Duplicate identities, duplicate mapping ownership, and a
 missing mapping are hard failures before review preparation.
+
+Every Sankey-node mapping declares exactly one of `visible-node-face` and
+`hidden-anchor`; visible short nodes also declare the former and bind source
+evidence. `specified-label-weight` binds an expected weight and provenance for
+manual review. Historical v1 inventories remain readable, but cannot compile a
+new review Plan.
 
 ### ChangeImpact
 
@@ -148,7 +154,7 @@ strictest applicable plan rather than silently skipping work.
 
 ### VerificationPlan
 
-`VerificationPlan` is a versioned dependency graph, not an informal command
+`verification-plan/v2` is a versioned dependency graph, not an informal command
 list. It declares:
 
 - preflight and schema checks;
@@ -156,6 +162,7 @@ list. It declares:
 - locales and render profiles;
 - step dependencies and allowed parallelism;
 - closure criteria and explicit `notApplicable` decisions;
+- each required check's enforcement, locale/object scope, and evidence kind;
 - the fresh final-verification profile used for sealing.
 
 Local execution and CI consume the same plan. A plan change invalidates any
@@ -168,16 +175,17 @@ render baseline `notApplicable` rather than relying on absence.
 
 ### ReviewPacket
 
-`ReviewPacket` is the content-addressed handoff from authored preparation to
+`review-packet/v2` is the content-addressed handoff from authored preparation to
 automatic and human review. It binds `buildId`, authored digest, Verification
 Plan digest, required locales, and references to the recorded inventory and
 Plan. `record:build prepare-review` returns its digest as a `reviewToken`;
 `finish` consumes that token (`packetDigest` remains a compatibility alias).
 The token identifies the packet and cannot select a different Build.
+An unfinished v1 packet must be regenerated; it cannot enter the v2 finish path.
 
 ### DatasetVerification
 
-`DatasetVerification` is Build-bound, non-render consistency evidence produced
+`dataset-verification/v1` is Build-bound, non-render consistency evidence produced
 by `record:verification`. It runs the current dataset profile for syntax, SSOT,
 strict i18n, and generated metadata with rendering skipped, then binds the pass
 to the Build, Adapter, authored digest, and Verification Plan digest. A failed
@@ -204,9 +212,18 @@ Each reference is content-addressed. A filesystem path may be a locator or a
 future projection path, but never the evidence identity. The working and stable
 Source paths follow the locator/projection rules above.
 
+### InterfaceMatrix
+
+`interface-matrix/v1` stores one row per reference/candidate interface identity,
+including both-side geometry where present, derived deltas, endpoint/tangent
+results, coverage intent, and evidence digests. Its summary is derived from the
+rows. New-dataset, geometry, and render-engine review require the full Matrix;
+text/localization-only review still reruns candidate interface gates without
+rebuilding unaffected rows.
+
 ### FidelityResult
 
-`FidelityResult` is the immutable result of one `FidelityRun`:
+`fidelity-result/v2` is the immutable result of one review closure attempt:
 
 - subject and dependency digests;
 - step-level facts and pass/fail/not-applicable disposition;
@@ -215,6 +232,7 @@ Source paths follow the locator/projection rules above.
 - human attestation and region decisions;
 - open, accepted, skipped, and exceptional items;
 - run status and result digest.
+- one `checkResults` entry for every Plan-required global or locale-scoped check.
 
 It contains facts and decisions, not canonical mutations.
 
@@ -224,6 +242,9 @@ Interface Matrix facts, attention/red-box closure, and a `FeedbackLedger`.
 Machine-green evidence without the required attestation remains
 `review-pending`; open regions, open feedback, incomplete Matrix coverage, or
 a required recurrence upgrade prevent `accepted`.
+
+Closed/sealed v1 results remain inspectable and are never rewritten. Only a
+fresh v2 Plan/packet may enter the current finish path.
 
 ### ManualAttestation, RegionDecision, and FeedbackLedger
 
