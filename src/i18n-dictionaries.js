@@ -52,6 +52,8 @@
     'Tim Hortons': 'Tim Hortons',
     'Popeyes': 'Popeyes',
     'Firehouse Subs': 'Firehouse Subs',
+    'FedEx Express': 'FedEx Express',
+    'FedEx Freight': 'FedEx Freight',
     'Repatha': 'Repatha',
     'Prolia': 'Prolia',
     'EVENITY': 'EVENITY',

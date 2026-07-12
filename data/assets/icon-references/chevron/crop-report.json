@@ -1,0 +1,272 @@
+{
+  "source": "input/processed/chevron-q1-fy26.png",
+  "spec": "input/icon-crop-specs/chevron-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-12T12:40:37.129562+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "chevron-company-logo",
+      "output": "data/assets/icon-references/chevron/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 4339,
+        "losslessBytes": 20919,
+        "savingsVsLossless": 0.7926,
+        "metrics": {
+          "meanAbsoluteError": 0.6892,
+          "rootMeanSquareError": 2.1736,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.5156
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 37281,
+        "transparentPixelRatio": 0.4878
+      },
+      "searchBox": {
+        "x": 1168,
+        "y": 270,
+        "width": 250,
+        "height": 270
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 1181,
+        "y0": 281,
+        "x1": 1404,
+        "y1": 530
+      },
+      "cropBox": {
+        "x0": 1152,
+        "y0": 266,
+        "x1": 1434,
+        "y1": 537
+      },
+      "validation": {
+        "width": 282,
+        "height": 271,
+        "foregroundPixels": 38626,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 29,
+          "right": 30,
+          "top": 15,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": -0.0018,
+          "y": 0.0148
+        },
+        "passes": true
+      },
+      "note": "Chevron wordmark and chevron symbol above the revenue hub; excludes the Revenue label and all Sankey nodes.",
+      "validationSheet": "data/assets/icon-references/chevron/validation-sheets/chevron-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 287779,
+        "losslessBytes": 287779,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "chevron-business-upstream-pumpjack",
+      "output": "data/assets/icon-references/chevron/crops/business-upstream-pumpjack.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 3152,
+        "losslessBytes": 14257,
+        "savingsVsLossless": 0.7789,
+        "metrics": {
+          "meanAbsoluteError": 0.7802,
+          "rootMeanSquareError": 2.4051,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 57,
+          "changedPixelRatio": 0.3242
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 16635,
+        "transparentPixelRatio": 0.679
+      },
+      "searchBox": {
+        "x": 70,
+        "y": 345,
+        "width": 160,
+        "height": 135
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 88,
+        "y0": 356,
+        "x1": 218,
+        "y1": 468
+      },
+      "cropBox": {
+        "x0": 65,
+        "y0": 340,
+        "x1": 240,
+        "y1": 480
+      },
+      "validation": {
+        "width": 175,
+        "height": 140,
+        "foregroundPixels": 4414,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 23,
+          "right": 22,
+          "top": 16,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": 0.0029,
+          "y": 0.0143
+        },
+        "passes": true
+      },
+      "note": "Upstream pumpjack illustration only; excludes the Upstream label, financial value, and source flow.",
+      "validationSheet": "data/assets/icon-references/chevron/validation-sheets/chevron-business-upstream-pumpjack.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 287607,
+        "losslessBytes": 287607,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "chevron-business-downstream-service-station",
+      "output": "data/assets/icon-references/chevron/crops/business-downstream-service-station.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1621,
+        "losslessBytes": 7020,
+        "savingsVsLossless": 0.7691,
+        "metrics": {
+          "meanAbsoluteError": 0.7783,
+          "rootMeanSquareError": 2.3844,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 50,
+          "changedPixelRatio": 0.4018
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 12517,
+        "transparentPixelRatio": 0.6259
+      },
+      "searchBox": {
+        "x": 66,
+        "y": 682,
+        "width": 170,
+        "height": 145
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 79,
+        "y0": 699,
+        "x1": 212,
+        "y1": 803
+      },
+      "cropBox": {
+        "x0": 65,
+        "y0": 690,
+        "x1": 225,
+        "y1": 815
+      },
+      "validation": {
+        "width": 160,
+        "height": 125,
+        "foregroundPixels": 4415,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 14,
+          "right": 13,
+          "top": 9,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": 0.0031,
+          "y": -0.012
+        },
+        "passes": true
+      },
+      "note": "Downstream service-station illustration only; excludes the Downstream label, financial value, and source flow.",
+      "validationSheet": "data/assets/icon-references/chevron/validation-sheets/chevron-business-downstream-service-station.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 265220,
+        "losslessBytes": 265220,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

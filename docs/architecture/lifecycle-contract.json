@@ -30,6 +30,9 @@
       ],
       "transitions": [
         ["INTAKED", "AUTHORED"],
+        ["CLOSED", "AUTHORED"],
+        ["BASELINE_STAGED", "AUTHORED"],
+        ["SEALED", "AUTHORED"],
         ["AUTHORED", "CLOSED"],
         ["CLOSED", "BASELINE_STAGED"],
         ["BASELINE_STAGED", "SEALED"]

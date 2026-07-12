@@ -1,0 +1,123 @@
+{
+  "source": "input/processed/aramco-q1-fy26.png",
+  "spec": "input/icon-crop-specs/aramco-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-12T12:40:26.038215+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/aramco",
+  "crops": [
+    {
+      "key": "aramco-company-lockup",
+      "output": "data/assets/icon-references/aramco/crops/company-lockup.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 20488,
+        "losslessBytes": 64284,
+        "savingsVsLossless": 0.6813,
+        "metrics": {
+          "meanAbsoluteError": 0.408,
+          "rootMeanSquareError": 2.1207,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 45,
+          "changedPixelRatio": 0.1835
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 760,
+        "y": 217,
+        "width": 722,
+        "height": 198
+      },
+      "componentCount": 26,
+      "subjectBox": {
+        "x0": 764,
+        "y0": 217,
+        "x1": 1480,
+        "y1": 415
+      },
+      "cropBox": {
+        "x0": 750,
+        "y0": 210,
+        "x1": 1490,
+        "y1": 430
+      },
+      "validation": {
+        "width": 740,
+        "height": 220,
+        "foregroundPixels": 58711,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 14,
+          "right": 10,
+          "top": 7,
+          "bottom": 15
+        },
+        "centerOffset": {
+          "x": 0.0027,
+          "y": -0.0182
+        },
+        "passes": true
+      },
+      "note": "Saudi Aramco bilingual company lockup: the Arabic and English wordmark plus its green-and-blue square mark above the Revenue hub. It is kept as an opaque #f2f2f2 background-matched patch because the bilingual custom wordmark and dot-pattern mark are company identity assets. The crop stops above the revenue labels and chart flows, and excludes the chart title and all publisher attribution.",
+      "runtimeOutput": "data/assets/raster-annotations/aramco/company-lockup.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 20488,
+        "losslessBytes": 64284,
+        "savingsVsLossless": 0.6813,
+        "metrics": {
+          "meanAbsoluteError": 0.408,
+          "rootMeanSquareError": 2.1207,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 45,
+          "changedPixelRatio": 0.1835
+        }
+      },
+      "validationSheet": "data/assets/icon-references/aramco/validation-sheets/aramco-company-lockup.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 275051,
+        "losslessBytes": 275051,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

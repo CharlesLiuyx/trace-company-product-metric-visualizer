@@ -199,6 +199,7 @@ function authoredPayload(build, command) {
   };
   return {
     ...snapshot,
+    ...(build.state !== 'INTAKED' ? { reopenedFrom: build.state } : {}),
     ...(verificationPlan ? { verificationPlanDigest: verificationPlan.digest } : {}),
     snapshotDigest: digestValue(snapshot),
   };
@@ -365,7 +366,7 @@ export function advanceDatasetBuild(build, command, options = {}) {
   invariant(command.expectedRevision === build.revision, 'STALE_REVISION', 'Dataset Build revision changed');
 
   if (command.type === 'record-authored') {
-    invariant(['INTAKED', 'AUTHORED', 'CLOSED', 'BASELINE_STAGED'].includes(build.state), 'STATE_PRECONDITION', 'Cannot author from the current state');
+    invariant(['INTAKED', 'AUTHORED', 'CLOSED', 'BASELINE_STAGED', 'SEALED'].includes(build.state), 'STATE_PRECONDITION', 'Cannot author from the current state');
     return nextReceipt(build, 'AUTHORED', authoredPayload(build, command), now);
   }
   if (command.type === 'record-closed') {

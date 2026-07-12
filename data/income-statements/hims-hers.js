@@ -94,6 +94,77 @@
           },
         },
       },
+    },
+    {
+    key: 'hims-hers-q1-fy26',
+    company: 'Hims & Hers',
+    period: 'Q1 FY26',
+    periodNote: 'Quarter ended Mar. 31, 2026',
+    currency: '$',
+    unit: 'M',
+    decimals: 0,
+    sourceImage: 'input/processed/hims-hers-q1-fy26.png',
+    roundingTolerance: 1.1,
+    revenue: {
+      total: 608,
+      notes: ['+4% Y/Y'],
+      items: [
+        { id: 'united_states', label: 'United States', value: 530, notes: ['(8)% Y/Y'] },
+        { id: 'rest_of_world', label: 'Rest of World', value: 78, notes: ['+969% Y/Y'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 211 },
+      operatingExpenses: {
+        total: 475,
+        notes: ['Visible operating-expense line items sum to $476M because the source chart rounds values.'],
+        items: [
+          { id: 'marketing', label: 'Marketing', value: 222, notes: ['37% of revenue', '(3pp) Y/Y'] },
+          { id: 'general_admin', label: 'General & admin', value: 110, notes: ['18% of revenue', '+10pp Y/Y'] },
+          { id: 'operations_support', label: 'Operations & support', value: 97, notes: ['16% of revenue', '+5pp Y/Y'] },
+          { id: 'tech_development', label: 'Tech & development', value: 47, notes: ['8% of revenue', '+3pp Y/Y'] },
+        ],
+      },
+      tax: { label: 'Tax', value: 0, notes: ['No separate tax line is shown in the source chart.'] },
+    },
+    otherIncome: { total: 0, items: [] },
+    otherExpenses: { total: 0, items: [] },
+    profit: {
+      gross: { id: 'gross_profit', label: 'Gross profit', value: 397, notes: ['65% margin', '(8pp) Y/Y'] },
+      operating: { id: 'operating_loss', label: 'Operating loss', value: -78, notes: ['(13%) margin', '(23pp) Y/Y'] },
+      net: { id: 'operating_loss', label: 'Operating loss', value: -78, notes: ['No separate net loss line is shown in the source chart.'] },
+    },
+    i18n: {
+      zh: {
+        period: '2026 财年第一季度',
+        periodNote: '截至 2026 年 3 月 31 日的季度',
+        revenue: {
+          notes: ['同比 +4%'],
+          items: [
+            { id: 'united_states', label: '美国', notes: ['同比 (8%)'] },
+            { id: 'rest_of_world', label: '世界其他地区', notes: ['同比 +969%'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: { label: '收入成本' },
+          operatingExpenses: {
+            notes: ['可见营业费用明细合计为 $476M，差异来自来源图数值四舍五入。'],
+            items: [
+              { id: 'marketing', label: '营销费用', notes: ['占收入 37%', '同比 (3 个百分点)'] },
+              { id: 'general_admin', label: '一般及行政费用', notes: ['占收入 18%', '同比 +10 个百分点'] },
+              { id: 'operations_support', label: '运营与支持', notes: ['占收入 16%', '同比 +5 个百分点'] },
+              { id: 'tech_development', label: '技术与开发', notes: ['占收入 8%', '同比 +3 个百分点'] },
+            ],
+          },
+          tax: { label: '税费', notes: ['来源图未显示单独的税费项目。'] },
+        },
+        profit: {
+          gross: { label: '毛利润', notes: ['利润率 65%', '同比 (8 个百分点)'] },
+          operating: { label: '营业亏损', notes: ['利润率 (13%)', '同比 (23 个百分点)'] },
+          net: { label: '营业亏损', notes: ['来源图未显示单独的净亏损项目。'] },
+        },
+      },
+    },
     }
   );
 })(window);

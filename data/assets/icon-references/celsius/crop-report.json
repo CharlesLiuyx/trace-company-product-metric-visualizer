@@ -1,0 +1,400 @@
+{
+  "source": "input/processed/celsius-q1-fy26.png",
+  "spec": "input/icon-crop-specs/celsius-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-12T12:39:14.267021+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/celsius",
+  "crops": [
+    {
+      "key": "company-logo",
+      "output": "data/assets/icon-references/celsius/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 6809,
+        "losslessBytes": 38139,
+        "savingsVsLossless": 0.8215,
+        "metrics": {
+          "meanAbsoluteError": 0.5074,
+          "rootMeanSquareError": 2.0599,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 55,
+          "changedPixelRatio": 0.1724
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 147780,
+        "transparentPixelRatio": 0.7625
+      },
+      "searchBox": {
+        "x": 585,
+        "y": 290,
+        "width": 720,
+        "height": 215
+      },
+      "componentCount": 17,
+      "subjectBox": {
+        "x0": 585,
+        "y0": 290,
+        "x1": 1256,
+        "y1": 505
+      },
+      "cropBox": {
+        "x0": 565,
+        "y0": 275,
+        "x1": 1325,
+        "y1": 530
+      },
+      "validation": {
+        "width": 760,
+        "height": 255,
+        "foregroundPixels": 45035,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 20,
+          "right": 69,
+          "top": 15,
+          "bottom": 25
+        },
+        "centerOffset": {
+          "x": -0.0322,
+          "y": -0.0196
+        },
+        "passes": true
+      },
+      "note": "The complete CELSIUS Live Fit company lockup above the North America hub; excludes the title and source labels.",
+      "runtimeOutput": "data/assets/raster-annotations/celsius/company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 6809,
+        "losslessBytes": 38139,
+        "savingsVsLossless": 0.8215,
+        "metrics": {
+          "meanAbsoluteError": 0.5074,
+          "rootMeanSquareError": 2.0599,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 55,
+          "changedPixelRatio": 0.1724
+        }
+      },
+      "validationSheet": "data/assets/icon-references/celsius/validation-sheets/company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 262452,
+        "losslessBytes": 262452,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "celsius-product-cluster",
+      "output": "data/assets/icon-references/celsius/crops/celsius-product-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 102307,
+        "losslessBytes": 102307,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 26961,
+        "transparentPixelRatio": 0.319
+      },
+      "searchBox": {
+        "x": 30,
+        "y": 405,
+        "width": 310,
+        "height": 205
+      },
+      "componentCount": 16,
+      "subjectBox": {
+        "x0": 31,
+        "y0": 407,
+        "x1": 332,
+        "y1": 610
+      },
+      "cropBox": {
+        "x0": 15,
+        "y0": 385,
+        "x1": 360,
+        "y1": 630
+      },
+      "validation": {
+        "width": 345,
+        "height": 245,
+        "foregroundPixels": 44656,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 16,
+          "right": 28,
+          "top": 22,
+          "bottom": 20
+        },
+        "centerOffset": {
+          "x": -0.0174,
+          "y": 0.0041
+        },
+        "passes": true
+      },
+      "note": "Four CELSIUS and Alani Nu product cans for the North America revenue source; excludes its value label.",
+      "runtimeOutput": "data/assets/raster-annotations/celsius/celsius-product-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 102307,
+        "losslessBytes": 102307,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/celsius/validation-sheets/celsius-product-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 384007,
+        "losslessBytes": 384007,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "pepsico-wordmark",
+      "output": "data/assets/icon-references/celsius/crops/pepsico-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1545,
+        "losslessBytes": 7544,
+        "savingsVsLossless": 0.7952,
+        "metrics": {
+          "meanAbsoluteError": 0.3709,
+          "rootMeanSquareError": 1.7148,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 28,
+          "changedPixelRatio": 0.3594
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 19308,
+        "transparentPixelRatio": 0.6501
+      },
+      "searchBox": {
+        "x": 25,
+        "y": 700,
+        "width": 300,
+        "height": 60
+      },
+      "componentCount": 7,
+      "subjectBox": {
+        "x0": 30,
+        "y0": 704,
+        "x1": 325,
+        "y1": 750
+      },
+      "cropBox": {
+        "x0": 15,
+        "y0": 685,
+        "x1": 345,
+        "y1": 775
+      },
+      "validation": {
+        "width": 330,
+        "height": 90,
+        "foregroundPixels": 9635,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 15,
+          "right": 20,
+          "top": 19,
+          "bottom": 25
+        },
+        "centerOffset": {
+          "x": -0.0076,
+          "y": -0.0333
+        },
+        "passes": true
+      },
+      "note": "PEPSICO distribution-partner wordmark beside the $66M source; excludes financial text.",
+      "runtimeOutput": "data/assets/raster-annotations/celsius/pepsico-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1545,
+        "losslessBytes": 7544,
+        "savingsVsLossless": 0.7952,
+        "metrics": {
+          "meanAbsoluteError": 0.3709,
+          "rootMeanSquareError": 1.7148,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 28,
+          "changedPixelRatio": 0.3594
+        }
+      },
+      "validationSheet": "data/assets/icon-references/celsius/validation-sheets/pepsico-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 256489,
+        "losslessBytes": 256489,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "amazon-wordmark",
+      "output": "data/assets/icon-references/celsius/crops/amazon-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2976,
+        "losslessBytes": 13460,
+        "savingsVsLossless": 0.7789,
+        "metrics": {
+          "meanAbsoluteError": 0.3083,
+          "rootMeanSquareError": 1.4655,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.1344
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 29154,
+        "transparentPixelRatio": 0.686
+      },
+      "searchBox": {
+        "x": 20,
+        "y": 970,
+        "width": 315,
+        "height": 100
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 30,
+        "y0": 977,
+        "x1": 335,
+        "y1": 1070
+      },
+      "cropBox": {
+        "x0": 10,
+        "y0": 955,
+        "x1": 350,
+        "y1": 1080
+      },
+      "validation": {
+        "width": 340,
+        "height": 125,
+        "foregroundPixels": 12441,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 20,
+          "right": 15,
+          "top": 22,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": 0.0074,
+          "y": 0.048
+        },
+        "passes": true
+      },
+      "note": "Amazon wordmark and smile beside the $255M source; excludes financial text.",
+      "runtimeOutput": "data/assets/raster-annotations/celsius/amazon-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2976,
+        "losslessBytes": 13460,
+        "savingsVsLossless": 0.7789,
+        "metrics": {
+          "meanAbsoluteError": 0.3083,
+          "rootMeanSquareError": 1.4655,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.1344
+        }
+      },
+      "validationSheet": "data/assets/icon-references/celsius/validation-sheets/amazon-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 266506,
+        "losslessBytes": 266506,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

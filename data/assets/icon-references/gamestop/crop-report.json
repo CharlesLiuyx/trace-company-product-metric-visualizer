@@ -1,0 +1,306 @@
+{
+  "source": "input/processed/gamestop-q1-fy26.png",
+  "spec": "input/icon-crop-specs/gamestop-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-12T16:09:17.403657+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/gamestop",
+  "crops": [
+    {
+      "key": "gamestop-hardware-consoles",
+      "output": "data/assets/icon-references/gamestop/crops/hardware-consoles-q1-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 7280,
+        "losslessBytes": 45354,
+        "savingsVsLossless": 0.8395,
+        "metrics": {
+          "meanAbsoluteError": 0.881,
+          "rootMeanSquareError": 2.1019,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 52,
+          "changedPixelRatio": 0.3935
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 59811,
+        "transparentPixelRatio": 0.606
+      },
+      "searchBox": {
+        "x": 20,
+        "y": 370,
+        "width": 420,
+        "height": 235
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 27,
+        "y0": 383,
+        "x1": 418,
+        "y1": 598
+      },
+      "cropBox": {
+        "x0": 20,
+        "y0": 370,
+        "x1": 440,
+        "y1": 605
+      },
+      "validation": {
+        "width": 420,
+        "height": 235,
+        "foregroundPixels": 38611,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 7,
+          "right": 22,
+          "top": 13,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": -0.0179,
+          "y": 0.0128
+        },
+        "passes": true
+      },
+      "note": "PlayStation and Xbox console cluster for the Hardware & Accessories revenue source; excludes source labels and Sankey marks.",
+      "runtimeOutput": "data/assets/raster-annotations/gamestop/hardware-consoles-q1-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 7280,
+        "losslessBytes": 45354,
+        "savingsVsLossless": 0.8395,
+        "metrics": {
+          "meanAbsoluteError": 0.881,
+          "rootMeanSquareError": 2.1019,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 52,
+          "changedPixelRatio": 0.3935
+        }
+      },
+      "validationSheet": "data/assets/icon-references/gamestop/validation-sheets/q1-fy26/gamestop-hardware-consoles.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 287667,
+        "losslessBytes": 287667,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "gamestop-packaged-software-games",
+      "output": "data/assets/icon-references/gamestop/crops/packaged-software-games-q1-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 47850,
+        "losslessBytes": 47850,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 23179,
+        "transparentPixelRatio": 0.4769
+      },
+      "searchBox": {
+        "x": 120,
+        "y": 750,
+        "width": 270,
+        "height": 180
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 163,
+        "y0": 757,
+        "x1": 367,
+        "y1": 909
+      },
+      "cropBox": {
+        "x0": 120,
+        "y0": 750,
+        "x1": 390,
+        "y1": 930
+      },
+      "validation": {
+        "width": 270,
+        "height": 180,
+        "foregroundPixels": 24985,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 43,
+          "right": 23,
+          "top": 7,
+          "bottom": 21
+        },
+        "centerOffset": {
+          "x": 0.037,
+          "y": -0.0389
+        },
+        "passes": true
+      },
+      "note": "Packaged video-game cover cluster for the Packaged Software revenue source; excludes the source label and value.",
+      "runtimeOutput": "data/assets/raster-annotations/gamestop/packaged-software-games-q1-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 47850,
+        "losslessBytes": 47850,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/gamestop/validation-sheets/q1-fy26/gamestop-packaged-software-games.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 340185,
+        "losslessBytes": 340185,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "gamestop-collectibles-figure",
+      "output": "data/assets/icon-references/gamestop/crops/collectibles-figure-q1-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 7455,
+        "losslessBytes": 32446,
+        "savingsVsLossless": 0.7702,
+        "metrics": {
+          "meanAbsoluteError": 0.99,
+          "rootMeanSquareError": 2.8036,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.3252
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 27473,
+        "transparentPixelRatio": 0.6783
+      },
+      "searchBox": {
+        "x": 30,
+        "y": 1090,
+        "width": 180,
+        "height": 225
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 40,
+        "y0": 1112,
+        "x1": 188,
+        "y1": 1306
+      },
+      "cropBox": {
+        "x0": 30,
+        "y0": 1090,
+        "x1": 210,
+        "y1": 1315
+      },
+      "validation": {
+        "width": 180,
+        "height": 225,
+        "foregroundPixels": 13016,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 10,
+          "right": 22,
+          "top": 22,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": -0.0333,
+          "y": 0.0289
+        },
+        "passes": true
+      },
+      "note": "Collectibles figure for the Collectibles revenue source; excludes the source label and Sankey marks.",
+      "runtimeOutput": "data/assets/raster-annotations/gamestop/collectibles-figure-q1-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 7455,
+        "losslessBytes": 32446,
+        "savingsVsLossless": 0.7702,
+        "metrics": {
+          "meanAbsoluteError": 0.99,
+          "rootMeanSquareError": 2.8036,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.3252
+        }
+      },
+      "validationSheet": "data/assets/icon-references/gamestop/validation-sheets/q1-fy26/gamestop-collectibles-figure.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 330585,
+        "losslessBytes": 330585,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

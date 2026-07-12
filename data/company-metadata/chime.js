@@ -32,6 +32,8 @@
       sourceUrls: [
         'https://investors.chime.com/shareholder-services/investor-faqs',
         'https://www.chime.com/',
+        'https://investors.chime.com/news-releases/news-release-details/chime-reports-first-quarter-2026-financial-results',
+        'https://www.sec.gov/Archives/edgar/data/1795586/000179558626000038/chym-20260331.htm',
         'https://investors.chime.com/news-releases/news-release-details/chime-reports-fourth-quarter-and-full-year-2025-financial',
         'https://www.sec.gov/Archives/edgar/data/1795586/000179558626000013/chym-20251231.htm',
         'https://companiesmarketcap.com/chime-financial/marketcap/',

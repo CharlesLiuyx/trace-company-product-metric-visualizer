@@ -1,0 +1,118 @@
+{
+  "source": "input/processed/nio-q1-fy26.png",
+  "spec": "input/icon-crop-specs/nio-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-12T12:39:38.987680+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/nio",
+  "crops": [
+    {
+      "key": "nio-vehicle-sales-cars",
+      "output": "data/assets/icon-references/nio/crops/vehicle-sales-cars.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 50964,
+        "losslessBytes": 50964,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 37139,
+        "transparentPixelRatio": 0.5252
+      },
+      "searchBox": {
+        "x": 70,
+        "y": 550,
+        "width": 260,
+        "height": 245
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 94,
+        "y0": 572,
+        "x1": 302,
+        "y1": 784
+      },
+      "cropBox": {
+        "x0": 64,
+        "y0": 544,
+        "x1": 336,
+        "y1": 804
+      },
+      "validation": {
+        "width": 272,
+        "height": 260,
+        "foregroundPixels": 33383,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 30,
+          "right": 34,
+          "top": 28,
+          "bottom": 20
+        },
+        "centerOffset": {
+          "x": -0.0074,
+          "y": 0.0154
+        },
+        "passes": true
+      },
+      "note": "Three NIO vehicles for the Vehicle sales source; excludes label text, values, Sankey ribbons, and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/nio/vehicle-sales-cars.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 50964,
+        "losslessBytes": 50964,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/nio/validation-sheets/nio-vehicle-sales-cars.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 284412,
+        "losslessBytes": 284412,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}
