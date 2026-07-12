@@ -17,9 +17,12 @@ Interface, not a naming preference.
 | `publish:*` | compare-and-swap one fully planned canonical snapshot | authoring, new visual judgment, silent merge/rebase |
 | `release:*` | build/deploy from one published digest and record a receipt | modify Build, baseline, or canonical Publication state |
 
-Current command names do not yet satisfy this target uniformly. During
-migration, documentation and compatibility wrappers must state whether an
-operation is read-only or mutating; renaming alone does not change semantics.
+Implemented `verify:*` and `record:*` commands satisfy this contract. The one
+remaining canonical compatibility mutation is deliberately named
+`compat:baseline`, outside these classes, until M4 Publication replaces it;
+`publish:*` and `release:*` remain unimplemented target vocabulary.
+Documentation and compatibility wrappers must state whether an operation is
+read-only or mutating; renaming alone does not change semantics.
 
 ## Verification sequence
 
@@ -40,8 +43,8 @@ mark render/fidelity steps `notApplicable`. All plans still produce a
 machine-readable `FidelityResult` or equivalent verification result and a
 fresh seal.
 
-The implemented M3 shadow/compatibility lane exposes the same ordering through
-the Dataset Build Module:
+The implemented M3 lane — the primary Build close-out path — exposes the same
+ordering through the Dataset Build Module:
 
 ```text
 record:build prepare-review -> ReviewPacket reviewToken + AUTHORED
@@ -49,7 +52,7 @@ record:verification          -> dataset-verification/v1 consistency evidence
 record:fidelity --build ... -> fidelity-run/2 evidence-ready
 record:build finish         -> review-pending, or accepted FidelityResult -> CLOSED
 record:build stage-baseline -> BASELINE_STAGED
-record:build seal           -> re-hash authored files + SEALED
+record:build seal           -> re-hash + Adapter final profile + SEALED
 record:build inspect / verify:closeout
 ```
 
@@ -57,7 +60,8 @@ record:build inspect / verify:closeout
 `sealReviewedBuild`, and `inspectBuildCloseout` are the deep Module
 Interfaces behind that CLI. The review token is the digest of the recorded
 ReviewPacket; a JSON document cannot redirect an operation to another Build.
-This lane is not yet the primary canonical-publication workflow.
+This lane is the primary Build close-out workflow; canonical publication
+itself remains M4.
 
 ### Evidence purposes
 
@@ -137,18 +141,20 @@ published baseline as independent historical evidence, but it cannot override
 candidate, reference, interface, or manual failures.
 
 No-key, full-catalog baseline updates are not a close-out operation for one
-Build and are rejected by the current CLI. During M1–M3,
-`record:baseline -- <key> [...]` is a subset-only compatibility mutation: it
-writes atomically only after all selected render/structure checks pass, but
-it is not yet true build-local staging. Batch baseline changes require their
-own explicit scope and Verification Plan.
+Build and are rejected by the current CLI. Until M4,
+`compat:baseline -- <key> [...]` (renamed from `record:baseline`; it mutates
+the canonical ledger, so it sits deliberately outside the `record:*` class)
+is a subset-only compatibility mutation: it writes atomically only after all
+selected render/structure checks pass, but it is not build-local staging.
+Batch baseline changes require their own explicit scope and Verification
+Plan.
 
-In parallel, the M3 shadow lane now has true build-local staging:
+In parallel, the M3 lane has true build-local staging:
 `stageReviewedBaseline` consumes the exact closure digest, records Income
 Statement metrics with `future-regression-only`, and records the Revenue
 Metric baseline as explicitly `not-applicable`. It does not update the
-canonical baseline ledger. The compatibility command and the shadow staging
-object must not be described as one transaction.
+canonical baseline ledger. The compatibility command and the build-local
+staging object must not be described as one transaction.
 
 ## SEALED final verification
 
@@ -162,13 +168,17 @@ baseline, archive a provisional run, or build a release artifact. If any
 input differs, it returns a stale-input result; the Build reopens at the
 recovery point defined in the lifecycle document.
 
-The target above is not fully implemented. The current shadow
-`sealReviewedBuild` takes no caller pass JSON: it internally inspects and
-re-hashes the authored files, requires the Build to be `BASELINE_STAGED` with
-an accepted closure, and only then records `SEALED`. This removes the previous
-caller-asserted pass hole, but it is still a compatibility safety check, not a
-complete rerun of the Adapter's final-verification profile. Documentation and
-reports must not equate the current seal receipt with that future profile.
+The implemented `sealReviewedBuild` takes no caller pass JSON: it internally
+inspects and re-hashes the authored files, reruns the read-only Adapter final
+profile — the non-render dataset consistency profile plus, for Income
+Statement, the d3 render hard gates for every required Plan locale — requires
+the Build to be `BASELINE_STAGED` with an accepted closure, and only then
+records `SEALED`. The receipt stores each profile run in `finalProfiles`.
+Manual decisions are consumed from the accepted closure rather than
+re-executed, and the staged baseline stays excluded from the verdict. The
+remaining gap is M4-owned: a complete `ArtifactManifest` and the canonical
+projection arrive with the isolated authoring workspace and Publication, not
+with the seal.
 
 After sealing, inspection preserves both truths. `historicalState=SEALED`
 records what happened; if an authored file is missing or its bytes change,
@@ -273,9 +283,11 @@ compatibility rule is replace, not layer indefinitely:
 - record ObjectInventory, Plan, ReviewPacket, human decisions, FeedbackLedger,
   and FidelityResult through the Build Module;
 - exercise closure, build-local baseline staging, freshness inspection, and
-  sealing in shadow/compatibility mode without changing canonical output;
-- replace the current freshness-only seal check with the complete Adapter
-  final-verification profile;
+  sealing without changing canonical output (implemented; now the primary
+  close-out path);
+- replace the freshness-only seal check with the complete Adapter
+  final-verification profile (implemented: non-render consistency plus
+  per-locale render hard gates);
 - turn manifest, registration, baseline, and metadata writers into pure
   projectors;
 - add canonical CAS and only then route mutations through `publish:*`;

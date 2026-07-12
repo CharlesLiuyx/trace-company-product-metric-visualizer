@@ -12,7 +12,7 @@
 // Usage:
 //   pnpm verify:render-regression                 # gate all registered keys
 //   pnpm verify:render-regression -- <key> [...]  # gate a subset
-//   pnpm record:baseline -- <key> [...]           # mutate canonical baselines
+//   pnpm compat:baseline -- <key> [...]           # mutate canonical baselines
 //   pnpm verify:render-regression -- <key> --update # compatible mutation entry
 //   options: --concurrency <n> (default 4), --tolerance <similarity drop>, --structure-only
 //
@@ -63,7 +63,7 @@ function usage() {
   console.error(`Usage:
   pnpm verify:render-regression [-- <dataset-key> ...] [--concurrency <n>] [--tolerance <similarity-drop>]
   pnpm verify:render-regression --structure-only
-  pnpm record:baseline -- <dataset-key> [...] [--concurrency <n>] [--tolerance <similarity-drop>]
+  pnpm compat:baseline -- <dataset-key> [...] [--concurrency <n>] [--tolerance <similarity-drop>]
 
 Canonical mutation compatibility entry:
   pnpm verify:render-regression -- <dataset-key> [...] --update
@@ -183,7 +183,7 @@ export function renderBaselineSource(results, previousBaselines, tolerance) {
   );
   return `${JSON.stringify(
     {
-      generatedBy: 'pnpm record:baseline -- <dataset-key> [...]',
+      generatedBy: 'pnpm compat:baseline -- <dataset-key> [...]',
       language: LANGUAGE,
       similarityTolerance: tolerance,
       baselines: sorted,
@@ -387,7 +387,7 @@ async function main() {
           console.log(
             `note ${result.key}: similarity ${fmtSim(result.similarity)} improved ${fmtSim(delta)} over baseline ` +
               `${fmtSim(baseline.similarity)} — record this canonical mutation with ` +
-              `pnpm record:baseline -- ${result.key}`
+              `pnpm compat:baseline -- ${result.key}`
           );
         }
       }

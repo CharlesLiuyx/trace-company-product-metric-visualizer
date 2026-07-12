@@ -58,17 +58,32 @@ test('record:intake parses one selected Source and explicit Adapter', () => {
       '--adapter',
       'income-statement',
       '--availability',
-      'published',
+      'public',
       '--json',
     ]),
     {
       source: 'input/pending/acme.png',
       key: 'acme-q4-fy25',
       adapter: 'income-statement',
-      availability: 'published',
+      availability: 'public',
       json: true,
     }
   );
+});
+
+test('record:intake normalizes the legacy published availability alias to public', () => {
+  const parsed = parseArgs([
+    'node',
+    'record-intake.mjs',
+    'input/pending/acme.png',
+    '--key',
+    'acme-q4-fy25',
+    '--adapter',
+    'income-statement',
+    '--availability',
+    'published',
+  ]);
+  assert.equal(parsed.availability, 'public');
 });
 
 test('record:intake defaults Source availability to local-only', () => {

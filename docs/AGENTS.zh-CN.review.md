@@ -41,9 +41,12 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
   `ReleaseAttempt`。build-local `FidelityRun` 只产出证据，没有 canonical
   写权限。治理该决定的文档是
   `docs/adr/0001-dataset-build-transactions.md`。
-- 在目标命令词汇中，`verify:*` 只读，`record:*` 只写 build-local 证据或
+- 在命令词汇中，`verify:*` 只读，`record:*` 只写 build-local 证据或
   staging，`publish:*` 是唯一 canonical mutation，`release:*` 只作用于
-  已发布 digest。当前命令名仍处于迁移期，尚未统一满足该契约。
+  已发布 digest。已实现的 `verify:*` / `record:*` 命令均满足该契约；
+  `compat:baseline` 因在 M4 Publication 落地前仍要改 canonical baseline
+  ledger，被刻意命名在四类之外；`publish:*` / `release:*` 仍是未实现的
+  目标词汇。
 
 - `data/income-statements/<company-key>.js`（损益表家族，按公司分文件）与
   `data/revenue-metrics.js`（收入家族）是纯 Metric SSOT；
@@ -97,7 +100,7 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
 | `pnpm record:fidelity -- <key> --focus <dir> [--language <code>] --build <build-id>` | 持久化 Build-bound 自动证据为 `evidence-ready`，每种 required language 各跑一次；不带 `--build` 的显式 focus 产物仅为旧兼容证据，不能关闭 Build |
 | `pnpm record:build -- finish <build-id> --review <review.json>` | 消费 `reviewToken`（兼容旧 `packetDigest`）、自动证据、人工 attestation、region/risk/feedback 决定与 Interface Matrix；只有 accepted `FidelityResult` 才推进到 `CLOSED` |
 | `pnpm record:build -- stage-baseline <build-id> --input <baseline.json>` | 记录 build-local、仅供未来回归的 baseline stage；Revenue Metric 会显式记录 `notApplicable` |
-| `pnpm record:build -- seal <build-id>` | 内部重算 artifact 新鲜度；仅当 Build 已人工接受、关闭、stage baseline 且 exact digests 新鲜时记录 `SEALED`，不发布 canonical 数据 |
+| `pnpm record:build -- seal <build-id>` | 内部重算 artifact 新鲜度并重跑 Adapter final profile（非渲染一致性 + Income Statement 每 required locale 的渲染硬门槛）；仅当 Build 已人工接受、关闭、stage baseline 且 exact digests 新鲜时记录 `SEALED`，不发布 canonical 数据 |
 | `pnpm record:build -- inspect <build-id> [--json]` | 只读查看历史/有效状态、新鲜度、Review 状态、Task 信息与 Loop Fidelity Summary |
 | `pnpm verify:closeout -- <build-id> [--json]` | 只读收尾门：历史与有效状态都必须为 `SEALED`、输入新鲜且人工 Review 已 accepted |
 | `pnpm sync:index-datasets` | 同步全部数据注册面与磁盘：`index.html` SSOT `<script>` 标签（损益表、公司档案）与生成的 dataset manifest（`--check` 只报告漂移） |
@@ -107,7 +110,7 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
 | `pnpm verify:i18n -- [--strict] [keys]` | i18n 覆盖检查 |
 | `pnpm verify:d3 -- <key> [--focus <dir>] [--keep] [--language <code>] [--round <n>]` | 只读 d3 诊断 + 自动硬门槛；即使传 `--focus` 也不归档、不推进人工轮次 lineage |
 | `pnpm verify:render-regression [-- <keys>]` | 只读批量渲染，对照 `data/render-baselines.json` 拦截回归；缺本地参考图时只跑渲染硬门槛 |
-| `pnpm record:baseline -- <key> [...]` | 新 Build 收尾 verdict 之外的过渡期 canonical baseline 兼容 mutation；M4 Publication 尚未替代它，也不能证明产生它的 Build 正确 |
+| `pnpm compat:baseline -- <key> [...]` | canonical baseline ledger 的兼容 mutation，刻意命名在 verify/record/publish/release 四类之外；M4 Publication 尚未替代它，也不能证明产生它的 Build 正确 |
 | `pnpm update:dataset-file-metadata` | 从 git 提交时间重新生成 `data/dataset-file-metadata.js`（提交新/改数据集后需重跑并提交刷新结果） |
 | `pnpm verify:dataset-file-metadata` | 生成的 metadata 是否为最新 |
 | `pnpm build:site` / `pnpm verify:site` | 构建优化后的 Pages runtime projection / 用浏览器校验 defer bundle、按需 Adapter 预算、Chart runtime 延迟加载与公司切换路径 |
@@ -129,19 +132,18 @@ artifact 交给 Pages deploy，不再二次 checkout/install/build。每个检�
 `docs/architecture/README.md` 拥有，不得在一次当前流程执行中静默混入目标状态
 断言。
 
-显式的操作者完成信号是当前唯一的 Source relocation 授权。只要用户说人工审阅
-已完成（包括“人工审阅完毕”），或说明本地工作已经推送到远端并合入 `main`，就把
-`input/processing/` 当前的全部 PNG 视为已审阅。先检查目标目录是否存在同名文件，
-然后把它们全部直接移动到 `input/processed/`；绝不覆盖已有文件。这个由操作者
-明确触发的批量移动不要求 Build ID、结构化 attestation、baseline staging、seal
-或 `verify:closeout`。没有信号时，即使 Build close-out 通过也继续留在 processing。
-移动只改变 Source locator，不伪造
-DatasetBuild receipt，也不表示 M4 Publication。细则由
-`docs/dynamic-dataset-workflow.md` 负责。
+显式的操作者完成信号（人工审阅已完成，包括“人工审阅完毕”，或本地工作已推送
+并合入 `main`）是当前唯一的 Source relocation 授权：先枚举 processing 批次，
+把完整清单呈给操作者确认，确认后再以 no-clobber 方式把确认的 PNG 移到
+`input/processed/`。没有信号时，即使 Build close-out 通过也继续留在
+processing。移动只改变 Source locator——不伪造 DatasetBuild receipt，也不表示
+M4 Publication。规则的唯一 owning 定义（含确认与失败步骤）是
+`docs/dynamic-dataset-workflow.md` §Operator Review-Completion Signal。
 
 1. 接入与守卫——选择一个 item，先运行候选
    `pnpm check:pending -- --file ...` 守卫，确定 `<公司>-<期间>` key 与
-   Adapter，用 `--key` 重跑守卫，再运行 `pnpm record:intake`。最终守卫通过后，
+   Adapter，再运行 `pnpm record:intake`；intake 内部会用 `--key` 重跑决定性的
+   选中项守卫（手动重跑只是可选的提前失败）。守卫通过后，
    intake 立即以 no-clobber 方式把 Source 领取到
    `input/processing/<dataset-key>.png`；盘点、authoring、crop、fidelity 与
    close-out 全程都保留在那里。
@@ -162,12 +164,16 @@ DatasetBuild receipt，也不表示 M4 Publication。细则由
    required language 的 `evidence-ready` 证据；把这些证据交给人 Review，并将
    结构化 attestation 传给 `record:build finish`。机器通过既不叫 accepted，
    也不叫 converged；只有新鲜且 accepted 的 `FidelityResult` 才把 Build 推进到
-   `CLOSED`。Revenue Metric plan 会显式把 Sankey/render 证据标为
+   `CLOSED`。随后 build-local 记录 future-regression baseline 并 seal
+   （`record:build stage-baseline` / `seal`；seal 内部会自行重跑 Adapter
+   final profile——非渲染一致性 + 每 required locale 的渲染硬门槛）。
+   Revenue Metric plan 会显式把 Sankey/render 证据标为
    `notApplicable`，不得用缺席冒充不适用。
-5. 收尾——若已收到操作者完成信号，先检查整批同名目标，再直接以 no-clobber
-   方式把 `processing/` 中的全部 PNG 移到 `processed/`；否则全部留在 processing。
-   需要正式 Build 审计时，记录 build-local future-regression stage，跑新鲜的最终
-   检查，再执行 `record:build seal` 与 `verify:closeout`；该只读门不移动 Source。
+5. 收尾——收到操作者完成信号时按 owning 规则执行（枚举批次 → 操作者确认清单
+   → no-clobber 移动确认的 PNG）；否则全部留在 processing。按
+   `docs/dynamic-dataset-workflow.md` step 13 的 close-out requirement policy
+   运行 `verify:closeout`（accepted `FidelityResult` 是合入 `main` 的底线；
+   跳过的 staging/seal/closeout 必须连同原因写进汇报）；该只读门不移动 Source。
    最后让 `pnpm check` 全绿，
    并按 `docs/commit-messages.md` 提交；共享队列与其他在途 processing claim
    可以保留，processing 非空不会让全局检查失败。processed 图片永不改名。

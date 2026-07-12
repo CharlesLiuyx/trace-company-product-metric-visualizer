@@ -43,8 +43,10 @@ The current compatibility workflow uses three directory roles:
   durably fixes Source identity and claims the selected file here before
   inventory or authoring begins;
 - `input/processed/` is the stable compatibility locator. An explicit operator
-  completion signal is the only current relocation authority and directly
-  no-clobber moves every current processing PNG here; passing Build close-out
+  completion signal — confirmed against the enumerated processing batch — is
+  the only current relocation authority (owning rule:
+  [`dynamic-dataset-workflow.md`](../dynamic-dataset-workflow.md)
+  §Operator Review-Completion Signal); passing Build close-out
   alone does not move files, and relocation records no Build transition or
   receipt.
 
@@ -331,8 +333,8 @@ historical `SEALED` receipt remains auditable while `effectiveState` becomes
 - One Build is serial by version; different Builds may run in parallel.
 - The `processing/` locator is a per-key working lease, not a state transition;
   intake claims are no-clobber and digest-checked. Its only current relocation
-  authority is the explicit operator completion signal, which moves the whole
-  processing batch no-clobber without lifecycle receipt synthesis.
+  authority is the explicit, batch-confirmed operator completion signal, which
+  moves the confirmed set no-clobber without lifecycle receipt synthesis.
 - Every state-changing operation has an idempotency identity and an expected
   aggregate version.
 - Artifacts are stored and hash-verified before a state event references
@@ -346,8 +348,8 @@ historical `SEALED` receipt remains auditable while `effectiveState` becomes
 
 ## Current Implementation note
 
-The M3 shadow/compatibility path is now executable through the deep
-`prepareBuildReview`, `finishReviewedBuild`, `stageReviewedBaseline`,
+The M3 build-local chain is the primary close-out path, exposed through the
+deep `prepareBuildReview`, `finishReviewedBuild`, `stageReviewedBaseline`,
 `sealReviewedBuild`, and `inspectBuildCloseout` Interfaces, surfaced by
 `record:build`. Together with `record:verification`, it records content-addressed
 inventory, Plan, ReviewPacket, DatasetVerification, FidelityResult,
@@ -356,17 +358,19 @@ under the per-Build store. `inspect` also produces `CloseoutReport`, Task
 information, and Loop Fidelity Summary as pure Views over those objects.
 
 At current intake, `record:intake` also claims the selected Source from
-`pending/` to the Build-local `processing/` locator. The user's explicit
-statement that human review is complete, or that local work was pushed and
-merged into `main`, is the only current authority to relocate Sources: after a
-whole-batch no-clobber check, every processing PNG moves directly to
-`processed/`. Passing Build close-out alone does not move a Source. Neither
-filesystem move adds or infers a DatasetBuild state.
+`pending/` to the Build-local `processing/` locator. The operator
+review-completion signal (owning rule:
+[`dynamic-dataset-workflow.md`](../dynamic-dataset-workflow.md)
+§Operator Review-Completion Signal) is the only current authority to relocate
+Sources from `processing/` to `processed/`, and it moves only the batch the
+operator has confirmed. Passing Build close-out alone does not move a Source.
+Neither filesystem move adds or infers a DatasetBuild state.
 
-This is not M4. Authored canonical paths are still edited directly, the old
-canonical baseline command remains a compatibility path, and no atomic
-Publication or path-claim CAS exists; the processed Source move is likewise a
-compatibility projection rather than Publication. The current seal operation re-hashes
-authored files and requires an accepted closure before recording `SEALED`; it
-does not yet rerun the complete Adapter final-verification profile required by
-the target. See the live status table in [`README.md`](README.md).
+This is not M4. Authored canonical paths are still edited directly,
+`compat:baseline` remains the canonical-baseline compatibility path, and no
+atomic Publication or path-claim CAS exists; the processed Source move is
+likewise a compatibility projection rather than Publication. The current seal operation re-hashes
+authored files and reruns the Adapter final-verification profile — the
+non-render consistency profile plus, for Income Statement, per-locale d3
+render hard gates — before recording `SEALED` against an accepted closure.
+See the live status table in [`README.md`](README.md).

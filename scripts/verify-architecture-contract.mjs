@@ -170,6 +170,11 @@ async function main() {
     'operator completion signal must cover all current processing Sources'
   );
   assert.equal(
+    contract.sourceLocations.operatorRelocationRequiresPreMoveListConfirmation,
+    true,
+    'operator relocation must present the enumerated batch for confirmation before moving'
+  );
+  assert.equal(
     contract.sourceLocations.operatorSignalIsOnlyRelocationTrigger,
     true,
     'operator completion signal must be the only processing relocation trigger'
@@ -216,7 +221,8 @@ async function main() {
   assert.ok(packageJson.scripts['record:fidelity'], 'package.json must expose record:fidelity');
   assert.ok(packageJson.scripts['record:verification'], 'package.json must expose record:verification');
   assert.ok(packageJson.scripts['record:build'], 'package.json must expose record:build');
-  assert.ok(packageJson.scripts['record:baseline'], 'package.json must expose record:baseline');
+  assert.ok(packageJson.scripts['compat:baseline'], 'package.json must expose compat:baseline');
+  assert.ok(!packageJson.scripts['record:baseline'], 'record:baseline must stay renamed to compat:baseline so record:* remains build-local');
   assert.ok(packageJson.scripts['verify:closeout'], 'package.json must expose verify:closeout');
   assert.ok(!packageJson.scripts['build:standalone'].includes('update-dataset-file-metadata'), 'build:standalone must not mutate tracked metadata');
 
@@ -237,12 +243,36 @@ async function main() {
     assert.match(source, /docs\/architecture\/README\.md/, `${name} must route the architecture index`);
   }
 
-  const [flowchart, workflow, inputReadme, dataReadme] = await Promise.all([
+  const [flowchart, workflow, inputReadme, dataReadme, context, archIndex, lifecycle, verification] = await Promise.all([
     readFile(projectPath('docs/workflow-flowchart.zh-CN.html'), 'utf8'),
     readFile(projectPath('docs/dynamic-dataset-workflow.md'), 'utf8'),
     readFile(projectPath('input/README.md'), 'utf8'),
     readFile(projectPath('data/README.md'), 'utf8'),
+    readFile(projectPath('CONTEXT.md'), 'utf8'),
+    readFile(projectPath('docs/architecture/README.md'), 'utf8'),
+    readFile(projectPath('docs/architecture/dataset-lifecycle.md'), 'utf8'),
+    readFile(projectPath('docs/architecture/verification-publication.md'), 'utf8'),
   ]);
+
+  // The operator relocation rule has exactly one owning definition. The owner
+  // must keep the operational steps (pre-move confirmation, no-clobber
+  // failure); every other context document may only summarize and point.
+  assert.match(workflow, /## Operator Review-Completion Signal/, 'workflow must own the operator relocation rule');
+  assert.match(workflow, /wait for their explicit confirmation/, 'operator relocation must require pre-move batch confirmation');
+  assert.match(workflow, /same-name destination/, 'operator relocation must keep the no-clobber failure step');
+  for (const [name, source] of [
+    ['CONTEXT.md', context],
+    ['AGENTS.md', agents],
+    ['docs/architecture/README.md', archIndex],
+    ['docs/architecture/dataset-lifecycle.md', lifecycle],
+    ['docs/architecture/verification-publication.md', verification],
+  ]) {
+    assert.doesNotMatch(
+      source,
+      /same-name/,
+      `${name} restates operator relocation details owned by docs/dynamic-dataset-workflow.md`
+    );
+  }
   assert.match(flowchart, /辅助 View，不拥有规则/, 'workflow flowchart must disclaim rule ownership');
   assert.doesNotMatch(flowchart, /11 项自动|自动硬门槛（11|G1–G11|收敛标准 14|14 条/, 'workflow flowchart contains stale gate/closure counts');
   assert.match(inputReadme, /data\/dataset-manifest\.js/, 'input README must route dataset registration to the manifest');

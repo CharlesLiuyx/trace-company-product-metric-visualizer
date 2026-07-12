@@ -53,7 +53,7 @@
     }
   },
   "adapters": ["income-statement", "revenue-metric"],
-  "sourceAvailability": ["published", "local-only", "restricted"],
+  "sourceAvailability": ["public", "local-only", "restricted"],
   "sourceLocations": {
     "pending": "unclaimed",
     "processing": "build-local-working-locator",
@@ -64,6 +64,7 @@
       "pushed-and-merged-to-main"
     ],
     "operatorSignalAppliesToAllProcessing": true,
+    "operatorRelocationRequiresPreMoveListConfirmation": true,
     "operatorSignalIsOnlyRelocationTrigger": true,
     "operatorRelocationMustNotClobber": true
   },

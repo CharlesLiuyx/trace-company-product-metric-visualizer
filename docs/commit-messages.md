@@ -113,9 +113,11 @@ chore(deps): pin playwright 1.61.0
   `data(<dataset-key>)` 提交中；仅当 Source availability 允许提交时，才把
   `input/processed/<dataset-key>.png` 放入同一提交。`local-only` / `restricted`
   Source 即使已在本机完成 relocation 也不得伪造、强制纳入 Git 或改写 availability。
-  `input/processing/` 是被忽略的在途 claim。只有操作者明确说人工审阅完毕或已
-  推送并合入 `main`，才按工作流规则检查整批同名冲突并直接 no-clobber 移动当前
-  全部 processing PNG；Build close-out 本身不移动文件。该 Source locator 变更
+  `input/processing/` 是被忽略的在途 claim。只有操作者完成信号（人工审阅完毕
+  或已推送并合入 `main`）按工作流 owning 规则移动 Source：先枚举整批并呈清单
+  给操作者确认，确认后 no-clobber 移动（细则见
+  `docs/dynamic-dataset-workflow.md` §Operator Review-Completion Signal）；
+  Build close-out 本身不移动文件。该 Source locator 变更
   不是 M4 Publication；processed 图片永不改名或覆盖。
 - 渲染器支持提交：如果为了某个数据集新增通用渲染能力，单独用
   `render(engine)` 提交，再用 `data(<dataset-key>)` 提交应用调参。

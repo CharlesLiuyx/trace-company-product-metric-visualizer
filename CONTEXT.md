@@ -8,13 +8,14 @@ build-local evidence, not publication state.
 Source folders are operational locators, not a fourth lifecycle scope.
 `record:intake` fixes the Source digest and claims the selected file from
 `input/pending/` into the Build-local `input/processing/` working locator and
-lease. The Source remains there until the operator explicitly states that
-human review is complete, or that local work was pushed and merged into
-`main`; either statement authorizes a direct no-clobber relocation of every
-current processing PNG to `input/processed/`. This is the only current
-relocation trigger. It changes no Source digest identity and fabricates no
-Build state. In the target M4 architecture, Publication replaces this
-transitional operation and owns the stable processed Source projection.
+lease. The Source remains there until an explicit operator review-completion
+signal; after the operator confirms the enumerated processing batch, the
+confirmed PNGs move no-clobber to `input/processed/`. That signal is the only
+current relocation trigger, changes no Source digest identity, and fabricates
+no Build state; its owning definition is `docs/dynamic-dataset-workflow.md`
+§Operator Review-Completion Signal. In the target M4 architecture,
+Publication replaces this transitional operation and owns the stable
+processed Source projection.
 
 Within a Sankey View, **Hover Share（所占比例）** is renderer-owned rather
 than Adapter-configurable. Every semantic relationship uses one formula on
@@ -42,8 +43,8 @@ app, site, d3 diagnostic, render scope/keys, standalone, and site-projection
 facts. Unknown executable impact and missing diff identity select the complete
 suite; they never select an empty plan.
 
-The current M3 shadow/compatibility safety slice now exercises this build-local
-chain end to end:
+The M3 build-local chain is the primary close-out authority and runs end to
+end:
 
 ```text
 ObjectInventory v3 -> VerificationPlan v3 -> ReviewPacket
