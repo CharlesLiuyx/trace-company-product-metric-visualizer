@@ -16,7 +16,7 @@ agent 指令以英文版 `AGENTS.md` 为准。
 | 机器可读 lifecycle protocol/state/Adapter 契约 | `docs/architecture/lifecycle-contract.json`（由 `pnpm verify:architecture` 强制奇偶） |
 | 已接受的架构决策 | `docs/adr/`（从 `docs/adr/0001-dataset-build-transactions.md` 开始） |
 | 动态数据集工作流：流水线步骤、执行模型（并行组、agent 分派）、输入类型对象清单、操作陷阱、回复前验证清单、汇报 | `docs/dynamic-dataset-workflow.md` |
-| d3 保真循环：硬门槛、diff 指标、迭代、图标 crop/vector 子循环、本地化布局检查、Task 信息、红框图、Loop Fidelity Summary | `docs/fidelity-loop-rules.md` |
+| d3 保真：canonical 编号规则、preflight 测量、三层 sweep 状态机、自动/人工证据、接受条件 | `docs/fidelity-loop-rules.md`；机器执行方式/feature/alias 镜像：`scripts/lib/fidelity-rule-contract.mjs`（由 `pnpm verify:architecture` 强制一致） |
 | 数据集 / SSOT 字段级格式 | `data/schema.md` |
 | 提交信息约定 | `docs/commit-messages.md` |
 | 数据相邻资产布局（图标 crop、raster annotation） | `data/assets/README.md` |
@@ -180,12 +180,12 @@ DatasetBuild receipt，也不表示 M4 Publication。细则由
 ## d3-Sankey 保真循环
 
 `docs/fidelity-loop-rules.md` 是保真循环行为的唯一事实来源。运行或汇报任何
-循环之前先加载它。用户提出的每个保真修正都要视为流程改进信号：按其
-人工反馈沉淀闭环，把经验泛化进该规则文件，或在循环 Task 信息中记录数据集
-特例。持久 review candidate 必须用 Build-bound `record:fidelity` 记录；普通
-`verify:d3` 只是诊断，不产生人工轮次。每个真实人工轮次都要维护当前 Task
-信息；注意区域未关闭时，为下一轮产出红框参考图。只有机器证据时必须报告为
-`review-pending`，不得写 accepted 或 converged。
+循环之前先加载它。每条 canonical G/B/R/L/T/A/Z/I 定义只能在其中出现一次；
+其他文档可以调用 ID，但不能复述公式或阈值。用户提出的每个保真修正都要视为
+流程改进信号：先修当前问题，再归因为规则缺失、执行缺口或口径模糊，并增加
+自动/required check，或记录绑定证据的数据集特例。持久 review candidate 必须用
+Build-bound `record:fidelity` 记录；普通 `verify:d3` 只是诊断，不产生 evidence
+run。只有机器证据时必须报告为 `review-pending`，不得写 accepted 或 converged。
 
 ## 提交信息
 

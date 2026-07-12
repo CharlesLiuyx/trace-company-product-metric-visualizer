@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-11T18:18:20.000Z",
+  "generatedAt": "2026-07-12T04:39:17.424Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -1722,6 +1722,96 @@
       "updatedAtMs": 1783793900000,
       "updatedAt": "2026-07-11T18:18:20.000Z",
       "timeSource": "git"
+    },
+    "health-equity-q1-fy27": {
+      "path": "data/datasets/health-equity-q1-fy27.js",
+      "updatedAtMs": 1783798116291,
+      "updatedAt": "2026-07-11T19:28:36.291Z",
+      "timeSource": "mtime"
+    },
+    "mercadolibre-q1-fy26": {
+      "path": "data/datasets/mercadolibre-q1-fy26.js",
+      "updatedAtMs": 1783798364374,
+      "updatedAt": "2026-07-11T19:32:44.374Z",
+      "timeSource": "mtime"
+    },
+    "tripadvisor-q1-fy26": {
+      "path": "data/datasets/tripadvisor-q1-fy26.js",
+      "updatedAtMs": 1783829128404,
+      "updatedAt": "2026-07-12T04:05:28.404Z",
+      "timeSource": "mtime"
+    },
+    "novo-nordisk-q1-fy26": {
+      "path": "data/datasets/novo-nordisk-q1-fy26.js",
+      "updatedAtMs": 1783798640412,
+      "updatedAt": "2026-07-11T19:37:20.412Z",
+      "timeSource": "mtime"
+    },
+    "nu-q1-fy26": {
+      "path": "data/datasets/nu-q1-fy26.js",
+      "updatedAtMs": 1783798268083,
+      "updatedAt": "2026-07-11T19:31:08.083Z",
+      "timeSource": "mtime"
+    },
+    "global-e-q1-fy26": {
+      "path": "data/datasets/global-e-q1-fy26.js",
+      "updatedAtMs": 1783798273978,
+      "updatedAt": "2026-07-11T19:31:13.978Z",
+      "timeSource": "mtime"
+    },
+    "dlocal-q1-fy26": {
+      "path": "data/datasets/dlocal-q1-fy26.js",
+      "updatedAtMs": 1783799595462,
+      "updatedAt": "2026-07-11T19:53:15.462Z",
+      "timeSource": "mtime"
+    },
+    "affirm-q3-fy26": {
+      "path": "data/datasets/affirm-q3-fy26.js",
+      "updatedAtMs": 1783798511834,
+      "updatedAt": "2026-07-11T19:35:11.834Z",
+      "timeSource": "mtime"
+    },
+    "paypal-q1-fy26": {
+      "path": "data/datasets/paypal-q1-fy26.js",
+      "updatedAtMs": 1783798454257,
+      "updatedAt": "2026-07-11T19:34:14.257Z",
+      "timeSource": "mtime"
+    },
+    "pfizer-q1-fy26": {
+      "path": "data/datasets/pfizer-q1-fy26.js",
+      "updatedAtMs": 1783831157424,
+      "updatedAt": "2026-07-12T04:39:17.424Z",
+      "timeSource": "mtime"
+    },
+    "toast-q1-fy26": {
+      "path": "data/datasets/toast-q1-fy26.js",
+      "updatedAtMs": 1783828809662,
+      "updatedAt": "2026-07-12T04:00:09.662Z",
+      "timeSource": "mtime"
+    },
+    "mcdonald-s-q1-fy26": {
+      "path": "data/datasets/mcdonald-s-q1-fy26.js",
+      "updatedAtMs": 1783828920989,
+      "updatedAt": "2026-07-12T04:02:00.989Z",
+      "timeSource": "mtime"
+    },
+    "kraft-heinz-q1-fy26": {
+      "path": "data/datasets/kraft-heinz-q1-fy26.js",
+      "updatedAtMs": 1783798491533,
+      "updatedAt": "2026-07-11T19:34:51.533Z",
+      "timeSource": "mtime"
+    },
+    "novartis-q1-fy26": {
+      "path": "data/datasets/novartis-q1-fy26.js",
+      "updatedAtMs": 1783829120537,
+      "updatedAt": "2026-07-12T04:05:20.537Z",
+      "timeSource": "mtime"
+    },
+    "hershey-q1-fy26": {
+      "path": "data/datasets/hershey-q1-fy26.js",
+      "updatedAtMs": 1783828977535,
+      "updatedAt": "2026-07-12T04:02:57.535Z",
+      "timeSource": "mtime"
     },
     "data/revenue-metrics.js": {
       "path": "data/revenue-metrics.js",

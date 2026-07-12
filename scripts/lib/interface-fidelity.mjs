@@ -8,6 +8,7 @@
 // candidate intervals remain in the report for human review, but reference
 // pixels are never assigned to a link by colour alone.
 import { existsSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { readPng } from './png-diff.mjs';
 
 export const INTERFACE_AUDIT_THRESHOLDS = Object.freeze({
@@ -244,6 +245,27 @@ function clipIntervalsToNode(intervals, nodeBox, gapTolerance) {
   );
 }
 
+export function digestInterfaceReferenceCrop(png, interfaceGeometry, padding = INTERFACE_AUDIT_THRESHOLDS.scanPadding) {
+  if (!png?.data || !Number.isInteger(png.width) || !Number.isInteger(png.height)) return null;
+  const node = interfaceGeometry.nodeBox;
+  const edgeX = interfaceGeometry.face === 'left' ? node.left : node.right;
+  const x0 = Math.max(0, Math.floor(edgeX - padding));
+  const x1 = Math.min(png.width, Math.ceil(edgeX + padding + 1));
+  const y0 = Math.max(0, Math.floor(node.top - padding));
+  const y1 = Math.min(png.height, Math.ceil(node.bottom + padding));
+  const hash = createHash('sha256');
+  hash.update(JSON.stringify({ x: x0, y: y0, width: x1 - x0, height: y1 - y0 }));
+  for (let y = y0; y < y1; y += 1) {
+    const start = (y * png.width + x0) * 4;
+    const end = (y * png.width + x1) * 4;
+    hash.update(png.data.subarray(start, end));
+  }
+  return {
+    bbox: { x: x0, y: y0, width: x1 - x0, height: y1 - y0 },
+    digest: `sha256:${hash.digest('hex')}`,
+  };
+}
+
 function candidateInterfaceRecord(rawInterface, thresholds) {
   const links = rawInterface.links || [];
   const perLinkIntervals = links
@@ -281,6 +303,25 @@ function candidateInterfaceRecord(rawInterface, thresholds) {
         bottomDelta: round(Math.max(0, interval.bottom - rawInterface.nodeBox.bottom)),
       })),
     },
+    coverageIntent: rawInterface.coverageIntent || null,
+  };
+}
+
+function fullFaceCoverageViolation(candidate, thresholds) {
+  if (candidate.coverageIntent !== 'full-face') return null;
+  const expected = { top: candidate.nodeBox.top, bottom: candidate.nodeBox.bottom };
+  const actual = mergeIntervals(candidate.perLinkIntervals, thresholds.nodeContainmentMaxDelta);
+  const coversFace = actual.length === 1
+    && Math.abs(actual[0].top - expected.top) <= thresholds.nodeContainmentMaxDelta
+    && Math.abs(actual[0].bottom - expected.bottom) <= thresholds.nodeContainmentMaxDelta;
+  if (coversFace) return null;
+  return {
+    code: 'interface-full-face-underfill',
+    phase: 'candidate',
+    interface: candidate.id,
+    message: `${candidate.id} is declared full-face but occupies ${actual.map((item) => `${round(item.top)}..${round(item.bottom)}`).join(', ') || 'nothing'} instead of ${round(expected.top)}..${round(expected.bottom)}`,
+    expected,
+    actual,
   };
 }
 
@@ -334,12 +375,18 @@ function candidateGeometryViolations(candidate, thresholds) {
       });
     }
   }
+  const coverageViolation = fullFaceCoverageViolation(candidate, thresholds);
+  if (coverageViolation) violations.push(coverageViolation);
   return violations;
 }
 
 export function auditInterfaceGeometry(geometry, options = {}) {
   const thresholds = { ...INTERFACE_AUDIT_THRESHOLDS, ...options };
-  const interfaces = (geometry.interfaces || []).map((item) => candidateInterfaceRecord(item, thresholds));
+  const fullFaceIds = new Set(Array.isArray(geometry.fullFaceIds) ? geometry.fullFaceIds : []);
+  const interfaces = (geometry.interfaces || []).map((item) => candidateInterfaceRecord({
+    ...item,
+    coverageIntent: fullFaceIds.has(item.id) ? 'full-face' : null,
+  }, thresholds));
   const violations = interfaces.flatMap((item) => candidateGeometryViolations(item, thresholds));
   return { interfaces, violations, thresholds };
 }
@@ -389,6 +436,9 @@ export function buildInterfaceAuditFromPngs({
     const reference = referencePng
       ? scanInterfaceOccupancy(referencePng, item, { ...thresholds, background: referenceBackground.rgb })
       : null;
+    const fullFaceExpected = item.coverageIntent === 'full-face'
+      ? [{ top: item.nodeBox.top, bottom: item.nodeBox.bottom }]
+      : null;
     const referenceComparison = reference
       ? {
           ...compareOccupancyIntervals(
@@ -397,15 +447,16 @@ export function buildInterfaceAuditFromPngs({
               item.nodeBox,
               thresholds.antiAliasTolerance
             ),
-            clipIntervalsToNode(reference.intervals, item.nodeBox, thresholds.antiAliasTolerance),
+            fullFaceExpected || clipIntervalsToNode(reference.intervals, item.nodeBox, thresholds.antiAliasTolerance),
             thresholds
           ),
           normalization: {
-            mode: 'clip-raster-halo-to-node-bbox',
+            mode: fullFaceExpected ? 'full-face-intent' : 'clip-raster-halo-to-node-bbox',
             nodeTop: item.nodeBox.top,
             nodeBottom: item.nodeBox.bottom,
             candidateRawIntervals: candidateRaster?.intervals || item.candidateUnion,
             referenceRawIntervals: reference.intervals,
+            ...(fullFaceExpected ? { policyExpectedIntervals: fullFaceExpected } : {}),
           },
         }
       : null;
@@ -414,8 +465,13 @@ export function buildInterfaceAuditFromPngs({
         violations.push({ ...violation, phase: 'reference', interface: item.id });
       });
     }
+    const referenceCrop = referencePng
+      ? digestInterfaceReferenceCrop(referencePng, item, thresholds.scanPadding)
+      : null;
     return {
       ...item,
+      referenceCrop,
+      referenceCropDigest: referenceCrop?.digest || null,
       candidateRaster,
       renderedComparison,
       reference,
@@ -464,8 +520,10 @@ export function buildInterfaceAuditFromPngs({
   const documentedExceptions = 0;
   const pendingInterfaces = 0;
   return {
-    version: 2,
+    version: 3,
     gate: 'G12',
+    dataset: geometry.dataset || null,
+    language: geometry.language || null,
     mode,
     enforced,
     status,
@@ -514,6 +572,51 @@ export function assertInterfaceAudit(report) {
   throw new Error(`G12 interface fidelity failed (${report.violations.length} violation(s)): ${details}`);
 }
 
+// Stronger contract for durable Build evidence. A warning/off diagnostic may
+// still help an author iterate, but it cannot become evidence-ready or later
+// be repaired by a hand-written Interface Matrix.
+export function interfaceEvidenceProblems(report) {
+  const problems = [];
+  if (!report || typeof report !== 'object') return ['missing-audit'];
+  if (report.gate !== 'G12' || Number(report.version) < 3) problems.push('stale-audit-schema');
+  if (report.mode !== 'error') problems.push(`mode=${report.mode || 'missing'}`);
+  for (const field of ['status', 'enforcementStatus', 'candidateStatus', 'referenceStatus']) {
+    if (report[field] !== 'passed') problems.push(`${field}=${report[field] || 'missing'}`);
+  }
+
+  const summary = report.summary || {};
+  const classified = ['passedInterfaces', 'failedInterfaces', 'documentedExceptions', 'pendingInterfaces', 'notScoredInterfaces']
+    .reduce((total, field) => total + (Number(summary[field]) || 0), 0);
+  if (summary.expectedInterfaces !== summary.auditedInterfaces) problems.push('expected-audited-mismatch');
+  if (summary.auditedInterfaces !== classified) problems.push('audited-classified-mismatch');
+  if ((Number(summary.failedInterfaces) || 0) > 0) problems.push('failed-interfaces');
+  if ((Number(summary.pendingInterfaces) || 0) > 0) problems.push('pending-interfaces');
+  if ((Number(summary.notScoredInterfaces) || 0) > 0) problems.push('not-scored-interfaces');
+  if (
+    (Number(summary.passedInterfaces) || 0) + (Number(summary.documentedExceptions) || 0) !==
+    Number(summary.expectedInterfaces)
+  ) {
+    problems.push('unclosed-interfaces');
+  }
+
+  const expectedIds = Array.isArray(report.expectedInterfaceIds)
+    ? [...report.expectedInterfaceIds].sort()
+    : null;
+  const auditedIds = Array.isArray(report.auditedInterfaceIds)
+    ? [...report.auditedInterfaceIds].sort()
+    : null;
+  if (!expectedIds || !auditedIds || JSON.stringify(expectedIds) !== JSON.stringify(auditedIds)) {
+    problems.push('interface-id-mismatch');
+  }
+  return [...new Set(problems)];
+}
+
+export function assertInterfaceEvidenceReady(report) {
+  const problems = interfaceEvidenceProblems(report);
+  if (!problems.length) return;
+  throw new Error(`G12 is not eligible for Build evidence: ${problems.join(', ')}`);
+}
+
 // Collects the actual graph geometry bound by SankeyEngine.render() to the
 // rendered path elements. This avoids reparsing SVG path strings and keeps
 // the audit aligned with the graph that produced the visible candidate.
@@ -536,6 +639,9 @@ export function collectCandidateInterfaceGeometry(page, datasetKey, language) {
         : typeof auditConfig === 'string'
           ? auditConfig
           : 'warning';
+    const fullFaceIds = auditConfig && typeof auditConfig === 'object'
+      ? auditConfig.fullFaceIds
+      : null;
     const number = (value, fallback = 0) => {
       const numeric = typeof value === 'string' ? Number.parseFloat(value) : Number(value);
       return Number.isFinite(numeric) ? numeric : fallback;
@@ -679,6 +785,7 @@ export function collectCandidateInterfaceGeometry(page, datasetKey, language) {
       dataset: key,
       language: normalizedLanguage,
       mode,
+      fullFaceIds,
       canvas: {
         width: number(svg.getAttribute('width'), svg.viewBox?.baseVal?.width),
         height: number(svg.getAttribute('height'), svg.viewBox?.baseVal?.height),

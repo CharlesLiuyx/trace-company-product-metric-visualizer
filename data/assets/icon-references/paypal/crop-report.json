@@ -1,12 +1,12 @@
 {
-  "source": "input/processed/paypal-q4-fy25.png",
-  "spec": "input/icon-crop-specs/paypal-q4-fy25.json",
+  "source": "input/processed/paypal-q1-fy26.png",
+  "spec": "input/icon-crop-specs/paypal-q1-fy26.json",
   "background": [
     242,
     242,
     242
   ],
-  "generatedAt": "2026-07-10T06:30:17.723045+00:00",
+  "generatedAt": "2026-07-11T19:26:42.898057+00:00",
   "compression": {
     "enabled": true,
     "paletteColors": [
@@ -35,8 +35,8 @@
   "runtimeOutputDir": "data/assets/raster-annotations/paypal",
   "crops": [
     {
-      "key": "paypal-company-wordmark",
-      "output": "data/assets/icon-references/paypal/crops/company-wordmark-q4-fy25.png",
+      "key": "paypal-company-wordmark-q1-fy26",
+      "output": "data/assets/icon-references/paypal/crops/company-wordmark-q1-fy26.png",
       "compression": {
         "enabled": true,
         "mode": "palette",
@@ -102,7 +102,7 @@
         "passes": true
       },
       "note": "PayPal company mark and wordmark above the revenue hub; excludes the title, chart labels, and publisher attribution.",
-      "runtimeOutput": "data/assets/raster-annotations/paypal/company-wordmark-q4-fy25.png",
+      "runtimeOutput": "data/assets/raster-annotations/paypal/company-wordmark-q1-fy26.png",
       "runtimeCompression": {
         "enabled": true,
         "mode": "palette",
@@ -118,19 +118,19 @@
           "changedPixelRatio": 0.2024
         }
       },
-      "validationSheet": "data/assets/icon-references/paypal/validation-sheets/paypal-company-wordmark.png",
+      "validationSheet": "data/assets/icon-references/paypal/validation-sheets/paypal-company-wordmark-q1-fy26.png",
       "validationSheetCompression": {
         "enabled": true,
         "mode": "rgb-lossless",
         "colors": null,
-        "bytes": 277915,
-        "losslessBytes": 277915,
+        "bytes": 280690,
+        "losslessBytes": 280690,
         "savingsVsLossless": 0.0
       }
     },
     {
-      "key": "paypal-transaction-revenues-paypal-venmo-icons",
-      "output": "data/assets/icon-references/paypal/crops/transaction-revenues-paypal-venmo-icons-q4-fy25.png",
+      "key": "paypal-transaction-revenues-paypal-venmo-icons-q1-fy26",
+      "output": "data/assets/icon-references/paypal/crops/transaction-revenues-paypal-venmo-icons-q1-fy26.png",
       "compression": {
         "enabled": true,
         "mode": "palette",
@@ -196,7 +196,7 @@
         "passes": true
       },
       "note": "PayPal and Venmo icon cluster for transaction revenues; excludes the value, description, source bar, and publisher marks.",
-      "runtimeOutput": "data/assets/raster-annotations/paypal/transaction-revenues-paypal-venmo-icons-q4-fy25.png",
+      "runtimeOutput": "data/assets/raster-annotations/paypal/transaction-revenues-paypal-venmo-icons-q1-fy26.png",
       "runtimeCompression": {
         "enabled": true,
         "mode": "palette",
@@ -212,13 +212,13 @@
           "changedPixelRatio": 0.4299
         }
       },
-      "validationSheet": "data/assets/icon-references/paypal/validation-sheets/paypal-transaction-revenues-paypal-venmo-icons.png",
+      "validationSheet": "data/assets/icon-references/paypal/validation-sheets/paypal-transaction-revenues-paypal-venmo-icons-q1-fy26.png",
       "validationSheetCompression": {
         "enabled": true,
         "mode": "rgb-lossless",
         "colors": null,
-        "bytes": 277566,
-        "losslessBytes": 277566,
+        "bytes": 280321,
+        "losslessBytes": 280321,
         "savingsVsLossless": 0.0
       }
     }

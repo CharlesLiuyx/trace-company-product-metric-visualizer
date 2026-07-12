@@ -1,19 +1,20 @@
-# Kraft Heinz Q4 FY25 Icon Crop Validation
+# Kraft Heinz Q1 FY26 Icon Crop Validation
 
-Source: `input/processed/kraft-heinz-q4-fy25.png`
+Source: `input/processed/kraft-heinz-q1-fy26.png`
 
-Spec: `input/icon-crop-specs/kraft-heinz-q4-fy25.json`
+Spec: `input/icon-crop-specs/kraft-heinz-q1-fy26.json`
 
 Generated report: `data/assets/icon-references/kraft-heinz/crop-report.json`
 
 ## Accepted Crops
 
-- `company-logo.png`: the full Kraft Heinz wordmark is centered and excludes the title and net-sales label.
-- `accelerate-sauces.png` and `accelerate-home-bake.png`: the two Accelerate product clusters are complete and separate from the strategy text.
-- `protect-products.png`: the Kool-Aid cluster is complete and centered.
-- `balance-products.png`: the Maxwell House can is complete and centered.
+- `company-logo.png`: the complete two-color Kraft Heinz wordmark is centered above the net-sales hub and excludes the title and Net sales label.
+- `north-america-kool-aid.png`: the Kool-Aid pack is complete, centered, and contains no regional label or flow pixels.
+- `north-america-condiments.png`: the Heinz ketchup, French's mustard, and Miracle Whip cluster is complete and separate from the adjacent Kool-Aid and brand wordmark.
+- `international-developed-maxwell-house.png`: the Maxwell House coffee can is complete, centered, and clear of the International Developed Markets label.
+- `emerging-markets-home-bake.png`: the Home Bake product pack is complete, centered, and clear of the Emerging Markets label.
 
-All five crops pass validation with no edge or forbidden foreground pixels and are synced to `data/assets/raster-annotations/kraft-heinz/` through `runtimeOutputDir`. They are approved runtime rasters because they are photographic product packs and a multicolor company wordmark.
+All five crops pass validation with zero edge and forbidden foreground pixels. They have transparent backgrounds and are synced to `data/assets/raster-annotations/kraft-heinz/` through `runtimeOutputDir`. The company wordmark and photographic product packs are approved runtime rasters; their source-reference counterparts remain under `icon-references/` only.
 
 ## Explicitly Skipped
 

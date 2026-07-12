@@ -116,7 +116,7 @@ test('reference probe treats touching differently-coloured bands as one occupied
   assert.deepEqual(scanned.intervals, [{ top: 5, bottom: 20 }]);
 });
 
-test('reference probe preserves a real two-pixel background socket gap', () => {
+test('spaced-socket regression preserves a real two-pixel background gap', () => {
   const png = solidPng();
   paintBand(png, { top: 5, bottom: 10 });
   paintBand(png, { top: 12, bottom: 20 });
@@ -198,6 +198,34 @@ test('candidate link intervals must stay within the node face at the 0.5px SVG h
       bottomDelta: 0.501,
     },
   ]);
+});
+
+test('declared full-face interfaces fail G12 when candidate geometry leaves a residual at the node face', () => {
+  const audit = auditInterfaceGeometry({
+    ...geometry('error', { center: 11.5, width: 13, interval: { top: 5, bottom: 18 } }),
+    fullFaceIds: ['a:right'],
+  });
+
+  assert.deepEqual(audit.violations.map((item) => item.code), ['interface-full-face-underfill']);
+  assert.deepEqual(audit.violations[0].expected, { top: 5, bottom: 20 });
+  assert.deepEqual(audit.violations[0].actual, [{ top: 5, bottom: 18 }]);
+});
+
+test('declared full-face interfaces score against the face intent while retaining a short reference residual', () => {
+  const candidate = paintBand(solidPng(), { top: 5, bottom: 20 });
+  const reference = paintBand(solidPng(), { top: 5, bottom: 18 });
+  const report = buildInterfaceAuditFromPngs({
+    geometry: { ...geometry('error'), fullFaceIds: ['a:right'] },
+    candidatePng: candidate,
+    referencePng: reference,
+  });
+
+  assert.equal(report.status, 'passed');
+  assert.equal(report.candidateStatus, 'passed');
+  assert.equal(report.referenceStatus, 'passed');
+  assert.deepEqual(report.interfaces[0].reference.intervals, [{ top: 5, bottom: 18 }]);
+  assert.equal(report.interfaces[0].referenceComparison.normalization.mode, 'full-face-intent');
+  assert.deepEqual(report.interfaces[0].referenceComparison.normalization.policyExpectedIntervals, [{ top: 5, bottom: 20 }]);
 });
 
 test('error mode hard-fails reference mismatch while warning mode reports without throwing', () => {

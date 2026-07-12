@@ -302,12 +302,12 @@
     本页把「把一张损益表参考图从 <code>input/pending/</code> 变成已验证 Sankey 数据集」的完整流程
     画成可 Review 的流程图，按粒度分三层：<b>第 1 层</b> 一屏总览（先看全局），
     <b>第 2 层</b> 阶段详图（逐节点，含全部停止条件、图标子循环与 d3 保真循环），
-    <b>第 3 层</b> 规则附录。节点标注自动化程度与规则出处，编号（P1.1、D1 …）可直接用于流程优化讨论。
+    <b>第 3 层</b> 流程附录。节点标注自动化程度与规则出处，编号（P1.1、D1 …）可直接用于流程优化讨论。
   </p>
   <nav class="layer-nav" aria-label="层级导航">
     <a href="#layer-1"><span class="no">第 1 层</span>一屏总览</a>
     <a href="#layer-2"><span class="no">第 2 层</span>阶段详图（逐节点）</a>
-    <a href="#layer-3"><span class="no">第 3 层</span>规则附录（A–F）</a>
+    <a href="#layer-3"><span class="no">第 3 层</span>流程附录（A–D）</a>
   </nav>
   <p class="sources">
     信息来源（规则属主文档）：<code>AGENTS.md</code> §Workflow ·
@@ -331,7 +331,7 @@
   <span class="item"><span class="badge manual">人工</span>人工判断</span>
   <span class="item"><span class="badge mixed">混合</span>脚本 + 人工</span>
   <span class="item"><span class="badge cond">条件</span>视源图而定</span>
-  <span class="item"><span class="badge sub">Subagent 可代</span>低难度可分派（附录 E）</span>
+  <span class="item"><span class="badge sub">Subagent 可代</span>低难度可分派（附录 C）</span>
 </div>
 
 <!-- ==================== 第 1 层：一屏总览 ==================== -->
@@ -366,7 +366,7 @@
       </ul>
       <span class="ov-tags">
         <span class="ov-tag branch">D0 收入指标类 → 数据支线</span>
-        <span class="ov-tag par">∥ G1：SSOT ∥ 盘点/测量 ∥ 图标</span>
+        <span class="ov-tag par">∥ E1：SSOT ∥ 盘点/测量 ∥ 图标</span>
         <span class="ov-tag loop">↺ 图标 crop/vector 子循环（条件）</span>
       </span>
     </a>
@@ -513,14 +513,14 @@ pnpm exec playwright install chromium</span>
       <div class="badges"><span class="badge manual">人工</span></div>
       <h3>粗看全图：输入分型 + 对象盘点（先于一切精细工作）</h3>
       <ul>
-        <li><b>分型</b>：对照对象类型清单（附录 F / §Object Taxonomy）判定输入类型——A 损益表 Sankey 信息图（标准 / <code>-by-segment</code> / <code>-by-bu</code> 变体）、B 收入指标时间序列（如 ARR）、或未识别新类型；</li>
-        <li><b>盘点</b>：按该类型清单枚举全部对象实例并计数，每个对象标记 <b>渲染目标 / 仅数据 / 有意跳过</b>；</li>
+        <li><b>分型</b>：对照对象类型清单（附录 D / §Object Taxonomy）判定输入类型——A 损益表 Sankey 信息图（标准 / <code>-by-segment</code> / <code>-by-bu</code> 变体）、B 收入指标时间序列（如 ARR）、或未识别新类型；</li>
+        <li><b>盘点</b>：持久化 <code>object-inventory/v2</code>；按类型清单枚举全部对象，每个对象记录<b>渲染目标 / 仅数据 / 有意跳过</b>、authored mapping、risk features 与来源证据；</li>
         <li>盘点结果下游复用：SSOT 完整性核对（P2.2）、图标 crop 范围（P2.3）、label 归组（P3.2）、i18n 覆盖（P3.3）、汇报中的对象对账；</li>
         <li>之后才允许进入逐对象精细测量（P3.1）。</li>
       </ul>
     </div>
     <div class="arrow"></div>
-    <div class="decision">D0 · 输入类型？<span class="q-note">按附录 F 清单判定；未识别类型 → 先扩清单再继续</span></div>
+    <div class="decision">D0 · 输入类型？<span class="q-note">按附录 D 清单判定；未识别类型 → 先扩清单再继续</span></div>
     <div class="branches three">
       <div class="branch">
         <span class="branch-tag">B · 收入指标（ARR 等）</span>
@@ -547,13 +547,13 @@ pnpm exec playwright install chromium</span>
     </div>
     <div class="arrow tall"></div>
     <div class="par-strip">
-      <b>∥ 并行组 G1（Execution Model）</b>——P2.0 完成后，三条轨道只依赖已定 key 的参考图，可并行推进：
+      <b>∥ 并行组 E1（Execution Model）</b>——P2.0 完成后，三条轨道只依赖已定 key 的参考图，可并行推进：
       <div class="lanes">
         <div class="lane"><b>Track A · 数据</b>P2.1 公司档案 → P2.2 损益表 SSOT（含 i18n 字段）</div>
         <div class="lane"><b>Track B · 视觉</b>P3.1 逐对象精细测量（以 P2.0 盘点为输入）</div>
         <div class="lane"><b>Track C · 图标（条件）</b>P2.3 crop/vector 子循环（范围来自 P2.0 盘点）</div>
       </div>
-      <p style="margin:6px 0 0; font-size:.74rem;">P3.2 adapter 编写需 Track A 数值 + Track B 几何后串行开始；Track C 收敛后在注释/图标环节接入。低难度轨道可分派 Subagent（附录 E）。</p>
+      <p style="margin:6px 0 0; font-size:.74rem;">P3.2 adapter 编写需 Track A 数值 + Track B 几何后串行开始；Track C 收敛后在注释/图标环节接入。低难度轨道可分派 Subagent（附录 C）。</p>
     </div>
     <div class="arrow tall"></div>
     <div class="decision">D2 · 是该公司的第一个数据集？</div>
@@ -652,23 +652,14 @@ pnpm exec playwright install chromium</span>
   <div class="phase-head">
     <span class="num">P3</span>
     <h2>Adapter 与 i18n<span class="en">Sankey 视图适配层</span></h2>
-    <span class="owner">出处：<code>docs/dynamic-dataset-workflow.md</code> 步骤 8–10 · <code>data/schema.md</code> · <code>docs/fidelity-loop-rules.md</code> §第 0 轮</span>
+    <span class="owner">出处：<code>docs/dynamic-dataset-workflow.md</code> 步骤 8–10 · <code>data/schema.md</code> · <code>docs/fidelity-loop-rules.md</code> §2</span>
   </div>
   <div class="flow">
     <div class="node">
       <span class="sid">P3.1</span>
       <div class="badges"><span class="badge manual">人工</span></div>
-      <h3>精细测量（第 0 轮，写 adapter 之前）——粗盘点之后的第二遍</h3>
-      <p>以 <b>P2.0 的对象盘点清单为输入</b>逐对象测量，不重新推导对象列表；直接从参考图测量，<b>不允许先粗排、再靠保真轮次逼近</b>（可与 Track A/C 并行，见 G1）：</p>
-      <ul>
-        <li>画布尺寸、各列节点 x 位置；</li>
-        <li>每个短辅助柱 / 短横柱 / 终端柱的像素 bbox（x/y/width/height）；</li>
-        <li>逐条追踪 link 拓扑：source、target、socket，特别是 waterfall 区、绕行带、多入口目标柱；</li>
-        <li>每个 label 的锚点、anchor 方向、语义归组（名称/数值/备注/margin/Y-Y 同组）；</li>
-        <li>注释容器、KPI/stat card、徽章的容器 bbox；</li>
-        <li>测量逐对象落盘为<b>第 0 轮清单</b>；首轮渲染后与 metrics JSON 的 <code>labelLayoutAudit</code> 互核，超标当场修；并按规则文档「高风险模式命中清单」登记本数据集的定制必查规则集。</li>
-      </ul>
-      <div class="refdoc">历史教训：跨 10+ 轮才收敛的数据集，其后期修复项几乎全部可以在首轮测量时一次做对；已收敛数据集的返工几乎全是第 0 轮清单缺失或未互核导致的 label 系统性偏移。</div>
+      <h3>Preflight（写 adapter 之前）——粗盘点之后的第二遍</h3>
+      <p>以 <b>P2.0 的 <code>object-inventory/v2</code></b> 为输入逐对象测量，不重新推导对象列表；直接把 node、link/socket、label、annotation 和 reference Interface Matrix 事实写入 authored/review 输入，不能先粗排再靠多次 evidence run 逼近。字段与通过标准只见 <code>docs/fidelity-loop-rules.md</code> §2。</p>
     </div>
     <div class="arrow"></div>
     <div class="node data">
@@ -729,24 +720,24 @@ pnpm exec playwright install chromium</span>
         <li>⑤ <code>verify:d3 &lt;key&gt;</code>：默认语言渲染 + 自动硬门槛；</li>
         <li>⑥ <code>verify:d3 &lt;key&gt; --language zh</code>：每种非默认语言各渲染一次。</li>
       </ul>
-      <p class="dim">聚合脚本内部按序执行；<code>verify:d3</code> 即使带 <code>--focus</code> 也只是只读 diagnostic，不归档、不增加 manual round。机器全绿只能说明自动检查通过，不能写 accepted 或 converged。</p>
+      <p class="dim">聚合脚本内部按序执行；<code>verify:d3</code> 即使带 <code>--focus</code> 也只是只读 diagnostic，不归档、不产生 evidence run。机器全绿只能说明自动检查通过，不能写 accepted 或 converged。</p>
     </div>
     <div class="arrow tall"></div>
     <div class="loop">
-      <span class="loop-title">人工 d3 保真循环 — 效率目标：3 轮内清空人眼显著错误，4–5 轮完全收敛</span>
+      <span class="loop-title">人工 d3 保真循环 — preflight → 三个 sweep stages → scoped evidence runs → human decision</span>
       <div class="flow">
         <div class="node">
           <span class="sid">P4.2</span>
           <div class="badges"><span class="badge auto">自动</span><span class="badge sub">采集可代</span></div>
           <h3>准备 Review + 记录 Build-bound 证据</h3>
-          <span class="cmd">pnpm record:build -- prepare-review &lt;build-id&gt; --input &lt;review-input.json&gt;<br />pnpm record:verification -- &lt;build-id&gt; --json<br />pnpm record:fidelity -- &lt;dataset-key&gt; --build &lt;build-id&gt; --focus "&lt;本轮主检查方向&gt;" [--language &lt;code&gt;]</span>
+          <span class="cmd">pnpm record:build -- prepare-review &lt;build-id&gt; --input &lt;review-input.json&gt;<br />pnpm record:verification -- &lt;build-id&gt; --json<br />pnpm record:fidelity -- &lt;dataset-key&gt; --build &lt;build-id&gt; --focus "&lt;sweep-stage&gt;" [--language &lt;code&gt;]</span>
           <ul>
-            <li><code>prepare-review</code> 固化 authored artifacts、对象盘点与 Verification Plan，返回供 <code>review.json</code> 绑定的 <code>reviewToken</code>；</li>
-            <li><code>record:verification</code> 运行非渲染一致性 profile，返回的 Build-bound reference 是 finish 的必填输入；</li>
+            <li><code>prepare-review</code> 固化 authored artifacts、<code>object-inventory/v2</code> 与 <code>verification-plan/v2</code>，返回供 <code>review.json</code> 绑定的 <code>reviewToken</code>；</li>
+            <li><code>record:verification</code> 独立运行非渲染一致性 profile；它不是每次 raster evidence run 的一部分，返回的 Build-bound reference 是 finish 的必填输入；</li>
             <li>起本地静态服务器 → 最小 harness 执行 <code>SankeyEngine.render('#chart', data)</code> → 截取 <code>#chart &gt; svg</code>；</li>
-            <li>运行<b>自动门槛 G1–G12</b>：完整定义只见 <code>docs/fidelity-loop-rules.md</code>；失败先修，再谈保真；</li>
+            <li>运行 Plan 选中的 <b>render gates</b>；G11 由上一项独立 <code>record:verification</code> 证据提供。完整定义只见 <code>docs/fidelity-loop-rules.md</code>；</li>
             <li>计算全图 + DOM 派生分区域 Diff：<code>mae</code> / <code>similarity</code> / <code>changedPixelRatio</code> / <code>diffBoundingBox</code> / <code>regions[]</code>；</li>
-            <li>每种 required language 各记录一次 <code>evidence-ready</code> archive；只有带当前 Build、authored digest 与 plan digest 的 identity 才能进入新闭环。无 <code>--build</code> 的显式-focus <code>record:fidelity</code> 仅为旧兼容证据；</li>
+            <li>每种 required language 各记录 scoped automatic results（含 candidate interface 与 <code>nodePaintAudit</code>）和 <code>evidence-ready</code> archive；只有当前 Build、authored digest 与 plan digest 的 identity 才能进入闭环；</li>
             <li><code>compare/runs/</code> 只是当前 run 的临时 scratch；durable archive 位于 <code>output/compare/</code>，它本身仍不是人工 accepted。</li>
           </ul>
         </div>
@@ -754,31 +745,31 @@ pnpm exec playwright install chromium</span>
         <div class="node">
           <span class="sid">P4.3</span>
           <div class="badges"><span class="badge manual">人工</span></div>
-          <h3>按 sweep 分层批量检查（标准预算 3 轮）</h3>
+          <h3>按三个 sweep stages 分层批量检查</h3>
           <div class="sweeps">
-            <div class="sweep"><span class="r">第 1 轮</span><b>结构 sweep</b>纯净性、尺寸、裁剪；节点几何、列位置、流带宽度；多入口/出口 socket 顺序；终端短横柱、自定义 curve；hub 出发 profit 流带取色核对。</div>
-            <div class="sweep"><span class="r">第 2 轮</span><b>文本 sweep</b>label-node 外框三段式 bbox 审计、文本归属与位置；注释容器 / KPI card / 徽章 / 脚注内部对齐。</div>
-            <div class="sweep"><span class="r">第 3 轮</span><b>润色 + 本地化 sweep</b>颜色、透明度、图标细节；每种非默认语言 <code>--language zh --keep</code> 渲染，getBBox 查混排残留、R&amp;D / SG&amp;A 缩写、越界、重叠。</div>
+            <div class="sweep"><span class="r">Stage 1</span><b>Structure</b>节点、短柱、link/socket、接口与完整 <code>interface-matrix/v1</code>。</div>
+            <div class="sweep"><span class="r">Stage 2</span><b>Text</b>label 归属与 bbox、字重、annotation 容器和受保护文本关系。</div>
+            <div class="sweep"><span class="r">Stage 3</span><b>Polish + localization</b>颜色、图标和每个 required locale 的固定布局。</div>
           </div>
-          <p class="dim" style="margin-top:8px;">每轮把本层能修的问题一次修完；人工深查对照规则文档 B 系列盲点表与本数据集的高风险模式命中清单（门槛看不见的检查）。更早层级的新问题立即修，更晚层级的记入 backlog。单方向深查轮只用于：门槛反复失败、用户重开、sweep 内修不完。轮次间串行；轮内并行试值 + 每语言渲染可并行（附录 E）。分诊、修复与冻结/收敛判定始终由主 Agent 负责。</p>
+          <p class="dim" style="margin-top:8px;">每个 stage 把本层问题一次处理完。后层发现早层错误时，停止当前 human iteration，正式重开早层、重跑证据并重新冻结后再返回；不得顺手修验。stage 间串行，同一方向候选试值与独立语言 evidence 可并行（附录 C）。完整判定只见规则 SSOT §4–§6。</p>
         </div>
         <div class="arrow"></div>
         <div class="node">
           <span class="sid">P4.4</span>
           <div class="badges"><span class="badge manual">人工</span></div>
-          <h3>每轮闭环产物</h3>
+          <h3>每次 human iteration 的闭环产物</h3>
           <span class="cmd">pnpm record:build -- finish &lt;build-id&gt; --review &lt;review.json&gt;</span>
           <ul>
             <li><b>误差分类</b>：必须死磕 / 需要优化 / 可接受残留 / 无语义跳过（无语义内容不得为压 Diff 补画）；</li>
             <li><b>红框参考图</b>：以原图为底，红框圈完整语义区域，存 <code>…/&lt;key&gt;-attention-reference.png</code>；无开放问题则在 Task 信息中记「无开放红框」；</li>
-            <li><b>结构化 Review</b>：持久化稳定 <code>RegionDecision</code>、attention、risk checks、Interface Matrix 与 <code>ManualAttestation</code>；Task information 由 <code>record:build inspect</code> 从这些事实派生，禁止手填 status/confidence；</li>
+            <li><b>结构化 Review</b>：持久化稳定 <code>RegionDecision</code>、attention、<code>interface-matrix/v1</code>、<code>manualCheckDecisions</code> 与 <code>ManualAttestation</code>；Task information 由 <code>record:build inspect</code> 从这些事实派生；</li>
             <li><b>用户反馈沉淀</b>：写入带稳定 <code>FB-*</code>/<code>REG-*</code>、归因、before/after evidence、remedy 与 automationDisposition 的 <code>FeedbackRecord</code>；第二次跨 Build execution-gap 未升级自动化会阻断 closure；</li>
-            <li><b>finish 判定</b>：校验 reviewToken、dataset-verification reference、每语言 fidelity evidence、human attestation、regions、attention、risk、feedback 与 Matrix。缺 attestation 是 <code>review-pending</code>，reject/block 均不关闭 Build。</li>
+            <li><b>finish 判定</b>：<code>FidelityResult</code> v2 的 <code>checkResults</code> 必须逐项消费 Plan checks，并校验 reviewToken、consistency reference、每语言 evidence、人工决定、regions、attention、feedback 与 Matrix。缺项保持 <code>review-pending</code> 或 blocked。</li>
           </ul>
         </div>
         <div class="arrow"></div>
         <div class="decision" style="min-width:340px;">D4 · 人工 Review accepted 且 blockers 全关？<span class="q-note">硬门槛通过 + attestation 存在 + regions/risk/feedback/Matrix 全闭合 + 本地化通过 + Task/红框完整</span></div>
-        <div class="loop-back">review-pending / rejected / blocked → 修复后重新 prepare-review，旧 attestation 不得跨 digest 沿用；死磕清单已空且预计 similarity 提升 &lt; 0.0005 时禁止再开新轮</div>
+        <div class="loop-back">review-pending / rejected / blocked → 修复后重新 prepare-review，旧 attestation 不得跨 digest 沿用；只有 required checks、locales、Matrix、feedback、attention 全关闭后，预计可选润色提升 &lt; 0.0005 才停止继续微调</div>
       </div>
     </div>
     <div class="arrow tall"></div>
@@ -851,57 +842,15 @@ pnpm exec playwright install chromium</span>
   </div>
 </section>
 
-<!-- ==================== 第 3 层：规则附录 ==================== -->
+<!-- ==================== 第 3 层：流程附录 ==================== -->
 <div class="layer-banner" id="layer-3">
   <span class="tag">第 3 层</span>
-  <h2>规则附录</h2>
-  <span class="hint">Review 优化时的关键上下文：完整判定标准与产物地图</span>
+  <h2>流程附录</h2>
+  <span class="hint">产物、规则归属、执行模型和对象类型；保真判定只链接规则 SSOT</span>
 </div>
 
 <details class="appendix" id="appendix-a">
-  <summary>A · 自动门槛 G1–G12（每轮先过，失败先修；门槛盲点须按 B 系列人工必查 — <code>docs/fidelity-loop-rules.md</code> §自动硬门槛）</summary>
-  <div class="body">
-    <ol>
-      <li>候选图必须是 <code>SankeyEngine.render()</code> 产生的 d3/SVG 输出；</li>
-      <li>SVG 尺寸必须等于 <code>meta.referenceImage.width/height</code>；</li>
-      <li>本地 Montserrat 字体必须加载成功，不得用 fallback font 计分；</li>
-      <li><code>#chart</code> 中不得出现 <code>&lt;img&gt;</code>、canvas、foreignObject、picture、video、iframe、object、embed；</li>
-      <li>参与截图的元素不得用 CSS <code>background-image</code> 当像素补丁；</li>
-      <li>默认 <code>#chart &gt; svg image</code> 数量必须为 0；</li>
-      <li>仅显式 runtime raster 模式允许 SVG <code>&lt;image&gt;</code>，且须满足白名单全部条件；</li>
-      <li>同轴 label 与 node 外框不得纵向交叠：目标间距 5px，渲染 bbox 间距 &lt; 4px 即 hard fail；</li>
-      <li>短辅助柱与其上下同轴 label 水平中心 <code>centerDelta &gt; 4px</code> 即 hard fail；</li>
-      <li>左右相邻 label 与 node 的横向 overlap 是 hard fail；</li>
-      <li><code>node --check</code> / <code>verify:ssot</code> / <code>verify:i18n --strict</code> 等数据一致性检查必须通过。</li>
-    </ol>
-  </div>
-</details>
-
-<details class="appendix" id="appendix-b">
-  <summary>B · 保真循环收敛标准 15 条（<code>docs/fidelity-loop-rules.md</code> §收敛标准）</summary>
-  <div class="body">
-    <ol>
-      <li>自动硬门槛通过；</li>
-      <li>候选图纯净，未使用未批准源图像素；</li>
-      <li>「必须死磕」问题域均已被 sweep 或升级深查覆盖、记录证据并冻结；</li>
-      <li>高风险模式命中清单全部关闭（每条命中规则逐对象核对并记录）；</li>
-      <li>冻结清单未被相关改动或自动回归信号重开；</li>
-      <li>backlog 为空，或剩余项均为可接受残留 / 无语义跳过 / 明确超范围；</li>
-      <li>本轮主方向分区域 Diff 无新的结构性高误差区域；</li>
-      <li>全图 Diff 相较上一轮已无明显可操作改善空间；</li>
-      <li>用户标注区域逐一复查并记录修复前后指标；</li>
-      <li>新增/修改过的非默认语言覆盖通过本地化布局检查；</li>
-      <li>最新 Task 信息完整（已主查 / 已冻结 / 重开 / backlog）；</li>
-      <li>每个未冻结或刚修复的用户标注区域有红框记录或关闭说明；</li>
-      <li>用户反馈通用经验已按归因分类沉淀进规则文档，特例已记入 Task 信息；</li>
-      <li>可接受残留与所有破例记录原因。</li>
-    </ol>
-    <p>反微调停机规则：死磕清单清空后，预计新一轮全图 similarity 提升 &lt; 0.0005 时不得开启。</p>
-  </div>
-</details>
-
-<details class="appendix" id="appendix-c">
-  <summary>C · 一张图片产生的全部产物地图</summary>
+  <summary>A · 一张图片产生的全部产物地图</summary>
   <div class="body">
     <table class="map">
       <thead><tr><th>产物路径</th><th>角色</th><th>产生阶段</th></tr></thead>
@@ -926,14 +875,14 @@ pnpm exec playwright install chromium</span>
   </div>
 </details>
 
-<details class="appendix" id="appendix-d">
-  <summary>D · 规则归属表（每条细则只在一个属主文档）</summary>
+<details class="appendix" id="appendix-b">
+  <summary>B · 规则归属表（每条细则只在一个属主文档）</summary>
   <div class="body">
     <table class="map">
       <thead><tr><th>规则领域</th><th>属主文档</th></tr></thead>
       <tbody>
         <tr><td>动态数据集工作流：流水线步骤、执行模型（并行组 + 分派）、对象类型清单、操作陷阱、回复前验证清单、汇报</td><td><code>docs/dynamic-dataset-workflow.md</code></td></tr>
-        <tr><td>d3 保真循环：硬门槛、Diff 指标、迭代、图标子循环、本地化检查、Task 信息、红框图、Loop Fidelity Summary</td><td><code>docs/fidelity-loop-rules.md</code></td></tr>
+        <tr><td>d3 保真：canonical 编号规则、preflight 测量、三层 sweep 状态机、自动/人工证据、接受条件</td><td><code>docs/fidelity-loop-rules.md</code></td></tr>
         <tr><td>数据集 / SSOT 字段级格式</td><td><code>data/schema.md</code></td></tr>
         <tr><td>提交信息约定</td><td><code>docs/commit-messages.md</code></td></tr>
         <tr><td>数据相邻资产布局（图标 crop、raster annotation）</td><td><code>data/assets/README.md</code></td></tr>
@@ -944,16 +893,16 @@ pnpm exec playwright install chromium</span>
   </div>
 </details>
 
-<details class="appendix" id="appendix-e">
-  <summary>E · 执行模型：并行组与难度分派（<code>docs/dynamic-dataset-workflow.md</code> §Execution Model）</summary>
+<details class="appendix" id="appendix-c">
+  <summary>C · 执行模型：并行组与难度分派（<code>docs/dynamic-dataset-workflow.md</code> §Execution Model）</summary>
   <div class="body">
     <p><b>并行组</b>（依赖关系决定，可交错推进或分派 Subagent）：</p>
     <ul>
-      <li><b>G0 串行门</b>：P1 守卫 → 定 key → <code>record:intake</code> no-clobber 领取到 processing。守卫未过，一切不得开始；停止条件终止全程。</li>
-      <li><b>G1 并行准备</b>：P2.0 粗盘点先行定范围，随后三轨并行——Track A 数据（P2.1 公司档案 → P2.2 损益表 SSOT 及 i18n 字段）∥ Track B 视觉（P3.1 逐对象精细测量）∥ Track C 图标（P2.3 子循环，条件）。</li>
-      <li><b>G2 串行编写</b>：P3.2 adapter（需 A 数值 + B 几何）→ P3.3 dataset overlay（需 adapter 定稿文案）→ P3.4 注册；Track C 收敛后随时接入。</li>
-      <li><b>G3 验证与 Review</b>：P4.1 只读诊断 → prepare-review → Build-bound evidence → human finish。轮次间串行；轮内并行试值、每语言 evidence 可并行 shell；只有人工 accepted 结果可关闭 Build。</li>
-      <li><b>G4 串行收尾</b>：操作者完成信号先做整批 no-clobber 检查，再直接批量移动；无信号则留在 processing。Build-local baseline stage → fresh seal → read-only closeout 只负责审计，不授权移动；最后 check / 提交 / 汇报，且不冒充尚未实现的 M4 Publication。</li>
+      <li><b>E0 串行门</b>：P1 守卫 → 定 key → <code>record:intake</code> no-clobber 领取到 processing。守卫未过，一切不得开始；停止条件终止全程。</li>
+      <li><b>E1 并行准备</b>：P2.0 粗盘点先行定范围，随后三轨并行——Track A 数据（P2.1 公司档案 → P2.2 损益表 SSOT 及 i18n 字段）∥ Track B 视觉（P3.1 逐对象精细测量）∥ Track C 图标（P2.3 子循环，条件）。</li>
+      <li><b>E2 串行编写</b>：P3.2 adapter（需 A 数值 + B 几何）→ P3.3 dataset overlay（需 adapter 定稿文案）→ P3.4 注册；Track C 收敛后随时接入。</li>
+      <li><b>E3 验证与 Review</b>：P4.1 只读诊断 → prepare-review → Build-bound evidence → human finish。stage 间串行；同一 stage 内的候选试值、每语言 evidence 可并行；只有人工 accepted 结果可关闭 Build。</li>
+      <li><b>E4 串行收尾</b>：操作者完成信号先做整批 no-clobber 检查，再直接批量移动；无信号则留在 processing。Build-local baseline stage → fresh seal → read-only closeout 只负责审计，不授权移动；最后 check / 提交 / 汇报，且不冒充尚未实现的 M4 Publication。</li>
     </ul>
     <p><b>难度分派</b>（分派不降门槛：同一套 verifier 把关，主 Agent 复核并对结果负责）：</p>
     <table class="map">
@@ -977,8 +926,8 @@ pnpm exec playwright install chromium</span>
   </div>
 </details>
 
-<details class="appendix" id="appendix-f">
-  <summary>F · 对象类型清单：P2.0 粗盘点对照表（<code>docs/dynamic-dataset-workflow.md</code> §Object Taxonomy）</summary>
+<details class="appendix" id="appendix-d">
+  <summary>D · 对象类型清单：P2.0 粗盘点对照表（<code>docs/dynamic-dataset-workflow.md</code> §Object Taxonomy）</summary>
   <div class="body">
     <p><b>A 类 · 损益表 Sankey 信息图</b>——变体：标准 / <code>-by-segment</code>（如 Disney）/ <code>-by-bu</code>（如 Microsoft）；对象家族相同，流语义不同（分部经营利润 + Eliminations 取代完整成本瀑布）。</p>
     <table class="map">
@@ -1013,7 +962,7 @@ pnpm exec playwright install chromium</span>
 
 <footer class="page">
   本页为流程 Review 辅助文档：自包含单文件（内联 CSS、无外部依赖、可离线打开），按「一屏总览 → 阶段详图 →
-  规则附录」三层组织，内容与上述属主文档同步；流程规则本身以属主文档为准。
+  流程附录」三层组织，内容与上述属主文档同步；流程规则本身以属主文档为准。
   生成于仓库 <code>docs/workflow-flowchart.zh-CN.html</code>。
 </footer>
 

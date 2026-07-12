@@ -1,6 +1,8 @@
 import { createHash } from 'node:crypto';
 
-export const FIDELITY_RESULT_SCHEMA_VERSION = 1;
+export const FIDELITY_RESULT_SCHEMA_VERSION = 2;
+export const FIDELITY_RESULT_PROTOCOL = 'fidelity-result/v2';
+export const INTERFACE_MATRIX_PROTOCOL = 'interface-matrix/v1';
 export const FIDELITY_RESULT_TERMINAL_STATUSES = Object.freeze([
   'accepted',
   'rejected',
@@ -16,6 +18,25 @@ const ATTESTATION_DECISIONS = new Set(['accepted', 'rejected', 'blocked']);
 const REGION_STATUSES = new Set(['resolved', 'accepted', 'skipped', 'open']);
 const RISK_STATUSES = new Set(['passed', 'failed', 'open', 'not-applicable']);
 const MEASUREMENT_OPERATORS = new Set(['lte', 'gte', 'eq']);
+const CHECK_ENFORCEMENTS = new Set(['hard-gate', 'build-gate', 'conditional-gate', 'quantified-audit', 'manual']);
+const CHECK_LOCALE_SCOPES = new Set(['global', 'required-locales']);
+const CHECK_STATUSES = new Set(['passed', 'failed', 'blocked']);
+const CHECK_SOURCES = new Set(['automatic', 'manual']);
+const CHECK_EVIDENCE_KINDS = new Set([
+  'dataset-consistency',
+  'verification-plan',
+  'fidelity-run',
+  'full-review-profile',
+  'interface-audit',
+  'label-layout-audit',
+  'text-layout-audit',
+  'annotation-layout-audit',
+  'node-paint-audit',
+  'manual-decision',
+]);
+const INTERFACE_RESULTS = new Set(['passed', 'failed', 'documented-exception', 'manual-pending', 'not-scored']);
+const INTERFACE_COVERAGE_INTENTS = new Set(['reference', 'full-face']);
+const INTERFACE_ENDPOINT_STATUSES = new Set(['passed', 'failed', 'not-scored']);
 const DIGEST_RE = /^sha256:[a-f0-9]{64}$/;
 const REGION_ID_RE = /^REG-\d{3,}$/;
 const MATRIX_FIELDS = Object.freeze([
@@ -179,10 +200,42 @@ function normalizeVerificationPlan(input) {
   assertDigest(input.digest, 'verificationPlan digest', 'VERIFICATION_PLAN_INVALID');
   const requiredLocales = sortedStrings(input.requiredLocales, 'verificationPlan.requiredLocales');
   invariant(requiredLocales.length > 0, 'VERIFICATION_PLAN_INVALID', 'verificationPlan requires at least one locale');
+  invariant(Array.isArray(input.requiredChecks), 'VERIFICATION_PLAN_INVALID', 'verificationPlan.requiredChecks must be an array');
+  const checkIds = new Set();
+  const requiredChecks = input.requiredChecks.map((check, index) => {
+    invariant(check && typeof check === 'object', 'VERIFICATION_PLAN_INVALID', `verificationPlan.requiredChecks[${index}] must be an object`);
+    const id = assertString(check.id, `verificationPlan.requiredChecks[${index}].id`, 'VERIFICATION_PLAN_INVALID');
+    invariant(!checkIds.has(id), 'VERIFICATION_PLAN_INVALID', `Duplicate required check: ${id}`);
+    checkIds.add(id);
+    invariant(CHECK_ENFORCEMENTS.has(check.enforcement), 'VERIFICATION_PLAN_INVALID', `Required check ${id} has an invalid enforcement`);
+    invariant(CHECK_LOCALE_SCOPES.has(check.localeScope), 'VERIFICATION_PLAN_INVALID', `Required check ${id} has an invalid localeScope`);
+    invariant(CHECK_EVIDENCE_KINDS.has(check.evidenceKind), 'VERIFICATION_PLAN_INVALID', `Required check ${id} has an invalid evidenceKind`);
+    invariant(
+      (check.enforcement === 'manual') === (check.evidenceKind === 'manual-decision'),
+      'VERIFICATION_PLAN_INVALID',
+      `Required check ${id} manual enforcement and evidenceKind disagree`
+    );
+    const featureEvidenceDigests = sortedStrings(
+      check.featureEvidenceDigests || [],
+      `Required check ${id} featureEvidenceDigests`
+    );
+    for (const digest of featureEvidenceDigests) {
+      assertDigest(digest, `Required check ${id} feature evidence digest`, 'VERIFICATION_PLAN_INVALID');
+    }
+    return {
+      id,
+      enforcement: check.enforcement,
+      localeScope: check.localeScope,
+      evidenceKind: check.evidenceKind,
+      objectIds: sortedStrings(check.objectIds || [], `Required check ${id} objectIds`),
+      featureEvidenceDigests,
+    };
+  }).sort((left, right) => left.id.localeCompare(right.id));
   return {
     digest: input.digest,
     requiredLocales,
     changeImpact: sortedStrings(input.changeImpact || [], 'verificationPlan.changeImpact'),
+    requiredChecks,
   };
 }
 
@@ -298,27 +351,160 @@ function normalizeRiskChecks(input) {
   }).sort((left, right) => left.id.localeCompare(right.id));
 }
 
-function normalizeInterfaceMatrix(input) {
+function finiteObject(input, fields, label) {
+  invariant(input && typeof input === 'object' && !Array.isArray(input), 'INTERFACE_MATRIX_INVALID', `${label} must be an object`);
+  return Object.fromEntries(fields.map((field) => {
+    invariant(Number.isFinite(input[field]), 'INTERFACE_MATRIX_INVALID', `${label}.${field} must be finite`);
+    return [field, input[field]];
+  }));
+}
+
+function normalizeIntervals(input, label, { links = false } = {}) {
+  invariant(Array.isArray(input), 'INTERFACE_MATRIX_INVALID', `${label} must be an array`);
+  const identities = new Set();
+  return input.map((interval, index) => {
+    const value = finiteObject(interval, ['top', 'bottom'], `${label}[${index}]`);
+    invariant(value.bottom >= value.top, 'INTERFACE_MATRIX_INVALID', `${label}[${index}] bottom must not be above top`);
+    if (links) {
+      const linkId = assertString(interval.linkId, `${label}[${index}].linkId`, 'INTERFACE_MATRIX_INVALID');
+      invariant(!identities.has(linkId), 'INTERFACE_MATRIX_INVALID', `${label} repeats link ${linkId}`);
+      identities.add(linkId);
+      return { linkId, ...value };
+    }
+    return value;
+  }).sort((left, right) => (left.linkId || '').localeCompare(right.linkId || '') || left.top - right.top || left.bottom - right.bottom);
+}
+
+function normalizeInterfaceSide(input, label) {
+  if (input == null) return null;
+  invariant(input && typeof input === 'object', 'INTERFACE_MATRIX_INVALID', `${label} must be an object or null`);
+  const nodeBbox = finiteObject(input.nodeBbox, ['left', 'right', 'top', 'bottom'], `${label}.nodeBbox`);
+  invariant(nodeBbox.right >= nodeBbox.left && nodeBbox.bottom >= nodeBbox.top, 'INTERFACE_MATRIX_INVALID', `${label}.nodeBbox has inverted edges`);
+  const unionIntervals = normalizeIntervals(input.unionIntervals, `${label}.unionIntervals`);
+  invariant(unionIntervals.length > 0, 'INTERFACE_MATRIX_INVALID', `${label}.unionIntervals cannot be empty`);
+  return {
+    nodeBbox,
+    unionIntervals,
+    linkIntervals: normalizeIntervals(input.linkIntervals, `${label}.linkIntervals`, { links: true }),
+  };
+}
+
+function interfaceSpan(side) {
+  const top = Math.min(...side.unionIntervals.map((interval) => interval.top));
+  const bottom = Math.max(...side.unionIntervals.map((interval) => interval.bottom));
+  return { top, bottom, center: (top + bottom) / 2, width: bottom - top };
+}
+
+function deriveInterfaceDeltas(reference, candidate) {
+  const expected = interfaceSpan(reference);
+  const actual = interfaceSpan(candidate);
+  return Object.fromEntries(['top', 'bottom', 'center', 'width'].map((field) => [field, actual[field] - expected[field]]));
+}
+
+function derivedMatrixSummary(expectedInterfaceIds, rows) {
+  const counts = Object.fromEntries(MATRIX_FIELDS.map((field) => [field, 0]));
+  counts.expectedInterfaces = expectedInterfaceIds.length;
+  counts.auditedInterfaces = rows.length;
+  for (const row of rows) {
+    if (row.result === 'passed') counts.passedInterfaces += 1;
+    else if (row.result === 'failed') counts.failedInterfaces += 1;
+    else if (row.result === 'documented-exception') counts.documentedExceptions += 1;
+    else if (row.result === 'manual-pending') counts.pendingInterfaces += 1;
+    else if (row.result === 'not-scored') counts.notScoredInterfaces += 1;
+  }
+  return counts;
+}
+
+export function createInterfaceMatrix(input) {
   if (input == null) return null;
   invariant(input && typeof input === 'object', 'INTERFACE_MATRIX_INVALID', 'interfaceMatrix must be an object');
-  invariant(input.summary && typeof input.summary === 'object', 'INTERFACE_MATRIX_INVALID', 'interfaceMatrix.summary is required');
-  const summary = {};
-  for (const field of MATRIX_FIELDS) {
-    invariant(
-      Number.isInteger(input.summary[field]) && input.summary[field] >= 0,
-      'INTERFACE_MATRIX_INVALID',
-      `interfaceMatrix.summary.${field} must be a non-negative integer`
-    );
-    summary[field] = input.summary[field];
-  }
-  const matrix = { summary };
+  invariant(
+    input.protocol === INTERFACE_MATRIX_PROTOCOL && input.schemaVersion === 1,
+    'INTERFACE_MATRIX_INVALID',
+    'interfaceMatrix must use interface-matrix/v1'
+  );
+  const expectedInterfaceIds = sortedStrings(input.expectedInterfaceIds, 'interfaceMatrix.expectedInterfaceIds');
+  invariant(expectedInterfaceIds.length > 0, 'INTERFACE_MATRIX_INVALID', 'interfaceMatrix.expectedInterfaceIds cannot be empty');
+  invariant(Array.isArray(input.rows), 'INTERFACE_MATRIX_INVALID', 'interfaceMatrix.rows must be an array');
+  const rowIds = new Set();
+  const rows = input.rows.map((row, index) => {
+    invariant(row && typeof row === 'object', 'INTERFACE_MATRIX_INVALID', `interfaceMatrix.rows[${index}] must be an object`);
+    const id = assertString(row.id, `interfaceMatrix.rows[${index}].id`, 'INTERFACE_MATRIX_INVALID');
+    const node = assertString(row.node, `interfaceMatrix row ${id} node`, 'INTERFACE_MATRIX_INVALID');
+    const side = assertString(row.side, `interfaceMatrix row ${id} side`, 'INTERFACE_MATRIX_INVALID');
+    invariant(['left', 'right'].includes(side), 'INTERFACE_MATRIX_INVALID', `interfaceMatrix row ${id} side must be left or right`);
+    invariant(id === `${node}:${side}`, 'INTERFACE_MATRIX_INVALID', `interfaceMatrix row ${id} identity must equal node:side`);
+    invariant(!rowIds.has(id), 'INTERFACE_MATRIX_INVALID', `interfaceMatrix repeats row ${id}`);
+    rowIds.add(id);
+    invariant(INTERFACE_COVERAGE_INTENTS.has(row.coverageIntent), 'INTERFACE_MATRIX_INVALID', `interfaceMatrix row ${id} has invalid coverageIntent`);
+    invariant(INTERFACE_RESULTS.has(row.result), 'INTERFACE_MATRIX_INVALID', `interfaceMatrix row ${id} has invalid result`);
+    invariant(INTERFACE_ENDPOINT_STATUSES.has(row.endpointStatus), 'INTERFACE_MATRIX_INVALID', `interfaceMatrix row ${id} has invalid endpointStatus`);
+    invariant(INTERFACE_ENDPOINT_STATUSES.has(row.tangentStatus), 'INTERFACE_MATRIX_INVALID', `interfaceMatrix row ${id} has invalid tangentStatus`);
+    const reference = normalizeInterfaceSide(row.reference, `interfaceMatrix row ${id} reference`);
+    const candidate = normalizeInterfaceSide(row.candidate, `interfaceMatrix row ${id} candidate`);
+    invariant(reference || candidate, 'INTERFACE_MATRIX_INVALID', `interfaceMatrix row ${id} must exist in reference or candidate`);
+    let deltas = null;
+    if (reference && candidate) {
+      const suppliedDeltas = finiteObject(row.deltas, ['top', 'bottom', 'center', 'width'], `interfaceMatrix row ${id} deltas`);
+      deltas = deriveInterfaceDeltas(reference, candidate);
+      invariant(
+        Object.keys(deltas).every((field) => Math.abs(deltas[field] - suppliedDeltas[field]) <= 1e-9),
+        'INTERFACE_MATRIX_DELTA_MISMATCH',
+        `interfaceMatrix row ${id} deltas must be derived from its reference and candidate intervals`
+      );
+    }
+    invariant(row.evidenceDigests && typeof row.evidenceDigests === 'object', 'INTERFACE_MATRIX_INVALID', `interfaceMatrix row ${id} evidenceDigests are required`);
+    const evidenceDigests = {};
+    for (const field of ['referenceCrop', 'audit', 'contactSheet']) {
+      assertDigest(row.evidenceDigests[field], `interfaceMatrix row ${id} ${field} digest`, 'INTERFACE_MATRIX_INVALID');
+      evidenceDigests[field] = row.evidenceDigests[field];
+    }
+    let provenance = null;
+    if (row.provenance != null) {
+      invariant(row.provenance && typeof row.provenance === 'object', 'INTERFACE_MATRIX_INVALID', `interfaceMatrix row ${id} provenance must be an object`);
+      const kind = assertString(row.provenance.kind, `interfaceMatrix row ${id} provenance kind`, 'INTERFACE_MATRIX_INVALID');
+      invariant(['reference', 'design-spec'].includes(kind), 'INTERFACE_MATRIX_INVALID', `interfaceMatrix row ${id} has invalid provenance kind`);
+      assertDigest(row.provenance.digest, `interfaceMatrix row ${id} provenance digest`, 'INTERFACE_MATRIX_INVALID');
+      provenance = { kind, digest: row.provenance.digest };
+    }
+    if (row.coverageIntent === 'full-face') {
+      invariant(provenance, 'INTERFACE_MATRIX_FULL_FACE_PROVENANCE_REQUIRED', `Full-face row ${id} needs reference or design-spec provenance`);
+    }
+    if (row.result === 'documented-exception') {
+      invariant(
+        provenance,
+        'INTERFACE_MATRIX_EXCEPTION_PROVENANCE_REQUIRED',
+        `Documented exception row ${id} needs structured reference or design-spec provenance`
+      );
+    }
+    return {
+      id,
+      node,
+      side,
+      coverageIntent: row.coverageIntent,
+      reference,
+      candidate,
+      deltas,
+      endpointStatus: row.endpointStatus,
+      tangentStatus: row.tangentStatus,
+      result: row.result,
+      evidenceDigests,
+      ...(provenance ? { provenance } : {}),
+      ...(row.note == null ? {} : { note: String(row.note) }),
+    };
+  }).sort((left, right) => left.id.localeCompare(right.id));
+  const value = {
+    schemaVersion: 1,
+    protocol: INTERFACE_MATRIX_PROTOCOL,
+    expectedInterfaceIds,
+    rows,
+    summary: derivedMatrixSummary(expectedInterfaceIds, rows),
+  };
+  const matrix = { ...value, digest: digestFidelityValue(value) };
   if (input.digest != null) {
-    assertDigest(input.digest, 'interfaceMatrix digest', 'INTERFACE_MATRIX_INVALID');
-    matrix.digest = input.digest;
-  } else {
-    matrix.digest = digestFidelityValue(matrix);
+    invariant(input.digest === matrix.digest, 'INTERFACE_MATRIX_DIGEST_MISMATCH', 'interfaceMatrix digest does not match its rows');
   }
-  return matrix;
+  return deepFreeze(matrix);
 }
 
 function blocker(code, subject, details = {}) {
@@ -337,6 +523,75 @@ function collectAutomaticBlockers(plan, evidence) {
   });
 }
 
+function expectedCheckInstances(plan) {
+  return plan.requiredChecks.flatMap((check) => {
+    const locales = check.localeScope === 'required-locales' ? plan.requiredLocales : [null];
+    return locales.map((locale) => ({
+      check,
+      locale,
+      identity: locale == null ? check.id : `${check.id}@${locale}`,
+    }));
+  });
+}
+
+function normalizeCheckResults(input, plan) {
+  invariant(Array.isArray(input), 'CHECK_RESULTS_INVALID', 'checkResults must be an array');
+  const expected = new Map(expectedCheckInstances(plan).map((item) => [item.identity, item]));
+  const seen = new Set();
+  return input.map((result, index) => {
+    invariant(result && typeof result === 'object', 'CHECK_RESULTS_INVALID', `checkResults[${index}] must be an object`);
+    const checkId = assertString(result.checkId, `checkResults[${index}].checkId`, 'CHECK_RESULTS_INVALID');
+    const locale = result.locale == null ? null : assertString(result.locale, `checkResults[${index}].locale`, 'CHECK_RESULTS_INVALID');
+    const identity = locale == null ? checkId : `${checkId}@${locale}`;
+    const expectation = expected.get(identity);
+    invariant(expectation, 'CHECK_RESULT_NOT_REQUIRED', `Check result ${identity} is not required by the VerificationPlan`);
+    invariant(!seen.has(identity), 'CHECK_RESULTS_INVALID', `Duplicate check result: ${identity}`);
+    seen.add(identity);
+    invariant(CHECK_STATUSES.has(result.status), 'CHECK_RESULTS_INVALID', `Check result ${identity} has invalid status`);
+    invariant(CHECK_SOURCES.has(result.source), 'CHECK_RESULTS_INVALID', `Check result ${identity} has invalid source`);
+    const expectedSource = expectation.check.enforcement === 'manual' ? 'manual' : 'automatic';
+    invariant(result.source === expectedSource, 'CHECK_RESULT_SOURCE_INVALID', `Check result ${identity} must come from ${expectedSource}`);
+    const objectIds = sortedStrings(result.objectIds || [], `Check result ${identity} objectIds`);
+    invariant(
+      JSON.stringify(objectIds) === JSON.stringify(expectation.check.objectIds),
+      'CHECK_RESULT_OBJECT_MISMATCH',
+      `Check result ${identity} does not cover the planned objects`
+    );
+    const evidenceDigests = sortedStrings(result.evidenceDigests || [], `Check result ${identity} evidenceDigests`);
+    invariant(evidenceDigests.length > 0, 'CHECK_RESULT_EVIDENCE_REQUIRED', `Check result ${identity} needs evidence`);
+    for (const digest of evidenceDigests) assertDigest(digest, `Check result ${identity} evidence digest`, 'CHECK_RESULTS_INVALID');
+    return {
+      checkId,
+      ...(locale == null ? {} : { locale }),
+      status: result.status,
+      source: result.source,
+      evidenceKind: expectation.check.evidenceKind,
+      objectIds,
+      evidenceDigests,
+      ...(result.note == null ? {} : { note: String(result.note) }),
+    };
+  }).sort((left, right) => left.checkId.localeCompare(right.checkId) || String(left.locale || '').localeCompare(String(right.locale || '')));
+}
+
+function collectCheckResultBlockers(plan, checkResults) {
+  const byIdentity = new Map(checkResults.map((result) => [
+    result.locale == null ? result.checkId : `${result.checkId}@${result.locale}`,
+    result,
+  ]));
+  const blockers = [];
+  for (const expected of expectedCheckInstances(plan)) {
+    const result = byIdentity.get(expected.identity);
+    if (!result) {
+      blockers.push(blocker('REQUIRED_CHECK_MISSING', expected.identity, {
+        enforcement: expected.check.enforcement,
+      }));
+    } else if (result.status !== 'passed') {
+      blockers.push(blocker('REQUIRED_CHECK_NOT_PASSED', expected.identity, { status: result.status }));
+    }
+  }
+  return blockers;
+}
+
 function collectMatrixBlockers(matrix, required) {
   if (!required) return [];
   if (!matrix) return [blocker('INTERFACE_MATRIX_REQUIRED', 'interface-matrix')];
@@ -347,6 +602,16 @@ function collectMatrixBlockers(matrix, required) {
     + summary.pendingInterfaces
     + summary.notScoredInterfaces;
   const blockers = [];
+  const expectedIds = new Set(matrix.expectedInterfaceIds);
+  const rowIds = new Set(matrix.rows.map((row) => row.id));
+  const missingIds = [...expectedIds].filter((id) => !rowIds.has(id)).sort();
+  const unexpectedIds = [...rowIds].filter((id) => !expectedIds.has(id)).sort();
+  if (missingIds.length || unexpectedIds.length) {
+    blockers.push(blocker('INTERFACE_MATRIX_IDENTITY_MISMATCH', 'interface-matrix', {
+      missingIds,
+      unexpectedIds,
+    }));
+  }
   if (summary.auditedInterfaces !== classified) {
     blockers.push(blocker('INTERFACE_MATRIX_IDENTITY_MISMATCH', 'interface-matrix', {
       auditedInterfaces: summary.auditedInterfaces,
@@ -367,6 +632,14 @@ function collectMatrixBlockers(matrix, required) {
   }
   if (summary.notScoredInterfaces > 0) {
     blockers.push(blocker('INTERFACE_MATRIX_NOT_SCORED', 'interface-matrix', { count: summary.notScoredInterfaces }));
+  }
+  for (const row of matrix.rows) {
+    if (row.endpointStatus !== 'passed') {
+      blockers.push(blocker('INTERFACE_MATRIX_ENDPOINT_NOT_PASSED', row.id, { status: row.endpointStatus }));
+    }
+    if (row.tangentStatus !== 'passed') {
+      blockers.push(blocker('INTERFACE_MATRIX_TANGENT_NOT_PASSED', row.id, { status: row.tangentStatus }));
+    }
   }
   if (summary.passedInterfaces + summary.documentedExceptions !== summary.expectedInterfaces) {
     blockers.push(blocker('INTERFACE_MATRIX_NOT_CLOSED', 'interface-matrix'));
@@ -418,10 +691,12 @@ export function createFidelityResult(input) {
   }).sort((left, right) => left.id.localeCompare(right.id));
   const feedbackSummary = normalizeFeedbackSummary(input.feedbackSummary);
   const riskChecks = normalizeRiskChecks(input.riskChecks);
-  const interfaceMatrix = normalizeInterfaceMatrix(input.interfaceMatrix);
+  const interfaceMatrix = createInterfaceMatrix(input.interfaceMatrix);
+  const checkResults = normalizeCheckResults(input.checkResults || [], verificationPlan);
   const attention = normalizeAttention(input.attention);
 
   const blockers = collectAutomaticBlockers(verificationPlan, automaticEvidence);
+  blockers.push(...collectCheckResultBlockers(verificationPlan, checkResults));
   if (automaticEvidence.consistency.status !== 'passed') {
     blockers.push(blocker('AUTOMATIC_CONSISTENCY_NOT_PASSED', 'dataset-verification', {
       status: automaticEvidence.consistency.status,
@@ -451,7 +726,9 @@ export function createFidelityResult(input) {
   }
 
   const matrixRequired = input.adapter === 'income-statement'
-    && verificationPlan.changeImpact.some((impact) => impact === 'geometry' || impact === 'new-dataset');
+    && verificationPlan.changeImpact.some((impact) =>
+      impact === 'geometry' || impact === 'new-dataset' || impact === 'render-engine'
+    );
   blockers.push(...collectMatrixBlockers(interfaceMatrix, matrixRequired));
   sortBlockers(blockers);
 
@@ -464,6 +741,7 @@ export function createFidelityResult(input) {
 
   const result = {
     schemaVersion: FIDELITY_RESULT_SCHEMA_VERSION,
+    protocol: FIDELITY_RESULT_PROTOCOL,
     kind: 'fidelity-result',
     status,
     subject: {
@@ -475,6 +753,7 @@ export function createFidelityResult(input) {
     },
     verificationPlan,
     automaticEvidence,
+    checkResults,
     attestation,
     regions,
     feedbackSummary,

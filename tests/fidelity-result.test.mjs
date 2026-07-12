@@ -7,18 +7,38 @@ import {
 
 const digest = (value) => digestFidelityValue({ value });
 
-function matrix(overrides = {}) {
+function interfaceSide() {
   return {
-    summary: {
-      expectedInterfaces: 10,
-      auditedInterfaces: 10,
-      passedInterfaces: 10,
-      failedInterfaces: 0,
-      documentedExceptions: 0,
-      pendingInterfaces: 0,
-      notScoredInterfaces: 0,
-      ...overrides,
+    nodeBbox: { left: 10, right: 20, top: 30, bottom: 50 },
+    unionIntervals: [{ top: 30, bottom: 50 }],
+    linkIntervals: [{ linkId: 'revenue->profit#0', top: 30, bottom: 50 }],
+  };
+}
+
+function matrix(overrides = {}) {
+  const row = {
+    id: 'revenue:right',
+    node: 'revenue',
+    side: 'right',
+    coverageIntent: 'reference',
+    reference: interfaceSide(),
+    candidate: interfaceSide(),
+    deltas: { top: 0, bottom: 0, center: 0, width: 0 },
+    endpointStatus: 'passed',
+    tangentStatus: 'passed',
+    result: 'passed',
+    evidenceDigests: {
+      referenceCrop: digest('reference'),
+      audit: digest('audit'),
+      contactSheet: digest('contact-sheet'),
     },
+    ...(overrides.row || {}),
+  };
+  return {
+    schemaVersion: 1,
+    protocol: 'interface-matrix/v1',
+    expectedInterfaceIds: overrides.expectedInterfaceIds || ['revenue:right'],
+    rows: overrides.rows || [row],
   };
 }
 
@@ -44,6 +64,11 @@ function fixture(overrides = {}) {
       digest: planDigest,
       requiredLocales: ['en', 'zh'],
       changeImpact: ['new-dataset', 'geometry'],
+      requiredChecks: [
+        { id: 'adapter:data-consistency', enforcement: 'build-gate', localeScope: 'global', evidenceKind: 'dataset-consistency', objectIds: [] },
+        { id: 'adapter:render-fidelity', enforcement: 'hard-gate', localeScope: 'required-locales', evidenceKind: 'fidelity-run', objectIds: [] },
+        { id: 'adapter:manual-visual-closure', enforcement: 'manual', localeScope: 'required-locales', evidenceKind: 'manual-decision', objectIds: [] },
+      ],
     },
     automaticEvidence: {
       authoredDigest,
@@ -55,6 +80,13 @@ function fixture(overrides = {}) {
       ],
     },
     attestation: acceptedAttestation(authoredDigest, planDigest),
+    checkResults: [
+      { checkId: 'adapter:data-consistency', status: 'passed', source: 'automatic', objectIds: [], evidenceDigests: [digest('dataset-verification')] },
+      { checkId: 'adapter:render-fidelity', locale: 'en', status: 'passed', source: 'automatic', objectIds: [], evidenceDigests: [digest('automatic-en')] },
+      { checkId: 'adapter:render-fidelity', locale: 'zh', status: 'passed', source: 'automatic', objectIds: [], evidenceDigests: [digest('automatic-zh')] },
+      { checkId: 'adapter:manual-visual-closure', locale: 'en', status: 'passed', source: 'manual', objectIds: [], evidenceDigests: [digest('manual-en')] },
+      { checkId: 'adapter:manual-visual-closure', locale: 'zh', status: 'passed', source: 'manual', objectIds: [], evidenceDigests: [digest('manual-zh')] },
+    ],
     regions: [
       { id: 'REG-001', status: 'resolved', ruleIds: ['G12'] },
       { id: 'REG-002', status: 'resolved', ruleIds: ['B3', 'T7'] },
@@ -106,6 +138,7 @@ test('complete automatic, human, region, feedback, risk, and Matrix evidence is 
   const secondInput = fixture();
   secondInput.regions.reverse();
   secondInput.automaticEvidence.locales.reverse();
+  secondInput.checkResults.reverse();
   const second = createFidelityResult(secondInput);
 
   assert.equal(first.status, 'accepted');
@@ -126,16 +159,63 @@ test('automatic evidence bound to an old authored digest is rejected as stale', 
   );
 });
 
-test('a geometry Matrix that does not close the seven-field identity blocks acceptance', () => {
+test('a geometry Matrix derives its summary from rows and blocks missing identities', () => {
   const result = createFidelityResult(fixture({
-    interfaceMatrix: matrix({
-      auditedInterfaces: 9,
-      passedInterfaces: 8,
-      pendingInterfaces: 1,
-    }),
+    interfaceMatrix: matrix({ expectedInterfaceIds: ['cost:right', 'revenue:right'] }),
   }));
   assert.equal(result.status, 'blocked');
   assert.ok(result.blockers.some((item) => item.code === 'INTERFACE_MATRIX_INCOMPLETE'));
-  assert.ok(result.blockers.some((item) => item.code === 'INTERFACE_MATRIX_PENDING'));
+  assert.ok(result.blockers.some((item) => item.code === 'INTERFACE_MATRIX_IDENTITY_MISMATCH'));
   assert.ok(result.blockers.some((item) => item.code === 'INTERFACE_MATRIX_NOT_CLOSED'));
+});
+
+test('missing required check result blocks acceptance', () => {
+  const input = fixture();
+  input.checkResults = input.checkResults.filter((item) => !(item.checkId === 'adapter:manual-visual-closure' && item.locale === 'zh'));
+  const result = createFidelityResult(input);
+  assert.equal(result.status, 'blocked');
+  assert.ok(result.blockers.some((item) =>
+    item.code === 'REQUIRED_CHECK_MISSING' && item.subject === 'adapter:manual-visual-closure@zh'
+  ));
+});
+
+test('summary-only Matrix, full-face intent, and documented exceptions require structured rows/provenance', () => {
+  assert.throws(
+    () => createFidelityResult(fixture({ interfaceMatrix: { summary: {} } })),
+    (error) => error.code === 'INTERFACE_MATRIX_INVALID'
+  );
+  assert.throws(
+    () => createFidelityResult(fixture({ interfaceMatrix: matrix({ row: { coverageIntent: 'full-face' } }) })),
+    (error) => error.code === 'INTERFACE_MATRIX_FULL_FACE_PROVENANCE_REQUIRED'
+  );
+  assert.throws(
+    () => createFidelityResult(fixture({ interfaceMatrix: matrix({ row: { result: 'documented-exception' } }) })),
+    (error) => error.code === 'INTERFACE_MATRIX_EXCEPTION_PROVENANCE_REQUIRED'
+  );
+});
+
+test('a passing row cannot hide failed or unscored endpoint geometry', () => {
+  const result = createFidelityResult(fixture({
+    interfaceMatrix: matrix({
+      row: { endpointStatus: 'failed', tangentStatus: 'not-scored', result: 'passed' },
+    }),
+  }));
+  assert.equal(result.status, 'blocked');
+  assert.ok(result.blockers.some((item) => item.code === 'INTERFACE_MATRIX_ENDPOINT_NOT_PASSED'));
+  assert.ok(result.blockers.some((item) => item.code === 'INTERFACE_MATRIX_TANGENT_NOT_PASSED'));
+});
+
+test('render-engine changes require a full Matrix while text-only changes do not', () => {
+  const engineInput = fixture();
+  engineInput.verificationPlan.changeImpact = ['render-engine'];
+  engineInput.interfaceMatrix = null;
+  const engineResult = createFidelityResult(engineInput);
+  assert.equal(engineResult.status, 'blocked');
+  assert.ok(engineResult.blockers.some((item) => item.code === 'INTERFACE_MATRIX_REQUIRED'));
+
+  const textInput = fixture();
+  textInput.verificationPlan.changeImpact = ['display-text-only'];
+  textInput.interfaceMatrix = null;
+  const textResult = createFidelityResult(textInput);
+  assert.equal(textResult.status, 'accepted');
 });

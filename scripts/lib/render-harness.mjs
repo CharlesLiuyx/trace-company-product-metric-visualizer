@@ -82,10 +82,10 @@ export function renderDatasetForPurity(page, datasetKey, language) {
     window.SankeyEngine.render('#chart', renderDataset);
     const svg = document.querySelector('#chart > svg');
     if (!svg) throw new Error('SankeyEngine.render did not create #chart > svg');
-    svg.setAttribute('width', String(renderDataset.meta.referenceImage.width));
-    svg.setAttribute('height', String(renderDataset.meta.referenceImage.height));
-    svg.style.width = `${renderDataset.meta.referenceImage.width}px`;
-    svg.style.height = `${renderDataset.meta.referenceImage.height}px`;
+    // Capture the renderer's own canvas contract before the screenshot harness
+    // applies any fixed pixel sizing. G2 must not pass because the harness
+    // repaired a wrong viewBox or numeric width/height after render.
+    const rawRect = svg.getBoundingClientRect();
     const images = Array.from(svg.querySelectorAll('image'));
     const imageHrefs = images.map(
       (image) =>
@@ -140,10 +140,284 @@ export function renderDatasetForPurity(page, datasetKey, language) {
       forbiddenElements,
       backgroundImageElements,
       viewBox: svg.getAttribute('viewBox'),
-      width: Math.round(svg.getBoundingClientRect().width),
-      height: Math.round(svg.getBoundingClientRect().height),
+      widthAttribute: svg.getAttribute('width'),
+      heightAttribute: svg.getAttribute('height'),
+      width: Math.round(rawRect.width),
+      height: Math.round(rawRect.height),
     };
   }, { key: datasetKey, requestedLanguage: language });
+}
+
+function numericSvgLength(value) {
+  if (value == null || value === '') return null;
+  const match = String(value).trim().match(/^(-?(?:\d+\.?\d*|\.\d+))(?:px)?$/i);
+  return match ? Number(match[1]) : null;
+}
+
+export function assertRawSvgCanvas(purity, expected) {
+  const viewBox = String(purity?.viewBox || '')
+    .trim()
+    .split(/[\s,]+/)
+    .map(Number);
+  if (
+    viewBox.length !== 4 ||
+    !viewBox.every(Number.isFinite) ||
+    viewBox[0] !== 0 ||
+    viewBox[1] !== 0 ||
+    viewBox[2] !== expected.width ||
+    viewBox[3] !== expected.height
+  ) {
+    throw new Error(
+      `Raw SVG viewBox mismatch: expected 0 0 ${expected.width} ${expected.height}, got ${purity?.viewBox || 'missing'}`
+    );
+  }
+
+  const numericWidth = numericSvgLength(purity.widthAttribute);
+  const numericHeight = numericSvgLength(purity.heightAttribute);
+  if (purity.widthAttribute == null || String(purity.widthAttribute).trim() === '') {
+    throw new Error('Raw SVG width is missing; expected an exact numeric width or 100%');
+  }
+  if (numericWidth != null && numericWidth !== expected.width) {
+    throw new Error(`Raw SVG width mismatch: expected ${expected.width}, got ${purity.widthAttribute}`);
+  }
+  if (numericHeight != null && numericHeight !== expected.height) {
+    throw new Error(`Raw SVG height mismatch: expected ${expected.height}, got ${purity.heightAttribute}`);
+  }
+  if (numericWidth == null && String(purity.widthAttribute).trim() !== '100%') {
+    throw new Error(`Unsupported responsive SVG width: ${purity.widthAttribute}`);
+  }
+  if (purity.heightAttribute && numericHeight == null) {
+    throw new Error(`Unsupported responsive SVG height: ${purity.heightAttribute}`);
+  }
+}
+
+// Once the raw renderer contract has passed G2, normalize the displayed SVG to
+// the reference pixel dimensions so Playwright screenshots and DOM-derived
+// pixel regions use a stable 1:1 coordinate system.
+export function sizeRenderedSvgForCapture(page, width, height) {
+  return page.evaluate(({ expectedWidth, expectedHeight }) => {
+    const svg = document.querySelector('#chart > svg');
+    if (!svg) throw new Error('Sankey SVG is missing before capture sizing');
+    svg.setAttribute('width', String(expectedWidth));
+    svg.setAttribute('height', String(expectedHeight));
+    svg.style.width = `${expectedWidth}px`;
+    svg.style.height = `${expectedHeight}px`;
+    const rect = svg.getBoundingClientRect();
+    return { width: Math.round(rect.width), height: Math.round(rect.height) };
+  }, { expectedWidth: width, expectedHeight: height });
+}
+
+function finiteOpacity(value, fallback = 1) {
+  const numeric = Number(value);
+  return Number.isFinite(numeric) ? Math.max(0, Math.min(1, numeric)) : fallback;
+}
+
+function parseComputedColour(value) {
+  const source = String(value || '').trim().toLowerCase();
+  if (!source || source === 'none' || source === 'transparent') return null;
+  const match = source.match(/^rgba?\(\s*([\d.]+)[,\s]+([\d.]+)[,\s]+([\d.]+)(?:\s*[,/]\s*([\d.]+))?\s*\)$/);
+  if (!match) return { source, comparable: false, alpha: 1 };
+  return {
+    source,
+    comparable: true,
+    red: Number(match[1]),
+    green: Number(match[2]),
+    blue: Number(match[3]),
+    alpha: match[4] == null ? 1 : finiteOpacity(match[4]),
+  };
+}
+
+function coloursMatch(left, right) {
+  return Boolean(
+    left?.comparable &&
+    right?.comparable &&
+    left.red === right.red &&
+    left.green === right.green &&
+    left.blue === right.blue
+  );
+}
+
+function paintAudit(value, paintOpacity, elementOpacity, background) {
+  const colour = parseComputedColour(value);
+  const colourAlpha = colour?.alpha || 0;
+  const effectiveAlpha = colourAlpha * finiteOpacity(paintOpacity) * finiteOpacity(elementOpacity);
+  const backgroundMatch = coloursMatch(colour, background);
+  return {
+    colourAlpha,
+    effectiveAlpha,
+    backgroundMatch,
+    visible: Boolean(colour && effectiveAlpha > 0 && !backgroundMatch),
+  };
+}
+
+export function classifyNodePaintAudit({ dataset = '', language = '', background = '', nodes = [] }) {
+  const backgroundColour = parseComputedColour(background);
+  const seen = new Set();
+  const duplicateNodeIds = [];
+  const records = nodes.map((node, index) => {
+    const id = String(node.id || `unknown-${index}`);
+    if (seen.has(id)) duplicateNodeIds.push(id);
+    seen.add(id);
+    const displayed = node.display !== 'none' && !['hidden', 'collapse'].includes(node.visibility);
+    const hasBox = Number(node.bbox?.width) > 0 && Number(node.bbox?.height) > 0;
+    const fillPaint = paintAudit(
+      node.fill,
+      node.fillOpacity,
+      node.opacity,
+      backgroundColour
+    );
+    const strokePaint = paintAudit(
+      node.stroke,
+      node.strokeOpacity,
+      node.opacity,
+      backgroundColour
+    );
+    const fillVisible = displayed && hasBox && fillPaint.visible;
+    const strokeVisible = displayed && hasBox && Number(node.strokeWidth) > 0 && strokePaint.visible;
+    return {
+      ...node,
+      id,
+      displayed,
+      hasBox,
+      fillAlpha: fillPaint.colourAlpha,
+      strokeAlpha: strokePaint.colourAlpha,
+      effectiveFillAlpha: fillPaint.effectiveAlpha,
+      effectiveStrokeAlpha: strokePaint.effectiveAlpha,
+      fillMatchesBackground: fillPaint.backgroundMatch,
+      strokeMatchesBackground: strokePaint.backgroundMatch,
+      fillVisible,
+      strokeVisible,
+      faceVisible: fillVisible || strokeVisible,
+    };
+  });
+  return {
+    schemaVersion: 1,
+    dataset,
+    language,
+    background,
+    checkedNodes: records.length,
+    visibleNodeIds: records.filter((node) => node.faceVisible).map((node) => node.id).sort(),
+    invisibleNodeIds: records.filter((node) => !node.faceVisible).map((node) => node.id).sort(),
+    duplicateNodeIds: [...new Set(duplicateNodeIds)].sort(),
+    nodes: records.sort((left, right) => left.id.localeCompare(right.id)),
+  };
+}
+
+export async function auditNodePaint(page, options = {}) {
+  const collected = await page.evaluate(({ dataset, language }) => {
+    const svg = document.querySelector('#chart > svg');
+    if (!svg) throw new Error('Node paint audit root not found: #chart > svg');
+    const backdrop = Array.from(svg.children).find((element) => element.tagName.toLowerCase() === 'rect');
+    const background = backdrop ? window.getComputedStyle(backdrop).fill : '';
+    const nodes = Array.from(svg.querySelectorAll('rect.sankey-node')).map((element) => {
+      const style = window.getComputedStyle(element);
+      const box = element.getBBox();
+      return {
+        id: element.getAttribute('data-node') || '',
+        bbox: { x: box.x, y: box.y, width: box.width, height: box.height },
+        fill: style.fill,
+        fillOpacity: style.fillOpacity,
+        stroke: style.stroke,
+        strokeOpacity: style.strokeOpacity,
+        strokeWidth: Number.parseFloat(style.strokeWidth) || 0,
+        opacity: style.opacity,
+        display: style.display,
+        visibility: style.visibility,
+      };
+    });
+    return { dataset, language, background, nodes };
+  }, { dataset: options.dataset || '', language: options.language || '' });
+  return classifyNodePaintAudit(collected);
+}
+
+function nodeIdFromEvidenceTarget(target) {
+  const parts = String(target || '').split(/[.:/]/).filter(Boolean);
+  return parts.at(-1) || '';
+}
+
+export function nodeFaceExpectationsFromPlan(plan) {
+  const checks = Array.isArray(plan?.requiredChecks) ? plan.requiredChecks : [];
+  const targetsFor = (checkId) => checks
+    .filter((check) => check.id === checkId)
+    .flatMap((check) => check.evidenceTargets || [])
+    .map(nodeIdFromEvidenceTarget)
+    .filter(Boolean);
+  const explicitVisible = targetsFor('feature:visible-node-face');
+  const legacyVisible = targetsFor('feature:visible-short-node');
+  return {
+    visible: [...new Set([...explicitVisible, ...legacyVisible])].sort(),
+    hidden: [...new Set(targetsFor('feature:hidden-anchor'))].sort(),
+  };
+}
+
+export function assertNodePaintAudit(audit, expectations = {}) {
+  if (audit.duplicateNodeIds?.length) {
+    throw new Error(`Node paint audit has duplicate semantic IDs: ${audit.duplicateNodeIds.join(', ')}`);
+  }
+  const byId = new Map((audit.nodes || []).map((node) => [node.id, node]));
+  const failures = [];
+  for (const id of expectations.visible || []) {
+    const node = byId.get(id);
+    if (!node) failures.push(`${id}=missing`);
+    else if (!node.faceVisible) failures.push(`${id}=not-painted`);
+  }
+  for (const id of expectations.hidden || []) {
+    const node = byId.get(id);
+    if (!node) failures.push(`${id}=missing`);
+    else if (node.faceVisible) failures.push(`${id}=unexpected-paint`);
+  }
+  if (failures.length) {
+    throw new Error(`Node face paint failed: ${failures.join(', ')}`);
+  }
+}
+
+function evidenceTargetsForCheck(check) {
+  return [...new Set((check?.evidenceTargets || [])
+    .map((target) => String(target).split(/[.:/]/).filter(Boolean).at(-1))
+    .filter(Boolean))];
+}
+
+// Executes feature/impact gates whose evidence is already present in the
+// current render. This prevents record:fidelity from archiving a known-failed
+// Plan check and leaving finish() to discover it much later.
+export function assertPlannedRenderAudits(plan, audits) {
+  const checks = Array.isArray(plan?.requiredChecks) ? plan.requiredChecks : [];
+  const failures = [];
+  for (const check of checks) {
+    if (check.enforcement === 'manual') continue;
+    if (check.evidenceKind === 'label-layout-audit') {
+      const expectedNodes = evidenceTargetsForCheck(check);
+      const measurements = audits.labelLayoutAudit?.horizontalSideLabels || [];
+      for (const node of expectedNodes) {
+        const matches = measurements.filter((item) => item.node === node);
+        if (!matches.length) failures.push(`${check.id}/${node}=missing-measurement`);
+        else if (!matches.some((item) => Number(item.verticalCenterDelta) <= 4)) {
+          failures.push(`${check.id}/${node}=center-delta`);
+        }
+      }
+    } else if (check.evidenceKind === 'text-layout-audit') {
+      const audit = audits.textLayoutAudit;
+      if (!audit) failures.push(`${check.id}=missing-audit`);
+      else {
+        if ((check.objectIds || []).length > 0 && Number(audit.checkedTexts) < 1) {
+          failures.push(`${check.id}=no-rendered-text`);
+        }
+        if ((audit.overflowViolations || []).length > 0) failures.push(`${check.id}=overflow`);
+      }
+    } else if (check.evidenceKind === 'annotation-layout-audit') {
+      const audit = audits.annotationLayoutAudit;
+      if (!audit) failures.push(`${check.id}=missing-audit`);
+      else {
+        if ((check.objectIds || []).length > 0 && Number(audit.checkedAnnotationTexts) < 1) {
+          failures.push(`${check.id}=no-rendered-annotation`);
+        }
+        if ((audit.overlapViolations || []).length > 0) failures.push(`${check.id}=overlap`);
+      }
+    }
+  }
+  if (failures.length) {
+    throw new Error(`Planned render checks failed: ${failures.join(', ')}`);
+  }
 }
 
 // Explicitly loads every project font face and throws when any family is
@@ -631,143 +905,168 @@ export async function auditTextAndAnnotationLayout(page) {
 }
 
 // Rendered-bbox audit of the label-node spacing hard gates (G8-G10 in
-// docs/fidelity-loop-rules.md): same-axis vertical gap >= 4px, short-node
-// center delta <= 4px, horizontal side-label overlap forbidden.
-export function auditLabelLayout(page) {
-  return page.evaluate(() => {
-    const svg = document.querySelector('#chart > svg');
-    if (!svg) throw new Error('SankeyEngine.render did not create #chart > svg');
+// docs/fidelity-loop-rules.md): same-axis vertical gap >= 4px (5px target),
+// short-node center delta <= 4px, horizontal side-label overlap forbidden.
+// The classifier is pure so the exact hard/target boundaries stay unit tested.
+export function classifyLabelLayoutAudit(geometry) {
+  const round = (value) => Math.round(value * 10) / 10;
+  const normalizeBox = (box) => ({
+    x: round(box.x),
+    y: round(box.y),
+    width: round(box.width),
+    height: round(box.height),
+    left: round(box.x),
+    top: round(box.y),
+    right: round(box.x + box.width),
+    bottom: round(box.y + box.height),
+    centerX: round(box.x + box.width / 2),
+    centerY: round(box.y + box.height / 2),
+  });
+  const nodeBoxes = new Map(
+    (geometry.nodes || []).map((item) => [item.id, normalizeBox(item.box)])
+  );
+  const labelBoxes = (geometry.labels || [])
+    .map((item, index) => ({
+      node: item.node,
+      labelIndex: item.labelIndex ?? index,
+      box: normalizeBox(item.box),
+    }))
+    .filter((item) => item.node && item.box.width > 0 && item.box.height > 0);
 
-    const round = (value) => Math.round(value * 10) / 10;
-    const boxFor = (element) => {
-      const box = element.getBBox();
-      return {
-        x: round(box.x),
-        y: round(box.y),
-        width: round(box.width),
-        height: round(box.height),
-        left: round(box.x),
-        top: round(box.y),
-        right: round(box.x + box.width),
-        bottom: round(box.y + box.height),
-        centerX: round(box.x + box.width / 2),
-        centerY: round(box.y + box.height / 2),
-      };
-    };
+  const horizontalOverlap = (a, b) => Math.min(a.right, b.right) - Math.max(a.left, b.left);
+  const verticalOverlap = (a, b) => Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top);
+  const thresholds = Object.freeze({
+    stackedLabelMinGap: 4,
+    stackedLabelTargetGap: 5,
+    shortNodeCenterMaxDelta: 4,
+    sideLabelTargetGap: 5,
+  });
+  const verticalStacks = [];
+  const horizontalSideLabels = [];
+  const byNode = new Map();
 
-    const nodeBoxes = new Map(
-      Array.from(svg.querySelectorAll('.sankey-node[data-node]')).map((element) => {
-        const id = element.getAttribute('data-node');
-        return [id, boxFor(element)];
-      })
-    );
+  labelBoxes.forEach((label) => {
+    const node = nodeBoxes.get(label.node);
+    if (!node) return;
 
-    const labelBoxes = Array.from(svg.querySelectorAll('.sankey-label[data-node]:not(.sankey-icon)'))
-      .map((element, index) => ({
-        node: element.getAttribute('data-node'),
-        labelIndex: index,
-        box: boxFor(element),
-      }))
-      .filter((item) => item.node && item.box.width > 0 && item.box.height > 0);
+    if (!byNode.has(label.node)) byNode.set(label.node, []);
+    byNode.get(label.node).push(label);
 
-    const horizontalOverlap = (a, b) => Math.min(a.right, b.right) - Math.max(a.left, b.left);
-    const verticalOverlap = (a, b) => Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top);
-    const stackedLabelMinGap = 4;
-    const shortNodeCenterMaxDelta = 4;
-    const verticalStacks = [];
-    const horizontalSideLabels = [];
-    const byNode = new Map();
-
-    labelBoxes.forEach((label) => {
-      const node = nodeBoxes.get(label.node);
-      if (!node) return;
-
-      if (!byNode.has(label.node)) byNode.set(label.node, []);
-      byNode.get(label.node).push(label);
-
-      const overlapX = horizontalOverlap(label.box, node);
-      const centerDelta = Math.abs(label.box.centerX - node.centerX);
-      const sameAxisTolerance = Math.max(12, Math.min(40, node.width / 2));
-      const verticalOverlapPx = verticalOverlap(label.box, node);
-      const sideAdjacent = label.box.centerX < node.left || label.box.centerX > node.right;
-      if (verticalOverlapPx > 0 && sideAdjacent) {
-        const overlap = overlapX;
-        if (label.box.right <= node.left) {
-          horizontalSideLabels.push({
-            node: label.node,
-            labelIndex: label.labelIndex,
-            side: 'left-of-node',
-            gap: round(node.left - label.box.right),
-            overlap: 0,
-            verticalCenterDelta: round(Math.abs(label.box.centerY - node.centerY)),
-            verticalOverlap: round(verticalOverlapPx),
-          });
-        } else if (label.box.left >= node.right) {
-          horizontalSideLabels.push({
-            node: label.node,
-            labelIndex: label.labelIndex,
-            side: 'right-of-node',
-            gap: round(label.box.left - node.right),
-            overlap: 0,
-            verticalCenterDelta: round(Math.abs(label.box.centerY - node.centerY)),
-            verticalOverlap: round(verticalOverlapPx),
-          });
-        } else if (overlap > 0) {
-          horizontalSideLabels.push({
-            node: label.node,
-            labelIndex: label.labelIndex,
-            side: label.box.centerX < node.centerX ? 'left-overlap' : 'right-overlap',
-            gap: round(-overlap),
-            overlap: round(overlap),
-            verticalCenterDelta: round(Math.abs(label.box.centerY - node.centerY)),
-            verticalOverlap: round(verticalOverlapPx),
-          });
-        }
-      }
-
-      const shortNode = node.height <= 12 || node.width <= 12;
-      const verticallySeparated = label.box.bottom <= node.top || label.box.top >= node.bottom;
-      const sameAxis = overlapX > 0 && (centerDelta <= sameAxisTolerance || (shortNode && verticallySeparated));
-      if (!sameAxis) return;
-
-      const above = label.box.centerY <= node.centerY;
-      const gap = above ? node.top - label.box.bottom : label.box.top - node.bottom;
-
-      verticalStacks.push({
-        node: label.node,
-        labelIndex: label.labelIndex,
-        direction: above ? 'above-node' : 'below-node',
-        centerDelta: round(centerDelta),
-        gap: round(gap),
-        overlap: round(Math.max(0, -gap)),
-        horizontalOverlap: round(overlapX),
-        shortNode,
-      });
-    });
-
-    const adjacentLabelGaps = [];
-    byNode.forEach((labels, node) => {
-      const sorted = labels.slice().sort((a, b) => a.box.top - b.box.top);
-      for (let i = 1; i < sorted.length; i += 1) {
-        const upper = sorted[i - 1];
-        const lower = sorted[i];
-        const gap = round(lower.box.top - upper.box.bottom);
-        if (gap < 0 || horizontalOverlap(upper.box, lower.box) <= 0) continue;
-        adjacentLabelGaps.push({
-          node,
-          upperLabelIndex: upper.labelIndex,
-          lowerLabelIndex: lower.labelIndex,
-          gap,
+    const overlapX = horizontalOverlap(label.box, node);
+    const centerDelta = Math.abs(label.box.centerX - node.centerX);
+    const sameAxisTolerance = Math.max(12, Math.min(40, node.width / 2));
+    const verticalOverlapPx = verticalOverlap(label.box, node);
+    const sideAdjacent = label.box.centerX < node.left || label.box.centerX > node.right;
+    if (verticalOverlapPx > 0 && sideAdjacent) {
+      const overlap = overlapX;
+      if (label.box.right <= node.left) {
+        horizontalSideLabels.push({
+          node: label.node,
+          labelIndex: label.labelIndex,
+          side: 'left-of-node',
+          gap: round(node.left - label.box.right),
+          overlap: 0,
+          verticalCenterDelta: round(Math.abs(label.box.centerY - node.centerY)),
+          verticalOverlap: round(verticalOverlapPx),
+        });
+      } else if (label.box.left >= node.right) {
+        horizontalSideLabels.push({
+          node: label.node,
+          labelIndex: label.labelIndex,
+          side: 'right-of-node',
+          gap: round(label.box.left - node.right),
+          overlap: 0,
+          verticalCenterDelta: round(Math.abs(label.box.centerY - node.centerY)),
+          verticalOverlap: round(verticalOverlapPx),
+        });
+      } else if (overlap > 0) {
+        horizontalSideLabels.push({
+          node: label.node,
+          labelIndex: label.labelIndex,
+          side: label.box.centerX < node.centerX ? 'left-overlap' : 'right-overlap',
+          gap: round(-overlap),
+          overlap: round(overlap),
+          verticalCenterDelta: round(Math.abs(label.box.centerY - node.centerY)),
+          verticalOverlap: round(verticalOverlapPx),
         });
       }
+    }
+
+    const shortNode = node.height <= 12 || node.width <= 12;
+    const verticallySeparated = label.box.bottom <= node.top || label.box.top >= node.bottom;
+    const sameAxis = overlapX > 0 && (centerDelta <= sameAxisTolerance || (shortNode && verticallySeparated));
+    if (!sameAxis) return;
+
+    const above = label.box.centerY <= node.centerY;
+    const gap = above ? node.top - label.box.bottom : label.box.top - node.bottom;
+    verticalStacks.push({
+      node: label.node,
+      labelIndex: label.labelIndex,
+      direction: above ? 'above-node' : 'below-node',
+      centerDelta: round(centerDelta),
+      gap: round(gap),
+      overlap: round(Math.max(0, -gap)),
+      horizontalOverlap: round(overlapX),
+      shortNode,
     });
-
-    const horizontalViolations = horizontalSideLabels.filter((item) => item.overlap > 0);
-    const verticalViolations = verticalStacks.filter((item) => item.gap < stackedLabelMinGap);
-    const centerViolations = verticalStacks.filter((item) => item.shortNode && item.centerDelta > shortNodeCenterMaxDelta);
-
-    return { verticalStacks, verticalViolations, centerViolations, adjacentLabelGaps, horizontalSideLabels, horizontalViolations };
   });
+
+  const adjacentLabelGaps = [];
+  byNode.forEach((labels, node) => {
+    const sorted = labels.slice().sort((a, b) => a.box.top - b.box.top);
+    for (let i = 1; i < sorted.length; i += 1) {
+      const upper = sorted[i - 1];
+      const lower = sorted[i];
+      const gap = round(lower.box.top - upper.box.bottom);
+      if (gap < 0 || horizontalOverlap(upper.box, lower.box) <= 0) continue;
+      adjacentLabelGaps.push({
+        node,
+        upperLabelIndex: upper.labelIndex,
+        lowerLabelIndex: lower.labelIndex,
+        gap,
+      });
+    }
+  });
+
+  const horizontalViolations = horizontalSideLabels.filter((item) => item.overlap > 0);
+  const verticalViolations = verticalStacks.filter((item) => item.gap < thresholds.stackedLabelMinGap);
+  const centerViolations = verticalStacks.filter(
+    (item) => item.shortNode && item.centerDelta > thresholds.shortNodeCenterMaxDelta
+  );
+  return {
+    thresholds,
+    verticalStacks,
+    verticalViolations,
+    centerViolations,
+    adjacentLabelGaps,
+    horizontalSideLabels,
+    horizontalViolations,
+  };
+}
+
+export async function auditLabelLayout(page) {
+  const geometry = await page.evaluate(() => {
+    const svg = document.querySelector('#chart > svg');
+    if (!svg) throw new Error('SankeyEngine.render did not create #chart > svg');
+    const boxFor = (element) => {
+      const box = element.getBBox();
+      return { x: box.x, y: box.y, width: box.width, height: box.height };
+    };
+    return {
+      nodes: Array.from(svg.querySelectorAll('.sankey-node[data-node]')).map((element) => ({
+        id: element.getAttribute('data-node'),
+        box: boxFor(element),
+      })),
+      labels: Array.from(svg.querySelectorAll('.sankey-label[data-node]:not(.sankey-icon)')).map(
+        (element, labelIndex) => ({
+          node: element.getAttribute('data-node'),
+          labelIndex,
+          box: boxFor(element),
+        })
+      ),
+    };
+  });
+  return classifyLabelLayoutAudit(geometry);
 }
 
 // Bounding boxes of every rendered element family (nodes, links, labels,
