@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-12T17:53:53.163Z",
+  "generatedAt": "2026-07-12T18:33:31.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -1911,129 +1911,129 @@
     },
     "hims-hers-q1-fy26": {
       "path": "data/datasets/hims-hers-q1-fy26.js",
-      "updatedAtMs": 1783860603344,
-      "updatedAt": "2026-07-12T12:50:03.344Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783881211000,
+      "updatedAt": "2026-07-12T18:33:31.000Z",
+      "timeSource": "git"
     },
     "on-q1-fy26": {
       "path": "data/datasets/on-q1-fy26.js",
-      "updatedAtMs": 1783860287206,
-      "updatedAt": "2026-07-12T12:44:47.206Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783881211000,
+      "updatedAt": "2026-07-12T18:33:31.000Z",
+      "timeSource": "git"
     },
     "circle-q1-fy26": {
       "path": "data/datasets/circle-q1-fy26.js",
-      "updatedAtMs": 1783860226582,
-      "updatedAt": "2026-07-12T12:43:46.582Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783881211000,
+      "updatedAt": "2026-07-12T18:33:31.000Z",
+      "timeSource": "git"
     },
     "fiserv-q1-fy26": {
       "path": "data/datasets/fiserv-q1-fy26.js",
-      "updatedAtMs": 1783860268768,
-      "updatedAt": "2026-07-12T12:44:28.768Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783881211000,
+      "updatedAt": "2026-07-12T18:33:31.000Z",
+      "timeSource": "git"
     },
     "ferrari-q1-fy26": {
       "path": "data/datasets/ferrari-q1-fy26.js",
-      "updatedAtMs": 1783862547704,
-      "updatedAt": "2026-07-12T13:22:27.704Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783881211000,
+      "updatedAt": "2026-07-12T18:33:31.000Z",
+      "timeSource": "git"
     },
     "aramco-q1-fy26": {
       "path": "data/datasets/aramco-q1-fy26.js",
-      "updatedAtMs": 1783860631910,
-      "updatedAt": "2026-07-12T12:50:31.910Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783881211000,
+      "updatedAt": "2026-07-12T18:33:31.000Z",
+      "timeSource": "git"
     },
     "nio-q1-fy26": {
       "path": "data/datasets/nio-q1-fy26.js",
-      "updatedAtMs": 1783860623673,
-      "updatedAt": "2026-07-12T12:50:23.673Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783881211000,
+      "updatedAt": "2026-07-12T18:33:31.000Z",
+      "timeSource": "git"
     },
     "celsius-q1-fy26": {
       "path": "data/datasets/celsius-q1-fy26.js",
-      "updatedAtMs": 1783862530983,
-      "updatedAt": "2026-07-12T13:22:10.983Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783881211000,
+      "updatedAt": "2026-07-12T18:33:31.000Z",
+      "timeSource": "git"
     },
     "chevron-q1-fy26": {
       "path": "data/datasets/chevron-q1-fy26.js",
-      "updatedAtMs": 1783860988721,
-      "updatedAt": "2026-07-12T12:56:28.721Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783881211000,
+      "updatedAt": "2026-07-12T18:33:31.000Z",
+      "timeSource": "git"
     },
     "chime-q1-fy26": {
       "path": "data/datasets/chime-q1-fy26.js",
-      "updatedAtMs": 1783861212955,
-      "updatedAt": "2026-07-12T13:00:12.955Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783881211000,
+      "updatedAt": "2026-07-12T18:33:31.000Z",
+      "timeSource": "git"
     },
     "lowes-q1-fy26": {
       "path": "data/datasets/lowes-q1-fy26.js",
-      "updatedAtMs": 1783862662860,
-      "updatedAt": "2026-07-12T13:24:22.860Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783881211000,
+      "updatedAt": "2026-07-12T18:33:31.000Z",
+      "timeSource": "git"
     },
     "sentinelone-q1-fy27": {
       "path": "data/datasets/sentinelone-q1-fy27.js",
-      "updatedAtMs": 1783862647437,
-      "updatedAt": "2026-07-12T13:24:07.437Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783881211000,
+      "updatedAt": "2026-07-12T18:33:31.000Z",
+      "timeSource": "git"
     },
     "hpe-q2-fy26": {
       "path": "data/datasets/hpe-q2-fy26.js",
-      "updatedAtMs": 1783870712014,
-      "updatedAt": "2026-07-12T15:38:32.014Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783881211000,
+      "updatedAt": "2026-07-12T18:33:31.000Z",
+      "timeSource": "git"
     },
     "palo-alto-q3-fy26": {
       "path": "data/datasets/palo-alto-q3-fy26.js",
-      "updatedAtMs": 1783872484843,
-      "updatedAt": "2026-07-12T16:08:04.843Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783881211000,
+      "updatedAt": "2026-07-12T18:33:31.000Z",
+      "timeSource": "git"
     },
     "rubrik-q1-fy27": {
       "path": "data/datasets/rubrik-q1-fy27.js",
-      "updatedAtMs": 1783862714693,
-      "updatedAt": "2026-07-12T13:25:14.693Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783881211000,
+      "updatedAt": "2026-07-12T18:33:31.000Z",
+      "timeSource": "git"
     },
     "home-depot-q1-fy26": {
       "path": "data/datasets/home-depot-q1-fy26.js",
-      "updatedAtMs": 1783862739028,
-      "updatedAt": "2026-07-12T13:25:39.028Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783881211000,
+      "updatedAt": "2026-07-12T18:33:31.000Z",
+      "timeSource": "git"
     },
     "gitlab-q1-fy27": {
       "path": "data/datasets/gitlab-q1-fy27.js",
-      "updatedAtMs": 1783872943770,
-      "updatedAt": "2026-07-12T16:15:43.770Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783881211000,
+      "updatedAt": "2026-07-12T18:33:31.000Z",
+      "timeSource": "git"
     },
     "samsara-q1-fy27": {
       "path": "data/datasets/samsara-q1-fy27.js",
-      "updatedAtMs": 1783876674779,
-      "updatedAt": "2026-07-12T17:17:54.779Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783881211000,
+      "updatedAt": "2026-07-12T18:33:31.000Z",
+      "timeSource": "git"
     },
     "accenture-q3-fy26": {
       "path": "data/datasets/accenture-q3-fy26.js",
-      "updatedAtMs": 1783872786253,
-      "updatedAt": "2026-07-12T16:13:06.253Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783881211000,
+      "updatedAt": "2026-07-12T18:33:31.000Z",
+      "timeSource": "git"
     },
     "fedex-q4-fy26": {
       "path": "data/datasets/fedex-q4-fy26.js",
-      "updatedAtMs": 1783876485376,
-      "updatedAt": "2026-07-12T17:14:45.376Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783881211000,
+      "updatedAt": "2026-07-12T18:33:31.000Z",
+      "timeSource": "git"
     },
     "gamestop-q1-fy26": {
       "path": "data/datasets/gamestop-q1-fy26.js",
-      "updatedAtMs": 1783878833163,
-      "updatedAt": "2026-07-12T17:53:53.163Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783881211000,
+      "updatedAt": "2026-07-12T18:33:31.000Z",
+      "timeSource": "git"
     },
     "data/revenue-metrics.js": {
       "path": "data/revenue-metrics.js",
