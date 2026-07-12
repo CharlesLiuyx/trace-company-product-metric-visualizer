@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-12T09:06:09.000Z",
+  "generatedAt": "2026-07-12T11:08:01.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -519,8 +519,8 @@
     },
     "salesforce-q1-fy27": {
       "path": "data/datasets/salesforce-q1-fy27.js",
-      "updatedAtMs": 1783017504000,
-      "updatedAt": "2026-07-02T18:38:24.000Z",
+      "updatedAtMs": 1783854481000,
+      "updatedAt": "2026-07-12T11:08:01.000Z",
       "timeSource": "git"
     },
     "servicenow-q1-fy26": {
