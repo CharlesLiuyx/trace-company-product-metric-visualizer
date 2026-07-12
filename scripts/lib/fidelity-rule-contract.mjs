@@ -19,12 +19,12 @@ const CANONICAL_RULE_IDS = Object.freeze([
   'G3a',
   'G3b',
   'G3c',
-  ...numbered('B', 15),
+  ...numbered('B', 16),
   ...numbered('R', 9),
   ...numbered('L', 16),
-  ...numbered('T', 16),
+  ...numbered('T', 17),
   'T12a',
-  ...numbered('A', 9),
+  ...numbered('A', 10),
   ...numbered('Z', 8),
   'Z6a',
   ...numbered('I', 11),
@@ -38,9 +38,9 @@ const ENFORCEMENT_GROUPS = Object.freeze({
   ]),
   'build-gate': Object.freeze(['G11']),
   'conditional-gate': Object.freeze([
-    'B3', 'B5', 'B6', 'B7', 'B15',
+    'B3', 'B5', 'B6', 'B7', 'B15', 'B16',
     'T7', 'T13',
-    'A6',
+    'A6', 'A10',
     'Z5',
   ]),
   'quantified-audit': Object.freeze([
@@ -75,6 +75,7 @@ export const FIDELITY_FEATURE_RULE_IDS = Object.freeze({
   'centered-side-label': Object.freeze(['B3', 'T7']),
   text: Object.freeze(['B6', 'Z5']),
   'annotation-near-label': Object.freeze(['B5', 'A6']),
+  'semantic-annotation': Object.freeze(['A10', 'B16', 'T17']),
   'visible-short-node': Object.freeze(['T14']),
   'visible-interface': Object.freeze(['G12', 'L11']),
   'visible-node-face': Object.freeze(['B15', 'T13']),
@@ -86,11 +87,11 @@ export const FIDELITY_FEATURE_RULE_IDS = Object.freeze({
 // architecture verifier scans executable scripts (excluding this registry)
 // and rejects any rule reference that is not declared here first.
 export const FIDELITY_CODE_RULE_IDS = Object.freeze([
-  'A6',
-  'B3', 'B5', 'B6', 'B7', 'B14', 'B15',
+  'A6', 'A10',
+  'B3', 'B5', 'B6', 'B7', 'B14', 'B15', 'B16',
   'G1', 'G2', 'G3', 'G4', 'G5', 'G6', 'G7', 'G8', 'G9', 'G10', 'G11', 'G12',
   'L11',
-  'T7', 'T12', 'T13', 'T14', 'T16',
+  'T7', 'T12', 'T13', 'T14', 'T16', 'T17',
   'Z5',
 ]);
 

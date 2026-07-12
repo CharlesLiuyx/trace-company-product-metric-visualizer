@@ -10,6 +10,93 @@
 
   ssot.records.push(
     {
+      key: 'unitedhealth-q4-fy25',
+      company: 'UnitedHealth Group',
+      period: 'Q4 FY25',
+      periodNote: 'Ending Dec. 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/unitedhealth-q4-fy25.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 113.2,
+        notes: ['+12% Y/Y'],
+        items: [
+          { id: 'premiums', label: 'Premiums', value: 88.9, notes: ['+16% Y/Y'] },
+          { id: 'products', label: 'Products', value: 13.5, notes: ['+0% Y/Y'] },
+          { id: 'services', label: 'Services', value: 10.3, notes: ['+10% Y/Y'] },
+          { id: 'investments_other', label: 'Investments & Other', value: 0.6, notes: ['(58%) Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          id: 'cost_of_revenue',
+          label: 'Cost of revenue',
+          value: 0,
+          notes: ['Source chart does not show a separate gross profit or cost-of-revenue layer.'],
+        },
+        operatingExpenses: {
+          total: 112.8,
+          items: [
+            { id: 'medical_costs', label: 'Medical costs', value: 82.0 },
+            { id: 'operational_costs', label: 'Operational costs', value: 17.0 },
+            { id: 'cost_of_product_sold', label: 'Cost of product sold', value: 12.7 },
+            { id: 'da', label: 'D&A', value: 1.1 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0, notes: ['No separate tax flow is shown in the source chart.'] },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: {
+        total: 0.2,
+        items: [{ id: 'other', label: 'Other', value: 0.2 }],
+      },
+      profit: {
+        gross: {
+          id: 'gross_profit',
+          label: 'Gross profit',
+          value: 113.2,
+          notes: ['Source chart flows revenue directly to operating profit and operating expenses.'],
+        },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 0.4, notes: ['0% margin', '(7pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 0.2, notes: ['0% margin', '(6pp) Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度',
+          periodNote: '截至 2025 年 12 月',
+          revenue: {
+            notes: ['同比 +12%'],
+            items: [
+              { id: 'premiums', label: '保费', notes: ['同比 +16%'] },
+              { id: 'products', label: '产品', notes: ['同比 +0%'] },
+              { id: 'services', label: '服务', notes: ['同比 +10%'] },
+              { id: 'investments_other', label: '投资及其他', notes: ['同比 (58%)'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'medical_costs', label: '医疗成本' },
+                { id: 'operational_costs', label: '运营成本' },
+                { id: 'cost_of_product_sold', label: '产品销售成本' },
+                { id: 'da', label: '折旧摊销' },
+              ],
+            },
+            tax: { label: '税费', notes: ['来源图未展示单独的税费流。'] },
+          },
+          otherExpenses: { items: [{ id: 'other', label: '其他' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['来源图将收入直接流向营业利润与营业费用。'] },
+            operating: { label: '营业利润', notes: ['利润率 0%', '同比 (7 个百分点)'] },
+            net: { label: '净利润', notes: ['利润率 0%', '同比 (6 个百分点)'] },
+          },
+        },
+      },
+    },
+    {
       key: 'unitedhealth-q1-fy26',
       company: 'UnitedHealth Group',
       period: 'Q1 FY26',

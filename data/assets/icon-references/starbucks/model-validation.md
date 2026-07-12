@@ -15,6 +15,23 @@ Generated report: `data/assets/icon-references/starbucks/crop-report.json`
 
 All four crops have `passes: true` in `crop-report.json`, with zero edge foreground pixels and zero forbidden foreground pixels.
 
+## Q1 FY26 Icon Crop Validation
+
+Source: `input/processed/starbucks-q1-fy26.png`
+
+Spec: `input/icon-crop-specs/starbucks-q1-fy26.json`
+
+Generated report: `data/assets/icon-references/starbucks/starbucks-q1-fy26-crop-report.json`
+
+## Accepted Crops
+
+- `q1-fy26-company-siren.png`: the siren mark is complete, centered, and excludes the title, revenue label, flows, and publisher marks.
+- `q1-fy26-business-beverage.png`: the complete iced beverage, including the straw, is centered and free of the Beverage label and source values.
+- `q1-fy26-business-food.png`: the muffin is complete and centered, with no Food label or source values retained.
+- `q1-fy26-business-packaged-beverages.png`: the bottled beverage cluster is complete and excludes the adjacent Other label and notes.
+
+All four Q1 FY26 crops have `passes: true`, zero edge foreground pixels, and zero forbidden foreground pixels. Their approved runtime copies live in `data/assets/raster-annotations/starbucks/` and are the only raster surfaces referenced by the Q1 adapter.
+
 ## Explicitly Skipped
 
 - App Economy Insights watermark, website URL, and social/publisher branding.

@@ -9,6 +9,7 @@ export const OBJECT_FEATURES = Object.freeze([
   'centered-side-label',
   'text',
   'annotation-near-label',
+  'semantic-annotation',
   'visible-short-node',
   'visible-interface',
   'visible-node-face',
@@ -33,6 +34,8 @@ const LEGACY_FEATURE_SET = new Set([
 const DIGEST_RE = /^sha256:[a-f0-9]{64}$/;
 export const HIDDEN_ANCHOR_CLASSIFICATION_CLAIM = 'no-visible-node-face-observed';
 export const HIDDEN_ANCHOR_INSPECTION_METHOD = 'native-scale-crop-and-pixel-scan';
+export const SEMANTIC_ANNOTATION_CLASSIFICATION_CLAIM = 'semantic-node-annotation-required';
+export const SEMANTIC_ANNOTATION_INSPECTION_METHOD = 'native-scale-crop-and-object-inventory';
 
 function invariant(condition, code, message) {
   if (condition) return;
@@ -149,7 +152,7 @@ function normalizeFeatureEvidence(object, features, { strictHiddenEvidence = tru
     normalized[feature] = evidence;
   }
 
-  for (const feature of ['hidden-anchor', 'visible-short-node', 'specified-label-weight']) {
+  for (const feature of ['hidden-anchor', 'visible-short-node', 'specified-label-weight', 'semantic-annotation']) {
     if (features.includes(feature)) {
       invariant(normalized[feature], 'OBJECT_FEATURE_EVIDENCE_REQUIRED', `Object ${object.id} feature ${feature} needs source evidence`);
     }
@@ -190,6 +193,23 @@ function normalizeFeatureEvidence(object, features, { strictHiddenEvidence = tru
       `Object ${object.id} specified-label-weight evidence needs expectedWeight`
     );
   }
+  if (features.includes('semantic-annotation')) {
+    const evidence = normalized['semantic-annotation'];
+    invariant(evidence?.reason, 'OBJECT_FEATURE_EVIDENCE_REQUIRED', `Semantic annotation ${object.id} needs a source-backed classification reason`);
+    invariant(evidence?.locator?.includes('#'), 'SEMANTIC_ANNOTATION_REFERENCE_CROP_REQUIRED', `Semantic annotation ${object.id} needs a reference crop locator with a stable fragment`);
+    invariant(evidence?.referenceBBox, 'SEMANTIC_ANNOTATION_REFERENCE_BBOX_REQUIRED', `Semantic annotation ${object.id} needs a native-pixel referenceBBox`);
+    invariant(evidence?.digest, 'SEMANTIC_ANNOTATION_SOURCE_DIGEST_REQUIRED', `Semantic annotation ${object.id} needs the immutable Source digest`);
+    invariant(
+      evidence?.inspectionMethod === SEMANTIC_ANNOTATION_INSPECTION_METHOD,
+      'SEMANTIC_ANNOTATION_INSPECTION_REQUIRED',
+      `Semantic annotation ${object.id} must use inspectionMethod ${SEMANTIC_ANNOTATION_INSPECTION_METHOD}`
+    );
+    invariant(
+      evidence?.classificationClaim === SEMANTIC_ANNOTATION_CLASSIFICATION_CLAIM,
+      'SEMANTIC_ANNOTATION_CLASSIFICATION_CLAIM_REQUIRED',
+      `Semantic annotation ${object.id} must explicitly claim ${SEMANTIC_ANNOTATION_CLASSIFICATION_CLAIM}`
+    );
+  }
   return Object.fromEntries(Object.entries(normalized).sort(([left], [right]) => left.localeCompare(right)));
 }
 
@@ -197,6 +217,10 @@ function hasNodeRenderMapping(object, mapping) {
   if (!mapping.some((item) => item.role === 'render')) return false;
   if (mapping.some((item) => /(^|[./:])nodes?[./:]/i.test(item.target))) return true;
   return object.id.startsWith('node:') || /(^|-)node$|(^|-)node-|anchor/i.test(object.kind);
+}
+
+function hasAnnotationRenderMapping(mapping) {
+  return mapping.some((item) => item.role === 'render' && /annotation/i.test(item.target));
 }
 
 function normalizeObject(object, index, { legacy = false, strictHiddenEvidence = true } = {}) {
@@ -248,6 +272,20 @@ function normalizeObject(object, index, { legacy = false, strictHiddenEvidence =
         features.includes('visible-node-face'),
         'VISIBLE_SHORT_NODE_FACE_REQUIRED',
         `Visible short node ${object.id} must declare visible-node-face`
+      );
+    }
+    if (!legacy && object.id.startsWith('node:') && hasAnnotationRenderMapping(mapping)) {
+      invariant(
+        features.includes('semantic-annotation'),
+        'SEMANTIC_ANNOTATION_FEATURE_REQUIRED',
+        `Node-mapped annotation ${object.id} must declare semantic-annotation and bind it to source evidence`
+      );
+    }
+    if (!legacy && features.includes('semantic-annotation')) {
+      invariant(
+        object.id.startsWith('node:') && hasAnnotationRenderMapping(mapping),
+        'SEMANTIC_ANNOTATION_MAPPING_REQUIRED',
+        `semantic-annotation ${object.id} needs a node:* identity and an explicit annotations.* render mapping`
       );
     }
   } else {

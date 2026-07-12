@@ -105,6 +105,98 @@
           },
         },
       },
+    },
+    {
+      key: 'boeing-q4-fy25',
+      company: 'Boeing',
+      period: 'Q4 FY25',
+      periodNote: 'Ending Dec. 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/boeing-q4-fy25.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 23.9,
+        notes: ['+57% Y/Y'],
+        items: [
+          { id: 'commercial_airplanes', label: 'Commercial Airplanes', value: 11.4, notes: ['+139% Y/Y', '(6%) segment margin'] },
+          { id: 'defense', label: 'Defense, Space & Security', value: 7.4, notes: ['+37% Y/Y', '(7%) segment margin'] },
+          { id: 'global_services', label: 'Global Services', value: 5.2, notes: ['+2% Y/Y', '202% segment margin'] },
+          {
+            id: 'unallocated',
+            label: 'Unallocated',
+            value: -0.1,
+            notes: ['A $0.1B unallocated deduction shown between the segment aggregation and reported revenue.'],
+          },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 22.1 },
+        operatingExpenses: {
+          total: 2.7,
+          items: [
+            { id: 'ga', label: 'G&A', value: 1.7, notes: ['General and administrative.'] },
+            { id: 'rnd', label: 'R&D', value: 1.0, notes: ['Research and development.'] },
+          ],
+        },
+        tax: { label: 'Tax', value: 0, notes: ['The source does not display a separate tax flow.'] },
+      },
+      operatingOtherIncome: {
+        total: 9.6,
+        items: [{ id: 'gains_disposition', label: 'Gains on disposition', value: 9.6 }],
+      },
+      otherIncome: {
+        total: 0.2,
+        items: [{ id: 'other_income', label: 'Other', value: 0.2 }],
+      },
+      otherExpenses: {
+        total: 0.7,
+        items: [{ id: 'interest', label: 'Interest', value: 0.7 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 1.8, notes: ['8% margin', '+18pp Y/Y'] },
+        operating: {
+          id: 'operating_profit',
+          label: 'Operating profit',
+          value: 8.7,
+          notes: ['Derived as gross profit plus gains on disposition less G&A and R&D; the source has no separately labelled operating-profit node.'],
+        },
+        net: { id: 'net_income', label: 'Net income', value: 8.3, notes: ['35% margin', '+62pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度',
+          periodNote: '截至 2025 年 12 月',
+          revenue: {
+            notes: ['同比 +57%'],
+            items: [
+              { id: 'commercial_airplanes', label: '商用飞机', notes: ['同比 +139%', '分部利润率 (6%)'] },
+              { id: 'defense', label: '国防、太空与安全', notes: ['同比 +37%', '分部利润率 (7%)'] },
+              { id: 'global_services', label: '全球服务', notes: ['同比 +2%', '分部利润率 202%'] },
+              { id: 'unallocated', label: '未分配项', notes: ['在分部汇总与报告收入之间显示的 $0.1B 未分配扣减。'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '销售成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'ga', label: '管理费用', notes: ['一般及行政费用。'] },
+                { id: 'rnd', label: '研发', notes: ['研究与开发。'] },
+              ],
+            },
+            tax: { label: '税费', notes: ['来源图未展示单独的税费流。'] },
+          },
+          operatingOtherIncome: { items: [{ id: 'gains_disposition', label: '处置收益' }] },
+          otherIncome: { items: [{ id: 'other_income', label: '其他' }] },
+          otherExpenses: { items: [{ id: 'interest', label: '利息' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 8%', '同比 +18 个百分点'] },
+            operating: { label: '营业利润', notes: ['按毛利润加处置收益、减管理费用与研发推导；来源图未单独标注营业利润节点。'] },
+            net: { label: '净利润', notes: ['利润率 35%', '同比 +62 个百分点'] },
+          },
+        },
+      },
     }
   );
 })(window);

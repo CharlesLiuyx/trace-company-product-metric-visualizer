@@ -16,7 +16,14 @@
   const RED_LINK = '#e08585';
 
   const annotations = `
-    <g font-family="Montserrat,Arial,sans-serif">
+    <g
+      class="sankey-interactive-annotation"
+      data-node="other"
+      data-link-numerator="other"
+      data-link-denominator="net_profit"
+      data-link-anchor-x="2241"
+      data-link-anchor-y="470"
+      font-family="Montserrat,Arial,sans-serif">
       <path d="M2148 517H2222C2244 517 2232 423 2276 423" fill="none" stroke="${GREEN_LINK}" stroke-width="3" stroke-linecap="round"/>
       <text x="2141" y="564" font-size="32" font-weight="800" fill="${GREEN_LABEL}">Other</text>
       <text x="2141" y="604" font-size="29" font-weight="500" fill="${GREEN_LABEL}">$28M</text>
@@ -32,6 +39,7 @@
       title: 'BlackRock Q1 FY26 Income Statement',
       period: 'Q1 FY26',
       periodNote: 'Ending Mar. 2026',
+      hidePeriodStamp: true,
       currency: '$',
       unit: 'B',
       decimals: 1,
@@ -57,6 +65,7 @@
       width: 2667,
       height: 1500,
       background: '#f2f2f2',
+      interfaceAudit: { mode: 'error' },
       titleColor: TITLE,
       noteColor: NOTE,
       palette: {
@@ -80,10 +89,10 @@
       scale: 45.4,
       nodes: {
         investment_advisory_fees: { x: 408, y: 466, width: 72, height: 245 },
-        performance_fees: { x: 408, y: 839, width: 72, height: 14 },
+        performance_fees: { x: 408, y: 839, width: 72, height: 12 },
         technology_services: { x: 408, y: 974, width: 72, height: 23 },
         distribution_fees: { x: 408, y: 1120, width: 72, height: 18 },
-        advisory_other: { x: 408, y: 1267, width: 72, height: 5 },
+        advisory_other: { x: 408, y: 1267, width: 72, height: 2 },
         revenue: { x: 1030, y: 681, width: 72, height: 304 },
         cost_of_revenue: { x: -1000, y: -1000, width: 1, height: 1 },
         gross_profit: { x: -1000, y: -1000, width: 1, height: 1 },
@@ -93,11 +102,14 @@
         other: { x: -1000, y: -1000, width: 1, height: 1 },
         tax: { x: 2276, y: 687, width: 72, height: 23 },
         compensation_benefits: { x: 2276, y: 825, width: 72, height: 100 },
-        sales_asset_account_expenses: { x: 2276, y: 1034, width: 72, height: 59 },
+        sales_asset_account_expenses: { x: 2276, y: 1034, width: 72, height: 57 },
         amortization_other: { x: 2276, y: 1206, width: 72, height: 14 },
         ga: { x: 2276, y: 1341, width: 72, height: 5 },
       },
       labels: {
+        cost_of_revenue: { blocks: [] },
+        gross_profit: { blocks: [] },
+        other: { blocks: [] },
         investment_advisory_fees: {
           blocks: [
             {
@@ -376,21 +388,21 @@
 
     links: [
       { source: 'investment_advisory_fees', target: 'revenue', value: 5.4, sourceOrder: 0, targetOrder: 0 },
-      { source: 'performance_fees', target: 'revenue', value: 0.3, sourceOrder: 0, targetOrder: 1 },
+      { source: 'performance_fees', target: 'revenue', value: 0.3, sourceOrder: 0, targetOrder: 1, sourceWidth: 12 },
       { source: 'technology_services', target: 'revenue', value: 0.5, sourceOrder: 0, targetOrder: 2 },
       { source: 'distribution_fees', target: 'revenue', value: 0.4, sourceOrder: 0, targetOrder: 3 },
-      { source: 'advisory_other', target: 'revenue', value: 0.1, sourceOrder: 0, targetOrder: 4 },
+      { source: 'advisory_other', target: 'revenue', value: 0.1, sourceOrder: 0, targetOrder: 4, sourceWidth: 2 },
 
       { source: 'revenue', target: 'operating_profit', value: 2.8, sourceOrder: 0, targetOrder: 0 },
-      { source: 'revenue', target: 'operating_expenses', value: 3.9, sourceOrder: 1, targetOrder: 0 },
+      { source: 'revenue', target: 'operating_expenses', value: 3.9, sourceOrder: 1, targetOrder: 0, targetWidth: 176 },
 
       { source: 'operating_profit', target: 'net_profit', value: 2.3, sourceOrder: 0, targetOrder: 0 },
       { source: 'operating_profit', target: 'tax', value: 0.5, sourceOrder: 1, targetOrder: 0 },
 
-      { source: 'operating_expenses', target: 'compensation_benefits', value: 2.2, sourceOrder: 0, targetOrder: 0 },
-      { source: 'operating_expenses', target: 'sales_asset_account_expenses', value: 1.3, sourceOrder: 1, targetOrder: 0 },
-      { source: 'operating_expenses', target: 'amortization_other', value: 0.3, sourceOrder: 2, targetOrder: 0 },
-      { source: 'operating_expenses', target: 'ga', value: 0.1, sourceOrder: 3, targetOrder: 0 },
+      { source: 'operating_expenses', target: 'compensation_benefits', value: 2.2, sourceOrder: 0, targetOrder: 0, sourceWidth: 100 },
+      { source: 'operating_expenses', target: 'sales_asset_account_expenses', value: 1.3, sourceOrder: 1, targetOrder: 0, sourceWidth: 57, targetWidth: 57 },
+      { source: 'operating_expenses', target: 'amortization_other', value: 0.3, sourceOrder: 2, targetOrder: 0, sourceWidth: 14 },
+      { source: 'operating_expenses', target: 'ga', value: 0.1, sourceOrder: 3, targetOrder: 0, sourceWidth: 5 },
     ],
 
     i18n: {

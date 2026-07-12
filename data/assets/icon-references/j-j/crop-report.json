@@ -1,0 +1,320 @@
+{
+  "source": "input/processed/j-j-q4-fy25.png",
+  "spec": "input/icon-crop-specs/j-j-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-12T19:12:13.704409+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/j-j",
+  "crops": [
+    {
+      "key": "j-j-company-wordmark",
+      "output": "data/assets/icon-references/j-j/crops/company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4346,
+        "losslessBytes": 23916,
+        "savingsVsLossless": 0.8183,
+        "metrics": {
+          "meanAbsoluteError": 0.4576,
+          "rootMeanSquareError": 2.1329,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 48,
+          "changedPixelRatio": 0.3625
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 66892,
+        "transparentPixelRatio": 0.6469
+      },
+      "searchBox": {
+        "x": 708,
+        "y": 318,
+        "width": 430,
+        "height": 182
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 716,
+        "y0": 320,
+        "x1": 1134,
+        "y1": 500
+      },
+      "cropBox": {
+        "x0": 690,
+        "y0": 300,
+        "x1": 1160,
+        "y1": 520
+      },
+      "validation": {
+        "width": 470,
+        "height": 220,
+        "foregroundPixels": 31080,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 26,
+          "right": 26,
+          "top": 20,
+          "bottom": 20
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "J&J script wordmark centered above the Sales flow; excludes the title and all financial labels.",
+      "runtimeOutput": "data/assets/raster-annotations/j-j/company-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4346,
+        "losslessBytes": 23916,
+        "savingsVsLossless": 0.8183,
+        "metrics": {
+          "meanAbsoluteError": 0.4576,
+          "rootMeanSquareError": 2.1329,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 48,
+          "changedPixelRatio": 0.3625
+        }
+      },
+      "validationSheet": "data/assets/icon-references/j-j/validation-sheets/j-j-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 216238,
+        "losslessBytes": 216238,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "j-j-innovative-medicine-icon",
+      "output": "data/assets/icon-references/j-j/crops/innovative-medicine-icon.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1454,
+        "losslessBytes": 6347,
+        "savingsVsLossless": 0.7709,
+        "metrics": {
+          "meanAbsoluteError": 1.1078,
+          "rootMeanSquareError": 2.3118,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 26,
+          "changedPixelRatio": 0.5809
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 16770,
+        "transparentPixelRatio": 0.6551
+      },
+      "searchBox": {
+        "x": 185,
+        "y": 548,
+        "width": 120,
+        "height": 125
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 185,
+        "y0": 555,
+        "x1": 305,
+        "y1": 673
+      },
+      "cropBox": {
+        "x0": 165,
+        "y0": 530,
+        "x1": 325,
+        "y1": 690
+      },
+      "validation": {
+        "width": 160,
+        "height": 160,
+        "foregroundPixels": 6600,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 20,
+          "right": 20,
+          "top": 25,
+          "bottom": 17
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.025
+        },
+        "passes": true
+      },
+      "note": "Red laboratory-flask icon for the Innovative Medicine revenue segment; excludes the label, value, note, and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/j-j/innovative-medicine-icon.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1454,
+        "losslessBytes": 6347,
+        "savingsVsLossless": 0.7709,
+        "metrics": {
+          "meanAbsoluteError": 1.1078,
+          "rootMeanSquareError": 2.3118,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 26,
+          "changedPixelRatio": 0.5809
+        }
+      },
+      "validationSheet": "data/assets/icon-references/j-j/validation-sheets/j-j-innovative-medicine-icon.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 229967,
+        "losslessBytes": 229967,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "j-j-medtech-icon",
+      "output": "data/assets/icon-references/j-j/crops/medtech-icon.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1871,
+        "losslessBytes": 9417,
+        "savingsVsLossless": 0.8013,
+        "metrics": {
+          "meanAbsoluteError": 0.305,
+          "rootMeanSquareError": 1.6819,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 35,
+          "changedPixelRatio": 0.095
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 31301,
+        "transparentPixelRatio": 0.7672
+      },
+      "searchBox": {
+        "x": 185,
+        "y": 910,
+        "width": 130,
+        "height": 205
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 185,
+        "y0": 924,
+        "x1": 304,
+        "y1": 1094
+      },
+      "cropBox": {
+        "x0": 165,
+        "y0": 890,
+        "x1": 335,
+        "y1": 1130
+      },
+      "validation": {
+        "width": 170,
+        "height": 240,
+        "foregroundPixels": 7808,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 20,
+          "right": 31,
+          "top": 34,
+          "bottom": 36
+        },
+        "centerOffset": {
+          "x": -0.0324,
+          "y": -0.0042
+        },
+        "passes": true
+      },
+      "note": "Red medical-staff icon for the MedTech revenue segment; excludes the label, value, note, and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/j-j/medtech-icon.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1871,
+        "losslessBytes": 9417,
+        "savingsVsLossless": 0.8013,
+        "metrics": {
+          "meanAbsoluteError": 0.305,
+          "rootMeanSquareError": 1.6819,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 35,
+          "changedPixelRatio": 0.095
+        }
+      },
+      "validationSheet": "data/assets/icon-references/j-j/validation-sheets/j-j-medtech-icon.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 220243,
+        "losslessBytes": 220243,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

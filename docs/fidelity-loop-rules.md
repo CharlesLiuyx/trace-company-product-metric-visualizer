@@ -87,6 +87,7 @@ Node-face 判定采用“可见优先”方法：不确定时声明 `visible-nod
 
 - `visible-short-node` 必须同时声明 `visible-node-face`，并附短柱 crop、bbox、柱面色和背景色。
 - `specified-label-weight` 只在来源或设计规格明确字重时使用，记录语义 heading、期望字重和证据。
+- `semantic-annotation` 只用于参考图确认必须以 annotation 呈现的 Sankey node 名称/金额/引导组；该 node object 必须映射 `annotations.*`，并记录原生 crop、bbox、Source digest、`inspectionMethod: native-scale-crop-and-object-inventory`、`classificationClaim: semantic-node-annotation-required` 与理由。默认选择 `layout.labels`；不能仅为方便定位把 node label 降级为普通 annotation。
 - `visible-interface`、`centered-side-label`、`text`、`annotation-near-label` 等既有 feature
   继续按对象事实声明，不能为了减少检查而省略。
 
@@ -189,6 +190,7 @@ ChangeImpact 的枚举和分类边界由 `docs/architecture/dataset-lifecycle.md
 | B13 | manual | 自身 node 净空检查不会覆盖 label 与同列相邻 node；两侧 bbox 都须人工检查。 |
 | B14 | manual | `specified-label-weight` 触发逐 heading 的 computed `font-weight` 量化和绑定来源证据的强制人工决定；不能拿 title、金额或 wordmark 字重替代。 |
 | B15 | conditional-gate | `visible-node-face`/`hidden-anchor` 触发逐 ID、逐 locale 的 `nodePaintAudit`；bbox、link、hitbox 或接口存在都不能替代真实柱面 paint。 |
+| B16 | conditional-gate | node object 映射 `annotations.*` 时必须声明 `semantic-annotation` 并携带原生 source 分类证据；缺 feature、crop、bbox、Source digest、inspection method、classification claim 或理由均失败。 |
 
 盲点的执行方式改变时，必须同时更新机器目录、相关 feature 编译和回归测试；
 不能只把说明写长。
@@ -298,6 +300,7 @@ renderer 与 metric 配置；局部试改也必须重渲染整图并换算为全
 | T14 | manual | `visible-short-node` 由 reference 中“短而仍可见”的语义事实触发，没有通用高度阈值；逐对象记录 reference/candidate 直线段端点、宽高和 deltas，区分曲线与文字像素。通过要求 reviewer 确认覆盖同一可见直线段；任何接受的非零差异写明理由。调整 node width/x 后同步重算 label 中心。 |
 | T15 | manual | label 位于同列两 node 之间时，同时检查它与自身 node、相邻 node 的净空；任一 overlap 失败，所有 locale 都复查。 |
 | T16 | manual | `specified-label-weight` 对每个语义 heading 比较 computed weight 与来源规格并提交人工决定；title、金额、备注和 wordmark 分开。缺来源时不得声明该 feature，也不得臆造统一字重。 |
+| T17 | manual | 先按参考图判断文字是否属于 Sankey node：名称/金额/备注与 node 或其 micro-flow 属于同一语义对象时默认使用 `layout.labels`；只有真实 callout/guide 必须作为 annotation 时才声明 `semantic-annotation`，并逐 locale Hover 该文字本身、确认高亮和 Tooltip。 |
 
 ### A 系列：annotation 容器
 
@@ -312,6 +315,7 @@ renderer 与 metric 配置；局部试改也必须重渲染整图并换算为全
 | A7 | manual | 非默认语言替换 annotation 文本后，内容 union 仍须在容器内且不越画布。 |
 | A8 | manual | 优先由容器中心、内容高度、行高和 padding 推导 baseline；手写 baseline 时保存容器/union bbox、中心差和边距。 |
 | A9 | manual | 负空间流带 annotation 是连接两端的完整容器：量左右锚点、上下极值、文字 union 和经过的 node face；不能缩成浮动卡片或只移动文字。 |
+| A10 | conditional-gate | `semantic-annotation` 的实际 group 必须带 `sankey-interactive-annotation` 和可解析的 `data-node`，含文本且由 renderer 提供透明 hitbox；同名 node-like annotation text 未绑定该 group 或 node 不存在即失败。 |
 
 ### Z 系列：本地化固定布局
 

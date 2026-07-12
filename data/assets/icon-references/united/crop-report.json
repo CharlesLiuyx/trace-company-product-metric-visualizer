@@ -1,0 +1,132 @@
+{
+  "source": "input/processed/united-q4-fy25.png",
+  "spec": "input/icon-crop-specs/united-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-12T19:18:13.924403+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/united",
+  "crops": [
+    {
+      "key": "united-company-lockup",
+      "output": "data/assets/icon-references/united/crops/company-lockup.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 6264,
+        "losslessBytes": 32966,
+        "savingsVsLossless": 0.81,
+        "metrics": {
+          "meanAbsoluteError": 0.2787,
+          "rootMeanSquareError": 1.5649,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.0874
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 98036,
+        "transparentPixelRatio": 0.6909
+      },
+      "searchBox": {
+        "x": 500,
+        "y": 295,
+        "width": 860,
+        "height": 165
+      },
+      "componentCount": 14,
+      "subjectBox": {
+        "x0": 513,
+        "y0": 300,
+        "x1": 1353,
+        "y1": 456
+      },
+      "cropBox": {
+        "x0": 500,
+        "y0": 295,
+        "x1": 1360,
+        "y1": 460
+      },
+      "validation": {
+        "width": 860,
+        "height": 165,
+        "foregroundPixels": 41599,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 13,
+          "right": 7,
+          "top": 5,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": 0.0035,
+          "y": 0.003
+        },
+        "passes": true
+      },
+      "note": "United corporate wordmark and globe lockup above the revenue hub; excludes the title and all financial labels.",
+      "runtimeOutput": "data/assets/raster-annotations/united/company-lockup.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 6264,
+        "losslessBytes": 32966,
+        "savingsVsLossless": 0.81,
+        "metrics": {
+          "meanAbsoluteError": 0.2787,
+          "rootMeanSquareError": 1.5649,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.0874
+        }
+      },
+      "validationSheet": "data/assets/icon-references/united/validation-sheets/united-company-lockup.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 231729,
+        "losslessBytes": 231729,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

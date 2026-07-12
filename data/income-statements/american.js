@@ -1,0 +1,118 @@
+/* Pure income-statement SSOT records. Sankey geometry stays in data/datasets/. */
+(function (global) {
+  'use strict';
+
+  const ssot = (global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || {
+    schemaVersion: 1,
+    records: [],
+  });
+
+  ssot.records.push({
+    key: 'american-q4-fy25',
+    company: 'American Airlines',
+    period: 'Q4 FY25',
+    periodNote: 'Quarter ended Dec. 31, 2025',
+    currency: '$',
+    unit: 'B',
+    decimals: 1,
+    sourceImage: 'input/processed/american-q4-fy25.png',
+    roundingTolerance: 0.15,
+    revenue: {
+      total: 14.0,
+      notes: ['+2% Y/Y'],
+      items: [
+        { id: 'passenger', label: 'Passenger', value: 12.7, notes: ['+2% Y/Y'] },
+        { id: 'cargo', label: 'Cargo', value: 0.2, notes: ['+3% Y/Y'] },
+        { id: 'other_revenue', label: 'Other', value: 1.1, notes: ['+8% Y/Y'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: {
+        id: 'cost_of_revenue',
+        label: 'Cost of revenue (not separately presented)',
+        value: 0,
+        notes: ['The source infographic moves directly from revenue to operating profit and operating expenses.'],
+      },
+      operatingExpenses: {
+        total: 13.5,
+        items: [
+          { id: 'salaries_benefits', label: 'Salaries & benefits', value: 4.5 },
+          { id: 'aircraft_fuel', label: 'Aircraft fuel', value: 2.7 },
+          { id: 'regional', label: 'Regional', value: 1.4 },
+          { id: 'maintenance', label: 'Maintenance', value: 1.0 },
+          { id: 'landing_fees', label: 'Landing fees', value: 0.8 },
+          { id: 'aircraft_rent', label: 'Aircraft rent', value: 0.3 },
+          { id: 'selling_expenses', label: 'Selling expenses', value: 0.5 },
+          { id: 'depreciation_amortization', label: 'D&A', value: 0.5 },
+          { id: 'other_operating', label: 'Other', value: 1.8 },
+        ],
+      },
+      tax: { id: 'tax', label: 'Tax', value: 0.042 },
+    },
+    otherIncome: {
+      total: 0.04,
+      items: [{ id: 'other_income', label: 'Other', value: 0.04 }],
+    },
+    otherExpenses: {
+      total: 0.4,
+      items: [{ id: 'interest', label: 'Interest', value: 0.4 }],
+    },
+    profit: {
+      gross: {
+        id: 'gross_profit',
+        label: 'Gross profit (not separately presented)',
+        value: 14.0,
+        notes: ['Bookkeeping value for SSOT parity; the source infographic has no gross-profit stage.'],
+      },
+      operating: { id: 'operating_profit', label: 'Operating profit', value: 0.5, notes: ['3% margin', '(5pp) Y/Y'] },
+      net: { id: 'net_profit', label: 'Net profit', value: 0.1, notes: ['1% margin', '(4pp) Y/Y'] },
+    },
+    sources: [
+      {
+        name: 'American Airlines Reports Fourth-Quarter and Full-Year 2025 Financial Results',
+        url: 'https://americanairlines.gcs-web.com/node/43271',
+      },
+    ],
+    i18n: {
+      zh: {
+        period: '2025 财年第四季度',
+        periodNote: '截至 2025 年 12 月 31 日的季度',
+        revenue: {
+          notes: ['同比 +2%'],
+          items: [
+            { id: 'passenger', label: '客运', notes: ['同比 +2%'] },
+            { id: 'cargo', label: '货运', notes: ['同比 +3%'] },
+            { id: 'other_revenue', label: '其他', notes: ['同比 +8%'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: {
+            label: '收入成本（未单列）',
+            notes: ['来源信息图从收入直接拆分为营业利润和运营费用。'],
+          },
+          operatingExpenses: {
+            items: [
+              { id: 'salaries_benefits', label: '薪酬与福利' },
+              { id: 'aircraft_fuel', label: '航空燃油' },
+              { id: 'regional', label: '支线业务' },
+              { id: 'maintenance', label: '维护' },
+              { id: 'landing_fees', label: '着陆费' },
+              { id: 'aircraft_rent', label: '飞机租赁' },
+              { id: 'selling_expenses', label: '销售费用' },
+              { id: 'depreciation_amortization', label: '折旧与摊销' },
+              { id: 'other_operating', label: '其他' },
+            ],
+          },
+          tax: { label: '税费' },
+        },
+        otherIncome: { items: [{ id: 'other_income', label: '其他' }] },
+        otherExpenses: { items: [{ id: 'interest', label: '利息' }] },
+        profit: {
+          gross: { label: '毛利润（未单列）', notes: ['用于 SSOT 对齐的账面值；来源信息图未展示毛利润阶段。'] },
+          operating: { label: '营业利润', notes: ['利润率 3%', '同比 (5 个百分点)'] },
+          net: { label: '净利润', notes: ['利润率 1%', '同比 (4 个百分点)'] },
+        },
+      },
+    },
+  });
+})(window);

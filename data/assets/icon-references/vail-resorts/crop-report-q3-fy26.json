@@ -1,0 +1,482 @@
+{
+  "source": "input/processed/vail-resorts-q3-fy26.png",
+  "spec": "input/icon-crop-specs/vail-resorts-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-12T19:37:33.482807+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/vail-resorts",
+  "crops": [
+    {
+      "key": "vail-resorts-lift-resort-brands",
+      "output": "data/assets/icon-references/vail-resorts/crops/lift-resort-brands-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 4493,
+        "losslessBytes": 23177,
+        "savingsVsLossless": 0.8061,
+        "metrics": {
+          "meanAbsoluteError": 0.6855,
+          "rootMeanSquareError": 1.8736,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.2556
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 29420,
+        "transparentPixelRatio": 0.7573
+      },
+      "searchBox": {
+        "x": 12,
+        "y": 332,
+        "width": 185,
+        "height": 210
+      },
+      "componentCount": 19,
+      "subjectBox": {
+        "x0": 19,
+        "y0": 343,
+        "x1": 197,
+        "y1": 532
+      },
+      "cropBox": {
+        "x0": 12,
+        "y0": 332,
+        "x1": 197,
+        "y1": 542
+      },
+      "validation": {
+        "width": 185,
+        "height": 210,
+        "foregroundPixels": 8647,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 7,
+          "right": 0,
+          "top": 11,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": 0.0189,
+          "y": 0.0024
+        },
+        "passes": true
+      },
+      "note": "Vail, Beaver Creek, and Whistler Blackcomb brand marks grouped with the Lift revenue source. Excludes the Lift label, the gondola icon, source bar, and flow ribbon.",
+      "runtimeOutput": "data/assets/raster-annotations/vail-resorts/lift-resort-brands-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 4493,
+        "losslessBytes": 23177,
+        "savingsVsLossless": 0.8061,
+        "metrics": {
+          "meanAbsoluteError": 0.6855,
+          "rootMeanSquareError": 1.8736,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.2556
+        }
+      },
+      "validationSheet": "data/assets/icon-references/vail-resorts/validation-sheets/q3-fy26/vail-resorts-lift-resort-brands.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 319627,
+        "losslessBytes": 319627,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "vail-resorts-lift-gondola",
+      "output": "data/assets/icon-references/vail-resorts/crops/lift-gondola-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 2862,
+        "losslessBytes": 2862,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 2992,
+        "transparentPixelRatio": 0.7312
+      },
+      "searchBox": {
+        "x": 232,
+        "y": 400,
+        "width": 66,
+        "height": 62
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 240,
+        "y0": 411,
+        "x1": 284,
+        "y1": 460
+      },
+      "cropBox": {
+        "x0": 232,
+        "y0": 400,
+        "x1": 298,
+        "y1": 462
+      },
+      "validation": {
+        "width": 66,
+        "height": 62,
+        "foregroundPixels": 975,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 14,
+          "top": 11,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": -0.0455,
+          "y": 0.0726
+        },
+        "passes": true
+      },
+      "note": "Gondola illustration for the Lift revenue source. The right-edge exclusion removes a clipped fragment of the source Lift label; it excludes the Lift label, source value, source bar, and ribbon.",
+      "excludedPixels": 868,
+      "runtimeOutput": "data/assets/raster-annotations/vail-resorts/lift-gondola-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 2862,
+        "losslessBytes": 2862,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/vail-resorts/validation-sheets/q3-fy26/vail-resorts-lift-gondola.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 284481,
+        "losslessBytes": 284481,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "vail-resorts-mountain-skier",
+      "output": "data/assets/icon-references/vail-resorts/crops/mountain-skier-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 10835,
+        "losslessBytes": 10835,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 6499,
+        "transparentPixelRatio": 0.5373
+      },
+      "searchBox": {
+        "x": 566,
+        "y": 292,
+        "width": 108,
+        "height": 112
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 566,
+        "y0": 302,
+        "x1": 674,
+        "y1": 404
+      },
+      "cropBox": {
+        "x0": 566,
+        "y0": 292,
+        "x1": 674,
+        "y1": 404
+      },
+      "validation": {
+        "width": 108,
+        "height": 112,
+        "foregroundPixels": 5453,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 0,
+          "right": 0,
+          "top": 10,
+          "bottom": 0
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0446
+        },
+        "passes": true
+      },
+      "note": "Skiing illustration placed above the Lift-to-Mountain route. The muted blue-gray ribbon sampled behind the skis is removed; the Mountain label and source value are excluded.",
+      "transparentColorPixels": 2542,
+      "runtimeOutput": "data/assets/raster-annotations/vail-resorts/mountain-skier-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 10835,
+        "losslessBytes": 10835,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/vail-resorts/validation-sheets/q3-fy26/vail-resorts-mountain-skier.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 330621,
+        "losslessBytes": 330621,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "vail-resorts-mountain-icon",
+      "output": "data/assets/icon-references/vail-resorts/crops/mountain-icon-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 1471,
+        "losslessBytes": 3751,
+        "savingsVsLossless": 0.6078,
+        "metrics": {
+          "meanAbsoluteError": 0.7662,
+          "rootMeanSquareError": 2.4315,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 27,
+          "changedPixelRatio": 0.2343
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 3947,
+        "transparentPixelRatio": 0.7739
+      },
+      "searchBox": {
+        "x": 858,
+        "y": 260,
+        "width": 75,
+        "height": 68
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 867,
+        "y0": 275,
+        "x1": 918,
+        "y1": 314
+      },
+      "cropBox": {
+        "x0": 858,
+        "y0": 260,
+        "x1": 933,
+        "y1": 328
+      },
+      "validation": {
+        "width": 75,
+        "height": 68,
+        "foregroundPixels": 1055,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 9,
+          "right": 15,
+          "top": 15,
+          "bottom": 14
+        },
+        "centerOffset": {
+          "x": -0.04,
+          "y": 0.0074
+        },
+        "passes": true
+      },
+      "note": "Mountain illustration above the Mountain revenue aggregation label. Excludes the Vail Resorts wordmark and financial labels.",
+      "runtimeOutput": "data/assets/raster-annotations/vail-resorts/mountain-icon-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 1471,
+        "losslessBytes": 3751,
+        "savingsVsLossless": 0.6078,
+        "metrics": {
+          "meanAbsoluteError": 0.7662,
+          "rootMeanSquareError": 2.4315,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 27,
+          "changedPixelRatio": 0.2343
+        }
+      },
+      "validationSheet": "data/assets/icon-references/vail-resorts/validation-sheets/q3-fy26/vail-resorts-mountain-icon.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 297149,
+        "losslessBytes": 297149,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "vail-resorts-lodging-icon",
+      "output": "data/assets/icon-references/vail-resorts/crops/lodging-icon-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 1384,
+        "losslessBytes": 4388,
+        "savingsVsLossless": 0.6846,
+        "metrics": {
+          "meanAbsoluteError": 1.0246,
+          "rootMeanSquareError": 2.7211,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.348
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 3572,
+        "transparentPixelRatio": 0.6615
+      },
+      "searchBox": {
+        "x": 858,
+        "y": 848,
+        "width": 75,
+        "height": 72
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 868,
+        "y0": 861,
+        "x1": 917,
+        "y1": 910
+      },
+      "cropBox": {
+        "x0": 858,
+        "y0": 848,
+        "x1": 933,
+        "y1": 920
+      },
+      "validation": {
+        "width": 75,
+        "height": 72,
+        "foregroundPixels": 1800,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 10,
+          "right": 16,
+          "top": 13,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": -0.04,
+          "y": 0.0208
+        },
+        "passes": true
+      },
+      "note": "House illustration above the Lodging source label. Excludes the Lodging text, value, source bar, and flow ribbon.",
+      "runtimeOutput": "data/assets/raster-annotations/vail-resorts/lodging-icon-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 1384,
+        "losslessBytes": 4388,
+        "savingsVsLossless": 0.6846,
+        "metrics": {
+          "meanAbsoluteError": 1.0246,
+          "rootMeanSquareError": 2.7211,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.348
+        }
+      },
+      "validationSheet": "data/assets/icon-references/vail-resorts/validation-sheets/q3-fy26/vail-resorts-lodging-icon.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 300865,
+        "losslessBytes": 300865,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

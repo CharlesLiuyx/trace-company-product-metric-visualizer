@@ -1,0 +1,414 @@
+{
+  "source": "input/processed/ge-vernova-q4-fy25.png",
+  "spec": "input/icon-crop-specs/ge-vernova-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-12T19:13:22.744097+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/ge-vernova",
+  "crops": [
+    {
+      "key": "ge-vernova-company-logo",
+      "output": "data/assets/icon-references/ge-vernova/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 9471,
+        "losslessBytes": 47051,
+        "savingsVsLossless": 0.7987,
+        "metrics": {
+          "meanAbsoluteError": 0.3465,
+          "rootMeanSquareError": 1.6149,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 32,
+          "changedPixelRatio": 0.2558
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 116667,
+        "transparentPixelRatio": 0.7488
+      },
+      "searchBox": {
+        "x": 544,
+        "y": 274,
+        "width": 820,
+        "height": 190
+      },
+      "componentCount": 14,
+      "subjectBox": {
+        "x0": 552,
+        "y0": 280,
+        "x1": 1352,
+        "y1": 458
+      },
+      "cropBox": {
+        "x0": 544,
+        "y0": 274,
+        "x1": 1364,
+        "y1": 464
+      },
+      "validation": {
+        "width": 820,
+        "height": 190,
+        "foregroundPixels": 30326,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 12,
+          "top": 6,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": -0.0024,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "The complete GE Vernova circular monogram and wordmark above Revenue, excluding the page title and financial labels.",
+      "runtimeOutput": "data/assets/raster-annotations/ge-vernova/company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 9471,
+        "losslessBytes": 47051,
+        "savingsVsLossless": 0.7987,
+        "metrics": {
+          "meanAbsoluteError": 0.3465,
+          "rootMeanSquareError": 1.6149,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 32,
+          "changedPixelRatio": 0.2558
+        }
+      },
+      "validationSheet": "data/assets/icon-references/ge-vernova/validation-sheets/ge-vernova-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 256188,
+        "losslessBytes": 256188,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "ge-vernova-power-icon",
+      "output": "data/assets/icon-references/ge-vernova/crops/power-icon.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1785,
+        "losslessBytes": 7207,
+        "savingsVsLossless": 0.7523,
+        "metrics": {
+          "meanAbsoluteError": 0.4188,
+          "rootMeanSquareError": 2.3928,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 38,
+          "changedPixelRatio": 0.091
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 9117,
+        "transparentPixelRatio": 0.4165
+      },
+      "searchBox": {
+        "x": 128,
+        "y": 430,
+        "width": 140,
+        "height": 138
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 131,
+        "y0": 434,
+        "x1": 259,
+        "y1": 562
+      },
+      "cropBox": {
+        "x0": 122,
+        "y0": 426,
+        "x1": 274,
+        "y1": 570
+      },
+      "validation": {
+        "width": 152,
+        "height": 144,
+        "foregroundPixels": 12738,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 9,
+          "right": 15,
+          "top": 8,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": -0.0197,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "The teal circular power icon and its lime lightning symbol, excluding the Power label and revenue bar.",
+      "runtimeOutput": "data/assets/raster-annotations/ge-vernova/power-icon.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1785,
+        "losslessBytes": 7207,
+        "savingsVsLossless": 0.7523,
+        "metrics": {
+          "meanAbsoluteError": 0.4188,
+          "rootMeanSquareError": 2.3928,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 38,
+          "changedPixelRatio": 0.091
+        }
+      },
+      "validationSheet": "data/assets/icon-references/ge-vernova/validation-sheets/ge-vernova-power-icon.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 278034,
+        "losslessBytes": 278034,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "ge-vernova-wind-icon",
+      "output": "data/assets/icon-references/ge-vernova/crops/wind-icon.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2068,
+        "losslessBytes": 8721,
+        "savingsVsLossless": 0.7629,
+        "metrics": {
+          "meanAbsoluteError": 0.4206,
+          "rootMeanSquareError": 2.2506,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 37,
+          "changedPixelRatio": 0.1027
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 9179,
+        "transparentPixelRatio": 0.4194
+      },
+      "searchBox": {
+        "x": 128,
+        "y": 720,
+        "width": 140,
+        "height": 140
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 131,
+        "y0": 728,
+        "x1": 259,
+        "y1": 855
+      },
+      "cropBox": {
+        "x0": 122,
+        "y0": 720,
+        "x1": 274,
+        "y1": 864
+      },
+      "validation": {
+        "width": 152,
+        "height": 144,
+        "foregroundPixels": 12668,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 9,
+          "right": 15,
+          "top": 8,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": -0.0197,
+          "y": -0.0035
+        },
+        "passes": true
+      },
+      "note": "The teal circular wind-turbine icon and its lime line art, excluding the Wind label and revenue bar.",
+      "runtimeOutput": "data/assets/raster-annotations/ge-vernova/wind-icon.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2068,
+        "losslessBytes": 8721,
+        "savingsVsLossless": 0.7629,
+        "metrics": {
+          "meanAbsoluteError": 0.4206,
+          "rootMeanSquareError": 2.2506,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 37,
+          "changedPixelRatio": 0.1027
+        }
+      },
+      "validationSheet": "data/assets/icon-references/ge-vernova/validation-sheets/ge-vernova-wind-icon.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 285393,
+        "losslessBytes": 285393,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "ge-vernova-electrification-icon",
+      "output": "data/assets/icon-references/ge-vernova/crops/electrification-icon.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2521,
+        "losslessBytes": 10761,
+        "savingsVsLossless": 0.7657,
+        "metrics": {
+          "meanAbsoluteError": 0.4304,
+          "rootMeanSquareError": 1.9447,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.1575
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 8474,
+        "transparentPixelRatio": 0.404
+      },
+      "searchBox": {
+        "x": 128,
+        "y": 1010,
+        "width": 140,
+        "height": 140
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 133,
+        "y0": 1028,
+        "x1": 259,
+        "y1": 1150
+      },
+      "cropBox": {
+        "x0": 122,
+        "y0": 1020,
+        "x1": 274,
+        "y1": 1158
+      },
+      "validation": {
+        "width": 152,
+        "height": 138,
+        "foregroundPixels": 12464,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 11,
+          "right": 15,
+          "top": 8,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": -0.0132,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "The teal circular electrification-transmission icon and its lime line art, excluding the Electrification label and revenue bar.",
+      "runtimeOutput": "data/assets/raster-annotations/ge-vernova/electrification-icon.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2521,
+        "losslessBytes": 10761,
+        "savingsVsLossless": 0.7657,
+        "metrics": {
+          "meanAbsoluteError": 0.4304,
+          "rootMeanSquareError": 1.9447,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.1575
+        }
+      },
+      "validationSheet": "data/assets/icon-references/ge-vernova/validation-sheets/ge-vernova-electrification-icon.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 299098,
+        "losslessBytes": 299098,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}
