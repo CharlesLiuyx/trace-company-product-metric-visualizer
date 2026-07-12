@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-12T20:40:18.502Z",
+  "generatedAt": "2026-07-12T21:11:41.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -123,8 +123,8 @@
     },
     "blackrock-q1-fy26": {
       "path": "data/datasets/blackrock-q1-fy26.js",
-      "updatedAtMs": 1783017504000,
-      "updatedAt": "2026-07-02T18:38:24.000Z",
+      "updatedAtMs": 1783890701000,
+      "updatedAt": "2026-07-12T21:11:41.000Z",
       "timeSource": "git"
     },
     "boeing-q1-fy26": {
@@ -261,8 +261,8 @@
     },
     "goldman-sachs-q1-fy26": {
       "path": "data/datasets/goldman-sachs-q1-fy26.js",
-      "updatedAtMs": 1783017504000,
-      "updatedAt": "2026-07-02T18:38:24.000Z",
+      "updatedAtMs": 1783890701000,
+      "updatedAt": "2026-07-12T21:11:41.000Z",
       "timeSource": "git"
     },
     "hilton-q1-fy26": {
@@ -2037,141 +2037,141 @@
     },
     "chewy-q1-fy26": {
       "path": "data/datasets/chewy-q1-fy26.js",
-      "updatedAtMs": 1783882152288,
-      "updatedAt": "2026-07-12T18:49:12.288Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783890701000,
+      "updatedAt": "2026-07-12T21:11:41.000Z",
+      "timeSource": "git"
     },
     "vail-resorts-q3-fy26": {
       "path": "data/datasets/vail-resorts-q3-fy26.js",
-      "updatedAtMs": 1783883529038,
-      "updatedAt": "2026-07-12T19:12:09.038Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783890701000,
+      "updatedAt": "2026-07-12T21:11:41.000Z",
+      "timeSource": "git"
     },
     "carnival-q2-fy26": {
       "path": "data/datasets/carnival-q2-fy26.js",
-      "updatedAtMs": 1783882402197,
-      "updatedAt": "2026-07-12T18:53:22.197Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783890701000,
+      "updatedAt": "2026-07-12T21:11:41.000Z",
+      "timeSource": "git"
     },
     "darden-q4-fy26": {
       "path": "data/datasets/darden-q4-fy26.js",
-      "updatedAtMs": 1783882507921,
-      "updatedAt": "2026-07-12T18:55:07.921Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783890701000,
+      "updatedAt": "2026-07-12T21:11:41.000Z",
+      "timeSource": "git"
     },
     "unitedhealth-q4-fy25": {
       "path": "data/datasets/unitedhealth-q4-fy25.js",
-      "updatedAtMs": 1783883934521,
-      "updatedAt": "2026-07-12T19:18:54.521Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783890701000,
+      "updatedAt": "2026-07-12T21:11:41.000Z",
+      "timeSource": "git"
     },
     "p-g-q2-fy26": {
       "path": "data/datasets/p-g-q2-fy26.js",
-      "updatedAtMs": 1783885805580,
-      "updatedAt": "2026-07-12T19:50:05.580Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783890701000,
+      "updatedAt": "2026-07-12T21:11:41.000Z",
+      "timeSource": "git"
     },
     "ups-q4-fy25": {
       "path": "data/datasets/ups-q4-fy25.js",
-      "updatedAtMs": 1783886453776,
-      "updatedAt": "2026-07-12T20:00:53.776Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783890701000,
+      "updatedAt": "2026-07-12T21:11:41.000Z",
+      "timeSource": "git"
     },
     "united-q4-fy25": {
       "path": "data/datasets/united-q4-fy25.js",
-      "updatedAtMs": 1783884030912,
-      "updatedAt": "2026-07-12T19:20:30.912Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783890701000,
+      "updatedAt": "2026-07-12T21:11:41.000Z",
+      "timeSource": "git"
     },
     "lvmh-fy25": {
       "path": "data/datasets/lvmh-fy25.js",
-      "updatedAtMs": 1783885661556,
-      "updatedAt": "2026-07-12T19:47:41.556Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783890701000,
+      "updatedAt": "2026-07-12T21:11:41.000Z",
+      "timeSource": "git"
     },
     "tilray-q2-fy26": {
       "path": "data/datasets/tilray-q2-fy26.js",
-      "updatedAtMs": 1783883769647,
-      "updatedAt": "2026-07-12T19:16:09.647Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783890701000,
+      "updatedAt": "2026-07-12T21:11:41.000Z",
+      "timeSource": "git"
     },
     "intuitive-q4-fy25": {
       "path": "data/datasets/intuitive-q4-fy25.js",
-      "updatedAtMs": 1783884238967,
-      "updatedAt": "2026-07-12T19:23:58.967Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783890701000,
+      "updatedAt": "2026-07-12T21:11:41.000Z",
+      "timeSource": "git"
     },
     "j-j-q4-fy25": {
       "path": "data/datasets/j-j-q4-fy25.js",
-      "updatedAtMs": 1783884048681,
-      "updatedAt": "2026-07-12T19:20:48.681Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783890701000,
+      "updatedAt": "2026-07-12T21:11:41.000Z",
+      "timeSource": "git"
     },
     "abbott-q4-fy25": {
       "path": "data/datasets/abbott-q4-fy25.js",
-      "updatedAtMs": 1783884906398,
-      "updatedAt": "2026-07-12T19:35:06.398Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783890701000,
+      "updatedAt": "2026-07-12T21:11:41.000Z",
+      "timeSource": "git"
     },
     "ge-vernova-q4-fy25": {
       "path": "data/datasets/ge-vernova-q4-fy25.js",
-      "updatedAtMs": 1783884057052,
-      "updatedAt": "2026-07-12T19:20:57.052Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783890701000,
+      "updatedAt": "2026-07-12T21:11:41.000Z",
+      "timeSource": "git"
     },
     "goldman-sachs-q4-fy25": {
       "path": "data/datasets/goldman-sachs-q4-fy25.js",
-      "updatedAtMs": 1783887961302,
-      "updatedAt": "2026-07-12T20:26:01.302Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783890701000,
+      "updatedAt": "2026-07-12T21:11:41.000Z",
+      "timeSource": "git"
     },
     "delta-q4-fy25": {
       "path": "data/datasets/delta-q4-fy25.js",
-      "updatedAtMs": 1783888661025,
-      "updatedAt": "2026-07-12T20:37:41.025Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783890701000,
+      "updatedAt": "2026-07-12T21:11:41.000Z",
+      "timeSource": "git"
     },
     "blackrock-q4-fy25": {
       "path": "data/datasets/blackrock-q4-fy25.js",
-      "updatedAtMs": 1783888094175,
-      "updatedAt": "2026-07-12T20:28:14.175Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783890701000,
+      "updatedAt": "2026-07-12T21:11:41.000Z",
+      "timeSource": "git"
     },
     "boeing-q4-fy25": {
       "path": "data/datasets/boeing-q4-fy25.js",
-      "updatedAtMs": 1783887997515,
-      "updatedAt": "2026-07-12T20:26:37.515Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783890701000,
+      "updatedAt": "2026-07-12T21:11:41.000Z",
+      "timeSource": "git"
     },
     "morgan-stanley-q4-fy25": {
       "path": "data/datasets/morgan-stanley-q4-fy25.js",
-      "updatedAtMs": 1783888082257,
-      "updatedAt": "2026-07-12T20:28:02.257Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783890701000,
+      "updatedAt": "2026-07-12T21:11:41.000Z",
+      "timeSource": "git"
     },
     "sofi-q4-fy25": {
       "path": "data/datasets/sofi-q4-fy25.js",
-      "updatedAtMs": 1783888742578,
-      "updatedAt": "2026-07-12T20:39:02.578Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783890701000,
+      "updatedAt": "2026-07-12T21:11:41.000Z",
+      "timeSource": "git"
     },
     "starbucks-q1-fy26": {
       "path": "data/datasets/starbucks-q1-fy26.js",
-      "updatedAtMs": 1783888306679,
-      "updatedAt": "2026-07-12T20:31:46.679Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783890701000,
+      "updatedAt": "2026-07-12T21:11:41.000Z",
+      "timeSource": "git"
     },
     "american-q4-fy25": {
       "path": "data/datasets/american-q4-fy25.js",
-      "updatedAtMs": 1783888818502,
-      "updatedAt": "2026-07-12T20:40:18.502Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783890701000,
+      "updatedAt": "2026-07-12T21:11:41.000Z",
+      "timeSource": "git"
     },
     "southwest-q4-fy25": {
       "path": "data/datasets/southwest-q4-fy25.js",
-      "updatedAtMs": 1783888130534,
-      "updatedAt": "2026-07-12T20:28:50.534Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783890701000,
+      "updatedAt": "2026-07-12T21:11:41.000Z",
+      "timeSource": "git"
     },
     "data/revenue-metrics.js": {
       "path": "data/revenue-metrics.js",
