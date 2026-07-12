@@ -3,6 +3,12 @@
   "language": "en",
   "similarityTolerance": 0.003,
   "baselines": {
+    "abbott-q4-fy25": {
+      "similarity": 0.972876,
+      "mae": 6.9166,
+      "width": 2667,
+      "height": 1500
+    },
     "abbvie-q4-fy25": {
       "similarity": 0.970328,
       "mae": 7.5664,
@@ -156,6 +162,12 @@
     "american-express-q1-fy26": {
       "similarity": 0.956359,
       "mae": 11.1285,
+      "width": 2667,
+      "height": 1500
+    },
+    "american-q4-fy25": {
+      "similarity": 0.963091,
+      "mae": 9.4117,
       "width": 2667,
       "height": 1500
     },
@@ -327,6 +339,12 @@
       "width": 2667,
       "height": 1500
     },
+    "blackrock-q4-fy25": {
+      "similarity": 0.966593,
+      "mae": 8.5188,
+      "width": 2667,
+      "height": 1500
+    },
     "block-fy25": {
       "similarity": 0.984298,
       "mae": 4.0041,
@@ -342,6 +360,12 @@
     "boeing-q1-fy26": {
       "similarity": 0.970151,
       "mae": 7.6115,
+      "width": 2667,
+      "height": 1500
+    },
+    "boeing-q4-fy25": {
+      "similarity": 0.97057,
+      "mae": 7.5048,
       "width": 2667,
       "height": 1500
     },
@@ -381,6 +405,12 @@
       "width": 2667,
       "height": 1500
     },
+    "carnival-q2-fy26": {
+      "similarity": 0.947005,
+      "mae": 13.5137,
+      "width": 2667,
+      "height": 1500
+    },
     "celsius-q1-fy26": {
       "similarity": 0.964271,
       "mae": 9.111,
@@ -396,6 +426,12 @@
     "chevron-q1-fy26": {
       "similarity": 0.966905,
       "mae": 8.4393,
+      "width": 2667,
+      "height": 1500
+    },
+    "chewy-q1-fy26": {
+      "similarity": 0.961976,
+      "mae": 9.6962,
       "width": 2667,
       "height": 1500
     },
@@ -525,6 +561,12 @@
       "width": 2667,
       "height": 1500
     },
+    "darden-q4-fy26": {
+      "similarity": 0.975047,
+      "mae": 6.3631,
+      "width": 2667,
+      "height": 1500
+    },
     "datadog-q1-fy26": {
       "similarity": 0.972766,
       "mae": 6.9446,
@@ -546,6 +588,12 @@
     "dell-q4-fy26": {
       "similarity": 0.96456,
       "mae": 9.0372,
+      "width": 2667,
+      "height": 1500
+    },
+    "delta-q4-fy25": {
+      "similarity": 0.977736,
+      "mae": 5.6774,
       "width": 2667,
       "height": 1500
     },
@@ -777,6 +825,12 @@
       "width": 2667,
       "height": 1500
     },
+    "ge-vernova-q4-fy25": {
+      "similarity": 0.969889,
+      "mae": 7.6782,
+      "width": 2667,
+      "height": 1500
+    },
     "gitlab-q1-fy27": {
       "similarity": 0.955768,
       "mae": 11.2792,
@@ -804,6 +858,12 @@
     "goldman-sachs-q1-fy26": {
       "similarity": 0.96779,
       "mae": 8.2137,
+      "width": 2667,
+      "height": 1500
+    },
+    "goldman-sachs-q4-fy25": {
+      "similarity": 0.970173,
+      "mae": 7.606,
       "width": 2667,
       "height": 1500
     },
@@ -939,6 +999,18 @@
       "width": 2667,
       "height": 1500
     },
+    "intuitive-q4-fy25": {
+      "similarity": 0.974725,
+      "mae": 6.4451,
+      "width": 2667,
+      "height": 1500
+    },
+    "j-j-q4-fy25": {
+      "similarity": 0.976118,
+      "mae": 6.0898,
+      "width": 2667,
+      "height": 1500
+    },
     "jd-com-q1-fy26": {
       "similarity": 0.970724,
       "mae": 7.4653,
@@ -1038,6 +1110,12 @@
     "lululemon-q1-fy26": {
       "similarity": 0.952756,
       "mae": 12.0473,
+      "width": 2667,
+      "height": 1500
+    },
+    "lvmh-fy25": {
+      "similarity": 0.965443,
+      "mae": 8.8119,
       "width": 2667,
       "height": 1500
     },
@@ -1200,6 +1278,12 @@
     "morgan-stanley-q1-fy26": {
       "similarity": 0.95472,
       "mae": 11.5463,
+      "width": 2667,
+      "height": 1500
+    },
+    "morgan-stanley-q4-fy25": {
+      "similarity": 0.957702,
+      "mae": 10.7861,
       "width": 2667,
       "height": 1500
     },
@@ -1422,6 +1506,12 @@
     "oracle-q4-fy26": {
       "similarity": 0.960721,
       "mae": 10.0161,
+      "width": 2667,
+      "height": 1500
+    },
+    "p-g-q2-fy26": {
+      "similarity": 0.974258,
+      "mae": 6.5643,
       "width": 2667,
       "height": 1500
     },
@@ -1731,6 +1821,12 @@
       "width": 2667,
       "height": 1500
     },
+    "sofi-q4-fy25": {
+      "similarity": 0.972061,
+      "mae": 7.1245,
+      "width": 2667,
+      "height": 1500
+    },
     "sony-fy25": {
       "similarity": 0.965116,
       "mae": 8.8954,
@@ -1740,6 +1836,12 @@
     "sony-q3-fy25": {
       "similarity": 0.977953,
       "mae": 5.622,
+      "width": 2667,
+      "height": 1500
+    },
+    "southwest-q4-fy25": {
+      "similarity": 0.967688,
+      "mae": 8.2394,
       "width": 2667,
       "height": 1500
     },
@@ -1758,6 +1860,12 @@
     "spotify-q4-fy25": {
       "similarity": 0.967519,
       "mae": 8.2826,
+      "width": 2667,
+      "height": 1500
+    },
+    "starbucks-q1-fy26": {
+      "similarity": 0.971343,
+      "mae": 7.3076,
       "width": 2667,
       "height": 1500
     },
@@ -1851,6 +1959,12 @@
       "width": 2667,
       "height": 1500
     },
+    "tilray-q2-fy26": {
+      "similarity": 0.961284,
+      "mae": 9.8725,
+      "width": 2667,
+      "height": 1500
+    },
     "toast-q1-fy26": {
       "similarity": 0.978501,
       "mae": 5.4823,
@@ -1917,9 +2031,33 @@
       "width": 2667,
       "height": 1500
     },
+    "united-q4-fy25": {
+      "similarity": 0.959975,
+      "mae": 10.2064,
+      "width": 2667,
+      "height": 1500
+    },
     "unitedhealth-q1-fy26": {
       "similarity": 0.969315,
       "mae": 7.8246,
+      "width": 2667,
+      "height": 1500
+    },
+    "unitedhealth-q4-fy25": {
+      "similarity": 0.971838,
+      "mae": 7.1814,
+      "width": 2667,
+      "height": 1500
+    },
+    "ups-q4-fy25": {
+      "similarity": 0.968947,
+      "mae": 7.9186,
+      "width": 2667,
+      "height": 1500
+    },
+    "vail-resorts-q3-fy26": {
+      "similarity": 0.964785,
+      "mae": 8.9798,
       "width": 2667,
       "height": 1500
     },

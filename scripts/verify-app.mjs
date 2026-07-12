@@ -291,6 +291,62 @@ await scenario('sankey hover: unified node and link share rules', async (page) =
     coupangBridge.join('|') === '23.5%',
     `Coupang operating profit → Other link hover expected smaller/larger endpoint share 23.5%, got ${coupangBridge.join(' + ')}`
   );
+
+  await boot(page, `${url}#blackrock-q1-fy26`);
+  const blackRockOther = page.locator(
+    '#chart .sankey-interactive-annotation[data-node="other"] .sankey-annotation-hitbox'
+  );
+  assert(
+    await blackRockOther.count() === 1,
+    'BlackRock Other annotation has no practical hover hitbox'
+  );
+  await blackRockOther.hover({ force: true });
+  const blackRockOtherPercentages = await visiblePercentages();
+  assert(
+    blackRockOtherPercentages.join('|') === '1.2%',
+    `BlackRock Other annotation hover expected 1.2%, got ${blackRockOtherPercentages.join(' + ')}`
+  );
+  const blackRockOtherPosition = await page.evaluate(() => {
+    const annotation = document.querySelector(
+      '#chart .sankey-interactive-annotation[data-node="other"]'
+    );
+    const tooltip = document.querySelector('#chart g.sankey-link-tooltip');
+    const label = [...annotation.querySelectorAll('text')]
+      .find((element) => element.textContent.trim() === 'Other');
+    const rect = tooltip.querySelector('rect');
+    const transform = tooltip.getAttribute('transform') || '';
+    const [, x, y] = transform.match(/translate\(([-.\d]+),([-.\d]+)\)/) || [];
+    const tooltipBox = {
+      x: Number(x),
+      y: Number(y),
+      width: rect.width.baseVal.value,
+      height: rect.height.baseVal.value,
+    };
+    const center = {
+      x: tooltipBox.x + tooltipBox.width / 2,
+      y: tooltipBox.y + tooltipBox.height / 2,
+    };
+    const guide = annotation.querySelector('path');
+    const length = guide.getTotalLength();
+    let guideDistance = Infinity;
+    for (let i = 0; i <= 200; i += 1) {
+      const point = guide.getPointAtLength(length * i / 200);
+      guideDistance = Math.min(guideDistance, Math.hypot(point.x - center.x, point.y - center.y));
+    }
+    const labelBox = label.getBBox();
+    const overlapsLabel = !(
+      tooltipBox.x + tooltipBox.width <= labelBox.x
+      || labelBox.x + labelBox.width <= tooltipBox.x
+      || tooltipBox.y + tooltipBox.height <= labelBox.y
+      || labelBox.y + labelBox.height <= tooltipBox.y
+    );
+    return { center, guideDistance, overlapsLabel };
+  });
+  assert(
+    blackRockOtherPosition.guideDistance <= 2,
+    `BlackRock Other tooltip is ${blackRockOtherPosition.guideDistance.toFixed(1)}px from its guide`
+  );
+  assert(!blackRockOtherPosition.overlapsLabel, 'BlackRock Other tooltip overlaps its label');
 });
 
 await scenario('period: Nintendo FY26 variants render YTD then active 9M', async (page) => {

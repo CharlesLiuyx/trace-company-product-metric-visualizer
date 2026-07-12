@@ -1,0 +1,132 @@
+{
+  "source": "input/processed/sofi-q4-fy25.png",
+  "spec": "input/icon-crop-specs/sofi-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-12T20:24:05.651559+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/sofi",
+  "crops": [
+    {
+      "key": "sofi-company-wordmark",
+      "output": "data/assets/icon-references/sofi/crops/company-wordmark-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 5608,
+        "losslessBytes": 27046,
+        "savingsVsLossless": 0.7926,
+        "metrics": {
+          "meanAbsoluteError": 0.3805,
+          "rootMeanSquareError": 2.1752,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.1165
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 54877,
+        "transparentPixelRatio": 0.5728
+      },
+      "searchBox": {
+        "x": 900,
+        "y": 290,
+        "width": 545,
+        "height": 160
+      },
+      "componentCount": 14,
+      "subjectBox": {
+        "x0": 909,
+        "y0": 299,
+        "x1": 1423,
+        "y1": 438
+      },
+      "cropBox": {
+        "x0": 894,
+        "y0": 284,
+        "x1": 1451,
+        "y1": 456
+      },
+      "validation": {
+        "width": 557,
+        "height": 172,
+        "foregroundPixels": 32573,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 15,
+          "right": 28,
+          "top": 15,
+          "bottom": 18
+        },
+        "centerOffset": {
+          "x": -0.0117,
+          "y": -0.0087
+        },
+        "passes": true
+      },
+      "note": "Complete SoFi wordmark and dot device above the Net revenue node; excludes the chart title, Net revenue label, ribbons and publisher attribution. The validated crop is intentionally used as a whitelisted runtime raster annotation.",
+      "runtimeOutput": "data/assets/raster-annotations/sofi/company-wordmark-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 5608,
+        "losslessBytes": 27046,
+        "savingsVsLossless": 0.7926,
+        "metrics": {
+          "meanAbsoluteError": 0.3805,
+          "rootMeanSquareError": 2.1752,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.1165
+        }
+      },
+      "validationSheet": "data/assets/icon-references/sofi/validation-sheets/sofi-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 251275,
+        "losslessBytes": 251275,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,226 @@
+{
+  "source": "input/processed/chewy-q1-fy26.png",
+  "spec": "input/icon-crop-specs/chewy-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-12T18:43:54.951289+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/chewy",
+  "crops": [
+    {
+      "key": "chewy-company-wordmark",
+      "output": "data/assets/icon-references/chewy/crops/company-wordmark-q1-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 6392,
+        "losslessBytes": 30587,
+        "savingsVsLossless": 0.791,
+        "metrics": {
+          "meanAbsoluteError": 0.4415,
+          "rootMeanSquareError": 1.4036,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 51,
+          "changedPixelRatio": 0.4199
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 91907,
+        "transparentPixelRatio": 0.5835
+      },
+      "searchBox": {
+        "x": 548,
+        "y": 248,
+        "width": 700,
+        "height": 225
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 566,
+        "y0": 261,
+        "x1": 1217,
+        "y1": 457
+      },
+      "cropBox": {
+        "x0": 548,
+        "y0": 248,
+        "x1": 1248,
+        "y1": 473
+      },
+      "validation": {
+        "width": 700,
+        "height": 225,
+        "foregroundPixels": 63692,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 18,
+          "right": 31,
+          "top": 13,
+          "bottom": 16
+        },
+        "centerOffset": {
+          "x": -0.0093,
+          "y": -0.0067
+        },
+        "passes": true
+      },
+      "note": "Chewy wordmark only; excludes the title, revenue labels and Sankey flow pixels.",
+      "runtimeOutput": "data/assets/raster-annotations/chewy/company-wordmark-q1-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 6392,
+        "losslessBytes": 30587,
+        "savingsVsLossless": 0.791,
+        "metrics": {
+          "meanAbsoluteError": 0.4415,
+          "rootMeanSquareError": 1.4036,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 51,
+          "changedPixelRatio": 0.4199
+        }
+      },
+      "validationSheet": "data/assets/icon-references/chewy/validation-sheets/q1-fy26/chewy-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 262967,
+        "losslessBytes": 262967,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "chewy-pet-parent-screen",
+      "output": "data/assets/icon-references/chewy/crops/pet-parent-screen-q1-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 128,
+        "bytes": 20740,
+        "losslessBytes": 97691,
+        "savingsVsLossless": 0.7877,
+        "metrics": {
+          "meanAbsoluteError": 1.0632,
+          "rootMeanSquareError": 2.7579,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.3735
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 106261,
+        "transparentPixelRatio": 0.6265
+      },
+      "searchBox": {
+        "x": 1560,
+        "y": 1000,
+        "width": 530,
+        "height": 320
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 1580,
+        "y0": 1014,
+        "x1": 2069,
+        "y1": 1303
+      },
+      "cropBox": {
+        "x0": 1560,
+        "y0": 1000,
+        "x1": 2090,
+        "y1": 1320
+      },
+      "validation": {
+        "width": 530,
+        "height": 320,
+        "foregroundPixels": 63055,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 20,
+          "right": 21,
+          "top": 14,
+          "bottom": 17
+        },
+        "centerOffset": {
+          "x": -0.0009,
+          "y": -0.0047
+        },
+        "passes": true
+      },
+      "note": "Dog and Chewy.com monitor illustration only; excludes the period stamp, cost labels and source attribution.",
+      "runtimeOutput": "data/assets/raster-annotations/chewy/pet-parent-screen-q1-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 128,
+        "bytes": 20740,
+        "losslessBytes": 97691,
+        "savingsVsLossless": 0.7877,
+        "metrics": {
+          "meanAbsoluteError": 1.0632,
+          "rootMeanSquareError": 2.7579,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.3735
+        }
+      },
+      "validationSheet": "data/assets/icon-references/chewy/validation-sheets/q1-fy26/chewy-pet-parent-screen.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 301628,
+        "losslessBytes": 301628,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

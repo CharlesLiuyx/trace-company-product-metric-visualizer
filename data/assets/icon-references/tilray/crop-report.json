@@ -1,0 +1,306 @@
+{
+  "source": "input/processed/tilray-q2-fy26.png",
+  "spec": "input/icon-crop-specs/tilray-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-12T19:12:23.621329+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/tilray",
+  "crops": [
+    {
+      "key": "tilray-brands-wordmark",
+      "output": "data/assets/icon-references/tilray/crops/tilray-brands-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4434,
+        "losslessBytes": 20076,
+        "savingsVsLossless": 0.7791,
+        "metrics": {
+          "meanAbsoluteError": 0.4003,
+          "rootMeanSquareError": 2.0419,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 32,
+          "changedPixelRatio": 0.1204
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 45263,
+        "transparentPixelRatio": 0.5623
+      },
+      "searchBox": {
+        "x": 735,
+        "y": 260,
+        "width": 475,
+        "height": 200
+      },
+      "componentCount": 12,
+      "subjectBox": {
+        "x0": 742,
+        "y0": 287,
+        "x1": 1185,
+        "y1": 432
+      },
+      "cropBox": {
+        "x0": 735,
+        "y0": 270,
+        "x1": 1195,
+        "y1": 445
+      },
+      "validation": {
+        "width": 460,
+        "height": 175,
+        "foregroundPixels": 31672,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 7,
+          "right": 10,
+          "top": 17,
+          "bottom": 13
+        },
+        "centerOffset": {
+          "x": -0.0033,
+          "y": 0.0114
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/tilray/tilray-brands-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4434,
+        "losslessBytes": 20076,
+        "savingsVsLossless": 0.7791,
+        "metrics": {
+          "meanAbsoluteError": 0.4003,
+          "rootMeanSquareError": 2.0419,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 32,
+          "changedPixelRatio": 0.1204
+        }
+      },
+      "validationSheet": "data/assets/icon-references/tilray/validation-sheets/tilray-brands-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 259665,
+        "losslessBytes": 259665,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "tilray-beverage-can",
+      "output": "data/assets/icon-references/tilray/crops/beverage-can.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 14152,
+        "losslessBytes": 14152,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 5957,
+        "transparentPixelRatio": 0.4463
+      },
+      "searchBox": {
+        "x": 190,
+        "y": 288,
+        "width": 94,
+        "height": 142
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 205,
+        "y0": 302,
+        "x1": 269,
+        "y1": 418
+      },
+      "cropBox": {
+        "x0": 190,
+        "y0": 288,
+        "x1": 284,
+        "y1": 430
+      },
+      "validation": {
+        "width": 94,
+        "height": 142,
+        "foregroundPixels": 6210,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 15,
+          "right": 15,
+          "top": 14,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.007
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/tilray/beverage-can.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 14152,
+        "losslessBytes": 14152,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/tilray/validation-sheets/tilray-beverage-can.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 317994,
+        "losslessBytes": 317994,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "tilray-cannabis-leaf",
+      "output": "data/assets/icon-references/tilray/crops/cannabis-leaf.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 4384,
+        "losslessBytes": 21171,
+        "savingsVsLossless": 0.7929,
+        "metrics": {
+          "meanAbsoluteError": 0.8527,
+          "rootMeanSquareError": 2.6082,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 47,
+          "changedPixelRatio": 0.2498
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 21983,
+        "transparentPixelRatio": 0.7552
+      },
+      "searchBox": {
+        "x": 135,
+        "y": 580,
+        "width": 205,
+        "height": 142
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 164,
+        "y0": 586,
+        "x1": 308,
+        "y1": 718
+      },
+      "cropBox": {
+        "x0": 135,
+        "y0": 580,
+        "x1": 340,
+        "y1": 722
+      },
+      "validation": {
+        "width": 205,
+        "height": 142,
+        "foregroundPixels": 6977,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 29,
+          "right": 32,
+          "top": 6,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": -0.0073,
+          "y": 0.007
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/tilray/cannabis-leaf.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 4384,
+        "losslessBytes": 21171,
+        "savingsVsLossless": 0.7929,
+        "metrics": {
+          "meanAbsoluteError": 0.8527,
+          "rootMeanSquareError": 2.6082,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 47,
+          "changedPixelRatio": 0.2498
+        }
+      },
+      "validationSheet": "data/assets/icon-references/tilray/validation-sheets/tilray-cannabis-leaf.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 304117,
+        "losslessBytes": 304117,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

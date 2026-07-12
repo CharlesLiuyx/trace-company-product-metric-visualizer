@@ -1,0 +1,696 @@
+{
+  "source": "input/processed/lvmh-fy25.png",
+  "spec": "input/icon-crop-specs/lvmh-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-12T19:12:08.621652+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 7
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/lvmh",
+  "crops": [
+    {
+      "key": "lvmh-company-wordmark",
+      "output": "data/assets/icon-references/lvmh/crops/company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3231,
+        "losslessBytes": 13034,
+        "savingsVsLossless": 0.7521,
+        "metrics": {
+          "meanAbsoluteError": 0.203,
+          "rootMeanSquareError": 1.073,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.0675
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 7,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 55196,
+        "transparentPixelRatio": 0.7734
+      },
+      "searchBox": {
+        "x": 730,
+        "y": 285,
+        "width": 525,
+        "height": 165
+      },
+      "componentCount": 4,
+      "subjectBox": {
+        "x0": 741,
+        "y0": 313,
+        "x1": 1184,
+        "y1": 426
+      },
+      "cropBox": {
+        "x0": 723,
+        "y0": 295,
+        "x1": 1202,
+        "y1": 444
+      },
+      "validation": {
+        "width": 479,
+        "height": 149,
+        "foregroundPixels": 15584,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 18,
+          "right": 18,
+          "top": 18,
+          "bottom": 18
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Central LVMH wordmark; excludes the title and the Revenue label.",
+      "runtimeOutput": "data/assets/raster-annotations/lvmh/company-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3231,
+        "losslessBytes": 13034,
+        "savingsVsLossless": 0.7521,
+        "metrics": {
+          "meanAbsoluteError": 0.203,
+          "rootMeanSquareError": 1.073,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.0675
+        }
+      },
+      "validationSheet": "data/assets/icon-references/lvmh/validation-sheets/lvmh-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 261677,
+        "losslessBytes": 261677,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "lvmh-business-wines-spirits-cluster",
+      "output": "data/assets/icon-references/lvmh/crops/business-wines-spirits-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4006,
+        "losslessBytes": 19357,
+        "savingsVsLossless": 0.793,
+        "metrics": {
+          "meanAbsoluteError": 0.536,
+          "rootMeanSquareError": 1.6916,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 12,
+          "changedPixelRatio": 0.1831
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 7,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 28223,
+        "transparentPixelRatio": 0.8305
+      },
+      "searchBox": {
+        "x": 8,
+        "y": 290,
+        "width": 178,
+        "height": 190
+      },
+      "componentCount": 28,
+      "subjectBox": {
+        "x0": 18,
+        "y0": 303,
+        "x1": 171,
+        "y1": 471
+      },
+      "cropBox": {
+        "x0": 6,
+        "y0": 291,
+        "x1": 183,
+        "y1": 483
+      },
+      "validation": {
+        "width": 177,
+        "height": 192,
+        "foregroundPixels": 5023,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 12,
+          "top": 12,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Wines & Spirits brand cluster: Hennessy, Mo\u00ebt & Chandon, and Dom P\u00e9rignon; excludes the segment label and chart marks.",
+      "runtimeOutput": "data/assets/raster-annotations/lvmh/business-wines-spirits-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4006,
+        "losslessBytes": 19357,
+        "savingsVsLossless": 0.793,
+        "metrics": {
+          "meanAbsoluteError": 0.536,
+          "rootMeanSquareError": 1.6916,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 12,
+          "changedPixelRatio": 0.1831
+        }
+      },
+      "validationSheet": "data/assets/icon-references/lvmh/validation-sheets/lvmh-business-wines-spirits-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 318812,
+        "losslessBytes": 318812,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "lvmh-business-fashion-leather-goods-cluster",
+      "output": "data/assets/icon-references/lvmh/crops/business-fashion-leather-goods-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2427,
+        "losslessBytes": 10738,
+        "savingsVsLossless": 0.774,
+        "metrics": {
+          "meanAbsoluteError": 0.4195,
+          "rootMeanSquareError": 1.5025,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 14,
+          "changedPixelRatio": 0.175
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 7,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 21905,
+        "transparentPixelRatio": 0.8302
+      },
+      "searchBox": {
+        "x": 8,
+        "y": 530,
+        "width": 176,
+        "height": 177
+      },
+      "componentCount": 13,
+      "subjectBox": {
+        "x0": 19,
+        "y0": 546,
+        "x1": 153,
+        "y1": 689
+      },
+      "cropBox": {
+        "x0": 7,
+        "y0": 534,
+        "x1": 165,
+        "y1": 701
+      },
+      "validation": {
+        "width": 158,
+        "height": 167,
+        "foregroundPixels": 3814,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 12,
+          "top": 12,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Fashion & Leather Goods brand cluster: Louis Vuitton, Christian Dior, and Givenchy; excludes the segment label and chart marks.",
+      "runtimeOutput": "data/assets/raster-annotations/lvmh/business-fashion-leather-goods-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2427,
+        "losslessBytes": 10738,
+        "savingsVsLossless": 0.774,
+        "metrics": {
+          "meanAbsoluteError": 0.4195,
+          "rootMeanSquareError": 1.5025,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 14,
+          "changedPixelRatio": 0.175
+        }
+      },
+      "validationSheet": "data/assets/icon-references/lvmh/validation-sheets/lvmh-business-fashion-leather-goods-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 300961,
+        "losslessBytes": 300961,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "lvmh-business-perfumes-cosmetics-cluster",
+      "output": "data/assets/icon-references/lvmh/crops/business-perfumes-cosmetics-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2329,
+        "losslessBytes": 10515,
+        "savingsVsLossless": 0.7785,
+        "metrics": {
+          "meanAbsoluteError": 0.6814,
+          "rootMeanSquareError": 1.7958,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 12,
+          "changedPixelRatio": 0.2719
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 7,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 14512,
+        "transparentPixelRatio": 0.7454
+      },
+      "searchBox": {
+        "x": 8,
+        "y": 785,
+        "width": 178,
+        "height": 124
+      },
+      "componentCount": 24,
+      "subjectBox": {
+        "x0": 21,
+        "y0": 795,
+        "x1": 162,
+        "y1": 889
+      },
+      "cropBox": {
+        "x0": 9,
+        "y0": 783,
+        "x1": 174,
+        "y1": 901
+      },
+      "validation": {
+        "width": 165,
+        "height": 118,
+        "foregroundPixels": 4570,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 12,
+          "top": 12,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Perfumes & Cosmetics brand cluster: Sephora, Kenzo, and Guerlain; excludes the segment label and chart marks.",
+      "runtimeOutput": "data/assets/raster-annotations/lvmh/business-perfumes-cosmetics-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2329,
+        "losslessBytes": 10515,
+        "savingsVsLossless": 0.7785,
+        "metrics": {
+          "meanAbsoluteError": 0.6814,
+          "rootMeanSquareError": 1.7958,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 12,
+          "changedPixelRatio": 0.2719
+        }
+      },
+      "validationSheet": "data/assets/icon-references/lvmh/validation-sheets/lvmh-business-perfumes-cosmetics-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 303440,
+        "losslessBytes": 303440,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "lvmh-business-watches-jewelry-cluster",
+      "output": "data/assets/icon-references/lvmh/crops/business-watches-jewelry-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2235,
+        "losslessBytes": 10106,
+        "savingsVsLossless": 0.7788,
+        "metrics": {
+          "meanAbsoluteError": 0.5753,
+          "rootMeanSquareError": 1.7214,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 13,
+          "changedPixelRatio": 0.2133
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 7,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 14987,
+        "transparentPixelRatio": 0.7958
+      },
+      "searchBox": {
+        "x": 8,
+        "y": 965,
+        "width": 184,
+        "height": 112
+      },
+      "componentCount": 22,
+      "subjectBox": {
+        "x0": 22,
+        "y0": 981,
+        "x1": 174,
+        "y1": 1064
+      },
+      "cropBox": {
+        "x0": 10,
+        "y0": 969,
+        "x1": 186,
+        "y1": 1076
+      },
+      "validation": {
+        "width": 176,
+        "height": 107,
+        "foregroundPixels": 3206,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 12,
+          "top": 12,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Watches & Jewelry brand cluster: Bulgari, Hublot, and Tiffany & Co.; excludes the segment label and chart marks.",
+      "runtimeOutput": "data/assets/raster-annotations/lvmh/business-watches-jewelry-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2235,
+        "losslessBytes": 10106,
+        "savingsVsLossless": 0.7788,
+        "metrics": {
+          "meanAbsoluteError": 0.5753,
+          "rootMeanSquareError": 1.7214,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 13,
+          "changedPixelRatio": 0.2133
+        }
+      },
+      "validationSheet": "data/assets/icon-references/lvmh/validation-sheets/lvmh-business-watches-jewelry-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 292227,
+        "losslessBytes": 292227,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "lvmh-business-selective-retailing-cluster",
+      "output": "data/assets/icon-references/lvmh/crops/business-selective-retailing-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2149,
+        "losslessBytes": 9117,
+        "savingsVsLossless": 0.7643,
+        "metrics": {
+          "meanAbsoluteError": 0.4852,
+          "rootMeanSquareError": 1.9906,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 30,
+          "changedPixelRatio": 0.1479
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 7,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 14574,
+        "transparentPixelRatio": 0.7499
+      },
+      "searchBox": {
+        "x": 8,
+        "y": 1125,
+        "width": 184,
+        "height": 135
+      },
+      "componentCount": 22,
+      "subjectBox": {
+        "x0": 29,
+        "y0": 1139,
+        "x1": 163,
+        "y1": 1238
+      },
+      "cropBox": {
+        "x0": 17,
+        "y0": 1127,
+        "x1": 175,
+        "y1": 1250
+      },
+      "validation": {
+        "width": 158,
+        "height": 123,
+        "foregroundPixels": 4468,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 12,
+          "top": 12,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Selective Retailing brand cluster: DFS and La Grande \u00c9picerie de Paris; excludes the segment label and chart marks.",
+      "runtimeOutput": "data/assets/raster-annotations/lvmh/business-selective-retailing-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2149,
+        "losslessBytes": 9117,
+        "savingsVsLossless": 0.7643,
+        "metrics": {
+          "meanAbsoluteError": 0.4852,
+          "rootMeanSquareError": 1.9906,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 30,
+          "changedPixelRatio": 0.1479
+        }
+      },
+      "validationSheet": "data/assets/icon-references/lvmh/validation-sheets/lvmh-business-selective-retailing-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 297829,
+        "losslessBytes": 297829,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "lvmh-business-other-cluster",
+      "output": "data/assets/icon-references/lvmh/crops/business-other-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 1866,
+        "losslessBytes": 7191,
+        "savingsVsLossless": 0.7405,
+        "metrics": {
+          "meanAbsoluteError": 0.6425,
+          "rootMeanSquareError": 2.0471,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 24,
+          "changedPixelRatio": 0.2489
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 7,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 7256,
+        "transparentPixelRatio": 0.5634
+      },
+      "searchBox": {
+        "x": 8,
+        "y": 1272,
+        "width": 184,
+        "height": 104
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 42,
+        "y0": 1290,
+        "x1": 155,
+        "y1": 1360
+      },
+      "cropBox": {
+        "x0": 30,
+        "y0": 1278,
+        "x1": 167,
+        "y1": 1372
+      },
+      "validation": {
+        "width": 137,
+        "height": 94,
+        "foregroundPixels": 4609,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 12,
+          "top": 12,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Other-activities media cluster: Le Parisien and Les Echos; excludes the segment label, source mark, and chart marks.",
+      "runtimeOutput": "data/assets/raster-annotations/lvmh/business-other-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 1866,
+        "losslessBytes": 7191,
+        "savingsVsLossless": 0.7405,
+        "metrics": {
+          "meanAbsoluteError": 0.6425,
+          "rootMeanSquareError": 2.0471,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 24,
+          "changedPixelRatio": 0.2489
+        }
+      },
+      "validationSheet": "data/assets/icon-references/lvmh/validation-sheets/lvmh-business-other-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 299504,
+        "losslessBytes": 299504,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}
