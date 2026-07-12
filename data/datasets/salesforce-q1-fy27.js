@@ -45,7 +45,7 @@
       `,
     },
     render: {
-      width: 3050,
+      width: 2958,
       height: 1490,
       background: '#efefef',
       titleColor: '#154f79',
