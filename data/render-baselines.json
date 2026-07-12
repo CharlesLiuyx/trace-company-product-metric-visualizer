@@ -1,5 +1,5 @@
 {
-  "generatedBy": "pnpm record:baseline -- <dataset-key> [...]",
+  "generatedBy": "pnpm compat:baseline -- <dataset-key> [...]",
   "language": "en",
   "similarityTolerance": 0.003,
   "baselines": {
@@ -111,6 +111,12 @@
       "width": 2667,
       "height": 1500
     },
+    "amc-q1-fy26": {
+      "similarity": 0.967221,
+      "mae": 8.3586,
+      "width": 2667,
+      "height": 1500
+    },
     "amc-q4-fy25": {
       "similarity": 0.960778,
       "mae": 10.0017,
@@ -126,6 +132,12 @@
     "amd-q4-fy25": {
       "similarity": 0.959812,
       "mae": 10.2478,
+      "width": 2667,
+      "height": 1500
+    },
+    "amer-sports-q1-fy26": {
+      "similarity": 0.969349,
+      "mae": 7.816,
       "width": 2667,
       "height": 1500
     },
@@ -573,6 +585,12 @@
       "width": 2667,
       "height": 1500
     },
+    "draftkings-q1-fy26": {
+      "similarity": 0.967466,
+      "mae": 8.2961,
+      "width": 2667,
+      "height": 1500
+    },
     "draftkings-q4-fy25": {
       "similarity": 0.973484,
       "mae": 6.7615,
@@ -594,6 +612,12 @@
     "dynatrace-q3-fy26": {
       "similarity": 0.977555,
       "mae": 5.7235,
+      "width": 2667,
+      "height": 1500
+    },
+    "dynatrace-q4-fy26": {
+      "similarity": 0.976588,
+      "mae": 5.9701,
       "width": 2667,
       "height": 1500
     },
@@ -657,6 +681,12 @@
       "width": 2667,
       "height": 1500
     },
+    "flutter-q1-fy26": {
+      "similarity": 0.962275,
+      "mae": 9.6199,
+      "width": 2667,
+      "height": 1500
+    },
     "flutter-q4-fy25": {
       "similarity": 0.961407,
       "mae": 9.8413,
@@ -666,6 +696,12 @@
     "ford-fy25": {
       "similarity": 0.958739,
       "mae": 10.5217,
+      "width": 2667,
+      "height": 1500
+    },
+    "fortinet-q1-fy26": {
+      "similarity": 0.969443,
+      "mae": 7.792,
       "width": 2667,
       "height": 1500
     },
@@ -888,6 +924,12 @@
     "live-nation-fy25": {
       "similarity": 0.958142,
       "mae": 10.6739,
+      "width": 2667,
+      "height": 1500
+    },
+    "live-nation-q1-fy26": {
+      "similarity": 0.950161,
+      "mae": 12.709,
       "width": 2667,
       "height": 1500
     },
@@ -1395,6 +1437,12 @@
       "width": 2667,
       "height": 1500
     },
+    "procore-q1-fy26": {
+      "similarity": 0.972485,
+      "mae": 7.0163,
+      "width": 2667,
+      "height": 1500
+    },
     "procore-q4-fy25": {
       "similarity": 0.97258,
       "mae": 6.9921,
@@ -1635,6 +1683,12 @@
       "width": 2667,
       "height": 1500
     },
+    "tempus-ai-q1-fy26": {
+      "similarity": 0.959856,
+      "mae": 10.2367,
+      "width": 2667,
+      "height": 1500
+    },
     "tempus-ai-q4-fy25": {
       "similarity": 0.960044,
       "mae": 10.1888,
@@ -1842,6 +1896,12 @@
     "zscaler-q2-fy26": {
       "similarity": 0.97651,
       "mae": 5.9899,
+      "width": 2667,
+      "height": 1500
+    },
+    "zscaler-q3-fy26": {
+      "similarity": 0.972499,
+      "mae": 7.0129,
       "width": 2667,
       "height": 1500
     }
