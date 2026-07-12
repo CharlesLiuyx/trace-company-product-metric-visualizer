@@ -65,3 +65,37 @@ Both runtime copies are embedded as whitelisted runtime raster annotations
 the DiDi/Meituan segment-tile precedent, because the photographic 737 and
 Starliner imagery cannot be reproduced with the Montserrat text/vector stack
 used for labels.
+
+## Q4 FY25 validation
+
+Source: `input/processed/boeing-q4-fy25.png` (2667×1500)
+Spec: `input/icon-crop-specs/boeing-q4-fy25.json`
+Report: `data/assets/icon-references/boeing/boeing-q4-fy25-crop-report.json`
+
+### boeing-q4-737-tile
+
+- Crop: `crops/boeing-q4-commercial-airplanes-737.png` (291×97); runtime
+  copy: `data/assets/raster-annotations/boeing/boeing-q4-commercial-airplanes-737.png`.
+- Source placement: x0=99, y0=368, x1=390, y1=465. It retains the full
+  airframe, tail, winglets and engine while excluding the $11.4B value,
+  segment text and wordmark.
+- Script validation: `passes: true`, with zero edge/forbidden foreground
+  pixels and centered 10px margins. The reviewed validation sheet confirms a
+  complete subject and no unrelated content. **Accepted.**
+
+### boeing-q4-starliner-tile
+
+- Crop: `crops/boeing-q4-defense-starliner.png` (136×129); runtime copy:
+  `data/assets/raster-annotations/boeing/boeing-q4-defense-starliner.png`.
+- Source placement: x0=197, y0=657, x1=333, y1=786. It retains the complete
+  crew capsule and its service-module base while excluding the $7.4B value
+  and segment label.
+- Script validation: `passes: true`, with zero edge/forbidden foreground
+  pixels and centered 8px margins. The reviewed validation sheet confirms a
+  complete subject and no unrelated content. **Accepted.**
+
+Both Q4 crops are intentionally opaque, background-matched rectangular
+patches on the source's uniform `#f2f2f2` canvas; removing the photographic
+background would introduce visible edge noise. The remaining source images
+are either the vector-reproduced Boeing wordmark or publisher attribution and
+are not runtime crop targets.

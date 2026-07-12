@@ -1,0 +1,508 @@
+{
+  "source": "input/processed/abbott-q4-fy25.png",
+  "spec": "input/icon-crop-specs/abbott-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-12T19:11:14.411144+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/abbott",
+  "crops": [
+    {
+      "key": "abbott-company-wordmark",
+      "output": "data/assets/icon-references/abbott/crops/company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 4013,
+        "losslessBytes": 16542,
+        "savingsVsLossless": 0.7574,
+        "metrics": {
+          "meanAbsoluteError": 0.2423,
+          "rootMeanSquareError": 1.1732,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 23,
+          "changedPixelRatio": 0.103
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 87763,
+        "transparentPixelRatio": 0.6411
+      },
+      "searchBox": {
+        "x": 820,
+        "y": 250,
+        "width": 330,
+        "height": 330
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 834,
+        "y0": 260,
+        "x1": 1123,
+        "y1": 573
+      },
+      "cropBox": {
+        "x0": 800,
+        "y0": 230,
+        "x1": 1170,
+        "y1": 600
+      },
+      "validation": {
+        "width": 370,
+        "height": 370,
+        "foregroundPixels": 45995,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 34,
+          "right": 47,
+          "top": 30,
+          "bottom": 27
+        },
+        "centerOffset": {
+          "x": -0.0176,
+          "y": 0.0041
+        },
+        "passes": true
+      },
+      "note": "Complete Abbott logo and wordmark above the Net sales hub, excluding the Net sales label and all financial flow geometry.",
+      "runtimeOutput": "data/assets/raster-annotations/abbott/company-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 4013,
+        "losslessBytes": 16542,
+        "savingsVsLossless": 0.7574,
+        "metrics": {
+          "meanAbsoluteError": 0.2423,
+          "rootMeanSquareError": 1.1732,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 23,
+          "changedPixelRatio": 0.103
+        }
+      },
+      "validationSheet": "data/assets/icon-references/abbott/validation-sheets/abbott-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 248761,
+        "losslessBytes": 248761,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "abbott-established-pharma",
+      "output": "data/assets/icon-references/abbott/crops/established-pharma.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1567,
+        "losslessBytes": 6516,
+        "savingsVsLossless": 0.7595,
+        "metrics": {
+          "meanAbsoluteError": 0.5086,
+          "rootMeanSquareError": 2.3205,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 37,
+          "changedPixelRatio": 0.1515
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 4472,
+        "transparentPixelRatio": 0.1936
+      },
+      "searchBox": {
+        "x": 38,
+        "y": 440,
+        "width": 140,
+        "height": 140
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 40,
+        "y0": 441,
+        "x1": 177,
+        "y1": 577
+      },
+      "cropBox": {
+        "x0": 32,
+        "y0": 434,
+        "x1": 184,
+        "y1": 586
+      },
+      "validation": {
+        "width": 152,
+        "height": 152,
+        "foregroundPixels": 18199,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 7,
+          "top": 7,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": 0.0033,
+          "y": -0.0066
+        },
+        "passes": true
+      },
+      "note": "Purple established-pharma bottle icon tile, excluding the Established Pharma label and source ribbon.",
+      "runtimeOutput": "data/assets/raster-annotations/abbott/established-pharma.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1567,
+        "losslessBytes": 6516,
+        "savingsVsLossless": 0.7595,
+        "metrics": {
+          "meanAbsoluteError": 0.5086,
+          "rootMeanSquareError": 2.3205,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 37,
+          "changedPixelRatio": 0.1515
+        }
+      },
+      "validationSheet": "data/assets/icon-references/abbott/validation-sheets/abbott-established-pharma.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 257810,
+        "losslessBytes": 257810,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "abbott-nutritionals",
+      "output": "data/assets/icon-references/abbott/crops/nutritionals.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1922,
+        "losslessBytes": 8606,
+        "savingsVsLossless": 0.7767,
+        "metrics": {
+          "meanAbsoluteError": 0.4056,
+          "rootMeanSquareError": 1.8842,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 35,
+          "changedPixelRatio": 0.1417
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 4778,
+        "transparentPixelRatio": 0.2041
+      },
+      "searchBox": {
+        "x": 38,
+        "y": 607,
+        "width": 140,
+        "height": 142
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 41,
+        "y0": 609,
+        "x1": 176,
+        "y1": 747
+      },
+      "cropBox": {
+        "x0": 32,
+        "y0": 601,
+        "x1": 184,
+        "y1": 755
+      },
+      "validation": {
+        "width": 152,
+        "height": 154,
+        "foregroundPixels": 17921,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 9,
+          "right": 8,
+          "top": 8,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0033,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Purple nutritionals bottle icon tile, excluding the Nutritionals label and source ribbon.",
+      "runtimeOutput": "data/assets/raster-annotations/abbott/nutritionals.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1922,
+        "losslessBytes": 8606,
+        "savingsVsLossless": 0.7767,
+        "metrics": {
+          "meanAbsoluteError": 0.4056,
+          "rootMeanSquareError": 1.8842,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 35,
+          "changedPixelRatio": 0.1417
+        }
+      },
+      "validationSheet": "data/assets/icon-references/abbott/validation-sheets/abbott-nutritionals.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 268253,
+        "losslessBytes": 268253,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "abbott-diagnostics",
+      "output": "data/assets/icon-references/abbott/crops/diagnostics.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1632,
+        "losslessBytes": 7050,
+        "savingsVsLossless": 0.7685,
+        "metrics": {
+          "meanAbsoluteError": 0.5271,
+          "rootMeanSquareError": 2.2388,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.1912
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 4681,
+        "transparentPixelRatio": 0.1975
+      },
+      "searchBox": {
+        "x": 34,
+        "y": 805,
+        "width": 146,
+        "height": 138
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 37,
+        "y0": 806,
+        "x1": 180,
+        "y1": 939
+      },
+      "cropBox": {
+        "x0": 28,
+        "y0": 799,
+        "x1": 186,
+        "y1": 949
+      },
+      "validation": {
+        "width": 158,
+        "height": 150,
+        "foregroundPixels": 18198,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 9,
+          "right": 6,
+          "top": 7,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": 0.0095,
+          "y": -0.01
+        },
+        "passes": true
+      },
+      "note": "Purple diagnostics analyzer icon tile, excluding the Diagnostics label and source ribbon.",
+      "runtimeOutput": "data/assets/raster-annotations/abbott/diagnostics.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1632,
+        "losslessBytes": 7050,
+        "savingsVsLossless": 0.7685,
+        "metrics": {
+          "meanAbsoluteError": 0.5271,
+          "rootMeanSquareError": 2.2388,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.1912
+        }
+      },
+      "validationSheet": "data/assets/icon-references/abbott/validation-sheets/abbott-diagnostics.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 258387,
+        "losslessBytes": 258387,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "abbott-medical-devices",
+      "output": "data/assets/icon-references/abbott/crops/medical-devices.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1965,
+        "losslessBytes": 8698,
+        "savingsVsLossless": 0.7741,
+        "metrics": {
+          "meanAbsoluteError": 0.5293,
+          "rootMeanSquareError": 2.1977,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.1695
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 4448,
+        "transparentPixelRatio": 0.1955
+      },
+      "searchBox": {
+        "x": 34,
+        "y": 1061,
+        "width": 146,
+        "height": 132
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 37,
+        "y0": 1062,
+        "x1": 180,
+        "y1": 1190
+      },
+      "cropBox": {
+        "x0": 28,
+        "y0": 1055,
+        "x1": 186,
+        "y1": 1199
+      },
+      "validation": {
+        "width": 158,
+        "height": 144,
+        "foregroundPixels": 17596,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 9,
+          "right": 6,
+          "top": 7,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": 0.0095,
+          "y": -0.0069
+        },
+        "passes": true
+      },
+      "note": "Purple medical-devices implant icon tile, excluding the Medical Devices label and source ribbon.",
+      "runtimeOutput": "data/assets/raster-annotations/abbott/medical-devices.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1965,
+        "losslessBytes": 8698,
+        "savingsVsLossless": 0.7741,
+        "metrics": {
+          "meanAbsoluteError": 0.5293,
+          "rootMeanSquareError": 2.1977,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.1695
+        }
+      },
+      "validationSheet": "data/assets/icon-references/abbott/validation-sheets/abbott-medical-devices.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 268575,
+        "losslessBytes": 268575,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

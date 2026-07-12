@@ -36,12 +36,14 @@ import {
   assertTypographyAudit,
   auditLabelLayout,
   auditNodePaint,
+  auditSemanticAnnotations,
   auditTextAndAnnotationLayout,
   collectRenderedRegions,
   datasetRenderMeta,
   nodeFaceExpectationsFromPlan,
   openHarnessPage,
   renderDatasetForPurity,
+  semanticAnnotationNodeIdsFromPlan,
   sizeRenderedSvgForCapture,
   typographyAudit,
 } from './lib/render-harness.mjs';
@@ -311,6 +313,11 @@ export async function main(argv = process.argv, runtime = {}) {
 
     const labelLayoutAudit = await auditLabelLayout(page);
     const { textLayoutAudit, annotationLayoutAudit } = await auditTextAndAnnotationLayout(page);
+    const semanticAnnotationAudit = await auditSemanticAnnotations(page, {
+      datasetKey,
+      language: meta.language,
+      expectedNodeIds: semanticAnnotationNodeIdsFromPlan(reviewPlan),
+    });
     const renderedTypographyAudit = await typographyAudit(page, {
       dataset: datasetKey,
       language: meta.language,
@@ -334,6 +341,7 @@ export async function main(argv = process.argv, runtime = {}) {
         labelLayoutAudit,
         textLayoutAudit,
         annotationLayoutAudit,
+        semanticAnnotationAudit,
       });
     }
 
@@ -375,6 +383,7 @@ export async function main(argv = process.argv, runtime = {}) {
       labelLayoutAudit,
       textLayoutAudit,
       annotationLayoutAudit,
+      semanticAnnotationAudit,
       interfaceAudit: {
         path: path.relative(rootDir, interfaceAuditPath),
         contactSheet: path.relative(rootDir, interfaceContactSheetPath),
@@ -455,6 +464,9 @@ export async function main(argv = process.argv, runtime = {}) {
     );
     console.log(
       `annotation clearance audit: annotations=${annotationLayoutAudit.checkedAnnotationTexts} protected=${annotationLayoutAudit.checkedProtectedTexts} overlaps=${annotationLayoutAudit.overlapViolations.length} tolerance=${annotationLayoutAudit.tolerance}px`
+    );
+    console.log(
+      `semantic annotation audit: expected=${semanticAnnotationAudit.expectedNodeIds.length} checked=${semanticAnnotationAudit.checkedAnnotations} unbound=${semanticAnnotationAudit.unboundNodeLikeTexts.length} violations=${semanticAnnotationAudit.violations.length}`
     );
     console.log(
       `G12 interface audit: mode=${interfaceAudit.mode} status=${interfaceAudit.status} enforcement=${interfaceAudit.enforcementStatus} candidate=${interfaceAudit.candidateStatus} reference=${interfaceAudit.referenceStatus} expected=${interfaceAudit.summary.expectedInterfaces} audited=${interfaceAudit.summary.auditedInterfaces} passed=${interfaceAudit.summary.passedInterfaces} failed=${interfaceAudit.summary.failedInterfaces} pending=${interfaceAudit.summary.pendingInterfaces} exceptions=${interfaceAudit.summary.documentedExceptions} notScored=${interfaceAudit.summary.notScoredInterfaces} violations=${interfaceAudit.summary.violations}`

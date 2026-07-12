@@ -214,6 +214,51 @@ test('hidden anchors require native-pixel confirmation and compile an independen
   );
 });
 
+test('node-like annotations require source classification and compile semantic interaction gates', () => {
+  const base = {
+    id: 'node:other-income',
+    kind: 'short-income-node',
+    disposition: 'render',
+    mapping: [
+      { role: 'render', target: 'nodes.other_income' },
+      { role: 'render', target: 'annotations.other_income' },
+    ],
+    features: ['visible-node-face'],
+  };
+  assert.throws(
+    () => createObjectInventory({ datasetKey: 'example-fy25', objects: [base] }),
+    (error) => error.code === 'SEMANTIC_ANNOTATION_FEATURE_REQUIRED'
+  );
+
+  const semantic = {
+    ...base,
+    features: ['visible-node-face', 'semantic-annotation'],
+    featureEvidence: {
+      'semantic-annotation': {
+        source: 'reference-crop',
+        locator: 'input/processing/example-fy25.png#other-income-callout',
+        digest: `sha256:${'b'.repeat(64)}`,
+        referenceBBox: [2080, 230, 88, 96],
+        inspectionMethod: 'native-scale-crop-and-object-inventory',
+        classificationClaim: 'semantic-node-annotation-required',
+        reason: 'The source uses one callout group to name and value the Other income micro-flow.',
+      },
+    },
+  };
+  const inventory = createObjectInventory({ datasetKey: 'example-fy25', objects: [semantic] });
+  const plan = compileVerificationPlan({
+    adapter: 'income-statement',
+    inventory,
+    changeImpact: ['interaction'],
+  });
+  const checks = Object.fromEntries(plan.requiredChecks.map((check) => [check.id, check]));
+  assert.deepEqual(checks['feature:semantic-annotation'].ruleIds, ['A10', 'B16']);
+  assert.equal(checks['feature:semantic-annotation'].evidenceKind, 'annotation-semantics-audit');
+  assert.deepEqual(checks['feature:semantic-annotation'].objectIds, ['node:other-income']);
+  assert.equal(checks['feature:semantic-annotation-source-classification'].enforcement, 'manual');
+  assert.deepEqual(checks['feature:semantic-annotation-source-classification'].ruleIds, ['T17']);
+});
+
 test('Income Statement plan compiles object features into mandatory rule checks', () => {
   const inventory = createObjectInventory({ datasetKey: 'example-fy25', objects: incomeObjects() });
   const plan = compileVerificationPlan({

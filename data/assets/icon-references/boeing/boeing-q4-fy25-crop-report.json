@@ -1,0 +1,208 @@
+{
+  "source": "input/processed/boeing-q4-fy25.png",
+  "spec": "input/icon-crop-specs/boeing-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-12T20:20:48.545644+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/boeing",
+  "crops": [
+    {
+      "key": "boeing-q4-737-tile",
+      "output": "data/assets/icon-references/boeing/crops/boeing-q4-commercial-airplanes-737.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 128,
+        "bytes": 6338,
+        "losslessBytes": 19436,
+        "savingsVsLossless": 0.6739,
+        "metrics": {
+          "meanAbsoluteError": 0.9718,
+          "rootMeanSquareError": 2.6958,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 61,
+          "changedPixelRatio": 0.3062
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 95,
+        "y": 378,
+        "width": 295,
+        "height": 90
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 109,
+        "y0": 378,
+        "x1": 380,
+        "y1": 455
+      },
+      "cropBox": {
+        "x0": 99,
+        "y0": 368,
+        "x1": 390,
+        "y1": 465
+      },
+      "validation": {
+        "width": 291,
+        "height": 97,
+        "foregroundPixels": 8300,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 10,
+          "right": 10,
+          "top": 10,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Commercial Airplanes segment icon: the photographic Boeing 737 above the segment label. Kept as an opaque, background-matched rectangular patch because the photograph sits on the uniform #f2f2f2 chart background. The crop excludes the $11.4B value block, segment label, and Boeing wordmark.",
+      "runtimeOutput": "data/assets/raster-annotations/boeing/boeing-q4-commercial-airplanes-737.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 128,
+        "bytes": 6338,
+        "losslessBytes": 19436,
+        "savingsVsLossless": 0.6739,
+        "metrics": {
+          "meanAbsoluteError": 0.9718,
+          "rootMeanSquareError": 2.6958,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 61,
+          "changedPixelRatio": 0.3062
+        }
+      },
+      "validationSheet": "data/assets/icon-references/boeing/validation-sheets/boeing-q4-737-tile.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 257162,
+        "losslessBytes": 257162,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "boeing-q4-starliner-tile",
+      "output": "data/assets/icon-references/boeing/crops/boeing-q4-defense-starliner.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 8642,
+        "losslessBytes": 21486,
+        "savingsVsLossless": 0.5978,
+        "metrics": {
+          "meanAbsoluteError": 1.038,
+          "rootMeanSquareError": 2.3534,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 47,
+          "changedPixelRatio": 0.5516
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 170,
+        "y": 660,
+        "width": 170,
+        "height": 120
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 205,
+        "y0": 665,
+        "x1": 325,
+        "y1": 778
+      },
+      "cropBox": {
+        "x0": 197,
+        "y0": 657,
+        "x1": 333,
+        "y1": 786
+      },
+      "validation": {
+        "width": 136,
+        "height": 129,
+        "foregroundPixels": 9337,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 8,
+          "top": 8,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Defense, Space & Security segment icon: the photographic crew capsule above the segment label. Kept as an opaque, background-matched rectangular patch to avoid photo-edge speckle; it excludes the $7.4B value block and all segment text.",
+      "runtimeOutput": "data/assets/raster-annotations/boeing/boeing-q4-defense-starliner.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 8642,
+        "losslessBytes": 21486,
+        "savingsVsLossless": 0.5978,
+        "metrics": {
+          "meanAbsoluteError": 1.038,
+          "rootMeanSquareError": 2.3534,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 47,
+          "changedPixelRatio": 0.5516
+        }
+      },
+      "validationSheet": "data/assets/icon-references/boeing/validation-sheets/boeing-q4-starliner-tile.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 357838,
+        "losslessBytes": 357838,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

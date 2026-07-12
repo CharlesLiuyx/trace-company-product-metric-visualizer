@@ -124,6 +124,79 @@
           },
         },
       },
+    },
+    {
+      key: 'morgan-stanley-q4-fy25',
+      company: 'Morgan Stanley',
+      period: 'Q4 FY25',
+      periodNote: 'Ending Dec. 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/morgan-stanley-q4-fy25.png',
+      roundingTolerance: 0.2,
+      revenue: {
+        total: 17.9,
+        notes: ['+10% Y/Y', 'Segment revenue sums to $18.0B before $0.2B of eliminations; displayed figures are rounded.'],
+        items: [
+          { id: 'institutional_securities', label: 'Institutional Securities', value: 7.9, notes: ['+9% Y/Y', '34% net margin'] },
+          { id: 'wealth_management', label: 'Wealth Management', value: 8.4, notes: ['+13% Y/Y', '31% net margin'] },
+          { id: 'investment_management', label: 'Investment Management', value: 1.7, notes: ['+5% Y/Y', '27% net margin'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          id: 'non_interest_expenses',
+          label: 'Noninterest expenses',
+          value: 12.1,
+          notes: ['Expense detail sums to $12.2B because the source rounds individual line items.'],
+          items: [
+            { id: 'compensation_benefits', label: 'Compensation & benefits', value: 7.1 },
+            { id: 'information_communications', label: 'Information & communications', value: 1.2 },
+            { id: 'brokerage_clearing_exchange', label: 'Brokerage, clearing & exchange fees', value: 1.1 },
+            { id: 'professional_services', label: 'Professional services', value: 0.8 },
+            { id: 'occupancy', label: 'Occupancy', value: 0.5 },
+            { id: 'marketing_business_development', label: 'Marketing & business development', value: 0.4 },
+            { id: 'other_expenses', label: 'Other', value: 1.1 },
+          ],
+        },
+        operatingExpenses: { total: 0, items: [{ id: 'operating_expenses', label: 'Provision for credit loss', value: 0 }] },
+        tax: { id: 'tax', label: 'Tax', value: 1.3 },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'pretax_income', label: 'Pretax income', value: 5.8, notes: ['Schema adapter subtotal for the financial-institution waterfall.'] },
+        operating: { id: 'pretax_income', label: 'Pretax income', value: 5.8 },
+        net: { id: 'net_income', label: 'Net income', value: 4.4, notes: ['+19% Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度',
+          periodNote: '截至 2025 年 12 月',
+          revenue: {
+            notes: ['同比 +10%', '分部收入合计为 $18.0B，抵销 $0.2B；图中数字经四舍五入。'],
+            items: [
+              { id: 'institutional_securities', label: '机构证券', notes: ['同比 +9%', '净利率 34%'] },
+              { id: 'wealth_management', label: '财富管理', notes: ['同比 +13%', '净利率 31%'] },
+              { id: 'investment_management', label: '投资管理', notes: ['同比 +5%', '净利率 27%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: {
+              label: '非利息费用', notes: ['费用明细因项目取整合计为 $12.2B。'],
+              items: [
+                { id: 'compensation_benefits', label: '薪酬与福利' }, { id: 'information_communications', label: '信息与通信' },
+                { id: 'brokerage_clearing_exchange', label: '经纪、清算与交易所费用' }, { id: 'professional_services', label: '专业服务' },
+                { id: 'occupancy', label: '场地占用' }, { id: 'marketing_business_development', label: '市场与业务开发' }, { id: 'other_expenses', label: '其他' },
+              ],
+            },
+            operatingExpenses: { items: [{ id: 'operating_expenses', label: '信用损失拨备' }] },
+            tax: { label: '税费' },
+          },
+          profit: { gross: { label: '税前利润', notes: ['金融机构瀑布图的 schema 适配小计。'] }, operating: { label: '税前利润' }, net: { label: '净利润', notes: ['同比 +19%'] } },
+        },
+      },
     }
   );
 })(window);

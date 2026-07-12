@@ -1,0 +1,306 @@
+{
+  "source": "input/processed/carnival-q2-fy26.png",
+  "spec": "input/icon-crop-specs/carnival-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-12T18:52:29.668815+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/carnival",
+  "crops": [
+    {
+      "key": "carnival-passenger-ticket",
+      "output": "data/assets/icon-references/carnival/crops/passenger-ticket.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 23690,
+        "losslessBytes": 23690,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 16040,
+        "transparentPixelRatio": 0.6081
+      },
+      "searchBox": {
+        "x": 103,
+        "y": 495,
+        "width": 218,
+        "height": 121
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 133,
+        "y0": 503,
+        "x1": 291,
+        "y1": 607
+      },
+      "cropBox": {
+        "x0": 103,
+        "y0": 495,
+        "x1": 321,
+        "y1": 616
+      },
+      "validation": {
+        "width": 218,
+        "height": 121,
+        "foregroundPixels": 8703,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 30,
+          "right": 30,
+          "top": 8,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0041
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/carnival/passenger-ticket.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 23690,
+        "losslessBytes": 23690,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/carnival/validation-sheets/carnival-passenger-ticket.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 334236,
+        "losslessBytes": 334236,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "carnival-onboard-ship",
+      "output": "data/assets/icon-references/carnival/crops/onboard-ship.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2710,
+        "losslessBytes": 15873,
+        "savingsVsLossless": 0.8293,
+        "metrics": {
+          "meanAbsoluteError": 0.8157,
+          "rootMeanSquareError": 2.4238,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 32,
+          "changedPixelRatio": 0.4209
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 11362,
+        "transparentPixelRatio": 0.5799
+      },
+      "searchBox": {
+        "x": 96,
+        "y": 930,
+        "width": 245,
+        "height": 104
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 131,
+        "y0": 951,
+        "x1": 309,
+        "y1": 1024
+      },
+      "cropBox": {
+        "x0": 119,
+        "y0": 939,
+        "x1": 321,
+        "y1": 1036
+      },
+      "validation": {
+        "width": 202,
+        "height": 97,
+        "foregroundPixels": 7166,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 12,
+          "top": 12,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/carnival/onboard-ship.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2710,
+        "losslessBytes": 15873,
+        "savingsVsLossless": 0.8293,
+        "metrics": {
+          "meanAbsoluteError": 0.8157,
+          "rootMeanSquareError": 2.4238,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 32,
+          "changedPixelRatio": 0.4209
+        }
+      },
+      "validationSheet": "data/assets/icon-references/carnival/validation-sheets/carnival-onboard-ship.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 320721,
+        "losslessBytes": 320721,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "carnival-brand-cluster",
+      "output": "data/assets/icon-references/carnival/crops/brand-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 4477,
+        "losslessBytes": 17559,
+        "savingsVsLossless": 0.745,
+        "metrics": {
+          "meanAbsoluteError": 0.371,
+          "rootMeanSquareError": 1.8943,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 52,
+          "changedPixelRatio": 0.1495
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 37904,
+        "transparentPixelRatio": 0.8394
+      },
+      "searchBox": {
+        "x": 72,
+        "y": 755,
+        "width": 320,
+        "height": 115
+      },
+      "componentCount": 13,
+      "subjectBox": {
+        "x0": 80,
+        "y0": 764,
+        "x1": 338,
+        "y1": 846
+      },
+      "cropBox": {
+        "x0": 50,
+        "y0": 734,
+        "x1": 368,
+        "y1": 876
+      },
+      "validation": {
+        "width": 318,
+        "height": 142,
+        "foregroundPixels": 6380,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 30,
+          "right": 30,
+          "top": 30,
+          "bottom": 30
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/carnival/brand-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 4477,
+        "losslessBytes": 17559,
+        "savingsVsLossless": 0.745,
+        "metrics": {
+          "meanAbsoluteError": 0.371,
+          "rootMeanSquareError": 1.8943,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 52,
+          "changedPixelRatio": 0.1495
+        }
+      },
+      "validationSheet": "data/assets/icon-references/carnival/validation-sheets/carnival-brand-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 298204,
+        "losslessBytes": 298204,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}
