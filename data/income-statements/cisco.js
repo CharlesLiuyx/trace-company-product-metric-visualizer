@@ -8,6 +8,64 @@
   });
 
   ssot.records.push({
+    key: 'cisco-q3-fy26',
+    company: 'Cisco',
+    period: 'Q3 FY26',
+    periodNote: 'Ending Apr. 2026',
+    currency: '$',
+    unit: 'B',
+    decimals: 1,
+    sourceImage: 'input/processed/cisco-q3-fy26.png',
+    roundingTolerance: 0.15,
+    revenue: {
+      total: 15.841,
+      notes: ['+12% Y/Y'],
+      items: [
+        { id: 'networking', label: 'Networking', value: 8.815, notes: ['+25% Y/Y'] },
+        { id: 'security', label: 'Security', value: 2.008, notes: ['(0%) Y/Y'] },
+        { id: 'collaboration', label: 'Collaboration', value: 1.024, notes: ['(1%) Y/Y'] },
+        { id: 'observability', label: 'Observability', value: 0.269, notes: ['+3% Y/Y'] },
+        { id: 'services', label: 'Services', value: 3.724, notes: ['(1%) Y/Y'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: {
+        id: 'cost_of_sales', label: 'Cost of sales', value: 5.761,
+        items: [
+          { id: 'product_cost_of_sales', label: 'Products', value: 4.613, notes: ['62% gross margin'] },
+          { id: 'services_cost_of_sales', label: 'Services', value: 1.148, notes: ['69% gross margin'] },
+        ],
+      },
+      operatingExpenses: {
+        total: 6.120,
+        items: [
+          { id: 'sm', label: 'S&M', value: 2.855 }, { id: 'rnd', label: 'R&D', value: 2.377 },
+          { id: 'ga', label: 'G&A', value: 0.661 }, { id: 'amortization', label: 'Amortization', value: 0.228 },
+        ],
+      },
+      tax: { id: 'tax', label: 'Tax', value: 0.666 },
+    },
+    otherIncome: { total: 0, items: [] },
+    otherExpenses: { total: 0, items: [] },
+    profit: {
+      gross: { id: 'gross_profit', label: 'Gross profit', value: 10.080, notes: ['64% margin', '(2pp) Y/Y'] },
+      operating: { id: 'operating_profit', label: 'Operating profit', value: 3.960, notes: ['25% margin', '+2pp Y/Y'] },
+      net: { id: 'net_profit', label: 'Net profit', value: 3.373, notes: ['21% margin', '+4pp Y/Y'] },
+    },
+    i18n: {
+      zh: {
+        period: '2026 财年第三季度', periodNote: '截至 2026 年 4 月',
+        revenue: { notes: ['同比 +12%'], items: [
+          { id: 'networking', label: '网络', notes: ['同比 +25%'] }, { id: 'security', label: '安全', notes: ['同比 (0%)'] },
+          { id: 'collaboration', label: '协作', notes: ['同比 (1%)'] }, { id: 'observability', label: '可观测性', notes: ['同比 +3%'] }, { id: 'services', label: '服务', notes: ['同比 (1%)'] },
+        ] },
+        costs: { costOfRevenue: { label: '销售成本', items: [{ id: 'product_cost_of_sales', label: '产品', notes: ['毛利率 62%'] }, { id: 'services_cost_of_sales', label: '服务', notes: ['毛利率 69%'] }] }, operatingExpenses: { items: [{ id: 'sm', label: '销售与市场' }, { id: 'rnd', label: '研发' }, { id: 'ga', label: '一般及行政' }, { id: 'amortization', label: '摊销' }] }, tax: { label: '税费' } },
+        profit: { gross: { label: '毛利润', notes: ['利润率 64%', '同比 (2 个百分点)'] }, operating: { label: '营业利润', notes: ['利润率 25%', '同比 +2 个百分点'] }, net: { label: '净利润', notes: ['利润率 21%', '同比 +4 个百分点'] } },
+      },
+    },
+  });
+
+  ssot.records.push({
     key: 'cisco-q2-fy26',
     company: 'Cisco',
     period: 'Q2 FY26',
