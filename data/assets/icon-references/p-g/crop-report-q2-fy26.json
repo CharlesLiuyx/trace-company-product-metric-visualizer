@@ -1,0 +1,518 @@
+{
+  "source": "input/processed/p-g-q2-fy26.png",
+  "spec": "input/icon-crop-specs/p-g-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-12T19:15:03.200314+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/p-g",
+  "crops": [
+    {
+      "key": "p-g-company-logo",
+      "output": "data/assets/icon-references/p-g/crops/company-logo-q2-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 54227,
+        "losslessBytes": 54227,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 28454,
+        "transparentPixelRatio": 0.3162
+      },
+      "searchBox": {
+        "x": 808,
+        "y": 232,
+        "width": 300,
+        "height": 300
+      },
+      "componentCount": 4,
+      "subjectBox": {
+        "x0": 818,
+        "y0": 238,
+        "x1": 1097,
+        "y1": 518
+      },
+      "cropBox": {
+        "x0": 808,
+        "y0": 232,
+        "x1": 1108,
+        "y1": 532
+      },
+      "validation": {
+        "width": 300,
+        "height": 300,
+        "foregroundPixels": 54113,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 10,
+          "right": 11,
+          "top": 6,
+          "bottom": 14
+        },
+        "centerOffset": {
+          "x": -0.0017,
+          "y": -0.0133
+        },
+        "passes": true
+      },
+      "note": "P&G orb logo only; excludes the Net sales label and all Sankey flow pixels.",
+      "runtimeOutput": "data/assets/raster-annotations/p-g/company-logo-q2-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 54227,
+        "losslessBytes": 54227,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/p-g/validation-sheets/q2-fy26/p-g-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 342997,
+        "losslessBytes": 342997,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "beauty-product-cluster",
+      "output": "data/assets/icon-references/p-g/crops/beauty-product-cluster-q2-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 26412,
+        "losslessBytes": 26412,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 23398,
+        "transparentPixelRatio": 0.6455
+      },
+      "searchBox": {
+        "x": 10,
+        "y": 370,
+        "width": 250,
+        "height": 145
+      },
+      "componentCount": 5,
+      "subjectBox": {
+        "x0": 36,
+        "y0": 384,
+        "x1": 216,
+        "y1": 491
+      },
+      "cropBox": {
+        "x0": 10,
+        "y0": 370,
+        "x1": 260,
+        "y1": 515
+      },
+      "validation": {
+        "width": 250,
+        "height": 145,
+        "foregroundPixels": 9832,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 26,
+          "right": 44,
+          "top": 14,
+          "bottom": 24
+        },
+        "centerOffset": {
+          "x": -0.036,
+          "y": -0.0345
+        },
+        "passes": true
+      },
+      "note": "Beauty product pack collage only; excludes the Beauty label and source node.",
+      "runtimeOutput": "data/assets/raster-annotations/p-g/beauty-product-cluster-q2-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 26412,
+        "losslessBytes": 26412,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/p-g/validation-sheets/q2-fy26/beauty-product-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 300501,
+        "losslessBytes": 300501,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "grooming-product-cluster",
+      "output": "data/assets/icon-references/p-g/crops/grooming-product-cluster-q2-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 24499,
+        "losslessBytes": 24499,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 16326,
+        "transparentPixelRatio": 0.6041
+      },
+      "searchBox": {
+        "x": 10,
+        "y": 545,
+        "width": 235,
+        "height": 115
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 39,
+        "y0": 552,
+        "x1": 224,
+        "y1": 625
+      },
+      "cropBox": {
+        "x0": 10,
+        "y0": 545,
+        "x1": 245,
+        "y1": 660
+      },
+      "validation": {
+        "width": 235,
+        "height": 115,
+        "foregroundPixels": 9976,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 29,
+          "right": 21,
+          "top": 7,
+          "bottom": 35
+        },
+        "centerOffset": {
+          "x": 0.017,
+          "y": -0.1217
+        },
+        "passes": true
+      },
+      "note": "Grooming product pack collage only; excludes the Grooming label and source node.",
+      "runtimeOutput": "data/assets/raster-annotations/p-g/grooming-product-cluster-q2-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 24499,
+        "losslessBytes": 24499,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/p-g/validation-sheets/q2-fy26/grooming-product-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 304477,
+        "losslessBytes": 304477,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "health-care-product-cluster",
+      "output": "data/assets/icon-references/p-g/crops/health-care-product-cluster-q2-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 35691,
+        "losslessBytes": 35691,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 16773,
+        "transparentPixelRatio": 0.5161
+      },
+      "searchBox": {
+        "x": 10,
+        "y": 700,
+        "width": 250,
+        "height": 130
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 25,
+        "y0": 706,
+        "x1": 232,
+        "y1": 812
+      },
+      "cropBox": {
+        "x0": 10,
+        "y0": 700,
+        "x1": 260,
+        "y1": 830
+      },
+      "validation": {
+        "width": 250,
+        "height": 130,
+        "foregroundPixels": 14159,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 15,
+          "right": 28,
+          "top": 6,
+          "bottom": 18
+        },
+        "centerOffset": {
+          "x": -0.026,
+          "y": -0.0462
+        },
+        "passes": true
+      },
+      "note": "Health Care product pack collage only; excludes the two-line label and source node.",
+      "runtimeOutput": "data/assets/raster-annotations/p-g/health-care-product-cluster-q2-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 35691,
+        "losslessBytes": 35691,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/p-g/validation-sheets/q2-fy26/health-care-product-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 324255,
+        "losslessBytes": 324255,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "fabric-home-care-product-cluster",
+      "output": "data/assets/icon-references/p-g/crops/fabric-home-care-product-cluster-q2-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 27790,
+        "losslessBytes": 27790,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 19319,
+        "transparentPixelRatio": 0.6577
+      },
+      "searchBox": {
+        "x": 0,
+        "y": 855,
+        "width": 235,
+        "height": 125
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 27,
+        "y0": 880,
+        "x1": 232,
+        "y1": 951
+      },
+      "cropBox": {
+        "x0": 0,
+        "y0": 855,
+        "x1": 235,
+        "y1": 980
+      },
+      "validation": {
+        "width": 235,
+        "height": 125,
+        "foregroundPixels": 9092,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 27,
+          "right": 3,
+          "top": 25,
+          "bottom": 29
+        },
+        "centerOffset": {
+          "x": 0.0511,
+          "y": -0.016
+        },
+        "passes": true
+      },
+      "note": "Fabric & Home Care product pack collage only; excludes the two-line label and source node.",
+      "runtimeOutput": "data/assets/raster-annotations/p-g/fabric-home-care-product-cluster-q2-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 27790,
+        "losslessBytes": 27790,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/p-g/validation-sheets/q2-fy26/fabric-home-care-product-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 312127,
+        "losslessBytes": 312127,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "baby-feminine-family-care-product-cluster",
+      "output": "data/assets/icon-references/p-g/crops/baby-feminine-family-care-product-cluster-q2-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 14166,
+        "losslessBytes": 14166,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 8577,
+        "transparentPixelRatio": 0.5967
+      },
+      "searchBox": {
+        "x": 30,
+        "y": 1080,
+        "width": 115,
+        "height": 125
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 42,
+        "y0": 1107,
+        "x1": 129,
+        "y1": 1182
+      },
+      "cropBox": {
+        "x0": 30,
+        "y0": 1080,
+        "x1": 145,
+        "y1": 1205
+      },
+      "validation": {
+        "width": 115,
+        "height": 125,
+        "foregroundPixels": 5052,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 16,
+          "top": 27,
+          "bottom": 23
+        },
+        "centerOffset": {
+          "x": -0.0174,
+          "y": 0.016
+        },
+        "passes": true
+      },
+      "note": "Baby, Feminine & Family Care product packs only; excludes the label and source node.",
+      "runtimeOutput": "data/assets/raster-annotations/p-g/baby-feminine-family-care-product-cluster-q2-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 14166,
+        "losslessBytes": 14166,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/p-g/validation-sheets/q2-fy26/baby-feminine-family-care-product-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 338156,
+        "losslessBytes": 338156,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

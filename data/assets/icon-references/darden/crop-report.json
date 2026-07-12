@@ -1,0 +1,508 @@
+{
+  "source": "input/processed/darden-q4-fy26.png",
+  "spec": "input/icon-crop-specs/darden-q4-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-12T18:43:38.504341+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/darden",
+  "crops": [
+    {
+      "key": "darden-company-logo",
+      "output": "data/assets/icon-references/darden/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 6550,
+        "losslessBytes": 26494,
+        "savingsVsLossless": 0.7528,
+        "metrics": {
+          "meanAbsoluteError": 0.1986,
+          "rootMeanSquareError": 1.1925,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 44,
+          "changedPixelRatio": 0.1214
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 114403,
+        "transparentPixelRatio": 0.8181
+      },
+      "searchBox": {
+        "x": 578,
+        "y": 258,
+        "width": 700,
+        "height": 174
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 677,
+        "y0": 261,
+        "x1": 1278,
+        "y1": 429
+      },
+      "cropBox": {
+        "x0": 560,
+        "y0": 250,
+        "x1": 1296,
+        "y1": 440
+      },
+      "validation": {
+        "width": 736,
+        "height": 190,
+        "foregroundPixels": 16219,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 117,
+          "right": 18,
+          "top": 11,
+          "bottom": 11
+        },
+        "centerOffset": {
+          "x": 0.0673,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Darden corporate wordmark above the revenue hub; excludes the title, revenue label, and ribbons.",
+      "runtimeOutput": "data/assets/raster-annotations/darden/company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 6550,
+        "losslessBytes": 26494,
+        "savingsVsLossless": 0.7528,
+        "metrics": {
+          "meanAbsoluteError": 0.1986,
+          "rootMeanSquareError": 1.1925,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 44,
+          "changedPixelRatio": 0.1214
+        }
+      },
+      "validationSheet": "data/assets/icon-references/darden/validation-sheets/darden-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 270685,
+        "losslessBytes": 270685,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "darden-olive-garden-logo",
+      "output": "data/assets/icon-references/darden/crops/olive-garden-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 8374,
+        "losslessBytes": 40652,
+        "savingsVsLossless": 0.794,
+        "metrics": {
+          "meanAbsoluteError": 0.3692,
+          "rootMeanSquareError": 1.5071,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 27,
+          "changedPixelRatio": 0.1759
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 58592,
+        "transparentPixelRatio": 0.7398
+      },
+      "searchBox": {
+        "x": 35,
+        "y": 392,
+        "width": 300,
+        "height": 215
+      },
+      "componentCount": 21,
+      "subjectBox": {
+        "x0": 45,
+        "y0": 394,
+        "x1": 335,
+        "y1": 607
+      },
+      "cropBox": {
+        "x0": 20,
+        "y0": 375,
+        "x1": 350,
+        "y1": 615
+      },
+      "validation": {
+        "width": 330,
+        "height": 240,
+        "foregroundPixels": 18332,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 25,
+          "right": 15,
+          "top": 19,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0152,
+          "y": 0.0229
+        },
+        "passes": true
+      },
+      "note": "Olive Garden segment wordmark; excludes the segment-margin text, value, and flow ribbon.",
+      "runtimeOutput": "data/assets/raster-annotations/darden/olive-garden-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 8374,
+        "losslessBytes": 40652,
+        "savingsVsLossless": 0.794,
+        "metrics": {
+          "meanAbsoluteError": 0.3692,
+          "rootMeanSquareError": 1.5071,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 27,
+          "changedPixelRatio": 0.1759
+        }
+      },
+      "validationSheet": "data/assets/icon-references/darden/validation-sheets/darden-olive-garden-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 332448,
+        "losslessBytes": 332448,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "darden-longhorn-logo",
+      "output": "data/assets/icon-references/darden/crops/longhorn-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 4923,
+        "losslessBytes": 21234,
+        "savingsVsLossless": 0.7682,
+        "metrics": {
+          "meanAbsoluteError": 0.4672,
+          "rootMeanSquareError": 2.3421,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 35,
+          "changedPixelRatio": 0.1624
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 49074,
+        "transparentPixelRatio": 0.8174
+      },
+      "searchBox": {
+        "x": 0,
+        "y": 662,
+        "width": 365,
+        "height": 140
+      },
+      "componentCount": 21,
+      "subjectBox": {
+        "x0": 14,
+        "y0": 672,
+        "x1": 359,
+        "y1": 789
+      },
+      "cropBox": {
+        "x0": 0,
+        "y0": 650,
+        "x1": 380,
+        "y1": 808
+      },
+      "validation": {
+        "width": 380,
+        "height": 158,
+        "foregroundPixels": 9838,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 14,
+          "right": 21,
+          "top": 22,
+          "bottom": 19
+        },
+        "centerOffset": {
+          "x": -0.0092,
+          "y": 0.0095
+        },
+        "passes": true
+      },
+      "note": "LongHorn Steakhouse segment wordmark; excludes the segment-margin text, value, and flow ribbon.",
+      "runtimeOutput": "data/assets/raster-annotations/darden/longhorn-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 4923,
+        "losslessBytes": 21234,
+        "savingsVsLossless": 0.7682,
+        "metrics": {
+          "meanAbsoluteError": 0.4672,
+          "rootMeanSquareError": 2.3421,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 35,
+          "changedPixelRatio": 0.1624
+        }
+      },
+      "validationSheet": "data/assets/icon-references/darden/validation-sheets/darden-longhorn-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 284704,
+        "losslessBytes": 284704,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "darden-fine-dining-brand-cluster",
+      "output": "data/assets/icon-references/darden/crops/fine-dining-brand-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 3977,
+        "losslessBytes": 17549,
+        "savingsVsLossless": 0.7734,
+        "metrics": {
+          "meanAbsoluteError": 0.9715,
+          "rootMeanSquareError": 2.3724,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 49,
+          "changedPixelRatio": 0.5943
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 13491,
+        "transparentPixelRatio": 0.3872
+      },
+      "searchBox": {
+        "x": 45,
+        "y": 862,
+        "width": 325,
+        "height": 92
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 53,
+        "y0": 869,
+        "x1": 364,
+        "y1": 946
+      },
+      "cropBox": {
+        "x0": 40,
+        "y0": 856,
+        "x1": 375,
+        "y1": 960
+      },
+      "validation": {
+        "width": 335,
+        "height": 104,
+        "foregroundPixels": 19565,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 13,
+          "right": 11,
+          "top": 13,
+          "bottom": 14
+        },
+        "centerOffset": {
+          "x": 0.003,
+          "y": -0.0048
+        },
+        "passes": true
+      },
+      "note": "The Capital Grille and Ruth's Chris Fine Dining brand cluster; excludes the Fine Dining text label, value, and flow ribbon.",
+      "runtimeOutput": "data/assets/raster-annotations/darden/fine-dining-brand-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 3977,
+        "losslessBytes": 17549,
+        "savingsVsLossless": 0.7734,
+        "metrics": {
+          "meanAbsoluteError": 0.9715,
+          "rootMeanSquareError": 2.3724,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 49,
+          "changedPixelRatio": 0.5943
+        }
+      },
+      "validationSheet": "data/assets/icon-references/darden/validation-sheets/darden-fine-dining-brand-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 285871,
+        "losslessBytes": 285871,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "darden-other-business-brand-cluster",
+      "output": "data/assets/icon-references/darden/crops/other-business-brand-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 5458,
+        "losslessBytes": 26365,
+        "savingsVsLossless": 0.793,
+        "metrics": {
+          "meanAbsoluteError": 0.655,
+          "rootMeanSquareError": 2.1653,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.2175
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 27807,
+        "transparentPixelRatio": 0.6867
+      },
+      "searchBox": {
+        "x": 0,
+        "y": 1068,
+        "width": 370,
+        "height": 88
+      },
+      "componentCount": 20,
+      "subjectBox": {
+        "x0": 14,
+        "y0": 1088,
+        "x1": 367,
+        "y1": 1156
+      },
+      "cropBox": {
+        "x0": 0,
+        "y0": 1060,
+        "x1": 382,
+        "y1": 1166
+      },
+      "validation": {
+        "width": 382,
+        "height": 106,
+        "foregroundPixels": 11786,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 14,
+          "right": 15,
+          "top": 28,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": -0.0013,
+          "y": 0.0849
+        },
+        "passes": true
+      },
+      "note": "Cheddar's Scratch Kitchen and Yard House Other Business brand cluster; excludes the Other Business text label, value, and flow ribbon.",
+      "runtimeOutput": "data/assets/raster-annotations/darden/other-business-brand-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 5458,
+        "losslessBytes": 26365,
+        "savingsVsLossless": 0.793,
+        "metrics": {
+          "meanAbsoluteError": 0.655,
+          "rootMeanSquareError": 2.1653,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.2175
+        }
+      },
+      "validationSheet": "data/assets/icon-references/darden/validation-sheets/darden-other-business-brand-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 287925,
+        "losslessBytes": 287925,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "source": "input/processed/american-q4-fy25.png",
+  "spec": "input/icon-crop-specs/american-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-12T20:24:02.581746+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/american",
+  "crops": [
+    {
+      "key": "american-company-lockup",
+      "output": "data/assets/icon-references/american/crops/company-lockup.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 9017,
+        "losslessBytes": 40149,
+        "savingsVsLossless": 0.7754,
+        "metrics": {
+          "meanAbsoluteError": 0.5288,
+          "rootMeanSquareError": 1.984,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.2032
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 105160,
+        "transparentPixelRatio": 0.7452
+      },
+      "searchBox": {
+        "x": 650,
+        "y": 221,
+        "width": 630,
+        "height": 224
+      },
+      "componentCount": 22,
+      "subjectBox": {
+        "x0": 663,
+        "y0": 221,
+        "x1": 1265,
+        "y1": 444
+      },
+      "cropBox": {
+        "x0": 650,
+        "y0": 221,
+        "x1": 1280,
+        "y1": 445
+      },
+      "validation": {
+        "width": 630,
+        "height": 224,
+        "foregroundPixels": 34058,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 13,
+          "right": 15,
+          "top": 0,
+          "bottom": 1
+        },
+        "centerOffset": {
+          "x": -0.0016,
+          "y": -0.0022
+        },
+        "passes": true
+      },
+      "note": "American Airlines wordmark and eagle lockup above the revenue hub; excludes the chart title, financial labels, ribbons, and publisher attribution.",
+      "runtimeOutput": "data/assets/raster-annotations/american/company-lockup.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 9017,
+        "losslessBytes": 40149,
+        "savingsVsLossless": 0.7754,
+        "metrics": {
+          "meanAbsoluteError": 0.5288,
+          "rootMeanSquareError": 1.984,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.2032
+        }
+      },
+      "validationSheet": "data/assets/icon-references/american/validation-sheets/american-company-lockup.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 244343,
+        "losslessBytes": 244343,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

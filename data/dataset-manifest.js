@@ -7652,6 +7652,515 @@
             }
           }
         }
+      },
+      {
+        "key": "chewy-q1-fy26",
+        "src": "data/datasets/chewy-q1-fy26.js",
+        "data": {
+          "name": "Chewy · Q1 FY26",
+          "company": "Chewy",
+          "meta": {
+            "title": "Chewy Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending May 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Chewy · 2026 财年第一季度",
+              "meta": {
+                "title": "Chewy 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 5 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "vail-resorts-q3-fy26",
+        "src": "data/datasets/vail-resorts-q3-fy26.js",
+        "data": {
+          "name": "Vail Resorts · Q3 FY26",
+          "company": "Vail Resorts",
+          "meta": {
+            "title": "Vail Resorts Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Apr. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "韦尔度假村 · 2026 财年第三季度",
+              "meta": {
+                "title": "韦尔度假村 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "carnival-q2-fy26",
+        "src": "data/datasets/carnival-q2-fy26.js",
+        "data": {
+          "name": "Carnival · Q2 FY26",
+          "company": "Carnival",
+          "meta": {
+            "title": "Carnival Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending May 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "嘉年华 · 2026 财年第二季度",
+              "meta": {
+                "title": "嘉年华 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 5 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "darden-q4-fy26",
+        "src": "data/datasets/darden-q4-fy26.js",
+        "data": {
+          "name": "Darden Restaurants · Q4 FY26",
+          "company": "Darden Restaurants",
+          "meta": {
+            "title": "Darden Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending May 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "达登餐饮集团 · 2026 财年第四季度",
+              "meta": {
+                "title": "达登餐饮集团 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 5 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "unitedhealth-q4-fy25",
+        "src": "data/datasets/unitedhealth-q4-fy25.js",
+        "data": {
+          "name": "UnitedHealth Group · Q4 FY25",
+          "company": "UnitedHealth Group",
+          "meta": {
+            "title": "UnitedHealth Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "联合健康集团 · 2025 财年第四季度",
+              "meta": {
+                "title": "联合健康集团 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "p-g-q2-fy26",
+        "src": "data/datasets/p-g-q2-fy26.js",
+        "data": {
+          "name": "P&G · Q2 FY26",
+          "company": "P&G",
+          "meta": {
+            "title": "P&G Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "宝洁 · 2026 财年第二季度",
+              "meta": {
+                "title": "宝洁 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ups-q4-fy25",
+        "src": "data/datasets/ups-q4-fy25.js",
+        "data": {
+          "name": "UPS · Q4 FY25",
+          "company": "UPS",
+          "meta": {
+            "title": "UPS Q4 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "联合包裹 · 2025 财年第四季度",
+              "meta": {
+                "title": "联合包裹 2025 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "united-q4-fy25",
+        "src": "data/datasets/united-q4-fy25.js",
+        "data": {
+          "name": "United Airlines · Q4 FY25",
+          "company": "United Airlines",
+          "meta": {
+            "title": "United Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "联合航空 · 2025 财年第四季度",
+              "meta": {
+                "title": "联合航空 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lvmh-fy25",
+        "src": "data/datasets/lvmh-fy25.js",
+        "data": {
+          "name": "LVMH · FY25",
+          "company": "LVMH",
+          "meta": {
+            "title": "LVMH FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "路威酩轩 · 2025 财年",
+              "meta": {
+                "title": "路威酩轩 2025 财年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tilray-q2-fy26",
+        "src": "data/datasets/tilray-q2-fy26.js",
+        "data": {
+          "name": "Tilray Brands · Q2 FY26",
+          "company": "Tilray Brands",
+          "meta": {
+            "title": "Tilray Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Nov. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tilray Brands · 2026 财年第二季度",
+              "meta": {
+                "title": "Tilray 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2025 年 11 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intuitive-q4-fy25",
+        "src": "data/datasets/intuitive-q4-fy25.js",
+        "data": {
+          "name": "Intuitive · Q4 FY25",
+          "company": "Intuitive",
+          "meta": {
+            "title": "Intuitive Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "直觉外科 · 2025 财年第四季度",
+              "meta": {
+                "title": "直觉外科 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "j-j-q4-fy25",
+        "src": "data/datasets/j-j-q4-fy25.js",
+        "data": {
+          "name": "J&J · Q4 FY25",
+          "company": "Johnson & Johnson",
+          "meta": {
+            "title": "J&J Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Quarter ended Dec. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "强生 · 2025 财年第四季度",
+              "meta": {
+                "title": "强生 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "abbott-q4-fy25",
+        "src": "data/datasets/abbott-q4-fy25.js",
+        "data": {
+          "name": "Abbott · Q4 FY25",
+          "company": "Abbott",
+          "meta": {
+            "title": "Abbott Q4 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "雅培 · 2025 财年第四季度",
+              "meta": {
+                "title": "雅培 2025 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ge-vernova-q4-fy25",
+        "src": "data/datasets/ge-vernova-q4-fy25.js",
+        "data": {
+          "name": "GE Vernova · Q4 FY25",
+          "company": "GE Vernova",
+          "meta": {
+            "title": "GE Vernova Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Quarter ended Dec. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "GE Vernova · 2025 财年第四季度",
+              "meta": {
+                "title": "GE Vernova 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "goldman-sachs-q4-fy25",
+        "src": "data/datasets/goldman-sachs-q4-fy25.js",
+        "data": {
+          "name": "Goldman Sachs · Q4 FY25",
+          "company": "Goldman Sachs",
+          "meta": {
+            "title": "Goldman Sachs Q4 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "高盛 · 2025 财年第四季度",
+              "meta": {
+                "title": "高盛 2025 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "delta-q4-fy25",
+        "src": "data/datasets/delta-q4-fy25.js",
+        "data": {
+          "name": "Delta · Q4 FY25",
+          "company": "Delta Air Lines",
+          "meta": {
+            "title": "Delta Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "达美航空 · 2025 财年第四季度",
+              "meta": {
+                "title": "达美航空 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "blackrock-q4-fy25",
+        "src": "data/datasets/blackrock-q4-fy25.js",
+        "data": {
+          "name": "BlackRock - Q4 FY25",
+          "company": "BlackRock",
+          "meta": {
+            "title": "BlackRock Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "BlackRock · 2025 财年第四季度",
+              "meta": {
+                "title": "BlackRock 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "boeing-q4-fy25",
+        "src": "data/datasets/boeing-q4-fy25.js",
+        "data": {
+          "name": "Boeing · Q4 FY25",
+          "company": "Boeing",
+          "meta": {
+            "title": "Boeing Q4 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "波音 · 2025 财年第四季度",
+              "meta": {
+                "title": "波音 2025 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "morgan-stanley-q4-fy25",
+        "src": "data/datasets/morgan-stanley-q4-fy25.js",
+        "data": {
+          "name": "Morgan Stanley · Q4 FY25",
+          "company": "Morgan Stanley",
+          "meta": {
+            "title": "Morgan Stanley Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "摩根士丹利 · 2025 财年第四季度",
+              "meta": {
+                "title": "摩根士丹利 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sofi-q4-fy25",
+        "src": "data/datasets/sofi-q4-fy25.js",
+        "data": {
+          "name": "SoFi · Q4 FY25",
+          "company": "SoFi",
+          "meta": {
+            "title": "SoFi Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Quarter ended Dec. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "SoFi · 2025 财年第四季度",
+              "meta": {
+                "title": "SoFi 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "starbucks-q1-fy26",
+        "src": "data/datasets/starbucks-q1-fy26.js",
+        "data": {
+          "name": "Starbucks - Q1 FY26",
+          "company": "Starbucks",
+          "meta": {
+            "title": "Starbucks Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Starbucks · 2026 财年第一季度",
+              "meta": {
+                "title": "Starbucks 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "american-q4-fy25",
+        "src": "data/datasets/american-q4-fy25.js",
+        "data": {
+          "name": "American Airlines · Q4 FY25",
+          "company": "American Airlines",
+          "meta": {
+            "title": "American Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美国航空 · 2025 财年第四季度",
+              "meta": {
+                "title": "美国航空 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "southwest-q4-fy25",
+        "src": "data/datasets/southwest-q4-fy25.js",
+        "data": {
+          "name": "Southwest Airlines · Q4 FY25",
+          "company": "Southwest Airlines",
+          "meta": {
+            "title": "Southwest Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "西南航空 · 2025 财年第四季度",
+              "meta": {
+                "title": "西南航空 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
       }
     ]
   };
