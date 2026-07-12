@@ -195,6 +195,12 @@
       "width": 2667,
       "height": 1500
     },
+    "arista-q1-fy26": {
+      "similarity": 0.97385,
+      "mae": 6.6682,
+      "width": 2667,
+      "height": 1500
+    },
     "arista-q4-fy25": {
       "similarity": 0.976555,
       "mae": 5.9786,
@@ -372,6 +378,12 @@
     "cisco-q2-fy26": {
       "similarity": 0.972253,
       "mae": 7.0754,
+      "width": 2667,
+      "height": 1500
+    },
+    "cisco-q3-fy26": {
+      "similarity": 0.972415,
+      "mae": 7.0341,
       "width": 2667,
       "height": 1500
     },
@@ -1137,6 +1149,12 @@
       "width": 2667,
       "height": 1500
     },
+    "nutanix-q3-fy26": {
+      "similarity": 0.970072,
+      "mae": 7.6315,
+      "width": 2667,
+      "height": 1500
+    },
     "nvidia-q1-fy24": {
       "similarity": 0.957116,
       "mae": 10.9354,
@@ -1626,6 +1644,12 @@
     "tesla-q1-fy26": {
       "similarity": 0.947838,
       "mae": 13.3013,
+      "width": 2667,
+      "height": 1500
+    },
+    "the-trade-desk-q1-fy26": {
+      "similarity": 0.976289,
+      "mae": 6.0464,
       "width": 2667,
       "height": 1500
     },

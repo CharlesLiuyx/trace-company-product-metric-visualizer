@@ -6819,6 +6819,94 @@
             }
           }
         }
+      },
+      {
+        "key": "cisco-q3-fy26",
+        "src": "data/datasets/cisco-q3-fy26.js",
+        "data": {
+          "name": "Cisco · Q3 FY26",
+          "company": "Cisco",
+          "meta": {
+            "title": "Cisco Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Apr. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "思科 · 2026 财年第三季度",
+              "meta": {
+                "title": "思科 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nutanix-q3-fy26",
+        "src": "data/datasets/nutanix-q3-fy26.js",
+        "data": {
+          "name": "Nutanix · Q3 FY26",
+          "company": "Nutanix",
+          "meta": {
+            "title": "Nutanix Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Apr. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Nutanix · 2026 财年第三季度",
+              "meta": {
+                "title": "Nutanix 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "arista-q1-fy26",
+        "src": "data/datasets/arista-q1-fy26.js",
+        "data": {
+          "name": "Arista · Q1 FY26",
+          "company": "Arista",
+          "meta": {
+            "title": "Arista Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "阿里斯塔网络 · 2026 财年第一季度",
+              "meta": {
+                "title": "阿里斯塔网络 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月 31 日"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "the-trade-desk-q1-fy26",
+        "src": "data/datasets/the-trade-desk-q1-fy26.js",
+        "data": {
+          "name": "The Trade Desk · Q1 FY26",
+          "company": "The Trade Desk",
+          "meta": {
+            "title": "The Trade Desk Q1 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "The Trade Desk · 2026 财年第一季度",
+              "meta": {
+                "title": "The Trade Desk 2026 财年第一季度利润表"
+              }
+            }
+          }
+        }
       }
     ]
   };
