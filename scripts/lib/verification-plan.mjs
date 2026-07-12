@@ -1,7 +1,7 @@
 import { CHANGE_IMPACTS, DATASET_ADAPTERS } from './dataset-build.mjs';
 import { digestCanonical, validateObjectInventory } from './object-inventory.mjs';
 
-export const VERIFICATION_PLAN_PROTOCOL = 'verification-plan/v2';
+export const VERIFICATION_PLAN_PROTOCOL = 'verification-plan/v3';
 
 export const CHECK_ENFORCEMENTS = Object.freeze([
   'hard-gate',
@@ -19,7 +19,10 @@ export const FEATURE_REQUIRED_CHECKS = Object.freeze({
   'visible-short-node': Object.freeze({ axis: 'render', enforcement: 'manual', localeScope: 'required-locales', evidenceKind: 'manual-decision', ruleIds: Object.freeze(['T14']) }),
   'visible-interface': Object.freeze({ axis: 'render', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'interface-audit', ruleIds: Object.freeze(['G12', 'L11']) }),
   'visible-node-face': Object.freeze({ axis: 'render', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'node-paint-audit', ruleIds: Object.freeze(['B15', 'T13']) }),
-  'hidden-anchor': Object.freeze({ axis: 'render', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'node-paint-audit', ruleIds: Object.freeze(['B7', 'T12']) }),
+  'hidden-anchor': Object.freeze([
+    Object.freeze({ checkId: 'hidden-anchor', axis: 'render', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'node-paint-audit', ruleIds: Object.freeze(['B7']) }),
+    Object.freeze({ checkId: 'hidden-anchor-source-confirmation', axis: 'render', enforcement: 'manual', localeScope: 'global', evidenceKind: 'manual-decision', ruleIds: Object.freeze(['T12']) }),
+  ]),
   'specified-label-weight': Object.freeze({ axis: 'render', enforcement: 'manual', localeScope: 'required-locales', evidenceKind: 'manual-decision', ruleIds: Object.freeze(['B14', 'T16']) }),
 });
 
@@ -125,6 +128,15 @@ function renderTargetsForFeature(object, feature) {
   return selected.length > 0 ? selected : targets;
 }
 
+export function requiredChecksForFeature(feature) {
+  const configured = FEATURE_REQUIRED_CHECKS[feature];
+  return Array.isArray(configured) ? configured : [configured];
+}
+
+function featureCheckId(feature, requirement) {
+  return `feature:${requirement.checkId || feature}`;
+}
+
 function featureChecks(inventory) {
   const byFeature = new Map();
   for (const object of inventory.objects) {
@@ -140,18 +152,18 @@ function featureChecks(inventory) {
   }
   return [...byFeature]
     .sort(([left], [right]) => left.localeCompare(right))
-    .map(([feature, bucket]) => ({
-      id: `feature:${feature}`,
+    .flatMap(([feature, bucket]) => requiredChecksForFeature(feature).map((requirement) => ({
+      id: featureCheckId(feature, requirement),
       source: 'object-feature',
-      axis: FEATURE_REQUIRED_CHECKS[feature].axis,
-      enforcement: FEATURE_REQUIRED_CHECKS[feature].enforcement,
-      localeScope: FEATURE_REQUIRED_CHECKS[feature].localeScope,
-      evidenceKind: FEATURE_REQUIRED_CHECKS[feature].evidenceKind,
+      axis: requirement.axis,
+      enforcement: requirement.enforcement,
+      localeScope: requirement.localeScope,
+      evidenceKind: requirement.evidenceKind,
       objectIds: bucket.objectIds.sort(),
       evidenceTargets: [...new Set(bucket.evidenceTargets)].sort(),
       featureEvidenceDigests: [...new Set(bucket.featureEvidenceDigests || [])].sort(),
-      ruleIds: [...FEATURE_REQUIRED_CHECKS[feature].ruleIds],
-    }));
+      ruleIds: [...requirement.ruleIds],
+    })));
 }
 
 function impactChecks(profile, impacts) {
@@ -199,7 +211,9 @@ function objectCoverage(inventory) {
     disposition: object.disposition,
     mapping: object.mapping.map((item) => `${item.role}:${item.target}`).sort(),
     ...(object.skipReason ? { skipReason: object.skipReason } : {}),
-    featureCheckIds: object.features.map((feature) => `feature:${feature}`).sort(),
+    featureCheckIds: object.features.flatMap((feature) =>
+      requiredChecksForFeature(feature).map((requirement) => featureCheckId(feature, requirement))
+    ).sort(),
     ...(Object.keys(object.featureEvidence || {}).length > 0 ? { featureEvidence: object.featureEvidence } : {}),
   }));
 }
@@ -213,9 +227,9 @@ export function compileVerificationPlan(input) {
   invariant(ADAPTER_SET.has(input.adapter), 'ADAPTER_INVALID', `Unsupported Adapter: ${input.adapter}`);
   const inventory = validateObjectInventory(input.inventory);
   invariant(
-    inventory.schemaVersion === 2 && inventory.protocol === 'object-inventory/v2',
+    inventory.schemaVersion === 3 && inventory.protocol === 'object-inventory/v3',
     'INVENTORY_VERSION_STALE',
-    'A new VerificationPlan requires ObjectInventory v2; historical v1 inventories remain inspectable only'
+    'A new VerificationPlan requires ObjectInventory v3; historical v1/v2 inventories remain inspectable only'
   );
   const impacts = normalizeImpacts(input.changeImpact);
   const requiredLocales = normalizeLocales(input.requiredLocales);
@@ -259,7 +273,7 @@ export function compileVerificationPlan(input) {
   }
 
   const value = {
-    schemaVersion: 2,
+    schemaVersion: 3,
     protocol: VERIFICATION_PLAN_PROTOCOL,
     datasetKey: inventory.datasetKey,
     adapter: input.adapter,

@@ -6907,6 +6907,278 @@
             }
           }
         }
+      },
+      {
+        "key": "snowflake-q1-fy27",
+        "src": "data/datasets/snowflake-q1-fy27.js",
+        "data": {
+          "name": "Snowflake · Q1 FY27",
+          "company": "Snowflake",
+          "meta": {
+            "title": "Snowflake Q1 FY27 Income Statement",
+            "period": "Q1 FY27",
+            "periodNote": "Ending Apr. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Snowflake · 2027 财年第一季度",
+              "meta": {
+                "title": "Snowflake 2027 财年第一季度利润表",
+                "period": "2027 财年第一季度",
+                "periodNote": "截至 2026 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "fortinet-q1-fy26",
+        "src": "data/datasets/fortinet-q1-fy26.js",
+        "data": {
+          "name": "Fortinet · Q1 FY26",
+          "company": "Fortinet",
+          "meta": {
+            "title": "Fortinet Q1 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Fortinet · 2026 财年第一季度",
+              "meta": {
+                "title": "Fortinet 2026 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amc-q1-fy26",
+        "src": "data/datasets/amc-q1-fy26.js",
+        "data": {
+          "name": "AMC Entertainment · Q1 FY26",
+          "company": "AMC Entertainment",
+          "meta": {
+            "title": "AMC Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Three months ended Mar. 31, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AMC 娱乐 · 2026 财年第一季度",
+              "meta": {
+                "title": "AMC 娱乐 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月 31 日的三个月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "live-nation-q1-fy26",
+        "src": "data/datasets/live-nation-q1-fy26.js",
+        "data": {
+          "name": "Live Nation · Q1 FY26",
+          "company": "Live Nation",
+          "meta": {
+            "title": "Live Nation Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Live Nation · 2026 财年第一季度",
+              "meta": {
+                "title": "Live Nation 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "zscaler-q3-fy26",
+        "src": "data/datasets/zscaler-q3-fy26.js",
+        "data": {
+          "name": "Zscaler · Q3 FY26",
+          "company": "Zscaler",
+          "meta": {
+            "title": "Zscaler Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Apr. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Zscaler · 2026 财年第三季度",
+              "meta": {
+                "title": "Zscaler 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "draftkings-q1-fy26",
+        "src": "data/datasets/draftkings-q1-fy26.js",
+        "data": {
+          "name": "DraftKings · Q1 FY26",
+          "company": "DraftKings",
+          "meta": {
+            "title": "DraftKings Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Three months ended Mar. 31, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "DraftKings · 2026 财年第一季度",
+              "meta": {
+                "title": "DraftKings 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月 31 日的三个月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "procore-q1-fy26",
+        "src": "data/datasets/procore-q1-fy26.js",
+        "data": {
+          "name": "Procore · Q1 FY26",
+          "company": "Procore",
+          "meta": {
+            "title": "Procore Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Procore · 2026 财年第一季度",
+              "meta": {
+                "title": "Procore 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tempus-ai-q1-fy26",
+        "src": "data/datasets/tempus-ai-q1-fy26.js",
+        "data": {
+          "name": "Tempus AI · Q1 FY26",
+          "company": "Tempus AI",
+          "meta": {
+            "title": "Tempus AI Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tempus AI · 2026 财年第一季度",
+              "meta": {
+                "title": "Tempus AI 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "dynatrace-q4-fy26",
+        "src": "data/datasets/dynatrace-q4-fy26.js",
+        "data": {
+          "name": "Dynatrace · Q4 FY26",
+          "company": "Dynatrace",
+          "meta": {
+            "title": "Dynatrace Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending Apr. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Dynatrace · 2026 财年第四季度",
+              "meta": {
+                "title": "Dynatrace 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "flutter-q1-fy26",
+        "src": "data/datasets/flutter-q1-fy26.js",
+        "data": {
+          "name": "Flutter Entertainment · Q1 FY26",
+          "company": "Flutter Entertainment",
+          "meta": {
+            "title": "Flutter Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Flutter Entertainment · 2026 财年第一季度",
+              "meta": {
+                "title": "Flutter 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "axon-q1-fy26",
+        "src": "data/datasets/axon-q1-fy26.js",
+        "data": {
+          "name": "Axon · Q1 FY26",
+          "company": "Axon",
+          "meta": {
+            "title": "AXON Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Axon · 2026 财年第一季度",
+              "meta": {
+                "title": "Axon 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amer-sports-q1-fy26",
+        "src": "data/datasets/amer-sports-q1-fy26.js",
+        "data": {
+          "name": "Amer Sports · Q1 FY26",
+          "company": "Amer Sports",
+          "meta": {
+            "title": "Amer Sports Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "亚玛芬体育 · 2026 财年第一季度",
+              "meta": {
+                "title": "亚玛芬体育 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

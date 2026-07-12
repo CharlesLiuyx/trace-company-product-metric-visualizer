@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-12T07:35:09.000Z",
+  "generatedAt": "2026-07-12T08:59:12.030Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -1836,6 +1836,78 @@
       "updatedAtMs": 1783841709000,
       "updatedAt": "2026-07-12T07:35:09.000Z",
       "timeSource": "git"
+    },
+    "snowflake-q1-fy27": {
+      "path": "data/datasets/snowflake-q1-fy27.js",
+      "updatedAtMs": 1783842418031,
+      "updatedAt": "2026-07-12T07:46:58.031Z",
+      "timeSource": "mtime"
+    },
+    "fortinet-q1-fy26": {
+      "path": "data/datasets/fortinet-q1-fy26.js",
+      "updatedAtMs": 1783843540518,
+      "updatedAt": "2026-07-12T08:05:40.518Z",
+      "timeSource": "mtime"
+    },
+    "amc-q1-fy26": {
+      "path": "data/datasets/amc-q1-fy26.js",
+      "updatedAtMs": 1783842704007,
+      "updatedAt": "2026-07-12T07:51:44.007Z",
+      "timeSource": "mtime"
+    },
+    "live-nation-q1-fy26": {
+      "path": "data/datasets/live-nation-q1-fy26.js",
+      "updatedAtMs": 1783846752030,
+      "updatedAt": "2026-07-12T08:59:12.030Z",
+      "timeSource": "mtime"
+    },
+    "zscaler-q3-fy26": {
+      "path": "data/datasets/zscaler-q3-fy26.js",
+      "updatedAtMs": 1783842782252,
+      "updatedAt": "2026-07-12T07:53:02.252Z",
+      "timeSource": "mtime"
+    },
+    "draftkings-q1-fy26": {
+      "path": "data/datasets/draftkings-q1-fy26.js",
+      "updatedAtMs": 1783843187387,
+      "updatedAt": "2026-07-12T07:59:47.387Z",
+      "timeSource": "mtime"
+    },
+    "procore-q1-fy26": {
+      "path": "data/datasets/procore-q1-fy26.js",
+      "updatedAtMs": 1783842732340,
+      "updatedAt": "2026-07-12T07:52:12.340Z",
+      "timeSource": "mtime"
+    },
+    "tempus-ai-q1-fy26": {
+      "path": "data/datasets/tempus-ai-q1-fy26.js",
+      "updatedAtMs": 1783842660906,
+      "updatedAt": "2026-07-12T07:51:00.906Z",
+      "timeSource": "mtime"
+    },
+    "dynatrace-q4-fy26": {
+      "path": "data/datasets/dynatrace-q4-fy26.js",
+      "updatedAtMs": 1783842756770,
+      "updatedAt": "2026-07-12T07:52:36.770Z",
+      "timeSource": "mtime"
+    },
+    "flutter-q1-fy26": {
+      "path": "data/datasets/flutter-q1-fy26.js",
+      "updatedAtMs": 1783844141460,
+      "updatedAt": "2026-07-12T08:15:41.460Z",
+      "timeSource": "mtime"
+    },
+    "axon-q1-fy26": {
+      "path": "data/datasets/axon-q1-fy26.js",
+      "updatedAtMs": 1783843304236,
+      "updatedAt": "2026-07-12T08:01:44.236Z",
+      "timeSource": "mtime"
+    },
+    "amer-sports-q1-fy26": {
+      "path": "data/datasets/amer-sports-q1-fy26.js",
+      "updatedAtMs": 1783843042047,
+      "updatedAt": "2026-07-12T07:57:22.047Z",
+      "timeSource": "mtime"
     },
     "data/revenue-metrics.js": {
       "path": "data/revenue-metrics.js",

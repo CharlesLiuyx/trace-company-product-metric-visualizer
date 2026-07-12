@@ -43,3 +43,19 @@ runtime copies, never the crop-reference directory.
 - Bottom-left How They Make Money publisher mark and mini Sankey logo.
 - Bottom-centre `appeconomyinsights.com` URL.
 - Bottom-right App Economy Insights logo and attribution.
+
+## Q1 FY26 reuse validation
+
+Dataset: `amer-sports-q1-fy26`
+
+Source: `input/processing/amer-sports-q1-fy26.png` (active Build working
+claim; the final SSOT locator is `input/processed/amer-sports-q1-fy26.png`).
+
+The five accepted raster subjects above were checked against the Q1 reference
+and are materially identical to the Q4 source art. The existing approved
+runtime files are therefore reused rather than duplicated. Their Q1 placements
+are: company logo `(748, 264)`, Technical Apparel cluster `(18, 477)`,
+Salomon `(18, 839)`, Atomic `(50, 952)`, and Ball & Racquet `(15, 1079)`.
+Each subject remains complete, centered, and separate from adjacent financial
+labels and links. No new crop output was created; the same publisher marks
+remain explicit skips.

@@ -32,6 +32,7 @@
         'Tempus AI develops technology for precision medicine, combining clinical and molecular data, laboratory diagnostics, AI-enabled analytics, and software for healthcare providers and life-sciences organizations.',
       sourceUrls: [
         'https://investors.tempus.com/resources/investor-faqs',
+        'https://investors.tempus.com/news-releases/news-release-details/tempus-reports-first-quarter-2026-results',
         'https://investors.tempus.com/news-releases/news-release-details/tempus-reports-fourth-quarter-and-full-year-2025-results',
         'https://stockanalysis.com/stocks/tem/statistics/',
       ],

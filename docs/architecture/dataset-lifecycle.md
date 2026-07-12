@@ -116,7 +116,7 @@ joined later by the Dataset Build Module rather than inferred from this run.
 
 ### ObjectInventory
 
-`object-inventory/v2` accounts for every coarsely inventoried Source object with a
+`object-inventory/v3` accounts for every coarsely inventoried Source object with a
 stable object ID and exactly one disposition: `render`, `data-only`, or
 `skip`. Render/data objects require explicit authored mappings; skipped
 objects require a reason. Source features such as `centered-side-label`, text,
@@ -127,8 +127,15 @@ missing mapping are hard failures before review preparation.
 Every Sankey-node mapping declares exactly one of `visible-node-face` and
 `hidden-anchor`; visible short nodes also declare the former and bind source
 evidence. `specified-label-weight` binds an expected weight and provenance for
-manual review. Historical v1 inventories remain readable, but cannot compile a
-new review Plan.
+manual review. Historical v1/v2 inventories remain readable, but cannot compile
+a new review Plan. The ObjectInventory Interface treats `visible-node-face` as
+the conservative default: a v3 `hidden-anchor` claim is accepted only with a
+native-pixel bbox, stable crop locator, the required crop-and-pixel-scan method,
+the immutable Build Source digest, and an explicit no-visible-face classification
+claim. The Dataset Build Module verifies that locator, digest, bbox, reference
+artifact, and Build Source are one bound fact. VerificationPlan then separates
+candidate invisibility automation from a global manual source-classification
+decision, so candidate transparency cannot prove its own inventory premise.
 
 ### ChangeImpact
 
@@ -154,7 +161,7 @@ strictest applicable plan rather than silently skipping work.
 
 ### VerificationPlan
 
-`verification-plan/v2` is a versioned dependency graph, not an informal command
+`verification-plan/v3` is a versioned dependency graph, not an informal command
 list. It declares:
 
 - preflight and schema checks;

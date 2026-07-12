@@ -62,16 +62,26 @@ canonical 表统一使用三列：
 
 ## 2. 首次渲染前：对象、测量与计划
 
-### ObjectInventory v2
+### ObjectInventory v3
 
-`object-inventory/v2` 是 preflight 的入口。每个参考图对象需要稳定 object ID、
+`object-inventory/v3` 是 preflight 的入口。每个参考图对象需要稳定 object ID、
 render/data-only/skip 处置、authored mapping、来源证据和风险 feature。
 任何 skip 都必须有理由。
 
 每个映射为 Sankey node 的对象必须且只能声明以下一种意图：
 
 - `visible-node-face`：参考图中能看到 node 柱面。
-- `hidden-anchor`：参考图只显示流带或引导线，没有 node 柱面；附 reference crop 和理由。
+- `hidden-anchor`：参考图只显示流带或引导线，没有 node 柱面；它是保守默认之外的例外，不是处理极短柱的捷径。
+
+Node-face 判定采用“可见优先”方法：不确定时声明 `visible-node-face`；原生尺寸下
+1–3px 的连续有色直线默认同时声明 `visible-short-node`。只有原生像素 crop 与像素扫描
+都确认预期 bbox 内没有独立柱面，并能说明可见线段只属于流带/引导线时，才允许
+`hidden-anchor`。其 `featureEvidence.hidden-anchor` 必须同时记录带稳定 fragment 的
+`locator`、原生像素 `referenceBBox: [x, y, width, height]`、
+`inspectionMethod: native-scale-crop-and-pixel-scan`、Build Source `digest`、
+`classificationClaim: no-visible-node-face-observed` 和具体 `reason`。这里记录的是
+待审 claim，不是人工接受；缺任一字段，或仍有
+语义歧义，均不得准备 review。
 
 附加 feature：
 
@@ -114,9 +124,9 @@ provenance，并与 Adapter 的 `fullFaceIds` 同 ID；仅在 Adapter 写一个 
 `documented-exception` 只能描述已有 typed reference/design-spec provenance 的拓扑差异，
 不能豁免 endpoint、水平切线、candidate containment 或其他 hard gate。
 
-### VerificationPlan v2
+### VerificationPlan v3
 
-`verification-plan/v2` 从 inventory feature、ChangeImpact 和 required locales 编译检查。
+`verification-plan/v3` 从 inventory feature、ChangeImpact 和 required locales 编译检查。
 每个 required check 都带执行方式、object scope 和 locale scope；只有 Plan 可以生成
 `notApplicable`。review caller 不能删检查，也不能自行声明不适用。
 ChangeImpact 的枚举和分类边界由 `docs/architecture/dataset-lifecycle.md` 与
@@ -168,7 +178,7 @@ ChangeImpact 的枚举和分类边界由 `docs/architecture/dataset-lifecycle.md
 | B4 | manual | value/name/note block 放错 x 后可能逃过同轴归组；按 object ID 人工核对 block center 与 node center。 |
 | B5 | conditional-gate | `annotation-near-label` 触发 annotation 与 label/title/period 的 bbox overlap 为 0，并记录实际净空。 |
 | B6 | conditional-gate | `text` 触发每个 required locale 的 rendered text 全在画布内；overflow count 必须为 0。 |
-| B7 | conditional-gate | `hidden-anchor` 触发 `nodePaintAudit` 证明 node face 不可见；参考图确实无柱面的判断仍须 crop 和人工决定。 |
+| B7 | conditional-gate | `hidden-anchor` 触发 `nodePaintAudit` 证明候选 node face 不可见；该自动检查只验证候选，不得反向证明参考图分类正确。 |
 | B8 | quantified-audit | 自动接口 union 无法可靠识别同色相接、重叠和 per-link 身份；用 Matrix 行和 contact sheet 完成人工 reconcile。 |
 | B9 | manual | 渐变规则不能判断参考图是否要求纯色 profit ribbon；紧邻 source edge 取色并留 crop。 |
 | B10 | quantified-audit | 数据一致性不能证明参考图拓扑或 Hover surface 语义；结合 authored topology、自动数据证据和人工关系清单判断。 |
@@ -280,7 +290,7 @@ renderer 与 metric 配置；局部试改也必须重渲染整图并换算为全
 | T9 | manual | 短 source 的 value/name/note block 逐一核对 centerX 和归属，不能依赖自动同轴识别。 |
 | T10 | manual | interest、other income、tax、investment 等短辅助节点以自身 label/bbox 为参照，不能被主流带牵走。 |
 | T11 | manual | 名称、数值、备注、margin、Y/Y 和紧邻图标先归成完整语义 label，再拆 blocks/lines 或划 region。 |
-| T12 | conditional-gate | `hidden-anchor` 只用于 reference crop 证明没有柱面的对象；候选 node face 必须不可见，引导线/annotation 可见且可交互，`nodePaintAudit` 逐 locale 证明。 |
+| T12 | manual | `hidden-anchor` 是例外处置：reviewer 必须结合原生 crop、referenceBBox、像素扫描记录和明确确认值，独立确认参考图确无柱面；任何歧义、1–3px 连续有色直线或仅凭候选透明通过都失败并回退为 `visible-node-face`。 |
 | T12a | manual | 隐藏锚点若只有 annotation 是可见入口，该组须有 `sankey-interactive-annotation`、`data-node` 和透明 hitbox；声明 endpoints 时按真实 semantic relationship 参与 Hover。 |
 | T13 | conditional-gate | `visible-node-face`（含常见的 1–3px 短柱）必须保留 reference bbox，并有区别背景的有效 fill 或可见 stroke；透明、none、零 opacity、隐藏、仅 hitbox/link 均失败。 |
 | T14 | manual | `visible-short-node` 由 reference 中“短而仍可见”的语义事实触发，没有通用高度阈值；逐对象记录 reference/candidate 直线段端点、宽高和 deltas，区分曲线与文字像素。通过要求 reviewer 确认覆盖同一可见直线段；任何接受的非零差异写明理由。调整 node width/x 后同步重算 label 中心。 |

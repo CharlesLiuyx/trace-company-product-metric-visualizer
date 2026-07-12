@@ -46,7 +46,7 @@ The current M3 shadow/compatibility safety slice now exercises this build-local
 chain end to end:
 
 ```text
-ObjectInventory v2 -> VerificationPlan v2 -> ReviewPacket
+ObjectInventory v3 -> VerificationPlan v3 -> ReviewPacket
   -> dataset-verification/v1 consistency evidence
   -> fidelity-run/2 EVIDENCE_READY
   -> ManualAttestation + RegionDecision + FeedbackLedger

@@ -67,7 +67,7 @@ test('ObjectInventory has stable ids, complete mappings, and an order-independen
 
   assert.equal(left.inventoryDigest, right.inventoryDigest);
   assert.deepEqual(left.summary, { render: 3, 'data-only': 1, skip: 1 });
-  assert.equal(left.protocol, 'object-inventory/v2');
+  assert.equal(left.protocol, 'object-inventory/v3');
   assert.deepEqual(left.objects.map((object) => object.id), [...left.objects.map((object) => object.id)].sort());
 });
 
@@ -106,7 +106,7 @@ test('ObjectInventory rejects duplicate identities and unexplained skips', () =>
   );
 });
 
-test('ObjectInventory v2 makes node paint intent explicit and keeps v1 readable', () => {
+test('ObjectInventory v3 makes node paint intent explicit and keeps v1 readable', () => {
   assert.throws(
     () => createObjectInventory({
       datasetKey: 'example-fy25',
@@ -147,6 +147,73 @@ test('ObjectInventory v2 makes node paint intent explicit and keeps v1 readable'
   );
 });
 
+test('hidden anchors require native-pixel confirmation and compile an independent manual check', () => {
+  const base = {
+    id: 'node:balance-anchor',
+    kind: 'hidden-anchor',
+    disposition: 'render',
+    mapping: [{ role: 'render', target: 'nodes.balance_anchor' }],
+    features: ['hidden-anchor'],
+    featureEvidence: {
+      'hidden-anchor': {
+        source: 'reference-crop',
+        locator: 'input/processing/example-fy25.png#balance-anchor',
+        reason: 'The native crop shows only a guide endpoint and no node face.',
+      },
+    },
+  };
+
+  assert.throws(
+    () => createObjectInventory({ datasetKey: 'example-fy25', objects: [base] }),
+    (error) => error.code === 'HIDDEN_ANCHOR_REFERENCE_BBOX_REQUIRED'
+  );
+
+  const confirmed = {
+    ...base,
+    featureEvidence: {
+      'hidden-anchor': {
+        ...base.featureEvidence['hidden-anchor'],
+        digest: `sha256:${'a'.repeat(64)}`,
+        referenceBBox: [120, 340, 72, 3],
+        inspectionMethod: 'native-scale-crop-and-pixel-scan',
+        classificationClaim: 'no-visible-node-face-observed',
+      },
+    },
+  };
+  const inventory = createObjectInventory({ datasetKey: 'example-fy25', objects: [confirmed] });
+  const plan = compileVerificationPlan({
+    adapter: 'income-statement',
+    inventory,
+    changeImpact: ['geometry'],
+  });
+  const checks = Object.fromEntries(plan.requiredChecks.map((check) => [check.id, check]));
+  assert.equal(checks['feature:hidden-anchor'].evidenceKind, 'node-paint-audit');
+  assert.deepEqual(checks['feature:hidden-anchor'].ruleIds, ['B7']);
+  assert.equal(checks['feature:hidden-anchor-source-confirmation'].enforcement, 'manual');
+  assert.equal(checks['feature:hidden-anchor-source-confirmation'].localeScope, 'global');
+  assert.deepEqual(checks['feature:hidden-anchor-source-confirmation'].ruleIds, ['T12']);
+  assert.deepEqual(
+    plan.objectCoverage.find((object) => object.objectId === 'node:balance-anchor').featureCheckIds,
+    ['feature:hidden-anchor', 'feature:hidden-anchor-source-confirmation']
+  );
+
+  const historicalV2 = createObjectInventory({
+    schemaVersion: 2,
+    protocol: 'object-inventory/v2',
+    datasetKey: 'example-fy25',
+    objects: [base],
+  });
+  assert.equal(historicalV2.protocol, 'object-inventory/v2');
+  assert.throws(
+    () => compileVerificationPlan({
+      adapter: 'income-statement',
+      inventory: historicalV2,
+      changeImpact: ['geometry'],
+    }),
+    (error) => error.code === 'INVENTORY_VERSION_STALE'
+  );
+});
+
 test('Income Statement plan compiles object features into mandatory rule checks', () => {
   const inventory = createObjectInventory({ datasetKey: 'example-fy25', objects: incomeObjects() });
   const plan = compileVerificationPlan({
@@ -172,8 +239,8 @@ test('Income Statement plan compiles object features into mandatory rule checks'
   assert.deepEqual(checks['feature:centered-side-label'].evidenceTargets, ['layout.labels.revenue']);
   assert.equal(plan.objectCoverage.length, inventory.objects.length);
   assert.match(plan.planDigest, /^sha256:[a-f0-9]{64}$/);
-  assert.equal(plan.schemaVersion, 2);
-  assert.equal(plan.protocol, 'verification-plan/v2');
+  assert.equal(plan.schemaVersion, 3);
+  assert.equal(plan.protocol, 'verification-plan/v3');
   assert.ok(plan.postReviewChecks.some((check) => check.id === 'adapter:final-seal'));
 
   const reordered = compileVerificationPlan({
