@@ -1,12 +1,15 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {
+  LABEL_POSITION_CENTER_TOLERANCE,
   assertNodePaintAudit,
   assertPlannedRenderAudits,
   assertRawSvgCanvas,
   classifyLabelLayoutAudit,
+  classifyLabelPositionAudit,
   classifyNodePaintAudit,
   classifySemanticAnnotationAudit,
+  labelPositionExpectationsFromPlan,
   nodeFaceExpectationsFromPlan,
 } from '../scripts/lib/render-harness.mjs';
 
@@ -250,6 +253,77 @@ test('Build-bound render evidence cannot archive a failed planned text, annotati
     }),
     /center-delta.*overflow.*no-rendered-annotation/
   );
+});
+
+test('T18 pairs plan reference measurements with rendered label groups by node', () => {
+  const plan = {
+    objectCoverage: [
+      {
+        objectId: 'node:tax',
+        mapping: ['render:layout.labels.tax', 'render:nodes.tax'],
+        featureEvidence: {
+          'measured-label-position': {
+            source: 'reference-measurement',
+            locator: 'input/processing/example-fy25.png#tax-label-group',
+            digest: `sha256:${'c'.repeat(64)}`,
+            referenceBBox: [100, 200, 80, 40],
+            inspectionMethod: 'native-scale-reference-measurement',
+          },
+        },
+      },
+      { objectId: 'asset:tax-icon', mapping: ['render:layout.labels.tax.icons'] },
+      { objectId: 'node:revenue', mapping: ['render:nodes.revenue'] },
+    ],
+  };
+  assert.deepEqual(labelPositionExpectationsFromPlan(plan), [{
+    objectId: 'node:tax',
+    node: 'tax',
+    referenceBBox: [100, 200, 80, 40],
+  }]);
+});
+
+test('T18 gates the source-language center deltas and only measures other locales', () => {
+  const expectations = [{ objectId: 'node:tax', node: 'tax', referenceBBox: [100, 200, 80, 40] }];
+  const centered = { labels: [{ node: 'tax', labelIndex: 0, box: { x: 102, y: 203, width: 80, height: 40 } }] };
+  const shifted = { labels: [{ node: 'tax', labelIndex: 0, box: { x: 100, y: 222, width: 80, height: 40 } }] };
+
+  const pass = classifyLabelPositionAudit(centered, expectations, { locale: 'en' });
+  assert.equal(pass.enforced, true);
+  assert.equal(pass.tolerance, LABEL_POSITION_CENTER_TOLERANCE);
+  assert.deepEqual(pass.violations, []);
+  assert.equal(pass.measurements[0].deltaX, 2);
+  assert.equal(pass.measurements[0].deltaY, 3);
+
+  const fail = classifyLabelPositionAudit(shifted, expectations, { locale: 'en' });
+  assert.deepEqual(fail.violations.map((item) => item.code), ['center-y-delta']);
+
+  const localized = classifyLabelPositionAudit(shifted, expectations, { locale: 'zh' });
+  assert.equal(localized.enforced, false);
+  assert.deepEqual(localized.violations, [], 'localized layout acceptance is owned by Z2/Z5/Z6');
+
+  const missing = classifyLabelPositionAudit({ labels: [] }, expectations, { locale: 'zh' });
+  assert.deepEqual(missing.violations.map((item) => item.code), ['missing-label-group'], 'every locale must render each measured group');
+});
+
+test('Build-bound render evidence cannot archive a failed planned label-position gate', () => {
+  const plan = {
+    requiredChecks: [{
+      id: 'feature:measured-label-position',
+      enforcement: 'conditional-gate',
+      evidenceKind: 'label-position-audit',
+      objectIds: ['node:tax'],
+    }],
+  };
+  assert.doesNotThrow(() => assertPlannedRenderAudits(plan, {
+    labelPositionAudit: { violations: [] },
+  }));
+  assert.throws(
+    () => assertPlannedRenderAudits(plan, {
+      labelPositionAudit: { violations: [{ node: 'tax', code: 'center-y-delta', delta: 19 }] },
+    }),
+    /tax:center-y-delta/
+  );
+  assert.throws(() => assertPlannedRenderAudits(plan, {}), /missing-audit/);
 });
 
 test('semantic annotations require a bound node, text, and renderer hitbox', () => {

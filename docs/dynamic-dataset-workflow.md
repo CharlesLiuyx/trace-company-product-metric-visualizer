@@ -163,7 +163,14 @@ returns.
      Every Sankey-node object must choose exactly one node-face intent:
      `visible-node-face` or `hidden-anchor`; `visible-short-node` additionally
      marks short visible faces, while `specified-label-weight` records a
-     source-backed heading weight. Before choosing `annotationsSvg`, classify
+     source-backed heading weight. Every render object that maps a fixed
+     `layout.labels.*` group must declare `measured-label-position` with the
+     persisted native reference measurement — the Plan refuses to compile
+     without it (T18/T19). A label whose slot or grouping reads ambiguously in
+     the reference declares `ambiguous-label-slot` instead of guessing: T20
+     requires the operator's slot decision before the text stage freezes, so
+     ask with the reference crop up front rather than rendering one
+     interpretation and waiting for review to correct it. Before choosing `annotationsSvg`, classify
      each nearby text group from the reference: node name/value/note copy uses
      `layout.labels` by default; a genuine bespoke node callout/guide must be
      recorded on its `node:*` object as `semantic-annotation` with native-pixel
@@ -226,7 +233,11 @@ returns.
 8. Adapter: first run the preflight measurement in
    `docs/fidelity-loop-rules.md` §2, walking the step 4 inventory object by
    object. Persist the measured node, link/socket, label, annotation and
-   Interface Matrix inputs required there; after the first candidate render,
+   Interface Matrix inputs required there; label-group measurements land as
+   `measured-label-position` featureEvidence bound to this Build's Source
+   digest — prepare-review rejects coordinates measured on another period's
+   image, and the T18 audit replays the comparison on every evidence run.
+   After the first candidate render,
    collect its candidate-side Matrix rows and `nodePaintAudit`. Then author
    `data/datasets/<dataset-key>.js` per
    `data/schema.md` as a high-fidelity adapter with explicit `nodes`,
@@ -269,7 +280,8 @@ returns.
         pnpm record:build -- prepare-review <build-id> --input <review-input.json>
 
     This records the `AUTHORED` snapshot, compiles `verification-plan/v3`,
-    and emits a content-addressed `ReviewPacket` plus its
+    verifies every Source-bound feature measurement against the Build Source
+    digest (T19), and emits a content-addressed `ReviewPacket` plus its
     printed `reviewToken`. Keep that token: the finish JSON must cite it
     (`packetDigest` remains compatibility input only). The Plan expands
     ObjectInventory features into mandatory checks with enforcement, object
@@ -500,6 +512,18 @@ proceed with the pipeline using the new checklist.
   assigned. The operator review-completion rule is the only current relocation
   authority; it enumerates the full processing batch and moves the subset the
   operator confirms.
+- The renderer draws the chart title noticeably lower (~16px) than the raw
+  authored `titleY` suggests (baseline vs. top-of-text). Calibrate the title
+  and other free-standing text against their rendered bboxes, not by copying
+  the reference y coordinate into the layout directly.
+- Exact-integer amounts lose their decimal in default formatting (`3.0` →
+  `€3B`). When the source shows the decimal, set the label's `valueText`
+  override (`data/schema.md`) to force `€3.0B`; check every integer-valued
+  node when transcribing.
+- Runtime raster annotations draw above labels, and an opaque segment patch
+  clips wider localized notes (zh `同比` Y/Y lines). Left-anchor the note
+  clear of the patch edge; per-locale raster moves follow Z6a and keep href,
+  size, and node/link geometry unchanged.
 - Interim reporting spans (`3M`, `6M`, `9M`, `H1`, `H2`, `YTD`) share the
   fiscal-year bucket with the annual record but must use the span as their
   viewer variant label unless explicitly overridden; never let them fall back

@@ -29,6 +29,7 @@ const CHECK_EVIDENCE_KINDS = new Set([
   'full-review-profile',
   'interface-audit',
   'label-layout-audit',
+  'label-position-audit',
   'text-layout-audit',
   'annotation-layout-audit',
   'annotation-semantics-audit',

@@ -64,6 +64,44 @@ test('a recorded automation disposition closes the repeated execution-gap obliga
   assert.equal(left.digest, right.digest, 'projection digest must not depend on input order');
 });
 
+test('required-checklist dispositions no longer discharge a repeated execution gap', () => {
+  const first = feedback({ automationDisposition: 'required-checklist' });
+  const second = feedback({
+    buildId: 'build-beta',
+    feedbackId: 'FB-001',
+    regionId: 'REG-002',
+    beforeEvidenceDigests: [evidence('before-beta')],
+    afterEvidenceDigests: [evidence('after-beta')],
+    automationDisposition: 'required-checklist',
+  });
+  const ledger = projectFeedbackLedger([first, second]);
+  const rule = ledger.byRule.find((item) => item.ruleId === 'T7');
+
+  assert.equal(rule.executionGapOccurrenceCount, 2);
+  assert.equal(rule.automationDispositions.length, 2);
+  assert.equal(rule.automationUpgradeRequired, true);
+  assert.throws(
+    () => assertFeedbackLedgerClosable(ledger),
+    (error) => error.code === 'AUTOMATION_UPGRADE_REQUIRED'
+  );
+});
+
+test('an explained not-suitable disposition discharges the repeated execution gap', () => {
+  const first = feedback({ automationDisposition: 'required-checklist' });
+  const second = feedback({
+    buildId: 'build-beta',
+    feedbackId: 'FB-001',
+    regionId: 'REG-002',
+    beforeEvidenceDigests: [evidence('before-beta')],
+    afterEvidenceDigests: [evidence('after-beta')],
+    automationDisposition: { kind: 'not-suitable', reason: 'Judgment call with no measurable surface.' },
+  });
+  const ledger = projectFeedbackLedger([first, second]);
+
+  assert.equal(ledger.byRule[0].automationUpgradeRequired, false);
+  assert.equal(assertFeedbackLedgerClosable(ledger), ledger);
+});
+
 test('open active feedback blocks accepted closure', () => {
   const open = feedback({
     status: 'open',
