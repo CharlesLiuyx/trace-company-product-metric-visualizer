@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-13T18:06:43.506Z",
+  "generatedAt": "2026-07-13T18:09:16.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -2175,27 +2175,27 @@
     },
     "lockheed-martin-q4-fy25": {
       "path": "data/datasets/lockheed-martin-q4-fy25.js",
-      "updatedAtMs": 1783966003506,
-      "updatedAt": "2026-07-13T18:06:43.506Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783966156000,
+      "updatedAt": "2026-07-13T18:09:16.000Z",
+      "timeSource": "git"
     },
     "citigroup-q4-fy25": {
       "path": "data/datasets/citigroup-q4-fy25.js",
-      "updatedAtMs": 1783959306302,
-      "updatedAt": "2026-07-13T16:15:06.302Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783966156000,
+      "updatedAt": "2026-07-13T18:09:16.000Z",
+      "timeSource": "git"
     },
     "bank-of-america-q4-fy25": {
       "path": "data/datasets/bank-of-america-q4-fy25.js",
-      "updatedAtMs": 1783958692843,
-      "updatedAt": "2026-07-13T16:04:52.843Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783966156000,
+      "updatedAt": "2026-07-13T18:09:16.000Z",
+      "timeSource": "git"
     },
     "schwab-q4-fy25": {
       "path": "data/datasets/schwab-q4-fy25.js",
-      "updatedAtMs": 1783958720749,
-      "updatedAt": "2026-07-13T16:05:20.749Z",
-      "timeSource": "mtime"
+      "updatedAtMs": 1783966156000,
+      "updatedAt": "2026-07-13T18:09:16.000Z",
+      "timeSource": "git"
     },
     "data/revenue-metrics.js": {
       "path": "data/revenue-metrics.js",
