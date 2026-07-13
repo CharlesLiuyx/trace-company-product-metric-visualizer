@@ -460,7 +460,7 @@ identity-mapped term as translated wherever it appears.
 | `id`         | string            | unique; referenced by links                                 |
 | `label`      | string \| string[]| the name; an array renders as multiple lines                |
 | `value`      | number            | the displayed amount (sign handled by `type`)               |
-| `valueText`  | string            | override the formatted value entirely (optional)            |
+| `valueText`  | string            | override the formatted value entirely (optional). Required when an exact-integer amount must keep its decimal: `3.0` formats as `€3B` by default, so set `valueText: '€3.0B'` to match a source that shows the decimal |
 | `notes`      | string[]          | small grey lines under the value (margins, Y/Y, % of rev…)  |
 | `type`       | string            | `source` · `hub` · `profit` · `cost` → drives colour        |
 | `col`        | number            | column index (0 = far left). Controls horizontal placement  |
