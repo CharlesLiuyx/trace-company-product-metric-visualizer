@@ -315,6 +315,12 @@
       "width": 2667,
       "height": 1500
     },
+    "bank-of-america-q4-fy25": {
+      "similarity": 0.958133,
+      "mae": 10.676,
+      "width": 2667,
+      "height": 1500
+    },
     "berkshire-hathaway-q1-fy26": {
       "similarity": 0.967409,
       "mae": 8.3108,
@@ -474,6 +480,12 @@
     "cisco-q3-fy26": {
       "similarity": 0.972415,
       "mae": 7.0341,
+      "width": 2667,
+      "height": 1500
+    },
+    "citigroup-q4-fy25": {
+      "similarity": 0.953851,
+      "mae": 11.768,
       "width": 2667,
       "height": 1500
     },
@@ -1086,6 +1098,12 @@
     "live-nation-q1-fy26": {
       "similarity": 0.950161,
       "mae": 12.709,
+      "width": 2667,
+      "height": 1500
+    },
+    "lockheed-martin-q4-fy25": {
+      "similarity": 0.976043,
+      "mae": 6.109,
       "width": 2667,
       "height": 1500
     },
@@ -1758,6 +1776,12 @@
     "sap-q1-fy26": {
       "similarity": 0.97127,
       "mae": 7.3262,
+      "width": 2667,
+      "height": 1500
+    },
+    "schwab-q4-fy25": {
+      "similarity": 0.962564,
+      "mae": 9.5463,
       "width": 2667,
       "height": 1500
     },

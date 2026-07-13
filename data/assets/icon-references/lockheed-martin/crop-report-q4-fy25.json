@@ -1,0 +1,378 @@
+{
+  "source": "input/processed/lockheed-martin-q4-fy25.png",
+  "spec": "input/icon-crop-specs/lockheed-martin-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-13T15:08:48.819789+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/lockheed-martin",
+  "crops": [
+    {
+      "key": "lockheed-q4-aeronautics-jet",
+      "output": "data/assets/icon-references/lockheed-martin/crops/aeronautics-jet-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 128,
+        "bytes": 6986,
+        "losslessBytes": 19567,
+        "savingsVsLossless": 0.643,
+        "metrics": {
+          "meanAbsoluteError": 0.5823,
+          "rootMeanSquareError": 2.4554,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 66,
+          "changedPixelRatio": 0.2327
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 122,
+        "y": 309,
+        "width": 279,
+        "height": 132
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 125,
+        "y0": 311,
+        "x1": 401,
+        "y1": 438
+      },
+      "cropBox": {
+        "x0": 118,
+        "y0": 305,
+        "x1": 403,
+        "y1": 445
+      },
+      "validation": {
+        "width": 285,
+        "height": 140,
+        "foregroundPixels": 7658,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 7,
+          "right": 2,
+          "top": 6,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": 0.0088,
+          "y": -0.0036
+        },
+        "passes": true
+      },
+      "note": "Aeronautics segment icon (X-59-style supersonic jet render). The $8.5B value block starts at x=400 and the Aeronautics label at y=447, so this opaque background-matched crop stops right of the nose tip and above the label.",
+      "runtimeOutput": "data/assets/raster-annotations/lockheed-martin/aeronautics-jet-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 128,
+        "bytes": 6986,
+        "losslessBytes": 19567,
+        "savingsVsLossless": 0.643,
+        "metrics": {
+          "meanAbsoluteError": 0.5823,
+          "rootMeanSquareError": 2.4554,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 66,
+          "changedPixelRatio": 0.2327
+        }
+      },
+      "validationSheet": "data/assets/icon-references/lockheed-martin/validation-sheets/lockheed-q4-aeronautics-jet.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 267933,
+        "losslessBytes": 267933,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "lockheed-q4-missile-fire-control",
+      "output": "data/assets/icon-references/lockheed-martin/crops/missile-fire-control-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1453,
+        "losslessBytes": 7255,
+        "savingsVsLossless": 0.7997,
+        "metrics": {
+          "meanAbsoluteError": 0.777,
+          "rootMeanSquareError": 2.3937,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 46,
+          "changedPixelRatio": 0.1821
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 176,
+        "y": 541,
+        "width": 163,
+        "height": 98
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 186,
+        "y0": 552,
+        "x1": 327,
+        "y1": 632
+      },
+      "cropBox": {
+        "x0": 172,
+        "y0": 537,
+        "x1": 343,
+        "y1": 643
+      },
+      "validation": {
+        "width": 171,
+        "height": 106,
+        "foregroundPixels": 2930,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 14,
+          "right": 16,
+          "top": 15,
+          "bottom": 11
+        },
+        "centerOffset": {
+          "x": -0.0058,
+          "y": 0.0189
+        },
+        "passes": true
+      },
+      "note": "Missile and Fire Control segment icon (guided missile render). The 9% segment margin note ends near y=527 and the Missile and label starts near y=647; the crop keeps only the missile.",
+      "runtimeOutput": "data/assets/raster-annotations/lockheed-martin/missile-fire-control-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1453,
+        "losslessBytes": 7255,
+        "savingsVsLossless": 0.7997,
+        "metrics": {
+          "meanAbsoluteError": 0.777,
+          "rootMeanSquareError": 2.3937,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 46,
+          "changedPixelRatio": 0.1821
+        }
+      },
+      "validationSheet": "data/assets/icon-references/lockheed-martin/validation-sheets/lockheed-q4-missile-fire-control.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 256680,
+        "losslessBytes": 256680,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "lockheed-q4-rotary-mission-systems",
+      "output": "data/assets/icon-references/lockheed-martin/crops/rotary-mission-systems-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 3532,
+        "losslessBytes": 10209,
+        "savingsVsLossless": 0.654,
+        "metrics": {
+          "meanAbsoluteError": 0.6866,
+          "rootMeanSquareError": 2.3413,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 66,
+          "changedPixelRatio": 0.294
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 151,
+        "y": 788,
+        "width": 188,
+        "height": 76
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 161,
+        "y0": 800,
+        "x1": 339,
+        "y1": 855
+      },
+      "cropBox": {
+        "x0": 147,
+        "y0": 784,
+        "x1": 343,
+        "y1": 868
+      },
+      "validation": {
+        "width": 196,
+        "height": 84,
+        "foregroundPixels": 4882,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 14,
+          "right": 4,
+          "top": 16,
+          "bottom": 13
+        },
+        "centerOffset": {
+          "x": 0.0255,
+          "y": 0.0179
+        },
+        "passes": true
+      },
+      "note": "Rotary & Mission Systems segment icon (black compound helicopter render). The 13% segment margin note sits above and the Rotary & label starts near y=867; the crop keeps only the helicopter.",
+      "runtimeOutput": "data/assets/raster-annotations/lockheed-martin/rotary-mission-systems-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 3532,
+        "losslessBytes": 10209,
+        "savingsVsLossless": 0.654,
+        "metrics": {
+          "meanAbsoluteError": 0.6866,
+          "rootMeanSquareError": 2.3413,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 66,
+          "changedPixelRatio": 0.294
+        }
+      },
+      "validationSheet": "data/assets/icon-references/lockheed-martin/validation-sheets/lockheed-q4-rotary-mission-systems.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 261786,
+        "losslessBytes": 261786,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "lockheed-q4-space-spacecraft",
+      "output": "data/assets/icon-references/lockheed-martin/crops/space-spacecraft-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2318,
+        "losslessBytes": 10272,
+        "savingsVsLossless": 0.7743,
+        "metrics": {
+          "meanAbsoluteError": 1.1802,
+          "rootMeanSquareError": 2.8617,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 24,
+          "changedPixelRatio": 0.2908
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 188,
+        "y": 1003,
+        "width": 141,
+        "height": 88
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 202,
+        "y0": 1007,
+        "x1": 312,
+        "y1": 1091
+      },
+      "cropBox": {
+        "x0": 184,
+        "y0": 999,
+        "x1": 335,
+        "y1": 1095
+      },
+      "validation": {
+        "width": 151,
+        "height": 96,
+        "foregroundPixels": 3976,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 18,
+          "right": 23,
+          "top": 8,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": -0.0166,
+          "y": 0.0208
+        },
+        "passes": true
+      },
+      "note": "Space segment icon (Orion-style crew capsule with solar arrays). The 10% segment margin note ends near y=995 and the Space label starts near y=1100; the crop keeps only the spacecraft.",
+      "runtimeOutput": "data/assets/raster-annotations/lockheed-martin/space-spacecraft-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2318,
+        "losslessBytes": 10272,
+        "savingsVsLossless": 0.7743,
+        "metrics": {
+          "meanAbsoluteError": 1.1802,
+          "rootMeanSquareError": 2.8617,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 24,
+          "changedPixelRatio": 0.2908
+        }
+      },
+      "validationSheet": "data/assets/icon-references/lockheed-martin/validation-sheets/lockheed-q4-space-spacecraft.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 285370,
+        "losslessBytes": 285370,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}
