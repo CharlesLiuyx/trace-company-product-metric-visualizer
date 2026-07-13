@@ -426,6 +426,12 @@ export function assertPlannedRenderAudits(plan, audits) {
       else if ((audit.violations || []).length > 0) {
         failures.push(`${check.id}=${audit.violations.map((item) => `${item.nodeId}:${item.code}`).join(',')}`);
       }
+    } else if (check.evidenceKind === 'label-position-audit') {
+      const audit = audits.labelPositionAudit;
+      if (!audit) failures.push(`${check.id}=missing-audit`);
+      else if ((audit.violations || []).length > 0) {
+        failures.push(`${check.id}=${audit.violations.map((item) => `${item.node}:${item.code}`).join(',')}`);
+      }
     }
   }
   if (failures.length) {
@@ -1161,8 +1167,8 @@ export function classifyLabelLayoutAudit(geometry) {
   };
 }
 
-export async function auditLabelLayout(page) {
-  const geometry = await page.evaluate(() => {
+async function collectLabelGeometry(page) {
+  return page.evaluate(() => {
     const svg = document.querySelector('#chart > svg');
     if (!svg) throw new Error('SankeyEngine.render did not create #chart > svg');
     const boxFor = (element) => {
@@ -1183,7 +1189,122 @@ export async function auditLabelLayout(page) {
       ),
     };
   });
-  return classifyLabelLayoutAudit(geometry);
+}
+
+export async function auditLabelLayout(page) {
+  return classifyLabelLayoutAudit(await collectLabelGeometry(page));
+}
+
+export const LABEL_POSITION_CENTER_TOLERANCE = 6;
+
+// T18 expectations come from the Plan's objectCoverage: every object that
+// persisted a measured-label-position referenceBBox names one fixed-layout
+// label group (`layout.labels.<node>`), so the audit can pair the preflight
+// reference measurement with the group rendered for that node.
+export function labelPositionExpectationsFromPlan(plan) {
+  const coverage = Array.isArray(plan?.objectCoverage) ? plan.objectCoverage : [];
+  const expectations = [];
+  for (const entry of coverage) {
+    const evidence = entry.featureEvidence?.['measured-label-position'];
+    if (!evidence?.referenceBBox) continue;
+    const node = (entry.mapping || [])
+      .filter((item) => item.startsWith('render:'))
+      .map((item) => item.slice('render:'.length))
+      .filter((target) => !/(?:^|[./:])icons?$/i.test(target))
+      .map((target) => target.match(/(?:^|[./:])labels[./:]([A-Za-z0-9_-]+)/i)?.[1])
+      .find(Boolean);
+    if (!node) continue;
+    expectations.push({ objectId: entry.objectId, node, referenceBBox: evidence.referenceBBox });
+  }
+  return expectations.sort((left, right) => left.node.localeCompare(right.node));
+}
+
+// T18 label-position audit: compare each measured label group's rendered
+// union bbox against the preflight referenceBBox. G2 pins the SVG viewBox to
+// the intrinsic reference size, so SVG user space and native reference pixels
+// share one coordinate system. The reference measurement is ink bounds while
+// getBBox is an em box, so the tolerance is 6px: the repo-wide 4px center
+// convention plus a 2px measurement-protocol allowance. The center gate binds
+// on the source-language locale only — localized layout acceptance is owned
+// by Z2/Z5/Z6 — but every measured group must render measurably per locale.
+export function classifyLabelPositionAudit(geometry, expectations, { locale = 'en', enforcedLocale = 'en' } = {}) {
+  const round = (value) => Math.round(value * 10) / 10;
+  const enforced = locale === enforcedLocale;
+  const unions = new Map();
+  for (const item of geometry.labels || []) {
+    if (!item.node || !item.box || item.box.width <= 0 || item.box.height <= 0) continue;
+    const current = unions.get(item.node);
+    const left = item.box.x;
+    const top = item.box.y;
+    const right = item.box.x + item.box.width;
+    const bottom = item.box.y + item.box.height;
+    if (!current) {
+      unions.set(item.node, { left, top, right, bottom });
+    } else {
+      current.left = Math.min(current.left, left);
+      current.top = Math.min(current.top, top);
+      current.right = Math.max(current.right, right);
+      current.bottom = Math.max(current.bottom, bottom);
+    }
+  }
+
+  const measurements = [];
+  const violations = [];
+  for (const expectation of expectations) {
+    const [x, y, width, height] = expectation.referenceBBox;
+    const referenceCenter = { x: x + width / 2, y: y + height / 2 };
+    const union = unions.get(expectation.node);
+    if (!union) {
+      measurements.push({
+        objectId: expectation.objectId,
+        node: expectation.node,
+        referenceBBox: expectation.referenceBBox,
+        candidateBBox: null,
+        deltaX: null,
+        deltaY: null,
+        enforced,
+      });
+      violations.push({ objectId: expectation.objectId, node: expectation.node, code: 'missing-label-group' });
+      continue;
+    }
+    const candidateCenter = { x: (union.left + union.right) / 2, y: (union.top + union.bottom) / 2 };
+    const deltaX = round(candidateCenter.x - referenceCenter.x);
+    const deltaY = round(candidateCenter.y - referenceCenter.y);
+    measurements.push({
+      objectId: expectation.objectId,
+      node: expectation.node,
+      referenceBBox: expectation.referenceBBox,
+      candidateBBox: [round(union.left), round(union.top), round(union.right - union.left), round(union.bottom - union.top)],
+      deltaX,
+      deltaY,
+      enforced,
+    });
+    if (enforced && Math.abs(deltaX) > LABEL_POSITION_CENTER_TOLERANCE) {
+      violations.push({ objectId: expectation.objectId, node: expectation.node, code: 'center-x-delta', delta: deltaX });
+    }
+    if (enforced && Math.abs(deltaY) > LABEL_POSITION_CENTER_TOLERANCE) {
+      violations.push({ objectId: expectation.objectId, node: expectation.node, code: 'center-y-delta', delta: deltaY });
+    }
+  }
+
+  return {
+    schemaVersion: 1,
+    ruleId: 'T18',
+    locale,
+    enforcedLocale,
+    enforced,
+    tolerance: LABEL_POSITION_CENTER_TOLERANCE,
+    expectedGroups: expectations.length,
+    measuredGroups: measurements.filter((item) => item.candidateBBox).length,
+    measurements,
+    violations,
+  };
+}
+
+export async function auditLabelPosition(page, plan, { language = 'en' } = {}) {
+  const expectations = labelPositionExpectationsFromPlan(plan);
+  const geometry = await collectLabelGeometry(page);
+  return classifyLabelPositionAudit(geometry, expectations, { locale: language || 'en' });
 }
 
 // Bounding boxes of every rendered element family (nodes, links, labels,

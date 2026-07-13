@@ -8,21 +8,35 @@ import { prepareBuildReview } from '../scripts/lib/dataset-build-closeout.mjs';
 import { initializeDatasetBuild, readBuildObject } from '../scripts/lib/dataset-build-store.mjs';
 import { recordDatasetVerification } from '../scripts/lib/dataset-verification.mjs';
 import { parseArgs, runRecordVerification } from '../scripts/record-verification.mjs';
+import { createHash } from 'node:crypto';
 
 const now = () => '2026-07-11T08:00:00.000Z';
 const digest = (value) => digestValue({ value });
+const bytesDigest = (value) => `sha256:${createHash('sha256').update(value).digest('hex')}`;
 
 async function fixture(t) {
   const root = await mkdtemp(path.join(os.tmpdir(), 'dataset-verification-test-'));
   const buildRoot = path.join(root, 'output', 'builds');
   const artifact = 'data/datasets/example-q4-fy25.js';
+  const sourcePath = 'input/processing/example-q4-fy25.png';
+  const sourceBytes = 'source-image-bytes';
+  const sourceDigest = bytesDigest(sourceBytes);
   await mkdir(path.join(root, 'data', 'datasets'), { recursive: true });
+  await mkdir(path.join(root, 'input', 'processing'), { recursive: true });
   await writeFile(path.join(root, artifact), 'export const marker = 1;\n');
+  await writeFile(path.join(root, sourcePath), sourceBytes);
   const build = createDatasetBuild({
     key: 'example-q4-fy25',
     adapter: 'income-statement',
     baseCanonicalDigest: digest('canonical'),
-    sources: [{ uri: 'input/pending/example.png', availability: 'local-only', digest: digest('source') }],
+    sources: [{
+      uri: 'input/pending/example.png',
+      processingUri: sourcePath,
+      availability: 'local-only',
+      digest: sourceDigest,
+      width: 2400,
+      height: 1800,
+    }],
   }, { id: () => 'build-example-q4-fy25', now });
   await initializeDatasetBuild(build, { buildRoot });
   const prepared = await prepareBuildReview({
@@ -34,10 +48,19 @@ async function fixture(t) {
         kind: 'label',
         disposition: 'render',
         mapping: [{ role: 'render', target: 'layout.labels.revenue' }],
-        features: ['text'],
+        features: ['text', 'measured-label-position'],
+        featureEvidence: {
+          'measured-label-position': {
+            source: 'reference-measurement',
+            locator: `${sourcePath}#revenue-label-group`,
+            digest: sourceDigest,
+            referenceBBox: [180, 420, 160, 44],
+            inspectionMethod: 'native-scale-reference-measurement',
+          },
+        },
       }],
     },
-    artifacts: [{ path: artifact }],
+    artifacts: [{ path: artifact }, { path: sourcePath, role: 'reference-image' }],
     changeImpact: ['display-text-only'],
     requiredLocales: ['en'],
   }, { buildRoot, projectRoot: root, now });

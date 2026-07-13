@@ -89,9 +89,24 @@ async function normalizeArtifacts(artifacts, projectRoot) {
   return normalized.sort((left, right) => left.path.localeCompare(right.path));
 }
 
-function assertHiddenAnchorEvidenceBound(build, inventory, artifacts) {
-  const hiddenObjects = inventory.objects.filter((object) => object.features.includes('hidden-anchor'));
-  if (hiddenObjects.length === 0) return;
+// T19 measurement provenance: any featureEvidence that claims to be measured
+// on the Source (hidden-anchor, semantic-annotation, measured-label-position,
+// ambiguous-label-slot) must bind its locator, digest, and referenceBBox to
+// THIS Build's Source. Coordinates copied from an adjacent period carry that
+// period's digest and are rejected here instead of passing every later gate.
+const SOURCE_BOUND_FEATURES = Object.freeze([
+  'hidden-anchor',
+  'semantic-annotation',
+  'measured-label-position',
+  'ambiguous-label-slot',
+]);
+
+function assertSourceBoundFeatureEvidence(build, inventory, artifacts) {
+  const boundObjects = inventory.objects
+    .flatMap((object) => SOURCE_BOUND_FEATURES
+      .filter((feature) => object.features.includes(feature))
+      .map((feature) => ({ object, feature })));
+  if (boundObjects.length === 0) return;
 
   const sourceByLocator = new Map();
   for (const source of build.sources || []) {
@@ -104,32 +119,34 @@ function assertHiddenAnchorEvidenceBound(build, inventory, artifacts) {
       .map((artifact) => [artifact.path, artifact])
   );
 
-  for (const object of hiddenObjects) {
-    const evidence = object.featureEvidence['hidden-anchor'];
-    const sourceLocator = evidence.locator.split('#', 1)[0];
+  for (const { object, feature } of boundObjects) {
+    const evidence = object.featureEvidence[feature];
+    const sourceLocator = String(evidence.locator || '').split('#', 1)[0];
     const source = sourceByLocator.get(sourceLocator);
     invariant(
       source,
-      'HIDDEN_ANCHOR_SOURCE_MISMATCH',
-      `Hidden anchor ${object.id} crop locator is not bound to a Build Source: ${sourceLocator}`
+      'FEATURE_EVIDENCE_SOURCE_MISMATCH',
+      `${feature} evidence for ${object.id} is not bound to a Build Source: ${sourceLocator || '(missing locator)'}`
     );
     const artifact = referenceArtifacts.get(sourceLocator);
     invariant(
       artifact && artifact.digest === source.digest && evidence.digest === source.digest,
-      'HIDDEN_ANCHOR_SOURCE_DIGEST_MISMATCH',
-      `Hidden anchor ${object.id} must bind its crop, reference-image artifact, and Build Source to one digest`
+      'FEATURE_EVIDENCE_SOURCE_DIGEST_MISMATCH',
+      `${feature} evidence for ${object.id} must bind its locator, reference-image artifact, and Build Source to one digest (stale or foreign measurements are rejected)`
     );
     invariant(
       Number.isInteger(source.width) && Number.isInteger(source.height) && source.width > 0 && source.height > 0,
-      'HIDDEN_ANCHOR_SOURCE_DIMENSIONS_REQUIRED',
-      `Hidden anchor ${object.id} requires Build Source dimensions`
+      'FEATURE_EVIDENCE_SOURCE_DIMENSIONS_REQUIRED',
+      `${feature} evidence for ${object.id} requires Build Source dimensions`
     );
-    const [x, y, width, height] = evidence.referenceBBox;
-    invariant(
-      x + width <= source.width && y + height <= source.height,
-      'HIDDEN_ANCHOR_REFERENCE_BBOX_OUT_OF_BOUNDS',
-      `Hidden anchor ${object.id} referenceBBox exceeds the Build Source dimensions`
-    );
+    if (evidence.referenceBBox) {
+      const [x, y, width, height] = evidence.referenceBBox;
+      invariant(
+        x + width <= source.width && y + height <= source.height,
+        'FEATURE_EVIDENCE_REFERENCE_BBOX_OUT_OF_BOUNDS',
+        `${feature} evidence for ${object.id} has a referenceBBox exceeding the Build Source dimensions`
+      );
+    }
   }
 }
 
@@ -162,7 +179,7 @@ export async function prepareBuildReview(input, options = {}) {
     requiredLocales: input.requiredLocales,
   });
   const artifacts = await normalizeArtifacts(input.artifacts, projectRoot);
-  assertHiddenAnchorEvidenceBound(build, inventory, artifacts);
+  assertSourceBoundFeatureEvidence(build, inventory, artifacts);
   const [inventoryReference, planReference] = await Promise.all([
     recordBuildObject(build.buildId, 'object-inventory', inventory, { buildRoot, projectRoot }),
     recordBuildObject(build.buildId, 'verification-plan', verificationPlan, { buildRoot, projectRoot }),
@@ -343,6 +360,42 @@ function derivedRiskChecks(plan, evidence) {
       });
     }
   }
+  if (requiredIds.has('feature:measured-label-position')) {
+    for (const item of evidence) {
+      const audit = item.metrics?.labelPositionAudit;
+      const complete = Boolean(audit) &&
+        Number(audit.measuredGroups) === Number(audit.expectedGroups) &&
+        (audit.violations?.length || 0) === 0;
+      checks.push({
+        id: `T18-label-position:${item.locale}`,
+        status: audit ? (complete ? 'passed' : 'failed') : 'open',
+        // Only enforced (source-language) deltas are threshold measurements:
+        // localized layout acceptance is owned by Z2/Z5/Z6, so a legitimate
+        // locale shift must not become a RISK_THRESHOLD_VIOLATION blocker.
+        measurements: (audit?.measurements || [])
+          .filter((measurement) => measurement.candidateBBox && measurement.enforced)
+          .flatMap((measurement) => [
+            {
+              id: `${measurement.node}-center-x`,
+              value: Math.abs(Number(measurement.deltaX)),
+              operator: 'lte',
+              threshold: Number(audit.tolerance),
+              unit: 'px',
+            },
+            {
+              id: `${measurement.node}-center-y`,
+              value: Math.abs(Number(measurement.deltaY)),
+              operator: 'lte',
+              threshold: Number(audit.tolerance),
+              unit: 'px',
+            },
+          ]),
+        ...(audit
+          ? (complete ? {} : { reason: 'A measured label group is missing or outside the T18 reference-position tolerance' })
+          : { reason: 'The evidence predates label-position measurement' }),
+      });
+    }
+  }
   if (requiredIds.has('feature:text')) {
     for (const item of evidence) {
       const audit = item.metrics?.textLayoutAudit;
@@ -402,6 +455,13 @@ function checkFeatureEvidence(check, entry) {
     return Boolean(entry.metrics?.labelLayoutAudit) && expectedTargets.every((target) => labels.some((label) =>
       label.node === target && Number.isFinite(Number(label.verticalCenterDelta)) && Number(label.verticalCenterDelta) <= 4
     ));
+  }
+  if (check.evidenceKind === 'label-position-audit') {
+    const audit = entry.metrics?.labelPositionAudit;
+    return Boolean(audit) &&
+      Number(audit.expectedGroups) === (check.objectIds || []).length &&
+      Number(audit.measuredGroups) === Number(audit.expectedGroups) &&
+      (audit.violations?.length || 0) === 0;
   }
   if (check.evidenceKind === 'text-layout-audit') {
     const audit = entry.metrics?.textLayoutAudit;
@@ -466,7 +526,7 @@ function localeEvidenceForCheck(check, entry, consistency) {
     invariant(evidenceDigests.length === 3, 'CHECK_EVIDENCE_PROVIDER_MISSING', `Check ${check.id} needs archived reference, interface audit, and contact sheet`);
     return { passed: checkFeatureEvidence(check, entry), evidenceDigests };
   }
-  if (['label-layout-audit', 'text-layout-audit', 'annotation-layout-audit', 'node-paint-audit'].includes(check.evidenceKind)) {
+  if (['label-layout-audit', 'label-position-audit', 'text-layout-audit', 'annotation-layout-audit', 'node-paint-audit'].includes(check.evidenceKind)) {
     invariant(entry.artifactDigests?.metrics, 'CHECK_EVIDENCE_PROVIDER_MISSING', `Check ${check.id} needs the archived metrics document`);
     return {
       passed: checkFeatureEvidence(check, entry),

@@ -14,6 +14,14 @@ export const AUTOMATION_DISPOSITIONS = Object.freeze([
   'required-checklist',
   'not-suitable',
 ]);
+// A checklist entry compiles no machine check, so it cannot discharge the
+// second-occurrence upgrade duty: once the same rule has execution gaps in two
+// Builds, only a real automation class (or an explained impossibility) counts.
+export const AUTOMATION_UPGRADE_DISPOSITIONS = Object.freeze([
+  'hard-gate',
+  'quantified-audit',
+  'not-suitable',
+]);
 
 const DIGEST_RE = /^sha256:[a-f0-9]{64}$/;
 const FEEDBACK_ID_RE = /^FB-\d{3,}$/;
@@ -265,7 +273,8 @@ export function projectFeedbackLedger(inputRecords) {
         executionGapBuildIds,
         automationDispositions,
         automationUpgradeRequired:
-          executionGapBuildIds.length >= 2 && automationDispositions.length === 0,
+          executionGapBuildIds.length >= 2 &&
+          !automationDispositions.some((item) => AUTOMATION_UPGRADE_DISPOSITIONS.includes(item.kind)),
       };
     });
 

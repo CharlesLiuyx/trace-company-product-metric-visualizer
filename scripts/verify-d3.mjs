@@ -35,6 +35,7 @@ import {
   assertRawSvgCanvas,
   assertTypographyAudit,
   auditLabelLayout,
+  auditLabelPosition,
   auditNodePaint,
   auditSemanticAnnotations,
   auditTextAndAnnotationLayout,
@@ -312,6 +313,7 @@ export async function main(argv = process.argv, runtime = {}) {
     }
 
     const labelLayoutAudit = await auditLabelLayout(page);
+    const labelPositionAudit = await auditLabelPosition(page, reviewPlan, { language: meta.language });
     const { textLayoutAudit, annotationLayoutAudit } = await auditTextAndAnnotationLayout(page);
     const semanticAnnotationAudit = await auditSemanticAnnotations(page, {
       datasetKey,
@@ -339,6 +341,7 @@ export async function main(argv = process.argv, runtime = {}) {
     if (executionMode === 'review-evidence') {
       assertPlannedRenderAudits(reviewPlan, {
         labelLayoutAudit,
+        labelPositionAudit,
         textLayoutAudit,
         annotationLayoutAudit,
         semanticAnnotationAudit,
@@ -381,6 +384,7 @@ export async function main(argv = process.argv, runtime = {}) {
       full: metrics.full,
       regions: metrics.regions,
       labelLayoutAudit,
+      labelPositionAudit,
       textLayoutAudit,
       annotationLayoutAudit,
       semanticAnnotationAudit,
@@ -459,6 +463,9 @@ export async function main(argv = process.argv, runtime = {}) {
       `node paint audit: checked=${nodePaintAudit.checkedNodes} visible=${nodePaintAudit.visibleNodeIds.length} invisible=${nodePaintAudit.invisibleNodeIds.length} expectedVisible=${nodeFaceExpectations.visible.length} expectedHidden=${nodeFaceExpectations.hidden.length}`
     );
     logLabelLayoutAudit(labelLayoutAudit);
+    console.log(
+      `label position audit: expected=${labelPositionAudit.expectedGroups} measured=${labelPositionAudit.measuredGroups} enforced=${labelPositionAudit.enforced} violations=${labelPositionAudit.violations.length} tolerance=${labelPositionAudit.tolerance}px rule=T18`
+    );
     console.log(
       `text layout audit: checked=${textLayoutAudit.checkedTexts} overflow=${textLayoutAudit.overflowViolations.length} tolerance=${textLayoutAudit.tolerance}px`
     );

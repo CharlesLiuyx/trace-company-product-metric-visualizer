@@ -15,6 +15,8 @@ export const OBJECT_FEATURES = Object.freeze([
   'visible-node-face',
   'hidden-anchor',
   'specified-label-weight',
+  'measured-label-position',
+  'ambiguous-label-slot',
 ]);
 
 const STABLE_ID_RE = /^[a-z0-9]+(?:[._:-][a-z0-9]+)*$/;
@@ -36,6 +38,8 @@ export const HIDDEN_ANCHOR_CLASSIFICATION_CLAIM = 'no-visible-node-face-observed
 export const HIDDEN_ANCHOR_INSPECTION_METHOD = 'native-scale-crop-and-pixel-scan';
 export const SEMANTIC_ANNOTATION_CLASSIFICATION_CLAIM = 'semantic-node-annotation-required';
 export const SEMANTIC_ANNOTATION_INSPECTION_METHOD = 'native-scale-crop-and-object-inventory';
+export const MEASURED_LABEL_POSITION_INSPECTION_METHOD = 'native-scale-reference-measurement';
+export const AMBIGUOUS_LABEL_SLOT_CLASSIFICATION_CLAIM = 'label-slot-ambiguous-operator-decision-required';
 
 function invariant(condition, code, message) {
   if (condition) return;
@@ -152,10 +156,68 @@ function normalizeFeatureEvidence(object, features, { strictHiddenEvidence = tru
     normalized[feature] = evidence;
   }
 
-  for (const feature of ['hidden-anchor', 'visible-short-node', 'specified-label-weight', 'semantic-annotation']) {
+  for (const feature of [
+    'hidden-anchor',
+    'visible-short-node',
+    'specified-label-weight',
+    'semantic-annotation',
+    'measured-label-position',
+    'ambiguous-label-slot',
+  ]) {
     if (features.includes(feature)) {
       invariant(normalized[feature], 'OBJECT_FEATURE_EVIDENCE_REQUIRED', `Object ${object.id} feature ${feature} needs source evidence`);
     }
+  }
+  if (features.includes('measured-label-position')) {
+    const evidence = normalized['measured-label-position'];
+    invariant(
+      evidence?.locator?.includes('#'),
+      'MEASURED_LABEL_POSITION_LOCATOR_REQUIRED',
+      `Measured label position ${object.id} needs a Source locator with a stable fragment`
+    );
+    invariant(
+      evidence?.referenceBBox,
+      'MEASURED_LABEL_POSITION_REFERENCE_BBOX_REQUIRED',
+      `Measured label position ${object.id} needs the native-pixel referenceBBox of its label group`
+    );
+    invariant(
+      evidence?.digest,
+      'MEASURED_LABEL_POSITION_SOURCE_DIGEST_REQUIRED',
+      `Measured label position ${object.id} needs the immutable Source digest it was measured from`
+    );
+    invariant(
+      evidence?.inspectionMethod === MEASURED_LABEL_POSITION_INSPECTION_METHOD,
+      'MEASURED_LABEL_POSITION_INSPECTION_REQUIRED',
+      `Measured label position ${object.id} must use inspectionMethod ${MEASURED_LABEL_POSITION_INSPECTION_METHOD}`
+    );
+  }
+  if (features.includes('ambiguous-label-slot')) {
+    const evidence = normalized['ambiguous-label-slot'];
+    invariant(
+      evidence?.reason,
+      'AMBIGUOUS_LABEL_SLOT_REASON_REQUIRED',
+      `Ambiguous label slot ${object.id} must describe the competing slot interpretations`
+    );
+    invariant(
+      evidence?.locator?.includes('#'),
+      'AMBIGUOUS_LABEL_SLOT_LOCATOR_REQUIRED',
+      `Ambiguous label slot ${object.id} needs a reference crop locator with a stable fragment`
+    );
+    invariant(
+      evidence?.referenceBBox,
+      'AMBIGUOUS_LABEL_SLOT_REFERENCE_BBOX_REQUIRED',
+      `Ambiguous label slot ${object.id} needs the native-pixel referenceBBox of the ambiguous text`
+    );
+    invariant(
+      evidence?.digest,
+      'AMBIGUOUS_LABEL_SLOT_SOURCE_DIGEST_REQUIRED',
+      `Ambiguous label slot ${object.id} needs the immutable Source digest`
+    );
+    invariant(
+      evidence?.classificationClaim === AMBIGUOUS_LABEL_SLOT_CLASSIFICATION_CLAIM,
+      'AMBIGUOUS_LABEL_SLOT_CLASSIFICATION_CLAIM_REQUIRED',
+      `Ambiguous label slot ${object.id} must explicitly claim ${AMBIGUOUS_LABEL_SLOT_CLASSIFICATION_CLAIM}`
+    );
   }
   if (features.includes('hidden-anchor') && strictHiddenEvidence) {
     const evidence = normalized['hidden-anchor'];

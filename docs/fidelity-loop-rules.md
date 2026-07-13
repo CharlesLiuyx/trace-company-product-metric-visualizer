@@ -88,6 +88,16 @@ Node-face 判定采用“可见优先”方法：不确定时声明 `visible-nod
 - `visible-short-node` 必须同时声明 `visible-node-face`，并附短柱 crop、bbox、柱面色和背景色。
 - `specified-label-weight` 只在来源或设计规格明确字重时使用，记录语义 heading、期望字重和证据。
 - `semantic-annotation` 只用于参考图确认必须以 annotation 呈现的 Sankey node 名称/金额/引导组；该 node object 必须映射 `annotations.*`，并记录原生 crop、bbox、Source digest、`inspectionMethod: native-scale-crop-and-object-inventory`、`classificationClaim: semantic-node-annotation-required` 与理由。默认选择 `layout.labels`；不能仅为方便定位把 node label 降级为普通 annotation。
+- `measured-label-position` 是每个映射 `layout.labels.*`（icon 位除外）的 render object 的
+  必备 feature：Plan 编译对 income-statement 强制，缺声明即拒绝编译。其
+  `featureEvidence` 必须记录带稳定 fragment 的 Source `locator`、该 label 组文字 union 的
+  原生像素 `referenceBBox: [x, y, width, height]`、本 Build 的 Source `digest` 和
+  `inspectionMethod: native-scale-reference-measurement`。这份测量就是 T18 自动比对的
+  参考答案，T19 在 prepare-review 时验证它确实量自本 Build 的 Source。
+- `ambiguous-label-slot`：preflight 无法从参考图唯一判定某 label 的槽位或归属时声明；
+  记录竞争解释的 `reason`、带 fragment 的 crop `locator`、`referenceBBox`、Source `digest`
+  与 `classificationClaim: label-slot-ambiguous-operator-decision-required`。它编译出 T20
+  的 render 前操作者裁决检查。
 - `visible-interface`、`centered-side-label`、`text`、`annotation-near-label` 等既有 feature
   继续按对象事实声明，不能为了减少检查而省略。
 
@@ -103,7 +113,7 @@ preflight 至少逐对象记录：
 - 每个 label 的语义组、anchor、渲染目标位置；名称、金额、备注、margin、Y/Y 不拆散归属。
 - 注释容器、内容 union、图标 cluster 和受保护文本的 bbox。
 
-固定 `layout.labels.<node>.blocks` 的纵向位置必须逐组从当前参考图测量：记录文字 union（或逐行 bbox）、`block.top`、x/anchor，以及它与 node/link 的关系。同公司相邻期间或相邻对象只能作为视觉语言参考，不能作为坐标来源。每次改变 `top`、行距、字号或 `textLength` 后，必须在下一次 text sweep 中逐 locale 对照候选与参考的 top/bottom/anchor；任何未测量或明显偏移的组都以 reference red-box 重开 text stage。
+固定 `layout.labels.<node>.blocks` 的纵向位置必须逐组从当前参考图测量：记录文字 union（或逐行 bbox）、`block.top`、x/anchor，以及它与 node/link 的关系。这些测量不是草稿，而是 `measured-label-position` 的 `featureEvidence`（referenceBBox + Source digest），由 T18 在每次 evidence run 自动对照、T19 在 prepare-review 验证 provenance。同公司相邻期间或相邻对象只能作为视觉语言参考，不能作为坐标来源——外来 digest 会被 T19 直接拒绝。每次改变 `top`、行距、字号或 `textLength` 后，必须在下一次 text sweep 中逐 locale 对照候选与参考的 top/bottom/anchor；任何未测量或明显偏移的组都以 reference red-box 重开 text stage。
 
 测量值直接用于第一版 Adapter；不能先粗排，再靠多次 evidence run 逼近。
 
@@ -301,6 +311,9 @@ renderer 与 metric 配置；局部试改也必须重渲染整图并换算为全
 | T15 | manual | label 位于同列两 node 之间时，同时检查它与自身 node、相邻 node 的净空；任一 overlap 失败，所有 locale 都复查。 |
 | T16 | manual | `specified-label-weight` 对每个语义 heading 比较 computed weight 与来源规格并提交人工决定；title、金额、备注和 wordmark 分开。缺来源时不得声明该 feature，也不得臆造统一字重。 |
 | T17 | manual | 先按参考图判断文字是否属于 Sankey node：名称/金额/备注与 node 或其 micro-flow 属于同一语义对象时默认使用 `layout.labels`；只有真实 callout/guide 必须作为 annotation 时才声明 `semantic-annotation`，并逐 locale Hover 该文字本身、确认高亮和 Tooltip。 |
+| T18 | conditional-gate | `measured-label-position` 触发：每次 evidence run 将每个固定布局 label 组的渲染 union bbox 与 preflight 持久化的原生 `referenceBBox` 自动比对。源语言 locale 的中心差（X 与 Y 各自）`<=6px`，超差失败；6px = 通用 4px 中心约定加 2px 的 ink-bbox 对 em-box 测量协议余量。非源语言 locale 不做中心 gate（本地化验收由 Z2/Z5/Z6 拥有），但每个已测量组必须渲染出可测的 label，缺组即失败。证据为逐 locale 的 `labelPositionAudit`。 |
+| T19 | build-gate | prepare-review 时校验所有声明 Source 测量的 featureEvidence（`measured-label-position`、`hidden-anchor`、`semantic-annotation`、`ambiguous-label-slot`）：locator 必须指向本 Build Source，evidence digest、reference-image artifact digest 与 Build Source digest 三者一致，referenceBBox 不越 Source 边界。相邻期间或其他数据集的坐标携带外来 digest，直接拒绝——过期测量不允许进入任何后续 gate。 |
+| T20 | manual | `ambiguous-label-slot` 触发：preflight 发现 label 槽位或归属在参考图上存在多解（如"柱下方"与"左侧槽位"皆可读通）时必须声明该 feature，并在 text stage 冻结前提交绑定 reference crop 的操作者槽位裁决（manual decision）。不允许按单一解释先渲染、等用户复审时指出再改判。 |
 
 ### A 系列：annotation 容器
 
@@ -404,7 +417,11 @@ stage 冻结、重开和用户反馈都必须绑定 evidence digest。手写 Tas
 
 FeedbackRecord 保存稳定 ID、rule IDs、归因、before/after evidence、remedy、状态和
 supersession。相同规则在第二个 Build 再出现 execution gap 时，必须记录自动化升级
-disposition；不能用再次加长文档代替。
+disposition；不能用再次加长文档代替。升级 disposition 只有三种合法值：`hard-gate`、
+`quantified-audit`，或带具体理由的 `not-suitable`。`required-checklist` 不编译任何
+机器检查，只在同一规则的**首次** execution gap 上合法；复发后仍以 `required-checklist`
+关闭会被 Feedback Ledger 判为未升级并阻断 close-out。已有自动化落地时，用 supersession
+记录把旧 disposition 升级为真实的自动化类别。
 
 ### 可以结束的唯一条件
 

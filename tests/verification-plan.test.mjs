@@ -7,6 +7,16 @@ import {
   compileVerificationPlan,
 } from '../scripts/lib/verification-plan.mjs';
 
+function measuredLabelEvidence(fragment, referenceBBox) {
+  return {
+    source: 'reference-measurement',
+    locator: `input/processing/example-fy25.png#${fragment}`,
+    digest: `sha256:${'c'.repeat(64)}`,
+    referenceBBox,
+    inspectionMethod: 'native-scale-reference-measurement',
+  };
+}
+
 function incomeObjects() {
   return [
     {
@@ -14,13 +24,14 @@ function incomeObjects() {
       kind: 'label',
       disposition: 'render',
       mapping: [{ role: 'render', target: 'layout.labels.revenue' }],
-      features: ['text', 'centered-side-label', 'specified-label-weight'],
+      features: ['text', 'centered-side-label', 'specified-label-weight', 'measured-label-position'],
       featureEvidence: {
         'specified-label-weight': {
           source: 'reference-measurement',
           locator: 'input/processing/example-fy25.png#revenue-label',
           expectedWeight: 600,
         },
+        'measured-label-position': measuredLabelEvidence('revenue-label-group', [180, 420, 160, 44]),
       },
     },
     {
@@ -282,6 +293,13 @@ test('Income Statement plan compiles object features into mandatory rule checks'
   assert.equal(checks['feature:visible-node-face'].localeScope, 'required-locales');
   assert.deepEqual(checks['feature:centered-side-label'].objectIds, ['label:revenue']);
   assert.deepEqual(checks['feature:centered-side-label'].evidenceTargets, ['layout.labels.revenue']);
+  assert.deepEqual(checks['feature:measured-label-position'].ruleIds, ['T18']);
+  assert.equal(checks['feature:measured-label-position'].enforcement, 'conditional-gate');
+  assert.equal(checks['feature:measured-label-position'].evidenceKind, 'label-position-audit');
+  assert.equal(checks['feature:measured-label-position'].localeScope, 'required-locales');
+  assert.deepEqual(checks['feature:label-measurement-provenance'].ruleIds, ['T19']);
+  assert.equal(checks['feature:label-measurement-provenance'].enforcement, 'build-gate');
+  assert.equal(checks['feature:label-measurement-provenance'].localeScope, 'global');
   assert.equal(plan.objectCoverage.length, inventory.objects.length);
   assert.match(plan.planDigest, /^sha256:[a-f0-9]{64}$/);
   assert.equal(plan.schemaVersion, 3);
@@ -307,7 +325,10 @@ test('feature evidence targets do not leak across a multi-mapped object', () => 
         { role: 'render', target: 'nodes.tax' },
         { role: 'render', target: 'layout.labels.tax' },
       ],
-      features: ['text', 'visible-node-face'],
+      features: ['text', 'visible-node-face', 'measured-label-position'],
+      featureEvidence: {
+        'measured-label-position': measuredLabelEvidence('tax-label-group', [900, 1240, 120, 40]),
+      },
     }],
   });
   const plan = compileVerificationPlan({
@@ -318,6 +339,67 @@ test('feature evidence targets do not leak across a multi-mapped object', () => 
   const checks = Object.fromEntries(plan.requiredChecks.map((check) => [check.id, check]));
   assert.deepEqual(checks['feature:visible-node-face'].evidenceTargets, ['nodes.tax']);
   assert.deepEqual(checks['feature:text'].evidenceTargets, ['layout.labels.tax']);
+  assert.deepEqual(checks['feature:measured-label-position'].evidenceTargets, ['layout.labels.tax']);
+});
+
+test('a fixed-layout label object cannot compile without its reference measurement', () => {
+  const objects = incomeObjects();
+  const label = objects.find((object) => object.id === 'label:revenue');
+  label.features = label.features.filter((feature) => feature !== 'measured-label-position');
+  delete label.featureEvidence['measured-label-position'];
+  assert.throws(
+    () => compileVerificationPlan({
+      adapter: 'income-statement',
+      inventory: createObjectInventory({ datasetKey: 'example-fy25', objects }),
+      changeImpact: ['geometry'],
+    }),
+    (error) => error.code === 'MEASURED_LABEL_POSITION_REQUIRED'
+  );
+});
+
+test('measured-label-position evidence must be complete at inventory validation', () => {
+  const objects = incomeObjects();
+  const label = objects.find((object) => object.id === 'label:revenue');
+  label.featureEvidence['measured-label-position'] = {
+    source: 'reference-measurement',
+    locator: 'input/processing/example-fy25.png#revenue-label-group',
+    referenceBBox: [180, 420, 160, 44],
+    inspectionMethod: 'native-scale-reference-measurement',
+  };
+  assert.throws(
+    () => createObjectInventory({ datasetKey: 'example-fy25', objects }),
+    (error) => error.code === 'MEASURED_LABEL_POSITION_SOURCE_DIGEST_REQUIRED'
+  );
+});
+
+test('an ambiguous label slot compiles a pre-render operator decision check', () => {
+  const objects = incomeObjects();
+  const label = objects.find((object) => object.id === 'label:revenue');
+  label.features = [...label.features, 'ambiguous-label-slot'];
+  label.featureEvidence['ambiguous-label-slot'] = {
+    source: 'reference-crop',
+    locator: 'input/processing/example-fy25.png#revenue-label-slot',
+    digest: `sha256:${'c'.repeat(64)}`,
+    referenceBBox: [180, 420, 160, 44],
+    classificationClaim: 'label-slot-ambiguous-operator-decision-required',
+    reason: 'The name could bind below the short face or to the left-side slot; the reference is ambiguous.',
+  };
+  const plan = compileVerificationPlan({
+    adapter: 'income-statement',
+    inventory: createObjectInventory({ datasetKey: 'example-fy25', objects }),
+    changeImpact: ['geometry'],
+  });
+  const checks = Object.fromEntries(plan.requiredChecks.map((check) => [check.id, check]));
+  assert.deepEqual(checks['feature:ambiguous-label-slot'].ruleIds, ['T20']);
+  assert.equal(checks['feature:ambiguous-label-slot'].enforcement, 'manual');
+  assert.equal(checks['feature:ambiguous-label-slot'].localeScope, 'global');
+  assert.equal(checks['feature:ambiguous-label-slot'].evidenceKind, 'manual-decision');
+
+  delete label.featureEvidence['ambiguous-label-slot'].reason;
+  assert.throws(
+    () => createObjectInventory({ datasetKey: 'example-fy25', objects }),
+    (error) => error.code === 'AMBIGUOUS_LABEL_SLOT_REASON_REQUIRED'
+  );
 });
 
 test('checks without an executing automatic profile require manual evidence', () => {

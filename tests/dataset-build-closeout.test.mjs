@@ -29,17 +29,30 @@ async function fixture(t, key = 'example-q4-fy25') {
   const root = await mkdtemp(path.join(os.tmpdir(), 'dataset-build-closeout-test-'));
   const buildRoot = path.join(root, 'output', 'builds');
   const artifact = `data/datasets/${key}.js`;
+  const sourcePath = `input/processing/${key}.png`;
+  const sourceBytes = `source-image-bytes:${key}`;
+  const sourceDigest = bytesDigest(sourceBytes);
   await mkdir(path.join(root, 'data', 'datasets'), { recursive: true });
+  await mkdir(path.join(root, 'input', 'processing'), { recursive: true });
   await writeFile(path.join(root, artifact), 'export const marker = 1;\n');
+  await writeFile(path.join(root, sourcePath), sourceBytes);
   const build = createDatasetBuild({
     key,
     adapter: 'income-statement',
     baseCanonicalDigest: digest('canonical-v1'),
-    sources: [{ uri: `input/pending/${key}.png`, availability: 'local-only', digest: digest('source') }],
+    sources: [{
+      uri: `input/pending/${key}.png`,
+      processingUri: sourcePath,
+      processedUri: `input/processed/${key}.png`,
+      availability: 'local-only',
+      digest: sourceDigest,
+      width: 2400,
+      height: 1800,
+    }],
   }, { now, id: () => `build-${key}` });
   await initializeDatasetBuild(build, { buildRoot });
   t.after(() => rm(root, { recursive: true, force: true }));
-  return { root, buildRoot, build, artifact };
+  return { root, buildRoot, build, artifact, sourcePath, sourceDigest };
 }
 
 test('prepare-review binds a hidden-anchor claim to the exact Build Source digest and bbox', async (t) => {
@@ -105,7 +118,7 @@ test('prepare-review binds a hidden-anchor claim to the exact Build Source diges
       changeImpact: ['geometry'],
       requiredLocales: ['en'],
     }, { buildRoot, projectRoot: root, now }),
-    (error) => error.code === 'HIDDEN_ANCHOR_SOURCE_DIGEST_MISMATCH'
+    (error) => error.code === 'FEATURE_EVIDENCE_SOURCE_DIGEST_MISMATCH'
   );
 
   const prepared = await prepareBuildReview({
@@ -121,7 +134,7 @@ test('prepare-review binds a hidden-anchor claim to the exact Build Source diges
   assert.equal(checks['feature:hidden-anchor-source-confirmation'].enforcement, 'manual');
 });
 
-function inventory(key) {
+function inventory(key, sourceDigest) {
   return {
     datasetKey: key,
     objects: [
@@ -130,7 +143,16 @@ function inventory(key) {
         kind: 'label',
         disposition: 'render',
         mapping: [{ role: 'render', target: 'layout.labels.revenue' }],
-        features: ['centered-side-label'],
+        features: ['centered-side-label', 'measured-label-position'],
+        featureEvidence: {
+          'measured-label-position': {
+            source: 'reference-measurement',
+            locator: `input/processing/${key}.png#revenue-label-group`,
+            digest: sourceDigest,
+            referenceBBox: [180, 420, 160, 44],
+            inspectionMethod: 'native-scale-reference-measurement',
+          },
+        },
       },
       {
         id: 'interface:revenue-right',
@@ -238,6 +260,26 @@ async function writeEvidence(root, prepared, verticalCenterDelta = 0, options = 
               }),
           labelLayoutAudit: {
             horizontalSideLabels: [{ node: 'revenue', labelIndex: 0, verticalCenterDelta }],
+          },
+          labelPositionAudit: options.labelPositionAudit || {
+            schemaVersion: 1,
+            ruleId: 'T18',
+            locale: 'en',
+            enforcedLocale: 'en',
+            enforced: true,
+            tolerance: 6,
+            expectedGroups: 1,
+            measuredGroups: 1,
+            measurements: [{
+              objectId: 'label:revenue',
+              node: 'revenue',
+              referenceBBox: [180, 420, 160, 44],
+              candidateBBox: [182, 421, 158, 42],
+              deltaX: 0,
+              deltaY: -0.5,
+              enforced: true,
+            }],
+            violations: [],
           },
           nodePaintAudit: {
             schemaVersion: 1,
@@ -359,8 +401,11 @@ async function prepare(t) {
   const base = await fixture(t);
   const prepared = await prepareBuildReview({
     buildId: base.build.buildId,
-    inventory: inventory(base.build.key),
-    artifacts: [{ path: base.artifact, role: 'view-adapter' }],
+    inventory: inventory(base.build.key, base.sourceDigest),
+    artifacts: [
+      { path: base.artifact, role: 'view-adapter' },
+      { path: base.sourcePath, role: 'reference-image' },
+    ],
     changeImpact: ['new-dataset', 'geometry'],
     requiredLocales: ['en'],
   }, { buildRoot: base.buildRoot, projectRoot: base.root, now });
@@ -379,12 +424,19 @@ async function prepareWithManualFeatures(t) {
           kind: 'label',
           disposition: 'render',
           mapping: [{ role: 'render', target: 'layout.labels.revenue' }],
-          features: ['specified-label-weight'],
+          features: ['specified-label-weight', 'measured-label-position'],
           featureEvidence: {
             'specified-label-weight': {
               source: 'reference-measurement',
               locator: 'input/processing/manual-features-fy25.png#revenue-label',
               expectedWeight: 600,
+            },
+            'measured-label-position': {
+              source: 'reference-measurement',
+              locator: 'input/processing/manual-features-fy25.png#revenue-label-group',
+              digest: base.sourceDigest,
+              referenceBBox: [180, 420, 160, 44],
+              inspectionMethod: 'native-scale-reference-measurement',
             },
           },
         },
@@ -403,7 +455,10 @@ async function prepareWithManualFeatures(t) {
         },
       ],
     },
-    artifacts: [{ path: base.artifact, role: 'view-adapter' }],
+    artifacts: [
+      { path: base.artifact, role: 'view-adapter' },
+      { path: base.sourcePath, role: 'reference-image' },
+    ],
     changeImpact: ['geometry'],
     requiredLocales: ['en'],
   }, { buildRoot: base.buildRoot, projectRoot: base.root, now });

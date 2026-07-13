@@ -28,7 +28,26 @@ export const FEATURE_REQUIRED_CHECKS = Object.freeze({
     Object.freeze({ checkId: 'hidden-anchor-source-confirmation', axis: 'render', enforcement: 'manual', localeScope: 'global', evidenceKind: 'manual-decision', ruleIds: Object.freeze(['T12']) }),
   ]),
   'specified-label-weight': Object.freeze({ axis: 'render', enforcement: 'manual', localeScope: 'required-locales', evidenceKind: 'manual-decision', ruleIds: Object.freeze(['B14', 'T16']) }),
+  'measured-label-position': Object.freeze([
+    Object.freeze({ checkId: 'measured-label-position', axis: 'render', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'label-position-audit', ruleIds: Object.freeze(['T18']) }),
+    Object.freeze({ checkId: 'label-measurement-provenance', axis: 'data', enforcement: 'build-gate', localeScope: 'global', evidenceKind: 'verification-plan', ruleIds: Object.freeze(['T19']) }),
+  ]),
+  'ambiguous-label-slot': Object.freeze({ axis: 'render', enforcement: 'manual', localeScope: 'global', evidenceKind: 'manual-decision', ruleIds: Object.freeze(['T20']) }),
 });
+
+// T18/T19 coverage: a fixed-layout label group is any render mapping into
+// layout.labels.* (icon placements excluded). Its owning object must declare
+// measured-label-position so the reference measurement is persisted evidence,
+// not scratch-paper preflight notes.
+const FIXED_LABEL_TARGET_RE = /(?:^|[./:])labels[./:]/i;
+const LABEL_ICON_TARGET_RE = /(?:^|[./:])icons?$/i;
+
+function fixedLabelTargets(object) {
+  return object.mapping
+    .filter((mapping) => mapping.role === 'render')
+    .map((mapping) => mapping.target)
+    .filter((target) => FIXED_LABEL_TARGET_RE.test(target) && !LABEL_ICON_TARGET_RE.test(target));
+}
 
 const CHANGE_IMPACT_REQUIREMENTS = Object.freeze({
   'new-dataset': { axis: 'full', checkId: 'full-adapter-verification', enforcement: 'build-gate', localeScope: 'required-locales', evidenceKind: 'full-review-profile', ruleIds: [] },
@@ -113,7 +132,7 @@ function renderTargetsForFeature(object, feature) {
   let predicate = null;
   if (['visible-node-face', 'visible-short-node', 'hidden-anchor'].includes(feature)) {
     predicate = (target) => /(^|[./:])nodes?[./:]/i.test(target);
-  } else if (['centered-side-label', 'text', 'specified-label-weight'].includes(feature)) {
+  } else if (['centered-side-label', 'text', 'specified-label-weight', 'measured-label-position', 'ambiguous-label-slot'].includes(feature)) {
     predicate = (target) => /label/i.test(target);
   } else if (feature === 'annotation-near-label') {
     predicate = (target) => /annotation/i.test(target);
@@ -129,6 +148,13 @@ function renderTargetsForFeature(object, feature) {
       selected.length > 0,
       'FEATURE_MAPPING_TARGET_REQUIRED',
       `Object ${object.id} feature ${feature} needs an explicit nodes.* render mapping`
+    );
+  }
+  if (['measured-label-position', 'ambiguous-label-slot'].includes(feature)) {
+    invariant(
+      selected.length > 0,
+      'FEATURE_MAPPING_TARGET_REQUIRED',
+      `Object ${object.id} feature ${feature} needs an explicit label render mapping`
     );
   }
   return selected.length > 0 ? selected : targets;
@@ -244,6 +270,22 @@ export function compileVerificationPlan(input) {
   if (input.adapter === 'revenue-metric') {
     const rendered = inventory.objects.filter((object) => object.disposition === 'render');
     invariant(rendered.length === 0, 'ADAPTER_INVENTORY_INVALID', `Revenue Metric inventory cannot render objects: ${rendered.map((object) => object.id).join(', ')}`);
+  }
+
+  if (input.adapter === 'income-statement') {
+    // T18/T19: a new Plan cannot compile while any fixed-layout label group
+    // lacks its persisted reference measurement. Historical inventories stay
+    // inspectable; this gate binds at compile time only.
+    const unmeasured = inventory.objects.filter((object) =>
+      object.disposition === 'render' &&
+      fixedLabelTargets(object).length > 0 &&
+      !object.features.includes('measured-label-position')
+    );
+    invariant(
+      unmeasured.length === 0,
+      'MEASURED_LABEL_POSITION_REQUIRED',
+      `Fixed-layout label objects must declare measured-label-position with reference measurements: ${unmeasured.map((object) => object.id).join(', ')}`
+    );
   }
 
   const features = featureChecks(inventory);
