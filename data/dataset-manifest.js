@@ -8161,6 +8161,94 @@
             }
           }
         }
+      },
+      {
+        "key": "lockheed-martin-q4-fy25",
+        "src": "data/datasets/lockheed-martin-q4-fy25.js",
+        "data": {
+          "name": "Lockheed Martin · Q4 FY25",
+          "company": "Lockheed Martin",
+          "meta": {
+            "title": "Lockheed Martin Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "洛克希德·马丁 · 2025 财年第四季度",
+              "meta": {
+                "title": "洛克希德·马丁 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "citigroup-q4-fy25",
+        "src": "data/datasets/citigroup-q4-fy25.js",
+        "data": {
+          "name": "Citigroup · Q4 FY25",
+          "company": "Citigroup",
+          "meta": {
+            "title": "Citigroup Q4 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "花旗集团 · 2025 财年第四季度",
+              "meta": {
+                "title": "花旗集团 2025 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "bank-of-america-q4-fy25",
+        "src": "data/datasets/bank-of-america-q4-fy25.js",
+        "data": {
+          "name": "Bank of America · Q4 FY25",
+          "company": "Bank of America",
+          "meta": {
+            "title": "Bank of America Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美国银行 · 2025 财年第四季度",
+              "meta": {
+                "title": "美国银行 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "schwab-q4-fy25",
+        "src": "data/datasets/schwab-q4-fy25.js",
+        "data": {
+          "name": "Schwab · Q4 FY25",
+          "company": "Schwab",
+          "meta": {
+            "title": "Schwab Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "嘉信理财 · 2025 财年第四季度",
+              "meta": {
+                "title": "嘉信理财 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
       }
     ]
   };
