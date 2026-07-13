@@ -26,7 +26,7 @@ jobs:
           # Dataset timestamps and the ChangeImpact planner both need history.
           fetch-depth: 0
 
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v6
       - uses: actions/setup-node@v6
         with:
           node-version: 22
@@ -98,7 +98,7 @@ jobs:
         if: >-
           github.event_name != 'pull_request' && github.ref == 'refs/heads/main' &&
           steps.plan.outputs.site_projection == 'true'
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./_site
 
