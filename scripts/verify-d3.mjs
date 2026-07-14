@@ -54,14 +54,14 @@ function usage() {
   console.error(
     'Usage:\n' +
       '  pnpm verify:d3 -- <dataset-key> [--keep] [--language <code>] [--focus <diagnostic-direction>]\n' +
-      `  pnpm record:fidelity -- <dataset-key> --focus <${STAGE_FOCUS_VALUES.join('|')}> [--build <build-id>] [--keep] [--language <code>]`
+      `  pnpm record:fidelity -- <dataset-key> --focus <${STAGE_FOCUS_VALUES.join('|')}> [--build <build-id>] [--keep] [--language <code> ...]`
   );
 }
 
 export function parseArgs(argv) {
   const args = argv.slice(2);
   let keep = false;
-  let language = 'en';
+  const languages = [];
   let focus = 'unspecified';
   let buildId = '';
   const positional = [];
@@ -74,12 +74,15 @@ export function parseArgs(argv) {
       continue;
     }
     if (arg === '--language' || arg === '--lang') {
-      language = args[index + 1];
+      const language = args[index + 1];
       index += 1;
       if (!language || language.startsWith('--')) {
         usage();
         process.exit(2);
       }
+      // Repeatable: several locales render sequentially in one command,
+      // sharing the server and browser; each locale still gets its own run.
+      languages.push(language);
       continue;
     }
     if (arg === '--focus' || arg === '--main-check' || arg === '--direction') {
@@ -111,7 +114,13 @@ export function parseArgs(argv) {
   if (buildId && focus === 'unspecified') {
     throw new Error('--build records review evidence and therefore requires an explicit --focus');
   }
-  return { datasetKey, keep, language, focus, buildId };
+  return {
+    datasetKey,
+    keep,
+    languages: languages.length ? [...new Set(languages)] : ['en'],
+    focus,
+    buildId,
+  };
 }
 
 export function fidelityExecutionMode({ buildId, focus }) {
@@ -199,7 +208,7 @@ export async function main(argv = process.argv, runtime = {}) {
   if (operation === 'verify' && options.buildId) {
     throw new Error('--build is only valid with record:fidelity; verify:d3 is read-only');
   }
-  const { datasetKey, keep, language, focus, buildId } = options;
+  const { datasetKey, keep, languages, focus, buildId } = options;
   const executionMode = fidelityExecutionModeForOperation(options, operation);
   const datasetScript = datasetScriptForKey(datasetKey);
   const datasetPath = path.join(rootDir, datasetScript);
@@ -252,12 +261,54 @@ export async function main(argv = process.argv, runtime = {}) {
   const server = await startStaticServer({ port: 0 });
   const baseUrl = server.url.replace(/\/+$/, '');
   let browser;
+
+  try {
+    browser = await chromium.launch({ headless: true });
+    // One server + browser serve every requested locale sequentially; each
+    // locale still gets its own context, fidelity run, gates, and archive.
+    for (const language of languages) {
+      await renderLocaleRun({
+        browser,
+        baseUrl,
+        scripts,
+        datasetKey,
+        keep,
+        focus,
+        executionMode,
+        reviewPlan,
+        reviewIdentity,
+        datasetHash,
+        renderHash,
+        i18nHash,
+        language,
+      });
+    }
+  } finally {
+    if (browser) await browser.close();
+    await server.close();
+  }
+}
+
+async function renderLocaleRun({
+  browser,
+  baseUrl,
+  scripts,
+  datasetKey,
+  keep,
+  focus,
+  executionMode,
+  reviewPlan,
+  reviewIdentity,
+  datasetHash,
+  renderHash,
+  i18nHash,
+  language,
+}) {
+  const context = await browser.newContext({ viewport: { width: 1280, height: 720 }, deviceScaleFactor: 1 });
   let run;
   let completed = false;
 
   try {
-    browser = await chromium.launch({ headless: true });
-    const context = await browser.newContext({ viewport: { width: 1280, height: 720 }, deviceScaleFactor: 1 });
     const { page, pageErrors } = await openHarnessPage(context, { baseUrl, scripts });
 
     const meta = await datasetRenderMeta(page, datasetKey, language);
@@ -505,8 +556,7 @@ export async function main(argv = process.argv, runtime = {}) {
     }
     throw error;
   } finally {
-    if (browser) await browser.close();
-    await server.close();
+    await context.close();
     if (run) {
       if (keep) {
         console.log(`run scratch: ${path.relative(rootDir, run.scratchDir)}`);
