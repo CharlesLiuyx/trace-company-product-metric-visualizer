@@ -1043,6 +1043,11 @@ stage 冻结、重开和用户反馈都必须绑定 evidence digest。手写 Tas
 - `execution-gap`：已有规则未逐对象执行；优先补 hard gate、量化 audit 或 required check。
 - `ambiguous-rule`：规则不能独立判定；改成有触发条件、阈值和证据的口径。
 
+用户反馈命中批量提交中的一个数据集时，修复不止于该数据集：必须对同一批次
+提交的其余数据集做**同型横向排查**（同规则 ID、同类对象），逐数据集持久化
+排查结论；同型问题在两个及以上数据集复现即按下述复发升级处理。批量批次里
+同一个执行缺口会系统性复制到整批数据集，只修被指出的那一个是禁止做法。
+
 FeedbackRecord 保存稳定 ID、rule IDs、归因、before/after evidence、remedy、状态和
 supersession。相同规则在第二个 Build 再出现 execution gap 时，必须记录自动化升级
 disposition；不能用再次加长文档代替。升级 disposition 只有三种合法值：`hard-gate`、
@@ -1050,6 +1055,12 @@ disposition；不能用再次加长文档代替。升级 disposition 只有三�
 机器检查，只在同一规则的**首次** execution gap 上合法；复发后仍以 `required-checklist`
 关闭会被 Feedback Ledger 判为未升级并阻断 close-out。已有自动化落地时，用 supersession
 记录把旧 disposition 升级为真实的自动化类别。
+
+Ledger 的机器强制只覆盖本机 `output/builds/`（Git 忽略）；跨机器、跨检出的
+复发它看不见。跨检出的复发记忆是 Git 跟踪的
+[`docs/fidelity-feedback-casebook.md`](fidelity-feedback-casebook.md)：
+preflight 时按盘点特征查其触发列，反馈闭环时新增或更新对应案例行（含升级
+disposition 的回写）。登记簿未更新的反馈不得声称已沉淀完毕。
 
 ### 可以结束的唯一条件
 

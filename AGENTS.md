@@ -17,6 +17,7 @@ together.
 | accepted architecture decisions | `docs/adr/` (start with `docs/adr/0001-dataset-build-transactions.md`) |
 | dynamic dataset workflow: pipeline steps, execution model (parallel groups, agent routing), input-type object taxonomy, operational traps, pre-response verification checklist, reporting | `docs/dynamic-dataset-workflow.md` |
 | d3 fidelity: canonical numbered rules, preflight measurement, three-stage sweep state machine, automatic/manual evidence, acceptance conditions | `docs/fidelity-loop-rules.md` (its rule-catalog section is generated); rule-semantics SSOT: `scripts/lib/fidelity-rules-catalog.mjs` + derived contract `scripts/lib/fidelity-rule-contract.mjs`; regenerate with `pnpm update:fidelity-rules-doc` (`pnpm verify:architecture` enforces freshness and parity) |
+| historical user-feedback cases: root causes, current defenses, recurrence-upgrade paths (cross-checkout recurrence memory) | `docs/fidelity-feedback-casebook.md` (registration/consumption protocol owned by `docs/fidelity-loop-rules.md` §5) |
 | dataset / SSOT field-level format | `data/schema.md` |
 | commit message convention | `docs/commit-messages.md` |
 | data-adjacent asset layout (icon crops, raster annotations) | `data/assets/README.md` |

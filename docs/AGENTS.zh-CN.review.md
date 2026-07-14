@@ -17,6 +17,7 @@ agent 指令以英文版 `AGENTS.md` 为准。
 | 已接受的架构决策 | `docs/adr/`（从 `docs/adr/0001-dataset-build-transactions.md` 开始） |
 | 动态数据集工作流：流水线步骤、执行模型（并行组、agent 分派）、输入类型对象清单、操作陷阱、回复前验证清单、汇报 | `docs/dynamic-dataset-workflow.md` |
 | d3 保真：canonical 编号规则、preflight 测量、三层 sweep 状态机、自动/人工证据、接受条件 | `docs/fidelity-loop-rules.md`（其规则目录区为生成视图）；规则语义 SSOT：`scripts/lib/fidelity-rules-catalog.mjs` + 派生契约 `scripts/lib/fidelity-rule-contract.mjs`；用 `pnpm update:fidelity-rules-doc` 重新生成（`pnpm verify:architecture` 强制新鲜与一致） |
+| 历史用户反馈案例：根因、现行防线、复发升级路径（跨检出复发记忆） | `docs/fidelity-feedback-casebook.md`（登记/消费协议属主为 `docs/fidelity-loop-rules.md` §5） |
 | 数据集 / SSOT 字段级格式 | `data/schema.md` |
 | 提交信息约定 | `docs/commit-messages.md` |
 | 数据相邻资产布局（图标 crop、raster annotation） | `data/assets/README.md` |

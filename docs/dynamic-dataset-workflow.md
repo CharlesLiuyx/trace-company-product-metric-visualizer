@@ -642,8 +642,11 @@ In the final response, include:
   Summary, including historical/effective state and red-box status. Their
   status/confidence are derived from review, blockers, freshness, and state;
   never hand-fill or override them.
-- Whether user-feedback lessons changed `docs/fidelity-loop-rules.md` or were
-  recorded as dataset-specific exceptions.
+- Whether user-feedback lessons changed `docs/fidelity-loop-rules.md`, were
+  recorded as dataset-specific exceptions, and whether the tracked feedback
+  casebook (`docs/fidelity-feedback-casebook.md`) was updated, including the
+  batch-wide same-type sweep result when the feedback hit one dataset of a
+  batch (protocol: `docs/fidelity-loop-rules.md` §5).
 - For dataset or renderer work containing short nodes: report expected visible
   face count, confirmed visible face count, T12 hidden-anchor count, and
   unclassified count per required locale. For every nonzero hidden-anchor
