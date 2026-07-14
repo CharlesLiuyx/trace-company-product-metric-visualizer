@@ -18,6 +18,7 @@
     "record:verification": "node scripts/record-verification.mjs",
     "record:build": "node scripts/record-build.mjs",
     "sync:index-datasets": "node scripts/sync-index-datasets.mjs",
+    "update:fidelity-rules-doc": "node scripts/update-fidelity-rules-doc.mjs",
     "update:dataset-manifest": "node scripts/update-dataset-manifest.mjs",
     "verify:dataset-manifest": "node scripts/update-dataset-manifest.mjs --check",
     "verify:app": "node scripts/verify-app.mjs",

@@ -16,7 +16,7 @@ together.
 | machine-readable lifecycle protocol/state/Adapter contract | `docs/architecture/lifecycle-contract.json` (`pnpm verify:architecture` enforces parity) |
 | accepted architecture decisions | `docs/adr/` (start with `docs/adr/0001-dataset-build-transactions.md`) |
 | dynamic dataset workflow: pipeline steps, execution model (parallel groups, agent routing), input-type object taxonomy, operational traps, pre-response verification checklist, reporting | `docs/dynamic-dataset-workflow.md` |
-| d3 fidelity: canonical numbered rules, preflight measurement, three-stage sweep state machine, automatic/manual evidence, acceptance conditions | `docs/fidelity-loop-rules.md`; machine enforcement/feature/alias mirror: `scripts/lib/fidelity-rule-contract.mjs` (`pnpm verify:architecture` enforces parity) |
+| d3 fidelity: canonical numbered rules, preflight measurement, three-stage sweep state machine, automatic/manual evidence, acceptance conditions | `docs/fidelity-loop-rules.md` (its rule-catalog section is generated); rule-semantics SSOT: `scripts/lib/fidelity-rules-catalog.mjs` + derived contract `scripts/lib/fidelity-rule-contract.mjs`; regenerate with `pnpm update:fidelity-rules-doc` (`pnpm verify:architecture` enforces freshness and parity) |
 | dataset / SSOT field-level format | `data/schema.md` |
 | commit message convention | `docs/commit-messages.md` |
 | data-adjacent asset layout (icon crops, raster annotations) | `data/assets/README.md` |
@@ -115,6 +115,7 @@ Install once; the d3/standalone verifiers render in Chromium:
 | `pnpm verify:closeout -- <build-id> [--json]` | read-only close-out gate: requires historical and effective `SEALED`, fresh inputs, and an accepted human review |
 | `pnpm sync:index-datasets` | syncs every data registration surface with disk: `index.html` SSOT `<script>` tags (income statements, company metadata) and the generated dataset manifest (`--check` reports drift) |
 | `pnpm update:dataset-manifest` / `pnpm verify:dataset-manifest` | regenerate / freshness-check `data/dataset-manifest.js` (dataset registration SSOT) |
+| `pnpm update:fidelity-rules-doc [-- --check]` | regenerate (or freshness-check) the generated rule-catalog section of `docs/fidelity-loop-rules.md` from `scripts/lib/fidelity-rules-catalog.mjs` |
 | `pnpm verify:dataset -- <key> [--skip-render]` | read-only aggregate diagnostic: syntax, SSOT, strict i18n, metadata, then a read-only d3 render per language |
 | `pnpm verify:ssot` | SSOT ↔ dataset parity, registration parity, and currency/unit + FX coverage (global) |
 | `pnpm verify:i18n -- [--strict] [keys]` | i18n overlay coverage |

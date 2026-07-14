@@ -1,3 +1,5 @@
+import { catalogEnforcements, catalogFeatureMappings } from './fidelity-rules-catalog.mjs';
+
 const RULE_ID_SOURCE = '[GBRLTAZI][1-9][0-9]*[a-z]?';
 const RULE_ID_RE = new RegExp(`^${RULE_ID_SOURCE}$`);
 const RULE_REFERENCE_RE = new RegExp(`\\b(${RULE_ID_SOURCE})\\b`, 'g');
@@ -10,80 +12,17 @@ export const FIDELITY_RULE_ENFORCEMENT = Object.freeze([
   'manual',
 ]);
 
-function numbered(prefix, end) {
-  return Array.from({ length: end }, (_, index) => `${prefix}${index + 1}`);
-}
-
-const CANONICAL_RULE_IDS = Object.freeze([
-  ...numbered('G', 12),
-  'G3a',
-  'G3b',
-  'G3c',
-  ...numbered('B', 16),
-  ...numbered('R', 9),
-  ...numbered('L', 16),
-  ...numbered('T', 21),
-  'T12a',
-  ...numbered('A', 10),
-  ...numbered('Z', 8),
-  'Z6a',
-  ...numbered('I', 11),
-]);
-
-const ENFORCEMENT_GROUPS = Object.freeze({
-  'hard-gate': Object.freeze([
-    'G1', 'G2', 'G3', 'G3a', 'G3b', 'G3c', 'G4', 'G5', 'G6', 'G7', 'G8', 'G9', 'G10', 'G12',
-    'R3', 'R4', 'R5', 'R6', 'R7', 'R8', 'R9',
-    'L15',
-  ]),
-  'build-gate': Object.freeze(['G11', 'T19']),
-  'conditional-gate': Object.freeze([
-    'B3', 'B5', 'B6', 'B7', 'B15', 'B16',
-    'T7', 'T13', 'T18',
-    'A6', 'A10',
-    'Z5',
-  ]),
-  'quantified-audit': Object.freeze([
-    'B8', 'B10', 'B12',
-    'L5', 'L6', 'L10', 'L11',
-    'T1', 'T2', 'T4', 'T6', 'T21',
-  ]),
-});
-
-function buildEnforcementRegistry() {
-  const registry = Object.fromEntries(CANONICAL_RULE_IDS.map((id) => [id, 'manual']));
-  const claimed = new Set();
-  for (const [enforcement, ids] of Object.entries(ENFORCEMENT_GROUPS)) {
-    for (const id of ids) {
-      if (!(id in registry)) throw new Error(`Unknown fidelity rule in ${enforcement}: ${id}`);
-      if (claimed.has(id)) throw new Error(`Fidelity rule has multiple enforcement classes: ${id}`);
-      claimed.add(id);
-      registry[id] = enforcement;
-    }
-  }
-  return Object.freeze(registry);
-}
-
-export const FIDELITY_RULE_ENFORCEMENTS = buildEnforcementRegistry();
+// Enforcement and feature registries are derived from the structured rule
+// catalog (scripts/lib/fidelity-rules-catalog.mjs), which is the single
+// registration surface for rule semantics.
+export const FIDELITY_RULE_ENFORCEMENTS = catalogEnforcements();
 
 // Aliases are intentionally empty until two existing rules are proven to have
 // the same semantics. The validator keeps any future alias one-way and
 // prevents an old ID from silently acquiring a new meaning.
 export const FIDELITY_RULE_ALIASES = Object.freeze({});
 
-export const FIDELITY_FEATURE_RULE_IDS = Object.freeze({
-  'centered-side-label': Object.freeze(['B3', 'T7']),
-  text: Object.freeze(['B6', 'Z5']),
-  'annotation-near-label': Object.freeze(['B5', 'A6']),
-  'semantic-annotation': Object.freeze(['A10', 'B16', 'T17']),
-  'visible-short-node': Object.freeze(['T14']),
-  'visible-interface': Object.freeze(['G12', 'L11']),
-  'visible-node-face': Object.freeze(['B15', 'T13', 'T21']),
-  'hidden-anchor': Object.freeze(['B7', 'T12']),
-  'specified-label-weight': Object.freeze(['B14', 'T16']),
-  'measured-label-position': Object.freeze(['T18', 'T19']),
-  'ambiguous-label-slot': Object.freeze(['T20']),
-});
+export const FIDELITY_FEATURE_RULE_IDS = catalogFeatureMappings();
 
 // This allow-list is deliberately smaller than the full catalog. The
 // architecture verifier scans executable scripts (excluding this registry)
@@ -284,65 +223,6 @@ export function extractFidelityRuleReferences(source) {
     .sort((left, right) => left.localeCompare(right));
 }
 
-export function validateFidelityRuleDocument(source, contractInput = FIDELITY_RULE_CONTRACT) {
-  const contract = validateFidelityRuleContract(contractInput);
-  const definitions = parseFidelityRuleDefinitions(source);
-  const byId = new Map();
-  for (const definition of definitions) {
-    const prior = byId.get(definition.id);
-    if (prior) {
-      contractError(
-        'RULE_DOCUMENT_DUPLICATE',
-        `Fidelity rule ${definition.id} is defined more than once (lines ${prior.line} and ${definition.line})`
-      );
-    }
-    byId.set(definition.id, definition);
-  }
-
-  const canonicalIds = Object.keys(contract.enforcements);
-  const missing = canonicalIds.filter((id) => !byId.has(id));
-  const extra = [...byId.keys()].filter((id) => !(id in contract.enforcements));
-  if (missing.length || extra.length) {
-    contractError(
-      'RULE_DOCUMENT_CATALOG_DRIFT',
-      `Fidelity rule catalog drift: missing=[${missing.join(', ')}] extra=[${extra.join(', ')}]`
-    );
-  }
-
-  const enforcementDrift = definitions
-    .filter((definition) => contract.enforcements[definition.id] !== definition.enforcement)
-    .map((definition) => `${definition.id}:${definition.enforcement}->${contract.enforcements[definition.id]}`);
-  if (enforcementDrift.length) {
-    contractError(
-      'RULE_DOCUMENT_ENFORCEMENT_DRIFT',
-      `Fidelity rule enforcement drift: ${enforcementDrift.join(', ')}`
-    );
-  }
-
-  const references = extractFidelityRuleReferences(source);
-  const unresolved = references.filter(
-    (id) => !(id in contract.enforcements) && !(id in contract.aliases)
-  );
-  if (unresolved.length) {
-    contractError('RULE_DOCUMENT_REFERENCE_UNKNOWN', `Fidelity rules reference undefined IDs: ${unresolved.join(', ')}`);
-  }
-
-  const strayDefinitions = findSecondaryFidelityRuleDefinitions(source)
-    .filter((finding) => finding.kind !== 'canonical-rule-table');
-  if (strayDefinitions.length) {
-    const detail = strayDefinitions
-      .slice(0, 8)
-      .map((finding) => `${finding.kind}@${finding.line}:${finding.detail}`)
-      .join(', ');
-    contractError(
-      'RULE_DOCUMENT_DUPLICATE_SURFACE',
-      `Canonical rule tables are the only definition surface: ${detail}`
-    );
-  }
-
-  return deepFreeze({ definitions, references });
-}
-
 function plainHtml(value) {
   return String(value || '')
     .replace(/<[^>]*>/g, ' ')
@@ -363,7 +243,7 @@ export function findSecondaryFidelityRuleDefinitions(source) {
   const markdownDefinitionRe = new RegExp(
     '^\\s*(?:[-*+]|[0-9]+[.)]|#{1,6})\\s+(?:\\*\\*|__|`)?(' +
       RULE_ID_SOURCE +
-      ')(?:\\*\\*|__|`)?\\s*(?:—|–|-|:|：)\\s*\\S+',
+      ')(?:\\*\\*|__|`)?\\s*(?:—|–|-|:|：|·)\\s*\\S+',
     'gm'
   );
   for (const match of text.matchAll(markdownDefinitionRe)) {
@@ -371,6 +251,15 @@ export function findSecondaryFidelityRuleDefinitions(source) {
       kind: 'catalog-like-markdown-definition',
       line: text.slice(0, match.index).split(/\r?\n/).length,
       detail: match[1],
+    });
+  }
+
+  // Generated per-rule anchors are exclusive to the generated catalog block.
+  for (const match of text.matchAll(/<a id="rule-[a-z0-9]+"><\/a>/g)) {
+    findings.push({
+      kind: 'generated-rule-anchor',
+      line: text.slice(0, match.index).split(/\r?\n/).length,
+      detail: match[0],
     });
   }
 

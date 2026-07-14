@@ -480,7 +480,7 @@ proceed with the pipeline using the new checklist.
   `pnpm record:fidelity -- <dataset-key> --build <build-id> --focus polish-l10n-sweep --language <code>`
   (use `verify:d3` only for an earlier diagnostic) and
   inspect all Plan-required layout checks. Detailed acceptance criteria are in
-  `docs/fidelity-loop-rules.md` §5.
+  `docs/fidelity-loop-rules.md` §3.
 - `annotationsSvg` brand text: whole segments matching the company's name,
   legal name, or alias words are exempted automatically from i18n fallback
   checks; other intentionally untranslated words (sub-brands like `aws`)
