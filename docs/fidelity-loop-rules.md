@@ -937,6 +937,15 @@ scope。下面每节列出的对象/检查就是固定归属；跨 stage 的 glo
 `polish-l10n-sweep`，外加收尾复验的 `closeout-refresh`。`record:fidelity
 --build` 只接受这四个值；自由 focus 字符串仅限只读诊断与 legacy 兼容存档。
 
+三层与 §1 判定优先级一一对应：structure 承载优先级 1–2 的语义、拓扑、接口与
+几何，text 承载文本归属与排版，polish/localization 承载优先级 3 的视觉残差与
+本地化。两套顺序是同一件事的两个视角，不存在第三种排序。
+
+locale 最小集按 stage 决定：`structure-sweep` 与 `text-sweep` 的中间迭代只需
+源语言 evidence run；`polish-l10n-sweep` 与 `closeout-refresh` 必须覆盖每个
+required locale。最终验收不变——finish 仍要求最终 authored digest 上每个
+required locale 的 fresh 证据（Z1）。
+
 ### Structure stage
 
 一次检查并修完：输出纯净性、原始画布、node/column 几何、短柱可见性、link 拓扑、
@@ -1044,15 +1053,20 @@ disposition；不能用再次加长文档代替。升级 disposition 只有三�
 
 ### 可以结束的唯一条件
 
-保真工作结束必须同时满足：
+保真工作结束必须同时满足下表全部条件。`执行面` 标明漏项由哪一层拦截：
+`finish` 表示 `record:build finish` 以对应 blocker 拒绝 accepted，`工具` 表示
+evidence/Plan 工具在更早处失败，`人工` 表示 attestation 责任、机器不校验：
 
-- 当前 authored/Plan digest 的 render-scoped gates 通过，独立 G11 证据 fresh；候选纯净。
-- 每个 required check、object 和 locale 都有有效 `checkResults`；人工决定齐全。
-- 所有映射到 node 的对象（包括 short node）完成可见/隐藏二选一；各 locale 的 paint 结果与 inventory 一致。
-- Plan 要求时，完整 Matrix 无 `failed`、`manual-pending`、`not-scored`，且 audit/contact sheet/digests 齐全。
-- structure、text、polish/localization stages 均冻结且未被重开。
-- 用户 region、attention、feedback 和 recurrence upgrade 全部关闭。
-- 剩余差异只有有证据的可接受残留、无语义跳过或明确超范围。
+| 条件 | 执行面 | 证据 |
+| --- | --- | --- |
+| 当前 authored/Plan digest 的 render-scoped gates 通过；候选纯净 | 工具（`record:fidelity` 硬门槛）+ finish（`AUTOMATIC_LOCALE_MISSING` / `AUTOMATIC_LOCALE_NOT_PASSED`） | 每 locale 的 `fidelity-run/2` 存档 |
+| 独立 G11 一致性证据 fresh | finish（`AUTOMATIC_CONSISTENCY_NOT_PASSED`） | `dataset-verification/v1` reference |
+| 每个 required check、object 和 locale 都有有效 `checkResults` | finish（`REQUIRED_CHECK_MISSING` / `REQUIRED_CHECK_NOT_PASSED`） | `FidelityResult.checkResults` |
+| 所有映射到 node 的对象完成可见/隐藏二选一；各 locale paint 结果与 inventory 一致 | 工具（Plan 编译拒绝缺失 intent；Build-bound run 校验 `nodePaintAudit` 期望）+ 人工（T12 独立确认） | 逐 locale `nodePaintAudit` + manual decision |
+| Plan 要求时，完整 Matrix 无 `failed` / `manual-pending` / `not-scored`，audit/contact sheet/digests 齐全 | finish（`INTERFACE_MATRIX_REQUIRED` / `_INCOMPLETE` / `_FAILED` / `_PENDING` / `_NOT_SCORED` / `_IDENTITY_MISMATCH` / endpoint、tangent blockers） | `interface-matrix/v1` |
+| structure、text、polish/localization stages 均冻结且未被重开 | 人工（可选的 `stageDecisions` 提供结构化审计记录，不是 blocker） | 绑定 evidence digest 的冻结记录 |
+| 用户 region、attention、feedback 和 recurrence upgrade 全部关闭 | finish（`REGION_OPEN` / `ATTENTION_REFERENCE_OPEN` / `FEEDBACK_OPEN` / `FEEDBACK_AUTOMATION_UPGRADE_REQUIRED`） | RegionDecision / attention / FeedbackLedger |
+| 剩余差异只有有证据的可接受残留、无语义跳过或明确超范围 | 人工（attestation 责任） | region decisions + closure note |
 
 满足这些条件才允许 human review 接受；Build 后续的 CLOSED、baseline、seal、
 closeout 和最终汇报流程由架构文档与动态工作流拥有。任何机器全绿但缺人工决定的
