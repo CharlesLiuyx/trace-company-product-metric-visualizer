@@ -8249,6 +8249,226 @@
             }
           }
         }
+      },
+      {
+        "key": "mastercard-q4-fy25",
+        "src": "data/datasets/mastercard-q4-fy25.js",
+        "data": {
+          "name": "Mastercard · Q4 FY25",
+          "company": "Mastercard",
+          "meta": {
+            "title": "Mastercard Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Mastercard · 2025 财年第四季度",
+              "meta": {
+                "title": "Mastercard 2025 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "american-express-q4-fy25",
+        "src": "data/datasets/american-express-q4-fy25.js",
+        "data": {
+          "name": "American Express · Q4 FY25",
+          "company": "American Express",
+          "meta": {
+            "title": "American Express Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美国运通 · 2025 财年第四季度",
+              "meta": {
+                "title": "美国运通 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ibm-q4-fy25",
+        "src": "data/datasets/ibm-q4-fy25.js",
+        "data": {
+          "name": "IBM · Q4 FY25",
+          "company": "IBM",
+          "meta": {
+            "title": "IBM Q4 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "IBM · 2025 财年第四季度",
+              "meta": {
+                "title": "IBM 2025 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "jpmorganchase-q4-fy25",
+        "src": "data/datasets/jpmorganchase-q4-fy25.js",
+        "data": {
+          "name": "JPMorganChase · Q4 FY25",
+          "company": "JPMorganChase",
+          "meta": {
+            "title": "JPMorganChase Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "摩根大通 · 2025 财年第四季度",
+              "meta": {
+                "title": "摩根大通 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "servicenow-q4-fy25",
+        "src": "data/datasets/servicenow-q4-fy25.js",
+        "data": {
+          "name": "ServiceNow · Q4 FY25",
+          "company": "ServiceNow",
+          "meta": {
+            "title": "ServiceNow Q4 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ServiceNow · 2025 财年第四季度",
+              "meta": {
+                "title": "ServiceNow 2025 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sap-q4-fy25",
+        "src": "data/datasets/sap-q4-fy25.js",
+        "data": {
+          "name": "SAP · Q4 FY25",
+          "company": "SAP",
+          "meta": {
+            "title": "SAP Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "SAP · 2025 财年第四季度",
+              "meta": {
+                "title": "SAP 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "wells-fargo-q4-fy25",
+        "src": "data/datasets/wells-fargo-q4-fy25.js",
+        "data": {
+          "name": "Wells Fargo · Q4 FY25",
+          "company": "Wells Fargo",
+          "meta": {
+            "title": "Wells Fargo Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "富国银行 · 2025 财年第四季度",
+              "meta": {
+                "title": "富国银行 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "appfolio-q4-fy25",
+        "src": "data/datasets/appfolio-q4-fy25.js",
+        "data": {
+          "name": "AppFolio · Q4 FY25",
+          "company": "AppFolio",
+          "meta": {
+            "title": "Appfolio Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AppFolio · 2025 财年第四季度",
+              "meta": {
+                "title": "Appfolio 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "visa-q1-fy26",
+        "src": "data/datasets/visa-q1-fy26.js",
+        "data": {
+          "name": "Visa · Q1 FY26",
+          "company": "Visa",
+          "meta": {
+            "title": "Visa Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Visa · 2026 财年第一季度",
+              "meta": {
+                "title": "Visa 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "comcast-q4-fy25",
+        "src": "data/datasets/comcast-q4-fy25.js",
+        "data": {
+          "name": "Comcast · Q4 FY25",
+          "company": "Comcast",
+          "meta": {
+            "title": "Comcast Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Quarter ended Dec. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "康卡斯特 · 2025 财年第四季度",
+              "meta": {
+                "title": "康卡斯特 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
       }
     ]
   };

@@ -1,0 +1,609 @@
+{
+  "source": "input/processed/comcast-q4-fy25.png",
+  "spec": "input/icon-crop-specs/comcast-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-13T19:08:06.478724+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/comcast",
+  "crops": [
+    {
+      "key": "comcast-company-wordmark",
+      "output": "data/assets/icon-references/comcast/crops/company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 5872,
+        "losslessBytes": 28163,
+        "savingsVsLossless": 0.7915,
+        "metrics": {
+          "meanAbsoluteError": 0.4,
+          "rootMeanSquareError": 1.9304,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 45,
+          "changedPixelRatio": 0.0872
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 104598,
+        "transparentPixelRatio": 0.8301
+      },
+      "searchBox": {
+        "x": 962,
+        "y": 215,
+        "width": 530,
+        "height": 200
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 977,
+        "y0": 225,
+        "x1": 1458,
+        "y1": 397
+      },
+      "cropBox": {
+        "x0": 942,
+        "y0": 195,
+        "x1": 1502,
+        "y1": 420
+      },
+      "validation": {
+        "width": 560,
+        "height": 225,
+        "foregroundPixels": 18718,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 35,
+          "right": 44,
+          "top": 30,
+          "bottom": 23
+        },
+        "centerOffset": {
+          "x": -0.008,
+          "y": 0.0156
+        },
+        "passes": true
+      },
+      "note": "NBC peacock plus COMCAST wordmark centered above the Revenue node; excludes the title and financial labels.",
+      "runtimeOutput": "data/assets/raster-annotations/comcast/company-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 5872,
+        "losslessBytes": 28163,
+        "savingsVsLossless": 0.7915,
+        "metrics": {
+          "meanAbsoluteError": 0.4,
+          "rootMeanSquareError": 1.9304,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 45,
+          "changedPixelRatio": 0.0872
+        }
+      },
+      "validationSheet": "data/assets/icon-references/comcast/validation-sheets/comcast-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 109580,
+        "losslessBytes": 298167,
+        "savingsVsLossless": 0.6325,
+        "metrics": {
+          "meanAbsoluteError": 0.2438,
+          "rootMeanSquareError": 1.7863,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 69,
+          "changedPixelRatio": 0.0683
+        }
+      }
+    },
+    {
+      "key": "connectivity-icon-cluster",
+      "output": "data/assets/icon-references/comcast/crops/connectivity-icon-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3621,
+        "losslessBytes": 16287,
+        "savingsVsLossless": 0.7777,
+        "metrics": {
+          "meanAbsoluteError": 0.2463,
+          "rootMeanSquareError": 1.1535,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 16,
+          "changedPixelRatio": 0.2158
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 68240,
+        "transparentPixelRatio": 0.7902
+      },
+      "searchBox": {
+        "x": 38,
+        "y": 358,
+        "width": 340,
+        "height": 236
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 66,
+        "y0": 386,
+        "x1": 378,
+        "y1": 594
+      },
+      "cropBox": {
+        "x0": 28,
+        "y0": 344,
+        "x1": 368,
+        "y1": 598
+      },
+      "validation": {
+        "width": 340,
+        "height": 254,
+        "foregroundPixels": 18150,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 38,
+          "right": -10,
+          "top": 42,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": 0.0706,
+          "y": 0.0748
+        },
+        "passes": true
+      },
+      "note": "Xfinity and Sky wordmark cluster for the Connectivity source segment; excludes source values, notes, and the node face.",
+      "runtimeOutput": "data/assets/raster-annotations/comcast/connectivity-icon-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3621,
+        "losslessBytes": 16287,
+        "savingsVsLossless": 0.7777,
+        "metrics": {
+          "meanAbsoluteError": 0.2463,
+          "rootMeanSquareError": 1.1535,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 16,
+          "changedPixelRatio": 0.2158
+        }
+      },
+      "validationSheet": "data/assets/icon-references/comcast/validation-sheets/connectivity-icon-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 301980,
+        "losslessBytes": 301980,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "comcast-business-wordmark",
+      "output": "data/assets/icon-references/comcast/crops/comcast-business-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3371,
+        "losslessBytes": 17479,
+        "savingsVsLossless": 0.8071,
+        "metrics": {
+          "meanAbsoluteError": 0.4986,
+          "rootMeanSquareError": 2.3914,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 45,
+          "changedPixelRatio": 0.1415
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 37405,
+        "transparentPixelRatio": 0.8259
+      },
+      "searchBox": {
+        "x": 82,
+        "y": 681,
+        "width": 290,
+        "height": 132
+      },
+      "componentCount": 15,
+      "subjectBox": {
+        "x0": 111,
+        "y0": 700,
+        "x1": 345,
+        "y1": 783
+      },
+      "cropBox": {
+        "x0": 70,
+        "y0": 670,
+        "x1": 376,
+        "y1": 818
+      },
+      "validation": {
+        "width": 306,
+        "height": 148,
+        "foregroundPixels": 7247,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 41,
+          "right": 31,
+          "top": 30,
+          "bottom": 35
+        },
+        "centerOffset": {
+          "x": 0.0163,
+          "y": -0.0169
+        },
+        "passes": true
+      },
+      "note": "COMCAST BUSINESS wordmark for the Business Services source segment; excludes source values, notes, and the node face.",
+      "runtimeOutput": "data/assets/raster-annotations/comcast/comcast-business-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3371,
+        "losslessBytes": 17479,
+        "savingsVsLossless": 0.8071,
+        "metrics": {
+          "meanAbsoluteError": 0.4986,
+          "rootMeanSquareError": 2.3914,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 45,
+          "changedPixelRatio": 0.1415
+        }
+      },
+      "validationSheet": "data/assets/icon-references/comcast/validation-sheets/comcast-business-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 113945,
+        "losslessBytes": 307835,
+        "savingsVsLossless": 0.6299,
+        "metrics": {
+          "meanAbsoluteError": 0.2446,
+          "rootMeanSquareError": 1.7262,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 71,
+          "changedPixelRatio": 0.0744
+        }
+      }
+    },
+    {
+      "key": "media-icon-cluster",
+      "output": "data/assets/icon-references/comcast/crops/media-icon-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2441,
+        "losslessBytes": 12318,
+        "savingsVsLossless": 0.8018,
+        "metrics": {
+          "meanAbsoluteError": 0.4912,
+          "rootMeanSquareError": 2.4009,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.1659
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 33319,
+        "transparentPixelRatio": 0.8377
+      },
+      "searchBox": {
+        "x": 32,
+        "y": 855,
+        "width": 210,
+        "height": 157
+      },
+      "componentCount": 12,
+      "subjectBox": {
+        "x0": 37,
+        "y0": 872,
+        "x1": 204,
+        "y1": 996
+      },
+      "cropBox": {
+        "x0": 20,
+        "y0": 844,
+        "x1": 246,
+        "y1": 1020
+      },
+      "validation": {
+        "width": 226,
+        "height": 176,
+        "foregroundPixels": 6026,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 17,
+          "right": 42,
+          "top": 28,
+          "bottom": 24
+        },
+        "centerOffset": {
+          "x": -0.0553,
+          "y": 0.0114
+        },
+        "passes": true
+      },
+      "note": "NBC and Peacock logo cluster for the Media source segment; excludes the Media label and source value.",
+      "runtimeOutput": "data/assets/raster-annotations/comcast/media-icon-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2441,
+        "losslessBytes": 12318,
+        "savingsVsLossless": 0.8018,
+        "metrics": {
+          "meanAbsoluteError": 0.4912,
+          "rootMeanSquareError": 2.4009,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.1659
+        }
+      },
+      "validationSheet": "data/assets/icon-references/comcast/validation-sheets/media-icon-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 311066,
+        "losslessBytes": 311066,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "studios-icon-cluster",
+      "output": "data/assets/icon-references/comcast/crops/studios-icon-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2806,
+        "losslessBytes": 13064,
+        "savingsVsLossless": 0.7852,
+        "metrics": {
+          "meanAbsoluteError": 0.3116,
+          "rootMeanSquareError": 1.3625,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.098
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 29228,
+        "transparentPixelRatio": 0.8128
+      },
+      "searchBox": {
+        "x": 22,
+        "y": 1035,
+        "width": 212,
+        "height": 130
+      },
+      "componentCount": 12,
+      "subjectBox": {
+        "x0": 22,
+        "y0": 1046,
+        "x1": 225,
+        "y1": 1159
+      },
+      "cropBox": {
+        "x0": 12,
+        "y0": 1022,
+        "x1": 244,
+        "y1": 1177
+      },
+      "validation": {
+        "width": 232,
+        "height": 155,
+        "foregroundPixels": 6683,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 10,
+          "right": 19,
+          "top": 24,
+          "bottom": 18
+        },
+        "centerOffset": {
+          "x": -0.0194,
+          "y": 0.0194
+        },
+        "passes": true
+      },
+      "note": "Universal globe and wordmark for the Studios source segment; excludes the Studios label and source value.",
+      "runtimeOutput": "data/assets/raster-annotations/comcast/studios-icon-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2806,
+        "losslessBytes": 13064,
+        "savingsVsLossless": 0.7852,
+        "metrics": {
+          "meanAbsoluteError": 0.3116,
+          "rootMeanSquareError": 1.3625,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.098
+        }
+      },
+      "validationSheet": "data/assets/icon-references/comcast/validation-sheets/studios-icon-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 310600,
+        "losslessBytes": 310600,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "parks-icon-cluster",
+      "output": "data/assets/icon-references/comcast/crops/parks-icon-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 32771,
+        "losslessBytes": 32771,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 32964,
+        "transparentPixelRatio": 0.7245
+      },
+      "searchBox": {
+        "x": 22,
+        "y": 1174,
+        "width": 232,
+        "height": 160
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 22,
+        "y0": 1187,
+        "x1": 219,
+        "y1": 1298
+      },
+      "cropBox": {
+        "x0": 12,
+        "y0": 1160,
+        "x1": 262,
+        "y1": 1342
+      },
+      "validation": {
+        "width": 250,
+        "height": 182,
+        "foregroundPixels": 12137,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 10,
+          "right": 43,
+          "top": 27,
+          "bottom": 44
+        },
+        "centerOffset": {
+          "x": -0.066,
+          "y": -0.0467
+        },
+        "passes": true
+      },
+      "note": "Universal Parks & Resorts globe wordmark for the Parks source segment; excludes the Parks label and source value.",
+      "runtimeOutput": "data/assets/raster-annotations/comcast/parks-icon-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 32771,
+        "losslessBytes": 32771,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/comcast/validation-sheets/parks-icon-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 121520,
+        "losslessBytes": 349011,
+        "savingsVsLossless": 0.6518,
+        "metrics": {
+          "meanAbsoluteError": 0.4212,
+          "rootMeanSquareError": 2.1914,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 69,
+          "changedPixelRatio": 0.0986
+        }
+      }
+    }
+  ]
+}

@@ -10,6 +10,82 @@
 
   ssot.records.push(
     {
+      key: 'ibm-q4-fy25',
+      company: 'IBM',
+      period: 'Q4 FY25',
+      periodNote: 'Ending Dec. 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/ibm-q4-fy25.png',
+      roundingTolerance: 0.2,
+      revenue: {
+        total: 19.7,
+        notes: ['+12% Y/Y'],
+        items: [
+          { id: 'software', label: 'Software', value: 9.0, notes: ['+14% Y/Y', '83% gross margin'] },
+          { id: 'consulting', label: 'Consulting', value: 5.3, notes: ['+3% Y/Y', '28% gross margin'] },
+          { id: 'infrastructure', label: 'Infrastructure', value: 5.1, notes: ['+21% Y/Y', '61% gross margin'] },
+          { id: 'financing', label: 'Financing', value: 0.2, notes: ['+5% Y/Y', '44% gross margin'] },
+          { label: 'Unspecified rounding residual', value: 0.1, notes: ['The source rounds displayed segment revenue to $19.6B while showing $19.7B total revenue.'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 7.8 },
+        operatingExpenses: {
+          total: 7.4,
+          notes: ['SG&A and R&D are reduced by the $0.3B intellectual-property income shown in the source chart.'],
+          items: [
+            { id: 'sga', label: 'SG&A', value: 5.5, notes: ['28% of revenue', '+0pp Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 2.2, notes: ['11% of revenue', '(0pp) Y/Y'] },
+            { id: 'intellectual_property', label: 'Intellectual property income offset', value: -0.3, notes: ['Shown as +$0.3B income in the source chart.'] },
+          ],
+        },
+        tax: { id: 'tax_benefit', label: 'Tax benefit', value: -1.4 },
+      },
+      operatingOtherIncome: {
+        total: 0.1,
+        items: [{ id: 'other_income', label: 'Other income', value: 0.1 }],
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: { total: 0.5, items: [{ id: 'interest', label: 'Interest', value: 0.5 }] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 11.9, notes: ['61% margin', '+1pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 4.6, notes: ['23% margin', '+2pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 5.6, notes: ['28% margin', '+12pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度', periodNote: '截至 2025 年 12 月',
+          revenue: {
+            notes: ['同比 +12%'],
+            items: [
+              { id: 'software', label: '软件', notes: ['同比 +14%', '毛利率 83%'] },
+              { id: 'consulting', label: '咨询', notes: ['同比 +3%', '毛利率 28%'] },
+              { id: 'infrastructure', label: '基础设施', notes: ['同比 +21%', '毛利率 61%'] },
+              { id: 'financing', label: '融资', notes: ['同比 +5%', '毛利率 44%'] },
+              { label: '未披露的四舍五入差额', notes: ['来源图各业务收入合计为 $19.6B，总收入显示为 $19.7B。'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: { items: [
+              { id: 'sga', label: '销售、一般及行政', notes: ['占收入 28%', '同比 +0 个百分点'] },
+              { id: 'rnd', label: '研发', notes: ['占收入 11%', '同比 (0 个百分点)'] },
+              { id: 'intellectual_property', label: '知识产权收入抵减', notes: ['来源图显示为 +$0.3B 收入。'] },
+            ] },
+            tax: { label: '税收优惠' },
+          },
+          otherExpenses: { items: [{ id: 'interest', label: '利息' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 61%', '同比 +1 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 23%', '同比 +2 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 28%', '同比 +12 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'ibm-q1-fy26',
       company: 'IBM',
       period: 'Q1 FY26',

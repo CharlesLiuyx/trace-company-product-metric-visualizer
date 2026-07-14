@@ -165,6 +165,12 @@
       "width": 2667,
       "height": 1500
     },
+    "american-express-q4-fy25": {
+      "similarity": 0.957978,
+      "mae": 10.7157,
+      "width": 2667,
+      "height": 1500
+    },
     "american-q4-fy25": {
       "similarity": 0.963091,
       "mae": 9.4117,
@@ -192,6 +198,12 @@
     "appfolio-q1-fy26": {
       "similarity": 0.954127,
       "mae": 11.6977,
+      "width": 2667,
+      "height": 1500
+    },
+    "appfolio-q4-fy25": {
+      "similarity": 0.977359,
+      "mae": 5.7735,
       "width": 2667,
       "height": 1500
     },
@@ -522,6 +534,12 @@
     "coinbase-q4-fy25": {
       "similarity": 0.958269,
       "mae": 10.6414,
+      "width": 2667,
+      "height": 1500
+    },
+    "comcast-q4-fy25": {
+      "similarity": 0.942286,
+      "mae": 14.717,
       "width": 2667,
       "height": 1500
     },
@@ -981,6 +999,12 @@
       "width": 2667,
       "height": 1500
     },
+    "ibm-q4-fy25": {
+      "similarity": 0.972408,
+      "mae": 7.0359,
+      "width": 2667,
+      "height": 1500
+    },
     "instacart-q1-fy26": {
       "similarity": 0.961011,
       "mae": 9.9422,
@@ -1032,6 +1056,12 @@
     "jd-com-q4-fy25": {
       "similarity": 0.969356,
       "mae": 7.8141,
+      "width": 2667,
+      "height": 1500
+    },
+    "jpmorganchase-q4-fy25": {
+      "similarity": 0.958199,
+      "mae": 10.6592,
       "width": 2667,
       "height": 1500
     },
@@ -1164,6 +1194,12 @@
     "mastercard-q1-fy26": {
       "similarity": 0.96984,
       "mae": 7.6907,
+      "width": 2667,
+      "height": 1500
+    },
+    "mastercard-q4-fy25": {
+      "similarity": 0.966665,
+      "mae": 8.5005,
       "width": 2667,
       "height": 1500
     },
@@ -1779,6 +1815,12 @@
       "width": 2667,
       "height": 1500
     },
+    "sap-q4-fy25": {
+      "similarity": 0.971123,
+      "mae": 7.3637,
+      "width": 2667,
+      "height": 1500
+    },
     "schwab-q4-fy25": {
       "similarity": 0.962564,
       "mae": 9.5463,
@@ -1806,6 +1848,12 @@
     "servicenow-q1-fy26": {
       "similarity": 0.963467,
       "mae": 9.3158,
+      "width": 2667,
+      "height": 1500
+    },
+    "servicenow-q4-fy25": {
+      "similarity": 0.96682,
+      "mae": 8.4609,
       "width": 2667,
       "height": 1500
     },
@@ -2097,6 +2145,12 @@
       "width": 2667,
       "height": 1500
     },
+    "visa-q1-fy26": {
+      "similarity": 0.965657,
+      "mae": 8.7576,
+      "width": 2667,
+      "height": 1500
+    },
     "visa-q2-fy26": {
       "similarity": 0.968026,
       "mae": 8.1535,
@@ -2124,6 +2178,12 @@
     "warner-bros-q4-fy25": {
       "similarity": 0.97055,
       "mae": 7.5097,
+      "width": 2667,
+      "height": 1500
+    },
+    "wells-fargo-q4-fy25": {
+      "similarity": 0.959599,
+      "mae": 10.3022,
       "width": 2667,
       "height": 1500
     },
