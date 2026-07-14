@@ -97,7 +97,7 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
 | `pnpm record:intake -- <pending.png> --key <key> --adapter <kind> [--availability <policy>]` | 选中项守卫通过后，记录忽略的 per-item `INTAKED` Build manifest，并立即以 no-clobber 方式把 Source 领取到 `input/processing/<key>.png`；这不是 Publication |
 | `pnpm record:build -- prepare-review <build-id> --input <review-input.json>` | 对 authored artifacts 取 hash，持久化对象盘点与 Verification Plan，把 Build 推进到 `AUTHORED` 并返回 `reviewToken`；这一步不记录人工接受 |
 | `pnpm record:verification -- <build-id> [--json]` | 运行非渲染的数据一致性 profile，并记录 Build-bound `dataset-verification/v1` 证据；返回的 reference 必须传给 `finish` |
-| `pnpm record:fidelity -- <key> --focus <dir> [--language <code>] --build <build-id>` | 持久化 Build-bound 自动证据为 `evidence-ready`，每种 required language 各跑一次；不带 `--build` 的显式 focus 产物仅为旧兼容证据，不能关闭 Build |
+| `pnpm record:fidelity -- <key> --focus <stage-focus> [--language <code>] --build <build-id>` | 持久化 Build-bound 自动证据为 `evidence-ready`;`--focus` 必须是 canonical stage focus(`structure-sweep`、`text-sweep`、`polish-l10n-sweep`、`closeout-refresh`),每种 required language 各跑一次;不带 `--build` 的显式 focus 产物仅为旧兼容证据,不能关闭 Build |
 | `pnpm record:build -- finish <build-id> --review <review.json>` | 消费 `reviewToken`（兼容旧 `packetDigest`）、自动证据、人工 attestation、region/risk/feedback 决定与 Interface Matrix；只有 accepted `FidelityResult` 才推进到 `CLOSED` |
 | `pnpm record:build -- stage-baseline <build-id> --input <baseline.json>` | 记录 build-local、仅供未来回归的 baseline stage；Revenue Metric 会显式记录 `notApplicable` |
 | `pnpm record:build -- seal <build-id>` | 内部重算 artifact 新鲜度并重跑 Adapter final profile（非渲染一致性 + Income Statement 每 required locale 的渲染硬门槛）；仅当 Build 已人工接受、关闭、stage baseline 且 exact digests 新鲜时记录 `SEALED`，不发布 canonical 数据 |
@@ -108,7 +108,7 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
 | `pnpm verify:dataset -- <key> [--skip-render]` | 只读单数据集聚合诊断：语法、SSOT、strict i18n、metadata，然后每种语言各一次只读 d3 渲染 |
 | `pnpm verify:ssot` | SSOT ↔ 数据集奇偶 + 注册奇偶 + 货币/单位与汇率覆盖（全局） |
 | `pnpm verify:i18n -- [--strict] [keys]` | i18n 覆盖检查 |
-| `pnpm verify:d3 -- <key> [--focus <dir>] [--keep] [--language <code>] [--round <n>]` | 只读 d3 诊断 + 自动硬门槛；即使传 `--focus` 也不归档、不推进人工轮次 lineage |
+| `pnpm verify:d3 -- <key> [--focus <dir>] [--keep] [--language <code>]` | 只读 d3 诊断 + 自动硬门槛；即使传 `--focus` 也不归档、不推进证据 lineage |
 | `pnpm verify:render-regression [-- <keys>]` | 只读批量渲染，对照 `data/render-baselines.json` 拦截回归；缺本地参考图时只跑渲染硬门槛 |
 | `pnpm compat:baseline -- <key> [...]` | canonical baseline ledger 的兼容 mutation，刻意命名在 verify/record/publish/release 四类之外；M4 Publication 尚未替代它，也不能证明产生它的 Build 正确 |
 | `pnpm update:dataset-file-metadata` | 从 git 提交时间重新生成 `data/dataset-file-metadata.js`（提交新/改数据集后需重跑并提交刷新结果） |
@@ -126,62 +126,28 @@ artifact 交给 Pages deploy，不再二次 checkout/install/build。每个检�
 
 ## 工作流
 
-把一张 pending 图片变成已验证数据集分五个阶段。完整的编号流水线、操作陷阱、
-最终回复前的验证清单与汇报要求都在 `docs/dynamic-dataset-workflow.md`——处理 pending
-图片之前先加载它。这是当前可执行工作流；其事务化目标与 M0–M5 迁移由
-`docs/architecture/README.md` 拥有，不得在一次当前流程执行中静默混入目标状态
-断言。
+`docs/dynamic-dataset-workflow.md` 拥有可执行流水线:编号步骤、执行模型、
+对象类型清单、操作陷阱、回复前验证清单与汇报要求。处理 pending 图片之前先
+加载它;每次最终回复之前满足其清单。事务化目标与 M0–M5 迁移由
+`docs/architecture/README.md` 拥有——不得把目标状态说成当前状态。五个阶段
+各一行:
 
-显式的操作者完成信号（人工审阅已完成，包括“人工审阅完毕”，或本地工作已推送
-并合入 `main`）是当前唯一的 Source relocation 授权：先枚举 processing 批次，
-把完整清单呈给操作者确认，确认后再以 no-clobber 方式把确认的 PNG 移到
-`input/processed/`。没有信号时，即使 Build close-out 通过也继续留在
-processing。移动只改变 Source locator——不伪造 DatasetBuild receipt，也不表示
-M4 Publication。规则的唯一 owning 定义（含确认与失败步骤）是
-`docs/dynamic-dataset-workflow.md` §Operator Review-Completion Signal。
-
-1. 接入与守卫——选择一个 item，先运行候选
-   `pnpm check:pending -- --file ...` 守卫，确定 `<公司>-<期间>` key 与
-   Adapter，再运行 `pnpm record:intake`；intake 内部会用 `--key` 重跑决定性的
-   选中项守卫（手动重跑只是可选的提前失败）。守卫通过后，
-   intake 立即以 no-clobber 方式把 Source 领取到
-   `input/processing/<dataset-key>.png`；盘点、authoring、crop、fidelity 与
-   close-out 全程都保留在那里。
-2. 源盘点与数据 SSOT——先粗看全图：按工作流文档的对象类型清单判定输入类型
-   （含收入指标类的纯数据支线）并盘点全部对象；然后并行推进公司档案（该
-   公司的第一个数据集）、Adapter 所属 Metric SSOT
-   （`data/income-statements/<company-key>.js` 或 `data/revenue-metrics.js`），
-   以及 Income Statement 可选的图标 crop/vector 子循环。
-3. Adapter 与 i18n——Income Statement 按第 2 阶段盘点清单逐对象精细测量、
-   对照源图片编写 `data/datasets/<dataset-key>.js`，添加 `i18n.<language>` 覆盖，然后用
-   `pnpm sync:index-datasets` 注册（重新生成 dataset manifest）。authored
-   reference 始终写最终的 `input/processed/<dataset-key>.png` 路径；本地工具
-   可以回退到活动 Build 下同 key 的 processing claim。Revenue Metric 保持
-   data-only，不创建 Sankey Adapter。
-4. 验证与 Review——`verify:dataset` / `verify:d3` 只用于只读诊断。先运行
-   `record:build prepare-review`，用 `record:verification` 持久化数据一致性证据；
-   Income Statement 再用 Build-bound `record:fidelity` 持久化每种
-   required language 的 `evidence-ready` 证据；把这些证据交给人 Review，并将
-   结构化 attestation 传给 `record:build finish`。机器通过既不叫 accepted，
-   也不叫 converged；只有新鲜且 accepted 的 `FidelityResult` 才把 Build 推进到
-   `CLOSED`。随后 build-local 记录 future-regression baseline 并 seal
-   （`record:build stage-baseline` / `seal`；seal 内部会自行重跑 Adapter
-   final profile——非渲染一致性 + 每 required locale 的渲染硬门槛）。
-   Revenue Metric plan 会显式把 Sankey/render 证据标为
-   `notApplicable`，不得用缺席冒充不适用。
-5. 收尾——收到操作者完成信号时按 owning 规则执行（枚举批次 → 操作者确认清单
-   → no-clobber 移动确认的 PNG）；否则全部留在 processing。按
-   `docs/dynamic-dataset-workflow.md` step 13 的 close-out requirement policy
-   运行 `verify:closeout`（accepted `FidelityResult` 是合入 `main` 的底线；
-   跳过的 staging/seal/closeout 必须连同原因写进汇报）；该只读门不移动 Source。
-   最后让 `pnpm check` 全绿，
-   并按 `docs/commit-messages.md` 提交；共享队列与其他在途 processing claim
-   可以保留，processing 非空不会让全局检查失败。processed 图片永不改名。
-   这个兼容 relocation 不等于 `PUBLISHED`：原子 M4 Publication 仍未实现，兼容
-   canonical baseline 路径仍与新闭环分离。
-
-每次最终回复之前，满足 `docs/dynamic-dataset-workflow.md` 中的回复前验证清单与汇报
-要求。
+1. 接入与守卫——`pnpm check:pending` 守卫,确定 `<公司>-<期间>` key 与
+   Adapter,`pnpm record:intake` 把 Source 领取到
+   `input/processing/<dataset-key>.png`。
+2. 源盘点与数据 SSOT——判定输入类型,持久化 `ObjectInventory`,编写公司
+   档案与 Adapter 所属 Metric SSOT(外加可选的图标子循环)。
+3. Adapter 与 i18n——依据 preflight 测量编写
+   `data/datasets/<dataset-key>.js`,添加 `i18n.<language>` 覆盖,用
+   `pnpm sync:index-datasets` 注册。
+4. 验证与 Review——`record:build prepare-review`、`record:verification`、
+   逐 locale `record:fidelity`、经 `record:build finish` 提交人工
+   attestation,然后 `stage-baseline` 与 `seal`。
+5. 收尾——只有显式的操作者审阅完成信号才把确认的 Source 移到
+   `input/processed/`(owning 规则:`docs/dynamic-dataset-workflow.md`
+   §Operator Review-Completion Signal);`verify:closeout` 是按该文档
+   close-out requirement policy 执行的只读审计;最后 `pnpm check` 全绿并按
+   `docs/commit-messages.md` 提交。
 
 ## d3-Sankey 保真循环
 
