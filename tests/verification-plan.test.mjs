@@ -288,7 +288,7 @@ test('Income Statement plan compiles object features into mandatory rule checks'
   assert.equal(checks['feature:specified-label-weight'].enforcement, 'manual');
   assert.equal(checks['feature:specified-label-weight'].localeScope, 'required-locales');
   assert.deepEqual(checks['feature:visible-interface'].ruleIds, ['G12', 'L11']);
-  assert.deepEqual(checks['feature:visible-node-face'].ruleIds, ['B15', 'T13']);
+  assert.deepEqual(checks['feature:visible-node-face'].ruleIds, ['B15', 'T13', 'T21']);
   assert.equal(checks['feature:visible-node-face'].enforcement, 'conditional-gate');
   assert.equal(checks['feature:visible-node-face'].localeScope, 'required-locales');
   assert.deepEqual(checks['feature:centered-side-label'].objectIds, ['label:revenue']);

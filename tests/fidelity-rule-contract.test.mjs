@@ -31,7 +31,8 @@ The procedure references G1, T1, and legacy alias G9. ${extra}
 }
 
 test('default fidelity rule contract preserves the complete catalog and feature mappings', () => {
-  assert.equal(Object.keys(FIDELITY_RULE_CONTRACT.enforcements).length, 107);
+  assert.equal(Object.keys(FIDELITY_RULE_CONTRACT.enforcements).length, 108);
+  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T21, 'quantified-audit');
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.G11, 'build-gate');
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.G12, 'hard-gate');
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.B15, 'conditional-gate');
@@ -45,7 +46,7 @@ test('default fidelity rule contract preserves the complete catalog and feature 
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T17, 'manual');
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.I11, 'manual');
   assert.deepEqual(FIDELITY_RULE_CONTRACT.featureMappings['visible-short-node'], ['T14']);
-  assert.deepEqual(FIDELITY_RULE_CONTRACT.featureMappings['visible-node-face'], ['B15', 'T13']);
+  assert.deepEqual(FIDELITY_RULE_CONTRACT.featureMappings['visible-node-face'], ['B15', 'T13', 'T21']);
   assert.deepEqual(FIDELITY_RULE_CONTRACT.featureMappings['hidden-anchor'], ['B7', 'T12']);
   assert.deepEqual(FIDELITY_RULE_CONTRACT.featureMappings['specified-label-weight'], ['B14', 'T16']);
   assert.deepEqual(FIDELITY_RULE_CONTRACT.featureMappings['semantic-annotation'], ['A10', 'B16', 'T17']);
