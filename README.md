@@ -140,10 +140,13 @@ pnpm build:site && pnpm verify:site              # optimized GitHub Pages projec
 pnpm build:standalone && pnpm verify:standalone  # single self-contained HTML file
 ```
 
-The Pages build loads only the active dataset adapter, prefetches on
-pointer/keyboard intent, and defers Chart.js until the first Trend
-interaction. The standalone build inlines CSS, scripts, fonts, and datasets
-into one file: `output/trace-company-product-metric-visualizer.html`.
+The Pages build boots with just the active dataset adapter, then
+asynchronously preloads the selected company's complete adapter set (every
+period and variant) so in-company navigation shows no loading state;
+pointer/keyboard intent prefetches ahead of the click, and Chart.js stays
+deferred until the first Trend interaction. The standalone build inlines
+CSS, scripts, fonts, and datasets into one file:
+`output/trace-company-product-metric-visualizer.html`.
 
 CI ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) always runs
 `pnpm check`, plans browser/render gates from the Git diff, and deploys the
@@ -183,7 +186,7 @@ scripts, and a hand-rolled d3-sankey engine.
 | `index.html`                | static viewer shell and ordered script registration           |
 | `src/app.css`               | viewer layout, controls, sidebar, and responsive styles       |
 | `src/app/`                  | viewer app modules (classic scripts, ordered in `index.html`, shared top-level scope) |
-| `src/app/dom.js` · `util.js` · `dataset-loader.js` · `hotkeys.js` · `i18n-runtime.js` | DOM refs · generic helpers/formatters · on-demand Adapter loading, intent prefetch, and retry · modifier-combo shortcut registry · localization caches over `SANKEY_I18N` |
+| `src/app/dom.js` · `util.js` · `dataset-loader.js` · `hotkeys.js` · `i18n-runtime.js` | DOM refs · generic helpers/formatters · on-demand + company-scope preload Adapter loading, intent prefetch, and retry · modifier-combo shortcut registry · localization caches over `SANKEY_I18N` |
 | `src/app/state.js` · `selectors.js` · `financial.js` · `chart-theme.js` | prefs + mode rules + UI state/scope · display/search derivations · USD/FX totals + company sort values · shared Chart.js theme plus lazy runtime loading |
 | `src/app/shell.js` · `controls.js` | theme/language/sidebar/toolbar chrome · metric/view switching + `renderAll()` |
 | `src/app/company-panel.js` · `period-panel.js` | company list, sort menu, multi-select · period tree, timeline, multi-select |

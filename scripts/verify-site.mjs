@@ -20,7 +20,6 @@ const FIRST_RENDER_TIMEOUT_MS = 15_000;
 const IDLE_OBSERVATION_MS = 1_500;
 const SCRIPT_TAG_BUDGET = 4;
 const DEFER_BUNDLE_BUDGET = 3;
-const BOOT_ADAPTER_REQUEST_BUDGET = 2;
 
 function primaryFontFamily(value) {
   return String(value || '').split(',')[0].trim().replace(/^(['"])(.*)\1$/, '$2');
@@ -80,7 +79,7 @@ function printSummary(metrics, origin) {
   console.log(`  defer bundles          ${value(metrics.deferBundles)} / ${DEFER_BUNDLE_BUDGET} (${bundlePaths})`);
   console.log(`  boot script DOM nodes  ${value(metrics.bootScriptNodes)} / <= ${SCRIPT_TAG_BUDGET}`);
   console.log(`  boot script requests   ${value(metrics.bootScriptRequests)} (${bootAdapters} adapter requests)`);
-  console.log(`  adapters after idle    ${value(metrics.bootAdapterRequests)} / <= ${BOOT_ADAPTER_REQUEST_BUDGET}`);
+  console.log(`  adapters after idle    ${value(metrics.bootAdapterRequests)} / <= ${value(metrics.bootAdapterBudget)} (active company scope)`);
   console.log(`  pending after ${IDLE_OBSERVATION_MS}ms   ${value(metrics.pendingAfterIdle)} / > 0`);
   console.log(`  company switch         ${value(metrics.switchLabel)} (${duration(metrics.switchMs)})`);
   console.log(`  lazy Chart runtime     ${value(metrics.chartRuntime)} (${duration(metrics.chartRuntimeMs)})`);
@@ -255,15 +254,27 @@ try {
   }
 
   // Give idle callbacks enough time to expose an eager background sweep.
-  // The deployed app must leave the catalog mostly as manifest stubs.
+  // Idle preloading may hydrate the active company's complete adapter set —
+  // and only it — so the catalog at large must remain manifest stubs.
   await page.waitForTimeout(IDLE_OBSERVATION_MS);
-  const idleState = await page.evaluate(() => ({
-    pending: window.TraceDatasetRegistry?.pendingKeys?.().length ?? -1,
-    externalScriptCount: document.querySelectorAll('script[src]').length,
-  }));
+  const idleState = await page.evaluate(() => {
+    const registry = window.TraceDatasetRegistry;
+    const active = typeof currentRecord === 'function' ? currentRecord() : null;
+    const activeCompanyAdapterPaths = registry && active && typeof records !== 'undefined'
+      ? records
+          .filter((record) => record.company === active.company)
+          .map((record) => `/${registry.srcForKey(record.dataset.key)}`)
+      : [];
+    return {
+      pending: registry?.pendingKeys?.().length ?? -1,
+      externalScriptCount: document.querySelectorAll('script[src]').length,
+      activeCompanyAdapterPaths,
+    };
+  });
   metrics.pendingAfterIdle = idleState.pending;
   metrics.bootScriptNodes = idleState.externalScriptCount;
   metrics.bootAdapterRequests = datasetRequests.length;
+  metrics.bootAdapterBudget = idleState.activeCompanyAdapterPaths.length;
   metrics.bootAdapterPaths = datasetRequests.map((request) => request.url);
 
   if (idleState.externalScriptCount > SCRIPT_TAG_BUDGET) {
@@ -272,8 +283,19 @@ try {
   if (idleState.pending <= 0) {
     failures.push(`idle loading exhausted the adapter manifest; expected pendingKeys() > 0 after ${IDLE_OBSERVATION_MS}ms`);
   }
-  if (datasetRequests.length > BOOT_ADAPTER_REQUEST_BUDGET) {
-    failures.push(`default boot requested ${datasetRequests.length} dataset adapters (budget ${BOOT_ADAPTER_REQUEST_BUDGET})`);
+  const allowedBootAdapterPaths = new Set(idleState.activeCompanyAdapterPaths);
+  const outOfScopeBootAdapters = datasetRequests.filter((request) => !allowedBootAdapterPaths.has(request.pathname));
+  if (outOfScopeBootAdapters.length) {
+    failures.push(
+      'default boot requested adapters outside the active company scope: '
+      + outOfScopeBootAdapters.map((request) => request.pathname).join(', ')
+    );
+  }
+  if (datasetRequests.length > allowedBootAdapterPaths.size) {
+    failures.push(
+      `default boot requested ${datasetRequests.length} dataset adapters `
+      + `(active company registers ${allowedBootAdapterPaths.size})`
+    );
   }
 
   // Choose the record that the normal company-list click will activate, and

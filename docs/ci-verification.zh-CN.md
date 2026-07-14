@@ -86,7 +86,9 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
 
 - **白话作用**：证明开发版 viewer 不只是“语法正确”，而是真的能启动和点击。
 - **原理**：一个 Chromium 内按场景创建隔离 Context，覆盖默认启动、持久化语言/主题、
-  Adapter 加载失败重试、hash 路由、hover 百分比、期间切换、对比缩放、趋势图和手机视口。
+  Adapter 加载失败重试、选中公司后台预载全部期间 Adapter、hash 路由、hover 百分比、
+  期间切换、对比缩放、趋势图和手机视口。启动断言允许当前公司的完整 Adapter 集合
+  被预载，超出该范围的空闲加载视为失败。
 - **触发**：`src/app/`、app CSS、Chart runtime、共享 viewer/runtime 改动。
 - **不对纯 Dataset 重跑的原因**：单 Dataset 的图形由 render regression 检查；app smoke
   使用固定代表性数据，重复运行不会增加该 Dataset 的覆盖。
@@ -103,7 +105,8 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
 
 - **白话作用**：确认部署版没有偷偷把全部 Dataset 或 Chart.js 提前下载。
 - **原理**：启动 `_site` 静态服务器并观察真实请求，检查 defer bundle 数、启动 Adapter
-  请求预算、空闲后仍有 pending Adapter、公司切换按需加载、首次趋势交互只取一次 Chart.js、
+  请求必须落在当前公司的注册 Adapter 集合内（选中公司的空闲预载允许、全目录扫库不允许）、
+  空闲后仍有 pending Adapter、公司切换按需加载、首次趋势交互只取一次 Chart.js、
   字体与页面错误。
 - **触发**：viewer/站点构建变化；`main` 上只要要部署新 `_site` 也强制运行。
 - **为什么数据 PR 不必在 PR 阶段都跑**：Adapter 自身由受影响 key 渲染；Pages 的加载策略
