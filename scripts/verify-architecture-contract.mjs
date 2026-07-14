@@ -21,8 +21,8 @@ import {
   FIDELITY_RULE_CONTRACT,
   assertNoSecondaryFidelityRuleDefinitions,
   extractFidelityRuleReferences,
-  validateFidelityRuleDocument,
 } from './lib/fidelity-rule-contract.mjs';
+import { validateFidelityRulesDocument } from './lib/fidelity-rules-doc.mjs';
 import { projectPath, rootDir } from './lib/project.mjs';
 import { OBJECT_INVENTORY_PROTOCOL } from './lib/object-inventory.mjs';
 import { FEATURE_REQUIRED_CHECKS, VERIFICATION_PLAN_PROTOCOL } from './lib/verification-plan.mjs';
@@ -69,7 +69,10 @@ async function executableScriptPaths(directory) {
 
 async function verifyFidelityRuleContract({ workflow, flowchart }) {
   const source = await readFile(projectPath('docs/fidelity-loop-rules.md'), 'utf8');
-  const document = validateFidelityRuleDocument(source);
+  // The structured catalog is the rule-semantics SSOT; the Markdown catalog
+  // section must be its fresh generated view and the handwritten remainder
+  // must not define rules.
+  const document = validateFidelityRulesDocument(source);
   assert.match(source, /REG-001/, 'fidelity rules must reserve the region namespace');
   assert.match(source, /FB-001/, 'fidelity rules must reserve the feedback namespace');
 
@@ -101,6 +104,8 @@ async function verifyFidelityRuleContract({ workflow, flowchart }) {
 
   const excluded = new Set([
     projectPath('scripts/lib/fidelity-rule-contract.mjs'),
+    projectPath('scripts/lib/fidelity-rules-catalog.mjs'),
+    projectPath('scripts/lib/fidelity-rules-doc.mjs'),
     projectPath('scripts/verify-architecture-contract.mjs'),
   ]);
   const declaredCodeIds = new Set(FIDELITY_RULE_CONTRACT.codeRuleIds);
@@ -127,7 +132,7 @@ async function verifyFidelityRuleContract({ workflow, flowchart }) {
     FIDELITY_RULE_CONTRACT.codeRuleIds,
     'FIDELITY_CODE_RULE_IDS must exactly match executable script references'
   );
-  return document.definitions.length;
+  return document.ruleCount;
 }
 
 async function main() {
