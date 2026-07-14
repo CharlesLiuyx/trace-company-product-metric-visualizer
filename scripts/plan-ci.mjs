@@ -87,7 +87,6 @@ function outputValues(plan) {
     build_site: bool(plan.buildSite),
     verify_site: bool(plan.verifySite),
     site_projection: bool(plan.siteProjection),
-    d3_smoke: bool(plan.d3Smoke),
     render_scope: plan.renderScope,
     render_keys: plan.renderKeys.join(' '),
     build_standalone: bool(plan.buildStandalone),
@@ -103,7 +102,6 @@ function printHuman(plan) {
   console.log(`  browser needed: ${values.needs_browser}`);
   console.log(`  app: ${values.verify_app}`);
   console.log(`  site: build=${values.build_site}, browser=${values.verify_site}, projection=${values.site_projection}`);
-  console.log(`  d3 smoke: ${values.d3_smoke}`);
   console.log(`  render regression: ${values.render_scope}${values.render_keys ? ` (${values.render_keys})` : ''}`);
   console.log(`  standalone: build=${values.build_standalone}, browser=${values.verify_standalone}`);
   for (const reason of plan.reasons) console.log(`  - ${reason}`);

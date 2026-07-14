@@ -51,6 +51,10 @@ already exists.
   is deliberately named outside the classes because it mutates the canonical
   baseline ledger until M4 Publication replaces it, and `publish:*` /
   `release:*` remain unimplemented target vocabulary.
+- Git tracks Source files in `input/pending/` and `input/processing/` so the
+  shared queue and active claims are visible across project checkouts.
+  `input/processed/` is an ignored, machine-local archive; never force-add its
+  contents. Git visibility is transport, not lifecycle authority.
 
 - `data/income-statements/<company-key>.js` (income-statement family,
   per-company files) and `data/revenue-metrics.js` (revenue family) are the
@@ -130,7 +134,7 @@ Install once; the d3/standalone verifiers render in Chromium:
 | `sh scripts/clean-compare.sh` | clean legacy top-level scratch files only; d3 diagnostic/evidence runs own and clean their private `compare/runs/` directories, so never use global deletion during concurrent runs |
 
 CI (`.github/workflows/ci.yml`) always runs `pnpm check`, then uses the
-ChangeImpact plan to select app, Pages, d3 diagnostic, full/changed-key render,
+ChangeImpact plan to select app, Pages, full/changed-key render,
 and standalone checks. Unknown executable impact falls back to the complete
 suite. On `main`, the exact verified `_site` artifact is handed to the Pages
 deploy job without a second checkout/install/build. The plain-language
@@ -147,8 +151,8 @@ migration are owned by `docs/architecture/README.md` — never present target
 state as current. The five phases, one line each:
 
 1. Intake & guard — `pnpm check:pending` guard, assign the
-   `<company>-<period>` key and Adapter, `pnpm record:intake` claims the
-   Source at `input/processing/<dataset-key>.png`.
+   `<company>-<period>` key and Adapter, `pnpm record:intake` makes the
+   Git-visible no-clobber claim at `input/processing/<dataset-key>.png`.
 2. Source inventory & data SSOTs — classify the input type, persist the
    `ObjectInventory`, author company metadata and the Adapter-owned Metric
    SSOT (plus the optional icon subloop).
@@ -161,6 +165,8 @@ state as current. The five phases, one line each:
 5. Close out — only an explicit operator review-completion signal relocates
    confirmed Sources to `input/processed/` (owning rule:
    `docs/dynamic-dataset-workflow.md` §Operator Review-Completion Signal);
+   the confirmed move is committed as a removal from the tracked processing
+   queue while the ignored processed PNG stays machine-local;
    `verify:closeout` is the read-only audit per that document's close-out
    requirement policy; finish with `pnpm check` and commit per
    `docs/commit-messages.md`.
@@ -182,9 +188,10 @@ creates an evidence run. Machine evidence alone must be reported as
 
 Follow `docs/commit-messages.md`: lightweight Conventional Commits
 (`<type>(<scope>): <summary>`, English lowercase summary). It owns the type
-and scope tables and the rule that a new dataset's processed PNG, adapter,
-and manifest registration ship in one `data(<key>)` commit, with reusable
-renderer support split into a prior `render(engine)` commit.
+and scope tables and the rule that a new dataset's adapter, manifest
+registration, and relevant tracked queue change ship coherently, while the
+processed PNG remains local-only. Reusable renderer support is split into a
+prior `render(engine)` commit.
 
 ## Cursor Cloud specific instructions
 
@@ -196,12 +203,13 @@ script, so you do not need to reinstall them. Non-obvious caveats for this VM:
 - Run the app with `pnpm dev` (zero-dependency static server on
   `http://127.0.0.1:8000`). It is a long-running process — start it in a
   background/tmux session, not a blocking foreground call.
-- Reference images under `input/processed/` are only partially committed;
-  many datasets' PNGs stay on their author's machine. For those keys
-  `pnpm verify:d3 -- <key>` fails with ENOENT when copying the reference.
+- Reference images under `input/processed/` are Git-ignored and stay in each
+  author's local archive. A fresh checkout has no such PNGs, so
+  `pnpm verify:d3 -- <key>` fails with ENOENT unless that key's reference was
+  restored locally.
   For engine-wide changes use `pnpm verify:render-regression` instead: it
   renders every registered dataset, applies the hard gates, and skips
   similarity scoring for keys without a local reference image.
-- `pnpm check`, `pnpm test`, `pnpm verify:app`, `pnpm build:standalone`,
-  `pnpm verify:standalone`, and `pnpm verify:d3` on a dataset with a local
-  reference (e.g. `airbnb-q1-fy26`) all run green on a fresh checkout.
+- `pnpm check`, `pnpm test`, `pnpm verify:app`, `pnpm build:standalone`, and
+  `pnpm verify:standalone` run green on a fresh checkout. `pnpm verify:d3`
+  additionally requires the selected reference in the machine-local archive.

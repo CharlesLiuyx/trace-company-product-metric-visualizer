@@ -855,8 +855,8 @@ pnpm exec playwright install chromium</span>
     <table class="map">
       <thead><tr><th>产物路径</th><th>角色</th><th>产生阶段</th></tr></thead>
       <tbody>
-        <tr><td><code>input/processing/&lt;key&gt;.png</code></td><td>活动 Build 的 no-clobber Source claim；保留到正式 close-out 或操作者完成信号</td><td>P1.4</td></tr>
-        <tr><td><code>input/processed/&lt;key&gt;.png</code></td><td>仅由操作者完成信号（清单经确认后）移动形成的稳定参考图（永不改名；验证输入，不进 runtime；非 M4 Publication）</td><td>P5.1</td></tr>
+        <tr><td><code>input/processing/&lt;key&gt;.png</code></td><td>Git-tracked 活动 Build no-clobber Source claim；保留到正式 close-out 或操作者完成信号</td><td>P1.4</td></tr>
+        <tr><td><code>input/processed/&lt;key&gt;.png</code></td><td>仅由操作者完成信号（清单经确认后）移动形成的 Git-ignored 本机稳定参考图（永不改名；验证输入，不进 runtime；非 M4 Publication）</td><td>P5.1</td></tr>
         <tr><td><code>data/company-metadata/&lt;company&gt;.js</code></td><td>公司档案 SSOT（新公司）+ <code>index.html</code> 注册</td><td>P2.1</td></tr>
         <tr><td><code>data/income-statements/&lt;company&gt;.js</code></td><td>损益表纯数据 SSOT + <code>index.html</code> 注册</td><td>P2.2</td></tr>
         <tr><td><code>input/icon-crop-specs/&lt;key&gt;.json</code></td><td>图标裁剪 spec（条件）</td><td>P2.3a</td></tr>

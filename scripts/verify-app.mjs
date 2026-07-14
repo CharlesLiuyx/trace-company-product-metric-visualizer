@@ -68,14 +68,18 @@ await scenario('boot: default sankey', async (page) => {
     companies: document.querySelectorAll('#companyList .company-item').length,
     pendingDatasets: window.TraceDatasetRegistry?.pendingKeys().length || 0,
     totalDatasets: window.__DATASET_MANIFEST__?.datasets?.length || 0,
+    // Boot may preload the active company's full adapter set, nothing more.
+    activeCompanyDatasetCount: records.filter((record) => record.company === state.company).length,
   }));
   assert(state.scripts === APP_MODULE_COUNT, `expected ${APP_MODULE_COUNT} app scripts, got ${state.scripts}`);
   assert(state.hasSvg, 'no sankey svg rendered');
   assert(state.actionTitle.trim(), 'empty action title');
   assert(state.companies > 0, 'company list empty');
   assert(
-    state.pendingDatasets >= state.totalDatasets - 2,
-    `idle boot hydrated too many adapters (${state.totalDatasets - state.pendingDatasets}/${state.totalDatasets})`
+    state.pendingDatasets >= state.totalDatasets - Math.max(2, state.activeCompanyDatasetCount),
+    `idle boot hydrated adapters beyond the active company scope ` +
+    `(${state.totalDatasets - state.pendingDatasets}/${state.totalDatasets} loaded, ` +
+    `active company registers ${state.activeCompanyDatasetCount})`
   );
 });
 
@@ -151,6 +155,40 @@ await scenario('dataset loading: failure is retryable', async (page) => {
   await page.click('.chart-loading-error button');
   await page.waitForSelector('#chart svg', { timeout: 15000 });
   assert(failedOnce, 'adapter request was not intercepted');
+});
+
+// Selecting a company is the load signal for its complete Metric data: every
+// period adapter must arrive in the background without further clicks, so
+// period/metric switches inside the company never show a loading state.
+await scenario('dataset loading: selecting a company preloads every period adapter', async (page) => {
+  await boot(page);
+  const target = await page.evaluate(() => {
+    const registry = window.TraceDatasetRegistry;
+    const group = groups.find((candidate) =>
+      candidate.company !== state.company
+      && (candidate.records?.length || 0) >= 2
+      && candidate.records.every((record) => !registry.isLoaded(record.dataset.key)));
+    if (!group) return null;
+    return { company: group.company, keys: group.records.map((record) => record.dataset.key) };
+  });
+  assert(target, 'need another company with at least two pending dataset adapters');
+  const clicked = await page.evaluate((company) => {
+    const button = [...document.querySelectorAll('#companyList .company-item')]
+      .find((item) => item.dataset.company === company);
+    if (!button) return false;
+    button.click();
+    return true;
+  }, target.company);
+  assert(clicked, `company button missing for ${target.company}`);
+  await page.waitForFunction(
+    (keys) => keys.every((key) => window.TraceDatasetRegistry.isLoaded(key)),
+    target.keys,
+    { timeout: 15000 }
+  );
+  await page.waitForFunction(
+    () => Boolean(document.querySelector('#chart svg')) && !document.querySelector('.chart-loading'),
+    { timeout: 15000 }
+  );
 });
 
 await scenario('boot: persisted zh + dark + table prefs', async (page) => {

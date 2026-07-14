@@ -23,7 +23,6 @@ pnpm check（始终运行）
   │是
   ├─ viewer app 检查（按影响）
   ├─ Pages 构建/加载检查（按影响）
-  ├─ d3 完整诊断流水线冒烟（验证工具或共享 renderer 变化时）
   ├─ 全量或受影响 key 的 render regression
   └─ standalone 构建/自包含检查（按影响）
   ↓
@@ -86,7 +85,9 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
 
 - **白话作用**：证明开发版 viewer 不只是“语法正确”，而是真的能启动和点击。
 - **原理**：一个 Chromium 内按场景创建隔离 Context，覆盖默认启动、持久化语言/主题、
-  Adapter 加载失败重试、hash 路由、hover 百分比、期间切换、对比缩放、趋势图和手机视口。
+  Adapter 加载失败重试、选中公司后台预载全部期间 Adapter、hash 路由、hover 百分比、
+  期间切换、对比缩放、趋势图和手机视口。启动断言允许当前公司的完整 Adapter 集合
+  被预载，超出该范围的空闲加载视为失败。
 - **触发**：`src/app/`、app CSS、Chart runtime、共享 viewer/runtime 改动。
 - **不对纯 Dataset 重跑的原因**：单 Dataset 的图形由 render regression 检查；app smoke
   使用固定代表性数据，重复运行不会增加该 Dataset 的覆盖。
@@ -103,22 +104,14 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
 
 - **白话作用**：确认部署版没有偷偷把全部 Dataset 或 Chart.js 提前下载。
 - **原理**：启动 `_site` 静态服务器并观察真实请求，检查 defer bundle 数、启动 Adapter
-  请求预算、空闲后仍有 pending Adapter、公司切换按需加载、首次趋势交互只取一次 Chart.js、
+  请求必须落在当前公司的注册 Adapter 集合内（选中公司的空闲预载允许、全目录扫库不允许）、
+  空闲后仍有 pending Adapter、公司切换按需加载、首次趋势交互只取一次 Chart.js、
   字体与页面错误。
 - **触发**：viewer/站点构建变化；`main` 上只要要部署新 `_site` 也强制运行。
 - **为什么数据 PR 不必在 PR 阶段都跑**：Adapter 自身由受影响 key 渲染；Pages 的加载策略
   没有变化。合入 `main` 准备部署时仍会检查实际产物。
 
-### 9. Verify complete d3 diagnostic pipeline (`pnpm verify:d3`)
-
-- **白话作用**：证明“参考图 → 候选截图 → Diff → Interface 报告”整条诊断工具链可用。
-- **原理**：用仓库内已知参考图 `salesforce-q1-fy27` 跑完整只读诊断，包含字体、SVG
-  纯净度、尺寸、标签位置、Interface 几何和像素指标。
-- **触发**：共享 renderer 或 d3 验证工具变化；不再对所有 PR 固定重复。
-- **重要限制**：它输出 similarity，但 diagnostic 模式不会单凭 similarity 判定人工接受，
-  也不会写 durable evidence。
-
-### 10. Render regression (`pnpm verify:render-regression`)
+### 9. Render regression (`pnpm verify:render-regression`)
 
 - **白话作用**：共享 renderer 改动时检查全目录；单/批量 Dataset 改动时只检查相关 key。
 - **原理**：一个 Chromium、默认四个隔离 Context 并行；每个 key 都跑英文和中文的字体、
@@ -127,13 +120,17 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
 - **结构错误快速失败**：baseline 缺项/孤儿在 `pnpm check` 中已经失败；即使单独运行本命令，
   也会在启动浏览器前失败，不再浪费约 50 秒。
 - **缺参考图时的准确表述**：只算“hard gates passed”，不能写“视觉相似度通过”。
+- **为什么 CI 不运行 `verify:d3`**：完整 diagnostic 需要
+  `input/processed/<key>.png`，而 processed archive 按仓库策略只存在于本机、不会进入
+  fresh checkout。CI 用本命令覆盖可复现的渲染硬门禁；完整 reference/Diff/Interface
+  诊断仍在持有本机 reference 的 Dataset Build / fidelity 流程中运行。
 - **为什么不在这里强制 `verify:d3` 的严格标签间距**：全目录受控试跑发现 48 个历史已接受
   固定布局会触发该门槛。没有 per-Dataset 例外/baseline 前直接推广会制造误报；严格标签、
   Interface 和人工视觉判断仍由每个 Dataset 的 Build/fidelity 流程负责。
 - **选择规则**：Adapter/对应 Income Statement SSOT/reference image → 受影响 key；共享
   engine/i18n/icons/fonts/d3/runtime → 全目录；未知可执行影响 → 全目录。
 
-### 11. Standalone build and verification
+### 10. Standalone build and verification
 
 - **白话作用**：保证双击一个 HTML 就能使用，不依赖旁边的 CSS、JS、字体、Dataset 或 PNG。
 - **原理**：`build:standalone` 内联所有运行内容；`verify:standalone` 先静态搜索外链，再通过
@@ -142,7 +139,7 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
 - **不对纯 metadata/revenue 数据重复跑的原因**：这些数据的结构由 SSOT 检查负责，当前
   standalone 浏览器场景不会逐条点击全部收入记录，运行它不会增加有效覆盖。
 
-### 12. Upload and Deploy Pages
+### 11. Upload and Deploy Pages
 
 - **白话作用**：部署的必须是刚才验证过的那个 `_site`，不是另一个 Job 重新构建的近似产物。
 - **原理**：`check` Job 在 `main` 上上传 `_site`；`deploy` Job 只下载该 artifact 并调用
@@ -154,7 +151,7 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
 
 | 改动 | `pnpm check` | Chromium | Render | App | Site | Standalone |
 | --- | --- | --- | --- | --- | --- | --- |
-| `input/pending/*.png` 批量新增 | 必跑 | 不装 | 不跑 | 不跑 | 不跑 | 不跑 |
+| `input/pending/*.png` / `input/processing/*.png` 共享队列变更 | 必跑 | 不装 | 不跑 | 不跑 | 不跑 | 不跑 |
 | 文档 / 测试 | 必跑 | 通常不装 | 不跑 | 不跑 | 不跑 | 不跑 |
 | Revenue Metric / company metadata | 必跑 | PR 不装 | 不跑 | 不跑 | 构建；main 部署前浏览器验证 | 不跑 |
 | 单个或多个 Dataset Adapter | 必跑 | 安装 | 只跑受影响 key | 不跑 | 构建；main 部署前浏览器验证 | 构建 + 浏览器验证 |
@@ -176,7 +173,6 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
 | Playwright Chromium + 系统依赖 | 约 25 秒 |
 | `verify:app` | 约 13–16 秒 |
 | `verify:site` | 约 3–4 秒 |
-| 单个 `verify:d3` | 约 3–4 秒 |
 | 全量 render regression | 约 44–54 秒 |
 | standalone build + verify | 约 6–10 秒 |
 
