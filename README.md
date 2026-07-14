@@ -159,6 +159,11 @@ before the build seals. The rendered output under comparison is always the
 SVG produced by `SankeyEngine.render()` — never the source PNG or crops of
 it.
 
+Git tracks the shared `input/pending/` queue and active
+`input/processing/` claims so multiple project checkouts can coordinate work.
+Completed references move to the ignored `input/processed/` archive and stay
+only on the local machine.
+
 The owning documents:
 
 - [`docs/dynamic-dataset-workflow.md`](docs/dynamic-dataset-workflow.md) —

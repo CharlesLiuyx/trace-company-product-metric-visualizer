@@ -212,12 +212,15 @@ InputFile {
 - authored Source reference 始终指向最终稳定的
   `input/processed/<dataset-key>.png`；活动 Build 期间，本地工具可按 intake
   记录的稳定 key 回退到 `input/processing/<dataset-key>.png`；
+- Git 跟踪 `input/pending/` 与 `input/processing/` 的共享队列/claim；
+  `input/processed/` 整目录忽略并只作为本机完整归档。此版本控制策略不创造
+  DatasetBuild 状态；
 - Source relocation 的唯一当前授权是用户明确说人工审阅完毕，或本地工作已推送
   并合入 `main`；收到信号后，把当前全部 processing PNG 视为已审阅，先检查整批
   同名冲突，再直接移动到 processed，不补造 Build receipt；单独通过 Build
   close-out 不移动文件；processing 非空不应让全局 `pnpm check` 失败；该移动不是
   M4 Publication；
-- `input/processed/` 的图片是验证参考，不是运行时事实；
+- `input/processed/` 的图片是本机验证参考，不是运行时事实，也不得 force-add；
 - processed 图片一经物化永不改名或覆盖；
 - i18n 覆盖只改变显示文本和文本布局，不改变 Metric 语义、数值或关系。
 

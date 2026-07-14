@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
+import { spawnSync } from 'node:child_process';
 import { existsSync } from 'node:fs';
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
@@ -38,6 +39,19 @@ const CONTEXT_DOCS = [
 
 function sorted(values) {
   return [...values].sort((left, right) => left.localeCompare(right));
+}
+
+function isGitIgnored(relativePath) {
+  const result = spawnSync(
+    'git',
+    ['-c', 'core.excludesFile=/dev/null', 'check-ignore', '--no-index', '--quiet', relativePath],
+    { cwd: rootDir, encoding: 'utf8' }
+  );
+  assert.ok(
+    result.status === 0 || result.status === 1,
+    `git check-ignore failed for ${relativePath}: ${(result.stderr || result.stdout || '').trim()}`
+  );
+  return result.status === 0;
 }
 
 async function verifyLocalMarkdownLinks(relativePath) {
@@ -218,6 +232,21 @@ async function main() {
   assert.ok(!packageJson.scripts['complete:source'], 'formal complete:source command must remain removed');
   assert.ok(!existsSync(projectPath('scripts', 'complete-source.mjs')), 'formal complete-source script must remain removed');
   assert.ok(existsSync(projectPath('input', 'processing', '.gitkeep')), 'input/processing must be a stable workspace directory');
+  assert.equal(
+    isGitIgnored('input/pending/__git-policy-probe__.png'),
+    false,
+    'input/pending Source files must remain Git-visible'
+  );
+  assert.equal(
+    isGitIgnored('input/processing/__git-policy-probe__.png'),
+    false,
+    'input/processing Source claims must remain Git-visible'
+  );
+  assert.equal(
+    isGitIgnored('input/processed/__git-policy-probe__.png'),
+    true,
+    'input/processed Source archives must remain local-only'
+  );
   assert.ok(packageJson.scripts['record:fidelity'], 'package.json must expose record:fidelity');
   assert.ok(packageJson.scripts['record:verification'], 'package.json must expose record:verification');
   assert.ok(packageJson.scripts['record:build'], 'package.json must expose record:build');

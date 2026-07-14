@@ -52,6 +52,11 @@ signal, confirmed against the enumerated processing batch before the move
 Moving the same bytes does not change their digest identity. M4 replaces this
 transitional relocation with a Publication-owned Source projection.
 
+The repository currently tracks Source files in `pending/` and `processing/`
+so queue and claim changes can be shared across project checkouts. `processed/`
+is a Git-ignored, machine-local archive. This transport policy is not lifecycle
+authority and creates no additional state.
+
 The target deepens four Modules:
 
 | Module | Interface responsibility | Implementation hidden behind the Seam |
