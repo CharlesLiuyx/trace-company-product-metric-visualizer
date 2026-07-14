@@ -19,6 +19,7 @@ import {
   markFidelityRunFailed,
 } from './lib/compare-workspace.mjs';
 import { readDatasetBuild } from './lib/dataset-build-store.mjs';
+import { STAGE_FOCUS_VALUES, assertStageFocus } from './lib/fidelity-stages.mjs';
 import { resolveSourcePath } from './lib/source-lifecycle.mjs';
 import { assertPurity } from './lib/d3-hard-gates.mjs';
 import {
@@ -53,7 +54,7 @@ function usage() {
   console.error(
     'Usage:\n' +
       '  pnpm verify:d3 -- <dataset-key> [--keep] [--language <code>] [--focus <diagnostic-direction>]\n' +
-      '  pnpm record:fidelity -- <dataset-key> --focus <review-direction> [--build <build-id>] [--keep] [--language <code>] [--round <n>]'
+      `  pnpm record:fidelity -- <dataset-key> --focus <${STAGE_FOCUS_VALUES.join('|')}> [--build <build-id>] [--keep] [--language <code>]`
   );
 }
 
@@ -61,7 +62,6 @@ export function parseArgs(argv) {
   const args = argv.slice(2);
   let keep = false;
   let language = 'en';
-  let round = null;
   let focus = 'unspecified';
   let buildId = '';
   const positional = [];
@@ -80,16 +80,6 @@ export function parseArgs(argv) {
         usage();
         process.exit(2);
       }
-      continue;
-    }
-    if (arg === '--round' || arg === '--loop-round') {
-      const rawRound = args[index + 1];
-      index += 1;
-      if (!rawRound || rawRound.startsWith('--') || !/^\d+$/.test(rawRound) || Number(rawRound) < 1) {
-        usage();
-        process.exit(2);
-      }
-      round = Number(rawRound);
       continue;
     }
     if (arg === '--focus' || arg === '--main-check' || arg === '--direction') {
@@ -121,7 +111,7 @@ export function parseArgs(argv) {
   if (buildId && focus === 'unspecified') {
     throw new Error('--build records review evidence and therefore requires an explicit --focus');
   }
-  return { datasetKey, keep, language, round, focus, buildId };
+  return { datasetKey, keep, language, focus, buildId };
 }
 
 export function fidelityExecutionMode({ buildId, focus }) {
@@ -131,7 +121,12 @@ export function fidelityExecutionMode({ buildId, focus }) {
 export function fidelityExecutionModeForOperation({ buildId, focus }, operation) {
   if (operation === 'verify') return 'diagnostic';
   if (operation !== 'record') throw new Error(`Unsupported fidelity operation class: ${operation}`);
-  if (buildId) return 'review-evidence';
+  if (buildId) {
+    // Build-bound evidence must be queryable by sweep stage; free-form focus
+    // labels stay available to diagnostics and legacy manual archives.
+    assertStageFocus(focus);
+    return 'review-evidence';
+  }
   if (focus && focus !== 'unspecified') return 'legacy-manual';
   throw new Error('record:fidelity requires an explicit --focus');
 }
@@ -204,7 +199,7 @@ export async function main(argv = process.argv, runtime = {}) {
   if (operation === 'verify' && options.buildId) {
     throw new Error('--build is only valid with record:fidelity; verify:d3 is read-only');
   }
-  const { datasetKey, keep, language, round, focus, buildId } = options;
+  const { datasetKey, keep, language, focus, buildId } = options;
   const executionMode = fidelityExecutionModeForOperation(options, operation);
   const datasetScript = datasetScriptForKey(datasetKey);
   const datasetPath = path.join(rootDir, datasetScript);
@@ -418,7 +413,6 @@ export async function main(argv = process.argv, runtime = {}) {
             focus,
             fullMetrics: metrics.full,
             metricsDocument,
-            round,
             status: executionMode === 'review-evidence' ? 'evidence-ready' : 'accepted',
           });
     completed = true;
@@ -434,7 +428,7 @@ export async function main(argv = process.argv, runtime = {}) {
     if (archive) {
       console.log(`archive: ${archive.dir}`);
       console.log(`archive status: ${executionMode === 'review-evidence' ? 'evidence-ready (human review required)' : 'legacy accepted (not Build closure)'}`);
-      console.log(`archive round: ${archive.round}`);
+      console.log(`archive sequence: ${archive.sequence}`);
       console.log(`archive improvement: ${archive.improvement}${archive.previousArchive ? ` vs ${archive.previousArchive}` : ' (baseline)'}`);
       console.log(`archive focus: ${archive.focus}`);
       if (archive.sharedReferenceError) {

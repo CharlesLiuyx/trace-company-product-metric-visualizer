@@ -30,12 +30,43 @@ test('record:fidelity binds review evidence to a Build', () => {
     'verify-d3.mjs',
     'example-q4-fy25',
     '--focus',
-    'structure sweep',
+    'structure-sweep',
     '--build',
     'build-example',
   ]);
   assert.equal(fidelityExecutionModeForOperation(options, 'record'), 'review-evidence');
   assert.equal(options.buildId, 'build-example');
+});
+
+test('record:fidelity accepts every canonical stage focus for Build evidence', () => {
+  for (const focus of ['structure-sweep', 'text-sweep', 'polish-l10n-sweep', 'closeout-refresh']) {
+    const options = parseArgs([
+      'node',
+      'verify-d3.mjs',
+      'example-q4-fy25',
+      '--focus',
+      focus,
+      '--build',
+      'build-example',
+    ]);
+    assert.equal(fidelityExecutionModeForOperation(options, 'record'), 'review-evidence');
+  }
+});
+
+test('record:fidelity rejects Build evidence with a free-form focus', () => {
+  const options = parseArgs([
+    'node',
+    'verify-d3.mjs',
+    'example-q4-fy25',
+    '--focus',
+    'structure sweep',
+    '--build',
+    'build-example',
+  ]);
+  assert.throws(
+    () => fidelityExecutionModeForOperation(options, 'record'),
+    /--focus to be one of structure-sweep, text-sweep, polish-l10n-sweep, closeout-refresh/
+  );
 });
 
 test('record:fidelity preserves an explicitly labelled legacy archive without a Build', () => {
