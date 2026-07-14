@@ -37,7 +37,7 @@ data(nvidia-q1-fy27): tune operating expense label placement
 
 | type | 适用场景 |
 |---|---|
-| `data` | 新增、更新或调参 `data/datasets/*.js` 数据集，或通过正式 close-out / 操作者完成信号把 Source 从 `input/processing/` 移到 `input/processed/` |
+| `data` | 新增、更新或调参 `data/datasets/*.js` 数据集，或记录 Source 在 Git-tracked `pending/` / `processing/` 共享队列中的变更 |
 | `render` | 修改 `src/sankey-engine.js`、图形几何、颜色、字体、导出、交互等渲染行为 |
 | `feat` | 新增用户可见能力，例如新的模式、导航、导出选项 |
 | `fix` | 修复错误行为、计算错误、注册遗漏、UI 失效 |
@@ -98,7 +98,7 @@ BREAKING CHANGE: dataset meta.referenceImage must include width and height
 ## 项目专用示例
 
 ```text
-data(salesforce-q1-fy27): add processed reference dataset
+data(salesforce-q1-fy27): add income statement dataset
 render(engine): support fixed label anchors
 verify(verify-d3): fail when candidate svg contains unapproved raster images
 docs(readme): document d3 fidelity workflow
@@ -110,14 +110,15 @@ chore(deps): pin playwright 1.61.0
 
 - 新数据集提交：把 `data/datasets/<dataset-key>.js` 和
   `data/dataset-manifest.js` 注册（`pnpm sync:index-datasets` 生成）放在同一个
-  `data(<dataset-key>)` 提交中；仅当 Source availability 允许提交时，才把
-  `input/processed/<dataset-key>.png` 放入同一提交。`local-only` / `restricted`
-  Source 即使已在本机完成 relocation 也不得伪造、强制纳入 Git 或改写 availability。
-  `input/processing/` 是被忽略的在途 claim。只有操作者完成信号（人工审阅完毕
+  `data(<dataset-key>)` 提交中。`input/pending/` 与 `input/processing/` 是
+  Git-tracked 共享队列；提交属于该数据集的 queue/claim 变更，让其他项目能看到
+  当前归属。`input/processed/` 是整目录忽略的本机归档，不论 Source availability
+  为何都不得强制纳入 Git 或改写 availability。只有操作者完成信号（人工审阅完毕
   或已推送并合入 `main`）按工作流 owning 规则移动 Source：先枚举整批并呈清单
   给操作者确认，确认后 no-clobber 移动（细则见
   `docs/dynamic-dataset-workflow.md` §Operator Review-Completion Signal）；
-  Build close-out 本身不移动文件。该 Source locator 变更
+  Build close-out 本身不移动文件。移动后提交 Git-tracked processing queue 中的
+  删除，但不要 force-add processed PNG。该 Source locator 变更
   不是 M4 Publication；processed 图片永不改名或覆盖。
 - 渲染器支持提交：如果为了某个数据集新增通用渲染能力，单独用
   `render(engine)` 提交，再用 `data(<dataset-key>)` 提交应用调参。

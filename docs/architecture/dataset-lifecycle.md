@@ -40,18 +40,24 @@ rewrite Source identity, or invalidate evidence by itself.
 
 The current compatibility workflow uses three directory roles:
 
-- `input/pending/` is the unclaimed discovery queue;
+- `input/pending/` is the unclaimed discovery queue and is Git-tracked so new
+  work can be shared across project checkouts;
 - `input/processing/` is the Build-local working locator and filesystem lease.
   After the guard, key, and input-type selection succeed, `record:intake`
   durably fixes Source identity and claims the selected file here before
-  inventory or authoring begins;
-- `input/processed/` is the stable compatibility locator. An explicit operator
-  completion signal — confirmed against the enumerated processing batch — is
+  inventory or authoring begins. These active claims are also Git-tracked;
+- `input/processed/` is the stable compatibility locator and a Git-ignored,
+  machine-local archive. An explicit operator completion signal — confirmed
+  against the enumerated processing batch — is
   the only current relocation authority (owning rule:
   [`dynamic-dataset-workflow.md`](../dynamic-dataset-workflow.md)
   §Operator Review-Completion Signal); passing Build close-out
   alone does not move files, and relocation records no Build transition or
   receipt.
+
+Git visibility is collaboration transport, not lifecycle authority. A Git
+add, rename, or deletion for one of these locators neither advances a Build nor
+replaces the digest and no-clobber checks owned by the lifecycle interfaces.
 
 Directory existence is never authoritative state. A crash may leave a locator
 and Build record temporarily out of sync; recovery reconciles them by Build ID,
@@ -361,12 +367,14 @@ under the per-Build store. `inspect` also produces `CloseoutReport`, Task
 information, and Loop Fidelity Summary as pure Views over those objects.
 
 At current intake, `record:intake` also claims the selected Source from
-`pending/` to the Build-local `processing/` locator. The operator
+`pending/` to the Build-local, Git-tracked `processing/` locator. The operator
 review-completion signal (owning rule:
 [`dynamic-dataset-workflow.md`](../dynamic-dataset-workflow.md)
 §Operator Review-Completion Signal) is the only current authority to relocate
 Sources from `processing/` to `processed/`, and it moves only the batch the
-operator has confirmed. Passing Build close-out alone does not move a Source.
+operator has confirmed. The destination is a Git-ignored local archive, so the
+repository records removal from the shared processing queue rather than the
+archived PNG. Passing Build close-out alone does not move a Source.
 Neither filesystem move adds or infers a DatasetBuild state.
 
 This is not M4. Authored canonical paths are still edited directly,

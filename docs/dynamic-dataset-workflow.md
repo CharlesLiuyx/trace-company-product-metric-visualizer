@@ -30,8 +30,9 @@ The user's explicit statement that human review is complete (including
    out here instead of silently entering `processed/`;
 3. fail safely if any same-name destination for a confirmed PNG already
    exists under `input/processed/`;
-4. otherwise move every confirmed PNG directly to `input/processed/` and
-   report the moved set.
+4. otherwise move every confirmed PNG directly to `input/processed/`, report
+   the moved set, and commit the resulting removal from the Git-tracked
+   processing queue without force-adding the ignored processed archive.
 
 This operator-directed relocation does not require a Build ID, structured
 attestation, baseline staging, a seal, or `verify:closeout`. It is the only
@@ -49,8 +50,8 @@ The pipeline is not strictly serial. Dependency-wise it forms five groups:
 
 - **E0 — serial gate (steps 1–3).** Guard, key, and Source claim. Nothing else
   may start before the guard passes and `record:intake` has no-clobber claimed
-  the Source as `input/processing/<dataset-key>.png`; a stop condition ends
-  the whole run.
+  the Source as the Git-visible `input/processing/<dataset-key>.png`; a stop
+  condition ends the whole run.
 - **E1 — parallel preparation (steps 4–7).** Everything here depends only on
   the frozen key + reference image, so the three tracks may run concurrently
   (as interleaved work or delegated subagents):
@@ -138,7 +139,7 @@ returns.
    leave no selected copy in `pending/`; an existing processing destination
    is a stop condition and must never be overwritten. Preserve the reported
    Build ID, manifest path, and processing path in the durable review working
-   record. This is a local compatibility claim, not canonical Publication.
+   record. This is a Git-tracked compatibility claim, not canonical Publication.
 
 ### Phase P2 — Source inventory & data SSOTs (E1, parallel tracks)
 
@@ -546,21 +547,28 @@ Always, before the final response:
   global check fail.
 - When an operator completion signal was given and the enumerated batch was
   confirmed, every confirmed Source is present at its final processed path;
-  report the signal, the confirmed list, and the moved paths, with no
-  inferred lifecycle receipt. Without a signal, report that no relocation was
-  authorized and Sources remain in processing. Unrelated pending items may
-  remain.
+  the shared processing queue records their removal and the ignored archive is
+  not force-added; report the signal, the confirmed list, and the moved paths,
+  with no inferred lifecycle receipt. Without a signal, report that no
+  relocation was authorized and Sources remain in processing. Unrelated
+  pending items may remain.
 
 ### Environment Notes (fresh checkouts, cloud, CI)
 
 `pnpm check` is designed to be green on any checkout; CI runs it on every
-push. Two mechanisms keep it reproducible — do not undo them:
+push. The Source queues and local archive have deliberately different Git
+roles: `pending/` and `processing/` are tracked for cross-project coordination,
+while `processed/` is ignored and therefore absent from a fresh clone unless
+the machine restores its local archive. Two mechanisms keep the check
+reproducible — do not undo them:
 
-- Source screenshots that are intentionally local-only and never committed
-  (currently the YipitData-sourced ARR revenue-metric datasets) declare
+- Source screenshots referenced by revenue records that are intentionally
+  local-only (currently the YipitData-sourced ARR revenue-metric datasets)
+  declare
   `sourceImage.localOnly: true` on their revenue SSOT source entry, which
-  skips the existence check. Never fabricate or commit these images; declare
-  new local-only evidence the same way.
+  skips the existence check. All completed screenshots remain uncommitted in
+  the ignored `processed/` archive regardless of access availability; declare
+  new local-only revenue evidence the same way.
 - `data/dataset-file-metadata.js` records git author times, not filesystem
   mtimes, so regeneration is deterministic on every machine. A dataset file
   falls back to its mtime only until its first commit; after committing a

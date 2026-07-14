@@ -71,7 +71,6 @@ function requireFull(plan, reason) {
   plan.renderScope = 'full';
   plan.renderKeys.clear();
   plan.verifyApp = true;
-  plan.d3Smoke = true;
   requireSiteProjection(plan, reason, { browser: true });
   requireStandalone(plan, reason);
 }
@@ -186,7 +185,6 @@ function classifyPath(plan, file, status, options) {
   if (D3_PIPELINE_PATHS.has(file)) {
     plan.renderScope = 'full';
     plan.renderKeys.clear();
-    plan.d3Smoke = true;
     addReason(plan, `d3 verification pipeline changed: ${file}`);
     return;
   }
@@ -243,7 +241,6 @@ export function createFullCiPlan(reason = 'diff unavailable; strict fallback') {
     buildSite: false,
     verifySite: false,
     siteProjection: false,
-    d3Smoke: false,
     renderScope: 'none',
     renderKeys: new Set(),
     buildStandalone: false,
@@ -264,7 +261,6 @@ export function planCiChecks(entries, options = {}) {
     buildSite: false,
     verifySite: false,
     siteProjection: false,
-    d3Smoke: false,
     renderScope: 'none',
     renderKeys: new Set(),
     buildStandalone: false,
@@ -298,7 +294,6 @@ function finalizeCiPlan(plan) {
     buildSite: plan.buildSite,
     verifySite: plan.verifySite,
     siteProjection: plan.siteProjection,
-    d3Smoke: plan.d3Smoke,
     renderScope: plan.renderScope,
     renderKeys,
     buildStandalone: plan.buildStandalone,
@@ -306,7 +301,6 @@ function finalizeCiPlan(plan) {
     needsBrowser:
       plan.verifyApp
       || plan.verifySite
-      || plan.d3Smoke
       || plan.renderScope !== 'none'
       || plan.verifyStandalone,
   });

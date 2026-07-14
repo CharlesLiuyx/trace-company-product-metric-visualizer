@@ -9,9 +9,10 @@ import {
 
 const existing = new Set(['alpha-q1-fy26', 'beta-q2-fy26']);
 
-test('pending-only and documentation changes stay on the fast deterministic gate', () => {
+test('Source queue and documentation changes stay on the fast deterministic gate', () => {
   const plan = planCiChecks([
     { status: 'A', path: 'input/pending/page 1.png' },
+    { status: 'A', path: 'input/processing/alpha-q1-fy26.png' },
     { status: 'M', path: 'docs/notes.md' },
   ], { existingDatasetKeys: existing });
 
@@ -63,9 +64,19 @@ test('shared render runtime and unknown executable changes use the strict full f
     assert.equal(plan.renderScope, 'full', file);
     assert.equal(plan.verifyApp, true, file);
     assert.equal(plan.verifySite, true, file);
-    assert.equal(plan.d3Smoke, true, file);
+    assert.equal(Object.hasOwn(plan, 'd3Smoke'), false, file);
     assert.equal(plan.verifyStandalone, true, file);
   }
+});
+
+test('d3 pipeline changes use reference-independent full render regression', () => {
+  const plan = planCiChecks([{ status: 'M', path: 'scripts/verify-d3.mjs' }], {
+    existingDatasetKeys: existing,
+  });
+
+  assert.equal(plan.renderScope, 'full');
+  assert.equal(plan.needsBrowser, true);
+  assert.equal(Object.hasOwn(plan, 'd3Smoke'), false);
 });
 
 test('viewer-only changes exercise app, site, and standalone without a redundant full render', () => {

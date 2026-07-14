@@ -17,6 +17,12 @@ no Build state; its owning definition is `docs/dynamic-dataset-workflow.md`
 Publication replaces this transitional operation and owns the stable
 processed Source projection.
 
+Git transport is separate from lifecycle state: `input/pending/` and
+`input/processing/` are tracked so multiple project checkouts can exchange
+queue and active-claim changes, while `input/processed/` is ignored and kept
+as a complete local archive. Tracking or ignoring a locator does not create a
+Build transition or change Source identity.
+
 Within a Sankey View, **Hover Share（所占比例）** is renderer-owned rather
 than Adapter-configurable. Every semantic relationship uses one formula on
 every hover surface (node, node label, link, or endpoint-declared guide):
@@ -39,7 +45,7 @@ Revenue Metric.
 
 The **CI Verification Plan Module** derives a conservative check set from a
 Git diff using the same `ChangeImpact` language. Its Interface returns fast,
-app, site, d3 diagnostic, render scope/keys, standalone, and site-projection
+app, site, render scope/keys, standalone, and site-projection
 facts. Unknown executable impact and missing diff identity select the complete
 suite; they never select an empty plan.
 
