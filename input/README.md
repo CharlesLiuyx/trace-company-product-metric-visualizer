@@ -5,12 +5,16 @@ verification references. The directories are operational locators, not
 `DatasetBuild` states.
 
 - `pending/` contains newly added source images that still need processing.
-- `processing/` contains Sources claimed by active Dataset Builds. A claimed
-  file is named `<dataset-key>.png` and stays here through inventory,
+  Its Source files are Git-tracked so the shared queue can move between
+  project checkouts.
+- `processing/` contains Sources claimed by active Dataset Builds. Its Source
+  files are also Git-tracked so active claims remain visible across projects.
+  A claimed file is named `<dataset-key>.png` and stays here through inventory,
   authoring, crop work, fidelity review, sealing, and close-out, unless an
   explicit operator completion signal relocates the whole processing batch.
 - `processed/` contains stable reference images used by dataset verifiers;
-  they are not app/runtime assets.
+  they are not app/runtime assets. The entire archive is Git-ignored and kept
+  on the local machine; never force-add a processed Source.
 - `icon-crop-specs/` contains dataset-specific JSON specs for extracting
   validated icon reference crops into `data/assets/icon-references/`.
 
@@ -82,6 +86,11 @@ Build receipt and is not M4 Publication. A non-empty processing directory does
 not fail the global `pnpm check`.
 This operator-directed batch relocation needs no Build ID or close-out receipt,
 and it must not be reported as Build closure or Publication.
+
+Because `processing/` is tracked and `processed/` is ignored, a confirmed
+relocation appears to Git as removal from the shared processing queue. Commit
+that queue removal with the close-out changes, while leaving the archived PNG
+only on the local machine.
 
 Processed filenames must be stable and match the dataset key:
 

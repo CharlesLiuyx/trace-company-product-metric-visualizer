@@ -47,6 +47,9 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
   `compat:baseline` 因在 M4 Publication 落地前仍要改 canonical baseline
   ledger，被刻意命名在四类之外；`publish:*` / `release:*` 仍是未实现的
   目标词汇。
+- Git 跟踪 `input/pending/` 与 `input/processing/` 中的 Source 文件，让共享
+  队列与活动 claim 能在多个项目检出之间可见。`input/processed/` 是被忽略的
+  本机归档；不得 force-add 其中内容。Git 可见性只是传输机制，不是生命周期授权。
 
 - `data/income-statements/<company-key>.js`（损益表家族，按公司分文件）与
   `data/revenue-metrics.js`（收入家族）是纯 Metric SSOT；
@@ -144,7 +147,7 @@ M4 Publication。规则的唯一 owning 定义（含确认与失败步骤）是
    `pnpm check:pending -- --file ...` 守卫，确定 `<公司>-<期间>` key 与
    Adapter，再运行 `pnpm record:intake`；intake 内部会用 `--key` 重跑决定性的
    选中项守卫（手动重跑只是可选的提前失败）。守卫通过后，
-   intake 立即以 no-clobber 方式把 Source 领取到
+   intake 立即以 no-clobber 方式把 Source 领取到 Git 可见的
    `input/processing/<dataset-key>.png`；盘点、authoring、crop、fidelity 与
    close-out 全程都保留在那里。
 2. 源盘点与数据 SSOT——先粗看全图：按工作流文档的对象类型清单判定输入类型
@@ -176,7 +179,9 @@ M4 Publication。规则的唯一 owning 定义（含确认与失败步骤）是
    跳过的 staging/seal/closeout 必须连同原因写进汇报）；该只读门不移动 Source。
    最后让 `pnpm check` 全绿，
    并按 `docs/commit-messages.md` 提交；共享队列与其他在途 processing claim
-   可以保留，processing 非空不会让全局检查失败。processed 图片永不改名。
+   可以保留，processing 非空不会让全局检查失败。确认后的 relocation 在 Git
+   中提交为 tracked processing queue 的删除；被忽略的 processed PNG 只留在
+   本机归档，不得 force-add 或改名。
    这个兼容 relocation 不等于 `PUBLISHED`：原子 M4 Publication 仍未实现，兼容
    canonical baseline 路径仍与新闭环分离。
 
@@ -197,9 +202,9 @@ run。只有机器证据时必须报告为 `review-pending`，不得写 accepted
 
 遵循 `docs/commit-messages.md`：轻量 Conventional Commits
 （`<type>(<scope>): <summary>`，英文小写摘要）。type/scope 表格、以及
-“新数据集的处理后 PNG、adapter 与 manifest 注册放进同一个
-`data(<key>)` 提交、可复用渲染器支持拆成前置 `render(engine)` 提交”的
-规则都由该文档拥有。
+“新数据集的 adapter、manifest 注册与相关 tracked queue 变更保持一致，而
+processed PNG 只留本机；可复用渲染器支持拆成前置 `render(engine)` 提交”的规则
+都由该文档拥有。
 
 ## Cursor Cloud 专用说明
 
@@ -209,10 +214,11 @@ run。只有机器证据时必须报告为 `review-pending`，不得写 accepted
 
 - 用 `pnpm dev` 运行应用（`http://127.0.0.1:8000` 上的零依赖静态服务器）。
   它是长驻进程——在后台/tmux 会话中启动，不要用阻塞的前台调用。
-- `input/processed/` 下的参考图只部分提交入库；许多数据集的 PNG 留在其
-  作者本机。对这些 key，`pnpm verify:d3 -- <key>` 会在复制参考图时因
-  ENOENT 失败。引擎级改动请改用 `pnpm verify:render-regression`：它渲染
+- `input/processed/` 下的参考图全部被 Git 忽略，并保存在各作者的本机归档。
+  全新检出不含这些 PNG；除非本机恢复了对应 key 的参考图，
+  `pnpm verify:d3 -- <key>` 会在复制参考图时因 ENOENT 失败。引擎级改动请改用
+  `pnpm verify:render-regression`：它渲染
   所有已注册数据集、应用硬门禁，并对缺本地参考图的 key 跳过相似度计分。
-- `pnpm check`、`pnpm test`、`pnpm verify:app`、`pnpm build:standalone`、
-  `pnpm verify:standalone`，以及对有本地参考图的数据集（如
-  `airbnb-q1-fy26`）跑 `pnpm verify:d3`，在全新检出上全部绿色。
+- `pnpm check`、`pnpm test`、`pnpm verify:app`、`pnpm build:standalone` 与
+  `pnpm verify:standalone` 在全新检出上全部绿色；`pnpm verify:d3` 还要求本机
+  归档中存在所选 reference。

@@ -154,7 +154,7 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
 
 | 改动 | `pnpm check` | Chromium | Render | App | Site | Standalone |
 | --- | --- | --- | --- | --- | --- | --- |
-| `input/pending/*.png` 批量新增 | 必跑 | 不装 | 不跑 | 不跑 | 不跑 | 不跑 |
+| `input/pending/*.png` / `input/processing/*.png` 共享队列变更 | 必跑 | 不装 | 不跑 | 不跑 | 不跑 | 不跑 |
 | 文档 / 测试 | 必跑 | 通常不装 | 不跑 | 不跑 | 不跑 | 不跑 |
 | Revenue Metric / company metadata | 必跑 | PR 不装 | 不跑 | 不跑 | 构建；main 部署前浏览器验证 | 不跑 |
 | 单个或多个 Dataset Adapter | 必跑 | 安装 | 只跑受影响 key | 不跑 | 构建；main 部署前浏览器验证 | 构建 + 浏览器验证 |

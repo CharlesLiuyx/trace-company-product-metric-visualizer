@@ -51,6 +51,10 @@ already exists.
   is deliberately named outside the classes because it mutates the canonical
   baseline ledger until M4 Publication replaces it, and `publish:*` /
   `release:*` remain unimplemented target vocabulary.
+- Git tracks Source files in `input/pending/` and `input/processing/` so the
+  shared queue and active claims are visible across project checkouts.
+  `input/processed/` is an ignored, machine-local archive; never force-add its
+  contents. Git visibility is transport, not lifecycle authority.
 
 - `data/income-statements/<company-key>.js` (income-statement family,
   per-company files) and `data/revenue-metrics.js` (revenue family) are the
@@ -161,7 +165,7 @@ definition (including the confirmation and failure steps) is
    `<company>-<period>` key and Adapter, then run `pnpm record:intake`; it
    reruns the definitive `--key` guard internally (a manual `--key` rerun is
    optional fast-fail). After that guard passes, intake immediately makes a
-   no-clobber claim at `input/processing/<dataset-key>.png`; keep the Source
+   Git-visible no-clobber claim at `input/processing/<dataset-key>.png`; keep the Source
    there throughout inventory, authoring, crop, fidelity, and close-out.
 2. Source inventory & data SSOTs — coarse whole-image pass first: classify
    the input type against the workflow doc's Object Taxonomy (incl. the
@@ -199,8 +203,10 @@ definition (including the confirmation and failure steps) is
    reported with the reason); that read-only gate never relocates a Source.
    Finish with `pnpm check` and commit per `docs/commit-messages.md`; unrelated
    pending items and active processing claims may remain, and a non-empty
-   processing directory does not fail the global check. Never rename a
-   processed image. This compatibility relocation is not `PUBLISHED`: atomic
+   processing directory does not fail the global check. A confirmed relocation
+   is committed as removal from the tracked processing queue; the ignored
+   processed PNG stays only in the local archive and is never force-added or
+   renamed. This compatibility relocation is not `PUBLISHED`: atomic
    M4 Publication is still unimplemented, and the compatibility canonical
    baseline path remains separate.
 
@@ -224,9 +230,10 @@ creates an evidence run. Machine evidence alone must be reported as
 
 Follow `docs/commit-messages.md`: lightweight Conventional Commits
 (`<type>(<scope>): <summary>`, English lowercase summary). It owns the type
-and scope tables and the rule that a new dataset's processed PNG, adapter,
-and manifest registration ship in one `data(<key>)` commit, with reusable
-renderer support split into a prior `render(engine)` commit.
+and scope tables and the rule that a new dataset's adapter, manifest
+registration, and relevant tracked queue change ship coherently, while the
+processed PNG remains local-only. Reusable renderer support is split into a
+prior `render(engine)` commit.
 
 ## Cursor Cloud specific instructions
 
@@ -238,12 +245,13 @@ script, so you do not need to reinstall them. Non-obvious caveats for this VM:
 - Run the app with `pnpm dev` (zero-dependency static server on
   `http://127.0.0.1:8000`). It is a long-running process — start it in a
   background/tmux session, not a blocking foreground call.
-- Reference images under `input/processed/` are only partially committed;
-  many datasets' PNGs stay on their author's machine. For those keys
-  `pnpm verify:d3 -- <key>` fails with ENOENT when copying the reference.
+- Reference images under `input/processed/` are Git-ignored and stay in each
+  author's local archive. A fresh checkout has no such PNGs, so
+  `pnpm verify:d3 -- <key>` fails with ENOENT unless that key's reference was
+  restored locally.
   For engine-wide changes use `pnpm verify:render-regression` instead: it
   renders every registered dataset, applies the hard gates, and skips
   similarity scoring for keys without a local reference image.
-- `pnpm check`, `pnpm test`, `pnpm verify:app`, `pnpm build:standalone`,
-  `pnpm verify:standalone`, and `pnpm verify:d3` on a dataset with a local
-  reference (e.g. `airbnb-q1-fy26`) all run green on a fresh checkout.
+- `pnpm check`, `pnpm test`, `pnpm verify:app`, `pnpm build:standalone`, and
+  `pnpm verify:standalone` run green on a fresh checkout. `pnpm verify:d3`
+  additionally requires the selected reference in the machine-local archive.

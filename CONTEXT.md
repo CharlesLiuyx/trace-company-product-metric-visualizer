@@ -17,6 +17,12 @@ no Build state; its owning definition is `docs/dynamic-dataset-workflow.md`
 Publication replaces this transitional operation and owns the stable
 processed Source projection.
 
+Git transport is separate from lifecycle state: `input/pending/` and
+`input/processing/` are tracked so multiple project checkouts can exchange
+queue and active-claim changes, while `input/processed/` is ignored and kept
+as a complete local archive. Tracking or ignoring a locator does not create a
+Build transition or change Source identity.
+
 Within a Sankey View, **Hover Share（所占比例）** is renderer-owned rather
 than Adapter-configurable. Every semantic relationship uses one formula on
 every hover surface (node, node label, link, or endpoint-declared guide):

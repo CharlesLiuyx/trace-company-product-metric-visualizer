@@ -9,9 +9,10 @@ import {
 
 const existing = new Set(['alpha-q1-fy26', 'beta-q2-fy26']);
 
-test('pending-only and documentation changes stay on the fast deterministic gate', () => {
+test('Source queue and documentation changes stay on the fast deterministic gate', () => {
   const plan = planCiChecks([
     { status: 'A', path: 'input/pending/page 1.png' },
+    { status: 'A', path: 'input/processing/alpha-q1-fy26.png' },
     { status: 'M', path: 'docs/notes.md' },
   ], { existingDatasetKeys: existing });
 
