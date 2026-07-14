@@ -548,6 +548,10 @@ test('automatic evidence without human attestation cannot close a Build', async 
   const { root, buildRoot, prepared } = await prepare(t);
   const evidenceManifest = await writeEvidence(root, prepared);
   const verificationReference = await writeDatasetVerification(root, buildRoot, prepared);
+  const stageDecisions = [
+    { stage: 'structure', status: 'frozen', evidenceDigest: digest('structure-freeze-evidence') },
+    { stage: 'structure', status: 'reopened', evidenceDigest: digest('structure-reopen-evidence'), note: 'later text pass found an earlier miss' },
+  ];
   const outcome = await finishReviewedBuild({
     buildId: prepared.build.buildId,
     packetDigest: prepared.packetReference.digest,
@@ -560,9 +564,13 @@ test('automatic evidence without human attestation cannot close a Build', async 
     riskChecks: [],
     manualCheckDecisions: manualCheckDecisions(),
     interfaceMatrix: matrix(prepared.build.key),
+    stageDecisions,
   }, { buildRoot, projectRoot: root, now });
 
   assert.equal(outcome.fidelityResult.status, 'review-pending');
+  // The optional stage audit trail flows through finish into the recorded
+  // FidelityResult without becoming a blocker.
+  assert.deepEqual(outcome.fidelityResult.stageDecisions, stageDecisions);
   assert.equal((await readDatasetBuild(prepared.build.buildId, { buildRoot })).state, 'AUTHORED');
   const inspection = await inspectBuildCloseout(prepared.build.buildId, { buildRoot, projectRoot: root });
   assert.equal(inspection.reviewStatus, 'review-pending');

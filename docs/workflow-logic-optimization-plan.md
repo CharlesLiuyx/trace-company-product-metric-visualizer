@@ -410,8 +410,10 @@ c. **单命令多 locale(可选)**:`record:fidelity` 支持 `--language` 重复�
 | W6 | 镜像 parity(章节骨架 + 命令表行数)进 `verify:architecture` | `verify(architecture): check agents mirror section and command parity` |
 
 验收指标核对(对照 §5.2):新增规则必改文件 7 → 3(catalog + 实现 + 测试,
-生成器自动更新文档);fidelity 文档手写区约 250 行(全文 1100+ 行中目录与
-索引区均为生成);流水线坐标系 4 → 2;`--round` 全仓库零引用;
-structure/text 迭代 locale 数 required 全集 → 1;同候选诊断+证据渲染 2 → 1;
-C1–C12 全部勾销;`pnpm check` 每阶段全绿,规则 ID/enforcement/feature 映射
-零变化。
+生成器自动更新文档;T22 演练中纯 manual 规则实际只改 2 处);fidelity 文档
+手写区实测 332 行(高于 §5.2 预估的 ≤250:方案自身新增了迭代术语表、
+结束条件 blocker 映射表、stage×locale 规则与 §6 演进配方;对比基线,原
+443 行不含任何这些内容,判定语义部分已全部迁入生成区);流水线坐标系
+4 → 2;`--round` 全仓库零引用;structure/text 迭代 locale 数 required 全集
+→ 1;同候选诊断+证据渲染 2 → 1;C1–C12 全部勾销;`pnpm check` 每阶段
+全绿,规则 ID/enforcement/feature 映射零变化。

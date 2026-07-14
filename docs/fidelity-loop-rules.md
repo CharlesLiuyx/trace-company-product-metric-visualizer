@@ -1063,7 +1063,7 @@ evidence/Plan 工具在更早处失败，`人工` 表示 attestation 责任、�
 | 独立 G11 一致性证据 fresh | finish（`AUTOMATIC_CONSISTENCY_NOT_PASSED`） | `dataset-verification/v1` reference |
 | 每个 required check、object 和 locale 都有有效 `checkResults` | finish（`REQUIRED_CHECK_MISSING` / `REQUIRED_CHECK_NOT_PASSED`） | `FidelityResult.checkResults` |
 | 所有映射到 node 的对象完成可见/隐藏二选一；各 locale paint 结果与 inventory 一致 | 工具（Plan 编译拒绝缺失 intent；Build-bound run 校验 `nodePaintAudit` 期望）+ 人工（T12 独立确认） | 逐 locale `nodePaintAudit` + manual decision |
-| Plan 要求时，完整 Matrix 无 `failed` / `manual-pending` / `not-scored`，audit/contact sheet/digests 齐全 | finish（`INTERFACE_MATRIX_REQUIRED` / `_INCOMPLETE` / `_FAILED` / `_PENDING` / `_NOT_SCORED` / `_IDENTITY_MISMATCH` / endpoint、tangent blockers） | `interface-matrix/v1` |
+| Plan 要求时，完整 Matrix 无 `failed` / `manual-pending` / `not-scored`，audit/contact sheet/digests 齐全 | finish（`INTERFACE_MATRIX_REQUIRED` / `_INCOMPLETE` / `_FAILED` / `_PENDING` / `_NOT_SCORED` / `_NOT_CLOSED` / `_IDENTITY_MISMATCH` / endpoint、tangent blockers） | `interface-matrix/v1` |
 | structure、text、polish/localization stages 均冻结且未被重开 | 人工（可选的 `stageDecisions` 提供结构化审计记录，不是 blocker） | 绑定 evidence digest 的冻结记录 |
 | 用户 region、attention、feedback 和 recurrence upgrade 全部关闭 | finish（`REGION_OPEN` / `ATTENTION_REFERENCE_OPEN` / `FEEDBACK_OPEN` / `FEEDBACK_AUTOMATION_UPGRADE_REQUIRED`） | RegionDecision / attention / FeedbackLedger |
 | 剩余差异只有有证据的可接受残留、无语义跳过或明确超范围 | 人工（attestation 责任） | region decisions + closure note |
