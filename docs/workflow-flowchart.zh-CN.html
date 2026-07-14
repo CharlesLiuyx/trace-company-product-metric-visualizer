@@ -505,7 +505,7 @@ pnpm exec playwright install chromium</span>
   <div class="phase-head">
     <span class="num">P2</span>
     <h2>源盘点与数据 SSOT<span class="en">先分型盘点，再写纯数据层</span></h2>
-    <span class="owner">出处：<code>docs/dynamic-dataset-workflow.md</code> 步骤 4–7、§Object Taxonomy、§Execution Model · <code>data/schema.md</code> · <code>data/assets/README.md</code></span>
+    <span class="owner">出处：<code>docs/dynamic-dataset-workflow.md</code> 步骤 4–8、§Object Taxonomy、§Execution Model · <code>data/schema.md</code> · <code>data/assets/README.md</code></span>
   </div>
   <div class="flow">
     <div class="node">
@@ -516,7 +516,7 @@ pnpm exec playwright install chromium</span>
         <li><b>分型</b>：对照对象类型清单（附录 D / §Object Taxonomy）判定输入类型——A 损益表 Sankey 信息图（标准 / <code>-by-segment</code> / <code>-by-bu</code> 变体）、B 收入指标时间序列（如 ARR）、或未识别新类型；</li>
         <li><b>盘点</b>：持久化 <code>object-inventory/v3</code>；按类型清单枚举全部对象，每个对象记录<b>渲染目标 / 仅数据 / 有意跳过</b>、authored mapping、risk features 与来源证据；</li>
         <li>盘点结果下游复用：SSOT 完整性核对（P2.2）、图标 crop 范围（P2.3）、label 归组（P3.2）、i18n 覆盖（P3.3）、汇报中的对象对账；</li>
-        <li>之后才允许进入逐对象精细测量（P3.1）。</li>
+        <li>之后才允许进入逐对象 preflight 测量（P2.4）。</li>
       </ul>
     </div>
     <div class="arrow"></div>
@@ -550,7 +550,7 @@ pnpm exec playwright install chromium</span>
       <b>∥ 并行组 E1（Execution Model）</b>——P2.0 完成后，三条轨道只依赖已定 key 的参考图，可并行推进：
       <div class="lanes">
         <div class="lane"><b>Track A · 数据</b>P2.1 公司档案 → P2.2 损益表 SSOT（含 i18n 字段）</div>
-        <div class="lane"><b>Track B · 视觉</b>P3.1 逐对象精细测量（以 P2.0 盘点为输入）</div>
+        <div class="lane"><b>Track B · 视觉</b>P2.4 逐对象 preflight 测量（以 P2.0 盘点为输入）</div>
         <div class="lane"><b>Track C · 图标（条件）</b>P2.3 crop/vector 子循环（范围来自 P2.0 盘点）</div>
       </div>
       <p style="margin:6px 0 0; font-size:.74rem;">P3.2 adapter 编写需 Track A 数值 + Track B 几何后串行开始；Track C 收敛后在注释/图标环节接入。低难度轨道可分派 Subagent（附录 C）。</p>
@@ -643,6 +643,13 @@ pnpm exec playwright install chromium</span>
         <div class="node"><span class="sid">—</span><h3>无图标提取，跳过子循环</h3><p class="dim">若最终回复涉及图标，需说明「全部相关 cluster 已提取或已记录为跳过」。</p></div>
       </div>
     </div>
+    <div class="arrow"></div>
+    <div class="node">
+      <span class="sid">P2.4</span>
+      <div class="badges"><span class="badge manual">人工</span></div>
+      <h3>Preflight 测量（写 adapter 之前）——粗盘点之后的第二遍</h3>
+      <p>以 <b>P2.0 的 <code>object-inventory/v3</code></b> 为输入逐对象测量，不重新推导对象列表；直接把 node、link/socket、label、annotation 和 reference Interface Matrix 事实写入 authored/review 输入，不能先粗排再靠多次 evidence run 逼近。字段与通过标准只见 <code>docs/fidelity-loop-rules.md</code> §2。</p>
+    </div>
   </div>
 </section>
 <div class="phase-gap"><span class="arrow tall"></span></div>
@@ -652,16 +659,9 @@ pnpm exec playwright install chromium</span>
   <div class="phase-head">
     <span class="num">P3</span>
     <h2>Adapter 与 i18n<span class="en">Sankey 视图适配层</span></h2>
-    <span class="owner">出处：<code>docs/dynamic-dataset-workflow.md</code> 步骤 8–10 · <code>data/schema.md</code> · <code>docs/fidelity-loop-rules.md</code> §2</span>
+    <span class="owner">出处：<code>docs/dynamic-dataset-workflow.md</code> 步骤 9–11 · <code>data/schema.md</code> · <code>docs/fidelity-loop-rules.md</code> §2</span>
   </div>
   <div class="flow">
-    <div class="node">
-      <span class="sid">P3.1</span>
-      <div class="badges"><span class="badge manual">人工</span></div>
-      <h3>Preflight（写 adapter 之前）——粗盘点之后的第二遍</h3>
-      <p>以 <b>P2.0 的 <code>object-inventory/v3</code></b> 为输入逐对象测量，不重新推导对象列表；直接把 node、link/socket、label、annotation 和 reference Interface Matrix 事实写入 authored/review 输入，不能先粗排再靠多次 evidence run 逼近。字段与通过标准只见 <code>docs/fidelity-loop-rules.md</code> §2。</p>
-    </div>
-    <div class="arrow"></div>
     <div class="node data">
       <span class="sid">P3.2</span>
       <div class="badges"><span class="badge manual">人工</span></div>
@@ -899,7 +899,7 @@ pnpm exec playwright install chromium</span>
     <p><b>并行组</b>（依赖关系决定，可交错推进或分派 Subagent）：</p>
     <ul>
       <li><b>步骤 1–3 串行门</b>：P1 守卫 → 定 key → <code>record:intake</code> no-clobber 领取到 processing。守卫未过，一切不得开始；停止条件终止全程。</li>
-      <li><b>步骤 4–8 并行准备</b>：P2.0 粗盘点先行定范围，随后三轨并行——Track A 数据（P2.1 公司档案 → P2.2 损益表 SSOT 及 i18n 字段）∥ Track B 视觉（P3.1 逐对象 preflight 测量）∥ Track C 图标（P2.3 子循环，条件）。</li>
+      <li><b>步骤 4–8 并行准备</b>：P2.0 粗盘点先行定范围，随后三轨并行——Track A 数据（P2.1 公司档案 → P2.2 损益表 SSOT 及 i18n 字段）∥ Track B 视觉（P2.4 逐对象 preflight 测量）∥ Track C 图标（P2.3 子循环，条件）。</li>
       <li><b>步骤 9–11 串行编写</b>：P3.2 adapter（需 A 数值 + B 测量）→ P3.3 dataset overlay（需 adapter 定稿文案）→ P3.4 注册；Track C 收敛后随时接入。</li>
       <li><b>步骤 12–14 验证与 Review</b>：prepare-review → Build-bound evidence → human finish（P4.1 聚合诊断降级为可选排查）。stage 间串行；同一 stage 内的候选试值、每语言 evidence 可并行；structure/text 迭代只需源语言，polish-l10n 与 closeout-refresh 覆盖全部 required locales；只有人工 accepted 结果可关闭 Build。</li>
       <li><b>步骤 15 串行收尾</b>：操作者完成信号先枚举整批并呈清单确认，确认后做 no-clobber 检查再移动；无信号则留在 processing。Build-local baseline stage → fresh seal → read-only closeout 只负责审计，不授权移动；最后 check / 提交 / 汇报，且不冒充尚未实现的 M4 Publication。</li>
@@ -914,7 +914,8 @@ pnpm exec playwright install chromium</span>
         <tr><td>P2.2 损益表 SSOT（财务语义/rounding/货币契约）</td><td>高</td><td>主 Agent</td></tr>
         <tr><td>P2.3 图标：跑脚本</td><td>低</td><td>Subagent 可代</td></tr>
         <tr><td>P2.3 图标：spec 框选 + 验收判断</td><td>高</td><td>主 Agent——验收结论进 runtime 资产</td></tr>
-        <tr><td>P3.1–3.2 精细测量 + adapter 编写</td><td>高</td><td>主 Agent</td></tr>
+        <tr><td>P2.4 preflight 测量（测量即 T18/T19 featureEvidence）</td><td>高</td><td>主 Agent</td></tr>
+        <tr><td>P3.2 adapter 编写</td><td>高</td><td>主 Agent</td></tr>
         <tr><td>P3.3 i18n overlay 初稿</td><td>低–中</td><td>Subagent 可代；主 Agent 复核高风险串（R&amp;D、SG&amp;A、金额后缀、中英混排品牌）</td></tr>
         <tr><td>P3.4 注册 / <code>sync:index-datasets</code></td><td>低</td><td>皆可</td></tr>
         <tr><td>P4.1 各只读 verifier 命令执行</td><td>低</td><td>皆可（廉价 shell 命令；不归档、不作人工结论）</td></tr>

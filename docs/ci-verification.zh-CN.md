@@ -67,7 +67,7 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
 | `syntax` | 所有 JS 至少能被解析 | `.js` 用 `vm.Script`；`.mjs` 用 Node 自己的 `--check` | 少括号、非法 import、语法残缺 | 不执行浏览器交互 |
 | `test` | 纯逻辑仍符合约定 | `node --test tests/*.test.mjs` | 布局数学、生命周期状态、i18n、Diff 等断言失败 | 不证明页面能启动 |
 | `check:pending` | 新图片不是重复上传或 key 冲突 | 比较 pending/processing/processed 的 SHA-256、候选 key 与已有注册 | 同内容重复、同 key 两张图、已被领取 | 不移动 Source |
-| `verify:architecture` | 文档、机器契约和实现没有各说各话 | 对 lifecycle protocol、状态、Adapter、ChangeImpact、命令语义及文档链接逐项对账 | JSON 契约和代码常量漂移 | 不宣称未实现的 M4/M5 已完成 |
+| `verify:architecture` | 文档、机器契约和实现没有各说各话 | 对 lifecycle protocol、状态、Adapter、ChangeImpact、命令语义及文档链接逐项对账；校验保真规则目录生成区与 catalog 一致（改规则后须跑 `pnpm update:fidelity-rules-doc`）及 AGENTS 中文镜像章节/命令表奇偶 | JSON 契约和代码常量漂移 | 不宣称未实现的 M4/M5 已完成 |
 | `verify:app-globals` | 经典 script 的共享顶层作用域安全 | 静态解析声明和加载期引用，按 `index.html` 顺序检查 | 重复 `const`、加载时引用后置脚本 | 运行时点击由 `verify:app` 负责 |
 | `verify:dataset-manifest` | Adapter 文件和生成清单一致 | 在内存中重建 manifest，与已提交文件逐字比较 | 新增 Adapter 忘记同步、清单手改 | 不渲染图 |
 | `verify:render-baselines` | 每个注册 Adapter 都有 baseline 账目，且没有孤儿 | 只读取 manifest 与 `render-baselines.json`，不启动 Chromium | baseline 缺项、已删除 Adapter 仍留 baseline | 不做像素评分 |
