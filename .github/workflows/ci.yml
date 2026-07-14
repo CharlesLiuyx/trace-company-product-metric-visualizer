@@ -70,12 +70,9 @@ jobs:
           steps.plan.outputs.site_projection == 'true')
         run: pnpm verify:site
 
-      # The diagnostic smoke exercises the complete reference/diff/interface
-      # pipeline. Dataset hard gates live in render regression below.
-      - name: Verify complete d3 diagnostic pipeline
-        if: steps.plan.outputs.d3_smoke == 'true'
-        run: pnpm verify:d3 -- salesforce-q1-fy27
-
+      # Processed reference images are machine-local. CI render regression
+      # always runs hard gates and adds similarity only when a local reference
+      # happens to be available.
       - name: Verify all registered renders
         if: steps.plan.outputs.render_scope == 'full'
         run: pnpm verify:render-regression
