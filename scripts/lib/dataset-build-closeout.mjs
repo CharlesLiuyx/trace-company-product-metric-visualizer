@@ -526,7 +526,7 @@ function localeEvidenceForCheck(check, entry, consistency) {
     invariant(evidenceDigests.length === 3, 'CHECK_EVIDENCE_PROVIDER_MISSING', `Check ${check.id} needs archived reference, interface audit, and contact sheet`);
     return { passed: checkFeatureEvidence(check, entry), evidenceDigests };
   }
-  if (['label-layout-audit', 'label-position-audit', 'text-layout-audit', 'annotation-layout-audit', 'node-paint-audit'].includes(check.evidenceKind)) {
+  if (['label-layout-audit', 'label-position-audit', 'text-layout-audit', 'annotation-layout-audit', 'annotation-semantics-audit', 'node-paint-audit'].includes(check.evidenceKind)) {
     invariant(entry.artifactDigests?.metrics, 'CHECK_EVIDENCE_PROVIDER_MISSING', `Check ${check.id} needs the archived metrics document`);
     return {
       passed: checkFeatureEvidence(check, entry),
