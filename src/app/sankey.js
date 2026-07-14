@@ -211,6 +211,17 @@ function sankeyDrawDatasetKeys(compare) {
   return [...keys];
 }
 let sankeyDrawGeneration = 0;
+/* Async loads usually resolve well below the ~200ms perception threshold
+ * (preloaded, prefetched, or cached adapters), so the loading placeholder
+ * only renders when a load is genuinely slow. Below the delay the previous
+ * content simply swaps to the new chart with no visible loading state. */
+const LOADING_INDICATOR_DELAY_MS = 200;
+function deferLoadingIndicator(drawGeneration, render) {
+  const timer = window.setTimeout(() => {
+    if (drawGeneration === sankeyDrawGeneration) render();
+  }, LOADING_INDICATOR_DELAY_MS);
+  return () => window.clearTimeout(timer);
+}
 function renderSankeyLoading(compare) {
   const message = `<div class="chart-loading" role="status">${escapeHtml(t('datasetLoading'))}</div>`;
   if (singleChartCard) singleChartCard.hidden = compare;
@@ -270,13 +281,15 @@ function draw({ renderTable = true, syncView = true } = {}) {
     clearSingleChart();
     clearSankeyComparison();
     if (!window.Chart) {
-      renderChartRuntimeState('loading');
+      const cancelIndicator = deferLoadingIndicator(drawGeneration, () => renderChartRuntimeState('loading'));
       viewRuntimeLoader.ensureChart()
         .then(() => {
+          cancelIndicator();
           if (drawGeneration !== sankeyDrawGeneration) return;
           draw({ renderTable, syncView: false });
         })
         .catch((error) => {
+          cancelIndicator();
           console.error(error);
           if (drawGeneration !== sankeyDrawGeneration) return;
           renderChartRuntimeState('error');
@@ -293,13 +306,19 @@ function draw({ renderTable = true, syncView = true } = {}) {
   const compare = isMultiCompanyScope() || isMultiPeriodScope();
   const neededKeys = sankeyDrawDatasetKeys(compare);
   if (!datasetLoader.ready(neededKeys)) {
-    renderSankeyLoading(compare);
+    // Exports must not capture the superseded chart while the async load is
+    // in flight; the successful redraw re-enables them.
+    svgBtn.disabled = true;
+    pngBtn.disabled = true;
+    const cancelIndicator = deferLoadingIndicator(drawGeneration, () => renderSankeyLoading(compare));
     datasetLoader.ensure(neededKeys)
       .then(() => {
+        cancelIndicator();
         if (drawGeneration !== sankeyDrawGeneration) return;
         draw({ renderTable, syncView: false });
       })
       .catch((error) => {
+        cancelIndicator();
         console.error(error);
         if (drawGeneration !== sankeyDrawGeneration) return;
         renderSankeyLoadError(compare);
