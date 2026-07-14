@@ -22,7 +22,7 @@ const CANONICAL_RULE_IDS = Object.freeze([
   ...numbered('B', 16),
   ...numbered('R', 9),
   ...numbered('L', 16),
-  ...numbered('T', 20),
+  ...numbered('T', 21),
   'T12a',
   ...numbered('A', 10),
   ...numbered('Z', 8),
@@ -46,7 +46,7 @@ const ENFORCEMENT_GROUPS = Object.freeze({
   'quantified-audit': Object.freeze([
     'B8', 'B10', 'B12',
     'L5', 'L6', 'L10', 'L11',
-    'T1', 'T2', 'T4', 'T6',
+    'T1', 'T2', 'T4', 'T6', 'T21',
   ]),
 });
 
@@ -78,7 +78,7 @@ export const FIDELITY_FEATURE_RULE_IDS = Object.freeze({
   'semantic-annotation': Object.freeze(['A10', 'B16', 'T17']),
   'visible-short-node': Object.freeze(['T14']),
   'visible-interface': Object.freeze(['G12', 'L11']),
-  'visible-node-face': Object.freeze(['B15', 'T13']),
+  'visible-node-face': Object.freeze(['B15', 'T13', 'T21']),
   'hidden-anchor': Object.freeze(['B7', 'T12']),
   'specified-label-weight': Object.freeze(['B14', 'T16']),
   'measured-label-position': Object.freeze(['T18', 'T19']),
@@ -93,7 +93,7 @@ export const FIDELITY_CODE_RULE_IDS = Object.freeze([
   'B3', 'B5', 'B6', 'B7', 'B14', 'B15', 'B16',
   'G1', 'G2', 'G3', 'G4', 'G5', 'G6', 'G7', 'G8', 'G9', 'G10', 'G11', 'G12',
   'L11',
-  'T7', 'T12', 'T13', 'T14', 'T16', 'T17', 'T18', 'T19', 'T20',
+  'T7', 'T12', 'T13', 'T14', 'T16', 'T17', 'T18', 'T19', 'T20', 'T21',
   'Z2', 'Z5', 'Z6',
 ]);
 

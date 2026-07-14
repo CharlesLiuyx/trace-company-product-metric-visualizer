@@ -250,6 +250,15 @@ function paintAudit(value, paintOpacity, elementOpacity, background) {
   };
 }
 
+// T21: a node the audit judges faceVisible can still render a sub-pixel bar that
+// is invisible to the eye — B15/faceVisible only test alpha>0 and a non-zero
+// box, not rendered height. MIN_VISIBLE_FACE_PX is the shared minimum visible
+// face-height floor; visible faces rendering below it (beyond a raster
+// tolerance) are reported in belowVisibilityFloorNodeIds so adapters stop
+// guessing a per-node minimum (this session shipped Visa=6px, SAP/Comcast=3px).
+export const MIN_VISIBLE_FACE_PX = 3;
+const FACE_FLOOR_RASTER_TOLERANCE_PX = 0.5;
+
 export function classifyNodePaintAudit({ dataset = '', language = '', background = '', nodes = [] }) {
   const backgroundColour = parseComputedColour(background);
   const seen = new Set();
@@ -274,6 +283,8 @@ export function classifyNodePaintAudit({ dataset = '', language = '', background
     );
     const fillVisible = displayed && hasBox && fillPaint.visible;
     const strokeVisible = displayed && hasBox && Number(node.strokeWidth) > 0 && strokePaint.visible;
+    const faceVisible = fillVisible || strokeVisible;
+    const faceHeight = Math.round((Number(node.bbox?.height) || 0) * 100) / 100;
     return {
       ...node,
       id,
@@ -287,7 +298,10 @@ export function classifyNodePaintAudit({ dataset = '', language = '', background
       strokeMatchesBackground: strokePaint.backgroundMatch,
       fillVisible,
       strokeVisible,
-      faceVisible: fillVisible || strokeVisible,
+      faceVisible,
+      faceHeight,
+      faceBelowVisibilityFloor:
+        faceVisible && faceHeight + FACE_FLOOR_RASTER_TOLERANCE_PX < MIN_VISIBLE_FACE_PX,
     };
   });
   return {
@@ -296,8 +310,13 @@ export function classifyNodePaintAudit({ dataset = '', language = '', background
     language,
     background,
     checkedNodes: records.length,
+    minVisibleFacePx: MIN_VISIBLE_FACE_PX,
     visibleNodeIds: records.filter((node) => node.faceVisible).map((node) => node.id).sort(),
     invisibleNodeIds: records.filter((node) => !node.faceVisible).map((node) => node.id).sort(),
+    belowVisibilityFloorNodeIds: records
+      .filter((node) => node.faceBelowVisibilityFloor)
+      .map((node) => node.id)
+      .sort(),
     duplicateNodeIds: [...new Set(duplicateNodeIds)].sort(),
     nodes: records.sort((left, right) => left.id.localeCompare(right.id)),
   };

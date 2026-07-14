@@ -314,6 +314,7 @@ renderer 与 metric 配置；局部试改也必须重渲染整图并换算为全
 | T18 | conditional-gate | `measured-label-position` 触发：每次 evidence run 将每个固定布局 label 组的渲染 union bbox 与 preflight 持久化的原生 `referenceBBox` 自动比对。源语言 locale 的中心差（X 与 Y 各自）`<=6px`，超差失败；6px = 通用 4px 中心约定加 2px 的 ink-bbox 对 em-box 测量协议余量。非源语言 locale 不做中心 gate（本地化验收由 Z2/Z5/Z6 拥有），但每个已测量组必须渲染出可测的 label，缺组即失败。证据为逐 locale 的 `labelPositionAudit`。 |
 | T19 | build-gate | prepare-review 时校验所有声明 Source 测量的 featureEvidence（`measured-label-position`、`hidden-anchor`、`semantic-annotation`、`ambiguous-label-slot`）：locator 必须指向本 Build Source，evidence digest、reference-image artifact digest 与 Build Source digest 三者一致，referenceBBox 不越 Source 边界。相邻期间或其他数据集的坐标携带外来 digest，直接拒绝——过期测量不允许进入任何后续 gate。 |
 | T20 | manual | `ambiguous-label-slot` 触发：preflight 发现 label 槽位或归属在参考图上存在多解（如"柱下方"与"左侧槽位"皆可读通）时必须声明该 feature，并在 text stage 冻结前提交绑定 reference crop 的操作者槽位裁决（manual decision）。不允许按单一解释先渲染、等用户复审时指出再改判。 |
+| T21 | quantified-audit | `visible-node-face`（含 `visible-short-node`）触发：`nodePaintAudit` 逐 node 记录渲染柱面高度 `faceHeight`，把 `faceVisible` 但高度低于共享最小可见高度 `MIN_VISIBLE_FACE_PX`（3px，含 0.5px raster 容差）的 face 汇入 `belowVisibilityFloorNodeIds`。补上 B15/`faceVisible` 只验 alpha>0、bbox 非零而不验渲染高度的盲点：消除"数值极小 → 亚像素柱、肉眼不可见"，并给所有 short 节点统一最小柱高、杜绝逐次在 1px/11px 间猜测（同一批曾出现 Visa=6px、SAP/Comcast=3px 的各自取值）。真实参考短柱确需低于该 floor 时，按 T14 以原生 crop、实测端点和绑定决定作为例外记录；证据为逐 locale 的 `nodePaintAudit`。 |
 
 ### A 系列：annotation 容器
 
@@ -373,14 +374,16 @@ G11 的 consistency evidence 单独记录，不塞进每次 raster manifest。
 整条 link 的平均 Diff 不能证明端面正确。
 
 `nodePaintAudit` 每行记录：semantic node ID、bbox、computed fill/stroke、fill/stroke alpha、
-stroke width、opacity、display、visibility、背景色和 `faceVisible`。判定必须基于 node
-face 元素自身；link、guide、annotation、hitbox 或非空 bbox 都不能替代。required locales
-必须覆盖相同语义 ID 集合。
+stroke width、opacity、display、visibility、背景色、`faceVisible` 与 `faceHeight`（含是否低于
+`MIN_VISIBLE_FACE_PX` 最小可见高度）。判定必须基于 node face 元素自身；link、guide、
+annotation、hitbox 或非空 bbox 都不能替代。required locales 必须覆盖相同语义 ID 集合。
 
 程序判定 `faceVisible` 的最低条件是：元素未被 display/visibility 隐藏、bbox 非零，且
 有效 fill alpha 大于 0 并非背景同色，或有效 stroke alpha 大于 0、stroke width 大于 0
 且并非背景同色。这不是“肉眼足够清楚”的对比度保证；structure stage 的人工 visual
-closure 负责所有 `visible-node-face` 的辨识度，极短柱的参考长度另由 T14 决定。
+closure 负责所有 `visible-node-face` 的辨识度，极短柱的参考长度另由 T14 决定。渲染柱面低于
+`MIN_VISIBLE_FACE_PX` 最小可见高度的可见节点由 T21 量化标记，用于消除亚像素不可见柱、
+统一 short 节点最小柱高，把此前逐 Build 各自取值收敛到一个共享 floor。
 
 ### required checks 必须逐项消费
 

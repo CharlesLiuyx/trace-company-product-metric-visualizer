@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import {
   LABEL_POSITION_CENTER_TOLERANCE,
+  MIN_VISIBLE_FACE_PX,
   assertNodePaintAudit,
   assertPlannedRenderAudits,
   assertRawSvgCanvas,
@@ -110,6 +111,28 @@ test('Toast/Alibaba short-node paint regression rejects transparent, background-
     () => assertNodePaintAudit(audit, { visible: ['background', 'transparent'] }),
     /background=not-painted, transparent=not-painted/
   );
+});
+
+test('T21 flags faceVisible nodes rendering below the shared MIN_VISIBLE_FACE_PX floor', () => {
+  assert.equal(MIN_VISIBLE_FACE_PX, 3);
+  const audit = classify([
+    node('tall', { bbox: { x: 10, y: 20, width: 18, height: 12 } }),
+    node('at-floor', { bbox: { x: 10, y: 20, width: 18, height: 3 } }),
+    node('subpixel', { bbox: { x: 10, y: 20, width: 18, height: 0.57 } }),
+    node('hairline', { bbox: { x: 10, y: 20, width: 18, height: 1 } }),
+  ]);
+
+  assert.equal(audit.minVisibleFacePx, 3);
+  assert.deepEqual(audit.belowVisibilityFloorNodeIds, ['hairline', 'subpixel']);
+  assert.equal(audit.nodes.find((item) => item.id === 'subpixel').faceHeight, 0.57);
+  assert.equal(audit.nodes.find((item) => item.id === 'at-floor').faceBelowVisibilityFloor, false);
+  assert.equal(audit.nodes.find((item) => item.id === 'tall').faceBelowVisibilityFloor, false);
+
+  // An invisible face (alpha 0) is not double-counted as a floor breach; it is
+  // already an invisibleNodeId, and B15/faceVisible owns that failure.
+  const invisible = classify([node('gone', { fill: 'none', bbox: { x: 10, y: 20, width: 18, height: 0.4 } })]);
+  assert.deepEqual(invisible.belowVisibilityFloorNodeIds, []);
+  assert.deepEqual(invisible.invisibleNodeIds, ['gone']);
 });
 
 test('node paint audit requires hidden anchors to exist but remain unpainted', () => {
