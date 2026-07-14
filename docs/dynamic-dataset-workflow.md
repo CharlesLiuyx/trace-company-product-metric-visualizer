@@ -311,8 +311,10 @@ returns.
     and finish with a review JSON containing the `reviewToken`, returned
     `verificationReference`, `ManualAttestation`, `manualCheckDecisions`,
     stable `RegionDecision` records, attention status (open red-box digest or
-    closed closure note), the Adapter-required `interface-matrix/v1`, and any
-    `FeedbackRecord` entries:
+    closed closure note), the Adapter-required `interface-matrix/v1`, any
+    `FeedbackRecord` entries, and optionally `stageDecisions` (a structured
+    freeze/reopen audit trail per sweep stage, each event bound to an
+    evidence digest; recording it never blocks acceptance):
 
         pnpm record:build -- finish <build-id> --review <review.json>
 

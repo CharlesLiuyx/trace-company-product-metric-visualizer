@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto';
+import { SWEEP_STAGES } from './fidelity-stages.mjs';
 
 export const FIDELITY_RESULT_SCHEMA_VERSION = 2;
 export const FIDELITY_RESULT_PROTOCOL = 'fidelity-result/v2';
@@ -195,6 +196,34 @@ function normalizeAttention(input) {
     status: 'closed',
     closureNote: assertString(input.closureNote, 'attention closureNote', 'ATTENTION_STATUS_INVALID'),
   };
+}
+
+// Optional structured audit trail for sweep-stage freeze/reopen events
+// (docs/fidelity-loop-rules.md §4). Recording is voluntary and never blocks
+// acceptance; when present, each event must bind real evidence.
+function normalizeStageDecisions(input) {
+  if (input == null) return [];
+  invariant(Array.isArray(input), 'STAGE_DECISION_INVALID', 'stageDecisions must be an array');
+  return input.map((decision, index) => {
+    invariant(decision && typeof decision === 'object', 'STAGE_DECISION_INVALID', `stageDecisions[${index}] must be an object`);
+    invariant(
+      SWEEP_STAGES.includes(decision.stage),
+      'STAGE_DECISION_INVALID',
+      `stageDecisions[${index}].stage must be one of ${SWEEP_STAGES.join(', ')}`
+    );
+    invariant(
+      ['frozen', 'reopened'].includes(decision.status),
+      'STAGE_DECISION_INVALID',
+      `stageDecisions[${index}].status must be frozen or reopened`
+    );
+    assertDigest(decision.evidenceDigest, `stageDecisions[${index}].evidenceDigest`, 'STAGE_DECISION_INVALID');
+    return {
+      stage: decision.stage,
+      status: decision.status,
+      evidenceDigest: decision.evidenceDigest,
+      ...(decision.note == null ? {} : { note: String(decision.note) }),
+    };
+  });
 }
 
 function normalizeVerificationPlan(input) {
@@ -696,6 +725,7 @@ export function createFidelityResult(input) {
   const interfaceMatrix = createInterfaceMatrix(input.interfaceMatrix);
   const checkResults = normalizeCheckResults(input.checkResults || [], verificationPlan);
   const attention = normalizeAttention(input.attention);
+  const stageDecisions = normalizeStageDecisions(input.stageDecisions);
 
   const blockers = collectAutomaticBlockers(verificationPlan, automaticEvidence);
   blockers.push(...collectCheckResultBlockers(verificationPlan, checkResults));
@@ -762,6 +792,7 @@ export function createFidelityResult(input) {
     riskChecks,
     interfaceMatrix,
     attention,
+    ...(stageDecisions.length ? { stageDecisions } : {}),
     blockers,
   };
   return withDeterministicDigest(result, 'resultDigest');
