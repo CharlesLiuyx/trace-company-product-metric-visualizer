@@ -47,6 +47,9 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
   `compat:baseline` 因在 M4 Publication 落地前仍要改 canonical baseline
   ledger，被刻意命名在四类之外；`publish:*` / `release:*` 仍是未实现的
   目标词汇。
+- Git 跟踪 `input/pending/` 与 `input/processing/` 中的 Source 文件，让共享
+  队列与活动 claim 能在多个项目检出之间可见。`input/processed/` 是被忽略的
+  本机归档；不得 force-add 其中内容。Git 可见性只是传输机制，不是生命周期授权。
 
 - `data/income-statements/<company-key>.js`（损益表家族，按公司分文件）与
   `data/revenue-metrics.js`（收入家族）是纯 Metric SSOT；
@@ -120,7 +123,7 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
 | `sh scripts/clean-compare.sh` | 只清理旧的顶层 scratch；d3 诊断/证据 run 各自管理并清理私有 `compare/runs/`，并发时禁止全局删除 |
 
 CI（`.github/workflows/ci.yml`）始终运行 `pnpm check`，再由 ChangeImpact
-计划选择 app、Pages、d3 diagnostic、全量/changed-key render 与 standalone
+计划选择 app、Pages、全量/changed-key render 与 standalone
 检查；未知可执行影响回退完整套件。`main` 上直接把同一次运行验证过的 `_site`
 artifact 交给 Pages deploy，不再二次 checkout/install/build。每个检查的白话作用、
 原理、盲区与触发矩阵由 `docs/ci-verification.zh-CN.md` 统一说明。
@@ -134,8 +137,8 @@ artifact 交给 Pages deploy，不再二次 checkout/install/build。每个检�
 各一行:
 
 1. 接入与守卫——`pnpm check:pending` 守卫,确定 `<公司>-<期间>` key 与
-   Adapter,`pnpm record:intake` 把 Source 领取到
-   `input/processing/<dataset-key>.png`。
+   Adapter,`pnpm record:intake` 以 Git 可见的 no-clobber 方式把 Source
+   领取到 `input/processing/<dataset-key>.png`。
 2. 源盘点与数据 SSOT——判定输入类型,持久化 `ObjectInventory`,编写公司
    档案与 Adapter 所属 Metric SSOT(外加可选的图标子循环)。
 3. Adapter 与 i18n——依据 preflight 测量编写
@@ -146,9 +149,10 @@ artifact 交给 Pages deploy，不再二次 checkout/install/build。每个检�
    attestation,然后 `stage-baseline` 与 `seal`。
 5. 收尾——只有显式的操作者审阅完成信号才把确认的 Source 移到
    `input/processed/`(owning 规则:`docs/dynamic-dataset-workflow.md`
-   §Operator Review-Completion Signal);`verify:closeout` 是按该文档
-   close-out requirement policy 执行的只读审计;最后 `pnpm check` 全绿并按
-   `docs/commit-messages.md` 提交。
+   §Operator Review-Completion Signal);确认后的移动在 Git 中提交为
+   tracked processing queue 的删除,被忽略的 processed PNG 只留在本机归档;
+   `verify:closeout` 是按该文档 close-out requirement policy 执行的只读审计;
+   最后 `pnpm check` 全绿并按 `docs/commit-messages.md` 提交。
 
 ## d3-Sankey 保真循环
 
@@ -164,9 +168,9 @@ run。只有机器证据时必须报告为 `review-pending`，不得写 accepted
 
 遵循 `docs/commit-messages.md`：轻量 Conventional Commits
 （`<type>(<scope>): <summary>`，英文小写摘要）。type/scope 表格、以及
-“新数据集的处理后 PNG、adapter 与 manifest 注册放进同一个
-`data(<key>)` 提交、可复用渲染器支持拆成前置 `render(engine)` 提交”的
-规则都由该文档拥有。
+“新数据集的 adapter、manifest 注册与相关 tracked queue 变更保持一致，而
+processed PNG 只留本机；可复用渲染器支持拆成前置 `render(engine)` 提交”的规则
+都由该文档拥有。
 
 ## Cursor Cloud 专用说明
 
@@ -176,10 +180,11 @@ run。只有机器证据时必须报告为 `review-pending`，不得写 accepted
 
 - 用 `pnpm dev` 运行应用（`http://127.0.0.1:8000` 上的零依赖静态服务器）。
   它是长驻进程——在后台/tmux 会话中启动，不要用阻塞的前台调用。
-- `input/processed/` 下的参考图只部分提交入库；许多数据集的 PNG 留在其
-  作者本机。对这些 key，`pnpm verify:d3 -- <key>` 会在复制参考图时因
-  ENOENT 失败。引擎级改动请改用 `pnpm verify:render-regression`：它渲染
+- `input/processed/` 下的参考图全部被 Git 忽略，并保存在各作者的本机归档。
+  全新检出不含这些 PNG；除非本机恢复了对应 key 的参考图，
+  `pnpm verify:d3 -- <key>` 会在复制参考图时因 ENOENT 失败。引擎级改动请改用
+  `pnpm verify:render-regression`：它渲染
   所有已注册数据集、应用硬门禁，并对缺本地参考图的 key 跳过相似度计分。
-- `pnpm check`、`pnpm test`、`pnpm verify:app`、`pnpm build:standalone`、
-  `pnpm verify:standalone`，以及对有本地参考图的数据集（如
-  `airbnb-q1-fy26`）跑 `pnpm verify:d3`，在全新检出上全部绿色。
+- `pnpm check`、`pnpm test`、`pnpm verify:app`、`pnpm build:standalone` 与
+  `pnpm verify:standalone` 在全新检出上全部绿色；`pnpm verify:d3` 还要求本机
+  归档中存在所选 reference。

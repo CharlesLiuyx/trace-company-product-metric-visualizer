@@ -350,3 +350,16 @@ function scopeRecordsForMetric(mode = state.metricMode) {
     .map((company) => defaultRecordForCompanyMetric(company, mode))
     .filter(Boolean);
 }
+function companyDatasetKeys(company) {
+  return (metricGroupForCompany(company, 'incomeStatement')?.records || [])
+    .map((record) => record.dataset.key);
+}
+/* Selecting a company is the load signal for its complete Metric data:
+ * revenue metrics and company metadata already ship with the catalog, so
+ * this asynchronously pulls every income-statement dataset adapter of the
+ * scoped companies (all periods and variants) before the user clicks a
+ * specific Metric object or period. Idempotent — loaded and in-flight keys
+ * are skipped by the loader. */
+function preloadScopeCompanyDatasets(companies = scopeCompanies()) {
+  datasetLoader.preload(uniqueCompanies(companies).flatMap((company) => companyDatasetKeys(company)));
+}

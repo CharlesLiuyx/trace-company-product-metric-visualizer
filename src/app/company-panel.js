@@ -170,12 +170,15 @@ function renderCompanies() {
       }
       selectCompanyGroup(group, { closeSearch: true, focusCompany: true });
     });
-    const prefetchCompanyDataset = () => {
+    // Hover/focus intent warms the whole company: the default record first
+    // (it renders on click), then every other period so the follow-up
+    // period/metric clicks find their adapters already in cache.
+    const prefetchCompanyDatasets = () => {
       const record = defaultRecordForCompanyMetric(group.company, 'incomeStatement');
-      datasetLoader.prefetch([record?.dataset?.key]);
+      datasetLoader.prefetch([record?.dataset?.key, ...companyDatasetKeys(group.company)]);
     };
-    button.addEventListener('pointerenter', prefetchCompanyDataset, { once: true });
-    button.addEventListener('focus', prefetchCompanyDataset, { once: true });
+    button.addEventListener('pointerenter', prefetchCompanyDatasets, { once: true });
+    button.addEventListener('focus', prefetchCompanyDatasets, { once: true });
     companyList.appendChild(button);
   });
   const activeId = selectedVisible ? `company-option-${companyKey(state.company)}` : '';

@@ -16,5 +16,12 @@ input/**
 !input/**/.gitkeep
 !input/README.md
 !input/**/README.md
-input/pending/*
-!input/pending/.gitkeep
+
+# Shared Source queues: keep new work and active claims visible to Git.
+!input/pending/**
+!input/processing/**
+
+# Completed references are a local archive and must never be committed.
+input/processed/**
+!input/processed/.gitkeep
+input/**/.DS_Store

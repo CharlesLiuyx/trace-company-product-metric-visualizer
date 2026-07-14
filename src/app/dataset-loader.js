@@ -1,15 +1,25 @@
 /* Trace viewer · dataset-loader.js
  * Deep Runtime Data Loader Module on top of TraceDatasetRegistry.
  *
- * Callers express intent through a small Interface: ready(), ensure(), and
- * prefetch(). Request deduplication, script registration checks, failure
- * recovery, and network-aware speculative fetches stay in the Implementation.
- * Standalone/render harnesses have no manifest, so every operation is a no-op. */
+ * Callers express intent through a small Interface: ready(), ensure(),
+ * preload(), and prefetch(). Request deduplication, script registration
+ * checks, failure recovery, and network-aware speculative fetches stay in
+ * the Implementation.
+ *
+ * Loading-state contract per key: idle stub -> loading (one in-flight
+ * promise, shared by every caller) -> loaded (registry) or failed (the
+ * promise is dropped so the next ensure()/preload() retries with a fresh
+ * request). preload() is the background path: it settles every key
+ * independently, never rejects, and only warns once per failing key —
+ * a later user-driven ensure() surfaces the retryable error UI.
+ * Standalone/render harnesses have no manifest, so every operation is a
+ * no-op. */
 
 const datasetLoader = (() => {
   const registry = window.TraceDatasetRegistry || null;
   const loadPromises = new Map();
   const prefetchLinks = new Map();
+  const preloadWarnedKeys = new Set();
 
   function uniqueKnownKeys(keys = []) {
     return [...new Set(keys.filter(Boolean))]
@@ -37,11 +47,14 @@ const datasetLoader = (() => {
       script.dataset.datasetKey = key;
       script.onload = () => {
         loadPromises.delete(key);
+        // The adapter registered itself on execution; the DOM node has no
+        // further purpose, and company-scope preloading would otherwise
+        // accumulate hundreds of dead script tags over a browsing session.
+        script.remove();
         if (registry.isLoaded(key)) {
           resolve();
           return;
         }
-        script.remove();
         reject(new Error(`Dataset script did not register ${key}`));
       };
       script.onerror = () => {
@@ -57,6 +70,21 @@ const datasetLoader = (() => {
 
   function ensure(keys = []) {
     return Promise.all(uniqueKnownKeys(keys).map(loadOne)).then(() => undefined);
+  }
+
+  /* Background bulk loading (company-scope preload). Unlike ensure(), one
+   * failing key neither rejects the batch nor blocks the other keys; the
+   * failure is remembered only to deduplicate the console warning. */
+  function preload(keys = []) {
+    if (!registry || !allowsIntentPrefetch()) return Promise.resolve();
+    const targets = uniqueKnownKeys(keys).filter((key) => !registry.isLoaded(key));
+    return Promise.all(targets.map((key) =>
+      loadOne(key).catch((error) => {
+        if (preloadWarnedKeys.has(key)) return;
+        preloadWarnedKeys.add(key);
+        console.warn(`Dataset preload failed for ${key}; it will retry on demand.`, error);
+      })
+    )).then(() => undefined);
   }
 
   function allowsIntentPrefetch() {
@@ -85,5 +113,5 @@ const datasetLoader = (() => {
     });
   }
 
-  return Object.freeze({ ready, ensure, prefetch });
+  return Object.freeze({ ready, ensure, preload, prefetch });
 })();
