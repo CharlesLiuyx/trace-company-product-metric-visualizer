@@ -68,6 +68,25 @@ function validateHoverShareContract(dataset, errors) {
   }
 }
 
+// G2 enforces "rendered viewBox equals the reference-image dimensions", but
+// only at render time. Authored canvas drift (salesforce-q1-fy27 declared
+// render.width 3050 against a 2958px reference, casebook CB-011) previously
+// survived until the CI d3 smoke; check the same invariant statically so any
+// checkout catches it at pnpm check time without a browser.
+function validateRenderCanvas(dataset, errors) {
+  const reference = dataset.meta?.referenceImage;
+  if (!reference || typeof reference !== 'object') return;
+  const render = dataset.render || {};
+  for (const side of ['width', 'height']) {
+    if (typeof render[side] !== 'number' || typeof reference[side] !== 'number') continue;
+    assert(
+      render[side] === reference[side],
+      `${dataset.key}: render.${side} ${render[side]} disagrees with meta.referenceImage.${side} ${reference[side]}`,
+      errors
+    );
+  }
+}
+
 function validateRecordShape(record, errors) {
   const forbidden = ['nodes', 'links', 'layout', 'render'];
   for (const field of forbidden) {
@@ -391,6 +410,7 @@ function main() {
   }
 
   const datasetsByKey = new Map(datasets.map((dataset) => [dataset.key, dataset]));
+  for (const dataset of datasets) validateRenderCanvas(dataset, errors);
   for (const record of records) {
     validateRecordShape(record, errors);
     const dataset = datasetsByKey.get(record.key);
