@@ -247,6 +247,23 @@ async function main() {
     assert.match(source, /CONTEXT\.md/, `${name} must route architecture context`);
     assert.match(source, /docs\/architecture\/README\.md/, `${name} must route the architecture index`);
   }
+  // Minimal mirror parity: the Chinese mirror must keep the same section
+  // skeleton (## heading count) and command-table row count as AGENTS.md, so
+  // a section or command added on one side cannot silently vanish on the
+  // other. Content-level translation stays a human duty.
+  const sectionCount = (source) => source.split(/\r?\n/).filter((line) => /^## /.test(line)).length;
+  const commandRowCount = (source) =>
+    source.split(/\r?\n/).filter((line) => /^\|\s*`pnpm |^\|\s*`sh /.test(line)).length;
+  assert.equal(
+    sectionCount(mirror),
+    sectionCount(agents),
+    'docs/AGENTS.zh-CN.review.md must mirror the AGENTS.md section skeleton (## heading count)'
+  );
+  assert.equal(
+    commandRowCount(mirror),
+    commandRowCount(agents),
+    'docs/AGENTS.zh-CN.review.md must mirror the AGENTS.md command table (row count)'
+  );
 
   const [flowchart, workflow, inputReadme, dataReadme, context, archIndex, lifecycle, verification] = await Promise.all([
     readFile(projectPath('docs/workflow-flowchart.zh-CN.html'), 'utf8'),
