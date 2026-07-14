@@ -35,14 +35,19 @@ canonical 表统一使用三列：
 - `quantified-audit`：程序给出量化事实，仍需人工完成语义判断。
 - `manual`：必须人工判断并留下绑定证据的决定。
 
-### 四个迭代术语
+### 迭代术语表
 
-- `preflight`：第一次候选渲染前，对参考图逐对象测量。
-- `sweep stage`：结构、文本、润色/本地化三层检查中的一层。
-- `evidence run`：一次真实渲染及其证据归档；archive 序号只表示运行顺序。
-- `human iteration`：一次人工发现、修复、复查和决定。
+| 术语 | 中文 | 含义 |
+| --- | --- | --- |
+| `preflight` | 渲染前测量 | 第一次候选渲染前，对参考图逐对象测量。 |
+| `sweep stage` | 检查层 | 结构、文本、润色/本地化三层检查中的一层（§4）。 |
+| `evidence run` | 证据运行 | 一次真实渲染及其证据归档；存档序号只表示运行顺序，由工具自动递增，不接受手工指定。 |
+| `human iteration` | 人工迭代 | 一次人工发现、修复、复查和决定。 |
+| `focus` | 证据方向标签 | 证据存档的方向标签；Build-bound 证据必须取 §4 的 canonical stage focus 枚举值，自由字符串仅限只读诊断。 |
+| `freeze` / `reopen` | 冻结 / 重开 | 当前层检查闭合 / 因对象变化、自动回退、用户反馈或早层错误而重新打开（§4）。 |
 
-不要再用含义不清的“第几轮”同时指代以上四件事。
+不要再用含义不清的“第几轮”同时指代以上概念；运行顺序只由 evidence run 的
+自动序号表达。
 
 ### 判定优先级
 
@@ -209,6 +214,11 @@ ChangeImpact 的枚举和分类边界由 `docs/architecture/dataset-lifecycle.md
 
 `sweep stage` 是人工进度分层，不是 VerificationPlan 的字段，也不改变 checkResult 的
 scope。下面每节列出的对象/检查就是固定归属；跨 stage 的 global/final checks 在结束时汇总。
+
+本文档拥有 canonical stage focus 枚举，机器镜像是
+`scripts/lib/fidelity-stages.mjs`：`structure-sweep`、`text-sweep`、
+`polish-l10n-sweep`，外加收尾复验的 `closeout-refresh`。`record:fidelity
+--build` 只接受这四个值；自由 focus 字符串仅限只读诊断与 legacy 兼容存档。
 
 ### Structure stage
 

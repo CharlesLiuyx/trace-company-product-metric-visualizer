@@ -49,7 +49,7 @@ async function seedArtifacts(run, marker) {
   ]);
 }
 
-function finalizationOptions(similarity, round = 1) {
+function finalizationOptions(similarity) {
   return {
     focus: 'parallel safety',
     fullMetrics: { similarity },
@@ -67,7 +67,6 @@ function finalizationOptions(similarity, round = 1) {
       },
       full: { similarity },
     },
-    round,
   };
 }
 

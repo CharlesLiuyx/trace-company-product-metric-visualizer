@@ -304,7 +304,12 @@ returns.
     durable evidence run uses the Build and Packet identity:
 
         pnpm record:fidelity -- <dataset-key> --build <build-id> \
-          --focus <direction> [--language <code>] [--round <n>]
+          --focus <stage-focus> [--language <code>]
+
+    `--focus` must be one of the canonical stage focus values owned by
+    `docs/fidelity-loop-rules.md` §4 (`structure-sweep`, `text-sweep`,
+    `polish-l10n-sweep`, `closeout-refresh`); archive sequence numbers are
+    derived automatically from run order.
 
     A successful command records `fidelity-run/2` `evidence-ready` artifacts;
     it does **not** record `accepted`. Repeat after every authored change and

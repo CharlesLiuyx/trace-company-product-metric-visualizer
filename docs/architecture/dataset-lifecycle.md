@@ -119,6 +119,11 @@ joined later by the Dataset Build Module rather than inferred from this run.
 
 ## Durable lifecycle objects
 
+New protocol identifiers use `<name>/v<n>`. The existing `fidelity-run/1` and
+`fidelity-run/2` strings predate this convention and stay unchanged: renaming
+a recorded protocol identity would invalidate existing archives for no
+semantic gain.
+
 ### ObjectInventory
 
 `object-inventory/v3` accounts for every coarsely inventoried Source object with a

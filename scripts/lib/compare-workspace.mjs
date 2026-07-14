@@ -253,21 +253,22 @@ export async function findPreviousAcceptedRun(run) {
   return (await comparableRuns(run))[0] || null;
 }
 
-function roundSegment(round) {
-  return String(round).padStart(2, '0');
+function sequenceSegment(sequence) {
+  return String(sequence).padStart(2, '0');
 }
 
 export async function planFidelityRun(run, options) {
   const previousRuns = await comparableRuns(run);
   const previous = previousRuns[0] || null;
-  const numericRound = options.round || previousRuns.length + 1;
-  const round = roundSegment(numericRound);
+  // The archive sequence only records run order (docs/fidelity-loop-rules.md
+  // §1 "evidence run"); it is derived, never caller-supplied.
+  const sequence = sequenceSegment(previousRuns.length + 1);
   const improvement = improvementSegment(previous?.full, options.fullMetrics);
   const focus = archiveSegment(options.focus, 'unspecified');
   return {
     datasetCompareDir: path.join(run.outputRoot, run.identity.dataset),
-    archiveBaseName: `${round}-${improvement}-${focus}`,
-    round,
+    archiveBaseName: `${sequence}-${improvement}-${focus}`,
+    sequence,
     improvement,
     focus,
     previousArchive: previous?.archive || null,
@@ -346,7 +347,7 @@ export async function finalizeFidelityRun(run, options) {
       const archive = {
         dir: relativeToProject(run, archiveDir),
         name: archiveName,
-        round: plan.round,
+        sequence: plan.sequence,
         improvement: plan.improvement,
         focus: plan.focus,
         previousArchive: plan.previousArchive,

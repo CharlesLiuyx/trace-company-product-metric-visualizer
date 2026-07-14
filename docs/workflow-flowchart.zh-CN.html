@@ -866,7 +866,7 @@ pnpm exec playwright install chromium</span>
         <tr><td><code>data/datasets/&lt;key&gt;.js</code></td><td>Sankey 视图 adapter（nodes/links/layout + i18n overlay）</td><td>P3.2–3.3</td></tr>
         <tr><td><code>data/dataset-manifest.js</code></td><td>dataset 注册（生成物，<code>pnpm sync:index-datasets</code>）</td><td>P3.4</td></tr>
         <tr><td><code>output/builds/&lt;build-id&gt;/</code></td><td>build-local manifest、ObjectInventory、VerificationPlan、review packet/token、FidelityResult、Feedback Ledger、baseline stage 与 seal receipts</td><td>P1.4、P4.2–P5.1</td></tr>
-        <tr><td><code>output/compare/&lt;key&gt;/&lt;round&gt;-&lt;improvement&gt;-&lt;focus&gt;/</code></td><td><code>record:fidelity</code> durable evidence：候选图、Diff、metrics、Interface audit/contact sheet 与 identity；Build-bound 时为 <code>evidence-ready</code>，不是 human accepted</td><td>P4.2–4.4</td></tr>
+        <tr><td><code>output/compare/&lt;key&gt;/&lt;seq&gt;-&lt;improvement&gt;-&lt;focus&gt;/</code></td><td><code>record:fidelity</code> durable evidence：候选图、Diff、metrics、Interface audit/contact sheet 与 identity；序号由运行顺序自动递增，Build-bound 时 focus 取 canonical stage focus 枚举且状态为 <code>evidence-ready</code>，不是 human accepted</td><td>P4.2–4.4</td></tr>
         <tr><td><code>compare/runs/</code></td><td>d3 diagnostic/evidence 的 per-run 临时 scratch；<code>verify:d3</code> 不把它晋级为 archive</td><td>P4.1–4.2</td></tr>
         <tr><td><code>data/dataset-file-metadata.js</code></td><td>Recently-updated 排序用的生成 metadata（本地维护，云端不重生成）</td><td>P5.2</td></tr>
         <tr><td><code>data/revenue-metrics.js</code></td><td>收入指标纯数据 SSOT 记录（B 类输入的数据支线终点，无渲染产物）</td><td>P2.B</td></tr>
