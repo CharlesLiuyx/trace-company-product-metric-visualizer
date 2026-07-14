@@ -798,7 +798,7 @@ pnpm exec playwright install chromium</span>
       <ul>
         <li>stage 只供未来回归，不能反过来证明产生它的 Build；Revenue Metric Adapter 显式记录 baseline <code>notApplicable</code>；</li>
         <li><code>seal</code> 不接收人工拼装的 verification JSON，而是内部重算当前 artifact freshness 并自行重跑 Adapter final profile（非渲染一致性 + Income Statement 每 required locale 的 d3 渲染硬门槛，逐条记入 <code>finalProfiles</code>）；任一 exact digest 已变或 profile 失败即拒绝（seal 前不再要求手动 <code>verify:dataset</code>）；</li>
-        <li><code>verify:closeout</code> 只读要求 historical/effective 都为 <code>SEALED</code>、fresh 且 human review accepted；close-out requirement policy（合入 main 的底线是 accepted <code>FidelityResult</code>，跳过 staging/seal/closeout 须连原因写进汇报）由工作流文档 step 13 拥有。</li>
+        <li><code>verify:closeout</code> 只读要求 historical/effective 都为 <code>SEALED</code>、fresh 且 human review accepted；close-out requirement policy（合入 main 的底线是 accepted <code>FidelityResult</code>，跳过 staging/seal/closeout 须连原因写进汇报）由工作流文档 step 14 拥有。</li>
         <li><code>verify:closeout</code> 通过也不移动 Source。只有操作者完成信号授权 relocation：先枚举整批并呈清单给操作者确认，确认后检查同名冲突，再移动确认的 processing PNG，不补造 lifecycle receipt；无信号则继续留在 processing。processed 永不改名。</li>
       </ul>
       <p class="dim"><code>SEALED</code> 与 Source relocation 都不是 <code>PUBLISHED</code>：后者只是当前兼容操作，M4 原子 Publication 仍未实现。现有 <code>compat:baseline</code>（由 <code>record:baseline</code> 更名，刻意置于四类命令之外）若因兼容 runtime 仍需执行，它是新 close-out verdict 之外的 transitional canonical mutation，不能作为本 Build 的通过证据。</p>
@@ -898,11 +898,11 @@ pnpm exec playwright install chromium</span>
   <div class="body">
     <p><b>并行组</b>（依赖关系决定，可交错推进或分派 Subagent）：</p>
     <ul>
-      <li><b>E0 串行门</b>：P1 守卫 → 定 key → <code>record:intake</code> no-clobber 领取到 processing。守卫未过，一切不得开始；停止条件终止全程。</li>
-      <li><b>E1 并行准备</b>：P2.0 粗盘点先行定范围，随后三轨并行——Track A 数据（P2.1 公司档案 → P2.2 损益表 SSOT 及 i18n 字段）∥ Track B 视觉（P3.1 逐对象精细测量）∥ Track C 图标（P2.3 子循环，条件）。</li>
-      <li><b>E2 串行编写</b>：P3.2 adapter（需 A 数值 + B 几何）→ P3.3 dataset overlay（需 adapter 定稿文案）→ P3.4 注册；Track C 收敛后随时接入。</li>
-      <li><b>E3 验证与 Review</b>：prepare-review → Build-bound evidence → human finish（P4.1 聚合诊断降级为可选排查）。stage 间串行；同一 stage 内的候选试值、每语言 evidence 可并行；只有人工 accepted 结果可关闭 Build。</li>
-      <li><b>E4 串行收尾</b>：操作者完成信号先枚举整批并呈清单确认，确认后做 no-clobber 检查再移动；无信号则留在 processing。Build-local baseline stage → fresh seal → read-only closeout 只负责审计，不授权移动；最后 check / 提交 / 汇报，且不冒充尚未实现的 M4 Publication。</li>
+      <li><b>步骤 1–3 串行门</b>：P1 守卫 → 定 key → <code>record:intake</code> no-clobber 领取到 processing。守卫未过，一切不得开始；停止条件终止全程。</li>
+      <li><b>步骤 4–8 并行准备</b>：P2.0 粗盘点先行定范围，随后三轨并行——Track A 数据（P2.1 公司档案 → P2.2 损益表 SSOT 及 i18n 字段）∥ Track B 视觉（P3.1 逐对象 preflight 测量）∥ Track C 图标（P2.3 子循环，条件）。</li>
+      <li><b>步骤 9–11 串行编写</b>：P3.2 adapter（需 A 数值 + B 测量）→ P3.3 dataset overlay（需 adapter 定稿文案）→ P3.4 注册；Track C 收敛后随时接入。</li>
+      <li><b>步骤 12–14 验证与 Review</b>：prepare-review → Build-bound evidence → human finish（P4.1 聚合诊断降级为可选排查）。stage 间串行；同一 stage 内的候选试值、每语言 evidence 可并行；structure/text 迭代只需源语言，polish-l10n 与 closeout-refresh 覆盖全部 required locales；只有人工 accepted 结果可关闭 Build。</li>
+      <li><b>步骤 15 串行收尾</b>：操作者完成信号先枚举整批并呈清单确认，确认后做 no-clobber 检查再移动；无信号则留在 processing。Build-local baseline stage → fresh seal → read-only closeout 只负责审计，不授权移动；最后 check / 提交 / 汇报，且不冒充尚未实现的 M4 Publication。</li>
     </ul>
     <p><b>难度分派</b>（分派不降门槛：同一套 verifier 把关，主 Agent 复核并对结果负责）：</p>
     <table class="map">

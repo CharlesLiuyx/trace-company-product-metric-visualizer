@@ -43,40 +43,18 @@ lifecycle receipts, and do not report it as M4 Publication.
 
 ## Execution Model
 
-### Parallel groups
+### Step dependency map
 
-The pipeline is not strictly serial. Dependency-wise it forms five groups:
+The step numbers 1–15 below are the only pipeline coordinate system; phases
+P1–P5 are chapter titles over the same numbers. Dependency-wise:
 
-- **E0 — serial gate (steps 1–3).** Guard, key, and Source claim. Nothing else
-  may start before the guard passes and `record:intake` has no-clobber claimed
-  the Source as `input/processing/<dataset-key>.png`; a stop condition ends
-  the whole run.
-- **E1 — parallel preparation (steps 4–7).** Everything here depends only on
-  the frozen key + reference image, so the three tracks may run concurrently
-  (as interleaved work or delegated subagents):
-  - Track A (data): company metadata (step 5), then the financial SSOT
-    record (step 6), plus their i18n fields.
-  - Track B (visual): input typing + durable `ObjectInventory` (step 4), then
-    the fine pre-render measurement (start of step 8).
-  - Track C (icons, conditional): the crop/vector subloop (step 7). Its
-    cluster scope comes from the step 4 inventory, so it starts after the
-    coarse pass — still parallel to Tracks A and B.
-- **E2 — serial authoring (steps 8–10).** Adapter authoring needs Track A
-  values and Track B geometry; dataset i18n overlays need the adapter's
-  final label text; registration follows. Icon assets from Track C plug in
-  here whenever they converge.
-- **E3 — verification and review (steps 11–13).** Prepare the authored
-  snapshot and `ReviewPacket`, record Build-bound dataset verification and
-  `fidelity-run/2` evidence, then finish human review, stage the baseline,
-  and seal. Sweep stages are serial when one depends on another; candidate-
-  value trials within one human iteration and independent locale evidence runs
-  may run in parallel.
-- **E4 — serial close-out (step 14 plus the Verification Checklist and
-  Reporting below).** An operator review-completion signal moves the
-  processing batch only after the operator confirms the enumerated list
-  (§Operator Review-Completion Signal). Without that signal, leave the
-  Sources in `processing/`. Build close-out remains a separate read-only
-  audit and never authorizes relocation by itself.
+| steps | mode | dependency |
+| --- | --- | --- |
+| 1–3 | serial gate | nothing else may start before the guard passes and `record:intake` has no-clobber claimed the Source as `input/processing/<dataset-key>.png`; a stop condition ends the whole run |
+| 4–8 | parallel preparation | everything depends only on the frozen key + reference image, so three tracks may run concurrently (as interleaved work or delegated subagents): Track A (data) = company metadata (step 5) then the financial SSOT record (step 6) plus their i18n fields; Track B (visual) = input typing + durable `ObjectInventory` (step 4) then the preflight measurement (step 8); Track C (icons, conditional) = the crop/vector subloop (step 7), scoped by the step 4 inventory, so it starts after the coarse pass |
+| 9–11 | serial authoring | adapter authoring (step 9) needs Track A values and Track B measurements; dataset i18n overlays (step 10) need the adapter's final label text; registration (step 11) follows; icon assets from Track C plug in whenever they converge |
+| 12–14 | verification and review | prepare the authored snapshot and `ReviewPacket`, record Build-bound dataset verification and `fidelity-run/2` evidence, then finish human review, stage the baseline, and seal; sweep stages are serial when one depends on another, while candidate-value trials within one human iteration and independent locale evidence runs may run in parallel |
+| 15 | serial close-out | plus the Verification Checklist and Reporting below; an operator review-completion signal moves the processing batch only after the operator confirms the enumerated list (§Operator Review-Completion Signal), otherwise leave the Sources in `processing/`; Build close-out remains a separate read-only audit and never authorizes relocation by itself |
 
 ### Difficulty-based executor routing
 
@@ -94,18 +72,19 @@ returns.
 | 6 financial SSOT record | high | main agent — financial semantics, rounding, currency contract |
 | 7 icon crops: script runs | low | subagent OK |
 | 7 icon crops: spec boxes + acceptance | high | main agent — visual acceptance judgment feeds runtime assets |
-| 8 fine measurement + adapter authoring | high | main agent |
-| 9 i18n overlays: first draft | low–medium | subagent OK; main agent re-checks high-risk strings (`R&D`, `SG&A`, money suffixes, mixed-script brand names) |
-| 10 registration / `sync:index-datasets` | low | either |
-| 11 prepare review (`ObjectInventory` → `VerificationPlan` / `ReviewPacket`) | medium | main agent — the durable inventory, impacts, locales, and authored mappings define every later obligation |
-| 12 fidelity loop: triage, fixes, RegionDecision / feedback decisions | high | main agent |
-| 12 dataset verification and fidelity evidence collection | low | subagent OK — use `record:verification` for consistency and `record:fidelity` for render evidence; `verify:d3` remains diagnostic |
-| 13 finish review, stage baseline, fresh seal | medium | main agent |
-| 14 close-out verification, operator-authorized Source relocation, commits, reporting | medium | main agent |
+| 8 preflight measurement | high | main agent — measurements become T18/T19 feature evidence |
+| 9 adapter authoring | high | main agent |
+| 10 i18n overlays: first draft | low–medium | subagent OK; main agent re-checks high-risk strings (`R&D`, `SG&A`, money suffixes, mixed-script brand names) |
+| 11 registration / `sync:index-datasets` | low | either |
+| 12 prepare review (`ObjectInventory` → `VerificationPlan` / `ReviewPacket`) | medium | main agent — the durable inventory, impacts, locales, and authored mappings define every later obligation |
+| 13 fidelity loop: triage, fixes, RegionDecision / feedback decisions | high | main agent |
+| 13 dataset verification and fidelity evidence collection | low | subagent OK — use `record:verification` for consistency and `record:fidelity` for render evidence |
+| 14 finish review, stage baseline, fresh seal | medium | main agent |
+| 15 close-out verification, operator-authorized Source relocation, commits, reporting | medium | main agent |
 
 ## New Dataset Pipeline
 
-### Phase P1 — Intake & guard (E0, serial)
+### Phase P1 — Intake & guard (steps 1–3, serial)
 
 1. Select one pending PNG and guard that item with
    `pnpm check:pending -- --file input/pending/<file>.png --key <dataset-key>`
@@ -140,7 +119,7 @@ returns.
    Build ID, manifest path, and processing path in the durable review working
    record. This is a local compatibility claim, not canonical Publication.
 
-### Phase P2 — Source inventory & data SSOTs (E1, parallel tracks)
+### Phase P2 — Source inventory, data SSOTs & preflight (steps 4–8, parallel tracks)
 
 4. Confirmed input typing & coarse object inventory (Track B; do this first — it
    seeds the other tracks): look at the whole image coarsely before any
@@ -160,33 +139,27 @@ returns.
      ID, kind, `render` / `data-only` / `skip` disposition, authored mapping,
      required locales, render-risk features, source evidence, and a reason for
      every skip. A prose list or only three counts is not durable inventory.
-     Every Sankey-node object must choose exactly one node-face intent:
-     `visible-node-face` or `hidden-anchor`; `visible-short-node` additionally
-     marks short visible faces, while `specified-label-weight` records a
-     source-backed heading weight. Every render object that maps a fixed
-     `layout.labels.*` group must declare `measured-label-position` with the
-     persisted native reference measurement — the Plan refuses to compile
-     without it (T18/T19). A label whose slot or grouping reads ambiguously in
-     the reference declares `ambiguous-label-slot` instead of guessing: T20
-     requires the operator's slot decision before the text stage freezes, so
-     ask with the reference crop up front rather than rendering one
-     interpretation and waiting for review to correct it. Before choosing `annotationsSvg`, classify
-     each nearby text group from the reference: node name/value/note copy uses
-     `layout.labels` by default; a genuine bespoke node callout/guide must be
-     recorded on its `node:*` object as `semantic-annotation` with native-pixel
-     source evidence and an interactive `data-node` surface. The full
-     feature/evidence contract lives in
-     `docs/fidelity-loop-rules.md` §2; do not restate its visual tests here.
-     Treat `visible-node-face` as the conservative default. `hidden-anchor` is
-     an exception that must satisfy the structured native-pixel confirmation
-     contract and compile both candidate-paint automation and an independent
-     global manual source-confirmation check.
-     The inventory drives SSOT
-     completeness (step 6 cross-check), icon crop scope (step 7), label
-     grouping (step 8), i18n coverage (step 9), and the skip list — record
-     it so the final report can state that every object is accounted for.
+   - Declare features per this quick table; the full feature/evidence
+     contract (fields, confirmation methods, visual tests) is owned solely by
+     `docs/fidelity-loop-rules.md` §2 and is not restated here:
+
+     | feature | declare when |
+     | --- | --- |
+     | `visible-node-face` | conservative default — every Sankey-node object, exactly one node-face intent |
+     | `hidden-anchor` | exception to the default; needs the structured native-pixel confirmation and compiles both candidate-paint automation and a global manual source confirmation |
+     | `visible-short-node` | short but visible face, in addition to `visible-node-face` |
+     | `measured-label-position` | every render object mapping a fixed `layout.labels.*` group; the Plan refuses to compile without the persisted native measurement (T18/T19) |
+     | `ambiguous-label-slot` | a label slot/grouping reads ambiguously — declare instead of guessing; T20 wants the operator's decision before the text stage freezes, so ask with the reference crop up front |
+     | `semantic-annotation` | a genuine bespoke node callout/guide drawn via `annotationsSvg`; node name/value/note copy defaults to `layout.labels` |
+     | `specified-label-weight` | the source specifies a heading weight |
+     | `visible-interface`, `centered-side-label`, `text`, `annotation-near-label` | declare per object facts; never omit to reduce checks |
+
+   - The inventory drives SSOT completeness (step 6 cross-check), icon crop
+     scope (step 7), preflight measurement and label grouping (steps 8–9),
+     i18n coverage (step 10), and the skip list — record it so the final
+     report can state that every object is accounted for.
    - Only after the inventory is complete move to fine, per-object
-     measurement (step 8 / `docs/fidelity-loop-rules.md` §2).
+     measurement (step 8).
    - Keep the selected Source at `input/processing/<dataset-key>.png` for the
      entire inventory, authoring, crop, fidelity, and close-out workflow. Do
      not promote it early merely because inventory or authoring is complete.
@@ -227,22 +200,24 @@ returns.
    fallback to `input/processing/`.
    Crop/vector iteration and raster whitelist rules:
    `docs/fidelity-loop-rules.md`; folder layout: `data/assets/README.md`.
+8. Preflight measurement (Track B, after the step 4 inventory): run the
+   preflight measurement in `docs/fidelity-loop-rules.md` §2, walking the
+   step 4 inventory object by object. Persist the measured node, link/socket,
+   label, annotation and Interface Matrix inputs required there; label-group
+   measurements land as `measured-label-position` featureEvidence bound to
+   this Build's Source digest — prepare-review rejects coordinates measured
+   on another period's image, and the T18 audit replays the comparison on
+   every evidence run. Measurements feed the first authored adapter
+   directly; do not rough-place and converge through repeated evidence runs.
 
-### Phase P3 — Adapter & i18n (E2, serial)
+### Phase P3 — Adapter & i18n (steps 9–11, serial)
 
-8. Adapter: first run the preflight measurement in
-   `docs/fidelity-loop-rules.md` §2, walking the step 4 inventory object by
-   object. Persist the measured node, link/socket, label, annotation and
-   Interface Matrix inputs required there; label-group measurements land as
-   `measured-label-position` featureEvidence bound to this Build's Source
-   digest — prepare-review rejects coordinates measured on another period's
-   image, and the T18 audit replays the comparison on every evidence run.
-   After the first candidate render,
-   collect its candidate-side Matrix rows and `nodePaintAudit`. Then author
-   `data/datasets/<dataset-key>.js` per
+9. Adapter: author `data/datasets/<dataset-key>.js` per
    `data/schema.md` as a high-fidelity adapter with explicit `nodes`,
-   `links`, `layout.nodes`, and `layout.labels` tuned against the source
-   image. Keep each semantic label unit (name, value, notes, margin, Y/Y)
+   `links`, `layout.nodes`, and `layout.labels` tuned against the step 8
+   measurements. After the first candidate render, collect its
+   candidate-side Matrix rows and `nodePaintAudit`.
+   Keep each semantic label unit (name, value, notes, margin, Y/Y)
    grouped under one node/label intent before splitting into blocks or
    lines; preserve source values and notes; keep costs positive
    (`type: 'cost'` renders parenthesized); treat publisher watermarks,
@@ -258,23 +233,23 @@ returns.
    `render.interfaceAudit: { mode: 'error' }`. A `fullFaceIds` entry is valid
    only with the matching `interface-matrix/v1` row and provenance described
    by `data/schema.md`; interface artifacts do not belong in the financial SSOT.
-9. i18n: English is canonical. Add `i18n.<language>` overlays — never
-   parallel dataset files — for every non-default language in
-   `window.SANKEY_I18N.languageCodes`, covering dataset `name`, `meta`
-   fields, node labels/notes, and every fixed `layout.labels` or annotation
-   line that changes in translation, plus the matching SSOT labels/notes and
-   company profile. Overlays are display-only: never change values, links,
-   node geometry, financial totals, source images, or verification semantics.
-10. Register: run `pnpm sync:index-datasets` — it appends the dataset to the
+10. i18n: English is canonical. Add `i18n.<language>` overlays — never
+    parallel dataset files — for every non-default language in
+    `window.SANKEY_I18N.languageCodes`, covering dataset `name`, `meta`
+    fields, node labels/notes, and every fixed `layout.labels` or annotation
+    line that changes in translation, plus the matching SSOT labels/notes and
+    company profile. Overlays are display-only: never change values, links,
+    node geometry, financial totals, source images, or verification semantics.
+11. Register: run `pnpm sync:index-datasets` — it appends the dataset to the
     generated `data/dataset-manifest.js` (the registration SSOT; adapters no
     longer get `index.html` tags). When the dataset reuses another, keep it
     after its dependency in manifest order. Declare untranslated sub-brand
     annotation words in the dataset's `i18n.preservedAnnotationText` (see
     Traps).
 
-### Phase P4 — Verify and review (E3)
+### Phase P4 — Verify and review (steps 12–14)
 
-11. Prepare review from the completed `ObjectInventory`, authored artifact
+12. Prepare review from the completed `ObjectInventory`, authored artifact
     paths, `ChangeImpact`, and required locales:
 
         pnpm record:build -- prepare-review <build-id> --input <review-input.json>
@@ -290,17 +265,14 @@ returns.
     remain inspectable, but an unfinished v1/v2 review must rerun this step to
     create v3 inventory and Plan inputs before `finish`; there is no lenient
     close-out path.
-12. Record Build-bound consistency evidence and keep the returned object
+13. Record Build-bound consistency evidence and keep the returned object
     reference for finish:
 
         pnpm record:verification -- <build-id> --json
 
     It runs the non-render dataset profile (syntax, SSOT, strict i18n,
     generated metadata), so a separate upfront `verify:dataset` pass adds no
-    coverage. Use `verify:dataset` / `verify:d3` only when a read-only
-    diagnostic is wanted without recording evidence: neither writes a durable
-    review archive, and an automatic pass is never human acceptance.
-    For Income Statement, run the manual loop next. Every
+    coverage. For Income Statement, run the manual loop next. Every
     durable evidence run uses the Build and Packet identity:
 
         pnpm record:fidelity -- <dataset-key> --build <build-id> \
@@ -311,13 +283,28 @@ returns.
     `polish-l10n-sweep`, `closeout-refresh`); archive sequence numbers are
     derived automatically from run order.
 
+    Once a Build is open, record evidence with `record:fidelity` directly —
+    it prints the same diagnostics, and a failed run archives as failed, so
+    a prior `verify:d3` pass of the same candidate only doubles the render
+    cost (mirroring how `record:verification` makes an upfront
+    `verify:dataset` redundant). Keep `verify:d3` for pre-Build exploration
+    and renderer engineering; neither it nor `verify:dataset` writes a
+    durable review archive, and an automatic pass is never human acceptance.
+
+    Locale scope follows the sweep stage (owned by
+    `docs/fidelity-loop-rules.md` §4): `structure-sweep` and `text-sweep`
+    iterations need only the source locale; `polish-l10n-sweep` and
+    `closeout-refresh` cover every required locale. Final acceptance is
+    unchanged — `finish` still requires fresh per-locale evidence for the
+    final authored digest.
+
     A successful command records `fidelity-run/2` `evidence-ready` artifacts;
-    it does **not** record `accepted`. Repeat after every authored change and
-    for every required locale, per `docs/fidelity-loop-rules.md`. Each run
-    supplies scoped automatic results, including `nodePaintAudit` and the
-    candidate interface layer; the complete Interface Matrix and genuinely
-    manual checks are reconciled during review.
-13. After the final authored change, prepare a fresh Packet if its digest is
+    it does **not** record `accepted`. Repeat after every authored change
+    (with the stage-scoped locale set), per `docs/fidelity-loop-rules.md`.
+    Each run supplies scoped automatic results, including `nodePaintAudit`
+    and the candidate interface layer; the complete Interface Matrix and
+    genuinely manual checks are reconciled during review.
+14. After the final authored change, prepare a fresh Packet if its digest is
     stale, rerun `record:verification` plus every affected locale evidence,
     and finish with a review JSON containing the `reviewToken`, returned
     `verificationReference`, `ManualAttestation`, `manualCheckDecisions`,
@@ -359,15 +346,27 @@ returns.
     Publication lands, merging without them is permitted only when the final
     report explicitly names the skipped steps and the reason.
 
-### Phase P5 — Close out (E4)
+### Incremental re-verification
 
-14. Apply §Operator Review-Completion Signal when its trigger is present:
+When something changes mid-review, this is the minimum set to rerun (it
+condenses steps 12–14; on conflict those steps own the rule):
+
+| change | prepare-review | record:verification | record:fidelity | finish |
+| --- | --- | --- | --- | --- |
+| authored file (adapter/SSOT/i18n) | rerun when the packet digest is stale | rerun | rerun stage-scoped locales (all required locales for the final digest) | rerun |
+| inventory / Plan inputs (objects, features, impacts, locales) | rerun | rerun | rerun all | rerun |
+| review JSON only (decisions, attestation) | no | no | no | rerun |
+| renderer / protocol / rule contract | rerun | rerun | rerun all | rerun |
+
+### Phase P5 — Close out (step 15)
+
+15. Apply §Operator Review-Completion Signal when its trigger is present:
     enumerate every current processing PNG, present the complete list for the
     operator's confirmation, and only after confirmation no-clobber move the
     confirmed batch to `input/processed/` and report the moved set. Without a
     signal, leave all Sources in `processing/` and report that no relocation
     was authorized. Independently, the read-only Build audit remains
-    available per the step 13 close-out requirement policy:
+    available per the step 14 close-out requirement policy:
 
         pnpm verify:closeout -- <build-id>
 
@@ -598,7 +597,7 @@ For a new or materially changed dataset:
 - Per non-default language, the rendered SVG was visually inspected — the
   aggregate command does not replace this step.
 - `pnpm verify:closeout -- <build-id>` passes after baseline staging and the
-  fresh seal per the step 13 close-out requirement policy (an accepted
+  fresh seal per the step 14 close-out requirement policy (an accepted
   `FidelityResult` is the merge floor; skipped staging/seal/closeout must be
   named in the report with the reason), but it never relocates a Source. Only
   the operator review-completion rule moves the confirmed batch to
