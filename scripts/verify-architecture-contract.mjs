@@ -90,11 +90,20 @@ async function verifyFidelityRuleContract({ workflow, flowchart }) {
   assert.match(source, /REG-001/, 'fidelity rules must reserve the region namespace');
   assert.match(source, /FB-001/, 'fidelity rules must reserve the feedback namespace');
 
+  // The feedback casebook is the Git-tracked cross-checkout recurrence
+  // memory (the machine ledger only sees the local build root). It must
+  // stay routed, reference only known rules, and never become a second
+  // rule-definition surface.
+  const casebook = await readFile(projectPath('docs/fidelity-feedback-casebook.md'), 'utf8');
+  assert.match(source, /fidelity-feedback-casebook\.md/, 'fidelity rules must route the feedback casebook');
+
   assertNoSecondaryFidelityRuleDefinitions(workflow, 'docs/dynamic-dataset-workflow.md');
   assertNoSecondaryFidelityRuleDefinitions(flowchart, 'docs/workflow-flowchart.zh-CN.html');
+  assertNoSecondaryFidelityRuleDefinitions(casebook, 'docs/fidelity-feedback-casebook.md');
   for (const [label, secondarySource] of [
     ['docs/dynamic-dataset-workflow.md', workflow],
     ['docs/workflow-flowchart.zh-CN.html', flowchart],
+    ['docs/fidelity-feedback-casebook.md', casebook],
   ]) {
     const unknown = extractFidelityRuleReferences(secondarySource).filter(
       (id) => !(id in FIDELITY_RULE_CONTRACT.enforcements) && !(id in FIDELITY_RULE_CONTRACT.aliases)
@@ -329,7 +338,9 @@ async function main() {
   assert.match(inputReadme, /data\/dataset-manifest\.js/, 'input README must route dataset registration to the manifest');
   assert.match(dataReadme, /registered in\s+`data\/dataset-manifest\.js`/, 'data README must describe manifest-based dataset registration');
 
-  await Promise.all(CONTEXT_DOCS.map(verifyLocalMarkdownLinks));
+  await Promise.all(
+    [...CONTEXT_DOCS, 'docs/fidelity-feedback-casebook.md'].map(verifyLocalMarkdownLinks)
+  );
   const fidelityRuleCount = await verifyFidelityRuleContract({ workflow, flowchart });
   console.log(
     `architecture contract passed: ${DATASET_BUILD_STATES.length} Build states, ` +
