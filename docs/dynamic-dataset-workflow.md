@@ -276,12 +276,14 @@ returns.
     durable evidence run uses the Build and Packet identity:
 
         pnpm record:fidelity -- <dataset-key> --build <build-id> \
-          --focus <stage-focus> [--language <code>]
+          --focus <stage-focus> [--language <code> ...]
 
     `--focus` must be one of the canonical stage focus values owned by
     `docs/fidelity-loop-rules.md` §4 (`structure-sweep`, `text-sweep`,
     `polish-l10n-sweep`, `closeout-refresh`); archive sequence numbers are
-    derived automatically from run order.
+    derived automatically from run order. `--language` repeats: several
+    locales render sequentially in one command, sharing the server and
+    browser while each locale still produces its own run and archive.
 
     Once a Build is open, record evidence with `record:fidelity` directly —
     it prints the same diagnostics, and a failed run archives as failed, so

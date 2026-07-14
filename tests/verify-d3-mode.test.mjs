@@ -10,7 +10,23 @@ test('verify:d3 defaults to read-only diagnostic mode', () => {
   const options = parseArgs(['node', 'verify-d3.mjs', 'example-q4-fy25']);
   assert.equal(options.focus, 'unspecified');
   assert.equal(options.buildId, '');
+  assert.deepEqual(options.languages, ['en']);
   assert.equal(fidelityExecutionMode(options), 'diagnostic');
+});
+
+test('repeated --language flags render several locales in one command', () => {
+  const options = parseArgs([
+    'node',
+    'verify-d3.mjs',
+    'example-q4-fy25',
+    '--language',
+    'en',
+    '--language',
+    'zh',
+    '--language',
+    'zh',
+  ]);
+  assert.deepEqual(options.languages, ['en', 'zh']);
 });
 
 test('verify:d3 stays read-only even when a focus is supplied', () => {
