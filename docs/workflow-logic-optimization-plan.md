@@ -1,6 +1,7 @@
 # Workflow 与保真循环逻辑优化方案
 
-> 状态:提案,待操作者评审(见 §7 决策点)
+> 状态:已实施(2026-07-14,同分支;决策点已确认——W2 走路线 A、`--round`
+> 直接移除、可选项全做、新规则沿用字母命名空间;实施记录见 §8)
 > 编写日期:2026-07-14
 > 适用范围:`docs/fidelity-loop-rules.md`、`docs/dynamic-dataset-workflow.md`、
 > `AGENTS.md` 与 `docs/AGENTS.zh-CN.review.md` 的 Workflow/Commands 段、
@@ -65,6 +66,7 @@
 ## 2. 现状盘点:矛盾与摩擦清单
 
 每项带证据定位,后续阶段完成后可逐项勾销。
+(实施后状态:C1–C12 已全部处理,见 §8;本节保留原始诊断作为动机记录。)
 
 ### 2.1 文档与工具互相矛盾
 
@@ -382,16 +384,34 @@ c. **单命令多 locale(可选)**:`record:fidelity` 支持 `--language` 重复�
   ADR-0001 状态作用域;不降低任何验收严格度;不把本方案与 M4 Publication
   的目标语义混写(遵循 architecture 文档的 current vs target 纪律)。
 
-## 7. 决策点(需要操作者确认)
+## 7. 决策点(已确认,2026-07-14)
 
-1. **W2 路线**:推荐 A(catalog 数据文件为 SSOT,文档目录区生成)。备选 B:
-   Markdown 仍为 SSOT,仅把表格改为字段化逐规则小节并升级解析器——可读性
-   改善相同,但双登记与约 7 文件的迭代成本只降到约 5,漂移检测仍然只覆盖
-   ID/enforcement。若倾向保守可先走 B,后续再升级 A(A 兼容 B 的块格式)。
-2. **`--round` 处置**:推荐直接移除(存档序号已自动);备选是保留解析但
-   打印弃用警告一个周期。
-3. **可选项取舍**:W4c 单命令多 locale、W5 stageDecisions、W6 中文镜像
-   parity 检查,三项各自独立,可全要、全不要或任选。
-4. **新规则 ID 策略**:推荐沿用既有字母系列作纯命名空间(检索靠
-   stage/topic 字段);备选是为新规则引入统一前缀(需改 ID 正则,收益有限,
-   不推荐)。
+1. **W2 路线**:已确认路线 A——catalog 数据文件
+   (`scripts/lib/fidelity-rules-catalog.mjs`)为规则语义 SSOT,文档目录区由
+   `pnpm update:fidelity-rules-doc` 生成。
+2. **`--round` 处置**:已确认直接移除;存档序号由运行顺序自动递增。
+3. **可选项取舍**:已确认全做——W4c 单命令多 locale、W5 stageDecisions、
+   W6 中文镜像 parity 检查。
+4. **新规则 ID 策略**:已确认沿用既有字母系列作纯命名空间,检索靠
+   stage/topics 索引。
+
+## 8. 实施记录(2026-07-14)
+
+| 工作包 | 落点 | 提交 |
+| --- | --- | --- |
+| W1 | `--round`/`--loop-round` 移除,存档序号自动;`scripts/lib/fidelity-stages.mjs` stage focus 枚举,`record:fidelity --build` 强制;术语表进 fidelity §1;协议命名规范进 lifecycle 文档 | `verify(fidelity): replace manual round with derived sequence and stage focus enum` |
+| W3a | `AGENTS.md` §Workflow 收缩为 5×2 行 + 指针,不再引用步骤号;中文镜像同步 | `docs(agents): shrink workflow section to routing summary` |
+| W2 | catalog SSOT(108 条结构化记录,含 stage/topics/compensates/rationale/origin/supersession)、契约派生、生成器 + freshness 校验、fidelity 文档重构(手写 §1/§2/§4/§5 + 生成 §3 + 演进配方 §6);逐字符审计确认 108 条判定语义零改动 | `verify(fidelity): derive rule contract from structured catalog` |
+| W3b/c/f | workflow 单一步骤号 1–15(preflight 独立为 step 8),E 组降为依赖表,step 4 feature 速查表,P4 增量重验矩阵,流程图同步 | `docs(workflow): unify pipeline numbering and add reverification matrix` |
+| W3d/e + W4a | 判定优先级 ↔ 三层映射、stage×locale 最小集写入 fidelity §4;结束条件表格化并映射 `finish` blocker 代码 | `docs(fidelity-loop): map closure conditions to machine blockers` |
+| W4b | Build 内直接 `record:fidelity`、`verify:d3` 定位为 Build 前探索,写入 workflow step 13 | 同上 workflow 提交 |
+| W4c | `--language` 可重复,一条命令逐 locale 渲染(共享 server/browser,每 locale 独立 run 与存档) | `verify(fidelity): render several locales per command run` |
+| W5 | `finish` 接受可选 `stageDecisions`(stage/frozen|reopened/evidenceDigest/note),记录进 `FidelityResult`,不作为 blocker | `verify(build): record optional stage decisions in review closure` |
+| W6 | 镜像 parity(章节骨架 + 命令表行数)进 `verify:architecture` | `verify(architecture): check agents mirror section and command parity` |
+
+验收指标核对(对照 §5.2):新增规则必改文件 7 → 3(catalog + 实现 + 测试,
+生成器自动更新文档);fidelity 文档手写区约 250 行(全文 1100+ 行中目录与
+索引区均为生成);流水线坐标系 4 → 2;`--round` 全仓库零引用;
+structure/text 迭代 locale 数 required 全集 → 1;同候选诊断+证据渲染 2 → 1;
+C1–C12 全部勾销;`pnpm check` 每阶段全绿,规则 ID/enforcement/feature 映射
+零变化。

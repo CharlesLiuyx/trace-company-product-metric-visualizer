@@ -730,7 +730,7 @@ pnpm exec playwright install chromium</span>
           <span class="sid">P4.2</span>
           <div class="badges"><span class="badge auto">自动</span><span class="badge sub">采集可代</span></div>
           <h3>准备 Review + 记录 Build-bound 证据</h3>
-          <span class="cmd">pnpm record:build -- prepare-review &lt;build-id&gt; --input &lt;review-input.json&gt;<br />pnpm record:verification -- &lt;build-id&gt; --json<br />pnpm record:fidelity -- &lt;dataset-key&gt; --build &lt;build-id&gt; --focus "&lt;sweep-stage&gt;" [--language &lt;code&gt;]</span>
+          <span class="cmd">pnpm record:build -- prepare-review &lt;build-id&gt; --input &lt;review-input.json&gt;<br />pnpm record:verification -- &lt;build-id&gt; --json<br />pnpm record:fidelity -- &lt;dataset-key&gt; --build &lt;build-id&gt; --focus &lt;stage-focus&gt; [--language &lt;code&gt; ...]</span>
           <ul>
             <li><code>prepare-review</code> 固化 authored artifacts、<code>object-inventory/v3</code> 与 <code>verification-plan/v3</code>，返回供 <code>review.json</code> 绑定的 <code>reviewToken</code>；</li>
             <li><code>record:verification</code> 独立运行非渲染一致性 profile；它不是每次 raster evidence run 的一部分，返回的 Build-bound reference 是 finish 的必填输入；</li>
