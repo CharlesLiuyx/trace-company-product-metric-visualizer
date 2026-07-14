@@ -115,6 +115,40 @@ test('machine-green evidence without a human attestation stays review-pending', 
   assert.equal(result.blockers.length, 0);
 });
 
+test('stage decisions are optional, validated, and never block acceptance', () => {
+  const without = createFidelityResult(fixture());
+  assert.equal(without.stageDecisions, undefined);
+  assert.equal(without.status, 'accepted');
+
+  const withDecisions = createFidelityResult(fixture({
+    stageDecisions: [
+      { stage: 'structure', status: 'frozen', evidenceDigest: digest('automatic-en') },
+      { stage: 'structure', status: 'reopened', evidenceDigest: digest('automatic-zh'), note: 'user feedback' },
+      { stage: 'text', status: 'frozen', evidenceDigest: digest('automatic-en') },
+      { stage: 'polish-l10n', status: 'frozen', evidenceDigest: digest('automatic-zh') },
+    ],
+  }));
+  assert.equal(withDecisions.status, 'accepted');
+  assert.equal(withDecisions.stageDecisions.length, 4);
+  assert.deepEqual(withDecisions.stageDecisions[1], {
+    stage: 'structure',
+    status: 'reopened',
+    evidenceDigest: digest('automatic-zh'),
+    note: 'user feedback',
+  });
+
+  for (const invalid of [
+    [{ stage: 'render', status: 'frozen', evidenceDigest: digest('x') }],
+    [{ stage: 'structure', status: 'done', evidenceDigest: digest('x') }],
+    [{ stage: 'structure', status: 'frozen', evidenceDigest: 'not-a-digest' }],
+  ]) {
+    assert.throws(
+      () => createFidelityResult(fixture({ stageDecisions: invalid })),
+      (error) => error.code === 'STAGE_DECISION_INVALID'
+    );
+  }
+});
+
 test('Live Nation 38.5px and 43px side-label measurements block acceptance even if marked passed', () => {
   const result = createFidelityResult(fixture({
     riskChecks: [{

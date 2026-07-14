@@ -864,6 +864,7 @@ export async function finishReviewedBuild(input, options = {}) {
     attestation,
     regions: input.regions || [],
     attention: input.attention,
+    stageDecisions: input.stageDecisions || [],
     feedbackSummary: { openItems, automationUpgradesRequired },
     riskChecks,
     interfaceMatrix,
