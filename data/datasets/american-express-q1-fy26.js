@@ -90,6 +90,9 @@
         cost: RED_LINK,
       },
       linkOpacity: 1,
+      // The review-approved minimum face is a full visual terminal for this
+      // otherwise sub-pixel adjustment flow.
+      interfaceAudit: { mode: 'error', fullFaceIds: ['all_other:left'] },
       type: { name: 40, value: 44, note: 30, lineGap: 8 },
     },
     annotationsSvg: annotations,
@@ -101,7 +104,7 @@
       { id: 'global_merchant_network', label: ['Global Merchant', '& Network Service'], value: 2.0, valueText: '$2.0B', notes: ['+10% Y/Y', '56% pretax margin'], type: 'source', col: 0, order: 3 },
       { id: 'amex_hub', label: '', value: 18.9, type: 'hub', col: 1, order: 0 },
       { id: 'revenue', label: 'Revenue', value: 18.9, notes: ['+11% Y/Y'], type: 'hub', col: 2, order: 0 },
-      { id: 'all_other', label: 'All Other', value: 0.1, type: 'cost', col: 2, order: 1, color: BG, labelColor: RED_LABEL },
+      { id: 'all_other', label: 'All Other', value: 0.1, type: 'cost', col: 2, order: 1, labelColor: RED_LABEL },
       { id: 'pretax_income', label: 'Pretax income', value: 3.8, type: 'profit', col: 3, order: 0 },
       { id: 'operating_expenses', label: ['Noninterest', 'expenses'], value: 13.9, type: 'cost', col: 3, order: 1 },
       { id: 'provision_for_credit_losses', label: ['Provision for', 'credit losses'], value: 1.3, type: 'cost', col: 3, order: 2 },
@@ -120,10 +123,13 @@
       { source: 'international_card_services', target: 'amex_hub', value: 3.5, targetOrder: 2 },
       { source: 'global_merchant_network', target: 'amex_hub', value: 2.0, targetOrder: 3 },
       { source: 'amex_hub', target: 'revenue', value: 18.9, sourceOrder: 0, targetOrder: 0 },
-      { source: 'amex_hub', target: 'all_other', value: 0.1, sourceOrder: 1, targetOrder: 0 },
+      // Keep the $0.1B data value and its source-end flow width. At the
+      // terminal, taper to the minimum visible 12px node face so a small
+      // noninterest loss remains identifiable at responsive sizes.
+      { source: 'amex_hub', target: 'all_other', value: 0.1, sourceOrder: 1, targetOrder: 0, targetWidth: 12 },
       { source: 'revenue', target: 'pretax_income', value: 3.8, sourceOrder: 0, targetOrder: 0 },
       { source: 'revenue', target: 'operating_expenses', value: 13.9, sourceOrder: 1, targetOrder: 0 },
-      { source: 'revenue', target: 'provision_for_credit_losses', value: 1.3, sourceOrder: 2, targetOrder: 0 },
+      { source: 'revenue', target: 'provision_for_credit_losses', value: 1.3, sourceOrder: 2, targetOrder: 0, sourceWidth: 18.88 },
       { source: 'pretax_income', target: 'net_income', value: 3.0, sourceOrder: 0, targetOrder: 0 },
       { source: 'pretax_income', target: 'tax', value: 0.8, sourceOrder: 1, targetOrder: 0 },
       { source: 'operating_expenses', target: 'card_members_rewards', value: 4.9, sourceOrder: 0, targetOrder: 0 },
@@ -131,7 +137,7 @@
       { source: 'operating_expenses', target: 'card_member_services', value: 2.0, sourceOrder: 2, targetOrder: 0 },
       { source: 'operating_expenses', target: 'marketing', value: 1.5, sourceOrder: 3, targetOrder: 0 },
       { source: 'operating_expenses', target: 'sales_employee_benefits', value: 2.5, sourceOrder: 4, targetOrder: 0 },
-      { source: 'operating_expenses', target: 'other_general_operating', value: 1.5, sourceOrder: 5, targetOrder: 0 },
+      { source: 'operating_expenses', target: 'other_general_operating', value: 1.5, sourceOrder: 5, targetOrder: 0, sourceWidth: 22 },
     ],
     layout: {
       scale: 15.6,
@@ -142,7 +148,7 @@
         global_merchant_network: { x: 399, y: 1051, width: 70, height: 31 },
         amex_hub: { x: 866, y: 527, width: 70, height: 296 },
         revenue: { x: 1333, y: 653, width: 70, height: 295 },
-        all_other: { x: 1360, y: 1056, width: 2, height: 3 },
+        all_other: { x: 1333, y: 1056, width: 70, height: 12 },
         pretax_income: { x: 1800, y: 509, width: 70, height: 59 },
         operating_expenses: { x: 1800, y: 817, width: 70, height: 217 },
         provision_for_credit_losses: { x: 1800, y: 1210, width: 70, height: 20 },
@@ -188,7 +194,7 @@
         },
         all_other: {
           blocks: [
-            { x: 1361, top: 1090, anchor: 'middle', lineGap: 14, lines: [{ text: 'All Other', size: 40, weight: 800 }, { text: '(noninterest loss)', size: 36, weight: 800 }, { text: '$value', size: 36, weight: 400 }] },
+            { x: 1368, top: 1090, anchor: 'middle', lineGap: 14, lines: [{ text: 'All Other', size: 40, weight: 800 }, { text: '(noninterest loss)', size: 36, weight: 800 }, { text: '$value', size: 36, weight: 400 }] },
           ],
         },
         pretax_income: {

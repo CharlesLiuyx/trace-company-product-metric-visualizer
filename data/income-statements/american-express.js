@@ -10,6 +10,76 @@
 
   ssot.records.push(
     {
+      key: 'american-express-q4-fy25',
+      company: 'American Express',
+      period: 'Q4 FY25',
+      periodNote: 'Ending Dec. 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/american-express-q4-fy25.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 19.0,
+        notes: ['+10% Y/Y', 'Net of interest expenses; source segment labels total $19.1B before the $0.1B All Other noninterest loss.'],
+        items: [
+          { id: 'us_consumer_services', label: 'US Consumer Services', value: 9.2, notes: ['+11% Y/Y', '17% pretax margin'] },
+          { id: 'commercial_services', label: 'Commercial Services', value: 4.4, notes: ['+7% Y/Y', '19% pretax margin'] },
+          { id: 'international_card_services', label: 'International Card Services', value: 3.5, notes: ['+17% Y/Y', '9% pretax margin'] },
+          { id: 'global_merchant_network', label: 'Global Merchant & Network Service', value: 2.0, notes: ['+8% Y/Y', '43% pretax margin'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'provision_for_credit_losses', label: 'Provision for credit losses', value: 1.4, notes: ['Modeled as a pre-pretax cost so the generic SSOT arithmetic matches the banking source chart.'] },
+        operatingExpenses: {
+          total: 14.5,
+          items: [
+            { id: 'card_members_rewards', label: 'Card members rewards', value: 4.8 },
+            { id: 'business_development', label: 'Business development', value: 1.7 },
+            { id: 'card_member_services', label: 'Card Member services', value: 2.0 },
+            { id: 'marketing', label: 'Marketing', value: 1.6 },
+            { id: 'sales_employee_benefits', label: 'Sales & employee benefits', value: 2.5 },
+            { id: 'other_general_operating', label: 'Other general operating', value: 1.9 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.6 },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { label: 'Revenue after credit loss provision', value: 17.6, notes: ['Balancing subtotal; not labeled separately in the source chart.'] },
+        operating: { id: 'pretax_income', label: 'Pretax income', value: 3.1 },
+        net: { id: 'net_income', label: 'Net income', value: 2.5, notes: ['+13% Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度',
+          periodNote: '截至 2025 年 12 月',
+          revenue: {
+            notes: ['同比 +10%', '扣除利息支出后；来源图的业务分部合计为 191 亿美元，另有 1 亿美元的“所有其他”非利息损失。'],
+            items: [
+              { id: 'us_consumer_services', label: '美国消费者服务', notes: ['同比 +11%', '税前利润率 17%'] },
+              { id: 'commercial_services', label: '商务服务', notes: ['同比 +7%', '税前利润率 19%'] },
+              { id: 'international_card_services', label: '国际卡服务', notes: ['同比 +17%', '税前利润率 9%'] },
+              { id: 'global_merchant_network', label: '全球商户与网络服务', notes: ['同比 +8%', '税前利润率 43%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '信用损失拨备', notes: ['建模为税前利润前成本，使通用 SSOT 计算与银行业来源图匹配。'] },
+            operatingExpenses: { items: [
+              { id: 'card_members_rewards', label: '持卡人奖励' }, { id: 'business_development', label: '业务拓展' }, { id: 'card_member_services', label: '持卡人服务' },
+              { id: 'marketing', label: '营销' }, { id: 'sales_employee_benefits', label: '销售与员工福利' }, { id: 'other_general_operating', label: '其他一般运营' },
+            ] },
+            tax: { label: '税费' },
+          },
+          profit: {
+            gross: { label: '扣除信用损失拨备后的收入', notes: ['用于平衡的小计；来源图未单独标注。'] },
+            operating: { label: '税前利润' }, net: { label: '净利润', notes: ['同比 +13%'] },
+          },
+        },
+      },
+    },
+    {
       key: 'american-express-q1-fy26',
       company: 'American Express',
       period: 'Q1 FY26',

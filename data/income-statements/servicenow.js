@@ -10,6 +10,81 @@
 
   ssot.records.push(
     {
+      key: 'servicenow-q4-fy25',
+      company: 'ServiceNow',
+      period: 'Q4 FY25',
+      periodNote: 'Ending Dec. 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/servicenow-q4-fy25.png',
+      roundingTolerance: 1,
+      revenue: {
+        total: 3568,
+        notes: ['+21% Y/Y'],
+        items: [
+          { id: 'subscription', label: 'Subscription', value: 3466, notes: ['+21% Y/Y', '79% gross margin'] },
+          { id: 'professional_services', label: 'Professional services', value: 102, notes: ['+12% Y/Y', '(15%) gross margin'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 834 },
+        operatingExpenses: {
+          total: 2291,
+          items: [
+            { id: 'sm', label: 'S&M', value: 1150, notes: ['32% of revenue', '(3pp) Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 773, notes: ['22% of revenue', '(1pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 368, notes: ['10% of revenue', '(2pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 140 },
+      },
+      otherIncome: {
+        total: 105,
+        items: [{ id: 'interest', label: 'Interest', value: 105 }],
+      },
+      otherExpenses: {
+        total: 7,
+        items: [{ id: 'other', label: 'Other', value: 7 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 2734, notes: ['77% margin', '(2pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 443, notes: ['12% margin', '(0pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 401, notes: ['11% margin', '(2pp) Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度',
+          periodNote: '截至 2025 年 12 月',
+          revenue: {
+            notes: ['同比 +21%'],
+            items: [
+              { id: 'subscription', label: '订阅', notes: ['同比 +21%', '毛利率 79%'] },
+              { id: 'professional_services', label: '专业服务', notes: ['同比 +12%', '毛利率 (15%)'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'sm', label: '销售与市场', notes: ['占收入 32%', '同比 (3 个百分点)'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 22%', '同比 (1 个百分点)'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 10%', '同比 (2 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: { items: [{ id: 'interest', label: '利息' }] },
+          otherExpenses: { items: [{ id: 'other', label: '其他' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 77%', '同比 (2 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 12%', '同比 +0 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 11%', '同比 (2 个百分点)'] },
+          },
+        },
+      },
+    },
+    {
       key: 'servicenow-q1-fy26',
       company: 'ServiceNow',
       period: 'Q1 FY26',
