@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-13T18:09:16.000Z",
+  "generatedAt": "2026-07-14T07:36:15.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -57,8 +57,8 @@
     },
     "american-express-q1-fy26": {
       "path": "data/datasets/american-express-q1-fy26.js",
-      "updatedAtMs": 1783228411000,
-      "updatedAt": "2026-07-05T05:13:31.000Z",
+      "updatedAtMs": 1784014575000,
+      "updatedAt": "2026-07-14T07:36:15.000Z",
       "timeSource": "git"
     },
     "appfolio-q1-fy26": {
@@ -723,8 +723,8 @@
     },
     "visa-q2-fy26": {
       "path": "data/datasets/visa-q2-fy26.js",
-      "updatedAtMs": 1783228411000,
-      "updatedAt": "2026-07-05T05:13:31.000Z",
+      "updatedAtMs": 1784014575000,
+      "updatedAt": "2026-07-14T07:36:15.000Z",
       "timeSource": "git"
     },
     "xiaomi-q4-fy25": {
@@ -2195,6 +2195,66 @@
       "path": "data/datasets/schwab-q4-fy25.js",
       "updatedAtMs": 1783966156000,
       "updatedAt": "2026-07-13T18:09:16.000Z",
+      "timeSource": "git"
+    },
+    "mastercard-q4-fy25": {
+      "path": "data/datasets/mastercard-q4-fy25.js",
+      "updatedAtMs": 1784014575000,
+      "updatedAt": "2026-07-14T07:36:15.000Z",
+      "timeSource": "git"
+    },
+    "american-express-q4-fy25": {
+      "path": "data/datasets/american-express-q4-fy25.js",
+      "updatedAtMs": 1784014575000,
+      "updatedAt": "2026-07-14T07:36:15.000Z",
+      "timeSource": "git"
+    },
+    "ibm-q4-fy25": {
+      "path": "data/datasets/ibm-q4-fy25.js",
+      "updatedAtMs": 1784014575000,
+      "updatedAt": "2026-07-14T07:36:15.000Z",
+      "timeSource": "git"
+    },
+    "jpmorganchase-q4-fy25": {
+      "path": "data/datasets/jpmorganchase-q4-fy25.js",
+      "updatedAtMs": 1784014575000,
+      "updatedAt": "2026-07-14T07:36:15.000Z",
+      "timeSource": "git"
+    },
+    "servicenow-q4-fy25": {
+      "path": "data/datasets/servicenow-q4-fy25.js",
+      "updatedAtMs": 1784014575000,
+      "updatedAt": "2026-07-14T07:36:15.000Z",
+      "timeSource": "git"
+    },
+    "sap-q4-fy25": {
+      "path": "data/datasets/sap-q4-fy25.js",
+      "updatedAtMs": 1784014575000,
+      "updatedAt": "2026-07-14T07:36:15.000Z",
+      "timeSource": "git"
+    },
+    "wells-fargo-q4-fy25": {
+      "path": "data/datasets/wells-fargo-q4-fy25.js",
+      "updatedAtMs": 1784014575000,
+      "updatedAt": "2026-07-14T07:36:15.000Z",
+      "timeSource": "git"
+    },
+    "appfolio-q4-fy25": {
+      "path": "data/datasets/appfolio-q4-fy25.js",
+      "updatedAtMs": 1784014575000,
+      "updatedAt": "2026-07-14T07:36:15.000Z",
+      "timeSource": "git"
+    },
+    "visa-q1-fy26": {
+      "path": "data/datasets/visa-q1-fy26.js",
+      "updatedAtMs": 1784014575000,
+      "updatedAt": "2026-07-14T07:36:15.000Z",
+      "timeSource": "git"
+    },
+    "comcast-q4-fy25": {
+      "path": "data/datasets/comcast-q4-fy25.js",
+      "updatedAtMs": 1784014575000,
+      "updatedAt": "2026-07-14T07:36:15.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {
