@@ -285,8 +285,16 @@ async function writeEvidence(root, prepared, verticalCenterDelta = 0, options = 
             schemaVersion: 1,
             dataset: prepared.build.key,
             language: 'en',
-            nodes: [{ id: 'tax', faceVisible: true }],
+            nodes: [
+              { id: 'tax', faceVisible: true },
+              ...(options.semanticAnnotationAudit
+                ? [{ id: 'other_income', faceVisible: true }]
+                : []),
+            ],
           },
+          ...(options.semanticAnnotationAudit
+            ? { semanticAnnotationAudit: options.semanticAnnotationAudit }
+            : {}),
           interfaceAudit: {
             path: relative(names.interfaceAudit),
             contactSheet: relative(names.interfaceContactSheet),
@@ -460,6 +468,44 @@ async function prepareWithManualFeatures(t) {
       { path: base.sourcePath, role: 'reference-image' },
     ],
     changeImpact: ['geometry'],
+    requiredLocales: ['en'],
+  }, { buildRoot: base.buildRoot, projectRoot: base.root, now });
+  return { ...base, prepared };
+}
+
+async function prepareWithSemanticAnnotation(t) {
+  const base = await fixture(t, 'semantic-annotation-q4-fy25');
+  const prepared = await prepareBuildReview({
+    buildId: base.build.buildId,
+    inventory: {
+      datasetKey: base.build.key,
+      objects: [{
+        id: 'node:other-income',
+        kind: 'short-income-node',
+        disposition: 'render',
+        mapping: [
+          { role: 'render', target: 'nodes.other_income' },
+          { role: 'render', target: 'annotations.other_income' },
+        ],
+        features: ['semantic-annotation', 'visible-node-face'],
+        featureEvidence: {
+          'semantic-annotation': {
+            source: 'reference-crop',
+            locator: `${base.sourcePath}#other-income-callout`,
+            digest: base.sourceDigest,
+            referenceBBox: [2080, 230, 88, 96],
+            inspectionMethod: 'native-scale-crop-and-object-inventory',
+            classificationClaim: 'semantic-node-annotation-required',
+            reason: 'The source uses one callout group to name and value the Other income micro-flow.',
+          },
+        },
+      }],
+    },
+    artifacts: [
+      { path: base.artifact, role: 'view-adapter' },
+      { path: base.sourcePath, role: 'reference-image' },
+    ],
+    changeImpact: ['interaction'],
     requiredLocales: ['en'],
   }, { buildRoot: base.buildRoot, projectRoot: base.root, now });
   return { ...base, prepared };
@@ -672,6 +718,62 @@ test('Interface Matrix candidate geometry must exactly match the archived G12 ro
       interfaceMatrix: mismatchedMatrix,
     }, { buildRoot, projectRoot: root, now }),
     (error) => error.code === 'INTERFACE_MATRIX_GEOMETRY_MISMATCH'
+  );
+});
+
+test('semantic annotation checks consume the archived metrics document', async (t) => {
+  const { root, buildRoot, sourceDigest, prepared } = await prepareWithSemanticAnnotation(t);
+  const evidenceManifest = await writeEvidence(root, prepared, 0, {
+    semanticAnnotationAudit: {
+      schemaVersion: 1,
+      ruleIds: ['A10', 'B16'],
+      dataset: prepared.build.key,
+      language: 'en',
+      expectedSemanticAnnotationNodeIds: ['other_income'],
+      semanticAnnotationNodeIds: ['other_income'],
+      checked: 1,
+      unbound: 0,
+      violations: [],
+      status: 'passed',
+    },
+  });
+  const verificationReference = await writeDatasetVerification(root, buildRoot, prepared);
+  const plan = prepared.build.receipts.at(-1).payload.verificationPlan;
+  const localeEvidenceDigest = bytesDigest('interfaceContactSheet\n');
+  const manualDecisions = plan.requiredChecks
+    .filter((check) => check.enforcement === 'manual')
+    .flatMap((check) => (check.localeScope === 'required-locales'
+      ? plan.requiredLocales.map((locale) => ({
+          checkId: check.id,
+          locale,
+          status: 'passed',
+          evidenceDigests: [localeEvidenceDigest],
+        }))
+      : [{
+          checkId: check.id,
+          status: 'passed',
+          evidenceDigests: [sourceDigest],
+        }]));
+
+  const outcome = await finishReviewedBuild({
+    buildId: prepared.build.buildId,
+    reviewToken: prepared.reviewToken,
+    evidenceManifests: [evidenceManifest],
+    verificationReference,
+    attestation: { reviewer: 'human:reviewer', decision: 'accepted' },
+    regions: [],
+    attention: { status: 'closed', closureNote: 'No open red-box region remains.' },
+    feedback: [],
+    riskChecks: [],
+    manualCheckDecisions: manualDecisions,
+    interfaceMatrix: null,
+  }, { buildRoot, projectRoot: root, now });
+
+  assert.equal(outcome.build.state, 'CLOSED');
+  assert.equal(outcome.fidelityResult.status, 'accepted');
+  assert.equal(
+    outcome.fidelityResult.checkResults.find((check) => check.checkId === 'feature:semantic-annotation')?.status,
+    'passed'
   );
 });
 
