@@ -122,7 +122,7 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
 | `sh scripts/clean-compare.sh` | 只清理旧的顶层 scratch；d3 诊断/证据 run 各自管理并清理私有 `compare/runs/`，并发时禁止全局删除 |
 
 CI（`.github/workflows/ci.yml`）始终运行 `pnpm check`，再由 ChangeImpact
-计划选择 app、Pages、d3 diagnostic、全量/changed-key render 与 standalone
+计划选择 app、Pages、全量/changed-key render 与 standalone
 检查；未知可执行影响回退完整套件。`main` 上直接把同一次运行验证过的 `_site`
 artifact 交给 Pages deploy，不再二次 checkout/install/build。每个检查的白话作用、
 原理、盲区与触发矩阵由 `docs/ci-verification.zh-CN.md` 统一说明。

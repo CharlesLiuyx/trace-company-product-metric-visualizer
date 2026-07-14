@@ -133,7 +133,7 @@ Install once; the d3/standalone verifiers render in Chromium:
 | `sh scripts/clean-compare.sh` | clean legacy top-level scratch files only; d3 diagnostic/evidence runs own and clean their private `compare/runs/` directories, so never use global deletion during concurrent runs |
 
 CI (`.github/workflows/ci.yml`) always runs `pnpm check`, then uses the
-ChangeImpact plan to select app, Pages, d3 diagnostic, full/changed-key render,
+ChangeImpact plan to select app, Pages, full/changed-key render,
 and standalone checks. Unknown executable impact falls back to the complete
 suite. On `main`, the exact verified `_site` artifact is handed to the Pages
 deploy job without a second checkout/install/build. The plain-language

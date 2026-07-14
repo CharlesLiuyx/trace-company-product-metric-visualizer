@@ -45,7 +45,7 @@ Revenue Metric.
 
 The **CI Verification Plan Module** derives a conservative check set from a
 Git diff using the same `ChangeImpact` language. Its Interface returns fast,
-app, site, d3 diagnostic, render scope/keys, standalone, and site-projection
+app, site, render scope/keys, standalone, and site-projection
 facts. Unknown executable impact and missing diff identity select the complete
 suite; they never select an empty plan.
 
