@@ -74,6 +74,10 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
 | `verify:i18n` | 通用翻译规则和 overlay 可覆盖已注册内容 | 加载 i18n 管线并检查缺失/非法映射；单数据集流程可用 `--strict` | 中文 overlay 漏项、品牌词被错误翻译 | 不代替中文页面人工检查 |
 | `verify:dataset-file-metadata` | “最近更新”时间可复现 | 根据完整 Git author history 重算生成文件 | 提交 Dataset 后忘记刷新 metadata | 首次未提交文件仍只能临时使用 mtime |
 
+仓库管理的 `post-commit` hook 会在 Dataset/revenue 提交形成、author time 稳定后自动
+刷新 metadata；`pre-push` hook 同时检查结果最新且已经提交，从而把这类确定性失败提前到
+本机。hook 只是反馈加速层；CI 仍在完整历史的 fresh checkout 中执行同一新鲜度门禁。
+
 ### 5. Install Chromium and OS dependencies
 
 - **白话作用**：只有后续确实需要浏览器时才安装 Chromium。

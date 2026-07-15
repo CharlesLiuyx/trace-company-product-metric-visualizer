@@ -65,9 +65,13 @@ metrics are implemented.
 back to filesystem mtime only until a file's first commit), so the output is
 reproducible on any checkout. The Company navigator's Recently updated sort
 mode uses these timestamps. After committing a new or materially edited
-dataset, rerun the generator and commit the refreshed metadata. This is the
+dataset, the repository-managed post-commit hook reruns the generator; amend
+or separately commit the refreshed file before pushing. The pre-push hook
+requires the generated result to be both current and committed. `pnpm install`
+enables these hooks when `core.hooksPath` is unset; `pnpm setup:git-hooks`
+enables them explicitly and refuses to overwrite a custom path. This is the
 current compatibility Implementation; the accepted lifecycle target records
-stable `acceptedAt` at SEALED time and removes the post-commit feedback loop
+stable `acceptedAt` at SEALED time and removes the feedback loop
 (`docs/architecture/dataset-lifecycle.md`).
 
 Use `data/assets/icon-references/<company>/` for reusable company and business

@@ -127,8 +127,9 @@ Install once; the d3/standalone verifiers render in Chromium:
 | `pnpm verify:d3 -- <key> [--build <build-id>] [--focus <dir>] [--keep] [--language <code>]` | read-only d3 diagnostic + automatic hard gates; `--build` loads the fresh Plan/node-face policy (required for typed floor exceptions) without archiving or advancing evidence lineage |
 | `pnpm verify:render-regression [-- <keys>]` | read-only batch render regression against `data/render-baselines.json` (reference images are local-only, so machines without them run render hard gates only) |
 | `pnpm compat:baseline -- <key> [...]` | canonical baseline ledger mutation, deliberately named outside the verify/record/publish/release classes; M4 Publication has not replaced it, and it cannot prove the producing Build correct |
-| `pnpm update:dataset-file-metadata` | regenerate `data/dataset-file-metadata.js` from git author times (rerun + commit after committing a new/edited dataset) |
-| `pnpm verify:dataset-file-metadata` | generated metadata is current |
+| `pnpm setup:git-hooks` | enable repository-managed post-commit refresh and pre-push enforcement for Git-time dataset metadata; refuses to overwrite a custom `core.hooksPath` |
+| `pnpm update:dataset-file-metadata` | regenerate `data/dataset-file-metadata.js` from git author times; the managed post-commit hook runs this after a Dataset/revenue commit, and the result must be amended or committed before push |
+| `pnpm verify:dataset-file-metadata` | generated metadata is current in the working tree; the managed pre-push hook additionally requires the current result to be committed |
 | `pnpm build:site` / `pnpm verify:site` | build the optimized Pages runtime projection / browser-check its deferred bundles, on-demand Adapter budget, lazy Chart runtime, and company-switch path |
 | `pnpm build:standalone` | build the self-contained HTML without mutating tracked metadata; inlines all dataset adapters |
 | `pnpm verify:standalone` | standalone artifact needs no sibling files |

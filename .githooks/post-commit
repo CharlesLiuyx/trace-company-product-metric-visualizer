@@ -1,0 +1,4 @@
+#!/bin/sh
+repo_root="$(git rev-parse --show-toplevel 2>/dev/null)" || exit 0
+cd "$repo_root" || exit 1
+exec node scripts/git-hook-dataset-metadata.mjs post-commit

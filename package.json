@@ -4,6 +4,8 @@
   "type": "module",
   "packageManager": "pnpm@11.5.2",
   "scripts": {
+    "prepare": "node scripts/setup-git-hooks.mjs --if-unset",
+    "setup:git-hooks": "node scripts/setup-git-hooks.mjs",
     "dev": "node scripts/dev-server.mjs --port 8000",
     "plan:ci": "node scripts/plan-ci.mjs",
     "check": "node scripts/check.mjs",
