@@ -2,7 +2,7 @@
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
 import { existsSync } from 'node:fs';
-import { readFile, readdir } from 'node:fs/promises';
+import { readFile, readdir, stat } from 'node:fs/promises';
 import path from 'node:path';
 import {
   CHANGE_IMPACTS,
@@ -383,6 +383,29 @@ async function main() {
   assert.ok(!packageJson.scripts['record:baseline'], 'record:baseline must stay renamed to compat:baseline so record:* remains build-local');
   assert.ok(packageJson.scripts['verify:closeout'], 'package.json must expose verify:closeout');
   assert.ok(!packageJson.scripts['build:standalone'].includes('update-dataset-file-metadata'), 'build:standalone must not mutate tracked metadata');
+  assert.equal(
+    packageJson.scripts.prepare,
+    'node scripts/setup-git-hooks.mjs --if-unset',
+    'pnpm install must enable repository hooks without overwriting a custom hooks path'
+  );
+  assert.equal(
+    packageJson.scripts['setup:git-hooks'],
+    'node scripts/setup-git-hooks.mjs',
+    'package.json must expose explicit Git hook setup'
+  );
+
+  const [postCommitHook, prePushHook] = await Promise.all([
+    readFile(projectPath('.githooks/post-commit'), 'utf8'),
+    readFile(projectPath('.githooks/pre-push'), 'utf8'),
+  ]);
+  assert.match(postCommitHook, /git-hook-dataset-metadata\.mjs post-commit/, 'post-commit must refresh Dataset metadata');
+  assert.match(prePushHook, /git-hook-dataset-metadata\.mjs pre-push/, 'pre-push must gate Dataset metadata');
+  if (process.platform !== 'win32') {
+    for (const hookPath of ['.githooks/post-commit', '.githooks/pre-push']) {
+      const info = await stat(projectPath(hookPath));
+      assert.ok((info.mode & 0o111) !== 0, `${hookPath} must be executable`);
+    }
+  }
 
   const [verifyD3, recordFidelity, recordIntake, buildCloseout] = await Promise.all([
     readFile(projectPath('scripts/verify-d3.mjs'), 'utf8'),

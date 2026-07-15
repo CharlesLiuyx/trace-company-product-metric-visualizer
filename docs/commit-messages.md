@@ -126,6 +126,23 @@ chore(deps): pin playwright 1.61.0
   `verify(verify-d3)` 单独提交。
 - 文档提交：不改变行为的说明更新，用 `docs(...)` 或 `schema(...)`。
 
+## Dataset metadata 提交保护
+
+`data/dataset-file-metadata.js` 依赖已经形成的 Git author time，所以提交前的
+`pnpm check` 无法预知新提交时间。`pnpm install` 会在当前仓库尚未配置
+`core.hooksPath` 时启用 `.githooks/`：
+
+- `post-commit` 只在本次提交包含 `data/datasets/` 或
+  `data/revenue-metrics.js` 时重新生成 metadata；若结果变化，会保留为工作区改动并
+  提示把它 amend 到原提交或另行提交；
+- `pre-push` 重新执行只读新鲜度检查，并确认最新 metadata 已进入 `HEAD`；过期或只在
+  工作区/暂存区中的结果都会阻止 push，避免问题直到远端 CI 才暴露。
+
+已有自定义 `core.hooksPath` 时安装过程不会覆盖它：可以把上述两个 hook 整合进自定义
+路径并保留原配置；若决定改用仓库 hooks，则先移除自定义配置，再运行
+`pnpm setup:git-hooks`。该命令遇到未解决的自定义路径会明确失败。hook 是本地提前
+反馈层，不能替代 `pnpm check` 或 GitHub CI。
+
 ## 提交前检查
 
 本文档只拥有 commit 格式和原子提交边界，不拥有另一份验证矩阵。按

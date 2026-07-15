@@ -116,8 +116,9 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
 | `pnpm verify:d3 -- <key> [--build <build-id>] [--focus <dir>] [--keep] [--language <code>]` | 只读 d3 诊断 + 自动硬门槛；`--build` 只加载 fresh Plan/node-face policy（typed floor exception 必需），不归档、不推进证据 lineage |
 | `pnpm verify:render-regression [-- <keys>]` | 只读批量渲染，对照 `data/render-baselines.json` 拦截回归；缺本地参考图时只跑渲染硬门槛 |
 | `pnpm compat:baseline -- <key> [...]` | canonical baseline ledger 的兼容 mutation，刻意命名在 verify/record/publish/release 四类之外；M4 Publication 尚未替代它，也不能证明产生它的 Build 正确 |
-| `pnpm update:dataset-file-metadata` | 从 git 提交时间重新生成 `data/dataset-file-metadata.js`（提交新/改数据集后需重跑并提交刷新结果） |
-| `pnpm verify:dataset-file-metadata` | 生成的 metadata 是否为最新 |
+| `pnpm setup:git-hooks` | 启用仓库管理的 post-commit metadata 刷新与 pre-push 拦截；若已有自定义 `core.hooksPath` 则拒绝覆盖 |
+| `pnpm update:dataset-file-metadata` | 从 git author time 重新生成 `data/dataset-file-metadata.js`；受管 post-commit hook 会在 Dataset/revenue 提交后运行，刷新结果必须在 push 前 amend 或另行提交 |
+| `pnpm verify:dataset-file-metadata` | 检查工作区中的 metadata 是否最新；受管 pre-push hook 还要求该最新结果已提交 |
 | `pnpm build:site` / `pnpm verify:site` | 构建优化后的 Pages runtime projection / 用浏览器校验 defer bundle、按需 Adapter 预算、Chart runtime 延迟加载与公司切换路径 |
 | `pnpm build:standalone` | 构建自包含 HTML，不修改已跟踪 metadata；内联全部数据集 adapter |
 | `pnpm verify:standalone` | standalone 产物不依赖任何同级文件 |
