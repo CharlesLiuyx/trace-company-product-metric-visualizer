@@ -30,9 +30,9 @@ CB-021），并让后来者理解每个 gate 的由来。
 
 | 案例 | 现象（来源） | 触发特征 | 归因 | 现行机器防线 |
 | --- | --- | --- | --- | --- |
-| CB-001 | 多 link 节点端面留缝/溢出、socket 错位；用户指出 nike-q4-fy26 两处节点边缘空隙，同型问题随后又出现在 netease、global-payments（05903ba、9bd426f、dcdd687、4ee731a） | 多入/出节点、显式 socket | execution-gap | G12 + L11 接口审计与 Interface Matrix（B8 人工 reconcile 补盲） |
+| CB-001 | 多 link 节点端面留缝/溢出、socket 错位；用户指出 nike-q4-fy26 两处节点边缘空隙，同型问题随后又出现在 netease、global-payments（05903ba、9bd426f、dcdd687、4ee731a）。Uber Q3 FY25 又出现 Operating Profit 进入 Net Profit 的目标端堆叠顺序错误；Lyft Q3 FY25 的 Operating expenses 柱面也曾高于实际接口并压入 label 区（2026-07-16）。 | 多入/出节点、显式 socket、同色入流的目标端顺序 | execution-gap | G12 + L11 接口审计与 Interface Matrix；B8 人工 reconcile 必须逐条核对目标端自上而下身份及 `targetOrder`（L2/L3） |
 | CB-002 | 同轴 label 与柱交叠、短柱 label 未对中（berkshire 等批次，4472ccf） | 同轴 label、短柱 | execution-gap | G8、G9、G10 + `labelLayoutAudit`（B1/B4/B13 补盲） |
-| CB-003 | 可见短柱被缩成不可见锚点或亚像素柱；同批曾对最小柱高各自取值——Visa 6px、SAP/Comcast 3px（0d7cc54、72644e5） | 短辅助柱（interest、tax、other…） | ambiguous-rule | T13 + T21 `node-face-policy/v1` 硬门；例外必须由 Source Coverage 绑定原生 face（B15/T14） |
+| CB-003 | 可见短柱被缩成不可见锚点或亚像素柱；同批曾对最小柱高各自取值——Visa 6px、SAP/Comcast 3px（0d7cc54、72644e5）。Lyft Q3 FY25 的 Other 72×1px 浅绿柱也曾被误分类为隐藏锚点（2026-07-16）。 | 短辅助柱（interest、tax、other…） | ambiguous-rule | T13 + T21 `node-face-policy/v1` 硬门；例外必须由 Source Coverage 绑定原生 face（B15/T14） |
 | CB-004 | 固定布局 label 组整体偏离参考位置，已收敛数据集因此返工（alphabet/amazon/amd 批次；41c2f20） | 每个 `layout.labels.*` 组 | execution-gap | T18 `labelPositionAudit` + Plan 编译强制 `measured-label-position` |
 | CB-005 | 复用相邻期间/其他数据集的坐标测量（41c2f20） | 同公司相邻期间 | execution-gap | T19 prepare-review 测量 provenance（外来 digest 拒绝） |
 | CB-006 | label 槽位多解时按单一解释先渲染，等用户复审再改判，浪费轮次（41c2f20） | 槽位歧义 | rule-missing | T20 + `ambiguous-label-slot`（渲染前操作者裁决） |

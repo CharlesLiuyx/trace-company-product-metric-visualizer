@@ -1,5 +1,5 @@
 /* Pure income-statement SSOT records. Financial data only — Sankey view
- * geometry stays in data/datasets/home-depot-q1-fy26.js. Format: data/schema.md. */
+ * geometry stays in period-specific dataset adapters. Format: data/schema.md. */
 (function (global) {
   'use strict';
 
@@ -9,6 +9,79 @@
   });
 
   ssot.records.push(
+    {
+      key: 'home-depot-q3-fy25',
+      company: 'Home Depot',
+      period: 'Q3 FY25',
+      periodNote: 'Three months ended November 2, 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/home-depot-q3-fy25.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 41.3,
+        notes: ['+3% Y/Y'],
+        items: [
+          { id: 'building_materials', label: 'Building Materials', value: 13.6, notes: ['+0% Y/Y', 'Electrical/Lighting, Lumber, Millwork, and Plumbing'] },
+          { id: 'decor', label: 'Décor', value: 12.9, notes: ['+1% Y/Y', 'Appliances, Storage, Flooring, Kitchen and Bath, and Paint'] },
+          { id: 'hardlines', label: 'Hardlines', value: 10.9, notes: ['+0% Y/Y', 'Hardware, Indoor Garden, Outdoor Garden, and Tools'] },
+          { id: 'other', label: 'Other', value: 3.9, notes: ['+33% Y/Y', 'SRS Distribution'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 27.5 },
+        operatingExpenses: {
+          total: 8.5,
+          items: [
+            { id: 'sga', label: 'SG&A', value: 7.6 },
+            { id: 'da', label: 'Depreciation & amortization', value: 0.8 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 1.2 },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: {
+        total: 0.6,
+        items: [{ id: 'interest', label: 'Interest', value: 0.6 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 13.8, notes: ['33% margin', '+0pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 5.4, notes: ['13% margin', '(1pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 3.6, notes: ['9% margin', '(0pp) Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 11 月 2 日的三个月',
+          revenue: {
+            notes: ['同比 +3%'],
+            items: [
+              { id: 'building_materials', label: '建筑材料', notes: ['同比 +0%', '电气／照明、木材、木制品和管道'] },
+              { id: 'decor', label: '家居装饰', notes: ['同比 +1%', '电器、收纳、地板、厨房与卫浴及涂料'] },
+              { id: 'hardlines', label: '五金硬货', notes: ['同比 +0%', '五金、室内园艺、户外园艺和工具'] },
+              { id: 'other', label: '其他', notes: ['同比 +33%', 'SRS Distribution（建材分销商）'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '销售成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'sga', label: '销售、一般及行政费用' },
+                { id: 'da', label: '折旧及摊销' },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherExpenses: { items: [{ id: 'interest', label: '利息' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 33%', '同比 +0 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 13%', '同比 (1 个百分点)'] },
+            net: { label: '净利润', notes: ['利润率 9%', '同比 (0 个百分点)'] },
+          },
+        },
+      },
+    },
     {
       key: 'home-depot-q1-fy26',
       company: 'Home Depot',

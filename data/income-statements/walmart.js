@@ -10,6 +10,106 @@
 
   ssot.records.push(
     {
+      key: 'walmart-q3-fy26',
+      company: 'Walmart',
+      period: 'Q3 FY26',
+      periodNote: 'Ending Oct. 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/walmart-q3-fy26.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 179.5,
+        notes: ['+6% Y/Y'],
+        items: [
+          { id: 'walmart_us', label: 'Walmart US', value: 120.7, notes: ['+5% Y/Y', '5% operating margin'] },
+          { id: 'walmart_international', label: 'Walmart International', value: 33.5, notes: ['+11% Y/Y', '4% operating margin'] },
+          { id: 'sams_club', label: "Sam's Club", value: 23.6, notes: ['+3% Y/Y', '3% operating margin'] },
+          { id: 'membership_other', label: 'Membership and other', value: 1.7, notes: ['+9% Y/Y'] },
+        ],
+        breakdowns: [
+          {
+            id: 'reported_revenue_components',
+            label: 'Reported revenue components',
+            total: 179.5,
+            items: [
+              { id: 'net_sales', label: 'Net Sales', value: 177.8 },
+              { id: 'membership_other', label: 'Membership and other', value: 1.7 },
+            ],
+          },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 134.7 },
+        operatingExpenses: {
+          total: 38.1,
+          items: [
+            { id: 'operating_expenses', label: 'Operating expenses', value: 38.1 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 2.1 },
+      },
+      otherIncome: {
+        total: 2.1,
+        items: [{ id: 'other_income', label: 'Other', value: 2.1 }],
+      },
+      otherExpenses: {
+        total: 0.6,
+        items: [{ id: 'interest', label: 'Interest', value: 0.6 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 44.8, notes: ['25% margin', '+0pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 6.7, notes: ['4% margin', '(0pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 6.1, notes: ['3% margin', '+1pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第三季度',
+          periodNote: '截至 2025 年 10 月',
+          revenue: {
+            notes: ['同比 +6%'],
+            items: [
+              { id: 'walmart_us', label: '沃尔玛美国', notes: ['同比 +5%', '营业利润率 5%'] },
+              { id: 'walmart_international', label: '沃尔玛国际', notes: ['同比 +11%', '营业利润率 4%'] },
+              { id: 'sams_club', label: '山姆会员店', notes: ['同比 +3%', '营业利润率 3%'] },
+              { id: 'membership_other', label: '会员及其他', notes: ['同比 +9%'] },
+            ],
+            breakdowns: [
+              {
+                id: 'reported_revenue_components',
+                label: '已披露收入构成',
+                items: [
+                  { id: 'net_sales', label: '净销售额' },
+                  { id: 'membership_other', label: '会员及其他' },
+                ],
+              },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '销售成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'operating_expenses', label: '运营费用' },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: {
+            items: [{ id: 'other_income', label: '其他' }],
+          },
+          otherExpenses: {
+            items: [{ id: 'interest', label: '利息' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 25%', '同比 +0 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 4%', '同比 (0 个百分点)'] },
+            net: { label: '净利润', notes: ['利润率 3%', '同比 +1 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'walmart-q4-fy26',
       company: 'Walmart',
       period: 'Q4 FY26',

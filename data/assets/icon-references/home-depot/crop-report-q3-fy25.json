@@ -1,0 +1,226 @@
+{
+  "source": "input/processing/home-depot-q3-fy25.png",
+  "spec": "input/icon-crop-specs/home-depot-q3-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-15T15:42:13.850485+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/home-depot",
+  "crops": [
+    {
+      "key": "home-depot-company-logo",
+      "output": "data/assets/icon-references/home-depot/crops/company-logo-q3-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 5104,
+        "losslessBytes": 27117,
+        "savingsVsLossless": 0.8118,
+        "metrics": {
+          "meanAbsoluteError": 0.6647,
+          "rootMeanSquareError": 2.281,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 52,
+          "changedPixelRatio": 0.4012
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 6720,
+        "transparentPixelRatio": 0.0889
+      },
+      "searchBox": {
+        "x": 791,
+        "y": 249,
+        "width": 275,
+        "height": 275
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 797,
+        "y0": 255,
+        "x1": 1060,
+        "y1": 517
+      },
+      "cropBox": {
+        "x0": 791,
+        "y0": 249,
+        "x1": 1066,
+        "y1": 524
+      },
+      "validation": {
+        "width": 275,
+        "height": 275,
+        "foregroundPixels": 45769,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 6,
+          "right": 6,
+          "top": 6,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0018
+        },
+        "passes": true
+      },
+      "note": "The Home Depot square wordmark only; excludes the Net Sales label, all Sankey nodes, and publisher attribution.",
+      "runtimeOutput": "data/assets/raster-annotations/home-depot/company-logo-q3-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 5104,
+        "losslessBytes": 27117,
+        "savingsVsLossless": 0.8118,
+        "metrics": {
+          "meanAbsoluteError": 0.6647,
+          "rootMeanSquareError": 2.281,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 52,
+          "changedPixelRatio": 0.4012
+        }
+      },
+      "validationSheet": "data/assets/icon-references/home-depot/validation-sheets/q3-fy25/home-depot-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 334159,
+        "losslessBytes": 334159,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "home-depot-other-distributor-logos",
+      "output": "data/assets/icon-references/home-depot/crops/other-distributor-logos-q3-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 1336,
+        "losslessBytes": 5670,
+        "savingsVsLossless": 0.7644,
+        "metrics": {
+          "meanAbsoluteError": 1.0876,
+          "rootMeanSquareError": 2.4503,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 26,
+          "changedPixelRatio": 0.4401
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 4106,
+        "transparentPixelRatio": 0.6038
+      },
+      "searchBox": {
+        "x": 190,
+        "y": 1068,
+        "width": 100,
+        "height": 68
+      },
+      "componentCount": 14,
+      "subjectBox": {
+        "x0": 197,
+        "y0": 1078,
+        "x1": 283,
+        "y1": 1132
+      },
+      "cropBox": {
+        "x0": 190,
+        "y0": 1068,
+        "x1": 290,
+        "y1": 1136
+      },
+      "validation": {
+        "width": 100,
+        "height": 68,
+        "foregroundPixels": 2442,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 7,
+          "right": 7,
+          "top": 10,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0441
+        },
+        "passes": true
+      },
+      "note": "Other segment's SRS Distribution logo only; excludes the Other label, value, note, source bar, and publisher footer.",
+      "runtimeOutput": "data/assets/raster-annotations/home-depot/other-distributor-logos-q3-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 1336,
+        "losslessBytes": 5670,
+        "savingsVsLossless": 0.7644,
+        "metrics": {
+          "meanAbsoluteError": 1.0876,
+          "rootMeanSquareError": 2.4503,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 26,
+          "changedPixelRatio": 0.4401
+        }
+      },
+      "validationSheet": "data/assets/icon-references/home-depot/validation-sheets/q3-fy25/home-depot-other-distributor-logos.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 300929,
+        "losslessBytes": 300929,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

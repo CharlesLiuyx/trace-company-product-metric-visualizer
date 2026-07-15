@@ -134,6 +134,122 @@
       },
     },
     {
+      key: 'nintendo-h1-fy26',
+      company: 'Nintendo',
+      period: 'H1 FY26',
+      periodNote: 'Ending Sept. 2025',
+      currency: '¥',
+      unit: 'B',
+      decimals: 0,
+      sourceImage: 'input/processed/nintendo-h1-fy26.png',
+      roundingTolerance: 1.2,
+      revenue: {
+        total: 1099,
+        notes: ['+110% Y/Y'],
+        items: [
+          {
+            id: 'dedicated_video_game_platform',
+            label: 'Dedicated video game platform',
+            value: 1066,
+            notes: ['+120% Y/Y'],
+            children: [
+              {
+                id: 'hardware',
+                label: 'Hardware',
+                value: 780,
+                notes: ['+288% Y/Y', 'Switch 2: 10.4M units', 'Switch 1: 1.9M units, (60%) Y/Y'],
+              },
+              {
+                id: 'software',
+                label: 'Software',
+                value: 286,
+                notes: ['+0% Y/Y', '82.2M units', '+17% Y/Y', '55% Digital'],
+              },
+            ],
+          },
+          {
+            id: 'other_revenue',
+            label: 'Other',
+            value: 33,
+            notes: ['(13%) Y/Y', 'Source chart shows this as Other; Nintendo reporting describes the comparable line as IP related income, etc.'],
+          },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 701 },
+        operatingExpenses: {
+          total: 253,
+          items: [
+            { id: 'other_sga', label: 'Other SG&A', value: 106, notes: ['10% of revenue', '(8pp) Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 82, notes: ['7% of revenue', '(6pp) Y/Y'] },
+            { id: 'advertising', label: 'Advertising', value: 65, notes: ['6% of revenue', '(1pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 69 },
+      },
+      otherIncome: {
+        total: 123,
+        items: [{ id: 'other_income', label: 'Other', value: 123 }],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 398, notes: ['32% margin', '(25pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 145, notes: ['10% margin', '(12pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 199, notes: ['18% margin', '(3pp) Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年上半年',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +110%'],
+            items: [
+              {
+                label: '专用游戏平台',
+                notes: ['同比 +120%'],
+                children: [
+                  {
+                    label: '硬件',
+                    notes: ['同比 +288%', 'Switch 2：1,040 万台', 'Switch 1：190 万台，同比 (60%)'],
+                  },
+                  {
+                    label: '软件',
+                    notes: ['同比 +0%', '8,220 万套', '同比 +17%', '数字版占 55%'],
+                  },
+                ],
+              },
+              {
+                label: '其他',
+                notes: ['同比 (13%)', '来源图表显示为其他；Nintendo 财报中相近项目为 IP 相关收入等。'],
+              },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '销售成本' },
+            operatingExpenses: {
+              items: [
+                { label: '其他销售及管理费用', notes: ['占收入 10%', '同比 (8 个百分点)'] },
+                { label: '研发', notes: ['占收入 7%', '同比 (6 个百分点)'] },
+                { label: '广告', notes: ['占收入 6%', '同比 (1 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: {
+            items: [{ label: '其他' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 32%', '同比 (25 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 10%', '同比 (12 个百分点)'] },
+            net: { label: '净利润', notes: ['利润率 18%', '同比 (3 个百分点)'] },
+          },
+        },
+      },
+    },
+    {
       key: 'nintendo-9m-fy26',
       company: 'Nintendo',
       period: '9M FY26',
