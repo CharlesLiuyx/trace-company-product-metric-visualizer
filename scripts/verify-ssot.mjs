@@ -188,8 +188,25 @@ function validateArithmetic(record, errors) {
     }
   };
 
+  const checkRevenueBreakdowns = (breakdowns) => {
+    const seenIds = new Set();
+    for (const [index, breakdown] of (breakdowns || []).entries()) {
+      const label = `${record.key}: revenue breakdown ${breakdown?.id || index}`;
+      assert(breakdown && typeof breakdown === 'object', `${record.key}: revenue breakdown ${index} must be an object`, errors);
+      if (!breakdown || typeof breakdown !== 'object') continue;
+      assert(typeof breakdown.id === 'string' && breakdown.id, `${label} needs a stable id`, errors);
+      assert(!seenIds.has(breakdown.id), `${record.key}: duplicate revenue breakdown id ${breakdown.id}`, errors);
+      seenIds.add(breakdown.id);
+      assert(Array.isArray(breakdown.items) && breakdown.items.length > 0, `${label} needs non-empty items`, errors);
+      assertClose(breakdown.total, record.revenue.total, tolerance, `${label} total`, errors);
+      assertClose(sum(breakdown.items), breakdown.total, tolerance, `${label} item sum`, errors);
+      checkChildSums(breakdown.items, `revenue.breakdowns/${breakdown.id}`);
+    }
+  };
+
   assertClose(revenueItems, record.revenue.total, tolerance, `${record.key}: revenue item sum`, errors);
   checkChildSums(record.revenue.items, 'revenue');
+  checkRevenueBreakdowns(record.revenue.breakdowns);
   assertClose(opexItems, record.costs.operatingExpenses.total, tolerance, `${record.key}: operating expense item sum`, errors);
   assertClose(
     operatingOtherIncomeItems,

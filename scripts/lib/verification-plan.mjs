@@ -1,7 +1,8 @@
 import { CHANGE_IMPACTS, DATASET_ADAPTERS } from './dataset-build.mjs';
 import { digestCanonical, validateObjectInventory } from './object-inventory.mjs';
+import { compileNodeFacePolicy } from './node-face-policy.mjs';
 
-export const VERIFICATION_PLAN_PROTOCOL = 'verification-plan/v3';
+export const VERIFICATION_PLAN_PROTOCOL = 'verification-plan/v4';
 
 export const CHECK_ENFORCEMENTS = Object.freeze([
   'hard-gate',
@@ -64,11 +65,13 @@ const CHANGE_IMPACT_REQUIREMENTS = Object.freeze({
 
 const ADAPTER_PROFILES = Object.freeze({
   'income-statement': Object.freeze({
-    version: 'income-statement-plan/v2',
+    version: 'income-statement-plan/v3',
     supportedAxes: Object.freeze(['asset', 'data', 'docs', 'full', 'interaction', 'localization', 'metadata', 'render']),
     steps: Object.freeze([
       { id: 'data-consistency', axis: 'data', disposition: 'required', enforcement: 'build-gate', localeScope: 'global', evidenceKind: 'dataset-consistency', ruleIds: ['G11'] },
       { id: 'source-lineage', axis: 'data', disposition: 'required', enforcement: 'build-gate', localeScope: 'global', evidenceKind: 'verification-plan', ruleIds: [] },
+      { id: 'source-coverage', axis: 'data', disposition: 'required', enforcement: 'build-gate', localeScope: 'global', evidenceKind: 'source-coverage', ruleIds: [] },
+      { id: 'source-coverage-review', axis: 'data', disposition: 'required', enforcement: 'manual', localeScope: 'global', evidenceKind: 'manual-decision', ruleIds: [] },
       { id: 'render-fidelity', axis: 'render', disposition: 'required', enforcement: 'hard-gate', localeScope: 'required-locales', evidenceKind: 'fidelity-run', ruleIds: ['G1', 'G2', 'G3', 'G4', 'G5', 'G6', 'G7', 'G8', 'G9', 'G10', 'G12'] },
       { id: 'reference-fidelity', axis: 'render', disposition: 'required', enforcement: 'hard-gate', localeScope: 'required-locales', evidenceKind: 'interface-audit', ruleIds: [] },
       { id: 'manual-visual-closure', axis: 'render', disposition: 'required', enforcement: 'manual', localeScope: 'required-locales', evidenceKind: 'manual-decision', ruleIds: [] },
@@ -77,12 +80,14 @@ const ADAPTER_PROFILES = Object.freeze({
     ]),
   }),
   'revenue-metric': Object.freeze({
-    version: 'revenue-metric-plan/v2',
+    version: 'revenue-metric-plan/v3',
     dataOnly: true,
     supportedAxes: Object.freeze(['data', 'docs', 'full', 'localization', 'metadata']),
     steps: Object.freeze([
       { id: 'data-consistency', axis: 'data', disposition: 'required', enforcement: 'build-gate', localeScope: 'global', evidenceKind: 'dataset-consistency', ruleIds: ['G11'] },
       { id: 'source-lineage', axis: 'data', disposition: 'required', enforcement: 'build-gate', localeScope: 'global', evidenceKind: 'verification-plan', ruleIds: [] },
+      { id: 'source-coverage', axis: 'data', disposition: 'required', enforcement: 'build-gate', localeScope: 'global', evidenceKind: 'source-coverage', ruleIds: [] },
+      { id: 'source-coverage-review', axis: 'data', disposition: 'required', enforcement: 'manual', localeScope: 'global', evidenceKind: 'manual-decision', ruleIds: [] },
       { id: 'render-fidelity', axis: 'render', disposition: 'not-applicable', reason: 'revenue-metric-data-only' },
       { id: 'reference-fidelity', axis: 'render', disposition: 'not-applicable', reason: 'revenue-metric-data-only' },
       { id: 'manual-visual-closure', axis: 'render', disposition: 'not-applicable', reason: 'revenue-metric-data-only' },
@@ -169,7 +174,7 @@ function featureCheckId(feature, requirement) {
   return `feature:${requirement.checkId || feature}`;
 }
 
-function featureChecks(inventory) {
+function featureChecks(inventory, sourceCoverage) {
   const byFeature = new Map();
   for (const object of inventory.objects) {
     for (const feature of object.features) {
@@ -193,7 +198,12 @@ function featureChecks(inventory) {
       evidenceKind: requirement.evidenceKind,
       objectIds: bucket.objectIds.sort(),
       evidenceTargets: [...new Set(bucket.evidenceTargets)].sort(),
-      featureEvidenceDigests: [...new Set(bucket.featureEvidenceDigests || [])].sort(),
+      featureEvidenceDigests: [...new Set([
+        ...(bucket.featureEvidenceDigests || []),
+        ...(feature === 'visible-short-node' && sourceCoverage.summary.visibilityFloorExceptionNodeIds.length > 0
+          ? [sourceCoverage.coverageDigest]
+          : []),
+      ])].sort(),
       ruleIds: [...requirement.ruleIds],
     })));
 }
@@ -263,6 +273,19 @@ export function compileVerificationPlan(input) {
     'INVENTORY_VERSION_STALE',
     'A new VerificationPlan requires ObjectInventory v3; historical v1/v2 inventories remain inspectable only'
   );
+  const sourceCoverage = input.sourceCoverage;
+  invariant(
+    sourceCoverage?.schemaVersion === 1 && sourceCoverage.protocol === 'source-coverage/v1',
+    'SOURCE_COVERAGE_REQUIRED',
+    'VerificationPlan v4 requires source-coverage/v1'
+  );
+  invariant(
+    sourceCoverage.datasetKey === inventory.datasetKey &&
+      sourceCoverage.adapter === input.adapter &&
+      sourceCoverage.inventoryDigest === inventory.inventoryDigest,
+    'SOURCE_COVERAGE_PLAN_MISMATCH',
+    'Source Coverage must match the Adapter and ObjectInventory compiled into the Plan'
+  );
   const impacts = normalizeImpacts(input.changeImpact);
   const requiredLocales = normalizeLocales(input.requiredLocales);
   const profile = ADAPTER_PROFILES[input.adapter];
@@ -288,7 +311,7 @@ export function compileVerificationPlan(input) {
     );
   }
 
-  const features = featureChecks(inventory);
+  const features = featureChecks(inventory, sourceCoverage);
   const impact = impactChecks(profile, impacts);
   const requiredChecks = [...adapterChecks(profile), ...impact.required, ...features]
     .sort((left, right) => left.id.localeCompare(right.id));
@@ -321,12 +344,15 @@ export function compileVerificationPlan(input) {
   }
 
   const value = {
-    schemaVersion: 3,
+    schemaVersion: 4,
     protocol: VERIFICATION_PLAN_PROTOCOL,
     datasetKey: inventory.datasetKey,
     adapter: input.adapter,
     adapterVersion: profile.version,
     inventoryDigest: inventory.inventoryDigest,
+    sourceCoverageDigest: sourceCoverage.coverageDigest,
+    sourceDigest: sourceCoverage.source.digest,
+    nodeFacePolicy: compileNodeFacePolicy(sourceCoverage),
     changeImpact: impacts,
     requiredLocales,
     requiredChecks,

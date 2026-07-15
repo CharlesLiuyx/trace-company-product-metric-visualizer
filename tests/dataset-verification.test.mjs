@@ -9,6 +9,11 @@ import { initializeDatasetBuild, readBuildObject } from '../scripts/lib/dataset-
 import { recordDatasetVerification } from '../scripts/lib/dataset-verification.mjs';
 import { parseArgs, runRecordVerification } from '../scripts/record-verification.mjs';
 import { createHash } from 'node:crypto';
+import {
+  SOURCE_CLASSIFICATION_REVIEW_METHOD,
+  SOURCE_COVERAGE_SCAN_PASSES,
+  createSourceClassification,
+} from '../scripts/lib/source-coverage.mjs';
 
 const now = () => '2026-07-11T08:00:00.000Z';
 const digest = (value) => digestValue({ value });
@@ -25,9 +30,23 @@ async function fixture(t) {
   await mkdir(path.join(root, 'input', 'processing'), { recursive: true });
   await writeFile(path.join(root, artifact), 'export const marker = 1;\n');
   await writeFile(path.join(root, sourcePath), sourceBytes);
+  const sourceClassification = createSourceClassification({
+    datasetKey: 'example-q4-fy25',
+    adapter: 'income-statement',
+    signals: ['income-statement-values', 'sankey-flow-topology'],
+    reviewMethod: SOURCE_CLASSIFICATION_REVIEW_METHOD,
+    source: {
+      locator: 'input/pending/example.png',
+      digest: sourceDigest,
+      width: 2400,
+      height: 1800,
+    },
+    fullImageBBox: [0, 0, 2400, 1800],
+  });
   const build = createDatasetBuild({
     key: 'example-q4-fy25',
     adapter: 'income-statement',
+    sourceClassification,
     baseCanonicalDigest: digest('canonical'),
     sources: [{
       uri: 'input/pending/example.png',
@@ -58,6 +77,17 @@ async function fixture(t) {
             inspectionMethod: 'native-scale-reference-measurement',
           },
         },
+      }],
+    },
+    sourceCoverage: {
+      classification: sourceClassification,
+      scanPasses: SOURCE_COVERAGE_SCAN_PASSES,
+      items: [{
+        sourceId: 'source:revenue-label',
+        sourceClass: 'label-or-annotation',
+        sourceLabel: 'Revenue label',
+        contentBBox: [180, 420, 160, 44],
+        inventoryObjectIds: ['label:revenue'],
       }],
     },
     artifacts: [{ path: artifact }, { path: sourcePath, role: 'reference-image' }],

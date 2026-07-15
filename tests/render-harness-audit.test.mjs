@@ -109,7 +109,9 @@ test('Toast/Alibaba short-node paint regression rejects transparent, background-
   assert.equal(audit.nodes.find((item) => item.id === 'background').fillMatchesBackground, true);
   assert.throws(
     () => assertNodePaintAudit(audit, { visible: ['background', 'transparent'] }),
-    /background=not-painted, transparent=not-painted/
+    (error) => error.code === 'NODE_FACE_POLICY_FAILED' &&
+      error.assessment?.checks['visible:background']?.status === 'failed' &&
+      error.assessment?.checks['visible:transparent']?.status === 'failed'
   );
 });
 
@@ -133,6 +135,16 @@ test('T21 flags faceVisible nodes rendering below the shared MIN_VISIBLE_FACE_PX
   const invisible = classify([node('gone', { fill: 'none', bbox: { x: 10, y: 20, width: 18, height: 0.4 } })]);
   assert.deepEqual(invisible.belowVisibilityFloorNodeIds, []);
   assert.deepEqual(invisible.invisibleNodeIds, ['gone']);
+
+  assert.throws(
+    () => assertNodePaintAudit(audit, { visible: ['hairline'] }),
+    (error) => error.code === 'NODE_FACE_POLICY_FAILED' &&
+      error.assessment?.checks['visible:hairline']?.message.includes('no Source-bound exception')
+  );
+  assert.doesNotThrow(
+    () => assertNodePaintAudit(audit, {}, { enforceUnboundFloor: false }),
+    'catalog regression records below-floor faces but cannot adjudicate Plan-bound exceptions'
+  );
 });
 
 test('node paint audit requires hidden anchors to exist but remain unpainted', () => {
@@ -142,11 +154,13 @@ test('node paint audit requires hidden anchors to exist but remain unpainted', (
   const painted = classify([node('anchor')]);
   assert.throws(
     () => assertNodePaintAudit(painted, { hidden: ['anchor'] }),
-    /anchor=unexpected-paint/
+    (error) => error.code === 'NODE_FACE_POLICY_FAILED' &&
+      error.assessment?.checks['hidden:anchor']?.message.includes('observed painted')
   );
   assert.throws(
     () => assertNodePaintAudit(classify([]), { hidden: ['anchor'] }),
-    /anchor=missing/
+    (error) => error.code === 'NODE_FACE_POLICY_FAILED' &&
+      error.assessment?.checks['hidden:anchor']?.message.includes('observed missing')
   );
 });
 
@@ -177,7 +191,10 @@ test('v3 node paint audit rejects every rendered node omitted from inventory int
   const audit = classify([node('revenue'), node('unplanned')]);
   assert.throws(
     () => assertNodePaintAudit(audit, { visible: ['revenue'], hidden: [], complete: true }),
-    /unplanned=unclassified/
+    (error) => error.code === 'NODE_FACE_POLICY_FAILED' &&
+      error.assessment?.violations.some((item) =>
+        item.code === 'unclassified-node' && item.nodeId === 'unplanned'
+      )
   );
 });
 
@@ -326,6 +343,35 @@ test('T18 gates the source-language center deltas and only measures other locale
 
   const missing = classifyLabelPositionAudit({ labels: [] }, expectations, { locale: 'zh' });
   assert.deepEqual(missing.violations.map((item) => item.code), ['missing-label-group'], 'every locale must render each measured group');
+});
+
+test('T18 uses an explicitly approved user target while retaining the Source measurement', () => {
+  const plan = {
+    objectCoverage: [{
+      objectId: 'node:tax',
+      mapping: ['render:layout.labels.tax', 'render:nodes.tax'],
+      featureEvidence: {
+        'measured-label-position': {
+          referenceBBox: [100, 200, 80, 40],
+          approvedTargetBBox: [60, 200, 80, 40],
+          approvedTargetAuthority: 'user-directed-layout-correction',
+          approvedTargetReason: 'Move the label left to clear the adjacent flow.',
+        },
+      },
+    }],
+  };
+  const [expectation] = labelPositionExpectationsFromPlan(plan);
+  assert.deepEqual(expectation, {
+    objectId: 'node:tax',
+    node: 'tax',
+    referenceBBox: [60, 200, 80, 40],
+    sourceReferenceBBox: [100, 200, 80, 40],
+    approvedTargetAuthority: 'user-directed-layout-correction',
+    approvedTargetReason: 'Move the label left to clear the adjacent flow.',
+  });
+  const audit = classifyLabelPositionAudit({ labels: [{ node: 'tax', labelIndex: 0, box: { x: 60, y: 200, width: 80, height: 40 } }] }, [expectation]);
+  assert.deepEqual(audit.violations, []);
+  assert.deepEqual(audit.measurements[0].sourceReferenceBBox, [100, 200, 80, 40]);
 });
 
 test('Build-bound render evidence cannot archive a failed planned label-position gate', () => {

@@ -32,6 +32,7 @@ function intakeOptions() {
     source: 'input/pending/acme.png',
     key: 'acme-q4-fy25',
     adapter: 'income-statement',
+    signals: ['income-statement-values', 'sankey-flow-topology'],
     availability: 'local-only',
     json: false,
   };
@@ -57,6 +58,10 @@ test('record:intake parses one selected Source and explicit Adapter', () => {
       'acme-q4-fy25',
       '--adapter',
       'income-statement',
+      '--signal',
+      'sankey-flow-topology',
+      '--signal',
+      'income-statement-values',
       '--availability',
       'public',
       '--json',
@@ -65,6 +70,7 @@ test('record:intake parses one selected Source and explicit Adapter', () => {
       source: 'input/pending/acme.png',
       key: 'acme-q4-fy25',
       adapter: 'income-statement',
+      signals: ['income-statement-values', 'sankey-flow-topology'],
       availability: 'public',
       json: true,
     }
@@ -80,6 +86,10 @@ test('record:intake normalizes the legacy published availability alias to public
     'acme-q4-fy25',
     '--adapter',
     'income-statement',
+    '--signal',
+    'income-statement-values',
+    '--signal',
+    'sankey-flow-topology',
     '--availability',
     'published',
   ]);
@@ -95,6 +105,10 @@ test('record:intake defaults Source availability to local-only', () => {
     'acme-arr-2026',
     '--adapter',
     'revenue-metric',
+    '--signal',
+    'revenue-metric-definition',
+    '--signal',
+    'time-series-observations',
   ]);
   assert.equal(parsed.availability, 'local-only');
 });
@@ -108,6 +122,22 @@ test('record:intake rejects ambiguous or malformed identity', () => {
     () => parseArgs(['node', 'record-intake.mjs', 'input/pending/acme.png', '--key', 'acme-q4', '--adapter', 'unknown']),
     /Unsupported --adapter/
   );
+  assert.throws(
+    () => parseArgs([
+      'node',
+      'record-intake.mjs',
+      'input/pending/acme.png',
+      '--key',
+      'acme-q4',
+      '--adapter',
+      'revenue-metric',
+      '--signal',
+      'income-statement-values',
+      '--signal',
+      'sankey-flow-topology',
+    ]),
+    /select income-statement, not requested Adapter revenue-metric/
+  );
 });
 
 test('record:intake records the Build and claims pending Source in processing', async (t) => {
@@ -120,6 +150,9 @@ test('record:intake records the Build and claims pending Source in processing', 
   assert.equal(result.build.sources[0].processedUri, 'input/processed/acme-q4-fy25.png');
   assert.equal(result.build.sources[0].width, 2);
   assert.equal(result.build.sources[0].height, 3);
+  assert.equal(result.build.sourceClassification.adapter, 'income-statement');
+  assert.deepEqual(result.build.sourceClassification.signals, ['income-statement-values', 'sankey-flow-topology']);
+  assert.equal(result.build.sourceClassification.source.digest, result.build.sources[0].digest);
   assert.deepEqual(result.claim, {
     originUri: 'input/pending/acme.png',
     processingUri: 'input/processing/acme-q4-fy25.png',

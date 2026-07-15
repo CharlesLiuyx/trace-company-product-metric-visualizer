@@ -104,8 +104,11 @@ Node-face 判定采用“可见优先”方法：不确定时声明 `visible-nod
   必备 feature：Plan 编译对 income-statement 强制，缺声明即拒绝编译。其
   `featureEvidence` 必须记录带稳定 fragment 的 Source `locator`、该 label 组文字 union 的
   原生像素 `referenceBBox: [x, y, width, height]`、本 Build 的 Source `digest` 和
-  `inspectionMethod: native-scale-reference-measurement`。这份测量就是 T18 自动比对的
-  参考答案，T19 在 prepare-review 时验证它确实量自本 Build 的 Source。
+  `inspectionMethod: native-scale-reference-measurement`。这份测量默认就是 T18 自动比对的
+  参考答案，T19 在 prepare-review 时验证它确实量自本 Build 的 Source。只有用户明确要求改变
+  label 布局时，才可在保留该 `referenceBBox` 的前提下另记 `approvedTargetBBox`、
+  `approvedTargetAuthority: user-directed-layout-correction` 与具体 `approvedTargetReason`；T18
+  对该目标框验收，并在证据中同时保留原图框，不能用目标框改写原图测量。
 - `ambiguous-label-slot`：preflight 无法从参考图唯一判定某 label 的槽位或归属时声明；
   记录竞争解释的 `reason`、带 fragment 的 crop `locator`、`referenceBBox`、Source `digest`
   与 `classificationClaim: label-slot-ambiguous-operator-decision-required`。它编译出 T20
@@ -125,7 +128,7 @@ preflight 至少逐对象记录：
 - 每个 label 的语义组、anchor、渲染目标位置；名称、金额、备注、margin、Y/Y 不拆散归属。
 - 注释容器、内容 union、图标 cluster 和受保护文本的 bbox。
 
-固定 `layout.labels.<node>.blocks` 的纵向位置必须逐组从当前参考图测量：记录文字 union（或逐行 bbox）、`block.top`、x/anchor，以及它与 node/link 的关系。这些测量不是草稿，而是 `measured-label-position` 的 `featureEvidence`（referenceBBox + Source digest），由 T18 在每次 evidence run 自动对照、T19 在 prepare-review 验证 provenance。同公司相邻期间或相邻对象只能作为视觉语言参考，不能作为坐标来源——外来 digest 会被 T19 直接拒绝。每次改变 `top`、行距、字号或 `textLength` 后，必须在下一次 text sweep 中逐 locale 对照候选与参考的 top/bottom/anchor；任何未测量或明显偏移的组都以 reference red-box 重开 text stage。
+固定 `layout.labels.<node>.blocks` 的纵向位置必须逐组从当前参考图测量：记录文字 union（或逐行 bbox）、`block.top`、x/anchor，以及它与 node/link 的关系。这些测量不是草稿，而是 `measured-label-position` 的 `featureEvidence`（referenceBBox + Source digest），由 T18 在每次 evidence run 自动对照、T19 在 prepare-review 验证 provenance。同公司相邻期间或相邻对象只能作为视觉语言参考，不能作为坐标来源——外来 digest 会被 T19 直接拒绝。用户明确指定的定向修正是唯一例外：保留 Source `referenceBBox`，以 `approvedTargetBBox` + `approvedTargetAuthority: user-directed-layout-correction` + `approvedTargetReason` 形成可追溯目标，T18 输出中必须同时显示二者。每次改变 `top`、行距、字号或 `textLength` 后，必须在下一次 text sweep 中逐 locale 对照候选与参考的 top/bottom/anchor；任何未测量或明显偏移的组都以 reference red-box 重开 text stage。
 
 测量值直接用于第一版 Adapter；不能先粗排，再靠多次 evidence run 逼近。
 
@@ -198,8 +201,8 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 | --- | --- |
 | `hard-gate` | [G1](#rule-g1) [G2](#rule-g2) [G3](#rule-g3) [G3a](#rule-g3a) [G3b](#rule-g3b) [G3c](#rule-g3c) [G4](#rule-g4) [G5](#rule-g5) [G6](#rule-g6) [G7](#rule-g7) [G8](#rule-g8) [G9](#rule-g9) [G10](#rule-g10) [G12](#rule-g12) [R3](#rule-r3) [R4](#rule-r4) [R5](#rule-r5) [R6](#rule-r6) [R7](#rule-r7) [R8](#rule-r8) [R9](#rule-r9) [L15](#rule-l15) |
 | `build-gate` | [G11](#rule-g11) [T19](#rule-t19) |
-| `conditional-gate` | [B3](#rule-b3) [B5](#rule-b5) [B6](#rule-b6) [B7](#rule-b7) [B15](#rule-b15) [B16](#rule-b16) [T7](#rule-t7) [T13](#rule-t13) [T18](#rule-t18) [A6](#rule-a6) [A10](#rule-a10) [Z5](#rule-z5) |
-| `quantified-audit` | [B8](#rule-b8) [B10](#rule-b10) [B12](#rule-b12) [L5](#rule-l5) [L6](#rule-l6) [L10](#rule-l10) [L11](#rule-l11) [T1](#rule-t1) [T2](#rule-t2) [T4](#rule-t4) [T6](#rule-t6) [T21](#rule-t21) |
+| `conditional-gate` | [B3](#rule-b3) [B5](#rule-b5) [B6](#rule-b6) [B7](#rule-b7) [B15](#rule-b15) [B16](#rule-b16) [T7](#rule-t7) [T13](#rule-t13) [T18](#rule-t18) [T21](#rule-t21) [A6](#rule-a6) [A10](#rule-a10) [Z5](#rule-z5) |
+| `quantified-audit` | [B8](#rule-b8) [B10](#rule-b10) [B12](#rule-b12) [L5](#rule-l5) [L6](#rule-l6) [L10](#rule-l10) [L11](#rule-l11) [T1](#rule-t1) [T2](#rule-t2) [T4](#rule-t4) [T6](#rule-t6) |
 | `manual` | [B1](#rule-b1) [B2](#rule-b2) [B4](#rule-b4) [B9](#rule-b9) [B11](#rule-b11) [B13](#rule-b13) [B14](#rule-b14) [R1](#rule-r1) [R2](#rule-r2) [L1](#rule-l1) [L2](#rule-l2) [L3](#rule-l3) [L4](#rule-l4) [L7](#rule-l7) [L8](#rule-l8) [L9](#rule-l9) [L12](#rule-l12) [L13](#rule-l13) [L14](#rule-l14) [L16](#rule-l16) [T3](#rule-t3) [T5](#rule-t5) [T8](#rule-t8) [T9](#rule-t9) [T10](#rule-t10) [T11](#rule-t11) [T12](#rule-t12) [T12a](#rule-t12a) [T14](#rule-t14) [T15](#rule-t15) [T16](#rule-t16) [T17](#rule-t17) [T20](#rule-t20) [A1](#rule-a1) [A2](#rule-a2) [A3](#rule-a3) [A4](#rule-a4) [A5](#rule-a5) [A7](#rule-a7) [A8](#rule-a8) [A9](#rule-a9) [Z1](#rule-z1) [Z2](#rule-z2) [Z3](#rule-z3) [Z4](#rule-z4) [Z6](#rule-z6) [Z6a](#rule-z6a) [Z7](#rule-z7) [Z8](#rule-z8) [I1](#rule-i1) [I2](#rule-i2) [I3](#rule-i3) [I4](#rule-i4) [I5](#rule-i5) [I6](#rule-i6) [I7](#rule-i7) [I8](#rule-i8) [I9](#rule-i9) [I10](#rule-i10) [I11](#rule-i11) |
 
 ### G 系列：自动与 Build 门槛
@@ -707,8 +710,8 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 
 - 阶段：text · 主题：label
 - 触发：`measured-label-position` 触发。
-- 检查：每次 evidence run 将每个固定布局 label 组的渲染 union bbox 与 preflight 持久化的原生 `referenceBBox` 自动比对。
-- 通过：源语言 locale 的中心差（X 与 Y 各自）`<=6px`，超差失败。非源语言 locale 不做中心 gate（本地化验收由 Z2/Z5/Z6 拥有），但每个已测量组必须渲染出可测的 label，缺组即失败。
+- 检查：每次 evidence run 将每个固定布局 label 组的渲染 union bbox 与 preflight 持久化的原生 `referenceBBox` 自动比对；只有明确的用户布局纠正才可保留该原图测量，并以 `approvedTargetBBox`、`approvedTargetAuthority: user-directed-layout-correction` 与具体理由声明待验目标。
+- 通过：源语言 locale 的中心差（X 与 Y 各自）`<=6px`，超差失败。非源语言 locale 不做中心 gate（本地化验收由 Z2/Z5/Z6 拥有），但每个已测量组必须渲染出可测的 label，缺组即失败；存在经授权 target 时审计同时保留 source `referenceBBox`。
 - 证据：逐 locale 的 `labelPositionAudit`。
 - feature：`measured-label-position`
 - 理由：6px = 通用 4px 中心约定加 2px 的 ink-bbox 对 em-box 测量协议余量。
@@ -732,13 +735,13 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 - feature：`ambiguous-label-slot`
 - 来源：commit 41c2f20
 
-#### <a id="rule-t21"></a>T21 · quantified-audit
+#### <a id="rule-t21"></a>T21 · conditional-gate
 
 - 阶段：structure · 主题：node
 - 触发：`visible-node-face`（含 `visible-short-node`）触发。
-- 检查：`nodePaintAudit` 逐 node 记录渲染柱面高度 `faceHeight`，把 `faceVisible` 但高度低于共享最小可见高度 `MIN_VISIBLE_FACE_PX`（3px，含 0.5px raster 容差）的 face 汇入 `belowVisibilityFloorNodeIds`。
-- 通过：真实参考短柱确需低于该 floor 时，按 T14 以原生 crop、实测端点和绑定决定作为例外记录。
-- 证据：逐 locale 的 `nodePaintAudit`。
+- 检查：`node-face-policy/v1` 重新计算每个 expected-visible node 的 `faceHeight`；低于共享最小可见高度 `MIN_VISIBLE_FACE_PX`（3px，含 0.5px raster 容差）时立即失败，而不是只写入 audit 字段。
+- 通过：每个 expected-visible node 达到 floor；真实 Source face 本身低于 floor 时，只接受 `source-coverage/v1` 中绑定 Source digest、原生 face bbox 与唯一 node target 的显式例外，且候选高度不得比 Source 实测 face 明显更小；T14 人工端点/形态决定仍必须通过。
+- 证据：逐 locale 的 `nodePaintAudit` + Plan 绑定的 `node-face-policy/v1`；例外另引用 Source Coverage digest。
 - 补偿：[B15](#rule-b15)
 - feature：`visible-node-face`
 - 理由：补上 B15/`faceVisible` 只验 alpha>0、bbox 非零而不验渲染高度的盲点：消除“数值极小 → 亚像素柱、肉眼不可见”，并给所有 short 节点统一最小柱高、杜绝逐次在 1px/11px 间猜测（同一批曾出现 Visa=6px、SAP/Comcast=3px 的各自取值）。

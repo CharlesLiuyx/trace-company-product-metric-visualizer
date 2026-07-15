@@ -25,6 +25,55 @@ import {
 const now = () => '2026-07-11T07:00:00.000Z';
 const digest = (value) => digestValue({ value });
 
+function sourceClassification({ key, adapter, sourcePath, sourceDigest, width, height }) {
+  return {
+    datasetKey: key,
+    adapter,
+    source: {
+      locator: sourcePath,
+      digest: sourceDigest,
+      width,
+      height,
+    },
+    fullImageBBox: [0, 0, width, height],
+    reviewMethod: 'full-source-type-gate',
+    signals: adapter === 'income-statement'
+      ? ['income-statement-values', 'sankey-flow-topology']
+      : ['revenue-metric-definition', 'time-series-observations'],
+  };
+}
+
+function incomeSourceCoverage(inventoryInput) {
+  return {
+    scanPasses: ['geometry', 'residual', 'semantic-value'],
+    items: inventoryInput.objects.map((object, index) => {
+      const nodeMapped = object.mapping.some((mapping) =>
+        mapping.role === 'render' && /(^|[./:])nodes?[./:]/i.test(mapping.target)
+      );
+      const y = 20 + index * 40;
+      const face = nodeMapped
+        ? object.features.includes('hidden-anchor')
+          ? { claim: 'hidden', searchBBox: [20, y, 100, 20] }
+          : {
+              claim: 'visible',
+              searchBBox: [20, y, 100, 20],
+              observedBBox: [30, y + 8, 72, 4],
+            }
+        : null;
+      return {
+        sourceId: `source:${object.id.replace(/[^a-z0-9]+/g, '-')}`,
+        sourceClass: nodeMapped || object.mapping.some((mapping) => /link|interface/i.test(mapping.target))
+          ? 'structural-flow'
+          : 'label-or-annotation',
+        sourceLabel: object.id,
+        inventoryObjectIds: [object.id],
+        contentBBox: [20, y, 100, 20],
+        ...(face ? { face } : {}),
+      };
+    }),
+  };
+}
+
 async function fixture(t, key = 'example-q4-fy25') {
   const root = await mkdtemp(path.join(os.tmpdir(), 'dataset-build-closeout-test-'));
   const buildRoot = path.join(root, 'output', 'builds');
@@ -49,6 +98,14 @@ async function fixture(t, key = 'example-q4-fy25') {
       width: 2400,
       height: 1800,
     }],
+    sourceClassification: sourceClassification({
+      key,
+      adapter: 'income-statement',
+      sourcePath: `input/pending/${key}.png`,
+      sourceDigest,
+      width: 2400,
+      height: 1800,
+    }),
   }, { now, id: () => `build-${key}` });
   await initializeDatasetBuild(build, { buildRoot });
   t.after(() => rm(root, { recursive: true, force: true }));
@@ -80,6 +137,14 @@ test('prepare-review binds a hidden-anchor claim to the exact Build Source diges
       width: 400,
       height: 300,
     }],
+    sourceClassification: sourceClassification({
+      key,
+      adapter: 'income-statement',
+      sourcePath: `input/pending/${key}.png`,
+      sourceDigest,
+      width: 400,
+      height: 300,
+    }),
   }, { now, id: () => `build-${key}` });
   await initializeDatasetBuild(build, { buildRoot });
   t.after(() => rm(root, { recursive: true, force: true }));
@@ -114,6 +179,7 @@ test('prepare-review binds a hidden-anchor claim to the exact Build Source diges
     prepareBuildReview({
       buildId: build.buildId,
       inventory: hiddenInventory(digest('wrong-source')),
+      sourceCoverage: incomeSourceCoverage(hiddenInventory(digest('wrong-source'))),
       artifacts,
       changeImpact: ['geometry'],
       requiredLocales: ['en'],
@@ -124,6 +190,7 @@ test('prepare-review binds a hidden-anchor claim to the exact Build Source diges
   const prepared = await prepareBuildReview({
     buildId: build.buildId,
     inventory: hiddenInventory(sourceDigest),
+    sourceCoverage: incomeSourceCoverage(hiddenInventory(sourceDigest)),
     artifacts,
     changeImpact: ['geometry'],
     requiredLocales: ['en'],
@@ -230,6 +297,11 @@ async function writeEvidence(root, prepared, verticalCenterDelta = 0, options = 
     language: 'en',
     ...(options.interfaceAudit || {}),
   });
+  const nodeFacePolicy = prepared.build.receipts.at(-1).payload.verificationPlan.nodeFacePolicy;
+  const nodePaintRecords = [
+    ...(nodeFacePolicy.visibleNodeIds || []).map((id) => ({ id, faceVisible: true, faceHeight: 4 })),
+    ...(nodeFacePolicy.hiddenNodeIds || []).map((id) => ({ id, faceVisible: false, faceHeight: 0 })),
+  ];
   const relative = (name) => path.relative(root, path.join(archive, name)).split(path.sep).join('/');
   for (const [kind, name] of Object.entries(names)) {
     const contents = kind === 'metrics'
@@ -285,12 +357,11 @@ async function writeEvidence(root, prepared, verticalCenterDelta = 0, options = 
             schemaVersion: 1,
             dataset: prepared.build.key,
             language: 'en',
-            nodes: [
-              { id: 'tax', faceVisible: true },
-              ...(options.semanticAnnotationAudit
-                ? [{ id: 'other_income', faceVisible: true }]
-                : []),
-            ],
+            checkedNodes: nodePaintRecords.length,
+            minVisibleFacePx: 3,
+            belowVisibilityFloorNodeIds: [],
+            duplicateNodeIds: [],
+            nodes: nodePaintRecords,
           },
           ...(options.semanticAnnotationAudit
             ? { semanticAnnotationAudit: options.semanticAnnotationAudit }
@@ -380,13 +451,23 @@ function matrix(key = 'example-q4-fy25') {
   };
 }
 
-function manualCheckDecisions() {
-  return [{
-    checkId: 'adapter:manual-visual-closure',
-    locale: 'en',
-    status: 'passed',
-    evidenceDigests: [bytesDigest('interfaceContactSheet\n')],
-  }];
+function manualCheckDecisions(prepared) {
+  const plan = prepared.build.receipts.at(-1).payload.verificationPlan;
+  return [
+    {
+      checkId: 'adapter:source-coverage-review',
+      status: 'passed',
+      evidenceDigests: [plan.sourceCoverageDigest, plan.sourceDigest],
+    },
+    ...(plan.requiredChecks.some((check) => check.id === 'adapter:manual-visual-closure')
+      ? [{
+          checkId: 'adapter:manual-visual-closure',
+          locale: 'en',
+          status: 'passed',
+          evidenceDigests: [bytesDigest('interfaceContactSheet\n')],
+        }]
+      : []),
+  ];
 }
 
 function pendingReviewInput(prepared, evidenceManifest, verificationReference) {
@@ -400,16 +481,18 @@ function pendingReviewInput(prepared, evidenceManifest, verificationReference) {
     attention: { status: 'closed', closureNote: 'No open red-box region remains.' },
     feedback: [],
     riskChecks: [],
-    manualCheckDecisions: manualCheckDecisions(),
+    manualCheckDecisions: manualCheckDecisions(prepared),
     interfaceMatrix: matrix(prepared.build.key),
   };
 }
 
 async function prepare(t) {
   const base = await fixture(t);
+  const authoredInventory = inventory(base.build.key, base.sourceDigest);
   const prepared = await prepareBuildReview({
     buildId: base.build.buildId,
-    inventory: inventory(base.build.key, base.sourceDigest),
+    inventory: authoredInventory,
+    sourceCoverage: incomeSourceCoverage(authoredInventory),
     artifacts: [
       { path: base.artifact, role: 'view-adapter' },
       { path: base.sourcePath, role: 'reference-image' },
@@ -422,47 +505,49 @@ async function prepare(t) {
 
 async function prepareWithManualFeatures(t) {
   const base = await fixture(t, 'manual-features-fy25');
+  const authoredInventory = {
+    datasetKey: base.build.key,
+    objects: [
+      {
+        id: 'label:revenue',
+        kind: 'label',
+        disposition: 'render',
+        mapping: [{ role: 'render', target: 'layout.labels.revenue' }],
+        features: ['specified-label-weight', 'measured-label-position'],
+        featureEvidence: {
+          'specified-label-weight': {
+            source: 'reference-measurement',
+            locator: 'input/processing/manual-features-fy25.png#revenue-label',
+            expectedWeight: 600,
+          },
+          'measured-label-position': {
+            source: 'reference-measurement',
+            locator: 'input/processing/manual-features-fy25.png#revenue-label-group',
+            digest: base.sourceDigest,
+            referenceBBox: [180, 420, 160, 44],
+            inspectionMethod: 'native-scale-reference-measurement',
+          },
+        },
+      },
+      {
+        id: 'node:tax',
+        kind: 'short-node',
+        disposition: 'render',
+        mapping: [{ role: 'render', target: 'nodes.tax' }],
+        features: ['visible-node-face', 'visible-short-node'],
+        featureEvidence: {
+          'visible-short-node': {
+            source: 'reference-crop',
+            locator: 'input/processing/manual-features-fy25.png#tax-node',
+          },
+        },
+      },
+    ],
+  };
   const prepared = await prepareBuildReview({
     buildId: base.build.buildId,
-    inventory: {
-      datasetKey: base.build.key,
-      objects: [
-        {
-          id: 'label:revenue',
-          kind: 'label',
-          disposition: 'render',
-          mapping: [{ role: 'render', target: 'layout.labels.revenue' }],
-          features: ['specified-label-weight', 'measured-label-position'],
-          featureEvidence: {
-            'specified-label-weight': {
-              source: 'reference-measurement',
-              locator: 'input/processing/manual-features-fy25.png#revenue-label',
-              expectedWeight: 600,
-            },
-            'measured-label-position': {
-              source: 'reference-measurement',
-              locator: 'input/processing/manual-features-fy25.png#revenue-label-group',
-              digest: base.sourceDigest,
-              referenceBBox: [180, 420, 160, 44],
-              inspectionMethod: 'native-scale-reference-measurement',
-            },
-          },
-        },
-        {
-          id: 'node:tax',
-          kind: 'short-node',
-          disposition: 'render',
-          mapping: [{ role: 'render', target: 'nodes.tax' }],
-          features: ['visible-node-face', 'visible-short-node'],
-          featureEvidence: {
-            'visible-short-node': {
-              source: 'reference-crop',
-              locator: 'input/processing/manual-features-fy25.png#tax-node',
-            },
-          },
-        },
-      ],
-    },
+    inventory: authoredInventory,
+    sourceCoverage: incomeSourceCoverage(authoredInventory),
     artifacts: [
       { path: base.artifact, role: 'view-adapter' },
       { path: base.sourcePath, role: 'reference-image' },
@@ -475,32 +560,34 @@ async function prepareWithManualFeatures(t) {
 
 async function prepareWithSemanticAnnotation(t) {
   const base = await fixture(t, 'semantic-annotation-q4-fy25');
+  const authoredInventory = {
+    datasetKey: base.build.key,
+    objects: [{
+      id: 'node:other-income',
+      kind: 'short-income-node',
+      disposition: 'render',
+      mapping: [
+        { role: 'render', target: 'nodes.other_income' },
+        { role: 'render', target: 'annotations.other_income' },
+      ],
+      features: ['semantic-annotation', 'visible-node-face'],
+      featureEvidence: {
+        'semantic-annotation': {
+          source: 'reference-crop',
+          locator: `${base.sourcePath}#other-income-callout`,
+          digest: base.sourceDigest,
+          referenceBBox: [2080, 230, 88, 96],
+          inspectionMethod: 'native-scale-crop-and-object-inventory',
+          classificationClaim: 'semantic-node-annotation-required',
+          reason: 'The source uses one callout group to name and value the Other income micro-flow.',
+        },
+      },
+    }],
+  };
   const prepared = await prepareBuildReview({
     buildId: base.build.buildId,
-    inventory: {
-      datasetKey: base.build.key,
-      objects: [{
-        id: 'node:other-income',
-        kind: 'short-income-node',
-        disposition: 'render',
-        mapping: [
-          { role: 'render', target: 'nodes.other_income' },
-          { role: 'render', target: 'annotations.other_income' },
-        ],
-        features: ['semantic-annotation', 'visible-node-face'],
-        featureEvidence: {
-          'semantic-annotation': {
-            source: 'reference-crop',
-            locator: `${base.sourcePath}#other-income-callout`,
-            digest: base.sourceDigest,
-            referenceBBox: [2080, 230, 88, 96],
-            inspectionMethod: 'native-scale-crop-and-object-inventory',
-            classificationClaim: 'semantic-node-annotation-required',
-            reason: 'The source uses one callout group to name and value the Other income micro-flow.',
-          },
-        },
-      }],
-    },
+    inventory: authoredInventory,
+    sourceCoverage: incomeSourceCoverage(authoredInventory),
     artifacts: [
       { path: base.artifact, role: 'view-adapter' },
       { path: base.sourcePath, role: 'reference-image' },
@@ -515,33 +602,82 @@ async function prepareRevenueMetric(t, changeImpact = ['financial-data-only']) {
   const root = await mkdtemp(path.join(os.tmpdir(), 'dataset-build-closeout-revenue-test-'));
   const buildRoot = path.join(root, 'output', 'builds');
   const artifact = 'data/revenue-metrics.js';
+  const key = 'example-arr-2026';
+  const sourcePath = 'input/processing/example-arr-2026.png';
+  const sourceBytes = 'source-image-bytes:example-arr-2026';
+  const sourceDigest = bytesDigest(sourceBytes);
   await mkdir(path.join(root, 'data'), { recursive: true });
+  await mkdir(path.join(root, 'input', 'processing'), { recursive: true });
   await writeFile(path.join(root, artifact), 'window.REVENUE_METRICS = [];\n');
+  await writeFile(path.join(root, sourcePath), sourceBytes);
   const build = createDatasetBuild({
-    key: 'example-arr-2026',
+    key,
     adapter: 'revenue-metric',
     baseCanonicalDigest: digest('canonical-v1'),
-    sources: [{ uri: 'input/pending/example-arr.png', availability: 'local-only', digest: digest('source') }],
+    sources: [{
+      uri: 'input/pending/example-arr-2026.png',
+      processingUri: sourcePath,
+      availability: 'local-only',
+      digest: sourceDigest,
+      width: 1200,
+      height: 800,
+    }],
+    sourceClassification: sourceClassification({
+      key,
+      adapter: 'revenue-metric',
+      sourcePath: 'input/pending/example-arr-2026.png',
+      sourceDigest,
+      width: 1200,
+      height: 800,
+    }),
   }, { now, id: () => 'build-example-arr-2026' });
   await initializeDatasetBuild(build, { buildRoot });
+  const authoredInventory = {
+    datasetKey: build.key,
+    objects: [{
+      id: 'metric:arr',
+      kind: 'metric-observation',
+      disposition: 'data-only',
+      mapping: [{ role: 'data', target: 'revenueMetrics.arr' }],
+      features: [],
+    }],
+  };
   const prepared = await prepareBuildReview({
     buildId: build.buildId,
-    inventory: {
-      datasetKey: build.key,
-      objects: [{
-        id: 'metric:arr',
-        kind: 'metric-observation',
-        disposition: 'data-only',
-        mapping: [{ role: 'data', target: 'revenueMetrics.arr' }],
-        features: [],
+    inventory: authoredInventory,
+    sourceCoverage: {
+      scanPasses: ['geometry', 'residual', 'semantic-value'],
+      items: [{
+        sourceId: 'source:arr-2026-01-01',
+        sourceClass: 'metric-observation',
+        sourceLabel: 'ARR on 2026-01-01',
+        inventoryObjectIds: ['metric:arr'],
+        contentBBox: [100, 100, 260, 40],
+        amount: { literal: '$120M', value: '120', unit: 'M', resolution: '1' },
+        ssotRef: { family: 'revenue-metric', path: 'observations', date: '2026-01-01' },
       }],
     },
-    artifacts: [{ path: artifact, role: 'metric-ssot' }],
+    artifacts: [
+      { path: artifact, role: 'metric-ssot' },
+      { path: sourcePath, role: 'reference-image' },
+    ],
     changeImpact,
     requiredLocales: ['en'],
-  }, { buildRoot, projectRoot: root, now });
+  }, {
+    buildRoot,
+    projectRoot: root,
+    now,
+    loadedData: {
+      revenueRecords: [{
+        key,
+        unit: 'M',
+        decimals: 1,
+        observations: [{ date: '2026-01-01', value: 120 }],
+      }],
+    },
+  });
   t.after(() => rm(root, { recursive: true, force: true }));
-  return { root, buildRoot, artifact, prepared };
+  return { root, buildRoot, artifact, sourcePath, sourceDigest, prepared };
 }
 
 test('automatic evidence without human attestation cannot close a Build', async (t) => {
@@ -562,7 +698,7 @@ test('automatic evidence without human attestation cannot close a Build', async 
     attention: { status: 'closed', closureNote: 'No open red-box region remains.' },
     feedback: [],
     riskChecks: [],
-    manualCheckDecisions: manualCheckDecisions(),
+    manualCheckDecisions: manualCheckDecisions(prepared),
     interfaceMatrix: matrix(prepared.build.key),
     stageDecisions,
   }, { buildRoot, projectRoot: root, now });
@@ -628,7 +764,7 @@ test('render evidence cannot close a Build without Build-bound dataset consisten
       attention: { status: 'closed', closureNote: 'No open red-box region remains.' },
       feedback: [],
       riskChecks: [],
-      manualCheckDecisions: manualCheckDecisions(),
+      manualCheckDecisions: manualCheckDecisions(prepared),
       interfaceMatrix: matrix(),
     }, { buildRoot, projectRoot: root, now }),
     (error) => error.code === 'DATASET_VERIFICATION_REQUIRED'
@@ -671,7 +807,7 @@ test('a previously passing review cannot close after authored bytes change', asy
       attention: { status: 'closed', closureNote: 'No open red-box region remains.' },
       feedback: [],
       riskChecks: [],
-      manualCheckDecisions: manualCheckDecisions(),
+      manualCheckDecisions: manualCheckDecisions(prepared),
       interfaceMatrix: matrix(),
     }, { buildRoot, projectRoot: root, now }),
     (error) => error.code === 'REVIEW_OUTCOME_STALE'
@@ -693,7 +829,7 @@ test('Live Nation-sized side-label deltas block closure even when automatic rend
     attention: { status: 'closed', closureNote: 'No open red-box region remains.' },
     feedback: [],
     riskChecks: [],
-    manualCheckDecisions: manualCheckDecisions(),
+    manualCheckDecisions: manualCheckDecisions(prepared),
     interfaceMatrix: matrix(prepared.build.key),
   }, { buildRoot, projectRoot: root, now });
 
@@ -722,7 +858,7 @@ test('Interface Matrix candidate geometry must exactly match the archived G12 ro
       attention: { status: 'closed', closureNote: 'No open red-box region remains.' },
       feedback: [],
       riskChecks: [],
-      manualCheckDecisions: manualCheckDecisions(),
+      manualCheckDecisions: manualCheckDecisions(prepared),
       interfaceMatrix: mismatchedMatrix,
     }, { buildRoot, projectRoot: root, now }),
     (error) => error.code === 'INTERFACE_MATRIX_GEOMETRY_MISMATCH'
@@ -748,20 +884,25 @@ test('semantic annotation checks consume the archived metrics document', async (
   const verificationReference = await writeDatasetVerification(root, buildRoot, prepared);
   const plan = prepared.build.receipts.at(-1).payload.verificationPlan;
   const localeEvidenceDigest = bytesDigest('interfaceContactSheet\n');
-  const manualDecisions = plan.requiredChecks
-    .filter((check) => check.enforcement === 'manual')
-    .flatMap((check) => (check.localeScope === 'required-locales'
-      ? plan.requiredLocales.map((locale) => ({
-          checkId: check.id,
-          locale,
-          status: 'passed',
-          evidenceDigests: [localeEvidenceDigest],
-        }))
-      : [{
-          checkId: check.id,
-          status: 'passed',
-          evidenceDigests: [sourceDigest],
-        }]));
+  const manualDecisions = [
+    ...manualCheckDecisions(prepared),
+    ...plan.requiredChecks
+      .filter((check) => check.enforcement === 'manual' &&
+        !['adapter:source-coverage-review', 'adapter:manual-visual-closure'].includes(check.id)
+      )
+      .flatMap((check) => (check.localeScope === 'required-locales'
+        ? plan.requiredLocales.map((locale) => ({
+            checkId: check.id,
+            locale,
+            status: 'passed',
+            evidenceDigests: [localeEvidenceDigest],
+          }))
+        : [{
+            checkId: check.id,
+            status: 'passed',
+            evidenceDigests: [sourceDigest],
+          }])),
+  ];
 
   const outcome = await finishReviewedBuild({
     buildId: prepared.build.buildId,
@@ -806,7 +947,7 @@ test('specified label weight and short-node geometry consume per-locale manual d
     finishReviewedBuild({
       ...baseInput,
       manualCheckDecisions: [
-        ...manualCheckDecisions(),
+        ...manualCheckDecisions(prepared),
         {
           checkId: 'feature:specified-label-weight',
           locale: 'en',
@@ -820,7 +961,7 @@ test('specified label weight and short-node geometry consume per-locale manual d
 
   const incomplete = await finishReviewedBuild({
     ...baseInput,
-    manualCheckDecisions: manualCheckDecisions(),
+    manualCheckDecisions: manualCheckDecisions(prepared),
   }, { buildRoot, projectRoot: root, now });
   assert.equal(incomplete.fidelityResult.status, 'blocked');
   assert.ok(incomplete.fidelityResult.blockers.some((item) =>
@@ -833,7 +974,7 @@ test('specified label weight and short-node geometry consume per-locale manual d
   const complete = await finishReviewedBuild({
     ...baseInput,
     manualCheckDecisions: [
-      ...manualCheckDecisions(),
+      ...manualCheckDecisions(prepared),
       {
         checkId: 'feature:specified-label-weight',
         locale: 'en',
@@ -866,7 +1007,7 @@ test('reviewed evidence closes, stages, seals, and becomes stale when authored b
     attention: { status: 'closed', closureNote: 'No open red-box region remains.' },
     feedback: [],
     riskChecks: [],
-    manualCheckDecisions: manualCheckDecisions(),
+    manualCheckDecisions: manualCheckDecisions(prepared),
     interfaceMatrix: matrix(),
   }, { buildRoot, projectRoot: root, now });
   assert.equal(reviewed.fidelityResult.status, 'accepted');
@@ -898,6 +1039,7 @@ test('reviewed evidence closes, stages, seals, and becomes stale when authored b
   assert.equal(profileCalls.length, 1);
   assert.equal(profileCalls[0].key, prepared.build.key);
   assert.deepEqual(renderCalls.map((call) => call.locale), ['en']);
+  assert.deepEqual(renderCalls.map((call) => call.buildId), [prepared.build.buildId]);
   const sealPayload = sealed.receipts.at(-1).payload;
   assert.equal(sealPayload.finalProfiles.length, 2);
   assert.equal(sealPayload.finalProfiles[0].profile, 'verify:dataset --skip-render');
@@ -942,6 +1084,7 @@ test('Revenue Metric closes through consistency evidence with Sankey fidelity ex
     attention: { status: 'closed', closureNote: 'No visual red-box surface applies.' },
     feedback: [],
     riskChecks: [],
+    manualCheckDecisions: manualCheckDecisions(prepared),
     interfaceMatrix: null,
   }, { buildRoot, projectRoot: root, now });
   assert.equal(reviewed.fidelityResult.status, 'accepted');
@@ -985,7 +1128,7 @@ test('seal refuses to record when a locale render final profile fails', async (t
     attention: { status: 'closed', closureNote: 'No open red-box region remains.' },
     feedback: [],
     riskChecks: [],
-    manualCheckDecisions: manualCheckDecisions(),
+    manualCheckDecisions: manualCheckDecisions(prepared),
     interfaceMatrix: matrix(),
   }, { buildRoot, projectRoot: root, now });
   await stageReviewedBaseline({
@@ -1018,6 +1161,7 @@ test('seal refuses to record when the non-render consistency profile fails', asy
     attention: { status: 'closed', closureNote: 'No visual red-box surface applies.' },
     feedback: [],
     riskChecks: [],
+    manualCheckDecisions: manualCheckDecisions(prepared),
     interfaceMatrix: null,
   }, { buildRoot, projectRoot: root, now });
   await stageReviewedBaseline({ buildId: prepared.build.buildId }, { buildRoot, projectRoot: root, now });
@@ -1049,6 +1193,7 @@ test('Revenue Metric display-text review uses dataset consistency without render
     attention: { status: 'closed', closureNote: 'No visual red-box surface applies.' },
     feedback: [],
     riskChecks: [],
+    manualCheckDecisions: manualCheckDecisions(prepared),
     interfaceMatrix: null,
   }, { buildRoot, projectRoot: root, now });
   assert.equal(reviewed.fidelityResult.status, 'accepted');
@@ -1167,7 +1312,7 @@ test('baseline staging refuses a closure whose authored bytes are already stale'
     attention: { status: 'closed', closureNote: 'No open red-box region remains.' },
     feedback: [],
     riskChecks: [],
-    manualCheckDecisions: manualCheckDecisions(),
+    manualCheckDecisions: manualCheckDecisions(prepared),
     interfaceMatrix: matrix(),
   }, { buildRoot, projectRoot: root, now });
   assert.equal(reviewed.build.state, 'CLOSED');

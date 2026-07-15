@@ -47,7 +47,7 @@ function generatedDocument({ handwritten = '', generated = null } = {}) {
 test('default fidelity rule contract preserves the complete catalog and feature mappings', () => {
   assert.equal(Object.keys(FIDELITY_RULE_CONTRACT.enforcements).length, 108);
   assert.equal(FIDELITY_RULES.length, 108);
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T21, 'quantified-audit');
+  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T21, 'conditional-gate');
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.G11, 'build-gate');
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.G12, 'hard-gate');
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.B15, 'conditional-gate');

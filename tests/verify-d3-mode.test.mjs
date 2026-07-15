@@ -3,6 +3,7 @@ import test from 'node:test';
 import {
   fidelityExecutionMode,
   fidelityExecutionModeForOperation,
+  main,
   parseArgs,
 } from '../scripts/verify-d3.mjs';
 
@@ -38,6 +39,37 @@ test('verify:d3 stays read-only even when a focus is supplied', () => {
     'text sweep',
   ]);
   assert.equal(fidelityExecutionMode(options), 'diagnostic');
+});
+
+test('verify:d3 with a Build uses a non-archival plan diagnostic mode', () => {
+  const options = parseArgs([
+    'node',
+    'verify-d3.mjs',
+    'example-q4-fy25',
+    '--build',
+    'build-example',
+    '--focus',
+    'closeout-refresh',
+  ]);
+  const mode = fidelityExecutionModeForOperation(options, 'verify');
+
+  assert.equal(mode, 'plan-diagnostic');
+  assert.equal(new Set(['review-evidence', 'legacy-manual']).has(mode), false);
+});
+
+test('plan-bound verify is accepted by the CLI before dataset resolution', async () => {
+  await assert.rejects(
+    main([
+      'node',
+      'verify-d3.mjs',
+      'definitely-missing-dataset',
+      '--build',
+      'build-example',
+      '--focus',
+      'closeout-refresh',
+    ], { operation: 'verify' }),
+    (error) => /Missing dataset file/.test(error.message)
+  );
 });
 
 test('record:fidelity binds review evidence to a Build', () => {

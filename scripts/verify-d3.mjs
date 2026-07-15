@@ -53,7 +53,7 @@ import {
 function usage() {
   console.error(
     'Usage:\n' +
-      '  pnpm verify:d3 -- <dataset-key> [--keep] [--language <code>] [--focus <diagnostic-direction>]\n' +
+      '  pnpm verify:d3 -- <dataset-key> [--build <build-id>] [--keep] [--language <code>] [--focus <diagnostic-direction>]\n' +
       `  pnpm record:fidelity -- <dataset-key> --focus <${STAGE_FOCUS_VALUES.join('|')}> [--build <build-id>] [--keep] [--language <code> ...]`
   );
 }
@@ -111,9 +111,6 @@ export function parseArgs(argv) {
     usage();
     process.exit(2);
   }
-  if (buildId && focus === 'unspecified') {
-    throw new Error('--build records review evidence and therefore requires an explicit --focus');
-  }
   return {
     datasetKey,
     keep,
@@ -128,7 +125,7 @@ export function fidelityExecutionMode({ buildId, focus }) {
 }
 
 export function fidelityExecutionModeForOperation({ buildId, focus }, operation) {
-  if (operation === 'verify') return 'diagnostic';
+  if (operation === 'verify') return buildId ? 'plan-diagnostic' : 'diagnostic';
   if (operation !== 'record') throw new Error(`Unsupported fidelity operation class: ${operation}`);
   if (buildId) {
     // Build-bound evidence must be queryable by sweep stage; free-form focus
@@ -205,9 +202,6 @@ function assertLabelLayoutAudit(audit) {
 export async function main(argv = process.argv, runtime = {}) {
   const operation = runtime.operation || 'verify';
   const options = parseArgs(argv);
-  if (operation === 'verify' && options.buildId) {
-    throw new Error('--build is only valid with record:fidelity; verify:d3 is read-only');
-  }
   const { datasetKey, keep, languages, focus, buildId } = options;
   const executionMode = fidelityExecutionModeForOperation(options, operation);
   const datasetScript = datasetScriptForKey(datasetKey);
@@ -237,7 +231,7 @@ export async function main(argv = process.argv, runtime = {}) {
   ]);
   let reviewIdentity = {};
   let reviewPlan = null;
-  if (executionMode === 'review-evidence') {
+  if (buildId) {
     const build = await readDatasetBuild(buildId);
     if (build.key !== datasetKey) {
       throw new Error(`Dataset Build ${buildId} belongs to ${build.key}, not ${datasetKey}`);
@@ -380,11 +374,9 @@ async function renderLocaleRun({
     // Diagnostics report all faces without claiming inventory intent. A
     // Build-bound run must prove every planned visible/hidden node per locale.
     const nodeFaceExpectations = nodeFaceExpectationsFromPlan(reviewPlan);
-    assertNodePaintAudit(
-      nodePaintAudit,
-      executionMode === 'review-evidence' ? nodeFaceExpectations : {}
-    );
-    if (executionMode === 'review-evidence') {
+    const planBound = executionMode === 'review-evidence' || executionMode === 'plan-diagnostic';
+    assertNodePaintAudit(nodePaintAudit, planBound ? nodeFaceExpectations : {});
+    if (planBound) {
       assertPlannedRenderAudits(reviewPlan, {
         labelLayoutAudit,
         labelPositionAudit,
@@ -455,10 +447,10 @@ async function renderLocaleRun({
     assertTypographyAudit(renderedTypographyAudit);
     assertLabelLayoutAudit(labelLayoutAudit);
     assertInterfaceAudit(interfaceAudit);
-    if (executionMode === 'review-evidence') assertInterfaceEvidenceReady(interfaceAudit);
+    if (planBound) assertInterfaceEvidenceReady(interfaceAudit);
 
     const archive =
-      executionMode === 'diagnostic'
+      executionMode === 'diagnostic' || executionMode === 'plan-diagnostic'
         ? null
         : await finalizeFidelityRun(run, {
             focus,
@@ -515,7 +507,7 @@ async function renderLocaleRun({
       `text layout audit: checked=${textLayoutAudit.checkedTexts} overflow=${textLayoutAudit.overflowViolations.length} tolerance=${textLayoutAudit.tolerance}px`
     );
     console.log(
-      `annotation clearance audit: annotations=${annotationLayoutAudit.checkedAnnotationTexts} protected=${annotationLayoutAudit.checkedProtectedTexts} overlaps=${annotationLayoutAudit.overlapViolations.length} tolerance=${annotationLayoutAudit.tolerance}px`
+      `annotation clearance audit: annotations=${annotationLayoutAudit.checkedAnnotations} (text=${annotationLayoutAudit.checkedAnnotationTexts}, graphic=${annotationLayoutAudit.checkedAnnotationGraphics}) protected=${annotationLayoutAudit.checkedProtectedTexts} overlaps=${annotationLayoutAudit.overlapViolations.length} tolerance=${annotationLayoutAudit.tolerance}px`
     );
     console.log(
       `semantic annotation audit: expected=${semanticAnnotationAudit.expectedNodeIds.length} checked=${semanticAnnotationAudit.checkedAnnotations} unbound=${semanticAnnotationAudit.unboundNodeLikeTexts.length} violations=${semanticAnnotationAudit.violations.length}`

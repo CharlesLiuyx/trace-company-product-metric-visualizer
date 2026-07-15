@@ -61,7 +61,7 @@ The target deepens four Modules:
 
 | Module | Interface responsibility | Implementation hidden behind the Seam |
 | --- | --- | --- |
-| Dataset Build Transaction | advance one Source-derived build through explicit states | intake and working-Source claim, typed inventory and Plan compilation, review closure, staging, freshness, invalidation |
+| Dataset Build Transaction | advance one Source-derived build through explicit states | whole-Source Type Gate, intake and working-Source claim, exhaustive Source Coverage, actual authored-value reconciliation, typed inventory and Plan compilation, review closure, staging, freshness, invalidation |
 | Fidelity Run | produce immutable automatic evidence for one authored digest | private workspace, rendering, Diff, gates, evidence-ready archive finalization |
 | Publication | plan and atomically publish a set of sealed contributions | global projections, path claims, baseline ledger, metadata, CAS and recovery |
 | Release | build or deploy one published digest | standalone build, hosted release, retries and receipts |
@@ -72,6 +72,11 @@ the owning Module. Income Statement and Revenue Metric are real Adapters at
 the input-type Seam; future input types add an Adapter instead of branching
 through every caller.
 
+The implemented M3 Build path uses `source-classification/v1` before fresh
+intake, then `source-coverage/v1` plus actual SSOT/View reconciliation to
+compile `node-face-policy/v1`, `verification-plan/v4`, and
+`review-packet/v3`. These are current build-local guards, not M4 Publication.
+
 ## Non-negotiable invariants
 
 - `verify:*` is read-only; `record:*` writes only build-local evidence or
@@ -79,6 +84,15 @@ through every caller.
   already-published digest.
 - Automatic evidence is necessary but cannot stand in for a human attestation,
   region decisions, or feedback closure.
+- Fresh intake requires a whole-Source Type Gate whose signals derive exactly
+  one Adapter and agree with the requested Adapter.
+- A new review Plan requires exactly-once Source Coverage of every inventory
+  object. `Other` / `All Other` cannot be classified as non-semantic residual,
+  and Source values must reconcile against the actually loaded Adapter-owned
+  SSOT/View before `AUTHORED`.
+- Source-visible and hidden node intent is compiled into a complete node-face
+  policy. A small expected-visible face may use only a Source-bound exception;
+  candidate disappearance is not evidence of Source absence.
 - A staged baseline is future regression evidence. It cannot prove the build
   that produced it is correct.
 - `SEALED` binds exact source, authored, renderer, protocol, locale, closure,
@@ -97,10 +111,10 @@ through every caller.
 
 | concern | current Implementation | accepted target |
 | --- | --- | --- |
-| intake | `record:intake` records per-item Source/base digests and claims the selected file from `pending/` into the Build-local `processing/` working locator and lease | full isolated `DatasetBuild` workspace with the same digest-bound claim semantics |
+| intake | `record:intake` requires explicit Source signals, records a whole-image `source-classification/v1` whose derived Adapter must match `--adapter`, then records per-item Source/base digests and claims the selected file from `pending/` into the Build-local `processing/` working locator and lease | full isolated `DatasetBuild` workspace with the same digest-bound Type Gate and claim semantics |
 | Source projection | an explicit, batch-confirmed operator completion signal is the only relocation authority; the confirmed no-clobber move implies no Build closure or M4 Publication | Publication alone materializes the stable processed Source projection as part of the planned canonical result |
-| authoring and Plan | canonical paths are still edited directly; the Build chain records a typed `ObjectInventory`, compiles the Adapter/ChangeImpact-driven `VerificationPlan`, hashes authored files, and returns a content-addressed `ReviewPacket` token | isolated build workspace plus complete `ArtifactManifest` and Adapter execution |
-| verification and fidelity | `record:verification` records Build-bound non-render consistency evidence; `verify:d3` is read-only diagnostic execution; `record:fidelity` alone may archive durable `fidelity-run/2` `evidence-ready` artifacts bound to Build/authored/Plan digests; legacy unbound archives remain compatibility-only | typed automatic evidence plus the complete Adapter verification profile |
+| authoring and Plan | canonical paths are still edited directly; `prepare-review` records `source-coverage/v1`, reconciles Source amounts against the loaded SSOT and mapped Income Statement nodes, records a typed `ObjectInventory`, compiles a NodeFacePolicy-bearing `verification-plan/v4`, hashes authored files, and returns a content-addressed `review-packet/v3` token | isolated build workspace plus complete `ArtifactManifest` and Adapter execution |
+| verification and fidelity | `record:verification` records Build-bound non-render consistency evidence; `verify:d3` is read-only diagnostic execution; `record:fidelity` alone may archive durable `fidelity-run/2` `evidence-ready` artifacts bound to Build/authored/Plan digests and evaluated against the Plan's node-face policy; legacy unbound archives remain compatibility-only | typed automatic evidence plus the complete Adapter verification profile |
 | human closure | `record:build finish` consumes the Review token, automatic evidence, `ManualAttestation`, `RegionDecision`, risk/Matrix facts, and `FeedbackLedger`; only an accepted `FidelityResult` records `CLOSED` | the same deep Interface as the sole operational closure path |
 | baseline | the Build chain records true build-local `BASELINE_STAGED`; `compat:baseline` (renamed from `record:baseline`, outside the command classes) remains a subset-only, failure-atomic compatibility mutation of the canonical ledger | publish the staged baseline with the sealed contribution |
 | seal and inspection | `record:build seal` recomputes current authored-file freshness and reruns the read-only Adapter final profile (non-render consistency plus per-locale render hard gates for Income Statement) without caller-supplied pass JSON, recording each run in `finalProfiles`. `inspect` reports historical and effective state | implemented — matches the target for Build scope; the canonical projection remains M4 |
@@ -118,8 +132,8 @@ before then.
 | --- | --- | --- |
 | M0 — record the decision | implemented | architecture owners, vocabulary, invariants, and ADR exist |
 | M1 — isolate FidelityRun | implemented with operation separation and `fidelity-run/2` review identity | `verify:d3` remains ephemeral/read-only; `record:fidelity` alone finalizes durable automatic evidence, with legacy v1 archives explicitly non-closure |
-| M2 — introduce DatasetBuild | foundation implemented | per-item `record:intake` plus a Build-local working-Source claim, versioned state/storage, content-addressed objects, and historical/effective freshness exist; isolated authoring workspace remains pending |
-| M3 — close and stage | implemented — primary close-out path | `ObjectInventory -> VerificationPlan -> ReviewPacket -> DatasetVerification + FidelityResult -> CLOSED -> BASELINE_STAGED -> SEALED`, plus inspection/Views; the seal reruns the complete Adapter final profile (non-render consistency + per-locale render hard gates). Canonical writes remain direct-edit until M4 |
+| M2 — introduce DatasetBuild | foundation implemented | per-item `record:intake` with a whole-Source Type Gate plus a Build-local working-Source claim, versioned state/storage, content-addressed objects, and historical/effective freshness exist; isolated authoring workspace remains pending |
+| M3 — close and stage | implemented — primary close-out path | `SourceClassification -> ObjectInventory + SourceCoverage -> actual authored-value reconciliation -> NodeFacePolicy + VerificationPlan v4 -> ReviewPacket v3 -> DatasetVerification + FidelityResult -> CLOSED -> BASELINE_STAGED -> SEALED`, plus inspection/Views; the seal reruns the complete Adapter final profile (non-render consistency + per-locale render hard gates). Canonical writes remain direct-edit until M4 |
 | M4 — publish atomically | pending | pure projectors, `baseCanonicalDigest`, path claims, CAS, conflict/replan/reseal |
 | M5 — separate Release | partial | standalone no longer mutates metadata and the base architecture contract checker is active; immutable published-input Release, attempt receipts, generated views, and Release-specific contract checks remain pending |
 

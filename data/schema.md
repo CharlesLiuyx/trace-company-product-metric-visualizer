@@ -75,6 +75,18 @@ is needed. Do not create parallel dataset files per language.
         ],
       },
     ],
+    // Optional independent, non-additive views of the same revenue total.
+    // Each breakdown's total and its item sum must equal revenue.total.
+    breakdowns: [
+      {
+        id: 'customer_type',
+        label: 'Revenue by customer type',
+        total: 81.6,
+        items: [
+          { id: 'external_customers', label: 'External Customers', value: 75.2 },
+        ],
+      },
+    ],
   },
   costs: {
     costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 20.5 },
@@ -137,6 +149,16 @@ allows small published-rounding differences via `roundingTolerance`. It also
 checks every company in the financial SSOT has a matching
 `data/company-metadata/<company-key>.js` entry.
 
+`revenue.breakdowns` is optional and expresses an independent, non-additive
+view of the same reported revenue total (for example, customer type alongside
+license type). It never participates in the primary `revenue.items` sum. Each
+breakdown must have a stable id, a `total` equal to `revenue.total`, and items
+that sum to that breakdown total. Source Coverage may reference either a
+breakdown total or one of its items through
+`{ family: 'income-statement', path: 'revenue.breakdowns', id }` so every
+visible value in an orthogonal Source breakdown still reconciles to pure SSOT
+data and exactly one Sankey node.
+
 ### Revenue metric record
 
 ```js
@@ -195,6 +217,59 @@ observation.
 Observation-level `notes` are optional, user-visible methodology or caveat
 strings attached to individual data points. Localize them through the revenue
 metric i18n flow when present.
+
+### Source Coverage value references
+
+`source-coverage/v1` keeps Source-reading facts separate from the Metric SSOT,
+but every value-bearing Source observation must point back to an actual SSOT
+value with a typed `ssotRef`. Its `amount` preserves the literal Source text,
+exact decimal `value`, display `unit` (`K`, `M`, `B`, or `T`), and positive
+`resolution`, all as strings so author input is not silently rounded before
+verification. The exact value must remain inside the half-resolution rounding
+interval implied by the literal; a supplemental source cannot justify a value
+that the primary display could not have rounded to.
+
+When the primary Source literal displays zero only because it rounded a real
+non-zero value (for example, `$0.0B`), preserve the primary literal but recover
+the actual amount from an authoritative supplemental source:
+
+```js
+amount: {
+  literal: '$0.0B',
+  value: '0.04',
+  unit: 'B',
+  resolution: '0.1',
+  precisionRecovery: {
+    method: 'authoritative-supplemental-source',
+    locator: 'https://example.com/authoritative-filing',
+    literal: '$40M',
+  },
+}
+```
+
+The supplemental literal must include a numeric K/M/B/T amount and normalize
+to exactly the same effective value as `amount.value` (here `$40M = $0.04B`).
+`precisionRecovery` is forbidden when the primary literal did not round a
+non-zero value to zero. If no authoritative higher-precision value can be
+recovered, stop the Build; do not write `0` as a guess.
+
+| Adapter | typed reference | resolved authored value |
+| --- | --- | --- |
+| Income Statement | `{ family: 'income-statement', path, id }` | the matching record selected by dataset key; `path` covers revenue (including optional independent `revenue.breakdowns`), cost (including `costs.costOfRevenue.items`), profit, and operating/non-operating other-income/expense totals or items; item paths search nested `children` by `id`, while total paths use their stable node ID |
+| Revenue Metric | `{ family: 'revenue-metric', path: 'observations', date }` | the matching record's observation at the exact `YYYY-MM-DD` date |
+
+During current M3 `prepare-review`, verification converts the Source amount
+to the SSOT record's unit and compares it with the value loaded from these
+registered records. Income Statement preparation also loads the registered
+Sankey View and requires each financial Source fact to match exactly one node
+target. The review input cannot
+replace those loaded values: a missing record/View, unsupported unit or path,
+wrong ID/date, or unequal amount fails before a new authored review snapshot
+is recorded. A recovered non-zero amount must also remain non-zero at display
+precision: increase the SSOT record's `decimals`, and for an Income Statement
+increase Adapter `meta.decimals` or provide an exact non-zero node
+`valueText`. The lifecycle ownership and coverage rules live in
+[`docs/architecture/dataset-lifecycle.md`](../docs/architecture/dataset-lifecycle.md).
 
 ---
 

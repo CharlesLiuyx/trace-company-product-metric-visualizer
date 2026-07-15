@@ -32,11 +32,11 @@ CB-021），并让后来者理解每个 gate 的由来。
 | --- | --- | --- | --- | --- |
 | CB-001 | 多 link 节点端面留缝/溢出、socket 错位；用户指出 nike-q4-fy26 两处节点边缘空隙，同型问题随后又出现在 netease、global-payments（05903ba、9bd426f、dcdd687、4ee731a） | 多入/出节点、显式 socket | execution-gap | G12 + L11 接口审计与 Interface Matrix（B8 人工 reconcile 补盲） |
 | CB-002 | 同轴 label 与柱交叠、短柱 label 未对中（berkshire 等批次，4472ccf） | 同轴 label、短柱 | execution-gap | G8、G9、G10 + `labelLayoutAudit`（B1/B4/B13 补盲） |
-| CB-003 | 可见短柱被缩成不可见锚点或亚像素柱；同批曾对最小柱高各自取值——Visa 6px、SAP/Comcast 3px（0d7cc54、72644e5） | 短辅助柱（interest、tax、other…） | ambiguous-rule | T13 + T21 `nodePaintAudit` 最小可见柱高（B15；例外走 T14） |
+| CB-003 | 可见短柱被缩成不可见锚点或亚像素柱；同批曾对最小柱高各自取值——Visa 6px、SAP/Comcast 3px（0d7cc54、72644e5） | 短辅助柱（interest、tax、other…） | ambiguous-rule | T13 + T21 `node-face-policy/v1` 硬门；例外必须由 Source Coverage 绑定原生 face（B15/T14） |
 | CB-004 | 固定布局 label 组整体偏离参考位置，已收敛数据集因此返工（alphabet/amazon/amd 批次；41c2f20） | 每个 `layout.labels.*` 组 | execution-gap | T18 `labelPositionAudit` + Plan 编译强制 `measured-label-position` |
 | CB-005 | 复用相邻期间/其他数据集的坐标测量（41c2f20） | 同公司相邻期间 | execution-gap | T19 prepare-review 测量 provenance（外来 digest 拒绝） |
 | CB-006 | label 槽位多解时按单一解释先渲染，等用户复审再改判，浪费轮次（41c2f20） | 槽位歧义 | rule-missing | T20 + `ambiguous-label-slot`（渲染前操作者裁决） |
-| CB-007 | 隐藏锚点误判：该隐形的画出可见痕、该可见的做成透明锚点、引导线丢失（d519811、636dea5） | 细流带+引导线、无柱面对象 | ambiguous-rule | B7 + T12 结构化 native-pixel 证据与独立确认；T12a 注释入口 |
+| CB-007 | 隐藏锚点误判：该隐形的画出可见痕、该可见的做成透明锚点、引导线丢失（d519811、636dea5）；Texas Instruments Q4 FY25 的 Other $40M 微流段曾被做成无色锚点，用户指出阅读时没有柱面，已改为按原图 72px × 4px 尺寸呈现的 `visible-short-node` | 细流带+引导线、无柱面对象 | execution-gap | B7 + T12 结构化 native-pixel 证据与独立确认；T12a 注释入口；可见短柱改走 B15/T13/T14/T21 |
 | CB-008 | node-like 注释文字无 hover 高亮/Tooltip（2c8b6e7、6345b1a、75d53c8） | node 映射 `annotations.*` | rule-missing | A10 + B16 `semanticAnnotationAudit` 与 renderer hitbox（T17 分类） |
 | CB-009 | zh 文本越界/交叠：首次对 zh 开 gate 时清出 15 个数据集的存量欠账（ba9d15c、b62550c、f2ffe7e） | 每个非默认 locale | execution-gap | B6 + Z5 `textLayoutAudit` 每 required locale（Z1 独立证据） |
 | CB-010 | 半翻译、缩写拆坏、品牌词被误译（47a708e） | zh overlay、含 `&` 缩写、品牌词 | ambiguous-rule | `verify:i18n` 规则管线 + `EXACT_ZH` identity 词典（Z4/Z8 人工核对） |
@@ -44,6 +44,9 @@ CB-021），并让后来者理解每个 gate 的由来。
 | CB-012 | 反馈闭环只写 `required-checklist`，从不编译成机器检查，问题跨 Build 复发（41c2f20） | 每次 execution-gap 复发 | ambiguous-rule | Feedback Ledger 升级 disposition 收紧（复发只认 hard-gate / quantified-audit / not-suitable） |
 | CB-013 | Hover 份额被 Adapter 百分比 override、分组语义漂移（用户指出 Tooltip 百分比错误） | 每个数据集 | ambiguous-rule | `CONTEXT.md` 公式 SSOT + `verify:ssot` 拒绝 deprecated override 字段（L14 人工核对） |
 | CB-014 | 引擎重构后 hover Tooltip 全部失效（numW 作用域回归，248a485） | render(engine) 改动 | execution-gap | `verify:app` sankey hover 场景断言 Tooltip 份额与字体 + 引擎单测 |
+| CB-023 | Source 中的 `Other` / 小额非零对象在 authored 盘点中消失：无 icon 被误当残留，或 `$0.0B` 被当成真实 0（adfe5fe 后 processing 批次复盘；TI 实例见 CB-007） | 每个 value-bearing / Other-like Source 对象 | rule-missing | `source-coverage/v1` 三遍扫描 + semantic 不可 skip + exactly-one SSOT/Adapter node 对账 + rounded-zero precision recovery；manual coverage review 同时引用完整 Source 与 Coverage digest |
+| CB-024 | 只看标题、公司名、`revenue` 或期间 token 就选择 Adapter，完整损益表曾被当成 Revenue Metric（adfe5fe 后 processing 批次复盘） | 每个 fresh intake Source | rule-missing | intake 前 `source-classification/v1` whole-Source Type Gate；完整 signals 必须唯一推导 Adapter 并与 `--adapter` 一致，否则 claim 前失败 |
+| CB-025 | Apple Q1 FY26 的 Services 图标簇遮住 Wearables 的说明文字；A6/B5 审计此前只采集注释文字，漏掉纯 SVG 图形 | 贴近 label 的 SVG / raster 外观注释 | execution-gap | `annotation-near-label` 编译 A6/B5；显式 `data-annotation-clearance` 图形 bbox 与 label/title/period 自动避让审计 |
 
 ## B. 已记录为人工/陷阱防线的案例（复发即须升级）
 
@@ -58,6 +61,7 @@ CB-021），并让后来者理解每个 gate 的由来。
 | CB-018 | 深色 hub 出发的纯色 profit ribbon 被渲染为渐变（03f665a） | 深色 hub/source 的 profit link | B9 + L12 人工近源取色 | 色彩语义判定不可自动化时记 not-suitable；可补 `linkTint` 存在性量化报告 |
 | CB-019 | Tooltip Tag 锚到 tapered 闭合路径的周长中点而非中心线中点 | tapered ribbon | 渲染器已按中心线 `t=0.5` 锚定 + B11/L16 人工核对 clamp 遮挡 | 复发按 render-engine 回归处理并补引擎单测（quantified-audit） |
 | CB-020 | interim 期间（`3M`/`H1`/`YTD`…）变体标签回落成 `Main` | interim span 记录 | workflow §Traps + 人工核对 chip 标签/顺序/激活态 | viewer variant label 单测（quantified-audit） |
+| CB-026 | 方向性支流被接到错误上游：Meta Q4 FY25 的 Other 应独立流向 Net profit，却被写成 Operating profit → Other，并令 Operating profit → Tax 错缩为 $2.0B（用户截图） | Other-like 小额支流、相邻的利润终点 | execution-gap | Source Coverage 逐 flow 的 sourceId、Adapter source/target 映射与相邻利润节点的金额平衡 + B8 人工方向核对 | 同型问题再次出现时，将 source flow direction 与相邻节点金额平衡编译为量化方向审计（quantified-audit） |
 
 ## C. 流程结构性案例
 
