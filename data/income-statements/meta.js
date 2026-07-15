@@ -10,6 +10,96 @@
 
   ssot.records.push(
     {
+      key: 'meta-q4-fy25',
+      company: 'Meta',
+      period: 'Q4 FY25',
+      periodNote: 'Ending Dec. 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/meta-q4-fy25.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 59.9,
+        notes: ['+24% Y/Y'],
+        items: [
+          {
+            id: 'family_of_apps',
+            label: 'Family of Apps (FoA)',
+            value: 58.9,
+            notes: ['+26% Y/Y', 'Operating profit: $30.8B'],
+            children: [
+              { id: 'advertising', label: 'Advertising', value: 58.1, notes: ['+24% Y/Y'] },
+              { id: 'other_revenue', label: 'Other', value: 0.8, notes: ['+54% Y/Y', 'Payments infrastructure'] },
+            ],
+          },
+          {
+            id: 'reality_labs',
+            label: 'Reality Labs (RL)',
+            value: 1.0,
+            notes: ['(12%) Y/Y', 'Operating loss: ($6.0B)'],
+          },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 10.9 },
+        operatingExpenses: {
+          total: 24.2,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 17.1, notes: ['29% of revenue', '+3pp Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 3.7, notes: ['6% of revenue', '+5pp Y/Y'] },
+            { id: 'sm', label: 'S&M', value: 3.4, notes: ['6% of revenue', '(1pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 2.6 },
+      },
+      otherIncome: {
+        total: 0.6,
+        items: [{ id: 'other', label: 'Other', value: 0.6 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross Profit', value: 49.0, notes: ['82% margin', '+0pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 24.7, notes: ['41% margin', '+7pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 22.8, notes: ['38% margin', '+6pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度',
+          periodNote: '截至 2025 年 12 月',
+          revenue: {
+            notes: ['同比 +24%'],
+            items: [
+              {
+                id: 'family_of_apps', label: '应用家族（FoA）', notes: ['同比 +26%', '营业利润: $30.8B'],
+                children: [
+                  { id: 'advertising', label: '广告', notes: ['同比 +24%'] },
+                  { id: 'other_revenue', label: '其他', notes: ['同比 +54%', '支付基础设施'] },
+                ],
+              },
+              { id: 'reality_labs', label: 'Reality Labs（RL）', notes: ['同比 (12%)', '营业亏损: ($6.0B)'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 29%', '同比 +3 个百分点'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 6%', '同比 +5 个百分点'] },
+                { id: 'sm', label: '销售与市场', notes: ['占收入 6%', '同比 (1 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: { items: [{ id: 'other', label: '其他' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 82%', '同比 +0 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 41%', '同比 +7 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 38%', '同比 +6 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'meta-q1-fy26',
       company: 'Meta',
       period: 'Q1 FY26',

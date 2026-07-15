@@ -182,4 +182,94 @@
       },
     }
   );
+
+  ssot.records.push(
+    {
+      key: 'analog-devices-q4-fy25',
+      company: 'Analog Devices',
+      period: 'Q4 FY25',
+      periodNote: 'Ending Oct. 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/analog-devices-q4-fy25.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 3.076117,
+        notes: ['+26% Y/Y'],
+        items: [
+          { id: 'industrial', label: 'Industrial', value: 1.426527, notes: ['+34% Y/Y'] },
+          { id: 'automotive', label: 'Automotive', value: 0.852246, notes: ['+19% Y/Y'] },
+          { id: 'communications', label: 'Communications', value: 0.389801, notes: ['+37% Y/Y'] },
+          { id: 'consumer', label: 'Consumer', value: 0.407543, notes: ['+7% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 1.1343 },
+        operatingExpenses: {
+          total: 0.996605,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 0.467021, notes: ['15% of revenue', '(0pp) Y/Y'] },
+            { id: 'sga', label: 'SG&A', value: 0.342168, notes: ['11% of revenue', '(0pp) Y/Y'] },
+            { id: 'amortization', label: 'Amortization', value: 0.187416, notes: ['6% of revenue', '(2pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.099461 },
+      },
+      otherIncome: {
+        total: 0,
+        items: [],
+      },
+      otherExpenses: {
+        total: 0.058012,
+        items: [
+          {
+            id: 'interest',
+            label: 'Interest',
+            value: 0.058012,
+            notes: ['Net nonoperating expense, including interest expense, interest income, and other, net.'],
+          },
+        ],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 1.941817, notes: ['63% margin', '+5pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 0.945212, notes: ['31% margin', '+7pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 0.787739, notes: ['26% margin', '+6pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度',
+          periodNote: '截至 2025 年 10 月',
+          revenue: {
+            notes: ['同比 +26%'],
+            items: [
+              { id: 'industrial', label: '工业', notes: ['同比 +34%'] },
+              { id: 'automotive', label: '汽车', notes: ['同比 +19%'] },
+              { id: 'communications', label: '通信', notes: ['同比 +37%'] },
+              { id: 'consumer', label: '消费者', notes: ['同比 +7%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '销售成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 15%', '同比 (0 个百分点)'] },
+                { id: 'sga', label: '销售及管理', notes: ['占收入 11%', '同比 (0 个百分点)'] },
+                { id: 'amortization', label: '摊销', notes: ['占收入 6%', '同比 (2 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherExpenses: {
+            items: [{ id: 'interest', label: '利息', notes: ['净非经营费用，包括利息费用、利息收入和其他净额。'] }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 63%', '同比 +5 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 31%', '同比 +7 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 26%', '同比 +6 个百分点'] },
+          },
+        },
+      },
+    }
+  );
 })(window);

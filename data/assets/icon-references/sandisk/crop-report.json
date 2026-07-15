@@ -1,0 +1,372 @@
+{
+  "source": "input/processed/sandisk-q2-fy26.png",
+  "spec": "input/icon-crop-specs/sandisk-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-14T15:05:43.860755+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/sandisk",
+  "crops": [
+    {
+      "key": "sandisk-company-wordmark",
+      "output": "data/assets/icon-references/sandisk/crops/company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2842,
+        "losslessBytes": 13031,
+        "savingsVsLossless": 0.7819,
+        "metrics": {
+          "meanAbsoluteError": 0.4498,
+          "rootMeanSquareError": 2.3243,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.342
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 45233,
+        "transparentPixelRatio": 0.6652
+      },
+      "searchBox": {
+        "x": 570,
+        "y": 285,
+        "width": 650,
+        "height": 78
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 578,
+        "y0": 291,
+        "x1": 1207,
+        "y1": 359
+      },
+      "cropBox": {
+        "x0": 550,
+        "y0": 275,
+        "x1": 1230,
+        "y1": 375
+      },
+      "validation": {
+        "width": 680,
+        "height": 100,
+        "foregroundPixels": 22548,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 28,
+          "right": 23,
+          "top": 16,
+          "bottom": 16
+        },
+        "centerOffset": {
+          "x": 0.0037,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Complete red Sandisk wordmark above the revenue hub; excludes the chart title, revenue label, and all flow geometry.",
+      "runtimeOutput": "data/assets/raster-annotations/sandisk/company-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2842,
+        "losslessBytes": 13031,
+        "savingsVsLossless": 0.7819,
+        "metrics": {
+          "meanAbsoluteError": 0.4498,
+          "rootMeanSquareError": 2.3243,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.342
+        }
+      },
+      "validationSheet": "data/assets/icon-references/sandisk/validation-sheets/sandisk-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 215976,
+        "losslessBytes": 215976,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "sandisk-datacenter-storage-cluster",
+      "output": "data/assets/icon-references/sandisk/crops/datacenter-storage-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 11658,
+        "losslessBytes": 11658,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 4997,
+        "transparentPixelRatio": 0.3257
+      },
+      "searchBox": {
+        "x": 198,
+        "y": 326,
+        "width": 120,
+        "height": 110
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 202,
+        "y0": 331,
+        "x1": 315,
+        "y1": 432
+      },
+      "cropBox": {
+        "x0": 190,
+        "y0": 318,
+        "x1": 320,
+        "y1": 436
+      },
+      "validation": {
+        "width": 130,
+        "height": 118,
+        "foregroundPixels": 10243,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 5,
+          "top": 13,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": 0.0269,
+          "y": 0.0381
+        },
+        "passes": true
+      },
+      "note": "Datacenter enterprise-storage product cluster only; excludes the Datacenter label, value/note, node face, and ribbon.",
+      "runtimeOutput": "data/assets/raster-annotations/sandisk/datacenter-storage-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 11658,
+        "losslessBytes": 11658,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/sandisk/validation-sheets/sandisk-datacenter-storage-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 269053,
+        "losslessBytes": 269053,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "sandisk-edge-storage-cluster",
+      "output": "data/assets/icon-references/sandisk/crops/edge-storage-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 21446,
+        "losslessBytes": 21446,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 11911,
+        "transparentPixelRatio": 0.5134
+      },
+      "searchBox": {
+        "x": 184,
+        "y": 726,
+        "width": 150,
+        "height": 138
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 184,
+        "y0": 732,
+        "x1": 327,
+        "y1": 857
+      },
+      "cropBox": {
+        "x0": 177,
+        "y0": 720,
+        "x1": 337,
+        "y1": 865
+      },
+      "validation": {
+        "width": 160,
+        "height": 145,
+        "foregroundPixels": 11233,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 7,
+          "right": 10,
+          "top": 12,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": -0.0094,
+          "y": 0.0138
+        },
+        "passes": true
+      },
+      "note": "Edge iNAND memory-package cluster only; excludes the Edge label, value/note, node face, and ribbon.",
+      "runtimeOutput": "data/assets/raster-annotations/sandisk/edge-storage-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 21446,
+        "losslessBytes": 21446,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/sandisk/validation-sheets/sandisk-edge-storage-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 290984,
+        "losslessBytes": 290984,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "sandisk-consumer-storage-cluster",
+      "output": "data/assets/icon-references/sandisk/crops/consumer-storage-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 12414,
+        "losslessBytes": 12414,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 4286,
+        "transparentPixelRatio": 0.317
+      },
+      "searchBox": {
+        "x": 199,
+        "y": 1104,
+        "width": 116,
+        "height": 91
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 202,
+        "y0": 1104,
+        "x1": 312,
+        "y1": 1195
+      },
+      "cropBox": {
+        "x0": 190,
+        "y0": 1096,
+        "x1": 320,
+        "y1": 1200
+      },
+      "validation": {
+        "width": 130,
+        "height": 104,
+        "foregroundPixels": 9066,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 8,
+          "top": 8,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0154,
+          "y": 0.0144
+        },
+        "passes": true
+      },
+      "note": "Consumer portable-storage product cluster only; excludes the Consumer label, value/note, node face, and ribbon.",
+      "runtimeOutput": "data/assets/raster-annotations/sandisk/consumer-storage-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 12414,
+        "losslessBytes": 12414,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/sandisk/validation-sheets/sandisk-consumer-storage-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 272555,
+        "losslessBytes": 272555,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

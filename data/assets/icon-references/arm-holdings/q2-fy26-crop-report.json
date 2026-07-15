@@ -1,0 +1,132 @@
+{
+  "source": "input/processed/arm-holdings-q2-fy26.png",
+  "spec": "input/icon-crop-specs/arm-holdings-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-14T20:36:28.083097+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/arm-holdings",
+  "crops": [
+    {
+      "key": "arm-holdings-company-wordmark-q2-fy26",
+      "output": "data/assets/icon-references/arm-holdings/crops/company-wordmark-q2-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 3116,
+        "losslessBytes": 12732,
+        "savingsVsLossless": 0.7553,
+        "metrics": {
+          "meanAbsoluteError": 0.3141,
+          "rootMeanSquareError": 1.0084,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 32,
+          "changedPixelRatio": 0.4947
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 42609,
+        "transparentPixelRatio": 0.4966
+      },
+      "searchBox": {
+        "x": 690,
+        "y": 260,
+        "width": 540,
+        "height": 175
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 705,
+        "y0": 270,
+        "x1": 1208,
+        "y1": 423
+      },
+      "cropBox": {
+        "x0": 700,
+        "y0": 265,
+        "x1": 1220,
+        "y1": 430
+      },
+      "validation": {
+        "width": 520,
+        "height": 165,
+        "foregroundPixels": 37062,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 5,
+          "right": 12,
+          "top": 5,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": -0.0067,
+          "y": -0.0061
+        },
+        "passes": true
+      },
+      "note": "Legacy Arm wordmark centered above the customer split. Excludes the Revenue hub, customer labels, chart flows, and publisher attribution.",
+      "runtimeOutput": "data/assets/raster-annotations/arm-holdings/company-wordmark-q2-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 3116,
+        "losslessBytes": 12732,
+        "savingsVsLossless": 0.7553,
+        "metrics": {
+          "meanAbsoluteError": 0.3141,
+          "rootMeanSquareError": 1.0084,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 32,
+          "changedPixelRatio": 0.4947
+        }
+      },
+      "validationSheet": "data/assets/icon-references/arm-holdings/validation-sheets/arm-holdings-company-wordmark-q2-fy26.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 228059,
+        "losslessBytes": 228059,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

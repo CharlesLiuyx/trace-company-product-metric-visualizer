@@ -221,5 +221,106 @@
         },
       },
     }
+    ,
+    {
+      key: 'starbucks-q4-fy25',
+      company: 'Starbucks',
+      period: 'Q4 FY25',
+      periodNote: 'Ending Sept. 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 2,
+      sourceImage: 'input/processed/starbucks-q4-fy25.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 9.6,
+        notes: ['+5% Y/Y'],
+        items: [
+          { id: 'beverage', label: 'Beverage', value: 7.0, notes: ['+4% Y/Y'] },
+          { id: 'food', label: 'Food', value: 2.2, notes: ['+5% Y/Y'] },
+          {
+            id: 'other_revenue',
+            label: 'Other',
+            value: 0.4,
+            notes: ['+41% Y/Y', 'Packaged beverages, royalty and licensing revenue, ingredients'],
+          },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          label: 'Cost of revenue',
+          value: 7.4,
+          notes: ['Source chart presents cost of revenue as Store opex ($4.3B) plus Product & distribution ($3.1B).'],
+          items: [
+            { id: 'store_opex', label: 'Store opex', value: 4.3 },
+            { id: 'product_distribution', label: 'Product & distribution', value: 3.1 },
+          ],
+        },
+        operatingExpenses: {
+          total: 2.0,
+          notes: ['Displayed operating-expense components sum to $1.9B because the source rounds each component independently.'],
+          items: [
+            { id: 'ga', label: 'General & administrative', value: 0.6 },
+            { id: 'depreciation_amortization', label: 'Depreciation & amortization', value: 0.4 },
+            { id: 'restructuring', label: 'Restructuring', value: 0.8 },
+            { id: 'other_opex', label: 'Other opex', value: 0.1 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.03 },
+      },
+      operatingOtherIncome: {
+        total: 0.1,
+        items: [{ id: 'other_income', label: 'Other', value: 0.1 }],
+      },
+      otherExpenses: {
+        total: 0.1,
+        items: [{ id: 'other_expense', label: 'Other', value: 0.1 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 2.2, notes: ['23% margin', '(4pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 0.3, notes: ['3% margin', '(11pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 0.1, notes: ['1% margin', '(9pp) Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +5%'],
+            items: [
+              { id: 'beverage', label: '饮品', notes: ['同比 +4%'] },
+              { id: 'food', label: '食品', notes: ['同比 +5%'] },
+              { id: 'other_revenue', label: '其他', notes: ['同比 +41%', '包装饮品、版税和授权收入、原料'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: {
+              label: '收入成本',
+              notes: ['来源图将收入成本列示为门店运营费用 ($4.3B) 加产品与分销 ($3.1B)。'],
+              items: [
+                { id: 'store_opex', label: '门店运营费用' },
+                { id: 'product_distribution', label: '产品与分销' },
+              ],
+            },
+            operatingExpenses: {
+              items: [
+                { id: 'ga', label: '一般及行政' },
+                { id: 'depreciation_amortization', label: '折旧与摊销' },
+                { id: 'restructuring', label: '重组' },
+                { id: 'other_opex', label: '其他运营费用' },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          operatingOtherIncome: { items: [{ id: 'other_income', label: '其他' }] },
+          otherExpenses: { items: [{ id: 'other_expense', label: '其他' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 23%', '同比 (4 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 3%', '同比 (11 个百分点)'] },
+            net: { label: '净利润', notes: ['利润率 1%', '同比 (9 个百分点)'] },
+          },
+        },
+      },
+    }
   );
 })(window);

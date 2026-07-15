@@ -10,6 +10,57 @@
 
   ssot.records.push(
     {
+      key: 'netflix-q4-fy25',
+      company: 'Netflix',
+      period: 'Q4 FY25',
+      periodNote: 'Ending Dec. 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/netflix-q4-fy25.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 12.1,
+        notes: ['+18% Y/Y'],
+        items: [
+          { id: 'ucan', label: 'UCAN', value: 5.3, notes: ['+18% Y/Y'] },
+          { id: 'emea', label: 'EMEA', value: 3.9, notes: ['+18% Y/Y'] },
+          { id: 'latam', label: 'LATAM', value: 1.4, notes: ['+15% Y/Y'] },
+          { id: 'apac', label: 'APAC', value: 1.4, notes: ['+17% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 6.5 },
+        operatingExpenses: {
+          total: 2.6,
+          items: [
+            { id: 'technology_development', label: 'Technology & development', value: 1.1, notes: ['9% of revenue', '+2pp Y/Y'] },
+            { id: 'marketing', label: 'Marketing', value: 0.9, notes: ['7% of revenue', '(2pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 0.6, notes: ['5% of revenue', '+0pp Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.3 },
+      },
+      operatingOtherIncome: { total: 0, items: [] },
+      operatingOtherExpenses: { total: 0, items: [] },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: { total: 0.2, items: [{ id: 'other', label: 'Other', value: 0.2 }] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 5.5, notes: ['46% margin', '+2pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 3.0, notes: ['25% margin', '+2pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 2.5, notes: ['20% margin', '+2pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度', periodNote: '截至 2025 年 12 月',
+          revenue: { notes: ['同比 +18%'], items: [{ id: 'ucan', label: '美国和加拿大', notes: ['同比 +18%'] }, { id: 'emea', label: '欧洲、中东和非洲', notes: ['同比 +18%'] }, { id: 'latam', label: '拉美', notes: ['同比 +15%'] }, { id: 'apac', label: '亚太', notes: ['同比 +17%'] }] },
+          costs: { costOfRevenue: { label: '收入成本' }, operatingExpenses: { items: [{ id: 'technology_development', label: '技术与开发', notes: ['占收入 9%', '同比 +2 个百分点'] }, { id: 'marketing', label: '市场营销', notes: ['占收入 7%', '同比 (2 个百分点)'] }, { id: 'ga', label: '管理费用', notes: ['占收入 5%', '同比 +0 个百分点'] }] }, tax: { label: '税费' } },
+          otherExpenses: { items: [{ id: 'other', label: '其他' }] },
+          profit: { gross: { label: '毛利润', notes: ['利润率 46%', '同比 +2 个百分点'] }, operating: { label: '营业利润', notes: ['利润率 25%', '同比 +2 个百分点'] }, net: { label: '净利润', notes: ['利润率 20%', '同比 +2 个百分点'] } },
+        },
+      },
+    },
+    {
       key: 'netflix-q1-fy26',
       company: 'Netflix',
       period: 'Q1 FY26',

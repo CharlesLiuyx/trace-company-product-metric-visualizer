@@ -8469,6 +8469,634 @@
             }
           }
         }
+      },
+      {
+        "key": "sandisk-q2-fy26",
+        "src": "data/datasets/sandisk-q2-fy26.js",
+        "data": {
+          "name": "Sandisk · Q2 FY26",
+          "company": "Sandisk",
+          "meta": {
+            "title": "Sandisk Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Sandisk · 2026 财年第二季度",
+              "meta": {
+                "title": "Sandisk 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "texas-instruments-q4-fy25",
+        "src": "data/datasets/texas-instruments-q4-fy25.js",
+        "data": {
+          "name": "Texas Instruments · Q4 FY25",
+          "company": "Texas Instruments",
+          "meta": {
+            "title": "Texas Instruments Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "德州仪器 · 2025 财年第四季度",
+              "meta": {
+                "title": "德州仪器 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lam-research-q1-fy26",
+        "src": "data/datasets/lam-research-q1-fy26.js",
+        "data": {
+          "name": "Lam Research · Q1 FY26",
+          "company": "Lam Research",
+          "meta": {
+            "title": "LAM Research Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "泛林集团 · 2026 财年第一季度",
+              "meta": {
+                "title": "泛林集团 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "verizon-q4-fy25",
+        "src": "data/datasets/verizon-q4-fy25.js",
+        "data": {
+          "name": "Verizon · Q4 FY25",
+          "company": "Verizon",
+          "meta": {
+            "title": "Verizon Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Quarter ended Dec. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "威瑞森 · 2025 财年第四季度",
+              "meta": {
+                "title": "威瑞森 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "at-t-q4-fy25",
+        "src": "data/datasets/at-t-q4-fy25.js",
+        "data": {
+          "name": "AT&T · Q4 FY25",
+          "company": "AT&T",
+          "meta": {
+            "title": "AT&T Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Quarter ended Dec. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AT&T · 2025 财年第四季度",
+              "meta": {
+                "title": "AT&T 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intel-q4-fy25",
+        "src": "data/datasets/intel-q4-fy25.js",
+        "data": {
+          "name": "Intel · Q4 FY25",
+          "company": "Intel",
+          "meta": {
+            "title": "Intel Q4 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Intel · 2025 财年第四季度",
+              "meta": {
+                "title": "英特尔 2025 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "asml-q4-fy25",
+        "src": "data/datasets/asml-q4-fy25.js",
+        "data": {
+          "name": "ASML · Q4 FY25",
+          "company": "ASML",
+          "meta": {
+            "title": "ASML Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ASML · 2025 财年第四季度",
+              "meta": {
+                "title": "ASML 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tsmc-q4-fy25",
+        "src": "data/datasets/tsmc-q4-fy25.js",
+        "data": {
+          "name": "TSMC · Q4 FY25",
+          "company": "TSMC",
+          "meta": {
+            "title": "TSMC Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "TSMC · 2025 财年第四季度",
+              "meta": {
+                "title": "TSMC 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "kla-q2-fy26",
+        "src": "data/datasets/kla-q2-fy26.js",
+        "data": {
+          "name": "KLA · Q2 FY26",
+          "company": "KLA",
+          "meta": {
+            "title": "KLA Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "KLA · 2026 财年第二季度",
+              "meta": {
+                "title": "KLA 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "samsung-q4-fy25",
+        "src": "data/datasets/samsung-q4-fy25.js",
+        "data": {
+          "name": "Samsung · Q4 FY25",
+          "company": "Samsung",
+          "meta": {
+            "title": "Samsung Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Samsung · 2025 财年第四季度",
+              "meta": {
+                "title": "Samsung 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "gm-fy25",
+        "src": "data/datasets/gm-fy25.js",
+        "data": {
+          "name": "GM · FY25",
+          "company": "GM",
+          "meta": {
+            "title": "GM FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "GM · 2025 财年",
+              "meta": {
+                "title": "GM 2025 财年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "meta-q4-fy25",
+        "src": "data/datasets/meta-q4-fy25.js",
+        "data": {
+          "name": "Meta - Q4 FY25",
+          "company": "Meta",
+          "meta": {
+            "title": "Meta Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Meta · 2025 财年第四季度",
+              "meta": {
+                "title": "Meta 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "microsoft-q2-fy26-by-bu",
+        "src": "data/datasets/microsoft-q2-fy26-by-bu.js",
+        "data": {
+          "name": "Microsoft · Q2 FY26 ByBU",
+          "company": "Microsoft",
+          "meta": {
+            "title": "Microsoft Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Microsoft · 2026 财年第二季度（按业务部门）",
+              "meta": {
+                "title": "Microsoft 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "netflix-q4-fy25",
+        "src": "data/datasets/netflix-q4-fy25.js",
+        "data": {
+          "name": "Netflix - Q4 FY25",
+          "company": "Netflix",
+          "meta": {
+            "title": "Netflix Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Netflix · 2025 财年第四季度",
+              "meta": {
+                "title": "Netflix 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tesla-q4-fy25",
+        "src": "data/datasets/tesla-q4-fy25.js",
+        "data": {
+          "name": "Tesla - Q4 FY25",
+          "company": "Tesla",
+          "meta": {
+            "title": "Tesla Q4 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tesla · 2025 财年第四季度",
+              "meta": {
+                "title": "Tesla 2025 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "microsoft-q2-fy26",
+        "src": "data/datasets/microsoft-q2-fy26.js",
+        "data": {
+          "name": "Microsoft · Q2 FY26",
+          "company": "Microsoft",
+          "meta": {
+            "title": "Microsoft Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Microsoft · 2026 财年第二季度",
+              "meta": {
+                "title": "Microsoft 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "apple-q1-fy26",
+        "src": "data/datasets/apple-q1-fy26.js",
+        "data": {
+          "name": "Apple · Q1 FY26",
+          "company": "Apple",
+          "meta": {
+            "title": "Apple Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Apple · 2026 财年第一季度",
+              "meta": {
+                "title": "Apple 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "applied-materials-q4-fy25",
+        "src": "data/datasets/applied-materials-q4-fy25.js",
+        "data": {
+          "name": "Applied Materials · Q4 FY25",
+          "company": "Applied Materials",
+          "meta": {
+            "title": "Applied Materials Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Oct. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Applied Materials · 2025 财年第四季度",
+              "meta": {
+                "title": "Applied Materials 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "analog-devices-q4-fy25",
+        "src": "data/datasets/analog-devices-q4-fy25.js",
+        "data": {
+          "name": "Analog Devices · Q4 FY25",
+          "company": "Analog Devices",
+          "meta": {
+            "title": "Analog Devices Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Oct. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Analog Devices · 2025 财年第四季度",
+              "meta": {
+                "title": "Analog Devices 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hp-q4-fy25",
+        "src": "data/datasets/hp-q4-fy25.js",
+        "data": {
+          "name": "HP - Q4 FY25",
+          "company": "HP",
+          "meta": {
+            "title": "HP Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Oct. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HP · 2025 财年第四季度",
+              "meta": {
+                "title": "HP 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amd-q3-fy25",
+        "src": "data/datasets/amd-q3-fy25.js",
+        "data": {
+          "name": "AMD · Q3 FY25",
+          "company": "AMD",
+          "meta": {
+            "title": "AMD Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AMD · 2025 财年第三季度",
+              "meta": {
+                "title": "AMD 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "arm-holdings-q2-fy26",
+        "src": "data/datasets/arm-holdings-q2-fy26.js",
+        "data": {
+          "name": "Arm Holdings · Q2 FY26",
+          "company": "Arm Holdings",
+          "meta": {
+            "title": "Arm Holdings Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Arm Holdings · 2026 财年第二季度",
+              "meta": {
+                "title": "Arm Holdings 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "coreweave-q3-fy25",
+        "src": "data/datasets/coreweave-q3-fy25.js",
+        "data": {
+          "name": "CoreWeave · Q3 FY25",
+          "company": "CoreWeave",
+          "meta": {
+            "title": "CoreWeave Q3 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "CoreWeave · 2025 财年第三季度",
+              "meta": {
+                "title": "CoreWeave 2025 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lenovo-q2-fy26",
+        "src": "data/datasets/lenovo-q2-fy26.js",
+        "data": {
+          "name": "Lenovo · Q2 FY26",
+          "company": "Lenovo",
+          "meta": {
+            "title": "Lenovo Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Oct. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Lenovo · 2026 财年第二季度",
+              "meta": {
+                "title": "Lenovo 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2025 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "dell-q3-fy26",
+        "src": "data/datasets/dell-q3-fy26.js",
+        "data": {
+          "name": "Dell - Q3 FY26",
+          "company": "Dell",
+          "meta": {
+            "title": "DELL Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Oct. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Dell · 2026 财年第三季度",
+              "meta": {
+                "title": "DELL 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2025 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "twilio-q3-fy25",
+        "src": "data/datasets/twilio-q3-fy25.js",
+        "data": {
+          "name": "Twilio · Q3 FY25",
+          "company": "Twilio",
+          "meta": {
+            "title": "Twilio Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Twilio · 2025 财年第三季度",
+              "meta": {
+                "title": "Twilio 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "robinhood-q3-fy25",
+        "src": "data/datasets/robinhood-q3-fy25.js",
+        "data": {
+          "name": "Robinhood · Q3 FY25",
+          "company": "Robinhood",
+          "meta": {
+            "title": "Robinhood Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Robinhood · 2025 财年第三季度",
+              "meta": {
+                "title": "Robinhood 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "starbucks-q4-fy25",
+        "src": "data/datasets/starbucks-q4-fy25.js",
+        "data": {
+          "name": "Starbucks · Q4 FY25",
+          "company": "Starbucks",
+          "meta": {
+            "title": "Starbucks Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Sept. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Starbucks · 2025 财年第四季度",
+              "meta": {
+                "title": "Starbucks 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
       }
     ]
   };
