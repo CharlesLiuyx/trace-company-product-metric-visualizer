@@ -10,6 +10,77 @@
 
   ssot.records.push(
     {
+      key: 'sony-q2-fy25',
+      company: 'Sony',
+      period: 'Q2 FY25',
+      periodNote: 'Ending Sept. 2025',
+      currency: '¥',
+      unit: 'B',
+      decimals: 0,
+      sourceImage: 'input/processed/sony-q2-fy25.png',
+      roundingTolerance: 2,
+      revenue: {
+        total: 3108,
+        notes: ['+5% Y/Y'],
+        items: [
+          { id: 'game_network', label: 'Game & Network', value: 1113, notes: ['+4% Y/Y', '11% operating margin'] },
+          { id: 'music', label: 'Music', value: 542, notes: ['+21% Y/Y', '21% operating margin'] },
+          { id: 'pictures', label: 'Pictures', value: 347, notes: ['(3%) Y/Y', '4% operating margin'] },
+          { id: 'technology', label: 'Technology', value: 576, notes: ['(7%) Y/Y', '11% operating margin'] },
+          { id: 'imaging_sensing', label: 'Imaging & Sensing', value: 615, notes: ['+15% Y/Y', '23% operating margin'] },
+          { id: 'other_revenue', label: 'Other', value: 24, notes: ['(1%) Y/Y'] },
+          { id: 'financial_services', label: 'Financial services', value: -108, notes: ['(29%) Y/Y', 'Source chart shows this as a consolidation adjustment before Sales.'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 2100 },
+        operatingExpenses: {
+          total: 579,
+          items: [
+            { id: 'sga', label: 'SG&A', value: 553 },
+            { id: 'other_expenses', label: 'Other expenses', value: 26 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 123 },
+      },
+      otherIncome: { total: 13, items: [{ id: 'other_income', label: 'Other', value: 13 }] },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 1008, notes: ['32% margin', '+1pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 429, notes: ['14% margin', '+1pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 318, notes: ['10% margin', '+0pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第二季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +5%'],
+            items: [
+              { id: 'game_network', label: '游戏与网络', notes: ['同比 +4%', '营业利润率 11%'] },
+              { id: 'music', label: '音乐', notes: ['同比 +21%', '营业利润率 21%'] },
+              { id: 'pictures', label: '影视', notes: ['同比 (3%)', '营业利润率 4%'] },
+              { id: 'technology', label: '技术', notes: ['同比 (7%)', '营业利润率 11%'] },
+              { id: 'imaging_sensing', label: '成像与传感', notes: ['同比 +15%', '营业利润率 23%'] },
+              { id: 'other_revenue', label: '其他', notes: ['同比 (1%)'] },
+              { id: 'financial_services', label: '金融服务', notes: ['同比 (29%)', '源图在销售额前将其显示为合并调整项。'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '销售成本' },
+            operatingExpenses: { items: [{ id: 'sga', label: '销售、一般及行政费用' }, { id: 'other_expenses', label: '其他费用' }] },
+            tax: { label: '税费' },
+          },
+          otherIncome: { items: [{ id: 'other_income', label: '其他收入' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 32%', '同比 +1 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 14%', '同比 +1 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 10%', '同比 +0 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'sony-q3-fy25',
       company: 'Sony',
       period: 'Q3 FY25',

@@ -387,7 +387,7 @@ await scenario('sankey hover: unified node and link share rules', async (page) =
   assert(!blackRockOtherPosition.overlapsLabel, 'BlackRock Other tooltip overlaps its label');
 });
 
-await scenario('period: Nintendo FY26 variants render YTD then active 9M', async (page) => {
+await scenario('period: Nintendo FY26 variants render YTD, active 9M, then H1', async (page) => {
   await boot(page, `${url}#nintendo-9m-fy26`);
   await page.waitForSelector('#periodList .variant-chip.active', { timeout: 15000 });
   const labels = await page.evaluate(() => ({
@@ -395,7 +395,7 @@ await scenario('period: Nintendo FY26 variants render YTD then active 9M', async
     all: [...document.querySelectorAll('#periodList .variant-chip')].map((chip) => chip.textContent.trim()),
   }));
   assert(labels.active === '9M', `expected active interim variant label 9M, got ${labels.active}`);
-  assert(labels.all.join('|') === 'YTD|9M', `expected variant order YTD | 9M, got ${labels.all.join(' | ')}`);
+  assert(labels.all.join('|') === 'YTD|9M|H1', `expected variant order YTD | 9M | H1, got ${labels.all.join(' | ')}`);
 });
 
 await scenario('comparison: multi-select + zoom + metric trend', async (page) => {

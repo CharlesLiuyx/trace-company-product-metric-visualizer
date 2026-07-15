@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-15T08:15:03.000Z",
+  "generatedAt": "2026-07-15T20:19:55.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -2423,6 +2423,96 @@
       "path": "data/datasets/starbucks-q4-fy25.js",
       "updatedAtMs": 1784085404000,
       "updatedAt": "2026-07-15T03:16:44.000Z",
+      "timeSource": "git"
+    },
+    "best-buy-q3-fy26": {
+      "path": "data/datasets/best-buy-q3-fy26.js",
+      "updatedAtMs": 1784146795000,
+      "updatedAt": "2026-07-15T20:19:55.000Z",
+      "timeSource": "git"
+    },
+    "lyft-q3-fy25": {
+      "path": "data/datasets/lyft-q3-fy25.js",
+      "updatedAtMs": 1784146795000,
+      "updatedAt": "2026-07-15T20:19:55.000Z",
+      "timeSource": "git"
+    },
+    "sea-q3-fy25": {
+      "path": "data/datasets/sea-q3-fy25.js",
+      "updatedAtMs": 1784146795000,
+      "updatedAt": "2026-07-15T20:19:55.000Z",
+      "timeSource": "git"
+    },
+    "netease-q3-fy25": {
+      "path": "data/datasets/netease-q3-fy25.js",
+      "updatedAtMs": 1784146795000,
+      "updatedAt": "2026-07-15T20:19:55.000Z",
+      "timeSource": "git"
+    },
+    "spotify-q3-fy25": {
+      "path": "data/datasets/spotify-q3-fy25.js",
+      "updatedAtMs": 1784146795000,
+      "updatedAt": "2026-07-15T20:19:55.000Z",
+      "timeSource": "git"
+    },
+    "target-q3-fy25": {
+      "path": "data/datasets/target-q3-fy25.js",
+      "updatedAtMs": 1784146795000,
+      "updatedAt": "2026-07-15T20:19:55.000Z",
+      "timeSource": "git"
+    },
+    "instacart-q3-fy25": {
+      "path": "data/datasets/instacart-q3-fy25.js",
+      "updatedAtMs": 1784146795000,
+      "updatedAt": "2026-07-15T20:19:55.000Z",
+      "timeSource": "git"
+    },
+    "walmart-q3-fy26": {
+      "path": "data/datasets/walmart-q3-fy26.js",
+      "updatedAtMs": 1784146795000,
+      "updatedAt": "2026-07-15T20:19:55.000Z",
+      "timeSource": "git"
+    },
+    "grab-q3-fy25": {
+      "path": "data/datasets/grab-q3-fy25.js",
+      "updatedAtMs": 1784146795000,
+      "updatedAt": "2026-07-15T20:19:55.000Z",
+      "timeSource": "git"
+    },
+    "home-depot-q3-fy25": {
+      "path": "data/datasets/home-depot-q3-fy25.js",
+      "updatedAtMs": 1784146795000,
+      "updatedAt": "2026-07-15T20:19:55.000Z",
+      "timeSource": "git"
+    },
+    "take-two-q2-fy26": {
+      "path": "data/datasets/take-two-q2-fy26.js",
+      "updatedAtMs": 1784146795000,
+      "updatedAt": "2026-07-15T20:19:55.000Z",
+      "timeSource": "git"
+    },
+    "nintendo-h1-fy26": {
+      "path": "data/datasets/nintendo-h1-fy26.js",
+      "updatedAtMs": 1784146795000,
+      "updatedAt": "2026-07-15T20:19:55.000Z",
+      "timeSource": "git"
+    },
+    "uber-q3-fy25": {
+      "path": "data/datasets/uber-q3-fy25.js",
+      "updatedAtMs": 1784146795000,
+      "updatedAt": "2026-07-15T20:19:55.000Z",
+      "timeSource": "git"
+    },
+    "tencent-q3-fy25": {
+      "path": "data/datasets/tencent-q3-fy25.js",
+      "updatedAtMs": 1784146795000,
+      "updatedAt": "2026-07-15T20:19:55.000Z",
+      "timeSource": "git"
+    },
+    "sony-q2-fy25": {
+      "path": "data/datasets/sony-q2-fy25.js",
+      "updatedAtMs": 1784146795000,
+      "updatedAt": "2026-07-15T20:19:55.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {

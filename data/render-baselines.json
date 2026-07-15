@@ -387,6 +387,12 @@
       "width": 2667,
       "height": 1500
     },
+    "best-buy-q3-fy26": {
+      "similarity": 0.964247,
+      "mae": 9.1171,
+      "width": 2667,
+      "height": 1500
+    },
     "birkenstock-q1-fy26": {
       "similarity": 0.967657,
       "mae": 8.2474,
@@ -963,6 +969,12 @@
       "width": 2667,
       "height": 1500
     },
+    "grab-q3-fy25": {
+      "similarity": 0.950934,
+      "mae": 12.5118,
+      "width": 2667,
+      "height": 1500
+    },
     "grab-q4-fy25": {
       "similarity": 0.956801,
       "mae": 11.0157,
@@ -1023,6 +1035,12 @@
       "width": 2667,
       "height": 1500
     },
+    "home-depot-q3-fy25": {
+      "similarity": 0.967571,
+      "mae": 8.2694,
+      "width": 2667,
+      "height": 1500
+    },
     "hp-q1-fy26": {
       "similarity": 0.969,
       "mae": 7.905,
@@ -1074,6 +1092,12 @@
     "instacart-q1-fy26": {
       "similarity": 0.961011,
       "mae": 9.9422,
+      "width": 2667,
+      "height": 1500
+    },
+    "instacart-q3-fy25": {
+      "similarity": 0.962734,
+      "mae": 9.5029,
       "width": 2667,
       "height": 1500
     },
@@ -1260,6 +1284,12 @@
     "lyft-fy25": {
       "similarity": 0.967578,
       "mae": 8.2676,
+      "width": 2667,
+      "height": 1500
+    },
+    "lyft-q3-fy25": {
+      "similarity": 0.95584,
+      "mae": 11.2607,
       "width": 2667,
       "height": 1500
     },
@@ -1455,6 +1485,12 @@
       "width": 2667,
       "height": 1500
     },
+    "netease-q3-fy25": {
+      "similarity": 0.975462,
+      "mae": 6.2571,
+      "width": 2667,
+      "height": 1500
+    },
     "netease-q4-fy25": {
       "similarity": 0.979659,
       "mae": 5.187,
@@ -1494,6 +1530,12 @@
     "nintendo-fy26": {
       "similarity": 0.966176,
       "mae": 8.6252,
+      "width": 2667,
+      "height": 1500
+    },
+    "nintendo-h1-fy26": {
+      "similarity": 0.968407,
+      "mae": 8.0563,
       "width": 2667,
       "height": 1500
     },
@@ -1965,6 +2007,12 @@
       "width": 2667,
       "height": 1500
     },
+    "sea-q3-fy25": {
+      "similarity": 0.964641,
+      "mae": 9.0167,
+      "width": 2667,
+      "height": 1500
+    },
     "sea-q4-fy25": {
       "similarity": 0.963331,
       "mae": 9.3506,
@@ -2037,6 +2085,12 @@
       "width": 2667,
       "height": 1500
     },
+    "sony-q2-fy25": {
+      "similarity": 0.972811,
+      "mae": 6.9332,
+      "width": 2667,
+      "height": 1500
+    },
     "sony-q3-fy25": {
       "similarity": 0.977953,
       "mae": 5.622,
@@ -2058,6 +2112,12 @@
     "spotify-q1-fy26": {
       "similarity": 0.970618,
       "mae": 7.4924,
+      "width": 2667,
+      "height": 1500
+    },
+    "spotify-q3-fy25": {
+      "similarity": 0.965897,
+      "mae": 8.6962,
       "width": 2667,
       "height": 1500
     },
@@ -2103,6 +2163,12 @@
       "width": 2667,
       "height": 1500
     },
+    "take-two-q2-fy26": {
+      "similarity": 0.965633,
+      "mae": 8.7636,
+      "width": 2667,
+      "height": 1500
+    },
     "take-two-q3-fy26": {
       "similarity": 0.968616,
       "mae": 8.0029,
@@ -2118,6 +2184,12 @@
     "target-q1-fy27": {
       "similarity": 0.959784,
       "mae": 10.255,
+      "width": 2667,
+      "height": 1500
+    },
+    "target-q3-fy25": {
+      "similarity": 0.952975,
+      "mae": 11.9913,
       "width": 2667,
       "height": 1500
     },
@@ -2144,6 +2216,12 @@
       "mae": 7.2791,
       "width": 4686,
       "height": 2634
+    },
+    "tencent-q3-fy25": {
+      "similarity": 0.970529,
+      "mae": 7.5152,
+      "width": 2667,
+      "height": 1500
     },
     "tencent-q4-fy25": {
       "similarity": 0.970466,
@@ -2247,6 +2325,12 @@
       "width": 2892,
       "height": 1456
     },
+    "uber-q3-fy25": {
+      "similarity": 0.967079,
+      "mae": 8.395,
+      "width": 2667,
+      "height": 1500
+    },
     "uber-q4-fy25": {
       "similarity": 0.955868,
       "mae": 11.2537,
@@ -2328,6 +2412,12 @@
     "walmart-q1-fy27": {
       "similarity": 0.969221,
       "mae": 7.8487,
+      "width": 2667,
+      "height": 1500
+    },
+    "walmart-q3-fy26": {
+      "similarity": 0.970459,
+      "mae": 7.5329,
       "width": 2667,
       "height": 1500
     },
