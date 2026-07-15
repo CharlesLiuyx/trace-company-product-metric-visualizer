@@ -141,6 +141,12 @@
       "width": 2667,
       "height": 1500
     },
+    "amd-q3-fy25": {
+      "similarity": 0.955549,
+      "mae": 11.3351,
+      "width": 2667,
+      "height": 1500
+    },
     "amd-q4-fy25": {
       "similarity": 0.959812,
       "mae": 10.2478,
@@ -195,6 +201,12 @@
       "width": 2667,
       "height": 1500
     },
+    "analog-devices-q4-fy25": {
+      "similarity": 0.97133,
+      "mae": 7.3108,
+      "width": 2667,
+      "height": 1500
+    },
     "appfolio-q1-fy26": {
       "similarity": 0.954127,
       "mae": 11.6977,
@@ -204,6 +216,12 @@
     "appfolio-q4-fy25": {
       "similarity": 0.977359,
       "mae": 5.7735,
+      "width": 2667,
+      "height": 1500
+    },
+    "apple-q1-fy26": {
+      "similarity": 0.952351,
+      "mae": 12.1506,
       "width": 2667,
       "height": 1500
     },
@@ -222,6 +240,12 @@
     "applied-materials-q2-fy26": {
       "similarity": 0.965932,
       "mae": 8.6873,
+      "width": 2667,
+      "height": 1500
+    },
+    "applied-materials-q4-fy25": {
+      "similarity": 0.964941,
+      "mae": 8.9401,
       "width": 2667,
       "height": 1500
     },
@@ -255,6 +279,12 @@
       "width": 2667,
       "height": 1500
     },
+    "arm-holdings-q2-fy26": {
+      "similarity": 0.967174,
+      "mae": 8.3706,
+      "width": 2667,
+      "height": 1500
+    },
     "arm-holdings-q3-fy26": {
       "similarity": 0.961746,
       "mae": 9.7548,
@@ -285,9 +315,21 @@
       "width": 2667,
       "height": 1500
     },
+    "asml-q4-fy25": {
+      "similarity": 0.971186,
+      "mae": 7.3477,
+      "width": 2667,
+      "height": 1500
+    },
     "astrazeneca-q4-fy25": {
       "similarity": 0.957199,
       "mae": 10.9143,
+      "width": 2667,
+      "height": 1500
+    },
+    "at-t-q4-fy25": {
+      "similarity": 0.964571,
+      "mae": 9.0345,
       "width": 2667,
       "height": 1500
     },
@@ -555,6 +597,12 @@
       "width": 2667,
       "height": 1500
     },
+    "coreweave-q3-fy25": {
+      "similarity": 0.961316,
+      "mae": 9.8644,
+      "width": 2667,
+      "height": 1500
+    },
     "costco-q2-fy26": {
       "similarity": 0.950321,
       "mae": 12.668,
@@ -612,6 +660,12 @@
     "dell-q1-fy27": {
       "similarity": 0.967065,
       "mae": 8.3985,
+      "width": 2667,
+      "height": 1500
+    },
+    "dell-q3-fy26": {
+      "similarity": 0.97061,
+      "mae": 7.4945,
       "width": 2667,
       "height": 1500
     },
@@ -885,6 +939,12 @@
       "width": 2667,
       "height": 1500
     },
+    "gm-fy25": {
+      "similarity": 0.978416,
+      "mae": 5.504,
+      "width": 2667,
+      "height": 1500
+    },
     "goldman-sachs-q1-fy26": {
       "similarity": 0.96779,
       "mae": 8.2137,
@@ -975,6 +1035,12 @@
       "width": 2667,
       "height": 1500
     },
+    "hp-q4-fy25": {
+      "similarity": 0.974966,
+      "mae": 6.3837,
+      "width": 2667,
+      "height": 1500
+    },
     "hpe-q2-fy26": {
       "similarity": 0.971436,
       "mae": 7.2839,
@@ -1020,6 +1086,12 @@
     "intel-q1-fy26": {
       "similarity": 0.968705,
       "mae": 7.9803,
+      "width": 2667,
+      "height": 1500
+    },
+    "intel-q4-fy25": {
+      "similarity": 0.968813,
+      "mae": 7.9526,
       "width": 2667,
       "height": 1500
     },
@@ -1071,6 +1143,12 @@
       "width": 2667,
       "height": 1500
     },
+    "kla-q2-fy26": {
+      "similarity": 0.971369,
+      "mae": 7.3008,
+      "width": 2667,
+      "height": 1500
+    },
     "klarna-q1-fy26": {
       "similarity": 0.950675,
       "mae": 12.578,
@@ -1104,6 +1182,18 @@
     "kraft-heinz-q4-fy25": {
       "similarity": 0.964368,
       "mae": 9.0862,
+      "width": 2667,
+      "height": 1500
+    },
+    "lam-research-q1-fy26": {
+      "similarity": 0.962165,
+      "mae": 9.648,
+      "width": 2667,
+      "height": 1500
+    },
+    "lenovo-q2-fy26": {
+      "similarity": 0.969624,
+      "mae": 7.7459,
       "width": 2667,
       "height": 1500
     },
@@ -1263,6 +1353,12 @@
       "width": 2667,
       "height": 1500
     },
+    "meta-q4-fy25": {
+      "similarity": 0.964156,
+      "mae": 9.1403,
+      "width": 2667,
+      "height": 1500
+    },
     "micron-q2-fy26": {
       "similarity": 0.961116,
       "mae": 9.9154,
@@ -1272,6 +1368,18 @@
     "micron-q3-fy26": {
       "similarity": 0.961606,
       "mae": 9.7906,
+      "width": 2667,
+      "height": 1500
+    },
+    "microsoft-q2-fy26": {
+      "similarity": 0.965605,
+      "mae": 8.7706,
+      "width": 2667,
+      "height": 1500
+    },
+    "microsoft-q2-fy26-by-bu": {
+      "similarity": 0.958708,
+      "mae": 10.5295,
       "width": 2667,
       "height": 1500
     },
@@ -1356,6 +1464,12 @@
     "netflix-q1-fy26": {
       "similarity": 0.960568,
       "mae": 10.0552,
+      "width": 2667,
+      "height": 1500
+    },
+    "netflix-q4-fy25": {
+      "similarity": 0.972551,
+      "mae": 6.9996,
       "width": 2667,
       "height": 1500
     },
@@ -1749,6 +1863,12 @@
       "width": 2667,
       "height": 1500
     },
+    "robinhood-q3-fy25": {
+      "similarity": 0.968333,
+      "mae": 8.075,
+      "width": 2667,
+      "height": 1500
+    },
     "robinhood-q4-fy25": {
       "similarity": 0.953276,
       "mae": 11.9146,
@@ -1800,6 +1920,18 @@
     "samsung-q1-fy26": {
       "similarity": 0.9562,
       "mae": 11.1689,
+      "width": 2667,
+      "height": 1500
+    },
+    "samsung-q4-fy25": {
+      "similarity": 0.962691,
+      "mae": 9.5138,
+      "width": 2667,
+      "height": 1500
+    },
+    "sandisk-q2-fy26": {
+      "similarity": 0.978114,
+      "mae": 5.581,
       "width": 2667,
       "height": 1500
     },
@@ -1947,6 +2079,12 @@
       "width": 2667,
       "height": 1500
     },
+    "starbucks-q4-fy25": {
+      "similarity": 0.955965,
+      "mae": 11.229,
+      "width": 2667,
+      "height": 1500
+    },
     "synopsys-q1-fy26": {
       "similarity": 0.971456,
       "mae": 7.2786,
@@ -2019,6 +2157,18 @@
       "width": 2667,
       "height": 1500
     },
+    "tesla-q4-fy25": {
+      "similarity": 0.948912,
+      "mae": 13.0274,
+      "width": 2667,
+      "height": 1500
+    },
+    "texas-instruments-q4-fy25": {
+      "similarity": 0.979606,
+      "mae": 5.2004,
+      "width": 2667,
+      "height": 1500
+    },
     "the-trade-desk-q1-fy26": {
       "similarity": 0.976289,
       "mae": 6.0464,
@@ -2067,9 +2217,21 @@
       "width": 2667,
       "height": 1500
     },
+    "tsmc-q4-fy25": {
+      "similarity": 0.97468,
+      "mae": 6.4566,
+      "width": 2667,
+      "height": 1500
+    },
     "twilio-q1-fy26": {
       "similarity": 0.967635,
       "mae": 8.2532,
+      "width": 2667,
+      "height": 1500
+    },
+    "twilio-q3-fy25": {
+      "similarity": 0.969191,
+      "mae": 7.8564,
       "width": 2667,
       "height": 1500
     },
@@ -2142,6 +2304,12 @@
     "veeva-q4-fy26": {
       "similarity": 0.97631,
       "mae": 6.0409,
+      "width": 2667,
+      "height": 1500
+    },
+    "verizon-q4-fy25": {
+      "similarity": 0.961426,
+      "mae": 9.8365,
       "width": 2667,
       "height": 1500
     },

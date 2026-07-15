@@ -98,6 +98,92 @@
       },
     },
     {
+      key: 'coreweave-q3-fy25',
+      company: 'CoreWeave',
+      period: 'Q3 FY25',
+      periodNote: 'Q3 fiscal year 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 3,
+      sourceImage: 'input/processed/coreweave-q3-fy25.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 1.365,
+        notes: ['+134% Y/Y'],
+        items: [
+          {
+            id: 'committed_contracts',
+            label: 'Committed Contracts',
+            value: 1.338,
+            notes: ['+139% Y/Y'],
+            children: [
+              { id: 'united_states', label: 'United States', value: 1.281, notes: ['+134% Y/Y'] },
+              { id: 'rest_of_world', label: 'Rest of World', value: 0.083, notes: ['+127% Y/Y'] },
+            ],
+          },
+          { id: 'on_demand_services', label: 'On-demand Services', value: 0.027, notes: ['+17% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 0.369 },
+        operatingExpenses: {
+          total: 0.944,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 0.747, notes: ['55% of revenue', '+6pp Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 0.152, notes: ['11% of revenue', '+5pp Y/Y'] },
+            { id: 'sm', label: 'S&M', value: 0.045, notes: ['3% of revenue', '+2pp Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0 },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: {
+        total: 0.162,
+        items: [{ id: 'other_expenses', label: 'Other', value: 0.162 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 0.996, notes: ['73% margin', '(3pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 0.052, notes: ['4% margin', '(16pp) Y/Y'] },
+        net: { id: 'net_loss', label: 'Net loss', value: -0.11, notes: ['(8%) margin', '+54pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '2025 财年第三季度',
+          revenue: {
+            notes: ['同比 +134%'],
+            items: [
+              {
+                id: 'committed_contracts', label: '已承诺合同', notes: ['同比 +139%'],
+                children: [
+                  { id: 'united_states', label: '美国', notes: ['同比 +134%'] },
+                  { id: 'rest_of_world', label: '世界其他地区', notes: ['同比 +127%'] },
+                ],
+              },
+              { id: 'on_demand_services', label: '按需服务', notes: ['同比 +17%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 55%', '同比 +6 个百分点'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 11%', '同比 +5 个百分点'] },
+                { id: 'sm', label: '销售与市场', notes: ['占收入 3%', '同比 +2 个百分点'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherExpenses: { items: [{ id: 'other_expenses', label: '其他' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 73%', '同比 (3 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 4%', '同比 (16 个百分点)'] },
+            net: { label: '净亏损', notes: ['利润率 (8%)', '同比 +54 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'coreweave-fy25',
       company: 'CoreWeave',
       period: 'FY25',

@@ -1,0 +1,132 @@
+{
+  "source": "input/processed/at-t-q4-fy25.png",
+  "spec": "input/icon-crop-specs/at-t-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-14T15:01:49.356294+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/at-t",
+  "crops": [
+    {
+      "key": "at-t-company-logo",
+      "output": "data/assets/icon-references/at-t/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 5262,
+        "losslessBytes": 27111,
+        "savingsVsLossless": 0.8059,
+        "metrics": {
+          "meanAbsoluteError": 0.3053,
+          "rootMeanSquareError": 1.9101,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 50,
+          "changedPixelRatio": 0.1801
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 91901,
+        "transparentPixelRatio": 0.7684
+      },
+      "searchBox": {
+        "x": 1090,
+        "y": 270,
+        "width": 460,
+        "height": 200
+      },
+      "componentCount": 10,
+      "subjectBox": {
+        "x0": 1103,
+        "y0": 272,
+        "x1": 1550,
+        "y1": 463
+      },
+      "cropBox": {
+        "x0": 1060,
+        "y0": 250,
+        "x1": 1580,
+        "y1": 480
+      },
+      "validation": {
+        "width": 520,
+        "height": 230,
+        "foregroundPixels": 27006,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 43,
+          "right": 30,
+          "top": 22,
+          "bottom": 17
+        },
+        "centerOffset": {
+          "x": 0.0125,
+          "y": 0.0109
+        },
+        "passes": true
+      },
+      "note": "AT&T globe and wordmark centered above the Revenue node; excludes the title, revenue label, chart flows, and publisher attribution. It is retained as the validation reference for the vector logo in the adapter.",
+      "runtimeOutput": "data/assets/raster-annotations/at-t/company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 5262,
+        "losslessBytes": 27111,
+        "savingsVsLossless": 0.8059,
+        "metrics": {
+          "meanAbsoluteError": 0.3053,
+          "rootMeanSquareError": 1.9101,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 50,
+          "changedPixelRatio": 0.1801
+        }
+      },
+      "validationSheet": "data/assets/icon-references/at-t/validation-sheets/at-t-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 265705,
+        "losslessBytes": 265705,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

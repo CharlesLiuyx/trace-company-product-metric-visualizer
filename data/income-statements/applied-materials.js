@@ -204,6 +204,107 @@
           },
         },
       },
+    },
+    {
+      key: 'applied-materials-q4-fy25',
+      company: 'Applied Materials',
+      period: 'Q4 FY25',
+      periodNote: 'Ending Oct. 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/applied-materials-q4-fy25.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 6.8,
+        notes: ['(3%) Y/Y'],
+        items: [
+          {
+            id: 'semiconductor_systems',
+            label: 'Semiconductor Systems',
+            value: 4.8,
+            notes: ['(8%) Y/Y'],
+            children: [
+              { id: 'foundry_logic_other', label: 'Foundry, logic and other', value: 3.1, notes: ['(18%) Y/Y'] },
+              { id: 'dram', label: 'DRAM', value: 1.4, notes: ['+16% Y/Y'] },
+              { id: 'flash_memory', label: 'Flash memory', value: 0.3, notes: ['+38% Y/Y'] },
+            ],
+          },
+          { id: 'applied_global_services', label: 'Applied Global Services', value: 1.6, notes: ['(1%) Y/Y'] },
+          { id: 'display_adjacent_markets', label: 'Display and Adjacent Markets', value: 0.4, notes: ['+68% Y/Y'] },
+          { id: 'corporate', label: 'Corporate', value: 0.1 },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 3.5 },
+        operatingExpenses: {
+          total: 1.6,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 0.9, notes: ['13% of revenue', '+1pp Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 0.2, notes: ['4% of revenue', '+1pp Y/Y'] },
+            { id: 'marketing_selling', label: 'Marketing & selling', value: 0.2, notes: ['3% of revenue', '+0pp Y/Y'] },
+            { id: 'restructuring', label: 'Restructuring', value: 0.2, notes: ['New'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.4 },
+      },
+      otherIncome: {
+        total: 0.6,
+        items: [{ id: 'other', label: 'Other', value: 0.6 }],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 3.3, notes: ['48% margin', '+3pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 1.7, notes: ['25% margin', '+4pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 1.9, notes: ['28% margin', '+3pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度',
+          periodNote: '截至 2025 年 10 月',
+          revenue: {
+            notes: ['同比 (3%)'],
+            items: [
+              {
+                id: 'semiconductor_systems',
+                label: '半导体系统',
+                notes: ['同比 (8%)'],
+                children: [
+                  { id: 'foundry_logic_other', label: '代工、逻辑及其他', notes: ['同比 (18%)'] },
+                  { id: 'dram', label: 'DRAM', notes: ['同比 +16%'] },
+                  { id: 'flash_memory', label: '闪存', notes: ['同比 +38%'] },
+                ],
+              },
+              { id: 'applied_global_services', label: '应用全球服务', notes: ['同比 (1%)'] },
+              { id: 'display_adjacent_markets', label: '显示及相邻市场', notes: ['同比 +68%'] },
+              { id: 'corporate', label: '公司部门' },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 13%', '同比 +1 个百分点'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 4%', '同比 +1 个百分点'] },
+                { id: 'marketing_selling', label: '营销与销售', notes: ['占收入 3%', '同比 +0 个百分点'] },
+                { id: 'restructuring', label: '重组费用', notes: ['新增'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: {
+            items: [{ id: 'other', label: '其他' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 48%', '同比 +3 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 25%', '同比 +4 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 28%', '同比 +3 个百分点'] },
+          },
+        },
+      },
     }
   );
 })(window);

@@ -10,6 +10,118 @@
 
   ssot.records.push(
     {
+      key: 'arm-holdings-q2-fy26',
+      company: 'Arm Holdings',
+      period: 'Q2 FY26',
+      periodNote: 'Ending Sep. 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/arm-holdings-q2-fy26.png',
+      roundingTolerance: 0.65,
+      revenue: {
+        total: 1135,
+        notes: ['+34% Y/Y'],
+        items: [
+          { id: 'license_other', label: 'License & Other', value: 515, notes: ['+56% Y/Y', 'Support & Maintenance'] },
+          { id: 'royalty', label: 'Royalty', value: 620, notes: ['+21% Y/Y', 'Percentage or fixed'] },
+        ],
+        breakdowns: [
+          {
+            id: 'license_type',
+            label: 'Revenue by license type',
+            total: 1135,
+            items: [
+              { id: 'license_other', label: 'License & Other', value: 515 },
+              { id: 'royalty', label: 'Royalty', value: 620 },
+            ],
+          },
+          {
+            id: 'customer_type',
+            label: 'Revenue by customer type',
+            total: 1135,
+            items: [
+              { id: 'external_customers', label: 'External Customers', value: 713, notes: ['+9% Y/Y'] },
+              { id: 'related_parties', label: 'Related parties', value: 422, notes: ['+120% Y/Y', 'Arm China', 'Equity method investments'] },
+            ],
+          },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 29 },
+        operatingExpenses: {
+          total: 943,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 691, notes: ['61% of revenue', '+1pp Y/Y'] },
+            { id: 'sga', label: 'SG&A', value: 252, notes: ['22% of revenue', '(6pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 64 },
+      },
+      otherIncome: {
+        total: 139,
+        items: [{ id: 'other', label: 'Other', value: 139 }],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 1106, notes: ['97% margin', '+1pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 163, notes: ['14% margin', '+7pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 238, notes: ['21% margin', '+8pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第二季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +34%'],
+            items: [
+              { id: 'license_other', label: '授权及其他', notes: ['同比 +56%', '支持与维护'] },
+              { id: 'royalty', label: '版税', notes: ['同比 +21%', '按比例或固定金额'] },
+            ],
+            breakdowns: [
+              {
+                id: 'license_type',
+                label: '按授权类型划分的收入',
+                items: [
+                  { id: 'license_other', label: '授权及其他' },
+                  { id: 'royalty', label: '版税' },
+                ],
+              },
+              {
+                id: 'customer_type',
+                label: '按客户类型划分的收入',
+                items: [
+                  { id: 'external_customers', label: '外部客户', notes: ['同比 +9%'] },
+                  { id: 'related_parties', label: '关联方', notes: ['同比 +120%', 'Arm 中国', '权益法投资'] },
+                ],
+              },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '销售成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 61%', '同比 +1 个百分点'] },
+                { id: 'sga', label: '销售、一般及行政', notes: ['占收入 22%', '同比 (6 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: {
+            items: [{ id: 'other', label: '其他' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 97%', '同比 +1 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 14%', '同比 +7 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 21%', '同比 +8 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'arm-holdings-q3-fy26',
       company: 'Arm Holdings',
       period: 'Q3 FY26',

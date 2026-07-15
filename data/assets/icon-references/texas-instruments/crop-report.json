@@ -1,0 +1,132 @@
+{
+  "source": "input/processed/texas-instruments-q4-fy25.png",
+  "spec": "input/icon-crop-specs/texas-instruments-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-14T15:00:16.547798+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/texas-instruments",
+  "crops": [
+    {
+      "key": "texas-instruments-company-wordmark",
+      "output": "data/assets/icon-references/texas-instruments/crops/texas-instruments-company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 7488,
+        "losslessBytes": 35774,
+        "savingsVsLossless": 0.7907,
+        "metrics": {
+          "meanAbsoluteError": 0.376,
+          "rootMeanSquareError": 2.3172,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 52,
+          "changedPixelRatio": 0.0765
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 115573,
+        "transparentPixelRatio": 0.7614
+      },
+      "searchBox": {
+        "x": 555,
+        "y": 265,
+        "width": 660,
+        "height": 230
+      },
+      "componentCount": 18,
+      "subjectBox": {
+        "x0": 568,
+        "y0": 271,
+        "x1": 1179,
+        "y1": 479
+      },
+      "cropBox": {
+        "x0": 555,
+        "y0": 265,
+        "x1": 1215,
+        "y1": 495
+      },
+      "validation": {
+        "width": 660,
+        "height": 230,
+        "foregroundPixels": 34954,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 13,
+          "right": 36,
+          "top": 6,
+          "bottom": 16
+        },
+        "centerOffset": {
+          "x": -0.0174,
+          "y": -0.0217
+        },
+        "passes": true
+      },
+      "note": "Texas Instruments corporate wordmark centered above the Revenue hub; excludes the report title and financial labels. The complete red TI mark and black wordmark are retained as a validated runtime crop.",
+      "runtimeOutput": "data/assets/raster-annotations/texas-instruments/texas-instruments-company-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 7488,
+        "losslessBytes": 35774,
+        "savingsVsLossless": 0.7907,
+        "metrics": {
+          "meanAbsoluteError": 0.376,
+          "rootMeanSquareError": 2.3172,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 52,
+          "changedPixelRatio": 0.0765
+        }
+      },
+      "validationSheet": "data/assets/icon-references/texas-instruments/validation-sheets/texas-instruments-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 233843,
+        "losslessBytes": 233843,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

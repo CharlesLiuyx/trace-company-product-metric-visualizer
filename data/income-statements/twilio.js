@@ -10,6 +10,88 @@
 
   ssot.records.push(
     {
+      key: 'twilio-q3-fy25',
+      company: 'Twilio',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/twilio-q3-fy25.png',
+      roundingTolerance: 1.5,
+      revenue: {
+        total: 1300,
+        notes: ['+15% Y/Y'],
+        items: [
+          { id: 'united_states', label: 'United States', value: 830, notes: ['+13% Y/Y'] },
+          { id: 'international', label: 'International', value: 470, notes: ['+18% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 668 },
+        operatingExpenses: {
+          total: 591,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 262, notes: ['20% of revenue', '(3pp) Y/Y'] },
+            { id: 'sm', label: 'S&M', value: 221, notes: ['17% of revenue', '(2pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 108, notes: ['8% of revenue', '(1pp) Y/Y'] },
+          ],
+        },
+        tax: { label: 'Tax expense', value: 0 },
+      },
+      otherIncome: {
+        total: 5,
+        items: [
+          { id: 'tax', label: 'Tax', value: 5, notes: ['Displayed as a positive green tax benefit in the source flow.'] },
+        ],
+      },
+      otherExpenses: {
+        total: 8,
+        items: [{ id: 'other', label: 'Other', value: 8 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 632, notes: ['49% margin', '(2pp) Y/Y'] },
+        operating: {
+          id: 'operating_profit', label: 'Operating profit', value: 40,
+          notes: ['3% margin', '+3pp Y/Y', 'Gross profit less operating expenses totals $41M; the source chart reports $40M because of rounded displayed values.'],
+        },
+        net: { id: 'net_profit', label: 'Net profit', value: 37, notes: ['3% margin', '+4pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +15%'],
+            items: [
+              { id: 'united_states', label: '美国', notes: ['同比 +13%'] },
+              { id: 'international', label: '国际', notes: ['同比 +18%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 20%', '同比 (3 个百分点)'] },
+                { id: 'sm', label: '销售与市场', notes: ['占收入 17%', '同比 (2 个百分点)'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 8%', '同比 (1 个百分点)'] },
+              ],
+            },
+            tax: { label: '所得税费用' },
+          },
+          otherIncome: {
+            items: [{ id: 'tax', label: '税项收益', notes: ['来源图以绿色正向流显示的 $5M 税项收益。'] }],
+          },
+          otherExpenses: { items: [{ id: 'other', label: '其他' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 49%', '同比 (2 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 3%', '同比 +3 个百分点', '毛利润减运营费用合计为 $41M；来源图因显示值取整报告 $40M 营业利润。'] },
+            net: { label: '净利润', notes: ['利润率 3%', '同比 +4 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'twilio-q4-fy25',
       company: 'Twilio',
       period: 'Q4 FY25',

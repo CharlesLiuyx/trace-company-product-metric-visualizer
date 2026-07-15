@@ -1,0 +1,226 @@
+{
+  "source": "input/processing/gm-fy25.png",
+  "spec": "input/icon-crop-specs/gm-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-14T18:46:12.748562+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/gm",
+  "crops": [
+    {
+      "key": "gm-company-logo",
+      "output": "data/assets/icon-references/gm/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2580,
+        "losslessBytes": 9372,
+        "savingsVsLossless": 0.7247,
+        "metrics": {
+          "meanAbsoluteError": 1.0286,
+          "rootMeanSquareError": 2.4665,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.6178
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 21000,
+        "transparentPixelRatio": 0.3388
+      },
+      "searchBox": {
+        "x": 1105,
+        "y": 261,
+        "width": 232,
+        "height": 230
+      },
+      "componentCount": 4,
+      "subjectBox": {
+        "x0": 1119,
+        "y0": 275,
+        "x1": 1323,
+        "y1": 479
+      },
+      "cropBox": {
+        "x0": 1095,
+        "y0": 251,
+        "x1": 1347,
+        "y1": 497
+      },
+      "validation": {
+        "width": 252,
+        "height": 246,
+        "foregroundPixels": 20738,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 24,
+          "right": 24,
+          "top": 24,
+          "bottom": 18
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0122
+        },
+        "passes": true
+      },
+      "note": "Rounded-square blue-gradient 'gm' corporate mark centered above the Revenue node; excludes the Revenue node's own label/value text and all chart/flow geometry.",
+      "runtimeOutput": "data/assets/raster-annotations/gm/company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2580,
+        "losslessBytes": 9372,
+        "savingsVsLossless": 0.7247,
+        "metrics": {
+          "meanAbsoluteError": 1.0286,
+          "rootMeanSquareError": 2.4665,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.6178
+        }
+      },
+      "validationSheet": "data/assets/icon-references/gm/validation-sheets/gm-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 214773,
+        "losslessBytes": 214773,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "gm-north-america-brand-cluster",
+      "output": "data/assets/icon-references/gm/crops/gm-north-america-brand-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 10364,
+        "losslessBytes": 53570,
+        "savingsVsLossless": 0.8065,
+        "metrics": {
+          "meanAbsoluteError": 0.822,
+          "rootMeanSquareError": 2.7939,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 50,
+          "changedPixelRatio": 0.2399
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 80352,
+        "transparentPixelRatio": 0.7718
+      },
+      "searchBox": {
+        "x": 15,
+        "y": 592,
+        "width": 410,
+        "height": 220
+      },
+      "componentCount": 13,
+      "subjectBox": {
+        "x0": 37,
+        "y0": 604,
+        "x1": 398,
+        "y1": 800
+      },
+      "cropBox": {
+        "x0": 0,
+        "y0": 586,
+        "x1": 432,
+        "y1": 827
+      },
+      "validation": {
+        "width": 432,
+        "height": 241,
+        "foregroundPixels": 21025,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 37,
+          "right": 34,
+          "top": 18,
+          "bottom": 27
+        },
+        "centerOffset": {
+          "x": 0.0035,
+          "y": -0.0187
+        },
+        "passes": true
+      },
+      "note": "Four separate, disconnected sub-brand logos (Chevrolet, Buick, GMC, Cadillac) in a 2x2 grid below the GM North America node's label; excludes the GM North America label text and all chart/flow geometry, and intentionally covers all four sub-brand logos as one cluster per this repo's multi-brand cluster convention.",
+      "runtimeOutput": "data/assets/raster-annotations/gm/gm-north-america-brand-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 10364,
+        "losslessBytes": 53570,
+        "savingsVsLossless": 0.8065,
+        "metrics": {
+          "meanAbsoluteError": 0.822,
+          "rootMeanSquareError": 2.7939,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 50,
+          "changedPixelRatio": 0.2399
+        }
+      },
+      "validationSheet": "data/assets/icon-references/gm/validation-sheets/gm-north-america-brand-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 246376,
+        "losslessBytes": 246376,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

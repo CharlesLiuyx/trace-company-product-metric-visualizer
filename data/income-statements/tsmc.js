@@ -93,6 +93,91 @@
           },
         },
       },
+    },
+    {
+      key: 'tsmc-q4-fy25',
+      company: 'TSMC',
+      period: 'Q4 FY25',
+      periodNote: 'Ending Dec. 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/tsmc-q4-fy25.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 33.7,
+        notes: ['+25% Y/Y'],
+        items: [
+          { id: 'hpc', label: 'High Performance Computing', value: 18.5, notes: ['55% of revenue', '+2pp Y/Y'] },
+          { id: 'smartphones', label: 'Smartphones', value: 10.8, notes: ['32% of revenue', '(3pp) Y/Y'] },
+          { id: 'iot', label: 'Internet of Things', value: 1.7, notes: ['5% of revenue', 'Flat Y/Y'] },
+          { id: 'automotive', label: 'Automotive', value: 1.7, notes: ['5% of revenue', '+1pp Y/Y'] },
+          { id: 'dce', label: 'Digital Consumer Electronics', value: 0.3, notes: ['1% of revenue', 'Flat Y/Y'] },
+          { id: 'others', label: 'Others', value: 0.7, notes: ['2% of revenue', 'Flat Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 12.7 },
+        operatingExpenses: {
+          total: 2.8,
+          notes: ['R&D and SG&A line items sum to $2.9B while operating expenses show $2.8B; the $0.1B difference is rounding residual in the source chart.'],
+          items: [
+            { id: 'rnd', label: 'R&D', value: 2.1 },
+            { id: 'sga', label: 'SG&A', value: 0.8 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 2.8 },
+      },
+      otherIncome: {
+        total: 0.9,
+        items: [{ id: 'other', label: 'Other', value: 0.9 }],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 21.0, notes: ['62% margin', '+3pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 18.2, notes: ['54% margin', '+5pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 16.3, notes: ['48% margin', '+5pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度',
+          periodNote: '截至 2025 年 12 月',
+          revenue: {
+            notes: ['同比 +25%'],
+            items: [
+              { id: 'hpc', label: '高性能计算', notes: ['占收入 55%', '同比 +2 个百分点'] },
+              { id: 'smartphones', label: '智能手机', notes: ['占收入 32%', '同比 (3 个百分点)'] },
+              { id: 'iot', label: '物联网', notes: ['占收入 5%', '同比持平'] },
+              { id: 'automotive', label: '汽车', notes: ['占收入 5%', '同比 +1 个百分点'] },
+              { id: 'dce', label: '数字消费电子', notes: ['占收入 1%', '同比持平'] },
+              { id: 'others', label: '其他', notes: ['占收入 2%', '同比持平'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发' },
+                { id: 'sga', label: '销售、一般及行政' },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: {
+            items: [
+              { id: 'other', label: '其他' },
+            ],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 62%', '同比 +3 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 54%', '同比 +5 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 48%', '同比 +5 个百分点'] },
+          },
+        },
+      },
     }
   );
 })(window);
