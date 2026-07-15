@@ -10,6 +10,76 @@
 
   ssot.records.push(
     {
+      key: 'instacart-q3-fy25',
+      company: 'Instacart',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/instacart-q3-fy25.png',
+      roundingTolerance: 1.5,
+      revenue: {
+        total: 939,
+        notes: ['+10% Y/Y'],
+        items: [
+          { id: 'transaction', label: 'Transaction', value: 670, notes: ['+11% Y/Y', 'Retailer fees', 'Customer fees'] },
+          { id: 'advertising_other', label: 'Advertising & Other', value: 269, notes: ['+9% Y/Y', 'Per click & fixed fee'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 247 },
+        operatingExpenses: {
+          total: 524,
+          items: [
+            { id: 'sm', label: 'S&M', value: 206, notes: ['22% of revenue', '(3pp) Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 169, notes: ['18% of revenue', '+1pp Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 87, notes: ['9% of revenue', '+0pp Y/Y'] },
+            { id: 'operations', label: 'Operations', value: 62, notes: ['7% of revenue', '(1pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 39 },
+      },
+      otherIncome: { total: 15, items: [{ id: 'interest', label: 'Interest', value: 15 }] },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 692, notes: ['74% margin', '(2pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 168, notes: ['18% margin', '+2pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 144, notes: ['15% margin', '+1pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +10%'],
+            items: [
+              { id: 'transaction', label: '交易', notes: ['同比 +11%', '零售商费用', '客户费用'] },
+              { id: 'advertising_other', label: '广告及其他', notes: ['同比 +9%', '按点击与固定费用'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'sm', label: '销售与市场', notes: ['占收入 22%', '同比 (3 个百分点)'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 18%', '同比 +1 个百分点'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 9%', '同比 +0 个百分点'] },
+                { id: 'operations', label: '运营', notes: ['占收入 7%', '同比 (1 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: { items: [{ id: 'interest', label: '利息收入' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 74%', '同比 (2 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 18%', '同比 +2 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 15%', '同比 +1 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'instacart-q1-fy26',
       company: 'Instacart',
       period: 'Q1 FY26',

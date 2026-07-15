@@ -9097,6 +9097,343 @@
             }
           }
         }
+      },
+      {
+        "key": "best-buy-q3-fy26",
+        "src": "data/datasets/best-buy-q3-fy26.js",
+        "data": {
+          "name": "Best Buy · Q3 FY26",
+          "company": "Best Buy",
+          "meta": {
+            "title": "Best Buy Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Oct. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "百思买 · 2026 财年第三季度",
+              "meta": {
+                "title": "百思买 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2025 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lyft-q3-fy25",
+        "src": "data/datasets/lyft-q3-fy25.js",
+        "data": {
+          "name": "Lyft · Q3 FY25",
+          "company": "Lyft",
+          "meta": {
+            "title": "Lyft Q3 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Lyft · 2025 财年第三季度",
+              "meta": {
+                "title": "Lyft 2025 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sea-q3-fy25",
+        "src": "data/datasets/sea-q3-fy25.js",
+        "data": {
+          "name": "Sea · Q3 FY25",
+          "company": "Sea",
+          "meta": {
+            "title": "Sea Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Sea · 2025 财年第三季度",
+              "meta": {
+                "title": "Sea 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "netease-q3-fy25",
+        "src": "data/datasets/netease-q3-fy25.js",
+        "data": {
+          "name": "NetEase · Q3 FY25",
+          "company": "NetEase",
+          "meta": {
+            "title": "NetEase Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "NetEase · 2025 财年第三季度",
+              "meta": {
+                "title": "NetEase 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "spotify-q3-fy25",
+        "src": "data/datasets/spotify-q3-fy25.js",
+        "data": {
+          "name": "Spotify · Q3 FY25",
+          "company": "Spotify",
+          "meta": {
+            "title": "Spotify Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Spotify · 2025 财年第三季度",
+              "meta": {
+                "title": "Spotify 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "target-q3-fy25",
+        "src": "data/datasets/target-q3-fy25.js",
+        "data": {
+          "name": "Target · Q3 FY25",
+          "company": "Target",
+          "meta": {
+            "title": "Target Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Oct. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "塔吉特 · 2025 财年第三季度",
+              "meta": {
+                "title": "塔吉特 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "instacart-q3-fy25",
+        "src": "data/datasets/instacart-q3-fy25.js",
+        "data": {
+          "name": "Instacart · Q3 FY25",
+          "company": "Instacart",
+          "meta": {
+            "title": "Instacart Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Instacart · 2025 财年第三季度",
+              "meta": {
+                "title": "Instacart 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "walmart-q3-fy26",
+        "src": "data/datasets/walmart-q3-fy26.js",
+        "data": {
+          "name": "Walmart - Q3 FY26",
+          "company": "Walmart",
+          "meta": {
+            "title": "Walmart Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Oct. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "沃尔玛 · 2026 财年第三季度",
+              "meta": {
+                "title": "沃尔玛 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2025 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "grab-q3-fy25",
+        "src": "data/datasets/grab-q3-fy25.js",
+        "data": {
+          "name": "Grab · Q3 FY25",
+          "company": "Grab",
+          "meta": {
+            "title": "Grab Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Grab · 2025 财年第三季度",
+              "meta": {
+                "title": "Grab 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "home-depot-q3-fy25",
+        "src": "data/datasets/home-depot-q3-fy25.js",
+        "data": {
+          "name": "Home Depot · Q3 FY25",
+          "company": "Home Depot",
+          "meta": {
+            "title": "Home Depot Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Three months ended November 2, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "家得宝 · 2025 财年第三季度",
+              "meta": {
+                "title": "家得宝 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 11 月 2 日的三个月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "take-two-q2-fy26",
+        "src": "data/datasets/take-two-q2-fy26.js",
+        "data": {
+          "name": "Take-Two · Q2 FY26",
+          "company": "Take-Two",
+          "meta": {
+            "title": "Take-Two Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Sept. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Take-Two · 2026 财年第二季度",
+              "meta": {
+                "title": "Take-Two 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nintendo-h1-fy26",
+        "src": "data/datasets/nintendo-h1-fy26.js",
+        "data": {
+          "name": "Nintendo · H1 FY26",
+          "company": "Nintendo",
+          "meta": {
+            "title": "Nintendo H1 FY26 Income Statement",
+            "period": "H1 FY26",
+            "periodNote": "Ending Sept. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Nintendo · 2026 财年上半年",
+              "meta": {
+                "title": "Nintendo 2026 财年上半年利润表",
+                "period": "2026 财年上半年",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "uber-q3-fy25",
+        "src": "data/datasets/uber-q3-fy25.js",
+        "data": {
+          "name": "Uber - Q3 FY25",
+          "company": "Uber",
+          "meta": {
+            "title": "Uber Q3 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Uber · 2025 财年第三季度",
+              "meta": {
+                "title": "Uber 2025 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tencent-q3-fy25",
+        "src": "data/datasets/tencent-q3-fy25.js",
+        "data": {
+          "name": "Tencent · Q3 FY25",
+          "company": "Tencent",
+          "meta": {
+            "title": "Tencent Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tencent · 2025 财年第三季度",
+              "meta": {
+                "title": "Tencent 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sony-q2-fy25",
+        "src": "data/datasets/sony-q2-fy25.js",
+        "data": {
+          "name": "Sony · Q2 FY25",
+          "company": "Sony",
+          "meta": {
+            "title": "Sony Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Sept. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Sony · 2025 财年第二季度",
+              "meta": {
+                "title": "Sony 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
       }
     ]
   };
