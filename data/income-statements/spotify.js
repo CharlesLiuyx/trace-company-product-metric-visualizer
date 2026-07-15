@@ -88,6 +88,87 @@
       },
     },
     {
+      key: 'spotify-q3-fy25',
+      company: 'Spotify',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '€',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/spotify-q3-fy25.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 4.3,
+        notes: ['+7% Y/Y', 'Spotify Premium and Spotify Advertising sum to €4.2B because the source rounds each component independently.'],
+        items: [
+          { id: 'premium', label: 'Spotify Premium', value: 3.8, notes: ['+9% Y/Y', '33% gross margin', '(0pp) Y/Y'] },
+          { id: 'advertising', label: 'Spotify Advertising', value: 0.4, notes: ['(6%) Y/Y', '18% gross margin', '+5pp Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 2.9 },
+        operatingExpenses: {
+          total: 0.8,
+          notes: ['Sales & Marketing, R&D, and General & Admin sum to €0.7B because the source rounds each component independently.'],
+          items: [
+            { id: 'sm', label: 'Sales & Marketing', value: 0.3, notes: ['8% of revenue', '(0pp) Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 0.3, notes: ['7% of revenue', '(1pp) Y/Y'] },
+            { id: 'ga', label: 'General & Admin', value: 0.1, notes: ['3% of revenue', '(0pp) Y/Y'] },
+          ],
+        },
+        tax: { label: 'Tax expense', value: 0 },
+      },
+      otherIncome: {
+        total: 0.3,
+        items: [
+          { id: 'tax_benefit', label: 'Tax benefit', value: 0.1 },
+          { id: 'interest', label: 'Interest', value: 0.2 },
+        ],
+      },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 1.4, notes: ['32% margin', '+1pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 0.6, notes: ['14% margin', '+2pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 0.9, notes: ['21% margin', '+14pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +7%', '由于来源图分别四舍五入，Spotify Premium 与 Spotify Advertising 合计为 €4.2B。'],
+            items: [
+              { id: 'premium', label: 'Spotify Premium', notes: ['同比 +9%', '毛利率 33%', '同比 (0 个百分点)'] },
+              { id: 'advertising', label: 'Spotify Advertising', notes: ['同比 (6%)', '毛利率 18%', '同比 +5 个百分点'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              notes: ['由于来源图分别四舍五入，销售与市场、研发和一般及行政费用合计为 €0.7B。'],
+              items: [
+                { id: 'sm', label: '销售与市场', notes: ['占收入 8%', '同比 (0 个百分点)'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 7%', '同比 (1 个百分点)'] },
+                { id: 'ga', label: '一般及行政', notes: ['占收入 3%', '同比 (0 个百分点)'] },
+              ],
+            },
+            tax: { label: '税收收益' },
+          },
+          otherIncome: {
+            items: [
+              { id: 'tax_benefit', label: '税收收益' },
+              { id: 'interest', label: '利息' },
+            ],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 32%', '同比 +1 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 14%', '同比 +2 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 21%', '同比 +14 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'spotify-q4-fy25',
       company: 'Spotify',
       period: 'Q4 FY25',

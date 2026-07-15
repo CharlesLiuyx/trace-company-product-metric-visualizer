@@ -10,6 +10,90 @@
 
   ssot.records.push(
     {
+      key: 'lyft-q3-fy25',
+      company: 'Lyft',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/lyft-q3-fy25.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 1685,
+        notes: ['+11% Y/Y'],
+        items: [
+          { id: 'rideshare', label: 'Rideshare', value: 1546, notes: ['+11% Y/Y'] },
+          { id: 'rentals', label: 'Rentals', value: 139, notes: ['+3% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 927 },
+        operatingExpenses: {
+          total: 735,
+          items: [
+            { id: 'ga', label: 'General & admin', value: 251, notes: ['15% of revenue', '(2pp) Y/Y'] },
+            { id: 'sm', label: 'Sales & marketing', value: 243, notes: ['14% of revenue', '+0pp Y/Y'] },
+            { id: 'operations_support', label: 'Operations & support', value: 131, notes: ['8% of revenue', '+0pp Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 110, notes: ['7% of revenue', '(0pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax_expense', label: 'Tax expense', value: 0 },
+      },
+      otherIncome: {
+        total: 28,
+        items: [
+          { id: 'other', label: 'Other', value: 26 },
+          { id: 'tax', label: 'Tax', value: 2 },
+        ],
+      },
+      otherExpenses: {
+        total: 5,
+        items: [{ id: 'interest', label: 'Interest', value: 5 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 758, notes: ['45% margin', '+3pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 23, notes: ['1% margin', '+2pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 46, notes: ['3% margin', '+4pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +11%'],
+            items: [
+              { id: 'rideshare', label: '网约车', notes: ['同比 +11%'] },
+              { id: 'rentals', label: '租赁', notes: ['同比 +3%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'ga', label: '管理费用', notes: ['占收入 15%', '同比 (2 个百分点)'] },
+                { id: 'sm', label: '销售与市场', notes: ['占收入 14%', '同比 +0 个百分点'] },
+                { id: 'operations_support', label: ['运营', '与支持'], notes: ['占收入 8%', '同比 +0 个百分点'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 7%', '同比 (0 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: {
+            items: [{ id: 'other', label: '其他' }, { id: 'tax', label: '税费' }],
+          },
+          otherExpenses: {
+            items: [{ id: 'interest', label: '利息' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 45%', '同比 +3 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 1%', '同比 +2 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 3%', '同比 +4 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'lyft-fy25',
       company: 'Lyft',
       period: 'FY25',

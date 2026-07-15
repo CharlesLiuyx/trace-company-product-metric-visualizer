@@ -10,6 +10,89 @@
 
   ssot.records.push(
     {
+      key: 'grab-q3-fy25',
+      company: 'Grab',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/grab-q3-fy25.png',
+      roundingTolerance: 2,
+      revenue: {
+        total: 873,
+        notes: [
+          '+22% Y/Y',
+          'Segment revenue sums to $872M because the source chart rounds Deliveries, Mobility, and Financial Services separately.',
+          'On-Demand GMV: $5.8B, +24% Y/Y. Group MTUs: 47.7M, +14% Y/Y.',
+        ],
+        items: [
+          { id: 'deliveries', label: 'Deliveries', value: 465, notes: ['+23% Y/Y', '17% adjusted margin', '+2pp Y/Y'] },
+          { id: 'mobility', label: 'Mobility', value: 317, notes: ['+17% Y/Y', '57% adjusted margin', '+2pp Y/Y'] },
+          { id: 'financial_services', label: 'Financial Services', value: 90, notes: ['+39% Y/Y', '(31%) adjusted margin', '+9pp Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 491 },
+        operatingExpenses: {
+          total: 355,
+          items: [
+            { id: 'ga', label: 'G&A', value: 120, notes: ['14% of revenue', '(2pp) Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 103, notes: ['12% of revenue', '(2pp) Y/Y'] },
+            { id: 'sm', label: 'S&M', value: 92, notes: ['11% of revenue', '(1pp) Y/Y'] },
+            { id: 'other_opex', label: 'Other', value: 40, notes: ['5% of revenue', '(3pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 21 },
+      },
+      otherIncome: {
+        total: 11,
+        items: [{ id: 'other_income', label: 'Other', value: 11 }],
+      },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 382, notes: ['44% margin', '+1pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 27, notes: ['3% margin', '+8pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 17 },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: [
+              '同比 +22%',
+              '由于源图分别四舍五入 Deliveries、Mobility 和 Financial Services，分项收入合计为 $872M。',
+              '按需 GMV：$5.8B，同比 +24%。集团月交易用户数：47.7M，同比 +14%。',
+            ],
+            items: [
+              { id: 'deliveries', label: '配送', notes: ['同比 +23%', '经调整利润率 17%', '同比 +2 个百分点'] },
+              { id: 'mobility', label: '出行', notes: ['同比 +17%', '经调整利润率 57%', '同比 +2 个百分点'] },
+              { id: 'financial_services', label: '金融服务', notes: ['同比 +39%', '经调整利润率 (31%)', '同比 +9 个百分点'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'ga', label: '一般及行政', notes: ['占收入 14%', '同比 (2 个百分点)'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 12%', '同比 (2 个百分点)'] },
+                { id: 'sm', label: '销售与营销', notes: ['占收入 11%', '同比 (1 个百分点)'] },
+                { id: 'other_opex', label: '其他', notes: ['占收入 5%', '同比 (3 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: { items: [{ id: 'other_income', label: '其他' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['毛利率 44%', '同比 +1 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 3%', '同比 +8 个百分点'] },
+            net: { label: '净利润' },
+          },
+        },
+      },
+    },
+    {
       key: 'grab-q4-fy25',
       company: 'Grab',
       period: 'Q4 FY25',

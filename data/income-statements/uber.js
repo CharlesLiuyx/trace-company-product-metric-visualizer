@@ -92,6 +92,91 @@
       },
     },
     {
+      key: 'uber-q3-fy25',
+      company: 'Uber',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/uber-q3-fy25.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 13.5,
+        notes: ['+20% Y/Y'],
+        items: [
+          { id: 'mobility', label: 'Mobility', value: 7.7, notes: ['+20% Y/Y', '27% adjusted margin', '+0pp Y/Y'] },
+          { id: 'delivery', label: 'Delivery', value: 4.5, notes: ['+29% Y/Y', '21% adjusted margin', '+2pp Y/Y'] },
+          { id: 'freight', label: 'Uber Freight', value: 1.3, notes: ['(0%) Y/Y', '(2%) adjusted margin', '(0pp) Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 8.1 },
+        operatingExpenses: {
+          total: 4.2,
+          items: [
+            { id: 'sm', label: 'S&M', value: 1.3, notes: ['10% of revenue', '(0pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 1.2, notes: ['9% of revenue', '+3pp Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 0.9, notes: ['7% of revenue', '(1pp) Y/Y'] },
+            { id: 'operations', label: 'Operations', value: 0.7, notes: ['5% of revenue', '(1pp) Y/Y'] },
+            { id: 'da', label: 'D&A', value: 0.2, notes: ['1% of revenue', '(0pp) Y/Y'] },
+          ],
+        },
+        tax: { label: 'Tax', value: 0 },
+      },
+      otherIncome: {
+        total: 5.7,
+        items: [{ id: 'tax_benefit_and_other', label: 'Tax benefit & Other', value: 5.7 }],
+      },
+      otherExpenses: {
+        total: 0.1,
+        items: [{ id: 'interest', label: 'Interest', value: 0.1 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 5.4, notes: ['40% margin', '+0pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 1.1, notes: ['8% margin', '(1pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 6.7 },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +20%'],
+            items: [
+              { id: 'mobility', label: '出行', notes: ['同比 +20%', '调整后利润率 27%', '同比 +0 个百分点'] },
+              { id: 'delivery', label: '配送', notes: ['同比 +29%', '调整后利润率 21%', '同比 +2 个百分点'] },
+              { id: 'freight', label: 'Uber Freight 货运', notes: ['同比 (0%)', '调整后利润率 (2%)', '同比 (0 个百分点)'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'sm', label: '销售与市场', notes: ['占收入 10%', '同比 (0 个百分点)'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 9%', '同比 +3 个百分点'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 7%', '同比 (1 个百分点)'] },
+                { id: 'operations', label: '运营', notes: ['占收入 5%', '同比 (1 个百分点)'] },
+                { id: 'da', label: '折旧与摊销', notes: ['占收入 1%', '同比 (0 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: {
+            items: [{ id: 'tax_benefit_and_other', label: '税收收益及其他' }],
+          },
+          otherExpenses: {
+            items: [{ id: 'interest', label: '利息' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 40%', '同比 +0 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 8%', '同比 (1 个百分点)'] },
+            net: { label: '净利润' },
+          },
+        },
+      },
+    },
+    {
       key: 'uber-q4-fy25',
       company: 'Uber',
       period: 'Q4 FY25',

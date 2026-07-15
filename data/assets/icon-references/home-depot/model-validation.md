@@ -17,3 +17,21 @@ All accepted crops are transparent reference assets. Their compressed copies in
 `data/assets/raster-annotations/home-depot/` are the approved runtime surfaces;
 the source publisher's badges, URL, and footer lockup remain intentionally
 excluded.
+
+## Home Depot Q3 FY25 icon validation
+
+Source: `input/processing/home-depot-q3-fy25.png` (stable authored locator:
+`input/processed/home-depot-q3-fy25.png`). Reviewed against the generated
+validation sheets on 2026-07-15.
+
+| crop / asset | acceptance | notes |
+| --- | --- | --- |
+| `home-depot-company-logo` | accepted | New Q3 crop: complete, centered enlarged orange square wordmark; excludes the Net Sales label and Sankey node pixels. |
+| `home-depot-building-materials-icons` | reused | Q3 source surface is materially identical to the accepted Q1 cluster. |
+| `home-depot-decor-icons` | reused | Q3 source surface is pixel-identical to the accepted Q1 cluster. |
+| `home-depot-hardlines-icons` | reused | Q3 source surface is pixel-identical to the accepted Q1 cluster. |
+| `home-depot-other-distributor-logos` | accepted | New Q3 crop contains only the complete SRS Distribution mark; the Q3 source does not show the prior GMS companion mark. |
+
+The Q3 accepted runtime copies are `company-logo-q3-fy25.png` and
+`other-distributor-logos-q3-fy25.png`; the reused Q1 runtime annotations
+remain the approved surfaces for the three unchanged business-icon clusters.

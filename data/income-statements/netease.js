@@ -102,6 +102,96 @@
       },
     },
     {
+      key: 'netease-q3-fy25',
+      company: 'NetEase',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/netease-q3-fy25.png',
+      roundingTolerance: 0.25,
+      revenue: {
+        total: 4.0,
+        notes: ['+8% Y/Y'],
+        items: [
+          {
+            id: 'games',
+            label: 'Games and related value-added services',
+            value: 3.3,
+            notes: ['+12% Y/Y', '70% gross margin'],
+          },
+          { id: 'cloud_music', label: 'Cloud Music', value: 0.3, notes: ['(2%) Y/Y', '36% gross margin'] },
+          { id: 'youdao', label: 'Youdao', value: 0.2, notes: ['+4% Y/Y', '43% gross margin'] },
+          {
+            id: 'innovative_businesses',
+            label: 'Innovative Businesses & Others',
+            value: 0.2,
+            notes: ['(19%) Y/Y', '42% gross margin'],
+          },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 1.4 },
+        operatingExpenses: {
+          total: 1.4,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 0.6, notes: ['16% of revenue', '(1pp) Y/Y'] },
+            { id: 'sm', label: 'S&M', value: 0.6, notes: ['16% of revenue', '+1pp Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 0.2, notes: ['4% of revenue', '(0pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.2 },
+      },
+      otherIncome: {
+        total: 0.3,
+        items: [{ id: 'other', label: 'Other', value: 0.3 }],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 2.6, notes: ['64% margin', '+1pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 1.1, notes: ['28% margin', '+1pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 1.2, notes: ['31% margin', '+5pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +8%'],
+            items: [
+              { label: '游戏及相关增值服务', notes: ['同比 +12%', '毛利率 70%'] },
+              { label: '云音乐', notes: ['同比 (2%)', '毛利率 36%'] },
+              { label: '有道', notes: ['同比 +4%', '毛利率 43%'] },
+              { label: '创新业务及其他', notes: ['同比 (19%)', '毛利率 42%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { label: '研发', notes: ['占收入 16%', '同比 (1 个百分点)'] },
+                { label: '销售与营销', notes: ['占收入 16%', '同比 +1 个百分点'] },
+                { label: '管理费用', notes: ['占收入 4%', '同比 (0 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: {
+            items: [{ label: '其他' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 64%', '同比 +1 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 28%', '同比 +1 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 31%', '同比 +5 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'netease-q1-fy26',
       company: 'NetEase',
       period: 'Q1 FY26',
