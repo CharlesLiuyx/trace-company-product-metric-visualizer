@@ -89,7 +89,7 @@
       ],
     },
     interest: {
-      blocks: [block(2287, 450, [line('Interest', 32, { weight: 800 }), line('$value', 31)], { lineGap: 8 })],
+      blocks: [block(2245, 450, [line('Interest', 32, { weight: 800 }), line('$value', 31)], { lineGap: 8 })],
     },
     operating_profit: {
       blocks: [
@@ -200,7 +200,7 @@
       blocks: [block(1601, 1198, [line('销售成本', 38, { weight: 800 }), line('$value', 37)], { lineGap: 9 })],
     },
     interest: {
-      blocks: [block(2287, 450, [line('利息', 32, { weight: 800 }), line('$value', 31)], { lineGap: 8 })],
+      blocks: [block(2245, 450, [line('利息', 32, { weight: 800 }), line('$value', 31)], { lineGap: 8 })],
     },
     operating_profit: {
       blocks: [
@@ -297,7 +297,7 @@
         revenue: { x: 1191, y: 653, width: 71, height: 425 },
         gross_profit: { x: 1565, y: 570, width: 71, height: 58 },
         cost_of_sales: { x: 1565, y: 798, width: 71, height: 367 },
-        interest: { x: 2195, y: 439, width: 25, height: 3 },
+        interest: { x: 2214, y: 439, width: 56, height: 3 },
         operating_profit: { x: 1951, y: 467, width: 71, height: 6 },
         operating_expenses: { x: 1949, y: 659, width: 71, height: 51 },
         net_profit: { x: 2312, y: 389, width: 72, height: 6 },
@@ -377,7 +377,7 @@
         targetOrder: 0,
       },
 
-      { source: 'operating_profit', target: 'net_profit', value: 2.6, width: 5, sourceOrder: 0, targetOrder: 1 },
+      { source: 'operating_profit', target: 'net_profit', value: 2.6, width: 5, sourceOrder: 0, targetOrder: 0 },
       {
         source: 'operating_profit',
         target: 'tax',
@@ -391,8 +391,9 @@
         target: 'net_profit',
         value: 0.2,
         width: 1,
-        targetOrder: 0,
-        curve: { c1x: 2258, c2x: 2300 },
+        sourceWidth: 3,
+        targetOrder: 1,
+        curve: { c1x: 2287, c2x: 2307 },
       },
 
       { source: 'operating_expenses', target: 'other', value: 14.3, width: 32, sourceOrder: 0, targetOrder: 0 },
