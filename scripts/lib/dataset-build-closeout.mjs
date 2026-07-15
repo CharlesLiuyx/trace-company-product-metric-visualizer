@@ -13,8 +13,11 @@ import {
   digestFidelityValue,
 } from './fidelity-result.mjs';
 import { createObjectInventory } from './object-inventory.mjs';
+import { createSourceCoverage } from './source-coverage.mjs';
+import { assertSourceCoverageAuthoredValues } from './source-coverage-authored.mjs';
 import { compileVerificationPlan } from './verification-plan.mjs';
 import { assertInterfaceEvidenceReady } from './interface-fidelity.mjs';
+import { assessNodePaintAudit, assertNodePaintPolicy } from './node-face-policy.mjs';
 import {
   createCloseoutReport,
   renderLoopFidelitySummary,
@@ -31,7 +34,7 @@ import {
 } from './dataset-build-store.mjs';
 import { rootDir } from './project.mjs';
 
-export const REVIEW_PACKET_PROTOCOL = 'review-packet/v2';
+export const REVIEW_PACKET_PROTOCOL = 'review-packet/v3';
 
 function closeoutError(code, message, details = undefined) {
   const error = new Error(message);
@@ -154,15 +157,18 @@ function planForFidelityResult(authored) {
   const plan = authored?.verificationPlan;
   invariant(plan, 'VERIFICATION_PLAN_REQUIRED', 'The authored snapshot has no VerificationPlan');
   invariant(
-    plan.schemaVersion === 3 && plan.protocol === 'verification-plan/v3',
+    plan.schemaVersion === 4 && plan.protocol === 'verification-plan/v4',
     'VERIFICATION_PLAN_STALE',
-    'Finishing review requires VerificationPlan v3; prepare a fresh review packet'
+    'Finishing review requires VerificationPlan v4 with Source Coverage; prepare a fresh review packet'
   );
   return {
     digest: authored.verificationPlanDigest || plan.digest || plan.planDigest,
     requiredLocales: plan.requiredLocales,
     changeImpact: plan.changeImpact,
     requiredChecks: plan.requiredChecks,
+    sourceCoverageDigest: plan.sourceCoverageDigest,
+    sourceDigest: plan.sourceDigest,
+    nodeFacePolicy: plan.nodeFacePolicy,
   };
 }
 
@@ -172,16 +178,60 @@ export async function prepareBuildReview(input, options = {}) {
   const build = await readDatasetBuild(input.buildId, { buildRoot });
   const inventory = createObjectInventory(input.inventory);
   invariant(inventory.datasetKey === build.key, 'INVENTORY_BUILD_MISMATCH', 'ObjectInventory dataset key does not match the Build');
+  const primarySource = (build.sources || []).find((source) => source.role === 'primary-reference') || build.sources?.[0];
+  invariant(primarySource, 'SOURCE_COVERAGE_BUILD_SOURCE_MISSING', 'Build has no primary Source for Source Coverage');
+  const sourceLocator = [primarySource.processingUri, primarySource.processedUri, primarySource.uri]
+    .filter(Boolean)
+    .find((locator) => existsSync(resolveProjectLocator(locator, projectRoot))) ||
+    primarySource.processingUri || primarySource.processedUri || primarySource.uri;
+  const authoritativeSource = {
+    locator: sourceLocator,
+    digest: primarySource.digest,
+    width: primarySource.width,
+    height: primarySource.height,
+  };
+  const requestedCoverage = input.sourceCoverage;
+  invariant(requestedCoverage && typeof requestedCoverage === 'object', 'SOURCE_COVERAGE_REQUIRED', 'prepare-review requires Source Coverage');
+  if (requestedCoverage.source) {
+    invariant(
+      requestedCoverage.source.locator === authoritativeSource.locator &&
+        requestedCoverage.source.digest === authoritativeSource.digest &&
+        requestedCoverage.source.width === authoritativeSource.width &&
+        requestedCoverage.source.height === authoritativeSource.height,
+      'SOURCE_COVERAGE_BUILD_SOURCE_MISMATCH',
+      'Source Coverage must bind the current Build Source locator, digest, and dimensions'
+    );
+  }
+  const sourceCoverage = createSourceCoverage({
+    ...requestedCoverage,
+    classification: build.sourceClassification || requestedCoverage.classification,
+    source: authoritativeSource,
+  }, {
+    adapter: build.adapter,
+    inventory,
+  });
+  assertSourceCoverageAuthoredValues(sourceCoverage, {
+    ...(options.loadedData ? { loadedData: options.loadedData } : {}),
+    ...(options.loadBrowserData ? { loadBrowserData: options.loadBrowserData } : {}),
+  });
   const verificationPlan = compileVerificationPlan({
     adapter: build.adapter,
     inventory,
+    sourceCoverage,
     changeImpact: input.changeImpact,
     requiredLocales: input.requiredLocales,
   });
   const artifacts = await normalizeArtifacts(input.artifacts, projectRoot);
   assertSourceBoundFeatureEvidence(build, inventory, artifacts);
-  const [inventoryReference, planReference] = await Promise.all([
+  const referenceArtifact = artifacts.find((artifact) => artifact.role === 'reference-image' && artifact.path === authoritativeSource.locator);
+  invariant(
+    referenceArtifact?.digest === authoritativeSource.digest,
+    'SOURCE_COVERAGE_REFERENCE_ARTIFACT_MISMATCH',
+    'Source Coverage requires a reference-image artifact bound to the current Build Source'
+  );
+  const [inventoryReference, sourceCoverageReference, planReference] = await Promise.all([
     recordBuildObject(build.buildId, 'object-inventory', inventory, { buildRoot, projectRoot }),
+    recordBuildObject(build.buildId, 'source-coverage', sourceCoverage, { buildRoot, projectRoot }),
     recordBuildObject(build.buildId, 'verification-plan', verificationPlan, { buildRoot, projectRoot }),
   ]);
   const authored = await recordDatasetBuildCommand(build.buildId, {
@@ -189,12 +239,13 @@ export async function prepareBuildReview(input, options = {}) {
     expectedRevision: build.revision,
     artifacts,
     inventory,
+    sourceCoverage,
     verificationPlan,
     changeImpact: verificationPlan.changeImpact,
   }, { buildRoot, projectRoot, now: options.now });
   const authoredPayload = authored.receipts.at(-1).payload;
   const packetValue = {
-    schemaVersion: 2,
+    schemaVersion: 3,
     protocol: REVIEW_PACKET_PROTOCOL,
     kind: 'review-packet',
     buildId: build.buildId,
@@ -202,8 +253,10 @@ export async function prepareBuildReview(input, options = {}) {
     adapter: build.adapter,
     authoredDigest: authoredPayload.snapshotDigest,
     verificationPlanDigest: authoredPayload.verificationPlanDigest,
+    sourceCoverageDigest: sourceCoverage.coverageDigest,
     requiredLocales: verificationPlan.requiredLocales,
     inventory: inventoryReference,
+    sourceCoverage: sourceCoverageReference,
     verificationPlan: planReference,
     status: 'evidence-required',
   };
@@ -215,7 +268,15 @@ export async function prepareBuildReview(input, options = {}) {
     buildRoot,
     projectRoot,
   });
-  return { build: authored, packet, packetReference, reviewToken: packetReference.digest };
+  return {
+    build: authored,
+    inventory,
+    sourceCoverage,
+    sourceCoverageReference,
+    packet,
+    packetReference,
+    reviewToken: packetReference.digest,
+  };
 }
 
 async function evidenceFromManifest(locator, context) {
@@ -289,6 +350,11 @@ async function evidenceFromManifest(locator, context) {
     'EVIDENCE_NODE_PAINT_IDENTITY_MISMATCH',
     `Node paint audit dataset/language do not match its metrics document: ${locator}`
   );
+  try {
+    assertNodePaintPolicy(nodePaintAudit, null, { enforceUnboundFloor: false });
+  } catch (error) {
+    throw closeoutError('EVIDENCE_NODE_PAINT_INVALID', `${locator}; ${error.message}`);
+  }
   try {
     assertInterfaceEvidenceReady(interfaceAudit);
   } catch (error) {
@@ -438,17 +504,7 @@ function derivedRiskChecks(plan, evidence) {
   return checks;
 }
 
-function nodePaintRecords(metrics) {
-  const audit = metrics?.nodePaintAudit;
-  const records = audit?.nodes || audit?.records || audit?.items || [];
-  return Array.isArray(records) ? records : [];
-}
-
-function nodePaintId(record) {
-  return record?.nodeId || record?.node || record?.id || null;
-}
-
-function checkFeatureEvidence(check, entry) {
+function checkFeatureEvidence(check, entry, plan) {
   const expectedTargets = (check.evidenceTargets || []).map((target) => target.split(/[.:/]/).at(-1));
   if (check.evidenceKind === 'label-layout-audit') {
     const labels = entry.metrics?.labelLayoutAudit?.horizontalSideLabels || [];
@@ -471,8 +527,12 @@ function checkFeatureEvidence(check, entry) {
   }
   if (check.evidenceKind === 'annotation-layout-audit') {
     const audit = entry.metrics?.annotationLayoutAudit;
+    const checkedAnnotations = Number(
+      audit?.checkedAnnotations
+      ?? (Number(audit?.checkedAnnotationTexts || 0) + Number(audit?.checkedAnnotationGraphics || 0))
+    );
     return Boolean(audit) &&
-      ((check.objectIds || []).length === 0 || Number(audit.checkedAnnotationTexts) > 0) &&
+      ((check.objectIds || []).length === 0 || checkedAnnotations > 0) &&
       (audit.overlapViolations?.length || 0) === 0;
   }
   if (check.evidenceKind === 'annotation-semantics-audit') {
@@ -489,18 +549,16 @@ function checkFeatureEvidence(check, entry) {
     return entry.interfaceAudit?.enforcementStatus === 'passed';
   }
   if (check.evidenceKind === 'node-paint-audit') {
-    const records = nodePaintRecords(entry.metrics);
-    const byId = new Map(records.map((record) => [nodePaintId(record), record]));
     const visible = check.id !== 'feature:hidden-anchor';
-    return expectedTargets.length > 0 && expectedTargets.every((target) => {
-      const record = byId.get(target);
-      return record && record.faceVisible === visible;
-    });
+    const assessment = assessNodePaintAudit(entry.metrics?.nodePaintAudit, plan.nodeFacePolicy);
+    return assessment.passed && expectedTargets.length > 0 && expectedTargets.every((target) =>
+      assessment.checks[`${visible ? 'visible' : 'hidden'}:${target}`]?.status === 'passed'
+    );
   }
   return false;
 }
 
-function localeEvidenceForCheck(check, entry, consistency) {
+function localeEvidenceForCheck(check, entry, consistency, plan) {
   if (!entry) return null;
   if (check.evidenceKind === 'dataset-consistency') {
     return {
@@ -524,12 +582,12 @@ function localeEvidenceForCheck(check, entry, consistency) {
       entry.artifactDigests?.interfaceContactSheet,
     ].filter(Boolean);
     invariant(evidenceDigests.length === 3, 'CHECK_EVIDENCE_PROVIDER_MISSING', `Check ${check.id} needs archived reference, interface audit, and contact sheet`);
-    return { passed: checkFeatureEvidence(check, entry), evidenceDigests };
+    return { passed: checkFeatureEvidence(check, entry, plan), evidenceDigests };
   }
   if (['label-layout-audit', 'label-position-audit', 'text-layout-audit', 'annotation-layout-audit', 'annotation-semantics-audit', 'node-paint-audit'].includes(check.evidenceKind)) {
     invariant(entry.artifactDigests?.metrics, 'CHECK_EVIDENCE_PROVIDER_MISSING', `Check ${check.id} needs the archived metrics document`);
     return {
-      passed: checkFeatureEvidence(check, entry),
+      passed: checkFeatureEvidence(check, entry, plan),
       evidenceDigests: [entry.artifactDigests.metrics],
     };
   }
@@ -558,6 +616,10 @@ function deriveCheckResults(
         invariant(planDigest, 'CHECK_EVIDENCE_PROVIDER_MISSING', `Check ${check.id} needs the VerificationPlan digest`);
         status = 'passed';
         evidenceDigests = [planDigest];
+      } else if (check.evidenceKind === 'source-coverage') {
+        invariant(plan.sourceCoverageDigest, 'CHECK_EVIDENCE_PROVIDER_MISSING', `Check ${check.id} needs the Source Coverage digest`);
+        status = 'passed';
+        evidenceDigests = [plan.sourceCoverageDigest];
       } else {
         throw closeoutError('CHECK_EVIDENCE_PROVIDER_INVALID', `No global evidence provider exists for ${check.id}/${check.evidenceKind}`);
       }
@@ -573,7 +635,7 @@ function deriveCheckResults(
     for (const locale of plan.requiredLocales) {
       const entry = entriesByLocale.get(locale);
       if (!entry) continue;
-      const derived = localeEvidenceForCheck(check, entry, consistency);
+      const derived = localeEvidenceForCheck(check, entry, consistency, plan);
       results.push({
         checkId: check.id,
         locale,
@@ -592,6 +654,8 @@ function deriveCheckResults(
     consistency.digest,
     plan.planDigest,
     plan.inventoryDigest,
+    plan.sourceCoverageDigest,
+    plan.sourceDigest,
     ...authoredArtifacts.map((artifact) => artifact.digest),
   ].filter(Boolean));
   for (const [index, decision] of manualCheckDecisions.entries()) {
@@ -626,6 +690,13 @@ function deriveCheckResults(
         'MANUAL_CHECK_EVIDENCE_MISMATCH',
         `Manual check ${check.id}@${locale} cites evidence outside that locale run`
       );
+      if (check.id === 'feature:visible-short-node' && featureEvidenceDigests.has(plan.sourceCoverageDigest)) {
+        invariant(
+          evidenceDigests.includes(plan.sourceCoverageDigest),
+          'MANUAL_CHECK_EVIDENCE_MISMATCH',
+          `Manual check ${check.id}@${locale} must cite its locale run and Source Coverage exception digest ${plan.sourceCoverageDigest}`
+        );
+      }
     } else {
       const allowed = new Set([...globalEvidenceDigests, ...featureEvidenceDigests]);
       invariant(
@@ -634,6 +705,13 @@ function deriveCheckResults(
         'MANUAL_CHECK_EVIDENCE_MISMATCH',
         `Manual check ${check.id} cites evidence outside the Build-bound global evidence`
       );
+      if (check.id === 'adapter:source-coverage-review') {
+        invariant(
+          evidenceDigests.includes(plan.sourceCoverageDigest) && evidenceDigests.includes(plan.sourceDigest),
+          'MANUAL_CHECK_EVIDENCE_MISMATCH',
+          `Manual check ${check.id} must cite both Source Coverage ${plan.sourceCoverageDigest} and Source ${plan.sourceDigest}`
+        );
+      }
     }
     results.push({
       checkId: check.id,
@@ -757,14 +835,20 @@ export async function finishReviewedBuild(input, options = {}) {
     digest: input.reviewToken || input.packetDigest,
   }, { buildRoot });
   invariant(
-    packet.schemaVersion === 2 && packet.protocol === REVIEW_PACKET_PROTOCOL,
+    packet.schemaVersion === 3 && packet.protocol === REVIEW_PACKET_PROTOCOL,
     'REVIEW_PACKET_STALE',
-    'Finishing review requires a fresh review-packet/v2'
+    'Finishing review requires a fresh review-packet/v3 with Source Coverage'
   );
   const { packetDigest, ...packetValue } = packet;
   invariant(packetDigest === digestFidelityValue(packetValue), 'REVIEW_PACKET_DIGEST_MISMATCH', 'Review packet digest does not match its content');
   invariant(packet.authoredDigest === authored.snapshotDigest, 'REVIEW_PACKET_STALE', 'Review packet was prepared for an older authored snapshot');
   invariant(packet.verificationPlanDigest === plan.digest, 'REVIEW_PACKET_STALE', 'Review packet was prepared for an older VerificationPlan');
+  invariant(
+    packet.sourceCoverageDigest === plan.sourceCoverageDigest &&
+      authored.sourceCoverage?.digest === plan.sourceCoverageDigest,
+    'REVIEW_PACKET_STALE',
+    'Review packet was prepared for older Source Coverage'
+  );
 
   let automaticEvidence;
   let evidenceEntries = [];
@@ -974,10 +1058,10 @@ function defaultSealProfileRunner({ key, projectRoot }) {
   );
 }
 
-function defaultRenderProfileRunner({ key, locale, projectRoot }) {
+function defaultRenderProfileRunner({ key, locale, buildId, projectRoot }) {
   return spawnSync(
     process.execPath,
-    [path.join(projectRoot, 'scripts', 'verify-d3.mjs'), key, '--language', locale],
+    [path.join(projectRoot, 'scripts', 'verify-d3.mjs'), key, '--build', buildId, '--focus', 'closeout-refresh', '--language', locale],
     { cwd: projectRoot, encoding: 'utf8' }
   );
 }

@@ -606,10 +606,12 @@ export const FIDELITY_RULES = Object.freeze([
     trigger: '`measured-label-position` 触发。',
     check:
       '每次 evidence run 将每个固定布局 label 组的渲染 union bbox 与 preflight 持久化的原生 ' +
-      '`referenceBBox` 自动比对。',
+      '`referenceBBox` 自动比对；只有明确的用户布局纠正才可保留该原图测量，并以 `approvedTargetBBox`、' +
+      '`approvedTargetAuthority: user-directed-layout-correction` 与具体理由声明待验目标。',
     pass:
       '源语言 locale 的中心差（X 与 Y 各自）`<=6px`，超差失败。非源语言 locale 不做中心 gate' +
-      '（本地化验收由 Z2/Z5/Z6 拥有），但每个已测量组必须渲染出可测的 label，缺组即失败。',
+      '（本地化验收由 Z2/Z5/Z6 拥有），但每个已测量组必须渲染出可测的 label，缺组即失败；' +
+      '存在经授权 target 时审计同时保留 source `referenceBBox`。',
     rationale: '6px = 通用 4px 中心约定加 2px 的 ink-bbox 对 em-box 测量协议余量。',
     evidence: '逐 locale 的 `labelPositionAudit`。',
   }),
@@ -637,7 +639,7 @@ export const FIDELITY_RULES = Object.freeze([
     check: '在 text stage 冻结前提交绑定 reference crop 的操作者槽位裁决（manual decision）。',
     pass: '不允许按单一解释先渲染、等用户复审时指出再改判。',
   }),
-  rule('T21', 'quantified-audit', {
+  rule('T21', 'conditional-gate', {
     stage: 'structure',
     topics: ['node'],
     features: ['visible-node-face'],
@@ -645,15 +647,17 @@ export const FIDELITY_RULES = Object.freeze([
     origin: '72644e5',
     trigger: '`visible-node-face`（含 `visible-short-node`）触发。',
     check:
-      '`nodePaintAudit` 逐 node 记录渲染柱面高度 `faceHeight`，把 `faceVisible` 但高度低于共享' +
-      '最小可见高度 `MIN_VISIBLE_FACE_PX`（3px，含 0.5px raster 容差）的 face 汇入 ' +
-      '`belowVisibilityFloorNodeIds`。',
-    pass: '真实参考短柱确需低于该 floor 时，按 T14 以原生 crop、实测端点和绑定决定作为例外记录。',
+      '`node-face-policy/v1` 重新计算每个 expected-visible node 的 `faceHeight`；低于共享最小可见高度 ' +
+      '`MIN_VISIBLE_FACE_PX`（3px，含 0.5px raster 容差）时立即失败，而不是只写入 audit 字段。',
+    pass:
+      '每个 expected-visible node 达到 floor；真实 Source face 本身低于 floor 时，只接受 ' +
+      '`source-coverage/v1` 中绑定 Source digest、原生 face bbox 与唯一 node target 的显式例外，' +
+      '且候选高度不得比 Source 实测 face 明显更小；T14 人工端点/形态决定仍必须通过。',
     rationale:
       '补上 B15/`faceVisible` 只验 alpha>0、bbox 非零而不验渲染高度的盲点：消除“数值极小 → ' +
       '亚像素柱、肉眼不可见”，并给所有 short 节点统一最小柱高、杜绝逐次在 1px/11px 间猜测' +
       '（同一批曾出现 Visa=6px、SAP/Comcast=3px 的各自取值）。',
-    evidence: '逐 locale 的 `nodePaintAudit`。',
+    evidence: '逐 locale 的 `nodePaintAudit` + Plan 绑定的 `node-face-policy/v1`；例外另引用 Source Coverage digest。',
   }),
   rule('A1', 'manual', {
     stage: 'text',

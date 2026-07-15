@@ -83,6 +83,25 @@ test('does not treat adjacent annotation and protected text boxes as overlapping
   assert.deepEqual(result.annotationLayoutAudit.overlapViolations, []);
 });
 
+test('annotation-overlap audit includes explicitly marked graphic annotations', () => {
+  const graphic = item('annotation-graphic:services#0', '[graphic annotation]', 10, 10, 30, 20);
+  const label = item('label:wearables', 'Accessories', 35, 15, 30, 12);
+  const result = classifyTextAndAnnotationLayout({
+    width: 100,
+    height: 80,
+    texts: [label],
+    annotations: [],
+    annotationGraphics: [graphic],
+    protectedTexts: [label],
+  });
+
+  assert.equal(result.annotationLayoutAudit.checkedAnnotationTexts, 0);
+  assert.equal(result.annotationLayoutAudit.checkedAnnotationGraphics, 1);
+  assert.equal(result.annotationLayoutAudit.checkedAnnotations, 1);
+  assert.equal(result.annotationLayoutAudit.overlapViolations.length, 1);
+  assert.equal(result.annotationLayoutAudit.overlapViolations[0].annotation.identity, graphic.identity);
+});
+
 test('browser audit delegates collected getBBox geometry to the pure classifier', async () => {
   const annotation = item('annotation:note', 'Note', 10, 10, 20, 10);
   const period = item('period#2', 'FY25', 29, 10, 20, 10);

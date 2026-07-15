@@ -1,4 +1,8 @@
 import { createHash, randomUUID } from 'node:crypto';
+import { DATASET_ADAPTERS } from './dataset-adapters.mjs';
+import { createSourceClassification } from './source-coverage.mjs';
+
+export { DATASET_ADAPTERS } from './dataset-adapters.mjs';
 
 export const DATASET_BUILD_PROTOCOL = 'dataset-build/v1';
 export const DATASET_BUILD_STATES = Object.freeze([
@@ -8,7 +12,6 @@ export const DATASET_BUILD_STATES = Object.freeze([
   'BASELINE_STAGED',
   'SEALED',
 ]);
-export const DATASET_ADAPTERS = Object.freeze(['income-statement', 'revenue-metric']);
 export const SOURCE_AVAILABILITY = Object.freeze(['public', 'local-only', 'restricted']);
 export const CHANGE_IMPACTS = Object.freeze([
   'new-dataset',
@@ -112,6 +115,17 @@ function normalizeSources(sources) {
   });
 }
 
+function normalizeSourceClassification(classification, key, adapter) {
+  if (classification == null) return null;
+  const normalized = createSourceClassification(classification);
+  invariant(
+    normalized.datasetKey === key && normalized.adapter === adapter,
+    'SOURCE_CLASSIFICATION_INVALID',
+    'Dataset Build Source classification must match its key and Adapter'
+  );
+  return normalized;
+}
+
 export function createDatasetBuild(input, options = {}) {
   const now = options.now || (() => new Date().toISOString());
   const id = options.id || (() => `build-${randomUUID()}`);
@@ -119,6 +133,18 @@ export function createDatasetBuild(input, options = {}) {
   invariant(DATASET_ADAPTERS.includes(input.adapter), 'ADAPTER_INVALID', `Unsupported Adapter: ${input.adapter}`);
   assertDigest(input.baseCanonicalDigest, 'baseCanonicalDigest');
   const sources = normalizeSources(input.sources);
+  const sourceClassification = normalizeSourceClassification(input.sourceClassification, input.key, input.adapter);
+  if (sourceClassification) {
+    const primarySource = sources.find((source) => source.role === 'primary-reference') || sources[0];
+    invariant(
+      sourceClassification.source.locator === primarySource.uri &&
+        sourceClassification.source.digest === primarySource.digest &&
+        sourceClassification.source.width === primarySource.width &&
+        sourceClassification.source.height === primarySource.height,
+      'SOURCE_CLASSIFICATION_SOURCE_MISMATCH',
+      'Dataset Build Source classification must bind the complete primary Source identity'
+    );
+  }
   const build = {
     schemaVersion: 1,
     protocol: DATASET_BUILD_PROTOCOL,
@@ -130,6 +156,7 @@ export function createDatasetBuild(input, options = {}) {
     revision: -1,
     state: null,
     sources,
+    ...(sourceClassification ? { sourceClassification } : {}),
     receipts: [],
   };
   return nextReceipt(
@@ -138,6 +165,9 @@ export function createDatasetBuild(input, options = {}) {
     {
       sourceSetDigest: digestValue(sources),
       sourcePolicy: sources.map(({ uri, availability, role }) => ({ uri, availability, role })),
+      ...(sourceClassification
+        ? { sourceClassificationDigest: sourceClassification.classificationDigest }
+        : {}),
     },
     now
   );
@@ -155,6 +185,20 @@ function authoredPayload(build, command) {
   invariant(command.inventory && typeof command.inventory === 'object', 'INVENTORY_REQUIRED', 'Object inventory is required');
   const inventoryDigest = command.inventory.inventoryDigest || command.inventory.digest;
   assertDigest(inventoryDigest, 'Inventory digest');
+  let sourceCoverage = null;
+  if (command.sourceCoverage) {
+    const coverageDigest = command.sourceCoverage.coverageDigest || command.sourceCoverage.digest;
+    assertDigest(coverageDigest, 'Source Coverage digest');
+    invariant(
+      command.sourceCoverage.protocol === 'source-coverage/v1' &&
+        command.sourceCoverage.datasetKey === build.key &&
+        command.sourceCoverage.adapter === build.adapter &&
+        command.sourceCoverage.inventoryDigest === inventoryDigest,
+      'SOURCE_COVERAGE_INVALID',
+      'Source Coverage must match the Build Adapter and ObjectInventory'
+    );
+    sourceCoverage = { ...command.sourceCoverage, digest: coverageDigest };
+  }
   const changeImpact = [...new Set(command.changeImpact || [])].sort();
   invariant(changeImpact.length > 0, 'CHANGE_IMPACT_REQUIRED', 'At least one ChangeImpact is required');
   for (const impact of changeImpact) {
@@ -174,6 +218,14 @@ function authoredPayload(build, command) {
       'VERIFICATION_PLAN_INVALID',
       'VerificationPlan Adapter does not match the Build'
     );
+    if (command.verificationPlan.protocol === 'verification-plan/v4') {
+      invariant(sourceCoverage, 'SOURCE_COVERAGE_REQUIRED', 'VerificationPlan v4 requires Source Coverage in the authored snapshot');
+      invariant(
+        command.verificationPlan.sourceCoverageDigest === sourceCoverage.digest,
+        'VERIFICATION_PLAN_INVALID',
+        'VerificationPlan Source Coverage digest does not match the authored command'
+      );
+    }
     invariant(
       Array.isArray(command.verificationPlan.requiredLocales) && command.verificationPlan.requiredLocales.length > 0,
       'VERIFICATION_PLAN_INVALID',
@@ -194,6 +246,7 @@ function authoredPayload(build, command) {
   const snapshot = {
     artifacts,
     inventory: { ...command.inventory, digest: inventoryDigest },
+    ...(sourceCoverage ? { sourceCoverage } : {}),
     changeImpact,
     ...(verificationPlan ? { verificationPlan } : {}),
   };

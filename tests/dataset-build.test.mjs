@@ -6,6 +6,10 @@ import {
   digestValue,
   planPublicationBatch,
 } from '../scripts/lib/dataset-build.mjs';
+import {
+  SOURCE_CLASSIFICATION_REVIEW_METHOD,
+  createSourceClassification,
+} from '../scripts/lib/source-coverage.mjs';
 
 const digest = (value) => digestValue({ value });
 const now = () => '2026-07-10T12:00:00.000Z';
@@ -80,6 +84,39 @@ function sealed(build) {
     verdictInputDigests: Object.values(closure.evidence).map((item) => item.digest),
   }, { now });
 }
+
+test('Dataset Build rejects a classification bound to another primary Source identity', () => {
+  const sourceDigest = digest('classified-source');
+  const sourceClassification = createSourceClassification({
+    datasetKey: 'example-q4-fy25',
+    adapter: 'income-statement',
+    signals: ['income-statement-values', 'sankey-flow-topology'],
+    reviewMethod: SOURCE_CLASSIFICATION_REVIEW_METHOD,
+    source: {
+      locator: 'input/pending/other.png',
+      digest: sourceDigest,
+      width: 1200,
+      height: 800,
+    },
+    fullImageBBox: [0, 0, 1200, 800],
+  });
+  assert.throws(
+    () => createDatasetBuild({
+      key: 'example-q4-fy25',
+      adapter: 'income-statement',
+      sourceClassification,
+      baseCanonicalDigest: digest('canonical-v1'),
+      sources: [{
+        uri: 'input/pending/example-q4-fy25.png',
+        availability: 'local-only',
+        digest: sourceDigest,
+        width: 1200,
+        height: 800,
+      }],
+    }, { now, id: () => 'build-example-q4-fy25' }),
+    (error) => error.code === 'SOURCE_CLASSIFICATION_SOURCE_MISMATCH'
+  );
+});
 
 test('income-statement Build reaches SEALED without using its staged baseline as verdict input', () => {
   const build = sealed(baselineStaged(closed(authored(intake()))));

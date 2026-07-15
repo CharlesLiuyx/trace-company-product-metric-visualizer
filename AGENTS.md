@@ -15,7 +15,7 @@ together.
 | target verification/publication architecture: evidence, baseline, verify/record/publish semantics, CAS, Release | `docs/architecture/verification-publication.md` |
 | machine-readable lifecycle protocol/state/Adapter contract | `docs/architecture/lifecycle-contract.json` (`pnpm verify:architecture` enforces parity) |
 | accepted architecture decisions | `docs/adr/` (start with `docs/adr/0001-dataset-build-transactions.md`) |
-| dynamic dataset workflow: pipeline steps, execution model (parallel groups, agent routing), input-type object taxonomy, operational traps, pre-response verification checklist, reporting | `docs/dynamic-dataset-workflow.md` |
+| dynamic dataset workflow: nine-step current pipeline, pre-intake Adapter Type Gate, Source → Inventory → SSOT → Adapter coverage, execution/delegation, traps, final checklist, reporting | `docs/dynamic-dataset-workflow.md` |
 | d3 fidelity: canonical numbered rules, preflight measurement, three-stage sweep state machine, automatic/manual evidence, acceptance conditions | `docs/fidelity-loop-rules.md` (its rule-catalog section is generated); rule-semantics SSOT: `scripts/lib/fidelity-rules-catalog.mjs` + derived contract `scripts/lib/fidelity-rule-contract.mjs`; regenerate with `pnpm update:fidelity-rules-doc` (`pnpm verify:architecture` enforces freshness and parity) |
 | historical user-feedback cases: root causes, current defenses, recurrence-upgrade paths (cross-checkout recurrence memory) | `docs/fidelity-feedback-casebook.md` (registration/consumption protocol owned by `docs/fidelity-loop-rules.md` §5) |
 | dataset / SSOT field-level format | `data/schema.md` |
@@ -109,8 +109,8 @@ Install once; the d3/standalone verifiers render in Chromium:
 | `pnpm verify:app-globals` | static gate for the shared-top-level-scope contract: cross-file duplicate declarations and load-time references to later scripts (also part of `pnpm check`) |
 | `pnpm verify:architecture` | enforce lifecycle protocol/state/Adapter parity, command mutation semantics, architecture routes, and local context-document links (also part of `pnpm check`) |
 | `pnpm check:pending [-- --file input/pending/<file>.png --key <final-key>]` | pending duplicate / active-processing claim / processed and key-collision guard; use `--file` for one Build and `--key` after naming, omit both only to audit the shared queue |
-| `pnpm record:intake -- <pending.png> --key <key> --adapter <kind> [--availability <policy>]` | after the selected guard passes, record an ignored per-item `INTAKED` Build manifest and immediately no-clobber claim the Source at `input/processing/<key>.png`; this is not Publication |
-| `pnpm record:build -- prepare-review <build-id> --input <review-input.json>` | hash authored artifacts, persist the Object Inventory and Verification Plan, advance the Build to `AUTHORED`, and return a `reviewToken`; this records no human acceptance |
+| `pnpm record:intake -- <pending.png> --key <key> --adapter <kind> --signal <signal> [--signal <signal> ...] [--availability <policy>]` | enforce the full-Source Adapter signature, record `source-classification/v1`, then no-clobber claim the Source at `input/processing/<key>.png`; this is not Publication |
+| `pnpm record:build -- prepare-review <build-id> --input <review-input.json>` | validate and record Source Coverage, Object Inventory, authored-value reconciliation, Plan v4, and Packet v3; advance to `AUTHORED` and return a `reviewToken`, without human acceptance |
 | `pnpm record:verification -- <build-id> [--json]` | run the non-render dataset consistency profile and record Build-bound `dataset-verification/v1` evidence; pass its returned reference to `finish` |
 | `pnpm record:fidelity -- <key> --focus <stage-focus> [--language <code> ...] --build <build-id>` | record durable, Build-bound automatic evidence as `evidence-ready`; `--focus` must be a canonical stage focus (`structure-sweep`, `text-sweep`, `polish-l10n-sweep`, `closeout-refresh`); `--language` repeats to render several locales in one command (one run per locale). Without `--build`, explicit-focus output is legacy compatibility evidence only and cannot close a Build |
 | `pnpm record:build -- finish <build-id> --review <review.json>` | consume the `reviewToken` (legacy `packetDigest` is accepted), automatic evidence, human attestation, region/risk/feedback decisions, and Interface Matrix; only an accepted `FidelityResult` advances to `CLOSED` |
@@ -124,7 +124,7 @@ Install once; the d3/standalone verifiers render in Chromium:
 | `pnpm verify:dataset -- <key> [--skip-render]` | read-only aggregate diagnostic: syntax, SSOT, strict i18n, metadata, then a read-only d3 render per language |
 | `pnpm verify:ssot` | SSOT ↔ dataset parity, registration parity, and currency/unit + FX coverage (global) |
 | `pnpm verify:i18n -- [--strict] [keys]` | i18n overlay coverage |
-| `pnpm verify:d3 -- <key> [--focus <dir>] [--keep] [--language <code>]` | read-only d3 diagnostic + automatic hard gates; it never archives or advances evidence lineage, even with `--focus` |
+| `pnpm verify:d3 -- <key> [--build <build-id>] [--focus <dir>] [--keep] [--language <code>]` | read-only d3 diagnostic + automatic hard gates; `--build` loads the fresh Plan/node-face policy (required for typed floor exceptions) without archiving or advancing evidence lineage |
 | `pnpm verify:render-regression [-- <keys>]` | read-only batch render regression against `data/render-baselines.json` (reference images are local-only, so machines without them run render hard gates only) |
 | `pnpm compat:baseline -- <key> [...]` | canonical baseline ledger mutation, deliberately named outside the verify/record/publish/release classes; M4 Publication has not replaced it, and it cannot prove the producing Build correct |
 | `pnpm update:dataset-file-metadata` | regenerate `data/dataset-file-metadata.js` from git author times (rerun + commit after committing a new/edited dataset) |
@@ -144,22 +144,22 @@ purpose, mechanism, blind spots, and trigger matrix for every check live in
 
 ## Workflow
 
-`docs/dynamic-dataset-workflow.md` owns the executable pipeline: numbered
-steps, execution model, object taxonomy, traps, the pre-response Verification
-Checklist, and Reporting. Load it before processing a pending image; satisfy
-its checklist before every final response. The transactional target and M0–M5
-migration are owned by `docs/architecture/README.md` — never present target
-state as current. The five phases, one line each:
+`docs/dynamic-dataset-workflow.md` owns the current nine-step pipeline, Type
+Gate, Source Coverage, execution/delegation, traps, final checklist, and
+reporting. Load it before pending work and before the final response. M0–M5
+target migration remains owned by `docs/architecture/README.md`; never present
+target state as current. Five-phase summary:
 
-1. Intake & guard — `pnpm check:pending` guard, assign the
-   `<company>-<period>` key and Adapter, `pnpm record:intake` makes the
-   Git-visible no-clobber claim at `input/processing/<dataset-key>.png`.
-2. Source inventory & data SSOTs — classify the input type, persist the
-   `ObjectInventory`, author company metadata and the Adapter-owned Metric
-   SSOT (plus the optional icon subloop).
-3. Adapter & i18n — author `data/datasets/<dataset-key>.js` from the
-   preflight measurements, add `i18n.<language>` overlays, register via
-   `pnpm sync:index-datasets`.
+1. Guard, classify, intake — inspect the complete Source and pass the
+   signal-based Adapter Type Gate before `record:intake`; ambiguous or
+   unrecognized input stops before the no-clobber processing claim.
+2. Source coverage and preparation — record complete Source Coverage and
+   `ObjectInventory`, explicitly including Other-like objects, smallest
+   non-zero values, face intent, and casebook hits; only then parallelize
+   metadata/SSOT, preflight measurement, and optional icons.
+3. Adapter & i18n — reconcile Source → Inventory → SSOT → Adapter/data,
+   author the applicable view, localize, and register; a missing icon never
+   removes a semantic object.
 4. Verify and review — `record:build prepare-review`, `record:verification`,
    per-locale `record:fidelity`, human attestation via `record:build finish`,
    then `stage-baseline` and `seal`.

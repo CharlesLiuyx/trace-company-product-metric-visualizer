@@ -5,9 +5,12 @@
   "protocols": {
     "datasetBuild": "dataset-build/v1",
     "fidelityRun": "fidelity-run/2",
+    "sourceClassification": "source-classification/v1",
+    "sourceCoverage": "source-coverage/v1",
     "objectInventory": "object-inventory/v3",
-    "verificationPlan": "verification-plan/v3",
-    "reviewPacket": "review-packet/v2",
+    "nodeFacePolicy": "node-face-policy/v1",
+    "verificationPlan": "verification-plan/v4",
+    "reviewPacket": "review-packet/v3",
     "datasetVerification": "dataset-verification/v1",
     "interfaceMatrix": "interface-matrix/v1",
     "fidelityResult": "fidelity-result/v2",
@@ -56,6 +59,74 @@
     }
   },
   "adapters": ["income-statement", "revenue-metric"],
+  "sourceClassification": {
+    "reviewMethod": "full-source-type-gate",
+    "signals": [
+      "income-statement-values",
+      "sankey-flow-topology",
+      "revenue-metric-definition",
+      "time-series-observations"
+    ],
+    "requiredBeforeFreshRecordIntake": true,
+    "bindsWholeNativeSource": true,
+    "derivedAdapterMustMatchRequestedAdapter": true
+  },
+  "sourceCoverage": {
+    "scanPasses": ["geometry", "residual", "semantic-value"],
+    "objectClasses": [
+      "financial-value",
+      "metric-observation",
+      "structural-flow",
+      "label-or-annotation",
+      "asset-or-brand",
+      "non-semantic-residual"
+    ],
+    "residualKinds": [
+      "publisher-attribution",
+      "creator-branding",
+      "website-url",
+      "social-badge",
+      "decorative-residue"
+    ],
+    "amountUnits": ["K", "M", "B", "T"],
+    "incomeStatementSsotPaths": [
+      "revenue.total",
+      "revenue.items",
+      "revenue.breakdowns",
+      "costs.costOfRevenue",
+      "costs.costOfRevenue.items",
+      "costs.operatingExpenses.total",
+      "costs.operatingExpenses.items",
+      "costs.tax",
+      "operatingOtherIncome.total",
+      "operatingOtherIncome.items",
+      "operatingOtherExpenses.total",
+      "operatingOtherExpenses.items",
+      "otherIncome.total",
+      "otherIncome.items",
+      "otherExpenses.total",
+      "otherExpenses.items",
+      "profit.gross",
+      "profit.operating",
+      "profit.net"
+    ],
+    "precisionRecoveryMethod": "authoritative-supplemental-source",
+    "amountWithinLiteralResolution": true,
+    "inventoryOwnership": "exactly-once",
+    "otherLabelsMayBeNonSemanticResidual": false,
+    "roundedNonZeroMayBeAuthoredAsZero": false,
+    "recoveredNonZeroMustSurviveAuthoredDisplayPrecision": true,
+    "prepareReviewReconcilesLoadedAuthoredValues": true,
+    "incomeStatementFinancialNodeOwnership": "exactly-one",
+    "incomeStatementReconciliationTargets": ["metric-ssot", "sankey-view-adapter"],
+    "revenueMetricReconciliationTargets": ["metric-ssot"]
+  },
+  "nodeFacePolicy": {
+    "derivedFrom": "source-coverage/v1",
+    "embeddedIn": "verification-plan/v4",
+    "completeRenderedNodeClassification": true,
+    "sourceBoundFloorExceptionsOnly": true
+  },
   "sourceAvailability": ["public", "local-only", "restricted"],
   "sourceLocations": {
     "pending": "unclaimed",
@@ -85,6 +156,8 @@
   ],
   "durableObjects": [
     "ChangeImpact",
+    "SourceClassification",
+    "SourceCoverage",
     "VerificationPlan",
     "DatasetVerification",
     "ArtifactManifest",
@@ -95,6 +168,7 @@
     "RegionDecision",
     "FeedbackRecord",
     "FeedbackLedger",
+    "NodeFacePolicy",
     "ReviewPacket"
   ],
   "invariants": {

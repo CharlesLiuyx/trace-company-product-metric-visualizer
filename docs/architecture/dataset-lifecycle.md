@@ -20,7 +20,7 @@ INTAKED -> AUTHORED -> CLOSED -> BASELINE_STAGED -> SEALED
 
 | state | meaning | required durable result |
 | --- | --- | --- |
-| `INTAKED` | key, Source digest, dimensions, provenance, availability, input-type selection, and base canonical snapshot are fixed; the current compatibility implementation also claims the working Source locator | intake record |
+| `INTAKED` | key, Source digest, dimensions, provenance, availability, whole-Source Type Gate, selected Adapter, and base canonical snapshot are fixed; the current compatibility implementation also claims the working Source locator | intake record with `SourceClassification` |
 | `AUTHORED` | the selected Adapter accepts the inventory and authored contribution | `ArtifactManifest` |
 | `CLOSED` | the required verification evidence and human decisions close with no open requirement | closure digest plus accepted `FidelityResult` references |
 | `BASELINE_STAGED` | a future-regression record has been derived from the closed candidate but is not canonical | staged baseline artifact bound to the closure digest |
@@ -130,6 +130,28 @@ New protocol identifiers use `<name>/v<n>`. The existing `fidelity-run/1` and
 a recorded protocol identity would invalidate existing archives for no
 semantic gain.
 
+### SourceClassification
+
+`source-classification/v1` is the pre-intake Type Gate for a fresh
+`record:intake`. It is an explicit, Source-bound classification record, not a
+claim that a vision model inferred the input type. It binds the complete
+native image bbox, locator, digest, dimensions, stable dataset key, confirmed
+status, review method, positive signals, and derived Adapter.
+
+The current Adapter signatures are deliberately mutually exclusive:
+
+| Adapter | required Source signals | forbidden Source signals |
+| --- | --- | --- |
+| Income Statement | `income-statement-values`, `sankey-flow-topology` | `revenue-metric-definition`, `time-series-observations` |
+| Revenue Metric | `revenue-metric-definition`, `time-series-observations` | `income-statement-values`, `sankey-flow-topology` |
+
+The signals must select exactly one supported Adapter and that result must
+match the requested `--adapter`. Otherwise intake fails before a Build is
+initialized or the Source is claimed. Fresh CLI intakes require this record;
+legacy Builds without one remain inspectable, but must supply an equivalent
+classification when preparing new Source Coverage. Changing an intake
+classification requires a successor Build with a new immutable intake fact.
+
 ### ObjectInventory
 
 `object-inventory/v3` accounts for every coarsely inventoried Source object with a
@@ -149,9 +171,74 @@ the conservative default: a v3 `hidden-anchor` claim is accepted only with a
 native-pixel bbox, stable crop locator, the required crop-and-pixel-scan method,
 the immutable Build Source digest, and an explicit no-visible-face classification
 claim. The Dataset Build Module verifies that locator, digest, bbox, reference
-artifact, and Build Source are one bound fact. VerificationPlan then separates
-candidate invisibility automation from a global manual source-classification
-decision, so candidate transparency cannot prove its own inventory premise.
+artifact, and Build Source are one bound fact. ObjectInventory alone does not
+prove that the whole Source was scanned or that every Source value reached the
+authored data. Those obligations belong to `SourceCoverage`, while
+VerificationPlan still separates candidate invisibility automation from
+manual Source review so candidate transparency cannot prove its own premise.
+
+### SourceCoverage
+
+`source-coverage/v1` is the exhaustive Source-to-authored bridge required by a
+new review preparation. It binds `SourceClassification`, the immutable Build
+Source, and `ObjectInventory`, and requires all three named passes over the
+complete image: `geometry`, `residual`, and `semantic-value`.
+
+Each independent Source observation has a stable `source:*` identity, native
+pixel bbox, closed object class, label or structural description, and one or
+more owned inventory object IDs. Every inventory object has exactly one Source
+owner; duplicates, orphans, and omissions fail. Semantic classes must map to
+the Adapter-required data/render roles. Only the closed non-semantic residual
+kinds may map to `skip`, and `Other` / `All Other` is always semantic — missing
+iconography cannot turn it into decorative residue.
+
+Value-bearing observations store the literal Source text, an exact decimal
+value, unit, resolution, and typed SSOT reference. During
+`prepareBuildReview`, the Build Module loads the actual authored registry and
+reconciles those Source amounts before it records `AUTHORED`:
+
+If the primary Source displays zero only because its unit/decimal precision
+rounded a real non-zero amount (for example, `$0.0B`), `amount.value` must hold
+the recovered non-zero value and `amount.precisionRecovery` must bind
+`method: 'authoritative-supplemental-source'`, an authoritative supplemental
+locator, and its higher-precision literal. That literal must contain a K/M/B/T
+amount which normalizes to the same value. Precision recovery is allowed only
+for this rounded-to-zero case, and the recovered value must remain within the
+primary literal's half-resolution rounding interval. If the value cannot be
+recovered, the Build is blocked; it must not turn unknown/non-zero Source
+semantics into an authored zero.
+
+- Each Income Statement value must match the selected financial SSOT record
+  and exactly one mapped Sankey node value;
+- Revenue Metric values must match the selected dated SSOT observation.
+
+A missing record or View, unit mismatch, wrong typed reference, wrong amount,
+loss of the recovered non-zero value through SSOT/View display precision, or
+visible zero-value face is a hard preparation failure. The coverage summary
+also records `Other` identities, the smallest non-zero observations, and the
+Source-expected visible/hidden node IDs so small values stay first-class
+review inputs instead of disappearing through coarse inventory or rounding.
+
+Both current Adapters require a machine Source Coverage check and a global
+manual coverage decision. That manual decision must cite both the coverage
+digest and immutable Source digest.
+
+### NodeFacePolicy
+
+`node-face-policy/v1` is deterministically compiled from Source Coverage and
+embedded, with its own digest, in the Verification Plan. It classifies every
+semantic rendered node as Source-expected visible or hidden. The node-paint
+audit then rejects missing or unpainted expected-visible nodes, painted
+expected-hidden nodes, and rendered nodes absent from the complete policy.
+
+A visible face below the shared fidelity floor is not silently hidden. An
+exception is valid only when Source Coverage records a native-scale observed
+face, the `visible-short-node` inventory feature, exactly one node target, and
+Source-bound crop evidence. Candidate rendering must preserve that observed
+Source face within the shared raster tolerance. Fidelity rule definitions and
+thresholds remain owned by
+[`fidelity-loop-rules.md`](../fidelity-loop-rules.md); this lifecycle object
+only binds their Source-specific inputs.
 
 ### ChangeImpact
 
@@ -177,7 +264,7 @@ strictest applicable plan rather than silently skipping work.
 
 ### VerificationPlan
 
-`verification-plan/v3` is a versioned dependency graph, not an informal command
+`verification-plan/v4` is a versioned dependency graph, not an informal command
 list. It declares:
 
 - preflight and schema checks;
@@ -188,23 +275,32 @@ list. It declares:
 - each required check's enforcement, locale/object scope, and evidence kind;
 - the fresh final-verification profile used for sealing.
 
+Version 4 additionally binds the inventory digest, Source Coverage digest,
+immutable Source digest, and compiled `node-face-policy/v1`. Both Adapters add
+required automatic and manual Source Coverage checks; callers cannot omit
+them or downgrade them to `notApplicable`.
+
 Local execution and CI consume the same plan. A plan change invalidates any
 closure or seal that depended on its old digest.
 
-The implemented compiler takes the selected Adapter, `ChangeImpact`, and
-`ObjectInventory`. Income Statement plans require visual/reference/manual
+The implemented compiler takes the selected Adapter, `ChangeImpact`,
+`ObjectInventory`, and `SourceCoverage`. Income Statement plans require visual/reference/manual
 closure; Revenue Metric plans explicitly mark Sankey fidelity and its future
 render baseline `notApplicable` rather than relying on absence.
 
+Historical v3 Plans remain inspectable, but cannot enter the current finish
+path; review preparation must compile a fresh v4 Plan.
+
 ### ReviewPacket
 
-`review-packet/v2` is the content-addressed handoff from authored preparation to
+`review-packet/v3` is the content-addressed handoff from authored preparation to
 automatic and human review. It binds `buildId`, authored digest, Verification
-Plan digest, required locales, and references to the recorded inventory and
-Plan. `record:build prepare-review` returns its digest as a `reviewToken`;
+Plan digest, Source Coverage digest, required locales, and references to the
+recorded inventory, coverage, and Plan. `record:build prepare-review` returns its digest as a `reviewToken`;
 `finish` consumes that token (`packetDigest` remains a compatibility alias).
 The token identifies the packet and cannot select a different Build.
-An unfinished v1 packet must be regenerated; it cannot enter the v2 finish path.
+An unfinished v1/v2 packet must be regenerated; it cannot enter the v3 finish
+path.
 
 ### DatasetVerification
 
@@ -223,11 +319,11 @@ obligation.
 
 ```text
 build/key/input type + Adapter version
-Source and inventory references
+Source, SourceClassification, SourceCoverage, and inventory references
 SSOT, View, company, i18n, icon, and annotation artifacts
 canonical contributions and path claims
 runtime, renderer, protocol, and schema dependencies
-ChangeImpact and VerificationPlan digests
+ChangeImpact, NodeFacePolicy, and VerificationPlan digests
 availability policy for every Source/evidence artifact
 ```
 
@@ -267,7 +363,8 @@ Machine-green evidence without the required attestation remains
 a required recurrence upgrade prevent `accepted`.
 
 Closed/sealed v1 results remain inspectable and are never rewritten. Only a
-fresh v2 Plan/packet may enter the current finish path.
+fresh `FidelityResult` v2 closure using VerificationPlan v4 and ReviewPacket
+v3 may enter the current finish path.
 
 ### ManualAttestation, RegionDecision, and FeedbackLedger
 
@@ -291,11 +388,12 @@ Seam is not hypothetical.
 | Income Statement | company record, financial SSOT, Sankey View, i18n, optional icon/raster assets | data consistency, all required language renders, d3 hard gates, reference fidelity, manual closure |
 | Revenue Metric | company record and revenue Metric observations with source, definition, conditions, confidence, and lineage | data/schema/source/i18n checks; no Sankey or d3 fidelity unless a later View requires it |
 
-An Adapter owns classification support, inventory contract, authored
-validation, Verification Plan contribution, and semantic canonical
-contributions. It must not write canonical files, update global manifests, or
-declare a build sealed. Those rules remain inside the deep Build and
-Publication Modules, which preserves Locality.
+An Adapter owns classification signatures, Source Coverage roles and typed
+SSOT references, inventory contract, authored validation, Verification Plan
+contribution, and semantic canonical contributions. It must not write
+canonical files, update global manifests, or declare a build sealed. Those
+rules remain inside the deep Build and Publication Modules, which preserves
+Locality.
 
 A future input type adds an Adapter plus its schemas and verification profile;
 it does not add a parallel workflow or branch every caller.
@@ -311,7 +409,7 @@ whether a build is complete.
 build was authored and sealed. The seal binds at least:
 
 ```text
-Source + inventory + ArtifactManifest
+Source + SourceClassification + SourceCoverage + inventory + ArtifactManifest
 Adapter/schema + renderer/runtime + protocol/rules
 required locales + closure + staged baseline
 canonical contributions/path claims + baseCanonicalDigest
@@ -321,8 +419,8 @@ Invalidation is explicit:
 
 | changed input | effective recovery point |
 | --- | --- |
-| Source bytes, key, or availability identity | create a successor build; do not mutate the old Source |
-| inventory or authored contribution | `AUTHORED`; rerun closure, baseline staging, and seal |
+| Source bytes, key, availability identity, or intake classification | create a successor build; do not mutate the old Source/intake fact |
+| Source Coverage, inventory, or authored contribution | `AUTHORED`; prepare a fresh v4 Plan/v3 packet, then rerun closure, baseline staging, and seal |
 | Adapter/schema, renderer, protocol, required locale, or Verification Plan | `AUTHORED`; existing authored artifacts may be reused only if the new Adapter accepts them |
 | accepted closure | `CLOSED`; restage baseline and reseal |
 | staged baseline content or policy | `BASELINE_STAGED`; reseal without using it as proof |
@@ -355,6 +453,9 @@ historical `SEALED` receipt remains auditable while `effectiveState` becomes
   them; failed state recording may leave garbage-collectable blobs, not a
   partial canonical change.
 - Build-local evidence never writes canonical state.
+- A new `AUTHORED` review snapshot requires complete Source Coverage and
+  successful reconciliation against the actually loaded authored SSOT/View;
+  declared intent cannot substitute for the authored values.
 - `CLOSED` requires all plan axes or an explicit Adapter-owned
   `notApplicable`; absence is not success.
 - `SEALED` is fresh only for its exact digest set.
@@ -366,13 +467,16 @@ The M3 build-local chain is the primary close-out path, exposed through the
 deep `prepareBuildReview`, `finishReviewedBuild`, `stageReviewedBaseline`,
 `sealReviewedBuild`, and `inspectBuildCloseout` Interfaces, surfaced by
 `record:build`. Together with `record:verification`, it records content-addressed
-inventory, Plan, ReviewPacket, DatasetVerification, FidelityResult,
-FeedbackLedger, closure, staged baseline, and seal objects
+Source Coverage, inventory, NodeFacePolicy-bearing Plan, ReviewPacket,
+DatasetVerification, FidelityResult, FeedbackLedger, closure, staged baseline, and seal objects
 under the per-Build store. `inspect` also produces `CloseoutReport`, Task
 information, and Loop Fidelity Summary as pure Views over those objects.
 
-At current intake, `record:intake` also claims the selected Source from
-`pending/` to the Build-local, Git-tracked `processing/` locator. The operator
+At current intake, `record:intake` first records `source-classification/v1`
+from the whole-Source Type Gate, then claims the selected Source from
+`pending/` to the Build-local, Git-tracked `processing/` locator. At review
+preparation, actual SSOT/View reconciliation, Source Coverage, Plan v4, and
+ReviewPacket v3 are current M3 behavior. The operator
 review-completion signal (owning rule:
 [`dynamic-dataset-workflow.md`](../dynamic-dataset-workflow.md)
 §Operator Review-Completion Signal) is the only current authority to relocate

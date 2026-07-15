@@ -26,6 +26,7 @@ const CHECK_SOURCES = new Set(['automatic', 'manual']);
 const CHECK_EVIDENCE_KINDS = new Set([
   'dataset-consistency',
   'verification-plan',
+  'source-coverage',
   'fidelity-run',
   'full-review-profile',
   'interface-audit',

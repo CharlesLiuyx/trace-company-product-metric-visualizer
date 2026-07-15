@@ -1,0 +1,317 @@
+import assert from 'node:assert/strict';
+import test from 'node:test';
+import { createObjectInventory } from '../scripts/lib/object-inventory.mjs';
+import {
+  PRECISION_RECOVERY_METHOD,
+  SOURCE_CLASSIFICATION_REVIEW_METHOD,
+  SOURCE_COVERAGE_SCAN_PASSES,
+  classifySourceSignals,
+  createSourceClassification,
+  createSourceCoverage,
+} from '../scripts/lib/source-coverage.mjs';
+import { assertSourceCoverageAuthoredValues } from '../scripts/lib/source-coverage-authored.mjs';
+
+const SOURCE_DIGEST = `sha256:${'a'.repeat(64)}`;
+const DATASET_KEY = 'example-q4-fy25';
+
+function classification(adapter = 'income-statement') {
+  return createSourceClassification({
+    datasetKey: DATASET_KEY,
+    adapter,
+    signals: adapter === 'income-statement'
+      ? ['income-statement-values', 'sankey-flow-topology']
+      : ['revenue-metric-definition', 'time-series-observations'],
+    reviewMethod: SOURCE_CLASSIFICATION_REVIEW_METHOD,
+    source: {
+      locator: `input/processing/${DATASET_KEY}.png`,
+      digest: SOURCE_DIGEST,
+      width: 1200,
+      height: 800,
+    },
+    fullImageBBox: [0, 0, 1200, 800],
+  });
+}
+
+function financialInventory() {
+  return createObjectInventory({
+    datasetKey: DATASET_KEY,
+    objects: [{
+      id: 'node:other-income',
+      kind: 'financial-line-item',
+      disposition: 'render',
+      mapping: [
+        { role: 'data', target: 'incomeStatement.otherIncome.items.other_income' },
+        { role: 'render', target: 'nodes.other_income' },
+      ],
+      features: ['visible-node-face'],
+    }],
+  });
+}
+
+function financialCoverage({
+  amount = { literal: '$40M', value: '40', unit: 'M', resolution: '1' },
+  ssotRef = { family: 'income-statement', path: 'otherIncome.items', id: 'other_income' },
+  sourceLabel = 'Other',
+  sourceClass = 'financial-value',
+  dispositionInventory = financialInventory(),
+} = {}) {
+  const sourceClassification = classification();
+  return createSourceCoverage({
+    classification: sourceClassification,
+    source: sourceClassification.source,
+    scanPasses: SOURCE_COVERAGE_SCAN_PASSES,
+    items: [{
+      sourceId: 'source:other-income',
+      sourceClass,
+      sourceLabel,
+      contentBBox: [900, 200, 180, 80],
+      inventoryObjectIds: ['node:other-income'],
+      ...(sourceClass === 'non-semantic-residual'
+        ? { residualKind: 'decorative-residue' }
+        : { amount, ssotRef }),
+      ...(sourceClass === 'non-semantic-residual' ? {} : {
+        face: {
+          claim: 'visible',
+          searchBBox: [880, 180, 220, 120],
+          observedBBox: [940, 230, 72, 4],
+        },
+      }),
+    }],
+  }, { inventory: dispositionInventory, adapter: 'income-statement' });
+}
+
+function loadedData({
+  ssotValue = 0.04,
+  recordDecimals = 2,
+  nodeValue = 0.04,
+  adapterDecimals = 2,
+  valueText = '$40M',
+} = {}) {
+  return {
+    records: [{
+      key: DATASET_KEY,
+      unit: 'B',
+      decimals: recordDecimals,
+      revenue: { total: 1, items: [] },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', value: 0.7, items: [{ id: 'product_cost', value: 0.6 }] },
+        operatingExpenses: { total: 0, items: [] },
+      },
+      otherIncome: { total: ssotValue, items: [{ id: 'other_income', value: ssotValue }] },
+      otherExpenses: { total: 0, items: [] },
+      profit: {},
+    }],
+    datasets: [{
+      key: DATASET_KEY,
+      meta: { unit: 'B', decimals: adapterDecimals },
+      nodes: [{ id: 'other_income', value: nodeValue, ...(valueText == null ? {} : { valueText }) }],
+    }],
+  };
+}
+
+test('Type Gate derives one Adapter from the complete positive signal set before intake', () => {
+  assert.deepEqual(
+    classifySourceSignals(['sankey-flow-topology', 'income-statement-values'], 'income-statement'),
+    { adapter: 'income-statement', signals: ['income-statement-values', 'sankey-flow-topology'] }
+  );
+  assert.throws(
+    () => classifySourceSignals(['income-statement-values', 'sankey-flow-topology'], 'revenue-metric'),
+    (error) => error.code === 'SOURCE_CLASSIFICATION_ADAPTER_MISMATCH'
+  );
+  assert.throws(
+    () => classifySourceSignals([
+      'income-statement-values',
+      'sankey-flow-topology',
+      'revenue-metric-definition',
+      'time-series-observations',
+    ]),
+    (error) => error.code === 'SOURCE_CLASSIFICATION_UNRECOGNIZED'
+  );
+});
+
+test('Cost of revenue detail items reconcile through the typed Source Coverage path', () => {
+  const sourceClassification = classification();
+  const inventory = createObjectInventory({
+    datasetKey: DATASET_KEY,
+    objects: [{
+      id: 'node:product-cost',
+      kind: 'financial-line-item',
+      disposition: 'render',
+      mapping: [
+        { role: 'data', target: 'incomeStatement.costs.costOfRevenue.items.product_cost' },
+        { role: 'render', target: 'nodes.product_cost' },
+      ],
+      features: ['visible-node-face'],
+    }],
+  });
+  const coverage = createSourceCoverage({
+    classification: sourceClassification,
+    source: sourceClassification.source,
+    scanPasses: SOURCE_COVERAGE_SCAN_PASSES,
+    items: [{
+      sourceId: 'source:product-cost',
+      sourceClass: 'financial-value',
+      sourceLabel: 'Products',
+      contentBBox: [500, 300, 160, 60],
+      inventoryObjectIds: ['node:product-cost'],
+      amount: { literal: '$600M', value: '600', unit: 'M', resolution: '1' },
+      ssotRef: { family: 'income-statement', path: 'costs.costOfRevenue.items', id: 'product_cost' },
+      face: {
+        claim: 'visible',
+        searchBBox: [480, 280, 200, 100],
+        observedBBox: [520, 320, 80, 20],
+      },
+    }],
+  }, { inventory, adapter: 'income-statement' });
+  const loaded = loadedData();
+  loaded.datasets[0].nodes.push({ id: 'product_cost', value: 0.6, valueText: '$600M' });
+  assert.deepEqual(
+    assertSourceCoverageAuthoredValues(coverage, { loadedData: loaded }),
+    { checked: 1, unit: 'B' }
+  );
+});
+
+test('Source Coverage uses independent Source identities and never treats Other as residual', () => {
+  const coverage = financialCoverage();
+  assert.equal(coverage.items[0].sourceId, 'source:other-income');
+  assert.deepEqual(coverage.items[0].inventoryObjectIds, ['node:other-income']);
+  assert.deepEqual(coverage.summary.otherSourceIds, ['source:other-income']);
+  assert.deepEqual(coverage.summary.smallestNonZero.map((item) => item.sourceId), ['source:other-income']);
+
+  const skippedInventory = createObjectInventory({
+    datasetKey: DATASET_KEY,
+    objects: [{
+      id: 'node:other-income',
+      kind: 'watermark',
+      disposition: 'skip',
+      mapping: [],
+      features: [],
+      skipReason: 'incorrectly classified as decoration',
+    }],
+  });
+  assert.throws(
+    () => financialCoverage({
+      sourceClass: 'non-semantic-residual',
+      dispositionInventory: skippedInventory,
+    }),
+    (error) => error.code === 'SOURCE_COVERAGE_OTHER_SKIPPED'
+  );
+
+  const annotationOnly = createObjectInventory({
+    datasetKey: DATASET_KEY,
+    objects: [{
+      id: 'annotation:other-income',
+      kind: 'financial-callout',
+      disposition: 'render',
+      mapping: [
+        { role: 'data', target: 'incomeStatement.otherIncome.items.other_income' },
+        { role: 'render', target: 'annotations.other_income' },
+      ],
+      features: ['text'],
+    }],
+  });
+  const sourceClassification = classification();
+  assert.throws(
+    () => createSourceCoverage({
+      classification: sourceClassification,
+      source: sourceClassification.source,
+      scanPasses: SOURCE_COVERAGE_SCAN_PASSES,
+      items: [{
+        sourceId: 'source:other-income',
+        sourceClass: 'financial-value',
+        sourceLabel: 'Other',
+        contentBBox: [900, 200, 180, 80],
+        inventoryObjectIds: ['annotation:other-income'],
+        amount: { literal: '$40M', value: '40', unit: 'M', resolution: '1' },
+        ssotRef: { family: 'income-statement', path: 'otherIncome.items', id: 'other_income' },
+      }],
+    }, { inventory: annotationOnly, adapter: 'income-statement' }),
+    (error) => error.code === 'SOURCE_COVERAGE_FINANCIAL_NODE_REQUIRED'
+  );
+});
+
+test('a rounded $0.0B literal requires authoritative precision recovery instead of becoming zero', () => {
+  const rounded = { literal: '$0.0B', value: '0.04', unit: 'B', resolution: '0.1' };
+  assert.throws(
+    () => financialCoverage({ amount: rounded }),
+    (error) => error.code === 'SOURCE_COVERAGE_PRECISION_RECOVERY_REQUIRED'
+  );
+
+  const coverage = financialCoverage({
+    amount: {
+      ...rounded,
+      precisionRecovery: {
+        method: PRECISION_RECOVERY_METHOD,
+        locator: 'https://example.com/authoritative-filing',
+        literal: '$40M',
+      },
+    },
+  });
+  assert.equal(coverage.items[0].amount.value, '0.04');
+  assert.equal(coverage.items[0].amount.precisionRecovery.literal, '$40M');
+  assert.throws(
+    () => financialCoverage({
+      amount: {
+        literal: '$0.0B',
+        value: '0.06',
+        unit: 'B',
+        resolution: '0.1',
+        precisionRecovery: {
+          method: PRECISION_RECOVERY_METHOD,
+          locator: 'https://example.com/authoritative-filing',
+          literal: '$60M',
+        },
+      },
+    }),
+    (error) => error.code === 'SOURCE_COVERAGE_AMOUNT_RESOLUTION_MISMATCH'
+  );
+});
+
+test('K/M/B/T normalization reconciles the actual SSOT path and Adapter node exactly', () => {
+  const coverage = financialCoverage();
+  assert.deepEqual(
+    assertSourceCoverageAuthoredValues(coverage, { loadedData: loadedData() }),
+    { checked: 1, unit: 'B' }
+  );
+  assert.deepEqual(
+    assertSourceCoverageAuthoredValues(financialCoverage({
+      ssotRef: { family: 'income-statement', path: 'otherIncome.total', id: 'other_income' },
+    }), { loadedData: loadedData() }),
+    { checked: 1, unit: 'B' }
+  );
+  assert.throws(
+    () => assertSourceCoverageAuthoredValues(coverage, { loadedData: loadedData({ ssotValue: 0 }) }),
+    (error) => error.code === 'SOURCE_COVERAGE_SSOT_VALUE_MISMATCH'
+  );
+  assert.throws(
+    () => assertSourceCoverageAuthoredValues(
+      financialCoverage({
+        ssotRef: { family: 'income-statement', path: 'otherExpenses.items', id: 'other_income' },
+      }),
+      { loadedData: loadedData() }
+    ),
+    (error) => error.code === 'SOURCE_COVERAGE_SSOT_VALUE_MISMATCH'
+  );
+  assert.throws(
+    () => assertSourceCoverageAuthoredValues(coverage, { loadedData: loadedData({ nodeValue: 0 }) }),
+    (error) => error.code === 'SOURCE_COVERAGE_ADAPTER_VALUE_MISMATCH'
+  );
+});
+
+test('non-zero authored values must remain non-zero at both table and Sankey display precision', () => {
+  const coverage = financialCoverage();
+  assert.throws(
+    () => assertSourceCoverageAuthoredValues(coverage, { loadedData: loadedData({ recordDecimals: 1 }) }),
+    (error) => error.code === 'SOURCE_COVERAGE_DISPLAY_PRECISION_LOSS'
+  );
+  assert.throws(
+    () => assertSourceCoverageAuthoredValues(coverage, {
+      loadedData: loadedData({ valueText: null, adapterDecimals: 1 }),
+    }),
+    (error) => error.code === 'SOURCE_COVERAGE_DISPLAY_PRECISION_LOSS'
+  );
+  assert.throws(
+    () => assertSourceCoverageAuthoredValues(coverage, { loadedData: loadedData({ valueText: '$0.0B' }) }),
+    (error) => error.code === 'SOURCE_COVERAGE_ADAPTER_DISPLAY_MISMATCH'
+  );
+});

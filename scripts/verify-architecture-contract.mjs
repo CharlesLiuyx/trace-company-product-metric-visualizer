@@ -26,6 +26,19 @@ import {
 import { validateFidelityRulesDocument } from './lib/fidelity-rules-doc.mjs';
 import { projectPath, rootDir } from './lib/project.mjs';
 import { OBJECT_INVENTORY_PROTOCOL } from './lib/object-inventory.mjs';
+import { NODE_FACE_POLICY_PROTOCOL } from './lib/node-face-policy.mjs';
+import {
+  INCOME_STATEMENT_SSOT_PATHS,
+  PRECISION_RECOVERY_METHOD,
+  SOURCE_AMOUNT_UNITS,
+  SOURCE_CLASSIFICATION_PROTOCOL,
+  SOURCE_CLASSIFICATION_REVIEW_METHOD,
+  SOURCE_CLASSIFICATION_SIGNALS,
+  SOURCE_COVERAGE_PROTOCOL,
+  SOURCE_COVERAGE_SCAN_PASSES,
+  SOURCE_OBJECT_CLASSES,
+  SOURCE_RESIDUAL_KINDS,
+} from './lib/source-coverage.mjs';
 import { FEATURE_REQUIRED_CHECKS, VERIFICATION_PLAN_PROTOCOL } from './lib/verification-plan.mjs';
 
 const CONTRACT_PATH = 'docs/architecture/lifecycle-contract.json';
@@ -162,7 +175,14 @@ async function main() {
   const contract = JSON.parse(await readFile(projectPath(CONTRACT_PATH), 'utf8'));
   assert.equal(contract.protocols.datasetBuild, DATASET_BUILD_PROTOCOL, 'dataset-build protocol drift');
   assert.equal(contract.protocols.fidelityRun, FIDELITY_PROTOCOL_VERSION, 'fidelity-run protocol drift');
+  assert.equal(
+    contract.protocols.sourceClassification,
+    SOURCE_CLASSIFICATION_PROTOCOL,
+    'SourceClassification protocol drift'
+  );
+  assert.equal(contract.protocols.sourceCoverage, SOURCE_COVERAGE_PROTOCOL, 'SourceCoverage protocol drift');
   assert.equal(contract.protocols.objectInventory, OBJECT_INVENTORY_PROTOCOL, 'ObjectInventory protocol drift');
+  assert.equal(contract.protocols.nodeFacePolicy, NODE_FACE_POLICY_PROTOCOL, 'NodeFacePolicy protocol drift');
   assert.equal(contract.protocols.verificationPlan, VERIFICATION_PLAN_PROTOCOL, 'VerificationPlan protocol drift');
   assert.equal(contract.protocols.reviewPacket, REVIEW_PACKET_PROTOCOL, 'ReviewPacket protocol drift');
   assert.equal(
@@ -174,6 +194,98 @@ async function main() {
   assert.equal(contract.protocols.fidelityResult, FIDELITY_RESULT_PROTOCOL, 'FidelityResult protocol drift');
   assert.deepEqual(contract.scopes.DatasetBuild.states, DATASET_BUILD_STATES, 'DatasetBuild state drift');
   assert.deepEqual(sorted(contract.adapters), sorted(DATASET_ADAPTERS), 'Adapter drift');
+  assert.equal(
+    contract.sourceClassification.reviewMethod,
+    SOURCE_CLASSIFICATION_REVIEW_METHOD,
+    'Source classification review method drift'
+  );
+  assert.deepEqual(
+    contract.sourceClassification.signals,
+    SOURCE_CLASSIFICATION_SIGNALS,
+    'Source classification signal vocabulary drift'
+  );
+  assert.equal(
+    contract.sourceClassification.requiredBeforeFreshRecordIntake,
+    true,
+    'fresh record:intake must require Source classification'
+  );
+  assert.equal(
+    contract.sourceClassification.bindsWholeNativeSource,
+    true,
+    'Source classification must bind the whole native Source'
+  );
+  assert.equal(
+    contract.sourceClassification.derivedAdapterMustMatchRequestedAdapter,
+    true,
+    'Source facts must select the requested Adapter'
+  );
+  assert.deepEqual(contract.sourceCoverage.scanPasses, SOURCE_COVERAGE_SCAN_PASSES, 'Source Coverage scan-pass drift');
+  assert.deepEqual(contract.sourceCoverage.objectClasses, SOURCE_OBJECT_CLASSES, 'Source Coverage object-class drift');
+  assert.deepEqual(contract.sourceCoverage.residualKinds, SOURCE_RESIDUAL_KINDS, 'Source Coverage residual-kind drift');
+  assert.deepEqual(contract.sourceCoverage.amountUnits, SOURCE_AMOUNT_UNITS, 'Source Coverage amount-unit drift');
+  assert.deepEqual(
+    contract.sourceCoverage.incomeStatementSsotPaths,
+    INCOME_STATEMENT_SSOT_PATHS,
+    'Source Coverage Income Statement SSOT path drift'
+  );
+  assert.equal(
+    contract.sourceCoverage.precisionRecoveryMethod,
+    PRECISION_RECOVERY_METHOD,
+    'Source Coverage precision-recovery method drift'
+  );
+  assert.equal(
+    contract.sourceCoverage.amountWithinLiteralResolution,
+    true,
+    'Source Coverage exact amounts must stay within the literal rounding interval'
+  );
+  assert.equal(contract.sourceCoverage.inventoryOwnership, 'exactly-once', 'Source Coverage ownership drift');
+  assert.equal(
+    contract.sourceCoverage.otherLabelsMayBeNonSemanticResidual,
+    false,
+    'Other/All Other Source objects must remain semantic'
+  );
+  assert.equal(
+    contract.sourceCoverage.roundedNonZeroMayBeAuthoredAsZero,
+    false,
+    'rounded non-zero Source values must not be authored as zero'
+  );
+  assert.equal(
+    contract.sourceCoverage.recoveredNonZeroMustSurviveAuthoredDisplayPrecision,
+    true,
+    'recovered non-zero values must remain non-zero in authored display precision'
+  );
+  assert.equal(
+    contract.sourceCoverage.prepareReviewReconcilesLoadedAuthoredValues,
+    true,
+    'prepare-review must reconcile Source values against loaded authored data'
+  );
+  assert.equal(
+    contract.sourceCoverage.incomeStatementFinancialNodeOwnership,
+    'exactly-one',
+    'each Income Statement financial Source fact must reach exactly one Adapter node'
+  );
+  assert.deepEqual(
+    contract.sourceCoverage.incomeStatementReconciliationTargets,
+    ['metric-ssot', 'sankey-view-adapter'],
+    'Income Statement authored reconciliation target drift'
+  );
+  assert.deepEqual(
+    contract.sourceCoverage.revenueMetricReconciliationTargets,
+    ['metric-ssot'],
+    'Revenue Metric authored reconciliation target drift'
+  );
+  assert.equal(contract.nodeFacePolicy.derivedFrom, SOURCE_COVERAGE_PROTOCOL, 'Node face policy source drift');
+  assert.equal(contract.nodeFacePolicy.embeddedIn, VERIFICATION_PLAN_PROTOCOL, 'Node face policy Plan drift');
+  assert.equal(
+    contract.nodeFacePolicy.completeRenderedNodeClassification,
+    true,
+    'Node face policy must classify every rendered semantic node'
+  );
+  assert.equal(
+    contract.nodeFacePolicy.sourceBoundFloorExceptionsOnly,
+    true,
+    'node visibility-floor exceptions must remain Source-bound'
+  );
   assert.deepEqual(sorted(contract.sourceAvailability), sorted(SOURCE_AVAILABILITY), 'Source availability drift');
   assert.equal(contract.sourceLocations.pending, 'unclaimed', 'pending Source location semantics drift');
   assert.equal(
@@ -221,7 +333,10 @@ async function main() {
   assert.equal(contract.invariants.verifyCommandsWriteDurableEvidence, false, 'verify:* must remain read-only');
   assert.equal(contract.invariants.sourceRelocationChangesIdentity, false, 'Source relocation must preserve digest identity');
   for (const objectName of [
+    'SourceClassification',
+    'SourceCoverage',
     'ObjectInventory',
+    'NodeFacePolicy',
     'VerificationPlan',
     'DatasetVerification',
     'ReviewPacket',
@@ -269,13 +384,22 @@ async function main() {
   assert.ok(packageJson.scripts['verify:closeout'], 'package.json must expose verify:closeout');
   assert.ok(!packageJson.scripts['build:standalone'].includes('update-dataset-file-metadata'), 'build:standalone must not mutate tracked metadata');
 
-  const [verifyD3, recordFidelity] = await Promise.all([
+  const [verifyD3, recordFidelity, recordIntake, buildCloseout] = await Promise.all([
     readFile(projectPath('scripts/verify-d3.mjs'), 'utf8'),
     readFile(projectPath('scripts/record-fidelity.mjs'), 'utf8'),
+    readFile(projectPath('scripts/record-intake.mjs'), 'utf8'),
+    readFile(projectPath('scripts/lib/dataset-build-closeout.mjs'), 'utf8'),
   ]);
   assert.match(verifyD3, /operation:\s*'verify'/, 'verify:d3 must enter the read-only operation class');
   assert.match(recordFidelity, /operation:\s*'record'/, 'record:fidelity must own durable review evidence');
   assert.match(verifyD3, /automatic pass is not human acceptance/, 'verify:d3 must disclaim human acceptance');
+  assert.match(recordIntake, /--signal <source-classification-signal>/, 'record:intake must expose the pre-intake Type Gate');
+  assert.match(recordIntake, /createSourceClassification\(\{/, 'record:intake must persist SourceClassification before claim');
+  assert.match(
+    buildCloseout,
+    /assertSourceCoverageAuthoredValues\(sourceCoverage/,
+    'prepare-review must reconcile Source Coverage with loaded authored values'
+  );
 
   const [agents, mirror] = await Promise.all([
     readFile(projectPath('AGENTS.md'), 'utf8'),

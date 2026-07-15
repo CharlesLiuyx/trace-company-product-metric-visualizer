@@ -15,7 +15,7 @@ agent 指令以英文版 `AGENTS.md` 为准。
 | 目标验证/发布架构：证据、baseline、verify/record/publish 语义、CAS、Release | `docs/architecture/verification-publication.md` |
 | 机器可读 lifecycle protocol/state/Adapter 契约 | `docs/architecture/lifecycle-contract.json`（由 `pnpm verify:architecture` 强制奇偶） |
 | 已接受的架构决策 | `docs/adr/`（从 `docs/adr/0001-dataset-build-transactions.md` 开始） |
-| 动态数据集工作流：流水线步骤、执行模型（并行组、agent 分派）、输入类型对象清单、操作陷阱、回复前验证清单、汇报 | `docs/dynamic-dataset-workflow.md` |
+| 动态数据集工作流：当前 9 步流水线、intake 前 Adapter 分型门、Source → Inventory → SSOT → Adapter 覆盖对账、执行/分派、陷阱、最终检查与汇报 | `docs/dynamic-dataset-workflow.md` |
 | d3 保真：canonical 编号规则、preflight 测量、三层 sweep 状态机、自动/人工证据、接受条件 | `docs/fidelity-loop-rules.md`（其规则目录区为生成视图）；规则语义 SSOT：`scripts/lib/fidelity-rules-catalog.mjs` + 派生契约 `scripts/lib/fidelity-rule-contract.mjs`；用 `pnpm update:fidelity-rules-doc` 重新生成（`pnpm verify:architecture` 强制新鲜与一致） |
 | 历史用户反馈案例：根因、现行防线、复发升级路径（跨检出复发记忆） | `docs/fidelity-feedback-casebook.md`（登记/消费协议属主为 `docs/fidelity-loop-rules.md` §5） |
 | 数据集 / SSOT 字段级格式 | `data/schema.md` |
@@ -98,8 +98,8 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
 | `pnpm verify:app-globals` | 共享顶层作用域契约的静态门：跨文件重复顶层声明、加载期引用晚加载 script（也包含在 `pnpm check` 中） |
 | `pnpm verify:architecture` | 强制生命周期 protocol/state/Adapter 奇偶、命令 mutation 语义、架构路由和本地上下文文档链接（也包含在 `pnpm check` 中） |
 | `pnpm check:pending [-- --file input/pending/<file>.png --key <final-key>]` | pending 重复 / 活动 processing claim / processed 与 key 冲突守卫；单个 Build 用 `--file`，定名后加 `--key`，全部省略时只审计共享队列 |
-| `pnpm record:intake -- <pending.png> --key <key> --adapter <kind> [--availability <policy>]` | 选中项守卫通过后，记录忽略的 per-item `INTAKED` Build manifest，并立即以 no-clobber 方式把 Source 领取到 `input/processing/<key>.png`；这不是 Publication |
-| `pnpm record:build -- prepare-review <build-id> --input <review-input.json>` | 对 authored artifacts 取 hash，持久化对象盘点与 Verification Plan，把 Build 推进到 `AUTHORED` 并返回 `reviewToken`；这一步不记录人工接受 |
+| `pnpm record:intake -- <pending.png> --key <key> --adapter <kind> --signal <signal> [--signal <signal> ...] [--availability <policy>]` | 强制完整 Source 的 Adapter signal signature，记录 `source-classification/v1`，再以 no-clobber 方式领取到 `input/processing/<key>.png`；这不是 Publication |
+| `pnpm record:build -- prepare-review <build-id> --input <review-input.json>` | 校验并记录 Source Coverage、Object Inventory、authored value 对账、Plan v4 与 Packet v3，推进到 `AUTHORED` 并返回 `reviewToken`；不记录人工接受 |
 | `pnpm record:verification -- <build-id> [--json]` | 运行非渲染的数据一致性 profile，并记录 Build-bound `dataset-verification/v1` 证据；返回的 reference 必须传给 `finish` |
 | `pnpm record:fidelity -- <key> --focus <stage-focus> [--language <code> ...] --build <build-id>` | 持久化 Build-bound 自动证据为 `evidence-ready`;`--focus` 必须是 canonical stage focus(`structure-sweep`、`text-sweep`、`polish-l10n-sweep`、`closeout-refresh`);`--language` 可重复,一条命令内逐 locale 各产生一个 run;不带 `--build` 的显式 focus 产物仅为旧兼容证据,不能关闭 Build |
 | `pnpm record:build -- finish <build-id> --review <review.json>` | 消费 `reviewToken`（兼容旧 `packetDigest`）、自动证据、人工 attestation、region/risk/feedback 决定与 Interface Matrix；只有 accepted `FidelityResult` 才推进到 `CLOSED` |
@@ -113,7 +113,7 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
 | `pnpm verify:dataset -- <key> [--skip-render]` | 只读单数据集聚合诊断：语法、SSOT、strict i18n、metadata，然后每种语言各一次只读 d3 渲染 |
 | `pnpm verify:ssot` | SSOT ↔ 数据集奇偶 + 注册奇偶 + 货币/单位与汇率覆盖（全局） |
 | `pnpm verify:i18n -- [--strict] [keys]` | i18n 覆盖检查 |
-| `pnpm verify:d3 -- <key> [--focus <dir>] [--keep] [--language <code>]` | 只读 d3 诊断 + 自动硬门槛；即使传 `--focus` 也不归档、不推进证据 lineage |
+| `pnpm verify:d3 -- <key> [--build <build-id>] [--focus <dir>] [--keep] [--language <code>]` | 只读 d3 诊断 + 自动硬门槛；`--build` 只加载 fresh Plan/node-face policy（typed floor exception 必需），不归档、不推进证据 lineage |
 | `pnpm verify:render-regression [-- <keys>]` | 只读批量渲染，对照 `data/render-baselines.json` 拦截回归；缺本地参考图时只跑渲染硬门槛 |
 | `pnpm compat:baseline -- <key> [...]` | canonical baseline ledger 的兼容 mutation，刻意命名在 verify/record/publish/release 四类之外；M4 Publication 尚未替代它，也不能证明产生它的 Build 正确 |
 | `pnpm update:dataset-file-metadata` | 从 git 提交时间重新生成 `data/dataset-file-metadata.js`（提交新/改数据集后需重跑并提交刷新结果） |
@@ -131,20 +131,18 @@ artifact 交给 Pages deploy，不再二次 checkout/install/build。每个检�
 
 ## 工作流
 
-`docs/dynamic-dataset-workflow.md` 拥有可执行流水线:编号步骤、执行模型、
-对象类型清单、操作陷阱、回复前验证清单与汇报要求。处理 pending 图片之前先
-加载它;每次最终回复之前满足其清单。事务化目标与 M0–M5 迁移由
-`docs/architecture/README.md` 拥有——不得把目标状态说成当前状态。五个阶段
-各一行:
+`docs/dynamic-dataset-workflow.md` 拥有当前 9 步流水线、分型门、Source
+Coverage、执行/分派、陷阱、最终检查与汇报。处理 pending 工作及最终回复前都要
+加载它。M0–M5 目标迁移仍由 `docs/architecture/README.md` 拥有——不得把目标
+状态说成当前状态。五阶段摘要:
 
-1. 接入与守卫——`pnpm check:pending` 守卫,确定 `<公司>-<期间>` key 与
-   Adapter,`pnpm record:intake` 以 Git 可见的 no-clobber 方式把 Source
-   领取到 `input/processing/<dataset-key>.png`。
-2. 源盘点与数据 SSOT——判定输入类型,持久化 `ObjectInventory`,编写公司
-   档案与 Adapter 所属 Metric SSOT(外加可选的图标子循环)。
-3. Adapter 与 i18n——依据 preflight 测量编写
-   `data/datasets/<dataset-key>.js`,添加 `i18n.<language>` 覆盖,用
-   `pnpm sync:index-datasets` 注册。
+1. 守卫、分型与 intake——完整查看 Source，在 `record:intake` 前通过基于
+   signals 的 Adapter 分型门；歧义或未识别输入在 no-clobber claim 前停止。
+2. Source 覆盖与准备——完整记录 Source Coverage 和 `ObjectInventory`，显式
+   包含 Other 类对象、最小非零值、face intent 与 casebook 命中；通过后才并行
+   metadata/SSOT、preflight 测量与可选图标。
+3. Adapter 与 i18n——对账 Source → Inventory → SSOT → Adapter/data，编写适用
+   View、本地化并注册；缺少图标绝不能删除语义对象。
 4. 验证与 Review——`record:build prepare-review`、`record:verification`、
    逐 locale `record:fidelity`、经 `record:build finish` 提交人工
    attestation,然后 `stage-baseline` 与 `seal`。

@@ -6,6 +6,96 @@ import {
 import {
   compileVerificationPlan,
 } from '../scripts/lib/verification-plan.mjs';
+import {
+  SOURCE_CLASSIFICATION_REVIEW_METHOD,
+  SOURCE_COVERAGE_SCAN_PASSES,
+  createSourceClassification,
+  createSourceCoverage,
+} from '../scripts/lib/source-coverage.mjs';
+
+const SOURCE_DIGEST = `sha256:${'d'.repeat(64)}`;
+
+function sourceClassification(datasetKey, adapter) {
+  return createSourceClassification({
+    datasetKey,
+    adapter,
+    signals: adapter === 'income-statement'
+      ? ['income-statement-values', 'sankey-flow-topology']
+      : ['revenue-metric-definition', 'time-series-observations'],
+    reviewMethod: SOURCE_CLASSIFICATION_REVIEW_METHOD,
+    source: { locator: `input/processing/${datasetKey}.png`, digest: SOURCE_DIGEST, width: 2400, height: 1600 },
+    fullImageBBox: [0, 0, 2400, 1600],
+  });
+}
+
+function nodeFor(objects) {
+  return objects.find((object) => (object.mapping || []).some((mapping) =>
+    mapping.role === 'render' && /(^|[./:])nodes?[./:]/i.test(mapping.target)
+  ));
+}
+
+function coverageItem(objects, sourceClass, index, adapter) {
+  const node = nodeFor(objects);
+  const y = 20 + index * 30;
+  const hidden = node?.features.includes('hidden-anchor');
+  return {
+    sourceId: `source:item-${index}`,
+    sourceClass,
+    sourceLabel: objects.map((object) => object.id).join(' + '),
+    contentBBox: [20, y, 180, 20],
+    inventoryObjectIds: objects.map((object) => object.id),
+    ...(sourceClass === 'non-semantic-residual' ? { residualKind: 'publisher-attribution' } : {}),
+    ...(['financial-value', 'metric-observation'].includes(sourceClass) ? {
+      amount: { literal: '$1B', value: '1', unit: 'B', resolution: '1' },
+      ssotRef: adapter === 'income-statement'
+        ? { family: 'income-statement', path: 'revenue.total', id: 'revenue' }
+        : { family: 'revenue-metric', path: 'observations', date: '2026-01-31' },
+    } : {}),
+    ...(node ? {
+      face: hidden
+        ? { claim: 'hidden', searchBBox: [220, y, 100, 20] }
+        : { claim: 'visible', searchBBox: [220, y, 100, 20], observedBBox: [230, y + 5, 72, 10] },
+    } : {}),
+  };
+}
+
+function sourceCoverageFor(inventory, adapter) {
+  const remaining = [...inventory.objects];
+  const items = [];
+  if (adapter === 'income-statement') {
+    const dataIndex = remaining.findIndex((object) => object.disposition === 'data-only');
+    const nodeIndex = remaining.findIndex((object) => nodeFor([object]));
+    if (dataIndex >= 0 && nodeIndex >= 0 && dataIndex !== nodeIndex) {
+      const pair = [remaining[dataIndex], remaining[nodeIndex]];
+      for (const index of [dataIndex, nodeIndex].sort((left, right) => right - left)) remaining.splice(index, 1);
+      items.push(coverageItem(pair, 'financial-value', items.length, adapter));
+    }
+  }
+  for (const object of remaining) {
+    const sourceClass = object.disposition === 'skip'
+      ? 'non-semantic-residual'
+      : adapter === 'revenue-metric' && object.disposition === 'data-only'
+        ? 'metric-observation'
+        : nodeFor([object])
+          ? 'structural-flow'
+          : 'label-or-annotation';
+    items.push(coverageItem([object], sourceClass, items.length, adapter));
+  }
+  const classification = sourceClassification(inventory.datasetKey, adapter);
+  return createSourceCoverage({
+    classification,
+    source: classification.source,
+    scanPasses: SOURCE_COVERAGE_SCAN_PASSES,
+    items,
+  }, { inventory, adapter });
+}
+
+function compilePlan(input) {
+  return compileVerificationPlan({
+    ...input,
+    sourceCoverage: input.sourceCoverage || sourceCoverageFor(input.inventory, input.adapter),
+  });
+}
 
 function measuredLabelEvidence(fragment, referenceBBox) {
   return {
@@ -192,7 +282,7 @@ test('hidden anchors require native-pixel confirmation and compile an independen
     },
   };
   const inventory = createObjectInventory({ datasetKey: 'example-fy25', objects: [confirmed] });
-  const plan = compileVerificationPlan({
+  const plan = compilePlan({
     adapter: 'income-statement',
     inventory,
     changeImpact: ['geometry'],
@@ -257,7 +347,7 @@ test('node-like annotations require source classification and compile semantic i
     },
   };
   const inventory = createObjectInventory({ datasetKey: 'example-fy25', objects: [semantic] });
-  const plan = compileVerificationPlan({
+  const plan = compilePlan({
     adapter: 'income-statement',
     inventory,
     changeImpact: ['interaction'],
@@ -272,7 +362,7 @@ test('node-like annotations require source classification and compile semantic i
 
 test('Income Statement plan compiles object features into mandatory rule checks', () => {
   const inventory = createObjectInventory({ datasetKey: 'example-fy25', objects: incomeObjects() });
-  const plan = compileVerificationPlan({
+  const plan = compilePlan({
     adapter: 'income-statement',
     inventory,
     changeImpact: ['geometry', 'new-dataset'],
@@ -302,11 +392,12 @@ test('Income Statement plan compiles object features into mandatory rule checks'
   assert.equal(checks['feature:label-measurement-provenance'].localeScope, 'global');
   assert.equal(plan.objectCoverage.length, inventory.objects.length);
   assert.match(plan.planDigest, /^sha256:[a-f0-9]{64}$/);
-  assert.equal(plan.schemaVersion, 3);
-  assert.equal(plan.protocol, 'verification-plan/v3');
+  assert.equal(plan.schemaVersion, 4);
+  assert.equal(plan.protocol, 'verification-plan/v4');
+  assert.equal(plan.sourceCoverageDigest, sourceCoverageFor(inventory, 'income-statement').coverageDigest);
   assert.ok(plan.postReviewChecks.some((check) => check.id === 'adapter:final-seal'));
 
-  const reordered = compileVerificationPlan({
+  const reordered = compilePlan({
     adapter: 'income-statement',
     inventory: createObjectInventory({ datasetKey: 'example-fy25', objects: incomeObjects().reverse() }),
     changeImpact: ['new-dataset', 'geometry'],
@@ -331,7 +422,7 @@ test('feature evidence targets do not leak across a multi-mapped object', () => 
       },
     }],
   });
-  const plan = compileVerificationPlan({
+  const plan = compilePlan({
     adapter: 'income-statement',
     inventory,
     changeImpact: ['geometry'],
@@ -348,7 +439,7 @@ test('a fixed-layout label object cannot compile without its reference measureme
   label.features = label.features.filter((feature) => feature !== 'measured-label-position');
   delete label.featureEvidence['measured-label-position'];
   assert.throws(
-    () => compileVerificationPlan({
+    () => compilePlan({
       adapter: 'income-statement',
       inventory: createObjectInventory({ datasetKey: 'example-fy25', objects }),
       changeImpact: ['geometry'],
@@ -372,6 +463,19 @@ test('measured-label-position evidence must be complete at inventory validation'
   );
 });
 
+test('an approved label target requires an explicit user-directed authority and reason', () => {
+  const objects = incomeObjects();
+  const label = objects.find((object) => object.id === 'label:revenue');
+  label.featureEvidence['measured-label-position'] = {
+    ...label.featureEvidence['measured-label-position'],
+    approvedTargetBBox: [140, 420, 160, 44],
+  };
+  assert.throws(
+    () => createObjectInventory({ datasetKey: 'example-fy25', objects }),
+    (error) => error.code === 'MEASURED_LABEL_POSITION_APPROVED_TARGET_AUTHORITY_REQUIRED'
+  );
+});
+
 test('an ambiguous label slot compiles a pre-render operator decision check', () => {
   const objects = incomeObjects();
   const label = objects.find((object) => object.id === 'label:revenue');
@@ -384,7 +488,7 @@ test('an ambiguous label slot compiles a pre-render operator decision check', ()
     classificationClaim: 'label-slot-ambiguous-operator-decision-required',
     reason: 'The name could bind below the short face or to the left-side slot; the reference is ambiguous.',
   };
-  const plan = compileVerificationPlan({
+  const plan = compilePlan({
     adapter: 'income-statement',
     inventory: createObjectInventory({ datasetKey: 'example-fy25', objects }),
     changeImpact: ['geometry'],
@@ -403,7 +507,7 @@ test('an ambiguous label slot compiles a pre-render operator decision check', ()
 });
 
 test('checks without an executing automatic profile require manual evidence', () => {
-  const plan = compileVerificationPlan({
+  const plan = compilePlan({
     adapter: 'income-statement',
     inventory: createObjectInventory({ datasetKey: 'example-fy25', objects: incomeObjects() }),
     changeImpact: ['asset', 'interaction'],
@@ -440,7 +544,7 @@ test('Revenue Metric uses the same Interface with explicit fidelity and baseline
       },
     ],
   });
-  const plan = compileVerificationPlan({
+  const plan = compilePlan({
     adapter: 'revenue-metric',
     inventory,
     changeImpact: ['financial-data-only'],
@@ -470,6 +574,13 @@ test('Revenue Metric cannot silently accept a rendered object', () => {
     () => compileVerificationPlan({
       adapter: 'revenue-metric',
       inventory,
+      sourceCoverage: {
+        schemaVersion: 1,
+        protocol: 'source-coverage/v1',
+        datasetKey: inventory.datasetKey,
+        adapter: 'revenue-metric',
+        inventoryDigest: inventory.inventoryDigest,
+      },
       changeImpact: ['new-dataset'],
     }),
     (error) => error.code === 'ADAPTER_INVENTORY_INVALID'

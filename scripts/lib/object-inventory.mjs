@@ -143,6 +143,32 @@ function normalizeFeatureEvidence(object, features, { strictHiddenEvidence = tru
     if (raw.referenceBBox != null) {
       evidence.referenceBBox = normalizeReferenceBBox(raw.referenceBBox, object.id, feature);
     }
+    if (raw.approvedTargetBBox != null) {
+      invariant(
+        feature === 'measured-label-position',
+        'OBJECT_FEATURE_APPROVED_TARGET_UNSUPPORTED',
+        `Object ${object.id} may only use approvedTargetBBox with measured-label-position`
+      );
+      const approvedTargetAuthority = typeof raw.approvedTargetAuthority === 'string'
+        ? raw.approvedTargetAuthority.trim()
+        : '';
+      const approvedTargetReason = typeof raw.approvedTargetReason === 'string'
+        ? raw.approvedTargetReason.trim()
+        : '';
+      invariant(
+        approvedTargetAuthority === 'user-directed-layout-correction',
+        'MEASURED_LABEL_POSITION_APPROVED_TARGET_AUTHORITY_REQUIRED',
+        `Measured label position ${object.id} needs approvedTargetAuthority user-directed-layout-correction`
+      );
+      invariant(
+        approvedTargetReason,
+        'MEASURED_LABEL_POSITION_APPROVED_TARGET_REASON_REQUIRED',
+        `Measured label position ${object.id} needs approvedTargetReason`
+      );
+      evidence.approvedTargetBBox = normalizeReferenceBBox(raw.approvedTargetBBox, object.id, feature);
+      evidence.approvedTargetAuthority = approvedTargetAuthority;
+      evidence.approvedTargetReason = approvedTargetReason;
+    }
     if (raw.classificationClaim != null) {
       const classificationClaim = String(raw.classificationClaim).trim();
       invariant(classificationClaim, 'OBJECT_FEATURE_EVIDENCE_INVALID', `Object ${object.id} evidence for ${feature} has an empty classificationClaim`);

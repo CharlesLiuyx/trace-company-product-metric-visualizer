@@ -22,6 +22,11 @@ import {
   sourceDigest,
   sourceLifecyclePaths,
 } from './lib/source-lifecycle.mjs';
+import {
+  SOURCE_CLASSIFICATION_REVIEW_METHOD,
+  classifySourceSignals,
+  createSourceClassification,
+} from './lib/source-coverage.mjs';
 
 const BUILD_ROOT = projectPath('output', 'builds');
 
@@ -29,6 +34,7 @@ function usage() {
   console.error(`Usage:
   pnpm record:intake -- <input/pending/source.png> --key <dataset-key> \\
     --adapter <income-statement|revenue-metric> \\
+    --signal <source-classification-signal> [--signal <signal> ...] \\
     [--availability <public|local-only|restricted>] [--json]
 
 This records an INTAKED Dataset Build and immediately claims the Source at
@@ -46,6 +52,7 @@ export function parseArgs(argv) {
   const positional = [];
   let key = '';
   let adapter = '';
+  const signals = [];
   let availability = 'local-only';
   let json = false;
   for (let index = 0; index < args.length; index += 1) {
@@ -54,12 +61,13 @@ export function parseArgs(argv) {
       json = true;
       continue;
     }
-    if (arg === '--key' || arg === '--adapter' || arg === '--availability') {
+    if (arg === '--key' || arg === '--adapter' || arg === '--signal' || arg === '--availability') {
       const value = args[index + 1];
       index += 1;
       if (!value || value.startsWith('--')) throw usageError(`${arg} requires a value`);
       if (arg === '--key') key = value;
       if (arg === '--adapter') adapter = value;
+      if (arg === '--signal') signals.push(value);
       if (arg === '--availability') {
         // Legacy alias: the old value collided with the lifecycle state
         // PUBLISHED and was renamed; normalize so stored manifests converge.
@@ -75,7 +83,13 @@ export function parseArgs(argv) {
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(key)) throw usageError('--key must be lowercase kebab case');
   if (!DATASET_ADAPTERS.includes(adapter)) throw usageError(`Unsupported --adapter: ${adapter}`);
   if (!SOURCE_AVAILABILITY.includes(availability)) throw usageError(`Unsupported --availability: ${availability}`);
-  return { source: positional[0], key, adapter, availability, json };
+  let classification;
+  try {
+    classification = classifySourceSignals(signals, adapter);
+  } catch (error) {
+    throw usageError(error.message);
+  }
+  return { source: positional[0], key, adapter, signals: classification.signals, availability, json };
 }
 
 async function canonicalFiles(entryPath) {
@@ -177,6 +191,7 @@ function claimResult(build, manifestPath, claim, projectRoot) {
 
 async function resumeActiveIntake(active, options, relativeSource, deps) {
   const build = active.manifest;
+  const derivedClassification = classifySourceSignals(options.signals, options.adapter);
   const source = (build.sources || []).find((item) => item.role === 'primary-reference') || build.sources?.[0];
   const expectedPaths = deps.sourceLifecyclePaths(options.key, { projectRoot: deps.projectRoot });
   const identityMatches =
@@ -184,7 +199,9 @@ async function resumeActiveIntake(active, options, relativeSource, deps) {
     source.processingUri === expectedPaths.processingUri &&
     source.processedUri === expectedPaths.processedUri &&
     source.availability === options.availability &&
-    build.adapter === options.adapter;
+    build.adapter === options.adapter &&
+    (!build.sourceClassification ||
+      JSON.stringify(build.sourceClassification.signals) === JSON.stringify(derivedClassification.signals));
   if (!identityMatches) {
     const error = new Error(`Dataset key is already leased by ${build.buildId}: ${options.key}`);
     error.code = 'KEY_LEASED';
@@ -263,6 +280,19 @@ export async function recordIntake(options, dependencies = {}) {
   const bytes = await deps.readFile(absoluteSource);
   const png = PNG.sync.read(bytes);
   const digest = `sha256:${createHash('sha256').update(bytes).digest('hex')}`;
+  const sourceClassification = createSourceClassification({
+    datasetKey: options.key,
+    adapter: options.adapter,
+    signals: options.signals,
+    reviewMethod: SOURCE_CLASSIFICATION_REVIEW_METHOD,
+    source: {
+      locator: relativeSource,
+      digest,
+      width: png.width,
+      height: png.height,
+    },
+    fullImageBBox: [0, 0, png.width, png.height],
+  });
   const guard = await deps.runPendingGuard(relativeSource, options.key, deps.projectRoot);
   if (guard.status !== 0) {
     const recoverable = await deps.isRecoverablePendingClaim({
@@ -282,6 +312,7 @@ export async function recordIntake(options, dependencies = {}) {
   const build = createDatasetBuild({
     key: options.key,
     adapter: options.adapter,
+    sourceClassification,
     baseCanonicalDigest: await deps.canonicalDataDigest(),
     sources: [{
       uri: relativeSource,
@@ -329,6 +360,11 @@ async function main() {
   console.log(`recorded Dataset Build ${result.build.buildId}`);
   console.log(`state: ${result.build.state}`);
   console.log(`key: ${result.build.key}`);
+  if (result.build.sourceClassification) {
+    console.log(`source classification: ${result.build.sourceClassification.adapter} (${result.build.sourceClassification.signals.join(', ')})`);
+  } else {
+    console.log('source classification: legacy Build (not recorded)');
+  }
   console.log(`source origin: ${result.build.sources[0].uri} (${result.build.sources[0].width}x${result.build.sources[0].height})`);
   console.log(`source working: ${result.claim.processingUri}`);
   console.log(`source final: ${result.claim.processedUri}`);

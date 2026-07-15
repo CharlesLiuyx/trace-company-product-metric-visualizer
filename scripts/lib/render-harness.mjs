@@ -4,6 +4,14 @@
 // scripts/verify-d3.mjs and scripts/verify-render-regression.mjs both rely
 // on. Extracted from scripts/verify-d3.mjs; behavior is unchanged.
 import { PROJECT_FONT_FAMILIES, localFontFaces } from './local-fonts.mjs';
+import {
+  FACE_FLOOR_RASTER_TOLERANCE_PX,
+  MIN_VISIBLE_FACE_PX,
+  assertNodePaintPolicy,
+  isFaceBelowVisibilityFloor,
+} from './node-face-policy.mjs';
+
+export { MIN_VISIBLE_FACE_PX } from './node-face-policy.mjs';
 
 function toUrl(baseUrl, src) {
   return new URL(src, `${baseUrl}/`).toString();
@@ -256,9 +264,6 @@ function paintAudit(value, paintOpacity, elementOpacity, background) {
 // face-height floor; visible faces rendering below it (beyond a raster
 // tolerance) are reported in belowVisibilityFloorNodeIds so adapters stop
 // guessing a per-node minimum (this session shipped Visa=6px, SAP/Comcast=3px).
-export const MIN_VISIBLE_FACE_PX = 3;
-const FACE_FLOOR_RASTER_TOLERANCE_PX = 0.5;
-
 export function classifyNodePaintAudit({ dataset = '', language = '', background = '', nodes = [] }) {
   const backgroundColour = parseComputedColour(background);
   const seen = new Set();
@@ -300,8 +305,7 @@ export function classifyNodePaintAudit({ dataset = '', language = '', background
       strokeVisible,
       faceVisible,
       faceHeight,
-      faceBelowVisibilityFloor:
-        faceVisible && faceHeight + FACE_FLOOR_RASTER_TOLERANCE_PX < MIN_VISIBLE_FACE_PX,
+      faceBelowVisibilityFloor: faceVisible && isFaceBelowVisibilityFloor(faceHeight),
     };
   });
   return {
@@ -355,6 +359,15 @@ function nodeIdFromEvidenceTarget(target) {
 }
 
 export function nodeFaceExpectationsFromPlan(plan) {
+  if (plan?.nodeFacePolicy?.protocol === 'node-face-policy/v1') {
+    return {
+      visible: [...plan.nodeFacePolicy.visibleNodeIds],
+      hidden: [...plan.nodeFacePolicy.hiddenNodeIds],
+      floorExceptions: plan.nodeFacePolicy.belowFloorExceptions.map((item) => ({ ...item })),
+      policyDigest: plan.nodeFacePolicy.policyDigest,
+      complete: plan.nodeFacePolicy.complete === true,
+    };
+  }
   const checks = Array.isArray(plan?.requiredChecks) ? plan.requiredChecks : [];
   const targetsFor = (checkId) => checks
     .filter((check) => check.id === checkId)
@@ -366,35 +379,29 @@ export function nodeFaceExpectationsFromPlan(plan) {
   return {
     visible: [...new Set([...explicitVisible, ...legacyVisible])].sort(),
     hidden: [...new Set(targetsFor('feature:hidden-anchor'))].sort(),
-    complete: plan?.protocol === 'verification-plan/v3',
+    complete: ['verification-plan/v3', 'verification-plan/v4'].includes(plan?.protocol),
   };
 }
 
-export function assertNodePaintAudit(audit, expectations = {}) {
-  if (audit.duplicateNodeIds?.length) {
-    throw new Error(`Node paint audit has duplicate semantic IDs: ${audit.duplicateNodeIds.join(', ')}`);
-  }
-  const byId = new Map((audit.nodes || []).map((node) => [node.id, node]));
-  const failures = [];
-  for (const id of expectations.visible || []) {
-    const node = byId.get(id);
-    if (!node) failures.push(`${id}=missing`);
-    else if (!node.faceVisible) failures.push(`${id}=not-painted`);
-  }
-  for (const id of expectations.hidden || []) {
-    const node = byId.get(id);
-    if (!node) failures.push(`${id}=missing`);
-    else if (node.faceVisible) failures.push(`${id}=unexpected-paint`);
-  }
-  if (expectations.complete) {
-    const classified = new Set([...(expectations.visible || []), ...(expectations.hidden || [])]);
-    for (const id of byId.keys()) {
-      if (!classified.has(id)) failures.push(`${id}=unclassified`);
-    }
-  }
-  if (failures.length) {
-    throw new Error(`Node face paint failed: ${failures.join(', ')}`);
-  }
+export function assertNodePaintAudit(audit, expectations = {}, options = {}) {
+  const hasExpectations = (expectations.visible?.length || 0) > 0 ||
+    (expectations.hidden?.length || 0) > 0 || expectations.complete;
+  const policy = hasExpectations
+    ? {
+        schemaVersion: 1,
+        protocol: 'node-face-policy/v1',
+        minVisibleFacePx: MIN_VISIBLE_FACE_PX,
+        rasterTolerancePx: FACE_FLOOR_RASTER_TOLERANCE_PX,
+        complete: Boolean(expectations.complete),
+        visibleNodeIds: [...new Set(expectations.visible || [])].sort(),
+        hiddenNodeIds: [...new Set(expectations.hidden || [])].sort(),
+        belowFloorExceptions: (expectations.floorExceptions || []).map((item) => typeof item === 'string'
+          ? { nodeId: item, referenceFaceHeightPx: 0 }
+          : item),
+        policyDigest: expectations.policyDigest || null,
+      }
+    : null;
+  return assertNodePaintPolicy(audit, policy, options);
 }
 
 function evidenceTargetsForCheck(check) {
@@ -434,7 +441,11 @@ export function assertPlannedRenderAudits(plan, audits) {
       const audit = audits.annotationLayoutAudit;
       if (!audit) failures.push(`${check.id}=missing-audit`);
       else {
-        if ((check.objectIds || []).length > 0 && Number(audit.checkedAnnotationTexts) < 1) {
+        const checkedAnnotations = Number(
+          audit.checkedAnnotations
+          ?? (Number(audit.checkedAnnotationTexts || 0) + Number(audit.checkedAnnotationGraphics || 0))
+        );
+        if ((check.objectIds || []).length > 0 && checkedAnnotations < 1) {
           failures.push(`${check.id}=no-rendered-annotation`);
         }
         if ((audit.overlapViolations || []).length > 0) failures.push(`${check.id}=overlap`);
@@ -759,19 +770,24 @@ export function classifyTextAndAnnotationLayout({
   height,
   texts = [],
   annotations = [],
+  annotationGraphics = [],
   protectedTexts = [],
 }) {
   if (!Number.isFinite(width) || width <= 0 || !Number.isFinite(height) || height <= 0) {
     throw new RangeError('Text layout canvas width and height must be positive finite numbers');
   }
-  if (!Array.isArray(texts) || !Array.isArray(annotations) || !Array.isArray(protectedTexts)) {
-    throw new TypeError('texts, annotations, and protectedTexts must be arrays');
+  if (!Array.isArray(texts) || !Array.isArray(annotations) || !Array.isArray(annotationGraphics) || !Array.isArray(protectedTexts)) {
+    throw new TypeError('texts, annotations, annotationGraphics, and protectedTexts must be arrays');
   }
 
   const normalizedTexts = texts.map((item, index) => normalizeLayoutItem(item, 'texts', index));
   const normalizedAnnotations = annotations.map((item, index) =>
     normalizeLayoutItem(item, 'annotations', index)
   );
+  const normalizedAnnotationGraphics = annotationGraphics.map((item, index) =>
+    normalizeLayoutItem(item, 'annotationGraphics', index)
+  );
+  const normalizedAnnotationItems = [...normalizedAnnotations, ...normalizedAnnotationGraphics];
   const normalizedProtected = protectedTexts.map((item, index) =>
     normalizeLayoutItem(item, 'protectedTexts', index)
   );
@@ -796,7 +812,7 @@ export function classifyTextAndAnnotationLayout({
   }
 
   const overlapViolations = [];
-  for (const annotation of normalizedAnnotations) {
+  for (const annotation of normalizedAnnotationItems) {
     const annotationEdges = boxEdges(annotation);
     for (const protectedText of normalizedProtected) {
       if (annotation.identity === protectedText.identity) continue;
@@ -838,6 +854,8 @@ export function classifyTextAndAnnotationLayout({
     annotationLayoutAudit: {
       tolerance: TEXT_LAYOUT_TOLERANCE,
       checkedAnnotationTexts: normalizedAnnotations.length,
+      checkedAnnotationGraphics: normalizedAnnotationGraphics.length,
+      checkedAnnotations: normalizedAnnotationItems.length,
       checkedProtectedTexts: normalizedProtected.length,
       overlapViolations,
     },
@@ -911,6 +929,7 @@ export async function auditTextAndAnnotationLayout(page) {
     const texts = [];
     const annotations = [];
     const protectedTexts = [];
+    const annotationGraphics = [];
     Array.from(svg.querySelectorAll('text')).forEach((element, index) => {
       const annotation = element.closest('.sankey-annotations');
       const label = element.closest('.sankey-label');
@@ -937,7 +956,18 @@ export async function auditTextAndAnnotationLayout(page) {
       if (!annotation && (label || title || period)) protectedTexts.push(item);
     });
 
-    return { width, height, texts, annotations, protectedTexts };
+    Array.from(svg.querySelectorAll('.sankey-annotations [data-annotation-clearance]')).forEach((element, index) => {
+      const bbox = bboxInRootSpace(element);
+      if (!bbox) return;
+      const id = element.getAttribute('data-annotation-clearance') || index;
+      annotationGraphics.push({
+        identity: `annotation-graphic:${id}#${index}`,
+        text: '[graphic annotation]',
+        bbox,
+      });
+    });
+
+    return { width, height, texts, annotations, annotationGraphics, protectedTexts };
   });
   return classifyTextAndAnnotationLayout(geometry);
 }
@@ -1219,7 +1249,9 @@ export const LABEL_POSITION_CENTER_TOLERANCE = 6;
 // T18 expectations come from the Plan's objectCoverage: every object that
 // persisted a measured-label-position referenceBBox names one fixed-layout
 // label group (`layout.labels.<node>`), so the audit can pair the preflight
-// reference measurement with the group rendered for that node.
+// reference measurement with the group rendered for that node. An explicit,
+// user-directed correction may supply an approved target while retaining the
+// immutable Source measurement alongside it.
 export function labelPositionExpectationsFromPlan(plan) {
   const coverage = Array.isArray(plan?.objectCoverage) ? plan.objectCoverage : [];
   const expectations = [];
@@ -1233,7 +1265,17 @@ export function labelPositionExpectationsFromPlan(plan) {
       .map((target) => target.match(/(?:^|[./:])labels[./:]([A-Za-z0-9_-]+)/i)?.[1])
       .find(Boolean);
     if (!node) continue;
-    expectations.push({ objectId: entry.objectId, node, referenceBBox: evidence.referenceBBox });
+    const approvedTarget = evidence.approvedTargetBBox;
+    expectations.push({
+      objectId: entry.objectId,
+      node,
+      referenceBBox: approvedTarget || evidence.referenceBBox,
+      ...(approvedTarget ? {
+        sourceReferenceBBox: evidence.referenceBBox,
+        approvedTargetAuthority: evidence.approvedTargetAuthority,
+        approvedTargetReason: evidence.approvedTargetReason,
+      } : {}),
+    });
   }
   return expectations.sort((left, right) => left.node.localeCompare(right.node));
 }
@@ -1278,6 +1320,11 @@ export function classifyLabelPositionAudit(geometry, expectations, { locale = 'e
         objectId: expectation.objectId,
         node: expectation.node,
         referenceBBox: expectation.referenceBBox,
+        ...(expectation.sourceReferenceBBox ? {
+          sourceReferenceBBox: expectation.sourceReferenceBBox,
+          approvedTargetAuthority: expectation.approvedTargetAuthority,
+          approvedTargetReason: expectation.approvedTargetReason,
+        } : {}),
         candidateBBox: null,
         deltaX: null,
         deltaY: null,
@@ -1293,6 +1340,11 @@ export function classifyLabelPositionAudit(geometry, expectations, { locale = 'e
       objectId: expectation.objectId,
       node: expectation.node,
       referenceBBox: expectation.referenceBBox,
+      ...(expectation.sourceReferenceBBox ? {
+        sourceReferenceBBox: expectation.sourceReferenceBBox,
+        approvedTargetAuthority: expectation.approvedTargetAuthority,
+        approvedTargetReason: expectation.approvedTargetReason,
+      } : {}),
       candidateBBox: [round(union.left), round(union.top), round(union.right - union.left), round(union.bottom - union.top)],
       deltaX,
       deltaY,
