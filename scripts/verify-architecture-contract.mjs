@@ -28,6 +28,9 @@ import { projectPath, rootDir } from './lib/project.mjs';
 import { OBJECT_INVENTORY_PROTOCOL } from './lib/object-inventory.mjs';
 import { NODE_FACE_POLICY_PROTOCOL } from './lib/node-face-policy.mjs';
 import {
+  AUTHORITATIVE_CORRECTION_APPROVAL,
+  AUTHORITATIVE_CORRECTION_ISSUES,
+  AUTHORITATIVE_CORRECTION_METHOD,
   INCOME_STATEMENT_SSOT_PATHS,
   PRECISION_RECOVERY_METHOD,
   SOURCE_AMOUNT_UNITS,
@@ -232,6 +235,21 @@ async function main() {
     contract.sourceCoverage.precisionRecoveryMethod,
     PRECISION_RECOVERY_METHOD,
     'Source Coverage precision-recovery method drift'
+  );
+  assert.equal(
+    contract.sourceCoverage.authoritativeCorrectionMethod,
+    AUTHORITATIVE_CORRECTION_METHOD,
+    'Source Coverage authoritative-correction method drift'
+  );
+  assert.equal(
+    contract.sourceCoverage.authoritativeCorrectionApproval,
+    AUTHORITATIVE_CORRECTION_APPROVAL,
+    'Source Coverage authoritative-correction approval drift'
+  );
+  assert.deepEqual(
+    contract.sourceCoverage.authoritativeCorrectionIssues,
+    AUTHORITATIVE_CORRECTION_ISSUES,
+    'Source Coverage authoritative-correction issue drift'
   );
   assert.equal(
     contract.sourceCoverage.amountWithinLiteralResolution,

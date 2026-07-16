@@ -208,6 +208,18 @@ primary literal's half-resolution rounding interval. If the value cannot be
 recovered, the Build is blocked; it must not turn unknown/non-zero Source
 semantics into an authored zero.
 
+If a non-zero primary Source literal has a confirmed unit typo, the original
+literal remains recorded and an optional `amount.authoritativeCorrection` may
+repair only the closed `unit-typo` issue. It must bind
+`method: 'authoritative-source-correction'`, explicit
+`approval: 'user-directed-source-correction'`, an authoritative locator and
+literal, the approved corrected display literal, and a reason. The original
+literal must actually conflict with the authored amount; the authoritative
+value and corrected display must both support that amount within the declared
+resolution, and the corrected unit must equal `amount.unit`. This mechanism is
+for an explicit correction, not silent inference, and cannot be combined with
+rounded-zero `precisionRecovery`.
+
 - Each Income Statement value must match the selected financial SSOT record
   and exactly one mapped Sankey node value;
 - Revenue Metric values must match the selected dated SSOT observation.

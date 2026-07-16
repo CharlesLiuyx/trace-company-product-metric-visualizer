@@ -120,6 +120,7 @@ function incomePathValue(record, ref) {
     'operatingOtherExpenses.items': record.operatingOtherExpenses?.items,
     'otherIncome.items': record.otherIncome?.items,
     'otherExpenses.items': record.otherExpenses?.items,
+    'profit.gross.items': record.profit?.gross?.items,
   }[ref.path];
   if (ref.path === 'revenue.breakdowns') {
     return revenueBreakdownValue(record.revenue?.breakdowns, ref.id);

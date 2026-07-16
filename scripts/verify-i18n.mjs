@@ -217,6 +217,9 @@ function collectFinancialTexts(record, localized) {
   Object.keys(record.profit || {}).forEach((key) => {
     collectItemTexts(list, record.key, record.profit[key], localized.profit?.[key], `profit.${key}`);
   });
+  (record.profit?.gross?.items || []).forEach((item, index) => {
+    collectItemTexts(list, record.key, item, localized.profit?.gross?.items?.[index], `profit.gross.items[${index}]`);
+  });
   return list;
 }
 
