@@ -104,7 +104,7 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
 | `pnpm record:fidelity -- <key> --focus <stage-focus> [--language <code> ...] --build <build-id>` | 持久化 Build-bound 自动证据为 `evidence-ready`;`--focus` 必须是 canonical stage focus(`structure-sweep`、`text-sweep`、`polish-l10n-sweep`、`closeout-refresh`);`--language` 可重复,一条命令内逐 locale 各产生一个 run;不带 `--build` 的显式 focus 产物仅为旧兼容证据,不能关闭 Build |
 | `pnpm record:build -- finish <build-id> --review <review.json>` | 消费 `reviewToken`（兼容旧 `packetDigest`）、自动证据、人工 attestation、region/risk/feedback 决定与 Interface Matrix；只有 accepted `FidelityResult` 才推进到 `CLOSED` |
 | `pnpm record:build -- stage-baseline <build-id> --input <baseline.json>` | 记录 build-local、仅供未来回归的 baseline stage；Revenue Metric 会显式记录 `notApplicable` |
-| `pnpm record:build -- seal <build-id>` | 内部重算 artifact 新鲜度并重跑 Adapter final profile（非渲染一致性 + Income Statement 每 required locale 的渲染硬门槛）；仅当 Build 已人工接受、关闭、stage baseline 且 exact digests 新鲜时记录 `SEALED`，不发布 canonical 数据 |
+| `pnpm record:build -- seal <build-id>` | 内部重算 artifact 新鲜度并重跑 Adapter final profile（非渲染一致性 + Income Statement 全部 required locale 在单次 `verify:d3` 内的渲染硬门槛）；仅当 Build 已人工接受、关闭、stage baseline 且 exact digests 新鲜时记录 `SEALED`，不发布 canonical 数据 |
 | `pnpm record:build -- inspect <build-id> [--json]` | 只读查看历史/有效状态、新鲜度、Review 状态、Task 信息与 Loop Fidelity Summary |
 | `pnpm verify:closeout -- <build-id> [--json]` | 只读收尾门：历史与有效状态都必须为 `SEALED`、输入新鲜且人工 Review 已 accepted |
 | `pnpm sync:index-datasets` | 同步全部数据注册面与磁盘：`index.html` SSOT `<script>` 标签（损益表、公司档案）与生成的 dataset manifest（`--check` 只报告漂移） |
@@ -114,7 +114,7 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
 | `pnpm verify:ssot` | SSOT ↔ 数据集奇偶 + 注册奇偶 + 货币/单位与汇率覆盖（全局） |
 | `pnpm verify:i18n -- [--strict] [keys]` | i18n 覆盖检查 |
 | `pnpm verify:d3 -- <key> [--build <build-id>] [--focus <dir>] [--keep] [--language <code>]` | 只读 d3 诊断 + 自动硬门槛；`--build` 只加载 fresh Plan/node-face policy（typed floor exception 必需），不归档、不推进证据 lineage |
-| `pnpm verify:render-regression [-- <keys>]` | 只读批量渲染，对照 `data/render-baselines.json` 拦截回归；缺本地参考图时只跑渲染硬门槛 |
+| `pnpm verify:render-regression [-- <keys>]` | 只读批量渲染，对照 `data/render-baselines.json` 拦截回归；缺本地参考图时只跑渲染硬门槛；默认增量——基于 `output/render-regression/` 下的本机指纹缓存跳过未变更 key（跳过量在汇总中显式报告），显式 key 与 `--update` 永远真渲染，`--no-cache` 强制全量，CI 始终冷跑 |
 | `pnpm compat:baseline -- <key> [...]` | canonical baseline ledger 的兼容 mutation，刻意命名在 verify/record/publish/release 四类之外；M4 Publication 尚未替代它，也不能证明产生它的 Build 正确 |
 | `pnpm setup:git-hooks` | 启用仓库管理的 post-commit metadata 刷新与 pre-push 拦截；若已有自定义 `core.hooksPath` 则拒绝覆盖 |
 | `pnpm update:dataset-file-metadata` | 从 git author time 重新生成 `data/dataset-file-metadata.js`；受管 post-commit hook 会在 Dataset/revenue 提交后运行，刷新结果必须在 push 前 amend 或另行提交 |
