@@ -57,3 +57,16 @@ foreground pixels, and edge-connected background removal for all four crops.
 The Q1 runtime copies are kept under `data/assets/raster-annotations/zillow/`.
 The source publisher badge, footer URL, and App Economy Insights attribution
 remain explicitly skipped as non-semantic publisher content.
+
+## Zillow Q3 FY25
+
+Source: `input/processed/zillow-q3-fy25.png` (resolved to the active Build's
+same-key processing claim until close-out)
+
+The four semantic clusters — Zillow Group, Zillow Premier Agent, Zillow
+Rentals, and Zillow Home Loans — are pixel-identical at the Q4 FY25 crop boxes.
+The Q3 Adapter therefore reuses the four already accepted Q4 runtime files
+without creating duplicate crops. The title, financial labels, nodes, links,
+and publisher marks remain outside those boxes. The publisher badge, footer
+URL, and App Economy Insights attribution are again skipped as non-semantic
+publisher content.

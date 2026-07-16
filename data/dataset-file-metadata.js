@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-15T20:19:55.000Z",
+  "generatedAt": "2026-07-16T06:11:01.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -2513,6 +2513,54 @@
       "path": "data/datasets/sony-q2-fy25.js",
       "updatedAtMs": 1784146795000,
       "updatedAt": "2026-07-15T20:19:55.000Z",
+      "timeSource": "git"
+    },
+    "pinterest-q3-fy25": {
+      "path": "data/datasets/pinterest-q3-fy25.js",
+      "updatedAtMs": 1784182261000,
+      "updatedAt": "2026-07-16T06:11:01.000Z",
+      "timeSource": "git"
+    },
+    "snap-q3-fy25": {
+      "path": "data/datasets/snap-q3-fy25.js",
+      "updatedAtMs": 1784182261000,
+      "updatedAt": "2026-07-16T06:11:01.000Z",
+      "timeSource": "git"
+    },
+    "global-payments-q3-fy25": {
+      "path": "data/datasets/global-payments-q3-fy25.js",
+      "updatedAtMs": 1784182261000,
+      "updatedAt": "2026-07-16T06:11:01.000Z",
+      "timeSource": "git"
+    },
+    "nyt-q3-fy25": {
+      "path": "data/datasets/nyt-q3-fy25.js",
+      "updatedAtMs": 1784182261000,
+      "updatedAt": "2026-07-16T06:11:01.000Z",
+      "timeSource": "git"
+    },
+    "zillow-q3-fy25": {
+      "path": "data/datasets/zillow-q3-fy25.js",
+      "updatedAtMs": 1784182261000,
+      "updatedAt": "2026-07-16T06:11:01.000Z",
+      "timeSource": "git"
+    },
+    "duolingo-q3-fy25": {
+      "path": "data/datasets/duolingo-q3-fy25.js",
+      "updatedAtMs": 1784182261000,
+      "updatedAt": "2026-07-16T06:11:01.000Z",
+      "timeSource": "git"
+    },
+    "peloton-q1-fy26": {
+      "path": "data/datasets/peloton-q1-fy26.js",
+      "updatedAtMs": 1784182261000,
+      "updatedAt": "2026-07-16T06:11:01.000Z",
+      "timeSource": "git"
+    },
+    "match-group-q3-fy25": {
+      "path": "data/datasets/match-group-q3-fy25.js",
+      "updatedAtMs": 1784182261000,
+      "updatedAt": "2026-07-16T06:11:01.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {

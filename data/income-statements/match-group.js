@@ -10,6 +10,89 @@
 
   ssot.records.push(
     {
+      key: 'match-group-q3-fy25',
+      company: 'Match Group',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/match-group-q3-fy25.png',
+      roundingTolerance: 2.1,
+      revenue: {
+        total: 914,
+        notes: ['+2% Y/Y'],
+        items: [
+          { id: 'tinder', label: 'Tinder', value: 491, notes: ['(3%) Y/Y'] },
+          { id: 'hinge', label: 'Hinge', value: 185, notes: ['+27% Y/Y'] },
+          { id: 'asia', label: 'Asia', value: 69, notes: ['(4%) Y/Y'] },
+          { id: 'evergreen_emerging', label: 'Evergreen & Emerging', value: 152, notes: ['(4%) Y/Y'] },
+          { id: 'indirect', label: 'Indirect', value: 18, notes: ['+8% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 247 },
+        operatingExpenses: {
+          total: 446,
+          items: [
+            { id: 'sm', label: 'S&M', value: 169, notes: ['19% of revenue', '+1pp Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 148, notes: ['16% of revenue', '+5pp Y/Y'] },
+            { id: 'product', label: 'Product', value: 105, notes: ['11% of revenue', '(0pp) Y/Y'] },
+            { id: 'da', label: 'D&A', value: 24, notes: ['3% of revenue', '(0pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 33 },
+      },
+      otherIncome: {
+        total: 0,
+        items: [],
+      },
+      otherExpenses: {
+        total: 28,
+        items: [{ id: 'other_non_operating', label: 'Other', value: 28 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 667, notes: ['73% margin', '+1pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 221, notes: ['24% margin', '+1pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 161, notes: ['18% margin', '+2pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +2%'],
+            items: [
+              { id: 'tinder', label: 'Tinder', notes: ['同比 (3%)'] },
+              { id: 'hinge', label: 'Hinge', notes: ['同比 +27%'] },
+              { id: 'asia', label: '亚洲', notes: ['同比 (4%)'] },
+              { id: 'evergreen_emerging', label: '常青与新兴品牌', notes: ['同比 (4%)'] },
+              { id: 'indirect', label: '间接收入', notes: ['同比 +8%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'sm', label: '销售与市场', notes: ['占收入 19%', '同比 +1 个百分点'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 16%', '同比 +5 个百分点'] },
+                { id: 'product', label: '产品开发', notes: ['占收入 11%', '同比 (0 个百分点)'] },
+                { id: 'da', label: '折旧及摊销', notes: ['占收入 3%', '同比 (0 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherExpenses: { items: [{ id: 'other_non_operating', label: '其他' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 73%', '同比 +1 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 24%', '同比 +1 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 18%', '同比 +2 个百分点'] },
+          },
+        },
+      },
+    },
+
+    {
       key: 'match-group-q4-fy25',
       company: 'Match Group',
       period: 'Q4 FY25',

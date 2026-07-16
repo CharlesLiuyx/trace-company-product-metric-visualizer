@@ -10,6 +10,159 @@
 
   ssot.records.push(
     {
+      key: 'global-payments-q3-fy25',
+      company: 'Global Payments',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/global-payments-q3-fy25.png',
+      roundingTolerance: 0.002,
+      revenue: {
+        total: 2.007637,
+        notes: ['+0% Y/Y in the source infographic'],
+        items: [
+          { id: 'americas', label: 'Americas', value: 1.583629, notes: ['(2%) Y/Y'] },
+          { id: 'europe', label: 'Europe', value: 0.351147, notes: ['+9% Y/Y'] },
+          { id: 'asia_pacific', label: 'Asia Pacific', value: 0.072861, notes: ['+9% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          label: 'Cost of revenue not separately shown',
+          value: 0,
+          notes: ['The source flows revenue directly to operating profit and operating expenses.'],
+        },
+        operatingExpenses: {
+          total: 1.573514,
+          items: [
+            {
+              id: 'sga',
+              label: 'SG&A',
+              value: 1.016832,
+              notes: ['51% of revenue', '(2pp) Y/Y'],
+            },
+            {
+              id: 'cost_of_service',
+              label: 'Cost of service',
+              value: 0.556682,
+              notes: ['28% of revenue', '+2pp Y/Y'],
+            },
+          ],
+        },
+        tax: {
+          id: 'tax',
+          label: 'Tax',
+          value: 0.199309,
+        },
+      },
+      operatingOtherIncome: {
+        total: 0.343891,
+        items: [
+          {
+            id: 'business_dispositions',
+            label: 'Business dispositions',
+            value: 0.343891,
+            notes: ['Gain on business dispositions represented as $0.3B in the source infographic.'],
+          },
+        ],
+      },
+      otherIncome: {
+        total: 0.225663,
+        items: [
+          {
+            id: 'other',
+            label: 'Other',
+            value: 0.225663,
+            notes: [
+              'Balancing aggregation of interest and other income, equity-method income, and discontinued operations represented as $0.2B in the source infographic.',
+            ],
+          },
+        ],
+      },
+      otherExpenses: {
+        total: 0.143773,
+        items: [
+          {
+            id: 'interest',
+            label: 'Interest',
+            value: 0.143773,
+            notes: ['Interest and other expense represented as ($0.1B) in the source infographic.'],
+          },
+        ],
+      },
+      profit: {
+        gross: {
+          label: 'Gross profit not separately shown',
+          value: 2.007637,
+          notes: ['No separate gross-profit stage appears in the source infographic.'],
+        },
+        operating: {
+          id: 'operating_profit',
+          label: 'Operating profit',
+          value: 0.778014,
+          notes: ['39% margin', '+17pp Y/Y'],
+        },
+        net: {
+          id: 'net_profit',
+          label: 'Net profit',
+          value: 0.660595,
+          notes: ['33% margin', '+16pp Y/Y'],
+        },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['源图标注同比持平'],
+            items: [
+              { label: '美洲', notes: ['同比下降 2%'] },
+              { label: '欧洲', notes: ['同比 +9%'] },
+              { label: '亚太地区', notes: ['同比 +9%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: {
+              label: '未单列收入成本',
+              notes: ['源图将收入直接分流至营业利润和运营费用。'],
+            },
+            operatingExpenses: {
+              items: [
+                { label: '销售、一般及行政费用', notes: ['占收入 51%', '同比下降 2 个百分点'] },
+                { label: '服务成本', notes: ['占收入 28%', '同比 +2 个百分点'] },
+              ],
+            },
+            tax: { label: '所得税' },
+          },
+          operatingOtherIncome: {
+            items: [
+              { label: '业务处置', notes: ['源图以 3 亿美元展示业务处置收益。'] },
+            ],
+          },
+          otherIncome: {
+            items: [
+              {
+                label: '其他',
+                notes: ['源图将利息及其他收入、权益法收益和终止经营影响汇总为 2 亿美元的桥接项。'],
+              },
+            ],
+          },
+          otherExpenses: {
+            items: [
+              { label: '利息', notes: ['利息及其他费用在源图中显示为 1 亿美元。'] },
+            ],
+          },
+          profit: {
+            gross: { label: '未单列毛利润', notes: ['源图未显示单独的毛利润阶段。'] },
+            operating: { label: '营业利润', notes: ['利润率 39%', '同比 +17 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 33%', '同比 +16 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'global-payments-q4-fy25',
       company: 'Global Payments',
       period: 'Q4 FY25',
