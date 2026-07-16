@@ -157,6 +157,98 @@
           profit: { gross: { label: '毛利润', notes: ['利润率 82%', '同比 (10 个百分点)'] }, operating: { label: '营业亏损', notes: ['利润率 (64%)', '同比 (88 个百分点)'] }, net: { label: '营业亏损', notes: ['来源图未单独显示净利润或净亏损项目。'] } },
         },
       },
+    },
+    {
+      key: 'figma-q3-fy25',
+      company: 'Figma',
+      period: 'Q3 FY25',
+      periodNote: 'Quarter ended Sep. 30, 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/figma-q3-fy25.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 274,
+        notes: ['+38% Y/Y'],
+        items: [
+          { id: 'united_states', label: 'United States', value: 127, notes: ['+34% Y/Y'] },
+          { id: 'international', label: 'International', value: 147, notes: ['+42% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          id: 'cost_of_revenue',
+          label: 'Cost of revenue',
+          value: 84,
+        },
+        operatingExpenses: {
+          total: 1327,
+          items: [
+            { id: 'rnd', label: 'Research & development', value: 681, notes: ['248% of revenue', '+196pp Y/Y'] },
+            { id: 'sm', label: 'Sales & marketing', value: 275, notes: ['100% of revenue', '+60pp Y/Y'] },
+            { id: 'ga', label: 'General & Admin', value: 371, notes: ['135% of revenue', '+113pp Y/Y'] },
+          ],
+        },
+        tax: {
+          label: 'Tax',
+          value: 0,
+          notes: ['No separate tax line is shown in the source chart.'],
+        },
+      },
+      otherIncome: {
+        total: 0,
+        items: [],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 190, notes: ['69% margin', '(21pp) Y/Y'] },
+        operating: { id: 'operating_loss', label: 'Operating loss', value: -1137, notes: ['(415%) margin', '(391pp) Y/Y'] },
+        net: {
+          id: 'operating_loss',
+          label: 'Operating loss',
+          value: -1137,
+          notes: ['No separate net income or net loss line is shown in the source chart.'],
+        },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月 30 日的季度',
+          revenue: {
+            notes: ['同比 +38%'],
+            items: [
+              { id: 'united_states', label: '美国', notes: ['同比 +34%'] },
+              { id: 'international', label: '国际', notes: ['同比 +42%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 248%', '同比 +196 个百分点'] },
+                { id: 'sm', label: '销售与营销', notes: ['占收入 100%', '同比 +60 个百分点'] },
+                { id: 'ga', label: '一般及行政', notes: ['占收入 135%', '同比 +113 个百分点'] },
+              ],
+            },
+            tax: {
+              label: '税费',
+              notes: ['来源图未显示单独的税费项目。'],
+            },
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 69%', '同比 (21 个百分点)'] },
+            operating: { label: '营业亏损', notes: ['利润率 (415%)', '同比 (391 个百分点)'] },
+            net: {
+              label: '营业亏损',
+              notes: ['来源图未单独显示净利润或净亏损项目。'],
+            },
+          },
+        },
+      },
     }
   );
 })(window);

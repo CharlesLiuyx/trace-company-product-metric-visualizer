@@ -10,6 +10,77 @@
 
   ssot.records.push(
     {
+      key: 'applovin-q3-fy25',
+      company: 'AppLovin',
+      period: 'Q3 FY25',
+      periodNote: 'Quarter ended Sep. 30, 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/applovin-q3-fy25.png',
+      roundingTolerance: 1.1,
+      notes: [
+        'The source labels operating expenses at $151M while its displayed G&A, S&M, and R&D components sum to $152M; all displayed values are retained within the documented $1M rounding difference.',
+      ],
+      revenue: {
+        total: 1405,
+        notes: ['+68% Y/Y'],
+        items: [
+          { id: 'united_states', label: 'United States', value: 688, notes: ['+62% Y/Y'] },
+          { id: 'rest_of_world', label: 'Rest of the world', value: 717, notes: ['+75% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 175 },
+        operatingExpenses: {
+          total: 151,
+          items: [
+            { id: 'ga', label: 'G&A', value: 59, notes: ['4% of revenue', '(0pp) Y/Y'] },
+            { id: 'sm', label: 'S&M', value: 49, notes: ['3% of revenue', '(4pp) Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 44, notes: ['3% of revenue', '(7pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 185 },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: { total: 58, items: [{ id: 'other', label: 'Other', value: 58 }] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 1230, notes: ['88% margin', '+2pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 1079, notes: ['77% margin', '+13pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 836, notes: ['59% margin', '+7pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月 30 日的季度',
+          revenue: {
+            notes: ['同比 +68%'],
+            items: [
+              { id: 'united_states', label: '美国', notes: ['同比 +62%'] },
+              { id: 'rest_of_world', label: '世界其他地区', notes: ['同比 +75%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'ga', label: '管理费用', notes: ['占收入 4%', '同比 (0 个百分点)'] },
+                { id: 'sm', label: '销售与市场', notes: ['占收入 3%', '同比 (4 个百分点)'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 3%', '同比 (7 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherExpenses: { items: [{ id: 'other', label: '其他' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 88%', '同比 +2 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 77%', '同比 +13 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 59%', '同比 +7 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'applovin-q4-fy25',
       company: 'AppLovin',
       period: 'Q4 FY25',

@@ -273,6 +273,12 @@
       "width": 2667,
       "height": 1500
     },
+    "applovin-q3-fy25": {
+      "similarity": 0.974424,
+      "mae": 6.5218,
+      "width": 2667,
+      "height": 1500
+    },
     "applovin-q4-fy25": {
       "similarity": 0.976994,
       "mae": 5.8665,
@@ -390,6 +396,12 @@
     "axon-q1-fy26": {
       "similarity": 0.966351,
       "mae": 8.5805,
+      "width": 2667,
+      "height": 1500
+    },
+    "axon-q3-fy25": {
+      "similarity": 0.980962,
+      "mae": 4.8547,
       "width": 2667,
       "height": 1500
     },
@@ -849,6 +861,12 @@
       "width": 2667,
       "height": 1500
     },
+    "dynatrace-q2-fy26": {
+      "similarity": 0.97557,
+      "mae": 6.2295,
+      "width": 2667,
+      "height": 1500
+    },
     "dynatrace-q3-fy26": {
       "similarity": 0.977555,
       "mae": 5.7235,
@@ -927,6 +945,12 @@
       "width": 2667,
       "height": 1500
     },
+    "figma-q3-fy25": {
+      "similarity": 0.973292,
+      "mae": 6.8105,
+      "width": 2667,
+      "height": 1500
+    },
     "figma-q4-fy25": {
       "similarity": 0.970824,
       "mae": 7.44,
@@ -966,6 +990,12 @@
     "fortinet-q1-fy26": {
       "similarity": 0.969443,
       "mae": 7.792,
+      "width": 2667,
+      "height": 1500
+    },
+    "fortinet-q3-fy25": {
+      "similarity": 0.971406,
+      "mae": 7.2914,
       "width": 2667,
       "height": 1500
     },
@@ -1875,6 +1905,12 @@
       "width": 2667,
       "height": 1500
     },
+    "palo-alto-q1-fy26": {
+      "similarity": 0.96852,
+      "mae": 8.0273,
+      "width": 2667,
+      "height": 1500
+    },
     "palo-alto-q2-fy26": {
       "similarity": 0.969654,
       "mae": 7.7382,
@@ -1890,6 +1926,12 @@
     "paramount-q1-fy26": {
       "similarity": 0.968068,
       "mae": 8.1426,
+      "width": 2667,
+      "height": 1500
+    },
+    "paramount-q3-fy25": {
+      "similarity": 0.967482,
+      "mae": 8.2922,
       "width": 2667,
       "height": 1500
     },
@@ -2427,6 +2469,12 @@
       "width": 2667,
       "height": 1500
     },
+    "the-trade-desk-q3-fy25": {
+      "similarity": 0.973812,
+      "mae": 6.6779,
+      "width": 2667,
+      "height": 1500
+    },
     "the-trade-desk-q4-fy25": {
       "similarity": 0.965665,
       "mae": 8.7555,
@@ -2619,6 +2667,12 @@
       "width": 2667,
       "height": 1500
     },
+    "warner-bros-q3-fy25": {
+      "similarity": 0.96951,
+      "mae": 7.775,
+      "width": 2667,
+      "height": 1500
+    },
     "warner-bros-q4-fy25": {
       "similarity": 0.97055,
       "mae": 7.5097,
@@ -2694,6 +2748,12 @@
     "zoom-q4-fy26": {
       "similarity": 0.962235,
       "mae": 9.63,
+      "width": 2667,
+      "height": 1500
+    },
+    "zscaler-q1-fy26": {
+      "similarity": 0.976473,
+      "mae": 5.9993,
       "width": 2667,
       "height": 1500
     },

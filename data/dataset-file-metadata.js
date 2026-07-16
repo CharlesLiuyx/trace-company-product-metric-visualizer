@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-16T10:09:32.000Z",
+  "generatedAt": "2026-07-16T14:18:53.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -2711,6 +2711,66 @@
       "path": "data/datasets/oxy-q3-fy25.js",
       "updatedAtMs": 1784196572000,
       "updatedAt": "2026-07-16T10:09:32.000Z",
+      "timeSource": "git"
+    },
+    "fortinet-q3-fy25": {
+      "path": "data/datasets/fortinet-q3-fy25.js",
+      "updatedAtMs": 1784211533000,
+      "updatedAt": "2026-07-16T14:18:53.000Z",
+      "timeSource": "git"
+    },
+    "the-trade-desk-q3-fy25": {
+      "path": "data/datasets/the-trade-desk-q3-fy25.js",
+      "updatedAtMs": 1784211533000,
+      "updatedAt": "2026-07-16T14:18:53.000Z",
+      "timeSource": "git"
+    },
+    "applovin-q3-fy25": {
+      "path": "data/datasets/applovin-q3-fy25.js",
+      "updatedAtMs": 1784211533000,
+      "updatedAt": "2026-07-16T14:18:53.000Z",
+      "timeSource": "git"
+    },
+    "warner-bros-q3-fy25": {
+      "path": "data/datasets/warner-bros-q3-fy25.js",
+      "updatedAtMs": 1784211533000,
+      "updatedAt": "2026-07-16T14:18:53.000Z",
+      "timeSource": "git"
+    },
+    "zscaler-q1-fy26": {
+      "path": "data/datasets/zscaler-q1-fy26.js",
+      "updatedAtMs": 1784211533000,
+      "updatedAt": "2026-07-16T14:18:53.000Z",
+      "timeSource": "git"
+    },
+    "axon-q3-fy25": {
+      "path": "data/datasets/axon-q3-fy25.js",
+      "updatedAtMs": 1784211533000,
+      "updatedAt": "2026-07-16T14:18:53.000Z",
+      "timeSource": "git"
+    },
+    "paramount-q3-fy25": {
+      "path": "data/datasets/paramount-q3-fy25.js",
+      "updatedAtMs": 1784211533000,
+      "updatedAt": "2026-07-16T14:18:53.000Z",
+      "timeSource": "git"
+    },
+    "figma-q3-fy25": {
+      "path": "data/datasets/figma-q3-fy25.js",
+      "updatedAtMs": 1784211533000,
+      "updatedAt": "2026-07-16T14:18:53.000Z",
+      "timeSource": "git"
+    },
+    "palo-alto-q1-fy26": {
+      "path": "data/datasets/palo-alto-q1-fy26.js",
+      "updatedAtMs": 1784211533000,
+      "updatedAt": "2026-07-16T14:18:53.000Z",
+      "timeSource": "git"
+    },
+    "dynatrace-q2-fy26": {
+      "path": "data/datasets/dynatrace-q2-fy26.js",
+      "updatedAtMs": 1784211533000,
+      "updatedAt": "2026-07-16T14:18:53.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {
