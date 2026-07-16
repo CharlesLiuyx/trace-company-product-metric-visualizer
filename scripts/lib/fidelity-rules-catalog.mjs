@@ -216,7 +216,7 @@ export const FIDELITY_RULES = Object.freeze([
     stage: 'text',
     topics: ['label'],
     features: ['centered-side-label'],
-    trigger: '`centered-side-label` 触发。',
+    trigger: '`centered-side-label`，或渲染结果中同一 node 同时出现独立金额同轴块与侧置名称块时触发。',
     pass: '侧置 label 垂直中心差 `<=4px`；顶对齐或分组侧标不得误标该 feature。',
   }),
   rule('B4', 'manual', {
@@ -508,7 +508,7 @@ export const FIDELITY_RULES = Object.freeze([
     stage: 'text',
     topics: ['label'],
     features: ['centered-side-label'],
-    trigger: '`centered-side-label` 触发。',
+    trigger: '`centered-side-label`，或渲染结果中同一 node 同时出现独立金额同轴块与侧置名称块时触发。',
     pass: '渲染中心与 node 中心差 `<=4px`；使用实际 bbox/ascent 反推 top。',
   }),
   rule('T8', 'manual', {

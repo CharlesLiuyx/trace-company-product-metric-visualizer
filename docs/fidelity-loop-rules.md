@@ -329,7 +329,7 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 #### <a id="rule-b3"></a>B3 · conditional-gate
 
 - 阶段：text · 主题：label
-- 触发：`centered-side-label` 触发。
+- 触发：`centered-side-label`，或渲染结果中同一 node 同时出现独立金额同轴块与侧置名称块时触发。
 - 通过：侧置 label 垂直中心差 `<=4px`；顶对齐或分组侧标不得误标该 feature。
 - feature：`centered-side-label`
 
@@ -625,7 +625,7 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 #### <a id="rule-t7"></a>T7 · conditional-gate
 
 - 阶段：text · 主题：label
-- 触发：`centered-side-label` 触发。
+- 触发：`centered-side-label`，或渲染结果中同一 node 同时出现独立金额同轴块与侧置名称块时触发。
 - 通过：渲染中心与 node 中心差 `<=4px`；使用实际 bbox/ascent 反推 top。
 - feature：`centered-side-label`
 
