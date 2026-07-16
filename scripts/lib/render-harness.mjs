@@ -1101,6 +1101,7 @@ export function classifyLabelLayoutAudit(geometry) {
     .map((item, index) => ({
       node: item.node,
       labelIndex: item.labelIndex ?? index,
+      text: String(item.text || '').replace(/\s+/g, ' ').trim(),
       box: normalizeBox(item.box),
     }))
     .filter((item) => item.node && item.box.width > 0 && item.box.height > 0);
@@ -1135,6 +1136,7 @@ export function classifyLabelLayoutAudit(geometry) {
         horizontalSideLabels.push({
           node: label.node,
           labelIndex: label.labelIndex,
+          text: label.text,
           side: 'left-of-node',
           gap: round(node.left - label.box.right),
           overlap: 0,
@@ -1145,6 +1147,7 @@ export function classifyLabelLayoutAudit(geometry) {
         horizontalSideLabels.push({
           node: label.node,
           labelIndex: label.labelIndex,
+          text: label.text,
           side: 'right-of-node',
           gap: round(label.box.left - node.right),
           overlap: 0,
@@ -1155,6 +1158,7 @@ export function classifyLabelLayoutAudit(geometry) {
         horizontalSideLabels.push({
           node: label.node,
           labelIndex: label.labelIndex,
+          text: label.text,
           side: label.box.centerX < node.centerX ? 'left-overlap' : 'right-overlap',
           gap: round(-overlap),
           overlap: round(overlap),
@@ -1174,6 +1178,7 @@ export function classifyLabelLayoutAudit(geometry) {
     verticalStacks.push({
       node: label.node,
       labelIndex: label.labelIndex,
+      text: label.text,
       direction: above ? 'above-node' : 'below-node',
       centerDelta: round(centerDelta),
       gap: round(gap),
@@ -1205,6 +1210,18 @@ export function classifyLabelLayoutAudit(geometry) {
   const centerViolations = verticalStacks.filter(
     (item) => item.shortNode && item.centerDelta > thresholds.shortNodeCenterMaxDelta
   );
+  const amountLike = (text) =>
+    /(?:^|\s)\(?(?:[$€£¥₹₩₽]|(?:USD|EUR|GBP|JPY|CNY|RMB)\b)\s*[-+]?\d/i.test(text) ||
+    /(?:^|\s)\(?[-+]?\d[\d,.]*\s*(?:[KMBT]|bn|mn)\b/i.test(text);
+  const splitAmountNodes = new Set(
+    verticalStacks.filter((item) => amountLike(item.text)).map((item) => item.node)
+  );
+  const inferredCenteredSideLabels = horizontalSideLabels.filter(
+    (item) => splitAmountNodes.has(item.node)
+  );
+  const inferredCenteredSideLabelViolations = inferredCenteredSideLabels.filter(
+    (item) => item.verticalCenterDelta > thresholds.shortNodeCenterMaxDelta
+  );
   return {
     thresholds,
     verticalStacks,
@@ -1213,6 +1230,8 @@ export function classifyLabelLayoutAudit(geometry) {
     adjacentLabelGaps,
     horizontalSideLabels,
     horizontalViolations,
+    inferredCenteredSideLabels,
+    inferredCenteredSideLabelViolations,
   };
 }
 
@@ -1233,6 +1252,7 @@ async function collectLabelGeometry(page) {
         (element, labelIndex) => ({
           node: element.getAttribute('data-node'),
           labelIndex,
+          text: String(element.textContent || '').replace(/\s+/g, ' ').trim(),
           box: boxFor(element),
         })
       ),

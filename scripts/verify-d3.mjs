@@ -143,7 +143,7 @@ function formatPx(value) {
 
 function logLabelLayoutAudit(audit) {
   console.log(
-    `label-node layout audit: sameAxisLabelNodes=${audit.verticalStacks.length} verticalViolations=${audit.verticalViolations.length} centerViolations=${audit.centerViolations.length} adjacentLabelGaps=${audit.adjacentLabelGaps.length} horizontalSideLabels=${audit.horizontalSideLabels.length} horizontalViolations=${audit.horizontalViolations.length} rule=same-axis vertical gap target 5px/min 4px; short-node centerDelta max 4px; horizontal overlap forbidden (docs/fidelity-loop-rules.md)`
+    `label-node layout audit: sameAxisLabelNodes=${audit.verticalStacks.length} verticalViolations=${audit.verticalViolations.length} centerViolations=${audit.centerViolations.length} adjacentLabelGaps=${audit.adjacentLabelGaps.length} horizontalSideLabels=${audit.horizontalSideLabels.length} horizontalViolations=${audit.horizontalViolations.length} inferredCenteredSideLabels=${audit.inferredCenteredSideLabels.length} inferredCenterViolations=${audit.inferredCenteredSideLabelViolations.length} rule=same-axis vertical gap target 5px/min 4px; short-node and split side-label centerDelta max 4px; horizontal overlap forbidden (docs/fidelity-loop-rules.md)`
   );
 
   const maxRows = 12;
@@ -173,6 +173,11 @@ function logLabelLayoutAudit(audit) {
   if (audit.horizontalSideLabels.length > maxRows) {
     console.log(`  horizontal ... ${audit.horizontalSideLabels.length - maxRows} more`);
   }
+  audit.inferredCenteredSideLabels.slice(0, maxRows).forEach((item) => {
+    console.log(
+      `  inferred-centered ${item.node}#${item.labelIndex} ${item.side}: verticalCenterDelta=${formatPx(item.verticalCenterDelta)}`
+    );
+  });
 }
 
 function assertLabelLayoutAudit(audit) {
@@ -196,6 +201,13 @@ function assertLabelLayoutAudit(audit) {
       .map((item) => `${item.node}#${item.labelIndex} ${item.side} overlap=${formatPx(item.overlap)}`)
       .join(', ');
     throw new Error(`Label-node horizontal overlap failed: ${details}`);
+  }
+  if (audit.inferredCenteredSideLabelViolations.length) {
+    const details = audit.inferredCenteredSideLabelViolations
+      .slice(0, 5)
+      .map((item) => `${item.node}#${item.labelIndex} ${item.side} centerDelta=${formatPx(item.verticalCenterDelta)}`)
+      .join(', ');
+    throw new Error(`Split side-label center alignment failed: ${details}`);
   }
 }
 

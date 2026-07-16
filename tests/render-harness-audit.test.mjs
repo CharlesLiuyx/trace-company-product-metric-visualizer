@@ -254,6 +254,34 @@ test('G10 reports the 5px side target and fails only positive overlap', () => {
   assert.equal(failure.horizontalViolations.length, 1);
 });
 
+test('B3/T7 infer centered-side-label from a separate amount block and side name block', () => {
+  const geometry = (sideY) => classifyLabelLayoutAudit({
+    nodes: [{ id: 'region', box: { x: 100, y: 100, width: 20, height: 40 } }],
+    labels: [
+      {
+        node: 'region',
+        labelIndex: 0,
+        text: '$0.2B +18% Y/Y',
+        box: { x: 100, y: 75, width: 20, height: 20 },
+      },
+      {
+        node: 'region',
+        labelIndex: 1,
+        text: 'LATAM',
+        box: { x: 50, y: sideY, width: 40, height: 20 },
+      },
+    ],
+  });
+
+  const passing = geometry(110);
+  assert.equal(passing.inferredCenteredSideLabels.length, 1);
+  assert.deepEqual(passing.inferredCenteredSideLabelViolations, []);
+
+  const failure = geometry(100);
+  assert.equal(failure.inferredCenteredSideLabelViolations.length, 1);
+  assert.equal(failure.inferredCenteredSideLabelViolations[0].verticalCenterDelta, 10);
+});
+
 test('Build-bound render evidence cannot archive a failed planned text, annotation, or centered-label gate', () => {
   const plan = {
     requiredChecks: [
