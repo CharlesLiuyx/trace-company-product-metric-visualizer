@@ -24,19 +24,18 @@ The user's explicit statement that human review is complete (including
 
 1. enumerate every current processing PNG;
 2. present the complete list of dataset keys and paths to the operator and
-   wait for their explicit confirmation before moving anything; the confirmed
-   list, not the raw directory contents, is the relocation scope;
+   wait for explicit confirmation; the confirmed list, not the raw directory
+   contents, is the relocation scope;
 3. fail safely if any same-name destination already exists under
    `input/processed/` for a confirmed PNG;
 4. otherwise move the confirmed PNGs directly to `input/processed/`, report
    the moved set, and commit their removal from the tracked processing queue
    without force-adding the ignored processed archive.
 
-This is the only current Source-relocation authority. It neither requires nor
-creates a Build receipt, structured attestation, seal, `verify:closeout`, or M4
-Publication. Without a signal and confirmed list, leave every Source in
-`processing/`. A move preserves Source digest identity and must never overwrite
-or rename a processed image.
+This is the only Source-relocation authority; it neither requires nor creates
+a Build receipt, attestation, seal, or `verify:closeout`. Without a signal and
+confirmed list, every Source stays in `processing/`. A move preserves Source
+digest identity and never overwrites or renames a processed image.
 
 ## Object Taxonomy
 
@@ -67,32 +66,34 @@ Every independent Source observation uses one `source:*` ID and one class:
 | `non-semantic-residual` | skip only: publisher attribution, creator branding, URL, social badge, or decorative residue |
 
 `Other`, `Others`, `All Other`, other-income/expense, and every value-bearing
-label are semantic. Missing icons and small magnitude never make one residual,
-skippable, an annotation, or hidden. A value-bearing Other is a data metric:
-classify it `financial-value`/`metric-observation` — never
-`label-or-annotation` — and claim its node face `visible`; annotation classing
-or a hidden face claim fails at coverage assembly (T22). A genuine below-floor
-Source face keeps its bar through the typed floor exception, never by hiding.
-`source-coverage/v1` requires
-`semantic-value`, `geometry`, and `residual` scans and derives Other IDs, three
-smallest non-zero amounts, visible/hidden IDs, and floor exceptions.
+label are semantic; small magnitude or a missing icon never makes one
+residual, skippable, an annotation, or hidden. A value-bearing Other is a data metric —
+`financial-value`/`metric-observation`, never `label-or-annotation` — and
+annotation classing or a hidden face claim fails coverage assembly (T22). The
+painted-face invariant generalizes this to every value-bearing object: any
+Source-painted face, 1–2px strips included, is claimed `visible` at native
+measured height; `hidden` requires a zero-paint pixel scan proving the Source
+paints no face at all (technical bridges included; CB-003/CB-007). T21 blocks
+expected-visible faces below 3px; a genuine sub-floor face keeps its bar via
+the typed `source-visible-face-below-floor` exception bound to Source digest,
+native bbox/crop, pixel scan, and one node — never inflated, never hidden;
+T21/T14 still govern acceptance.
+
+Coverage binds each face to one node and inventory intent;
+`source-coverage/v1` requires the `semantic-value`/`geometry`/`residual`
+scans and derives Other IDs, three smallest non-zero amounts, visible/hidden
+IDs, and floor exceptions.
 
 If `$0.0B` or another zero literal represents a non-zero semantic object,
-`precisionRecovery` is mandatory: `authoritative-supplemental-source`, locator, and a higher-precision
-K/M/B/T literal that normalizes exactly to the authored non-zero amount.
+`precisionRecovery` is mandatory: `authoritative-supplemental-source`,
+locator, and a higher-precision K/M/B/T literal that normalizes exactly to
+the authored non-zero amount.
 
-When a non-zero literal has a confirmed unit typo, retain the original literal
-and require a user-directed `authoritative-source-correction` bound to the
-official locator/literal, approved corrected literal, `unit-typo` issue, and
-reason. Both official and corrected values must support the authored amount
-within the Source resolution. This is not precision recovery and cannot be
-inferred or combined with it.
-
-Face classification details belong to fidelity §2. Coverage binds each face to
-one node and inventory intent. T21 is blocking: expected-visible faces below
-3px fail. A genuine Source face below 3px needs the typed
-`source-visible-face-below-floor` exception bound to Source digest, native
-bbox/crop, pixel scan, and one node; T21/T14 still govern acceptance.
+A confirmed non-zero unit typo keeps the original literal and needs a
+user-directed `authoritative-source-correction` bound to the official
+locator/literal, approved corrected literal, `unit-typo` issue, and reason;
+both values must support the authored amount within Source resolution. It is
+distinct from precision recovery and never inferred or combined with it.
 
 ## Execution Model
 
@@ -113,8 +114,8 @@ invalidates an earlier gate reopens that step before downstream work continues.
 
 Select one PNG, ignore `.gitkeep`, inspect the whole Source, choose the two
 positive signals from §Object Taxonomy, and assign a lowercase kebab key such
-as `nvidia-q4-fy26`. Run the selected-item guard; the final-key pass is an
-optional early failure because intake repeats it:
+as `nvidia-q4-fy26`. Run the selected-item guard; intake repeats the key
+check, so a guard key failure only surfaces earlier:
 
     pnpm check:pending -- --file input/pending/<file>.png --key <dataset-key>
 
@@ -135,8 +136,7 @@ Run intake with both signals:
 
 It records full-image `source-classification/v1`, Source/base digests and
 dimensions, then no-clobber claims `input/processing/<dataset-key>.png`.
-Preserve Build ID, manifest, classification digest, and path. This is not
-Publication.
+Preserve Build ID, manifest, classification digest, and path.
 
 **STOP:** intake/claim failure, destination collision, Source digest mismatch,
 or an unexpected pending/processing/processed locator state. Treat it as
@@ -148,29 +148,26 @@ Create matching `object-inventory/v3` and `source-coverage/v1`; scan the Source:
 
 1. semantic-value: every displayed financial value/metric observation;
 2. geometry: every node face, link/guide, label/callout, and asset cluster;
+   at every multi-link face record the Source top-to-bottom per-link identity
+   order — the only admissible source for authored `sourceOrder`/`targetOrder`;
 3. residual: only the closed non-semantic residual kinds in §Object Taxonomy.
 
-Each item records native bbox, inventory IDs, mapping roles, and where relevant
-exact amount, typed SSOT reference, and face observation. Give every inventory
-object one Source owner. Match casebook triggers; wrong-type and short/Other
-risks consume CB-024 and CB-003/CB-007/CB-023 when applicable. An Other-like
-object displaying an amount is authored as a data metric with a `visible` face
-claim — below-floor faces take the typed floor exception; T22 fails annotation
-or hidden classing at assembly.
-
-For a rounded-zero literal, recover authoritative precision before authoring;
-never convert or hide it as zero. For a confirmed non-zero unit typo, record
-the explicit user-approved authoritative correction before authoring; absent
-that correction, the Source/SSOT contradiction remains a hard stop.
+Each item records native bbox, inventory IDs, mapping roles, and where
+relevant exact amount, typed SSOT reference, and face observation; every
+inventory object gets one Source owner. Face claims and rounded-zero or
+unit-typo literals follow §Object Taxonomy before authoring. Match casebook
+triggers; wrong-type and short/Other risks consume CB-024 and
+CB-003/CB-007/CB-023 when applicable.
 
 **Output:** inventory and coverage summaries for Other, three smallest non-zero
 values, visible/hidden IDs, typed floor exceptions, and casebook hits.
 
 **STOP:** semantic skip; Other treated as icon residue; a value-bearing Other
-classed as annotation or claimed hidden (T22); missing/duplicate
-coverage; unclassified face; or contradiction with the intaked Adapter. There
-is no retype command—stop and report recovery. Missing required precision
-recovery or authoritative correction is also a hard stop.
+classed as annotation or claimed hidden (T22); a hidden face claim without a
+zero-paint pixel scan; a multi-link face without a recorded per-link order;
+missing required precision recovery or authoritative correction;
+missing/duplicate coverage; unclassified face; or contradiction with the
+intaked Adapter — there is no retype command; stop and report recovery.
 
 ### Step 4 — Parallel preparation
 
@@ -179,7 +176,7 @@ Only after Step 3 is complete may these tracks run in parallel:
 - **Data:** metadata and Adapter-owned Metric SSOT, including every value item.
 - **Visual:** fidelity §2 preflight bound to this Build Source digest.
 - **Icons, conditional:** crop spec plus `extract_icon_crops.py`; follow the
-  asset doc and I/R rules. No icon changes only asset coverage.
+  asset doc and I/R rules. With no icon changes, only asset coverage applies.
 
 Author final `input/processed/<dataset-key>.png` references; tools may resolve
 the same-key processing claim while that locator is absent.
@@ -197,12 +194,16 @@ icon loop, or render evidence. Run:
     pnpm sync:index-datasets
 
 Reconcile Source Coverage → inventory → SSOT → Adapter/data. Inspect Other,
-the three smallest non-zero values, and visible faces. i18n is display-only.
-Recovered values stay non-zero: raise SSOT decimals for Table; raise Adapter decimals or use exact non-zero `valueText` for Sankey.
+the three smallest non-zero values, and visible faces. Author
+`sourceOrder`/`targetOrder` only from the Step 3 per-face order — never from
+the other end's geometry or a value sort; crossing links invert it (CB-001).
+i18n is display-only. Recovered values stay non-zero: raise SSOT decimals for
+Table; raise Adapter decimals or use exact non-zero `valueText` for Sankey.
 
 **STOP:** any reconciliation mismatch, missing small/Other surface, invalid
-node-face mapping, missing fixed-label measurement, untranslated required
-surface, registration drift, or any non-zero item still displayed as zero.
+node-face mapping, an authored face order contradicting the recorded Source
+order, missing fixed-label measurement, untranslated required surface,
+registration drift, or any non-zero item still displayed as zero.
 
 ### Step 6 — Prepare review
 
@@ -218,6 +219,7 @@ Preserve `reviewToken` and coverage digest.
 
 **STOP:** any preparation failure, stale digest, missing `reviewToken`, or an
 open Source Coverage reconciliation. Do not collect closure evidence first.
+
 ### Step 7 — Record evidence and run staged review
 
 Record Build-bound consistency evidence, then Income Statement render evidence:
@@ -230,8 +232,11 @@ Record Build-bound consistency evidence, then Income Statement render evidence:
 `record:fidelity` is durable; `verify:d3` is optional diagnosis, and typed
 floor exceptions require its Plan-bound `--build` form. Follow fidelity §4.
 Structure freezes only when coverage visible IDs, inventory intent, and
-per-locale paint agree; T21 blocks unexcepted sub-floor faces. Review Other,
-smallest values, casebook hits, hidden anchors, and exceptions.
+per-locale paint agree; T21 blocks unexcepted sub-floor faces. Same-color
+multi-inflow faces are G12/L11-blind (occupancy cannot recover per-link
+identity), so freeze also requires the B8/L1–L4 per-link identity reconcile
+against Source crops; a recurrence face gets a dataset contract test. Review
+Other, smallest values, casebook hits, hidden anchors, and exceptions.
 `evidence-ready` is not acceptance.
 
 Minimum re-verification after change:
@@ -258,8 +263,7 @@ After the final authored change, refresh Packet/evidence as needed and run:
 Finish consumes token, consistency, coverage review, locale evidence,
 attestation, regions, Matrix, attention, and feedback. Only accepted results
 record `CLOSED`; machine-only green is `review-pending`. Baseline is future
-regression only. Seal re-hashes and reruns the final profile; it does not
-publish.
+regression only; seal re-hashes and reruns the final profile.
 
 Merge requires accepted review. Formal Build audit also requires staging,
 seal, and closeout; otherwise report every skipped step and reason.
@@ -287,9 +291,10 @@ and report that no move was authorized.
 ## Traps and Hard Constraints
 
 - Fidelity definitions/formulas live only in its catalog; this workflow links.
-- A value-bearing Other never loses its bar: data-metric class plus `visible`
-  face claim; annotation/hidden-anchor classing fails at coverage assembly
-  (T22, CB-003/CB-007).
+- No painted Source face is ever claimed hidden; sub-floor faces keep native
+  height via the typed exception, never inflation (T21/T22, CB-003/CB-007).
+- Multi-link face order comes only from Source measurement at that face;
+  same-color inflows are G12/L11-blind — manual per-link reconcile (CB-001).
 - Title/period use rendered bboxes, not authored baselines (CB-015).
 - Preserve displayed integer decimals through schema `valueText` (CB-016).
 - Resolve raster/localized-text collisions per Z6a/CB-017 without shared
@@ -307,12 +312,13 @@ and report that no move was authorized.
 Always, before the final response:
 
 - `pnpm check` passes; fresh-checkout/CI details stay in AGENTS and CI docs.
-- The current Build has matching Source Classification, Source Coverage,
-  ObjectInventory, Plan v4, Review Packet v3, consistency evidence, and
-  authored digests.
+- The Build has matching Source Classification/Coverage, ObjectInventory,
+  Plan v4, Packet v3, consistency evidence, and authored digests.
 - Coverage manual review cites Source + coverage digests; Other, smallest
   non-zero, visible/hidden, and floor-exception sets are accounted for, and no
-  value-bearing Other is annotation-classed or hidden (T22).
+  painted-face object is claimed hidden (T22, CB-003/CB-007).
+- Authored `sourceOrder`/`targetOrder` match the Step 3 measured per-face
+  order; same-color multi-inflow faces carry per-link B8 evidence (CB-001).
 - Rounded-zero semantic items have authoritative precision recovery, and
   neither Table nor Sankey displays the recovered non-zero value as zero.
 - Income Statement required locales have fresh `fidelity-run/2` evidence and
@@ -321,8 +327,8 @@ Always, before the final response:
   and recurrence upgrades, with no failed/open result.
 - T21/node-face policy passes per locale; expected-visible, confirmed-visible,
   hidden-anchor, exception, and unclassified sets reconcile.
-- `verify:closeout` passes when required by Step 8; it never moves a Source.
-- Relocation used the confirmed list without force-adding processed; otherwise
+- `verify:closeout` passes when required by Step 8 and never moves a Source;
+  relocation used the confirmed list without force-adding processed, else
   Sources remain processing.
 - Icon validation, `verify:app`, and standalone checks pass when their scoped
   changes or requested artifacts require them.
