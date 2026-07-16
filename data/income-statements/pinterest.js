@@ -10,6 +10,82 @@
 
   ssot.records.push(
     {
+      key: 'pinterest-q3-fy25',
+      company: 'Pinterest',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/pinterest-q3-fy25.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 1049,
+        notes: ['+17% Y/Y'],
+        items: [
+          { id: 'us_canada', label: 'US & Canada', value: 786, notes: ['+9% Y/Y'] },
+          { id: 'europe', label: 'Europe', value: 193, notes: ['+41% Y/Y'] },
+          { id: 'rest_of_world', label: 'Rest of the world', value: 70, notes: ['+67% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 212 },
+        operatingExpenses: {
+          total: 778,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 371, notes: ['35% of revenue', '(1pp) Y/Y'] },
+            { id: 'sm', label: 'S&M', value: 297, notes: ['28% of revenue', '+1pp Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 110, notes: ['11% of revenue', '(5pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0 },
+      },
+      otherIncome: {
+        total: 34,
+        items: [
+          { id: 'other_29', label: 'Other', value: 29 },
+          { id: 'other_5', label: 'Other', value: 5 },
+        ],
+      },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 837, notes: ['80% margin', '+1pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 58, notes: ['6% margin', '+6pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 92, notes: ['9% margin', '+5pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +17%'],
+            items: [
+              { label: '美国和加拿大', notes: ['同比 +9%'] },
+              { label: '欧洲', notes: ['同比 +41%'] },
+              { label: '世界其他地区', notes: ['同比 +67%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { label: '研发', notes: ['占收入 35%', '同比 (1 个百分点)'] },
+                { label: '销售与营销', notes: ['占收入 28%', '同比 +1 个百分点'] },
+                { label: '管理费用', notes: ['占收入 11%', '同比 (5 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: { items: [{ label: '其他' }, { label: '其他' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 80%', '同比 +1 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 6%', '同比 +6 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 9%', '同比 +5 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'pinterest-q1-fy26',
       company: 'Pinterest',
       period: 'Q1 FY26',

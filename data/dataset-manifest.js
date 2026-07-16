@@ -9434,6 +9434,190 @@
             }
           }
         }
+      },
+      {
+        "key": "pinterest-q3-fy25",
+        "src": "data/datasets/pinterest-q3-fy25.js",
+        "data": {
+          "name": "Pinterest · Q3 FY25",
+          "company": "Pinterest",
+          "meta": {
+            "title": "Pinterest Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Pinterest · 2025 财年第三季度",
+              "meta": {
+                "title": "Pinterest 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "snap-q3-fy25",
+        "src": "data/datasets/snap-q3-fy25.js",
+        "data": {
+          "name": "Snap · Q3 FY25",
+          "company": "Snap",
+          "meta": {
+            "title": "Snap Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Snap · 2025 财年第三季度",
+              "meta": {
+                "title": "Snap 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "global-payments-q3-fy25",
+        "src": "data/datasets/global-payments-q3-fy25.js",
+        "data": {
+          "name": "Global Payments · Q3 FY25",
+          "company": "Global Payments",
+          "meta": {
+            "title": "Global Payments Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Global Payments · 2025 财年第三季度",
+              "meta": {
+                "title": "Global Payments 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nyt-q3-fy25",
+        "src": "data/datasets/nyt-q3-fy25.js",
+        "data": {
+          "name": "The NYT - Q3 FY25",
+          "company": "The New York Times Company",
+          "meta": {
+            "title": "The NYT Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "The NYT · 2025 财年第三季度",
+              "meta": {
+                "title": "The NYT 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "zillow-q3-fy25",
+        "src": "data/datasets/zillow-q3-fy25.js",
+        "data": {
+          "name": "Zillow · Q3 FY25",
+          "company": "Zillow",
+          "meta": {
+            "title": "Zillow Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Zillow · 2025 财年第三季度",
+              "meta": {
+                "title": "Zillow 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "duolingo-q3-fy25",
+        "src": "data/datasets/duolingo-q3-fy25.js",
+        "data": {
+          "name": "Duolingo · Q3 FY25",
+          "company": "Duolingo",
+          "meta": {
+            "title": "Duolingo Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Duolingo · 2025 财年第三季度",
+              "meta": {
+                "title": "Duolingo 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "peloton-q1-fy26",
+        "src": "data/datasets/peloton-q1-fy26.js",
+        "data": {
+          "name": "Peloton · Q1 FY26",
+          "company": "Peloton",
+          "meta": {
+            "title": "Peloton Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Sept. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Peloton · 2026 财年第一季度",
+              "meta": {
+                "title": "Peloton 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "match-group-q3-fy25",
+        "src": "data/datasets/match-group-q3-fy25.js",
+        "data": {
+          "name": "Match Group · Q3 FY25",
+          "company": "Match Group",
+          "meta": {
+            "title": "Match Group Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Match Group · 2025 财年第三季度",
+              "meta": {
+                "title": "Match Group 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

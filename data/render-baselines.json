@@ -777,6 +777,12 @@
       "width": 2667,
       "height": 1500
     },
+    "duolingo-q3-fy25": {
+      "similarity": 0.978158,
+      "mae": 5.5698,
+      "width": 2667,
+      "height": 1500
+    },
     "duolingo-q4-fy25": {
       "similarity": 0.982021,
       "mae": 4.5848,
@@ -936,6 +942,12 @@
     "global-e-q4-fy25": {
       "similarity": 0.974988,
       "mae": 6.3782,
+      "width": 2667,
+      "height": 1500
+    },
+    "global-payments-q3-fy25": {
+      "similarity": 0.968699,
+      "mae": 7.9819,
       "width": 2667,
       "height": 1500
     },
@@ -1329,6 +1341,12 @@
       "width": 2667,
       "height": 1500
     },
+    "match-group-q3-fy25": {
+      "similarity": 0.974717,
+      "mae": 6.4471,
+      "width": 2667,
+      "height": 1500
+    },
     "match-group-q4-fy25": {
       "similarity": 0.974946,
       "mae": 6.3887,
@@ -1689,6 +1707,12 @@
       "width": 4686,
       "height": 2636
     },
+    "nyt-q3-fy25": {
+      "similarity": 0.967039,
+      "mae": 8.405,
+      "width": 2667,
+      "height": 1500
+    },
     "nyt-q4-fy25": {
       "similarity": 0.971384,
       "mae": 7.2971,
@@ -1797,6 +1821,12 @@
       "width": 2667,
       "height": 1500
     },
+    "peloton-q1-fy26": {
+      "similarity": 0.976031,
+      "mae": 6.1121,
+      "width": 2667,
+      "height": 1500
+    },
     "peloton-q2-fy26": {
       "similarity": 0.977439,
       "mae": 5.753,
@@ -1836,6 +1866,12 @@
     "pinterest-q1-fy26": {
       "similarity": 0.964657,
       "mae": 9.0124,
+      "width": 2667,
+      "height": 1500
+    },
+    "pinterest-q3-fy25": {
+      "similarity": 0.964244,
+      "mae": 9.1178,
       "width": 2667,
       "height": 1500
     },
@@ -2052,6 +2088,12 @@
     "snap-q1-fy26": {
       "similarity": 0.974089,
       "mae": 6.6072,
+      "width": 2667,
+      "height": 1500
+    },
+    "snap-q3-fy25": {
+      "similarity": 0.975104,
+      "mae": 6.3484,
       "width": 2667,
       "height": 1500
     },
@@ -2478,6 +2520,12 @@
     "zillow-q1-fy26": {
       "similarity": 0.971517,
       "mae": 7.2632,
+      "width": 2667,
+      "height": 1500
+    },
+    "zillow-q3-fy25": {
+      "similarity": 0.980897,
+      "mae": 4.8714,
       "width": 2667,
       "height": 1500
     },

@@ -10,6 +10,97 @@
 
   ssot.records.push(
     {
+      key: 'duolingo-q3-fy25',
+      company: 'Duolingo',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/duolingo-q3-fy25.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 272,
+        notes: ['+41% Y/Y'],
+        items: [
+          { id: 'subscription', label: 'Subscription', value: 230, notes: ['+46% Y/Y'] },
+          {
+            id: 'other_revenue',
+            label: 'Other',
+            value: 42,
+            notes: [
+              '+21% Y/Y',
+              'Comprises advertising, Duolingo English Test, in-app purchases, and other revenue; the source infographic displays the combined amount as $42M.',
+            ],
+          },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 75 },
+        operatingExpenses: {
+          total: 162,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 83, notes: ['30% of revenue', '(2pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 44, notes: ['16% of revenue', '(4pp) Y/Y'] },
+            { id: 'sm', label: 'S&M', value: 35, notes: ['13% of revenue', '(0pp) Y/Y'] },
+          ],
+        },
+        tax: {
+          label: 'Tax',
+          value: 0,
+          notes: ['The source infographic shows a tax benefit rather than a tax expense.'],
+        },
+      },
+      otherIncome: {
+        total: 257,
+        items: [
+          { id: 'tax_benefit', label: 'Tax benefit', value: 245 },
+          { id: 'interest', label: 'Interest', value: 12 },
+        ],
+      },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 197, notes: ['72% margin', '(0pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 35, notes: ['13% margin', '+6pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 292 },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +41%'],
+            items: [
+              { id: 'subscription', label: '订阅', notes: ['同比 +46%'] },
+              { id: 'other_revenue', label: '其他', notes: ['同比 +21%', '包括广告、Duolingo English Test、应用内购买和其他收入；来源图将合计金额显示为 $42M。'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 30%', '同比 (2 个百分点)'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 16%', '同比 (4 个百分点)'] },
+                { id: 'sm', label: '销售与营销', notes: ['占收入 13%', '同比 (0 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费', notes: ['来源图展示税收收益，而非税费。'] },
+          },
+          otherIncome: {
+            items: [
+              { id: 'tax_benefit', label: '税收收益' },
+              { id: 'interest', label: '利息' },
+            ],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 72%', '同比 (0 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 13%', '同比 +6 个百分点'] },
+            net: { label: '净利润' },
+          },
+        },
+      },
+    },
+    {
       key: 'duolingo-q1-fy26',
       company: 'Duolingo',
       period: 'Q1 FY26',

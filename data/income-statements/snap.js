@@ -10,6 +10,89 @@
 
   ssot.records.push(
     {
+      key: 'snap-q3-fy25',
+      company: 'Snap',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/snap-q3-fy25.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 1507,
+        notes: ['+10% Y/Y'],
+        items: [
+          { id: 'north_america', label: 'North America', value: 898, notes: ['+5% Y/Y'] },
+          { id: 'europe', label: 'Europe', value: 298, notes: ['+20% Y/Y'] },
+          { id: 'rest_of_world', label: 'Rest of world', value: 311, notes: ['+17% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 674 },
+        operatingExpenses: {
+          total: 961,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 453, notes: ['30% of revenue', '+0pp Y/Y'] },
+            { id: 'sm', label: 'S&M', value: 256, notes: ['17% of revenue', '(3pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 251, notes: ['16% of revenue', '+1pp Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0 },
+      },
+      otherIncome: {
+        total: 0,
+        items: [],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 833, notes: ['55% margin', '+2pp Y/Y'] },
+        operating: { id: 'operating_loss', label: 'Operating loss', value: -128, notes: ['(9%) margin', '+4pp Y/Y'] },
+        net: {
+          id: 'operating_loss',
+          label: 'Operating loss',
+          value: -128,
+          notes: ['No separate net income line is shown in the source chart.'],
+        },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +10%'],
+            items: [
+              { label: '北美', notes: ['同比 +5%'] },
+              { label: '欧洲', notes: ['同比 +20%'] },
+              { label: '世界其他地区', notes: ['同比 +17%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { label: '研发', notes: ['占收入 30%', '同比 +0 个百分点'] },
+                { label: '销售与营销', notes: ['占收入 17%', '同比 (3 个百分点)'] },
+                { label: '管理费用', notes: ['占收入 16%', '同比 +1 个百分点'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 55%', '同比 +2 个百分点'] },
+            operating: { label: '营业亏损', notes: ['利润率 (9%)', '同比 +4 个百分点'] },
+            net: {
+              label: '营业亏损',
+              notes: ['源图未显示单独的净利润/净亏损项目。'],
+            },
+          },
+        },
+      },
+    },
+    {
       key: 'snap-q4-fy25',
       company: 'Snap',
       period: 'Q4 FY25',
