@@ -3,7 +3,9 @@ import path from 'node:path';
 const DATASET_PATH_RE = /^data\/datasets\/([a-z0-9-]+)\.js$/;
 const REFERENCE_PATH_RE = /^input\/processed\/([a-z0-9-]+)\.png$/i;
 
-const RENDER_RUNTIME_PATHS = new Set([
+// Mirrors RENDER_RUNTIME_SCRIPTS in scripts/script-sources.mjs (parity-tested;
+// ci-plan stays dependency-light instead of importing it).
+export const RENDER_RUNTIME_PATHS = new Set([
   'src/icons.js',
   'src/i18n-dictionaries.js',
   'src/i18n.js',
@@ -20,6 +22,7 @@ const D3_PIPELINE_PATHS = new Set([
   'scripts/lib/d3-hard-gates.mjs',
   'scripts/lib/interface-fidelity.mjs',
   'scripts/lib/png-diff.mjs',
+  'scripts/lib/render-fingerprint.mjs',
   'scripts/lib/render-harness.mjs',
 ]);
 

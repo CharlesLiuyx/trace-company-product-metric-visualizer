@@ -32,6 +32,15 @@ test('--structure-only is read-only and rejects incompatible render options', ()
   );
 });
 
+test('--no-cache forces a full render and stays out of --structure-only', () => {
+  assert.equal(parseArgs(['node', 'verify-render-regression.mjs']).noCache, false);
+  assert.equal(parseArgs(['node', 'verify-render-regression.mjs', '--no-cache']).noCache, true);
+  assert.throws(
+    () => parseArgs(['node', 'verify-render-regression.mjs', '--structure-only', '--no-cache']),
+    /cannot be combined/
+  );
+});
+
 test('baseline structure fails before rendering for missing and stale entries', () => {
   assert.deepEqual(
     baselineStructureProblems({

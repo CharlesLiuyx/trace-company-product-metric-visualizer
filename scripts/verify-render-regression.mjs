@@ -14,7 +14,15 @@
 //   pnpm verify:render-regression -- <key> [...]  # gate a subset
 //   pnpm compat:baseline -- <key> [...]           # mutate canonical baselines
 //   pnpm verify:render-regression -- <key> --update # compatible mutation entry
-//   options: --concurrency <n> (default 4), --tolerance <similarity drop>, --structure-only
+//   options: --concurrency <n> (default 4), --tolerance <similarity drop>, --structure-only, --no-cache
+//
+// Incremental by default: a fingerprint cache under output/render-regression/
+// (machine-local, gitignored — CI always runs cold) skips keys whose full
+// input closure is byte-identical to the last verified pass. Skips happen
+// only in the default all-keys mode and are always reported in the summary;
+// explicit keys and --update render unconditionally, failures are never
+// cached, and --no-cache forces a full render. See
+// scripts/lib/render-fingerprint.mjs for what the fingerprint covers.
 //
 // Baselines live in data/render-baselines.json (canonical language: en).
 // Purity, canvas-size, and page-error hard gates always apply to every
@@ -53,6 +61,15 @@ import {
   sizeRenderedSvgForCapture,
   typographyAudit,
 } from './lib/render-harness.mjs';
+import {
+  RENDER_CACHE_PATH,
+  RENDER_CACHE_VERSION,
+  computeKeyDigest,
+  computeRuntimeDigest,
+  partitionByCache,
+  readRenderCache,
+  writeRenderCache,
+} from './lib/render-fingerprint.mjs';
 
 const BASELINE_PATH = 'data/render-baselines.json';
 const FAILURE_DIR = path.join('output', 'render-regression');
@@ -61,7 +78,7 @@ const LANGUAGE = 'en';
 
 function usage() {
   console.error(`Usage:
-  pnpm verify:render-regression [-- <dataset-key> ...] [--concurrency <n>] [--tolerance <similarity-drop>]
+  pnpm verify:render-regression [-- <dataset-key> ...] [--concurrency <n>] [--tolerance <similarity-drop>] [--no-cache]
   pnpm verify:render-regression --structure-only
   pnpm compat:baseline -- <dataset-key> [...] [--concurrency <n>] [--tolerance <similarity-drop>]
 
@@ -81,6 +98,7 @@ export function parseArgs(argv) {
   const args = argv.slice(2);
   let update = false;
   let structureOnly = false;
+  let noCache = false;
   let concurrency = 4;
   let tolerance = null;
   const keys = [];
@@ -93,6 +111,10 @@ export function parseArgs(argv) {
     }
     if (arg === '--structure-only') {
       structureOnly = true;
+      continue;
+    }
+    if (arg === '--no-cache') {
+      noCache = true;
       continue;
     }
     if (arg === '--concurrency') {
@@ -121,10 +143,10 @@ export function parseArgs(argv) {
       '--update is a canonical mutation and requires at least one explicit dataset key; full-catalog baseline ratchets are forbidden'
     );
   }
-  if (structureOnly && (update || keys.length > 0 || tolerance != null)) {
-    throw argumentError('--structure-only cannot be combined with dataset keys, --update, or --tolerance');
+  if (structureOnly && (update || keys.length > 0 || tolerance != null || noCache)) {
+    throw argumentError('--structure-only cannot be combined with dataset keys, --update, --tolerance, or --no-cache');
   }
-  return { update, structureOnly, concurrency, tolerance, keys };
+  return { update, structureOnly, noCache, concurrency, tolerance, keys };
 }
 
 async function readBaselines() {
@@ -307,7 +329,7 @@ function fmtSim(value) {
 }
 
 async function main() {
-  const { update, structureOnly, concurrency, tolerance: toleranceOverride, keys } = parseArgs(process.argv);
+  const { update, structureOnly, noCache, concurrency, tolerance: toleranceOverride, keys } = parseArgs(process.argv);
   const indexHtml = readProjectFile('index.html');
   const harnessScripts = renderHarnessScripts(indexHtml);
   const registeredKeys = registeredDatasetScripts().map((script) => path.basename(script, '.js'));
@@ -336,77 +358,156 @@ async function main() {
     return;
   }
 
-  const server = await startStaticServer({ port: 0 });
-  const baseUrl = server.url.replace(/\/+$/, '');
-  const scratchDir = await mkdtemp(path.join(os.tmpdir(), 'render-regression-'));
-  let browser;
-  const results = [];
-  const failures = [];
   const startedAt = Date.now();
 
-  try {
-    browser = await chromium.launch({ headless: true });
-    const queue = [...targetKeys];
-    const workerCount = Math.min(concurrency, queue.length);
-    const workers = Array.from({ length: workerCount }, async () => {
-      const context = await browser.newContext({ viewport: { width: 1280, height: 720 }, deviceScaleFactor: 1 });
-      const { page, pageErrors } = await openHarnessPage(context, { baseUrl, scripts: harnessScripts });
-      await assertProjectFontsLoaded(page);
-      const requiredLanguages = await page.evaluate(() => {
-        const languages = window.SANKEY_I18N?.languageCodes;
-        return Array.isArray(languages) && languages.length ? languages : ['en'];
-      });
-      for (;;) {
-        const key = queue.shift();
-        if (!key) break;
-        try {
-          results.push(await renderDataset(page, pageErrors, key, scratchDir, requiredLanguages));
-        } catch (error) {
-          failures.push({ key, reason: error.message });
-        }
+  // Fingerprint cache: skip keys whose full input closure is byte-identical
+  // to the last verified pass. The cache is read only in the default all-keys
+  // mode (explicit keys and --update always render), and any fingerprint or
+  // cache failure falls back to a full render — the cache must never fail or
+  // narrow a verify on its own.
+  let cacheState = null;
+  if (!noCache) {
+    try {
+      const runtimeDigest = await computeRuntimeDigest({ indexHtml, browserSignature: chromium.executablePath() });
+      const keyDigests = new Map();
+      for (const key of targetKeys) {
+        keyDigests.set(key, await computeKeyDigest(key, { baselineEntry: baselines[key] ?? null }));
       }
-      await context.close();
-    });
-    await Promise.all(workers);
-
-    results.sort((a, b) => a.key.localeCompare(b.key));
-
-    if (!update) {
-      for (const result of results) {
-        const baseline = baselines[result.key];
-        if (!baseline) continue; // already reported as a structure error
-        if (result.similarity == null || baseline.similarity == null) continue; // reference/baseline unavailable
-        const delta = result.similarity - baseline.similarity;
-        if (delta < -tolerance) {
-          const artifacts = await keepFailureArtifacts(result);
-          failures.push({
-            key: result.key,
-            reason:
-              `similarity ${fmtSim(result.similarity)} dropped ${fmtSim(-delta)} below baseline ` +
-              `${fmtSim(baseline.similarity)} (tolerance ${tolerance}); ` +
-              `candidate: ${artifacts.candidate}, diff: ${artifacts.diff}`,
-          });
-        } else if (delta > tolerance) {
-          console.log(
-            `note ${result.key}: similarity ${fmtSim(result.similarity)} improved ${fmtSim(delta)} over baseline ` +
-              `${fmtSim(baseline.similarity)} — record this canonical mutation with ` +
-              `pnpm compat:baseline -- ${result.key}`
-          );
-        }
-      }
+      const previous = await readRenderCache();
+      const usable = Boolean(
+        previous &&
+          previous.version === RENDER_CACHE_VERSION &&
+          previous.runtimeDigest === runtimeDigest &&
+          previous.tolerance === tolerance
+      );
+      cacheState = { runtimeDigest, keyDigests, previousEntries: usable ? previous.entries : {}, usable };
+    } catch (error) {
+      console.warn(`render cache disabled (${error.message}); rendering the full target set`);
+      cacheState = null;
     }
-  } finally {
-    if (browser) await browser.close();
-    await server.close();
-    await rm(scratchDir, { recursive: true, force: true });
   }
+  const readFromCache = Boolean(cacheState?.usable && !update && keys.length === 0);
+  const { skippedKeys, renderTargets } = partitionByCache({
+    targetKeys,
+    readFromCache,
+    entries: cacheState?.previousEntries,
+    keyDigests: cacheState?.keyDigests ?? new Map(),
+  });
+  if (cacheState) {
+    if (readFromCache) {
+      console.log(`render cache: ${skippedKeys.length}/${targetKeys.length} up to date (${RENDER_CACHE_PATH})`);
+    } else if (!cacheState.usable) {
+      console.log('render cache: cold (no reusable cache for the current inputs)');
+    } else {
+      console.log(`render cache: read bypassed (${update ? '--update' : 'explicit dataset keys'} always render)`);
+    }
+  }
+
+  let server = null;
+  let scratchDir = null;
+  let browser = null;
+  const results = [];
+  const failures = [];
+  const improvedKeys = new Set();
+
+  if (renderTargets.length) {
+    server = await startStaticServer({ port: 0 });
+    const baseUrl = server.url.replace(/\/+$/, '');
+    scratchDir = await mkdtemp(path.join(os.tmpdir(), 'render-regression-'));
+
+    try {
+      browser = await chromium.launch({ headless: true });
+      const queue = [...renderTargets];
+      const workerCount = Math.min(concurrency, queue.length);
+      const workers = Array.from({ length: workerCount }, async () => {
+        const context = await browser.newContext({ viewport: { width: 1280, height: 720 }, deviceScaleFactor: 1 });
+        const { page, pageErrors } = await openHarnessPage(context, { baseUrl, scripts: harnessScripts });
+        await assertProjectFontsLoaded(page);
+        const requiredLanguages = await page.evaluate(() => {
+          const languages = window.SANKEY_I18N?.languageCodes;
+          return Array.isArray(languages) && languages.length ? languages : ['en'];
+        });
+        for (;;) {
+          const key = queue.shift();
+          if (!key) break;
+          try {
+            results.push(await renderDataset(page, pageErrors, key, scratchDir, requiredLanguages));
+          } catch (error) {
+            failures.push({ key, reason: error.message });
+          }
+        }
+        await context.close();
+      });
+      await Promise.all(workers);
+
+      results.sort((a, b) => a.key.localeCompare(b.key));
+
+      if (!update) {
+        for (const result of results) {
+          const baseline = baselines[result.key];
+          if (!baseline) continue; // already reported as a structure error
+          if (result.similarity == null || baseline.similarity == null) continue; // reference/baseline unavailable
+          const delta = result.similarity - baseline.similarity;
+          if (delta < -tolerance) {
+            const artifacts = await keepFailureArtifacts(result);
+            failures.push({
+              key: result.key,
+              reason:
+                `similarity ${fmtSim(result.similarity)} dropped ${fmtSim(-delta)} below baseline ` +
+                `${fmtSim(baseline.similarity)} (tolerance ${tolerance}); ` +
+                `candidate: ${artifacts.candidate}, diff: ${artifacts.diff}`,
+            });
+          } else if (delta > tolerance) {
+            // Improved keys stay out of the cache so this nudge reprints on
+            // every run until the canonical mutation is recorded.
+            improvedKeys.add(result.key);
+            console.log(
+              `note ${result.key}: similarity ${fmtSim(result.similarity)} improved ${fmtSim(delta)} over baseline ` +
+                `${fmtSim(baseline.similarity)} — record this canonical mutation with ` +
+                `pnpm compat:baseline -- ${result.key}`
+            );
+          }
+        }
+      }
+    } finally {
+      if (browser) await browser.close();
+      if (server) await server.close();
+      if (scratchDir) await rm(scratchDir, { recursive: true, force: true });
+    }
+  }
+
+  const persistCache = async () => {
+    if (!cacheState) return;
+    try {
+      await writeRenderCache({
+        version: RENDER_CACHE_VERSION,
+        runtimeDigest: cacheState.runtimeDigest,
+        tolerance,
+        entries: nextCacheEntries({
+          previousEntries: cacheState.previousEntries,
+          keyDigests: cacheState.keyDigests,
+          results,
+          failures,
+          improvedKeys,
+          registeredSet,
+        }),
+      });
+    } catch (error) {
+      console.warn(`render cache not written (${error.message})`);
+    }
+  };
 
   const elapsed = ((Date.now() - startedAt) / 1000).toFixed(1);
   const scored = results.filter((result) => result.similarity != null).length;
-  const skipped = results.length - scored;
+  const unscored = results.length - scored;
   const problems = failures.map((failure) => `${failure.key}: ${failure.reason}`);
   if (problems.length) {
-    console.error(`render regression FAILED (${results.length} rendered, ${problems.length} problem(s), ${elapsed}s):`);
+    await persistCache(); // failures are never cached; the passing subset is
+    console.error(
+      `render regression FAILED (${results.length} rendered` +
+        `${skippedKeys.length ? `, ${skippedKeys.length} skipped via fingerprint cache` : ''}, ` +
+        `${problems.length} problem(s), ${elapsed}s):`
+    );
     for (const problem of problems) console.error(`- ${problem}`);
     process.exit(1);
   }
@@ -416,11 +517,64 @@ async function main() {
     console.log(
       `recorded canonical ${BASELINE_PATH}: ${results.length} rendered (${scored} scored locally), tolerance ${tolerance}`
     );
+    if (cacheState) {
+      // Cache entries must fingerprint the baseline values as written to
+      // disk (rounded), not the in-memory floats, or the next run would
+      // re-render every freshly recorded key.
+      const updatedBaselines = parseBaselineSource(source).baselines;
+      for (const result of results) {
+        cacheState.keyDigests.set(
+          result.key,
+          await computeKeyDigest(result.key, { baselineEntry: updatedBaselines[result.key] ?? null })
+        );
+      }
+    }
   }
+  await persistCache();
   console.log(
-    `render regression passed: ${results.length} dataset(s) rendered, ${scored} ${update ? 'recorded' : 'within tolerance'}` +
-      `${skipped ? `, ${skipped} without a local reference image (hard gates only)` : ''} in ${elapsed}s (tolerance ${tolerance}, language ${LANGUAGE}).`
+    `render regression passed: ${results.length} dataset(s) rendered` +
+      `${skippedKeys.length ? `, ${skippedKeys.length} skipped via fingerprint cache` : ''}, ` +
+      `${scored} ${update ? 'recorded' : 'within tolerance'}` +
+      `${unscored ? `, ${unscored} without a local reference image (hard gates only)` : ''} in ${elapsed}s (tolerance ${tolerance}, language ${LANGUAGE}).`
   );
+}
+
+// Next cache entry map: carry forward prior entries that are still valid
+// (registered + digest unchanged, or outside this run's target set), drop
+// failed and improved-beyond-tolerance keys, upsert fresh passes. Pure so
+// the semantics stay unit-testable without a browser.
+export function nextCacheEntries({
+  previousEntries = {},
+  keyDigests,
+  results,
+  failures,
+  improvedKeys,
+  registeredSet,
+  now = () => new Date().toISOString(),
+}) {
+  const entries = {};
+  for (const [key, entry] of Object.entries(previousEntries)) {
+    if (!registeredSet.has(key)) continue;
+    const digest = keyDigests.get(key);
+    if (digest && digest.keyDigest !== entry.keyDigest) continue;
+    entries[key] = entry;
+  }
+  const failedKeys = new Set(failures.map((failure) => failure.key));
+  for (const result of results) {
+    const digest = keyDigests.get(result.key);
+    if (!digest) continue;
+    if (failedKeys.has(result.key) || improvedKeys.has(result.key)) {
+      delete entries[result.key];
+      continue;
+    }
+    entries[result.key] = {
+      keyDigest: digest.keyDigest,
+      referencePresent: digest.referencePresent,
+      similarity: result.similarity,
+      verifiedAt: now(),
+    };
+  }
+  return entries;
 }
 
 export function baselineStructureProblems({ targetKeys, registeredKeys, baselines, fullCatalog }) {
