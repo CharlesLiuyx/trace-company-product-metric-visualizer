@@ -9,6 +9,102 @@
   });
 
   ssot.records.push({
+    key: 'tripadvisor-q3-fy25',
+    company: 'Tripadvisor',
+    period: 'Q3 FY25',
+    periodNote: 'Quarter ended Sep. 30, 2025',
+    currency: '$',
+    unit: 'M',
+    decimals: 0,
+    sourceImage: 'input/processed/tripadvisor-q3-fy25.png',
+    roundingTolerance: 2,
+    revenue: {
+      total: 553,
+      notes: ['+4% Y/Y'],
+      items: [
+        {
+          id: 'tripadvisor',
+          label: 'Tripadvisor',
+          value: 235,
+          notes: ['(8%) Y/Y', 'Branded hotels, display & platform, experiences & dining', '25% adjusted margin'],
+        },
+        {
+          id: 'viator',
+          label: 'Viator',
+          value: 294,
+          notes: ['+9% Y/Y', 'Tours, activities & attractions', '17% adjusted margin'],
+        },
+        {
+          id: 'thefork',
+          label: 'TheFork',
+          value: 63,
+          notes: ['+29% Y/Y', 'Restaurant reservations', '22% adjusted margin'],
+        },
+        {
+          id: 'eliminations',
+          label: 'Eliminations',
+          value: -39,
+          notes: ['Intersegment eliminations shown as ($39M) in the source chart.'],
+        },
+      ],
+    },
+    costs: {
+      costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 41 },
+      operatingExpenses: {
+        total: 442,
+        items: [
+          { id: 'sm', label: 'S&M', value: 227, notes: ['41% of revenue', '+1pp Y/Y'] },
+          { id: 'personnel', label: 'Personnel', value: 147, notes: ['27% of revenue', '(1pp) Y/Y'] },
+          { id: 'technology', label: 'Technology', value: 26, notes: ['5% of revenue', '+0pp Y/Y'] },
+          { id: 'da', label: 'D&A', value: 24, notes: ['4% of revenue', '+0pp Y/Y'] },
+          { id: 'ga', label: 'G&A', value: 18, notes: ['3% of revenue', '(0pp) Y/Y'] },
+        ],
+      },
+      tax: { id: 'tax_other', label: 'Tax & other', value: 17 },
+    },
+    otherIncome: { total: 0, items: [] },
+    otherExpenses: { total: 0, items: [] },
+    profit: {
+      gross: { id: 'gross_profit', label: 'Gross profit', value: 512, notes: ['93% margin', '+0pp Y/Y'] },
+      operating: { id: 'operating_profit', label: 'Operating profit', value: 70, notes: ['13% margin', '(0pp) Y/Y'] },
+      net: { id: 'net_profit', label: 'Net profit', value: 53, notes: ['10% margin', '+2pp Y/Y'] },
+    },
+    i18n: {
+      zh: {
+        period: '2025 财年第三季度',
+        periodNote: '截至 2025 年 9 月 30 日的季度',
+        revenue: {
+          notes: ['同比 +4%'],
+          items: [
+            { id: 'tripadvisor', label: '猫途鹰', notes: ['同比 (8%)', '品牌酒店、展示平台、体验活动及餐饮', '调整后利润率 25%'] },
+            { id: 'viator', label: 'Viator（体验业务）', notes: ['同比 +9%', '观光、活动及景点', '调整后利润率 17%'] },
+            { id: 'thefork', label: 'TheFork（餐厅预订）', notes: ['同比 +29%', '餐厅预订', '调整后利润率 22%'] },
+            { id: 'eliminations', label: '抵销', notes: ['来源图表显示分部间抵销为 ($39M)。'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: { label: '收入成本' },
+          operatingExpenses: {
+            items: [
+              { id: 'sm', label: '销售与营销', notes: ['占收入 41%', '同比 +1 个百分点'] },
+              { id: 'personnel', label: '人员', notes: ['占收入 27%', '同比 (1 个百分点)'] },
+              { id: 'technology', label: '技术', notes: ['占收入 5%', '同比 +0 个百分点'] },
+              { id: 'da', label: '折旧与摊销', notes: ['占收入 4%', '同比 +0 个百分点'] },
+              { id: 'ga', label: '管理费用', notes: ['占收入 3%', '同比 +0 个百分点'] },
+            ],
+          },
+          tax: { label: '税费及其他' },
+        },
+        profit: {
+          gross: { label: '毛利润', notes: ['利润率 93%', '同比 +0 个百分点'] },
+          operating: { label: '营业利润', notes: ['利润率 13%', '同比 +0 个百分点'] },
+          net: { label: '净利润', notes: ['利润率 10%', '同比 +2 个百分点'] },
+        },
+      },
+    },
+  });
+
+  ssot.records.push({
     key: 'tripadvisor-q4-fy25',
     company: 'Tripadvisor',
     period: 'Q4 FY25',

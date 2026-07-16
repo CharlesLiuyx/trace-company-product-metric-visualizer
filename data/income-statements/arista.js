@@ -10,6 +10,93 @@
 
   ssot.records.push(
     {
+      key: 'arista-q3-fy25',
+      company: 'Arista',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 3,
+      sourceImage: 'input/processed/arista-q3-fy25.png',
+      roundingTolerance: 0.12,
+      revenue: {
+        total: 2.3083,
+        notes: ['+27% Y/Y'],
+        items: [
+          { id: 'product', label: 'Product', value: 1.9117, notes: ['+25% Y/Y', '61% gross margin', '(0pp) Y/Y'] },
+          { id: 'service', label: 'Service', value: 0.3966, notes: ['+38% Y/Y', '82% gross margin', '+1pp Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          id: 'cost_of_revenue',
+          label: 'Cost of revenue',
+          value: 0.8181,
+          items: [
+            { id: 'product_cor', label: 'Product', value: 0.7455 },
+            { id: 'service_cor', label: 'Service', value: 0.0726 },
+          ],
+          notes: ['Source chart splits cost of revenue into Product ($0.7B) and Service ($0.1B).'],
+        },
+        operatingExpenses: {
+          total: 0.512,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 0.326, notes: ['14% of revenue', '+1pp Y/Y'] },
+            { id: 'sm', label: 'S&M', value: 0.1512, notes: ['7% of revenue', '+1pp Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 0.0348, notes: ['2% of revenue', '(0pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.2241 },
+      },
+      otherIncome: {
+        total: 0.0989,
+        items: [{ id: 'other_income', label: 'Other', value: 0.0989 }],
+      },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 1.4902, notes: ['65% margin', '+0pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 0.9782, notes: ['42% margin', '(1pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 0.853, notes: ['37% margin', '(4pp) Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月 30 日',
+          revenue: {
+            notes: ['同比 +27%'],
+            items: [
+              { id: 'product', label: '产品', notes: ['同比 +25%', '毛利率 61%', '同比 (0 个百分点)'] },
+              { id: 'service', label: '服务', notes: ['同比 +38%', '毛利率 82%', '同比 +1 个百分点'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: {
+              label: '收入成本',
+              items: [
+                { id: 'product_cor', label: '产品' },
+                { id: 'service_cor', label: '服务' },
+              ],
+              notes: ['来源图将收入成本拆分为产品 ($0.7B) 和服务 ($0.1B)。'],
+            },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 14%', '同比 +1 个百分点'] },
+                { id: 'sm', label: '销售与市场', notes: ['占收入 7%', '同比 +1 个百分点'] },
+                { id: 'ga', label: '一般及行政', notes: ['占收入 2%', '同比 (0 个百分点)'] },
+              ],
+            },
+            tax: { label: '所得税费用' },
+          },
+          otherIncome: { items: [{ id: 'other_income', label: '其他收入' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['毛利率 65%', '同比 +0 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 42%', '同比 (1 个百分点)'] },
+            net: { label: '净利润', notes: ['利润率 37%', '同比 (4 个百分点)'] },
+          },
+        },
+      },
+    },
+    {
       key: 'arista-q1-fy26',
       company: 'Arista',
       period: 'Q1 FY26',

@@ -9,6 +9,78 @@
   });
 
   ssot.records.push({
+    key: 'nutanix-q1-fy26',
+    company: 'Nutanix',
+    period: 'Q1 FY26',
+    periodNote: 'Ending Oct. 2025',
+    currency: '$',
+    unit: 'M',
+    decimals: 0,
+    sourceImage: 'input/processed/nutanix-q1-fy26.png',
+    roundingTolerance: 1.5,
+    revenue: {
+      total: 671,
+      notes: ['+13% Y/Y'],
+      items: [
+        { id: 'subscription', label: 'Subscription revenue', value: 637, notes: ['+14% Y/Y'] },
+        { id: 'professional_services', label: 'Professional services and other revenue', value: 33, notes: ['+8% Y/Y'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 87 },
+      operatingExpenses: {
+        total: 534,
+        items: [
+          { id: 'sm', label: 'Sales and marketing', value: 285, notes: ['43% of revenue', '+0pp Y/Y'] },
+          { id: 'rnd', label: 'Research and development', value: 187, notes: ['28% of revenue', '(1pp) Y/Y'] },
+          { id: 'ga', label: 'General and administrative', value: 61, notes: ['9% of revenue', '+0pp Y/Y'] },
+        ],
+      },
+      tax: { id: 'tax', label: 'Income tax expense', value: 3 },
+    },
+    otherIncome: {
+      total: 16,
+      items: [{ id: 'interest', label: 'Interest and other income, net', value: 16 }],
+    },
+    otherExpenses: { total: 0, items: [] },
+    profit: {
+      gross: { id: 'gross_profit', label: 'Gross profit', value: 583, notes: ['87% margin', '+1pp Y/Y'] },
+      operating: { id: 'operating_profit', label: 'Operating profit', value: 49, notes: ['7% margin', '+3pp Y/Y'] },
+      net: { id: 'net_profit', label: 'Net profit', value: 62, notes: ['9% margin', '+4pp Y/Y'] },
+    },
+    i18n: {
+      zh: {
+        period: '2026 财年第一季度',
+        periodNote: '截至 2025 年 10 月',
+        revenue: {
+          notes: ['同比 +13%'],
+          items: [
+            { id: 'subscription', label: '订阅收入', notes: ['同比 +14%'] },
+            { id: 'professional_services', label: '专业服务及其他收入', notes: ['同比 +8%'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: { label: '收入成本' },
+          operatingExpenses: {
+            items: [
+              { id: 'sm', label: '销售与营销', notes: ['占收入 43%', '同比 +0 个百分点'] },
+              { id: 'rnd', label: '研发', notes: ['占收入 28%', '同比 (1 个百分点)'] },
+              { id: 'ga', label: '一般及行政', notes: ['占收入 9%', '同比 +0 个百分点'] },
+            ],
+          },
+          tax: { label: '所得税费用' },
+        },
+        otherIncome: { items: [{ id: 'interest', label: '利息及其他净收益' }] },
+        profit: {
+          gross: { label: '毛利润', notes: ['利润率 87%', '同比 +1 个百分点'] },
+          operating: { label: '营业利润', notes: ['利润率 7%', '同比 +3 个百分点'] },
+          net: { label: '净利润', notes: ['利润率 9%', '同比 +4 个百分点'] },
+        },
+      },
+    },
+  });
+
+  ssot.records.push({
     key: 'nutanix-q3-fy26',
     company: 'Nutanix',
     period: 'Q3 FY26',

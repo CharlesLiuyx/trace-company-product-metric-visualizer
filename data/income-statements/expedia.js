@@ -224,6 +224,87 @@
           },
         },
       },
+    },
+    {
+      key: 'expedia-q3-fy25',
+      company: 'Expedia',
+      period: 'Q3 FY25',
+      periodNote: 'Quarter ended Sep. 30, 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/expedia-q3-fy25.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 4.4,
+        notes: ['+9% Y/Y'],
+        items: [
+          { id: 'lodging', label: 'Lodging', value: 3.6, notes: ['+9% Y/Y'] },
+          { id: 'air', label: 'Air', value: 0.1, notes: ['(3%) Y/Y'] },
+          { id: 'advertising', label: 'Advertising', value: 0.3, notes: ['+23% Y/Y'] },
+          { id: 'other_revenue', label: 'Other', value: 0.4, notes: ['+2% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 0.4 },
+        operatingExpenses: {
+          total: 3.0,
+          items: [
+            { id: 'sm', label: 'Sales & marketing', value: 2.2, notes: ['50% of revenue', '(1pp) Y/Y'] },
+            { id: 'technology', label: 'Technology', value: 0.3 },
+            { id: 'amortization', label: 'Amortization', value: 0.2 },
+            { id: 'ga', label: 'G&A', value: 0.2 },
+            { id: 'other_opex', label: 'Other', value: 0.1 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.2 },
+      },
+      otherIncome: {
+        total: 0.1,
+        items: [{ id: 'other_income', label: 'Other', value: 0.1 }],
+      },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 4.0, notes: ['91% margin', '+1pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 1.0, notes: ['23% margin', '+5pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 1.0, notes: ['22% margin', '+5pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月 30 日的季度',
+          revenue: {
+            notes: ['同比 +9%'],
+            items: [
+              { id: 'lodging', label: '住宿', notes: ['同比 +9%'] },
+              { id: 'air', label: '机票', notes: ['同比 (3%)'] },
+              { id: 'advertising', label: '广告', notes: ['同比 +23%'] },
+              { id: 'other_revenue', label: '其他', notes: ['同比 +2%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'sm', label: '销售与市场', notes: ['占收入 50%', '同比 (1 个百分点)'] },
+                { id: 'technology', label: '技术' },
+                { id: 'amortization', label: '摊销' },
+                { id: 'ga', label: '管理费用' },
+                { id: 'other_opex', label: '其他' },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: {
+            items: [{ id: 'other_income', label: '其他收益' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 91%', '同比 +1 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 23%', '同比 +5 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 22%', '同比 +5 个百分点'] },
+          },
+        },
+      },
     }
   );
 })(window);

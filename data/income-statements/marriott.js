@@ -243,6 +243,140 @@
           },
         },
       },
+    },
+    {
+      key: 'marriott-q3-fy25',
+      company: 'Marriott',
+      period: 'Q3 FY25',
+      periodNote: 'Quarter ended Sep. 30, 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 3,
+      sourceImage: 'input/processed/marriott-q3-fy25.png',
+      roundingTolerance: 0.05,
+      revenue: {
+        total: 6.489,
+        notes: ['+4% Y/Y'],
+        items: [
+          {
+            id: 'gross_fee_revenue',
+            label: 'Gross fee revenue',
+            value: 1.338,
+            notes: ['+4% Y/Y'],
+            children: [
+              { id: 'base_management_fees', label: 'Base management fees', value: 0.314, notes: ['+1% Y/Y'] },
+              { id: 'franchise_fees', label: 'Franchise fees', value: 0.876, notes: ['+8% Y/Y'] },
+              { id: 'incentive_management_fees', label: 'Incentive management fees', value: 0.148, notes: ['(7%) Y/Y'] },
+            ],
+          },
+          { id: 'owned_leased_and_other_revenue', label: 'Owned, leased, and other revenue', value: 0.420, notes: ['+10% Y/Y'] },
+          { id: 'cost_reimbursement', label: 'Cost reimbursement revenue', value: 4.760, notes: ['+3% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          id: 'contract_investment_amortization',
+          label: 'Contract investment amortization',
+          value: 0.029,
+          notes: ['Source chart shows this as Amortization ($29M) before the Revenue node.'],
+        },
+        operatingExpenses: {
+          total: 5.309,
+          notes: [
+            'The source combines $50M depreciation, amortization, and other with a $40M restructuring and merger-related recovery into the displayed D&A ($10M) flow.',
+          ],
+          items: [
+            { id: 'owned_leased_other_direct_costs', label: 'Owned, leased, and other direct costs', value: 0.326 },
+            { id: 'ga', label: 'G&A', value: 0.234 },
+            {
+              id: 'da',
+              label: 'D&A, net of restructuring recoveries',
+              value: 0.010,
+              notes: ['$50M depreciation, amortization, and other less $40M restructuring and merger-related recoveries.'],
+            },
+            { id: 'reimbursed_expenses', label: 'Reimbursed expenses', value: 4.739 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.266 },
+      },
+      otherExpenses: {
+        total: 0.186,
+        items: [
+          {
+            id: 'other_nonoperating',
+            label: 'Other',
+            value: 0.186,
+            notes: ['Net interest expense, gains and other income, interest income, and equity in earnings.'],
+          },
+        ],
+      },
+      profit: {
+        gross: {
+          id: 'gross_profit',
+          label: 'Gross profit',
+          value: 6.489,
+          notes: ['Bookkeeping subtotal; the source chart does not show gross profit.'],
+        },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 1.180, notes: ['18% margin', '+3pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 0.728, notes: ['11% margin', '+2pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月 30 日的季度',
+          revenue: {
+            notes: ['同比 +4%'],
+            items: [
+              {
+                id: 'gross_fee_revenue',
+                label: '总费用收入',
+                notes: ['同比 +4%'],
+                children: [
+                  { id: 'base_management_fees', label: '基础管理费', notes: ['同比 +1%'] },
+                  { id: 'franchise_fees', label: '特许经营费', notes: ['同比 +8%'] },
+                  { id: 'incentive_management_fees', label: '激励管理费', notes: ['同比 (7%)'] },
+                ],
+              },
+              { id: 'owned_leased_and_other_revenue', label: '自有、租赁及其他收入', notes: ['同比 +10%'] },
+              { id: 'cost_reimbursement', label: '成本报销收入', notes: ['同比 +3%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: {
+              label: '合同投资摊销',
+              notes: ['来源图在收入节点前将该项目显示为 Amortization ($29M)。'],
+            },
+            operatingExpenses: {
+              notes: ['来源图将 $50M 折旧、摊销及其他费用与 $40M 重组及并购相关净冲回合并为 D&A ($10M) 流。'],
+              items: [
+                { id: 'owned_leased_other_direct_costs', label: '自有、租赁及其他直接成本' },
+                { id: 'ga', label: '管理费用' },
+                {
+                  id: 'da',
+                  label: '扣除重组净冲回后的折旧与摊销',
+                  notes: ['$50M 折旧、摊销及其他费用减去 $40M 重组及并购相关净冲回。'],
+                },
+                { id: 'reimbursed_expenses', label: '报销费用' },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherExpenses: {
+            items: [
+              {
+                id: 'other_nonoperating',
+                label: '其他',
+                notes: ['净利息费用、其他收益、利息收入及权益法收益。'],
+              },
+            ],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['账面核对小计；来源图未显示毛利润。'] },
+            operating: { label: '营业利润', notes: ['利润率 18%', '同比 +3 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 11%', '同比 +2 个百分点'] },
+          },
+        },
+      },
     }
   );
 })(window);

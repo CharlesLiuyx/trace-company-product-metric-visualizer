@@ -75,6 +75,12 @@
       "width": 2667,
       "height": 1500
     },
+    "airbnb-q3-fy25": {
+      "similarity": 0.966943,
+      "mae": 8.4294,
+      "width": 2667,
+      "height": 1500
+    },
     "airbus-fy25": {
       "similarity": 0.969032,
       "mae": 7.8967,
@@ -285,6 +291,12 @@
       "width": 2667,
       "height": 1500
     },
+    "arista-q3-fy25": {
+      "similarity": 0.973606,
+      "mae": 6.7304,
+      "width": 2667,
+      "height": 1500
+    },
     "arista-q4-fy25": {
       "similarity": 0.976555,
       "mae": 5.9786,
@@ -330,6 +342,12 @@
     "asml-q4-fy25": {
       "similarity": 0.971186,
       "mae": 7.3477,
+      "width": 2667,
+      "height": 1500
+    },
+    "astrazeneca-q3-fy25": {
+      "similarity": 0.96877,
+      "mae": 7.9636,
       "width": 2667,
       "height": 1500
     },
@@ -513,6 +531,12 @@
       "width": 2667,
       "height": 1500
     },
+    "chevron-q3-fy25": {
+      "similarity": 0.966306,
+      "mae": 8.5921,
+      "width": 2667,
+      "height": 1500
+    },
     "chewy-q1-fy26": {
       "similarity": 0.961976,
       "mae": 9.6962,
@@ -552,6 +576,12 @@
     "circle-q4-fy25": {
       "similarity": 0.974076,
       "mae": 6.6105,
+      "width": 2667,
+      "height": 1500
+    },
+    "cisco-q1-fy26": {
+      "similarity": 0.974247,
+      "mae": 6.5669,
       "width": 2667,
       "height": 1500
     },
@@ -858,6 +888,12 @@
     "expedia-q1-fy26": {
       "similarity": 0.97435,
       "mae": 6.5407,
+      "width": 2667,
+      "height": 1500
+    },
+    "expedia-q3-fy25": {
+      "similarity": 0.970757,
+      "mae": 7.457,
       "width": 2667,
       "height": 1500
     },
@@ -1353,6 +1389,12 @@
       "width": 2667,
       "height": 1500
     },
+    "marriott-q3-fy25": {
+      "similarity": 0.965395,
+      "mae": 8.8244,
+      "width": 2667,
+      "height": 1500
+    },
     "marriott-q4-fy25": {
       "similarity": 0.960195,
       "mae": 10.1504,
@@ -1659,6 +1701,12 @@
       "width": 2667,
       "height": 1500
     },
+    "nutanix-q1-fy26": {
+      "similarity": 0.972195,
+      "mae": 7.0902,
+      "width": 2667,
+      "height": 1500
+    },
     "nutanix-q2-fy26": {
       "similarity": 0.973296,
       "mae": 6.8096,
@@ -1800,6 +1848,12 @@
     "oracle-q4-fy26": {
       "similarity": 0.960721,
       "mae": 10.0161,
+      "width": 2667,
+      "height": 1500
+    },
+    "oxy-q3-fy25": {
+      "similarity": 0.971689,
+      "mae": 7.2193,
       "width": 2667,
       "height": 1500
     },
@@ -2406,6 +2460,12 @@
     "tripadvisor-q1-fy26": {
       "similarity": 0.9649,
       "mae": 8.9505,
+      "width": 2667,
+      "height": 1500
+    },
+    "tripadvisor-q3-fy25": {
+      "similarity": 0.970253,
+      "mae": 7.5855,
       "width": 2667,
       "height": 1500
     },
