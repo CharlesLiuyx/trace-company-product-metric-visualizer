@@ -45,6 +45,12 @@
       "width": 2667,
       "height": 1500
     },
+    "affirm-q1-fy26": {
+      "similarity": 0.961553,
+      "mae": 9.8041,
+      "width": 2667,
+      "height": 1500
+    },
     "affirm-q2-fy26": {
       "similarity": 0.961015,
       "mae": 9.9411,
@@ -180,6 +186,12 @@
     "american-q4-fy25": {
       "similarity": 0.963091,
       "mae": 9.4117,
+      "width": 2667,
+      "height": 1500
+    },
+    "amgen-q3-fy25": {
+      "similarity": 0.97049,
+      "mae": 7.525,
       "width": 2667,
       "height": 1500
     },
@@ -423,6 +435,12 @@
       "width": 2667,
       "height": 1500
     },
+    "block-q3-fy25": {
+      "similarity": 0.967219,
+      "mae": 8.3592,
+      "width": 2667,
+      "height": 1500
+    },
     "boeing-q1-fy26": {
       "similarity": 0.970151,
       "mae": 7.6115,
@@ -504,6 +522,12 @@
     "chime-q1-fy26": {
       "similarity": 0.972387,
       "mae": 7.0413,
+      "width": 2667,
+      "height": 1500
+    },
+    "chime-q3-fy25": {
+      "similarity": 0.970721,
+      "mae": 7.466,
       "width": 2667,
       "height": 1500
     },
@@ -723,6 +747,12 @@
       "width": 2667,
       "height": 1500
     },
+    "dlocal-q3-fy25": {
+      "similarity": 0.972875,
+      "mae": 6.9169,
+      "width": 2667,
+      "height": 1500
+    },
     "docebo-q4-fy25": {
       "similarity": 0.969569,
       "mae": 7.7599,
@@ -939,6 +969,12 @@
       "width": 2667,
       "height": 1500
     },
+    "global-e-q3-fy25": {
+      "similarity": 0.971813,
+      "mae": 7.1876,
+      "width": 2667,
+      "height": 1500
+    },
     "global-e-q4-fy25": {
       "similarity": 0.974988,
       "mae": 6.3782,
@@ -1128,6 +1164,12 @@
     "intel-q4-fy25": {
       "similarity": 0.968813,
       "mae": 7.9526,
+      "width": 2667,
+      "height": 1500
+    },
+    "intuit-q1-fy26": {
+      "similarity": 0.969456,
+      "mae": 7.7887,
       "width": 2667,
       "height": 1500
     },
@@ -1359,6 +1401,12 @@
       "width": 2667,
       "height": 1500
     },
+    "mcdonald-s-q3-fy25": {
+      "similarity": 0.965296,
+      "mae": 8.8494,
+      "width": 2667,
+      "height": 1500
+    },
     "mcdonald-s-q4-fy25": {
       "similarity": 0.960839,
       "mae": 9.9861,
@@ -1581,6 +1629,12 @@
       "width": 2667,
       "height": 1500
     },
+    "novo-nordisk-q3-fy25": {
+      "similarity": 0.959339,
+      "mae": 10.3686,
+      "width": 2667,
+      "height": 1500
+    },
     "novo-nordisk-q4-fy25": {
       "similarity": 0.953635,
       "mae": 11.823,
@@ -1590,6 +1644,12 @@
     "nu-q1-fy26": {
       "similarity": 0.972191,
       "mae": 7.0912,
+      "width": 2667,
+      "height": 1500
+    },
+    "nu-q3-fy25": {
+      "similarity": 0.97408,
+      "mae": 6.6095,
       "width": 2667,
       "height": 1500
     },
@@ -1857,6 +1917,12 @@
       "width": 2667,
       "height": 1500
     },
+    "pfizer-q3-fy25": {
+      "similarity": 0.973863,
+      "mae": 6.6649,
+      "width": 2667,
+      "height": 1500
+    },
     "pfizer-q4-fy25": {
       "similarity": 0.962863,
       "mae": 9.47,
@@ -1914,6 +1980,12 @@
     "rbi-q1-fy26": {
       "similarity": 0.959155,
       "mae": 10.4154,
+      "width": 2667,
+      "height": 1500
+    },
+    "rbi-q3-fy25": {
+      "similarity": 0.95207,
+      "mae": 12.2221,
       "width": 2667,
       "height": 1500
     },
@@ -2076,6 +2148,12 @@
     "shopify-q1-fy26": {
       "similarity": 0.953464,
       "mae": 11.8667,
+      "width": 2667,
+      "height": 1500
+    },
+    "shopify-q3-fy25": {
+      "similarity": 0.967605,
+      "mae": 8.2609,
       "width": 2667,
       "height": 1500
     },
@@ -2313,6 +2391,12 @@
       "width": 2667,
       "height": 1500
     },
+    "toast-q3-fy25": {
+      "similarity": 0.977062,
+      "mae": 5.8491,
+      "width": 2667,
+      "height": 1500
+    },
     "toast-q4-fy25": {
       "similarity": 0.977001,
       "mae": 5.8647,
@@ -2508,6 +2592,12 @@
     "yum-brands-q1-fy26": {
       "similarity": 0.952798,
       "mae": 12.0364,
+      "width": 2667,
+      "height": 1500
+    },
+    "yum-brands-q3-fy25": {
+      "similarity": 0.956212,
+      "mae": 11.1659,
       "width": 2667,
       "height": 1500
     },

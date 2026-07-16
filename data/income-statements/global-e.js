@@ -10,6 +10,82 @@
 
   ssot.records.push(
     {
+      key: 'global-e-q3-fy25',
+      company: 'Global-e',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/global-e-q3-fy25.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 221,
+        notes: ['+25% Y/Y'],
+        items: [
+          { id: 'service_fees', label: 'Service fees', value: 103, notes: ['+25% Y/Y'] },
+          { id: 'fulfillment', label: 'Fulfillment', value: 117, notes: ['+26% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 121 },
+        operatingExpenses: {
+          total: 83,
+          items: [
+            { id: 'sm', label: 'Sales & marketing', value: 38, notes: ['17% of revenue', '(18pp) Y/Y'] },
+            { id: 'rnd', label: 'Research & development', value: 31, notes: ['14% of revenue', '(1pp) Y/Y'] },
+            { id: 'ga', label: 'General & administrative', value: 13, notes: ['6% of revenue', '(0pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 1 },
+      },
+      otherIncome: {
+        total: 0,
+        items: [],
+      },
+      otherExpenses: {
+        total: 3,
+        items: [{ id: 'other', label: 'Other', value: 3 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 100, notes: ['45% margin', '(0pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 17, notes: ['8% margin', '+20pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 13, notes: ['6% margin', '+19pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +25%'],
+            items: [
+              { label: '服务费', notes: ['同比 +25%'] },
+              { label: '履约服务', notes: ['同比 +26%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { label: '销售与营销', notes: ['占收入 17%', '同比 (18 个百分点)'] },
+                { label: '研发', notes: ['占收入 14%', '同比 (1 个百分点)'] },
+                { label: '一般及行政', notes: ['占收入 6%', '同比 (0 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherExpenses: {
+            items: [{ label: '其他' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 45%', '同比 0 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 8%', '同比 +20 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 6%', '同比 +19 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'global-e-q4-fy25',
       company: 'Global-e',
       period: 'Q4 FY25',

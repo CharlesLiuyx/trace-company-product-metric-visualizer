@@ -9,6 +9,69 @@
   });
 
   ssot.records.push({
+    key: 'novo-nordisk-q3-fy25',
+    company: 'Novo Nordisk',
+    period: 'Q3 FY25',
+    periodNote: 'Ending Sep. 2025',
+    currency: 'DKK',
+    unit: 'B',
+    decimals: 1,
+    sourceImage: 'input/processed/novo-nordisk-q3-fy25.png',
+    roundingTolerance: 0.15,
+    revenue: {
+      total: 75.0,
+      notes: ['+5% Y/Y'],
+      items: [
+        {
+          id: 'diabetes_care', label: 'Diabetes care', value: 49.1, notes: ['+3% Y/Y'],
+          children: [
+            { id: 'glp1', label: 'GLP-1', value: 36.7, notes: ['+5% Y/Y'] },
+            { id: 'insulin', label: 'Insulin', value: 12.0, notes: ['(4%) Y/Y'] },
+            { id: 'other_diabetes', label: 'Other diabetes', value: 0.4, notes: ['(14%) Y/Y'] },
+          ],
+        },
+        { id: 'obesity_care', label: 'Obesity care', value: 21.1, notes: ['+12% Y/Y'] },
+        { id: 'rare_disease', label: 'Rare disease', value: 4.7, notes: ['+3% Y/Y'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 17.9 },
+      operatingExpenses: {
+        total: 33.3,
+        items: [
+          { id: 'sales_distribution', label: 'Sales & Distribution', value: 16.0, notes: ['21% of revenue', '+0pp Y/Y'] },
+          { id: 'rnd', label: 'R&D', value: 15.4, notes: ['21% of revenue', '+7pp Y/Y'] },
+          { id: 'admin_other', label: 'Admin & Other', value: 2.0 },
+        ],
+      },
+      tax: { id: 'tax', label: 'Tax', value: 5.5 },
+    },
+    otherIncome: { total: 1.8, items: [{ id: 'other_income', label: 'Other', value: 1.8 }] },
+    otherExpenses: { total: 0, items: [] },
+    profit: {
+      gross: { id: 'gross_profit', label: 'Gross profit', value: 57.1, notes: ['76% margin', '(8pp) Y/Y'] },
+      operating: { id: 'operating_profit', label: 'Operating profit', value: 23.7, notes: ['32% margin', '(16pp) Y/Y'] },
+      net: { id: 'net_profit', label: 'Net profit', value: 20.0, notes: ['27% margin', '(12pp) Y/Y'] },
+    },
+    i18n: {
+      zh: {
+        period: '2025 财年第三季度', periodNote: '截至 2025 年 9 月',
+        revenue: { notes: ['同比 +5%'], items: [
+          { id: 'diabetes_care', label: '糖尿病护理', notes: ['同比 +3%'], children: [
+            { id: 'glp1', label: 'GLP-1', notes: ['同比 +5%'] }, { id: 'insulin', label: '胰岛素', notes: ['同比 (4%)'] }, { id: 'other_diabetes', label: '其他糖尿病业务', notes: ['同比 (14%)'] },
+          ] },
+          { id: 'obesity_care', label: '肥胖症护理', notes: ['同比 +12%'] }, { id: 'rare_disease', label: '罕见病', notes: ['同比 +3%'] },
+        ] },
+        costs: { costOfRevenue: { label: '销售成本' }, operatingExpenses: { items: [
+          { id: 'sales_distribution', label: '销售与分销', notes: ['占收入 21%', '同比 +0 个百分点'] }, { id: 'rnd', label: '研发', notes: ['占收入 21%', '同比 +7 个百分点'] }, { id: 'admin_other', label: '管理及其他' },
+        ] }, tax: { label: '税费' } },
+        otherIncome: { items: [{ id: 'other_income', label: '其他' }] },
+        profit: { gross: { label: '毛利润', notes: ['利润率 76%', '同比 (8 个百分点)'] }, operating: { label: '营业利润', notes: ['利润率 32%', '同比 (16 个百分点)'] }, net: { label: '净利润', notes: ['利润率 27%', '同比 (12 个百分点)'] } },
+      },
+    },
+  });
+
+  ssot.records.push({
     key: 'novo-nordisk-q4-fy25',
     company: 'Novo Nordisk',
     period: 'Q4 FY25',

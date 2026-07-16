@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-16T06:11:01.000Z",
+  "generatedAt": "2026-07-16T08:57:41.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -513,8 +513,8 @@
     },
     "rbi-q1-fy26": {
       "path": "data/datasets/rbi-q1-fy26.js",
-      "updatedAtMs": 1783228411000,
-      "updatedAt": "2026-07-05T05:13:31.000Z",
+      "updatedAtMs": 1784192236000,
+      "updatedAt": "2026-07-16T08:57:16.000Z",
       "timeSource": "git"
     },
     "salesforce-q1-fy27": {
@@ -2561,6 +2561,96 @@
       "path": "data/datasets/match-group-q3-fy25.js",
       "updatedAtMs": 1784182261000,
       "updatedAt": "2026-07-16T06:11:01.000Z",
+      "timeSource": "git"
+    },
+    "chime-q3-fy25": {
+      "path": "data/datasets/chime-q3-fy25.js",
+      "updatedAtMs": 1784192261000,
+      "updatedAt": "2026-07-16T08:57:41.000Z",
+      "timeSource": "git"
+    },
+    "affirm-q1-fy26": {
+      "path": "data/datasets/affirm-q1-fy26.js",
+      "updatedAtMs": 1784192261000,
+      "updatedAt": "2026-07-16T08:57:41.000Z",
+      "timeSource": "git"
+    },
+    "amgen-q3-fy25": {
+      "path": "data/datasets/amgen-q3-fy25.js",
+      "updatedAtMs": 1784192261000,
+      "updatedAt": "2026-07-16T08:57:41.000Z",
+      "timeSource": "git"
+    },
+    "dlocal-q3-fy25": {
+      "path": "data/datasets/dlocal-q3-fy25.js",
+      "updatedAtMs": 1784192261000,
+      "updatedAt": "2026-07-16T08:57:41.000Z",
+      "timeSource": "git"
+    },
+    "global-e-q3-fy25": {
+      "path": "data/datasets/global-e-q3-fy25.js",
+      "updatedAtMs": 1784192261000,
+      "updatedAt": "2026-07-16T08:57:41.000Z",
+      "timeSource": "git"
+    },
+    "intuit-q1-fy26": {
+      "path": "data/datasets/intuit-q1-fy26.js",
+      "updatedAtMs": 1784192261000,
+      "updatedAt": "2026-07-16T08:57:41.000Z",
+      "timeSource": "git"
+    },
+    "mcdonald-s-q3-fy25": {
+      "path": "data/datasets/mcdonald-s-q3-fy25.js",
+      "updatedAtMs": 1784192261000,
+      "updatedAt": "2026-07-16T08:57:41.000Z",
+      "timeSource": "git"
+    },
+    "novo-nordisk-q3-fy25": {
+      "path": "data/datasets/novo-nordisk-q3-fy25.js",
+      "updatedAtMs": 1784192261000,
+      "updatedAt": "2026-07-16T08:57:41.000Z",
+      "timeSource": "git"
+    },
+    "nu-q3-fy25": {
+      "path": "data/datasets/nu-q3-fy25.js",
+      "updatedAtMs": 1784192261000,
+      "updatedAt": "2026-07-16T08:57:41.000Z",
+      "timeSource": "git"
+    },
+    "rbi-q3-fy25": {
+      "path": "data/datasets/rbi-q3-fy25.js",
+      "updatedAtMs": 1784192261000,
+      "updatedAt": "2026-07-16T08:57:41.000Z",
+      "timeSource": "git"
+    },
+    "shopify-q3-fy25": {
+      "path": "data/datasets/shopify-q3-fy25.js",
+      "updatedAtMs": 1784192261000,
+      "updatedAt": "2026-07-16T08:57:41.000Z",
+      "timeSource": "git"
+    },
+    "toast-q3-fy25": {
+      "path": "data/datasets/toast-q3-fy25.js",
+      "updatedAtMs": 1784192261000,
+      "updatedAt": "2026-07-16T08:57:41.000Z",
+      "timeSource": "git"
+    },
+    "yum-brands-q3-fy25": {
+      "path": "data/datasets/yum-brands-q3-fy25.js",
+      "updatedAtMs": 1784192261000,
+      "updatedAt": "2026-07-16T08:57:41.000Z",
+      "timeSource": "git"
+    },
+    "block-q3-fy25": {
+      "path": "data/datasets/block-q3-fy25.js",
+      "updatedAtMs": 1784192261000,
+      "updatedAt": "2026-07-16T08:57:41.000Z",
+      "timeSource": "git"
+    },
+    "pfizer-q3-fy25": {
+      "path": "data/datasets/pfizer-q3-fy25.js",
+      "updatedAtMs": 1784192261000,
+      "updatedAt": "2026-07-16T08:57:41.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {

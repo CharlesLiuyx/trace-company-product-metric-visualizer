@@ -1,0 +1,320 @@
+{
+  "source": "input/processed/block-q3-fy25.png",
+  "spec": "input/icon-crop-specs/block-q3-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-16T07:53:01.076189+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/block",
+  "crops": [
+    {
+      "key": "block-square-wordmark",
+      "output": "data/assets/icon-references/block/crops/square-wordmark-q3-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1747,
+        "losslessBytes": 7832,
+        "savingsVsLossless": 0.7769,
+        "metrics": {
+          "meanAbsoluteError": 0.4887,
+          "rootMeanSquareError": 1.5114,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 10,
+          "changedPixelRatio": 0.2308
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 11693,
+        "transparentPixelRatio": 0.6502
+      },
+      "searchBox": {
+        "x": 1087,
+        "y": 394,
+        "width": 281,
+        "height": 64
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 1090,
+        "y0": 396,
+        "x1": 1327,
+        "y1": 454
+      },
+      "cropBox": {
+        "x0": 1087,
+        "y0": 394,
+        "x1": 1368,
+        "y1": 458
+      },
+      "validation": {
+        "width": 281,
+        "height": 64,
+        "foregroundPixels": 4484,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 3,
+          "right": 41,
+          "top": 2,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": -0.0676,
+          "y": -0.0156
+        },
+        "passes": true
+      },
+      "note": "Complete Square icon and wordmark; excludes the nearby value, growth note, and flow.",
+      "runtimeOutput": "data/assets/raster-annotations/block/square-wordmark-q3-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1747,
+        "losslessBytes": 7832,
+        "savingsVsLossless": 0.7769,
+        "metrics": {
+          "meanAbsoluteError": 0.4887,
+          "rootMeanSquareError": 1.5114,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 10,
+          "changedPixelRatio": 0.2308
+        }
+      },
+      "validationSheet": "data/assets/icon-references/block/validation-sheets/block-square-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 273208,
+        "losslessBytes": 273208,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "block-bitcoin-wordmark",
+      "output": "data/assets/icon-references/block/crops/bitcoin-wordmark-q3-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2440,
+        "losslessBytes": 10288,
+        "savingsVsLossless": 0.7628,
+        "metrics": {
+          "meanAbsoluteError": 0.5571,
+          "rootMeanSquareError": 1.9632,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.2272
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 13115,
+        "transparentPixelRatio": 0.6083
+      },
+      "searchBox": {
+        "x": 150,
+        "y": 558,
+        "width": 280,
+        "height": 77
+      },
+      "componentCount": 12,
+      "subjectBox": {
+        "x0": 159,
+        "y0": 568,
+        "x1": 419,
+        "y1": 623
+      },
+      "cropBox": {
+        "x0": 150,
+        "y0": 558,
+        "x1": 430,
+        "y1": 635
+      },
+      "validation": {
+        "width": 280,
+        "height": 77,
+        "foregroundPixels": 7620,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 9,
+          "right": 11,
+          "top": 10,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": -0.0036,
+          "y": -0.013
+        },
+        "passes": true
+      },
+      "note": "Complete bitcoin icon and wordmark; excludes the gross-margin note and source node.",
+      "runtimeOutput": "data/assets/raster-annotations/block/bitcoin-wordmark-q3-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2440,
+        "losslessBytes": 10288,
+        "savingsVsLossless": 0.7628,
+        "metrics": {
+          "meanAbsoluteError": 0.5571,
+          "rootMeanSquareError": 1.9632,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.2272
+        }
+      },
+      "validationSheet": "data/assets/icon-references/block/validation-sheets/block-bitcoin-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 281686,
+        "losslessBytes": 281686,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "block-hardware-icon",
+      "output": "data/assets/icon-references/block/crops/hardware-icon-q3-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 445,
+        "losslessBytes": 1279,
+        "savingsVsLossless": 0.6521,
+        "metrics": {
+          "meanAbsoluteError": 0.6431,
+          "rootMeanSquareError": 1.2749,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 17,
+          "changedPixelRatio": 0.6005
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 2527,
+        "transparentPixelRatio": 0.3948
+      },
+      "searchBox": {
+        "x": 100,
+        "y": 1217,
+        "width": 80,
+        "height": 80
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 109,
+        "y0": 1225,
+        "x1": 172,
+        "y1": 1288
+      },
+      "cropBox": {
+        "x0": 100,
+        "y0": 1217,
+        "x1": 180,
+        "y1": 1297
+      },
+      "validation": {
+        "width": 80,
+        "height": 80,
+        "foregroundPixels": 2745,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 9,
+          "right": 8,
+          "top": 8,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": 0.0063,
+          "y": -0.0063
+        },
+        "passes": true
+      },
+      "note": "Complete hardware tile icon; excludes the Hardware label and gross-margin note.",
+      "runtimeOutput": "data/assets/raster-annotations/block/hardware-icon-q3-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 445,
+        "losslessBytes": 1279,
+        "savingsVsLossless": 0.6521,
+        "metrics": {
+          "meanAbsoluteError": 0.6431,
+          "rootMeanSquareError": 1.2749,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 17,
+          "changedPixelRatio": 0.6005
+        }
+      },
+      "validationSheet": "data/assets/icon-references/block/validation-sheets/block-hardware-icon.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 274741,
+        "losslessBytes": 274741,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}
