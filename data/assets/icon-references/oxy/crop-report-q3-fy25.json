@@ -1,0 +1,602 @@
+{
+  "source": "input/processed/oxy-q3-fy25.png",
+  "spec": "input/icon-crop-specs/oxy-q3-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-16T09:18:41.260751+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/oxy",
+  "crops": [
+    {
+      "key": "oxy-company-logo",
+      "output": "data/assets/icon-references/oxy/crops/company-logo-q3-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3587,
+        "losslessBytes": 18679,
+        "savingsVsLossless": 0.808,
+        "metrics": {
+          "meanAbsoluteError": 0.2898,
+          "rootMeanSquareError": 1.8923,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.0699
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 54504,
+        "transparentPixelRatio": 0.6264
+      },
+      "searchBox": {
+        "x": 1192,
+        "y": 239,
+        "width": 291,
+        "height": 299
+      },
+      "componentCount": 5,
+      "subjectBox": {
+        "x0": 1199,
+        "y0": 246,
+        "x1": 1476,
+        "y1": 532
+      },
+      "cropBox": {
+        "x0": 1192,
+        "y0": 239,
+        "x1": 1483,
+        "y1": 538
+      },
+      "validation": {
+        "width": 291,
+        "height": 299,
+        "foregroundPixels": 30951,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 7,
+          "right": 7,
+          "top": 7,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0017
+        },
+        "passes": true
+      },
+      "note": "Complete OXY roundel and wordmark; excludes the title, Revenue label, and Sankey ribbon.",
+      "runtimeOutput": "data/assets/raster-annotations/oxy/company-logo-q3-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3587,
+        "losslessBytes": 18679,
+        "savingsVsLossless": 0.808,
+        "metrics": {
+          "meanAbsoluteError": 0.2898,
+          "rootMeanSquareError": 1.8923,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.0699
+        }
+      },
+      "validationSheet": "data/assets/icon-references/oxy/validation-sheets/oxy-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 293253,
+        "losslessBytes": 293253,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "oxy-oil-icon",
+      "output": "data/assets/icon-references/oxy/crops/oil-icon-q3-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1336,
+        "losslessBytes": 4664,
+        "savingsVsLossless": 0.7136,
+        "metrics": {
+          "meanAbsoluteError": 0.3226,
+          "rootMeanSquareError": 1.2785,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.1713
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 6552,
+        "transparentPixelRatio": 0.5784
+      },
+      "searchBox": {
+        "x": 88,
+        "y": 430,
+        "width": 96,
+        "height": 118
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 94,
+        "y0": 432,
+        "x1": 181,
+        "y1": 546
+      },
+      "cropBox": {
+        "x0": 88,
+        "y0": 430,
+        "x1": 184,
+        "y1": 548
+      },
+      "validation": {
+        "width": 96,
+        "height": 118,
+        "foregroundPixels": 3614,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 6,
+          "right": 3,
+          "top": 2,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": 0.0156,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Complete pumpjack icon; excludes the Oil label and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/oxy/oil-icon-q3-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1336,
+        "losslessBytes": 4664,
+        "savingsVsLossless": 0.7136,
+        "metrics": {
+          "meanAbsoluteError": 0.3226,
+          "rootMeanSquareError": 1.2785,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.1713
+        }
+      },
+      "validationSheet": "data/assets/icon-references/oxy/validation-sheets/oxy-oil-icon.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 296514,
+        "losslessBytes": 296514,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "oxy-ngl-icon",
+      "output": "data/assets/icon-references/oxy/crops/ngl-icon-q3-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1132,
+        "losslessBytes": 4410,
+        "savingsVsLossless": 0.7433,
+        "metrics": {
+          "meanAbsoluteError": 1.0451,
+          "rootMeanSquareError": 2.506,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 31,
+          "changedPixelRatio": 0.5952
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 3048,
+        "transparentPixelRatio": 0.3884
+      },
+      "searchBox": {
+        "x": 103,
+        "y": 652,
+        "width": 72,
+        "height": 109
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 109,
+        "y0": 658,
+        "x1": 166,
+        "y1": 752
+      },
+      "cropBox": {
+        "x0": 103,
+        "y0": 652,
+        "x1": 175,
+        "y1": 761
+      },
+      "validation": {
+        "width": 72,
+        "height": 109,
+        "foregroundPixels": 2522,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 6,
+          "right": 9,
+          "top": 6,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": -0.0208,
+          "y": -0.0138
+        },
+        "passes": true
+      },
+      "note": "Complete natural-gas-liquid canister icon; excludes the NGL and Natural Gas Liquid text.",
+      "runtimeOutput": "data/assets/raster-annotations/oxy/ngl-icon-q3-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1132,
+        "losslessBytes": 4410,
+        "savingsVsLossless": 0.7433,
+        "metrics": {
+          "meanAbsoluteError": 1.0451,
+          "rootMeanSquareError": 2.506,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 31,
+          "changedPixelRatio": 0.5952
+        }
+      },
+      "validationSheet": "data/assets/icon-references/oxy/validation-sheets/oxy-ngl-icon.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 287113,
+        "losslessBytes": 287113,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "oxy-gas-icon",
+      "output": "data/assets/icon-references/oxy/crops/gas-icon-q3-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 660,
+        "losslessBytes": 2665,
+        "savingsVsLossless": 0.7523,
+        "metrics": {
+          "meanAbsoluteError": 0.3976,
+          "rootMeanSquareError": 1.5577,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 12,
+          "changedPixelRatio": 0.1206
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 2840,
+        "transparentPixelRatio": 0.6147
+      },
+      "searchBox": {
+        "x": 108,
+        "y": 824,
+        "width": 60,
+        "height": 77
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 111,
+        "y0": 826,
+        "x1": 164,
+        "y1": 899
+      },
+      "cropBox": {
+        "x0": 108,
+        "y0": 824,
+        "x1": 168,
+        "y1": 901
+      },
+      "validation": {
+        "width": 60,
+        "height": 77,
+        "foregroundPixels": 1757,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 3,
+          "right": 4,
+          "top": 2,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": -0.0083,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Complete gas flame icon; excludes the Gas label and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/oxy/gas-icon-q3-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 660,
+        "losslessBytes": 2665,
+        "savingsVsLossless": 0.7523,
+        "metrics": {
+          "meanAbsoluteError": 0.3976,
+          "rootMeanSquareError": 1.5577,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 12,
+          "changedPixelRatio": 0.1206
+        }
+      },
+      "validationSheet": "data/assets/icon-references/oxy/validation-sheets/oxy-gas-icon.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 287990,
+        "losslessBytes": 287990,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "oxy-chemical-icon",
+      "output": "data/assets/icon-references/oxy/crops/chemical-icon-q3-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 893,
+        "losslessBytes": 3403,
+        "savingsVsLossless": 0.7376,
+        "metrics": {
+          "meanAbsoluteError": 0.9384,
+          "rootMeanSquareError": 2.2579,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 16,
+          "changedPixelRatio": 0.6162
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 3053,
+        "transparentPixelRatio": 0.3823
+      },
+      "searchBox": {
+        "x": 508,
+        "y": 967,
+        "width": 66,
+        "height": 121
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 512,
+        "y0": 968,
+        "x1": 570,
+        "y1": 1083
+      },
+      "cropBox": {
+        "x0": 508,
+        "y0": 967,
+        "x1": 574,
+        "y1": 1088
+      },
+      "validation": {
+        "width": 66,
+        "height": 121,
+        "foregroundPixels": 3427,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 4,
+          "right": 4,
+          "top": 1,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0165
+        },
+        "passes": true
+      },
+      "note": "Complete chemical test-tube icon; excludes the Chemical label and node.",
+      "runtimeOutput": "data/assets/raster-annotations/oxy/chemical-icon-q3-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 893,
+        "losslessBytes": 3403,
+        "savingsVsLossless": 0.7376,
+        "metrics": {
+          "meanAbsoluteError": 0.9384,
+          "rootMeanSquareError": 2.2579,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 16,
+          "changedPixelRatio": 0.6162
+        }
+      },
+      "validationSheet": "data/assets/icon-references/oxy/validation-sheets/oxy-chemical-icon.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 273376,
+        "losslessBytes": 273376,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "oxy-midstream-icon",
+      "output": "data/assets/icon-references/oxy/crops/midstream-icon-q3-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1191,
+        "losslessBytes": 4801,
+        "savingsVsLossless": 0.7519,
+        "metrics": {
+          "meanAbsoluteError": 0.7763,
+          "rootMeanSquareError": 2.0818,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 14,
+          "changedPixelRatio": 0.4515
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 10204,
+        "transparentPixelRatio": 0.5358
+      },
+      "searchBox": {
+        "x": 138,
+        "y": 1104,
+        "width": 137,
+        "height": 139
+      },
+      "componentCount": 10,
+      "subjectBox": {
+        "x0": 144,
+        "y0": 1110,
+        "x1": 269,
+        "y1": 1236
+      },
+      "cropBox": {
+        "x0": 138,
+        "y0": 1104,
+        "x1": 275,
+        "y1": 1243
+      },
+      "validation": {
+        "width": 137,
+        "height": 139,
+        "foregroundPixels": 5103,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 6,
+          "right": 6,
+          "top": 6,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0036
+        },
+        "passes": true
+      },
+      "note": "Complete pipeline valve icon; excludes the Midstream & Marketing label and source node.",
+      "runtimeOutput": "data/assets/raster-annotations/oxy/midstream-icon-q3-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1191,
+        "losslessBytes": 4801,
+        "savingsVsLossless": 0.7519,
+        "metrics": {
+          "meanAbsoluteError": 0.7763,
+          "rootMeanSquareError": 2.0818,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 14,
+          "changedPixelRatio": 0.4515
+        }
+      },
+      "validationSheet": "data/assets/icon-references/oxy/validation-sheets/oxy-midstream-icon.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 279747,
+        "losslessBytes": 279747,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

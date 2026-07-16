@@ -170,6 +170,96 @@
           },
         },
       },
+    },
+    {
+      key: 'airbnb-q3-fy25',
+      company: 'Airbnb',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/airbnb-q3-fy25.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 4.1,
+        notes: ['+10% Y/Y'],
+        items: [
+          { id: 'north_america', label: 'North America', value: 1.6, notes: ['+3% Y/Y'] },
+          { id: 'emea', label: 'EMEA', value: 2.0, notes: ['+14% Y/Y'] },
+          { id: 'latam', label: 'LATAM', value: 0.2, notes: ['+18% Y/Y'] },
+          { id: 'apac', label: 'APAC', value: 0.3, notes: ['+16% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          id: 'cost_of_revenue',
+          label: 'Cost of revenue',
+          value: 0.5,
+          notes: ['Revenue less gross profit differs by $0.1B because the source chart rounds displayed values.'],
+        },
+        operatingExpenses: {
+          total: 1.9,
+          items: [
+            { id: 'sm', label: 'S&M', value: 0.6, notes: ['16% of revenue', '+2pp Y/Y'] },
+            { id: 'product', label: 'Product', value: 0.6, notes: ['14% of revenue', '+0pp Y/Y'] },
+            { id: 'support', label: 'Support', value: 0.4, notes: ['9% of revenue', '(1pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 0.3, notes: ['8% of revenue', '(1pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.4 },
+      },
+      otherIncome: {
+        total: 0.2,
+        items: [{ id: 'other_income', label: 'Other', value: 0.2 }],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 3.5, notes: ['87% margin', '(1pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 1.6, notes: ['40% margin', '(1pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 1.4, notes: ['34% margin', '(3pp) Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +10%'],
+            items: [
+              { id: 'north_america', label: '北美', notes: ['同比 +3%'] },
+              { id: 'emea', label: '欧洲、中东和非洲', notes: ['同比 +14%'] },
+              { id: 'latam', label: '拉美', notes: ['同比 +18%'] },
+              { id: 'apac', label: '亚太', notes: ['同比 +16%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: {
+              label: '收入成本',
+              notes: ['由于来源图显示值经过四舍五入，收入减毛利润相差 $0.1B。'],
+            },
+            operatingExpenses: {
+              items: [
+                { id: 'sm', label: '销售与市场', notes: ['占收入 16%', '同比 +2 个百分点'] },
+                { id: 'product', label: '产品', notes: ['占收入 14%', '同比 +0 个百分点'] },
+                { id: 'support', label: '客服支持', notes: ['占收入 9%', '同比 (1 个百分点)'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 8%', '同比 (1 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: {
+            items: [{ id: 'other_income', label: '其他' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 87%', '同比 (1 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 40%', '同比 (1 个百分点)'] },
+            net: { label: '净利润', notes: ['利润率 34%', '同比 (3 个百分点)'] },
+          },
+        },
+      },
     }
   );
 })(window);

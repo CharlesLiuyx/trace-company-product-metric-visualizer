@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-16T08:57:41.000Z",
+  "generatedAt": "2026-07-16T10:09:32.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -2651,6 +2651,66 @@
       "path": "data/datasets/pfizer-q3-fy25.js",
       "updatedAtMs": 1784192261000,
       "updatedAt": "2026-07-16T08:57:41.000Z",
+      "timeSource": "git"
+    },
+    "arista-q3-fy25": {
+      "path": "data/datasets/arista-q3-fy25.js",
+      "updatedAtMs": 1784196572000,
+      "updatedAt": "2026-07-16T10:09:32.000Z",
+      "timeSource": "git"
+    },
+    "airbnb-q3-fy25": {
+      "path": "data/datasets/airbnb-q3-fy25.js",
+      "updatedAtMs": 1784196572000,
+      "updatedAt": "2026-07-16T10:09:32.000Z",
+      "timeSource": "git"
+    },
+    "expedia-q3-fy25": {
+      "path": "data/datasets/expedia-q3-fy25.js",
+      "updatedAtMs": 1784196572000,
+      "updatedAt": "2026-07-16T10:09:32.000Z",
+      "timeSource": "git"
+    },
+    "marriott-q3-fy25": {
+      "path": "data/datasets/marriott-q3-fy25.js",
+      "updatedAtMs": 1784196572000,
+      "updatedAt": "2026-07-16T10:09:32.000Z",
+      "timeSource": "git"
+    },
+    "tripadvisor-q3-fy25": {
+      "path": "data/datasets/tripadvisor-q3-fy25.js",
+      "updatedAtMs": 1784196572000,
+      "updatedAt": "2026-07-16T10:09:32.000Z",
+      "timeSource": "git"
+    },
+    "astrazeneca-q3-fy25": {
+      "path": "data/datasets/astrazeneca-q3-fy25.js",
+      "updatedAtMs": 1784196572000,
+      "updatedAt": "2026-07-16T10:09:32.000Z",
+      "timeSource": "git"
+    },
+    "chevron-q3-fy25": {
+      "path": "data/datasets/chevron-q3-fy25.js",
+      "updatedAtMs": 1784196572000,
+      "updatedAt": "2026-07-16T10:09:32.000Z",
+      "timeSource": "git"
+    },
+    "cisco-q1-fy26": {
+      "path": "data/datasets/cisco-q1-fy26.js",
+      "updatedAtMs": 1784196572000,
+      "updatedAt": "2026-07-16T10:09:32.000Z",
+      "timeSource": "git"
+    },
+    "nutanix-q1-fy26": {
+      "path": "data/datasets/nutanix-q1-fy26.js",
+      "updatedAtMs": 1784196572000,
+      "updatedAt": "2026-07-16T10:09:32.000Z",
+      "timeSource": "git"
+    },
+    "oxy-q3-fy25": {
+      "path": "data/datasets/oxy-q3-fy25.js",
+      "updatedAtMs": 1784196572000,
+      "updatedAt": "2026-07-16T10:09:32.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {

@@ -9957,6 +9957,236 @@
             }
           }
         }
+      },
+      {
+        "key": "arista-q3-fy25",
+        "src": "data/datasets/arista-q3-fy25.js",
+        "data": {
+          "name": "Arista · Q3 FY25",
+          "company": "Arista",
+          "meta": {
+            "title": "Arista Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "阿里斯塔网络 · 2025 财年第三季度",
+              "meta": {
+                "title": "阿里斯塔网络 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月 30 日"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "airbnb-q3-fy25",
+        "src": "data/datasets/airbnb-q3-fy25.js",
+        "data": {
+          "name": "Airbnb · Q3 FY25",
+          "company": "Airbnb",
+          "meta": {
+            "title": "Airbnb Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Airbnb · 2025 财年第三季度",
+              "meta": {
+                "title": "Airbnb 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "expedia-q3-fy25",
+        "src": "data/datasets/expedia-q3-fy25.js",
+        "data": {
+          "name": "Expedia · Q3 FY25",
+          "company": "Expedia",
+          "meta": {
+            "title": "Expedia Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Expedia · 2025 财年第三季度",
+              "meta": {
+                "title": "Expedia 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "marriott-q3-fy25",
+        "src": "data/datasets/marriott-q3-fy25.js",
+        "data": {
+          "name": "Marriott · Q3 FY25",
+          "company": "Marriott",
+          "meta": {
+            "title": "Marriott Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Quarter ended Sep. 30, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Marriott · 2025 财年第三季度",
+              "meta": {
+                "title": "Marriott 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tripadvisor-q3-fy25",
+        "src": "data/datasets/tripadvisor-q3-fy25.js",
+        "data": {
+          "name": "Tripadvisor · Q3 FY25",
+          "company": "Tripadvisor",
+          "meta": {
+            "title": "Tripadvisor Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Quarter ended Sep. 30, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "猫途鹰 · 2025 财年第三季度",
+              "meta": {
+                "title": "猫途鹰 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "astrazeneca-q3-fy25",
+        "src": "data/datasets/astrazeneca-q3-fy25.js",
+        "data": {
+          "name": "AstraZeneca · Q3 FY25",
+          "company": "AstraZeneca",
+          "meta": {
+            "title": "AstraZeneca Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "阿斯利康 · 2025 财年第三季度",
+              "meta": {
+                "title": "阿斯利康 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "chevron-q3-fy25",
+        "src": "data/datasets/chevron-q3-fy25.js",
+        "data": {
+          "name": "Chevron · Q3 FY25",
+          "company": "Chevron",
+          "meta": {
+            "title": "Chevron Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "雪佛龙 · 2025 财年第三季度",
+              "meta": {
+                "title": "雪佛龙 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "cisco-q1-fy26",
+        "src": "data/datasets/cisco-q1-fy26.js",
+        "data": {
+          "name": "Cisco · Q1 FY26",
+          "company": "Cisco",
+          "meta": {
+            "title": "Cisco Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Oct. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "思科 · 2026 财年第一季度",
+              "meta": {
+                "title": "思科 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nutanix-q1-fy26",
+        "src": "data/datasets/nutanix-q1-fy26.js",
+        "data": {
+          "name": "Nutanix · Q1 FY26",
+          "company": "Nutanix",
+          "meta": {
+            "title": "Nutanix Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Oct. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Nutanix · 2026 财年第一季度",
+              "meta": {
+                "title": "Nutanix 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "oxy-q3-fy25",
+        "src": "data/datasets/oxy-q3-fy25.js",
+        "data": {
+          "name": "Oxy · Q3 FY25",
+          "company": "Oxy",
+          "meta": {
+            "title": "Oxy Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Quarter ended Sep. 30, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "西方石油 · 2025 财年第三季度",
+              "meta": {
+                "title": "西方石油 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月 30 日的季度"
+              }
+            }
+          }
+        }
       }
     ]
   };
