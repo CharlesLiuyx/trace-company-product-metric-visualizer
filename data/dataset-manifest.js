@@ -10187,6 +10187,228 @@
             }
           }
         }
+      },
+      {
+        "key": "fortinet-q3-fy25",
+        "src": "data/datasets/fortinet-q3-fy25.js",
+        "data": {
+          "name": "Fortinet · Q3 FY25",
+          "company": "Fortinet",
+          "meta": {
+            "title": "Fortinet Q3 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Fortinet · 2025 财年第三季度",
+              "meta": {
+                "title": "Fortinet 2025 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "the-trade-desk-q3-fy25",
+        "src": "data/datasets/the-trade-desk-q3-fy25.js",
+        "data": {
+          "name": "The Trade Desk · Q3 FY25",
+          "company": "The Trade Desk",
+          "meta": {
+            "title": "The Trade Desk Q3 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "The Trade Desk · 2025 财年第三季度",
+              "meta": {
+                "title": "The Trade Desk 2025 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "applovin-q3-fy25",
+        "src": "data/datasets/applovin-q3-fy25.js",
+        "data": {
+          "name": "AppLovin · Q3 FY25",
+          "company": "AppLovin",
+          "meta": {
+            "title": "AppLovin Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Quarter ended Sep. 30, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AppLovin · 2025 财年第三季度",
+              "meta": {
+                "title": "AppLovin 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "warner-bros-q3-fy25",
+        "src": "data/datasets/warner-bros-q3-fy25.js",
+        "data": {
+          "name": "Warner Bros. Discovery · Q3 FY25",
+          "company": "Warner Bros. Discovery",
+          "meta": {
+            "title": "Warner Bros. Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Warner Bros. Discovery · 2025 财年第三季度",
+              "meta": {
+                "title": "Warner Bros. 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "zscaler-q1-fy26",
+        "src": "data/datasets/zscaler-q1-fy26.js",
+        "data": {
+          "name": "Zscaler · Q1 FY26",
+          "company": "Zscaler",
+          "meta": {
+            "title": "Zscaler Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Oct. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Zscaler · 2026 财年第一季度",
+              "meta": {
+                "title": "Zscaler 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "axon-q3-fy25",
+        "src": "data/datasets/axon-q3-fy25.js",
+        "data": {
+          "name": "Axon · Q3 FY25",
+          "company": "Axon",
+          "meta": {
+            "title": "AXON Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Axon · 2025 财年第三季度",
+              "meta": {
+                "title": "Axon 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "paramount-q3-fy25",
+        "src": "data/datasets/paramount-q3-fy25.js",
+        "data": {
+          "name": "Paramount · Q3 FY25",
+          "company": "Paramount",
+          "meta": {
+            "title": "Paramount Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Quarter ended Sep. 30, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Paramount · 2025 财年第三季度",
+              "meta": {
+                "title": "Paramount 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "figma-q3-fy25",
+        "src": "data/datasets/figma-q3-fy25.js",
+        "data": {
+          "name": "Figma · Q3 FY25",
+          "company": "Figma",
+          "meta": {
+            "title": "Figma Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Quarter ended Sep. 30, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Figma · 2025 财年第三季度",
+              "meta": {
+                "title": "Figma 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "palo-alto-q1-fy26",
+        "src": "data/datasets/palo-alto-q1-fy26.js",
+        "data": {
+          "name": "Palo Alto Networks · Q1 FY26",
+          "company": "Palo Alto Networks",
+          "meta": {
+            "title": "Palo Alto Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Oct. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "帕洛阿尔托网络 · 2026 财年第一季度",
+              "meta": {
+                "title": "帕洛阿尔托网络 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "dynatrace-q2-fy26",
+        "src": "data/datasets/dynatrace-q2-fy26.js",
+        "data": {
+          "name": "Dynatrace · Q2 FY26",
+          "company": "Dynatrace",
+          "meta": {
+            "title": "Dynatrace Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Oct. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Dynatrace · 2026 财年第二季度",
+              "meta": {
+                "title": "Dynatrace 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2025 年 10 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

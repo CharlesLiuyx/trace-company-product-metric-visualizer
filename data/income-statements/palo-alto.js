@@ -9,6 +9,86 @@
   });
 
   ssot.records.push({
+    key: 'palo-alto-q1-fy26',
+    company: 'Palo Alto Networks',
+    period: 'Q1 FY26',
+    periodNote: 'Ending Oct. 2025',
+    currency: '$',
+    unit: 'M',
+    decimals: 0,
+    sourceImage: 'input/processed/palo-alto-q1-fy26.png',
+    roundingTolerance: 1,
+    revenue: {
+      total: 2474,
+      notes: ['+16% Y/Y'],
+      items: [
+        { id: 'product', label: 'Products', value: 434, notes: ['+23% Y/Y', '79% gross margin'] },
+        {
+          id: 'subscription_and_support',
+          label: 'Subscriptions and support',
+          value: 2040,
+          notes: ['+14% Y/Y', '73% gross margin'],
+        },
+      ],
+    },
+    costs: {
+      costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 638 },
+      operatingExpenses: {
+        total: 1527,
+        items: [
+          { id: 'sm', label: 'S&M', value: 820, notes: ['33% of revenue', '(1pp) Y/Y'] },
+          { id: 'rnd', label: 'R&D', value: 528, notes: ['21% of revenue', '(1pp) Y/Y'] },
+          { id: 'ga', label: 'G&A', value: 179, notes: ['7% of revenue', '+3pp Y/Y'] },
+        ],
+      },
+      tax: { id: 'tax', label: 'Tax', value: 78 },
+    },
+    otherIncome: {
+      total: 103,
+      items: [{ id: 'other', label: 'Other', value: 103 }],
+    },
+    otherExpenses: {
+      total: 0,
+      items: [],
+    },
+    profit: {
+      gross: { id: 'gross_profit', label: 'Gross profit', value: 1836, notes: ['74% margin', '+0pp Y/Y'] },
+      operating: { id: 'operating_profit', label: 'Operating profit', value: 309, notes: ['12% margin', '(1pp) Y/Y'] },
+      net: { id: 'net_profit', label: 'Net profit', value: 334, notes: ['14% margin', '(3pp) Y/Y'] },
+    },
+    i18n: {
+      zh: {
+        period: '2026 财年第一季度',
+        periodNote: '截至 2025 年 10 月',
+        revenue: {
+          notes: ['同比 +16%'],
+          items: [
+            { id: 'product', label: '产品', notes: ['同比 +23%', '毛利率 79%'] },
+            { id: 'subscription_and_support', label: '订阅和支持', notes: ['同比 +14%', '毛利率 73%'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: { label: '收入成本' },
+          operatingExpenses: {
+            items: [
+              { id: 'sm', label: '销售与市场', notes: ['占收入 33%', '同比 (1 个百分点)'] },
+              { id: 'rnd', label: '研发', notes: ['占收入 21%', '同比 (1 个百分点)'] },
+              { id: 'ga', label: '管理费用', notes: ['占收入 7%', '同比 +3 个百分点'] },
+            ],
+          },
+          tax: { label: '税费' },
+        },
+        otherIncome: { items: [{ id: 'other', label: '其他' }] },
+        profit: {
+          gross: { label: '毛利润', notes: ['利润率 74%', '同比 +0 个百分点'] },
+          operating: { label: '营业利润', notes: ['利润率 12%', '同比 (1 个百分点)'] },
+          net: { label: '净利润', notes: ['利润率 14%', '同比 (3 个百分点)'] },
+        },
+      },
+    },
+  });
+
+  ssot.records.push({
     key: 'palo-alto-q2-fy26',
     company: 'Palo Alto Networks',
     period: 'Q2 FY26',
