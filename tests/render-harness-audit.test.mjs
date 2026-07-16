@@ -282,6 +282,38 @@ test('B3/T7 infer centered-side-label from a separate amount block and side name
   assert.equal(failure.inferredCenteredSideLabelViolations[0].verticalCenterDelta, 10);
 });
 
+test('B3/T7 inferred side-name centering excludes side notes and margin text', () => {
+  const audit = classifyLabelLayoutAudit({
+    nodes: [{ id: 'subscription', box: { x: 100, y: 100, width: 20, height: 100 } }],
+    labels: [
+      {
+        node: 'subscription',
+        labelIndex: 0,
+        text: '$2,040M +14% Y/Y',
+        box: { x: 100, y: 65, width: 20, height: 25 },
+      },
+      {
+        node: 'subscription',
+        labelIndex: 1,
+        text: 'Subscriptions and support',
+        box: { x: 20, y: 140, width: 70, height: 20 },
+      },
+      {
+        node: 'subscription',
+        labelIndex: 2,
+        text: '73% gross margin',
+        box: { x: 20, y: 175, width: 70, height: 20 },
+      },
+    ],
+  });
+
+  assert.deepEqual(
+    audit.inferredCenteredSideLabels.map((item) => item.text),
+    ['Subscriptions and support']
+  );
+  assert.deepEqual(audit.inferredCenteredSideLabelViolations, []);
+});
+
 test('Build-bound render evidence cannot archive a failed planned text, annotation, or centered-label gate', () => {
   const plan = {
     requiredChecks: [
