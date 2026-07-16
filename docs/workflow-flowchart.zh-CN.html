@@ -516,7 +516,7 @@ pnpm exec playwright install chromium</span>
       <ul>
         <li><b>semantic-value</b>：每个名称、金额和 metric observation；<b>geometry</b>：每个 face/link/guide/label/asset；<b>residual</b>：只允许闭集中的非语义残片；</li>
         <li>持久化 <code>object-inventory/v3</code>；每个独立 <code>source:*</code> observation 绑定 native bbox、唯一 inventory owner、mapping role、精确 amount/SSOT ref 与 face claim；</li>
-        <li><b>Other / Others / All Other 永远是语义对象</b>；缺 icon 只影响 asset。Coverage 自动派生三项最小非零值、visible/hidden IDs 与 typed floor exceptions；</li>
+        <li><b>Other / Others / All Other 永远是语义对象</b>；缺 icon 只影响 asset。带值 Other 是数据指标：face 必须 claim visible，记成标注或 hidden-anchor 在 Coverage 组装时即失败（T22）；低于 floor 的真实 face 走 typed floor exception，不许隐藏。Coverage 自动派生三项最小非零值、visible/hidden IDs 与 typed floor exceptions；</li>
         <li>主图把非零语义对象显示成 <code>$0.0B</code> 时，必须从权威补充来源恢复 higher-precision literal/locator，按 K/M/B/T 归一化；恢复不了即 STOP。</li>
         <li><code>prepare-review</code> 会把 Coverage 作为 Plan v4 build gate，并机器核对 Source ↔ SSOT ↔ Adapter 精确数值；之后才允许 preflight/SSOT/图标并行。</li>
       </ul>

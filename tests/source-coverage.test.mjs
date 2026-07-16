@@ -230,6 +230,78 @@ test('Source Coverage uses independent Source identities and never treats Other 
   );
 });
 
+test('a value-bearing Other must keep a visible node face and is never an annotation (T22)', () => {
+  const sourceClassification = classification();
+  const hiddenInventory = createObjectInventory({
+    datasetKey: DATASET_KEY,
+    objects: [{
+      id: 'node:other-income',
+      kind: 'financial-line-item',
+      disposition: 'render',
+      mapping: [
+        { role: 'data', target: 'incomeStatement.otherIncome.items.other_income' },
+        { role: 'render', target: 'nodes.other_income' },
+      ],
+      features: ['hidden-anchor'],
+      featureEvidence: {
+        'hidden-anchor': {
+          source: 'reference-crop',
+          locator: `input/processing/${DATASET_KEY}.png#other-income`,
+          digest: SOURCE_DIGEST,
+          referenceBBox: [940, 230, 72, 1],
+          inspectionMethod: 'native-scale-crop-and-pixel-scan',
+          classificationClaim: 'no-visible-node-face-observed',
+          reason: 'Thin pale trace misread as a guide endpoint without a node face.',
+        },
+      },
+    }],
+  });
+  assert.throws(
+    () => createSourceCoverage({
+      classification: sourceClassification,
+      source: sourceClassification.source,
+      scanPasses: SOURCE_COVERAGE_SCAN_PASSES,
+      items: [{
+        sourceId: 'source:other-income',
+        sourceClass: 'financial-value',
+        sourceLabel: 'Other',
+        contentBBox: [900, 200, 180, 80],
+        inventoryObjectIds: ['node:other-income'],
+        amount: { literal: '$40M', value: '40', unit: 'M', resolution: '1' },
+        ssotRef: { family: 'income-statement', path: 'otherIncome.items', id: 'other_income' },
+        face: { claim: 'hidden', searchBBox: [880, 180, 220, 120] },
+      }],
+    }, { inventory: hiddenInventory, adapter: 'income-statement' }),
+    (error) => error.code === 'SOURCE_COVERAGE_OTHER_FACE_HIDDEN'
+  );
+
+  const annotationInventory = createObjectInventory({
+    datasetKey: DATASET_KEY,
+    objects: [{
+      id: 'annotation:other-note',
+      kind: 'financial-callout',
+      disposition: 'render',
+      mapping: [{ role: 'render', target: 'annotations.other_note' }],
+      features: ['text'],
+    }],
+  });
+  assert.throws(
+    () => createSourceCoverage({
+      classification: sourceClassification,
+      source: sourceClassification.source,
+      scanPasses: SOURCE_COVERAGE_SCAN_PASSES,
+      items: [{
+        sourceId: 'source:other-note',
+        sourceClass: 'label-or-annotation',
+        sourceLabel: 'Other $40M',
+        contentBBox: [900, 200, 180, 80],
+        inventoryObjectIds: ['annotation:other-note'],
+      }],
+    }, { inventory: annotationInventory, adapter: 'income-statement' }),
+    (error) => error.code === 'SOURCE_COVERAGE_OTHER_CLASS_INVALID'
+  );
+});
+
 test('a rounded $0.0B literal requires authoritative precision recovery instead of becoming zero', () => {
   const rounded = { literal: '$0.0B', value: '0.04', unit: 'B', resolution: '0.1' };
   assert.throws(

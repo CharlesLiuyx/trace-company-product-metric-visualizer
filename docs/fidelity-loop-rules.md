@@ -179,14 +179,14 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 | structure | [G1](#rule-g1) [G2](#rule-g2) [G4](#rule-g4) [G5](#rule-g5) [G6](#rule-g6) [G7](#rule-g7) [G12](#rule-g12) [B7](#rule-b7) [B8](#rule-b8) [B10](#rule-b10) [B11](#rule-b11) [B12](#rule-b12) [B15](#rule-b15) [R3](#rule-r3) [R4](#rule-r4) [R5](#rule-r5) [R6](#rule-r6) [R7](#rule-r7) [R8](#rule-r8) [R9](#rule-r9) [L1](#rule-l1) [L2](#rule-l2) [L3](#rule-l3) [L4](#rule-l4) [L5](#rule-l5) [L6](#rule-l6) [L7](#rule-l7) [L8](#rule-l8) [L9](#rule-l9) [L10](#rule-l10) [L11](#rule-l11) [L13](#rule-l13) [L14](#rule-l14) [L15](#rule-l15) [L16](#rule-l16) [T12](#rule-t12) [T12a](#rule-t12a) [T13](#rule-t13) [T14](#rule-t14) [T21](#rule-t21) |
 | text | [G3](#rule-g3) [G3a](#rule-g3a) [G3b](#rule-g3b) [G3c](#rule-g3c) [G8](#rule-g8) [G9](#rule-g9) [G10](#rule-g10) [B1](#rule-b1) [B2](#rule-b2) [B3](#rule-b3) [B4](#rule-b4) [B5](#rule-b5) [B6](#rule-b6) [B13](#rule-b13) [B14](#rule-b14) [T1](#rule-t1) [T2](#rule-t2) [T3](#rule-t3) [T4](#rule-t4) [T5](#rule-t5) [T6](#rule-t6) [T7](#rule-t7) [T8](#rule-t8) [T9](#rule-t9) [T10](#rule-t10) [T11](#rule-t11) [T15](#rule-t15) [T16](#rule-t16) [T17](#rule-t17) [T18](#rule-t18) [T20](#rule-t20) [A1](#rule-a1) [A2](#rule-a2) [A3](#rule-a3) [A4](#rule-a4) [A5](#rule-a5) [A6](#rule-a6) [A7](#rule-a7) [A8](#rule-a8) [A9](#rule-a9) [A10](#rule-a10) |
 | polish-l10n | [B9](#rule-b9) [L12](#rule-l12) [Z1](#rule-z1) [Z2](#rule-z2) [Z3](#rule-z3) [Z4](#rule-z4) [Z5](#rule-z5) [Z6](#rule-z6) [Z6a](#rule-z6a) [Z7](#rule-z7) [Z8](#rule-z8) |
-| build | [G11](#rule-g11) [B16](#rule-b16) [T19](#rule-t19) |
+| build | [G11](#rule-g11) [B16](#rule-b16) [T19](#rule-t19) [T22](#rule-t22) |
 | subloop | [R1](#rule-r1) [R2](#rule-r2) [I1](#rule-i1) [I2](#rule-i2) [I3](#rule-i3) [I4](#rule-i4) [I5](#rule-i5) [I6](#rule-i6) [I7](#rule-i7) [I8](#rule-i8) [I9](#rule-i9) [I10](#rule-i10) [I11](#rule-i11) |
 
 **按主题：**
 
 | 主题 | 规则 |
 | --- | --- |
-| node | [G8](#rule-g8) [G9](#rule-g9) [G10](#rule-g10) [B1](#rule-b1) [B2](#rule-b2) [B4](#rule-b4) [B7](#rule-b7) [B10](#rule-b10) [B12](#rule-b12) [B13](#rule-b13) [B15](#rule-b15) [B16](#rule-b16) [L4](#rule-l4) [L6](#rule-l6) [L9](#rule-l9) [L11](#rule-l11) [L13](#rule-l13) [L14](#rule-l14) [T1](#rule-t1) [T2](#rule-t2) [T3](#rule-t3) [T4](#rule-t4) [T5](#rule-t5) [T8](#rule-t8) [T9](#rule-t9) [T10](#rule-t10) [T12](#rule-t12) [T12a](#rule-t12a) [T13](#rule-t13) [T14](#rule-t14) [T15](#rule-t15) [T21](#rule-t21) [A10](#rule-a10) |
+| node | [G8](#rule-g8) [G9](#rule-g9) [G10](#rule-g10) [B1](#rule-b1) [B2](#rule-b2) [B4](#rule-b4) [B7](#rule-b7) [B10](#rule-b10) [B12](#rule-b12) [B13](#rule-b13) [B15](#rule-b15) [B16](#rule-b16) [L4](#rule-l4) [L6](#rule-l6) [L9](#rule-l9) [L11](#rule-l11) [L13](#rule-l13) [L14](#rule-l14) [T1](#rule-t1) [T2](#rule-t2) [T3](#rule-t3) [T4](#rule-t4) [T5](#rule-t5) [T8](#rule-t8) [T9](#rule-t9) [T10](#rule-t10) [T12](#rule-t12) [T12a](#rule-t12a) [T13](#rule-t13) [T14](#rule-t14) [T15](#rule-t15) [T21](#rule-t21) [T22](#rule-t22) [A10](#rule-a10) |
 | link | [G12](#rule-g12) [B8](#rule-b8) [B9](#rule-b9) [B10](#rule-b10) [B11](#rule-b11) [B12](#rule-b12) [L1](#rule-l1) [L2](#rule-l2) [L3](#rule-l3) [L4](#rule-l4) [L5](#rule-l5) [L6](#rule-l6) [L7](#rule-l7) [L8](#rule-l8) [L9](#rule-l9) [L10](#rule-l10) [L11](#rule-l11) [L12](#rule-l12) [L13](#rule-l13) [L14](#rule-l14) [L15](#rule-l15) [L16](#rule-l16) |
 | label | [G8](#rule-g8) [G9](#rule-g9) [G10](#rule-g10) [B1](#rule-b1) [B2](#rule-b2) [B3](#rule-b3) [B4](#rule-b4) [B5](#rule-b5) [B6](#rule-b6) [B13](#rule-b13) [B14](#rule-b14) [L13](#rule-l13) [T1](#rule-t1) [T2](#rule-t2) [T3](#rule-t3) [T4](#rule-t4) [T5](#rule-t5) [T6](#rule-t6) [T7](#rule-t7) [T8](#rule-t8) [T9](#rule-t9) [T10](#rule-t10) [T11](#rule-t11) [T15](#rule-t15) [T16](#rule-t16) [T17](#rule-t17) [T18](#rule-t18) [T20](#rule-t20) [A6](#rule-a6) [Z5](#rule-z5) [Z8](#rule-z8) |
 | annotation | [B5](#rule-b5) [B16](#rule-b16) [T12a](#rule-t12a) [T17](#rule-t17) [A1](#rule-a1) [A2](#rule-a2) [A3](#rule-a3) [A4](#rule-a4) [A5](#rule-a5) [A6](#rule-a6) [A7](#rule-a7) [A8](#rule-a8) [A9](#rule-a9) [A10](#rule-a10) [Z6a](#rule-z6a) |
@@ -200,7 +200,7 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 | 类别 | 规则 |
 | --- | --- |
 | `hard-gate` | [G1](#rule-g1) [G2](#rule-g2) [G3](#rule-g3) [G3a](#rule-g3a) [G3b](#rule-g3b) [G3c](#rule-g3c) [G4](#rule-g4) [G5](#rule-g5) [G6](#rule-g6) [G7](#rule-g7) [G8](#rule-g8) [G9](#rule-g9) [G10](#rule-g10) [G12](#rule-g12) [R3](#rule-r3) [R4](#rule-r4) [R5](#rule-r5) [R6](#rule-r6) [R7](#rule-r7) [R8](#rule-r8) [R9](#rule-r9) [L15](#rule-l15) |
-| `build-gate` | [G11](#rule-g11) [T19](#rule-t19) |
+| `build-gate` | [G11](#rule-g11) [T19](#rule-t19) [T22](#rule-t22) |
 | `conditional-gate` | [B3](#rule-b3) [B5](#rule-b5) [B6](#rule-b6) [B7](#rule-b7) [B15](#rule-b15) [B16](#rule-b16) [T7](#rule-t7) [T13](#rule-t13) [T18](#rule-t18) [T21](#rule-t21) [A6](#rule-a6) [A10](#rule-a10) [Z5](#rule-z5) |
 | `quantified-audit` | [B8](#rule-b8) [B10](#rule-b10) [B12](#rule-b12) [L5](#rule-l5) [L6](#rule-l6) [L10](#rule-l10) [L11](#rule-l11) [T1](#rule-t1) [T2](#rule-t2) [T4](#rule-t4) [T6](#rule-t6) |
 | `manual` | [B1](#rule-b1) [B2](#rule-b2) [B4](#rule-b4) [B9](#rule-b9) [B11](#rule-b11) [B13](#rule-b13) [B14](#rule-b14) [R1](#rule-r1) [R2](#rule-r2) [L1](#rule-l1) [L2](#rule-l2) [L3](#rule-l3) [L4](#rule-l4) [L7](#rule-l7) [L8](#rule-l8) [L9](#rule-l9) [L12](#rule-l12) [L13](#rule-l13) [L14](#rule-l14) [L16](#rule-l16) [T3](#rule-t3) [T5](#rule-t5) [T8](#rule-t8) [T9](#rule-t9) [T10](#rule-t10) [T11](#rule-t11) [T12](#rule-t12) [T12a](#rule-t12a) [T14](#rule-t14) [T15](#rule-t15) [T16](#rule-t16) [T17](#rule-t17) [T20](#rule-t20) [A1](#rule-a1) [A2](#rule-a2) [A3](#rule-a3) [A4](#rule-a4) [A5](#rule-a5) [A7](#rule-a7) [A8](#rule-a8) [A9](#rule-a9) [Z1](#rule-z1) [Z2](#rule-z2) [Z3](#rule-z3) [Z4](#rule-z4) [Z6](#rule-z6) [Z6a](#rule-z6a) [Z7](#rule-z7) [Z8](#rule-z8) [I1](#rule-i1) [I2](#rule-i2) [I3](#rule-i3) [I4](#rule-i4) [I5](#rule-i5) [I6](#rule-i6) [I7](#rule-i7) [I8](#rule-i8) [I9](#rule-i9) [I10](#rule-i10) [I11](#rule-i11) |
@@ -746,6 +746,15 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 - feature：`visible-node-face`
 - 理由：补上 B15/`faceVisible` 只验 alpha>0、bbox 非零而不验渲染高度的盲点：消除“数值极小 → 亚像素柱、肉眼不可见”，并给所有 short 节点统一最小柱高、杜绝逐次在 1px/11px 间猜测（同一批曾出现 Visa=6px、SAP/Comcast=3px 的各自取值）。
 - 来源：commit 72644e5
+
+#### <a id="rule-t22"></a>T22 · build-gate
+
+- 阶段：build · 主题：node
+- 触发：Source Coverage 对象命中 Other/All Other 语义且确认承载数值（value-bearing）时。
+- 检查：`source-coverage/v1` 在组装时强制：带值 Other 是数据指标，不是标注——sourceLabel 含 K/M/B/T 金额而 sourceClass 记为非 value-bearing 类立即失败（`SOURCE_COVERAGE_OTHER_CLASS_INVALID`）；其唯一 node face 的 claim 必须是 visible（`SOURCE_COVERAGE_OTHER_FACE_HIDDEN`）。
+- 通过：柱面不得缺失：把带值 Other 记成 hidden-anchor 或标注的分类一律失败。真实 Source face 低于共享 floor 时按 T21 走 `source-visible-face-below-floor` 显式例外（`visible-short-node`），而不是隐藏。
+- 证据：`source-coverage/v1` 组装校验；例外仍须绑定 Source digest 与原生 face bbox。
+- 理由：Texas Instruments Q4 FY25 与 Lyft Q3 FY25 连续把带值 Other 的真实细柱误判为隐藏锚点（CB-003/CB-007 复发）；对 Other 的可见性歧义不再留人工判断空间，一律收敛为可见数据柱。
 
 ### A 系列：annotation 容器
 

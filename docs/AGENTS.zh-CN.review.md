@@ -140,7 +140,8 @@ Coverage、执行/分派、陷阱、最终检查与汇报。处理 pending 工�
 1. 守卫、分型与 intake——完整查看 Source，在 `record:intake` 前通过基于
    signals 的 Adapter 分型门；歧义或未识别输入在 no-clobber claim 前停止。
 2. Source 覆盖与准备——完整记录 Source Coverage 和 `ObjectInventory`，显式
-   包含 Other 类对象、最小非零值、face intent 与 casebook 命中；通过后才并行
+   包含 Other 类对象（带值 Other 是数据指标，柱面必须可见——T22）、最小非零
+   值、face intent 与 casebook 命中；通过后才并行
    metadata/SSOT、preflight 测量与可选图标。
 3. Adapter 与 i18n——对账 Source → Inventory → SSOT → Adapter/data，编写适用
    View、本地化并注册；缺少图标绝不能删除语义对象。
