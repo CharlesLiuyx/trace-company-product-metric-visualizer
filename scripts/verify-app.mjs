@@ -330,6 +330,53 @@ await scenario('sankey hover: unified node and link share rules', async (page) =
     `Coupang operating profit → Other link hover expected smaller/larger endpoint share 23.5%, got ${coupangBridge.join(' + ')}`
   );
 
+  await boot(page, `${url}#rbi-q1-fy26`);
+  const rbiOtherIncome = await hoverPercentages('other_income', { useLabel: true });
+  assert(
+    rbiOtherIncome.join('|') === '1.3%',
+    `RBI Other income label hover expected 1.3%, got ${rbiOtherIncome.join(' + ')}`
+  );
+  const rbiOtherIncomeGuide = page.locator(
+    '#chart .sankey-interactive-annotation[data-node="other_income"] .sankey-annotation-hitbox'
+  );
+  assert(
+    await rbiOtherIncomeGuide.count() === 1,
+    'RBI Other income guide has no practical hover hitbox'
+  );
+  await rbiOtherIncomeGuide.hover({ force: true });
+  const rbiOtherIncomeGuidePercentages = await visiblePercentages();
+  assert(
+    rbiOtherIncomeGuidePercentages.join('|') === '1.3%',
+    `RBI Other income guide hover expected 1.3%, got ${rbiOtherIncomeGuidePercentages.join(' + ')}`
+  );
+  const rbiOtherIncomeTooltipPosition = await page.evaluate(() => {
+    const tooltip = document.querySelector('#chart g.sankey-link-tooltip').getBoundingClientRect();
+    const otherIncome = document.querySelector(
+      '#chart .sankey-label[data-node="other_income"]'
+    ).getBoundingClientRect();
+    const operatingExpenses = document.querySelector(
+      '#chart .sankey-label[data-node="operating_expenses"]'
+    ).getBoundingClientRect();
+    const overlaps = (a, b) => !(
+      a.right <= b.left
+      || b.right <= a.left
+      || a.bottom <= b.top
+      || b.bottom <= a.top
+    );
+    return {
+      overlapsOtherIncome: overlaps(tooltip, otherIncome),
+      overlapsOperatingExpenses: overlaps(tooltip, operatingExpenses),
+    };
+  });
+  assert(
+    !rbiOtherIncomeTooltipPosition.overlapsOtherIncome,
+    'RBI Other income tooltip overlaps its own label'
+  );
+  assert(
+    !rbiOtherIncomeTooltipPosition.overlapsOperatingExpenses,
+    'RBI Other income tooltip overlaps the Operating expenses label'
+  );
+
   await boot(page, `${url}#blackrock-q1-fy26`);
   const blackRockOther = page.locator(
     '#chart .sankey-interactive-annotation[data-node="other"] .sankey-annotation-hitbox'

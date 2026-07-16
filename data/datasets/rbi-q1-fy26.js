@@ -30,7 +30,13 @@
   // light-green S-curve tucking into the operating-expenses node's lower-left,
   // matching the source (measured x1695-1772 @ y1095, curve to ~x1897,y1040).
   const annotations = `
-    <g font-family="Montserrat,Arial,sans-serif">
+    <g class="sankey-interactive-annotation"
+       data-node="other_income"
+       data-link-numerator="other_income"
+       data-link-denominator="operating_expenses"
+       data-link-anchor-x="1760"
+       data-link-anchor-y="1088"
+       font-family="Montserrat,Arial,sans-serif">
       <line x1="1694" y1="1095" x2="1772" y2="1095" stroke="${GREEN}" stroke-width="4" stroke-linecap="round"/>
       <path d="M1772 1095 C1828 1095 1846 1036 1900 1036"
             fill="none" stroke="${GREEN_LINK}" stroke-width="3"/>
