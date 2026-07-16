@@ -85,6 +85,14 @@ historical `SEALED` Build effectively `AUTHORED`. `CloseoutReport`, Task
 information, and Loop Fidelity Summary are generated Views over structured
 Build objects, not acceptance inputs.
 
+When a non-zero Source literal has a confirmed unit typo, Source Coverage
+keeps the original literal immutable and may apply only a user-directed,
+authoritative-source-bound correction. The correction records the issue,
+approval, official locator and literal, corrected display literal, and reason;
+both the official value and corrected display must support the authored amount
+within the declared resolution. This is distinct from rounded-zero precision
+recovery and the two mechanisms cannot be combined.
+
 Load context in this order:
 
 1. [Architecture index](docs/architecture/README.md)

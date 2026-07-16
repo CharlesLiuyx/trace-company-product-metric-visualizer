@@ -158,7 +158,10 @@ target state as current. Five-phase summary:
    `ObjectInventory`, explicitly including Other-like objects (a value-bearing
    Other is a data metric and keeps a visible bar — T22), smallest
    non-zero values, face intent, and casebook hits; only then parallelize
-   metadata/SSOT, preflight measurement, and optional icons.
+   metadata/SSOT, preflight measurement, and optional icons. A confirmed
+   non-zero Source unit typo may proceed only through the user-directed,
+   authoritative-source-bound correction recorded by Source Coverage; the
+   original literal remains auditable.
 3. Adapter & i18n — reconcile Source → Inventory → SSOT → Adapter/data,
    author the applicable view, localize, and register; a missing icon never
    removes a semantic object.

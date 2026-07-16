@@ -81,6 +81,13 @@ If `$0.0B` or another zero literal represents a non-zero semantic object,
 `precisionRecovery` is mandatory: `authoritative-supplemental-source`, locator, and a higher-precision
 K/M/B/T literal that normalizes exactly to the authored non-zero amount.
 
+When a non-zero literal has a confirmed unit typo, retain the original literal
+and require a user-directed `authoritative-source-correction` bound to the
+official locator/literal, approved corrected literal, `unit-typo` issue, and
+reason. Both official and corrected values must support the authored amount
+within the Source resolution. This is not precision recovery and cannot be
+inferred or combined with it.
+
 Face classification details belong to fidelity §2. Coverage binds each face to
 one node and inventory intent. T21 is blocking: expected-visible faces below
 3px fail. A genuine Source face below 3px needs the typed
@@ -151,7 +158,10 @@ object displaying an amount is authored as a data metric with a `visible` face
 claim — below-floor faces take the typed floor exception; T22 fails annotation
 or hidden classing at assembly.
 
-For a rounded-zero literal, recover authoritative precision before authoring; never convert or hide it as zero.
+For a rounded-zero literal, recover authoritative precision before authoring;
+never convert or hide it as zero. For a confirmed non-zero unit typo, record
+the explicit user-approved authoritative correction before authoring; absent
+that correction, the Source/SSOT contradiction remains a hard stop.
 
 **Output:** inventory and coverage summaries for Other, three smallest non-zero
 values, visible/hidden IDs, typed floor exceptions, and casebook hits.
@@ -160,7 +170,7 @@ values, visible/hidden IDs, typed floor exceptions, and casebook hits.
 classed as annotation or claimed hidden (T22); missing/duplicate
 coverage; unclassified face; or contradiction with the intaked Adapter. There
 is no retype command—stop and report recovery. Missing required precision
-recovery is also a hard stop.
+recovery or authoritative correction is also a hard stop.
 
 ### Step 4 — Parallel preparation
 

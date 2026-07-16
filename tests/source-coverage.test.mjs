@@ -2,6 +2,8 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { createObjectInventory } from '../scripts/lib/object-inventory.mjs';
 import {
+  AUTHORITATIVE_CORRECTION_APPROVAL,
+  AUTHORITATIVE_CORRECTION_METHOD,
   PRECISION_RECOVERY_METHOD,
   SOURCE_CLASSIFICATION_REVIEW_METHOD,
   SOURCE_COVERAGE_SCAN_PASSES,
@@ -165,6 +167,53 @@ test('Cost of revenue detail items reconcile through the typed Source Coverage p
   }, { inventory, adapter: 'income-statement' });
   const loaded = loadedData();
   loaded.datasets[0].nodes.push({ id: 'product_cost', value: 0.6, valueText: '$600M' });
+  assert.deepEqual(
+    assertSourceCoverageAuthoredValues(coverage, { loadedData: loaded }),
+    { checked: 1, unit: 'B' }
+  );
+});
+
+test('Gross profit contribution items reconcile through the typed Source Coverage path', () => {
+  const sourceClassification = classification();
+  const inventory = createObjectInventory({
+    datasetKey: DATASET_KEY,
+    objects: [{
+      id: 'node:square-gross-profit',
+      kind: 'gross-profit-contribution',
+      disposition: 'render',
+      mapping: [
+        { role: 'data', target: 'incomeStatement.profit.gross.items.square_gross_profit' },
+        { role: 'render', target: 'nodes.square_gross_profit' },
+      ],
+      features: ['visible-node-face'],
+    }],
+  });
+  const coverage = createSourceCoverage({
+    classification: sourceClassification,
+    source: sourceClassification.source,
+    scanPasses: SOURCE_COVERAGE_SCAN_PASSES,
+    items: [{
+      sourceId: 'source:square-gross-profit',
+      sourceClass: 'financial-value',
+      sourceLabel: 'Square gross profit contribution',
+      contentBBox: [500, 300, 160, 60],
+      inventoryObjectIds: ['node:square-gross-profit'],
+      amount: { literal: '$1.0B', value: '1.0', unit: 'B', resolution: '0.1' },
+      ssotRef: { family: 'income-statement', path: 'profit.gross.items', id: 'square_gross_profit' },
+      face: {
+        claim: 'visible',
+        searchBBox: [480, 280, 200, 100],
+        observedBBox: [520, 320, 80, 20],
+      },
+    }],
+  }, { inventory, adapter: 'income-statement' });
+  const loaded = loadedData();
+  loaded.records[0].profit.gross = {
+    id: 'gross_profit',
+    value: 1,
+    items: [{ id: 'square_gross_profit', value: 1 }],
+  };
+  loaded.datasets[0].nodes.push({ id: 'square_gross_profit', value: 1, valueText: '$1.0B' });
   assert.deepEqual(
     assertSourceCoverageAuthoredValues(coverage, { loadedData: loaded }),
     { checked: 1, unit: 'B' }
@@ -336,6 +385,62 @@ test('a rounded $0.0B literal requires authoritative precision recovery instead 
       },
     }),
     (error) => error.code === 'SOURCE_COVERAGE_AMOUNT_RESOLUTION_MISMATCH'
+  );
+});
+
+test('a user-approved authoritative correction may repair a non-zero Source unit typo without erasing the original literal', () => {
+  const coverage = financialCoverage({
+    amount: {
+      literal: '$3.3M',
+      value: '3.3',
+      unit: 'B',
+      resolution: '0.1',
+      authoritativeCorrection: {
+        method: AUTHORITATIVE_CORRECTION_METHOD,
+        issue: 'unit-typo',
+        approval: AUTHORITATIVE_CORRECTION_APPROVAL,
+        locator: 'https://www.sec.gov/example',
+        authoritativeLiteral: '$3,334M',
+        correctedLiteral: '$3.3B',
+        reason: 'The Source suffix conflicts with its margin, geometry, and the official filing.',
+      },
+    },
+  });
+  assert.equal(coverage.items[0].amount.literal, '$3.3M');
+  assert.equal(coverage.items[0].amount.value, '3.3');
+  assert.equal(coverage.items[0].amount.authoritativeCorrection.correctedLiteral, '$3.3B');
+  assert.deepEqual(coverage.summary.correctedSourceIds, ['source:other-income']);
+
+  assert.throws(
+    () => financialCoverage({
+      amount: {
+        literal: '$3.3M',
+        value: '3.3',
+        unit: 'B',
+        resolution: '0.1',
+      },
+    }),
+    (error) => error.code === 'SOURCE_COVERAGE_AMOUNT_RESOLUTION_MISMATCH'
+  );
+  assert.throws(
+    () => financialCoverage({
+      amount: {
+        literal: '$3.3M',
+        value: '3.3',
+        unit: 'B',
+        resolution: '0.1',
+        authoritativeCorrection: {
+          method: AUTHORITATIVE_CORRECTION_METHOD,
+          issue: 'unit-typo',
+          approval: AUTHORITATIVE_CORRECTION_APPROVAL,
+          locator: 'https://www.sec.gov/example',
+          authoritativeLiteral: '$3.0B',
+          correctedLiteral: '$3.3B',
+          reason: 'The asserted authority does not support the corrected value.',
+        },
+      },
+    }),
+    (error) => error.code === 'SOURCE_COVERAGE_AUTHORITATIVE_CORRECTION_MISMATCH'
   );
 });
 

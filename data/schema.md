@@ -115,7 +115,15 @@ is needed. Do not create parallel dataset files per language.
     items: [],
   },
   profit: {
-    gross: { id: 'gross_profit', label: 'Gross profit', value: 61.2 },
+    gross: {
+      id: 'gross_profit',
+      label: 'Gross profit',
+      value: 61.2,
+      // Optional Source-visible contribution breakdown of gross profit.
+      items: [
+        { id: 'platform_a_gross_profit', label: 'Platform A', value: 30.0 },
+      ],
+    },
     operating: { id: 'operating_profit', label: 'Operating profit', value: 53.5 },
     net: { id: 'net_profit', label: 'Net profit', value: 58.3 },
   },
@@ -158,6 +166,13 @@ breakdown total or one of its items through
 `{ family: 'income-statement', path: 'revenue.breakdowns', id }` so every
 visible value in an orthogonal Source breakdown still reconciles to pure SSOT
 data and exactly one Sankey node.
+
+`profit.gross.items` is optional and expresses Source-visible contributions to
+gross profit, such as gross profit split by ecosystem or business line. Its
+items must sum to `profit.gross.value` within `roundingTolerance`; each item
+uses a stable id and may carry notes and localized labels like other financial
+items. Source Coverage references these values through
+`{ family: 'income-statement', path: 'profit.gross.items', id }`.
 
 ### Revenue metric record
 
@@ -253,9 +268,37 @@ to exactly the same effective value as `amount.value` (here `$40M = $0.04B`).
 non-zero value to zero. If no authoritative higher-precision value can be
 recovered, stop the Build; do not write `0` as a guess.
 
+For a confirmed non-zero unit typo, preserve the original Source literal and
+record an explicit, user-approved correction:
+
+```js
+amount: {
+  literal: '$3.3M',
+  value: '3.3',
+  unit: 'B',
+  resolution: '0.1',
+  authoritativeCorrection: {
+    method: 'authoritative-source-correction',
+    issue: 'unit-typo',
+    approval: 'user-directed-source-correction',
+    locator: 'https://www.sec.gov/example',
+    authoritativeLiteral: '$3,334M',
+    correctedLiteral: '$3.3B',
+    reason: 'The Source suffix conflicts with the official filing and chart geometry.',
+  },
+}
+```
+
+This correction is valid only when the original literal conflicts with the
+authored amount, while both the authoritative value and corrected literal
+support it inside the declared rounding interval. The corrected literal unit
+must match `amount.unit`. Do not use this mechanism for an unverified
+discrepancy, a value change, or a zero-looking rounded amount; the latter uses
+`precisionRecovery`. The two mechanisms are mutually exclusive.
+
 | Adapter | typed reference | resolved authored value |
 | --- | --- | --- |
-| Income Statement | `{ family: 'income-statement', path, id }` | the matching record selected by dataset key; `path` covers revenue (including optional independent `revenue.breakdowns`), cost (including `costs.costOfRevenue.items`), profit, and operating/non-operating other-income/expense totals or items; item paths search nested `children` by `id`, while total paths use their stable node ID |
+| Income Statement | `{ family: 'income-statement', path, id }` | the matching record selected by dataset key; `path` covers revenue (including optional independent `revenue.breakdowns`), cost (including `costs.costOfRevenue.items`), profit (including optional `profit.gross.items`), and operating/non-operating other-income/expense totals or items; item paths search nested `children` by `id`, while total paths use their stable node ID |
 | Revenue Metric | `{ family: 'revenue-metric', path: 'observations', date }` | the matching record's observation at the exact `YYYY-MM-DD` date |
 
 During current M3 `prepare-review`, verification converts the Source amount

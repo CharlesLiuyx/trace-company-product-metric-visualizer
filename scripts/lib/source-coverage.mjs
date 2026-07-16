@@ -51,12 +51,16 @@ export const INCOME_STATEMENT_SSOT_PATHS = Object.freeze([
   'otherExpenses.total',
   'otherExpenses.items',
   'profit.gross',
+  'profit.gross.items',
   'profit.operating',
   'profit.net',
 ]);
 export const VISIBILITY_FLOOR_EXCEPTION_TYPE = 'source-visible-face-below-floor';
 export const VISIBILITY_FLOOR_EXCEPTION_METHOD = 'native-scale-crop-and-pixel-scan';
 export const PRECISION_RECOVERY_METHOD = 'authoritative-supplemental-source';
+export const AUTHORITATIVE_CORRECTION_METHOD = 'authoritative-source-correction';
+export const AUTHORITATIVE_CORRECTION_APPROVAL = 'user-directed-source-correction';
+export const AUTHORITATIVE_CORRECTION_ISSUES = Object.freeze(['unit-typo']);
 
 const STABLE_ID_RE = /^[a-z0-9]+(?:[._:-][a-z0-9]+)*$/;
 const DIGEST_RE = /^sha256:[a-f0-9]{64}$/;
@@ -67,6 +71,7 @@ const CLASS_SET = new Set(SOURCE_OBJECT_CLASSES);
 const RESIDUAL_SET = new Set(SOURCE_RESIDUAL_KINDS);
 const AMOUNT_UNIT_SET = new Set(SOURCE_AMOUNT_UNITS);
 const INCOME_SSOT_PATH_SET = new Set(INCOME_STATEMENT_SSOT_PATHS);
+const AUTHORITATIVE_CORRECTION_ISSUE_SET = new Set(AUTHORITATIVE_CORRECTION_ISSUES);
 const UNIT_MULTIPLIERS = Object.freeze({ K: 1e3, M: 1e6, B: 1e9, T: 1e12 });
 
 const ADAPTER_SIGNATURES = Object.freeze({
@@ -289,12 +294,107 @@ function normalizeAmount(raw, sourceId) {
     : literalNumbers
     .map((candidate) => Number(candidate.replaceAll(',', '')))
     .find((candidate) => Number.isFinite(candidate));
-  if (Number.isFinite(displayedMagnitude)) {
-    const displayedBaseValue = displayedMagnitude * UNIT_MULTIPLIERS[literalAmount?.unit || raw.unit];
-    const authoredBaseValue = Number(value) * UNIT_MULTIPLIERS[raw.unit];
-    const halfResolutionBaseValue = Number(resolution) * UNIT_MULTIPLIERS[raw.unit] / 2;
+  const authoredBaseValue = Number(value) * UNIT_MULTIPLIERS[raw.unit];
+  const halfResolutionBaseValue = Number(resolution) * UNIT_MULTIPLIERS[raw.unit] / 2;
+  const comparisonTolerance = Math.max(1e-6, Math.abs(authoredBaseValue) * 1e-9);
+  const displayedBaseValue = Number.isFinite(displayedMagnitude)
+    ? displayedMagnitude * UNIT_MULTIPLIERS[literalAmount?.unit || raw.unit]
+    : null;
+  const literalWithinResolution = displayedBaseValue == null ||
+    Math.abs(authoredBaseValue - displayedBaseValue) <= halfResolutionBaseValue + comparisonTolerance;
+  let authoritativeCorrection = null;
+  if (raw.authoritativeCorrection != null) {
     invariant(
-      Math.abs(authoredBaseValue - displayedBaseValue) <= halfResolutionBaseValue + Math.max(1e-6, Math.abs(authoredBaseValue) * 1e-9),
+      raw.authoritativeCorrection && typeof raw.authoritativeCorrection === 'object' && !Array.isArray(raw.authoritativeCorrection),
+      'SOURCE_COVERAGE_AUTHORITATIVE_CORRECTION_INVALID',
+      `${sourceId} authoritativeCorrection must be an object`
+    );
+    invariant(
+      raw.authoritativeCorrection.method === AUTHORITATIVE_CORRECTION_METHOD,
+      'SOURCE_COVERAGE_AUTHORITATIVE_CORRECTION_INVALID',
+      `${sourceId} authoritativeCorrection must use ${AUTHORITATIVE_CORRECTION_METHOD}`
+    );
+    invariant(
+      AUTHORITATIVE_CORRECTION_ISSUE_SET.has(raw.authoritativeCorrection.issue),
+      'SOURCE_COVERAGE_AUTHORITATIVE_CORRECTION_INVALID',
+      `${sourceId} authoritativeCorrection.issue must be one of ${AUTHORITATIVE_CORRECTION_ISSUES.join(', ')}`
+    );
+    invariant(
+      raw.authoritativeCorrection.approval === AUTHORITATIVE_CORRECTION_APPROVAL,
+      'SOURCE_COVERAGE_AUTHORITATIVE_CORRECTION_INVALID',
+      `${sourceId} authoritativeCorrection must bind explicit ${AUTHORITATIVE_CORRECTION_APPROVAL} approval`
+    );
+    invariant(
+      typeof raw.authoritativeCorrection.locator === 'string' && raw.authoritativeCorrection.locator.trim(),
+      'SOURCE_COVERAGE_AUTHORITATIVE_CORRECTION_INVALID',
+      `${sourceId} authoritativeCorrection needs an authoritative URL or local evidence locator`
+    );
+    invariant(
+      typeof raw.authoritativeCorrection.authoritativeLiteral === 'string' &&
+        raw.authoritativeCorrection.authoritativeLiteral.trim(),
+      'SOURCE_COVERAGE_AUTHORITATIVE_CORRECTION_INVALID',
+      `${sourceId} authoritativeCorrection needs an authoritativeLiteral`
+    );
+    invariant(
+      typeof raw.authoritativeCorrection.correctedLiteral === 'string' &&
+        raw.authoritativeCorrection.correctedLiteral.trim(),
+      'SOURCE_COVERAGE_AUTHORITATIVE_CORRECTION_INVALID',
+      `${sourceId} authoritativeCorrection needs a correctedLiteral`
+    );
+    invariant(
+      typeof raw.authoritativeCorrection.reason === 'string' && raw.authoritativeCorrection.reason.trim(),
+      'SOURCE_COVERAGE_AUTHORITATIVE_CORRECTION_INVALID',
+      `${sourceId} authoritativeCorrection needs a reason`
+    );
+    const authoritativeLiteral = raw.authoritativeCorrection.authoritativeLiteral.trim();
+    const correctedLiteral = raw.authoritativeCorrection.correctedLiteral.trim();
+    const authoritativeAmount = parseUnitAmountLiteral(authoritativeLiteral);
+    const correctedAmount = parseUnitAmountLiteral(correctedLiteral);
+    invariant(
+      literalAmount && authoritativeAmount && correctedAmount,
+      'SOURCE_COVERAGE_AUTHORITATIVE_CORRECTION_INVALID',
+      `${sourceId} original, authoritative, and corrected literals must each include a numeric K/M/B/T amount`
+    );
+    const authoritativeBaseValue = authoritativeAmount.value * UNIT_MULTIPLIERS[authoritativeAmount.unit];
+    const correctedBaseValue = correctedAmount.value * UNIT_MULTIPLIERS[correctedAmount.unit];
+    invariant(
+      !literalWithinResolution,
+      'SOURCE_COVERAGE_AUTHORITATIVE_CORRECTION_UNNECESSARY',
+      `${sourceId} may record authoritativeCorrection only when the primary Source literal conflicts with the authored amount`
+    );
+    invariant(
+      displayedMagnitude !== 0,
+      'SOURCE_COVERAGE_AUTHORITATIVE_CORRECTION_INVALID',
+      `${sourceId} zero-looking Source literals must use precisionRecovery rather than authoritativeCorrection`
+    );
+    invariant(
+      Math.abs(authoredBaseValue - authoritativeBaseValue) <= halfResolutionBaseValue + comparisonTolerance,
+      'SOURCE_COVERAGE_AUTHORITATIVE_CORRECTION_MISMATCH',
+      `${sourceId} authoritative literal does not support amount.value within the corrected rounding interval`
+    );
+    invariant(
+      Math.abs(authoredBaseValue - correctedBaseValue) <= halfResolutionBaseValue + comparisonTolerance,
+      'SOURCE_COVERAGE_AUTHORITATIVE_CORRECTION_MISMATCH',
+      `${sourceId} corrected literal does not express amount.value within its resolution`
+    );
+    invariant(
+      correctedAmount.unit === raw.unit,
+      'SOURCE_COVERAGE_AUTHORITATIVE_CORRECTION_MISMATCH',
+      `${sourceId} corrected literal unit must match amount.unit`
+    );
+    authoritativeCorrection = {
+      method: raw.authoritativeCorrection.method,
+      issue: raw.authoritativeCorrection.issue,
+      approval: raw.authoritativeCorrection.approval,
+      locator: raw.authoritativeCorrection.locator.trim(),
+      authoritativeLiteral,
+      correctedLiteral,
+      reason: raw.authoritativeCorrection.reason.trim(),
+    };
+  }
+  if (Number.isFinite(displayedMagnitude)) {
+    invariant(
+      literalWithinResolution || authoritativeCorrection,
       'SOURCE_COVERAGE_AMOUNT_RESOLUTION_MISMATCH',
       `${sourceId} amount.value falls outside the rounding interval expressed by its literal and resolution`
     );
@@ -351,12 +451,18 @@ function normalizeAmount(raw, sourceId) {
     'SOURCE_COVERAGE_PRECISION_RECOVERY_UNNECESSARY',
     `${sourceId} may record precisionRecovery only when the primary Source literal rounds a non-zero amount to zero`
   );
+  invariant(
+    !(precisionRecovery && authoritativeCorrection),
+    'SOURCE_COVERAGE_AMOUNT_RECOVERY_CONFLICT',
+    `${sourceId} cannot combine precisionRecovery with authoritativeCorrection`
+  );
   return {
     literal,
     value,
     unit: raw.unit,
     resolution,
     ...(precisionRecovery ? { precisionRecovery } : {}),
+    ...(authoritativeCorrection ? { authoritativeCorrection } : {}),
   };
 }
 
@@ -561,6 +667,7 @@ export function createSourceCoverage(input, context = {}) {
       semantic: items.filter((item) => item.sourceClass !== 'non-semantic-residual').length,
       skippedResidual: items.filter((item) => item.sourceClass === 'non-semantic-residual').length,
       otherSourceIds: items.filter((item) => OTHER_LABEL_RE.test(item.sourceLabel)).map((item) => item.sourceId).sort(),
+      correctedSourceIds: items.filter((item) => item.amount?.authoritativeCorrection).map((item) => item.sourceId).sort(),
       smallestNonZero,
       visibleNodeIds: items.filter((item) => item.face?.claim === 'visible').flatMap((item) => item.nodeTargets).sort(),
       hiddenNodeIds: items.filter((item) => item.face?.claim === 'hidden').flatMap((item) => item.nodeTargets).sort(),
