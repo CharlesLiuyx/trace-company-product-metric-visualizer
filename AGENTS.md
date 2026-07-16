@@ -155,7 +155,8 @@ target state as current. Five-phase summary:
    signal-based Adapter Type Gate before `record:intake`; ambiguous or
    unrecognized input stops before the no-clobber processing claim.
 2. Source coverage and preparation — record complete Source Coverage and
-   `ObjectInventory`, explicitly including Other-like objects, smallest
+   `ObjectInventory`, explicitly including Other-like objects (a value-bearing
+   Other is a data metric and keeps a visible bar — T22), smallest
    non-zero values, face intent, and casebook hits; only then parallelize
    metadata/SSOT, preflight measurement, and optional icons.
 3. Adapter & i18n — reconcile Source → Inventory → SSOT → Adapter/data,

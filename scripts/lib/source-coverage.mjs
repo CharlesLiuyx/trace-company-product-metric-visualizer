@@ -452,8 +452,9 @@ function normalizeCoverageItem(raw, index, context) {
   } else {
     invariant(objects.every((object) => object.disposition !== 'skip'), 'SOURCE_COVERAGE_SEMANTIC_SKIPPED', `${raw.sourceId} is semantic and cannot map to a skipped inventory object`);
   }
+  const otherLike = OTHER_LABEL_RE.test(raw.sourceLabel);
   invariant(
-    !(OTHER_LABEL_RE.test(raw.sourceLabel) && residual),
+    !(otherLike && residual),
     'SOURCE_COVERAGE_OTHER_SKIPPED',
     `${raw.sourceId} is an Other/All Other semantic object; missing icons never make it a residual or skip target`
   );
@@ -464,6 +465,19 @@ function normalizeCoverageItem(raw, index, context) {
   const ssotRef = valueBearing ? normalizeSsotRef(raw.ssotRef, raw.sourceId, context.adapter) : null;
   invariant(valueBearing || raw.ssotRef == null, 'SOURCE_COVERAGE_SSOT_REF_INVALID', `${raw.sourceId} ssotRef requires a value-bearing sourceClass`);
   const face = normalizeFace(raw.face, { sourceId: raw.sourceId, source: context.source, objects });
+  // T22: an Other that carries an amount is a data metric — never an
+  // annotation — and its node face must stay visible. A below-floor Source
+  // face takes the T21 floorException path, not hidden-anchor.
+  invariant(
+    !(otherLike && !residual && !valueBearing && parseUnitAmountLiteral(raw.sourceLabel)),
+    'SOURCE_COVERAGE_OTHER_CLASS_INVALID',
+    `${raw.sourceId} is an Other object displaying an amount; classify it as a value-bearing data metric, not an annotation`
+  );
+  invariant(
+    !(otherLike && valueBearing && face && face.claim !== 'visible'),
+    'SOURCE_COVERAGE_OTHER_FACE_HIDDEN',
+    `${raw.sourceId} is a value-bearing Other data metric; its node face must stay visible — a below-floor Source face takes a ${VISIBILITY_FLOOR_EXCEPTION_TYPE} exception, never hidden-anchor`
+  );
   const targets = [...new Set(nodeTargets(objects))].sort();
   invariant(
     raw.sourceClass !== 'financial-value' || targets.length === 1,

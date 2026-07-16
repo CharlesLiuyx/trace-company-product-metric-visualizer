@@ -68,7 +68,12 @@ Every independent Source observation uses one `source:*` ID and one class:
 
 `Other`, `Others`, `All Other`, other-income/expense, and every value-bearing
 label are semantic. Missing icons and small magnitude never make one residual,
-skippable, an annotation, or hidden. `source-coverage/v1` requires
+skippable, an annotation, or hidden. A value-bearing Other is a data metric:
+classify it `financial-value`/`metric-observation` — never
+`label-or-annotation` — and claim its node face `visible`; annotation classing
+or a hidden face claim fails at coverage assembly (T22). A genuine below-floor
+Source face keeps its bar through the typed floor exception, never by hiding.
+`source-coverage/v1` requires
 `semantic-value`, `geometry`, and `residual` scans and derives Other IDs, three
 smallest non-zero amounts, visible/hidden IDs, and floor exceptions.
 
@@ -141,14 +146,18 @@ Create matching `object-inventory/v3` and `source-coverage/v1`; scan the Source:
 Each item records native bbox, inventory IDs, mapping roles, and where relevant
 exact amount, typed SSOT reference, and face observation. Give every inventory
 object one Source owner. Match casebook triggers; wrong-type and short/Other
-risks consume CB-024 and CB-003/CB-007/CB-023 when applicable.
+risks consume CB-024 and CB-003/CB-007/CB-023 when applicable. An Other-like
+object displaying an amount is authored as a data metric with a `visible` face
+claim — below-floor faces take the typed floor exception; T22 fails annotation
+or hidden classing at assembly.
 
 For a rounded-zero literal, recover authoritative precision before authoring; never convert or hide it as zero.
 
 **Output:** inventory and coverage summaries for Other, three smallest non-zero
 values, visible/hidden IDs, typed floor exceptions, and casebook hits.
 
-**STOP:** semantic skip; Other treated as icon residue; missing/duplicate
+**STOP:** semantic skip; Other treated as icon residue; a value-bearing Other
+classed as annotation or claimed hidden (T22); missing/duplicate
 coverage; unclassified face; or contradiction with the intaked Adapter. There
 is no retype command—stop and report recovery. Missing required precision
 recovery is also a hard stop.
@@ -268,6 +277,9 @@ and report that no move was authorized.
 ## Traps and Hard Constraints
 
 - Fidelity definitions/formulas live only in its catalog; this workflow links.
+- A value-bearing Other never loses its bar: data-metric class plus `visible`
+  face claim; annotation/hidden-anchor classing fails at coverage assembly
+  (T22, CB-003/CB-007).
 - Title/period use rendered bboxes, not authored baselines (CB-015).
 - Preserve displayed integer decimals through schema `valueText` (CB-016).
 - Resolve raster/localized-text collisions per Z6a/CB-017 without shared
@@ -289,7 +301,8 @@ Always, before the final response:
   ObjectInventory, Plan v4, Review Packet v3, consistency evidence, and
   authored digests.
 - Coverage manual review cites Source + coverage digests; Other, smallest
-  non-zero, visible/hidden, and floor-exception sets are accounted for.
+  non-zero, visible/hidden, and floor-exception sets are accounted for, and no
+  value-bearing Other is annotation-classed or hidden (T22).
 - Rounded-zero semantic items have authoritative precision recovery, and
   neither Table nor Sankey displays the recovered non-zero value as zero.
 - Income Statement required locales have fresh `fidelity-run/2` evidence and

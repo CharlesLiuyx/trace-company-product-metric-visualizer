@@ -659,6 +659,24 @@ export const FIDELITY_RULES = Object.freeze([
       '（同一批曾出现 Visa=6px、SAP/Comcast=3px 的各自取值）。',
     evidence: '逐 locale 的 `nodePaintAudit` + Plan 绑定的 `node-face-policy/v1`；例外另引用 Source Coverage digest。',
   }),
+  rule('T22', 'build-gate', {
+    stage: 'build',
+    topics: ['node'],
+    trigger: 'Source Coverage 对象命中 Other/All Other 语义且确认承载数值（value-bearing）时。',
+    check:
+      '`source-coverage/v1` 在组装时强制：带值 Other 是数据指标，不是标注——sourceLabel 含 ' +
+      'K/M/B/T 金额而 sourceClass 记为非 value-bearing 类立即失败' +
+      '（`SOURCE_COVERAGE_OTHER_CLASS_INVALID`）；其唯一 node face 的 claim 必须是 ' +
+      'visible（`SOURCE_COVERAGE_OTHER_FACE_HIDDEN`）。',
+    pass:
+      '柱面不得缺失：把带值 Other 记成 hidden-anchor 或标注的分类一律失败。真实 Source face ' +
+      '低于共享 floor 时按 T21 走 `source-visible-face-below-floor` 显式例外' +
+      '（`visible-short-node`），而不是隐藏。',
+    rationale:
+      'Texas Instruments Q4 FY25 与 Lyft Q3 FY25 连续把带值 Other 的真实细柱误判为隐藏锚点' +
+      '（CB-003/CB-007 复发）；对 Other 的可见性歧义不再留人工判断空间，一律收敛为可见数据柱。',
+    evidence: '`source-coverage/v1` 组装校验；例外仍须绑定 Source digest 与原生 face bbox。',
+  }),
   rule('A1', 'manual', {
     stage: 'text',
     topics: ['annotation'],
