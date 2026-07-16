@@ -1058,10 +1058,21 @@ function defaultSealProfileRunner({ key, projectRoot }) {
   );
 }
 
-function defaultRenderProfileRunner({ key, locale, buildId, projectRoot }) {
+// One spawn covers every required locale: verify-d3 accepts repeated
+// --language flags and renders them sequentially in one process, sharing a
+// single Chromium and static server instead of relaunching per locale.
+function defaultRenderProfileRunner({ key, locales, buildId, projectRoot }) {
   return spawnSync(
     process.execPath,
-    [path.join(projectRoot, 'scripts', 'verify-d3.mjs'), key, '--build', buildId, '--focus', 'closeout-refresh', '--language', locale],
+    [
+      path.join(projectRoot, 'scripts', 'verify-d3.mjs'),
+      key,
+      '--build',
+      buildId,
+      '--focus',
+      'closeout-refresh',
+      ...locales.flatMap((locale) => ['--language', locale]),
+    ],
     { cwd: projectRoot, encoding: 'utf8' }
   );
 }
@@ -1119,21 +1130,30 @@ export async function sealReviewedBuild(input, options = {}) {
       'Sealing an Income Statement Build requires the authored VerificationPlan locales'
     );
     const runRenderProfile = options.runRenderProfile || defaultRenderProfileRunner;
-    for (const locale of requiredLocales) {
-      const renderRun = await runRenderProfile({ key: build.key, locale, buildId: build.buildId, projectRoot });
-      const renderStatus = runExitStatus(renderRun);
-      invariant(renderStatus === 0, 'SEAL_RENDER_PROFILE_FAILED', `Render final profile failed for ${build.key} (${locale})`, {
-        locale,
+    const renderRun = await runRenderProfile({ key: build.key, locales: requiredLocales, buildId: build.buildId, projectRoot });
+    const renderStatus = runExitStatus(renderRun);
+    invariant(
+      renderStatus === 0,
+      'SEAL_RENDER_PROFILE_FAILED',
+      `Render final profile failed for ${build.key} (${requiredLocales.join(', ')})`,
+      {
+        locales: requiredLocales,
         status: renderStatus ?? null,
         stdout: String(renderRun?.stdout || ''),
         stderr: String(renderRun?.stderr || ''),
-      });
+      }
+    );
+    // One row per locale preserves the audit shape; the rows share the single
+    // run's output digest and timestamp.
+    const renderDigest = runOutputDigest(renderRun);
+    const renderCheckedAt = now();
+    for (const locale of requiredLocales) {
       finalProfiles.push({
         profile: SEAL_RENDER_PROFILE,
         locale,
         status: 'passed',
-        outputDigest: runOutputDigest(renderRun),
-        checkedAt: now(),
+        outputDigest: renderDigest,
+        checkedAt: renderCheckedAt,
       });
     }
   }

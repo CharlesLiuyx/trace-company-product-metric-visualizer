@@ -1038,7 +1038,7 @@ test('reviewed evidence closes, stages, seals, and becomes stale when authored b
   assert.equal(sealed.state, 'SEALED');
   assert.equal(profileCalls.length, 1);
   assert.equal(profileCalls[0].key, prepared.build.key);
-  assert.deepEqual(renderCalls.map((call) => call.locale), ['en']);
+  assert.deepEqual(renderCalls.map((call) => call.locales), [['en']]);
   assert.deepEqual(renderCalls.map((call) => call.buildId), [prepared.build.buildId]);
   const sealPayload = sealed.receipts.at(-1).payload;
   assert.equal(sealPayload.finalProfiles.length, 2);
@@ -1143,7 +1143,7 @@ test('seal refuses to record when a locale render final profile fails', async (t
       runSealProfile: () => ({ status: 0, stdout: 'consistency ok\n', stderr: '' }),
       runRenderProfile: () => ({ status: 1, stdout: '', stderr: 'G8 label clearance failed' }),
     }),
-    (error) => error.code === 'SEAL_RENDER_PROFILE_FAILED' && error.details.locale === 'en'
+    (error) => error.code === 'SEAL_RENDER_PROFILE_FAILED' && error.details.locales.includes('en')
   );
   const after = await inspectBuildCloseout(prepared.build.buildId, { buildRoot, projectRoot: root });
   assert.equal(after.historicalState, 'BASELINE_STAGED');
