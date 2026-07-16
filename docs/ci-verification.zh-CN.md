@@ -133,6 +133,19 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
   Interface 和人工视觉判断仍由每个 Dataset 的 Build/fidelity 流程负责。
 - **选择规则**：Adapter/对应 Income Statement SSOT/reference image → 受影响 key；共享
   engine/i18n/icons/fonts/d3/runtime → 全目录；未知可执行影响 → 全目录。
+- **本机增量（指纹缓存）**：默认全 key 运行时，按 key 计算内容指纹（Adapter 源文件 +
+  其引用的 raster-annotation 资产 + 按 processed→processing 回退解析的 reference image +
+  该 key 的 baseline 条目），再叠加全局 runtime 指纹（engine/i18n/icons/d3 按 index.html
+  加载顺序 + 内联字体字节 + 渲染/门槛管线脚本自身 + Playwright/浏览器/OS 签名）。指纹与
+  上次通过完全一致的 key 直接跳过；零 miss 时不启动服务器与浏览器。缓存位于
+  `output/render-regression/cache.json`（gitignored、单机、与失败诊断产物同一既成写语义），
+  跳过量始终在汇总行显式报告。显式 key 与 `--update` 永远真渲染；失败与
+  similarity 提升超容差的 key 永不入缓存（重录提示每次重现）；`--no-cache` 强制全量；
+  缓存损坏/版本不符/指纹计算失败一律回退全量，绝不让缓存本身弄失败一次 verify。
+- **声明的近似**：其他 Dataset Adapter 与 income-statement SSOT 脚本会加载进 harness
+  页面但不是像素输入，因此不进任何 key 的指纹——否则每新增一个数据集都会作废全部缓存。
+  兜底：新增/变更 key 必为 miss 而真渲染，`pnpm check` 语法扫全部脚本，CI 无 `output/`
+  持久化、永远冷跑全量。
 
 ### 10. Standalone build and verification
 
@@ -189,6 +202,17 @@ Adapter × 2 种语言全渲染：
   实测 **0.6 秒**，同机全量为 **43.9 秒**；
 - 共享 renderer：仍保留原全量安全网，耗时不会伪装成数据级检查。
 
+2026-07-16 引入本机指纹缓存后（目录已增长到 427 个 Adapter），同机实测：
+
+| 场景 | 耗时 |
+| --- | ---: |
+| 全量冷跑（缓存为空或 runtime 指纹变化） | 约 72 秒 |
+| 全量暖跑、零变更（不启动浏览器） | **约 0.4 秒** |
+| 改 1 个 Adapter 后的全量校验 | **约 1 秒** |
+| 改 1 个 raster 资产（2 个引用 key 重渲染） | 约 1.3 秒 |
+
+CI 无缓存持久化，仍按 ChangeImpact 矩阵冷跑；上表只改变本机迭代成本。
+
 ## “不能误报”的约束
 
 - baseline 缺失是确定的账目错误，必须失败；现在只是不再渲染后才失败。
@@ -197,3 +221,7 @@ Adapter × 2 种语言全渲染：
 - ChangeImpact 计划失败不会跳过检查，而是全量回退。
 - 选择 Module 的每条分支都有纯函数测试；CI workflow 自身或 planner 变化会触发全量。
 - `verify:*` 保持只读；部署只消费已经验证的 `_site` artifact。
+- 指纹缓存只允许"字节级完全一致 + 上次通过"的 key 跳过；失败永不入缓存，跳过量必须
+  出现在汇总行里（欠检查永远可见）。缓存是 gitignored 的本机 `output/` 产物，CI 永远
+  冷跑；管线脚本自身在指纹内，改判定逻辑会自动作废全部缓存。baseline 缺失仍在渲染前
+  确定性失败，不受缓存影响。

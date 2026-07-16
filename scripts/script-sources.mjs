@@ -58,15 +58,20 @@ export function companyMetadataScriptsFromIndex(indexHtml) {
   return scriptSources(indexHtml).filter((src) => isScriptInDir(src, COMPANY_METADATA_SCRIPT_DIR));
 }
 
+// Shared render runtime every harness page loads. Also the SSOT for the
+// render-regression fingerprint cache (scripts/lib/render-fingerprint.mjs);
+// ci-plan's RENDER_RUNTIME_PATHS mirrors it and a parity test locks the two.
+export const RENDER_RUNTIME_SCRIPTS = new Set([
+  'vendor/d3.min.js',
+  'vendor/d3-sankey.min.js',
+  'src/icons.js',
+  'src/sankey-engine.js',
+  'src/i18n-dictionaries.js',
+  'src/i18n.js',
+]);
+
 export function renderHarnessScripts(indexHtml) {
-  const renderRuntime = new Set([
-    'vendor/d3.min.js',
-    'vendor/d3-sankey.min.js',
-    'src/icons.js',
-    'src/sankey-engine.js',
-    'src/i18n-dictionaries.js',
-    'src/i18n.js',
-  ]);
+  const renderRuntime = RENDER_RUNTIME_SCRIPTS;
 
   // Runtime + income-statement SSOT come from index.html order; dataset
   // adapters come from the manifest (their registration SSOT). No registry
