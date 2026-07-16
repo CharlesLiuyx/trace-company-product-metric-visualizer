@@ -9618,6 +9618,345 @@
             }
           }
         }
+      },
+      {
+        "key": "chime-q3-fy25",
+        "src": "data/datasets/chime-q3-fy25.js",
+        "data": {
+          "name": "Chime · Q3 FY25",
+          "company": "Chime",
+          "meta": {
+            "title": "Chime Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Quarter ended Sep. 30, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Chime · 2025 财年第三季度",
+              "meta": {
+                "title": "Chime 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "affirm-q1-fy26",
+        "src": "data/datasets/affirm-q1-fy26.js",
+        "data": {
+          "name": "Affirm · Q1 FY26",
+          "company": "Affirm",
+          "meta": {
+            "title": "Affirm Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Sept. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Affirm · 2026 财年第一季度",
+              "meta": {
+                "title": "Affirm 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amgen-q3-fy25",
+        "src": "data/datasets/amgen-q3-fy25.js",
+        "data": {
+          "name": "Amgen · Q3 FY25",
+          "company": "Amgen",
+          "meta": {
+            "title": "Amgen Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "安进 · 2025 财年第三季度",
+              "meta": {
+                "title": "安进 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "dlocal-q3-fy25",
+        "src": "data/datasets/dlocal-q3-fy25.js",
+        "data": {
+          "name": "dLocal · Q3 FY25",
+          "company": "dLocal",
+          "meta": {
+            "title": "dLocal Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "dLocal · 2025 财年第三季度",
+              "meta": {
+                "title": "dLocal 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "global-e-q3-fy25",
+        "src": "data/datasets/global-e-q3-fy25.js",
+        "data": {
+          "name": "Global-e · Q3 FY25",
+          "company": "Global-e",
+          "meta": {
+            "title": "Global-e Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Global-e · 2025 财年第三季度",
+              "meta": {
+                "title": "Global-e 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intuit-q1-fy26",
+        "src": "data/datasets/intuit-q1-fy26.js",
+        "data": {
+          "name": "Intuit · Q1 FY26",
+          "company": "Intuit",
+          "meta": {
+            "title": "Intuit Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Oct. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Intuit · 2026 财年第一季度",
+              "meta": {
+                "title": "Intuit 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mcdonald-s-q3-fy25",
+        "src": "data/datasets/mcdonald-s-q3-fy25.js",
+        "data": {
+          "name": "McDonald's · Q3 FY25",
+          "company": "McDonald's",
+          "meta": {
+            "title": "McDonald's Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "麦当劳 · 2025 财年第三季度",
+              "meta": {
+                "title": "麦当劳 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "novo-nordisk-q3-fy25",
+        "src": "data/datasets/novo-nordisk-q3-fy25.js",
+        "data": {
+          "name": "Novo Nordisk · Q3 FY25",
+          "company": "Novo Nordisk",
+          "meta": {
+            "title": "Novo Nordisk Q3 FY25 Income Statement",
+            "period": "in DKK"
+          },
+          "i18n": {
+            "zh": {
+              "name": "诺和诺德 · 2025 财年第三季度",
+              "meta": {
+                "title": "诺和诺德 2025 财年第三季度利润表",
+                "period": "单位：丹麦克朗"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nu-q3-fy25",
+        "src": "data/datasets/nu-q3-fy25.js",
+        "data": {
+          "name": "Nu · Q3 FY25",
+          "company": "Nu",
+          "meta": {
+            "title": "Nu Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Nu · 2025 财年第三季度",
+              "meta": {
+                "title": "Nu 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "rbi-q3-fy25",
+        "src": "data/datasets/rbi-q3-fy25.js",
+        "data": {
+          "name": "RBI · Q3 FY25",
+          "company": "Restaurant Brands International",
+          "meta": {
+            "title": "RBI Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "RBI · 2025 财年第三季度",
+              "meta": {
+                "title": "RBI 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "shopify-q3-fy25",
+        "src": "data/datasets/shopify-q3-fy25.js",
+        "data": {
+          "name": "Shopify · Q3 FY25",
+          "company": "Shopify",
+          "meta": {
+            "title": "Shopify Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Quarter ended Sep. 30, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Shopify · 2025 财年第三季度",
+              "meta": {
+                "title": "Shopify 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "toast-q3-fy25",
+        "src": "data/datasets/toast-q3-fy25.js",
+        "data": {
+          "name": "Toast · Q3 FY25",
+          "company": "Toast",
+          "meta": {
+            "title": "Toast Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Toast · 2025 财年第三季度",
+              "meta": {
+                "title": "Toast 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "yum-brands-q3-fy25",
+        "src": "data/datasets/yum-brands-q3-fy25.js",
+        "data": {
+          "name": "Yum! Brands · Q3 FY25",
+          "company": "Yum! Brands",
+          "meta": {
+            "title": "Yum! Brands Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Yum! Brands · 2025 财年第三季度",
+              "meta": {
+                "title": "Yum! Brands 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "block-q3-fy25",
+        "src": "data/datasets/block-q3-fy25.js",
+        "data": {
+          "name": "Block · Q3 FY25",
+          "company": "Block",
+          "meta": {
+            "title": "Block Q3 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Block · 2025 财年第三季度",
+              "meta": {
+                "title": "Block 2025 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pfizer-q3-fy25",
+        "src": "data/datasets/pfizer-q3-fy25.js",
+        "data": {
+          "name": "Pfizer · Q3 FY25",
+          "company": "Pfizer",
+          "meta": {
+            "title": "Pfizer Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Quarter ended Sep. 28, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "辉瑞 · 2025 财年第三季度",
+              "meta": {
+                "title": "辉瑞 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月 28 日的季度"
+              }
+            }
+          }
+        }
       }
     ]
   };

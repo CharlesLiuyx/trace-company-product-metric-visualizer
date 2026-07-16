@@ -242,6 +242,119 @@
           },
         },
       },
+    },
+    {
+      key: 'nu-q3-fy25',
+      company: 'Nu',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/nu-q3-fy25.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 4.2,
+        notes: ['+42% Y/Y'],
+        items: [
+          {
+            id: 'interest_income',
+            label: 'Interest income',
+            value: 3.6,
+            notes: ['+45% Y/Y'],
+            children: [
+              { id: 'credit_card', label: 'Credit card', value: 1.2, notes: ['+26% Y/Y'] },
+              { id: 'lending', label: 'Lending', value: 1.3, notes: ['+59% Y/Y'] },
+              { id: 'other_interest', label: 'Other', value: 1.1, notes: ['+54% Y/Y'] },
+            ],
+          },
+          {
+            id: 'fee_commission_income',
+            label: 'Fee & commission income',
+            value: 0.6,
+            notes: ['+27% Y/Y'],
+          },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          label: 'Interest, credit loss, and transactional costs',
+          value: 2.4,
+          items: [
+            { id: 'interest_other', label: 'Interest & other', value: 1.3 },
+            { id: 'credit_loss_allowance', label: 'Credit loss allowance', value: 1.0 },
+            { id: 'transactional', label: 'Transactional', value: 0.1 },
+          ],
+        },
+        operatingExpenses: {
+          total: 0.7,
+          items: [
+            { id: 'ga', label: 'G&A', value: 0.3, notes: ['8% of revenue', '(1pp) Y/Y'] },
+            { id: 'customer_support', label: 'Customer Support', value: 0.2, notes: ['4% of revenue', '(0pp) Y/Y'] },
+            { id: 'marketing', label: 'Marketing', value: 0.1, notes: ['2% of revenue', '(2pp) Y/Y'] },
+            { id: 'other_expenses', label: 'Other expenses', value: 0.1, notes: ['2% of revenue', '(1pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.3 },
+      },
+      otherIncome: {
+        total: 0,
+        items: [],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 1.8, notes: ['43% margin', '(2pp) Y/Y'] },
+        operating: { id: 'pretax_income', label: 'Pretax income', value: 1.1, notes: ['27% margin', '+2pp Y/Y'] },
+        net: { id: 'net_income', label: 'Net income', value: 0.8, notes: ['19% margin', '(0pp) Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +42%'],
+            items: [
+              {
+                label: '利息收入',
+                notes: ['同比 +45%'],
+                children: [
+                  { label: '信用卡', notes: ['同比 +26%'] },
+                  { label: '贷款', notes: ['同比 +59%'] },
+                  { label: '其他', notes: ['同比 +54%'] },
+                ],
+              },
+              { label: '手续费及佣金收入', notes: ['同比 +27%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: {
+              label: '利息、信用损失及交易成本',
+              items: [
+                { label: '利息及其他' },
+                { label: '信用损失准备' },
+                { label: '交易成本' },
+              ],
+            },
+            operatingExpenses: {
+              items: [
+                { label: '一般及行政费用', notes: ['占收入 8%', '同比 (1 个百分点)'] },
+                { label: '客户支持', notes: ['占收入 4%', '同比 (0 个百分点)'] },
+                { label: '营销', notes: ['占收入 2%', '同比 (2 个百分点)'] },
+                { label: '其他费用', notes: ['占收入 2%', '同比 (1 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 43%', '同比 (2 个百分点)'] },
+            operating: { label: '税前利润', notes: ['利润率 27%', '同比 +2 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 19%', '同比 (0 个百分点)'] },
+          },
+        },
+      },
     }
   );
 })(window);

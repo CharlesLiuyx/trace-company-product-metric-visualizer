@@ -32,12 +32,12 @@ CB-021），并让后来者理解每个 gate 的由来。
 | --- | --- | --- | --- | --- |
 | CB-001 | 多 link 节点端面留缝/溢出、socket 错位；用户指出 nike-q4-fy26 两处节点边缘空隙，同型问题随后又出现在 netease、global-payments（05903ba、9bd426f、dcdd687、4ee731a）。Uber Q3 FY25 与 Pinterest Q3 FY25 又出现 Net Profit 目标端堆叠顺序错误；Lyft Q3 FY25 的 Operating expenses 柱面也曾高于实际接口并压入 label 区（2026-07-16）。 | 多入/出节点、显式 socket、同色入流的目标端顺序 | execution-gap | G12 + L11 接口审计与 Interface Matrix；B8 人工 reconcile 必须逐条核对目标端自上而下身份及 `targetOrder`（L2/L3）。同色入流在 reference raster 的二值 occupancy 中无法可靠恢复逐 link 身份，自动升级 disposition 为 `not-suitable`；保留逐条人工身份核对并绑定 before/after contact sheet。 |
 | CB-002 | 同轴 label 与柱交叠、短柱 label 未对中（berkshire 等批次，4472ccf） | 同轴 label、短柱 | execution-gap | G8、G9、G10 + `labelLayoutAudit`（B1/B4/B13 补盲） |
-| CB-003 | 可见短柱被缩成不可见锚点或亚像素柱；同批曾对最小柱高各自取值——Visa 6px、SAP/Comcast 3px（0d7cc54、72644e5）。Lyft Q3 FY25 的 Other 72×1px 浅绿柱也曾被误分类为隐藏锚点（2026-07-16）。 | 短辅助柱（interest、tax、other…） | ambiguous-rule | T13 + T21 `node-face-policy/v1` 硬门；例外必须由 Source Coverage 绑定原生 face（B15/T14）；T22 带值 Other 强制可见柱面，hidden-anchor 分类非法（Lyft 复发后升级） |
+| CB-003 | 可见短柱被缩成不可见锚点或亚像素柱；同批曾对最小柱高各自取值——Visa 6px、SAP/Comcast 3px（0d7cc54、72644e5）。Lyft Q3 FY25 的 Other 72×1px 浅绿柱、Block Q3 FY25 的 Amortization 71×1px 浅红柱也曾被误分类为隐藏锚点（2026-07-16）。 | 短辅助柱（interest、tax、other、amortization…） | ambiguous-rule → execution-gap recurrence | T13 + T21 `node-face-policy/v1` 硬门；例外必须由 Source Coverage 绑定原生 face（B15/T14）；T22 带值 Other 强制可见柱面，hidden-anchor 分类非法；Block 增加数据集契约测试，固定 Amortization 的 71×1 Source face、非透明颜色及 1px link endpoint |
 | CB-004 | 固定布局 label 组整体偏离参考位置，已收敛数据集因此返工（alphabet/amazon/amd 批次；41c2f20） | 每个 `layout.labels.*` 组 | execution-gap | T18 `labelPositionAudit` + Plan 编译强制 `measured-label-position` |
 | CB-005 | 复用相邻期间/其他数据集的坐标测量（41c2f20） | 同公司相邻期间 | execution-gap | T19 prepare-review 测量 provenance（外来 digest 拒绝） |
 | CB-006 | label 槽位多解时按单一解释先渲染，等用户复审再改判，浪费轮次（41c2f20） | 槽位歧义 | rule-missing | T20 + `ambiguous-label-slot`（渲染前操作者裁决） |
-| CB-007 | 隐藏锚点误判：该隐形的画出可见痕、该可见的做成透明锚点、引导线丢失（d519811、636dea5）；Texas Instruments Q4 FY25 的 Other $40M 微流段曾被做成无色锚点，用户指出阅读时没有柱面，已改为按原图 72px × 4px 尺寸呈现的 `visible-short-node` | 细流带+引导线、无柱面对象 | execution-gap | B7 + T12 结构化 native-pixel 证据与独立确认；T12a 注释入口；可见短柱改走 B15/T13/T14/T21；带值 Other 由 T22 直接禁止 hidden-anchor |
-| CB-008 | node-like 注释文字无 hover 高亮/Tooltip（2c8b6e7、6345b1a、75d53c8） | node 映射 `annotations.*` | rule-missing | A10 + B16 `semanticAnnotationAudit` 与 renderer hitbox（T17 分类） |
+| CB-007 | 隐藏锚点误判：该隐形的画出可见痕、该可见的做成透明锚点、引导线丢失（d519811、636dea5）；Texas Instruments Q4 FY25 的 Other $40M 微流段曾被做成无色锚点；Block Q3 FY25 的 Amortization 71×1px 连续浅红柱也被误判为透明锚点，均由用户截图指出 | 细流带+引导线、无柱面对象 | execution-gap recurrence | B7 + T12 结构化 native-pixel 证据与独立确认；T12a 注释入口；可见短柱改走 B15/T13/T14/T21；带值 Other 由 T22 直接禁止 hidden-anchor；Block 数据集契约测试作为 hard-gate 固定本次 Source face，且同批排查确认 RBI/Yum 的 hidden anchors 是 Source 缺失的结构/零值锚点，其余 processing 数据集没有 hidden-anchor |
+| CB-008 | node-like 注释文字无 hover 高亮/Tooltip（2c8b6e7、6345b1a、75d53c8）；RBI Q1 FY26 的 Other income 引导线再次出现只高亮、不显示份额 Tooltip（2026-07-16） | node 映射 `annotations.*`，或无 graph link 的语义引导线 | rule-missing → execution-gap recurrence | A10 + B16 `semanticAnnotationAudit` 与 renderer hitbox（T17 分类）；语义 guide 必须声明 endpoints/anchor，`verify:app` 逐 label + guide 断言 Tooltip，数据集契约测试固定关系 |
 | CB-009 | zh 文本越界/交叠：首次对 zh 开 gate 时清出 15 个数据集的存量欠账（ba9d15c、b62550c、f2ffe7e） | 每个非默认 locale | execution-gap | B6 + Z5 `textLayoutAudit` 每 required locale（Z1 独立证据） |
 | CB-010 | 半翻译、缩写拆坏、品牌词被误译（47a708e） | zh overlay、含 `&` 缩写、品牌词 | ambiguous-rule | `verify:i18n` 规则管线 + `EXACT_ZH` identity 词典（Z4/Z8 人工核对） |
 | CB-011 | 画布尺寸与参考图不符：salesforce-q1-fy27 `render.width` 3050 对 2958 参考图，渲染层 G2 直到 CI 才拦下（d39c709） | 每个数据集 | execution-gap | G2 渲染 gate + `verify:ssot` 静态 render 画布 ↔ 参考图尺寸一致（`pnpm check` 级） |
@@ -47,6 +47,7 @@ CB-021），并让后来者理解每个 gate 的由来。
 | CB-023 | Source 中的 `Other` / 小额非零对象在 authored 盘点中消失：无 icon 被误当残留，或 `$0.0B` 被当成真实 0（adfe5fe 后 processing 批次复盘；TI 实例见 CB-007） | 每个 value-bearing / Other-like Source 对象 | rule-missing | `source-coverage/v1` 三遍扫描 + semantic 不可 skip + exactly-one SSOT/Adapter node 对账 + rounded-zero precision recovery；manual coverage review 同时引用完整 Source 与 Coverage digest |
 | CB-024 | 只看标题、公司名、`revenue` 或期间 token 就选择 Adapter，完整损益表曾被当成 Revenue Metric（adfe5fe 后 processing 批次复盘） | 每个 fresh intake Source | rule-missing | intake 前 `source-classification/v1` whole-Source Type Gate；完整 signals 必须唯一推导 Adapter 并与 `--adapter` 一致，否则 claim 前失败 |
 | CB-025 | Apple Q1 FY26 的 Services 图标簇遮住 Wearables 的说明文字；A6/B5 审计此前只采集注释文字，漏掉纯 SVG 图形 | 贴近 label 的 SVG / raster 外观注释 | execution-gap | `annotation-near-label` 编译 A6/B5；显式 `data-annotation-clearance` 图形 bbox 与 label/title/period 自动避让审计 |
+| CB-027 | Pfizer Q3 FY25 的 Operating profit 在 Source 中误写为 `$3.3M`，但图内 20% margin、流宽及 Pfizer/SEC 官方披露均证明应为十亿美元口径；直接按图写 M 会破坏 SSOT 与拓扑，直接改 B 又会抹掉 Source 事实 | 非零金额的 K/M/B/T 单位与官方披露、图内比例或几何冲突 | rule-missing | `source-coverage/v1` 的 `authoritative-source-correction`：保留原 literal，只允许用户明确批准的 `unit-typo`，绑定官方 locator/literal、纠正后 literal 与理由；官方值及纠正值均须落在 authored amount 的 resolution 内，且与 rounded-zero precision recovery 互斥 |
 
 ## B. 已记录为人工/陷阱防线的案例（复发即须升级）
 
@@ -62,6 +63,8 @@ CB-021），并让后来者理解每个 gate 的由来。
 | CB-019 | Tooltip Tag 锚到 tapered 闭合路径的周长中点而非中心线中点 | tapered ribbon | 渲染器已按中心线 `t=0.5` 锚定 + B11/L16 人工核对 clamp 遮挡 | 复发按 render-engine 回归处理并补引擎单测（quantified-audit） |
 | CB-020 | interim 期间（`3M`/`H1`/`YTD`…）变体标签回落成 `Main` | interim span 记录 | workflow §Traps + 人工核对 chip 标签/顺序/激活态 | viewer variant label 单测（quantified-audit） |
 | CB-026 | 方向性支流被接到错误上游：Meta Q4 FY25 的 Other 应独立流向 Net profit，却被写成 Operating profit → Other，并令 Operating profit → Tax 错缩为 $2.0B（用户截图） | Other-like 小额支流、相邻的利润终点 | execution-gap | Source Coverage 逐 flow 的 sourceId、Adapter source/target 映射与相邻利润节点的金额平衡 + B8 人工方向核对 | 同型问题再次出现时，将 source flow direction 与相邻节点金额平衡编译为量化方向审计（quantified-audit） |
+| CB-028 | Affirm Q1 FY26 的 Tax 细柱被测到下方 Loss 柱边缘，导致 Tax hairline 终点从源图 `y=433–434` 下移到 `y=512`；用户截图指出柱位过低 | 低于共享 floor 的细柱与相邻同色/近色柱共列，且两者垂直距离较近 | execution-gap | B8 逐接口人工核对 + T14/T21 Source-bound 原生像素扫描；测量时必须区分目标细柱色值与相邻柱抗锯齿边缘，并记录同批横向排查 | 同型问题再次出现时，为 below-floor face 增加“flow endpoint ↔ observedBBox 中心距离”量化审计（quantified-audit） |
+| CB-029 | Affirm Q1 FY26 的 Gain on sale of loans 名称块位于柱中心上方，用户要求下移并与柱面垂直居中；金额与同比块保持不动 | 侧置名称块与金额/备注分块布局，名称块应以 node face 为中心而完整 label union 仍保留源图关系 | execution-gap | 为对象声明 `centered-side-label`，并按 T18 保留 Source `referenceBBox`、记录用户批准的 `approvedTargetBBox`；B3/T7 对每个 locale 强制中心差 `<=4px` | 若同型分块侧标再次漏声明，则把“侧置名称块 + 独立金额块”的 feature 推导编译为 hard gate |
 
 ## C. 流程结构性案例
 

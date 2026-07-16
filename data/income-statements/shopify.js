@@ -10,6 +10,113 @@
 
   ssot.records.push(
     {
+      key: 'shopify-q3-fy25',
+      company: 'Shopify',
+      period: 'Q3 FY25',
+      periodNote: 'Quarter ended Sep. 30, 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/shopify-q3-fy25.png',
+      roundingTolerance: 1,
+      revenue: {
+        total: 2844,
+        notes: ['+32% Y/Y'],
+        items: [
+          { id: 'merchant_solutions', label: 'Merchant Solutions', value: 2145, notes: ['+38% Y/Y'] },
+          {
+            id: 'subscription_solutions',
+            label: 'Subscription Solutions',
+            value: 699,
+            notes: ['+15% Y/Y'],
+            children: [
+              { id: 'shopify_plus', label: 'Shopify Plus', value: 196, notes: ['+19% Y/Y'] },
+              { id: 'other_subscription', label: 'Other', value: 503, notes: ['+13% Y/Y'] },
+            ],
+          },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          id: 'cost_of_revenue',
+          label: 'Cost of revenue',
+          value: 1453,
+          items: [
+            { id: 'merchant_cost', label: 'Merchant', value: 1325, notes: ['38% gross margin'] },
+            { id: 'subscription_cost', label: 'Subscription', value: 128, notes: ['82% gross margin'] },
+          ],
+        },
+        operatingExpenses: {
+          total: 1048,
+          items: [
+            { id: 'sm', label: 'S&M', value: 410, notes: ['14% of revenue', '(1pp) Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 375, notes: ['13% of revenue', '(2pp) Y/Y'] },
+            { id: 'loan_losses', label: 'Loan losses', value: 148, notes: ['5% of revenue', '+3pp Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 115, notes: ['4% of revenue', '(1pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 44 },
+      },
+      otherIncome: {
+        total: 0,
+        items: [],
+      },
+      otherExpenses: {
+        total: 35,
+        items: [{ id: 'other_expense', label: 'Other', value: 35 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 1391, notes: ['49% margin', '(3pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 343, notes: ['12% margin', '(1pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 264, notes: ['9% margin', '+1pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月 30 日的季度',
+          revenue: {
+            notes: ['同比 +32%'],
+            items: [
+              { id: 'merchant_solutions', label: '商家解决方案', notes: ['同比 +38%'] },
+              {
+                id: 'subscription_solutions',
+                label: '订阅解决方案',
+                notes: ['同比 +15%'],
+                children: [
+                  { id: 'shopify_plus', label: 'Shopify Plus 方案', notes: ['同比 +19%'] },
+                  { id: 'other_subscription', label: '其他', notes: ['同比 +13%'] },
+                ],
+              },
+            ],
+          },
+          costs: {
+            costOfRevenue: {
+              label: '收入成本',
+              items: [
+                { id: 'merchant_cost', label: '商家', notes: ['毛利率 38%'] },
+                { id: 'subscription_cost', label: '订阅', notes: ['毛利率 82%'] },
+              ],
+            },
+            operatingExpenses: {
+              items: [
+                { id: 'sm', label: '销售与市场', notes: ['占收入 14%', '同比 (1 个百分点)'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 13%', '同比 (2 个百分点)'] },
+                { id: 'loan_losses', label: '贷款损失', notes: ['占收入 5%', '同比 +3 个百分点'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 4%', '同比 (1 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherExpenses: { items: [{ id: 'other_expense', label: '其他' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 49%', '同比 (3 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 12%', '同比 (1 个百分点)'] },
+            net: { label: '净利润', notes: ['利润率 9%', '同比 +1 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'shopify-q1-fy26',
       company: 'Shopify',
       period: 'Q1 FY26',

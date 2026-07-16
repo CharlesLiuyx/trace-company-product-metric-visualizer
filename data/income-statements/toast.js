@@ -10,6 +10,84 @@
 
   ssot.records.push(
     {
+      key: 'toast-q3-fy25',
+      company: 'Toast',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/toast-q3-fy25.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 1633,
+        notes: ['+25% Y/Y'],
+        items: [
+          { id: 'subscription_services', label: 'Subscription services', value: 244, notes: ['+29% Y/Y'] },
+          { id: 'financial_technology_solutions', label: 'Financial technology solutions', value: 1345, notes: ['+26% Y/Y'] },
+          { id: 'hardware_professional_services', label: 'Hardware and professional services', value: 44, notes: ['(10%) Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 1201 },
+        operatingExpenses: {
+          total: 348,
+          items: [
+            { id: 'sm', label: 'Sales & marketing', value: 144, notes: ['9% of revenue', '(0pp) Y/Y'] },
+            { id: 'rnd', label: 'Research & development', value: 102, notes: ['6% of revenue', '(1pp) Y/Y'] },
+            { id: 'ga', label: 'General & administrative', value: 102, notes: ['6% of revenue', '+0% Y/Y'] },
+          ],
+        },
+        tax: { label: 'Tax', value: 0 },
+      },
+      otherIncome: {
+        total: 21,
+        items: [{ id: 'other', label: 'Other', value: 21 }],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 432, notes: ['25% margin', '+2pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 84, notes: ['5% margin', '+3pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 105, notes: ['6% margin', '+2pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +25%'],
+            items: [
+              { id: 'subscription_services', label: '订阅服务', notes: ['同比 +29%'] },
+              { id: 'financial_technology_solutions', label: '金融科技解决方案', notes: ['同比 +26%'] },
+              { id: 'hardware_professional_services', label: '硬件与专业服务', notes: ['同比 (10%)'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'sm', label: '销售与营销', notes: ['占收入 9%', '同比 (0 个百分点)'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 6%', '同比 (1 个百分点)'] },
+                { id: 'ga', label: '一般及行政', notes: ['占收入 6%', '同比 +0%'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: {
+            items: [{ id: 'other', label: '其他' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 25%', '同比 +2 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 5%', '同比 +3 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 6%', '同比 +2 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'toast-q1-fy26',
       company: 'Toast',
       period: 'Q1 FY26',

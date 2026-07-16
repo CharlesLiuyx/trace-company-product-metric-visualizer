@@ -24,3 +24,16 @@ All three report `passes: true`; transparent-pixel ratios are 0.6904, 0.6619, an
 | `chime-platform-related-revenue-phone` | accepted | Complete tilted mobile-app illustration, centered with no segment label, value, source bar or footer content. |
 
 Both Q1 crops report `passes: true`; transparent-pixel ratios are 0.6621 and 0.6724. The Chime wordmark remains a dataset-owned vector, and publisher branding, URL, and App Economy Insights attribution remain intentionally skipped.
+
+## Chime Q3 FY25 icon-crop validation
+
+- Source: `input/processed/chime-q3-fy25.png` (resolved from the active Build's same-key processing claim while under review)
+- Crop spec: `input/icon-crop-specs/chime-q3-fy25.json`
+- Reviewed: 2026-07-16
+
+| Crop | Result | Review |
+| --- | --- | --- |
+| `chime-payment-revenue-card` | accepted | Complete tilted Chime Card, including the chip, Chime wordmark and Visa credit mark; centered with no segment label, value or flow pixels. |
+| `chime-platform-related-revenue-phone` | accepted | Complete tilted mobile-app illustration, centered with no segment label, value, source bar or footer content. |
+
+Both Q3 crops report `passes: true`, with zero edge or forbidden foreground pixels. The Chime wordmark remains a dataset-owned vector, while publisher branding, the website URL, and the App Economy Insights attribution remain intentionally skipped.

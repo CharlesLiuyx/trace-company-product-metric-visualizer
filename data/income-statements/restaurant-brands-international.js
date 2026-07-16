@@ -10,6 +10,145 @@
 
   ssot.records.push(
     {
+      key: 'rbi-q3-fy25',
+      company: 'Restaurant Brands International',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/rbi-q3-fy25.png',
+      roundingTolerance: 0.25,
+      revenue: {
+        total: 2.4,
+        notes: [
+          '+7% Y/Y',
+          'Source chart attributes revenue by brand segment; rounded segment items sum to $2.6B.',
+        ],
+        items: [
+          { id: 'tim_hortons', label: 'Tim Hortons', value: 1.1, notes: ['+8% Y/Y'] },
+          { id: 'burger_king', label: 'Burger King', value: 0.4, notes: ['+7% Y/Y'] },
+          { id: 'popeyes', label: 'Popeyes', value: 0.2, notes: ['+3% Y/Y'] },
+          { id: 'firehouse_subs', label: 'Firehouse Subs', value: 0.1, notes: ['+13% Y/Y'] },
+          { id: 'international', label: 'International', value: 0.3, notes: ['+10% Y/Y'] },
+          { id: 'restaurant_holdings', label: 'Restaurant Holdings', value: 0.5, notes: ['+4% Y/Y'] },
+        ],
+        breakdowns: [
+          {
+            id: 'revenue_type',
+            label: 'Revenue by type',
+            total: 2.4,
+            notes: ['Rounded revenue-type items sum to $2.5B.'],
+            items: [
+              { id: 'supply_chain_sales', label: 'Supply chain sales', value: 0.8, notes: ['+10% Y/Y'] },
+              { id: 'company_restaurant', label: 'Company restaurant', value: 0.6, notes: ['+4% Y/Y'] },
+              { id: 'franchise_property_rev', label: 'Franchise & property', value: 0.8, notes: ['+6% Y/Y'] },
+              { id: 'advertising', label: 'Advertising revenue', value: 0.3, notes: ['+8% Y/Y'] },
+            ],
+          },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          id: 'cost_of_revenue',
+          label: 'Cost of revenue',
+          value: 0,
+          notes: ['The source chart does not break out cost of revenue or gross profit.'],
+        },
+        operatingExpenses: {
+          total: 1.8,
+          notes: ['Source chart splits revenue directly into operating profit and operating expenses.'],
+          items: [
+            { id: 'supply_chain_costs', label: 'Supply chain costs', value: 0.6 },
+            { id: 'company_restaurants', label: 'Company restaurants', value: 0.5 },
+            { id: 'franchise_expenses', label: 'Franchise expenses', value: 0.5 },
+            { id: 'ga', label: 'G&A', value: 0.2 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.1 },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: {
+        total: 0.1,
+        items: [{ id: 'other', label: 'Other', value: 0.1 }],
+      },
+      profit: {
+        gross: {
+          id: 'gross_profit',
+          label: 'Gross profit',
+          value: 2.4,
+          notes: ['Bookkeeping value for SSOT parity; gross profit is not shown in the source chart.'],
+        },
+        operating: {
+          id: 'operating_profit',
+          label: 'Operating profit',
+          value: 0.7,
+          notes: [
+            '27% margin',
+            '+2pp Y/Y',
+            'Rounded revenue and operating-expense values do not reproduce the displayed operating profit exactly.',
+          ],
+        },
+        net: { id: 'net_profit', label: 'Net profit', value: 0.4, notes: ['18% margin', '+2pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +7%', '来源图表按品牌分部归因收入；四舍五入后的分部项目合计为 $2.6B。'],
+            items: [
+              { id: 'tim_hortons', label: 'Tim Hortons', notes: ['同比 +8%'] },
+              { id: 'burger_king', label: '汉堡王', notes: ['同比 +7%'] },
+              { id: 'popeyes', label: 'Popeyes', notes: ['同比 +3%'] },
+              { id: 'firehouse_subs', label: 'Firehouse Subs', notes: ['同比 +13%'] },
+              { id: 'international', label: '国际', notes: ['同比 +10%'] },
+              { id: 'restaurant_holdings', label: '餐厅控股', notes: ['同比 +4%'] },
+            ],
+            breakdowns: [
+              {
+                id: 'revenue_type',
+                label: '按类型划分的收入',
+                notes: ['四舍五入后的收入类型项目合计为 $2.5B。'],
+                items: [
+                  { id: 'supply_chain_sales', label: '供应链销售', notes: ['同比 +10%'] },
+                  { id: 'company_restaurant', label: '自营餐厅', notes: ['同比 +4%'] },
+                  { id: 'franchise_property_rev', label: '特许经营及物业', notes: ['同比 +6%'] },
+                  { id: 'advertising', label: '广告收入', notes: ['同比 +8%'] },
+                ],
+              },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本', notes: ['来源图表未拆分收入成本或毛利润。'] },
+            operatingExpenses: {
+              notes: ['来源图表将收入直接拆分为营业利润和运营费用。'],
+              items: [
+                { id: 'supply_chain_costs', label: '供应链成本' },
+                { id: 'company_restaurants', label: '公司自营餐厅' },
+                { id: 'franchise_expenses', label: '特许经营费用' },
+                { id: 'ga', label: '管理费用' },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherExpenses: { items: [{ id: 'other', label: '其他' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['用于 SSOT 对齐的账面值；来源图表未显示毛利润。'] },
+            operating: {
+              label: '营业利润',
+              notes: [
+                '利润率 27%',
+                '同比 +2 个百分点',
+                '四舍五入后的收入和运营费用无法精确复算图中营业利润。',
+              ],
+            },
+            net: { label: '净利润', notes: ['利润率 18%', '同比 +2 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'rbi-q4-fy25',
       company: 'Restaurant Brands International',
       period: 'Q4 FY25',
