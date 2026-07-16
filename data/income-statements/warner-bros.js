@@ -109,8 +109,89 @@
           },
         },
       },
-    }
-    ,
+    },
+    {
+      key: 'warner-bros-q3-fy25',
+      company: 'Warner Bros. Discovery',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/warner-bros-q3-fy25.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 9.0,
+        notes: ['(6%) Y/Y'],
+        items: [
+          { id: 'studios', label: 'Studios', value: 3.3, notes: ['+24% Y/Y', '21% adj. margin', '+9pp Y/Y'] },
+          { id: 'networks', label: 'Networks', value: 3.9, notes: ['(22%) Y/Y', '44% adj. margin', '+2pp Y/Y'] },
+          { id: 'streaming', label: 'Streaming', value: 2.6, notes: ['(0%) Y/Y', '13% adj. margin', '+2pp Y/Y'] },
+          { id: 'eliminations', label: 'Eliminations', value: -0.8, notes: ['Inter-segment eliminations shown as a separate red outflow.'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 4.6 },
+        operatingExpenses: {
+          total: 3.9,
+          items: [
+            { id: 'sga', label: 'SG&A', value: 2.4, notes: ['26% of revenue', '+1pp Y/Y'] },
+            { id: 'amortization', label: 'Amortization', value: 1.4, notes: ['15% of revenue', '(3pp) Y/Y'] },
+            { id: 'other_operating_expense', label: 'Other', value: 0.1 },
+          ],
+        },
+        tax: { label: 'Tax', value: 0 },
+      },
+      otherIncome: {
+        total: 0,
+        items: [],
+      },
+      otherExpenses: {
+        total: 0.6,
+        items: [
+          { id: 'other_nonoperating', label: 'Other', value: 0.6, notes: ['Source-chart bridge from operating profit to net loss.'] },
+        ],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 4.5, notes: ['50% margin', '+3pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 0.6, notes: ['7% margin', '+4pp Y/Y'] },
+        net: { id: 'net_loss', label: 'Net loss', value: -0.1 },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 (6%)'],
+            items: [
+              { label: '影视工作室', notes: ['同比 +24%', '调整后利润率 21%', '同比 +9 个百分点'] },
+              { label: '线性网络', notes: ['同比 (22%)', '调整后利润率 44%', '同比 +2 个百分点'] },
+              { label: '流媒体', notes: ['同比 (0%)', '调整后利润率 13%', '同比 +2 个百分点'] },
+              { label: '抵销', notes: ['来源图中作为单独红色流出的分部间抵销。'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { label: '销售、一般及行政', notes: ['占收入 26%', '同比 +1 个百分点'] },
+                { label: '摊销', notes: ['占收入 15%', '同比 (3 个百分点)'] },
+                { label: '其他' },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherExpenses: {
+            items: [{ label: '其他', notes: ['来源图中从营业利润桥接至净亏损的项目。'] }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 50%', '同比 +3 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 7%', '同比 +4 个百分点'] },
+            net: { label: '净亏损' },
+          },
+        },
+      },
+    },
     {
       key: 'warner-bros-q4-fy25',
       company: 'Warner Bros. Discovery',

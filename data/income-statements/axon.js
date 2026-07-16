@@ -10,6 +10,107 @@
 
   ssot.records.push(
     {
+      key: 'axon-q3-fy25',
+      company: 'Axon',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/axon-q3-fy25.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 711,
+        notes: ['+31% Y/Y'],
+        items: [
+          {
+            id: 'connected_devices',
+            label: 'Connected Devices',
+            value: 405,
+            notes: ['+24% Y/Y'],
+            children: [
+              { id: 'taser', label: 'TASER', value: 238, notes: ['+17% Y/Y'] },
+              { id: 'personal_sensors', label: 'Personal Sensors', value: 107, notes: ['+20% Y/Y'] },
+              { id: 'platform_solutions', label: 'Platform Solutions', value: 61, notes: ['+71% Y/Y'] },
+            ],
+          },
+          { id: 'software_services', label: 'Software & Services', value: 305, notes: ['+41% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          id: 'cost_of_revenue',
+          label: 'Cost of revenue',
+          value: 283,
+          items: [
+            { id: 'products', label: 'Products', value: 203, notes: ['50% gross margin'] },
+            { id: 'services', label: 'Services', value: 80, notes: ['74% gross margin'] },
+          ],
+        },
+        operatingExpenses: {
+          total: 429,
+          items: [
+            { id: 'sga', label: 'SG&A', value: 253, notes: ['36% of revenue', '+0pp Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 177, notes: ['25% of revenue', '+4pp Y/Y'] },
+          ],
+        },
+        tax: { label: 'Tax', value: 0, notes: ['No separate tax line is shown in the source chart.'] },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 427, notes: ['60% margin', '(1pp) Y/Y'] },
+        operating: { id: 'operating_loss', label: 'Operating loss', value: -2, notes: ['(0%) margin', '(5pp) Y/Y'] },
+        net: {
+          id: 'operating_loss',
+          label: 'Operating loss',
+          value: -2,
+          notes: ['No separate net income line is shown in the source chart.'],
+        },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +31%'],
+            items: [
+              {
+                id: 'connected_devices', label: '联网设备', notes: ['同比 +24%'],
+                children: [
+                  { id: 'taser', label: 'TASER', notes: ['同比 +17%'] },
+                  { id: 'personal_sensors', label: '个人传感器', notes: ['同比 +20%'] },
+                  { id: 'platform_solutions', label: '平台解决方案', notes: ['同比 +71%'] },
+                ],
+              },
+              { id: 'software_services', label: '软件与服务', notes: ['同比 +41%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: {
+              label: '收入成本',
+              items: [
+                { id: 'products', label: '产品', notes: ['毛利率 50%'] },
+                { id: 'services', label: '服务', notes: ['毛利率 74%'] },
+              ],
+            },
+            operatingExpenses: {
+              items: [
+                { id: 'sga', label: '销售、一般及行政费用', notes: ['占收入 36%', '同比 +0 个百分点'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 25%', '同比 +4 个百分点'] },
+              ],
+            },
+            tax: { label: '税费', notes: ['来源图未单列税费。'] },
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 60%', '同比 (1 个百分点)'] },
+            operating: { label: '营业亏损', notes: ['利润率 (0%)', '同比 (5 个百分点)'] },
+            net: { label: '营业亏损', notes: ['来源图未单独显示净利润项目。'] },
+          },
+        },
+      },
+    },
+    {
       key: 'axon-q4-fy25',
       company: 'Axon',
       period: 'Q4 FY25',
