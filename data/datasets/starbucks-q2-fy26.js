@@ -89,6 +89,10 @@
     },
     annotationsSvg: annotations,
 
+    nonNodeMetrics: [
+      { id: 'cost_of_revenue', representation: 'flow', label: '', value: 7.6, type: 'cost', labelColor: RED_LABEL },
+    ],
+
     nodes: [
       { id: 'beverage', type: 'source', label: 'Beverage', value: 5.7, notes: ['+7% Y/Y'] },
       { id: 'food', type: 'source', label: 'Food', value: 1.8, notes: ['+8% Y/Y'] },
@@ -102,7 +106,6 @@
       },
       { id: 'revenue', type: 'hub', label: 'Revenue', value: 9.5, notes: ['+9% Y/Y'] },
       { id: 'gross_profit', type: 'profit', label: 'Gross profit', value: 1.9, notes: ['20% margin', '(1pp) Y/Y'] },
-      { id: 'cost_of_revenue', type: 'cost', label: '', value: 7.6, color: 'rgba(0,0,0,0)', labelColor: RED_LABEL },
       { id: 'store_opex', type: 'cost', label: 'Store opex', value: 4.4 },
       { id: 'product_distribution', type: 'cost', label: ['Product &', 'distribution'], value: 3.2 },
       { id: 'other_income', type: 'profit', label: 'Other', value: 0.1 },
@@ -121,9 +124,9 @@
       { source: 'food', target: 'revenue', value: 1.8, targetOrder: 1 },
       { source: 'other_revenue', target: 'revenue', value: 2.0, targetOrder: 2 },
       { source: 'revenue', target: 'gross_profit', value: 1.9, sourceOrder: 0, targetOrder: 0 },
-      { source: 'revenue', target: 'cost_of_revenue', value: 7.6, sourceOrder: 1, targetOrder: 0 },
-      { source: 'cost_of_revenue', target: 'store_opex', value: 4.4, sourceOrder: 0, targetOrder: 0 },
-      { source: 'cost_of_revenue', target: 'product_distribution', value: 3.2, sourceOrder: 1, targetOrder: 0 },
+      { source: 'revenue', targetRoute: 'cost_of_revenue', value: 7.6, sourceOrder: 1, targetOrder: 0 },
+      { sourceRoute: 'cost_of_revenue', target: 'store_opex', value: 4.4, sourceOrder: 0, targetOrder: 0 },
+      { sourceRoute: 'cost_of_revenue', target: 'product_distribution', value: 3.2, sourceOrder: 1, targetOrder: 0 },
       { source: 'gross_profit', target: 'operating_profit', value: 0.7, sourceOrder: 0, targetOrder: 0 },
       { source: 'gross_profit', target: 'operating_expenses', value: 1.1, width: 50.6, sourceOrder: 1, targetOrder: 0, curve: { x0: 1394 } },
       { source: 'other_income', target: 'operating_profit', value: 0.1, sourceOrder: 0, targetOrder: 1 },
@@ -137,6 +140,9 @@
     ],
 
     layout: {
+      routes: {
+        cost_of_revenue: { x: 926, y: 748, width: 0, height: 319 },
+      },
       scale: 42,
       nodes: {
         beverage: { x: 387, y: 508, width: 73, height: 239 },
@@ -144,7 +150,6 @@
         other_revenue: { x: 387, y: 1095, width: 73, height: 84 },
         revenue: { x: 853, y: 668, width: 73, height: 399 },
         gross_profit: { x: 1324, y: 555, width: 73, height: 80 },
-        cost_of_revenue: { x: 926, y: 748, width: 0, height: 319 },
         store_opex: { x: 1324, y: 864, width: 73, height: 185 },
         product_distribution: { x: 1324, y: 1145, width: 73, height: 134 },
         other_income: { x: 1678, y: 540, width: 73, height: 4 },

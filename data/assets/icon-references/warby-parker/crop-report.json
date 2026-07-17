@@ -1,0 +1,320 @@
+{
+  "source": "input/processed/warby-parker-q3-fy25.png",
+  "spec": "input/icon-crop-specs/warby-parker-q3-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-17T18:14:38.658826+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/warby-parker",
+  "crops": [
+    {
+      "key": "warby-parker-eyewear-cluster",
+      "output": "data/assets/icon-references/warby-parker/crops/eyewear-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 128,
+        "bytes": 10061,
+        "losslessBytes": 37993,
+        "savingsVsLossless": 0.7352,
+        "metrics": {
+          "meanAbsoluteError": 0.9917,
+          "rootMeanSquareError": 2.4996,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.5164
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 24917,
+        "transparentPixelRatio": 0.4828
+      },
+      "searchBox": {
+        "x": 90,
+        "y": 515,
+        "width": 225,
+        "height": 250
+      },
+      "componentCount": 4,
+      "subjectBox": {
+        "x0": 107,
+        "y0": 522,
+        "x1": 295,
+        "y1": 759
+      },
+      "cropBox": {
+        "x0": 99,
+        "y0": 514,
+        "x1": 303,
+        "y1": 767
+      },
+      "validation": {
+        "width": 204,
+        "height": 253,
+        "foregroundPixels": 10373,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 8,
+          "top": 8,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Eyewear segment product cluster: the complete stack of eyeglass and sunglass frames. The crop excludes the value block, source face, segment label, and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/warby-parker/eyewear-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 128,
+        "bytes": 10061,
+        "losslessBytes": 37993,
+        "savingsVsLossless": 0.7352,
+        "metrics": {
+          "meanAbsoluteError": 0.9917,
+          "rootMeanSquareError": 2.4996,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.5164
+        }
+      },
+      "validationSheet": "data/assets/icon-references/warby-parker/validation-sheets/warby-parker-eyewear-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 327946,
+        "losslessBytes": 327946,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "warby-parker-vision-care-phone",
+      "output": "data/assets/icon-references/warby-parker/crops/vision-care-phone.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2870,
+        "losslessBytes": 12901,
+        "savingsVsLossless": 0.7775,
+        "metrics": {
+          "meanAbsoluteError": 1.1587,
+          "rootMeanSquareError": 2.2683,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 22,
+          "changedPixelRatio": 0.6309
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 5354,
+        "transparentPixelRatio": 0.3169
+      },
+      "searchBox": {
+        "x": 145,
+        "y": 915,
+        "width": 125,
+        "height": 180
+      },
+      "componentCount": 11,
+      "subjectBox": {
+        "x0": 165,
+        "y0": 924,
+        "x1": 245,
+        "y1": 1084
+      },
+      "cropBox": {
+        "x0": 157,
+        "y0": 916,
+        "x1": 253,
+        "y1": 1092
+      },
+      "validation": {
+        "width": 96,
+        "height": 176,
+        "foregroundPixels": 3517,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 8,
+          "top": 8,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Vision care segment icon: the complete tilted eye-chart phone. The crop excludes the value block, source face, segment label, and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/warby-parker/vision-care-phone.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2870,
+        "losslessBytes": 12901,
+        "savingsVsLossless": 0.7775,
+        "metrics": {
+          "meanAbsoluteError": 1.1587,
+          "rootMeanSquareError": 2.2683,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 22,
+          "changedPixelRatio": 0.6309
+        }
+      },
+      "validationSheet": "data/assets/icon-references/warby-parker/validation-sheets/warby-parker-vision-care-phone.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 275267,
+        "losslessBytes": 275267,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "warby-parker-ecommerce-phone",
+      "output": "data/assets/icon-references/warby-parker/crops/ecommerce-phone.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 8031,
+        "losslessBytes": 46602,
+        "savingsVsLossless": 0.8277,
+        "metrics": {
+          "meanAbsoluteError": 1.1761,
+          "rootMeanSquareError": 2.63,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 46,
+          "changedPixelRatio": 0.4887
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 24078,
+        "transparentPixelRatio": 0.5083
+      },
+      "searchBox": {
+        "x": 1160,
+        "y": 260,
+        "width": 205,
+        "height": 250
+      },
+      "componentCount": 13,
+      "subjectBox": {
+        "x0": 1172,
+        "y0": 269,
+        "x1": 1347,
+        "y1": 501
+      },
+      "cropBox": {
+        "x0": 1164,
+        "y0": 261,
+        "x1": 1355,
+        "y1": 509
+      },
+      "validation": {
+        "width": 191,
+        "height": 248,
+        "foregroundPixels": 14796,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 8,
+          "top": 8,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "E-Commerce channel icon: the complete tilted Warby Parker shopping phone. The crop excludes the E-Commerce label and all Sankey geometry.",
+      "runtimeOutput": "data/assets/raster-annotations/warby-parker/ecommerce-phone.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 8031,
+        "losslessBytes": 46602,
+        "savingsVsLossless": 0.8277,
+        "metrics": {
+          "meanAbsoluteError": 1.1761,
+          "rootMeanSquareError": 2.63,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 46,
+          "changedPixelRatio": 0.4887
+        }
+      },
+      "validationSheet": "data/assets/icon-references/warby-parker/validation-sheets/warby-parker-ecommerce-phone.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 339935,
+        "losslessBytes": 339935,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

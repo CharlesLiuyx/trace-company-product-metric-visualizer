@@ -106,10 +106,13 @@
       scale: 100,
       nodes: {
         merchant_solutions: { x: 769, y: 601, width: 70, height: 290 }, shopify_plus: { x: 395, y: 994, width: 71, height: 19 }, other_subscription: { x: 395, y: 1168, width: 71, height: 56 }, subscription_solutions: { x: 769, y: 1100, width: 70, height: 76 }, revenue: { x: 1143, y: 709, width: 70, height: 367 },
-        gross_profit: { x: 1516, y: 606, width: 71, height: 168 }, cost_of_revenue: { x: 1516, y: 984, width: 71, height: 197 }, operating_profit: { x: 1890, y: 516, width: 71, height: 61 }, operating_expenses: { x: 1890, y: 746, width: 71, height: 105 }, other: { x: 2151, y: 525, width: 70, height: 9 }, net_profit: { x: 2263, y: 423, width: 71, height: 58 }, investments: { x: 2263, y: 654, width: 71, height: 12 }, merchant_cost: { x: 1753, y: 1028, width: 70, height: 182 }, subscription_cost: { x: 1753, y: 1275, width: 70, height: 13 }, sm: { x: 2263, y: 785, width: 71, height: 41 }, rnd: { x: 2263, y: 975, width: 71, height: 36 }, ga: { x: 2263, y: 1163, width: 71, height: 10 }, loan_losses: { x: 2263, y: 1329, width: 71, height: 9 }, tax: { x: -500, y: -500, width: 0, height: 0 },
-      },
+        gross_profit: { x: 1516, y: 606, width: 71, height: 168 }, cost_of_revenue: { x: 1516, y: 984, width: 71, height: 197 }, operating_profit: { x: 1890, y: 516, width: 71, height: 61 }, operating_expenses: { x: 1890, y: 746, width: 71, height: 105 }, other: { x: 2151, y: 525, width: 70, height: 9 }, net_profit: { x: 2263, y: 423, width: 71, height: 58 }, investments: { x: 2263, y: 654, width: 71, height: 12 }, merchant_cost: { x: 1753, y: 1028, width: 70, height: 182 }, subscription_cost: { x: 1753, y: 1275, width: 70, height: 13 }, sm: { x: 2263, y: 785, width: 71, height: 41 }, rnd: { x: 2263, y: 975, width: 71, height: 36 }, ga: { x: 2263, y: 1163, width: 71, height: 10 }, loan_losses: { x: 2263, y: 1329, width: 71, height: 9 },       },
       labels: labelsEn,
     },
+    nonNodeMetrics: [
+      { id: 'tax', representation: 'data-only' },
+    ],
+
     nodes: [
       { id: 'merchant_solutions', col: 0, order: 0, type: 'source', label: ['Merchant', 'Solutions'], value: 2.895, valueText: '$2.9B', notes: ['+35% Y/Y'], color: SHOP_GREEN, labelColor: SHOP_GREEN, linkTint: SOURCE_LINK },
       { id: 'shopify_plus', col: 0, order: 1, type: 'source', label: 'Shopify Plus', value: 0.221, valueText: '$0.2B', notes: ['+17% Y/Y'], color: SHOP_DARK_GREEN, labelColor: SHOP_DARK_GREEN, linkTint: SOURCE_LINK },
@@ -129,7 +132,6 @@
       { id: 'rnd', col: 6, order: 3, type: 'cost', label: 'R&D', value: 0.390, valueText: '($0.4B)', notes: ['11% of revenue', '(2pp) Y/Y'], color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
       { id: 'ga', col: 6, order: 4, type: 'cost', label: 'G&A', value: 0.125, valueText: '($0.1B)', notes: ['3% of revenue', '(1pp) Y/Y'], color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
       { id: 'loan_losses', col: 6, order: 5, type: 'cost', label: 'Loan losses', value: 0.114, valueText: '($0.1B)', notes: ['3% of revenue', '+0pp Y/Y'], color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
-      { id: 'tax', col: 7, order: 0, type: 'cost', label: 'Tax', value: 0, valueText: '', color: 'transparent', labelColor: 'transparent' },
     ],
     links: [
       { source: 'merchant_solutions', target: 'revenue', value: 2.895, width: 290, sourceOrder: 0, targetOrder: 0 },
@@ -156,8 +158,7 @@
         meta: { title: 'Shopify 2025 财年第四季度利润表', period: '2025 财年第四季度', periodNote: '截至 2025 年 12 月 31 日的季度', titleSize: 112, titleTextLength: 1860 },
         annotationsSvg: annotationsZh,
         nodes: {
-          merchant_solutions: { label: '商家解决方案', notes: ['同比 +35%'] }, shopify_plus: { label: 'Shopify Plus 方案', notes: ['同比 +17%'] }, other_subscription: { label: '其他', notes: ['同比 +17%'] }, subscription_solutions: { label: '订阅解决方案', notes: ['同比 +17%'] }, revenue: { label: '收入', notes: ['同比 +31%'] }, gross_profit: { label: '毛利润', notes: ['利润率 46%', '同比 (2 个百分点)'] }, cost_of_revenue: { label: '收入成本' }, operating_profit: { label: '营业利润', notes: ['利润率 17%', '同比 +1 个百分点'] }, operating_expenses: { label: '营业费用' }, other: { label: '其他' }, net_profit: { label: '净利润', notes: ['利润率 16%', '同比 +10 个百分点'] }, investments: { label: '投资' }, merchant_cost: { label: '商家', notes: ['毛利率 37%'] }, subscription_cost: { label: '订阅', notes: ['毛利率 81%'] }, sm: { label: '销售与市场', notes: ['占收入 12%', '同比 (1 个百分点)'] }, rnd: { label: '研发', notes: ['占收入 11%', '同比 (2 个百分点)'] }, ga: { label: '管理费用', notes: ['占收入 3%', '同比 (1 个百分点)'] }, loan_losses: { label: '贷款损失', notes: ['占收入 3%', '同比 +0 个百分点'] }, tax: { label: '税费' },
-        },
+          merchant_solutions: { label: '商家解决方案', notes: ['同比 +35%'] }, shopify_plus: { label: 'Shopify Plus 方案', notes: ['同比 +17%'] }, other_subscription: { label: '其他', notes: ['同比 +17%'] }, subscription_solutions: { label: '订阅解决方案', notes: ['同比 +17%'] }, revenue: { label: '收入', notes: ['同比 +31%'] }, gross_profit: { label: '毛利润', notes: ['利润率 46%', '同比 (2 个百分点)'] }, cost_of_revenue: { label: '收入成本' }, operating_profit: { label: '营业利润', notes: ['利润率 17%', '同比 +1 个百分点'] }, operating_expenses: { label: '营业费用' }, other: { label: '其他' }, net_profit: { label: '净利润', notes: ['利润率 16%', '同比 +10 个百分点'] }, investments: { label: '投资' }, merchant_cost: { label: '商家', notes: ['毛利率 37%'] }, subscription_cost: { label: '订阅', notes: ['毛利率 81%'] }, sm: { label: '销售与市场', notes: ['占收入 12%', '同比 (1 个百分点)'] }, rnd: { label: '研发', notes: ['占收入 11%', '同比 (2 个百分点)'] }, ga: { label: '管理费用', notes: ['占收入 3%', '同比 (1 个百分点)'] }, loan_losses: { label: '贷款损失', notes: ['占收入 3%', '同比 +0 个百分点'] },         },
         layout: { labels: labelsZh },
       },
     },

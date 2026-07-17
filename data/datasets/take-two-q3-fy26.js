@@ -236,10 +236,13 @@
         rnd: { x: 2237, y: 689, width: 72, height: 37 },
         ga: { x: 2237, y: 896, width: 72, height: 29 },
         other: { x: 2237, y: 1095, width: 72, height: 7 },
-        tax: { x: -500, y: -500, width: 0, height: 0 },
       },
       labels,
     },
+    nonNodeMetrics: [
+      { id: 'tax', representation: 'data-only' },
+    ],
+
     nodes: [
       { id: 'mobile', col: 0, order: 0, type: 'source', label: 'Mobile', value: 0.8658, valueText: '$0.9B', notes: ['+17% Y/Y'], color: BLUE, labelColor: BLUE_LABEL, linkTint: BLUE_LINK },
       { id: 'console', col: 0, order: 1, type: 'source', label: 'Console', value: 0.6521, valueText: '$0.7B', notes: ['+28% Y/Y'], color: BLUE, labelColor: BLUE_LABEL, linkTint: BLUE_LINK },
@@ -256,7 +259,6 @@
       { id: 'rnd', col: 7, order: 1, type: 'cost', label: 'R&D', value: 0.2827, valueText: '($0.3B)', notes: ['17% of revenue', '(1pp) Y/Y'], color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
       { id: 'ga', col: 7, order: 2, type: 'cost', label: 'G&A', value: 0.2186, valueText: '($0.2B)', notes: ['13% of revenue', '(1pp) Y/Y'], color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
       { id: 'other', col: 7, order: 3, type: 'cost', label: 'Other', value: 0.0497, valueText: '($49M)', notes: ['3% of revenue', '(1pp) Y/Y'], color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
-      { id: 'tax', col: 8, order: 0, type: 'cost', label: 'Tax', value: 0, valueText: '', color: 'transparent', labelColor: 'transparent' },
     ],
     links: [
       { source: 'mobile', target: 'platform_revenue', value: 0.8658, width: 114, sourceOrder: 0, targetOrder: 0, linkTint: BLUE_LINK },
@@ -302,7 +304,6 @@
           rnd: { label: '研发', notes: ['占收入 17%', '同比 (1 个百分点)'] },
           ga: { label: '管理费用', notes: ['占收入 13%', '同比 (1 个百分点)'] },
           other: { label: '其他', notes: ['占收入 3%', '同比 (1 个百分点)'] },
-          tax: { label: '税费' },
         },
         layout: { labels: zhLabels },
       },

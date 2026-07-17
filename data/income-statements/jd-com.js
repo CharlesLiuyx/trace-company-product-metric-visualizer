@@ -10,6 +10,92 @@
 
   ssot.records.push(
     {
+      key: 'jd-com-q3-fy25',
+      company: 'JD.com',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/jd-com-q3-fy25.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 42.0,
+        notes: ['+15% Y/Y'],
+        items: [
+          { id: 'jd_retail', label: 'JD Retail', value: 35.2, notes: ['+11% Y/Y', '6% operating margin', '+1pp Y/Y'] },
+          { id: 'jd_logistics', label: 'JD Logistics', value: 7.7, notes: ['+24% Y/Y', '2% operating margin', '(2pp) Y/Y'] },
+          {
+            id: 'new_businesses',
+            label: 'New Businesses',
+            value: 2.2,
+            notes: ['+214% Y/Y', '(101%) operating margin', '(88pp) Y/Y'],
+          },
+          { id: 'intersegment_eliminations', label: 'Inter-segment eliminations', value: -3.1 },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 34.9 },
+        operatingExpenses: {
+          total: 7.3,
+          items: [
+            { id: 'fulfillment', label: 'Fulfillment', value: 3.1 },
+            { id: 'marketing', label: 'Marketing', value: 3.0 },
+            { id: 'rnd', label: 'R&D', value: 0.8 },
+            { id: 'ga', label: 'General & admin', value: 0.4 },
+          ],
+        },
+        tax: { label: 'Tax', value: 0 },
+      },
+      otherIncome: {
+        total: 0,
+        items: [],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      // The Source ends at operating loss; it shows no separate tax, other
+      // income/expense, or net-profit bridge.
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 7.1, notes: ['17% margin', '(0pp) Y/Y'] },
+        operating: { id: 'operating_loss', label: 'Operating loss', value: -0.1, notes: ['(0%) margin', '(5pp) Y/Y'] },
+        net: { id: 'operating_loss', label: 'Operating loss', value: -0.1, notes: ['(0%) margin', '(5pp) Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +15%'],
+            items: [
+              { id: 'jd_retail', label: '京东零售', notes: ['同比 +11%', '营业利润率 6%', '同比 +1 个百分点'] },
+              { id: 'jd_logistics', label: '京东物流', notes: ['同比 +24%', '营业利润率 2%', '同比 (2 个百分点)'] },
+              { id: 'new_businesses', label: '新业务', notes: ['同比 +214%', '营业利润率 (101%)', '同比 (88 个百分点)'] },
+              { id: 'intersegment_eliminations', label: '分部间抵销' },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'fulfillment', label: '履约' },
+                { id: 'marketing', label: '营销' },
+                { id: 'rnd', label: '研发' },
+                { id: 'ga', label: '管理费用' },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 17%', '同比 (0 个百分点)'] },
+            operating: { label: '营业亏损', notes: ['利润率 (0%)', '同比 (5 个百分点)'] },
+            net: { label: '营业亏损', notes: ['利润率 (0%)', '同比 (5 个百分点)'] },
+          },
+        },
+      },
+    },
+    {
       key: 'jd-com-q4-fy25',
       company: 'JD.com',
       period: 'Q4 FY25',

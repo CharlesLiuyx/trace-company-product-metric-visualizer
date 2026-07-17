@@ -142,10 +142,13 @@
         operating_profit: { x: 1955, y: 507, width: 73, height: 9 }, operating_expenses: { x: 1955, y: 706, width: 73, height: 203 },
         net_loss: { x: 2145, y: 500, width: 72, height: 21 }, other_expenses: { x: 2267, y: 423, width: 72, height: 34 },
         rnd: { x: 2267, y: 807, width: 72, height: 160 }, ga: { x: 2267, y: 1084, width: 72, height: 31 }, sm: { x: 2267, y: 1240, width: 72, height: 8 },
-        tax: { x: -500, y: -500, width: 0, height: 0 },
       },
       labels: enLabels,
     },
+    nonNodeMetrics: [
+      { id: 'tax', representation: 'data-only' },
+    ],
+
     nodes: [
       { id: 'committed_contracts', col: 0, order: 0, type: 'source', label: ['Committed', 'Contracts'], value: 1.338, valueText: '$1,338M', notes: ['+139% Y/Y'], color: BLUE, labelColor: BLUE, linkTint: BLUE_LINK },
       { id: 'on_demand_services', col: 0, order: 1, type: 'source', label: ['On-demand', 'Services'], value: 0.027, valueText: '$27M', notes: ['+17% Y/Y'], color: BLUE, labelColor: BLUE, linkTint: BLUE_LINK },
@@ -162,7 +165,6 @@
       { id: 'rnd', col: 7, order: 1, type: 'cost', label: 'R&D', value: 0.747, valueText: '($747M)', notes: ['55% of revenue', '+6pp Y/Y'], color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
       { id: 'ga', col: 7, order: 2, type: 'cost', label: 'G&A', value: 0.152, valueText: '($152M)', notes: ['11% of revenue', '+5pp Y/Y'], color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
       { id: 'sm', col: 7, order: 3, type: 'cost', label: 'S&M', value: 0.045, valueText: '($45M)', notes: ['3% of revenue', '+2pp Y/Y'], color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
-      { id: 'tax', col: 8, order: 0, type: 'cost', label: 'Tax', value: 0, valueText: '', color: 'transparent', labelColor: 'transparent' },
     ],
     links: [
       { source: 'committed_contracts', target: 'revenue', value: 1.338, width: 289, sourceOrder: 0, targetOrder: 0, linkTint: BLUE_LINK },
@@ -190,8 +192,7 @@
           revenue: { label: '收入', notes: ['同比 +134%'] }, united_states: { label: '美国', notes: ['同比 +134%'] }, rest_of_world: { label: '世界其他地区', notes: ['同比 +127%'] },
           revenue_to_profit: { label: '收入', notes: ['同比 +134%'] }, gross_profit: { label: '毛利润', notes: ['利润率 73%', '同比 (3 个百分点)'] }, cost_of_revenue: { label: '收入成本' },
           operating_profit: { label: '营业利润', notes: ['利润率 4%', '同比 (16 个百分点)'] }, operating_expenses: { label: '运营费用' }, net_loss: { label: '净亏损', notes: ['利润率 (8%)', '同比 +54 个百分点'] },
-          other_expenses: { label: '其他' }, rnd: { label: '研发', notes: ['占收入 55%', '同比 +6 个百分点'] }, ga: { label: '管理费用', notes: ['占收入 11%', '同比 +5 个百分点'] }, sm: { label: '销售与市场', notes: ['占收入 3%', '同比 +2 个百分点'] }, tax: { label: '税费' },
-        },
+          other_expenses: { label: '其他' }, rnd: { label: '研发', notes: ['占收入 55%', '同比 +6 个百分点'] }, ga: { label: '管理费用', notes: ['占收入 11%', '同比 +5 个百分点'] }, sm: { label: '销售与市场', notes: ['占收入 3%', '同比 +2 个百分点'] },         },
         layout: { labels: zhLabels },
       },
     },

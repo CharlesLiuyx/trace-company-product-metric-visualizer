@@ -94,12 +94,9 @@
         distribution_fees: { x: 408, y: 1120, width: 72, height: 18 },
         advisory_other: { x: 408, y: 1267, width: 72, height: 2 },
         revenue: { x: 1030, y: 681, width: 72, height: 304 },
-        cost_of_revenue: { x: -1000, y: -1000, width: 1, height: 1 },
-        gross_profit: { x: -1000, y: -1000, width: 1, height: 1 },
         operating_profit: { x: 1653, y: 482, width: 72, height: 127 },
         operating_expenses: { x: 1653, y: 927, width: 72, height: 176 },
         net_profit: { x: 2276, y: 317, width: 72, height: 105 },
-        other: { x: -1000, y: -1000, width: 1, height: 1 },
         tax: { x: 2276, y: 687, width: 72, height: 23 },
         compensation_benefits: { x: 2276, y: 825, width: 72, height: 100 },
         sales_asset_account_expenses: { x: 2276, y: 1034, width: 72, height: 57 },
@@ -107,9 +104,6 @@
         ga: { x: 2276, y: 1341, width: 72, height: 5 },
       },
       labels: {
-        cost_of_revenue: { blocks: [] },
-        gross_profit: { blocks: [] },
-        other: { blocks: [] },
         investment_advisory_fees: {
           blocks: [
             {
@@ -307,6 +301,12 @@
       },
     },
 
+    nonNodeMetrics: [
+      { id: 'cost_of_revenue', representation: 'data-only' },
+      { id: 'gross_profit', representation: 'data-only' },
+      { id: 'other', representation: 'annotation', value: 0.028, valueText: '$28M', type: 'profit' },
+    ],
+
     nodes: [
       {
         id: 'investment_advisory_fees', col: 0, order: 0, type: 'source',
@@ -338,14 +338,6 @@
         label: 'Revenue', value: 6.7, notes: ['+27% Y/Y'], color: BLACK, labelColor: BLACK,
       },
       {
-        id: 'cost_of_revenue', col: 4, order: 98, type: 'cost',
-        label: '', value: 0, color: 'transparent', labelColor: 'transparent', linkTint: 'transparent',
-      },
-      {
-        id: 'gross_profit', col: 4, order: 99, type: 'profit',
-        label: '', value: 6.7, color: 'transparent', labelColor: 'transparent', linkTint: 'transparent',
-      },
-      {
         id: 'operating_profit', col: 2, order: 0, type: 'profit',
         label: 'Operating profit', value: 2.8, notes: ['42% margin', '+10pp Y/Y'],
         color: GREEN, labelColor: GREEN_LABEL, linkTint: GREEN_LINK,
@@ -359,10 +351,6 @@
         id: 'net_profit', col: 3, order: 0, type: 'profit',
         label: 'Net income', value: 2.3, notes: ['35% margin', '+6pp Y/Y'],
         color: GREEN, labelColor: GREEN_LABEL, linkTint: GREEN_LINK,
-      },
-      {
-        id: 'other', col: 4, order: 97, type: 'profit',
-        label: '', value: 0.028, valueText: '$28M', color: 'transparent', labelColor: 'transparent', linkTint: 'transparent',
       },
       {
         id: 'tax', col: 3, order: 1, type: 'cost',

@@ -158,7 +158,6 @@
         sm: { x: 2301, y: 713, width: 72, height: 107 },
         ga: { x: 2301, y: 984, width: 72, height: 34 },
         restructuring: { x: 2301, y: 1198, width: 72, height: 15 },
-        tax: { x: -500, y: -500, width: 0, height: 0 },
       },
       labels: {
         us_canada: {
@@ -327,9 +326,12 @@
             },
           ],
         },
-        tax: { blocks: [] },
       },
     },
+
+    nonNodeMetrics: [
+      { id: 'tax', representation: 'data-only' },
+    ],
 
     nodes: [
       {
@@ -392,10 +394,6 @@
         label: 'Restructuring', value: 47, notes: ['5% of revenue', '+5pp Y/Y'],
         color: RED, labelColor: RED_LABEL, linkTint: RED_LINK,
       },
-      {
-        id: 'tax', col: 6, order: 0, type: 'cost',
-        label: 'Tax', value: 0, valueText: '', color: 'transparent', labelColor: 'transparent',
-      },
     ],
 
     links: [
@@ -439,7 +437,6 @@
           sm: { label: '销售与营销', notes: ['占收入 32%', '同比 +2 个百分点'] },
           ga: { label: '管理费用', notes: ['占收入 10%', '同比 (2 个百分点)'] },
           restructuring: { label: '重组', notes: ['占收入 5%', '同比 +5 个百分点'] },
-          tax: { label: '税费' },
         },
         layout: {
           labels: {

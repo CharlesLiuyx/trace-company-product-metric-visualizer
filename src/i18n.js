@@ -500,7 +500,13 @@
         });
         return;
       }
-      if (Array.isArray(prev) && next && typeof next === 'object' && !Array.isArray(next) && key === 'nodes') {
+      if (
+        Array.isArray(prev) &&
+        next &&
+        typeof next === 'object' &&
+        !Array.isArray(next) &&
+        ['nodes', 'nonNodeMetrics'].includes(key)
+      ) {
         Object.keys(next).forEach((id) => {
           const match = prev.find((candidate) => candidate && candidate.id === id);
           if (match) mergeOverlay(match, next[id]);
@@ -944,6 +950,10 @@
     (out.nodes || []).forEach((node) => {
       node.label = localizeLabel(node.label, code);
       node.notes = localizeNotes(node.notes, code);
+    });
+    (out.nonNodeMetrics || []).forEach((metric) => {
+      metric.label = localizeLabel(metric.label, code);
+      metric.notes = localizeNotes(metric.notes, code);
     });
     localizeLayoutLabels(out.layout?.labels, code);
     out.annotationsSvg = localizeAnnotationsSvg(out.annotationsSvg, code);

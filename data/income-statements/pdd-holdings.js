@@ -10,6 +10,87 @@
 
   ssot.records.push(
     {
+      key: 'pdd-holdings-q3-fy25',
+      company: 'PDD Holdings',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/pdd-holdings-q3-fy25.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 15.2,
+        notes: ['+9% Y/Y'],
+        items: [
+          {
+            id: 'online_marketing',
+            label: 'Online Marketing & Others',
+            value: 7.5,
+            notes: ['+8% Y/Y', 'Performance-based services'],
+          },
+          { id: 'transaction_services', label: 'Transaction Services', value: 7.7, notes: ['+10% Y/Y', 'Merchant fee'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 6.6 },
+        operatingExpenses: {
+          total: 5.1,
+          items: [
+            { id: 'sm', label: 'Sales & marketing', value: 4.3, notes: ['28% of revenue', '(3pp) Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 0.6, notes: ['4% of revenue', '+1pp Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 0.2, notes: ['2% of revenue', '(0pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.6 },
+      },
+      otherIncome: {
+        total: 1.2,
+        items: [{ id: 'other', label: 'Other', value: 1.2 }],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 8.6, notes: ['57% margin', '(3pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 3.5, notes: ['23% margin', '(1pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 4.1, notes: ['27% margin', '+2pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +9%'],
+            items: [
+              { label: '在线营销及其他', notes: ['同比 +8%', '基于绩效的服务'] },
+              { label: '交易服务', notes: ['同比 +10%', '商户费用'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { label: '销售与市场', notes: ['占收入 28%', '同比 (3 个百分点)'] },
+                { label: '研发', notes: ['占收入 4%', '同比 +1 个百分点'] },
+                { label: '管理费用', notes: ['占收入 2%', '同比 (0 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: {
+            items: [{ label: '其他' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 57%', '同比 (3 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 23%', '同比 (1 个百分点)'] },
+            net: { label: '净利润', notes: ['利润率 27%', '同比 +2 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'pdd-holdings-q1-fy26',
       company: 'PDD Holdings',
       period: 'Q1 FY26',
