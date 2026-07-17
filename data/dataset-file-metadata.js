@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-16T14:18:53.000Z",
+  "generatedAt": "2026-07-17T14:34:48.528Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -2772,6 +2772,12 @@
       "updatedAtMs": 1784211533000,
       "updatedAt": "2026-07-16T14:18:53.000Z",
       "timeSource": "git"
+    },
+    "live-nation-q3-fy25": {
+      "path": "data/datasets/live-nation-q3-fy25.js",
+      "updatedAtMs": 1784298888528,
+      "updatedAt": "2026-07-17T14:34:48.528Z",
+      "timeSource": "mtime"
     },
     "data/revenue-metrics.js": {
       "path": "data/revenue-metrics.js",

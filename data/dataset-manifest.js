@@ -10409,6 +10409,29 @@
             }
           }
         }
+      },
+      {
+        "key": "live-nation-q3-fy25",
+        "src": "data/datasets/live-nation-q3-fy25.js",
+        "data": {
+          "name": "Live Nation · Q3 FY25",
+          "company": "Live Nation",
+          "meta": {
+            "title": "Live Nation Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Live Nation · 2025 财年第三季度",
+              "meta": {
+                "title": "Live Nation 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
       }
     ]
   };
