@@ -10,6 +10,7 @@ import {
   assertNodePaintPolicy,
   isFaceBelowVisibilityFloor,
 } from './node-face-policy.mjs';
+import { LEGACY_HIDDEN_ANCHOR_FEATURE } from './legacy/object-inventory-v3.mjs';
 
 export { MIN_VISIBLE_FACE_PX } from './node-face-policy.mjs';
 
@@ -359,6 +360,16 @@ function nodeIdFromEvidenceTarget(target) {
 }
 
 export function nodeFaceExpectationsFromPlan(plan) {
+  if (plan?.nodeFacePolicy?.protocol === 'node-face-policy/v2') {
+    return {
+      visible: [...plan.nodeFacePolicy.visibleNodeIds],
+      hidden: [],
+      floorExceptions: plan.nodeFacePolicy.belowFloorExceptions.map((item) => ({ ...item })),
+      policyDigest: plan.nodeFacePolicy.policyDigest,
+      complete: plan.nodeFacePolicy.complete === true,
+      protocol: 'node-face-policy/v2',
+    };
+  }
   if (plan?.nodeFacePolicy?.protocol === 'node-face-policy/v1') {
     return {
       visible: [...plan.nodeFacePolicy.visibleNodeIds],
@@ -366,6 +377,7 @@ export function nodeFaceExpectationsFromPlan(plan) {
       floorExceptions: plan.nodeFacePolicy.belowFloorExceptions.map((item) => ({ ...item })),
       policyDigest: plan.nodeFacePolicy.policyDigest,
       complete: plan.nodeFacePolicy.complete === true,
+      protocol: 'node-face-policy/v1',
     };
   }
   const checks = Array.isArray(plan?.requiredChecks) ? plan.requiredChecks : [];
@@ -378,8 +390,11 @@ export function nodeFaceExpectationsFromPlan(plan) {
   const legacyVisible = targetsFor('feature:visible-short-node');
   return {
     visible: [...new Set([...explicitVisible, ...legacyVisible])].sort(),
-    hidden: [...new Set(targetsFor('feature:hidden-anchor'))].sort(),
-    complete: ['verification-plan/v3', 'verification-plan/v4'].includes(plan?.protocol),
+    hidden: [...new Set(targetsFor(`feature:${LEGACY_HIDDEN_ANCHOR_FEATURE}`))].sort(),
+    complete: ['verification-plan/v3', 'verification-plan/v4', 'verification-plan/v5'].includes(plan?.protocol),
+    protocol: plan?.protocol === 'verification-plan/v5'
+      ? 'node-face-policy/v2'
+      : 'node-face-policy/v1',
   };
 }
 
@@ -388,13 +403,15 @@ export function assertNodePaintAudit(audit, expectations = {}, options = {}) {
     (expectations.hidden?.length || 0) > 0 || expectations.complete;
   const policy = hasExpectations
     ? {
-        schemaVersion: 1,
-        protocol: 'node-face-policy/v1',
+        schemaVersion: expectations.protocol === 'node-face-policy/v2' ? 2 : 1,
+        protocol: expectations.protocol || 'node-face-policy/v1',
         minVisibleFacePx: MIN_VISIBLE_FACE_PX,
         rasterTolerancePx: FACE_FLOOR_RASTER_TOLERANCE_PX,
         complete: Boolean(expectations.complete),
         visibleNodeIds: [...new Set(expectations.visible || [])].sort(),
-        hiddenNodeIds: [...new Set(expectations.hidden || [])].sort(),
+        ...(expectations.protocol === 'node-face-policy/v2'
+          ? {}
+          : { hiddenNodeIds: [...new Set(expectations.hidden || [])].sort() }),
         belowFloorExceptions: (expectations.floorExceptions || []).map((item) => typeof item === 'string'
           ? { nodeId: item, referenceFaceHeightPx: 0 }
           : item),
@@ -972,8 +989,8 @@ export async function auditTextAndAnnotationLayout(page) {
   return classifyTextAndAnnotationLayout(geometry);
 }
 
-function annotationNodeIdFromObjectId(objectId) {
-  const match = String(objectId || '').match(/^node:(.+)$/);
+function annotationMetricIdFromObjectId(objectId) {
+  const match = String(objectId || '').match(/^(?:node|metric):(.+)$/);
   return match ? match[1].replace(/-/g, '_') : '';
 }
 
@@ -983,7 +1000,7 @@ export function semanticAnnotationNodeIdsFromPlan(plan) {
     checks
       .filter((check) => check.id === 'feature:semantic-annotation')
       .flatMap((check) => check.objectIds || [])
-      .map(annotationNodeIdFromObjectId)
+      .map(annotationMetricIdFromObjectId)
       .filter(Boolean)
   )].sort();
 }
@@ -1002,7 +1019,7 @@ export function classifySemanticAnnotationAudit({
   const normalized = annotations.map((item, index) => ({
     nodeId: String(item?.nodeId || '').trim(),
     interactive: item?.interactive === true,
-    nodeExists: item?.nodeExists === true,
+    metricExists: item?.metricExists === true || item?.nodeExists === true,
     textCount: Number.isInteger(item?.textCount) ? item.textCount : 0,
     hasHitbox: item?.hasHitbox === true,
     index,
@@ -1015,7 +1032,7 @@ export function classifySemanticAnnotationAudit({
       continue;
     }
     if (!matches.some((item) => item.interactive)) violations.push({ nodeId, code: 'missing-interactive-class' });
-    if (!matches.some((item) => item.nodeExists)) violations.push({ nodeId, code: 'unknown-data-node' });
+    if (!matches.some((item) => item.metricExists)) violations.push({ nodeId, code: 'unknown-data-node' });
     if (!matches.some((item) => item.textCount > 0)) violations.push({ nodeId, code: 'missing-annotation-text' });
     if (!matches.some((item) => item.hasHitbox)) violations.push({ nodeId, code: 'missing-annotation-hitbox' });
   }
@@ -1037,8 +1054,8 @@ export function classifySemanticAnnotationAudit({
 }
 
 // Collects annotation semantics after the renderer has inserted its standard
-// transparent hitboxes. A node-like text in the annotation layer is only
-// valid when its semantic node is explicitly interactive.
+// transparent hitboxes. A metric-like text in the annotation layer is only
+// valid when its semantic node or non-node metric is explicitly interactive.
 export async function auditSemanticAnnotations(page, { datasetKey, language, expectedNodeIds = [] } = {}) {
   const collected = await page.evaluate(({ key, requestedLanguage }) => {
     const svg = document.querySelector('#chart > svg');
@@ -1048,28 +1065,27 @@ export async function auditSemanticAnnotations(page, { datasetKey, language, exp
       ? window.SANKEY_I18N?.localizeDataset?.(dataset, requestedLanguage)
       : dataset;
     const normalize = (value) => String(value || '').replace(/\s+/g, ' ').trim().toLocaleLowerCase();
-    const nodeIdsByLabel = new Map();
-    for (const node of localized?.nodes || []) {
-      for (const label of (Array.isArray(node.label) ? node.label : [node.label])) {
+    const metricIdsByLabel = new Map();
+    const semanticMetrics = [...(localized?.nodes || []), ...(localized?.nonNodeMetrics || [])];
+    for (const metric of semanticMetrics) {
+      for (const label of (Array.isArray(metric.label) ? metric.label : [metric.label])) {
         const text = normalize(label);
-        if (text) nodeIdsByLabel.set(text, node.id);
+        if (text) metricIdsByLabel.set(text, metric.id);
       }
     }
-    const renderedNodeIds = new Set(Array.from(svg.querySelectorAll('.sankey-node[data-node]'))
-      .map((element) => element.getAttribute('data-node'))
-      .filter(Boolean));
+    const semanticMetricIds = new Set(semanticMetrics.map((metric) => metric.id).filter(Boolean));
     const annotations = Array.from(svg.querySelectorAll('.sankey-annotations .sankey-interactive-annotation'))
       .map((element) => ({
         nodeId: element.getAttribute('data-node') || '',
         interactive: element.classList.contains('sankey-interactive-annotation'),
-        nodeExists: renderedNodeIds.has(element.getAttribute('data-node') || ''),
+        metricExists: semanticMetricIds.has(element.getAttribute('data-node') || ''),
         textCount: element.querySelectorAll('text').length,
         hasHitbox: Boolean(element.querySelector(':scope > .sankey-annotation-hitbox')),
       }));
     const unboundNodeLikeTexts = Array.from(svg.querySelectorAll('.sankey-annotations text'))
       .filter((element) => !element.closest('.sankey-interactive-annotation[data-node]'))
       .map((element) => ({ text: String(element.textContent || '').replace(/\s+/g, ' ').trim() }))
-      .map((item) => ({ ...item, nodeId: nodeIdsByLabel.get(normalize(item.text)) || '' }))
+      .map((item) => ({ ...item, nodeId: metricIdsByLabel.get(normalize(item.text)) || '' }))
       .filter((item) => item.nodeId);
     return { annotations, unboundNodeLikeTexts };
   }, { key: datasetKey, requestedLanguage: language || 'en' });

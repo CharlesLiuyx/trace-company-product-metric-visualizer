@@ -5,6 +5,41 @@ write `nodes` + `links` by hand and tune `layout.nodes` / `layout.labels`
 against the processed reference image. The resulting `{ meta, nodes, links }`
 object is what `SankeyEngine.render(selector, data)` consumes.
 
+Every entry in `nodes[]` is a semantic, painted node face. Do not preserve an
+SSOT field or a flow socket by adding an off-canvas, background-coloured, or
+explicitly transparent node. When the Source has no node face, declare the
+metric separately:
+
+```js
+{
+  nonNodeMetrics: [
+    { id: 'tax', representation: 'data-only' },
+    { id: 'other', representation: 'annotation', value: 0.028, type: 'profit' },
+    { id: 'cost_bridge', representation: 'flow', value: 7.6, type: 'cost' },
+  ],
+  links: [
+    { source: 'revenue', targetRoute: 'cost_bridge', value: 7.6 },
+    { sourceRoute: 'cost_bridge', target: 'store_opex', value: 4.4 },
+  ],
+  layout: {
+    nodes: { /* painted node bboxes */ },
+    routes: {
+      cost_bridge: { x: 926, y: 748, width: 0, height: 319 },
+    },
+  },
+}
+```
+
+`data-only` means the SSOT metric is intentionally absent from this Source
+view. `annotation` requires a matching `annotationsSvg` group with
+`data-node="<id>"` and an authored value for interaction. `flow` requires an
+authored value, one `layout.routes.<id>` geometry record, and at least one
+`sourceRoute` or `targetRoute` endpoint. A route belongs to the link geometry:
+it never produces a node rectangle, node hitbox, or node-paint audit row.
+`pnpm verify:ssot` rejects collisions between `nodes[]` and
+`nonNodeMetrics[]`, stale non-node IDs, and explicitly transparent semantic
+nodes.
+
 Separately, `data/income-statements/<company-key>.js` is the pure financial-statement SSOT.
 Every registered real dataset should have one matching record there. Keep it to
 reported totals, line items, notes, currency, units, and source metadata only;
@@ -150,9 +185,10 @@ that explicitly enter before operating profit. Use `otherIncome` for non-operati
 gains that add after operating profit on the path to net profit, and
 `otherExpenses` for non-operating costs that subtract on that same path. Omit the
 optional operating-stage fields when both totals are zero. The `id`
-fields should match the relevant Sankey node ids when a corresponding node
-exists. The verifier checks every manifest-registered dataset script has a matching
-SSOT record, compares key totals and line items against Sankey node values, and
+fields should match the relevant Sankey node or `nonNodeMetrics` id.
+The verifier checks every manifest-registered dataset script has a matching
+SSOT record, compares key totals and line items against the declared View
+metric values, and
 allows small published-rounding differences via `roundingTolerance`. It also
 checks every company in the financial SSOT has a matching
 `data/company-metadata/<company-key>.js` entry.
@@ -165,7 +201,7 @@ that sum to that breakdown total. Source Coverage may reference either a
 breakdown total or one of its items through
 `{ family: 'income-statement', path: 'revenue.breakdowns', id }` so every
 visible value in an orthogonal Source breakdown still reconciles to pure SSOT
-data and exactly one Sankey node.
+data and exactly one Sankey node or non-node metric.
 
 `profit.gross.items` is optional and expresses Source-visible contributions to
 gross profit, such as gross profit split by ecosystem or business line. Its
@@ -235,7 +271,7 @@ metric i18n flow when present.
 
 ### Source Coverage value references
 
-`source-coverage/v1` keeps Source-reading facts separate from the Metric SSOT,
+`source-coverage/v2` keeps Source-reading facts separate from the Metric SSOT,
 but every value-bearing Source observation must point back to an actual SSOT
 value with a typed `ssotRef`. Its `amount` preserves the literal Source text,
 exact decimal `value`, display `unit` (`K`, `M`, `B`, or `T`), and positive
@@ -304,8 +340,9 @@ discrepancy, a value change, or a zero-looking rounded amount; the latter uses
 During current M3 `prepare-review`, verification converts the Source amount
 to the SSOT record's unit and compares it with the value loaded from these
 registered records. Income Statement preparation also loads the registered
-Sankey View and requires each financial Source fact to match exactly one node
-target. The review input cannot
+Sankey View and requires each financial Source fact to match exactly one
+Adapter node or non-node metric target. Only a node target may carry a face
+observation. The review input cannot
 replace those loaded values: a missing record/View, unsupported unit or path,
 wrong ID/date, or unequal amount fails before a new authored review snapshot
 is recorded. A recovered non-zero amount must also remain non-zero at display
@@ -468,9 +505,11 @@ DOM text and remain governed by the existing raster whitelist.
 ### Semantic annotation labels
 
 Use `layout.labels.<node-id>` for Sankey node name/value/note copy by default.
-If the reference image proves that a node's copy must instead be a bespoke
-callout or guide in `annotationsSvg`, its `ObjectInventory` node object must
-map `annotations.*`, declare `semantic-annotation`, and bind a native-pixel
+If the reference image proves that a metric has no node face and appears only
+as a bespoke callout or guide in `annotationsSvg`, declare it in
+`nonNodeMetrics` with `representation: "annotation"`. Its `ObjectInventory`
+object maps both `nonNodeMetrics.<id>` and `annotations.*`, declares
+`semantic-annotation`, and binds a native-pixel
 source crop, bbox, Source digest, inspection method, classification claim, and
 reason. The SVG group must be explicit:
 
@@ -483,7 +522,8 @@ reason. The SVG group must be explicit:
 
 The renderer inserts a transparent `.sankey-annotation-hitbox` for each such
 group. This is not a substitute for source classification: generic KPI, brand,
-or decorative annotations must not claim a Sankey node merely to obtain hover.
+or decorative annotations must not claim a financial metric merely to obtain
+hover.
 
 ### render interface audit
 

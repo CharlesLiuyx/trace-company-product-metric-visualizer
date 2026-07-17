@@ -10,6 +10,7 @@ const {
   groupAdjacentLinks,
   distinctAdjacentNodeCount,
   autoSide,
+  prepareGraphInput,
   buildFixedGraph,
   taperedLinkPath,
   linkCenterlinePoint,
@@ -389,6 +390,88 @@ test('buildFixedGraph falls back to column-derived x and cfg margins', () => {
   assert.equal(revenue.x1 - revenue.x0, 80, 'cfg.nodeWidth fallback');
   const gross = graph.nodes.find((n) => n.id === 'gross');
   assert.equal(gross.x0, 100 + 426, 'default column stride');
+});
+
+test('link-owned routes participate in geometry without becoming semantic nodes', () => {
+  const data = {
+    nodes: [
+      { id: 'revenue', value: 100, col: 0 },
+      { id: 'expense', value: 40, col: 2, type: 'cost' },
+    ],
+    nonNodeMetrics: [
+      { id: 'cost_bridge', representation: 'flow', value: 40, type: 'cost' },
+    ],
+    links: [
+      { source: 'revenue', targetRoute: 'cost_bridge', value: 40 },
+      { sourceRoute: 'cost_bridge', target: 'expense', value: 40 },
+    ],
+    layout: {
+      scale: 2,
+      nodes: {
+        revenue: { x: 100, y: 50, width: 80, height: 200 },
+        expense: { x: 500, y: 200, width: 80, height: 80 },
+      },
+      routes: {
+        cost_bridge: { x: 300, y: 200, width: 0, height: 80 },
+      },
+    },
+  };
+  const prepared = prepareGraphInput(data);
+  assert.deepEqual(
+    plain(prepared.nodes.filter((node) => node.routeOnly).map((node) => node.id)),
+    ['cost_bridge']
+  );
+  assert.equal(data.nodes.length, 2, 'route expansion does not mutate adapter nodes');
+
+  const graph = buildFixedGraph(
+    prepared.nodes,
+    prepared.links,
+    data,
+    { margin: { left: 0, top: 0 }, nodeWidth: 80 }
+  );
+  const route = graph.nodes.find((node) => node.id === 'cost_bridge');
+  assert.equal(route.routeOnly, true);
+  assert.equal(route.x0, 300);
+  assert.equal(route.x1, 300);
+  assert.equal(graph.links[0].target, route);
+  assert.equal(graph.links[1].source, route);
+  const labels = buildLabelSpecs(
+    graph,
+    {
+      layout: {
+        labels: {
+          cost_bridge: {
+            blocks: [{ x: 300, top: 120, lines: [{ text: '$value' }] }],
+          },
+        },
+      },
+    },
+    SankeyEngine.DEFAULTS,
+    { currency: '$', unit: 'B', decimals: 1 },
+    3
+  );
+  const routeLabels = labels.specs.filter((spec) => spec.n.id === 'cost_bridge');
+  assert.equal(routeLabels.length, 1, 'a flow route may own a label without owning a node face');
+  assert.equal(routeLabels[0].lines[0].t, '($40B)');
+});
+
+test('link-owned routes reject ambiguous or missing endpoints', () => {
+  assert.throws(
+    () => prepareGraphInput({
+      nodes: [{ id: 'revenue', value: 1 }],
+      links: [{ source: 'revenue', sourceRoute: 'bridge', target: 'revenue', value: 1 }],
+      layout: { nodes: { revenue: {} }, routes: { bridge: { x: 1, y: 1 } } },
+    }),
+    /exactly one of source or sourceRoute/
+  );
+  assert.throws(
+    () => prepareGraphInput({
+      nodes: [{ id: 'revenue', value: 1 }],
+      links: [{ sourceRoute: 'missing', target: 'revenue', value: 1 }],
+      layout: { nodes: { revenue: {} }, routes: {} },
+    }),
+    /unknown sourceRoute/
+  );
 });
 
 /* ---- label passes (buildLabelSpecs + decollideSideLabels) ---- */

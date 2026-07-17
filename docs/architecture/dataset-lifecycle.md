@@ -154,7 +154,7 @@ classification requires a successor Build with a new immutable intake fact.
 
 ### ObjectInventory
 
-`object-inventory/v3` accounts for every coarsely inventoried Source object with a
+`object-inventory/v4` accounts for every coarsely inventoried Source object with a
 stable object ID and exactly one disposition: `render`, `data-only`, or
 `skip`. Render/data objects require explicit authored mappings; skipped
 objects require a reason. Source features such as `centered-side-label`, text,
@@ -162,24 +162,22 @@ annotation proximity, visible short nodes, and visible interfaces compile to
 required checks. Duplicate identities, duplicate mapping ownership, and a
 missing mapping are hard failures before review preparation.
 
-Every Sankey-node mapping declares exactly one of `visible-node-face` and
-`hidden-anchor`; visible short nodes also declare the former and bind source
-evidence. `specified-label-weight` binds an expected weight and provenance for
-manual review. Historical v1/v2 inventories remain readable, but cannot compile
-a new review Plan. The ObjectInventory Interface treats `visible-node-face` as
-the conservative default: a v3 `hidden-anchor` claim is accepted only with a
-native-pixel bbox, stable crop locator, the required crop-and-pixel-scan method,
-the immutable Build Source digest, and an explicit no-visible-face classification
-claim. The Dataset Build Module verifies that locator, digest, bbox, reference
-artifact, and Build Source are one bound fact. ObjectInventory alone does not
+Every Sankey-node mapping implies a painted semantic face; no separate face
+intent can opt it out. Visible short nodes bind Source evidence through
+`visible-short-node`. Geometry without a painted Source face must map to a
+structural flow or semantic annotation instead of `nodes.*`.
+`specified-label-weight` binds an expected weight and provenance for manual
+review. Historical v1/v2/v3 inventories remain readable, but cannot compile a
+new review Plan; v3's invisible-node exception is legacy-only. ObjectInventory
+alone does not
 prove that the whole Source was scanned or that every Source value reached the
-authored data. Those obligations belong to `SourceCoverage`, while
-VerificationPlan still separates candidate invisibility automation from
-manual Source review so candidate transparency cannot prove its own premise.
+authored data. Those obligations belong to `SourceCoverage`; VerificationPlan
+automatically compiles a paint check for every node mapping and rejects
+invisible semantic nodes outright.
 
 ### SourceCoverage
 
-`source-coverage/v1` is the exhaustive Source-to-authored bridge required by a
+`source-coverage/v2` is the exhaustive Source-to-authored bridge required by a
 new review preparation. It binds `SourceClassification`, the immutable Build
 Source, and `ObjectInventory`, and requires all three named passes over the
 complete image: `geometry`, `residual`, and `semantic-value`.
@@ -221,14 +219,16 @@ for an explicit correction, not silent inference, and cannot be combined with
 rounded-zero `precisionRecovery`.
 
 - Each Income Statement value must match the selected financial SSOT record
-  and exactly one mapped Sankey node value;
+  and exactly one mapped Adapter node or non-node metric value;
 - Revenue Metric values must match the selected dated SSOT observation.
 
 A missing record or View, unit mismatch, wrong typed reference, wrong amount,
 loss of the recovered non-zero value through SSOT/View display precision, or
-visible zero-value face is a hard preparation failure. The coverage summary
+visible zero-value face is a hard preparation failure. Every node observation
+must provide an `observedBBox`; a zero-paint object cannot target `nodes.*`.
+The coverage summary
 also records `Other` identities, the smallest non-zero observations, and the
-Source-expected visible/hidden node IDs so small values stay first-class
+Source-expected visible node IDs so small values stay first-class
 review inputs instead of disappearing through coarse inventory or rounding.
 
 Both current Adapters require a machine Source Coverage check and a global
@@ -237,11 +237,11 @@ digest and immutable Source digest.
 
 ### NodeFacePolicy
 
-`node-face-policy/v1` is deterministically compiled from Source Coverage and
+`node-face-policy/v2` is deterministically compiled from Source Coverage and
 embedded, with its own digest, in the Verification Plan. It classifies every
-semantic rendered node as Source-expected visible or hidden. The node-paint
-audit then rejects missing or unpainted expected-visible nodes, painted
-expected-hidden nodes, and rendered nodes absent from the complete policy.
+semantic rendered node as Source-expected visible. The node-paint audit
+rejects missing or unpainted expected-visible nodes and rendered nodes absent
+from the complete policy.
 
 A visible face below the shared fidelity floor is not silently hidden. An
 exception is valid only when Source Coverage records a native-scale observed
@@ -276,7 +276,7 @@ strictest applicable plan rather than silently skipping work.
 
 ### VerificationPlan
 
-`verification-plan/v4` is a versioned dependency graph, not an informal command
+`verification-plan/v5` is a versioned dependency graph, not an informal command
 list. It declares:
 
 - preflight and schema checks;
@@ -287,8 +287,8 @@ list. It declares:
 - each required check's enforcement, locale/object scope, and evidence kind;
 - the fresh final-verification profile used for sealing.
 
-Version 4 additionally binds the inventory digest, Source Coverage digest,
-immutable Source digest, and compiled `node-face-policy/v1`. Both Adapters add
+Version 5 additionally binds the inventory digest, Source Coverage digest,
+immutable Source digest, and compiled `node-face-policy/v2`. Both Adapters add
 required automatic and manual Source Coverage checks; callers cannot omit
 them or downgrade them to `notApplicable`.
 
@@ -300,19 +300,20 @@ The implemented compiler takes the selected Adapter, `ChangeImpact`,
 closure; Revenue Metric plans explicitly mark Sankey fidelity and its future
 render baseline `notApplicable` rather than relying on absence.
 
-Historical v3 Plans remain inspectable, but cannot enter the current finish
-path; review preparation must compile a fresh v4 Plan.
+Historical v3/v4 Plans remain inspectable; v4 Plans and their v3 packets may
+finish an already-authored legacy Build, while review preparation always
+compiles a fresh v5 Plan.
 
 ### ReviewPacket
 
-`review-packet/v3` is the content-addressed handoff from authored preparation to
+`review-packet/v4` is the content-addressed handoff from authored preparation to
 automatic and human review. It binds `buildId`, authored digest, Verification
 Plan digest, Source Coverage digest, required locales, and references to the
 recorded inventory, coverage, and Plan. `record:build prepare-review` returns its digest as a `reviewToken`;
 `finish` consumes that token (`packetDigest` remains a compatibility alias).
 The token identifies the packet and cannot select a different Build.
-An unfinished v1/v2 packet must be regenerated; it cannot enter the v3 finish
-path.
+An unfinished v1/v2 packet must be regenerated. A v3 packet remains accepted
+only for its already-authored v4 Plan; new preparation emits v4.
 
 ### DatasetVerification
 
@@ -375,8 +376,9 @@ Machine-green evidence without the required attestation remains
 a required recurrence upgrade prevent `accepted`.
 
 Closed/sealed v1 results remain inspectable and are never rewritten. Only a
-fresh `FidelityResult` v2 closure using VerificationPlan v4 and ReviewPacket
-v3 may enter the current finish path.
+fresh `FidelityResult` v2 closure using VerificationPlan v5 and ReviewPacket
+v4 may enter the current finish path; v4/v3 objects remain finish-readable
+only for Builds authored before this migration.
 
 ### ManualAttestation, RegionDecision, and FeedbackLedger
 
@@ -487,8 +489,8 @@ information, and Loop Fidelity Summary as pure Views over those objects.
 At current intake, `record:intake` first records `source-classification/v1`
 from the whole-Source Type Gate, then claims the selected Source from
 `pending/` to the Build-local, Git-tracked `processing/` locator. At review
-preparation, actual SSOT/View reconciliation, Source Coverage, Plan v4, and
-ReviewPacket v3 are current M3 behavior. The operator
+preparation, actual SSOT/View reconciliation, Source Coverage, Plan v5, and
+ReviewPacket v4 are current M3 behavior. The operator
 review-completion signal (owning rule:
 [`dynamic-dataset-workflow.md`](../dynamic-dataset-workflow.md)
 §Operator Review-Completion Signal) is the only current authority to relocate

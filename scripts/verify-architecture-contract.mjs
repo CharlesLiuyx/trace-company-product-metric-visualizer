@@ -278,9 +278,19 @@ async function main() {
     'prepare-review must reconcile Source values against loaded authored data'
   );
   assert.equal(
-    contract.sourceCoverage.incomeStatementFinancialNodeOwnership,
-    'exactly-one',
-    'each Income Statement financial Source fact must reach exactly one Adapter node'
+    contract.sourceCoverage.incomeStatementFinancialViewOwnership,
+    'exactly-one-node-or-non-node-metric',
+    'each Income Statement financial Source fact must reach exactly one Adapter node or non-node metric'
+  );
+  assert.equal(
+    contract.sourceCoverage.semanticNodesRequireObservedFace,
+    true,
+    'every current semantic node must bind an observed Source face'
+  );
+  assert.equal(
+    contract.sourceCoverage.invisibleSemanticNodesSupported,
+    false,
+    'current Source Coverage must not support invisible semantic nodes'
   );
   assert.deepEqual(
     contract.sourceCoverage.incomeStatementReconciliationTargets,
@@ -300,9 +310,39 @@ async function main() {
     'Node face policy must classify every rendered semantic node'
   );
   assert.equal(
+    contract.nodeFacePolicy.allCurrentSemanticNodesExpectedVisible,
+    true,
+    'current NodeFacePolicy must expect every semantic node to be painted'
+  );
+  assert.equal(
     contract.nodeFacePolicy.sourceBoundFloorExceptionsOnly,
     true,
     'node visibility-floor exceptions must remain Source-bound'
+  );
+  assert.equal(
+    contract.sankeyAdapter.semanticNodesRequirePaintedFaces,
+    true,
+    'Sankey Adapter semantic node paint invariant drift'
+  );
+  assert.equal(
+    contract.sankeyAdapter.explicitTransparentSemanticNodesAllowed,
+    false,
+    'Sankey Adapter must reject explicitly transparent semantic nodes'
+  );
+  assert.deepEqual(
+    contract.sankeyAdapter.nonNodeMetricRepresentations,
+    ['annotation', 'data-only', 'flow'],
+    'Sankey Adapter non-node metric representations drift'
+  );
+  assert.equal(
+    contract.sankeyAdapter.routeGeometryOwnership,
+    'link-owned',
+    'Sankey route geometry ownership drift'
+  );
+  assert.equal(
+    contract.sankeyAdapter.routesProduceNodePaintAuditRows,
+    false,
+    'Sankey routes must stay outside node paint audits'
   );
   assert.deepEqual(sorted(contract.sourceAvailability), sorted(SOURCE_AVAILABILITY), 'Source availability drift');
   assert.equal(contract.sourceLocations.pending, 'unclaimed', 'pending Source location semantics drift');

@@ -99,7 +99,7 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
 | `pnpm verify:architecture` | 强制生命周期 protocol/state/Adapter 奇偶、命令 mutation 语义、架构路由和本地上下文文档链接（也包含在 `pnpm check` 中） |
 | `pnpm check:pending [-- --file input/pending/<file>.png --key <final-key>]` | pending 重复 / 活动 processing claim / processed 与 key 冲突守卫；单个 Build 用 `--file`，定名后加 `--key`，全部省略时只审计共享队列 |
 | `pnpm record:intake -- <pending.png> --key <key> --adapter <kind> --signal <signal> [--signal <signal> ...] [--availability <policy>]` | 强制完整 Source 的 Adapter signal signature，记录 `source-classification/v1`，再以 no-clobber 方式领取到 `input/processing/<key>.png`；这不是 Publication |
-| `pnpm record:build -- prepare-review <build-id> --input <review-input.json>` | 校验并记录 Source Coverage、Object Inventory、authored value 对账、Plan v4 与 Packet v3，推进到 `AUTHORED` 并返回 `reviewToken`；不记录人工接受 |
+| `pnpm record:build -- prepare-review <build-id> --input <review-input.json>` | 校验并记录 Source Coverage、Object Inventory、authored value 对账、Plan v5 与 Packet v4，推进到 `AUTHORED` 并返回 `reviewToken`；不记录人工接受 |
 | `pnpm record:verification -- <build-id> [--json]` | 运行非渲染的数据一致性 profile，并记录 Build-bound `dataset-verification/v1` 证据；返回的 reference 必须传给 `finish` |
 | `pnpm record:fidelity -- <key> --focus <stage-focus> [--language <code> ...] --build <build-id>` | 持久化 Build-bound 自动证据为 `evidence-ready`;`--focus` 必须是 canonical stage focus(`structure-sweep`、`text-sweep`、`polish-l10n-sweep`、`closeout-refresh`);`--language` 可重复,一条命令内逐 locale 各产生一个 run;不带 `--build` 的显式 focus 产物仅为旧兼容证据,不能关闭 Build |
 | `pnpm record:build -- finish <build-id> --review <review.json>` | 消费 `reviewToken`（兼容旧 `packetDigest`）、自动证据、人工 attestation、region/risk/feedback 决定与 Interface Matrix；只有 accepted `FidelityResult` 才推进到 `CLOSED` |

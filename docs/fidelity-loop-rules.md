@@ -74,30 +74,24 @@
 
 ## 2. 首次渲染前：对象、测量与计划
 
-### ObjectInventory v3
+### ObjectInventory v4
 
-`object-inventory/v3` 是 preflight 的入口。每个参考图对象需要稳定 object ID、
+`object-inventory/v4` 是 preflight 的入口。每个参考图对象需要稳定 object ID、
 render/data-only/skip 处置、authored mapping、来源证据和风险 feature。
 任何 skip 都必须有理由。
 
-每个映射为 Sankey node 的对象必须且只能声明以下一种意图：
-
-- `visible-node-face`：参考图中能看到 node 柱面。
-- `hidden-anchor`：参考图只显示流带或引导线，没有 node 柱面；它是保守默认之外的例外，不是处理极短柱的捷径。
-
-Node-face 判定采用“可见优先”方法：不确定时声明 `visible-node-face`；原生尺寸下
-1–3px 的连续有色直线默认同时声明 `visible-short-node`。只有原生像素 crop 与像素扫描
-都确认预期 bbox 内没有独立柱面，并能说明可见线段只属于流带/引导线时，才允许
-`hidden-anchor`。其 `featureEvidence.hidden-anchor` 必须同时记录带稳定 fragment 的
-`locator`、原生像素 `referenceBBox: [x, y, width, height]`、
-`inspectionMethod: native-scale-crop-and-pixel-scan`、Build Source `digest`、
-`classificationClaim: no-visible-node-face-observed` 和具体 `reason`。这里记录的是
-待审 claim，不是人工接受；缺任一字段，或仍有
-语义歧义，均不得准备 review。
+每个映射到 `nodes.*` 的对象都必须对应 Source 中真实绘制的柱面；node 可见性是
+mapping 的固有约束，不再由 feature 声明。原生尺寸下 1–3px 的连续有色直线仍是
+node，并声明 `visible-short-node`、记录原生 crop、bbox、柱面色和背景色。若预期
+槽位经原生像素 crop 与扫描确认没有独立柱面，该对象不得进入 `nodes[]`：纯数据
+使用 `nonNodeMetrics[].representation = "data-only"`，可见引导组使用
+`"annotation"`，流带端点使用 `"flow"` + `layout.routes`；route 只拥有 link 几何，
+不产生柱面、节点 hitbox 或 node paint 审计项。
 
 附加 feature：
 
-- `visible-short-node` 必须同时声明 `visible-node-face`，并附短柱 crop、bbox、柱面色和背景色。
+- `visible-short-node` 附短柱 crop、bbox、柱面色和背景色；可保留
+  `visible-node-face` 作为迁移期冗余 feature，但 Plan 不依赖作者声明来发现 node。
 - `specified-label-weight` 只在来源或设计规格明确字重时使用，记录语义 heading、期望字重和证据。
 - `semantic-annotation` 只用于参考图确认必须以 annotation 呈现的 Sankey node 名称/金额/引导组；该 node object 必须映射 `annotations.*`，并记录原生 crop、bbox、Source digest、`inspectionMethod: native-scale-crop-and-object-inventory`、`classificationClaim: semantic-node-annotation-required` 与理由。默认选择 `layout.labels`；不能仅为方便定位把 node label 降级为普通 annotation。
 - `measured-label-position` 是每个映射 `layout.labels.*`（icon 位除外）的 render object 的
@@ -116,7 +110,8 @@ Node-face 判定采用“可见优先”方法：不确定时声明 `visible-nod
 - `visible-interface`、`centered-side-label`、`text`、`annotation-near-label` 等既有 feature
   继续按对象事实声明，不能为了减少检查而省略。
 
-任一 node 未完成可见/隐藏二选一，或任一 feature 缺必要证据时，不得准备 review。
+任一 node 缺 Source face observation，任一 zero-paint 对象仍映射 `nodes.*`，或任一
+feature 缺必要证据时，不得准备 review。
 
 ### 必须测量的对象事实
 
@@ -358,10 +353,9 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 #### <a id="rule-b7"></a>B7 · conditional-gate
 
 - 阶段：structure · 主题：node
-- 触发：`hidden-anchor` 触发。
-- 检查：`nodePaintAudit` 证明候选 node face 不可见。
-- 通过：该自动检查只验证候选，不得反向证明参考图分类正确。
-- feature：`hidden-anchor`
+- 触发：历史 invisible-node 模型触发。
+- 检查：该模型已由“所有语义 node 必须真实 paint”的 B15 取代。
+- 状态：superseded（由 [B15](#rule-b15) 替代）
 
 #### <a id="rule-b8"></a>B8 · quantified-audit
 
@@ -414,7 +408,7 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 #### <a id="rule-b15"></a>B15 · conditional-gate
 
 - 阶段：structure · 主题：node
-- 触发：`visible-node-face`/`hidden-anchor` 触发。
+- 触发：每个 ObjectInventory `nodes.*` render mapping 自动触发，不依赖作者声明 face intent。
 - 检查：逐 ID、逐 locale 的 `nodePaintAudit`。
 - 通过：bbox、link、hitbox 或接口存在都不能替代真实柱面 paint。
 - feature：`visible-node-face`
@@ -657,17 +651,16 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 #### <a id="rule-t12"></a>T12 · manual
 
 - 阶段：structure · 主题：node
-- 触发：`hidden-anchor` 是例外处置。
-- 检查：reviewer 必须结合原生 crop、referenceBBox、像素扫描记录和明确确认值，独立确认参考图确无柱面。
-- 通过：任何歧义、1–3px 连续有色直线或仅凭候选透明通过都失败并回退为 `visible-node-face`。
-- 补偿：[B7](#rule-b7)
-- feature：`hidden-anchor`
+- 触发：历史 invisible-node 人工例外。
+- 检查：例外分支已删除；无柱面的对象必须改建模为 flow geometry 或 semantic annotation。
+- 状态：superseded（由 [B15](#rule-b15) 替代）
 
 #### <a id="rule-t12a"></a>T12a · manual
 
 - 阶段：structure · 主题：node、annotation
-- 触发：隐藏锚点若只有 annotation 是可见入口。
-- 通过：该组须有 `sankey-interactive-annotation`、`data-node` 和透明 hitbox；声明 endpoints 时按真实 semantic relationship 参与 Hover。
+- 触发：历史 invisible-node 只有 annotation 是可见入口。
+- 通过：现行 semantic annotation 的结构、hitbox 和 Hover 关系统一由 A10 管理。
+- 状态：superseded（由 [A10](#rule-a10) 替代）
 
 #### <a id="rule-t13"></a>T13 · conditional-gate
 
@@ -721,7 +714,7 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 
 - 阶段：build · 主题：global
 - 触发：prepare-review 时。
-- 检查：校验所有声明 Source 测量的 featureEvidence（`measured-label-position`、`hidden-anchor`、`semantic-annotation`、`ambiguous-label-slot`）：locator 必须指向本 Build Source，evidence digest、reference-image artifact digest 与 Build Source digest 三者一致，referenceBBox 不越 Source 边界。
+- 检查：校验所有声明 Source 测量的 featureEvidence（`measured-label-position`、`semantic-annotation`、`ambiguous-label-slot`）：locator 必须指向本 Build Source，evidence digest、reference-image artifact digest 与 Build Source digest 三者一致，referenceBBox 不越 Source 边界。
 - 通过：相邻期间或其他数据集的坐标携带外来 digest，直接拒绝——过期测量不允许进入任何后续 gate。
 - feature：`measured-label-position`
 - 来源：commit 41c2f20
@@ -738,10 +731,10 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 #### <a id="rule-t21"></a>T21 · conditional-gate
 
 - 阶段：structure · 主题：node
-- 触发：`visible-node-face`（含 `visible-short-node`）触发。
-- 检查：`node-face-policy/v1` 重新计算每个 expected-visible node 的 `faceHeight`；低于共享最小可见高度 `MIN_VISIBLE_FACE_PX`（3px，含 0.5px raster 容差）时立即失败，而不是只写入 audit 字段。
-- 通过：每个 expected-visible node 达到 floor；真实 Source face 本身低于 floor 时，只接受 `source-coverage/v1` 中绑定 Source digest、原生 face bbox 与唯一 node target 的显式例外，且候选高度不得比 Source 实测 face 明显更小；T14 人工端点/形态决定仍必须通过。
-- 证据：逐 locale 的 `nodePaintAudit` + Plan 绑定的 `node-face-policy/v1`；例外另引用 Source Coverage digest。
+- 触发：每个语义 node 自动触发；`visible-short-node` 同样适用。
+- 检查：`node-face-policy/v2` 重新计算每个 expected-visible node 的 `faceHeight`；低于共享最小可见高度 `MIN_VISIBLE_FACE_PX`（3px，含 0.5px raster 容差）时立即失败，而不是只写入 audit 字段。
+- 通过：每个 expected-visible node 达到 floor；真实 Source face 本身低于 floor 时，只接受 `source-coverage/v2` 中绑定 Source digest、原生 face bbox 与唯一 node target 的显式例外，且候选高度不得比 Source 实测 face 明显更小；T14 人工端点/形态决定仍必须通过。
+- 证据：逐 locale 的 `nodePaintAudit` + Plan 绑定的 `node-face-policy/v2`；例外另引用 Source Coverage digest。
 - 补偿：[B15](#rule-b15)
 - feature：`visible-node-face`
 - 理由：补上 B15/`faceVisible` 只验 alpha>0、bbox 非零而不验渲染高度的盲点：消除“数值极小 → 亚像素柱、肉眼不可见”，并给所有 short 节点统一最小柱高、杜绝逐次在 1px/11px 间猜测（同一批曾出现 Visa=6px、SAP/Comcast=3px 的各自取值）。
@@ -751,10 +744,10 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 
 - 阶段：build · 主题：node
 - 触发：Source Coverage 对象命中 Other/All Other 语义且确认承载数值（value-bearing）时。
-- 检查：`source-coverage/v1` 在组装时强制：带值 Other 是数据指标，不是标注——sourceLabel 含 K/M/B/T 金额而 sourceClass 记为非 value-bearing 类立即失败（`SOURCE_COVERAGE_OTHER_CLASS_INVALID`）；其唯一 node face 的 claim 必须是 visible（`SOURCE_COVERAGE_OTHER_FACE_HIDDEN`）。
-- 通过：柱面不得缺失：把带值 Other 记成 hidden-anchor 或标注的分类一律失败。真实 Source face 低于共享 floor 时按 T21 走 `source-visible-face-below-floor` 显式例外（`visible-short-node`），而不是隐藏。
-- 证据：`source-coverage/v1` 组装校验；例外仍须绑定 Source digest 与原生 face bbox。
-- 理由：Texas Instruments Q4 FY25 与 Lyft Q3 FY25 连续把带值 Other 的真实细柱误判为隐藏锚点（CB-003/CB-007 复发）；对 Other 的可见性歧义不再留人工判断空间，一律收敛为可见数据柱。
+- 检查：`source-coverage/v2` 在组装时强制：带值 Other 是数据指标，不是标注——sourceLabel 含 K/M/B/T 金额而 sourceClass 记为非 value-bearing 类立即失败（`SOURCE_COVERAGE_OTHER_CLASS_INVALID`）；若映射为 node，必须有唯一 observed face。
+- 通过：柱面不得缺失：把带值 Other 记成不可见节点或标注的分类一律失败。真实 Source face 低于共享 floor 时按 T21 走 `source-visible-face-below-floor` 显式例外（`visible-short-node`），而不是隐藏。
+- 证据：`source-coverage/v2` 组装校验；例外仍须绑定 Source digest 与原生 face bbox。
+- 理由：Texas Instruments Q4 FY25 与 Lyft Q3 FY25 连续把带值 Other 的真实细柱误判为不可见节点（CB-003/CB-007 复发）；对 Other 的可见性歧义不再留人工判断空间，一律收敛为可见数据柱。
 
 ### A 系列：annotation 容器
 
@@ -1085,7 +1078,7 @@ evidence/Plan 工具在更早处失败，`人工` 表示 attestation 责任、�
 | 当前 authored/Plan digest 的 render-scoped gates 通过；候选纯净 | 工具（`record:fidelity` 硬门槛）+ finish（`AUTOMATIC_LOCALE_MISSING` / `AUTOMATIC_LOCALE_NOT_PASSED`） | 每 locale 的 `fidelity-run/2` 存档 |
 | 独立 G11 一致性证据 fresh | finish（`AUTOMATIC_CONSISTENCY_NOT_PASSED`） | `dataset-verification/v1` reference |
 | 每个 required check、object 和 locale 都有有效 `checkResults` | finish（`REQUIRED_CHECK_MISSING` / `REQUIRED_CHECK_NOT_PASSED`） | `FidelityResult.checkResults` |
-| 所有映射到 node 的对象完成可见/隐藏二选一；各 locale paint 结果与 inventory 一致 | 工具（Plan 编译拒绝缺失 intent；Build-bound run 校验 `nodePaintAudit` 期望）+ 人工（T12 独立确认） | 逐 locale `nodePaintAudit` + manual decision |
+| 所有映射到 node 的对象均有 Source face；各 locale paint 结果与 inventory 一致，zero-paint 对象只存在于 non-node/route 契约 | 工具（Coverage/Plan 拒绝缺面 node；Build-bound run 校验 `nodePaintAudit` 期望）+ 人工 | 逐 locale `nodePaintAudit` + non-node/route review |
 | Plan 要求时，完整 Matrix 无 `failed` / `manual-pending` / `not-scored`，audit/contact sheet/digests 齐全 | finish（`INTERFACE_MATRIX_REQUIRED` / `_INCOMPLETE` / `_FAILED` / `_PENDING` / `_NOT_SCORED` / `_NOT_CLOSED` / `_IDENTITY_MISMATCH` / endpoint、tangent blockers） | `interface-matrix/v1` |
 | structure、text、polish/localization stages 均冻结且未被重开 | 人工（可选的 `stageDecisions` 提供结构化审计记录，不是 blocker） | 绑定 evidence digest 的冻结记录 |
 | 用户 region、attention、feedback 和 recurrence upgrade 全部关闭 | finish（`REGION_OPEN` / `ATTENTION_REFERENCE_OPEN` / `FEEDBACK_OPEN` / `FEEDBACK_AUTOMATION_UPGRADE_REQUIRED`） | RegionDecision / attention / FeedbackLedger |

@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, rename, rm, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
@@ -52,13 +52,10 @@ function incomeSourceCoverage(inventoryInput) {
       );
       const y = 20 + index * 40;
       const face = nodeMapped
-        ? object.features.includes('hidden-anchor')
-          ? { claim: 'hidden', searchBBox: [20, y, 100, 20] }
-          : {
-              claim: 'visible',
-              searchBBox: [20, y, 100, 20],
-              observedBBox: [30, y + 8, 72, 4],
-            }
+        ? {
+            searchBBox: [20, y, 100, 20],
+            observedBBox: [30, y + 8, 72, 4],
+          }
         : null;
       return {
         sourceId: `source:${object.id.replace(/[^a-z0-9]+/g, '-')}`,
@@ -112,7 +109,7 @@ async function fixture(t, key = 'example-q4-fy25') {
   return { root, buildRoot, build, artifact, sourcePath, sourceDigest };
 }
 
-test('prepare-review binds a hidden-anchor claim to the exact Build Source digest and bbox', async (t) => {
+test('prepare-review rejects a legacy invisible-node claim instead of compiling it into a new Plan', async (t) => {
   const root = await mkdtemp(path.join(os.tmpdir(), 'dataset-build-hidden-anchor-test-'));
   const buildRoot = path.join(root, 'output', 'builds');
   const key = 'hidden-anchor-q4-fy25';
@@ -150,6 +147,8 @@ test('prepare-review binds a hidden-anchor claim to the exact Build Source diges
   t.after(() => rm(root, { recursive: true, force: true }));
 
   const hiddenInventory = (evidenceDigest) => ({
+    schemaVersion: 3,
+    protocol: 'object-inventory/v3',
     datasetKey: key,
     objects: [{
       id: 'node:guide-end',
@@ -184,21 +183,8 @@ test('prepare-review binds a hidden-anchor claim to the exact Build Source diges
       changeImpact: ['geometry'],
       requiredLocales: ['en'],
     }, { buildRoot, projectRoot: root, now }),
-    (error) => error.code === 'FEATURE_EVIDENCE_SOURCE_DIGEST_MISMATCH'
+    (error) => error.code === 'INVENTORY_HIDDEN_NODE_UNSUPPORTED'
   );
-
-  const prepared = await prepareBuildReview({
-    buildId: build.buildId,
-    inventory: hiddenInventory(sourceDigest),
-    sourceCoverage: incomeSourceCoverage(hiddenInventory(sourceDigest)),
-    artifacts,
-    changeImpact: ['geometry'],
-    requiredLocales: ['en'],
-  }, { buildRoot, projectRoot: root, now });
-  const preparedPlan = prepared.build.receipts.at(-1).payload.verificationPlan;
-  const checks = Object.fromEntries(preparedPlan.requiredChecks.map((check) => [check.id, check]));
-  assert.equal(checks['feature:hidden-anchor'].evidenceKind, 'node-paint-audit');
-  assert.equal(checks['feature:hidden-anchor-source-confirmation'].enforcement, 'manual');
 });
 
 function inventory(key, sourceDigest) {
@@ -502,6 +488,76 @@ async function prepare(t) {
   }, { buildRoot: base.buildRoot, projectRoot: base.root, now });
   return { ...base, prepared };
 }
+
+test('prepare-review accepts a processing-bound Source after operator relocation to processed', async (t) => {
+  const base = await fixture(t, 'relocated-source-q4-fy25');
+  const processedPath = `input/processed/${base.build.key}.png`;
+  await mkdir(path.join(base.root, 'input', 'processed'), { recursive: true });
+  await rename(path.join(base.root, base.sourcePath), path.join(base.root, processedPath));
+  const authoredInventory = inventory(base.build.key, base.sourceDigest);
+  authoredInventory.objects.push({
+    id: 'node:short',
+    kind: 'short-node',
+    disposition: 'render',
+    mapping: [{ role: 'render', target: 'nodes.short' }],
+    features: ['visible-node-face', 'visible-short-node'],
+    featureEvidence: {
+      'visible-short-node': {
+        source: 'reference-crop',
+        locator: `${base.sourcePath}#short-node`,
+      },
+    },
+  });
+  const sourceCoverage = incomeSourceCoverage(authoredInventory);
+  const shortNodeCoverage = sourceCoverage.items.find((item) => item.sourceId === 'source:node-short');
+  shortNodeCoverage.face.observedBBox[3] = 2;
+  shortNodeCoverage.face.floorException = {
+    type: 'source-visible-face-below-floor',
+    inspectionMethod: 'native-scale-crop-and-pixel-scan',
+    locator: `${base.sourcePath}#short-node`,
+    digest: base.sourceDigest,
+    reason: 'The native Source paints a genuine two-pixel node face.',
+  };
+  const prepared = await prepareBuildReview({
+    buildId: base.build.buildId,
+    inventory: authoredInventory,
+    sourceCoverage: {
+      ...sourceCoverage,
+      source: {
+        locator: base.sourcePath,
+        digest: base.sourceDigest,
+        width: 2400,
+        height: 1800,
+      },
+    },
+    artifacts: [
+      { path: base.artifact, role: 'view-adapter' },
+      { path: base.sourcePath, role: 'reference-image' },
+    ],
+    changeImpact: ['new-dataset', 'geometry'],
+    requiredLocales: ['en'],
+  }, { buildRoot: base.buildRoot, projectRoot: base.root, now });
+
+  assert.equal(prepared.build.state, 'AUTHORED');
+  assert.equal(
+    prepared.build.receipts.at(-1).payload.sourceCoverage.source.locator,
+    processedPath
+  );
+  assert.equal(
+    prepared.build.receipts.at(-1).payload.sourceCoverage.items
+      .find((item) => item.sourceId === 'source:node-short')
+      .face.floorException.locator,
+    `${processedPath}#short-node`
+  );
+  assert.deepEqual(
+    prepared.build.receipts.at(-1).payload.artifacts.find((artifact) => artifact.role === 'reference-image'),
+    {
+      path: base.sourcePath,
+      role: 'reference-image',
+      digest: base.sourceDigest,
+    }
+  );
+});
 
 async function prepareWithManualFeatures(t) {
   const base = await fixture(t, 'manual-features-fy25');

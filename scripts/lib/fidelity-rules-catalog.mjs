@@ -244,10 +244,10 @@ export const FIDELITY_RULES = Object.freeze([
   rule('B7', 'conditional-gate', {
     stage: 'structure',
     topics: ['node'],
-    features: ['hidden-anchor'],
-    trigger: '`hidden-anchor` 触发。',
-    check: '`nodePaintAudit` 证明候选 node face 不可见。',
-    pass: '该自动检查只验证候选，不得反向证明参考图分类正确。',
+    status: 'superseded',
+    supersededBy: 'B15',
+    trigger: '历史 invisible-node 模型触发。',
+    check: '该模型已由“所有语义 node 必须真实 paint”的 B15 取代。',
   }),
   rule('B8', 'quantified-audit', {
     stage: 'structure',
@@ -301,7 +301,7 @@ export const FIDELITY_RULES = Object.freeze([
     stage: 'structure',
     topics: ['node'],
     features: ['visible-node-face'],
-    trigger: '`visible-node-face`/`hidden-anchor` 触发。',
+    trigger: '每个 ObjectInventory `nodes.*` render mapping 自动触发，不依赖作者声明 face intent。',
     check: '逐 ID、逐 locale 的 `nodePaintAudit`。',
     pass: 'bbox、link、hitbox 或接口存在都不能替代真实柱面 paint。',
   }),
@@ -539,19 +539,18 @@ export const FIDELITY_RULES = Object.freeze([
   rule('T12', 'manual', {
     stage: 'structure',
     topics: ['node'],
-    features: ['hidden-anchor'],
-    compensates: ['B7'],
-    trigger: '`hidden-anchor` 是例外处置。',
-    check: 'reviewer 必须结合原生 crop、referenceBBox、像素扫描记录和明确确认值，独立确认参考图确无柱面。',
-    pass: '任何歧义、1–3px 连续有色直线或仅凭候选透明通过都失败并回退为 `visible-node-face`。',
+    status: 'superseded',
+    supersededBy: 'B15',
+    trigger: '历史 invisible-node 人工例外。',
+    check: '例外分支已删除；无柱面的对象必须改建模为 flow geometry 或 semantic annotation。',
   }),
   rule('T12a', 'manual', {
     stage: 'structure',
     topics: ['node', 'annotation'],
-    trigger: '隐藏锚点若只有 annotation 是可见入口。',
-    pass:
-      '该组须有 `sankey-interactive-annotation`、`data-node` 和透明 hitbox；声明 endpoints 时按' +
-      '真实 semantic relationship 参与 Hover。',
+    status: 'superseded',
+    supersededBy: 'A10',
+    trigger: '历史 invisible-node 只有 annotation 是可见入口。',
+    pass: '现行 semantic annotation 的结构、hitbox 和 Hover 关系统一由 A10 管理。',
   }),
   rule('T13', 'conditional-gate', {
     stage: 'structure',
@@ -622,7 +621,7 @@ export const FIDELITY_RULES = Object.freeze([
     origin: '41c2f20',
     trigger: 'prepare-review 时。',
     check:
-      '校验所有声明 Source 测量的 featureEvidence（`measured-label-position`、`hidden-anchor`、' +
+      '校验所有声明 Source 测量的 featureEvidence（`measured-label-position`、' +
       '`semantic-annotation`、`ambiguous-label-slot`）：locator 必须指向本 Build Source，' +
       'evidence digest、reference-image artifact digest 与 Build Source digest 三者一致，' +
       'referenceBBox 不越 Source 边界。',
@@ -645,37 +644,36 @@ export const FIDELITY_RULES = Object.freeze([
     features: ['visible-node-face'],
     compensates: ['B15'],
     origin: '72644e5',
-    trigger: '`visible-node-face`（含 `visible-short-node`）触发。',
+    trigger: '每个语义 node 自动触发；`visible-short-node` 同样适用。',
     check:
-      '`node-face-policy/v1` 重新计算每个 expected-visible node 的 `faceHeight`；低于共享最小可见高度 ' +
+      '`node-face-policy/v2` 重新计算每个 expected-visible node 的 `faceHeight`；低于共享最小可见高度 ' +
       '`MIN_VISIBLE_FACE_PX`（3px，含 0.5px raster 容差）时立即失败，而不是只写入 audit 字段。',
     pass:
       '每个 expected-visible node 达到 floor；真实 Source face 本身低于 floor 时，只接受 ' +
-      '`source-coverage/v1` 中绑定 Source digest、原生 face bbox 与唯一 node target 的显式例外，' +
+      '`source-coverage/v2` 中绑定 Source digest、原生 face bbox 与唯一 node target 的显式例外，' +
       '且候选高度不得比 Source 实测 face 明显更小；T14 人工端点/形态决定仍必须通过。',
     rationale:
       '补上 B15/`faceVisible` 只验 alpha>0、bbox 非零而不验渲染高度的盲点：消除“数值极小 → ' +
       '亚像素柱、肉眼不可见”，并给所有 short 节点统一最小柱高、杜绝逐次在 1px/11px 间猜测' +
       '（同一批曾出现 Visa=6px、SAP/Comcast=3px 的各自取值）。',
-    evidence: '逐 locale 的 `nodePaintAudit` + Plan 绑定的 `node-face-policy/v1`；例外另引用 Source Coverage digest。',
+    evidence: '逐 locale 的 `nodePaintAudit` + Plan 绑定的 `node-face-policy/v2`；例外另引用 Source Coverage digest。',
   }),
   rule('T22', 'build-gate', {
     stage: 'build',
     topics: ['node'],
     trigger: 'Source Coverage 对象命中 Other/All Other 语义且确认承载数值（value-bearing）时。',
     check:
-      '`source-coverage/v1` 在组装时强制：带值 Other 是数据指标，不是标注——sourceLabel 含 ' +
+      '`source-coverage/v2` 在组装时强制：带值 Other 是数据指标，不是标注——sourceLabel 含 ' +
       'K/M/B/T 金额而 sourceClass 记为非 value-bearing 类立即失败' +
-      '（`SOURCE_COVERAGE_OTHER_CLASS_INVALID`）；其唯一 node face 的 claim 必须是 ' +
-      'visible（`SOURCE_COVERAGE_OTHER_FACE_HIDDEN`）。',
+      '（`SOURCE_COVERAGE_OTHER_CLASS_INVALID`）；若映射为 node，必须有唯一 observed face。',
     pass:
-      '柱面不得缺失：把带值 Other 记成 hidden-anchor 或标注的分类一律失败。真实 Source face ' +
+      '柱面不得缺失：把带值 Other 记成不可见节点或标注的分类一律失败。真实 Source face ' +
       '低于共享 floor 时按 T21 走 `source-visible-face-below-floor` 显式例外' +
       '（`visible-short-node`），而不是隐藏。',
     rationale:
-      'Texas Instruments Q4 FY25 与 Lyft Q3 FY25 连续把带值 Other 的真实细柱误判为隐藏锚点' +
+      'Texas Instruments Q4 FY25 与 Lyft Q3 FY25 连续把带值 Other 的真实细柱误判为不可见节点' +
       '（CB-003/CB-007 复发）；对 Other 的可见性歧义不再留人工判断空间，一律收敛为可见数据柱。',
-    evidence: '`source-coverage/v1` 组装校验；例外仍须绑定 Source digest 与原生 face bbox。',
+    evidence: '`source-coverage/v2` 组装校验；例外仍须绑定 Source digest 与原生 face bbox。',
   }),
   rule('A1', 'manual', {
     stage: 'text',

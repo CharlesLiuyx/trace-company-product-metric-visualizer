@@ -2,7 +2,7 @@ import { CHANGE_IMPACTS, DATASET_ADAPTERS } from './dataset-build.mjs';
 import { digestCanonical, validateObjectInventory } from './object-inventory.mjs';
 import { compileNodeFacePolicy } from './node-face-policy.mjs';
 
-export const VERIFICATION_PLAN_PROTOCOL = 'verification-plan/v4';
+export const VERIFICATION_PLAN_PROTOCOL = 'verification-plan/v5';
 
 export const CHECK_ENFORCEMENTS = Object.freeze([
   'hard-gate',
@@ -24,10 +24,6 @@ export const FEATURE_REQUIRED_CHECKS = Object.freeze({
   'visible-short-node': Object.freeze({ axis: 'render', enforcement: 'manual', localeScope: 'required-locales', evidenceKind: 'manual-decision', ruleIds: Object.freeze(['T14']) }),
   'visible-interface': Object.freeze({ axis: 'render', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'interface-audit', ruleIds: Object.freeze(['G12', 'L11']) }),
   'visible-node-face': Object.freeze({ axis: 'render', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'node-paint-audit', ruleIds: Object.freeze(['B15', 'T13', 'T21']) }),
-  'hidden-anchor': Object.freeze([
-    Object.freeze({ checkId: 'hidden-anchor', axis: 'render', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'node-paint-audit', ruleIds: Object.freeze(['B7']) }),
-    Object.freeze({ checkId: 'hidden-anchor-source-confirmation', axis: 'render', enforcement: 'manual', localeScope: 'global', evidenceKind: 'manual-decision', ruleIds: Object.freeze(['T12']) }),
-  ]),
   'specified-label-weight': Object.freeze({ axis: 'render', enforcement: 'manual', localeScope: 'required-locales', evidenceKind: 'manual-decision', ruleIds: Object.freeze(['B14', 'T16']) }),
   'measured-label-position': Object.freeze([
     Object.freeze({ checkId: 'measured-label-position', axis: 'render', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'label-position-audit', ruleIds: Object.freeze(['T18']) }),
@@ -65,7 +61,7 @@ const CHANGE_IMPACT_REQUIREMENTS = Object.freeze({
 
 const ADAPTER_PROFILES = Object.freeze({
   'income-statement': Object.freeze({
-    version: 'income-statement-plan/v3',
+    version: 'income-statement-plan/v4',
     supportedAxes: Object.freeze(['asset', 'data', 'docs', 'full', 'interaction', 'localization', 'metadata', 'render']),
     steps: Object.freeze([
       { id: 'data-consistency', axis: 'data', disposition: 'required', enforcement: 'build-gate', localeScope: 'global', evidenceKind: 'dataset-consistency', ruleIds: ['G11'] },
@@ -80,7 +76,7 @@ const ADAPTER_PROFILES = Object.freeze({
     ]),
   }),
   'revenue-metric': Object.freeze({
-    version: 'revenue-metric-plan/v3',
+    version: 'revenue-metric-plan/v4',
     dataOnly: true,
     supportedAxes: Object.freeze(['data', 'docs', 'full', 'localization', 'metadata']),
     steps: Object.freeze([
@@ -135,7 +131,7 @@ function renderTargetsForFeature(object, feature) {
     .filter((mapping) => mapping.role === 'render')
     .map((mapping) => mapping.target);
   let predicate = null;
-  if (['visible-node-face', 'visible-short-node', 'hidden-anchor'].includes(feature)) {
+  if (['visible-node-face', 'visible-short-node'].includes(feature)) {
     predicate = (target) => /(^|[./:])nodes?[./:]/i.test(target);
   } else if (['centered-side-label', 'text', 'specified-label-weight', 'measured-label-position', 'ambiguous-label-slot'].includes(feature)) {
     predicate = (target) => /label/i.test(target);
@@ -148,7 +144,7 @@ function renderTargetsForFeature(object, feature) {
   }
   if (!predicate) return targets;
   const selected = targets.filter(predicate);
-  if (['visible-node-face', 'visible-short-node', 'hidden-anchor'].includes(feature)) {
+  if (['visible-node-face', 'visible-short-node'].includes(feature)) {
     invariant(
       selected.length > 0,
       'FEATURE_MAPPING_TARGET_REQUIRED',
@@ -178,6 +174,11 @@ function featureChecks(inventory, sourceCoverage) {
   const byFeature = new Map();
   for (const object of inventory.objects) {
     for (const feature of object.features) {
+      // ObjectInventory v4 makes paint visibility intrinsic to every nodes.*
+      // mapping. Preserve the former feature as accepted input, but compile a
+      // single complete check from mappings below rather than trusting authors
+      // to enumerate the feature.
+      if (feature === 'visible-node-face') continue;
       const bucket = byFeature.get(feature) || { objectIds: [], evidenceTargets: [] };
       bucket.objectIds.push(object.id);
       bucket.evidenceTargets.push(...renderTargetsForFeature(object, feature));
@@ -206,6 +207,34 @@ function featureChecks(inventory, sourceCoverage) {
       ])].sort(),
       ruleIds: [...requirement.ruleIds],
     })));
+}
+
+function semanticNodePaintCheck(inventory) {
+  const objects = inventory.objects
+    .filter((object) => object.disposition === 'render')
+    .map((object) => ({
+      object,
+      targets: object.mapping
+        .filter((mapping) =>
+          mapping.role === 'render' &&
+          /(^|[./:])nodes?[./:]/i.test(mapping.target)
+        )
+        .map((mapping) => mapping.target),
+    }))
+    .filter((entry) => entry.targets.length > 0);
+  if (objects.length === 0) return [];
+  return [{
+    id: 'feature:visible-node-face',
+    source: 'node-mapping',
+    axis: 'render',
+    enforcement: 'conditional-gate',
+    localeScope: 'required-locales',
+    evidenceKind: 'node-paint-audit',
+    objectIds: objects.map(({ object }) => object.id).sort(),
+    evidenceTargets: [...new Set(objects.flatMap(({ targets }) => targets))].sort(),
+    featureEvidenceDigests: [],
+    ruleIds: ['B15', 'T13', 'T21'],
+  }];
 }
 
 function impactChecks(profile, impacts) {
@@ -253,9 +282,14 @@ function objectCoverage(inventory) {
     disposition: object.disposition,
     mapping: object.mapping.map((item) => `${item.role}:${item.target}`).sort(),
     ...(object.skipReason ? { skipReason: object.skipReason } : {}),
-    featureCheckIds: object.features.flatMap((feature) =>
-      requiredChecksForFeature(feature).map((requirement) => featureCheckId(feature, requirement))
-    ).sort(),
+    featureCheckIds: [...new Set([
+      ...object.features.flatMap((feature) =>
+        requiredChecksForFeature(feature).map((requirement) => featureCheckId(feature, requirement))
+      ),
+      ...(object.disposition === 'render' && object.mapping.some((mapping) =>
+        mapping.role === 'render' && /(^|[./:])nodes?[./:]/i.test(mapping.target)
+      ) ? ['feature:visible-node-face'] : []),
+    ])].sort(),
     ...(Object.keys(object.featureEvidence || {}).length > 0 ? { featureEvidence: object.featureEvidence } : {}),
   }));
 }
@@ -269,15 +303,15 @@ export function compileVerificationPlan(input) {
   invariant(ADAPTER_SET.has(input.adapter), 'ADAPTER_INVALID', `Unsupported Adapter: ${input.adapter}`);
   const inventory = validateObjectInventory(input.inventory);
   invariant(
-    inventory.schemaVersion === 3 && inventory.protocol === 'object-inventory/v3',
+    inventory.schemaVersion === 4 && inventory.protocol === 'object-inventory/v4',
     'INVENTORY_VERSION_STALE',
-    'A new VerificationPlan requires ObjectInventory v3; historical v1/v2 inventories remain inspectable only'
+    'A new VerificationPlan requires ObjectInventory v4; historical inventories remain inspectable only'
   );
   const sourceCoverage = input.sourceCoverage;
   invariant(
-    sourceCoverage?.schemaVersion === 1 && sourceCoverage.protocol === 'source-coverage/v1',
+    sourceCoverage?.schemaVersion === 2 && sourceCoverage.protocol === 'source-coverage/v2',
     'SOURCE_COVERAGE_REQUIRED',
-    'VerificationPlan v4 requires source-coverage/v1'
+    'VerificationPlan v5 requires source-coverage/v2'
   );
   invariant(
     sourceCoverage.datasetKey === inventory.datasetKey &&
@@ -311,7 +345,10 @@ export function compileVerificationPlan(input) {
     );
   }
 
-  const features = featureChecks(inventory, sourceCoverage);
+  const features = [
+    ...featureChecks(inventory, sourceCoverage),
+    ...semanticNodePaintCheck(inventory),
+  ];
   const impact = impactChecks(profile, impacts);
   const requiredChecks = [...adapterChecks(profile), ...impact.required, ...features]
     .sort((left, right) => left.id.localeCompare(right.id));
@@ -344,7 +381,7 @@ export function compileVerificationPlan(input) {
   }
 
   const value = {
-    schemaVersion: 4,
+    schemaVersion: 5,
     protocol: VERIFICATION_PLAN_PROTOCOL,
     datasetKey: inventory.datasetKey,
     adapter: input.adapter,

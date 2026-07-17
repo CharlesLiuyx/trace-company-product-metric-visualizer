@@ -13,6 +13,7 @@ import {
   digestFidelityValue,
 } from './fidelity-result.mjs';
 import { createObjectInventory } from './object-inventory.mjs';
+import { LEGACY_HIDDEN_ANCHOR_FEATURE } from './legacy/object-inventory-v3.mjs';
 import { createSourceCoverage } from './source-coverage.mjs';
 import { assertSourceCoverageAuthoredValues } from './source-coverage-authored.mjs';
 import { compileVerificationPlan } from './verification-plan.mjs';
@@ -34,7 +35,8 @@ import {
 } from './dataset-build-store.mjs';
 import { rootDir } from './project.mjs';
 
-export const REVIEW_PACKET_PROTOCOL = 'review-packet/v3';
+export const REVIEW_PACKET_PROTOCOL = 'review-packet/v4';
+const LEGACY_REVIEW_PACKET_PROTOCOL = 'review-packet/v3';
 
 function closeoutError(code, message, details = undefined) {
   const error = new Error(message);
@@ -72,7 +74,7 @@ async function fileDigest(absolutePath) {
   return `sha256:${createHash('sha256').update(await readFile(absolutePath)).digest('hex')}`;
 }
 
-async function normalizeArtifacts(artifacts, projectRoot) {
+async function normalizeArtifacts(artifacts, projectRoot, sources = []) {
   invariant(Array.isArray(artifacts) && artifacts.length > 0, 'ARTIFACTS_REQUIRED', 'At least one authored artifact is required');
   const normalized = [];
   const seen = new Set();
@@ -81,7 +83,18 @@ async function normalizeArtifacts(artifacts, projectRoot) {
     invariant(typeof artifact.path === 'string' && artifact.path, 'ARTIFACT_INVALID', `Artifact ${index} needs a path`);
     invariant(!seen.has(artifact.path), 'ARTIFACT_DUPLICATE', `Artifact appears twice: ${artifact.path}`);
     seen.add(artifact.path);
-    const absolute = resolveProjectLocator(artifact.path, projectRoot);
+    let absolute = resolveProjectLocator(artifact.path, projectRoot);
+    if (!existsSync(absolute) && artifact.role === 'reference-image') {
+      const source = sources.find((candidate) =>
+        [candidate.uri, candidate.processingUri, candidate.processedUri]
+          .filter(Boolean)
+          .includes(artifact.path)
+      );
+      const existingLocator = [source?.processingUri, source?.processedUri, source?.uri]
+        .filter(Boolean)
+        .find((locator) => existsSync(resolveProjectLocator(locator, projectRoot)));
+      if (existingLocator) absolute = resolveProjectLocator(existingLocator, projectRoot);
+    }
     invariant(existsSync(absolute), 'ARTIFACT_MISSING', `Authored artifact does not exist: ${artifact.path}`);
     normalized.push({
       path: artifact.path,
@@ -92,13 +105,12 @@ async function normalizeArtifacts(artifacts, projectRoot) {
   return normalized.sort((left, right) => left.path.localeCompare(right.path));
 }
 
-// T19 measurement provenance: any featureEvidence that claims to be measured
-// on the Source (hidden-anchor, semantic-annotation, measured-label-position,
+// T19 measurement provenance: any current featureEvidence that claims to be
+// measured on the Source (semantic-annotation, measured-label-position,
 // ambiguous-label-slot) must bind its locator, digest, and referenceBBox to
 // THIS Build's Source. Coordinates copied from an adjacent period carry that
 // period's digest and are rejected here instead of passing every later gate.
 const SOURCE_BOUND_FEATURES = Object.freeze([
-  'hidden-anchor',
   'semantic-annotation',
   'measured-label-position',
   'ambiguous-label-slot',
@@ -157,9 +169,10 @@ function planForFidelityResult(authored) {
   const plan = authored?.verificationPlan;
   invariant(plan, 'VERIFICATION_PLAN_REQUIRED', 'The authored snapshot has no VerificationPlan');
   invariant(
-    plan.schemaVersion === 4 && plan.protocol === 'verification-plan/v4',
+    (plan.schemaVersion === 5 && plan.protocol === 'verification-plan/v5') ||
+      (plan.schemaVersion === 4 && plan.protocol === 'verification-plan/v4'),
     'VERIFICATION_PLAN_STALE',
-    'Finishing review requires VerificationPlan v4 with Source Coverage; prepare a fresh review packet'
+    'Finishing review requires a supported Source Coverage-bound VerificationPlan'
   );
   return {
     digest: authored.verificationPlanDigest || plan.digest || plan.planDigest,
@@ -172,11 +185,32 @@ function planForFidelityResult(authored) {
   };
 }
 
+function currentInventoryInput(input) {
+  if (input?.schemaVersion !== 3 || input?.protocol !== 'object-inventory/v3') {
+    return input;
+  }
+  const obsoleteObjects = (input.objects || []).filter((object) =>
+    (object.features || []).includes(LEGACY_HIDDEN_ANCHOR_FEATURE)
+  );
+  invariant(
+    obsoleteObjects.length === 0,
+    'INVENTORY_HIDDEN_NODE_UNSUPPORTED',
+    `ObjectInventory v4 cannot upgrade invisible semantic nodes: ${obsoleteObjects.map((object) => object.id).join(', ')}`
+  );
+  const {
+    schemaVersion: _schemaVersion,
+    protocol: _protocol,
+    inventoryDigest: _inventoryDigest,
+    ...current
+  } = input;
+  return current;
+}
+
 export async function prepareBuildReview(input, options = {}) {
   const buildRoot = options.buildRoot || DEFAULT_BUILD_ROOT;
   const projectRoot = options.projectRoot || rootDir;
   const build = await readDatasetBuild(input.buildId, { buildRoot });
-  const inventory = createObjectInventory(input.inventory);
+  const inventory = createObjectInventory(currentInventoryInput(input.inventory));
   invariant(inventory.datasetKey === build.key, 'INVENTORY_BUILD_MISMATCH', 'ObjectInventory dataset key does not match the Build');
   const primarySource = (build.sources || []).find((source) => source.role === 'primary-reference') || build.sources?.[0];
   invariant(primarySource, 'SOURCE_COVERAGE_BUILD_SOURCE_MISSING', 'Build has no primary Source for Source Coverage');
@@ -192,18 +226,38 @@ export async function prepareBuildReview(input, options = {}) {
   };
   const requestedCoverage = input.sourceCoverage;
   invariant(requestedCoverage && typeof requestedCoverage === 'object', 'SOURCE_COVERAGE_REQUIRED', 'prepare-review requires Source Coverage');
+  const sourceLocators = new Set(
+    [primarySource.uri, primarySource.processingUri, primarySource.processedUri].filter(Boolean)
+  );
   if (requestedCoverage.source) {
     invariant(
-      requestedCoverage.source.locator === authoritativeSource.locator &&
+      sourceLocators.has(requestedCoverage.source.locator) &&
         requestedCoverage.source.digest === authoritativeSource.digest &&
         requestedCoverage.source.width === authoritativeSource.width &&
         requestedCoverage.source.height === authoritativeSource.height,
       'SOURCE_COVERAGE_BUILD_SOURCE_MISMATCH',
-      'Source Coverage must bind the current Build Source locator, digest, and dimensions'
+      'Source Coverage must bind a Build Source locator, digest, and dimensions'
     );
   }
+  const coverageItems = (requestedCoverage.items || []).map((item) => {
+    const floorException = item?.face?.floorException;
+    const floorLocator = String(floorException?.locator || '');
+    const floorSourceLocator = floorLocator.split('#', 1)[0];
+    if (!floorException || !sourceLocators.has(floorSourceLocator)) return item;
+    return {
+      ...item,
+      face: {
+        ...item.face,
+        floorException: {
+          ...floorException,
+          locator: `${authoritativeSource.locator}${floorLocator.slice(floorSourceLocator.length)}`,
+        },
+      },
+    };
+  });
   const sourceCoverage = createSourceCoverage({
     ...requestedCoverage,
+    items: coverageItems,
     classification: build.sourceClassification || requestedCoverage.classification,
     source: authoritativeSource,
   }, {
@@ -221,13 +275,15 @@ export async function prepareBuildReview(input, options = {}) {
     changeImpact: input.changeImpact,
     requiredLocales: input.requiredLocales,
   });
-  const artifacts = await normalizeArtifacts(input.artifacts, projectRoot);
+  const artifacts = await normalizeArtifacts(input.artifacts, projectRoot, build.sources);
   assertSourceBoundFeatureEvidence(build, inventory, artifacts);
-  const referenceArtifact = artifacts.find((artifact) => artifact.role === 'reference-image' && artifact.path === authoritativeSource.locator);
+  const referenceArtifact = artifacts.find((artifact) =>
+    artifact.role === 'reference-image' && sourceLocators.has(artifact.path)
+  );
   invariant(
     referenceArtifact?.digest === authoritativeSource.digest,
     'SOURCE_COVERAGE_REFERENCE_ARTIFACT_MISMATCH',
-    'Source Coverage requires a reference-image artifact bound to the current Build Source'
+    'Source Coverage requires a reference-image artifact bound to a Build Source locator'
   );
   const [inventoryReference, sourceCoverageReference, planReference] = await Promise.all([
     recordBuildObject(build.buildId, 'object-inventory', inventory, { buildRoot, projectRoot }),
@@ -245,7 +301,7 @@ export async function prepareBuildReview(input, options = {}) {
   }, { buildRoot, projectRoot, now: options.now });
   const authoredPayload = authored.receipts.at(-1).payload;
   const packetValue = {
-    schemaVersion: 3,
+    schemaVersion: 4,
     protocol: REVIEW_PACKET_PROTOCOL,
     kind: 'review-packet',
     buildId: build.buildId,
@@ -538,7 +594,7 @@ function checkFeatureEvidence(check, entry, plan) {
   if (check.evidenceKind === 'annotation-semantics-audit') {
     const audit = entry.metrics?.semanticAnnotationAudit;
     const expectedNodes = (check.objectIds || [])
-      .map((objectId) => String(objectId).match(/^node:(.+)$/)?.[1]?.replace(/-/g, '_'))
+      .map((objectId) => String(objectId).match(/^(?:node|metric):(.+)$/)?.[1]?.replace(/-/g, '_'))
       .filter(Boolean);
     const auditedNodes = new Set(audit?.semanticAnnotationNodeIds || []);
     return Boolean(audit) &&
@@ -549,10 +605,11 @@ function checkFeatureEvidence(check, entry, plan) {
     return entry.interfaceAudit?.enforcementStatus === 'passed';
   }
   if (check.evidenceKind === 'node-paint-audit') {
-    const visible = check.id !== 'feature:hidden-anchor';
     const assessment = assessNodePaintAudit(entry.metrics?.nodePaintAudit, plan.nodeFacePolicy);
     return assessment.passed && expectedTargets.length > 0 && expectedTargets.every((target) =>
-      assessment.checks[`${visible ? 'visible' : 'hidden'}:${target}`]?.status === 'passed'
+      assessment.checks[
+        `${check.id === `feature:${LEGACY_HIDDEN_ANCHOR_FEATURE}` ? 'hidden' : 'visible'}:${target}`
+      ]?.status === 'passed'
     );
   }
   return false;
@@ -835,9 +892,10 @@ export async function finishReviewedBuild(input, options = {}) {
     digest: input.reviewToken || input.packetDigest,
   }, { buildRoot });
   invariant(
-    packet.schemaVersion === 3 && packet.protocol === REVIEW_PACKET_PROTOCOL,
+    (packet.schemaVersion === 4 && packet.protocol === REVIEW_PACKET_PROTOCOL) ||
+      (packet.schemaVersion === 3 && packet.protocol === LEGACY_REVIEW_PACKET_PROTOCOL),
     'REVIEW_PACKET_STALE',
-    'Finishing review requires a fresh review-packet/v3 with Source Coverage'
+    'Finishing review requires a supported Source Coverage-bound review packet'
   );
   const { packetDigest, ...packetValue } = packet;
   invariant(packetDigest === digestFidelityValue(packetValue), 'REVIEW_PACKET_DIGEST_MISMATCH', 'Review packet digest does not match its content');
