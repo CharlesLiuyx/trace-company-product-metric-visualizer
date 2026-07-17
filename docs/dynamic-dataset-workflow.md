@@ -10,7 +10,7 @@ lifecycle/current-target distinctions to `docs/architecture/`.
 ## Current Architecture Boundary
 
 The implemented M3 lane fixes Source classification/claim at intake and records
-`ObjectInventory`, `source-coverage/v1`, Plan v4, and Packet v3 at review
+`ObjectInventory`, `source-coverage/v2`, Plan v5, and Packet v4 at review
 preparation. Canonical files are still edited directly. M4 atomic Publication
 and `publish:*` remain unimplemented; relocation, `record:*`, staging, and seal
 are not Publication.
@@ -58,7 +58,7 @@ Every independent Source observation uses one `source:*` ID and one class:
 
 | class | required authored coverage |
 | --- | --- |
-| `financial-value` | Income Statement data + exactly one Adapter node, exact amount, typed SSOT reference |
+| `financial-value` | Income Statement data + exactly one Adapter node or non-node metric, exact amount, typed SSOT reference |
 | `metric-observation` | Revenue Metric data mapping, exact amount, dated SSOT reference |
 | `structural-flow` | Income Statement render mapping |
 | `label-or-annotation` | render mapping |
@@ -67,21 +67,21 @@ Every independent Source observation uses one `source:*` ID and one class:
 
 `Other`, `Others`, `All Other`, other-income/expense, and every value-bearing
 label are semantic; small magnitude or a missing icon never makes one
-residual, skippable, an annotation, or hidden. A value-bearing Other is a data metric —
+residual, skippable, an annotation, or flow geometry. A value-bearing Other is a data metric —
 `financial-value`/`metric-observation`, never `label-or-annotation` — and
-annotation classing or a hidden face claim fails coverage assembly (T22). The
-painted-face invariant generalizes this to every value-bearing object: any
-Source-painted face, 1–2px strips included, is claimed `visible` at native
-measured height; `hidden` requires a zero-paint pixel scan proving the Source
-paints no face at all (technical bridges included; CB-003/CB-007). T21 blocks
+annotation classing or an invisible-node mapping fails coverage assembly
+(T22). The painted-face invariant generalizes this to every node-mapped
+object: any Source-painted face, 1–2px strips included, is recorded at native
+measured height. If the Source paints no face, the object is not a node; use a
+structural flow or semantic annotation instead. T21 blocks
 expected-visible faces below 3px; a genuine sub-floor face keeps its bar via
 the typed `source-visible-face-below-floor` exception bound to Source digest,
-native bbox/crop, pixel scan, and one node — never inflated, never hidden;
+native bbox/crop, pixel scan, and one node — never inflated or suppressed;
 T21/T14 still govern acceptance.
 
-Coverage binds each face to one node and inventory intent;
-`source-coverage/v1` requires the `semantic-value`/`geometry`/`residual`
-scans and derives Other IDs, three smallest non-zero amounts, visible/hidden
+Coverage binds each face to one node;
+`source-coverage/v2` requires the `semantic-value`/`geometry`/`residual`
+scans and derives Other IDs, three smallest non-zero amounts, visible node
 IDs, and floor exceptions.
 
 If `$0.0B` or another zero literal represents a non-zero semantic object,
@@ -144,7 +144,7 @@ recovery; never overwrite, silently retype, or move the Source back.
 
 ### Step 3 — Source Coverage and ObjectInventory
 
-Create matching `object-inventory/v3` and `source-coverage/v1`; scan the Source:
+Create matching `object-inventory/v4` and `source-coverage/v2`; scan the Source:
 
 1. semantic-value: every displayed financial value/metric observation;
 2. geometry: every node face, link/guide, label/callout, and asset cluster;
@@ -152,13 +152,14 @@ Create matching `object-inventory/v3` and `source-coverage/v1`; scan the Source:
    order — the only admissible source for authored `sourceOrder`/`targetOrder`;
 3. residual: only the closed non-semantic residual kinds in §Object Taxonomy.
 
-Before assigning face intent, check the three smallest non-zero values and
-every proposed `hidden-anchor` against a clearly painted node in the same
-column: use that peer's x/width as the expected face slot. Any continuous
-painted region occupying that slot is a visible face; a 1–3px-high region is
+For every proposed node, check the three smallest non-zero values and compare
+its expected slot with a clearly painted node in the same column: use that
+peer's x/width as the expected face slot. Any continuous painted region
+occupying that slot is a node face; a 1–3px-high region is
 `visible-short-node`. A light tint, the same color as the adjacent link, or a
-horizontal-line appearance never makes it hidden. Only a zero-paint expected
-slot may be claimed `hidden-anchor`.
+horizontal-line appearance never removes node semantics. A zero-paint slot is
+not a node and must be modeled as structural flow geometry or a semantic
+annotation.
 
 Each item records native bbox, inventory IDs, mapping roles, and where
 relevant exact amount, typed SSOT reference, and face observation; every
@@ -168,15 +169,15 @@ triggers; wrong-type and short/Other risks consume CB-024 and
 CB-003/CB-007/CB-023 when applicable.
 
 **Output:** inventory and coverage summaries for Other, three smallest non-zero
-values, visible/hidden IDs, typed floor exceptions, and casebook hits. For each
-smallest-value or proposed-hidden node with a same-column peer, include the
+values, visible node IDs, typed floor exceptions, and casebook hits. For each
+smallest-value or proposed node with a same-column peer, include the
 compact decision trace:
-`node -> peer slot x/width -> observed bbox|zero-paint -> face intent`.
+`object -> peer slot x/width -> observed bbox|zero-paint -> node|flow|annotation`.
 
 **STOP:** semantic skip; Other treated as icon residue; a value-bearing Other
-classed as annotation or claimed hidden (T22); a hidden face claim without a
-zero-paint pixel scan; a missing same-column slot check where a clear peer
-exists; a hidden claim whose expected slot contains paint; a face decision
+classed as annotation or mapped to a non-painted node (T22); a node mapping
+without an observed Source face; a missing same-column slot check where a
+clear peer exists; a zero-paint object left in `nodes[]`; a face decision
 based on tint, link-color equality, horizontal appearance, or value magnitude;
 a multi-link face without a recorded per-link order;
 missing required precision recovery or authoritative correction;
@@ -227,7 +228,7 @@ required locales:
     pnpm record:build -- prepare-review <build-id> --input <review-input.json>
 
 This gate binds classification, coverage, inventory, authored values,
-reference, Plan v4, and Packet v3. It rejects incomplete scans, semantic skips,
+reference, Plan v5, and Packet v4. It rejects incomplete scans, semantic skips,
 missing roles, stale evidence, and Source ↔ SSOT ↔ Adapter amount mismatch.
 Preserve `reviewToken` and coverage digest.
 
@@ -245,12 +246,12 @@ Record Build-bound consistency evidence, then Income Statement render evidence:
 
 `record:fidelity` is durable; `verify:d3` is optional diagnosis, and typed
 floor exceptions require its Plan-bound `--build` form. Follow fidelity §4.
-Structure freezes only when coverage visible IDs, inventory intent, and
+Structure freezes only when coverage visible IDs, inventory node mappings, and
 per-locale paint agree; T21 blocks unexcepted sub-floor faces. Same-color
 multi-inflow faces are G12/L11-blind (occupancy cannot recover per-link
 identity), so freeze also requires the B8/L1–L4 per-link identity reconcile
 against Source crops; a recurrence face gets a dataset contract test. Review
-Other, smallest values, casebook hits, hidden anchors, and exceptions.
+Other, smallest values, casebook hits, non-node geometry, and exceptions.
 `evidence-ready` is not acceptance.
 
 Minimum re-verification after change:
@@ -263,7 +264,7 @@ Minimum re-verification after change:
 | renderer/protocol/rule contract | rerun | rerun | all | rerun |
 
 **STOP:** any failed/pending/not-scored required result, stale evidence,
-visible/hidden/unclassified mismatch, unresolved casebook/feedback item, or a
+visible/unclassified mismatch, unresolved casebook/feedback item, or a
 later stage finding an earlier-stage error. Reopen the earlier stage formally.
 
 ### Step 8 — Finish, stage baseline, and seal
@@ -305,8 +306,9 @@ and report that no move was authorized.
 ## Traps and Hard Constraints
 
 - Fidelity definitions/formulas live only in its catalog; this workflow links.
-- No painted Source face is ever claimed hidden; sub-floor faces keep native
-  height via the typed exception, never inflation (T21/T22, CB-003/CB-007).
+- Every node mapping has an observed painted Source face; zero-paint objects
+  use data-only, annotation, or link-owned route geometry. Sub-floor faces keep
+  native height via the typed exception, never inflation (T21/T22, CB-003/CB-007).
 - Multi-link face order comes only from Source measurement at that face;
   same-color inflows are G12/L11-blind — manual per-link reconcile (CB-001).
 - Title/period use rendered bboxes, not authored baselines (CB-015).
@@ -327,10 +329,10 @@ Always, before the final response:
 
 - `pnpm check` passes; fresh-checkout/CI details stay in AGENTS and CI docs.
 - The Build has matching Source Classification/Coverage, ObjectInventory,
-  Plan v4, Packet v3, consistency evidence, and authored digests.
+  Plan v5, Packet v4, consistency evidence, and authored digests.
 - Coverage manual review cites Source + coverage digests; Other, smallest
-  non-zero, visible/hidden, and floor-exception sets are accounted for, and no
-  painted-face object is claimed hidden (T22, CB-003/CB-007).
+  non-zero, visible-node, and floor-exception sets are accounted for, and no
+  zero-paint object remains node-mapped (T22, CB-003/CB-007).
 - Authored `sourceOrder`/`targetOrder` match the Step 3 measured per-face
   order; same-color multi-inflow faces carry per-link B8 evidence (CB-001).
 - Rounded-zero semantic items have authoritative precision recovery, and
@@ -339,8 +341,8 @@ Always, before the final response:
   visual inspection; Revenue Metric render/manual axes are Adapter-owned N/A.
 - Accepted result consumes all checks, required Matrix, attention, feedback,
   and recurrence upgrades, with no failed/open result.
-- T21/node-face policy passes per locale; expected-visible, confirmed-visible,
-  hidden-anchor, exception, and unclassified sets reconcile.
+- T21/node-face policy passes per locale; expected-visible,
+  confirmed-visible, exception, and unclassified sets reconcile.
 - `verify:closeout` passes when required by Step 8 and never moves a Source;
   relocation used the confirmed list without force-adding processed, else
   Sources remain processing.

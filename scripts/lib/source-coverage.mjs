@@ -4,7 +4,7 @@ import { MIN_VISIBLE_FACE_PX } from './node-face-policy.mjs';
 import { validateObjectInventory } from './object-inventory.mjs';
 
 export const SOURCE_CLASSIFICATION_PROTOCOL = 'source-classification/v1';
-export const SOURCE_COVERAGE_PROTOCOL = 'source-coverage/v1';
+export const SOURCE_COVERAGE_PROTOCOL = 'source-coverage/v2';
 export const SOURCE_CLASSIFICATION_REVIEW_METHOD = 'full-source-type-gate';
 export const SOURCE_CLASSIFICATION_SIGNALS = Object.freeze([
   'income-statement-values',
@@ -228,6 +228,16 @@ function mappingRoles(objects) {
 function nodeTargets(objects) {
   return objects.flatMap((object) => (object.mapping || [])
     .filter((mapping) => mapping.role === 'render' && /(^|[./:])nodes?[./:]/i.test(mapping.target))
+    .map((mapping) => String(mapping.target).split(/[.:/]/).filter(Boolean).at(-1))
+    .filter(Boolean));
+}
+
+function metricTargets(objects) {
+  return objects.flatMap((object) => (object.mapping || [])
+    .filter((mapping) =>
+      mapping.role === 'render' &&
+      /(^|[./:])(?:nodes?|nonNodeMetrics)[./:]/i.test(mapping.target)
+    )
     .map((mapping) => String(mapping.target).split(/[.:/]/).filter(Boolean).at(-1))
     .filter(Boolean));
 }
@@ -487,7 +497,6 @@ function normalizeFloorException(raw, context) {
   if (raw == null) return null;
   const { sourceId, source, face, objects } = context;
   invariant(raw && typeof raw === 'object' && !Array.isArray(raw), 'VISIBILITY_FLOOR_EXCEPTION_INVALID', `${sourceId} floorException must be an object`);
-  invariant(face.claim === 'visible', 'VISIBILITY_FLOOR_EXCEPTION_INVALID', `${sourceId} floorException requires a visible Source face`);
   invariant(face.observedBBox[3] < MIN_VISIBLE_FACE_PX, 'VISIBILITY_FLOOR_EXCEPTION_INVALID', `${sourceId} observed Source face is not below the shared ${MIN_VISIBLE_FACE_PX}px floor`);
   invariant(objects.some((object) => object.features.includes('visible-short-node')), 'VISIBILITY_FLOOR_EXCEPTION_INVALID', `${sourceId} floorException requires a visible-short-node inventory object`);
   invariant(raw.type === VISIBILITY_FLOOR_EXCEPTION_TYPE, 'VISIBILITY_FLOOR_EXCEPTION_INVALID', `${sourceId} floorException must use type ${VISIBILITY_FLOOR_EXCEPTION_TYPE}`);
@@ -512,19 +521,19 @@ function normalizeFace(raw, context) {
     return null;
   }
   invariant(nodes.length === 1, 'SOURCE_COVERAGE_FACE_AMBIGUOUS', `${context.sourceId} must not combine several node faces in one Source observation`);
-  invariant(raw && typeof raw === 'object' && !Array.isArray(raw), 'SOURCE_COVERAGE_FACE_REQUIRED', `${context.sourceId} node observation needs a face claim`);
-  invariant(['visible', 'hidden'].includes(raw.claim), 'SOURCE_COVERAGE_FACE_REQUIRED', `${context.sourceId} face.claim must be visible or hidden`);
+  invariant(raw && typeof raw === 'object' && !Array.isArray(raw), 'SOURCE_COVERAGE_FACE_REQUIRED', `${context.sourceId} semantic node needs an observed Source face`);
+  invariant(
+    raw.claim == null || raw.claim === 'visible',
+    'SOURCE_COVERAGE_HIDDEN_FACE_UNSUPPORTED',
+    `${context.sourceId} cannot claim an invisible semantic node; model non-node geometry as a flow or annotation`
+  );
   const searchBBox = normalizeBBox(raw.searchBBox, `${context.sourceId} face.searchBBox`);
   assertBBoxWithinSource(searchBBox, context.source, `${context.sourceId} face.searchBBox`);
-  const observedBBox = raw.observedBBox == null ? null : normalizeBBox(raw.observedBBox, `${context.sourceId} face.observedBBox`);
-  if (observedBBox) assertBBoxWithinSource(observedBBox, context.source, `${context.sourceId} face.observedBBox`);
-  invariant(raw.claim === 'visible' ? Boolean(observedBBox) : observedBBox == null, 'SOURCE_COVERAGE_FACE_OBSERVATION_INVALID', `${context.sourceId} visible faces need observedBBox; hidden faces must not invent one`);
-  const expectedFeature = raw.claim === 'visible' ? 'visible-node-face' : 'hidden-anchor';
-  invariant(nodes[0].features.includes(expectedFeature), 'SOURCE_COVERAGE_FACE_INTENT_MISMATCH', `${context.sourceId} Source face claim disagrees with ObjectInventory ${nodes[0].id}`);
+  const observedBBox = normalizeBBox(raw.observedBBox, `${context.sourceId} face.observedBBox`);
+  assertBBoxWithinSource(observedBBox, context.source, `${context.sourceId} face.observedBBox`);
   const face = {
-    claim: raw.claim,
     searchBBox,
-    ...(observedBBox ? { observedBBox } : {}),
+    observedBBox,
   };
   const floorException = normalizeFloorException(raw.floorException, { ...context, face });
   return { ...face, ...(floorException ? { floorException } : {}) };
@@ -572,23 +581,18 @@ function normalizeCoverageItem(raw, index, context) {
   invariant(valueBearing || raw.ssotRef == null, 'SOURCE_COVERAGE_SSOT_REF_INVALID', `${raw.sourceId} ssotRef requires a value-bearing sourceClass`);
   const face = normalizeFace(raw.face, { sourceId: raw.sourceId, source: context.source, objects });
   // T22: an Other that carries an amount is a data metric — never an
-  // annotation — and its node face must stay visible. A below-floor Source
-  // face takes the T21 floorException path, not hidden-anchor.
+  // annotation — and every semantic node has an observed painted face.
   invariant(
     !(otherLike && !residual && !valueBearing && parseUnitAmountLiteral(raw.sourceLabel)),
     'SOURCE_COVERAGE_OTHER_CLASS_INVALID',
     `${raw.sourceId} is an Other object displaying an amount; classify it as a value-bearing data metric, not an annotation`
   );
-  invariant(
-    !(otherLike && valueBearing && face && face.claim !== 'visible'),
-    'SOURCE_COVERAGE_OTHER_FACE_HIDDEN',
-    `${raw.sourceId} is a value-bearing Other data metric; its node face must stay visible — a below-floor Source face takes a ${VISIBILITY_FLOOR_EXCEPTION_TYPE} exception, never hidden-anchor`
-  );
   const targets = [...new Set(nodeTargets(objects))].sort();
+  const viewMetricTargets = [...new Set(metricTargets(objects))].sort();
   invariant(
-    raw.sourceClass !== 'financial-value' || targets.length === 1,
-    'SOURCE_COVERAGE_FINANCIAL_NODE_REQUIRED',
-    `${raw.sourceId} financial-value must reconcile to exactly one Income Statement Adapter node`
+    raw.sourceClass !== 'financial-value' || viewMetricTargets.length === 1,
+    'SOURCE_COVERAGE_FINANCIAL_VIEW_REQUIRED',
+    `${raw.sourceId} financial-value must reconcile to exactly one Income Statement Adapter node or non-node metric`
   );
   invariant(!face || targets.length === 1, 'SOURCE_COVERAGE_FACE_TARGET_INVALID', `${raw.sourceId} face observation must map to exactly one nodes.* render target`);
   return {
@@ -603,6 +607,7 @@ function normalizeCoverageItem(raw, index, context) {
     ...(amount ? { amount, ssotRef } : {}),
     ...(face ? { face } : {}),
     nodeTargets: targets,
+    metricTargets: viewMetricTargets,
   };
 }
 
@@ -651,7 +656,7 @@ export function createSourceCoverage(input, context = {}) {
     .slice(0, 3)
     .map(({ sourceId, sourceLabel, amount, ssotRef }) => ({ sourceId, sourceLabel, amount, ssotRef }));
   const value = {
-    schemaVersion: 1,
+    schemaVersion: 2,
     protocol: SOURCE_COVERAGE_PROTOCOL,
     kind: 'source-coverage',
     datasetKey: inventory.datasetKey,
@@ -669,8 +674,7 @@ export function createSourceCoverage(input, context = {}) {
       otherSourceIds: items.filter((item) => OTHER_LABEL_RE.test(item.sourceLabel)).map((item) => item.sourceId).sort(),
       correctedSourceIds: items.filter((item) => item.amount?.authoritativeCorrection).map((item) => item.sourceId).sort(),
       smallestNonZero,
-      visibleNodeIds: items.filter((item) => item.face?.claim === 'visible').flatMap((item) => item.nodeTargets).sort(),
-      hiddenNodeIds: items.filter((item) => item.face?.claim === 'hidden').flatMap((item) => item.nodeTargets).sort(),
+      visibleNodeIds: items.filter((item) => item.face).flatMap((item) => item.nodeTargets).sort(),
       visibilityFloorExceptionNodeIds: items.filter((item) => item.face?.floorException).flatMap((item) => item.nodeTargets).sort(),
     },
   };

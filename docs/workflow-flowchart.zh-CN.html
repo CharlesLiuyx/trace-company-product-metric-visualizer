@@ -385,7 +385,7 @@
       <span class="pnum">P4</span>
       <span class="pname">验证与 Review</span>
       <ul>
-        <li>Source Coverage + Plan v4 + Build-bound evidence</li>
+        <li>Source Coverage + Plan v5 + Build-bound evidence</li>
         <li>T21 真阻断 + 人工 attestation</li>
       </ul>
       <span class="pcmd"><code>verify:dataset · record:verification · record:fidelity</code></span>
@@ -512,13 +512,13 @@ pnpm exec playwright install chromium</span>
     <div class="node">
       <span class="sid">P2.0</span>
       <div class="badges"><span class="badge manual">人工</span></div>
-      <h3>三遍 Source scan + <code>source-coverage/v1</code>（先于 authoring）</h3>
+      <h3>三遍 Source scan + <code>source-coverage/v2</code>（先于 authoring）</h3>
       <ul>
         <li><b>semantic-value</b>：每个名称、金额和 metric observation；<b>geometry</b>：每个 face/link/guide/label/asset；<b>residual</b>：只允许闭集中的非语义残片；</li>
-        <li>持久化 <code>object-inventory/v3</code>；每个独立 <code>source:*</code> observation 绑定 native bbox、唯一 inventory owner、mapping role、精确 amount/SSOT ref 与 face claim；</li>
-        <li><b>Other / Others / All Other 永远是语义对象</b>；缺 icon 只影响 asset。带值 Other 是数据指标：face 必须 claim visible，记成标注或 hidden-anchor 在 Coverage 组装时即失败（T22）；低于 floor 的真实 face 走 typed floor exception，不许隐藏。Coverage 自动派生三项最小非零值、visible/hidden IDs 与 typed floor exceptions；</li>
+        <li>持久化 <code>object-inventory/v4</code>；每个独立 <code>source:*</code> observation 绑定 native bbox、唯一 inventory owner、mapping role、精确 amount/SSOT ref；映射 node 时还必须绑定 observed face；</li>
+        <li><b>Other / Others / All Other 永远是语义对象</b>；缺 icon 只影响 asset。带值 Other 必须保留为数据指标：Source 有柱面就进入可见 node，零柱面就进入显式 non-node annotation/flow 表达。低于 floor 的真实 face 走 typed floor exception。Coverage 自动派生三项最小非零值、visible node IDs 与 typed floor exceptions；</li>
         <li>主图把非零语义对象显示成 <code>$0.0B</code> 时，必须从权威补充来源恢复 higher-precision literal/locator，按 K/M/B/T 归一化；恢复不了即 STOP。</li>
-        <li><code>prepare-review</code> 会把 Coverage 作为 Plan v4 build gate，并机器核对 Source ↔ SSOT ↔ Adapter 精确数值；之后才允许 preflight/SSOT/图标并行。</li>
+        <li><code>prepare-review</code> 会把 Coverage 作为 Plan v5 build gate，并机器核对 Source ↔ SSOT ↔ Adapter 精确数值；之后才允许 preflight/SSOT/图标并行。</li>
       </ul>
     </div>
     <div class="arrow"></div>
@@ -643,7 +643,7 @@ pnpm exec playwright install chromium</span>
       <span class="sid">P2.4</span>
       <div class="badges"><span class="badge manual">人工</span></div>
       <h3>Preflight 测量（写 adapter 之前）——粗盘点之后的第二遍</h3>
-      <p>以 <b>P2.0 的 <code>source-coverage/v1</code> + <code>object-inventory/v3</code></b> 为输入逐对象测量，不重新推导对象列表；直接把 node、link/socket、label、annotation 和 reference Interface Matrix 事实写入 authored/review 输入，不能先粗排再靠多次 evidence run 逼近。字段与通过标准只见 <code>docs/fidelity-loop-rules.md</code> §2。</p>
+      <p>以 <b>P2.0 的 <code>source-coverage/v2</code> + <code>object-inventory/v4</code></b> 为输入逐对象测量，不重新推导对象列表；直接把 node、link/socket、label、annotation、non-node route 和 reference Interface Matrix 事实写入 authored/review 输入，不能先粗排再靠多次 evidence run 逼近。字段与通过标准只见 <code>docs/fidelity-loop-rules.md</code> §2。</p>
     </div>
   </div>
 </section>
@@ -729,7 +729,7 @@ pnpm exec playwright install chromium</span>
           <h3>准备 Review + 记录 Build-bound 证据</h3>
           <span class="cmd">pnpm record:build -- prepare-review &lt;build-id&gt; --input &lt;review-input.json&gt;<br />pnpm record:verification -- &lt;build-id&gt; --json<br />pnpm record:fidelity -- &lt;dataset-key&gt; --build &lt;build-id&gt; --focus &lt;stage-focus&gt; [--language &lt;code&gt; ...]</span>
           <ul>
-            <li><code>prepare-review</code> 强制三遍 <code>source-coverage/v1</code>、精确 Source ↔ SSOT ↔ Adapter value 对账、<code>object-inventory/v3</code>、<code>verification-plan/v4</code> 与 Review Packet v3，返回 <code>reviewToken</code>；</li>
+            <li><code>prepare-review</code> 强制三遍 <code>source-coverage/v2</code>、精确 Source ↔ SSOT ↔ Adapter value 对账、<code>object-inventory/v4</code>、<code>verification-plan/v5</code> 与 Review Packet v4，返回 <code>reviewToken</code>；</li>
             <li><code>record:verification</code> 独立运行非渲染一致性 profile；它不是每次 raster evidence run 的一部分，返回的 Build-bound reference 是 finish 的必填输入；</li>
             <li>起本地静态服务器 → 最小 harness 执行 <code>SankeyEngine.render('#chart', data)</code> → 截取 <code>#chart &gt; svg</code>；</li>
             <li>运行 Plan 选中的 <b>render gates</b>；G11 由上一项独立 <code>record:verification</code> 证据提供。完整定义只见 <code>docs/fidelity-loop-rules.md</code>；</li>
@@ -899,7 +899,7 @@ pnpm exec playwright install chromium</span>
       <li><b>步骤 1–2 串行门</b>：守卫/key → 完整 Source signal Type Gate → <code>record:intake</code> no-clobber claim。分型歧义在 claim 前 STOP。</li>
       <li><b>步骤 3 Source Coverage 门</b>：三遍 scan、ObjectInventory、Other/最小值/face anti-omission 全部闭合后，才允许下游开始。</li>
       <li><b>步骤 4 并行准备</b>：Track A metadata/SSOT ∥ Track B preflight ∥ Track C 图标；三轨绑定同一 Source/Coverage identity。</li>
-      <li><b>步骤 5–6 串行</b>：Adapter/i18n/注册 → Source/SSOT/Adapter 对账 → prepare-review 的 Coverage/Plan v4/Packet v3 hard gate。</li>
+      <li><b>步骤 5–6 串行</b>：Adapter/i18n/注册 → Source/SSOT/Adapter 对账 → prepare-review 的 Coverage/Plan v5/Packet v4 hard gate。</li>
       <li><b>步骤 7–8 验证与 Review</b>：consistency + staged fidelity（含 T21 阻断）→ human finish → baseline stage → seal；只有 accepted 结果可关闭 Build。</li>
       <li><b>步骤 9 收尾</b>：closeout 只读审计；操作者信号另行授权确认后的 no-clobber relocation；最后 check / 提交 / 汇报，且不冒充 M4 Publication。</li>
     </ul>
@@ -941,7 +941,7 @@ pnpm exec playwright install chromium</span>
         <tr><td>有意跳过项</td><td>发布方水印、创作者品牌、URL、社交徽标、署名条、纯装饰残片</td><td>仅这些非语义 residual 可 skip</td></tr>
       </tbody>
     </table>
-    <p><b>Anti-omission 不变量</b>：<code>Other</code> / <code>Others</code> / <code>All Other</code> 与任何 value-bearing label 都是语义对象；缺 icon 只跳过 asset crop。Coverage 还必须列出三项最小非零值、visible/hidden faces 与 typed Source-bound floor exceptions；若主图以 <code>$0.0B</code> 隐去非零精度，先记录权威补充来源的 higher-precision literal/locator 并归一化，Table/Sankey 都不得继续显示 0。</p>
+    <p><b>Anti-omission 不变量</b>：<code>Other</code> / <code>Others</code> / <code>All Other</code> 与任何 value-bearing label 都是语义对象；缺 icon 只跳过 asset crop。Coverage 还必须列出三项最小非零值、visible node faces、显式 non-node metric/route 与 typed Source-bound floor exceptions；若主图以 <code>$0.0B</code> 隐去非零精度，先记录权威补充来源的 higher-precision literal/locator 并归一化，Table/Sankey 都不得继续显示 0。</p>
     <p>仓库现状（121 个 adapter）：<code>logoSvg</code> ×76 · <code>annotationsSvg</code> ×87 · runtime <code>rasterAnnotations</code> ×23 · <code>linkTint</code> ×120 · <code>valueText</code> ×80 · <code>labelSide</code> ×16 · 自定义 <code>curve</code> ×24 · 显式 <code>y0/y1</code> ×15 · <code>preservedAnnotationText</code> ×15；82 家公司已有图标参考。</p>
     <p><b>B 类 · 收入指标时间序列（ARR 等）</b>——现例：YipitData 年化 ARR / 收入运行率（Anthropic、OpenAI；源图有意仅本地保留）。无 Sankey adapter、无渲染循环，对象全部落入 <code>data/revenue-metrics.js</code>，viewer 自绘趋势图。</p>
     <table class="map">

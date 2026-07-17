@@ -29,10 +29,10 @@ export const FIDELITY_FEATURE_RULE_IDS = catalogFeatureMappings();
 // and rejects any rule reference that is not declared here first.
 export const FIDELITY_CODE_RULE_IDS = Object.freeze([
   'A6', 'A10',
-  'B3', 'B5', 'B6', 'B7', 'B14', 'B15', 'B16',
+  'B3', 'B5', 'B6', 'B14', 'B15', 'B16',
   'G1', 'G2', 'G3', 'G4', 'G5', 'G6', 'G7', 'G8', 'G9', 'G10', 'G11', 'G12',
   'L11',
-  'T7', 'T12', 'T13', 'T14', 'T16', 'T17', 'T18', 'T19', 'T20', 'T21', 'T22',
+  'T7', 'T13', 'T14', 'T16', 'T17', 'T18', 'T19', 'T20', 'T21', 'T22',
   'Z2', 'Z5', 'Z6',
 ]);
 

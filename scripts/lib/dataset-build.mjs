@@ -190,7 +190,7 @@ function authoredPayload(build, command) {
     const coverageDigest = command.sourceCoverage.coverageDigest || command.sourceCoverage.digest;
     assertDigest(coverageDigest, 'Source Coverage digest');
     invariant(
-      command.sourceCoverage.protocol === 'source-coverage/v1' &&
+      ['source-coverage/v1', 'source-coverage/v2'].includes(command.sourceCoverage.protocol) &&
         command.sourceCoverage.datasetKey === build.key &&
         command.sourceCoverage.adapter === build.adapter &&
         command.sourceCoverage.inventoryDigest === inventoryDigest,
@@ -218,8 +218,8 @@ function authoredPayload(build, command) {
       'VERIFICATION_PLAN_INVALID',
       'VerificationPlan Adapter does not match the Build'
     );
-    if (command.verificationPlan.protocol === 'verification-plan/v4') {
-      invariant(sourceCoverage, 'SOURCE_COVERAGE_REQUIRED', 'VerificationPlan v4 requires Source Coverage in the authored snapshot');
+    if (['verification-plan/v4', 'verification-plan/v5'].includes(command.verificationPlan.protocol)) {
+      invariant(sourceCoverage, 'SOURCE_COVERAGE_REQUIRED', 'Versioned VerificationPlan requires Source Coverage in the authored snapshot');
       invariant(
         command.verificationPlan.sourceCoverageDigest === sourceCoverage.digest,
         'VERIFICATION_PLAN_INVALID',

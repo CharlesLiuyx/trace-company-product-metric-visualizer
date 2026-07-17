@@ -48,10 +48,10 @@ ordering through the Dataset Build Module:
 
 ```text
 record:intake --signal ...  -> source-classification/v1 + INTAKED
-record:build prepare-review -> source-coverage/v1
+record:build prepare-review -> source-coverage/v2
                             -> actual authored-value reconciliation
-                            -> node-face-policy/v1 + verification-plan/v4
-                            -> review-packet/v3 reviewToken + AUTHORED
+                            -> node-face-policy/v2 + verification-plan/v5
+                            -> review-packet/v4 reviewToken + AUTHORED
 record:verification          -> dataset-verification/v1 consistency evidence
 record:fidelity --build ... -> fidelity-run/2 evidence-ready
 record:build finish         -> review-pending, or accepted FidelityResult -> CLOSED
@@ -134,11 +134,11 @@ and the `FeedbackLedger`, then creates the deterministic `FidelityResult`.
 Missing attestation or any open obligation produces `review-pending` rather
 than inferred success.
 
-VerificationPlan v4 also carries two Source-derived closure boundaries. The
+VerificationPlan v5 also carries two Source-derived closure boundaries. The
 automatic `source-coverage` check cites the recorded coverage digest; the
 global manual coverage decision must cite both that digest and the immutable
-Source digest. Its embedded `node-face-policy/v1` converts Source-expected
-visible/hidden classifications into locale render checks. Expected-visible
+Source digest. Its embedded `node-face-policy/v2` converts every semantic
+node mapping into an expected-visible locale render check. Expected-visible
 small nodes therefore cannot disappear merely because their candidate face is
 below the normal visibility floor; only a Source-bound exception compiled by
 the policy is admissible. The fidelity rules document remains the owner of
@@ -310,7 +310,7 @@ compatibility rule is replace, not layer indefinitely:
 - keep `verify:d3` read-only and route durable automatic evidence through
   `record:fidelity`;
 - record SourceClassification at fresh intake, then SourceCoverage,
-  ObjectInventory, NodeFacePolicy-bearing Plan v4, ReviewPacket v3, human
+  ObjectInventory, NodeFacePolicy-bearing Plan v5, ReviewPacket v4, human
   decisions, FeedbackLedger, and FidelityResult through the Build Module;
 - exercise closure, build-local baseline staging, freshness inspection, and
   sealing without changing canonical output (implemented; now the primary

@@ -63,7 +63,7 @@ test('default fidelity rule contract preserves the complete catalog and feature 
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.I11, 'manual');
   assert.deepEqual(FIDELITY_RULE_CONTRACT.featureMappings['visible-short-node'], ['T14']);
   assert.deepEqual(FIDELITY_RULE_CONTRACT.featureMappings['visible-node-face'], ['B15', 'T13', 'T21']);
-  assert.deepEqual(FIDELITY_RULE_CONTRACT.featureMappings['hidden-anchor'], ['B7', 'T12']);
+  assert.equal(FIDELITY_RULE_CONTRACT.featureMappings['hidden-anchor'], undefined);
   assert.deepEqual(FIDELITY_RULE_CONTRACT.featureMappings['specified-label-weight'], ['B14', 'T16']);
   assert.deepEqual(FIDELITY_RULE_CONTRACT.featureMappings['semantic-annotation'], ['A10', 'B16', 'T17']);
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T18, 'conditional-gate');
@@ -82,8 +82,14 @@ test('contract registries are derived from the structured catalog', () => {
     FIDELITY_RULE_CONTRACT.enforcements
   );
   assert.deepEqual(catalogFeatureMappings(), FIDELITY_RULE_CONTRACT.featureMappings);
+  const superseded = new Map([
+    ['B7', 'B15'],
+    ['T12', 'B15'],
+    ['T12a', 'A10'],
+  ]);
   for (const entry of FIDELITY_RULES) {
-    assert.equal(entry.status, 'active');
+    assert.equal(entry.status, superseded.has(entry.id) ? 'superseded' : 'active');
+    if (superseded.has(entry.id)) assert.equal(entry.supersededBy, superseded.get(entry.id));
     for (const target of entry.compensates) {
       assert.ok(
         FIDELITY_RULES.some((other) => other.id === target),

@@ -139,6 +139,7 @@ export function assertSourceCoverageAuthoredValues(sourceCoverage, options = {})
       throw coverageError('SOURCE_COVERAGE_AUTHORED_RECORD_MISSING', `Cannot load Income Statement SSOT and View Adapter for ${sourceCoverage.datasetKey}`);
     }
     const nodes = new Map((dataset.nodes || []).map((node) => [node.id, node]));
+    const nonNodeMetrics = new Map((dataset.nonNodeMetrics || []).map((metric) => [metric.id, metric]));
     for (const item of valueItems) {
       const expected = convertAmount(item.amount, record.unit, item.sourceId);
       const actualSsot = incomePathValue(record, item.ssotRef);
@@ -146,15 +147,17 @@ export function assertSourceCoverageAuthoredValues(sourceCoverage, options = {})
         throw coverageError('SOURCE_COVERAGE_SSOT_VALUE_MISMATCH', `${item.sourceId} Source amount ${item.amount.value}${item.amount.unit} does not match SSOT ${item.ssotRef.path}/${item.ssotRef.id}: ${actualSsot}`);
       }
       assertRecordDisplayPrecision(record, expected, item.sourceId);
-      for (const nodeId of item.nodeTargets) {
-        const node = nodes.get(nodeId);
-        if (!equalAmount(node?.value, expected)) {
-          throw coverageError('SOURCE_COVERAGE_ADAPTER_VALUE_MISMATCH', `${item.sourceId} Source amount ${item.amount.value}${item.amount.unit} does not match Adapter node ${nodeId}: ${node?.value}`);
+      for (const metricId of item.metricTargets || item.nodeTargets) {
+        const node = nodes.get(metricId);
+        const nonNodeMetric = nonNodeMetrics.get(metricId);
+        const adapterValue = node?.value ?? nonNodeMetric?.value;
+        if (!equalAmount(adapterValue, expected)) {
+          throw coverageError('SOURCE_COVERAGE_ADAPTER_VALUE_MISMATCH', `${item.sourceId} Source amount ${item.amount.value}${item.amount.unit} does not match Adapter metric ${metricId}: ${adapterValue}`);
         }
-        assertNodeDisplayPrecision(dataset, node, expected, record.unit, item.sourceId);
+        if (node) assertNodeDisplayPrecision(dataset, node, expected, record.unit, item.sourceId);
       }
-      if (item.face?.claim === 'visible' && expected === 0) {
-        throw coverageError('SOURCE_COVERAGE_VISIBLE_ZERO_VALUE', `${item.sourceId} claims a visible Source face but reconciles to zero`);
+      if (item.face && expected === 0) {
+        throw coverageError('SOURCE_COVERAGE_VISIBLE_ZERO_VALUE', `${item.sourceId} has an observed Source face but reconciles to zero`);
       }
     }
     return { checked: valueItems.length, unit: record.unit };
