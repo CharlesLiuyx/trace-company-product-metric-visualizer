@@ -10432,6 +10432,29 @@
             }
           }
         }
+      },
+      {
+        "key": "elastic-q2-fy26",
+        "src": "data/datasets/elastic-q2-fy26.js",
+        "data": {
+          "name": "Elastic · Q2 FY26",
+          "company": "Elastic",
+          "meta": {
+            "title": "Elastic Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Oct. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Elastic · 2026 财年第二季度",
+              "meta": {
+                "title": "Elastic 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2025 年 10 月"
+              }
+            }
+          }
+        }
       }
     ]
   };
