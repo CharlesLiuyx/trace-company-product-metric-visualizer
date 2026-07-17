@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-17T15:16:31.000Z",
+  "generatedAt": "2026-07-17T17:32:09.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -2773,16 +2773,64 @@
       "updatedAt": "2026-07-16T14:18:53.000Z",
       "timeSource": "git"
     },
-    "live-nation-q3-fy25": {
-      "path": "data/datasets/live-nation-q3-fy25.js",
-      "updatedAtMs": 1784301391000,
-      "updatedAt": "2026-07-17T15:16:31.000Z",
+    "tempus-ai-q3-fy25": {
+      "path": "data/datasets/tempus-ai-q3-fy25.js",
+      "updatedAtMs": 1784309529000,
+      "updatedAt": "2026-07-17T17:32:09.000Z",
+      "timeSource": "git"
+    },
+    "palantir-q3-fy25": {
+      "path": "data/datasets/palantir-q3-fy25.js",
+      "updatedAtMs": 1784309529000,
+      "updatedAt": "2026-07-17T17:32:09.000Z",
+      "timeSource": "git"
+    },
+    "procore-q3-fy25": {
+      "path": "data/datasets/procore-q3-fy25.js",
+      "updatedAtMs": 1784309529000,
+      "updatedAt": "2026-07-17T17:32:09.000Z",
+      "timeSource": "git"
+    },
+    "datadog-q3-fy25": {
+      "path": "data/datasets/datadog-q3-fy25.js",
+      "updatedAtMs": 1784309529000,
+      "updatedAt": "2026-07-17T17:32:09.000Z",
       "timeSource": "git"
     },
     "elastic-q2-fy26": {
       "path": "data/datasets/elastic-q2-fy26.js",
       "updatedAtMs": 1784299620000,
       "updatedAt": "2026-07-17T14:47:00.000Z",
+      "timeSource": "git"
+    },
+    "hubspot-q3-fy25": {
+      "path": "data/datasets/hubspot-q3-fy25.js",
+      "updatedAtMs": 1784309529000,
+      "updatedAt": "2026-07-17T17:32:09.000Z",
+      "timeSource": "git"
+    },
+    "paycom-q3-fy25": {
+      "path": "data/datasets/paycom-q3-fy25.js",
+      "updatedAtMs": 1784309529000,
+      "updatedAt": "2026-07-17T17:32:09.000Z",
+      "timeSource": "git"
+    },
+    "veeva-q3-fy26": {
+      "path": "data/datasets/veeva-q3-fy26.js",
+      "updatedAtMs": 1784309529000,
+      "updatedAt": "2026-07-17T17:32:09.000Z",
+      "timeSource": "git"
+    },
+    "live-nation-q3-fy25": {
+      "path": "data/datasets/live-nation-q3-fy25.js",
+      "updatedAtMs": 1784301391000,
+      "updatedAt": "2026-07-17T15:16:31.000Z",
+      "timeSource": "git"
+    },
+    "amc-q3-fy25": {
+      "path": "data/datasets/amc-q3-fy25.js",
+      "updatedAtMs": 1784309529000,
+      "updatedAt": "2026-07-17T17:32:09.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {

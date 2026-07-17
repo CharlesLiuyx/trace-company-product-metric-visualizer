@@ -112,6 +112,108 @@
       },
     },
     {
+      key: 'veeva-q3-fy26',
+      company: 'Veeva Systems',
+      period: 'Q3 FY26',
+      periodNote: 'Ending Oct. 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/veeva-q3-fy26.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 811,
+        notes: ['+16% Y/Y'],
+        items: [
+          {
+            id: 'subscription',
+            label: 'Subscription',
+            value: 683,
+            notes: ['+17% Y/Y'],
+            children: [
+              { id: 'commercial', label: 'Commercial solutions', value: 318, notes: ['+14% Y/Y'] },
+              { id: 'rnd_solutions', label: 'R&D solutions', value: 365, notes: ['+21% Y/Y'] },
+            ],
+          },
+          { id: 'services', label: 'Services', value: 129, notes: ['+9% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 200 },
+        operatingExpenses: {
+          total: 371,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 192, notes: ['24% of revenue', '(1pp) Y/Y'] },
+            { id: 'sm', label: 'S&M', value: 111, notes: ['14% of revenue', '(0pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 69, notes: ['8% of revenue', '(2pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 77 },
+      },
+      otherIncome: {
+        total: 72,
+        items: [{ id: 'other', label: 'Other', value: 72 }],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: {
+          id: 'gross_profit',
+          label: 'Gross profit',
+          value: 612,
+          notes: [
+            '75% margin',
+            '+0pp Y/Y',
+            'Gross profit plus cost of revenue sums to $812M; the source chart reports $811M revenue due to rounded line items.',
+          ],
+        },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 241, notes: ['30% margin', '+4pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 236, notes: ['29% margin', '+3pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第三季度',
+          periodNote: '截至 2025 年 10 月',
+          revenue: {
+            notes: ['同比 +16%'],
+            items: [
+              {
+                id: 'subscription',
+                label: '订阅',
+                notes: ['同比 +17%'],
+                children: [
+                  { id: 'commercial', label: '商业化解决方案', notes: ['同比 +14%'] },
+                  { id: 'rnd_solutions', label: '研发解决方案', notes: ['同比 +21%'] },
+                ],
+              },
+              { id: 'services', label: '服务', notes: ['同比 +9%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 24%', '同比 (1 个百分点)'] },
+                { id: 'sm', label: '销售与市场', notes: ['占收入 14%', '同比 (0 个百分点)'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 8%', '同比 (2 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: {
+            items: [{ id: 'other', label: '其他' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 75%', '同比 +0 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 30%', '同比 +4 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 29%', '同比 +3 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'veeva-q1-fy27',
       company: 'Veeva Systems',
       period: 'Q1 FY27',

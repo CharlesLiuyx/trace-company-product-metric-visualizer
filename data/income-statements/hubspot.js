@@ -175,6 +175,90 @@
           },
         },
       },
+    },
+    {
+      key: 'hubspot-q3-fy25',
+      company: 'HubSpot',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/hubspot-q3-fy25.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 810,
+        notes: ['+21% Y/Y'],
+        items: [
+          { id: 'subscription', label: 'Subscription', value: 792, notes: ['+21% Y/Y', '85% gross margin'] },
+          { id: 'professional_services', label: 'Professional services', value: 18, notes: ['+19% Y/Y', '8% gross margin'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 134 },
+        operatingExpenses: {
+          total: 665,
+          items: [
+            { id: 'sm', label: 'S&M', value: 355, notes: ['44% of revenue', '(2pp) Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 228, notes: ['28% of revenue', '(0pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 81, notes: ['10% of revenue', '(2pp) Y/Y'] },
+            { id: 'restructuring', label: 'Restructuring', value: 1, notes: ['0% of revenue', '(0pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 7 },
+      },
+      otherIncome: {
+        total: 12,
+        items: [{ id: 'other', label: 'Other', value: 12 }],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 676, notes: ['84% margin', '(2pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 11, notes: ['1% margin', '+1pp Y/Y'] },
+        net: {
+          id: 'net_profit',
+          label: 'Net profit',
+          value: 17,
+          notes: ['2% margin', '+1pp Y/Y', 'Displayed rounded bridge sums to $16M; source chart shows $17M net profit.'],
+        },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +21%'],
+            items: [
+              { id: 'subscription', label: '订阅', notes: ['同比 +21%', '毛利率 85%'] },
+              { id: 'professional_services', label: '专业服务', notes: ['同比 +19%', '毛利率 8%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'sm', label: '销售与市场', notes: ['占收入 44%', '同比 (2 个百分点)'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 28%', '同比 (0 个百分点)'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 10%', '同比 (2 个百分点)'] },
+                { id: 'restructuring', label: '重组费用', notes: ['占收入 0%', '同比 (0 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: { items: [{ id: 'other', label: '其他' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 84%', '同比 (2 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 1%', '同比 +1 个百分点'] },
+            net: {
+              label: '净利润',
+              notes: ['利润率 2%', '同比 +1 个百分点', '显示值四舍五入桥接合计为 $16M；源图显示净利润为 $17M。'],
+            },
+          },
+        },
+      },
     }
   );
 })(window);

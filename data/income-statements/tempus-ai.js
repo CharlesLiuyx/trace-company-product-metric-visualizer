@@ -10,6 +10,104 @@
 
   ssot.records.push(
     {
+      key: 'tempus-ai-q3-fy25',
+      company: 'Tempus AI',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/tempus-ai-q3-fy25.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 334,
+        notes: ['+85% Y/Y'],
+        items: [
+          {
+            id: 'genomics_revenue',
+            label: 'Genomics',
+            value: 253,
+            notes: ['Oncology & Hereditary', '61% gross margin', '+13pp Y/Y'],
+          },
+          {
+            id: 'data_services',
+            label: 'Data & Services',
+            value: 81,
+            notes: ['68% gross margin', '(8pp) Y/Y'],
+          },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          id: 'cost_of_revenue',
+          label: 'Cost of revenue',
+          value: 124,
+          notes: ['The displayed Genomics and Data & Services detail rounds to $125M.'],
+          items: [
+            { id: 'genomics_cost', label: 'Genomics', value: 99 },
+            { id: 'data_services_cost', label: 'Data & Services', value: 26 },
+          ],
+        },
+        operatingExpenses: {
+          total: 271,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 45, notes: ['15% of revenue', '(1pp) Y/Y'] },
+            { id: 'technology_rnd', label: 'Technology R&D', value: 38, notes: ['12% of revenue', '(5pp) Y/Y'] },
+            { id: 'sga', label: 'SG&A', value: 188, notes: ['61% of revenue', '+5pp Y/Y'] },
+          ],
+        },
+        tax: { label: 'Tax', value: 0, notes: ['No separate tax line is shown in the source chart.'] },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 210, notes: ['68% margin', '+9pp Y/Y'] },
+        operating: { id: 'operating_loss', label: 'Operating loss', value: -61, notes: ['(20%) margin', '+10pp Y/Y'] },
+        net: {
+          id: 'operating_loss',
+          label: 'Operating loss',
+          value: -61,
+          notes: ['No separate net income or net loss line is shown in the source chart.'],
+        },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +85%'],
+            items: [
+              { id: 'genomics_revenue', label: '基因组学', notes: ['肿瘤与遗传病', '毛利率 61%', '同比 +13 个百分点'] },
+              { id: 'data_services', label: '数据与服务', notes: ['毛利率 68%', '同比 (8 个百分点)'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: {
+              label: '收入成本',
+              notes: ['来源图的基因组学与数据和服务明细合计为 1.25 亿美元，因四舍五入高于显示的 1.24 亿美元。'],
+              items: [
+                { id: 'genomics_cost', label: '基因组学' },
+                { id: 'data_services_cost', label: '数据与服务' },
+              ],
+            },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 15%', '同比 (1 个百分点)'] },
+                { id: 'technology_rnd', label: '技术研发', notes: ['占收入 12%', '同比 (5 个百分点)'] },
+                { id: 'sga', label: '销售、一般及行政费用', notes: ['占收入 61%', '同比 +5 个百分点'] },
+              ],
+            },
+            tax: { label: '税费', notes: ['来源图未单独显示税费。'] },
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 68%', '同比 +9 个百分点'] },
+            operating: { label: '营业亏损', notes: ['利润率 (20%)', '同比 +10 个百分点'] },
+            net: { label: '营业亏损', notes: ['来源图未单独显示净利润或净亏损项目。'] },
+          },
+        },
+      },
+    },
+    {
       key: 'tempus-ai-q1-fy26',
       company: 'Tempus AI',
       period: 'Q1 FY26',

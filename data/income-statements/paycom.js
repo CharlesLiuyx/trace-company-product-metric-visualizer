@@ -10,6 +10,86 @@
 
   ssot.records.push(
     {
+      key: 'paycom-q3-fy25',
+      company: 'Paycom',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/paycom-q3-fy25.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 493.0,
+        notes: ['+9% Y/Y'],
+        items: [
+          { id: 'recurring', label: 'Recurring', value: 466.0, notes: ['+11% Y/Y'] },
+          {
+            id: 'implementation_other',
+            label: 'Implementation and other',
+            value: 27.0,
+            notes: ['(11%) Y/Y'],
+          },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 85.0 },
+        operatingExpenses: {
+          total: 295.0,
+          notes: ['Operating expense detail sums to $296M due to rounding.'],
+          items: [
+            { id: 'sm', label: 'S&M', value: 126.0, notes: ['25% of revenue', '+2pp Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 74.0, notes: ['15% of revenue', '+1pp Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 72.0, notes: ['15% of revenue', '(1pp) Y/Y'] },
+            { id: 'depreciation', label: 'Depreciation', value: 24.0 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 42.0 },
+      },
+      otherIncome: {
+        total: 40.0,
+        items: [{ id: 'other', label: 'Other', value: 40.0 }],
+      },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 408.0, notes: ['83% margin', '+2pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 113.0, notes: ['23% margin', '(0pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 111.0, notes: ['22% margin', '+6pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +9%'],
+            items: [
+              { label: '经常性收入', notes: ['同比 +11%'] },
+              { label: '实施及其他', notes: ['同比 (11%)'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              notes: ['由于四舍五入，营业费用明细合计为 296M 美元。'],
+              items: [
+                { label: '销售与市场', notes: ['占收入 25%', '同比 +2 个百分点'] },
+                { label: '研发', notes: ['占收入 15%', '同比 +1 个百分点'] },
+                { label: '一般及行政', notes: ['占收入 15%', '同比 (1 个百分点)'] },
+                { label: '折旧摊销' },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: { items: [{ label: '其他' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 83%', '同比 +2 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 23%', '同比 (0 个百分点)'] },
+            net: { label: '净利润', notes: ['利润率 22%', '同比 +6 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'paycom-q4-fy25',
       company: 'Paycom',
       period: 'Q4 FY25',
