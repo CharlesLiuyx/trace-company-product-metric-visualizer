@@ -10,6 +10,103 @@
 
   ssot.records.push(
     {
+      key: 'flutter-q3-fy25',
+      company: 'Flutter Entertainment',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/flutter-q3-fy25.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 3.8,
+        notes: ['+17% Y/Y', 'The source chart presents geographic and product-category views of the same $3.8B revenue total.'],
+        items: [
+          { id: 'us', label: 'US', value: 1.4, notes: ['+9% Y/Y'] },
+          { id: 'international', label: 'International', value: 2.4, notes: ['+21% Y/Y'] },
+        ],
+        breakdowns: [
+          {
+            id: 'product_category',
+            label: 'Revenue by product category',
+            total: 3.8,
+            items: [
+              { id: 'sportsbook', label: 'Sportsbook', value: 1.8, notes: ['+3% Y/Y'] },
+              { id: 'igaming', label: 'iGaming', value: 1.9, notes: ['+35% Y/Y'] },
+              { id: 'other_revenue', label: 'Other', value: 0.1, notes: ['+2% Y/Y'] },
+            ],
+          },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 2.2 },
+        operatingExpenses: {
+          total: 2.5,
+          items: [
+            { id: 'sm', label: 'S&M', value: 1.0, notes: ['25% of revenue', '+2pp Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 0.7, notes: ['19% of revenue', '+5pp Y/Y'] },
+            { id: 'impairment', label: 'Impairment', value: 0.5, notes: ['14% of revenue', '+14pp Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 0.3, notes: ['7% of revenue', '+1pp Y/Y'] },
+          ],
+        },
+        tax: { label: 'Tax', value: 0, notes: ['No separate tax line is shown in the source chart.'] },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 1.6, notes: ['43% margin', '(3pp) Y/Y'] },
+        operating: { id: 'operating_loss', label: 'Operating loss', value: -0.8, notes: ['(22%) margin', '(25pp) Y/Y'] },
+        net: {
+          id: 'operating_loss',
+          label: 'Operating loss',
+          value: -0.8,
+          notes: ['No separate net income line is shown in the source chart.'],
+        },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +17%', '来源图用地域与产品类别两种口径展示同一笔 $3.8B 收入。'],
+            items: [
+              { id: 'us', label: '美国', notes: ['同比 +9%'] },
+              { id: 'international', label: '国际业务', notes: ['同比 +21%'] },
+            ],
+            breakdowns: [
+              {
+                id: 'product_category',
+                label: '按产品类别划分的收入',
+                items: [
+                  { id: 'sportsbook', label: '体育博彩', notes: ['同比 +3%'] },
+                  { id: 'igaming', label: '在线博彩', notes: ['同比 +35%'] },
+                  { id: 'other_revenue', label: '其他', notes: ['同比 +2%'] },
+                ],
+              },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '销售成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'sm', label: '销售与营销', notes: ['占收入 25%', '同比 +2 个百分点'] },
+                { id: 'ga', label: '一般及行政', notes: ['占收入 19%', '同比 +5 个百分点'] },
+                { id: 'impairment', label: '减值', notes: ['占收入 14%', '同比 +14 个百分点'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 7%', '同比 +1 个百分点'] },
+              ],
+            },
+            tax: { label: '税费', notes: ['来源图未单列税费。'] },
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['毛利率 43%', '同比 (3 个百分点)'] },
+            operating: { label: '营业亏损', notes: ['利润率 (22%)', '同比 (25 个百分点)'] },
+            net: { label: '营业亏损', notes: ['来源图未单列净利润。'] },
+          },
+        },
+      },
+    },
+    {
       key: 'flutter-q1-fy26',
       company: 'Flutter Entertainment',
       period: 'Q1 FY26',

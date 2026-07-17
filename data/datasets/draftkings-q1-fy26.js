@@ -124,7 +124,6 @@
         sm: { x: 2254, y: 791, width: 73, height: 77 },
         ga: { x: 2254, y: 1021, width: 73, height: 32 },
         rnd: { x: 2254, y: 1195, width: 73, height: 23 },
-        tax: { x: -500, y: -500, width: 0, height: 0 },
       },
       labels: {
         online_gaming: {
@@ -187,6 +186,10 @@
         ] }] },
       },
     },
+    nonNodeMetrics: [
+      { id: 'tax', representation: 'data-only' },
+    ],
+
     nodes: [
       { id: 'online_gaming', col: 0, order: 0, type: 'source', label: ['Online', 'Gaming'], value: 1095, valueText: '$1,095M', color: ORANGE, labelColor: ORANGE, linkTint: ORANGE_LINK },
       { id: 'gaming_software', col: 0, order: 1, type: 'source', label: ['Gaming', 'Software'], value: 461, color: GAMING_GREEN, labelColor: GAMING_GREEN, linkTint: GAMING_LINK },
@@ -201,7 +204,6 @@
       { id: 'sm', col: 5, order: 1, type: 'cost', label: 'S&M', value: 402, color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
       { id: 'ga', col: 5, order: 2, type: 'cost', label: 'G&A', value: 166, color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
       { id: 'rnd', col: 5, order: 3, type: 'cost', label: 'R&D', value: 123, color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
-      { id: 'tax', col: 6, order: 0, type: 'cost', label: '', value: 0, valueText: '', color: 'transparent', labelColor: 'transparent' },
     ],
     links: [
       { source: 'online_gaming', target: 'revenue', value: 1095, sourceWidth: 209, targetWidth: 209, sourceOrder: 0, targetOrder: 0, linkTint: ORANGE_LINK },

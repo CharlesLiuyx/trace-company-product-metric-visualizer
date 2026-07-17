@@ -239,10 +239,13 @@
         rnd: { x: 2248, y: 514, width: 75, height: 163.548 },
         sm: { x: 2248, y: 879, width: 75, height: 74.448 },
         ga: { x: 2248, y: 1150, width: 75, height: 38.216 },
-        tax: { x: -500, y: -500, width: 0, height: 0 },
       },
       labels: labels(false),
     },
+
+    nonNodeMetrics: [
+      { id: 'tax', representation: 'data-only' },
+    ],
 
     nodes: [
       { id: 'cloud', col: 0, order: 0, type: 'source', label: 'Cloud', value: 1067, valueText: '$1,067M', notes: ['+26% Y/Y'], color: BLUE, labelColor: BLUE, linkTint: BLUE_LINK },
@@ -256,7 +259,6 @@
       { id: 'rnd', col: 5, order: 0, type: 'cost', label: 'R&D', value: 826, valueText: '($826M)', notes: ['52% of revenue', '(1pp) Y/Y'], color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
       { id: 'sm', col: 5, order: 1, type: 'cost', label: 'S&M', value: 376, valueText: '($376M)', notes: ['24% of revenue', '+3pp Y/Y'], color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
       { id: 'ga', col: 5, order: 2, type: 'cost', label: 'G&A', value: 193, valueText: '($193M)', notes: ['12% of revenue', '(1pp) Y/Y'], color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
-      { id: 'tax', col: 6, order: 0, type: 'cost', label: 'Tax', value: 0, valueText: '', color: 'transparent', labelColor: 'transparent' },
     ],
 
     links: [
@@ -293,7 +295,6 @@
           rnd: { label: '研发', notes: ['占收入 52%', '同比 (1 个百分点)'] },
           sm: { label: '销售与市场', notes: ['占收入 24%', '同比 +3 个百分点'] },
           ga: { label: '管理费用', notes: ['占收入 12%', '同比 (1 个百分点)'] },
-          tax: { label: '税费' },
         },
         layout: { labels: labels(true) },
         annotationsSvg: kpiCard(true),

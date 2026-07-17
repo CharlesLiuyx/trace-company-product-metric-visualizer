@@ -10,6 +10,94 @@
 
   ssot.records.push(
     {
+      key: 'hims-hers-q3-fy25',
+      company: 'Hims & Hers',
+      period: 'Q3 FY25',
+      periodNote: 'Quarter ended Sep. 30, 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/hims-hers-q3-fy25.png',
+      roundingTolerance: 1.1,
+      notes: [
+        'The source infographic rounds operating-expense line items to whole millions; the visible items sum to $431M versus the displayed $430M total.',
+      ],
+      revenue: {
+        total: 599,
+        notes: ['+49% Y/Y'],
+        items: [
+          { id: 'online_revenue', label: 'Online revenue', value: 589, notes: ['+50% Y/Y'] },
+          { id: 'wholesale_revenue', label: 'Wholesale revenue', value: 10, notes: ['+10% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 157 },
+        operatingExpenses: {
+          total: 430,
+          notes: ['Visible line items sum to $431M because the source chart rounds each item to whole millions.'],
+          items: [
+            { id: 'marketing', label: 'Marketing', value: 232, notes: ['39% of revenue', '(7pp) Y/Y'] },
+            { id: 'general_admin', label: 'General & admin', value: 81, notes: ['13% of revenue', '+2pp Y/Y'] },
+            { id: 'operations_support', label: 'Operations & support', value: 77, notes: ['13% of revenue', '+1pp Y/Y'] },
+            { id: 'tech_development', label: 'Tech & development', value: 41, notes: ['7% of revenue', '+2pp Y/Y'] },
+          ],
+        },
+        tax: {
+          label: 'Tax not separately shown',
+          value: 0,
+          notes: ['No separate tax flow appears in the source infographic.'],
+        },
+      },
+      otherIncome: {
+        total: 4,
+        items: [{ id: 'other_income', label: 'Other', value: 4 }],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 442, notes: ['74% margin', '(5pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 12, notes: ['2% margin', '(4pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 16, notes: ['3% margin', '(16pp) Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月 30 日的季度',
+          notes: ['来源信息图把营业费用明细四舍五入至百万美元；可见明细合计 $431M，而图示总额为 $430M。'],
+          revenue: {
+            notes: ['同比 +49%'],
+            items: [
+              { id: 'online_revenue', label: '线上收入', notes: ['同比 +50%'] },
+              { id: 'wholesale_revenue', label: '批发收入', notes: ['同比 +10%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              notes: ['来源图将各明细四舍五入至百万美元，因此可见明细合计为 $431M。'],
+              items: [
+                { id: 'marketing', label: '营销', notes: ['占收入 39%', '同比 (7 个百分点)'] },
+                { id: 'general_admin', label: '一般及行政', notes: ['占收入 13%', '同比 +2 个百分点'] },
+                { id: 'operations_support', label: '运营与支持', notes: ['占收入 13%', '同比 +1 个百分点'] },
+                { id: 'tech_development', label: '技术与开发', notes: ['占收入 7%', '同比 +2 个百分点'] },
+              ],
+            },
+            tax: { label: '未单列税费', notes: ['来源信息图未显示单独的税费流。'] },
+          },
+          otherIncome: {
+            items: [{ id: 'other_income', label: '其他' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 74%', '同比 (5 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 2%', '同比 (4 个百分点)'] },
+            net: { label: '净利润', notes: ['利润率 3%', '同比 (16 个百分点)'] },
+          },
+        },
+      },
+    },
+    {
       key: 'hims-hers-q4-fy25',
       company: 'Hims & Hers',
       period: 'Q4 FY25',

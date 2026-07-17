@@ -152,10 +152,13 @@
         rnd: { x: 2260, y: 789, width: 72, height: h(329) },
         ga: { x: 2260, y: 1018, width: 72, height: h(164) },
         sm: { x: 2260, y: 1200, width: 72, height: h(79) },
-        tax: { x: -500, y: -500, width: 0, height: 0 },
       },
       labels: labelsEn,
     },
+    nonNodeMetrics: [
+      { id: 'tax', representation: 'data-only' },
+    ],
+
     nodes: [
       { id: 'north_america', col: 0, order: 0, type: 'source', label: ['North', 'America'], value: 836, notes: ['+34% Y/Y'], color: BLUE, labelColor: BLUE, linkTint: BLUE_LINK },
       { id: 'europe', col: 0, order: 1, type: 'source', label: 'Europe', value: 281, notes: ['+54% Y/Y'], color: BLUE, labelColor: BLUE, linkTint: BLUE_LINK },
@@ -171,7 +174,6 @@
       { id: 'rnd', col: 5, order: 2, type: 'cost', label: 'R&D', value: 329, notes: ['23% of revenue', '+1pp Y/Y'], color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
       { id: 'ga', col: 5, order: 3, type: 'cost', label: 'G&A', value: 164, notes: ['12% of revenue', '+1pp Y/Y'], color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
       { id: 'sm', col: 5, order: 4, type: 'cost', label: 'S&M', value: 79, notes: ['6% of revenue', '+1pp Y/Y'], color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
-      { id: 'tax', col: 6, order: 0, type: 'cost', label: 'Tax', value: 0, valueText: '', color: 'transparent', labelColor: 'transparent' },
     ],
     links: [
       { source: 'north_america', target: 'revenue', value: 836, sourceWidth: h(836), targetWidth: h(836), y0: 473.4, y1: 678.4, sourceOrder: 0, targetOrder: 0 },

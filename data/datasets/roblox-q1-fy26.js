@@ -161,7 +161,6 @@
         infrastructure: { x: 2259, y: 779, width: 73, height: h(324) },
         ga: { x: 2260, y: 1037, width: 72, height: h(209) },
         sm: { x: 2260, y: 1241, width: 72, height: h(64) },
-        tax: { x: -500, y: -500, width: 0, height: 0 },
       },
       labels: {
         north_america: {
@@ -358,6 +357,10 @@
       },
     },
 
+    nonNodeMetrics: [
+      { id: 'tax', representation: 'data-only' },
+    ],
+
     nodes: [
       {
         id: 'north_america', col: 0, order: 0, type: 'source',
@@ -429,10 +432,6 @@
         label: 'S&M', value: 64, notes: ['4% of revenue', '(0pp) Y/Y'],
         color: RED, labelColor: RED_LABEL, linkTint: RED_LINK,
       },
-      {
-        id: 'tax', col: 6, order: 0, type: 'cost',
-        label: 'Tax', value: 0, valueText: '', color: 'transparent', labelColor: 'transparent',
-      },
     ],
 
     links: [
@@ -477,7 +476,6 @@
           infrastructure: { label: '基础设施', notes: ['占收入 22%', '同比 (1 个百分点)'] },
           ga: { label: '管理费用', notes: ['占收入 14%', '同比 +3 个百分点'] },
           sm: { label: '销售与市场', notes: ['占收入 4%', '同比 (0 个百分点)'] },
-          tax: { label: '税费' },
         },
       },
     },

@@ -16,7 +16,6 @@
   const RED_LABEL = '#941100';
   const RED_LINK = '#e08585';
   const NOTE = '#666666';
-  const TRANSPARENT = 'rgba(0,0,0,0)';
 
   const wordmark = `
     <g data-typography-role="brand" fill="${NAVY}">
@@ -141,7 +140,6 @@
         // User-directed visible face: preserve the 2px financial height,
         // while the 60px width gives the Other flow a clear right-hand exit.
         other_operating: { x: 1718, y: 534, width: 60, height: 2 },
-        operating_expenses: { x: 1749, y: 0, width: 71, height: 0 },
         operating_profit: { x: 1840, y: 420, width: 71, height: 39 },
         net_profit: { x: 2307, y: 330, width: 71, height: 22 },
         tax: { x: 2307, y: 540, width: 71, height: 7 },
@@ -150,6 +148,10 @@
       },
       labels: labels(),
     },
+    nonNodeMetrics: [
+      { id: 'operating_expenses', representation: 'data-only' },
+    ],
+
     nodes: [
       { id: 'aeronautics', col: 0, order: 0, type: 'source', label: 'Aeronautics', value: 8.5, notes: ['+6% Y/Y', '9% segment margin'] },
       { id: 'missile_fire_control', col: 0, order: 1, type: 'source', label: ['Missile and', 'Fire Control'], value: 4.0, valueText: '$4.0B', notes: ['+18% Y/Y', '13% segment margin'] },
@@ -160,10 +162,6 @@
       { id: 'cost_of_sales', col: 2, order: 1, type: 'cost', label: 'Cost of sales', value: 18.0, valueText: '($18.0B)' },
       // The $9M operating add-in uses the requested 60px label-centered face.
       { id: 'other_operating', col: 3, order: 0, type: 'profit', label: 'Other', value: 0.009, valueText: '$9M', color: GREEN, labelColor: GREEN_LABEL, linkTint: GREEN_LINK },
-      // Zero-valued schema anchor: the source has no operating-expense bar
-      // between gross and operating profit, but the SSOT verifier requires a
-      // numeric operating_expenses node.
-      { id: 'operating_expenses', col: 3, order: 1, type: 'cost', label: '', value: 0, color: TRANSPARENT, labelColor: TRANSPARENT, linkTint: TRANSPARENT },
       { id: 'operating_profit', col: 4, order: 0, type: 'profit', label: 'Operating profit', value: 2.3, notes: ['11% margin', '+8pp Y/Y'] },
       { id: 'net_profit', col: 5, order: 0, type: 'profit', label: 'Net profit', value: 1.3, notes: ['7% margin', '+4pp Y/Y'] },
       { id: 'tax', col: 5, order: 1, type: 'cost', label: 'Tax', value: 0.2 },
@@ -198,7 +196,6 @@
           gross_profit: { label: '毛利润', notes: ['利润率 11%', '同比 +8 个百分点'] },
           cost_of_sales: { label: '销售成本' },
           other_operating: { label: '其他' },
-          operating_expenses: { label: '' },
           operating_profit: { label: '营业利润', notes: ['利润率 11%', '同比 +8 个百分点'] },
           net_profit: { label: '净利润', notes: ['利润率 7%', '同比 +4 个百分点'] },
           tax: { label: '税费' },
