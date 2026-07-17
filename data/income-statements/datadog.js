@@ -10,6 +10,91 @@
 
   ssot.records.push(
     {
+      key: 'datadog-q3-fy25',
+      company: 'Datadog',
+      period: 'Q3 FY25',
+      periodNote: 'Quarter ended Sep. 30, 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/datadog-q3-fy25.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 886,
+        notes: ['+28% Y/Y'],
+        items: [
+          { id: 'north_america', label: 'North America', value: 634, notes: ['+31% Y/Y'] },
+          { id: 'international', label: 'International', value: 252, notes: ['+23% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 176 },
+        operatingExpenses: {
+          total: 715,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 402, notes: ['45% of revenue', '+3pp Y/Y'] },
+            { id: 'sm', label: 'S&M', value: 239, notes: ['27% of revenue', '(0pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 74, notes: ['8% of revenue', '+1pp Y/Y'] },
+          ],
+        },
+        tax: { label: 'Tax', value: 0 },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: {
+          id: 'gross_profit',
+          label: 'Gross profit',
+          value: 709,
+          notes: ['80% margin', '+0pp Y/Y', 'Revenue less cost of revenue differs by $1M because the source chart rounds each value independently.'],
+        },
+        operating: {
+          id: 'operating_loss',
+          label: 'Operating loss',
+          value: -6,
+          notes: ['(1%) margin', '(4pp) Y/Y'],
+        },
+        net: {
+          id: 'operating_loss',
+          label: 'Operating loss',
+          value: -6,
+          notes: ['No separate net loss line is shown in the source chart.'],
+        },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月 30 日的季度',
+          revenue: {
+            notes: ['同比 +28%'],
+            items: [
+              { id: 'north_america', label: '北美', notes: ['同比 +31%'] },
+              { id: 'international', label: '国际', notes: ['同比 +23%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 45%', '同比 +3 个百分点'] },
+                { id: 'sm', label: '销售与营销', notes: ['占收入 27%', '同比 (0 个百分点)'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 8%', '同比 +1 个百分点'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          profit: {
+            gross: {
+              label: '毛利润',
+              notes: ['利润率 80%', '同比 +0 个百分点', '收入减收入成本因源图逐项四舍五入相差 $1M。'],
+            },
+            operating: { label: '营业亏损', notes: ['利润率 (1%)', '同比 (4 个百分点)'] },
+            net: { label: '营业亏损', notes: ['源图未单独显示净亏损项目。'] },
+          },
+        },
+      },
+    },
+    {
       key: 'datadog-q4-fy25',
       company: 'Datadog',
       period: 'Q4 FY25',

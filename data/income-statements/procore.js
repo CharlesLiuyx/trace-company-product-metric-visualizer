@@ -8,6 +8,79 @@
   });
 
   ssot.records.push({
+    key: 'procore-q3-fy25',
+    company: 'Procore',
+    period: 'Q3 FY25',
+    periodNote: 'Ending Sep. 2025',
+    currency: '$',
+    unit: 'M',
+    decimals: 0,
+    sourceImage: 'input/processed/procore-q3-fy25.png',
+    roundingTolerance: 1.1,
+    revenue: {
+      total: 339,
+      notes: ['+15% Y/Y'],
+      items: [
+        { id: 'united_states', label: 'United States', value: 289, notes: ['+15% Y/Y'] },
+        { id: 'rest_of_world', label: 'Rest of World', value: 50, notes: ['+14% Y/Y'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 69 },
+      operatingExpenses: {
+        total: 285,
+        items: [
+          { id: 'sm', label: 'Sales & marketing', value: 144, notes: ['43% of revenue', '(5pp) Y/Y'] },
+          { id: 'rnd', label: 'Research & development', value: 88, notes: ['26% of revenue', '(1pp) Y/Y'] },
+          { id: 'ga', label: 'General & administrative', value: 53, notes: ['16% of revenue', '(3pp) Y/Y'] },
+        ],
+      },
+      tax: { label: 'Tax', value: 0, notes: ['No separate tax line is shown in the source chart.'] },
+    },
+    otherIncome: { total: 0, items: [] },
+    otherExpenses: { total: 0, items: [] },
+    profit: {
+      gross: { id: 'gross_profit', label: 'Gross profit', value: 270, notes: ['80% margin', '(2pp) Y/Y'] },
+      operating: { id: 'operating_loss', label: 'Operating loss', value: -15, notes: ['(4%) margin', '+8pp Y/Y'] },
+      net: {
+        id: 'operating_loss',
+        label: 'Operating loss',
+        value: -15,
+        notes: ['No separate net income or net loss line is shown in the source chart.'],
+      },
+    },
+    i18n: {
+      zh: {
+        period: '2025 财年第三季度',
+        periodNote: '截至 2025 年 9 月',
+        revenue: {
+          notes: ['同比 +15%'],
+          items: [
+            { id: 'united_states', label: '美国', notes: ['同比 +15%'] },
+            { id: 'rest_of_world', label: '世界其他地区', notes: ['同比 +14%'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: { label: '收入成本' },
+          operatingExpenses: {
+            items: [
+              { id: 'sm', label: '销售与营销', notes: ['占收入 43%', '同比 (5 个百分点)'] },
+              { id: 'rnd', label: '研发', notes: ['占收入 26%', '同比 (1 个百分点)'] },
+              { id: 'ga', label: '一般及行政', notes: ['占收入 16%', '同比 (3 个百分点)'] },
+            ],
+          },
+          tax: { label: '税费', notes: ['来源图未显示单独的税费项目。'] },
+        },
+        profit: {
+          gross: { label: '毛利润', notes: ['利润率 80%', '同比 (2 个百分点)'] },
+          operating: { label: '营业亏损', notes: ['利润率 (4%)', '同比 +8 个百分点'] },
+          net: { label: '营业亏损', notes: ['来源图未单独显示净利润或净亏损项目。'] },
+        },
+      },
+    },
+  });
+
+  ssot.records.push({
     key: 'procore-q4-fy25',
     company: 'Procore',
     period: 'Q4 FY25',

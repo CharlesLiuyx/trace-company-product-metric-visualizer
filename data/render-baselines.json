@@ -141,6 +141,12 @@
       "width": 2667,
       "height": 1500
     },
+    "amc-q3-fy25": {
+      "similarity": 0.960495,
+      "mae": 10.0737,
+      "width": 2667,
+      "height": 1500
+    },
     "amc-q4-fy25": {
       "similarity": 0.960778,
       "mae": 10.0017,
@@ -723,6 +729,12 @@
       "width": 2667,
       "height": 1500
     },
+    "datadog-q3-fy25": {
+      "similarity": 0.980109,
+      "mae": 5.0722,
+      "width": 2667,
+      "height": 1500
+    },
     "datadog-q4-fy25": {
       "similarity": 0.980745,
       "mae": 4.9101,
@@ -1188,6 +1200,12 @@
     "hubspot-q1-fy26": {
       "similarity": 0.974746,
       "mae": 6.4398,
+      "width": 2667,
+      "height": 1500
+    },
+    "hubspot-q3-fy25": {
+      "similarity": 0.975401,
+      "mae": 6.2727,
       "width": 2667,
       "height": 1500
     },
@@ -1911,6 +1929,12 @@
       "width": 2667,
       "height": 1500
     },
+    "palantir-q3-fy25": {
+      "similarity": 0.967824,
+      "mae": 8.2048,
+      "width": 2667,
+      "height": 1500
+    },
     "palantir-q4-fy25": {
       "similarity": 0.971507,
       "mae": 7.2658,
@@ -1956,6 +1980,12 @@
     "paycom-q1-fy26": {
       "similarity": 0.961652,
       "mae": 9.7787,
+      "width": 2667,
+      "height": 1500
+    },
+    "paycom-q3-fy25": {
+      "similarity": 0.970214,
+      "mae": 7.5955,
       "width": 2667,
       "height": 1500
     },
@@ -2058,6 +2088,12 @@
     "procore-q1-fy26": {
       "similarity": 0.972485,
       "mae": 7.0163,
+      "width": 2667,
+      "height": 1500
+    },
+    "procore-q3-fy25": {
+      "similarity": 0.97429,
+      "mae": 6.556,
       "width": 2667,
       "height": 1500
     },
@@ -2433,6 +2469,12 @@
       "width": 2667,
       "height": 1500
     },
+    "tempus-ai-q3-fy25": {
+      "similarity": 0.965865,
+      "mae": 8.7045,
+      "width": 2667,
+      "height": 1500
+    },
     "tempus-ai-q4-fy25": {
       "similarity": 0.960044,
       "mae": 10.1888,
@@ -2628,6 +2670,12 @@
     "veeva-q1-fy27": {
       "similarity": 0.977667,
       "mae": 5.6949,
+      "width": 2667,
+      "height": 1500
+    },
+    "veeva-q3-fy26": {
+      "similarity": 0.977197,
+      "mae": 5.8148,
       "width": 2667,
       "height": 1500
     },

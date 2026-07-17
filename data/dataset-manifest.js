@@ -10411,23 +10411,92 @@
         }
       },
       {
-        "key": "live-nation-q3-fy25",
-        "src": "data/datasets/live-nation-q3-fy25.js",
+        "key": "tempus-ai-q3-fy25",
+        "src": "data/datasets/tempus-ai-q3-fy25.js",
         "data": {
-          "name": "Live Nation · Q3 FY25",
-          "company": "Live Nation",
+          "name": "Tempus AI · Q3 FY25",
+          "company": "Tempus AI",
           "meta": {
-            "title": "Live Nation Q3 FY25 Income Statement",
+            "title": "Tempus AI Q3 FY25 Income Statement",
             "period": "Q3 FY25",
             "periodNote": "Ending Sep. 2025"
           },
           "i18n": {
             "zh": {
-              "name": "Live Nation · 2025 财年第三季度",
+              "name": "Tempus AI · 2025 财年第三季度",
               "meta": {
-                "title": "Live Nation 2025 财年第三季度利润表",
+                "title": "Tempus AI 2025 财年第三季度利润表",
                 "period": "2025 财年第三季度",
                 "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "palantir-q3-fy25",
+        "src": "data/datasets/palantir-q3-fy25.js",
+        "data": {
+          "name": "Palantir · Q3 FY25",
+          "company": "Palantir",
+          "meta": {
+            "title": "Palantir Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Palantir · 2025 财年第三季度",
+              "meta": {
+                "title": "Palantir 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "procore-q3-fy25",
+        "src": "data/datasets/procore-q3-fy25.js",
+        "data": {
+          "name": "Procore · Q3 FY25",
+          "company": "Procore",
+          "meta": {
+            "title": "Procore Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Procore · 2025 财年第三季度",
+              "meta": {
+                "title": "Procore 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "datadog-q3-fy25",
+        "src": "data/datasets/datadog-q3-fy25.js",
+        "data": {
+          "name": "Datadog · Q3 FY25",
+          "company": "Datadog",
+          "meta": {
+            "title": "Datadog Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Quarter ended Sep. 30, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Datadog · 2025 财年第三季度",
+              "meta": {
+                "title": "Datadog 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月 30 日的季度"
               }
             }
           }
@@ -10451,6 +10520,121 @@
                 "title": "Elastic 2026 财年第二季度利润表",
                 "period": "2026 财年第二季度",
                 "periodNote": "截至 2025 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hubspot-q3-fy25",
+        "src": "data/datasets/hubspot-q3-fy25.js",
+        "data": {
+          "name": "HubSpot · Q3 FY25",
+          "company": "HubSpot",
+          "meta": {
+            "title": "HubSpot Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HubSpot · 2025 财年第三季度",
+              "meta": {
+                "title": "HubSpot 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "paycom-q3-fy25",
+        "src": "data/datasets/paycom-q3-fy25.js",
+        "data": {
+          "name": "Paycom · Q3 FY25",
+          "company": "Paycom",
+          "meta": {
+            "title": "Paycom Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Paycom · 2025 财年第三季度",
+              "meta": {
+                "title": "Paycom 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "veeva-q3-fy26",
+        "src": "data/datasets/veeva-q3-fy26.js",
+        "data": {
+          "name": "Veeva Systems · Q3 FY26",
+          "company": "Veeva Systems",
+          "meta": {
+            "title": "Veeva Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Oct. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Veeva Systems · 2026 财年第三季度",
+              "meta": {
+                "title": "Veeva 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2025 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "live-nation-q3-fy25",
+        "src": "data/datasets/live-nation-q3-fy25.js",
+        "data": {
+          "name": "Live Nation · Q3 FY25",
+          "company": "Live Nation",
+          "meta": {
+            "title": "Live Nation Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Live Nation · 2025 财年第三季度",
+              "meta": {
+                "title": "Live Nation 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amc-q3-fy25",
+        "src": "data/datasets/amc-q3-fy25.js",
+        "data": {
+          "name": "AMC Entertainment · Q3 FY25",
+          "company": "AMC Entertainment",
+          "meta": {
+            "title": "AMC Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Three months ended Sep. 30, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AMC 娱乐 · 2025 财年第三季度",
+              "meta": {
+                "title": "AMC 娱乐 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月 30 日的三个月"
               }
             }
           }
