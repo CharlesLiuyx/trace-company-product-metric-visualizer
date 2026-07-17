@@ -24,7 +24,7 @@ The user's explicit statement that human review is complete (including
 
 1. enumerate every current processing PNG;
 2. present the complete list of dataset keys and paths to the operator and
-   wait for explicit confirmation; the confirmed list, not the raw directory
+   wait for their explicit confirmation; the confirmed list, not the raw directory
    contents, is the relocation scope;
 3. fail safely if any same-name destination already exists under
    `input/processed/` for a confirmed PNG;
@@ -152,6 +152,14 @@ Create matching `object-inventory/v3` and `source-coverage/v1`; scan the Source:
    order — the only admissible source for authored `sourceOrder`/`targetOrder`;
 3. residual: only the closed non-semantic residual kinds in §Object Taxonomy.
 
+Before assigning face intent, check the three smallest non-zero values and
+every proposed `hidden-anchor` against a clearly painted node in the same
+column: use that peer's x/width as the expected face slot. Any continuous
+painted region occupying that slot is a visible face; a 1–3px-high region is
+`visible-short-node`. A light tint, the same color as the adjacent link, or a
+horizontal-line appearance never makes it hidden. Only a zero-paint expected
+slot may be claimed `hidden-anchor`.
+
 Each item records native bbox, inventory IDs, mapping roles, and where
 relevant exact amount, typed SSOT reference, and face observation; every
 inventory object gets one Source owner. Face claims and rounded-zero or
@@ -160,11 +168,17 @@ triggers; wrong-type and short/Other risks consume CB-024 and
 CB-003/CB-007/CB-023 when applicable.
 
 **Output:** inventory and coverage summaries for Other, three smallest non-zero
-values, visible/hidden IDs, typed floor exceptions, and casebook hits.
+values, visible/hidden IDs, typed floor exceptions, and casebook hits. For each
+smallest-value or proposed-hidden node with a same-column peer, include the
+compact decision trace:
+`node -> peer slot x/width -> observed bbox|zero-paint -> face intent`.
 
 **STOP:** semantic skip; Other treated as icon residue; a value-bearing Other
 classed as annotation or claimed hidden (T22); a hidden face claim without a
-zero-paint pixel scan; a multi-link face without a recorded per-link order;
+zero-paint pixel scan; a missing same-column slot check where a clear peer
+exists; a hidden claim whose expected slot contains paint; a face decision
+based on tint, link-color equality, horizontal appearance, or value magnitude;
+a multi-link face without a recorded per-link order;
 missing required precision recovery or authoritative correction;
 missing/duplicate coverage; unclassified face; or contradiction with the
 intaked Adapter — there is no retype command; stop and report recovery.
