@@ -10,6 +10,89 @@
 
   ssot.records.push(
     {
+      key: 'coupang-q3-fy25',
+      company: 'Coupang',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 3,
+      sourceImage: 'input/processed/coupang-q3-fy25.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 9.3,
+        notes: ['+18% Y/Y', '+20% Y/Y fxn'],
+        items: [
+          {
+            id: 'product_commerce',
+            label: ['Product', 'Commerce'],
+            value: 8.0,
+            notes: ['+16% Y/Y', '9% adjusted margin', '+2pp Y/Y', 'Core retail', 'Marketplace', 'Rocket Fresh'],
+          },
+          {
+            id: 'developing_offerings',
+            label: ['Developing', 'Offerings'],
+            value: 1.3,
+            notes: ['+32% Y/Y', '(23%) adjusted margin', '+10pp Y/Y', 'Coupang Eats and Coupang Play'],
+          },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 6.5 },
+        operatingExpenses: {
+          total: 2.6,
+          items: [{ id: 'operating_expenses', label: 'Operating expenses', value: 2.6 }],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.070 },
+      },
+      otherIncome: {
+        total: 0.003,
+        items: [{ id: 'other', label: 'Other', value: 0.003 }],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 2.7, notes: ['29% margin', '+1pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 0.162, notes: ['2% margin', '+0pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 0.095, notes: ['1% margin', '+0pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +18%', '按固定汇率同比 +20%'],
+            items: [
+              {
+                label: ['产品', '商业'],
+                notes: ['同比 +16%', '调整后利润率 9%', '同比 +2 个百分点', '核心零售', '平台业务', '火箭生鲜'],
+              },
+              {
+                label: ['培育中', '业务'],
+                notes: ['同比 +32%', '调整后利润率 (23%)', '同比 +10 个百分点', 'Coupang Eats 和 Coupang Play'],
+              },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: { items: [{ label: '运营费用' }] },
+            tax: { label: '税项' },
+          },
+          otherIncome: { items: [{ label: '其他' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 29%', '同比 +1 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 2%', '同比 0 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 1%', '同比 0 个百分点'] },
+          },
+        },
+      },
+    }
+  );
+
+  ssot.records.push(
+    {
       key: 'coupang-q4-fy25',
       company: 'Coupang',
       period: 'Q4 FY25',

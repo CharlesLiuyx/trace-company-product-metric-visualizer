@@ -17,7 +17,6 @@
   const RED_LINK = '#e08585';
   const NOTE = '#666666';
   const LOGO_BLUE = '#0033a1';
-  const TRANSPARENT = 'rgba(0,0,0,0)';
 
   const boeingLogo = `
     <g data-typography-role="brand">
@@ -176,7 +175,6 @@
         cost_of_sales: { x: 1552, y: 789, width: 72, height: 327 },
         gains_disposition: { x: 1775, y: 372, width: 72, height: 142 },
         operating_profit: { x: 1926, y: 404, width: 72, height: 170 },
-        operating_expenses: { x: 1926, y: 650, width: 72, height: 40 },
         net_income: { x: 2300, y: 315, width: 72, height: 127 },
         other_income: { x: 2192, y: 508, width: 72, height: 3 },
         ga: { x: 2300, y: 648, width: 72, height: 25 },
@@ -185,6 +183,10 @@
       },
       labels: enLabels,
     },
+    nonNodeMetrics: [
+      { id: 'operating_expenses', representation: 'data-only' },
+    ],
+
     nodes: [
       { id: 'commercial_airplanes', col: 0, order: 0, type: 'source', label: ['Commercial', 'Airplanes'], value: 11.4, notes: ['+139% Y/Y', '(6%) segment margin'], color: NAVY, labelColor: NAVY, linkTint: NAVY_LINK },
       { id: 'defense', col: 0, order: 1, type: 'source', label: ['Defense, Space', '& Security'], value: 7.4, notes: ['+37% Y/Y', '(7%) segment margin'], color: NAVY, labelColor: NAVY, linkTint: NAVY_LINK },
@@ -196,10 +198,6 @@
       { id: 'cost_of_sales', col: 3, order: 1, type: 'cost', label: 'Cost of sales', value: 22.1, color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
       { id: 'gains_disposition', col: 4, order: 0, type: 'profit', label: ['Gains on', 'disposition'], value: 9.6, color: GREEN, labelColor: GREEN_LABEL, linkTint: GREEN_LINK },
       { id: 'operating_profit', col: 5, order: 0, type: 'profit', label: '', value: 8.7, color: GREEN, labelColor: GREEN_LABEL, linkTint: GREEN_LINK },
-      // The reference has no aggregate operating-expense face. This transparent
-      // semantic anchor preserves the SSOT total; G&A/R&D visibly branch from
-      // the source's green earnings hub above.
-      { id: 'operating_expenses', col: 5, order: 1, type: 'cost', label: '', value: 2.7, color: TRANSPARENT, labelColor: TRANSPARENT, linkTint: TRANSPARENT },
       { id: 'net_income', col: 6, order: 0, type: 'profit', label: 'Net income', value: 8.3, notes: ['35% margin', '+62pp Y/Y'], color: GREEN, labelColor: GREEN_LABEL, linkTint: GREEN_LINK },
       { id: 'other_income', col: 6, order: 1, type: 'profit', label: 'Other', value: 0.2, color: GREEN, labelColor: GREEN_LABEL, linkTint: GREEN_LINK },
       { id: 'ga', col: 6, order: 2, type: 'cost', label: 'G&A', value: 1.7, color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
@@ -232,8 +230,7 @@
           global_services: { label: '全球服务', notes: ['同比 +2%', '分部利润率 202%'] },
           unallocated: { label: '未分配项' }, revenue: { label: '收入', notes: ['同比 +57%'] },
           gross_profit: { label: '毛利润', notes: ['利润率 8%', '同比 +18 个百分点'] }, cost_of_sales: { label: '销售成本' },
-          gains_disposition: { label: ['处置', '收益'] }, operating_profit: { label: '' }, operating_expenses: { label: '' },
-          net_income: { label: '净利润', notes: ['利润率 35%', '同比 +62 个百分点'] }, other_income: { label: '其他' },
+          gains_disposition: { label: ['处置', '收益'] }, operating_profit: { label: '' },           net_income: { label: '净利润', notes: ['利润率 35%', '同比 +62 个百分点'] }, other_income: { label: '其他' },
           ga: { label: '管理费用' }, rnd: { label: '研发' }, interest: { label: '利息' },
         },
         annotationsSvg: annotationsZh,

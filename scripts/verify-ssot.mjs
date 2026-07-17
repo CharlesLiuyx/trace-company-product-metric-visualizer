@@ -54,6 +54,15 @@ const DEPRECATED_HOVER_SHARE_FIELDS = [
   'percentageText',
 ];
 
+const NON_NODE_REPRESENTATIONS = new Set(['data-only', 'annotation', 'flow']);
+
+function isExplicitlyTransparentColor(value) {
+  const color = String(value || '').trim().toLowerCase().replace(/\s+/g, '');
+  if (color === 'transparent') return true;
+  const rgba = color.match(/^rgba\([^,]+,[^,]+,[^,]+,([0-9.]+)\)$/);
+  return Boolean(rgba && Number(rgba[1]) === 0);
+}
+
 function validateHoverShareContract(dataset, errors) {
   for (const link of dataset.links || []) {
     const source = typeof link.source === 'object' ? link.source?.id : link.source;
@@ -137,23 +146,83 @@ function validateCompanyMetadata(records, companies, errors) {
 function validateDatasetParity(record, dataset, errors) {
   const tolerance = record.roundingTolerance ?? 0.15;
   const nodeById = new Map((dataset.nodes || []).map((node) => [node.id, node]));
+  const nonNodeById = new Map();
+  const referencedMetricIds = new Set();
+  for (const [index, metric] of (dataset.nonNodeMetrics || []).entries()) {
+    const label = `${record.key}: nonNodeMetrics[${index}]`;
+    assert(metric && typeof metric === 'object' && !Array.isArray(metric), `${label} must be an object`, errors);
+    if (!metric || typeof metric !== 'object' || Array.isArray(metric)) continue;
+    assert(typeof metric.id === 'string' && metric.id, `${label} needs a stable id`, errors);
+    if (!metric.id) continue;
+    assert(!nonNodeById.has(metric.id), `${record.key}: duplicate nonNodeMetrics id "${metric.id}"`, errors);
+    assert(!nodeById.has(metric.id), `${record.key}: non-node metric "${metric.id}" must not also exist in nodes[]`, errors);
+    assert(
+      NON_NODE_REPRESENTATIONS.has(metric.representation),
+      `${record.key}: non-node metric "${metric.id}" has unsupported representation "${metric.representation}"`,
+      errors
+    );
+    assert(
+      dataset.layout?.nodes?.[metric.id] === undefined,
+      `${record.key}: non-node metric "${metric.id}" must not retain layout.nodes geometry`,
+      errors
+    );
+    if (metric.representation === 'annotation') {
+      const escaped = metric.id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      assert(
+        new RegExp(`data-node=(['"])${escaped}\\1`).test(String(dataset.annotationsSvg || '')),
+        `${record.key}: annotation metric "${metric.id}" needs a matching annotationsSvg data-node`,
+        errors
+      );
+      assert(
+        typeof metric.value === 'number',
+        `${record.key}: annotation metric "${metric.id}" needs an authored value for interaction`,
+        errors
+      );
+    }
+    if (metric.representation === 'flow') {
+      const route = dataset.layout?.routes?.[metric.id];
+      const routeReferenced = (dataset.links || []).some(
+        (link) => link.sourceRoute === metric.id || link.targetRoute === metric.id
+      );
+      assert(route && typeof route === 'object', `${record.key}: flow metric "${metric.id}" needs layout.routes geometry`, errors);
+      assert(routeReferenced, `${record.key}: flow metric "${metric.id}" is not referenced by a link route endpoint`, errors);
+      assert(
+        typeof metric.value === 'number',
+        `${record.key}: flow metric "${metric.id}" needs an authored value`,
+        errors
+      );
+    }
+    nonNodeById.set(metric.id, metric);
+  }
+  for (const node of dataset.nodes || []) {
+    assert(
+      !isExplicitlyTransparentColor(node.color),
+      `${record.key}: semantic node "${node.id}" has an explicitly transparent face; use nonNodeMetrics plus annotation/flow geometry when the Source has no node face`,
+      errors
+    );
+  }
   validateHoverShareContract(dataset, errors);
   const checkNode = (item, label) => {
     if (!item?.id) return;
+    referencedMetricIds.add(item.id);
+    const nonNode = nonNodeById.get(item.id);
+    if (nonNode) {
+      if (typeof nonNode.value === 'number') {
+        assertClose(item.value, nonNode.value, tolerance, `${record.key}: ${label} ${item.id}`, errors);
+      }
+      return;
+    }
     const node = nodeById.get(item.id);
     assert(node, `${record.key}: missing Sankey node for ${label} "${item.id}"`, errors);
     if (node) assertClose(item.value, node.value, tolerance, `${record.key}: ${label} ${item.id}`, errors);
   };
 
-  assertClose(record.revenue.total, nodeById.get('revenue')?.value, tolerance, `${record.key}: revenue total`, errors);
+  checkNode({ id: 'revenue', value: record.revenue.total }, 'revenue total');
   checkNode(record.costs.costOfRevenue, 'costOfRevenue');
   checkNode(record.costs.tax, 'tax');
-  assertClose(
-    record.costs.operatingExpenses.total,
-    nodeById.get('operating_expenses')?.value,
-    tolerance,
-    `${record.key}: operating expenses total`,
-    errors
+  checkNode(
+    { id: 'operating_expenses', value: record.costs.operatingExpenses.total },
+    'operating expenses total'
   );
   checkNode(record.profit.gross, 'gross profit');
   checkNode(record.profit.operating, 'operating profit');
@@ -166,6 +235,13 @@ function validateDatasetParity(record, dataset, errors) {
   for (const item of record.otherIncome?.items || []) checkNode(item, 'other income item');
   for (const item of record.otherExpenses?.items || []) checkNode(item, 'other expense item');
   for (const item of flattenItems(record.profit.gross?.items)) checkNode(item, 'gross profit item');
+  for (const id of nonNodeById.keys()) {
+    assert(
+      referencedMetricIds.has(id),
+      `${record.key}: nonNodeMetrics contains stale or non-SSOT metric "${id}"`,
+      errors
+    );
+  }
 }
 
 function validateArithmetic(record, errors) {

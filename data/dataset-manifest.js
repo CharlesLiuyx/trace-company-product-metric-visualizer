@@ -10639,6 +10639,278 @@
             }
           }
         }
+      },
+      {
+        "key": "pdd-holdings-q3-fy25",
+        "src": "data/datasets/pdd-holdings-q3-fy25.js",
+        "data": {
+          "name": "PDD Holdings · Q3 FY25",
+          "company": "PDD Holdings",
+          "meta": {
+            "title": "PDD Holdings Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "PDD Holdings · 2025 财年第三季度",
+              "meta": {
+                "title": "PDD Holdings 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "alibaba-q2-fy26",
+        "src": "data/datasets/alibaba-q2-fy26.js",
+        "data": {
+          "name": "Alibaba · Q2 FY26",
+          "company": "Alibaba",
+          "meta": {
+            "title": "Alibaba Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Sept. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Alibaba · 2026 财年第二季度",
+              "meta": {
+                "title": "Alibaba 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "coupang-q3-fy25",
+        "src": "data/datasets/coupang-q3-fy25.js",
+        "data": {
+          "name": "Coupang · Q3 FY25",
+          "company": "Coupang",
+          "meta": {
+            "title": "Coupang Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "酷澎 · 2025 财年第三季度",
+              "meta": {
+                "title": "酷澎 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "xiaomi-q3-fy25",
+        "src": "data/datasets/xiaomi-q3-fy25.js",
+        "data": {
+          "name": "Xiaomi · Q3 FY25",
+          "company": "Xiaomi",
+          "meta": {
+            "title": "Xiaomi Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "小米 · 2025 财年第三季度",
+              "meta": {
+                "title": "小米 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "draftkings-q3-fy25",
+        "src": "data/datasets/draftkings-q3-fy25.js",
+        "data": {
+          "name": "DraftKings · Q3 FY25",
+          "company": "DraftKings",
+          "meta": {
+            "title": "DraftKings Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Three months ended Sep. 30, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "DraftKings · 2025 财年第三季度",
+              "meta": {
+                "title": "DraftKings 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月 30 日的三个月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "flutter-q3-fy25",
+        "src": "data/datasets/flutter-q3-fy25.js",
+        "data": {
+          "name": "Flutter Entertainment · Q3 FY25",
+          "company": "Flutter Entertainment",
+          "meta": {
+            "title": "Flutter Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Flutter Entertainment · 2025 财年第三季度",
+              "meta": {
+                "title": "Flutter 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "warby-parker-q3-fy25",
+        "src": "data/datasets/warby-parker-q3-fy25.js",
+        "data": {
+          "name": "Warby Parker · Q3 FY25",
+          "company": "Warby Parker",
+          "meta": {
+            "title": "Warby Parker Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Three months ended Sep. 30, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Warby Parker · 2025 财年第三季度",
+              "meta": {
+                "title": "Warby Parker 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月 30 日止三个月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "jd-com-q3-fy25",
+        "src": "data/datasets/jd-com-q3-fy25.js",
+        "data": {
+          "name": "JD.com · Q3 FY25",
+          "company": "JD.com",
+          "meta": {
+            "title": "JD.com Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "JD.com · 2025 财年第三季度",
+              "meta": {
+                "title": "JD.com 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amer-sports-q3-fy25",
+        "src": "data/datasets/amer-sports-q3-fy25.js",
+        "data": {
+          "name": "Amer Sports · Q3 FY25",
+          "company": "Amer Sports",
+          "meta": {
+            "title": "Amer Sports Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "亚玛芬体育 · 2025 财年第三季度",
+              "meta": {
+                "title": "亚玛芬体育 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hims-hers-q3-fy25",
+        "src": "data/datasets/hims-hers-q3-fy25.js",
+        "data": {
+          "name": "Hims & Hers · Q3 FY25",
+          "company": "Hims & Hers",
+          "meta": {
+            "title": "Hims & Hers Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Quarter ended Sep. 30, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Hims & Hers · 2025 财年第三季度",
+              "meta": {
+                "title": "Hims & Hers 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "on-q3-fy25",
+        "src": "data/datasets/on-q3-fy25.js",
+        "data": {
+          "name": "On · Q3 FY25",
+          "company": "On",
+          "meta": {
+            "title": "On Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "昂跑 · 2025 财年第三季度",
+              "meta": {
+                "title": "昂跑 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "abbott-q3-fy25",
+        "src": "data/datasets/abbott-q3-fy25.js",
+        "data": {
+          "name": "Abbott · Q3 FY25",
+          "company": "Abbott",
+          "meta": {
+            "title": "Abbott Q3 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "雅培 · 2025 财年第三季度",
+              "meta": {
+                "title": "雅培 2025 财年第三季度利润表"
+              }
+            }
+          }
+        }
       }
     ]
   };

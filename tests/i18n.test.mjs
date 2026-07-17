@@ -66,14 +66,21 @@ test('localizeDataset localizes name/meta/nodes and applies overlays last', () =
       { id: 'revenue', label: 'Revenue', value: 10, notes: ['+10% Y/Y'] },
       { id: 'gross', label: 'Gross profit', value: 6 },
     ],
+    nonNodeMetrics: [
+      { id: 'interest', representation: 'flow', label: 'Interest', value: 1 },
+    ],
     links: [{ source: 'revenue', target: 'gross', value: 6 }],
     i18n: {
-      zh: { nodes: { gross: { label: '覆盖毛利' } } },
+      zh: {
+        nodes: { gross: { label: '覆盖毛利' } },
+        nonNodeMetrics: { interest: { label: '覆盖利息' } },
+      },
     },
   };
   const localized = SANKEY_I18N.localizeDataset(dataset, 'zh');
   assert.equal(localized.nodes.find((n) => n.id === 'revenue').label, '收入', 'dictionary path');
   assert.equal(localized.nodes.find((n) => n.id === 'gross').label, '覆盖毛利', 'explicit overlay wins');
+  assert.equal(localized.nonNodeMetrics[0].label, '覆盖利息', 'non-node metric overlay wins');
   assert.equal(dataset.nodes[0].label, 'Revenue', 'source dataset is not mutated');
   assert.equal(localized.links[0].value, 6, 'values never change');
 });

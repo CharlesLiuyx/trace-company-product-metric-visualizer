@@ -484,19 +484,93 @@
     return specs;
   }
 
+  function prepareGraphInput(data) {
+    const semanticNodes = (data.nodes || []).map((node) => Object.assign({}, node));
+    const semanticIds = new Set();
+    semanticNodes.forEach((node) => {
+      if (!node.id) throw new Error('Sankey nodes require a stable id');
+      if (semanticIds.has(node.id)) throw new Error(`Duplicate Sankey node id: ${node.id}`);
+      semanticIds.add(node.id);
+    });
+
+    const nonNodeMetrics = new Map();
+    (data.nonNodeMetrics || []).forEach((metric) => {
+      if (!metric || !metric.id) throw new Error('nonNodeMetrics entries require a stable id');
+      if (semanticIds.has(metric.id) || nonNodeMetrics.has(metric.id)) {
+        throw new Error(`nonNodeMetrics id collides with another metric: ${metric.id}`);
+      }
+      nonNodeMetrics.set(metric.id, metric);
+    });
+
+    const routes = data.layout?.routes || {};
+    const routeIds = new Set();
+    (data.links || []).forEach((link, index) => {
+      for (const side of ['source', 'target']) {
+        const routeField = `${side}Route`;
+        const hasNode = typeof link[side] === 'string' && link[side];
+        const hasRoute = typeof link[routeField] === 'string' && link[routeField];
+        if (Boolean(hasNode) === Boolean(hasRoute)) {
+          throw new Error(`Sankey link ${index} requires exactly one of ${side} or ${routeField}`);
+        }
+        if (hasNode && !semanticIds.has(link[side])) {
+          throw new Error(`Sankey link ${index} references unknown ${side} node: ${link[side]}`);
+        }
+        if (hasRoute) {
+          if (!routes[link[routeField]]) {
+            throw new Error(`Sankey link ${index} references unknown ${routeField}: ${link[routeField]}`);
+          }
+          if (semanticIds.has(link[routeField])) {
+            throw new Error(`Sankey route id collides with a semantic node: ${link[routeField]}`);
+          }
+          routeIds.add(link[routeField]);
+        }
+      }
+    });
+
+    if (routeIds.size && !data.layout?.nodes) {
+      throw new Error('layout.routes requires a fixed layout.nodes graph');
+    }
+
+    const routeNodes = [...routeIds].sort().map((id) => {
+      const metric = nonNodeMetrics.get(id) || {};
+      return {
+        ...metric,
+        id,
+        value: metric.value == null ? 0 : metric.value,
+        type: metric.type || routes[id].type || 'source',
+        routeOnly: true,
+      };
+    });
+    const nodes = semanticNodes.concat(routeNodes).map((node, index) => ({ ...node, index }));
+    const nodeById = new Map(nodes.map((node) => [node.id, node]));
+    const links = (data.links || []).map((raw) => {
+      const sourceId = raw.sourceRoute || raw.source;
+      const targetId = raw.targetRoute || raw.target;
+      return {
+        source: nodeById.get(sourceId).index,
+        target: nodeById.get(targetId).index,
+        value: raw.value,
+        raw,
+      };
+    });
+    return { nodes, links, nonNodeMetrics };
+  }
+
   function buildFixedGraph(nodes, links, data, cfg) {
     const layout = data.layout || {};
     const fixed = layout.nodes || {};
+    const routes = layout.routes || {};
     const scale =
       layout.scale ||
       nodes.reduce((best, n) => {
+        if (n.routeOnly) return best;
         const spec = fixed[n.id];
         return spec && n.value ? Math.min(best, spec.height / n.value) : best;
       }, Infinity);
     const ky = Number.isFinite(scale) ? scale : 1;
 
     const graphNodes = nodes.map((n) => {
-      const spec = fixed[n.id] || {};
+      const spec = (n.routeOnly ? routes[n.id] : fixed[n.id]) || {};
       const x0 = spec.x != null ? spec.x : cfg.margin.left + (n.col || 0) * 426;
       const y0 = spec.y != null ? spec.y : cfg.margin.top;
       const width = spec.width != null ? spec.width : cfg.nodeWidth;
@@ -514,19 +588,23 @@
     const byId = new Map(graphNodes.map((n) => [n.id, n]));
     const graphLinks = links.map((l, i) => {
       const source = byId.get(l.raw.source);
-      const target = byId.get(l.raw.target);
+      const resolvedSource = source || byId.get(l.raw.sourceRoute);
+      const target = byId.get(l.raw.target) || byId.get(l.raw.targetRoute);
+      if (!resolvedSource || !target) {
+        throw new Error(`Sankey link ${i} could not resolve its graph endpoints`);
+      }
       const width = l.raw.width != null ? l.raw.width : l.value * ky;
       const sourceWidth = l.raw.sourceWidth != null ? l.raw.sourceWidth : width;
       const targetWidth = l.raw.targetWidth != null ? l.raw.targetWidth : width;
       const link = Object.assign({}, l, {
         index: i,
-        source,
+        source: resolvedSource,
         target,
         width,
         sourceWidth,
         targetWidth,
       });
-      source.sourceLinks.push(link);
+      resolvedSource.sourceLinks.push(link);
       target.targetLinks.push(link);
       return link;
     });
@@ -733,20 +811,12 @@
     const defs = svg.append('defs');
 
     /* ---------- build the graph for d3-sankey ---------- */
-    const nodeById = new Map();
-    const nodes = data.nodes.map((n, i) => {
-      const copy = Object.assign({}, n, { index: i });
-      nodeById.set(n.id, copy);
-      return copy;
-    });
-    const nCols = 1 + nodes.reduce((m, n) => Math.max(m, n.col || 0), 0);
-
-    const links = data.links.map((l) => ({
-      source: nodeById.get(l.source).index,
-      target: nodeById.get(l.target).index,
-      value: l.value,
-      raw: l,
-    }));
+    const graphInput = prepareGraphInput(data);
+    const nodes = graphInput.nodes;
+    const links = graphInput.links;
+    const nCols = 1 + nodes
+      .filter((node) => !node.routeOnly)
+      .reduce((m, n) => Math.max(m, n.col || 0), 0);
 
     let graph;
     if (data.layout && data.layout.nodes) {
@@ -782,8 +852,8 @@
     });
 
     // preserve the author's display value (sankey overwrites .value)
-    const authoredValue = new Map(data.nodes.map((n) => [n.id, n.value]));
-    graph.nodes.forEach((n) => {
+    const authoredValue = new Map(nodes.map((n) => [n.id, n.value]));
+    graph.nodes.filter((n) => !n.routeOnly).forEach((n) => {
       n.dv = authoredValue.has(n.id) ? authoredValue.get(n.id) : n.value;
     });
 
@@ -879,7 +949,7 @@
     const nodeHitTarget = configuredNodeHitTarget == null
       ? 24
       : Math.max(0, Number(configuredNodeHitTarget) || 0);
-    graph.nodes.forEach((n) => {
+    graph.nodes.filter((n) => !n.routeOnly).forEach((n) => {
       const nodeHeight = n.y1 - n.y0;
       nodeLayer
         .append('rect')
@@ -1066,7 +1136,8 @@
      * sits in the top headroom, centred over the hub column, above the
      * hub's "above" text label. */
     if (meta.logoSvg) {
-      const hub = graph.nodes.find((n) => n.type === 'hub') || graph.nodes[0];
+      const hub = graph.nodes.find((n) => !n.routeOnly && n.type === 'hub')
+        || graph.nodes.find((n) => !n.routeOnly);
       const lw = meta.logoWidth || 150;
       const lh = meta.logoHeight || 86;
       const lx = (hub.x0 + hub.x1) / 2 - lw / 2;
@@ -1324,6 +1395,15 @@
       // the same hover context without making its visual geometry a node.
       const annotationItems = svg.selectAll('.sankey-interactive-annotation[data-node]');
       const nodeByKey = new Map(graph.nodes.map((node) => [keyOf(node), node]));
+      for (const metric of graphInput.nonNodeMetrics.values()) {
+        if (nodeByKey.has(metric.id)) continue;
+        nodeByKey.set(metric.id, {
+          ...metric,
+          dv: metric.value,
+          sourceLinks: [],
+          targetLinks: [],
+        });
+      }
       linkPaths.each(function (lk) {
         linkPathByIndex.set(lk.index, this);
       });
@@ -1679,6 +1759,7 @@
       groupAdjacentLinks,
       distinctAdjacentNodeCount,
       autoSide,
+      prepareGraphInput,
       buildFixedGraph,
       taperedLinkPath,
       linkCenterlinePoint,

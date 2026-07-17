@@ -217,10 +217,13 @@
         sm: { x: 2312, y: 907, width: 71, height: 38 },
         rnd: { x: 2312, y: 1063, width: 71, height: 36 },
         other_opex: { x: 2312, y: 1228, width: 71, height: 6 },
-        tax: { x: -500, y: -500, width: 0, height: 0 },
       },
       labels: labelsEn,
     },
+    nonNodeMetrics: [
+      { id: 'tax', representation: 'data-only' },
+    ],
+
     nodes: [
       { id: 'connected_fitness_products', col: 0, order: 0, type: 'source', label: 'Connected Fitness Products', value: 152, notes: ['(5%) Y/Y', '7% gross margin'], color: BLACK, labelColor: BLACK, linkTint: GRAY_LINK },
       { id: 'subscriptions', col: 0, order: 1, type: 'source', label: 'Subscriptions', value: 398, notes: ['(7%) Y/Y', '69% gross margin'], color: BLACK, labelColor: BLACK, linkTint: GRAY_LINK },
@@ -235,7 +238,6 @@
       { id: 'sm', col: 5, order: 3, type: 'cost', label: 'S&M', value: 67, notes: ['12% of revenue', '(2pp) Y/Y'], color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
       { id: 'rnd', col: 5, order: 4, type: 'cost', label: 'R&D', value: 62, notes: ['11% of revenue', '+1pp Y/Y'], color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
       { id: 'other_opex', col: 5, order: 5, type: 'cost', label: 'Other', value: 13, notes: ['2% of revenue', '(3pp) Y/Y'], color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
-      { id: 'tax', col: 6, order: 0, type: 'cost', label: 'Tax', value: 0, valueText: '', color: 'transparent', labelColor: 'transparent' },
     ],
     links: [
       { source: 'connected_fitness_products', target: 'revenue', value: 152, sourceWidth: 91, targetWidth: 94, y0: 619.5, y1: 741, sourceOrder: 0, targetOrder: 0 },
@@ -276,7 +278,6 @@
           sm: { label: '销售与营销', notes: ['占收入 12%', '同比 (2 个百分点)'] },
           rnd: { label: '研发', notes: ['占收入 11%', '同比 +1 个百分点'] },
           other_opex: { label: '其他', notes: ['占收入 2%', '同比 (3 个百分点)'] },
-          tax: { label: '税费' },
         },
         layout: { labels: labelsZh },
       },

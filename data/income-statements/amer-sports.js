@@ -10,6 +10,78 @@
 
   ssot.records.push(
     {
+      key: 'amer-sports-q3-fy25',
+      company: 'Amer Sports',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/amer-sports-q3-fy25.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 1756,
+        notes: ['+30% Y/Y'],
+        items: [
+          { id: 'technical_apparel', label: 'Technical Apparel', value: 683, notes: ['+31% Y/Y'] },
+          { id: 'outdoor_performance', label: 'Outdoor Performance', value: 724, notes: ['+36% Y/Y'] },
+          { id: 'ball_racquet', label: 'Ball & Racket', value: 350, notes: ['+16% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 758 },
+        operatingExpenses: {
+          total: 782,
+          items: [
+            { id: 'sales_marketing', label: 'S&M', value: 777 },
+            { id: 'other', label: 'Other', value: 6 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 51 },
+      },
+      otherExpenses: {
+        total: 18,
+        items: [{ id: 'finance', label: 'Finance', value: 18 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 998, notes: ['57% margin', '+2pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 216, notes: ['12% margin', '(1pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 146, notes: ['8% margin', '+4pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +30%'],
+            items: [
+              { id: 'technical_apparel', label: '技术服饰', notes: ['同比 +31%'] },
+              { id: 'outdoor_performance', label: '户外运动', notes: ['同比 +36%'] },
+              { id: 'ball_racquet', label: '球类与球拍', notes: ['同比 +16%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'sales_marketing', label: '销售与营销' },
+                { id: 'other', label: '其他' },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherExpenses: {
+            items: [{ id: 'finance', label: '财务费用' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 57%', '同比 +2 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 12%', '同比 (1 个百分点)'] },
+            net: { label: '净利润', notes: ['利润率 8%', '同比 +4 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'amer-sports-q4-fy25',
       company: 'Amer Sports',
       period: 'Q4 FY25',

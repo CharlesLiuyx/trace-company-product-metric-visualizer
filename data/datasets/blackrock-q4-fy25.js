@@ -145,8 +145,6 @@
         distribution_fees: { x: 408, y: 1115, width: 72, height: 13 },
         advisory_other: { x: 408, y: 1256, width: 72, height: 2 },
         revenue: { x: 1030, y: 662, width: 72, height: 288 },
-        cost_of_revenue: { x: -1000, y: -1000, width: 1, height: 1 },
-        gross_profit: { x: -1000, y: -1000, width: 1, height: 1 },
         operating_profit: { x: 1653, y: 463, width: 72, height: 68 },
         operating_expenses: { x: 1653, y: 851, width: 72, height: 219 },
         net_profit: { x: 2276, y: 311, width: 72, height: 46 },
@@ -158,8 +156,6 @@
         amortization_other: { x: 2276, y: 1328, width: 72, height: 8 },
       },
       labels: {
-        cost_of_revenue: { blocks: [] },
-        gross_profit: { blocks: [] },
         investment_advisory_fees: {
           blocks: [
             {
@@ -368,6 +364,11 @@
       },
     },
 
+    nonNodeMetrics: [
+      { id: 'cost_of_revenue', representation: 'data-only' },
+      { id: 'gross_profit', representation: 'data-only' },
+    ],
+
     nodes: [
       { id: 'investment_advisory_fees', col: 0, order: 0, type: 'source', label: ['Investment advisory,', 'fees & securities lending'], value: 5.3, notes: ['+19% Y/Y'], color: BLACK, labelColor: BLACK, linkTint: GRAY_LINK },
       { id: 'performance_fees', col: 0, order: 1, type: 'source', label: ['Investment advisory', 'performance fees'], value: 0.8, notes: ['+67% Y/Y'], color: BLACK, labelColor: BLACK, linkTint: GRAY_LINK },
@@ -375,8 +376,6 @@
       { id: 'distribution_fees', col: 0, order: 3, type: 'source', label: 'Distribution fees', value: 0.4, notes: ['+11% Y/Y'], color: BLACK, labelColor: BLACK, linkTint: GRAY_LINK },
       { id: 'advisory_other', col: 0, order: 4, type: 'source', label: 'Advisory & other', value: 0.1, notes: ['+46% Y/Y'], color: BLACK, labelColor: BLACK, linkTint: GRAY_LINK },
       { id: 'revenue', col: 1, order: 0, type: 'hub', label: 'Revenue', value: 7.0, notes: ['+23% Y/Y'], color: BLACK, labelColor: BLACK },
-      { id: 'cost_of_revenue', col: 4, order: 98, type: 'cost', label: '', value: 0, color: 'transparent', labelColor: 'transparent', linkTint: 'transparent' },
-      { id: 'gross_profit', col: 4, order: 99, type: 'profit', label: '', value: 7.0, color: 'transparent', labelColor: 'transparent', linkTint: 'transparent' },
       { id: 'operating_profit', col: 2, order: 0, type: 'profit', label: 'Operating profit', value: 1.7, notes: ['24% margin', '(13pp) Y/Y'], color: GREEN, labelColor: GREEN_LABEL, linkTint: GREEN_LINK },
       { id: 'operating_expenses', col: 2, order: 1, type: 'cost', label: ['Operating', 'expenses'], value: 5.3, color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
       { id: 'net_profit', col: 3, order: 0, type: 'profit', label: 'Net income', value: 1.2, notes: ['18% margin', '(12pp) Y/Y'], color: GREEN, labelColor: GREEN_LABEL, linkTint: GREEN_LINK },

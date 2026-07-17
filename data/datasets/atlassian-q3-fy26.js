@@ -99,7 +99,6 @@
         rnd: { x: 2248, y: 532, width: 75, height: 159.5 },
         sm: { x: 2248, y: 824, width: 75, height: 75.5 },
         ga: { x: 2248, y: 1047, width: 75, height: 37 },
-        tax: { x: -500, y: -500, width: 0, height: 0 },
       },
       labels: {
         cloud: {
@@ -255,6 +254,10 @@
       },
     },
 
+    nonNodeMetrics: [
+      { id: 'tax', representation: 'data-only' },
+    ],
+
     nodes: [
       {
         id: 'cloud', col: 0, order: 0, type: 'source',
@@ -311,10 +314,6 @@
         label: 'G&A', value: 215, valueText: '($215M)', notes: ['12% of revenue', '(0pp) Y/Y'],
         color: RED, labelColor: RED_LABEL, linkTint: RED_LINK,
       },
-      {
-        id: 'tax', col: 6, order: 0, type: 'cost',
-        label: 'Tax', value: 0, valueText: '', color: 'transparent', labelColor: 'transparent',
-      },
     ],
 
     links: [
@@ -354,7 +353,6 @@
           rnd: { label: '研发', notes: ['占收入 52%', '同比 +1 个百分点'] },
           sm: { label: '销售与市场', notes: ['占收入 25%', '同比 +3 个百分点'] },
           ga: { label: '管理费用', notes: ['占收入 12%', '同比 (0 个百分点)'] },
-          tax: { label: '税费' },
         },
         layout: {
           labels: {

@@ -52,14 +52,14 @@ suite; they never select an empty plan.
 The current M3 build-local chain is the primary close-out authority and runs
 end to end. Fresh intake first records a whole-Source Type Gate; authored
 review then records exhaustive Source Coverage and reconciles Source amounts
-against the actually loaded SSOT (and mapped Sankey nodes for Income
-Statement) before a Plan can exist:
+against the actually loaded SSOT (and exactly one mapped Sankey node or
+non-node metric for Income Statement) before a Plan can exist:
 
 ```text
 SourceClassification v1 -> INTAKED
-  -> ObjectInventory v3 + SourceCoverage v1
+  -> ObjectInventory v4 + SourceCoverage v2
   -> actual authored-value reconciliation
-  -> NodeFacePolicy v1 + VerificationPlan v4 -> ReviewPacket v3
+  -> NodeFacePolicy v2 + VerificationPlan v5 -> ReviewPacket v4
   -> dataset-verification/v1 consistency evidence
   -> fidelity-run/2 EVIDENCE_READY
   -> ManualAttestation + RegionDecision + FeedbackLedger
@@ -70,11 +70,13 @@ SourceClassification v1 -> INTAKED
 evidence. `record:fidelity` owns durable automatic evidence; its
 `evidence-ready` result still requires human review and cannot close a Build.
 The Plan's Source Coverage review is also human-bound: its decision cites both
-the immutable Source digest and the coverage digest. The embedded node-face
-policy converts Source-visible/hidden classifications into render obligations,
-including Source-bound handling for genuinely sub-floor visible faces; neither
-an omitted small value nor an `Other` label can be accepted as decorative
-residue. A primary zero-looking literal that masks a real non-zero amount must
+the immutable Source digest and the coverage digest. Every semantic node
+mapping is expected visible by definition; geometry without a Source-painted
+face must be modeled as flow geometry or a semantic annotation, never as an
+invisible node. The embedded node-face policy includes Source-bound handling
+for genuinely sub-floor visible faces; neither an omitted small value nor an
+`Other` label can be accepted as decorative residue. A primary zero-looking
+literal that masks a real non-zero amount must
 bind authoritative higher-precision recovery and remain non-zero in the
 authored SSOT/View; without that recovery, the Build stops rather than writing
 zero.

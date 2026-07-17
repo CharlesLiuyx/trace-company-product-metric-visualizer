@@ -147,20 +147,18 @@ test('T21 flags faceVisible nodes rendering below the shared MIN_VISIBLE_FACE_PX
   );
 });
 
-test('node paint audit requires hidden anchors to exist but remain unpainted', () => {
-  const hidden = classify([node('anchor', { fill: 'none' })]);
-  assert.doesNotThrow(() => assertNodePaintAudit(hidden, { hidden: ['anchor'] }));
-
-  const painted = classify([node('anchor')]);
+test('the current node paint policy has no invisible semantic-node category', () => {
+  const invisible = classify([node('anchor', { fill: 'none' })]);
   assert.throws(
-    () => assertNodePaintAudit(painted, { hidden: ['anchor'] }),
+    () => assertNodePaintAudit(invisible, {
+      visible: ['anchor'],
+      hidden: [],
+      complete: true,
+      protocol: 'node-face-policy/v2',
+    }),
     (error) => error.code === 'NODE_FACE_POLICY_FAILED' &&
-      error.assessment?.checks['hidden:anchor']?.message.includes('observed painted')
-  );
-  assert.throws(
-    () => assertNodePaintAudit(classify([]), { hidden: ['anchor'] }),
-    (error) => error.code === 'NODE_FACE_POLICY_FAILED' &&
-      error.assessment?.checks['hidden:anchor']?.message.includes('observed missing')
+      error.assessment?.checks['visible:anchor']?.message.includes('not-painted') &&
+      !Object.hasOwn(error.assessment?.summary || {}, 'expectedHidden')
   );
 });
 
@@ -170,20 +168,20 @@ test('node paint audit rejects duplicate semantic node IDs', () => {
   assert.throws(() => assertNodePaintAudit(audit), /duplicate semantic IDs: tax/);
 });
 
-test('node face expectations are compiled from v3 intent and legacy short-node checks', () => {
+test('node face expectations compile every v5 semantic node as visible', () => {
   const expectations = nodeFaceExpectationsFromPlan({
-    protocol: 'verification-plan/v3',
+    protocol: 'verification-plan/v5',
     requiredChecks: [
       { id: 'feature:visible-node-face', evidenceTargets: ['nodes.revenue', 'nodes.tax'] },
       { id: 'feature:visible-short-node', evidenceTargets: ['nodes.tax', 'nodes.interest'] },
-      { id: 'feature:hidden-anchor', evidenceTargets: ['nodes.balance-anchor'] },
     ],
   });
 
   assert.deepEqual(expectations, {
     visible: ['interest', 'revenue', 'tax'],
-    hidden: ['balance-anchor'],
+    hidden: [],
     complete: true,
+    protocol: 'node-face-policy/v2',
   });
 });
 
@@ -455,13 +453,13 @@ test('Build-bound render evidence cannot archive a failed planned label-position
   assert.throws(() => assertPlannedRenderAudits(plan, {}), /missing-audit/);
 });
 
-test('semantic annotations require a bound node, text, and renderer hitbox', () => {
+test('semantic annotations require a bound metric, text, and renderer hitbox', () => {
   const passingAudit = classifySemanticAnnotationAudit({
     expectedNodeIds: ['other_income'],
     annotations: [{
       nodeId: 'other_income',
       interactive: true,
-      nodeExists: true,
+      metricExists: true,
       textCount: 2,
       hasHitbox: true,
     }],
@@ -483,7 +481,7 @@ test('semantic annotations require a bound node, text, and renderer hitbox', () 
     annotations: [{
       nodeId: 'other_income',
       interactive: true,
-      nodeExists: true,
+      metricExists: true,
       textCount: 2,
       hasHitbox: false,
     }],

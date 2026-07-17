@@ -98,8 +98,6 @@
         company_restaurants: { x: 2268, y: 936, width: 71, height: 83 },
         franchise_expenses: { x: 2268, y: 1111, width: 71, height: 64 },
         ga: { x: 2268, y: 1265, width: 71, height: 38 },
-        cost_of_revenue: { x: -1000, y: -1000, width: 0, height: 0 },
-        gross_profit: { x: -1000, y: -1000, width: 0, height: 0 },
       },
       labels: {
         kfc: block(443, 418, [
@@ -146,10 +144,13 @@
           ['Franchise', 'expenses'], '($0.5B)', [], RED_LABEL, 31, 30
         )),
         ga: block(2479, 1248, labelLines('G&A', '($0.3B)', [], RED_LABEL, 31, 30)),
-        cost_of_revenue: { blocks: [] },
-        gross_profit: { blocks: [] },
       },
     },
+    nonNodeMetrics: [
+      { id: 'cost_of_revenue', representation: 'data-only' },
+      { id: 'gross_profit', representation: 'data-only' },
+    ],
+
     nodes: [
       { id: 'kfc', col: 0, order: 0, type: 'source', label: 'KFC', value: 0.9, color: KFC, labelColor: KFC, linkTint: KFC_LINK },
       { id: 'taco_bell', col: 0, order: 1, type: 'source', label: 'Taco Bell', value: 0.7, color: TACO, labelColor: TACO, linkTint: TACO_LINK },
@@ -169,8 +170,6 @@
       { id: 'company_restaurants', col: 6, order: 3, type: 'cost', label: ['Company', 'restaurants'], value: 0.6, valueText: '($0.6B)' },
       { id: 'franchise_expenses', col: 6, order: 4, type: 'cost', label: ['Franchise', 'expenses'], value: 0.5, valueText: '($0.5B)' },
       { id: 'ga', col: 6, order: 5, type: 'cost', label: 'G&A', value: 0.3, valueText: '($0.3B)' },
-      { id: 'cost_of_revenue', col: 7, order: 0, type: 'cost', label: 'Cost of revenue', value: 0, valueText: '', color: 'transparent', labelColor: 'transparent' },
-      { id: 'gross_profit', col: 7, order: 1, type: 'profit', label: 'Gross profit', value: 2.0, valueText: '', color: 'transparent', labelColor: 'transparent' },
     ],
     links: [
       { source: 'kfc', target: 'revenue', value: 0.9, width: 124, targetOrder: 0, linkTint: { left: KFC_LINK, right: KFC_LINK } },
@@ -220,8 +219,6 @@
           company_restaurants: { label: '公司自营餐厅' },
           franchise_expenses: { label: '特许经营费用' },
           ga: { label: '管理费用' },
-          cost_of_revenue: { label: '收入成本' },
-          gross_profit: { label: '毛利润' },
         },
         layout: {
           labels: {

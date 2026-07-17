@@ -147,7 +147,6 @@
         owned_leased_and_other_revenue: { x: 835, y: 715, width: 73, height: 19 },
         cost_reimbursement: { x: 835, y: 874, width: 72, height: 211 },
         revenue: { x: 1302, y: 659, width: 73, height: 288 },
-        gross_profit: { x: -1000, y: -1000, width: 1, height: 1 },
         operating_profit: { x: 1770, y: 516, width: 72, height: 52 },
         operating_expenses: { x: 1770, y: 847, width: 72, height: 236 },
         net_profit: { x: 2236, y: 358, width: 73, height: 32 },
@@ -160,6 +159,10 @@
       },
       labels,
     },
+    nonNodeMetrics: [
+      { id: 'gross_profit', representation: 'data-only' },
+    ],
+
     nodes: [
       { id: 'base_management_fees', col: 0, order: 0, type: 'source', label: ['Base', 'management fees'], value: 0.314, notes: ['+1% Y/Y'], color: GREY, labelColor: GREY_LABEL, linkTint: GREY_LINK },
       { id: 'franchise_fees', col: 0, order: 1, type: 'source', label: 'Franchise fees', value: 0.876, notes: ['+8% Y/Y'], color: GREY, labelColor: GREY_LABEL, linkTint: GREY_LINK },
@@ -169,7 +172,6 @@
       { id: 'owned_leased_and_other_revenue', col: 1, order: 1, type: 'source', label: ['Owned, leased', 'and other'], value: 0.420, notes: ['+10% Y/Y'], color: GREY, labelColor: GREY_LABEL, linkTint: GREY_LINK },
       { id: 'cost_reimbursement', col: 1, order: 2, type: 'source', label: ['Cost', 'reimbursement'], value: 4.760, notes: ['+3% Y/Y'], color: GREY, labelColor: GREY_LABEL, linkTint: GREY_LINK },
       { id: 'revenue', col: 3, order: 0, type: 'hub', label: 'Revenue', value: 6.489, notes: ['+4% Y/Y'], color: GREY, labelColor: GREY_LABEL, linkTint: GREY_LINK },
-      { id: 'gross_profit', col: 4, order: 0, type: 'profit', label: '', value: 6.489, color: 'transparent', labelColor: 'transparent', linkTint: 'transparent' },
       { id: 'operating_profit', col: 4, order: 1, type: 'profit', label: 'Operating profit', value: 1.180, notes: ['18% margin', '+3pp Y/Y'], color: GREEN, labelColor: GREEN_LABEL, linkTint: GREEN_LINK },
       { id: 'operating_expenses', col: 4, order: 2, type: 'cost', label: ['Operating', 'expenses'], value: 5.309, color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
       { id: 'net_profit', col: 5, order: 0, type: 'profit', label: 'Net profit', value: 0.728, notes: ['11% margin', '+2pp Y/Y'], color: GREEN, labelColor: GREEN_LABEL, linkTint: GREEN_LINK },
@@ -212,7 +214,6 @@
           owned_leased_and_other_revenue: { label: '自有、租赁及其他', notes: ['同比 +10%'] },
           cost_reimbursement: { label: '成本报销', notes: ['同比 +3%'] },
           revenue: { label: '收入', notes: ['同比 +4%'] },
-          gross_profit: { label: '毛利润' },
           operating_profit: { label: '营业利润', notes: ['利润率 18%', '同比 +3 个百分点'] },
           operating_expenses: { label: '运营费用' },
           net_profit: { label: '净利润', notes: ['利润率 11%', '同比 +2 个百分点'] },

@@ -439,10 +439,13 @@
         rnd: { x: 2267, y: 567, width: 72, height: 189 },
         ga: { x: 2267, y: 891, width: 72, height: 41 },
         sm: { x: 2267, y: 1086, width: 72, height: 8 },
-        tax: { x: -500, y: -500, width: 0, height: 0 },
       },
       labels: enLabels,
     },
+
+    nonNodeMetrics: [
+      { id: 'tax', representation: 'data-only' },
+    ],
 
     nodes: [
       {
@@ -511,10 +514,6 @@
         label: 'S&M', value: 0.1, notes: ['3% of revenue', '+2pp Y/Y'],
         color: RED, labelColor: RED_LABEL, linkTint: RED_LINK,
       },
-      {
-        id: 'tax', col: 8, order: 0, type: 'cost',
-        label: 'Tax', value: 0, valueText: '', color: 'transparent', labelColor: 'transparent',
-      },
     ],
 
     links: [
@@ -565,7 +564,6 @@
           rnd: { label: '研发', notes: ['占收入 57%', '同比 +7 个百分点'] },
           ga: { label: '管理费用', notes: ['占收入 13%', '同比 +6 个百分点'] },
           sm: { label: '销售与市场', notes: ['占收入 3%', '同比 +2 个百分点'] },
-          tax: { label: '税费' },
         },
         layout: { labels: zhLabels },
       },

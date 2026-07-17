@@ -14,7 +14,6 @@ const SOURCE_DIGEST = `sha256:${'a'.repeat(64)}`;
 
 function sourceCoverage({
   visible = ['other'],
-  hidden = [],
   exceptionNode = null,
   referenceFaceHeightPx = 2,
 } = {}) {
@@ -22,7 +21,6 @@ function sourceCoverage({
     sourceId: `source:${nodeId.replaceAll('_', '-')}`,
     nodeTargets: [nodeId],
     face: {
-      claim: 'visible',
       searchBBox: [100, 200, 80, 12],
       observedBBox: [104, 205, 72, referenceFaceHeightPx],
       ...(nodeId === exceptionNode
@@ -38,23 +36,14 @@ function sourceCoverage({
         : {}),
     },
   }));
-  const hiddenItems = hidden.map((nodeId) => ({
-    sourceId: `source:${nodeId.replaceAll('_', '-')}`,
-    nodeTargets: [nodeId],
-    face: {
-      claim: 'hidden',
-      searchBBox: [200, 300, 80, 12],
-    },
-  }));
   return {
-    schemaVersion: 1,
-    protocol: 'source-coverage/v1',
+    schemaVersion: 2,
+    protocol: 'source-coverage/v2',
     coverageDigest: COVERAGE_DIGEST,
     summary: {
       visibleNodeIds: [...visible].sort(),
-      hiddenNodeIds: [...hidden].sort(),
     },
-    items: [...visibleItems, ...hiddenItems],
+    items: visibleItems,
   };
 }
 
@@ -168,10 +157,9 @@ test('a floor exception never waives a missing expected-visible node', () => {
   assert.match(assessment.checks['visible:other'].message, /observed missing/);
 });
 
-test('a valid short-face exception never waives a painted hidden anchor', () => {
+test('a valid short-face exception never waives an unclassified rendered node', () => {
   const policy = compileNodeFacePolicy(sourceCoverage({
     visible: ['other'],
-    hidden: ['balance_anchor'],
     exceptionNode: 'other',
   }));
   const assessment = assessNodePaintAudit(audit([
@@ -181,7 +169,12 @@ test('a valid short-face exception never waives a painted hidden anchor', () => 
 
   assert.equal(assessment.passed, false);
   assert.equal(assessment.checks['visible:other'].status, 'passed');
-  assert.match(assessment.checks['hidden:balance_anchor'].message, /observed painted/);
+  assert.deepEqual(
+    assessment.violations
+      .filter((item) => item.code === 'unclassified-node')
+      .map((item) => item.nodeId),
+    ['balance_anchor']
+  );
 });
 
 test('a valid short-face exception never classifies an extra rendered node', () => {

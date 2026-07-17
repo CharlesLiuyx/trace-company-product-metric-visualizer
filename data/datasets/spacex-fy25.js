@@ -305,6 +305,10 @@
       },
     },
 
+    nonNodeMetrics: [
+      { id: 'tax', representation: 'data-only' },
+    ],
+
     nodes: [
       {
         id: 'space', col: 0, order: 0, type: 'source',
@@ -366,10 +370,6 @@
         label: 'Impairment', value: 0.038, valueText: '($38M)', notes: ['0% of revenue', '(1pp) Y/Y'],
         color: RED, labelColor: RED_LABEL, linkTint: RED_LINK,
       },
-      {
-        id: 'tax', col: 6, order: 0, type: 'cost',
-        label: 'Tax', value: 0, color: 'transparent', labelColor: 'transparent',
-      },
     ],
 
     links: [
@@ -410,7 +410,6 @@
           sga: { label: '销售、一般及行政', notes: ['占收入 14%', '同比 +1 个百分点'] },
           restructuring: { label: '重组费用', notes: ['占收入 3%', '同比 +1 个百分点'] },
           impairment: { label: '减值', notes: ['占收入 0%', '同比 (1 个百分点)'] },
-          tax: { label: '税费' },
         },
         layout: {
           labels: {

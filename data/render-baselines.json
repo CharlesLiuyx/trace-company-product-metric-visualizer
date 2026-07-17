@@ -3,6 +3,12 @@
   "language": "en",
   "similarityTolerance": 0.003,
   "baselines": {
+    "abbott-q3-fy25": {
+      "similarity": 0.973375,
+      "mae": 6.7894,
+      "width": 2667,
+      "height": 1500
+    },
     "abbott-q4-fy25": {
       "similarity": 0.972876,
       "mae": 6.9166,
@@ -93,6 +99,12 @@
       "width": 2667,
       "height": 1500
     },
+    "alibaba-q2-fy26": {
+      "similarity": 0.96511,
+      "mae": 8.897,
+      "width": 2667,
+      "height": 1500
+    },
     "alibaba-q3-fy26": {
       "similarity": 0.951717,
       "mae": 12.3121,
@@ -174,6 +186,12 @@
     "amer-sports-q1-fy26": {
       "similarity": 0.969349,
       "mae": 7.816,
+      "width": 2667,
+      "height": 1500
+    },
+    "amer-sports-q3-fy25": {
+      "similarity": 0.972082,
+      "mae": 7.1191,
       "width": 2667,
       "height": 1500
     },
@@ -699,6 +717,12 @@
       "width": 2667,
       "height": 1500
     },
+    "coupang-q3-fy25": {
+      "similarity": 0.972804,
+      "mae": 6.9349,
+      "width": 2667,
+      "height": 1500
+    },
     "coupang-q4-fy25": {
       "similarity": 0.972347,
       "mae": 7.0515,
@@ -849,6 +873,12 @@
       "width": 2667,
       "height": 1500
     },
+    "draftkings-q3-fy25": {
+      "similarity": 0.972703,
+      "mae": 6.9606,
+      "width": 2667,
+      "height": 1500
+    },
     "draftkings-q4-fy25": {
       "similarity": 0.973484,
       "mae": 6.7615,
@@ -990,6 +1020,12 @@
     "flutter-q1-fy26": {
       "similarity": 0.962275,
       "mae": 9.6199,
+      "width": 2667,
+      "height": 1500
+    },
+    "flutter-q3-fy25": {
+      "similarity": 0.969189,
+      "mae": 7.8568,
       "width": 2667,
       "height": 1500
     },
@@ -1155,6 +1191,12 @@
       "width": 2667,
       "height": 1500
     },
+    "hims-hers-q3-fy25": {
+      "similarity": 0.970398,
+      "mae": 7.5485,
+      "width": 2667,
+      "height": 1500
+    },
     "hims-hers-q4-fy25": {
       "similarity": 0.96638,
       "mae": 8.5732,
@@ -1290,6 +1332,12 @@
     "jd-com-q1-fy26": {
       "similarity": 0.970724,
       "mae": 7.4653,
+      "width": 2667,
+      "height": 1500
+    },
+    "jd-com-q3-fy25": {
+      "similarity": 0.968594,
+      "mae": 8.0086,
       "width": 2667,
       "height": 1500
     },
@@ -1905,6 +1953,12 @@
       "width": 2667,
       "height": 1500
     },
+    "on-q3-fy25": {
+      "similarity": 0.975961,
+      "mae": 6.13,
+      "width": 2667,
+      "height": 1500
+    },
     "oracle-q4-fy26": {
       "similarity": 0.960721,
       "mae": 10.0161,
@@ -2010,6 +2064,12 @@
     "pdd-holdings-q1-fy26": {
       "similarity": 0.948958,
       "mae": 13.0157,
+      "width": 2667,
+      "height": 1500
+    },
+    "pdd-holdings-q3-fy25": {
+      "similarity": 0.961656,
+      "mae": 9.7778,
       "width": 2667,
       "height": 1500
     },
@@ -2721,6 +2781,12 @@
       "width": 2667,
       "height": 1500
     },
+    "warby-parker-q3-fy25": {
+      "similarity": 0.968128,
+      "mae": 8.1275,
+      "width": 2667,
+      "height": 1500
+    },
     "warner-bros-q1-fy26": {
       "similarity": 0.971509,
       "mae": 7.2651,
@@ -2754,6 +2820,12 @@
     "workday-q4-fy26": {
       "similarity": 0.954263,
       "mae": 11.663,
+      "width": 2667,
+      "height": 1500
+    },
+    "xiaomi-q3-fy25": {
+      "similarity": 0.973749,
+      "mae": 6.6941,
       "width": 2667,
       "height": 1500
     },

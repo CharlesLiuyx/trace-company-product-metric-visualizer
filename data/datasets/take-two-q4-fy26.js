@@ -103,10 +103,13 @@
         revenue: { x: 1303, y: 678, width: 72, height: 259 }, gross_profit: { x: 1614, y: 509, width: 72, height: 145 }, cost_of_revenue: { x: 1614, y: 985, width: 72, height: 113 },
         operating_loss: { x: 1803, y: 864, width: 72, height: 2 }, operating_expenses: { x: 1926, y: 682, width: 72, height: 143 },
         sm: { x: 2236, y: 512, width: 72, height: 61 }, rnd: { x: 2236, y: 761, width: 72, height: 41 }, ga: { x: 2236, y: 983, width: 72, height: 35 }, other: { x: 2236, y: 1194, width: 72, height: 8 },
-        tax: { x: -500, y: -500, width: 0, height: 0 },
       },
       labels,
     },
+    nonNodeMetrics: [
+      { id: 'tax', representation: 'data-only' },
+    ],
+
     nodes: [
       { id: 'mobile', col: 0, order: 0, type: 'source', label: 'Mobile', value: 0.8439, valueText: '$0.8B', notes: ['+13% Y/Y'], color: BLUE, labelColor: BLUE_LABEL, linkTint: BLUE_LINK },
       { id: 'console', col: 0, order: 1, type: 'source', label: 'Console', value: 0.6746, valueText: '$0.7B', notes: ['+14% Y/Y'], color: BLUE, labelColor: BLUE_LABEL, linkTint: BLUE_LINK },
@@ -123,7 +126,6 @@
       { id: 'rnd', col: 7, order: 1, type: 'cost', label: 'R&D', value: 0.2625, valueText: '($0.3B)', notes: ['16% of revenue', '(3pp) Y/Y'], color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
       { id: 'ga', col: 7, order: 2, type: 'cost', label: 'G&A', value: 0.2238, valueText: '($0.2B)', notes: ['13% of revenue', '(1pp) Y/Y'], color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
       { id: 'other', col: 7, order: 3, type: 'cost', label: 'Other', value: 0.0493, valueText: '($0.1B)', notes: ['3% of revenue', '(3pp) Y/Y'], color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
-      { id: 'tax', col: 8, order: 0, type: 'cost', label: '', value: 0, valueText: '', color: 'transparent', labelColor: 'transparent' },
     ],
     links: [
       { source: 'mobile', target: 'platform_revenue', value: 0.8439, sourceWidth: 102, targetWidth: 106, y0: 561, y1: 731, sourceOrder: 0, targetOrder: 0, linkTint: BLUE_LINK },
