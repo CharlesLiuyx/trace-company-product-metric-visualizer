@@ -40,11 +40,11 @@
     ] },
     ticketing: { blocks: [
       block(433, 940, [line('$value', 39), line('+15% Y/Y', 29, { color: NOTE })]),
-      block(369, 1034, [line('Ticketing', 40, { weight: 800 }), line('36% adjusted margin', 28, { color: NOTE }), line('+2pp Y/Y', 28, { color: NOTE })], { anchor: 'end', lineGap: 10 }),
+      block(369, 990.5, [line('Ticketing', 40, { weight: 800 }), line('36% adjusted margin', 28, { color: NOTE }), line('+2pp Y/Y', 28, { color: NOTE })], { anchor: 'end', lineGap: 10 }),
     ] },
     sponsorship: { blocks: [
       block(432, 1116, [line('$value', 39), line('+13% Y/Y', 29, { color: NOTE })]),
-      block(369, 1199, [line('Sponsorship', 40, { weight: 800 }), line('71% adjusted margin', 28, { color: NOTE }), line('+0pp Y/Y', 28, { color: NOTE })], { anchor: 'end', lineGap: 10 }),
+      block(369, 1155, [line('Sponsorship', 40, { weight: 800 }), line('71% adjusted margin', 28, { color: NOTE }), line('+0pp Y/Y', 28, { color: NOTE })], { anchor: 'end', lineGap: 10 }),
     ] },
     segment_total: { blocks: [] },
     revenue: { blocks: [
