@@ -321,6 +321,11 @@
       raster('business-services-retailing-cluster', 'business-services-retailing-cluster.png', 14, 1224, 140, 174),
     ],
 
+    nonNodeMetrics: [
+      { id: 'cost_of_revenue', representation: 'data-only' },
+      { id: 'gross_profit', representation: 'data-only' },
+    ],
+
     nodes: [
       { id: 'insurance', label: 'Insurance', value: 25.3, notes: ['(0%) Y/Y', '22% margin'], type: 'source', col: 0, order: 0 },
       { id: 'bnsf', label: 'BNSF', value: 6.0, notes: ['+5% Y/Y', '30% margin'], type: 'source', col: 0, order: 1 },
@@ -331,8 +336,6 @@
       { id: 'services_retailing', label: ['Services', '& retailing'], value: 11.0, notes: ['+8% Y/Y', '10% margin'], type: 'source', col: 0, order: 6 },
       { id: 'other_revenue', label: 'Other', value: 0.9, type: 'profit', col: 1, order: 7, color: GREEN, labelColor: GREEN_LABEL, linkTint: GREEN_LINK },
       { id: 'revenue', label: 'Revenue', value: 93.7, notes: ['+4% Y/Y'], type: 'hub', col: 1, order: 0 },
-      { id: 'cost_of_revenue', label: '', value: 0, type: 'cost', col: 5, order: 97, color: 'transparent', labelColor: 'transparent', linkTint: 'transparent' },
-      { id: 'gross_profit', label: '', value: 93.7, type: 'profit', col: 5, order: 98, color: 'transparent', labelColor: 'transparent', linkTint: 'transparent' },
       { id: 'operating_profit', label: 'Operating profit', value: 12.4, notes: ['13% margin', '(1pp) Y/Y'], type: 'profit', col: 2, order: 0 },
       { id: 'operating_expenses', label: ['Operating costs', 'and expenses'], value: 81.3, type: 'cost', col: 2, order: 1 },
       { id: 'net_profit_before_tax', label: ['Net profit', 'before tax'], value: 12.3, type: 'profit', col: 3, order: 0 },
@@ -402,8 +405,6 @@
         services_retailing: { x: 430, y: 1264, width: 73, height: 50 },
         other_revenue: { x: 738, y: 1164, width: 72, height: 4 },
         revenue: { x: 897, y: 585, width: 73, height: 429 },
-        cost_of_revenue: { x: -1000, y: -1000, width: 1, height: 1 },
-        gross_profit: { x: -1000, y: -1000, width: 1, height: 1 },
         operating_profit: { x: 1365, y: 493, width: 72, height: 57 },
         operating_expenses: { x: 1365, y: 749, width: 72, height: 372 },
         net_profit_before_tax: { x: 1814, y: 405, width: 72, height: 56 },
@@ -563,8 +564,6 @@
             },
           ],
         },
-        cost_of_revenue: { blocks: [] },
-        gross_profit: { blocks: [] },
         operating_profit: {
           blocks: [
             {
@@ -670,8 +669,6 @@
           services_retailing: { label: ['服务', '与零售'], notes: ['同比 +8%', '利润率 10%'] },
           other_revenue: { label: '其他' },
           revenue: { label: '收入', notes: ['同比 +4%'] },
-          cost_of_revenue: { label: '' },
-          gross_profit: { label: '' },
           operating_profit: { label: '营业利润', notes: ['利润率 13%', '同比 (1 个百分点)'] },
           operating_expenses: { label: ['运营成本', '和费用'] },
           net_profit_before_tax: { label: ['税前', '净利润'] },

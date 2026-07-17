@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-17T17:32:09.000Z",
+  "generatedAt": "2026-07-17T21:14:37.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -21,14 +21,14 @@
     },
     "spacex-fy25": {
       "path": "data/datasets/spacex-fy25.js",
-      "updatedAtMs": 1782567981000,
-      "updatedAt": "2026-06-27T13:46:21.000Z",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
       "timeSource": "git"
     },
     "alibaba-q4-fy26": {
       "path": "data/datasets/alibaba-q4-fy26.js",
-      "updatedAtMs": 1783757678000,
-      "updatedAt": "2026-07-11T08:14:38.000Z",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
       "timeSource": "git"
     },
     "airbnb-q1-fy26": {
@@ -105,8 +105,8 @@
     },
     "atlassian-q3-fy26": {
       "path": "data/datasets/atlassian-q3-fy26.js",
-      "updatedAtMs": 1782059870000,
-      "updatedAt": "2026-06-21T16:37:50.000Z",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
       "timeSource": "git"
     },
     "autodesk-q1-fy27": {
@@ -117,14 +117,14 @@
     },
     "berkshire-hathaway-q1-fy26": {
       "path": "data/datasets/berkshire-hathaway-q1-fy26.js",
-      "updatedAtMs": 1782719204000,
-      "updatedAt": "2026-06-29T07:46:44.000Z",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
       "timeSource": "git"
     },
     "blackrock-q1-fy26": {
       "path": "data/datasets/blackrock-q1-fy26.js",
-      "updatedAtMs": 1783890701000,
-      "updatedAt": "2026-07-12T21:11:41.000Z",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
       "timeSource": "git"
     },
     "boeing-q1-fy26": {
@@ -177,8 +177,8 @@
     },
     "coreweave-q1-fy26": {
       "path": "data/datasets/coreweave-q1-fy26.js",
-      "updatedAtMs": 1783757678000,
-      "updatedAt": "2026-07-11T08:14:38.000Z",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
       "timeSource": "git"
     },
     "costco-q3-fy26": {
@@ -417,14 +417,14 @@
     },
     "pinterest-q1-fy26": {
       "path": "data/datasets/pinterest-q1-fy26.js",
-      "updatedAtMs": 1782542246000,
-      "updatedAt": "2026-06-27T06:37:26.000Z",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
       "timeSource": "git"
     },
     "roblox-q1-fy26": {
       "path": "data/datasets/roblox-q1-fy26.js",
-      "updatedAtMs": 1783757678000,
-      "updatedAt": "2026-07-11T08:14:38.000Z",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
       "timeSource": "git"
     },
     "nyt-q1-fy26": {
@@ -537,8 +537,8 @@
     },
     "snap-q1-fy26": {
       "path": "data/datasets/snap-q1-fy26.js",
-      "updatedAtMs": 1782542246000,
-      "updatedAt": "2026-06-27T06:37:26.000Z",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
       "timeSource": "git"
     },
     "samsung-q1-fy26": {
@@ -555,8 +555,8 @@
     },
     "starbucks-q2-fy26": {
       "path": "data/datasets/starbucks-q2-fy26.js",
-      "updatedAtMs": 1783757678000,
-      "updatedAt": "2026-07-11T08:14:38.000Z",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
       "timeSource": "git"
     },
     "synopsys-q2-fy26": {
@@ -759,8 +759,8 @@
     },
     "coreweave-fy25": {
       "path": "data/datasets/coreweave-fy25.js",
-      "updatedAtMs": 1783757678000,
-      "updatedAt": "2026-07-11T08:14:38.000Z",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
       "timeSource": "git"
     },
     "adidas-q4-fy25": {
@@ -1041,8 +1041,8 @@
     },
     "take-two-q3-fy26": {
       "path": "data/datasets/take-two-q3-fy26.js",
-      "updatedAtMs": 1783661941000,
-      "updatedAt": "2026-07-10T05:39:01.000Z",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
       "timeSource": "git"
     },
     "snap-q4-fy25": {
@@ -1077,8 +1077,8 @@
     },
     "peloton-q2-fy26": {
       "path": "data/datasets/peloton-q2-fy26.js",
-      "updatedAtMs": 1783624607000,
-      "updatedAt": "2026-07-09T19:16:47.000Z",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
       "timeSource": "git"
     },
     "nyt-q4-fy25": {
@@ -1137,8 +1137,8 @@
     },
     "shopify-q4-fy25": {
       "path": "data/datasets/shopify-q4-fy25.js",
-      "updatedAtMs": 1783757678000,
-      "updatedAt": "2026-07-11T08:14:38.000Z",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
       "timeSource": "git"
     },
     "affirm-q2-fy26": {
@@ -1401,8 +1401,8 @@
     },
     "roblox-q4-fy25": {
       "path": "data/datasets/roblox-q4-fy25.js",
-      "updatedAtMs": 1783757678000,
-      "updatedAt": "2026-07-11T08:14:38.000Z",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
       "timeSource": "git"
     },
     "live-nation-fy25": {
@@ -1515,8 +1515,8 @@
     },
     "atlassian-q2-fy26": {
       "path": "data/datasets/atlassian-q2-fy26.js",
-      "updatedAtMs": 1783748117000,
-      "updatedAt": "2026-07-11T05:35:17.000Z",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
       "timeSource": "git"
     },
     "cloudflare-q4-fy25": {
@@ -1689,8 +1689,8 @@
     },
     "take-two-q4-fy26": {
       "path": "data/datasets/take-two-q4-fy26.js",
-      "updatedAtMs": 1783792927000,
-      "updatedAt": "2026-07-11T18:02:07.000Z",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
       "timeSource": "git"
     },
     "coupang-q1-fy26": {
@@ -1719,8 +1719,8 @@
     },
     "peloton-q3-fy26": {
       "path": "data/datasets/peloton-q3-fy26.js",
-      "updatedAtMs": 1783793900000,
-      "updatedAt": "2026-07-11T18:18:20.000Z",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
       "timeSource": "git"
     },
     "health-equity-q1-fy27": {
@@ -1869,8 +1869,8 @@
     },
     "draftkings-q1-fy26": {
       "path": "data/datasets/draftkings-q1-fy26.js",
-      "updatedAtMs": 1783847169000,
-      "updatedAt": "2026-07-12T09:06:09.000Z",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
       "timeSource": "git"
     },
     "procore-q1-fy26": {
@@ -2067,8 +2067,8 @@
     },
     "p-g-q2-fy26": {
       "path": "data/datasets/p-g-q2-fy26.js",
-      "updatedAtMs": 1783890701000,
-      "updatedAt": "2026-07-12T21:11:41.000Z",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
       "timeSource": "git"
     },
     "ups-q4-fy25": {
@@ -2133,14 +2133,14 @@
     },
     "blackrock-q4-fy25": {
       "path": "data/datasets/blackrock-q4-fy25.js",
-      "updatedAtMs": 1783890701000,
-      "updatedAt": "2026-07-12T21:11:41.000Z",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
       "timeSource": "git"
     },
     "boeing-q4-fy25": {
       "path": "data/datasets/boeing-q4-fy25.js",
-      "updatedAtMs": 1783890701000,
-      "updatedAt": "2026-07-12T21:11:41.000Z",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
       "timeSource": "git"
     },
     "morgan-stanley-q4-fy25": {
@@ -2175,8 +2175,8 @@
     },
     "lockheed-martin-q4-fy25": {
       "path": "data/datasets/lockheed-martin-q4-fy25.js",
-      "updatedAtMs": 1783966156000,
-      "updatedAt": "2026-07-13T18:09:16.000Z",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
       "timeSource": "git"
     },
     "citigroup-q4-fy25": {
@@ -2391,8 +2391,8 @@
     },
     "coreweave-q3-fy25": {
       "path": "data/datasets/coreweave-q3-fy25.js",
-      "updatedAtMs": 1784085404000,
-      "updatedAt": "2026-07-15T03:16:44.000Z",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
       "timeSource": "git"
     },
     "lenovo-q2-fy26": {
@@ -2517,14 +2517,14 @@
     },
     "pinterest-q3-fy25": {
       "path": "data/datasets/pinterest-q3-fy25.js",
-      "updatedAtMs": 1784182261000,
-      "updatedAt": "2026-07-16T06:11:01.000Z",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
       "timeSource": "git"
     },
     "snap-q3-fy25": {
       "path": "data/datasets/snap-q3-fy25.js",
-      "updatedAtMs": 1784182261000,
-      "updatedAt": "2026-07-16T06:11:01.000Z",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
       "timeSource": "git"
     },
     "global-payments-q3-fy25": {
@@ -2553,8 +2553,8 @@
     },
     "peloton-q1-fy26": {
       "path": "data/datasets/peloton-q1-fy26.js",
-      "updatedAtMs": 1784182261000,
-      "updatedAt": "2026-07-16T06:11:01.000Z",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
       "timeSource": "git"
     },
     "match-group-q3-fy25": {
@@ -2637,8 +2637,8 @@
     },
     "yum-brands-q3-fy25": {
       "path": "data/datasets/yum-brands-q3-fy25.js",
-      "updatedAtMs": 1784192261000,
-      "updatedAt": "2026-07-16T08:57:41.000Z",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
       "timeSource": "git"
     },
     "block-q3-fy25": {
@@ -2673,8 +2673,8 @@
     },
     "marriott-q3-fy25": {
       "path": "data/datasets/marriott-q3-fy25.js",
-      "updatedAtMs": 1784196572000,
-      "updatedAt": "2026-07-16T10:09:32.000Z",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
       "timeSource": "git"
     },
     "tripadvisor-q3-fy25": {
@@ -2831,6 +2831,78 @@
       "path": "data/datasets/amc-q3-fy25.js",
       "updatedAtMs": 1784309529000,
       "updatedAt": "2026-07-17T17:32:09.000Z",
+      "timeSource": "git"
+    },
+    "pdd-holdings-q3-fy25": {
+      "path": "data/datasets/pdd-holdings-q3-fy25.js",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
+      "timeSource": "git"
+    },
+    "alibaba-q2-fy26": {
+      "path": "data/datasets/alibaba-q2-fy26.js",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
+      "timeSource": "git"
+    },
+    "coupang-q3-fy25": {
+      "path": "data/datasets/coupang-q3-fy25.js",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
+      "timeSource": "git"
+    },
+    "xiaomi-q3-fy25": {
+      "path": "data/datasets/xiaomi-q3-fy25.js",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
+      "timeSource": "git"
+    },
+    "draftkings-q3-fy25": {
+      "path": "data/datasets/draftkings-q3-fy25.js",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
+      "timeSource": "git"
+    },
+    "flutter-q3-fy25": {
+      "path": "data/datasets/flutter-q3-fy25.js",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
+      "timeSource": "git"
+    },
+    "warby-parker-q3-fy25": {
+      "path": "data/datasets/warby-parker-q3-fy25.js",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
+      "timeSource": "git"
+    },
+    "jd-com-q3-fy25": {
+      "path": "data/datasets/jd-com-q3-fy25.js",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
+      "timeSource": "git"
+    },
+    "amer-sports-q3-fy25": {
+      "path": "data/datasets/amer-sports-q3-fy25.js",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
+      "timeSource": "git"
+    },
+    "hims-hers-q3-fy25": {
+      "path": "data/datasets/hims-hers-q3-fy25.js",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
+      "timeSource": "git"
+    },
+    "on-q3-fy25": {
+      "path": "data/datasets/on-q3-fy25.js",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
+      "timeSource": "git"
+    },
+    "abbott-q3-fy25": {
+      "path": "data/datasets/abbott-q3-fy25.js",
+      "updatedAtMs": 1784322877000,
+      "updatedAt": "2026-07-17T21:14:37.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {

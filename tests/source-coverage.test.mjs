@@ -246,7 +246,7 @@ test('Source Coverage uses independent Source identities and never treats Other 
     (error) => error.code === 'SOURCE_COVERAGE_OTHER_SKIPPED'
   );
 
-  const annotationOnly = createObjectInventory({
+  const annotationMetric = createObjectInventory({
     datasetKey: DATASET_KEY,
     objects: [{
       id: 'annotation:other-income',
@@ -254,74 +254,61 @@ test('Source Coverage uses independent Source identities and never treats Other 
       disposition: 'render',
       mapping: [
         { role: 'data', target: 'incomeStatement.otherIncome.items.other_income' },
+        { role: 'render', target: 'nonNodeMetrics.other_income' },
         { role: 'render', target: 'annotations.other_income' },
       ],
       features: ['text'],
     }],
   });
   const sourceClassification = classification();
-  assert.throws(
-    () => createSourceCoverage({
-      classification: sourceClassification,
-      source: sourceClassification.source,
-      scanPasses: SOURCE_COVERAGE_SCAN_PASSES,
-      items: [{
-        sourceId: 'source:other-income',
-        sourceClass: 'financial-value',
-        sourceLabel: 'Other',
-        contentBBox: [900, 200, 180, 80],
-        inventoryObjectIds: ['annotation:other-income'],
-        amount: { literal: '$40M', value: '40', unit: 'M', resolution: '1' },
-        ssotRef: { family: 'income-statement', path: 'otherIncome.items', id: 'other_income' },
+  const annotationCoverage = createSourceCoverage({
+    classification: sourceClassification,
+    source: sourceClassification.source,
+    scanPasses: SOURCE_COVERAGE_SCAN_PASSES,
+    items: [{
+      sourceId: 'source:other-income',
+      sourceClass: 'financial-value',
+      sourceLabel: 'Other',
+      contentBBox: [900, 200, 180, 80],
+      inventoryObjectIds: ['annotation:other-income'],
+      amount: { literal: '$40M', value: '40', unit: 'M', resolution: '1' },
+      ssotRef: { family: 'income-statement', path: 'otherIncome.items', id: 'other_income' },
+    }],
+  }, { inventory: annotationMetric, adapter: 'income-statement' });
+  assert.deepEqual(annotationCoverage.items[0].nodeTargets, []);
+  assert.deepEqual(annotationCoverage.items[0].metricTargets, ['other_income']);
+  assert.doesNotThrow(() => assertSourceCoverageAuthoredValues(annotationCoverage, {
+    loadedData: {
+      ...loadedData(),
+      datasets: [{
+        key: DATASET_KEY,
+        meta: { unit: 'B', decimals: 2 },
+        nodes: [],
+        nonNodeMetrics: [
+          { id: 'other_income', representation: 'annotation', value: 0.04 },
+        ],
       }],
-    }, { inventory: annotationOnly, adapter: 'income-statement' }),
-    (error) => error.code === 'SOURCE_COVERAGE_FINANCIAL_NODE_REQUIRED'
-  );
+    },
+  }));
 });
 
-test('a value-bearing Other must keep a visible node face and is never an annotation (T22)', () => {
+test('a value-bearing Other cannot use the retired invisible-node intent or annotation source class (T22)', () => {
   const sourceClassification = classification();
-  const hiddenInventory = createObjectInventory({
-    datasetKey: DATASET_KEY,
-    objects: [{
-      id: 'node:other-income',
-      kind: 'financial-line-item',
-      disposition: 'render',
-      mapping: [
-        { role: 'data', target: 'incomeStatement.otherIncome.items.other_income' },
-        { role: 'render', target: 'nodes.other_income' },
-      ],
-      features: ['hidden-anchor'],
-      featureEvidence: {
-        'hidden-anchor': {
-          source: 'reference-crop',
-          locator: `input/processing/${DATASET_KEY}.png#other-income`,
-          digest: SOURCE_DIGEST,
-          referenceBBox: [940, 230, 72, 1],
-          inspectionMethod: 'native-scale-crop-and-pixel-scan',
-          classificationClaim: 'no-visible-node-face-observed',
-          reason: 'Thin pale trace misread as a guide endpoint without a node face.',
-        },
-      },
-    }],
-  });
   assert.throws(
-    () => createSourceCoverage({
-      classification: sourceClassification,
-      source: sourceClassification.source,
-      scanPasses: SOURCE_COVERAGE_SCAN_PASSES,
-      items: [{
-        sourceId: 'source:other-income',
-        sourceClass: 'financial-value',
-        sourceLabel: 'Other',
-        contentBBox: [900, 200, 180, 80],
-        inventoryObjectIds: ['node:other-income'],
-        amount: { literal: '$40M', value: '40', unit: 'M', resolution: '1' },
-        ssotRef: { family: 'income-statement', path: 'otherIncome.items', id: 'other_income' },
-        face: { claim: 'hidden', searchBBox: [880, 180, 220, 120] },
+    () => createObjectInventory({
+      datasetKey: DATASET_KEY,
+      objects: [{
+        id: 'node:other-income',
+        kind: 'financial-line-item',
+        disposition: 'render',
+        mapping: [
+          { role: 'data', target: 'incomeStatement.otherIncome.items.other_income' },
+          { role: 'render', target: 'nodes.other_income' },
+        ],
+        features: ['hidden-anchor'],
       }],
-    }, { inventory: hiddenInventory, adapter: 'income-statement' }),
-    (error) => error.code === 'SOURCE_COVERAGE_OTHER_FACE_HIDDEN'
+    }),
+    (error) => error.code === 'OBJECT_FEATURE_INVALID'
   );
 
   const annotationInventory = createObjectInventory({

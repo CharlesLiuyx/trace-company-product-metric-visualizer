@@ -153,6 +153,80 @@
           },
         },
       },
+    },
+    {
+      key: 'draftkings-q3-fy25',
+      company: 'DraftKings',
+      period: 'Q3 FY25',
+      periodNote: 'Three months ended Sep. 30, 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/draftkings-q3-fy25.png',
+      roundingTolerance: 1.5,
+      revenue: {
+        total: 1144,
+        notes: ['+4% Y/Y'],
+        items: [
+          { id: 'online_gaming', label: 'Online Gaming', value: 596, notes: ['(9%) Y/Y'] },
+          { id: 'gaming_software', label: 'Gaming Software', value: 451, notes: ['+25% Y/Y'] },
+          { id: 'other_revenue', label: 'Other', value: 97, notes: ['+25% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 784 },
+        operatingExpenses: {
+          total: 632,
+          items: [
+            { id: 'sm', label: 'S&M', value: 360, notes: ['32% of revenue', '+0pp Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 157, notes: ['14% of revenue', '(5pp) Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 115, notes: ['10% of revenue', '+1pp Y/Y'] },
+          ],
+        },
+        tax: { label: 'Tax', value: 0 },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 360, notes: ['31% margin', '(1pp) Y/Y'] },
+        operating: { id: 'operating_loss', label: 'Operating loss', value: -272, notes: ['(24%) margin', '+3pp Y/Y'] },
+        net: {
+          id: 'operating_loss',
+          label: 'Operating loss',
+          value: -272,
+          notes: ['No separate net income line is shown in the source chart.'],
+        },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月 30 日的三个月',
+          revenue: {
+            notes: ['同比 +4%'],
+            items: [
+              { id: 'online_gaming', label: '在线博彩', notes: ['同比 (9%)'] },
+              { id: 'gaming_software', label: '游戏软件', notes: ['同比 +25%'] },
+              { id: 'other_revenue', label: '其他', notes: ['同比 +25%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'sm', label: '销售与市场', notes: ['占收入 32%', '同比 +0 个百分点'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 14%', '同比 (5 个百分点)'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 10%', '同比 +1 个百分点'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 31%', '同比 (1 个百分点)'] },
+            operating: { label: '营业亏损', notes: ['利润率 (24%)', '同比 +3 个百分点'] },
+            net: { label: '营业亏损', notes: ['来源图未单独显示净利润项目。'] },
+          },
+        },
+      },
     }
   );
 })(window);

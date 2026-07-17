@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
 
-export const NODE_FACE_POLICY_PROTOCOL = 'node-face-policy/v1';
+export const NODE_FACE_POLICY_PROTOCOL = 'node-face-policy/v2';
+const LEGACY_NODE_FACE_POLICY_PROTOCOL = 'node-face-policy/v1';
 export const MIN_VISIBLE_FACE_PX = 3;
 export const FACE_FLOOR_RASTER_TOLERANCE_PX = 0.5;
 
@@ -32,19 +33,12 @@ export function isFaceBelowVisibilityFloor(height) {
 }
 
 export function compileNodeFacePolicy(sourceCoverage) {
-  if (!sourceCoverage || sourceCoverage.protocol !== 'source-coverage/v1') {
-    const error = new Error('Node face policy requires source-coverage/v1');
+  if (!sourceCoverage || sourceCoverage.protocol !== 'source-coverage/v2') {
+    const error = new Error('Node face policy requires source-coverage/v2');
     error.code = 'NODE_FACE_POLICY_SOURCE_COVERAGE_REQUIRED';
     throw error;
   }
   const visibleNodeIds = [...new Set(sourceCoverage.summary?.visibleNodeIds || [])].sort();
-  const hiddenNodeIds = [...new Set(sourceCoverage.summary?.hiddenNodeIds || [])].sort();
-  const overlap = visibleNodeIds.filter((id) => hiddenNodeIds.includes(id));
-  if (overlap.length) {
-    const error = new Error(`Node face policy classifies node(s) as both visible and hidden: ${overlap.join(', ')}`);
-    error.code = 'NODE_FACE_POLICY_CLASSIFICATION_CONFLICT';
-    throw error;
-  }
   const belowFloorExceptions = (sourceCoverage.items || [])
     .filter((item) => item.face?.floorException)
     .map((item) => {
@@ -76,14 +70,13 @@ export function compileNodeFacePolicy(sourceCoverage) {
     throw error;
   }
   const value = {
-    schemaVersion: 1,
+    schemaVersion: 2,
     protocol: NODE_FACE_POLICY_PROTOCOL,
     sourceCoverageDigest: sourceCoverage.coverageDigest,
     minVisibleFacePx: MIN_VISIBLE_FACE_PX,
     rasterTolerancePx: FACE_FLOOR_RASTER_TOLERANCE_PX,
     complete: true,
     visibleNodeIds,
-    hiddenNodeIds,
     belowFloorExceptions,
   };
   return deepFreeze({ ...value, policyDigest: digestCanonical(value) });
@@ -142,7 +135,9 @@ export function assessNodePaintAudit(audit, policy = null, options = {}) {
 
   const checks = {};
   if (policy) {
-    if (policy.protocol !== NODE_FACE_POLICY_PROTOCOL || policy.schemaVersion !== 1) {
+    const currentPolicy = policy.protocol === NODE_FACE_POLICY_PROTOCOL && policy.schemaVersion === 2;
+    const legacyPolicy = policy.protocol === LEGACY_NODE_FACE_POLICY_PROTOCOL && policy.schemaVersion === 1;
+    if (!currentPolicy && !legacyPolicy) {
       violations.push({ code: 'policy-schema-invalid', message: `Node face policy must use ${NODE_FACE_POLICY_PROTOCOL}` });
     }
     if (Number(policy.minVisibleFacePx) !== MIN_VISIBLE_FACE_PX || Number(policy.rasterTolerancePx) !== FACE_FLOOR_RASTER_TOLERANCE_PX) {
@@ -172,22 +167,27 @@ export function assessNodePaintAudit(audit, policy = null, options = {}) {
       checks[`visible:${id}`] = { nodeId: id, intent: 'visible', status, ...(message ? { message } : {}) };
       if (status === 'failed') violations.push({ code: 'expected-visible-failed', nodeId: id, message });
     }
-    for (const id of policy.hiddenNodeIds || []) {
-      const node = facts.byId.get(id);
-      let status = 'passed';
-      let message = '';
-      if (!node) {
-        status = 'failed';
-        message = 'B7 expected hidden, observed missing';
-      } else if (node.faceVisible === true) {
-        status = 'failed';
-        message = 'B7 expected hidden, observed painted';
+    if (legacyPolicy) {
+      for (const id of policy.hiddenNodeIds || []) {
+        const node = facts.byId.get(id);
+        let status = 'passed';
+        let message = '';
+        if (!node) {
+          status = 'failed';
+          message = 'Legacy hidden node missing';
+        } else if (node.faceVisible === true) {
+          status = 'failed';
+          message = 'Legacy hidden node observed painted';
+        }
+        checks[`hidden:${id}`] = { nodeId: id, intent: 'legacy-hidden', status, ...(message ? { message } : {}) };
+        if (status === 'failed') violations.push({ code: 'expected-hidden-failed', nodeId: id, message });
       }
-      checks[`hidden:${id}`] = { nodeId: id, intent: 'hidden', status, ...(message ? { message } : {}) };
-      if (status === 'failed') violations.push({ code: 'expected-hidden-failed', nodeId: id, message });
     }
     if (policy.complete) {
-      const classified = new Set([...(policy.visibleNodeIds || []), ...(policy.hiddenNodeIds || [])]);
+      const classified = new Set([
+        ...(policy.visibleNodeIds || []),
+        ...(legacyPolicy ? policy.hiddenNodeIds || [] : []),
+      ]);
       for (const id of facts.byId.keys()) {
         if (!classified.has(id)) {
           violations.push({ code: 'unclassified-node', nodeId: id, message: `${id} is not classified by Source Coverage` });
@@ -213,7 +213,9 @@ export function assessNodePaintAudit(audit, policy = null, options = {}) {
     summary: {
       checkedNodes: facts.nodes.length,
       expectedVisible: policy?.visibleNodeIds?.length || 0,
-      expectedHidden: policy?.hiddenNodeIds?.length || 0,
+      ...(policy?.protocol === LEGACY_NODE_FACE_POLICY_PROTOCOL
+        ? { expectedHidden: policy?.hiddenNodeIds?.length || 0 }
+        : {}),
       floorExceptions: policy?.belowFloorExceptions?.length || 0,
       unclassified: violations.filter((item) => item.code === 'unclassified-node').length,
     },

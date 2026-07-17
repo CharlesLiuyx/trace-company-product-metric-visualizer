@@ -73,6 +73,9 @@
     ],
     annotationsSvg: '<g class="sankey-interactive-annotation" data-node="other_income" data-link-numerator="other_income" data-link-denominator="net_profit" data-link-anchor-x="2249" data-link-anchor-y="499"><rect x="2224" y="497" width="50" height="4" fill="#008d50"/><text x="2274" y="557" text-anchor="middle" font-size="34" font-weight="800" fill="#008d50">Other</text><text x="2274" y="599" text-anchor="middle" font-size="34" font-weight="400" fill="#008d50">$0.2B</text></g>',
     layout: {
+      routes: {
+        interest: { x: 2399, y: 947, width: 0, height: 2 },
+      },
       scale: 14.4,
       nodes: {
         beauty: { x: 460, y: 409, width: 73, height: 59 },
@@ -89,7 +92,6 @@
         other_income: { x: 2271, y: 497, width: 3, height: 4 },
         net_profit: { x: 2328, y: 376, width: 73, height: 63 },
         tax: { x: 2328, y: 745, width: 73, height: 17 },
-        interest: { x: 2399, y: 947, width: 0, height: 2 },
       },
       labels: {
         beauty: {
@@ -228,6 +230,10 @@
         },
       },
     },
+    nonNodeMetrics: [
+      { id: 'interest', representation: 'flow', label: 'Interest', value: 0.1, type: 'cost' },
+    ],
+
     nodes: [
       { id: 'beauty', col: 0, order: 0, type: 'source', label: 'Beauty', value: 4.0, valueText: '$4.0B', notes: ['+5% Y/Y'] },
       { id: 'grooming', col: 0, order: 1, type: 'source', label: 'Grooming', value: 1.8, notes: ['+2% Y/Y'] },
@@ -243,7 +249,6 @@
       { id: 'other_income', col: 4, order: 0, type: 'profit', label: '', value: 0.2, valueText: '', labelSide: 'right' },
       { id: 'net_profit', col: 5, order: 0, type: 'profit', label: 'Net profit', value: 4.3, notes: ['20% margin', '(2%) Y/Y'] },
       { id: 'tax', col: 5, order: 1, type: 'cost', label: 'Tax', value: 1.1 },
-      { id: 'interest', col: 5, order: 2, type: 'cost', label: 'Interest', value: 0.1, color: 'rgba(0,0,0,0)' },
     ],
     links: [
       { source: 'beauty', target: 'revenue', value: 4.0, width: 59, sourceOrder: 0, targetOrder: 0 },
@@ -258,7 +263,7 @@
       { source: 'gross_profit', target: 'operating_expenses', value: 6.0, sourceWidth: 84, targetWidth: 86, sourceOrder: 1, targetOrder: 0 },
       { source: 'operating_profit', target: 'net_profit', value: 4.1, width: 60, sourceOrder: 0, targetOrder: 0 },
       { source: 'operating_profit', target: 'tax', value: 1.1, width: 17, sourceOrder: 1, targetOrder: 0 },
-      { source: 'operating_profit', target: 'interest', value: 0.1, width: 2, sourceOrder: 2, targetOrder: 0 },
+      { source: 'operating_profit', targetRoute: 'interest', value: 0.1, width: 2, sourceOrder: 2, targetOrder: 0 },
       { source: 'other_income', target: 'net_profit', value: 0.2, sourceWidth: 4, targetWidth: 3, sourceOrder: 0, targetOrder: 1, curve: { c1x: 2280, c1y: 499, c2x: 2308, c2y: 437.5 }, linkTint: { left: GREEN_LABEL, right: GREEN_LINK } },
     ],
     i18n: {
@@ -285,6 +290,8 @@
           other_income: { label: '其他' },
           net_profit: { label: '净利润', notes: ['利润率 20%', '同比 (2%)'] },
           tax: { label: '税费' },
+        },
+        nonNodeMetrics: {
           interest: { label: '利息' },
         },
         annotationsSvg: '<g class="sankey-interactive-annotation" data-node="other_income" data-link-numerator="other_income" data-link-denominator="net_profit" data-link-anchor-x="2249" data-link-anchor-y="499"><rect x="2224" y="497" width="50" height="4" fill="#008d50"/><text x="2274" y="557" text-anchor="middle" font-size="34" font-weight="800" fill="#008d50">其他</text><text x="2274" y="599" text-anchor="middle" font-size="34" font-weight="400" fill="#008d50">$0.2B</text></g>',

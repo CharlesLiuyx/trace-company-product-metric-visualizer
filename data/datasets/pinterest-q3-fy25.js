@@ -84,10 +84,13 @@
         gross_profit: { x: 1367, y: 503, width: 72, height: 250 }, cost_of_revenue: { x: 1367, y: 952, width: 72, height: 61 }, operating_profit: { x: 1834, y: 420, width: 72, height: 15 }, operating_expenses: { x: 1834, y: 605, width: 72, height: 233 },
         other_29: { x: 2170, y: 319, width: 73, height: 8 }, other_5: { x: 2173, y: 431, width: 72, height: 2 }, net_profit: { x: 2301, y: 343, width: 73, height: 28 },
         rnd: { x: 2301, y: 660, width: 72, height: 110 }, sm: { x: 2301, y: 904, width: 72, height: 88 }, ga: { x: 2301, y: 1148, width: 72, height: 30 },
-        tax: { x: -500, y: -500, width: 0, height: 0 },
       },
       labels: layoutLabels,
     },
+    nonNodeMetrics: [
+      { id: 'tax', representation: 'data-only' },
+    ],
+
     nodes: [
       { id: 'us_canada', col: 0, order: 0, type: 'source', label: ['US &', 'Canada'], value: 786, notes: ['+9% Y/Y'], color: BLUE, labelColor: BLUE, linkTint: BLUE_LINK },
       { id: 'europe', col: 0, order: 1, type: 'source', label: 'Europe', value: 193, notes: ['+41% Y/Y'], color: BLUE, labelColor: BLUE, linkTint: BLUE_LINK },
@@ -103,7 +106,6 @@
       { id: 'rnd', col: 5, order: 1, type: 'cost', label: 'R&D', value: 371, notes: ['35% of revenue', '(1pp) Y/Y'], color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
       { id: 'sm', col: 5, order: 2, type: 'cost', label: 'S&M', value: 297, notes: ['28% of revenue', '+1pp Y/Y'], color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
       { id: 'ga', col: 5, order: 3, type: 'cost', label: 'G&A', value: 110, notes: ['11% of revenue', '(5pp) Y/Y'], color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
-      { id: 'tax', col: 6, order: 0, type: 'cost', label: 'Tax', value: 0, valueText: '', color: 'transparent', labelColor: 'transparent' },
     ],
     links: [
       { source: 'us_canada', target: 'revenue', value: 786, width: 236, sourceWidth: 236, targetWidth: 236, y0: 568, y1: 717, sourceOrder: 0, targetOrder: 0 },
@@ -123,7 +125,7 @@
     i18n: {
       zh: {
         name: 'Pinterest · 2025 财年第三季度', meta: { title: 'Pinterest 2025 财年第三季度利润表', period: '2025 财年第三季度', periodNote: '截至 2025 年 9 月', titleSize: 112, titleTextLength: 1660 }, annotationsSvg: annotations(true),
-        nodes: { us_canada: { label: '美国和加拿大', notes: ['同比 +9%'] }, europe: { label: '欧洲', notes: ['同比 +41%'] }, rest_of_world: { label: '世界其他地区', notes: ['同比 +67%'] }, revenue: { label: '收入', notes: ['同比 +17%'] }, gross_profit: { label: '毛利润', notes: ['利润率 80%', '同比 +1 个百分点'] }, cost_of_revenue: { label: '收入成本' }, operating_profit: { label: '营业利润', notes: ['利润率 6%', '同比 +6 个百分点'] }, operating_expenses: { label: '运营费用' }, other_29: { label: '其他' }, other_5: { label: '其他' }, net_profit: { label: '净利润', notes: ['利润率 9%', '同比 +5 个百分点'] }, rnd: { label: '研发', notes: ['占收入 35%', '同比 (1 个百分点)'] }, sm: { label: '销售与营销', notes: ['占收入 28%', '同比 +1 个百分点'] }, ga: { label: '管理费用', notes: ['占收入 11%', '同比 (5 个百分点)'] }, tax: { label: '税费' } },
+        nodes: { us_canada: { label: '美国和加拿大', notes: ['同比 +9%'] }, europe: { label: '欧洲', notes: ['同比 +41%'] }, rest_of_world: { label: '世界其他地区', notes: ['同比 +67%'] }, revenue: { label: '收入', notes: ['同比 +17%'] }, gross_profit: { label: '毛利润', notes: ['利润率 80%', '同比 +1 个百分点'] }, cost_of_revenue: { label: '收入成本' }, operating_profit: { label: '营业利润', notes: ['利润率 6%', '同比 +6 个百分点'] }, operating_expenses: { label: '运营费用' }, other_29: { label: '其他' }, other_5: { label: '其他' }, net_profit: { label: '净利润', notes: ['利润率 9%', '同比 +5 个百分点'] }, rnd: { label: '研发', notes: ['占收入 35%', '同比 (1 个百分点)'] }, sm: { label: '销售与营销', notes: ['占收入 28%', '同比 +1 个百分点'] }, ga: { label: '管理费用', notes: ['占收入 11%', '同比 (5 个百分点)'] }},
         layout: { labels: { ...zhLabels, tax: { blocks: [] } } },
       },
     },

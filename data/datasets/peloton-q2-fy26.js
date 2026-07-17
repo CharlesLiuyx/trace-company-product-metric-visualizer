@@ -201,10 +201,13 @@
         ga: { x: 2312, y: 682, width: 71, height: 55 },
         rnd: { x: 2312, y: 883, width: 71, height: 34 },
         other: { x: 2312, y: 1084, width: 71, height: 8 },
-        tax: { x: -500, y: -500, width: 0, height: 0 },
       },
       labels: labelsEn,
     },
+    nonNodeMetrics: [
+      { id: 'tax', representation: 'data-only' },
+    ],
+
     nodes: [
       { id: 'connected_fitness_products', col: 0, order: 0, type: 'source', label: 'Connected Fitness Products', value: 244, notes: ['(4%) Y/Y', '14% gross margin'], color: BLACK, labelColor: BLACK, linkTint: GRAY_LINK },
       { id: 'subscriptions', col: 0, order: 1, type: 'source', label: 'Subscriptions', value: 413, notes: ['(2%) Y/Y', '72% gross margin'], color: BLACK, labelColor: BLACK, linkTint: GRAY_LINK },
@@ -217,7 +220,6 @@
       { id: 'ga', col: 5, order: 1, type: 'cost', label: 'G&A', value: 103, notes: ['16% of revenue', '(4pp) Y/Y'], color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
       { id: 'rnd', col: 5, order: 2, type: 'cost', label: 'R&D', value: 65, notes: ['10% of revenue', '+1pp Y/Y'], color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
       { id: 'other', col: 5, order: 3, type: 'cost', label: 'Other', value: 26, notes: ['4% of revenue', '+1pp Y/Y'], color: RED, labelColor: RED_LABEL, linkTint: RED_LINK },
-      { id: 'tax', col: 6, order: 0, type: 'cost', label: 'Tax', value: 0, valueText: '', color: 'transparent', labelColor: 'transparent' },
     ],
     links: [
       { source: 'connected_fitness_products', target: 'revenue', value: 244, sourceWidth: 136, targetWidth: 135, y0: 597, y1: 720.5, sourceOrder: 0, targetOrder: 0 },
@@ -254,7 +256,6 @@
           ga: { label: '管理费用', notes: ['占收入 16%', '同比 (4 个百分点)'] },
           rnd: { label: '研发', notes: ['占收入 10%', '同比 +1 个百分点'] },
           other: { label: '其他', notes: ['占收入 4%', '同比 +1 个百分点'] },
-          tax: { label: '税费' },
         },
         layout: { labels: labelsZh },
       },

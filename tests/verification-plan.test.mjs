@@ -37,7 +37,6 @@ function nodeFor(objects) {
 function coverageItem(objects, sourceClass, index, adapter) {
   const node = nodeFor(objects);
   const y = 20 + index * 30;
-  const hidden = node?.features.includes('hidden-anchor');
   return {
     sourceId: `source:item-${index}`,
     sourceClass,
@@ -52,9 +51,7 @@ function coverageItem(objects, sourceClass, index, adapter) {
         : { family: 'revenue-metric', path: 'observations', date: '2026-01-31' },
     } : {}),
     ...(node ? {
-      face: hidden
-        ? { claim: 'hidden', searchBBox: [220, y, 100, 20] }
-        : { claim: 'visible', searchBBox: [220, y, 100, 20], observedBBox: [230, y + 5, 72, 10] },
+      face: { searchBBox: [220, y, 100, 20], observedBBox: [230, y + 5, 72, 10] },
     } : {}),
   };
 }
@@ -168,7 +165,7 @@ test('ObjectInventory has stable ids, complete mappings, and an order-independen
 
   assert.equal(left.inventoryDigest, right.inventoryDigest);
   assert.deepEqual(left.summary, { render: 3, 'data-only': 1, skip: 1 });
-  assert.equal(left.protocol, 'object-inventory/v3');
+  assert.equal(left.protocol, 'object-inventory/v4');
   assert.deepEqual(left.objects.map((object) => object.id), [...left.objects.map((object) => object.id)].sort());
 });
 
@@ -207,22 +204,28 @@ test('ObjectInventory rejects duplicate identities and unexplained skips', () =>
   );
 });
 
-test('ObjectInventory v3 makes node paint intent explicit and keeps v1 readable', () => {
-  assert.throws(
-    () => createObjectInventory({
-      datasetKey: 'example-fy25',
-      objects: [{
-        id: 'node:tax',
-        kind: 'short-node',
-        disposition: 'render',
-        mapping: [{ role: 'render', target: 'nodes.tax' }],
-        features: ['visible-short-node'],
-        featureEvidence: {
-          'visible-short-node': { source: 'reference-crop', locator: 'reference.png#tax' },
-        },
-      }],
-    }),
-    (error) => error.code === 'NODE_FACE_INTENT_REQUIRED'
+test('ObjectInventory v4 makes every node mapping visible by definition and keeps v1 readable', () => {
+  const current = createObjectInventory({
+    datasetKey: 'example-fy25',
+    objects: [{
+      id: 'node:tax',
+      kind: 'short-node',
+      disposition: 'render',
+      mapping: [{ role: 'render', target: 'nodes.tax' }],
+      features: ['visible-short-node'],
+      featureEvidence: {
+        'visible-short-node': { source: 'reference-crop', locator: 'reference.png#tax' },
+      },
+    }],
+  });
+  const plan = compilePlan({
+    adapter: 'income-statement',
+    inventory: current,
+    changeImpact: ['geometry'],
+  });
+  assert.deepEqual(
+    plan.requiredChecks.find((check) => check.id === 'feature:visible-node-face').evidenceTargets,
+    ['nodes.tax']
   );
 
   const legacy = createObjectInventory({
@@ -248,7 +251,7 @@ test('ObjectInventory v3 makes node paint intent explicit and keeps v1 readable'
   );
 });
 
-test('hidden anchors require native-pixel confirmation and compile an independent manual check', () => {
+test('ObjectInventory v4 rejects invisible semantic nodes while v3 archives remain readable only', () => {
   const base = {
     id: 'node:balance-anchor',
     kind: 'hidden-anchor',
@@ -266,7 +269,7 @@ test('hidden anchors require native-pixel confirmation and compile an independen
 
   assert.throws(
     () => createObjectInventory({ datasetKey: 'example-fy25', objects: [base] }),
-    (error) => error.code === 'HIDDEN_ANCHOR_REFERENCE_BBOX_REQUIRED'
+    (error) => error.code === 'OBJECT_FEATURE_INVALID'
   );
 
   const confirmed = {
@@ -281,21 +284,20 @@ test('hidden anchors require native-pixel confirmation and compile an independen
       },
     },
   };
-  const inventory = createObjectInventory({ datasetKey: 'example-fy25', objects: [confirmed] });
-  const plan = compilePlan({
-    adapter: 'income-statement',
-    inventory,
-    changeImpact: ['geometry'],
+  const historicalV3 = createObjectInventory({
+    schemaVersion: 3,
+    protocol: 'object-inventory/v3',
+    datasetKey: 'example-fy25',
+    objects: [confirmed],
   });
-  const checks = Object.fromEntries(plan.requiredChecks.map((check) => [check.id, check]));
-  assert.equal(checks['feature:hidden-anchor'].evidenceKind, 'node-paint-audit');
-  assert.deepEqual(checks['feature:hidden-anchor'].ruleIds, ['B7']);
-  assert.equal(checks['feature:hidden-anchor-source-confirmation'].enforcement, 'manual');
-  assert.equal(checks['feature:hidden-anchor-source-confirmation'].localeScope, 'global');
-  assert.deepEqual(checks['feature:hidden-anchor-source-confirmation'].ruleIds, ['T12']);
-  assert.deepEqual(
-    plan.objectCoverage.find((object) => object.objectId === 'node:balance-anchor').featureCheckIds,
-    ['feature:hidden-anchor', 'feature:hidden-anchor-source-confirmation']
+  assert.equal(historicalV3.protocol, 'object-inventory/v3');
+  assert.throws(
+    () => compileVerificationPlan({
+      adapter: 'income-statement',
+      inventory: historicalV3,
+      changeImpact: ['geometry'],
+    }),
+    (error) => error.code === 'INVENTORY_VERSION_STALE'
   );
 
   const historicalV2 = createObjectInventory({
@@ -358,6 +360,30 @@ test('node-like annotations require source classification and compile semantic i
   assert.deepEqual(checks['feature:semantic-annotation'].objectIds, ['node:other-income']);
   assert.equal(checks['feature:semantic-annotation-source-classification'].enforcement, 'manual');
   assert.deepEqual(checks['feature:semantic-annotation-source-classification'].ruleIds, ['T17']);
+
+  const nonNodeSemantic = {
+    ...semantic,
+    id: 'metric:other-income',
+    kind: 'annotation-metric',
+    mapping: [
+      { role: 'render', target: 'nonNodeMetrics.other_income' },
+      { role: 'render', target: 'annotations.other_income' },
+    ],
+    features: ['semantic-annotation'],
+  };
+  const nonNodeInventory = createObjectInventory({
+    datasetKey: 'example-fy25',
+    objects: [nonNodeSemantic],
+  });
+  const nonNodePlan = compilePlan({
+    adapter: 'income-statement',
+    inventory: nonNodeInventory,
+    changeImpact: ['interaction'],
+  });
+  const nonNodeCheck = nonNodePlan.requiredChecks.find(
+    (check) => check.id === 'feature:semantic-annotation'
+  );
+  assert.deepEqual(nonNodeCheck.objectIds, ['metric:other-income']);
 });
 
 test('Income Statement plan compiles object features into mandatory rule checks', () => {
@@ -392,8 +418,8 @@ test('Income Statement plan compiles object features into mandatory rule checks'
   assert.equal(checks['feature:label-measurement-provenance'].localeScope, 'global');
   assert.equal(plan.objectCoverage.length, inventory.objects.length);
   assert.match(plan.planDigest, /^sha256:[a-f0-9]{64}$/);
-  assert.equal(plan.schemaVersion, 4);
-  assert.equal(plan.protocol, 'verification-plan/v4');
+  assert.equal(plan.schemaVersion, 5);
+  assert.equal(plan.protocol, 'verification-plan/v5');
   assert.equal(plan.sourceCoverageDigest, sourceCoverageFor(inventory, 'income-statement').coverageDigest);
   assert.ok(plan.postReviewChecks.some((check) => check.id === 'adapter:final-seal'));
 
@@ -575,8 +601,8 @@ test('Revenue Metric cannot silently accept a rendered object', () => {
       adapter: 'revenue-metric',
       inventory,
       sourceCoverage: {
-        schemaVersion: 1,
-        protocol: 'source-coverage/v1',
+        schemaVersion: 2,
+        protocol: 'source-coverage/v2',
         datasetKey: inventory.datasetKey,
         adapter: 'revenue-metric',
         inventoryDigest: inventory.inventoryDigest,

@@ -117,7 +117,6 @@
         product_development: { x: 2507, y: 831, width: 77, height: 27 },
         ga: { x: 2507, y: 1092, width: 77, height: 15 },
         amortization_impairment: { x: 2507, y: 1354, width: 77, height: 4 },
-        tax: { x: -500, y: -500, width: 0, height: 0 },
       },
       labels: {
         china_ecommerce: {
@@ -320,9 +319,12 @@
             },
           ],
         },
-        tax: { blocks: [] },
       },
     },
+
+    nonNodeMetrics: [
+      { id: 'tax', representation: 'data-only' },
+    ],
 
     nodes: [
       {
@@ -399,10 +401,6 @@
         label: ['Amortization', '& impairment'], value: 0.4, notes: ['1% of revenue'],
         color: RED, labelColor: RED_LABEL, linkTint: RED_LINK,
       },
-      {
-        id: 'tax', col: 6, order: 0, type: 'cost',
-        label: 'Tax', value: 0, color: 'transparent', labelColor: 'transparent',
-      },
     ],
 
     links: [
@@ -459,7 +457,6 @@
           product_development: { label: '产品开发', notes: ['占收入 8%'] },
           ga: { label: '一般及行政', notes: ['占收入 4%'] },
           amortization_impairment: { label: '摊销与减值', notes: ['占收入 1%'] },
-          tax: { label: '税费' },
         },
         layout: {
           labels: {

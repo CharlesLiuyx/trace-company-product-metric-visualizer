@@ -384,7 +384,7 @@ async function renderLocaleRun({
     const interfaceGeometry = await collectCandidateInterfaceGeometry(page, datasetKey, language);
 
     // Diagnostics report all faces without claiming inventory intent. A
-    // Build-bound run must prove every planned visible/hidden node per locale.
+    // Build-bound run must prove every planned semantic node is painted per locale.
     const nodeFaceExpectations = nodeFaceExpectationsFromPlan(reviewPlan);
     const planBound = executionMode === 'review-evidence' || executionMode === 'plan-diagnostic';
     assertNodePaintAudit(nodePaintAudit, planBound ? nodeFaceExpectations : {});
@@ -509,7 +509,7 @@ async function renderLocaleRun({
       `G2 canvas: rawViewBox=${purity.viewBox || 'missing'} rawWidth=${purity.widthAttribute || 'responsive'} rawHeight=${purity.heightAttribute || 'responsive'} capture=${captureSize.width}x${captureSize.height}`
     );
     console.log(
-      `node paint audit: checked=${nodePaintAudit.checkedNodes} visible=${nodePaintAudit.visibleNodeIds.length} invisible=${nodePaintAudit.invisibleNodeIds.length} expectedVisible=${nodeFaceExpectations.visible.length} expectedHidden=${nodeFaceExpectations.hidden.length}`
+      `node paint audit: checked=${nodePaintAudit.checkedNodes} visible=${nodePaintAudit.visibleNodeIds.length} invisible=${nodePaintAudit.invisibleNodeIds.length} expectedVisible=${nodeFaceExpectations.visible.length}`
     );
     logLabelLayoutAudit(labelLayoutAudit);
     console.log(
