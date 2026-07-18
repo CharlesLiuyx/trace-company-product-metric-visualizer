@@ -89,9 +89,12 @@ If `$0.0B` or another zero literal represents a non-zero semantic object,
 locator, and a higher-precision K/M/B/T literal that normalizes exactly to
 the authored non-zero amount.
 
-A confirmed non-zero unit typo keeps the original literal and needs a
-user-directed `authoritative-source-correction` bound to the official
-locator/literal, approved corrected literal, `unit-typo` issue, and reason;
+A confirmed non-zero unit or numeric typo keeps the original literal and needs
+a user-directed `authoritative-source-correction` bound to the official
+locator/literal, approved corrected literal, a typed `unit-typo` or
+`numeric-typo` issue, and reason; `unit-typo` means the suffix is wrong, while
+`numeric-typo` means the suffix is correct but the displayed magnitude is
+wrong;
 both values must support the authored amount within Source resolution. It is
 distinct from precision recovery and never inferred or combined with it.
 
@@ -182,7 +185,7 @@ without an observed Source face; a missing same-column slot check where a
 clear peer exists; a zero-paint object left in `nodes[]`; a face decision
 based on tint, link-color equality, horizontal appearance, or value magnitude;
 a multi-link face without a recorded per-link order;
-missing required precision recovery or authoritative correction;
+missing required precision recovery or typed authoritative correction;
 missing/duplicate coverage; unclassified face; or contradiction with the
 intaked Adapter — there is no retype command; stop and report recovery.
 

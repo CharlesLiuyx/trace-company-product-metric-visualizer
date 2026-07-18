@@ -209,9 +209,12 @@ primary literal's half-resolution rounding interval. If the value cannot be
 recovered, the Build is blocked; it must not turn unknown/non-zero Source
 semantics into an authored zero.
 
-If a non-zero primary Source literal has a confirmed unit typo, the original
-literal remains recorded and an optional `amount.authoritativeCorrection` may
-repair only the closed `unit-typo` issue. It must bind
+If a non-zero primary Source literal has a confirmed unit or numeric typo, the
+original literal remains recorded and an optional
+`amount.authoritativeCorrection` may repair only the closed `unit-typo` or
+`numeric-typo` issue. `unit-typo` requires the primary suffix to differ from
+the authored unit; `numeric-typo` requires the suffix to match while the
+displayed magnitude conflicts. The correction must bind
 `method: 'authoritative-source-correction'`, explicit
 `approval: 'user-directed-source-correction'`, an authoritative locator and
 literal, the approved corrected display literal, and a reason. The original

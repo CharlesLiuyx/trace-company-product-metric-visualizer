@@ -485,6 +485,51 @@ test('a user-approved authoritative correction may repair a non-zero Source unit
   );
 });
 
+test('a user-approved authoritative correction may repair a non-zero Source numeric typo without erasing the original literal', () => {
+  const coverage = financialCoverage({
+    amount: {
+      literal: '($1.1B)',
+      value: '1.327672',
+      unit: 'B',
+      resolution: '0.1',
+      authoritativeCorrection: {
+        method: AUTHORITATIVE_CORRECTION_METHOD,
+        issue: 'numeric-typo',
+        approval: AUTHORITATIVE_CORRECTION_APPROVAL,
+        locator: 'https://www.sec.gov/example',
+        authoritativeLiteral: '$1,327.672M',
+        correctedLiteral: '($1.3B)',
+        reason: 'The Source magnitude conflicts with the official filing and its own revenue bridge.',
+      },
+    },
+  });
+  assert.equal(coverage.items[0].amount.literal, '($1.1B)');
+  assert.equal(coverage.items[0].amount.value, '1.327672');
+  assert.equal(coverage.items[0].amount.authoritativeCorrection.issue, 'numeric-typo');
+  assert.equal(coverage.items[0].amount.authoritativeCorrection.correctedLiteral, '($1.3B)');
+
+  assert.throws(
+    () => financialCoverage({
+      amount: {
+        literal: '$1.1M',
+        value: '1.327672',
+        unit: 'B',
+        resolution: '0.1',
+        authoritativeCorrection: {
+          method: AUTHORITATIVE_CORRECTION_METHOD,
+          issue: 'numeric-typo',
+          approval: AUTHORITATIVE_CORRECTION_APPROVAL,
+          locator: 'https://www.sec.gov/example',
+          authoritativeLiteral: '$1,327.672M',
+          correctedLiteral: '$1.3B',
+          reason: 'A unit mismatch must not be mislabeled as a numeric typo.',
+        },
+      },
+    }),
+    (error) => error.code === 'SOURCE_COVERAGE_AUTHORITATIVE_CORRECTION_ISSUE_MISMATCH'
+  );
+});
+
 test('K/M/B/T normalization reconciles the actual SSOT path and Adapter node exactly', () => {
   const coverage = financialCoverage();
   assert.deepEqual(

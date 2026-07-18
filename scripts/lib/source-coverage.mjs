@@ -61,7 +61,7 @@ export const VISIBILITY_FLOOR_EXCEPTION_METHOD = 'native-scale-crop-and-pixel-sc
 export const PRECISION_RECOVERY_METHOD = 'authoritative-supplemental-source';
 export const AUTHORITATIVE_CORRECTION_METHOD = 'authoritative-source-correction';
 export const AUTHORITATIVE_CORRECTION_APPROVAL = 'user-directed-source-correction';
-export const AUTHORITATIVE_CORRECTION_ISSUES = Object.freeze(['unit-typo']);
+export const AUTHORITATIVE_CORRECTION_ISSUES = Object.freeze(['unit-typo', 'numeric-typo']);
 
 const STABLE_ID_RE = /^[a-z0-9]+(?:[._:-][a-z0-9]+)*$/;
 const DIGEST_RE = /^sha256:[a-f0-9]{64}$/;
@@ -366,6 +366,20 @@ function normalizeAmount(raw, sourceId) {
       'SOURCE_COVERAGE_AUTHORITATIVE_CORRECTION_INVALID',
       `${sourceId} original, authoritative, and corrected literals must each include a numeric K/M/B/T amount`
     );
+    if (raw.authoritativeCorrection.issue === 'unit-typo') {
+      invariant(
+        literalAmount.unit !== raw.unit,
+        'SOURCE_COVERAGE_AUTHORITATIVE_CORRECTION_ISSUE_MISMATCH',
+        `${sourceId} unit-typo requires the primary Source unit to differ from amount.unit`
+      );
+    }
+    if (raw.authoritativeCorrection.issue === 'numeric-typo') {
+      invariant(
+        literalAmount.unit === raw.unit,
+        'SOURCE_COVERAGE_AUTHORITATIVE_CORRECTION_ISSUE_MISMATCH',
+        `${sourceId} numeric-typo requires the primary Source unit to match amount.unit`
+      );
+    }
     const authoritativeBaseValue = authoritativeAmount.value * UNIT_MULTIPLIERS[authoritativeAmount.unit];
     const correctedBaseValue = correctedAmount.value * UNIT_MULTIPLIERS[correctedAmount.unit];
     invariant(

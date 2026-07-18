@@ -90,10 +90,11 @@ historical `SEALED` Build effectively `AUTHORED`. `CloseoutReport`, Task
 information, and Loop Fidelity Summary are generated Views over structured
 Build objects, not acceptance inputs.
 
-When a non-zero Source literal has a confirmed unit typo, Source Coverage
-keeps the original literal immutable and may apply only a user-directed,
-authoritative-source-bound correction. The correction records the issue,
-approval, official locator and literal, corrected display literal, and reason;
+When a non-zero Source literal has a confirmed unit or numeric typo, Source
+Coverage keeps the original literal immutable and may apply only a
+user-directed, authoritative-source-bound correction. The typed correction
+records whether the suffix or displayed magnitude is wrong, plus approval,
+official locator and literal, corrected display literal, and reason;
 both the official value and corrected display must support the authored amount
 within the declared resolution. This is distinct from rounded-zero precision
 recovery and the two mechanisms cannot be combined.
