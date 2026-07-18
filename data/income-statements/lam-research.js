@@ -106,4 +106,103 @@
       },
     },
   });
+
+  ssot.records.push({
+    key: 'lam-research-q3-fy26',
+    company: 'Lam Research',
+    period: 'Q3 FY26',
+    periodNote: 'Ending Mar. 2026',
+    currency: '$',
+    unit: 'B',
+    decimals: 3,
+    sourceImage: 'input/processed/lam-research-q3-fy26.png',
+    roundingTolerance: 0.15,
+    revenue: {
+      total: 5.8,
+      notes: ['+24% Y/Y'],
+      items: [
+        {
+          id: 'systems',
+          label: 'Systems',
+          value: 3.7,
+          notes: ['+23% Y/Y'],
+          children: [
+            { id: 'memory', label: 'Memory', value: 1.5, notes: ['+11% Y/Y'] },
+            { id: 'foundry', label: 'Foundry', value: 2.0, notes: ['+38% Y/Y'] },
+            { id: 'logic', label: 'Logic', value: 0.3, notes: ['(4%) Y/Y'] },
+          ],
+        },
+        { id: 'customer_support', label: ['Customer', 'Support'], value: 2.1, notes: ['+25% Y/Y'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: { id: 'cost_of_goods_sold', label: ['Cost of', 'goods sold'], value: 2.9 },
+      operatingExpenses: {
+        total: 0.9,
+        items: [
+          { id: 'rnd', label: 'R&D', value: 0.6, notes: ['10% of revenue', '(1pp) Y/Y'] },
+          { id: 'sga', label: 'SG&A', value: 0.3, notes: ['5% of revenue', '+0pp Y/Y'] },
+        ],
+      },
+      tax: { id: 'tax', label: 'Tax', value: 0.3 },
+    },
+    otherIncome: {
+      total: 0,
+      items: [],
+    },
+    otherExpenses: {
+      total: 0.036,
+      items: [{ id: 'interest', label: 'Interest', value: 0.036 }],
+    },
+    profit: {
+      gross: { id: 'gross_profit', label: 'Gross profit', value: 2.9, notes: ['50% margin', '+1pp Y/Y'] },
+      operating: { id: 'operating_profit', label: 'Operating profit', value: 2.0, notes: ['35% margin', '+2pp Y/Y'] },
+      net: { id: 'net_profit', label: 'Net profit', value: 1.8, notes: ['31% margin', '+3pp Y/Y'] },
+    },
+    sources: [
+      {
+        name: 'Lam Research quarterly results',
+        url: 'https://investor.lamresearch.com/2026-04-22-Lam-Research-Corporation-Reports-Financial-Results-for-the-Quarter-Ended-March-29%2C-2026?asPDF=',
+        note: 'The reference infographic rounds reported figures to the displayed $B amounts and labels the period Q3 FY26.',
+      },
+    ],
+    i18n: {
+      zh: {
+        period: '2026 财年第三季度',
+        periodNote: '截至 2026 年 3 月',
+        revenue: {
+          notes: ['同比 +24%'],
+          items: [
+            {
+              id: 'systems',
+              label: '系统',
+              notes: ['同比 +23%'],
+              children: [
+                { id: 'memory', label: '存储', notes: ['同比 +11%'] },
+                { id: 'foundry', label: '代工', notes: ['同比 +38%'] },
+                { id: 'logic', label: '逻辑', notes: ['同比 (4%)'] },
+              ],
+            },
+            { id: 'customer_support', label: ['客户', '支持'], notes: ['同比 +25%'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: { label: ['销售', '成本'] },
+          operatingExpenses: {
+            items: [
+              { id: 'rnd', label: '研发', notes: ['占收入 10%', '同比 (1 个百分点)'] },
+              { id: 'sga', label: '销售、一般及管理', notes: ['占收入 5%', '同比 +0 个百分点'] },
+            ],
+          },
+          tax: { label: '税费' },
+        },
+        otherExpenses: { items: [{ id: 'interest', label: '利息支出' }] },
+        profit: {
+          gross: { label: '毛利润', notes: ['利润率 50%', '同比 +1 个百分点'] },
+          operating: { label: '营业利润', notes: ['利润率 35%', '同比 +2 个百分点'] },
+          net: { label: '净利润', notes: ['利润率 31%', '同比 +3 个百分点'] },
+        },
+      },
+    },
+  });
 })(window);

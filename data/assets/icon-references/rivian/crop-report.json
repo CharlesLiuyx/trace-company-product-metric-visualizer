@@ -1,0 +1,118 @@
+{
+  "source": "input/processed/rivian-q1-fy26.png",
+  "spec": "input/icon-crop-specs/rivian-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-18T16:26:53.297594+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/rivian",
+  "crops": [
+    {
+      "key": "rivian-automotive-vehicles",
+      "output": "data/assets/icon-references/rivian/crops/automotive-vehicles.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 53365,
+        "losslessBytes": 53365,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 31402,
+        "transparentPixelRatio": 0.522
+      },
+      "searchBox": {
+        "x": 55,
+        "y": 625,
+        "width": 310,
+        "height": 178
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 55,
+        "y0": 625,
+        "x1": 361,
+        "y1": 802
+      },
+      "cropBox": {
+        "x0": 50,
+        "y0": 620,
+        "x1": 370,
+        "y1": 808
+      },
+      "validation": {
+        "width": 320,
+        "height": 188,
+        "foregroundPixels": 28501,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 5,
+          "right": 9,
+          "top": 5,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": -0.0063,
+          "y": -0.0027
+        },
+        "passes": true
+      },
+      "note": "R1T, R1S, and commercial-van cluster for Automotive revenue; excludes labels, values, Sankey ribbons, and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/rivian/automotive-vehicles.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 53365,
+        "losslessBytes": 53365,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/rivian/validation-sheets/rivian-automotive-vehicles.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 277748,
+        "losslessBytes": 277748,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

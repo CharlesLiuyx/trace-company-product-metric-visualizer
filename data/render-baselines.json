@@ -387,6 +387,12 @@
       "width": 2667,
       "height": 1500
     },
+    "at-t-q1-fy26": {
+      "similarity": 0.969188,
+      "mae": 7.857,
+      "width": 2667,
+      "height": 1500
+    },
     "at-t-q4-fy25": {
       "similarity": 0.964571,
       "mae": 9.0345,
@@ -546,6 +552,12 @@
     "c3-ai-q4-fy26": {
       "similarity": 0.974622,
       "mae": 6.4715,
+      "width": 2667,
+      "height": 1500
+    },
+    "cadence-q1-fy26": {
+      "similarity": 0.966668,
+      "mae": 8.4997,
       "width": 2667,
       "height": 1500
     },
@@ -1083,6 +1095,12 @@
       "width": 2667,
       "height": 1500
     },
+    "ford-q1-fy26": {
+      "similarity": 0.964818,
+      "mae": 8.9714,
+      "width": 2667,
+      "height": 1500
+    },
     "fortinet-q1-fy26": {
       "similarity": 0.969443,
       "mae": 7.792,
@@ -1158,6 +1176,12 @@
     "gm-fy25": {
       "similarity": 0.978416,
       "mae": 5.504,
+      "width": 2667,
+      "height": 1500
+    },
+    "gm-q1-fy26": {
+      "similarity": 0.978783,
+      "mae": 5.4105,
       "width": 2667,
       "height": 1500
     },
@@ -1407,6 +1431,12 @@
       "width": 2667,
       "height": 1500
     },
+    "kla-q3-fy26": {
+      "similarity": 0.968774,
+      "mae": 7.9627,
+      "width": 2667,
+      "height": 1500
+    },
     "klarna-q1-fy26": {
       "similarity": 0.950675,
       "mae": 12.578,
@@ -1458,6 +1488,12 @@
     "lam-research-q1-fy26": {
       "similarity": 0.962165,
       "mae": 9.648,
+      "width": 2667,
+      "height": 1500
+    },
+    "lam-research-q3-fy26": {
+      "similarity": 0.962203,
+      "mae": 9.6383,
       "width": 2667,
       "height": 1500
     },
@@ -2277,6 +2313,12 @@
       "width": 2667,
       "height": 1500
     },
+    "rivian-q1-fy26": {
+      "similarity": 0.972001,
+      "mae": 7.1398,
+      "width": 2667,
+      "height": 1500
+    },
     "robinhood-q1-fy26": {
       "similarity": 0.955213,
       "mae": 11.4206,
@@ -2304,6 +2346,12 @@
     "roblox-q4-fy25": {
       "similarity": 0.96687,
       "mae": 8.4481,
+      "width": 2667,
+      "height": 1500
+    },
+    "roku-q1-fy26": {
+      "similarity": 0.972249,
+      "mae": 7.0764,
       "width": 2667,
       "height": 1500
     },
@@ -2640,6 +2688,12 @@
     "tesla-q4-fy25": {
       "similarity": 0.948912,
       "mae": 13.0274,
+      "width": 2667,
+      "height": 1500
+    },
+    "texas-instruments-q1-fy26": {
+      "similarity": 0.979473,
+      "mae": 5.2344,
       "width": 2667,
       "height": 1500
     },

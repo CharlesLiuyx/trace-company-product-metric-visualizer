@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-18T16:54:32.000Z",
+  "generatedAt": "2026-07-18T19:01:53.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -2983,10 +2983,64 @@
       "updatedAt": "2026-07-18T06:47:44.000Z",
       "timeSource": "git"
     },
+    "ford-q1-fy26": {
+      "path": "data/datasets/ford-q1-fy26.js",
+      "updatedAtMs": 1784401313000,
+      "updatedAt": "2026-07-18T19:01:53.000Z",
+      "timeSource": "git"
+    },
+    "kla-q3-fy26": {
+      "path": "data/datasets/kla-q3-fy26.js",
+      "updatedAtMs": 1784401313000,
+      "updatedAt": "2026-07-18T19:01:53.000Z",
+      "timeSource": "git"
+    },
+    "cadence-q1-fy26": {
+      "path": "data/datasets/cadence-q1-fy26.js",
+      "updatedAtMs": 1784401313000,
+      "updatedAt": "2026-07-18T19:01:53.000Z",
+      "timeSource": "git"
+    },
+    "gm-q1-fy26": {
+      "path": "data/datasets/gm-q1-fy26.js",
+      "updatedAtMs": 1784401313000,
+      "updatedAt": "2026-07-18T19:01:53.000Z",
+      "timeSource": "git"
+    },
+    "rivian-q1-fy26": {
+      "path": "data/datasets/rivian-q1-fy26.js",
+      "updatedAtMs": 1784401313000,
+      "updatedAt": "2026-07-18T19:01:53.000Z",
+      "timeSource": "git"
+    },
+    "roku-q1-fy26": {
+      "path": "data/datasets/roku-q1-fy26.js",
+      "updatedAtMs": 1784401313000,
+      "updatedAt": "2026-07-18T19:01:53.000Z",
+      "timeSource": "git"
+    },
     "t-mobile-us-q1-fy26": {
       "path": "data/datasets/t-mobile-us-q1-fy26.js",
       "updatedAtMs": 1784393672000,
       "updatedAt": "2026-07-18T16:54:32.000Z",
+      "timeSource": "git"
+    },
+    "texas-instruments-q1-fy26": {
+      "path": "data/datasets/texas-instruments-q1-fy26.js",
+      "updatedAtMs": 1784401313000,
+      "updatedAt": "2026-07-18T19:01:53.000Z",
+      "timeSource": "git"
+    },
+    "at-t-q1-fy26": {
+      "path": "data/datasets/at-t-q1-fy26.js",
+      "updatedAtMs": 1784401313000,
+      "updatedAt": "2026-07-18T19:01:53.000Z",
+      "timeSource": "git"
+    },
+    "lam-research-q3-fy26": {
+      "path": "data/datasets/lam-research-q3-fy26.js",
+      "updatedAtMs": 1784401313000,
+      "updatedAt": "2026-07-18T19:01:53.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {
