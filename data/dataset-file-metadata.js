@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-18T06:47:44.000Z",
+  "generatedAt": "2026-07-18T08:32:39.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -2903,6 +2903,78 @@
       "path": "data/datasets/abbott-q3-fy25.js",
       "updatedAtMs": 1784322877000,
       "updatedAt": "2026-07-17T21:14:37.000Z",
+      "timeSource": "git"
+    },
+    "circle-q3-fy25": {
+      "path": "data/datasets/circle-q3-fy25.js",
+      "updatedAtMs": 1784363559000,
+      "updatedAt": "2026-07-18T08:32:39.000Z",
+      "timeSource": "git"
+    },
+    "monday-com-q3-fy25": {
+      "path": "data/datasets/monday-com-q3-fy25.js",
+      "updatedAtMs": 1784363559000,
+      "updatedAt": "2026-07-18T08:32:39.000Z",
+      "timeSource": "git"
+    },
+    "autodesk-q3-fy26": {
+      "path": "data/datasets/autodesk-q3-fy26.js",
+      "updatedAtMs": 1784363559000,
+      "updatedAt": "2026-07-18T08:32:39.000Z",
+      "timeSource": "git"
+    },
+    "zoom-q3-fy26": {
+      "path": "data/datasets/zoom-q3-fy26.js",
+      "updatedAtMs": 1784363559000,
+      "updatedAt": "2026-07-18T08:32:39.000Z",
+      "timeSource": "git"
+    },
+    "workday-q3-fy26": {
+      "path": "data/datasets/workday-q3-fy26.js",
+      "updatedAtMs": 1784363559000,
+      "updatedAt": "2026-07-18T08:32:39.000Z",
+      "timeSource": "git"
+    },
+    "klarna-q3-fy25": {
+      "path": "data/datasets/klarna-q3-fy25.js",
+      "updatedAtMs": 1784363559000,
+      "updatedAt": "2026-07-18T08:32:39.000Z",
+      "timeSource": "git"
+    },
+    "digital-ocean-q3-fy25": {
+      "path": "data/datasets/digital-ocean-q3-fy25.js",
+      "updatedAtMs": 1784363559000,
+      "updatedAt": "2026-07-18T08:32:39.000Z",
+      "timeSource": "git"
+    },
+    "ferrari-q3-fy25": {
+      "path": "data/datasets/ferrari-q3-fy25.js",
+      "updatedAtMs": 1784363559000,
+      "updatedAt": "2026-07-18T08:32:39.000Z",
+      "timeSource": "git"
+    },
+    "klaviyo-q3-fy25": {
+      "path": "data/datasets/klaviyo-q3-fy25.js",
+      "updatedAtMs": 1784363559000,
+      "updatedAt": "2026-07-18T08:32:39.000Z",
+      "timeSource": "git"
+    },
+    "docebo-q3-fy25": {
+      "path": "data/datasets/docebo-q3-fy25.js",
+      "updatedAtMs": 1784363559000,
+      "updatedAt": "2026-07-18T08:32:39.000Z",
+      "timeSource": "git"
+    },
+    "bullish-q3-fy25": {
+      "path": "data/datasets/bullish-q3-fy25.js",
+      "updatedAtMs": 1784363559000,
+      "updatedAt": "2026-07-18T08:32:39.000Z",
+      "timeSource": "git"
+    },
+    "celsius-q3-fy25": {
+      "path": "data/datasets/celsius-q3-fy25.js",
+      "updatedAtMs": 1784363559000,
+      "updatedAt": "2026-07-18T08:32:39.000Z",
       "timeSource": "git"
     },
     "nio-q3-fy25": {

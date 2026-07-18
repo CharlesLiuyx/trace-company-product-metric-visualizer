@@ -411,6 +411,12 @@
       "width": 2667,
       "height": 1500
     },
+    "autodesk-q3-fy26": {
+      "similarity": 0.977648,
+      "mae": 5.6997,
+      "width": 2667,
+      "height": 1500
+    },
     "autodesk-q4-fy26": {
       "similarity": 0.976258,
       "mae": 6.0541,
@@ -525,6 +531,12 @@
       "width": 2667,
       "height": 1500
     },
+    "bullish-q3-fy25": {
+      "similarity": 0.969597,
+      "mae": 7.7527,
+      "width": 2667,
+      "height": 1500
+    },
     "c3-ai-q2-fy26": {
       "similarity": 0.970068,
       "mae": 7.6326,
@@ -552,6 +564,12 @@
     "celsius-q1-fy26": {
       "similarity": 0.964271,
       "mae": 9.111,
+      "width": 2667,
+      "height": 1500
+    },
+    "celsius-q3-fy25": {
+      "similarity": 0.963869,
+      "mae": 9.2135,
       "width": 2667,
       "height": 1500
     },
@@ -606,6 +624,12 @@
     "circle-q1-fy26": {
       "similarity": 0.969214,
       "mae": 7.8503,
+      "width": 2667,
+      "height": 1500
+    },
+    "circle-q3-fy25": {
+      "similarity": 0.975227,
+      "mae": 6.317,
       "width": 2667,
       "height": 1500
     },
@@ -807,6 +831,12 @@
       "width": 2667,
       "height": 1500
     },
+    "digital-ocean-q3-fy25": {
+      "similarity": 0.970177,
+      "mae": 7.6049,
+      "width": 2667,
+      "height": 1500
+    },
     "digitalocean-q4-fy25": {
       "similarity": 0.970786,
       "mae": 7.4496,
@@ -828,6 +858,12 @@
     "dlocal-q3-fy25": {
       "similarity": 0.972875,
       "mae": 6.9169,
+      "width": 2667,
+      "height": 1500
+    },
+    "docebo-q3-fy25": {
+      "similarity": 0.974133,
+      "mae": 6.596,
       "width": 2667,
       "height": 1500
     },
@@ -978,6 +1014,12 @@
     "ferrari-q1-fy26": {
       "similarity": 0.967714,
       "mae": 8.2328,
+      "width": 2667,
+      "height": 1500
+    },
+    "ferrari-q3-fy25": {
+      "similarity": 0.969859,
+      "mae": 7.6859,
       "width": 2667,
       "height": 1500
     },
@@ -1371,6 +1413,12 @@
       "width": 2667,
       "height": 1500
     },
+    "klarna-q3-fy25": {
+      "similarity": 0.957248,
+      "mae": 10.9016,
+      "width": 2667,
+      "height": 1500
+    },
     "klarna-q4-fy25": {
       "similarity": 0.952203,
       "mae": 12.1883,
@@ -1380,6 +1428,12 @@
     "klaviyo-q1-fy26": {
       "similarity": 0.957643,
       "mae": 10.8009,
+      "width": 2667,
+      "height": 1500
+    },
+    "klaviyo-q3-fy25": {
+      "similarity": 0.971394,
+      "mae": 7.2946,
       "width": 2667,
       "height": 1500
     },
@@ -1644,6 +1698,12 @@
     "monday-com-q1-fy26": {
       "similarity": 0.96627,
       "mae": 8.6011,
+      "width": 2667,
+      "height": 1500
+    },
+    "monday-com-q3-fy25": {
+      "similarity": 0.974402,
+      "mae": 6.5276,
       "width": 2667,
       "height": 1500
     },
@@ -2823,6 +2883,12 @@
       "width": 2667,
       "height": 1500
     },
+    "workday-q3-fy26": {
+      "similarity": 0.955231,
+      "mae": 11.4161,
+      "width": 2667,
+      "height": 1500
+    },
     "workday-q4-fy26": {
       "similarity": 0.954263,
       "mae": 11.663,
@@ -2880,6 +2946,12 @@
     "zoom-q1-fy27": {
       "similarity": 0.959179,
       "mae": 10.4093,
+      "width": 2667,
+      "height": 1500
+    },
+    "zoom-q3-fy26": {
+      "similarity": 0.96282,
+      "mae": 9.4809,
       "width": 2667,
       "height": 1500
     },

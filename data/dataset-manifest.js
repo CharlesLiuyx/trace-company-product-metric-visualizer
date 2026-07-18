@@ -10913,6 +10913,262 @@
         }
       },
       {
+        "key": "circle-q3-fy25",
+        "src": "data/datasets/circle-q3-fy25.js",
+        "data": {
+          "name": "Circle · Q3 FY25",
+          "company": "Circle",
+          "meta": {
+            "title": "Circle Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Circle · 2025 财年第三季度",
+              "meta": {
+                "title": "Circle 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "monday-com-q3-fy25",
+        "src": "data/datasets/monday-com-q3-fy25.js",
+        "data": {
+          "name": "Monday.com · Q3 FY25",
+          "company": "Monday.com",
+          "meta": {
+            "title": "Monday.com Q3 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Monday.com · 2025 财年第三季度",
+              "meta": {
+                "title": "Monday.com 2025 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "autodesk-q3-fy26",
+        "src": "data/datasets/autodesk-q3-fy26.js",
+        "data": {
+          "name": "Autodesk · Q3 FY26",
+          "company": "Autodesk",
+          "meta": {
+            "title": "Autodesk Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Oct. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Autodesk · 2026 财年第三季度",
+              "meta": {
+                "title": "Autodesk 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2025 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "zoom-q3-fy26",
+        "src": "data/datasets/zoom-q3-fy26.js",
+        "data": {
+          "name": "Zoom · Q3 FY26",
+          "company": "Zoom",
+          "meta": {
+            "title": "Zoom Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Oct. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Zoom · 2026 财年第三季度",
+              "meta": {
+                "title": "Zoom 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2025 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "workday-q3-fy26",
+        "src": "data/datasets/workday-q3-fy26.js",
+        "data": {
+          "name": "Workday · Q3 FY26",
+          "company": "Workday",
+          "meta": {
+            "title": "Workday Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Oct. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Workday · 2026 财年第三季度",
+              "meta": {
+                "title": "Workday 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2025 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "klarna-q3-fy25",
+        "src": "data/datasets/klarna-q3-fy25.js",
+        "data": {
+          "name": "Klarna · Q3 FY25",
+          "company": "Klarna",
+          "meta": {
+            "title": "Klarna Q3 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Klarna · 2025 财年第三季度",
+              "meta": {
+                "title": "Klarna 2025 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "digital-ocean-q3-fy25",
+        "src": "data/datasets/digital-ocean-q3-fy25.js",
+        "data": {
+          "name": "DigitalOcean · Q3 FY25",
+          "company": "DigitalOcean",
+          "meta": {
+            "title": "Digital Ocean Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "DigitalOcean · 2025 财年第三季度",
+              "meta": {
+                "title": "DigitalOcean 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ferrari-q3-fy25",
+        "src": "data/datasets/ferrari-q3-fy25.js",
+        "data": {
+          "name": "Ferrari · Q3 FY25",
+          "company": "Ferrari",
+          "meta": {
+            "title": "Ferrari Q3 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "法拉利 · 2025 财年第三季度",
+              "meta": {
+                "title": "法拉利 2025 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "klaviyo-q3-fy25",
+        "src": "data/datasets/klaviyo-q3-fy25.js",
+        "data": {
+          "name": "Klaviyo · Q3 FY25",
+          "company": "Klaviyo",
+          "meta": {
+            "title": "Klaviyo Q3 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Klaviyo · 2025 财年第三季度",
+              "meta": {
+                "title": "Klaviyo 2025 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "docebo-q3-fy25",
+        "src": "data/datasets/docebo-q3-fy25.js",
+        "data": {
+          "name": "Docebo · Q3 FY25",
+          "company": "Docebo",
+          "meta": {
+            "title": "Docebo Q3 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Docebo · 2025 财年第三季度",
+              "meta": {
+                "title": "Docebo 2025 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "bullish-q3-fy25",
+        "src": "data/datasets/bullish-q3-fy25.js",
+        "data": {
+          "name": "Bullish · Q3 FY25",
+          "company": "Bullish",
+          "meta": {
+            "title": "Bullish Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Bullish · 2025 财年第三季度",
+              "meta": {
+                "title": "Bullish 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "celsius-q3-fy25",
+        "src": "data/datasets/celsius-q3-fy25.js",
+        "data": {
+          "name": "Celsius · Q3 FY25",
+          "company": "Celsius",
+          "meta": {
+            "title": "Celsius Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Quarter ended Sep. 30, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Celsius · 2025 财年第三季度",
+              "meta": {
+                "title": "Celsius 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
         "key": "nio-q3-fy25",
         "src": "data/datasets/nio-q3-fy25.js",
         "data": {
