@@ -124,6 +124,8 @@
     "incomeStatementFinancialViewOwnership": "exactly-one-node-or-non-node-metric",
     "semanticNodesRequireObservedFace": true,
     "invisibleSemanticNodesSupported": false,
+    "incomeStatementNonNodeMetricsRequireZeroPaintEvidence": true,
+    "prepareReviewPixelChecksZeroPaintNodeSlots": true,
     "incomeStatementReconciliationTargets": ["metric-ssot", "sankey-view-adapter"],
     "revenueMetricReconciliationTargets": ["metric-ssot"]
   },

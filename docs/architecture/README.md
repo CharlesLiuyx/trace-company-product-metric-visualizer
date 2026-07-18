@@ -92,6 +92,9 @@ build-local guards, not M4 Publication.
   object. `Other` / `All Other` cannot be classified as non-semantic residual,
   and Source values must reconcile against the actually loaded Adapter-owned
   SSOT/View before `AUTHORED`.
+- An Income Statement financial value may use `nonNodeMetrics.*` only with a
+  Source-bound zero-paint slot that `prepare-review` verifies from native
+  pixels before Plan compilation.
 - Source-visible and hidden node intent is compiled into a complete node-face
   policy. A small expected-visible face may use only a Source-bound exception;
   candidate disappearance is not evidence of Source absence.
@@ -115,7 +118,7 @@ build-local guards, not M4 Publication.
 | --- | --- | --- |
 | intake | `record:intake` requires explicit Source signals, records a whole-image `source-classification/v1` whose derived Adapter must match `--adapter`, then records per-item Source/base digests and claims the selected file from `pending/` into the Build-local `processing/` working locator and lease | full isolated `DatasetBuild` workspace with the same digest-bound Type Gate and claim semantics |
 | Source projection | an explicit, batch-confirmed operator completion signal is the only relocation authority; the confirmed no-clobber move implies no Build closure or M4 Publication | Publication alone materializes the stable processed Source projection as part of the planned canonical result |
-| authoring and Plan | canonical paths are still edited directly; `prepare-review` records `source-coverage/v2`, reconciles Source amounts against the loaded SSOT and exactly one mapped Income Statement node or non-node metric, records a typed `ObjectInventory`, compiles a visible-only NodeFacePolicy-bearing `verification-plan/v5`, hashes authored files, and returns a content-addressed `review-packet/v4` token | isolated build workspace plus complete `ArtifactManifest` and Adapter execution |
+| authoring and Plan | canonical paths are still edited directly; `prepare-review` records `source-coverage/v2`, reconciles Source amounts against the loaded SSOT and exactly one mapped Income Statement node or non-node metric, pixel-checks any claimed zero-paint non-node slot, records a typed `ObjectInventory`, compiles a visible-only NodeFacePolicy-bearing `verification-plan/v5`, hashes authored files, and returns a content-addressed `review-packet/v4` token | isolated build workspace plus complete `ArtifactManifest` and Adapter execution |
 | verification and fidelity | `record:verification` records Build-bound non-render consistency evidence; `verify:d3` is read-only diagnostic execution; `record:fidelity` alone may archive durable `fidelity-run/2` `evidence-ready` artifacts bound to Build/authored/Plan digests and evaluated against the Plan's node-face policy; legacy unbound archives remain compatibility-only | typed automatic evidence plus the complete Adapter verification profile |
 | human closure | `record:build finish` consumes the Review token, automatic evidence, `ManualAttestation`, `RegionDecision`, risk/Matrix facts, and `FeedbackLedger`; only an accepted `FidelityResult` records `CLOSED` | the same deep Interface as the sole operational closure path |
 | baseline | the Build chain records true build-local `BASELINE_STAGED`; `compat:baseline` (renamed from `record:baseline`, outside the command classes) remains a subset-only, failure-atomic compatibility mutation of the canonical ledger | publish the staged baseline with the sealed contribution |

@@ -30,6 +30,7 @@ export const FEATURE_REQUIRED_CHECKS = Object.freeze({
     Object.freeze({ checkId: 'label-measurement-provenance', axis: 'data', enforcement: 'build-gate', localeScope: 'global', evidenceKind: 'verification-plan', ruleIds: Object.freeze(['T19']) }),
   ]),
   'ambiguous-label-slot': Object.freeze({ axis: 'render', enforcement: 'manual', localeScope: 'global', evidenceKind: 'manual-decision', ruleIds: Object.freeze(['T20']) }),
+  'zero-paint-node-slot': Object.freeze({ axis: 'data', enforcement: 'build-gate', localeScope: 'global', evidenceKind: 'source-coverage', ruleIds: Object.freeze(['T23']) }),
 });
 
 // T18/T19 coverage: a fixed-layout label group is any render mapping into
@@ -141,6 +142,8 @@ function renderTargetsForFeature(object, feature) {
     predicate = (target) => /annotation/i.test(target);
   } else if (feature === 'visible-interface') {
     predicate = (target) => /link|interface/i.test(target);
+  } else if (feature === 'zero-paint-node-slot') {
+    predicate = (target) => /(^|[./:])nonNodeMetrics?[./:]/i.test(target);
   }
   if (!predicate) return targets;
   const selected = targets.filter(predicate);
@@ -156,6 +159,13 @@ function renderTargetsForFeature(object, feature) {
       selected.length > 0,
       'FEATURE_MAPPING_TARGET_REQUIRED',
       `Object ${object.id} feature ${feature} needs an explicit label render mapping`
+    );
+  }
+  if (feature === 'zero-paint-node-slot') {
+    invariant(
+      selected.length > 0,
+      'FEATURE_MAPPING_TARGET_REQUIRED',
+      `Object ${object.id} feature ${feature} needs an explicit nonNodeMetrics.* render mapping`
     );
   }
   return selected.length > 0 ? selected : targets;

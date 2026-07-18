@@ -159,7 +159,9 @@ occupying that slot is a node face; a 1–3px-high region is
 `visible-short-node`. A light tint, the same color as the adjacent link, or a
 horizontal-line appearance never removes node semantics. A zero-paint slot is
 not a node and must be modeled as structural flow geometry or a semantic
-annotation.
+annotation. If a financial value maps to `nonNodeMetrics.*`, record
+`zero-paint-node-slot` with the same-column peer x/width and native search
+bbox; `prepare-review` pixel-checks this negative claim (T23).
 
 Each item records native bbox, inventory IDs, mapping roles, and where
 relevant exact amount, typed SSOT reference, and face observation; every
@@ -229,7 +231,8 @@ required locales:
 
 This gate binds classification, coverage, inventory, authored values,
 reference, Plan v5, and Packet v4. It rejects incomplete scans, semantic skips,
-missing roles, stale evidence, and Source ↔ SSOT ↔ Adapter amount mismatch.
+missing roles, stale evidence, a painted face inside a claimed zero-paint
+slot, and Source ↔ SSOT ↔ Adapter amount mismatch.
 Preserve `reviewToken` and coverage digest.
 
 **STOP:** any preparation failure, stale digest, missing `reviewToken`, or an
@@ -308,7 +311,8 @@ and report that no move was authorized.
 - Fidelity definitions/formulas live only in its catalog; this workflow links.
 - Every node mapping has an observed painted Source face; zero-paint objects
   use data-only, annotation, or link-owned route geometry. Sub-floor faces keep
-  native height via the typed exception, never inflation (T21/T22, CB-003/CB-007).
+  native height via the typed exception, never inflation
+  (T21/T22/T23, CB-003/CB-007).
 - Multi-link face order comes only from Source measurement at that face;
   same-color inflows are G12/L11-blind — manual per-link reconcile (CB-001).
 - Title/period use rendered bboxes, not authored baselines (CB-015).
@@ -332,7 +336,8 @@ Always, before the final response:
   Plan v5, Packet v4, consistency evidence, and authored digests.
 - Coverage manual review cites Source + coverage digests; Other, smallest
   non-zero, visible-node, and floor-exception sets are accounted for, and no
-  zero-paint object remains node-mapped (T22, CB-003/CB-007).
+  zero-paint object remains node-mapped or lacks the pixel-checked negative
+  evidence (T22/T23, CB-003/CB-007).
 - Authored `sourceOrder`/`targetOrder` match the Step 3 measured per-face
   order; same-color multi-inflow faces carry per-link B8 evidence (CB-001).
 - Rounded-zero semantic items have authoritative precision recovery, and

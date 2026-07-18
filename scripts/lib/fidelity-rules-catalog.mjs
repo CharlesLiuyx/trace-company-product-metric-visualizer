@@ -675,6 +675,23 @@ export const FIDELITY_RULES = Object.freeze([
       '（CB-003/CB-007 复发）；对 Other 的可见性歧义不再留人工判断空间，一律收敛为可见数据柱。',
     evidence: '`source-coverage/v2` 组装校验；例外仍须绑定 Source digest 与原生 face bbox。',
   }),
+  rule('T23', 'build-gate', {
+    stage: 'build',
+    topics: ['node'],
+    features: ['zero-paint-node-slot'],
+    origin: 'workday-q3-fy26-feedback',
+    trigger: 'Income Statement `financial-value` 映射到 `nonNodeMetrics.*` 时。',
+    check:
+      '必须声明 Source-bound `zero-paint-node-slot`，prepare-review 对同列 peer x/width 的原生 ' +
+      '`referenceBBox` 做像素扫描；任一行出现横跨至少 75% 槽宽的有色连续段即判定存在 node face。',
+    pass:
+      '只有已绑定 Build Source digest、覆盖该 Source observation 完整高度、匹配同列已测 node face ' +
+      '槽宽且扫描确认为 zero-paint 的对象可保留 non-node 表达；1px/2px 连续横条均失败并改建模为 node。',
+    evidence: '`source-coverage/v2` + `zero-paint-node-slot` featureEvidence + prepare-review pixel gate。',
+    rationale:
+      'Workday Q3 FY26 的 Restructuring 71×2px 横条曾被声明为 zero-face route，导致 authored ' +
+      'mapping、NodeFacePolicy 与 G12 在同一错误前提上全部自洽。',
+  }),
   rule('A1', 'manual', {
     stage: 'text',
     topics: ['annotation'],

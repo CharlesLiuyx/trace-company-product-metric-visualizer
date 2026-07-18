@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto';
 import { DATASET_ADAPTERS } from './dataset-adapters.mjs';
 import { MIN_VISIBLE_FACE_PX } from './node-face-policy.mjs';
 import { validateObjectInventory } from './object-inventory.mjs';
+import { ZERO_PAINT_NODE_SLOT_FEATURE } from './source-face-observation.mjs';
 
 export const SOURCE_CLASSIFICATION_PROTOCOL = 'source-classification/v1';
 export const SOURCE_COVERAGE_PROTOCOL = 'source-coverage/v2';
@@ -589,10 +590,26 @@ function normalizeCoverageItem(raw, index, context) {
   );
   const targets = [...new Set(nodeTargets(objects))].sort();
   const viewMetricTargets = [...new Set(metricTargets(objects))].sort();
+  const zeroPaintSlotObjects = objects.filter((object) =>
+    object.features.includes(ZERO_PAINT_NODE_SLOT_FEATURE)
+  );
   invariant(
     raw.sourceClass !== 'financial-value' || viewMetricTargets.length === 1,
     'SOURCE_COVERAGE_FINANCIAL_VIEW_REQUIRED',
     `${raw.sourceId} financial-value must reconcile to exactly one Income Statement Adapter node or non-node metric`
+  );
+  invariant(
+    raw.sourceClass !== 'financial-value' ||
+      targets.length > 0 ||
+      zeroPaintSlotObjects.length === 1,
+    'SOURCE_COVERAGE_ZERO_PAINT_EVIDENCE_REQUIRED',
+    `${raw.sourceId} maps a financial value to a non-node metric and needs exactly one ${ZERO_PAINT_NODE_SLOT_FEATURE} Source observation`
+  );
+  invariant(
+    zeroPaintSlotObjects.length === 0 ||
+      (raw.sourceClass === 'financial-value' && targets.length === 0),
+    'SOURCE_COVERAGE_ZERO_PAINT_EVIDENCE_INVALID',
+    `${raw.sourceId} may use ${ZERO_PAINT_NODE_SLOT_FEATURE} only for a financial value mapped to a non-node metric`
   );
   invariant(!face || targets.length === 1, 'SOURCE_COVERAGE_FACE_TARGET_INVALID', `${raw.sourceId} face observation must map to exactly one nodes.* render target`);
   return {

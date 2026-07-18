@@ -73,7 +73,10 @@ The Plan's Source Coverage review is also human-bound: its decision cites both
 the immutable Source digest and the coverage digest. Every semantic node
 mapping is expected visible by definition; geometry without a Source-painted
 face must be modeled as flow geometry or a semantic annotation, never as an
-invisible node. The embedded node-face policy includes Source-bound handling
+invisible node. An Income Statement financial value mapped to
+`nonNodeMetrics.*` must bind a Source slot that the Build Module pixel-checks
+as zero-paint before it creates the Plan. The embedded node-face policy
+includes Source-bound handling
 for genuinely sub-floor visible faces; neither an omitted small value nor an
 `Other` label can be accepted as decorative residue. A primary zero-looking
 literal that masks a real non-zero amount must

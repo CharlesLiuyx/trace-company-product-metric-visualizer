@@ -3,6 +3,11 @@ import {
   LEGACY_HIDDEN_ANCHOR_FEATURE,
   assertLegacyHiddenAnchorEvidence,
 } from './legacy/object-inventory-v3.mjs';
+import {
+  ZERO_PAINT_NODE_SLOT_CLASSIFICATION_CLAIM,
+  ZERO_PAINT_NODE_SLOT_FEATURE,
+  ZERO_PAINT_NODE_SLOT_INSPECTION_METHOD,
+} from './source-face-observation.mjs';
 
 export const OBJECT_INVENTORY_PROTOCOL = 'object-inventory/v4';
 export const HISTORICAL_OBJECT_INVENTORY_PROTOCOL = 'object-inventory/v3';
@@ -21,6 +26,7 @@ export const OBJECT_FEATURES = Object.freeze([
   'specified-label-weight',
   'measured-label-position',
   'ambiguous-label-slot',
+  ZERO_PAINT_NODE_SLOT_FEATURE,
 ]);
 const HISTORICAL_V3_FEATURE_SET = new Set([
   ...OBJECT_FEATURES,
@@ -194,6 +200,7 @@ function normalizeFeatureEvidence(object, features, { historicalV3 = false } = {
     'semantic-annotation',
     'measured-label-position',
     'ambiguous-label-slot',
+    ZERO_PAINT_NODE_SLOT_FEATURE,
     ...(historicalV3 ? [LEGACY_HIDDEN_ANCHOR_FEATURE] : []),
   ]) {
     if (features.includes(feature)) {
@@ -280,6 +287,39 @@ function normalizeFeatureEvidence(object, features, { historicalV3 = false } = {
       evidence?.classificationClaim === SEMANTIC_ANNOTATION_CLASSIFICATION_CLAIM,
       'SEMANTIC_ANNOTATION_CLASSIFICATION_CLAIM_REQUIRED',
       `Semantic annotation ${object.id} must explicitly claim ${SEMANTIC_ANNOTATION_CLASSIFICATION_CLAIM}`
+    );
+  }
+  if (features.includes(ZERO_PAINT_NODE_SLOT_FEATURE)) {
+    const evidence = normalized[ZERO_PAINT_NODE_SLOT_FEATURE];
+    invariant(
+      evidence?.reason,
+      'ZERO_PAINT_NODE_SLOT_REASON_REQUIRED',
+      `Zero-paint node slot ${object.id} needs a Source-backed reason`
+    );
+    invariant(
+      evidence?.locator?.includes('#'),
+      'ZERO_PAINT_NODE_SLOT_LOCATOR_REQUIRED',
+      `Zero-paint node slot ${object.id} needs a Source locator with a stable fragment`
+    );
+    invariant(
+      evidence?.referenceBBox,
+      'ZERO_PAINT_NODE_SLOT_REFERENCE_BBOX_REQUIRED',
+      `Zero-paint node slot ${object.id} needs its native-pixel search bbox`
+    );
+    invariant(
+      evidence?.digest,
+      'ZERO_PAINT_NODE_SLOT_SOURCE_DIGEST_REQUIRED',
+      `Zero-paint node slot ${object.id} needs the immutable Source digest`
+    );
+    invariant(
+      evidence?.inspectionMethod === ZERO_PAINT_NODE_SLOT_INSPECTION_METHOD,
+      'ZERO_PAINT_NODE_SLOT_INSPECTION_REQUIRED',
+      `Zero-paint node slot ${object.id} must use inspectionMethod ${ZERO_PAINT_NODE_SLOT_INSPECTION_METHOD}`
+    );
+    invariant(
+      evidence?.classificationClaim === ZERO_PAINT_NODE_SLOT_CLASSIFICATION_CLAIM,
+      'ZERO_PAINT_NODE_SLOT_CLASSIFICATION_CLAIM_REQUIRED',
+      `Zero-paint node slot ${object.id} must explicitly claim ${ZERO_PAINT_NODE_SLOT_CLASSIFICATION_CLAIM}`
     );
   }
   return Object.fromEntries(Object.entries(normalized).sort(([left], [right]) => left.localeCompare(right)));
@@ -387,6 +427,13 @@ function normalizeObject(object, index, {
           hasAnnotationRenderMapping(mapping),
         'SEMANTIC_ANNOTATION_MAPPING_REQUIRED',
         `semantic-annotation ${object.id} needs a node:* or metric:* identity, a semantic metric render mapping, and an explicit annotations.* render mapping`
+      );
+    }
+    if (!legacy && features.includes(ZERO_PAINT_NODE_SLOT_FEATURE)) {
+      invariant(
+        hasNonNodeMetricRenderMapping(mapping) && !hasNodeRenderMapping(object, mapping),
+        'ZERO_PAINT_NODE_SLOT_MAPPING_REQUIRED',
+        `${ZERO_PAINT_NODE_SLOT_FEATURE} ${object.id} needs a nonNodeMetrics.* render mapping and cannot map to nodes.*`
       );
     }
   } else {
