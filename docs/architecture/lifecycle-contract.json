@@ -114,7 +114,7 @@
     "precisionRecoveryMethod": "authoritative-supplemental-source",
     "authoritativeCorrectionMethod": "authoritative-source-correction",
     "authoritativeCorrectionApproval": "user-directed-source-correction",
-    "authoritativeCorrectionIssues": ["unit-typo"],
+    "authoritativeCorrectionIssues": ["unit-typo", "numeric-typo"],
     "amountWithinLiteralResolution": true,
     "inventoryOwnership": "exactly-once",
     "otherLabelsMayBeNonSemanticResidual": false,
