@@ -10,6 +10,81 @@
 
   ssot.records.push(
     {
+      key: 'autodesk-q3-fy26',
+      company: 'Autodesk',
+      period: 'Q3 FY26',
+      periodNote: 'Ending Oct. 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/autodesk-q3-fy26.png',
+      roundingTolerance: 0.75,
+      revenue: {
+        total: 1853,
+        notes: ['+18% Y/Y'],
+        items: [
+          { id: 'aec', label: 'Architecture, Engineering & Construction', value: 921, notes: ['+23% Y/Y'] },
+          { id: 'autocad', label: 'AutoCAD', value: 458, notes: ['+15% Y/Y', 'Computer-aided design Including LT'] },
+          { id: 'manufacturing', label: 'Manufacturing', value: 355, notes: ['+16% Y/Y'] },
+          { id: 'media_entertainment', label: 'Media & Entertainment', value: 86, notes: ['+4% Y/Y'] },
+          { id: 'other_revenue', label: 'Other', value: 33, notes: ['+7% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 165 },
+        operatingExpenses: {
+          total: 1218,
+          items: [
+            { id: 'sm', label: 'S&M', value: 612, notes: ['33% of revenue', '(0pp) Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 416, notes: ['22% of revenue', '(2pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 172, notes: ['9% of revenue', '(1pp) Y/Y'] },
+            { id: 'other_expense', label: 'Other', value: 18, notes: ['1% of revenue', '+0pp Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax_other', label: 'Tax & Other', value: 127 },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 1688, notes: ['91% margin', '+0pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 470, notes: ['25% margin', '+3pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 343, notes: ['19% margin', '+1pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第三季度',
+          periodNote: '截至 2025 年 10 月',
+          revenue: {
+            notes: ['同比 +18%'],
+            items: [
+              { id: 'aec', label: '建筑、工程与施工', notes: ['同比 +23%'] },
+              { id: 'autocad', label: 'AutoCAD 产品', notes: ['同比 +15%', '计算机辅助设计，包含 LT'] },
+              { id: 'manufacturing', label: '制造', notes: ['同比 +16%'] },
+              { id: 'media_entertainment', label: '媒体与娱乐', notes: ['同比 +4%'] },
+              { id: 'other_revenue', label: '其他', notes: ['同比 +7%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'sm', label: 'S&M 费用', notes: ['占收入 33%', '同比 (0 个百分点)'] },
+                { id: 'rnd', label: 'R&D 费用', notes: ['占收入 22%', '同比 (2 个百分点)'] },
+                { id: 'ga', label: 'G&A 费用', notes: ['占收入 9%', '同比 (1 个百分点)'] },
+                { id: 'other_expense', label: '其他', notes: ['占收入 1%', '同比 +0 个百分点'] },
+              ],
+            },
+            tax: { label: '税费及其他' },
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 91%', '同比 +0 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 25%', '同比 +3 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 19%', '同比 +1 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'autodesk-q4-fy26',
       company: 'Autodesk',
       period: 'Q4 FY26',

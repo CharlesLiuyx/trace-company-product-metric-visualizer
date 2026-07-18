@@ -10,6 +10,92 @@
 
   ssot.records.push(
     {
+      key: 'digital-ocean-q3-fy25',
+      company: 'DigitalOcean',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/digital-ocean-q3-fy25.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 230,
+        notes: ['+16% Y/Y'],
+        items: [
+          { id: 'north_america', label: 'North America', value: 92, notes: ['+20% Y/Y'] },
+          { id: 'europe', label: 'Europe', value: 62, notes: ['+12% Y/Y'] },
+          { id: 'asia', label: 'Asia', value: 53, notes: ['+14% Y/Y'] },
+          { id: 'other_revenue', label: 'Other', value: 23, notes: ['+13% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 93 },
+        operatingExpenses: {
+          total: 92,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 38, notes: ['17% of revenue', '(2pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 33, notes: ['14% of revenue', '(6pp) Y/Y'] },
+            { id: 'sm', label: 'S&M', value: 21, notes: ['9% of revenue', '+2pp Y/Y'] },
+          ],
+        },
+        tax: { label: 'Tax expense', value: 0 },
+      },
+      otherIncome: {
+        total: 113,
+        items: [
+          { id: 'tax', label: 'Tax', value: 68 },
+          { id: 'other_income', label: 'Other', value: 45 },
+        ],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 137, notes: ['60% margin', '(1pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 45, notes: ['20% margin', '+7pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 158, notes: ['69% margin', '+52pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +16%'],
+            items: [
+              { id: 'north_america', label: '北美', notes: ['同比 +20%'] },
+              { id: 'europe', label: '欧洲', notes: ['同比 +12%'] },
+              { id: 'asia', label: '亚洲', notes: ['同比 +14%'] },
+              { id: 'other_revenue', label: '其他', notes: ['同比 +13%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 17%', '同比 (2 个百分点)'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 14%', '同比 (6 个百分点)'] },
+                { id: 'sm', label: '销售与营销', notes: ['占收入 9%', '同比 +2 个百分点'] },
+              ],
+            },
+            tax: { label: '所得税费用' },
+          },
+          otherIncome: {
+            items: [
+              { id: 'tax', label: '税项' },
+              { id: 'other_income', label: '其他' },
+            ],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 60%', '同比 (1 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 20%', '同比 +7 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 69%', '同比 +52 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'digitalocean-q4-fy25',
       company: 'DigitalOcean',
       period: 'Q4 FY25',

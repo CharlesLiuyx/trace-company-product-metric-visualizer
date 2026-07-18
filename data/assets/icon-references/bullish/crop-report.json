@@ -1,0 +1,272 @@
+{
+  "source": "input/processing/bullish-q3-fy25.png",
+  "spec": "input/icon-crop-specs/bullish-q3-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-18T06:01:21.119205+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "bullish-company-logo",
+      "output": "data/assets/icon-references/bullish/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2249,
+        "losslessBytes": 10696,
+        "savingsVsLossless": 0.7897,
+        "metrics": {
+          "meanAbsoluteError": 0.2484,
+          "rootMeanSquareError": 1.2745,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.0733
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 29295,
+        "transparentPixelRatio": 0.7347
+      },
+      "searchBox": {
+        "x": 1205,
+        "y": 350,
+        "width": 275,
+        "height": 145
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 1211,
+        "y0": 356,
+        "x1": 1471,
+        "y1": 489
+      },
+      "cropBox": {
+        "x0": 1205,
+        "y0": 350,
+        "x1": 1480,
+        "y1": 495
+      },
+      "validation": {
+        "width": 275,
+        "height": 145,
+        "foregroundPixels": 9221,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 6,
+          "right": 9,
+          "top": 6,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": -0.0055,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Central Bullish horn logo only; excludes the adjacent income ribbons and chart title.",
+      "validationSheet": "data/assets/icon-references/bullish/validation-sheets/bullish-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 214813,
+        "losslessBytes": 214813,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "bullish-trading-wordmark",
+      "output": "data/assets/icon-references/bullish/crops/trading-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1028,
+        "losslessBytes": 4311,
+        "savingsVsLossless": 0.7615,
+        "metrics": {
+          "meanAbsoluteError": 0.4877,
+          "rootMeanSquareError": 1.6616,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 16,
+          "changedPixelRatio": 0.225
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 7353,
+        "transparentPixelRatio": 0.7856
+      },
+      "searchBox": {
+        "x": 105,
+        "y": 272,
+        "width": 195,
+        "height": 48
+      },
+      "componentCount": 10,
+      "subjectBox": {
+        "x0": 116,
+        "y0": 282,
+        "x1": 287,
+        "y1": 311
+      },
+      "cropBox": {
+        "x0": 105,
+        "y0": 272,
+        "x1": 300,
+        "y1": 320
+      },
+      "validation": {
+        "width": 195,
+        "height": 48,
+        "foregroundPixels": 1777,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 11,
+          "right": 13,
+          "top": 10,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": -0.0051,
+          "y": 0.0104
+        },
+        "passes": true
+      },
+      "note": "Bullish icon and wordmark above Trading (net); excludes the financial label and node.",
+      "validationSheet": "data/assets/icon-references/bullish/validation-sheets/bullish-trading-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 208928,
+        "losslessBytes": 208928,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "bullish-coindesk-wordmark",
+      "output": "data/assets/icon-references/bullish/crops/coindesk-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1665,
+        "losslessBytes": 7686,
+        "savingsVsLossless": 0.7834,
+        "metrics": {
+          "meanAbsoluteError": 0.5466,
+          "rootMeanSquareError": 2.2606,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 47,
+          "changedPixelRatio": 0.1828
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 10450,
+        "transparentPixelRatio": 0.7328
+      },
+      "searchBox": {
+        "x": 82,
+        "y": 543,
+        "width": 230,
+        "height": 62
+      },
+      "componentCount": 12,
+      "subjectBox": {
+        "x0": 92,
+        "y0": 553,
+        "x1": 300,
+        "y1": 594
+      },
+      "cropBox": {
+        "x0": 82,
+        "y0": 543,
+        "x1": 312,
+        "y1": 605
+      },
+      "validation": {
+        "width": 230,
+        "height": 62,
+        "foregroundPixels": 3514,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 10,
+          "right": 12,
+          "top": 10,
+          "bottom": 11
+        },
+        "centerOffset": {
+          "x": -0.0043,
+          "y": -0.0081
+        },
+        "passes": true
+      },
+      "note": "CoinDesk icon and wordmark identifying the subscription, services, and other revenue source; excludes the value, label, and Sankey node.",
+      "validationSheet": "data/assets/icon-references/bullish/validation-sheets/bullish-coindesk-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 215236,
+        "losslessBytes": 215236,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

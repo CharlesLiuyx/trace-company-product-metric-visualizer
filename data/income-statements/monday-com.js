@@ -10,6 +10,72 @@
 
   ssot.records.push(
     {
+      key: 'monday-com-q3-fy25',
+      company: 'Monday.com',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/monday-com-q3-fy25.png',
+      roundingTolerance: 0.6,
+      revenue: {
+        total: 317,
+        notes: ['+26% Y/Y'],
+        items: [{ id: 'revenue', label: 'Revenue', value: 317, notes: ['+26% Y/Y'] }],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 36 },
+        operatingExpenses: {
+          total: 283,
+          items: [
+            { id: 'sm', label: 'Sales & marketing', value: 166, notes: ['52% of revenue', '(4pp) Y/Y'] },
+            { id: 'rnd', label: 'Research & development', value: 79, notes: ['25% of revenue', '+3pp Y/Y'] },
+            { id: 'ga', label: 'General & admin', value: 38, notes: ['12% of revenue', '(10pp) Y/Y'] },
+          ],
+        },
+        tax: { label: 'Tax', value: 0, notes: ['No separate tax line is shown in the source chart.'] },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 281, notes: ['89% margin', '(1pp) Y/Y'] },
+        operating: { id: 'operating_loss', label: 'Operating loss', value: -2, notes: ['(1%) margin', '+10pp Y/Y'] },
+        net: {
+          id: 'operating_loss',
+          label: 'Operating loss',
+          value: -2,
+          notes: ['No separate net income or net loss line is shown in the source chart.'],
+        },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +26%'],
+            items: [{ id: 'revenue', label: '收入', notes: ['同比 +26%'] }],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'sm', label: '销售与市场', notes: ['占收入 52%', '同比 (4 个百分点)'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 25%', '同比 +3 个百分点'] },
+                { id: 'ga', label: '一般及行政', notes: ['占收入 12%', '同比 (10 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费', notes: ['来源图未单列税费。'] },
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 89%', '同比 (1 个百分点)'] },
+            operating: { label: '营业亏损', notes: ['利润率 (1%)', '同比 +10 个百分点'] },
+            net: { label: '营业亏损', notes: ['来源图未单列净利润或净亏损。'] },
+          },
+        },
+      },
+    },
+    {
       key: 'monday-q4-fy25',
       company: 'Monday.com',
       period: 'Q4 FY25',

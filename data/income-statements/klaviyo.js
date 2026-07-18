@@ -105,6 +105,97 @@
       },
     },
     {
+      key: 'klaviyo-q3-fy25',
+      company: 'Klaviyo',
+      period: 'Q3 FY25',
+      periodNote: 'Quarter ended Sep. 30, 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/klaviyo-q3-fy25.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 311,
+        notes: ['+32% Y/Y'],
+        items: [
+          {
+            id: 'americas',
+            label: 'Americas',
+            value: 201,
+            notes: ['+27% Y/Y'],
+            children: [
+              { id: 'united_states', label: 'United States', value: 186, notes: ['+27% Y/Y'] },
+              { id: 'other_americas', label: 'Other Americas', value: 15, notes: ['+27% Y/Y'] },
+            ],
+          },
+          { id: 'apac', label: 'APAC', value: 32, notes: ['+31% Y/Y'] },
+          { id: 'emea', label: 'EMEA', value: 78, notes: ['+48% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 76 },
+        operatingExpenses: {
+          total: 246,
+          items: [
+            { id: 'sm', label: 'S&M', value: 128, notes: ['41% of revenue', '(1pp) Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 73, notes: ['23% of revenue', '(0pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 45, notes: ['15% of revenue', '(2pp) Y/Y'] },
+          ],
+        },
+        tax: { label: 'Tax', value: 0 },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 235, notes: ['76% margin', '(1pp) Y/Y'] },
+        operating: { id: 'operating_loss', label: 'Operating loss', value: -11, notes: ['(3%) margin', '+2pp Y/Y'] },
+        net: {
+          id: 'operating_loss',
+          label: 'Operating loss',
+          value: -11,
+          notes: ['No separate net loss line is shown in the source chart.'],
+        },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月 30 日的季度',
+          revenue: {
+            notes: ['同比 +32%'],
+            items: [
+              {
+                id: 'americas',
+                label: '美洲',
+                notes: ['同比 +27%'],
+                children: [
+                  { id: 'united_states', label: '美国', notes: ['同比 +27%'] },
+                  { id: 'other_americas', label: '美洲其他地区', notes: ['同比 +27%'] },
+                ],
+              },
+              { id: 'apac', label: '亚太', notes: ['同比 +31%'] },
+              { id: 'emea', label: '欧洲、中东和非洲', notes: ['同比 +48%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'sm', label: '销售与营销', notes: ['占收入 41%', '同比 (1 个百分点)'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 23%', '同比 (0 个百分点)'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 15%', '同比 (2 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 76%', '同比 (1 个百分点)'] },
+            operating: { label: '营业亏损', notes: ['利润率 (3%)', '同比 +2 个百分点'] },
+            net: { label: '营业亏损', notes: ['来源图未单独显示净亏损项目。'] },
+          },
+        },
+      },
+    },
+    {
       key: 'klaviyo-q4-fy25',
       company: 'Klaviyo',
       period: 'Q4 FY25',

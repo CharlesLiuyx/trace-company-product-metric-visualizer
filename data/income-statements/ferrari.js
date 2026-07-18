@@ -185,6 +185,91 @@
           },
         },
       },
+    },
+    {
+      key: 'ferrari-q3-fy25',
+      company: 'Ferrari',
+      period: 'Q3 FY25',
+      periodNote: 'Ending Sep. 2025',
+      currency: '€',
+      unit: 'B',
+      decimals: 2,
+      sourceImage: 'input/processed/ferrari-q3-fy25.png',
+      roundingTolerance: 0.16,
+      revenue: {
+        total: 1.8,
+        notes: ['+7% Y/Y'],
+        items: [
+          { id: 'cars_and_spare_parts', label: 'Cars and spare parts', value: 1.5, notes: ['+6% Y/Y'] },
+          { id: 'sponsorships_commercial_brands', label: 'Sponsorships, commercial & brands', value: 0.2, notes: ['+21% Y/Y'] },
+          { id: 'other', label: 'Other', value: 0.1, notes: ['+9% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 0.9 },
+        operatingExpenses: {
+          total: 0.4,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 0.2, notes: ['13% of revenue', '(0pp) Y/Y'] },
+            { id: 'sga', label: 'SG&A', value: 0.2, notes: ['9% of revenue', '+1pp Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.1 },
+      },
+      otherIncome: {
+        total: 0,
+        items: [],
+      },
+      otherExpenses: {
+        total: 0.01,
+        items: [{ id: 'finance', label: 'Finance', value: 0.01, notes: ['€10M'] }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 0.9, notes: ['50% margin', '+0pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 0.5, notes: ['28% margin', '+0pp Y/Y'] },
+        net: {
+          id: 'net_profit',
+          label: 'Net profit',
+          value: 0.4,
+          notes: [
+            '22% margin',
+            '(1pp) Y/Y',
+            'Operating profit less tax and finance expense sums to €0.39B; the source chart reports €0.4B net profit after rounding.',
+          ],
+        },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第三季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +7%'],
+            items: [
+              { id: 'cars_and_spare_parts', label: '汽车及零部件', notes: ['同比 +6%'] },
+              { id: 'sponsorships_commercial_brands', label: '赞助、商业与品牌', notes: ['同比 +21%'] },
+              { id: 'other', label: '其他', notes: ['同比 +9%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '销售成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 13%', '同比（0 个百分点）'] },
+                { id: 'sga', label: '销售、一般及管理费用', notes: ['占收入 9%', '同比 +1 个百分点'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherExpenses: {
+            items: [{ id: 'finance', label: '财务费用', notes: ['€10M'] }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 50%', '同比 +0 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 28%', '同比 +0 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 22%', '同比（1 个百分点）'] },
+          },
+        },
+      },
     }
   );
 })(window);
