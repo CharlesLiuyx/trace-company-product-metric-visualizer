@@ -11192,6 +11192,136 @@
         }
       },
       {
+        "key": "ford-q1-fy26",
+        "src": "data/datasets/ford-q1-fy26.js",
+        "data": {
+          "name": "Ford · Q1 FY26",
+          "company": "Ford",
+          "meta": {
+            "title": "Ford Q1 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "福特 · 2026 财年第一季度",
+              "meta": {
+                "title": "福特 2026 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "kla-q3-fy26",
+        "src": "data/datasets/kla-q3-fy26.js",
+        "data": {
+          "name": "KLA · Q3 FY26",
+          "company": "KLA",
+          "meta": {
+            "title": "KLA Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "科磊 · 2026 财年第三季度",
+              "meta": {
+                "title": "科磊 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "cadence-q1-fy26",
+        "src": "data/datasets/cadence-q1-fy26.js",
+        "data": {
+          "name": "Cadence · Q1 FY26",
+          "company": "Cadence",
+          "meta": {
+            "title": "Cadence Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Cadence · 2026 财年第一季度",
+              "meta": {
+                "title": "Cadence 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "gm-q1-fy26",
+        "src": "data/datasets/gm-q1-fy26.js",
+        "data": {
+          "name": "GM · Q1 FY26",
+          "company": "GM",
+          "meta": {
+            "title": "GM Q1 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "GM · 2026 财年第一季度",
+              "meta": {
+                "title": "GM 2026 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "rivian-q1-fy26",
+        "src": "data/datasets/rivian-q1-fy26.js",
+        "data": {
+          "name": "Rivian · Q1 FY26",
+          "company": "Rivian",
+          "meta": {
+            "title": "Rivian Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Rivian · 2026 财年第一季度",
+              "meta": {
+                "title": "Rivian 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "roku-q1-fy26",
+        "src": "data/datasets/roku-q1-fy26.js",
+        "data": {
+          "name": "Roku · Q1 FY26",
+          "company": "Roku",
+          "meta": {
+            "title": "Roku Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Quarter ended Mar. 31, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Roku · 2026 财年第一季度",
+              "meta": {
+                "title": "Roku 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
         "key": "t-mobile-us-q1-fy26",
         "src": "data/datasets/t-mobile-us-q1-fy26.js",
         "data": {
@@ -11208,6 +11338,75 @@
               "meta": {
                 "title": "美国 T-Mobile 2026 财年第一季度利润表",
                 "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "texas-instruments-q1-fy26",
+        "src": "data/datasets/texas-instruments-q1-fy26.js",
+        "data": {
+          "name": "Texas Instruments · Q1 FY26",
+          "company": "Texas Instruments",
+          "meta": {
+            "title": "Texas Instruments Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "德州仪器 · 2026 财年第一季度",
+              "meta": {
+                "title": "德州仪器 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "at-t-q1-fy26",
+        "src": "data/datasets/at-t-q1-fy26.js",
+        "data": {
+          "name": "AT&T · Q1 FY26",
+          "company": "AT&T",
+          "meta": {
+            "title": "AT&T Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Quarter ended Mar. 31, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AT&T · 2026 财年第一季度",
+              "meta": {
+                "title": "AT&T 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lam-research-q3-fy26",
+        "src": "data/datasets/lam-research-q3-fy26.js",
+        "data": {
+          "name": "Lam Research · Q3 FY26",
+          "company": "Lam Research",
+          "meta": {
+            "title": "LAM Research Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "泛林集团 · 2026 财年第三季度",
+              "meta": {
+                "title": "泛林集团 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
                 "periodNote": "截至 2026 年 3 月"
               }
             }

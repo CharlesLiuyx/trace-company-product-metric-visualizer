@@ -10,6 +10,90 @@
 
   ssot.records.push(
     {
+      key: 'ford-q1-fy26',
+      company: 'Ford',
+      period: 'Q1 FY26',
+      periodNote: 'Quarter ended Mar. 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/ford-q1-fy26.png',
+      roundingTolerance: 0.21,
+      revenue: {
+        total: 43.3,
+        notes: ['+6% Y/Y'],
+        items: [
+          { id: 'ford_blue', label: 'Ford Blue', value: 33.4, notes: ['+6% Y/Y', 'Internal combustion'] },
+          { id: 'model_e', label: 'Ford Model e', value: 1.3, notes: ['(4%) Y/Y', 'Electric Vehicles'] },
+          { id: 'ford_pro', label: 'Ford Pro', value: 14.7, notes: ['(3%) Y/Y', 'Commercial division'] },
+          { id: 'ford_credit', label: 'Ford Credit', value: 3.4, notes: ['+6% Y/Y'] },
+          {
+            id: 'eliminations',
+            label: 'Eliminations',
+            value: -9.6,
+            notes: ['Eliminations between segment revenue and consolidated revenue.'],
+          },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 35.3 },
+        operatingExpenses: {
+          total: 5.6,
+          items: [
+            { id: 'ford_credit_expenses', label: 'Ford Credit expenses', value: 2.8 },
+            { id: 'sga', label: 'SG&A', value: 2.8 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.4 },
+      },
+      otherIncome: {
+        total: 0.9,
+        items: [{ id: 'other', label: 'Other', value: 0.9 }],
+      },
+      otherExpenses: {
+        total: 0.4,
+        items: [{ id: 'interest', label: 'Interest', value: 0.4 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 7.9, notes: ['18% margin', '+5pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 2.3, notes: ['5% margin', '+5pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 2.6, notes: ['6% margin', '+5pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第一季度',
+          periodNote: '截至 2026 年 3 月',
+          revenue: {
+            notes: ['同比 +6%'],
+            items: [
+              { id: 'ford_blue', label: 'Ford Blue 燃油车业务', notes: ['同比 +6%', '内燃机业务'] },
+              { id: 'model_e', label: 'Ford Model e 电动车业务', notes: ['同比 (4%)', '电动汽车'] },
+              { id: 'ford_pro', label: 'Ford Pro 商用车业务', notes: ['同比 (3%)', '商用车业务'] },
+              { id: 'ford_credit', label: '福特信贷', notes: ['同比 +6%'] },
+              { id: 'eliminations', label: '抵销项', notes: ['分部收入与合并收入之间的抵销项。'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '销售成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'ford_credit_expenses', label: '福特信贷费用' },
+                { id: 'sga', label: '销售、一般及管理费用' },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: { items: [{ id: 'other', label: '其他' }] },
+          otherExpenses: { items: [{ id: 'interest', label: '利息' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 18%', '同比 +5 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 5%', '同比 +5 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 6%', '同比 +5 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'ford-fy25',
       company: 'Ford',
       period: 'FY25',
