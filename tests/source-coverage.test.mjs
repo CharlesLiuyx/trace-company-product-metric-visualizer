@@ -12,6 +12,11 @@ import {
   createSourceCoverage,
 } from '../scripts/lib/source-coverage.mjs';
 import { assertSourceCoverageAuthoredValues } from '../scripts/lib/source-coverage-authored.mjs';
+import {
+  ZERO_PAINT_NODE_SLOT_CLASSIFICATION_CLAIM,
+  ZERO_PAINT_NODE_SLOT_FEATURE,
+  ZERO_PAINT_NODE_SLOT_INSPECTION_METHOD,
+} from '../scripts/lib/source-face-observation.mjs';
 
 const SOURCE_DIGEST = `sha256:${'a'.repeat(64)}`;
 const DATASET_KEY = 'example-q4-fy25';
@@ -257,7 +262,18 @@ test('Source Coverage uses independent Source identities and never treats Other 
         { role: 'render', target: 'nonNodeMetrics.other_income' },
         { role: 'render', target: 'annotations.other_income' },
       ],
-      features: ['text'],
+      features: ['text', ZERO_PAINT_NODE_SLOT_FEATURE],
+      featureEvidence: {
+        [ZERO_PAINT_NODE_SLOT_FEATURE]: {
+          source: 'same-column-node-slot',
+          locator: `input/processing/${DATASET_KEY}.png#other-income-node-slot`,
+          digest: SOURCE_DIGEST,
+          referenceBBox: [940, 200, 72, 80],
+          inspectionMethod: ZERO_PAINT_NODE_SLOT_INSPECTION_METHOD,
+          classificationClaim: ZERO_PAINT_NODE_SLOT_CLASSIFICATION_CLAIM,
+          reason: 'The native Source slot has no painted node face.',
+        },
+      },
     }],
   });
   const sourceClassification = classification();
@@ -290,6 +306,44 @@ test('Source Coverage uses independent Source identities and never treats Other 
       }],
     },
   }));
+});
+
+test('a financial non-node metric needs Source-bound zero-paint evidence', () => {
+  const inventory = createObjectInventory({
+    datasetKey: DATASET_KEY,
+    objects: [{
+      id: 'metric:restructuring',
+      kind: 'financial-line-item',
+      disposition: 'render',
+      mapping: [
+        { role: 'data', target: 'incomeStatement.costs.operatingExpenses.items.restructuring' },
+        { role: 'render', target: 'nonNodeMetrics.restructuring' },
+      ],
+      features: [],
+    }],
+  });
+  const sourceClassification = classification();
+  assert.throws(
+    () => createSourceCoverage({
+      classification: sourceClassification,
+      source: sourceClassification.source,
+      scanPasses: SOURCE_COVERAGE_SCAN_PASSES,
+      items: [{
+        sourceId: 'source:restructuring',
+        sourceClass: 'financial-value',
+        sourceLabel: 'Restructuring',
+        contentBBox: [900, 200, 180, 80],
+        inventoryObjectIds: ['metric:restructuring'],
+        amount: { literal: '$5M', value: '5', unit: 'M', resolution: '1' },
+        ssotRef: {
+          family: 'income-statement',
+          path: 'costs.operatingExpenses.items',
+          id: 'restructuring',
+        },
+      }],
+    }, { inventory, adapter: 'income-statement' }),
+    (error) => error.code === 'SOURCE_COVERAGE_ZERO_PAINT_EVIDENCE_REQUIRED'
+  );
 });
 
 test('a value-bearing Other cannot use the retired invisible-node intent or annotation source class (T22)', () => {

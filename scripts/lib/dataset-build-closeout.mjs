@@ -16,6 +16,10 @@ import { createObjectInventory } from './object-inventory.mjs';
 import { LEGACY_HIDDEN_ANCHOR_FEATURE } from './legacy/object-inventory-v3.mjs';
 import { createSourceCoverage } from './source-coverage.mjs';
 import { assertSourceCoverageAuthoredValues } from './source-coverage-authored.mjs';
+import {
+  ZERO_PAINT_NODE_SLOT_FEATURE,
+  assertZeroPaintNodeSlots,
+} from './source-face-observation.mjs';
 import { compileVerificationPlan } from './verification-plan.mjs';
 import { assertInterfaceEvidenceReady } from './interface-fidelity.mjs';
 import { assessNodePaintAudit, assertNodePaintPolicy } from './node-face-policy.mjs';
@@ -105,15 +109,14 @@ async function normalizeArtifacts(artifacts, projectRoot, sources = []) {
   return normalized.sort((left, right) => left.path.localeCompare(right.path));
 }
 
-// T19 measurement provenance: any current featureEvidence that claims to be
-// measured on the Source (semantic-annotation, measured-label-position,
-// ambiguous-label-slot) must bind its locator, digest, and referenceBBox to
-// THIS Build's Source. Coordinates copied from an adjacent period carry that
-// period's digest and are rejected here instead of passing every later gate.
+// Source-bound feature evidence must bind locator, digest, and referenceBBox
+// to THIS Build's Source. Coordinates copied from an adjacent period carry
+// that period's digest and are rejected here instead of passing later gates.
 const SOURCE_BOUND_FEATURES = Object.freeze([
   'semantic-annotation',
   'measured-label-position',
   'ambiguous-label-slot',
+  ZERO_PAINT_NODE_SLOT_FEATURE,
 ]);
 
 function assertSourceBoundFeatureEvidence(build, inventory, artifacts) {
@@ -268,13 +271,6 @@ export async function prepareBuildReview(input, options = {}) {
     ...(options.loadedData ? { loadedData: options.loadedData } : {}),
     ...(options.loadBrowserData ? { loadBrowserData: options.loadBrowserData } : {}),
   });
-  const verificationPlan = compileVerificationPlan({
-    adapter: build.adapter,
-    inventory,
-    sourceCoverage,
-    changeImpact: input.changeImpact,
-    requiredLocales: input.requiredLocales,
-  });
   const artifacts = await normalizeArtifacts(input.artifacts, projectRoot, build.sources);
   assertSourceBoundFeatureEvidence(build, inventory, artifacts);
   const referenceArtifact = artifacts.find((artifact) =>
@@ -285,6 +281,20 @@ export async function prepareBuildReview(input, options = {}) {
     'SOURCE_COVERAGE_REFERENCE_ARTIFACT_MISMATCH',
     'Source Coverage requires a reference-image artifact bound to a Build Source locator'
   );
+  // T23: a financial value may use a non-node metric only after prepare-review
+  // verifies its Source-bound node slot is genuinely zero-paint.
+  assertZeroPaintNodeSlots({
+    sourceCoverage,
+    inventory,
+    sourcePath: resolveProjectLocator(authoritativeSource.locator, projectRoot),
+  });
+  const verificationPlan = compileVerificationPlan({
+    adapter: build.adapter,
+    inventory,
+    sourceCoverage,
+    changeImpact: input.changeImpact,
+    requiredLocales: input.requiredLocales,
+  });
   const [inventoryReference, sourceCoverageReference, planReference] = await Promise.all([
     recordBuildObject(build.buildId, 'object-inventory', inventory, { buildRoot, projectRoot }),
     recordBuildObject(build.buildId, 'source-coverage', sourceCoverage, { buildRoot, projectRoot }),

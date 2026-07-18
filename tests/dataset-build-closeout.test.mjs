@@ -4,6 +4,7 @@ import { mkdir, mkdtemp, rename, rm, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
+import { PNG } from 'pngjs';
 import { createDatasetBuild, digestValue } from '../scripts/lib/dataset-build.mjs';
 import { projectFeedbackLedger } from '../scripts/lib/feedback-ledger.mjs';
 import { digestFidelityValue } from '../scripts/lib/fidelity-result.mjs';
@@ -24,6 +25,29 @@ import {
 
 const now = () => '2026-07-11T07:00:00.000Z';
 const digest = (value) => digestValue({ value });
+
+function sourcePng({ paintedNonNodeFace = false } = {}) {
+  const png = new PNG({ width: 100, height: 80 });
+  for (let index = 0; index < png.data.length; index += 4) {
+    png.data[index] = 242;
+    png.data[index + 1] = 242;
+    png.data[index + 2] = 242;
+    png.data[index + 3] = 255;
+  }
+  const paint = ([x, y, width, height]) => {
+    for (let row = y; row < y + height; row += 1) {
+      for (let column = x; column < x + width; column += 1) {
+        const index = (row * png.width + column) * 4;
+        png.data[index] = 207;
+        png.data[index + 1] = 60;
+        png.data[index + 2] = 35;
+      }
+    }
+  };
+  paint([20, 10, 40, 8]);
+  if (paintedNonNodeFace) paint([20, 46, 40, 2]);
+  return PNG.sync.write(png);
+}
 
 function sourceClassification({ key, adapter, sourcePath, sourceDigest, width, height }) {
   return {
@@ -185,6 +209,193 @@ test('prepare-review rejects a legacy invisible-node claim instead of compiling 
     }, { buildRoot, projectRoot: root, now }),
     (error) => error.code === 'INVENTORY_HIDDEN_NODE_UNSUPPORTED'
   );
+});
+
+async function zeroPaintBuildFixture(t, suffix, { paintedNonNodeFace }) {
+  const root = await mkdtemp(path.join(os.tmpdir(), `dataset-build-zero-paint-${suffix}-`));
+  const buildRoot = path.join(root, 'output', 'builds');
+  const key = `zero-paint-${suffix}-q3-fy26`;
+  const sourcePath = `input/processing/${key}.png`;
+  const adapterPath = `data/datasets/${key}.js`;
+  const sourceBytes = sourcePng({ paintedNonNodeFace });
+  const sourceDigest = bytesDigest(sourceBytes);
+  await mkdir(path.join(root, 'input', 'processing'), { recursive: true });
+  await mkdir(path.join(root, 'data', 'datasets'), { recursive: true });
+  await writeFile(path.join(root, sourcePath), sourceBytes);
+  await writeFile(path.join(root, adapterPath), 'export const marker = 1;\n');
+  const build = createDatasetBuild({
+    key,
+    adapter: 'income-statement',
+    baseCanonicalDigest: digest('canonical-v1'),
+    sources: [{
+      uri: `input/pending/${key}.png`,
+      processingUri: sourcePath,
+      processedUri: `input/processed/${key}.png`,
+      availability: 'local-only',
+      digest: sourceDigest,
+      width: 100,
+      height: 80,
+    }],
+    sourceClassification: sourceClassification({
+      key,
+      adapter: 'income-statement',
+      sourcePath: `input/pending/${key}.png`,
+      sourceDigest,
+      width: 100,
+      height: 80,
+    }),
+  }, { now, id: () => `build-${key}` });
+  await initializeDatasetBuild(build, { buildRoot });
+  t.after(() => rm(root, { recursive: true, force: true }));
+
+  const inventory = {
+    datasetKey: key,
+    objects: [
+      {
+        id: 'node:revenue',
+        kind: 'financial-line-item',
+        disposition: 'render',
+        mapping: [
+          { role: 'data', target: 'incomeStatement.revenue.total' },
+          { role: 'render', target: 'nodes.revenue' },
+        ],
+        features: ['visible-node-face'],
+      },
+      {
+        id: 'metric:restructuring',
+        kind: 'financial-line-item',
+        disposition: 'render',
+        mapping: [
+          { role: 'data', target: 'incomeStatement.costs.operatingExpenses.items.restructuring' },
+          { role: 'render', target: 'nonNodeMetrics.restructuring' },
+        ],
+        features: ['zero-paint-node-slot'],
+        featureEvidence: {
+          'zero-paint-node-slot': {
+            source: 'same-column-node-slot',
+            locator: `${sourcePath}#restructuring-node-slot`,
+            digest: sourceDigest,
+            referenceBBox: [20, 40, 40, 20],
+            inspectionMethod: 'native-scale-node-slot-pixel-scan',
+            classificationClaim: 'no-painted-node-face-observed',
+            reason: 'The native Source slot has no painted node face.',
+          },
+        },
+      },
+    ],
+  };
+  const sourceCoverage = {
+    scanPasses: ['geometry', 'residual', 'semantic-value'],
+    items: [
+      {
+        sourceId: 'source:revenue',
+        sourceClass: 'financial-value',
+        sourceLabel: 'Revenue',
+        contentBBox: [10, 5, 70, 25],
+        inventoryObjectIds: ['node:revenue'],
+        amount: { literal: '$1B', value: '1', unit: 'B', resolution: '1' },
+        ssotRef: { family: 'income-statement', path: 'revenue.total', id: 'revenue' },
+        face: {
+          searchBBox: [15, 5, 50, 20],
+          observedBBox: [20, 10, 40, 8],
+        },
+      },
+      {
+        sourceId: 'source:restructuring',
+        sourceClass: 'financial-value',
+        sourceLabel: 'Restructuring',
+        contentBBox: [20, 40, 40, 20],
+        inventoryObjectIds: ['metric:restructuring'],
+        amount: { literal: '$5M', value: '5', unit: 'M', resolution: '1' },
+        ssotRef: {
+          family: 'income-statement',
+          path: 'costs.operatingExpenses.items',
+          id: 'restructuring',
+        },
+      },
+    ],
+  };
+  const loadedData = {
+    records: [{
+      key,
+      unit: 'B',
+      decimals: 3,
+      revenue: { total: 1, items: [] },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', value: 0, items: [] },
+        operatingExpenses: {
+          total: 0.005,
+          items: [{ id: 'restructuring', value: 0.005 }],
+        },
+      },
+    }],
+    datasets: [{
+      key,
+      meta: { unit: 'B', decimals: 3 },
+      nodes: [{ id: 'revenue', value: 1, valueText: '$1B' }],
+      nonNodeMetrics: [{ id: 'restructuring', representation: 'flow', value: 0.005 }],
+    }],
+  };
+  return {
+    root,
+    buildRoot,
+    build,
+    inventory,
+    sourceCoverage,
+    loadedData,
+    sourcePath,
+    adapterPath,
+  };
+}
+
+test('prepare-review rejects a painted financial non-node slot before recording AUTHORED', async (t) => {
+  const painted = await zeroPaintBuildFixture(t, 'painted', { paintedNonNodeFace: true });
+  const reviewInput = {
+    buildId: painted.build.buildId,
+    inventory: painted.inventory,
+    sourceCoverage: painted.sourceCoverage,
+    artifacts: [
+      { path: painted.adapterPath, role: 'view-adapter' },
+      { path: painted.sourcePath, role: 'reference-image' },
+    ],
+    changeImpact: ['geometry'],
+    requiredLocales: ['en'],
+  };
+  await assert.rejects(
+    prepareBuildReview(reviewInput, {
+      buildRoot: painted.buildRoot,
+      projectRoot: painted.root,
+      loadedData: painted.loadedData,
+      now,
+    }),
+    (error) => error.code === 'SOURCE_FACE_PRESENT_FOR_NON_NODE'
+  );
+  const rejectedBuild = await readDatasetBuild(painted.build.buildId, {
+    buildRoot: painted.buildRoot,
+  });
+  assert.equal(rejectedBuild.state, 'INTAKED');
+  assert.equal(
+    rejectedBuild.receipts.some((receipt) => receipt.type === 'record-authored'),
+    false
+  );
+
+  const empty = await zeroPaintBuildFixture(t, 'empty', { paintedNonNodeFace: false });
+  const prepared = await prepareBuildReview({
+    ...reviewInput,
+    buildId: empty.build.buildId,
+    inventory: empty.inventory,
+    sourceCoverage: empty.sourceCoverage,
+    artifacts: [
+      { path: empty.adapterPath, role: 'view-adapter' },
+      { path: empty.sourcePath, role: 'reference-image' },
+    ],
+  }, {
+    buildRoot: empty.buildRoot,
+    projectRoot: empty.root,
+    loadedData: empty.loadedData,
+    now,
+  });
+  assert.equal(prepared.build.state, 'AUTHORED');
 });
 
 function inventory(key, sourceDigest) {

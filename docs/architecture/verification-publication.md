@@ -74,6 +74,9 @@ review preparation, Source Coverage must own every inventory object exactly
 once. The Build Module then reads the actual loaded SSOT and, for Income
 Statement node mappings, the Sankey View Adapter values. A mismatch fails
 before the new authored snapshot, Plan, or packet can become review input.
+For an Income Statement financial value mapped to `nonNodeMetrics.*`, the
+same Module also pixel-checks its Source-bound zero-paint slot before the Plan
+exists.
 These are build-local validation and recording operations; they neither
 publish canonical files nor materialize a stable Source projection.
 

@@ -292,6 +292,16 @@ async function main() {
     false,
     'current Source Coverage must not support invisible semantic nodes'
   );
+  assert.equal(
+    contract.sourceCoverage.incomeStatementNonNodeMetricsRequireZeroPaintEvidence,
+    true,
+    'Income Statement financial non-node metrics must bind zero-paint Source evidence'
+  );
+  assert.equal(
+    contract.sourceCoverage.prepareReviewPixelChecksZeroPaintNodeSlots,
+    true,
+    'prepare-review must pixel-check zero-paint node slots'
+  );
   assert.deepEqual(
     contract.sourceCoverage.incomeStatementReconciliationTargets,
     ['metric-ssot', 'sankey-view-adapter'],
@@ -480,6 +490,11 @@ async function main() {
     buildCloseout,
     /assertSourceCoverageAuthoredValues\(sourceCoverage/,
     'prepare-review must reconcile Source Coverage with loaded authored values'
+  );
+  assert.match(
+    buildCloseout,
+    /assertZeroPaintNodeSlots\(\{/,
+    'prepare-review must pixel-check Source-bound zero-paint node slots'
   );
 
   const [agents, mirror] = await Promise.all([

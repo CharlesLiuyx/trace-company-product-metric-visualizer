@@ -165,7 +165,10 @@ missing mapping are hard failures before review preparation.
 Every Sankey-node mapping implies a painted semantic face; no separate face
 intent can opt it out. Visible short nodes bind Source evidence through
 `visible-short-node`. Geometry without a painted Source face must map to a
-structural flow or semantic annotation instead of `nodes.*`.
+structural flow or semantic annotation instead of `nodes.*`. A financial
+value mapped to `nonNodeMetrics.*` owns `zero-paint-node-slot` evidence for
+the native candidate slot; the Build Module validates that evidence before
+Plan compilation.
 `specified-label-weight` binds an expected weight and provenance for manual
 review. Historical v1/v2/v3 inventories remain readable, but cannot compile a
 new review Plan; v3's invisible-node exception is legacy-only. ObjectInventory
@@ -226,6 +229,10 @@ A missing record or View, unit mismatch, wrong typed reference, wrong amount,
 loss of the recovered non-zero value through SSOT/View display precision, or
 visible zero-value face is a hard preparation failure. Every node observation
 must provide an `observedBBox`; a zero-paint object cannot target `nodes.*`.
+For an Income Statement financial non-node metric, `prepareBuildReview` scans
+the Source-bound slot at native scale and rejects any horizontal painted run
+covering at least 75% of the measured peer-node width. This keeps a 1px or 2px
+face from becoming a self-consistent non-node mapping.
 The coverage summary
 also records `Other` identities, the smallest non-zero observations, and the
 Source-expected visible node IDs so small values stay first-class
