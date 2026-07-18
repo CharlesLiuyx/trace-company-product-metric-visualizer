@@ -97,4 +97,94 @@
       },
     },
   });
+
+  ssot.records.push({
+    key: 't-mobile-us-q1-fy26',
+    company: 'T-Mobile US',
+    period: 'Q1 FY26',
+    periodNote: 'Quarter ended Mar. 31, 2026',
+    currency: '$',
+    unit: 'B',
+    decimals: 1,
+    sourceImage: 'input/processed/t-mobile-us-q1-fy26.png',
+    roundingTolerance: 0.15,
+    revenue: {
+      total: 23.1,
+      notes: ['+11% Y/Y'],
+      items: [
+        {
+          id: 'services',
+          label: 'Services',
+          value: 18.8,
+          notes: ['+11% Y/Y'],
+          children: [
+            { id: 'postpaid', label: 'Postpaid revenues', value: 15.6, notes: ['+15% Y/Y'] },
+            { id: 'prepaid', label: 'Prepaid revenues', value: 2.5, notes: ['(5%) Y/Y'] },
+            { id: 'wholesale_other', label: 'Wholesale & Other', value: 0.7, notes: ['Flat Y/Y'] },
+          ],
+        },
+        { id: 'equipment', label: 'Equipment', value: 4.0, notes: ['+8% Y/Y'] },
+        { id: 'other_revenue', label: 'Other', value: 0.3, notes: ['+9% Y/Y'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 8.8 },
+      operatingExpenses: {
+        total: 9.8,
+        items: [
+          { id: 'sga', label: 'SG&A', value: 6.0 },
+          { id: 'depreciation_amortization', label: 'Depreciation & Amortization', value: 3.8 },
+        ],
+      },
+      tax: { id: 'tax', label: 'Tax', value: 0.8 },
+    },
+    otherExpenses: {
+      total: 1.1,
+      items: [{ id: 'other_expense', label: 'Other', value: 1.1 }],
+    },
+    profit: {
+      gross: { id: 'gross_profit', label: 'Gross profit', value: 14.3, notes: ['62% margin', '(3pp) Y/Y'] },
+      operating: { id: 'operating_profit', label: 'Operating profit', value: 4.5, notes: ['19% margin', '(4pp) Y/Y'] },
+      net: { id: 'net_profit', label: 'Net profit', value: 2.5, notes: ['11% margin', '(3pp) Y/Y'] },
+    },
+    i18n: {
+      zh: {
+        period: '2026 财年第一季度',
+        periodNote: '截至 2026 年 3 月 31 日的季度',
+        revenue: {
+          notes: ['同比 +11%'],
+          items: [
+            {
+              id: 'services',
+              label: '服务收入',
+              notes: ['同比 +11%'],
+              children: [
+                { id: 'postpaid', label: '后付费收入', notes: ['同比 +15%'] },
+                { id: 'prepaid', label: '预付费收入', notes: ['同比 (5%)'] },
+                { id: 'wholesale_other', label: '批发及其他', notes: ['同比持平'] },
+              ],
+            },
+            { id: 'equipment', label: '设备', notes: ['同比 +8%'] },
+            { id: 'other_revenue', label: '其他', notes: ['同比 +9%'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: { label: '收入成本' },
+          operatingExpenses: {
+            items: [
+              { id: 'sga', label: '销售、一般及管理费用' },
+              { id: 'depreciation_amortization', label: '折旧与摊销' },
+            ],
+          },
+          tax: { label: '税费' },
+        },
+        otherExpenses: { items: [{ id: 'other_expense', label: '其他' }] },
+        profit: {
+          gross: { label: '毛利润', notes: ['利润率 62%', '同比 (3 个百分点)'] },
+          operating: { label: '营业利润', notes: ['利润率 19%', '同比 (4 个百分点)'] },
+          net: { label: '净利润', notes: ['利润率 11%', '同比 (3 个百分点)'] },
+        },
+      },
+    },
+  });
 })(window);

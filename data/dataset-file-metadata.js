@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-18T08:32:39.000Z",
+  "generatedAt": "2026-07-18T16:54:32.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -2981,6 +2981,12 @@
       "path": "data/datasets/nio-q3-fy25.js",
       "updatedAtMs": 1784357264000,
       "updatedAt": "2026-07-18T06:47:44.000Z",
+      "timeSource": "git"
+    },
+    "t-mobile-us-q1-fy26": {
+      "path": "data/datasets/t-mobile-us-q1-fy26.js",
+      "updatedAtMs": 1784393672000,
+      "updatedAt": "2026-07-18T16:54:32.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {
