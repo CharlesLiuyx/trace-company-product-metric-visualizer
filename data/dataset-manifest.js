@@ -11190,6 +11190,29 @@
             }
           }
         }
+      },
+      {
+        "key": "t-mobile-us-q1-fy26",
+        "src": "data/datasets/t-mobile-us-q1-fy26.js",
+        "data": {
+          "name": "T-Mobile US · Q1 FY26",
+          "company": "T-Mobile US",
+          "meta": {
+            "title": "T-Mobile US Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美国 T-Mobile · 2026 财年第一季度",
+              "meta": {
+                "title": "美国 T-Mobile 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
       }
     ]
   };
