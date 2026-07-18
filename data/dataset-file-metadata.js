@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-17T21:14:37.000Z",
+  "generatedAt": "2026-07-18T06:47:44.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -2903,6 +2903,12 @@
       "path": "data/datasets/abbott-q3-fy25.js",
       "updatedAtMs": 1784322877000,
       "updatedAt": "2026-07-17T21:14:37.000Z",
+      "timeSource": "git"
+    },
+    "nio-q3-fy25": {
+      "path": "data/datasets/nio-q3-fy25.js",
+      "updatedAtMs": 1784357264000,
+      "updatedAt": "2026-07-18T06:47:44.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {

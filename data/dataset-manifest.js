@@ -10911,6 +10911,29 @@
             }
           }
         }
+      },
+      {
+        "key": "nio-q3-fy25",
+        "src": "data/datasets/nio-q3-fy25.js",
+        "data": {
+          "name": "NIO · Q3 FY25",
+          "company": "NIO",
+          "meta": {
+            "title": "NIO Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "蔚来 · 2025 财年第三季度",
+              "meta": {
+                "title": "蔚来 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

@@ -1761,6 +1761,12 @@
       "width": 2667,
       "height": 1500
     },
+    "nio-q3-fy25": {
+      "similarity": 0.969368,
+      "mae": 7.8111,
+      "width": 2667,
+      "height": 1500
+    },
     "novartis-q1-fy26": {
       "similarity": 0.969071,
       "mae": 7.8868,
