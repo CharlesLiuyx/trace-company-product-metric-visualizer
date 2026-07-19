@@ -11412,6 +11412,232 @@
             }
           }
         }
+      },
+      {
+        "key": "citigroup-q1-fy26",
+        "src": "data/datasets/citigroup-q1-fy26.js",
+        "data": {
+          "name": "Citigroup · Q1 FY26",
+          "company": "Citigroup",
+          "meta": {
+            "title": "Citigroup Q1 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "花旗集团 · 2026 财年第一季度",
+              "meta": {
+                "title": "花旗集团 2026 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "schwab-q1-fy26",
+        "src": "data/datasets/schwab-q1-fy26.js",
+        "data": {
+          "name": "Schwab · Q1 FY26",
+          "company": "Schwab",
+          "meta": {
+            "title": "Schwab Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "嘉信理财 · 2026 财年第一季度",
+              "meta": {
+                "title": "嘉信理财 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lockheed-martin-q1-fy26",
+        "src": "data/datasets/lockheed-martin-q1-fy26.js",
+        "data": {
+          "name": "Lockheed Martin · Q1 FY26",
+          "company": "Lockheed Martin",
+          "meta": {
+            "title": "Lockheed Martin Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "洛克希德·马丁 · 2026 财年第一季度",
+              "meta": {
+                "title": "洛克希德·马丁 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sofi-q1-fy26",
+        "src": "data/datasets/sofi-q1-fy26.js",
+        "data": {
+          "name": "SoFi · Q1 FY26",
+          "company": "SoFi",
+          "meta": {
+            "title": "SoFi Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Quarter ended Mar. 31, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "SoFi · 2026 财年第一季度",
+              "meta": {
+                "title": "SoFi 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "comcast-q1-fy26",
+        "src": "data/datasets/comcast-q1-fy26.js",
+        "data": {
+          "name": "Comcast · Q1 FY26",
+          "company": "Comcast",
+          "meta": {
+            "title": "Comcast Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Quarter ended Mar. 31, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "康卡斯特 · 2026 财年第一季度",
+              "meta": {
+                "title": "康卡斯特 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "jpmorganchase-q1-fy26",
+        "src": "data/datasets/jpmorganchase-q1-fy26.js",
+        "data": {
+          "name": "JPMorganChase · Q1 FY26",
+          "company": "JPMorganChase",
+          "meta": {
+            "title": "JPMorganChase Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "摩根大通 · 2026 财年第一季度",
+              "meta": {
+                "title": "摩根大通 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "etsy-q1-fy26",
+        "src": "data/datasets/etsy-q1-fy26.js",
+        "data": {
+          "name": "Etsy · Q1 FY26",
+          "company": "Etsy",
+          "meta": {
+            "title": "Etsy Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Etsy · 2026 财年第一季度",
+              "meta": {
+                "title": "Etsy 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "wells-fargo-q1-fy26",
+        "src": "data/datasets/wells-fargo-q1-fy26.js",
+        "data": {
+          "name": "Wells Fargo · Q1 FY26",
+          "company": "Wells Fargo",
+          "meta": {
+            "title": "Wells Fargo Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "富国银行 · 2026 财年第一季度",
+              "meta": {
+                "title": "富国银行 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "verizon-q1-fy26",
+        "src": "data/datasets/verizon-q1-fy26.js",
+        "data": {
+          "name": "Verizon · Q1 FY26",
+          "company": "Verizon",
+          "meta": {
+            "title": "Verizon Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Quarter ended Mar. 31, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "威瑞森 · 2026 财年第一季度",
+              "meta": {
+                "title": "威瑞森 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "bank-of-america-q1-fy26",
+        "src": "data/datasets/bank-of-america-q1-fy26.js",
+        "data": {
+          "name": "Bank of America · Q1 FY26",
+          "company": "Bank of America",
+          "meta": {
+            "title": "Bank of America Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美国银行 · 2026 财年第一季度",
+              "meta": {
+                "title": "美国银行 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

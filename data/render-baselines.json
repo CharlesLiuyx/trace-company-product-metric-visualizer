@@ -447,6 +447,12 @@
       "width": 2667,
       "height": 1500
     },
+    "bank-of-america-q1-fy26": {
+      "similarity": 0.961011,
+      "mae": 9.9421,
+      "width": 2667,
+      "height": 1500
+    },
     "bank-of-america-q4-fy25": {
       "similarity": 0.958133,
       "mae": 10.676,
@@ -669,6 +675,12 @@
       "width": 2667,
       "height": 1500
     },
+    "citigroup-q1-fy26": {
+      "similarity": 0.967004,
+      "mae": 8.4139,
+      "width": 2667,
+      "height": 1500
+    },
     "citigroup-q4-fy25": {
       "similarity": 0.953851,
       "mae": 11.768,
@@ -708,6 +720,12 @@
     "coinbase-q4-fy25": {
       "similarity": 0.958269,
       "mae": 10.6414,
+      "width": 2667,
+      "height": 1500
+    },
+    "comcast-q1-fy26": {
+      "similarity": 0.94708,
+      "mae": 13.4947,
       "width": 2667,
       "height": 1500
     },
@@ -990,6 +1008,12 @@
     "eli-lilly-q4-fy25": {
       "similarity": 0.970147,
       "mae": 7.6125,
+      "width": 2667,
+      "height": 1500
+    },
+    "etsy-q1-fy26": {
+      "similarity": 0.975765,
+      "mae": 6.1798,
       "width": 2667,
       "height": 1500
     },
@@ -1413,6 +1437,12 @@
       "width": 2667,
       "height": 1500
     },
+    "jpmorganchase-q1-fy26": {
+      "similarity": 0.961104,
+      "mae": 9.9185,
+      "width": 2667,
+      "height": 1500
+    },
     "jpmorganchase-q4-fy25": {
       "similarity": 0.958199,
       "mae": 10.6592,
@@ -1530,6 +1560,12 @@
     "live-nation-q3-fy25": {
       "similarity": 0.969475,
       "mae": 7.7839,
+      "width": 2667,
+      "height": 1500
+    },
+    "lockheed-martin-q1-fy26": {
+      "similarity": 0.975623,
+      "mae": 6.2162,
       "width": 2667,
       "height": 1500
     },
@@ -2421,6 +2457,12 @@
       "width": 2667,
       "height": 1500
     },
+    "schwab-q1-fy26": {
+      "similarity": 0.962892,
+      "mae": 9.4624,
+      "width": 2667,
+      "height": 1500
+    },
     "schwab-q4-fy25": {
       "similarity": 0.962564,
       "mae": 9.5463,
@@ -2508,6 +2550,12 @@
     "snowflake-q4-fy26": {
       "similarity": 0.963057,
       "mae": 9.4205,
+      "width": 2667,
+      "height": 1500
+    },
+    "sofi-q1-fy26": {
+      "similarity": 0.97349,
+      "mae": 6.76,
       "width": 2667,
       "height": 1500
     },
@@ -2871,9 +2919,15 @@
       "width": 2667,
       "height": 1500
     },
+    "verizon-q1-fy26": {
+      "similarity": 0.963074,
+      "mae": 9.4161,
+      "width": 2667,
+      "height": 1500
+    },
     "verizon-q4-fy25": {
-      "similarity": 0.961426,
-      "mae": 9.8365,
+      "similarity": 0.961572,
+      "mae": 9.7991,
       "width": 2667,
       "height": 1500
     },
@@ -2928,6 +2982,12 @@
     "warner-bros-q4-fy25": {
       "similarity": 0.97055,
       "mae": 7.5097,
+      "width": 2667,
+      "height": 1500
+    },
+    "wells-fargo-q1-fy26": {
+      "similarity": 0.959843,
+      "mae": 10.2399,
       "width": 2667,
       "height": 1500
     },

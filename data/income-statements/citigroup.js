@@ -105,6 +105,101 @@
           },
         },
       },
+    },
+    {
+      key: 'citigroup-q1-fy26',
+      company: 'Citigroup',
+      period: 'Q1 FY26',
+      periodNote: 'Ending Mar. 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/citigroup-q1-fy26.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 24.6,
+        notes: ['+14% Y/Y', 'Net of interest expenses'],
+        items: [
+          { id: 'services', label: 'Services', value: 6.1, notes: ['+17% Y/Y', '37% net margin'] },
+          { id: 'markets', label: 'Markets', value: 7.2, notes: ['+19% Y/Y', '36% net margin'] },
+          { id: 'banking', label: 'Banking', value: 1.8, notes: ['+15% Y/Y', '17% net margin'] },
+          { id: 'wealth', label: 'Wealth', value: 3.1, notes: ['+11% Y/Y', '14% net margin'] },
+          { id: 'uspb', label: 'USPB', value: 4.8, notes: ['+4% Y/Y', '15% net margin'] },
+          { id: 'all_other', label: 'All other', value: 1.7, notes: ['+16% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          id: 'provision_for_credit_losses',
+          label: 'Provision for credit losses',
+          value: 2.8,
+          notes: ['Source depicts this as a pre-pretax cost.'],
+        },
+        operatingExpenses: {
+          total: 14.3,
+          notes: ['Noninterest expenses'],
+          items: [
+            { id: 'compensation_benefits', label: 'Compensation & benefits', value: 8.4 },
+            { id: 'other_general_operating', label: 'Other general operating', value: 2.8 },
+            { id: 'technology_communication', label: 'Technology & Communication', value: 2.4 },
+            { id: 'premises_equipment', label: 'Premises & equipment', value: 0.6 },
+            { id: 'marketing', label: 'Marketing', value: 0.2 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 1.6 },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: {
+          label: 'Revenue after credit loss provision',
+          value: 21.8,
+          notes: ['Balancing subtotal; not labeled separately in the source chart.'],
+        },
+        operating: {
+          id: 'pretax_income',
+          label: 'Pretax income',
+          value: 7.5,
+          notes: ['Source amounts are rounded to the nearest tenth of a billion.'],
+        },
+        net: { id: 'net_income', label: 'Net income', value: 5.9, notes: ['+45% Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第一季度',
+          periodNote: '截至 2026 年 3 月',
+          revenue: {
+            notes: ['同比 +14%', '扣除利息支出后'],
+            items: [
+              { id: 'services', label: '服务', notes: ['同比 +17%', '净利率 37%'] },
+              { id: 'markets', label: '市场', notes: ['同比 +19%', '净利率 36%'] },
+              { id: 'banking', label: '银行', notes: ['同比 +15%', '净利率 17%'] },
+              { id: 'wealth', label: '财富管理', notes: ['同比 +11%', '净利率 14%'] },
+              { id: 'uspb', label: '美国个人银行', notes: ['同比 +4%', '净利率 15%'] },
+              { id: 'all_other', label: '所有其他', notes: ['同比 +16%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '信用损失拨备', notes: ['来源图将其展示为税前利润前成本。'] },
+            operatingExpenses: {
+              notes: ['非利息费用'],
+              items: [
+                { id: 'compensation_benefits', label: '薪酬与福利' },
+                { id: 'other_general_operating', label: '其他一般运营' },
+                { id: 'technology_communication', label: '技术与通信' },
+                { id: 'premises_equipment', label: '场地与设备' },
+                { id: 'marketing', label: '营销' },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          profit: {
+            gross: { label: '扣除信用损失拨备后的收入', notes: ['用于平衡的小计；来源图未单独标注。'] },
+            operating: { label: '税前利润', notes: ['来源金额四舍五入至十亿美元的小数点后一位。'] },
+            net: { label: '净利润', notes: ['同比 +45%'] },
+          },
+        },
+      },
     }
   );
 })(window);

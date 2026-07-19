@@ -113,4 +113,133 @@
       },
     },
   });
+
+  ssot.records.push({
+    key: 'verizon-q1-fy26',
+    company: 'Verizon',
+    period: 'Q1 FY26',
+    periodNote: 'Quarter ended Mar. 31, 2026',
+    currency: '$',
+    unit: 'B',
+    decimals: 1,
+    sourceImage: 'input/processed/verizon-q1-fy26.png',
+    roundingTolerance: 0.15,
+    revenue: {
+      total: 34.4,
+      notes: ['+3% Y/Y'],
+      items: [
+        {
+          id: 'consumer',
+          label: 'Consumer',
+          value: 26.5,
+          notes: ['+3% Y/Y'],
+          children: [
+            { id: 'service', label: 'Service', value: 19.2, notes: ['+2% Y/Y'] },
+            { id: 'wireless_consumer', label: 'Wireless Equipment', value: 4.8, notes: ['+6% Y/Y'] },
+            { id: 'other_consumer', label: 'Other', value: 2.4, notes: ['+7% Y/Y'] },
+          ],
+        },
+        {
+          id: 'business',
+          label: 'Business',
+          value: 7.4,
+          notes: ['+2% Y/Y'],
+          children: [
+            { id: 'mobility_broadband_service', label: 'Mobility & Broadband Service', value: 3.7, notes: ['(1%) Y/Y'] },
+            { id: 'wireless_business', label: 'Wireless Equipment', value: 0.9, notes: ['(1%) Y/Y'] },
+            { id: 'other_business', label: 'Other', value: 2.9, notes: ['+6% Y/Y'] },
+          ],
+        },
+        { id: 'corporate', label: 'Corporate', value: 0.6, notes: ['(2%) Y/Y'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 13.7 },
+      operatingExpenses: {
+        total: 12.5,
+        items: [
+          { id: 'sga', label: 'SG&A', value: 7.6 },
+          { id: 'depreciation_amortization', label: 'Depreciation & Amortization', value: 5.0 },
+        ],
+      },
+      tax: { id: 'tax', label: 'Tax', value: 1.6 },
+    },
+    otherIncome: {
+      total: 0.5,
+      items: [{ id: 'other_income', label: 'Other', value: 0.5 }],
+    },
+    otherExpenses: {
+      total: 1.9,
+      items: [{ id: 'interest', label: 'Interest', value: 1.9 }],
+    },
+    profit: {
+      gross: {
+        id: 'gross_profit',
+        label: 'Gross profit',
+        value: 20.8,
+        notes: ['60% margin', '(1pp) Y/Y'],
+      },
+      operating: {
+        id: 'operating_profit',
+        label: 'Operating profit',
+        value: 8.2,
+        notes: ['24% margin', '+0pp Y/Y'],
+      },
+      net: {
+        id: 'net_profit',
+        label: 'Net profit',
+        value: 5.1,
+        notes: ['15% margin', '+0pp Y/Y'],
+      },
+    },
+    i18n: {
+      zh: {
+        period: '2026 财年第一季度',
+        periodNote: '截至 2026 年 3 月 31 日的季度',
+        revenue: {
+          notes: ['同比 +3%'],
+          items: [
+            {
+              id: 'consumer',
+              label: '消费者',
+              notes: ['同比 +3%'],
+              children: [
+                { id: 'service', label: '服务', notes: ['同比 +2%'] },
+                { id: 'wireless_consumer', label: '无线设备', notes: ['同比 +6%'] },
+                { id: 'other_consumer', label: '其他', notes: ['同比 +7%'] },
+              ],
+            },
+            {
+              id: 'business',
+              label: '商业',
+              notes: ['同比 +2%'],
+              children: [
+                { id: 'mobility_broadband_service', label: '移动与宽带服务', notes: ['同比 (1%)'] },
+                { id: 'wireless_business', label: '无线设备', notes: ['同比 (1%)'] },
+                { id: 'other_business', label: '其他', notes: ['同比 +6%'] },
+              ],
+            },
+            { id: 'corporate', label: '公司及其他', notes: ['同比 (2%)'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: { label: '收入成本' },
+          operatingExpenses: {
+            items: [
+              { id: 'sga', label: '销售、一般及管理费用' },
+              { id: 'depreciation_amortization', label: '折旧与摊销' },
+            ],
+          },
+          tax: { label: '税费' },
+        },
+        otherIncome: { items: [{ id: 'other_income', label: '其他' }] },
+        otherExpenses: { items: [{ id: 'interest', label: '利息' }] },
+        profit: {
+          gross: { label: '毛利润', notes: ['利润率 60%', '同比 (1 个百分点)'] },
+          operating: { label: '营业利润', notes: ['利润率 24%', '同比 +0 个百分点'] },
+          net: { label: '净利润', notes: ['利润率 15%', '同比 +0 个百分点'] },
+        },
+      },
+    },
+  });
 })(window);

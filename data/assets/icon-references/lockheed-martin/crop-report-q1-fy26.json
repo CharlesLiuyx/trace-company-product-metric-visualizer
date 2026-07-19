@@ -1,0 +1,414 @@
+{
+  "source": "input/processed/lockheed-martin-q1-fy26.png",
+  "spec": "input/icon-crop-specs/lockheed-martin-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-19T03:47:58.446024+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/lockheed-martin",
+  "crops": [
+    {
+      "key": "lockheed-q1-aeronautics-jet",
+      "output": "data/assets/icon-references/lockheed-martin/crops/aeronautics-jet-q1-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 4103,
+        "losslessBytes": 22331,
+        "savingsVsLossless": 0.8163,
+        "metrics": {
+          "meanAbsoluteError": 0.8051,
+          "rootMeanSquareError": 2.5459,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.2528
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 30094,
+        "transparentPixelRatio": 0.7542
+      },
+      "searchBox": {
+        "x": 122,
+        "y": 309,
+        "width": 279,
+        "height": 132
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 125,
+        "y0": 316,
+        "x1": 401,
+        "y1": 441
+      },
+      "cropBox": {
+        "x0": 118,
+        "y0": 305,
+        "x1": 403,
+        "y1": 445
+      },
+      "validation": {
+        "width": 285,
+        "height": 140,
+        "foregroundPixels": 7697,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 7,
+          "right": 2,
+          "top": 11,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": 0.0088,
+          "y": 0.025
+        },
+        "passes": true
+      },
+      "note": "Aeronautics aircraft icon cluster; the crop stops before the $7.0B block and the Aeronautics label.",
+      "runtimeOutput": "data/assets/raster-annotations/lockheed-martin/aeronautics-jet-q1-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 4103,
+        "losslessBytes": 22331,
+        "savingsVsLossless": 0.8163,
+        "metrics": {
+          "meanAbsoluteError": 0.8051,
+          "rootMeanSquareError": 2.5459,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.2528
+        }
+      },
+      "validationSheet": "data/assets/icon-references/lockheed-martin/validation-sheets/lockheed-q1-aeronautics-jet.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 257085,
+        "losslessBytes": 257085,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "lockheed-q1-missile-fire-control",
+      "output": "data/assets/icon-references/lockheed-martin/crops/missile-fire-control-q1-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 1686,
+        "losslessBytes": 8022,
+        "savingsVsLossless": 0.7898,
+        "metrics": {
+          "meanAbsoluteError": 0.3874,
+          "rootMeanSquareError": 1.3411,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 25,
+          "changedPixelRatio": 0.1804
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 14886,
+        "transparentPixelRatio": 0.8213
+      },
+      "searchBox": {
+        "x": 176,
+        "y": 541,
+        "width": 163,
+        "height": 98
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 187,
+        "y0": 556,
+        "x1": 327,
+        "y1": 636
+      },
+      "cropBox": {
+        "x0": 172,
+        "y0": 537,
+        "x1": 343,
+        "y1": 643
+      },
+      "validation": {
+        "width": 171,
+        "height": 106,
+        "foregroundPixels": 2927,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 15,
+          "right": 16,
+          "top": 19,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": -0.0029,
+          "y": 0.0566
+        },
+        "passes": true
+      },
+      "note": "Missile and Fire Control icon cluster; the crop contains only the missile render.",
+      "runtimeOutput": "data/assets/raster-annotations/lockheed-martin/missile-fire-control-q1-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 1686,
+        "losslessBytes": 8022,
+        "savingsVsLossless": 0.7898,
+        "metrics": {
+          "meanAbsoluteError": 0.3874,
+          "rootMeanSquareError": 1.3411,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 25,
+          "changedPixelRatio": 0.1804
+        }
+      },
+      "validationSheet": "data/assets/icon-references/lockheed-martin/validation-sheets/lockheed-q1-missile-fire-control.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 247399,
+        "losslessBytes": 247399,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "lockheed-q1-rotary-mission-systems",
+      "output": "data/assets/icon-references/lockheed-martin/crops/rotary-mission-systems-q1-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2373,
+        "losslessBytes": 11539,
+        "savingsVsLossless": 0.7943,
+        "metrics": {
+          "meanAbsoluteError": 0.77,
+          "rootMeanSquareError": 2.1148,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 34,
+          "changedPixelRatio": 0.3019
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 11524,
+        "transparentPixelRatio": 0.7
+      },
+      "searchBox": {
+        "x": 151,
+        "y": 788,
+        "width": 188,
+        "height": 76
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 161,
+        "y0": 800,
+        "x1": 339,
+        "y1": 855
+      },
+      "cropBox": {
+        "x0": 147,
+        "y0": 784,
+        "x1": 343,
+        "y1": 868
+      },
+      "validation": {
+        "width": 196,
+        "height": 84,
+        "foregroundPixels": 4882,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 14,
+          "right": 4,
+          "top": 16,
+          "bottom": 13
+        },
+        "centerOffset": {
+          "x": 0.0255,
+          "y": 0.0179
+        },
+        "passes": true
+      },
+      "note": "Rotary & Mission Systems icon cluster; the crop contains only the aircraft render.",
+      "runtimeOutput": "data/assets/raster-annotations/lockheed-martin/rotary-mission-systems-q1-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2373,
+        "losslessBytes": 11539,
+        "savingsVsLossless": 0.7943,
+        "metrics": {
+          "meanAbsoluteError": 0.77,
+          "rootMeanSquareError": 2.1148,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 34,
+          "changedPixelRatio": 0.3019
+        }
+      },
+      "validationSheet": "data/assets/icon-references/lockheed-martin/validation-sheets/lockheed-q1-rotary-mission-systems.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 252301,
+        "losslessBytes": 252301,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "lockheed-q1-space-spacecraft",
+      "output": "data/assets/icon-references/lockheed-martin/crops/space-spacecraft-q1-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 2459,
+        "losslessBytes": 11496,
+        "savingsVsLossless": 0.7861,
+        "metrics": {
+          "meanAbsoluteError": 1.074,
+          "rootMeanSquareError": 2.5309,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 24,
+          "changedPixelRatio": 0.4004
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 6346,
+        "transparentPixelRatio": 0.6043
+      },
+      "searchBox": {
+        "x": 188,
+        "y": 1003,
+        "width": 141,
+        "height": 88
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 202,
+        "y0": 1007,
+        "x1": 312,
+        "y1": 1091
+      },
+      "cropBox": {
+        "x0": 198,
+        "y0": 1006,
+        "x1": 316,
+        "y1": 1095
+      },
+      "validation": {
+        "width": 118,
+        "height": 89,
+        "foregroundPixels": 3976,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 4,
+          "right": 4,
+          "top": 1,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0169
+        },
+        "passes": true
+      },
+      "note": "Space icon cluster; the crop begins on the empty scanline at y=1006, excluding the adjacent Rotary margin text that ends at y=1005.",
+      "runtimeOutput": "data/assets/raster-annotations/lockheed-martin/space-spacecraft-q1-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 2459,
+        "losslessBytes": 11496,
+        "savingsVsLossless": 0.7861,
+        "metrics": {
+          "meanAbsoluteError": 1.074,
+          "rootMeanSquareError": 2.5309,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 24,
+          "changedPixelRatio": 0.4004
+        }
+      },
+      "validationSheet": "data/assets/icon-references/lockheed-martin/validation-sheets/lockheed-q1-space-spacecraft.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 302380,
+        "losslessBytes": 302380,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}
