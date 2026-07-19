@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-18T19:01:53.000Z",
+  "generatedAt": "2026-07-19T04:18:31.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -2277,8 +2277,8 @@
     },
     "verizon-q4-fy25": {
       "path": "data/datasets/verizon-q4-fy25.js",
-      "updatedAtMs": 1784085404000,
-      "updatedAt": "2026-07-15T03:16:44.000Z",
+      "updatedAtMs": 1784434711000,
+      "updatedAt": "2026-07-19T04:18:31.000Z",
       "timeSource": "git"
     },
     "at-t-q4-fy25": {
@@ -3041,6 +3041,66 @@
       "path": "data/datasets/lam-research-q3-fy26.js",
       "updatedAtMs": 1784401313000,
       "updatedAt": "2026-07-18T19:01:53.000Z",
+      "timeSource": "git"
+    },
+    "citigroup-q1-fy26": {
+      "path": "data/datasets/citigroup-q1-fy26.js",
+      "updatedAtMs": 1784434711000,
+      "updatedAt": "2026-07-19T04:18:31.000Z",
+      "timeSource": "git"
+    },
+    "schwab-q1-fy26": {
+      "path": "data/datasets/schwab-q1-fy26.js",
+      "updatedAtMs": 1784434711000,
+      "updatedAt": "2026-07-19T04:18:31.000Z",
+      "timeSource": "git"
+    },
+    "lockheed-martin-q1-fy26": {
+      "path": "data/datasets/lockheed-martin-q1-fy26.js",
+      "updatedAtMs": 1784434711000,
+      "updatedAt": "2026-07-19T04:18:31.000Z",
+      "timeSource": "git"
+    },
+    "sofi-q1-fy26": {
+      "path": "data/datasets/sofi-q1-fy26.js",
+      "updatedAtMs": 1784434711000,
+      "updatedAt": "2026-07-19T04:18:31.000Z",
+      "timeSource": "git"
+    },
+    "comcast-q1-fy26": {
+      "path": "data/datasets/comcast-q1-fy26.js",
+      "updatedAtMs": 1784434711000,
+      "updatedAt": "2026-07-19T04:18:31.000Z",
+      "timeSource": "git"
+    },
+    "jpmorganchase-q1-fy26": {
+      "path": "data/datasets/jpmorganchase-q1-fy26.js",
+      "updatedAtMs": 1784434711000,
+      "updatedAt": "2026-07-19T04:18:31.000Z",
+      "timeSource": "git"
+    },
+    "etsy-q1-fy26": {
+      "path": "data/datasets/etsy-q1-fy26.js",
+      "updatedAtMs": 1784434711000,
+      "updatedAt": "2026-07-19T04:18:31.000Z",
+      "timeSource": "git"
+    },
+    "wells-fargo-q1-fy26": {
+      "path": "data/datasets/wells-fargo-q1-fy26.js",
+      "updatedAtMs": 1784434711000,
+      "updatedAt": "2026-07-19T04:18:31.000Z",
+      "timeSource": "git"
+    },
+    "verizon-q1-fy26": {
+      "path": "data/datasets/verizon-q1-fy26.js",
+      "updatedAtMs": 1784434711000,
+      "updatedAt": "2026-07-19T04:18:31.000Z",
+      "timeSource": "git"
+    },
+    "bank-of-america-q1-fy26": {
+      "path": "data/datasets/bank-of-america-q1-fy26.js",
+      "updatedAtMs": 1784434711000,
+      "updatedAt": "2026-07-19T04:18:31.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {

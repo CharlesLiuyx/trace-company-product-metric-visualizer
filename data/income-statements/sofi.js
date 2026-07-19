@@ -88,4 +88,86 @@
       },
     },
   });
+
+  ssot.records.push({
+    key: 'sofi-q1-fy26',
+    company: 'SoFi',
+    period: 'Q1 FY26',
+    periodNote: 'Quarter ended Mar. 31, 2026',
+    currency: '$',
+    unit: 'M',
+    decimals: 0,
+    sourceImage: 'input/processed/sofi-q1-fy26.png',
+    roundingTolerance: 1.1,
+    revenue: {
+      total: 1145,
+      notes: [
+        'Sum of the three segment-revenue bars before the source chart’s $46M Corporate/Other adjustment.',
+        'The source chart labels $1,100M after that adjustment as Net revenue.',
+      ],
+      items: [
+        { id: 'lending', label: 'Lending', value: 642, notes: ['+55% Y/Y', '60% contribution margin', '+2pp Y/Y'] },
+        { id: 'technology_platform', label: 'Technology Platform', value: 75, notes: ['(27%) Y/Y', '16% contribution margin', '(14pp) Y/Y'] },
+        { id: 'financial_services', label: 'Financial Services', value: 428, notes: ['+41% Y/Y', '46% contribution margin', '(3pp) Y/Y'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: {
+        id: 'corporate_other',
+        label: 'Corporate/Other',
+        value: 46,
+        notes: ['Source-chart adjustment from segment revenue to Net revenue; presented as a cost-of-revenue bridge for SSOT arithmetic.'],
+      },
+      operatingExpenses: {
+        total: 901,
+        items: [
+          { id: 'sales_marketing', label: 'Sales & marketing', value: 336, notes: ['30% of revenue', '(0pp) Y/Y'] },
+          { id: 'ga', label: 'G&A', value: 198, notes: ['18% of revenue', '(2pp) Y/Y'] },
+          { id: 'technology', label: 'Technology', value: 188, notes: ['17% of revenue', '(3pp) Y/Y'] },
+          { id: 'cost_operations', label: 'Cost of operations', value: 171, notes: ['16% of revenue', '(2pp) Y/Y'] },
+          { id: 'provision_credit_losses', label: 'Provision for credit losses', value: 9 },
+        ],
+      },
+      tax: { id: 'tax', label: 'Tax', value: 34 },
+    },
+    otherIncome: { total: 0, items: [] },
+    otherExpenses: { total: 0, items: [] },
+    profit: {
+      gross: { id: 'net_revenue', label: 'Net revenue', value: 1100, notes: ['+43% Y/Y'] },
+      operating: { id: 'pretax_income', label: 'Pretax income', value: 200 },
+      net: { id: 'net_income', label: 'Net income', value: 166, notes: ['15% net margin', '+6pp Y/Y'] },
+    },
+    i18n: {
+      zh: {
+        period: '2026 财年第一季度',
+        periodNote: '截至 2026 年 3 月 31 日的季度',
+        revenue: {
+          notes: ['三项业务收入在来源图中扣除 $46M“公司/其他”调整前的合计。', '来源图将调整后的 $1,100M 标为净收入。'],
+          items: [
+            { id: 'lending', label: '借贷', notes: ['同比 +55%', '贡献利润率 60%', '同比 +2 个百分点'] },
+            { id: 'technology_platform', label: '技术平台', notes: ['同比 (27%)', '贡献利润率 16%', '同比 (14 个百分点)'] },
+            { id: 'financial_services', label: '金融服务', notes: ['同比 +41%', '贡献利润率 46%', '同比 (3 个百分点)'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: { label: '公司/其他', notes: ['来源图中由业务收入通向净收入的调整；为满足 SSOT 算术而列为收入成本桥接项。'] },
+          operatingExpenses: {
+            items: [
+              { id: 'sales_marketing', label: '销售与营销', notes: ['占收入 30%', '同比 (0 个百分点)'] },
+              { id: 'ga', label: '一般及行政费用', notes: ['占收入 18%', '同比 (2 个百分点)'] },
+              { id: 'technology', label: '技术', notes: ['占收入 17%', '同比 (3 个百分点)'] },
+              { id: 'cost_operations', label: '运营成本', notes: ['占收入 16%', '同比 (2 个百分点)'] },
+              { id: 'provision_credit_losses', label: '信贷损失准备金' },
+            ],
+          },
+          tax: { label: '税费' },
+        },
+        profit: {
+          gross: { label: '净收入', notes: ['同比 +43%'] },
+          operating: { label: '税前利润' },
+          net: { label: '净利润', notes: ['净利率 15%', '同比 +6 个百分点'] },
+        },
+      },
+    },
+  });
 })(window);
