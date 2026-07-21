@@ -1,0 +1,602 @@
+{
+  "source": "input/processed/sanofi-q1-fy26.png",
+  "spec": "input/icon-crop-specs/sanofi-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-21T17:46:30.007395+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/sanofi",
+  "crops": [
+    {
+      "key": "sanofi-q1-company-wordmark",
+      "output": "data/assets/icon-references/sanofi/crops/sanofi-q1-company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4145,
+        "losslessBytes": 18404,
+        "savingsVsLossless": 0.7748,
+        "metrics": {
+          "meanAbsoluteError": 0.2113,
+          "rootMeanSquareError": 1.2898,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.0988
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 71534,
+        "transparentPixelRatio": 0.6067
+      },
+      "searchBox": {
+        "x": 610,
+        "y": 230,
+        "width": 635,
+        "height": 165
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 622,
+        "y0": 238,
+        "x1": 1235,
+        "y1": 395
+      },
+      "cropBox": {
+        "x0": 600,
+        "y0": 225,
+        "x1": 1255,
+        "y1": 405
+      },
+      "validation": {
+        "width": 655,
+        "height": 180,
+        "foregroundPixels": 41403,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 22,
+          "right": 20,
+          "top": 13,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": 0.0015,
+          "y": 0.0083
+        },
+        "passes": true
+      },
+      "note": "Sanofi company wordmark above the Biopharma flow; excludes the title and financial labels.",
+      "runtimeOutput": "data/assets/raster-annotations/sanofi/sanofi-q1-company-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4145,
+        "losslessBytes": 18404,
+        "savingsVsLossless": 0.7748,
+        "metrics": {
+          "meanAbsoluteError": 0.2113,
+          "rootMeanSquareError": 1.2898,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.0988
+        }
+      },
+      "validationSheet": "data/assets/icon-references/sanofi/validation-sheets/sanofi-q1-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 256848,
+        "losslessBytes": 256848,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "sanofi-q1-dupixent",
+      "output": "data/assets/icon-references/sanofi/crops/sanofi-q1-dupixent.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2655,
+        "losslessBytes": 11893,
+        "savingsVsLossless": 0.7768,
+        "metrics": {
+          "meanAbsoluteError": 0.5232,
+          "rootMeanSquareError": 2.0775,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.2232
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 16514,
+        "transparentPixelRatio": 0.7978
+      },
+      "searchBox": {
+        "x": 165,
+        "y": 390,
+        "width": 210,
+        "height": 70
+      },
+      "componentCount": 15,
+      "subjectBox": {
+        "x0": 175,
+        "y0": 390,
+        "x1": 367,
+        "y1": 448
+      },
+      "cropBox": {
+        "x0": 155,
+        "y0": 380,
+        "x1": 385,
+        "y1": 470
+      },
+      "validation": {
+        "width": 230,
+        "height": 90,
+        "foregroundPixels": 4044,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 20,
+          "right": 18,
+          "top": 10,
+          "bottom": 22
+        },
+        "centerOffset": {
+          "x": 0.0043,
+          "y": -0.0667
+        },
+        "passes": true
+      },
+      "note": "Dupixent product-wordmark cluster for Immunology; excludes the Immunology label and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/sanofi/sanofi-q1-dupixent.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2655,
+        "losslessBytes": 11893,
+        "savingsVsLossless": 0.7768,
+        "metrics": {
+          "meanAbsoluteError": 0.5232,
+          "rootMeanSquareError": 2.0775,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.2232
+        }
+      },
+      "validationSheet": "data/assets/icon-references/sanofi/validation-sheets/sanofi-q1-dupixent.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 279406,
+        "losslessBytes": 279406,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "sanofi-q1-fabrazyme",
+      "output": "data/assets/icon-references/sanofi/crops/sanofi-q1-fabrazyme.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 3279,
+        "losslessBytes": 14099,
+        "savingsVsLossless": 0.7674,
+        "metrics": {
+          "meanAbsoluteError": 0.5982,
+          "rootMeanSquareError": 2.1977,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 49,
+          "changedPixelRatio": 0.2005
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 24967,
+        "transparentPixelRatio": 0.8173
+      },
+      "searchBox": {
+        "x": 170,
+        "y": 560,
+        "width": 205,
+        "height": 105
+      },
+      "componentCount": 22,
+      "subjectBox": {
+        "x0": 186,
+        "y0": 572,
+        "x1": 366,
+        "y1": 665
+      },
+      "cropBox": {
+        "x0": 155,
+        "y0": 545,
+        "x1": 390,
+        "y1": 675
+      },
+      "validation": {
+        "width": 235,
+        "height": 130,
+        "foregroundPixels": 5197,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 31,
+          "right": 24,
+          "top": 27,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": 0.0149,
+          "y": 0.0654
+        },
+        "passes": true
+      },
+      "note": "Fabrazyme product-wordmark cluster for Rare diseases; excludes the value, category label, and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/sanofi/sanofi-q1-fabrazyme.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 3279,
+        "losslessBytes": 14099,
+        "savingsVsLossless": 0.7674,
+        "metrics": {
+          "meanAbsoluteError": 0.5982,
+          "rootMeanSquareError": 2.1977,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 49,
+          "changedPixelRatio": 0.2005
+        }
+      },
+      "validationSheet": "data/assets/icon-references/sanofi/validation-sheets/sanofi-q1-fabrazyme.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 283855,
+        "losslessBytes": 283855,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "sanofi-q1-sarclisa",
+      "output": "data/assets/icon-references/sanofi/crops/sanofi-q1-sarclisa.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 1977,
+        "losslessBytes": 8645,
+        "savingsVsLossless": 0.7713,
+        "metrics": {
+          "meanAbsoluteError": 0.5363,
+          "rootMeanSquareError": 2.2687,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 46,
+          "changedPixelRatio": 0.1561
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 15250,
+        "transparentPixelRatio": 0.8543
+      },
+      "searchBox": {
+        "x": 180,
+        "y": 790,
+        "width": 180,
+        "height": 70
+      },
+      "componentCount": 11,
+      "subjectBox": {
+        "x0": 217,
+        "y0": 812,
+        "x1": 327,
+        "y1": 860
+      },
+      "cropBox": {
+        "x0": 165,
+        "y0": 780,
+        "x1": 375,
+        "y1": 865
+      },
+      "validation": {
+        "width": 210,
+        "height": 85,
+        "foregroundPixels": 2544,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 52,
+          "right": 48,
+          "top": 32,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0095,
+          "y": 0.1588
+        },
+        "passes": true
+      },
+      "note": "Sarclisa product-wordmark cluster for Oncology; excludes the Oncology label and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/sanofi/sanofi-q1-sarclisa.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 1977,
+        "losslessBytes": 8645,
+        "savingsVsLossless": 0.7713,
+        "metrics": {
+          "meanAbsoluteError": 0.5363,
+          "rootMeanSquareError": 2.2687,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 46,
+          "changedPixelRatio": 0.1561
+        }
+      },
+      "validationSheet": "data/assets/icon-references/sanofi/validation-sheets/sanofi-q1-sarclisa.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 272022,
+        "losslessBytes": 272022,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "sanofi-q1-toujeo",
+      "output": "data/assets/icon-references/sanofi/crops/sanofi-q1-toujeo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1934,
+        "losslessBytes": 9294,
+        "savingsVsLossless": 0.7919,
+        "metrics": {
+          "meanAbsoluteError": 0.4694,
+          "rootMeanSquareError": 2.3019,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.1397
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 18756,
+        "transparentPixelRatio": 0.8318
+      },
+      "searchBox": {
+        "x": 185,
+        "y": 945,
+        "width": 180,
+        "height": 90
+      },
+      "componentCount": 11,
+      "subjectBox": {
+        "x0": 203,
+        "y0": 962,
+        "x1": 334,
+        "y1": 1035
+      },
+      "cropBox": {
+        "x0": 170,
+        "y0": 935,
+        "x1": 375,
+        "y1": 1045
+      },
+      "validation": {
+        "width": 205,
+        "height": 110,
+        "foregroundPixels": 3354,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 33,
+          "right": 41,
+          "top": 27,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": -0.0195,
+          "y": 0.0773
+        },
+        "passes": true
+      },
+      "note": "Toujeo product-wordmark cluster for Other biopharma revenue; excludes the Other label and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/sanofi/sanofi-q1-toujeo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1934,
+        "losslessBytes": 9294,
+        "savingsVsLossless": 0.7919,
+        "metrics": {
+          "meanAbsoluteError": 0.4694,
+          "rootMeanSquareError": 2.3019,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.1397
+        }
+      },
+      "validationSheet": "data/assets/icon-references/sanofi/validation-sheets/sanofi-q1-toujeo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 276740,
+        "losslessBytes": 276740,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "sanofi-q1-vaccine-products",
+      "output": "data/assets/icon-references/sanofi/crops/sanofi-q1-vaccine-products.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3062,
+        "losslessBytes": 13088,
+        "savingsVsLossless": 0.766,
+        "metrics": {
+          "meanAbsoluteError": 0.2845,
+          "rootMeanSquareError": 1.367,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 44,
+          "changedPixelRatio": 0.101
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 36916,
+        "transparentPixelRatio": 0.8821
+      },
+      "searchBox": {
+        "x": 145,
+        "y": 1110,
+        "width": 250,
+        "height": 140
+      },
+      "componentCount": 36,
+      "subjectBox": {
+        "x0": 150,
+        "y0": 1124,
+        "x1": 393,
+        "y1": 1250
+      },
+      "cropBox": {
+        "x0": 135,
+        "y0": 1105,
+        "x1": 405,
+        "y1": 1260
+      },
+      "validation": {
+        "width": 270,
+        "height": 155,
+        "foregroundPixels": 4584,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 15,
+          "right": 12,
+          "top": 19,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": 0.0056,
+          "y": 0.029
+        },
+        "passes": true
+      },
+      "note": "Lantus and vaccine product-name cluster for Vaccines; excludes the Vaccines label and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/sanofi/sanofi-q1-vaccine-products.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3062,
+        "losslessBytes": 13088,
+        "savingsVsLossless": 0.766,
+        "metrics": {
+          "meanAbsoluteError": 0.2845,
+          "rootMeanSquareError": 1.367,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 44,
+          "changedPixelRatio": 0.101
+        }
+      },
+      "validationSheet": "data/assets/icon-references/sanofi/validation-sheets/sanofi-q1-vaccine-products.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 277364,
+        "losslessBytes": 277364,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

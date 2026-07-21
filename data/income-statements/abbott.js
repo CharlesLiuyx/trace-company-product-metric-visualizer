@@ -165,4 +165,84 @@
       },
     },
   });
+
+  ssot.records.push({
+    key: 'abbott-q1-fy26',
+    company: 'Abbott',
+    period: 'Q1 FY26',
+    periodNote: 'Ending Mar. 2026',
+    currency: '$',
+    unit: 'B',
+    decimals: 1,
+    sourceImage: 'input/processed/abbott-q1-fy26.png',
+    roundingTolerance: 0.15,
+    revenue: {
+      total: 11.2,
+      notes: ['+8% Y/Y'],
+      items: [
+        { id: 'established_pharma', label: 'Established Pharma', value: 1.4, notes: ['+13% Y/Y'] },
+        { id: 'nutritionals', label: 'Nutritionals', value: 2.0, notes: ['(6%) Y/Y'] },
+        { id: 'diagnostics', label: 'Diagnostics', value: 2.2, notes: ['+6% Y/Y'] },
+        { id: 'medical_devices', label: 'Medical Devices', value: 5.5, notes: ['+13% Y/Y'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 4.9 },
+      operatingExpenses: {
+        total: 4.9,
+        items: [
+          { id: 'sga', label: 'SG&A', value: 3.7, notes: ['34% of revenue', '+4pp Y/Y'] },
+          { id: 'rnd', label: 'R&D', value: 0.8, notes: ['7% of revenue', '(0pp) Y/Y'] },
+          { id: 'amortization', label: 'Amortization', value: 0.4, notes: ['4% of revenue', '(0pp) Y/Y'] },
+        ],
+      },
+      tax: { id: 'tax', label: 'Tax', value: 0.4 },
+    },
+    otherIncome: {
+      total: 0.2,
+      items: [{ id: 'other_income', label: 'Other', value: 0.2 }],
+    },
+    otherExpenses: {
+      total: 0.1,
+      items: [{ id: 'interest', label: 'Interest', value: 0.1 }],
+    },
+    profit: {
+      gross: { id: 'gross_profit', label: 'Gross profit', value: 6.3, notes: ['56% margin', '(1pp) Y/Y'] },
+      operating: { id: 'operating_profit', label: 'Operating profit', value: 1.3, notes: ['12% margin', '(4pp) Y/Y'] },
+      net: { id: 'net_profit', label: 'Net profit', value: 1.1, notes: ['10% margin', '(3pp) Y/Y'] },
+    },
+    i18n: {
+      zh: {
+        period: '2026 财年第一季度',
+        periodNote: '截至 2026 年 3 月',
+        revenue: {
+          notes: ['同比 +8%'],
+          items: [
+            { id: 'established_pharma', label: '成熟药品', notes: ['同比 +13%'] },
+            { id: 'nutritionals', label: '营养品', notes: ['同比 (6%)'] },
+            { id: 'diagnostics', label: '诊断', notes: ['同比 +6%'] },
+            { id: 'medical_devices', label: '医疗设备', notes: ['同比 +13%'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: { label: '收入成本' },
+          operatingExpenses: {
+            items: [
+              { id: 'sga', label: '销售、一般及管理费用', notes: ['占收入 34%', '同比 +4 个百分点'] },
+              { id: 'rnd', label: '研发', notes: ['占收入 7%', '同比 (0 个百分点)'] },
+              { id: 'amortization', label: '摊销', notes: ['占收入 4%', '同比 (0 个百分点)'] },
+            ],
+          },
+          tax: { label: '税费' },
+        },
+        otherIncome: { items: [{ id: 'other_income', label: '其他' }] },
+        otherExpenses: { items: [{ id: 'interest', label: '利息' }] },
+        profit: {
+          gross: { label: '毛利润', notes: ['利润率 56%', '同比 (1 个百分点)'] },
+          operating: { label: '营业利润', notes: ['利润率 12%', '同比 (4 个百分点)'] },
+          net: { label: '净利润', notes: ['利润率 10%', '同比 (3 个百分点)'] },
+        },
+      },
+    },
+  });
 })(window);
