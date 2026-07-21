@@ -227,6 +227,114 @@
           },
         },
       },
+    },
+    {
+      key: 'amgen-q1-fy26',
+      company: 'Amgen',
+      period: 'Q1 FY26',
+      periodNote: 'Ending Mar. 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/amgen-q1-fy26.png',
+      roundingTolerance: 0.25,
+      revenue: {
+        total: 8.6,
+        notes: ['+6% Y/Y'],
+        items: [
+          {
+            id: 'product_sales',
+            label: 'Product sales',
+            value: 8.2,
+            notes: ['+4% Y/Y'],
+            children: [
+              { id: 'repatha', label: 'Repatha', value: 0.9, notes: ['+34% Y/Y'] },
+              { id: 'prolia', label: 'Prolia', value: 0.7, notes: ['(34%) Y/Y'] },
+              { id: 'evenity', label: 'EVENITY', value: 0.6, notes: ['+27% Y/Y'] },
+              { id: 'blincyto', label: 'BLINCYTO', value: 0.4, notes: ['+12% Y/Y'] },
+              { id: 'tezspire', label: 'Tezspire', value: 0.3, notes: ['+20% Y/Y'] },
+              { id: 'tepezza', label: 'Tepezza', value: 0.5, notes: ['+29% Y/Y'] },
+              { id: 'other_products', label: 'Other', value: 4.8, notes: ['+4% Y/Y'] },
+            ],
+          },
+          { id: 'other_revenue', label: 'Other', value: 0.4, notes: ['+45% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 2.7 },
+        operatingExpenses: {
+          total: 3.3,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 1.7, notes: ['20% of revenue', '+2pp Y/Y'] },
+            { id: 'sga', label: 'SG&A', value: 1.6, notes: ['19% of revenue', '(2pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.3 },
+      },
+      otherIncome: {
+        total: 0.1,
+        items: [
+          { id: 'other_income', label: 'Other Income', value: 0.1 },
+        ],
+      },
+      otherExpenses: {
+        total: 0.7,
+        items: [
+          { id: 'interest', label: 'Interest', value: 0.7 },
+        ],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 5.9, notes: ['68% margin', '+5pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 2.7, notes: ['31% margin', '+16pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 1.8, notes: ['21% margin', '(0pp) Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第一季度',
+          periodNote: '截至 2026 年 3 月',
+          revenue: {
+            notes: ['同比 +6%'],
+            items: [
+              {
+                id: 'product_sales',
+                label: '产品销售',
+                notes: ['同比 +4%'],
+                children: [
+                  { id: 'repatha', label: 'Repatha', notes: ['同比 +34%'] },
+                  { id: 'prolia', label: 'Prolia', notes: ['同比 (34%)'] },
+                  { id: 'evenity', label: 'EVENITY', notes: ['同比 +27%'] },
+                  { id: 'blincyto', label: 'BLINCYTO', notes: ['同比 +12%'] },
+                  { id: 'tezspire', label: 'Tezspire', notes: ['同比 +20%'] },
+                  { id: 'tepezza', label: 'Tepezza', notes: ['同比 +29%'] },
+                  { id: 'other_products', label: '其他', notes: ['同比 +4%'] },
+                ],
+              },
+              { id: 'other_revenue', label: '其他', notes: ['同比 +45%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '销售成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 20%', '同比 +2 个百分点'] },
+                { id: 'sga', label: '销售、一般及管理费用', notes: ['占收入 19%', '同比 (2 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: {
+            items: [{ id: 'other_income', label: '其他收入' }],
+          },
+          otherExpenses: {
+            items: [{ id: 'interest', label: '利息' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 68%', '同比 +5 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 31%', '同比 +16 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 21%', '同比 (0 个百分点)'] },
+          },
+        },
+      },
     }
   );
 })(window);

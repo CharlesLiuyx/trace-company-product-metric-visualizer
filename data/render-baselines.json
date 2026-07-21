@@ -3,6 +3,12 @@
   "language": "en",
   "similarityTolerance": 0.003,
   "baselines": {
+    "abbott-q1-fy26": {
+      "similarity": 0.97061,
+      "mae": 7.4944,
+      "width": 2667,
+      "height": 1500
+    },
     "abbott-q3-fy25": {
       "similarity": 0.973375,
       "mae": 6.7894,
@@ -12,6 +18,12 @@
     "abbott-q4-fy25": {
       "similarity": 0.972876,
       "mae": 6.9166,
+      "width": 2667,
+      "height": 1500
+    },
+    "abbvie-q1-fy26": {
+      "similarity": 0.970521,
+      "mae": 7.5171,
       "width": 2667,
       "height": 1500
     },
@@ -219,6 +231,18 @@
       "width": 2667,
       "height": 1500
     },
+    "american-q4-fy25-operating-loss": {
+      "similarity": 0.967214,
+      "mae": 8.3605,
+      "width": 2667,
+      "height": 1500
+    },
+    "amgen-q1-fy26": {
+      "similarity": 0.965887,
+      "mae": 8.6988,
+      "width": 2667,
+      "height": 1500
+    },
     "amgen-q3-fy25": {
       "similarity": 0.97049,
       "mae": 7.525,
@@ -372,6 +396,12 @@
     "asml-q4-fy25": {
       "similarity": 0.971186,
       "mae": 7.3477,
+      "width": 2667,
+      "height": 1500
+    },
+    "astrazeneca-q1-fy26": {
+      "similarity": 0.959266,
+      "mae": 10.3871,
       "width": 2667,
       "height": 1500
     },
@@ -837,6 +867,12 @@
       "width": 2667,
       "height": 1500
     },
+    "delta-q1-fy26": {
+      "similarity": 0.97558,
+      "mae": 6.2271,
+      "width": 2667,
+      "height": 1500
+    },
     "delta-q4-fy25": {
       "similarity": 0.977736,
       "mae": 5.6774,
@@ -1002,6 +1038,12 @@
     "elastic-q4-fy26": {
       "similarity": 0.971931,
       "mae": 7.1577,
+      "width": 2667,
+      "height": 1500
+    },
+    "eli-lilly-q1-fy26": {
+      "similarity": 0.967987,
+      "mae": 8.1633,
       "width": 2667,
       "height": 1500
     },
@@ -1407,9 +1449,21 @@
       "width": 2667,
       "height": 1500
     },
+    "intuitive-q1-fy26": {
+      "similarity": 0.97383,
+      "mae": 6.6735,
+      "width": 2667,
+      "height": 1500
+    },
     "intuitive-q4-fy25": {
       "similarity": 0.974725,
       "mae": 6.4451,
+      "width": 2667,
+      "height": 1500
+    },
+    "j-j-q1-fy26": {
+      "similarity": 0.973492,
+      "mae": 6.7595,
       "width": 2667,
       "height": 1500
     },
@@ -1713,6 +1767,12 @@
       "width": 2667,
       "height": 1500
     },
+    "merck-q1-fy26": {
+      "similarity": 0.972754,
+      "mae": 6.9477,
+      "width": 2667,
+      "height": 1500
+    },
     "merck-q4-fy25": {
       "similarity": 0.972159,
       "mae": 7.0996,
@@ -1782,6 +1842,12 @@
     "monday-q4-fy25": {
       "similarity": 0.967904,
       "mae": 8.1845,
+      "width": 2667,
+      "height": 1500
+    },
+    "mondelez-q1-fy26": {
+      "similarity": 0.965341,
+      "mae": 8.838,
       "width": 2667,
       "height": 1500
     },
@@ -2445,6 +2511,12 @@
       "width": 2667,
       "height": 1500
     },
+    "sanofi-q1-fy26": {
+      "similarity": 0.975236,
+      "mae": 6.3149,
+      "width": 2667,
+      "height": 1500
+    },
     "sap-q1-fy26": {
       "similarity": 0.97127,
       "mae": 7.3262,
@@ -2580,6 +2652,12 @@
     "sony-q3-fy25": {
       "similarity": 0.977953,
       "mae": 5.622,
+      "width": 2667,
+      "height": 1500
+    },
+    "southwest-q1-fy26": {
+      "similarity": 0.971024,
+      "mae": 7.3889,
       "width": 2667,
       "height": 1500
     },
@@ -2871,6 +2949,12 @@
       "width": 2667,
       "height": 1500
     },
+    "united-q1-fy26": {
+      "similarity": 0.974816,
+      "mae": 6.4219,
+      "width": 2667,
+      "height": 1500
+    },
     "united-q4-fy25": {
       "similarity": 0.959975,
       "mae": 10.2064,
@@ -2886,6 +2970,12 @@
     "unitedhealth-q4-fy25": {
       "similarity": 0.971838,
       "mae": 7.1814,
+      "width": 2667,
+      "height": 1500
+    },
+    "ups-q1-fy26": {
+      "similarity": 0.963164,
+      "mae": 9.3931,
       "width": 2667,
       "height": 1500
     },
