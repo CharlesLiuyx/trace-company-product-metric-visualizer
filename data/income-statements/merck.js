@@ -91,4 +91,101 @@
       },
     },
   });
+
+  ssot.records.push({
+    key: 'merck-q1-fy26',
+    company: 'Merck',
+    period: 'Q1 FY26',
+    periodNote: 'Quarter ended Mar. 31, 2026',
+    currency: '$',
+    unit: 'B',
+    decimals: 1,
+    sourceImage: 'input/processed/merck-q1-fy26.png',
+    roundingTolerance: 0.2,
+    revenue: {
+      total: 16.3,
+      notes: ['+5% Y/Y'],
+      items: [
+        {
+          id: 'pharma',
+          label: 'Pharma',
+          value: 14.3,
+          notes: ['+5% Y/Y'],
+          children: [
+            { id: 'oncology', label: 'Oncology', value: 9.0, notes: ['+12% Y/Y'] },
+            { id: 'vaccines', label: 'Vaccines', value: 2.2, notes: ['(13%) Y/Y'] },
+            { id: 'hospital_acute_care', label: ['Hospital', 'Acute Care'], value: 0.6, notes: ['(4%) Y/Y'] },
+            { id: 'diabetes', label: 'Diabetes', value: 1.0, notes: ['(28%) Y/Y'] },
+            { id: 'other_pharma', label: 'Other', value: 1.6, notes: ['+27% Y/Y'] },
+          ],
+        },
+        { id: 'animal_health', label: 'Animal Health', value: 1.8, notes: ['+13% Y/Y'] },
+        { id: 'other_revenue', label: 'Other', value: 0.1, notes: ['(52%) Y/Y'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 4.2 },
+      operatingExpenses: {
+        total: 15.6,
+        items: [
+          { id: 'rnd', label: 'R&D', value: 12.6, notes: ['77% of revenue', '+54pp Y/Y'] },
+          { id: 'sga', label: 'SG&A', value: 2.7, notes: ['17% of revenue', '+0pp Y/Y'] },
+          { id: 'other_opex', label: 'Other', value: 0.3 },
+        ],
+      },
+      tax: { label: 'Tax', value: 0, notes: ['No separate tax line is shown in the source chart.'] },
+    },
+    otherIncome: { total: 0, items: [] },
+    otherExpenses: { total: 0, items: [] },
+    profit: {
+      gross: { id: 'gross_profit', label: 'Gross profit', value: 12.1, notes: ['74% margin', '(4pp) Y/Y'] },
+      operating: { id: 'operating_loss', label: 'Operating loss', value: -3.5, notes: ['(22%) margin', '(60pp) Y/Y'] },
+      net: {
+        id: 'operating_loss',
+        label: 'Operating loss',
+        value: -3.5,
+        notes: ['No separate net income or net loss line is shown in the source chart.'],
+      },
+    },
+    i18n: {
+      zh: {
+        period: '2026 财年第一季度',
+        periodNote: '截至 2026 年 3 月 31 日的季度',
+        revenue: {
+          notes: ['同比 +5%'],
+          items: [
+            {
+              label: '制药业务',
+              notes: ['同比 +5%'],
+              children: [
+                { label: '肿瘤', notes: ['同比 +12%'] },
+                { label: '疫苗', notes: ['同比 (13%)'] },
+                { label: ['医院', '急症护理'], notes: ['同比 (4%)'] },
+                { label: '糖尿病', notes: ['同比 (28%)'] },
+                { label: '其他', notes: ['同比 +27%'] },
+              ],
+            },
+            { label: '动物保健', notes: ['同比 +13%'] },
+            { label: '其他', notes: ['同比 (52%)'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: { label: '销售成本' },
+          operatingExpenses: {
+            items: [
+              { label: '研发', notes: ['占收入 77%', '同比 +54 个百分点'] },
+              { label: '销售、一般及管理费用', notes: ['占收入 17%', '同比 +0 个百分点'] },
+              { label: '其他' },
+            ],
+          },
+          tax: { label: '税费', notes: ['来源图未显示单独的税费项目。'] },
+        },
+        profit: {
+          gross: { label: '毛利润', notes: ['利润率 74%', '同比 (4 个百分点)'] },
+          operating: { label: '营业亏损', notes: ['利润率 (22%)', '同比 (60 个百分点)'] },
+          net: { label: '营业亏损', notes: ['来源图未单独显示净利润或净亏损项目。'] },
+        },
+      },
+    },
+  });
 })(window);

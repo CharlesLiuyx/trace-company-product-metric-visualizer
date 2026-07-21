@@ -3,6 +3,30 @@
   'use strict';
   const ssot = (global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || { schemaVersion: 1, records: [] });
   ssot.records.push({
+    key: 'eli-lilly-q1-fy26', company: 'Eli Lilly', period: 'Q1 FY26', periodNote: 'Ending Mar. 2026', currency: '$', unit: 'B', decimals: 1,
+    sourceImage: 'input/processed/eli-lilly-q1-fy26.png', roundingTolerance: 0.15,
+    revenue: { total: 19.8, notes: ['+56% Y/Y'], items: [
+      { id: 'cardiometabolic', label: 'Cardiometabolic Health', value: 15.8, notes: ['+71% Y/Y'] },
+      { id: 'oncology', label: 'Oncology', value: 2.3, notes: ['+16% Y/Y'] },
+      { id: 'immunology', label: 'Immunology', value: 1.2, notes: ['+11% Y/Y'] },
+      { id: 'neuroscience', label: 'Neurosciences', value: 0.4, notes: ['+40% Y/Y'] },
+      { id: 'other_revenue', label: 'Other', value: 0.2, notes: ['(12%) Y/Y'] },
+    ] },
+    costs: { costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 3.6 }, operatingExpenses: { total: 7.3, items: [
+      { id: 'rnd', label: 'R&D', value: 3.5, notes: ['18% of revenue', '(4pp) Y/Y'] },
+      { id: 'sma', label: 'SM&A', value: 2.9, notes: ['15% of revenue', '(5pp) Y/Y'] },
+      { id: 'acquired_iprd', label: 'Acquired IPR&D', value: 0.6, notes: ['3% of revenue', '(9pp) Y/Y'] },
+      { id: 'other_opex', label: 'Other', value: 0.3 },
+    ] }, tax: { id: 'tax', label: 'Tax', value: 1.5 } },
+    otherIncome: { total: 0.2, items: [{ id: 'other_income', label: 'Other', value: 0.2 }] },
+    otherExpenses: { total: 0.3, items: [{ id: 'interest', label: 'Interest', value: 0.3 }] },
+    profit: { gross: { id: 'gross_profit', label: 'Gross profit', value: 16.2, notes: ['82% margin', '(1pp) Y/Y'] }, operating: { id: 'operating_profit', label: 'Operating profit', value: 8.9, notes: ['45% margin', '+16pp Y/Y'] }, net: { id: 'net_profit', label: 'Net profit', value: 7.4, notes: ['37% margin', '+16pp Y/Y', 'Operating profit plus other income less tax and interest rounds to $7.3B; the source reports $7.4B net profit.'] } },
+    i18n: { zh: { period: '2026 财年第一季度', periodNote: '截至 2026 年 3 月', revenue: { notes: ['同比 +56%'], items: [
+      { id: 'cardiometabolic', label: '心血管代谢健康', notes: ['同比 +71%'] }, { id: 'oncology', label: '肿瘤', notes: ['同比 +16%'] }, { id: 'immunology', label: '免疫', notes: ['同比 +11%'] }, { id: 'neuroscience', label: '神经科学', notes: ['同比 +40%'] }, { id: 'other_revenue', label: '其他', notes: ['同比 (12%)'] },
+    ] }, costs: { costOfRevenue: { label: '销售成本' }, operatingExpenses: { items: [
+      { id: 'rnd', label: '研发', notes: ['占收入 18%', '同比 (4 个百分点)'] }, { id: 'sma', label: '销售、市场与管理', notes: ['占收入 15%', '同比 (5 个百分点)'] }, { id: 'acquired_iprd', label: '收购的 IPR&D', notes: ['占收入 3%', '同比 (9 个百分点)'] }, { id: 'other_opex', label: '其他' },
+    ] }, tax: { label: '税费' } }, otherIncome: { items: [{ id: 'other_income', label: '其他' }] }, otherExpenses: { items: [{ id: 'interest', label: '利息' }] }, profit: { gross: { label: '毛利润', notes: ['利润率 82%', '同比 (1 个百分点)'] }, operating: { label: '营业利润', notes: ['利润率 45%', '同比 +16 个百分点'] }, net: { label: '净利润', notes: ['利润率 37%', '同比 +16 个百分点'] } } } },
+  }, {
     key: 'eli-lilly-q4-fy25', company: 'Eli Lilly', period: 'Q4 FY25', periodNote: 'Ending Dec. 2025', currency: '$', unit: 'B', decimals: 1,
     sourceImage: 'input/processed/eli-lilly-q4-fy25.png', roundingTolerance: 0.15,
     revenue: { total: 19.3, notes: ['+43% Y/Y'], items: [
