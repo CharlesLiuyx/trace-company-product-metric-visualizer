@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-19T04:18:31.000Z",
+  "generatedAt": "2026-07-21T19:41:42.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -3101,6 +3101,96 @@
       "path": "data/datasets/bank-of-america-q1-fy26.js",
       "updatedAtMs": 1784434711000,
       "updatedAt": "2026-07-19T04:18:31.000Z",
+      "timeSource": "git"
+    },
+    "abbott-q1-fy26": {
+      "path": "data/datasets/abbott-q1-fy26.js",
+      "updatedAtMs": 1784662902000,
+      "updatedAt": "2026-07-21T19:41:42.000Z",
+      "timeSource": "git"
+    },
+    "abbvie-q1-fy26": {
+      "path": "data/datasets/abbvie-q1-fy26.js",
+      "updatedAtMs": 1784662902000,
+      "updatedAt": "2026-07-21T19:41:42.000Z",
+      "timeSource": "git"
+    },
+    "american-q4-fy25-operating-loss": {
+      "path": "data/datasets/american-q4-fy25-operating-loss.js",
+      "updatedAtMs": 1784662902000,
+      "updatedAt": "2026-07-21T19:41:42.000Z",
+      "timeSource": "git"
+    },
+    "amgen-q1-fy26": {
+      "path": "data/datasets/amgen-q1-fy26.js",
+      "updatedAtMs": 1784662902000,
+      "updatedAt": "2026-07-21T19:41:42.000Z",
+      "timeSource": "git"
+    },
+    "delta-q1-fy26": {
+      "path": "data/datasets/delta-q1-fy26.js",
+      "updatedAtMs": 1784662902000,
+      "updatedAt": "2026-07-21T19:41:42.000Z",
+      "timeSource": "git"
+    },
+    "eli-lilly-q1-fy26": {
+      "path": "data/datasets/eli-lilly-q1-fy26.js",
+      "updatedAtMs": 1784662902000,
+      "updatedAt": "2026-07-21T19:41:42.000Z",
+      "timeSource": "git"
+    },
+    "intuitive-q1-fy26": {
+      "path": "data/datasets/intuitive-q1-fy26.js",
+      "updatedAtMs": 1784662902000,
+      "updatedAt": "2026-07-21T19:41:42.000Z",
+      "timeSource": "git"
+    },
+    "j-j-q1-fy26": {
+      "path": "data/datasets/j-j-q1-fy26.js",
+      "updatedAtMs": 1784662902000,
+      "updatedAt": "2026-07-21T19:41:42.000Z",
+      "timeSource": "git"
+    },
+    "merck-q1-fy26": {
+      "path": "data/datasets/merck-q1-fy26.js",
+      "updatedAtMs": 1784662902000,
+      "updatedAt": "2026-07-21T19:41:42.000Z",
+      "timeSource": "git"
+    },
+    "mondelez-q1-fy26": {
+      "path": "data/datasets/mondelez-q1-fy26.js",
+      "updatedAtMs": 1784662902000,
+      "updatedAt": "2026-07-21T19:41:42.000Z",
+      "timeSource": "git"
+    },
+    "sanofi-q1-fy26": {
+      "path": "data/datasets/sanofi-q1-fy26.js",
+      "updatedAtMs": 1784662902000,
+      "updatedAt": "2026-07-21T19:41:42.000Z",
+      "timeSource": "git"
+    },
+    "southwest-q1-fy26": {
+      "path": "data/datasets/southwest-q1-fy26.js",
+      "updatedAtMs": 1784662902000,
+      "updatedAt": "2026-07-21T19:41:42.000Z",
+      "timeSource": "git"
+    },
+    "united-q1-fy26": {
+      "path": "data/datasets/united-q1-fy26.js",
+      "updatedAtMs": 1784662902000,
+      "updatedAt": "2026-07-21T19:41:42.000Z",
+      "timeSource": "git"
+    },
+    "ups-q1-fy26": {
+      "path": "data/datasets/ups-q1-fy26.js",
+      "updatedAtMs": 1784662902000,
+      "updatedAt": "2026-07-21T19:41:42.000Z",
+      "timeSource": "git"
+    },
+    "astrazeneca-q1-fy26": {
+      "path": "data/datasets/astrazeneca-q1-fy26.js",
+      "updatedAtMs": 1784662902000,
+      "updatedAt": "2026-07-21T19:41:42.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {

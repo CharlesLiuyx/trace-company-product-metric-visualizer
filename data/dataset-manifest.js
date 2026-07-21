@@ -11638,6 +11638,343 @@
             }
           }
         }
+      },
+      {
+        "key": "abbott-q1-fy26",
+        "src": "data/datasets/abbott-q1-fy26.js",
+        "data": {
+          "name": "Abbott · Q1 FY26",
+          "company": "Abbott",
+          "meta": {
+            "title": "Abbott Q1 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "雅培 · 2026 财年第一季度",
+              "meta": {
+                "title": "雅培 2026 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "abbvie-q1-fy26",
+        "src": "data/datasets/abbvie-q1-fy26.js",
+        "data": {
+          "name": "AbbVie · Q1 FY26",
+          "company": "AbbVie",
+          "meta": {
+            "title": "AbbVie Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Quarter ended Mar. 31, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "艾伯维 · 2026 财年第一季度",
+              "meta": {
+                "title": "艾伯维 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "american-q4-fy25-operating-loss",
+        "src": "data/datasets/american-q4-fy25-operating-loss.js",
+        "data": {
+          "name": "American Airlines · Q4 FY25 · Operating loss",
+          "company": "American Airlines",
+          "meta": {
+            "title": "American Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Operating-loss source variant"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美国航空 · 2025 财年第四季度 · 营业亏损",
+              "meta": {
+                "title": "美国航空 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "营业亏损来源版本"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amgen-q1-fy26",
+        "src": "data/datasets/amgen-q1-fy26.js",
+        "data": {
+          "name": "Amgen · Q1 FY26",
+          "company": "Amgen",
+          "meta": {
+            "title": "Amgen Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "安进 · 2026 财年第一季度",
+              "meta": {
+                "title": "安进 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "delta-q1-fy26",
+        "src": "data/datasets/delta-q1-fy26.js",
+        "data": {
+          "name": "Delta · Q1 FY26",
+          "company": "Delta Air Lines",
+          "meta": {
+            "title": "Delta Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "达美航空 · 2026 财年第一季度",
+              "meta": {
+                "title": "达美航空 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "eli-lilly-q1-fy26",
+        "src": "data/datasets/eli-lilly-q1-fy26.js",
+        "data": {
+          "name": "Eli Lilly · Q1 FY26",
+          "company": "Eli Lilly",
+          "meta": {
+            "title": "Eli Lilly Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "礼来 · 2026 财年第一季度",
+              "meta": {
+                "title": "礼来 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intuitive-q1-fy26",
+        "src": "data/datasets/intuitive-q1-fy26.js",
+        "data": {
+          "name": "Intuitive · Q1 FY26",
+          "company": "Intuitive",
+          "meta": {
+            "title": "Intuitive Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "直觉外科 · 2026 财年第一季度",
+              "meta": {
+                "title": "直觉外科 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "j-j-q1-fy26",
+        "src": "data/datasets/j-j-q1-fy26.js",
+        "data": {
+          "name": "J&J · Q1 FY26",
+          "company": "Johnson & Johnson",
+          "meta": {
+            "title": "J&J Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Quarter ended Mar. 29, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "强生 · 2026 财年第一季度",
+              "meta": {
+                "title": "强生 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月 29 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "merck-q1-fy26",
+        "src": "data/datasets/merck-q1-fy26.js",
+        "data": {
+          "name": "Merck · Q1 FY26",
+          "company": "Merck",
+          "meta": {
+            "title": "Merck Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Quarter ended Mar. 31, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "默沙东 · 2026 财年第一季度",
+              "meta": {
+                "title": "默沙东 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mondelez-q1-fy26",
+        "src": "data/datasets/mondelez-q1-fy26.js",
+        "data": {
+          "name": "Mondelēz · Q1 FY26",
+          "company": "Mondelēz International",
+          "meta": {
+            "title": "Mondelēz Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "亿滋国际 · 2026 财年第一季度",
+              "meta": {
+                "title": "亿滋国际 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sanofi-q1-fy26",
+        "src": "data/datasets/sanofi-q1-fy26.js",
+        "data": {
+          "name": "Sanofi · Q1 FY26",
+          "company": "Sanofi",
+          "meta": {
+            "title": "Sanofi Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Three months ended Mar. 31, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "赛诺菲 · 2026 财年第一季度",
+              "meta": {
+                "title": "赛诺菲 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月 31 日的三个月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "southwest-q1-fy26",
+        "src": "data/datasets/southwest-q1-fy26.js",
+        "data": {
+          "name": "Southwest Airlines · Q1 FY26",
+          "company": "Southwest Airlines",
+          "meta": {
+            "title": "Southwest Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "西南航空 · 2026 财年第一季度",
+              "meta": {
+                "title": "西南航空 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "united-q1-fy26",
+        "src": "data/datasets/united-q1-fy26.js",
+        "data": {
+          "name": "United Airlines · Q1 FY26",
+          "company": "United Airlines",
+          "meta": {
+            "title": "United Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Quarter ended Mar. 31, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "联合航空 · 2026 财年第一季度",
+              "meta": {
+                "title": "联合航空 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ups-q1-fy26",
+        "src": "data/datasets/ups-q1-fy26.js",
+        "data": {
+          "name": "UPS · Q1 FY26",
+          "company": "UPS",
+          "meta": {
+            "title": "UPS Q1 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "联合包裹 · 2026 财年第一季度",
+              "meta": {
+                "title": "联合包裹 2026 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "astrazeneca-q1-fy26",
+        "src": "data/datasets/astrazeneca-q1-fy26.js",
+        "data": {
+          "name": "AstraZeneca · Q1 FY26",
+          "company": "AstraZeneca",
+          "meta": {
+            "title": "AstraZeneca Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "阿斯利康 · 2026 财年第一季度",
+              "meta": {
+                "title": "阿斯利康 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
       }
     ]
   };
