@@ -129,6 +129,12 @@
       "width": 2980,
       "height": 1678
     },
+    "align-q1-fy26": {
+      "similarity": 0.977104,
+      "mae": 5.8384,
+      "width": 2667,
+      "height": 1500
+    },
     "align-q4-fy25": {
       "similarity": 0.975485,
       "mae": 6.2512,
@@ -555,6 +561,12 @@
       "width": 2667,
       "height": 1500
     },
+    "booking-q1-fy26": {
+      "similarity": 0.978048,
+      "mae": 5.5978,
+      "width": 2667,
+      "height": 1500
+    },
     "booking-q4-fy25": {
       "similarity": 0.975833,
       "mae": 6.1627,
@@ -660,6 +672,12 @@
     "chime-q4-fy25": {
       "similarity": 0.973066,
       "mae": 6.8682,
+      "width": 2667,
+      "height": 1500
+    },
+    "chipotle-q1-fy26": {
+      "similarity": 0.966285,
+      "mae": 8.5973,
       "width": 2667,
       "height": 1500
     },
@@ -951,6 +969,12 @@
       "width": 2667,
       "height": 1500
     },
+    "domino-s-q1-fy26": {
+      "similarity": 0.960811,
+      "mae": 9.9931,
+      "width": 2667,
+      "height": 1500
+    },
     "domino-s-q4-fy25": {
       "similarity": 0.957759,
       "mae": 10.7716,
@@ -1194,6 +1218,12 @@
     "gamestop-q1-fy26": {
       "similarity": 0.941911,
       "mae": 14.8128,
+      "width": 2667,
+      "height": 1500
+    },
+    "ge-vernova-q1-fy26": {
+      "similarity": 0.970921,
+      "mae": 7.4151,
       "width": 2667,
       "height": 1500
     },
@@ -2181,6 +2211,12 @@
       "width": 2667,
       "height": 1500
     },
+    "p-g-q3-fy26": {
+      "similarity": 0.974675,
+      "mae": 6.4579,
+      "width": 2667,
+      "height": 1500
+    },
     "palantir-q1-fy26": {
       "similarity": 0.968667,
       "mae": 7.99,
@@ -2763,6 +2799,12 @@
       "width": 2667,
       "height": 1500
     },
+    "teladoc-q1-fy26": {
+      "similarity": 0.964016,
+      "mae": 9.1759,
+      "width": 2667,
+      "height": 1500
+    },
     "teladoc-q4-fy25": {
       "similarity": 0.964389,
       "mae": 9.0807,
@@ -2850,6 +2892,12 @@
     "tilray-q2-fy26": {
       "similarity": 0.961284,
       "mae": 9.8725,
+      "width": 2667,
+      "height": 1500
+    },
+    "tilray-q3-fy26": {
+      "similarity": 0.958894,
+      "mae": 10.482,
       "width": 2667,
       "height": 1500
     },
