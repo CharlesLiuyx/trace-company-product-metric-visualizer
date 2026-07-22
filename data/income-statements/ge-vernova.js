@@ -99,4 +99,91 @@
       },
     },
   });
+
+  ssot.records.push({
+    key: 'ge-vernova-q1-fy26',
+    company: 'GE Vernova',
+    period: 'Q1 FY26',
+    periodNote: 'Quarter ended Mar. 31, 2026',
+    currency: '$',
+    unit: 'B',
+    decimals: 3,
+    sourceImage: 'input/processed/ge-vernova-q1-fy26.png',
+    roundingTolerance: 0.15,
+    revenue: {
+      total: 9.3,
+      notes: ['+16% Y/Y'],
+      items: [
+        { id: 'power', label: 'Power', value: 5.0, notes: ['+12% Y/Y', '16% segment margin', '+5pp Y/Y'] },
+        { id: 'wind', label: 'Wind', value: 1.4, notes: ['(22%) Y/Y', '(27%) segment margin', '(19pp) Y/Y'] },
+        { id: 'electrification', label: 'Electrification', value: 3.0, notes: ['+61% Y/Y', '18% segment margin', '+7pp Y/Y'] },
+        { id: 'eliminations', label: 'Eliminations', value: -0.023, notes: ['Displayed as ($23M); the Source paints a 71×1px terminal face that must remain visible at native height.'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: {
+        label: 'Cost of equipment and services',
+        value: 7.5,
+        items: [
+          { id: 'cost_of_equipment', label: 'Cost of equipment', value: 4.7 },
+          { id: 'cost_of_services', label: 'Cost of services', value: 2.8 },
+        ],
+      },
+      operatingExpenses: {
+        total: 1.6,
+        items: [
+          { id: 'sga', label: 'SG&A', value: 1.3, notes: ['14% of revenue', '(1pp) Y/Y'] },
+          { id: 'rnd', label: 'R&D', value: 0.3, notes: ['3% of revenue', '+0pp Y/Y'] },
+        ],
+      },
+      tax: { label: 'Tax', value: 0 },
+    },
+    otherIncome: {
+      total: 4.5,
+      items: [{ id: 'other', label: 'Other', value: 4.5 }],
+    },
+    otherExpenses: { total: 0, items: [] },
+    profit: {
+      gross: { id: 'gross_profit', label: 'Gross profit', value: 1.8, notes: ['19% margin', '+1pp Y/Y'] },
+      operating: { id: 'operating_profit', label: 'Operating profit', value: 0.2, notes: ['2% margin', '+1pp Y/Y'] },
+      net: { id: 'net_profit', label: 'Net profit', value: 4.8, notes: ['51% margin', '+48pp Y/Y'] },
+    },
+    i18n: {
+      zh: {
+        period: '2026 财年第一季度',
+        periodNote: '截至 2026 年 3 月 31 日的季度',
+        revenue: {
+          notes: ['同比 +16%'],
+          items: [
+            { id: 'power', label: '电力', notes: ['同比 +12%', '部门利润率 16%', '同比 +5 个百分点'] },
+            { id: 'wind', label: '风电', notes: ['同比 (22%)', '部门利润率 (27%)', '同比 (19 个百分点)'] },
+            { id: 'electrification', label: '电气化', notes: ['同比 +61%', '部门利润率 18%', '同比 +7 个百分点'] },
+            { id: 'eliminations', label: '抵销', notes: ['显示为 ($23M)；Source 绘制了 71×1px 的末端短柱，必须按原生高度保留。'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: {
+            label: '设备与服务成本',
+            items: [
+              { id: 'cost_of_equipment', label: '设备成本' },
+              { id: 'cost_of_services', label: '服务成本' },
+            ],
+          },
+          operatingExpenses: {
+            items: [
+              { id: 'sga', label: '销售、一般及管理费用', notes: ['占收入 14%', '同比 (1 个百分点)'] },
+              { id: 'rnd', label: '研发', notes: ['占收入 3%', '同比 +0 个百分点'] },
+            ],
+          },
+          tax: { label: '税费' },
+        },
+        otherIncome: { items: [{ id: 'other', label: '其他' }] },
+        profit: {
+          gross: { label: '毛利润', notes: ['利润率 19%', '同比 +1 个百分点'] },
+          operating: { label: '营业利润', notes: ['利润率 2%', '同比 +1 个百分点'] },
+          net: { label: '净利润', notes: ['利润率 51%', '同比 +48 个百分点'] },
+        },
+      },
+    },
+  });
 })(window);

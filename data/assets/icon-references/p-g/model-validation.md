@@ -21,3 +21,24 @@ All six crops pass the extractor's border, centering, and forbidden-pixel
 checks in `crop-report-q2-fy26.json`. The derived runtime copies are the only
 raster files referenced by the dataset adapter; the `crops/` folder remains
 reference-only.
+
+## Q3 FY26
+
+All six Q3 crops were visually reviewed against their validation sheets and
+accepted. The P&G orb, Beauty cluster, and Grooming cluster are pixel-identical
+to Q2 at the measured source boxes; Q3-specific runtime copies keep the Source
+lineage explicit. Health Care, Fabric & Home Care, and Baby, Feminine & Family
+Care changed in the Q3 Source and therefore use newly extracted Q3 assets.
+
+- `company-logo-q3-fy26.png` — accepted. Complete circular P&G orb and white
+  wordmark; no title, Net sales label, or flow pixels.
+- `beauty-product-cluster-q3-fy26.png` — accepted. Complete Beauty product
+  collage; no label or source-node pixels.
+- `grooming-product-cluster-q3-fy26.png` — accepted. Complete Grooming product
+  collage; no label or source-node pixels.
+- `health-care-product-cluster-q3-fy26.png` — accepted. Complete Health Care
+  product collage; no adjacent text or Sankey marks.
+- `fabric-home-care-product-cluster-q3-fy26.png` — accepted. Complete product
+  row; the rightmost pack is intact and no label or node pixels are present.
+- `baby-feminine-family-care-product-cluster-q3-fy26.png` — accepted. Charmin,
+  Bounty, and Puffs packs are complete; no adjacent label or publisher mark.

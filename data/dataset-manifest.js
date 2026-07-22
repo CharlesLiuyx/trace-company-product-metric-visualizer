@@ -11975,6 +11975,186 @@
             }
           }
         }
+      },
+      {
+        "key": "teladoc-q1-fy26",
+        "src": "data/datasets/teladoc-q1-fy26.js",
+        "data": {
+          "name": "Teladoc Health · Q1 FY26",
+          "company": "Teladoc Health",
+          "meta": {
+            "title": "Teladoc Q1 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Teladoc Health · 2026 财年第一季度",
+              "meta": {
+                "title": "Teladoc 2026 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "domino-s-q1-fy26",
+        "src": "data/datasets/domino-s-q1-fy26.js",
+        "data": {
+          "name": "Domino's · Q1 FY26",
+          "company": "Domino's",
+          "meta": {
+            "title": "Domino's Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Quarter ended Mar. 22, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "达美乐 · 2026 财年第一季度",
+              "meta": {
+                "title": "达美乐 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月 22 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "p-g-q3-fy26",
+        "src": "data/datasets/p-g-q3-fy26.js",
+        "data": {
+          "name": "P&G · Q3 FY26",
+          "company": "P&G",
+          "meta": {
+            "title": "P&G Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "宝洁 · 2026 财年第三季度",
+              "meta": {
+                "title": "宝洁 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tilray-q3-fy26",
+        "src": "data/datasets/tilray-q3-fy26.js",
+        "data": {
+          "name": "Tilray Brands · Q3 FY26",
+          "company": "Tilray Brands",
+          "meta": {
+            "title": "Tilray Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Feb. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tilray Brands · 2026 财年第三季度",
+              "meta": {
+                "title": "Tilray 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 2 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "booking-q1-fy26",
+        "src": "data/datasets/booking-q1-fy26.js",
+        "data": {
+          "name": "Booking Holdings · Q1 FY26",
+          "company": "Booking Holdings",
+          "meta": {
+            "title": "Booking Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "缤客控股 · 2026 财年第一季度",
+              "meta": {
+                "title": "缤客控股 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "align-q1-fy26",
+        "src": "data/datasets/align-q1-fy26.js",
+        "data": {
+          "name": "Align Technology · Q1 FY26",
+          "company": "Align Technology",
+          "meta": {
+            "title": "Align Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Mar. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "爱齐科技 · 2026 财年第一季度",
+              "meta": {
+                "title": "爱齐科技 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ge-vernova-q1-fy26",
+        "src": "data/datasets/ge-vernova-q1-fy26.js",
+        "data": {
+          "name": "GE Vernova · Q1 FY26",
+          "company": "GE Vernova",
+          "meta": {
+            "title": "GE Vernova Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Quarter ended Mar. 31, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "GE Vernova · 2026 财年第一季度",
+              "meta": {
+                "title": "GE Vernova 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "chipotle-q1-fy26",
+        "src": "data/datasets/chipotle-q1-fy26.js",
+        "data": {
+          "name": "Chipotle · Q1 FY26",
+          "company": "Chipotle",
+          "meta": {
+            "title": "Chipotle Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Quarter ended Mar. 31, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Chipotle · 2026 财年第一季度",
+              "meta": {
+                "title": "Chipotle 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 3 月 31 日的季度"
+              }
+            }
+          }
+        }
       }
     ]
   };
