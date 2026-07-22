@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-21T19:41:42.000Z",
+  "generatedAt": "2026-07-22T04:58:35.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -3191,6 +3191,54 @@
       "path": "data/datasets/astrazeneca-q1-fy26.js",
       "updatedAtMs": 1784662902000,
       "updatedAt": "2026-07-21T19:41:42.000Z",
+      "timeSource": "git"
+    },
+    "teladoc-q1-fy26": {
+      "path": "data/datasets/teladoc-q1-fy26.js",
+      "updatedAtMs": 1784696315000,
+      "updatedAt": "2026-07-22T04:58:35.000Z",
+      "timeSource": "git"
+    },
+    "domino-s-q1-fy26": {
+      "path": "data/datasets/domino-s-q1-fy26.js",
+      "updatedAtMs": 1784696315000,
+      "updatedAt": "2026-07-22T04:58:35.000Z",
+      "timeSource": "git"
+    },
+    "p-g-q3-fy26": {
+      "path": "data/datasets/p-g-q3-fy26.js",
+      "updatedAtMs": 1784696315000,
+      "updatedAt": "2026-07-22T04:58:35.000Z",
+      "timeSource": "git"
+    },
+    "tilray-q3-fy26": {
+      "path": "data/datasets/tilray-q3-fy26.js",
+      "updatedAtMs": 1784696315000,
+      "updatedAt": "2026-07-22T04:58:35.000Z",
+      "timeSource": "git"
+    },
+    "booking-q1-fy26": {
+      "path": "data/datasets/booking-q1-fy26.js",
+      "updatedAtMs": 1784696315000,
+      "updatedAt": "2026-07-22T04:58:35.000Z",
+      "timeSource": "git"
+    },
+    "align-q1-fy26": {
+      "path": "data/datasets/align-q1-fy26.js",
+      "updatedAtMs": 1784696315000,
+      "updatedAt": "2026-07-22T04:58:35.000Z",
+      "timeSource": "git"
+    },
+    "ge-vernova-q1-fy26": {
+      "path": "data/datasets/ge-vernova-q1-fy26.js",
+      "updatedAtMs": 1784696315000,
+      "updatedAt": "2026-07-22T04:58:35.000Z",
+      "timeSource": "git"
+    },
+    "chipotle-q1-fy26": {
+      "path": "data/datasets/chipotle-q1-fy26.js",
+      "updatedAtMs": 1784696315000,
+      "updatedAt": "2026-07-22T04:58:35.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {

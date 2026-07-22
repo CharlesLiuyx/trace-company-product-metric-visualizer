@@ -90,6 +90,82 @@
           },
         },
       },
+    },
+    {
+      key: 'teladoc-q1-fy26',
+      company: 'Teladoc Health',
+      period: 'Q1 FY26',
+      periodNote: 'Quarter ended Mar. 31, 2026',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/teladoc-q1-fy26.png',
+      roundingTolerance: 1.5,
+      revenue: {
+        total: 614,
+        notes: ['(2%) Y/Y'],
+        items: [
+          { id: 'integrated_care', label: 'Teladoc Health Integrated Care', value: 395, notes: ['+2% Y/Y', '14% adjusted margin'] },
+          { id: 'betterhelp', label: 'BetterHelp', value: 218, notes: ['(9%) Y/Y', '1% adjusted margin'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 198 },
+        operatingExpenses: {
+          total: 478,
+          items: [
+            { id: 'sales_marketing', label: 'Sales & marketing', value: 203, notes: ['33% of revenue', '(1pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 102, notes: ['17% of revenue', '(1pp) Y/Y'] },
+            { id: 'depreciation_amortization', label: 'Depreciation & amortization', value: 92, notes: ['15% of revenue', '+1pp Y/Y'] },
+            { id: 'technology_development', label: 'Technology & development', value: 68, notes: ['11% of revenue', '(0pp) Y/Y'] },
+            { id: 'other', label: 'Other', value: 13 },
+          ],
+        },
+        tax: { label: 'Tax', value: 0 },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 416, notes: ['68% margin', '(1pp) Y/Y'] },
+        operating: { id: 'operating_loss', label: 'Operating loss', value: -62, notes: ['(10%) margin', '+9pp Y/Y'] },
+        net: {
+          id: 'operating_loss',
+          label: 'Operating loss',
+          value: -62,
+          notes: ['Source chart stops at operating loss; no net-income bridge is rendered.'],
+        },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第一季度',
+          periodNote: '截至 2026 年 3 月 31 日的季度',
+          revenue: {
+            notes: ['同比 (2%)'],
+            items: [
+              { id: 'integrated_care', label: 'Teladoc Health 整合护理', notes: ['同比 +2%', '调整后利润率 14%'] },
+              { id: 'betterhelp', label: 'BetterHelp', notes: ['同比 (9%)', '调整后利润率 1%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'sales_marketing', label: '销售与市场', notes: ['占收入 33%', '同比 (1 个百分点)'] },
+                { id: 'ga', label: '一般及行政费用', notes: ['占收入 17%', '同比 (1 个百分点)'] },
+                { id: 'depreciation_amortization', label: '折旧与摊销', notes: ['占收入 15%', '同比 +1 个百分点'] },
+                { id: 'technology_development', label: '技术与开发', notes: ['占收入 11%', '同比 (0 个百分点)'] },
+                { id: 'other', label: '其他' },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 68%', '同比 (1 个百分点)'] },
+            operating: { label: '营业亏损', notes: ['利润率 (10%)', '同比 +9 个百分点'] },
+            net: { label: '营业亏损', notes: ['来源图停留在营业亏损，未展示净利润桥。'] },
+          },
+        },
+      },
     }
   );
 })(window);
