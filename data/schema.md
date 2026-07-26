@@ -210,6 +210,14 @@ uses a stable id and may carry notes and localized labels like other financial
 items. Source Coverage references these values through
 `{ family: 'income-statement', path: 'profit.gross.items', id }`.
 
+`profit.operating.items` is the parallel optional breakdown for
+Source-visible contributions to operating profit, such as operating profit by
+business unit. Its items must sum to `profit.operating.value` within
+`roundingTolerance`. Source Coverage references them through
+`{ family: 'income-statement', path: 'profit.operating.items', id }`; a Source
+callout without an independent node face uses an Adapter non-node metric rather
+than inventing Sankey node geometry.
+
 ### Revenue metric record
 
 ```js
@@ -334,7 +342,7 @@ discrepancy, a value change, or a zero-looking rounded amount; the latter uses
 
 | Adapter | typed reference | resolved authored value |
 | --- | --- | --- |
-| Income Statement | `{ family: 'income-statement', path, id }` | the matching record selected by dataset key; `path` covers revenue (including optional independent `revenue.breakdowns`), cost (including `costs.costOfRevenue.items`), profit (including optional `profit.gross.items`), and operating/non-operating other-income/expense totals or items; item paths search nested `children` by `id`, while total paths use their stable node ID |
+| Income Statement | `{ family: 'income-statement', path, id }` | the matching record selected by dataset key; `path` covers revenue (including optional independent `revenue.breakdowns`), cost (including `costs.costOfRevenue.items`), profit (including optional `profit.gross.items` and `profit.operating.items`), and operating/non-operating other-income/expense totals or items; item paths search nested `children` by `id`, while total paths use their stable node ID |
 | Revenue Metric | `{ family: 'revenue-metric', path: 'observations', date }` | the matching record's observation at the exact `YYYY-MM-DD` date |
 
 During current M3 `prepare-review`, verification converts the Source amount

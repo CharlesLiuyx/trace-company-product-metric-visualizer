@@ -235,6 +235,7 @@ function validateDatasetParity(record, dataset, errors) {
   for (const item of record.otherIncome?.items || []) checkNode(item, 'other income item');
   for (const item of record.otherExpenses?.items || []) checkNode(item, 'other expense item');
   for (const item of flattenItems(record.profit.gross?.items)) checkNode(item, 'gross profit item');
+  for (const item of flattenItems(record.profit.operating?.items)) checkNode(item, 'operating profit item');
   for (const id of nonNodeById.keys()) {
     assert(
       referencedMetricIds.has(id),
@@ -258,6 +259,7 @@ function validateArithmetic(record, errors) {
   const otherExpenseTotal = record.otherExpenses?.total || 0;
   const taxTotal = record.costs.tax?.value || 0;
   const grossProfitItems = sum(record.profit.gross?.items);
+  const operatingProfitItems = sum(record.profit.operating?.items);
   const checkChildSums = (items, pathLabel) => {
     for (const item of items || []) {
       if ((item.children || []).length) {
@@ -305,6 +307,9 @@ function validateArithmetic(record, errors) {
   assertClose(otherExpenseItems, otherExpenseTotal, tolerance, `${record.key}: other expense item sum`, errors);
   if ((record.profit.gross?.items || []).length > 0) {
     assertClose(grossProfitItems, record.profit.gross.value, tolerance, `${record.key}: gross profit item sum`, errors);
+  }
+  if ((record.profit.operating?.items || []).length > 0) {
+    assertClose(operatingProfitItems, record.profit.operating.value, tolerance, `${record.key}: operating profit item sum`, errors);
   }
   assertClose(
     record.revenue.total - record.costs.costOfRevenue.value,

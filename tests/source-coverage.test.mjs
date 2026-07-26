@@ -225,6 +225,64 @@ test('Gross profit contribution items reconcile through the typed Source Coverag
   );
 });
 
+test('Operating profit contribution items reconcile through the typed Source Coverage path', () => {
+  const sourceClassification = classification();
+  const inventory = createObjectInventory({
+    datasetKey: DATASET_KEY,
+    objects: [{
+      id: 'annotation:aws-operating-profit',
+      kind: 'operating-profit-contribution',
+      disposition: 'render',
+      mapping: [
+        { role: 'data', target: 'incomeStatement.profit.operating.items.aws_operating_profit' },
+        { role: 'render', target: 'nonNodeMetrics.aws_operating_profit' },
+        { role: 'render', target: 'annotations.aws_operating_profit' },
+      ],
+      features: [ZERO_PAINT_NODE_SLOT_FEATURE],
+      featureEvidence: {
+        [ZERO_PAINT_NODE_SLOT_FEATURE]: {
+          source: 'same-column-node-slot',
+          locator: `input/processing/${DATASET_KEY}.png#aws-operating-profit-zero-paint-slot`,
+          digest: SOURCE_DIGEST,
+          referenceBBox: [940, 300, 72, 60],
+          inspectionMethod: ZERO_PAINT_NODE_SLOT_INSPECTION_METHOD,
+          classificationClaim: ZERO_PAINT_NODE_SLOT_CLASSIFICATION_CLAIM,
+          reason: 'The Source callout has no independent node face in the measured terminal-column slot.',
+        },
+      },
+    }],
+  });
+  const coverage = createSourceCoverage({
+    classification: sourceClassification,
+    source: sourceClassification.source,
+    scanPasses: SOURCE_COVERAGE_SCAN_PASSES,
+    items: [{
+      sourceId: 'source:aws-operating-profit',
+      sourceClass: 'financial-value',
+      sourceLabel: 'AWS operating profit contribution',
+      contentBBox: [900, 300, 180, 60],
+      inventoryObjectIds: ['annotation:aws-operating-profit'],
+      amount: { literal: '$0.6B', value: '0.6', unit: 'B', resolution: '0.1' },
+      ssotRef: { family: 'income-statement', path: 'profit.operating.items', id: 'aws_operating_profit' },
+    }],
+  }, { inventory, adapter: 'income-statement' });
+  const loaded = loadedData();
+  loaded.records[0].profit.operating = {
+    id: 'operating_profit',
+    value: 0.6,
+    items: [{ id: 'aws_operating_profit', value: 0.6 }],
+  };
+  loaded.datasets[0].nonNodeMetrics = [{
+    id: 'aws_operating_profit',
+    representation: 'annotation',
+    value: 0.6,
+  }];
+  assert.deepEqual(
+    assertSourceCoverageAuthoredValues(coverage, { loadedData: loaded }),
+    { checked: 1, unit: 'B' }
+  );
+});
+
 test('Source Coverage uses independent Source identities and never treats Other as residual', () => {
   const coverage = financialCoverage();
   assert.equal(coverage.items[0].sourceId, 'source:other-income');
