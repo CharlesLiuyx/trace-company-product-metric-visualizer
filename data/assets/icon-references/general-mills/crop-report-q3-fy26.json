@@ -1,0 +1,452 @@
+{
+  "source": "input/processed/general-mills-q3-fy26.png",
+  "spec": "input/icon-crop-specs/general-mills-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-25T20:20:49.460711+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/general-mills",
+  "crops": [
+    {
+      "key": "general-mills-company-logo",
+      "output": "data/assets/icon-references/general-mills/crops/company-logo-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 5997,
+        "losslessBytes": 26822,
+        "savingsVsLossless": 0.7764,
+        "metrics": {
+          "meanAbsoluteError": 0.2286,
+          "rootMeanSquareError": 1.3958,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 51,
+          "changedPixelRatio": 0.1147
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 95140,
+        "transparentPixelRatio": 0.6764
+      },
+      "searchBox": {
+        "x": 675,
+        "y": 248,
+        "width": 485,
+        "height": 290
+      },
+      "componentCount": 15,
+      "subjectBox": {
+        "x0": 682,
+        "y0": 256,
+        "x1": 1149,
+        "y1": 528
+      },
+      "cropBox": {
+        "x0": 675,
+        "y0": 248,
+        "x1": 1160,
+        "y1": 538
+      },
+      "validation": {
+        "width": 485,
+        "height": 290,
+        "foregroundPixels": 38786,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 7,
+          "right": 11,
+          "top": 8,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": -0.0041,
+          "y": -0.0034
+        },
+        "passes": true
+      },
+      "note": "Complete General Mills monogram, heart, and wordmark; excludes title, Net sales label, and Sankey flow.",
+      "runtimeOutput": "data/assets/raster-annotations/general-mills/company-logo-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 5997,
+        "losslessBytes": 26822,
+        "savingsVsLossless": 0.7764,
+        "metrics": {
+          "meanAbsoluteError": 0.2286,
+          "rootMeanSquareError": 1.3958,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 51,
+          "changedPixelRatio": 0.1147
+        }
+      },
+      "validationSheet": "data/assets/icon-references/general-mills/validation-sheets/q3-fy26/general-mills-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 271829,
+        "losslessBytes": 271829,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "north-america-retail-product-cluster",
+      "output": "data/assets/icon-references/general-mills/crops/north-america-retail-product-cluster-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 51945,
+        "losslessBytes": 51945,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 10727,
+        "transparentPixelRatio": 0.3576
+      },
+      "searchBox": {
+        "x": 168,
+        "y": 394,
+        "width": 200,
+        "height": 150
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 172,
+        "y0": 406,
+        "x1": 359,
+        "y1": 535
+      },
+      "cropBox": {
+        "x0": 168,
+        "y0": 394,
+        "x1": 368,
+        "y1": 544
+      },
+      "validation": {
+        "width": 200,
+        "height": 150,
+        "foregroundPixels": 18963,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 4,
+          "right": 9,
+          "top": 12,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": -0.0125,
+          "y": 0.01
+        },
+        "passes": true
+      },
+      "note": "North America Retail product pack collage only; excludes the business label and source node.",
+      "runtimeOutput": "data/assets/raster-annotations/general-mills/north-america-retail-product-cluster-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 51945,
+        "losslessBytes": 51945,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/general-mills/validation-sheets/q3-fy26/north-america-retail-product-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 413651,
+        "losslessBytes": 413651,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "pet-product-cluster",
+      "output": "data/assets/icon-references/general-mills/crops/pet-product-cluster-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 30393,
+        "losslessBytes": 30393,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 9868,
+        "transparentPixelRatio": 0.4405
+      },
+      "searchBox": {
+        "x": 190,
+        "y": 700,
+        "width": 160,
+        "height": 140
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 202,
+        "y0": 704,
+        "x1": 332,
+        "y1": 826
+      },
+      "cropBox": {
+        "x0": 190,
+        "y0": 700,
+        "x1": 350,
+        "y1": 840
+      },
+      "validation": {
+        "width": 160,
+        "height": 140,
+        "foregroundPixels": 12152,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 18,
+          "top": 4,
+          "bottom": 14
+        },
+        "centerOffset": {
+          "x": -0.0187,
+          "y": -0.0357
+        },
+        "passes": true
+      },
+      "note": "Pet product pack collage only; excludes the Pet label and source node.",
+      "runtimeOutput": "data/assets/raster-annotations/general-mills/pet-product-cluster-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 30393,
+        "losslessBytes": 30393,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/general-mills/validation-sheets/q3-fy26/pet-product-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 380981,
+        "losslessBytes": 380981,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "north-america-foodservice-product-cluster",
+      "output": "data/assets/icon-references/general-mills/crops/north-america-foodservice-product-cluster-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 20110,
+        "losslessBytes": 20110,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 9454,
+        "transparentPixelRatio": 0.5509
+      },
+      "searchBox": {
+        "x": 185,
+        "y": 922,
+        "width": 165,
+        "height": 104
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 194,
+        "y0": 928,
+        "x1": 336,
+        "y1": 1020
+      },
+      "cropBox": {
+        "x0": 185,
+        "y0": 922,
+        "x1": 350,
+        "y1": 1026
+      },
+      "validation": {
+        "width": 165,
+        "height": 104,
+        "foregroundPixels": 7292,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 9,
+          "right": 14,
+          "top": 6,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": -0.0152,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "North America Foodservice product cluster only; excludes its label and source node.",
+      "runtimeOutput": "data/assets/raster-annotations/general-mills/north-america-foodservice-product-cluster-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 20110,
+        "losslessBytes": 20110,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/general-mills/validation-sheets/q3-fy26/north-america-foodservice-product-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 336729,
+        "losslessBytes": 336729,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "international-product-cluster",
+      "output": "data/assets/icon-references/general-mills/crops/international-product-cluster-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 30150,
+        "losslessBytes": 30150,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 6418,
+        "transparentPixelRatio": 0.3496
+      },
+      "searchBox": {
+        "x": 180,
+        "y": 1161,
+        "width": 180,
+        "height": 102
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 188,
+        "y0": 1164,
+        "x1": 347,
+        "y1": 1256
+      },
+      "cropBox": {
+        "x0": 180,
+        "y0": 1161,
+        "x1": 360,
+        "y1": 1263
+      },
+      "validation": {
+        "width": 180,
+        "height": 102,
+        "foregroundPixels": 11600,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 13,
+          "top": 3,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": -0.0139,
+          "y": -0.0196
+        },
+        "passes": true
+      },
+      "note": "International product pack collage only; excludes the business label and publisher mark.",
+      "runtimeOutput": "data/assets/raster-annotations/general-mills/international-product-cluster-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 30150,
+        "losslessBytes": 30150,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/general-mills/validation-sheets/q3-fy26/international-product-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 360624,
+        "losslessBytes": 360624,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

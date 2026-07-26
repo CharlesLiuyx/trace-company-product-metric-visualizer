@@ -8,7 +8,118 @@
     records: [],
   });
 
-  ssot.records.push({
+  ssot.records.push(
+  {
+    key: 'vail-resorts-q2-fy26',
+    company: 'Vail Resorts',
+    period: 'Q2 FY26',
+    periodNote: 'Ending Jan. 2026',
+    currency: '$',
+    unit: 'M',
+    decimals: 0,
+    sourceImage: 'input/processed/vail-resorts-q2-fy26.png',
+    roundingTolerance: 3.1,
+    revenue: {
+      total: 1084,
+      notes: ['(5%) Y/Y'],
+      items: [
+        {
+          id: 'mountain',
+          label: 'Mountain',
+          value: 1012,
+          notes: ['(5%) Y/Y'],
+          children: [
+            { id: 'lift', label: 'Lift', value: 626, notes: ['(3%) Y/Y'] },
+            { id: 'ski_school', label: 'Ski school', value: 121, notes: ['(9%) Y/Y'] },
+            { id: 'dining', label: 'Dining', value: 85, notes: ['(7%) Y/Y'] },
+            { id: 'retail_rental', label: 'Retail/rental', value: 126, notes: ['(7%) Y/Y'] },
+            { id: 'other_revenue', label: 'Other', value: 55, notes: ['(7%) Y/Y'] },
+          ],
+        },
+        { id: 'lodging', label: 'Lodging', value: 72, notes: ['(3%) Y/Y'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: {
+        id: 'cost_of_revenue',
+        label: 'Cost of revenue',
+        value: 0,
+        notes: ['The source chart bridges revenue directly to operating profit and operating expenses.'],
+      },
+      operatingExpenses: {
+        total: 739,
+        notes: ['The displayed expense detail sums to $736M because each Source amount is independently rounded.'],
+        items: [
+          { id: 'mountain_lodging', label: 'Mountain & Lodging', value: 481 },
+          { id: 'ga', label: 'G&A', value: 122 },
+          { id: 'da', label: 'D&A', value: 74 },
+          { id: 'retail_dining', label: 'Retail & Dining', value: 59 },
+        ],
+      },
+      tax: { id: 'tax', label: 'Tax', value: 72 },
+    },
+    otherIncome: { total: 0, items: [] },
+    otherExpenses: {
+      total: 47,
+      items: [
+        { id: 'other_expense', label: 'Other', value: 47 },
+      ],
+    },
+    profit: {
+      gross: {
+        id: 'revenue',
+        label: 'Revenue',
+        value: 1084,
+        notes: ['Synthetic SSOT subtotal because the source chart does not show a gross-profit layer.'],
+      },
+      operating: { id: 'operating_profit', label: 'Operating profit', value: 345, notes: ['32% margin', '(2pp) Y/Y'] },
+      net: { id: 'net_profit', label: 'Net profit', value: 226, notes: ['21% margin', '(2pp) Y/Y'] },
+    },
+    i18n: {
+      zh: {
+        period: '2026 财年第二季度',
+        periodNote: '截至 2026 年 1 月',
+        revenue: {
+          notes: ['同比 -5%'],
+          items: [
+            {
+              id: 'mountain',
+              label: '山地业务',
+              notes: ['同比 -5%'],
+              children: [
+                { id: 'lift', label: '缆车', notes: ['同比 -3%'] },
+                { id: 'ski_school', label: '滑雪学校', notes: ['同比 -9%'] },
+                { id: 'dining', label: '餐饮', notes: ['同比 -7%'] },
+                { id: 'retail_rental', label: '零售及租赁', notes: ['同比 -7%'] },
+                { id: 'other_revenue', label: '其他', notes: ['同比 -7%'] },
+              ],
+            },
+            { id: 'lodging', label: '住宿', notes: ['同比 -3%'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: { label: '收入成本', notes: ['来源图直接将收入桥接至营业利润和运营费用，未显示毛利润层级。'] },
+          operatingExpenses: {
+            notes: ['各来源金额独立四舍五入，因此图示费用明细合计为 7.36 亿美元。'],
+            items: [
+              { id: 'mountain_lodging', label: '山地及住宿' },
+              { id: 'ga', label: '管理费用' },
+              { id: 'da', label: '折旧与摊销' },
+              { id: 'retail_dining', label: '零售及餐饮' },
+            ],
+          },
+          tax: { label: '税费' },
+        },
+        otherExpenses: { items: [{ id: 'other_expense', label: '其他' }] },
+        profit: {
+          gross: { label: '收入', notes: ['来源图未显示毛利润层级，因此 SSOT 将收入用作合成小计。'] },
+          operating: { label: '营业利润', notes: ['利润率 32%', '同比 -2 个百分点'] },
+          net: { label: '净利润', notes: ['利润率 21%', '同比 -2 个百分点'] },
+        },
+      },
+    },
+  },
+  {
     key: 'vail-resorts-q3-fy26',
     company: 'Vail Resorts',
     period: 'Q3 FY26',

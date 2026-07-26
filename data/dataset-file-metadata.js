@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-22T05:04:22.000Z",
+  "generatedAt": "2026-07-26T04:15:34.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -3239,6 +3239,96 @@
       "path": "data/datasets/chipotle-q1-fy26.js",
       "updatedAtMs": 1784696662000,
       "updatedAt": "2026-07-22T05:04:22.000Z",
+      "timeSource": "git"
+    },
+    "stoneco-q4-fy25": {
+      "path": "data/datasets/stoneco-q4-fy25.js",
+      "updatedAtMs": 1785039334000,
+      "updatedAt": "2026-07-26T04:15:34.000Z",
+      "timeSource": "git"
+    },
+    "carnival-q1-fy26": {
+      "path": "data/datasets/carnival-q1-fy26.js",
+      "updatedAtMs": 1785039334000,
+      "updatedAt": "2026-07-26T04:15:34.000Z",
+      "timeSource": "git"
+    },
+    "samsara-q4-fy26": {
+      "path": "data/datasets/samsara-q4-fy26.js",
+      "updatedAtMs": 1785039334000,
+      "updatedAt": "2026-07-26T04:15:34.000Z",
+      "timeSource": "git"
+    },
+    "celsius-fy25": {
+      "path": "data/datasets/celsius-fy25.js",
+      "updatedAtMs": 1785039334000,
+      "updatedAt": "2026-07-26T04:15:34.000Z",
+      "timeSource": "git"
+    },
+    "vail-resorts-q2-fy26": {
+      "path": "data/datasets/vail-resorts-q2-fy26.js",
+      "updatedAtMs": 1785039334000,
+      "updatedAt": "2026-07-26T04:15:34.000Z",
+      "timeSource": "git"
+    },
+    "dlocal-q4-fy25": {
+      "path": "data/datasets/dlocal-q4-fy25.js",
+      "updatedAtMs": 1785039334000,
+      "updatedAt": "2026-07-26T04:15:34.000Z",
+      "timeSource": "git"
+    },
+    "gamestop-q4-fy25": {
+      "path": "data/datasets/gamestop-q4-fy25.js",
+      "updatedAtMs": 1785039334000,
+      "updatedAt": "2026-07-26T04:15:34.000Z",
+      "timeSource": "git"
+    },
+    "chewy-q4-fy25": {
+      "path": "data/datasets/chewy-q4-fy25.js",
+      "updatedAtMs": 1785039334000,
+      "updatedAt": "2026-07-26T04:15:34.000Z",
+      "timeSource": "git"
+    },
+    "gitlab-q4-fy26": {
+      "path": "data/datasets/gitlab-q4-fy26.js",
+      "updatedAtMs": 1785039334000,
+      "updatedAt": "2026-07-26T04:15:34.000Z",
+      "timeSource": "git"
+    },
+    "health-equity-q4-fy26": {
+      "path": "data/datasets/health-equity-q4-fy26.js",
+      "updatedAtMs": 1785039334000,
+      "updatedAt": "2026-07-26T04:15:34.000Z",
+      "timeSource": "git"
+    },
+    "darden-q3-fy26": {
+      "path": "data/datasets/darden-q3-fy26.js",
+      "updatedAtMs": 1785039334000,
+      "updatedAt": "2026-07-26T04:15:34.000Z",
+      "timeSource": "git"
+    },
+    "aramco-fy25": {
+      "path": "data/datasets/aramco-fy25.js",
+      "updatedAtMs": 1785039334000,
+      "updatedAt": "2026-07-26T04:15:34.000Z",
+      "timeSource": "git"
+    },
+    "accenture-q2-fy26": {
+      "path": "data/datasets/accenture-q2-fy26.js",
+      "updatedAtMs": 1785039334000,
+      "updatedAt": "2026-07-26T04:15:34.000Z",
+      "timeSource": "git"
+    },
+    "nio-q4-fy25": {
+      "path": "data/datasets/nio-q4-fy25.js",
+      "updatedAtMs": 1785039334000,
+      "updatedAt": "2026-07-26T04:15:34.000Z",
+      "timeSource": "git"
+    },
+    "general-mills-q3-fy26": {
+      "path": "data/datasets/general-mills-q3-fy26.js",
+      "updatedAtMs": 1785039334000,
+      "updatedAt": "2026-07-26T04:15:34.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {

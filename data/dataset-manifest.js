@@ -12155,6 +12155,350 @@
             }
           }
         }
+      },
+      {
+        "key": "stoneco-q4-fy25",
+        "src": "data/datasets/stoneco-q4-fy25.js",
+        "data": {
+          "name": "StoneCo · Q4 FY25",
+          "company": "StoneCo",
+          "meta": {
+            "title": "StoneCo Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "StoneCo · 2025 财年第四季度",
+              "meta": {
+                "title": "StoneCo 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "carnival-q1-fy26",
+        "src": "data/datasets/carnival-q1-fy26.js",
+        "data": {
+          "name": "Carnival · Q1 FY26",
+          "company": "Carnival",
+          "meta": {
+            "title": "Carnival Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Feb. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "嘉年华 · 2026 财年第一季度",
+              "meta": {
+                "title": "嘉年华 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 2 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "samsara-q4-fy26",
+        "src": "data/datasets/samsara-q4-fy26.js",
+        "data": {
+          "name": "Samsara · Q4 FY26",
+          "company": "Samsara",
+          "meta": {
+            "title": "Samsara Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Samsara · 2026 财年第四季度",
+              "meta": {
+                "title": "Samsara 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "celsius-fy25",
+        "src": "data/datasets/celsius-fy25.js",
+        "data": {
+          "name": "Celsius · FY25",
+          "company": "Celsius",
+          "meta": {
+            "title": "Celsius FY25 Income Statement",
+            "period": "FY25",
+            "periodNote": "Year ended Dec. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Celsius · 2025 财年",
+              "meta": {
+                "title": "Celsius 2025 财年利润表",
+                "period": "2025 财年",
+                "periodNote": "截至 2025 年 12 月 31 日的年度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "vail-resorts-q2-fy26",
+        "src": "data/datasets/vail-resorts-q2-fy26.js",
+        "data": {
+          "name": "Vail Resorts · Q2 FY26",
+          "company": "Vail Resorts",
+          "meta": {
+            "title": "Vail Resorts Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "韦尔度假村 · 2026 财年第二季度",
+              "meta": {
+                "title": "韦尔度假村 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "dlocal-q4-fy25",
+        "src": "data/datasets/dlocal-q4-fy25.js",
+        "data": {
+          "name": "dLocal · Q4 FY25",
+          "company": "dLocal",
+          "meta": {
+            "title": "dLocal Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "dLocal · 2025 财年第四季度",
+              "meta": {
+                "title": "dLocal 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "gamestop-q4-fy25",
+        "src": "data/datasets/gamestop-q4-fy25.js",
+        "data": {
+          "name": "GameStop · Q4 FY25",
+          "company": "GameStop",
+          "meta": {
+            "title": "GameStop Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Jan. 31, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "游戏驿站 · 2025 财年第四季度",
+              "meta": {
+                "title": "游戏驿站 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2026 年 1 月 31 日"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "chewy-q4-fy25",
+        "src": "data/datasets/chewy-q4-fy25.js",
+        "data": {
+          "name": "Chewy · Q4 FY25",
+          "company": "Chewy",
+          "meta": {
+            "title": "Chewy Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Chewy · 2025 财年第四季度",
+              "meta": {
+                "title": "Chewy 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "gitlab-q4-fy26",
+        "src": "data/datasets/gitlab-q4-fy26.js",
+        "data": {
+          "name": "GitLab · Q4 FY26",
+          "company": "GitLab",
+          "meta": {
+            "title": "GitLab Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "GitLab · 2026 财年第四季度",
+              "meta": {
+                "title": "GitLab 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "health-equity-q4-fy26",
+        "src": "data/datasets/health-equity-q4-fy26.js",
+        "data": {
+          "name": "HealthEquity · Q4 FY26",
+          "company": "HealthEquity",
+          "meta": {
+            "title": "HealthEquity Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HealthEquity · 2026 财年第四季度",
+              "meta": {
+                "title": "HealthEquity 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "darden-q3-fy26",
+        "src": "data/datasets/darden-q3-fy26.js",
+        "data": {
+          "name": "Darden Restaurants · Q3 FY26",
+          "company": "Darden Restaurants",
+          "meta": {
+            "title": "Darden Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Feb. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "达登餐饮集团 · 2026 财年第三季度",
+              "meta": {
+                "title": "达登餐饮集团 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 2 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "aramco-fy25",
+        "src": "data/datasets/aramco-fy25.js",
+        "data": {
+          "name": "Saudi Aramco · FY25",
+          "company": "Saudi Aramco",
+          "meta": {
+            "title": "Aramco FY25 Income Statement",
+            "period": "FY25",
+            "periodNote": "Year ended Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "沙特阿美 · 2025 财年",
+              "meta": {
+                "title": "沙特阿美 2025 财年利润表",
+                "periodNote": "截至 2025 年 12 月的年度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "accenture-q2-fy26",
+        "src": "data/datasets/accenture-q2-fy26.js",
+        "data": {
+          "name": "Accenture · Q2 FY26",
+          "company": "Accenture",
+          "meta": {
+            "title": "Accenture Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Feb. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "埃森哲 · 2026 财年第二季度",
+              "meta": {
+                "title": "埃森哲 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 2 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nio-q4-fy25",
+        "src": "data/datasets/nio-q4-fy25.js",
+        "data": {
+          "name": "NIO · Q4 FY25",
+          "company": "NIO",
+          "meta": {
+            "title": "NIO Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "蔚来 · 2025 财年第四季度",
+              "meta": {
+                "title": "蔚来 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "general-mills-q3-fy26",
+        "src": "data/datasets/general-mills-q3-fy26.js",
+        "data": {
+          "name": "General Mills · Q3 FY26",
+          "company": "General Mills",
+          "meta": {
+            "title": "General Mills Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Feb. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "通用磨坊 · 2026 财年第三季度",
+              "meta": {
+                "title": "通用磨坊 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 2 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

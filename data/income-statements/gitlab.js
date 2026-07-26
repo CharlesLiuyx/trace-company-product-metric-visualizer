@@ -8,6 +8,81 @@
   });
 
   ssot.records.push({
+    key: 'gitlab-q4-fy26',
+    company: 'GitLab',
+    period: 'Q4 FY26',
+    periodNote: 'Ending Jan. 2026',
+    currency: '$',
+    unit: 'M',
+    decimals: 0,
+    sourceImage: 'input/processed/gitlab-q4-fy26.png',
+    roundingTolerance: 1.1,
+    revenue: {
+      total: 260,
+      notes: ['+23% Y/Y'],
+      items: [
+        { id: 'subscription', label: 'Subscription', value: 234, notes: ['+26% Y/Y'] },
+        { id: 'license', label: 'License', value: 26, notes: ['+1% Y/Y'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 35 },
+      operatingExpenses: {
+        total: 231,
+        notes: ['S&M, R&D, and G&A sum to the displayed $231M.'],
+        items: [
+          { id: 'sm', label: 'S&M', value: 113, notes: ['43% of revenue', '(3pp) Y/Y'] },
+          { id: 'rnd', label: 'R&D', value: 69, notes: ['26% of revenue', '(3pp) Y/Y'] },
+          { id: 'ga', label: 'G&A', value: 49, notes: ['19% of revenue', '(3pp) Y/Y'] },
+        ],
+      },
+      tax: { label: 'Tax', value: 0 },
+    },
+    otherIncome: { total: 0, items: [] },
+    otherExpenses: { total: 0, items: [] },
+    profit: {
+      gross: { id: 'gross_profit', label: 'Gross profit', value: 225, notes: ['87% margin', '(3pp) Y/Y'] },
+      operating: { id: 'operating_loss', label: 'Operating loss', value: -5, notes: ['(2%) margin', '+7pp Y/Y'] },
+      net: {
+        id: 'operating_loss',
+        label: 'Operating loss',
+        value: -5,
+        notes: ['No separate net income or loss line is shown in the source chart.'],
+      },
+    },
+    i18n: {
+      zh: {
+        period: '2026 财年第四季度',
+        periodNote: '截至 2026 年 1 月',
+        revenue: {
+          notes: ['同比 +23%'],
+          items: [
+            { id: 'subscription', label: '订阅', notes: ['同比 +26%'] },
+            { id: 'license', label: '许可', notes: ['同比 +1%'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: { label: '收入成本' },
+          operatingExpenses: {
+            notes: ['销售与市场、研发和管理费用合计为图中显示的 $231M。'],
+            items: [
+              { id: 'sm', label: '销售与市场', notes: ['占收入 43%', '同比 (3 个百分点)'] },
+              { id: 'rnd', label: '研发', notes: ['占收入 26%', '同比 (3 个百分点)'] },
+              { id: 'ga', label: '管理费用', notes: ['占收入 19%', '同比 (3 个百分点)'] },
+            ],
+          },
+          tax: { label: '税费' },
+        },
+        profit: {
+          gross: { label: '毛利润', notes: ['利润率 87%', '同比 (3 个百分点)'] },
+          operating: { label: '营业亏损', notes: ['利润率 (2%)', '同比 +7 个百分点'] },
+          net: { label: '营业亏损', notes: ['来源图未单独显示净利润或净亏损项目。'] },
+        },
+      },
+    },
+  });
+
+  ssot.records.push({
     key: 'gitlab-q1-fy27',
     company: 'GitLab',
     period: 'Q1 FY27',

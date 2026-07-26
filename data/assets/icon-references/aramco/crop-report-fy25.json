@@ -1,0 +1,109 @@
+{
+  "source": "input/processing/aramco-fy25.png",
+  "spec": "input/icon-crop-specs/aramco-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-25T20:19:31.225608+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/aramco",
+  "crops": [
+    {
+      "key": "aramco-company-mark-fy25",
+      "output": "data/assets/icon-references/aramco/crops/company-mark-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 38288,
+        "losslessBytes": 38288,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 1283,
+        "y": 232,
+        "width": 198,
+        "height": 196
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 1283,
+        "y0": 232,
+        "x1": 1480,
+        "y1": 428
+      },
+      "cropBox": {
+        "x0": 1282,
+        "y0": 231,
+        "x1": 1482,
+        "y1": 429
+      },
+      "validation": {
+        "width": 200,
+        "height": 198,
+        "foregroundPixels": 35498,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 1,
+          "right": 2,
+          "top": 1,
+          "bottom": 1
+        },
+        "centerOffset": {
+          "x": -0.0025,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Saudi Aramco square company mark above the Revenue & Other income hub. The opaque crop preserves the detailed white dot pattern and source-matched #f2f2f2 edge antialiasing while excluding title text, financial labels, chart geometry, and publisher attribution.",
+      "runtimeOutput": "data/assets/raster-annotations/aramco/company-mark-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 38288,
+        "losslessBytes": 38288,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/aramco/validation-sheets/aramco-company-mark-fy25.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 379831,
+        "losslessBytes": 379831,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

@@ -161,5 +161,80 @@
         },
       },
     }
+    ,
+    {
+      key: 'dlocal-q4-fy25',
+      company: 'dLocal',
+      period: 'Q4 FY25',
+      periodNote: 'Ending Dec. 2025',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/dlocal-q4-fy25.png',
+      roundingTolerance: 1.5,
+      revenue: {
+        total: 338,
+        notes: ['+65% Y/Y'],
+        items: [
+          { id: 'latam', label: 'LATAM', value: 274, notes: ['+79% Y/Y'] },
+          { id: 'africa_asia', label: 'Africa & Asia', value: 64, notes: ['+23% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_services', label: 'Cost of services', value: 222 },
+        operatingExpenses: {
+          total: 53,
+          items: [
+            { id: 'ga', label: 'G&A', value: 39 },
+            { id: 'technology_development', label: 'Technology & development', value: 8 },
+            { id: 'sm', label: 'S&M', value: 6 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 9 },
+      },
+      otherIncome: {
+        total: 2,
+        items: [{ id: 'other_income', label: 'Other', value: 2 }],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 116, notes: ['34% margin', '(7pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 63, notes: ['19% margin', '(2pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 56, notes: ['16% margin', '+2pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度',
+          periodNote: '截至 2025 年 12 月',
+          revenue: {
+            notes: ['同比 +65%'],
+            items: [
+              { label: '拉丁美洲', notes: ['同比 +79%'] },
+              { label: '非洲和亚洲', notes: ['同比 +23%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '服务成本' },
+            operatingExpenses: {
+              items: [
+                { label: '一般及行政' },
+                { label: '技术与开发' },
+                { label: '销售与营销' },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: { items: [{ label: '其他' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 34%', '同比 (7 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 19%', '同比 (2 个百分点)'] },
+            net: { label: '净利润', notes: ['利润率 16%', '同比 +2 个百分点'] },
+          },
+        },
+      },
+    }
   );
 })(window);
