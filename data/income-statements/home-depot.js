@@ -179,6 +179,81 @@
           },
         },
       },
+    },
+    {
+      key: 'home-depot-q4-fy25',
+      company: 'Home Depot',
+      period: 'Q4 FY25',
+      periodNote: 'Three months ended February 1, 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/home-depot-q4-fy25.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 38.2,
+        notes: ['(4%) Y/Y', 'Reported net sales were $38.198B; the source chart rounds to $38.2B.'],
+        items: [
+          { id: 'building_materials', label: 'Building Materials', value: 11.7, notes: ['(8%) Y/Y', 'Electrical/Lighting, Lumber, Millwork, and Plumbing'] },
+          { id: 'decor', label: 'Décor', value: 12.4, notes: ['(7%) Y/Y', 'Appliances, Storage, Flooring, Kitchen and Bath, and Paint'] },
+          { id: 'hardlines', label: 'Hardlines', value: 10.9, notes: ['(4%) Y/Y', 'Hardware, Indoor Garden, Outdoor Garden, and Tools'] },
+          { id: 'other', label: 'Other', value: 3.1, notes: ['+42% Y/Y', 'SRS Distribution and GMS'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 25.7, notes: ['Reported cost of sales was $25.732B; the source chart rounds to $25.7B.'] },
+        operatingExpenses: {
+          total: 8.6,
+          items: [
+            { id: 'sga', label: 'SG&A', value: 7.8, notes: ['Reported selling, general and administrative expense was $7.772B; the source chart rounds to $7.8B.'] },
+            { id: 'da', label: 'Depreciation & amortization', value: 0.8, notes: ['Reported depreciation and amortization was $0.845B; the source chart rounds to $0.8B.'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.7, notes: ['Reported provision for income taxes was $0.727B; the source chart rounds to $0.7B.'] },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: {
+        total: 0.6,
+        items: [{ id: 'interest', label: 'Interest', value: 0.6, notes: ['The source chart rounds reported interest and other, net expense of $0.551B to $0.6B.'] }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 12.5, notes: ['33% margin', '(0pp) Y/Y', 'Reported gross profit was $12.466B.'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 3.8, notes: ['10% margin', '(1pp) Y/Y', 'Reported operating income was $3.849B.'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 2.6, notes: ['7% margin', '(1pp) Y/Y', 'Reported net earnings were $2.571B.'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度',
+          periodNote: '截至 2026 年 2 月 1 日的三个月',
+          revenue: {
+            notes: ['同比 (4%)', '报告净销售额为 $38.198B；来源图四舍五入为 $38.2B。'],
+            items: [
+              { id: 'building_materials', label: '建筑材料', notes: ['同比 (8%)', '电气／照明、木材、木制品和管道'] },
+              { id: 'decor', label: '家居装饰', notes: ['同比 (7%)', '电器、收纳、地板、厨房与卫浴及涂料'] },
+              { id: 'hardlines', label: '五金硬货', notes: ['同比 (4%)', '五金、室内园艺、户外园艺和工具'] },
+              { id: 'other', label: '其他', notes: ['同比 +42%', 'SRS Distribution 和 GMS'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '销售成本', notes: ['报告销售成本为 $25.732B；来源图四舍五入为 $25.7B。'] },
+            operatingExpenses: {
+              items: [
+                { id: 'sga', label: '销售、一般及行政费用', notes: ['报告销售、一般及行政费用为 $7.772B；来源图四舍五入为 $7.8B。'] },
+                { id: 'da', label: '折旧及摊销', notes: ['报告折旧及摊销为 $0.845B；来源图四舍五入为 $0.8B。'] },
+              ],
+            },
+            tax: { label: '税费', notes: ['报告所得税费用为 $0.727B；来源图四舍五入为 $0.7B。'] },
+          },
+          otherExpenses: {
+            items: [{ id: 'interest', label: '利息', notes: ['来源图将报告的利息及其他净费用 $0.551B 四舍五入为 $0.6B。'] }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 33%', '同比 (0 个百分点)', '报告毛利润为 $12.466B。'] },
+            operating: { label: '营业利润', notes: ['利润率 10%', '同比 (1 个百分点)', '报告营业利润为 $3.849B。'] },
+            net: { label: '净利润', notes: ['利润率 7%', '同比 (1 个百分点)', '报告净利润为 $2.571B。'] },
+          },
+        },
+      },
     }
   );
 })(window);

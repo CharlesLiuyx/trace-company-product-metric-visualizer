@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-26T04:15:34.000Z",
+  "generatedAt": "2026-07-26T14:11:51.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -3329,6 +3329,84 @@
       "path": "data/datasets/general-mills-q3-fy26.js",
       "updatedAtMs": 1785039334000,
       "updatedAt": "2026-07-26T04:15:34.000Z",
+      "timeSource": "git"
+    },
+    "best-buy-q4-fy26": {
+      "path": "data/datasets/best-buy-q4-fy26.js",
+      "updatedAtMs": 1785075111000,
+      "updatedAt": "2026-07-26T14:11:51.000Z",
+      "timeSource": "git"
+    },
+    "chevron-fy25": {
+      "path": "data/datasets/chevron-fy25.js",
+      "updatedAtMs": 1785075111000,
+      "updatedAt": "2026-07-26T14:11:51.000Z",
+      "timeSource": "git"
+    },
+    "lowes-q4-fy25": {
+      "path": "data/datasets/lowes-q4-fy25.js",
+      "updatedAtMs": 1785075111000,
+      "updatedAt": "2026-07-26T14:11:51.000Z",
+      "timeSource": "git"
+    },
+    "oracle-q3-fy26": {
+      "path": "data/datasets/oracle-q3-fy26.js",
+      "updatedAtMs": 1785075111000,
+      "updatedAt": "2026-07-26T14:11:51.000Z",
+      "timeSource": "git"
+    },
+    "oxy-fy25": {
+      "path": "data/datasets/oxy-fy25.js",
+      "updatedAtMs": 1785075111000,
+      "updatedAt": "2026-07-26T14:11:51.000Z",
+      "timeSource": "git"
+    },
+    "rubrik-q4-fy26": {
+      "path": "data/datasets/rubrik-q4-fy26.js",
+      "updatedAtMs": 1785075111000,
+      "updatedAt": "2026-07-26T14:11:51.000Z",
+      "timeSource": "git"
+    },
+    "sentinelone-q4-fy26": {
+      "path": "data/datasets/sentinelone-q4-fy26.js",
+      "updatedAtMs": 1785075111000,
+      "updatedAt": "2026-07-26T14:11:51.000Z",
+      "timeSource": "git"
+    },
+    "target-q4-fy25": {
+      "path": "data/datasets/target-q4-fy25.js",
+      "updatedAtMs": 1785075111000,
+      "updatedAt": "2026-07-26T14:11:51.000Z",
+      "timeSource": "git"
+    },
+    "birkenstock-q4-fy25": {
+      "path": "data/datasets/birkenstock-q4-fy25.js",
+      "updatedAtMs": 1785075111000,
+      "updatedAt": "2026-07-26T14:11:51.000Z",
+      "timeSource": "git"
+    },
+    "home-depot-q4-fy25": {
+      "path": "data/datasets/home-depot-q4-fy25.js",
+      "updatedAtMs": 1785075111000,
+      "updatedAt": "2026-07-26T14:11:51.000Z",
+      "timeSource": "git"
+    },
+    "on-q4-fy25": {
+      "path": "data/datasets/on-q4-fy25.js",
+      "updatedAtMs": 1785075111000,
+      "updatedAt": "2026-07-26T14:11:51.000Z",
+      "timeSource": "git"
+    },
+    "fedex-q3-fy26": {
+      "path": "data/datasets/fedex-q3-fy26.js",
+      "updatedAtMs": 1785075111000,
+      "updatedAt": "2026-07-26T14:11:51.000Z",
+      "timeSource": "git"
+    },
+    "hpe-q1-fy26": {
+      "path": "data/datasets/hpe-q1-fy26.js",
+      "updatedAtMs": 1785075111000,
+      "updatedAt": "2026-07-26T14:11:51.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {
