@@ -1,0 +1,306 @@
+{
+  "source": "input/processing/gamestop-q4-fy25.png",
+  "spec": "input/icon-crop-specs/gamestop-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-25T20:17:45.672036+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/gamestop",
+  "crops": [
+    {
+      "key": "gamestop-hardware-consoles-q4-fy25",
+      "output": "data/assets/icon-references/gamestop/crops/hardware-consoles-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 7227,
+        "losslessBytes": 45102,
+        "savingsVsLossless": 0.8398,
+        "metrics": {
+          "meanAbsoluteError": 0.9064,
+          "rootMeanSquareError": 2.1549,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 53,
+          "changedPixelRatio": 0.4039
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 57346,
+        "transparentPixelRatio": 0.5936
+      },
+      "searchBox": {
+        "x": 20,
+        "y": 360,
+        "width": 420,
+        "height": 230
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 27,
+        "y0": 364,
+        "x1": 418,
+        "y1": 578
+      },
+      "cropBox": {
+        "x0": 20,
+        "y0": 360,
+        "x1": 440,
+        "y1": 590
+      },
+      "validation": {
+        "width": 420,
+        "height": 230,
+        "foregroundPixels": 38471,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 7,
+          "right": 22,
+          "top": 4,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": -0.0179,
+          "y": -0.0174
+        },
+        "passes": true
+      },
+      "note": "PlayStation and Xbox console cluster for Hardware & Accessories; excludes labels and Sankey geometry.",
+      "runtimeOutput": "data/assets/raster-annotations/gamestop/hardware-consoles-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 7227,
+        "losslessBytes": 45102,
+        "savingsVsLossless": 0.8398,
+        "metrics": {
+          "meanAbsoluteError": 0.9064,
+          "rootMeanSquareError": 2.1549,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 53,
+          "changedPixelRatio": 0.4039
+        }
+      },
+      "validationSheet": "data/assets/icon-references/gamestop/validation-sheets/q4-fy25/gamestop-hardware-consoles-q4-fy25.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 292519,
+        "losslessBytes": 292519,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "gamestop-packaged-software-games-q4-fy25",
+      "output": "data/assets/icon-references/gamestop/crops/packaged-software-games-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 47317,
+        "losslessBytes": 47317,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 12620,
+        "transparentPixelRatio": 0.3325
+      },
+      "searchBox": {
+        "x": 150,
+        "y": 735,
+        "width": 230,
+        "height": 165
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 163,
+        "y0": 739,
+        "x1": 367,
+        "y1": 890
+      },
+      "cropBox": {
+        "x0": 150,
+        "y0": 735,
+        "x1": 380,
+        "y1": 900
+      },
+      "validation": {
+        "width": 230,
+        "height": 165,
+        "foregroundPixels": 24902,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 13,
+          "right": 13,
+          "top": 4,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0182
+        },
+        "passes": true
+      },
+      "note": "Two packaged video-game cases; excludes the value, label, and flow.",
+      "runtimeOutput": "data/assets/raster-annotations/gamestop/packaged-software-games-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 47317,
+        "losslessBytes": 47317,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/gamestop/validation-sheets/q4-fy25/gamestop-packaged-software-games-q4-fy25.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 372926,
+        "losslessBytes": 372926,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "gamestop-collectibles-figure-q4-fy25",
+      "output": "data/assets/icon-references/gamestop/crops/collectibles-figure-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 7476,
+        "losslessBytes": 32494,
+        "savingsVsLossless": 0.7699,
+        "metrics": {
+          "meanAbsoluteError": 0.9951,
+          "rootMeanSquareError": 2.7956,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 48,
+          "changedPixelRatio": 0.3327
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 26569,
+        "transparentPixelRatio": 0.6709
+      },
+      "searchBox": {
+        "x": 25,
+        "y": 1035,
+        "width": 180,
+        "height": 220
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 40,
+        "y0": 1045,
+        "x1": 188,
+        "y1": 1239
+      },
+      "cropBox": {
+        "x0": 25,
+        "y0": 1035,
+        "x1": 205,
+        "y1": 1255
+      },
+      "validation": {
+        "width": 180,
+        "height": 220,
+        "foregroundPixels": 13023,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 15,
+          "right": 17,
+          "top": 10,
+          "bottom": 16
+        },
+        "centerOffset": {
+          "x": -0.0056,
+          "y": -0.0136
+        },
+        "passes": true
+      },
+      "note": "Batman collectible figure; excludes the Collectibles label and Sankey geometry.",
+      "runtimeOutput": "data/assets/raster-annotations/gamestop/collectibles-figure-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 7476,
+        "losslessBytes": 32494,
+        "savingsVsLossless": 0.7699,
+        "metrics": {
+          "meanAbsoluteError": 0.9951,
+          "rootMeanSquareError": 2.7956,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 48,
+          "changedPixelRatio": 0.3327
+        }
+      },
+      "validationSheet": "data/assets/icon-references/gamestop/validation-sheets/q4-fy25/gamestop-collectibles-figure-q4-fy25.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 339077,
+        "losslessBytes": 339077,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

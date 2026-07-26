@@ -8,6 +8,74 @@
   });
 
   ssot.records.push({
+    key: 'samsara-q4-fy26',
+    company: 'Samsara',
+    period: 'Q4 FY26',
+    periodNote: 'Ending Jan. 2026',
+    currency: '$',
+    unit: 'M',
+    decimals: 0,
+    sourceImage: 'input/processed/samsara-q4-fy26.png',
+    roundingTolerance: 1.1,
+    revenue: {
+      total: 444,
+      notes: ['+28% Y/Y'],
+      items: [
+        { id: 'subscription', label: 'Subscription', value: 435 },
+        { id: 'other_revenue', label: 'Other', value: 9 },
+      ],
+    },
+    costs: {
+      costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 106 },
+      operatingExpenses: {
+        total: 329,
+        items: [
+          { id: 'sm', label: 'Sales & marketing', value: 176, notes: ['40% of revenue', '(4pp) Y/Y'] },
+          { id: 'rnd', label: 'Research & development', value: 90, notes: ['20% of revenue', '(1pp) Y/Y'] },
+          { id: 'ga', label: 'General & admin', value: 64, notes: ['14% of revenue', '(2pp) Y/Y'] },
+        ],
+        notes: ['Sales & marketing, R&D, and G&A sum to $330M due to rounded source figures.'],
+      },
+      tax: { id: 'tax', label: 'Tax', value: 5 },
+    },
+    otherIncome: { total: 19, items: [{ id: 'interest', label: 'Interest', value: 19 }] },
+    otherExpenses: { total: 0, items: [] },
+    profit: {
+      gross: { id: 'gross_profit', label: 'Gross profit', value: 338, notes: ['76% margin', '(1pp) Y/Y'] },
+      operating: { id: 'operating_profit', label: 'Operating profit', value: 9, notes: ['2% margin', '+7pp Y/Y'] },
+      net: { id: 'net_profit', label: 'Net profit', value: 22, notes: ['5% margin', '+8pp Y/Y'] },
+    },
+    i18n: {
+      zh: {
+        period: '2026 财年第四季度',
+        periodNote: '截至 2026 年 1 月',
+        revenue: {
+          notes: ['同比 +28%'],
+          items: [{ id: 'subscription', label: '订阅' }, { id: 'other_revenue', label: '其他' }],
+        },
+        costs: {
+          costOfRevenue: { label: '收入成本' },
+          operatingExpenses: {
+            items: [
+              { id: 'sm', label: '销售与营销', notes: ['占收入 40%', '同比 (4 个百分点)'] },
+              { id: 'rnd', label: '研发', notes: ['占收入 20%', '同比 (1 个百分点)'] },
+              { id: 'ga', label: '一般及行政', notes: ['占收入 14%', '同比 (2 个百分点)'] },
+            ],
+            notes: ['销售与营销、研发和一般及行政因源图四舍五入合计为 $330M。'],
+          },
+          tax: { label: '税费' },
+        },
+        otherIncome: { items: [{ id: 'interest', label: '利息' }] },
+        profit: {
+          gross: { label: '毛利润', notes: ['利润率 76%', '同比 (1 个百分点)'] },
+          operating: { label: '营业利润', notes: ['利润率 2%', '同比 +7 个百分点'] },
+          net: { label: '净利润', notes: ['利润率 5%', '同比 +8 个百分点'] },
+        },
+      },
+    },
+  });
+
+  ssot.records.push({
     key: 'samsara-q1-fy27',
     company: 'Samsara',
     period: 'Q1 FY27',

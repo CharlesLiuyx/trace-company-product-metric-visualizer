@@ -1,0 +1,233 @@
+{
+  "source": "input/processing/darden-q3-fy26.png",
+  "spec": "input/icon-crop-specs/darden-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-25T20:28:11.581028+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/darden",
+  "crops": [
+    {
+      "key": "darden-company-logo-q3-fy26",
+      "output": "data/assets/icon-references/darden/crops/company-logo-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 6900,
+        "losslessBytes": 27882,
+        "savingsVsLossless": 0.7525,
+        "metrics": {
+          "meanAbsoluteError": 0.2152,
+          "rootMeanSquareError": 1.2309,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 45,
+          "changedPixelRatio": 0.1321
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 110280,
+        "transparentPixelRatio": 0.8061
+      },
+      "searchBox": {
+        "x": 660,
+        "y": 258,
+        "width": 690,
+        "height": 176
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 677,
+        "y0": 261,
+        "x1": 1331,
+        "y1": 429
+      },
+      "cropBox": {
+        "x0": 650,
+        "y0": 250,
+        "x1": 1370,
+        "y1": 440
+      },
+      "validation": {
+        "width": 720,
+        "height": 190,
+        "foregroundPixels": 17274,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 27,
+          "right": 39,
+          "top": 11,
+          "bottom": 11
+        },
+        "centerOffset": {
+          "x": -0.0083,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Q3 Darden corporate wordmark with the full final N and registration mark; excludes title, revenue label, and ribbons.",
+      "runtimeOutput": "data/assets/raster-annotations/darden/company-logo-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 6900,
+        "losslessBytes": 27882,
+        "savingsVsLossless": 0.7525,
+        "metrics": {
+          "meanAbsoluteError": 0.2152,
+          "rootMeanSquareError": 1.2309,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 45,
+          "changedPixelRatio": 0.1321
+        }
+      },
+      "validationSheet": "data/assets/icon-references/darden/validation-sheets/darden-company-logo-q3-fy26.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 100728,
+        "losslessBytes": 275860,
+        "savingsVsLossless": 0.6349,
+        "metrics": {
+          "meanAbsoluteError": 0.2574,
+          "rootMeanSquareError": 1.7367,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 68,
+          "changedPixelRatio": 0.08
+        }
+      }
+    },
+    {
+      "key": "darden-longhorn-logo-q3-fy26",
+      "output": "data/assets/icon-references/darden/crops/longhorn-logo-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 5180,
+        "losslessBytes": 20941,
+        "savingsVsLossless": 0.7526,
+        "metrics": {
+          "meanAbsoluteError": 0.32,
+          "rootMeanSquareError": 1.224,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 27,
+          "changedPixelRatio": 0.185
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 40901,
+        "transparentPixelRatio": 0.7896
+      },
+      "searchBox": {
+        "x": 0,
+        "y": 665,
+        "width": 368,
+        "height": 130
+      },
+      "componentCount": 21,
+      "subjectBox": {
+        "x0": 14,
+        "y0": 672,
+        "x1": 359,
+        "y1": 789
+      },
+      "cropBox": {
+        "x0": 0,
+        "y0": 660,
+        "x1": 370,
+        "y1": 800
+      },
+      "validation": {
+        "width": 370,
+        "height": 140,
+        "foregroundPixels": 9776,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 14,
+          "right": 11,
+          "top": 12,
+          "bottom": 11
+        },
+        "centerOffset": {
+          "x": 0.0041,
+          "y": 0.0036
+        },
+        "passes": true
+      },
+      "note": "Q3 LongHorn Steakhouse wordmark and steer; x ends before the adjacent value/YoY block and y ends before segment-margin text.",
+      "runtimeOutput": "data/assets/raster-annotations/darden/longhorn-logo-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 5180,
+        "losslessBytes": 20941,
+        "savingsVsLossless": 0.7526,
+        "metrics": {
+          "meanAbsoluteError": 0.32,
+          "rootMeanSquareError": 1.224,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 27,
+          "changedPixelRatio": 0.185
+        }
+      },
+      "validationSheet": "data/assets/icon-references/darden/validation-sheets/darden-longhorn-logo-q3-fy26.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 291506,
+        "losslessBytes": 291506,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

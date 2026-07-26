@@ -106,6 +106,102 @@
       },
     },
     {
+      key: 'nio-q4-fy25',
+      company: 'NIO',
+      period: 'Q4 FY25',
+      periodNote: 'Ending Dec. 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 3,
+      sourceImage: 'input/processed/nio-q4-fy25.png',
+      roundingTolerance: 0.11,
+      revenue: {
+        total: 4.9,
+        notes: ['+76% Y/Y'],
+        items: [
+          {
+            id: 'vehicle_sales',
+            label: 'Vehicle sales',
+            value: 4.5,
+            notes: ['+81% Y/Y', '18% gross margin'],
+          },
+          {
+            id: 'other_sales',
+            label: 'Other sales',
+            value: 0.4,
+            notes: ['+37% Y/Y', '12% gross margin'],
+          },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 4.1 },
+        operatingExpenses: {
+          total: 0.8,
+          notes: ['R&D plus SG&A as shown in the Source flow.'],
+          items: [
+            { id: 'sga', label: 'SG&A', value: 0.5, notes: ['10% of revenue', '(15pp) Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 0.3, notes: ['6% of revenue', '(13pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.016 },
+      },
+      operatingOtherIncome: {
+        total: 0.042,
+        items: [
+          {
+            id: 'other',
+            label: 'Other',
+            value: 0.042,
+            notes: ['Other operating income shown as $42M in the Source chart.'],
+          },
+        ],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 0.9, notes: ['18% margin', '+6pp Y/Y'] },
+        operating: {
+          id: 'operating_profit',
+          label: 'Operating profit',
+          value: 0.1,
+          notes: ['2% margin', '+33pp Y/Y'],
+        },
+        net: { id: 'net_profit', label: 'Net profit', value: 0.052, notes: ['1% margin', '+37pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度',
+          periodNote: '截至 2025 年 12 月',
+          revenue: {
+            notes: ['同比 +76%'],
+            items: [
+              { id: 'vehicle_sales', label: '汽车销售', notes: ['同比 +81%', '毛利率 18%'] },
+              { id: 'other_sales', label: '其他销售', notes: ['同比 +37%', '毛利率 12%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              notes: ['来源图中研发与销售、一般及行政费用的合计。'],
+              items: [
+                { id: 'sga', label: '销售、一般及行政费用', notes: ['占收入 10%', '同比 (15 个百分点)'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 6%', '同比 (13 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          operatingOtherIncome: {
+            items: [
+              { id: 'other', label: '其他', notes: ['来源图显示为 $42M 的其他经营收入。'] },
+            ],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 18%', '同比 +6 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 2%', '同比 +33 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 1%', '同比 +37 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'nio-q1-fy26',
       company: 'NIO',
       period: 'Q1 FY26',

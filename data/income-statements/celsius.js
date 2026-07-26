@@ -8,6 +8,115 @@
   });
 
   ssot.records.push({
+    key: 'celsius-fy25',
+    company: 'Celsius',
+    period: 'FY25',
+    periodNote: 'Year ended Dec. 31, 2025',
+    currency: '$',
+    unit: 'M',
+    decimals: 0,
+    sourceImage: 'input/processed/celsius-fy25.png',
+    roundingTolerance: 1.1,
+    sourceUrl: 'https://www.sec.gov/Archives/edgar/data/1341766/000134176626000024/celh-20251231.htm',
+    revenue: {
+      total: 2515.269,
+      notes: ['+86% Y/Y'],
+      items: [
+        {
+          id: 'revenue_by_customer',
+          label: 'Revenue by customer',
+          value: 2515.269,
+          children: [
+            { id: 'pepsico', label: 'PepsiCo', value: 1087, notes: ['+47% Y/Y'] },
+            { id: 'costco', label: 'Costco', value: 272, notes: ['+73% Y/Y'] },
+            { id: 'all_others', label: 'All Others', value: 1157, notes: ['+153% Y/Y'] },
+          ],
+        },
+      ],
+      breakdowns: [
+        {
+          id: 'geography',
+          label: 'Revenue by geography',
+          total: 2515.269,
+          items: [
+            { id: 'north_america', label: 'North America', value: 2423, notes: ['+89% Y/Y'] },
+            { id: 'international', label: 'International', value: 93, notes: ['+24% Y/Y'] },
+          ],
+        },
+      ],
+    },
+    costs: {
+      costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 1247.936 },
+      operatingExpenses: {
+        total: 1126.271,
+        items: [
+          { id: 'sga', label: 'SG&A expenses', value: 798.810, notes: ['32% of revenue', '+9pp Y/Y'] },
+          { id: 'distributor_termination_fees', label: 'Distribution termination fees', value: 328, notes: ['13% of revenue', '+13pp Y/Y'] },
+        ],
+      },
+      tax: { id: 'tax_and_other', label: 'Tax & Other', value: 33.060 },
+    },
+    otherIncome: {
+      total: 0,
+      items: [],
+    },
+    otherExpenses: {
+      total: 0,
+      items: [],
+    },
+    profit: {
+      gross: { id: 'gross_profit', label: 'Gross profit', value: 1267.333, notes: ['50% margin', '+0pp Y/Y'] },
+      operating: { id: 'operating_profit', label: 'Operating profit', value: 141.062, notes: ['6% margin', '(6pp) Y/Y'] },
+      net: { id: 'net_profit', label: 'Net profit', value: 108.002, notes: ['4% margin', '(6pp) Y/Y'] },
+    },
+    i18n: {
+      zh: {
+        period: '2025 财年',
+        periodNote: '截至 2025 年 12 月 31 日的年度',
+        revenue: {
+          notes: ['同比 +86%'],
+          items: [
+            {
+              id: 'revenue_by_customer',
+              label: '按客户划分的收入',
+              children: [
+                { id: 'pepsico', label: '百事公司', notes: ['同比 +47%'] },
+                { id: 'costco', label: '开市客', notes: ['同比 +73%'] },
+                { id: 'all_others', label: '其他所有客户', notes: ['同比 +153%'] },
+              ],
+            },
+          ],
+          breakdowns: [
+            {
+              id: 'geography',
+              label: '按地区划分的收入',
+              items: [
+                { id: 'north_america', label: '北美', notes: ['同比 +89%'] },
+                { id: 'international', label: '国际', notes: ['同比 +24%'] },
+              ],
+            },
+          ],
+        },
+        costs: {
+          costOfRevenue: { label: '收入成本' },
+          operatingExpenses: {
+            items: [
+              { id: 'sga', label: '销售、一般及行政费用', notes: ['占收入 32%', '同比 +9 个百分点'] },
+              { id: 'distributor_termination_fees', label: '经销商终止费', notes: ['占收入 13%', '同比 +13 个百分点'] },
+            ],
+          },
+          tax: { label: '税费及其他' },
+        },
+        profit: {
+          gross: { label: '毛利润', notes: ['利润率 50%', '同比 +0 个百分点'] },
+          operating: { label: '营业利润', notes: ['利润率 6%', '同比 (6 个百分点)'] },
+          net: { label: '净利润', notes: ['利润率 4%', '同比 (6 个百分点)'] },
+        },
+      },
+    },
+  });
+
+  ssot.records.push({
     key: 'celsius-q1-fy26',
     company: 'Celsius',
     period: 'Q1 FY26',

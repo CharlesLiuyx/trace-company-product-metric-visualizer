@@ -33,6 +33,12 @@
       "width": 2667,
       "height": 1500
     },
+    "accenture-q2-fy26": {
+      "similarity": 0.963113,
+      "mae": 9.4062,
+      "width": 2667,
+      "height": 1500
+    },
     "accenture-q3-fy26": {
       "similarity": 0.947561,
       "mae": 13.3721,
@@ -339,6 +345,12 @@
       "width": 2667,
       "height": 1500
     },
+    "aramco-fy25": {
+      "similarity": 0.972981,
+      "mae": 6.8898,
+      "width": 2667,
+      "height": 1500
+    },
     "aramco-q1-fy26": {
       "similarity": 0.970133,
       "mae": 7.6161,
@@ -615,9 +627,21 @@
       "width": 2667,
       "height": 1500
     },
+    "carnival-q1-fy26": {
+      "similarity": 0.969106,
+      "mae": 7.8781,
+      "width": 2667,
+      "height": 1500
+    },
     "carnival-q2-fy26": {
       "similarity": 0.947005,
       "mae": 13.5137,
+      "width": 2667,
+      "height": 1500
+    },
+    "celsius-fy25": {
+      "similarity": 0.969677,
+      "mae": 7.7323,
       "width": 2667,
       "height": 1500
     },
@@ -654,6 +678,12 @@
     "chewy-q1-fy26": {
       "similarity": 0.961976,
       "mae": 9.6962,
+      "width": 2667,
+      "height": 1500
+    },
+    "chewy-q4-fy25": {
+      "similarity": 0.966646,
+      "mae": 8.5054,
       "width": 2667,
       "height": 1500
     },
@@ -843,6 +873,12 @@
       "width": 2667,
       "height": 1500
     },
+    "darden-q3-fy26": {
+      "similarity": 0.975952,
+      "mae": 6.1321,
+      "width": 2667,
+      "height": 1500
+    },
     "darden-q4-fy26": {
       "similarity": 0.975047,
       "mae": 6.3631,
@@ -942,6 +978,12 @@
     "dlocal-q3-fy25": {
       "similarity": 0.972875,
       "mae": 6.9169,
+      "width": 2667,
+      "height": 1500
+    },
+    "dlocal-q4-fy25": {
+      "similarity": 0.97458,
+      "mae": 6.4821,
       "width": 2667,
       "height": 1500
     },
@@ -1221,6 +1263,12 @@
       "width": 2667,
       "height": 1500
     },
+    "gamestop-q4-fy25": {
+      "similarity": 0.959769,
+      "mae": 10.2589,
+      "width": 2667,
+      "height": 1500
+    },
     "ge-vernova-q1-fy26": {
       "similarity": 0.970921,
       "mae": 7.4151,
@@ -1233,9 +1281,21 @@
       "width": 2667,
       "height": 1500
     },
+    "general-mills-q3-fy26": {
+      "similarity": 0.973736,
+      "mae": 6.6973,
+      "width": 2667,
+      "height": 1500
+    },
     "gitlab-q1-fy27": {
       "similarity": 0.955768,
       "mae": 11.2792,
+      "width": 2667,
+      "height": 1500
+    },
+    "gitlab-q4-fy26": {
+      "similarity": 0.972293,
+      "mae": 7.0652,
       "width": 2667,
       "height": 1500
     },
@@ -1314,6 +1374,12 @@
     "health-equity-q1-fy27": {
       "similarity": 0.967745,
       "mae": 8.225,
+      "width": 2667,
+      "height": 1500
+    },
+    "health-equity-q4-fy26": {
+      "similarity": 0.971806,
+      "mae": 7.1894,
       "width": 2667,
       "height": 1500
     },
@@ -1995,6 +2061,12 @@
       "width": 2667,
       "height": 1500
     },
+    "nio-q4-fy25": {
+      "similarity": 0.967776,
+      "mae": 8.217,
+      "width": 2667,
+      "height": 1500
+    },
     "novartis-q1-fy26": {
       "similarity": 0.969071,
       "mae": 7.8868,
@@ -2523,6 +2595,12 @@
       "width": 2667,
       "height": 1500
     },
+    "samsara-q4-fy26": {
+      "similarity": 0.957768,
+      "mae": 10.7693,
+      "width": 2667,
+      "height": 1500
+    },
     "samsung-q1-fy26": {
       "similarity": 0.9562,
       "mae": 11.1689,
@@ -2742,6 +2820,12 @@
     "starbucks-q4-fy25": {
       "similarity": 0.955965,
       "mae": 11.229,
+      "width": 2667,
+      "height": 1500
+    },
+    "stoneco-q4-fy25": {
+      "similarity": 0.963972,
+      "mae": 9.1872,
       "width": 2667,
       "height": 1500
     },
@@ -3030,6 +3114,12 @@
     "ups-q4-fy25": {
       "similarity": 0.968947,
       "mae": 7.9186,
+      "width": 2667,
+      "height": 1500
+    },
+    "vail-resorts-q2-fy26": {
+      "similarity": 0.967188,
+      "mae": 8.367,
       "width": 2667,
       "height": 1500
     },

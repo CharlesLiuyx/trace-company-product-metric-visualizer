@@ -27,6 +27,8 @@
     website: 'https://www.gamestop.com/',
     description: 'GameStop is a specialty retailer of video-game hardware, software, collectibles, and related products.',
     sourceUrls: [
+      'https://investor.gamestop.com/news-releases/news-details/2026/GameStop-Reports-Fourth-Quarter-and-Fiscal-Year-2025-Results/default.aspx',
+      'https://www.sec.gov/Archives/edgar/data/1326380/000132638026000012/a991q4fy25earningsrelease.htm',
       'https://investor.gamestop.com/news-releases/news-details/2026/GameStop-Discloses-First-Quarter-2026-Results/default.aspx',
       'https://www.sec.gov/Archives/edgar/data/1326380/000132638026000025/gme-20260502.htm',
       'https://stockanalysis.com/stocks/gme/market-cap/',

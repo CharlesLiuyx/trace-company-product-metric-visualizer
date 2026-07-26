@@ -80,4 +80,78 @@
       },
     },
   });
+
+  ssot.records.push({
+    key: 'chewy-q4-fy25',
+    company: 'Chewy',
+    period: 'Q4 FY25',
+    periodNote: 'Ending Jan. 2026',
+    currency: '$',
+    unit: 'B',
+    decimals: 4,
+    sourceImage: 'input/processed/chewy-q4-fy25.png',
+    roundingTolerance: 0.15,
+    revenue: {
+      total: 3.3,
+      notes: ['+1% Y/Y'],
+      items: [
+        { id: 'consumables', label: 'Consumables', value: 2.3, notes: ['(1%) Y/Y'] },
+        { id: 'hardgoods', label: 'Hardgoods', value: 0.4, notes: ['+9% Y/Y'] },
+        { id: 'other', label: 'Other', value: 0.6, notes: ['(0%) Y/Y'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: { id: 'cost_of_goods_sold', label: 'Cost of goods sold', value: 2.3 },
+      operatingExpenses: {
+        total: 0.9,
+        items: [
+          { id: 'ga', label: 'G&A', value: 0.7, notes: ['21% of revenue', '(1pp) Y/Y'] },
+          { id: 'advertising_marketing', label: 'Advertising & Marketing', value: 0.2, notes: ['7% of revenue', '(0pp) Y/Y'] },
+        ],
+      },
+      tax: { id: 'tax', label: 'Tax', value: 0.003 },
+    },
+    otherIncome: { total: 0, items: [] },
+    otherExpenses: {
+      total: 0.0004,
+      items: [{ id: 'interest', label: 'Interest', value: 0.0004 }],
+    },
+    profit: {
+      gross: { id: 'gross_profit', label: 'Gross profit', value: 1.0, notes: ['29% margin', '+1pp Y/Y'] },
+      operating: { id: 'operating_profit', label: 'Operating profit', value: 0.043, notes: ['1% margin', '+2pp Y/Y'] },
+      net: { id: 'net_profit', label: 'Net profit', value: 0.039, notes: ['2% margin', '+2pp Y/Y'] },
+    },
+    i18n: {
+      zh: {
+        period: '2025 财年第四季度',
+        periodNote: '截至 2026 年 1 月',
+        revenue: {
+          notes: ['同比 +1%'],
+          items: [
+            { id: 'consumables', label: '消耗品', notes: ['同比 (1%)'] },
+            { id: 'hardgoods', label: '耐用品', notes: ['同比 +9%'] },
+            { id: 'other', label: '其他', notes: ['同比 (0%)'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: { label: '销售成本' },
+          operatingExpenses: {
+            items: [
+              { id: 'ga', label: '一般及行政费用', notes: ['占收入 21%', '同比 (1 个百分点)'] },
+              { id: 'advertising_marketing', label: '广告与营销', notes: ['占收入 7%', '同比 (0 个百分点)'] },
+            ],
+          },
+          tax: { label: '税费' },
+        },
+        otherExpenses: {
+          items: [{ id: 'interest', label: '利息' }],
+        },
+        profit: {
+          gross: { label: '毛利润', notes: ['利润率 29%', '同比 +1 个百分点'] },
+          operating: { label: '营业利润', notes: ['利润率 1%', '同比 +2 个百分点'] },
+          net: { label: '净利润', notes: ['利润率 2%', '同比 +2 个百分点'] },
+        },
+      },
+    },
+  });
 })(window);
