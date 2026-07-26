@@ -220,6 +220,9 @@ function collectFinancialTexts(record, localized) {
   (record.profit?.gross?.items || []).forEach((item, index) => {
     collectItemTexts(list, record.key, item, localized.profit?.gross?.items?.[index], `profit.gross.items[${index}]`);
   });
+  (record.profit?.operating?.items || []).forEach((item, index) => {
+    collectItemTexts(list, record.key, item, localized.profit?.operating?.items?.[index], `profit.operating.items[${index}]`);
+  });
   return list;
 }
 

@@ -109,6 +109,7 @@
       "profit.gross",
       "profit.gross.items",
       "profit.operating",
+      "profit.operating.items",
       "profit.net"
     ],
     "precisionRecoveryMethod": "authoritative-supplemental-source",
