@@ -10,6 +10,89 @@
 
   ssot.records.push(
     {
+      key: 'birkenstock-q4-fy25',
+      company: 'Birkenstock',
+      period: 'Q4 FY25',
+      periodNote: 'Ending Sept. 2025',
+      currency: '€',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/birkenstock-q4-fy25.png',
+      roundingTolerance: 1.0,
+      revenue: {
+        total: 526,
+        notes: ['+15% Y/Y'],
+        items: [
+          {
+            id: 'business_to_business',
+            label: ['Business', 'to Business'],
+            value: 293,
+            notes: ['+22% Y/Y', 'Third-party store networks'],
+          },
+          {
+            id: 'direct_to_consumer',
+            label: ['Direct to', 'Consumer'],
+            value: 232,
+            notes: ['+8% Y/Y', 'Owned retail stores and Birkenstock.com'],
+          },
+          { id: 'other_revenue', label: 'Other revenue', value: 1, notes: ['+108% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 220 },
+        operatingExpenses: {
+          total: 194,
+          items: [
+            { id: 'selling_distribution', label: ['Selling &', 'distribution'], value: 156, notes: ['30% of revenue', '(1pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 36, notes: ['7% of revenue', '(0pp) Y/Y'] },
+            { id: 'other_expenses', label: 'Other', value: 2 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 7 },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: {
+        total: 11,
+        items: [{ id: 'finance', label: 'Finance', value: 11 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 306, notes: ['58% margin', '(1pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 112, notes: ['21% margin', '(0pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 94, notes: ['18% margin', '+6pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第四季度',
+          periodNote: '截至 2025 年 9 月',
+          revenue: {
+            notes: ['同比 +15%'],
+            items: [
+              { id: 'business_to_business', label: ['企业', '业务'], notes: ['同比 +22%', '第三方门店网络'] },
+              { id: 'direct_to_consumer', label: ['直营', '消费者'], notes: ['同比 +8%', '自营零售门店及勃肯官网'] },
+              { id: 'other_revenue', label: '其他收入', notes: ['同比 +108%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '销售成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'selling_distribution', label: ['销售与', '分销'], notes: ['占收入 30%', '同比 (1 个百分点)'] },
+                { id: 'ga', label: '一般及行政', notes: ['占收入 7%', '同比持平'] },
+                { id: 'other_expenses', label: '其他' },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherExpenses: { items: [{ id: 'finance', label: '财务费用' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 58%', '同比 (1 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 21%', '同比持平'] },
+            net: { label: '净利润', notes: ['利润率 18%', '同比 +6 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'birkenstock-q1-fy26',
       company: 'Birkenstock',
       period: 'Q1 FY26',

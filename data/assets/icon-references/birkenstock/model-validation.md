@@ -51,3 +51,23 @@ without treating the source image as a chart overlay.
 - The `HOW THEY MAKE MONEY` mark, `appeconomyinsights.com`, App Economy
   Insights badge, and social/attribution fragments are publisher content and
   intentionally skipped; none is used at runtime.
+
+## Q4 FY25 refresh
+
+Source: `input/processed/birkenstock-q4-fy25.png` (2667×1500)
+Spec: `input/icon-crop-specs/birkenstock-q4-fy25.json`
+Report: `data/assets/icon-references/birkenstock/crop-report-q4-fy25.json`
+
+- `birkenstock-business-to-business-sandal-q4-fy25`: accepted at
+  x=60, y=365, w=352, h=171. The full sandal, footbed, outsole and buckles
+  are intact and centered. The crop ends on the blank scanlines before the
+  Business-to-Business label and contains no value, connector or attribution.
+- `birkenstock-direct-to-consumer-store-q4-fy25`: accepted at
+  x=58, y=710, w=350, h=224. The full roofline, facade, lettering, windows,
+  entrance and base are intact with blank margins above and below. The crop
+  ends before the Direct-to-Consumer label and contains no value or connector.
+- The company wordmark is pixel-identical to the accepted Q1 FY26 wordmark
+  crop at its original x=618, y=278, w=646, h=135 placement, so the existing
+  `birkenstock-company-wordmark` runtime asset is reused under I9.
+- The Q4 Source has no independent icon for Other revenue. Publisher marks,
+  URL, social badge and mini-Sankey remain explicitly skipped.

@@ -385,6 +385,7 @@
             blockH,
             top: blockTop,
             lineGap: localGap,
+            semanticRole: block.semanticRole || '',
             drawIcons: false,
           });
         });
@@ -1032,6 +1033,7 @@
         .attr('class', 'sankey-label')
         .attr('data-node', keyOf(n))
         .style('cursor', 'pointer');
+      if (sp.semanticRole) g.attr('data-label-role', sp.semanticRole);
       let y = top;
       const localGap = sp.lineGap != null ? sp.lineGap : gap;
       lines.forEach((l) => {

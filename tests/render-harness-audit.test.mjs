@@ -338,6 +338,60 @@ test('B3/T7 inferred side-name centering excludes side notes and margin text', (
   assert.deepEqual(audit.inferredCenteredSideLabelViolations, []);
 });
 
+test('B3/T7 audits an explicitly centered combined side label', () => {
+  const audit = classifyLabelLayoutAudit({
+    nodes: [{ id: 'cloud_software', box: { x: 100, y: 100, width: 20, height: 80 } }],
+    labels: [{
+      node: 'cloud_software',
+      labelIndex: 0,
+      text: 'Cloud & Software ($4.8B) 68% gross margin',
+      semanticRole: 'centered-side-label',
+      box: { x: 130, y: 103, width: 180, height: 74 },
+    }],
+  });
+
+  assert.deepEqual(
+    audit.inferredCenteredSideLabels.map((item) => item.node),
+    ['cloud_software']
+  );
+  assert.deepEqual(audit.inferredCenteredSideLabelViolations, []);
+});
+
+test('B3/T7 inferred side-name centering respects explicit fixed-block semantic roles', () => {
+  const audit = classifyLabelLayoutAudit({
+    nodes: [{ id: 'segment', box: { x: 100, y: 100, width: 20, height: 40 } }],
+    labels: [
+      {
+        node: 'segment',
+        labelIndex: 0,
+        text: '$11.7B (8%) Y/Y',
+        semanticRole: 'amount',
+        box: { x: 100, y: 70, width: 20, height: 20 },
+      },
+      {
+        node: 'segment',
+        labelIndex: 1,
+        text: 'Building Materials',
+        semanticRole: 'name',
+        box: { x: 20, y: 110, width: 70, height: 20 },
+      },
+      {
+        node: 'segment',
+        labelIndex: 2,
+        text: 'Electrical/Lighting, Lumber, Millwork, and Plumbing',
+        semanticRole: 'note',
+        box: { x: 5, y: 125, width: 85, height: 35 },
+      },
+    ],
+  });
+
+  assert.deepEqual(
+    audit.inferredCenteredSideLabels.map((item) => item.text),
+    ['Building Materials']
+  );
+  assert.deepEqual(audit.inferredCenteredSideLabelViolations, []);
+});
+
 test('Build-bound render evidence cannot archive a failed planned text, annotation, or centered-label gate', () => {
   const plan = {
     requiredChecks: [

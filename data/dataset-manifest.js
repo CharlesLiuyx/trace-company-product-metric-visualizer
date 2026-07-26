@@ -12499,6 +12499,305 @@
             }
           }
         }
+      },
+      {
+        "key": "best-buy-q4-fy26",
+        "src": "data/datasets/best-buy-q4-fy26.js",
+        "data": {
+          "name": "Best Buy · Q4 FY26",
+          "company": "Best Buy",
+          "meta": {
+            "title": "Best Buy Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "百思买 · 2026 财年第四季度",
+              "meta": {
+                "title": "百思买 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "chevron-fy25",
+        "src": "data/datasets/chevron-fy25.js",
+        "data": {
+          "name": "Chevron · FY25",
+          "company": "Chevron",
+          "meta": {
+            "title": "Chevron FY25 Income Statement",
+            "period": "FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "雪佛龙 · 2025 财年",
+              "meta": {
+                "title": "雪佛龙 2025 财年利润表",
+                "period": "2025 财年",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lowes-q4-fy25",
+        "src": "data/datasets/lowes-q4-fy25.js",
+        "data": {
+          "name": "Lowe's · Q4 FY25",
+          "company": "Lowe's",
+          "meta": {
+            "title": "Lowe's Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "劳氏 · 2025 财年第四季度",
+              "meta": {
+                "title": "劳氏 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "oracle-q3-fy26",
+        "src": "data/datasets/oracle-q3-fy26.js",
+        "data": {
+          "name": "Oracle · Q3 FY26",
+          "company": "Oracle",
+          "meta": {
+            "title": "Oracle Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Feb. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Oracle · 2026 财年第三季度",
+              "meta": {
+                "title": "Oracle 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 2 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "oxy-fy25",
+        "src": "data/datasets/oxy-fy25.js",
+        "data": {
+          "name": "Oxy · FY25",
+          "company": "Oxy",
+          "meta": {
+            "title": "Oxy FY25 Income Statement",
+            "period": "FY25",
+            "periodNote": "Year ended Dec. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "西方石油 · 2025 财年",
+              "meta": {
+                "title": "西方石油 2025 财年利润表",
+                "period": "2025 财年",
+                "periodNote": "截至 2025 年 12 月 31 日的财年"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "rubrik-q4-fy26",
+        "src": "data/datasets/rubrik-q4-fy26.js",
+        "data": {
+          "name": "Rubrik · Q4 FY26",
+          "company": "Rubrik",
+          "meta": {
+            "title": "Rubrik Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Rubrik · 2026 财年第四季度",
+              "meta": {
+                "title": "Rubrik 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sentinelone-q4-fy26",
+        "src": "data/datasets/sentinelone-q4-fy26.js",
+        "data": {
+          "name": "SentinelOne · Q4 FY26",
+          "company": "SentinelOne",
+          "meta": {
+            "title": "SentinelOne Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "SentinelOne · 2026 财年第四季度",
+              "meta": {
+                "title": "SentinelOne 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "target-q4-fy25",
+        "src": "data/datasets/target-q4-fy25.js",
+        "data": {
+          "name": "Target · Q4 FY25",
+          "company": "Target",
+          "meta": {
+            "title": "Target Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "塔吉特 · 2025 财年第四季度",
+              "meta": {
+                "title": "塔吉特 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "birkenstock-q4-fy25",
+        "src": "data/datasets/birkenstock-q4-fy25.js",
+        "data": {
+          "name": "Birkenstock · Q4 FY25",
+          "company": "Birkenstock",
+          "meta": {
+            "title": "Birkenstock Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Sept. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "勃肯 · 2025 财年第四季度",
+              "meta": {
+                "title": "勃肯 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "home-depot-q4-fy25",
+        "src": "data/datasets/home-depot-q4-fy25.js",
+        "data": {
+          "name": "Home Depot · Q4 FY25",
+          "company": "Home Depot",
+          "meta": {
+            "title": "Home Depot Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Three months ended February 1, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "家得宝 · 2025 财年第四季度",
+              "meta": {
+                "title": "家得宝 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2026 年 2 月 1 日的三个月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "on-q4-fy25",
+        "src": "data/datasets/on-q4-fy25.js",
+        "data": {
+          "name": "On · Q4 FY25",
+          "company": "On",
+          "meta": {
+            "title": "On Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Dec. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "昂跑 · 2025 财年第四季度",
+              "meta": {
+                "title": "昂跑 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "fedex-q3-fy26",
+        "src": "data/datasets/fedex-q3-fy26.js",
+        "data": {
+          "name": "FedEx · Q3 FY26",
+          "company": "FedEx",
+          "meta": {
+            "title": "FedEx Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Feb. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "联邦快递 · 2026 财年第三季度",
+              "meta": {
+                "title": "联邦快递 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 2 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hpe-q1-fy26",
+        "src": "data/datasets/hpe-q1-fy26.js",
+        "data": {
+          "name": "HPE · Q1 FY26",
+          "company": "HPE",
+          "meta": {
+            "title": "HPE Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Jan. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "慧与 · 2026 财年第一季度",
+              "meta": {
+                "title": "慧与 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 1 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

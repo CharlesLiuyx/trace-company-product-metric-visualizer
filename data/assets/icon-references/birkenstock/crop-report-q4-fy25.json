@@ -1,0 +1,208 @@
+{
+  "source": "input/processed/birkenstock-q4-fy25.png",
+  "spec": "input/icon-crop-specs/birkenstock-q4-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-07-26T08:38:04.343080+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/birkenstock",
+  "crops": [
+    {
+      "key": "birkenstock-business-to-business-sandal-q4-fy25",
+      "output": "data/assets/icon-references/birkenstock/crops/business-to-business-sandal-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 21658,
+        "losslessBytes": 60627,
+        "savingsVsLossless": 0.6428,
+        "metrics": {
+          "meanAbsoluteError": 1.1597,
+          "rootMeanSquareError": 2.5152,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 32,
+          "changedPixelRatio": 0.5315
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 60,
+        "y": 365,
+        "width": 352,
+        "height": 171
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 68,
+        "y0": 370,
+        "x1": 412,
+        "y1": 536
+      },
+      "cropBox": {
+        "x0": 60,
+        "y0": 365,
+        "x1": 412,
+        "y1": 536
+      },
+      "validation": {
+        "width": 352,
+        "height": 171,
+        "foregroundPixels": 33850,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 0,
+          "top": 5,
+          "bottom": 0
+        },
+        "centerOffset": {
+          "x": 0.0114,
+          "y": 0.0146
+        },
+        "passes": true
+      },
+      "note": "Q4 FY25 Business-to-Business sandal cluster. The crop contains the full sandal and excludes the \u20ac293M value block, source bar, labels, and publisher attribution.",
+      "runtimeOutput": "data/assets/raster-annotations/birkenstock/business-to-business-sandal-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 21658,
+        "losslessBytes": 60627,
+        "savingsVsLossless": 0.6428,
+        "metrics": {
+          "meanAbsoluteError": 1.1597,
+          "rootMeanSquareError": 2.5152,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 32,
+          "changedPixelRatio": 0.5315
+        }
+      },
+      "validationSheet": "data/assets/icon-references/birkenstock/validation-sheets/birkenstock-business-to-business-sandal-q4-fy25.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 347894,
+        "losslessBytes": 347894,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "birkenstock-direct-to-consumer-store-q4-fy25",
+      "output": "data/assets/icon-references/birkenstock/crops/direct-to-consumer-store-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 36881,
+        "losslessBytes": 81254,
+        "savingsVsLossless": 0.5461,
+        "metrics": {
+          "meanAbsoluteError": 1.1633,
+          "rootMeanSquareError": 2.3419,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.6267
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 58,
+        "y": 710,
+        "width": 350,
+        "height": 224
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 86,
+        "y0": 718,
+        "x1": 395,
+        "y1": 922
+      },
+      "cropBox": {
+        "x0": 58,
+        "y0": 710,
+        "x1": 408,
+        "y1": 934
+      },
+      "validation": {
+        "width": 350,
+        "height": 224,
+        "foregroundPixels": 51255,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 28,
+          "right": 13,
+          "top": 8,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": 0.0214,
+          "y": -0.0089
+        },
+        "passes": true
+      },
+      "note": "Q4 FY25 Direct-to-Consumer storefront cluster. The crop contains the full storefront and excludes the \u20ac232M value block, source bar, labels, and publisher attribution.",
+      "runtimeOutput": "data/assets/raster-annotations/birkenstock/direct-to-consumer-store-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 36881,
+        "losslessBytes": 81254,
+        "savingsVsLossless": 0.5461,
+        "metrics": {
+          "meanAbsoluteError": 1.1633,
+          "rootMeanSquareError": 2.3419,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.6267
+        }
+      },
+      "validationSheet": "data/assets/icon-references/birkenstock/validation-sheets/birkenstock-direct-to-consumer-store-q4-fy25.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 379968,
+        "losslessBytes": 379968,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

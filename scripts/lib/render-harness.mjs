@@ -1118,6 +1118,7 @@ export function classifyLabelLayoutAudit(geometry) {
       node: item.node,
       labelIndex: item.labelIndex ?? index,
       text: String(item.text || '').replace(/\s+/g, ' ').trim(),
+      semanticRole: item.semanticRole || '',
       box: normalizeBox(item.box),
     }))
     .filter((item) => item.node && item.box.width > 0 && item.box.height > 0);
@@ -1153,6 +1154,7 @@ export function classifyLabelLayoutAudit(geometry) {
           node: label.node,
           labelIndex: label.labelIndex,
           text: label.text,
+          semanticRole: label.semanticRole,
           side: 'left-of-node',
           gap: round(node.left - label.box.right),
           overlap: 0,
@@ -1164,6 +1166,7 @@ export function classifyLabelLayoutAudit(geometry) {
           node: label.node,
           labelIndex: label.labelIndex,
           text: label.text,
+          semanticRole: label.semanticRole,
           side: 'right-of-node',
           gap: round(label.box.left - node.right),
           overlap: 0,
@@ -1175,6 +1178,7 @@ export function classifyLabelLayoutAudit(geometry) {
           node: label.node,
           labelIndex: label.labelIndex,
           text: label.text,
+          semanticRole: label.semanticRole,
           side: label.box.centerX < node.centerX ? 'left-overlap' : 'right-overlap',
           gap: round(-overlap),
           overlap: round(overlap),
@@ -1235,7 +1239,14 @@ export function classifyLabelLayoutAudit(geometry) {
     verticalStacks.filter((item) => amountLike(item.text)).map((item) => item.node)
   );
   const inferredCenteredSideLabels = horizontalSideLabels.filter(
-    (item) => splitAmountNodes.has(item.node) && !amountLike(item.text) && !noteLike(item.text)
+    (item) =>
+      item.semanticRole === 'centered-side-label' ||
+      (
+        splitAmountNodes.has(item.node) &&
+        !amountLike(item.text) &&
+        !noteLike(item.text) &&
+        (!item.semanticRole || item.semanticRole === 'name')
+      )
   );
   const inferredCenteredSideLabelViolations = inferredCenteredSideLabels.filter(
     (item) => item.verticalCenterDelta > thresholds.shortNodeCenterMaxDelta
@@ -1271,6 +1282,7 @@ async function collectLabelGeometry(page) {
           node: element.getAttribute('data-node'),
           labelIndex,
           text: String(element.textContent || '').replace(/\s+/g, ' ').trim(),
+          semanticRole: element.getAttribute('data-label-role') || '',
           box: boxFor(element),
         })
       ),

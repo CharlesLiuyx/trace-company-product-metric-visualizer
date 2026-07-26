@@ -97,6 +97,107 @@
       },
     },
     {
+      key: 'best-buy-q4-fy26',
+      company: 'Best Buy',
+      period: 'Q4 FY26',
+      periodNote: 'Ending Jan. 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 3,
+      sourceImage: 'input/processed/best-buy-q4-fy26.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 13.8,
+        notes: ['(1%) Y/Y'],
+        items: [
+          {
+            id: 'domestic',
+            label: 'Domestic',
+            value: 12.6,
+            notes: ['(1%) Y/Y'],
+            children: [
+              { id: 'computing_mobile_phones', label: 'Computing and Mobile Phones', value: 5.9, notes: ['+6% Y/Y'] },
+              { id: 'consumer_electronics', label: 'Consumer Electronics', value: 3.6, notes: ['(7%) Y/Y'] },
+              { id: 'appliances', label: 'Appliances', value: 1.1, notes: ['(11%) Y/Y'] },
+              { id: 'entertainment', label: 'Entertainment', value: 1.1, notes: ['(1%) Y/Y'] },
+              { id: 'services', label: 'Services', value: 0.8, notes: ['+19% Y/Y'] },
+            ],
+          },
+          { id: 'international', label: 'International', value: 1.2, notes: ['+0% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 10.9 },
+        operatingExpenses: {
+          total: 2.2,
+          items: [
+            { id: 'operating_expenses', label: 'Operating expenses SG&A', value: 2.2 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.2 },
+      },
+      operatingOtherIncome: {
+        total: 0.028,
+        items: [{ id: 'gains', label: 'Gains', value: 0.028 }],
+      },
+      operatingOtherExpenses: {
+        total: 0,
+        items: [],
+      },
+      otherIncome: {
+        total: 0,
+        items: [],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 2.9, notes: ['21% margin', '(0pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 0.7, notes: ['5% margin', '+4pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 0.5, notes: ['4% margin', '+3pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第四季度',
+          periodNote: '截至 2026 年 1 月',
+          revenue: {
+            notes: ['同比 (1%)'],
+            items: [
+              {
+                id: 'domestic',
+                label: '国内',
+                notes: ['同比 (1%)'],
+                children: [
+                  { id: 'computing_mobile_phones', label: '计算与手机', notes: ['同比 +6%'] },
+                  { id: 'consumer_electronics', label: '消费电子', notes: ['同比 (7%)'] },
+                  { id: 'appliances', label: '家用电器', notes: ['同比 (11%)'] },
+                  { id: 'entertainment', label: '娱乐', notes: ['同比 (1%)'] },
+                  { id: 'services', label: '服务', notes: ['同比 +19%'] },
+                ],
+              },
+              { id: 'international', label: '国际', notes: ['同比 +0%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '销售成本' },
+            operatingExpenses: {
+              items: [{ id: 'operating_expenses', label: '运营费用及销售、一般与行政费用' }],
+            },
+            tax: { label: '税费' },
+          },
+          operatingOtherIncome: {
+            items: [{ id: 'gains', label: '收益' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 21%', '同比 (0 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 5%', '同比 +4 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 4%', '同比 +3 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'best-buy-q3-fy26',
       company: 'Best Buy',
       period: 'Q3 FY26',
