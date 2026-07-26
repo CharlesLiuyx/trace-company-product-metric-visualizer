@@ -147,9 +147,87 @@
       "width": 2667,
       "height": 1500
     },
+    "alphabet-q1-fy23": {
+      "similarity": 0.962575,
+      "mae": 9.5435,
+      "width": 2667,
+      "height": 1500
+    },
+    "alphabet-q1-fy24": {
+      "similarity": 0.954068,
+      "mae": 11.7127,
+      "width": 2667,
+      "height": 1500
+    },
+    "alphabet-q1-fy25": {
+      "similarity": 0.962218,
+      "mae": 9.6345,
+      "width": 2667,
+      "height": 1500
+    },
     "alphabet-q1-fy26": {
       "similarity": 0.948939,
       "mae": 13.0206,
+      "width": 2667,
+      "height": 1500
+    },
+    "alphabet-q2-fy23": {
+      "similarity": 0.969211,
+      "mae": 7.8511,
+      "width": 2667,
+      "height": 1500
+    },
+    "alphabet-q2-fy24": {
+      "similarity": 0.968509,
+      "mae": 8.0302,
+      "width": 2667,
+      "height": 1500
+    },
+    "alphabet-q2-fy25": {
+      "similarity": 0.948213,
+      "mae": 13.2058,
+      "width": 2667,
+      "height": 1500
+    },
+    "alphabet-q3-fy22": {
+      "similarity": 0.966059,
+      "mae": 8.655,
+      "width": 2667,
+      "height": 1500
+    },
+    "alphabet-q3-fy23": {
+      "similarity": 0.968105,
+      "mae": 8.1333,
+      "width": 2667,
+      "height": 1500
+    },
+    "alphabet-q3-fy24": {
+      "similarity": 0.953284,
+      "mae": 11.9126,
+      "width": 2667,
+      "height": 1500
+    },
+    "alphabet-q3-fy25": {
+      "similarity": 0.94829,
+      "mae": 13.1859,
+      "width": 2667,
+      "height": 1500
+    },
+    "alphabet-q4-fy22": {
+      "similarity": 0.965787,
+      "mae": 8.7244,
+      "width": 2667,
+      "height": 1500
+    },
+    "alphabet-q4-fy23": {
+      "similarity": 0.95236,
+      "mae": 12.1481,
+      "width": 2667,
+      "height": 1500
+    },
+    "alphabet-q4-fy24": {
+      "similarity": 0.951772,
+      "mae": 12.2982,
       "width": 2667,
       "height": 1500
     },
@@ -159,9 +237,87 @@
       "width": 2667,
       "height": 1500
     },
+    "amazon-q1-fy23": {
+      "similarity": 0.955821,
+      "mae": 11.2657,
+      "width": 2667,
+      "height": 1500
+    },
+    "amazon-q1-fy24": {
+      "similarity": 0.962041,
+      "mae": 9.6796,
+      "width": 2667,
+      "height": 1500
+    },
+    "amazon-q1-fy25": {
+      "similarity": 0.951628,
+      "mae": 12.3349,
+      "width": 2667,
+      "height": 1500
+    },
     "amazon-q1-fy26": {
       "similarity": 0.951338,
       "mae": 12.4089,
+      "width": 2667,
+      "height": 1500
+    },
+    "amazon-q2-fy23": {
+      "similarity": 0.956066,
+      "mae": 11.2033,
+      "width": 2667,
+      "height": 1500
+    },
+    "amazon-q2-fy24": {
+      "similarity": 0.959607,
+      "mae": 10.3002,
+      "width": 2667,
+      "height": 1500
+    },
+    "amazon-q2-fy25": {
+      "similarity": 0.95318,
+      "mae": 11.939,
+      "width": 2667,
+      "height": 1500
+    },
+    "amazon-q3-fy22": {
+      "similarity": 0.958623,
+      "mae": 10.551,
+      "width": 2667,
+      "height": 1500
+    },
+    "amazon-q3-fy23": {
+      "similarity": 0.956886,
+      "mae": 10.994,
+      "width": 2667,
+      "height": 1500
+    },
+    "amazon-q3-fy24": {
+      "similarity": 0.952798,
+      "mae": 12.0365,
+      "width": 2667,
+      "height": 1500
+    },
+    "amazon-q3-fy25": {
+      "similarity": 0.955075,
+      "mae": 11.4559,
+      "width": 2667,
+      "height": 1500
+    },
+    "amazon-q4-fy22": {
+      "similarity": 0.955797,
+      "mae": 11.2718,
+      "width": 2667,
+      "height": 1500
+    },
+    "amazon-q4-fy23": {
+      "similarity": 0.954882,
+      "mae": 11.5051,
+      "width": 2667,
+      "height": 1500
+    },
+    "amazon-q4-fy24": {
+      "similarity": 0.952342,
+      "mae": 12.1528,
       "width": 2667,
       "height": 1500
     },
@@ -297,15 +453,93 @@
       "width": 2667,
       "height": 1500
     },
+    "apple-q1-fy23": {
+      "similarity": 0.957355,
+      "mae": 10.8744,
+      "width": 2667,
+      "height": 1500
+    },
+    "apple-q1-fy24": {
+      "similarity": 0.95055,
+      "mae": 12.6098,
+      "width": 2667,
+      "height": 1500
+    },
+    "apple-q1-fy25": {
+      "similarity": 0.953345,
+      "mae": 11.8971,
+      "width": 2667,
+      "height": 1500
+    },
     "apple-q1-fy26": {
       "similarity": 0.952351,
       "mae": 12.1506,
       "width": 2667,
       "height": 1500
     },
+    "apple-q2-fy23": {
+      "similarity": 0.962459,
+      "mae": 9.5728,
+      "width": 2667,
+      "height": 1500
+    },
+    "apple-q2-fy24": {
+      "similarity": 0.955375,
+      "mae": 11.3794,
+      "width": 2667,
+      "height": 1500
+    },
+    "apple-q2-fy25": {
+      "similarity": 0.952597,
+      "mae": 12.0877,
+      "width": 2667,
+      "height": 1500
+    },
     "apple-q2-fy26": {
       "similarity": 0.956033,
       "mae": 11.2115,
+      "width": 2667,
+      "height": 1500
+    },
+    "apple-q3-fy23": {
+      "similarity": 0.958733,
+      "mae": 10.523,
+      "width": 2667,
+      "height": 1500
+    },
+    "apple-q3-fy24": {
+      "similarity": 0.960287,
+      "mae": 10.1267,
+      "width": 2667,
+      "height": 1500
+    },
+    "apple-q3-fy25": {
+      "similarity": 0.953241,
+      "mae": 11.9236,
+      "width": 2667,
+      "height": 1500
+    },
+    "apple-q4-fy22": {
+      "similarity": 0.961857,
+      "mae": 9.7264,
+      "width": 2667,
+      "height": 1500
+    },
+    "apple-q4-fy23": {
+      "similarity": 0.952171,
+      "mae": 12.1963,
+      "width": 2667,
+      "height": 1500
+    },
+    "apple-q4-fy24": {
+      "similarity": 0.958148,
+      "mae": 10.6723,
+      "width": 2667,
+      "height": 1500
+    },
+    "apple-q4-fy25": {
+      "similarity": 0.955827,
+      "mae": 11.2641,
       "width": 2667,
       "height": 1500
     },
