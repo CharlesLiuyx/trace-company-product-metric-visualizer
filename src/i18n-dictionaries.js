@@ -417,6 +417,7 @@
     'Accessories': '配件',
     'iPhone': 'iPhone',
     'Mac': 'Mac',
+    'MacBook': 'MacBook',
     'iPad': 'iPad',
     'AirPods': 'AirPods',
     'Air, Pro, Mini': 'Air、Pro、Mini',

@@ -12798,6 +12798,815 @@
             }
           }
         }
+      },
+      {
+        "key": "alphabet-q3-fy23",
+        "src": "data/datasets/alphabet-q3-fy23.js",
+        "data": {
+          "name": "Alphabet - Q3 FY23",
+          "company": "Alphabet",
+          "meta": {
+            "title": "Alphabet Q3 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Alphabet · 2023 财年第三季度",
+              "meta": {
+                "title": "Alphabet 2023 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "alphabet-q1-fy23",
+        "src": "data/datasets/alphabet-q1-fy23.js",
+        "data": {
+          "name": "Alphabet - Q1 FY23",
+          "company": "Alphabet",
+          "meta": {
+            "title": "Alphabet Q1 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Alphabet · 2023 财年第一季度",
+              "meta": {
+                "title": "Alphabet 2023 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "alphabet-q1-fy25",
+        "src": "data/datasets/alphabet-q1-fy25.js",
+        "data": {
+          "name": "Alphabet - Q1 FY25",
+          "company": "Alphabet",
+          "meta": {
+            "title": "Alphabet Q1 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Alphabet · 2025 财年第一季度",
+              "meta": {
+                "title": "Alphabet 2025 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "alphabet-q2-fy23",
+        "src": "data/datasets/alphabet-q2-fy23.js",
+        "data": {
+          "name": "Alphabet - Q2 FY23",
+          "company": "Alphabet",
+          "meta": {
+            "title": "Alphabet Q2 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Alphabet · 2023 财年第二季度",
+              "meta": {
+                "title": "Alphabet 2023 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "alphabet-q2-fy25",
+        "src": "data/datasets/alphabet-q2-fy25.js",
+        "data": {
+          "name": "Alphabet - Q2 FY25",
+          "company": "Alphabet",
+          "meta": {
+            "title": "Alphabet Q2FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Alphabet · 2025 财年第二季度",
+              "meta": {
+                "title": "Alphabet 2025 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "alphabet-q3-fy22",
+        "src": "data/datasets/alphabet-q3-fy22.js",
+        "data": {
+          "name": "Alphabet - Q3 FY22",
+          "company": "Alphabet",
+          "meta": {
+            "title": "Alphabet Q3 FY22 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Alphabet · 2022 财年第三季度",
+              "meta": {
+                "title": "Alphabet 2022 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "alphabet-q3-fy24",
+        "src": "data/datasets/alphabet-q3-fy24.js",
+        "data": {
+          "name": "Alphabet - Q3 FY24",
+          "company": "Alphabet",
+          "meta": {
+            "title": "Alphabet Q3 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Alphabet · 2024 财年第三季度",
+              "meta": {
+                "title": "Alphabet 2024 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "alphabet-q3-fy25",
+        "src": "data/datasets/alphabet-q3-fy25.js",
+        "data": {
+          "name": "Alphabet · Q3 FY25",
+          "company": "Alphabet",
+          "meta": {
+            "title": "Alphabet Q3 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Alphabet · 2025 财年第三季度",
+              "meta": {
+                "title": "Alphabet 2025 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "alphabet-q4-fy23",
+        "src": "data/datasets/alphabet-q4-fy23.js",
+        "data": {
+          "name": "Alphabet - Q4 FY23",
+          "company": "Alphabet",
+          "meta": {
+            "title": "Alphabet Q4 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Alphabet · 2023 财年第四季度",
+              "meta": {
+                "title": "Alphabet 2023 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "alphabet-q4-fy24",
+        "src": "data/datasets/alphabet-q4-fy24.js",
+        "data": {
+          "name": "Alphabet - Q4 FY24",
+          "company": "Alphabet",
+          "meta": {
+            "title": "Alphabet Q4 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Alphabet · 2024 财年第四季度",
+              "meta": {
+                "title": "Alphabet 2024 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amazon-q1-fy25",
+        "src": "data/datasets/amazon-q1-fy25.js",
+        "data": {
+          "name": "Amazon · Q1 FY25",
+          "company": "Amazon",
+          "meta": {
+            "title": "Amazon Q1 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Amazon · 2025 财年第一季度",
+              "meta": {
+                "title": "Amazon 2025 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amazon-q3-fy25",
+        "src": "data/datasets/amazon-q3-fy25.js",
+        "data": {
+          "name": "Amazon · Q3 FY25",
+          "company": "Amazon",
+          "meta": {
+            "title": "Amazon Q3 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Amazon · 2025 财年第三季度",
+              "meta": {
+                "title": "Amazon 2025 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amazon-q2-fy24",
+        "src": "data/datasets/amazon-q2-fy24.js",
+        "data": {
+          "name": "Amazon · Q2 FY24",
+          "company": "Amazon",
+          "meta": {
+            "title": "Amazon Q2 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Amazon · 2024 财年第二季度",
+              "meta": {
+                "title": "Amazon 2024 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amazon-q3-fy22",
+        "src": "data/datasets/amazon-q3-fy22.js",
+        "data": {
+          "name": "Amazon · Q3 FY22",
+          "company": "Amazon",
+          "meta": {
+            "title": "Amazon Q3 FY22 Income Statement",
+            "period": "Q3 FY22",
+            "periodNote": "Ending Sep. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Amazon · 2022 财年第三季度",
+              "meta": {
+                "title": "Amazon 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度",
+                "periodNote": "截至 2022 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amazon-q3-fy24",
+        "src": "data/datasets/amazon-q3-fy24.js",
+        "data": {
+          "name": "Amazon · Q3 FY24",
+          "company": "Amazon",
+          "meta": {
+            "title": "Amazon Q3 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Amazon · 2024 财年第三季度",
+              "meta": {
+                "title": "Amazon 2024 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amazon-q4-fy24",
+        "src": "data/datasets/amazon-q4-fy24.js",
+        "data": {
+          "name": "Amazon · Q4 FY24",
+          "company": "Amazon",
+          "meta": {
+            "title": "Amazon Q4 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Amazon · 2024 财年第四季度",
+              "meta": {
+                "title": "Amazon 2024 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "alphabet-q1-fy24",
+        "src": "data/datasets/alphabet-q1-fy24.js",
+        "data": {
+          "name": "Alphabet - Q1 FY24",
+          "company": "Alphabet",
+          "meta": {
+            "title": "Alphabet Q1 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Alphabet · 2024 财年第一季度",
+              "meta": {
+                "title": "Alphabet 2024 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amazon-q4-fy23",
+        "src": "data/datasets/amazon-q4-fy23.js",
+        "data": {
+          "name": "Amazon · Q4 FY23",
+          "company": "Amazon",
+          "meta": {
+            "title": "Amazon Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Amazon · 2023 财年第四季度",
+              "meta": {
+                "title": "Amazon 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amazon-q1-fy23",
+        "src": "data/datasets/amazon-q1-fy23.js",
+        "data": {
+          "name": "Amazon · Q1 FY23",
+          "company": "Amazon",
+          "meta": {
+            "title": "Amazon Q1 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Amazon · 2023 财年第一季度",
+              "meta": {
+                "title": "Amazon 2023 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amazon-q2-fy23",
+        "src": "data/datasets/amazon-q2-fy23.js",
+        "data": {
+          "name": "Amazon · Q2 FY23",
+          "company": "Amazon",
+          "meta": {
+            "title": "Amazon Q2 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Amazon · 2023 财年第二季度",
+              "meta": {
+                "title": "Amazon 2023 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amazon-q3-fy23",
+        "src": "data/datasets/amazon-q3-fy23.js",
+        "data": {
+          "name": "Amazon · Q3 FY23",
+          "company": "Amazon",
+          "meta": {
+            "title": "Amazon Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Sep. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Amazon · 2023 财年第三季度",
+              "meta": {
+                "title": "Amazon 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amazon-q2-fy25",
+        "src": "data/datasets/amazon-q2-fy25.js",
+        "data": {
+          "name": "Amazon · Q2 FY25",
+          "company": "Amazon",
+          "meta": {
+            "title": "Amazon Q2 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Amazon · 2025 财年第二季度",
+              "meta": {
+                "title": "Amazon 2025 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amazon-q4-fy22",
+        "src": "data/datasets/amazon-q4-fy22.js",
+        "data": {
+          "name": "Amazon · Q4 FY22",
+          "company": "Amazon",
+          "meta": {
+            "title": "Amazon Q4FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Ending Dec. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Amazon · 2022 财年第四季度",
+              "meta": {
+                "title": "Amazon 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2022 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amazon-q1-fy24",
+        "src": "data/datasets/amazon-q1-fy24.js",
+        "data": {
+          "name": "Amazon · Q1 FY24",
+          "company": "Amazon",
+          "meta": {
+            "title": "Amazon Q1 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Amazon · 2024 财年第一季度",
+              "meta": {
+                "title": "Amazon 2024 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "alphabet-q2-fy24",
+        "src": "data/datasets/alphabet-q2-fy24.js",
+        "data": {
+          "name": "Alphabet · Q2 FY24",
+          "company": "Alphabet",
+          "meta": {
+            "title": "Alphabet Q2 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Alphabet · 2024 财年第二季度",
+              "meta": {
+                "title": "Alphabet 2024 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "alphabet-q4-fy22",
+        "src": "data/datasets/alphabet-q4-fy22.js",
+        "data": {
+          "name": "Alphabet - Q4 FY22",
+          "company": "Alphabet",
+          "meta": {
+            "title": "Alphabet Q4 FY22 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Alphabet · 2022 财年第四季度",
+              "meta": {
+                "title": "Alphabet 2022 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "apple-q3-fy23",
+        "src": "data/datasets/apple-q3-fy23.js",
+        "data": {
+          "name": "Apple · Q3 FY23",
+          "company": "Apple",
+          "meta": {
+            "title": "Apple Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending June 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Apple · 2023 财年第三季度",
+              "meta": {
+                "title": "Apple 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "apple-q3-fy24",
+        "src": "data/datasets/apple-q3-fy24.js",
+        "data": {
+          "name": "Apple · Q3 FY24",
+          "company": "Apple",
+          "meta": {
+            "title": "Apple Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Apple · 2024 财年第三季度",
+              "meta": {
+                "title": "Apple 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "apple-q4-fy23",
+        "src": "data/datasets/apple-q4-fy23.js",
+        "data": {
+          "name": "Apple · Q4 FY23",
+          "company": "Apple",
+          "meta": {
+            "title": "Apple Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Sept. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Apple · 2023 财年第四季度",
+              "meta": {
+                "title": "Apple 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "apple-q2-fy25",
+        "src": "data/datasets/apple-q2-fy25.js",
+        "data": {
+          "name": "Apple · Q2 FY25",
+          "company": "Apple",
+          "meta": {
+            "title": "Apple Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Mar. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Apple · 2025 财年第二季度",
+              "meta": {
+                "title": "Apple 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "apple-q2-fy24",
+        "src": "data/datasets/apple-q2-fy24.js",
+        "data": {
+          "name": "Apple · Q2 FY24",
+          "company": "Apple",
+          "meta": {
+            "title": "Apple Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Apple · 2024 财年第二季度",
+              "meta": {
+                "title": "Apple 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "apple-q4-fy22",
+        "src": "data/datasets/apple-q4-fy22.js",
+        "data": {
+          "name": "Apple · Q4 FY22",
+          "company": "Apple",
+          "meta": {
+            "title": "Apple Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Ending Sept. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Apple · 2022 财年第四季度",
+              "meta": {
+                "title": "Apple 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2022 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "apple-q4-fy25",
+        "src": "data/datasets/apple-q4-fy25.js",
+        "data": {
+          "name": "Apple · Q4 FY25",
+          "company": "Apple",
+          "meta": {
+            "title": "Apple Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Sept. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Apple · 2025 财年第四季度",
+              "meta": {
+                "title": "Apple 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "apple-q4-fy24",
+        "src": "data/datasets/apple-q4-fy24.js",
+        "data": {
+          "name": "Apple · Q4 FY24",
+          "company": "Apple",
+          "meta": {
+            "title": "Apple Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Sept. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Apple · 2024 财年第四季度",
+              "meta": {
+                "title": "Apple 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "apple-q1-fy24",
+        "src": "data/datasets/apple-q1-fy24.js",
+        "data": {
+          "name": "Apple · Q1 FY24",
+          "company": "Apple",
+          "meta": {
+            "title": "Apple Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Apple · 2024 财年第一季度",
+              "meta": {
+                "title": "Apple 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "apple-q1-fy25",
+        "src": "data/datasets/apple-q1-fy25.js",
+        "data": {
+          "name": "Apple · Q1 FY25",
+          "company": "Apple",
+          "meta": {
+            "title": "Apple Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Apple · 2025 财年第一季度",
+              "meta": {
+                "title": "Apple 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "apple-q1-fy23",
+        "src": "data/datasets/apple-q1-fy23.js",
+        "data": {
+          "name": "Apple · Q1 FY23",
+          "company": "Apple",
+          "meta": {
+            "title": "Apple Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending Dec. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Apple · 2023 财年第一季度",
+              "meta": {
+                "title": "Apple 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2022 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "apple-q3-fy25",
+        "src": "data/datasets/apple-q3-fy25.js",
+        "data": {
+          "name": "Apple · Q3 FY25",
+          "company": "Apple",
+          "meta": {
+            "title": "Apple Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending June 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Apple · 2025 财年第三季度",
+              "meta": {
+                "title": "Apple 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "apple-q2-fy23",
+        "src": "data/datasets/apple-q2-fy23.js",
+        "data": {
+          "name": "Apple · Q2 FY23",
+          "company": "Apple",
+          "meta": {
+            "title": "Apple Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Mar. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Apple · 2023 财年第二季度",
+              "meta": {
+                "title": "Apple 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 3 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

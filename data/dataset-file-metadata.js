@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-26T14:18:00.000Z",
+  "generatedAt": "2026-07-26T16:58:00.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -3407,6 +3407,240 @@
       "path": "data/datasets/hpe-q1-fy26.js",
       "updatedAtMs": 1785075480000,
       "updatedAt": "2026-07-26T14:18:00.000Z",
+      "timeSource": "git"
+    },
+    "alphabet-q3-fy23": {
+      "path": "data/datasets/alphabet-q3-fy23.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "alphabet-q1-fy23": {
+      "path": "data/datasets/alphabet-q1-fy23.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "alphabet-q1-fy25": {
+      "path": "data/datasets/alphabet-q1-fy25.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "alphabet-q2-fy23": {
+      "path": "data/datasets/alphabet-q2-fy23.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "alphabet-q2-fy25": {
+      "path": "data/datasets/alphabet-q2-fy25.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "alphabet-q3-fy22": {
+      "path": "data/datasets/alphabet-q3-fy22.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "alphabet-q3-fy24": {
+      "path": "data/datasets/alphabet-q3-fy24.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "alphabet-q3-fy25": {
+      "path": "data/datasets/alphabet-q3-fy25.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "alphabet-q4-fy23": {
+      "path": "data/datasets/alphabet-q4-fy23.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "alphabet-q4-fy24": {
+      "path": "data/datasets/alphabet-q4-fy24.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "amazon-q1-fy25": {
+      "path": "data/datasets/amazon-q1-fy25.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "amazon-q3-fy25": {
+      "path": "data/datasets/amazon-q3-fy25.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "amazon-q2-fy24": {
+      "path": "data/datasets/amazon-q2-fy24.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "amazon-q3-fy22": {
+      "path": "data/datasets/amazon-q3-fy22.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "amazon-q3-fy24": {
+      "path": "data/datasets/amazon-q3-fy24.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "amazon-q4-fy24": {
+      "path": "data/datasets/amazon-q4-fy24.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "alphabet-q1-fy24": {
+      "path": "data/datasets/alphabet-q1-fy24.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "amazon-q4-fy23": {
+      "path": "data/datasets/amazon-q4-fy23.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "amazon-q1-fy23": {
+      "path": "data/datasets/amazon-q1-fy23.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "amazon-q2-fy23": {
+      "path": "data/datasets/amazon-q2-fy23.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "amazon-q3-fy23": {
+      "path": "data/datasets/amazon-q3-fy23.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "amazon-q2-fy25": {
+      "path": "data/datasets/amazon-q2-fy25.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "amazon-q4-fy22": {
+      "path": "data/datasets/amazon-q4-fy22.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "amazon-q1-fy24": {
+      "path": "data/datasets/amazon-q1-fy24.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "alphabet-q2-fy24": {
+      "path": "data/datasets/alphabet-q2-fy24.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "alphabet-q4-fy22": {
+      "path": "data/datasets/alphabet-q4-fy22.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "apple-q3-fy23": {
+      "path": "data/datasets/apple-q3-fy23.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "apple-q3-fy24": {
+      "path": "data/datasets/apple-q3-fy24.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "apple-q4-fy23": {
+      "path": "data/datasets/apple-q4-fy23.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "apple-q2-fy25": {
+      "path": "data/datasets/apple-q2-fy25.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "apple-q2-fy24": {
+      "path": "data/datasets/apple-q2-fy24.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "apple-q4-fy22": {
+      "path": "data/datasets/apple-q4-fy22.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "apple-q4-fy25": {
+      "path": "data/datasets/apple-q4-fy25.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "apple-q4-fy24": {
+      "path": "data/datasets/apple-q4-fy24.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "apple-q1-fy24": {
+      "path": "data/datasets/apple-q1-fy24.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "apple-q1-fy25": {
+      "path": "data/datasets/apple-q1-fy25.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "apple-q1-fy23": {
+      "path": "data/datasets/apple-q1-fy23.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "apple-q3-fy25": {
+      "path": "data/datasets/apple-q3-fy25.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "timeSource": "git"
+    },
+    "apple-q2-fy23": {
+      "path": "data/datasets/apple-q2-fy23.js",
+      "updatedAtMs": 1785085080000,
+      "updatedAt": "2026-07-26T16:58:00.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {
