@@ -472,7 +472,11 @@ function derivedRiskChecks(plan, evidence) {
     const featureCheck = plan.requiredChecks.find((check) => check.id === 'feature:centered-side-label');
     const expectedNodes = new Set((featureCheck.evidenceTargets || []).map((target) => target.split(/[.:/]/).at(-1)));
     for (const item of evidence) {
-      const sideLabels = (item.metrics?.labelLayoutAudit?.horizontalSideLabels || [])
+      const labelAudit = item.metrics?.labelLayoutAudit;
+      const measuredSideLabels = Array.isArray(labelAudit?.inferredCenteredSideLabels)
+        ? labelAudit.inferredCenteredSideLabels
+        : (labelAudit?.horizontalSideLabels || []);
+      const sideLabels = measuredSideLabels
         .filter((label) => expectedNodes.has(label.node));
       const measuredNodes = new Set(sideLabels.map((label) => label.node));
       const complete = [...expectedNodes].every((node) => measuredNodes.has(node));
@@ -573,7 +577,10 @@ function derivedRiskChecks(plan, evidence) {
 function checkFeatureEvidence(check, entry, plan) {
   const expectedTargets = (check.evidenceTargets || []).map((target) => target.split(/[.:/]/).at(-1));
   if (check.evidenceKind === 'label-layout-audit') {
-    const labels = entry.metrics?.labelLayoutAudit?.horizontalSideLabels || [];
+    const audit = entry.metrics?.labelLayoutAudit;
+    const labels = Array.isArray(audit?.inferredCenteredSideLabels)
+      ? audit.inferredCenteredSideLabels
+      : (audit?.horizontalSideLabels || []);
     return Boolean(entry.metrics?.labelLayoutAudit) && expectedTargets.every((target) => labels.some((label) =>
       label.node === target && Number.isFinite(Number(label.verticalCenterDelta)) && Number(label.verticalCenterDelta) <= 4
     ));

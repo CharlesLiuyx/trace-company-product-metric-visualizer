@@ -1227,7 +1227,7 @@ export function classifyLabelLayoutAudit(geometry) {
     (item) => item.shortNode && item.centerDelta > thresholds.shortNodeCenterMaxDelta
   );
   const amountLike = (text) =>
-    /(?:^|\s)\(?(?:[$€£¥₹₩₽]|(?:USD|EUR|GBP|JPY|CNY|RMB)\b)\s*[-+]?\d/i.test(text) ||
+    /(?:^|\s)\(?(?:R\$|[$€£¥₹₩₽]|(?:USD|EUR|GBP|JPY|CNY|RMB|BRL)\b)\s*[-+]?\d/i.test(text) ||
     /(?:^|\s)\(?[-+]?\d[\d,.]*\s*(?:[KMBT]|bn|mn)\b/i.test(text);
   const noteLike = (text) =>
     /(?:%|percentage|margin|gross\s+margin|of\s+revenue|y\/y|同比|利润率|毛利率|占收入|个百分点)/i.test(text);
