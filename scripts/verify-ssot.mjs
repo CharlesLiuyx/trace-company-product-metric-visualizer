@@ -256,6 +256,7 @@ function validateArithmetic(record, errors) {
   const otherTotal = record.otherIncome?.total || 0;
   const otherExpenseItems = sum(record.otherExpenses?.items);
   const otherExpenseTotal = record.otherExpenses?.total || 0;
+  const taxTotal = record.costs.tax?.value || 0;
   const grossProfitItems = sum(record.profit.gross?.items);
   const checkChildSums = (items, pathLabel) => {
     for (const item of items || []) {
@@ -320,7 +321,7 @@ function validateArithmetic(record, errors) {
     errors
   );
   assertClose(
-    record.profit.operating.value - record.costs.tax.value + otherTotal - otherExpenseTotal,
+    record.profit.operating.value - taxTotal + otherTotal - otherExpenseTotal,
     record.profit.net.value,
     tolerance,
     `${record.key}: net profit arithmetic`,

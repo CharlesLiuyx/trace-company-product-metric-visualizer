@@ -46,13 +46,13 @@
 
   const MONEY_UNIT_MULTIPLIERS = Object.freeze({ T: 1e12, B: 1e9, M: 1e6, K: 1e3 });
   // Frankfurter USD rates as of 2026-06-26 from
-  // https://api.frankfurter.app/latest?from=USD&to=CHF,EUR,CNY,JPY,KRW,HKD,GBP,DKK
+  // https://api.frankfurter.app/latest?from=USD&to=CHF,EUR,CNY,JPY,KRW,HKD,GBP,DKK,BRL
   // Used only for cross-currency UI sorting/export normalization.
   const USD_FX_SNAPSHOT = Object.freeze({
     asOf: '2026-06-26',
     base: 'USD',
     source: 'Frankfurter',
-    sourceUrl: 'https://api.frankfurter.app/latest?from=USD&to=CHF,EUR,CNY,JPY,KRW,HKD,GBP,DKK',
+    sourceUrl: 'https://api.frankfurter.app/latest?from=USD&to=CHF,EUR,CNY,JPY,KRW,HKD,GBP,DKK,BRL',
     unitsPerUsd: Object.freeze({
       USD: 1,
       CHF: 0.80853,
@@ -64,6 +64,7 @@
       HKD: 7.8421,
       GBP: 0.75654,
       DKK: 6.5372,
+      BRL: 5.1689,
       // The Saudi riyal is pegged to the U.S. dollar at 3.75 SAR per USD.
       // Source: Saudi Central Bank, https://www.sama.gov.sa/en-US/Currency/FinExc/pages/currency.aspx
       SAR: 3.75,
@@ -90,6 +91,8 @@
     '£': 'GBP',
     GBP: 'GBP',
     DKK: 'DKK',
+    BRL: 'BRL',
+    'R$': 'BRL',
     SAR: 'SAR',
     'ر.س': 'SAR',
   });

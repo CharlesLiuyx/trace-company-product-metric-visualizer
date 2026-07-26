@@ -280,6 +280,32 @@ test('B3/T7 infer centered-side-label from a separate amount block and side name
   assert.equal(failure.inferredCenteredSideLabelViolations[0].verticalCenterDelta, 10);
 });
 
+test('B3/T7 recognizes Brazilian real amounts when inferring centered side labels', () => {
+  const audit = classifyLabelLayoutAudit({
+    nodes: [{ id: 'transaction_services', box: { x: 100, y: 100, width: 20, height: 40 } }],
+    labels: [
+      {
+        node: 'transaction_services',
+        labelIndex: 0,
+        text: 'R$0.5B (32%) Y/Y',
+        box: { x: 100, y: 75, width: 20, height: 20 },
+      },
+      {
+        node: 'transaction_services',
+        labelIndex: 1,
+        text: 'Transaction & services',
+        box: { x: 20, y: 110, width: 70, height: 20 },
+      },
+    ],
+  });
+
+  assert.deepEqual(
+    audit.inferredCenteredSideLabels.map((item) => item.text),
+    ['Transaction & services']
+  );
+  assert.deepEqual(audit.inferredCenteredSideLabelViolations, []);
+});
+
 test('B3/T7 inferred side-name centering excludes side notes and margin text', () => {
   const audit = classifyLabelLayoutAudit({
     nodes: [{ id: 'subscription', box: { x: 100, y: 100, width: 20, height: 100 } }],
