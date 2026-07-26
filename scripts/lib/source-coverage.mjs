@@ -54,6 +54,7 @@ export const INCOME_STATEMENT_SSOT_PATHS = Object.freeze([
   'profit.gross',
   'profit.gross.items',
   'profit.operating',
+  'profit.operating.items',
   'profit.net',
 ]);
 export const VISIBILITY_FLOOR_EXCEPTION_TYPE = 'source-visible-face-below-floor';
