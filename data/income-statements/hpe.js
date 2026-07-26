@@ -8,6 +8,78 @@
   });
 
   ssot.records.push({
+    key: 'hpe-q1-fy26',
+    company: 'HPE',
+    period: 'Q1 FY26',
+    periodNote: 'Ending Jan. 2026',
+    currency: '$',
+    unit: 'B',
+    decimals: 3,
+    sourceImage: 'input/processed/hpe-q1-fy26.png',
+    roundingTolerance: 0.15,
+    revenue: {
+      total: 9.301,
+      notes: ['+18% Y/Y'],
+      items: [
+        { id: 'networking', label: 'Networking', value: 2.706, notes: ['24% operating margin', '+151% Y/Y'] },
+        { id: 'cloud_ai', label: 'Cloud & AI', value: 6.334, notes: ['10% operating margin', '(3%) Y/Y'] },
+        { id: 'corporate_other', label: 'Corporate & Other', value: 0.261, notes: ['(2%) Y/Y'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 5.961 },
+      operatingExpenses: {
+        total: 2.87,
+        items: [
+          { id: 'sga', label: 'SG&A', value: 1.698, notes: ['18% of revenue', '+3pp Y/Y'] },
+          { id: 'rnd', label: 'R&D', value: 0.744, notes: ['8% of revenue', '+1pp Y/Y'] },
+          { id: 'intangibles', label: 'Intangibles', value: 0.311, notes: ['3% of revenue', '+2pp Y/Y'] },
+          { id: 'other_opex', label: 'Other', value: 0.117, notes: ['1% of revenue', '(0pp) Y/Y'] },
+        ],
+      },
+      tax: { id: 'tax_other', label: 'Tax & Other', value: 0.018 },
+    },
+    otherIncome: { total: 0, items: [] },
+    otherExpenses: { total: 0, items: [] },
+    profit: {
+      gross: { id: 'gross_profit', label: 'Gross profit', value: 3.34, notes: ['36% margin', '+3pp Y/Y'] },
+      operating: { id: 'operating_profit', label: 'Operating profit', value: 0.47, notes: ['5% margin', '(4pp) Y/Y'] },
+      net: { id: 'net_profit', label: 'Net profit', value: 0.452, notes: ['5% margin', '(13pp) Y/Y'] },
+    },
+    i18n: {
+      zh: {
+        period: '2026 财年第一季度',
+        periodNote: '截至 2026 年 1 月',
+        revenue: {
+          notes: ['同比 +18%'],
+          items: [
+            { id: 'networking', label: '网络业务', notes: ['营业利润率 24%', '同比 +151%'] },
+            { id: 'cloud_ai', label: '云与 AI', notes: ['营业利润率 10%', '同比 (3%)'] },
+            { id: 'corporate_other', label: '公司及其他', notes: ['同比 (2%)'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: { label: '收入成本' },
+          operatingExpenses: {
+            items: [
+              { id: 'sga', label: '销售、一般及行政', notes: ['占收入 18%', '同比 +3 个百分点'] },
+              { id: 'rnd', label: '研发', notes: ['占收入 8%', '同比 +1 个百分点'] },
+              { id: 'intangibles', label: '无形资产摊销', notes: ['占收入 3%', '同比 +2 个百分点'] },
+              { id: 'other_opex', label: '其他', notes: ['占收入 1%', '同比 (0 个百分点)'] },
+            ],
+          },
+          tax: { label: '税费及其他' },
+        },
+        profit: {
+          gross: { label: '毛利润', notes: ['利润率 36%', '同比 +3 个百分点'] },
+          operating: { label: '营业利润', notes: ['利润率 5%', '同比 (4 个百分点)'] },
+          net: { label: '净利润', notes: ['利润率 5%', '同比 (13 个百分点)'] },
+        },
+      },
+    },
+  });
+
+  ssot.records.push({
     key: 'hpe-q2-fy26',
     company: 'HPE',
     period: 'Q2 FY26',

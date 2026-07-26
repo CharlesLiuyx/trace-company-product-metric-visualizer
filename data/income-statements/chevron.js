@@ -129,6 +129,124 @@
       },
     },
     {
+      key: 'chevron-fy25',
+      company: 'Chevron',
+      period: 'FY25',
+      periodNote: 'Ending Dec. 2025',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/chevron-fy25.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 189.0,
+        notes: ['(7%) Y/Y'],
+        items: [
+          {
+            id: 'sales_and_other_operating_revenues',
+            label: 'Sales and other operating revenues',
+            value: 184.4,
+            notes: ['(5%) Y/Y'],
+            children: [
+              { id: 'upstream', label: 'Upstream', value: 53.5, notes: ['+14% Y/Y', '24% net margin'] },
+              { id: 'downstream', label: 'Downstream', value: 130.9, notes: ['(11%) Y/Y', '2% net margin'] },
+              { id: 'all_other', label: 'All other', value: 0.1, notes: ['(21%) Y/Y'] },
+            ],
+          },
+          {
+            id: 'income_from_equity_affiliates',
+            label: 'Income from equity affiliates',
+            value: 3.0,
+            notes: ['(35%) Y/Y'],
+          },
+          { id: 'other_income', label: 'Other income', value: 1.6, notes: ['(67%) Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          label: 'No separate cost-of-revenue subtotal',
+          value: 0,
+          notes: ['The source aggregates all pre-tax deductions into one reported subtotal.'],
+        },
+        operatingExpenses: {
+          total: 169.3,
+          notes: ['Reported as Costs and Other Deductions in Chevron’s consolidated statement of income.'],
+          items: [
+            { id: 'purchased_crude_oil_and_products', label: 'Purchased crude oil and products', value: 108.2 },
+            { id: 'sga', label: 'Selling, general and administrative expenses', value: 28.0 },
+            { id: 'depreciation_depletion_amortization', label: 'Depreciation, depletion and amortization', value: 20.1 },
+            { id: 'opex', label: 'Operating expenses', value: 5.1 },
+            { id: 'taxes_non_income', label: 'Taxes other than on income', value: 5.3 },
+            { id: 'interest', label: 'Interest and debt expense', value: 1.2 },
+            { id: 'exploration', label: 'Exploration expenses', value: 1.1 },
+            { id: 'other_costs', label: 'Other costs and deductions', value: 0.3 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Income tax expense', value: 7.3 },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: {
+          label: 'Revenue before reported deductions',
+          value: 189.0,
+          notes: ['The source does not publish a separate gross-profit subtotal.'],
+        },
+        operating: {
+          id: 'pretax_income',
+          label: 'Income before income tax expense',
+          value: 19.7,
+          notes: ['10% margin', '(3pp) Y/Y'],
+        },
+        net: { id: 'net_income', label: 'Net income', value: 12.5, notes: ['7% margin', '(2pp) Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年',
+          periodNote: '截至 2025 年 12 月',
+          revenue: {
+            notes: ['同比 (7%)'],
+            items: [
+              {
+                id: 'sales_and_other_operating_revenues',
+                label: '销售及其他营业收入',
+                notes: ['同比 (5%)'],
+                children: [
+                  { id: 'upstream', label: '上游业务', notes: ['同比 +14%', '净利率 24%'] },
+                  { id: 'downstream', label: '下游业务', notes: ['同比 (11%)', '净利率 2%'] },
+                  { id: 'all_other', label: '其他', notes: ['同比 (21%)'] },
+                ],
+              },
+              { id: 'income_from_equity_affiliates', label: '权益法被投资单位收益', notes: ['同比 (35%)'] },
+              { id: 'other_income', label: '其他收入', notes: ['同比 (67%)'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '未单列销售成本小计', notes: ['来源将所有税前扣除项合并为一个小计。'] },
+            operatingExpenses: {
+              notes: ['Chevron 合并利润表中列为“成本及其他扣除项”。'],
+              items: [
+                { id: 'purchased_crude_oil_and_products', label: '购入原油和产品' },
+                { id: 'sga', label: '销售、一般及管理费用' },
+                { id: 'depreciation_depletion_amortization', label: '折旧、耗竭及摊销' },
+                { id: 'opex', label: '运营费用' },
+                { id: 'taxes_non_income', label: '非所得税税费' },
+                { id: 'interest', label: '利息及债务费用' },
+                { id: 'exploration', label: '勘探费用' },
+                { id: 'other_costs', label: '其他成本及扣除项' },
+              ],
+            },
+            tax: { label: '所得税费用' },
+          },
+          profit: {
+            gross: { label: '扣除项前收入', notes: ['来源未公布单独的毛利润小计。'] },
+            operating: { label: '所得税费用前利润', notes: ['利润率 10%', '同比 (3 个百分点)'] },
+            net: { label: '净利润', notes: ['利润率 7%', '同比 (2 个百分点)'] },
+          },
+        },
+      },
+    },
+    {
       key: 'chevron-q1-fy26',
       company: 'Chevron',
       period: 'Q1 FY26',

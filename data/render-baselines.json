@@ -525,9 +525,21 @@
       "width": 2667,
       "height": 1500
     },
+    "best-buy-q4-fy26": {
+      "similarity": 0.971241,
+      "mae": 7.3334,
+      "width": 2667,
+      "height": 1500
+    },
     "birkenstock-q1-fy26": {
       "similarity": 0.967657,
       "mae": 8.2474,
+      "width": 2667,
+      "height": 1500
+    },
+    "birkenstock-q4-fy25": {
+      "similarity": 0.966697,
+      "mae": 8.4922,
       "width": 2667,
       "height": 1500
     },
@@ -660,6 +672,12 @@
     "cerebras-q1-fy26": {
       "similarity": 0.975701,
       "mae": 6.1962,
+      "width": 2667,
+      "height": 1500
+    },
+    "chevron-fy25": {
+      "similarity": 0.965978,
+      "mae": 8.6757,
       "width": 2667,
       "height": 1500
     },
@@ -1149,6 +1167,12 @@
       "width": 2667,
       "height": 1500
     },
+    "fedex-q3-fy26": {
+      "similarity": 0.967588,
+      "mae": 8.2651,
+      "width": 2667,
+      "height": 1500
+    },
     "fedex-q4-fy26": {
       "similarity": 0.966891,
       "mae": 8.4429,
@@ -1443,6 +1467,12 @@
       "width": 2667,
       "height": 1500
     },
+    "home-depot-q4-fy25": {
+      "similarity": 0.969908,
+      "mae": 7.6735,
+      "width": 2667,
+      "height": 1500
+    },
     "hp-q1-fy26": {
       "similarity": 0.969,
       "mae": 7.905,
@@ -1458,6 +1488,12 @@
     "hp-q4-fy25": {
       "similarity": 0.974966,
       "mae": 6.3837,
+      "width": 2667,
+      "height": 1500
+    },
+    "hpe-q1-fy26": {
+      "similarity": 0.973808,
+      "mae": 6.6791,
       "width": 2667,
       "height": 1500
     },
@@ -1734,6 +1770,12 @@
     "lowes-q1-fy26": {
       "similarity": 0.959676,
       "mae": 10.2825,
+      "width": 2667,
+      "height": 1500
+    },
+    "lowes-q4-fy25": {
+      "similarity": 0.963726,
+      "mae": 9.2498,
       "width": 2667,
       "height": 1500
     },
@@ -2265,9 +2307,27 @@
       "width": 2667,
       "height": 1500
     },
+    "on-q4-fy25": {
+      "similarity": 0.971498,
+      "mae": 7.2681,
+      "width": 2667,
+      "height": 1500
+    },
+    "oracle-q3-fy26": {
+      "similarity": 0.96183,
+      "mae": 9.7333,
+      "width": 2667,
+      "height": 1500
+    },
     "oracle-q4-fy26": {
       "similarity": 0.960721,
       "mae": 10.0161,
+      "width": 2667,
+      "height": 1500
+    },
+    "oxy-fy25": {
+      "similarity": 0.973397,
+      "mae": 6.7839,
       "width": 2667,
       "height": 1500
     },
@@ -2577,6 +2637,12 @@
       "width": 2667,
       "height": 1500
     },
+    "rubrik-q4-fy26": {
+      "similarity": 0.977951,
+      "mae": 5.6226,
+      "width": 2667,
+      "height": 1500
+    },
     "salesforce-q1-fy27": {
       "similarity": 0.942774,
       "mae": 14.5927,
@@ -2676,6 +2742,12 @@
     "sentinelone-q1-fy27": {
       "similarity": 0.966585,
       "mae": 8.5208,
+      "width": 2667,
+      "height": 1500
+    },
+    "sentinelone-q4-fy26": {
+      "similarity": 0.971017,
+      "mae": 7.3908,
       "width": 2667,
       "height": 1500
     },
@@ -2880,6 +2952,12 @@
     "target-q3-fy25": {
       "similarity": 0.952975,
       "mae": 11.9913,
+      "width": 2667,
+      "height": 1500
+    },
+    "target-q4-fy25": {
+      "similarity": 0.958745,
+      "mae": 10.5201,
       "width": 2667,
       "height": 1500
     },
