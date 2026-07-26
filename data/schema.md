@@ -597,6 +597,12 @@ that is not `$value` should have a localized equivalent. For helper-built
 datasets, node labels and notes are usually sufficient because the renderer
 builds label blocks from node text.
 
+Fixed-layout label blocks may set `semanticRole: "name" | "amount" | "note"`.
+The rendered group exposes this as `data-label-role`; B3/T7 uses it to
+distinguish a side-aligned semantic name from explanatory note copy when a
+separate amount block is present. Use the role only to describe the Source
+semantics—it does not change text, geometry, or interaction behavior.
+
 `i18n.preservedAnnotationText` (optional, `string[]`, not a language overlay) declares
 `annotationsSvg` text segments that intentionally stay untranslated in every
 language — sub-brand and logo words such as `aws` or `Uber Eats`. Company
