@@ -384,7 +384,7 @@
           support: { label: '客服支持', notes: ['占收入 9%', '同比 (1 个百分点)'] },
           ga: { label: '管理费用', notes: ['占收入 8%', '同比 (1 个百分点)'] },
         },
-        layout: fixedLayout(true),
+        layout: { labels: fixedLayout(true).labels },
       },
     },
   });

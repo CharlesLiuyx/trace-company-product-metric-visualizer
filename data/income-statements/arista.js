@@ -61,7 +61,7 @@
       i18n: {
         zh: {
           period: '2025 财年第三季度',
-          periodNote: '截至 2025 年 9 月 30 日',
+          periodNote: '截至 2025 年 9 月',
           revenue: {
             notes: ['同比 +27%'],
             items: [
@@ -144,7 +144,7 @@
       i18n: {
         zh: {
           period: '2026 财年第一季度',
-          periodNote: '截至 2026 年 3 月 31 日',
+          periodNote: '截至 2026 年 3 月',
           revenue: {
             notes: ['同比 +35%'],
             items: [
@@ -233,7 +233,7 @@
       i18n: {
         zh: {
           period: '2025 财年第四季度',
-          periodNote: '截至 2025 年 12 月 31 日',
+          periodNote: '截至 2025 年 12 月',
           revenue: {
             notes: ['同比 +29%'],
             items: [

@@ -58,6 +58,8 @@
   --control-strip-height: 46px;
   --view-actionbar-height: 32px;
   --sidebar-width: 282px;
+  --comparison-flow-gap: 8px;
+  --comparison-card-border-width: 1px;
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
@@ -896,13 +898,13 @@ button.period-year-name:focus-visible {
   max-width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--comparison-flow-gap);
 }
 .comparison-view[hidden] { display: none; }
 .comparison-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 8px;
+  gap: var(--comparison-flow-gap);
   width: 100%;
   align-items: start;
 }
@@ -911,9 +913,9 @@ button.period-year-name:focus-visible {
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
-  /* fixed gap at every zoom level (the preview replays this layout in JS —
-     keep in sync with COMPARISON_FLOW_GAP in src/app/comparison-zoom.js) */
-  gap: 8px;
+  /* fixed gap at every zoom level; fit/preview measure the resolved flex
+     longhands from this connected element, including calc/rem overrides */
+  gap: var(--comparison-flow-gap);
   width: 100%;
 }
 .comparison-flow .comparison-card {
@@ -925,7 +927,7 @@ button.period-year-name:focus-visible {
 .comparison-card {
   min-width: 0;
   overflow: hidden;
-  border: 1px solid var(--line);
+  border: var(--comparison-card-border-width) solid var(--line);
   border-radius: 6px;
   background: var(--bg);
   box-shadow: var(--chart-shadow);
@@ -999,9 +1001,9 @@ button.period-year-name:focus-visible {
   width: 100%;
   height: auto;
 }
-/* flat bitmap stand-ins shown only while a zoom gesture previews via
-   transform, so the compositor stretches textures instead of re-rasterizing
-   every vector chart per frame */
+/* flat bitmap stand-ins sampled by the viewport canvas during a zoom gesture,
+   so preview frames blit textures instead of re-rasterizing every vector
+   chart */
 .comparison-zoom-proxy {
   display: none;
   position: absolute;

@@ -47,7 +47,11 @@ dependencies are vendored in `vendor/`, so the viewer runs offline.
 In the viewer: pick a company and period from the left navigator, switch
 views with the top **Sankey / Trend / Table** buttons, and multi-select
 companies or periods to enter comparison mode. The toolbar toggles theme and
-language and hosts the SVG/PNG/CSV exports.
+language and hosts the SVG/PNG/CSV exports. Sankey comparisons normalize the
+painted monetary faces to one USD scale; charts with very different
+magnitudes may start sub-pixel at fit and can be inspected with comparison
+zoom. If any selected record lacks trustworthy geometry or money metadata,
+the whole comparison shows a calibration error instead of mixing scales.
 
 ## Add your own company
 
@@ -195,23 +199,25 @@ scripts, and a hand-rolled d3-sankey engine.
 | `src/app/state.js` · `selectors.js` · `financial.js` · `chart-theme.js` | prefs + mode rules + UI state/scope · display/search derivations · USD/FX totals + company sort values · shared Chart.js theme plus lazy runtime loading |
 | `src/app/shell.js` · `controls.js` | theme/language/sidebar/toolbar chrome · metric/view switching + `renderAll()` |
 | `src/app/company-panel.js` · `period-panel.js` | company list, sort menu, multi-select · period tree, timeline, multi-select |
-| `src/app/tables.js` · `trend.js` · `sankey.js` | virtualized tables · revenue trend charts · sankey single/comparison + `draw()` |
-| `src/app/comparison-zoom.js` · `comparison-metric-trend.js` | comparison canvas zoom gestures · node/link metric trend panel |
+| `src/app/tables.js` · `trend.js` · `sankey.js` | virtualized tables · revenue trend charts · sankey single/comparison orchestration, fail-closed scale presentation + `draw()` |
+| `src/app/comparison-zoom.js` · `comparison-metric-trend.js` | comparison canvas zoom gestures with a connected SVG-free browser-geometry resolver · node/link metric trend panel |
 | `src/app/exports.js` · `main.js` | SVG/PNG/CSV downloads · global wiring + boot (loads last) |
-| `src/sankey-engine.js`      | **d3-sankey** renderer: layout + custom nodes/links/labels/logo/interactions; label passes exposed as pure helpers |
+| `src/comparison-scale.js`   | Deep Comparison Visual Scale Module: validates renderer anchor geometry against Metric SSOT revenue lineage + money dimensions and produces one group-atomic USD normalization plan |
+| `src/sankey-engine.js`      | **d3-sankey** renderer: compiled fixed/dynamic graph geometry + custom nodes/links/labels/logo/interactions; owns the public compiled node-value Geometry Interface |
 | `src/dataset-registry.js`   | manifest-driven dataset stubs + in-place adapter upgrades on `DATASETS.push` |
-| `src/i18n-dictionaries.js` · `src/i18n.js` | per-language translation data · language-neutral rule pipeline + UI dictionary + overlays |
+| `src/i18n-dictionaries.js` · `src/i18n.js` | per-language translation data · language-neutral rule pipeline + deny-by-default overlays and visible-financial-token guard |
 | `src/icons.js`              | Lucide icon set (inline SVG) + the NVIDIA brand glyph         |
-| `scripts/build-site.mjs` · `verify-site.mjs` | builds the optimized Pages projection and enforces request/on-demand-loading budgets |
+| `scripts/build-site.mjs` · `verify-site.mjs` | builds the optimized Pages projection and enforces request/on-demand-loading budgets plus the all-period monetary-scale oracle |
 | `scripts/build-standalone.mjs` | builds the self-contained HTML artifact (inlines all adapters) |
-| `scripts/verify-standalone.mjs` | opens the artifact via `file://` and checks d3 rendering |
+| `scripts/verify-standalone.mjs` | opens the artifact via `file://` and checks d3 rendering, inlined raster assets, and the all-period monetary-scale oracle |
+| `scripts/lib/comparison-scale-browser.mjs` | independent Adapter + Metric SSOT + painted-DOM oracle shared by source, Pages, and standalone browser gates |
 | `scripts/verify-app-globals.mjs` | static gate for shared-scope duplicate declarations and load order |
 | `scripts/plan-ci.mjs` · `scripts/lib/ci-plan.mjs` | Git diff Adapter + tested ChangeImpact planning Module for CI check selection |
 | `scripts/verify-render-regression.mjs` | batch render + similarity baseline gate (`data/render-baselines.json`) |
 | `scripts/update-dataset-manifest.mjs` | regenerates `data/dataset-manifest.js` (dataset registration SSOT) |
 | `scripts/script-sources.mjs`| shared script classification for page and verifier harnesses  |
 | `scripts/lib/`              | shared verifier internals: project paths, VM loader, data-loading stacks, render harness, fonts, PNG diff, compare archive, d3 hard gates |
-| `tests/*.test.mjs`          | node:test unit tests (`pnpm test`): engine layout + label passes, trace-domain, i18n, png-diff, script sources, dataset registry, hard gates |
+| `tests/*.test.mjs`          | node:test unit tests (`pnpm test`): engine layout + compiled scale, Comparison Visual Scale, trace-domain, i18n, png-diff, script sources, dataset registry, hard gates |
 | `scripts/extract_icon_crops.py` | spec-driven icon crop extraction and validation (deps: `scripts/requirements.txt`) |
 | `data/income-statements/<company-key>.js` | pure financial-statement SSOT for totals and line items       |
 | `data/company-metadata/<company-key>.js`  | company-profile SSOT for Table mode and onboarding checks     |

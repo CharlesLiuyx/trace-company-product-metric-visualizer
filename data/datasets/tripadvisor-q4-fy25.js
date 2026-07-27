@@ -143,7 +143,6 @@
           sm: { label: '销售与营销', notes: ['占收入 43%', '同比 +6 个百分点'] }, personnel: { label: '人员', notes: ['占收入 32%', '同比 (3 个百分点)'] }, restructuring: { label: '重组', notes: ['占收入 8%', '同比 +3 个百分点'] }, technology: { label: '技术', notes: ['占收入 6%', '同比 +0 个百分点'] }, ga: { label: '管理费用', notes: ['占收入 5%', '同比 +0 个百分点'] }, da: { label: '折旧与摊销', notes: ['占收入 5%', '同比 +0 个百分点'] },
         },
         layout: { labels: labels(true) },
-        rasterAnnotations: rasterAnnotations(350),
       },
     },
   });

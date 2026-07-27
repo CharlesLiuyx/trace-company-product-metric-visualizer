@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-26T16:58:00.000Z",
+  "generatedAt": "2026-07-27T06:09:24.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -183,8 +183,8 @@
     },
     "costco-q3-fy26": {
       "path": "data/datasets/costco-q3-fy26.js",
-      "updatedAtMs": 1783757678000,
-      "updatedAt": "2026-07-11T08:14:38.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "crowdstrike-q1-fy27": {
@@ -465,8 +465,8 @@
     },
     "uber-q1-fy26": {
       "path": "data/datasets/uber-q1-fy26.js",
-      "updatedAtMs": 1783757678000,
-      "updatedAt": "2026-07-11T08:14:38.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "uipath-q1-fy27": {
@@ -795,8 +795,8 @@
     },
     "costco-q2-fy26": {
       "path": "data/datasets/costco-q2-fy26.js",
-      "updatedAtMs": 1783757678000,
-      "updatedAt": "2026-07-11T08:14:38.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "asana-q4-fy26": {
@@ -981,14 +981,14 @@
     },
     "uber-q4-fy25": {
       "path": "data/datasets/uber-q4-fy25.js",
-      "updatedAtMs": 1783757678000,
-      "updatedAt": "2026-07-11T08:14:38.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "walmart-q4-fy26": {
       "path": "data/datasets/walmart-q4-fy26.js",
-      "updatedAtMs": 1783757678000,
-      "updatedAt": "2026-07-11T08:14:38.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "grab-q4-fy25": {
@@ -1077,14 +1077,14 @@
     },
     "peloton-q2-fy26": {
       "path": "data/datasets/peloton-q2-fy26.js",
-      "updatedAtMs": 1784322877000,
-      "updatedAt": "2026-07-17T21:14:37.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "nyt-q4-fy25": {
       "path": "data/datasets/nyt-q4-fy25.js",
-      "updatedAtMs": 1783661081000,
-      "updatedAt": "2026-07-10T05:24:41.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "zillow-q4-fy25": {
@@ -1149,8 +1149,8 @@
     },
     "paypal-q4-fy25": {
       "path": "data/datasets/paypal-q4-fy25.js",
-      "updatedAtMs": 1783665940000,
-      "updatedAt": "2026-07-10T06:45:40.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "chime-q4-fy25": {
@@ -1179,8 +1179,8 @@
     },
     "mcdonald-s-q4-fy25": {
       "path": "data/datasets/mcdonald-s-q4-fy25.js",
-      "updatedAtMs": 1783684098000,
-      "updatedAt": "2026-07-10T11:48:18.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "rbi-q4-fy25": {
@@ -1233,14 +1233,14 @@
     },
     "pfizer-q4-fy25": {
       "path": "data/datasets/pfizer-q4-fy25.js",
-      "updatedAtMs": 1783694436000,
-      "updatedAt": "2026-07-10T14:40:36.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "kraft-heinz-q4-fy25": {
       "path": "data/datasets/kraft-heinz-q4-fy25.js",
-      "updatedAtMs": 1783694436000,
-      "updatedAt": "2026-07-10T14:40:36.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "eli-lilly-q4-fy25": {
@@ -1311,8 +1311,8 @@
     },
     "tripadvisor-q4-fy25": {
       "path": "data/datasets/tripadvisor-q4-fy25.js",
-      "updatedAtMs": 1783694436000,
-      "updatedAt": "2026-07-10T14:40:36.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "fortinet-q4-fy25": {
@@ -1371,8 +1371,8 @@
     },
     "arista-q4-fy25": {
       "path": "data/datasets/arista-q4-fy25.js",
-      "updatedAtMs": 1783712118000,
-      "updatedAt": "2026-07-10T19:35:18.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "the-trade-desk-q4-fy25": {
@@ -1503,8 +1503,8 @@
     },
     "amer-sports-q4-fy25": {
       "path": "data/datasets/amer-sports-q4-fy25.js",
-      "updatedAtMs": 1783712118000,
-      "updatedAt": "2026-07-10T19:35:18.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "zoom-q4-fy26": {
@@ -1641,8 +1641,8 @@
     },
     "sea-q1-fy26": {
       "path": "data/datasets/sea-q1-fy26.js",
-      "updatedAtMs": 1783792927000,
-      "updatedAt": "2026-07-11T18:02:07.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "analog-devices-q2-fy26": {
@@ -1719,8 +1719,8 @@
     },
     "peloton-q3-fy26": {
       "path": "data/datasets/peloton-q3-fy26.js",
-      "updatedAtMs": 1784322877000,
-      "updatedAt": "2026-07-17T21:14:37.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "health-equity-q1-fy27": {
@@ -1737,8 +1737,8 @@
     },
     "tripadvisor-q1-fy26": {
       "path": "data/datasets/tripadvisor-q1-fy26.js",
-      "updatedAtMs": 1783836405000,
-      "updatedAt": "2026-07-12T06:06:45.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "novo-nordisk-q1-fy26": {
@@ -1773,8 +1773,8 @@
     },
     "paypal-q1-fy26": {
       "path": "data/datasets/paypal-q1-fy26.js",
-      "updatedAtMs": 1783836405000,
-      "updatedAt": "2026-07-12T06:06:45.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "pfizer-q1-fy26": {
@@ -1791,14 +1791,14 @@
     },
     "mcdonald-s-q1-fy26": {
       "path": "data/datasets/mcdonald-s-q1-fy26.js",
-      "updatedAtMs": 1783836405000,
-      "updatedAt": "2026-07-12T06:06:45.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "kraft-heinz-q1-fy26": {
       "path": "data/datasets/kraft-heinz-q1-fy26.js",
-      "updatedAtMs": 1783836405000,
-      "updatedAt": "2026-07-12T06:06:45.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "novartis-q1-fy26": {
@@ -1821,14 +1821,14 @@
     },
     "nutanix-q3-fy26": {
       "path": "data/datasets/nutanix-q3-fy26.js",
-      "updatedAtMs": 1783841709000,
-      "updatedAt": "2026-07-12T07:35:09.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "arista-q1-fy26": {
       "path": "data/datasets/arista-q1-fy26.js",
-      "updatedAtMs": 1783841709000,
-      "updatedAt": "2026-07-12T07:35:09.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "the-trade-desk-q1-fy26": {
@@ -1953,8 +1953,8 @@
     },
     "celsius-q1-fy26": {
       "path": "data/datasets/celsius-q1-fy26.js",
-      "updatedAtMs": 1783881211000,
-      "updatedAt": "2026-07-12T18:33:31.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "chevron-q1-fy26": {
@@ -2001,14 +2001,14 @@
     },
     "home-depot-q1-fy26": {
       "path": "data/datasets/home-depot-q1-fy26.js",
-      "updatedAtMs": 1783881211000,
-      "updatedAt": "2026-07-12T18:33:31.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "gitlab-q1-fy27": {
       "path": "data/datasets/gitlab-q1-fy27.js",
-      "updatedAtMs": 1783881211000,
-      "updatedAt": "2026-07-12T18:33:31.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "samsara-q1-fy27": {
@@ -2115,8 +2115,8 @@
     },
     "ge-vernova-q4-fy25": {
       "path": "data/datasets/ge-vernova-q4-fy25.js",
-      "updatedAtMs": 1783890701000,
-      "updatedAt": "2026-07-12T21:11:41.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "goldman-sachs-q4-fy25": {
@@ -2145,8 +2145,8 @@
     },
     "morgan-stanley-q4-fy25": {
       "path": "data/datasets/morgan-stanley-q4-fy25.js",
-      "updatedAtMs": 1783890701000,
-      "updatedAt": "2026-07-12T21:11:41.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "sofi-q4-fy25": {
@@ -2421,8 +2421,8 @@
     },
     "starbucks-q4-fy25": {
       "path": "data/datasets/starbucks-q4-fy25.js",
-      "updatedAtMs": 1784085404000,
-      "updatedAt": "2026-07-15T03:16:44.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "best-buy-q3-fy26": {
@@ -2469,20 +2469,20 @@
     },
     "walmart-q3-fy26": {
       "path": "data/datasets/walmart-q3-fy26.js",
-      "updatedAtMs": 1784146795000,
-      "updatedAt": "2026-07-15T20:19:55.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "grab-q3-fy25": {
       "path": "data/datasets/grab-q3-fy25.js",
-      "updatedAtMs": 1784146795000,
-      "updatedAt": "2026-07-15T20:19:55.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "home-depot-q3-fy25": {
       "path": "data/datasets/home-depot-q3-fy25.js",
-      "updatedAtMs": 1784146795000,
-      "updatedAt": "2026-07-15T20:19:55.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "take-two-q2-fy26": {
@@ -2499,8 +2499,8 @@
     },
     "uber-q3-fy25": {
       "path": "data/datasets/uber-q3-fy25.js",
-      "updatedAtMs": 1784146795000,
-      "updatedAt": "2026-07-15T20:19:55.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "tencent-q3-fy25": {
@@ -2535,8 +2535,8 @@
     },
     "nyt-q3-fy25": {
       "path": "data/datasets/nyt-q3-fy25.js",
-      "updatedAtMs": 1784182261000,
-      "updatedAt": "2026-07-16T06:11:01.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "zillow-q3-fy25": {
@@ -2553,8 +2553,8 @@
     },
     "peloton-q1-fy26": {
       "path": "data/datasets/peloton-q1-fy26.js",
-      "updatedAtMs": 1784322877000,
-      "updatedAt": "2026-07-17T21:14:37.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "match-group-q3-fy25": {
@@ -2601,8 +2601,8 @@
     },
     "mcdonald-s-q3-fy25": {
       "path": "data/datasets/mcdonald-s-q3-fy25.js",
-      "updatedAtMs": 1784192261000,
-      "updatedAt": "2026-07-16T08:57:41.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "novo-nordisk-q3-fy25": {
@@ -2625,8 +2625,8 @@
     },
     "shopify-q3-fy25": {
       "path": "data/datasets/shopify-q3-fy25.js",
-      "updatedAtMs": 1784192261000,
-      "updatedAt": "2026-07-16T08:57:41.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "toast-q3-fy25": {
@@ -2655,14 +2655,14 @@
     },
     "arista-q3-fy25": {
       "path": "data/datasets/arista-q3-fy25.js",
-      "updatedAtMs": 1784196572000,
-      "updatedAt": "2026-07-16T10:09:32.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "airbnb-q3-fy25": {
       "path": "data/datasets/airbnb-q3-fy25.js",
-      "updatedAtMs": 1784196572000,
-      "updatedAt": "2026-07-16T10:09:32.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "expedia-q3-fy25": {
@@ -2679,8 +2679,8 @@
     },
     "tripadvisor-q3-fy25": {
       "path": "data/datasets/tripadvisor-q3-fy25.js",
-      "updatedAtMs": 1784196572000,
-      "updatedAt": "2026-07-16T10:09:32.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "astrazeneca-q3-fy25": {
@@ -2889,8 +2889,8 @@
     },
     "hims-hers-q3-fy25": {
       "path": "data/datasets/hims-hers-q3-fy25.js",
-      "updatedAtMs": 1784322877000,
-      "updatedAt": "2026-07-17T21:14:37.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "on-q3-fy25": {
@@ -2967,14 +2967,14 @@
     },
     "bullish-q3-fy25": {
       "path": "data/datasets/bullish-q3-fy25.js",
-      "updatedAtMs": 1784363559000,
-      "updatedAt": "2026-07-18T08:32:39.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "celsius-q3-fy25": {
       "path": "data/datasets/celsius-q3-fy25.js",
-      "updatedAtMs": 1784363559000,
-      "updatedAt": "2026-07-18T08:32:39.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "nio-q3-fy25": {
@@ -3021,8 +3021,8 @@
     },
     "t-mobile-us-q1-fy26": {
       "path": "data/datasets/t-mobile-us-q1-fy26.js",
-      "updatedAtMs": 1784393672000,
-      "updatedAt": "2026-07-18T16:54:32.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "texas-instruments-q1-fy26": {
@@ -3075,8 +3075,8 @@
     },
     "jpmorganchase-q1-fy26": {
       "path": "data/datasets/jpmorganchase-q1-fy26.js",
-      "updatedAtMs": 1784434711000,
-      "updatedAt": "2026-07-19T04:18:31.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "etsy-q1-fy26": {
@@ -3165,8 +3165,8 @@
     },
     "sanofi-q1-fy26": {
       "path": "data/datasets/sanofi-q1-fy26.js",
-      "updatedAtMs": 1784662902000,
-      "updatedAt": "2026-07-21T19:41:42.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "southwest-q1-fy26": {
@@ -3219,8 +3219,8 @@
     },
     "booking-q1-fy26": {
       "path": "data/datasets/booking-q1-fy26.js",
-      "updatedAtMs": 1784696662000,
-      "updatedAt": "2026-07-22T05:04:22.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "align-q1-fy26": {
@@ -3231,8 +3231,8 @@
     },
     "ge-vernova-q1-fy26": {
       "path": "data/datasets/ge-vernova-q1-fy26.js",
-      "updatedAtMs": 1784696662000,
-      "updatedAt": "2026-07-22T05:04:22.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "chipotle-q1-fy26": {
@@ -3261,8 +3261,8 @@
     },
     "celsius-fy25": {
       "path": "data/datasets/celsius-fy25.js",
-      "updatedAtMs": 1785039334000,
-      "updatedAt": "2026-07-26T04:15:34.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "vail-resorts-q2-fy26": {
@@ -3291,8 +3291,8 @@
     },
     "gitlab-q4-fy26": {
       "path": "data/datasets/gitlab-q4-fy26.js",
-      "updatedAtMs": 1785039334000,
-      "updatedAt": "2026-07-26T04:15:34.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "health-equity-q4-fy26": {
@@ -3387,8 +3387,8 @@
     },
     "home-depot-q4-fy25": {
       "path": "data/datasets/home-depot-q4-fy25.js",
-      "updatedAtMs": 1785075480000,
-      "updatedAt": "2026-07-26T14:18:00.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "on-q4-fy25": {
@@ -3471,8 +3471,8 @@
     },
     "amazon-q1-fy25": {
       "path": "data/datasets/amazon-q1-fy25.js",
-      "updatedAtMs": 1785085080000,
-      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "amazon-q3-fy25": {
@@ -3483,14 +3483,14 @@
     },
     "amazon-q2-fy24": {
       "path": "data/datasets/amazon-q2-fy24.js",
-      "updatedAtMs": 1785085080000,
-      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "amazon-q3-fy22": {
       "path": "data/datasets/amazon-q3-fy22.js",
-      "updatedAtMs": 1785085080000,
-      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "amazon-q3-fy24": {
@@ -3543,8 +3543,8 @@
     },
     "amazon-q4-fy22": {
       "path": "data/datasets/amazon-q4-fy22.js",
-      "updatedAtMs": 1785085080000,
-      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "amazon-q1-fy24": {
@@ -3561,8 +3561,8 @@
     },
     "alphabet-q4-fy22": {
       "path": "data/datasets/alphabet-q4-fy22.js",
-      "updatedAtMs": 1785085080000,
-      "updatedAt": "2026-07-26T16:58:00.000Z",
+      "updatedAtMs": 1785132564000,
+      "updatedAt": "2026-07-27T06:09:24.000Z",
       "timeSource": "git"
     },
     "apple-q3-fy23": {

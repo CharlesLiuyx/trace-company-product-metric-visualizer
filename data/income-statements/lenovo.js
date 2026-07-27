@@ -121,6 +121,7 @@
           { id: 'isg', label: 'ISG Infrastructure Solutions Group', value: 5.2, notes: ['+31% Y/Y', '(0%) operating margin'] },
           { id: 'ssg', label: 'SSG Solutions & Services Group', value: 2.7, notes: ['+18% Y/Y', '22% operating margin'] },
           {
+            id: 'eliminations',
             label: 'Eliminations',
             value: -1.4,
             notes: ['Shown as an eliminations outflow before consolidated revenue in the source chart.'],
@@ -167,7 +168,7 @@
               { id: 'idg', label: 'IDG 智能设备集团', notes: ['同比 +14%', '营业利润率 7%'] },
               { id: 'isg', label: 'ISG 基础设施方案集团', notes: ['同比 +31%', '营业利润率 (0%)'] },
               { id: 'ssg', label: 'SSG 方案与服务集团', notes: ['同比 +18%', '营业利润率 22%'] },
-              { id: 'undefined', label: '抵销', notes: ['来源图显示为合并收入前的抵销流出。'] },
+              { id: 'eliminations', label: '抵销', notes: ['来源图显示为合并收入前的抵销流出。'] },
             ],
           },
           costs: {
@@ -212,6 +213,7 @@
           { id: 'isg', label: 'ISG Infrastructure Solutions Group', value: 5.6, notes: ['+37% Y/Y', '4% operating margin'] },
           { id: 'ssg', label: 'SSG Solutions & Services Group', value: 2.6, notes: ['+19% Y/Y', '22% operating margin'] },
           {
+            id: 'eliminations',
             label: 'Eliminations',
             value: -1.2,
             notes: ['Shown as an eliminations outflow before consolidated revenue in the source chart.'],
@@ -258,7 +260,7 @@
               { id: 'idg', label: 'IDG 智能设备集团', notes: ['同比 +24%', '营业利润率 7%'] },
               { id: 'isg', label: 'ISG 基础设施方案集团', notes: ['同比 +37%', '营业利润率 4%'] },
               { id: 'ssg', label: 'SSG 方案与服务集团', notes: ['同比 +19%', '营业利润率 22%'] },
-              { id: 'undefined', label: '抵销', notes: ['来源图显示为合并收入前的抵销流出。'] },
+              { id: 'eliminations', label: '抵销', notes: ['来源图显示为合并收入前的抵销流出。'] },
             ],
           },
           costs: {

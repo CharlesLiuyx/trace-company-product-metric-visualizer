@@ -42,9 +42,9 @@
       </g>
     </g>`;
 
-  const shopifyPlusWordmark = (text, x = 78) => `
-    <g font-family="Montserrat,Arial,sans-serif" transform="translate(${x} 1038)" data-typography-role="brand">
-      <text x="0" y="0" font-size="45" font-style="italic" font-weight="900" fill="${BLACK}">${text}</text>
+  const shopifyPlusWordmark = (text, textX = 0) => `
+    <g font-family="Montserrat,Arial,sans-serif" transform="translate(78 1038)" data-typography-role="brand">
+      <text x="${textX}" y="0" font-size="45" font-style="italic" font-weight="900" fill="${BLACK}">${text}</text>
     </g>`;
 
   const annotations = (labels) =>
@@ -68,7 +68,7 @@
     fulfillment: '履约',
     balance: '余额',
     markets: '市场',
-    shopifyPlusX: 60,
+    shopifyPlusX: -18,
   });
 
   const labelsEn = {

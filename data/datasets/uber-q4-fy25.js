@@ -79,8 +79,8 @@
     takeRate: '抽成率',
     takeRateX: 737,
     takeRateSize: 25,
-    mobilityTakeRate: '出行 29.9%（-0.4 个百分点）',
-    deliveryTakeRate: '配送 19.2%（+0.5 个百分点）',
+    mobilityTakeRate: '出行 29.9%（同比 -0.4 个百分点）',
+    deliveryTakeRate: '配送 19.2%（同比 +0.5 个百分点）',
     mapcFootnote: 'MAPC = 完成出行或配送的月活跃用户',
   });
 

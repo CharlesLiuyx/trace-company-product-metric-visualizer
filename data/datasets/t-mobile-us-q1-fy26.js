@@ -294,7 +294,7 @@
           net_profit: { label: '净利润', notes: ['利润率 11%', '同比 (3 个百分点)'] },
           other_expense: { label: '其他' },
           tax: { label: '税费' },
-          sga: { label: ['销售、一般及', '管理费用'], valueText: '($6.0B)' },
+          sga: { label: ['销售、一般及', '管理费用'] },
           depreciation_amortization: { label: ['折旧与', '摊销'] },
         },
         layout: { labels: labels(true) },

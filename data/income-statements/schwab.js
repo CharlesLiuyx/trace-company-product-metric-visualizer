@@ -82,7 +82,7 @@
           costs: {
             costOfRevenue: { label: '收入成本', notes: ['来源图未单独显示收入成本或毛利润层。'] },
             operatingExpenses: {
-              notes: ['图示非利息费用明细合计为 $3.0B；来源图对 $3.2B 总额存在取整或未单列的 $0.2B 分配。'],
+              notes: ['图示非利息费用明细合计为 $3.0B；来源图因取整或未单列分配形成 $0.2B 残差。'],
               items: [
                 { id: 'compensation_benefits', label: '薪酬与福利' },
                 { id: 'professional_services', label: '专业服务' },

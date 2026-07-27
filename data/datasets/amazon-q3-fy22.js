@@ -439,10 +439,10 @@
           net_profit: { label: '净利润', notes: ['利润率 2%', '同比 (1 个百分点)'] },
           interest: { label: '利息' },
           tax: { label: '税费' },
-          fulfillment: { label: '履约', notes: ['占收入 16%', '同比持平'] },
+          fulfillment: { label: '履约', notes: ['占收入 16%', '保持不变'] },
           technology_content: { label: '技术与内容', notes: ['占收入 15%', '同比 +2 个百分点'] },
           sm: { label: '销售与市场', notes: ['占收入 9%', '同比 +1 个百分点'] },
-          ga: { label: '管理费用', notes: ['占收入 2%', '同比持平'] },
+          ga: { label: '管理费用', notes: ['占收入 2%', '保持不变'] },
           other_opex: { label: '其他运营费用' },
         },
         layout: {
@@ -541,7 +541,7 @@
             fulfillment: { blocks: [{ x: RIGHT_LABEL_X, top: 770, anchor: 'start', lineGap: 8, lines: [
               { text: '履约 ($20.6B)', size: 22, weight: 800, color: RED_LABEL },
               { text: '占收入 16%', size: 21, weight: 400, color: NOTE },
-              { text: '同比持平', size: 21, weight: 400, color: NOTE },
+              { text: '保持不变', size: 21, weight: 400, color: NOTE },
             ] }] },
             technology_content: { blocks: [{ x: RIGHT_LABEL_X, top: 947, anchor: 'start', lineGap: 8, lines: [
               { text: '技术与内容', size: 25, weight: 800, color: RED_LABEL },
@@ -557,7 +557,7 @@
             ga: { blocks: [{ x: 2396, top: 1237, anchor: 'start', lineGap: 8, lines: [
               { text: '管理费用 ($3.1B)', size: 25, weight: 800, color: RED_LABEL },
               { text: '占收入 2%', size: 24, weight: 400, color: NOTE },
-              { text: '同比持平', size: 24, weight: 400, color: NOTE },
+              { text: '保持不变', size: 24, weight: 400, color: NOTE },
             ] }] },
             other_opex: { blocks: [{ x: 2371, top: 1367, anchor: 'start', lines: [
               { text: '其他运营费用 ($0.2B)', size: 22, weight: 800, color: RED_LABEL },

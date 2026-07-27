@@ -52,7 +52,7 @@
   const labels = (zh) => {
     const text = zh ? {
       subscription: '订阅', professional: ['专业', '服务'], revenue: '收入', gross: '毛利润', cost: ['收入', '成本'], operating: '营业利润', expenses: ['运营', '费用'], net: '净利润', tax: '税项', sm: '销售与营销', rnd: '研发', ga: '一般及行政',
-      yoy9: '同比 +9%', yoy31: '同比 +31%', yoy10: '同比 +10%', margin87: '利润率 87%', pp0: '同比 (0 个百分点)', margin10: '利润率 10%', pp2: '同比 +2 个百分点', margin10net: '利润率 10%', sm40: '占收入 40%', rnd28: '占收入 28%', ga9: '占收入 9%', up1: '同比 +1 个百分点',
+      yoy9: '同比 +9%', yoy31: '同比 +31%', yoy10: '同比 +10%', margin87: '利润率 87%', pp0: '同比 (0 个百分点)', margin10: '利润率 10%', pp2: '同比 +2 个百分点', margin10net: '利润率 10%', sm40: '占收入 40%', rnd28: '占收入 28%', ga9: '占收入 9%', up1: '同比 (1 个百分点)',
     } : {
       subscription: 'Subscription', professional: ['Professional', 'services'], revenue: 'Revenue', gross: 'Gross profit', cost: ['Cost of', 'revenue'], operating: 'Operating profit', expenses: ['Operating', 'expenses'], net: 'Net profit', tax: 'Tax', sm: 'S&M', rnd: 'R&D', ga: 'G&A',
       yoy9: '+9% Y/Y', yoy31: '+31% Y/Y', yoy10: '+10% Y/Y', margin87: '87% margin', pp0: '(0pp) Y/Y', margin10: '10% margin', pp2: '+2pp Y/Y', margin10net: '10% margin', sm40: '40% of revenue', rnd28: '28% of revenue', ga9: '9% of revenue', up1: '(1pp) Y/Y',

@@ -271,7 +271,7 @@
           costs: {
             costOfRevenue: { label: '收入成本' },
             operatingExpenses: {
-              notes: ['销售与营销、研发和管理费用合计为 $254M，因来源图数值取整相差 $1M。'],
+              notes: ['销售与营销、研发和管理费用合计为 $254M，因来源图数值取整存在差异。'],
               items: [
                 { id: 'sm', label: '销售与营销', notes: ['占收入 37%', '同比 (7 个百分点)'] },
                 { id: 'rnd', label: '研发', notes: ['占收入 22%', '同比 (4 个百分点)'] },

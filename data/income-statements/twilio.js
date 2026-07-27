@@ -80,7 +80,7 @@
             tax: { label: '所得税费用' },
           },
           otherIncome: {
-            items: [{ id: 'tax', label: '税项收益', notes: ['来源图以绿色正向流显示的 $5M 税项收益。'] }],
+            items: [{ id: 'tax', label: '税项收益', notes: ['来源图以绿色正向流显示税项收益。'] }],
           },
           otherExpenses: { items: [{ id: 'other', label: '其他' }] },
           profit: {

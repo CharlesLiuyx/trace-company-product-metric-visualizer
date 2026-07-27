@@ -90,6 +90,7 @@
     key: 'sanofi-q1-fy26',
     name: 'Sanofi · Q1 FY26',
     company: 'Sanofi',
+    comparisonScale: { anchorNodeId: 'biopharma' },
     meta: {
       company: 'Sanofi',
       title: 'Sanofi Q1 FY26 Income Statement',

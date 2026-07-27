@@ -83,8 +83,12 @@
   replaceLines('operating_expenses', 0, ['运营', '费用', '$value']);
   replaceLines('other', 0, ['其他', '$value']);
   replaceLines('net_profit', 0, ['净利润', '$value', '利润率 51%', '同比 +48 个百分点']);
-  replaceLines('sga', 0, ['销售、一般及管理费用', '占收入 14%', '同比 (1 个百分点)']);
-  labelsZh.sga.blocks[0].lines[0].size = 29;
+  labelsZh.sga.blocks[0].lines = [
+    line('销售、一般及管理费用', 29, { weight: 800, color: RED_LABEL }),
+    line('$value', 31, { color: RED_LABEL }),
+    line('占收入 14%', 29, { color: NOTE }),
+    line('同比 (1 个百分点)', 29, { color: NOTE }),
+  ];
   replaceLines('rnd', 0, ['研发 ($0.3B)', '占收入 3%', '同比 +0 个百分点']);
 
   window.DATASETS = window.DATASETS || [];

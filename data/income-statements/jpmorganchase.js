@@ -65,7 +65,7 @@
           id: 'pretax_income',
           label: 'Pretax income',
           value: 17.2,
-          notes: ['Source amounts are rounded to the nearest tenth of a billion.'],
+          notes: ['Source amounts are rounded to $0.1B precision.'],
         },
         net: { id: 'net_income', label: 'Net income', value: 13.0, notes: ['(7%) Y/Y'] },
       },
@@ -74,7 +74,7 @@
           period: '2025 财年第四季度',
           periodNote: '截至 2025 年 12 月',
           revenue: {
-            notes: ['同比 +7%', '业务分部净收入合计为 $46.8B，扣除 $1.0B 调整项后为 $45.8B；图中数字经四舍五入。'],
+            notes: ['同比 +7%', '业务分部净收入在 $1.0B 调整项前合计为 $46.8B；图中数字经四舍五入。'],
             items: [
               { id: 'consumer_community_banking', label: '消费者与社区银行', notes: ['同比 +6%', '净利率 19%'] },
               { id: 'commercial_investment_bank', label: '商业与投资银行', notes: ['同比 +10%', '净利率 38%'] },
@@ -103,7 +103,7 @@
           },
           profit: {
             gross: { label: '扣除非利息费用后的收入', notes: ['Schema 适配小计；来源图未显示独立的毛利润节点。'] },
-            operating: { label: '税前利润', notes: ['来源金额四舍五入至十亿美元的小数点后一位。'] },
+            operating: { label: '税前利润', notes: ['来源金额按 $0.1B 精度取整。'] },
             net: { label: '净利润', notes: ['同比 (7%)'] },
           },
         },
@@ -166,7 +166,7 @@
           id: 'pretax_income',
           label: 'Pretax income',
           value: 20.5,
-          notes: ['Source amounts are rounded to the nearest tenth of a billion.'],
+          notes: ['Source amounts are rounded to $0.1B precision.'],
         },
         net: { id: 'net_income', label: 'Net income', value: 16.5, notes: ['+13% Y/Y'] },
       },
@@ -175,7 +175,7 @@
           period: '2026 财年第一季度',
           periodNote: '截至 2026 年 3 月',
           revenue: {
-            notes: ['同比 +10%', '业务分部净收入合计为 $50.6B，扣除 $0.7B 调整项后为 $49.8B；图中数字经四舍五入。'],
+            notes: ['同比 +10%', '业务分部净收入在 $0.7B 调整项前合计为 $50.6B；图中数字经四舍五入。'],
             items: [
               { id: 'consumer_community_banking', label: '消费者与社区银行', notes: ['同比 +7%', '净利率 25%'] },
               { id: 'commercial_investment_bank', label: '商业与投资银行', notes: ['同比 +19%', '净利率 39%'] },
@@ -204,7 +204,7 @@
           },
           profit: {
             gross: { label: '扣除非利息费用后的收入', notes: ['Schema 适配小计；来源图未显示独立的毛利润节点。'] },
-            operating: { label: '税前利润', notes: ['来源金额四舍五入至十亿美元的小数点后一位。'] },
+            operating: { label: '税前利润', notes: ['来源金额按 $0.1B 精度取整。'] },
             net: { label: '净利润', notes: ['同比 +13%'] },
           },
         },

@@ -14,9 +14,9 @@
   const RED_LINK = '#e48283';
 
   const arches = `<path fill="${ARCH_GOLD}" d="M0 199V100C0 42 29 0 70 0c25 0 46 17 58 48C140 17 161 0 186 0c41 0 70 42 70 100v99h-31v-99c0-37-16-64-40-64s-40 27-40 64v99H88v-99c0-37-16-64-40-64S31 63 31 100v99z"/>`;
-  const card = (x, width, title, lines) => `<g><rect x="${x}" y="1202" width="${width}" height="149" rx="29" fill="#000"/><text x="${x + width / 2}" y="1257" text-anchor="middle" font-size="29" font-weight="800" fill="#fff">${title}</text>${lines.map((line, index) => `<text x="${x + width / 2}" y="${lines.length === 1 ? 1307 : 1293 + index * 31}" text-anchor="middle" font-size="24" fill="#fff">${line}</text>`).join('')}</g>`;
+  const card = (x, width, title, lines, fontFamily = 'Montserrat,Arial,sans-serif') => `<g><rect x="${x}" y="1202" width="${width}" height="149" rx="29" fill="#000"/><text x="${x + width / 2}" y="1257" text-anchor="middle" font-family="${fontFamily}" font-size="29" font-weight="800" fill="#fff">${title}</text>${lines.map((line, index) => `<text x="${x + width / 2}" y="${lines.length === 1 ? 1307 : 1293 + index * 31}" text-anchor="middle" font-family="${fontFamily}" font-size="24" fill="#fff">${line}</text>`).join('')}</g>`;
   const annotations = `<g font-family="Montserrat,Arial,sans-serif">${card(152, 270, 'Global', ['comparable sales', '+6% Y/Y'])}${card(436, 278, 'Systemwide sales', ['+11% Y/Y'])}</g>`;
-  const annotationsZh = `<g font-family="Noto Sans SC,Montserrat,Arial,sans-serif">${card(152, 270, '全球', ['可比销售额', '同比 +6%'])}${card(436, 278, '系统销售额', ['同比 +11%'])}</g>`;
+  const annotationsZh = `<g font-family="Montserrat,Arial,sans-serif">${card(152, 270, '全球', ['可比销售额', '同比 +6%'], 'Noto Sans SC,Montserrat,Arial,sans-serif')}${card(436, 278, '系统销售额', ['同比 +11%'], 'Noto Sans SC,Montserrat,Arial,sans-serif')}</g>`;
 
   window.DATASETS = window.DATASETS || [];
   window.DATASETS.push({
