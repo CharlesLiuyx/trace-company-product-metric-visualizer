@@ -27,7 +27,7 @@
       <text x="980" y="1103" text-anchor="middle" font-size="31" font-weight="800" fill="#222222">${zh ? '面向消费者' : 'Direct To'}</text>
       <text x="980" y="1145" text-anchor="middle" font-size="31" font-weight="800" fill="#222222">${zh ? '直销' : 'Consumer'}</text>
       <text x="980" y="1188" text-anchor="middle" font-size="31" font-weight="800" fill="#222222">38%</text>
-      <text x="980" y="1221" text-anchor="middle" font-size="${zh ? 21 : 25}" font-weight="500" fill="${NOTE}">${zh ? '同比 +8 个百分点' : '(8pp) Y/Y'}</text>
+      <text x="980" y="1221" text-anchor="middle" font-size="${zh ? 21 : 25}" font-weight="500" fill="${NOTE}">${zh ? '同比 (8 个百分点)' : '(8pp) Y/Y'}</text>
     </g>`;
 
   const labelsEn = {

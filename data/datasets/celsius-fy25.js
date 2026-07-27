@@ -21,7 +21,7 @@
   const footnote = (zh = false) => `
     <g fill="${NOTE}" font-family="'Noto Sans', Arial, sans-serif" font-size="29" font-weight="400" text-anchor="middle">
       ${zh
-        ? '<text x="2477" y="1328">* 销售、一般及行政费用</text>'
+        ? '<text x="2477" y="1348">* 销售、一般及</text><text x="2477" y="1388">行政费用</text>'
         : '<text x="2477" y="1348">* Selling, General and</text><text x="2477" y="1388">Administrative</text>'}
     </g>`;
 

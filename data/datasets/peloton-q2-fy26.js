@@ -127,7 +127,7 @@
       <g>
         <rect x="272" y="1162" width="519" height="166" rx="31" fill="${BLACK}"/>
         ${isZh
-          ? '<text x="531.5" y="1236" text-anchor="middle" font-size="27" font-weight="500" fill="#ffffff">订阅 2.7M（同比 (7%)）</text><text x="531.5" y="1280" text-anchor="middle" font-size="25" font-weight="500" fill="#ffffff">App 订阅 0.5M（同比 (11%)）</text>'
+          ? '<text x="531.5" y="1236" text-anchor="middle" font-size="27" font-weight="500" fill="#ffffff"><tspan font-weight="800">订阅</tspan><tspan font-weight="400"> 2.7M（同比 (7%)）</tspan></text><text x="531.5" y="1280" text-anchor="middle" font-size="25" font-weight="500" fill="#ffffff"><tspan font-weight="800">App 订阅</tspan><tspan font-weight="400"> 0.5M（同比 (11%)）</tspan></text>'
           : '<text x="531.5" y="1236" text-anchor="middle" font-size="29" fill="#ffffff"><tspan font-weight="800">Subscriptions</tspan><tspan font-weight="400"> 2.7M (7%) Y/Y</tspan></text><text x="531.5" y="1280" text-anchor="middle" font-size="28" fill="#ffffff"><tspan font-weight="800">App Subscriptions</tspan><tspan font-weight="400"> 0.5M (11%) Y/Y</tspan></text>'}
       </g>
       ${kpiCard(802, 1160, 413, 169, [

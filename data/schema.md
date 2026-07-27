@@ -48,17 +48,89 @@ in that file. Run `pnpm verify:ssot` after adding or materially changing a
 dataset.
 
 Currency and unit contract (enforced by `pnpm verify:ssot`): every SSOT
-`currency` (income statements, revenue metrics, and `marketCap` without
-`valueUsd`) must resolve through the `src/trace-domain.js` currency aliases to
-a `USD_FX_SNAPSHOT` rate — the UI converts mixed-currency totals and the
-comparison view's shared visual scale to USD through that snapshot, and an
-uncovered currency would otherwise be dropped silently. When adding a dataset
-in a new reporting currency, extend `USD_FX_SNAPSHOT` (dated, sourced) in the
-same change. The Sankey adapter's `meta.currency` mirrors the source image and
-may be `''` when the image shows bare numbers (e.g. an "in RMB" note), but a
-non-empty `meta.currency` must agree with the SSOT currency, and `meta.unit`
-must always equal the SSOT `unit`; cross-company normalization reads the SSOT,
-not the adapter.
+`currency` must be an explicit non-empty string, and every money `unit` must be
+one of the exact `K`, `M`, `B`, or `T` keys. SSOT currencies (income
+statements, revenue metrics, and `marketCap` without `valueUsd`) must resolve
+through the `src/trace-domain.js` currency aliases to a `USD_FX_SNAPSHOT` rate
+— the UI converts mixed-currency totals and the comparison view's shared
+visual scale to USD through that snapshot. An uncovered currency would make
+financial aggregation incomplete and Comparison Visual Scale uncalibrated.
+When adding a dataset in a new reporting currency, extend `USD_FX_SNAPSHOT`
+(dated, sourced) in the same change. The Sankey adapter's `meta.currency`
+mirrors the source image and may be `''` when the image shows bare numbers
+(e.g. an "in RMB" note), but a non-empty `meta.currency` must agree with the
+SSOT currency, and `meta.unit` must always equal the SSOT `unit`;
+cross-company normalization reads the SSOT, not the adapter.
+
+### Comparison Visual Scale
+
+Comparison Visual Scale is compiled rather than Adapter-authored. For every
+selected Sankey View Adapter, the renderer compiles the same fixed or dynamic
+graph geometry used by `render()`, resolves a stable semantic anchor (normally
+the `revenue` node), and reports:
+
+```text
+native viewBox units per authored value
+  = compiled anchor node-face height / |anchor authored value|
+```
+
+The Comparison Visual Scale Module combines that renderer-owned measurement
+with the matching financial Metric SSOT record's `currency` and `unit`.
+`strictSankeyMoneyDimension(meta, financial)` shares the same contract with
+`verify:ssot`: the financial record must declare a known currency and exact
+`K`/`M`/`B`/`T` unit, the Adapter unit must match, and any non-empty Adapter
+display currency must denote the same currency. It then supplies USD per
+authored value, so the comparison calibration is:
+
+```text
+viewBox units per USD
+  = native viewBox units per authored value / USD per authored value
+```
+
+This join is group-atomic. Every selected record must have compiled positive
+anchor geometry, a matching Metric SSOT record, a `source`/`hub` anchor role,
+canonical string ids, native finite numeric amounts/decimals, representable
+display precision, and a positive USD conversion. The normal `revenue` face
+is proven against `revenue.total`; only an alternate anchor must occur exactly
+once in an acyclic revenue lineage. Every normalization factor must itself
+remain finite and positive; floating-point underflow is an uncalibrated
+result. If any record cannot be calibrated, the whole comparison is
+uncalibrated and the viewer fails closed instead of rendering a partially
+normalized group. After
+calibration, every card renders into one connected off-screen transaction;
+the renderer remeasures the exact SVG anchor instance and requires its value,
+face height, scale, and final `viewBox` width/height to match the plan before
+the live DOM is replaced. Responsive fit and card base width consume the
+canvas dimensions returned by that same renderer measurement, never a second
+Adapter read. A renderer exception or geometry drift therefore also fails
+closed with zero partial cards. Never substitute a factor of `1`, exclude
+only the failed record, or use `meta.currency` / `meta.unit` as a comparison
+fallback.
+
+The renderer and measurement Interface share the same visible node-face rule:
+a positive compiled face is painted at a minimum of one viewBox unit, and that
+painted height is what calibration reports. The viewer localizes each Adapter
+once and passes that same object to calibration, responsive fit, and render;
+`pnpm verify:i18n -- --strict` rejects any language overlay that changes
+value-bearing renderer geometry.
+
+Normalization widths remain fractional all the way through responsive fit and
+zoom. Do not round or clamp a comparison chart to one CSS pixel: that silently
+changes the monetary scale for very different company magnitudes. Browser
+subpixel rasterization is the only allowed quantization, and comparison zoom
+is the inspection path for a correctly calibrated chart that is initially
+sub-pixel at fit. The 100% fit width always comes from the stable Sankey
+viewport content box; a zoomed comparison is max-content output and must never
+feed its enlarged width back into a redraw. Responsive fit measures the
+connected staging flow's
+computed `column-gap`, `row-gap`, inline margins, and actual card
+outer-minus-chart chrome;
+the staging element is a fixed-position sibling under the real comparison
+ancestor, not a body-level approximation. Zoom preview resolves target card
+boxes through a connected, SVG-free skeleton under that same CSS ancestry.
+Never parse raw CSS tokens, duplicate a browser's private layout-unit rule,
+or assume row and column gaps, margins, border sides, or non-border card
+chrome are equal.
 
 `data/company-metadata/<company-key>.js` is the company-profile SSOT. Add or update it before
 registering a new company's first dataset so Table mode can show company-level
@@ -192,6 +264,13 @@ metric values, and
 allows small published-rounding differences via `roundingTolerance`. It also
 checks every company in the financial SSOT has a matching
 `data/company-metadata/<company-key>.js` entry.
+
+Metric SSOT values preserve their reported/accounting sign. A Sankey
+`type: "cost"` face and link use a positive thickness magnitude, so SSOT ↔
+Adapter reconciliation compares `abs(value)` only for cost metrics through
+the shared Trace-domain normalization rule. Do not hand-normalize individual
+datasets, and do not apply this exception to revenue/profit/other metric
+types: their signs remain authoritative.
 
 `revenue.breakdowns` is optional and expresses an independent, non-additive
 view of the same reported revenue total (for example, customer type alongside
@@ -471,9 +550,36 @@ canonical company name, then latest-period recency.
   meta: { … },                            // titles, period, currency, logo
   nodes: [ … ],
   links: [ … ],
+  comparisonScale: { … },                 // optional non-revenue anchor contract
   i18n: { … },                            // localized display overlays
 }
 ```
+
+### comparisonScale
+
+The mandatory default semantic comparison anchor is the rendered node with
+`id: "revenue"`. Its positive Adapter value must match the matching Metric
+SSOT record's `revenue.total` within the half-unit display interval implied by
+`decimals` (`0.5 × 10^-decimals`). The numeric ULP at both values must fit
+inside that interval; machine epsilon is not added to widen it. The broader
+reconciliation-only `roundingTolerance` is deliberately not an anchor
+authority and cannot make a materially different revenue face calibratable.
+An Adapter with this normal face must not declare or override the anchor.
+
+Only an Adapter with no rendered `revenue` face, whose value-bearing revenue
+total is represented by another face, declares that face explicitly:
+
+```js
+comparisonScale: { anchorNodeId: 'biopharma' }
+```
+
+`anchorNodeId` must reference a positive, non-route node whose id and value
+match exactly one positive item in an acyclic Metric SSOT `revenue` lineage
+within that same display interval. The Adapter names the rendered face; the
+SSOT proves its financial meaning and owns the amount. This is a stable
+semantic contract, not a display hint: the calibration Module never guesses
+from localized labels, node type, or array order. Do not add this field when
+the normal `revenue` node exists.
 
 ### meta
 
@@ -596,9 +702,37 @@ i18n: {
 ```
 
 Allowed overlay content is display-only: localized strings and text layout
-adjustments such as title sizing or fixed-label line text. Overlays must not
-change financial values, `nodes[].value`, `links`, source images, node geometry,
-or any field that changes SSOT/d3 verification semantics.
+adjustments such as title sizing or fixed-label line text. Runtime localization
+uses a path allowlist and rejects every unknown field by default. Overlays must
+not change financial values, `nodes[].value`, `links`, source images, node
+geometry, `comparisonScale`, or any field that changes SSOT/d3 verification
+semantics. `nodes[].valueText` and `nonNodeMetrics[].valueText` are
+authoritative visible amounts, not translatable copy; overlays cannot restate
+them. Layout `$value` is a structured renderer binding and cannot be replaced
+by a locale-authored literal. Custom labels, SVG annotations, Dataset notes,
+and Financial SSOT notes are tokenized by number, sign, currency, unit,
+percent/percentage-point/basis-point kind and basis (for example Y/Y, Q/Q,
+margin, or share of revenue), period/date identity, generic numbers, and
+locale-equivalent scale (`$0.1B` equals `1 亿美元`). Unknown numeric prose is
+conservative: it remains a `generic-number` invariant rather than being
+discarded. A locale may omit an explanatory source note and a layout may
+replace the same canonical literal with `$value`; it may never introduce or
+alter a visible financial or temporal token.
+
+`annotationsSvg` is a text-localization surface, not arbitrary localized
+markup. A locale overlay must preserve the source element tree and every
+non-`text`/`tspan` attribute exactly. Text-node content may change; a
+corpus-derived typed projection permits only reviewed, bounded,
+source-relative `text`/`tspan` typography or position adjustments. Unknown
+attributes, new geometry fields, visibility/paint/transform authority, and
+out-of-bounds or unreadable values are rejected. Both localization and the
+renderer independently enforce the reviewed SVG primitive allowlist and
+reject active markup, event handlers, dangerous URLs, CSS, `foreignObject`,
+and new visibility surfaces. `rasterAnnotations` assets and geometry are
+source-owned and cannot appear in a language overlay. Runtime validation
+rejects an invalid overlay before merge, while the strict i18n verifier
+independently compares the completed localized projection. Renderer geometry
+and semantic SSOT identity/value topology remain exact-parity invariants.
 
 For fixed-layout datasets, every explicit `layout.labels.*.blocks[].lines[].text`
 that is not `$value` should have a localized equivalent. For helper-built
@@ -668,6 +802,14 @@ Fixed-layout adapters may use measured endpoint geometry:
 | `sourceOrder` / `targetOrder` | number | vertical stacking order at the source/target face |
 | `curve` | object | optional `x0`, `x1`, `c1x`, `c1y`, `c2x`, `c2y` cubic controls |
 | `showTooltip` | boolean | set to `false` only for a source-matched visual routing bridge that has no independently reportable financial percentage; retain the semantic relationship through an annotation or interaction-only link. This suppresses only the percentage card, never the bridge's rendered or hover-highlighted state. |
+
+`layout.scale` is optional native viewBox units per authored value used only
+by the fixed renderer as its `ky` fallback when compiling geometry that lacks
+an explicit node height or link width. Explicit measured fixed geometry still
+wins, and the presence of `layout.scale` does not assert that every authored
+node face or tapered endpoint has that ratio. App modules must not read
+`layout.scale` directly to calibrate a comparison; they consume only the
+renderer-owned compiled-geometry measurement described above.
 
 Use endpoint-specific widths only when the reference shows different source and
 target intervals. Measure the complete non-background interface union before

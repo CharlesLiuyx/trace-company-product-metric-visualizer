@@ -114,6 +114,7 @@
         nodes: {
           accelerate: { label: '加速增长', notes: ['同比 (3%)', '风味提升', '便捷即食餐', '充饥零食'] }, protect: { label: '稳固基础', notes: ['同比 (3%)', '甜品', '补水饮品'] }, balance: { label: '平衡组合', notes: ['同比 (5%)', '奶酪', '咖啡', '肉制品', '其他'] }, revenue: { label: '净销售额', notes: ['同比 (4%)'] }, gross_profit: { label: '毛利润', notes: ['利润率 33%', '同比 (2 个百分点)'] }, cost_of_sales: { label: '销售成本' }, operating_profit: { label: '营业利润', notes: ['利润率 17%', '同比 +18 个百分点'] }, operating_expenses: { label: '运营费用' }, net_profit: { label: '净利润', notes: ['利润率 10%', '同比 (22 个百分点)'] }, other: { label: '其他' }, tax: { label: '税费' }, interest: { label: '利息' }, sga: { label: '销售、一般及管理费用', notes: ['占收入 15%', '同比 +2 个百分点'] }, goodwill: { label: '商誉', notes: ['占收入 0%', '同比 (1 个百分点)'] },
         },
+        annotationsSvg: otherAnnotation(true),
         layout: { labels: {
           accelerate: { blocks: [{ x: 502, top: 441, anchor: 'middle', lineGap: 12, lines: [{ text: '$value', size: 40 }, { text: '同比 (3%)', size: 29, color: NOTE }] }, { x: 297, top: 561, anchor: 'middle', lineGap: 7, lines: [{ text: '加速增长', size: 40, weight: 800 }, { text: '风味提升', size: 29, color: NOTE }, { text: '便捷即食餐', size: 29, color: NOTE }, { text: '充饥零食', size: 29, color: NOTE }] }] },
           protect: { blocks: [{ x: 502, top: 833, anchor: 'middle', lineGap: 12, lines: [{ text: '$value', size: 40 }, { text: '同比 (3%)', size: 29, color: NOTE }] }, { x: 297, top: 928, anchor: 'middle', lineGap: 7, lines: [{ text: '稳固基础', size: 40, weight: 800 }, { text: '甜品', size: 29, color: NOTE }, { text: '补水饮品', size: 29, color: NOTE }] }] },
@@ -128,7 +129,7 @@
           tax: { blocks: [{ x: RIGHT_X, top: 577, anchor: 'middle', lineGap: 8, lines: [{ text: '税费', size: 31, weight: 800, color: RED_LABEL }, { text: '$value', size: 31, color: RED_LABEL }] }] }, interest: { blocks: [{ x: RIGHT_X, top: 703, anchor: 'middle', lineGap: 8, lines: [{ text: '利息', size: 31, weight: 800, color: RED_LABEL }, { text: '$value', size: 31, color: RED_LABEL }] }] },
           sga: { blocks: [{ x: 2525, top: 888, anchor: 'middle', lineGap: 8, lines: [{ text: '销售、一般及', size: 27, weight: 800, color: RED_LABEL }, { text: '管理费用', size: 27, weight: 800, color: RED_LABEL }, { text: '$value', size: 31, color: RED_LABEL }, { text: '占收入 15%', size: 29, color: NOTE }, { text: '同比 +2 个百分点', size: 29, color: NOTE }] }] },
           goodwill: { blocks: [{ x: 2525, top: 1118, anchor: 'middle', lineGap: 8, lines: [{ text: '商誉', size: 31, weight: 800, color: RED_LABEL }, { text: '($5M)', size: 31, color: RED_LABEL }, { text: '占收入 0%', size: 29, color: NOTE }, { text: '同比 (1 个百分点)', size: 29, color: NOTE }] }] },
-        }, annotationsSvg: otherAnnotation(true) },
+        } },
       },
     },
   };

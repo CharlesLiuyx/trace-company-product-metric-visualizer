@@ -57,14 +57,10 @@
     'Subscription,', 'Services &amp;', 'Other revenue',
     'Primarily', 'subscription and services', '(media/data)',
   ]);
-  const subscriptionCaptionZh = `
-    <g class="sankey-interactive-annotation" data-node="subscription_services_other"
-       font-family="Noto Sans,Arial,sans-serif" text-anchor="middle">
-      <text x="210" y="702" font-size="40" font-weight="800" fill="${BLACK}">订阅、服务</text>
-      <text x="210" y="752" font-size="40" font-weight="800" fill="${BLACK}">及其他收入</text>
-      <text x="210" y="791" font-size="29" font-weight="400" fill="${NOTE}">主要为订阅与服务</text>
-      <text x="210" y="830" font-size="29" font-weight="400" fill="${NOTE}">（媒体/数据）</text>
-    </g>`;
+  const subscriptionCaptionZh = subscriptionCaption([
+    '订阅服务', '及其他', '收入',
+    '主要为', '订阅与服务', '（媒体/数据）',
+  ]);
 
   const tradingCaption = (name, firstNote, secondNote) => `
     <g class="sankey-interactive-annotation" data-node="trading_net"
@@ -463,7 +459,7 @@
           net_mark_to_market_investments: { label: '按市值计价及投资净收益' },
           pretax_income: { label: '税前利润' },
           operating_expenses: { label: '费用' },
-          tax_benefit: { label: '税收收益', valueText: '$0.1M' },
+          tax_benefit: { label: '税收收益' },
           net_income: { label: '净利润' },
           administrative: { label: '行政费用' },
           fv_liabilities_derivatives: { label: '负债及衍生品公允价值变动' },

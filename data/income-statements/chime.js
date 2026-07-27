@@ -23,7 +23,7 @@
         total: 647,
         notes: ['+25% Y/Y', 'Reported revenue was $647.387M; source chart rounds to $647M.'],
         items: [
-          { id: 'payment_revenue', label: 'Payment revenue', value: 433, notes: ['+16% Y/Y in the source chart; SEC reporting gives +15% from unrounded revenue.', 'Interchange-based fees'] },
+          { id: 'payment_revenue', label: 'Payment revenue', value: 433, notes: ['+16% Y/Y in the source chart; SEC reporting gives +15% Y/Y from unrounded revenue.', 'Interchange-based fees'] },
           { id: 'platform_related_revenue', label: 'Platform-related revenue', value: 215, notes: ['+50% Y/Y', 'Credit Builder, MyPay, SpotMe'] },
         ],
       },

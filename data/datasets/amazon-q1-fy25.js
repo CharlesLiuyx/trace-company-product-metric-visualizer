@@ -485,7 +485,7 @@
                   lines: [
                     { text: '销售与市场 ($9.8B)', size: 29, weight: 800, color: RED_LABEL },
                     { text: '占收入 6%', size: 28, weight: 400, color: NOTE },
-                    { text: '同比 (0 个百分点)', size: 28, weight: 400, color: NOTE },
+                    { text: '同比 (1 个百分点)', size: 28, weight: 400, color: NOTE },
                   ],
                 },
               ],

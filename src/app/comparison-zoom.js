@@ -52,8 +52,10 @@ function applyComparisonZoom() {
   }
   sankeyComparison?.querySelectorAll('.comparison-chart-host').forEach((host) => {
     const baseWidth = finiteNumber(host.dataset.baseWidth);
-    // floor so browser rounding can never push a packed row past the container
-    if (baseWidth != null) host.style.width = `${Math.max(1, Math.floor(baseWidth * zoom))}px`;
+    // Preserve the calibrated ratio even when an extreme cross-company
+    // comparison makes a chart narrower than one CSS pixel. Browser
+    // sub-pixel layout is more truthful than a 1px floor; zoom can reveal it.
+    if (baseWidth != null) host.style.width = `${baseWidth * zoom}px`;
   });
   syncComparisonZoomControls(zoom);
 }
@@ -73,8 +75,9 @@ function syncComparisonZoomControls(zoom = clampComparisonZoom(state.comparisonZ
 // makes the compositor re-rasterize every chart at each new scale, which
 // capped gestures at ~20-25 fps. Instead each chart is pre-rendered to a flat
 // bitmap after render, and during the gesture the flow is hidden while a
-// viewport-sized canvas draws those bitmaps directly — per frame that is just
-// a handful of texture blits and zero layout, style, or raster work.
+// viewport-sized canvas draws those bitmaps directly. A tiny, contained
+// skeleton flow resolves the browser's own sub-pixel width quantization once
+// per frame; the live SVG tree still performs no layout, style, or raster work.
 const COMPARISON_PROXY_MAX_WIDTH = 2048;
 let comparisonProxyGeneration = 0;
 function comparisonProxyTargetWidth(host, fallbackWidth) {
@@ -157,6 +160,10 @@ function hideComparisonZoomOverlay() {
   const overlay = document.getElementById('comparisonZoomOverlay');
   if (overlay) overlay.style.display = 'none';
 }
+function destroyComparisonPreviewResolver(gesture) {
+  gesture?.layoutResolver?.stage?.remove();
+  if (gesture) gesture.layoutResolver = null;
+}
 function cancelComparisonZoomGesture() {
   cancelComparisonCardZoom();
   hideComparisonZoomHint();
@@ -164,6 +171,7 @@ function cancelComparisonZoomGesture() {
   if (!gesture) return;
   window.clearTimeout(gesture.timer);
   if (gesture.frame) window.cancelAnimationFrame(gesture.frame);
+  destroyComparisonPreviewResolver(gesture);
   comparisonZoomGesture = null;
   sankeyComparison?.classList.remove('zoom-previewing');
   hideComparisonZoomOverlay();
@@ -183,6 +191,7 @@ function createComparisonZoomGesture(flow, committed) {
     overlay: null,
     ctx: null,
     tiles: [],
+    layoutResolver: null,
     placeholderBg: 'rgba(0, 0, 0, 0.05)',
     scale: 1,
     tx: 0,
@@ -225,50 +234,216 @@ function setComparisonZoom(value, anchor) {
   window.clearTimeout(gesture.timer);
   gesture.timer = window.setTimeout(commitComparisonZoom, COMPARISON_ZOOM_COMMIT_DELAY);
 }
-// mirrors the fixed flex gap of .comparison-flow in src/app.css
-const COMPARISON_FLOW_GAP = 8;
-// Exact replay of the committed flex-wrap layout at an arbitrary zoom: greedy
-// row filling, fixed gaps, centered rows, top-aligned cards. The preview draws
-// this instead of a uniform scale of the current geometry so fixed-size chrome
-// (gaps, card borders) stays constant on screen while the charts scale, and
-// the commit still lands pixel-identical to the last preview frame.
-function comparisonPreviewLayout(gesture, zoom) {
+function resolvedCssPixel(serialized, label) {
+  const match = String(serialized || '').trim().match(/^(-?(?:\d+(?:\.\d+)?|\.\d+))px$/i);
+  const value = match ? Number(match[1]) : NaN;
+  if (!Number.isFinite(value)) {
+    throw new Error(`Comparison layout requires ${label} to resolve to a finite px length`);
+  }
+  return value;
+}
+function requiredResolvedCssPixel(serialized, label) {
+  const value = resolvedCssPixel(serialized, label);
+  if (value < 0) {
+    throw new Error(`Comparison layout requires ${label} to resolve to a non-negative px length`);
+  }
+  return value;
+}
+// Measurement sandboxes are fixed-position siblings of the real comparison,
+// not body-level lookalikes. This preserves its inherited theme, font, and
+// ancestor-scoped `.comparison-view` geometry while keeping it out of the
+// visible flex layout. Reusable geometry must be class-scoped; duplicating the
+// live element id would make selectors and accessibility ambiguous.
+function createComparisonMeasurementStage(width, purpose) {
+  const stage = document.createElement('div');
+  stage.className = sankeyComparison?.className || 'comparison-view';
+  stage.classList.remove('zoom-previewing');
+  stage.classList.add(purpose);
+  stage.setAttribute('aria-hidden', 'true');
+  if (sankeyComparison) {
+    for (const attribute of sankeyComparison.attributes) {
+      if (attribute.name.startsWith('data-')) stage.setAttribute(attribute.name, attribute.value);
+    }
+    for (const property of sankeyComparison.style) {
+      if (property.startsWith('--')) {
+        stage.style.setProperty(property, sankeyComparison.style.getPropertyValue(property));
+      }
+    }
+  }
+  Object.assign(stage.style, {
+    position: 'fixed',
+    left: '-100000px',
+    top: '0',
+    width: `${width}px`,
+    opacity: '0',
+    pointerEvents: 'none',
+    zIndex: '-1',
+    contain: 'layout paint',
+  });
+  (sankeyComparison?.parentElement || document.body).appendChild(stage);
+  return stage;
+}
+function resolvedComparisonFlowMetrics(flow) {
+  if (!(flow instanceof Element) || !flow.isConnected) {
+    throw new Error('Comparison layout metrics require a connected flow');
+  }
+  const style = getComputedStyle(flow);
+  return {
+    columnGap: requiredResolvedCssPixel(style.columnGap, 'column-gap'),
+    rowGap: requiredResolvedCssPixel(style.rowGap, 'row-gap'),
+  };
+}
+// Fit observes the same connected flex/card tree that will be committed.
+// Measuring flex-outer-minus-host width incorporates resolved calc/rem values,
+// asymmetric borders, margins, and future card chrome without duplicating CSS
+// math. DOMRect excludes margins, so include their computed inline values
+// explicitly: margins participate in flex packing just as gaps do.
+function measureComparisonFitLayout(flow) {
+  const { columnGap, rowGap } = resolvedComparisonFlowMetrics(flow);
+  const card = document.createElement('section');
+  card.className = 'comparison-card';
+  card.innerHTML = `
+    <div class="comparison-chart-frame">
+      <div class="comparison-chart-host"></div>
+    </div>
+  `;
+  const frame = card.querySelector('.comparison-chart-frame');
+  const host = card.querySelector('.comparison-chart-host');
+  frame.style.maxWidth = '100%';
+  host.style.width = '100px';
+  host.style.height = '1px';
+  const empty = document.createElement('section');
+  empty.className = 'comparison-card empty';
+  try {
+    flow.append(card, empty);
+    const cardWidth = card.getBoundingClientRect().width;
+    const hostWidth = host.getBoundingClientRect().width;
+    const cardStyle = getComputedStyle(card);
+    const emptyStyle = getComputedStyle(empty);
+    const cardMargins = resolvedCssPixel(cardStyle.marginInlineStart, 'card margin-inline-start')
+      + resolvedCssPixel(cardStyle.marginInlineEnd, 'card margin-inline-end');
+    const emptyMargins = resolvedCssPixel(emptyStyle.marginInlineStart, 'empty-card margin-inline-start')
+      + resolvedCssPixel(emptyStyle.marginInlineEnd, 'empty-card margin-inline-end');
+    const emptyCardInlineSize = empty.getBoundingClientRect().width + emptyMargins;
+    const cardInlineFixed = cardWidth - hostWidth + cardMargins;
+    if (
+      !Number.isFinite(cardInlineFixed)
+      || cardInlineFixed < 0
+      || !Number.isFinite(emptyCardInlineSize)
+      || emptyCardInlineSize < 0
+    ) {
+      throw new Error('Comparison card fixed inline geometry did not resolve to a finite non-negative size');
+    }
+    return { columnGap, rowGap, cardInlineFixed, emptyCardInlineSize };
+  } finally {
+    card.remove();
+    empty.remove();
+  }
+}
+// The browser is the authority for serialized CSS lengths. Engines quantize
+// fractional widths before flex-wrap (and do not all promise the same private
+// layout unit), so arithmetic on the authored doubles can disagree in either
+// direction at a row boundary. This lightweight SVG-free mirror asks the
+// active engine for the exact card boxes it will commit.
+function createComparisonPreviewResolver(gesture) {
+  const stage = createComparisonMeasurementStage(
+    Math.round(gesture.baseContentWidth),
+    'comparison-preview-resolver'
+  );
+  const flow = document.createElement('div');
+  flow.className = gesture.flow?.className || 'comparison-flow';
+  flow.classList.remove('zoom-previewing');
+  stage.appendChild(flow);
+  const entries = gesture.cards.map((card) => {
+    const element = document.createElement('section');
+    element.className = card.className || 'comparison-card';
+    element.classList.remove('hover-linked');
+    let host = null;
+    if (card.hostBase != null) {
+      element.innerHTML = `
+        <div class="comparison-chart-frame">
+          <div class="comparison-chart-host"></div>
+        </div>
+      `;
+      const frame = element.querySelector('.comparison-chart-frame');
+      host = element.querySelector('.comparison-chart-host');
+      frame.style.maxWidth = '100%';
+      const ratioProbe = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      ratioProbe.setAttribute('viewBox', `0 0 1 ${card.aspect}`);
+      ratioProbe.setAttribute('aria-hidden', 'true');
+      host.appendChild(ratioProbe);
+    } else {
+      element.style.width = `${card.fixedWidth}px`;
+      element.style.height = `${card.fixedHeight}px`;
+      element.style.minHeight = '0';
+    }
+    flow.appendChild(element);
+    return { element, host };
+  });
+  return { stage, flow, entries };
+}
+function resolvedComparisonPreviewLayout(gesture, zoom) {
+  if (!gesture.layoutResolver) {
+    gesture.layoutResolver = createComparisonPreviewResolver(gesture);
+  }
+  const resolver = gesture.layoutResolver;
   const width = Math.round(gesture.baseContentWidth * zoom);
-  const items = gesture.cards.map((card) => {
-    const hostWidth = card.hostBase != null ? Math.max(1, Math.floor(card.hostBase * zoom)) : null;
+  resolver.stage.classList.toggle('zoomed', zoom > COMPARISON_ZOOM_MIN + 0.001);
+  resolver.stage.style.width = `${width}px`;
+  resolver.flow.style.width = `${width}px`;
+  resolver.entries.forEach(({ host }, index) => {
+    if (host) host.style.width = `${gesture.cards[index].hostBase * zoom}px`;
+  });
+  const flowRect = resolver.flow.getBoundingClientRect();
+  const items = resolver.entries.map(({ element, host }, index) => {
+    const card = gesture.cards[index];
+    const rect = element.getBoundingClientRect();
+    const hostRect = host?.getBoundingClientRect() || null;
     return {
       card,
-      hostWidth,
-      width: hostWidth != null ? hostWidth + card.chromeWidth : card.fixedWidth,
-      height: hostWidth != null ? hostWidth * card.aspect + card.chromeHeight : card.fixedHeight,
-      x: 0,
-      y: 0,
+      hostWidth: hostRect?.width ?? null,
+      hostHeight: hostRect?.height ?? null,
+      hostOffsetX: hostRect ? hostRect.left - rect.left : card.hostOffsetX,
+      hostOffsetY: hostRect ? hostRect.top - rect.top : card.hostOffsetY,
+      width: rect.width,
+      height: rect.height,
+      x: rect.left - flowRect.left,
+      y: rect.top - flowRect.top,
     };
   });
-  let rowStart = 0;
-  let x = 0;
-  let y = 0;
-  const closeRow = (end) => {
-    const offset = (width - (x - COMPARISON_FLOW_GAP)) / 2;
-    let rowHeight = 0;
-    for (let index = rowStart; index < end; index += 1) {
-      items[index].x += offset;
-      items[index].y = y;
-      rowHeight = Math.max(rowHeight, items[index].height);
-    }
-    y += rowHeight + COMPARISON_FLOW_GAP;
+  return { width: flowRect.width, height: flowRect.height, items };
+}
+function comparisonPreviewCardGeometry(card) {
+  const cardRect = card.getBoundingClientRect();
+  const host = card.querySelector('.comparison-chart-host');
+  const hostRect = host?.getBoundingClientRect() || null;
+  const hostBase = host ? finiteNumber(host.dataset.baseWidth) : null;
+  const viewBox = host?.querySelector(':scope > svg')?.viewBox?.baseVal;
+  const viewBoxAspect = viewBox?.width > 0 && viewBox?.height > 0
+    ? viewBox.height / viewBox.width
+    : null;
+  const paintedAspect = hostRect?.width > 0 && hostRect?.height > 0
+    ? hostRect.height / hostRect.width
+    : null;
+  // A positive calibrated base width is semantic geometry even if the active
+  // browser quantizes its fit-level box to 0px. The viewBox keeps zoom as the
+  // inspection path once that width grows past the engine's layout unit.
+  const scalable = hostBase != null && hostBase > 0;
+  return {
+    className: card.className,
+    hostBase: scalable ? hostBase : null,
+    // The committed SVG recomputes height from its viewBox at every width.
+    // A fit-level DOMRect ratio already contains two independent layout-unit
+    // roundings; scaling that approximation compounds the error.
+    aspect: scalable ? (viewBoxAspect || paintedAspect || 0) : 0,
+    chromeWidth: hostRect ? cardRect.width - hostRect.width : 0,
+    chromeHeight: hostRect ? cardRect.height - hostRect.height : 0,
+    hostOffsetX: hostRect ? hostRect.left - cardRect.left : 0,
+    hostOffsetY: hostRect ? hostRect.top - cardRect.top : 0,
+    fixedWidth: cardRect.width,
+    fixedHeight: cardRect.height,
+    bitmap: host?.querySelector('.comparison-zoom-proxy') || null,
   };
-  items.forEach((item, index) => {
-    if (index > rowStart && x + item.width > width + 0.5) {
-      closeRow(index);
-      rowStart = index;
-      x = 0;
-    }
-    item.x = x;
-    x += item.width + COMPARISON_FLOW_GAP;
-  });
-  if (items.length) closeRow(items.length);
-  return { width, height: Math.max(0, y - COMPARISON_FLOW_GAP), items };
 }
 function applyComparisonZoomPreview() {
   const gesture = comparisonZoomGesture;
@@ -298,25 +473,13 @@ function applyComparisonZoomPreview() {
     gesture.padBottom = Math.max(0, sankeyView.scrollHeight - (gesture.flowTop + flowRect.height));
     gesture.baseContentWidth = finiteNumber(flow.dataset.baseContentWidth)
       || flowRect.width / Math.max(gesture.committed, 0.001);
+    const flowMetrics = resolvedComparisonFlowMetrics(flow);
+    gesture.columnGap = flowMetrics.columnGap;
+    gesture.rowGap = flowMetrics.rowGap;
     // per-card geometry for the layout replay: the chart area scales with
     // zoom, the chrome around it (borders, empty-card boxes) does not
-    gesture.cards = [...flow.querySelectorAll(':scope > .comparison-card')].map((card) => {
-      const cardRect = card.getBoundingClientRect();
-      const host = card.querySelector('.comparison-chart-host');
-      const hostRect = host ? host.getBoundingClientRect() : null;
-      const hostBase = host ? finiteNumber(host.dataset.baseWidth) : null;
-      return {
-        hostBase: hostRect && hostRect.width > 0 ? hostBase : null,
-        aspect: hostRect && hostRect.width > 0 ? hostRect.height / hostRect.width : 0,
-        chromeWidth: hostRect ? cardRect.width - hostRect.width : 0,
-        chromeHeight: hostRect ? cardRect.height - hostRect.height : 0,
-        hostOffsetX: hostRect ? hostRect.left - cardRect.left : 0,
-        hostOffsetY: hostRect ? hostRect.top - cardRect.top : 0,
-        fixedWidth: cardRect.width,
-        fixedHeight: cardRect.height,
-        bitmap: host?.querySelector('.comparison-zoom-proxy') || null,
-      };
-    });
+    gesture.cards = [...flow.querySelectorAll(':scope > .comparison-card')]
+      .map(comparisonPreviewCardGeometry);
     const frame = sankeyComparison.querySelector('.comparison-chart-frame');
     if (frame) gesture.placeholderBg = getComputedStyle(frame).backgroundColor;
     const overlay = comparisonZoomOverlay();
@@ -349,7 +512,17 @@ function applyComparisonZoomPreview() {
   const contentY = (anchorY - gesture.flowTop - gesture.ty) / gesture.scale;
   gesture.tx = anchorX - gesture.flowLeft - scale * contentX;
   gesture.ty = anchorY - gesture.flowTop - scale * contentY;
-  const layout = comparisonPreviewLayout(gesture, gesture.pendingZoom);
+  let layout;
+  try {
+    layout = resolvedComparisonPreviewLayout(gesture, gesture.pendingZoom);
+  } catch (error) {
+    // Never strand the real flow hidden if the isolated resolver is rejected
+    // by an unexpected CSS/browser condition. Commit a normal sharp relayout.
+    console.error('[comparison-zoom] preview geometry resolution failed', error);
+    gesture.started = false;
+    commitComparisonZoom();
+    return;
+  }
   // the committed layout is a bounded scroll container (commit resolves to
   // scroll ≈ current scroll − t, clamped to [0, max]); clamping the preview to
   // that same range makes content pin to the edges while zooming out instead
@@ -370,9 +543,9 @@ function applyComparisonZoomPreview() {
     layout.items.forEach((item) => {
       const card = item.card;
       const chartWidthPx = item.hostWidth != null ? item.hostWidth : item.width;
-      const chartHeightPx = item.hostWidth != null ? item.hostWidth * card.aspect : item.height;
-      const x = (originX + item.x + card.hostOffsetX) * dpr;
-      const y = (originY + item.y + card.hostOffsetY) * dpr;
+      const chartHeightPx = item.hostHeight != null ? item.hostHeight : item.height;
+      const x = (originX + item.x + (item.hostOffsetX ?? card.hostOffsetX)) * dpr;
+      const y = (originY + item.y + (item.hostOffsetY ?? card.hostOffsetY)) * dpr;
       const width = chartWidthPx * dpr;
       const height = chartHeightPx * dpr;
       if (x >= overlayWidth || y >= overlayHeight || x + width <= 0 || y + height <= 0) return;
@@ -399,6 +572,7 @@ function commitComparisonZoom() {
   const commitStartedAt = performance.now();
   window.clearTimeout(gesture.timer);
   if (gesture.frame) window.cancelAnimationFrame(gesture.frame);
+  destroyComparisonPreviewResolver(gesture);
   comparisonZoomGesture = null;
   sankeyComparison?.classList.remove('zoom-previewing');
   hideComparisonZoomOverlay();
@@ -478,6 +652,7 @@ function finishComparisonCardZoomFlight() {
   if (!gesture || !gesture.morph) return;
   cancelComparisonCardZoom();
   window.clearTimeout(gesture.timer);
+  destroyComparisonPreviewResolver(gesture);
   comparisonZoomGesture = null;
   sankeyComparison?.classList.remove('zoom-previewing');
   hideComparisonZoomOverlay();
@@ -500,13 +675,18 @@ function zoomComparisonToCard(cardElement) {
   if (index < 0 || !host || hostBase == null) return;
   const hostRect = host.getBoundingClientRect();
   const cardRect = cardElement.getBoundingClientRect();
-  if (!(hostRect.width > 0) || !(hostRect.height > 0)) return;
+  const viewBox = host.querySelector(':scope > svg')?.viewBox?.baseVal;
+  const aspect = hostRect.width > 0 && hostRect.height > 0
+    ? hostRect.height / hostRect.width
+    : viewBox?.width > 0 && viewBox?.height > 0
+      ? viewBox.height / viewBox.width
+      : null;
+  if (!(hostBase > 0) || !(aspect > 0)) return;
   const viewRect = sankeyView.getBoundingClientRect();
   const margin = COMPARISON_CARD_ZOOM_MARGIN;
   // the chart area scales with zoom, the card chrome around it does not
   const chromeWidth = cardRect.width - hostRect.width;
   const chromeHeight = cardRect.height - hostRect.height;
-  const aspect = hostRect.height / hostRect.width;
   const targetZoom = clampComparisonZoom(Math.min(
     (Math.max(1, sankeyView.clientWidth - margin * 2) - chromeWidth) / hostBase,
     (Math.max(1, sankeyView.clientHeight - margin * 2) - chromeHeight) / (hostBase * aspect)

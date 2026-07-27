@@ -184,6 +184,7 @@
           { id: 'imaging_sensing', label: 'Imaging & Sensing', value: 2152, notes: ['+20% Y/Y', '17% operating margin'] },
           { id: 'other_revenue', label: 'Other', value: 89, notes: ['(8%) Y/Y'] },
           {
+            id: 'eliminations',
             label: 'Elimination',
             value: -327,
             notes: ['Shown as an elimination cost before consolidated Sales in the source chart.'],

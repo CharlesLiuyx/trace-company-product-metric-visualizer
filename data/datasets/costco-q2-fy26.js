@@ -20,17 +20,18 @@
   const icon = (name, x, y, scale = 1) => `
     <g transform="translate(${x} ${y}) scale(${scale})" data-typography-role="brand">${BUSINESS_ICONS[name] || ''}</g>`;
 
-  const kpiCard = (x, width, lines) => `
+  const kpiCard = (x, width, lines, fontFamily = 'Montserrat,Arial,sans-serif') => `
     <g>
       <rect x="${x}" y="1215" width="${width}" height="142" rx="24" fill="${KPI_BLUE}"/>
       ${lines.map((line, index) => `
         <text x="${x + width / 2}" y="${1257 + index * 37}" text-anchor="middle"
-          font-size="${index === 2 ? 28 : 29}" font-weight="${index === 2 ? 500 : 800}" fill="#ffffff">${line}</text>
+          font-family="${fontFamily}" font-size="${index === 2 ? 28 : 29}"
+          font-weight="${index === 2 ? 500 : 800}" fill="#ffffff">${line}</text>
       `).join('')}
     </g>`;
 
   const membershipCardsZh = (x, y) => `
-    <g transform="translate(${x} ${y})" data-typography-role="brand">
+    <g transform="translate(${x} ${y}) scale(1)" data-typography-role="brand">
       <g>
         <rect x="0" y="5" width="145" height="96" rx="8" fill="#ffffff" stroke="#9ea3a8" stroke-width="1.4"/>
         <text x="15" y="39" font-family="Arial Black, Arial, sans-serif" font-size="29" font-style="italic" font-weight="900"
@@ -71,12 +72,12 @@
     </g>`;
 
   const annotationsZh = `
-    <g font-family="Montserrat,Arial,'Microsoft YaHei',sans-serif">
+    <g font-family="Montserrat,Arial,sans-serif">
       ${icon('costcoCompanyWordmark', 560, 235, 1)}
       ${membershipCardsZh(45, 1072)}
-      ${kpiCard(36, 276, ['调整后美国', '可比销售额', '同比 +6.4%'])}
-      ${kpiCard(320, 330, ['调整后公司', '可比销售额', '同比 +6.7%'])}
-      ${kpiCard(660, 276, ['调整后', '数字化可比销售额', '同比 +21.7%'])}
+      ${kpiCard(36, 276, ['调整后美国', '可比销售额', '同比 +6.4%'], "Montserrat,Arial,'Microsoft YaHei',sans-serif")}
+      ${kpiCard(320, 330, ['调整后公司', '可比销售额', '同比 +6.7%'], "Montserrat,Arial,'Microsoft YaHei',sans-serif")}
+      ${kpiCard(660, 276, ['调整后', '数字化可比销售额', '同比 +21.7%'], "Montserrat,Arial,'Microsoft YaHei',sans-serif")}
     </g>`;
 
   window.DATASETS = window.DATASETS || [];

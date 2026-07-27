@@ -257,13 +257,20 @@
       : {};
   }
 
+  function effectiveRenderConfig(data, overrides) {
+    const d = data || {};
+    return deepMerge(
+      deepMerge(deepMerge(DEFAULTS, referenceCanvasDefaults(d)), d.render || {}),
+      overrides
+    );
+  }
+
   // Effective canvas size for a dataset, computed through the same config
   // merge render() applies (data.render beats meta.referenceImage beats
   // DEFAULTS). The viewer sizes chart cards with this so card geometry can
   // never drift from the rendered SVG's viewBox.
   function canvasSize(data) {
-    const d = data || {};
-    const cfg = deepMerge(deepMerge(DEFAULTS, referenceCanvasDefaults(d)), d.render || {});
+    const cfg = effectiveRenderConfig(data);
     return { width: cfg.width, height: cfg.height };
   }
 
@@ -489,14 +496,27 @@
     const semanticNodes = (data.nodes || []).map((node) => Object.assign({}, node));
     const semanticIds = new Set();
     semanticNodes.forEach((node) => {
-      if (!node.id) throw new Error('Sankey nodes require a stable id');
+      if (
+        typeof node.id !== 'string'
+        || !node.id
+        || node.id.trim() !== node.id
+      ) {
+        throw new Error('Sankey nodes require a non-empty canonical string id');
+      }
       if (semanticIds.has(node.id)) throw new Error(`Duplicate Sankey node id: ${node.id}`);
       semanticIds.add(node.id);
     });
 
     const nonNodeMetrics = new Map();
     (data.nonNodeMetrics || []).forEach((metric) => {
-      if (!metric || !metric.id) throw new Error('nonNodeMetrics entries require a stable id');
+      if (
+        !metric
+        || typeof metric.id !== 'string'
+        || !metric.id
+        || metric.id.trim() !== metric.id
+      ) {
+        throw new Error('nonNodeMetrics entries require a non-empty canonical string id');
+      }
       if (semanticIds.has(metric.id) || nonNodeMetrics.has(metric.id)) {
         throw new Error(`nonNodeMetrics id collides with another metric: ${metric.id}`);
       }
@@ -508,10 +528,18 @@
     (data.links || []).forEach((link, index) => {
       for (const side of ['source', 'target']) {
         const routeField = `${side}Route`;
-        const hasNode = typeof link[side] === 'string' && link[side];
-        const hasRoute = typeof link[routeField] === 'string' && link[routeField];
+        const nodeId = link[side];
+        const routeId = link[routeField];
+        const hasNode = typeof nodeId === 'string' && Boolean(nodeId);
+        const hasRoute = typeof routeId === 'string' && Boolean(routeId);
         if (Boolean(hasNode) === Boolean(hasRoute)) {
           throw new Error(`Sankey link ${index} requires exactly one of ${side} or ${routeField}`);
+        }
+        if (
+          (hasNode && nodeId.trim() !== nodeId)
+          || (hasRoute && routeId.trim() !== routeId)
+        ) {
+          throw new Error(`Sankey link ${index} ${side} id must be a canonical string`);
         }
         if (hasNode && !semanticIds.has(link[side])) {
           throw new Error(`Sankey link ${index} references unknown ${side} node: ${link[side]}`);
@@ -638,6 +666,250 @@
     return { nodes: graphNodes, links: graphLinks };
   }
 
+  // Compile the exact graph geometry consumed by render(). Keeping fixed and
+  // dynamic layout behind this private Seam gives tooling one renderer-owned
+  // source of truth instead of asking callers to reinterpret Adapter fields.
+  function compileGraph(data, cfg) {
+    const graphInput = prepareGraphInput(data);
+    const nodes = graphInput.nodes;
+    const links = graphInput.links;
+    const nCols = 1 + nodes
+      .filter((node) => !node.routeOnly)
+      .reduce((m, n) => Math.max(m, n.col || 0), 0);
+    const fixed = Boolean(data?.layout?.nodes);
+    let graph;
+
+    if (fixed) {
+      graph = buildFixedGraph(nodes, links, data, cfg);
+    } else {
+      const d3 = global.d3;
+      if (!d3 || !d3.sankey) {
+        throw new Error('d3 and d3-sankey are required to compile a dynamic Sankey graph');
+      }
+      const sankey = d3
+        .sankey()
+        .nodeWidth(cfg.nodeWidth)
+        .nodePadding(cfg.nodePadding)
+        .nodeAlign((n) => (n.col != null ? n.col : n.depth))
+        .nodeSort((a, b) => (a.order || 0) - (b.order || 0))
+        .linkSort(
+          (a, b) =>
+            (a.source.order || 0) - (b.source.order || 0) ||
+            (a.target.order || 0) - (b.target.order || 0)
+        )
+        .extent([
+          [cfg.margin.left, cfg.margin.top],
+          [cfg.width - cfg.margin.right, cfg.height - cfg.margin.bottom],
+        ]);
+
+      graph = sankey({
+        nodes: nodes.map((node) => Object.assign({}, node)),
+        links: links.map((link) => Object.assign({}, link)),
+      });
+    }
+
+    graph.links.forEach((link) => {
+      const raw = link.raw || {};
+      link.sourceWidth = raw.sourceWidth != null ? raw.sourceWidth : link.width;
+      link.targetWidth = raw.targetWidth != null ? raw.targetWidth : link.width;
+    });
+
+    // d3-sankey overwrites node.value with its computed flow sum. Preserve the
+    // authored value once here so rendering and geometry inspection divide by
+    // the same semantic amount.
+    const authoredValue = new Map(nodes.map((node) => [node.id, node.value]));
+    graph.nodes.filter((node) => !node.routeOnly).forEach((node) => {
+      node.dv = authoredValue.has(node.id) ? authoredValue.get(node.id) : node.value;
+    });
+
+    return {
+      graph,
+      graphInput,
+      nCols,
+      layoutMode: fixed ? 'fixed' : 'dynamic',
+    };
+  }
+
+  function uncalibratedNodeScale(anchorNodeId, reason, message = '') {
+    return Object.freeze({
+      status: 'uncalibrated',
+      anchorNodeId,
+      reason,
+      message,
+    });
+  }
+
+  // A semantic node can be authored below one viewBox unit, but render()
+  // paints a minimum one-unit face so the object remains visible. Calibration
+  // must consume that same final face geometry, not the pre-paint thickness.
+  function visibleNodeFaceHeight(node) {
+    if (
+      typeof node?.y0 !== 'number'
+      || !Number.isFinite(node.y0)
+      || typeof node?.y1 !== 'number'
+      || !Number.isFinite(node.y1)
+    ) {
+      return NaN;
+    }
+    return Math.max(1, node.y1 - node.y0);
+  }
+
+  // Renderer-owned native value scale. The Interface reports the actual
+  // compiled node-face thickness in viewBox units, regardless of whether it
+  // came from explicit fixed geometry, renderer ky fallback, or d3 layout.
+  // It deliberately knows nothing about currency, Metric SSOT, fit, or zoom.
+  function measureNodeValueScale(data, anchorNodeId, overrides) {
+    if (
+      typeof anchorNodeId !== 'string'
+      || !anchorNodeId
+      || anchorNodeId.trim() !== anchorNodeId
+    ) {
+      return uncalibratedNodeScale('', 'invalid-anchor-id');
+    }
+    const id = anchorNodeId;
+
+    let compiled;
+    let cfg;
+    try {
+      cfg = effectiveRenderConfig(data, overrides);
+      if (
+        typeof cfg.width !== 'number'
+        || !Number.isFinite(cfg.width)
+        || cfg.width <= 0
+        || typeof cfg.height !== 'number'
+        || !Number.isFinite(cfg.height)
+        || cfg.height <= 0
+      ) {
+        return uncalibratedNodeScale(id, 'invalid-canvas-geometry');
+      }
+      compiled = compileGraph(data || {}, cfg);
+    } catch (error) {
+      return uncalibratedNodeScale(id, 'layout-error', error?.message || String(error));
+    }
+    const canvasWidth = cfg.width;
+    const canvasHeight = cfg.height;
+
+    const node = compiled.graph.nodes.find((candidate) => (
+      !candidate.routeOnly && candidate.id === id
+    ));
+    if (!node) return uncalibratedNodeScale(id, 'missing-anchor-node');
+
+    const authoredValue = node.dv;
+    if (
+      typeof authoredValue !== 'number'
+      || !Number.isFinite(authoredValue)
+      || authoredValue === 0
+    ) {
+      return uncalibratedNodeScale(id, 'zero-or-invalid-anchor-value');
+    }
+    const compiledHeight = (
+      typeof node.y0 === 'number'
+      && typeof node.y1 === 'number'
+    ) ? node.y1 - node.y0 : NaN;
+    if (!Number.isFinite(compiledHeight) || compiledHeight <= 0) {
+      return uncalibratedNodeScale(id, 'non-positive-anchor-geometry');
+    }
+    const renderedHeight = visibleNodeFaceHeight(node);
+
+    const viewUnitsPerValue = renderedHeight / Math.abs(authoredValue);
+    if (!Number.isFinite(viewUnitsPerValue) || viewUnitsPerValue <= 0) {
+      return uncalibratedNodeScale(id, 'non-positive-value-scale');
+    }
+
+    const fixedHeight = Number(data?.layout?.nodes?.[id]?.height);
+    const provenance = compiled.layoutMode === 'dynamic'
+      ? 'dynamic-layout'
+      : Number.isFinite(fixedHeight) && fixedHeight > 0
+        ? 'fixed-node'
+        : 'fixed-derived';
+
+    return Object.freeze({
+      status: 'calibrated',
+      anchorNodeId: id,
+      anchorRole: node.type,
+      authoredValue,
+      renderedHeight,
+      viewUnitsPerValue,
+      layoutMode: compiled.layoutMode,
+      provenance,
+      coordinateSpace: 'viewBox',
+      canvasWidth,
+      canvasHeight,
+    });
+  }
+
+  // Post-render Geometry Interface for callers that need to bind a compiled
+  // plan to one exact SVG instance. Renderer-owned D3 datum details stay
+  // private; consumers receive the same typed scale vocabulary as the
+  // pre-render measurement Interface.
+  function measureRenderedNodeValueScale(target, anchorNodeId) {
+    if (
+      typeof anchorNodeId !== 'string'
+      || !anchorNodeId
+      || anchorNodeId.trim() !== anchorNodeId
+    ) {
+      return uncalibratedNodeScale('', 'invalid-anchor-id');
+    }
+    const id = anchorNodeId;
+    if (!target || typeof target.querySelectorAll !== 'function') {
+      return uncalibratedNodeScale(id, 'invalid-render-target');
+    }
+    const faces = [...target.querySelectorAll('rect.sankey-node[data-node]')]
+      .filter((face) => face.getAttribute('data-node') === id);
+    if (faces.length !== 1) {
+      return uncalibratedNodeScale(
+        id,
+        'ambiguous-rendered-anchor',
+        `Expected one rendered node face, found ${faces.length}`
+      );
+    }
+    const face = faces[0];
+    const svg = face.ownerSVGElement;
+    const viewBox = svg?.viewBox?.baseVal;
+    const canvasWidth = Number(viewBox?.width);
+    const canvasHeight = Number(viewBox?.height);
+    if (
+      !svg
+      || Number(viewBox?.x) !== 0
+      || Number(viewBox?.y) !== 0
+      || !Number.isFinite(canvasWidth)
+      || canvasWidth <= 0
+      || !Number.isFinite(canvasHeight)
+      || canvasHeight <= 0
+    ) {
+      return uncalibratedNodeScale(id, 'invalid-rendered-canvas-geometry');
+    }
+    const authoredValue = face.__data__?.dv;
+    const anchorRole = face.__data__?.type;
+    const renderedHeight = Number(face.getAttribute('height'));
+    if (
+      typeof authoredValue !== 'number'
+      || !Number.isFinite(authoredValue)
+      || authoredValue === 0
+    ) {
+      return uncalibratedNodeScale(id, 'zero-or-invalid-anchor-value');
+    }
+    if (!Number.isFinite(renderedHeight) || renderedHeight <= 0) {
+      return uncalibratedNodeScale(id, 'non-positive-anchor-geometry');
+    }
+    const viewUnitsPerValue = renderedHeight / Math.abs(authoredValue);
+    if (!Number.isFinite(viewUnitsPerValue) || viewUnitsPerValue <= 0) {
+      return uncalibratedNodeScale(id, 'non-positive-value-scale');
+    }
+    return Object.freeze({
+      status: 'calibrated',
+      anchorNodeId: id,
+      anchorRole,
+      authoredValue,
+      renderedHeight,
+      viewUnitsPerValue,
+      provenance: 'rendered-dom',
+      coordinateSpace: 'viewBox',
+      canvasWidth,
+      canvasHeight,
+    });
+  }
+
   function taperedLinkPath(lk) {
     const curve = lk.raw && lk.raw.curve;
     const x0 = curve && curve.x0 != null ? curve.x0 : lk.source.x1;
@@ -687,6 +959,75 @@
     ];
   }
 
+  const SAFE_SVG_FRAGMENT_TAGS = new Set([
+    'circle', 'clippath', 'defs', 'ellipse', 'g', 'line', 'lineargradient',
+    'path', 'polygon', 'radialgradient', 'rect', 'stop', 'svg', 'text', 'tspan',
+  ]);
+
+  function decodeSvgMarkupEntities(value) {
+    return String(value || '').replace(
+      /&(#x?[0-9a-f]+|amp|lt|gt|quot|apos);/gi,
+      (entity, body) => {
+        const key = body.toLowerCase();
+        if (key === 'amp') return '&';
+        if (key === 'lt') return '<';
+        if (key === 'gt') return '>';
+        if (key === 'quot') return '"';
+        if (key === 'apos') return "'";
+        const codePoint = key.startsWith('#x')
+          ? parseInt(key.slice(2), 16)
+          : parseInt(key.slice(1), 10);
+        return Number.isFinite(codePoint) ? String.fromCodePoint(codePoint) : entity;
+      }
+    );
+  }
+
+  function assertSafeSvgFragments(fragments) {
+    const list = Array.isArray(fragments) ? fragments : [fragments];
+    for (const fragment of list) {
+      if (fragment == null || !String(fragment).trim()) continue;
+      let markup = String(fragment);
+      for (let pass = 0; pass < 3; pass += 1) {
+        const decoded = decodeSvgMarkupEntities(markup);
+        if (decoded === markup) break;
+        markup = decoded;
+      }
+      const checkedMarkup = markup.replace(/<!--[\s\S]*?-->/g, '');
+      if (/<!--|-->/.test(checkedMarkup) || /<\s*[!?]/.test(checkedMarkup)) {
+        throw new Error('Sankey SVG annotations contain unsupported markup');
+      }
+      const tagPattern = /<\s*(\/?)\s*([A-Za-z][\w:.-]*)\b[^>]*>/g;
+      let match;
+      while ((match = tagPattern.exec(checkedMarkup))) {
+        const tagName = match[2].toLowerCase();
+        if (!SAFE_SVG_FRAGMENT_TAGS.has(tagName)) {
+          throw new Error(`Sankey SVG annotations cannot contain <${match[2]}> elements`);
+        }
+        const tagMarkup = match[0];
+        if (
+          /(?:\s|\/)on[a-z][\w:.-]*\s*=/i.test(tagMarkup)
+          || /\b(?:href|xlink:href|src)\s*=/i.test(tagMarkup)
+          || /\b(?:expression\s*\(|@import\b)/i.test(tagMarkup)
+        ) {
+          throw new Error('Sankey SVG annotations contain unsafe attributes');
+        }
+      }
+      if (checkedMarkup.replace(tagPattern, '').includes('<')) {
+        throw new Error('Sankey SVG annotations contain malformed markup');
+      }
+      const compactMarkup = checkedMarkup.replace(/[\u0000-\u0020\u007f]+/g, '');
+      if (/(?:javascript|vbscript|data:text\/html):/i.test(compactMarkup)) {
+        throw new Error('Sankey SVG annotations contain an unsafe URL');
+      }
+      for (const urlMatch of checkedMarkup.matchAll(/\burl\s*\(\s*([^)]*?)\s*\)/gi)) {
+        const target = urlMatch[1].trim().replace(/^(['"])(.*)\1$/, '$2');
+        if (!/^#[A-Za-z_][\w:.-]*$/.test(target)) {
+          throw new Error('Sankey SVG annotations may only reference local SVG definitions');
+        }
+      }
+    }
+  }
+
   function appendSvgFragments(parent, fragments, className) {
     const list = Array.isArray(fragments) ? fragments : [fragments];
     const html = list
@@ -694,9 +1035,7 @@
       .map(String)
       .join('\n');
     if (!html) return null;
-    if (/<image(?:\s|>)/i.test(html)) {
-      throw new Error('Sankey SVG annotations cannot contain <image> elements');
-    }
+    assertSafeSvgFragments(html);
     return parent.append('g').attr('class', className).html(html);
   }
 
@@ -775,10 +1114,7 @@
       throw new Error('d3 and d3-sankey must be loaded before sankey-engine.js');
     }
     const d3 = global.d3;
-    const cfg = deepMerge(
-      deepMerge(deepMerge(DEFAULTS, referenceCanvasDefaults(data)), data.render || {}),
-      overrides
-    );
+    const cfg = effectiveRenderConfig(data, overrides);
     const meta = data.meta || {};
     const ICONS = global.SANKEY_ICONS || {};
 
@@ -812,51 +1148,8 @@
     const defs = svg.append('defs');
 
     /* ---------- build the graph for d3-sankey ---------- */
-    const graphInput = prepareGraphInput(data);
-    const nodes = graphInput.nodes;
-    const links = graphInput.links;
-    const nCols = 1 + nodes
-      .filter((node) => !node.routeOnly)
-      .reduce((m, n) => Math.max(m, n.col || 0), 0);
-
-    let graph;
-    if (data.layout && data.layout.nodes) {
-      graph = buildFixedGraph(nodes, links, data, cfg);
-    } else {
-      const sankey = d3
-        .sankey()
-        .nodeWidth(cfg.nodeWidth)
-        .nodePadding(cfg.nodePadding)
-        .nodeAlign((n) => (n.col != null ? n.col : n.depth)) // honour manual columns
-        .nodeSort((a, b) => (a.order || 0) - (b.order || 0)) // honour manual vertical order
-        // stack links in node order at both ends → no needless crossings
-        .linkSort(
-          (a, b) =>
-            (a.source.order || 0) - (b.source.order || 0) ||
-            (a.target.order || 0) - (b.target.order || 0)
-        )
-        .extent([
-          [cfg.margin.left, cfg.margin.top],
-          [W - cfg.margin.right, H - cfg.margin.bottom],
-        ]);
-
-      graph = sankey({
-        nodes: nodes.map((d) => Object.assign({}, d)),
-        links: links.map((d) => Object.assign({}, d)),
-      });
-    }
-
-    graph.links.forEach((lk) => {
-      const raw = lk.raw || {};
-      lk.sourceWidth = raw.sourceWidth != null ? raw.sourceWidth : lk.width;
-      lk.targetWidth = raw.targetWidth != null ? raw.targetWidth : lk.width;
-    });
-
-    // preserve the author's display value (sankey overwrites .value)
-    const authoredValue = new Map(nodes.map((n) => [n.id, n.value]));
-    graph.nodes.filter((n) => !n.routeOnly).forEach((n) => {
-      n.dv = authoredValue.has(n.id) ? authoredValue.get(n.id) : n.value;
-    });
+    const compiled = compileGraph(data, cfg);
+    const { graph, graphInput, nCols } = compiled;
 
     /* ---------- colour resolvers ---------- */
     const nodeColor = (n) =>
@@ -960,7 +1253,7 @@
         .attr('x', n.x0)
         .attr('y', n.y0)
         .attr('width', n.x1 - n.x0)
-        .attr('height', Math.max(1, n.y1 - n.y0))
+        .attr('height', visibleNodeFaceHeight(n))
         .attr('fill', nodeColor(n))
         .attr('rx', cfg.nodeRadius)
         .style('cursor', 'pointer');
@@ -1748,6 +2041,10 @@
 
   global.SankeyEngine = {
     render,
+    // Public renderer Geometry Interface. Currency/SSOT/fit stay outside;
+    // compileGraph remains private so callers cannot reproduce layout rules.
+    measureNodeValueScale,
+    measureRenderedNodeValueScale,
     DEFAULTS,
     // Pure helpers exposed for unit tests, tooling, and the viewer's chart
     // sizing (canvasSize); render() behavior is unchanged. buildFixedGraph
@@ -1767,6 +2064,7 @@
       linkCenterlinePoint,
       referenceCanvasDefaults,
       canvasSize,
+      assertSafeSvgFragments,
       buildLabelSpecs,
       decollideSideLabels,
     },

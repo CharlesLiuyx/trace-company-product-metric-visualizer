@@ -143,7 +143,7 @@ function validateCompanyMetadata(records, companies, errors) {
   }
 }
 
-function validateDatasetParity(record, dataset, errors) {
+function validateDatasetParity(record, dataset, domain, errors) {
   const tolerance = record.roundingTolerance ?? 0.15;
   const nodeById = new Map((dataset.nodes || []).map((node) => [node.id, node]));
   const nonNodeById = new Map();
@@ -208,13 +208,27 @@ function validateDatasetParity(record, dataset, errors) {
     const nonNode = nonNodeById.get(item.id);
     if (nonNode) {
       if (typeof nonNode.value === 'number') {
-        assertClose(item.value, nonNode.value, tolerance, `${record.key}: ${label} ${item.id}`, errors);
+        assertClose(
+          domain.normalizeSankeyMetricValue(item.value, nonNode.type),
+          domain.normalizeSankeyMetricValue(nonNode.value, nonNode.type),
+          tolerance,
+          `${record.key}: ${label} ${item.id}`,
+          errors
+        );
       }
       return;
     }
     const node = nodeById.get(item.id);
     assert(node, `${record.key}: missing Sankey node for ${label} "${item.id}"`, errors);
-    if (node) assertClose(item.value, node.value, tolerance, `${record.key}: ${label} ${item.id}`, errors);
+    if (node) {
+      assertClose(
+        domain.normalizeSankeyMetricValue(item.value, node.type),
+        domain.normalizeSankeyMetricValue(node.value, node.type),
+        tolerance,
+        `${record.key}: ${label} ${item.id}`,
+        errors
+      );
+    }
   };
 
   checkNode({ id: 'revenue', value: record.revenue.total }, 'revenue total');
@@ -339,17 +353,19 @@ function validateCurrencyCoverage({ records, revenueRecords, companies, datasets
     errors.push('src/trace-domain.js did not expose TraceDomain; currency coverage checks cannot run');
     return;
   }
-  const { currencyCode, currencyUnitsPerUsd, MONEY_UNIT_MULTIPLIERS } = domain;
-  const knownUnit = (unit) => Object.prototype.hasOwnProperty.call(MONEY_UNIT_MULTIPLIERS, String(unit || '').trim().toUpperCase());
+  const { strictMoneyDimension, strictSankeyMoneyDimension } = domain;
+  if (
+    typeof strictMoneyDimension !== 'function'
+    || typeof strictSankeyMoneyDimension !== 'function'
+  ) {
+    errors.push('src/trace-domain.js did not expose the authoritative Sankey money contracts');
+    return;
+  }
   // Unknown currencies make amountValueUsd return null, which silently drops the
   // company from cross-currency totals and comparison scaling at runtime.
   const assertConvertible = (label, currency, unit) => {
-    assert(
-      currencyUnitsPerUsd(currency) != null,
-      `${label}: currency "${currency}" has no USD rate in trace-domain USD_FX_SNAPSHOT`,
-      errors
-    );
-    assert(knownUnit(unit), `${label}: unknown money unit "${unit}"`, errors);
+    const dimension = strictMoneyDimension(currency, unit);
+    assert(dimension.status === 'valid', `${label}: invalid money dimension (${dimension.code})`, errors);
   };
 
   for (const record of records) assertConvertible(record.key, record.currency, record.unit);
@@ -359,17 +375,10 @@ function validateCurrencyCoverage({ records, revenueRecords, companies, datasets
   for (const dataset of datasets) {
     const record = recordByKey.get(dataset.key);
     if (!record) continue;
-    const metaCurrency = String(dataset.meta?.currency ?? '').trim();
-    if (metaCurrency) {
-      assert(
-        currencyCode(metaCurrency) === currencyCode(record.currency),
-        `${dataset.key}: dataset meta.currency "${metaCurrency}" disagrees with SSOT currency "${record.currency}"`,
-        errors
-      );
-    }
+    const joinedDimension = strictSankeyMoneyDimension(dataset.meta, record);
     assert(
-      String(dataset.meta?.unit ?? '') === String(record.unit ?? ''),
-      `${dataset.key}: dataset meta.unit "${dataset.meta?.unit}" disagrees with SSOT unit "${record.unit}"`,
+      joinedDimension.status === 'valid',
+      `${dataset.key}: Sankey/SSOT money dimension disagrees (${joinedDimension.code})`,
       errors
     );
   }
@@ -380,7 +389,65 @@ function validateCurrencyCoverage({ records, revenueRecords, companies, datasets
     if (Number.isFinite(marketCap.valueUsd ?? marketCap.usd)) continue;
     const label = company.name || company.key || '<company>';
     assert(Number.isFinite(marketCap.value), `${label}: marketCap needs valueUsd or a numeric value`, errors);
-    assertConvertible(`${label} marketCap`, marketCap.currency || marketCap.currencyCode || '$', marketCap.unit);
+    assertConvertible(`${label} marketCap`, marketCap.currency ?? marketCap.currencyCode, marketCap.unit);
+  }
+}
+
+function validateComparisonScale({ context, records, datasets }, errors) {
+  const comparisonScale = context?.TraceComparisonScale;
+  if (!comparisonScale?.createPlan) {
+    errors.push('src/comparison-scale.js did not expose TraceComparisonScale.createPlan; comparison calibration checks cannot run');
+    return;
+  }
+
+  const recordsByKey = new Map(records.map((record) => [record.key, record]));
+  let plan;
+  try {
+    plan = comparisonScale.createPlan(
+      datasets.map((dataset) => ({
+        dataset,
+        financial: recordsByKey.get(dataset.key),
+      }))
+    );
+  } catch (error) {
+    errors.push(`Comparison scale could not create an all-dataset plan: ${error?.message || String(error)}`);
+    return;
+  }
+
+  const diagnosticText = (plan?.diagnostics || [])
+    .map((diagnostic) => {
+      const location = [diagnostic.key, diagnostic.stage, diagnostic.code].filter(Boolean).join('/');
+      return `${location || '<unknown>'}${diagnostic.message ? `: ${diagnostic.message}` : ''}`;
+    })
+    .join('; ');
+  assert(
+    plan?.status === 'calibrated',
+    `Comparison scale all-dataset plan is not calibrated${diagnosticText ? ` (${diagnosticText})` : ''}`,
+    errors
+  );
+  if (plan?.status !== 'calibrated') return;
+
+  assert(
+    Number.isFinite(plan.commonViewUnitsPerUsd) && plan.commonViewUnitsPerUsd > 0,
+    `Comparison scale commonViewUnitsPerUsd must be finite and positive, got ${plan.commonViewUnitsPerUsd}`,
+    errors
+  );
+  assert(
+    plan.measurements?.length === datasets.length,
+    `Comparison scale measured ${plan.measurements?.length ?? 0} of ${datasets.length} registered dataset(s)`,
+    errors
+  );
+  if (typeof plan.factorFor !== 'function') {
+    errors.push('Comparison scale calibrated plan did not expose factorFor');
+    return;
+  }
+  for (const dataset of datasets) {
+    const factor = plan.factorFor(dataset.key);
+    assert(
+      Number.isFinite(factor) && factor > 0,
+      `${dataset.key}: comparison normalization factor must be finite and positive, got ${factor}`,
+      errors
+    );
   }
 }
 
@@ -498,9 +565,23 @@ function main() {
     'company-metadata SSOT'
   );
 
-  const loaded = loadBrowserData({ runtime: ['src/trace-domain.js'], datasetScripts: scripts });
+  const loaded = loadBrowserData({
+    runtime: [
+      'vendor/d3.min.js',
+      'vendor/d3-sankey.min.js',
+      'src/sankey-engine.js',
+      'src/trace-domain.js',
+      'src/comparison-scale.js',
+    ],
+    datasetScripts: scripts,
+  });
   const { records, revenueRecords, companies, datasets } = loaded;
   const errors = [];
+  assert(
+    typeof loaded.domain?.normalizeSankeyMetricValue === 'function',
+    'src/trace-domain.js did not expose normalizeSankeyMetricValue; SSOT-to-Sankey sign normalization cannot run',
+    errors
+  );
   const datasetKeys = scripts.map((script) => path.basename(script, '.js'));
   const recordKeys = records.map((record) => record.key);
   const uniqueRecordKeys = new Set(recordKeys);
@@ -519,7 +600,9 @@ function main() {
     validateRecordShape(record, errors);
     const dataset = datasetsByKey.get(record.key);
     assert(dataset, `${record.key}: matching Sankey dataset was not loaded`, errors);
-    if (dataset) validateDatasetParity(record, dataset, errors);
+    if (dataset && typeof loaded.domain?.normalizeSankeyMetricValue === 'function') {
+      validateDatasetParity(record, dataset, loaded.domain, errors);
+    }
     validateArithmetic(record, errors);
   }
   const revenueKeys = revenueRecords.map((record) => record.key);
@@ -527,6 +610,7 @@ function main() {
   for (const record of revenueRecords) validateRevenueMetric(record, errors);
   validateCompanyMetadata([...records, ...revenueRecords], companies, errors);
   validateCurrencyCoverage(loaded, errors);
+  validateComparisonScale(loaded, errors);
 
   if (errors.length) {
     console.error(`SSOT verification failed with ${errors.length} error(s):`);

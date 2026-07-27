@@ -16,26 +16,26 @@
   const RED_LINK = '#e08585';
 
   const arches = '<path fill="' + ARCH_GOLD + '" d="M0 199V100C0 42 29 0 70 0c25 0 46 17 58 48C140 17 161 0 186 0c41 0 70 42 70 100v99h-31v-99c0-37-16-64-40-64s-40 27-40 64v99H88v-99c0-37-16-64-40-64S31 63 31 100v99z"/>';
-  const card = (x, width, title, lines) =>
+  const card = (x, width, title, lines, fontFamily = 'Noto Sans,Arial,sans-serif') =>
     '<g><rect x="' + x + '" y="1202" width="' + width + '" height="149" rx="29" fill="#000"/>' +
-    '<text x="' + (x + width / 2) + '" y="1257" text-anchor="middle" font-size="29" font-weight="800" fill="#fff">' + title + '</text>' +
-    lines.map((line, index) => '<text x="' + (x + width / 2) + '" y="' + (lines.length === 1 ? 1307 : 1293 + index * 31) + '" text-anchor="middle" font-size="24" fill="#fff">' + line + '</text>').join('') +
+    '<text x="' + (x + width / 2) + '" y="1257" text-anchor="middle" font-family="' + fontFamily + '" font-size="29" font-weight="800" fill="#fff">' + title + '</text>' +
+    lines.map((line, index) => '<text x="' + (x + width / 2) + '" y="' + (lines.length === 1 ? 1307 : 1293 + index * 31) + '" text-anchor="middle" font-family="' + fontFamily + '" font-size="24" fill="#fff">' + line + '</text>').join('') +
     '</g>';
-  const otherAnnotation = (label) =>
+  const otherAnnotation = (label, fontFamily = 'Noto Sans,Arial,sans-serif') =>
     '<g class="sankey-interactive-annotation" data-node="operating_other_income" data-link-numerator="operating_other_income" data-link-denominator="operating_expenses" data-link-anchor-x="1690" data-link-anchor-y="902">' +
     '<path d="M1589 932H1660C1710 932 1717 871 1784 871" fill="none" stroke="' + GREEN_LINK + '" stroke-width="2"/>' +
     '<rect x="1572" y="916" width="218" height="120" fill="transparent"/>' +
-    '<text x="1624" y="978" text-anchor="middle" font-size="31" font-weight="800" fill="' + OTHER_LABEL + '">' + label + '</text>' +
-    '<text x="1624" y="1021" text-anchor="middle" font-size="31" fill="' + OTHER_LABEL + '">$0.1B</text></g>';
+    '<text x="1624" y="978" text-anchor="middle" font-family="' + fontFamily + '" font-size="31" font-weight="800" fill="' + OTHER_LABEL + '">' + label + '</text>' +
+    '<text x="1624" y="1021" text-anchor="middle" font-family="' + fontFamily + '" font-size="31" fill="' + OTHER_LABEL + '">$0.1B</text></g>';
   const annotations = '<g font-family="Noto Sans,Arial,sans-serif">' +
     card(152, 270, 'Global', ['comparable sales', '+4% Y/Y']) +
     card(436, 278, 'Systemwide sales', ['+11% Y/Y']) +
     otherAnnotation('Other') +
     '</g>';
-  const annotationsZh = '<g font-family="Noto Sans SC,Noto Sans,Arial,sans-serif">' +
-    card(152, 270, '全球', ['可比销售额', '同比 +4%']) +
-    card(436, 278, '系统销售额', ['同比 +11%']) +
-    otherAnnotation('其他') +
+  const annotationsZh = '<g font-family="Noto Sans,Arial,sans-serif">' +
+    card(152, 270, '全球', ['可比销售额', '同比 +4%'], 'Noto Sans SC,Noto Sans,Arial,sans-serif') +
+    card(436, 278, '系统销售额', ['同比 +11%'], 'Noto Sans SC,Noto Sans,Arial,sans-serif') +
+    otherAnnotation('其他', 'Noto Sans SC,Noto Sans,Arial,sans-serif') +
     '</g>';
 
   const labels = {

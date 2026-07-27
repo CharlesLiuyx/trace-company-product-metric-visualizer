@@ -25,8 +25,12 @@ let comparisonMetricTrendChart = null;
 let comparisonMetricTrendWasStacked = false;
 function destroyComparisonMetricTrendChart() {
   if (!comparisonMetricTrendChart) return;
-  comparisonMetricTrendChart.destroy();
+  // Detach ownership before invoking third-party teardown. Chart.js/plugin
+  // destroy hooks may throw; callers can then fail closed without a second
+  // teardown attempt rethrowing from the error-rendering path.
+  const chart = comparisonMetricTrendChart;
   comparisonMetricTrendChart = null;
+  chart.destroy();
 }
 function comparisonScopeRecords() {
   return isMultiPeriodScope()

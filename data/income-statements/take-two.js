@@ -21,7 +21,7 @@
       roundingTolerance: 0.15,
       revenue: {
         total: 1.7738,
-        notes: ['+31% Y/Y', 'All values retain Take-Two reported precision; source-image labels round to one decimal billion.'],
+        notes: ['+31% Y/Y', 'All values retain Take-Two reported precision; source-image labels round to $0.1B precision.'],
         items: [
           { id: 'mobile', label: 'Mobile', value: 0.8216, notes: ['+11% Y/Y', 'Includes Zynga.'] },
           { id: 'console', label: 'Console', value: 0.72, notes: ['+47% Y/Y'] },
@@ -61,7 +61,7 @@
         zh: {
           period: '2026 财年第二季度', periodNote: '截至 2025 年 9 月',
           revenue: {
-            notes: ['同比 +31%', '所有数值保留 Take-Two 的报告精度；来源图标签按十亿美元保留一位小数。'],
+            notes: ['同比 +31%', '所有数值保留 Take-Two 的报告精度；来源图标签按 $0.1B 精度取整。'],
             items: [
               { id: 'mobile', label: '移动端', notes: ['同比 +11%', '包括 Zynga。'] }, { id: 'console', label: '主机', notes: ['同比 +47%'] }, { id: 'pc_other', label: 'PC 及其他', notes: ['同比 +91%'] },
             ],
@@ -92,7 +92,7 @@
       roundingTolerance: 0.15,
       revenue: {
         total: 1.6798,
-        notes: ['+6% Y/Y', 'All values retain Take-Two reported precision; source-image labels round to one decimal billion.'],
+        notes: ['+6% Y/Y', 'All values retain Take-Two reported precision; source-image labels round to $0.1B precision.'],
         items: [
           { id: 'mobile', label: 'Mobile', value: 0.8439, notes: ['+13% Y/Y', 'Includes Zynga.'] },
           { id: 'console', label: 'Console', value: 0.6746, notes: ['+14% Y/Y'] },
@@ -122,7 +122,7 @@
       i18n: {
         zh: {
           period: '2026 财年第四季度', periodNote: '截至 2026 年 4 月',
-          revenue: { notes: ['同比 +6%', '所有数值保留 Take-Two 的报告精度；来源图标签按十亿美元保留一位小数。'], items: [
+          revenue: { notes: ['同比 +6%', '所有数值保留 Take-Two 的报告精度；来源图标签按 $0.1B 精度取整。'], items: [
             { id: 'mobile', label: '移动端', notes: ['同比 +13%', '包括 Zynga。'] }, { id: 'console', label: '主机', notes: ['同比 +14%'] }, { id: 'pc_other', label: 'PC 及其他', notes: ['同比 (34%)'] },
           ] },
           costs: {
@@ -148,7 +148,7 @@
       roundingTolerance: 0.15,
       revenue: {
         total: 1.699,
-        notes: ['+25% Y/Y', 'All values retain Take-Two reported precision; source-image labels round to one decimal billion.'],
+        notes: ['+25% Y/Y', 'All values retain Take-Two reported precision; source-image labels round to $0.1B precision.'],
         items: [
           { id: 'mobile', label: 'Mobile', value: 0.8658, notes: ['+17% Y/Y', 'Includes Zynga.'] },
           { id: 'console', label: 'Console', value: 0.6521, notes: ['+28% Y/Y'] },
@@ -196,7 +196,7 @@
           period: '2026 财年第三季度',
           periodNote: '截至 2025 年 12 月',
           revenue: {
-            notes: ['同比 +25%', '所有数值保留 Take-Two 的报告精度；来源图标签按十亿美元保留一位小数。'],
+            notes: ['同比 +25%', '所有数值保留 Take-Two 的报告精度；来源图标签按 $0.1B 精度取整。'],
             items: [
               { id: 'mobile', label: '移动端', notes: ['同比 +17%', '包括 Zynga。'] },
               { id: 'console', label: '主机', notes: ['同比 +28%'] },

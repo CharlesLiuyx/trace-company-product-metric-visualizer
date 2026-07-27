@@ -8,7 +8,13 @@ import path from 'node:path';
 import { chromium } from 'playwright';
 import { startStaticServer } from './dev-server.mjs';
 import { PROJECT_FONT_FAMILIES, fontFileName } from './lib/local-fonts.mjs';
-import { projectPath } from './lib/project.mjs';
+import { assert, projectPath } from './lib/project.mjs';
+import {
+  assertComparisonMoneyScale,
+  comparisonMoneyScaleSnapshot,
+  selectAllIncomeStatementPeriods,
+  waitForCalibratedComparison,
+} from './lib/comparison-scale-browser.mjs';
 import {
   assertProjectFontsLoaded,
   assertTypographyAudit,
@@ -83,6 +89,7 @@ function printSummary(metrics, origin) {
   console.log(`  pending after ${IDLE_OBSERVATION_MS}ms   ${value(metrics.pendingAfterIdle)} / > 0`);
   console.log(`  company switch         ${value(metrics.switchLabel)} (${duration(metrics.switchMs)})`);
   console.log(`  lazy Chart runtime     ${value(metrics.chartRuntime)} (${duration(metrics.chartRuntimeMs)})`);
+  console.log(`  all-period scale       ${value(metrics.comparisonScale)}`);
   console.log(`  project font faces     ${value(metrics.fontFaces)}`);
   console.log(`  typography roles       ${value(metrics.typographyRoles)}`);
   console.log(`  Sankey typography      ${value(metrics.sankeyTypography)}`);
@@ -356,6 +363,19 @@ try {
       failures.push(`adapter response for ${expectedPath} was ${response ? response.status : 'not observed'}`);
     }
   }
+
+  // Production projection acceptance: the same independent DOM + Metric SSOT
+  // oracle used by source-mode tests must pass after bundling and deferred
+  // Adapter loading. This prevents the deploy projection from silently
+  // dropping the scale module or changing script order.
+  await page.goto(`${server.url}#apple-q2-fy26`, { waitUntil: 'domcontentloaded' });
+  await page.waitForSelector('#chart svg', { timeout: FIRST_RENDER_TIMEOUT_MS });
+  const comparisonCount = await selectAllIncomeStatementPeriods(page, 'Apple');
+  assert(comparisonCount === 15, `production site Apple fixture has ${comparisonCount} periods, expected 15`);
+  await waitForCalibratedComparison(page, comparisonCount, FIRST_RENDER_TIMEOUT_MS);
+  const comparisonSnapshot = await comparisonMoneyScaleSnapshot(page);
+  assertComparisonMoneyScale(comparisonSnapshot, comparisonCount, 'production site Apple all-periods');
+  metrics.comparisonScale = `${comparisonCount} cards, calibrated`;
 
   // Default Sankey must not pay for Chart.js. The first Trend interaction
   // must fetch the deferred runtime exactly once and finish rendering.

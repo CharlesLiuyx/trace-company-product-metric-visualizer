@@ -392,7 +392,6 @@
           ga: { label: '管理费用', notes: ['占收入 3%', '同比 +0 个百分点'] },
         },
         layout: { labels: labels(true) },
-        rasterAnnotations: rasterAnnotations(),
       },
     },
   });

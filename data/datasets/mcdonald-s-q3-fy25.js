@@ -16,18 +16,18 @@
   const RED_LINK = '#e08585';
 
   const arches = '<path fill="' + ARCH_GOLD + '" d="M0 199V100C0 42 29 0 70 0c25 0 46 17 58 48C140 17 161 0 186 0c41 0 70 42 70 100v99h-31v-99c0-37-16-64-40-64s-40 27-40 64v99H88v-99c0-37-16-64-40-64S31 63 31 100v99z"/>';
-  const card = (x, width, title, lines) =>
+  const card = (x, width, title, lines, fontFamily = 'Noto Sans,Arial,sans-serif') =>
     '<g><rect x="' + x + '" y="1202" width="' + width + '" height="149" rx="29" fill="#000"/>' +
-    '<text x="' + (x + width / 2) + '" y="1257" text-anchor="middle" font-size="29" font-weight="800" fill="#fff">' + title + '</text>' +
-    lines.map((line, index) => '<text x="' + (x + width / 2) + '" y="' + (lines.length === 1 ? 1307 : 1293 + index * 31) + '" text-anchor="middle" font-size="24" fill="#fff">' + line + '</text>').join('') +
+    '<text x="' + (x + width / 2) + '" y="1257" text-anchor="middle" font-family="' + fontFamily + '" font-size="29" font-weight="800" fill="#fff">' + title + '</text>' +
+    lines.map((line, index) => '<text x="' + (x + width / 2) + '" y="' + (lines.length === 1 ? 1307 : 1293 + index * 31) + '" text-anchor="middle" font-family="' + fontFamily + '" font-size="24" fill="#fff">' + line + '</text>').join('') +
     '</g>';
   const annotations = '<g font-family="Noto Sans,Arial,sans-serif">' +
     card(152, 270, 'Global', ['comparable sales', '+4% Y/Y']) +
     card(436, 278, 'Systemwide sales', ['+8% Y/Y']) +
     '</g>';
-  const annotationsZh = '<g font-family="Noto Sans SC,Noto Sans,Arial,sans-serif">' +
-    card(152, 270, '全球', ['可比销售额', '同比 +4%']) +
-    card(436, 278, '系统销售额', ['同比 +8%']) +
+  const annotationsZh = '<g font-family="Noto Sans,Arial,sans-serif">' +
+    card(152, 270, '全球', ['可比销售额', '同比 +4%'], 'Noto Sans SC,Noto Sans,Arial,sans-serif') +
+    card(436, 278, '系统销售额', ['同比 +8%'], 'Noto Sans SC,Noto Sans,Arial,sans-serif') +
     '</g>';
 
   const labels = {
@@ -165,9 +165,9 @@
           other_revenue: { label: '其他收入', notes: ['同比 +22%', '其他餐厅'] },
           revenue: { label: '收入', notes: ['同比 +3%'] },
           gross_profit: { label: '毛利润', notes: ['利润率 58%', '同比 +2 个百分点'] },
-          restaurant_expenses: { label: '餐厅费用', valueText: '($3.0B)' },
+          restaurant_expenses: { label: '餐厅费用' },
           operating_profit: { label: '营业利润', notes: ['利润率 47%', '同比 +1 个百分点'] },
-          operating_other_income: { label: '其他', valueText: '$37M' },
+          operating_other_income: { label: '其他' },
           operating_expenses: { label: '运营费用' },
           net_profit: { label: '净利润', notes: ['利润率 32%', '同比 (1 个百分点)'] },
           tax: { label: '税费' },

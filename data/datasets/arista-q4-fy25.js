@@ -66,10 +66,10 @@
       { text: '$value', size: 37, weight: 400 },
     ] }] },
     product_cor: { blocks: [{ x: 1718, top: 1032, anchor: 'start', lineGap: 8, lines: [
-      { text: '产品', size: 31, weight: 800 }, { text: '($0.9B)', size: 31, weight: 400 },
+      { text: '产品', size: 31, weight: 800 }, { text: '$value', size: 31, weight: 400 },
     ] }] },
     service_cor: { blocks: [{ x: 1718, top: 1170, anchor: 'start', lineGap: 8, lines: [
-      { text: '服务', size: 31, weight: 800 }, { text: '($0.1B)', size: 31, weight: 400 },
+      { text: '服务', size: 31, weight: 800 }, { text: '$value', size: 31, weight: 400 },
     ] }] },
     operating_profit: { blocks: [{ x: 1801, top: 279, anchor: 'middle', lineGap: 9, lines: [
       { text: '营业利润', size: 40, weight: 800 }, { text: '$value', size: 39, weight: 400 },
@@ -279,7 +279,7 @@
         meta: {
           title: '阿里斯塔网络 2025 财年第四季度利润表',
           period: '2025 财年第四季度',
-          periodNote: '截至 2025 年 12 月 31 日',
+          periodNote: '截至 2025 年 12 月',
           titleSize: 92,
           titleTextLength: 1750,
         },

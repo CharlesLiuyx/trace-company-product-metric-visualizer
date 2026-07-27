@@ -89,6 +89,23 @@ test('viewer-only changes exercise app, site, and standalone without a redundant
   assert.equal(plan.verifyStandalone, true);
 });
 
+test('comparison scale runtime follows the viewer-only route without a full render', () => {
+  const plan = planCiChecks([{ status: 'M', path: 'src/comparison-scale.js' }], {
+    existingDatasetKeys: existing,
+  });
+
+  assert.deepEqual(plan.changeImpacts, ['interaction']);
+  assert.equal(plan.renderScope, 'none');
+  assert.deepEqual(plan.renderKeys, []);
+  assert.equal(plan.verifyApp, true);
+  assert.equal(plan.siteProjection, true);
+  assert.equal(plan.buildSite, true);
+  assert.equal(plan.verifySite, true);
+  assert.equal(plan.buildStandalone, true);
+  assert.equal(plan.verifyStandalone, true);
+  assert.equal(plan.needsBrowser, true);
+});
+
 test('revenue and company metadata rebuild the deployable catalog without PR browser work', () => {
   const plan = planCiChecks([
     { status: 'M', path: 'data/revenue-metrics.js' },

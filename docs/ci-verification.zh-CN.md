@@ -71,7 +71,7 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
 | `verify:dataset-manifest` | Adapter 文件和生成清单一致 | 在内存中重建 manifest，与已提交文件逐字比较 | 新增 Adapter 忘记同步、清单手改 | 不渲染图 |
 | `verify:render-baselines` | 每个注册 Adapter 都有 baseline 账目，且没有孤儿 | 只读取 manifest 与 `render-baselines.json`，不启动 Chromium | baseline 缺项、已删除 Adapter 仍留 baseline | 不做像素评分 |
 | `verify:ssot` | 财务 SSOT、View Adapter、注册和币种互相对得上 | 在 VM 中加载所有数据，检查 key、金额、来源、单位、FX、注册奇偶，以及 render 画布声明与 `meta.referenceImage` 尺寸一致 | 图表值和财务记录不一致、漏公司 metadata、画布尺寸抄错 | 不判断像素位置是否像参考图 |
-| `verify:i18n` | 通用翻译规则和 overlay 可覆盖已注册内容 | 加载 i18n 管线并检查缺失/非法映射；单数据集流程可用 `--strict` | 中文 overlay 漏项、品牌词被错误翻译 | 不代替中文页面人工检查 |
+| `verify:i18n` | 翻译只能改展示文案，不能改数据、几何或可见金额语义 | 加载 i18n 管线，按 deny-by-default 路径契约检查 overlay；独立比较本地化前后的 SSOT 拓扑、渲染几何、金额/通用数字/正负号/币种/单位/百分比及其 Y/Y、Q/Q、margin 等 basis、期间日期与 `$value` 绑定；SVG 保持同一元素树与非文本属性，`text/tspan` 仅可使用语料驱动、相对源受界的排版投影，raster 不可覆盖；单数据集流程可用 `--strict` | 中文 overlay 漏项、品牌词误译、翻译层新增金额、负号或 rate basis 丢失、SVG/CSS 伪造几何或隐藏文字、用字面金额替换 `$value` | 不代替中文页面人工检查 |
 | `verify:dataset-file-metadata` | “最近更新”时间可复现 | 根据完整 Git author history 重算生成文件 | 提交 Dataset 后忘记刷新 metadata | 首次未提交文件仍只能临时使用 mtime |
 
 仓库管理的 `post-commit` hook 会在 Dataset/revenue 提交形成、author time 稳定后自动
@@ -90,8 +90,10 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
 - **白话作用**：证明开发版 viewer 不只是“语法正确”，而是真的能启动和点击。
 - **原理**：一个 Chromium 内按场景创建隔离 Context，覆盖默认启动、持久化语言/主题、
   Adapter 加载失败重试、选中公司后台预载全部期间 Adapter、hash 路由、hover 百分比、
-  期间切换、对比缩放、趋势图和手机视口。启动断言允许当前公司的完整 Adapter 集合
-  被预载，超出该范围的空闲加载视为失败。
+  期间切换、Apple 全期间统一金额比例尺、USD/EUR 与 B/M 跨量级对比、金额维度一致性、
+  节点与最终 SVG viewBox 对账、整组失败原子性、浏览器亚像素换行、对比缩放、趋势图和
+  手机视口。启动断言允许当前公司的完整 Adapter
+  集合被预载，超出该范围的空闲加载视为失败。
 - **触发**：`src/app/`、app CSS、Chart runtime、共享 viewer/runtime 改动。
 - **不对纯 Dataset 重跑的原因**：单 Dataset 的图形由 render regression 检查；app smoke
   使用固定代表性数据，重复运行不会增加该 Dataset 的覆盖。
@@ -110,7 +112,8 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
 - **原理**：启动 `_site` 静态服务器并观察真实请求，检查 defer bundle 数、启动 Adapter
   请求必须落在当前公司的注册 Adapter 集合内（选中公司的空闲预载允许、全目录扫库不允许）、
   空闲后仍有 pending Adapter、公司切换按需加载、首次趋势交互只取一次 Chart.js、
-  字体与页面错误。
+  字体与页面错误；随后用与开发版相同、但不调用生产校准模块的 Adapter + Metric SSOT +
+  实绘 DOM oracle 验证 Apple 全期间统一金额比例尺，防止 bundle 顺序或投影漏文件。
 - **触发**：viewer/站点构建变化；`main` 上只要要部署新 `_site` 也强制运行。
 - **为什么数据 PR 不必在 PR 阶段都跑**：Adapter 自身由受影响 key 渲染；Pages 的加载策略
   没有变化。合入 `main` 准备部署时仍会检查实际产物。
@@ -151,10 +154,11 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
 
 - **白话作用**：保证双击一个 HTML 就能使用，不依赖旁边的 CSS、JS、字体、Dataset 或 PNG。
 - **原理**：`build:standalone` 内联所有运行内容；`verify:standalone` 先静态搜索外链，再通过
-  `file://` 用 Chromium 启动，检查默认 Sankey、字体和 raster annotation 均为 data URI。
+  `file://` 用 Chromium 启动，检查默认 Sankey、字体、raster annotation 均为 data URI，
+  并复用独立 oracle 验证 Apple 全期间统一金额比例尺。
 - **触发**：Dataset Adapter、viewer/runtime、asset 或 standalone 构建工具变化。
-- **不对纯 metadata/revenue 数据重复跑的原因**：这些数据的结构由 SSOT 检查负责，当前
-  standalone 浏览器场景不会逐条点击全部收入记录，运行它不会增加有效覆盖。
+- **不对纯 metadata/revenue 数据重复跑的原因**：这些数据的结构由 SSOT 检查负责；
+  standalone 的比例尺场景固定覆盖 Apple 收入表，纯 revenue metric 变化不经过该路径。
 
 ### 11. Upload and Deploy Pages
 

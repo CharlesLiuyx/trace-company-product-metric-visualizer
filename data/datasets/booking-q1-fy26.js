@@ -146,8 +146,8 @@
         meta: { title: '缤客控股 2026 财年第一季度利润表', period: '2026 财年第一季度', periodNote: '截至 2026 年 3 月', titleTextLength: 2230 },
         nodes: {
           merchant: { label: '商户', notes: ['同比 +27%', '佣金、支付、保险'] }, agency: { label: '代理', notes: ['同比 (2%)'] }, advertising_other: { label: ['广告', '及其他'], notes: ['同比 +9%'] }, revenue: { label: '收入', notes: ['同比 +16%'] },
-          operating_profit: { label: ['营业', '利润'], notes: ['利润率 23%', '同比 +1 个百分点'] }, operating_expenses: { label: ['运营', '费用'] }, other_income: { label: '其他', valueText: '€0.1B' }, net_profit: { label: '净利润', notes: ['利润率 20%', '同比 +13 个百分点'] }, tax: { label: '税费' },
-          marketing: { label: '营销' }, personnel: { label: '人员' }, sales: { label: '销售' }, info_tech: { label: '信息技术' }, ga: { label: '管理费用' }, da: { label: '折旧与摊销' }, other_expense: { label: '其他', valueText: '($25M)' },
+          operating_profit: { label: ['营业', '利润'], notes: ['利润率 23%', '同比 +1 个百分点'] }, operating_expenses: { label: ['运营', '费用'] }, other_income: { label: '其他' }, net_profit: { label: '净利润', notes: ['利润率 20%', '同比 +13 个百分点'] }, tax: { label: '税费' },
+          marketing: { label: '营销' }, personnel: { label: '人员' }, sales: { label: '销售' }, info_tech: { label: '信息技术' }, ga: { label: '管理费用' }, da: { label: '折旧与摊销' }, other_expense: { label: '其他' },
         },
         layout: { labels: labels(true) },
         annotationsSvg: cards(true),

@@ -19,7 +19,7 @@
   const annotations = (isZh) => `
     <g font-family="Montserrat,Arial,sans-serif" data-typography-role="brand">
       ${icon('googleGMark', 176, 334, 0.72)}
-      ${icon('youtubeWordmark', isZh ? 47 : 51, 742, 0.76)}
+      ${icon('youtubeWordmark', 51, 742, 0.76)}
       ${icon('googleAdMobWordmark', 28, 948, 0.63)}
       ${icon('googlePlayWordmark', 220, 1062, 0.66)}
       ${icon('googleCloudWordmark', 280, 1240, 0.62)}

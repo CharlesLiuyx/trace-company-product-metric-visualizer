@@ -449,8 +449,8 @@
               '',
               '',
               `
-                <text x="785" y="1292" font-size="30" font-weight="500" fill="#ffffff">出行 25.8%（-4.9 个百分点）</text>
-                <text x="785" y="1335" font-size="30" font-weight="500" fill="#ffffff">配送 19.5%（+1.0 个百分点）</text>
+                <text x="785" y="1292" font-size="30" font-weight="500" fill="#ffffff">出行 25.8%（同比 -4.9 个百分点）</text>
+                <text x="785" y="1335" font-size="30" font-weight="500" fill="#ffffff">配送 19.5%（同比 +1.0 个百分点）</text>
               `
             )}
             <text x="69" y="1403" font-size="33" font-weight="500" fill="${NOTE}">MAPC = 完成出行或配送的月活跃用户</text>
