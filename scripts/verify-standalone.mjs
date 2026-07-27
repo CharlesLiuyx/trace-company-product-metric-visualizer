@@ -9,6 +9,12 @@ import {
   assertTypographyAudit,
   typographyAudit,
 } from './lib/render-harness.mjs';
+import {
+  assertComparisonMoneyScale,
+  comparisonMoneyScaleSnapshot,
+  selectAllIncomeStatementPeriods,
+  waitForCalibratedComparison,
+} from './lib/comparison-scale-browser.mjs';
 
 const defaultHtml = 'output/trace-company-product-metric-visualizer.html';
 
@@ -187,6 +193,18 @@ async function verifyInBrowser(filePath) {
       rasterResults.push({ key, count: images.count });
     }
 
+    await page.goto(`${documentUrl}#apple-q2-fy26`, { waitUntil: 'load' });
+    await page.waitForSelector('#chart svg', { timeout: 10000 });
+    const comparisonCount = await selectAllIncomeStatementPeriods(page, 'Apple');
+    assert(comparisonCount === 15, `standalone Apple fixture has ${comparisonCount} periods, expected 15`);
+    await waitForCalibratedComparison(page, comparisonCount);
+    const comparisonSnapshot = await comparisonMoneyScaleSnapshot(page);
+    assertComparisonMoneyScale(
+      comparisonSnapshot,
+      comparisonCount,
+      'standalone Apple all-periods'
+    );
+
     console.log(
       JSON.stringify(
         {
@@ -195,6 +213,11 @@ async function verifyInBrowser(filePath) {
           fontBoundaries,
           typographyAudit: renderedTypographyAudit,
           rasterDatasets: rasterResults,
+          comparisonScale: {
+            dataset: 'Apple',
+            cards: comparisonCount,
+            status: comparisonSnapshot.status,
+          },
         },
         null,
         2

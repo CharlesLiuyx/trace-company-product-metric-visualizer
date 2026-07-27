@@ -2,64 +2,63 @@
  * Sankey view: chart sizing, USD-normalized comparison scaling, the
  * comparison grid render, and the top-level draw() dispatcher. */
 
-/* Canvas sizing comes from the engine's own config merge
- * (SankeyEngine.helpers.canvasSize), so card geometry follows the exact
- * precedence render() applies: explicit render.width/height, then
- * meta.referenceImage dimensions, then the engine DEFAULTS canvas. */
+/* Single-chart canvas sizing comes from the engine's own config merge.
+ * Comparison sizing is stricter: it consumes the canvas dimensions carried
+ * by the renderer-owned calibration measurement and post-render viewBox
+ * assertion below. */
 function chartWidth(d) {
   return window.SankeyEngine.helpers.canvasSize(d).width;
-}
-function chartHeight(d) {
-  return window.SankeyEngine.helpers.canvasSize(d).height;
 }
 function clearSingleChart() {
   chartHost?.replaceChildren();
 }
 function clearSankeyComparison() {
-  destroyComparisonMetricTrendChart();
-  if (sankeyComparison) sankeyComparison.replaceChildren();
+  try {
+    destroyComparisonMetricTrendChart();
+  } catch (error) {
+    console.error('[comparison] trend cleanup failed', error);
+  }
+  if (sankeyComparison) {
+    sankeyComparison.replaceChildren();
+    delete sankeyComparison.dataset.scaleStatus;
+    delete sankeyComparison.dataset.scaleFailureCode;
+    delete sankeyComparison.dataset.scaleFailureStage;
+  }
 }
-function nodeLabelText(node) {
-  return labelText(node?.label).toLowerCase();
+function comparisonScalePlan(records, renderDatasetByKey) {
+  return window.TraceComparisonScale.createPlan(records.map((record) => ({
+    dataset: renderDatasetByKey.get(record.dataset.key),
+    financial: financialRecordByKey.get(record.dataset.key),
+  })));
 }
-function revenueNodeForDataset(dataset) {
-  return (dataset?.nodes || []).find((node) => node.id === 'revenue')
-    || (dataset?.nodes || []).find((node) => node.type === 'hub' && /^(revenue|sales|net sales)$/i.test(nodeLabelText(node)))
-    || (dataset?.nodes || []).find((node) => node.type === 'hub');
+function requiredComparisonScaleFactor(scalePlan, key) {
+  const factor = scalePlan.factorFor(key);
+  if (!Number.isFinite(factor) || factor <= 0) {
+    throw new Error(`Calibrated comparison scale plan has no positive factor for ${key}`);
+  }
+  return factor;
 }
-function fixedNodeHeight(dataset, node) {
-  const spec = node?.id ? dataset?.layout?.nodes?.[node.id] : null;
-  return finiteNumber(spec?.height);
-}
-function pxPerDatasetValue(dataset) {
-  const authoredScale = finiteNumber(dataset?.layout?.scale);
-  if (authoredScale != null) return authoredScale;
-  const node = revenueNodeForDataset(dataset);
-  const height = fixedNodeHeight(dataset, node);
-  const value = finiteNumber(node?.value);
-  return height != null && value ? height / value : null;
-}
-function pxPerUsdForDataset(dataset) {
-  const pxPerValue = pxPerDatasetValue(dataset);
-  // meta.currency mirrors the source image and may be blank (e.g. bare numbers
-  // with an "in RMB" note); the SSOT record carries the reporting currency.
-  const financial = dataset?.key ? financialRecordByKey.get(dataset.key) : null;
-  const usdPerValue = financial
-    ? amountValueUsd(1, financial.currency, financial.unit)
-    : amountValueUsd(1, dataset?.meta?.currency, dataset?.meta?.unit);
-  if (pxPerValue == null || usdPerValue == null || usdPerValue === 0) return null;
-  return pxPerValue / usdPerValue;
-}
-function comparisonScaleFactors(records) {
-  const entries = records
-    .map((record) => {
-      const dataset = localizedDataset(record.dataset);
-      return { key: record.dataset.key, pxPerUsd: pxPerUsdForDataset(dataset) };
-    })
-    .filter((entry) => entry.pxPerUsd != null && entry.pxPerUsd > 0);
-  if (!entries.length) return new Map();
-  const common = Math.min(...entries.map((entry) => entry.pxPerUsd));
-  return new Map(entries.map((entry) => [entry.key, common / entry.pxPerUsd]));
+// Calibration and render share the same renderer implementation, then this
+// postcondition binds the plan to the exact off-screen SVG instance that will
+// be committed. It closes the remaining gap for getters, Proxies, accidental
+// mutation, or future non-deterministic layout code between the two compiles.
+function assertRenderedComparisonAnchor(host, measurement) {
+  const id = measurement?.anchorNodeId;
+  const rendered = window.SankeyEngine.measureRenderedNodeValueScale(host, id);
+  if (
+    rendered.status !== 'calibrated'
+    || rendered.anchorRole !== measurement.anchorRole
+    || rendered.renderedHeight !== measurement.renderedHeight
+    || rendered.authoredValue !== measurement.authoredValue
+    || rendered.viewUnitsPerValue !== measurement.viewUnitsPerValue
+    || rendered.canvasWidth !== measurement.canvasWidth
+    || rendered.canvasHeight !== measurement.canvasHeight
+  ) {
+    throw new Error(
+      `Rendered comparison anchor "${id}" drifted from calibrated geometry `
+        + `(${rendered.reason || rendered.status})`
+    );
+  }
 }
 function comparisonColumnCount(count) {
   const viewport = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
@@ -72,25 +71,49 @@ function comparisonColumnCount(count) {
   return 3;
 }
 function comparisonAvailableWidth() {
-  return Math.max(1, (sankeyView?.clientWidth || content?.clientWidth || window.innerWidth || 1) - 20);
+  if (sankeyView) {
+    const style = getComputedStyle(sankeyView);
+    const padding = requiredResolvedCssPixel(style.paddingLeft, 'sankey-view padding-left')
+      + requiredResolvedCssPixel(style.paddingRight, 'sankey-view padding-right');
+    // The live comparison becomes max-content while zoomed. Its clientWidth
+    // is therefore zoom-scoped output, never a valid input to 100% fit.
+    // Always measure the stable viewport owner's content box.
+    return Math.max(1, sankeyView.clientWidth - padding);
+  }
+  return Math.max(1, content?.clientWidth || window.innerWidth || 1);
 }
-function comparisonFitFactor(records, scaleFactors) {
-  const columns = comparisonColumnCount(Math.max(records.length, 1));
+function comparisonFitFactor(entries, scalePlan, layoutMetrics) {
+  const columns = comparisonColumnCount(Math.max(entries.length, 1));
   const availableWidth = comparisonAvailableWidth();
-  const gap = COMPARISON_FLOW_GAP;
-  const widths = records.map((record) => {
-    const dataset = localizedDataset(record.dataset);
-    const scale = scaleFactors.get(record.dataset.key) || 1;
-    return Math.max(1, chartWidth(dataset) * scale);
+  const items = entries.map(({ record }) => {
+    if (!record) {
+      return { scalableWidth: 0, fixedWidth: layoutMetrics.emptyCardInlineSize };
+    }
+    const measurement = scalePlan.measurementFor(record.dataset.key);
+    const scale = requiredComparisonScaleFactor(scalePlan, record.dataset.key);
+    return {
+      scalableWidth: measurement.canvasWidth * scale,
+      fixedWidth: layoutMetrics.cardInlineFixed,
+    };
   });
   // pack `columns` charts per row at their USD-normalized widths; the widest
   // packed row pins the shared factor so every row fits the canvas
-  const cardEdge = 2; // 1px card border on each side sits outside the chart
   let factor = 1;
-  for (let start = 0; start < widths.length; start += columns) {
-    const row = widths.slice(start, start + columns);
-    const rowWidth = row.reduce((sum, width) => sum + width, 0);
-    factor = Math.min(factor, (availableWidth - gap * (row.length - 1) - cardEdge * row.length) / rowWidth);
+  for (let start = 0; start < items.length; start += columns) {
+    const row = items.slice(start, start + columns);
+    const scalableWidth = row.reduce((sum, item) => sum + item.scalableWidth, 0);
+    const fixedWidth = row.reduce((sum, item) => sum + item.fixedWidth, 0)
+      + layoutMetrics.columnGap * Math.max(0, row.length - 1);
+    if (scalableWidth === 0) {
+      if (fixedWidth > availableWidth) {
+        throw new Error(`Fixed comparison row width ${fixedWidth} exceeds ${availableWidth}`);
+      }
+      continue;
+    }
+    factor = Math.min(factor, (availableWidth - fixedWidth) / scalableWidth);
+  }
+  if (!Number.isFinite(factor) || factor <= 0) {
+    throw new Error(`Comparison fit produced a non-positive factor: ${factor}`);
   }
   return factor;
 }
@@ -110,6 +133,62 @@ function setComparisonPeriodHoverLink(indexes = []) {
   });
 }
 
+function renderComparisonScaleError(scalePlan) {
+  comparisonZoomMax = COMPARISON_ZOOM_MIN;
+  try {
+    cancelComparisonZoomGesture();
+  } catch (error) {
+    console.error('[comparison-scale] gesture cleanup failed', error);
+  }
+  comparisonProxyGeneration += 1;
+  try {
+    destroyComparisonMetricTrendChart();
+  } catch (error) {
+    // Failure rendering must not depend on third-party Chart.js teardown.
+    console.error('[comparison-scale] trend teardown failed', error);
+  }
+  sankeyComparison.dataset.scaleStatus = 'uncalibrated';
+  const firstDiagnostic = scalePlan.diagnostics?.[0];
+  sankeyComparison.dataset.scaleFailureCode = firstDiagnostic?.code || 'unknown';
+  sankeyComparison.dataset.scaleFailureStage = firstDiagnostic?.stage || 'unknown';
+  sankeyComparison.innerHTML = `
+    <div class="chart-loading chart-loading-error" role="alert">
+      <span>${escapeHtml(t('comparisonScaleUnavailable'))}</span>
+    </div>
+  `;
+  console.error('[comparison-scale] calibration failed', scalePlan.diagnostics);
+  try {
+    applyComparisonZoom();
+  } catch (error) {
+    console.error('[comparison-scale] zoom reset failed', error);
+  }
+  if (comparisonZoomControls) comparisonZoomControls.hidden = true;
+}
+
+function comparisonRuntimeFailure(stage, error, key = '') {
+  return {
+    status: 'uncalibrated',
+    diagnostics: [{
+      key,
+      stage,
+      code: 'comparison-runtime-failure',
+      message: error?.message || String(error),
+    }],
+  };
+}
+
+// Engine rendering can still reject unsafe annotations or raster assets after
+// geometry calibration. Build the complete group in a connected off-screen
+// stage so SVG measurement works, then commit one DOM subtree atomically.
+function comparisonRenderStage(width) {
+  const stage = createComparisonMeasurementStage(width, 'comparison-render-stage');
+  // Fit is the canonical 100% base state. A redraw that happens while the
+  // live canvas is zoomed must not let zoom-scoped CSS contaminate base fit;
+  // applyComparisonZoom() reapplies the user zoom only after commit.
+  stage.classList.remove('zoomed');
+  return stage;
+}
+
 function renderSankeyComparison() {
   if (!sankeyComparison) return;
   const recordsForCompanies = isMultiPeriodScope()
@@ -119,81 +198,140 @@ function renderSankeyComparison() {
         record: defaultRecordForCompanyMetric(company, 'incomeStatement'),
       }));
   const recordsWithData = recordsForCompanies.map((item) => item.record).filter(Boolean);
-  const scaleFactors = comparisonScaleFactors(recordsWithData);
-  const fitFactor = comparisonFitFactor(recordsWithData, scaleFactors);
-  const minScale = recordsWithData.reduce((min, record) => {
-    const scale = (scaleFactors.get(record.dataset.key) || 1) * fitFactor;
-    return Math.min(min, scale);
-  }, Infinity);
-  comparisonZoomMax = Number.isFinite(minScale) && minScale > 0
-    ? Math.max(COMPARISON_ZOOM_MIN, 1 / minScale)
-    : COMPARISON_ZOOM_MIN;
-  // the flow is rebuilt below, so a pending gesture preview must not commit
-  // against the stale geometry, and in-flight bitmap proxies must not attach
-  cancelComparisonZoomGesture();
-  comparisonProxyGeneration += 1;
-  destroyComparisonMetricTrendChart();
-  sankeyComparison.innerHTML = '';
-
-  const grid = document.createElement('div');
-  grid.className = 'comparison-flow';
-  grid.dataset.baseContentWidth = String(comparisonAvailableWidth());
-  sankeyComparison.appendChild(grid);
-
-  recordsForCompanies.forEach(({ company, record }) => {
-    const card = document.createElement('section');
-    card.className = 'comparison-card';
-    if (!record) {
-      card.classList.add('empty');
-      card.innerHTML = `
-        <div class="comparison-card-header">
-          <strong>${escapeHtml(displayCompanyName(company))}</strong>
-          <span>${escapeHtml(t('comparisonNoData'))}</span>
-        </div>
-      `;
-      grid.appendChild(card);
+  let transaction;
+  let activeKey = '';
+  let failureStage = 'calibration';
+  try {
+    // Localize exactly once: calibration, responsive fit, and render must
+    // consume the same Adapter object so no locale overlay can split geometry
+    // authority across different instances.
+    const renderDatasetByKey = new Map(recordsWithData.map((record) => [
+      record.dataset.key,
+      localizedDataset(record.dataset),
+    ]));
+    const scalePlan = comparisonScalePlan(recordsWithData, renderDatasetByKey);
+    if (scalePlan.status !== 'calibrated') {
+      renderComparisonScaleError(scalePlan);
       return;
     }
+    failureStage = 'render';
+    const baseContentWidth = comparisonAvailableWidth();
+    const grid = document.createElement('div');
+    grid.className = 'comparison-flow';
+    const stage = comparisonRenderStage(baseContentWidth);
+    try {
+      stage.appendChild(grid);
+      const layoutMetrics = measureComparisonFitLayout(grid);
+      const fitFactor = comparisonFitFactor(
+        recordsForCompanies,
+        scalePlan,
+        layoutMetrics
+      );
+      const minScale = recordsWithData.reduce((min, record) => {
+        const scale = requiredComparisonScaleFactor(scalePlan, record.dataset.key) * fitFactor;
+        return Math.min(min, scale);
+      }, Infinity);
+      if (!Number.isFinite(minScale) || minScale <= 0) {
+        throw new Error(`Comparison minimum scale is not finite and positive: ${minScale}`);
+      }
+      const nextZoomMax = Math.max(COMPARISON_ZOOM_MIN, 1 / minScale);
+      grid.dataset.baseContentWidth = String(baseContentWidth);
+      grid.dataset.commonViewUnitsPerUsd = String(scalePlan.commonViewUnitsPerUsd);
+      grid.dataset.fitFactor = String(fitFactor);
+      grid.dataset.columnGap = String(layoutMetrics.columnGap);
+      grid.dataset.rowGap = String(layoutMetrics.rowGap);
+      grid.dataset.cardInlineFixed = String(layoutMetrics.cardInlineFixed);
+      recordsForCompanies.forEach(({ company, record }) => {
+        activeKey = record?.dataset?.key || '';
+        const card = document.createElement('section');
+        card.className = 'comparison-card';
+        if (!record) {
+          card.classList.add('empty');
+          card.innerHTML = `
+            <div class="comparison-card-header">
+              <strong>${escapeHtml(displayCompanyName(company))}</strong>
+              <span>${escapeHtml(t('comparisonNoData'))}</span>
+            </div>
+          `;
+          grid.appendChild(card);
+          return;
+        }
 
-    const dataset = localizedDataset(record.dataset);
-    const width = chartWidth(dataset);
-    const scale = (scaleFactors.get(record.dataset.key) || 1) * fitFactor;
-    card.dataset.recordIndex = String(record.index);
-    card.innerHTML = `
-      <div class="comparison-chart-frame">
-        <div class="comparison-chart-host"></div>
-      </div>
-    `;
-    const frame = card.querySelector('.comparison-chart-frame');
-    const host = card.querySelector('.comparison-chart-host');
-    frame.style.maxWidth = '100%';
-    host.dataset.baseWidth = String(Math.max(1, width * scale));
-    host.dataset.datasetKey = record.dataset.key;
-    host.dataset.scaleFactor = String(scale);
-    grid.appendChild(card);
-    window.SankeyEngine.render(host, dataset);
-    host.addEventListener('mousedown', (event) => {
-      const target = event.target instanceof Element ? event.target : null;
-      if (!target || !hotkeyClickExtendsSelection(event)) return;
-      if (target.closest('[data-node]') || target.closest('path.sankey-link')) event.preventDefault();
-    });
-    host.addEventListener('click', (event) => {
-      const target = event.target instanceof Element ? event.target : null;
-      if (!target) return;
-      const nodeTarget = target.closest('[data-node]');
-      if (nodeTarget) {
-        toggleComparisonMetricTrend(record, nodeTarget.getAttribute('data-node'), event);
-        return;
-      }
-      const linkTarget = target.closest('path.sankey-link');
-      if (linkTarget) {
-        toggleComparisonMetricTrendLink(record, linkTarget.getAttribute('data-source'), linkTarget.getAttribute('data-target'), event);
-      }
-    });
-  });
-  updateComparisonMetricTrendPanel(recordsForCompanies.map((item) => item.record).filter(Boolean));
-  applyComparisonZoom();
-  scheduleIdleTask(buildComparisonZoomProxies);
+        const dataset = renderDatasetByKey.get(record.dataset.key);
+        const measurement = scalePlan.measurementFor(record.dataset.key);
+        const normalizationFactor = requiredComparisonScaleFactor(scalePlan, record.dataset.key);
+        const scale = normalizationFactor * fitFactor;
+        const baseWidth = measurement.canvasWidth * scale;
+        card.dataset.recordIndex = String(record.index);
+        card.innerHTML = `
+          <div class="comparison-chart-frame">
+            <div class="comparison-chart-host"></div>
+          </div>
+        `;
+        const frame = card.querySelector('.comparison-chart-frame');
+        const host = card.querySelector('.comparison-chart-host');
+        frame.style.maxWidth = '100%';
+        host.style.width = `${baseWidth}px`;
+        host.dataset.baseWidth = String(baseWidth);
+        host.dataset.datasetKey = record.dataset.key;
+        host.dataset.scaleAnchor = measurement.anchorNodeId;
+        host.dataset.scaleAnchorRole = measurement.anchorRole;
+        host.dataset.anchorAuthoredValue = String(measurement.authoredValue);
+        host.dataset.valueScaleProvenance = measurement.provenance;
+        host.dataset.viewUnitsPerValue = String(measurement.viewUnitsPerValue);
+        host.dataset.usdPerValue = String(measurement.usdPerValue);
+        host.dataset.viewUnitsPerUsd = String(measurement.viewUnitsPerUsd);
+        host.dataset.canvasWidth = String(measurement.canvasWidth);
+        host.dataset.canvasHeight = String(measurement.canvasHeight);
+        host.dataset.normalizationFactor = String(normalizationFactor);
+        host.dataset.scaleFactor = String(scale);
+        grid.appendChild(card);
+        window.SankeyEngine.render(host, dataset);
+        assertRenderedComparisonAnchor(host, measurement);
+        host.addEventListener('mousedown', (event) => {
+          const target = event.target instanceof Element ? event.target : null;
+          if (!target || !hotkeyClickExtendsSelection(event)) return;
+          if (target.closest('[data-node]') || target.closest('path.sankey-link')) event.preventDefault();
+        });
+        host.addEventListener('click', (event) => {
+          const target = event.target instanceof Element ? event.target : null;
+          if (!target) return;
+          const nodeTarget = target.closest('[data-node]');
+          if (nodeTarget) {
+            toggleComparisonMetricTrend(record, nodeTarget.getAttribute('data-node'), event);
+            return;
+          }
+          const linkTarget = target.closest('path.sankey-link');
+          if (linkTarget) {
+            toggleComparisonMetricTrendLink(record, linkTarget.getAttribute('data-source'), linkTarget.getAttribute('data-target'), event);
+          }
+        });
+      });
+      transaction = { grid, nextZoomMax };
+    } finally {
+      grid.remove();
+      stage.remove();
+    }
+
+    // The commit and every post-commit state mutation are part of the same
+    // transaction. If any one of them fails, the catch below clears the group
+    // and publishes an explicit uncalibrated state instead of leaving a stale
+    // or partially replaced calibrated comparison on screen.
+    failureStage = 'commit';
+    comparisonZoomMax = transaction.nextZoomMax;
+    cancelComparisonZoomGesture();
+    comparisonProxyGeneration += 1;
+    destroyComparisonMetricTrendChart();
+    sankeyComparison.replaceChildren(transaction.grid);
+    sankeyComparison.dataset.scaleStatus = 'calibrated';
+    delete sankeyComparison.dataset.scaleFailureCode;
+    delete sankeyComparison.dataset.scaleFailureStage;
+    updateComparisonMetricTrendPanel(recordsForCompanies.map((item) => item.record).filter(Boolean));
+    applyComparisonZoom();
+    scheduleIdleTask(buildComparisonZoomProxies);
+  } catch (error) {
+    renderComparisonScaleError(comparisonRuntimeFailure(failureStage, error, activeKey));
+  }
 }
 /* Adapter keys the sankey view needs fully loaded before it can draw. The
  * comparison flow includes every period of each scoped company because the
@@ -325,20 +463,32 @@ function draw({ renderTable = true, syncView = true } = {}) {
       });
     return;
   }
-  const d = localizedDataset(currentDataset());
-  const maxWidth = chartWidth(d);
   if (singleChartCard) singleChartCard.hidden = compare;
   if (sankeyComparison) sankeyComparison.hidden = !compare;
   if (compare) {
-    clearSingleChart();
-    renderSankeyComparison();
+    try {
+      clearSingleChart();
+      renderSankeyComparison();
+    } catch (error) {
+      renderComparisonScaleError(comparisonRuntimeFailure('dispatch', error));
+    }
     svgBtn.disabled = true;
     pngBtn.disabled = true;
     return;
   }
-  clearSankeyComparison();
-  if (singleChartCard) singleChartCard.style.maxWidth = maxWidth + 'px';
-  if (d) window.SankeyEngine.render('#chart', d);
-  svgBtn.disabled = !chartHost?.querySelector('svg');
-  pngBtn.disabled = !chartHost?.querySelector('svg');
+  try {
+    // Localize inside the owning branch. A rejected current-locale overlay
+    // must never abort before the comparison transaction has a chance to
+    // replace stale content with an explicit failure state.
+    const d = localizedDataset(currentDataset());
+    const maxWidth = chartWidth(d);
+    clearSankeyComparison();
+    if (singleChartCard) singleChartCard.style.maxWidth = maxWidth + 'px';
+    if (d) window.SankeyEngine.render('#chart', d);
+    svgBtn.disabled = !chartHost?.querySelector('svg');
+    pngBtn.disabled = !chartHost?.querySelector('svg');
+  } catch (error) {
+    console.error('[sankey] render failed', error);
+    renderSankeyLoadError(false);
+  }
 }

@@ -20,12 +20,12 @@
 
   const icon = (name, x, y, scale = 1) => `
     <g transform="translate(${x} ${y}) scale(${scale})" data-typography-role="brand">${BUSINESS_ICONS[name] || ''}</g>`;
-  const kpiCard = (x, width, title, value, lines) => `
+  const kpiCard = (x, width, title, value, lines, fontFamily = 'Montserrat,Arial,sans-serif') => `
     <g>
       <rect x="${x}" y="1218" width="${width}" height="149" rx="29" fill="${GREEN}"/>
-      <text x="${x + width / 2}" y="1270" text-anchor="middle" font-size="30" font-weight="800" fill="#ffffff">${title}</text>
-      ${value ? `<text x="${x + width / 2}" y="1309" text-anchor="middle" font-size="29" font-weight="500" fill="#ffffff">${value}</text>` : ''}
-      ${lines.map((line, index) => `<text x="${x + width / 2}" y="${(value ? 1342 : 1311) + index * 31}" text-anchor="middle" font-size="24" font-weight="500" fill="#ffffff">${line}</text>`).join('')}
+      <text x="${x + width / 2}" y="1270" text-anchor="middle" font-family="${fontFamily}" font-size="30" font-weight="800" fill="#ffffff">${title}</text>
+      ${value ? `<text x="${x + width / 2}" y="1309" text-anchor="middle" font-family="${fontFamily}" font-size="29" font-weight="500" fill="#ffffff">${value}</text>` : ''}
+      ${lines.map((line, index) => `<text x="${x + width / 2}" y="${(value ? 1342 : 1311) + index * 31}" text-anchor="middle" font-family="${fontFamily}" font-size="24" font-weight="500" fill="#ffffff">${line}</text>`).join('')}
     </g>`;
   const annotations = `
     <g font-family="Montserrat,Arial,sans-serif">
@@ -36,12 +36,12 @@
       ${kpiCard(303, 440, 'Same Store Sales (0%) Y/Y', '', ['Ticket +1% Y/Y', 'Transactions (1%) Y/Y'])}
     </g>`;
   const annotationsZh = `
-    <g font-family="Noto Sans SC,Arial,sans-serif">
+    <g font-family="Montserrat,Arial,sans-serif">
       ${icon('starbucksBeverage', 112, 452, 1.1)}
       ${icon('starbucksFoodMuffin', 100, 777, 1.08)}
       ${icon('starbucksPackagedBeverages', 134, 983, 0.86)}
-      ${kpiCard(28, 270, '门店数', '18,311', ['同比 (1%)'])}
-      ${kpiCard(303, 440, '同店销售额 同比 (0%)', '', ['客单价同比 +1%', '交易量同比 (1%)'])}
+      ${kpiCard(28, 270, '门店数', '18,311', ['同比 (1%)'], 'Noto Sans SC,Arial,sans-serif')}
+      ${kpiCard(303, 440, '同店销售额 同比 (0%)', '', ['客单价同比 +1%', '交易量同比 (1%)'], 'Noto Sans SC,Arial,sans-serif')}
     </g>`;
 
   window.DATASETS = window.DATASETS || [];

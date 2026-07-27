@@ -15,12 +15,12 @@
   const RED_LINK = '#e08585';
   const GRAY_LINK = '#858585';
 
-  const statsCard = (x, width, title, value, note, titleTextLength, noteTextLength) => `
+  const statsCard = (x, width, title, value, note, titleTextLength, noteTextLength, fontFamily = 'Montserrat,Arial,sans-serif') => `
     <g>
       <rect x="${x}" y="2040" width="${width}" height="288" rx="52" fill="#000000"/>
-      <text x="${x + width / 2}" y="2135" text-anchor="middle" font-size="50" font-weight="800" fill="#ffffff" textLength="${titleTextLength}" lengthAdjust="spacingAndGlyphs">${title}</text>
-      <text x="${x + width / 2}" y="2208" text-anchor="middle" font-size="55" font-weight="500" fill="#ffffff">${value}</text>
-      <text x="${x + width / 2}" y="2274" text-anchor="middle" font-size="39" font-weight="500" fill="#ffffff" textLength="${noteTextLength}" lengthAdjust="spacingAndGlyphs">${note}</text>
+      <text x="${x + width / 2}" y="2135" text-anchor="middle" font-family="${fontFamily}" font-size="50" font-weight="800" fill="#ffffff" textLength="${titleTextLength}" lengthAdjust="spacingAndGlyphs">${title}</text>
+      <text x="${x + width / 2}" y="2208" text-anchor="middle" font-family="${fontFamily}" font-size="55" font-weight="500" fill="#ffffff">${value}</text>
+      <text x="${x + width / 2}" y="2274" text-anchor="middle" font-family="${fontFamily}" font-size="39" font-weight="500" fill="#ffffff" textLength="${noteTextLength}" lengthAdjust="spacingAndGlyphs">${note}</text>
     </g>`;
 
   const digitalDevice = `
@@ -83,14 +83,14 @@
     <g transform="scale(0.569142)" font-family="Montserrat,Arial,sans-serif">
       ${statsCard(35, 667, 'Digital subscribers', '12.2M', '+12% Y/Y', 489, 204)}
       ${statsCard(722, 535, 'Digital ARPU', '$9.72', '+1% Y/Y', 325, 176)}
-      <text x="118" y="2388" font-size="50" font-weight="500" fill="${NOTE}" textLength="780" lengthAdjust="spacingAndGlyphs">ARPU = Average Revenue Per User</text>
+      <text x="118" y="2388" font-family="Montserrat,Arial,sans-serif" font-size="50" font-weight="500" fill="${NOTE}" textLength="780" lengthAdjust="spacingAndGlyphs">ARPU = Average Revenue Per User</text>
     </g>`;
 
   const annotationsZh = `
-    <g transform="scale(0.569142)" font-family="Noto Sans SC,Noto Sans,Arial,sans-serif">
-      ${statsCard(35, 667, '数字订阅用户', '12.2M', '同比 +12%', 330, 150)}
-      ${statsCard(722, 535, '数字业务 ARPU', '$9.72', '同比 +1%', 300, 140)}
-      <text x="118" y="2388" font-size="50" font-weight="500" fill="${NOTE}" textLength="650" lengthAdjust="spacingAndGlyphs">ARPU = 每用户平均收入</text>
+    <g transform="scale(0.569142)" font-family="Montserrat,Arial,sans-serif">
+      ${statsCard(35, 667, '数字订阅用户', '12.2M', '同比 +12%', 330, 150, 'Noto Sans SC,Noto Sans,Arial,sans-serif')}
+      ${statsCard(722, 535, '数字业务 ARPU', '$9.72', '同比 +1%', 300, 140, 'Noto Sans SC,Noto Sans,Arial,sans-serif')}
+      <text x="118" y="2388" font-family="Noto Sans SC,Noto Sans,Arial,sans-serif" font-size="50" font-weight="500" fill="${NOTE}" textLength="650" lengthAdjust="spacingAndGlyphs">ARPU = 每用户平均收入</text>
     </g>`;
 
   window.DATASETS = window.DATASETS || [];

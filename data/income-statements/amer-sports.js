@@ -145,7 +145,7 @@
           },
           operatingOtherIncome: {
             notes: ['净额包含 510 万美元其他营业收入及 90 万美元减值损失。'],
-            items: [{ id: 'other', label: '其他', notes: ['来源图按整数百万美元显示为 400 万美元'] }],
+            items: [{ id: 'other', label: '其他', notes: ['来源图取整后显示为 400 万美元'] }],
           },
           otherExpenses: {
             items: [{ id: 'finance', label: '财务费用' }],

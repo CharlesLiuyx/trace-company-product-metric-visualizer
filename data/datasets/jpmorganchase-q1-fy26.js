@@ -36,9 +36,9 @@
     '<text x="569" y="1314" font-size="22" font-weight="400">', zh ? '同比 +11%，环比 +1%' : '+11% Y/Y &amp; +1% Q/Q', '</text>',
     '<text x="887" y="1243" font-size="30" font-weight="800">CET1 ', zh ? '比率' : 'ratio', '</text>',
     '<text x="887" y="1282" font-size="29" font-weight="400">14.3%</text>',
-    zh
-      ? '<text x="887" y="1306" font-size="19" font-weight="400">同比 -0.9 个百分点</text><text x="887" y="1330" font-size="19" font-weight="400">环比 -0.3 个百分点</text>'
-      : '<text x="887" y="1314" font-size="22" font-weight="400">-0.9pp Y/Y &amp; -0.3pp Q/Q</text>',
+    '<text x="887" y="1314" font-size="22" font-weight="400">',
+    zh ? '同比 -0.9pp &amp; 环比 -0.3pp' : '-0.9pp Y/Y &amp; -0.3pp Q/Q',
+    '</text>',
     '</g></g>',
   ].join('');
 

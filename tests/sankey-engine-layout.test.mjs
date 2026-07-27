@@ -16,6 +16,7 @@ const {
   linkCenterlinePoint,
   referenceCanvasDefaults,
   canvasSize,
+  assertSafeSvgFragments,
   buildLabelSpecs,
   decollideSideLabels,
 } = SankeyEngine.helpers;
@@ -43,6 +44,34 @@ test('deepMerge merges nested objects without mutating the base', () => {
 test('deepMerge returns base when extra is falsy', () => {
   const base = { a: 1 };
   assert.equal(deepMerge(base, null), base);
+});
+
+test('renderer accepts only the reviewed passive annotationsSvg vocabulary', () => {
+  assert.doesNotThrow(() => assertSafeSvgFragments(`
+    <svg><defs>
+      <linearGradient id="lg"><stop offset="0"/></linearGradient>
+      <radialGradient id="rg"><stop offset="1"/></radialGradient>
+      <clipPath id="clip"><rect width="10" height="10"/></clipPath>
+    </defs><!-- passive provenance note --><g clip-path="url(#clip)">
+      <circle/><ellipse/><line/><path/><polygon/><rect fill="url(#lg)"/>
+      <text>Safe<tspan> text</tspan></text>
+    </g></svg>
+  `));
+
+  for (const markup of [
+    '<foreignObject><div>unsafe</div></foreignObject>',
+    '<style>text{display:none}</style>',
+    '<script>throw 1</script>',
+    '<use href="#logo"/>',
+    '<animate attributeName="x"/>',
+    '<image href="data:image/png;base64,x"/>',
+    '<g onload="throw 1"/>',
+    '<g o&#x6e;load="throw 1"/>',
+    '<rect fill="url(https://example.com/a.svg#x)"/>',
+    '<text href="java&#x73;cript:throw 1">unsafe</text>',
+  ]) {
+    assert.throws(() => assertSafeSvgFragments(markup), /Sankey SVG annotations/);
+  }
 });
 
 test('formatValue renders currency, unit, and decimals from meta', () => {

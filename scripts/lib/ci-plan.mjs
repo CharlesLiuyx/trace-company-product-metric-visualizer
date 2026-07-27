@@ -170,7 +170,12 @@ function classifyPath(plan, file, status, options) {
     return;
   }
 
-  if (file.startsWith('src/app/') || file === 'src/app.css' || file === 'vendor/chart.umd.min.js') {
+  if (
+    file.startsWith('src/app/')
+    || file === 'src/comparison-scale.js'
+    || file === 'src/app.css'
+    || file === 'vendor/chart.umd.min.js'
+  ) {
     addImpact(plan, 'interaction');
     plan.verifyApp = true;
     requireSiteProjection(plan, `viewer runtime changed: ${file}`, { browser: true });

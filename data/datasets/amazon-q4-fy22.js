@@ -93,7 +93,7 @@
       revenue9: '占收入 9%',
       pp1: '同比 +1 个百分点',
       revenue2: '占收入 2%',
-      unchanged: '同比不变',
+      unchanged: '保持不变',
     } : {
       online: 'Online Store',
       physical: 'Physical Store',
@@ -389,7 +389,7 @@
           fulfillment: { label: '履约', notes: ['占收入 15%', '同比 (1 个百分点)'] },
           technology_content: { label: '技术与内容', notes: ['占收入 14%', '同比 +3 个百分点'] },
           sm: { label: '销售与市场', notes: ['占收入 9%', '同比 +1 个百分点'] },
-          ga: { label: '管理费用', notes: ['占收入 2%', '同比不变'] },
+          ga: { label: '管理费用', notes: ['占收入 2%', '保持不变'] },
           other_opex: { label: '其他运营费用' },
         },
         layout: { labels: labels(true) },

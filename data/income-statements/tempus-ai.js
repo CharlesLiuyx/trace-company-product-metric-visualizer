@@ -84,7 +84,7 @@
           costs: {
             costOfRevenue: {
               label: '收入成本',
-              notes: ['来源图的基因组学与数据和服务明细合计为 1.25 亿美元，因四舍五入高于显示的 1.24 亿美元。'],
+              notes: ['来源图的基因组学与数据和服务明细经四舍五入合计为 1.25 亿美元。'],
               items: [
                 { id: 'genomics_cost', label: '基因组学' },
                 { id: 'data_services_cost', label: '数据与服务' },
@@ -278,7 +278,7 @@
           costs: {
             costOfRevenue: {
               label: '收入成本',
-              notes: ['来源图的基因组学与数据和服务明细合计为 1.30 亿美元，因四舍五入高于显示的 1.29 亿美元。'],
+              notes: ['来源图的基因组学与数据和服务明细经四舍五入合计为 1.30 亿美元。'],
               items: [
                 { id: 'genomics', label: '基因组学' },
                 { id: 'data_services_cost', label: '数据与服务' },

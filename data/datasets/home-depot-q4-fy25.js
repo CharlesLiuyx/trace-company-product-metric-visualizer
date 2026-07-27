@@ -37,7 +37,7 @@
         ? [{ text: '同店销售' }, { text: '同比 +0.4%', size: 23, weight: 500 }]
         : [{ text: 'Comparable sales' }, { text: '+0.4% Y/Y', size: 23, weight: 500 }])}
       ${kpiCard(319, 274, isZh
-        ? [{ text: '客户交易' }, { text: '同比 (1.6%)', size: 23, weight: 500 }]
+        ? [{ text: '客户' }, { text: '交易' }, { text: '同比 (1.6%)', size: 23, weight: 500 }]
         : [{ text: 'Customer' }, { text: 'transactions' }, { text: '(1.6%) Y/Y', size: 23, weight: 500 }])}
       ${kpiCard(605, 274, isZh
         ? [{ text: '平均客单价' }, { text: '同比 +2.4%', size: 23, weight: 500 }]

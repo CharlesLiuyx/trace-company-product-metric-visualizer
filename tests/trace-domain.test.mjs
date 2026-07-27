@@ -18,8 +18,13 @@ const {
   variantFeatureName,
   currencyCode,
   currencyUnitsPerUsd,
+  normalizeSankeyMetricValue,
+  strictMoneyDimension,
+  strictSankeyMoneyDimension,
   amountValueUsd,
   unitMultiplier,
+  MONEY_UNIT_MULTIPLIERS,
+  USD_FX_SNAPSHOT,
   buildCompanyMetadataIndex,
 } = TraceDomain;
 
@@ -125,6 +130,91 @@ test('amountValueUsd converts via the FX snapshot and money units', () => {
   const chf = currencyUnitsPerUsd('CHF');
   assert.ok(Math.abs(amountValueUsd(5, 'CHF', 'B') - 5e9 / chf) < 1e-6);
   assert.equal(amountValueUsd('n/a', '$', 'B'), null);
+});
+
+test('Sankey cost faces compare SSOT signs by magnitude without erasing other semantic signs', () => {
+  assert.equal(normalizeSankeyMetricValue(-11, 'cost'), 11);
+  assert.equal(normalizeSankeyMetricValue(11, 'cost'), 11);
+  assert.equal(normalizeSankeyMetricValue(-11, 'profit'), -11);
+  assert.equal(normalizeSankeyMetricValue(-11, 'source'), -11);
+  assert.equal(normalizeSankeyMetricValue('n/a', 'cost'), 'n/a');
+});
+
+test('authoritative money dimensions pin every K/M/B/T multiplier independently', () => {
+  const expected = { K: 1e3, M: 1e6, B: 1e9, T: 1e12 };
+  assert.deepEqual(
+    Object.fromEntries(Object.entries(MONEY_UNIT_MULTIPLIERS).sort()),
+    Object.fromEntries(Object.entries(expected).sort())
+  );
+  for (const [unit, usdPerValue] of Object.entries(expected)) {
+    assert.deepEqual(
+      JSON.parse(JSON.stringify(strictMoneyDimension('$', unit))),
+      {
+        status: 'valid',
+        currency: '$',
+        currencyCode: 'USD',
+        unit,
+        unitMultiplier: usdPerValue,
+        currencyUnitsPerUsd: 1,
+        usdPerValue,
+        fxAsOf: '2026-06-26',
+      }
+    );
+  }
+  assert.equal(strictMoneyDimension('', 'B').code, 'missing-reporting-currency');
+  assert.equal(strictMoneyDimension(' $', 'B').code, 'missing-reporting-currency');
+  assert.equal(strictMoneyDimension('$', ' B ').code, 'unsupported-money-unit');
+  assert.equal(strictMoneyDimension('$', true).code, 'unsupported-money-unit');
+  assert.equal(strictMoneyDimension('$', 'widgets').code, 'unsupported-money-unit');
+  assert.equal(strictMoneyDimension('BTC', 'B').code, 'missing-usd-conversion');
+});
+
+test('Sankey display money dimensions cannot contradict Metric SSOT magnitude', () => {
+  const financial = { currency: '$', unit: 'B' };
+  assert.equal(
+    strictSankeyMoneyDimension({ currency: 'USD', unit: 'B' }, financial).status,
+    'valid'
+  );
+  assert.equal(
+    strictSankeyMoneyDimension({ currency: '', unit: 'B' }, financial).status,
+    'valid',
+    'blank Adapter currency is an intentional source-faithful display mode'
+  );
+  assert.equal(
+    strictSankeyMoneyDimension({ currency: '€', unit: 'B' }, financial).code,
+    'sankey-money-currency-mismatch'
+  );
+  assert.equal(
+    strictSankeyMoneyDimension({ currency: '$', unit: 'M' }, financial).code,
+    'sankey-money-unit-mismatch'
+  );
+  assert.equal(
+    strictSankeyMoneyDimension({ unit: 'B' }, financial).code,
+    'invalid-sankey-display-currency'
+  );
+});
+
+test('the versioned FX snapshot changes only through an explicit fixture update', () => {
+  assert.equal(USD_FX_SNAPSHOT.asOf, '2026-06-26');
+  assert.equal(USD_FX_SNAPSHOT.base, 'USD');
+  assert.equal(USD_FX_SNAPSHOT.source, 'Frankfurter');
+  assert.deepEqual(
+    JSON.parse(JSON.stringify(USD_FX_SNAPSHOT.unitsPerUsd)),
+    {
+      USD: 1,
+      CHF: 0.80853,
+      EUR: 0.87712,
+      CNY: 6.7982,
+      CNH: 6.7982,
+      JPY: 161.65,
+      KRW: 1536.47,
+      HKD: 7.8421,
+      GBP: 0.75654,
+      DKK: 6.5372,
+      BRL: 5.1689,
+      SAR: 3.75,
+    }
+  );
 });
 
 test('unitMultiplier maps money units and defaults to 1', () => {

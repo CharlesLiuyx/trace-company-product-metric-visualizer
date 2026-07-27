@@ -24,12 +24,13 @@
   const icon = (name, x, y, scale = 1) => `
     <g transform="translate(${x} ${y}) scale(${scale})" data-typography-role="brand">${BUSINESS_ICONS[name] || ''}</g>`;
 
-  const kpiCard = (x, width, lines) => `
+  const kpiCard = (x, width, lines, fontFamily = 'Montserrat,Arial,sans-serif') => `
     <g>
       <rect x="${x}" y="1195" width="${width}" height="148" rx="28" fill="${WALMART_BLUE}"/>
       ${lines.map((line, index) => `
         <text x="${x + width / 2}" y="${1261 + index * 40}" text-anchor="middle"
-          font-size="${index === 0 ? 28 : 27}" font-weight="${index === 0 ? 800 : 500}" fill="#ffffff">${line}</text>
+          font-family="${fontFamily}" font-size="${index === 0 ? 28 : 27}"
+          font-weight="${index === 0 ? 800 : 500}" fill="#ffffff">${line}</text>
       `).join('')}
     </g>`;
 
@@ -42,11 +43,11 @@
     </g>`;
 
   const annotationsZh = `
-    <g font-family="Montserrat,Arial,'Microsoft YaHei',sans-serif">
+    <g font-family="Montserrat,Arial,sans-serif">
       ${icon('walmartCompanyWordmark', 602, 276, 1)}
       ${icon('samsClubWordmark', 93, 1128, 1)}
-      ${kpiCard(1866, 310, ['美国可比销售额', '同比 +4.5%'])}
-      ${kpiCard(2187, 355, ['电商同比 +27%', '广告同比 +53%'])}
+      ${kpiCard(1866, 310, ['美国可比销售额', '同比 +4.5%'], "Montserrat,Arial,'Microsoft YaHei',sans-serif")}
+      ${kpiCard(2187, 355, ['电商同比 +27%', '广告同比 +53%'], "Montserrat,Arial,'Microsoft YaHei',sans-serif")}
     </g>`;
 
   window.DATASETS = window.DATASETS || [];

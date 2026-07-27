@@ -151,7 +151,7 @@
           },
           otherExpenses: {
             items: [
-              { label: '利息', notes: ['利息及其他费用在源图中显示为 1 亿美元。'] },
+              { label: '利息', notes: ['利息及其他费用在源图中显示为（1 亿美元）。'] },
             ],
           },
           profit: {
@@ -305,7 +305,7 @@
           },
           otherExpenses: {
             items: [
-              { label: '利息', notes: ['净利息及其他费用在源图中显示为 1 亿美元。'] },
+              { label: '利息', notes: ['净利息及其他费用在源图中显示为（1 亿美元）。'] },
             ],
           },
           profit: {

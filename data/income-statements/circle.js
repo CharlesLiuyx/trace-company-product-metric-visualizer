@@ -93,7 +93,7 @@
         costs: {
           costOfRevenue: { label: '分发与交易成本' },
           operatingExpenses: {
-            notes: ['图中展示的营业费用组成因按百万美元取整合计为 $210M。'],
+            notes: ['图中展示的营业费用组成因取整合计为 $210M。'],
             items: [
               { id: 'compensation', label: '薪酬' },
               { id: 'general_admin', label: '一般及行政费用' },

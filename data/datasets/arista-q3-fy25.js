@@ -192,7 +192,7 @@
         meta: {
           title: '阿里斯塔网络 2025 财年第三季度利润表',
           period: '2025 财年第三季度',
-          periodNote: '截至 2025 年 9 月 30 日',
+          periodNote: '截至 2025 年 9 月',
           titleSize: 92,
           titleTextLength: 1750,
         },

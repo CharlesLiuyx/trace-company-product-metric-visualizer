@@ -38,6 +38,7 @@
           { id: 'samsung_display', label: 'Samsung Display', value: 6.7, notes: ['+14% Y/Y'] },
           { id: 'harman', label: 'Harman', value: 3.8, notes: ['+12% Y/Y'] },
           {
+            id: 'eliminations',
             label: 'Eliminations',
             value: -11.0,
             notes: ['Shown as an eliminations cost before consolidated Sales in the source chart.'],
@@ -84,7 +85,7 @@
               { id: 'device_experience', label: '设备体验', notes: ['同比 +2%', '数字电视、冰箱、手机、通信系统'] },
               { id: 'samsung_display', label: '三星显示', notes: ['同比 +14%'] },
               { id: 'harman', label: '哈曼', notes: ['同比 +12%'] },
-              { id: 'undefined', label: '抵销', notes: ['来源图显示为合并销售额前的抵销成本。'] },
+              { id: 'eliminations', label: '抵销', notes: ['来源图显示为合并销售额前的抵销成本。'] },
             ],
           },
           costs: {
@@ -139,6 +140,7 @@
           { id: 'samsung_display', label: 'Samsung Display', value: 9.5, notes: ['+17% Y/Y'] },
           { id: 'harman', label: 'Harman', value: 4.6, notes: ['+17% Y/Y'] },
           {
+            id: 'eliminations',
             label: 'Eliminations',
             value: -8.6,
             notes: ['Shown as an eliminations cost before consolidated Sales in the source chart.'],
@@ -185,7 +187,7 @@
               { id: 'device_solutions', label: '设备解决方案', notes: ['同比 +46%', '存储器、晶圆代工和 System LSI'] },
               { id: 'samsung_display', label: '三星显示', notes: ['同比 +17%'] },
               { id: 'harman', label: '哈曼', notes: ['同比 +17%'] },
-              { id: 'undefined', label: '抵销', notes: ['来源图显示为合并销售额前的抵销成本。'] },
+              { id: 'eliminations', label: '抵销', notes: ['来源图显示为合并销售额前的抵销成本。'] },
             ],
           },
           costs: {

@@ -202,12 +202,12 @@
   setLines('restructuring', 1, ['$value']);
   setLines('restructuring', 2, ['占收入 1%', '同比 +0 个百分点']);
 
-  const kpiCard = (x, width, lines) => `
+  const kpiCard = (x, width, lines, fontFamily = "'Noto Sans',Arial,sans-serif") => `
     <g>
       <rect x="${x}" y="1114" width="${width}" height="150" rx="28" fill="${KPI_BLUE}"/>
       ${lines.map((item) => `
         <text x="${x + width / 2}" y="${item.y}" text-anchor="middle"
-          font-size="${item.size}" font-weight="${item.weight}" fill="#ffffff">${item.text}</text>`).join('')}
+          font-family="${fontFamily}" font-size="${item.size}" font-weight="${item.weight}" fill="#ffffff">${item.text}</text>`).join('')}
     </g>`;
 
   const annotationsEn = `
@@ -227,29 +227,29 @@
         { text: '59', y: 1210, size: 29, weight: 500 },
         { text: '(1%) Y/Y', y: 1249, size: 27, weight: 500 },
       ])}
-      <text x="429" y="1304" text-anchor="middle" font-size="28" font-weight="500" fill="${NOTE}">TPV = Total Payment Volume</text>
-      <text x="429" y="1342" text-anchor="middle" font-size="28" font-weight="500" fill="${NOTE}">TPA = Transactions per active account (TTM)</text>
+      <text x="429" y="1304" text-anchor="middle" font-family="'Noto Sans',Arial,sans-serif" font-size="28" font-weight="500" fill="${NOTE}">TPV = Total Payment Volume</text>
+      <text x="429" y="1342" text-anchor="middle" font-family="'Noto Sans',Arial,sans-serif" font-size="28" font-weight="500" fill="${NOTE}">TPA = Transactions per active account (TTM)</text>
     </g>`;
 
   const annotationsZh = `
-    <g font-family="'Noto Sans',Arial,'Microsoft YaHei',sans-serif">
+    <g font-family="'Noto Sans',Arial,sans-serif">
       ${kpiCard(30, 203, [
         { text: 'TPV', y: 1167, size: 29, weight: 800 },
         { text: '$464B', y: 1210, size: 29, weight: 500 },
         { text: '同比 +11%', y: 1249, size: 27, weight: 500 },
-      ])}
+      ], "'Noto Sans',Arial,'Microsoft YaHei',sans-serif")}
       ${kpiCard(246, 380, [
         { text: '活跃账户', y: 1167, size: 29, weight: 800 },
         { text: '439M', y: 1210, size: 29, weight: 500 },
         { text: '同比 +1%', y: 1249, size: 27, weight: 500 },
-      ])}
+      ], "'Noto Sans',Arial,'Microsoft YaHei',sans-serif")}
       ${kpiCard(636, 192, [
         { text: 'TPA', y: 1167, size: 29, weight: 800 },
         { text: '59', y: 1210, size: 29, weight: 500 },
         { text: '同比 (1%)', y: 1249, size: 27, weight: 500 },
-      ])}
-      <text x="429" y="1304" text-anchor="middle" font-size="28" font-weight="500" fill="${NOTE}">TPV = 总支付额</text>
-      <text x="429" y="1342" text-anchor="middle" font-size="28" font-weight="500" fill="${NOTE}">TPA = 每个活跃账户的交易笔数（过去十二个月）</text>
+      ], "'Noto Sans',Arial,'Microsoft YaHei',sans-serif")}
+      <text x="429" y="1304" text-anchor="middle" font-family="'Noto Sans',Arial,'Microsoft YaHei',sans-serif" font-size="28" font-weight="500" fill="${NOTE}">TPV = 总支付额</text>
+      <text x="429" y="1342" text-anchor="middle" font-family="'Noto Sans',Arial,'Microsoft YaHei',sans-serif" font-size="28" font-weight="500" fill="${NOTE}">TPA = 每个活跃账户的交易笔数（过去十二个月）</text>
     </g>`;
 
   window.DATASETS = window.DATASETS || [];

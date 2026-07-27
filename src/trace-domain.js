@@ -280,6 +280,126 @@
     return finiteNumber(USD_FX_SNAPSHOT.unitsPerUsd[currencyCode(currency)]);
   }
 
+  // Metric SSOT keeps arithmetic signs (for example, a revenue elimination
+  // is negative), while a Sankey cost face communicates the outflow sign
+  // through `type: "cost"` and paints a magnitude. Normalize only that
+  // semantic boundary; profit/source/hub signs remain authoritative.
+  function normalizeSankeyMetricValue(value, type) {
+    const numeric = finiteNumber(value);
+    if (numeric == null) return value;
+    return type === 'cost' ? Math.abs(numeric) : numeric;
+  }
+
+  // Typed money-dimension contract for authoritative cross-record joins.
+  // Legacy display helpers remain permissive, but comparison/verification
+  // must never inherit their blank-currency or unit=1 fallbacks.
+  function strictMoneyDimension(currency, unit) {
+    if (
+      typeof currency !== 'string'
+      || !currency
+      || currency.trim() !== currency
+    ) {
+      return Object.freeze({
+        status: 'invalid',
+        code: 'missing-reporting-currency',
+      });
+    }
+    const reportingCurrency = currency;
+    if (
+      typeof unit !== 'string'
+      || !unit
+      || unit.trim() !== unit
+    ) {
+      return Object.freeze({
+        status: 'invalid',
+        code: 'unsupported-money-unit',
+        currency: reportingCurrency,
+        unit,
+      });
+    }
+    const reportingUnit = unit;
+    if (!Object.prototype.hasOwnProperty.call(MONEY_UNIT_MULTIPLIERS, reportingUnit)) {
+      return Object.freeze({
+        status: 'invalid',
+        code: 'unsupported-money-unit',
+        currency: reportingCurrency,
+        unit: reportingUnit,
+      });
+    }
+    const code = currencyCode(reportingCurrency);
+    const unitsPerUsd = finiteNumber(USD_FX_SNAPSHOT.unitsPerUsd[code]);
+    if (unitsPerUsd == null || unitsPerUsd <= 0) {
+      return Object.freeze({
+        status: 'invalid',
+        code: 'missing-usd-conversion',
+        currency: reportingCurrency,
+        currencyCode: code,
+        unit: reportingUnit,
+      });
+    }
+    const multiplier = MONEY_UNIT_MULTIPLIERS[reportingUnit];
+    return Object.freeze({
+      status: 'valid',
+      currency: reportingCurrency,
+      currencyCode: code,
+      unit: reportingUnit,
+      unitMultiplier: multiplier,
+      currencyUnitsPerUsd: unitsPerUsd,
+      usdPerValue: multiplier / unitsPerUsd,
+      fxAsOf: USD_FX_SNAPSHOT.asOf,
+    });
+  }
+
+  // Runtime join contract between the Metric SSOT (arithmetic authority) and
+  // a Sankey View Adapter (visible amount authority). An Adapter may
+  // deliberately use an empty currency when its source-faithful valueText or
+  // annotations carry the unit, but a non-empty display currency must denote
+  // the same currency and the magnitude unit must always match exactly.
+  function strictSankeyMoneyDimension(meta, financial) {
+    const authoritative = strictMoneyDimension(financial?.currency, financial?.unit);
+    if (authoritative.status !== 'valid') return authoritative;
+    if (!meta || typeof meta !== 'object' || Array.isArray(meta)) {
+      return Object.freeze({ status: 'invalid', code: 'missing-sankey-money-meta' });
+    }
+    if (
+      typeof meta.unit !== 'string'
+      || meta.unit !== authoritative.unit
+    ) {
+      return Object.freeze({
+        status: 'invalid',
+        code: 'sankey-money-unit-mismatch',
+        unit: meta.unit,
+        authoritativeUnit: authoritative.unit,
+      });
+    }
+    if (
+      !Object.prototype.hasOwnProperty.call(meta, 'currency')
+      || typeof meta.currency !== 'string'
+      || meta.currency.trim() !== meta.currency
+    ) {
+      return Object.freeze({
+        status: 'invalid',
+        code: 'invalid-sankey-display-currency',
+        currency: meta.currency,
+      });
+    }
+    if (
+      meta.currency
+      && currencyCode(meta.currency) !== authoritative.currencyCode
+    ) {
+      return Object.freeze({
+        status: 'invalid',
+        code: 'sankey-money-currency-mismatch',
+        currency: meta.currency,
+        authoritativeCurrency: authoritative.currency,
+      });
+    }
+    return Object.freeze({
+      ...authoritative,
+      displayCurrency: meta.currency,
+    });
+  }
+
   function amountValueUsd(value, currency = '$', unit = '') {
     const number = finiteNumber(value);
     const unitsPerUsd = currencyUnitsPerUsd(currency);
@@ -536,6 +656,9 @@
     unitMultiplier,
     currencyCode,
     currencyUnitsPerUsd,
+    normalizeSankeyMetricValue,
+    strictMoneyDimension,
+    strictSankeyMoneyDimension,
     amountValueUsd,
     buildCompanyMetadataIndex,
     fallbackCompanyMetadata,

@@ -129,7 +129,7 @@
     i18n: {
       zh: {
         name: '阿里斯塔网络 · 2026 财年第一季度',
-        meta: { title: '阿里斯塔网络 2026 财年第一季度利润表', period: '2026 财年第一季度', periodNote: '截至 2026 年 3 月 31 日', titleSize: 92, titleTextLength: 1750 },
+        meta: { title: '阿里斯塔网络 2026 财年第一季度利润表', period: '2026 财年第一季度', periodNote: '截至 2026 年 3 月', titleSize: 92, titleTextLength: 1750 },
         nodes: {
           product: { label: '产品', notes: ['同比 +37%', '毛利率 58%', '同比 (2 个百分点)'] }, service: { label: '服务', notes: ['同比 +27%', '毛利率 82%', '同比 +0 个百分点'] }, revenue: { label: '收入', notes: ['同比 +35%'] }, gross_profit: { label: '毛利润', notes: ['毛利率 62%', '同比 (2 个百分点)'] }, cost_of_revenue: { label: '收入成本' }, product_cor: { label: '产品' }, service_cor: { label: '服务' }, operating_profit: { label: '营业利润', notes: ['利润率 43%', '同比 (0 个百分点)'] }, operating_expenses: { label: '运营费用' }, other_income: { label: '其他收入' }, net_profit: { label: '净利润', notes: ['利润率 38%', '同比 (3 个百分点)'] }, tax: { label: '税费' }, rnd: { label: '研发', notes: ['占收入 13%', '同比 (1 个百分点)'] }, sm: { label: '销售与市场', notes: ['占收入 5%', '同比 (1 个百分点)'] }, ga: { label: '一般及行政', notes: ['占收入 1%', '同比 (0 个百分点)'] },
         },

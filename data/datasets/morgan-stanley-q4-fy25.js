@@ -32,9 +32,9 @@
         <text x="509" y="1199" font-size="28" font-weight="400">21.8%</text>
         <text x="509" y="1231" font-size="${zh ? '22' : '24'}" font-weight="400">${zh ? '同比 +1.6 个百分点' : '+1.6pp Y/Y'}</text>
       </g>
-      <g fill="${NOTE}" font-size="${zh ? '23' : '28'}" font-weight="400">
-        <text x="232" y="1296">${zh ? 'CET1 = 普通股一级资本充足率' : 'CET1 = Common Equity Tier 1'}</text>
-        <text x="78" y="1343">${zh ? 'ROTCE = 平均有形普通股权益回报率' : 'ROTCE = Return on average tangible common equity'}</text>
+      <g fill="${NOTE}" font-weight="400">
+        <text x="232" y="1296" font-size="${zh ? '23' : '28'}">${zh ? 'CET1 = 普通股一级资本充足率' : 'CET1 = Common Equity Tier 1'}</text>
+        <text x="78" y="1343" font-size="${zh ? '23' : '28'}">${zh ? 'ROTCE = 平均有形普通股权益回报率' : 'ROTCE = Return on average tangible common equity'}</text>
       </g>
     </g>`;
 

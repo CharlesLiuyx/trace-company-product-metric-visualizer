@@ -114,6 +114,7 @@
         nodes: {
           north_america: { label: '北美', notes: ['同比 (1%)'] }, international_developed_markets: { label: '国际发达市场', notes: ['同比 +3%'] }, emerging_markets: { label: '新兴市场', notes: ['同比 +7%'] }, revenue: { label: '净销售额', notes: ['同比 +1%'] }, gross_profit: { label: '毛利润', notes: ['利润率 37%', '同比 +2 个百分点'] }, cost_of_sales: { label: '销售成本' }, operating_profit: { label: '营业利润', notes: ['利润率 19%', '同比 (1 个百分点)'] }, operating_expenses: { label: '运营费用' }, net_profit: { label: '净利润', notes: ['利润率 13%', '同比 +1 个百分点'] }, other: { label: '其他' }, tax: { label: '税费' }, interest: { label: '利息' }, sga: { label: '销售、一般及管理费用', notes: ['占收入 18%', '同比 +3 个百分点'] }, intangible: { label: '无形资产', notes: ['占收入 0%'] },
         },
+        annotationsSvg: otherAnnotation(true),
         layout: { labels: {
           north_america: { blocks: [{ x: 502, top: 419, anchor: 'middle', lineGap: 12, lines: [{ text: '$value', size: 40 }, { text: '同比 (1%)', size: 29, color: NOTE }] }, { x: 297, top: 614, anchor: 'middle', lineGap: 7, lines: [{ text: '北美', size: 40, weight: 800 }] }] },
           international_developed_markets: { blocks: [{ x: 502, top: 865, anchor: 'middle', lineGap: 12, lines: [{ text: '$value', size: 40 }, { text: '同比 +3%', size: 29, color: NOTE }] }, { x: 297, top: 947, anchor: 'middle', lineGap: 7, lines: [{ text: '国际发达市场', size: 40, weight: 800 }] }] },
@@ -129,7 +130,7 @@
           interest: { blocks: [{ x: RIGHT_X, top: 750, anchor: 'middle', lineGap: 8, lines: [{ text: '利息', size: 31, weight: 800, color: RED_LABEL }, { text: '$value', size: 31, color: RED_LABEL }] }] },
           sga: { blocks: [{ x: 2525, top: 955, anchor: 'middle', lineGap: 8, lines: [{ text: '销售、一般及', size: 27, weight: 800, color: RED_LABEL }, { text: '管理费用', size: 27, weight: 800, color: RED_LABEL }, { text: '$value', size: 31, color: RED_LABEL }, { text: '占收入 18%', size: 29, color: NOTE }, { text: '同比 +3 个百分点', size: 29, color: NOTE }] }] },
           intangible: { blocks: [{ x: 2525, top: 1175, anchor: 'middle', lineGap: 8, lines: [{ text: '无形资产', size: 31, weight: 800, color: RED_LABEL }, { text: '($13M)', size: 31, color: RED_LABEL }, { text: '占收入 0%', size: 29, color: NOTE }] }] },
-        }, annotationsSvg: otherAnnotation(true) },
+        } },
       },
     },
   };

@@ -30,17 +30,17 @@
     ${metricCard(27, 165, ['DBNR', '117%', '(1pp) Q/Q'])}
     ${metricCard(202, 547, ['Customers &gt; $5K 10,831 (+7% Y/Y)', 'Customers &gt; $100K 1,519 (+18% Y/Y)'])}
     ${metricCard(762, 166, ['cRPO', '$724M', '+24% Y/Y'])}
-    <g font-family="Noto Sans,Arial,sans-serif" font-size="28" font-weight="500" fill="${NOTE}">
-      <text x="135" y="1322">cRPO = Current Remaining Performance Obligations</text>
-      <text x="265" y="1362">DBNR = Dollar Based Net Retention</text>
+    <g font-family="Noto Sans,Arial,sans-serif" font-weight="500" fill="${NOTE}">
+      <text x="135" y="1322" font-size="28">cRPO = Current Remaining Performance Obligations</text>
+      <text x="265" y="1362" font-size="28">DBNR = Dollar Based Net Retention</text>
     </g>`;
   const annotationsZh = `
     ${metricCard(27, 165, ['DBNR', '117%', '环比 -1pp'])}
     ${metricCard(202, 547, ['$5K+ 客户 10,831（同比 +7%）', '$100K+ 客户 1,519（同比 +18%）'])}
     ${metricCard(762, 166, ['cRPO', '$724M', '同比 +24%'])}
-    <g font-family="Noto Sans,Arial,sans-serif" font-size="27" font-weight="500" fill="${NOTE}">
-      <text x="92" y="1322">cRPO = 当期剩余履约义务</text>
-      <text x="288" y="1362">DBNR = 基于美元的净留存率</text>
+    <g font-family="Noto Sans,Arial,sans-serif" font-weight="500" fill="${NOTE}">
+      <text x="92" y="1322" font-size="27">cRPO = 当期剩余履约义务</text>
+      <text x="288" y="1362" font-size="27">DBNR = 基于美元的净留存率</text>
     </g>`;
 
   const zhLayoutLabels = {
