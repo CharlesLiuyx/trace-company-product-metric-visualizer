@@ -186,6 +186,30 @@ window.SANKEY_BUSINESS_ICONS = {
       </g>
     </g>
   `,
+  teslaVehicleStack: `
+    <g>
+      <g transform="translate(0 0)">
+        <path d="M12 38C35 18 76 11 123 18C153 22 181 35 201 50L207 58H4L6 48Z" fill="#f7f7f7" stroke="#bfc4c8" stroke-width="2"/>
+        <path d="M48 23C75 11 112 11 143 24L160 38H54Z" fill="#c6d2d8"/>
+        <circle cx="44" cy="58" r="10" fill="#171717"/><circle cx="169" cy="58" r="10" fill="#171717"/>
+      </g>
+      <g transform="translate(0 75)">
+        <path d="M12 38C35 18 76 11 123 18C153 22 181 35 201 50L207 58H4L6 48Z" fill="#c61d2d" stroke="#8f111d" stroke-width="2"/>
+        <path d="M48 23C75 11 112 11 143 24L160 38H54Z" fill="#b7c7cf"/>
+        <circle cx="44" cy="58" r="10" fill="#171717"/><circle cx="169" cy="58" r="10" fill="#171717"/>
+      </g>
+      <g transform="translate(0 150)">
+        <path d="M12 38C35 18 76 11 123 18C153 22 181 35 201 50L207 58H4L6 48Z" fill="#17191b" stroke="#050505" stroke-width="2"/>
+        <path d="M48 23C75 11 112 11 143 24L160 38H54Z" fill="#808b91"/>
+        <circle cx="44" cy="58" r="10" fill="#080808"/><circle cx="169" cy="58" r="10" fill="#080808"/>
+      </g>
+      <g transform="translate(0 225)">
+        <path d="M12 38C35 18 76 11 123 18C153 22 181 35 201 50L207 58H4L6 48Z" fill="#5f6265" stroke="#323436" stroke-width="2"/>
+        <path d="M48 23C75 11 112 11 143 24L160 38H54Z" fill="#c8d0d4"/>
+        <circle cx="44" cy="58" r="10" fill="#171717"/><circle cx="169" cy="58" r="10" fill="#171717"/>
+      </g>
+    </g>
+  `,
   teslaEnergyCluster: `
     <g transform="translate(0 0)">
       <rect x="0" y="5" width="52" height="99" rx="4" fill="#f6f7f7" stroke="#d4d6d8" stroke-width="2"/>
