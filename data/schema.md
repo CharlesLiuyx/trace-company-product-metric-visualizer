@@ -739,11 +739,14 @@ that is not `$value` should have a localized equivalent. For helper-built
 datasets, node labels and notes are usually sufficient because the renderer
 builds label blocks from node text.
 
-Fixed-layout label blocks may set `semanticRole: "name" | "amount" | "note"`.
+Fixed-layout label blocks may set
+`semanticRole: "name" | "amount" | "note" | "top-aligned-side-label"`.
 The rendered group exposes this as `data-label-role`; B3/T7 uses it to
-distinguish a side-aligned semantic name from explanatory note copy when a
-separate amount block is present. Use the role only to describe the Source
-semantics—it does not change text, geometry, or interaction behavior.
+distinguish a centered side-aligned semantic name from explanatory note copy
+when a separate amount block is present. Use `top-aligned-side-label` only
+when the Source visibly anchors a side name to the top of its node rather
+than its vertical center. Roles only describe Source semantics—they do not
+change text, geometry, or interaction behavior.
 
 `i18n.preservedAnnotationText` (optional, `string[]`, not a language overlay) declares
 `annotationsSvg` text segments that intentionally stay untranslated in every
