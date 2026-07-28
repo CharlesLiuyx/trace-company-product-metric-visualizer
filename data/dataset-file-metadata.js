@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-28T05:42:25.000Z",
+  "generatedAt": "2026-07-28T05:48:00.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -3645,158 +3645,158 @@
     },
     "tesla-q1-fy24": {
       "path": "data/datasets/tesla-q1-fy24.js",
-      "updatedAtMs": 1785217345000,
-      "updatedAt": "2026-07-28T05:42:25.000Z",
+      "updatedAtMs": 1785217680000,
+      "updatedAt": "2026-07-28T05:48:00.000Z",
       "timeSource": "git"
     },
     "tesla-q2-fy25": {
       "path": "data/datasets/tesla-q2-fy25.js",
-      "updatedAtMs": 1785217345000,
-      "updatedAt": "2026-07-28T05:42:25.000Z",
+      "updatedAtMs": 1785217680000,
+      "updatedAt": "2026-07-28T05:48:00.000Z",
       "timeSource": "git"
     },
     "tesla-q3-fy25": {
       "path": "data/datasets/tesla-q3-fy25.js",
-      "updatedAtMs": 1785217345000,
-      "updatedAt": "2026-07-28T05:42:25.000Z",
+      "updatedAtMs": 1785217680000,
+      "updatedAt": "2026-07-28T05:48:00.000Z",
       "timeSource": "git"
     },
     "tesla-q1-fy23": {
       "path": "data/datasets/tesla-q1-fy23.js",
-      "updatedAtMs": 1785217345000,
-      "updatedAt": "2026-07-28T05:42:25.000Z",
+      "updatedAtMs": 1785217680000,
+      "updatedAt": "2026-07-28T05:48:00.000Z",
       "timeSource": "git"
     },
     "tesla-q3-fy24": {
       "path": "data/datasets/tesla-q3-fy24.js",
-      "updatedAtMs": 1785217345000,
-      "updatedAt": "2026-07-28T05:42:25.000Z",
+      "updatedAtMs": 1785217680000,
+      "updatedAt": "2026-07-28T05:48:00.000Z",
       "timeSource": "git"
     },
     "tesla-q4-fy22": {
       "path": "data/datasets/tesla-q4-fy22.js",
-      "updatedAtMs": 1785217345000,
-      "updatedAt": "2026-07-28T05:42:25.000Z",
+      "updatedAtMs": 1785217680000,
+      "updatedAt": "2026-07-28T05:48:00.000Z",
       "timeSource": "git"
     },
     "tesla-q2-fy23": {
       "path": "data/datasets/tesla-q2-fy23.js",
-      "updatedAtMs": 1785217345000,
-      "updatedAt": "2026-07-28T05:42:25.000Z",
+      "updatedAtMs": 1785217680000,
+      "updatedAt": "2026-07-28T05:48:00.000Z",
       "timeSource": "git"
     },
     "tesla-q4-fy24": {
       "path": "data/datasets/tesla-q4-fy24.js",
-      "updatedAtMs": 1785217345000,
-      "updatedAt": "2026-07-28T05:42:25.000Z",
+      "updatedAtMs": 1785217680000,
+      "updatedAt": "2026-07-28T05:48:00.000Z",
       "timeSource": "git"
     },
     "tesla-q3-fy22": {
       "path": "data/datasets/tesla-q3-fy22.js",
-      "updatedAtMs": 1785217345000,
-      "updatedAt": "2026-07-28T05:42:25.000Z",
+      "updatedAtMs": 1785217680000,
+      "updatedAt": "2026-07-28T05:48:00.000Z",
       "timeSource": "git"
     },
     "tesla-q3-fy23": {
       "path": "data/datasets/tesla-q3-fy23.js",
-      "updatedAtMs": 1785217345000,
-      "updatedAt": "2026-07-28T05:42:25.000Z",
+      "updatedAtMs": 1785217680000,
+      "updatedAt": "2026-07-28T05:48:00.000Z",
       "timeSource": "git"
     },
     "tesla-q1-fy25": {
       "path": "data/datasets/tesla-q1-fy25.js",
-      "updatedAtMs": 1785217345000,
-      "updatedAt": "2026-07-28T05:42:25.000Z",
+      "updatedAtMs": 1785217680000,
+      "updatedAt": "2026-07-28T05:48:00.000Z",
       "timeSource": "git"
     },
     "tesla-q2-fy24": {
       "path": "data/datasets/tesla-q2-fy24.js",
-      "updatedAtMs": 1785217345000,
-      "updatedAt": "2026-07-28T05:42:25.000Z",
+      "updatedAtMs": 1785217680000,
+      "updatedAt": "2026-07-28T05:48:00.000Z",
       "timeSource": "git"
     },
     "tesla-q4-fy23": {
       "path": "data/datasets/tesla-q4-fy23.js",
-      "updatedAtMs": 1785217345000,
-      "updatedAt": "2026-07-28T05:42:25.000Z",
+      "updatedAtMs": 1785217680000,
+      "updatedAt": "2026-07-28T05:48:00.000Z",
       "timeSource": "git"
     },
     "tsmc-q2-fy24": {
       "path": "data/datasets/tsmc-q2-fy24.js",
-      "updatedAtMs": 1785217345000,
-      "updatedAt": "2026-07-28T05:42:25.000Z",
+      "updatedAtMs": 1785217680000,
+      "updatedAt": "2026-07-28T05:48:00.000Z",
       "timeSource": "git"
     },
     "tsmc-q3-fy25": {
       "path": "data/datasets/tsmc-q3-fy25.js",
-      "updatedAtMs": 1785217345000,
-      "updatedAt": "2026-07-28T05:42:25.000Z",
+      "updatedAtMs": 1785217680000,
+      "updatedAt": "2026-07-28T05:48:00.000Z",
       "timeSource": "git"
     },
     "tsmc-q2-fy23": {
       "path": "data/datasets/tsmc-q2-fy23.js",
-      "updatedAtMs": 1785217345000,
-      "updatedAt": "2026-07-28T05:42:25.000Z",
+      "updatedAtMs": 1785217680000,
+      "updatedAt": "2026-07-28T05:48:00.000Z",
       "timeSource": "git"
     },
     "tsmc-q3-fy23": {
       "path": "data/datasets/tsmc-q3-fy23.js",
-      "updatedAtMs": 1785217345000,
-      "updatedAt": "2026-07-28T05:42:25.000Z",
+      "updatedAtMs": 1785217680000,
+      "updatedAt": "2026-07-28T05:48:00.000Z",
       "timeSource": "git"
     },
     "tsmc-q3-fy24": {
       "path": "data/datasets/tsmc-q3-fy24.js",
-      "updatedAtMs": 1785217345000,
-      "updatedAt": "2026-07-28T05:42:25.000Z",
+      "updatedAtMs": 1785217680000,
+      "updatedAt": "2026-07-28T05:48:00.000Z",
       "timeSource": "git"
     },
     "tsmc-q1-fy24": {
       "path": "data/datasets/tsmc-q1-fy24.js",
-      "updatedAtMs": 1785217345000,
-      "updatedAt": "2026-07-28T05:42:25.000Z",
+      "updatedAtMs": 1785217680000,
+      "updatedAt": "2026-07-28T05:48:00.000Z",
       "timeSource": "git"
     },
     "tsmc-q2-fy25": {
       "path": "data/datasets/tsmc-q2-fy25.js",
-      "updatedAtMs": 1785217345000,
-      "updatedAt": "2026-07-28T05:42:25.000Z",
+      "updatedAtMs": 1785217680000,
+      "updatedAt": "2026-07-28T05:48:00.000Z",
       "timeSource": "git"
     },
     "tsmc-q1-fy25": {
       "path": "data/datasets/tsmc-q1-fy25.js",
-      "updatedAtMs": 1785217345000,
-      "updatedAt": "2026-07-28T05:42:25.000Z",
+      "updatedAtMs": 1785217680000,
+      "updatedAt": "2026-07-28T05:48:00.000Z",
       "timeSource": "git"
     },
     "tsmc-q1-fy23": {
       "path": "data/datasets/tsmc-q1-fy23.js",
-      "updatedAtMs": 1785217345000,
-      "updatedAt": "2026-07-28T05:42:25.000Z",
+      "updatedAtMs": 1785217680000,
+      "updatedAt": "2026-07-28T05:48:00.000Z",
       "timeSource": "git"
     },
     "tsmc-q4-fy22": {
       "path": "data/datasets/tsmc-q4-fy22.js",
-      "updatedAtMs": 1785217345000,
-      "updatedAt": "2026-07-28T05:42:25.000Z",
+      "updatedAtMs": 1785217680000,
+      "updatedAt": "2026-07-28T05:48:00.000Z",
       "timeSource": "git"
     },
     "tsmc-q4-fy24": {
       "path": "data/datasets/tsmc-q4-fy24.js",
-      "updatedAtMs": 1785217345000,
-      "updatedAt": "2026-07-28T05:42:25.000Z",
+      "updatedAtMs": 1785217680000,
+      "updatedAt": "2026-07-28T05:48:00.000Z",
       "timeSource": "git"
     },
     "tsmc-q3-fy22": {
       "path": "data/datasets/tsmc-q3-fy22.js",
-      "updatedAtMs": 1785217345000,
-      "updatedAt": "2026-07-28T05:42:25.000Z",
+      "updatedAtMs": 1785217680000,
+      "updatedAt": "2026-07-28T05:48:00.000Z",
       "timeSource": "git"
     },
     "tsmc-q4-fy23": {
       "path": "data/datasets/tsmc-q4-fy23.js",
-      "updatedAtMs": 1785217345000,
-      "updatedAt": "2026-07-28T05:42:25.000Z",
+      "updatedAtMs": 1785217680000,
+      "updatedAt": "2026-07-28T05:48:00.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {
