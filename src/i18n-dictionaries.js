@@ -222,6 +222,7 @@
     'Servers': '服务器',
     'Microsoft 365': 'Microsoft 365',
     'Microsoft 365 Commercial': 'Microsoft 365 商业版',
+    'Office': 'Office',
     'Windows & Devices': 'Windows 与设备',
     'Windows': 'Windows',
     '& Devices': '与设备',
