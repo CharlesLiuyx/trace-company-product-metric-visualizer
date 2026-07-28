@@ -13607,6 +13607,552 @@
             }
           }
         }
+      },
+      {
+        "key": "tesla-q1-fy24",
+        "src": "data/datasets/tesla-q1-fy24.js",
+        "data": {
+          "name": "Tesla - Q1 FY24",
+          "company": "Tesla",
+          "meta": {
+            "title": "Tesla Q1 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tesla · 2024 财年第一季度",
+              "meta": {
+                "title": "Tesla 2024 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tesla-q2-fy25",
+        "src": "data/datasets/tesla-q2-fy25.js",
+        "data": {
+          "name": "Tesla - Q2 FY25",
+          "company": "Tesla",
+          "meta": {
+            "title": "Tesla Q2 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tesla · 2025 财年第二季度",
+              "meta": {
+                "title": "Tesla 2025 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tesla-q3-fy25",
+        "src": "data/datasets/tesla-q3-fy25.js",
+        "data": {
+          "name": "Tesla - Q3 FY25",
+          "company": "Tesla",
+          "meta": {
+            "title": "Tesla Q3 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tesla · 2025 财年第三季度",
+              "meta": {
+                "title": "Tesla 2025 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tesla-q1-fy23",
+        "src": "data/datasets/tesla-q1-fy23.js",
+        "data": {
+          "name": "Tesla - Q1 FY23",
+          "company": "Tesla",
+          "meta": {
+            "title": "Tesla Q1 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tesla · 2023 财年第一季度",
+              "meta": {
+                "title": "Tesla 2023 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tesla-q3-fy24",
+        "src": "data/datasets/tesla-q3-fy24.js",
+        "data": {
+          "name": "Tesla - Q3 FY24",
+          "company": "Tesla",
+          "meta": {
+            "title": "Tesla Q3 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tesla · 2024 财年第三季度",
+              "meta": {
+                "title": "Tesla 2024 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tesla-q4-fy22",
+        "src": "data/datasets/tesla-q4-fy22.js",
+        "data": {
+          "name": "Tesla - Q4 FY22",
+          "company": "Tesla",
+          "meta": {
+            "title": "Tesla Q4 FY22 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tesla · 2022 财年第四季度",
+              "meta": {
+                "title": "Tesla 2022 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tesla-q2-fy23",
+        "src": "data/datasets/tesla-q2-fy23.js",
+        "data": {
+          "name": "Tesla - Q2 FY23",
+          "company": "Tesla",
+          "meta": {
+            "title": "Tesla Q2 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tesla · 2023 财年第二季度",
+              "meta": {
+                "title": "Tesla 2023 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tesla-q4-fy24",
+        "src": "data/datasets/tesla-q4-fy24.js",
+        "data": {
+          "name": "Tesla - Q4 FY24",
+          "company": "Tesla",
+          "meta": {
+            "title": "Tesla Q4 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tesla · 2024 财年第四季度",
+              "meta": {
+                "title": "Tesla 2024 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tesla-q3-fy22",
+        "src": "data/datasets/tesla-q3-fy22.js",
+        "data": {
+          "name": "Tesla - Q3 FY22",
+          "company": "Tesla",
+          "meta": {
+            "title": "Tesla Q3 FY22 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tesla · 2022 财年第三季度",
+              "meta": {
+                "title": "Tesla 2022 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tesla-q3-fy23",
+        "src": "data/datasets/tesla-q3-fy23.js",
+        "data": {
+          "name": "Tesla · Q3 FY23",
+          "company": "Tesla",
+          "meta": {
+            "title": "Tesla Q3 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tesla · 2023 财年第三季度",
+              "meta": {
+                "title": "Tesla 2023 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tesla-q1-fy25",
+        "src": "data/datasets/tesla-q1-fy25.js",
+        "data": {
+          "name": "Tesla - Q1 FY25",
+          "company": "Tesla",
+          "meta": {
+            "title": "Tesla Q1 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tesla · 2025 财年第一季度",
+              "meta": {
+                "title": "Tesla 2025 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tesla-q2-fy24",
+        "src": "data/datasets/tesla-q2-fy24.js",
+        "data": {
+          "name": "Tesla - Q2 FY24",
+          "company": "Tesla",
+          "meta": {
+            "title": "Tesla Q2 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tesla · 2024 财年第二季度",
+              "meta": {
+                "title": "Tesla 2024 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tesla-q4-fy23",
+        "src": "data/datasets/tesla-q4-fy23.js",
+        "data": {
+          "name": "Tesla - Q4 FY23",
+          "company": "Tesla",
+          "meta": {
+            "title": "Tesla Q4 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tesla · 2023 财年第四季度",
+              "meta": {
+                "title": "Tesla 2023 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tsmc-q2-fy24",
+        "src": "data/datasets/tsmc-q2-fy24.js",
+        "data": {
+          "name": "TSMC · Q2 FY24",
+          "company": "TSMC",
+          "meta": {
+            "title": "TSMC Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "TSMC · 2024 财年第二季度",
+              "meta": {
+                "title": "TSMC 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tsmc-q3-fy25",
+        "src": "data/datasets/tsmc-q3-fy25.js",
+        "data": {
+          "name": "TSMC · Q3 FY25",
+          "company": "TSMC",
+          "meta": {
+            "title": "TSMC Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "TSMC · 2025 财年第三季度",
+              "meta": {
+                "title": "TSMC 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tsmc-q2-fy23",
+        "src": "data/datasets/tsmc-q2-fy23.js",
+        "data": {
+          "name": "TSMC · Q2 FY23",
+          "company": "TSMC",
+          "meta": {
+            "title": "TSMC Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Jun. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "TSMC · 2023 财年第二季度",
+              "meta": {
+                "title": "TSMC 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tsmc-q3-fy23",
+        "src": "data/datasets/tsmc-q3-fy23.js",
+        "data": {
+          "name": "TSMC · Q3 FY23",
+          "company": "TSMC",
+          "meta": {
+            "title": "TSMC Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Sep. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "TSMC · 2023 财年第三季度",
+              "meta": {
+                "title": "TSMC 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tsmc-q3-fy24",
+        "src": "data/datasets/tsmc-q3-fy24.js",
+        "data": {
+          "name": "TSMC · Q3 FY24",
+          "company": "TSMC",
+          "meta": {
+            "title": "TSMC Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "TSMC · 2024 财年第三季度",
+              "meta": {
+                "title": "TSMC 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tsmc-q1-fy24",
+        "src": "data/datasets/tsmc-q1-fy24.js",
+        "data": {
+          "name": "TSMC · Q1 FY24",
+          "company": "TSMC",
+          "meta": {
+            "title": "TSMC Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "TSMC · 2024 财年第一季度",
+              "meta": {
+                "title": "TSMC 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tsmc-q2-fy25",
+        "src": "data/datasets/tsmc-q2-fy25.js",
+        "data": {
+          "name": "TSMC · Q2 FY25",
+          "company": "TSMC",
+          "meta": {
+            "title": "TSMC Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Jun. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "TSMC · 2025 财年第二季度",
+              "meta": {
+                "title": "TSMC 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tsmc-q1-fy25",
+        "src": "data/datasets/tsmc-q1-fy25.js",
+        "data": {
+          "name": "TSMC · Q1 FY25",
+          "company": "TSMC",
+          "meta": {
+            "title": "TSMC Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Mar. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "TSMC · 2025 财年第一季度",
+              "meta": {
+                "title": "TSMC 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tsmc-q1-fy23",
+        "src": "data/datasets/tsmc-q1-fy23.js",
+        "data": {
+          "name": "TSMC · Q1 FY23",
+          "company": "TSMC",
+          "meta": {
+            "title": "TSMC Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending Mar. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "TSMC · 2023 财年第一季度",
+              "meta": {
+                "title": "TSMC 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2023 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tsmc-q4-fy22",
+        "src": "data/datasets/tsmc-q4-fy22.js",
+        "data": {
+          "name": "TSMC · Q4 FY22",
+          "company": "TSMC",
+          "meta": {
+            "title": "TSMC Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Ending Dec. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "TSMC · 2022 财年第四季度",
+              "meta": {
+                "title": "TSMC 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2022 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tsmc-q4-fy24",
+        "src": "data/datasets/tsmc-q4-fy24.js",
+        "data": {
+          "name": "TSMC · Q4 FY24",
+          "company": "TSMC",
+          "meta": {
+            "title": "TSMC Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "TSMC · 2024 财年第四季度",
+              "meta": {
+                "title": "TSMC 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tsmc-q3-fy22",
+        "src": "data/datasets/tsmc-q3-fy22.js",
+        "data": {
+          "name": "TSMC · Q3 FY22",
+          "company": "TSMC",
+          "meta": {
+            "title": "TSMC Q3 FY22 Income Statement",
+            "period": "Q3 FY22",
+            "periodNote": "Ending Sep. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "TSMC · 2022 财年第三季度",
+              "meta": {
+                "title": "TSMC 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度",
+                "periodNote": "截至 2022 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tsmc-q4-fy23",
+        "src": "data/datasets/tsmc-q4-fy23.js",
+        "data": {
+          "name": "TSMC · Q4 FY23",
+          "company": "TSMC",
+          "meta": {
+            "title": "TSMC Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "TSMC · 2023 财年第四季度",
+              "meta": {
+                "title": "TSMC 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

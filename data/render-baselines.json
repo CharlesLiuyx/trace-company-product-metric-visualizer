@@ -3243,9 +3243,87 @@
       "width": 2667,
       "height": 1500
     },
+    "tesla-q1-fy23": {
+      "similarity": 0.958653,
+      "mae": 10.5435,
+      "width": 2667,
+      "height": 1500
+    },
+    "tesla-q1-fy24": {
+      "similarity": 0.951773,
+      "mae": 12.2978,
+      "width": 2667,
+      "height": 1500
+    },
+    "tesla-q1-fy25": {
+      "similarity": 0.951926,
+      "mae": 12.2589,
+      "width": 2667,
+      "height": 1500
+    },
     "tesla-q1-fy26": {
       "similarity": 0.947838,
       "mae": 13.3013,
+      "width": 2667,
+      "height": 1500
+    },
+    "tesla-q2-fy23": {
+      "similarity": 0.956925,
+      "mae": 10.9842,
+      "width": 2667,
+      "height": 1500
+    },
+    "tesla-q2-fy24": {
+      "similarity": 0.950568,
+      "mae": 12.6051,
+      "width": 2667,
+      "height": 1500
+    },
+    "tesla-q2-fy25": {
+      "similarity": 0.949304,
+      "mae": 12.9275,
+      "width": 2667,
+      "height": 1500
+    },
+    "tesla-q3-fy22": {
+      "similarity": 0.965701,
+      "mae": 8.7463,
+      "width": 2667,
+      "height": 1500
+    },
+    "tesla-q3-fy23": {
+      "similarity": 0.960238,
+      "mae": 10.1392,
+      "width": 2667,
+      "height": 1500
+    },
+    "tesla-q3-fy24": {
+      "similarity": 0.949967,
+      "mae": 12.7584,
+      "width": 2667,
+      "height": 1500
+    },
+    "tesla-q3-fy25": {
+      "similarity": 0.951499,
+      "mae": 12.3679,
+      "width": 2667,
+      "height": 1500
+    },
+    "tesla-q4-fy22": {
+      "similarity": 0.966995,
+      "mae": 8.4163,
+      "width": 2667,
+      "height": 1500
+    },
+    "tesla-q4-fy23": {
+      "similarity": 0.950215,
+      "mae": 12.6951,
+      "width": 2667,
+      "height": 1500
+    },
+    "tesla-q4-fy24": {
+      "similarity": 0.953568,
+      "mae": 11.8403,
       "width": 2667,
       "height": 1500
     },
@@ -3333,9 +3411,87 @@
       "width": 2667,
       "height": 1500
     },
+    "tsmc-q1-fy23": {
+      "similarity": 0.972621,
+      "mae": 6.9818,
+      "width": 2667,
+      "height": 1500
+    },
+    "tsmc-q1-fy24": {
+      "similarity": 0.97003,
+      "mae": 7.6424,
+      "width": 2667,
+      "height": 1500
+    },
+    "tsmc-q1-fy25": {
+      "similarity": 0.974373,
+      "mae": 6.5348,
+      "width": 2667,
+      "height": 1500
+    },
     "tsmc-q1-fy26": {
       "similarity": 0.971842,
       "mae": 7.1804,
+      "width": 2667,
+      "height": 1500
+    },
+    "tsmc-q2-fy23": {
+      "similarity": 0.970526,
+      "mae": 7.516,
+      "width": 2667,
+      "height": 1500
+    },
+    "tsmc-q2-fy24": {
+      "similarity": 0.968815,
+      "mae": 7.9522,
+      "width": 2667,
+      "height": 1500
+    },
+    "tsmc-q2-fy25": {
+      "similarity": 0.974501,
+      "mae": 6.5021,
+      "width": 2667,
+      "height": 1500
+    },
+    "tsmc-q3-fy22": {
+      "similarity": 0.972336,
+      "mae": 7.0542,
+      "width": 2667,
+      "height": 1500
+    },
+    "tsmc-q3-fy23": {
+      "similarity": 0.970844,
+      "mae": 7.4349,
+      "width": 2667,
+      "height": 1500
+    },
+    "tsmc-q3-fy24": {
+      "similarity": 0.971076,
+      "mae": 7.3757,
+      "width": 2667,
+      "height": 1500
+    },
+    "tsmc-q3-fy25": {
+      "similarity": 0.972134,
+      "mae": 7.1058,
+      "width": 2667,
+      "height": 1500
+    },
+    "tsmc-q4-fy22": {
+      "similarity": 0.971385,
+      "mae": 7.2967,
+      "width": 2667,
+      "height": 1500
+    },
+    "tsmc-q4-fy23": {
+      "similarity": 0.974391,
+      "mae": 6.5303,
+      "width": 2667,
+      "height": 1500
+    },
+    "tsmc-q4-fy24": {
+      "similarity": 0.970452,
+      "mae": 7.5346,
       "width": 2667,
       "height": 1500
     },
