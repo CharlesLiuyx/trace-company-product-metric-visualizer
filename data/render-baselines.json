@@ -2175,6 +2175,78 @@
       "width": 2667,
       "height": 1500
     },
+    "microsoft-q1-fy23": {
+      "similarity": 0.968825,
+      "mae": 7.9496,
+      "width": 2667,
+      "height": 1500
+    },
+    "microsoft-q1-fy24": {
+      "similarity": 0.964252,
+      "mae": 9.1158,
+      "width": 2667,
+      "height": 1500
+    },
+    "microsoft-q1-fy24-by-bu": {
+      "similarity": 0.966429,
+      "mae": 8.5606,
+      "width": 2667,
+      "height": 1500
+    },
+    "microsoft-q1-fy25": {
+      "similarity": 0.966981,
+      "mae": 8.4198,
+      "width": 2667,
+      "height": 1500
+    },
+    "microsoft-q1-fy25-by-bu": {
+      "similarity": 0.965953,
+      "mae": 8.6819,
+      "width": 2667,
+      "height": 1500
+    },
+    "microsoft-q1-fy26": {
+      "similarity": 0.967867,
+      "mae": 8.194,
+      "width": 2667,
+      "height": 1500
+    },
+    "microsoft-q1-fy26-by-bu": {
+      "similarity": 0.966889,
+      "mae": 8.4433,
+      "width": 2667,
+      "height": 1500
+    },
+    "microsoft-q2-fy23": {
+      "similarity": 0.967623,
+      "mae": 8.2562,
+      "width": 2667,
+      "height": 1500
+    },
+    "microsoft-q2-fy24": {
+      "similarity": 0.965368,
+      "mae": 8.8312,
+      "width": 2667,
+      "height": 1500
+    },
+    "microsoft-q2-fy24-by-bu": {
+      "similarity": 0.967182,
+      "mae": 8.3686,
+      "width": 2667,
+      "height": 1500
+    },
+    "microsoft-q2-fy25": {
+      "similarity": 0.970579,
+      "mae": 7.5024,
+      "width": 2667,
+      "height": 1500
+    },
+    "microsoft-q2-fy25-by-bu": {
+      "similarity": 0.967997,
+      "mae": 8.1607,
+      "width": 2667,
+      "height": 1500
+    },
     "microsoft-q2-fy26": {
       "similarity": 0.965605,
       "mae": 8.7706,
@@ -2187,6 +2259,36 @@
       "width": 2667,
       "height": 1500
     },
+    "microsoft-q3-fy23": {
+      "similarity": 0.971509,
+      "mae": 7.2652,
+      "width": 2667,
+      "height": 1500
+    },
+    "microsoft-q3-fy24": {
+      "similarity": 0.96889,
+      "mae": 7.9331,
+      "width": 2667,
+      "height": 1500
+    },
+    "microsoft-q3-fy24-by-bu": {
+      "similarity": 0.96541,
+      "mae": 8.8205,
+      "width": 2667,
+      "height": 1500
+    },
+    "microsoft-q3-fy25": {
+      "similarity": 0.967535,
+      "mae": 8.2785,
+      "width": 2667,
+      "height": 1500
+    },
+    "microsoft-q3-fy25-by-bu": {
+      "similarity": 0.966913,
+      "mae": 8.4372,
+      "width": 2667,
+      "height": 1500
+    },
     "microsoft-q3-fy26": {
       "similarity": 0.964801,
       "mae": 8.9759,
@@ -2196,6 +2298,36 @@
     "microsoft-q3-fy26-by-bu": {
       "similarity": 0.958006,
       "mae": 10.7084,
+      "width": 2667,
+      "height": 1500
+    },
+    "microsoft-q4-fy23": {
+      "similarity": 0.969405,
+      "mae": 7.8016,
+      "width": 2667,
+      "height": 1500
+    },
+    "microsoft-q4-fy24": {
+      "similarity": 0.962358,
+      "mae": 9.5987,
+      "width": 2667,
+      "height": 1500
+    },
+    "microsoft-q4-fy24-by-bu": {
+      "similarity": 0.968336,
+      "mae": 8.0742,
+      "width": 2667,
+      "height": 1500
+    },
+    "microsoft-q4-fy25": {
+      "similarity": 0.970366,
+      "mae": 7.5566,
+      "width": 2667,
+      "height": 1500
+    },
+    "microsoft-q4-fy25-by-bu": {
+      "similarity": 0.970172,
+      "mae": 7.6061,
       "width": 2667,
       "height": 1500
     },

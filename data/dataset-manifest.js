@@ -14153,6 +14153,512 @@
             }
           }
         }
+      },
+      {
+        "key": "microsoft-q1-fy24-by-bu",
+        "src": "data/datasets/microsoft-q1-fy24-by-bu.js",
+        "data": {
+          "name": "Microsoft · Q1 FY24 ByBU",
+          "company": "Microsoft",
+          "meta": {
+            "title": "Microsoft Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Sept. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Microsoft · 2024 财年第一季度（按业务部门）",
+              "meta": {
+                "title": "Microsoft 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "microsoft-q1-fy24",
+        "src": "data/datasets/microsoft-q1-fy24.js",
+        "data": {
+          "name": "Microsoft · Q1 FY24",
+          "company": "Microsoft",
+          "meta": {
+            "title": "Microsoft Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Sept. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Microsoft · 2024 财年第一季度",
+              "meta": {
+                "title": "Microsoft 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "microsoft-q2-fy23",
+        "src": "data/datasets/microsoft-q2-fy23.js",
+        "data": {
+          "name": "Microsoft · Q2 FY23",
+          "company": "Microsoft",
+          "meta": {
+            "title": "Microsoft Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Dec. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Microsoft · 2023 财年第二季度",
+              "meta": {
+                "title": "Microsoft 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2022 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "microsoft-q3-fy25-by-bu",
+        "src": "data/datasets/microsoft-q3-fy25-by-bu.js",
+        "data": {
+          "name": "Microsoft · Q3 FY25 ByBU",
+          "company": "Microsoft",
+          "meta": {
+            "title": "Microsoft Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Mar. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Microsoft · 2025 财年第三季度（按业务部门）",
+              "meta": {
+                "title": "Microsoft 2025 财年第三季度利润表",
+                "period": "2025 财年 Q3",
+                "periodNote": "截至 2025 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "microsoft-q3-fy25",
+        "src": "data/datasets/microsoft-q3-fy25.js",
+        "data": {
+          "name": "Microsoft - Q3 FY25",
+          "company": "Microsoft",
+          "meta": {
+            "title": "Microsoft Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Mar. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Microsoft · 2025 财年第三季度",
+              "meta": {
+                "title": "Microsoft 2025 财年第三季度利润表",
+                "period": "2025 财年 Q3",
+                "periodNote": "截至 2025 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "microsoft-q4-fy23",
+        "src": "data/datasets/microsoft-q4-fy23.js",
+        "data": {
+          "name": "Microsoft · Q4 FY23",
+          "company": "Microsoft",
+          "meta": {
+            "title": "Microsoft Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending June 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Microsoft · 2023 财年第四季度",
+              "meta": {
+                "title": "Microsoft 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "microsoft-q3-fy23",
+        "src": "data/datasets/microsoft-q3-fy23.js",
+        "data": {
+          "name": "Microsoft · Q3 FY23",
+          "company": "Microsoft",
+          "meta": {
+            "title": "Microsoft Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Mar. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Microsoft · 2023 财年第三季度",
+              "meta": {
+                "title": "Microsoft 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "microsoft-q1-fy23",
+        "src": "data/datasets/microsoft-q1-fy23.js",
+        "data": {
+          "name": "Microsoft · Q1 FY23",
+          "company": "Microsoft",
+          "meta": {
+            "title": "Microsoft Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending Sept. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Microsoft · 2023 财年第一季度",
+              "meta": {
+                "title": "Microsoft 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2022 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "microsoft-q1-fy26-by-bu",
+        "src": "data/datasets/microsoft-q1-fy26-by-bu.js",
+        "data": {
+          "name": "Microsoft · Q1 FY26 By BU",
+          "company": "Microsoft",
+          "meta": {
+            "title": "Microsoft Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Sept. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Microsoft · 2026 财年第一季度（按业务单元）",
+              "meta": {
+                "title": "Microsoft 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "microsoft-q1-fy26",
+        "src": "data/datasets/microsoft-q1-fy26.js",
+        "data": {
+          "name": "Microsoft · Q1 FY26",
+          "company": "Microsoft",
+          "meta": {
+            "title": "Microsoft Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Sept. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Microsoft · 2026 财年第一季度",
+              "meta": {
+                "title": "Microsoft 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "microsoft-q1-fy25-by-bu",
+        "src": "data/datasets/microsoft-q1-fy25-by-bu.js",
+        "data": {
+          "name": "Microsoft · Q1 FY25 ByBU",
+          "company": "Microsoft",
+          "meta": {
+            "title": "Microsoft Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Microsoft · 2025 财年第一季度（按业务部门）",
+              "meta": {
+                "title": "Microsoft 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "microsoft-q1-fy25",
+        "src": "data/datasets/microsoft-q1-fy25.js",
+        "data": {
+          "name": "Microsoft - Q1 FY25",
+          "company": "Microsoft",
+          "meta": {
+            "title": "Microsoft Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Microsoft · 2025 财年第一季度",
+              "meta": {
+                "title": "Microsoft 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "microsoft-q2-fy24-by-bu",
+        "src": "data/datasets/microsoft-q2-fy24-by-bu.js",
+        "data": {
+          "name": "Microsoft · Q2 FY24 ByBU",
+          "company": "Microsoft",
+          "meta": {
+            "title": "Microsoft Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Microsoft · 2024 财年第二季度（业务部门）",
+              "meta": {
+                "title": "Microsoft 2024 财年第二季度利润表",
+                "period": "FY24 第二季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "microsoft-q2-fy24",
+        "src": "data/datasets/microsoft-q2-fy24.js",
+        "data": {
+          "name": "Microsoft · Q2 FY24",
+          "company": "Microsoft",
+          "meta": {
+            "title": "Microsoft Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Microsoft · 2024 财年第二季度",
+              "meta": {
+                "title": "Microsoft 2024 财年第二季度利润表",
+                "period": "FY24 第二季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "microsoft-q2-fy25-by-bu",
+        "src": "data/datasets/microsoft-q2-fy25-by-bu.js",
+        "data": {
+          "name": "Microsoft · Q2 FY25 By BU",
+          "company": "Microsoft",
+          "meta": {
+            "title": "Microsoft Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Microsoft · 2025 财年第二季度（按业务单元）",
+              "meta": {
+                "title": "Microsoft 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "microsoft-q2-fy25",
+        "src": "data/datasets/microsoft-q2-fy25.js",
+        "data": {
+          "name": "Microsoft · Q2 FY25",
+          "company": "Microsoft",
+          "meta": {
+            "title": "Microsoft Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Microsoft · 2025 财年第二季度",
+              "meta": {
+                "title": "Microsoft 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "microsoft-q3-fy24-by-bu",
+        "src": "data/datasets/microsoft-q3-fy24-by-bu.js",
+        "data": {
+          "name": "Microsoft · Q3 FY24 ByBU",
+          "company": "Microsoft",
+          "meta": {
+            "title": "Microsoft Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Microsoft · 2024 财年第三季度（按业务部门）",
+              "meta": {
+                "title": "Microsoft 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "microsoft-q3-fy24",
+        "src": "data/datasets/microsoft-q3-fy24.js",
+        "data": {
+          "name": "Microsoft · Q3 FY24",
+          "company": "Microsoft",
+          "meta": {
+            "title": "Microsoft Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Microsoft · 2024 财年第三季度",
+              "meta": {
+                "title": "Microsoft 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "microsoft-q4-fy24-by-bu",
+        "src": "data/datasets/microsoft-q4-fy24-by-bu.js",
+        "data": {
+          "name": "Microsoft · Q4 FY24 ByBU",
+          "company": "Microsoft",
+          "meta": {
+            "title": "Microsoft Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Microsoft · 2024 财年第四季度（按业务部门）",
+              "meta": {
+                "title": "Microsoft 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "microsoft-q4-fy24",
+        "src": "data/datasets/microsoft-q4-fy24.js",
+        "data": {
+          "name": "Microsoft · Q4 FY24",
+          "company": "Microsoft",
+          "meta": {
+            "title": "Microsoft Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Microsoft · 2024 财年第四季度",
+              "meta": {
+                "title": "Microsoft 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "microsoft-q4-fy25-by-bu",
+        "src": "data/datasets/microsoft-q4-fy25-by-bu.js",
+        "data": {
+          "name": "Microsoft · Q4 FY25 ByBU",
+          "company": "Microsoft",
+          "meta": {
+            "title": "Microsoft Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending June 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Microsoft · 2025 财年第四季度（按业务部门）",
+              "meta": {
+                "title": "Microsoft 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "microsoft-q4-fy25",
+        "src": "data/datasets/microsoft-q4-fy25.js",
+        "data": {
+          "name": "Microsoft · Q4 FY25",
+          "company": "Microsoft",
+          "meta": {
+            "title": "Microsoft Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending June 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Microsoft · 2025 财年第四季度",
+              "meta": {
+                "title": "Microsoft 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

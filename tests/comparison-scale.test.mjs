@@ -678,7 +678,7 @@ function loadFullCorpus() {
   return fullCorpus;
 }
 
-test('all 632 registered View Adapters calibrate to one view-units/USD scale with the known fallback set', () => {
+test('all 654 registered View Adapters calibrate to one view-units/USD scale with the known fallback set', () => {
   const { context, datasets, records } = loadFullCorpus();
   const financialByKey = new Map(records.map((record) => [record.key, record]));
   const inputKeys = Array.from(datasets, (dataset) => dataset.key);
@@ -687,14 +687,14 @@ test('all 632 registered View Adapters calibrate to one view-units/USD scale wit
     financial: financialByKey.get(dataset.key),
   }));
 
-  assert.equal(datasets.length, 632);
-  assert.equal(financialByKey.size, 632);
+  assert.equal(datasets.length, 654);
+  assert.equal(financialByKey.size, 654);
 
   const plan = context.TraceComparisonScale.createPlan(entries);
 
   assert.equal(plan.status, 'calibrated');
   assert.equal(plan.diagnostics.length, 0);
-  assert.equal(plan.measurements.length, 632);
+  assert.equal(plan.measurements.length, 654);
   assert.deepEqual(
     Array.from(plan.measurements, (measurement) => measurement.key),
     inputKeys,
