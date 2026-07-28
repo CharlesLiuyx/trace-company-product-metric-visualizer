@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-28T05:48:00.000Z",
+  "generatedAt": "2026-07-28T10:59:04.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -3797,6 +3797,138 @@
       "path": "data/datasets/tsmc-q4-fy23.js",
       "updatedAtMs": 1785217680000,
       "updatedAt": "2026-07-28T05:48:00.000Z",
+      "timeSource": "git"
+    },
+    "microsoft-q1-fy24-by-bu": {
+      "path": "data/datasets/microsoft-q1-fy24-by-bu.js",
+      "updatedAtMs": 1785236344000,
+      "updatedAt": "2026-07-28T10:59:04.000Z",
+      "timeSource": "git"
+    },
+    "microsoft-q1-fy24": {
+      "path": "data/datasets/microsoft-q1-fy24.js",
+      "updatedAtMs": 1785236344000,
+      "updatedAt": "2026-07-28T10:59:04.000Z",
+      "timeSource": "git"
+    },
+    "microsoft-q2-fy23": {
+      "path": "data/datasets/microsoft-q2-fy23.js",
+      "updatedAtMs": 1785236344000,
+      "updatedAt": "2026-07-28T10:59:04.000Z",
+      "timeSource": "git"
+    },
+    "microsoft-q3-fy25-by-bu": {
+      "path": "data/datasets/microsoft-q3-fy25-by-bu.js",
+      "updatedAtMs": 1785236344000,
+      "updatedAt": "2026-07-28T10:59:04.000Z",
+      "timeSource": "git"
+    },
+    "microsoft-q3-fy25": {
+      "path": "data/datasets/microsoft-q3-fy25.js",
+      "updatedAtMs": 1785236344000,
+      "updatedAt": "2026-07-28T10:59:04.000Z",
+      "timeSource": "git"
+    },
+    "microsoft-q4-fy23": {
+      "path": "data/datasets/microsoft-q4-fy23.js",
+      "updatedAtMs": 1785236344000,
+      "updatedAt": "2026-07-28T10:59:04.000Z",
+      "timeSource": "git"
+    },
+    "microsoft-q3-fy23": {
+      "path": "data/datasets/microsoft-q3-fy23.js",
+      "updatedAtMs": 1785236344000,
+      "updatedAt": "2026-07-28T10:59:04.000Z",
+      "timeSource": "git"
+    },
+    "microsoft-q1-fy23": {
+      "path": "data/datasets/microsoft-q1-fy23.js",
+      "updatedAtMs": 1785236344000,
+      "updatedAt": "2026-07-28T10:59:04.000Z",
+      "timeSource": "git"
+    },
+    "microsoft-q1-fy26-by-bu": {
+      "path": "data/datasets/microsoft-q1-fy26-by-bu.js",
+      "updatedAtMs": 1785236344000,
+      "updatedAt": "2026-07-28T10:59:04.000Z",
+      "timeSource": "git"
+    },
+    "microsoft-q1-fy26": {
+      "path": "data/datasets/microsoft-q1-fy26.js",
+      "updatedAtMs": 1785236344000,
+      "updatedAt": "2026-07-28T10:59:04.000Z",
+      "timeSource": "git"
+    },
+    "microsoft-q1-fy25-by-bu": {
+      "path": "data/datasets/microsoft-q1-fy25-by-bu.js",
+      "updatedAtMs": 1785236344000,
+      "updatedAt": "2026-07-28T10:59:04.000Z",
+      "timeSource": "git"
+    },
+    "microsoft-q1-fy25": {
+      "path": "data/datasets/microsoft-q1-fy25.js",
+      "updatedAtMs": 1785236344000,
+      "updatedAt": "2026-07-28T10:59:04.000Z",
+      "timeSource": "git"
+    },
+    "microsoft-q2-fy24-by-bu": {
+      "path": "data/datasets/microsoft-q2-fy24-by-bu.js",
+      "updatedAtMs": 1785236344000,
+      "updatedAt": "2026-07-28T10:59:04.000Z",
+      "timeSource": "git"
+    },
+    "microsoft-q2-fy24": {
+      "path": "data/datasets/microsoft-q2-fy24.js",
+      "updatedAtMs": 1785236344000,
+      "updatedAt": "2026-07-28T10:59:04.000Z",
+      "timeSource": "git"
+    },
+    "microsoft-q2-fy25-by-bu": {
+      "path": "data/datasets/microsoft-q2-fy25-by-bu.js",
+      "updatedAtMs": 1785236344000,
+      "updatedAt": "2026-07-28T10:59:04.000Z",
+      "timeSource": "git"
+    },
+    "microsoft-q2-fy25": {
+      "path": "data/datasets/microsoft-q2-fy25.js",
+      "updatedAtMs": 1785236344000,
+      "updatedAt": "2026-07-28T10:59:04.000Z",
+      "timeSource": "git"
+    },
+    "microsoft-q3-fy24-by-bu": {
+      "path": "data/datasets/microsoft-q3-fy24-by-bu.js",
+      "updatedAtMs": 1785236344000,
+      "updatedAt": "2026-07-28T10:59:04.000Z",
+      "timeSource": "git"
+    },
+    "microsoft-q3-fy24": {
+      "path": "data/datasets/microsoft-q3-fy24.js",
+      "updatedAtMs": 1785236344000,
+      "updatedAt": "2026-07-28T10:59:04.000Z",
+      "timeSource": "git"
+    },
+    "microsoft-q4-fy24-by-bu": {
+      "path": "data/datasets/microsoft-q4-fy24-by-bu.js",
+      "updatedAtMs": 1785236344000,
+      "updatedAt": "2026-07-28T10:59:04.000Z",
+      "timeSource": "git"
+    },
+    "microsoft-q4-fy24": {
+      "path": "data/datasets/microsoft-q4-fy24.js",
+      "updatedAtMs": 1785236344000,
+      "updatedAt": "2026-07-28T10:59:04.000Z",
+      "timeSource": "git"
+    },
+    "microsoft-q4-fy25-by-bu": {
+      "path": "data/datasets/microsoft-q4-fy25-by-bu.js",
+      "updatedAtMs": 1785236344000,
+      "updatedAt": "2026-07-28T10:59:04.000Z",
+      "timeSource": "git"
+    },
+    "microsoft-q4-fy25": {
+      "path": "data/datasets/microsoft-q4-fy25.js",
+      "updatedAtMs": 1785236344000,
+      "updatedAt": "2026-07-28T10:59:04.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {
