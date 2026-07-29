@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-28T10:59:04.000Z",
+  "generatedAt": "2026-07-29T16:18:58.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -3929,6 +3929,150 @@
       "path": "data/datasets/microsoft-q4-fy25.js",
       "updatedAtMs": 1785236344000,
       "updatedAt": "2026-07-28T10:59:04.000Z",
+      "timeSource": "git"
+    },
+    "broadcom-q1-fy23": {
+      "path": "data/datasets/broadcom-q1-fy23.js",
+      "updatedAtMs": 1785341938000,
+      "updatedAt": "2026-07-29T16:18:58.000Z",
+      "timeSource": "git"
+    },
+    "broadcom-q1-fy25": {
+      "path": "data/datasets/broadcom-q1-fy25.js",
+      "updatedAtMs": 1785341938000,
+      "updatedAt": "2026-07-29T16:18:58.000Z",
+      "timeSource": "git"
+    },
+    "broadcom-q2-fy24": {
+      "path": "data/datasets/broadcom-q2-fy24.js",
+      "updatedAtMs": 1785341938000,
+      "updatedAt": "2026-07-29T16:18:58.000Z",
+      "timeSource": "git"
+    },
+    "broadcom-q2-fy25": {
+      "path": "data/datasets/broadcom-q2-fy25.js",
+      "updatedAtMs": 1785341938000,
+      "updatedAt": "2026-07-29T16:18:58.000Z",
+      "timeSource": "git"
+    },
+    "broadcom-q3-fy25": {
+      "path": "data/datasets/broadcom-q3-fy25.js",
+      "updatedAtMs": 1785341938000,
+      "updatedAt": "2026-07-29T16:18:58.000Z",
+      "timeSource": "git"
+    },
+    "broadcom-q4-fy23": {
+      "path": "data/datasets/broadcom-q4-fy23.js",
+      "updatedAtMs": 1785341938000,
+      "updatedAt": "2026-07-29T16:18:58.000Z",
+      "timeSource": "git"
+    },
+    "broadcom-q4-fy24": {
+      "path": "data/datasets/broadcom-q4-fy24.js",
+      "updatedAtMs": 1785341938000,
+      "updatedAt": "2026-07-29T16:18:58.000Z",
+      "timeSource": "git"
+    },
+    "meta-q1-fy23": {
+      "path": "data/datasets/meta-q1-fy23.js",
+      "updatedAtMs": 1785341938000,
+      "updatedAt": "2026-07-29T16:18:58.000Z",
+      "timeSource": "git"
+    },
+    "meta-q1-fy25": {
+      "path": "data/datasets/meta-q1-fy25.js",
+      "updatedAtMs": 1785341938000,
+      "updatedAt": "2026-07-29T16:18:58.000Z",
+      "timeSource": "git"
+    },
+    "meta-q2-fy23": {
+      "path": "data/datasets/meta-q2-fy23.js",
+      "updatedAtMs": 1785341938000,
+      "updatedAt": "2026-07-29T16:18:58.000Z",
+      "timeSource": "git"
+    },
+    "meta-q2-fy25": {
+      "path": "data/datasets/meta-q2-fy25.js",
+      "updatedAtMs": 1785341938000,
+      "updatedAt": "2026-07-29T16:18:58.000Z",
+      "timeSource": "git"
+    },
+    "meta-q4-fy23": {
+      "path": "data/datasets/meta-q4-fy23.js",
+      "updatedAtMs": 1785341938000,
+      "updatedAt": "2026-07-29T16:18:58.000Z",
+      "timeSource": "git"
+    },
+    "meta-q4-fy24": {
+      "path": "data/datasets/meta-q4-fy24.js",
+      "updatedAtMs": 1785341938000,
+      "updatedAt": "2026-07-29T16:18:58.000Z",
+      "timeSource": "git"
+    },
+    "broadcom-q3-fy23": {
+      "path": "data/datasets/broadcom-q3-fy23.js",
+      "updatedAtMs": 1785341938000,
+      "updatedAt": "2026-07-29T16:18:58.000Z",
+      "timeSource": "git"
+    },
+    "meta-q3-fy23": {
+      "path": "data/datasets/meta-q3-fy23.js",
+      "updatedAtMs": 1785341938000,
+      "updatedAt": "2026-07-29T16:18:58.000Z",
+      "timeSource": "git"
+    },
+    "meta-q3-fy25": {
+      "path": "data/datasets/meta-q3-fy25.js",
+      "updatedAtMs": 1785341938000,
+      "updatedAt": "2026-07-29T16:18:58.000Z",
+      "timeSource": "git"
+    },
+    "meta-q2-fy24": {
+      "path": "data/datasets/meta-q2-fy24.js",
+      "updatedAtMs": 1785341938000,
+      "updatedAt": "2026-07-29T16:18:58.000Z",
+      "timeSource": "git"
+    },
+    "meta-q3-fy22": {
+      "path": "data/datasets/meta-q3-fy22.js",
+      "updatedAtMs": 1785341938000,
+      "updatedAt": "2026-07-29T16:18:58.000Z",
+      "timeSource": "git"
+    },
+    "meta-q4-fy22": {
+      "path": "data/datasets/meta-q4-fy22.js",
+      "updatedAtMs": 1785341938000,
+      "updatedAt": "2026-07-29T16:18:58.000Z",
+      "timeSource": "git"
+    },
+    "broadcom-q1-fy24": {
+      "path": "data/datasets/broadcom-q1-fy24.js",
+      "updatedAtMs": 1785341938000,
+      "updatedAt": "2026-07-29T16:18:58.000Z",
+      "timeSource": "git"
+    },
+    "broadcom-q3-fy24": {
+      "path": "data/datasets/broadcom-q3-fy24.js",
+      "updatedAtMs": 1785341938000,
+      "updatedAt": "2026-07-29T16:18:58.000Z",
+      "timeSource": "git"
+    },
+    "meta-q1-fy24": {
+      "path": "data/datasets/meta-q1-fy24.js",
+      "updatedAtMs": 1785341938000,
+      "updatedAt": "2026-07-29T16:18:58.000Z",
+      "timeSource": "git"
+    },
+    "meta-q3-fy24": {
+      "path": "data/datasets/meta-q3-fy24.js",
+      "updatedAtMs": 1785341938000,
+      "updatedAt": "2026-07-29T16:18:58.000Z",
+      "timeSource": "git"
+    },
+    "broadcom-q4-fy25": {
+      "path": "data/datasets/broadcom-q4-fy25.js",
+      "updatedAtMs": 1785341938000,
+      "updatedAt": "2026-07-29T16:18:58.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {
