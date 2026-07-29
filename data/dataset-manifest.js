@@ -14659,6 +14659,558 @@
             }
           }
         }
+      },
+      {
+        "key": "broadcom-q1-fy23",
+        "src": "data/datasets/broadcom-q1-fy23.js",
+        "data": {
+          "name": "Broadcom · Q1 FY23",
+          "company": "Broadcom",
+          "meta": {
+            "title": "Broadcom Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending Apr. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "博通 · 2023 财年第一季度",
+              "meta": {
+                "title": "博通 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2023 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "broadcom-q1-fy25",
+        "src": "data/datasets/broadcom-q1-fy25.js",
+        "data": {
+          "name": "Broadcom · Q1 FY25",
+          "company": "Broadcom",
+          "meta": {
+            "title": "Broadcom Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Jan. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Broadcom · 2025 财年第一季度",
+              "meta": {
+                "title": "Broadcom 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "broadcom-q2-fy24",
+        "src": "data/datasets/broadcom-q2-fy24.js",
+        "data": {
+          "name": "Broadcom · Q2 FY24",
+          "company": "Broadcom",
+          "meta": {
+            "title": "Broadcom Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Apr. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Broadcom · 2024 财年第二季度",
+              "meta": {
+                "title": "Broadcom 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "broadcom-q2-fy25",
+        "src": "data/datasets/broadcom-q2-fy25.js",
+        "data": {
+          "name": "Broadcom · Q2 FY25",
+          "company": "Broadcom",
+          "meta": {
+            "title": "Broadcom Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Apr. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Broadcom · 2025 财年第二季度",
+              "meta": {
+                "title": "Broadcom 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "broadcom-q3-fy25",
+        "src": "data/datasets/broadcom-q3-fy25.js",
+        "data": {
+          "name": "Broadcom · Q3 FY25",
+          "company": "Broadcom",
+          "meta": {
+            "title": "Broadcom Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending July 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Broadcom · 2025 财年第三季度",
+              "meta": {
+                "title": "Broadcom 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "broadcom-q4-fy23",
+        "src": "data/datasets/broadcom-q4-fy23.js",
+        "data": {
+          "name": "Broadcom · Q4 FY23",
+          "company": "Broadcom",
+          "meta": {
+            "title": "Broadcom Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Oct. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Broadcom · 2023 财年第四季度",
+              "meta": {
+                "title": "Broadcom 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "broadcom-q4-fy24",
+        "src": "data/datasets/broadcom-q4-fy24.js",
+        "data": {
+          "name": "Broadcom · Q4 FY24",
+          "company": "Broadcom",
+          "meta": {
+            "title": "Broadcom Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Oct. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Broadcom · 2024 财年第四季度",
+              "meta": {
+                "title": "Broadcom 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "meta-q1-fy23",
+        "src": "data/datasets/meta-q1-fy23.js",
+        "data": {
+          "name": "Meta - Q1 FY23",
+          "company": "Meta",
+          "meta": {
+            "title": "Meta Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending Mar. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Meta · 2023 财年第一季度",
+              "meta": {
+                "title": "Meta 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2023 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "meta-q1-fy25",
+        "src": "data/datasets/meta-q1-fy25.js",
+        "data": {
+          "name": "Meta - Q1 FY25",
+          "company": "Meta",
+          "meta": {
+            "title": "Meta Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Mar. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Meta · 2025 财年第一季度",
+              "meta": {
+                "title": "Meta 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "meta-q2-fy23",
+        "src": "data/datasets/meta-q2-fy23.js",
+        "data": {
+          "name": "Meta - Q2 FY23",
+          "company": "Meta",
+          "meta": {
+            "title": "Meta Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Jun. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Meta · 2023 财年第二季度",
+              "meta": {
+                "title": "Meta 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "meta-q2-fy25",
+        "src": "data/datasets/meta-q2-fy25.js",
+        "data": {
+          "name": "Meta - Q2 FY25",
+          "company": "Meta",
+          "meta": {
+            "title": "Meta Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Jun. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Meta · 2025 财年第二季度",
+              "meta": {
+                "title": "Meta 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "meta-q4-fy23",
+        "src": "data/datasets/meta-q4-fy23.js",
+        "data": {
+          "name": "Meta - Q4 FY23",
+          "company": "Meta",
+          "meta": {
+            "title": "Meta Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Meta · 2023 财年第四季度",
+              "meta": {
+                "title": "Meta 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "meta-q4-fy24",
+        "src": "data/datasets/meta-q4-fy24.js",
+        "data": {
+          "name": "Meta - Q4 FY24",
+          "company": "Meta",
+          "meta": {
+            "title": "Meta Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Meta · 2024 财年第四季度",
+              "meta": {
+                "title": "Meta 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "broadcom-q3-fy23",
+        "src": "data/datasets/broadcom-q3-fy23.js",
+        "data": {
+          "name": "Broadcom · Q3 FY23",
+          "company": "Broadcom",
+          "meta": {
+            "title": "Broadcom Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending July. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Broadcom · 2023 财年第三季度",
+              "meta": {
+                "title": "Broadcom 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "meta-q3-fy23",
+        "src": "data/datasets/meta-q3-fy23.js",
+        "data": {
+          "name": "Meta - Q3 FY23",
+          "company": "Meta",
+          "meta": {
+            "title": "Meta Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Sep. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Meta · 2023 财年第三季度",
+              "meta": {
+                "title": "Meta 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "meta-q3-fy25",
+        "src": "data/datasets/meta-q3-fy25.js",
+        "data": {
+          "name": "Meta - Q3 FY25",
+          "company": "Meta",
+          "meta": {
+            "title": "Meta Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Meta · 2025 财年第三季度",
+              "meta": {
+                "title": "Meta 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "meta-q2-fy24",
+        "src": "data/datasets/meta-q2-fy24.js",
+        "data": {
+          "name": "Meta · Q2 FY24",
+          "company": "Meta",
+          "meta": {
+            "title": "Meta Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Meta · 2024 财年第二季度",
+              "meta": {
+                "title": "Meta 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "meta-q3-fy22",
+        "src": "data/datasets/meta-q3-fy22.js",
+        "data": {
+          "name": "Meta · Q3 FY22",
+          "company": "Meta",
+          "meta": {
+            "title": "Meta Q3 FY22 Income Statement",
+            "period": "Q3 FY22",
+            "periodNote": "Ending Sep. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Meta · 2022 财年第三季度",
+              "meta": {
+                "title": "Meta 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度",
+                "periodNote": "截至 2022 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "meta-q4-fy22",
+        "src": "data/datasets/meta-q4-fy22.js",
+        "data": {
+          "name": "Meta - Q4 FY22",
+          "company": "Meta",
+          "meta": {
+            "title": "Meta Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Ending Dec. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Meta · 2022 财年第四季度",
+              "meta": {
+                "title": "Meta 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2022 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "broadcom-q1-fy24",
+        "src": "data/datasets/broadcom-q1-fy24.js",
+        "data": {
+          "name": "Broadcom · Q1 FY24",
+          "company": "Broadcom",
+          "meta": {
+            "title": "Broadcom Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Jan. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Broadcom · 2024 财年第一季度",
+              "meta": {
+                "title": "Broadcom 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "broadcom-q3-fy24",
+        "src": "data/datasets/broadcom-q3-fy24.js",
+        "data": {
+          "name": "Broadcom · Q3 FY24",
+          "company": "Broadcom",
+          "meta": {
+            "title": "Broadcom Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending July 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Broadcom · 2024 财年第三季度",
+              "meta": {
+                "title": "Broadcom 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "meta-q1-fy24",
+        "src": "data/datasets/meta-q1-fy24.js",
+        "data": {
+          "name": "Meta - Q1 FY24",
+          "company": "Meta",
+          "meta": {
+            "title": "Meta Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Meta · 2024 财年第一季度",
+              "meta": {
+                "title": "Meta 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "meta-q3-fy24",
+        "src": "data/datasets/meta-q3-fy24.js",
+        "data": {
+          "name": "Meta - Q3 FY24",
+          "company": "Meta",
+          "meta": {
+            "title": "Meta Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Meta · 2024 财年第三季度",
+              "meta": {
+                "title": "Meta 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "broadcom-q4-fy25",
+        "src": "data/datasets/broadcom-q4-fy25.js",
+        "data": {
+          "name": "Broadcom · Q4 FY25",
+          "company": "Broadcom",
+          "meta": {
+            "title": "Broadcom Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Oct. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Broadcom · 2025 财年第四季度",
+              "meta": {
+                "title": "Broadcom 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 10 月"
+              }
+            }
+          }
+        }
       }
     ]
   };
