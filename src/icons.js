@@ -843,6 +843,20 @@ window.SANKEY_BUSINESS_ICONS = {
     <path d="M356 11H468V123H412V67H356Z" fill="#050505"/>
     <path d="M412 67L468 11V67Z" fill="#f2f2f2"/>
   `,
+  amdEpycWordmark: `
+    <defs>
+      <linearGradient id="amd-epyc-only-ring" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0" stop-color="#80c8dc"/>
+        <stop offset="1" stop-color="#006278"/>
+      </linearGradient>
+    </defs>
+    <g transform="translate(12 0)">
+      <circle cx="72" cy="72" r="55" fill="none" stroke="url(#amd-epyc-only-ring)" stroke-width="16"/>
+      <path d="M32 28L46 42M104 27L91 42M30 116L46 101M113 113L98 99" stroke="#f2f2f2" stroke-width="11" stroke-linecap="square"/>
+      <path d="M17 72H0M144 72H160" stroke="#050505" stroke-width="8"/>
+      <text x="72" y="86" text-anchor="middle" font-family="Arial Black,Arial,Helvetica,sans-serif" font-size="47" font-weight="900" fill="#050505" textLength="126" lengthAdjust="spacingAndGlyphs">EPYC</text>
+    </g>
+  `,
   analogDevicesCompanyWordmark: `
     <rect x="0" y="0" width="130" height="130" fill="#0067a5"/>
     <path d="M30 22L106 65L30 108Z" fill="#ffffff"/>
