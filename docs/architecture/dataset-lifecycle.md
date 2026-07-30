@@ -162,9 +162,14 @@ annotation proximity, visible short nodes, and visible interfaces compile to
 required checks. Duplicate identities, duplicate mapping ownership, and a
 missing mapping are hard failures before review preparation.
 
-Every Sankey-node mapping implies a painted semantic face; no separate face
-intent can opt it out. Visible short nodes bind Source evidence through
-`visible-short-node`. Geometry without a painted Source face must map to a
+Every Sankey-node mapping implies a painted semantic face. Normally that face
+must be directly observed in the Source; visible short nodes bind Source
+evidence through `visible-short-node`. The only exception is a
+`design-specified` face with `user-directed-topology-restoration` authority,
+an explicit reason, and a candidate target box. It records that the operator
+required restoration of semantic topology absent from the raster; it cannot
+be created from agent inference and does not masquerade as Source-pixel
+evidence. Other geometry without a painted Source face must map to a
 structural flow or semantic annotation instead of `nodes.*`. A financial
 value mapped to `nonNodeMetrics.*` owns `zero-paint-node-slot` evidence for
 the native candidate slot; the Build Module validates that evidence before
@@ -230,8 +235,10 @@ rounded-zero `precisionRecovery`.
 
 A missing record or View, unit mismatch, wrong typed reference, wrong amount,
 loss of the recovered non-zero value through SSOT/View display precision, or
-visible zero-value face is a hard preparation failure. Every node observation
-must provide an `observedBBox`; a zero-paint object cannot target `nodes.*`.
+visible zero-value face is a hard preparation failure. Every Source-observed
+node face must provide an `observedBBox`; an authorized `design-specified`
+face instead provides its candidate `targetBBox`. A zero-paint object cannot
+target `nodes.*`.
 For an Income Statement financial non-node metric, `prepareBuildReview` scans
 the Source-bound slot at native scale and rejects any horizontal painted run
 covering at least 75% of the measured peer-node width. This keeps a 1px or 2px
@@ -251,7 +258,9 @@ digest and immutable Source digest.
 embedded, with its own digest, in the Verification Plan. It classifies every
 semantic rendered node as Source-expected visible. The node-paint audit
 rejects missing or unpainted expected-visible nodes and rendered nodes absent
-from the complete policy.
+from the complete policy. A user-directed `design-specified` face is included
+in that complete visible-node policy and must pass the candidate full-face
+interface audit even though no reference interface can be measured.
 
 A visible face below the shared fidelity floor is not silently hidden. An
 exception is valid only when Source Coverage records a native-scale observed

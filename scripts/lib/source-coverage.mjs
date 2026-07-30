@@ -538,6 +538,26 @@ function normalizeFace(raw, context) {
   }
   invariant(nodes.length === 1, 'SOURCE_COVERAGE_FACE_AMBIGUOUS', `${context.sourceId} must not combine several node faces in one Source observation`);
   invariant(raw && typeof raw === 'object' && !Array.isArray(raw), 'SOURCE_COVERAGE_FACE_REQUIRED', `${context.sourceId} semantic node needs an observed Source face`);
+  if (raw.claim === 'design-specified') {
+    invariant(
+      raw.authority === 'user-directed-topology-restoration',
+      'SOURCE_COVERAGE_DESIGN_FACE_AUTHORITY_REQUIRED',
+      `${context.sourceId} design-specified face needs authority user-directed-topology-restoration`
+    );
+    invariant(
+      typeof raw.reason === 'string' && raw.reason.trim(),
+      'SOURCE_COVERAGE_DESIGN_FACE_REASON_REQUIRED',
+      `${context.sourceId} design-specified face needs the user's topology-restoration reason`
+    );
+    const targetBBox = normalizeBBox(raw.targetBBox, `${context.sourceId} face.targetBBox`);
+    assertBBoxWithinSource(targetBBox, context.source, `${context.sourceId} face.targetBBox`);
+    return {
+      claim: 'design-specified',
+      authority: raw.authority,
+      reason: raw.reason.trim(),
+      targetBBox,
+    };
+  }
   invariant(
     raw.claim == null || raw.claim === 'visible',
     'SOURCE_COVERAGE_HIDDEN_FACE_UNSUPPORTED',

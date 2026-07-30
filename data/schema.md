@@ -438,6 +438,25 @@ increase Adapter `meta.decimals` or provide an exact non-zero node
 `valueText`. The lifecycle ownership and coverage rules live in
 [`docs/architecture/dataset-lifecycle.md`](../docs/architecture/dataset-lifecycle.md).
 
+Semantic nodes normally declare a Source-painted face with `claim: 'visible'`,
+`searchBBox`, and `observedBBox`. When an operator explicitly directs the
+restoration of missing Sankey topology supported by Source values and labels
+but absent from the exported raster, use:
+
+```js
+face: {
+  claim: 'design-specified',
+  authority: 'user-directed-topology-restoration',
+  reason: 'Restore the missing right-hand continuation and bar.',
+  targetBBox: [x, y, width, height],
+}
+```
+
+This is forbidden for agent-only inference. It records intended candidate
+geometry without claiming Source pixels; the affected interfaces must use
+design-specified full-face G12 coverage and pass the normal node-paint, value,
+and review gates.
+
 ---
 
 ## Company metadata SSOT
