@@ -345,15 +345,87 @@
       "width": 2667,
       "height": 1500
     },
+    "amd-q1-fy23": {
+      "similarity": 0.963473,
+      "mae": 9.3144,
+      "width": 2667,
+      "height": 1500
+    },
+    "amd-q1-fy24": {
+      "similarity": 0.960817,
+      "mae": 9.9916,
+      "width": 2667,
+      "height": 1500
+    },
+    "amd-q1-fy25": {
+      "similarity": 0.954376,
+      "mae": 11.634,
+      "width": 2667,
+      "height": 1500
+    },
     "amd-q1-fy26": {
       "similarity": 0.957196,
       "mae": 10.9151,
       "width": 2667,
       "height": 1500
     },
+    "amd-q2-fy23": {
+      "similarity": 0.961066,
+      "mae": 9.9281,
+      "width": 2667,
+      "height": 1500
+    },
+    "amd-q2-fy24": {
+      "similarity": 0.960876,
+      "mae": 9.9767,
+      "width": 2667,
+      "height": 1500
+    },
+    "amd-q2-fy25": {
+      "similarity": 0.958016,
+      "mae": 10.7058,
+      "width": 2667,
+      "height": 1500
+    },
+    "amd-q3-fy22": {
+      "similarity": 0.963372,
+      "mae": 9.3403,
+      "width": 2667,
+      "height": 1500
+    },
+    "amd-q3-fy23": {
+      "similarity": 0.961286,
+      "mae": 9.8721,
+      "width": 2667,
+      "height": 1500
+    },
+    "amd-q3-fy24": {
+      "similarity": 0.95628,
+      "mae": 11.1487,
+      "width": 2667,
+      "height": 1500
+    },
     "amd-q3-fy25": {
       "similarity": 0.955549,
       "mae": 11.3351,
+      "width": 2667,
+      "height": 1500
+    },
+    "amd-q4-fy22": {
+      "similarity": 0.961542,
+      "mae": 9.8067,
+      "width": 2667,
+      "height": 1500
+    },
+    "amd-q4-fy23": {
+      "similarity": 0.962865,
+      "mae": 9.4694,
+      "width": 2667,
+      "height": 1500
+    },
+    "amd-q4-fy24": {
+      "similarity": 0.954673,
+      "mae": 11.5584,
       "width": 2667,
       "height": 1500
     },
@@ -1131,15 +1203,33 @@
       "width": 2667,
       "height": 1500
     },
+    "coreweave-fy24": {
+      "similarity": 0.96505,
+      "mae": 8.9122,
+      "width": 2667,
+      "height": 1500
+    },
     "coreweave-fy25": {
       "similarity": 0.961322,
       "mae": 9.8628,
       "width": 2667,
       "height": 1500
     },
+    "coreweave-q1-fy25": {
+      "similarity": 0.96458,
+      "mae": 9.0321,
+      "width": 2667,
+      "height": 1500
+    },
     "coreweave-q1-fy26": {
       "similarity": 0.958062,
       "mae": 10.6942,
+      "width": 2667,
+      "height": 1500
+    },
+    "coreweave-q2-fy25": {
+      "similarity": 0.96318,
+      "mae": 9.3892,
       "width": 2667,
       "height": 1500
     },
@@ -2127,6 +2217,36 @@
       "width": 2667,
       "height": 1500
     },
+    "marvell-q1-fy26": {
+      "similarity": 0.96557,
+      "mae": 8.7798,
+      "width": 2667,
+      "height": 1500
+    },
+    "marvell-q2-fy26": {
+      "similarity": 0.965802,
+      "mae": 8.7204,
+      "width": 2667,
+      "height": 1500
+    },
+    "marvell-q3-fy25": {
+      "similarity": 0.965062,
+      "mae": 8.9092,
+      "width": 2667,
+      "height": 1500
+    },
+    "marvell-q3-fy26": {
+      "similarity": 0.965485,
+      "mae": 8.8012,
+      "width": 2667,
+      "height": 1500
+    },
+    "marvell-q4-fy25": {
+      "similarity": 0.967364,
+      "mae": 8.3222,
+      "width": 2667,
+      "height": 1500
+    },
     "marvell-q4-fy26": {
       "similarity": 0.968513,
       "mae": 8.0291,
@@ -2823,9 +2943,75 @@
       "width": 2667,
       "height": 1500
     },
+    "oracle-q1-fy24": {
+      "similarity": 0.967932,
+      "mae": 8.1772,
+      "width": 2667,
+      "height": 1500
+    },
+    "oracle-q1-fy26": {
+      "similarity": 0.960135,
+      "mae": 10.1656,
+      "width": 2667,
+      "height": 1500
+    },
+    "oracle-q2-fy23": {
+      "similarity": 0.96353,
+      "mae": 9.3,
+      "width": 2667,
+      "height": 1500
+    },
+    "oracle-q2-fy24": {
+      "similarity": 0.962693,
+      "mae": 9.5133,
+      "width": 2667,
+      "height": 1500
+    },
+    "oracle-q2-fy26": {
+      "similarity": 0.960534,
+      "mae": 10.0639,
+      "width": 2667,
+      "height": 1500
+    },
+    "oracle-q3-fy23": {
+      "similarity": 0.963966,
+      "mae": 9.1888,
+      "width": 2667,
+      "height": 1500
+    },
+    "oracle-q3-fy24": {
+      "similarity": 0.963297,
+      "mae": 9.3592,
+      "width": 2667,
+      "height": 1500
+    },
+    "oracle-q3-fy25": {
+      "similarity": 0.961637,
+      "mae": 9.7826,
+      "width": 2667,
+      "height": 1500
+    },
     "oracle-q3-fy26": {
       "similarity": 0.96183,
       "mae": 9.7333,
+      "width": 2667,
+      "height": 1500
+    },
+    "oracle-q4-fy23": {
+      "similarity": 0.963116,
+      "mae": 9.4055,
+      "width": 2667,
+      "height": 1500
+    },
+    "oracle-q4-fy24": {
+      "similarity": 0.964577,
+      "mae": 9.033,
+      "width": 2667,
+      "height": 1500
+    },
+    "oracle-q4-fy25": {
+      "similarity": 0.962585,
+      "mae": 9.5409,
       "width": 2667,
       "height": 1500
     },
