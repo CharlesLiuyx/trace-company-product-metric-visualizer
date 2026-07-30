@@ -202,15 +202,16 @@ function validateDatasetParity(record, dataset, domain, errors) {
     );
   }
   validateHoverShareContract(dataset, errors);
-  const checkNode = (item, label) => {
+  const checkNode = (item, label, fallbackType) => {
     if (!item?.id) return;
     referencedMetricIds.add(item.id);
     const nonNode = nonNodeById.get(item.id);
     if (nonNode) {
       if (typeof nonNode.value === 'number') {
+        const type = fallbackType || nonNode.type;
         assertClose(
-          domain.normalizeSankeyMetricValue(item.value, nonNode.type),
-          domain.normalizeSankeyMetricValue(nonNode.value, nonNode.type),
+          domain.normalizeSankeyMetricValue(item.value, type),
+          domain.normalizeSankeyMetricValue(nonNode.value, type),
           tolerance,
           `${record.key}: ${label} ${item.id}`,
           errors
@@ -221,9 +222,10 @@ function validateDatasetParity(record, dataset, domain, errors) {
     const node = nodeById.get(item.id);
     assert(node, `${record.key}: missing Sankey node for ${label} "${item.id}"`, errors);
     if (node) {
+      const type = fallbackType || node.type;
       assertClose(
-        domain.normalizeSankeyMetricValue(item.value, node.type),
-        domain.normalizeSankeyMetricValue(node.value, node.type),
+        domain.normalizeSankeyMetricValue(item.value, type),
+        domain.normalizeSankeyMetricValue(node.value, type),
         tolerance,
         `${record.key}: ${label} ${item.id}`,
         errors
@@ -243,6 +245,7 @@ function validateDatasetParity(record, dataset, domain, errors) {
   checkNode(record.profit.net, 'net profit');
 
   for (const item of flattenItems(record.revenue.items)) checkNode(item, 'revenue item');
+  for (const item of flattenItems(record.costs.costOfRevenue?.items)) checkNode(item, 'cost of revenue item', 'cost');
   for (const item of record.costs.operatingExpenses.items || []) checkNode(item, 'operating expense item');
   for (const item of record.operatingOtherIncome?.items || []) checkNode(item, 'operating other income item');
   for (const item of record.operatingOtherExpenses?.items || []) checkNode(item, 'operating other expense item');
