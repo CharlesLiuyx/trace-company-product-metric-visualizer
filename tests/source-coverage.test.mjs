@@ -61,6 +61,11 @@ function financialCoverage({
   sourceLabel = 'Other',
   sourceClass = 'financial-value',
   dispositionInventory = financialInventory(),
+  face = {
+    claim: 'visible',
+    searchBBox: [880, 180, 220, 120],
+    observedBBox: [940, 230, 72, 4],
+  },
 } = {}) {
   const sourceClassification = classification();
   return createSourceCoverage({
@@ -77,15 +82,41 @@ function financialCoverage({
         ? { residualKind: 'decorative-residue' }
         : { amount, ssotRef }),
       ...(sourceClass === 'non-semantic-residual' ? {} : {
-        face: {
-          claim: 'visible',
-          searchBBox: [880, 180, 220, 120],
-          observedBBox: [940, 230, 72, 4],
-        },
+        face,
       }),
     }],
   }, { inventory: dispositionInventory, adapter: 'income-statement' });
 }
+
+test('user-directed topology restoration can specify a semantic face absent from the Source raster', () => {
+  const coverage = financialCoverage({
+    face: {
+      claim: 'design-specified',
+      authority: 'user-directed-topology-restoration',
+      reason: 'Restore the missing right-hand Sankey continuation and bar.',
+      targetBBox: [940, 230, 72, 4],
+    },
+  });
+  assert.deepEqual(coverage.items[0].face, {
+    claim: 'design-specified',
+    authority: 'user-directed-topology-restoration',
+    reason: 'Restore the missing right-hand Sankey continuation and bar.',
+    targetBBox: [940, 230, 72, 4],
+  });
+  assert.deepEqual(coverage.summary.visibleNodeIds, ['other_income']);
+
+  assert.throws(
+    () => financialCoverage({
+      face: {
+        claim: 'design-specified',
+        authority: 'agent-inferred-topology',
+        reason: 'No explicit user direction.',
+        targetBBox: [940, 230, 72, 4],
+      },
+    }),
+    (error) => error.code === 'SOURCE_COVERAGE_DESIGN_FACE_AUTHORITY_REQUIRED'
+  );
+});
 
 function loadedData({
   ssotValue = 0.04,
