@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-29T16:18:58.000Z",
+  "generatedAt": "2026-07-30T17:21:06.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -4073,6 +4073,192 @@
       "path": "data/datasets/broadcom-q4-fy25.js",
       "updatedAtMs": 1785341938000,
       "updatedAt": "2026-07-29T16:18:58.000Z",
+      "timeSource": "git"
+    },
+    "amd-q2-fy25": {
+      "path": "data/datasets/amd-q2-fy25.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "amd-q3-fy22": {
+      "path": "data/datasets/amd-q3-fy22.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "amd-q3-fy23": {
+      "path": "data/datasets/amd-q3-fy23.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "amd-q4-fy22": {
+      "path": "data/datasets/amd-q4-fy22.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "coreweave-q2-fy25": {
+      "path": "data/datasets/coreweave-q2-fy25.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "amd-q2-fy23": {
+      "path": "data/datasets/amd-q2-fy23.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "marvell-q3-fy25": {
+      "path": "data/datasets/marvell-q3-fy25.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "marvell-q4-fy25": {
+      "path": "data/datasets/marvell-q4-fy25.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "amd-q2-fy24": {
+      "path": "data/datasets/amd-q2-fy24.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "amd-q4-fy24": {
+      "path": "data/datasets/amd-q4-fy24.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "coreweave-fy24": {
+      "path": "data/datasets/coreweave-fy24.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "coreweave-q1-fy25": {
+      "path": "data/datasets/coreweave-q1-fy25.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "amd-q1-fy24": {
+      "path": "data/datasets/amd-q1-fy24.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "amd-q1-fy25": {
+      "path": "data/datasets/amd-q1-fy25.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "amd-q4-fy23": {
+      "path": "data/datasets/amd-q4-fy23.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "marvell-q3-fy26": {
+      "path": "data/datasets/marvell-q3-fy26.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "amd-q3-fy24": {
+      "path": "data/datasets/amd-q3-fy24.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "marvell-q1-fy26": {
+      "path": "data/datasets/marvell-q1-fy26.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "marvell-q2-fy26": {
+      "path": "data/datasets/marvell-q2-fy26.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "amd-q1-fy23": {
+      "path": "data/datasets/amd-q1-fy23.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "oracle-q3-fy23": {
+      "path": "data/datasets/oracle-q3-fy23.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "oracle-q1-fy26": {
+      "path": "data/datasets/oracle-q1-fy26.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "oracle-q2-fy26": {
+      "path": "data/datasets/oracle-q2-fy26.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "oracle-q2-fy24": {
+      "path": "data/datasets/oracle-q2-fy24.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "oracle-q3-fy24": {
+      "path": "data/datasets/oracle-q3-fy24.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "oracle-q2-fy23": {
+      "path": "data/datasets/oracle-q2-fy23.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "oracle-q4-fy25": {
+      "path": "data/datasets/oracle-q4-fy25.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "oracle-q1-fy24": {
+      "path": "data/datasets/oracle-q1-fy24.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "oracle-q4-fy23": {
+      "path": "data/datasets/oracle-q4-fy23.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "oracle-q3-fy25": {
+      "path": "data/datasets/oracle-q3-fy25.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "oracle-q4-fy24": {
+      "path": "data/datasets/oracle-q4-fy24.js",
+      "updatedAtMs": 1785432066000,
+      "updatedAt": "2026-07-30T17:21:06.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {

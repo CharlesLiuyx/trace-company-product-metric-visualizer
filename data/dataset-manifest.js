@@ -15211,6 +15211,707 @@
             }
           }
         }
+      },
+      {
+        "key": "amd-q2-fy25",
+        "src": "data/datasets/amd-q2-fy25.js",
+        "data": {
+          "name": "AMD · Q2 FY25",
+          "company": "AMD",
+          "meta": {
+            "title": "AMD Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Jun. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AMD · 2025 财年第二季度",
+              "meta": {
+                "title": "AMD 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amd-q3-fy22",
+        "src": "data/datasets/amd-q3-fy22.js",
+        "data": {
+          "name": "AMD · Q3 FY22",
+          "company": "AMD",
+          "meta": {
+            "title": "AMD Q3 FY22 Income Statement",
+            "period": "Q3 FY22",
+            "periodNote": "Ending Sep. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AMD · 2022 财年第三季度",
+              "meta": {
+                "title": "AMD 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度",
+                "periodNote": "截至 2022 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amd-q3-fy23",
+        "src": "data/datasets/amd-q3-fy23.js",
+        "data": {
+          "name": "AMD · Q3 FY23",
+          "company": "AMD",
+          "meta": {
+            "title": "AMD Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Sep. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AMD · 2023 财年第三季度",
+              "meta": {
+                "title": "AMD 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amd-q4-fy22",
+        "src": "data/datasets/amd-q4-fy22.js",
+        "data": {
+          "name": "AMD · Q4 FY22",
+          "company": "AMD",
+          "meta": {
+            "title": "AMD Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Ending Dec. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AMD · 2022 财年第四季度",
+              "meta": {
+                "title": "AMD 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2022 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "coreweave-q2-fy25",
+        "src": "data/datasets/coreweave-q2-fy25.js",
+        "data": {
+          "name": "CoreWeave · Q2 FY25",
+          "company": "CoreWeave",
+          "meta": {
+            "title": "CoreWeave Q2 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "CoreWeave · 2025 财年第二季度",
+              "meta": {
+                "title": "CoreWeave 2025 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amd-q2-fy23",
+        "src": "data/datasets/amd-q2-fy23.js",
+        "data": {
+          "name": "AMD · Q2 FY23",
+          "company": "AMD",
+          "meta": {
+            "title": "AMD Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Jul. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AMD · 2023 财年第二季度",
+              "meta": {
+                "title": "AMD 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "marvell-q3-fy25",
+        "src": "data/datasets/marvell-q3-fy25.js",
+        "data": {
+          "name": "Marvell · Q3 FY25",
+          "company": "Marvell",
+          "meta": {
+            "title": "Marvell Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Oct. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Marvell · 2025 财年第三季度",
+              "meta": {
+                "title": "Marvell 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2024 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "marvell-q4-fy25",
+        "src": "data/datasets/marvell-q4-fy25.js",
+        "data": {
+          "name": "Marvell · Q4 FY25",
+          "company": "Marvell",
+          "meta": {
+            "title": "Marvell Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Jan. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Marvell · 2025 财年第四季度",
+              "meta": {
+                "title": "Marvell 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amd-q2-fy24",
+        "src": "data/datasets/amd-q2-fy24.js",
+        "data": {
+          "name": "AMD · Q2 FY24",
+          "company": "AMD",
+          "meta": {
+            "title": "AMD Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AMD · 2024 财年第二季度",
+              "meta": {
+                "title": "AMD 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amd-q4-fy24",
+        "src": "data/datasets/amd-q4-fy24.js",
+        "data": {
+          "name": "AMD · Q4 FY24",
+          "company": "AMD",
+          "meta": {
+            "title": "AMD Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AMD · 2024 财年第四季度",
+              "meta": {
+                "title": "AMD 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "coreweave-fy24",
+        "src": "data/datasets/coreweave-fy24.js",
+        "data": {
+          "name": "CoreWeave · FY24",
+          "company": "CoreWeave",
+          "meta": {
+            "title": "CoreWeave FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "CoreWeave · 2024 财年",
+              "meta": {
+                "title": "CoreWeave 2024 财年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "coreweave-q1-fy25",
+        "src": "data/datasets/coreweave-q1-fy25.js",
+        "data": {
+          "name": "CoreWeave · Q1 FY25",
+          "company": "CoreWeave",
+          "meta": {
+            "title": "CoreWeave Q1 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "CoreWeave · 2025 财年第一季度",
+              "meta": {
+                "title": "CoreWeave 2025 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amd-q1-fy24",
+        "src": "data/datasets/amd-q1-fy24.js",
+        "data": {
+          "name": "AMD · Q1 FY24",
+          "company": "AMD",
+          "meta": {
+            "title": "AMD Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AMD · 2024 财年第一季度",
+              "meta": {
+                "title": "AMD 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amd-q1-fy25",
+        "src": "data/datasets/amd-q1-fy25.js",
+        "data": {
+          "name": "AMD · Q1 FY25",
+          "company": "AMD",
+          "meta": {
+            "title": "AMD Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Mar. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AMD · 2025 财年第一季度",
+              "meta": {
+                "title": "AMD 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amd-q4-fy23",
+        "src": "data/datasets/amd-q4-fy23.js",
+        "data": {
+          "name": "AMD · Q4 FY23",
+          "company": "AMD",
+          "meta": {
+            "title": "AMD Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AMD · 2023 财年第四季度",
+              "meta": {
+                "title": "AMD 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "marvell-q3-fy26",
+        "src": "data/datasets/marvell-q3-fy26.js",
+        "data": {
+          "name": "Marvell · Q3 FY26",
+          "company": "Marvell",
+          "meta": {
+            "title": "Marvell Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Oct. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Marvell · 2026 财年第三季度",
+              "meta": {
+                "title": "Marvell 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2025 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amd-q3-fy24",
+        "src": "data/datasets/amd-q3-fy24.js",
+        "data": {
+          "name": "AMD · Q3 FY24",
+          "company": "AMD",
+          "meta": {
+            "title": "AMD Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AMD · 2024 财年第三季度",
+              "meta": {
+                "title": "AMD 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "marvell-q1-fy26",
+        "src": "data/datasets/marvell-q1-fy26.js",
+        "data": {
+          "name": "Marvell · Q1 FY26",
+          "company": "Marvell",
+          "meta": {
+            "title": "Marvell Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Apr. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Marvell · 2026 财年第一季度",
+              "meta": {
+                "title": "Marvell 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "marvell-q2-fy26",
+        "src": "data/datasets/marvell-q2-fy26.js",
+        "data": {
+          "name": "Marvell · Q2 FY26",
+          "company": "Marvell",
+          "meta": {
+            "title": "Marvell Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending July 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Marvell · 2026 财年第二季度",
+              "meta": {
+                "title": "Marvell 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2025 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amd-q1-fy23",
+        "src": "data/datasets/amd-q1-fy23.js",
+        "data": {
+          "name": "AMD · Q1 FY23",
+          "company": "AMD",
+          "meta": {
+            "title": "AMD Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending Apr. 1, 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AMD · 2023 财年第一季度",
+              "meta": {
+                "title": "AMD 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2023 年 4 月 1 日"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "oracle-q3-fy23",
+        "src": "data/datasets/oracle-q3-fy23.js",
+        "data": {
+          "name": "Oracle · Q3 FY23",
+          "company": "Oracle",
+          "meta": {
+            "title": "Oracle Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Feb. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Oracle · 2023 财年第三季度",
+              "meta": {
+                "title": "Oracle 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 2 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "oracle-q1-fy26",
+        "src": "data/datasets/oracle-q1-fy26.js",
+        "data": {
+          "name": "Oracle · Q1 FY26",
+          "company": "Oracle",
+          "meta": {
+            "title": "Oracle Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Aug. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Oracle · 2026 财年第一季度",
+              "meta": {
+                "title": "Oracle 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 8 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "oracle-q2-fy26",
+        "src": "data/datasets/oracle-q2-fy26.js",
+        "data": {
+          "name": "Oracle · Q2 FY26",
+          "company": "Oracle",
+          "meta": {
+            "title": "Oracle Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Nov. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Oracle · 2026 财年第二季度",
+              "meta": {
+                "title": "Oracle 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2025 年 11 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "oracle-q2-fy24",
+        "src": "data/datasets/oracle-q2-fy24.js",
+        "data": {
+          "name": "Oracle · Q2 FY24",
+          "company": "Oracle",
+          "meta": {
+            "title": "Oracle Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Nov. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Oracle · 2024 财年第二季度",
+              "meta": {
+                "title": "Oracle 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2023 年 11 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "oracle-q3-fy24",
+        "src": "data/datasets/oracle-q3-fy24.js",
+        "data": {
+          "name": "Oracle · Q3 FY24",
+          "company": "Oracle",
+          "meta": {
+            "title": "Oracle Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Feb. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Oracle · 2024 财年第三季度",
+              "meta": {
+                "title": "Oracle 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 2 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "oracle-q2-fy23",
+        "src": "data/datasets/oracle-q2-fy23.js",
+        "data": {
+          "name": "Oracle · Q2 FY23",
+          "company": "Oracle",
+          "meta": {
+            "title": "Oracle Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending November 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Oracle · 2023 财年第二季度",
+              "meta": {
+                "title": "Oracle 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2022 年 11 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "oracle-q4-fy25",
+        "src": "data/datasets/oracle-q4-fy25.js",
+        "data": {
+          "name": "Oracle · Q4 FY25",
+          "company": "Oracle",
+          "meta": {
+            "title": "Oracle Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending May 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Oracle · 2025 财年第四季度",
+              "meta": {
+                "title": "Oracle 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 5 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "oracle-q1-fy24",
+        "src": "data/datasets/oracle-q1-fy24.js",
+        "data": {
+          "name": "Oracle · Q1 FY24",
+          "company": "Oracle",
+          "meta": {
+            "title": "Oracle Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending August 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Oracle · 2024 财年第一季度",
+              "meta": {
+                "title": "Oracle 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2023 年 8 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "oracle-q4-fy23",
+        "src": "data/datasets/oracle-q4-fy23.js",
+        "data": {
+          "name": "Oracle · Q4 FY23",
+          "company": "Oracle",
+          "meta": {
+            "title": "Oracle Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending May 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Oracle · 2023 财年第四季度",
+              "meta": {
+                "title": "Oracle 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 5 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "oracle-q3-fy25",
+        "src": "data/datasets/oracle-q3-fy25.js",
+        "data": {
+          "name": "Oracle · Q3 FY25",
+          "company": "Oracle",
+          "meta": {
+            "title": "Oracle Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Feb. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Oracle · 2025 财年第三季度",
+              "meta": {
+                "title": "Oracle 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 2 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "oracle-q4-fy24",
+        "src": "data/datasets/oracle-q4-fy24.js",
+        "data": {
+          "name": "Oracle · Q4 FY24",
+          "company": "Oracle",
+          "meta": {
+            "title": "Oracle Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending May 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Oracle · 2024 财年第四季度",
+              "meta": {
+                "title": "Oracle 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 5 月"
+              }
+            }
+          }
+        }
       }
     ]
   };
