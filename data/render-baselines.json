@@ -663,15 +663,87 @@
       "width": 2667,
       "height": 1500
     },
+    "arista-q1-fy23": {
+      "similarity": 0.974279,
+      "mae": 6.5588,
+      "width": 2667,
+      "height": 1500
+    },
+    "arista-q1-fy24": {
+      "similarity": 0.973933,
+      "mae": 6.6471,
+      "width": 2667,
+      "height": 1500
+    },
+    "arista-q1-fy25": {
+      "similarity": 0.973177,
+      "mae": 6.8399,
+      "width": 2667,
+      "height": 1500
+    },
     "arista-q1-fy26": {
       "similarity": 0.97385,
       "mae": 6.6682,
       "width": 2667,
       "height": 1500
     },
+    "arista-q2-fy23": {
+      "similarity": 0.972095,
+      "mae": 7.1159,
+      "width": 2667,
+      "height": 1500
+    },
+    "arista-q2-fy24": {
+      "similarity": 0.972995,
+      "mae": 6.8862,
+      "width": 2667,
+      "height": 1500
+    },
+    "arista-q2-fy25": {
+      "similarity": 0.973234,
+      "mae": 6.8254,
+      "width": 2667,
+      "height": 1500
+    },
+    "arista-q3-fy22": {
+      "similarity": 0.977676,
+      "mae": 5.6926,
+      "width": 2667,
+      "height": 1500
+    },
+    "arista-q3-fy23": {
+      "similarity": 0.971219,
+      "mae": 7.3392,
+      "width": 2667,
+      "height": 1500
+    },
+    "arista-q3-fy24": {
+      "similarity": 0.97573,
+      "mae": 6.1888,
+      "width": 2667,
+      "height": 1500
+    },
     "arista-q3-fy25": {
       "similarity": 0.973606,
       "mae": 6.7304,
+      "width": 2667,
+      "height": 1500
+    },
+    "arista-q4-fy22": {
+      "similarity": 0.977657,
+      "mae": 5.6975,
+      "width": 2667,
+      "height": 1500
+    },
+    "arista-q4-fy23": {
+      "similarity": 0.976448,
+      "mae": 6.0057,
+      "width": 2667,
+      "height": 1500
+    },
+    "arista-q4-fy24": {
+      "similarity": 0.973389,
+      "mae": 6.7858,
       "width": 2667,
       "height": 1500
     },
@@ -1311,15 +1383,57 @@
       "width": 2667,
       "height": 1500
     },
+    "dell-q1-fy25": {
+      "similarity": 0.974987,
+      "mae": 6.3782,
+      "width": 2667,
+      "height": 1500
+    },
+    "dell-q1-fy26": {
+      "similarity": 0.969513,
+      "mae": 7.7741,
+      "width": 2667,
+      "height": 1500
+    },
     "dell-q1-fy27": {
       "similarity": 0.967065,
       "mae": 8.3985,
       "width": 2667,
       "height": 1500
     },
+    "dell-q2-fy25": {
+      "similarity": 0.975087,
+      "mae": 6.3528,
+      "width": 2667,
+      "height": 1500
+    },
+    "dell-q2-fy26": {
+      "similarity": 0.971922,
+      "mae": 7.1598,
+      "width": 2667,
+      "height": 1500
+    },
+    "dell-q3-fy25": {
+      "similarity": 0.974174,
+      "mae": 6.5857,
+      "width": 2667,
+      "height": 1500
+    },
     "dell-q3-fy26": {
       "similarity": 0.97061,
       "mae": 7.4945,
+      "width": 2667,
+      "height": 1500
+    },
+    "dell-q4-fy24": {
+      "similarity": 0.974346,
+      "mae": 6.5418,
+      "width": 2667,
+      "height": 1500
+    },
+    "dell-q4-fy25": {
+      "similarity": 0.95493,
+      "mae": 11.4929,
       "width": 2667,
       "height": 1500
     },
@@ -3045,15 +3159,87 @@
       "width": 2667,
       "height": 1500
     },
+    "palantir-q1-fy23": {
+      "similarity": 0.967129,
+      "mae": 8.382,
+      "width": 2667,
+      "height": 1500
+    },
+    "palantir-q1-fy24": {
+      "similarity": 0.968457,
+      "mae": 8.0434,
+      "width": 2667,
+      "height": 1500
+    },
+    "palantir-q1-fy25": {
+      "similarity": 0.966928,
+      "mae": 8.4332,
+      "width": 2667,
+      "height": 1500
+    },
     "palantir-q1-fy26": {
       "similarity": 0.968667,
       "mae": 7.99,
       "width": 2667,
       "height": 1500
     },
+    "palantir-q2-fy23": {
+      "similarity": 0.970486,
+      "mae": 7.5261,
+      "width": 2667,
+      "height": 1500
+    },
+    "palantir-q2-fy24": {
+      "similarity": 0.969365,
+      "mae": 7.8119,
+      "width": 2667,
+      "height": 1500
+    },
+    "palantir-q2-fy25": {
+      "similarity": 0.967806,
+      "mae": 8.2096,
+      "width": 2667,
+      "height": 1500
+    },
+    "palantir-q3-fy22": {
+      "similarity": 0.970797,
+      "mae": 7.4467,
+      "width": 2667,
+      "height": 1500
+    },
+    "palantir-q3-fy23": {
+      "similarity": 0.968951,
+      "mae": 7.9175,
+      "width": 2667,
+      "height": 1500
+    },
+    "palantir-q3-fy24": {
+      "similarity": 0.971904,
+      "mae": 7.1644,
+      "width": 2667,
+      "height": 1500
+    },
     "palantir-q3-fy25": {
       "similarity": 0.967824,
       "mae": 8.2048,
+      "width": 2667,
+      "height": 1500
+    },
+    "palantir-q4-fy22": {
+      "similarity": 0.97123,
+      "mae": 7.3364,
+      "width": 2667,
+      "height": 1500
+    },
+    "palantir-q4-fy23": {
+      "similarity": 0.970114,
+      "mae": 7.6209,
+      "width": 2667,
+      "height": 1500
+    },
+    "palantir-q4-fy24": {
+      "similarity": 0.969208,
+      "mae": 7.852,
       "width": 2667,
       "height": 1500
     },
