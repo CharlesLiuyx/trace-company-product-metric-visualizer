@@ -15912,6 +15912,715 @@
             }
           }
         }
+      },
+      {
+        "key": "arista-q3-fy24",
+        "src": "data/datasets/arista-q3-fy24.js",
+        "data": {
+          "name": "Arista · Q3 FY24",
+          "company": "Arista",
+          "meta": {
+            "title": "Arista Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "阿里斯塔网络 · 2024 财年第三季度",
+              "meta": {
+                "title": "阿里斯塔网络 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "arista-q4-fy24",
+        "src": "data/datasets/arista-q4-fy24.js",
+        "data": {
+          "name": "Arista · Q4 FY24",
+          "company": "Arista",
+          "meta": {
+            "title": "Arista Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "阿里斯塔网络 · 2024 财年第四季度",
+              "meta": {
+                "title": "阿里斯塔网络 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "dell-q2-fy25",
+        "src": "data/datasets/dell-q2-fy25.js",
+        "data": {
+          "name": "Dell - Q2 FY25",
+          "company": "Dell",
+          "meta": {
+            "title": "DELL Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending July 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Dell · 2025 财年第二季度",
+              "meta": {
+                "title": "DELL 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2024 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "dell-q2-fy26",
+        "src": "data/datasets/dell-q2-fy26.js",
+        "data": {
+          "name": "Dell - Q2 FY26",
+          "company": "Dell",
+          "meta": {
+            "title": "DELL Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending July 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Dell · 2026 财年第二季度",
+              "meta": {
+                "title": "DELL 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2025 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "dell-q4-fy24",
+        "src": "data/datasets/dell-q4-fy24.js",
+        "data": {
+          "name": "Dell - Q4 FY24",
+          "company": "Dell",
+          "meta": {
+            "title": "DELL Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Jan. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Dell · 2024 财年第四季度",
+              "meta": {
+                "title": "DELL 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "palantir-q3-fy22",
+        "src": "data/datasets/palantir-q3-fy22.js",
+        "data": {
+          "name": "Palantir · Q3 FY22",
+          "company": "Palantir",
+          "meta": {
+            "title": "Palantir Q3 FY22 Income Statement",
+            "period": "Q3 FY22",
+            "periodNote": "Ending Sep. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Palantir · 2022 财年第三季度",
+              "meta": {
+                "title": "Palantir 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度",
+                "periodNote": "截至 2022 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "arista-q3-fy23",
+        "src": "data/datasets/arista-q3-fy23.js",
+        "data": {
+          "name": "Arista · Q3 FY23",
+          "company": "Arista",
+          "meta": {
+            "title": "Arista Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Sep. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "阿里斯塔网络 · 2023 财年第三季度",
+              "meta": {
+                "title": "阿里斯塔网络 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "dell-q1-fy26",
+        "src": "data/datasets/dell-q1-fy26.js",
+        "data": {
+          "name": "Dell - Q1 FY26",
+          "company": "Dell",
+          "meta": {
+            "title": "DELL Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Apr. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Dell · 2026 财年第一季度",
+              "meta": {
+                "title": "DELL 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "arista-q1-fy23",
+        "src": "data/datasets/arista-q1-fy23.js",
+        "data": {
+          "name": "Arista · Q1 FY23",
+          "company": "Arista",
+          "meta": {
+            "title": "Arista Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending Mar. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "阿里斯塔网络 · 2023 财年第一季度",
+              "meta": {
+                "title": "阿里斯塔网络 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2023 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "arista-q4-fy22",
+        "src": "data/datasets/arista-q4-fy22.js",
+        "data": {
+          "name": "Arista · Q4 FY22",
+          "company": "Arista",
+          "meta": {
+            "title": "Arista Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Ending Dec. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "阿里斯塔网络 · 2022 财年第四季度",
+              "meta": {
+                "title": "阿里斯塔网络 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2022 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "dell-q3-fy25",
+        "src": "data/datasets/dell-q3-fy25.js",
+        "data": {
+          "name": "Dell - Q3 FY25",
+          "company": "Dell",
+          "meta": {
+            "title": "DELL Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Oct. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Dell · 2025 财年第三季度",
+              "meta": {
+                "title": "DELL 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2024 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "palantir-q1-fy23",
+        "src": "data/datasets/palantir-q1-fy23.js",
+        "data": {
+          "name": "Palantir · Q1 FY23",
+          "company": "Palantir",
+          "meta": {
+            "title": "Palantir Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending Mar. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Palantir · 2023 财年第一季度",
+              "meta": {
+                "title": "Palantir 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2023 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "palantir-q4-fy22",
+        "src": "data/datasets/palantir-q4-fy22.js",
+        "data": {
+          "name": "Palantir · Q4 FY22",
+          "company": "Palantir",
+          "meta": {
+            "title": "Palantir Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Ending Dec. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Palantir · 2022 财年第四季度",
+              "meta": {
+                "title": "Palantir 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2022 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "arista-q4-fy23",
+        "src": "data/datasets/arista-q4-fy23.js",
+        "data": {
+          "name": "Arista · Q4 FY23",
+          "company": "Arista",
+          "meta": {
+            "title": "Arista Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "阿里斯塔网络 · 2023 财年第四季度",
+              "meta": {
+                "title": "阿里斯塔网络 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "palantir-q1-fy24",
+        "src": "data/datasets/palantir-q1-fy24.js",
+        "data": {
+          "name": "Palantir · Q1 FY24",
+          "company": "Palantir",
+          "meta": {
+            "title": "Palantir Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Palantir · 2024 财年第一季度",
+              "meta": {
+                "title": "Palantir 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "arista-q2-fy23",
+        "src": "data/datasets/arista-q2-fy23.js",
+        "data": {
+          "name": "Arista · Q2 FY23",
+          "company": "Arista",
+          "meta": {
+            "title": "Arista Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Jun. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "阿里斯塔网络 · 2023 财年第二季度",
+              "meta": {
+                "title": "阿里斯塔网络 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "dell-q1-fy25",
+        "src": "data/datasets/dell-q1-fy25.js",
+        "data": {
+          "name": "Dell - Q1 FY25",
+          "company": "Dell",
+          "meta": {
+            "title": "DELL Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Apr. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Dell · 2025 财年第一季度",
+              "meta": {
+                "title": "DELL 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2024 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "dell-q4-fy25",
+        "src": "data/datasets/dell-q4-fy25.js",
+        "data": {
+          "name": "Dell - Q4 FY25",
+          "company": "Dell",
+          "meta": {
+            "title": "DELL Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Jan. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Dell · 2025 财年第四季度",
+              "meta": {
+                "title": "DELL 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "palantir-q2-fy23",
+        "src": "data/datasets/palantir-q2-fy23.js",
+        "data": {
+          "name": "Palantir · Q2 FY23",
+          "company": "Palantir",
+          "meta": {
+            "title": "Palantir Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Jun. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Palantir · 2023 财年第二季度",
+              "meta": {
+                "title": "Palantir 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "palantir-q3-fy23",
+        "src": "data/datasets/palantir-q3-fy23.js",
+        "data": {
+          "name": "Palantir · Q3 FY23",
+          "company": "Palantir",
+          "meta": {
+            "title": "Palantir Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Sep. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Palantir · 2023 财年第三季度",
+              "meta": {
+                "title": "Palantir 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "arista-q1-fy24",
+        "src": "data/datasets/arista-q1-fy24.js",
+        "data": {
+          "name": "Arista · Q1 FY24",
+          "company": "Arista",
+          "meta": {
+            "title": "Arista Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "阿里斯塔网络 · 2024 财年第一季度",
+              "meta": {
+                "title": "阿里斯塔网络 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "arista-q3-fy22",
+        "src": "data/datasets/arista-q3-fy22.js",
+        "data": {
+          "name": "Arista · Q3 FY22",
+          "company": "Arista",
+          "meta": {
+            "title": "Arista Q3 FY22 Income Statement",
+            "period": "Q3 FY22",
+            "periodNote": "Ending Sep. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "阿里斯塔网络 · 2022 财年第三季度",
+              "meta": {
+                "title": "阿里斯塔网络 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度",
+                "periodNote": "截至 2022 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "palantir-q2-fy25",
+        "src": "data/datasets/palantir-q2-fy25.js",
+        "data": {
+          "name": "Palantir · Q2 FY25",
+          "company": "Palantir",
+          "meta": {
+            "title": "Palantir Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Jun. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Palantir · 2025 财年第二季度",
+              "meta": {
+                "title": "Palantir 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "arista-q2-fy24",
+        "src": "data/datasets/arista-q2-fy24.js",
+        "data": {
+          "name": "Arista · Q2 FY24",
+          "company": "Arista",
+          "meta": {
+            "title": "Arista Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "阿里斯塔网络 · 2024 财年第二季度",
+              "meta": {
+                "title": "阿里斯塔网络 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "palantir-q4-fy23",
+        "src": "data/datasets/palantir-q4-fy23.js",
+        "data": {
+          "name": "Palantir · Q4 FY23",
+          "company": "Palantir",
+          "meta": {
+            "title": "Palantir Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Palantir · 2023 财年第四季度",
+              "meta": {
+                "title": "Palantir 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "palantir-q3-fy24",
+        "src": "data/datasets/palantir-q3-fy24.js",
+        "data": {
+          "name": "Palantir · Q3 FY24",
+          "company": "Palantir",
+          "meta": {
+            "title": "Palantir Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Palantir · 2024 财年第三季度",
+              "meta": {
+                "title": "Palantir 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "arista-q2-fy25",
+        "src": "data/datasets/arista-q2-fy25.js",
+        "data": {
+          "name": "Arista · Q2 FY25",
+          "company": "Arista",
+          "meta": {
+            "title": "Arista Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Jun. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "阿里斯塔网络 · 2025 财年第二季度",
+              "meta": {
+                "title": "阿里斯塔网络 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "palantir-q1-fy25",
+        "src": "data/datasets/palantir-q1-fy25.js",
+        "data": {
+          "name": "Palantir · Q1 FY25",
+          "company": "Palantir",
+          "meta": {
+            "title": "Palantir Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Mar. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Palantir · 2025 财年第一季度",
+              "meta": {
+                "title": "Palantir 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "palantir-q4-fy24",
+        "src": "data/datasets/palantir-q4-fy24.js",
+        "data": {
+          "name": "Palantir · Q4 FY24",
+          "company": "Palantir",
+          "meta": {
+            "title": "Palantir Q4 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Palantir · 2024 财年第四季度",
+              "meta": {
+                "title": "Palantir 2024 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "palantir-q2-fy24",
+        "src": "data/datasets/palantir-q2-fy24.js",
+        "data": {
+          "name": "Palantir · Q2 FY24",
+          "company": "Palantir",
+          "meta": {
+            "title": "Palantir Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Palantir · 2024 财年第二季度",
+              "meta": {
+                "title": "Palantir 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "arista-q1-fy25",
+        "src": "data/datasets/arista-q1-fy25.js",
+        "data": {
+          "name": "Arista · Q1 FY25",
+          "company": "Arista",
+          "meta": {
+            "title": "Arista Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Mar. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "阿里斯塔网络 · 2025 财年第一季度",
+              "meta": {
+                "title": "阿里斯塔网络 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 3 月"
+              }
+            }
+          }
+        }
       }
     ]
   };
