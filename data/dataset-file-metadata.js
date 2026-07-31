@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-30T17:21:06.000Z",
+  "generatedAt": "2026-07-31T14:32:16.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -4259,6 +4259,192 @@
       "path": "data/datasets/oracle-q4-fy24.js",
       "updatedAtMs": 1785432066000,
       "updatedAt": "2026-07-30T17:21:06.000Z",
+      "timeSource": "git"
+    },
+    "arista-q3-fy24": {
+      "path": "data/datasets/arista-q3-fy24.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "arista-q4-fy24": {
+      "path": "data/datasets/arista-q4-fy24.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "dell-q2-fy25": {
+      "path": "data/datasets/dell-q2-fy25.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "dell-q2-fy26": {
+      "path": "data/datasets/dell-q2-fy26.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "dell-q4-fy24": {
+      "path": "data/datasets/dell-q4-fy24.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "palantir-q3-fy22": {
+      "path": "data/datasets/palantir-q3-fy22.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "arista-q3-fy23": {
+      "path": "data/datasets/arista-q3-fy23.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "dell-q1-fy26": {
+      "path": "data/datasets/dell-q1-fy26.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "arista-q1-fy23": {
+      "path": "data/datasets/arista-q1-fy23.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "arista-q4-fy22": {
+      "path": "data/datasets/arista-q4-fy22.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "dell-q3-fy25": {
+      "path": "data/datasets/dell-q3-fy25.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "palantir-q1-fy23": {
+      "path": "data/datasets/palantir-q1-fy23.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "palantir-q4-fy22": {
+      "path": "data/datasets/palantir-q4-fy22.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "arista-q4-fy23": {
+      "path": "data/datasets/arista-q4-fy23.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "palantir-q1-fy24": {
+      "path": "data/datasets/palantir-q1-fy24.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "arista-q2-fy23": {
+      "path": "data/datasets/arista-q2-fy23.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "dell-q1-fy25": {
+      "path": "data/datasets/dell-q1-fy25.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "dell-q4-fy25": {
+      "path": "data/datasets/dell-q4-fy25.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "palantir-q2-fy23": {
+      "path": "data/datasets/palantir-q2-fy23.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "palantir-q3-fy23": {
+      "path": "data/datasets/palantir-q3-fy23.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "arista-q1-fy24": {
+      "path": "data/datasets/arista-q1-fy24.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "arista-q3-fy22": {
+      "path": "data/datasets/arista-q3-fy22.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "palantir-q2-fy25": {
+      "path": "data/datasets/palantir-q2-fy25.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "arista-q2-fy24": {
+      "path": "data/datasets/arista-q2-fy24.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "palantir-q4-fy23": {
+      "path": "data/datasets/palantir-q4-fy23.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "palantir-q3-fy24": {
+      "path": "data/datasets/palantir-q3-fy24.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "arista-q2-fy25": {
+      "path": "data/datasets/arista-q2-fy25.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "palantir-q1-fy25": {
+      "path": "data/datasets/palantir-q1-fy25.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "palantir-q4-fy24": {
+      "path": "data/datasets/palantir-q4-fy24.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "palantir-q2-fy24": {
+      "path": "data/datasets/palantir-q2-fy24.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "arista-q1-fy25": {
+      "path": "data/datasets/arista-q1-fy25.js",
+      "updatedAtMs": 1785508336000,
+      "updatedAt": "2026-07-31T14:32:16.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {
