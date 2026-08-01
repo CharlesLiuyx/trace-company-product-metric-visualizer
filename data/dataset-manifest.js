@@ -16621,6 +16621,443 @@
             }
           }
         }
+      },
+      {
+        "key": "asml-q2-fy23",
+        "src": "data/datasets/asml-q2-fy23.js",
+        "data": {
+          "name": "ASML · Q2 FY23",
+          "company": "ASML",
+          "meta": {
+            "title": "ASML Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Jun. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ASML · 2023 财年第二季度",
+              "meta": {
+                "title": "ASML 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "asml-q2-fy24",
+        "src": "data/datasets/asml-q2-fy24.js",
+        "data": {
+          "name": "ASML · Q2 FY24",
+          "company": "ASML",
+          "meta": {
+            "title": "ASML Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ASML · 2024 财年第二季度",
+              "meta": {
+                "title": "ASML 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "asml-q3-fy24",
+        "src": "data/datasets/asml-q3-fy24.js",
+        "data": {
+          "name": "ASML · Q3 FY24",
+          "company": "ASML",
+          "meta": {
+            "title": "ASML Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ASML · 2024 财年第三季度",
+              "meta": {
+                "title": "ASML 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "micron-q4-fy25",
+        "src": "data/datasets/micron-q4-fy25.js",
+        "data": {
+          "name": "Micron · Q4 FY25",
+          "company": "Micron",
+          "meta": {
+            "title": "Micron Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Aug. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Micron · 2025 财年第四季度",
+              "meta": {
+                "title": "Micron 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 8 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "asml-q4-fy24",
+        "src": "data/datasets/asml-q4-fy24.js",
+        "data": {
+          "name": "ASML · Q4 FY24",
+          "company": "ASML",
+          "meta": {
+            "title": "ASML Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ASML · 2024 财年第四季度",
+              "meta": {
+                "title": "ASML 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "micron-q2-fy25",
+        "src": "data/datasets/micron-q2-fy25.js",
+        "data": {
+          "name": "Micron · Q2 FY25",
+          "company": "Micron",
+          "meta": {
+            "title": "Micron Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Feb. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Micron · 2025 财年第二季度",
+              "meta": {
+                "title": "Micron 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 2 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "micron-q1-fy25",
+        "src": "data/datasets/micron-q1-fy25.js",
+        "data": {
+          "name": "Micron · Q1 FY25",
+          "company": "Micron",
+          "meta": {
+            "title": "Micron Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Nov. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Micron · 2025 财年第一季度",
+              "meta": {
+                "title": "Micron 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2024 年 11 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "asml-q1-fy23",
+        "src": "data/datasets/asml-q1-fy23.js",
+        "data": {
+          "name": "ASML · Q1 FY23",
+          "company": "ASML",
+          "meta": {
+            "title": "ASML Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending Apr. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ASML · 2023 财年第一季度",
+              "meta": {
+                "title": "ASML 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2023 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "asml-q3-fy22",
+        "src": "data/datasets/asml-q3-fy22.js",
+        "data": {
+          "name": "ASML · Q3 FY22",
+          "company": "ASML",
+          "meta": {
+            "title": "ASML Q3 FY22 Income Statement",
+            "period": "Q3 FY22",
+            "periodNote": "Ending Sep. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ASML · 2022 财年第三季度",
+              "meta": {
+                "title": "ASML 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度",
+                "periodNote": "截至 2022 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "asml-q3-fy25",
+        "src": "data/datasets/asml-q3-fy25.js",
+        "data": {
+          "name": "ASML · Q3 FY25",
+          "company": "ASML",
+          "meta": {
+            "title": "ASML Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ASML · 2025 财年第三季度",
+              "meta": {
+                "title": "ASML 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "asml-q1-fy24",
+        "src": "data/datasets/asml-q1-fy24.js",
+        "data": {
+          "name": "ASML · Q1 FY24",
+          "company": "ASML",
+          "meta": {
+            "title": "ASML Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ASML · 2024 财年第一季度",
+              "meta": {
+                "title": "ASML 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "asml-fy23",
+        "src": "data/datasets/asml-fy23.js",
+        "data": {
+          "name": "ASML · FY23",
+          "company": "ASML",
+          "meta": {
+            "title": "ASML FY23 Income Statement",
+            "period": "FY23",
+            "periodNote": "Year ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ASML · 2023 财年",
+              "meta": {
+                "title": "ASML 2023 财年利润表",
+                "period": "2023 财年",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "asml-q4-fy22",
+        "src": "data/datasets/asml-q4-fy22.js",
+        "data": {
+          "name": "ASML · Q4 FY22",
+          "company": "ASML",
+          "meta": {
+            "title": "ASML Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Ending Dec. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ASML · 2022 财年第四季度",
+              "meta": {
+                "title": "ASML 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2022 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "asml-q2-fy25",
+        "src": "data/datasets/asml-q2-fy25.js",
+        "data": {
+          "name": "ASML · Q2 FY25",
+          "company": "ASML",
+          "meta": {
+            "title": "ASML Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Jun. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ASML · 2025 财年第二季度",
+              "meta": {
+                "title": "ASML 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "micron-q4-fy24",
+        "src": "data/datasets/micron-q4-fy24.js",
+        "data": {
+          "name": "Micron · Q4 FY24",
+          "company": "Micron",
+          "meta": {
+            "title": "Micron Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Aug. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Micron · 2024 财年第四季度",
+              "meta": {
+                "title": "Micron 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 8 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "asml-q3-fy23",
+        "src": "data/datasets/asml-q3-fy23.js",
+        "data": {
+          "name": "ASML · Q3 FY23",
+          "company": "ASML",
+          "meta": {
+            "title": "ASML Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Sep. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ASML · 2023 财年第三季度",
+              "meta": {
+                "title": "ASML 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "micron-q3-fy25",
+        "src": "data/datasets/micron-q3-fy25.js",
+        "data": {
+          "name": "Micron · Q3 FY25",
+          "company": "Micron",
+          "meta": {
+            "title": "Micron Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending May 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美光 · 2025 财年第三季度",
+              "meta": {
+                "title": "美光 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 5 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "micron-q1-fy26",
+        "src": "data/datasets/micron-q1-fy26.js",
+        "data": {
+          "name": "Micron · Q1 FY26",
+          "company": "Micron",
+          "meta": {
+            "title": "Micron Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Nov. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Micron · 2026 财年第一季度",
+              "meta": {
+                "title": "Micron 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 11 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "asml-q1-fy25",
+        "src": "data/datasets/asml-q1-fy25.js",
+        "data": {
+          "name": "ASML · Q1 FY25",
+          "company": "ASML",
+          "meta": {
+            "title": "ASML Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Mar. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ASML · 2025 财年第一季度",
+              "meta": {
+                "title": "ASML 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 3 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

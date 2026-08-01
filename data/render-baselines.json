@@ -783,9 +783,87 @@
       "width": 2667,
       "height": 1500
     },
+    "asml-fy23": {
+      "similarity": 0.974183,
+      "mae": 6.5833,
+      "width": 2667,
+      "height": 1500
+    },
+    "asml-q1-fy23": {
+      "similarity": 0.975868,
+      "mae": 6.1536,
+      "width": 2667,
+      "height": 1500
+    },
+    "asml-q1-fy24": {
+      "similarity": 0.968189,
+      "mae": 8.1117,
+      "width": 2667,
+      "height": 1500
+    },
+    "asml-q1-fy25": {
+      "similarity": 0.973478,
+      "mae": 6.7631,
+      "width": 2667,
+      "height": 1500
+    },
     "asml-q1-fy26": {
       "similarity": 0.97277,
       "mae": 6.9436,
+      "width": 2667,
+      "height": 1500
+    },
+    "asml-q2-fy23": {
+      "similarity": 0.978668,
+      "mae": 5.4398,
+      "width": 2667,
+      "height": 1500
+    },
+    "asml-q2-fy24": {
+      "similarity": 0.968294,
+      "mae": 8.0851,
+      "width": 2667,
+      "height": 1500
+    },
+    "asml-q2-fy25": {
+      "similarity": 0.972293,
+      "mae": 7.0652,
+      "width": 2667,
+      "height": 1500
+    },
+    "asml-q3-fy22": {
+      "similarity": 0.975721,
+      "mae": 6.1913,
+      "width": 2667,
+      "height": 1500
+    },
+    "asml-q3-fy23": {
+      "similarity": 0.971618,
+      "mae": 7.2375,
+      "width": 2667,
+      "height": 1500
+    },
+    "asml-q3-fy24": {
+      "similarity": 0.973142,
+      "mae": 6.8488,
+      "width": 2667,
+      "height": 1500
+    },
+    "asml-q3-fy25": {
+      "similarity": 0.973987,
+      "mae": 6.6333,
+      "width": 2667,
+      "height": 1500
+    },
+    "asml-q4-fy22": {
+      "similarity": 0.977708,
+      "mae": 5.6845,
+      "width": 2667,
+      "height": 1500
+    },
+    "asml-q4-fy24": {
+      "similarity": 0.973504,
+      "mae": 6.7564,
       "width": 2667,
       "height": 1500
     },
@@ -2541,15 +2619,51 @@
       "width": 2667,
       "height": 1500
     },
+    "micron-q1-fy25": {
+      "similarity": 0.960808,
+      "mae": 9.9941,
+      "width": 2667,
+      "height": 1500
+    },
+    "micron-q1-fy26": {
+      "similarity": 0.958909,
+      "mae": 10.4781,
+      "width": 2667,
+      "height": 1500
+    },
+    "micron-q2-fy25": {
+      "similarity": 0.959913,
+      "mae": 10.2222,
+      "width": 2667,
+      "height": 1500
+    },
     "micron-q2-fy26": {
       "similarity": 0.961116,
       "mae": 9.9154,
       "width": 2667,
       "height": 1500
     },
+    "micron-q3-fy25": {
+      "similarity": 0.95935,
+      "mae": 10.3657,
+      "width": 2667,
+      "height": 1500
+    },
     "micron-q3-fy26": {
       "similarity": 0.961606,
       "mae": 9.7906,
+      "width": 2667,
+      "height": 1500
+    },
+    "micron-q4-fy24": {
+      "similarity": 0.961913,
+      "mae": 9.7121,
+      "width": 2667,
+      "height": 1500
+    },
+    "micron-q4-fy25": {
+      "similarity": 0.961813,
+      "mae": 9.7376,
       "width": 2667,
       "height": 1500
     },

@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-07-31T14:32:16.000Z",
+  "generatedAt": "2026-08-01T10:05:46.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -4445,6 +4445,120 @@
       "path": "data/datasets/arista-q1-fy25.js",
       "updatedAtMs": 1785508336000,
       "updatedAt": "2026-07-31T14:32:16.000Z",
+      "timeSource": "git"
+    },
+    "asml-q2-fy23": {
+      "path": "data/datasets/asml-q2-fy23.js",
+      "updatedAtMs": 1785578746000,
+      "updatedAt": "2026-08-01T10:05:46.000Z",
+      "timeSource": "git"
+    },
+    "asml-q2-fy24": {
+      "path": "data/datasets/asml-q2-fy24.js",
+      "updatedAtMs": 1785578746000,
+      "updatedAt": "2026-08-01T10:05:46.000Z",
+      "timeSource": "git"
+    },
+    "asml-q3-fy24": {
+      "path": "data/datasets/asml-q3-fy24.js",
+      "updatedAtMs": 1785578746000,
+      "updatedAt": "2026-08-01T10:05:46.000Z",
+      "timeSource": "git"
+    },
+    "micron-q4-fy25": {
+      "path": "data/datasets/micron-q4-fy25.js",
+      "updatedAtMs": 1785578746000,
+      "updatedAt": "2026-08-01T10:05:46.000Z",
+      "timeSource": "git"
+    },
+    "asml-q4-fy24": {
+      "path": "data/datasets/asml-q4-fy24.js",
+      "updatedAtMs": 1785578746000,
+      "updatedAt": "2026-08-01T10:05:46.000Z",
+      "timeSource": "git"
+    },
+    "micron-q2-fy25": {
+      "path": "data/datasets/micron-q2-fy25.js",
+      "updatedAtMs": 1785578746000,
+      "updatedAt": "2026-08-01T10:05:46.000Z",
+      "timeSource": "git"
+    },
+    "micron-q1-fy25": {
+      "path": "data/datasets/micron-q1-fy25.js",
+      "updatedAtMs": 1785578746000,
+      "updatedAt": "2026-08-01T10:05:46.000Z",
+      "timeSource": "git"
+    },
+    "asml-q1-fy23": {
+      "path": "data/datasets/asml-q1-fy23.js",
+      "updatedAtMs": 1785578746000,
+      "updatedAt": "2026-08-01T10:05:46.000Z",
+      "timeSource": "git"
+    },
+    "asml-q3-fy22": {
+      "path": "data/datasets/asml-q3-fy22.js",
+      "updatedAtMs": 1785578746000,
+      "updatedAt": "2026-08-01T10:05:46.000Z",
+      "timeSource": "git"
+    },
+    "asml-q3-fy25": {
+      "path": "data/datasets/asml-q3-fy25.js",
+      "updatedAtMs": 1785578746000,
+      "updatedAt": "2026-08-01T10:05:46.000Z",
+      "timeSource": "git"
+    },
+    "asml-q1-fy24": {
+      "path": "data/datasets/asml-q1-fy24.js",
+      "updatedAtMs": 1785578746000,
+      "updatedAt": "2026-08-01T10:05:46.000Z",
+      "timeSource": "git"
+    },
+    "asml-fy23": {
+      "path": "data/datasets/asml-fy23.js",
+      "updatedAtMs": 1785578746000,
+      "updatedAt": "2026-08-01T10:05:46.000Z",
+      "timeSource": "git"
+    },
+    "asml-q4-fy22": {
+      "path": "data/datasets/asml-q4-fy22.js",
+      "updatedAtMs": 1785578746000,
+      "updatedAt": "2026-08-01T10:05:46.000Z",
+      "timeSource": "git"
+    },
+    "asml-q2-fy25": {
+      "path": "data/datasets/asml-q2-fy25.js",
+      "updatedAtMs": 1785578746000,
+      "updatedAt": "2026-08-01T10:05:46.000Z",
+      "timeSource": "git"
+    },
+    "micron-q4-fy24": {
+      "path": "data/datasets/micron-q4-fy24.js",
+      "updatedAtMs": 1785578746000,
+      "updatedAt": "2026-08-01T10:05:46.000Z",
+      "timeSource": "git"
+    },
+    "asml-q3-fy23": {
+      "path": "data/datasets/asml-q3-fy23.js",
+      "updatedAtMs": 1785578746000,
+      "updatedAt": "2026-08-01T10:05:46.000Z",
+      "timeSource": "git"
+    },
+    "micron-q3-fy25": {
+      "path": "data/datasets/micron-q3-fy25.js",
+      "updatedAtMs": 1785578746000,
+      "updatedAt": "2026-08-01T10:05:46.000Z",
+      "timeSource": "git"
+    },
+    "micron-q1-fy26": {
+      "path": "data/datasets/micron-q1-fy26.js",
+      "updatedAtMs": 1785578746000,
+      "updatedAt": "2026-08-01T10:05:46.000Z",
+      "timeSource": "git"
+    },
+    "asml-q1-fy25": {
+      "path": "data/datasets/asml-q1-fy25.js",
+      "updatedAtMs": 1785578746000,
+      "updatedAt": "2026-08-01T10:05:46.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {
