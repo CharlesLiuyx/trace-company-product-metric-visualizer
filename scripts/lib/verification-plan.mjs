@@ -17,6 +17,7 @@ export const FEATURE_REQUIRED_CHECKS = Object.freeze({
   'centered-side-label': Object.freeze({ axis: 'render', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'label-layout-audit', ruleIds: Object.freeze(['B3', 'T7']) }),
   text: Object.freeze({ axis: 'render', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'text-layout-audit', ruleIds: Object.freeze(['B6', 'Z5']) }),
   'annotation-near-label': Object.freeze({ axis: 'render', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'annotation-layout-audit', ruleIds: Object.freeze(['A6', 'B5']) }),
+  'paired-node-annotation': Object.freeze({ axis: 'render', enforcement: 'quantified-audit', localeScope: 'required-locales', evidenceKind: 'annotation-pairing-audit', ruleIds: Object.freeze(['I12']) }),
   'semantic-annotation': Object.freeze([
     Object.freeze({ checkId: 'semantic-annotation', axis: 'interaction', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'annotation-semantics-audit', ruleIds: Object.freeze(['A10', 'B16']) }),
     Object.freeze({ checkId: 'semantic-annotation-source-classification', axis: 'render', enforcement: 'manual', localeScope: 'global', evidenceKind: 'manual-decision', ruleIds: Object.freeze(['T17']) }),
@@ -136,7 +137,7 @@ function renderTargetsForFeature(object, feature) {
     predicate = (target) => /(^|[./:])nodes?[./:]/i.test(target);
   } else if (['centered-side-label', 'text', 'specified-label-weight', 'measured-label-position', 'ambiguous-label-slot'].includes(feature)) {
     predicate = (target) => /label/i.test(target);
-  } else if (feature === 'annotation-near-label') {
+  } else if (['annotation-near-label', 'paired-node-annotation'].includes(feature)) {
     predicate = (target) => /annotation/i.test(target);
   } else if (feature === 'semantic-annotation') {
     predicate = (target) => /annotation/i.test(target);

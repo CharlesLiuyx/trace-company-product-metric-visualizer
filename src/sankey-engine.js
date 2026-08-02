@@ -316,6 +316,8 @@
             size: spec.size || cfg.type.note,
             w,
             c: spec.color || labelColor(n),
+            textLength: spec.textLength,
+            lengthAdjust: spec.lengthAdjust || 'spacingAndGlyphs',
             font:
               spec.font != null
                 ? spec.font
@@ -1340,6 +1342,10 @@
           .attr('font-weight', l.w)
           .text(l.t);
         if (l.font) tx.attr('font-family', l.font); // else inherit cfg.fontFamily
+        if (l.textLength != null) {
+          tx.attr('textLength', l.textLength)
+            .attr('lengthAdjust', l.lengthAdjust || 'spacingAndGlyphs');
+        }
         y += localGap;
       });
 

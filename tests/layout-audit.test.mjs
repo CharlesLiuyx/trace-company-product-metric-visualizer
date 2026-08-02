@@ -117,3 +117,51 @@ test('browser audit delegates collected getBBox geometry to the pure classifier'
   const result = await auditTextAndAnnotationLayout(page);
   assert.equal(result.annotationLayoutAudit.overlapViolations.length, 1);
 });
+
+test('paired annotation audit quantifies center alignment against its semantic node', () => {
+  const result = classifyTextAndAnnotationLayout({
+    width: 200,
+    height: 120,
+    pairedNodeAnnotations: [
+      {
+        annotationId: 'product-icon',
+        nodeId: 'product',
+        annotationBBox: { x: 10, y: 40, width: 20, height: 20 },
+        nodeBBox: { x: 100, y: 30, width: 30, height: 40 },
+      },
+      {
+        annotationId: 'misaligned-icon',
+        nodeId: 'other',
+        annotationBBox: { x: 10, y: 5, width: 20, height: 20 },
+        nodeBBox: { x: 100, y: 40, width: 30, height: 20 },
+      },
+    ],
+  });
+
+  assert.equal(result.annotationPairingAudit.measuredPairs, 2);
+  assert.equal(result.annotationPairingAudit.measurements[0].centerDeltaY, 0);
+  assert.deepEqual(
+    result.annotationPairingAudit.violations.map((item) => `${item.annotationId}:${item.code}`),
+    ['misaligned-icon:center-y-delta']
+  );
+});
+
+test('paired annotation audit can target a side label instead of the node face', () => {
+  const result = classifyTextAndAnnotationLayout({
+    width: 200,
+    height: 120,
+    pairedNodeAnnotations: [{
+      annotationId: 'business-brand',
+      nodeId: 'business',
+      targetKind: 'label',
+      annotationBBox: { x: 10, y: 40, width: 20, height: 20 },
+      nodeBBox: { x: 150, y: 20, width: 20, height: 20 },
+      targetBBox: { x: 60, y: 35, width: 70, height: 30 },
+    }],
+  });
+
+  assert.equal(result.annotationPairingAudit.measuredPairs, 1);
+  assert.equal(result.annotationPairingAudit.measurements[0].targetKind, 'label');
+  assert.equal(result.annotationPairingAudit.measurements[0].centerDeltaY, 0);
+  assert.deepEqual(result.annotationPairingAudit.violations, []);
+});
