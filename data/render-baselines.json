@@ -117,15 +117,87 @@
       "width": 2667,
       "height": 1500
     },
+    "alibaba-q1-fy24": {
+      "similarity": 0.959948,
+      "mae": 10.2134,
+      "width": 2667,
+      "height": 1500
+    },
+    "alibaba-q1-fy25": {
+      "similarity": 0.96161,
+      "mae": 9.7896,
+      "width": 2667,
+      "height": 1500
+    },
+    "alibaba-q1-fy26": {
+      "similarity": 0.963621,
+      "mae": 9.2767,
+      "width": 2667,
+      "height": 1500
+    },
+    "alibaba-q2-fy23": {
+      "similarity": 0.967406,
+      "mae": 8.3114,
+      "width": 2667,
+      "height": 1500
+    },
+    "alibaba-q2-fy24": {
+      "similarity": 0.956245,
+      "mae": 11.1574,
+      "width": 2667,
+      "height": 1500
+    },
+    "alibaba-q2-fy25": {
+      "similarity": 0.951586,
+      "mae": 12.3456,
+      "width": 2667,
+      "height": 1500
+    },
     "alibaba-q2-fy26": {
       "similarity": 0.96511,
       "mae": 8.897,
       "width": 2667,
       "height": 1500
     },
+    "alibaba-q3-fy23": {
+      "similarity": 0.964498,
+      "mae": 9.053,
+      "width": 2667,
+      "height": 1500
+    },
+    "alibaba-q3-fy24": {
+      "similarity": 0.951631,
+      "mae": 12.3342,
+      "width": 2667,
+      "height": 1500
+    },
+    "alibaba-q3-fy25": {
+      "similarity": 0.960202,
+      "mae": 10.1486,
+      "width": 2667,
+      "height": 1500
+    },
     "alibaba-q3-fy26": {
       "similarity": 0.951717,
       "mae": 12.3121,
+      "width": 2667,
+      "height": 1500
+    },
+    "alibaba-q4-fy23": {
+      "similarity": 0.968311,
+      "mae": 8.0806,
+      "width": 2667,
+      "height": 1500
+    },
+    "alibaba-q4-fy24": {
+      "similarity": 0.94921,
+      "mae": 12.9516,
+      "width": 2667,
+      "height": 1500
+    },
+    "alibaba-q4-fy25": {
+      "similarity": 0.961441,
+      "mae": 9.8326,
       "width": 2667,
       "height": 1500
     },
@@ -1134,6 +1206,12 @@
     "bullish-q3-fy25": {
       "similarity": 0.969597,
       "mae": 7.7527,
+      "width": 2667,
+      "height": 1500
+    },
+    "byd-fy23": {
+      "similarity": 0.969226,
+      "mae": 7.8475,
       "width": 2667,
       "height": 1500
     },
