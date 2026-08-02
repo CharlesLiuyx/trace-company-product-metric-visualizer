@@ -366,7 +366,7 @@ async function renderLocaleRun({
 
     const labelLayoutAudit = await auditLabelLayout(page);
     const labelPositionAudit = await auditLabelPosition(page, reviewPlan, { language: meta.language });
-    const { textLayoutAudit, annotationLayoutAudit } = await auditTextAndAnnotationLayout(page);
+    const { textLayoutAudit, annotationLayoutAudit, annotationPairingAudit } = await auditTextAndAnnotationLayout(page);
     const semanticAnnotationAudit = await auditSemanticAnnotations(page, {
       datasetKey,
       language: meta.language,
@@ -394,6 +394,7 @@ async function renderLocaleRun({
         labelPositionAudit,
         textLayoutAudit,
         annotationLayoutAudit,
+        annotationPairingAudit,
         semanticAnnotationAudit,
       });
     }
@@ -437,6 +438,7 @@ async function renderLocaleRun({
       labelPositionAudit,
       textLayoutAudit,
       annotationLayoutAudit,
+      annotationPairingAudit,
       semanticAnnotationAudit,
       interfaceAudit: {
         path: path.relative(rootDir, interfaceAuditPath),
@@ -520,6 +522,9 @@ async function renderLocaleRun({
     );
     console.log(
       `annotation clearance audit: annotations=${annotationLayoutAudit.checkedAnnotations} (text=${annotationLayoutAudit.checkedAnnotationTexts}, graphic=${annotationLayoutAudit.checkedAnnotationGraphics}) protected=${annotationLayoutAudit.checkedProtectedTexts} overlaps=${annotationLayoutAudit.overlapViolations.length} tolerance=${annotationLayoutAudit.tolerance}px`
+    );
+    console.log(
+      `annotation pairing audit: expected=${annotationPairingAudit.expectedPairs} measured=${annotationPairingAudit.measuredPairs} violations=${annotationPairingAudit.violations.length} tolerance=${annotationPairingAudit.tolerance}px rule=I12`
     );
     console.log(
       `semantic annotation audit: expected=${semanticAnnotationAudit.expectedNodeIds.length} checked=${semanticAnnotationAudit.checkedAnnotations} unbound=${semanticAnnotationAudit.unboundNodeLikeTexts.length} violations=${semanticAnnotationAudit.violations.length}`
