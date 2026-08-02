@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-08-01T10:05:46.000Z",
+  "generatedAt": "2026-08-02T14:48:08.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -4559,6 +4559,84 @@
       "path": "data/datasets/asml-q1-fy25.js",
       "updatedAtMs": 1785578746000,
       "updatedAt": "2026-08-01T10:05:46.000Z",
+      "timeSource": "git"
+    },
+    "alibaba-q2-fy25": {
+      "path": "data/datasets/alibaba-q2-fy25.js",
+      "updatedAtMs": 1785682088000,
+      "updatedAt": "2026-08-02T14:48:08.000Z",
+      "timeSource": "git"
+    },
+    "alibaba-q3-fy24": {
+      "path": "data/datasets/alibaba-q3-fy24.js",
+      "updatedAtMs": 1785682088000,
+      "updatedAt": "2026-08-02T14:48:08.000Z",
+      "timeSource": "git"
+    },
+    "alibaba-q2-fy23": {
+      "path": "data/datasets/alibaba-q2-fy23.js",
+      "updatedAtMs": 1785682088000,
+      "updatedAt": "2026-08-02T14:48:08.000Z",
+      "timeSource": "git"
+    },
+    "alibaba-q1-fy25": {
+      "path": "data/datasets/alibaba-q1-fy25.js",
+      "updatedAtMs": 1785682088000,
+      "updatedAt": "2026-08-02T14:48:08.000Z",
+      "timeSource": "git"
+    },
+    "alibaba-q2-fy24": {
+      "path": "data/datasets/alibaba-q2-fy24.js",
+      "updatedAtMs": 1785682088000,
+      "updatedAt": "2026-08-02T14:48:08.000Z",
+      "timeSource": "git"
+    },
+    "alibaba-q4-fy23": {
+      "path": "data/datasets/alibaba-q4-fy23.js",
+      "updatedAtMs": 1785682088000,
+      "updatedAt": "2026-08-02T14:48:08.000Z",
+      "timeSource": "git"
+    },
+    "alibaba-q3-fy23": {
+      "path": "data/datasets/alibaba-q3-fy23.js",
+      "updatedAtMs": 1785682088000,
+      "updatedAt": "2026-08-02T14:48:08.000Z",
+      "timeSource": "git"
+    },
+    "alibaba-q1-fy24": {
+      "path": "data/datasets/alibaba-q1-fy24.js",
+      "updatedAtMs": 1785682088000,
+      "updatedAt": "2026-08-02T14:48:08.000Z",
+      "timeSource": "git"
+    },
+    "alibaba-q3-fy25": {
+      "path": "data/datasets/alibaba-q3-fy25.js",
+      "updatedAtMs": 1785682088000,
+      "updatedAt": "2026-08-02T14:48:08.000Z",
+      "timeSource": "git"
+    },
+    "alibaba-q4-fy24": {
+      "path": "data/datasets/alibaba-q4-fy24.js",
+      "updatedAtMs": 1785682088000,
+      "updatedAt": "2026-08-02T14:48:08.000Z",
+      "timeSource": "git"
+    },
+    "alibaba-q4-fy25": {
+      "path": "data/datasets/alibaba-q4-fy25.js",
+      "updatedAtMs": 1785682088000,
+      "updatedAt": "2026-08-02T14:48:08.000Z",
+      "timeSource": "git"
+    },
+    "byd-fy23": {
+      "path": "data/datasets/byd-fy23.js",
+      "updatedAtMs": 1785682088000,
+      "updatedAt": "2026-08-02T14:48:08.000Z",
+      "timeSource": "git"
+    },
+    "alibaba-q1-fy26": {
+      "path": "data/datasets/alibaba-q1-fy26.js",
+      "updatedAtMs": 1785682088000,
+      "updatedAt": "2026-08-02T14:48:08.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {
