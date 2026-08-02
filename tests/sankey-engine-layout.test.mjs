@@ -541,7 +541,7 @@ test('buildLabelSpecs expands $value and honors lineGap/labelYOffset in custom b
   const data = {
     layout: {
       labels: {
-        gross: { blocks: [{ x: 10, top: 100, anchor: 'end', lineGap: 4, lines: [{ text: 'Gross' }, { text: '$value' }] }] },
+        gross: { blocks: [{ x: 10, top: 100, anchor: 'end', lineGap: 4, lines: [{ text: 'Gross', textLength: 120 }, { text: '$value' }] }] },
       },
     },
   };
@@ -554,6 +554,8 @@ test('buildLabelSpecs expands $value and honors lineGap/labelYOffset in custom b
   assert.equal(spec.top, 107, 'block.top + labelYOffset');
   assert.equal(spec.lineGap, 4);
   assert.deepEqual(plain(spec.lines.map((l) => l.t)), ['Gross', '$60B']);
+  assert.equal(spec.lines[0].textLength, 120, 'custom line width reaches the render pass');
+  assert.equal(spec.lines[0].lengthAdjust, 'spacingAndGlyphs');
 });
 
 test('buildLabelSpecs splits split-left labels into name and value blocks', () => {

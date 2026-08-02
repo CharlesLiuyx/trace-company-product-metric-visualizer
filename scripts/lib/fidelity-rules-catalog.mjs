@@ -872,6 +872,16 @@ export const FIDELITY_RULES = Object.freeze([
     check: '公司 Logo 只有一个 owner。',
     pass: '使用 `meta.logoSvg` 时不得在 annotations 再画同一实例；自定义 annotation 定位则移除前者。',
   }),
+  rule('I12', 'quantified-audit', {
+    stage: 'subloop',
+    topics: ['icon', 'annotation', 'node', 'label'],
+    features: ['paired-node-annotation'],
+    trigger: '业务或产品图标簇与 paired node / 侧置名称构成同一横向语义组时触发。',
+    check: '图标簇必须声明 `data-annotation-paired-node`；默认对齐 node face，用户要求与侧置 Label 对齐时再声明 `data-annotation-paired-target="label"` 与 side。render audit 在外层 SVG 坐标系量化图标 union bbox 与显式目标的纵向中心差。',
+    pass: '每个 required locale 的 paired 图标簇均有对应目标，且 centerY 差 `<=4px`。',
+    evidence: '`annotationPairingAudit` 的逐簇 bbox、target kind/bbox、center delta 与 violation。',
+    rationale: '仅检查图标与文字不重叠，无法发现整列品牌簇系统性错配到上方业务行。',
+  }),
 ]);
 
 function catalogError(code, message) {

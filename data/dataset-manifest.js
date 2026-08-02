@@ -17058,6 +17058,305 @@
             }
           }
         }
+      },
+      {
+        "key": "alibaba-q2-fy25",
+        "src": "data/datasets/alibaba-q2-fy25.js",
+        "data": {
+          "name": "Alibaba · Q2 FY25",
+          "company": "Alibaba",
+          "meta": {
+            "title": "Alibaba Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Alibaba · 2025 财年第二季度",
+              "meta": {
+                "title": "Alibaba 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "alibaba-q3-fy24",
+        "src": "data/datasets/alibaba-q3-fy24.js",
+        "data": {
+          "name": "Alibaba · Q3 FY24",
+          "company": "Alibaba",
+          "meta": {
+            "title": "Alibaba Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "阿里巴巴 · 2024 财年第三季度",
+              "meta": {
+                "title": "阿里巴巴 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "alibaba-q2-fy23",
+        "src": "data/datasets/alibaba-q2-fy23.js",
+        "data": {
+          "name": "Alibaba · Q2 FY23",
+          "company": "Alibaba",
+          "meta": {
+            "title": "Alibaba Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Sept. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Alibaba · 2023 财年第二季度",
+              "meta": {
+                "title": "Alibaba 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2022 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "alibaba-q1-fy25",
+        "src": "data/datasets/alibaba-q1-fy25.js",
+        "data": {
+          "name": "Alibaba · Q1 FY25",
+          "company": "Alibaba",
+          "meta": {
+            "title": "Alibaba Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Alibaba · 2025 财年第一季度",
+              "meta": {
+                "title": "Alibaba 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "alibaba-q2-fy24",
+        "src": "data/datasets/alibaba-q2-fy24.js",
+        "data": {
+          "name": "Alibaba · Q2 FY24",
+          "company": "Alibaba",
+          "meta": {
+            "title": "Alibaba Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Sept. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Alibaba · 2024 财年第二季度",
+              "meta": {
+                "title": "Alibaba 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "alibaba-q4-fy23",
+        "src": "data/datasets/alibaba-q4-fy23.js",
+        "data": {
+          "name": "Alibaba · Q4 FY23",
+          "company": "Alibaba",
+          "meta": {
+            "title": "Alibaba Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Mar. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Alibaba · 2023 财年第四季度",
+              "meta": {
+                "title": "Alibaba 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "alibaba-q3-fy23",
+        "src": "data/datasets/alibaba-q3-fy23.js",
+        "data": {
+          "name": "Alibaba · Q3 FY23",
+          "company": "Alibaba",
+          "meta": {
+            "title": "Alibaba Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Dec. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Alibaba · 2023 财年第三季度",
+              "meta": {
+                "title": "Alibaba 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2022 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "alibaba-q1-fy24",
+        "src": "data/datasets/alibaba-q1-fy24.js",
+        "data": {
+          "name": "Alibaba · Q1 FY24",
+          "company": "Alibaba",
+          "meta": {
+            "title": "Alibaba Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending June 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Alibaba · 2024 财年第一季度",
+              "meta": {
+                "title": "Alibaba 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2023 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "alibaba-q3-fy25",
+        "src": "data/datasets/alibaba-q3-fy25.js",
+        "data": {
+          "name": "Alibaba · Q3 FY25",
+          "company": "Alibaba",
+          "meta": {
+            "title": "Alibaba Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Alibaba · 2025 财年第三季度",
+              "meta": {
+                "title": "Alibaba 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "alibaba-q4-fy24",
+        "src": "data/datasets/alibaba-q4-fy24.js",
+        "data": {
+          "name": "Alibaba · Q4 FY24",
+          "company": "Alibaba",
+          "meta": {
+            "title": "Alibaba Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Alibaba · 2024 财年第四季度",
+              "meta": {
+                "title": "Alibaba 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "alibaba-q4-fy25",
+        "src": "data/datasets/alibaba-q4-fy25.js",
+        "data": {
+          "name": "Alibaba · Q4 FY25",
+          "company": "Alibaba",
+          "meta": {
+            "title": "Alibaba Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Mar. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Alibaba · 2025 财年第四季度",
+              "meta": {
+                "title": "Alibaba 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "byd-fy23",
+        "src": "data/datasets/byd-fy23.js",
+        "data": {
+          "name": "BYD · FY23",
+          "company": "BYD",
+          "meta": {
+            "title": "BYD FY23 Income Statement",
+            "period": "FY23",
+            "periodNote": "Year ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "比亚迪 · 2023 财年",
+              "meta": {
+                "title": "比亚迪 2023 财年利润表",
+                "period": "2023 财年",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "alibaba-q1-fy26",
+        "src": "data/datasets/alibaba-q1-fy26.js",
+        "data": {
+          "name": "Alibaba · Q1 FY26",
+          "company": "Alibaba",
+          "meta": {
+            "title": "Alibaba Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending June 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Alibaba · 2026 财年第一季度",
+              "meta": {
+                "title": "Alibaba 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

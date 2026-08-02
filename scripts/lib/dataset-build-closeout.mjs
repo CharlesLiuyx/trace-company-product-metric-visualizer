@@ -558,6 +558,19 @@ function derivedRiskChecks(plan, evidence) {
       });
     }
   }
+  if (requiredIds.has('feature:paired-node-annotation')) {
+    for (const item of evidence) {
+      const audit = item.metrics?.annotationPairingAudit;
+      checks.push({
+        id: `I12-paired-node-annotation:${item.locale}`,
+        status: audit ? 'passed' : 'open',
+        measurements: audit
+          ? [{ id: 'violation-count', value: audit.violations?.length || 0, operator: 'eq', threshold: 0 }]
+          : [],
+        ...(audit ? {} : { reason: 'The evidence predates paired-node annotation measurement' }),
+      });
+    }
+  }
   if (requiredIds.has('feature:semantic-annotation')) {
     for (const item of evidence) {
       const audit = item.metrics?.semanticAnnotationAudit;
@@ -607,6 +620,15 @@ function checkFeatureEvidence(check, entry, plan) {
     return Boolean(audit) &&
       ((check.objectIds || []).length === 0 || checkedAnnotations > 0) &&
       (audit.overlapViolations?.length || 0) === 0;
+  }
+  if (check.evidenceKind === 'annotation-pairing-audit') {
+    const audit = entry.metrics?.annotationPairingAudit;
+    const expectedTargets = new Set((check.evidenceTargets || [])
+      .map((target) => String(target).split(/[.:/]/).filter(Boolean).at(-1)));
+    const measuredTargets = new Set((audit?.measurements || []).map((item) => item.annotationId));
+    return Boolean(audit) &&
+      [...expectedTargets].every((target) => measuredTargets.has(target)) &&
+      (audit.violations?.length || 0) === 0;
   }
   if (check.evidenceKind === 'annotation-semantics-audit') {
     const audit = entry.metrics?.semanticAnnotationAudit;
@@ -658,7 +680,7 @@ function localeEvidenceForCheck(check, entry, consistency, plan) {
     invariant(evidenceDigests.length === 3, 'CHECK_EVIDENCE_PROVIDER_MISSING', `Check ${check.id} needs archived reference, interface audit, and contact sheet`);
     return { passed: checkFeatureEvidence(check, entry, plan), evidenceDigests };
   }
-  if (['label-layout-audit', 'label-position-audit', 'text-layout-audit', 'annotation-layout-audit', 'annotation-semantics-audit', 'node-paint-audit'].includes(check.evidenceKind)) {
+  if (['label-layout-audit', 'label-position-audit', 'text-layout-audit', 'annotation-layout-audit', 'annotation-pairing-audit', 'annotation-semantics-audit', 'node-paint-audit'].includes(check.evidenceKind)) {
     invariant(entry.artifactDigests?.metrics, 'CHECK_EVIDENCE_PROVIDER_MISSING', `Check ${check.id} needs the archived metrics document`);
     return {
       passed: checkFeatureEvidence(check, entry, plan),

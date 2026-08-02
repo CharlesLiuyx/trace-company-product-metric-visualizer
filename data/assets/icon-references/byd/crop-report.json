@@ -1,0 +1,219 @@
+{
+  "source": "input/processing/byd-fy23.png",
+  "spec": "input/icon-crop-specs/byd-fy23.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-08-02T09:38:09.563245+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/byd",
+  "crops": [
+    {
+      "key": "byd-automobiles-product-cluster",
+      "output": "data/assets/icon-references/byd/crops/automobiles-product-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 48035,
+        "losslessBytes": 48035,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 31750,
+        "transparentPixelRatio": 0.5921
+      },
+      "searchBox": {
+        "x": 42,
+        "y": 458,
+        "width": 310,
+        "height": 155
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 42,
+        "y0": 465,
+        "x1": 349,
+        "y1": 608
+      },
+      "cropBox": {
+        "x0": 35,
+        "y0": 452,
+        "x1": 360,
+        "y1": 617
+      },
+      "validation": {
+        "width": 325,
+        "height": 165,
+        "foregroundPixels": 20995,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 7,
+          "right": 11,
+          "top": 13,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": -0.0062,
+          "y": 0.0121
+        },
+        "passes": true
+      },
+      "note": "Three BYD passenger-car images grouped above the Automobiles label; the crop excludes all amount text, labels, nodes, links, and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/byd/automobiles-product-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 48035,
+        "losslessBytes": 48035,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/byd/validation-sheets/byd-automobiles-product-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 110354,
+        "losslessBytes": 310065,
+        "savingsVsLossless": 0.6441,
+        "metrics": {
+          "meanAbsoluteError": 0.2981,
+          "rootMeanSquareError": 1.7763,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 65,
+          "changedPixelRatio": 0.0911
+        }
+      }
+    },
+    {
+      "key": "byd-wordmark",
+      "output": "data/assets/icon-references/byd/crops/byd-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 5611,
+        "losslessBytes": 24796,
+        "savingsVsLossless": 0.7737,
+        "metrics": {
+          "meanAbsoluteError": 0.6079,
+          "rootMeanSquareError": 1.2307,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 16,
+          "changedPixelRatio": 0.4952
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 39040,
+        "transparentPixelRatio": 0.2533
+      },
+      "searchBox": {
+        "x": 890,
+        "y": 261,
+        "width": 490,
+        "height": 295
+      },
+      "componentCount": 5,
+      "subjectBox": {
+        "x0": 890,
+        "y0": 261,
+        "x1": 1380,
+        "y1": 556
+      },
+      "cropBox": {
+        "x0": 884,
+        "y0": 255,
+        "x1": 1386,
+        "y1": 562
+      },
+      "validation": {
+        "width": 502,
+        "height": 307,
+        "foregroundPixels": 45226,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 6,
+          "right": 6,
+          "top": 6,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Source-native BYD oval wordmark; the crop excludes all financial labels, nodes, links, and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/byd/byd-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 5611,
+        "losslessBytes": 24796,
+        "savingsVsLossless": 0.7737,
+        "metrics": {
+          "meanAbsoluteError": 0.6079,
+          "rootMeanSquareError": 1.2307,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 16,
+          "changedPixelRatio": 0.4952
+        }
+      },
+      "validationSheet": "data/assets/icon-references/byd/validation-sheets/byd-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 264428,
+        "losslessBytes": 264428,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}
