@@ -19,6 +19,7 @@ export const OBJECT_FEATURES = Object.freeze([
   'centered-side-label',
   'text',
   'annotation-near-label',
+  'paired-node-annotation',
   'semantic-annotation',
   'visible-short-node',
   'visible-interface',

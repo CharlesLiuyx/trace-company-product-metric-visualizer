@@ -467,6 +467,19 @@ export function assertPlannedRenderAudits(plan, audits) {
         }
         if ((audit.overlapViolations || []).length > 0) failures.push(`${check.id}=overlap`);
       }
+    } else if (check.evidenceKind === 'annotation-pairing-audit') {
+      const audit = audits.annotationPairingAudit;
+      if (!audit) failures.push(`${check.id}=missing-audit`);
+      else {
+        const expectedAnnotations = evidenceTargetsForCheck(check);
+        const measured = new Set((audit.measurements || []).map((item) => item.annotationId));
+        for (const annotationId of expectedAnnotations) {
+          if (!measured.has(annotationId)) failures.push(`${check.id}/${annotationId}=missing-pair`);
+        }
+        if ((audit.violations || []).length > 0) {
+          failures.push(`${check.id}=${audit.violations.map((item) => `${item.annotationId}:${item.code}`).join(',')}`);
+        }
+      }
     } else if (check.evidenceKind === 'annotation-semantics-audit') {
       const audit = audits.semanticAnnotationAudit;
       if (!audit) failures.push(`${check.id}=missing-audit`);
@@ -747,6 +760,7 @@ export function assertTypographyAudit(audit) {
 }
 
 const TEXT_LAYOUT_TOLERANCE = 0.5;
+const PAIRED_NODE_CENTER_TOLERANCE = 4;
 
 function normalizeLayoutItem(item, family, index) {
   if (!item || typeof item !== 'object') {
@@ -788,13 +802,14 @@ export function classifyTextAndAnnotationLayout({
   texts = [],
   annotations = [],
   annotationGraphics = [],
+  pairedNodeAnnotations = [],
   protectedTexts = [],
 }) {
   if (!Number.isFinite(width) || width <= 0 || !Number.isFinite(height) || height <= 0) {
     throw new RangeError('Text layout canvas width and height must be positive finite numbers');
   }
-  if (!Array.isArray(texts) || !Array.isArray(annotations) || !Array.isArray(annotationGraphics) || !Array.isArray(protectedTexts)) {
-    throw new TypeError('texts, annotations, annotationGraphics, and protectedTexts must be arrays');
+  if (!Array.isArray(texts) || !Array.isArray(annotations) || !Array.isArray(annotationGraphics) || !Array.isArray(pairedNodeAnnotations) || !Array.isArray(protectedTexts)) {
+    throw new TypeError('texts, annotations, annotationGraphics, pairedNodeAnnotations, and protectedTexts must be arrays');
   }
 
   const normalizedTexts = texts.map((item, index) => normalizeLayoutItem(item, 'texts', index));
@@ -860,6 +875,49 @@ export function classifyTextAndAnnotationLayout({
     }
   }
 
+  const pairingMeasurements = [];
+  const pairingViolations = [];
+  pairedNodeAnnotations.forEach((pair, index) => {
+    const annotationId = String(pair?.annotationId || `pair:${index}`);
+    const nodeId = String(pair?.nodeId || '').trim();
+    const targetKind = pair?.targetKind === 'label' ? 'label' : 'node';
+    const targetBBox = pair?.targetBBox || pair?.nodeBBox;
+    if (!nodeId || !pair?.annotationBBox || !targetBBox) {
+      pairingViolations.push({
+        annotationId,
+        nodeId,
+        targetKind,
+        code: !nodeId
+          ? 'missing-paired-node-id'
+          : !targetBBox
+            ? `paired-${targetKind}-not-found`
+            : 'missing-annotation-bbox',
+      });
+      return;
+    }
+    const annotation = normalizeLayoutItem({ identity: annotationId, bbox: pair.annotationBBox }, 'pairedNodeAnnotations', index);
+    const target = normalizeLayoutItem({ identity: nodeId, bbox: targetBBox }, 'pairedTargets', index);
+    const annotationCenterY = annotation.bbox.y + annotation.bbox.height / 2;
+    const targetCenterY = target.bbox.y + target.bbox.height / 2;
+    const centerDeltaY = Math.abs(annotationCenterY - targetCenterY);
+    const measurement = {
+      annotationId,
+      nodeId,
+      targetKind,
+      annotationBBox: annotation.bbox,
+      targetBBox: target.bbox,
+      ...(targetKind === 'node' ? { nodeBBox: target.bbox } : {}),
+      annotationCenterY,
+      targetCenterY,
+      ...(targetKind === 'node' ? { nodeCenterY: targetCenterY } : {}),
+      centerDeltaY,
+    };
+    pairingMeasurements.push(measurement);
+    if (centerDeltaY > PAIRED_NODE_CENTER_TOLERANCE) {
+      pairingViolations.push({ ...measurement, code: 'center-y-delta' });
+    }
+  });
+
   return {
     textLayoutAudit: {
       tolerance: TEXT_LAYOUT_TOLERANCE,
@@ -875,6 +933,13 @@ export function classifyTextAndAnnotationLayout({
       checkedAnnotations: normalizedAnnotationItems.length,
       checkedProtectedTexts: normalizedProtected.length,
       overlapViolations,
+    },
+    annotationPairingAudit: {
+      tolerance: PAIRED_NODE_CENTER_TOLERANCE,
+      expectedPairs: pairedNodeAnnotations.length,
+      measuredPairs: pairingMeasurements.length,
+      measurements: pairingMeasurements,
+      violations: pairingViolations,
     },
   };
 }
@@ -947,6 +1012,8 @@ export async function auditTextAndAnnotationLayout(page) {
     const annotations = [];
     const protectedTexts = [];
     const annotationGraphics = [];
+    const pairedNodeAnnotations = [];
+    const bboxTolerance = 0.5;
     Array.from(svg.querySelectorAll('text')).forEach((element, index) => {
       const annotation = element.closest('.sankey-annotations');
       const label = element.closest('.sankey-label');
@@ -984,7 +1051,44 @@ export async function auditTextAndAnnotationLayout(page) {
       });
     });
 
-    return { width, height, texts, annotations, annotationGraphics, protectedTexts };
+    Array.from(svg.querySelectorAll('.sankey-annotations [data-annotation-paired-node]')).forEach((element, index) => {
+      const nodeId = String(element.getAttribute('data-annotation-paired-node') || '').trim();
+      const node = Array.from(svg.querySelectorAll('rect.sankey-node[data-node]'))
+        .find((candidate) => candidate.getAttribute('data-node') === nodeId);
+      const nodeBBox = node ? bboxInRootSpace(node) : null;
+      const targetKind = element.getAttribute('data-annotation-paired-target') === 'label' ? 'label' : 'node';
+      const authoredSide = element.getAttribute('data-annotation-paired-side');
+      const annotationBBox = bboxInRootSpace(element);
+      const side = authoredSide || (
+        annotationBBox && nodeBBox && annotationBBox.x + annotationBBox.width / 2 < nodeBBox.x + nodeBBox.width / 2
+          ? 'left'
+          : 'right'
+      );
+      const labelCandidates = targetKind === 'label'
+        ? Array.from(svg.querySelectorAll('g.sankey-label[data-node]'))
+          .filter((candidate) => candidate.getAttribute('data-node') === nodeId)
+          .map((candidate) => bboxInRootSpace(candidate))
+          .filter(Boolean)
+          .filter((bbox) => {
+            if (!nodeBBox) return false;
+            if (side === 'left') return bbox.x + bbox.width <= nodeBBox.x + bboxTolerance;
+            return bbox.x >= nodeBBox.x + nodeBBox.width - bboxTolerance;
+          })
+          .sort((left, right) => side === 'left'
+            ? (right.x + right.width) - (left.x + left.width)
+            : left.x - right.x)
+        : [];
+      pairedNodeAnnotations.push({
+        annotationId: element.getAttribute('data-annotation-clearance') || `paired-node-${index}`,
+        nodeId,
+        targetKind,
+        annotationBBox,
+        nodeBBox,
+        targetBBox: targetKind === 'label' ? (labelCandidates[0] || null) : nodeBBox,
+      });
+    });
+
+    return { width, height, texts, annotations, annotationGraphics, pairedNodeAnnotations, protectedTexts };
   });
   return classifyTextAndAnnotationLayout(geometry);
 }

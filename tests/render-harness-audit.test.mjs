@@ -533,6 +533,34 @@ test('Build-bound render evidence cannot archive a failed planned label-position
   assert.throws(() => assertPlannedRenderAudits(plan, {}), /missing-audit/);
 });
 
+test('I12 paired-node annotation evidence requires every planned cluster and <=4px center delta', () => {
+  const plan = {
+    requiredChecks: [{
+      id: 'feature:paired-node-annotation',
+      enforcement: 'quantified-audit',
+      evidenceKind: 'annotation-pairing-audit',
+      evidenceTargets: ['annotations.product-icon'],
+      objectIds: ['asset:product-icon'],
+    }],
+  };
+  const passing = {
+    annotationPairingAudit: {
+      measurements: [{ annotationId: 'product-icon', nodeId: 'product', centerDeltaY: 4 }],
+      violations: [],
+    },
+  };
+  assert.doesNotThrow(() => assertPlannedRenderAudits(plan, passing));
+  assert.throws(() => assertPlannedRenderAudits(plan, {
+    annotationPairingAudit: {
+      measurements: [{ annotationId: 'product-icon', nodeId: 'product', centerDeltaY: 5 }],
+      violations: [{ annotationId: 'product-icon', nodeId: 'product', code: 'center-y-delta' }],
+    },
+  }), /product-icon:center-y-delta/);
+  assert.throws(() => assertPlannedRenderAudits(plan, {
+    annotationPairingAudit: { measurements: [], violations: [] },
+  }), /product-icon=missing-pair/);
+});
+
 test('semantic annotations require a bound metric, text, and renderer hitbox', () => {
   const passingAudit = classifySemanticAnnotationAudit({
     expectedNodeIds: ['other_income'],

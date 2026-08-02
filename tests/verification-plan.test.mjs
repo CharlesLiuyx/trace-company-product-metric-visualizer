@@ -126,7 +126,7 @@ function incomeObjects() {
       kind: 'annotation',
       disposition: 'render',
       mapping: [{ role: 'render', target: 'annotations.margin' }],
-      features: ['annotation-near-label', 'text'],
+      features: ['annotation-near-label', 'paired-node-annotation', 'text'],
     },
     {
       id: 'node:tax',
@@ -398,6 +398,9 @@ test('Income Statement plan compiles object features into mandatory rule checks'
   assert.deepEqual(checks['feature:centered-side-label'].ruleIds, ['B3', 'T7']);
   assert.deepEqual(checks['feature:text'].ruleIds, ['B6', 'Z5']);
   assert.deepEqual(checks['feature:annotation-near-label'].ruleIds, ['A6', 'B5']);
+  assert.deepEqual(checks['feature:paired-node-annotation'].ruleIds, ['I12']);
+  assert.equal(checks['feature:paired-node-annotation'].evidenceKind, 'annotation-pairing-audit');
+  assert.equal(checks['feature:paired-node-annotation'].enforcement, 'quantified-audit');
   assert.deepEqual(checks['feature:visible-short-node'].ruleIds, ['T14']);
   assert.equal(checks['feature:visible-short-node'].enforcement, 'manual');
   assert.deepEqual(checks['feature:specified-label-weight'].ruleIds, ['B14', 'T16']);
