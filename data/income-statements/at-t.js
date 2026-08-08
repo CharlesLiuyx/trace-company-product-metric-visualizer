@@ -212,4 +212,119 @@
       },
     },
   });
+
+  ssot.records.push({
+    key: 'at-t-q2-fy26',
+    company: 'AT&T',
+    period: 'Q2 FY26',
+    periodNote: 'Quarter ended Jun. 30, 2026',
+    currency: '$',
+    unit: 'B',
+    decimals: 1,
+    sourceImage: 'input/processed/at-t-q2-fy26.png',
+    roundingTolerance: 0.3,
+    revenue: {
+      total: 31.6,
+      notes: ['+2% Y/Y'],
+      items: [
+        {
+          id: 'service',
+          label: 'Service',
+          value: 26.0,
+          notes: ['+3% Y/Y'],
+          children: [
+            { id: 'wireless_services', label: 'Wireless services', value: 18.2, notes: ['+4% Y/Y'] },
+            { id: 'advanced_home_internet', label: ['Advanced home', 'Internet'], value: 2.9, notes: ['+4% Y/Y'] },
+            { id: 'business_fiber', label: 'Business fiber', value: 1.9, notes: ['+65% Y/Y'] },
+            { id: 'business_transitional', label: ['Business', 'transitional'], value: 1.0, notes: ['56% Y/Y'] },
+            { id: 'other', label: 'Other', value: 1.9, notes: ['(58%) Y/Y'] },
+          ],
+        },
+        { id: 'equipment', label: 'Equipment', value: 5.6, notes: ['+0% Y/Y'] },
+      ],
+    },
+    costs: {
+      // The source rolls every cost directly into “Operating expenses”; it
+      // does not show a separate cost-of-revenue/gross-profit bridge.
+      costOfRevenue: { label: 'Cost of revenue', value: 0 },
+      operatingExpenses: {
+        total: 24.5,
+        items: [
+          { id: 'sga', label: 'SG&A', value: 7.2 },
+          { id: 'other_cost_of_revenue', label: ['Other cost', 'of revenue'], value: 6.6 },
+          { id: 'equipment', label: 'Equipment', value: 5.7 },
+          { id: 'depreciation_amortization', label: ['Depreciation &', 'Amortization'], value: 5.0 },
+        ],
+      },
+      tax: { id: 'tax', label: 'Income tax expense', value: 0.8 },
+    },
+    otherIncome: {
+      total: 0.7,
+      items: [{ id: 'other_income', label: 'Other income', value: 0.7 }],
+    },
+    otherExpenses: {
+      total: 1.9,
+      items: [{ id: 'interest', label: 'Interest expense', value: 1.9 }],
+    },
+    profit: {
+      // This identity subtotal preserves the financial contract without
+      // inventing an unshown gross-profit node in the Sankey view.
+      gross: { label: 'Gross profit', value: 31.6 },
+      operating: {
+        id: 'operating_profit',
+        label: 'Operating profit',
+        value: 7.0,
+        notes: ['22% margin', '+1pp Y/Y'],
+      },
+      net: {
+        id: 'net_profit',
+        label: 'Net profit',
+        value: 5.0,
+        notes: ['16% margin', '+0pp Y/Y'],
+      },
+    },
+    i18n: {
+      zh: {
+        period: '2026 财年第二季度',
+        periodNote: '截至 2026 年 6 月 30 日的季度',
+        revenue: {
+          notes: ['同比 +2%'],
+          items: [
+            {
+              id: 'service',
+              label: '服务',
+              notes: ['同比 +3%'],
+              children: [
+                { id: 'wireless_services', label: '无线服务', notes: ['同比 +4%'] },
+                { id: 'advanced_home_internet', label: ['高级家庭', '互联网'], notes: ['同比 +4%'] },
+                { id: 'business_fiber', label: '企业光纤', notes: ['同比 +65%'] },
+                { id: 'business_transitional', label: ['企业', '过渡业务'], notes: ['同比 56%'] },
+                { id: 'other', label: '其他', notes: ['同比 (58%)'] },
+              ],
+            },
+            { id: 'equipment', label: '设备', notes: ['同比 +0%'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: { label: '收入成本' },
+          operatingExpenses: {
+            items: [
+              { id: 'sga', label: '销售、一般及管理费用' },
+              { id: 'other_cost_of_revenue', label: ['其他收入', '成本'] },
+              { id: 'equipment', label: '设备' },
+              { id: 'depreciation_amortization', label: ['折旧与', '摊销'] },
+            ],
+          },
+          tax: { label: '所得税费用' },
+        },
+        otherIncome: { items: [{ id: 'other_income', label: '其他收入' }] },
+        otherExpenses: { items: [{ id: 'interest', label: '利息费用' }] },
+        profit: {
+          gross: { label: '毛利润' },
+          operating: { label: '营业利润', notes: ['利润率 22%', '同比 +1 个百分点'] },
+          net: { label: '净利润', notes: ['利润率 16%', '同比 +0 个百分点'] },
+        },
+      },
+    },
+  });
 })(window);

@@ -10,6 +10,94 @@
 
   ssot.records.push(
     {
+      key: 'morgan-stanley-q2-fy26',
+      company: 'Morgan Stanley',
+      period: 'Q2 FY26',
+      periodNote: 'Ending Jun. 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/morgan-stanley-q2-fy26.png',
+      roundingTolerance: 0.2,
+      revenue: {
+        total: 21.3,
+        notes: ['+27% Y/Y', 'Segment revenue detail sums to $21.5B before $0.2B of eliminations; displayed figures are rounded.'],
+        items: [
+          { id: 'institutional_securities', label: 'Institutional Securities', value: 11.0, notes: ['+44% Y/Y', '29% net margin'] },
+          { id: 'wealth_management', label: 'Wealth Management', value: 8.9, notes: ['+14% Y/Y', '24% net margin'] },
+          { id: 'investment_management', label: 'Investment Management', value: 1.6, notes: ['+6% Y/Y', '18% net margin'] },
+          { id: 'eliminations', label: 'Eliminations', value: -0.2, notes: ['Intersegment eliminations shown as a separate red outflow.'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          id: 'non_interest_expenses',
+          label: 'Noninterest expenses',
+          value: 13.9,
+          notes: ['Noninterest expense detail sums to $14.0B due to rounded line items.'],
+          items: [
+            { id: 'compensation_benefits', label: 'Compensation & benefits', value: 8.2 },
+            { id: 'brokerage_clearing_exchange', label: 'Brokerage, clearing & exchange fees', value: 1.5 },
+            { id: 'information_communications', label: 'Information & communications', value: 1.2 },
+            { id: 'professional_services', label: 'Professional services', value: 0.7 },
+            { id: 'occupancy', label: 'Occupancy', value: 0.5 },
+            { id: 'marketing_business_development', label: 'Marketing & business development', value: 0.4 },
+            { id: 'other_expenses', label: 'Other', value: 1.5 },
+          ],
+        },
+        operatingExpenses: {
+          total: 0.1,
+          notes: ['Mapped to the existing operating-expenses schema slot for financial-institution credit-loss provision.'],
+          items: [{ id: 'operating_expenses', label: 'Provision for credit loss', value: 0.1 }],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 1.7 },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'pretax_income', label: 'Pretax income', value: 7.3, notes: ['Schema adapter subtotal for the financial-institution waterfall.'] },
+        operating: { id: 'pretax_income', label: 'Pretax income', value: 7.3 },
+        net: { id: 'net_income', label: 'Net income', value: 5.7, notes: ['+58% Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 +27%', '分部收入明细合计为 $21.5B，抵销 $0.2B；图中数字经四舍五入。'],
+            items: [
+              { id: 'institutional_securities', label: '机构证券', notes: ['同比 +44%', '净利率 29%'] },
+              { id: 'wealth_management', label: '财富管理', notes: ['同比 +14%', '净利率 24%'] },
+              { id: 'investment_management', label: '投资管理', notes: ['同比 +6%', '净利率 18%'] },
+              { id: 'eliminations', label: '抵销', notes: ['分部间抵销在来源图中显示为单独的红色流出。'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: {
+              label: '非利息费用',
+              notes: ['非利息费用明细因项目取整合计为 $14.0B。'],
+              items: [
+                { id: 'compensation_benefits', label: '薪酬与福利' },
+                { id: 'brokerage_clearing_exchange', label: '经纪、清算与交易所费用' },
+                { id: 'information_communications', label: '信息与通信' },
+                { id: 'professional_services', label: '专业服务' },
+                { id: 'occupancy', label: '场地占用' },
+                { id: 'marketing_business_development', label: '市场与业务开发' },
+                { id: 'other_expenses', label: '其他' },
+              ],
+            },
+            operatingExpenses: { items: [{ id: 'operating_expenses', label: '信用损失拨备' }] },
+            tax: { label: '税费' },
+          },
+          profit: {
+            gross: { label: '税前利润', notes: ['金融机构瀑布图的 schema 适配小计。'] },
+            operating: { label: '税前利润' },
+            net: { label: '净利润', notes: ['同比 +58%'] },
+          },
+        },
+      },
+    },
+    {
       key: 'morgan-stanley-q1-fy26',
       company: 'Morgan Stanley',
       period: 'Q1 FY26',

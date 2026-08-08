@@ -171,6 +171,83 @@
           },
         },
       },
+    },
+    {
+      key: 'texas-instruments-q2-fy26',
+      company: 'Texas Instruments',
+      period: 'Q2 FY26',
+      periodNote: 'Ending Jun. 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 3,
+      sourceImage: 'input/processed/texas-instruments-q2-fy26.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 5.5,
+        notes: ['+23% Y/Y'],
+        items: [
+          { id: 'analog', label: 'Analog', value: 4.4, notes: ['+26% Y/Y'] },
+          { id: 'embedded_processing', label: 'Embedded Processing', value: 0.8, notes: ['+16% Y/Y'] },
+          { id: 'other_revenue', label: 'Other', value: 0.3, notes: ['(2%) Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 2.1 },
+        operatingExpenses: {
+          total: 1.0,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 0.5 },
+            { id: 'sga', label: 'SG&A', value: 0.5 },
+            { id: 'other_operating_expense', label: 'Other', value: 0.017 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.3 },
+      },
+      otherIncome: {
+        total: 0.1,
+        items: [{ id: 'other_income', label: 'Other', value: 0.1 }],
+      },
+      otherExpenses: {
+        total: 0.1,
+        items: [{ id: 'financial', label: 'Financial', value: 0.1, notes: ['Interest and debt expense.'] }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 3.4, notes: ['61% margin', '+3pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 2.3, notes: ['42% margin', '+7pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 2.0, notes: ['36% margin', '+7pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 +23%'],
+            items: [
+              { id: 'analog', label: '模拟', notes: ['同比 +26%'] },
+              { id: 'embedded_processing', label: '嵌入式处理', notes: ['同比 +16%'] },
+              { id: 'other_revenue', label: '其他', notes: ['同比 (2%)'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发' },
+                { id: 'sga', label: '销售、一般及行政费用' },
+                { id: 'other_operating_expense', label: '其他' },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: { items: [{ id: 'other_income', label: '其他' }] },
+          otherExpenses: { items: [{ id: 'financial', label: '财务费用', notes: ['利息及债务费用。'] }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 61%', '同比 +3 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 42%', '同比 +7 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 36%', '同比 +7 个百分点'] },
+          },
+        },
+      },
     }
   );
 })(window);
