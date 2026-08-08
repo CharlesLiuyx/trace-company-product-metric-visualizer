@@ -8,17 +8,19 @@ function visaRecordsAndDatasets() {
     'data/income-statements/visa.js',
     'data/datasets/visa-q1-fy26.js',
     'data/datasets/visa-q2-fy26.js',
+    'data/datasets/visa-q3-fy26.js',
   ]);
   const recordByKey = new Map(context.INCOME_STATEMENT_SSOT.records.map((record) => [record.key, record]));
   const datasetByKey = new Map(context.DATASETS.map((dataset) => [dataset.key, dataset]));
   return { recordByKey, datasetByKey };
 }
 
-test('Visa FY26 Q1 and Q2 retain exact expense reconciliation and visible Other terminals', () => {
+test('Visa FY26 Q1-Q3 retain exact expense reconciliation and visible Other terminals', () => {
   const { recordByKey, datasetByKey } = visaRecordsAndDatasets();
   const expected = new Map([
-    ['visa-q1-fy26', { other: 0.011, text: '($0.01B)' }],
-    ['visa-q2-fy26', { other: 0.060, text: '($0.06B)' }],
+    ['visa-q1-fy26', { other: 0.011, text: '($0.01B)', height: 6 }],
+    ['visa-q2-fy26', { other: 0.060, text: '($0.06B)', height: 6 }],
+    ['visa-q3-fy26', { other: 0.044, text: '($44M)', height: 1 }],
   ]);
 
   for (const [key, expectation] of expected) {
@@ -37,9 +39,9 @@ test('Visa FY26 Q1 and Q2 retain exact expense reconciliation and visible Other 
     assert.equal(node.value, expectation.other);
     assert.equal(node.valueText, expectation.text);
     assert.notEqual(node.color, '#f2f2f2', `${key} Other node has a painted face`);
-    assert.equal(dataset.layout.nodes.other_ded.height, 6, `${key} Other node has a six-pixel visible floor`);
-    assert.equal(link.sourceWidth, 6, `${key} Other flow meets its visible source face`);
-    assert.equal(link.targetWidth, 6, `${key} Other flow meets its visible target face`);
+    assert.equal(dataset.layout.nodes.other_ded.height, expectation.height, `${key} Other node preserves its approved visible face height`);
+    assert.equal(link.sourceWidth, expectation.height, `${key} Other flow meets its visible source face`);
+    assert.equal(link.targetWidth, expectation.height, `${key} Other flow meets its visible target face`);
     assert.deepEqual(Array.from(dataset.render.interfaceAudit.fullFaceIds), ['other_ded:left']);
     assert.equal(dataset.layout.labels.other_ded.blocks[0].lines.at(-1).text, expectation.text);
 

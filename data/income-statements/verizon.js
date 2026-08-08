@@ -242,4 +242,112 @@
       },
     },
   });
+
+  ssot.records.push({
+    key: 'verizon-q2-fy26',
+    company: 'Verizon',
+    period: 'Q2 FY26',
+    periodNote: 'Quarter ended Jun. 30, 2026',
+    currency: '$',
+    unit: 'B',
+    decimals: 1,
+    sourceImage: 'input/processed/verizon-q2-fy26.png',
+    roundingTolerance: 0.15,
+    revenue: {
+      total: 34.3,
+      notes: ['(1%) Y/Y'],
+      items: [
+        {
+          id: 'consumer',
+          label: 'Consumer',
+          value: 26.2,
+          notes: ['(2%) Y/Y'],
+          children: [
+            { id: 'mobility_broadband_consumer', label: 'Mobility & Broadband Service', value: 19.6, notes: ['+3% Y/Y'] },
+            { id: 'wireless_consumer', label: 'Wireless Equipment', value: 4.2, notes: ['(22%) Y/Y'] },
+            { id: 'other_consumer', label: 'Other', value: 2.4, notes: ['+7% Y/Y'] },
+          ],
+        },
+        {
+          id: 'business',
+          label: 'Business',
+          value: 7.2,
+          notes: ['+3% Y/Y'],
+          children: [
+            { id: 'mobility_broadband_business', label: 'Mobility & Broadband Service', value: 3.7, notes: ['+0% Y/Y'] },
+            { id: 'wireless_business', label: 'Wireless Equipment', value: 0.8, notes: ['(5%) Y/Y'] },
+            { id: 'other_business', label: 'Other', value: 2.6, notes: ['+10% Y/Y'] },
+          ],
+        },
+        { id: 'corporate', label: 'Corporate', value: 0.9, notes: ['(3%) Y/Y'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 13.1 },
+      operatingExpenses: {
+        total: 14.0,
+        items: [
+          { id: 'sga', label: 'SG&A', value: 9.0 },
+          { id: 'depreciation_amortization', label: 'Depreciation & Amortization', value: 5.0 },
+        ],
+      },
+      tax: { id: 'tax', label: 'Tax', value: 1.3 },
+    },
+    otherIncome: {
+      total: 0.1,
+      items: [{ id: 'other_income', label: 'Other', value: 0.1 }],
+    },
+    otherExpenses: {
+      total: 2.0,
+      items: [{ id: 'interest', label: 'Interest', value: 2.0 }],
+    },
+    profit: {
+      gross: { id: 'gross_profit', label: 'Gross profit', value: 21.1, notes: ['62% margin', '+2pp Y/Y'] },
+      operating: { id: 'operating_profit', label: 'Operating profit', value: 7.2, notes: ['21% margin', '(3pp) Y/Y'] },
+      net: { id: 'net_profit', label: 'Net profit', value: 3.9, notes: ['12% margin', '(3pp) Y/Y'] },
+    },
+    i18n: {
+      zh: {
+        period: '2026 财年第二季度',
+        periodNote: '截至 2026 年 6 月 30 日的季度',
+        revenue: {
+          notes: ['同比 (1%)'],
+          items: [
+            {
+              id: 'consumer', label: '消费者', notes: ['同比 (2%)'],
+              children: [
+                { id: 'mobility_broadband_consumer', label: '移动与宽带服务', notes: ['同比 +3%'] },
+                { id: 'wireless_consumer', label: '无线设备', notes: ['同比 (22%)'] },
+                { id: 'other_consumer', label: '其他', notes: ['同比 +7%'] },
+              ],
+            },
+            {
+              id: 'business', label: '商业', notes: ['同比 +3%'],
+              children: [
+                { id: 'mobility_broadband_business', label: '移动与宽带服务', notes: ['同比 +0%'] },
+                { id: 'wireless_business', label: '无线设备', notes: ['同比 (5%)'] },
+                { id: 'other_business', label: '其他', notes: ['同比 +10%'] },
+              ],
+            },
+            { id: 'corporate', label: '公司及其他', notes: ['同比 (3%)'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: { label: '收入成本' },
+          operatingExpenses: { items: [
+            { id: 'sga', label: '销售、一般及管理费用' },
+            { id: 'depreciation_amortization', label: '折旧与摊销' },
+          ] },
+          tax: { label: '税费' },
+        },
+        otherIncome: { items: [{ id: 'other_income', label: '其他' }] },
+        otherExpenses: { items: [{ id: 'interest', label: '利息' }] },
+        profit: {
+          gross: { label: '毛利润', notes: ['利润率 62%', '同比 +2 个百分点'] },
+          operating: { label: '营业利润', notes: ['利润率 21%', '同比 (3 个百分点)'] },
+          net: { label: '净利润', notes: ['利润率 12%', '同比 (3 个百分点)'] },
+        },
+      },
+    },
+  });
 })(window);

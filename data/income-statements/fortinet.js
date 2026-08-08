@@ -179,6 +179,88 @@
   });
 
   ssot.records.push({
+    key: 'fortinet-q2-fy26',
+    company: 'Fortinet',
+    period: 'Q2 FY26',
+    periodNote: 'Ending Jun. 2026',
+    currency: '$',
+    unit: 'M',
+    decimals: 0,
+    sourceImage: 'input/processed/fortinet-q2-fy26.png',
+    roundingTolerance: 1.1,
+    revenue: {
+      total: 2048,
+      notes: ['+26% Y/Y'],
+      items: [
+        { id: 'product', label: 'Products', value: 773, notes: ['+52% Y/Y', '70% gross margin'] },
+        { id: 'service', label: 'Service', value: 1275, notes: ['+14% Y/Y', '87% gross margin'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 405 },
+      operatingExpenses: {
+        total: 954,
+        notes: ['S&M, R&D, and G&A add to $955M because the source-chart values are rounded; $1M of operating other income offsets the displayed total.'],
+        items: [
+          { id: 'sm', label: 'S&M', value: 669, notes: ['33% of revenue', '(4pp) Y/Y'] },
+          { id: 'rnd', label: 'R&D', value: 225, notes: ['11% of revenue', '(2pp) Y/Y'] },
+          { id: 'ga', label: 'G&A', value: 61, notes: ['3% of revenue', '(1pp) Y/Y'] },
+        ],
+      },
+      tax: { id: 'tax', label: 'Tax', value: 115 },
+    },
+    operatingOtherIncome: {
+      total: 1,
+      items: [{ id: 'other_income', label: 'Other income', value: 1 }],
+    },
+    otherIncome: {
+      total: 32,
+      items: [{ id: 'other', label: 'Other', value: 32 }],
+    },
+    profit: {
+      gross: { id: 'gross_profit', label: 'Gross profit', value: 1643, notes: ['80% margin', '(0pp) Y/Y'] },
+      operating: { id: 'operating_profit', label: 'Operating profit', value: 689, notes: ['34% margin', '+6pp Y/Y'] },
+      net: { id: 'net_profit', label: 'Net profit', value: 606, notes: ['30% margin', '+3pp Y/Y'] },
+    },
+    i18n: {
+      zh: {
+        period: '2026 财年第二季度',
+        periodNote: '截至 2026 年 6 月',
+        revenue: {
+          notes: ['同比 +26%'],
+          items: [
+            { id: 'product', label: '产品', notes: ['同比 +52%', '毛利率 70%'] },
+            { id: 'service', label: '服务', notes: ['同比 +14%', '毛利率 87%'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: { label: '收入成本' },
+          operatingExpenses: {
+            notes: ['销售与营销、研发和一般及行政费用合计为 $955M，源图金额经四舍五入；$1M 其他营业收入抵减了展示总额。'],
+            items: [
+              { id: 'sm', label: '销售与营销', notes: ['占收入 33%', '同比 (4 个百分点)'] },
+              { id: 'rnd', label: '研发', notes: ['占收入 11%', '同比 (2 个百分点)'] },
+              { id: 'ga', label: '一般及行政', notes: ['占收入 3%', '同比 (1 个百分点)'] },
+            ],
+          },
+          tax: { label: '税费' },
+        },
+        operatingOtherIncome: {
+          items: [{ id: 'other_income', label: '其他收入' }],
+        },
+        otherIncome: {
+          items: [{ id: 'other', label: '其他' }],
+        },
+        profit: {
+          gross: { label: '毛利润', notes: ['利润率 80%', '同比 (0 个百分点)'] },
+          operating: { label: '营业利润', notes: ['利润率 34%', '同比 +6 个百分点'] },
+          net: { label: '净利润', notes: ['利润率 30%', '同比 +3 个百分点'] },
+        },
+      },
+    },
+  });
+
+  ssot.records.push({
     key: 'fortinet-q4-fy25',
     company: 'Fortinet',
     period: 'Q4 FY25',

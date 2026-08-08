@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-08-08T09:31:02.000Z",
+  "generatedAt": "2026-08-08T21:00:44.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -4781,6 +4781,156 @@
       "path": "data/datasets/amazon-q2-fy26.js",
       "updatedAtMs": 1786181462000,
       "updatedAt": "2026-08-08T09:31:02.000Z",
+      "timeSource": "git"
+    },
+    "appfolio-q2-fy26": {
+      "path": "data/datasets/appfolio-q2-fy26.js",
+      "updatedAtMs": 1786222844000,
+      "updatedAt": "2026-08-08T21:00:44.000Z",
+      "timeSource": "git"
+    },
+    "at-t-q2-fy26": {
+      "path": "data/datasets/at-t-q2-fy26.js",
+      "updatedAtMs": 1786222844000,
+      "updatedAt": "2026-08-08T21:00:44.000Z",
+      "timeSource": "git"
+    },
+    "bank-of-america-q2-fy26": {
+      "path": "data/datasets/bank-of-america-q2-fy26.js",
+      "updatedAtMs": 1786222844000,
+      "updatedAt": "2026-08-08T21:00:44.000Z",
+      "timeSource": "git"
+    },
+    "blackrock-q2-fy26": {
+      "path": "data/datasets/blackrock-q2-fy26.js",
+      "updatedAtMs": 1786222844000,
+      "updatedAt": "2026-08-08T21:00:44.000Z",
+      "timeSource": "git"
+    },
+    "cadence-q2-fy26": {
+      "path": "data/datasets/cadence-q2-fy26.js",
+      "updatedAtMs": 1786222844000,
+      "updatedAt": "2026-08-08T21:00:44.000Z",
+      "timeSource": "git"
+    },
+    "jpmorganchase-q2-fy26": {
+      "path": "data/datasets/jpmorganchase-q2-fy26.js",
+      "updatedAtMs": 1786222844000,
+      "updatedAt": "2026-08-08T21:00:44.000Z",
+      "timeSource": "git"
+    },
+    "lam-research-q4-fy26": {
+      "path": "data/datasets/lam-research-q4-fy26.js",
+      "updatedAtMs": 1786222844000,
+      "updatedAt": "2026-08-08T21:00:44.000Z",
+      "timeSource": "git"
+    },
+    "mastercard-q2-fy26": {
+      "path": "data/datasets/mastercard-q2-fy26.js",
+      "updatedAtMs": 1786222844000,
+      "updatedAt": "2026-08-08T21:00:44.000Z",
+      "timeSource": "git"
+    },
+    "schwab-q2-fy26": {
+      "path": "data/datasets/schwab-q2-fy26.js",
+      "updatedAtMs": 1786222844000,
+      "updatedAt": "2026-08-08T21:00:44.000Z",
+      "timeSource": "git"
+    },
+    "service-now-q2-fy26": {
+      "path": "data/datasets/service-now-q2-fy26.js",
+      "updatedAtMs": 1786222844000,
+      "updatedAt": "2026-08-08T21:00:44.000Z",
+      "timeSource": "git"
+    },
+    "sofi-q2-fy26": {
+      "path": "data/datasets/sofi-q2-fy26.js",
+      "updatedAtMs": 1786222844000,
+      "updatedAt": "2026-08-08T21:00:44.000Z",
+      "timeSource": "git"
+    },
+    "t-mobile-us-q2-fy26": {
+      "path": "data/datasets/t-mobile-us-q2-fy26.js",
+      "updatedAtMs": 1786222844000,
+      "updatedAt": "2026-08-08T21:00:44.000Z",
+      "timeSource": "git"
+    },
+    "wells-fargo-q2-fy26": {
+      "path": "data/datasets/wells-fargo-q2-fy26.js",
+      "updatedAtMs": 1786222844000,
+      "updatedAt": "2026-08-08T21:00:44.000Z",
+      "timeSource": "git"
+    },
+    "goldman-sachs-q2-fy26": {
+      "path": "data/datasets/goldman-sachs-q2-fy26.js",
+      "updatedAtMs": 1786222844000,
+      "updatedAt": "2026-08-08T21:00:44.000Z",
+      "timeSource": "git"
+    },
+    "morgan-stanley-q2-fy26": {
+      "path": "data/datasets/morgan-stanley-q2-fy26.js",
+      "updatedAtMs": 1786222844000,
+      "updatedAt": "2026-08-08T21:00:44.000Z",
+      "timeSource": "git"
+    },
+    "sap-q2-fy26": {
+      "path": "data/datasets/sap-q2-fy26.js",
+      "updatedAtMs": 1786222844000,
+      "updatedAt": "2026-08-08T21:00:44.000Z",
+      "timeSource": "git"
+    },
+    "visa-q3-fy26": {
+      "path": "data/datasets/visa-q3-fy26.js",
+      "updatedAtMs": 1786222844000,
+      "updatedAt": "2026-08-08T21:00:44.000Z",
+      "timeSource": "git"
+    },
+    "citigroup-q2-fy26": {
+      "path": "data/datasets/citigroup-q2-fy26.js",
+      "updatedAtMs": 1786216368000,
+      "updatedAt": "2026-08-08T19:12:48.000Z",
+      "timeSource": "git"
+    },
+    "comcast-q2-fy26": {
+      "path": "data/datasets/comcast-q2-fy26.js",
+      "updatedAtMs": 1786222844000,
+      "updatedAt": "2026-08-08T21:00:44.000Z",
+      "timeSource": "git"
+    },
+    "texas-instruments-q2-fy26": {
+      "path": "data/datasets/texas-instruments-q2-fy26.js",
+      "updatedAtMs": 1786222844000,
+      "updatedAt": "2026-08-08T21:00:44.000Z",
+      "timeSource": "git"
+    },
+    "ibm-q2-fy26": {
+      "path": "data/datasets/ibm-q2-fy26.js",
+      "updatedAtMs": 1786222844000,
+      "updatedAt": "2026-08-08T21:00:44.000Z",
+      "timeSource": "git"
+    },
+    "american-express-q2-fy26": {
+      "path": "data/datasets/american-express-q2-fy26.js",
+      "updatedAtMs": 1786222844000,
+      "updatedAt": "2026-08-08T21:00:44.000Z",
+      "timeSource": "git"
+    },
+    "verizon-q2-fy26": {
+      "path": "data/datasets/verizon-q2-fy26.js",
+      "updatedAtMs": 1786222844000,
+      "updatedAt": "2026-08-08T21:00:44.000Z",
+      "timeSource": "git"
+    },
+    "robinhood-q2-fy26": {
+      "path": "data/datasets/robinhood-q2-fy26.js",
+      "updatedAtMs": 1786222844000,
+      "updatedAt": "2026-08-08T21:00:44.000Z",
+      "timeSource": "git"
+    },
+    "fortinet-q2-fy26": {
+      "path": "data/datasets/fortinet-q2-fy26.js",
+      "updatedAtMs": 1786222844000,
+      "updatedAt": "2026-08-08T21:00:44.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {

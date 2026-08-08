@@ -194,6 +194,92 @@
           },
         },
       },
+    },
+    {
+      key: 'visa-q3-fy26',
+      company: 'Visa',
+      period: 'Q3 FY26',
+      periodNote: 'Ending June 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 3,
+      sourceImage: 'input/processed/visa-q3-fy26.png',
+      roundingTolerance: 0.001,
+      notes: [
+        'Visa\'s Q3 FY26 Form 10-Q reports $16.313B of gross revenue components before $4.680B of client incentives, leaving $11.633B of net revenue.',
+        'The seven operating-expense components total $4.756B exactly. The Source rounds net non-operating expense to ($0.0B); Visa\'s Form 10-Q reports the exact amount as $44M, which remains a visible non-zero Other node.',
+      ],
+      revenue: {
+        total: 16.313,
+        notes: [],
+        items: [
+          { id: 'service', label: 'Service', value: 4.922, notes: ['+14% Y/Y'] },
+          { id: 'data_processing', label: 'Data processing', value: 6.042, notes: ['+17% Y/Y'] },
+          { id: 'international', label: 'International transaction', value: 3.853, notes: ['+6% Y/Y'] },
+          { id: 'other_rev', label: 'Other', value: 1.496, notes: ['+45% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'client_incentives', label: 'Client incentives', value: 4.680 },
+        operatingExpenses: {
+          total: 4.756,
+          items: [
+            { id: 'personnel', label: 'Personnel', value: 2.458 },
+            { id: 'marketing', label: 'Marketing', value: 0.649 },
+            { id: 'general_admin', label: 'General & admin', value: 0.503 },
+            { id: 'da', label: 'D&A', value: 0.367 },
+            { id: 'network', label: 'Network', value: 0.280 },
+            { id: 'litigation', label: 'Litigation', value: 0.253 },
+            { id: 'professional_fees', label: 'Professional fees', value: 0.246 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 1.205 },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: {
+        total: 0.044,
+        items: [{ id: 'other_ded', label: 'Other', value: 0.044 }],
+      },
+      profit: {
+        gross: { id: 'net_revenue', label: 'Net revenue', value: 11.633, notes: ['+14% Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 6.877, notes: ['59% margin', '(2pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 5.628, notes: ['48% margin', '(3pp) Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第三季度',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            items: [
+              { id: 'service', label: '服务', notes: ['同比 +14%'] },
+              { id: 'data_processing', label: '数据处理', notes: ['同比 +17%'] },
+              { id: 'international', label: '国际交易', notes: ['同比 +6%'] },
+              { id: 'other_rev', label: '其他', notes: ['同比 +45%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '客户激励' },
+            operatingExpenses: {
+              items: [
+                { id: 'personnel', label: '人员' },
+                { id: 'marketing', label: '市场营销' },
+                { id: 'general_admin', label: '综合及行政' },
+                { id: 'da', label: '折旧摊销' },
+                { id: 'network', label: '网络' },
+                { id: 'litigation', label: '诉讼' },
+                { id: 'professional_fees', label: '专业服务费' },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherExpenses: { items: [{ id: 'other_ded', label: '其他' }] },
+          profit: {
+            gross: { label: '净收入', notes: ['同比 +14%'] },
+            operating: { label: '营业利润', notes: ['利润率 59%', '同比 -2 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 48%', '同比 -3 个百分点'] },
+          },
+        },
+      },
     }
   );
 })(window);

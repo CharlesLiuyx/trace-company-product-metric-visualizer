@@ -10,6 +10,95 @@
 
   ssot.records.push(
     {
+      key: 'goldman-sachs-q2-fy26',
+      company: 'Goldman Sachs',
+      period: 'Q2 FY26',
+      periodNote: 'Ending Jun. 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/goldman-sachs-q2-fy26.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 20.3,
+        notes: ['+39% Y/Y'],
+        items: [
+          { id: 'global_banking_markets', label: 'Global Banking & Markets', value: 15.5, notes: ['+53% Y/Y', '37% net margin'] },
+          { id: 'asset_wealth_management', label: 'Asset & Wealth Management', value: 4.6, notes: ['+20% Y/Y', '19% net margin'] },
+          { id: 'platform_solutions', label: 'Platform Solutions', value: 0.2, notes: ['(64%) Y/Y', '(19%) net margin'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          id: 'provision_for_credit_loss',
+          label: 'Provision for credit loss',
+          value: 0.1,
+          notes: ['Modeled as a pre-pretax cost so the generic SSOT arithmetic matches the banking source chart.'],
+        },
+        operatingExpenses: {
+          total: 11.7,
+          items: [
+            { id: 'compensation_benefits', label: 'Compensation & benefits', value: 6.1 },
+            { id: 'transaction_based', label: 'Transaction based', value: 3.1 },
+            { id: 'market_development', label: 'Market development', value: 0.2 },
+            { id: 'communication_technology', label: 'Communication, Technology', value: 0.6 },
+            { id: 'da', label: 'D&A', value: 0.5 },
+            { id: 'occupancy', label: 'Occupancy', value: 0.2 },
+            { id: 'professional_fees', label: 'Professional fees', value: 0.4 },
+            { id: 'other', label: 'Other', value: 0.6 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 1.9 },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: {
+          id: 'gross_profit',
+          label: 'Revenue after credit loss provision',
+          value: 20.2,
+          notes: ['Balancing subtotal; not labeled separately in the source chart.'],
+        },
+        operating: { id: 'pretax_income', label: 'Pretax income', value: 8.6 },
+        net: { id: 'net_income', label: 'Net income', value: 6.6, notes: ['+78% Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 +39%'],
+            items: [
+              { id: 'global_banking_markets', label: '全球银行与市场', notes: ['同比 +53%', '净利率 37%'] },
+              { id: 'asset_wealth_management', label: '资产与财富管理', notes: ['同比 +20%', '净利率 19%'] },
+              { id: 'platform_solutions', label: '平台解决方案', notes: ['同比 (64%)', '净利率 (19%)'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '信用损失拨备', notes: ['建模为税前利润前成本，使通用 SSOT 计算与银行业来源图匹配。'] },
+            operatingExpenses: {
+              items: [
+                { id: 'compensation_benefits', label: '薪酬与福利' },
+                { id: 'transaction_based', label: '交易相关' },
+                { id: 'market_development', label: '市场开发' },
+                { id: 'communication_technology', label: '通信与技术' },
+                { id: 'da', label: '折旧与摊销' },
+                { id: 'occupancy', label: '场地占用' },
+                { id: 'professional_fees', label: '专业费用' },
+                { id: 'other', label: '其他' },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          profit: {
+            gross: { label: '扣除信用损失拨备后的收入', notes: ['平衡小计；来源图未单独标注。'] },
+            operating: { label: '税前利润' },
+            net: { label: '净利润', notes: ['同比 +78%'] },
+          },
+        },
+      },
+    },
+    {
       key: 'goldman-sachs-q1-fy26',
       company: 'Goldman Sachs',
       period: 'Q1 FY26',

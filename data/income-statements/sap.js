@@ -223,6 +223,113 @@
           },
         },
       },
+    },
+    {
+      key: 'sap-q2-fy26',
+      company: 'SAP',
+      period: 'Q2 FY26',
+      periodNote: 'Ending Jun. 2026',
+      currency: '€',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/sap-q2-fy26.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 9.9,
+        notes: ['+9% Y/Y'],
+        items: [
+          {
+            id: 'cloud',
+            label: 'Cloud',
+            value: 6.3,
+            notes: ['+22% Y/Y'],
+            children: [
+              { id: 'saas_paas', label: 'SaaS/PaaS', value: 6.2, notes: ['+23% Y/Y'] },
+              { id: 'iaas', label: 'IaaS', value: 0.1, notes: ['(24%) Y/Y'] },
+            ],
+          },
+          {
+            id: 'licenses_support',
+            label: 'Licenses & Support',
+            value: 2.6,
+            notes: ['(8%) Y/Y'],
+            children: [
+              { id: 'software_licenses', label: 'Software Licenses', value: 0.1, notes: ['(32%) Y/Y'] },
+              { id: 'software_support', label: 'Software Support', value: 2.6, notes: ['(8%) Y/Y'] },
+            ],
+          },
+          { id: 'services', label: 'Services', value: 1.0, notes: ['(4%) Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 2.7 },
+        operatingExpenses: {
+          total: 4.6,
+          notes: ['Displayed operating-expense components sum to €4.5B; the €0.1B difference reflects source-chart rounding.'],
+          items: [
+            { id: 'sm', label: 'S&M', value: 2.3, notes: ['23% of revenue', '(0pp) Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 1.8, notes: ['19% of revenue', '+1pp Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 0.4, notes: ['4% of revenue', '(0pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.8 },
+      },
+      otherIncome: {
+        total: 0.4,
+        items: [{ id: 'other_income', label: 'Other', value: 0.4 }],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 7.2, notes: ['73% margin', '(0pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 2.6, notes: ['27% margin', '(0pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 2.2, notes: ['22% margin', '+3pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 +9%'],
+            items: [
+              {
+                id: 'cloud', label: '云', notes: ['同比 +22%'],
+                children: [
+                  { id: 'saas_paas', label: 'SaaS/PaaS', notes: ['同比 +23%'] },
+                  { id: 'iaas', label: 'IaaS', notes: ['同比 (24%)'] },
+                ],
+              },
+              {
+                id: 'licenses_support', label: '许可证与支持', notes: ['同比 (8%)'],
+                children: [
+                  { id: 'software_licenses', label: '软件许可证', notes: ['同比 (32%)'] },
+                  { id: 'software_support', label: '软件支持', notes: ['同比 (8%)'] },
+                ],
+              },
+              { id: 'services', label: '服务', notes: ['同比 (4%)'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'sm', label: '销售与市场', notes: ['占收入 23%', '同比 (0 个百分点)'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 19%', '同比 +1 个百分点'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 4%', '同比 (0 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: { items: [{ id: 'other_income', label: '其他' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 73%', '同比 (0 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 27%', '同比 (0 个百分点)'] },
+            net: { label: '净利润', notes: ['利润率 22%', '同比 +3 个百分点'] },
+          },
+        },
+      },
     }
   );
 })(window);
