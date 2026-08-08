@@ -209,6 +209,107 @@
           },
         },
       },
+    },
+    {
+      key: 'jpmorganchase-q2-fy26',
+      company: 'JPMorganChase',
+      period: 'Q2 FY26',
+      periodNote: 'Ending Jun. 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/jpmorganchase-q2-fy26.png',
+      roundingTolerance: 0.2,
+      revenue: {
+        total: 57.3,
+        notes: [
+          '+28% Y/Y',
+          'Business-segment net revenue totals $58.1B before the $0.7B adjustment; displayed figures are rounded.',
+        ],
+        items: [
+          { id: 'consumer_community_banking', label: ['Consumer &', 'Community', 'Banking'], value: 20.3, notes: ['+8% Y/Y', '26% net margin'] },
+          { id: 'commercial_investment_bank', label: ['Commercial &', 'Investment Bank'], value: 24.9, notes: ['+27% Y/Y', '39% net margin'] },
+          { id: 'asset_wealth_management', label: ['Asset & Wealth', 'Management'], value: 6.9, notes: ['+19% Y/Y', '29% net margin'] },
+          { id: 'corporate', label: 'Corporate', value: 6.0, notes: ['+293% Y/Y', '70% net margin'] },
+          { id: 'adjustments', label: 'Adjustments', value: -0.7 },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          id: 'noninterest_expenses',
+          label: 'Noninterest expenses',
+          value: 27.3,
+          items: [
+            { id: 'compensation_benefits', label: 'Compensation & benefits', value: 15.2 },
+            { id: 'occupancy', label: 'Occupancy', value: 1.5 },
+            { id: 'technology_communications', label: ['Technology,', 'communications'], value: 3.1 },
+            { id: 'professional_services', label: ['Professional', 'services'], value: 3.9 },
+            { id: 'marketing', label: 'Marketing', value: 1.7 },
+            { id: 'other_expenses', label: 'Other', value: 2.0 },
+          ],
+        },
+        operatingExpenses: {
+          total: 2.5,
+          notes: ['Mapped to the operating-expenses schema slot for the source chart’s provision for credit losses.'],
+          items: [{ id: 'operating_expenses', label: 'Provision for credit losses', value: 2.5 }],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 6.4 },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: {
+          label: 'Income after noninterest expenses',
+          value: 30.0,
+          notes: ['Schema adapter subtotal; the source chart does not show a separate gross-profit node.'],
+        },
+        operating: {
+          id: 'pretax_income',
+          label: 'Pretax income',
+          value: 27.5,
+          notes: ['Source amounts are rounded to $0.1B precision.'],
+        },
+        net: { id: 'net_income', label: 'Net income', value: 21.2, notes: ['+41% Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 +28%', '业务分部净收入在 $0.7B 调整项前合计为 $58.1B；图中数字经四舍五入。'],
+            items: [
+              { id: 'consumer_community_banking', label: '消费者与社区银行', notes: ['同比 +8%', '净利率 26%'] },
+              { id: 'commercial_investment_bank', label: '商业与投资银行', notes: ['同比 +27%', '净利率 39%'] },
+              { id: 'asset_wealth_management', label: '资产与财富管理', notes: ['同比 +19%', '净利率 29%'] },
+              { id: 'corporate', label: '公司业务', notes: ['同比 +293%', '净利率 70%'] },
+              { id: 'adjustments', label: '调整项' },
+            ],
+          },
+          costs: {
+            costOfRevenue: {
+              label: '非利息费用',
+              items: [
+                { id: 'compensation_benefits', label: '薪酬与福利' },
+                { id: 'occupancy', label: '场地占用' },
+                { id: 'technology_communications', label: '技术与通信' },
+                { id: 'professional_services', label: '专业服务' },
+                { id: 'marketing', label: '市场营销' },
+                { id: 'other_expenses', label: '其他' },
+              ],
+            },
+            operatingExpenses: {
+              notes: ['映射到通用 schema 的营业费用槽位，对应来源图的信用损失拨备。'],
+              items: [{ id: 'operating_expenses', label: '信用损失拨备' }],
+            },
+            tax: { label: '税费' },
+          },
+          profit: {
+            gross: { label: '扣除非利息费用后的收入', notes: ['Schema 适配小计；来源图未显示独立的毛利润节点。'] },
+            operating: { label: '税前利润', notes: ['来源金额按 $0.1B 精度取整。'] },
+            net: { label: '净利润', notes: ['同比 +41%'] },
+          },
+        },
+      },
     }
   );
 })(window);

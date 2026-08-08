@@ -33,6 +33,7 @@
         'https://ir.appfolioinc.com/',
         'https://ir.appfolioinc.com/shareholder-services/investor-faqs',
         'https://ir.appfolioinc.com/news-releases/news-release-details/appfolio-inc-announces-first-quarter-2026-financial-results',
+        'https://ir.appfolioinc.com/news-releases/news-release-details/appfolio-inc-announces-second-quarter-2026-financial-results',
         'https://ir.appfolioinc.com/node/11981/html',
         'https://www.appfolio.com/',
       ],
