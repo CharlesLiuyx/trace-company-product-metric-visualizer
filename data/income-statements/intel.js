@@ -10,6 +10,120 @@
 
   ssot.records.push(
     {
+      key: 'intel-q2-fy26',
+      company: 'Intel',
+      period: 'Q2 FY26',
+      periodNote: 'Ending Jun. 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/intel-q2-fy26.png',
+      roundingTolerance: 0.25,
+      revenue: {
+        total: 16.1,
+        notes: ['+25% Y/Y'],
+        items: [
+          {
+            id: 'intel_products',
+            label: 'Intel Products',
+            value: 15.1,
+            notes: ['+28% Y/Y'],
+            children: [
+              { id: 'client_computing', label: 'Client Computing', value: 8.9, notes: ['+13% Y/Y', '26% operating margin'] },
+              { id: 'datacenter_ai', label: 'Datacenter & AI', value: 6.3, notes: ['+69% Y/Y', '40% operating margin'] },
+            ],
+          },
+          { id: 'intel_foundry', label: 'Intel Foundry', value: 5.8, notes: ['+31% Y/Y', '(36%) operating margin'] },
+          { id: 'other', label: 'Other', value: 0.7, notes: ['(33%) Y/Y', '16% operating margin'] },
+          {
+            id: 'eliminations',
+            label: 'Eliminations',
+            value: -5.5,
+            notes: ['Intersegment eliminations reconciling segment revenue to net revenue.'],
+          },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          id: 'cost_of_sales',
+          label: 'Cost of sales',
+          value: 9.6,
+        },
+        operatingExpenses: {
+          total: 4.7,
+          items: [
+            { id: 'rnd', label: 'Research & development', value: 3.4, notes: ['21% of revenue', '(8pp) Y/Y'] },
+            { id: 'marketing_ga', label: 'Marketing, general & administrative', value: 1.2, notes: ['7% of revenue', '(2pp) Y/Y'] },
+            { id: 'restructuring', label: 'Restructuring and other', value: 0.2, notes: ['1% of revenue', '(14pp) Y/Y'] },
+          ],
+        },
+        tax: {
+          label: 'Tax',
+          value: 0,
+          notes: ['No separate tax line is shown in the source chart.'],
+        },
+      },
+      otherIncome: {
+        total: 0,
+        items: [],
+      },
+      otherExpenses: {
+        total: 12.6,
+        items: [
+          { id: 'interest_other_costs', label: 'Interest & other costs', value: 12.6, notes: ['18A Foundry transition costs'] },
+        ],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 6.5, notes: ['40% margin', '+13pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 1.8, notes: ['11% margin', '+36pp Y/Y'] },
+        net: { id: 'net_loss', label: 'Net loss', value: -10.8 },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 +25%'],
+            items: [
+              {
+                id: 'intel_products',
+                label: '英特尔产品',
+                notes: ['同比 +28%'],
+                children: [
+                  { id: 'client_computing', label: '客户端计算', notes: ['同比 +13%', '营业利润率 26%'] },
+                  { id: 'datacenter_ai', label: '数据中心与 AI', notes: ['同比 +69%', '营业利润率 40%'] },
+                ],
+              },
+              { id: 'intel_foundry', label: '英特尔代工', notes: ['同比 +31%', '营业利润率 (36%)'] },
+              { id: 'other', label: '其他', notes: ['同比 (33%)', '营业利润率 16%'] },
+              { id: 'eliminations', label: '内部抵销', notes: ['将分部收入调节为净收入的分部间抵销。'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '销售成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 21%', '同比 (8 个百分点)'] },
+                { id: 'marketing_ga', label: '营销及一般行政', notes: ['占收入 7%', '同比 (2 个百分点)'] },
+                { id: 'restructuring', label: '重组及其他', notes: ['占收入 1%', '同比 (14 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费', notes: ['来源图未单列税费项。'] },
+          },
+          otherExpenses: {
+            items: [
+              { id: 'interest_other_costs', label: '利息及其他成本', notes: ['18A 代工转型成本'] },
+            ],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 40%', '同比 +13 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 11%', '同比 +36 个百分点'] },
+            net: { label: '净亏损' },
+          },
+        },
+      },
+    },
+    {
       key: 'intel-q1-fy26',
       company: 'Intel',
       period: 'Q1 FY26',

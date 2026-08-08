@@ -594,6 +594,104 @@
       },
     },
     {
+      key: 'tsmc-q2-fy26',
+      company: 'TSMC',
+      period: 'Q2 FY26',
+      periodNote: 'Ending Jun. 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/tsmc-q2-fy26.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 40.2,
+        notes: ['+34% Y/Y'],
+        items: [
+          { id: 'hpc', label: 'High Performance Computing', value: 26.5, notes: ['66% of revenue', '+6pp Y/Y'] },
+          { id: 'smartphones', label: 'Smartphones', value: 8.8, notes: ['22% of revenue', '(5pp) Y/Y'] },
+          { id: 'iot', label: 'Internet of Things', value: 2.0, notes: ['5% of revenue', 'Flat Y/Y'] },
+          { id: 'automotive', label: 'Automotive', value: 1.6, notes: ['4% of revenue', '(1pp) Y/Y'] },
+          { id: 'dce', label: 'Digital Consumer Electronics', value: 0.4, notes: ['1% of revenue', 'Flat Y/Y'] },
+          { id: 'others', label: 'Others', value: 0.8, notes: ['2% of revenue', 'Flat Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 13.0 },
+        operatingExpenses: {
+          total: 3.1,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 2.3 },
+            { id: 'sga', label: 'SG&A', value: 0.8 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 4.9 },
+      },
+      operatingOtherIncome: {
+        total: 0.2,
+        items: [{ id: 'operating_other_income', label: 'Other', value: 0.2 }],
+      },
+      operatingOtherExpenses: {
+        total: 0,
+        items: [],
+      },
+      otherIncome: {
+        total: 3.0,
+        items: [{ id: 'other', label: 'Other', value: 3.0 }],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 27.2, notes: ['68% margin', '+9pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 24.3, notes: ['60% margin', '+11pp Y/Y'] },
+        net: {
+          id: 'net_profit',
+          label: 'Net profit',
+          value: 22.4,
+          notes: ['56% margin', '+13pp Y/Y'],
+        },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 +34%'],
+            items: [
+              { id: 'hpc', label: '高性能计算', notes: ['占收入 66%', '同比 +6 个百分点'] },
+              { id: 'smartphones', label: '智能手机', notes: ['占收入 22%', '同比 (5 个百分点)'] },
+              { id: 'iot', label: '物联网', notes: ['占收入 5%', '同比持平'] },
+              { id: 'automotive', label: '汽车', notes: ['占收入 4%', '同比 (1 个百分点)'] },
+              { id: 'dce', label: '数字消费电子', notes: ['占收入 1%', '同比持平'] },
+              { id: 'others', label: '其他', notes: ['占收入 2%', '同比持平'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发' },
+                { id: 'sga', label: '销售、一般及行政' },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          operatingOtherIncome: {
+            items: [{ id: 'operating_other_income', label: '其他' }],
+          },
+          otherIncome: {
+            items: [{ id: 'other', label: '其他' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 68%', '同比 +9 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 60%', '同比 +11 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 56%', '同比 +13 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'tsmc-q2-fy25',
       company: 'TSMC',
       period: 'Q2 FY25',

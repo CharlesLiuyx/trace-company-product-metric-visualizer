@@ -371,7 +371,7 @@ try {
   await page.goto(`${server.url}#apple-q2-fy26`, { waitUntil: 'domcontentloaded' });
   await page.waitForSelector('#chart svg', { timeout: FIRST_RENDER_TIMEOUT_MS });
   const comparisonCount = await selectAllIncomeStatementPeriods(page, 'Apple');
-  assert(comparisonCount === 15, `production site Apple fixture has ${comparisonCount} periods, expected 15`);
+  assert(comparisonCount === 16, `production site Apple fixture has ${comparisonCount} periods, expected 16`);
   await waitForCalibratedComparison(page, comparisonCount, FIRST_RENDER_TIMEOUT_MS);
   const comparisonSnapshot = await comparisonMoneyScaleSnapshot(page);
   assertComparisonMoneyScale(comparisonSnapshot, comparisonCount, 'production site Apple all-periods');

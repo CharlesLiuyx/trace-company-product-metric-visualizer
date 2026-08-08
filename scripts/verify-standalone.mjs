@@ -196,7 +196,7 @@ async function verifyInBrowser(filePath) {
     await page.goto(`${documentUrl}#apple-q2-fy26`, { waitUntil: 'load' });
     await page.waitForSelector('#chart svg', { timeout: 10000 });
     const comparisonCount = await selectAllIncomeStatementPeriods(page, 'Apple');
-    assert(comparisonCount === 15, `standalone Apple fixture has ${comparisonCount} periods, expected 15`);
+    assert(comparisonCount === 16, `standalone Apple fixture has ${comparisonCount} periods, expected 16`);
     await waitForCalibratedComparison(page, comparisonCount);
     const comparisonSnapshot = await comparisonMoneyScaleSnapshot(page);
     assertComparisonMoneyScale(

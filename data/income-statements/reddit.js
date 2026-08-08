@@ -162,6 +162,103 @@
           },
         },
       },
+    },
+    {
+      key: 'reddit-q2-fy26',
+      company: 'Reddit',
+      period: 'Q2 FY26',
+      periodNote: 'Ending Jun. 2026',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/reddit-q2-fy26.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 805,
+        notes: ['+61% Y/Y'],
+        items: [
+          { id: 'advertising', label: 'Advertising', value: 762, notes: ['+64% Y/Y'] },
+          { id: 'other_revenue', label: 'Other', value: 43, notes: ['+24% Y/Y', 'Data API Access', 'Model Training'] },
+        ],
+        breakdowns: [
+          {
+            id: 'geography',
+            label: 'Revenue by geography',
+            total: 805,
+            items: [
+              { id: 'united_states', label: 'United States', value: 638, notes: ['+56% Y/Y'] },
+              { id: 'rest_of_world', label: 'Rest of World', value: 167, notes: ['+84% Y/Y'] },
+            ],
+          },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 70 },
+        operatingExpenses: {
+          total: 503,
+          items: [
+            { id: 'rnd', label: 'Research & development', value: 231, notes: ['29% of revenue', '(11pp) Y/Y'] },
+            { id: 'sm', label: 'Sales & marketing', value: 196, notes: ['24% of revenue', '+0pp Y/Y'] },
+            { id: 'ga', label: 'General & admin', value: 76, notes: ['9% of revenue', '(4pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 5 },
+      },
+      otherIncome: {
+        total: 25,
+        items: [{ id: 'other_income', label: 'Other', value: 25 }],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 735, notes: ['91% margin', '+0pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 232, notes: ['29% margin', '+15pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 253, notes: ['31% margin', '+14pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 +61%'],
+            items: [
+              { id: 'advertising', label: '广告', notes: ['同比 +64%'] },
+              { id: 'other_revenue', label: '其他', notes: ['同比 +24%', 'Data API 访问', '模型训练'] },
+            ],
+            breakdowns: [
+              {
+                id: 'geography',
+                label: '按地区划分的收入',
+                items: [
+                  { id: 'united_states', label: '美国', notes: ['同比 +56%'] },
+                  { id: 'rest_of_world', label: '世界其他地区', notes: ['同比 +84%'] },
+                ],
+              },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 29%', '同比 (11 个百分点)'] },
+                { id: 'sm', label: '销售与市场', notes: ['占收入 24%', '同比 +0 个百分点'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 9%', '同比 (4 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: {
+            items: [{ id: 'other_income', label: '其他' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 91%', '同比 +0 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 29%', '同比 +15 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 31%', '同比 +14 个百分点'] },
+          },
+        },
+      },
     }
   );
 })(window);

@@ -95,6 +95,109 @@
   });
 
   ssot.records.push({
+    key: 'amc-q2-fy26',
+    company: 'AMC Entertainment',
+    period: 'Q2 FY26',
+    periodNote: 'Three months ended Jun. 30, 2026',
+    currency: '$',
+    unit: 'M',
+    decimals: 0,
+    sourceImage: 'input/processed/amc-q2-fy26.png',
+    roundingTolerance: 1.5,
+    revenue: {
+      total: 1597,
+      notes: ['+14% Y/Y'],
+      items: [
+        { id: 'admissions', label: 'Admissions', value: 863, notes: ['+13% Y/Y'] },
+        { id: 'food_beverage', label: 'Food & Beverage', value: 576, notes: ['+15% Y/Y'] },
+        {
+          id: 'other_theatre',
+          label: 'Other theatre',
+          value: 158,
+          notes: ['+16% Y/Y', 'Gift Cards, Package tickets, Advertising, Retail, Rentals.'],
+        },
+      ],
+    },
+    costs: {
+      costOfRevenue: {
+        label: 'Cost of revenue',
+        value: 548,
+        items: [
+          { id: 'film_exhibition_costs', label: 'Film exhibition costs', value: 440 },
+          { id: 'food_beverage_costs', label: 'Food & Beverage costs', value: 108 },
+        ],
+      },
+      operatingExpenses: {
+        total: 810,
+        items: [
+          { id: 'operating', label: 'Operating', value: 458, notes: ['29% of revenue', '(4pp) Y/Y'] },
+          { id: 'rent', label: 'Rent', value: 224, notes: ['14% of revenue', '(2pp) Y/Y'] },
+          { id: 'depreciation_amortization', label: 'Depreciation & Amortization', value: 76, notes: ['5% of revenue', '(1pp) Y/Y'] },
+          { id: 'ga', label: 'G&A', value: 52, notes: ['3% of revenue', '(1pp) Y/Y'] },
+        ],
+      },
+      tax: { label: 'Tax', value: 0, notes: ['No separate tax terminal is shown in the source chart.'] },
+    },
+    otherIncome: { total: 0, items: [] },
+    otherExpenses: {
+      total: 249,
+      items: [
+        {
+          id: 'other',
+          label: 'Other',
+          value: 249,
+          notes: ['Terminal non-operating expense combining $238M of operating profit and the $10M net loss; the $1M difference is source rounding.'],
+        },
+      ],
+    },
+    profit: {
+      gross: { id: 'gross_profit', label: 'Gross profit', value: 1049, notes: ['66% margin', '+1pp Y/Y'] },
+      operating: { id: 'operating_profit', label: 'Operating profit', value: 238, notes: ['15% margin', '+8pp Y/Y'] },
+      net: { id: 'net_loss', label: 'Net loss', value: -10, notes: ['(1%) margin', '(0pp) Y/Y'] },
+    },
+    i18n: {
+      zh: {
+        period: '2026 财年第二季度',
+        periodNote: '截至 2026 年 6 月 30 日的三个月',
+        revenue: {
+          notes: ['同比 +14%'],
+          items: [
+            { id: 'admissions', label: '影院票务', notes: ['同比 +13%'] },
+            { id: 'food_beverage', label: '餐饮', notes: ['同比 +15%'] },
+            { id: 'other_theatre', label: '其他影院', notes: ['同比 +16%', '礼品卡、套餐票、广告、零售、场地租赁。'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: {
+            label: '收入成本',
+            items: [
+              { id: 'film_exhibition_costs', label: '电影放映成本' },
+              { id: 'food_beverage_costs', label: '餐饮成本' },
+            ],
+          },
+          operatingExpenses: {
+            items: [
+              { id: 'operating', label: '运营', notes: ['占收入 29%', '同比 (4 个百分点)'] },
+              { id: 'rent', label: '租金', notes: ['占收入 14%', '同比 (2 个百分点)'] },
+              { id: 'depreciation_amortization', label: '折旧及摊销', notes: ['占收入 5%', '同比 (1 个百分点)'] },
+              { id: 'ga', label: '管理费用', notes: ['占收入 3%', '同比 (1 个百分点)'] },
+            ],
+          },
+          tax: { label: '税费', notes: ['来源图未单列税费终端项目。'] },
+        },
+        otherExpenses: {
+          items: [{ id: 'other', label: '其他', notes: ['汇总 2.38 亿美元营业利润与 1,000 万美元净亏损的非经营性终端费用；100 万美元差异来自来源图四舍五入。'] }],
+        },
+        profit: {
+          gross: { label: '毛利润', notes: ['利润率 66%', '同比 +1 个百分点'] },
+          operating: { label: '营业利润', notes: ['利润率 15%', '同比 +8 个百分点'] },
+          net: { label: '净亏损', notes: ['利润率 (1%)', '同比 (0 个百分点)'] },
+        },
+      },
+    },
+  });
+
+  ssot.records.push({
     key: 'amc-q3-fy25',
     company: 'AMC Entertainment',
     period: 'Q3 FY25',

@@ -112,6 +112,111 @@
       },
     },
     {
+      key: 'samsung-q2-fy26',
+      company: 'Samsung',
+      period: 'Q2 FY26',
+      periodNote: 'Ending Jun. 2026',
+      currency: 'KRW',
+      unit: 'T',
+      decimals: 1,
+      sourceImage: 'input/processed/samsung-q2-fy26.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 171.5,
+        notes: ['+130% Y/Y'],
+        items: [
+          {
+            id: 'device_experience',
+            label: 'Device eXperience',
+            value: 48.0,
+            notes: ['+10% Y/Y', 'Digital TVs, Refrigerators, Mobile phones, Communication systems'],
+          },
+          {
+            id: 'device_solutions',
+            label: 'Device Solutions',
+            value: 127.5,
+            notes: ['+357% Y/Y', 'Memory, Foundry, & System LSI'],
+          },
+          { id: 'samsung_display', label: 'Samsung Display', value: 7.5, notes: ['+17% Y/Y'] },
+          { id: 'harman', label: 'Harman', value: 4.6, notes: ['+19% Y/Y'] },
+          {
+            id: 'eliminations',
+            label: 'Eliminations',
+            value: -16.1,
+            notes: ['Shown as an eliminations cost before consolidated Sales in the source chart.'],
+          },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 52.2 },
+        operatingExpenses: {
+          total: 29.8,
+          items: [
+            { id: 'rnd', label: 'Research & development', value: 16.0, notes: ['9% of revenue', '(3pp) Y/Y'] },
+            { id: 'sga', label: 'Sales, general & admin', value: 13.8, notes: ['8% of revenue', '(8pp) Y/Y'] },
+          ],
+        },
+        tax: {
+          id: 'tax',
+          label: 'Tax',
+          value: 22.8,
+          notes: [
+            'Source chart label reads "(22.8B)"; the user-approved official-source correction sets tax to 22.8T.',
+          ],
+        },
+      },
+      otherIncome: {
+        total: 4.9,
+        items: [{ id: 'other', label: 'Other', value: 4.9 }],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 119.3, notes: ['70% margin', '+35pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 89.5, notes: ['52% margin', '+46pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 71.6, notes: ['42% margin', '+35pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 +130%'],
+            items: [
+              { id: 'device_experience', label: '设备体验', notes: ['同比 +10%', '数字电视、冰箱、手机、通信系统'] },
+              { id: 'device_solutions', label: '设备解决方案', notes: ['同比 +357%', '存储器、晶圆代工和 System LSI'] },
+              { id: 'samsung_display', label: '三星显示', notes: ['同比 +17%'] },
+              { id: 'harman', label: '哈曼', notes: ['同比 +19%'] },
+              { id: 'eliminations', label: '抵销', notes: ['来源图显示为合并销售额前的抵销成本。'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 9%', '同比 (3 个百分点)'] },
+                { id: 'sga', label: '销售、一般及行政', notes: ['占收入 8%', '同比 (8 个百分点)'] },
+              ],
+            },
+            tax: {
+              label: '税费',
+              notes: ['来源图标签为“(22.8B)”；经用户确认，官方来源纠正值为 22.8T。'],
+            },
+          },
+          otherIncome: {
+            items: [{ id: 'other', label: '其他' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 70%', '同比 +35 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 52%', '同比 +46 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 42%', '同比 +35 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'samsung-q4-fy25',
       company: 'Samsung',
       period: 'Q4 FY25',

@@ -188,6 +188,96 @@
           },
         },
       },
+    },
+    {
+      key: 'gm-q2-fy26',
+      company: 'GM',
+      period: 'Q2 FY26',
+      periodNote: 'Quarter ended Jun. 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/gm-q2-fy26.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 48.0,
+        notes: ['+2% Y/Y'],
+        items: [
+          {
+            id: 'auto',
+            label: 'Auto',
+            value: 43.8,
+            notes: ['+2% Y/Y'],
+            children: [
+              { id: 'gm_north_america', label: 'GM North America', value: 39.9, notes: ['+1% Y/Y'] },
+              { id: 'gm_international', label: 'GM International', value: 3.7, notes: ['+11% Y/Y'] },
+              { id: 'corporate', label: 'Corporate', value: 0.2, notes: ['+179% Y/Y'] },
+            ],
+          },
+          { id: 'gm_financial', label: 'GM Financial', value: 4.3, notes: ['+0% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 40.7 },
+        operatingExpenses: {
+          total: 5.9,
+          items: [
+            { id: 'other_expense', label: 'Other', value: 3.7 },
+            { id: 'sga', label: 'SG&A', value: 2.2 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.2 },
+      },
+      otherIncome: {
+        total: 0.1,
+        items: [{ id: 'other_income', label: 'Other', value: 0.1 }],
+      },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 7.3, notes: ['15% margin', '(1pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 1.5, notes: ['3% margin', '(1pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 1.4, notes: ['3% margin', '(1pp) Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 6 月的季度',
+          revenue: {
+            notes: ['同比 +2%'],
+            items: [
+              {
+                id: 'auto',
+                label: '汽车业务',
+                notes: ['同比 +2%'],
+                children: [
+                  { id: 'gm_north_america', label: '通用北美', notes: ['同比 +1%'] },
+                  { id: 'gm_international', label: '通用国际', notes: ['同比 +11%'] },
+                  { id: 'corporate', label: '公司及其他', notes: ['同比 +179%'] },
+                ],
+              },
+              { id: 'gm_financial', label: '通用金融', notes: ['同比 +0%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '销售成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'other_expense', label: '其他' },
+                { id: 'sga', label: '销售及管理' },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: {
+            items: [{ id: 'other_income', label: '其他收入' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 15%', '同比 (1 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 3%', '同比 (1 个百分点)'] },
+            net: { label: '净利润', notes: ['利润率 3%', '同比 (1 个百分点)'] },
+          },
+        },
+      },
     }
   );
 })(window);

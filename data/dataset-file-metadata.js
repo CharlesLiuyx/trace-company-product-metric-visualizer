@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-08-02T14:48:08.000Z",
+  "generatedAt": "2026-08-08T09:31:02.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -4637,6 +4637,150 @@
       "path": "data/datasets/alibaba-q1-fy26.js",
       "updatedAtMs": 1785682088000,
       "updatedAt": "2026-08-02T14:48:08.000Z",
+      "timeSource": "git"
+    },
+    "alphabet-q2-fy26": {
+      "path": "data/datasets/alphabet-q2-fy26.js",
+      "updatedAtMs": 1786181462000,
+      "updatedAt": "2026-08-08T09:31:02.000Z",
+      "timeSource": "git"
+    },
+    "ferrari-q2-fy26": {
+      "path": "data/datasets/ferrari-q2-fy26.js",
+      "updatedAtMs": 1786181462000,
+      "updatedAt": "2026-08-08T09:31:02.000Z",
+      "timeSource": "git"
+    },
+    "meta-q2-fy26": {
+      "path": "data/datasets/meta-q2-fy26.js",
+      "updatedAtMs": 1786181462000,
+      "updatedAt": "2026-08-08T09:31:02.000Z",
+      "timeSource": "git"
+    },
+    "gm-q2-fy26": {
+      "path": "data/datasets/gm-q2-fy26.js",
+      "updatedAtMs": 1786181462000,
+      "updatedAt": "2026-08-08T09:31:02.000Z",
+      "timeSource": "git"
+    },
+    "qualcomm-q3-fy26": {
+      "path": "data/datasets/qualcomm-q3-fy26.js",
+      "updatedAtMs": 1786181462000,
+      "updatedAt": "2026-08-08T09:31:02.000Z",
+      "timeSource": "git"
+    },
+    "tesla-q2-fy26": {
+      "path": "data/datasets/tesla-q2-fy26.js",
+      "updatedAtMs": 1786181462000,
+      "updatedAt": "2026-08-08T09:31:02.000Z",
+      "timeSource": "git"
+    },
+    "roblox-q2-fy26": {
+      "path": "data/datasets/roblox-q2-fy26.js",
+      "updatedAtMs": 1786181462000,
+      "updatedAt": "2026-08-08T09:31:02.000Z",
+      "timeSource": "git"
+    },
+    "microsoft-fy26": {
+      "path": "data/datasets/microsoft-fy26.js",
+      "updatedAtMs": 1786181462000,
+      "updatedAt": "2026-08-08T09:31:02.000Z",
+      "timeSource": "git"
+    },
+    "arm-q1-fy27": {
+      "path": "data/datasets/arm-q1-fy27.js",
+      "updatedAtMs": 1786181462000,
+      "updatedAt": "2026-08-08T09:31:02.000Z",
+      "timeSource": "git"
+    },
+    "reddit-q2-fy26": {
+      "path": "data/datasets/reddit-q2-fy26.js",
+      "updatedAtMs": 1786181462000,
+      "updatedAt": "2026-08-08T09:31:02.000Z",
+      "timeSource": "git"
+    },
+    "amc-q2-fy26": {
+      "path": "data/datasets/amc-q2-fy26.js",
+      "updatedAtMs": 1786181462000,
+      "updatedAt": "2026-08-08T09:31:02.000Z",
+      "timeSource": "git"
+    },
+    "ford-q2-fy26": {
+      "path": "data/datasets/ford-q2-fy26.js",
+      "updatedAtMs": 1786181462000,
+      "updatedAt": "2026-08-08T09:31:02.000Z",
+      "timeSource": "git"
+    },
+    "microsoft-q4-fy26-by-bu": {
+      "path": "data/datasets/microsoft-q4-fy26-by-bu.js",
+      "updatedAtMs": 1786181462000,
+      "updatedAt": "2026-08-08T09:31:02.000Z",
+      "timeSource": "git"
+    },
+    "sk-hynix-q2-fy26": {
+      "path": "data/datasets/sk-hynix-q2-fy26.js",
+      "updatedAtMs": 1786181462000,
+      "updatedAt": "2026-08-08T09:31:02.000Z",
+      "timeSource": "git"
+    },
+    "tsmc-q2-fy26": {
+      "path": "data/datasets/tsmc-q2-fy26.js",
+      "updatedAtMs": 1786181462000,
+      "updatedAt": "2026-08-08T09:31:02.000Z",
+      "timeSource": "git"
+    },
+    "asml-q2-fy26": {
+      "path": "data/datasets/asml-q2-fy26.js",
+      "updatedAtMs": 1786181462000,
+      "updatedAt": "2026-08-08T09:31:02.000Z",
+      "timeSource": "git"
+    },
+    "netflix-q2-fy26": {
+      "path": "data/datasets/netflix-q2-fy26.js",
+      "updatedAtMs": 1786181462000,
+      "updatedAt": "2026-08-08T09:31:02.000Z",
+      "timeSource": "git"
+    },
+    "kla-q4-fy26": {
+      "path": "data/datasets/kla-q4-fy26.js",
+      "updatedAtMs": 1786181462000,
+      "updatedAt": "2026-08-08T09:31:02.000Z",
+      "timeSource": "git"
+    },
+    "live-nation-q2-fy26": {
+      "path": "data/datasets/live-nation-q2-fy26.js",
+      "updatedAtMs": 1786181462000,
+      "updatedAt": "2026-08-08T09:31:02.000Z",
+      "timeSource": "git"
+    },
+    "apple-q3-fy26": {
+      "path": "data/datasets/apple-q3-fy26.js",
+      "updatedAtMs": 1786181462000,
+      "updatedAt": "2026-08-08T09:31:02.000Z",
+      "timeSource": "git"
+    },
+    "rivian-q2-fy26": {
+      "path": "data/datasets/rivian-q2-fy26.js",
+      "updatedAtMs": 1786181462000,
+      "updatedAt": "2026-08-08T09:31:02.000Z",
+      "timeSource": "git"
+    },
+    "intel-q2-fy26": {
+      "path": "data/datasets/intel-q2-fy26.js",
+      "updatedAtMs": 1786181462000,
+      "updatedAt": "2026-08-08T09:31:02.000Z",
+      "timeSource": "git"
+    },
+    "samsung-q2-fy26": {
+      "path": "data/datasets/samsung-q2-fy26.js",
+      "updatedAtMs": 1786181462000,
+      "updatedAt": "2026-08-08T09:31:02.000Z",
+      "timeSource": "git"
+    },
+    "amazon-q2-fy26": {
+      "path": "data/datasets/amazon-q2-fy26.js",
+      "updatedAtMs": 1786181462000,
+      "updatedAt": "2026-08-08T09:31:02.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {

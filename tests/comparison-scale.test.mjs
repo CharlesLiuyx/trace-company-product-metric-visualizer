@@ -678,7 +678,7 @@ function loadFullCorpus() {
   return fullCorpus;
 }
 
-test('all 772 registered View Adapters calibrate to one view-units/USD scale with the known fallback set', () => {
+test('all 796 registered View Adapters calibrate to one view-units/USD scale with the known fallback set', () => {
   const { context, datasets, records } = loadFullCorpus();
   const financialByKey = new Map(records.map((record) => [record.key, record]));
   const inputKeys = Array.from(datasets, (dataset) => dataset.key);
@@ -687,14 +687,14 @@ test('all 772 registered View Adapters calibrate to one view-units/USD scale wit
     financial: financialByKey.get(dataset.key),
   }));
 
-  assert.equal(datasets.length, 772);
-  assert.equal(financialByKey.size, 772);
+  assert.equal(datasets.length, 796);
+  assert.equal(financialByKey.size, 796);
 
   const plan = context.TraceComparisonScale.createPlan(entries);
 
   assert.equal(plan.status, 'calibrated');
   assert.equal(plan.diagnostics.length, 0);
-  assert.equal(plan.measurements.length, 772);
+  assert.equal(plan.measurements.length, 796);
   assert.deepEqual(
     Array.from(plan.measurements, (measurement) => measurement.key),
     inputKeys,
@@ -767,7 +767,7 @@ test('Apple all-period regression proves raw layout.scale is not a comparison sc
   const appleEntries = datasets
     .filter((dataset) => financialByKey.get(dataset.key)?.company === 'Apple')
     .map((dataset) => ({ dataset, financial: financialByKey.get(dataset.key) }));
-  assert.equal(appleEntries.length, 15);
+  assert.equal(appleEntries.length, 16);
 
   const plan = context.TraceComparisonScale.createPlan(appleEntries);
   assert.equal(plan.status, 'calibrated');
