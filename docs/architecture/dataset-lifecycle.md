@@ -231,6 +231,10 @@ rounded-zero `precisionRecovery`.
 
 - Each Income Statement value must match the selected financial SSOT record
   and exactly one mapped Adapter node or non-node metric value;
+- Payment-network charts use the typed `revenue.paymentNetwork.gross`,
+  `revenue.paymentNetwork.grossItems`, and `revenue.paymentNetwork.rebates`
+  paths so gross fee observations and positive Sankey rebate magnitudes remain
+  auditable without corrupting net-revenue arithmetic or accounting signs;
 - Revenue Metric values must match the selected dated SSOT observation.
 
 A missing record or View, unit mismatch, wrong typed reference, wrong amount,

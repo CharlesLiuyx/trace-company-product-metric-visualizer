@@ -549,6 +549,12 @@
       "width": 2667,
       "height": 1500
     },
+    "american-express-q2-fy26": {
+      "similarity": 0.960246,
+      "mae": 10.1371,
+      "width": 2667,
+      "height": 1500
+    },
     "american-express-q4-fy25": {
       "similarity": 0.957978,
       "mae": 10.7157,
@@ -606,6 +612,12 @@
     "appfolio-q1-fy26": {
       "similarity": 0.954127,
       "mae": 11.6977,
+      "width": 2667,
+      "height": 1500
+    },
+    "appfolio-q2-fy26": {
+      "similarity": 0.970656,
+      "mae": 7.4828,
       "width": 2667,
       "height": 1500
     },
@@ -1005,6 +1017,12 @@
       "width": 2667,
       "height": 1500
     },
+    "at-t-q2-fy26": {
+      "similarity": 0.969999,
+      "mae": 7.6502,
+      "width": 2667,
+      "height": 1500
+    },
     "at-t-q4-fy25": {
       "similarity": 0.964571,
       "mae": 9.0345,
@@ -1065,6 +1083,12 @@
       "width": 2667,
       "height": 1500
     },
+    "bank-of-america-q2-fy26": {
+      "similarity": 0.958777,
+      "mae": 10.5119,
+      "width": 2667,
+      "height": 1500
+    },
     "bank-of-america-q4-fy25": {
       "similarity": 0.958133,
       "mae": 10.676,
@@ -1110,6 +1134,12 @@
     "blackrock-q1-fy26": {
       "similarity": 0.95986,
       "mae": 10.2358,
+      "width": 2667,
+      "height": 1500
+    },
+    "blackrock-q2-fy26": {
+      "similarity": 0.9639,
+      "mae": 9.2056,
       "width": 2667,
       "height": 1500
     },
@@ -1269,6 +1299,12 @@
       "width": 2667,
       "height": 1500
     },
+    "cadence-q2-fy26": {
+      "similarity": 0.966876,
+      "mae": 8.4465,
+      "width": 2667,
+      "height": 1500
+    },
     "cadence-q4-fy25": {
       "similarity": 0.968034,
       "mae": 8.1514,
@@ -1413,6 +1449,12 @@
       "width": 2667,
       "height": 1500
     },
+    "citigroup-q2-fy26": {
+      "similarity": 0.964418,
+      "mae": 9.0734,
+      "width": 2667,
+      "height": 1500
+    },
     "citigroup-q4-fy25": {
       "similarity": 0.953851,
       "mae": 11.768,
@@ -1458,6 +1500,12 @@
     "comcast-q1-fy26": {
       "similarity": 0.94708,
       "mae": 13.4947,
+      "width": 2667,
+      "height": 1500
+    },
+    "comcast-q2-fy26": {
+      "similarity": 0.939432,
+      "mae": 15.4448,
       "width": 2667,
       "height": 1500
     },
@@ -1971,6 +2019,12 @@
       "width": 2667,
       "height": 1500
     },
+    "fortinet-q2-fy26": {
+      "similarity": 0.971459,
+      "mae": 7.278,
+      "width": 2667,
+      "height": 1500
+    },
     "fortinet-q3-fy25": {
       "similarity": 0.971406,
       "mae": 7.2914,
@@ -2082,6 +2136,12 @@
     "goldman-sachs-q1-fy26": {
       "similarity": 0.96779,
       "mae": 8.2137,
+      "width": 2667,
+      "height": 1500
+    },
+    "goldman-sachs-q2-fy26": {
+      "similarity": 0.971202,
+      "mae": 7.3436,
       "width": 2667,
       "height": 1500
     },
@@ -2241,6 +2301,12 @@
       "width": 2667,
       "height": 1500
     },
+    "ibm-q2-fy26": {
+      "similarity": 0.966788,
+      "mae": 8.4691,
+      "width": 2667,
+      "height": 1500
+    },
     "ibm-q4-fy25": {
       "similarity": 0.972408,
       "mae": 7.0359,
@@ -2349,6 +2415,12 @@
       "width": 2667,
       "height": 1500
     },
+    "jpmorganchase-q2-fy26": {
+      "similarity": 0.96055,
+      "mae": 10.0598,
+      "width": 2667,
+      "height": 1500
+    },
     "jpmorganchase-q4-fy25": {
       "similarity": 0.958199,
       "mae": 10.6592,
@@ -2436,6 +2508,12 @@
     "lam-research-q3-fy26": {
       "similarity": 0.962203,
       "mae": 9.6383,
+      "width": 2667,
+      "height": 1500
+    },
+    "lam-research-q4-fy26": {
+      "similarity": 0.962451,
+      "mae": 9.5751,
       "width": 2667,
       "height": 1500
     },
@@ -2598,6 +2676,12 @@
     "mastercard-q1-fy26": {
       "similarity": 0.96984,
       "mae": 7.6907,
+      "width": 2667,
+      "height": 1500
+    },
+    "mastercard-q2-fy26": {
+      "similarity": 0.966733,
+      "mae": 8.4831,
       "width": 2667,
       "height": 1500
     },
@@ -3048,6 +3132,12 @@
     "morgan-stanley-q1-fy26": {
       "similarity": 0.95472,
       "mae": 11.5463,
+      "width": 2667,
+      "height": 1500
+    },
+    "morgan-stanley-q2-fy26": {
+      "similarity": 0.957163,
+      "mae": 10.9234,
       "width": 2667,
       "height": 1500
     },
@@ -3783,6 +3873,12 @@
       "width": 2667,
       "height": 1500
     },
+    "robinhood-q2-fy26": {
+      "similarity": 0.959363,
+      "mae": 10.3623,
+      "width": 2667,
+      "height": 1500
+    },
     "robinhood-q3-fy25": {
       "similarity": 0.968333,
       "mae": 8.075,
@@ -3903,6 +3999,12 @@
       "width": 2667,
       "height": 1500
     },
+    "sap-q2-fy26": {
+      "similarity": 0.973212,
+      "mae": 6.831,
+      "width": 2667,
+      "height": 1500
+    },
     "sap-q4-fy25": {
       "similarity": 0.971123,
       "mae": 7.3637,
@@ -3912,6 +4014,12 @@
     "schwab-q1-fy26": {
       "similarity": 0.962892,
       "mae": 9.4624,
+      "width": 2667,
+      "height": 1500
+    },
+    "schwab-q2-fy26": {
+      "similarity": 0.962414,
+      "mae": 9.5845,
       "width": 2667,
       "height": 1500
     },
@@ -3948,6 +4056,12 @@
     "sentinelone-q4-fy26": {
       "similarity": 0.971017,
       "mae": 7.3908,
+      "width": 2667,
+      "height": 1500
+    },
+    "service-now-q2-fy26": {
+      "similarity": 0.970086,
+      "mae": 7.6281,
       "width": 2667,
       "height": 1500
     },
@@ -4020,6 +4134,12 @@
     "sofi-q1-fy26": {
       "similarity": 0.97349,
       "mae": 6.76,
+      "width": 2667,
+      "height": 1500
+    },
+    "sofi-q2-fy26": {
+      "similarity": 0.973616,
+      "mae": 6.728,
       "width": 2667,
       "height": 1500
     },
@@ -4122,6 +4242,12 @@
     "t-mobile-us-q1-fy26": {
       "similarity": 0.972228,
       "mae": 7.0817,
+      "width": 2667,
+      "height": 1500
+    },
+    "t-mobile-us-q2-fy26": {
+      "similarity": 0.967352,
+      "mae": 8.3251,
       "width": 2667,
       "height": 1500
     },
@@ -4314,6 +4440,12 @@
     "texas-instruments-q1-fy26": {
       "similarity": 0.979473,
       "mae": 5.2344,
+      "width": 2667,
+      "height": 1500
+    },
+    "texas-instruments-q2-fy26": {
+      "similarity": 0.97538,
+      "mae": 6.2781,
       "width": 2667,
       "height": 1500
     },
@@ -4605,6 +4737,12 @@
       "width": 2667,
       "height": 1500
     },
+    "verizon-q2-fy26": {
+      "similarity": 0.967624,
+      "mae": 8.256,
+      "width": 2667,
+      "height": 1500
+    },
     "verizon-q4-fy25": {
       "similarity": 0.961572,
       "mae": 9.7991,
@@ -4620,6 +4758,12 @@
     "visa-q2-fy26": {
       "similarity": 0.968026,
       "mae": 8.1535,
+      "width": 2667,
+      "height": 1500
+    },
+    "visa-q3-fy26": {
+      "similarity": 0.969734,
+      "mae": 7.7178,
       "width": 2667,
       "height": 1500
     },
@@ -4668,6 +4812,12 @@
     "wells-fargo-q1-fy26": {
       "similarity": 0.959843,
       "mae": 10.2399,
+      "width": 2667,
+      "height": 1500
+    },
+    "wells-fargo-q2-fy26": {
+      "similarity": 0.960243,
+      "mae": 10.1381,
       "width": 2667,
       "height": 1500
     },

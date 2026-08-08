@@ -297,6 +297,16 @@ business unit. Its items must sum to `profit.operating.value` within
 callout without an independent node face uses an Adapter non-node metric rather
 than inventing Sankey node geometry.
 
+Payment-network income statements may additionally preserve the Source's
+gross-to-net bridge under `revenue.paymentNetwork`: `gross` is the unlabeled or
+labeled gross payment-network total, `grossItems` are the Source-visible fee
+inputs, and `rebates` is the positive-magnitude contra-revenue face used by the
+Sankey View. These observations reconcile through the typed Source Coverage
+paths with the same names. They do not replace `revenue.total` or the ordinary
+`revenue.items` net-revenue composition, and they must not be flattened into
+ordinary positive revenue items when doing so would break net-revenue
+arithmetic.
+
 ### Revenue metric record
 
 ```js
