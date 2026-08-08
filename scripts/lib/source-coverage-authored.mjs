@@ -110,10 +110,13 @@ function incomePathValue(record, ref) {
     'profit.gross': record.profit?.gross,
     'profit.operating': record.profit?.operating,
     'profit.net': record.profit?.net,
+    'revenue.paymentNetwork.gross': record.revenue?.paymentNetwork?.gross,
+    'revenue.paymentNetwork.rebates': record.revenue?.paymentNetwork?.rebates,
   }[ref.path];
   if (direct) return direct.id === ref.id ? direct.value : undefined;
   const items = {
     'revenue.items': record.revenue?.items,
+    'revenue.paymentNetwork.grossItems': record.revenue?.paymentNetwork?.grossItems,
     'costs.costOfRevenue.items': record.costs?.costOfRevenue?.items,
     'costs.operatingExpenses.items': record.costs?.operatingExpenses?.items,
     'operatingOtherIncome.items': record.operatingOtherIncome?.items,

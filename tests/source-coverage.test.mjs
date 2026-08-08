@@ -209,6 +209,70 @@ test('Cost of revenue detail items reconcile through the typed Source Coverage p
   );
 });
 
+test('Payment-network gross items and rebates reconcile through typed Source Coverage paths', () => {
+  const sourceClassification = classification();
+  const inventory = createObjectInventory({
+    datasetKey: DATASET_KEY,
+    objects: [
+      {
+        id: 'node:domestic',
+        kind: 'financial-line-item',
+        disposition: 'render',
+        mapping: [
+          { role: 'data', target: 'incomeStatement.revenue.paymentNetwork.grossItems.domestic' },
+          { role: 'render', target: 'nodes.domestic' },
+        ],
+        features: ['visible-node-face'],
+      },
+      {
+        id: 'node:rebates',
+        kind: 'financial-line-item',
+        disposition: 'render',
+        mapping: [
+          { role: 'data', target: 'incomeStatement.revenue.paymentNetwork.rebates' },
+          { role: 'render', target: 'nodes.rebates' },
+        ],
+        features: ['visible-node-face'],
+      },
+    ],
+  });
+  const coverage = createSourceCoverage({
+    classification: sourceClassification,
+    source: sourceClassification.source,
+    scanPasses: SOURCE_COVERAGE_SCAN_PASSES,
+    items: [
+      {
+        sourceId: 'source:domestic', sourceClass: 'financial-value', sourceLabel: 'Domestic $3.2B',
+        contentBBox: [100, 200, 180, 80], inventoryObjectIds: ['node:domestic'],
+        amount: { literal: '$3.2B', value: '3.2', unit: 'B', resolution: '0.1' },
+        ssotRef: { family: 'income-statement', path: 'revenue.paymentNetwork.grossItems', id: 'domestic' },
+        face: { searchBBox: [200, 250, 90, 100], observedBBox: [210, 260, 72, 80] },
+      },
+      {
+        sourceId: 'source:rebates', sourceClass: 'financial-value', sourceLabel: 'Rebates ($6.0B)',
+        contentBBox: [500, 400, 180, 160], inventoryObjectIds: ['node:rebates'],
+        amount: { literal: '($6.0B)', value: '6.0', unit: 'B', resolution: '0.1' },
+        ssotRef: { family: 'income-statement', path: 'revenue.paymentNetwork.rebates', id: 'rebates' },
+        face: { searchBBox: [600, 430, 90, 170], observedBBox: [610, 440, 72, 155] },
+      },
+    ],
+  }, { inventory, adapter: 'income-statement' });
+  const loaded = loadedData();
+  loaded.records[0].revenue.paymentNetwork = {
+    gross: { id: 'network_revenue', value: 11.5 },
+    grossItems: [{ id: 'domestic', value: 3.2 }],
+    rebates: { id: 'rebates', value: 6.0 },
+  };
+  loaded.datasets[0].nodes.push(
+    { id: 'domestic', value: 3.2, valueText: '$3.2B' },
+    { id: 'rebates', value: 6.0, valueText: '($6.0B)' }
+  );
+  assert.deepEqual(
+    assertSourceCoverageAuthoredValues(coverage, { loadedData: loaded }),
+    { checked: 2, unit: 'B' }
+  );
+});
+
 test('Gross profit contribution items reconcile through the typed Source Coverage path', () => {
   const sourceClassification = classification();
   const inventory = createObjectInventory({

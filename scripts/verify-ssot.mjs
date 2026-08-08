@@ -262,6 +262,27 @@ function validateDatasetParity(record, dataset, domain, errors) {
   }
 }
 
+function validateDatasetCompanyIdentity(record, dataset, domain, companies, errors) {
+  if (typeof domain?.companyFor !== 'function' || typeof domain?.buildCompanyMetadataIndex !== 'function') {
+    errors.push('src/trace-domain.js did not expose the company identity helpers');
+    return;
+  }
+
+  const companyMetadataByName = domain.buildCompanyMetadataIndex(companies);
+  const recordCompany = String(record.company || '').trim();
+  const datasetCompany = domain.companyFor(dataset);
+  const recordMetadata = companyMetadataByName.get(normalize(recordCompany));
+  const datasetMetadata = companyMetadataByName.get(normalize(datasetCompany));
+  const recordIdentity = recordMetadata?.key || normalize(recordCompany);
+  const datasetIdentity = datasetMetadata?.key || normalize(datasetCompany);
+
+  assert(
+    datasetIdentity === recordIdentity,
+    `${record.key}: Adapter company "${datasetCompany}" resolves to entity "${datasetIdentity}", but Metric SSOT company "${recordCompany}" resolves to "${recordIdentity}"; set dataset.company/meta.company or add an intentional company-metadata alias`,
+    errors
+  );
+}
+
 function validateArithmetic(record, errors) {
   const tolerance = record.roundingTolerance ?? 0.15;
   const revenueItems = sum(record.revenue.items);
@@ -604,6 +625,7 @@ function main() {
     const dataset = datasetsByKey.get(record.key);
     assert(dataset, `${record.key}: matching Sankey dataset was not loaded`, errors);
     if (dataset && typeof loaded.domain?.normalizeSankeyMetricValue === 'function') {
+      validateDatasetCompanyIdentity(record, dataset, loaded.domain, companies, errors);
       validateDatasetParity(record, dataset, loaded.domain, errors);
     }
     validateArithmetic(record, errors);
