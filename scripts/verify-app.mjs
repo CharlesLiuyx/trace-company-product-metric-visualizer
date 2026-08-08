@@ -917,7 +917,7 @@ await scenario('comparison: Apple all periods preserve one monetary scale', asyn
     { timeout: 20000 }
   );
 
-  assert(expectedCount === 15, `Apple all-period regression fixture changed from 15 to ${expectedCount}`);
+  assert(expectedCount === 16, `Apple all-period regression fixture changed from 16 to ${expectedCount}`);
   assertComparisonMoneyScale(
     await comparisonMoneyScaleSnapshot(page),
     expectedCount,

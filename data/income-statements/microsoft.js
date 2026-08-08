@@ -1377,6 +1377,99 @@
       },
     },
     {
+      key: 'microsoft-q4-fy26-by-bu',
+      company: 'Microsoft',
+      period: 'Q4 FY26',
+      periodNote: 'Ending June 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/microsoft-q4-fy26-by-bu.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 90.0,
+        notes: ['+18% Y/Y'],
+        items: [
+          {
+            id: 'productivity_business_processes',
+            label: 'Productivity & Business Processes',
+            value: 37.8,
+            notes: ['+14% Y/Y', '58% operating margin', '+1pp Y/Y'],
+          },
+          {
+            id: 'intelligent_cloud',
+            label: 'Intelligent Cloud',
+            value: 39.3,
+            notes: ['+32% Y/Y', '41% operating margin', '(0pp) Y/Y'],
+          },
+          {
+            id: 'more_personal_computing',
+            label: 'More Personal Computing',
+            value: 12.9,
+            notes: ['(4%) Y/Y', '21% operating margin', '(2pp) Y/Y'],
+          },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 29.5 },
+        operatingExpenses: {
+          total: 19.9,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 10.0, notes: ['11% of revenue', '(0pp) Y/Y'] },
+            { id: 'sm', label: 'S&M', value: 7.6, notes: ['8% of revenue', '(1pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 2.3, notes: ['3% of revenue', '(0pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 8.3 },
+      },
+      otherIncome: {
+        total: 3.4,
+        items: [{ id: 'other', label: 'Other', value: 3.4 }],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 60.5, notes: ['67% margin', '(1pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 40.6, notes: ['45% margin', '+0pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 35.8, notes: ['40% margin', '+4pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第四季度',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 +18%'],
+            items: [
+              { id: 'productivity_business_processes', label: '生产力与业务流程', notes: ['同比 +14%', '营业利润率 58%', '同比 +1 个百分点'] },
+              { id: 'intelligent_cloud', label: '智能云', notes: ['同比 +32%', '营业利润率 41%', '同比 (0 个百分点)'] },
+              { id: 'more_personal_computing', label: '更多个人计算', notes: ['同比 (4%)', '营业利润率 21%', '同比 (2 个百分点)'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 11%', '同比 (0 个百分点)'] },
+                { id: 'sm', label: '销售与市场', notes: ['占收入 8%', '同比 (1 个百分点)'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 3%', '同比 (0 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: {
+            items: [{ id: 'other', label: '其他' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 67%', '同比 (1 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 45%', '同比 +0 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 40%', '同比 +4 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'microsoft-q3-fy26',
       company: 'Microsoft',
       period: 'Q3 FY26',
@@ -2090,6 +2183,92 @@
               { id: 'intelligent_cloud', label: '智能云', notes: ['同比 +26%', '营业利润率 41%', '同比 (1 个百分点)'] },
               { id: 'more_personal_computing', label: '更多个人计算', notes: ['同比 +9%', '营业利润率 24%', '同比 +4 个百分点'] },
             ],
+          },
+        },
+      },
+    },
+    {
+      key: 'microsoft-fy26',
+      company: 'Microsoft',
+      period: 'FY26',
+      periodNote: 'Ending June 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/microsoft-fy26.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 331.8,
+        notes: [
+          '+18% Y/Y',
+          'Source chart business-line items sum to $331.9B versus reported revenue of $331.8B; retained as source business attribution with rounding tolerance.',
+        ],
+        items: [
+          { id: 'server', label: 'Server products & cloud services', value: 129.4, notes: ['+31% Y/Y'] },
+          { id: 'microsoft_365_commercial', label: 'Microsoft 365 Commercial', value: 102.0, notes: ['+16% Y/Y'] },
+          { id: 'xbox', label: 'Xbox', value: 21.8, notes: ['(7%) Y/Y'] },
+          { id: 'linkedin', label: 'LinkedIn', value: 19.8, notes: ['+11% Y/Y'] },
+          { id: 'windows_devices', label: 'Windows & Devices', value: 17.1, notes: ['(1%) Y/Y'] },
+          { id: 'search', label: 'Search', value: 15.2, notes: ['+9% Y/Y'] },
+          { id: 'other_revenue', label: 'Other', value: 26.6, notes: ['+15% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 106.4 },
+        operatingExpenses: {
+          total: 70.2,
+          notes: ['Source chart operating-expense items sum to $70.3B because each item is displayed to one decimal place.'],
+          items: [
+            { id: 'rnd', label: 'R&D', value: 35.6, notes: ['11% of revenue', '(1pp) Y/Y'] },
+            { id: 'sm', label: 'S&M', value: 26.7, notes: ['8% of revenue', '(1pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 8.0, notes: ['2% of revenue', '(0pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 32.2 },
+      },
+      otherIncome: {
+        total: 10.7,
+        items: [{ id: 'other', label: 'Other', value: 10.7 }],
+      },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 225.5, notes: ['69% margin', '(1pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 155.2, notes: ['47% margin', '+1pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 133.8, notes: ['40% margin', '+4pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 +18%', '来源图中的业务线合计为 $331.9B，报告收入为 $331.8B；保留来源业务归属并采用取整容差。'],
+            items: [
+              { id: 'server', label: '服务器产品与云服务', notes: ['同比 +31%'] },
+              { id: 'microsoft_365_commercial', label: 'Microsoft 365 商业版', notes: ['同比 +16%'] },
+              { id: 'xbox', label: 'Xbox 游戏', notes: ['同比 (7%)'] },
+              { id: 'linkedin', label: 'LinkedIn', notes: ['同比 +11%'] },
+              { id: 'windows_devices', label: 'Windows 与设备', notes: ['同比 (1%)'] },
+              { id: 'search', label: '搜索', notes: ['同比 +9%'] },
+              { id: 'other_revenue', label: '其他', notes: ['同比 +15%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              notes: ['来源图中的运营费用明细因各项目显示至一位小数而合计为 $70.3B。'],
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 11%', '同比 (1 个百分点)'] },
+                { id: 'sm', label: '销售与市场', notes: ['占收入 8%', '同比 (1 个百分点)'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 2%', '同比 (0 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: { items: [{ id: 'other', label: '其他' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 69%', '同比 (1 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 47%', '同比 +1 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 40%', '同比 +4 个百分点'] },
           },
         },
       },

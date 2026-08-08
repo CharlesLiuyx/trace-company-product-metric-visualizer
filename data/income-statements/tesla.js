@@ -10,6 +10,113 @@
 
   ssot.records.push(
     {
+      key: 'tesla-q2-fy26',
+      company: 'Tesla',
+      period: 'Q2 FY26',
+      periodNote: 'Ending Jun. 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/tesla-q2-fy26.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 28.2,
+        notes: ['+26% Y/Y'],
+        items: [
+          {
+            id: 'auto',
+            label: 'Auto',
+            value: 20.5,
+            notes: ['+23% Y/Y'],
+            children: [
+              { id: 'auto_sales', label: 'Auto sales', value: 20.0, notes: ['+27% Y/Y'] },
+              { id: 'regulatory_credits', label: 'Regulatory credits', value: 0.1, notes: ['(67%) Y/Y'] },
+              { id: 'leasing', label: 'Leasing', value: 0.4, notes: ['(16%) Y/Y'] },
+            ],
+          },
+          {
+            id: 'energy_generation_storage',
+            label: 'Energy generation & storage',
+            value: 3.1,
+            notes: ['+13% Y/Y'],
+          },
+          { id: 'services', label: 'Services', value: 4.6, notes: ['+50% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 23.5 },
+        operatingExpenses: {
+          total: 4.4,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 2.4, notes: ['8% of revenue', '+1pp Y/Y'] },
+            { id: 'sga', label: 'SG&A', value: 2.0, notes: ['7% of revenue', '+1pp Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.2 },
+      },
+      otherIncome: {
+        total: 0.9,
+        items: [
+          { id: 'other', label: 'Other', value: 0.6 },
+          { id: 'interest', label: 'Interest', value: 0.3 },
+        ],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 4.7, notes: ['17% margin', '(0pp) Y/Y'] },
+        operating: {
+          id: 'operating_profit',
+          label: 'Operating profit',
+          value: 0.4,
+          notes: ['1% margin', '(3pp) Y/Y'],
+        },
+        net: { id: 'net_profit', label: 'Net profit', value: 1.1, notes: ['4% margin', '(1pp) Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 +26%'],
+            items: [
+              {
+                id: 'auto',
+                label: '汽车业务',
+                notes: ['同比 +23%'],
+                children: [
+                  { id: 'auto_sales', label: '汽车销售', notes: ['同比 +27%'] },
+                  { id: 'regulatory_credits', label: '监管积分', notes: ['同比 (67%)'] },
+                  { id: 'leasing', label: '租赁', notes: ['同比 (16%)'] },
+                ],
+              },
+              { id: 'energy_generation_storage', label: '能源发电与储能', notes: ['同比 +13%'] },
+              { id: 'services', label: '服务', notes: ['同比 +50%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 8%', '同比 +1 个百分点'] },
+                { id: 'sga', label: '销售及管理', notes: ['占收入 7%', '同比 +1 个百分点'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: {
+            items: [
+              { id: 'other', label: '其他' },
+              { id: 'interest', label: '利息' },
+            ],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 17%', '同比 (0 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 1%', '同比 (3 个百分点)'] },
+            net: { label: '净利润', notes: ['利润率 4%', '同比 (1 个百分点)'] },
+          },
+        },
+      },
+    },
+    {
       key: 'tesla-q2-fy23',
       company: 'Tesla',
       period: 'Q2 FY23',

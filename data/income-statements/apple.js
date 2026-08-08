@@ -10,6 +10,116 @@
 
   ssot.records.push(
     {
+      key: 'apple-q3-fy26',
+      company: 'Apple',
+      period: 'Q3 FY26',
+      periodNote: 'Ending June 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/apple-q3-fy26.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 109.4,
+        notes: ['+16% Y/Y'],
+        items: [
+          {
+            id: 'products',
+            label: 'Products',
+            value: 78.7,
+            notes: ['+18% Y/Y'],
+            children: [
+              { id: 'iphone', label: 'iPhone', value: 54.3, notes: ['+22% Y/Y'] },
+              { id: 'mac', label: 'Mac', value: 10.4, notes: ['+29% Y/Y', 'Air, Pro, Mini'] },
+              { id: 'ipad', label: 'iPad', value: 6.2, notes: ['(6%) Y/Y'] },
+              {
+                id: 'wearables',
+                label: 'Wearables, Home, and Accessories',
+                value: 7.9,
+                notes: ['+6% Y/Y'],
+              },
+            ],
+          },
+          { id: 'services', label: 'Services', value: 30.7, notes: ['+12% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          id: 'cost_of_revenue',
+          label: 'Cost of revenue',
+          value: 54.6,
+          items: [
+            { id: 'product_cost', label: 'Products', value: 47.1, notes: ['40% gross margin'] },
+            { id: 'service_cost', label: 'Services', value: 7.5, notes: ['76% gross margin'] },
+          ],
+        },
+        operatingExpenses: {
+          total: 19.1,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 11.7, notes: ['11% of revenue', '+1pp Y/Y'] },
+            { id: 'sga', label: 'SG&A', value: 7.3, notes: ['7% of revenue', '(0pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 6.4 },
+      },
+      otherIncome: {
+        total: 0.6,
+        items: [{ id: 'other_income', label: 'Other', value: 0.6 }],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 54.8, notes: ['50% margin', '+4pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 35.7, notes: ['33% margin', '+3pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 29.8, notes: ['27% margin', '+2pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第三季度',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 +16%'],
+            items: [
+              {
+                id: 'products', label: '产品', notes: ['同比 +18%'],
+                children: [
+                  { id: 'iphone', label: 'iPhone', notes: ['同比 +22%'] },
+                  { id: 'mac', label: 'Mac', notes: ['同比 +29%', 'Air、Pro、Mini'] },
+                  { id: 'ipad', label: 'iPad', notes: ['同比 (6%)'] },
+                  { id: 'wearables', label: '可穿戴设备、家居与配件', notes: ['同比 +6%'] },
+                ],
+              },
+              { id: 'services', label: '服务', notes: ['同比 +12%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: {
+              label: '收入成本',
+              items: [
+                { id: 'product_cost', label: '产品', notes: ['毛利率 40%'] },
+                { id: 'service_cost', label: '服务', notes: ['毛利率 76%'] },
+              ],
+            },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 11%', '同比 +1 个百分点'] },
+                { id: 'sga', label: '销售、一般及行政', notes: ['占收入 7%', '同比 (0 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: { items: [{ id: 'other_income', label: '其他' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 50%', '同比 +4 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 33%', '同比 +3 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 27%', '同比 +2 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'apple-q4-fy25',
       company: 'Apple',
       period: 'Q4 FY25',

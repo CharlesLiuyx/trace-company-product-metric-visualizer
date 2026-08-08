@@ -17357,6 +17357,530 @@
             }
           }
         }
+      },
+      {
+        "key": "alphabet-q2-fy26",
+        "src": "data/datasets/alphabet-q2-fy26.js",
+        "data": {
+          "name": "Alphabet - Q2 FY26",
+          "company": "Alphabet",
+          "meta": {
+            "title": "Alphabet Q2 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Alphabet · 2026 财年第二季度",
+              "meta": {
+                "title": "Alphabet 2026 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ferrari-q2-fy26",
+        "src": "data/datasets/ferrari-q2-fy26.js",
+        "data": {
+          "name": "Ferrari · Q2 FY26",
+          "company": "Ferrari",
+          "meta": {
+            "title": "Ferrari Q2 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "法拉利 · 2026 财年第二季度",
+              "meta": {
+                "title": "法拉利 2026 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "meta-q2-fy26",
+        "src": "data/datasets/meta-q2-fy26.js",
+        "data": {
+          "name": "Meta - Q2 FY26",
+          "company": "Meta",
+          "meta": {
+            "title": "Meta Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Meta · 2026 财年第二季度",
+              "meta": {
+                "title": "Meta 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "gm-q2-fy26",
+        "src": "data/datasets/gm-q2-fy26.js",
+        "data": {
+          "name": "GM · Q2 FY26",
+          "company": "GM",
+          "meta": {
+            "title": "GM Q2 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "GM · 2026 财年第二季度",
+              "meta": {
+                "title": "GM 2026 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "qualcomm-q3-fy26",
+        "src": "data/datasets/qualcomm-q3-fy26.js",
+        "data": {
+          "name": "Qualcomm · Q3 FY26",
+          "company": "Qualcomm",
+          "meta": {
+            "title": "Qualcomm Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending June 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Qualcomm · 2026 财年第三季度",
+              "meta": {
+                "title": "Qualcomm 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tesla-q2-fy26",
+        "src": "data/datasets/tesla-q2-fy26.js",
+        "data": {
+          "name": "Tesla - Q2 FY26",
+          "company": "Tesla",
+          "meta": {
+            "title": "Tesla Q2 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tesla · 2026 财年第二季度",
+              "meta": {
+                "title": "Tesla 2026 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "roblox-q2-fy26",
+        "src": "data/datasets/roblox-q2-fy26.js",
+        "data": {
+          "name": "Roblox · Q2 FY26",
+          "company": "Roblox",
+          "meta": {
+            "title": "Roblox Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Roblox · 2026 财年第二季度",
+              "meta": {
+                "title": "Roblox 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "microsoft-fy26",
+        "src": "data/datasets/microsoft-fy26.js",
+        "data": {
+          "name": "Microsoft · FY26",
+          "company": "Microsoft",
+          "meta": {
+            "title": "Microsoft FY26 Income Statement",
+            "period": "FY26",
+            "periodNote": "Ending June 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Microsoft · 2026 财年",
+              "meta": {
+                "title": "Microsoft 2026 财年利润表",
+                "period": "2026 财年",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "arm-q1-fy27",
+        "src": "data/datasets/arm-q1-fy27.js",
+        "data": {
+          "name": "Arm Holdings · Q1 FY27",
+          "company": "Arm Holdings",
+          "meta": {
+            "title": "Arm Holdings Q1 FY27 Income Statement",
+            "period": "Q1 FY27",
+            "periodNote": "Ending June 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Arm Holdings · 2027 财年第一季度",
+              "meta": {
+                "title": "Arm Holdings 2027 财年第一季度利润表",
+                "period": "2027 财年第一季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "reddit-q2-fy26",
+        "src": "data/datasets/reddit-q2-fy26.js",
+        "data": {
+          "name": "Reddit · Q2 FY26",
+          "company": "Reddit",
+          "meta": {
+            "title": "Reddit Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Reddit · 2026 财年第二季度",
+              "meta": {
+                "title": "Reddit 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amc-q2-fy26",
+        "src": "data/datasets/amc-q2-fy26.js",
+        "data": {
+          "name": "AMC Entertainment · Q2 FY26",
+          "company": "AMC Entertainment",
+          "meta": {
+            "title": "AMC Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Three months ended Jun. 30, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AMC 娱乐 · 2026 财年第二季度",
+              "meta": {
+                "title": "AMC 娱乐 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月 30 日的三个月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ford-q2-fy26",
+        "src": "data/datasets/ford-q2-fy26.js",
+        "data": {
+          "name": "Ford · Q2 FY26",
+          "company": "Ford",
+          "meta": {
+            "title": "Ford Q2 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "福特 · 2026 财年第二季度",
+              "meta": {
+                "title": "福特 2026 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "microsoft-q4-fy26-by-bu",
+        "src": "data/datasets/microsoft-q4-fy26-by-bu.js",
+        "data": {
+          "name": "Microsoft · Q4 FY26 ByBU",
+          "company": "Microsoft",
+          "meta": {
+            "title": "Microsoft Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending June 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Microsoft · 2026 财年第四季度（按业务部门）",
+              "meta": {
+                "title": "Microsoft 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sk-hynix-q2-fy26",
+        "src": "data/datasets/sk-hynix-q2-fy26.js",
+        "data": {
+          "name": "SK hynix · Q2 FY26",
+          "company": "SK hynix",
+          "meta": {
+            "title": "SKHynix Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "SK 海力士 · 2026 财年第二季度",
+              "meta": {
+                "title": "SK 海力士 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tsmc-q2-fy26",
+        "src": "data/datasets/tsmc-q2-fy26.js",
+        "data": {
+          "name": "TSMC · Q2 FY26",
+          "company": "TSMC",
+          "meta": {
+            "title": "TSMC Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "TSMC · 2026 财年第二季度",
+              "meta": {
+                "title": "TSMC 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "asml-q2-fy26",
+        "src": "data/datasets/asml-q2-fy26.js",
+        "data": {
+          "name": "ASML · Q2 FY26",
+          "company": "ASML",
+          "meta": {
+            "title": "ASML Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ASML · 2026 财年第二季度",
+              "meta": {
+                "title": "ASML 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "netflix-q2-fy26",
+        "src": "data/datasets/netflix-q2-fy26.js",
+        "data": {
+          "name": "Netflix - Q2 FY26",
+          "company": "Netflix",
+          "meta": {
+            "title": "Netflix Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Netflix · 2026 财年第二季度",
+              "meta": {
+                "title": "Netflix 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "kla-q4-fy26",
+        "src": "data/datasets/kla-q4-fy26.js",
+        "data": {
+          "name": "KLA · Q4 FY26",
+          "company": "KLA",
+          "meta": {
+            "title": "KLA Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending June 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "科磊 · 2026 财年第四季度",
+              "meta": {
+                "title": "科磊 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "live-nation-q2-fy26",
+        "src": "data/datasets/live-nation-q2-fy26.js",
+        "data": {
+          "name": "Live Nation · Q2 FY26",
+          "company": "Live Nation",
+          "meta": {
+            "title": "Live Nation Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Live Nation · 2026 财年第二季度",
+              "meta": {
+                "title": "Live Nation 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "apple-q3-fy26",
+        "src": "data/datasets/apple-q3-fy26.js",
+        "data": {
+          "name": "Apple · Q3 FY26",
+          "company": "Apple",
+          "meta": {
+            "title": "Apple Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending June 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Apple · 2026 财年第三季度",
+              "meta": {
+                "title": "Apple 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "rivian-q2-fy26",
+        "src": "data/datasets/rivian-q2-fy26.js",
+        "data": {
+          "name": "Rivian · Q2 FY26",
+          "company": "Rivian",
+          "meta": {
+            "title": "Rivian Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Rivian · 2026 财年第二季度",
+              "meta": {
+                "title": "Rivian 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intel-q2-fy26",
+        "src": "data/datasets/intel-q2-fy26.js",
+        "data": {
+          "name": "Intel · Q2 FY26",
+          "company": "Intel",
+          "meta": {
+            "title": "Intel Q2 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Intel · 2026 财年第二季度",
+              "meta": {
+                "title": "英特尔 2026 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "samsung-q2-fy26",
+        "src": "data/datasets/samsung-q2-fy26.js",
+        "data": {
+          "name": "Samsung · Q2 FY26",
+          "company": "Samsung",
+          "meta": {
+            "title": "Samsung Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Samsung · 2026 财年第二季度",
+              "meta": {
+                "title": "Samsung 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amazon-q2-fy26",
+        "src": "data/datasets/amazon-q2-fy26.js",
+        "data": {
+          "name": "Amazon · Q2 FY26",
+          "company": "Amazon",
+          "meta": {
+            "title": "Amazon Q2 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Amazon · 2026 财年第二季度",
+              "meta": {
+                "title": "Amazon 2026 财年第二季度利润表"
+              }
+            }
+          }
+        }
       }
     ]
   };

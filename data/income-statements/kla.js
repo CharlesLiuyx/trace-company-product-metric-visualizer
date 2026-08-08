@@ -219,6 +219,130 @@
         },
       },
     },
+    },
+    {
+      key: 'kla-q4-fy26',
+      company: 'KLA',
+      period: 'Q4 FY26',
+      periodNote: 'Ending June 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 3,
+      sourceImage: 'input/processed/kla-q4-fy26.png',
+      roundingTolerance: 0.051,
+      revenue: {
+        total: 3.657556,
+        notes: ['+15% Y/Y'],
+        items: [
+          { id: 'wafer_inspection', label: 'Wafer Inspection', value: 1.781116, notes: ['+1% Y/Y'] },
+          { id: 'patterning', label: 'Patterning', value: 0.728099, notes: ['+61% Y/Y'] },
+          {
+            id: 'specialty_semi_process',
+            label: 'Specialty Semi Process',
+            value: 0.136513,
+            notes: ['+11% Y/Y'],
+          },
+          {
+            id: 'pcb_component_inspection',
+            label: 'PCB and Component Inspection',
+            value: 0.167526,
+            notes: ['+96% Y/Y'],
+          },
+          { id: 'services', label: 'Services', value: 0.820405, notes: ['+17% Y/Y'] },
+          { id: 'other_revenue', label: 'Other', value: 0.023897, notes: ['(39%) Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 1.413108 },
+        operatingExpenses: {
+          total: 0.6905,
+          items: [
+            {
+              id: 'rnd',
+              label: 'Research & Development',
+              value: 0.399023,
+              notes: ['11% of revenue', '(0pp) Y/Y'],
+            },
+            {
+              id: 'sga',
+              label: 'Sales, General & Admin',
+              value: 0.291477,
+              notes: ['8% of revenue', '(0pp) Y/Y'],
+            },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.186326 },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: {
+        total: 0.004563,
+        items: [{ id: 'other_expense', label: 'Other', value: 0.004563 }],
+      },
+      profit: {
+        gross: {
+          id: 'gross_profit',
+          label: 'Gross profit',
+          value: 2.244448,
+          notes: ['61% margin', '(1pp) Y/Y'],
+        },
+        operating: {
+          id: 'operating_profit',
+          label: 'Operating profit',
+          value: 1.553948,
+          notes: ['42% margin', '(0pp) Y/Y'],
+        },
+        net: {
+          id: 'net_profit',
+          label: 'Net profit',
+          value: 1.363059,
+          notes: ['37% margin', '(1pp) Y/Y'],
+        },
+      },
+      sources: [
+        {
+          name: 'KLA fiscal 2026 Form 10-K',
+          url: 'https://www.sec.gov/Archives/edgar/data/319201/000031920126000027/klac-20260630.htm',
+          note:
+            'Exact Q4 product-category revenues are the FY26 Form 10-K totals less the nine-month FY26 values in KLA\'s Q3 Form 10-Q. Exact GAAP statement values come from the Q4 earnings release and FY26 Form 10-K; display text follows the rounded reference infographic.',
+        },
+        {
+          name: 'KLA fiscal 2026 fourth-quarter earnings release',
+          url: 'https://ir.kla.com/news-events/press-releases/detail/518/kla-corporation-reports-fiscal-2026-fourth-quarter-and-full',
+        },
+      ],
+      i18n: {
+        zh: {
+          period: '2026 财年第四季度',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 +15%'],
+            items: [
+              { id: 'wafer_inspection', label: '晶圆检测', notes: ['同比 +1%'] },
+              { id: 'patterning', label: '图形化', notes: ['同比 +61%'] },
+              { id: 'specialty_semi_process', label: '专用半导体制程', notes: ['同比 +11%'] },
+              { id: 'pcb_component_inspection', label: 'PCB 与元器件检测', notes: ['同比 +96%'] },
+              { id: 'services', label: '服务', notes: ['同比 +17%'] },
+              { id: 'other_revenue', label: '其他', notes: ['同比 (39%)'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 11%', '同比 (0 个百分点)'] },
+                { id: 'sga', label: '销售、一般及管理', notes: ['占收入 8%', '同比 (0 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherExpenses: { items: [{ id: 'other_expense', label: '其他' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 61%', '同比 (1 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 42%', '同比 (0 个百分点)'] },
+            net: { label: '净利润', notes: ['利润率 37%', '同比 (1 个百分点)'] },
+          },
+        },
+      },
     }
   );
 })(window);

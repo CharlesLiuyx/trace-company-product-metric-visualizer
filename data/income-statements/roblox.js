@@ -10,6 +10,81 @@
 
   ssot.records.push(
     {
+      key: 'roblox-q2-fy26',
+      company: 'Roblox',
+      period: 'Q2 FY26',
+      periodNote: 'Ending Jun. 2026',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/roblox-q2-fy26.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 1469,
+        notes: ['+36% Y/Y'],
+        items: [
+          { id: 'north_america', label: 'North America', value: 846, notes: ['+26% Y/Y'] },
+          { id: 'europe', label: 'Europe', value: 304, notes: ['+49% Y/Y'] },
+          { id: 'apac', label: 'APAC', value: 175, notes: ['+51% Y/Y'] },
+          { id: 'rest_of_world', label: 'Rest of world', value: 144, notes: ['+59% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 292 },
+        operatingExpenses: {
+          total: 1406,
+          items: [
+            { id: 'developer_fees', label: 'Developer fees', value: 363, notes: ['25% of revenue', '(5pp) Y/Y'] },
+            { id: 'infrastructure', label: 'Infrastructure', value: 363, notes: ['25% of revenue', '+1pp Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 420, notes: ['29% of revenue', '(7pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 199, notes: ['14% of revenue', '(1pp) Y/Y'] },
+            { id: 'sm', label: 'S&M', value: 61, notes: ['4% of revenue', '(1pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0 },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 1177, notes: ['80% margin', '+2pp Y/Y'] },
+        operating: { id: 'operating_loss', label: 'Operating loss', value: -229, notes: ['(16%) margin', '+14pp Y/Y'] },
+        net: { id: 'operating_loss', label: 'Operating loss', value: -229, notes: ['No separate net income line is shown in the source chart.'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 +36%'],
+            items: [
+              { id: 'north_america', label: '北美', notes: ['同比 +26%'] },
+              { id: 'europe', label: '欧洲', notes: ['同比 +49%'] },
+              { id: 'apac', label: '亚太', notes: ['同比 +51%'] },
+              { id: 'rest_of_world', label: '世界其他地区', notes: ['同比 +59%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'developer_fees', label: '开发者费用', notes: ['占收入 25%', '同比 (5 个百分点)'] },
+                { id: 'infrastructure', label: '基础设施', notes: ['占收入 25%', '同比 +1 个百分点'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 29%', '同比 (7 个百分点)'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 14%', '同比 (1 个百分点)'] },
+                { id: 'sm', label: '销售与市场', notes: ['占收入 4%', '同比 (1 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 80%', '同比 +2 个百分点'] },
+            operating: { label: '营业亏损', notes: ['利润率 (16%)', '同比 +14 个百分点'] },
+            net: { label: '营业亏损', notes: ['来源图未单独显示净利润项目。'] },
+          },
+        },
+      },
+    },
+    {
       key: 'roblox-q1-fy26',
       company: 'Roblox',
       period: 'Q1 FY26',

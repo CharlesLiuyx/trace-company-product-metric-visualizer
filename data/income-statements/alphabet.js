@@ -1180,6 +1180,132 @@
       },
     },
     {
+      key: 'alphabet-q2-fy26',
+      company: 'Alphabet',
+      period: 'Q2 FY26',
+      periodNote: 'Ending Jun. 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/alphabet-q2-fy26.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 119.8,
+        notes: ['+24% Y/Y'],
+        items: [
+          {
+            id: 'ad_revenue',
+            label: 'Ad Revenue',
+            value: 81.6,
+            notes: ['+14% Y/Y', 'Source chart advertising detail sums to $81.7B due to rounding.'],
+            children: [
+              { id: 'search_advertising', label: 'Search advertising', value: 63.3, notes: ['+17% Y/Y'] },
+              { id: 'youtube', label: 'YouTube', value: 11.1, notes: ['+13% Y/Y'] },
+              {
+                id: 'google_admob',
+                label: 'Google AdMob',
+                value: 7.3,
+                notes: ['(1%) Y/Y', 'AdSense & Google Ad Manager'],
+              },
+            ],
+          },
+          {
+            id: 'google_play_devices',
+            label: 'Google Play, devices, and subscriptions',
+            value: 12.9,
+            notes: ['+15% Y/Y', 'Fitbit, Google Nest, Pixel, YouTube Premium & TV'],
+          },
+          {
+            id: 'google_cloud',
+            label: 'Google Cloud',
+            value: 24.8,
+            notes: ['+82% Y/Y', 'Workspace, Enterprise Android, Chrome OS, Other APIs'],
+          },
+          { id: 'other_revenue', label: 'Other', value: 0.5 },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          id: 'cost_of_revenue',
+          label: 'Cost of revenues',
+          value: 45.9,
+          items: [
+            { id: 'cost_other', label: 'Other', value: 29.8 },
+            { id: 'tac', label: 'TAC', value: 16.1 },
+          ],
+        },
+        operatingExpenses: {
+          total: 33.1,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 18.2, notes: ['15% of revenue', '+1pp Y/Y'] },
+            { id: 'sm', label: 'S&M', value: 8.4, notes: ['7% of revenue', '(0pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 6.5, notes: ['5% of revenue', '(0pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 26.6 },
+      },
+      otherIncome: {
+        total: 98.0,
+        items: [{ id: 'investment_gains', label: 'Investment gains', value: 98.0 }],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 73.9, notes: ['62% margin', '+2pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 40.8, notes: ['34% margin', '+2pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 112.2 },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 +24%'],
+            items: [
+              {
+                id: 'ad_revenue', label: '广告收入', notes: ['同比 +14%', '来源图广告明细因四舍五入合计为 $81.7B。'],
+                children: [
+                  { id: 'search_advertising', label: '搜索广告', notes: ['同比 +17%'] },
+                  { id: 'youtube', label: 'YouTube', notes: ['同比 +13%'] },
+                  { id: 'google_admob', label: 'Google AdMob', notes: ['同比 (1%)', 'AdSense 与 Google 广告管理平台'] },
+                ],
+              },
+              { id: 'google_play_devices', label: 'Google Play、设备与订阅', notes: ['同比 +15%', 'Fitbit、Google Nest、Pixel、YouTube Premium 与电视'] },
+              { id: 'google_cloud', label: 'Google Cloud', notes: ['同比 +82%', 'Workspace、企业 Android、Chrome OS 与其他 API'] },
+              { id: 'other_revenue', label: '其他' },
+            ],
+          },
+          costs: {
+            costOfRevenue: {
+              label: '收入成本',
+              items: [
+                { id: 'cost_other', label: '其他' },
+                { id: 'tac', label: '流量获取成本' },
+              ],
+            },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 15%', '同比 +1 个百分点'] },
+                { id: 'sm', label: '销售与市场', notes: ['占收入 7%', '同比 (0 个百分点)'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 5%', '同比 (0 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: {
+            items: [{ id: 'investment_gains', label: '投资收益' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 62%', '同比 +2 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 34%', '同比 +2 个百分点'] },
+            net: { label: '净利润' },
+          },
+        },
+      },
+    },
+    {
       key: 'alphabet-q2-fy25',
       company: 'Alphabet',
       period: 'Q2 FY25',

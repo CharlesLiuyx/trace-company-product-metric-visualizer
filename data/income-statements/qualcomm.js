@@ -10,6 +10,102 @@
 
   ssot.records.push(
     {
+      key: 'qualcomm-q3-fy26',
+      company: 'Qualcomm',
+      period: 'Q3 FY26',
+      periodNote: 'Ending June 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/qualcomm-q3-fy26.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 9.9,
+        notes: ['(4%) Y/Y'],
+        items: [
+          {
+            id: 'qct',
+            label: 'QCT',
+            value: 8.5,
+            notes: ['(5%) Y/Y', '26% EBIT margin', 'CDMA Technologies'],
+            children: [
+              { id: 'handsets', label: 'Handsets', value: 5.1, notes: ['(20%) Y/Y'] },
+              { id: 'automotive', label: 'Automotive', value: 1.6, notes: ['+61% Y/Y'] },
+              { id: 'iot', label: 'IoT', value: 1.8, notes: ['+9% Y/Y'] },
+            ],
+          },
+          { id: 'qtl', label: 'QTL', value: 1.3, notes: ['(3%) Y/Y', '69% EBIT margin', 'Technology Licensing'] },
+          { id: 'other_revenue', label: 'Other', value: 0.2 },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 4.7 },
+        operatingExpenses: {
+          total: 3.7,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 2.6, notes: ['26% of revenue', '+5pp Y/Y'] },
+            { id: 'sga', label: 'SG&A', value: 1.0, notes: ['10% of revenue', '+2pp Y/Y'] },
+            { id: 'other_opex', label: 'Other', value: 0.1, notes: ['1% of revenue', '+1pp Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.5 },
+      },
+      otherIncome: {
+        total: 0.8,
+        items: [{ id: 'other_income', label: 'Other', value: 0.8 }],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 5.3, notes: ['53% margin', '(3pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 1.6, notes: ['16% margin', '(10pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 2.0, notes: ['20% margin', '(6pp) Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第三季度',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 (4%)'],
+            items: [
+              {
+                id: 'qct', label: 'QCT', notes: ['同比 (5%)', 'EBIT 利润率 26%', 'CDMA 技术'],
+                children: [
+                  { id: 'handsets', label: '手机', notes: ['同比 (20%)'] },
+                  { id: 'automotive', label: '汽车', notes: ['同比 +61%'] },
+                  { id: 'iot', label: '物联网', notes: ['同比 +9%'] },
+                ],
+              },
+              { id: 'qtl', label: 'QTL', notes: ['同比 (3%)', 'EBIT 利润率 69%', '技术授权'] },
+              { id: 'other_revenue', label: '其他' },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 26%', '同比 +5 个百分点'] },
+                { id: 'sga', label: '销售、一般及行政', notes: ['占收入 10%', '同比 +2 个百分点'] },
+                { id: 'other_opex', label: '其他', notes: ['占收入 1%', '同比 +1 个百分点'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: {
+            items: [{ id: 'other_income', label: '其他' }],
+          },
+          otherExpenses: { items: [] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 53%', '同比 (3 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 16%', '同比 (10 个百分点)'] },
+            net: { label: '净利润', notes: ['利润率 20%', '同比 (6 个百分点)'] },
+          },
+        },
+      },
+    },
+    {
       key: 'qualcomm-q2-fy26',
       company: 'Qualcomm',
       period: 'Q2 FY26',

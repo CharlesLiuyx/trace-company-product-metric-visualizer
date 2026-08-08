@@ -163,6 +163,85 @@
       },
     },
     {
+      key: 'live-nation-q2-fy26',
+      company: 'Live Nation',
+      period: 'Q2 FY26',
+      periodNote: 'Ending Jun. 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 3,
+      sourceImage: 'input/processed/live-nation-q2-fy26.png',
+      roundingTolerance: 0.22,
+      revenue: {
+        total: 7.7,
+        notes: ['+9% Y/Y'],
+        items: [
+          { id: 'concerts', label: 'Concerts', value: 6.4, notes: ['+8% Y/Y', '5% adjusted margin'] },
+          { id: 'ticketing', label: 'Ticketing', value: 0.9, notes: ['+15% Y/Y', '39% adjusted margin'] },
+          { id: 'sponsorship', label: 'Sponsorship', value: 0.4, notes: ['+12% Y/Y', '67% adjusted margin'] },
+          { id: 'eliminations', label: 'Eliminations', value: -0.013, notes: ['Source chart displays a $13M consolidation elimination before revenue.'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'direct_operating_expenses', label: 'Direct operating expenses', value: 5.8 },
+        operatingExpenses: {
+          total: 1.4,
+          items: [
+            { id: 'sga', label: 'SG&A', value: 1.1, notes: ['15% of revenue'] },
+            { id: 'da', label: 'D&A', value: 0.2, notes: ['2% of revenue'] },
+            { id: 'corporate_other', label: 'Corporate & Other', value: 0.1, notes: ['1% of revenue'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.1 },
+      },
+      otherIncome: {
+        total: 0.1,
+        items: [{ id: 'other_income', label: 'Other', value: 0.1 }],
+      },
+      otherExpenses: {
+        total: 0.1,
+        items: [{ id: 'interest', label: 'Interest', value: 0.1 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 1.9, notes: ['25% margin', '(0pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 0.5, notes: ['7% margin', '(0pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 0.4, notes: ['5% margin', '+1pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 +9%'],
+            items: [
+              { id: 'concerts', label: '演唱会', notes: ['同比 +8%', '调整后利润率 5%'] },
+              { id: 'ticketing', label: '票务', notes: ['同比 +15%', '调整后利润率 39%'] },
+              { id: 'sponsorship', label: '赞助', notes: ['同比 +12%', '调整后利润率 67%'] },
+              { id: 'eliminations', label: '抵销', notes: ['来源图表在合并收入前显示 $13M 的抵销项。'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '直接运营费用' },
+            operatingExpenses: {
+              items: [
+                { id: 'sga', label: '销售、一般及管理费用', notes: ['占收入 15%'] },
+                { id: 'da', label: '折旧与摊销', notes: ['占收入 2%'] },
+                { id: 'corporate_other', label: '公司及其他', notes: ['占收入 1%'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: { items: [{ id: 'other_income', label: '其他收入' }] },
+          otherExpenses: { items: [{ id: 'interest', label: '利息' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 25%', '同比 (0 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 7%', '同比 (0 个百分点)'] },
+            net: { label: '净利润', notes: ['利润率 5%', '同比 +1 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'live-nation-q3-fy25',
       company: 'Live Nation',
       period: 'Q3 FY25',

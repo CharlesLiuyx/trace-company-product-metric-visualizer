@@ -1479,6 +1479,111 @@
       },
     },
     {
+      key: 'meta-q2-fy26',
+      company: 'Meta',
+      period: 'Q2 FY26',
+      periodNote: 'Ending Jun. 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/meta-q2-fy26.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 60.8,
+        notes: ['+28% Y/Y'],
+        items: [
+          {
+            id: 'family_of_apps',
+            label: 'Family of Apps (FoA)',
+            value: 60.4,
+            notes: ['+28% Y/Y', 'Operating profit: $23.4B'],
+            children: [
+              { id: 'advertising', label: 'Advertising', value: 59.4, notes: ['+27% Y/Y'] },
+              { id: 'other_revenue', label: 'Other', value: 1.0, notes: ['+73% Y/Y', 'Payments infrastructure'] },
+            ],
+          },
+          {
+            id: 'reality_labs',
+            label: 'Reality Labs (RL)',
+            value: 0.4,
+            notes: ['+16% Y/Y', 'Operating loss: ($4.6B)'],
+          },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 11.3 },
+        operatingExpenses: {
+          total: 30.7,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 21.7, notes: ['36% of revenue', '+8pp Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 5.6, notes: ['9% of revenue', '+4pp Y/Y'] },
+            { id: 'sm', label: 'S&M', value: 3.4, notes: ['6% of revenue', '(1pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 2.9 },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross Profit', value: 49.5, notes: ['81% margin', '(1pp) Y/Y'] },
+        operating: {
+          id: 'operating_profit',
+          label: 'Operating profit',
+          value: 18.8,
+          notes: ['31% margin', '(12pp) Y/Y'],
+          items: [
+            { id: 'family_of_apps_operating_profit', label: 'FoA operating profit', value: 23.4 },
+            { id: 'reality_labs_operating_loss', label: 'RL operating loss', value: -4.6 },
+          ],
+        },
+        net: { id: 'net_profit', label: 'Net profit', value: 15.8, notes: ['26% margin', '(13pp) Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 +28%'],
+            items: [
+              {
+                id: 'family_of_apps',
+                label: '应用家族（FoA）',
+                notes: ['同比 +28%', '营业利润: $23.4B'],
+                children: [
+                  { id: 'advertising', label: '广告', notes: ['同比 +27%'] },
+                  { id: 'other_revenue', label: '其他', notes: ['同比 +73%', '支付基础设施'] },
+                ],
+              },
+              { id: 'reality_labs', label: 'Reality Labs（RL）', notes: ['同比 +16%', '营业亏损: ($4.6B)'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 36%', '同比 +8 个百分点'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 9%', '同比 +4 个百分点'] },
+                { id: 'sm', label: '销售与市场', notes: ['占收入 6%', '同比 (1 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 81%', '同比 (1 个百分点)'] },
+            operating: {
+              label: '营业利润',
+              notes: ['利润率 31%', '同比 (12 个百分点)'],
+              items: [
+                { id: 'family_of_apps_operating_profit', label: 'FoA 营业利润' },
+                { id: 'reality_labs_operating_loss', label: 'RL 营业亏损' },
+              ],
+            },
+            net: { label: '净利润', notes: ['利润率 26%', '同比 (13 个百分点)'] },
+          },
+        },
+      },
+    },
+    {
       key: 'meta-q2-fy24',
       company: 'Meta',
       period: 'Q2 FY24',

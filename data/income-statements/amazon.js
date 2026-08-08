@@ -1665,6 +1665,116 @@
           },
         },
       },
+    },
+    {
+      key: 'amazon-q2-fy26',
+      company: 'Amazon',
+      period: 'Q2 FY26',
+      periodNote: 'Ending Jun. 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/amazon-q2-fy26.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 200.6,
+        notes: ['+20% Y/Y'],
+        items: [
+          { id: 'online_stores', label: 'Online Stores', value: 70.4, notes: ['+15% Y/Y'] },
+          { id: 'physical_store', label: 'Physical Stores', value: 5.8, notes: ['+4% Y/Y'] },
+          {
+            id: 'third_party_seller_services',
+            label: '3rd party seller services',
+            value: 46.8,
+            notes: ['+16% Y/Y'],
+          },
+          { id: 'advertising', label: 'Advertising', value: 19.8, notes: ['+26% Y/Y'] },
+          { id: 'subscription', label: 'Subscription', value: 13.7, notes: ['+12% Y/Y'] },
+          { id: 'aws', label: 'AWS', value: 42.2, notes: ['+37% Y/Y'] },
+          { id: 'other_revenue', label: 'Other', value: 1.8, notes: ['+22% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 95.8 },
+        operatingExpenses: {
+          total: 77.4,
+          items: [
+            { id: 'technology_content', label: 'Technology & infrastructure', value: 33.2, notes: ['17% of revenue', '+0pp Y/Y'] },
+            { id: 'fulfillment', label: 'Fulfillment', value: 29.6, notes: ['15% of revenue', '(1pp) Y/Y'] },
+            { id: 'sm', label: 'S&M', value: 11.7, notes: ['6% of revenue', '(1pp) Y/Y'] },
+            { id: 'ga', label: 'G&A', value: 2.8, notes: ['1% of revenue', '(0pp) Y/Y'] },
+            { id: 'other_opex', label: 'Other opex', value: 0.1 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 18.2 },
+      },
+      otherIncome: {
+        total: 53.4,
+        notes: ['Primarily gains from investments in Anthropic.'],
+        items: [{ id: 'other_income', label: 'Other', value: 53.4 }],
+      },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 104.8, notes: ['52% margin', '+0pp Y/Y'] },
+        operating: {
+          id: 'operating_profit',
+          label: 'Operating profit',
+          value: 27.5,
+          notes: ['14% margin', '+2pp Y/Y'],
+          items: [
+            { id: 'aws_operating_profit', label: 'AWS operating profit', value: 16.6 },
+            { id: 'other_operating_profit', label: 'Other operating profit', value: 10.8 },
+          ],
+        },
+        net: { id: 'net_profit', label: 'Net profit', value: 62.6, notes: ['31% margin', '+20pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 +20%'],
+            items: [
+              { id: 'online_stores', label: '线上商店', notes: ['同比 +15%'] },
+              { id: 'physical_store', label: '实体商店', notes: ['同比 +4%'] },
+              { id: 'third_party_seller_services', label: '第三方卖家服务', notes: ['同比 +16%'] },
+              { id: 'advertising', label: '广告', notes: ['同比 +26%'] },
+              { id: 'subscription', label: '订阅', notes: ['同比 +12%'] },
+              { id: 'aws', label: 'AWS', notes: ['同比 +37%'] },
+              { id: 'other_revenue', label: '其他', notes: ['同比 +22%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '销售成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'technology_content', label: '技术与基础设施', notes: ['占收入 17%', '同比 +0 个百分点'] },
+                { id: 'fulfillment', label: '履约', notes: ['占收入 15%', '同比 (1 个百分点)'] },
+                { id: 'sm', label: '销售与市场', notes: ['占收入 6%', '同比 (1 个百分点)'] },
+                { id: 'ga', label: '管理费用', notes: ['占收入 1%', '同比 (0 个百分点)'] },
+                { id: 'other_opex', label: '其他运营费用' },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: {
+            notes: ['主要来自 Anthropic 投资收益。'],
+            items: [{ id: 'other_income', label: '其他' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 52%', '同比 +0 个百分点'] },
+            operating: {
+              label: '营业利润',
+              notes: ['利润率 14%', '同比 +2 个百分点'],
+              items: [
+                { id: 'aws_operating_profit', label: 'AWS 营业利润' },
+                { id: 'other_operating_profit', label: '其他业务营业利润' },
+              ],
+            },
+            net: { label: '净利润', notes: ['利润率 31%', '同比 +20 个百分点'] },
+          },
+        },
+      },
     }
   );
 })(window);
