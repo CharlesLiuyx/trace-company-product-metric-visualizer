@@ -1413,6 +1413,12 @@
       "width": 2667,
       "height": 1500
     },
+    "citigroup-q2-fy26": {
+      "similarity": 0.964418,
+      "mae": 9.0734,
+      "width": 2667,
+      "height": 1500
+    },
     "citigroup-q4-fy25": {
       "similarity": 0.953851,
       "mae": 11.768,

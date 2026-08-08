@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-08-08T09:31:02.000Z",
+  "generatedAt": "2026-08-08T19:12:48.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -4781,6 +4781,12 @@
       "path": "data/datasets/amazon-q2-fy26.js",
       "updatedAtMs": 1786181462000,
       "updatedAt": "2026-08-08T09:31:02.000Z",
+      "timeSource": "git"
+    },
+    "citigroup-q2-fy26": {
+      "path": "data/datasets/citigroup-q2-fy26.js",
+      "updatedAtMs": 1786216368000,
+      "updatedAt": "2026-08-08T19:12:48.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {

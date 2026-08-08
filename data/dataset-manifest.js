@@ -17881,6 +17881,25 @@
             }
           }
         }
+      },
+      {
+        "key": "citigroup-q2-fy26",
+        "src": "data/datasets/citigroup-q2-fy26.js",
+        "data": {
+          "name": "Citigroup · Q2 FY26",
+          "company": "Citigroup",
+          "meta": {
+            "title": "Citigroup Q2 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "花旗集团 · 2026 财年第二季度",
+              "meta": {
+                "title": "花旗集团 2026 财年第二季度利润表"
+              }
+            }
+          }
+        }
       }
     ]
   };
