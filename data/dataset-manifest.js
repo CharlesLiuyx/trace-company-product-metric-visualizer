@@ -20240,6 +20240,75 @@
         }
       },
       {
+        "key": "samsung-q1-fy25",
+        "src": "data/datasets/samsung-q1-fy25.js",
+        "data": {
+          "name": "Samsung · Q1 FY25",
+          "company": "Samsung",
+          "meta": {
+            "title": "Samsung Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Mar. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Samsung · 2025 财年第一季度",
+              "meta": {
+                "title": "Samsung 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "samsung-q2-fy24",
+        "src": "data/datasets/samsung-q2-fy24.js",
+        "data": {
+          "name": "Samsung · Q2 FY24",
+          "company": "Samsung",
+          "meta": {
+            "title": "Samsung Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Samsung · 2024 财年第二季度",
+              "meta": {
+                "title": "Samsung 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sony-q1-fy25",
+        "src": "data/datasets/sony-q1-fy25.js",
+        "data": {
+          "name": "Sony · Q1 FY25",
+          "company": "Sony",
+          "meta": {
+            "title": "Sony Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending June 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Sony · 2025 财年第一季度",
+              "meta": {
+                "title": "Sony 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
         "key": "sony-q3-fy23",
         "src": "data/datasets/sony-q3-fy23.js",
         "data": {
@@ -20257,6 +20326,420 @@
                 "title": "Sony 2023 财年第三季度利润表",
                 "period": "2023 财年第三季度",
                 "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "samsung-q2-fy23",
+        "src": "data/datasets/samsung-q2-fy23.js",
+        "data": {
+          "name": "Samsung · Q2 FY23",
+          "company": "Samsung",
+          "meta": {
+            "title": "Samsung Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Jun. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Samsung · 2023 财年第二季度",
+              "meta": {
+                "title": "Samsung 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "samsung-q2-fy25",
+        "src": "data/datasets/samsung-q2-fy25.js",
+        "data": {
+          "name": "Samsung · Q2 FY25",
+          "company": "Samsung",
+          "meta": {
+            "title": "Samsung Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Jun. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Samsung · 2025 财年第二季度",
+              "meta": {
+                "title": "Samsung 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "samsung-q3-fy25",
+        "src": "data/datasets/samsung-q3-fy25.js",
+        "data": {
+          "name": "Samsung · Q3 FY25",
+          "company": "Samsung",
+          "meta": {
+            "title": "Samsung Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Samsung · 2025 财年第三季度",
+              "meta": {
+                "title": "Samsung 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "samsung-q4-fy23",
+        "src": "data/datasets/samsung-q4-fy23.js",
+        "data": {
+          "name": "Samsung · Q4 FY23",
+          "company": "Samsung",
+          "meta": {
+            "title": "Samsung Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Samsung · 2023 财年第四季度",
+              "meta": {
+                "title": "Samsung 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sony-q4-fy22",
+        "src": "data/datasets/sony-q4-fy22.js",
+        "data": {
+          "name": "Sony · Q4 FY22",
+          "company": "Sony",
+          "meta": {
+            "title": "Sony Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Ending Mar. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Sony · 2022 财年第四季度",
+              "meta": {
+                "title": "Sony 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2023 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sony-q4-fy24",
+        "src": "data/datasets/sony-q4-fy24.js",
+        "data": {
+          "name": "Sony · Q4 FY24",
+          "company": "Sony",
+          "meta": {
+            "title": "Sony Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending March. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Sony · 2024 财年第四季度",
+              "meta": {
+                "title": "Sony 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2025 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sony-q1-fy23",
+        "src": "data/datasets/sony-q1-fy23.js",
+        "data": {
+          "name": "Sony · Q1 FY23",
+          "company": "Sony",
+          "meta": {
+            "title": "Sony Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending June 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Sony · 2023 财年第一季度",
+              "meta": {
+                "title": "Sony 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2023 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "samsung-q1-fy23",
+        "src": "data/datasets/samsung-q1-fy23.js",
+        "data": {
+          "name": "Samsung · Q1 FY23",
+          "company": "Samsung",
+          "meta": {
+            "title": "Samsung Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending Mar. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Samsung · 2023 财年第一季度",
+              "meta": {
+                "title": "Samsung 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2023 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "samsung-q1-fy24",
+        "src": "data/datasets/samsung-q1-fy24.js",
+        "data": {
+          "name": "Samsung · Q1 FY24",
+          "company": "Samsung",
+          "meta": {
+            "title": "Samsung Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Samsung · 2024 财年第一季度",
+              "meta": {
+                "title": "Samsung 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "samsung-q3-fy23",
+        "src": "data/datasets/samsung-q3-fy23.js",
+        "data": {
+          "name": "Samsung · Q3 FY23",
+          "company": "Samsung",
+          "meta": {
+            "title": "Samsung Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Sep. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Samsung · 2023 财年第三季度",
+              "meta": {
+                "title": "Samsung 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sony-q1-fy24",
+        "src": "data/datasets/sony-q1-fy24.js",
+        "data": {
+          "name": "Sony · Q1 FY24",
+          "company": "Sony",
+          "meta": {
+            "title": "Sony Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Sony · 2024 财年第一季度",
+              "meta": {
+                "title": "Sony 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sony-q2-fy23",
+        "src": "data/datasets/sony-q2-fy23.js",
+        "data": {
+          "name": "Sony · Q2 FY23",
+          "company": "Sony",
+          "meta": {
+            "title": "Sony Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Sept. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Sony · 2023 财年第二季度",
+              "meta": {
+                "title": "Sony 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sony-q3-fy22",
+        "src": "data/datasets/sony-q3-fy22.js",
+        "data": {
+          "name": "Sony · Q3 FY22",
+          "company": "Sony",
+          "meta": {
+            "title": "Sony Q3 FY22 Income Statement",
+            "period": "Q3 FY22",
+            "periodNote": "Ending Dec. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Sony · 2022 财年第三季度",
+              "meta": {
+                "title": "Sony 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度",
+                "periodNote": "截至 2022 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sony-fy23",
+        "src": "data/datasets/sony-fy23.js",
+        "data": {
+          "name": "Sony · FY23",
+          "company": "Sony",
+          "meta": {
+            "title": "Sony FY23 Income Statement",
+            "period": "FY23",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Sony · 2023 财年",
+              "meta": {
+                "title": "Sony 2023 财年利润表",
+                "period": "2023 财年",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "samsung-q4-fy24",
+        "src": "data/datasets/samsung-q4-fy24.js",
+        "data": {
+          "name": "Samsung · Q4 FY24",
+          "company": "Samsung",
+          "meta": {
+            "title": "Samsung Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Samsung · 2024 财年第四季度",
+              "meta": {
+                "title": "Samsung 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sony-q3-fy24",
+        "src": "data/datasets/sony-q3-fy24.js",
+        "data": {
+          "name": "Sony · Q3 FY24",
+          "company": "Sony",
+          "meta": {
+            "title": "Sony Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Sony · 2024 财年第三季度",
+              "meta": {
+                "title": "Sony 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "samsung-q3-fy24",
+        "src": "data/datasets/samsung-q3-fy24.js",
+        "data": {
+          "name": "Samsung · Q3 FY24",
+          "company": "Samsung",
+          "meta": {
+            "title": "Samsung Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Samsung · 2024 财年第三季度",
+              "meta": {
+                "title": "Samsung 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sony-q2-fy24",
+        "src": "data/datasets/sony-q2-fy24.js",
+        "data": {
+          "name": "Sony · Q2 FY24",
+          "company": "Sony",
+          "meta": {
+            "title": "Sony Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Sony · 2024 财年第二季度",
+              "meta": {
+                "title": "Sony 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 9 月"
               }
             }
           }
