@@ -1083,7 +1083,7 @@
     const valid = list.filter(Boolean);
     if (!valid.length) return;
 
-    const layer = parent.append('g').attr('class', 'sankey-raster-annotations');
+    const layer = parent.append('g').attr('class', 'sankey-raster-annotations sankey-annotations');
     valid.forEach((item) => {
       const href = item.href || item.src;
       const x = Number(item.x);
@@ -1094,7 +1094,15 @@
         throw new Error('Raster annotations require href/src, x, y, width, and height');
       }
 
-      const image = layer
+      const pairedNode = String(item.pairedNode || '').trim();
+      const imageParent = pairedNode
+        ? layer.append('g')
+          .attr('data-annotation-clearance', item.key || item.id || `raster-${pairedNode}`)
+          .attr('data-annotation-paired-node', pairedNode)
+          .attr('data-annotation-paired-target', item.pairedTarget === 'label' ? 'label' : 'node')
+          .attr('data-annotation-paired-side', item.pairedSide || null)
+        : layer;
+      const image = imageParent
         .append('image')
         .attr('href', href)
         .attr('xlink:href', href)
