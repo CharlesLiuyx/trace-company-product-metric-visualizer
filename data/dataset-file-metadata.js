@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-08-09T12:57:23.000Z",
+  "generatedAt": "2026-08-09T17:03:45.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -5543,6 +5543,150 @@
       "path": "data/datasets/sony-q2-fy24.js",
       "updatedAtMs": 1786280243000,
       "updatedAt": "2026-08-09T12:57:23.000Z",
+      "timeSource": "git"
+    },
+    "adobe-q1-fy24": {
+      "path": "data/datasets/adobe-q1-fy24.js",
+      "updatedAtMs": 1786295025000,
+      "updatedAt": "2026-08-09T17:03:45.000Z",
+      "timeSource": "git"
+    },
+    "adobe-q4-fy22": {
+      "path": "data/datasets/adobe-q4-fy22.js",
+      "updatedAtMs": 1786295025000,
+      "updatedAt": "2026-08-09T17:03:45.000Z",
+      "timeSource": "git"
+    },
+    "adobe-q2-fy23": {
+      "path": "data/datasets/adobe-q2-fy23.js",
+      "updatedAtMs": 1786295025000,
+      "updatedAt": "2026-08-09T17:03:45.000Z",
+      "timeSource": "git"
+    },
+    "adobe-q4-fy25": {
+      "path": "data/datasets/adobe-q4-fy25.js",
+      "updatedAtMs": 1786295025000,
+      "updatedAt": "2026-08-09T17:03:45.000Z",
+      "timeSource": "git"
+    },
+    "ibm-q3-fy24": {
+      "path": "data/datasets/ibm-q3-fy24.js",
+      "updatedAtMs": 1786295025000,
+      "updatedAt": "2026-08-09T17:03:45.000Z",
+      "timeSource": "git"
+    },
+    "ibm-q4-fy23": {
+      "path": "data/datasets/ibm-q4-fy23.js",
+      "updatedAtMs": 1786295025000,
+      "updatedAt": "2026-08-09T17:03:45.000Z",
+      "timeSource": "git"
+    },
+    "ibm-q1-fy24": {
+      "path": "data/datasets/ibm-q1-fy24.js",
+      "updatedAtMs": 1786295025000,
+      "updatedAt": "2026-08-09T17:03:45.000Z",
+      "timeSource": "git"
+    },
+    "adobe-q3-fy24": {
+      "path": "data/datasets/adobe-q3-fy24.js",
+      "updatedAtMs": 1786295025000,
+      "updatedAt": "2026-08-09T17:03:45.000Z",
+      "timeSource": "git"
+    },
+    "ibm-q2-fy23": {
+      "path": "data/datasets/ibm-q2-fy23.js",
+      "updatedAtMs": 1786295025000,
+      "updatedAt": "2026-08-09T17:03:45.000Z",
+      "timeSource": "git"
+    },
+    "ibm-q2-fy25": {
+      "path": "data/datasets/ibm-q2-fy25.js",
+      "updatedAtMs": 1786295025000,
+      "updatedAt": "2026-08-09T17:03:45.000Z",
+      "timeSource": "git"
+    },
+    "ibm-q3-fy25": {
+      "path": "data/datasets/ibm-q3-fy25.js",
+      "updatedAtMs": 1786295025000,
+      "updatedAt": "2026-08-09T17:03:45.000Z",
+      "timeSource": "git"
+    },
+    "adobe-q2-fy25": {
+      "path": "data/datasets/adobe-q2-fy25.js",
+      "updatedAtMs": 1786295025000,
+      "updatedAt": "2026-08-09T17:03:45.000Z",
+      "timeSource": "git"
+    },
+    "adobe-q4-fy23": {
+      "path": "data/datasets/adobe-q4-fy23.js",
+      "updatedAtMs": 1786295025000,
+      "updatedAt": "2026-08-09T17:03:45.000Z",
+      "timeSource": "git"
+    },
+    "ibm-q1-fy23": {
+      "path": "data/datasets/ibm-q1-fy23.js",
+      "updatedAtMs": 1786295025000,
+      "updatedAt": "2026-08-09T17:03:45.000Z",
+      "timeSource": "git"
+    },
+    "ibm-q2-fy24": {
+      "path": "data/datasets/ibm-q2-fy24.js",
+      "updatedAtMs": 1786295025000,
+      "updatedAt": "2026-08-09T17:03:45.000Z",
+      "timeSource": "git"
+    },
+    "ibm-q3-fy23": {
+      "path": "data/datasets/ibm-q3-fy23.js",
+      "updatedAtMs": 1786295025000,
+      "updatedAt": "2026-08-09T17:03:45.000Z",
+      "timeSource": "git"
+    },
+    "adobe-q1-fy23": {
+      "path": "data/datasets/adobe-q1-fy23.js",
+      "updatedAtMs": 1786295025000,
+      "updatedAt": "2026-08-09T17:03:45.000Z",
+      "timeSource": "git"
+    },
+    "adobe-q1-fy25": {
+      "path": "data/datasets/adobe-q1-fy25.js",
+      "updatedAtMs": 1786295025000,
+      "updatedAt": "2026-08-09T17:03:45.000Z",
+      "timeSource": "git"
+    },
+    "adobe-q2-fy24": {
+      "path": "data/datasets/adobe-q2-fy24.js",
+      "updatedAtMs": 1786295025000,
+      "updatedAt": "2026-08-09T17:03:45.000Z",
+      "timeSource": "git"
+    },
+    "adobe-q3-fy25": {
+      "path": "data/datasets/adobe-q3-fy25.js",
+      "updatedAtMs": 1786295025000,
+      "updatedAt": "2026-08-09T17:03:45.000Z",
+      "timeSource": "git"
+    },
+    "ibm-q4-fy24": {
+      "path": "data/datasets/ibm-q4-fy24.js",
+      "updatedAtMs": 1786295025000,
+      "updatedAt": "2026-08-09T17:03:45.000Z",
+      "timeSource": "git"
+    },
+    "ibm-q1-fy25": {
+      "path": "data/datasets/ibm-q1-fy25.js",
+      "updatedAtMs": 1786295025000,
+      "updatedAt": "2026-08-09T17:03:45.000Z",
+      "timeSource": "git"
+    },
+    "adobe-q4-fy24": {
+      "path": "data/datasets/adobe-q4-fy24.js",
+      "updatedAtMs": 1786295025000,
+      "updatedAt": "2026-08-09T17:03:45.000Z",
+      "timeSource": "git"
+    },
+    "adobe-q3-fy23": {
+      "path": "data/datasets/adobe-q3-fy23.js",
+      "updatedAtMs": 1786295025000,
+      "updatedAt": "2026-08-09T17:03:45.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {
