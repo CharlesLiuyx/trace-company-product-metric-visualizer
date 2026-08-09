@@ -216,4 +216,105 @@
       },
     },
   });
+
+  ssot.records.push({
+    key: 'southwest-q2-fy26',
+    company: 'Southwest Airlines',
+    period: 'Q2 FY26',
+    periodNote: 'Quarter ended Jun. 30, 2026',
+    currency: '$',
+    unit: 'B',
+    decimals: 2,
+    sourceImage: 'input/processed/southwest-q2-fy26.png',
+    roundingTolerance: 0.15,
+    revenue: {
+      total: 8.4,
+      notes: ['+16% Y/Y'],
+      items: [
+        { id: 'passenger', label: 'Passenger', value: 7.7, notes: ['+17% Y/Y'] },
+        { id: 'freight', label: 'Freight', value: 0.05, notes: ['+14% Y/Y'] },
+        { id: 'other_revenue', label: 'Other', value: 0.6, notes: ['+11% Y/Y'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: {
+        id: 'cost_of_revenue',
+        label: 'Cost of revenue (not separately presented)',
+        value: 0,
+        notes: ['The source infographic moves directly from revenue to operating profit and operating expenses.'],
+      },
+      operatingExpenses: {
+        total: 8.1,
+        items: [
+          { id: 'salaries_benefits', label: 'Salaries & benefits', value: 3.5 },
+          { id: 'fuel_oil', label: 'Fuel & Oil', value: 2.2 },
+          { id: 'maintenance', label: 'Maintenance', value: 0.3 },
+          { id: 'landing_fees', label: 'Landing fees', value: 0.6 },
+          { id: 'depreciation_amortization', label: 'D&A', value: 0.4 },
+          { id: 'other_operating', label: 'Other', value: 1.1 },
+        ],
+      },
+    },
+    otherIncome: {
+      total: 0,
+      items: [],
+    },
+    otherExpenses: {
+      total: 0.1,
+      items: [{ id: 'other_expense', label: 'Other', value: 0.1 }],
+    },
+    profit: {
+      gross: {
+        id: 'gross_profit',
+        label: 'Gross profit (not separately presented)',
+        value: 8.4,
+        notes: ['Bookkeeping value for SSOT parity; the source infographic has no gross-profit stage.'],
+      },
+      operating: { id: 'operating_profit', label: 'Operating profit', value: 0.3, notes: ['3% margin', '+0pp Y/Y'] },
+      net: { id: 'net_profit', label: 'Net profit', value: 0.2, notes: ['3% margin', '(0pp) Y/Y'] },
+    },
+    sources: [
+      {
+        name: 'Southwest Q2 FY26 Income Statement infographic',
+        url: 'input/processed/southwest-q2-fy26.png',
+      },
+    ],
+    i18n: {
+      zh: {
+        period: '2026 财年第二季度',
+        periodNote: '截至 2026 年 6 月 30 日的季度',
+        revenue: {
+          notes: ['同比 +16%'],
+          items: [
+            { id: 'passenger', label: '客运', notes: ['同比 +17%'] },
+            { id: 'freight', label: '货运', notes: ['同比 +14%'] },
+            { id: 'other_revenue', label: '其他', notes: ['同比 +11%'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: {
+            label: '收入成本（未单列）',
+            notes: ['来源信息图从收入直接拆分为营业利润和运营费用。'],
+          },
+          operatingExpenses: {
+            items: [
+              { id: 'salaries_benefits', label: '薪酬与福利' },
+              { id: 'fuel_oil', label: '燃油与石油' },
+              { id: 'maintenance', label: '维护' },
+              { id: 'landing_fees', label: '着陆费' },
+              { id: 'depreciation_amortization', label: '折旧与摊销' },
+              { id: 'other_operating', label: '其他' },
+            ],
+          },
+        },
+        otherIncome: { items: [] },
+        otherExpenses: { items: [{ id: 'other_expense', label: '其他' }] },
+        profit: {
+          gross: { label: '毛利润（未单列）', notes: ['用于 SSOT 对齐的账面值；来源信息图未展示毛利润阶段。'] },
+          operating: { label: '营业利润', notes: ['利润率 3%', '同比 +0 个百分点'] },
+          net: { label: '净利润', notes: ['利润率 3%', '同比（0 个百分点）'] },
+        },
+      },
+    },
+  });
 })(window);

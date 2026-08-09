@@ -10,6 +10,80 @@
 
   ssot.records.push(
     {
+      key: 'align-q2-fy26',
+      company: 'Align Technology',
+      period: 'Q2 FY26',
+      periodNote: 'Ending Jun. 2026',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/align-q2-fy26.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 1056,
+        notes: ['+4% Y/Y'],
+        items: [
+          { id: 'clear_aligners', label: 'Clear Aligners', value: 871, notes: ['+8% Y/Y'] },
+          { id: 'systems_services', label: 'Systems & Services', value: 185, notes: ['(11%) Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 299 },
+        operatingExpenses: {
+          total: 603,
+          items: [
+            { id: 'sga', label: 'SG&A', value: 463, notes: ['44% of revenue', '(1pp) Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 102, notes: ['10% of revenue', '+0pp Y/Y'] },
+            { id: 'restructuring', label: 'Restructuring', value: 39, notes: ['4% of revenue', '+4pp Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 40 },
+      },
+      otherIncome: {
+        total: 0,
+        items: [],
+      },
+      otherExpenses: {
+        total: 5,
+        items: [{ id: 'other_expense', label: 'Other', value: 5 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 757, notes: ['72% margin', '+2pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 154, notes: ['15% margin', '(2pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 108, notes: ['10% margin', '(2pp) Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 +4%'],
+            items: [
+              { id: 'clear_aligners', label: '透明矫治器', notes: ['同比 +8%'] },
+              { id: 'systems_services', label: '系统与服务', notes: ['同比 (11%)'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'sga', label: '销售及管理费用', notes: ['占收入 44%', '同比 (1 个百分点)'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 10%', '同比 +0 个百分点'] },
+                { id: 'restructuring', label: '重组', notes: ['占收入 4%', '同比 +4 个百分点'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherExpenses: { items: [{ id: 'other_expense', label: '其他' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 72%', '同比 +2 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 15%', '同比 (2 个百分点)'] },
+            net: { label: '净利润', notes: ['利润率 10%', '同比 (2 个百分点)'] },
+          },
+        },
+      },
+    },
+    {
       key: 'align-q1-fy26',
       company: 'Align Technology',
       period: 'Q1 FY26',

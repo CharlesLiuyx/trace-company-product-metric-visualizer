@@ -186,4 +186,94 @@
       },
     },
   });
+
+  ssot.records.push({
+    key: 'ups-q2-fy26',
+    company: 'UPS',
+    period: 'Q2 FY26',
+    periodNote: 'Quarter ended Jun. 30, 2026',
+    currency: '$',
+    unit: 'B',
+    decimals: 1,
+    sourceImage: 'input/processed/ups-q2-fy26.png',
+    roundingTolerance: 0.15,
+    revenue: {
+      total: 22.8,
+      notes: ['+8% Y/Y'],
+      items: [
+        { id: 'us_domestic_package', label: ['US Domestic', 'Package'], value: 14.9, notes: ['+6% Y/Y', '0% operating margin'] },
+        { id: 'international_package', label: ['International', 'Package'], value: 5.0, notes: ['+12% Y/Y', '12% operating margin'] },
+        { id: 'supply_chain_solutions', label: ['Supply Chain', 'Solutions'], value: 2.9, notes: ['+8% Y/Y', '10% operating margin'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: {
+        label: 'Cost of revenue',
+        value: 0,
+        notes: ['The source chart presents a single operating-expense waterfall and does not separately show cost of revenue or gross profit.'],
+      },
+      operatingExpenses: {
+        total: 21.9,
+        items: [
+          { id: 'comp_benefits', label: 'Comp & benefits', value: 12.7 },
+          { id: 'maintenance', label: 'Maintenance', value: 0.8 },
+          { id: 'depreciation_amortization', label: ['Depreciation &', 'Amortization'], value: 1.0 },
+          { id: 'purchased_transportation', label: ['Purchased', 'transportation'], value: 3.2 },
+          { id: 'fuel', label: 'Fuel', value: 1.7 },
+          { id: 'other_occupancy', label: 'Other occupancy', value: 0.6 },
+          { id: 'other_operating', label: 'Other', value: 2.0 },
+        ],
+      },
+      tax: { id: 'tax', label: 'Tax', value: 0.2 },
+    },
+    otherIncome: {
+      total: 0.1,
+      items: [{ id: 'other_income', label: 'Other', value: 0.1 }],
+    },
+    otherExpenses: {
+      total: 0.3,
+      items: [{ id: 'interest', label: 'Interest', value: 0.3 }],
+    },
+    profit: {
+      gross: { label: 'Gross profit', value: 22.8, notes: ['Bookkeeping value only; the source does not show gross profit.'] },
+      operating: { id: 'operating_profit', label: 'Operating profit', value: 0.9, notes: ['4% margin', '(5pp) Y/Y'] },
+      net: { id: 'net_profit', label: 'Net profit', value: 0.6, notes: ['3% margin', '(3pp) Y/Y'] },
+    },
+    i18n: {
+      zh: {
+        period: '2026 财年第二季度',
+        periodNote: '截至 2026 年 6 月 30 日的季度',
+        revenue: {
+          notes: ['同比 +8%'],
+          items: [
+            { id: 'us_domestic_package', label: ['美国国内', '包裹'], notes: ['同比 +6%', '营业利润率 0%'] },
+            { id: 'international_package', label: ['国际', '包裹'], notes: ['同比 +12%', '营业利润率 12%'] },
+            { id: 'supply_chain_solutions', label: ['供应链', '解决方案'], notes: ['同比 +8%', '营业利润率 10%'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: { label: '收入成本', notes: ['来源图以单一运营费用瀑布图呈现，未单独展示收入成本或毛利润。'] },
+          operatingExpenses: {
+            items: [
+              { id: 'comp_benefits', label: '薪酬与福利' },
+              { id: 'maintenance', label: '维修' },
+              { id: 'depreciation_amortization', label: ['折旧与', '摊销'] },
+              { id: 'purchased_transportation', label: ['外购', '运输'] },
+              { id: 'fuel', label: '燃油' },
+              { id: 'other_occupancy', label: '其他占用成本' },
+              { id: 'other_operating', label: '其他' },
+            ],
+          },
+          tax: { label: '税费' },
+        },
+        otherIncome: { items: [{ id: 'other_income', label: '其他' }] },
+        otherExpenses: { items: [{ id: 'interest', label: '利息' }] },
+        profit: {
+          gross: { label: '毛利润', notes: ['仅用于 SSOT 对齐；来源图未展示毛利润。'] },
+          operating: { label: '营业利润', notes: ['利润率 4%', '同比 (5 个百分点)'] },
+          net: { label: '净利润', notes: ['利润率 3%', '同比 (3 个百分点)'] },
+        },
+      },
+    },
+  });
 })(window);

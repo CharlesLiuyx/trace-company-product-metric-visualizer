@@ -204,6 +204,104 @@
       },
     },
     {
+      key: 'tempus-ai-q2-fy26',
+      company: 'Tempus AI',
+      period: 'Q2 FY26',
+      periodNote: 'Ending Jun. 2026',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/tempus-ai-q2-fy26.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 382,
+        notes: ['+22% Y/Y'],
+        items: [
+          {
+            id: 'diagnostics',
+            label: 'Diagnostics',
+            value: 289,
+            notes: ['Oncology & Hereditary', '63% gross margin', '+4pp Y/Y'],
+          },
+          {
+            id: 'data_applications',
+            label: 'Data & Applications',
+            value: 93,
+            notes: ['70% gross margin', '(3pp) Y/Y'],
+          },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          id: 'cost_of_revenue',
+          label: 'Cost of revenue',
+          value: 136,
+          items: [
+            { id: 'diagnostics_cost', label: 'Diagnostics', value: 108 },
+            { id: 'data_services_cost', label: 'Data & Services', value: 28 },
+          ],
+        },
+        operatingExpenses: {
+          total: 322,
+          notes: ['The displayed R&D, Technology R&D, and SG&A detail rounds to $323M.'],
+          items: [
+            { id: 'rnd', label: 'R&D', value: 53, notes: ['14% of revenue', '+1pp Y/Y'] },
+            { id: 'technology_rnd', label: 'Technology R&D', value: 44, notes: ['11% of revenue', '+1pp Y/Y'] },
+            { id: 'sga', label: 'SG&A', value: 226, notes: ['59% of revenue', '+2pp Y/Y'] },
+          ],
+        },
+        tax: { label: 'Tax', value: 0, notes: ['No separate tax line is shown in the source chart.'] },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 247, notes: ['64% margin', '+2pp Y/Y'] },
+        operating: { id: 'operating_loss', label: 'Operating loss', value: -76, notes: ['(20%) margin', '(0pp) Y/Y'] },
+        net: {
+          id: 'operating_loss',
+          label: 'Operating loss',
+          value: -76,
+          notes: ['No separate net income or net loss line is shown in the source chart.'],
+        },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 +22%'],
+            items: [
+              { id: 'diagnostics', label: '诊断业务', notes: ['肿瘤与遗传病', '毛利率 63%', '同比 +4 个百分点'] },
+              { id: 'data_applications', label: '数据与应用', notes: ['毛利率 70%', '同比 (3 个百分点)'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: {
+              label: '收入成本',
+              items: [
+                { id: 'diagnostics_cost', label: '诊断业务' },
+                { id: 'data_services_cost', label: '数据与服务' },
+              ],
+            },
+            operatingExpenses: {
+              notes: ['来源图的研发、技术研发与销售、一般及行政费用明细经四舍五入合计为 3.23 亿美元。'],
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 14%', '同比 +1 个百分点'] },
+                { id: 'technology_rnd', label: '技术研发', notes: ['占收入 11%', '同比 +1 个百分点'] },
+                { id: 'sga', label: '销售、一般及行政费用', notes: ['占收入 59%', '同比 +2 个百分点'] },
+              ],
+            },
+            tax: { label: '税费', notes: ['来源图未单独显示税费。'] },
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 64%', '同比 +2 个百分点'] },
+            operating: { label: '营业亏损', notes: ['利润率 (20%)', '同比 (0 个百分点)'] },
+            net: { label: '营业亏损', notes: ['来源图未单独显示净利润或净亏损项目。'] },
+          },
+        },
+      },
+    },
+    {
       key: 'tempus-ai-q4-fy25',
       company: 'Tempus AI',
       period: 'Q4 FY25',

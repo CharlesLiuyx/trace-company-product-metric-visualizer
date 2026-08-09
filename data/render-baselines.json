@@ -9,6 +9,12 @@
       "width": 2667,
       "height": 1500
     },
+    "abbott-q2-fy26": {
+      "similarity": 0.960954,
+      "mae": 9.9568,
+      "width": 2667,
+      "height": 1500
+    },
     "abbott-q3-fy25": {
       "similarity": 0.973375,
       "mae": 6.7894,
@@ -24,6 +30,12 @@
     "abbvie-q1-fy26": {
       "similarity": 0.970521,
       "mae": 7.5171,
+      "width": 2667,
+      "height": 1500
+    },
+    "abbvie-q2-fy26": {
+      "similarity": 0.971474,
+      "mae": 7.2742,
       "width": 2667,
       "height": 1500
     },
@@ -114,6 +126,12 @@
     "airbus-q1-fy26": {
       "similarity": 0.969961,
       "mae": 7.6601,
+      "width": 2667,
+      "height": 1500
+    },
+    "airbus-q2-fy26": {
+      "similarity": 0.968904,
+      "mae": 7.9295,
       "width": 2667,
       "height": 1500
     },
@@ -210,6 +228,12 @@
     "align-q1-fy26": {
       "similarity": 0.977104,
       "mae": 5.8384,
+      "width": 2667,
+      "height": 1500
+    },
+    "align-q2-fy26": {
+      "similarity": 0.976762,
+      "mae": 5.9257,
       "width": 2667,
       "height": 1500
     },
@@ -558,6 +582,12 @@
     "american-express-q4-fy25": {
       "similarity": 0.957978,
       "mae": 10.7157,
+      "width": 2667,
+      "height": 1500
+    },
+    "american-q2-fy26": {
+      "similarity": 0.963111,
+      "mae": 9.4066,
       "width": 2667,
       "height": 1500
     },
@@ -999,6 +1029,12 @@
       "width": 2667,
       "height": 1500
     },
+    "astrazeneca-q2-fy26": {
+      "similarity": 0.959626,
+      "mae": 10.2953,
+      "width": 2667,
+      "height": 1500
+    },
     "astrazeneca-q3-fy25": {
       "similarity": 0.96877,
       "mae": 7.9636,
@@ -1170,6 +1206,12 @@
     "boeing-q1-fy26": {
       "similarity": 0.970151,
       "mae": 7.6115,
+      "width": 2667,
+      "height": 1500
+    },
+    "boeing-q2-fy26": {
+      "similarity": 0.970173,
+      "mae": 7.6058,
       "width": 2667,
       "height": 1500
     },
@@ -1479,6 +1521,12 @@
       "width": 2667,
       "height": 1500
     },
+    "coca-cola-q2-fy26": {
+      "similarity": 0.956678,
+      "mae": 11.0472,
+      "width": 2667,
+      "height": 1500
+    },
     "coca-cola-q4-fy25": {
       "similarity": 0.969236,
       "mae": 7.8448,
@@ -1488,6 +1536,12 @@
     "coinbase-q1-fy26": {
       "similarity": 0.952775,
       "mae": 12.0423,
+      "width": 2667,
+      "height": 1500
+    },
+    "coinbase-q2-fy26": {
+      "similarity": 0.951771,
+      "mae": 12.2984,
       "width": 2667,
       "height": 1500
     },
@@ -1686,6 +1740,12 @@
     "delta-q1-fy26": {
       "similarity": 0.97558,
       "mae": 6.2271,
+      "width": 2667,
+      "height": 1500
+    },
+    "delta-q2-fy26": {
+      "similarity": 0.971426,
+      "mae": 7.2863,
       "width": 2667,
       "height": 1500
     },
@@ -2193,6 +2253,12 @@
       "width": 2667,
       "height": 1500
     },
+    "hershey-q2-fy26": {
+      "similarity": 0.960403,
+      "mae": 10.0973,
+      "width": 2667,
+      "height": 1500
+    },
     "hershey-q4-fy25": {
       "similarity": 0.96254,
       "mae": 9.5523,
@@ -2373,6 +2439,12 @@
       "width": 2667,
       "height": 1500
     },
+    "intuitive-q2-fy26": {
+      "similarity": 0.972754,
+      "mae": 6.9477,
+      "width": 2667,
+      "height": 1500
+    },
     "intuitive-q4-fy25": {
       "similarity": 0.974725,
       "mae": 6.4451,
@@ -2382,6 +2454,12 @@
     "j-j-q1-fy26": {
       "similarity": 0.973492,
       "mae": 6.7595,
+      "width": 2667,
+      "height": 1500
+    },
+    "j-j-q2-fy26": {
+      "similarity": 0.973462,
+      "mae": 6.7672,
       "width": 2667,
       "height": 1500
     },
@@ -2562,6 +2640,12 @@
     "lockheed-martin-q1-fy26": {
       "similarity": 0.975623,
       "mae": 6.2162,
+      "width": 2667,
+      "height": 1500
+    },
+    "lockheed-martin-q2-fy26": {
+      "similarity": 0.975461,
+      "mae": 6.2576,
       "width": 2667,
       "height": 1500
     },
@@ -3099,6 +3183,12 @@
       "width": 2667,
       "height": 1500
     },
+    "mondelez-q2-fy26": {
+      "similarity": 0.965292,
+      "mae": 8.8506,
+      "width": 2667,
+      "height": 1500
+    },
     "mondelez-q4-fy25": {
       "similarity": 0.966024,
       "mae": 8.6638,
@@ -3120,6 +3210,12 @@
     "moodys-q1-fy26": {
       "similarity": 0.965777,
       "mae": 8.7268,
+      "width": 2667,
+      "height": 1500
+    },
+    "moodys-q2-fy26": {
+      "similarity": 0.9678,
+      "mae": 8.2111,
       "width": 2667,
       "height": 1500
     },
@@ -3687,6 +3783,12 @@
       "width": 2667,
       "height": 1500
     },
+    "paypal-q2-fy26": {
+      "similarity": 0.974374,
+      "mae": 6.5345,
+      "width": 2667,
+      "height": 1500
+    },
     "paypal-q4-fy25": {
       "similarity": 0.975153,
       "mae": 6.3359,
@@ -3732,6 +3834,12 @@
     "pepsico-q1-fy26": {
       "similarity": 0.977699,
       "mae": 5.6868,
+      "width": 2667,
+      "height": 1500
+    },
+    "pepsico-q2-fy26": {
+      "similarity": 0.969931,
+      "mae": 7.6675,
       "width": 2667,
       "height": 1500
     },
@@ -3993,6 +4101,12 @@
       "width": 2667,
       "height": 1500
     },
+    "sanofi-q2-fy26": {
+      "similarity": 0.977242,
+      "mae": 5.8033,
+      "width": 2667,
+      "height": 1500
+    },
     "sap-q1-fy26": {
       "similarity": 0.97127,
       "mae": 7.3262,
@@ -4173,6 +4287,12 @@
       "width": 2667,
       "height": 1500
     },
+    "southwest-q2-fy26": {
+      "similarity": 0.971125,
+      "mae": 7.363,
+      "width": 2667,
+      "height": 1500
+    },
     "southwest-q4-fy25": {
       "similarity": 0.967688,
       "mae": 8.2394,
@@ -4299,6 +4419,12 @@
       "width": 2667,
       "height": 1500
     },
+    "teladoc-q2-fy26": {
+      "similarity": 0.96491,
+      "mae": 8.948,
+      "width": 2667,
+      "height": 1500
+    },
     "teladoc-q4-fy25": {
       "similarity": 0.964389,
       "mae": 9.0807,
@@ -4308,6 +4434,12 @@
     "tempus-ai-q1-fy26": {
       "similarity": 0.959856,
       "mae": 10.2367,
+      "width": 2667,
+      "height": 1500
+    },
+    "tempus-ai-q2-fy26": {
+      "similarity": 0.962885,
+      "mae": 9.4642,
       "width": 2667,
       "height": 1500
     },
@@ -4671,6 +4803,12 @@
       "width": 2667,
       "height": 1500
     },
+    "united-q2-fy26": {
+      "similarity": 0.975665,
+      "mae": 6.2053,
+      "width": 2667,
+      "height": 1500
+    },
     "united-q4-fy25": {
       "similarity": 0.959975,
       "mae": 10.2064,
@@ -4683,6 +4821,12 @@
       "width": 2667,
       "height": 1500
     },
+    "unitedhealth-q2-fy26": {
+      "similarity": 0.971607,
+      "mae": 7.2401,
+      "width": 2667,
+      "height": 1500
+    },
     "unitedhealth-q4-fy25": {
       "similarity": 0.971838,
       "mae": 7.1814,
@@ -4692,6 +4836,12 @@
     "ups-q1-fy26": {
       "similarity": 0.963164,
       "mae": 9.3931,
+      "width": 2667,
+      "height": 1500
+    },
+    "ups-q2-fy26": {
+      "similarity": 0.963433,
+      "mae": 9.3247,
       "width": 2667,
       "height": 1500
     },

@@ -1561,7 +1561,7 @@ await scenario('comparison: extreme company magnitudes preserve fractional calib
     const aramco = records.find((record) => record.dataset.key === 'aramco-fy25');
     const docebo = records.find((record) => record.dataset.key === 'docebo-q4-fy25');
     const adidas = records.find((record) => record.dataset.key === 'adidas-q4-fy25');
-    const sanofi = records.find((record) => record.dataset.key === 'sanofi-q1-fy26');
+    const sanofi = records.find((record) => record.dataset.key === 'sanofi-q2-fy26');
     const sony = records.find((record) => record.dataset.key === 'sony-fy25');
     if (!aramco || !docebo || !adidas || !sanofi || !sony) return [];
     clearMultiPeriodScope();
@@ -1593,12 +1593,14 @@ await scenario('comparison: extreme company magnitudes preserve fractional calib
         'aramco-fy25',
         'docebo-q4-fy25',
         'adidas-q4-fy25',
-        'sanofi-q1-fy26',
+        'sanofi-q2-fy26',
         'sony-fy25',
       ]),
     'extreme comparison fixtures are missing'
   );
-  await page.waitForFunction(
+  await waitForComparisonPhase(
+    page,
+    'extreme company calibration',
     (keys) => (
       document.getElementById('sankeyComparison')?.dataset.scaleStatus === 'calibrated'
       && [...document.querySelectorAll('#sankeyComparison .comparison-chart-host')]
@@ -1624,11 +1626,11 @@ await scenario('comparison: extreme company magnitudes preserve fractional calib
     JSON.stringify(dimensions['aramco-fy25']) === JSON.stringify(['$', 'B'])
       && JSON.stringify(dimensions['docebo-q4-fy25']) === JSON.stringify(['$', 'M'])
       && JSON.stringify(dimensions['adidas-q4-fy25']) === JSON.stringify(['€', 'B'])
-      && JSON.stringify(dimensions['sanofi-q1-fy26']) === JSON.stringify(['€', 'B'])
+      && JSON.stringify(dimensions['sanofi-q2-fy26']) === JSON.stringify(['€', 'B'])
       && JSON.stringify(dimensions['sony-fy25']) === JSON.stringify(['¥', 'B']),
     `extreme money-dimension fixture changed: ${JSON.stringify(dimensions)}`
   );
-  const sanofi = snapshot.cards.find((card) => card.key === 'sanofi-q1-fy26');
+  const sanofi = snapshot.cards.find((card) => card.key === 'sanofi-q2-fy26');
   assert(
     sanofi?.anchor === 'biopharma'
       && sanofi.declaredAnchor === 'biopharma'

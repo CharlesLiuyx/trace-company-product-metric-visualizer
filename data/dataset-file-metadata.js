@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-08-08T21:00:44.000Z",
+  "generatedAt": "2026-08-09T05:30:47.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -4931,6 +4931,156 @@
       "path": "data/datasets/fortinet-q2-fy26.js",
       "updatedAtMs": 1786222844000,
       "updatedAt": "2026-08-08T21:00:44.000Z",
+      "timeSource": "git"
+    },
+    "american-q2-fy26": {
+      "path": "data/datasets/american-q2-fy26.js",
+      "updatedAtMs": 1786253447000,
+      "updatedAt": "2026-08-09T05:30:47.000Z",
+      "timeSource": "git"
+    },
+    "delta-q2-fy26": {
+      "path": "data/datasets/delta-q2-fy26.js",
+      "updatedAtMs": 1786253447000,
+      "updatedAt": "2026-08-09T05:30:47.000Z",
+      "timeSource": "git"
+    },
+    "abbott-q2-fy26": {
+      "path": "data/datasets/abbott-q2-fy26.js",
+      "updatedAtMs": 1786253447000,
+      "updatedAt": "2026-08-09T05:30:47.000Z",
+      "timeSource": "git"
+    },
+    "abbvie-q2-fy26": {
+      "path": "data/datasets/abbvie-q2-fy26.js",
+      "updatedAtMs": 1786253447000,
+      "updatedAt": "2026-08-09T05:30:47.000Z",
+      "timeSource": "git"
+    },
+    "airbus-q2-fy26": {
+      "path": "data/datasets/airbus-q2-fy26.js",
+      "updatedAtMs": 1786253447000,
+      "updatedAt": "2026-08-09T05:30:47.000Z",
+      "timeSource": "git"
+    },
+    "astrazeneca-q2-fy26": {
+      "path": "data/datasets/astrazeneca-q2-fy26.js",
+      "updatedAtMs": 1786253447000,
+      "updatedAt": "2026-08-09T05:30:47.000Z",
+      "timeSource": "git"
+    },
+    "boeing-q2-fy26": {
+      "path": "data/datasets/boeing-q2-fy26.js",
+      "updatedAtMs": 1786253447000,
+      "updatedAt": "2026-08-09T05:30:47.000Z",
+      "timeSource": "git"
+    },
+    "coca-cola-q2-fy26": {
+      "path": "data/datasets/coca-cola-q2-fy26.js",
+      "updatedAtMs": 1786253447000,
+      "updatedAt": "2026-08-09T05:30:47.000Z",
+      "timeSource": "git"
+    },
+    "coinbase-q2-fy26": {
+      "path": "data/datasets/coinbase-q2-fy26.js",
+      "updatedAtMs": 1786253447000,
+      "updatedAt": "2026-08-09T05:30:47.000Z",
+      "timeSource": "git"
+    },
+    "hershey-q2-fy26": {
+      "path": "data/datasets/hershey-q2-fy26.js",
+      "updatedAtMs": 1786253447000,
+      "updatedAt": "2026-08-09T05:30:47.000Z",
+      "timeSource": "git"
+    },
+    "intuitive-q2-fy26": {
+      "path": "data/datasets/intuitive-q2-fy26.js",
+      "updatedAtMs": 1786253447000,
+      "updatedAt": "2026-08-09T05:30:47.000Z",
+      "timeSource": "git"
+    },
+    "j-j-q2-fy26": {
+      "path": "data/datasets/j-j-q2-fy26.js",
+      "updatedAtMs": 1786253447000,
+      "updatedAt": "2026-08-09T05:30:47.000Z",
+      "timeSource": "git"
+    },
+    "lockheed-martin-q2-fy26": {
+      "path": "data/datasets/lockheed-martin-q2-fy26.js",
+      "updatedAtMs": 1786253447000,
+      "updatedAt": "2026-08-09T05:30:47.000Z",
+      "timeSource": "git"
+    },
+    "mondelez-q2-fy26": {
+      "path": "data/datasets/mondelez-q2-fy26.js",
+      "updatedAtMs": 1786253447000,
+      "updatedAt": "2026-08-09T05:30:47.000Z",
+      "timeSource": "git"
+    },
+    "moodys-q2-fy26": {
+      "path": "data/datasets/moodys-q2-fy26.js",
+      "updatedAtMs": 1786253447000,
+      "updatedAt": "2026-08-09T05:30:47.000Z",
+      "timeSource": "git"
+    },
+    "paypal-q2-fy26": {
+      "path": "data/datasets/paypal-q2-fy26.js",
+      "updatedAtMs": 1786253447000,
+      "updatedAt": "2026-08-09T05:30:47.000Z",
+      "timeSource": "git"
+    },
+    "pepsico-q2-fy26": {
+      "path": "data/datasets/pepsico-q2-fy26.js",
+      "updatedAtMs": 1786253447000,
+      "updatedAt": "2026-08-09T05:30:47.000Z",
+      "timeSource": "git"
+    },
+    "sanofi-q2-fy26": {
+      "path": "data/datasets/sanofi-q2-fy26.js",
+      "updatedAtMs": 1786253447000,
+      "updatedAt": "2026-08-09T05:30:47.000Z",
+      "timeSource": "git"
+    },
+    "southwest-q2-fy26": {
+      "path": "data/datasets/southwest-q2-fy26.js",
+      "updatedAtMs": 1786253447000,
+      "updatedAt": "2026-08-09T05:30:47.000Z",
+      "timeSource": "git"
+    },
+    "teladoc-q2-fy26": {
+      "path": "data/datasets/teladoc-q2-fy26.js",
+      "updatedAtMs": 1786253447000,
+      "updatedAt": "2026-08-09T05:30:47.000Z",
+      "timeSource": "git"
+    },
+    "tempus-ai-q2-fy26": {
+      "path": "data/datasets/tempus-ai-q2-fy26.js",
+      "updatedAtMs": 1786253447000,
+      "updatedAt": "2026-08-09T05:30:47.000Z",
+      "timeSource": "git"
+    },
+    "united-q2-fy26": {
+      "path": "data/datasets/united-q2-fy26.js",
+      "updatedAtMs": 1786253447000,
+      "updatedAt": "2026-08-09T05:30:47.000Z",
+      "timeSource": "git"
+    },
+    "unitedhealth-q2-fy26": {
+      "path": "data/datasets/unitedhealth-q2-fy26.js",
+      "updatedAtMs": 1786253447000,
+      "updatedAt": "2026-08-09T05:30:47.000Z",
+      "timeSource": "git"
+    },
+    "ups-q2-fy26": {
+      "path": "data/datasets/ups-q2-fy26.js",
+      "updatedAtMs": 1786253447000,
+      "updatedAt": "2026-08-09T05:30:47.000Z",
+      "timeSource": "git"
+    },
+    "align-q2-fy26": {
+      "path": "data/datasets/align-q2-fy26.js",
+      "updatedAtMs": 1786253447000,
+      "updatedAt": "2026-08-09T05:30:47.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {

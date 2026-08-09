@@ -194,6 +194,92 @@
           },
         },
       },
+    },
+    {
+      key: 'pepsico-q2-fy26',
+      company: 'PepsiCo',
+      period: 'Q2 FY26',
+      periodNote: 'Ending Jun. 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/pepsico-q2-fy26.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 24.2,
+        notes: ['+6% Y/Y'],
+        items: [
+          {
+            id: 'north_america',
+            label: 'North America',
+            value: 13.6,
+            notes: ['(3%) Y/Y'],
+            children: [
+              { id: 'foods', label: 'Foods', value: 6.4, notes: ['(2%) Y/Y'] },
+              { id: 'pepsico_beverages', label: 'PepsiCo Beverages', value: 7.2, notes: ['+7% Y/Y'] },
+            ],
+          },
+          { id: 'ib_franchise', label: 'IB franchise', value: 1.5, notes: ['+11% Y/Y'] },
+          { id: 'latam', label: 'LATAM', value: 2.9, notes: ['+15% Y/Y'] },
+          { id: 'emea', label: 'EMEA', value: 5.0, notes: ['+10% Y/Y'] },
+          { id: 'apac', label: 'APAC', value: 1.1, notes: ['+12% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 11.1 },
+        operatingExpenses: {
+          total: 9.1,
+          items: [
+            { id: 'operating_expenses', label: 'Operating expenses SG&A', value: 9.1 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.8 },
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: {
+        total: 0.2,
+        items: [
+          { id: 'interest_other', label: 'Interest & other', value: 0.2 },
+        ],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 13.1, notes: ['54% margin', '(0pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 4.0, notes: ['17% margin', '+9pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 3.0, notes: ['12% margin', '+7pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 +6%'],
+            items: [
+              {
+                id: 'north_america', label: '北美', notes: ['同比 (3%)'],
+                children: [
+                  { id: 'foods', label: '食品', notes: ['同比 (2%)'] },
+                  { id: 'pepsico_beverages', label: '百事饮料', notes: ['同比 +7%'] },
+                ],
+              },
+              { id: 'ib_franchise', label: '国际饮料特许经营', notes: ['同比 +11%'] },
+              { id: 'latam', label: '拉丁美洲', notes: ['同比 +15%'] },
+              { id: 'emea', label: '欧洲中东非洲', notes: ['同比 +10%'] },
+              { id: 'apac', label: '亚太', notes: ['同比 +12%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: { items: [{ id: 'operating_expenses', label: '运营费用 SG&A' }] },
+            tax: { label: '税费' },
+          },
+          otherExpenses: { items: [{ id: 'interest_other', label: '利息及其他' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 54%', '同比 (0 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 17%', '同比 +9 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 12%', '同比 +7 个百分点'] },
+          },
+        },
+      },
     }
   );
 })(window);
