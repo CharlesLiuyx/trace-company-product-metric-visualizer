@@ -256,6 +256,129 @@
           },
         },
       },
+    },
+    {
+      key: 'hilton-q2-fy26',
+      company: 'Hilton',
+      period: 'Q2 FY26',
+      periodNote: 'Ending Jun. 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 2,
+      sourceImage: 'input/processed/hilton-q2-fy26.png',
+      roundingTolerance: 0.02,
+      revenue: {
+        total: 3.341,
+        notes: ['+7% Y/Y'],
+        items: [
+          { id: 'franchise_fees', label: 'Franchise fees', value: 0.808, notes: ['+8% Y/Y'] },
+          { id: 'base_management_fees', label: 'Base management fees', value: 0.099, notes: ['+2% Y/Y'] },
+          { id: 'incentive_management_fees', label: 'Incentive management fees', value: 0.069, notes: ['(8%) Y/Y'] },
+          { id: 'owned_leased_and_other', label: 'Owned, leased and other', value: 0.311, notes: ['(6%) Y/Y'] },
+          { id: 'other_revenue', label: 'Other', value: 0.072, notes: ['(6%) Y/Y'] },
+          {
+            id: 'managed_franchised_other_revenue',
+            label: 'Other revenue from managed and franchised properties',
+            value: 1.982,
+            notes: ['+9% Y/Y', 'Reported by Hilton as cost reimbursement revenues.'],
+          },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          id: 'cost_of_revenue',
+          label: 'Cost of revenue',
+          value: 0,
+          notes: ['The source chart does not show a gross profit or cost-of-revenue subtotal.'],
+        },
+        operatingExpenses: {
+          total: 2.483,
+          notes: ['Source chart presents Hilton expenses as operating expenses rather than a gross-profit split.'],
+          items: [
+            { id: 'owned_leased_hotels', label: 'Owned, leased hotels', value: 0.266 },
+            { id: 'ga', label: 'G&A', value: 0.114 },
+            { id: 'da', label: 'D&A', value: 0.049 },
+            {
+              id: 'managed_franchised_other_expenses',
+              label: 'Other expenses from managed and franchised properties',
+              value: 2.054,
+              notes: ['Includes reimbursed expenses of $2.008B plus $0.046B of other expenses.'],
+            },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.198 },
+      },
+      otherIncome: {
+        total: 0,
+        items: [],
+      },
+      otherExpenses: {
+        total: 0.178,
+        items: [
+          {
+            id: 'other_nonoperating',
+            label: 'Other',
+            value: 0.178,
+            notes: ['Interest expense and foreign-currency loss, net of other non-operating income.'],
+          },
+        ],
+      },
+      profit: {
+        gross: {
+          id: 'gross_profit',
+          label: 'Gross profit',
+          value: 3.341,
+          notes: ['Synthetic SSOT subtotal because the source chart does not show gross profit.'],
+        },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 0.858, notes: ['26% margin', '+1pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 0.482, notes: ['14% margin', '+0pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 +7%'],
+            items: [
+              { id: 'franchise_fees', label: '特许经营费', notes: ['同比 +8%'] },
+              { id: 'base_management_fees', label: '基础管理费', notes: ['同比 +2%'] },
+              { id: 'incentive_management_fees', label: '激励管理费', notes: ['同比 (8%)'] },
+              { id: 'owned_leased_and_other', label: '自有、租赁及其他', notes: ['同比 (6%)'] },
+              { id: 'other_revenue', label: '其他', notes: ['同比 (6%)'] },
+              {
+                id: 'managed_franchised_other_revenue',
+                label: '管理和特许经营物业的其他收入',
+                notes: ['同比 +9%', 'Hilton 将该项目列报为成本报销收入。'],
+              },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本', notes: ['来源图未单独显示毛利润或收入成本小计。'] },
+            operatingExpenses: {
+              notes: ['来源图将 Hilton 的费用列示为运营费用，而非毛利润拆分。'],
+              items: [
+                { id: 'owned_leased_hotels', label: '自有及租赁酒店' },
+                { id: 'ga', label: '管理费用' },
+                { id: 'da', label: '折旧与摊销' },
+                {
+                  id: 'managed_franchised_other_expenses',
+                  label: '管理和特许经营物业的其他费用',
+                  notes: ['包括 $2.008B 报销费用和 $0.046B 其他费用。'],
+                },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherExpenses: {
+            items: [{ id: 'other_nonoperating', label: '其他', notes: ['利息费用及外币损失，扣除其他非运营收入。'] }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['来源图未显示毛利润，因此 SSOT 使用合成小计。'] },
+            operating: { label: '营业利润', notes: ['利润率 26%', '同比 +1 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 14%', '同比 +0 个百分点'] },
+          },
+        },
+      },
     }
   );
 })(window);

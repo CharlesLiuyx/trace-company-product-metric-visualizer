@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-08-09T05:30:47.000Z",
+  "generatedAt": "2026-08-09T07:55:30.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -5081,6 +5081,156 @@
       "path": "data/datasets/align-q2-fy26.js",
       "updatedAtMs": 1786253447000,
       "updatedAt": "2026-08-09T05:30:47.000Z",
+      "timeSource": "git"
+    },
+    "yum-brands-q2-fy26": {
+      "path": "data/datasets/yum-brands-q2-fy26.js",
+      "updatedAtMs": 1786262130000,
+      "updatedAt": "2026-08-09T07:55:30.000Z",
+      "timeSource": "git"
+    },
+    "chipotle-q2-fy26": {
+      "path": "data/datasets/chipotle-q2-fy26.js",
+      "updatedAtMs": 1786262130000,
+      "updatedAt": "2026-08-09T07:55:30.000Z",
+      "timeSource": "git"
+    },
+    "domino-s-q2-fy26": {
+      "path": "data/datasets/domino-s-q2-fy26.js",
+      "updatedAtMs": 1786262130000,
+      "updatedAt": "2026-08-09T07:55:30.000Z",
+      "timeSource": "git"
+    },
+    "ge-vernova-q2-fy26": {
+      "path": "data/datasets/ge-vernova-q2-fy26.js",
+      "updatedAtMs": 1786262130000,
+      "updatedAt": "2026-08-09T07:55:30.000Z",
+      "timeSource": "git"
+    },
+    "hermes-h1-fy26": {
+      "path": "data/datasets/hermes-h1-fy26.js",
+      "updatedAtMs": 1786262130000,
+      "updatedAt": "2026-08-09T07:55:30.000Z",
+      "timeSource": "git"
+    },
+    "hilton-q2-fy26": {
+      "path": "data/datasets/hilton-q2-fy26.js",
+      "updatedAtMs": 1786262130000,
+      "updatedAt": "2026-08-09T07:55:30.000Z",
+      "timeSource": "git"
+    },
+    "kering-h1-fy26": {
+      "path": "data/datasets/kering-h1-fy26.js",
+      "updatedAtMs": 1786262130000,
+      "updatedAt": "2026-08-09T07:55:30.000Z",
+      "timeSource": "git"
+    },
+    "loreal-h1-fy26": {
+      "path": "data/datasets/loreal-h1-fy26.js",
+      "updatedAtMs": 1786262130000,
+      "updatedAt": "2026-08-09T07:55:30.000Z",
+      "timeSource": "git"
+    },
+    "lvmh-h1-fy26": {
+      "path": "data/datasets/lvmh-h1-fy26.js",
+      "updatedAtMs": 1786262130000,
+      "updatedAt": "2026-08-09T07:55:30.000Z",
+      "timeSource": "git"
+    },
+    "p-g-q4-fy26": {
+      "path": "data/datasets/p-g-q4-fy26.js",
+      "updatedAtMs": 1786262130000,
+      "updatedAt": "2026-08-09T07:55:30.000Z",
+      "timeSource": "git"
+    },
+    "starbucks-q3-fy26": {
+      "path": "data/datasets/starbucks-q3-fy26.js",
+      "updatedAtMs": 1786262130000,
+      "updatedAt": "2026-08-09T07:55:30.000Z",
+      "timeSource": "git"
+    },
+    "tencent-q1-fy23": {
+      "path": "data/datasets/tencent-q1-fy23.js",
+      "updatedAtMs": 1786262130000,
+      "updatedAt": "2026-08-09T07:55:30.000Z",
+      "timeSource": "git"
+    },
+    "tencent-q1-fy24": {
+      "path": "data/datasets/tencent-q1-fy24.js",
+      "updatedAtMs": 1786262130000,
+      "updatedAt": "2026-08-09T07:55:30.000Z",
+      "timeSource": "git"
+    },
+    "tencent-q1-fy25": {
+      "path": "data/datasets/tencent-q1-fy25.js",
+      "updatedAtMs": 1786262130000,
+      "updatedAt": "2026-08-09T07:55:30.000Z",
+      "timeSource": "git"
+    },
+    "tencent-q2-fy23": {
+      "path": "data/datasets/tencent-q2-fy23.js",
+      "updatedAtMs": 1786262130000,
+      "updatedAt": "2026-08-09T07:55:30.000Z",
+      "timeSource": "git"
+    },
+    "tencent-q2-fy24": {
+      "path": "data/datasets/tencent-q2-fy24.js",
+      "updatedAtMs": 1786262130000,
+      "updatedAt": "2026-08-09T07:55:30.000Z",
+      "timeSource": "git"
+    },
+    "tencent-q2-fy25": {
+      "path": "data/datasets/tencent-q2-fy25.js",
+      "updatedAtMs": 1786262130000,
+      "updatedAt": "2026-08-09T07:55:30.000Z",
+      "timeSource": "git"
+    },
+    "tencent-q3-fy22": {
+      "path": "data/datasets/tencent-q3-fy22.js",
+      "updatedAtMs": 1786262130000,
+      "updatedAt": "2026-08-09T07:55:30.000Z",
+      "timeSource": "git"
+    },
+    "tencent-q3-fy23": {
+      "path": "data/datasets/tencent-q3-fy23.js",
+      "updatedAtMs": 1786262130000,
+      "updatedAt": "2026-08-09T07:55:30.000Z",
+      "timeSource": "git"
+    },
+    "tencent-q3-fy24": {
+      "path": "data/datasets/tencent-q3-fy24.js",
+      "updatedAtMs": 1786262130000,
+      "updatedAt": "2026-08-09T07:55:30.000Z",
+      "timeSource": "git"
+    },
+    "tencent-q4-fy23": {
+      "path": "data/datasets/tencent-q4-fy23.js",
+      "updatedAtMs": 1786262130000,
+      "updatedAt": "2026-08-09T07:55:30.000Z",
+      "timeSource": "git"
+    },
+    "tencent-q4-fy24": {
+      "path": "data/datasets/tencent-q4-fy24.js",
+      "updatedAtMs": 1786262130000,
+      "updatedAt": "2026-08-09T07:55:30.000Z",
+      "timeSource": "git"
+    },
+    "tilray-q4-fy26": {
+      "path": "data/datasets/tilray-q4-fy26.js",
+      "updatedAtMs": 1786262130000,
+      "updatedAt": "2026-08-09T07:55:30.000Z",
+      "timeSource": "git"
+    },
+    "xiaomi-q2-fy25": {
+      "path": "data/datasets/xiaomi-q2-fy25.js",
+      "updatedAtMs": 1786262130000,
+      "updatedAt": "2026-08-09T07:55:30.000Z",
+      "timeSource": "git"
+    },
+    "tencent-q4-fy22": {
+      "path": "data/datasets/tencent-q4-fy22.js",
+      "updatedAtMs": 1786262130000,
+      "updatedAt": "2026-08-09T07:55:30.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {

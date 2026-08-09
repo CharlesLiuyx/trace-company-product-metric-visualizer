@@ -18989,6 +18989,569 @@
             }
           }
         }
+      },
+      {
+        "key": "yum-brands-q2-fy26",
+        "src": "data/datasets/yum-brands-q2-fy26.js",
+        "data": {
+          "name": "Yum! Brands · Q2 FY26",
+          "company": "Yum! Brands",
+          "meta": {
+            "title": "Yum! Brands Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Yum! Brands · 2026 财年第二季度",
+              "meta": {
+                "title": "Yum! Brands 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "chipotle-q2-fy26",
+        "src": "data/datasets/chipotle-q2-fy26.js",
+        "data": {
+          "name": "Chipotle · Q2 FY26",
+          "company": "Chipotle",
+          "meta": {
+            "title": "Chipotle Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Quarter ended June 30, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Chipotle · 2026 财年第二季度",
+              "meta": {
+                "title": "Chipotle 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "domino-s-q2-fy26",
+        "src": "data/datasets/domino-s-q2-fy26.js",
+        "data": {
+          "name": "Domino's · Q2 FY26",
+          "company": "Domino's",
+          "meta": {
+            "title": "Domino's Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Quarter ended Jun. 14, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "达美乐 · 2026 财年第二季度",
+              "meta": {
+                "title": "达美乐 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月 14 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ge-vernova-q2-fy26",
+        "src": "data/datasets/ge-vernova-q2-fy26.js",
+        "data": {
+          "name": "GE Vernova · Q2 FY26",
+          "company": "GE Vernova",
+          "meta": {
+            "title": "GE Vernova Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Quarter ended Jun. 30, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "GE Vernova · 2026 财年第二季度",
+              "meta": {
+                "title": "GE Vernova 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hermes-h1-fy26",
+        "src": "data/datasets/hermes-h1-fy26.js",
+        "data": {
+          "name": "Hermès · H1 FY26",
+          "company": "Hermès",
+          "meta": {
+            "title": "Hermès H1 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "爱马仕 · 2026 财年上半年",
+              "meta": {
+                "title": "爱马仕 2026 财年上半年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hilton-q2-fy26",
+        "src": "data/datasets/hilton-q2-fy26.js",
+        "data": {
+          "name": "Hilton · Q2 FY26",
+          "company": "Hilton",
+          "meta": {
+            "title": "Hilton Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Hilton · 2026 财年第二季度",
+              "meta": {
+                "title": "Hilton 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "kering-h1-fy26",
+        "src": "data/datasets/kering-h1-fy26.js",
+        "data": {
+          "name": "Kering · H1 FY26",
+          "company": "Kering",
+          "meta": {
+            "title": "Kering H1 FY26 Income Statement",
+            "period": "H1 FY26",
+            "periodNote": "Ending June 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "开云集团 · 2026 财年上半年",
+              "meta": {
+                "title": "开云集团 2026 财年上半年利润表",
+                "period": "2026 财年上半年",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "loreal-h1-fy26",
+        "src": "data/datasets/loreal-h1-fy26.js",
+        "data": {
+          "name": "L’Oréal · H1 FY26",
+          "company": "L'Oréal",
+          "meta": {
+            "title": "L’Oréal H1 FY26 Income Statement",
+            "period": "H1 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "欧莱雅 · 2026 财年上半年",
+              "meta": {
+                "title": "欧莱雅 2026 财年上半年利润表",
+                "period": "2026 财年上半年",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lvmh-h1-fy26",
+        "src": "data/datasets/lvmh-h1-fy26.js",
+        "data": {
+          "name": "LVMH · H1 FY26",
+          "company": "LVMH",
+          "meta": {
+            "title": "LVMH H1 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "路威酩轩 · 2026 财年上半年",
+              "meta": {
+                "title": "路威酩轩 2026 财年上半年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "p-g-q4-fy26",
+        "src": "data/datasets/p-g-q4-fy26.js",
+        "data": {
+          "name": "P&G · Q4 FY26",
+          "company": "P&G",
+          "meta": {
+            "title": "P&G Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending June 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "宝洁 · 2026 财年第四季度",
+              "meta": {
+                "title": "宝洁 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "starbucks-q3-fy26",
+        "src": "data/datasets/starbucks-q3-fy26.js",
+        "data": {
+          "name": "Starbucks - Q3 FY26",
+          "company": "Starbucks",
+          "meta": {
+            "title": "Starbucks Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending June 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Starbucks · 2026 财年第三季度",
+              "meta": {
+                "title": "Starbucks 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tencent-q1-fy23",
+        "src": "data/datasets/tencent-q1-fy23.js",
+        "data": {
+          "name": "Tencent · Q1 FY23",
+          "company": "Tencent",
+          "meta": {
+            "title": "Tencent Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending Mar. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tencent · 2023 财年第一季度",
+              "meta": {
+                "title": "Tencent 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2023 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tencent-q1-fy24",
+        "src": "data/datasets/tencent-q1-fy24.js",
+        "data": {
+          "name": "Tencent · Q1 FY24",
+          "company": "Tencent",
+          "meta": {
+            "title": "Tencent Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tencent · 2024 财年第一季度",
+              "meta": {
+                "title": "Tencent 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tencent-q1-fy25",
+        "src": "data/datasets/tencent-q1-fy25.js",
+        "data": {
+          "name": "Tencent · Q1 FY25",
+          "company": "Tencent",
+          "meta": {
+            "title": "Tencent Q1 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tencent · 2025 财年第一季度",
+              "meta": {
+                "title": "Tencent 2025 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tencent-q2-fy23",
+        "src": "data/datasets/tencent-q2-fy23.js",
+        "data": {
+          "name": "Tencent · Q2 FY23",
+          "company": "Tencent",
+          "meta": {
+            "title": "Tencent Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Jun. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tencent · 2023 财年第二季度",
+              "meta": {
+                "title": "Tencent 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tencent-q2-fy24",
+        "src": "data/datasets/tencent-q2-fy24.js",
+        "data": {
+          "name": "Tencent · Q2 FY24",
+          "company": "Tencent",
+          "meta": {
+            "title": "Tencent Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tencent · 2024 财年第二季度",
+              "meta": {
+                "title": "Tencent 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tencent-q2-fy25",
+        "src": "data/datasets/tencent-q2-fy25.js",
+        "data": {
+          "name": "Tencent · Q2 FY25",
+          "company": "Tencent",
+          "meta": {
+            "title": "Tencent Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Jun. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tencent · 2025 财年第二季度",
+              "meta": {
+                "title": "Tencent 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tencent-q3-fy22",
+        "src": "data/datasets/tencent-q3-fy22.js",
+        "data": {
+          "name": "Tencent · Q3 FY22",
+          "company": "Tencent",
+          "meta": {
+            "title": "Tencent Q3 FY22 Income Statement",
+            "period": "Q3 FY22",
+            "periodNote": "Ending Sep. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tencent · 2022 财年第三季度",
+              "meta": {
+                "title": "Tencent 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度",
+                "periodNote": "截至 2022 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tencent-q3-fy23",
+        "src": "data/datasets/tencent-q3-fy23.js",
+        "data": {
+          "name": "Tencent · Q3 FY23",
+          "company": "Tencent",
+          "meta": {
+            "title": "Tencent Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Sep. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tencent · 2023 财年第三季度",
+              "meta": {
+                "title": "Tencent 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tencent-q3-fy24",
+        "src": "data/datasets/tencent-q3-fy24.js",
+        "data": {
+          "name": "Tencent · Q3 FY24",
+          "company": "Tencent",
+          "meta": {
+            "title": "Tencent Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tencent · 2024 财年第三季度",
+              "meta": {
+                "title": "Tencent 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tencent-q4-fy23",
+        "src": "data/datasets/tencent-q4-fy23.js",
+        "data": {
+          "name": "Tencent · Q4 FY23",
+          "company": "Tencent",
+          "meta": {
+            "title": "Tencent Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tencent · 2023 财年第四季度",
+              "meta": {
+                "title": "Tencent 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tencent-q4-fy24",
+        "src": "data/datasets/tencent-q4-fy24.js",
+        "data": {
+          "name": "Tencent · Q4 FY24",
+          "company": "Tencent",
+          "meta": {
+            "title": "Tencent Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tencent · 2024 财年第四季度",
+              "meta": {
+                "title": "Tencent 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tilray-q4-fy26",
+        "src": "data/datasets/tilray-q4-fy26.js",
+        "data": {
+          "name": "Tilray Brands · Q4 FY26",
+          "company": "Tilray Brands",
+          "meta": {
+            "title": "Tilray Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending May 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tilray Brands · 2026 财年第四季度",
+              "meta": {
+                "title": "Tilray 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 5 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "xiaomi-q2-fy25",
+        "src": "data/datasets/xiaomi-q2-fy25.js",
+        "data": {
+          "name": "Xiaomi · Q2 FY25",
+          "company": "Xiaomi",
+          "meta": {
+            "title": "Xiaomi Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Jun. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "小米 · 2025 财年第二季度",
+              "meta": {
+                "title": "小米 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tencent-q4-fy22",
+        "src": "data/datasets/tencent-q4-fy22.js",
+        "data": {
+          "name": "Tencent · Q4 FY22",
+          "company": "Tencent",
+          "meta": {
+            "title": "Tencent Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Ending Dec. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tencent · 2022 财年第四季度",
+              "meta": {
+                "title": "Tencent 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2022 年 12 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

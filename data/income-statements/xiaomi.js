@@ -10,6 +10,110 @@
 
   ssot.records.push(
     {
+      key: 'xiaomi-q2-fy25',
+      company: 'Xiaomi',
+      period: 'Q2 FY25',
+      periodNote: 'Ending Jun. 2025',
+      currency: 'RMB',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/xiaomi-q2-fy25.png',
+      roundingTolerance: 0.2,
+      revenue: {
+        total: 116.0,
+        notes: ['+30% Y/Y'],
+        items: [
+          {
+            id: 'smartphones_aiot',
+            label: 'Smartphones x AIoT',
+            value: 94.7,
+            notes: ['+15% Y/Y'],
+            children: [
+              { id: 'smartphones', label: 'Smartphones', value: 45.5, notes: ['(2%) Y/Y'] },
+              { id: 'iot_lifestyle', label: 'IoT & Lifestyle', value: 38.7, notes: ['(2%) Y/Y'] },
+              { id: 'internet_services', label: 'Internet Services', value: 9.1, notes: ['(2%) Y/Y'] },
+              { id: 'other_segment', label: 'Other', value: 1.4, notes: ['(2%) Y/Y'] },
+            ],
+          },
+          { id: 'smart_ev_ai_other', label: 'Smart EV, AI and other', value: 21.3, notes: ['+234% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 89.9 },
+        operatingExpenses: {
+          total: 17.2,
+          items: [
+            { id: 'sales_marketing', label: 'Sales & marketing', value: 7.8, notes: ['7% of revenue'] },
+            { id: 'rnd', label: 'Research & development', value: 7.7, notes: ['7% of revenue'] },
+            { id: 'ga', label: 'General & Administrative', value: 1.6, notes: ['4% of revenue'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 2.5 },
+      },
+      operatingOtherIncome: {
+        total: 4.5,
+        items: [{ id: 'other_operating_income', label: 'Other', value: 4.5 }],
+      },
+      otherIncome: {
+        total: 1.0,
+        items: [{ id: 'other_after_operating', label: 'Other', value: 1.0 }],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 26.1, notes: ['23% margin', '+1pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 13.4, notes: ['12% margin', '+5pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 11.9, notes: ['10% margin', '+4pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2025 财年第二季度',
+          periodNote: '截至 2025 年 6 月',
+          revenue: {
+            notes: ['同比 +30%'],
+            items: [
+              {
+                id: 'smartphones_aiot',
+                label: '智能手机 x AIoT',
+                notes: ['同比 +15%'],
+                children: [
+                  { id: 'smartphones', label: '智能手机', notes: ['同比 (2%)'] },
+                  { id: 'iot_lifestyle', label: 'IoT 与生活消费产品', notes: ['同比 (2%)'] },
+                  { id: 'internet_services', label: '互联网服务', notes: ['同比 (2%)'] },
+                  { id: 'other_segment', label: '其他', notes: ['同比 (2%)'] },
+                ],
+              },
+              { id: 'smart_ev_ai_other', label: '智能电动汽车、AI 及其他', notes: ['同比 +234%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'sales_marketing', label: '销售与营销', notes: ['占收入 7%'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 7%'] },
+                { id: 'ga', label: '一般及行政', notes: ['占收入 4%'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          operatingOtherIncome: {
+            items: [{ id: 'other_operating_income', label: '其他' }],
+          },
+          otherIncome: {
+            items: [{ id: 'other_after_operating', label: '其他' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['毛利率 23%', '同比 +1 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 12%', '同比 +5 个百分点'] },
+            net: { label: '净利润', notes: ['净利率 10%', '同比 +4 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'xiaomi-q3-fy25',
       company: 'Xiaomi',
       period: 'Q3 FY25',

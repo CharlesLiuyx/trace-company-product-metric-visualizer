@@ -92,6 +92,88 @@
           },
         },
       },
+    },
+    {
+      key: 'lvmh-h1-fy26',
+      company: 'LVMH',
+      period: 'H1 FY26',
+      periodNote: 'Ending Jun. 2026',
+      currency: '€',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/lvmh-h1-fy26.png',
+      roundingTolerance: 0.2,
+      revenue: {
+        total: 38.6,
+        notes: ['(3%) Y/Y'],
+        items: [
+          { id: 'wines_spirits', label: 'Wines & Spirits', value: 2.6, notes: ['+0% Y/Y'] },
+          { id: 'fashion_leather_goods', label: 'Fashion & Leather Goods', value: 18.1, notes: ['(5%) Y/Y'] },
+          { id: 'perfumes_cosmetics', label: 'Perfumes & Cosmetics', value: 3.9, notes: ['(4%) Y/Y'] },
+          { id: 'watches_jewelry', label: 'Watches & Jewelry', value: 5.2, notes: ['+3% Y/Y'] },
+          { id: 'selective_retailing', label: 'Selective retailing', value: 8.4, notes: ['(2%) Y/Y'] },
+          { id: 'other_activities_eliminations', label: 'Other activities and eliminations', value: 0.4 },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 12.7 },
+        operatingExpenses: {
+          total: 17.3,
+          items: [
+            { id: 'sales_marketing', label: 'Sales & Marketing', value: 14.4, notes: ['37% of revenue'] },
+            { id: 'general_administrative', label: 'General & Administrative', value: 2.9, notes: ['7% of revenue'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 2.6 },
+      },
+      otherIncome: {
+        total: 0,
+        items: [],
+      },
+      otherExpenses: {
+        total: 0.1,
+        items: [{ id: 'other', label: 'Other', value: 0.1 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 25.9, notes: ['67% of revenue', '+0pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 8.7, notes: ['23% of revenue', '(0pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 6.0, notes: ['16% of revenue', '+1pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年上半年',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 (3%)'],
+            items: [
+              { id: 'wines_spirits', label: '葡萄酒与烈酒', notes: ['同比 +0%'] },
+              { id: 'fashion_leather_goods', label: '时装与皮具', notes: ['同比 (5%)'] },
+              { id: 'perfumes_cosmetics', label: '香水与美妆', notes: ['同比 (4%)'] },
+              { id: 'watches_jewelry', label: '腕表与珠宝', notes: ['同比 +3%'] },
+              { id: 'selective_retailing', label: '精选零售', notes: ['同比 (2%)'] },
+              { id: 'other_activities_eliminations', label: '其他业务及抵销' },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '销售成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'sales_marketing', label: '销售与市场费用', notes: ['占收入 37%'] },
+                { id: 'general_administrative', label: '一般及行政费用', notes: ['占收入 7%'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherExpenses: {
+            items: [{ id: 'other', label: '其他' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['占收入 67%', '同比 +0 个百分点'] },
+            operating: { label: '营业利润', notes: ['占收入 23%', '同比 +0 个百分点'] },
+            net: { label: '净利润', notes: ['占收入 16%', '同比 +1 个百分点'] },
+          },
+        },
+      },
     }
   );
 })(window);
