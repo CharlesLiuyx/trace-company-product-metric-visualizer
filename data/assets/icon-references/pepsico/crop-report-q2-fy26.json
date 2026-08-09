@@ -1,0 +1,139 @@
+{
+  "source": "data/assets/raster-annotations/pepsico/ib-sodastream.png",
+  "spec": "input/icon-crop-specs/pepsico-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-08-09T04:28:56.644082+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/pepsico",
+  "crops": [
+    {
+      "key": "pepsico-ib-sodastream-q2-fy26",
+      "output": "data/assets/icon-references/pepsico/crops/ib-sodastream-q2-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2366,
+        "losslessBytes": 5559,
+        "savingsVsLossless": 0.5744,
+        "metrics": {
+          "meanAbsoluteError": 0.0402,
+          "rootMeanSquareError": 0.4949,
+          "p99AbsoluteError": 1.0,
+          "maxChannelDiff": 13,
+          "changedPixelRatio": 0.0422
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 5798,
+        "transparentPixelRatio": 0.4425
+      },
+      "searchBox": {
+        "x": 0,
+        "y": 0,
+        "width": 78,
+        "height": 168
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 9,
+        "y0": 7,
+        "x1": 63,
+        "y1": 162
+      },
+      "cropBox": {
+        "x0": 0,
+        "y0": 0,
+        "x1": 78,
+        "y1": 168
+      },
+      "validation": {
+        "width": 78,
+        "height": 168,
+        "foregroundPixels": 5357,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 9,
+          "right": 15,
+          "top": 7,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": -0.0385,
+          "y": 0.003
+        },
+        "passes": true
+      },
+      "note": "Clean derivative of the tracked SodaStream raster for Q2 FY26; the right edge stops before the contaminating I glyph while preserving the complete bottle.",
+      "runtimeOutput": "data/assets/raster-annotations/pepsico/ib-sodastream-q2-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2366,
+        "losslessBytes": 5559,
+        "savingsVsLossless": 0.5744,
+        "metrics": {
+          "meanAbsoluteError": 0.0402,
+          "rootMeanSquareError": 0.4949,
+          "p99AbsoluteError": 1.0,
+          "maxChannelDiff": 13,
+          "changedPixelRatio": 0.0422
+        }
+      },
+      "validationSheet": "data/assets/icon-references/pepsico/validation-sheets/pepsico-ib-sodastream-q2-fy26.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 70155,
+        "losslessBytes": 138488,
+        "savingsVsLossless": 0.4934,
+        "metrics": {
+          "meanAbsoluteError": 0.2787,
+          "rootMeanSquareError": 1.5967,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 67,
+          "changedPixelRatio": 0.1353
+        }
+      }
+    }
+  ]
+}

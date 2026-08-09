@@ -178,6 +178,91 @@
           },
         },
       },
+    },
+    {
+      key: 'intuitive-q2-fy26',
+      company: 'Intuitive',
+      period: 'Q2 FY26',
+      periodNote: 'Ending Jun. 2026',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/intuitive-q2-fy26.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 2892,
+        notes: ['+19% Y/Y'],
+        items: [
+          { id: 'instruments_accessories', label: 'Instruments & Accessories', value: 1735, notes: ['+18% Y/Y'] },
+          { id: 'systems', label: 'Systems', value: 685, notes: ['+19% Y/Y'] },
+          { id: 'services', label: 'Services', value: 472, notes: ['+2% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          id: 'cost_of_revenue',
+          label: 'Cost of revenue',
+          value: 932,
+          items: [
+            { id: 'product', label: 'Product', value: 777 },
+            { id: 'service', label: 'Service', value: 155 },
+          ],
+        },
+        operatingExpenses: {
+          total: 989,
+          items: [
+            { id: 'sga', label: 'SG&A', value: 618, notes: ['21% of revenue', '(2pp) Y/Y'] },
+            { id: 'rnd', label: 'R&D', value: 371, notes: ['13% of revenue', '(0pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 231 },
+      },
+      otherIncome: {
+        total: 83,
+        items: [{ id: 'other_income', label: 'Other', value: 83 }],
+      },
+      otherExpenses: { total: 0, items: [] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 1960, notes: ['68% margin', '+1pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 972, notes: ['34% margin', '+3pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 823, notes: ['28% margin', '+1pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 +19%'],
+            items: [
+              { id: 'instruments_accessories', label: '器械与配件', notes: ['同比 +18%'] },
+              { id: 'systems', label: '系统', notes: ['同比 +19%'] },
+              { id: 'services', label: '服务', notes: ['同比 +2%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: {
+              label: '收入成本',
+              items: [
+                { id: 'product', label: '产品' },
+                { id: 'service', label: '服务' },
+              ],
+            },
+            operatingExpenses: {
+              items: [
+                { id: 'sga', label: '销售、一般及行政费用', notes: ['占收入 21%', '同比 (2 个百分点)'] },
+                { id: 'rnd', label: '研发', notes: ['占收入 13%', '同比 (0 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: { items: [{ id: 'other_income', label: '其他' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 68%', '同比 +1 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 34%', '同比 +3 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 28%', '同比 +1 个百分点'] },
+          },
+        },
+      },
     }
   );
 })(window);

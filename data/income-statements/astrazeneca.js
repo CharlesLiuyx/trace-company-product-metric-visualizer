@@ -205,4 +205,70 @@
       },
     },
   });
+
+  ssot.records.push({
+    key: 'astrazeneca-q2-fy26',
+    company: 'AstraZeneca',
+    period: 'Q2 FY26',
+    periodNote: 'Ending Jun. 2026',
+    currency: '$',
+    unit: 'B',
+    decimals: 1,
+    sourceImage: 'input/processed/astrazeneca-q2-fy26.png',
+    roundingTolerance: 0.25,
+    revenue: {
+      total: 15.4,
+      notes: ['+6% Y/Y'],
+      items: [
+        { id: 'oncology', label: 'Oncology', value: 7.3, notes: ['+16% Y/Y'] },
+        { id: 'cvrm', label: ['Cardiovascular,', 'Renal & Metabolism'], value: 2.8, notes: ['(15%) Y/Y'] },
+        { id: 'respiratory_immunology', label: ['Respiratory &', 'Immunology'], value: 2.4, notes: ['+13% Y/Y'] },
+        { id: 'vaccines_immuno_oncology', label: ['Vaccines &', 'Immuno-Oncology'], value: 0.1, notes: ['(29%) Y/Y'] },
+        { id: 'rare_disease', label: 'Rare Disease', value: 2.5, notes: ['+9% Y/Y'] },
+        { id: 'other_medicines', label: 'Other medicines', value: 0.2, notes: ['(7%) Y/Y'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 2.5 },
+      operatingExpenses: {
+        total: 9.8,
+        items: [
+          { id: 'sga', label: 'SG&A', value: 5.7, notes: ['37% of revenue', '+3pp Y/Y'] },
+          { id: 'rnd', label: 'R&D', value: 4.1, notes: ['26% of revenue', '+2pp Y/Y'] },
+          { id: 'opex_other', label: 'Other', value: 0.1, notes: ['1% of revenue', '(0pp) Y/Y'] },
+        ],
+      },
+      tax: { id: 'tax', label: 'Tax', value: 0.3 },
+    },
+    operatingOtherIncome: {
+      total: 0.2,
+      items: [{ id: 'operating_other_income', label: 'Other', value: 0.2 }],
+    },
+    otherIncome: { total: 0, items: [] },
+    otherExpenses: {
+      total: 0.4,
+      items: [{ id: 'other_expenses', label: 'Other', value: 0.4 }],
+    },
+    profit: {
+      gross: { id: 'gross_profit', label: 'Gross profit', value: 12.9, notes: ['84% margin', '+1pp Y/Y'] },
+      operating: { id: 'operating_profit', label: 'Operating profit', value: 3.2, notes: ['21% margin', '(4pp) Y/Y'] },
+      net: { id: 'net_profit', label: 'Net profit', value: 2.5, notes: ['16% margin', '(1%) Y/Y'] },
+    },
+    i18n: {
+      zh: {
+        period: '2026 财年第二季度', periodNote: '截至 2026 年 6 月',
+        revenue: { notes: ['同比 +6%'], items: [
+          { label: '肿瘤', notes: ['同比 +16%'] }, { label: ['心血管、肾脏', '与代谢'], notes: ['同比 (15%)'] },
+          { label: ['呼吸与', '免疫'], notes: ['同比 +13%'] }, { label: ['疫苗与', '免疫肿瘤'], notes: ['同比 (29%)'] },
+          { label: '罕见病', notes: ['同比 +9%'] }, { label: '其他药品', notes: ['同比 (7%)'] },
+        ] },
+        costs: { costOfRevenue: { label: '销售成本' }, operatingExpenses: { items: [
+          { label: '销售、一般及行政费用', notes: ['占收入 37%', '同比 +3 个百分点'] },
+          { label: '研发', notes: ['占收入 26%', '同比 +2 个百分点'] }, { label: '其他', notes: ['占收入 1%', '同比 (0 个百分点)'] },
+        ] }, tax: { label: '税费' } },
+        operatingOtherIncome: { items: [{ label: '其他' }] }, otherExpenses: { items: [{ label: '其他' }] },
+        profit: { gross: { label: '毛利润', notes: ['利润率 84%', '同比 +1 个百分点'] }, operating: { label: '营业利润', notes: ['利润率 21%', '同比 (4 个百分点)'] }, net: { label: '净利润', notes: ['利润率 16%', '同比 (1%)'] } },
+      },
+    },
+  });
 })(window);

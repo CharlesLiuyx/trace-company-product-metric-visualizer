@@ -10,6 +10,99 @@
 
   ssot.records.push(
     {
+      key: 'coca-cola-q2-fy26',
+      company: 'Coca-Cola',
+      period: 'Q2 FY26',
+      periodNote: 'Ending Jun. 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 3,
+      sourceImage: 'input/processed/coca-cola-q2-fy26.png',
+      roundingTolerance: 0.2,
+      revenue: {
+        total: 13.4,
+        notes: ['+7% Y/Y'],
+        items: [
+          { id: 'emea', label: 'EMEA', value: 3.2, notes: ['+2% Y/Y'] },
+          { id: 'latam', label: 'LATAM', value: 1.8, notes: ['+16% Y/Y'] },
+          { id: 'ucan', label: 'UCAN', value: 5.4, notes: ['+8% Y/Y'] },
+          { id: 'apac', label: 'APAC', value: 1.6, notes: ['+1% Y/Y'] },
+          { id: 'bottling_investments', label: 'Bottling investments', value: 1.5, notes: ['+8% Y/Y'] },
+          { id: 'other_revenue', label: 'Other', value: 0.037 },
+          {
+            id: 'eliminations',
+            label: 'Eliminations',
+            value: -0.3,
+            notes: ['Inter-segment eliminations shown in the source chart as a separate red outflow.'],
+          },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 5.0 },
+        operatingExpenses: {
+          total: 3.7,
+          items: [
+            { id: 'sga', label: 'SG&A', value: 3.7, notes: ['28% of revenue'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 1.0 },
+      },
+      otherIncome: {
+        total: 1.0,
+        items: [{ id: 'other_income', label: 'Other', value: 1.0 }],
+      },
+      otherExpenses: {
+        total: 0.2,
+        items: [
+          {
+            id: 'interest',
+            label: 'Interest',
+            value: 0.2,
+            notes: ['Non-operating interest bridging operating profit to net profit.'],
+          },
+        ],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 8.4, notes: ['63% margin', '+0pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 4.7, notes: ['35% margin', '+1pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 4.4, notes: ['33% margin', '+3pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 +7%'],
+            items: [
+              { id: 'emea', label: 'EMEA', notes: ['同比 +2%'] },
+              { id: 'latam', label: 'LATAM', notes: ['同比 +16%'] },
+              { id: 'ucan', label: 'UCAN', notes: ['同比 +8%'] },
+              { id: 'apac', label: 'APAC', notes: ['同比 +1%'] },
+              { id: 'bottling_investments', label: '装瓶投资业务', notes: ['同比 +8%'] },
+              { id: 'other_revenue', label: '其他' },
+              { id: 'eliminations', label: '抵销', notes: ['来源图中作为单独的红色流出列示的分部间抵销。'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [{ id: 'sga', label: '销售及管理费用', notes: ['占收入 28%'] }],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: { items: [{ id: 'other_income', label: '其他' }] },
+          otherExpenses: {
+            items: [{ id: 'interest', label: '利息', notes: ['连接营业利润与净利润的非经营性利息。'] }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 63%', '同比 +0 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 35%', '同比 +1 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 33%', '同比 +3 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'coca-cola-q1-fy26',
       company: 'Coca-Cola',
       period: 'Q1 FY26',

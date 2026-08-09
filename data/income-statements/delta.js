@@ -9,6 +9,127 @@
 
   ssot.records.push(
     {
+      key: 'delta-q2-fy26',
+      company: 'Delta Air Lines',
+      period: 'Q2 FY26',
+      periodNote: 'Quarter ended Jun. 30, 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/delta-q2-fy26.png',
+      roundingTolerance: 0.25,
+      revenue: {
+        total: 19.8,
+        notes: ['+19% Y/Y'],
+        items: [
+          { id: 'passenger', label: 'Passenger', value: 15.6, notes: ['+13% Y/Y'] },
+          { id: 'cargo', label: 'Cargo', value: 0.3, notes: ['+39% Y/Y'] },
+          { id: 'other_revenue', label: 'Other', value: 3.9, notes: ['+50% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          id: 'cost_of_revenue',
+          label: 'Cost of revenue (not separately presented)',
+          value: 0,
+          notes: ['The source infographic moves directly from revenue to operating profit and operating expenses.'],
+        },
+        operatingExpenses: {
+          total: 17.9,
+          items: [
+            { id: 'salaries_benefits', label: 'Salaries & benefits', value: 4.8 },
+            { id: 'aircraft_fuel', label: 'Aircraft fuel', value: 4.1 },
+            { id: 'ancillary_business', label: 'Ancillary business', value: 2.1 },
+            { id: 'contracted_services', label: 'Contracted services', value: 1.3 },
+            { id: 'landing_fees', label: 'Landing fees', value: 1.0 },
+            { id: 'maintenance', label: 'Maintenance', value: 0.7 },
+            { id: 'depreciation_amortization', label: 'D&A', value: 0.7 },
+            { id: 'regional_carrier', label: 'Regional carrier', value: 0.7 },
+            { id: 'other_operating', label: 'Other', value: 2.7 },
+          ],
+        },
+        tax: {
+          label: 'Tax (included with interest)',
+          value: 0,
+          notes: ['The source combines tax and interest into one $0.5B branch.'],
+        },
+      },
+      otherIncome: {
+        total: 0.3,
+        items: [{ id: 'other_income', label: 'Other', value: 0.3 }],
+      },
+      otherExpenses: {
+        total: 0.5,
+        items: [
+          {
+            id: 'tax_interest',
+            label: 'Tax & interest',
+            value: 0.5,
+            notes: ['Combined deduction presented by the source infographic.'],
+          },
+        ],
+      },
+      profit: {
+        gross: {
+          id: 'gross_profit',
+          label: 'Gross profit (not separately presented)',
+          value: 19.8,
+          notes: ['Bookkeeping value for SSOT parity; the source infographic has no gross-profit stage.'],
+        },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 1.9, notes: ['9% margin', '(3pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 1.6, notes: ['8% margin', '(5pp) Y/Y'] },
+      },
+      sources: [
+        {
+          name: 'Delta Air Lines Announces June Quarter 2026 Financial Results',
+          url: 'https://ir.delta.com/news/news-details/2026/Delta-Air-Lines-Announces-June-Quarter-2026-Financial-Results/default.aspx',
+        },
+      ],
+      i18n: {
+        zh: {
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 6 月 30 日的季度',
+          revenue: {
+            notes: ['同比 +19%'],
+            items: [
+              { id: 'passenger', label: '客运', notes: ['同比 +13%'] },
+              { id: 'cargo', label: '货运', notes: ['同比 +39%'] },
+              { id: 'other_revenue', label: '其他', notes: ['同比 +50%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: {
+              label: '收入成本（未单列）',
+              notes: ['来源信息图从收入直接拆分为营业利润和运营费用。'],
+            },
+            operatingExpenses: {
+              items: [
+                { id: 'salaries_benefits', label: '薪酬与福利' },
+                { id: 'aircraft_fuel', label: '航空燃油' },
+                { id: 'ancillary_business', label: '辅助业务' },
+                { id: 'contracted_services', label: '合同服务' },
+                { id: 'landing_fees', label: '着陆费' },
+                { id: 'maintenance', label: '维护' },
+                { id: 'depreciation_amortization', label: '折旧与摊销' },
+                { id: 'regional_carrier', label: '支线承运人' },
+                { id: 'other_operating', label: '其他' },
+              ],
+            },
+            tax: { label: '税费（与利息合并）', notes: ['来源图将税费和利息合并为一条 $0.5B 支流。'] },
+          },
+          otherIncome: { items: [{ id: 'other_income', label: '其他' }] },
+          otherExpenses: {
+            items: [{ id: 'tax_interest', label: '税费与利息', notes: ['来源信息图合并列示的扣减项。'] }],
+          },
+          profit: {
+            gross: { label: '毛利润（未单列）', notes: ['用于 SSOT 对齐的账面值；来源信息图未展示毛利润阶段。'] },
+            operating: { label: '营业利润', notes: ['利润率 9%', '同比 (3 个百分点)'] },
+            net: { label: '净利润', notes: ['利润率 8%', '同比 (5 个百分点)'] },
+          },
+        },
+      },
+    },
+    {
       key: 'delta-q1-fy26',
       company: 'Delta Air Lines',
       period: 'Q1 FY26',

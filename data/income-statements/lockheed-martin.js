@@ -10,6 +10,82 @@
 
   ssot.records.push(
     {
+      key: 'lockheed-martin-q2-fy26',
+      company: 'Lockheed Martin',
+      period: 'Q2 FY26',
+      periodNote: 'Ending Jun. 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 3,
+      sourceImage: 'input/processed/lockheed-martin-q2-fy26.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 20.1,
+        valueText: '$20.1B',
+        notes: ['+11% Y/Y'],
+        items: [
+          { id: 'aeronautics', label: 'Aeronautics', value: 8.1, valueText: '$8.1B', notes: ['+9% Y/Y', '9% segment margin'] },
+          { id: 'missile_fire_control', label: 'Missile and Fire Control', value: 4.1, valueText: '$4.1B', notes: ['+19% Y/Y', '14% segment margin'] },
+          { id: 'rotary_mission_systems', label: 'Rotary & Mission Systems', value: 4.4, valueText: '$4.4B', notes: ['+9% Y/Y', '10% segment margin'] },
+          { id: 'space', label: 'Space', value: 3.5, valueText: '$3.5B', notes: ['+6% Y/Y', '11% segment margin'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 17.6, valueText: '($17.6B)' },
+        operatingExpenses: { total: 0, items: [] },
+        tax: { id: 'tax', label: 'Tax', value: 0.3, valueText: '($0.3B)' },
+      },
+      operatingOtherIncome: {
+        total: 0.033,
+        items: [
+          { id: 'other_operating', label: 'Other', value: 0.033, valueText: '$33M', notes: ['Shown as $33M in the source chart.'] },
+        ],
+      },
+      operatingOtherExpenses: { total: 0, items: [] },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: {
+        total: 0.3,
+        items: [
+          { id: 'other_nonoperating', label: 'Interest & other', value: 0.3, valueText: '($0.3B)' },
+        ],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 2.4, valueText: '$2.4B', notes: ['12% margin', '+8pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 2.5, valueText: '$2.5B', notes: ['12% margin', '+8pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 1.8, valueText: '$1.8B', notes: ['9% margin', '+7pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 +11%'],
+            items: [
+              { id: 'aeronautics', label: '航空', notes: ['同比 +9%', '分部利润率 9%'] },
+              { id: 'missile_fire_control', label: '导弹与火控', notes: ['同比 +19%', '分部利润率 14%'] },
+              { id: 'rotary_mission_systems', label: '旋翼与任务系统', notes: ['同比 +9%', '分部利润率 10%'] },
+              { id: 'space', label: '太空', notes: ['同比 +6%', '分部利润率 11%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '销售成本' },
+            tax: { label: '税费' },
+          },
+          operatingOtherIncome: {
+            items: [{ id: 'other_operating', label: '其他', notes: ['源图中显示为 $33M。'] }],
+          },
+          otherExpenses: {
+            items: [{ id: 'other_nonoperating', label: '利息及其他' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 12%', '同比 +8 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 12%', '同比 +8 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 9%', '同比 +7 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'lockheed-martin-q1-fy26',
       company: 'Lockheed Martin',
       period: 'Q1 FY26',

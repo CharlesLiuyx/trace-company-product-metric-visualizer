@@ -18438,6 +18438,557 @@
             }
           }
         }
+      },
+      {
+        "key": "american-q2-fy26",
+        "src": "data/datasets/american-q2-fy26.js",
+        "data": {
+          "name": "American Airlines · Q2 FY26",
+          "company": "American Airlines",
+          "meta": {
+            "title": "American Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Quarter ended Jun. 30, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美国航空 · 2026 财年第二季度",
+              "meta": {
+                "title": "美国航空 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "delta-q2-fy26",
+        "src": "data/datasets/delta-q2-fy26.js",
+        "data": {
+          "name": "Delta · Q2 FY26",
+          "company": "Delta Air Lines",
+          "meta": {
+            "title": "Delta Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "达美航空 · 2026 财年第二季度",
+              "meta": {
+                "title": "达美航空 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "abbott-q2-fy26",
+        "src": "data/datasets/abbott-q2-fy26.js",
+        "data": {
+          "name": "Abbott · Q2 FY26",
+          "company": "Abbott",
+          "meta": {
+            "title": "Abbott Q2 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "雅培 · 2026 财年第二季度",
+              "meta": {
+                "title": "雅培 2026 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "abbvie-q2-fy26",
+        "src": "data/datasets/abbvie-q2-fy26.js",
+        "data": {
+          "name": "AbbVie · Q2 FY26",
+          "company": "AbbVie",
+          "meta": {
+            "title": "AbbVie Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Quarter ended Jun. 30, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "艾伯维 · 2026 财年第二季度",
+              "meta": {
+                "title": "艾伯维 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "airbus-q2-fy26",
+        "src": "data/datasets/airbus-q2-fy26.js",
+        "data": {
+          "name": "Airbus · Q2 FY26",
+          "company": "Airbus",
+          "meta": {
+            "title": "Airbus Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Airbus · 2026 财年第二季度",
+              "meta": {
+                "title": "Airbus 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "astrazeneca-q2-fy26",
+        "src": "data/datasets/astrazeneca-q2-fy26.js",
+        "data": {
+          "name": "AstraZeneca · Q2 FY26",
+          "company": "AstraZeneca",
+          "meta": {
+            "title": "AstraZeneca Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "阿斯利康 · 2026 财年第二季度",
+              "meta": {
+                "title": "阿斯利康 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "boeing-q2-fy26",
+        "src": "data/datasets/boeing-q2-fy26.js",
+        "data": {
+          "name": "Boeing · Q2 FY26",
+          "company": "Boeing",
+          "meta": {
+            "title": "Boeing Q2 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Boeing · 2026 财年第二季度",
+              "meta": {
+                "title": "波音 2026 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "coca-cola-q2-fy26",
+        "src": "data/datasets/coca-cola-q2-fy26.js",
+        "data": {
+          "name": "Coca-Cola · Q2 FY26",
+          "company": "Coca-Cola",
+          "meta": {
+            "title": "Coca-Cola Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Coca-Cola · 2026 财年第二季度",
+              "meta": {
+                "title": "可口可乐 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "coinbase-q2-fy26",
+        "src": "data/datasets/coinbase-q2-fy26.js",
+        "data": {
+          "name": "Coinbase - Q2 FY26",
+          "company": "Coinbase",
+          "meta": {
+            "title": "Coinbase Q2FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Coinbase · 2026 财年第二季度",
+              "meta": {
+                "title": "Coinbase 2026 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hershey-q2-fy26",
+        "src": "data/datasets/hershey-q2-fy26.js",
+        "data": {
+          "name": "Hershey · Q2 FY26",
+          "company": "Hershey",
+          "meta": {
+            "title": "Hershey Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 28, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "好时 · 2026 财年第二季度",
+              "meta": {
+                "title": "好时 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月 28 日"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intuitive-q2-fy26",
+        "src": "data/datasets/intuitive-q2-fy26.js",
+        "data": {
+          "name": "Intuitive · Q2 FY26",
+          "company": "Intuitive",
+          "meta": {
+            "title": "Intuitive Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "直觉外科 · 2026 财年第二季度",
+              "meta": {
+                "title": "直觉外科 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "j-j-q2-fy26",
+        "src": "data/datasets/j-j-q2-fy26.js",
+        "data": {
+          "name": "J&J · Q2 FY26",
+          "company": "Johnson & Johnson",
+          "meta": {
+            "title": "J&J Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Quarter ended Jun. 28, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "强生 · 2026 财年第二季度",
+              "meta": {
+                "title": "强生 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月 28 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lockheed-martin-q2-fy26",
+        "src": "data/datasets/lockheed-martin-q2-fy26.js",
+        "data": {
+          "name": "Lockheed Martin · Q2 FY26",
+          "company": "Lockheed Martin",
+          "meta": {
+            "title": "Lockheed Martin Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "洛克希德·马丁 · 2026 财年第二季度",
+              "meta": {
+                "title": "洛克希德·马丁 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mondelez-q2-fy26",
+        "src": "data/datasets/mondelez-q2-fy26.js",
+        "data": {
+          "name": "Mondelēz · Q2 FY26",
+          "company": "Mondelēz International",
+          "meta": {
+            "title": "Mondelēz Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "亿滋国际 · 2026 财年第二季度",
+              "meta": {
+                "title": "亿滋国际 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "moodys-q2-fy26",
+        "src": "data/datasets/moodys-q2-fy26.js",
+        "data": {
+          "name": "Moody's · Q2 FY26",
+          "company": "Moody's",
+          "meta": {
+            "title": "Moody’s Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Quarter ended Jun. 30, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "穆迪 · 2026 财年第二季度",
+              "meta": {
+                "title": "穆迪 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "paypal-q2-fy26",
+        "src": "data/datasets/paypal-q2-fy26.js",
+        "data": {
+          "name": "PayPal · Q2 FY26",
+          "company": "PayPal",
+          "meta": {
+            "title": "PayPal Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Quarter ended Jun. 30, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "PayPal · 2026 财年第二季度",
+              "meta": {
+                "title": "PayPal 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pepsico-q2-fy26",
+        "src": "data/datasets/pepsico-q2-fy26.js",
+        "data": {
+          "name": "PepsiCo · Q2 FY26",
+          "company": "PepsiCo",
+          "meta": {
+            "title": "PepsiCo Q2 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "百事公司 · 2026 财年第二季度",
+              "meta": {
+                "title": "百事公司 2026 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sanofi-q2-fy26",
+        "src": "data/datasets/sanofi-q2-fy26.js",
+        "data": {
+          "name": "Sanofi · Q2 FY26",
+          "company": "Sanofi",
+          "meta": {
+            "title": "Sanofi Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Three months ended Jun. 30, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "赛诺菲 · 2026 财年第二季度",
+              "meta": {
+                "title": "赛诺菲 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月 30 日的三个月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "southwest-q2-fy26",
+        "src": "data/datasets/southwest-q2-fy26.js",
+        "data": {
+          "name": "Southwest Airlines · Q2 FY26",
+          "company": "Southwest Airlines",
+          "meta": {
+            "title": "Southwest Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "西南航空 · 2026 财年第二季度",
+              "meta": {
+                "title": "西南航空 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "teladoc-q2-fy26",
+        "src": "data/datasets/teladoc-q2-fy26.js",
+        "data": {
+          "name": "Teladoc Health · Q2 FY26",
+          "company": "Teladoc Health",
+          "meta": {
+            "title": "Teladoc Q2 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Teladoc Health · 2026 财年第二季度",
+              "meta": {
+                "title": "Teladoc 2026 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tempus-ai-q2-fy26",
+        "src": "data/datasets/tempus-ai-q2-fy26.js",
+        "data": {
+          "name": "Tempus AI · Q2 FY26",
+          "company": "Tempus AI",
+          "meta": {
+            "title": "Tempus AI Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tempus AI · 2026 财年第二季度",
+              "meta": {
+                "title": "Tempus AI 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "united-q2-fy26",
+        "src": "data/datasets/united-q2-fy26.js",
+        "data": {
+          "name": "United Airlines · Q2 FY26",
+          "company": "United Airlines",
+          "meta": {
+            "title": "United Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Quarter ended Jun. 30, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "联合航空 · 2026 财年第二季度",
+              "meta": {
+                "title": "联合航空 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "unitedhealth-q2-fy26",
+        "src": "data/datasets/unitedhealth-q2-fy26.js",
+        "data": {
+          "name": "UnitedHealth Group · Q2 FY26",
+          "company": "UnitedHealth Group",
+          "meta": {
+            "title": "UnitedHealth Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "联合健康集团 · 2026 财年第二季度",
+              "meta": {
+                "title": "联合健康集团 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ups-q2-fy26",
+        "src": "data/datasets/ups-q2-fy26.js",
+        "data": {
+          "name": "UPS · Q2 FY26",
+          "company": "UPS",
+          "meta": {
+            "title": "UPS Q2 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "联合包裹 · 2026 财年第二季度",
+              "meta": {
+                "title": "联合包裹 2026 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "align-q2-fy26",
+        "src": "data/datasets/align-q2-fy26.js",
+        "data": {
+          "name": "Align Technology · Q2 FY26",
+          "company": "Align Technology",
+          "meta": {
+            "title": "Align Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "爱齐科技 · 2026 财年第二季度",
+              "meta": {
+                "title": "爱齐科技 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
       }
     ]
   };
