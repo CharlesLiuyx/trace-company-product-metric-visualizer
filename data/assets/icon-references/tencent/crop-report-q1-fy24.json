@@ -1,0 +1,132 @@
+{
+  "source": "input/processed/tencent-q1-fy24.png",
+  "spec": "input/icon-crop-specs/tencent-q1-fy24.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-08-09T05:57:11.759874+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/tencent",
+  "crops": [
+    {
+      "key": "tencent-company-wordmark-zh",
+      "output": "data/assets/icon-references/tencent/crops/company-wordmark-zh.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4370,
+        "losslessBytes": 20873,
+        "savingsVsLossless": 0.7906,
+        "metrics": {
+          "meanAbsoluteError": 0.4769,
+          "rootMeanSquareError": 1.9357,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.3477
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 31867,
+        "transparentPixelRatio": 0.662
+      },
+      "searchBox": {
+        "x": 690,
+        "y": 285,
+        "width": 570,
+        "height": 125
+      },
+      "componentCount": 12,
+      "subjectBox": {
+        "x0": 724,
+        "y0": 315,
+        "x1": 1225,
+        "y1": 378
+      },
+      "cropBox": {
+        "x0": 710,
+        "y0": 301,
+        "x1": 1239,
+        "y1": 392
+      },
+      "validation": {
+        "width": 529,
+        "height": 91,
+        "foregroundPixels": 13057,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 14,
+          "right": 14,
+          "top": 14,
+          "bottom": 14
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Tencent English-and-Chinese company wordmark; excludes the title, revenue label, Sankey flows, and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/tencent/company-wordmark-zh.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4370,
+        "losslessBytes": 20873,
+        "savingsVsLossless": 0.7906,
+        "metrics": {
+          "meanAbsoluteError": 0.4769,
+          "rootMeanSquareError": 1.9357,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.3477
+        }
+      },
+      "validationSheet": "data/assets/icon-references/tencent/validation-sheets/tencent-company-wordmark-zh.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 257240,
+        "losslessBytes": 257240,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

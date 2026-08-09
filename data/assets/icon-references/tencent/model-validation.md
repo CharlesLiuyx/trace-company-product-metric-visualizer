@@ -39,3 +39,31 @@ Notes:
 - `Others` has no independent business icon cluster in the source. The bottom
   "How they make money" mark is publisher/format branding and is intentionally
   excluded.
+
+## Q3 FY24 period-specific wordmark
+
+Source reference: `input/processed/tencent-q3-fy24.png`
+
+| Asset | Validation sheet | Subject complete | Centered | No unrelated content | Result |
+| --- | --- | --- | --- | --- | --- |
+| `tencent-company-wordmark-q3-fy24` | `validation-sheets/tencent-company-wordmark-q3-fy24.png` | Pass | Pass | Pass | Pass |
+
+The period-specific crop preserves the complete English-and-Chinese Tencent
+wordmark shown by the Q3 FY24 Source. Its 12px clear margins exclude the title,
+revenue label, Sankey geometry, and publisher marks. The four business icon
+clusters are materially identical to the already validated Tencent assets and
+are reused without duplicate crops.
+
+## Q1 FY24 period-specific wordmark
+
+Source reference: `input/processed/tencent-q1-fy24.png`
+
+| Asset | Validation sheet | Subject complete | Centered | No unrelated content | Result |
+| --- | --- | --- | --- | --- | --- |
+| `tencent-company-wordmark-zh` | `validation-sheets/tencent-company-wordmark-zh.png` | Pass | Pass | Pass | Pass |
+
+The extracted crop preserves the complete English-and-Chinese Tencent
+wordmark and its clear surrounding margin. The validation sheet confirms that
+the title, revenue label, Sankey geometry, and publisher marks are excluded.
+The four business icon clusters are materially identical to the previously
+validated Tencent assets and are reused without duplicate crops.

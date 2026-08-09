@@ -1,0 +1,226 @@
+{
+  "source": "input/processed/lvmh-h1-fy26.png",
+  "spec": "input/icon-crop-specs/lvmh-h1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-08-09T05:58:55.603497+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 7
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/lvmh",
+  "crops": [
+    {
+      "key": "lvmh-business-perfumes-cosmetics-cluster-h1-fy26",
+      "output": "data/assets/icon-references/lvmh/crops/business-perfumes-cosmetics-cluster-h1-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2091,
+        "losslessBytes": 9119,
+        "savingsVsLossless": 0.7707,
+        "metrics": {
+          "meanAbsoluteError": 0.5931,
+          "rootMeanSquareError": 1.6647,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 11,
+          "changedPixelRatio": 0.2494
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 7,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 14979,
+        "transparentPixelRatio": 0.7475
+      },
+      "searchBox": {
+        "x": 8,
+        "y": 755,
+        "width": 178,
+        "height": 125
+      },
+      "componentCount": 22,
+      "subjectBox": {
+        "x0": 21,
+        "y0": 765,
+        "x1": 164,
+        "y1": 861
+      },
+      "cropBox": {
+        "x0": 9,
+        "y0": 753,
+        "x1": 176,
+        "y1": 873
+      },
+      "validation": {
+        "width": 167,
+        "height": 120,
+        "foregroundPixels": 4864,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 12,
+          "top": 12,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "H1 FY26 Perfumes & Cosmetics brand cluster: Fenty, Kenzo, and Guerlain.",
+      "runtimeOutput": "data/assets/raster-annotations/lvmh/business-perfumes-cosmetics-cluster-h1-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2091,
+        "losslessBytes": 9119,
+        "savingsVsLossless": 0.7707,
+        "metrics": {
+          "meanAbsoluteError": 0.5931,
+          "rootMeanSquareError": 1.6647,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 11,
+          "changedPixelRatio": 0.2494
+        }
+      },
+      "validationSheet": "data/assets/icon-references/lvmh/validation-sheets/lvmh-business-perfumes-cosmetics-cluster-h1-fy26.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 293782,
+        "losslessBytes": 293782,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "lvmh-business-selective-retailing-cluster-h1-fy26",
+      "output": "data/assets/icon-references/lvmh/crops/business-selective-retailing-cluster-h1-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2902,
+        "losslessBytes": 12475,
+        "savingsVsLossless": 0.7674,
+        "metrics": {
+          "meanAbsoluteError": 0.4882,
+          "rootMeanSquareError": 1.9106,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 30,
+          "changedPixelRatio": 0.1497
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 7,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 20889,
+        "transparentPixelRatio": 0.7721
+      },
+      "searchBox": {
+        "x": 8,
+        "y": 1050,
+        "width": 184,
+        "height": 180
+      },
+      "componentCount": 29,
+      "subjectBox": {
+        "x0": 29,
+        "y0": 1070,
+        "x1": 167,
+        "y1": 1213
+      },
+      "cropBox": {
+        "x0": 17,
+        "y0": 1058,
+        "x1": 179,
+        "y1": 1225
+      },
+      "validation": {
+        "width": 162,
+        "height": 167,
+        "foregroundPixels": 5527,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 12,
+          "right": 12,
+          "top": 12,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "H1 FY26 Selective Retailing brand cluster: DFS, Sephora, and La Grande Epicerie de Paris.",
+      "runtimeOutput": "data/assets/raster-annotations/lvmh/business-selective-retailing-cluster-h1-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2902,
+        "losslessBytes": 12475,
+        "savingsVsLossless": 0.7674,
+        "metrics": {
+          "meanAbsoluteError": 0.4882,
+          "rootMeanSquareError": 1.9106,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 30,
+          "changedPixelRatio": 0.1497
+        }
+      },
+      "validationSheet": "data/assets/icon-references/lvmh/validation-sheets/lvmh-business-selective-retailing-cluster-h1-fy26.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 305816,
+        "losslessBytes": 305816,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}
