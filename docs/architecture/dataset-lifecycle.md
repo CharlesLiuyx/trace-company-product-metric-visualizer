@@ -214,8 +214,8 @@ primary literal's half-resolution rounding interval. If the value cannot be
 recovered, the Build is blocked; it must not turn unknown/non-zero Source
 semantics into an authored zero.
 
-If a non-zero primary Source literal has a confirmed unit or numeric typo, the
-original literal remains recorded and an optional
+If a primary Source literal has a confirmed unit or numeric typo, the original
+literal remains recorded and an optional
 `amount.authoritativeCorrection` may repair only the closed `unit-typo` or
 `numeric-typo` issue. `unit-typo` requires the primary suffix to differ from
 the authored unit; `numeric-typo` requires the suffix to match while the
@@ -227,7 +227,10 @@ literal must actually conflict with the authored amount; the authoritative
 value and corrected display must both support that amount within the declared
 resolution, and the corrected unit must equal `amount.unit`. This mechanism is
 for an explicit correction, not silent inference, and cannot be combined with
-rounded-zero `precisionRecovery`.
+rounded-zero `precisionRecovery`. A zero-looking literal that is still within
+its rounding interval uses precision recovery; if it conflicts with the
+authoritative value outside that interval, only a user-approved `numeric-typo`
+correction may proceed, and `unit-typo` remains forbidden for that case.
 
 - Each Income Statement value must match the selected financial SSOT record
   and exactly one mapped Adapter node or non-node metric value;

@@ -392,9 +392,9 @@ function normalizeAmount(raw, sourceId) {
       `${sourceId} may record authoritativeCorrection only when the primary Source literal conflicts with the authored amount`
     );
     invariant(
-      displayedMagnitude !== 0,
+      displayedMagnitude !== 0 || raw.authoritativeCorrection.issue === 'numeric-typo',
       'SOURCE_COVERAGE_AUTHORITATIVE_CORRECTION_INVALID',
-      `${sourceId} zero-looking Source literals must use precisionRecovery rather than authoritativeCorrection`
+      `${sourceId} zero-looking Source literals may use authoritativeCorrection only for a confirmed numeric typo`
     );
     invariant(
       Math.abs(authoredBaseValue - authoritativeBaseValue) <= halfResolutionBaseValue + comparisonTolerance,
@@ -471,9 +471,9 @@ function normalizeAmount(raw, sourceId) {
     );
   }
   invariant(
-    !roundedToZero || precisionRecovery,
+    !roundedToZero || precisionRecovery || authoritativeCorrection,
     'SOURCE_COVERAGE_PRECISION_RECOVERY_REQUIRED',
-    `${sourceId} Source literal rounds to zero; recover a higher-precision value from an authoritative supplemental source instead of writing zero`
+    `${sourceId} Source literal rounds to zero; recover a higher-precision value or record a user-directed authoritative numeric correction instead of writing zero`
   );
   invariant(
     roundedToZero || precisionRecovery == null,

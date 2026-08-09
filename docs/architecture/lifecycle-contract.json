@@ -122,6 +122,7 @@
     "amountWithinLiteralResolution": true,
     "inventoryOwnership": "exactly-once",
     "otherLabelsMayBeNonSemanticResidual": false,
+    "zeroLookingNumericTypoRequiresAuthoritativeCorrection": true,
     "roundedNonZeroMayBeAuthoredAsZero": false,
     "recoveredNonZeroMustSurviveAuthoredDisplayPrecision": true,
     "prepareReviewReconcilesLoadedAuthoredValues": true,
