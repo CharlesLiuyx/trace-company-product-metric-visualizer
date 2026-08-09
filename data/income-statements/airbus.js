@@ -170,6 +170,93 @@
           },
         },
       },
+    },
+    {
+      key: 'airbus-q2-fy26',
+      company: 'Airbus',
+      period: 'Q2 FY26',
+      periodNote: 'Ending Jun. 2026',
+      currency: '€',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/airbus-q2-fy26.png',
+      roundingTolerance: 0.2,
+      revenue: {
+        total: 20.5,
+        notes: ['+28% Y/Y'],
+        items: [
+          { id: 'airbus_segment', label: 'Airbus', value: 15.4, notes: ['+37% Y/Y', '9% segment margin'] },
+          { id: 'helicopters', label: 'Helicopters', value: 2.1, notes: ['(1%) Y/Y', '7% segment margin'] },
+          { id: 'defense_space', label: 'Defense & Space', value: 3.5, notes: ['+10% Y/Y', '(16%) segment margin'] },
+          { id: 'inter_segment', label: 'Inter-segment', value: -0.5 },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 16.7 },
+        operatingExpenses: {
+          total: 1.5,
+          items: [
+            { id: 'rnd', label: 'R&D', value: 0.7, notes: ['4% of revenue', '(1pp) Y/Y'] },
+            { id: 'administrative', label: 'Administrative', value: 0.5, notes: ['2% of revenue', '(0pp) Y/Y'] },
+            { id: 'selling', label: 'Selling', value: 0.2, notes: ['1% of revenue', '(0pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 0.6 },
+      },
+      operatingOtherIncome: {
+        total: 0.2,
+        items: [{ id: 'other_income', label: 'Other', value: 0.2 }],
+      },
+      otherIncome: {
+        total: 0,
+        items: [],
+      },
+      otherExpenses: {
+        total: 0.3,
+        items: [{ id: 'other_expense', label: 'Other', value: 0.3 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 3.8, notes: ['18% margin', '+4pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 2.5, notes: ['12% margin', '+5pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 1.6, notes: ['8% margin', '+4pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 +28%'],
+            items: [
+              { id: 'airbus_segment', label: '空中客车', notes: ['同比 +37%', '分部利润率 9%'] },
+              { id: 'helicopters', label: '直升机', notes: ['同比 (1%)', '分部利润率 7%'] },
+              { id: 'defense_space', label: '防务与航天', notes: ['同比 +10%', '分部利润率 (16%)'] },
+              { id: 'inter_segment', label: '分部间抵销' },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '销售成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 4%', '同比 (1 个百分点)'] },
+                { id: 'administrative', label: '行政', notes: ['占收入 2%', '同比 (0 个百分点)'] },
+                { id: 'selling', label: '销售', notes: ['占收入 1%', '同比 (0 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          operatingOtherIncome: {
+            items: [{ id: 'other_income', label: '其他' }],
+          },
+          otherExpenses: {
+            items: [{ id: 'other_expense', label: '其他' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 18%', '同比 +4 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 12%', '同比 +5 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 8%', '同比 +4 个百分点'] },
+          },
+        },
+      },
     }
   );
 })(window);

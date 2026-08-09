@@ -11,7 +11,7 @@ Generated report: `data/assets/icon-references/pepsico/crop-report.json`
 - `company-logo.png`: PEPSICO navy wordmark is complete and centered above the revenue hub. Excludes the title, the multicolor globe below it, and the Revenue label.
 - `foods-lays-quaker.png`: Lay's and Quaker brand marks (both components) are complete and centered for the Foods revenue line. Excludes the `Foods` label text to the right.
 - `beverages-pepsi.png`: round Pepsi globe logo is complete and centered for the PepsiCo Beverages revenue line. Excludes the `PepsiCo Beverages` label text.
-- `ib-sodastream.png`: SodaStream Pepsi bottle is complete and centered for the IB franchise revenue line. Excludes the `IB franchise` label text to the right.
+- `ib-sodastream.png`: SodaStream Pepsi bottle is complete and centered for the IB franchise revenue line. A later Q2 audit found that its wide right margin also retained the first `I` glyph from the adjacent `IB franchise` label, so it is not reused by the Q2 adapter.
 - `revenue-globe.png`: multicolor wireframe globe above the Revenue hub is complete and centered. Excludes the PEPSICO wordmark above and the Revenue label below.
 - `globe-north-america.png`: North America globe is complete and centered above the North America node.
 - `globe-latam.png`: Latin America globe is complete and centered, left of the LATAM label.
@@ -26,3 +26,21 @@ All nine crops have `passes: true` in `crop-report.json`, with zero edge foregro
 - The bottom-left `HOW THEY MAKE MONEY` badge and mini sankey mark.
 
 No segment is icon-less: every drawn revenue line (Foods, PepsiCo Beverages, IB franchise, LATAM, EMEA, APAC) and the North America aggregate plus the Revenue hub has a corresponding accepted crop.
+
+## Q2 FY26 derivative
+
+Source asset: `data/assets/raster-annotations/pepsico/ib-sodastream.png`
+
+Spec: `input/icon-crop-specs/pepsico-q2-fy26.json`
+
+Generated report: `data/assets/icon-references/pepsico/crop-report-q2-fy26.json`
+
+- `ib-sodastream-q2-fy26.png`: accepted after tightening the tracked Q1
+  raster's right edge. The complete bottle is preserved while the stray `I`
+  glyph is excluded. The crop has `passes: true`, zero edge foreground
+  pixels, and balanced source margins; visual inspection of the validation
+  sheet confirms that no label, node, or flow pixels remain.
+
+The Q2 adapter references only this clean derivative for the IB franchise
+annotation. The other eight PepsiCo annotations remain the reviewed reusable
+company assets.

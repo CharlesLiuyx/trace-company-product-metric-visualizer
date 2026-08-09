@@ -181,4 +181,90 @@
       },
     },
   });
+
+  ssot.records.push({
+    key: 'abbvie-q2-fy26',
+    company: 'AbbVie',
+    period: 'Q2 FY26',
+    periodNote: 'Quarter ended Jun. 30, 2026',
+    currency: '$',
+    unit: 'B',
+    decimals: 1,
+    sourceImage: 'input/processed/abbvie-q2-fy26.png',
+    roundingTolerance: 0.2,
+    revenue: {
+      total: 17.0,
+      notes: ['+10% Y/Y'],
+      items: [
+        { id: 'immunology', label: 'Immunology', value: 8.8, notes: ['+15% Y/Y'] },
+        { id: 'oncology', label: 'Oncology', value: 1.7, notes: ['(2%) Y/Y'] },
+        { id: 'aesthetics', label: 'Aesthetics', value: 1.3, notes: ['+0% Y/Y'] },
+        { id: 'neuroscience', label: 'Neuroscience', value: 3.2, notes: ['+20% Y/Y'] },
+        { id: 'other_revenue', label: 'Other', value: 2.0, notes: ['+25% Y/Y'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: { id: 'cost_of_products_sold', label: 'Cost of products sold', value: 4.3 },
+      operatingExpenses: {
+        total: 6.3,
+        items: [
+          { id: 'sga', label: 'SG&A', value: 3.6, notes: ['21% of revenue', '+0pp Y/Y'] },
+          { id: 'rnd', label: 'R&D', value: 2.3, notes: ['14% of revenue', '(0pp) Y/Y'] },
+          { id: 'other_opex', label: 'Other', value: 0.3, notes: ['2% of revenue', '(3pp) Y/Y'] },
+        ],
+      },
+      tax: { id: 'tax', label: 'Tax', value: 0.7 },
+    },
+    otherIncome: { total: 0, items: [] },
+    otherExpenses: {
+      total: 2.2,
+      items: [
+        { id: 'other_expense', label: 'Other', value: 1.5 },
+        { id: 'interest', label: 'Interest', value: 0.7 },
+      ],
+    },
+    profit: {
+      gross: { id: 'gross_profit', label: 'Gross profit', value: 12.7, notes: ['75% margin', '+3pp Y/Y'] },
+      operating: { id: 'operating_profit', label: 'Operating profit', value: 6.4, notes: ['38% margin', '+6pp Y/Y'] },
+      net: { id: 'net_profit', label: 'Net profit', value: 3.6, notes: ['21% margin', '+15% Y/Y'] },
+    },
+    i18n: {
+      zh: {
+        period: '2026 财年第二季度',
+        periodNote: '截至 2026 年 6 月 30 日的季度',
+        revenue: {
+          notes: ['同比 +10%'],
+          items: [
+            { id: 'immunology', label: '免疫', notes: ['同比 +15%'] },
+            { id: 'oncology', label: '肿瘤', notes: ['同比 (2%)'] },
+            { id: 'aesthetics', label: '美学', notes: ['同比 +0%'] },
+            { id: 'neuroscience', label: '神经科学', notes: ['同比 +20%'] },
+            { id: 'other_revenue', label: '其他', notes: ['同比 +25%'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: { label: '产品销售成本' },
+          operatingExpenses: {
+            items: [
+              { id: 'sga', label: '销售、一般及行政费用', notes: ['占收入 21%', '同比 +0 个百分点'] },
+              { id: 'rnd', label: '研发', notes: ['占收入 14%', '同比 (0 个百分点)'] },
+              { id: 'other_opex', label: '其他', notes: ['占收入 2%', '同比 (3 个百分点)'] },
+            ],
+          },
+          tax: { label: '税费' },
+        },
+        otherExpenses: {
+          items: [
+            { id: 'other_expense', label: '其他' },
+            { id: 'interest', label: '利息' },
+          ],
+        },
+        profit: {
+          gross: { label: '毛利润', notes: ['利润率 75%', '同比 +3 个百分点'] },
+          operating: { label: '营业利润', notes: ['利润率 38%', '同比 +6 个百分点'] },
+          net: { label: '净利润', notes: ['利润率 21%', '同比 +15%'] },
+        },
+      },
+    },
+  });
 })(window);

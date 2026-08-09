@@ -157,4 +157,79 @@
       },
     },
   });
+
+  ssot.records.push({
+    key: 'mondelez-q2-fy26',
+    company: 'Mondelēz International',
+    period: 'Q2 FY26',
+    periodNote: 'Ending Jun. 2026',
+    currency: '$',
+    unit: 'B',
+    decimals: 3,
+    sourceImage: 'input/processed/mondelez-q2-fy26.png',
+    roundingTolerance: 0.25,
+    revenue: {
+      total: 9.4,
+      notes: ['+4% Y/Y', 'Segment values sum to $9.3B because the source rounds each displayed item.'],
+      items: [
+        { id: 'biscuits_baked_snacks', label: 'Biscuits & Baked Snacks', value: 4.7, notes: ['+3% Y/Y'] },
+        { id: 'chocolate', label: 'Chocolate', value: 2.7, notes: ['+2% Y/Y'] },
+        { id: 'gum_candy', label: 'Gum & Candy', value: 1.1, notes: ['+12% Y/Y'] },
+        { id: 'beverages', label: 'Beverages', value: 0.2, notes: ['(0%) Y/Y'] },
+        { id: 'cheese_grocery', label: 'Cheese & Grocery', value: 0.6, notes: ['+6% Y/Y'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 5.4 },
+      operatingExpenses: {
+        total: 2.0,
+        items: [
+          { id: 'sga', label: 'SG&A', value: 2.0 },
+          { id: 'other_operating_expenses', label: 'Other', value: 0.039 },
+        ],
+      },
+      tax: { id: 'tax', label: 'Tax', value: 0.4 },
+    },
+    otherIncome: {
+      total: 0.044,
+      items: [{ id: 'other_income', label: 'Other', value: 0.044 }],
+    },
+    otherExpenses: {
+      total: 0.1,
+      items: [{ id: 'interest', label: 'Interest', value: 0.1 }],
+    },
+    profit: {
+      gross: { id: 'gross_profit', label: 'Gross profit', value: 4.0, notes: ['43% margin', '+10pp Y/Y'] },
+      operating: { id: 'operating_profit', label: 'Operating profit', value: 1.9, notes: ['21% margin', '+8pp Y/Y'] },
+      net: { id: 'net_profit', label: 'Net profit', value: 1.6, notes: ['17% margin', '+9pp Y/Y'] },
+    },
+    i18n: {
+      zh: {
+        period: '2026 财年第二季度',
+        periodNote: '截至 2026 年 6 月',
+        revenue: {
+          notes: ['同比 +4%', '由于来源图对各业务线金额四舍五入，分项合计为 $9.3B。'],
+          items: [
+            { id: 'biscuits_baked_snacks', label: '饼干与烘焙零食', notes: ['同比 +3%'] },
+            { id: 'chocolate', label: '巧克力', notes: ['同比 +2%'] },
+            { id: 'gum_candy', label: '口香糖与糖果', notes: ['同比 +12%'] },
+            { id: 'beverages', label: '饮料', notes: ['同比 (0%)'] },
+            { id: 'cheese_grocery', label: '奶酪与食品杂货', notes: ['同比 +6%'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: { label: '销售成本' },
+          operatingExpenses: { items: [{ id: 'sga', label: '销售、一般及管理费用' }, { id: 'other_operating_expenses', label: '其他' }] },
+          tax: { label: '税费' },
+        },
+        otherIncome: { items: [{ id: 'other_income', label: '其他收入' }] },
+        otherExpenses: { items: [{ id: 'interest', label: '利息' }] },
+        profit: {
+          gross: { label: '毛利润', notes: ['利润率 43%', '同比 +10 个百分点'] },
+          operating: { label: '营业利润', notes: ['利润率 21%', '同比 +8 个百分点'] },
+          net: { label: '净利润', notes: ['利润率 17%', '同比 +9 个百分点'] },
+        },
+      },
+    },
+  });
 })(window);

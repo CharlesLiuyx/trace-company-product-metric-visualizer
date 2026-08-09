@@ -216,4 +216,113 @@
       },
     },
   });
+
+  ssot.records.push({
+    key: 'united-q2-fy26',
+    company: 'United Airlines',
+    period: 'Q2 FY26',
+    periodNote: 'Quarter ended Jun. 30, 2026',
+    currency: '$',
+    unit: 'B',
+    decimals: 1,
+    sourceImage: 'input/processed/united-q2-fy26.png',
+    roundingTolerance: 0.15,
+    revenue: {
+      total: 17.7,
+      notes: ['+16% Y/Y'],
+      items: [
+        { id: 'passenger', label: 'Passenger', value: 16.1, notes: ['+16% Y/Y'] },
+        { id: 'cargo', label: 'Cargo', value: 0.5, notes: ['+23% Y/Y'] },
+        { id: 'other_revenue', label: 'Other', value: 1.0, notes: ['+8% Y/Y'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: {
+        id: 'cost_of_revenue',
+        label: 'Cost of revenue (not separately presented)',
+        value: 0,
+        notes: ['The source infographic moves directly from revenue to operating profit and operating expenses.'],
+      },
+      operatingExpenses: {
+        total: 16.6,
+        items: [
+          { id: 'aircraft_fuel', label: 'Aircraft fuel', value: 5.1 },
+          { id: 'salaries_benefits', label: 'Salaries & benefits', value: 4.7 },
+          { id: 'distribution', label: 'Distribution', value: 0.6 },
+          { id: 'aircraft_rent', label: 'Aircraft rent', value: 0.1 },
+          { id: 'landing_fees', label: 'Landing fees', value: 1.1 },
+          { id: 'depreciation_amortization', label: 'D&A', value: 0.8 },
+          { id: 'regional_carrier', label: 'Regional carrier', value: 0.7 },
+          { id: 'maintenance', label: 'Maintenance', value: 0.9 },
+          { id: 'other_operating', label: 'Other', value: 2.6 },
+        ],
+      },
+      tax: { id: 'tax', label: 'Tax', value: 0.2 },
+    },
+    otherIncome: {
+      total: 0.1,
+      items: [{ id: 'other_income', label: 'Other', value: 0.1 }],
+    },
+    otherExpenses: {
+      total: 0.2,
+      items: [{ id: 'interest', label: 'Interest', value: 0.2 }],
+    },
+    profit: {
+      gross: {
+        id: 'gross_profit',
+        label: 'Gross profit (not separately presented)',
+        value: 17.7,
+        notes: ['Bookkeeping value for SSOT parity; the source infographic has no gross-profit stage.'],
+      },
+      operating: { id: 'operating_profit', label: 'Operating profit', value: 1.1, notes: ['6% margin', '(2pp) Y/Y'] },
+      net: { id: 'net_profit', label: 'Net profit', value: 0.8, notes: ['5% margin', '(2pp) Y/Y'] },
+    },
+    sources: [
+      {
+        name: 'United Airlines Reports Second-Quarter 2026 Results',
+        url: 'https://ir.united.com/static-files/ce6406f9-25c7-422a-bd4f-606597d74c85',
+      },
+    ],
+    i18n: {
+      zh: {
+        period: '2026 财年第二季度',
+        periodNote: '截至 2026 年 6 月 30 日的季度',
+        revenue: {
+          notes: ['同比 +16%'],
+          items: [
+            { id: 'passenger', label: '客运', notes: ['同比 +16%'] },
+            { id: 'cargo', label: '货运', notes: ['同比 +23%'] },
+            { id: 'other_revenue', label: '其他', notes: ['同比 +8%'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: {
+            label: '收入成本（未单列）',
+            notes: ['来源信息图从收入直接拆分为营业利润和运营费用。'],
+          },
+          operatingExpenses: {
+            items: [
+              { id: 'aircraft_fuel', label: '航空燃油' },
+              { id: 'salaries_benefits', label: '薪酬与福利' },
+              { id: 'distribution', label: '分销' },
+              { id: 'aircraft_rent', label: '飞机租赁' },
+              { id: 'landing_fees', label: '着陆费' },
+              { id: 'depreciation_amortization', label: '折旧与摊销' },
+              { id: 'regional_carrier', label: '支线承运人' },
+              { id: 'maintenance', label: '维护' },
+              { id: 'other_operating', label: '其他' },
+            ],
+          },
+          tax: { label: '税费' },
+        },
+        otherIncome: { items: [{ id: 'other_income', label: '其他' }] },
+        otherExpenses: { items: [{ id: 'interest', label: '利息' }] },
+        profit: {
+          gross: { label: '毛利润（未单列）', notes: ['用于 SSOT 对齐的账面值；来源信息图未展示毛利润阶段。'] },
+          operating: { label: '营业利润', notes: ['利润率 6%', '同比 (2 个百分点)'] },
+          net: { label: '净利润', notes: ['利润率 5%', '同比 (2 个百分点)'] },
+        },
+      },
+    },
+  });
 })(window);

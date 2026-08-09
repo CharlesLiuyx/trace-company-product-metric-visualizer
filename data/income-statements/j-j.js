@@ -149,4 +149,69 @@
       },
     },
   });
+  ssot.records.push({
+    key: 'j-j-q2-fy26',
+    company: 'Johnson & Johnson',
+    period: 'Q2 FY26',
+    periodNote: 'Quarter ended Jun. 28, 2026',
+    currency: '$',
+    unit: 'B',
+    decimals: 1,
+    sourceImage: 'input/processed/j-j-q2-fy26.png',
+    roundingTolerance: 0.2,
+    revenue: {
+      total: 25.3,
+      notes: ['+7% Y/Y'],
+      items: [
+        { id: 'innovative_medicine', label: 'Innovative Medicine', value: 16.4, notes: ['+8% Y/Y'] },
+        { id: 'medtech', label: 'MedTech', value: 8.9, notes: ['+5% Y/Y'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: { id: 'cost_of_products_sold', label: 'Cost of products sold', value: 8.1 },
+      operatingExpenses: {
+        total: 10.5,
+        items: [
+          { id: 'sga', label: 'Sales, marketing & administrative', value: 6.4, notes: ['25% of revenue', '+1pp Y/Y'] },
+          { id: 'rnd', label: 'R&D', value: 3.7, notes: ['14% of revenue', '(0pp) Y/Y'] },
+          { id: 'other_opex', label: 'Other', value: 0.4 },
+        ],
+      },
+      tax: { id: 'tax', label: 'Tax', value: 1.2 },
+    },
+    profit: {
+      gross: { id: 'gross_profit', label: 'Gross profit', value: 17.3, notes: ['68% margin', '+0pp Y/Y'] },
+      operating: { id: 'pretax_income', label: 'Pretax income', value: 6.7, notes: ['27% margin', '(1pp) Y/Y'] },
+      net: { id: 'net_profit', label: 'Net income', value: 5.5, notes: ['22% margin', '(1pp) Y/Y'] },
+    },
+    i18n: {
+      zh: {
+        period: '2026 财年第二季度',
+        periodNote: '截至 2026 年 6 月 28 日的季度',
+        revenue: {
+          notes: ['同比 +7%'],
+          items: [
+            { label: '创新制药', notes: ['同比 +8%'] },
+            { label: '医疗科技', notes: ['同比 +5%'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: { label: '产品销售成本' },
+          operatingExpenses: {
+            items: [
+              { label: '销售、市场及行政费用', notes: ['占收入 25%', '同比 +1 个百分点'] },
+              { label: '研发', notes: ['占收入 14%', '同比 (0 个百分点)'] },
+              { label: '其他' },
+            ],
+          },
+          tax: { label: '税费' },
+        },
+        profit: {
+          gross: { label: '毛利润', notes: ['利润率 68%', '同比 +0 个百分点'] },
+          operating: { label: '税前利润', notes: ['利润率 27%', '同比 (1 个百分点)'] },
+          net: { label: '净利润', notes: ['利润率 22%', '同比 (1 个百分点)'] },
+        },
+      },
+    },
+  });
 })(window);
