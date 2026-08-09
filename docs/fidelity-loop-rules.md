@@ -613,8 +613,11 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 #### <a id="rule-t6"></a>T6 · quantified-audit
 
 - 阶段：text · 主题：label
+- 触发：`aligned-side-label-column`：同一视觉列中的两个及以上同类侧置 label。
 - 检查：侧置 label 对齐 reference 的实际左/右缘 x。
-- 通过：同列同类 label 共用该视觉边缘，不默认贴 node。
+- 通过：同列同类 label 必须位于同一 node 列和同一侧，渲染边缘的最大差值 `<=2px`；不默认贴 node。
+- 证据：逐 locale 的 `labelLayoutAudit.horizontalSideLabels` 边缘位置与跨组 spread。
+- feature：`aligned-side-label-column`
 
 #### <a id="rule-t7"></a>T7 · conditional-gate
 
