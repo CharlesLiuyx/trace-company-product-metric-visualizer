@@ -1,0 +1,123 @@
+{
+  "source": "input/processed/airbus-q2-fy26.png",
+  "spec": "input/icon-crop-specs/airbus-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-08-09T04:05:45.786975+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/airbus",
+  "crops": [
+    {
+      "key": "airbus-a380-q2-fy26-tile",
+      "output": "data/assets/icon-references/airbus/crops/commercial-aircraft-a380-q2-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 13893,
+        "losslessBytes": 40943,
+        "savingsVsLossless": 0.6607,
+        "metrics": {
+          "meanAbsoluteError": 0.9605,
+          "rootMeanSquareError": 2.4826,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 46,
+          "changedPixelRatio": 0.3871
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 8,
+        "y": 389,
+        "width": 394,
+        "height": 136
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 14,
+        "y0": 392,
+        "x1": 400,
+        "y1": 513
+      },
+      "cropBox": {
+        "x0": 6,
+        "y0": 384,
+        "x1": 408,
+        "y1": 529
+      },
+      "validation": {
+        "width": 402,
+        "height": 145,
+        "foregroundPixels": 20927,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 8,
+          "right": 8,
+          "top": 8,
+          "bottom": 16
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0276
+        },
+        "passes": true
+      },
+      "note": "Q2 FY26 commercial-aircraft photo. The subject matches the reusable Airbus A380 image, but this Source places the Airbus segment label higher than Q1; the dataset-specific crop stops at y=529 so the opaque background-matched patch cannot cover the label beginning near y=538. The crop excludes all financial text, the segment node, the AIRBUS wordmark, and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/airbus/commercial-aircraft-a380-q2-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 13893,
+        "losslessBytes": 40943,
+        "savingsVsLossless": 0.6607,
+        "metrics": {
+          "meanAbsoluteError": 0.9605,
+          "rootMeanSquareError": 2.4826,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 46,
+          "changedPixelRatio": 0.3871
+        }
+      },
+      "validationSheet": "data/assets/icon-references/airbus/validation-sheets/airbus-a380-q2-fy26-tile.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 302198,
+        "losslessBytes": 302198,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

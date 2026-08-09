@@ -133,4 +133,67 @@
       },
     },
   });
+
+  ssot.records.push({
+    key: 'hershey-q2-fy26',
+    company: 'Hershey',
+    period: 'Q2 FY26',
+    periodNote: 'Ending Jun. 28, 2026',
+    currency: '$',
+    unit: 'B',
+    decimals: 1,
+    sourceImage: 'input/processed/hershey-q2-fy26.png',
+    roundingTolerance: 0.15,
+    revenue: {
+      total: 2.8,
+      notes: ['+7% Y/Y'],
+      items: [
+        { id: 'north_america_confectionery', label: 'North America Confectionery', value: 2.2, notes: ['+4% Y/Y', '32% segment margin'] },
+        { id: 'north_america_salty_snacks', label: 'North America Salty Snacks', value: 0.4, notes: ['+23% Y/Y', '16% segment margin'] },
+        { id: 'international', label: 'International', value: 0.2, notes: ['+6% Y/Y', '(2%) segment margin'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 1.5 },
+      operatingExpenses: {
+        total: 0.6,
+        items: [{ id: 'operating_expenses', label: 'Selling, marketing & administrative expenses', value: 0.6 }],
+      },
+      tax: { id: 'tax', label: 'Tax', value: 0.1 },
+    },
+    otherExpenses: {
+      total: 0.1,
+      items: [{ id: 'other', label: 'Other', value: 0.1 }],
+    },
+    profit: {
+      gross: { id: 'gross_profit', label: 'Gross profit', value: 1.3, notes: ['45% margin', '+15pp Y/Y'] },
+      operating: { id: 'operating_profit', label: 'Operating profit', value: 0.6, notes: ['23% margin', '+16pp Y/Y'] },
+      net: { id: 'net_profit', label: 'Net profit', value: 0.5, notes: ['16% margin', '+14pp Y/Y'] },
+    },
+    i18n: {
+      zh: {
+        period: '2026 财年第二季度',
+        periodNote: '截至 2026 年 6 月 28 日',
+        revenue: {
+          notes: ['同比 +7%'],
+          items: [
+            { id: 'north_america_confectionery', label: '北美糖果业务', notes: ['同比 +4%', '分部利润率 32%'] },
+            { id: 'north_america_salty_snacks', label: '北美咸味零食业务', notes: ['同比 +23%', '分部利润率 16%'] },
+            { id: 'international', label: '国际业务', notes: ['同比 +6%', '分部利润率 (2%)'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: { label: '销售成本' },
+          operatingExpenses: { items: [{ id: 'operating_expenses', label: '销售、营销及管理费用' }] },
+          tax: { label: '税费' },
+        },
+        otherExpenses: { items: [{ id: 'other', label: '其他' }] },
+        profit: {
+          gross: { label: '毛利润', notes: ['利润率 45%', '同比 +15 个百分点'] },
+          operating: { label: '营业利润', notes: ['利润率 23%', '同比 +16 个百分点'] },
+          net: { label: '净利润', notes: ['利润率 16%', '同比 +14 个百分点'] },
+        },
+      },
+    },
+  });
 })(window);

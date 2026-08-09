@@ -18,3 +18,19 @@ All six semantically relevant company or business/product visual clusters in
 the source are accounted for. The publisher mini-Sankey, URL, footer branding,
 and social mark are attribution; the Other revenue aggregate is icon-less, so
 they are intentionally skipped in the crop spec.
+
+## Q2 FY26 Immunology cluster
+
+Source: `input/processed/abbvie-q2-fy26.png`<br>
+Crop spec: `input/icon-crop-specs/abbvie-q2-fy26.json`
+
+Visual review completed 2026-08-09 against the generated validation sheet.
+
+| crop | result | review note |
+| --- | --- | --- |
+| `abbvie-immunology-products-q2-fy26` | accepted | Complete Q2-specific Skyrizi-over-Humira cluster; no segment label, financial text, connector, or node face retained. |
+
+The company wordmark, Imbruvica, Botox Cosmetic, and Botox clusters are
+materially identical to their existing validated reusable assets. The Q2
+Source reverses the Immunology product order, so that cluster uses the new
+period-specific runtime asset rather than the earlier Humira-over-Skyrizi crop.

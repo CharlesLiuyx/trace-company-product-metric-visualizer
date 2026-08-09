@@ -120,3 +120,27 @@ two tighter, opaque background-matched patches.
   center offset `(-0.1039, -0.05)`.
 - Visual/model check (validation sheet reviewed): **accepted**. The crop has
   no value text, segment label, or navy source node.
+
+## Q2 FY26 addition
+
+Source: `input/processed/airbus-q2-fy26.png` (2667×1500)
+Spec: `input/icon-crop-specs/airbus-q2-fy26.json`
+Report: `data/assets/icon-references/airbus/crop-report-q2-fy26.json`
+
+The Q2 FY26 source reuses the validated H160 helicopter, Defense & Space
+satellite, and AIRBUS wordmark assets. The commercial-aircraft image is also
+the same A380, but its segment label begins higher than in Q1, so the opaque
+background-matched patch needs a shorter dataset-specific crop.
+
+### airbus-a380-q2-fy26-tile
+
+- Crop: `crops/commercial-aircraft-a380-q2-fy26.png` (402×145); runtime copy
+  `data/assets/raster-annotations/airbus/commercial-aircraft-a380-q2-fy26.png`.
+- Source placement: x=6, y=384, w=402, h=145. The crop ends at y=529, above
+  the Airbus segment label beginning near y=538.
+- Script validation: **passes** — zero edge/forbidden foreground pixels and
+  center offset `(0.0, -0.0276)`. The compressed runtime copy stays within the
+  configured image-error thresholds.
+- Visual/model check (validation sheet reviewed): **accepted**. The full A380
+  is present; no value, note, segment label, flow, node, or publisher mark is
+  included.
