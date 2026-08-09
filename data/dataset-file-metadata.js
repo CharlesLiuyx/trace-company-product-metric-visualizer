@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-08-09T07:55:30.000Z",
+  "generatedAt": "2026-08-09T09:47:42.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -5231,6 +5231,186 @@
       "path": "data/datasets/tencent-q4-fy22.js",
       "updatedAtMs": 1786262130000,
       "updatedAt": "2026-08-09T07:55:30.000Z",
+      "timeSource": "git"
+    },
+    "costco-q1-fy26": {
+      "path": "data/datasets/costco-q1-fy26.js",
+      "updatedAtMs": 1786268862000,
+      "updatedAt": "2026-08-09T09:47:42.000Z",
+      "timeSource": "git"
+    },
+    "coca-cola-q2-fy23": {
+      "path": "data/datasets/coca-cola-q2-fy23.js",
+      "updatedAtMs": 1786268862000,
+      "updatedAt": "2026-08-09T09:47:42.000Z",
+      "timeSource": "git"
+    },
+    "coca-cola-q4-fy22": {
+      "path": "data/datasets/coca-cola-q4-fy22.js",
+      "updatedAtMs": 1786268862000,
+      "updatedAt": "2026-08-09T09:47:42.000Z",
+      "timeSource": "git"
+    },
+    "adidas-q1-fy25": {
+      "path": "data/datasets/adidas-q1-fy25.js",
+      "updatedAtMs": 1786268862000,
+      "updatedAt": "2026-08-09T09:47:42.000Z",
+      "timeSource": "git"
+    },
+    "coca-cola-q2-fy24": {
+      "path": "data/datasets/coca-cola-q2-fy24.js",
+      "updatedAtMs": 1786268862000,
+      "updatedAt": "2026-08-09T09:47:42.000Z",
+      "timeSource": "git"
+    },
+    "coca-cola-q3-fy24": {
+      "path": "data/datasets/coca-cola-q3-fy24.js",
+      "updatedAtMs": 1786268862000,
+      "updatedAt": "2026-08-09T09:47:42.000Z",
+      "timeSource": "git"
+    },
+    "coca-cola-q3-fy25": {
+      "path": "data/datasets/coca-cola-q3-fy25.js",
+      "updatedAtMs": 1786268862000,
+      "updatedAt": "2026-08-09T09:47:42.000Z",
+      "timeSource": "git"
+    },
+    "costco-q1-fy23": {
+      "path": "data/datasets/costco-q1-fy23.js",
+      "updatedAtMs": 1786268862000,
+      "updatedAt": "2026-08-09T09:47:42.000Z",
+      "timeSource": "git"
+    },
+    "costco-q1-fy25": {
+      "path": "data/datasets/costco-q1-fy25.js",
+      "updatedAtMs": 1786268862000,
+      "updatedAt": "2026-08-09T09:47:42.000Z",
+      "timeSource": "git"
+    },
+    "costco-q2-fy24": {
+      "path": "data/datasets/costco-q2-fy24.js",
+      "updatedAtMs": 1786268862000,
+      "updatedAt": "2026-08-09T09:47:42.000Z",
+      "timeSource": "git"
+    },
+    "costco-q2-fy25": {
+      "path": "data/datasets/costco-q2-fy25.js",
+      "updatedAtMs": 1786268862000,
+      "updatedAt": "2026-08-09T09:47:42.000Z",
+      "timeSource": "git"
+    },
+    "costco-q3-fy23": {
+      "path": "data/datasets/costco-q3-fy23.js",
+      "updatedAtMs": 1786268862000,
+      "updatedAt": "2026-08-09T09:47:42.000Z",
+      "timeSource": "git"
+    },
+    "costco-q3-fy24": {
+      "path": "data/datasets/costco-q3-fy24.js",
+      "updatedAtMs": 1786268862000,
+      "updatedAt": "2026-08-09T09:47:42.000Z",
+      "timeSource": "git"
+    },
+    "adidas-fy23": {
+      "path": "data/datasets/adidas-fy23.js",
+      "updatedAtMs": 1786268862000,
+      "updatedAt": "2026-08-09T09:47:42.000Z",
+      "timeSource": "git"
+    },
+    "adidas-q3-fy25": {
+      "path": "data/datasets/adidas-q3-fy25.js",
+      "updatedAtMs": 1786268862000,
+      "updatedAt": "2026-08-09T09:47:42.000Z",
+      "timeSource": "git"
+    },
+    "coca-cola-q1-fy25": {
+      "path": "data/datasets/coca-cola-q1-fy25.js",
+      "updatedAtMs": 1786268862000,
+      "updatedAt": "2026-08-09T09:47:42.000Z",
+      "timeSource": "git"
+    },
+    "coca-cola-q2-fy25": {
+      "path": "data/datasets/coca-cola-q2-fy25.js",
+      "updatedAtMs": 1786268862000,
+      "updatedAt": "2026-08-09T09:47:42.000Z",
+      "timeSource": "git"
+    },
+    "coca-cola-q4-fy23": {
+      "path": "data/datasets/coca-cola-q4-fy23.js",
+      "updatedAtMs": 1786268862000,
+      "updatedAt": "2026-08-09T09:47:42.000Z",
+      "timeSource": "git"
+    },
+    "costco-q2-fy23": {
+      "path": "data/datasets/costco-q2-fy23.js",
+      "updatedAtMs": 1786268862000,
+      "updatedAt": "2026-08-09T09:47:42.000Z",
+      "timeSource": "git"
+    },
+    "costco-q3-fy25": {
+      "path": "data/datasets/costco-q3-fy25.js",
+      "updatedAtMs": 1786268862000,
+      "updatedAt": "2026-08-09T09:47:42.000Z",
+      "timeSource": "git"
+    },
+    "costco-q4-fy25": {
+      "path": "data/datasets/costco-q4-fy25.js",
+      "updatedAtMs": 1786268862000,
+      "updatedAt": "2026-08-09T09:47:42.000Z",
+      "timeSource": "git"
+    },
+    "costco-q1-fy24": {
+      "path": "data/datasets/costco-q1-fy24.js",
+      "updatedAtMs": 1786268862000,
+      "updatedAt": "2026-08-09T09:47:42.000Z",
+      "timeSource": "git"
+    },
+    "costco-q4-fy23": {
+      "path": "data/datasets/costco-q4-fy23.js",
+      "updatedAtMs": 1786268862000,
+      "updatedAt": "2026-08-09T09:47:42.000Z",
+      "timeSource": "git"
+    },
+    "coca-cola-q3-fy23": {
+      "path": "data/datasets/coca-cola-q3-fy23.js",
+      "updatedAtMs": 1786268862000,
+      "updatedAt": "2026-08-09T09:47:42.000Z",
+      "timeSource": "git"
+    },
+    "costco-q4-fy24": {
+      "path": "data/datasets/costco-q4-fy24.js",
+      "updatedAtMs": 1786268862000,
+      "updatedAt": "2026-08-09T09:47:42.000Z",
+      "timeSource": "git"
+    },
+    "coca-cola-q4-fy24": {
+      "path": "data/datasets/coca-cola-q4-fy24.js",
+      "updatedAtMs": 1786268862000,
+      "updatedAt": "2026-08-09T09:47:42.000Z",
+      "timeSource": "git"
+    },
+    "coca-cola-q1-fy23": {
+      "path": "data/datasets/coca-cola-q1-fy23.js",
+      "updatedAtMs": 1786268862000,
+      "updatedAt": "2026-08-09T09:47:42.000Z",
+      "timeSource": "git"
+    },
+    "coca-cola-q1-fy24": {
+      "path": "data/datasets/coca-cola-q1-fy24.js",
+      "updatedAtMs": 1786268862000,
+      "updatedAt": "2026-08-09T09:47:42.000Z",
+      "timeSource": "git"
+    },
+    "adidas-q2-fy25": {
+      "path": "data/datasets/adidas-q2-fy25.js",
+      "updatedAtMs": 1786268862000,
+      "updatedAt": "2026-08-09T09:47:42.000Z",
+      "timeSource": "git"
+    },
+    "adidas-q1-fy24": {
+      "path": "data/datasets/adidas-q1-fy24.js",
+      "updatedAtMs": 1786268862000,
+      "updatedAt": "2026-08-09T09:47:42.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {
