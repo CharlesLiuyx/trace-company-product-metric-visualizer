@@ -154,10 +154,12 @@ as zero-paint before it creates the Plan. The embedded node-face policy
 includes Source-bound handling
 for genuinely sub-floor visible faces; neither an omitted small value nor an
 `Other` label can be accepted as decorative residue. A primary zero-looking
-literal that masks a real non-zero amount must
-bind authoritative higher-precision recovery and remain non-zero in the
-authored SSOT/View; without that recovery, the Build stops rather than writing
-zero.
+literal that masks a real non-zero amount must bind authoritative
+higher-precision recovery and remain non-zero in the authored SSOT/View. If
+the authoritative value falls outside the primary literal's rounding
+interval, the literal is instead a confirmed numeric typo and may proceed
+only through the user-directed authoritative-correction path; without one of
+those typed records, the Build stops rather than writing zero.
 `record:build` exposes the deep prepare-review, finish-reviewed, stage, seal,
 and inspect operations. A stored `SEALED` receipt is historical fact, while
 inspection computes effective freshness: changing an authored file makes a
@@ -165,14 +167,16 @@ historical `SEALED` Build effectively `AUTHORED`. `CloseoutReport`, Task
 information, and Loop Fidelity Summary are generated Views over structured
 Build objects, not acceptance inputs.
 
-When a non-zero Source literal has a confirmed unit or numeric typo, Source
-Coverage keeps the original literal immutable and may apply only a
+When a Source literal has a confirmed unit or numeric typo, Source Coverage
+keeps the original literal immutable and may apply only a
 user-directed, authoritative-source-bound correction. The typed correction
 records whether the suffix or displayed magnitude is wrong, plus approval,
 official locator and literal, corrected display literal, and reason;
 both the official value and corrected display must support the authored amount
 within the declared resolution. This is distinct from rounded-zero precision
-recovery and the two mechanisms cannot be combined.
+recovery and the two mechanisms cannot be combined. Zero-looking literals may
+use only the numeric-typo branch, and only when the authoritative value lies
+outside the primary literal's rounding interval.
 
 Load context in this order:
 

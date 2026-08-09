@@ -142,9 +142,11 @@ Coverage、执行/分派、陷阱、最终检查与汇报。处理 pending 工�
 2. Source 覆盖与准备——完整记录 Source Coverage 和 `ObjectInventory`，显式
    包含 Other 类对象（带值 Other 是数据指标，柱面必须可见——T22）、最小非零
    值、face intent 与 casebook 命中；通过后才并行
-   metadata/SSOT、preflight 测量与可选图标。已确认的非零 Source 单位或数字
+   metadata/SSOT、preflight 测量与可选图标。已确认的 Source 单位或数字
    笔误只能通过 Source Coverage 记录的 typed、用户明确授权且绑定权威来源的
-   纠正继续处理；原始 literal 必须保留以供审计。
+   纠正继续处理；原始 literal 必须保留以供审计。零样式 literal 若权威值落在
+   原始舍入区间内则走 precision recovery，区间外只能走用户明确授权的
+   `numeric-typo` correction。
 3. Adapter 与 i18n——对账 Source → Inventory → SSOT → Adapter/data，编写适用
    View、本地化并注册；缺少图标绝不能删除语义对象。
 4. 验证与 Review——`record:build prepare-review`、`record:verification`、
