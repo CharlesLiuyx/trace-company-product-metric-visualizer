@@ -20238,6 +20238,29 @@
             }
           }
         }
+      },
+      {
+        "key": "sony-q3-fy23",
+        "src": "data/datasets/sony-q3-fy23.js",
+        "data": {
+          "name": "Sony · Q3 FY23",
+          "company": "Sony",
+          "meta": {
+            "title": "Sony Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Sony · 2023 财年第三季度",
+              "meta": {
+                "title": "Sony 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

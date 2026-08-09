@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-08-09T09:47:42.000Z",
+  "generatedAt": "2026-08-09T10:35:28.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -5411,6 +5411,12 @@
       "path": "data/datasets/adidas-q1-fy24.js",
       "updatedAtMs": 1786268862000,
       "updatedAt": "2026-08-09T09:47:42.000Z",
+      "timeSource": "git"
+    },
+    "sony-q3-fy23": {
+      "path": "data/datasets/sony-q3-fy23.js",
+      "updatedAtMs": 1786271728000,
+      "updatedAt": "2026-08-09T10:35:28.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {
