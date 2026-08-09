@@ -259,6 +259,83 @@
           },
         },
       },
+    },
+    {
+      key: 'sony-q3-fy23',
+      company: 'Sony',
+      period: 'Q3 FY23',
+      periodNote: 'Ending Dec. 2023',
+      currency: '¥',
+      unit: 'B',
+      decimals: 0,
+      sourceImage: 'input/processed/sony-q3-fy23.png',
+      roundingTolerance: 1.5,
+      revenue: {
+        total: 3748,
+        notes: ['+22% Y/Y'],
+        items: [
+          { id: 'game_network', label: 'Game & Network', value: 1429, notes: ['+18% Y/Y', '6% operating margin'] },
+          { id: 'music', label: 'Music', value: 418, notes: ['+16% Y/Y', '18% operating margin'] },
+          { id: 'pictures', label: 'Pictures', value: 365, notes: ['+10% Y/Y', '12% operating margin'] },
+          { id: 'technology', label: 'Technology', value: 726, notes: ['(2%) Y/Y', '11% operating margin'] },
+          { id: 'imaging_sensing', label: 'Imaging & Sensing', value: 478, notes: ['+24% Y/Y', '21% operating margin'] },
+          { id: 'financial_services', label: 'Financial services', value: 309, notes: ['13% Y/Y', '25% operating margin'] },
+          { id: 'other_revenue', label: 'Other', value: 23, notes: ['+26% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 2504 },
+        operatingExpenses: {
+          total: 787,
+          items: [
+            { id: 'sga', label: 'SG&A', value: 555 },
+            { id: 'financial_services_other', label: 'Financial services & other', value: 232 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 91 },
+      },
+      operatingOtherIncome: { total: 7, items: [{ id: 'other_income', label: 'Other', value: 7 }] },
+      operatingOtherExpenses: { total: 0, items: [] },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: { total: 4, items: [{ id: 'financial', label: 'Financial', value: 4 }] },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 1244, notes: ['33% margin', '+3pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 464, notes: ['12% margin', '(1pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 368, notes: ['10% margin', '(1pp) Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2023 财年第三季度',
+          periodNote: '截至 2023 年 12 月',
+          revenue: {
+            notes: ['同比 +22%'],
+            items: [
+              { id: 'game_network', label: '游戏与网络', notes: ['同比 +18%', '营业利润率 6%'] },
+              { id: 'music', label: '音乐', notes: ['同比 +16%', '营业利润率 18%'] },
+              { id: 'pictures', label: '影视', notes: ['同比 +10%', '营业利润率 12%'] },
+              { id: 'technology', label: '技术', notes: ['同比 (2%)', '营业利润率 11%'] },
+              { id: 'imaging_sensing', label: '成像与传感', notes: ['同比 +24%', '营业利润率 21%'] },
+              { id: 'financial_services', label: '金融服务', notes: ['同比 13%', '营业利润率 25%'] },
+              { id: 'other_revenue', label: '其他', notes: ['同比 +26%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '销售成本' },
+            operatingExpenses: { items: [
+              { id: 'sga', label: '销售、一般及行政费用' },
+              { id: 'financial_services_other', label: '金融服务及其他' },
+            ] },
+            tax: { label: '税费' },
+          },
+          operatingOtherIncome: { items: [{ id: 'other_income', label: '其他收入' }] },
+          otherExpenses: { items: [{ id: 'financial', label: '财务项目' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 33%', '同比 +3 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 12%', '同比 (1 个百分点)'] },
+            net: { label: '净利润', notes: ['利润率 10%', '同比 (1 个百分点)'] },
+          },
+        },
+      },
     }
   );
 })(window);
