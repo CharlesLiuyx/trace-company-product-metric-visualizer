@@ -42,3 +42,27 @@ Care changed in the Q3 Source and therefore use newly extracted Q3 assets.
   row; the rightmost pack is intact and no label or node pixels are present.
 - `baby-feminine-family-care-product-cluster-q3-fy26.png` — accepted. Charmin,
   Bounty, and Puffs packs are complete; no adjacent label or publisher mark.
+
+## Q4 FY26
+
+All six Q4 crops were visually reviewed at native resolution against the
+validation sheets in `validation-sheets/q4-fy26/` and accepted. Each subject
+is complete, centered within the source-authored crop, and isolated from
+financial labels, Sankey geometry, and publisher marks.
+
+- `company-logo-q4-fy26.png` — accepted. Complete circular P&G orb, bevel,
+  and white wordmark; no title, Net sales label, or flow pixels.
+- `beauty-product-cluster-q4-fy26.png` — accepted. Complete Beauty product
+  collage; no business-label or source-node pixels.
+- `grooming-product-cluster-q4-fy26.png` — accepted. Complete Grooming product
+  collage; no neighboring label or source-node pixels.
+- `health-care-product-cluster-q4-fy26.png` — accepted. Complete Health Care
+  product collage; no adjacent text or Sankey marks.
+- `fabric-home-care-product-cluster-q4-fy26.png` — accepted. Complete product
+  row, including both edge packs; no label or node pixels.
+- `baby-feminine-family-care-product-cluster-q4-fy26.png` — accepted. Charmin,
+  Bounty, and Puffs packs are complete; no adjacent label or publisher mark.
+
+All six also pass the extractor's border, centering, forbidden-pixel, and
+runtime-compression checks in `crop-report-q4-fy26.json`. Only the derived
+`raster-annotations/p-g/*-q4-fy26.png` copies are runtime assets.

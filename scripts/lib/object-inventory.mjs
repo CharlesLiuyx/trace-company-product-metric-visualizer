@@ -17,6 +17,7 @@ export const OBJECT_DISPOSITIONS = Object.freeze(['render', 'data-only', 'skip']
 export const OBJECT_MAPPING_ROLES = Object.freeze(['render', 'data', 'asset', 'i18n']);
 export const OBJECT_FEATURES = Object.freeze([
   'centered-side-label',
+  'aligned-side-label-column',
   'text',
   'annotation-near-label',
   'paired-node-annotation',

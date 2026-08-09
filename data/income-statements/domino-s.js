@@ -191,6 +191,101 @@
           },
         },
       },
+    },
+    {
+      key: 'domino-s-q2-fy26',
+      company: "Domino's",
+      period: 'Q2 FY26',
+      periodNote: 'Quarter ended Jun. 14, 2026',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/domino-s-q2-fy26.png',
+      roundingTolerance: 4,
+      revenue: {
+        total: 1194,
+        notes: ['+4% Y/Y'],
+        items: [
+          { id: 'us_company_owned_stores_revenue', label: 'US company-owned stores', value: 82, notes: ['(11%) Y/Y'] },
+          { id: 'us_franchise_royalties_fees', label: 'US franchise royalties & fees', value: 164, notes: ['+5% Y/Y'] },
+          { id: 'supply_chain_revenue', label: 'Supply chain', value: 732, notes: ['+6% Y/Y'] },
+          { id: 'international_franchise', label: 'International franchise', value: 82, notes: ['+6% Y/Y'] },
+          { id: 'us_franchise_advertising_revenue', label: 'US franchise advertising', value: 135, notes: ['+2% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: {
+          id: 'cost_of_sales',
+          label: 'Cost of sales',
+          value: 716,
+          items: [
+            { id: 'supply_chain_cost', label: 'Supply chain', value: 644 },
+            { id: 'us_company_owned_stores_cost', label: 'US company-owned stores', value: 73 },
+          ],
+        },
+        operatingExpenses: {
+          total: 246,
+          notes: ['Net of $4M Other operating income shown separately'],
+          items: [
+            { id: 'us_franchise_advertising_cost', label: 'US franchise advertising', value: 135 },
+            { id: 'general_administrative', label: 'General & administrative', value: 115 },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 39 },
+      },
+      operatingOtherIncome: {
+        total: 4,
+        items: [{ id: 'other', label: 'Other', value: 4 }],
+      },
+      otherIncome: { total: 0, items: [] },
+      otherExpenses: {
+        total: 57,
+        items: [{ id: 'interest', label: 'Interest', value: 57 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 478, notes: ['40% margin', '(0pp) Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 232, notes: ['19% margin', '(0pp) Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 136, notes: ['11% margin', '(0pp) Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 6 月 14 日的季度',
+          revenue: {
+            notes: ['同比 +4%'],
+            items: [
+              { id: 'us_company_owned_stores_revenue', label: '美国自营门店', notes: ['同比 (11%)'] },
+              { id: 'us_franchise_royalties_fees', label: '美国加盟商权利金及费用', notes: ['同比 +5%'] },
+              { id: 'supply_chain_revenue', label: '供应链', notes: ['同比 +6%'] },
+              { id: 'international_franchise', label: '国际特许经营', notes: ['同比 +6%'] },
+              { id: 'us_franchise_advertising_revenue', label: '美国加盟商广告', notes: ['同比 +2%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: {
+              label: '销售成本',
+              items: [
+                { id: 'supply_chain_cost', label: '供应链' },
+                { id: 'us_company_owned_stores_cost', label: '美国自营门店' },
+              ],
+            },
+            operatingExpenses: {
+              items: [
+                { id: 'us_franchise_advertising_cost', label: '美国加盟商广告' },
+                { id: 'general_administrative', label: '一般及行政' },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          operatingOtherIncome: { items: [{ id: 'other', label: '其他' }] },
+          otherExpenses: { items: [{ id: 'interest', label: '利息' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 40%', '同比 (0 个百分点)'] },
+            operating: { label: '营业利润', notes: ['利润率 19%', '同比 (0 个百分点)'] },
+            net: { label: '净利润', notes: ['利润率 11%', '同比 (0 个百分点)'] },
+          },
+        },
+      },
     }
   );
 })(window);

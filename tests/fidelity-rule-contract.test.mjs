@@ -50,6 +50,7 @@ test('default fidelity rule contract preserves the complete catalog and feature 
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T21, 'conditional-gate');
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T22, 'build-gate');
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T23, 'build-gate');
+  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T6, 'quantified-audit');
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.G11, 'build-gate');
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.G12, 'hard-gate');
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.B15, 'conditional-gate');
@@ -75,6 +76,7 @@ test('default fidelity rule contract preserves the complete catalog and feature 
   assert.deepEqual(FIDELITY_RULE_CONTRACT.featureMappings['ambiguous-label-slot'], ['T20']);
   assert.deepEqual(FIDELITY_RULE_CONTRACT.featureMappings['zero-paint-node-slot'], ['T23']);
   assert.deepEqual(FIDELITY_RULE_CONTRACT.featureMappings['paired-node-annotation'], ['I12']);
+  assert.deepEqual(FIDELITY_RULE_CONTRACT.featureMappings['aligned-side-label-column'], ['T6']);
   assert.deepEqual(FIDELITY_RULE_CONTRACT.aliases, {});
 });
 

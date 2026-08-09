@@ -111,7 +111,7 @@ function incomeObjects() {
       kind: 'label',
       disposition: 'render',
       mapping: [{ role: 'render', target: 'layout.labels.revenue' }],
-      features: ['text', 'centered-side-label', 'specified-label-weight', 'measured-label-position'],
+      features: ['text', 'centered-side-label', 'aligned-side-label-column', 'specified-label-weight', 'measured-label-position'],
       featureEvidence: {
         'specified-label-weight': {
           source: 'reference-measurement',
@@ -396,6 +396,8 @@ test('Income Statement plan compiles object features into mandatory rule checks'
   const checks = Object.fromEntries(plan.requiredChecks.map((check) => [check.id, check]));
 
   assert.deepEqual(checks['feature:centered-side-label'].ruleIds, ['B3', 'T7']);
+  assert.deepEqual(checks['feature:aligned-side-label-column'].ruleIds, ['T6']);
+  assert.equal(checks['feature:aligned-side-label-column'].enforcement, 'quantified-audit');
   assert.deepEqual(checks['feature:text'].ruleIds, ['B6', 'Z5']);
   assert.deepEqual(checks['feature:annotation-near-label'].ruleIds, ['A6', 'B5']);
   assert.deepEqual(checks['feature:paired-node-annotation'].ruleIds, ['I12']);
