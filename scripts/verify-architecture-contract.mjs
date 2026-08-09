@@ -252,6 +252,11 @@ async function main() {
     'Source Coverage authoritative-correction issue drift'
   );
   assert.equal(
+    contract.sourceCoverage.zeroLookingNumericTypoRequiresAuthoritativeCorrection,
+    true,
+    'zero-looking Source numeric typos must use user-directed authoritative correction'
+  );
+  assert.equal(
     contract.sourceCoverage.amountWithinLiteralResolution,
     true,
     'Source Coverage exact amounts must stay within the literal rounding interval'

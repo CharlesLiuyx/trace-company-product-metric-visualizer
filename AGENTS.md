@@ -159,9 +159,11 @@ target state as current. Five-phase summary:
    Other is a data metric and keeps a visible bar — T22), smallest
    non-zero values, face intent, and casebook hits; only then parallelize
    metadata/SSOT, preflight measurement, and optional icons. A confirmed
-   non-zero Source unit or numeric typo may proceed only through the typed,
+   Source unit or numeric typo may proceed only through the typed,
    user-directed, authoritative-source-bound correction recorded by Source
-   Coverage; the original literal remains auditable.
+   Coverage; the original literal remains auditable. A zero-looking literal
+   uses precision recovery when the authoritative value is inside its rounding
+   interval, and only a user-directed `numeric-typo` correction when outside.
 3. Adapter & i18n — reconcile Source → Inventory → SSOT → Adapter/data,
    author the applicable view, localize, and register; a missing icon never
    removes a semantic object.

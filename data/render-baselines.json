@@ -93,15 +93,93 @@
       "width": 2667,
       "height": 1500
     },
+    "adobe-q1-fy23": {
+      "similarity": 0.968942,
+      "mae": 7.9198,
+      "width": 2667,
+      "height": 1500
+    },
+    "adobe-q1-fy24": {
+      "similarity": 0.966968,
+      "mae": 8.4233,
+      "width": 2667,
+      "height": 1500
+    },
+    "adobe-q1-fy25": {
+      "similarity": 0.966627,
+      "mae": 8.51,
+      "width": 2667,
+      "height": 1500
+    },
     "adobe-q1-fy26": {
       "similarity": 0.969309,
       "mae": 7.8262,
       "width": 2667,
       "height": 1500
     },
+    "adobe-q2-fy23": {
+      "similarity": 0.967416,
+      "mae": 8.3088,
+      "width": 2667,
+      "height": 1500
+    },
+    "adobe-q2-fy24": {
+      "similarity": 0.967247,
+      "mae": 8.3521,
+      "width": 2667,
+      "height": 1500
+    },
+    "adobe-q2-fy25": {
+      "similarity": 0.96552,
+      "mae": 8.7924,
+      "width": 2667,
+      "height": 1500
+    },
     "adobe-q2-fy26": {
       "similarity": 0.968801,
       "mae": 7.9558,
+      "width": 2667,
+      "height": 1500
+    },
+    "adobe-q3-fy23": {
+      "similarity": 0.969488,
+      "mae": 7.7807,
+      "width": 2667,
+      "height": 1500
+    },
+    "adobe-q3-fy24": {
+      "similarity": 0.966688,
+      "mae": 8.4947,
+      "width": 2667,
+      "height": 1500
+    },
+    "adobe-q3-fy25": {
+      "similarity": 0.968147,
+      "mae": 8.1225,
+      "width": 2667,
+      "height": 1500
+    },
+    "adobe-q4-fy22": {
+      "similarity": 0.96618,
+      "mae": 8.6242,
+      "width": 2667,
+      "height": 1500
+    },
+    "adobe-q4-fy23": {
+      "similarity": 0.970285,
+      "mae": 7.5772,
+      "width": 2667,
+      "height": 1500
+    },
+    "adobe-q4-fy24": {
+      "similarity": 0.966697,
+      "mae": 8.4922,
+      "width": 2667,
+      "height": 1500
+    },
+    "adobe-q4-fy25": {
+      "similarity": 0.966484,
+      "mae": 8.5467,
       "width": 2667,
       "height": 1500
     },
@@ -2571,15 +2649,81 @@
       "width": 2667,
       "height": 1500
     },
+    "ibm-q1-fy23": {
+      "similarity": 0.967905,
+      "mae": 8.1842,
+      "width": 2667,
+      "height": 1500
+    },
+    "ibm-q1-fy24": {
+      "similarity": 0.966236,
+      "mae": 8.6098,
+      "width": 2667,
+      "height": 1500
+    },
+    "ibm-q1-fy25": {
+      "similarity": 0.967525,
+      "mae": 8.2811,
+      "width": 2667,
+      "height": 1500
+    },
     "ibm-q1-fy26": {
       "similarity": 0.969799,
       "mae": 7.7012,
       "width": 2667,
       "height": 1500
     },
+    "ibm-q2-fy23": {
+      "similarity": 0.961969,
+      "mae": 9.6979,
+      "width": 2667,
+      "height": 1500
+    },
+    "ibm-q2-fy24": {
+      "similarity": 0.966004,
+      "mae": 8.6691,
+      "width": 2667,
+      "height": 1500
+    },
+    "ibm-q2-fy25": {
+      "similarity": 0.970138,
+      "mae": 7.6149,
+      "width": 2667,
+      "height": 1500
+    },
     "ibm-q2-fy26": {
       "similarity": 0.966788,
       "mae": 8.4691,
+      "width": 2667,
+      "height": 1500
+    },
+    "ibm-q3-fy23": {
+      "similarity": 0.965464,
+      "mae": 8.8066,
+      "width": 2667,
+      "height": 1500
+    },
+    "ibm-q3-fy24": {
+      "similarity": 0.969195,
+      "mae": 7.8553,
+      "width": 2667,
+      "height": 1500
+    },
+    "ibm-q3-fy25": {
+      "similarity": 0.970747,
+      "mae": 7.4596,
+      "width": 2667,
+      "height": 1500
+    },
+    "ibm-q4-fy23": {
+      "similarity": 0.968201,
+      "mae": 8.1087,
+      "width": 2667,
+      "height": 1500
+    },
+    "ibm-q4-fy24": {
+      "similarity": 0.966564,
+      "mae": 8.5261,
       "width": 2667,
       "height": 1500
     },
