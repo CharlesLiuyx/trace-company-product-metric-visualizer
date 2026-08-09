@@ -168,4 +168,85 @@
       },
     },
   });
+
+  ssot.records.push({
+    key: 'tilray-q4-fy26',
+    company: 'Tilray Brands',
+    period: 'Q4 FY26',
+    periodNote: 'Three months ended May 31, 2026',
+    currency: '$',
+    unit: 'M',
+    decimals: 0,
+    sourceImage: 'input/processed/tilray-q4-fy26.png',
+    roundingTolerance: 1.1,
+    revenue: {
+      total: 282,
+      notes: ['+25% Y/Y'],
+      items: [
+        { id: 'beverage_alcohol', label: ['Beverage', 'alcohol'], value: 106, notes: ['+61% Y/Y', '36% gross margin'] },
+        { id: 'cannabis', label: 'Cannabis', value: 71, notes: ['+5% Y/Y', '40% gross margin'] },
+        { id: 'distribution', label: 'Distribution', value: 85, notes: ['+15% Y/Y', '12% gross margin'] },
+        { id: 'wellness', label: 'Wellness', value: 20, notes: ['+16% Y/Y', '33% gross margin'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: { id: 'cost_of_revenue', label: ['Cost of', 'revenue'], value: 191 },
+      operatingExpenses: {
+        total: 107,
+        items: [
+          { id: 'ga', label: 'G&A', value: 61, notes: ['22% of revenue', '+5pp Y/Y'] },
+          { id: 'selling', label: 'Selling', value: 14, notes: ['5% of revenue', '(1pp) Y/Y'] },
+          { id: 'marketing', label: 'Marketing', value: 13, notes: ['5% of revenue', '+1pp Y/Y'] },
+          { id: 'amortization', label: 'Amortization', value: 6, notes: ['2% of revenue', '(7pp) Y/Y'] },
+          { id: 'other', label: 'Other', value: 12, notes: ['4% of revenue', '(10pp) Y/Y'] },
+        ],
+      },
+      tax: { label: 'Tax', value: 0, notes: ['No separate tax terminal is depicted in the source chart.'] },
+    },
+    otherIncome: { total: 0, items: [] },
+    otherExpenses: { total: 0, items: [] },
+    profit: {
+      gross: { id: 'gross_profit', label: 'Gross profit', value: 91, notes: ['32% margin', '+2pp Y/Y'] },
+      operating: { id: 'operating_loss', label: 'Operating loss', value: -16, notes: ['(6%) margin'] },
+      net: {
+        id: 'operating_loss',
+        label: 'Operating loss',
+        value: -16,
+        notes: ['No separate net income or net loss terminal is shown in the source chart.'],
+      },
+    },
+    i18n: {
+      zh: {
+        period: '2026 财年第四季度',
+        periodNote: '截至 2026 年 5 月 31 日的三个月',
+        revenue: {
+          notes: ['同比 +25%'],
+          items: [
+            { id: 'beverage_alcohol', label: ['酒精', '饮料'], notes: ['同比 +61%', '毛利率 36%'] },
+            { id: 'cannabis', label: '大麻', notes: ['同比 +5%', '毛利率 40%'] },
+            { id: 'distribution', label: '分销', notes: ['同比 +15%', '毛利率 12%'] },
+            { id: 'wellness', label: '健康产品', notes: ['同比 +16%', '毛利率 33%'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: { label: '收入成本' },
+          operatingExpenses: {
+            items: [
+              { id: 'ga', label: '一般及行政费用', notes: ['占收入 22%', '同比 +5 个百分点'] },
+              { id: 'selling', label: '销售费用', notes: ['占收入 5%', '同比 (1 个百分点)'] },
+              { id: 'marketing', label: '市场营销', notes: ['占收入 5%', '同比 +1 个百分点'] },
+              { id: 'amortization', label: '摊销', notes: ['占收入 2%', '同比 (7 个百分点)'] },
+              { id: 'other', label: '其他', notes: ['占收入 4%', '同比 (10 个百分点)'] },
+            ],
+          },
+          tax: { label: '税费', notes: ['来源图未单列税费终端项目。'] },
+        },
+        profit: {
+          gross: { label: '毛利润', notes: ['利润率 32%', '同比 +2 个百分点'] },
+          operating: { label: '营业亏损', notes: ['利润率 (6%)'] },
+          net: { label: '营业亏损', notes: ['来源图未单列净利润或净亏损终端项目。'] },
+        },
+      },
+    },
+  });
 })(window);

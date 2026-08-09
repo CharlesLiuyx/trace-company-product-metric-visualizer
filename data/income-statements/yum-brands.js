@@ -208,6 +208,96 @@
       },
     },
     {
+      key: 'yum-brands-q2-fy26',
+      company: 'Yum! Brands',
+      period: 'Q2 FY26',
+      periodNote: 'Ending Jun. 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/yum-brands-q2-fy26.png',
+      roundingTolerance: 0.2,
+      revenue: {
+        total: 2.2,
+        notes: ['+12% Y/Y'],
+        items: [
+          { id: 'kfc', label: 'KFC', value: 0.9, notes: ['+9% Y/Y'] },
+          { id: 'taco_bell', label: 'Taco Bell', value: 0.9, notes: ['+20% Y/Y'] },
+          { id: 'pizza_hut', label: 'Pizza Hut', value: 0.3, notes: ['+6% Y/Y'] },
+          { id: 'habit', label: 'The Habit Burger Grill', value: 0.1, notes: ['+4% Y/Y'] },
+        ],
+        breakdowns: [{
+          id: 'revenue_type',
+          label: 'Revenue by type',
+          total: 2.2,
+          notes: ['Rounded component values sum to $2.1B.'],
+          items: [
+            { id: 'company_sales', label: 'Company sales', value: 0.8, notes: ['+25% Y/Y'] },
+            { id: 'franchise_property', label: 'Franchise & property', value: 0.9, notes: ['+7% Y/Y'] },
+            { id: 'franchise_contributions', label: 'Franchise contributions', value: 0.4, notes: ['+2% Y/Y'] },
+          ],
+        }, {
+          id: 'reported_revenue_bridge',
+          label: 'Reported revenue bridge',
+          total: 2.2,
+          items: [{ id: 'reported_revenue', label: 'Revenue', value: 2.2, notes: ['+12% Y/Y'] }],
+        }],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 0, notes: ['The source chart does not break out cost of revenue or gross profit.'] },
+        operatingExpenses: {
+          total: 1.5,
+          notes: ['Source chart operating-expense detail sums to $1.5B.'],
+          items: [
+            { id: 'company_restaurants', label: 'Company restaurants', value: 0.7 },
+            { id: 'franchise_expenses', label: 'Franchise expenses', value: 0.5 },
+            { id: 'ga', label: 'G&A', value: 0.3 },
+          ],
+        },
+      },
+      otherIncome: {
+        total: 0.3,
+        items: [{ id: 'tax_benefit', label: 'Tax benefit', value: 0.3, notes: ['Displayed as “Tax” in green in the source chart.'] }],
+      },
+      otherExpenses: {
+        total: 0.1,
+        items: [{ id: 'other', label: 'Other', value: 0.1 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 2.2, notes: ['Bookkeeping value for SSOT parity; gross profit is not shown in the source chart.'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 0.7, notes: ['30% margin', '-2pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 0.9, notes: ['39% margin', '+20pp Y/Y'] },
+      },
+      i18n: { zh: {
+        period: '2026 财年第二季度', periodNote: '截至 2026 年 6 月',
+        revenue: {
+          notes: ['同比 +12%'],
+          items: [
+            { id: 'kfc', label: 'KFC', notes: ['同比 +9%'] }, { id: 'taco_bell', label: '塔可钟', notes: ['同比 +20%'] },
+            { id: 'pizza_hut', label: '必胜客', notes: ['同比 +6%'] }, { id: 'habit', label: 'Habit 汉堡烤吧', notes: ['同比 +4%'] },
+          ],
+          breakdowns: [{ id: 'revenue_type', label: '按类型划分的收入', notes: ['四舍五入后的分项合计为 $2.1B。'], items: [
+            { id: 'company_sales', label: '公司销售额', notes: ['同比 +25%'] },
+            { id: 'franchise_property', label: '特许经营及物业', notes: ['同比 +7%'] },
+            { id: 'franchise_contributions', label: '特许经营贡献', notes: ['同比 +2%'] },
+          ] }, { id: 'reported_revenue_bridge', label: '报告收入桥接', items: [{ id: 'reported_revenue', label: '收入', notes: ['同比 +12%'] }] }],
+        },
+        costs: {
+          costOfRevenue: { label: '收入成本', notes: ['来源图表未拆分收入成本或毛利润。'] },
+          operatingExpenses: { notes: ['来源图表运营费用明细合计为 $1.5B。'], items: [
+            { id: 'company_restaurants', label: '公司自营餐厅' }, { id: 'franchise_expenses', label: '特许经营费用' }, { id: 'ga', label: '管理费用' },
+          ] },
+        },
+        otherIncome: { items: [{ id: 'tax_benefit', label: '税收收益', notes: ['来源图表以绿色“Tax”显示。'] }] },
+        otherExpenses: { items: [{ id: 'other', label: '其他' }] },
+        profit: {
+          gross: { label: '毛利润', notes: ['用于 SSOT 对齐的账面值；来源图表未显示毛利润。'] },
+          operating: { label: '营业利润', notes: ['利润率 30%', '同比 -2 个百分点'] },
+          net: { label: '净利润', notes: ['利润率 39%', '同比 +20 个百分点'] },
+        },
+      } },
+    },
+    {
       key: 'yum-brands-q1-fy26',
       company: 'Yum! Brands',
       period: 'Q1 FY26',

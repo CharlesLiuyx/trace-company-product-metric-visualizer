@@ -438,11 +438,18 @@ export function assertPlannedRenderAudits(plan, audits) {
     if (check.evidenceKind === 'label-layout-audit') {
       const expectedNodes = evidenceTargetsForCheck(check);
       const measurements = audits.labelLayoutAudit?.horizontalSideLabels || [];
-      for (const node of expectedNodes) {
-        const matches = measurements.filter((item) => item.node === node);
-        if (!matches.length) failures.push(`${check.id}/${node}=missing-measurement`);
-        else if (!matches.some((item) => Number(item.verticalCenterDelta) <= 4)) {
-          failures.push(`${check.id}/${node}=center-delta`);
+      if ((check.ruleIds || []).includes('T6')) {
+        const columnAudit = classifySideLabelColumnAlignment(measurements, expectedNodes);
+        if (columnAudit.violations.length) {
+          failures.push(`${check.id}=${columnAudit.violations.map((item) => item.code).join(',')}`);
+        }
+      } else {
+        for (const node of expectedNodes) {
+          const matches = measurements.filter((item) => item.node === node);
+          if (!matches.length) failures.push(`${check.id}/${node}=missing-measurement`);
+          else if (!matches.some((item) => Number(item.verticalCenterDelta) <= 4)) {
+            failures.push(`${check.id}/${node}=center-delta`);
+          }
         }
       }
     } else if (check.evidenceKind === 'text-layout-audit') {
@@ -1260,6 +1267,8 @@ export function classifyLabelLayoutAudit(geometry) {
           text: label.text,
           semanticRole: label.semanticRole,
           side: 'left-of-node',
+          nodeEdge: node.left,
+          labelEdge: label.box.right,
           gap: round(node.left - label.box.right),
           overlap: 0,
           verticalCenterDelta: round(Math.abs(label.box.centerY - node.centerY)),
@@ -1272,6 +1281,8 @@ export function classifyLabelLayoutAudit(geometry) {
           text: label.text,
           semanticRole: label.semanticRole,
           side: 'right-of-node',
+          nodeEdge: node.right,
+          labelEdge: label.box.left,
           gap: round(label.box.left - node.right),
           overlap: 0,
           verticalCenterDelta: round(Math.abs(label.box.centerY - node.centerY)),
@@ -1365,6 +1376,52 @@ export function classifyLabelLayoutAudit(geometry) {
     horizontalViolations,
     inferredCenteredSideLabels,
     inferredCenteredSideLabelViolations,
+  };
+}
+
+export const SIDE_LABEL_COLUMN_TOLERANCE = 2;
+
+export function classifySideLabelColumnAlignment(horizontalSideLabels, expectedNodes) {
+  const nodes = [...new Set(expectedNodes || [])].sort();
+  const measurements = [];
+  const violations = [];
+  for (const node of nodes) {
+    const matches = (horizontalSideLabels || []).filter((item) => item.node === node);
+    if (matches.length !== 1) {
+      violations.push({ node, code: matches.length ? 'ambiguous-side-label' : 'missing-side-label' });
+      continue;
+    }
+    const item = matches[0];
+    measurements.push({
+      node,
+      side: item.side,
+      nodeEdge: Number(item.nodeEdge),
+      labelEdge: Number(item.labelEdge),
+      gap: Number(item.gap),
+    });
+  }
+  if (nodes.length < 2) violations.push({ node: null, code: 'column-needs-multiple-labels' });
+  const sides = new Set(measurements.map((item) => item.side));
+  if (sides.size > 1) violations.push({ node: null, code: 'mixed-sides' });
+  const spread = (key) => measurements.length
+    ? Math.max(...measurements.map((item) => item[key])) - Math.min(...measurements.map((item) => item[key]))
+    : null;
+  const nodeEdgeSpread = spread('nodeEdge');
+  const labelEdgeSpread = spread('labelEdge');
+  if (nodeEdgeSpread != null && nodeEdgeSpread > SIDE_LABEL_COLUMN_TOLERANCE) {
+    violations.push({ node: null, code: 'mixed-node-columns', spread: nodeEdgeSpread });
+  }
+  if (labelEdgeSpread != null && labelEdgeSpread > SIDE_LABEL_COLUMN_TOLERANCE) {
+    violations.push({ node: null, code: 'label-edge-spread', spread: labelEdgeSpread });
+  }
+  return {
+    ruleId: 'T6',
+    tolerance: SIDE_LABEL_COLUMN_TOLERANCE,
+    expectedNodes: nodes,
+    measurements,
+    nodeEdgeSpread,
+    labelEdgeSpread,
+    violations,
   };
 }
 

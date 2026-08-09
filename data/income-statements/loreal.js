@@ -90,6 +90,88 @@
           },
         },
       },
+    },
+    {
+      key: 'loreal-h1-fy26',
+      company: "L'Oréal",
+      period: 'H1 FY26',
+      periodNote: 'Ending Jun. 2026',
+      currency: '€',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/loreal-h1-fy26.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 23.8,
+        notes: [
+          '+6% Y/Y',
+          'Source values are rounded: division revenue sums to €23.7B while reported revenue is €23.8B.',
+        ],
+        items: [
+          { id: 'professional_products', label: 'Professional Products', value: 2.9, notes: ['+15% Y/Y'] },
+          { id: 'consumer_products', label: 'Consumer Products', value: 8.6, notes: ['+3% Y/Y'] },
+          { id: 'loreal_luxe', label: "L'Oréal Luxe", value: 8.0, notes: ['+4% Y/Y'] },
+          { id: 'active_cosmetics', label: 'Active Cosmetics', value: 4.2, notes: ['+9% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 6.0 },
+        operatingExpenses: {
+          total: 12.7,
+          items: [
+            { id: 'advertising_promotion', label: 'Advertising & Promotion', value: 7.7, notes: ['33% of revenue'] },
+            { id: 'sga', label: 'SG&A', value: 4.3, notes: ['18% of revenue'] },
+            { id: 'research_innovation', label: 'Research & Innovation', value: 0.7, notes: ['3% of revenue'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 1.3 },
+      },
+      otherIncome: {
+        total: 0.4,
+        items: [{ id: 'sanofi_dividend', label: 'Sanofi Dividend', value: 0.4 }],
+      },
+      otherExpenses: {
+        total: 0.2,
+        items: [{ id: 'other', label: 'Other', value: 0.2 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 17.8, notes: ['75% of revenue', '+4pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 5.1, notes: ['21% of revenue', '+1pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 4.0, notes: ['17% of revenue', '+1pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2026 财年上半年',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 +6%', '来源图金额经四舍五入：各事业部收入合计为 €23.7B，而披露收入为 €23.8B。'],
+            items: [
+              { id: 'professional_products', label: '专业产品事业部', notes: ['同比 +15%'] },
+              { id: 'consumer_products', label: '大众化妆品事业部', notes: ['同比 +3%'] },
+              { id: 'loreal_luxe', label: '欧莱雅高档化妆品', notes: ['同比 +4%'] },
+              { id: 'active_cosmetics', label: '皮肤科学美容事业部', notes: ['同比 +9%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '销售成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'advertising_promotion', label: '广告与推广', notes: ['占收入 33%'] },
+                { id: 'sga', label: '销售、一般及管理费用', notes: ['占收入 18%'] },
+                { id: 'research_innovation', label: '研发与创新', notes: ['占收入 3%'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: { items: [{ id: 'sanofi_dividend', label: '赛诺菲股息' }] },
+          otherExpenses: { items: [{ id: 'other', label: '其他' }] },
+          profit: {
+            gross: { label: '毛利润', notes: ['占收入 75%', '同比 +4 个百分点'] },
+            operating: { label: '营业利润', notes: ['占收入 21%', '同比 +1 个百分点'] },
+            net: { label: '净利润', notes: ['占收入 17%', '同比 +1 个百分点'] },
+          },
+        },
+      },
     }
   );
 })(window);

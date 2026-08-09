@@ -232,4 +232,119 @@
       },
     },
   });
+
+  ssot.records.push({
+    key: 'chipotle-q2-fy26',
+    company: 'Chipotle',
+    period: 'Q2 FY26',
+    periodNote: 'Quarter ended June 30, 2026',
+    currency: '$',
+    unit: 'B',
+    decimals: 3,
+    sourceImage: 'input/processed/chipotle-q2-fy26.png',
+    roundingTolerance: 0.15,
+    revenue: {
+      total: 3.348562,
+      notes: ['+9% Y/Y'],
+      items: [
+        {
+          id: 'food_beverage',
+          label: 'Food & Beverage',
+          value: 3.332792,
+          notes: ['+9% Y/Y'],
+          children: [
+            { id: 'in_restaurant', label: 'In-restaurant', value: 2.056332664, notes: ['+5% Y/Y'] },
+            { id: 'digital_sales', label: 'Digital sales', value: 1.276459336, notes: ['+18% Y/Y'] },
+          ],
+        },
+        { id: 'delivery', label: 'Delivery', value: 0.016, notes: ['+1% Y/Y'] },
+      ],
+    },
+    costs: {
+      costOfRevenue: {
+        id: 'cost_of_revenue',
+        label: 'Cost of revenue (not separately presented)',
+        value: 0,
+        notes: ['The source infographic begins at operating profit rather than showing a separate gross-profit stage.'],
+      },
+      operatingExpenses: {
+        total: 2.822967,
+        items: [
+          { id: 'food_beverage_packaging', label: 'Food, beverage & packaging', value: 0.993573 },
+          { id: 'labor', label: 'Labor', value: 0.83645 },
+          { id: 'other_opex', label: 'Other opex', value: 0.499764 },
+          { id: 'ga', label: 'G&A', value: 0.190471 },
+          { id: 'occupancy', label: 'Occupancy', value: 0.17421 },
+          { id: 'da', label: 'D&A', value: 0.098327 },
+          { id: 'pre_opening', label: 'Pre-opening', value: 0.016 },
+          { id: 'impairment', label: 'Impairment', value: 0.014 },
+        ],
+      },
+      tax: { id: 'tax', label: 'Tax', value: 0.129725 },
+    },
+    otherIncome: {
+      total: 0.008,
+      items: [{ id: 'other_income', label: 'Other', value: 0.008 }],
+    },
+    profit: {
+      gross: {
+        id: 'gross_profit',
+        label: 'Gross profit (not separately presented)',
+        value: 3.348562,
+        notes: ['Source infographic has no separate gross-profit stage.'],
+      },
+      operating: { id: 'operating_profit', label: 'Operating profit', value: 0.525595, notes: ['16% margin', '(3pp) Y/Y'] },
+      net: { id: 'net_profit', label: 'Net profit', value: 0.403547, notes: ['12% margin', '(2pp) Y/Y'] },
+    },
+    sources: [
+      {
+        name: 'Chipotle Second Quarter 2026 Results',
+        url: 'https://ir.chipotle.com/2026-07-29-CHIPOTLE-RAISES-FULL-YEAR-COMPARABLE-SALES-GUIDANCE-ON-STRONG-Q2-MOMENTUM',
+      },
+    ],
+    i18n: {
+      zh: {
+        period: '2026 财年第二季度',
+        periodNote: '截至 2026 年 6 月 30 日的季度',
+        revenue: {
+          notes: ['同比 +9%'],
+          items: [
+            {
+              id: 'food_beverage', label: '餐饮收入', notes: ['同比 +9%'],
+              children: [
+                { id: 'in_restaurant', label: '餐厅内销售', notes: ['同比 +5%'] },
+                { id: 'digital_sales', label: '数字销售', notes: ['同比 +18%'] },
+              ],
+            },
+            { id: 'delivery', label: '配送服务', notes: ['同比 +1%'] },
+          ],
+        },
+        costs: {
+          costOfRevenue: {
+            label: '收入成本（未单列）',
+            notes: ['来源信息图从营业利润口径开始，未单列毛利润阶段。'],
+          },
+          operatingExpenses: {
+            items: [
+              { id: 'food_beverage_packaging', label: '食品、饮料及包装' },
+              { id: 'labor', label: '人工' },
+              { id: 'other_opex', label: '其他运营费用' },
+              { id: 'ga', label: '一般及行政费用' },
+              { id: 'occupancy', label: '租赁及占用成本' },
+              { id: 'da', label: '折旧与摊销' },
+              { id: 'pre_opening', label: '开业前费用' },
+              { id: 'impairment', label: '减值' },
+            ],
+          },
+          tax: { label: '税费' },
+        },
+        otherIncome: { items: [{ id: 'other_income', label: '其他收入' }] },
+        profit: {
+          gross: { label: '营业利润', notes: ['来源信息图未单列毛利润阶段。'] },
+          operating: { label: '营业利润', notes: ['利润率 16%', '同比 (3 个百分点)'] },
+          net: { label: '净利润', notes: ['利润率 12%', '同比 (2 个百分点)'] },
+        },
+      },
+    },
+  });
 })(window);

@@ -501,8 +501,11 @@ export const FIDELITY_RULES = Object.freeze([
   rule('T6', 'quantified-audit', {
     stage: 'text',
     topics: ['label'],
+    features: ['aligned-side-label-column'],
+    trigger: '`aligned-side-label-column`：同一视觉列中的两个及以上同类侧置 label。',
     check: '侧置 label 对齐 reference 的实际左/右缘 x。',
-    pass: '同列同类 label 共用该视觉边缘，不默认贴 node。',
+    pass: '同列同类 label 必须位于同一 node 列和同一侧，渲染边缘的最大差值 `<=2px`；不默认贴 node。',
+    evidence: '逐 locale 的 `labelLayoutAudit.horizontalSideLabels` 边缘位置与跨组 spread。',
   }),
   rule('T7', 'conditional-gate', {
     stage: 'text',

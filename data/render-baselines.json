@@ -1443,6 +1443,12 @@
       "width": 2667,
       "height": 1500
     },
+    "chipotle-q2-fy26": {
+      "similarity": 0.964755,
+      "mae": 8.9876,
+      "width": 2667,
+      "height": 1500
+    },
     "chipotle-q4-fy25": {
       "similarity": 0.955225,
       "mae": 11.4177,
@@ -1839,6 +1845,12 @@
       "width": 2667,
       "height": 1500
     },
+    "domino-s-q2-fy26": {
+      "similarity": 0.96143,
+      "mae": 9.8354,
+      "width": 2667,
+      "height": 1500
+    },
     "domino-s-q4-fy25": {
       "similarity": 0.957759,
       "mae": 10.7716,
@@ -2121,6 +2133,12 @@
       "width": 2667,
       "height": 1500
     },
+    "ge-vernova-q2-fy26": {
+      "similarity": 0.969862,
+      "mae": 7.6851,
+      "width": 2667,
+      "height": 1500
+    },
     "ge-vernova-q4-fy25": {
       "similarity": 0.969889,
       "mae": 7.6782,
@@ -2247,6 +2265,12 @@
       "width": 2667,
       "height": 1500
     },
+    "hermes-h1-fy26": {
+      "similarity": 0.968966,
+      "mae": 7.9138,
+      "width": 2667,
+      "height": 1500
+    },
     "hershey-q1-fy26": {
       "similarity": 0.962332,
       "mae": 9.6053,
@@ -2268,6 +2292,12 @@
     "hilton-q1-fy26": {
       "similarity": 0.96466,
       "mae": 9.0116,
+      "width": 2667,
+      "height": 1500
+    },
+    "hilton-q2-fy26": {
+      "similarity": 0.966156,
+      "mae": 8.6303,
       "width": 2667,
       "height": 1500
     },
@@ -2511,6 +2541,12 @@
       "width": 2667,
       "height": 1500
     },
+    "kering-h1-fy26": {
+      "similarity": 0.964629,
+      "mae": 9.0197,
+      "width": 2667,
+      "height": 1500
+    },
     "kla-q2-fy26": {
       "similarity": 0.971369,
       "mae": 7.3008,
@@ -2661,6 +2697,12 @@
       "width": 2667,
       "height": 1500
     },
+    "loreal-h1-fy26": {
+      "similarity": 0.969818,
+      "mae": 7.6963,
+      "width": 2667,
+      "height": 1500
+    },
     "lowes-q1-fy26": {
       "similarity": 0.959676,
       "mae": 10.2825,
@@ -2688,6 +2730,12 @@
     "lvmh-fy25": {
       "similarity": 0.965443,
       "mae": 8.8119,
+      "width": 2667,
+      "height": 1500
+    },
+    "lvmh-h1-fy26": {
+      "similarity": 0.973802,
+      "mae": 6.6806,
       "width": 2667,
       "height": 1500
     },
@@ -3633,6 +3681,12 @@
       "width": 2667,
       "height": 1500
     },
+    "p-g-q4-fy26": {
+      "similarity": 0.973272,
+      "mae": 6.8156,
+      "width": 2667,
+      "height": 1500
+    },
     "palantir-q1-fy23": {
       "similarity": 0.967129,
       "mae": 8.382,
@@ -4335,6 +4389,12 @@
       "width": 2667,
       "height": 1500
     },
+    "starbucks-q3-fy26": {
+      "similarity": 0.957727,
+      "mae": 10.7797,
+      "width": 2667,
+      "height": 1500
+    },
     "starbucks-q4-fy25": {
       "similarity": 0.955965,
       "mae": 11.229,
@@ -4455,15 +4515,87 @@
       "width": 2667,
       "height": 1500
     },
+    "tencent-q1-fy23": {
+      "similarity": 0.968759,
+      "mae": 7.9665,
+      "width": 2667,
+      "height": 1500
+    },
+    "tencent-q1-fy24": {
+      "similarity": 0.973568,
+      "mae": 6.7402,
+      "width": 2667,
+      "height": 1500
+    },
+    "tencent-q1-fy25": {
+      "similarity": 0.967178,
+      "mae": 8.3697,
+      "width": 2667,
+      "height": 1500
+    },
     "tencent-q1-fy26": {
       "similarity": 0.971455,
       "mae": 7.2791,
       "width": 4686,
       "height": 2634
     },
+    "tencent-q2-fy23": {
+      "similarity": 0.972752,
+      "mae": 6.9483,
+      "width": 2667,
+      "height": 1500
+    },
+    "tencent-q2-fy24": {
+      "similarity": 0.971314,
+      "mae": 7.315,
+      "width": 2667,
+      "height": 1500
+    },
+    "tencent-q2-fy25": {
+      "similarity": 0.97162,
+      "mae": 7.2369,
+      "width": 2667,
+      "height": 1500
+    },
+    "tencent-q3-fy22": {
+      "similarity": 0.966942,
+      "mae": 8.4299,
+      "width": 2667,
+      "height": 1500
+    },
+    "tencent-q3-fy23": {
+      "similarity": 0.970453,
+      "mae": 7.5344,
+      "width": 2667,
+      "height": 1500
+    },
+    "tencent-q3-fy24": {
+      "similarity": 0.970322,
+      "mae": 7.5679,
+      "width": 2667,
+      "height": 1500
+    },
     "tencent-q3-fy25": {
       "similarity": 0.970529,
       "mae": 7.5152,
+      "width": 2667,
+      "height": 1500
+    },
+    "tencent-q4-fy22": {
+      "similarity": 0.969084,
+      "mae": 7.8836,
+      "width": 2667,
+      "height": 1500
+    },
+    "tencent-q4-fy23": {
+      "similarity": 0.968494,
+      "mae": 8.034,
+      "width": 2667,
+      "height": 1500
+    },
+    "tencent-q4-fy24": {
+      "similarity": 0.970172,
+      "mae": 7.6062,
       "width": 2667,
       "height": 1500
     },
@@ -4614,6 +4746,12 @@
     "tilray-q3-fy26": {
       "similarity": 0.958894,
       "mae": 10.482,
+      "width": 2667,
+      "height": 1500
+    },
+    "tilray-q4-fy26": {
+      "similarity": 0.950833,
+      "mae": 12.5376,
       "width": 2667,
       "height": 1500
     },
@@ -4995,6 +5133,12 @@
       "width": 2667,
       "height": 1500
     },
+    "xiaomi-q2-fy25": {
+      "similarity": 0.973718,
+      "mae": 6.702,
+      "width": 2667,
+      "height": 1500
+    },
     "xiaomi-q3-fy25": {
       "similarity": 0.973749,
       "mae": 6.6941,
@@ -5010,6 +5154,12 @@
     "yum-brands-q1-fy26": {
       "similarity": 0.952798,
       "mae": 12.0364,
+      "width": 2667,
+      "height": 1500
+    },
+    "yum-brands-q2-fy26": {
+      "similarity": 0.956861,
+      "mae": 11.0004,
       "width": 2667,
       "height": 1500
     },
