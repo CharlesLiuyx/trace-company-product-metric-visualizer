@@ -1,0 +1,320 @@
+{
+  "source": "input/processed/adidas-q3-fy25.png",
+  "spec": "input/icon-crop-specs/adidas-q3-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-08-09T08:11:28.244550+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/adidas",
+  "crops": [
+    {
+      "key": "adidas-q3-fy25-business-footwear",
+      "output": "data/assets/icon-references/adidas/crops/q3-fy25-business-footwear.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 5741,
+        "losslessBytes": 34341,
+        "savingsVsLossless": 0.8328,
+        "metrics": {
+          "meanAbsoluteError": 1.1409,
+          "rootMeanSquareError": 2.7955,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.4225
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 22233,
+        "transparentPixelRatio": 0.5851
+      },
+      "searchBox": {
+        "x": 121,
+        "y": 484,
+        "width": 185,
+        "height": 174
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 137,
+        "y0": 484,
+        "x1": 295,
+        "y1": 658
+      },
+      "cropBox": {
+        "x0": 114,
+        "y0": 476,
+        "x1": 314,
+        "y1": 666
+      },
+      "validation": {
+        "width": 200,
+        "height": 190,
+        "foregroundPixels": 15086,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 23,
+          "right": 19,
+          "top": 8,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.01,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "White sneaker product photo for Footwear; excludes the value, label, and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/adidas/q3-fy25-business-footwear.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 5741,
+        "losslessBytes": 34341,
+        "savingsVsLossless": 0.8328,
+        "metrics": {
+          "meanAbsoluteError": 1.1409,
+          "rootMeanSquareError": 2.7955,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.4225
+        }
+      },
+      "validationSheet": "data/assets/icon-references/adidas/validation-sheets/adidas-q3-fy25-business-footwear.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 336320,
+        "losslessBytes": 336320,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "adidas-q3-fy25-business-apparel",
+      "output": "data/assets/icon-references/adidas/crops/q3-fy25-business-apparel.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 6479,
+        "losslessBytes": 34466,
+        "savingsVsLossless": 0.812,
+        "metrics": {
+          "meanAbsoluteError": 1.1328,
+          "rootMeanSquareError": 2.5204,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 47,
+          "changedPixelRatio": 0.5648
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 15527,
+        "transparentPixelRatio": 0.4367
+      },
+      "searchBox": {
+        "x": 118,
+        "y": 808,
+        "width": 190,
+        "height": 164
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 134,
+        "y0": 814,
+        "x1": 308,
+        "y1": 967
+      },
+      "cropBox": {
+        "x0": 112,
+        "y0": 802,
+        "x1": 314,
+        "y1": 978
+      },
+      "validation": {
+        "width": 202,
+        "height": 176,
+        "foregroundPixels": 19819,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 22,
+          "right": 6,
+          "top": 12,
+          "bottom": 11
+        },
+        "centerOffset": {
+          "x": 0.0396,
+          "y": 0.0028
+        },
+        "passes": true
+      },
+      "note": "Red track-jacket product photo for Apparel; excludes the value, label, and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/adidas/q3-fy25-business-apparel.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 6479,
+        "losslessBytes": 34466,
+        "savingsVsLossless": 0.812,
+        "metrics": {
+          "meanAbsoluteError": 1.1328,
+          "rootMeanSquareError": 2.5204,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 47,
+          "changedPixelRatio": 0.5648
+        }
+      },
+      "validationSheet": "data/assets/icon-references/adidas/validation-sheets/adidas-q3-fy25-business-apparel.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 336247,
+        "losslessBytes": 336247,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "adidas-q3-fy25-business-accessories-gear",
+      "output": "data/assets/icon-references/adidas/crops/q3-fy25-business-accessories-gear.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 4893,
+        "losslessBytes": 28924,
+        "savingsVsLossless": 0.8308,
+        "metrics": {
+          "meanAbsoluteError": 1.187,
+          "rootMeanSquareError": 2.3522,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 18,
+          "changedPixelRatio": 0.5252
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 14006,
+        "transparentPixelRatio": 0.4609
+      },
+      "searchBox": {
+        "x": 122,
+        "y": 1058,
+        "width": 202,
+        "height": 126
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 136,
+        "y0": 1058,
+        "x1": 313,
+        "y1": 1166
+      },
+      "cropBox": {
+        "x0": 116,
+        "y0": 1050,
+        "x1": 330,
+        "y1": 1192
+      },
+      "validation": {
+        "width": 214,
+        "height": 142,
+        "foregroundPixels": 15783,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 20,
+          "right": 17,
+          "top": 8,
+          "bottom": 26
+        },
+        "centerOffset": {
+          "x": 0.007,
+          "y": -0.0634
+        },
+        "passes": true
+      },
+      "note": "Black duffle-bag product photo for Accessories & Gear; excludes value, label, and source bar.",
+      "runtimeOutput": "data/assets/raster-annotations/adidas/q3-fy25-business-accessories-gear.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 4893,
+        "losslessBytes": 28924,
+        "savingsVsLossless": 0.8308,
+        "metrics": {
+          "meanAbsoluteError": 1.187,
+          "rootMeanSquareError": 2.3522,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 18,
+          "changedPixelRatio": 0.5252
+        }
+      },
+      "validationSheet": "data/assets/icon-references/adidas/validation-sheets/adidas-q3-fy25-business-accessories-gear.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 306458,
+        "losslessBytes": 306458,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

@@ -19552,6 +19552,692 @@
             }
           }
         }
+      },
+      {
+        "key": "costco-q1-fy26",
+        "src": "data/datasets/costco-q1-fy26.js",
+        "data": {
+          "name": "Costco · Q1 FY26",
+          "company": "Costco",
+          "meta": {
+            "title": "Costco Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Nov. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Costco · 2026 财年第一季度",
+              "meta": {
+                "title": "Costco 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 11 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "coca-cola-q2-fy23",
+        "src": "data/datasets/coca-cola-q2-fy23.js",
+        "data": {
+          "name": "Coca-Cola · Q2 FY23",
+          "company": "Coca-Cola",
+          "meta": {
+            "title": "Coca-Cola Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Jun. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Coca-Cola · 2023 财年第二季度",
+              "meta": {
+                "title": "可口可乐 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "coca-cola-q4-fy22",
+        "src": "data/datasets/coca-cola-q4-fy22.js",
+        "data": {
+          "name": "Coca-Cola · Q4 FY22",
+          "company": "Coca-Cola",
+          "meta": {
+            "title": "Coca-Cola Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Ending Dec. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Coca-Cola · 2022 财年第四季度",
+              "meta": {
+                "title": "可口可乐 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2022 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "adidas-q1-fy25",
+        "src": "data/datasets/adidas-q1-fy25.js",
+        "data": {
+          "name": "Adidas · Q1 FY25",
+          "company": "Adidas",
+          "meta": {
+            "title": "Adidas Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Mar. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Adidas · 2025 财年第一季度",
+              "meta": {
+                "title": "Adidas 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "coca-cola-q2-fy24",
+        "src": "data/datasets/coca-cola-q2-fy24.js",
+        "data": {
+          "name": "Coca-Cola · Q2 FY24",
+          "company": "Coca-Cola",
+          "meta": {
+            "title": "Coca-Cola Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Coca-Cola · 2024 财年第二季度",
+              "meta": {
+                "title": "可口可乐 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "coca-cola-q3-fy24",
+        "src": "data/datasets/coca-cola-q3-fy24.js",
+        "data": {
+          "name": "Coca-Cola · Q3 FY24",
+          "company": "Coca-Cola",
+          "meta": {
+            "title": "Coca-Cola Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Coca-Cola · 2024 财年第三季度",
+              "meta": {
+                "title": "可口可乐 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "coca-cola-q3-fy25",
+        "src": "data/datasets/coca-cola-q3-fy25.js",
+        "data": {
+          "name": "Coca-Cola · Q3 FY25",
+          "company": "Coca-Cola",
+          "meta": {
+            "title": "Coca-Cola Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Coca-Cola · 2025 财年第三季度",
+              "meta": {
+                "title": "可口可乐 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "costco-q1-fy23",
+        "src": "data/datasets/costco-q1-fy23.js",
+        "data": {
+          "name": "Costco · Q1 FY23",
+          "company": "Costco",
+          "meta": {
+            "title": "Costco Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending November 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Costco · 2023 财年第一季度",
+              "meta": {
+                "title": "Costco 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2022 年 11 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "costco-q1-fy25",
+        "src": "data/datasets/costco-q1-fy25.js",
+        "data": {
+          "name": "Costco · Q1 FY25",
+          "company": "Costco",
+          "meta": {
+            "title": "Costco Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Nov. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Costco · 2025 财年第一季度",
+              "meta": {
+                "title": "Costco 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2024 年 11 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "costco-q2-fy24",
+        "src": "data/datasets/costco-q2-fy24.js",
+        "data": {
+          "name": "Costco · Q2 FY24",
+          "company": "Costco",
+          "meta": {
+            "title": "Costco Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Feb. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Costco · 2024 财年第二季度",
+              "meta": {
+                "title": "Costco 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 2 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "costco-q2-fy25",
+        "src": "data/datasets/costco-q2-fy25.js",
+        "data": {
+          "name": "Costco · Q2 FY25",
+          "company": "Costco",
+          "meta": {
+            "title": "Costco Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Feb. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Costco · 2025 财年第二季度",
+              "meta": {
+                "title": "Costco 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 2 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "costco-q3-fy23",
+        "src": "data/datasets/costco-q3-fy23.js",
+        "data": {
+          "name": "Costco · Q3 FY23",
+          "company": "Costco",
+          "meta": {
+            "title": "Costco Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Apr. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Costco · 2023 财年第三季度",
+              "meta": {
+                "title": "Costco 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "costco-q3-fy24",
+        "src": "data/datasets/costco-q3-fy24.js",
+        "data": {
+          "name": "Costco · Q3 FY24",
+          "company": "Costco",
+          "meta": {
+            "title": "Costco Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Apr. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Costco · 2024 财年第三季度",
+              "meta": {
+                "title": "Costco 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "adidas-fy23",
+        "src": "data/datasets/adidas-fy23.js",
+        "data": {
+          "name": "Adidas · FY23",
+          "company": "Adidas",
+          "meta": {
+            "title": "Adidas FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Adidas · 2023 财年",
+              "meta": {
+                "title": "Adidas 2023 财年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "adidas-q3-fy25",
+        "src": "data/datasets/adidas-q3-fy25.js",
+        "data": {
+          "name": "Adidas · Q3 FY25",
+          "company": "Adidas",
+          "meta": {
+            "title": "Adidas Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Adidas · 2025 财年第三季度",
+              "meta": {
+                "title": "Adidas 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "coca-cola-q1-fy25",
+        "src": "data/datasets/coca-cola-q1-fy25.js",
+        "data": {
+          "name": "Coca-Cola · Q1 FY25",
+          "company": "Coca-Cola",
+          "meta": {
+            "title": "Coca-Cola Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Mar. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Coca-Cola · 2025 财年第一季度",
+              "meta": {
+                "title": "可口可乐 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "coca-cola-q2-fy25",
+        "src": "data/datasets/coca-cola-q2-fy25.js",
+        "data": {
+          "name": "Coca-Cola · Q2 FY25",
+          "company": "Coca-Cola",
+          "meta": {
+            "title": "Coca-Cola Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Jun. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Coca-Cola · 2025 财年第二季度",
+              "meta": {
+                "title": "可口可乐 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "coca-cola-q4-fy23",
+        "src": "data/datasets/coca-cola-q4-fy23.js",
+        "data": {
+          "name": "Coca-Cola · Q4 FY23",
+          "company": "Coca-Cola",
+          "meta": {
+            "title": "Coca-Cola Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Coca-Cola · 2023 财年第四季度",
+              "meta": {
+                "title": "可口可乐 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "costco-q2-fy23",
+        "src": "data/datasets/costco-q2-fy23.js",
+        "data": {
+          "name": "Costco · Q2 FY23",
+          "company": "Costco",
+          "meta": {
+            "title": "Costco Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Jan. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Costco · 2023 财年第二季度",
+              "meta": {
+                "title": "Costco 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "costco-q3-fy25",
+        "src": "data/datasets/costco-q3-fy25.js",
+        "data": {
+          "name": "Costco · Q3 FY25",
+          "company": "Costco",
+          "meta": {
+            "title": "Costco Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending May 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Costco · 2025 财年第三季度",
+              "meta": {
+                "title": "Costco 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 5 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "costco-q4-fy25",
+        "src": "data/datasets/costco-q4-fy25.js",
+        "data": {
+          "name": "Costco · Q4 FY25",
+          "company": "Costco",
+          "meta": {
+            "title": "Costco Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Aug. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Costco · 2025 财年第四季度",
+              "meta": {
+                "title": "Costco 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 8 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "costco-q1-fy24",
+        "src": "data/datasets/costco-q1-fy24.js",
+        "data": {
+          "name": "Costco · Q1 FY24",
+          "company": "Costco",
+          "meta": {
+            "title": "Costco Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Nov. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Costco · 2024 财年第一季度",
+              "meta": {
+                "title": "Costco 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2023 年 11 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "costco-q4-fy23",
+        "src": "data/datasets/costco-q4-fy23.js",
+        "data": {
+          "name": "Costco · Q4 FY23",
+          "company": "Costco",
+          "meta": {
+            "title": "Costco Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending August 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Costco · 2023 财年第四季度",
+              "meta": {
+                "title": "Costco 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 8 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "coca-cola-q3-fy23",
+        "src": "data/datasets/coca-cola-q3-fy23.js",
+        "data": {
+          "name": "Coca-Cola · Q3 FY23",
+          "company": "Coca-Cola",
+          "meta": {
+            "title": "Coca-Cola Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Sep. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Coca-Cola · 2023 财年第三季度",
+              "meta": {
+                "title": "可口可乐 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "costco-q4-fy24",
+        "src": "data/datasets/costco-q4-fy24.js",
+        "data": {
+          "name": "Costco · Q4 FY24",
+          "company": "Costco",
+          "meta": {
+            "title": "Costco Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Aug. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Costco · 2024 财年第四季度",
+              "meta": {
+                "title": "Costco 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 8 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "coca-cola-q4-fy24",
+        "src": "data/datasets/coca-cola-q4-fy24.js",
+        "data": {
+          "name": "Coca-Cola · Q4 FY24",
+          "company": "Coca-Cola",
+          "meta": {
+            "title": "Coca-Cola Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Coca-Cola · 2024 财年第四季度",
+              "meta": {
+                "title": "可口可乐 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "coca-cola-q1-fy23",
+        "src": "data/datasets/coca-cola-q1-fy23.js",
+        "data": {
+          "name": "Coca-Cola · Q1 FY23",
+          "company": "Coca-Cola",
+          "meta": {
+            "title": "Coca-Cola Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending Mar. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Coca-Cola · 2023 财年第一季度",
+              "meta": {
+                "title": "可口可乐 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2023 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "coca-cola-q1-fy24",
+        "src": "data/datasets/coca-cola-q1-fy24.js",
+        "data": {
+          "name": "Coca-Cola · Q1 FY24",
+          "company": "Coca-Cola",
+          "meta": {
+            "title": "Coca-Cola Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Coca-Cola · 2024 财年第一季度",
+              "meta": {
+                "title": "可口可乐 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "adidas-q2-fy25",
+        "src": "data/datasets/adidas-q2-fy25.js",
+        "data": {
+          "name": "Adidas · Q2 FY25",
+          "company": "Adidas",
+          "meta": {
+            "title": "Adidas Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Jun. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Adidas · 2025 财年第二季度",
+              "meta": {
+                "title": "Adidas 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "adidas-q1-fy24",
+        "src": "data/datasets/adidas-q1-fy24.js",
+        "data": {
+          "name": "Adidas · Q1 FY24",
+          "company": "Adidas",
+          "meta": {
+            "title": "Adidas Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Adidas · 2024 财年第一季度",
+              "meta": {
+                "title": "Adidas 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

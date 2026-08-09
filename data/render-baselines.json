@@ -57,6 +57,36 @@
       "width": 2667,
       "height": 1500
     },
+    "adidas-fy23": {
+      "similarity": 0.95974,
+      "mae": 10.2663,
+      "width": 2667,
+      "height": 1500
+    },
+    "adidas-q1-fy24": {
+      "similarity": 0.958938,
+      "mae": 10.4707,
+      "width": 2667,
+      "height": 1500
+    },
+    "adidas-q1-fy25": {
+      "similarity": 0.962268,
+      "mae": 9.6216,
+      "width": 2667,
+      "height": 1500
+    },
+    "adidas-q2-fy25": {
+      "similarity": 0.959443,
+      "mae": 10.342,
+      "width": 2667,
+      "height": 1500
+    },
+    "adidas-q3-fy25": {
+      "similarity": 0.962255,
+      "mae": 9.625,
+      "width": 2667,
+      "height": 1500
+    },
     "adidas-q4-fy25": {
       "similarity": 0.96185,
       "mae": 9.7283,
@@ -1521,15 +1551,87 @@
       "width": 2667,
       "height": 1500
     },
+    "coca-cola-q1-fy23": {
+      "similarity": 0.966427,
+      "mae": 8.5612,
+      "width": 2667,
+      "height": 1500
+    },
+    "coca-cola-q1-fy24": {
+      "similarity": 0.965348,
+      "mae": 8.8361,
+      "width": 2667,
+      "height": 1500
+    },
+    "coca-cola-q1-fy25": {
+      "similarity": 0.968461,
+      "mae": 8.0424,
+      "width": 2667,
+      "height": 1500
+    },
     "coca-cola-q1-fy26": {
       "similarity": 0.973639,
       "mae": 6.7222,
       "width": 2667,
       "height": 1500
     },
+    "coca-cola-q2-fy23": {
+      "similarity": 0.955351,
+      "mae": 11.3854,
+      "width": 2667,
+      "height": 1500
+    },
+    "coca-cola-q2-fy24": {
+      "similarity": 0.956044,
+      "mae": 11.2089,
+      "width": 2667,
+      "height": 1500
+    },
+    "coca-cola-q2-fy25": {
+      "similarity": 0.9681,
+      "mae": 8.1346,
+      "width": 2667,
+      "height": 1500
+    },
     "coca-cola-q2-fy26": {
       "similarity": 0.956678,
       "mae": 11.0472,
+      "width": 2667,
+      "height": 1500
+    },
+    "coca-cola-q3-fy23": {
+      "similarity": 0.954497,
+      "mae": 11.6033,
+      "width": 2667,
+      "height": 1500
+    },
+    "coca-cola-q3-fy24": {
+      "similarity": 0.96727,
+      "mae": 8.3462,
+      "width": 2667,
+      "height": 1500
+    },
+    "coca-cola-q3-fy25": {
+      "similarity": 0.968903,
+      "mae": 7.9297,
+      "width": 2667,
+      "height": 1500
+    },
+    "coca-cola-q4-fy22": {
+      "similarity": 0.960118,
+      "mae": 10.1698,
+      "width": 2667,
+      "height": 1500
+    },
+    "coca-cola-q4-fy23": {
+      "similarity": 0.955276,
+      "mae": 11.4047,
+      "width": 2667,
+      "height": 1500
+    },
+    "coca-cola-q4-fy24": {
+      "similarity": 0.967854,
+      "mae": 8.1973,
       "width": 2667,
       "height": 1500
     },
@@ -1611,15 +1713,93 @@
       "width": 2667,
       "height": 1500
     },
+    "costco-q1-fy23": {
+      "similarity": 0.966544,
+      "mae": 8.5313,
+      "width": 2667,
+      "height": 1500
+    },
+    "costco-q1-fy24": {
+      "similarity": 0.966477,
+      "mae": 8.5483,
+      "width": 2667,
+      "height": 1500
+    },
+    "costco-q1-fy25": {
+      "similarity": 0.959334,
+      "mae": 10.3698,
+      "width": 2667,
+      "height": 1500
+    },
+    "costco-q1-fy26": {
+      "similarity": 0.961117,
+      "mae": 9.9151,
+      "width": 2667,
+      "height": 1500
+    },
+    "costco-q2-fy23": {
+      "similarity": 0.96788,
+      "mae": 8.1907,
+      "width": 2667,
+      "height": 1500
+    },
+    "costco-q2-fy24": {
+      "similarity": 0.960633,
+      "mae": 10.0386,
+      "width": 2667,
+      "height": 1500
+    },
+    "costco-q2-fy25": {
+      "similarity": 0.964897,
+      "mae": 8.9512,
+      "width": 2667,
+      "height": 1500
+    },
     "costco-q2-fy26": {
       "similarity": 0.950321,
       "mae": 12.668,
       "width": 2667,
       "height": 1500
     },
+    "costco-q3-fy23": {
+      "similarity": 0.964277,
+      "mae": 9.1093,
+      "width": 2667,
+      "height": 1500
+    },
+    "costco-q3-fy24": {
+      "similarity": 0.961682,
+      "mae": 9.771,
+      "width": 2667,
+      "height": 1500
+    },
+    "costco-q3-fy25": {
+      "similarity": 0.967081,
+      "mae": 8.3945,
+      "width": 2667,
+      "height": 1500
+    },
     "costco-q3-fy26": {
       "similarity": 0.961784,
       "mae": 9.7451,
+      "width": 2667,
+      "height": 1500
+    },
+    "costco-q4-fy23": {
+      "similarity": 0.960836,
+      "mae": 9.9867,
+      "width": 2667,
+      "height": 1500
+    },
+    "costco-q4-fy24": {
+      "similarity": 0.96287,
+      "mae": 9.4682,
+      "width": 2667,
+      "height": 1500
+    },
+    "costco-q4-fy25": {
+      "similarity": 0.962492,
+      "mae": 9.5645,
       "width": 2667,
       "height": 1500
     },
