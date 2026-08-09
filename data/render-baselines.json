@@ -4299,15 +4299,81 @@
       "width": 2667,
       "height": 1500
     },
+    "samsung-q1-fy23": {
+      "similarity": 0.966474,
+      "mae": 8.5492,
+      "width": 2667,
+      "height": 1500
+    },
+    "samsung-q1-fy24": {
+      "similarity": 0.964408,
+      "mae": 9.0761,
+      "width": 2667,
+      "height": 1500
+    },
+    "samsung-q1-fy25": {
+      "similarity": 0.959293,
+      "mae": 10.3802,
+      "width": 2667,
+      "height": 1500
+    },
     "samsung-q1-fy26": {
       "similarity": 0.9562,
       "mae": 11.1689,
       "width": 2667,
       "height": 1500
     },
+    "samsung-q2-fy23": {
+      "similarity": 0.955052,
+      "mae": 11.4619,
+      "width": 2667,
+      "height": 1500
+    },
+    "samsung-q2-fy24": {
+      "similarity": 0.95991,
+      "mae": 10.2229,
+      "width": 2667,
+      "height": 1500
+    },
+    "samsung-q2-fy25": {
+      "similarity": 0.961449,
+      "mae": 9.8305,
+      "width": 2667,
+      "height": 1500
+    },
     "samsung-q2-fy26": {
       "similarity": 0.958175,
       "mae": 10.6654,
+      "width": 2667,
+      "height": 1500
+    },
+    "samsung-q3-fy23": {
+      "similarity": 0.964024,
+      "mae": 9.1739,
+      "width": 2667,
+      "height": 1500
+    },
+    "samsung-q3-fy24": {
+      "similarity": 0.95688,
+      "mae": 10.9957,
+      "width": 2667,
+      "height": 1500
+    },
+    "samsung-q3-fy25": {
+      "similarity": 0.959417,
+      "mae": 10.3488,
+      "width": 2667,
+      "height": 1500
+    },
+    "samsung-q4-fy23": {
+      "similarity": 0.963278,
+      "mae": 9.3641,
+      "width": 2667,
+      "height": 1500
+    },
+    "samsung-q4-fy24": {
+      "similarity": 0.96143,
+      "mae": 9.8353,
       "width": 2667,
       "height": 1500
     },
@@ -4497,9 +4563,45 @@
       "width": 2667,
       "height": 1500
     },
+    "sony-fy23": {
+      "similarity": 0.967943,
+      "mae": 8.1747,
+      "width": 2667,
+      "height": 1500
+    },
     "sony-fy25": {
       "similarity": 0.965116,
       "mae": 8.8954,
+      "width": 2667,
+      "height": 1500
+    },
+    "sony-q1-fy23": {
+      "similarity": 0.963169,
+      "mae": 9.3919,
+      "width": 2667,
+      "height": 1500
+    },
+    "sony-q1-fy24": {
+      "similarity": 0.968399,
+      "mae": 8.0582,
+      "width": 2667,
+      "height": 1500
+    },
+    "sony-q1-fy25": {
+      "similarity": 0.971366,
+      "mae": 7.3018,
+      "width": 2667,
+      "height": 1500
+    },
+    "sony-q2-fy23": {
+      "similarity": 0.969777,
+      "mae": 7.7068,
+      "width": 2667,
+      "height": 1500
+    },
+    "sony-q2-fy24": {
+      "similarity": 0.970878,
+      "mae": 7.4261,
       "width": 2667,
       "height": 1500
     },
@@ -4509,15 +4611,39 @@
       "width": 2667,
       "height": 1500
     },
+    "sony-q3-fy22": {
+      "similarity": 0.968156,
+      "mae": 8.1201,
+      "width": 2667,
+      "height": 1500
+    },
     "sony-q3-fy23": {
       "similarity": 0.955671,
       "mae": 11.304,
       "width": 2667,
       "height": 1500
     },
+    "sony-q3-fy24": {
+      "similarity": 0.969811,
+      "mae": 7.6983,
+      "width": 2667,
+      "height": 1500
+    },
     "sony-q3-fy25": {
       "similarity": 0.977953,
       "mae": 5.622,
+      "width": 2667,
+      "height": 1500
+    },
+    "sony-q4-fy22": {
+      "similarity": 0.965688,
+      "mae": 8.7497,
+      "width": 2667,
+      "height": 1500
+    },
+    "sony-q4-fy24": {
+      "similarity": 0.972031,
+      "mae": 7.132,
       "width": 2667,
       "height": 1500
     },

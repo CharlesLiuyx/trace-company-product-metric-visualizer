@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-08-09T10:35:28.000Z",
+  "generatedAt": "2026-08-09T12:57:23.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -5413,10 +5413,136 @@
       "updatedAt": "2026-08-09T09:47:42.000Z",
       "timeSource": "git"
     },
+    "samsung-q1-fy25": {
+      "path": "data/datasets/samsung-q1-fy25.js",
+      "updatedAtMs": 1786280243000,
+      "updatedAt": "2026-08-09T12:57:23.000Z",
+      "timeSource": "git"
+    },
+    "samsung-q2-fy24": {
+      "path": "data/datasets/samsung-q2-fy24.js",
+      "updatedAtMs": 1786280243000,
+      "updatedAt": "2026-08-09T12:57:23.000Z",
+      "timeSource": "git"
+    },
+    "sony-q1-fy25": {
+      "path": "data/datasets/sony-q1-fy25.js",
+      "updatedAtMs": 1786280243000,
+      "updatedAt": "2026-08-09T12:57:23.000Z",
+      "timeSource": "git"
+    },
     "sony-q3-fy23": {
       "path": "data/datasets/sony-q3-fy23.js",
       "updatedAtMs": 1786271728000,
       "updatedAt": "2026-08-09T10:35:28.000Z",
+      "timeSource": "git"
+    },
+    "samsung-q2-fy23": {
+      "path": "data/datasets/samsung-q2-fy23.js",
+      "updatedAtMs": 1786280243000,
+      "updatedAt": "2026-08-09T12:57:23.000Z",
+      "timeSource": "git"
+    },
+    "samsung-q2-fy25": {
+      "path": "data/datasets/samsung-q2-fy25.js",
+      "updatedAtMs": 1786280243000,
+      "updatedAt": "2026-08-09T12:57:23.000Z",
+      "timeSource": "git"
+    },
+    "samsung-q3-fy25": {
+      "path": "data/datasets/samsung-q3-fy25.js",
+      "updatedAtMs": 1786280243000,
+      "updatedAt": "2026-08-09T12:57:23.000Z",
+      "timeSource": "git"
+    },
+    "samsung-q4-fy23": {
+      "path": "data/datasets/samsung-q4-fy23.js",
+      "updatedAtMs": 1786280243000,
+      "updatedAt": "2026-08-09T12:57:23.000Z",
+      "timeSource": "git"
+    },
+    "sony-q4-fy22": {
+      "path": "data/datasets/sony-q4-fy22.js",
+      "updatedAtMs": 1786280243000,
+      "updatedAt": "2026-08-09T12:57:23.000Z",
+      "timeSource": "git"
+    },
+    "sony-q4-fy24": {
+      "path": "data/datasets/sony-q4-fy24.js",
+      "updatedAtMs": 1786280243000,
+      "updatedAt": "2026-08-09T12:57:23.000Z",
+      "timeSource": "git"
+    },
+    "sony-q1-fy23": {
+      "path": "data/datasets/sony-q1-fy23.js",
+      "updatedAtMs": 1786280243000,
+      "updatedAt": "2026-08-09T12:57:23.000Z",
+      "timeSource": "git"
+    },
+    "samsung-q1-fy23": {
+      "path": "data/datasets/samsung-q1-fy23.js",
+      "updatedAtMs": 1786280243000,
+      "updatedAt": "2026-08-09T12:57:23.000Z",
+      "timeSource": "git"
+    },
+    "samsung-q1-fy24": {
+      "path": "data/datasets/samsung-q1-fy24.js",
+      "updatedAtMs": 1786280243000,
+      "updatedAt": "2026-08-09T12:57:23.000Z",
+      "timeSource": "git"
+    },
+    "samsung-q3-fy23": {
+      "path": "data/datasets/samsung-q3-fy23.js",
+      "updatedAtMs": 1786280243000,
+      "updatedAt": "2026-08-09T12:57:23.000Z",
+      "timeSource": "git"
+    },
+    "sony-q1-fy24": {
+      "path": "data/datasets/sony-q1-fy24.js",
+      "updatedAtMs": 1786280243000,
+      "updatedAt": "2026-08-09T12:57:23.000Z",
+      "timeSource": "git"
+    },
+    "sony-q2-fy23": {
+      "path": "data/datasets/sony-q2-fy23.js",
+      "updatedAtMs": 1786280243000,
+      "updatedAt": "2026-08-09T12:57:23.000Z",
+      "timeSource": "git"
+    },
+    "sony-q3-fy22": {
+      "path": "data/datasets/sony-q3-fy22.js",
+      "updatedAtMs": 1786280243000,
+      "updatedAt": "2026-08-09T12:57:23.000Z",
+      "timeSource": "git"
+    },
+    "sony-fy23": {
+      "path": "data/datasets/sony-fy23.js",
+      "updatedAtMs": 1786280243000,
+      "updatedAt": "2026-08-09T12:57:23.000Z",
+      "timeSource": "git"
+    },
+    "samsung-q4-fy24": {
+      "path": "data/datasets/samsung-q4-fy24.js",
+      "updatedAtMs": 1786280243000,
+      "updatedAt": "2026-08-09T12:57:23.000Z",
+      "timeSource": "git"
+    },
+    "sony-q3-fy24": {
+      "path": "data/datasets/sony-q3-fy24.js",
+      "updatedAtMs": 1786280243000,
+      "updatedAt": "2026-08-09T12:57:23.000Z",
+      "timeSource": "git"
+    },
+    "samsung-q3-fy24": {
+      "path": "data/datasets/samsung-q3-fy24.js",
+      "updatedAtMs": 1786280243000,
+      "updatedAt": "2026-08-09T12:57:23.000Z",
+      "timeSource": "git"
+    },
+    "sony-q2-fy24": {
+      "path": "data/datasets/sony-q2-fy24.js",
+      "updatedAtMs": 1786280243000,
+      "updatedAt": "2026-08-09T12:57:23.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {
