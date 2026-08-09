@@ -401,6 +401,13 @@ to exactly the same effective value as `amount.value` (here `$40M = $0.04B`).
 non-zero value to zero. If no authoritative higher-precision value can be
 recovered, stop the Build; do not write `0` as a guess.
 
+If a zero-looking primary literal conflicts with the authoritative value even
+after applying its declared rounding resolution, it is not precision recovery.
+It may proceed only as a user-approved `numeric-typo`
+`authoritativeCorrection`, preserving the original zero-looking literal and
+recording an official literal plus a corrected display literal in the authored
+unit. A zero-looking literal cannot use the `unit-typo` branch.
+
 For a confirmed non-zero unit typo, preserve the original Source literal and
 record an explicit, user-approved correction:
 

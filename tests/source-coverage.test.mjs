@@ -582,6 +582,51 @@ test('a rounded $0.0B literal requires authoritative precision recovery instead 
   );
 });
 
+test('a user-approved authoritative correction may repair a zero-looking Source numeric typo', () => {
+  const coverage = financialCoverage({
+    amount: {
+      literal: '$0.0B',
+      value: '0.053',
+      unit: 'B',
+      resolution: '0.1',
+      authoritativeCorrection: {
+        method: AUTHORITATIVE_CORRECTION_METHOD,
+        issue: 'numeric-typo',
+        approval: AUTHORITATIVE_CORRECTION_APPROVAL,
+        locator: 'https://www.sec.gov/example',
+        authoritativeLiteral: '$53M',
+        correctedLiteral: '$0.1B',
+        reason: 'The zero-looking Source magnitude conflicts with the official filing.',
+      },
+    },
+  });
+  assert.equal(coverage.items[0].amount.literal, '$0.0B');
+  assert.equal(coverage.items[0].amount.value, '0.053');
+  assert.equal(coverage.items[0].amount.authoritativeCorrection.issue, 'numeric-typo');
+  assert.deepEqual(coverage.summary.correctedSourceIds, ['source:other-income']);
+
+  assert.throws(
+    () => financialCoverage({
+      amount: {
+        literal: '$0.0M',
+        value: '0.053',
+        unit: 'B',
+        resolution: '0.1',
+        authoritativeCorrection: {
+          method: AUTHORITATIVE_CORRECTION_METHOD,
+          issue: 'unit-typo',
+          approval: AUTHORITATIVE_CORRECTION_APPROVAL,
+          locator: 'https://www.sec.gov/example',
+          authoritativeLiteral: '$53M',
+          correctedLiteral: '$0.1B',
+          reason: 'A zero-looking literal cannot use the unit-typo branch.',
+        },
+      },
+    }),
+    (error) => error.code === 'SOURCE_COVERAGE_AUTHORITATIVE_CORRECTION_INVALID'
+  );
+});
+
 test('a user-approved authoritative correction may repair a non-zero Source unit typo without erasing the original literal', () => {
   const coverage = financialCoverage({
     amount: {

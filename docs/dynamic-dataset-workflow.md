@@ -84,12 +84,16 @@ Coverage binds each face to one node;
 scans and derives Other IDs, three smallest non-zero amounts, visible node
 IDs, and floor exceptions.
 
-If `$0.0B` or another zero literal represents a non-zero semantic object,
-`precisionRecovery` is mandatory: `authoritative-supplemental-source`,
-locator, and a higher-precision K/M/B/T literal that normalizes exactly to
-the authored non-zero amount.
+If `$0.0B` or another zero literal represents a non-zero semantic object and
+the recovered value remains inside the literal's rounding interval,
+`precisionRecovery` is mandatory: `authoritative-supplemental-source`, locator,
+and a higher-precision K/M/B/T literal that normalizes exactly to the authored
+non-zero amount. If the authoritative value falls outside that interval, the
+zero-looking literal is a numeric typo and may proceed only through the typed,
+user-directed `authoritative-source-correction` path below; `unit-typo` is not
+valid for a zero-looking literal.
 
-A confirmed non-zero unit or numeric typo keeps the original literal and needs
+A confirmed unit or numeric typo keeps the original literal and needs
 a user-directed `authoritative-source-correction` bound to the official
 locator/literal, approved corrected literal, a typed `unit-typo` or
 `numeric-typo` issue, and reason; `unit-typo` means the suffix is wrong, while
