@@ -8,11 +8,27 @@ import {
   assertRawSvgCanvas,
   classifyLabelLayoutAudit,
   classifyLabelPositionAudit,
+  classifySideLabelColumnAlignment,
   classifyNodePaintAudit,
   classifySemanticAnnotationAudit,
   labelPositionExpectationsFromPlan,
   nodeFaceExpectationsFromPlan,
 } from '../scripts/lib/render-harness.mjs';
+
+test('T6 measures a shared rendered side-label edge across a column', () => {
+  const passing = classifySideLabelColumnAlignment([
+    { node: 'a', side: 'left-of-node', nodeEdge: 477, labelEdge: 450, gap: 27 },
+    { node: 'b', side: 'left-of-node', nodeEdge: 477, labelEdge: 449.5, gap: 27.5 },
+  ], ['a', 'b']);
+  assert.equal(passing.labelEdgeSpread, 0.5);
+  assert.deepEqual(passing.violations, []);
+
+  const failing = classifySideLabelColumnAlignment([
+    { node: 'a', side: 'left-of-node', nodeEdge: 477, labelEdge: 450, gap: 27 },
+    { node: 'b', side: 'left-of-node', nodeEdge: 477, labelEdge: 430, gap: 47 },
+  ], ['a', 'b']);
+  assert.deepEqual(failing.violations.map((item) => item.code), ['label-edge-spread']);
+});
 
 function node(id, overrides = {}) {
   return {
@@ -431,6 +447,28 @@ test('Build-bound render evidence cannot archive a failed planned text, annotati
     }),
     /center-delta.*overflow.*no-rendered-annotation/
   );
+});
+
+test('Build-bound T6 evidence rejects a drifting side-label column', () => {
+  const plan = {
+    requiredChecks: [{
+      id: 'feature:aligned-side-label-column',
+      enforcement: 'quantified-audit',
+      evidenceKind: 'label-layout-audit',
+      evidenceTargets: ['layout.labels.a', 'layout.labels.b'],
+      objectIds: ['label:a', 'label:b'],
+      ruleIds: ['T6'],
+    }],
+  };
+  const aligned = {
+    labelLayoutAudit: { horizontalSideLabels: [
+      { node: 'a', side: 'left-of-node', nodeEdge: 477, labelEdge: 450, gap: 27 },
+      { node: 'b', side: 'left-of-node', nodeEdge: 477, labelEdge: 450, gap: 27 },
+    ] },
+  };
+  assert.doesNotThrow(() => assertPlannedRenderAudits(plan, aligned));
+  aligned.labelLayoutAudit.horizontalSideLabels[1].labelEdge = 440;
+  assert.throws(() => assertPlannedRenderAudits(plan, aligned), /label-edge-spread/);
 });
 
 test('T18 pairs plan reference measurements with rendered label groups by node', () => {
