@@ -825,6 +825,45 @@ async function prepareWithManualFeatures(t) {
   return { ...base, prepared };
 }
 
+async function prepareWithSharedNodeLabelMeasurements(t) {
+  const base = await fixture(t, 'shared-node-label-measurements-fy25');
+  const measured = (id, target, referenceBBox) => ({
+    id,
+    kind: 'label',
+    disposition: 'render',
+    mapping: [{ role: 'render', target }],
+    features: ['measured-label-position'],
+    featureEvidence: {
+      'measured-label-position': {
+        source: 'reference-measurement',
+        locator: `${base.sourcePath}#${id}`,
+        digest: base.sourceDigest,
+        referenceBBox,
+        inspectionMethod: 'native-scale-reference-measurement',
+      },
+    },
+  });
+  const authoredInventory = {
+    datasetKey: base.build.key,
+    objects: [
+      measured('label:revenue', 'layout.labels.revenue', [180, 420, 160, 44]),
+      measured('asset:revenue-wordmark', 'layout.labels.revenue.blocks.1', [180, 470, 160, 44]),
+    ],
+  };
+  const prepared = await prepareBuildReview({
+    buildId: base.build.buildId,
+    inventory: authoredInventory,
+    sourceCoverage: incomeSourceCoverage(authoredInventory),
+    artifacts: [
+      { path: base.artifact, role: 'view-adapter' },
+      { path: base.sourcePath, role: 'reference-image' },
+    ],
+    changeImpact: ['geometry'],
+    requiredLocales: ['en'],
+  }, { buildRoot: base.buildRoot, projectRoot: base.root, now });
+  return { ...base, prepared };
+}
+
 async function prepareWithSemanticAnnotation(t) {
   const base = await fixture(t, 'semantic-annotation-q4-fy25');
   const authoredInventory = {
@@ -979,6 +1018,69 @@ test('automatic evidence without human attestation cannot close a Build', async 
   assert.equal(inspection.reviewStatus, 'review-pending');
   assert.equal(inspection.report.status, 'review-pending');
   assert.match(inspection.taskInformation, /review=review-pending/);
+});
+
+test('T18 risk measurements stay unique when several inventory objects share one node label group', async (t) => {
+  const { root, buildRoot, prepared } = await prepareWithSharedNodeLabelMeasurements(t);
+  const labelPositionAudit = {
+    schemaVersion: 1,
+    ruleId: 'T18',
+    locale: 'en',
+    enforcedLocale: 'en',
+    enforced: true,
+    tolerance: 6,
+    expectedGroups: 2,
+    measuredGroups: 2,
+    measurements: [
+      {
+        objectId: 'label:revenue',
+        node: 'revenue',
+        referenceBBox: [180, 420, 160, 44],
+        candidateBBox: [182, 421, 158, 42],
+        deltaX: 0,
+        deltaY: -0.5,
+        enforced: true,
+      },
+      {
+        objectId: 'asset:revenue-wordmark',
+        node: 'revenue',
+        referenceBBox: [180, 470, 160, 44],
+        candidateBBox: [181, 471, 160, 44],
+        deltaX: 1,
+        deltaY: 1,
+        enforced: true,
+      },
+    ],
+    violations: [],
+  };
+  const evidenceManifest = await writeEvidence(root, prepared, 0, { labelPositionAudit });
+  const verificationReference = await writeDatasetVerification(root, buildRoot, prepared);
+  const outcome = await finishReviewedBuild({
+    buildId: prepared.build.buildId,
+    reviewToken: prepared.reviewToken,
+    evidenceManifests: [evidenceManifest],
+    verificationReference,
+    attestation: { reviewer: 'human:reviewer', decision: 'accepted' },
+    regions: [],
+    attention: { status: 'closed', closureNote: 'No open red-box region remains.' },
+    feedback: [],
+    riskChecks: [],
+    manualCheckDecisions: manualCheckDecisions(prepared),
+    interfaceMatrix: matrix(prepared.build.key),
+  }, { buildRoot, projectRoot: root, now });
+
+  assert.equal(outcome.build.state, 'CLOSED');
+  assert.deepEqual(
+    outcome.fidelityResult.riskChecks
+      .find((check) => check.id === 'T18-label-position:en')
+      .measurements.map((measurement) => measurement.id),
+    [
+      'asset:revenue-wordmark-center-x',
+      'asset:revenue-wordmark-center-y',
+      'label:revenue-center-x',
+      'label:revenue-center-y',
+    ]
+  );
 });
 
 test('review rejects fidelity evidence without a passing G3 typography audit', async (t) => {
