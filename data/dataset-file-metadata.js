@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-08-09T17:03:45.000Z",
+  "generatedAt": "2026-08-11T04:44:34.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -5687,6 +5687,156 @@
       "path": "data/datasets/adobe-q3-fy23.js",
       "updatedAtMs": 1786295025000,
       "updatedAt": "2026-08-09T17:03:45.000Z",
+      "timeSource": "git"
+    },
+    "intel-q2-fy23": {
+      "path": "data/datasets/intel-q2-fy23.js",
+      "updatedAtMs": 1786423474000,
+      "updatedAt": "2026-08-11T04:44:34.000Z",
+      "timeSource": "git"
+    },
+    "intel-q2-fy24": {
+      "path": "data/datasets/intel-q2-fy24.js",
+      "updatedAtMs": 1786423474000,
+      "updatedAt": "2026-08-11T04:44:34.000Z",
+      "timeSource": "git"
+    },
+    "intel-q2-fy25": {
+      "path": "data/datasets/intel-q2-fy25.js",
+      "updatedAtMs": 1786423474000,
+      "updatedAt": "2026-08-11T04:44:34.000Z",
+      "timeSource": "git"
+    },
+    "uber-q1-fy23": {
+      "path": "data/datasets/uber-q1-fy23.js",
+      "updatedAtMs": 1786423474000,
+      "updatedAt": "2026-08-11T04:44:34.000Z",
+      "timeSource": "git"
+    },
+    "uber-q1-fy25": {
+      "path": "data/datasets/uber-q1-fy25.js",
+      "updatedAtMs": 1786423474000,
+      "updatedAt": "2026-08-11T04:44:34.000Z",
+      "timeSource": "git"
+    },
+    "uber-q2-fy23": {
+      "path": "data/datasets/uber-q2-fy23.js",
+      "updatedAtMs": 1786423474000,
+      "updatedAt": "2026-08-11T04:44:34.000Z",
+      "timeSource": "git"
+    },
+    "uber-q2-fy24": {
+      "path": "data/datasets/uber-q2-fy24.js",
+      "updatedAtMs": 1786423474000,
+      "updatedAt": "2026-08-11T04:44:34.000Z",
+      "timeSource": "git"
+    },
+    "uber-q2-fy25": {
+      "path": "data/datasets/uber-q2-fy25.js",
+      "updatedAtMs": 1786423474000,
+      "updatedAt": "2026-08-11T04:44:34.000Z",
+      "timeSource": "git"
+    },
+    "intel-q4-fy24": {
+      "path": "data/datasets/intel-q4-fy24.js",
+      "updatedAtMs": 1786423474000,
+      "updatedAt": "2026-08-11T04:44:34.000Z",
+      "timeSource": "git"
+    },
+    "uber-q4-fy22": {
+      "path": "data/datasets/uber-q4-fy22.js",
+      "updatedAtMs": 1786423474000,
+      "updatedAt": "2026-08-11T04:44:34.000Z",
+      "timeSource": "git"
+    },
+    "intel-q1-fy23": {
+      "path": "data/datasets/intel-q1-fy23.js",
+      "updatedAtMs": 1786423474000,
+      "updatedAt": "2026-08-11T04:44:34.000Z",
+      "timeSource": "git"
+    },
+    "intel-q4-fy23": {
+      "path": "data/datasets/intel-q4-fy23.js",
+      "updatedAtMs": 1786423474000,
+      "updatedAt": "2026-08-11T04:44:34.000Z",
+      "timeSource": "git"
+    },
+    "uber-q3-fy24": {
+      "path": "data/datasets/uber-q3-fy24.js",
+      "updatedAtMs": 1786423474000,
+      "updatedAt": "2026-08-11T04:44:34.000Z",
+      "timeSource": "git"
+    },
+    "uber-q1-fy24": {
+      "path": "data/datasets/uber-q1-fy24.js",
+      "updatedAtMs": 1786423474000,
+      "updatedAt": "2026-08-11T04:44:34.000Z",
+      "timeSource": "git"
+    },
+    "intel-q1-fy24": {
+      "path": "data/datasets/intel-q1-fy24.js",
+      "updatedAtMs": 1786423474000,
+      "updatedAt": "2026-08-11T04:44:34.000Z",
+      "timeSource": "git"
+    },
+    "uber-q3-fy23": {
+      "path": "data/datasets/uber-q3-fy23.js",
+      "updatedAtMs": 1786423474000,
+      "updatedAt": "2026-08-11T04:44:34.000Z",
+      "timeSource": "git"
+    },
+    "uber-q4-fy24": {
+      "path": "data/datasets/uber-q4-fy24.js",
+      "updatedAtMs": 1786423474000,
+      "updatedAt": "2026-08-11T04:44:34.000Z",
+      "timeSource": "git"
+    },
+    "uber-q3-fy22": {
+      "path": "data/datasets/uber-q3-fy22.js",
+      "updatedAtMs": 1786423474000,
+      "updatedAt": "2026-08-11T04:44:34.000Z",
+      "timeSource": "git"
+    },
+    "uber-q4-fy23": {
+      "path": "data/datasets/uber-q4-fy23.js",
+      "updatedAtMs": 1786423474000,
+      "updatedAt": "2026-08-11T04:44:34.000Z",
+      "timeSource": "git"
+    },
+    "intel-q3-fy25": {
+      "path": "data/datasets/intel-q3-fy25.js",
+      "updatedAtMs": 1786423474000,
+      "updatedAt": "2026-08-11T04:44:34.000Z",
+      "timeSource": "git"
+    },
+    "intel-q3-fy23": {
+      "path": "data/datasets/intel-q3-fy23.js",
+      "updatedAtMs": 1786423474000,
+      "updatedAt": "2026-08-11T04:44:34.000Z",
+      "timeSource": "git"
+    },
+    "intel-q3-fy24": {
+      "path": "data/datasets/intel-q3-fy24.js",
+      "updatedAtMs": 1786423474000,
+      "updatedAt": "2026-08-11T04:44:34.000Z",
+      "timeSource": "git"
+    },
+    "intel-q1-fy25": {
+      "path": "data/datasets/intel-q1-fy25.js",
+      "updatedAtMs": 1786423474000,
+      "updatedAt": "2026-08-11T04:44:34.000Z",
+      "timeSource": "git"
+    },
+    "intel-q4-fy22": {
+      "path": "data/datasets/intel-q4-fy22.js",
+      "updatedAtMs": 1786423474000,
+      "updatedAt": "2026-08-11T04:44:34.000Z",
+      "timeSource": "git"
+    },
+    "intel-q3-fy22": {
+      "path": "data/datasets/intel-q3-fy22.js",
+      "updatedAtMs": 1786423474000,
+      "updatedAt": "2026-08-11T04:44:34.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {
