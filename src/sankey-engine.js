@@ -1449,7 +1449,7 @@
         || graph.nodes.find((n) => !n.routeOnly);
       const lw = meta.logoWidth || 150;
       const lh = meta.logoHeight || 86;
-      const lx = (hub.x0 + hub.x1) / 2 - lw / 2;
+      const lx = meta.logoX != null ? meta.logoX : (hub.x0 + hub.x1) / 2 - lw / 2;
       // sit just above the hub's text label, clamped below the title
       const labelTop = hub._labelTop != null ? hub._labelTop : cfg.margin.top;
       const ly = meta.logoY != null ? meta.logoY : Math.max(86, labelTop - lh - 10);

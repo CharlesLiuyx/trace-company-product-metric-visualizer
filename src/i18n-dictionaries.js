@@ -41,6 +41,7 @@
   };
 
   const EXACT_ZH = {
+    'Mobileye': 'Mobileye',
     'Gucci': 'Gucci',
     'Saint Laurent': 'Saint Laurent',
     'Bottega Veneta': 'Bottega Veneta',

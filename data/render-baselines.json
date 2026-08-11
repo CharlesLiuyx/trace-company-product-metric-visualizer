@@ -2751,15 +2751,93 @@
       "width": 2667,
       "height": 1500
     },
+    "intel-q1-fy23": {
+      "similarity": 0.965737,
+      "mae": 8.7371,
+      "width": 2667,
+      "height": 1500
+    },
+    "intel-q1-fy24": {
+      "similarity": 0.960716,
+      "mae": 10.0173,
+      "width": 2667,
+      "height": 1500
+    },
+    "intel-q1-fy25": {
+      "similarity": 0.965361,
+      "mae": 8.8329,
+      "width": 2667,
+      "height": 1500
+    },
     "intel-q1-fy26": {
       "similarity": 0.968705,
       "mae": 7.9803,
       "width": 2667,
       "height": 1500
     },
+    "intel-q2-fy23": {
+      "similarity": 0.963808,
+      "mae": 9.229,
+      "width": 2667,
+      "height": 1500
+    },
+    "intel-q2-fy24": {
+      "similarity": 0.958267,
+      "mae": 10.6419,
+      "width": 2667,
+      "height": 1500
+    },
+    "intel-q2-fy25": {
+      "similarity": 0.967813,
+      "mae": 8.2077,
+      "width": 2667,
+      "height": 1500
+    },
     "intel-q2-fy26": {
       "similarity": 0.964181,
       "mae": 9.1338,
+      "width": 2667,
+      "height": 1500
+    },
+    "intel-q3-fy22": {
+      "similarity": 0.963788,
+      "mae": 9.2339,
+      "width": 2667,
+      "height": 1500
+    },
+    "intel-q3-fy23": {
+      "similarity": 0.963617,
+      "mae": 9.2776,
+      "width": 2667,
+      "height": 1500
+    },
+    "intel-q3-fy24": {
+      "similarity": 0.963572,
+      "mae": 9.2893,
+      "width": 2667,
+      "height": 1500
+    },
+    "intel-q3-fy25": {
+      "similarity": 0.962046,
+      "mae": 9.6783,
+      "width": 2667,
+      "height": 1500
+    },
+    "intel-q4-fy22": {
+      "similarity": 0.965028,
+      "mae": 8.9179,
+      "width": 2667,
+      "height": 1500
+    },
+    "intel-q4-fy23": {
+      "similarity": 0.964581,
+      "mae": 9.0318,
+      "width": 2667,
+      "height": 1500
+    },
+    "intel-q4-fy24": {
+      "similarity": 0.963456,
+      "mae": 9.3187,
       "width": 2667,
       "height": 1500
     },
@@ -5361,15 +5439,87 @@
       "width": 2667,
       "height": 1500
     },
+    "uber-q1-fy23": {
+      "similarity": 0.962484,
+      "mae": 9.5666,
+      "width": 2667,
+      "height": 1500
+    },
+    "uber-q1-fy24": {
+      "similarity": 0.960725,
+      "mae": 10.0152,
+      "width": 2667,
+      "height": 1500
+    },
+    "uber-q1-fy25": {
+      "similarity": 0.965586,
+      "mae": 8.7757,
+      "width": 2667,
+      "height": 1500
+    },
     "uber-q1-fy26": {
       "similarity": 0.954592,
       "mae": 11.5791,
       "width": 2892,
       "height": 1456
     },
+    "uber-q2-fy23": {
+      "similarity": 0.962461,
+      "mae": 9.5724,
+      "width": 2667,
+      "height": 1500
+    },
+    "uber-q2-fy24": {
+      "similarity": 0.964651,
+      "mae": 9.014,
+      "width": 2667,
+      "height": 1500
+    },
+    "uber-q2-fy25": {
+      "similarity": 0.966304,
+      "mae": 8.5924,
+      "width": 2667,
+      "height": 1500
+    },
+    "uber-q3-fy22": {
+      "similarity": 0.968437,
+      "mae": 8.0486,
+      "width": 2667,
+      "height": 1500
+    },
+    "uber-q3-fy23": {
+      "similarity": 0.962358,
+      "mae": 9.5988,
+      "width": 2667,
+      "height": 1500
+    },
+    "uber-q3-fy24": {
+      "similarity": 0.963022,
+      "mae": 9.4295,
+      "width": 2667,
+      "height": 1500
+    },
     "uber-q3-fy25": {
       "similarity": 0.967079,
       "mae": 8.395,
+      "width": 2667,
+      "height": 1500
+    },
+    "uber-q4-fy22": {
+      "similarity": 0.964401,
+      "mae": 9.0777,
+      "width": 2667,
+      "height": 1500
+    },
+    "uber-q4-fy23": {
+      "similarity": 0.964028,
+      "mae": 9.1729,
+      "width": 2667,
+      "height": 1500
+    },
+    "uber-q4-fy24": {
+      "similarity": 0.960434,
+      "mae": 10.0894,
       "width": 2667,
       "height": 1500
     },

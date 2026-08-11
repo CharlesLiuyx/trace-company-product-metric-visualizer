@@ -510,22 +510,25 @@ function derivedRiskChecks(plan, evidence) {
         // locale shift must not become a RISK_THRESHOLD_VIOLATION blocker.
         measurements: (audit?.measurements || [])
           .filter((measurement) => measurement.candidateBBox && measurement.enforced)
-          .flatMap((measurement) => [
+          .flatMap((measurement) => {
+            const measurementId = measurement.objectId || measurement.node;
+            return [
             {
-              id: `${measurement.node}-center-x`,
+              id: `${measurementId}-center-x`,
               value: Math.abs(Number(measurement.deltaX)),
               operator: 'lte',
               threshold: Number(audit.tolerance),
               unit: 'px',
             },
             {
-              id: `${measurement.node}-center-y`,
+              id: `${measurementId}-center-y`,
               value: Math.abs(Number(measurement.deltaY)),
               operator: 'lte',
               threshold: Number(audit.tolerance),
               unit: 'px',
             },
-          ]),
+            ];
+          }),
         ...(audit
           ? (complete ? {} : { reason: 'A measured label group is missing or outside the T18 reference-position tolerance' })
           : { reason: 'The evidence predates label-position measurement' }),
