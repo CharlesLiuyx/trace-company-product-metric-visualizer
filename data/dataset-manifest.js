@@ -21252,6 +21252,493 @@
             }
           }
         }
+      },
+      {
+        "key": "intel-q2-fy23",
+        "src": "data/datasets/intel-q2-fy23.js",
+        "data": {
+          "name": "Intel · Q2 FY23",
+          "company": "Intel",
+          "meta": {
+            "title": "Intel Q2 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Intel · 2023 财年第二季度",
+              "meta": {
+                "title": "英特尔 2023 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intel-q2-fy24",
+        "src": "data/datasets/intel-q2-fy24.js",
+        "data": {
+          "name": "Intel · Q2 FY24",
+          "company": "Intel",
+          "meta": {
+            "title": "Intel Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Intel · 2024 财年第二季度",
+              "meta": {
+                "title": "英特尔 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intel-q2-fy25",
+        "src": "data/datasets/intel-q2-fy25.js",
+        "data": {
+          "name": "Intel · Q2 FY25",
+          "company": "Intel",
+          "meta": {
+            "title": "Intel Q2 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Intel · 2025 财年第二季度",
+              "meta": {
+                "title": "英特尔 2025 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "uber-q1-fy23",
+        "src": "data/datasets/uber-q1-fy23.js",
+        "data": {
+          "name": "Uber - Q1 FY23",
+          "company": "Uber",
+          "meta": {
+            "title": "Uber Q1 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Uber · 2023 财年第一季度",
+              "meta": {
+                "title": "Uber 2023 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "uber-q1-fy25",
+        "src": "data/datasets/uber-q1-fy25.js",
+        "data": {
+          "name": "Uber - Q1 FY25",
+          "company": "Uber",
+          "meta": {
+            "title": "Uber Q1 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Uber · 2025 财年第一季度",
+              "meta": {
+                "title": "Uber 2025 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "uber-q2-fy23",
+        "src": "data/datasets/uber-q2-fy23.js",
+        "data": {
+          "name": "Uber - Q2 FY23",
+          "company": "Uber",
+          "meta": {
+            "title": "Uber Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Jun. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Uber · 2023 财年第二季度",
+              "meta": {
+                "title": "Uber 2023 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "uber-q2-fy24",
+        "src": "data/datasets/uber-q2-fy24.js",
+        "data": {
+          "name": "Uber - Q2 FY24",
+          "company": "Uber",
+          "meta": {
+            "title": "Uber Q2 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Uber · 2024 财年第二季度",
+              "meta": {
+                "title": "Uber 2024 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "uber-q2-fy25",
+        "src": "data/datasets/uber-q2-fy25.js",
+        "data": {
+          "name": "Uber - Q2 FY25",
+          "company": "Uber",
+          "meta": {
+            "title": "Uber Q2 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Uber · 2025 财年第二季度",
+              "meta": {
+                "title": "Uber 2025 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intel-q4-fy24",
+        "src": "data/datasets/intel-q4-fy24.js",
+        "data": {
+          "name": "Intel · Q4 FY24",
+          "company": "Intel",
+          "meta": {
+            "title": "Intel Q4 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Intel · 2024 财年第四季度",
+              "meta": {
+                "title": "英特尔 2024 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "uber-q4-fy22",
+        "src": "data/datasets/uber-q4-fy22.js",
+        "data": {
+          "name": "Uber - Q4 FY22",
+          "company": "Uber",
+          "meta": {
+            "title": "Uber Q4 FY22 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Uber · 2022 财年第四季度",
+              "meta": {
+                "title": "Uber 2022 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intel-q1-fy23",
+        "src": "data/datasets/intel-q1-fy23.js",
+        "data": {
+          "name": "Intel · Q1 FY23",
+          "company": "Intel",
+          "meta": {
+            "title": "Intel Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending Apr. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Intel · 2023 财年第一季度",
+              "meta": {
+                "title": "英特尔 2023 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intel-q4-fy23",
+        "src": "data/datasets/intel-q4-fy23.js",
+        "data": {
+          "name": "Intel · Q4 FY23",
+          "company": "Intel",
+          "meta": {
+            "title": "Intel Q4 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Intel · 2023 财年第四季度",
+              "meta": {
+                "title": "英特尔 2023 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "uber-q3-fy24",
+        "src": "data/datasets/uber-q3-fy24.js",
+        "data": {
+          "name": "Uber - Q3 FY24",
+          "company": "Uber",
+          "meta": {
+            "title": "Uber Q3 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Uber · 2024 财年第三季度",
+              "meta": {
+                "title": "Uber 2024 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "uber-q1-fy24",
+        "src": "data/datasets/uber-q1-fy24.js",
+        "data": {
+          "name": "Uber - Q1 FY24",
+          "company": "Uber",
+          "meta": {
+            "title": "Uber Q1 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Uber · 2024 财年第一季度",
+              "meta": {
+                "title": "Uber 2024 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intel-q1-fy24",
+        "src": "data/datasets/intel-q1-fy24.js",
+        "data": {
+          "name": "Intel · Q1 FY24",
+          "company": "Intel",
+          "meta": {
+            "title": "Intel Q1 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Intel · 2024 财年第一季度",
+              "meta": {
+                "title": "英特尔 2024 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "uber-q3-fy23",
+        "src": "data/datasets/uber-q3-fy23.js",
+        "data": {
+          "name": "Uber - Q3 FY23",
+          "company": "Uber",
+          "meta": {
+            "title": "Uber Q3 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Uber · 2023 财年第三季度",
+              "meta": {
+                "title": "Uber 2023 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "uber-q4-fy24",
+        "src": "data/datasets/uber-q4-fy24.js",
+        "data": {
+          "name": "Uber · Q4 FY24",
+          "company": "Uber",
+          "meta": {
+            "title": "Uber Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Uber · 2024 财年第四季度",
+              "meta": {
+                "title": "Uber 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "uber-q3-fy22",
+        "src": "data/datasets/uber-q3-fy22.js",
+        "data": {
+          "name": "Uber - Q3 FY22",
+          "company": "Uber",
+          "meta": {
+            "title": "Uber Q3 FY22 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Uber · 2022 财年第三季度",
+              "meta": {
+                "title": "Uber 2022 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "uber-q4-fy23",
+        "src": "data/datasets/uber-q4-fy23.js",
+        "data": {
+          "name": "Uber - Q4 FY23",
+          "company": "Uber",
+          "meta": {
+            "title": "Uber Q4 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Uber · 2023 财年第四季度",
+              "meta": {
+                "title": "Uber 2023 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intel-q3-fy25",
+        "src": "data/datasets/intel-q3-fy25.js",
+        "data": {
+          "name": "Intel · Q3 FY25",
+          "company": "Intel",
+          "meta": {
+            "title": "Intel Q3 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Intel · 2025 财年第三季度",
+              "meta": {
+                "title": "英特尔 2025 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intel-q3-fy23",
+        "src": "data/datasets/intel-q3-fy23.js",
+        "data": {
+          "name": "Intel · Q3 FY23",
+          "company": "Intel",
+          "meta": {
+            "title": "Intel Q3 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Intel · 2023 财年第三季度",
+              "meta": {
+                "title": "英特尔 2023 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intel-q3-fy24",
+        "src": "data/datasets/intel-q3-fy24.js",
+        "data": {
+          "name": "Intel · Q3 FY24",
+          "company": "Intel",
+          "meta": {
+            "title": "Intel Q3 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Intel · 2024 财年第三季度",
+              "meta": {
+                "title": "英特尔 2024 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intel-q1-fy25",
+        "src": "data/datasets/intel-q1-fy25.js",
+        "data": {
+          "name": "Intel · Q1 FY25",
+          "company": "Intel",
+          "meta": {
+            "title": "Intel Q1 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Intel · 2025 财年第一季度",
+              "meta": {
+                "title": "英特尔 2025 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intel-q4-fy22",
+        "src": "data/datasets/intel-q4-fy22.js",
+        "data": {
+          "name": "Intel · Q4 FY22",
+          "company": "Intel",
+          "meta": {
+            "title": "Intel Q4 FY22 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Intel · 2022 财年第四季度",
+              "meta": {
+                "title": "英特尔 2022 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intel-q3-fy22",
+        "src": "data/datasets/intel-q3-fy22.js",
+        "data": {
+          "name": "Intel · Q3 FY22",
+          "company": "Intel",
+          "meta": {
+            "title": "Intel Q3 FY22 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Intel · 2022 财年第三季度",
+              "meta": {
+                "title": "英特尔 2022 财年第三季度利润表"
+              }
+            }
+          }
+        }
       }
     ]
   };
