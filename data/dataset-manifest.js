@@ -21739,6 +21739,844 @@
             }
           }
         }
+      },
+      {
+        "key": "mcdonald-s-q4-fy22",
+        "src": "data/datasets/mcdonald-s-q4-fy22.js",
+        "data": {
+          "name": "McDonald's · Q4 FY22",
+          "company": "McDonald's",
+          "meta": {
+            "title": "McDonald's Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Ending Dec. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "麦当劳 · 2022 财年第四季度",
+              "meta": {
+                "title": "麦当劳 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2022 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mcdonald-s-q1-fy23",
+        "src": "data/datasets/mcdonald-s-q1-fy23.js",
+        "data": {
+          "name": "McDonald's · Q1 FY23",
+          "company": "McDonald's",
+          "meta": {
+            "title": "McDonald's Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending Mar. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "麦当劳 · 2023 财年第一季度",
+              "meta": {
+                "title": "麦当劳 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2023 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mcdonald-s-q1-fy25",
+        "src": "data/datasets/mcdonald-s-q1-fy25.js",
+        "data": {
+          "name": "McDonald's · Q1 FY25",
+          "company": "McDonald's",
+          "meta": {
+            "title": "McDonald's Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Mar. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "麦当劳 · 2025 财年第一季度",
+              "meta": {
+                "title": "麦当劳 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mcdonald-s-q2-fy25",
+        "src": "data/datasets/mcdonald-s-q2-fy25.js",
+        "data": {
+          "name": "McDonald's · Q2 FY25",
+          "company": "McDonald's",
+          "meta": {
+            "title": "McDonald's Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Jun. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "麦当劳 · 2025 财年第二季度",
+              "meta": {
+                "title": "麦当劳 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mcdonald-s-q3-fy23",
+        "src": "data/datasets/mcdonald-s-q3-fy23.js",
+        "data": {
+          "name": "McDonald's · Q3 FY23",
+          "company": "McDonald's",
+          "meta": {
+            "title": "McDonald's Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Sep. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "麦当劳 · 2023 财年第三季度",
+              "meta": {
+                "title": "麦当劳 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mcdonald-s-q3-fy24",
+        "src": "data/datasets/mcdonald-s-q3-fy24.js",
+        "data": {
+          "name": "McDonald's · Q3 FY24",
+          "company": "McDonald's",
+          "meta": {
+            "title": "McDonald's Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "麦当劳 · 2024 财年第三季度",
+              "meta": {
+                "title": "麦当劳 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mcdonald-s-q4-fy23",
+        "src": "data/datasets/mcdonald-s-q4-fy23.js",
+        "data": {
+          "name": "McDonald's · Q4 FY23",
+          "company": "McDonald's",
+          "meta": {
+            "title": "McDonald's Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "麦当劳 · 2023 财年第四季度",
+              "meta": {
+                "title": "麦当劳 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nike-q1-fy24",
+        "src": "data/datasets/nike-q1-fy24.js",
+        "data": {
+          "name": "Nike · Q1 FY24",
+          "company": "Nike",
+          "meta": {
+            "title": "Nike Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending August 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Nike · 2024 财年第一季度",
+              "meta": {
+                "title": "Nike 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2023 年 8 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nike-q1-fy25",
+        "src": "data/datasets/nike-q1-fy25.js",
+        "data": {
+          "name": "Nike · Q1 FY25",
+          "company": "Nike",
+          "meta": {
+            "title": "Nike Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Aug. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Nike · 2025 财年第一季度",
+              "meta": {
+                "title": "Nike 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2024 年 8 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nike-q1-fy26",
+        "src": "data/datasets/nike-q1-fy26.js",
+        "data": {
+          "name": "Nike · Q1 FY26",
+          "company": "Nike",
+          "meta": {
+            "title": "Nike Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Aug. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Nike · 2026 财年第一季度",
+              "meta": {
+                "title": "Nike 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 8 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nike-q2-fy23",
+        "src": "data/datasets/nike-q2-fy23.js",
+        "data": {
+          "name": "Nike · Q2 FY23",
+          "company": "Nike",
+          "meta": {
+            "title": "Nike Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending November 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Nike · 2023 财年第二季度",
+              "meta": {
+                "title": "Nike 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2022 年 11 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nike-q2-fy24",
+        "src": "data/datasets/nike-q2-fy24.js",
+        "data": {
+          "name": "Nike · Q2 FY24",
+          "company": "Nike",
+          "meta": {
+            "title": "Nike Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Nov. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Nike · 2024 财年第二季度",
+              "meta": {
+                "title": "Nike 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2023 年 11 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nike-q2-fy26",
+        "src": "data/datasets/nike-q2-fy26.js",
+        "data": {
+          "name": "Nike · Q2 FY26",
+          "company": "Nike",
+          "meta": {
+            "title": "Nike Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Nov. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Nike · 2026 财年第二季度",
+              "meta": {
+                "title": "Nike 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2025 年 11 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nike-q4-fy24",
+        "src": "data/datasets/nike-q4-fy24.js",
+        "data": {
+          "name": "Nike · Q4 FY24",
+          "company": "Nike",
+          "meta": {
+            "title": "Nike Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending May 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Nike · 2024 财年第四季度",
+              "meta": {
+                "title": "Nike 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 5 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mcdonald-s-q2-fy24",
+        "src": "data/datasets/mcdonald-s-q2-fy24.js",
+        "data": {
+          "name": "McDonald's · Q2 FY24",
+          "company": "McDonald's",
+          "meta": {
+            "title": "McDonald's Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "麦当劳 · 2024 财年第二季度",
+              "meta": {
+                "title": "麦当劳 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nike-q3-fy24",
+        "src": "data/datasets/nike-q3-fy24.js",
+        "data": {
+          "name": "Nike · Q3 FY24",
+          "company": "Nike",
+          "meta": {
+            "title": "Nike Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Feb. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Nike · 2024 财年第三季度",
+              "meta": {
+                "title": "Nike 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 2 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nike-q4-fy25",
+        "src": "data/datasets/nike-q4-fy25.js",
+        "data": {
+          "name": "Nike · Q4 FY25",
+          "company": "Nike",
+          "meta": {
+            "title": "Nike Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending May 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Nike · 2025 财年第四季度",
+              "meta": {
+                "title": "Nike 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 5 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mcdonald-s-q1-fy24",
+        "src": "data/datasets/mcdonald-s-q1-fy24.js",
+        "data": {
+          "name": "McDonald's · Q1 FY24",
+          "company": "McDonald's",
+          "meta": {
+            "title": "McDonald's Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "麦当劳 · 2024 财年第一季度",
+              "meta": {
+                "title": "麦当劳 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mcdonald-s-q2-fy23",
+        "src": "data/datasets/mcdonald-s-q2-fy23.js",
+        "data": {
+          "name": "McDonald's · Q2 FY23",
+          "company": "McDonald's",
+          "meta": {
+            "title": "McDonald's Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Jun. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "麦当劳 · 2023 财年第二季度",
+              "meta": {
+                "title": "麦当劳 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mcdonald-s-q4-fy24",
+        "src": "data/datasets/mcdonald-s-q4-fy24.js",
+        "data": {
+          "name": "McDonald's · Q4 FY24",
+          "company": "McDonald's",
+          "meta": {
+            "title": "McDonald’s Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "麦当劳 · 2024 财年第四季度",
+              "meta": {
+                "title": "麦当劳 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nike-q2-fy25",
+        "src": "data/datasets/nike-q2-fy25.js",
+        "data": {
+          "name": "Nike · Q2 FY25",
+          "company": "Nike",
+          "meta": {
+            "title": "Nike Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Nov. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Nike · 2025 财年第二季度",
+              "meta": {
+                "title": "Nike 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2024 年 11 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nike-q3-fy25",
+        "src": "data/datasets/nike-q3-fy25.js",
+        "data": {
+          "name": "Nike · Q3 FY25",
+          "company": "Nike",
+          "meta": {
+            "title": "Nike Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Feb. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Nike · 2025 财年第三季度",
+              "meta": {
+                "title": "Nike 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 2 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nike-q4-fy23",
+        "src": "data/datasets/nike-q4-fy23.js",
+        "data": {
+          "name": "Nike · Q4 FY23",
+          "company": "Nike",
+          "meta": {
+            "title": "Nike Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending May 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Nike · 2023 财年第四季度",
+              "meta": {
+                "title": "Nike 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 5 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nike-q3-fy23",
+        "src": "data/datasets/nike-q3-fy23.js",
+        "data": {
+          "name": "Nike · Q3 FY23",
+          "company": "Nike",
+          "meta": {
+            "title": "Nike Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Feb. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Nike · 2023 财年第三季度",
+              "meta": {
+                "title": "Nike 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 2 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pepsico-q4-fy22",
+        "src": "data/datasets/pepsico-q4-fy22.js",
+        "data": {
+          "name": "PepsiCo · Q4 FY22",
+          "company": "PepsiCo",
+          "meta": {
+            "title": "PepsiCo Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Ending Dec. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "百事公司 · 2022 财年第四季度",
+              "meta": {
+                "title": "百事公司 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2022 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pepsico-q4-fy24",
+        "src": "data/datasets/pepsico-q4-fy24.js",
+        "data": {
+          "name": "PepsiCo · Q4 FY24",
+          "company": "PepsiCo",
+          "meta": {
+            "title": "PepsiCo Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "百事公司 · 2024 财年第四季度",
+              "meta": {
+                "title": "百事公司 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pepsico-q1-fy25",
+        "src": "data/datasets/pepsico-q1-fy25.js",
+        "data": {
+          "name": "PepsiCo · Q1 FY25",
+          "company": "PepsiCo",
+          "meta": {
+            "title": "PepsiCo Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Mar. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "PepsiCo · 2025 财年第一季度",
+              "meta": {
+                "title": "百事公司 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pepsico-q4-fy23",
+        "src": "data/datasets/pepsico-q4-fy23.js",
+        "data": {
+          "name": "PepsiCo · Q4 FY23",
+          "company": "PepsiCo",
+          "meta": {
+            "title": "PepsiCo Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "百事公司 · 2023 财年第四季度",
+              "meta": {
+                "title": "百事公司 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pepsico-q2-fy23",
+        "src": "data/datasets/pepsico-q2-fy23.js",
+        "data": {
+          "name": "PepsiCo · Q2 FY23",
+          "company": "PepsiCo",
+          "meta": {
+            "title": "PepsiCo Q2 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "百事公司 · 2023 财年第二季度",
+              "meta": {
+                "title": "百事公司 2023 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pepsico-q2-fy25",
+        "src": "data/datasets/pepsico-q2-fy25.js",
+        "data": {
+          "name": "PepsiCo · Q2 FY25",
+          "company": "PepsiCo",
+          "meta": {
+            "title": "PepsiCo Q2 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "百事公司 · 2025 财年第二季度",
+              "meta": {
+                "title": "百事公司 2025 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pepsico-q3-fy23",
+        "src": "data/datasets/pepsico-q3-fy23.js",
+        "data": {
+          "name": "PepsiCo · Q3 FY23",
+          "company": "PepsiCo",
+          "meta": {
+            "title": "PepsiCo Q3 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "百事公司 · 2023 财年第三季度",
+              "meta": {
+                "title": "百事公司 2023 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pepsico-q3-fy25",
+        "src": "data/datasets/pepsico-q3-fy25.js",
+        "data": {
+          "name": "PepsiCo · Q3 FY25",
+          "company": "PepsiCo",
+          "meta": {
+            "title": "PepsiCo Q3 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "百事公司 · 2025 财年第三季度",
+              "meta": {
+                "title": "百事公司 2025 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pepsico-q2-fy24",
+        "src": "data/datasets/pepsico-q2-fy24.js",
+        "data": {
+          "name": "PepsiCo · Q2 FY24",
+          "company": "PepsiCo",
+          "meta": {
+            "title": "PepsiCo Q2 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "百事公司 · 2024 财年第二季度",
+              "meta": {
+                "title": "百事公司 2024 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pepsico-q1-fy23",
+        "src": "data/datasets/pepsico-q1-fy23.js",
+        "data": {
+          "name": "PepsiCo · Q1 FY23",
+          "company": "PepsiCo",
+          "meta": {
+            "title": "PepsiCo Q1 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "百事公司 · 2023 财年第一季度",
+              "meta": {
+                "title": "百事公司 2023 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pepsico-q1-fy24",
+        "src": "data/datasets/pepsico-q1-fy24.js",
+        "data": {
+          "name": "PepsiCo · Q1 FY24",
+          "company": "PepsiCo",
+          "meta": {
+            "title": "PepsiCo Q1 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "百事公司 · 2024 财年第一季度",
+              "meta": {
+                "title": "百事公司 2024 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nestle-fy23",
+        "src": "data/datasets/nestle-fy23.js",
+        "data": {
+          "name": "Nestlé · FY23",
+          "company": "Nestlé",
+          "meta": {
+            "title": "Nestlé FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "雀巢 · 2023 财年",
+              "meta": {
+                "title": "雀巢 2023 财年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nestle-h1-fy23",
+        "src": "data/datasets/nestle-h1-fy23.js",
+        "data": {
+          "name": "Nestlé · H1 FY23",
+          "company": "Nestlé",
+          "meta": {
+            "title": "Nestlé H1 FY23 Income Statement",
+            "period": "H1 FY23",
+            "periodNote": "Six months ended June 30, 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "雀巢 · 2023 财年上半年",
+              "meta": {
+                "title": "雀巢 2023 财年上半年利润表",
+                "period": "2023 财年上半年",
+                "periodNote": "截至 2023 年 6 月 30 日的六个月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pepsico-q3-fy24",
+        "src": "data/datasets/pepsico-q3-fy24.js",
+        "data": {
+          "name": "PepsiCo · Q3 FY24",
+          "company": "PepsiCo",
+          "meta": {
+            "title": "PepsiCo Q3 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "百事公司 · 2024 财年第三季度",
+              "meta": {
+                "title": "百事公司 2024 财年第三季度利润表"
+              }
+            }
+          }
+        }
       }
     ]
   };

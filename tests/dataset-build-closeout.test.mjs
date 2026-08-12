@@ -9,6 +9,7 @@ import { createDatasetBuild, digestValue } from '../scripts/lib/dataset-build.mj
 import { projectFeedbackLedger } from '../scripts/lib/feedback-ledger.mjs';
 import { digestFidelityValue } from '../scripts/lib/fidelity-result.mjs';
 import {
+  checkFeatureEvidence,
   finishReviewedBuild,
   inspectBuildCloseout,
   prepareBuildReview,
@@ -25,6 +26,27 @@ import {
 
 const now = () => '2026-07-11T07:00:00.000Z';
 const digest = (value) => digestValue({ value });
+
+test('closeout consumes T6 side-label evidence with the shared column classifier', () => {
+  const check = {
+    evidenceKind: 'label-layout-audit',
+    evidenceTargets: ['layout.labels.europe', 'layout.labels.amesa'],
+    ruleIds: ['T6'],
+  };
+  const entry = {
+    metrics: {
+      labelLayoutAudit: {
+        horizontalSideLabels: [
+          { node: 'europe', side: 'left-of-node', nodeEdge: 793, labelEdge: 768, gap: 25 },
+          { node: 'amesa', side: 'left-of-node', nodeEdge: 791, labelEdge: 768, gap: 23 },
+        ],
+      },
+    },
+  };
+  assert.equal(checkFeatureEvidence(check, entry, {}), true);
+  entry.metrics.labelLayoutAudit.horizontalSideLabels[1].labelEdge = 764;
+  assert.equal(checkFeatureEvidence(check, entry, {}), false);
+});
 
 function sourcePng({ paintedNonNodeFace = false } = {}) {
   const png = new PNG({ width: 100, height: 80 });

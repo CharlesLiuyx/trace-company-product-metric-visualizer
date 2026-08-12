@@ -102,6 +102,7 @@
         cost: RED_LINK,
       },
       linkOpacity: 1,
+      interfaceAudit: { mode: 'error' },
       type: { name: 40, value: 38, note: 29, lineGap: 8 },
     },
     annotationsSvg: annotationsEn,
@@ -347,33 +348,34 @@
       /* footwear/apparel/equipment/converse sum to $10.9B vs the $11.0B
        * revenue bar (published rounding). The reference shows the four
        * incoming bands merging into one continuous mass that fills the
-       * hub's full height with no gap, so footwear's band absorbs the
-       * 8px shortfall (356px -> 364px) rather than leaving the bottom of
-       * the hub's left edge uncovered. */
-      { source: 'footwear', target: 'revenue', value: 7.1, width: 244, sourceOrder: 0, targetOrder: 0 },
-      { source: 'apparel', target: 'revenue', value: 3.0, width: 99, sourceOrder: 0, targetOrder: 1 },
-      { source: 'equipment', target: 'revenue', value: 0.6, width: 15, sourceOrder: 0, targetOrder: 2 },
-      { source: 'converse', target: 'revenue', value: 0.2, width: 6, sourceOrder: 0, targetOrder: 3 },
+       * hub's full height with no gap, so footwear's target end absorbs
+       * the 8px shortfall (356px -> 364px) while its source end remains
+       * flush with the 236px Footwear face. */
+      { source: 'footwear', target: 'revenue', value: 7.1, sourceWidth: 236, targetWidth: 244, y0: 615, y1: 838, sourceOrder: 0, targetOrder: 0 },
+      { source: 'apparel', target: 'revenue', value: 3.0, sourceWidth: 99, targetWidth: 99, y0: 934.5, y1: 1009.5, sourceOrder: 0, targetOrder: 1 },
+      { source: 'equipment', target: 'revenue', value: 0.6, sourceWidth: 15, targetWidth: 15, y0: 1137.5, y1: 1066.5, sourceOrder: 0, targetOrder: 2 },
+      { source: 'converse', target: 'revenue', value: 0.2, sourceWidth: 6, targetWidth: 6, y0: 1295, y1: 1077, sourceOrder: 0, targetOrder: 3 },
 
-      { source: 'revenue', target: 'gross_profit', value: 5.4, width: 177, sourceOrder: 0, targetOrder: 0, linkTint: GREEN_LINK },
-      { source: 'revenue', target: 'cost_of_sales', value: 5.6, width: 187, sourceOrder: 1, targetOrder: 0, linkTint: RED_LINK },
+      { source: 'revenue', target: 'gross_profit', value: 5.4, sourceWidth: 177, targetWidth: 177, y0: 804.5, y1: 677.5, sourceOrder: 0, targetOrder: 0, linkTint: GREEN_LINK },
+      { source: 'revenue', target: 'cost_of_sales', value: 5.6, sourceWidth: 187, targetWidth: 185, y0: 986.5, y1: 1079.5, sourceOrder: 1, targetOrder: 0, linkTint: RED_LINK },
 
-      { source: 'gross_profit', target: 'operating_profit', value: 1.3, width: 41, sourceOrder: 0, targetOrder: 0 },
-      { source: 'gross_profit', target: 'operating_expenses', value: 4.1, width: 136, sourceOrder: 1, targetOrder: 0, linkTint: RED_LINK },
+      { source: 'gross_profit', target: 'operating_profit', value: 1.3, sourceWidth: 41, targetWidth: 41, y0: 609.5, y1: 499.5, sourceOrder: 0, targetOrder: 0 },
+      { source: 'gross_profit', target: 'operating_expenses', value: 4.1, sourceWidth: 136, targetWidth: 134, y0: 698, y1: 784, sourceOrder: 1, targetOrder: 0, linkTint: RED_LINK },
 
       /* Waterfall region: the drawn op-profit -> net-profit band is the
        * $1.1B net bar minus the $0.1B "Other" hairline that backfills the
        * bar bottom from below (no drawn source bar in the original). */
-      { source: 'operating_profit', target: 'net_profit', value: 1.0, width: 31, sourceOrder: 0, targetOrder: 0 },
-      { source: 'operating_profit', target: 'tax', value: 0.3, width: 10, sourceOrder: 1, targetOrder: 0, linkTint: RED_LINK },
-      { source: 'other', target: 'net_profit', value: 0.1, width: 2, sourceOrder: 0, targetOrder: 1 },
+      { source: 'operating_profit', target: 'net_profit', value: 1.0, sourceWidth: 31, targetWidth: 31, y0: 494.5, y1: 403.5, sourceOrder: 0, targetOrder: 0 },
+      { source: 'operating_profit', target: 'tax', value: 0.3, sourceWidth: 10, targetWidth: 7, y0: 515, y1: 605.5, sourceOrder: 1, targetOrder: 0, linkTint: RED_LINK },
+      { source: 'other', target: 'net_profit', value: 0.1, sourceWidth: 2, targetWidth: 2, y0: 420, y1: 420, sourceOrder: 0, targetOrder: 1 },
 
       /* overhead + demand_creation summed to 130px vs the 134px
        * operating_expenses bar (same published-rounding pattern as
-       * revenue's inputs above); overhead absorbs the 4px shortfall so
-       * the bands fill the bar's full height with no visible gap. */
-      { source: 'operating_expenses', target: 'overhead', value: 2.9, width: 97, sourceOrder: 0, targetOrder: 0 },
-      { source: 'operating_expenses', target: 'demand_creation', value: 1.2, width: 37, sourceOrder: 1, targetOrder: 0 },
+       * revenue's inputs above); the Overhead link's source end absorbs
+       * the 4px shortfall while its target end remains flush with the
+       * 93px Overhead face. */
+      { source: 'operating_expenses', target: 'overhead', value: 2.9, sourceWidth: 97, targetWidth: 93, y0: 765.5, y1: 853.5, sourceOrder: 0, targetOrder: 0 },
+      { source: 'operating_expenses', target: 'demand_creation', value: 1.2, sourceWidth: 37, targetWidth: 37, y0: 832.5, y1: 1170.5, sourceOrder: 1, targetOrder: 0 },
     ],
 
     i18n: {

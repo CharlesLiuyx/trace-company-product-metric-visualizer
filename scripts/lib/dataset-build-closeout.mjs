@@ -23,6 +23,7 @@ import {
 import { compileVerificationPlan } from './verification-plan.mjs';
 import { assertInterfaceEvidenceReady } from './interface-fidelity.mjs';
 import { assessNodePaintAudit, assertNodePaintPolicy } from './node-face-policy.mjs';
+import { classifySideLabelColumnAlignment } from './render-harness.mjs';
 import {
   createCloseoutReport,
   renderLoopFidelitySummary,
@@ -590,10 +591,16 @@ function derivedRiskChecks(plan, evidence) {
   return checks;
 }
 
-function checkFeatureEvidence(check, entry, plan) {
+export function checkFeatureEvidence(check, entry, plan) {
   const expectedTargets = (check.evidenceTargets || []).map((target) => target.split(/[.:/]/).at(-1));
   if (check.evidenceKind === 'label-layout-audit') {
     const audit = entry.metrics?.labelLayoutAudit;
+    if ((check.ruleIds || []).includes('T6')) {
+      return Boolean(audit) && classifySideLabelColumnAlignment(
+        audit.horizontalSideLabels || [],
+        expectedTargets,
+      ).violations.length === 0;
+    }
     const labels = Array.isArray(audit?.inferredCenteredSideLabels)
       ? audit.inferredCenteredSideLabels
       : (audit?.horizontalSideLabels || []);

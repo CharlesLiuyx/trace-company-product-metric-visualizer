@@ -3243,15 +3243,81 @@
       "width": 2667,
       "height": 1500
     },
+    "mcdonald-s-q1-fy23": {
+      "similarity": 0.96867,
+      "mae": 7.9891,
+      "width": 2667,
+      "height": 1500
+    },
+    "mcdonald-s-q1-fy24": {
+      "similarity": 0.964463,
+      "mae": 9.0621,
+      "width": 2667,
+      "height": 1500
+    },
+    "mcdonald-s-q1-fy25": {
+      "similarity": 0.966852,
+      "mae": 8.4529,
+      "width": 2667,
+      "height": 1500
+    },
     "mcdonald-s-q1-fy26": {
       "similarity": 0.96226,
       "mae": 9.6237,
       "width": 2667,
       "height": 1500
     },
+    "mcdonald-s-q2-fy23": {
+      "similarity": 0.967494,
+      "mae": 8.2891,
+      "width": 2667,
+      "height": 1500
+    },
+    "mcdonald-s-q2-fy24": {
+      "similarity": 0.966801,
+      "mae": 8.4659,
+      "width": 2667,
+      "height": 1500
+    },
+    "mcdonald-s-q2-fy25": {
+      "similarity": 0.964499,
+      "mae": 9.0528,
+      "width": 2667,
+      "height": 1500
+    },
+    "mcdonald-s-q3-fy23": {
+      "similarity": 0.966018,
+      "mae": 8.6654,
+      "width": 2667,
+      "height": 1500
+    },
+    "mcdonald-s-q3-fy24": {
+      "similarity": 0.964626,
+      "mae": 9.0205,
+      "width": 2667,
+      "height": 1500
+    },
     "mcdonald-s-q3-fy25": {
       "similarity": 0.965296,
       "mae": 8.8494,
+      "width": 2667,
+      "height": 1500
+    },
+    "mcdonald-s-q4-fy22": {
+      "similarity": 0.964175,
+      "mae": 9.1353,
+      "width": 2667,
+      "height": 1500
+    },
+    "mcdonald-s-q4-fy23": {
+      "similarity": 0.966069,
+      "mae": 8.6525,
+      "width": 2667,
+      "height": 1500
+    },
+    "mcdonald-s-q4-fy24": {
+      "similarity": 0.965351,
+      "mae": 8.8355,
       "width": 2667,
       "height": 1500
     },
@@ -3693,6 +3759,18 @@
       "width": 2667,
       "height": 1500
     },
+    "nestle-fy23": {
+      "similarity": 0.965356,
+      "mae": 8.8343,
+      "width": 2667,
+      "height": 1500
+    },
+    "nestle-h1-fy23": {
+      "similarity": 0.969262,
+      "mae": 7.8381,
+      "width": 2667,
+      "height": 1500
+    },
     "netease-q1-fy26": {
       "similarity": 0.971054,
       "mae": 7.3811,
@@ -3729,15 +3807,93 @@
       "width": 2667,
       "height": 1500
     },
+    "nike-q1-fy24": {
+      "similarity": 0.96896,
+      "mae": 7.9151,
+      "width": 2667,
+      "height": 1500
+    },
+    "nike-q1-fy25": {
+      "similarity": 0.972803,
+      "mae": 6.9352,
+      "width": 2667,
+      "height": 1500
+    },
+    "nike-q1-fy26": {
+      "similarity": 0.967034,
+      "mae": 8.4062,
+      "width": 2667,
+      "height": 1500
+    },
+    "nike-q2-fy23": {
+      "similarity": 0.968299,
+      "mae": 8.0839,
+      "width": 2667,
+      "height": 1500
+    },
+    "nike-q2-fy24": {
+      "similarity": 0.959317,
+      "mae": 10.3743,
+      "width": 2667,
+      "height": 1500
+    },
+    "nike-q2-fy25": {
+      "similarity": 0.964014,
+      "mae": 9.1763,
+      "width": 2667,
+      "height": 1500
+    },
+    "nike-q2-fy26": {
+      "similarity": 0.967577,
+      "mae": 8.2678,
+      "width": 2667,
+      "height": 1500
+    },
+    "nike-q3-fy23": {
+      "similarity": 0.964494,
+      "mae": 9.054,
+      "width": 2667,
+      "height": 1500
+    },
+    "nike-q3-fy24": {
+      "similarity": 0.967502,
+      "mae": 8.2869,
+      "width": 2667,
+      "height": 1500
+    },
+    "nike-q3-fy25": {
+      "similarity": 0.963162,
+      "mae": 9.3936,
+      "width": 2667,
+      "height": 1500
+    },
     "nike-q3-fy26": {
-      "similarity": 0.970031,
-      "mae": 7.642,
+      "similarity": 0.966611,
+      "mae": 8.5142,
+      "width": 2667,
+      "height": 1500
+    },
+    "nike-q4-fy23": {
+      "similarity": 0.971165,
+      "mae": 7.3528,
+      "width": 2667,
+      "height": 1500
+    },
+    "nike-q4-fy24": {
+      "similarity": 0.965349,
+      "mae": 8.836,
+      "width": 2667,
+      "height": 1500
+    },
+    "nike-q4-fy25": {
+      "similarity": 0.964012,
+      "mae": 9.177,
       "width": 2667,
       "height": 1500
     },
     "nike-q4-fy26": {
-      "similarity": 0.969462,
-      "mae": 7.7871,
+      "similarity": 0.966456,
+      "mae": 8.5538,
       "width": 2667,
       "height": 1500
     },
@@ -4287,15 +4443,87 @@
       "width": 2667,
       "height": 1500
     },
+    "pepsico-q1-fy23": {
+      "similarity": 0.969283,
+      "mae": 7.8328,
+      "width": 2667,
+      "height": 1500
+    },
+    "pepsico-q1-fy24": {
+      "similarity": 0.96643,
+      "mae": 8.5603,
+      "width": 2667,
+      "height": 1500
+    },
+    "pepsico-q1-fy25": {
+      "similarity": 0.965579,
+      "mae": 8.7773,
+      "width": 2667,
+      "height": 1500
+    },
     "pepsico-q1-fy26": {
       "similarity": 0.977699,
       "mae": 5.6868,
       "width": 2667,
       "height": 1500
     },
+    "pepsico-q2-fy23": {
+      "similarity": 0.969354,
+      "mae": 7.8146,
+      "width": 2667,
+      "height": 1500
+    },
+    "pepsico-q2-fy24": {
+      "similarity": 0.963256,
+      "mae": 9.3698,
+      "width": 2667,
+      "height": 1500
+    },
+    "pepsico-q2-fy25": {
+      "similarity": 0.96744,
+      "mae": 8.3029,
+      "width": 2667,
+      "height": 1500
+    },
     "pepsico-q2-fy26": {
       "similarity": 0.969931,
       "mae": 7.6675,
+      "width": 2667,
+      "height": 1500
+    },
+    "pepsico-q3-fy23": {
+      "similarity": 0.966942,
+      "mae": 8.4298,
+      "width": 2667,
+      "height": 1500
+    },
+    "pepsico-q3-fy24": {
+      "similarity": 0.968809,
+      "mae": 7.9536,
+      "width": 2667,
+      "height": 1500
+    },
+    "pepsico-q3-fy25": {
+      "similarity": 0.969165,
+      "mae": 7.8629,
+      "width": 2667,
+      "height": 1500
+    },
+    "pepsico-q4-fy22": {
+      "similarity": 0.965957,
+      "mae": 8.6809,
+      "width": 2667,
+      "height": 1500
+    },
+    "pepsico-q4-fy23": {
+      "similarity": 0.964838,
+      "mae": 8.9662,
+      "width": 2667,
+      "height": 1500
+    },
+    "pepsico-q4-fy24": {
+      "similarity": 0.967598,
+      "mae": 8.2626,
       "width": 2667,
       "height": 1500
     },
