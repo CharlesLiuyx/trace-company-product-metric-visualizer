@@ -617,6 +617,30 @@ def count_forbidden_pixels(
     return count
 
 
+def audit_source_isolation_bands(
+    image: Image.Image,
+    spec: dict[str, Any],
+    background: tuple[int, int, int],
+) -> list[dict[str, Any]]:
+    """Quantify explicit blank separators between a crop subject and neighbors."""
+    results: list[dict[str, Any]] = []
+    for index, raw in enumerate(spec.get("validation", {}).get("sourceIsolationBands", [])):
+        box = Box.from_search(raw)
+        if box.x0 < 0 or box.y0 < 0 or box.x1 > image.width or box.y1 > image.height:
+            raise ValueError(f"{spec['key']}: sourceIsolationBands[{index}] is outside the Source image")
+        mask = foreground_mask(image, box, spec, background)
+        foreground_pixels = sum(1 for row in mask for value in row if value)
+        maximum = int(raw.get("maxForegroundPixels", 0))
+        results.append({
+            "id": raw.get("id") or f"band-{index + 1}",
+            "bbox": box.to_json(),
+            "foregroundPixels": foreground_pixels,
+            "maxForegroundPixels": maximum,
+            "passes": foreground_pixels <= maximum,
+        })
+    return results
+
+
 def validate_crop(
     image: Image.Image,
     spec: dict[str, Any],
@@ -661,11 +685,13 @@ def validate_crop(
         background,
         validation.get("forbiddenForeground", []),
     )
+    source_isolation_bands = audit_source_isolation_bands(image, spec, background)
     passes = (
         edge_foreground_pixels == 0
         and abs(center_offset["x"]) <= max_center_offset
         and abs(center_offset["y"]) <= max_center_offset
         and forbidden_pixels <= max_forbidden_pixels
+        and all(item["passes"] for item in source_isolation_bands)
     )
     return {
         "width": crop.width,
@@ -673,6 +699,7 @@ def validate_crop(
         "foregroundPixels": foreground_pixels,
         "edgeForegroundPixels": edge_foreground_pixels,
         "forbiddenForegroundPixels": forbidden_pixels,
+        "sourceIsolationBands": source_isolation_bands,
         "margins": margins,
         "centerOffset": center_offset,
         "passes": passes,
@@ -756,6 +783,14 @@ def normalize_spec(raw: dict[str, Any], index: int) -> dict[str, Any]:
         for field in ("x", "y", "width", "height"):
             if not isinstance(raw["cropBox"].get(field), int):
                 raise ValueError(f"{key}: cropBox.{field} must be an integer")
+    for band_index, band in enumerate(raw.get("validation", {}).get("sourceIsolationBands", [])):
+        for field in ("x", "y", "width", "height"):
+            if not isinstance(band.get(field), int):
+                raise ValueError(f"{key}: sourceIsolationBands[{band_index}].{field} must be an integer")
+        if band["width"] <= 0 or band["height"] <= 0:
+            raise ValueError(f"{key}: sourceIsolationBands[{band_index}] must have positive dimensions")
+        if not isinstance(band.get("maxForegroundPixels", 0), int) or band.get("maxForegroundPixels", 0) < 0:
+            raise ValueError(f"{key}: sourceIsolationBands[{band_index}].maxForegroundPixels must be a non-negative integer")
     return raw
 
 
