@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-08-11T04:44:34.000Z",
+  "generatedAt": "2026-08-12T16:32:40.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -405,8 +405,8 @@
     },
     "nike-q4-fy26": {
       "path": "data/datasets/nike-q4-fy26.js",
-      "updatedAtMs": 1783712118000,
-      "updatedAt": "2026-07-10T19:35:18.000Z",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
       "timeSource": "git"
     },
     "pdd-holdings-q1-fy26": {
@@ -783,8 +783,8 @@
     },
     "nike-q3-fy26": {
       "path": "data/datasets/nike-q3-fy26.js",
-      "updatedAtMs": 1783712118000,
-      "updatedAt": "2026-07-10T19:35:18.000Z",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
       "timeSource": "git"
     },
     "marvell-q4-fy26": {
@@ -5837,6 +5837,234 @@
       "path": "data/datasets/intel-q3-fy22.js",
       "updatedAtMs": 1786423474000,
       "updatedAt": "2026-08-11T04:44:34.000Z",
+      "timeSource": "git"
+    },
+    "mcdonald-s-q4-fy22": {
+      "path": "data/datasets/mcdonald-s-q4-fy22.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "mcdonald-s-q1-fy23": {
+      "path": "data/datasets/mcdonald-s-q1-fy23.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "mcdonald-s-q1-fy25": {
+      "path": "data/datasets/mcdonald-s-q1-fy25.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "mcdonald-s-q2-fy25": {
+      "path": "data/datasets/mcdonald-s-q2-fy25.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "mcdonald-s-q3-fy23": {
+      "path": "data/datasets/mcdonald-s-q3-fy23.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "mcdonald-s-q3-fy24": {
+      "path": "data/datasets/mcdonald-s-q3-fy24.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "mcdonald-s-q4-fy23": {
+      "path": "data/datasets/mcdonald-s-q4-fy23.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "nike-q1-fy24": {
+      "path": "data/datasets/nike-q1-fy24.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "nike-q1-fy25": {
+      "path": "data/datasets/nike-q1-fy25.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "nike-q1-fy26": {
+      "path": "data/datasets/nike-q1-fy26.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "nike-q2-fy23": {
+      "path": "data/datasets/nike-q2-fy23.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "nike-q2-fy24": {
+      "path": "data/datasets/nike-q2-fy24.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "nike-q2-fy26": {
+      "path": "data/datasets/nike-q2-fy26.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "nike-q4-fy24": {
+      "path": "data/datasets/nike-q4-fy24.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "mcdonald-s-q2-fy24": {
+      "path": "data/datasets/mcdonald-s-q2-fy24.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "nike-q3-fy24": {
+      "path": "data/datasets/nike-q3-fy24.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "nike-q4-fy25": {
+      "path": "data/datasets/nike-q4-fy25.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "mcdonald-s-q1-fy24": {
+      "path": "data/datasets/mcdonald-s-q1-fy24.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "mcdonald-s-q2-fy23": {
+      "path": "data/datasets/mcdonald-s-q2-fy23.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "mcdonald-s-q4-fy24": {
+      "path": "data/datasets/mcdonald-s-q4-fy24.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "nike-q2-fy25": {
+      "path": "data/datasets/nike-q2-fy25.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "nike-q3-fy25": {
+      "path": "data/datasets/nike-q3-fy25.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "nike-q4-fy23": {
+      "path": "data/datasets/nike-q4-fy23.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "nike-q3-fy23": {
+      "path": "data/datasets/nike-q3-fy23.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "pepsico-q4-fy22": {
+      "path": "data/datasets/pepsico-q4-fy22.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "pepsico-q4-fy24": {
+      "path": "data/datasets/pepsico-q4-fy24.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "pepsico-q1-fy25": {
+      "path": "data/datasets/pepsico-q1-fy25.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "pepsico-q4-fy23": {
+      "path": "data/datasets/pepsico-q4-fy23.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "pepsico-q2-fy23": {
+      "path": "data/datasets/pepsico-q2-fy23.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "pepsico-q2-fy25": {
+      "path": "data/datasets/pepsico-q2-fy25.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "pepsico-q3-fy23": {
+      "path": "data/datasets/pepsico-q3-fy23.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "pepsico-q3-fy25": {
+      "path": "data/datasets/pepsico-q3-fy25.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "pepsico-q2-fy24": {
+      "path": "data/datasets/pepsico-q2-fy24.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "pepsico-q1-fy23": {
+      "path": "data/datasets/pepsico-q1-fy23.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "pepsico-q1-fy24": {
+      "path": "data/datasets/pepsico-q1-fy24.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "nestle-fy23": {
+      "path": "data/datasets/nestle-fy23.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "nestle-h1-fy23": {
+      "path": "data/datasets/nestle-h1-fy23.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "pepsico-q3-fy24": {
+      "path": "data/datasets/pepsico-q3-fy24.js",
+      "updatedAtMs": 1786552360000,
+      "updatedAt": "2026-08-12T16:32:40.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {

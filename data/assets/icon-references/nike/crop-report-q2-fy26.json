@@ -1,0 +1,158 @@
+{
+  "source": "input/processed/nike-q2-fy26.png",
+  "spec": "input/icon-crop-specs/nike-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-08-12T14:12:55.198201+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/nike",
+  "crops": [
+    {
+      "key": "nike-business-converse-q2-fy26",
+      "output": "data/assets/icon-references/nike/crops/business-converse-q2-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 4293,
+        "losslessBytes": 25574,
+        "savingsVsLossless": 0.8321,
+        "metrics": {
+          "meanAbsoluteError": 1.1107,
+          "rootMeanSquareError": 2.2971,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 24,
+          "changedPixelRatio": 0.4743
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 14322,
+        "transparentPixelRatio": 0.5293
+      },
+      "searchBox": {
+        "x": 125,
+        "y": 1159,
+        "width": 205,
+        "height": 132
+      },
+      "componentCount": 5,
+      "subjectBox": {
+        "x0": 144,
+        "y0": 1170,
+        "x1": 323,
+        "y1": 1290
+      },
+      "cropBox": {
+        "x0": 125,
+        "y0": 1159,
+        "x1": 330,
+        "y1": 1291
+      },
+      "validation": {
+        "width": 205,
+        "height": 132,
+        "foregroundPixels": 8413,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [
+          {
+            "id": "top-neighbor-separator",
+            "bbox": {
+              "x0": 125,
+              "y0": 1159,
+              "x1": 330,
+              "y1": 1160
+            },
+            "foregroundPixels": 0,
+            "maxForegroundPixels": 0,
+            "passes": true
+          },
+          {
+            "id": "right-neighbor-separator",
+            "bbox": {
+              "x0": 330,
+              "y0": 1159,
+              "x1": 331,
+              "y1": 1291
+            },
+            "foregroundPixels": 0,
+            "maxForegroundPixels": 0,
+            "passes": true
+          }
+        ],
+        "margins": {
+          "left": 19,
+          "right": 7,
+          "top": 11,
+          "bottom": 1
+        },
+        "centerOffset": {
+          "x": 0.0293,
+          "y": 0.0379
+        },
+        "passes": true
+      },
+      "note": "Converse high-top sneaker from Nike Q2 FY26; the crop begins four pixels below and ends ten pixels left of the prior shared crop to exclude Source-adjacent text fragments while preserving the complete shoe.",
+      "runtimeOutput": "data/assets/raster-annotations/nike/business-converse-q2-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 4293,
+        "losslessBytes": 25574,
+        "savingsVsLossless": 0.8321,
+        "metrics": {
+          "meanAbsoluteError": 1.1107,
+          "rootMeanSquareError": 2.2971,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 24,
+          "changedPixelRatio": 0.4743
+        }
+      },
+      "validationSheet": "data/assets/icon-references/nike/validation-sheets/nike-business-converse-q2-fy26.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 312307,
+        "losslessBytes": 312307,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}
