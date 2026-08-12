@@ -1,0 +1,386 @@
+{
+  "source": "input/processing/pepsico-q4-fy23.png",
+  "spec": "input/icon-crop-specs/pepsico-q4-fy23.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-08-12T14:10:36.705329+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/pepsico",
+  "crops": [
+    {
+      "key": "pepsico-frito-lay-q4-fy23",
+      "output": "data/assets/icon-references/pepsico/crops/frito-lay-q4-fy23.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 3715,
+        "losslessBytes": 17303,
+        "savingsVsLossless": 0.7853,
+        "metrics": {
+          "meanAbsoluteError": 1.1844,
+          "rootMeanSquareError": 2.7564,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 47,
+          "changedPixelRatio": 0.7206
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 5673,
+        "transparentPixelRatio": 0.2758
+      },
+      "searchBox": {
+        "x": 15,
+        "y": 380,
+        "width": 142,
+        "height": 133
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 15,
+        "y0": 380,
+        "x1": 157,
+        "y1": 513
+      },
+      "cropBox": {
+        "x0": 12,
+        "y0": 377,
+        "x1": 160,
+        "y1": 516
+      },
+      "validation": {
+        "width": 148,
+        "height": 139,
+        "foregroundPixels": 11600,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 3,
+          "right": 3,
+          "top": 3,
+          "bottom": 3
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Lay's brand mark for the Frito-Lay revenue line; excludes the Frito-Lay label and chart geometry.",
+      "runtimeOutput": "data/assets/raster-annotations/pepsico/frito-lay-q4-fy23.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 3715,
+        "losslessBytes": 17303,
+        "savingsVsLossless": 0.7853,
+        "metrics": {
+          "meanAbsoluteError": 1.1844,
+          "rootMeanSquareError": 2.7564,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 47,
+          "changedPixelRatio": 0.7206
+        }
+      },
+      "validationSheet": "data/assets/icon-references/pepsico/validation-sheets/pepsico-frito-lay-q4-fy23.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 359027,
+        "losslessBytes": 359027,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "pepsico-quaker-q4-fy23",
+      "output": "data/assets/icon-references/pepsico/crops/quaker-q4-fy23.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 5084,
+        "losslessBytes": 20856,
+        "savingsVsLossless": 0.7562,
+        "metrics": {
+          "meanAbsoluteError": 1.1951,
+          "rootMeanSquareError": 2.8036,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 26,
+          "changedPixelRatio": 0.4773
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 9340,
+        "transparentPixelRatio": 0.5419
+      },
+      "searchBox": {
+        "x": 14,
+        "y": 581,
+        "width": 133,
+        "height": 118
+      },
+      "componentCount": 10,
+      "subjectBox": {
+        "x0": 14,
+        "y0": 581,
+        "x1": 146,
+        "y1": 699
+      },
+      "cropBox": {
+        "x0": 11,
+        "y0": 578,
+        "x1": 150,
+        "y1": 702
+      },
+      "validation": {
+        "width": 139,
+        "height": 124,
+        "foregroundPixels": 7515,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 3,
+          "right": 4,
+          "top": 3,
+          "bottom": 3
+        },
+        "centerOffset": {
+          "x": -0.0036,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Quaker brand mark for the Quaker Foods revenue line; excludes the label and chart geometry.",
+      "runtimeOutput": "data/assets/raster-annotations/pepsico/quaker-q4-fy23.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 5084,
+        "losslessBytes": 20856,
+        "savingsVsLossless": 0.7562,
+        "metrics": {
+          "meanAbsoluteError": 1.1951,
+          "rootMeanSquareError": 2.8036,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 26,
+          "changedPixelRatio": 0.4773
+        }
+      },
+      "validationSheet": "data/assets/icon-references/pepsico/validation-sheets/pepsico-quaker-q4-fy23.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 387419,
+        "losslessBytes": 387419,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "pepsico-globe-europe-q4-fy23",
+      "output": "data/assets/icon-references/pepsico/crops/globe-europe-q4-fy23.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 10171,
+        "losslessBytes": 10171,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 2555,
+        "transparentPixelRatio": 0.2954
+      },
+      "searchBox": {
+        "x": 528,
+        "y": 1027,
+        "width": 87,
+        "height": 87
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 528,
+        "y0": 1030,
+        "x1": 615,
+        "y1": 1114
+      },
+      "cropBox": {
+        "x0": 525,
+        "y0": 1024,
+        "x1": 618,
+        "y1": 1117
+      },
+      "validation": {
+        "width": 93,
+        "height": 93,
+        "foregroundPixels": 3972,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 3,
+          "right": 3,
+          "top": 6,
+          "bottom": 3
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0161
+        },
+        "passes": true
+      },
+      "note": "Europe globe for the Europe revenue line.",
+      "runtimeOutput": "data/assets/raster-annotations/pepsico/globe-europe-q4-fy23.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 10171,
+        "losslessBytes": 10171,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/pepsico/validation-sheets/pepsico-globe-europe-q4-fy23.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 346552,
+        "losslessBytes": 346552,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "pepsico-globe-amesa-q4-fy23",
+      "output": "data/assets/icon-references/pepsico/crops/globe-amesa-q4-fy23.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 8691,
+        "losslessBytes": 8691,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 2122,
+        "transparentPixelRatio": 0.3118
+      },
+      "searchBox": {
+        "x": 53,
+        "y": 1172,
+        "width": 77,
+        "height": 76
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 53,
+        "y0": 1172,
+        "x1": 130,
+        "y1": 1248
+      },
+      "cropBox": {
+        "x0": 50,
+        "y0": 1169,
+        "x1": 133,
+        "y1": 1251
+      },
+      "validation": {
+        "width": 83,
+        "height": 82,
+        "foregroundPixels": 3041,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "margins": {
+          "left": 3,
+          "right": 3,
+          "top": 3,
+          "bottom": 3
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Africa, Middle East and South Asia globe for the AMESA revenue line.",
+      "runtimeOutput": "data/assets/raster-annotations/pepsico/globe-amesa-q4-fy23.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 8691,
+        "losslessBytes": 8691,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/pepsico/validation-sheets/pepsico-globe-amesa-q4-fy23.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 350692,
+        "losslessBytes": 350692,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}
