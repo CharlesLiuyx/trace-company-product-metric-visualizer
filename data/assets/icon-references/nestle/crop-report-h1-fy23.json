@@ -1,0 +1,819 @@
+{
+  "source": "input/processed/nestle-h1-fy23.png",
+  "spec": "input/icon-crop-specs/nestle-h1-fy23.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-08-12T14:23:09.824424+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/nestle",
+  "crops": [
+    {
+      "key": "nestle-company-wordmark-h1-fy23",
+      "output": "data/assets/icon-references/nestle/crops/company-wordmark-h1-fy23.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 7082,
+        "losslessBytes": 39055,
+        "savingsVsLossless": 0.8187,
+        "metrics": {
+          "meanAbsoluteError": 0.3976,
+          "rootMeanSquareError": 1.3736,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 16,
+          "changedPixelRatio": 0.1697
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 41118,
+        "transparentPixelRatio": 0.7139
+      },
+      "searchBox": {
+        "x": 850,
+        "y": 260,
+        "width": 240,
+        "height": 240
+      },
+      "componentCount": 29,
+      "subjectBox": {
+        "x0": 871,
+        "y0": 279,
+        "x1": 1068,
+        "y1": 483
+      },
+      "cropBox": {
+        "x0": 850,
+        "y0": 260,
+        "x1": 1090,
+        "y1": 500
+      },
+      "validation": {
+        "width": 240,
+        "height": 240,
+        "foregroundPixels": 15593,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 21,
+          "right": 22,
+          "top": 19,
+          "bottom": 17
+        },
+        "centerOffset": {
+          "x": -0.0021,
+          "y": 0.0042
+        },
+        "passes": true
+      },
+      "note": "Nestl\u00e9 bird-and-nest corporate wordmark above the Sales hub.",
+      "runtimeOutput": "data/assets/raster-annotations/nestle/company-wordmark-h1-fy23.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 7082,
+        "losslessBytes": 39055,
+        "savingsVsLossless": 0.8187,
+        "metrics": {
+          "meanAbsoluteError": 0.3976,
+          "rootMeanSquareError": 1.3736,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 16,
+          "changedPixelRatio": 0.1697
+        }
+      },
+      "validationSheet": "data/assets/icon-references/nestle/validation-sheets/nestle-company-wordmark-h1-fy23.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 401885,
+        "losslessBytes": 401885,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "nestle-powdered-liquid-beverages-brands-h1-fy23",
+      "output": "data/assets/icon-references/nestle/crops/powdered-liquid-beverages-brands-h1-fy23.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2420,
+        "losslessBytes": 11067,
+        "savingsVsLossless": 0.7813,
+        "metrics": {
+          "meanAbsoluteError": 0.5034,
+          "rootMeanSquareError": 1.72,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.179
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 17771,
+        "transparentPixelRatio": 0.7405
+      },
+      "searchBox": {
+        "x": 0,
+        "y": 255,
+        "width": 200,
+        "height": 120
+      },
+      "componentCount": 16,
+      "subjectBox": {
+        "x0": 4,
+        "y0": 266,
+        "x1": 188,
+        "y1": 357
+      },
+      "cropBox": {
+        "x0": 0,
+        "y0": 255,
+        "x1": 200,
+        "y1": 375
+      },
+      "validation": {
+        "width": 200,
+        "height": 120,
+        "foregroundPixels": 5212,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 4,
+          "right": 12,
+          "top": 11,
+          "bottom": 18
+        },
+        "centerOffset": {
+          "x": -0.02,
+          "y": -0.0292
+        },
+        "passes": true
+      },
+      "note": "Nescaf\u00e9 and Nespresso brand cluster for Powdered & Liquid Beverages.",
+      "runtimeOutput": "data/assets/raster-annotations/nestle/powdered-liquid-beverages-brands-h1-fy23.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2420,
+        "losslessBytes": 11067,
+        "savingsVsLossless": 0.7813,
+        "metrics": {
+          "meanAbsoluteError": 0.5034,
+          "rootMeanSquareError": 1.72,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.179
+        }
+      },
+      "validationSheet": "data/assets/icon-references/nestle/validation-sheets/nestle-powdered-liquid-beverages-brands-h1-fy23.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 115349,
+        "losslessBytes": 321944,
+        "savingsVsLossless": 0.6417,
+        "metrics": {
+          "meanAbsoluteError": 0.3248,
+          "rootMeanSquareError": 1.9465,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 68,
+          "changedPixelRatio": 0.0926
+        }
+      }
+    },
+    {
+      "key": "nestle-water-brands-h1-fy23",
+      "output": "data/assets/icon-references/nestle/crops/water-brands-h1-fy23.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2586,
+        "losslessBytes": 11594,
+        "savingsVsLossless": 0.777,
+        "metrics": {
+          "meanAbsoluteError": 0.5468,
+          "rootMeanSquareError": 2.4114,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 44,
+          "changedPixelRatio": 0.1518
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 20613,
+        "transparentPixelRatio": 0.8084
+      },
+      "searchBox": {
+        "x": 18,
+        "y": 460,
+        "width": 170,
+        "height": 150
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 30,
+        "y0": 471,
+        "x1": 178,
+        "y1": 598
+      },
+      "cropBox": {
+        "x0": 18,
+        "y0": 460,
+        "x1": 188,
+        "y1": 610
+      },
+      "validation": {
+        "width": 170,
+        "height": 150,
+        "foregroundPixels": 4471,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 12,
+          "right": 10,
+          "top": 11,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": 0.0059,
+          "y": -0.0033
+        },
+        "passes": true
+      },
+      "note": "S.Pellegrino and Perrier brand cluster for Water.",
+      "runtimeOutput": "data/assets/raster-annotations/nestle/water-brands-h1-fy23.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2586,
+        "losslessBytes": 11594,
+        "savingsVsLossless": 0.777,
+        "metrics": {
+          "meanAbsoluteError": 0.5468,
+          "rootMeanSquareError": 2.4114,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 44,
+          "changedPixelRatio": 0.1518
+        }
+      },
+      "validationSheet": "data/assets/icon-references/nestle/validation-sheets/nestle-water-brands-h1-fy23.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 339041,
+        "losslessBytes": 339041,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "nestle-milk-ice-cream-brand-h1-fy23",
+      "output": "data/assets/icon-references/nestle/crops/milk-ice-cream-brand-h1-fy23.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2203,
+        "losslessBytes": 9885,
+        "savingsVsLossless": 0.7771,
+        "metrics": {
+          "meanAbsoluteError": 0.5909,
+          "rootMeanSquareError": 1.3271,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 9,
+          "changedPixelRatio": 0.5166
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 7981,
+        "transparentPixelRatio": 0.4833
+      },
+      "searchBox": {
+        "x": 8,
+        "y": 668,
+        "width": 172,
+        "height": 96
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 19,
+        "y0": 680,
+        "x1": 173,
+        "y1": 753
+      },
+      "cropBox": {
+        "x0": 8,
+        "y0": 668,
+        "x1": 180,
+        "y1": 764
+      },
+      "validation": {
+        "width": 172,
+        "height": 96,
+        "foregroundPixels": 2798,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 11,
+          "right": 7,
+          "top": 12,
+          "bottom": 11
+        },
+        "centerOffset": {
+          "x": 0.0116,
+          "y": 0.0052
+        },
+        "passes": true
+      },
+      "note": "H\u00e4agen-Dazs brand mark for Milk products & Ice cream.",
+      "runtimeOutput": "data/assets/raster-annotations/nestle/milk-ice-cream-brand-h1-fy23.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2203,
+        "losslessBytes": 9885,
+        "savingsVsLossless": 0.7771,
+        "metrics": {
+          "meanAbsoluteError": 0.5909,
+          "rootMeanSquareError": 1.3271,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 9,
+          "changedPixelRatio": 0.5166
+        }
+      },
+      "validationSheet": "data/assets/icon-references/nestle/validation-sheets/nestle-milk-ice-cream-brand-h1-fy23.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 334380,
+        "losslessBytes": 334380,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "nestle-nutrition-health-science-brand-h1-fy23",
+      "output": "data/assets/icon-references/nestle/crops/nutrition-health-science-brand-h1-fy23.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 1338,
+        "losslessBytes": 5734,
+        "savingsVsLossless": 0.7667,
+        "metrics": {
+          "meanAbsoluteError": 0.449,
+          "rootMeanSquareError": 1.7438,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 37,
+          "changedPixelRatio": 0.1977
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 9066,
+        "transparentPixelRatio": 0.8095
+      },
+      "searchBox": {
+        "x": 0,
+        "y": 810,
+        "width": 160,
+        "height": 70
+      },
+      "componentCount": 5,
+      "subjectBox": {
+        "x0": 11,
+        "y0": 830,
+        "x1": 150,
+        "y1": 850
+      },
+      "cropBox": {
+        "x0": 0,
+        "y0": 810,
+        "x1": 160,
+        "y1": 880
+      },
+      "validation": {
+        "width": 160,
+        "height": 70,
+        "foregroundPixels": 1886,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 11,
+          "right": 10,
+          "top": 20,
+          "bottom": 30
+        },
+        "centerOffset": {
+          "x": 0.0031,
+          "y": -0.0714
+        },
+        "passes": true
+      },
+      "note": "Nestl\u00e9 Health Science wordmark for Nutrition & Health Science; the right edge stops before the adjacent category label.",
+      "runtimeOutput": "data/assets/raster-annotations/nestle/nutrition-health-science-brand-h1-fy23.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 1338,
+        "losslessBytes": 5734,
+        "savingsVsLossless": 0.7667,
+        "metrics": {
+          "meanAbsoluteError": 0.449,
+          "rootMeanSquareError": 1.7438,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 37,
+          "changedPixelRatio": 0.1977
+        }
+      },
+      "validationSheet": "data/assets/icon-references/nestle/validation-sheets/nestle-nutrition-health-science-brand-h1-fy23.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 312023,
+        "losslessBytes": 312023,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "nestle-prepared-dishes-brand-h1-fy23",
+      "output": "data/assets/icon-references/nestle/crops/prepared-dishes-brand-h1-fy23.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2384,
+        "losslessBytes": 10044,
+        "savingsVsLossless": 0.7626,
+        "metrics": {
+          "meanAbsoluteError": 0.8395,
+          "rootMeanSquareError": 2.3963,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 46,
+          "changedPixelRatio": 0.6056
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 4916,
+        "transparentPixelRatio": 0.4036
+      },
+      "searchBox": {
+        "x": 10,
+        "y": 1033,
+        "width": 145,
+        "height": 84
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 17,
+        "y0": 1033,
+        "x1": 151,
+        "y1": 1112
+      },
+      "cropBox": {
+        "x0": 10,
+        "y0": 1033,
+        "x1": 155,
+        "y1": 1117
+      },
+      "validation": {
+        "width": 145,
+        "height": 84,
+        "foregroundPixels": 7172,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 4,
+          "top": 0,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0103,
+          "y": -0.0298
+        },
+        "passes": true
+      },
+      "note": "Maggi brand mark for Prepared dishes & Cooking aid; starts below the adjacent label isolation row.",
+      "runtimeOutput": "data/assets/raster-annotations/nestle/prepared-dishes-brand-h1-fy23.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2384,
+        "losslessBytes": 10044,
+        "savingsVsLossless": 0.7626,
+        "metrics": {
+          "meanAbsoluteError": 0.8395,
+          "rootMeanSquareError": 2.3963,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 46,
+          "changedPixelRatio": 0.6056
+        }
+      },
+      "validationSheet": "data/assets/icon-references/nestle/validation-sheets/nestle-prepared-dishes-brand-h1-fy23.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 116120,
+        "losslessBytes": 347044,
+        "savingsVsLossless": 0.6654,
+        "metrics": {
+          "meanAbsoluteError": 0.464,
+          "rootMeanSquareError": 2.3632,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 65,
+          "changedPixelRatio": 0.1169
+        }
+      }
+    },
+    {
+      "key": "nestle-confectionery-brand-h1-fy23",
+      "output": "data/assets/icon-references/nestle/crops/confectionery-brand-h1-fy23.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2307,
+        "losslessBytes": 9474,
+        "savingsVsLossless": 0.7565,
+        "metrics": {
+          "meanAbsoluteError": 0.8242,
+          "rootMeanSquareError": 2.4195,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.3029
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 8514,
+        "transparentPixelRatio": 0.7007
+      },
+      "searchBox": {
+        "x": 20,
+        "y": 1135,
+        "width": 135,
+        "height": 90
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 43,
+        "y0": 1156,
+        "x1": 126,
+        "y1": 1211
+      },
+      "cropBox": {
+        "x0": 20,
+        "y0": 1135,
+        "x1": 155,
+        "y1": 1225
+      },
+      "validation": {
+        "width": 135,
+        "height": 90,
+        "foregroundPixels": 2751,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 23,
+          "right": 29,
+          "top": 21,
+          "bottom": 14
+        },
+        "centerOffset": {
+          "x": -0.0222,
+          "y": 0.0389
+        },
+        "passes": true
+      },
+      "note": "KitKat brand mark for Confectionery.",
+      "runtimeOutput": "data/assets/raster-annotations/nestle/confectionery-brand-h1-fy23.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2307,
+        "losslessBytes": 9474,
+        "savingsVsLossless": 0.7565,
+        "metrics": {
+          "meanAbsoluteError": 0.8242,
+          "rootMeanSquareError": 2.4195,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.3029
+        }
+      },
+      "validationSheet": "data/assets/icon-references/nestle/validation-sheets/nestle-confectionery-brand-h1-fy23.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 344145,
+        "losslessBytes": 344145,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "nestle-petcare-brand-h1-fy23",
+      "output": "data/assets/icon-references/nestle/crops/petcare-brand-h1-fy23.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 962,
+        "losslessBytes": 3729,
+        "savingsVsLossless": 0.742,
+        "metrics": {
+          "meanAbsoluteError": 0.5638,
+          "rootMeanSquareError": 1.9502,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 47,
+          "changedPixelRatio": 0.2048
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 7814,
+        "transparentPixelRatio": 0.6679
+      },
+      "searchBox": {
+        "x": 5,
+        "y": 1320,
+        "width": 180,
+        "height": 65
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 12,
+        "y0": 1334,
+        "x1": 156,
+        "y1": 1361
+      },
+      "cropBox": {
+        "x0": 5,
+        "y0": 1320,
+        "x1": 185,
+        "y1": 1385
+      },
+      "validation": {
+        "width": 180,
+        "height": 65,
+        "foregroundPixels": 3438,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 29,
+          "top": 14,
+          "bottom": 24
+        },
+        "centerOffset": {
+          "x": -0.0611,
+          "y": -0.0769
+        },
+        "passes": true
+      },
+      "note": "Purina brand mark for PetCare.",
+      "runtimeOutput": "data/assets/raster-annotations/nestle/petcare-brand-h1-fy23.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 962,
+        "losslessBytes": 3729,
+        "savingsVsLossless": 0.742,
+        "metrics": {
+          "meanAbsoluteError": 0.5638,
+          "rootMeanSquareError": 1.9502,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 47,
+          "changedPixelRatio": 0.2048
+        }
+      },
+      "validationSheet": "data/assets/icon-references/nestle/validation-sheets/nestle-petcare-brand-h1-fy23.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 101671,
+        "losslessBytes": 297341,
+        "savingsVsLossless": 0.6581,
+        "metrics": {
+          "meanAbsoluteError": 0.3205,
+          "rootMeanSquareError": 1.9073,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 68,
+          "changedPixelRatio": 0.092
+        }
+      }
+    }
+  ]
+}
