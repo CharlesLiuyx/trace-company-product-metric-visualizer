@@ -10,6 +10,91 @@
 
   ssot.records.push(
     {
+      key: 'nvidia-q2-fy27',
+      company: 'NVIDIA',
+      period: 'Q2 FY27',
+      periodNote: 'Ending July 2026',
+      currency: '$',
+      unit: 'B',
+      decimals: 1,
+      sourceImage: 'input/processed/nvidia-q2-fy27.png',
+      roundingTolerance: 0.15,
+      revenue: {
+        total: 96.2,
+        notes: ['+106% Y/Y'],
+        items: [
+          {
+            id: 'data_center',
+            label: 'Data Center',
+            value: 89.0,
+            notes: ['+117% Y/Y'],
+            children: [
+              { id: 'hyperscale', label: 'Hyperscale', value: 48.7, notes: ['+102% Y/Y'] },
+              { id: 'ai_clouds', label: 'AI Clouds, Industrial, & Enterprise', value: 40.3, notes: ['+138% Y/Y'] },
+            ],
+          },
+          { id: 'edge', label: 'Edge Computing', value: 7.2, notes: ['+27% Y/Y'] },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 24.1 },
+        operatingExpenses: {
+          total: 8.4,
+          items: [
+            { id: 'rnd', label: 'Research & Development', value: 7.1, notes: ['7% of revenue', '(2pp) Y/Y'] },
+            { id: 'sga', label: 'Sales, General & Admin', value: 1.4, notes: ['1% of revenue', '(1pp) Y/Y'] },
+          ],
+        },
+        tax: { id: 'tax', label: 'Tax', value: 11.8 },
+      },
+      otherIncome: {
+        total: 7.8,
+        items: [{ id: 'investments', label: 'Investments', value: 7.8 }],
+      },
+      profit: {
+        gross: { id: 'gross_profit', label: 'Gross profit', value: 72.1, notes: ['75% margin', '+3pp Y/Y'] },
+        operating: { id: 'operating_profit', label: 'Operating profit', value: 63.7, notes: ['66% margin', '+5pp Y/Y'] },
+        net: { id: 'net_profit', label: 'Net profit', value: 59.7, notes: ['62% margin', '+6pp Y/Y'] },
+      },
+      i18n: {
+        zh: {
+          period: '2027 财年第二季度',
+          periodNote: '截至 2026 年 7 月',
+          revenue: {
+            notes: ['同比 +106%'],
+            items: [
+              {
+                id: 'data_center', label: '数据中心', notes: ['同比 +117%'],
+                children: [
+                  { id: 'hyperscale', label: '超大规模', notes: ['同比 +102%'] },
+                  { id: 'ai_clouds', label: 'AI 云、工业与企业', notes: ['同比 +138%'] },
+                ],
+              },
+              { id: 'edge', label: '边缘计算', notes: ['同比 +27%'] },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                { id: 'rnd', label: '研发', notes: ['占收入 7%', '同比 (2 个百分点)'] },
+                { id: 'sga', label: '销售、一般及行政', notes: ['占收入 1%', '同比 (1 个百分点)'] },
+              ],
+            },
+            tax: { label: '税费' },
+          },
+          otherIncome: {
+            items: [{ id: 'investments', label: '投资收益' }],
+          },
+          profit: {
+            gross: { label: '毛利润', notes: ['利润率 75%', '同比 +3 个百分点'] },
+            operating: { label: '营业利润', notes: ['利润率 66%', '同比 +5 个百分点'] },
+            net: { label: '净利润', notes: ['利润率 62%', '同比 +6 个百分点'] },
+          },
+        },
+      },
+    },
+    {
       key: 'nvidia-q1-fy27',
       company: 'NVIDIA',
       period: 'Q1 FY27',
