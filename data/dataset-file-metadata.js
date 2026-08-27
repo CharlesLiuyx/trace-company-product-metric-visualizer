@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-08-12T16:32:40.000Z",
+  "generatedAt": "2026-08-27T16:29:23.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -6065,6 +6065,12 @@
       "path": "data/datasets/pepsico-q3-fy24.js",
       "updatedAtMs": 1786552360000,
       "updatedAt": "2026-08-12T16:32:40.000Z",
+      "timeSource": "git"
+    },
+    "nvidia-q2-fy27": {
+      "path": "data/datasets/nvidia-q2-fy27.js",
+      "updatedAtMs": 1787848163000,
+      "updatedAt": "2026-08-27T16:29:23.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {

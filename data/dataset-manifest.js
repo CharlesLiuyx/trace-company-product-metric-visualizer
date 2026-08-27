@@ -22577,6 +22577,29 @@
             }
           }
         }
+      },
+      {
+        "key": "nvidia-q2-fy27",
+        "src": "data/datasets/nvidia-q2-fy27.js",
+        "data": {
+          "name": "NVIDIA · Q2 FY27",
+          "company": "NVIDIA",
+          "meta": {
+            "title": "NVIDIA Q2 FY27 Income Statement",
+            "period": "Q2 FY27",
+            "periodNote": "Ending July 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "NVIDIA · 2027 财年第二季度",
+              "meta": {
+                "title": "NVIDIA 2027 财年第二季度利润表",
+                "period": "2027 财年第二季度",
+                "periodNote": "截至 2026 年 7 月"
+              }
+            }
+          }
+        }
       }
     ]
   };
