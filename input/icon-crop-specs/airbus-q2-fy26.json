@@ -1,0 +1,26 @@
+{
+  "source": "input/processed/airbus-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/airbus",
+  "runtimeOutputDir": "data/assets/raster-annotations/airbus",
+  "validationSheetDir": "data/assets/icon-references/airbus/validation-sheets",
+  "report": "crop-report-q2-fy26.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "crops": [
+    {
+      "key": "airbus-a380-q2-fy26-tile",
+      "output": "crops/commercial-aircraft-a380-q2-fy26.png",
+      "searchBox": { "x": 8, "y": 389, "width": 394, "height": 136 },
+      "cropBox": { "x": 6, "y": 384, "width": 402, "height": 145 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "backgroundRemoval": { "enabled": false },
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Q2 FY26 commercial-aircraft photo. The subject matches the reusable Airbus A380 image, but this Source places the Airbus segment label higher than Q1; the dataset-specific crop stops at y=529 so the opaque background-matched patch cannot cover the label beginning near y=538. The crop excludes all financial text, the segment node, the AIRBUS wordmark, and publisher marks."
+    }
+  ]
+}

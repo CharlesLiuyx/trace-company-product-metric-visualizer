@@ -1,0 +1,50 @@
+{
+  "source": "input/processed/intuitive-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/intuitive",
+  "runtimeOutputDir": "data/assets/raster-annotations/intuitive",
+  "validationSheetDir": "data/assets/icon-references/intuitive/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": { "enabled": true, "mode": "edge-connected", "tolerance": 8 },
+  "crops": [
+    {
+      "key": "intuitive-company-wordmark",
+      "output": "crops/intuitive-company-wordmark.png",
+      "runtimeOutput": "intuitive-company-wordmark.png",
+      "searchBox": { "x": 670, "y": 275, "width": 550, "height": 175 },
+      "cropBox": { "x": 670, "y": 275, "width": 550, "height": 175 },
+      "backgroundRemoval": { "color": [242, 242, 242], "tolerance": 8 },
+      "threshold": 18,
+      "minComponentArea": 16,
+      "padding": 6,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Intuitive corporate wordmark above the Revenue hub; excludes the report title and Revenue label. The exact letterforms are retained as a validated runtime crop."
+    },
+    {
+      "key": "intuitive-instruments-accessories-cluster",
+      "output": "crops/intuitive-instruments-accessories-cluster.png",
+      "runtimeOutput": "intuitive-instruments-accessories-cluster.png",
+      "searchBox": { "x": 0, "y": 535, "width": 150, "height": 145 },
+      "cropBox": { "x": 0, "y": 535, "width": 150, "height": 145 },
+      "backgroundRemoval": { "color": [242, 242, 242], "tolerance": 8 },
+      "threshold": 18,
+      "minComponentArea": 16,
+      "padding": 6,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Photographic instruments-and-accessories cluster; excludes its label, value, and flow ribbon."
+    },
+    {
+      "key": "intuitive-systems-cluster",
+      "output": "crops/intuitive-systems-cluster.png",
+      "runtimeOutput": "intuitive-systems-cluster.png",
+      "searchBox": { "x": 0, "y": 820, "width": 230, "height": 250 },
+      "cropBox": { "x": 0, "y": 820, "width": 230, "height": 250 },
+      "backgroundRemoval": { "color": [242, 242, 242], "tolerance": 8 },
+      "threshold": 18,
+      "minComponentArea": 16,
+      "padding": 6,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Photographic surgical-system cluster; excludes its label, value, and flow ribbon."
+    }
+  ]
+}

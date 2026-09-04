@@ -1,0 +1,56 @@
+{
+  "source": "input/processed/broadcom-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/broadcom",
+  "validationSheetDir": "data/assets/icon-references/broadcom/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "crops": [
+    {
+      "key": "broadcom-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": { "x": 794, "y": 339, "width": 189, "height": 190 },
+      "cropBox": { "x": 784, "y": 329, "width": 210, "height": 210 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Broadcom circular signal-wave logo above the revenue hub; excludes the Revenue label, values, flows, and publisher marks."
+    },
+    {
+      "key": "broadcom-business-semiconductor-solutions",
+      "output": "crops/business-semiconductor-solutions.png",
+      "searchBox": { "x": 130, "y": 463, "width": 142, "height": 142 },
+      "cropBox": { "x": 120, "y": 453, "width": 162, "height": 162 },
+      "threshold": 18,
+      "minComponentArea": 12,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.14,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Semiconductor solutions crimson chip / circuit icon only; excludes the Semiconductor solutions label, values, notes, and flow marks."
+    },
+    {
+      "key": "broadcom-business-infrastructure-software",
+      "output": "crops/business-infrastructure-software.png",
+      "searchBox": { "x": 138, "y": 930, "width": 158, "height": 122 },
+      "cropBox": { "x": 128, "y": 920, "width": 178, "height": 142 },
+      "threshold": 18,
+      "minComponentArea": 12,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.14,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Infrastructure software blue cloud + code-brackets icon only; excludes the Infrastructure software label, values, notes, and flow marks."
+    }
+  ]
+}

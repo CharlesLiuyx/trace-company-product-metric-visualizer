@@ -705,7 +705,7 @@ function pendingReviewInput(prepared, evidenceManifest, verificationReference) {
   };
 }
 
-async function prepare(t) {
+async function prepare(t, policy = {}) {
   const base = await fixture(t);
   const authoredInventory = inventory(base.build.key, base.sourceDigest);
   const prepared = await prepareBuildReview({
@@ -718,6 +718,7 @@ async function prepare(t) {
     ],
     changeImpact: ['new-dataset', 'geometry'],
     requiredLocales: ['en'],
+    ...policy,
   }, { buildRoot: base.buildRoot, projectRoot: base.root, now });
   return { ...base, prepared };
 }
@@ -1717,4 +1718,31 @@ test('baseline staging refuses a closure whose authored bytes are already stale'
     (error) => error.code === 'BUILD_INPUT_STALE'
   );
   assert.equal((await readDatasetBuild(prepared.build.buildId, { buildRoot })).state, 'CLOSED');
+});
+
+test('versioned Sankey checkpoints require ordered, evidence-bound freezes before human closure', async (t) => {
+  const { recordCheckpoint } = await import('../scripts/lib/workflow-checkpoints.mjs');
+  const { readFile } = await import('node:fs/promises');
+  const { root, buildRoot, prepared } = await prepare(t, {
+    checkpointProtocol: 'fidelity-checkpoints/v1',
+    dependencyScopes: { structure: digest('structure'), text: digest('text'), 'polish-l10n': digest('polish') },
+  });
+  const plan = prepared.build.receipts.at(-1).payload.verificationPlan;
+  const original = await writeEvidence(root, prepared);
+  const manifest = JSON.parse(await readFile(path.join(root, original), 'utf8'));
+  const verificationReference = await writeDatasetVerification(root, buildRoot, prepared);
+  const review = { ...pendingReviewInput(prepared, original, verificationReference), attestation: { reviewer: 'synthetic-reviewer', decision: 'accepted' } };
+  await assert.rejects(finishReviewedBuild(review, { buildRoot, projectRoot: root, now }), /not frozen/);
+  const checkpoints = [];
+  for (const stage of ['structure', 'text', 'polish-l10n']) {
+    const locator = `output/${stage}-fidelity-run.json`;
+    await writeFile(path.join(root, locator), JSON.stringify({ ...manifest, archive: { focus: `${stage}-sweep` } }));
+    if (stage === 'structure') await assert.rejects(recordCheckpoint(prepared.build, plan, { stage: 'text', status: 'frozen', reviewer: 'fixture', note: 'Not ordered', evidenceManifests: [locator] }, { buildRoot, projectRoot: root }), /Freeze structure/);
+    checkpoints.push(await recordCheckpoint(prepared.build, plan, { stage, status: 'frozen', reviewer: 'fixture', note: 'Synthetic stage inspected', prior: checkpoints, evidenceManifests: [locator] }, { buildRoot, projectRoot: root }));
+  }
+  await recordCheckpoint(prepared.build, plan, { stage: 'structure', status: 'reopened', reviewer: 'fixture', note: 'A new visual concern must invalidate the old freeze' }, { buildRoot, projectRoot: root });
+  await assert.rejects(finishReviewedBuild({ ...review, checkpoints }, { buildRoot, projectRoot: root, now }), /not frozen/);
+  checkpoints.push(await recordCheckpoint(prepared.build, plan, { stage: 'structure', status: 'frozen', reviewer: 'fixture', note: 'Concern rechecked', evidenceManifests: ['output/structure-fidelity-run.json'] }, { buildRoot, projectRoot: root }));
+  const closed = await finishReviewedBuild({ ...review, checkpoints }, { buildRoot, projectRoot: root, now });
+  assert.equal(closed.build.state, 'CLOSED');
 });

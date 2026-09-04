@@ -1,0 +1,85 @@
+{
+  "source": "input/processed/hermes-fy25.png",
+  "outputDir": "data/assets/icon-references/hermes",
+  "runtimeOutputDir": "data/assets/raster-annotations/hermes",
+  "validationSheetDir": "data/assets/icon-references/hermes/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding badge and miniature Sankey logo are attribution, not Hermès income-statement semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "Source publisher URL and footer wordmark are attribution, not Hermès income-statement semantics."
+    }
+  ],
+  "crops": [
+    {
+      "key": "hermes-brandmark",
+      "output": "crops/hermes-brandmark.png",
+      "searchBox": {"x": 720, "y": 220, "width": 510, "height": 250},
+      "cropBox": {"x": 710, "y": 210, "width": 530, "height": 270},
+      "threshold": 18,
+      "minComponentArea": 40,
+      "validation": {"borderBand": 0, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0},
+      "note": "Hermès carriage-and-wordmark cluster above the revenue hub; excludes the chart title, revenue label, and ribbons."
+    },
+    {
+      "key": "leather-goods-saddlery",
+      "output": "crops/leather-goods-saddlery.png",
+      "searchBox": {"x": 15, "y": 370, "width": 110, "height": 130},
+      "cropBox": {"x": 8, "y": 360, "width": 125, "height": 150},
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": {"borderBand": 0, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0},
+      "note": "Handbag product image for the Leather Goods & Saddlery revenue line; excludes labels and source bar."
+    },
+    {
+      "key": "ready-to-wear-accessories",
+      "output": "crops/ready-to-wear-accessories.png",
+      "searchBox": {"x": 12, "y": 600, "width": 125, "height": 115},
+      "cropBox": {"x": 4, "y": 590, "width": 140, "height": 135},
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": {"borderBand": 0, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0},
+      "note": "Belt product image for the Ready-to-wear & Accessories revenue line; excludes labels and source bar."
+    },
+    {
+      "key": "silk-textiles",
+      "output": "crops/silk-textiles.png",
+      "searchBox": {"x": 10, "y": 740, "width": 130, "height": 175},
+      "cropBox": {"x": 2, "y": 728, "width": 145, "height": 200},
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": {"borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0},
+      "note": "Silk scarf product image for the Silk & Textiles revenue line; excludes labels and source bar."
+    },
+    {
+      "key": "perfume-beauty",
+      "output": "crops/perfume-beauty.png",
+      "searchBox": {"x": 34, "y": 1025, "width": 84, "height": 145},
+      "cropBox": {"x": 24, "y": 1015, "width": 110, "height": 160},
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": {"borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0},
+      "note": "Perfume bottle image for the Perfume & Beauty revenue line; excludes labels and source bar."
+    },
+    {
+      "key": "watches",
+      "output": "crops/watches.png",
+      "searchBox": {"x": 30, "y": 1170, "width": 92, "height": 110},
+      "cropBox": {"x": 22, "y": 1158, "width": 110, "height": 135},
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": {"borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0},
+      "note": "Watch product image for the Watches revenue line; excludes labels and source bar."
+    }
+  ]
+}

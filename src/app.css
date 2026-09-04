@@ -1520,3 +1520,16 @@ button.period-year-name:focus-visible {
     gap: 4px;
   }
 }
+
+/* General metric observations use exact values and expandable provenance. */
+.metric-library { width: min(1200px, 94vw); max-height: 90vh; box-sizing: border-box; padding: 20px; color: var(--text); background: var(--bg); border: 1px solid var(--line); border-radius: 0; }
+.metric-library::backdrop { background: #0008; }
+.metric-library-tools { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; justify-content: space-between; }
+.metric-library-tools h2 { font-size: 20px; }
+.metric-library input { padding: 8px; max-width: 100%; box-sizing: border-box; }
+.metric-library-table { overflow: auto; max-height: 60vh; margin-top: 12px; }
+.metric-library table { width: 100%; border-collapse: separate; border-spacing: 0; }
+.metric-library th, .metric-library td { padding: 9px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.metric-library th { position: sticky; top: 0; background: var(--bg); }
+.metric-library td { min-width: 72px; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+.metric-library details p { white-space: pre-wrap; max-width: 320px; }

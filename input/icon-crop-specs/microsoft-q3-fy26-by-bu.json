@@ -1,0 +1,115 @@
+{
+  "source": "input/processed/microsoft-q3-fy26-by-bu.png",
+  "outputDir": "data/assets/icon-references/microsoft",
+  "validationSheetDir": "data/assets/icon-references/microsoft/validation-sheets",
+  "report": "crop-report.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "microsoft-bybu-company-logo",
+      "output": "crops/bybu-company-logo.png",
+      "searchBox": {
+        "x": 870,
+        "y": 250,
+        "width": 225,
+        "height": 215
+      },
+      "cropBox": {
+        "x": 864,
+        "y": 244,
+        "width": 235,
+        "height": 227
+      },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.04,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Microsoft four-pane company logo above the Revenue hub; excludes labels, flows, and publisher marks."
+    },
+    {
+      "key": "microsoft-bybu-productivity-business-processes",
+      "output": "crops/bybu-productivity-business-processes.png",
+      "searchBox": {
+        "x": 68,
+        "y": 330,
+        "width": 360,
+        "height": 118
+      },
+      "cropBox": {
+        "x": 60,
+        "y": 326,
+        "width": 378,
+        "height": 128
+      },
+      "threshold": 18,
+      "minComponentArea": 30,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.05,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Microsoft 365 and LinkedIn product marks shown for Productivity & Business Processes; excludes the segment label, value, flows, and publisher marks."
+    },
+    {
+      "key": "microsoft-bybu-intelligent-cloud",
+      "output": "crops/bybu-intelligent-cloud.png",
+      "searchBox": {
+        "x": 230,
+        "y": 690,
+        "width": 180,
+        "height": 165
+      },
+      "cropBox": {
+        "x": 225,
+        "y": 685,
+        "width": 190,
+        "height": 175
+      },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.05,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Azure logo shown for Intelligent Cloud; excludes the segment label, value, flows, and publisher marks."
+    },
+    {
+      "key": "microsoft-bybu-more-personal-computing",
+      "output": "crops/bybu-more-personal-computing.png",
+      "searchBox": {
+        "x": 175,
+        "y": 1040,
+        "width": 260,
+        "height": 125
+      },
+      "cropBox": {
+        "x": 170,
+        "y": 1036,
+        "width": 276,
+        "height": 136
+      },
+      "threshold": 18,
+      "minComponentArea": 30,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.06,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Windows and Xbox product marks shown for More Personal Computing; excludes the segment label, value, flows, and publisher marks."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "source": "input/processed/workday-q1-fy27.png",
+  "outputDir": "data/assets/icon-references/workday",
+  "validationSheetDir": "data/assets/icon-references/workday/validation-sheets",
+  "report": "crop-report.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "workday-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": {
+        "x": 535,
+        "y": 232,
+        "width": 665,
+        "height": 280
+      },
+      "cropBox": {
+        "x": 535,
+        "y": 232,
+        "width": 665,
+        "height": 280
+      },
+      "excludeBoxes": [
+        {
+          "x": 748,
+          "y": 470,
+          "width": 255,
+          "height": 55
+        }
+      ],
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.14,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Workday company wordmark and orange arch above the revenue hub; excludes chart labels, flows, publisher marks, website URL, social badges, and the bottom attribution block."
+    }
+  ]
+}

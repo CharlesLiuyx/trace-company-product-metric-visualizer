@@ -1,0 +1,64 @@
+{
+  "source": "input/processed/roblox-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/roblox",
+  "validationSheetDir": "data/assets/icon-references/roblox/validation-sheets",
+  "report": "crop-report.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "roblox-company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "searchBox": {
+        "x": 665,
+        "y": 305,
+        "width": 475,
+        "height": 95
+      },
+      "cropBox": {
+        "x": 665,
+        "y": 305,
+        "width": 475,
+        "height": 95
+      },
+      "threshold": 18,
+      "foreground": {
+        "channels": {
+          "r": [0, 60],
+          "g": [0, 60],
+          "b": [0, 60]
+        }
+      },
+      "minComponentArea": 45,
+      "validation": {
+        "borderBand": 4,
+        "maxCenterOffset": 0.08,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Roblox company wordmark only; excludes the chart title, revenue labels, flows, KPI cards, and publisher marks."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "roblox-avatar-illustration-cluster",
+      "reason": "Decorative platform/avatar artwork, not an independent business or segment icon. It overlaps source chart flow bands, so it is accounted for but not extracted as a validated reusable icon crop."
+    },
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding and not part of Roblox's income-statement semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "Source publisher branding, website URL, and social badge are intentionally excluded."
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "source": "input/processed/nike-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/nike",
+  "runtimeOutputDir": "data/assets/raster-annotations/nike",
+  "validationSheetDir": "data/assets/icon-references/nike/validation-sheets",
+  "report": "crop-report-q2-fy26.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "scopeNote": "User-directed cleanup is intentionally limited to the Converse crop; the other four validated Nike raster annotations remain unchanged.",
+  "crops": [
+    {
+      "key": "nike-business-converse-q2-fy26",
+      "output": "crops/business-converse-q2-fy26.png",
+      "runtimeOutput": "business-converse-q2-fy26.png",
+      "searchBox": { "x": 125, "y": 1159, "width": 205, "height": 132 },
+      "cropBox": { "x": 125, "y": 1159, "width": 205, "height": 132 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [
+          {
+            "id": "top-neighbor-separator",
+            "x": 125,
+            "y": 1159,
+            "width": 205,
+            "height": 1,
+            "maxForegroundPixels": 0
+          },
+          {
+            "id": "right-neighbor-separator",
+            "x": 330,
+            "y": 1159,
+            "width": 1,
+            "height": 132,
+            "maxForegroundPixels": 0
+          }
+        ]
+      },
+      "note": "Converse high-top sneaker from Nike Q2 FY26; the crop begins four pixels below and ends ten pixels left of the prior shared crop to exclude Source-adjacent text fragments while preserving the complete shoe."
+    }
+  ]
+}

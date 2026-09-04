@@ -1,0 +1,92 @@
+{
+  "source": "input/processed/sanofi-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/sanofi",
+  "runtimeOutputDir": "data/assets/raster-annotations/sanofi",
+  "validationSheetDir": "data/assets/icon-references/sanofi/validation-sheets",
+  "report": "sanofi-q1-fy26-crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [242, 242, 242]
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "The bottom-left How They Make Money badge and mini-Sankey are publisher attribution, not Sanofi financial semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "The footer URL, social badge, and App Economy Insights wordmark are publisher attribution, not Sanofi financial semantics."
+    }
+  ],
+  "crops": [
+    {
+      "key": "sanofi-q1-company-wordmark",
+      "output": "crops/sanofi-q1-company-wordmark.png",
+      "runtimeOutput": "sanofi-q1-company-wordmark.png",
+      "searchBox": { "x": 610, "y": 230, "width": 635, "height": 165 },
+      "cropBox": { "x": 600, "y": 225, "width": 655, "height": 180 },
+      "threshold": 8,
+      "minComponentArea": 24,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.16, "maxForbiddenForegroundPixels": 0 },
+      "note": "Sanofi company wordmark above the Biopharma flow; excludes the title and financial labels."
+    },
+    {
+      "key": "sanofi-q1-dupixent",
+      "output": "crops/sanofi-q1-dupixent.png",
+      "runtimeOutput": "sanofi-q1-dupixent.png",
+      "searchBox": { "x": 165, "y": 390, "width": 210, "height": 70 },
+      "cropBox": { "x": 155, "y": 380, "width": 230, "height": 90 },
+      "threshold": 8,
+      "minComponentArea": 12,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.24, "maxForbiddenForegroundPixels": 0 },
+      "note": "Dupixent product-wordmark cluster for Immunology; excludes the Immunology label and source bar."
+    },
+    {
+      "key": "sanofi-q1-fabrazyme",
+      "output": "crops/sanofi-q1-fabrazyme.png",
+      "runtimeOutput": "sanofi-q1-fabrazyme.png",
+      "searchBox": { "x": 170, "y": 560, "width": 205, "height": 105 },
+      "cropBox": { "x": 155, "y": 545, "width": 235, "height": 130 },
+      "threshold": 8,
+      "minComponentArea": 12,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.24, "maxForbiddenForegroundPixels": 0 },
+      "note": "Fabrazyme product-wordmark cluster for Rare diseases; excludes the value, category label, and source bar."
+    },
+    {
+      "key": "sanofi-q1-sarclisa",
+      "output": "crops/sanofi-q1-sarclisa.png",
+      "runtimeOutput": "sanofi-q1-sarclisa.png",
+      "searchBox": { "x": 180, "y": 790, "width": 180, "height": 70 },
+      "cropBox": { "x": 165, "y": 780, "width": 210, "height": 85 },
+      "threshold": 8,
+      "minComponentArea": 12,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.24, "maxForbiddenForegroundPixels": 0 },
+      "note": "Sarclisa product-wordmark cluster for Oncology; excludes the Oncology label and source bar."
+    },
+    {
+      "key": "sanofi-q1-toujeo",
+      "output": "crops/sanofi-q1-toujeo.png",
+      "runtimeOutput": "sanofi-q1-toujeo.png",
+      "searchBox": { "x": 185, "y": 945, "width": 180, "height": 90 },
+      "cropBox": { "x": 170, "y": 935, "width": 205, "height": 110 },
+      "threshold": 8,
+      "minComponentArea": 12,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.24, "maxForbiddenForegroundPixels": 0 },
+      "note": "Toujeo product-wordmark cluster for Other biopharma revenue; excludes the Other label and source bar."
+    },
+    {
+      "key": "sanofi-q1-vaccine-products",
+      "output": "crops/sanofi-q1-vaccine-products.png",
+      "runtimeOutput": "sanofi-q1-vaccine-products.png",
+      "searchBox": { "x": 145, "y": 1110, "width": 250, "height": 140 },
+      "cropBox": { "x": 135, "y": 1105, "width": 270, "height": 155 },
+      "threshold": 8,
+      "minComponentArea": 12,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.24, "maxForbiddenForegroundPixels": 0 },
+      "note": "Lantus and vaccine product-name cluster for Vaccines; excludes the Vaccines label and source bar."
+    }
+  ]
+}

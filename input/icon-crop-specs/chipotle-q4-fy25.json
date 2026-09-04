@@ -1,0 +1,57 @@
+{
+  "source": "input/processed/chipotle-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/chipotle",
+  "validationSheetDir": "data/assets/icon-references/chipotle/validation-sheets",
+  "runtimeOutputDir": "data/assets/raster-annotations/chipotle",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "chipotle-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": { "x": 1207, "y": 230, "width": 277, "height": 277 },
+      "cropBox": { "x": 1198, "y": 220, "width": 295, "height": 295 },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.08,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Chipotle Mexican Grill company logo above the revenue hub; excludes the revenue text and surrounding flows."
+    },
+    {
+      "key": "chipotle-business-in-restaurant",
+      "output": "crops/business-in-restaurant.png",
+      "searchBox": { "x": 66, "y": 442, "width": 285, "height": 99 },
+      "cropBox": { "x": 56, "y": 430, "width": 305, "height": 121 },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Chipotle restaurant exterior for the In-restaurant revenue line; excludes the value, label, flow, and attribution marks."
+    },
+    {
+      "key": "chipotle-business-digital-sales",
+      "output": "crops/business-digital-sales.png",
+      "searchBox": { "x": 130, "y": 654, "width": 171, "height": 200 },
+      "cropBox": { "x": 118, "y": 642, "width": 195, "height": 222 },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.16,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Phone and Chipotle app cluster for the Digital sales revenue line; excludes the value, label, and surrounding flow."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "source": "input/processed/procore-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/procore/crops",
+  "validationSheetDir": "data/assets/icon-references/procore/validation-sheets",
+  "report": "../crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "procore-company-wordmark",
+      "output": "company-wordmark.png",
+      "searchBox": { "x": 530, "y": 260, "width": 670, "height": 120 },
+      "cropBox": { "x": 530, "y": 260, "width": 670, "height": 120 },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "padding": 12,
+      "validation": {
+        "borderBand": 3,
+        "maxCenterOffset": 0.08,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Procore wordmark in the top-center identity area. It excludes the Revenue label, chart ribbons, KPI cards, How They Make Money mark, App Economy Insights URL, watermark, and publisher attribution. The crop is validation-only; the adapter uses a pure-SVG wordmark reconstruction."
+    }
+  ]
+}

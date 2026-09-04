@@ -186,6 +186,14 @@ InputFile {
 
 ## 7. 当前仓库映射
 
+通用指标已增加 `metric-observation` 类型：图片或文字中的公司/产品指标进入
+`data/metric-observations/<source-key>.json`，由 `metric-observations.js` 提供只读展示。
+指标保留精确数值、单位、口径、原文位置；指标资产入口提供搜索、来源核对和导出。
+它保留 Source 声明的主体，不推断完整产品隶属历史，`data/products.js` 仍是占位。
+字段规范由 [data/schema.md](../data/schema.md) 拥有；操作由
+[asset-workflow.md](asset-workflow.md) 拥有。利润表和收入序列继续使用各自 SSOT。
+
+
 | Trace 概念 | 当前实现 |
 | --- | --- |
 | Company | `data/company-metadata/<company-key>.js` |

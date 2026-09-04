@@ -1,0 +1,65 @@
+{
+  "source": "input/processed/darden-q4-fy26.png",
+  "outputDir": "data/assets/icon-references/darden",
+  "validationSheetDir": "data/assets/icon-references/darden/validation-sheets",
+  "runtimeOutputDir": "data/assets/raster-annotations/darden",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "darden-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": { "x": 578, "y": 258, "width": 700, "height": 174 },
+      "cropBox": { "x": 560, "y": 250, "width": 736, "height": 190 },
+      "threshold": 18,
+      "minComponentArea": 50,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Darden corporate wordmark above the revenue hub; excludes the title, revenue label, and ribbons."
+    },
+    {
+      "key": "darden-olive-garden-logo",
+      "output": "crops/olive-garden-logo.png",
+      "searchBox": { "x": 35, "y": 392, "width": 300, "height": 215 },
+      "cropBox": { "x": 20, "y": 375, "width": 330, "height": 240 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.16, "maxForbiddenForegroundPixels": 0 },
+      "note": "Olive Garden segment wordmark; excludes the segment-margin text, value, and flow ribbon."
+    },
+    {
+      "key": "darden-longhorn-logo",
+      "output": "crops/longhorn-logo.png",
+      "searchBox": { "x": 0, "y": 662, "width": 365, "height": 140 },
+      "cropBox": { "x": 0, "y": 650, "width": 380, "height": 158 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.16, "maxForbiddenForegroundPixels": 0 },
+      "note": "LongHorn Steakhouse segment wordmark; excludes the segment-margin text, value, and flow ribbon."
+    },
+    {
+      "key": "darden-fine-dining-brand-cluster",
+      "output": "crops/fine-dining-brand-cluster.png",
+      "searchBox": { "x": 45, "y": 862, "width": 325, "height": 92 },
+      "cropBox": { "x": 40, "y": 856, "width": 335, "height": 104 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "The Capital Grille and Ruth's Chris Fine Dining brand cluster; excludes the Fine Dining text label, value, and flow ribbon."
+    },
+    {
+      "key": "darden-other-business-brand-cluster",
+      "output": "crops/other-business-brand-cluster.png",
+      "searchBox": { "x": 0, "y": 1068, "width": 370, "height": 88 },
+      "cropBox": { "x": 0, "y": 1060, "width": 382, "height": 106 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Cheddar's Scratch Kitchen and Yard House Other Business brand cluster; excludes the Other Business text label, value, and flow ribbon."
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "source": "input/processed/coca-cola-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/coca-cola",
+  "runtimeOutputDir": "data/assets/raster-annotations/coca-cola",
+  "validationSheetDir": "data/assets/icon-references/coca-cola/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "coca-cola-company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "runtimeOutput": "company-wordmark.png",
+      "searchBox": { "x": 744, "y": 255, "width": 578, "height": 186 },
+      "cropBox": { "x": 736, "y": 247, "width": 594, "height": 200 },
+      "threshold": 14,
+      "minComponentArea": 40,
+      "foreground": {
+        "any": [
+          { "channels": { "r": [0, 95], "g": [0, 95], "b": [0, 95] } }
+        ]
+      },
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Black Coca-Cola script wordmark above the revenue flow; excludes the blue title, source values, chart links, and publisher marks."
+    },
+    {
+      "key": "coca-cola-globe-emea",
+      "output": "crops/globe-emea.png",
+      "runtimeOutput": "globe-emea.png",
+      "searchBox": { "x": 205, "y": 373, "width": 81, "height": 81 },
+      "cropBox": { "x": 198, "y": 368, "width": 96, "height": 92 },
+      "threshold": 16,
+      "minComponentArea": 60,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "EMEA region globe icon (Europe/Africa view); excludes the EMEA label text to its right."
+    },
+    {
+      "key": "coca-cola-globe-latam",
+      "output": "crops/globe-latam.png",
+      "runtimeOutput": "globe-latam.png",
+      "searchBox": { "x": 201, "y": 561, "width": 88, "height": 81 },
+      "cropBox": { "x": 196, "y": 556, "width": 98, "height": 92 },
+      "threshold": 16,
+      "minComponentArea": 60,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "LATAM region globe icon (Americas view); excludes the LATAM label text to its right."
+    },
+    {
+      "key": "coca-cola-globe-ucan",
+      "output": "crops/globe-ucan.png",
+      "runtimeOutput": "globe-ucan.png",
+      "searchBox": { "x": 211, "y": 775, "width": 86, "height": 87 },
+      "cropBox": { "x": 204, "y": 770, "width": 96, "height": 98 },
+      "threshold": 16,
+      "minComponentArea": 60,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "UCAN region globe icon (North America view); excludes the UCAN label text to its right."
+    },
+    {
+      "key": "coca-cola-globe-apac",
+      "output": "crops/globe-apac.png",
+      "runtimeOutput": "globe-apac.png",
+      "searchBox": { "x": 219, "y": 980, "width": 79, "height": 79 },
+      "cropBox": { "x": 212, "y": 975, "width": 92, "height": 90 },
+      "threshold": 16,
+      "minComponentArea": 60,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "APAC region globe icon (Asia-Pacific view); excludes the APAC label text to its right."
+    }
+  ]
+}

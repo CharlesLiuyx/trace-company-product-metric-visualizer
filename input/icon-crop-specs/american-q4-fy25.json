@@ -1,0 +1,25 @@
+{
+  "source": "input/processed/american-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/american",
+  "validationSheetDir": "data/assets/icon-references/american/validation-sheets",
+  "runtimeOutputDir": "data/assets/raster-annotations/american",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "american-company-lockup",
+      "output": "crops/company-lockup.png",
+      "searchBox": { "x": 650, "y": 221, "width": 630, "height": 224 },
+      "cropBox": { "x": 650, "y": 221, "width": 630, "height": 224 },
+      "threshold": 18,
+      "minComponentArea": 50,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "American Airlines wordmark and eagle lockup above the revenue hub; excludes the chart title, financial labels, ribbons, and publisher attribution."
+    }
+  ]
+}

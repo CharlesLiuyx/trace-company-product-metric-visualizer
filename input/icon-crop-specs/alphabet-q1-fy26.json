@@ -1,0 +1,173 @@
+{
+  "source": "input/processed/alphabet-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/alphabet",
+  "validationSheetDir": "data/assets/icon-references/alphabet/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [242, 242, 242]
+  },
+  "crops": [
+    {
+      "key": "alphabet-company-google-g",
+      "output": "crops/company-google-g.png",
+      "searchBox": {
+        "x": 1100,
+        "y": 250,
+        "width": 250,
+        "height": 255
+      },
+      "cropBox": {
+        "x": 1088,
+        "y": 242,
+        "width": 274,
+        "height": 275
+      },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": {
+        "borderBand": 4,
+        "maxCenterOffset": 0.08,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Central Google G company mark used for Alphabet's main revenue hub; excludes chart labels, flows, and publisher marks."
+    },
+    {
+      "key": "alphabet-business-search-google-wordmark",
+      "output": "crops/business-search-google-wordmark.png",
+      "searchBox": {
+        "x": 50,
+        "y": 500,
+        "width": 360,
+        "height": 110
+      },
+      "cropBox": {
+        "x": 45,
+        "y": 480,
+        "width": 372,
+        "height": 150
+      },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": {
+        "borderBand": 4,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Google wordmark for Search advertising only; excludes the Search advertising label, values, flow marks, and publisher branding."
+    },
+    {
+      "key": "alphabet-business-youtube-wordmark",
+      "output": "crops/business-youtube-wordmark.png",
+      "searchBox": {
+        "x": 50,
+        "y": 775,
+        "width": 350,
+        "height": 92
+      },
+      "cropBox": {
+        "x": 43,
+        "y": 767,
+        "width": 365,
+        "height": 106
+      },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": {
+        "borderBand": 4,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "YouTube business wordmark and play mark only; excludes values, flow marks, and publisher branding."
+    },
+    {
+      "key": "alphabet-business-admob-wordmark",
+      "output": "crops/business-admob-wordmark.png",
+      "searchBox": {
+        "x": 28,
+        "y": 897,
+        "width": 382,
+        "height": 63
+      },
+      "cropBox": {
+        "x": 25,
+        "y": 884,
+        "width": 390,
+        "height": 82
+      },
+      "threshold": 18,
+      "minComponentArea": 30,
+      "validation": {
+        "borderBand": 4,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Google AdMob business wordmark only; excludes the AdSense / Google Ad Manager note, values, flow marks, and publisher branding."
+    },
+    {
+      "key": "alphabet-business-google-play-wordmark",
+      "output": "crops/business-google-play-wordmark.png",
+      "searchBox": {
+        "x": 235,
+        "y": 1034,
+        "width": 355,
+        "height": 67
+      },
+      "cropBox": {
+        "x": 228,
+        "y": 1029,
+        "width": 370,
+        "height": 86
+      },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Google Play business wordmark and triangular mark; excludes the adjacent product note, values, flow marks, and publisher branding."
+    },
+    {
+      "key": "alphabet-business-google-cloud-wordmark",
+      "output": "crops/business-google-cloud-wordmark.png",
+      "searchBox": {
+        "x": 382,
+        "y": 1210,
+        "width": 390,
+        "height": 66
+      },
+      "cropBox": {
+        "x": 375,
+        "y": 1202,
+        "width": 410,
+        "height": 86
+      },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Google Cloud business wordmark and cloud mark; excludes the Workspace / Enterprise Android / Chrome OS / APIs note, values, flow marks, and publisher branding."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "alphabet-business-other",
+      "reason": "The source's Other revenue line has no independent company or business icon cluster."
+    },
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding and not part of Alphabet's income-statement semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "Source publisher branding, website URL, social badge, and footer logo are intentionally excluded."
+    }
+  ]
+}

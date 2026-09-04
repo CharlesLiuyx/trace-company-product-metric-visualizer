@@ -1,0 +1,32 @@
+{
+  "source": "data/assets/raster-annotations/pepsico/ib-sodastream.png",
+  "outputDir": "data/assets/icon-references/pepsico",
+  "runtimeOutputDir": "data/assets/raster-annotations/pepsico",
+  "validationSheetDir": "data/assets/icon-references/pepsico/validation-sheets",
+  "report": "crop-report-q2-fy26.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [242, 242, 242]
+  },
+  "skipped": [
+    {
+      "key": "ib-franchise-label",
+      "reason": "The adjacent IB franchise label is authored as vector text and must not be included in the runtime raster."
+    }
+  ],
+  "crops": [
+    {
+      "key": "pepsico-ib-sodastream-q2-fy26",
+      "output": "crops/ib-sodastream-q2-fy26.png",
+      "searchBox": { "x": 0, "y": 0, "width": 78, "height": 168 },
+      "cropBox": { "x": 0, "y": 0, "width": 78, "height": 168 },
+      "threshold": 24,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Clean derivative of the tracked SodaStream raster for Q2 FY26; the right edge stops before the contaminating I glyph while preserving the complete bottle."
+    }
+  ]
+}

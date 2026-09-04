@@ -68,6 +68,11 @@ function summarize(steps) {
 function main() {
   const { datasetKey, skipRender } = parseArgs(process.argv);
   const steps = [];
+  if (existsSync(path.join(rootDir, 'data', 'metric-observations', `${datasetKey}.json`))) {
+    runStep(steps, 'verify:metrics', process.execPath, [path.join(__dirname, 'verify-metrics.mjs'), datasetKey]);
+    summarize(steps);
+    return;
+  }
 
   const datasetScript = datasetScriptForKey(datasetKey);
   const registered = registeredDatasetScripts().includes(datasetScript);

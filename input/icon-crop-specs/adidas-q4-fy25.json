@@ -1,0 +1,81 @@
+{
+  "source": "input/processed/adidas-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/adidas",
+  "runtimeOutputDir": "data/assets/raster-annotations/adidas",
+  "validationSheetDir": "data/assets/icon-references/adidas/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding badge and mini sankey logo, not part of Adidas income-statement semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "Source publisher website URL, footer logo, and attribution are intentionally excluded."
+    }
+  ],
+  "crops": [
+    {
+      "key": "adidas-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": { "x": 648, "y": 260, "width": 410, "height": 300 },
+      "cropBox": { "x": 642, "y": 254, "width": 424, "height": 312 },
+      "threshold": 18,
+      "minComponentArea": 45,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Adidas mountain mark and wordmark above the revenue hub; excludes title, revenue text, and flows."
+    },
+    {
+      "key": "adidas-business-footwear",
+      "output": "crops/business-footwear.png",
+      "searchBox": { "x": 121, "y": 500, "width": 185, "height": 155 },
+      "cropBox": { "x": 114, "y": 492, "width": 200, "height": 170 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "White sneaker product photo for the Footwear revenue line; excludes value text, label text, and flow marks."
+    },
+    {
+      "key": "adidas-business-apparel",
+      "output": "crops/business-apparel.png",
+      "searchBox": { "x": 118, "y": 814, "width": 190, "height": 154 },
+      "cropBox": { "x": 112, "y": 808, "width": 202, "height": 166 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Red track jacket product photo for the Apparel revenue line; excludes value text, label text, and flow marks."
+    },
+    {
+      "key": "adidas-business-accessories-gear",
+      "output": "crops/business-accessories-gear.png",
+      "searchBox": { "x": 122, "y": 1078, "width": 202, "height": 122 },
+      "cropBox": { "x": 116, "y": 1070, "width": 214, "height": 138 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Duffle bag product photo for the Accessories & Gear revenue line; excludes value text, label text, and flow marks."
+    }
+  ]
+}

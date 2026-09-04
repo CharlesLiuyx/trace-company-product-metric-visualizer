@@ -1,0 +1,66 @@
+{
+  "source": "input/processed/ferrari-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/ferrari",
+  "runtimeOutputDir": "data/assets/raster-annotations/ferrari",
+  "validationSheetDir": "data/assets/icon-references/ferrari/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [242, 242, 242],
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "ferrari-company-crest-and-wordmark-q4-fy25",
+      "output": "crops/company-crest-and-wordmark-q4-fy25.png",
+      "searchBox": { "x": 818, "y": 245, "width": 330, "height": 330 },
+      "cropBox": { "x": 812, "y": 240, "width": 342, "height": 340 },
+      "threshold": 18,
+      "minComponentArea": 15,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.22, "maxForbiddenForegroundPixels": 0 },
+      "note": "Ferrari prancing-horse crest and wordmark above the Revenue hub. Excludes the chart title, revenue label and values, Sankey ribbons, source-image publisher marks, website URL, and footer attribution."
+    },
+    {
+      "key": "ferrari-cars-and-spare-parts-q4-fy25",
+      "output": "crops/cars-and-spare-parts-q4-fy25.png",
+      "searchBox": { "x": 190, "y": 608, "width": 252, "height": 96 },
+      "cropBox": { "x": 190, "y": 608, "width": 252, "height": 96 },
+      "threshold": 18,
+      "minComponentArea": 15,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.25, "maxForbiddenForegroundPixels": 0 },
+      "note": "Yellow Ferrari road-car illustration for the Cars and spare parts revenue source. Excludes the source value, source label, black source bar, and gray Sankey ribbon."
+    },
+    {
+      "key": "ferrari-sponsorships-commercial-brands-q4-fy25",
+      "output": "crops/sponsorships-commercial-brands-q4-fy25.png",
+      "searchBox": { "x": 174, "y": 861, "width": 246, "height": 92 },
+      "cropBox": { "x": 174, "y": 861, "width": 246, "height": 92 },
+      "threshold": 18,
+      "minComponentArea": 15,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.25, "maxForbiddenForegroundPixels": 0 },
+      "note": "Scuderia Ferrari Formula One car illustration for the Sponsorships, commercial & brands revenue source. Excludes the source value, source label, black source bar, and gray Sankey ribbon."
+    },
+    {
+      "key": "ferrari-other-engine-q4-fy25",
+      "output": "crops/other-engine-q4-fy25.png",
+      "searchBox": { "x": 94, "y": 1093, "width": 166, "height": 144 },
+      "cropBox": { "x": 94, "y": 1093, "width": 166, "height": 144 },
+      "threshold": 18,
+      "minComponentArea": 15,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.25, "maxForbiddenForegroundPixels": 0 },
+      "note": "Engine illustration for the Other revenue source. Excludes the source value, source label, black source bar, and gray Sankey ribbon."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding and mini Sankey mark are not part of Ferrari's income-statement semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "Source publisher website URL, footer logo, social badge, and attribution are intentionally excluded."
+    }
+  ]
+}

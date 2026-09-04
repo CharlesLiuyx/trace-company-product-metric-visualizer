@@ -96,6 +96,12 @@ const ADAPTER_PROFILES = Object.freeze({
   }),
 });
 
+const METRIC_OBSERVATION_PROFILE = Object.freeze({
+  ...ADAPTER_PROFILES['revenue-metric'],
+  version: 'metric-observation-plan/v1',
+  steps: ADAPTER_PROFILES['revenue-metric'].steps.map((step) => ({ ...step, ruleIds: [], ...(step.reason ? { reason: 'metric-observation-data-only' } : {}) })),
+});
+
 const ADAPTER_SET = new Set(DATASET_ADAPTERS);
 const IMPACT_SET = new Set(CHANGE_IMPACTS);
 
@@ -321,7 +327,7 @@ export function compileVerificationPlan(input) {
   );
   const sourceCoverage = input.sourceCoverage;
   invariant(
-    sourceCoverage?.schemaVersion === 2 && sourceCoverage.protocol === 'source-coverage/v2',
+    (sourceCoverage?.schemaVersion === 2 && sourceCoverage.protocol === 'source-coverage/v2') || (input.adapter === 'metric-observation' && sourceCoverage?.protocol === 'source-coverage/v3'),
     'SOURCE_COVERAGE_REQUIRED',
     'VerificationPlan v5 requires source-coverage/v2'
   );
@@ -334,9 +340,9 @@ export function compileVerificationPlan(input) {
   );
   const impacts = normalizeImpacts(input.changeImpact);
   const requiredLocales = normalizeLocales(input.requiredLocales);
-  const profile = ADAPTER_PROFILES[input.adapter];
+  const profile = input.adapter === 'metric-observation' ? METRIC_OBSERVATION_PROFILE : ADAPTER_PROFILES[input.adapter];
 
-  if (input.adapter === 'revenue-metric') {
+  if (input.adapter !== 'income-statement') {
     const rendered = inventory.objects.filter((object) => object.disposition === 'render');
     invariant(rendered.length === 0, 'ADAPTER_INVENTORY_INVALID', `Revenue Metric inventory cannot render objects: ${rendered.map((object) => object.id).join(', ')}`);
   }
@@ -401,7 +407,8 @@ export function compileVerificationPlan(input) {
     inventoryDigest: inventory.inventoryDigest,
     sourceCoverageDigest: sourceCoverage.coverageDigest,
     sourceDigest: sourceCoverage.source.digest,
-    nodeFacePolicy: compileNodeFacePolicy(sourceCoverage),
+    ...(input.adapter === 'metric-observation' ? {} : { nodeFacePolicy: compileNodeFacePolicy(sourceCoverage) }),
+    ...(input.checkpointProtocol ? { checkpointProtocol: input.checkpointProtocol, dependencyScopes: input.dependencyScopes } : {}),
     changeImpact: impacts,
     requiredLocales,
     requiredChecks,

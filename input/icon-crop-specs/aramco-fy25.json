@@ -1,0 +1,26 @@
+{
+  "source": "input/processing/aramco-fy25.png",
+  "outputDir": "data/assets/icon-references/aramco",
+  "runtimeOutputDir": "data/assets/raster-annotations/aramco",
+  "validationSheetDir": "data/assets/icon-references/aramco/validation-sheets",
+  "report": "crop-report-fy25.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "crops": [
+    {
+      "key": "aramco-company-mark-fy25",
+      "output": "crops/company-mark-fy25.png",
+      "searchBox": { "x": 1283, "y": 232, "width": 198, "height": 196 },
+      "cropBox": { "x": 1282, "y": 231, "width": 200, "height": 198 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "backgroundRemoval": { "enabled": false },
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.04, "maxForbiddenForegroundPixels": 0 },
+      "note": "Saudi Aramco square company mark above the Revenue & Other income hub. The opaque crop preserves the detailed white dot pattern and source-matched #f2f2f2 edge antialiasing while excluding title text, financial labels, chart geometry, and publisher attribution."
+    }
+  ]
+}

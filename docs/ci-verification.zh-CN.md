@@ -10,6 +10,20 @@
 调用方只提供两个 Git SHA；路径分类、受影响 Dataset key、严格回退和 GitHub Actions
 输出都保留在 Module 内，测试也通过同一个 Interface 验证。
 
+## 新输入流程的快速检查
+
+`pnpm check` 现在还运行 `verify:workflow`、`verify:metrics`、
+`verify:asset-catalog` 和 `verify:feedback-patterns`。它们分别防止命令/协议/文档漂移、
+通用指标值与来源及登记失配、资产版本和使用目录过期、历史反馈索引过期。
+这些检查从项目文件重新推导结果，不需要本机 Build 记录，不替人完成审阅。
+通用 Source 的原始文本存在时会逐段核验；本机私有原件缺失时只校验保存的结构与摘要，
+完整图片语义仍依赖实际人工核对。
+
+`tests/asset-workflow.test.mjs` 用临时来源验证隔离、拒绝、失效、并发冲突、发布中断、
+重试和明确归档信号；阶段检查点由 closeout 测试验证。`verify:app` 还验证指标资产
+入口的搜索、原文显示和精确数值导出。当前新增执行文件按现有 ChangeImpact 保守
+回退逻辑选择浏览器检查，不为追求速度扩大跳检范围。
+
 ## 一次 CI 怎么走
 
 ```text

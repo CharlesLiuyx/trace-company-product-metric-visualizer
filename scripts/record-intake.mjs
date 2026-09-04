@@ -120,8 +120,8 @@ export async function canonicalDataDigest() {
 
 function sourcePath(requested, projectRoot = rootDir, options = {}) {
   const absolute = path.resolve(projectRoot, requested);
-  if (path.dirname(absolute) !== path.join(projectRoot, 'input', 'pending') || !/\.png$/i.test(absolute)) {
-    throw usageError('Source must be a PNG directly under input/pending/');
+  if (path.dirname(absolute) !== path.join(projectRoot, 'input', 'pending') || !/\.(png|txt|md)$/i.test(absolute)) {
+    throw usageError('Source must be PNG, TXT or Markdown directly under input/pending/');
   }
   if (options.requireExisting !== false && !existsSync(absolute)) {
     throw usageError(`Source does not exist: ${requested}`);
@@ -193,7 +193,7 @@ async function resumeActiveIntake(active, options, relativeSource, deps) {
   const build = active.manifest;
   const derivedClassification = classifySourceSignals(options.signals, options.adapter);
   const source = (build.sources || []).find((item) => item.role === 'primary-reference') || build.sources?.[0];
-  const expectedPaths = deps.sourceLifecyclePaths(options.key, { projectRoot: deps.projectRoot });
+  const expectedPaths = deps.sourceLifecyclePaths(options.key, { projectRoot: deps.projectRoot, extension: path.extname(relativeSource).toLowerCase() });
   const identityMatches =
     source?.uri === relativeSource &&
     source.processingUri === expectedPaths.processingUri &&
@@ -278,7 +278,11 @@ export async function recordIntake(options, dependencies = {}) {
   }
   if (!existsSync(absoluteSource)) throw usageError(`Source does not exist: ${options.source}`);
   const bytes = await deps.readFile(absoluteSource);
-  const png = PNG.sync.read(bytes);
+  const extension = path.extname(absoluteSource).toLowerCase();
+  const isText = extension !== '.png';
+  const text = isText ? new TextDecoder('utf-8', { fatal: true }).decode(bytes) : null;
+  if (isText && !text.trim()) throw usageError('Text Source is empty');
+  const dimensions = isText ? { format: 'text', charLength: text.length } : (() => { const png = PNG.sync.read(bytes); return { width: png.width, height: png.height }; })();
   const digest = `sha256:${createHash('sha256').update(bytes).digest('hex')}`;
   const sourceClassification = createSourceClassification({
     datasetKey: options.key,
@@ -288,10 +292,9 @@ export async function recordIntake(options, dependencies = {}) {
     source: {
       locator: relativeSource,
       digest,
-      width: png.width,
-      height: png.height,
+      ...dimensions,
     },
-    fullImageBBox: [0, 0, png.width, png.height],
+    ...(isText ? { fullTextRange: [0, text.length] } : { fullImageBBox: [0, 0, dimensions.width, dimensions.height] }),
   });
   const guard = await deps.runPendingGuard(relativeSource, options.key, deps.projectRoot);
   if (guard.status !== 0) {
@@ -307,8 +310,8 @@ export async function recordIntake(options, dependencies = {}) {
       throw error;
     }
   }
-  const processingUri = `input/processing/${options.key}.png`;
-  const processedUri = `input/processed/${options.key}.png`;
+  const processingUri = `input/processing/${options.key}${extension}`;
+  const processedUri = `input/processed/${options.key}${extension}`;
   const build = createDatasetBuild({
     key: options.key,
     adapter: options.adapter,
@@ -321,8 +324,7 @@ export async function recordIntake(options, dependencies = {}) {
       availability: options.availability,
       role: 'primary-reference',
       digest,
-      width: png.width,
-      height: png.height,
+      ...dimensions,
     }],
   });
   const { manifestPath } = await deps.initializeDatasetBuild(build, { buildRoot: deps.buildRoot });

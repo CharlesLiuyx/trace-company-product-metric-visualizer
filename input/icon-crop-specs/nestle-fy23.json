@@ -1,0 +1,105 @@
+{
+  "source": "input/processed/nestle-fy23.png",
+  "outputDir": "data/assets/icon-references/nestle",
+  "runtimeOutputDir": "data/assets/raster-annotations/nestle",
+  "validationSheetDir": "data/assets/icon-references/nestle/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 7
+  },
+  "crops": [
+    {
+      "key": "nestle-company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "runtimeOutput": "company-wordmark.png",
+      "searchBox": { "x": 820, "y": 215, "width": 305, "height": 310 },
+      "threshold": 18,
+      "minComponentArea": 12,
+      "padding": 10,
+      "validation": { "borderBand": 3, "maxCenterOffset": 0.08, "maxForbiddenForegroundPixels": 0 },
+      "note": "Complete Nestlé nest emblem and company wordmark above the Sales hub."
+    },
+    {
+      "key": "nestle-business-powdered-liquid-beverages-cluster",
+      "output": "crops/business-powdered-liquid-beverages-cluster.png",
+      "runtimeOutput": "business-powdered-liquid-beverages-cluster.png",
+      "searchBox": { "x": 0, "y": 255, "width": 180, "height": 112 },
+      "threshold": 18,
+      "minComponentArea": 8,
+      "padding": 9,
+      "validation": { "borderBand": 3, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Nescafé and Nespresso brand cluster."
+    },
+    {
+      "key": "nestle-business-water-cluster",
+      "output": "crops/business-water-cluster.png",
+      "runtimeOutput": "business-water-cluster.png",
+      "searchBox": { "x": 8, "y": 450, "width": 180, "height": 160 },
+      "threshold": 18,
+      "minComponentArea": 8,
+      "padding": 9,
+      "validation": { "borderBand": 3, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "S.Pellegrino and Perrier brand cluster."
+    },
+    {
+      "key": "nestle-business-milk-ice-cream-cluster",
+      "output": "crops/business-milk-ice-cream-cluster.png",
+      "runtimeOutput": "business-milk-ice-cream-cluster.png",
+      "searchBox": { "x": 10, "y": 670, "width": 164, "height": 100 },
+      "threshold": 18,
+      "minComponentArea": 8,
+      "padding": 8,
+      "validation": { "borderBand": 3, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Häagen-Dazs brand mark."
+    },
+    {
+      "key": "nestle-business-nutrition-health-science-cluster",
+      "output": "crops/business-nutrition-health-science-cluster.png",
+      "runtimeOutput": "business-nutrition-health-science-cluster.png",
+      "searchBox": { "x": 0, "y": 800, "width": 180, "height": 82 },
+      "excludeBoxes": [{ "x": 155, "y": 854, "width": 30, "height": 36 }],
+      "threshold": 18,
+      "minComponentArea": 6,
+      "padding": 9,
+      "validation": { "borderBand": 3, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Nestlé Health Science brand mark."
+    },
+    {
+      "key": "nestle-business-prepared-dishes-cluster",
+      "output": "crops/business-prepared-dishes-cluster.png",
+      "runtimeOutput": "business-prepared-dishes-cluster.png",
+      "searchBox": { "x": 10, "y": 990, "width": 155, "height": 110 },
+      "excludeBoxes": [{ "x": 130, "y": 970, "width": 60, "height": 37 }],
+      "threshold": 18,
+      "minComponentArea": 8,
+      "padding": 9,
+      "validation": { "borderBand": 3, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Maggi brand mark."
+    },
+    {
+      "key": "nestle-business-confectionery-cluster",
+      "output": "crops/business-confectionery-cluster.png",
+      "runtimeOutput": "business-confectionery-cluster.png",
+      "searchBox": { "x": 35, "y": 1098, "width": 120, "height": 104 },
+      "threshold": 18,
+      "minComponentArea": 8,
+      "padding": 9,
+      "validation": { "borderBand": 3, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "KitKat brand mark."
+    },
+    {
+      "key": "nestle-business-petcare-cluster",
+      "output": "crops/business-petcare-cluster.png",
+      "runtimeOutput": "business-petcare-cluster.png",
+      "searchBox": { "x": 0, "y": 1295, "width": 170, "height": 82 },
+      "threshold": 18,
+      "minComponentArea": 8,
+      "padding": 9,
+      "validation": { "borderBand": 3, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Purina brand mark."
+    }
+  ]
+}

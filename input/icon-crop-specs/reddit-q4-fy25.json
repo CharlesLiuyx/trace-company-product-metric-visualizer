@@ -1,0 +1,67 @@
+{
+  "source": "input/processed/reddit-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/reddit",
+  "runtimeOutputDir": "data/assets/raster-annotations/reddit",
+  "validationSheetDir": "data/assets/icon-references/reddit/validation-sheets",
+  "report": "reddit-q4-fy25-crop-report.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [1050, 1060, 80, 80]
+  ],
+  "crops": [
+    {
+      "key": "reddit-q4-fy25-company-wordmark",
+      "output": "crops/company-wordmark-q4-fy25.png",
+      "runtimeOutput": "company-wordmark-q4-fy25.png",
+      "searchBox": { "x": 270, "y": 220, "width": 550, "height": 160 },
+      "cropBox": { "x": 260, "y": 222, "width": 570, "height": 168 },
+      "backgroundRemoval": { "color": [242, 242, 242], "tolerance": 6 },
+      "threshold": 18,
+      "minComponentArea": 30,
+      "padding": 8,
+      "validation": { "borderBand": 1, "maxCenterOffset": 0.05, "maxForbiddenForegroundPixels": 0 },
+      "note": "Reddit wordmark and mascot-head company logo; excludes the chart title and financial labels."
+    },
+    {
+      "key": "reddit-q4-fy25-united-states-flag",
+      "output": "crops/region-united-states-flag-q4-fy25.png",
+      "runtimeOutput": "region-united-states-flag-q4-fy25.png",
+      "searchBox": { "x": 994, "y": 302, "width": 52, "height": 39 },
+      "cropBox": { "x": 990, "y": 298, "width": 58, "height": 45 },
+      "backgroundRemoval": { "color": [242, 242, 242], "tolerance": 6 },
+      "threshold": 18,
+      "minComponentArea": 8,
+      "padding": 3,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.07, "maxForbiddenForegroundPixels": 0 },
+      "note": "United States regional flag only; excludes the United States label and revenue values."
+    },
+    {
+      "key": "reddit-q4-fy25-rest-of-world-globe",
+      "output": "crops/region-rest-of-world-globe-q4-fy25.png",
+      "runtimeOutput": "region-rest-of-world-globe-q4-fy25.png",
+      "searchBox": { "x": 991, "y": 982, "width": 57, "height": 57 },
+      "cropBox": { "x": 987, "y": 978, "width": 65, "height": 65 },
+      "backgroundRemoval": { "color": [242, 242, 242], "tolerance": 6 },
+      "threshold": 18,
+      "minComponentArea": 8,
+      "padding": 4,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.06, "maxForbiddenForegroundPixels": 0 },
+      "note": "Rest of World globe only; excludes the segment label and revenue values."
+    },
+    {
+      "key": "reddit-q4-fy25-snoo-mascot",
+      "output": "crops/company-snoo-mascot-q4-fy25.png",
+      "runtimeOutput": "company-snoo-mascot-q4-fy25.png",
+      "searchBox": { "x": 1210, "y": 1030, "width": 270, "height": 355 },
+      "cropBox": { "x": 1200, "y": 1020, "width": 290, "height": 380 },
+      "backgroundRemoval": { "color": [242, 242, 242], "tolerance": 6 },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "padding": 8,
+      "validation": { "borderBand": 3, "maxCenterOffset": 0.07, "maxForbiddenForegroundPixels": 0 },
+      "note": "Reddit Snoo mascot illustration; excludes Rest of World labels, chart links, website URL, and publisher attribution."
+    }
+  ]
+}

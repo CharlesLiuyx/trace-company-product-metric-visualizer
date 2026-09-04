@@ -31,3 +31,9 @@ export function assert(condition, message, errors) {
   if (errors) errors.push(message);
   else throw new Error(message);
 }
+
+export function buildProjectRoot(build, requested) {
+  if (requested) return requested;
+  if (!build?.authoringRoot || existsSync(projectPath('output/workflow/base.json'))) return rootDir;
+  return projectPath(build.authoringRoot);
+}

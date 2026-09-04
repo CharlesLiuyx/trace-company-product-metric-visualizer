@@ -1,0 +1,48 @@
+{
+  "source": "input/processing/gm-fy25.png",
+  "outputDir": "data/assets/icon-references/gm",
+  "runtimeOutputDir": "data/assets/raster-annotations/gm",
+  "validationSheetDir": "data/assets/icon-references/gm/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [242, 242, 242],
+    "tolerance": 10
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "The bottom-left HOW THEY MAKE MONEY mark and miniature Sankey are source-publisher attribution, not GM chart semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "appeconomyinsights.com and the APP ECONOMY INSIGHTS footer lockup are source-publisher attribution, not a business-segment asset."
+    }
+  ],
+  "crops": [
+    {
+      "key": "gm-company-logo",
+      "output": "crops/company-logo.png",
+      "runtimeOutput": "company-logo.png",
+      "searchBox": { "x": 1105, "y": 261, "width": 232, "height": 230 },
+      "cropBox": { "x": 1095, "y": 251, "width": 252, "height": 246 },
+      "threshold": 18,
+      "minComponentArea": 12,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.05, "maxForbiddenForegroundPixels": 0 },
+      "note": "Rounded-square blue-gradient 'gm' corporate mark centered above the Revenue node; excludes the Revenue node's own label/value text and all chart/flow geometry."
+    },
+    {
+      "key": "gm-north-america-brand-cluster",
+      "output": "crops/gm-north-america-brand-cluster.png",
+      "runtimeOutput": "gm-north-america-brand-cluster.png",
+      "searchBox": { "x": 15, "y": 592, "width": 410, "height": 220 },
+      "cropBox": { "x": 0, "y": 586, "width": 432, "height": 241 },
+      "threshold": 18,
+      "minComponentArea": 12,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.08, "maxForbiddenForegroundPixels": 0 },
+      "note": "Four separate, disconnected sub-brand logos (Chevrolet, Buick, GMC, Cadillac) in a 2x2 grid below the GM North America node's label; excludes the GM North America label text and all chart/flow geometry, and intentionally covers all four sub-brand logos as one cluster per this repo's multi-brand cluster convention."
+    }
+  ]
+}

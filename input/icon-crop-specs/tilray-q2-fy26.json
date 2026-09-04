@@ -1,0 +1,29 @@
+{
+  "source": "input/processed/tilray-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/tilray",
+  "runtimeOutputDir": "data/assets/raster-annotations/tilray",
+  "validationSheetDir": "data/assets/icon-references/tilray/validation-sheets",
+  "crops": [
+    {
+      "key": "tilray-brands-wordmark",
+      "output": "crops/tilray-brands-wordmark.png",
+      "runtimeOutput": "tilray-brands-wordmark.png",
+      "searchBox": { "x": 735, "y": 260, "width": 475, "height": 200 },
+      "cropBox": { "x": 735, "y": 270, "width": 460, "height": 175 }
+    },
+    {
+      "key": "tilray-beverage-can",
+      "output": "crops/beverage-can.png",
+      "runtimeOutput": "beverage-can.png",
+      "searchBox": { "x": 190, "y": 288, "width": 94, "height": 142 },
+      "cropBox": { "x": 190, "y": 288, "width": 94, "height": 142 }
+    },
+    {
+      "key": "tilray-cannabis-leaf",
+      "output": "crops/cannabis-leaf.png",
+      "runtimeOutput": "cannabis-leaf.png",
+      "searchBox": { "x": 135, "y": 580, "width": 205, "height": 142 },
+      "cropBox": { "x": 135, "y": 580, "width": 205, "height": 142 }
+    }
+  ]
+}

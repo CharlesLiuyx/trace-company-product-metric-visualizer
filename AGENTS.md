@@ -15,6 +15,7 @@ together.
 | target verification/publication architecture: evidence, baseline, verify/record/publish semantics, CAS, Release | `docs/architecture/verification-publication.md` |
 | machine-readable lifecycle protocol/state/Adapter contract | `docs/architecture/lifecycle-contract.json` (`pnpm verify:architecture` enforces parity) |
 | accepted architecture decisions | `docs/adr/` (start with `docs/adr/0001-dataset-build-transactions.md`) |
+| media-neutral intake, isolated drafts, generated processing sheets, batch orchestration and current publication commands | `docs/asset-workflow.md` (command/protocol table: `docs/workflow-command-reference.md`) |
 | dynamic dataset workflow: nine-step current pipeline, pre-intake Adapter Type Gate, Source → Inventory → SSOT → Adapter coverage, execution/delegation, traps, final checklist, reporting | `docs/dynamic-dataset-workflow.md` |
 | d3 fidelity: canonical numbered rules, preflight measurement, three-stage sweep state machine, automatic/manual evidence, acceptance conditions | `docs/fidelity-loop-rules.md` (its rule-catalog section is generated); rule-semantics SSOT: `scripts/lib/fidelity-rules-catalog.mjs` + derived contract `scripts/lib/fidelity-rule-contract.mjs`; regenerate with `pnpm update:fidelity-rules-doc` (`pnpm verify:architecture` enforces freshness and parity) |
 | historical user-feedback cases: root causes, current defenses, recurrence-upgrade paths (cross-checkout recurrence memory) | `docs/fidelity-feedback-casebook.md` (registration/consumption protocol owned by `docs/fidelity-loop-rules.md` §5) |
@@ -27,9 +28,9 @@ together.
 
 ## Goal
 
-Turn income-statement reference images from `input/pending/` into stable
-Sankey datasets and reusable icon assets, then verify them through the
-d3-sankey fidelity loop.
+Turn metric assets (PNG images or UTF-8 text) into complete, auditable data
+and usable system views. Use `docs/asset-workflow.md` for new inputs. Income
+Statement inputs retain the complete d3-sankey fidelity loop.
 
 ## Architecture Boundaries
 
@@ -50,8 +51,8 @@ already exists.
   mutation, and `release:*` acts on a published digest. Implemented
   `verify:*` / `record:*` commands satisfy that contract; `compat:baseline`
   is deliberately named outside the classes because it mutates the canonical
-  baseline ledger until M4 Publication replaces it, and `publish:*` /
-  `release:*` remain unimplemented target vocabulary.
+  baseline ledger for legacy direct-edit compatibility, and `publish:*` /
+  `release:*` are implemented for the isolated workflow; see `docs/asset-workflow.md`.
 - Git tracks Source files in `input/pending/` and `input/processing/` so the
   shared queue and active claims are visible across project checkouts.
   `input/processed/` is an ignored, machine-local archive; never force-add its
@@ -73,6 +74,11 @@ already exists.
  loaded on demand by the viewer through `src/dataset-registry.js` +
  `src/app/dataset-loader.js`. `verify:ssot` enforces disk ↔ registration
  parity for both surfaces and `pnpm sync:index-datasets` repairs them.
+- `data/metric-observations/<source-key>.json` is the pure generic Metric SSOT;
+  `data/metric-observations.js` is its generated catalog. The main viewer
+  `src/app/metric-library.js` exposes company/product identity, exact values,
+  units, period, basis and Source quotes without inventing a Sankey. Run
+  `pnpm update:metric-catalog` after authoring and `pnpm verify:metrics` to check.
 - `data/products.js` is an empty placeholder for a future Product SSOT (not
   verifier-checked). Do not hide product identity or ownership history inside
   Sankey adapters.
@@ -84,7 +90,7 @@ already exists.
  `hotkeys`, `i18n-runtime`, `state`, `selectors`, `financial`,
  `chart-theme` form the base layers; `shell`, `controls`, `company-panel`,
  `period-panel`, `tables`, `trend`, `comparison-zoom`,
- `comparison-metric-trend`, `sankey`, `exports` own one UI concern each;
+ `comparison-metric-trend`, `sankey`, `exports`, `metric-library` own one UI concern each;
  `main.js` wires global events and boots last. Put new viewer code in the
  owning module (module map: `README.md` §How it's built). Load-time code
  may only reference earlier scripts, runtime calls may go either way —
@@ -145,10 +151,19 @@ purpose, mechanism, blind spots, and trigger matrix for every check live in
 
 ## Workflow
 
+New Sources use `record:workflow start` and `continue` in isolated Build
+workspaces. Read `docs/asset-workflow.md` before processing any new asset.
+The existing Build ledger remains authoritative; processing sheets and batch
+membership are derived/grouping records. `publish:datasets plan/commit`
+validates a complete candidate and swaps an immutable-tree pointer with CAS.
+`release:dataset` operates only on a published digest. Legacy Build records
+retain their actual protocol and review history.
+
+
 `docs/dynamic-dataset-workflow.md` owns the current nine-step pipeline, Type
 Gate, Source Coverage, execution/delegation, traps, final checklist, and
 reporting. Load it before pending work and before the final response. M0–M5
-target migration remains owned by `docs/architecture/README.md`; never present
+implementation status remains owned by `docs/architecture/README.md`; never present
 target state as current. Five-phase summary:
 
 1. Guard, classify, intake — inspect the complete Source and pass the

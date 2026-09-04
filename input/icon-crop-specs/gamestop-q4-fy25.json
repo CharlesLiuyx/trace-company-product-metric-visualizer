@@ -1,0 +1,55 @@
+{
+  "source": "input/processing/gamestop-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/gamestop",
+  "runtimeOutputDir": "data/assets/raster-annotations/gamestop",
+  "validationSheetDir": "data/assets/icon-references/gamestop/validation-sheets/q4-fy25",
+  "report": "crop-report-q4-fy25.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [242, 242, 242]
+  },
+  "crops": [
+    {
+      "key": "gamestop-hardware-consoles-q4-fy25",
+      "output": "crops/hardware-consoles-q4-fy25.png",
+      "runtimeOutput": "hardware-consoles-q4-fy25.png",
+      "searchBox": { "x": 20, "y": 360, "width": 420, "height": 230 },
+      "cropBox": { "x": 20, "y": 360, "width": 420, "height": 230 },
+      "threshold": 10,
+      "minComponentArea": 18,
+      "validation": { "borderBand": 4, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "PlayStation and Xbox console cluster for Hardware & Accessories; excludes labels and Sankey geometry."
+    },
+    {
+      "key": "gamestop-packaged-software-games-q4-fy25",
+      "output": "crops/packaged-software-games-q4-fy25.png",
+      "runtimeOutput": "packaged-software-games-q4-fy25.png",
+      "searchBox": { "x": 150, "y": 735, "width": 230, "height": 165 },
+      "cropBox": { "x": 150, "y": 735, "width": 230, "height": 165 },
+      "threshold": 10,
+      "minComponentArea": 18,
+      "validation": { "borderBand": 4, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Two packaged video-game cases; excludes the value, label, and flow."
+    },
+    {
+      "key": "gamestop-collectibles-figure-q4-fy25",
+      "output": "crops/collectibles-figure-q4-fy25.png",
+      "runtimeOutput": "collectibles-figure-q4-fy25.png",
+      "searchBox": { "x": 25, "y": 1035, "width": 180, "height": 220 },
+      "cropBox": { "x": 25, "y": 1035, "width": 180, "height": 220 },
+      "threshold": 10,
+      "minComponentArea": 18,
+      "validation": { "borderBand": 4, "maxCenterOffset": 0.22, "maxForbiddenForegroundPixels": 0 },
+      "note": "Batman collectible figure; excludes the Collectibles label and Sankey geometry."
+    }
+  ],
+  "skipped": [
+    { "key": "gamestop-logo", "reason": "The GameStop wordmark is recreated as dataset-owned vector text." },
+    { "key": "regional-flags", "reason": "The flags are decorative geographic markers rather than business icon clusters." },
+    { "key": "publisher-how-they-make-money", "reason": "Creator branding is a non-semantic residual." },
+    { "key": "publisher-footer", "reason": "The source URL and publisher lockup are attribution and intentionally excluded." }
+  ]
+}

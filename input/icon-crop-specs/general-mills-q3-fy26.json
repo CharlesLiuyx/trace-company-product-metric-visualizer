@@ -1,0 +1,85 @@
+{
+  "source": "input/processed/general-mills-q3-fy26.png",
+  "outputDir": "data/assets/icon-references/general-mills",
+  "runtimeOutputDir": "data/assets/raster-annotations/general-mills",
+  "validationSheetDir": "data/assets/icon-references/general-mills/validation-sheets/q3-fy26",
+  "report": "crop-report-q3-fy26.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [242, 242, 242],
+    "tolerance": 8
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "The lower-left HOW THEY MAKE MONEY badge and miniature Sankey are publisher attribution, not General Mills income-statement content."
+    },
+    {
+      "key": "publisher-website",
+      "reason": "appeconomyinsights.com is source attribution, not a chart object."
+    },
+    {
+      "key": "publisher-footer-lockup",
+      "reason": "The APP ECONOMY INSIGHTS footer lockup is publisher attribution and is intentionally excluded."
+    }
+  ],
+  "crops": [
+    {
+      "key": "general-mills-company-logo",
+      "output": "crops/company-logo-q3-fy26.png",
+      "runtimeOutput": "company-logo-q3-fy26.png",
+      "searchBox": { "x": 675, "y": 248, "width": 485, "height": 290 },
+      "cropBox": { "x": 675, "y": 248, "width": 485, "height": 290 },
+      "threshold": 15,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 1, "maxCenterOffset": 0.22, "maxForbiddenForegroundPixels": 0 },
+      "note": "Complete General Mills monogram, heart, and wordmark; excludes title, Net sales label, and Sankey flow."
+    },
+    {
+      "key": "north-america-retail-product-cluster",
+      "output": "crops/north-america-retail-product-cluster-q3-fy26.png",
+      "runtimeOutput": "north-america-retail-product-cluster-q3-fy26.png",
+      "searchBox": { "x": 168, "y": 394, "width": 200, "height": 150 },
+      "cropBox": { "x": 168, "y": 394, "width": 200, "height": 150 },
+      "threshold": 15,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 1, "maxCenterOffset": 0.3, "maxForbiddenForegroundPixels": 0 },
+      "note": "North America Retail product pack collage only; excludes the business label and source node."
+    },
+    {
+      "key": "pet-product-cluster",
+      "output": "crops/pet-product-cluster-q3-fy26.png",
+      "runtimeOutput": "pet-product-cluster-q3-fy26.png",
+      "searchBox": { "x": 190, "y": 700, "width": 160, "height": 140 },
+      "cropBox": { "x": 190, "y": 700, "width": 160, "height": 140 },
+      "threshold": 15,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 1, "maxCenterOffset": 0.3, "maxForbiddenForegroundPixels": 0 },
+      "note": "Pet product pack collage only; excludes the Pet label and source node."
+    },
+    {
+      "key": "north-america-foodservice-product-cluster",
+      "output": "crops/north-america-foodservice-product-cluster-q3-fy26.png",
+      "runtimeOutput": "north-america-foodservice-product-cluster-q3-fy26.png",
+      "searchBox": { "x": 185, "y": 922, "width": 165, "height": 104 },
+      "cropBox": { "x": 185, "y": 922, "width": 165, "height": 104 },
+      "threshold": 15,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 1, "maxCenterOffset": 0.3, "maxForbiddenForegroundPixels": 0 },
+      "note": "North America Foodservice product cluster only; excludes its label and source node."
+    },
+    {
+      "key": "international-product-cluster",
+      "output": "crops/international-product-cluster-q3-fy26.png",
+      "runtimeOutput": "international-product-cluster-q3-fy26.png",
+      "searchBox": { "x": 180, "y": 1161, "width": 180, "height": 102 },
+      "cropBox": { "x": 180, "y": 1161, "width": 180, "height": 102 },
+      "threshold": 15,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 1, "maxCenterOffset": 0.3, "maxForbiddenForegroundPixels": 0 },
+      "note": "International product pack collage only; excludes the business label and publisher mark."
+    }
+  ]
+}

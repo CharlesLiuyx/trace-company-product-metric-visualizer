@@ -1,0 +1,41 @@
+{
+  "source": "input/processed/tencent-q3-fy24.png",
+  "outputDir": "data/assets/icon-references/tencent",
+  "runtimeOutputDir": "data/assets/raster-annotations/tencent",
+  "validationSheetDir": "data/assets/icon-references/tencent/validation-sheets",
+  "report": "crop-report-q3-fy24.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "crops": [
+    {
+      "key": "tencent-company-wordmark-q3-fy24",
+      "output": "crops/company-wordmark-q3-fy24.png",
+      "searchBox": {
+        "x": 690,
+        "y": 245,
+        "width": 570,
+        "height": 115
+      },
+      "threshold": 20,
+      "foreground": {
+        "channels": {
+          "r": [0, 80],
+          "g": [60, 170],
+          "b": [130, 255]
+        }
+      },
+      "minComponentArea": 40,
+      "padding": 12,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.02,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Tencent English and Chinese company wordmark from the Q3 FY24 Source; excludes title, revenue text, and flow geometry."
+    }
+  ]
+}

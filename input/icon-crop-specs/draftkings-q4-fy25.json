@@ -1,0 +1,49 @@
+{
+  "source": "input/processed/draftkings-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/draftkings",
+  "runtimeOutputDir": "data/assets/raster-annotations/draftkings",
+  "validationSheetDir": "data/assets/icon-references/draftkings/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": { "enabled": true, "mode": "edge-connected", "tolerance": 8 },
+  "crops": [
+    {
+      "key": "draftkings-company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "searchBox": { "x": 620, "y": 220, "width": 485, "height": 261 },
+      "cropBox": { "x": 620, "y": 220, "width": 485, "height": 261 },
+      "excludeBoxes": [
+        { "x": 620, "y": 220, "width": 485, "height": 16 }
+      ],
+      "threshold": 18,
+      "minComponentArea": 30,
+      "padding": 0,
+      "validation": { "maxCenterOffset": 0.25, "maxForbiddenForegroundPixels": 0 },
+      "note": "DraftKings crown-and-wordmark above the Revenue hub; excludes the Revenue label below and the chart title above."
+    },
+    {
+      "key": "draftkings-online-gaming-badge",
+      "output": "crops/online-gaming-badge.png",
+      "searchBox": { "x": 14, "y": 407, "width": 154, "height": 154 },
+      "cropBox": { "x": 14, "y": 407, "width": 154, "height": 154 },
+      "threshold": 18,
+      "minComponentArea": 30,
+      "padding": 0,
+      "backgroundRemoval": false,
+      "validation": { "maxCenterOffset": 0.25, "maxForbiddenForegroundPixels": 0 },
+      "note": "Green Sportsbook & Casino segment badge, including its crown, monogram, and text while excluding the Online Gaming label."
+    },
+    {
+      "key": "draftkings-gaming-software-badge",
+      "output": "crops/gaming-software-badge.png",
+      "searchBox": { "x": 14, "y": 570, "width": 154, "height": 154 },
+      "cropBox": { "x": 14, "y": 570, "width": 154, "height": 154 },
+      "threshold": 18,
+      "minComponentArea": 30,
+      "padding": 0,
+      "backgroundRemoval": false,
+      "validation": { "maxCenterOffset": 0.25, "maxForbiddenForegroundPixels": 0 },
+      "note": "Black Fantasy segment badge, including its crown, monogram, and text while excluding the Gaming Software label."
+    }
+  ]
+}

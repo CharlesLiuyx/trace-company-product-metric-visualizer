@@ -2,19 +2,34 @@
 
 [![CI](https://github.com/CharlesLiuyx/trace-company-product-metric-visualizer/actions/workflows/ci.yml/badge.svg)](https://github.com/CharlesLiuyx/trace-company-product-metric-visualizer/actions/workflows/ci.yml)
 
-**360+ real income statements, rendered as polished Sankey flow diagrams.**
+**Turn metric images and text into traceable company and product data.**
 Trace turns company financials into the earnings infographics you see go
 viral — green for value retained, red for costs, teal for revenue collected —
-covering **215+ companies** from NVIDIA, Apple, and Microsoft to TSMC, LVMH,
+covering **200+ companies** from NVIDIA, Apple, and Microsoft to TSMC, LVMH,
 Tencent, and SpaceX, across quarterly and annual periods.
 
 ### [▶ Open the live viewer](https://charlesliuyx.github.io/trace-company-product-metric-visualizer/) — nothing to install, runs entirely in your browser.
 
 ![Trace rendering the NVIDIA Q1 FY27 income statement as a Sankey diagram](docs/preview.png)
 
+## Input a metric asset
+
+Give the executor a PNG image or UTF-8 text file. The current workflow is
+**receive → structure → check and review → include in the system**. It saves the
+original, records exact values and source positions, builds the review sheet,
+and keeps each draft isolated until reviewed publication.
+
+Open the [interactive workflow graph](docs/workflow-flowchart.zh-CN.html), or use
+[the operator guide](docs/asset-workflow.md) for commands and an example.
+General metrics appear under **指标资产 / Metrics**, with search, original quotes
+and JSON export. Existing financial tables, trends and Sankeys remain available.
+`pnpm dev` shows the local published snapshot when present; `pnpm dev -- --draft`
+opens the development worktree. Local publication and HTML output do not deploy
+the online site. New snapshots and their Build ledger are currently machine-local.
+
 ## Highlights
 
-- **A large, growing catalog** — 360+ income-statement datasets across 215+
+- **A large, growing catalog** — 1,000+ income-statement datasets across 200+
   public and private companies, plus ARR trend series for OpenAI and
   Anthropic. NVIDIA alone spans 15 quarters back to Q3 FY23.
 - **Traced, not approximated** — every chart is hand-authored against a
@@ -201,6 +216,7 @@ scripts, and a hand-rolled d3-sankey engine.
 | `src/app/company-panel.js` · `period-panel.js` | company list, sort menu, multi-select · period tree, timeline, multi-select |
 | `src/app/tables.js` · `trend.js` · `sankey.js` | virtualized tables · revenue trend charts · sankey single/comparison orchestration, fail-closed scale presentation + `draw()` |
 | `src/app/comparison-zoom.js` · `comparison-metric-trend.js` | comparison canvas zoom gestures with a connected SVG-free browser-geometry resolver · node/link metric trend panel |
+| `src/app/metric-library.js` | General observations, source inspection, search and exact JSON export |
 | `src/app/exports.js` · `main.js` | SVG/PNG/CSV downloads · global wiring + boot (loads last) |
 | `src/comparison-scale.js`   | Deep Comparison Visual Scale Module: validates renderer anchor geometry against Metric SSOT revenue lineage + money dimensions and produces one group-atomic USD normalization plan |
 | `src/sankey-engine.js`      | **d3-sankey** renderer: compiled fixed/dynamic graph geometry + custom nodes/links/labels/logo/interactions; owns the public compiled node-value Geometry Interface |

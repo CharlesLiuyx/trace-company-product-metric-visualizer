@@ -1,973 +1,206 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Workflow 全流程图 — 一张 Input 图片如何变成已验证数据集</title>
-<style>
-  :root {
-    --paper: #f2f3f6;
-    --card: #ffffff;
-    --ink: #16181d;
-    --muted: #6a7180;
-    --line: #d8dce3;
-    --teal: #0e7c86;
-    --teal-bg: #e4f4f5;
-    --violet: #5b4bb7;
-    --violet-bg: #edeafa;
-    --green: #1a7f37;
-    --green-bg: #e3f3e8;
-    --red: #c0392b;
-    --red-bg: #fdeae7;
-    --amber: #9a6b12;
-    --amber-bg: #fdf3dc;
-    --orange: #c2570e;
-    --orange-bg: #fdeede;
-    --code-bg: #1d2129;
-    --code-ink: #e8ecf3;
-    font-size: 15px;
-  }
-  * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
-  body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
-      "Noto Sans CJK SC", -apple-system, "Segoe UI", Roboto, sans-serif;
-    line-height: 1.6;
-  }
-  .wrap { max-width: 1080px; margin: 0 auto; padding: 32px 24px 96px; }
-
-  header.page h1 { font-size: 1.7rem; margin: 0 0 6px; letter-spacing: .01em; }
-  header.page p.sub { margin: 0; color: var(--muted); max-width: 68ch; }
-  header.page .sources { margin-top: 10px; font-size: .82rem; color: var(--muted); }
-  header.page .sources code { font-size: .8rem; }
-
-  /* ---- 图例 ---- */
-  .legend {
-    display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center;
-    margin: 18px 0 6px; padding: 12px 16px;
-    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
-    font-size: .82rem; color: var(--muted);
-  }
-  .legend .item { display: inline-flex; align-items: center; gap: 6px; }
-  .swatch { width: 14px; height: 14px; border-radius: 4px; flex: none; border: 1px solid rgba(0,0,0,.14); }
-  .swatch.step    { background: var(--card); }
-  .swatch.cmd     { background: var(--code-bg); }
-  .swatch.data    { background: var(--violet-bg); border-color: var(--violet); }
-  .swatch.decide  { background: var(--amber-bg); border-color: var(--amber); transform: rotate(45deg); border-radius: 3px; width: 12px; height: 12px; }
-  .swatch.stop    { background: var(--red-bg); border-color: var(--red); }
-  .swatch.loop    { background: var(--orange-bg); border-color: var(--orange); border-style: dashed; }
-  .swatch.artifact{ background: var(--green-bg); border-color: var(--green); }
-
-  /* ---- 层级导航 ---- */
-  .layer-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
-  .layer-nav a {
-    text-decoration: none; font-size: .8rem; font-weight: 600; color: var(--ink);
-    background: var(--card); border: 1px solid var(--line); border-radius: 999px;
-    padding: 4px 14px;
-  }
-  .layer-nav a:hover { border-color: var(--teal); }
-  .layer-nav a .no { color: var(--teal); font-weight: 700; margin-right: 6px; }
-
-  /* ---- 层横幅 ---- */
-  .layer-banner { display: flex; align-items: baseline; gap: 10px; margin: 34px 0 12px; }
-  .layer-banner .tag {
-    flex: none; background: var(--ink); color: #fff; font-size: .72rem; font-weight: 700;
-    border-radius: 6px; padding: 2px 10px; letter-spacing: .06em;
-  }
-  .layer-banner h2 { margin: 0; font-size: 1.15rem; }
-  .layer-banner .hint { font-size: .78rem; color: var(--muted); }
-
-  /* ---- 第 1 层：一屏总览 ---- */
-  .overview {
-    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
-    padding: 18px 18px 14px; margin-bottom: 8px;
-  }
-  .ov-essence { text-align: center; font-size: .88rem; color: var(--muted); margin: 0 0 16px; }
-  .ov-essence b { color: var(--ink); }
-  .ov-flow { display: flex; align-items: stretch; justify-content: center; }
-  .ov-endcap {
-    align-self: center; flex: none; max-width: 108px; text-align: center;
-    background: var(--ink); color: #fff; border-radius: 10px;
-    padding: 10px 9px; font-size: .72rem; font-weight: 600; line-height: 1.5;
-  }
-  .ov-endcap.out { background: var(--green); }
-  .ov-endcap code { background: rgba(255,255,255,.16); color: #fff; font-size: .62rem; padding: 1px 3px; word-break: break-all; }
-  .ov-card {
-    flex: 1 1 150px; min-width: 0; display: flex; flex-direction: column;
-    text-decoration: none; color: var(--ink);
-    background: #fbfbfd; border: 1px solid var(--line); border-radius: 12px;
-    padding: 10px 11px 11px;
-  }
-  .ov-card:hover { border-color: var(--teal); background: #f6fbfc; }
-  .ov-card .pnum { font-size: .7rem; font-weight: 800; color: var(--teal); letter-spacing: .05em; }
-  .ov-card .pname { font-weight: 700; font-size: .9rem; margin: 1px 0 5px; }
-  .ov-card ul { margin: 0; padding-left: 15px; font-size: .73rem; color: #3c4250; }
-  .ov-card li { margin: 1px 0; }
-  .ov-card .pcmd { margin-top: auto; padding-top: 7px; }
-  .ov-card .pcmd code {
-    background: var(--code-bg); color: var(--code-ink);
-    font-size: .66rem; padding: 2px 6px; border-radius: 5px;
-    display: inline-block; max-width: 100%; white-space: normal; word-break: break-all;
-  }
-  .ov-tags { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; margin-top: 7px; }
-  .ov-tag { font-size: .65rem; font-weight: 700; border-radius: 999px; padding: 1px 8px; background: #fff; }
-  .ov-tag.stop { color: var(--red); border: 1px solid var(--red); }
-  .ov-tag.loop { color: var(--orange); border: 1.5px dashed var(--orange); }
-  .ov-tag.par { color: #0f3d91; border: 1.5px dashed #0f3d91; }
-  .ov-tag.branch { color: var(--violet); border: 1px solid var(--violet); }
-
-  /* 并行轨道条 */
-  .par-strip {
-    border: 1.5px dashed #0f3d91; background: #eef3fc; border-radius: 10px;
-    padding: 10px 14px; font-size: .82rem; color: #1e2c4d;
-  }
-  .par-strip b { color: #0f3d91; }
-  .par-strip .lanes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 6px; }
-  .par-strip .lane { background: #fff; border: 1px solid #c7d4ee; border-radius: 8px; padding: 7px 10px; font-size: .78rem; }
-  .par-strip .lane b { display: block; font-size: .78rem; margin-bottom: 2px; }
-  @media (max-width: 860px) { .par-strip .lanes { grid-template-columns: 1fr; } }
-  .ov-arrow { align-self: center; flex: none; color: #8a919f; font-size: 1rem; font-weight: 700; padding: 0 4px; }
-  .ov-note { margin: 14px 4px 2px; font-size: .74rem; color: var(--muted); text-align: center; }
-
-  /* ---- 阶段分组 ---- */
-  section.phase {
-    position: relative;
-    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
-    padding: 22px 26px 26px; margin: 0 0 8px;
-  }
-  section.phase + .phase-gap { display: flex; justify-content: center; padding: 2px 0; }
-  .phase-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 4px; }
-  .phase-head .num {
-    flex: none; width: 34px; height: 34px; border-radius: 50%;
-    background: var(--ink); color: #fff; font-weight: 700;
-    display: flex; align-items: center; justify-content: center; font-size: .95rem;
-    align-self: center;
-  }
-  .phase-head h2 { margin: 0; font-size: 1.15rem; }
-  .phase-head .en { color: var(--muted); font-weight: 400; font-size: .85rem; margin-left: 4px; }
-  .phase-head .owner { margin-left: auto; font-size: .75rem; color: var(--muted); text-align: right; }
-  .phase-head .owner code { font-size: .74rem; }
-
-  /* ---- 节点 ---- */
-  .flow { display: flex; flex-direction: column; align-items: stretch; }
-  .node {
-    position: relative;
-    border: 1px solid var(--line); border-radius: 10px;
-    padding: 12px 14px 12px 16px; background: #fbfbfd;
-  }
-  .node .sid {
-    position: absolute; top: -9px; left: 12px;
-    background: var(--ink); color: #fff; border-radius: 999px;
-    font-size: .68rem; font-weight: 700; padding: 1px 8px; letter-spacing: .04em;
-  }
-  .node h3 { margin: 2px 0 4px; font-size: .95rem; }
-  .node p { margin: 4px 0 0; font-size: .84rem; color: #3c4250; }
-  .node p.dim { color: var(--muted); }
-  .node ul { margin: 6px 0 0; padding-left: 18px; font-size: .84rem; color: #3c4250; }
-  .node li { margin: 2px 0; }
-  .node .refdoc { margin-top: 8px; font-size: .74rem; color: var(--muted); }
-  .node.data { background: var(--violet-bg); border-color: #c9c1ee; }
-  .node.artifact { background: var(--green-bg); border-color: #b5dcc2; }
-  .node.stop { background: var(--red-bg); border-color: #efb7ae; }
-  .node.stop h3 { color: var(--red); }
-
-  code {
-    font-family: "SF Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: .8rem; background: #eceef3; border-radius: 4px; padding: 1px 5px;
-  }
-  .node .cmd, .loop .cmd {
-    display: block; background: var(--code-bg); color: var(--code-ink);
-    border-radius: 8px; padding: 8px 12px; margin: 8px 0 2px;
-    font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
-    font-size: .8rem; overflow-x: auto; white-space: pre;
-  }
-
-  /* 徽章：自动 / 人工 / 混合 / 条件 */
-  .badges { position: absolute; top: -9px; right: 12px; display: flex; gap: 4px; }
-  .badge {
-    font-size: .66rem; font-weight: 700; border-radius: 999px; padding: 1px 8px;
-    letter-spacing: .05em; border: 1px solid transparent;
-  }
-  .badge.auto   { background: #0f3d91; color: #fff; }
-  .badge.manual { background: #7a3d99; color: #fff; }
-  .badge.mixed  { background: linear-gradient(90deg,#0f3d91 50%,#7a3d99 50%); color: #fff; }
-  .badge.cond   { background: #fff; color: var(--amber); border-color: var(--amber); }
-  .badge.sub    { background: #fff; color: var(--teal); border-color: var(--teal); }
-
-  /* ---- 箭头 ---- */
-  .arrow { display: flex; flex-direction: column; align-items: center; height: 26px; flex: none; }
-  .arrow::before { content: ""; width: 2px; flex: 1; background: #aab1bd; }
-  .arrow::after { content: ""; border: 6px solid transparent; border-top: 7px solid #aab1bd; }
-  .arrow.tall { height: 38px; }
-  .arrow-label { text-align: center; font-size: .72rem; color: var(--muted); margin: -2px 0 2px; }
-
-  /* ---- 决策 ---- */
-  .decision {
-    align-self: center; min-width: 300px; max-width: 560px; text-align: center;
-    background: var(--amber-bg); border: 1.5px solid var(--amber);
-    padding: 10px 22px; font-weight: 600; font-size: .9rem;
-    clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 14px 100%, 0 50%);
-    border-radius: 6px;
-  }
-  .decision .q-note { display: block; font-weight: 400; font-size: .76rem; color: #7c5d1d; }
-  .branches { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; margin-top: 12px; }
-  .branches.three { grid-template-columns: 1fr 1fr 1fr; }
-  .branch { display: flex; flex-direction: column; min-width: 0; }
-  .branch-tag {
-    align-self: center; font-size: .74rem; font-weight: 700; color: var(--muted);
-    border: 1px solid var(--line); background: #fff; border-radius: 999px;
-    padding: 0 12px; margin-bottom: 6px;
-  }
-  .branch-tag.yes { color: var(--green); border-color: var(--green); }
-  .branch-tag.no  { color: var(--muted); }
-  .merge-note { text-align: center; font-size: .74rem; color: var(--muted); margin-top: 10px; }
-
-  /* ---- 循环容器 ---- */
-  .loop {
-    border: 2px dashed var(--orange); background: var(--orange-bg);
-    border-radius: 14px; padding: 18px 18px 16px; position: relative;
-  }
-  .loop > .loop-title {
-    position: absolute; top: -12px; left: 16px;
-    background: var(--orange); color: #fff; font-size: .74rem; font-weight: 700;
-    border-radius: 999px; padding: 2px 12px; letter-spacing: .04em;
-  }
-  .loop .node { background: #fff; }
-  .loop-back {
-    align-self: center; margin-top: 10px;
-    font-size: .78rem; font-weight: 600; color: var(--orange);
-    border: 1.5px dashed var(--orange); border-radius: 999px; background: #fff;
-    padding: 4px 16px;
-  }
-  .loop-back::before { content: "↺ "; font-weight: 700; }
-
-  /* sweep 三层 */
-  .sweeps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 8px; }
-  .sweep {
-    background: #fff; border: 1px solid #ecd9c4; border-radius: 10px; padding: 10px 12px;
-    font-size: .8rem;
-  }
-  .sweep b { display: block; font-size: .84rem; margin-bottom: 2px; }
-  .sweep .r { color: var(--orange); font-weight: 700; font-size: .72rem; letter-spacing: .05em; }
-
-  /* ---- 附录 ---- */
-  details.appendix {
-    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
-    padding: 4px 20px; margin-top: 10px;
-  }
-  details.appendix summary {
-    cursor: pointer; font-weight: 700; font-size: .95rem; padding: 12px 0;
-    list-style-position: inside;
-  }
-  details.appendix .body { padding: 2px 2px 16px; font-size: .86rem; overflow-x: auto; }
-  details.appendix ol, details.appendix ul { padding-left: 22px; margin: 6px 0; }
-  details.appendix li { margin: 3px 0; }
-  table.map { border-collapse: collapse; width: 100%; font-size: .82rem; }
-  table.map th, table.map td { border: 1px solid var(--line); padding: 6px 10px; text-align: left; vertical-align: top; }
-  table.map th { background: #f3f4f8; }
-
-  footer.page { margin-top: 36px; font-size: .78rem; color: var(--muted); }
-
-  @media (max-width: 860px) {
-    .branches, .branches.three { grid-template-columns: 1fr; }
-    .sweeps { grid-template-columns: 1fr; }
-    .phase-head .owner { display: none; }
-    .layer-banner .hint { display: none; }
-    .ov-flow { flex-direction: column; align-items: stretch; }
-    .ov-endcap { max-width: none; }
-    .ov-arrow { transform: rotate(90deg); padding: 3px 0; }
-  }
-  @media print {
-    body { background: #fff; }
-    .wrap { max-width: none; padding: 0; }
-    details.appendix { break-inside: avoid; }
-    details.appendix[open] summary { border-bottom: 1px solid var(--line); }
-  }
+<!doctype html><html lang="zh-CN" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>指标资产入库流程总览</title><style>
+:root{--bg:#f7f8fa;--paper:#fff;--ink:#192333;--muted:#536071;--line:#c9d1dc;--soft:#eef2f6;--accent:#2054a8;--blue:#2359ac;--blue-bg:#edf3fc;--green:#176f5e;--green-bg:#edf8f3;--neutral:#667080;--neutral-bg:#f2f3f5;--highlight:#e4edfb;--warn:#835410;--tocW:250px;--bodyW:880px;--base:15px;--thTop:0px;--tipBg:#172233;--tipText:#fff}
+:root[data-theme=dark]{--bg:#111720;--paper:#171f2b;--ink:#e5ebf4;--muted:#b1bfd2;--line:#425069;--soft:#202c3b;--accent:#9bbdf7;--blue:#8bb2f1;--blue-bg:#1d304b;--green:#83d5ba;--green-bg:#1b352d;--neutral:#b0bdcd;--neutral-bg:#242d3a;--highlight:#293d5b;--warn:#e6c07f;--tipBg:#e9eef6;--tipText:#142034}
+*{box-sizing:border-box;border-radius:0!important}html{scroll-behavior:auto}body{margin:0;background:var(--bg);color:var(--ink);font:var(--base)/1.9 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;text-align:left}button,select,textarea{font:inherit;color:inherit;background:var(--paper);border:1px solid var(--line)}button,select{cursor:pointer}button{padding:3px 10px;line-height:1.5}button:hover,select:hover{outline:1px solid var(--accent)}button:focus-visible,a:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}code{font-size:.86em;background:var(--soft);padding:1px 3px;overflow-wrap:anywhere}p{margin:10px 0}main>p,section>.section-body>p,.callout>p{text-align:justify}h1,h2,h3{line-height:1.45;letter-spacing:-.025em}h1{font-size:2.3em;margin:15px 0;color:var(--ink)}h2{font-size:1.7em;border-left:5px solid var(--accent);padding-left:12px;margin:44px 0 17px;color:var(--accent)}h3{font-size:1.24em;margin:25px 0 13px;color:var(--ink);border-left:3px solid var(--line);padding-left:10px}section{min-width:0}section.collapsed>.section-body{display:none}section.collapsed>h2:after,section.collapsed>h3:after{content:' 已收起';font-size:12px;font-weight:400;color:var(--muted);letter-spacing:0}section .section-body{min-width:0}#topbar{height:24px;position:fixed;top:0;left:0;right:0;z-index:30;background:var(--paper);border-bottom:1px solid var(--line);font-size:12px;display:flex;gap:10px;align-items:center;padding:0 10px;line-height:22px}#topbar .barlabel{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}#topbar button{font-size:12px;line-height:19px;padding:0 8px;height:22px}#moreButton{margin-left:auto;flex:none}#back{flex:none}#prefs{position:fixed;right:8px;top:var(--thTop);background:var(--paper);border:1px solid var(--line);padding:12px;z-index:40;width:240px;box-shadow:0 4px 14px #0002;display:grid;gap:10px;font-size:13px;line-height:1.5}#prefs label{display:flex;justify-content:space-between;align-items:center;gap:14px;flex:none}#prefs select{width:115px;padding:3px}#prefs option{flex:none}#prefs .menu-note{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px}[hidden]{display:none!important}#toc{position:fixed;top:var(--thTop);bottom:0;left:0;width:var(--tocW);background:var(--paper);border-right:1px solid var(--line);z-index:20;display:flex;flex-direction:column;font-size:13px;line-height:1.6}#toc .tabs{display:flex;gap:3px;padding:9px 10px;border-bottom:1px solid var(--line);flex:none}#toc .tabs button{flex:1}#toc .tabs button:last-child{flex:none}#toc .tabs button.active{background:var(--highlight);color:var(--accent);border-color:var(--accent)}#tocScroll{overflow-y:auto;overflow-x:hidden;padding:10px 10px 35px;min-height:0;flex:1}#toc ul{list-style:none;margin:0;padding:0}#toc li{margin:0;padding:0;min-width:0}#toc .row{display:flex;align-items:flex-start;min-width:0}#toc a{display:block;flex:1;min-width:0;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;color:var(--muted);padding:5px 5px;text-decoration:none;line-height:1.65}#toc a:hover,#toc a.active{background:var(--highlight);color:var(--accent)}#toc .level3>a{padding-left:15px}#toc .level4>a{padding-left:26px}#toc .toggle{flex:none;width:20px;margin-top:6px;border:0;padding:0;line-height:20px;font-size:13px;background:none}#toc .spacer{width:20px;flex:none}#toc .children{display:none}#toc .open>.children,#toc .auto>.children{display:block}#toc .manual-closed>.children{display:none}#toc.wrap a{white-space:normal;text-overflow:clip;overflow-wrap:break-word}#dragHandle{position:absolute;right:-3px;top:0;bottom:0;width:6px;cursor:col-resize}#dragHandle:hover{background:var(--accent)}body.dragging{user-select:none}#page{margin-left:var(--tocW);padding:50px 32px 80px;min-width:0}main{max-width:var(--bodyW);margin:0 auto;min-width:0}.report-head{border-bottom:2px solid var(--ink);padding-bottom:22px}.eyebrow{font:600 11px/1.6 sans-serif;letter-spacing:.13em;color:var(--accent)}.lead{font-size:1.1em;max-width:760px}.meta,.caption,.source-note,.muted,.scope-note{color:var(--muted)}.meta,.caption,.source-note{font-size:13px;line-height:1.75}.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line);margin:20px 0}.kpis>div{padding:14px 12px;background:var(--paper);border-bottom:1px solid var(--line);border-right:1px solid var(--line)}.kpis b{display:block;font-size:1.85em;color:var(--accent);font-variant-numeric:tabular-nums;line-height:1.4}.kpis>div>span{display:block;font-size:12px;color:var(--muted)}.callout{background:var(--blue-bg);border-left:3px solid var(--accent);padding:13px 17px;margin:18px 0}.callout>strong{color:var(--accent)}.table-wrap{margin:22px 0;overflow:visible}.asset-caption,figcaption{font-size:14px;font-weight:650;line-height:1.5;margin:0 0 10px}.table-wrap table{width:100%;table-layout:fixed;border-collapse:separate;border-spacing:0;border-left:1px solid var(--line);font-size:.92em;line-height:1.75}th,td{padding:10px 11px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);vertical-align:top;overflow-wrap:break-word;text-align:left}thead th{position:sticky;top:var(--thTop);z-index:5;background:var(--soft);border-top:1px solid var(--line);color:var(--ink);font-weight:650}tbody td{background:var(--paper)}tbody tr:hover td{background:var(--blue-bg)}td.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}figure{margin:22px 0;padding:17px;border:1px solid var(--line);background:var(--paper);min-width:0}figure .caption{margin-bottom:0}.legend{display:flex;gap:10px 20px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin:0 0 16px}.legend span{display:flex;gap:6px;align-items:center}.swatch{display:inline-block;width:16px;height:12px;background:var(--blue);border:1px solid var(--blue);flex:none}.swatch.green{background:var(--green);border-color:var(--green)}.swatch.neutral{background:var(--neutral-bg);border:1px dashed var(--neutral)}.bars{display:grid;gap:10px}.barrow{display:grid;grid-template-columns:112px minmax(0,1fr) 62px;align-items:center;gap:12px;font-size:13px}.barrow b{text-align:right;font-variant-numeric:tabular-nums}.barrow:hover{outline:1px solid var(--accent);outline-offset:4px}.track{height:22px;background:var(--soft)}.bar{height:22px;background:var(--blue)}.bar.neutral{background:var(--neutral-bg);border:1px dashed var(--neutral)}.flow-grid.four{grid-template-columns:repeat(4,minmax(0,1fr))}.technical-details{padding-top:10px}details{border:1px solid var(--line);background:var(--paper);padding:12px 15px}summary{cursor:pointer;font-weight:650;color:var(--accent)}.flow-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.flow{padding:13px;border-left:3px solid var(--blue);background:var(--blue-bg);font-size:13px;line-height:1.8;min-width:0}.flow>b,.flow>span{display:block}.flow b{margin-bottom:5px;color:var(--blue)}.flow.green{background:var(--green-bg);border-color:var(--green)}.flow.green b{color:var(--green)}.flow.neutral{background:var(--neutral-bg);border:1px dashed var(--neutral)}.flow.neutral b{color:var(--ink)}.flow:hover{outline:1px solid var(--accent)}.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.cols.three{grid-template-columns:repeat(3,minmax(0,1fr))}.arrow{text-align:center;color:var(--muted);font-size:13px;margin:9px 0}.ref{font-size:12px;white-space:nowrap;margin-left:4px}.term{text-decoration:underline dotted var(--line);text-decoration-thickness:1px;text-underline-offset:3px;cursor:help}.terms-off .term{text-decoration:none;cursor:inherit}.source{padding:16px 0;border-bottom:1px solid var(--line);font-size:13px}.source p{margin:4px 0}.locator{overflow-wrap:anywhere;font-family:ui-monospace,SFMono-Regular,monospace;font-size:12px;color:var(--muted)}.jump-hl{background:var(--highlight)!important}.decision{padding:3px 16px 16px;border:1px solid var(--line);background:var(--paper);margin:16px 0}.decision h3{border-left:0;padding-left:0;font-size:1.15em}.decision p{font-size:.94em;line-height:1.8}.decision-fields{display:grid;grid-template-columns:145px minmax(0,1fr);gap:15px;margin-top:12px}.decision-fields label{display:grid;font-size:13px;gap:5px}.decision select,.decision textarea{width:100%;padding:6px 8px;min-width:0;resize:vertical;line-height:1.6}.review-actions{display:flex;gap:14px;align-items:center;font-size:13px}.sim-label{margin-right:15px;font-size:13px}#changeType{max-width:100%;padding:5px 10px;font-size:14px}#impactResult{margin-top:14px}.impact-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.impact-grid .flow{padding:10px 12px}.impact-summary{font-size:13px}.impact-grid strong{display:block;color:var(--green)}#tip{position:fixed;left:0;top:0;max-width:min(410px,calc(100vw - 16px));padding:10px 13px;font-size:13px;line-height:1.7;color:var(--tipText);background:var(--tipBg);z-index:100;pointer-events:none;contain:content;box-shadow:0 3px 14px #0003;overflow-wrap:break-word}#tip.peek{background:var(--highlight);color:var(--accent);border:1px solid var(--line);white-space:nowrap;box-shadow:0 2px 6px #0002;overflow:visible;padding:5px;font-size:13px;line-height:1.65}footer{font-size:12px;margin-top:35px;border-top:1px solid var(--line);padding-top:12px;color:var(--muted)}
+@media(max-width:1120px){#toc{position:relative;top:auto;width:100%;height:auto;max-height:280px;margin-top:24px;border-right:0;border-bottom:1px solid var(--line)}#tocScroll{max-height:205px;padding:5px 10px 12px}#toc .tabs{padding:5px 10px}#toc .tabs button{flex:none}#dragHandle{display:none}#page{margin-left:0;padding:24px 22px 60px}.table-wrap{overflow-x:auto}.table-wrap table{min-width:650px}thead th{position:static}.flow-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){#page{padding:18px 15px 50px}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.flow-grid,.flow-grid.four,.cols,.cols.three,.impact-grid{grid-template-columns:1fr}.barrow{grid-template-columns:93px minmax(0,1fr) 56px;gap:8px;font-size:12px}.decision-fields{grid-template-columns:1fr}figure{padding:12px}.table-wrap table{min-width:650px}h1{font-size:2.1em}h2{font-size:1.55em}#topbar .barlabel{max-width:calc(100vw - 130px)}.review-actions{align-items:flex-start;flex-direction:column}}
+@media print{#toc,#topbar,#prefs,#tip,.review-actions,.decision-fields{display:none!important}#page{margin:0;padding:0}main{max-width:none}body{font-size:11pt;background:white;color:black}.term{text-decoration:none}section.collapsed>.section-body{display:block}thead th{position:static}.table-wrap{overflow:visible}.table-wrap table{min-width:0}figure{content-visibility:visible!important;break-inside:avoid}h2{break-after:avoid}}
+label:has(textarea){display:block;text-align:left}
+pre{max-width:100%;overflow:auto;padding:12px;background:var(--soft);font-size:12px;line-height:1.7}input{font:inherit;color:inherit;background:var(--paper);border:1px solid var(--line);max-width:100%;padding:4px 8px}
+</style></head><body><div id="topbar"><span class="barlabel">TRACE / 指标资产入库流程总览</span><button id="back" hidden>返回</button><button id="moreButton" aria-expanded="false" aria-controls="prefs">更多 ▾</button></div><div id="prefs" hidden><label>主题<select id="themeControl"><option value="light">浅色</option><option value="dark">深色</option></select></label><label>宽度<select id="widthControl"><option value="regular">常规</option><option value="wide">加宽</option><option value="full">填满</option></select></label><label>字号<select id="fontControl"><option value="small">小</option><option value="medium" selected>中</option><option value="large">大</option></select></label><label>术语<select id="termControl"><option value="on">开</option><option value="off">关</option></select></label><div class="menu-note">目录右缘可拖动；双击适配标题宽度。Ctrl 点击 ± 可批量收放同级章节。</div></div><aside id="toc" aria-label="报告导航"><div class="tabs"><button data-tab="chapters" class="active">章节</button><button data-tab="assets">资产</button><button id="allToggle" aria-label="收放全部章节">±</button></div><div id="tocScroll"><nav id="chapters"></nav><nav id="assetNav" hidden></nav></div><div id="dragHandle" data-tip="拖动调整目录宽度；双击适配当前可见条目。"></div></aside><div id="page"><main><style>
+.graph-tools{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:16px}.graph-tools select{padding:5px 8px;max-width:100%}.graph{display:grid;gap:0}.g-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:12px}.g-label{font-size:13px;color:var(--muted);padding-top:14px}.g-label b{display:block;color:var(--ink);font-size:16px}.g-body{min-width:0}.g-box{padding:12px 14px;border:1px solid var(--line);border-left:4px solid var(--blue);background:var(--blue-bg);font-size:13px;line-height:1.8;min-width:0}.g-box b{display:block;font-size:15px;color:var(--blue);margin-bottom:4px}.g-box p{margin:3px 0}.g-box:hover{outline:1px solid var(--accent);outline-offset:2px}.g-box[data-route].inactive{background:var(--paper);border:1px dashed var(--neutral);color:var(--muted)}.g-box[data-route].inactive b{color:var(--muted)}.g-box.green{background:var(--green-bg);border-left-color:var(--green)}.g-box.green b{color:var(--green)}.g-box.human{background:var(--paper);border:2px dashed var(--warn)}.g-box.human b{color:var(--warn)}.g-box.neutral{background:var(--neutral-bg);border:1px dashed var(--neutral)}.g-box.neutral b{color:var(--ink)}.g-arrow{text-align:center;font-size:13px;color:var(--muted);padding:6px}.g-branches{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.g-branches small{display:block;font-size:12px}.g-split{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:10px}.g-next{font-size:13px;color:var(--green);margin:10px 0 0}.human-key{display:inline-block;width:16px;height:12px;border:2px dashed var(--warn)}.arrow-key{font-size:16px;line-height:12px}.mini-loop{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.example-source{border-left:3px solid var(--blue);background:var(--soft);padding:12px 16px}.result-line{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}.result-line>div{padding:10px;border:1px solid var(--line);background:var(--paper);font-size:13px}.result-line b{display:block;color:var(--green)}.graph-caption{font-size:13px;color:var(--muted)}.return-edge{text-align:center;border:1px dashed var(--warn);padding:9px 12px;font-size:13px;margin:12px 0;background:var(--paper)}.return-edge a{color:var(--warn)}.milestone{display:inline-block;background:var(--green-bg);color:var(--green);padding:2px 7px;font-size:12px}.flow-nav{display:flex;flex-wrap:wrap;gap:10px 20px;font-size:13px}
+@container workflow (max-width:670px){.g-branches,.g-split{grid-template-columns:1fr}.g-row{grid-template-columns:70px minmax(0,1fr)}}
+.workflow-figure{container-type:inline-size;container-name:workflow}
+@media(max-width:700px){.g-row{grid-template-columns:1fr;gap:5px}.g-label{padding-top:4px;display:flex;gap:8px;align-items:center}.g-label b{display:inline}.g-branches,.g-split,.mini-loop,.result-line{grid-template-columns:1fr}.g-box{padding:11px}.g-arrow{padding:5px}}
 </style>
-</head>
-<body>
-<div style="margin:16px auto 0;max-width:1180px;border:2px solid #b45309;background:#fffbeb;padding:12px 16px;color:#78350f;font:600 14px/1.5 system-ui,sans-serif;">
-  本页是辅助 View，不拥有规则；它只投影属主文档，也不定义或覆盖规则。快速装载架构请先读 <code>CONTEXT.md</code> 与
-  <code>docs/architecture/README.md</code>；当前操作以
-  <code>docs/dynamic-dataset-workflow.md</code> 和 <code>docs/fidelity-loop-rules.md</code>
-  为准。计数、命令或状态与属主文档冲突时，以属主文档为准。
-</div>
-<div class="wrap">
-
-<header class="page">
-  <h1>Workflow 全流程图：一张 Input 图片 → 已验证数据集</h1>
-  <p class="sub">
-    本页把「把一张损益表参考图从 <code>input/pending/</code> 变成已验证 Sankey 数据集」的完整流程
-    画成可 Review 的流程图，按粒度分三层：<b>第 1 层</b> 一屏总览（先看全局），
-    <b>第 2 层</b> 阶段详图（逐节点，含全部停止条件、图标子循环与 d3 保真循环），
-    <b>第 3 层</b> 流程附录。节点标注自动化程度与规则出处，编号（P1.1、D1 …）可直接用于流程优化讨论。
-  </p>
-  <nav class="layer-nav" aria-label="层级导航">
-    <a href="#layer-1"><span class="no">第 1 层</span>一屏总览</a>
-    <a href="#layer-2"><span class="no">第 2 层</span>阶段详图（逐节点）</a>
-    <a href="#layer-3"><span class="no">第 3 层</span>流程附录（A–D）</a>
-  </nav>
-  <p class="sources">
-    信息来源（规则属主文档）：<code>AGENTS.md</code> §Workflow ·
-    <code>docs/dynamic-dataset-workflow.md</code> ·
-    <code>docs/fidelity-loop-rules.md</code> ·
-    <code>data/schema.md</code> ·
-    <code>data/assets/README.md</code> ·
-    <code>docs/commit-messages.md</code>
-  </p>
-</header>
-
-<div class="legend">
-  <span class="item"><span class="swatch step"></span>操作步骤</span>
-  <span class="item"><span class="swatch cmd"></span>命令（黑底代码块）</span>
-  <span class="item"><span class="swatch data"></span>数据 / SSOT 写入</span>
-  <span class="item"><span class="swatch decide"></span>决策分支</span>
-  <span class="item"><span class="swatch stop"></span>停止条件</span>
-  <span class="item"><span class="swatch loop"></span>迭代循环</span>
-  <span class="item"><span class="swatch artifact"></span>产物 / 完成态</span>
-  <span class="item"><span class="badge auto">自动</span>脚本判定</span>
-  <span class="item"><span class="badge manual">人工</span>人工判断</span>
-  <span class="item"><span class="badge mixed">混合</span>脚本 + 人工</span>
-  <span class="item"><span class="badge cond">条件</span>视源图而定</span>
-  <span class="item"><span class="badge sub">Subagent 可代</span>低难度可分派（附录 C）</span>
-</div>
-
-<!-- ==================== 第 1 层：一屏总览 ==================== -->
-<div class="layer-banner" id="layer-1">
-  <span class="tag">第 1 层</span>
-  <h2>一屏总览</h2>
-  <span class="hint">五个阶段 · 两个循环 · 一个停止条件；点击阶段卡进入第 2 层详图</span>
-</div>
-
-<section class="overview" aria-label="一屏总览">
-  <p class="ov-essence"><b>守卫 + 分型</b> → <b>Source Coverage + SSOT</b> → <b>视图 Adapter</b> → <b>Build-bound 证据 + 人工 Review</b> → <b>Build 收尾</b></p>
-  <div class="ov-flow">
-    <div class="ov-endcap">输入<br />源图 PNG<br /><code>input/pending</code></div>
-    <span class="ov-arrow">→</span>
-    <a class="ov-card" href="#phase-1">
-      <span class="pnum">P1</span>
-      <span class="pname">接入与守卫</span>
-      <ul>
-        <li>sha256 查重 + key 冲突守卫</li>
-        <li>完整 Source signal 分型后 no-clobber 领取</li>
-      </ul>
-      <span class="pcmd"><code>check:pending · record:intake</code></span>
-      <span class="ov-tags"><span class="ov-tag stop">D1 命中 → STOP 仅报告</span></span>
-    </a>
-    <span class="ov-arrow">→</span>
-    <a class="ov-card" href="#phase-2">
-      <span class="pnum">P2</span>
-      <span class="pname">源盘点与数据 SSOT</span>
-      <ul>
-        <li>三遍 Source scan + ObjectInventory 覆盖对账</li>
-        <li>Other · 最小值 · face anti-omission</li>
-      </ul>
-      <span class="ov-tags">
-        <span class="ov-tag branch">Adapter 已由 intake 前 Type Gate 固定</span>
-        <span class="ov-tag par">Coverage 通过后：SSOT ∥ 测量 ∥ 图标</span>
-        <span class="ov-tag loop">↺ 图标 crop/vector 子循环（条件）</span>
-      </span>
-    </a>
-    <span class="ov-arrow">→</span>
-    <a class="ov-card" href="#phase-3">
-      <span class="pnum">P3</span>
-      <span class="pname">Adapter 与 i18n</span>
-      <ul>
-        <li>Source → Inventory → SSOT → Adapter 对账</li>
-        <li>显式 nodes/links/layout；缺 icon 不删语义对象</li>
-        <li>zh overlay · manifest 注册</li>
-      </ul>
-    </a>
-    <span class="ov-arrow">→</span>
-    <a class="ov-card" href="#phase-4">
-      <span class="pnum">P4</span>
-      <span class="pname">验证与 Review</span>
-      <ul>
-        <li>Source Coverage + Plan v5 + Build-bound evidence</li>
-        <li>T21 真阻断 + 人工 attestation</li>
-      </ul>
-      <span class="pcmd"><code>verify:dataset · record:verification · record:fidelity</code></span>
-      <span class="ov-tags"><span class="ov-tag loop">↺ d3 保真循环；机器通过不等于 accepted</span></span>
-    </a>
-    <span class="ov-arrow">→</span>
-    <a class="ov-card" href="#phase-5">
-      <span class="pnum">P5</span>
-      <span class="pname">收尾</span>
-      <ul>
-        <li>stage baseline → fresh seal → closeout 只读审计</li>
-        <li>仅操作者完成信号授权直接批量移动</li>
-        <li><code>check</code> 全绿 + 提交 + 汇报；尚非 Publication</li>
-      </ul>
-      <span class="pcmd"><code>record:build · verify:closeout · direct mv</code></span>
-    </a>
-    <span class="ov-arrow">→</span>
-    <div class="ov-endcap out">产物<br />信号触发后得到 processed Source；Build 审计另有 fresh SEALED 状态<br />（非 PUBLISHED）</div>
-  </div>
-  <p class="ov-note">P0 环境准备（一次性安装）与全部判定细节见第 2 层；颜色与徽章含义见上方图例。</p>
-</section>
-
-<!-- ==================== 第 2 层：阶段详图 ==================== -->
-<div class="layer-banner" id="layer-2">
-  <span class="tag">第 2 层</span>
-  <h2>阶段详图（逐节点）</h2>
-  <span class="hint">编号 P· / D· 与徽章标注自动化程度、命令与规则出处</span>
-</div>
-
-<!-- ==================== P0 ==================== -->
-<section class="phase" id="phase-0">
-  <div class="phase-head">
-    <span class="num">P0</span>
-    <h2>环境准备<span class="en">（一次性）</span></h2>
-    <span class="owner">出处：<code>AGENTS.md</code> §Commands</span>
-  </div>
-  <div class="flow">
-    <div class="node">
-      <span class="sid">P0.1</span>
-      <div class="badges"><span class="badge auto">自动</span></div>
-      <h3>安装固定版本依赖与渲染用 Chromium</h3>
-      <span class="cmd">pnpm install --frozen-lockfile
-pnpm exec playwright install chromium</span>
-      <p class="dim">d3 / standalone 验证器在 headless Chromium 中渲染；viewer 本身零依赖（d3 已 vendored）。</p>
-    </div>
-  </div>
-</section>
-<div class="phase-gap"><span class="arrow tall"></span></div>
-
-<!-- ==================== P1 ==================== -->
-<section class="phase" id="phase-1">
-  <div class="phase-head">
-    <span class="num">P1</span>
-    <h2>接入与守卫<span class="en">Intake &amp; Guard</span></h2>
-    <span class="owner">出处：<code>docs/dynamic-dataset-workflow.md</code> 步骤 1–2 · <code>input/README.md</code></span>
-  </div>
-  <div class="flow">
-    <div class="node">
-      <span class="sid">P1.1</span>
-      <div class="badges"><span class="badge manual">人工</span></div>
-      <h3>新源图 PNG 放入 <code>input/pending/</code></h3>
-      <p class="dim"><code>pending/</code> 是未领取队列；<code>processing/</code> 存放活动 Build 已领取的 Source；<code>processed/</code> 存放正式 close-out 或操作者完成信号后移动的稳定参考图。</p>
-    </div>
-    <div class="arrow"></div>
-    <div class="node">
-      <span class="sid">P1.2</span>
-      <div class="badges"><span class="badge auto">自动</span></div>
-      <h3>运行候选 pending 守卫</h3>
-      <span class="cmd">pnpm check:pending -- --file input/pending/&lt;file&gt;.png</span>
-      <ul>
-        <li>对选中的 pending PNG 计算 <b>sha256</b>，检查 pending 内部碰撞，并与 <code>input/processing/</code>、<code>input/processed/</code> 做精确内容比对；</li>
-        <li>从文件名推导<b>候选 dataset key</b>（去掉 <code>page-N</code> 前缀、<code>income-statement</code> 后缀，转小写 kebab）；</li>
-        <li>检查候选 key 是否已有 processing claim、processed 图片、<code>data/datasets/&lt;key&gt;.js</code>、manifest 注册或损益表 SSOT 记录。</li>
-        <li>命中任一内容 / 候选 key 冲突即停止；通过后才进入最终定名。</li>
-      </ul>
-      <div class="refdoc">实现：<code>scripts/check-pending-processed.mjs</code></div>
-    </div>
-    <div class="arrow"></div>
-    <div class="decision">
-      D1 · pending 彼此碰撞、内容已被领取 / 已处理（already-processing / already-processed），<br />或候选 key 与现有 claim / artifact 冲突（key-collision）？
-    </div>
-    <div class="branches">
-      <div class="branch">
-        <span class="branch-tag yes">是 — 停止条件</span>
-        <div class="node stop">
-          <span class="sid">STOP</span>
-          <h3>报告停止条件，流程终止</h3>
-          <p>对该图片<b>不得</b>移动、创建、更新、裁剪或验证任何内容；只在最终回复中报告冲突详情。</p>
-        </div>
-      </div>
-      <div class="branch">
-        <span class="branch-tag no">否 — 继续</span>
-        <div class="node">
-          <span class="sid">P1.3</span>
-          <div class="badges"><span class="badge manual">人工</span></div>
-          <h3>确定最终稳定 key</h3>
-          <p>小写 kebab：<code>&lt;company&gt;-&lt;period&gt;</code>，如 <code>nvidia-q4-fy26</code>。</p>
-          <p><b>intake 前 Type Gate</b>：完整查看原生 Source；损益表必须同时确认 <code>income-statement-values</code> + <code>sankey-flow-topology</code>，收入指标必须同时确认 <code>revenue-metric-definition</code> + <code>time-series-observations</code>。混合、缺项或冲突 signals 在 claim 前 STOP。</p>
-          <span class="cmd">pnpm check:pending -- --file input/pending/&lt;file&gt;.png --key &lt;dataset-key&gt;（可选提前失败）</span>
-          <p class="dim"><code>record:intake</code> 内部会用 final key 重跑决定性的 selected-item guard，手动重跑只是可选的提前失败；若 final key ≠ 脚本候选 key，守卫覆盖 <code>input/processing/</code>、<code>input/processed/</code>、<code>data/datasets/</code>、<code>data/income-statements/</code>、<code>data/dataset-manifest.js</code>。命中即回到 STOP，不得 intake。</p>
-        </div>
-      </div>
-    </div>
-    <div class="arrow tall"></div>
-    <div class="node artifact">
-      <span class="sid">P1.4</span>
-      <div class="badges"><span class="badge auto">自动</span></div>
-      <h3><code>record:intake</code> 领取到 <code>input/processing/&lt;dataset-key&gt;.png</code></h3>
-      <span class="cmd">pnpm record:intake -- input/pending/&lt;file&gt;.png --key &lt;dataset-key&gt; --adapter &lt;kind&gt; --signal &lt;signal-1&gt; --signal &lt;signal-2&gt; [--availability &lt;policy&gt;]</span>
-      <p>命令先校验 signal signature，记录绑定完整 Source digest / 宽高的 <code>source-classification/v1</code>，再 no-clobber 移动到 processing；目标已存在即停止。Source 在盘点、authoring、fidelity、seal 与 close-out 全程留在 processing；操作者完成信号的枚举、确认、同名检查与移动细则只由工作流 owning rule 定义。这只是 locator 操作，不是 Publication。异常 claim 按 Build ID + digest 恢复，不得覆盖或静默退回 pending。</p>
-    </div>
-  </div>
-</section>
-<div class="phase-gap"><span class="arrow tall"></span></div>
-
-<!-- ==================== P2 ==================== -->
-<section class="phase" id="phase-2">
-  <div class="phase-head">
-    <span class="num">P2</span>
-    <h2>Source Coverage 与数据 SSOT<span class="en">先完成 anti-omission，再并行准备</span></h2>
-    <span class="owner">出处：<code>docs/dynamic-dataset-workflow.md</code> 步骤 3–4、§Object Taxonomy、§Execution Model · <code>data/schema.md</code> · <code>data/assets/README.md</code></span>
-  </div>
-  <div class="flow">
-    <div class="node">
-      <span class="sid">P2.0</span>
-      <div class="badges"><span class="badge manual">人工</span></div>
-      <h3>三遍 Source scan + <code>source-coverage/v2</code>（先于 authoring）</h3>
-      <ul>
-        <li><b>semantic-value</b>：每个名称、金额和 metric observation；<b>geometry</b>：每个 face/link/guide/label/asset；<b>residual</b>：只允许闭集中的非语义残片；</li>
-        <li>持久化 <code>object-inventory/v4</code>；每个独立 <code>source:*</code> observation 绑定 native bbox、唯一 inventory owner、mapping role、精确 amount/SSOT ref；映射 node 时还必须绑定 observed face；</li>
-        <li><b>Other / Others / All Other 永远是语义对象</b>；缺 icon 只影响 asset。带值 Other 必须保留为数据指标：Source 有柱面就进入可见 node，零柱面就进入显式 non-node annotation/flow 表达。低于 floor 的真实 face 走 typed floor exception。Coverage 自动派生三项最小非零值、visible node IDs 与 typed floor exceptions；</li>
-        <li>主图把非零语义对象显示成 <code>$0.0B</code> 时，必须从权威补充来源恢复 higher-precision literal/locator，按 K/M/B/T 归一化；恢复不了即 STOP。</li>
-        <li><code>prepare-review</code> 会把 Coverage 作为 Plan v5 build gate，并机器核对 Source ↔ SSOT ↔ Adapter 精确数值；之后才允许 preflight/SSOT/图标并行。</li>
-      </ul>
-    </div>
-    <div class="arrow"></div>
-    <div class="decision">D0 · intake 已确认的 Adapter？<span class="q-note">未识别类型早已在 P1 Type Gate 停止</span></div>
-    <div class="branches">
-      <div class="branch">
-        <span class="branch-tag">B · 收入指标（ARR 等）</span>
-        <div class="node data">
-          <span class="sid">P2.B</span>
-          <div class="badges"><span class="badge manual">人工</span></div>
-          <h3>数据支线（无渲染）</h3>
-          <p>公司档案 + <code>data/revenue-metrics.js</code> 记录（观测序列、事件旗标、方法论 notes、conditions、来源、confidence/lineage）+ i18n。</p>
-          <p class="dim">不建 Sankey adapter、不跑图标子循环与保真循环；<code>verify:dataset</code> 对 revenue-metric key 自动跳过渲染步。</p>
-        </div>
-      </div>
-      <div class="branch">
-        <span class="branch-tag yes">A · 损益表 Sankey</span>
-        <div class="node"><span class="sid">—</span><h3>走完整管线（P2.1 起）</h3><p class="dim">对象家族：节点/流带结构、label 单元、注释容器、图标/品牌资产、有意跳过项。</p></div>
-      </div>
-    </div>
-    <div class="arrow tall"></div>
-    <div class="par-strip">
-      <b>∥ 并行组（Execution Model）</b>——P2.0 Coverage 完整后，三条轨道依赖同一 Source/coverage digest，可并行推进：
-      <div class="lanes">
-        <div class="lane"><b>Track A · 数据</b>P2.1 公司档案 → P2.2 损益表 SSOT（含 i18n 字段）</div>
-        <div class="lane"><b>Track B · 视觉</b>P2.4 逐对象 preflight 测量（以 P2.0 盘点为输入）</div>
-        <div class="lane"><b>Track C · 图标（条件）</b>P2.3 crop/vector 子循环（范围来自 P2.0 盘点）</div>
-      </div>
-      <p style="margin:6px 0 0; font-size:.74rem;">P3.2 adapter 编写需 Track A 数值 + Track B 几何后串行开始；Track C 收敛后在注释/图标环节接入。低难度轨道可分派 Subagent（附录 C）。</p>
-    </div>
-    <div class="arrow tall"></div>
-    <div class="decision">D2 · 是该公司的第一个数据集？</div>
-    <div class="branches">
-      <div class="branch">
-        <span class="branch-tag yes">是</span>
-        <div class="node data">
-          <span class="sid">P2.1</span>
-          <div class="badges"><span class="badge manual">人工</span><span class="badge sub">Subagent 可代</span></div>
-          <h3>创建公司档案 SSOT</h3>
-          <p><code>data/company-metadata/&lt;company-key&gt;.js</code>：description、sector、industry、founded、headquarters、fiscalYearEnd、website、ticker/exchange、marketCap（含 asOf/source）、sourceUrls，<b>加每种非默认语言的本地化 profile</b>，并注册进 <code>index.html</code>。</p>
-          <p class="dim">必须在该公司第一个数据集注册前补全（驱动 Table 视图）。</p>
-        </div>
-      </div>
-      <div class="branch">
-        <span class="branch-tag no">否</span>
-        <div class="node"><span class="sid">—</span><h3>公司档案已存在，跳过</h3><p class="dim">如 profile 文本有变化仍需同步更新。</p></div>
-      </div>
-    </div>
-    <div class="arrow tall"></div>
-    <div class="node data">
-      <span class="sid">P2.2</span>
-      <div class="badges"><span class="badge manual">人工</span></div>
-      <h3>写入损益表 SSOT 记录</h3>
-      <p><code>data/income-statements/&lt;company-key&gt;.js</code>（新公司则建文件并注册 <code>index.html</code>）：可比报告总额、line items、notes、currency、unit、period、sourceImage。</p>
-      <ul>
-        <li><b>纯数据边界</b>：不得包含 Sankey nodes / links / layout / render / SVG / 颜色 / 像素几何；</li>
-        <li><b>Coverage 对账</b>：每个 <code>financial-value</code> 的 Source literal/value/unit/SSOT ref 都要精确匹配 SSOT；Other 与最小值不得遗漏；precision recovery 后的非零值不得在 Table 继续显示 0；</li>
-        <li><b>Source 引用</b>：始终写最终 <code>input/processed/&lt;key&gt;.png</code>；活动 Build 期间，本地工具回退到同 key 的 <code>input/processing/&lt;key&gt;.png</code> claim；</li>
-        <li><b>货币契约</b>：currency 必须经 <code>src/trace-domain.js</code> 别名解析到 <code>USD_FX_SNAPSHOT</code> 汇率；新报告货币要在同一次变更中扩展快照（注明日期与来源）；</li>
-        <li>发布方 rounding 差异用 <code>roundingTolerance</code> 吸收。</li>
-      </ul>
-    </div>
-    <div class="arrow tall"></div>
-    <div class="decision">D3 · 源图含公司 / 业务线 / segment 图标？<span class="q-note">无图标只跳过 asset crop；“Others” 语义对象仍必须 data + render</span></div>
-    <div class="branches">
-      <div class="branch">
-        <span class="branch-tag yes">是 — 进入图标子循环</span>
-        <div class="loop" style="margin-top:2px;">
-          <span class="loop-title">图标 Crop / Vector 子循环（可先于整图循环）</span>
-          <div class="flow">
-            <div class="node">
-              <span class="sid">P2.3a</span>
-              <div class="badges"><span class="badge manual">人工</span></div>
-              <h3>编写 crop spec</h3>
-              <p><code>input/icon-crop-specs/&lt;dataset-key&gt;.json</code>：只含坐标、过滤、输出名与备注。要求覆盖<b>每个有语义的</b>公司 / 业务簇（跳过水印、署名、无图标 segment）。</p>
-              <p class="dim">authored Source reference 仍写最终 processed 路径；本地 crop 工具可回退到活动 Build 下同 key 的 processing claim。</p>
-            </div>
-            <div class="arrow"></div>
-            <div class="node">
-              <span class="sid">P2.3b</span>
-              <div class="badges"><span class="badge auto">自动</span><span class="badge sub">Subagent 可代</span></div>
-              <h3>运行提取脚本</h3>
-              <span class="cmd">python3 scripts/extract_icon_crops.py \
-  --spec input/icon-crop-specs/&lt;dataset-key&gt;.json</span>
-              <p>输出到 <code>data/assets/icon-references/&lt;company&gt;/</code>：透明背景 <code>crops/</code>、<code>validation-sheets/</code>、<code>crop-report.json</code>。</p>
-            </div>
-            <div class="arrow"></div>
-            <div class="node">
-              <span class="sid">P2.3c</span>
-              <div class="badges"><span class="badge manual">人工</span></div>
-              <h3>逐张验收 validation sheet</h3>
-              <ul>
-                <li>主体完整、视觉居中、无无关文字 / 连线 / 水印 / 相邻图标；</li>
-                <li>看 <code>crop-report.json</code> 的 <code>transparentPixelRatio</code>：接近 0 说明背景没抠掉 → 在 spec 里显式钉住 <code>backgroundRemoval.color</code> 重跑。</li>
-              </ul>
-            </div>
-            <div class="arrow"></div>
-            <div class="decision" style="min-width:240px;">D3a · crop 合格？</div>
-            <div class="loop-back">不合格 → 改 spec 重新 crop（回 P2.3a），不得基于错误 crop 继续</div>
-            <div class="arrow"></div>
-            <div class="node artifact">
-              <span class="sid">P2.3d</span>
-              <div class="badges"><span class="badge manual">人工</span></div>
-              <h3>记录验收 + 资产落点</h3>
-              <ul>
-                <li>验收结论写入 <code>model-validation.md</code>；</li>
-                <li><b>优先复用 / 矢量化</b>：materially similar 的已有 vector 直接复用；通用语义用 <code>src/icons.js</code> Lucide；可复用 vector 存 <code>SANKEY_BUSINESS_ICONS</code>；一次性 logo 放 dataset 的 <code>meta.logoSvg</code>；vector 候选与 crop 同尺寸算 Diff 收敛；</li>
-                <li><b>raster 白名单例外</b>：仅当已验证 cluster 经 spec 的 <code>runtimeOutputDir</code> 生成 <code>data/assets/raster-annotations/&lt;company&gt;/</code> 副本，且 dataset 显式 <code>render.allowRasterAnnotations = true</code>；</li>
-                <li><code>icon-references/</code> 下的 crop 是纯参考资产，<b>永不</b>被 d3 运行时直接引用。</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="branch">
-        <span class="branch-tag no">否</span>
-        <div class="node"><span class="sid">—</span><h3>无图标提取，跳过子循环</h3><p class="dim">若最终回复涉及图标，需说明「全部相关 cluster 已提取或已记录为跳过」。</p></div>
-      </div>
-    </div>
-    <div class="arrow"></div>
-    <div class="node">
-      <span class="sid">P2.4</span>
-      <div class="badges"><span class="badge manual">人工</span></div>
-      <h3>Preflight 测量（写 adapter 之前）——粗盘点之后的第二遍</h3>
-      <p>以 <b>P2.0 的 <code>source-coverage/v2</code> + <code>object-inventory/v4</code></b> 为输入逐对象测量，不重新推导对象列表；直接把 node、link/socket、label、annotation、non-node route 和 reference Interface Matrix 事实写入 authored/review 输入，不能先粗排再靠多次 evidence run 逼近。字段与通过标准只见 <code>docs/fidelity-loop-rules.md</code> §2。</p>
-    </div>
-  </div>
-</section>
-<div class="phase-gap"><span class="arrow tall"></span></div>
-
-<!-- ==================== P3 ==================== -->
-<section class="phase" id="phase-3">
-  <div class="phase-head">
-    <span class="num">P3</span>
-    <h2>Adapter 与 i18n<span class="en">Sankey 视图适配层</span></h2>
-    <span class="owner">出处：<code>docs/dynamic-dataset-workflow.md</code> 步骤 5 · <code>data/schema.md</code> · <code>docs/fidelity-loop-rules.md</code> §2</span>
-  </div>
-  <div class="flow">
-    <div class="node data">
-      <span class="sid">P3.2</span>
-      <div class="badges"><span class="badge manual">人工</span></div>
-      <h3>编写高保真 adapter：<code>data/datasets/&lt;dataset-key&gt;.js</code></h3>
-      <ul>
-        <li>显式 <code>nodes</code> + <code>links</code> + <code>layout.nodes</code> + <code>layout.labels</code>（低级格式，见 <code>data/schema.md</code>）；</li>
-        <li><code>meta.referenceImage</code> 始终指向最终 <code>input/processed/&lt;key&gt;.png</code> 并写精确宽高；在 close-out 前，本地诊断 / fidelity 工具回退到活动 Build 下同 key 的 processing claim；成本为正数（<code>type:'cost'</code> 渲染为括号）；</li>
-        <li>语义 label 单元先归组、再拆 blocks / lines；保留源图数值与 notes；</li>
-        <li>发布方水印、创作者品牌、URL、attribution 是<b>有意跳过残留</b>，不是渲染目标；</li>
-        <li>逐项对账 Source Coverage → Inventory → SSOT → Adapter；Other 类、三项最小非零值与 expected-visible faces 必须全部落到候选 surface；</li>
-        <li>precision recovery 后提升 <code>meta.decimals</code> 或写精确非零 <code>valueText</code>，Sankey 不得继续显示 0；</li>
-        <li>源图有可矢量化 logo 时设 <code>meta.logoSvg</code>。</li>
-      </ul>
-    </div>
-    <div class="arrow"></div>
-    <div class="node data">
-      <span class="sid">P3.3</span>
-      <div class="badges"><span class="badge manual">人工</span><span class="badge sub">初稿可代</span></div>
-      <h3>i18n overlay（英文为规范源）</h3>
-      <ul>
-        <li>对每种非默认语言（当前 <code>zh</code>）加 <code>i18n.&lt;language&gt;</code> overlay——<b>绝不建平行数据集文件</b>；</li>
-        <li>覆盖 dataset <code>name</code> / <code>meta</code> / node labels+notes / 每条会变化的固定 <code>layout.labels</code> 与 annotation 行，以及 SSOT labels/notes、公司档案；</li>
-        <li>overlay 仅限显示层：不得改 values、links、node 几何、财务总额、源图、验证语义；</li>
-        <li>有意不翻译的子品牌词（如 <code>aws</code>）→ dataset 的 <code>i18n.preservedAnnotationText</code>；全局不翻译品牌词（YouTube、iPhone…）→ <code>src/i18n-dictionaries.js</code> 的 <code>EXACT_ZH</code> 恒等映射。</li>
-      </ul>
-    </div>
-    <div class="arrow"></div>
-    <div class="node">
-      <span class="sid">P3.4</span>
-      <div class="badges"><span class="badge mixed">混合</span></div>
-      <h3>注册进 dataset manifest</h3>
-      <p>运行 <code>pnpm sync:index-datasets</code> 追加到生成的 <code>data/dataset-manifest.js</code>（dataset 不再有 <code>index.html</code> 标签；被复用数据集须保持在依赖之后的 manifest 顺序）。磁盘 ↔ 注册奇偶由 <code>verify:ssot</code> 强制，漂移可用：</p>
-      <span class="cmd">pnpm sync:index-datasets</span>
-    </div>
-  </div>
-</section>
-<div class="phase-gap"><span class="arrow tall"></span></div>
-
-<!-- ==================== P4 ==================== -->
-<section class="phase" id="phase-4">
-  <div class="phase-head">
-    <span class="num">P4</span>
-    <h2>验证与 Review<span class="en">只读诊断 + durable evidence + human decision</span></h2>
-    <span class="owner">出处：<code>docs/dynamic-dataset-workflow.md</code> 步骤 6–8 · <code>docs/fidelity-loop-rules.md</code>（循环 SSOT）</span>
-  </div>
-  <div class="flow">
-    <div class="node">
-      <span class="sid">P4.1</span>
-      <div class="badges"><span class="badge auto">自动</span><span class="badge sub">Subagent 可代</span></div>
-      <h3>（可选）只读单数据集聚合诊断</h3>
-      <span class="cmd">pnpm verify:dataset -- &lt;dataset-key&gt;</span>
-      <p>可选诊断：<code>record:verification</code> 覆盖其非渲染部分、<code>record:fidelity</code> 覆盖渲染部分并留下 durable evidence，因此不再是必经步骤；需要不留证据的只读排查时才运行。按序执行，任一步失败即终止；全程不写 durable evidence：</p>
-      <ul>
-        <li>① <code>node --check</code>：dataset 与支持数据文件语法；</li>
-        <li>② <code>verify:ssot</code>：SSOT ↔ dataset 数值奇偶、注册奇偶、货币/单位 + FX 覆盖；</li>
-        <li>③ <code>verify:i18n --strict &lt;key&gt;</code>：overlay 覆盖率（不证明视觉有效）；</li>
-        <li>④ <code>verify:dataset-file-metadata</code>：生成的 metadata 是否新鲜；</li>
-        <li>⑤ <code>verify:d3 &lt;key&gt;</code>：默认语言渲染 + 自动硬门槛；</li>
-        <li>⑥ <code>verify:d3 &lt;key&gt; --language zh</code>：每种非默认语言各渲染一次。</li>
-      </ul>
-      <p class="dim">聚合脚本内部按序执行；<code>verify:d3</code> 即使带 <code>--focus</code> 也只是只读 diagnostic，不归档、不产生 evidence run。机器全绿只能说明自动检查通过，不能写 accepted 或 converged。</p>
-    </div>
-    <div class="arrow tall"></div>
-    <div class="loop">
-      <span class="loop-title">人工 d3 保真循环 — preflight → 三个 sweep stages → scoped evidence runs → human decision</span>
-      <div class="flow">
-        <div class="node">
-          <span class="sid">P4.2</span>
-          <div class="badges"><span class="badge auto">自动</span><span class="badge sub">采集可代</span></div>
-          <h3>准备 Review + 记录 Build-bound 证据</h3>
-          <span class="cmd">pnpm record:build -- prepare-review &lt;build-id&gt; --input &lt;review-input.json&gt;<br />pnpm record:verification -- &lt;build-id&gt; --json<br />pnpm record:fidelity -- &lt;dataset-key&gt; --build &lt;build-id&gt; --focus &lt;stage-focus&gt; [--language &lt;code&gt; ...]</span>
-          <ul>
-            <li><code>prepare-review</code> 强制三遍 <code>source-coverage/v2</code>、精确 Source ↔ SSOT ↔ Adapter value 对账、<code>object-inventory/v4</code>、<code>verification-plan/v5</code> 与 Review Packet v4，返回 <code>reviewToken</code>；</li>
-            <li><code>record:verification</code> 独立运行非渲染一致性 profile；它不是每次 raster evidence run 的一部分，返回的 Build-bound reference 是 finish 的必填输入；</li>
-            <li>起本地静态服务器 → 最小 harness 执行 <code>SankeyEngine.render('#chart', data)</code> → 截取 <code>#chart &gt; svg</code>；</li>
-            <li>运行 Plan 选中的 <b>render gates</b>；G11 由上一项独立 <code>record:verification</code> 证据提供。完整定义只见 <code>docs/fidelity-loop-rules.md</code>；</li>
-            <li>计算全图 + DOM 派生分区域 Diff：<code>mae</code> / <code>similarity</code> / <code>changedPixelRatio</code> / <code>diffBoundingBox</code> / <code>regions[]</code>；</li>
-            <li>每种 required language 各记录 scoped automatic results（含 candidate interface 与 <code>nodePaintAudit</code>）和 <code>evidence-ready</code> archive；只有当前 Build、authored digest 与 plan digest 的 identity 才能进入闭环；</li>
-            <li><b>T21 真阻断</b>：expected-visible face 低于共享 3px floor 时本次证据失败；只有 Source 本身低于 3px、并在 Coverage 中以 typed Source-bound exception 绑定 digest/native bbox/crop/唯一 node target 时才进入例外审阅；</li>
-            <li><code>compare/runs/</code> 只是当前 run 的临时 scratch；durable archive 位于 <code>output/compare/</code>，它本身仍不是人工 accepted。</li>
-          </ul>
-        </div>
-        <div class="arrow"></div>
-        <div class="node">
-          <span class="sid">P4.3</span>
-          <div class="badges"><span class="badge manual">人工</span></div>
-          <h3>按三个 sweep stages 分层批量检查</h3>
-          <div class="sweeps">
-            <div class="sweep"><span class="r">Stage 1</span><b>Structure</b>节点、短柱、link/socket、接口与完整 <code>interface-matrix/v1</code>。</div>
-            <div class="sweep"><span class="r">Stage 2</span><b>Text</b>label 归属与 bbox、字重、annotation 容器和受保护文本关系。</div>
-            <div class="sweep"><span class="r">Stage 3</span><b>Polish + localization</b>颜色、图标和每个 required locale 的固定布局。</div>
-          </div>
-          <p class="dim" style="margin-top:8px;">每个 stage 把本层问题一次处理完。后层发现早层错误时，停止当前 human iteration，正式重开早层、重跑证据并重新冻结后再返回；不得顺手修验。stage 间串行，同一方向候选试值与独立语言 evidence 可并行（附录 C）。完整判定只见规则 SSOT §4–§6。</p>
-        </div>
-        <div class="arrow"></div>
-        <div class="node">
-          <span class="sid">P4.4</span>
-          <div class="badges"><span class="badge manual">人工</span></div>
-          <h3>每次 human iteration 的闭环产物</h3>
-          <span class="cmd">pnpm record:build -- finish &lt;build-id&gt; --review &lt;review.json&gt;</span>
-          <ul>
-            <li><b>误差分类</b>：必须死磕 / 需要优化 / 可接受残留 / 无语义跳过（无语义内容不得为压 Diff 补画）；</li>
-            <li><b>红框参考图</b>：以原图为底，红框圈完整语义区域，存 <code>…/&lt;key&gt;-attention-reference.png</code>；无开放问题则在 Task 信息中记「无开放红框」；</li>
-            <li><b>结构化 Review</b>：持久化稳定 <code>RegionDecision</code>、attention、<code>interface-matrix/v1</code>、<code>manualCheckDecisions</code> 与 <code>ManualAttestation</code>；Task information 由 <code>record:build inspect</code> 从这些事实派生；</li>
-            <li><b>用户反馈沉淀</b>：写入带稳定 <code>FB-*</code>/<code>REG-*</code>、归因、before/after evidence、remedy 与 automationDisposition 的 <code>FeedbackRecord</code>；第二次跨 Build execution-gap 未升级自动化会阻断 closure；</li>
-            <li><b>finish 判定</b>：<code>FidelityResult</code> v2 的 <code>checkResults</code> 必须逐项消费 Plan checks，并校验 reviewToken、consistency reference、每语言 evidence、人工决定、regions、attention、feedback 与 Matrix。缺项保持 <code>review-pending</code> 或 blocked。</li>
-          </ul>
-        </div>
-        <div class="arrow"></div>
-        <div class="decision" style="min-width:340px;">D4 · 人工 Review accepted 且 blockers 全关？<span class="q-note">硬门槛通过 + attestation 存在 + regions/risk/feedback/Matrix 全闭合 + 本地化通过 + Task/红框完整</span></div>
-        <div class="loop-back">review-pending / rejected / blocked → 修复后重新 prepare-review，旧 attestation 不得跨 digest 沿用；只有 required checks、locales、Matrix、feedback、attention 全关闭后，预计可选润色提升 &lt; 0.0005 才停止继续微调</div>
-      </div>
-    </div>
-    <div class="arrow tall"></div>
-    <div class="node artifact">
-      <span class="sid">P4.5</span>
-      <h3>人工 Review accepted → Build <code>CLOSED</code></h3>
-      <p>只有 fresh accepted <code>FidelityResult</code> 才能关闭 Build；机器 evidence-ready 不够。<code>inspect</code> 从同一份 <code>CloseoutReport</code> 派生 Task information 与 <b>Loop Fidelity Summary</b>，不再维护第二套口头结论。</p>
-    </div>
-  </div>
-</section>
-<div class="phase-gap"><span class="arrow tall"></span></div>
-
-<!-- ==================== P5 ==================== -->
-<section class="phase" id="phase-5">
-  <div class="phase-head">
-    <span class="num">P5</span>
-    <h2>收尾<span class="en">Close out</span></h2>
-    <span class="owner">出处：<code>docs/dynamic-dataset-workflow.md</code> §Verification Checklist / §Reporting · <code>docs/commit-messages.md</code></span>
-  </div>
-  <div class="flow">
-    <div class="node">
-      <span class="sid">P5.1</span>
-      <div class="badges"><span class="badge mixed">混合</span></div>
-      <h3>Build-local baseline stage → fresh seal → close-out audit；操作者信号 → Source 批量移动</h3>
-      <span class="cmd">pnpm record:build -- stage-baseline &lt;build-id&gt; --input &lt;baseline.json&gt;<br />pnpm record:build -- seal &lt;build-id&gt;<br />pnpm record:build -- inspect &lt;build-id&gt; [--json]<br />pnpm verify:closeout -- &lt;build-id&gt; [--json]</span>
-      <ul>
-        <li>stage 只供未来回归，不能反过来证明产生它的 Build；Revenue Metric Adapter 显式记录 baseline <code>notApplicable</code>；</li>
-        <li><code>seal</code> 不接收人工拼装的 verification JSON，而是内部重算当前 artifact freshness 并自行重跑 Adapter final profile（非渲染一致性 + Income Statement 每 required locale 的 d3 渲染硬门槛，逐条记入 <code>finalProfiles</code>）；任一 exact digest 已变或 profile 失败即拒绝（seal 前不再要求手动 <code>verify:dataset</code>）；</li>
-        <li><code>verify:closeout</code> 只读要求 historical/effective 都为 <code>SEALED</code>、fresh 且 human review accepted；close-out requirement policy（合入 main 的底线是 accepted <code>FidelityResult</code>，跳过 staging/seal/closeout 须连原因写进汇报）由工作流文档步骤 8–9 拥有。</li>
-        <li><code>verify:closeout</code> 通过也不移动 Source。只有操作者完成信号授权 relocation：先枚举整批并呈清单给操作者确认，确认后检查同名冲突，再移动确认的 processing PNG，不补造 lifecycle receipt；无信号则继续留在 processing。processed 永不改名。</li>
-      </ul>
-      <p class="dim"><code>SEALED</code> 与 Source relocation 都不是 <code>PUBLISHED</code>：后者只是当前兼容操作，M4 原子 Publication 仍未实现。现有 <code>compat:baseline</code>（由 <code>record:baseline</code> 更名，刻意置于四类命令之外）若因兼容 runtime 仍需执行，它是新 close-out verdict 之外的 transitional canonical mutation，不能作为本 Build 的通过证据。</p>
-    </div>
-    <div class="arrow"></div>
-    <div class="node">
-      <span class="sid">P5.2</span>
-      <div class="badges"><span class="badge auto">自动</span></div>
-      <h3>已授权的 Source 批量移动 + 快速聚合门全绿</h3>
-      <span class="cmd">pnpm check</span>
-      <p>收到操作者完成信号且清单经确认时，核实确认批次的 Source 已移动到 processed；无信号时确认它们继续留在 processing。共享 pending 队列可以保留。</p>
-      <p>= 全仓 JS 语法扫描 → 单元测试 → <code>check:pending</code> → <code>verify:architecture</code> → <code>verify:app-globals</code> → <code>verify:dataset-manifest</code> → <code>verify:render-baselines --structure-only</code> → <code>verify:ssot</code> → <code>verify:i18n</code> → <code>verify:dataset-file-metadata</code>（秒级、无渲染）。</p>
-      <p class="dim"><code>input/processing/</code> 非空代表可能有其他活动 Build，不得让全局 <code>pnpm check</code> 失败。该检查在任何 checkout（云端 / CI / 新克隆）上都应全绿：local-only 源图通过 <code>sourceImage.localOnly: true</code> 显式豁免；metadata 记录 git 提交时间（首次提交前回退 mtime），可在任意机器上确定性再生成。提交新数据集后需重跑 <code>pnpm update:dataset-file-metadata</code> 并提交刷新结果。</p>
-    </div>
-    <div class="arrow"></div>
-    <div class="node">
-      <span class="sid">P5.3</span>
-      <div class="badges"><span class="badge manual">人工</span></div>
-      <h3>按约定提交</h3>
-      <p>轻量 Conventional Commits：<code>&lt;type&gt;(&lt;scope&gt;): &lt;summary&gt;</code>（英文小写）。</p>
-      <ul>
-        <li>新数据集 = <b>一个</b> <code>data(&lt;key&gt;)</code> 提交：adapter + manifest 注册 + 属于该 Build 的 tracked queue/claim 变更；processed PNG 只留本机，禁止 force-add；</li>
-        <li>为它新增的通用渲染能力 → 拆成<b>前置</b> <code>render(engine)</code> 提交；</li>
-        <li>正文写清运行过的验证命令与关键指标（不得把 Reference 模式结果写成 d3 验证结果）。</li>
-      </ul>
-    </div>
-    <div class="arrow"></div>
-    <div class="node artifact">
-      <span class="sid">P5.4</span>
-      <div class="badges"><span class="badge manual">人工</span></div>
-      <h3>最终回复必含汇报项</h3>
-      <ul>
-        <li>变更文件清单，纯数据 SSOT 是否更新；</li>
-        <li>新数据集：粗盘点判定的输入类型 + 对象对账摘要（渲染 / 仅数据 / 跳过计数，逐对象有着落）；</li>
-        <li>提取的图标资产，全部相关 cluster 已覆盖或记录为跳过；</li>
-        <li>紧凑 <b>Loop Fidelity Summary</b> + 最新 Task 信息 + 红框图状态（或未运行循环的原因）；</li>
-        <li>用户反馈经验是沉淀进规则文档、还是记为数据集特例；</li>
-        <li>无法运行的命令。</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== 第 3 层：流程附录 ==================== -->
-<div class="layer-banner" id="layer-3">
-  <span class="tag">第 3 层</span>
-  <h2>流程附录</h2>
-  <span class="hint">产物、规则归属、执行模型和对象类型；保真判定只链接规则 SSOT</span>
-</div>
-
-<details class="appendix" id="appendix-a">
-  <summary>A · 一张图片产生的全部产物地图</summary>
-  <div class="body">
-    <table class="map">
-      <thead><tr><th>产物路径</th><th>角色</th><th>产生阶段</th></tr></thead>
-      <tbody>
-        <tr><td><code>input/processing/&lt;key&gt;.png</code></td><td>Git-tracked 活动 Build no-clobber Source claim；保留到正式 close-out 或操作者完成信号</td><td>P1.4</td></tr>
-        <tr><td><code>input/processed/&lt;key&gt;.png</code></td><td>仅由操作者完成信号（清单经确认后）移动形成的 Git-ignored 本机稳定参考图（永不改名；验证输入，不进 runtime；非 M4 Publication）</td><td>P5.1</td></tr>
-        <tr><td><code>data/company-metadata/&lt;company&gt;.js</code></td><td>公司档案 SSOT（新公司）+ <code>index.html</code> 注册</td><td>P2.1</td></tr>
-        <tr><td><code>data/income-statements/&lt;company&gt;.js</code></td><td>损益表纯数据 SSOT + <code>index.html</code> 注册</td><td>P2.2</td></tr>
-        <tr><td><code>input/icon-crop-specs/&lt;key&gt;.json</code></td><td>图标裁剪 spec（条件）</td><td>P2.3a</td></tr>
-        <tr><td><code>data/assets/icon-references/&lt;company&gt;/</code></td><td>参考 crops、validation-sheets、crop-report.json、model-validation.md（仅参考，不进 runtime）</td><td>P2.3b–d</td></tr>
-        <tr><td><code>data/assets/raster-annotations/&lt;company&gt;/</code></td><td>白名单 runtime raster（条件，须 <code>render.allowRasterAnnotations</code>）</td><td>P2.3d</td></tr>
-        <tr><td><code>src/icons.js</code> / <code>meta.logoSvg</code></td><td>可复用 vector 图标 / 一次性 logo</td><td>P2.3d</td></tr>
-        <tr><td><code>data/datasets/&lt;key&gt;.js</code></td><td>Sankey 视图 adapter（nodes/links/layout + i18n overlay）</td><td>P3.2–3.3</td></tr>
-        <tr><td><code>data/dataset-manifest.js</code></td><td>dataset 注册（生成物，<code>pnpm sync:index-datasets</code>）</td><td>P3.4</td></tr>
-        <tr><td><code>output/builds/&lt;build-id&gt;/</code></td><td>build-local manifest、ObjectInventory、VerificationPlan、review packet/token、FidelityResult、Feedback Ledger、baseline stage 与 seal receipts</td><td>P1.4、P4.2–P5.1</td></tr>
-        <tr><td><code>output/compare/&lt;key&gt;/&lt;seq&gt;-&lt;improvement&gt;-&lt;focus&gt;/</code></td><td><code>record:fidelity</code> durable evidence：候选图、Diff、metrics、Interface audit/contact sheet 与 identity；序号由运行顺序自动递增，Build-bound 时 focus 取 canonical stage focus 枚举且状态为 <code>evidence-ready</code>，不是 human accepted</td><td>P4.2–4.4</td></tr>
-        <tr><td><code>compare/runs/</code></td><td>d3 diagnostic/evidence 的 per-run 临时 scratch；<code>verify:d3</code> 不把它晋级为 archive</td><td>P4.1–4.2</td></tr>
-        <tr><td><code>data/dataset-file-metadata.js</code></td><td>Recently-updated 排序用的生成 metadata（本地维护，云端不重生成）</td><td>P5.2</td></tr>
-        <tr><td><code>data/revenue-metrics.js</code></td><td>收入指标纯数据 SSOT 记录（B 类输入的数据支线终点，无渲染产物）</td><td>P2.B</td></tr>
-      </tbody>
-    </table>
-  </div>
+<header class="report-head"><div class="eyebrow">TRACE · 当前工作流 · 2026-09-05</div><h1>一份指标材料，<br>怎样进入系统</h1><p class="lead">你提供图片或文字。执行者整理出完整数据，程序安排检查；你核对结果后，系统完整纳入这一版。</p><span class="milestone">已落地的流程</span><p class="meta">这张图描述当前实现。Spec 是做事标准；Loop 是发现问题、修正并复查。它们共同服务于数据入库。</p><nav class="flow-nav"><a href="#whole-flow">先看总览图</a><a href="#example">看一个简单例子</a><a href="#changes">修改后怎样复查</a><a href="#implementation">查看实现与验证依据</a></nav></header>
+<section id="overview"><h2>01 · 四步走完，结果可核对</h2><div class="section-body">
+<figure id="whole-flow" class="workflow-figure" data-toc="图 1-1 当前完整入库流程"><figcaption>图 1-1 · 从原材料到系统正式版本</figcaption><div class="legend"><span><i class="swatch blue"></i>执行者与程序处理</span><span><i class="human-key"></i>需要人工判断</span><span><i class="swatch green"></i>检查与正式结果</span><span><i class="swatch neutral"></i>按需要处理</span><span><i class="arrow-key">↓</i>处理顺序</span></div><div class="graph-tools"><label for="assetRoute">选择你提供的材料</label><select id="assetRoute"><option value="general">指标文字 / 普通指标图片</option><option value="revenue">收入时间序列图片</option><option value="sankey">需要还原的利润表桑基图</option><option value="all">查看全部路径</option></select></div>
+<div class="graph">
+<div class="g-row"><div class="g-label"><b>① 收材料</b>保留原件</div><div class="g-body"><div class="g-box" data-tip="当前正式接收 PNG 图片与 UTF-8 的 TXT、MD 文件。先按内容选处理类型，再认领来源；重复文件或相同名称冲突会被检查。"><b>接收图片或文字，检查是否重复</b><p>保存原始内容和来源身份，为这份材料建立独立草稿。</p></div><div class="g-arrow">↓</div></div></div>
+<div class="g-row" id="organize-data"><div class="g-label"><b>② 整理数据</b>一次列全</div><div class="g-body"><div class="g-box"><b>完整读材料，列出每一项指标</b><p>记录“谁、什么时间、什么指标、多少、什么单位、怎样统计”，并指回原文或原图位置。</p><p>必要说明、小额项目和“其他项”也要有去向。程序据此生成处理单和检查清单。</p></div><div class="g-arrow">↓ 按内容进入相应路径</div><div class="g-branches">
+<div class="g-box" data-route="general"><b>普通指标</b><p>保存公司或产品指标，保留原话、精确数值和单位。</p><small>文字与普通指标图片走这条路径。</small></div>
+<div class="g-box" data-route="revenue"><b>收入时间序列</b><p>整理收入记录，接入已有趋势展示。</p><small>沿用专用收入数据规则。</small></div>
+<div class="g-box" data-route="sankey"><b>利润表桑基图</b><p>整理财务数据，再还原关系、文字与图标。</p><small>图标先查可复用版本；缺图标不能删指标。</small></div></div><div class="g-arrow">↓</div></div></div>
+<div class="g-row"><div class="g-label"><b>③ 检查审阅</b>有错就修</div><div class="g-body"><div class="g-box green"><b>先让程序核对完整性与一致性</b><p>检查原文位置、数字、单位、币种、来源与登记。有疑问或冲突，就列出具体问题。</p></div><div class="g-arrow">↓</div><div class="g-box" data-route="sankey" id="sankey-stage"><b>桑基图另加三阶段检查</b><p>关系与结构 → 文字 → 细节与语言。每阶段查看实际渲染结果，确认后留下检查点。</p><small>普通指标和收入数据无需经过这套图形排版循环。</small></div><div class="g-arrow">↓</div><div class="g-split"><div class="g-box human"><b>请你核对原材料与最终结果</b><p>处理单集中展示来源、提取结果、候选图和未解决问题。审阅只对当前这一版有效。</p></div><div class="g-box neutral"><b>读不清 / 有冲突</b><p>明确标为待解决。能准备的继续准备，不能猜完后当作通过。</p></div></div><div class="return-edge">↶ <a href="#organize-data">发现问题，回到整理数据</a> → 修正后复查 → 刷新处理单</div><div class="g-box green"><b>审阅通过，再做一次最终检查</b><p>确认文件仍是被审阅的那一版，必要的检查均通过，才允许纳入系统。</p></div><div class="g-arrow">↓</div></div></div>
+<div class="g-row"><div class="g-label"><b>④ 纳入系统</b>完整生效</div><div class="g-body"><div class="g-box green"><b>合并这批结果，完整切换到新正式版本</b><p>合并前检查同名、重复指标和并发改动；检查通过后，数据、展示和来源记录一起生效。</p></div><div class="g-arrow">↓</div><div class="g-split"><div class="g-box green"><b>系统中能找到、能核对、能导出</b><p>普通指标在“指标资产”入口搜索；利润表、收入曲线继续使用已有视图。</p></div><div class="g-box neutral"><b>需要分享时再生成输出</b><p>从已确认版本生成站点或离线 HTML。输出失败可以独立重试。</p></div></div><p class="g-next">原材料归档单独执行：收到明确完成信号并确认清单后，移入本机已处理目录。</p></div></div>
+</div><p id="routeNote" class="graph-caption" aria-live="polite"></p><p class="caption">虚线分支表示本次可略过或需另行确认。箭头表示顺序，不代表所有步骤均由程序自动判断。</p></figure>
+<p><strong>你通常只需给材料、回答具体疑问、核对最终结果。</strong>识别图片和理解原文由执行者完成；生成中间清单、执行检查、记录结果与安排下一步由工具接手。</p>
+</div></section>
+<section id="example"><h2>02 · 用一段文字，看最后得到什么</h2><div class="section-body"><figure id="example-flow" data-toc="图 2-1 一份材料的数据化结果"><figcaption>图 2-1 · 示例：两项指标完整入库</figcaption><div class="legend"><span><i class="swatch blue"></i>你提供的原文</span><span><i class="swatch green"></i>系统保存的指标</span></div><div class="example-source">示例公司 A，2026 年第一季度收入 100 亿元，净利润 20 亿元。</div><div class="g-arrow">↓ 整理、核对并审阅</div><div class="result-line"><div><b>收入 · 100 亿元</b>主体：示例公司 A<br>时间：2026 年第一季度<br>保留“收入 100 亿元”的原文位置</div><div><b>净利润 · 20 亿元</b>主体：示例公司 A<br>时间：2026 年第一季度<br>保留“净利润 20 亿元”的原文位置</div></div><p class="caption">这是虚构示例，未纳入正式数据。如果提供相同内容的图片，数据记录一致，来源位置改为原图中的区域。未说明的统计口径会明确保留为“未说明”。</p></figure><p>最后得到的是可搜索、可导出的记录，而且能查回每个数值来自哪里。如果某个字看不清，处理单就指出这一处，等待确认。</p></div></section>
+<section id="changes"><h2>03 · Loop：改了哪里，就复查哪里</h2><div class="section-body"><figure id="repair-loop" data-toc="图 3-1 修正与复查循环"><figcaption>图 3-1 · 未变化的阶段可以保留</figcaption><div class="legend"><span><i class="swatch blue"></i>执行者与程序处理</span><span><i class="human-key"></i>需要人工判断</span><span><i class="swatch green"></i>检查与正式结果</span><span><i class="swatch neutral"></i>按需要处理</span><span><i class="arrow-key">↓</i>处理顺序</span></div><div class="graph-tools"><label for="changeCase">这次发现的是</label><select id="changeCase"><option value="label">一个标签挤在一起</option><option value="number">一项原始数值改了</option><option value="company">另一家公司新增了数据</option><option value="rules">绘图或检查程序发生变化</option></select></div><div class="mini-loop"><div class="g-box"><b>发现具体问题</b><p id="changeProblem"></p></div><div class="g-box"><b>修正并检查相关部分</b><p id="changeChecks"></p></div><div class="g-box green"><b>保留仍有效的工作</b><p id="changeKeep"></p></div></div><div class="return-edge">检查仍有问题 ↶ 再修正；问题已关闭 → 更新审阅 → 最终检查 → 纳入系统</div><p class="caption">依赖范围由实际数据、图表、资产、字体与检查程序推导。阶段复用节省中途返工；最后一道检查仍然保留。</p></figure><p>你指出的问题会写入反馈记录，并列出同批需要检查的材料。历史案例会在下次准备时被提示；执行者仍需落实防错措施与同批排查，不能把“已记录”当作“已解决”。</p></div></section>
+<section id="standards"><h2>04 · Spec：始终按同一套标准做</h2><div class="section-body"><div class="table-wrap" id="standards-table" data-toc="表 4-1 入库的基本标准"><div class="asset-caption">表 4-1 · 六条基本要求</div><table><colgroup><col style="width:23%"><col style="width:47%"><col style="width:30%"></colgroup><thead><tr><th>要求</th><th>实际怎么做</th><th>由谁判断</th></tr></thead><tbody>
+<tr><td>不能漏</td><td>每项有意义的数据和必要说明都有记录；忽略的内容有原因。</td><td>程序检查覆盖，人工核对全文 / 全图。</td></tr><tr><td>不能改错</td><td>主体、时间、指标、数值、单位和统计口径与来源对应。</td><td>程序核对格式与一致性，人工确认含义。</td></tr><tr><td>不能瞎补</td><td>未说明、读不清、有冲突的内容明确标出。</td><td>执行者记录，必要时由你补充判断。</td></tr><tr><td>不能误覆盖</td><td>重复材料、重复指标和并发改动在正式生效前核对。</td><td>程序拦截，执行者解决冲突。</td></tr><tr><td>需要的展示要完整</td><td>需要还原图表时，关系、文字、图标都有去向。</td><td>图形检查加实际看图。</td></tr><tr><td>能核对才算完成</td><td>结果审阅通过、版本未变、最终检查完成后才能入库。</td><td>程序约束顺序，人工接受当前版本。</td></tr>
+</tbody></table></div><p>每类详细规则只保留一个负责定义的文件。命令和协议表由代码生成，再由检查程序验证一致，避免不同说明互相打架。</p></div></section>
+<section id="batch"><h2>05 · 多份材料，也按同样的流程</h2><div class="section-body"><figure id="batch-flow" data-toc="图 5-1 批量处理与失败恢复"><figcaption>图 5-1 · 草稿分开处理，正式结果统一检查</figcaption><div class="legend"><span><i class="swatch blue"></i>执行者与程序处理</span><span><i class="human-key"></i>需要人工判断</span><span><i class="swatch green"></i>检查与正式结果</span><span><i class="swatch neutral"></i>按需要处理</span><span><i class="arrow-key">↓</i>处理顺序</span></div><div class="g-box"><b>批量输入 → 保存这批成员清单</b><p>每份材料各自记录进度与耗时。</p></div><div class="g-arrow">↓ 分开处理</div><div class="g-branches"><div class="g-box"><b>材料 A 的草稿</b>整理 → 检查 → 审阅</div><div class="g-box"><b>材料 B 的草稿</b>整理 → 检查 → 审阅</div><div class="g-box neutral"><b>材料 C 有疑问</b>保留问题，不标记完成</div></div><div class="g-arrow">↓ 选择已完成审阅和最终检查的结果</div><div class="g-box green"><b>检查组合结果 → 切换正式版本</b><p>同一文件存在不同修改时明确报冲突，不能静默覆盖。正式版本在切换前保持完整。</p></div><div class="return-edge">基于旧版本发生冲突 → 更新草稿依据 → 复查与重新确认 → 生成新入库计划</div><p class="caption">当前批量执行默认同时处理 2 份、最多 4 份〔高：代码约束〕。这是并发上限，尚未宣称实际处理速度提升了某个百分比。</p></figure><p>正式切换前失败，旧版本继续可用；切换成功但回执未保存，按原计划恢复回执。分享文件生成失败，只重试那次输出，不倒退已经入库的数据。</p></div></section>
+<section id="implementation"><h2>附录 · 实现范围与验证依据</h2><div class="section-body"><p>主要改造已经接入当前代码：文字接收、通用指标、自动处理单、独立草稿、依赖复查、阶段检查点、图标索引、批量执行、完整发布与独立输出。</p><details><summary>展开命令、规则属主与实际边界</summary>
+<div class="table-wrap" id="implementation-table" data-toc="表 A-1 当前命令与代码位置"><div class="asset-caption">表 A-1 · 需要查工程细节时看这里</div><table><colgroup><col style="width:23%"><col style="width:41%"><col style="width:36%"></colgroup><thead><tr><th>操作</th><th>当前入口</th><th>实现位置</th></tr></thead><tbody><tr><td>接收、续跑、查看处理单</td><td><code>record:workflow start / continue / report</code></td><td><code>scripts/lib/asset-workflow.mjs</code><br><code>workflow-review.mjs</code></td></tr><tr><td>确认阶段、审阅与最终检查</td><td><code>record:workflow checkpoint / review / seal</code></td><td><code>workflow-checkpoints.mjs</code><br><code>dataset-build-closeout.mjs</code></td></tr><tr><td>批量、反馈、资产复用</td><td><code>record:workflow batch / feedback / assets</code></td><td><code>workflow-batch.mjs</code><br><code>workflow-feedback.mjs</code><br><code>workflow-assets.mjs</code></td></tr><tr><td>正式生效与输出</td><td><code>publish:datasets plan / commit</code><br><code>release:dataset</code></td><td><code>workflow-publication.mjs</code></td></tr><tr><td>更新依据、归档原件</td><td><code>record:workflow refresh / archive-list / archive</code></td><td><code>workflow-recovery.mjs</code></td></tr></tbody></table></div>
+<p><strong>当前边界：</strong>接收 PNG、TXT、MD；没有新增通用自动图片识别服务。普通指标自动生成数据记录；专用财务数据和桑基图仍由执行者在草稿中编写。重复指标与同一文件的不同修改需要明确核对，不自动猜测合并。</p><p>新流程的正式版本和处理记录目前存于本机 <code>output/</code>；页面从固定版本加载。原 Git 工作树继续承载代码开发和历史数据。需要分发时生成站点或离线 HTML；本次未自动推送或部署线上网站，也未给真实待处理材料补造审阅。</p>
+<p>验证包含：文字 / 图片路径一致性、遗漏与数值错误拒绝、旧审阅失效、阶段顺序、草稿隔离、批量独立失败、并发冲突、发布中断及重试、原件防覆盖归档；另检查主界面、构建站点和离线应用。测试用虚构材料验证协议，图片的真实识别准确率仍由实际来源与人工审阅评估。</p><p>两项历史图形诊断仍需单独处理：Nike Q4 FY25 的小额柱检查需要对应的处理计划；Netflix Q1 FY26 的收入标签间距检查未通过。两项均已在修改前版本复现。本次未改动这些图表，也未将诊断结果记为通过。</p>
 </details>
+<article class="source" id="source-rules"><b>规则来源</b><p class="locator">docs/asset-workflow.md · docs/dynamic-dataset-workflow.md · docs/fidelity-loop-rules.md · data/schema.md · data/assets/README.md</p><p>操作、图形质量、字段与资产规则分别由这些文档拥有。本图是辅助 View，不拥有规则；不另外定义检查公式或阈值。</p></article><article class="source" id="source-code"><b>实现与架构来源</b><p class="locator">scripts/lib/workflow-*.mjs · scripts/lib/metric-source.mjs · src/app/metric-library.js · docs/architecture/README.md · docs/adr/0002-local-publication-and-source-archive.md</p><p>沿用原有处理、整批发布和输出尝试的分工；新协议约束新 Build，历史记录按原版本解释。</p></article><article class="source" id="source-tests"><b>验证来源</b><p class="locator">tests/asset-workflow.test.mjs · tests/dataset-build-closeout.test.mjs · scripts/verify-app.mjs · docs/workflow-implementation-progress.md</p><p>流程事实可信度〔高〕：依据当前本地实现、自动化检查与实际构建。效率暂以记录的每步耗时观察，不预报提速比例。</p></article>
+<p class="caption">快照日期：2026-09-05，Asia/Singapore。生成命令：<code>node scripts/update-workflow-graph.mjs</code>。本文件包含全部样式、图形和交互，可独立打开。</p></div></section>
+<footer>Trace · 当前 Workflow 总览 · 图片或文字 → 可核对的系统数据</footer></main></div><div id="tip" role="tooltip" hidden></div><script>
+'use strict';
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+const root=document.documentElement,main=$('main'),toc=$('#toc'),tocScroll=$('#tocScroll'),tip=$('#tip');
+let headerHeight=24,cache=[],assetCache=[],rafScroll=0,rafLayout=0,activeHeading=null,activeAsset=null,lastTarget=null,tipTimer=0,lastHide=-1e9,lastScroll=-1e9,ptrX=0,ptrY=0,highlight=null,highlightTimer=0;
+const jumpStack=[],headingLinks=new Map(),assetLinks=new Map(),nodes=new Map();
+const TERMS={
+'桑基图':['用节点和流带表示组成与流向的图。本项目中，用来展示收入、成本和利润等关系。'],
+'口径':['一个指标具体怎么算、包含什么。例如收入是当季还是累计、含不含税。数值相同但口径不同，不能直接当作同一条记录。'],
+'端面':['节点柱体接入或接出流带的一侧。核对端面是为了检查流带是否接在正确位置、连续覆盖并保持原图顺序。'],
+'柱面':['节点实际画出的可见矩形。旁边的流带、导引线或鼠标命中区域都不能代替柱面存在的证据。'],
+'拓扑':['对象之间怎样连接的关系。只要连接方向或终点错了，外观再相似也不算正确。'],
+'渲染器':['把数据与显示配置实际画到屏幕上的程序。它改变后，同一份数据也可能得到不同几何与像素。'],
+'回归':['修改后重新检查原有正确行为是否仍成立。用于防止修好一个案例却破坏另一类输入。'],
+'消费者':['这里指实际引用某个共享资产或代码的数据集。更新共享内容时，要找到这些使用者才能确定验证范围。'],
+'语义':['对象实际表达的业务含义。例如一条线代表其他收入流向哪个利润节点，不能只按颜色和形状判断。'],
+'影子对比':['让新旧实现同时产生结果并比较，正式行为暂由旧实现负责。差异被解释和验收后才切换。'],
+'p95':['第 95 百分位。把耗时从小到大排列，95% 的样本不超过这个值，便于看出尾部卡顿。'],
+'FY':['Fiscal Year，财年。公司用于会计报告的一年，不一定与自然年起止相同。'],
+'QA':['Quality Assurance，质量验证。检查产物在规定场景是否达到要求；报告页面验证与业务图形验证是不同范围。'],
+'CB':['Casebook，案例登记编号。本项目用它指向历史反馈、根因和当前防线，便于追溯与复发核对。'],
+'SVG':['Scalable Vector Graphics，可缩放矢量图形。浏览器用形状与路径绘制图像，本项目的桑基图由它呈现。'],
+'Source':['来源原件。用来确定输入中到底有哪些事实和视觉对象，后续修改不能抹掉原件身份。'],
+'Sankey':['桑基图。用节点和流带表示组成与流向；本项目还要求对应原图的具体几何。'],
+'Metric':['指标。描述金额、比例或时间序列等业务事实，和图形画在哪个位置分开保存。'],
+'View':['显示视图。同一组业务事实可以有多种呈现方式，视图负责显示而不拥有财务真值。'],
+'HTML':['HyperText Markup Language，超文本标记语言。浏览器用它组织页面；本报告将样式和交互一起内置。'],
+'Node.js':['JavaScript 的本地运行环境。项目使用它执行检查、生成与构建脚本。'],
+'P0':['本报告的第一优先级。表示应先处理的口径漂移，不代表线上事故严重程度。'],
+'P1':['本报告的第二优先级。表示应随后处理的执行与依赖问题，不代表线上事故严重程度。'],
+'P2':['本报告的后续优先级。表示在正确性基础建立后完善的成本与规则接线。'],
+'B8':['本项目的人工接口语义核对规则。用来弥补自动几何统计无法辨别同色流带身份的盲点。'],
+'Spec':['Specification，规格。把对象、输入、规则和验收条件明确写下来，让不同执行者按同一标准做事。'],
+'Workflow':['工作流。按依赖关系组织的一组操作，说明先做什么、何时停止、如何恢复。'],
+'Loop':['迭代检查循环。发现差异、修改、取证、复查，直到必需问题被关闭。'],
+'SSOT':['Single Source of Truth，唯一事实源。某种信息只在一个地方拥有最终定义，其余位置引用或从它生成。'],
+'Adapter':['适配层。把某一种输入类型接到统一处理流程；本项目也用 View Adapter 表达图形显示方式，数据事实仍单独保存。'],
+'SourceCoverage':['来源覆盖记录。把原图里的每个独立对象连到后续处理结果，明确哪里保留、转换或合法跳过。','Source Coverage','Coverage'],
+'ObjectInventory':['对象清单。登记要处理的节点、标签、图标与其他对象，以及它们的显示方式和风险特征。','Inventory'],
+'VerificationPlan':['检查计划。根据对象、变更和语言生成必做检查，执行者不能随意删掉其中要求。','Plan'],
+'ReviewPacket':['审阅包。把当前输入、候选、差异、证据和未决问题组织成一份具体可确认的材料。','Packet'],
+'ArtifactManifest':['产物与依赖清单。记录实际参与本次结果的文件和内容指纹，是判断旧证据是否仍适用的依据。'],
+'FidelityRun':['保真证据运行。针对一个确切候选渲染并保存检查证据；运行成功不表示人工已经接受。'],
+'FidelityResult':['保真审阅结果。把自动结果和人工决定放在一起，指出可以接受还是还有问题。'],
+'DatasetBuild':['单数据集构建。管理一个输入的编写、审阅和封存过程；不会自动代表正式发布。','Build'],
+'PublicationBatch':['发布批次。把明确选中的已封存贡献合成正式快照，并检查冲突。'],
+'ReleaseAttempt':['交付尝试。对已经发布的固定内容构建或部署产物；失败后可以单独重试。'],
+'Publication':['正式发布。将通过审阅和封存的贡献写成共同认可的正式快照。'],
+'Release':['产物交付。把正式快照构建成可运行、可分发或可部署的页面。'],
+'CAS':['Compare-and-Swap，比较并交换。只有正式快照仍等于计划时看到的版本，才允许写入，避免覆盖别人的新工作。'],
+'CI':['Continuous Integration，持续集成。代码变化后自动执行检查，及时发现不一致或回归。'],
+'ADR':['Architecture Decision Record，架构决策记录。记下重要设计选择、原因与代价，让后续修改有依据。'],
+'ChangeImpact':['变更影响分类。描述改动碰到数据、几何、文字还是渲染器，帮助选择需要重做的检查。'],
+'digest':['内容摘要。由具体字节计算的指纹；内容变了，指纹也变，用来识别旧证据是否适用。','hash'],
+'canonical':['正式版本。项目共同认可、供其他人和交付流程消费的数据状态。'],
+'projection':['投影。由已有事实自动生成的清单或视图，不应该再成为一份独立手写的事实。','投影'],
+'依赖闭包':['完整依赖集合。沿着引用一路追下去，把能够影响结果的文件、规则与资产全部找齐。'],
+'幂等':['同一个请求重复执行，结果仍相同。它让失败重试不重复写入或产生额外完成记录。'],
+'checkpoint':['检查点。保存某一阶段已完成的范围、输入版本和决定，让中断后可以可靠接着执行。'],
+'freeze':['冻结。表示某个阶段在特定输入与证据上已检查完；相关输入变化后必须重开。','冻结'],
+'supersede':['取代旧记录。新决定接替旧决定的效力，旧记录仍保留供追溯。','supersession'],
+'locale':['语言和地区配置。英文通过不能证明中文排版与数值显示也正确。','locales'],
+'i18n':['Internationalization，国际化。支持多种语言和地区，同时保持财务含义与结构一致。'],
+'bbox':['Bounding Box，边界框。包住文字或图形的矩形，用于比较位置、间距、对齐和重叠。','referenceBBox','approvedTargetBBox'],
+'node':['节点。本项目中有语义的收入或费用对象；图形节点必须对应 Source 上实际绘制的柱面。'],
+'flow':['流带。连接节点、表达关系的图形；它的几何不能冒充节点柱面。'],
+'socket':['接口槽位。流带在节点端面占据的位置和范围；位置或顺序错了会形成缝隙或错误连接。'],
+'Interface Matrix':['接口核对矩阵。按每个端面列出原图与候选的几何和证据，防止只看全图分数漏掉局部错误。','Matrix'],
+'Other':['其他项。财务图里通常代表真实金额，即使很小或缺少图标，也不能当装饰跳过。'],
+'below-floor':['低于通用可见高度下限。原图确实存在这种细柱时，要用绑定原图的明确例外保留它。','floor exception'],
+'zero-paint':['零着色。原图的预期槽位没有实际柱面；需要原生像素检查，不能仅凭金额小来猜。'],
+'precision recovery':['精度恢复。原图因四舍五入看似为零，用更精确的权威数值还原真实非零金额。','precisionRecovery'],
+'rounding interval':['舍入区间。哪些真实数值会被显示成当前字面量；用来区分精度不足与确实写错。'],
+'numeric typo':['数值笔误。显示量级确实错了，需要用户指向的权威来源和明确修正记录。'],
+'feature':['对象特征。用来判断哪些条件检查适用，例如侧置标签、细柱或图标配对。','features'],
+'checker':['检查实现。实际测量并判断某条规则是否满足的代码，不能用“规则已登记”替代。'],
+'hard-gate':['自动硬门。检测失败就不能作为有效通过证据，人工不能用一句说明绕过。'],
+'build-gate':['构建级检查。对一个构建输入执行的独立门槛，不必在每张截图里重复。'],
+'conditional-gate':['条件门。对象具备指定特征时必须执行，不能通过漏声明特征规避。'],
+'quantified-audit':['量化审计。程序给出可核对的测量事实，语义上是否正确仍可能需要人判断。'],
+'manual':['人工判断。需要人确认并留下与具体证据对应的决定；不是自动通过。'],
+'attestation':['人工确认记录。说明谁对哪一份输入和证据作出了接受、拒绝或阻断决定。','ManualAttestation'],
+'notApplicable':['不适用。必须由输入类型与检查计划决定，不能因为执行困难而自行标为不适用。'],
+'baseline':['回归基线。记录已接受的输出，供未来检查变化；不能用刚生成的基线证明自己正确。'],
+'fresh':['仍然有效。当前输入与证据所绑定的内容指纹一致；只对确实纳入检查的依赖范围有意义。'],
+'stale':['已失效。至少一个被绑定的输入改变或丢失，需要重新确认相关结果。'],
+'SEALED':['已封存。某份构建经过审阅、基线暂存与最终验证；当前是否有效还要看输入有没有变化。'],
+'AUTHORED':['已编写。来源、数据和检查计划已形成候选；还不能等同于接受或发布。'],
+'INTAKED':['已接收。输入类型和来源身份已固定，并认领对应工作文件。'],
+'accepted':['已接受。人工决定和所有规定检查共同允许通过，不是仅指程序退出成功。'],
+'review-pending':['等待审阅。已有自动证据或候选，但缺少有效人工决定。'],
+'seal':['封存操作。重核输入和最终检查后记录构建的确切状态。'],
+'finish':['审阅关闭操作。消费完整证据与人工决定，仍有必需问题就拒绝关闭。'],
+'no-clobber':['不覆盖已有文件。认领或移动时遇到目标已存在就停止，防止损坏别人的工作。'],
+'Type Gate':['输入类型门。根据整份来源的真实特征选择适配层，避免用标题或公司名猜类型。'],
+'SourceFacts':['来源事实集。本方案建议的统一编写入口，保存原图对象身份、字面量与归属。'],
+'MeasurementSet':['测量集。本方案建议把原生坐标和端面关系集中记录，再生成各个检查所需输入。'],
+'AssetPlan':['资产计划。逐簇明确复用、新建或没有独立资产，避免文件生成了却漏了处理对象。'],
+'AssetRecord':['资产记录。把确切图标版本、来源、规格、检查与接受结果连起来。'],
+'BatchManifest':['工作批次清单。明确这次选中的对象集合，用于调度、审阅与同型排查。'],
+'FeedbackLedger':['反馈账本。记录问题、修复、复发与升级要求；当前只看本机的构建记录。'],
+'casebook':['案例登记簿。跨机器保存已发生的问题及防线，帮助下一次处理识别相同风险。'],
+'runtime':['运行时内容。页面实际加载使用的代码、字体或图像，会直接影响最终显示。'],
+'raster':['栅格图。由像素构成的图像；本项目允许符合明确规则的已审核图像资产。'],
+'vector':['矢量图。用路径和形状描述图像，可缩放；它是可选资产输出路径之一。'],
+'staging':['暂存区。先保存未正式发布的候选与证据，避免覆盖已被其他结果消费的文件。'],
+'standalone':['独立文件产物。把页面所需内容放入一个文件，打开时不依赖旁边的其他文件。'],
+'contact sheet':['对照图页。把多个局部截图并列展示，便于快速检查覆盖、位置和对应关系。'],
+'Diff':['差异。并列或量化比较来源与候选，帮助定位变化，不能单独证明语义正确。'],
+'CNY':['Chinese Yuan，人民币的标准币种代码。用于区分金额属于哪一种货币，避免数值相同但币种不同被误当作同一指标。'],
+'USD':['United States Dollar，美元的标准币种代码。金额必须和它对应的币种一起核对。'],
+'PNG':['Portable Network Graphics，便携式网络图形。一种无损图像格式，本项目用它保存来源与证据图。'],
+'JSON':['JavaScript Object Notation，结构化数据表示格式。适合把规则、清单和审阅结果以机器可读取的形式保存。'],
+'JS':['JavaScript，网页与工具脚本使用的编程语言。此报告中的图表与交互完全内置，不加载外部代码。'],
+'DOM':['Document Object Model，文档对象模型。浏览器用可读的页面元素组织内容，图中文字仍可选择和搜索。'],
+'OCR':['Optical Character Recognition，光学字符识别。把图中的文字识别成文本，只能作为待核对的提取候选。'],
+'HEAD':['Git 当前提交位置。报告以该提交和当时本地状态为审计快照，之后的变更可能影响结论。'],
+'Git':['版本管理工具。保存文件变更与提交历史；文件是否被跟踪不代表它已经通过业务验收。'],
+'Artifact':['产物。一次处理生成或依赖的文件与结构化对象。','artifacts'],
+'CPU':['Central Processing Unit，中央处理器。降频测试让页面交互成本更容易观察，接近资源受限机器。']
+};
+const aliases=new Map();for(const [k,v]of Object.entries(TERMS)){aliases.set(k.toLowerCase(),k);for(const a of v.slice(1))aliases.set(a.toLowerCase(),k)}
+const escapeRe=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+const termPattern=new RegExp([...aliases.keys()].sort((a,b)=>b.length-a.length).map(escapeRe).join('|'),'gi');
+function annotate(container){const w=document.createTreeWalker(container,NodeFilter.SHOW_TEXT,{acceptNode(n){if(!n.nodeValue.trim()||n.parentElement.closest('script,style,h1,h2,h3,h4,h5,h6,a,code,pre,button,select,textarea,.term,.locator,[data-tip],[data-tiph]'))return NodeFilter.FILTER_REJECT;return NodeFilter.FILTER_ACCEPT}}),list=[];while(w.nextNode())list.push(w.currentNode);for(const n of list){const t=n.nodeValue;termPattern.lastIndex=0;let m,last=0,found=false;const f=document.createDocumentFragment();while((m=termPattern.exec(t))){const word=m[0],start=m.index,end=start+word.length;if((/[A-Za-z0-9]$/.test(word)&&/[A-Za-z0-9_]/.test(t[end]||''))||(/^[A-Za-z0-9]/.test(word)&&/[A-Za-z0-9_]/.test(t[start-1]||'')))continue;f.append(document.createTextNode(t.slice(last,start)));const s=document.createElement('span');s.className='term';s.dataset.term=aliases.get(word.toLowerCase());s.textContent=word;f.append(s);last=end;found=true}if(found){f.append(document.createTextNode(t.slice(last)));n.replaceWith(f)}}}
+function hideTip(reset=false){if(!tip.hidden){tip.hidden=true;lastHide=performance.now()}if(reset){clearTimeout(tipTimer);lastTarget=null}}
+function showTip(target){if(!target.isConnected)return;if(performance.now()-lastScroll<90){tipTimer=setTimeout(()=>showTip(target),90);return;}tip.style.maxWidth='';const term=target.dataset.term;if(term&&root.classList.contains('terms-off'))return;const isPeek=target.matches('#toc a');if(isPeek&&target.scrollWidth<=target.clientWidth)return;tip.className=isPeek?'peek':'';tip.textContent=isPeek?target.textContent:term?TERMS[term][0]:target.dataset.tip||'';if(!tip.textContent)return;tip.hidden=false;const rects=target.getClientRects(),r=rects[rects.length-1];if(!r){hideTip();return}if(isPeek){const cs=getComputedStyle(target);tip.style.fontSize=cs.fontSize;tip.style.lineHeight=cs.lineHeight;tip.style.paddingTop=cs.paddingTop;tip.style.paddingBottom=cs.paddingBottom;tip.style.paddingLeft=cs.paddingLeft;tip.style.paddingRight=cs.paddingRight;tip.style.whiteSpace='nowrap'}else{tip.style.fontSize='';tip.style.lineHeight='';tip.style.padding='';tip.style.whiteSpace=''}let tr=tip.getBoundingClientRect(),x=r.left,y=r.bottom+4;if(isPeek){x=r.left-1;y=r.top-1;if(tr.width>innerWidth-x-8){tip.style.whiteSpace='normal';tip.style.maxWidth=Math.max(120,innerWidth-x-8)+'px';tr=tip.getBoundingClientRect()}}else{tip.style.maxWidth='';if(r.width>Math.max(tr.width,300)&&ptrY>=r.top-2&&ptrY<=r.bottom+2)x=ptrX-14;if(y+tr.height>innerHeight-8)y=r.top-tr.height-4}x=Math.max(8,Math.min(x,innerWidth-tr.width-8));y=Math.max(3,y);tip.style.transform=`translate(${x}px,${y}px)`}
+document.addEventListener('pointerover',e=>{ptrX=e.clientX;ptrY=e.clientY;const target=e.target.closest('[data-tip],[data-tiph],.term,#toc a');if(target===lastTarget)return;clearTimeout(tipTimer);const warm=!tip.hidden||performance.now()-lastHide<250;hideTip();lastTarget=target;if(!target)return;if(performance.now()-lastScroll<140){tipTimer=setTimeout(()=>showTip(target),90)}else if(warm){showTip(target)}else tipTimer=setTimeout(()=>showTip(target),80)});
+document.addEventListener('pointerdown',()=>hideTip(true));document.addEventListener('pointerleave',()=>hideTip(true));
+document.addEventListener('scroll',()=>{lastScroll=performance.now();hideTip();},{capture:true,passive:true});
+function measureHeader(){const h=$('#topbar').getBoundingClientRect().height;headerHeight=h;root.style.setProperty('--thTop',h+'px')}
+function buildTOC(){let parent=null;const ul=document.createElement('ul');for(const [i,h]of $$('h1,h2,h3,h4,h5,h6',main).entries()){if(!h.id)h.id=h.closest('section')?.id&&h.parentElement.matches('section')?h.closest('section').id+'-heading':'heading-'+i;const level=Number(h.tagName[1]),li=document.createElement('li'),row=document.createElement('div'),a=document.createElement('a');const section=h.parentElement.matches('section')?h.parentElement:null;row.className='row level'+level;a.href='#'+h.id;a.textContent=h.textContent;a.dataset.heading=h.id;headingLinks.set(h.id,a);li.dataset.for=h.id;const children=document.createElement('ul');children.className='children';if(section){const btn=document.createElement('button');btn.textContent='−';btn.className='toggle';btn.ariaLabel='收放 '+h.textContent;btn.dataset.toggle=h.id;row.append(btn);li.classList.add('open')}else{const spacer=document.createElement('span');spacer.className='spacer';row.append(spacer)}row.append(a);li.append(row,children);if(level>2&&parent)parent.querySelector('.children').append(li);else{ul.append(li);if(level===2)parent=li;else parent=null}nodes.set(h.id,{h,li,section,level});}$('#chapters').append(ul);const assets=document.createElement('ul');for(const el of $$('[data-toc]',main)){const li=document.createElement('li'),a=document.createElement('a');a.href='#'+el.id;a.textContent=el.dataset.toc;li.append(a);assets.append(li);assetLinks.set(el.id,a)}$('#assetNav').append(assets)}
+function recache(){rafLayout=0;const hs=[...nodes.values()].map(n=>n.h),as=$$('[data-toc]',main);const read=els=>els.filter(el=>!el.closest('section.collapsed .section-body')&&el.getClientRects().length).map(el=>({id:el.id,top:el.getBoundingClientRect().top+scrollY})).sort((a,b)=>a.top-b.top);cache=read(hs);assetCache=read(as);spy()}
+function invalidate(){if(!rafLayout)rafLayout=requestAnimationFrame(recache)}
+function activeAt(arr,y){let id=arr[0]?.id||null;for(const x of arr){if(x.top>y)break;id=x.id}return id}
+function spy(){rafScroll=0;const y=scrollY+Math.max(innerHeight*.05,headerHeight+8)+3;const next=activeAt(cache,y),nextAsset=activeAt(assetCache,y);if(next!==activeHeading){if(activeHeading)headingLinks.get(activeHeading)?.classList.remove('active');activeHeading=next;const a=headingLinks.get(next);a?.classList.add('active');if(innerWidth>1120){const chain=[];let li=nodes.get(next)?.li;while(li){chain.push(li);li=li.parentElement.closest('li')}for(const n of nodes.values()){const auto=chain.includes(n.li)&&!n.li.classList.contains('manual-closed');n.li.classList.toggle('auto',auto)}requestAnimationFrame(()=>{if(a&&!$('#chapters').hidden)a.scrollIntoView({block:'nearest',inline:'nearest',behavior:'instant'})})}}if(nextAsset!==activeAsset){if(activeAsset)assetLinks.get(activeAsset)?.classList.remove('active');activeAsset=nextAsset;const a=assetLinks.get(nextAsset);a?.classList.add('active');if(innerWidth>1120&&a&&!$('#assetNav').hidden)requestAnimationFrame(()=>a.scrollIntoView({block:'nearest',inline:'nearest',behavior:'instant'}))}}
+window.addEventListener('scroll',()=>{if(!rafScroll)rafScroll=requestAnimationFrame(spy)},{passive:true});
+function setCollapsed(node,collapsed){if(!node?.section)return;node.section.classList.toggle('collapsed',collapsed);node.li.classList.toggle('open',!collapsed);node.li.classList.toggle('manual-closed',collapsed);if(collapsed)node.li.classList.remove('auto');const b=$('button',node.li);b.textContent=collapsed?'+':'−';b.setAttribute('aria-expanded',String(!collapsed))}
+$('#toc').addEventListener('click',e=>{const toggle=e.target.closest('[data-toggle]');if(toggle){const node=nodes.get(toggle.dataset.toggle);const targets=e.ctrlKey?[...nodes.values()].filter(n=>n.level===node.level&&n.section):[node];const allExpanded=targets.every(n=>!n.section.classList.contains('collapsed'));targets.forEach(n=>setCollapsed(n,allExpanded));invalidate()}});
+$('#allToggle').addEventListener('click',()=>{const ns=[...nodes.values()].filter(n=>n.section),collapse=ns.every(n=>!n.section.classList.contains('collapsed'));ns.forEach(n=>setCollapsed(n,collapse));invalidate()});
+$$('[data-tab]').forEach(b=>b.addEventListener('click',()=>{$$('[data-tab]').forEach(x=>x.classList.toggle('active',x===b));$('#chapters').hidden=b.dataset.tab!=='chapters';$('#assetNav').hidden=b.dataset.tab!=='assets';hideTip(true);if(innerWidth<=1120)invalidate()}));
+function updateBack(){const b=$('#back');b.hidden=!jumpStack.length;b.textContent='返回 ×'+jumpStack.length}
+$('#back').addEventListener('click',()=>{hideTip(true);if(highlight)highlight.classList.remove('jump-hl');scrollTo({top:jumpStack.pop()||0,behavior:'instant'});updateBack()});
+function goTo(el){hideTip(true);let detail=el.closest('details');while(detail){detail.open=true;detail=detail.parentElement.closest('details')}let parent=el.closest('section');while(parent){for(const node of nodes.values())if(node.section===parent)setCollapsed(node,false);parent=parent.parentElement.closest('section')}const offset=()=>Math.max(innerHeight*.05,headerHeight+8);let rounds=0;const align=()=>{const y=Math.max(0,el.getBoundingClientRect().top+scrollY-offset());if(Math.abs(y-scrollY)>2)scrollTo({top:y,behavior:'instant'});if(++rounds<3)requestAnimationFrame(align);else invalidate()};align();clearTimeout(highlightTimer);highlight?.classList.remove('jump-hl');highlight=el;el.classList.add('jump-hl');highlightTimer=setTimeout(()=>{el.classList.remove('jump-hl');if(highlight===el)highlight=null},2000)}
+document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const el=document.getElementById(decodeURIComponent(a.hash.slice(1)));if(!el)return;e.preventDefault();if(a.closest('main')){jumpStack.push(scrollY);if(jumpStack.length>5)jumpStack.shift();updateBack()}goTo(el)});
+const prefs=$('#prefs');$('#moreButton').addEventListener('click',()=>{prefs.hidden=!prefs.hidden;$('#moreButton').setAttribute('aria-expanded',String(!prefs.hidden))});document.addEventListener('click',e=>{if(!prefs.hidden&&!e.target.closest('#prefs,#moreButton')){prefs.hidden=true;$('#moreButton').setAttribute('aria-expanded','false')}});document.addEventListener('keydown',e=>{if(e.key==='Escape'){prefs.hidden=true;hideTip(true)}});
+$('#themeControl').addEventListener('change',e=>{root.dataset.theme=e.target.value});$('#widthControl').addEventListener('change',e=>{root.style.setProperty('--bodyW',{regular:'880px',wide:'1160px',full:'100%'}[e.target.value]);hideTip(true);invalidate()});$('#fontControl').addEventListener('change',e=>{root.style.setProperty('--base',{small:'13px',medium:'15px',large:'17px'}[e.target.value]);hideTip(true);measureHeader();invalidate()});$('#termControl').addEventListener('change',e=>{root.classList.toggle('terms-off',e.target.value==='off');hideTip(true)});
+const drag=$('#dragHandle');let dragStart=0,dragWidth=250,dragging=false,pendingX=0,dragFrame=0;
+const maxToc=()=>Math.max(180,Math.min(420,innerWidth-800-64));
+drag.addEventListener('pointerdown',e=>{if(innerWidth<=1120)return;dragStart=e.clientX;dragWidth=parseFloat(getComputedStyle(root).getPropertyValue('--tocW'));dragging=false;drag.setPointerCapture(e.pointerId)});
+drag.addEventListener('pointermove',e=>{if(!drag.hasPointerCapture(e.pointerId))return;pendingX=e.clientX;if(!dragging&&Math.abs(pendingX-dragStart)<=3)return;dragging=true;document.body.classList.add('dragging');toc.classList.remove('wrap');if(!dragFrame)dragFrame=requestAnimationFrame(()=>{root.style.setProperty('--tocW',Math.max(180,Math.min(maxToc(),dragWidth+pendingX-dragStart))+'px');dragFrame=0})});
+function endDrag(e){if(!drag.hasPointerCapture(e.pointerId))return;if(dragFrame){cancelAnimationFrame(dragFrame);dragFrame=0;root.style.setProperty('--tocW',Math.max(180,Math.min(maxToc(),dragWidth+pendingX-dragStart))+'px')}drag.releasePointerCapture(e.pointerId);document.body.classList.remove('dragging');if(dragging)invalidate();dragging=false}drag.addEventListener('pointerup',endDrag);drag.addEventListener('pointercancel',endDrag);
+drag.addEventListener('dblclick',()=>{if(innerWidth<=1120)return;toc.classList.remove('wrap');const visible=$$('a',toc).filter(a=>!a.closest('[hidden]')&&a.getClientRects().length);const natural=Math.max(180,...visible.map(a=>a.scrollWidth+42));const cap=maxToc();root.style.setProperty('--tocW',Math.min(cap,natural)+'px');toc.classList.toggle('wrap',natural>cap);invalidate()});
+window.addEventListener('resize',()=>{hideTip(true);if(!rafLayout)rafLayout=requestAnimationFrame(()=>{measureHeader();if(innerWidth>1120){const current=parseFloat(getComputedStyle(root).getPropertyValue('--tocW'));if(current>maxToc())root.style.setProperty('--tocW',maxToc()+'px')}recache()})},{passive:true});
+new ResizeObserver(()=>{measureHeader();invalidate()}).observe($('#topbar'));
+document.addEventListener('toggle',e=>{if(e.target.matches('details'))invalidate()},{capture:true});measureHeader();buildTOC();requestAnimationFrame(()=>requestAnimationFrame(()=>{annotate(main);window.reportReady=true;recache()}));window.addEventListener('load',()=>{measureHeader();invalidate()});document.fonts.ready.then(()=>{measureHeader();invalidate()});
 
-<details class="appendix" id="appendix-b">
-  <summary>B · 规则归属表（每条细则只在一个属主文档）</summary>
-  <div class="body">
-    <table class="map">
-      <thead><tr><th>规则领域</th><th>属主文档</th></tr></thead>
-      <tbody>
-        <tr><td>动态数据集工作流：当前 9 步、intake 前分型门、Source → Inventory → SSOT → Adapter 覆盖对账、执行/分派、陷阱、最终检查与汇报</td><td><code>docs/dynamic-dataset-workflow.md</code></td></tr>
-        <tr><td>d3 保真：canonical 编号规则、preflight 测量、三层 sweep 状态机、自动/人工证据、接受条件</td><td><code>docs/fidelity-loop-rules.md</code></td></tr>
-        <tr><td>数据集 / SSOT 字段级格式</td><td><code>data/schema.md</code></td></tr>
-        <tr><td>提交信息约定</td><td><code>docs/commit-messages.md</code></td></tr>
-        <tr><td>数据相邻资产布局（图标 crop、raster annotation）</td><td><code>data/assets/README.md</code></td></tr>
-        <tr><td>Trace 产品与数据模型</td><td><code>docs/trace-specification.zh-CN.md</code></td></tr>
-        <tr><td>人类快速上手、viewer 使用</td><td><code>README.md</code></td></tr>
-      </tbody>
-    </table>
-  </div>
-</details>
-
-<details class="appendix" id="appendix-c">
-  <summary>C · 执行模型：并行组与难度分派（<code>docs/dynamic-dataset-workflow.md</code> §Execution Model）</summary>
-  <div class="body">
-    <p><b>并行组</b>（依赖关系决定，可交错推进或分派 Subagent）：</p>
-    <ul>
-      <li><b>步骤 1–2 串行门</b>：守卫/key → 完整 Source signal Type Gate → <code>record:intake</code> no-clobber claim。分型歧义在 claim 前 STOP。</li>
-      <li><b>步骤 3 Source Coverage 门</b>：三遍 scan、ObjectInventory、Other/最小值/face anti-omission 全部闭合后，才允许下游开始。</li>
-      <li><b>步骤 4 并行准备</b>：Track A metadata/SSOT ∥ Track B preflight ∥ Track C 图标；三轨绑定同一 Source/Coverage identity。</li>
-      <li><b>步骤 5–6 串行</b>：Adapter/i18n/注册 → Source/SSOT/Adapter 对账 → prepare-review 的 Coverage/Plan v5/Packet v4 hard gate。</li>
-      <li><b>步骤 7–8 验证与 Review</b>：consistency + staged fidelity（含 T21 阻断）→ human finish → baseline stage → seal；只有 accepted 结果可关闭 Build。</li>
-      <li><b>步骤 9 收尾</b>：closeout 只读审计；操作者信号另行授权确认后的 no-clobber relocation；最后 check / 提交 / 汇报，且不冒充 M4 Publication。</li>
-    </ul>
-    <p><b>难度分派</b>（分派不降门槛：同一套 verifier 把关，主 Agent 复核并对结果负责）：</p>
-    <table class="map">
-      <thead><tr><th>步骤</th><th>难度</th><th>执行者</th></tr></thead>
-      <tbody>
-        <tr><td>步骤 1–2 守卫 / signal 分型 / claim</td><td>高</td><td>主 Agent确认完整 Source facts、停止条件、key 与 classification identity</td></tr>
-        <tr><td>步骤 3 Source Coverage + ObjectInventory</td><td>高</td><td>主 Agent——漏对象、错误 class/face 会级联污染全部下游</td></tr>
-        <tr><td>P2.1 公司档案（资料检索/填表）</td><td>中</td><td>Subagent 可代；主 Agent 复核来源</td></tr>
-        <tr><td>P2.2 损益表 SSOT（财务语义/rounding/货币契约）</td><td>高</td><td>主 Agent</td></tr>
-        <tr><td>P2.3 图标：跑脚本</td><td>低</td><td>Subagent 可代</td></tr>
-        <tr><td>P2.3 图标：spec 框选 + 验收判断</td><td>高</td><td>主 Agent——验收结论进 runtime 资产</td></tr>
-        <tr><td>P2.4 preflight 测量（测量即 T18/T19 featureEvidence）</td><td>高</td><td>主 Agent</td></tr>
-        <tr><td>P3.2 adapter 编写</td><td>高</td><td>主 Agent</td></tr>
-        <tr><td>P3.3 i18n overlay 初稿</td><td>低–中</td><td>Subagent 可代；主 Agent 复核高风险串（R&amp;D、SG&amp;A、金额后缀、中英混排品牌）</td></tr>
-        <tr><td>P3.4 注册 / <code>sync:index-datasets</code></td><td>低</td><td>皆可</td></tr>
-        <tr><td>P4.1 各只读 verifier 命令执行</td><td>低</td><td>皆可（廉价 shell 命令；不归档、不作人工结论）</td></tr>
-        <tr><td>P4 循环：分诊、修复、冻结/收敛判定</td><td>高</td><td>主 Agent</td></tr>
-        <tr><td>P4 循环：渲染/指标采集、bbox 报告收割、按已确认清单画红框</td><td>低</td><td>Subagent 可代——region 与分类先由主 Agent 定</td></tr>
-        <tr><td>P5 操作者信号 → 清单确认 → 批量移动；无信号留在 processing；baseline stage、seal、closeout 独立审计；再提交、汇报</td><td>中</td><td>主 Agent</td></tr>
-      </tbody>
-    </table>
-  </div>
-</details>
-
-<details class="appendix" id="appendix-d">
-  <summary>D · 对象类型清单：P1 Type Gate + P2 Source Coverage（<code>docs/dynamic-dataset-workflow.md</code> §Object Taxonomy）</summary>
-  <div class="body">
-    <p><b>intake 前 signature</b>：损益表必须同时给出 <code>income-statement-values</code> + <code>sankey-flow-topology</code>；收入指标必须同时给出 <code>revenue-metric-definition</code> + <code>time-series-observations</code>。混合/缺项/冲突 signals 在 claim 前 STOP。</p>
-    <p><b>A 类 · 损益表 Sankey 信息图</b>——标准 / <code>-by-segment</code> / <code>-by-bu</code> 都属于同一 Adapter。</p>
-    <table class="map">
-      <thead><tr><th>对象家族</th><th>成员</th><th>处置</th></tr></thead>
-      <tbody>
-        <tr><td>图表结构（nodes + links）</td><td>收入分部 source 柱（可含子分部）、中心 Revenue hub、中间利润柱（毛利/营业）、成本柱（COGS、R&amp;D / S&amp;M / G&amp;A 拆分、税）、终端利润/亏损柱、短辅助柱（interest、other income、investments、eliminations）、流带（端点渐变、waterfall 调整区、绕行带、多入口堆叠 socket）、仅引导线流的隐形锚点节点</td><td>渲染目标</td></tr>
-        <tr><td>Label 单元（<code>layout.labels</code>）</td><td>大标题、期间戳（period + periodNote）、逐节点归组 label（名称/数值/备注/margin/Y-Y 一个语义单元）、密集终端列的侧置 label、短柱上下居中 value block</td><td>渲染目标</td></tr>
-        <tr><td>注释容器（<code>annotationsSvg</code>）</td><td>KPI/stat card、黑色胶囊、图例框、徽章、脚注卡片、拆小额的圆角 callout 胶囊（如 Disney <code>SVOD $0.6B / Other $0.7B</code>）、极小利润加项的水平引导线</td><td>渲染目标</td></tr>
-        <tr><td>图标/品牌资产</td><td>公司 logo（vector <code>meta.logoSvg</code>）、注释里的品牌 wordmark、业务/segment 图标簇（验证 crop → vector 转换，或白名单 runtime raster）、通用 Lucide 图标（<code>src/icons.js</code>）</td><td>渲染目标（经 P2.3 子循环）</td></tr>
-        <tr><td>有意跳过项</td><td>发布方水印、创作者品牌、URL、社交徽标、署名条、纯装饰残片</td><td>仅这些非语义 residual 可 skip</td></tr>
-      </tbody>
-    </table>
-    <p><b>Anti-omission 不变量</b>：<code>Other</code> / <code>Others</code> / <code>All Other</code> 与任何 value-bearing label 都是语义对象；缺 icon 只跳过 asset crop。Coverage 还必须列出三项最小非零值、visible node faces、显式 non-node metric/route 与 typed Source-bound floor exceptions；若主图以 <code>$0.0B</code> 隐去非零精度，先记录权威补充来源的 higher-precision literal/locator 并归一化，Table/Sankey 都不得继续显示 0。</p>
-    <p>仓库现状（121 个 adapter）：<code>logoSvg</code> ×76 · <code>annotationsSvg</code> ×87 · runtime <code>rasterAnnotations</code> ×23 · <code>linkTint</code> ×120 · <code>valueText</code> ×80 · <code>labelSide</code> ×16 · 自定义 <code>curve</code> ×24 · 显式 <code>y0/y1</code> ×15 · <code>preservedAnnotationText</code> ×15；82 家公司已有图标参考。</p>
-    <p><b>B 类 · 收入指标时间序列（ARR 等）</b>——现例：YipitData 年化 ARR / 收入运行率（Anthropic、OpenAI；源图有意仅本地保留）。无 Sankey adapter、无渲染循环，对象全部落入 <code>data/revenue-metrics.js</code>，viewer 自绘趋势图。</p>
-    <table class="map">
-      <thead><tr><th>对象</th><th>落点字段</th></tr></thead>
-      <tbody>
-        <tr><td>指标身份（名称、家族、主体公司）</td><td><code>displayName</code> / <code>metricFamily</code> / <code>metricName</code> / <code>subjectType</code> / <code>subjectId</code></td></tr>
-        <tr><td>时间框架（期间、观测频率）</td><td><code>period</code> / <code>periodNote</code> / <code>frequency</code></td></tr>
-        <tr><td>观测序列（逐期数值 + 环比）与最新值摘要</td><td><code>observations[].date/value/momGrowthPct</code>、<code>value.latest*</code></td></tr>
-        <tr><td>特定日期事件旗标（如 Coding 突破、Agent AI 爆发、YEP 半年）</td><td>对应观测的 <code>notes</code></td></tr>
-        <tr><td>方法论警示（系统性低估/高估）</td><td>附到每个受影响观测的 <code>notes</code></td></tr>
-        <tr><td>定义与条件（地域、口径、时间粒度、并表）</td><td><code>definition</code> / <code>conditions</code></td></tr>
-        <tr><td>货币与单位（同一 FX 覆盖契约）</td><td><code>currency</code> / <code>unit</code> / <code>decimals</code></td></tr>
-        <tr><td>来源身份（供应商名/URL/类型、源图）——仅记录不渲染，品牌同 A 类跳过规则</td><td><code>sources[]</code></td></tr>
-        <tr><td>置信度与转录谱系</td><td><code>confidence</code> / <code>lineage</code></td></tr>
-      </tbody>
-    </table>
-    <p><b>未识别新类型</b>：在 P1 intake 前停止，先定义新 Adapter/对象清单并扩展 §Object Taxonomy；不得先以最相似类型 claim 后再改判。</p>
-  </div>
-</details>
-
-<footer class="page">
-  本页为流程 Review 辅助文档：自包含单文件（内联 CSS、无外部依赖、可离线打开），按「一屏总览 → 阶段详图 →
-  流程附录」三层组织，内容与上述属主文档同步；流程规则本身以属主文档为准。
-  生成于仓库 <code>docs/workflow-flowchart.zh-CN.html</code>。
-</footer>
-
-</div>
-</body>
-</html>
+const routeDescriptions={general:'当前高亮：图片或文字 → 普通指标 → 数据检查与审阅 → 指标资产入口。无需桑基图排版。',revenue:'当前高亮：收入时间序列 → 专用收入记录 → 数据检查与审阅 → 收入趋势。',sankey:'当前高亮：利润表原图 → 财务数据与图形 → 三阶段检查 → 审阅 → 表格与桑基图。',all:'当前显示全部路径。来源格式和内容类型分别判断；每份材料只走适用的检查。'};
+function updateRoute(){hideTip(true);const route=document.getElementById('assetRoute').value;document.querySelectorAll('[data-route]').forEach(node=>{const active=route==='all'||node.dataset.route===route;node.classList.toggle('inactive',!active);node.setAttribute('aria-label',active?'本次适用':'本次略过')});document.getElementById('routeNote').textContent=routeDescriptions[route];annotate(document.getElementById('routeNote'));invalidate()}
+document.getElementById('assetRoute').addEventListener('change',updateRoute);updateRoute();
+const changes={label:['一个标签位置拥挤；指标数值和节点都没变。','调整标签排版，重新检查文字及后续细节。','原始数据与未变化的结构检查点。'],number:['原材料中的一项数值需要更正。','核对数据及受影响的关系、文字、图形，再审阅。','与这项数据没有依赖关系的其他材料。'],company:['另一家公司有新材料要纳入。','检查新材料，并在合并时检查系统目录和冲突。','旧公司的语义贡献和仍有效的审阅证据。'],rules:['绘图程序、字体或检查程序发生变化。','按依赖重新核对，不能沿用受旧程序影响的证据。','来源原件和未改变的事实记录。']};
+function updateChange(){hideTip(true);const values=changes[document.getElementById('changeCase').value];['changeProblem','changeChecks','changeKeep'].forEach((id,i)=>{const el=document.getElementById(id);el.textContent=values[i];annotate(el)});invalidate()}
+document.getElementById('changeCase').addEventListener('change',updateChange);updateChange();
+</script></body></html>

@@ -14,7 +14,7 @@ export const FIDELITY_RESULT_STATUSES = Object.freeze([
   ...FIDELITY_RESULT_TERMINAL_STATUSES,
 ]);
 
-const ADAPTERS = new Set(['income-statement', 'revenue-metric']);
+const ADAPTERS = new Set(['income-statement', 'revenue-metric', 'metric-observation']);
 const ATTESTATION_DECISIONS = new Set(['accepted', 'rejected', 'blocked']);
 const REGION_STATUSES = new Set(['resolved', 'accepted', 'skipped', 'open']);
 const RISK_STATUSES = new Set(['passed', 'failed', 'open', 'not-applicable']);

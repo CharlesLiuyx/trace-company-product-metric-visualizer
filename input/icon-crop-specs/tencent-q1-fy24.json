@@ -1,0 +1,41 @@
+{
+  "source": "input/processed/tencent-q1-fy24.png",
+  "outputDir": "data/assets/icon-references/tencent",
+  "runtimeOutputDir": "data/assets/raster-annotations/tencent",
+  "validationSheetDir": "data/assets/icon-references/tencent/validation-sheets",
+  "report": "crop-report-q1-fy24.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 60, 60],
+    [2607, 0, 60, 60],
+    [0, 1440, 60, 60],
+    [2607, 1440, 60, 60]
+  ],
+  "crops": [
+    {
+      "key": "tencent-company-wordmark-zh",
+      "output": "crops/company-wordmark-zh.png",
+      "searchBox": {
+        "x": 690,
+        "y": 285,
+        "width": 570,
+        "height": 125
+      },
+      "threshold": 20,
+      "foreground": {
+        "channels": {
+          "r": [0, 90],
+          "g": [45, 180],
+          "b": [130, 255]
+        }
+      },
+      "minComponentArea": 50,
+      "padding": 14,
+      "validation": {
+        "borderBand": 4,
+        "maxCenterOffset": 0.02,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Tencent English-and-Chinese company wordmark; excludes the title, revenue label, Sankey flows, and publisher marks."
+    }
+  ]
+}

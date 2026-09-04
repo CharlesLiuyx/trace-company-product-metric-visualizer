@@ -1,0 +1,48 @@
+{
+  "source": "input/processed/celsius-q3-fy25.png",
+  "outputDir": "data/assets/icon-references/celsius/q3-fy25",
+  "runtimeOutputDir": "data/assets/raster-annotations/celsius",
+  "validationSheetDir": "data/assets/icon-references/celsius/q3-fy25/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "The lower-left HOW THEY MAKE MONEY badge and miniature Sankey are publisher attribution, not Celsius financial content."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "The website URL and lower-right APP ECONOMY INSIGHTS lockup are publisher attribution, not chart content."
+    }
+  ],
+  "crops": [
+    {
+      "key": "costco-wordmark",
+      "output": "crops/costco-wordmark.png",
+      "runtimeOutput": "costco-wordmark.png",
+      "searchBox": { "x": 40, "y": 810, "width": 290, "height": 90 },
+      "cropBox": { "x": 20, "y": 795, "width": 330, "height": 110 },
+      "excludeBoxes": [
+        { "x": 330, "y": 790, "width": 30, "height": 35 }
+      ],
+      "transparentColors": [
+        {
+          "channels": {
+            "r": { "min": 90, "max": 245 },
+            "g": { "min": 90, "max": 245 },
+            "b": { "min": 90, "max": 245 }
+          }
+        }
+      ],
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Complete COSTCO WHOLESALE wordmark beside the $80M source; the adjacent growth-note glyph is explicitly excluded."
+    }
+  ]
+}

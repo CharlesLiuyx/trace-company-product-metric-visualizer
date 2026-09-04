@@ -1,5 +1,12 @@
 # Input Assets
 
+New inputs support PNG images and UTF-8 TXT/MD files. Format and content type
+are separate: generic observations use the metric-observation Adapter; specialized
+Income Statement and Revenue Metric processing retain their existing data rules.
+The [asset workflow](../docs/asset-workflow.md) is the current operator entry point.
+Original files remain immutable. Explicit operator completion, not publication by
+itself, authorizes their no-clobber local archive move.
+
 Use these folders to keep Source working locations separate from stable
 verification references. The directories are operational locators, not
 `DatasetBuild` states.

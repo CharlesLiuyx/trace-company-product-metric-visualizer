@@ -1,0 +1,59 @@
+{
+  "source": "input/processed/lockheed-martin-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/lockheed-martin",
+  "runtimeOutputDir": "data/assets/raster-annotations/lockheed-martin",
+  "validationSheetDir": "data/assets/icon-references/lockheed-martin/validation-sheets",
+  "report": "crop-report-q4-fy25.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "crops": [
+    {
+      "key": "lockheed-q4-aeronautics-jet",
+      "output": "crops/aeronautics-jet-q4-fy25.png",
+      "searchBox": { "x": 122, "y": 309, "width": 279, "height": 132 },
+      "cropBox": { "x": 118, "y": 305, "width": 285, "height": 140 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "backgroundRemoval": { "enabled": false },
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.25, "maxForbiddenForegroundPixels": 0 },
+      "note": "Aeronautics segment icon (X-59-style supersonic jet render). The $8.5B value block starts at x=400 and the Aeronautics label at y=447, so this opaque background-matched crop stops right of the nose tip and above the label."
+    },
+    {
+      "key": "lockheed-q4-missile-fire-control",
+      "output": "crops/missile-fire-control-q4-fy25.png",
+      "searchBox": { "x": 176, "y": 541, "width": 163, "height": 98 },
+      "cropBox": { "x": 172, "y": 537, "width": 171, "height": 106 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "backgroundRemoval": { "enabled": false },
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.25, "maxForbiddenForegroundPixels": 0 },
+      "note": "Missile and Fire Control segment icon (guided missile render). The 9% segment margin note ends near y=527 and the Missile and label starts near y=647; the crop keeps only the missile."
+    },
+    {
+      "key": "lockheed-q4-rotary-mission-systems",
+      "output": "crops/rotary-mission-systems-q4-fy25.png",
+      "searchBox": { "x": 151, "y": 788, "width": 188, "height": 76 },
+      "cropBox": { "x": 147, "y": 784, "width": 196, "height": 84 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "backgroundRemoval": { "enabled": false },
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.25, "maxForbiddenForegroundPixels": 0 },
+      "note": "Rotary & Mission Systems segment icon (black compound helicopter render). The 13% segment margin note sits above and the Rotary & label starts near y=867; the crop keeps only the helicopter."
+    },
+    {
+      "key": "lockheed-q4-space-spacecraft",
+      "output": "crops/space-spacecraft-q4-fy25.png",
+      "searchBox": { "x": 188, "y": 1003, "width": 141, "height": 88 },
+      "cropBox": { "x": 184, "y": 999, "width": 151, "height": 96 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "backgroundRemoval": { "enabled": false },
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.25, "maxForbiddenForegroundPixels": 0 },
+      "note": "Space segment icon (Orion-style crew capsule with solar arrays). The 10% segment margin note ends near y=995 and the Space label starts near y=1100; the crop keeps only the spacecraft."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "source": "input/processed/lyft-fy25.png",
+  "outputDir": "data/assets/icon-references/lyft/",
+  "validationSheetDir": "data/assets/icon-references/lyft/validation-sheets/",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 5
+  },
+  "crops": [
+    {
+      "key": "lyft-company-app-logo",
+      "output": "crops/lyft-company-app-logo.png",
+      "searchBox": { "x": 747, "y": 258, "width": 207, "height": 207 },
+      "cropBox": { "x": 737, "y": 248, "width": 227, "height": 227 },
+      "backgroundRemoval": false,
+      "minComponentArea": 100,
+      "validation": {
+        "maxCenterOffset": 0.08
+      },
+      "note": "Lyft square app logo above the revenue hub; retained as reference only, runtime uses pure SVG."
+    },
+    {
+      "key": "lyft-rideshare-car-cluster",
+      "output": "crops/lyft-rideshare-car-cluster.png",
+      "searchBox": { "x": 45, "y": 590, "width": 260, "height": 128 },
+      "cropBox": { "x": 35, "y": 580, "width": 292, "height": 155 },
+      "excludeBoxes": [
+        { "x": 40, "y": 710, "width": 260, "height": 35 }
+      ],
+      "minComponentArea": 80,
+      "validation": {
+        "maxCenterOffset": 0.08
+      },
+      "note": "Rideshare car illustration and shadow; excludes the Rideshare text label and adjacent Sankey node."
+    },
+    {
+      "key": "lyft-rentals-phone-cluster",
+      "output": "crops/lyft-rentals-phone-cluster.png",
+      "searchBox": { "x": 86, "y": 902, "width": 196, "height": 190 },
+      "cropBox": { "x": 80, "y": 896, "width": 208, "height": 202 },
+      "minComponentArea": 80,
+      "validation": {
+        "maxCenterOffset": 0.08
+      },
+      "note": "Rentals mobile-app phone cluster; excludes the Rentals text label."
+    }
+  ]
+}

@@ -58,7 +58,7 @@ function runVerifier(script, args = []) {
 }
 
 function runUnitTests() {
-  const result = spawnSync(process.execPath, ['--test', 'tests/*.test.mjs'], {
+  const result = spawnSync(process.execPath, ['--test', '--test-reporter=tap', 'tests/*.test.mjs'], {
     cwd: rootDir,
     encoding: 'utf8',
   });
@@ -86,6 +86,11 @@ const steps = [
   ['verify:app-globals', () => runVerifier('verify-app-globals.mjs')],
   ['verify:dataset-manifest', () => runVerifier('update-dataset-manifest.mjs', ['--check'])],
   ['verify:render-baselines', () => runVerifier('verify-render-regression.mjs', ['--structure-only'])],
+  ['verify:workflow', () => runVerifier('update-workflow-reference.mjs', ['--check'])],
+  ['verify:workflow-graph', () => runVerifier('update-workflow-graph.mjs', ['--check'])],
+  ['verify:asset-catalog', () => runVerifier('update-asset-catalog.mjs', ['--check'])],
+  ['verify:feedback-patterns', () => runVerifier('update-feedback-patterns.mjs', ['--check'])],
+  ['verify:metrics', () => runVerifier('verify-metrics.mjs')],
   ['verify:ssot', () => runVerifier('verify-ssot.mjs')],
   ['verify:i18n', () => runVerifier('verify-i18n.mjs')],
   ['verify:dataset-file-metadata', () => runVerifier('update-dataset-file-metadata.mjs', ['--check'])],

@@ -1,0 +1,70 @@
+{
+  "source": "input/processed/pfizer-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/pfizer",
+  "runtimeOutputDir": "data/assets/raster-annotations/pfizer",
+  "validationSheetDir": "data/assets/icon-references/pfizer/validation-sheets",
+  "report": "pfizer-q1-fy26-crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [242, 242, 242]
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "The bottom-left How They Make Money badge and mini-Sankey are publisher attribution, not Pfizer financial semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "The footer URL, social badge, and App Economy Insights wordmark are publisher attribution, not Pfizer financial semantics."
+    }
+  ],
+  "crops": [
+    {
+      "key": "pfizer-q1-company-wordmark",
+      "output": "crops/pfizer-q1-company-wordmark.png",
+      "runtimeOutput": "pfizer-q1-company-wordmark.png",
+      "searchBox": { "x": 790, "y": 220, "width": 680, "height": 245 },
+      "cropBox": { "x": 780, "y": 210, "width": 700, "height": 260 },
+      "threshold": 8,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.14, "maxForbiddenForegroundPixels": 0 },
+      "note": "Pfizer emblem and wordmark centered above the Biopharma and Revenue flow; excludes the title and financial labels."
+    },
+    {
+      "key": "pfizer-q1-primary-care-products",
+      "output": "crops/pfizer-q1-primary-care-products.png",
+      "runtimeOutput": "pfizer-q1-primary-care-products.png",
+      "searchBox": { "x": 0, "y": 370, "width": 220, "height": 245 },
+      "cropBox": { "x": 0, "y": 360, "width": 225, "height": 265 },
+      "threshold": 8,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Eliquis, Paxlovid, and Prevnar 20 product-wordmark cluster for Primary Care; excludes financial labels and the source bar."
+    },
+    {
+      "key": "pfizer-q1-specialty-care-vyndaqel",
+      "output": "crops/pfizer-q1-specialty-care-vyndaqel.png",
+      "runtimeOutput": "pfizer-q1-specialty-care-vyndaqel.png",
+      "searchBox": { "x": 0, "y": 720, "width": 220, "height": 115 },
+      "cropBox": { "x": 0, "y": 710, "width": 225, "height": 135 },
+      "threshold": 8,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Vyndaqel product-wordmark cluster for Specialty Care; excludes financial labels and the source bar."
+    },
+    {
+      "key": "pfizer-q1-oncology-ibrance",
+      "output": "crops/pfizer-q1-oncology-ibrance.png",
+      "runtimeOutput": "pfizer-q1-oncology-ibrance.png",
+      "searchBox": { "x": 0, "y": 975, "width": 220, "height": 115 },
+      "cropBox": { "x": 0, "y": 965, "width": 220, "height": 135 },
+      "threshold": 8,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Ibrance product-wordmark cluster for Oncology; excludes financial labels and the source bar."
+    }
+  ]
+}

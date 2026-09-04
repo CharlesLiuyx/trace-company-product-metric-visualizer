@@ -1,0 +1,53 @@
+{
+  "source": "input/processed/abbvie-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/abbvie",
+  "runtimeOutputDir": "data/assets/raster-annotations/abbvie",
+  "validationSheetDir": "data/assets/icon-references/abbvie/validation-sheets",
+  "report": "crop-report-q2-fy26.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [242, 242, 242],
+    "tolerance": 8
+  },
+  "skipped": [
+    {
+      "key": "abbvie-company-wordmark",
+      "reason": "Materially identical to the validated reusable AbbVie company wordmark asset."
+    },
+    {
+      "key": "abbvie-oncology-imbruvica",
+      "reason": "Materially identical to the validated reusable Imbruvica asset."
+    },
+    {
+      "key": "abbvie-aesthetics-botox-cosmetic",
+      "reason": "Materially identical to the validated reusable Botox Cosmetic asset."
+    },
+    {
+      "key": "abbvie-neuroscience-botox",
+      "reason": "Materially identical to the validated reusable Botox asset."
+    },
+    {
+      "key": "publisher-attribution",
+      "reason": "Footer badge, miniature Sankey, website URL, and publisher wordmark are non-semantic attribution."
+    },
+    {
+      "key": "other-revenue",
+      "reason": "The Other revenue aggregate has no independent icon cluster in the Source."
+    }
+  ],
+  "crops": [
+    {
+      "key": "abbvie-immunology-products-q2-fy26",
+      "output": "crops/immunology-products-q2-fy26.png",
+      "runtimeOutput": "immunology-products-q2-fy26.png",
+      "searchBox": { "x": 18, "y": 414, "width": 118, "height": 130 },
+      "cropBox": { "x": 8, "y": 404, "width": 148, "height": 150 },
+      "threshold": 12,
+      "minComponentArea": 12,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Q2-specific Skyrizi-over-Humira product cluster for Immunology; excludes the segment label, value, notes, and source bar."
+    }
+  ]
+}

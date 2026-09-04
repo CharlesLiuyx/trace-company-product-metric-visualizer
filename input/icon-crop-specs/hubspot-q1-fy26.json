@@ -1,0 +1,30 @@
+{
+  "source": "input/processed/hubspot-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/hubspot",
+  "runtimeOutputDir": "data/assets/raster-annotations/hubspot",
+  "validationSheetDir": "data/assets/icon-references/hubspot/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "hubspot-company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "searchBox": { "x": 590, "y": 250, "width": 590, "height": 165 },
+      "cropBox": { "x": 580, "y": 245, "width": 620, "height": 180 },
+      "threshold": 24,
+      "minComponentArea": 35,
+      "padding": 18,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.06,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "HubSpot company wordmark and sprocket logo near the top center; excludes title text, revenue labels, chart marks, website URL, How They Make Money mark, and App Economy Insights attribution."
+    }
+  ]
+}

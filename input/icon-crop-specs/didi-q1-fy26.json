@@ -1,0 +1,61 @@
+{
+  "source": "input/processed/didi-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/didi",
+  "runtimeOutputDir": "data/assets/raster-annotations/didi",
+  "validationSheetDir": "data/assets/icon-references/didi/validation-sheets",
+  "report": "crop-report.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "crops": [
+    {
+      "key": "didi-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": {
+        "x": 555,
+        "y": 250,
+        "width": 555,
+        "height": 180
+      },
+      "threshold": 20,
+      "minComponentArea": 60,
+      "padding": 6,
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10
+      },
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "DiDi brand lockup: orange DiDi glyph plus grey 'DiDi' wordmark, centered below the title; excludes the title, 'in RMB' note, Revenue label, and publisher marks."
+    },
+    {
+      "key": "didi-china-mobility-tile",
+      "output": "crops/china-mobility-tile.png",
+      "searchBox": {
+        "x": 130,
+        "y": 482,
+        "width": 190,
+        "height": 160
+      },
+      "threshold": 8,
+      "minComponentArea": 60,
+      "padding": 12,
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "China Mobility segment app-icon tile: white rounded square with the orange DiDi glyph and soft shadow, above the China Mobility label. Kept as an opaque rectangular crop because the tile sits on the uniform #f2f2f2 chart background, so the gray corners and soft shadow blend seamlessly when re-placed at the source coordinates. borderBand is 0 because this is an intentional background-matched patch rather than a transparent die-cut icon, so the edge-foreground clipping check does not apply; subject detection (threshold 8) still centers the crop on the tile and centerOffset is validated. Excludes the segment text and the Revenue flow."
+    }
+  ]
+}

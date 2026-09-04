@@ -1,0 +1,49 @@
+{
+  "source": "input/processed/roku-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/roku",
+  "runtimeOutputDir": "data/assets/raster-annotations/roku",
+  "validationSheetDir": "data/assets/icon-references/roku/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6,
+    "color": [242, 242, 242]
+  },
+  "crops": [
+    {
+      "key": "roku-company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "runtimeOutput": "company-wordmark.png",
+      "searchBox": { "x": 662, "y": 304, "width": 478, "height": 149 },
+      "cropBox": { "x": 654, "y": 296, "width": 494, "height": 165 },
+      "threshold": 12,
+      "minComponentArea": 24,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.16, "maxForbiddenForegroundPixels": 0 },
+      "note": "Roku wordmark centered above the revenue hub; excludes the page title and income-statement labels."
+    },
+    {
+      "key": "roku-platform-tv-screen",
+      "output": "crops/platform-tv-screen.png",
+      "runtimeOutput": "platform-tv-screen.png",
+      "searchBox": { "x": 145, "y": 531, "width": 180, "height": 107 },
+      "cropBox": { "x": 136, "y": 522, "width": 198, "height": 125 },
+      "threshold": 12,
+      "minComponentArea": 18,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Platform television screen and stand only; excludes Platform label, value, revenue ribbon, and publisher marks."
+    },
+    {
+      "key": "roku-devices-remote-cluster",
+      "output": "crops/devices-remote-cluster.png",
+      "runtimeOutput": "devices-remote-cluster.png",
+      "searchBox": { "x": 130, "y": 929, "width": 211, "height": 83 },
+      "cropBox": { "x": 120, "y": 918, "width": 230, "height": 104 },
+      "threshold": 12,
+      "minComponentArea": 18,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Devices remote and player cluster only; excludes the Devices label, value, flow ribbon, and publisher marks."
+    }
+  ]
+}

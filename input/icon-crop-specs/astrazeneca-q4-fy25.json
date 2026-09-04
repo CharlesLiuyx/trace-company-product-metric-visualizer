@@ -1,0 +1,20 @@
+{
+  "source": "input/processed/astrazeneca-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/astrazeneca",
+  "validationSheetDir": "data/assets/icon-references/astrazeneca/validation-sheets",
+  "report": "crop-report.json",
+  "background": [245, 245, 245],
+  "backgroundRemoval": { "enabled": true, "mode": "edge-connected", "color": [245, 245, 245], "tolerance": 12 },
+  "skipped": [
+    { "key": "publisher-how-they-make-money", "reason": "Source publisher branding and decorative mini-Sankey are attribution, not AstraZeneca financial-statement content." },
+    { "key": "publisher-website", "reason": "The appeconomyinsights.com footer URL is source attribution." },
+    { "key": "publisher-app-economy-insights", "reason": "The App Economy Insights footer mark is source attribution." }
+  ],
+  "crops": [
+    { "key": "astrazeneca-company-logo", "output": "crops/company-logo-q4-fy25.png", "searchBox": { "x": 610, "y": 250, "width": 700, "height": 135 }, "cropBox": { "x": 570, "y": 190, "width": 770, "height": 205 }, "excludeBoxes": [{ "x": 570, "y": 190, "width": 770, "height": 12 }], "threshold": 18, "minComponentArea": 20, "validation": { "borderBand": 5, "maxCenterOffset": 0.16, "maxForbiddenForegroundPixels": 0 }, "note": "AstraZeneca wordmark and yellow emblem above the revenue hub; the overlapping page title strip is excluded." },
+    { "key": "tagrisso-brand", "output": "crops/tagrisso-brand.png", "searchBox": { "x": 180, "y": 510, "width": 150, "height": 44 }, "cropBox": { "x": 175, "y": 510, "width": 165, "height": 44 }, "threshold": 18, "minComponentArea": 8, "validation": { "borderBand": 3, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 }, "note": "Tagrisso oncology brand cluster below the Oncology label." },
+    { "key": "forxiga-brand", "output": "crops/forxiga-brand.png", "searchBox": { "x": 210, "y": 760, "width": 110, "height": 52 }, "cropBox": { "x": 205, "y": 752, "width": 125, "height": 68 }, "threshold": 18, "minComponentArea": 8, "validation": { "borderBand": 3, "maxCenterOffset": 0.25, "maxForbiddenForegroundPixels": 0 }, "note": "Forxiga cardiovascular, renal and metabolism brand cluster." },
+    { "key": "symbicort-brand", "output": "crops/symbicort-brand.png", "searchBox": { "x": 190, "y": 925, "width": 150, "height": 56 }, "cropBox": { "x": 180, "y": 922, "width": 180, "height": 80 }, "excludeBoxes": [{ "x": 300, "y": 918, "width": 60, "height": 10 }, { "x": 180, "y": 985, "width": 180, "height": 20 }], "threshold": 18, "minComponentArea": 8, "validation": { "borderBand": 3, "maxCenterOffset": 0.22, "maxForbiddenForegroundPixels": 0 }, "note": "Symbicort respiratory and immunology brand cluster; the adjacent category-label tails are excluded." },
+    { "key": "synagis-brand", "output": "crops/synagis-brand.png", "searchBox": { "x": 190, "y": 1075, "width": 130, "height": 64 }, "cropBox": { "x": 180, "y": 1075, "width": 155, "height": 64 }, "threshold": 18, "minComponentArea": 8, "validation": { "borderBand": 3, "maxCenterOffset": 0.23, "maxForbiddenForegroundPixels": 0 }, "note": "Synagis vaccines and immune-oncology brand cluster." }
+  ]
+}

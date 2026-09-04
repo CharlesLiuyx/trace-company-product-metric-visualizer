@@ -1,0 +1,135 @@
+{
+  "source": "input/processed/berkshire-hathaway-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/berkshire-hathaway",
+  "runtimeOutputDir": "data/assets/raster-annotations/berkshire-hathaway",
+  "validationSheetDir": "data/assets/icon-references/berkshire-hathaway/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "crops": [
+    {
+      "key": "berkshire-hathaway-company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "runtimeOutput": "company-wordmark.png",
+      "searchBox": { "x": 685, "y": 244, "width": 486, "height": 164 },
+      "cropBox": { "x": 682, "y": 242, "width": 496, "height": 170 },
+      "threshold": 8,
+      "minComponentArea": 24,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Large Berkshire Hathaway company wordmark near the center; excludes title text, revenue label, flows, and publisher marks."
+    },
+    {
+      "key": "berkshire-hathaway-business-insurance-cluster",
+      "output": "crops/business-insurance-cluster.png",
+      "runtimeOutput": "business-insurance-cluster.png",
+      "searchBox": { "x": 16, "y": 331, "width": 142, "height": 108 },
+      "cropBox": { "x": 14, "y": 328, "width": 150, "height": 116 },
+      "threshold": 8,
+      "minComponentArea": 18,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Insurance logo cluster including GEICO and BH insurance marks; excludes the Insurance label, value text, and source flow."
+    },
+    {
+      "key": "berkshire-hathaway-business-bnsf-logo",
+      "output": "crops/business-bnsf-logo.png",
+      "runtimeOutput": "business-bnsf-logo.png",
+      "searchBox": { "x": 12, "y": 514, "width": 154, "height": 48 },
+      "cropBox": { "x": 8, "y": 508, "width": 146, "height": 42 },
+      "threshold": 8,
+      "minComponentArea": 18,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.16,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "BNSF Railway logo for the BNSF revenue segment; excludes labels, values, and flow marks."
+    },
+    {
+      "key": "berkshire-hathaway-business-bhe-logo",
+      "output": "crops/business-bhe-logo.png",
+      "runtimeOutput": "business-bhe-logo.png",
+      "searchBox": { "x": 40, "y": 614, "width": 88, "height": 92 },
+      "cropBox": { "x": 36, "y": 610, "width": 98, "height": 102 },
+      "threshold": 8,
+      "minComponentArea": 20,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.14,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Berkshire Hathaway Energy triangular logo for the BHE segment; excludes labels, values, and flow marks."
+    },
+    {
+      "key": "berkshire-hathaway-business-pilot-logo",
+      "output": "crops/business-pilot-logo.png",
+      "runtimeOutput": "business-pilot-logo.png",
+      "searchBox": { "x": 18, "y": 777, "width": 132, "height": 42 },
+      "cropBox": { "x": 16, "y": 773, "width": 140, "height": 50 },
+      "threshold": 8,
+      "minComponentArea": 18,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.16,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Pilot wordmark for the Pilot revenue segment; excludes labels, values, and flow marks."
+    },
+    {
+      "key": "berkshire-hathaway-business-manufacturing-cluster",
+      "output": "crops/business-manufacturing-cluster.png",
+      "runtimeOutput": "business-manufacturing-cluster.png",
+      "searchBox": { "x": 28, "y": 986, "width": 122, "height": 82 },
+      "cropBox": { "x": 24, "y": 982, "width": 132, "height": 90 },
+      "threshold": 8,
+      "minComponentArea": 18,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.14,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Manufacturing logo cluster with PCC and Lubrizol; excludes the Manufacturing label, value text, and flow marks."
+    },
+    {
+      "key": "berkshire-hathaway-business-mclane-logo",
+      "output": "crops/business-mclane-logo.png",
+      "runtimeOutput": "business-mclane-logo.png",
+      "searchBox": { "x": 17, "y": 1109, "width": 130, "height": 66 },
+      "cropBox": { "x": 14, "y": 1106, "width": 138, "height": 74 },
+      "threshold": 8,
+      "minComponentArea": 18,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.14,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "McLane logo for the McLane revenue segment; excludes labels, values, and flow marks."
+    },
+    {
+      "key": "berkshire-hathaway-business-services-retailing-cluster",
+      "output": "crops/business-services-retailing-cluster.png",
+      "runtimeOutput": "business-services-retailing-cluster.png",
+      "searchBox": { "x": 18, "y": 1228, "width": 132, "height": 166 },
+      "cropBox": { "x": 14, "y": 1224, "width": 140, "height": 174 },
+      "threshold": 8,
+      "minComponentArea": 12,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.14,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Services and retailing logo cluster including FlightSafety, NetJets, Borsheims, and See's Candies; excludes labels, values, publisher marks, website, and social badge."
+    }
+  ]
+}

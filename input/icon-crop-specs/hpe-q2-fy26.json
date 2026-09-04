@@ -1,0 +1,23 @@
+{
+  "source": "input/processed/hpe-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/hpe",
+  "validationSheetDir": "data/assets/icon-references/hpe/validation-sheets/q2-fy26",
+  "report": "crop-report-q2-fy26.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "hpe-company-wordmark",
+      "output": "crops/company-wordmark-q2-fy26.png",
+      "searchBox": { "x": 620, "y": 280, "width": 580, "height": 190 },
+      "threshold": 18,
+      "minComponentArea": 50,
+      "padding": 16,
+      "note": "HPE wordmark above the revenue hub; excludes the title, financial labels, ribbons, and publisher attribution."
+    }
+  ]
+}

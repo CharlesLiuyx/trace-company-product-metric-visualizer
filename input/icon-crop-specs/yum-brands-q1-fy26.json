@@ -1,0 +1,58 @@
+{
+  "source": "input/processed/yum-brands-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/yum-brands/",
+  "validationSheetDir": "data/assets/icon-references/yum-brands/validation-sheets/",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "yum-brands-company-speech-bubble",
+      "output": "crops/company-speech-bubble.png",
+      "searchBox": { "x": 604, "y": 225, "width": 383, "height": 330 },
+      "cropBox": { "x": 609, "y": 218, "width": 399, "height": 344 },
+      "threshold": 20,
+      "minComponentArea": 160,
+      "validation": { "maxCenterOffset": 0.08 }
+    },
+    {
+      "key": "yum-brands-kfc-logo",
+      "output": "crops/kfc-logo.png",
+      "searchBox": { "x": 134, "y": 452, "width": 204, "height": 206 },
+      "cropBox": { "x": 126, "y": 444, "width": 220, "height": 222 },
+      "threshold": 20,
+      "minComponentArea": 70,
+      "validation": { "maxCenterOffset": 0.08 }
+    },
+    {
+      "key": "yum-brands-taco-bell-logo",
+      "output": "crops/taco-bell-logo.png",
+      "searchBox": { "x": 142, "y": 684, "width": 190, "height": 250 },
+      "cropBox": { "x": 134, "y": 676, "width": 206, "height": 266 },
+      "threshold": 20,
+      "minComponentArea": 70,
+      "validation": { "maxCenterOffset": 0.08 }
+    },
+    {
+      "key": "yum-brands-pizza-hut-logo",
+      "output": "crops/pizza-hut-logo.png",
+      "searchBox": { "x": 150, "y": 958, "width": 170, "height": 162 },
+      "cropBox": { "x": 142, "y": 950, "width": 186, "height": 178 },
+      "threshold": 20,
+      "minComponentArea": 70,
+      "validation": { "maxCenterOffset": 0.08 }
+    },
+    {
+      "key": "yum-brands-habit-logo",
+      "output": "crops/habit-logo.png",
+      "searchBox": { "x": 138, "y": 1132, "width": 194, "height": 142 },
+      "cropBox": { "x": 130, "y": 1124, "width": 210, "height": 158 },
+      "threshold": 20,
+      "minComponentArea": 70,
+      "validation": { "maxCenterOffset": 0.1 }
+    }
+  ]
+}

@@ -1,5 +1,32 @@
 # Data schema
 
+## General metric observations
+
+`data/metric-observations/<source-key>.json` stores pure `metric-observations/v1`
+records. This family accepts company or product metrics without requiring a
+Sankey. The remaining sections of this document describe Sankey View Adapters.
+
+Each record retains `key`, `subject { type, id, name }`, source-stated `period`,
+`basis`, `source { locator, digest, availability, format/width/height/charLength }`,
+`metrics`, source `context`, explicit `exclusions`, `questions` and a content digest.
+Each metric has `id`, `name`, exact decimal-string `value`, `unit`, explicit ISO
+`currency` or null, original `literal`, `quote`, and `anchor`; a metric may state
+its own `period` and `basis`. Missing basis uses `unspecified`, not an invented
+accounting definition. Visual coordinates live only in the source anchor.
+
+Text uses UTF-16 `[start,end)` ranges into the decoded original; PNG uses native
+pixel `[x,y,width,height]` boxes. Non-whitespace source text must be accounted for.
+The full image still requires human completeness review. Quotes, values, units,
+currency, provenance and record identities are checked by `pnpm verify:metrics`.
+The generated `data/metric-observations.js` is a viewer projection, not another
+editable SSOT. Different sources with the same subject/time/metric/basis require
+explicit reconciliation before registration; same identity does not create a
+second record automatically.
+
+Authoring facts and a complete example are in
+[the asset workflow](../docs/asset-workflow.md) and
+[source-facts.example.json](../docs/examples/source-facts.example.json).
+
 Registered datasets should be authored in the low-level, high-fidelity format:
 write `nodes` + `links` by hand and tune `layout.nodes` / `layout.labels`
 against the processed reference image. The resulting `{ meta, nodes, links }`

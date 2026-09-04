@@ -1,0 +1,66 @@
+{
+  "source": "input/processed/cloudflare-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/cloudflare/crops",
+  "validationSheetDir": "data/assets/icon-references/cloudflare/validation-sheets",
+  "report": "../crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "compression": {
+    "enabled": true,
+    "paletteColors": [256, 192, 128, 96, 64, 48, 32, 24],
+    "maxMeanAbsoluteError": 1.2,
+    "maxRootMeanSquareError": 3,
+    "maxP99AbsoluteError": 12,
+    "maxMaxChannelDiff": 72
+  },
+  "crops": [
+    {
+      "key": "cloudflare-company-cloud-mark",
+      "output": "company-cloud-mark.png",
+      "searchBox": { "x": 918, "y": 212, "width": 267, "height": 123 },
+      "cropBox": { "x": 923, "y": 212, "width": 262, "height": 123 },
+      "threshold": 18,
+      "foreground": {
+        "channels": {
+          "r": [220, 255],
+          "g": [80, 190],
+          "b": [0, 90]
+        }
+      },
+      "minComponentArea": 35,
+      "padding": 12,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.25,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Cloudflare orange cloud mark. The crop starts at x=923 to exclude a blue title fragment that overlaps the full rectangular logo cluster; the visible cloud subject remains centered and semantically recognizable."
+    },
+    {
+      "key": "cloudflare-company-wordmark",
+      "output": "company-wordmark.png",
+      "searchBox": { "x": 635, "y": 338, "width": 565, "height": 62 },
+      "cropBox": { "x": 635, "y": 338, "width": 565, "height": 62 },
+      "threshold": 18,
+      "foreground": {
+        "channels": {
+          "r": [40, 90],
+          "g": [40, 90],
+          "b": [40, 90]
+        }
+      },
+      "minComponentArea": 35,
+      "padding": 12,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.18,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Cloudflare company wordmark near the center of the source chart; excludes the Revenue label, chart flows, KPI cards, website URL, How They Make Money mark, and App Economy Insights attribution."
+    }
+  ]
+}

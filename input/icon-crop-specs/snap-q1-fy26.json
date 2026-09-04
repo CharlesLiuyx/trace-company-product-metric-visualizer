@@ -1,0 +1,79 @@
+{
+  "source": "input/processed/snap-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/snap",
+  "validationSheetDir": "data/assets/icon-references/snap/validation-sheets",
+  "report": "crop-report.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 9
+  },
+  "crops": [
+    {
+      "key": "snap-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": {
+        "x": 770,
+        "y": 220,
+        "width": 260,
+        "height": 235
+      },
+      "cropBox": {
+        "x": 780,
+        "y": 220,
+        "width": 240,
+        "height": 230
+      },
+      "threshold": 16,
+      "foreground": {
+        "any": [
+          {
+            "channels": {
+              "r": [230, 255],
+              "g": [225, 255],
+              "b": [0, 60]
+            }
+          },
+          {
+            "channels": {
+              "r": [0, 80],
+              "g": [0, 80],
+              "b": [0, 80]
+            }
+          },
+          {
+            "channels": {
+              "r": [245, 255],
+              "g": [245, 255],
+              "b": [245, 255]
+            }
+          }
+        ]
+      },
+      "minComponentArea": 80,
+      "padding": 8,
+      "validation": {
+        "borderBand": 4,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Snap company logo: yellow rounded square with Snapchat ghost; excludes title text, Sankey marks, and publisher attribution."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding and not part of Snap's income-statement semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "Source publisher branding, website URL, and social badge are intentionally excluded."
+    }
+  ]
+}

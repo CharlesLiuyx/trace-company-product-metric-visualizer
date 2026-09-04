@@ -1,0 +1,76 @@
+{
+  "source": "input/processed/match-group-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/match-group",
+  "runtimeOutputDir": "data/assets/raster-annotations/match-group",
+  "validationSheetDir": "data/assets/icon-references/match-group/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [242, 242, 242],
+    "tolerance": 10
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding badge and mini Sankey mark are not part of Match Group income-statement semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "Source publisher URL, footer logo, and attribution are intentionally excluded."
+    }
+  ],
+  "crops": [
+    {
+      "key": "match-group-company-logo",
+      "output": "crops/company-logo-q4-fy25.png",
+      "searchBox": { "x": 760, "y": 240, "width": 320, "height": 205 },
+      "cropBox": { "x": 760, "y": 240, "width": 320, "height": 205 },
+      "threshold": 18,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.16, "maxForbiddenForegroundPixels": 0 },
+      "note": "Match Group MG mark above the revenue hub; excludes title, revenue label, and flows."
+    },
+    {
+      "key": "match-group-brand-tinder",
+      "output": "crops/brand-tinder-q4-fy25.png",
+      "searchBox": { "x": 96, "y": 360, "width": 182, "height": 190 },
+      "cropBox": { "x": 96, "y": 360, "width": 182, "height": 190 },
+      "threshold": 18,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.16, "maxForbiddenForegroundPixels": 0 },
+      "note": "Tinder flame app icon; excludes the adjacent Tinder label and revenue text."
+    },
+    {
+      "key": "match-group-brand-hinge",
+      "output": "crops/brand-hinge-q4-fy25.png",
+      "searchBox": { "x": 108, "y": 650, "width": 158, "height": 158 },
+      "cropBox": { "x": 108, "y": 650, "width": 158, "height": 158 },
+      "threshold": 18,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.16, "maxForbiddenForegroundPixels": 0 },
+      "note": "Hinge app icon; excludes the adjacent Hinge label and revenue text."
+    },
+    {
+      "key": "match-group-brand-asia-cluster",
+      "output": "crops/brand-asia-cluster-q4-fy25.png",
+      "searchBox": { "x": 35, "y": 855, "width": 280, "height": 115 },
+      "cropBox": { "x": 35, "y": 855, "width": 280, "height": 115 },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Three-app Match Group Asia icon cluster; excludes Asia label, revenue text, and flow marks."
+    },
+    {
+      "key": "match-group-brand-evergreen-emerging-cluster",
+      "output": "crops/brand-evergreen-emerging-cluster-q4-fy25.png",
+      "searchBox": { "x": 4, "y": 1018, "width": 190, "height": 150 },
+      "cropBox": { "x": 4, "y": 1018, "width": 190, "height": 150 },
+      "threshold": 18,
+      "minComponentArea": 15,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.20, "maxForbiddenForegroundPixels": 0 },
+      "note": "Eight-app Evergreen & Emerging icon cluster; excludes the business label, revenue text, and flow marks."
+    }
+  ]
+}

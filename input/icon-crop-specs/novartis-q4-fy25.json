@@ -1,0 +1,70 @@
+{
+  "source": "input/processed/novartis-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/novartis",
+  "runtimeOutputDir": "data/assets/raster-annotations/novartis",
+  "validationSheetDir": "data/assets/icon-references/novartis/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 5
+  },
+  "crops": [
+    {
+      "key": "novartis-company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "runtimeOutput": "company-wordmark.png",
+      "searchBox": { "x": 660, "y": 245, "width": 705, "height": 130 },
+      "cropBox": { "x": 650, "y": 238, "width": 725, "height": 145 },
+      "threshold": 8,
+      "minComponentArea": 24,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.16, "maxForbiddenForegroundPixels": 0 },
+      "note": "Novartis corporate flame mark and wordmark centered above the income-statement flow; excludes the title and chart labels."
+    },
+    {
+      "key": "novartis-cardiovascular-entresto",
+      "output": "crops/cardiovascular-entresto.png",
+      "runtimeOutput": "cardiovascular-entresto.png",
+      "searchBox": { "x": 150, "y": 490, "width": 180, "height": 58 },
+      "cropBox": { "x": 142, "y": 483, "width": 196, "height": 70 },
+      "threshold": 8,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Entresto product-wordmark cluster for Cardiovascular, renal & metabolic; excludes the segment label and source bar."
+    },
+    {
+      "key": "novartis-immunology-cosentyx",
+      "output": "crops/immunology-cosentyx.png",
+      "runtimeOutput": "immunology-cosentyx.png",
+      "searchBox": { "x": 160, "y": 654, "width": 160, "height": 64 },
+      "cropBox": { "x": 152, "y": 652, "width": 176, "height": 74 },
+      "threshold": 8,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Cosentyx product-wordmark cluster for Immunology; excludes the segment label and source bar."
+    },
+    {
+      "key": "novartis-neuroscience-kesimpta",
+      "output": "crops/neuroscience-kesimpta.png",
+      "runtimeOutput": "neuroscience-kesimpta.png",
+      "searchBox": { "x": 160, "y": 853, "width": 160, "height": 55 },
+      "cropBox": { "x": 152, "y": 851, "width": 176, "height": 64 },
+      "threshold": 8,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Kesimpta product-wordmark cluster for Neuroscience; excludes the segment label and source bar."
+    },
+    {
+      "key": "novartis-oncology-kisqali",
+      "output": "crops/oncology-kisqali.png",
+      "runtimeOutput": "oncology-kisqali.png",
+      "searchBox": { "x": 165, "y": 1054, "width": 170, "height": 70 },
+      "cropBox": { "x": 155, "y": 1052, "width": 190, "height": 80 },
+      "threshold": 8,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Kisqali product-wordmark cluster for Oncology; excludes the segment label and source bar."
+    }
+  ]
+}

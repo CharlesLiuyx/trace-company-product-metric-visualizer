@@ -1,0 +1,51 @@
+{
+  "source": "input/processed/on-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/on",
+  "validationSheetDir": "data/assets/icon-references/on/validation-sheets",
+  "runtimeOutputDir": "data/assets/raster-annotations/on",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "on-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": { "x": 1260, "y": 220, "width": 184, "height": 290 },
+      "cropBox": { "x": 1280, "y": 220, "width": 179, "height": 291 },
+      "threshold": 16,
+      "minComponentArea": 25,
+      "note": "On's black logo above the right-hand Revenue hub; excludes the title, revenue label, Sankey flows, and publisher branding."
+    },
+    {
+      "key": "on-shoes-product",
+      "output": "crops/shoes-product.png",
+      "searchBox": { "x": 136, "y": 590, "width": 226, "height": 172 },
+      "cropBox": { "x": 134, "y": 590, "width": 236, "height": 180 },
+      "threshold": 18,
+      "minComponentArea": 25,
+      "note": "Blue running shoe associated with Shoes revenue; excludes the Shoes label, value text, node bar, and publisher marks."
+    },
+    {
+      "key": "on-apparel-product",
+      "output": "crops/apparel-product.png",
+      "searchBox": { "x": 168, "y": 860, "width": 154, "height": 180 },
+      "cropBox": { "x": 165, "y": 861, "width": 173, "height": 190 },
+      "threshold": 18,
+      "minComponentArea": 25,
+      "note": "Orange apparel shirt associated with Apparel revenue; excludes the Apparel label, value text, node bar, and publisher marks."
+    },
+    {
+      "key": "on-accessories-product",
+      "output": "crops/accessories-product.png",
+      "searchBox": { "x": 130, "y": 1127, "width": 208, "height": 104 },
+      "cropBox": { "x": 128, "y": 1125, "width": 225, "height": 110 },
+      "threshold": 18,
+      "minComponentArea": 25,
+      "note": "Black cap associated with Accessories revenue; excludes the Accessories label, value text, node bar, and publisher marks."
+    }
+  ]
+}

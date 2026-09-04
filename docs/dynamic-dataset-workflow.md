@@ -9,26 +9,27 @@ lifecycle/current-target distinctions to `docs/architecture/`.
 
 ## Current Architecture Boundary
 
-The implemented M3 lane fixes Source classification/claim at intake and records
-`ObjectInventory`, `source-coverage/v2`, Plan v5, and Packet v4 at review
-preparation. Canonical files are still edited directly. M4 atomic Publication
-and `publish:*` remain unimplemented; relocation, `record:*`, staging, and seal
-are not Publication.
+New Sources enter through [asset-workflow.md](asset-workflow.md). Its isolated
+Build workspace uses the nine steps below for specialist authoring and retains
+all fidelity checks. `publish:datasets plan/commit` now validates a combined
+candidate and atomically selects its immutable tree; `release:dataset` consumes
+that published digest. Existing non-isolated Builds keep the direct-edit
+compatibility procedure and their original review evidence.
 
 ## Operator Review-Completion Signal
 
 The user's explicit statement that human review is complete (including
 `人工审阅完毕`), or that local work was pushed to the remote and merged into
-`main`, is a batch review-completion signal for the PNGs currently under
+`main`, is a batch review-completion signal for the PNG/TXT/Markdown Sources currently under
 `input/processing/`. On either signal:
 
-1. enumerate every current processing PNG;
+1. enumerate every current processing Source;
 2. present the complete list of dataset keys and paths to the operator and
    wait for their explicit confirmation; the confirmed list, not the raw directory
    contents, is the relocation scope;
-3. fail safely if any same-name destination already exists under
-   `input/processed/` for a confirmed PNG;
-4. otherwise move the confirmed PNGs directly to `input/processed/`, report
+3. fail safely if a same-name destination contains different bytes; an
+   identical copy may only recover a copy-then-unlink interruption;
+4. otherwise move the confirmed Sources directly to `input/processed/`, report
    the moved set, and commit their removal from the tracked processing queue
    without force-adding the ignored processed archive.
 

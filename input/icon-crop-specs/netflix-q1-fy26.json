@@ -1,0 +1,199 @@
+{
+  "source": "input/processed/netflix-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/netflix",
+  "validationSheetDir": "data/assets/icon-references/netflix/validation-sheets",
+  "report": "crop-report.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 9
+  },
+  "crops": [
+    {
+      "key": "netflix-company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "searchBox": {
+        "x": 560,
+        "y": 260,
+        "width": 555,
+        "height": 155
+      },
+      "cropBox": {
+        "x": 560,
+        "y": 260,
+        "width": 555,
+        "height": 155
+      },
+      "threshold": 18,
+      "foreground": {
+        "channels": {
+          "r": [170, 255],
+          "g": [0, 50],
+          "b": [0, 55]
+        }
+      },
+      "minComponentArea": 60,
+      "padding": 18,
+      "validation": {
+        "borderBand": 4,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Netflix company wordmark only; excludes source chart title and publisher marks."
+    },
+    {
+      "key": "netflix-region-ucan-globe",
+      "output": "crops/region-ucan-globe.png",
+      "searchBox": {
+        "x": 76,
+        "y": 416,
+        "width": 98,
+        "height": 98
+      },
+      "cropBox": {
+        "x": 76,
+        "y": 416,
+        "width": 98,
+        "height": 98
+      },
+      "threshold": 10,
+      "minComponentArea": 12,
+      "padding": 10,
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 12
+      },
+      "validation": {
+        "borderBand": 3,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "UCAN regional globe icon only; excludes label and value text."
+    },
+    {
+      "key": "netflix-region-emea-globe",
+      "output": "crops/region-emea-globe.png",
+      "searchBox": {
+        "x": 76,
+        "y": 740,
+        "width": 98,
+        "height": 98
+      },
+      "cropBox": {
+        "x": 76,
+        "y": 740,
+        "width": 98,
+        "height": 98
+      },
+      "threshold": 10,
+      "minComponentArea": 12,
+      "padding": 10,
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 12
+      },
+      "validation": {
+        "borderBand": 3,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "EMEA regional globe icon only; excludes label and value text."
+    },
+    {
+      "key": "netflix-region-latam-globe",
+      "output": "crops/region-latam-globe.png",
+      "searchBox": {
+        "x": 74,
+        "y": 970,
+        "width": 98,
+        "height": 112
+      },
+      "cropBox": {
+        "x": 66,
+        "y": 970,
+        "width": 110,
+        "height": 112
+      },
+      "threshold": 10,
+      "foreground": {
+        "any": [
+          {
+            "channels": {
+              "r": [55, 255],
+              "g": [55, 255],
+              "b": [55, 255]
+            }
+          },
+          {
+            "channels": {
+              "r": [0, 110],
+              "g": [55, 190],
+              "b": [0, 135]
+            }
+          }
+        ]
+      },
+      "minComponentArea": 12,
+      "padding": 10,
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 12
+      },
+      "validation": {
+        "borderBand": 3,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "LATAM regional globe icon only; excludes label and value text."
+    },
+    {
+      "key": "netflix-region-apac-globe",
+      "output": "crops/region-apac-globe.png",
+      "searchBox": {
+        "x": 76,
+        "y": 1188,
+        "width": 104,
+        "height": 112
+      },
+      "cropBox": {
+        "x": 76,
+        "y": 1188,
+        "width": 104,
+        "height": 112
+      },
+      "threshold": 10,
+      "minComponentArea": 12,
+      "padding": 10,
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 12
+      },
+      "validation": {
+        "borderBand": 3,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "APAC regional globe icon only; excludes label and value text."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding and not part of Netflix's income-statement semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "Source publisher website URL, social badge, and attribution are intentionally excluded."
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "source": "input/processed/meituan-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/meituan",
+  "runtimeOutputDir": "data/assets/raster-annotations/meituan",
+  "validationSheetDir": "data/assets/icon-references/meituan/validation-sheets",
+  "report": "crop-report.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "crops": [
+    {
+      "key": "meituan-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": {
+        "x": 788,
+        "y": 233,
+        "width": 250,
+        "height": 232
+      },
+      "threshold": 20,
+      "minComponentArea": 60,
+      "padding": 6,
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10
+      },
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.03,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Meituan company app-icon logo: rounded yellow square with the black 美团 wordmark, centered above the Revenue hub; excludes the title, 'in RMB' note, Revenue label, and publisher marks."
+    }
+  ]
+}

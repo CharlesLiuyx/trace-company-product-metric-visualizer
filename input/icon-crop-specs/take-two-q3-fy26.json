@@ -1,0 +1,80 @@
+{
+  "source": "input/processed/take-two-q3-fy26.png",
+  "outputDir": "data/assets/icon-references/take-two",
+  "runtimeOutputDir": "data/assets/raster-annotations/take-two",
+  "validationSheetDir": "data/assets/icon-references/take-two/validation-sheets",
+  "report": "crop-report.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [1180, 1360, 80, 80]
+  ],
+  "crops": [
+    {
+      "key": "take-two-company-logo",
+      "output": "crops/company-logo.png",
+      "runtimeOutput": "company-logo.png",
+      "searchBox": { "x": 585, "y": 300, "width": 250, "height": 205 },
+      "cropBox": { "x": 574, "y": 292, "width": 270, "height": 220 },
+      "backgroundRemoval": { "color": [242, 242, 242], "tolerance": 6 },
+      "threshold": 18,
+      "minComponentArea": 30,
+      "padding": 12,
+      "validation": { "borderBand": 3, "maxCenterOffset": 0.06, "maxForbiddenForegroundPixels": 0 },
+      "note": "T2 corporate logo above the platform revenue flows; excludes the title, source labels, and trademark-adjacent chart content."
+    },
+    {
+      "key": "take-two-mobile-store-icons",
+      "output": "crops/mobile-store-icons.png",
+      "runtimeOutput": "mobile-store-icons.png",
+      "searchBox": { "x": 105, "y": 425, "width": 205, "height": 100 },
+      "cropBox": { "x": 94, "y": 416, "width": 225, "height": 118 },
+      "backgroundRemoval": { "color": [242, 242, 242], "tolerance": 6 },
+      "threshold": 18,
+      "minComponentArea": 25,
+      "padding": 10,
+      "validation": { "borderBand": 3, "maxCenterOffset": 0.08, "maxForbiddenForegroundPixels": 0 },
+      "note": "App Store and Google Play icons associated with Mobile revenue; excludes the Includes Zynga qualifier and financial labels."
+    },
+    {
+      "key": "take-two-console-cluster",
+      "output": "crops/console-cluster.png",
+      "runtimeOutput": "console-cluster.png",
+      "searchBox": { "x": 48, "y": 704, "width": 282, "height": 110 },
+      "cropBox": { "x": 36, "y": 692, "width": 302, "height": 126 },
+      "backgroundRemoval": { "color": [242, 242, 242], "tolerance": 6 },
+      "threshold": 18,
+      "minComponentArea": 25,
+      "padding": 10,
+      "validation": { "borderBand": 3, "maxCenterOffset": 0.08, "maxForbiddenForegroundPixels": 0 },
+      "note": "PlayStation, Xbox, and Nintendo Switch platform-icon cluster for Console revenue; excludes the Console label and values."
+    },
+    {
+      "key": "take-two-steam-icon",
+      "output": "crops/steam-icon.png",
+      "runtimeOutput": "steam-icon.png",
+      "searchBox": { "x": 172, "y": 908, "width": 84, "height": 90 },
+      "cropBox": { "x": 162, "y": 896, "width": 104, "height": 106 },
+      "backgroundRemoval": { "color": [242, 242, 242], "tolerance": 6 },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "padding": 10,
+      "validation": { "borderBand": 3, "maxCenterOffset": 0.08, "maxForbiddenForegroundPixels": 0 },
+      "note": "Steam icon associated with PC & other revenue; excludes the PC & other label and financial values."
+    },
+    {
+      "key": "take-two-studio-portfolio",
+      "output": "crops/studio-portfolio.png",
+      "runtimeOutput": "studio-portfolio.png",
+      "searchBox": { "x": 65, "y": 1255, "width": 575, "height": 110 },
+      "cropBox": { "x": 52, "y": 1253, "width": 600, "height": 121 },
+      "backgroundRemoval": { "color": [242, 242, 242], "tolerance": 6 },
+      "threshold": 18,
+      "minComponentArea": 25,
+      "padding": 10,
+      "validation": { "borderBand": 3, "maxCenterOffset": 0.08, "maxForbiddenForegroundPixels": 0 },
+      "note": "Rockstar Games, Private Division, 2K, and Zynga portfolio logo cluster below Net bookings; excludes the KPI capsule and publisher attribution marks."
+    }
+  ]
+}

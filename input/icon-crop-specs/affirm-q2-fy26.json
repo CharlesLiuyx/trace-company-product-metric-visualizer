@@ -1,0 +1,39 @@
+{
+  "source": "input/processed/affirm-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/affirm",
+  "validationSheetDir": "data/assets/icon-references/affirm/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [242, 242, 242],
+    "tolerance": 10
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding and decorative mini-Sankey mark are not part of Affirm's income-statement semantics."
+    },
+    {
+      "key": "publisher-website",
+      "reason": "The appeconomyinsights.com footer URL is source attribution, not company or financial-statement content."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "The App Economy Insights footer logo and wordmark are source attribution and are intentionally excluded."
+    }
+  ],
+  "crops": [
+    {
+      "key": "affirm-company-logo",
+      "output": "crops/company-logo-q2-fy26.png",
+      "searchBox": { "x": 1050, "y": 255, "width": 570, "height": 235 },
+      "cropBox": { "x": 1040, "y": 250, "width": 590, "height": 245 },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 5, "maxCenterOffset": 0.04, "maxForbiddenForegroundPixels": 0 },
+      "note": "Complete Affirm black wordmark and purple arch above the revenue hub; excludes the title, Revenue label, ribbons, and publisher attribution."
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "source": "input/processed/block-q3-fy25.png",
+  "outputDir": "data/assets/icon-references/block",
+  "runtimeOutputDir": "data/assets/raster-annotations/block",
+  "validationSheetDir": "data/assets/icon-references/block/validation-sheets",
+  "report": "crop-report-q3-fy25.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [242, 242, 242],
+    "tolerance": 10
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding and decorative mini-Sankey are not part of Block's income-statement semantics."
+    },
+    {
+      "key": "publisher-website",
+      "reason": "The appeconomyinsights.com footer URL is source attribution, not company or financial-statement content."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "The App Economy Insights footer lockup is source attribution and is intentionally excluded."
+    }
+  ],
+  "crops": [
+    {
+      "key": "block-square-wordmark",
+      "output": "crops/square-wordmark-q3-fy25.png",
+      "runtimeOutput": "square-wordmark-q3-fy25.png",
+      "searchBox": { "x": 1087, "y": 394, "width": 281, "height": 64 },
+      "cropBox": { "x": 1087, "y": 394, "width": 281, "height": 64 },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Complete Square icon and wordmark; excludes the nearby value, growth note, and flow."
+    },
+    {
+      "key": "block-bitcoin-wordmark",
+      "output": "crops/bitcoin-wordmark-q3-fy25.png",
+      "runtimeOutput": "bitcoin-wordmark-q3-fy25.png",
+      "searchBox": { "x": 150, "y": 558, "width": 280, "height": 77 },
+      "cropBox": { "x": 150, "y": 558, "width": 280, "height": 77 },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Complete bitcoin icon and wordmark; excludes the gross-margin note and source node."
+    },
+    {
+      "key": "block-hardware-icon",
+      "output": "crops/hardware-icon-q3-fy25.png",
+      "runtimeOutput": "hardware-icon-q3-fy25.png",
+      "searchBox": { "x": 100, "y": 1217, "width": 80, "height": 80 },
+      "cropBox": { "x": 100, "y": 1217, "width": 80, "height": 80 },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.08, "maxForbiddenForegroundPixels": 0 },
+      "note": "Complete hardware tile icon; excludes the Hardware label and gross-margin note."
+    }
+  ]
+}

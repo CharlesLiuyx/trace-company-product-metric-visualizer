@@ -1,0 +1,65 @@
+{
+  "source": "input/processed/duolingo-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/duolingo",
+  "runtimeOutputDir": "data/assets/raster-annotations/duolingo",
+  "validationSheetDir": "data/assets/icon-references/duolingo/validation-sheets",
+  "report": "crop-report.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "duolingo-company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "searchBox": {
+        "x": 620,
+        "y": 300,
+        "width": 620,
+        "height": 140
+      },
+      "threshold": 16,
+      "foreground": {
+        "channels": {
+          "r": [40, 120],
+          "g": [170, 230],
+          "b": [0, 55]
+        }
+      },
+      "minComponentArea": 80,
+      "padding": 14,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.025,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Large Duolingo company wordmark centered above the revenue node; excludes the chart title, revenue label, and publisher marks."
+    },
+    {
+      "key": "duolingo-subscription-mascot",
+      "output": "crops/subscription-mascot.png",
+      "searchBox": {
+        "x": 175,
+        "y": 565,
+        "width": 210,
+        "height": 170
+      },
+      "threshold": 16,
+      "minComponentArea": 60,
+      "padding": 10,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.035,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Duo mascot icon for the Subscription revenue stream; excludes the Subscription label, chart connectors, KPI cards, and publisher attribution."
+    }
+  ]
+}

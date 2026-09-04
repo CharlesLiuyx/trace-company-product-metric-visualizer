@@ -1,0 +1,38 @@
+{
+  "source": "input/processed/dynatrace-q3-fy26.png",
+  "outputDir": "data/assets/icon-references/dynatrace",
+  "runtimeOutputDir": "data/assets/raster-annotations/dynatrace",
+  "validationSheetDir": "data/assets/icon-references/dynatrace/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "compression": {
+    "enabled": true,
+    "paletteColors": [256, 192, 128, 96, 64, 48, 32, 24],
+    "maxMeanAbsoluteError": 1.2,
+    "maxRootMeanSquareError": 3,
+    "maxP99AbsoluteError": 12,
+    "maxMaxChannelDiff": 72
+  },
+  "crops": [
+    {
+      "key": "dynatrace-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": { "x": 684, "y": 225, "width": 346, "height": 260 },
+      "cropBox": { "x": 684, "y": 225, "width": 346, "height": 260 },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "padding": 0,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.14,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Dynatrace cube and wordmark at the top-center of the source. Excludes the title, Revenue label, financial chart, website URL, How They Make Money mark, and App Economy Insights attribution."
+    }
+  ]
+}

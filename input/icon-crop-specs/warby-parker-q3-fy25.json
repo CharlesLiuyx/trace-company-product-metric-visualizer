@@ -1,0 +1,51 @@
+{
+  "source": "input/processed/warby-parker-q3-fy25.png",
+  "outputDir": "data/assets/icon-references/warby-parker",
+  "runtimeOutputDir": "data/assets/raster-annotations/warby-parker",
+  "validationSheetDir": "data/assets/icon-references/warby-parker/validation-sheets",
+  "report": "crop-report.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6,
+    "color": [242, 242, 242]
+  },
+  "crops": [
+    {
+      "key": "warby-parker-eyewear-cluster",
+      "output": "crops/eyewear-cluster.png",
+      "searchBox": { "x": 90, "y": 515, "width": 225, "height": 250 },
+      "threshold": 14,
+      "minComponentArea": 24,
+      "padding": 8,
+      "validation": { "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Eyewear segment product cluster: the complete stack of eyeglass and sunglass frames. The crop excludes the value block, source face, segment label, and publisher marks."
+    },
+    {
+      "key": "warby-parker-vision-care-phone",
+      "output": "crops/vision-care-phone.png",
+      "searchBox": { "x": 145, "y": 915, "width": 125, "height": 180 },
+      "threshold": 14,
+      "minComponentArea": 24,
+      "padding": 8,
+      "validation": { "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Vision care segment icon: the complete tilted eye-chart phone. The crop excludes the value block, source face, segment label, and publisher marks."
+    },
+    {
+      "key": "warby-parker-ecommerce-phone",
+      "output": "crops/ecommerce-phone.png",
+      "searchBox": { "x": 1160, "y": 260, "width": 205, "height": 250 },
+      "threshold": 14,
+      "minComponentArea": 24,
+      "padding": 8,
+      "validation": { "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "E-Commerce channel icon: the complete tilted Warby Parker shopping phone. The crop excludes the E-Commerce label and all Sankey geometry."
+    }
+  ]
+}

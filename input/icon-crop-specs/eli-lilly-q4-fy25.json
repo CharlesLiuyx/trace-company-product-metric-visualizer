@@ -1,0 +1,20 @@
+{
+  "source": "input/processed/eli-lilly-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/eli-lilly",
+  "runtimeOutputDir": "data/assets/raster-annotations/eli-lilly",
+  "validationSheetDir": "data/assets/icon-references/eli-lilly/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": { "enabled": true, "mode": "edge-connected", "tolerance": 8, "color": [242, 242, 242] },
+  "skipped": [
+    { "key": "publisher-how-they-make-money", "reason": "Bottom-left publisher badge and mini-Sankey are attribution, not Eli Lilly financial semantics." },
+    { "key": "publisher-app-economy-insights", "reason": "Bottom URL watermark and APP ECONOMY INSIGHTS footer logo are attribution, not chart content." }
+  ],
+  "crops": [
+    { "key": "eli-lilly-wordmark", "output": "crops/company-wordmark.png", "searchBox": { "x": 651, "y": 257, "width": 438, "height": 246 }, "cropBox": { "x": 631, "y": 230, "width": 488, "height": 302 }, "threshold": 16, "foreground": { "channels": { "r": [150, 255], "g": [0, 105], "b": [0, 105] } }, "excludeBoxes": [{ "x": 631, "y": 490, "width": 90, "height": 42 }], "minComponentArea": 30, "validation": { "borderBand": 2, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 }, "note": "Red Lilly wordmark above the Revenue hub; an overlapping gray source ribbon is transparently excluded." },
+    { "key": "eli-lilly-cardiometabolic-brands", "output": "crops/cardiometabolic-brands.png", "searchBox": { "x": 53, "y": 296, "width": 321, "height": 220 }, "cropBox": { "x": 31, "y": 269, "width": 350, "height": 245 }, "excludeBoxes": [{ "x": 345, "y": 320, "width": 36, "height": 110 }], "threshold": 16, "foreground": { "any": [{ "channels": { "r": [60, 180], "g": [0, 145], "b": [105, 255] } }, { "channels": { "r": [0, 110], "g": [65, 255], "b": [80, 255] } }, { "channels": { "r": [145, 255], "g": [0, 125], "b": [0, 165] } }] }, "minComponentArea": 15, "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 }, "note": "Mounjaro, Zepbound, Trulicity, and Jardiance brand-mark cluster. The crop ends above the Cardiometabolic Health label; the small upper-right exclusion removes only the adjacent $14.5B and growth note while preserving the full Jardiance icon." },
+    { "key": "eli-lilly-oncology-verzenio", "output": "crops/oncology-verzenio.png", "searchBox": { "x": 108, "y": 690, "width": 196, "height": 71 }, "cropBox": { "x": 102, "y": 684, "width": 208, "height": 83 }, "threshold": 16, "minComponentArea": 15, "validation": { "borderBand": 2, "maxCenterOffset": 0.15, "maxForbiddenForegroundPixels": 0 }, "note": "Verzenio mark for the Oncology revenue source; excludes the Oncology label." },
+    { "key": "eli-lilly-immunology-taltz", "output": "crops/immunology-taltz.png", "searchBox": { "x": 145, "y": 842, "width": 143, "height": 83 }, "cropBox": { "x": 139, "y": 836, "width": 155, "height": 95 }, "threshold": 16, "minComponentArea": 15, "validation": { "borderBand": 2, "maxCenterOffset": 0.15, "maxForbiddenForegroundPixels": 0 }, "note": "Taltz mark for the Immunology revenue source; excludes the Immunology label." },
+    { "key": "eli-lilly-neuroscience-emgality", "output": "crops/neuroscience-emgality.png", "searchBox": { "x": 105, "y": 984, "width": 200, "height": 95 }, "cropBox": { "x": 99, "y": 978, "width": 212, "height": 107 }, "threshold": 16, "minComponentArea": 15, "validation": { "borderBand": 2, "maxCenterOffset": 0.15, "maxForbiddenForegroundPixels": 0 }, "note": "Emgality mark for the Neurosciences revenue source; excludes the Neurosciences label." }
+  ]
+}

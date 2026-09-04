@@ -1,0 +1,65 @@
+{
+  "source": "input/processed/pinterest-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/pinterest",
+  "validationSheetDir": "data/assets/icon-references/pinterest/validation-sheets",
+  "report": "crop-report.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 9
+  },
+  "crops": [
+    {
+      "key": "pinterest-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": {
+        "x": 790,
+        "y": 205,
+        "width": 285,
+        "height": 250
+      },
+      "cropBox": {
+        "x": 820,
+        "y": 222,
+        "width": 238,
+        "height": 215
+      },
+      "threshold": 16,
+      "foreground": {
+        "any": [
+          {
+            "channels": {
+              "r": [190, 255],
+              "g": [0, 75],
+              "b": [0, 75]
+            }
+          }
+        ]
+      },
+      "minComponentArea": 80,
+      "padding": 8,
+      "validation": {
+        "borderBand": 4,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Pinterest company logo: red Pinterest mark inside the white circular badge; excludes title text, revenue label, Sankey marks, and publisher attribution."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding and not part of Pinterest's income-statement semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "Source publisher branding, website URL, social badge, and App Economy Insights wordmark are intentionally excluded."
+    }
+  ]
+}

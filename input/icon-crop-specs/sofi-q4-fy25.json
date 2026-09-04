@@ -1,0 +1,42 @@
+{
+  "source": "input/processed/sofi-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/sofi",
+  "runtimeOutputDir": "data/assets/raster-annotations/sofi",
+  "validationSheetDir": "data/assets/icon-references/sofi/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [242, 242, 242],
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "sofi-company-wordmark",
+      "output": "crops/company-wordmark-q4-fy25.png",
+      "runtimeOutput": "company-wordmark-q4-fy25.png",
+      "searchBox": { "x": 900, "y": 290, "width": 545, "height": 160 },
+      "cropBox": { "x": 894, "y": 284, "width": 557, "height": 172 },
+      "threshold": 15,
+      "minComponentArea": 20,
+      "foreground": { "channels": { "r": [0, 40], "g": [120, 190], "b": [160, 240] } },
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.08, "maxForbiddenForegroundPixels": 0 },
+      "note": "Complete SoFi wordmark and dot device above the Net revenue node; excludes the chart title, Net revenue label, ribbons and publisher attribution. The validated crop is intentionally used as a whitelisted runtime raster annotation."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding and decorative mini-Sankey mark are not part of SoFi's income-statement semantics."
+    },
+    {
+      "key": "publisher-website",
+      "reason": "The appeconomyinsights.com footer URL is source attribution, not company or financial-statement content."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "The App Economy Insights footer logo and wordmark are source attribution and are intentionally excluded."
+    }
+  ]
+}

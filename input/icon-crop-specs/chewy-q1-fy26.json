@@ -1,0 +1,52 @@
+{
+  "source": "input/processed/chewy-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/chewy",
+  "runtimeOutputDir": "data/assets/raster-annotations/chewy",
+  "validationSheetDir": "data/assets/icon-references/chewy/validation-sheets/q1-fy26",
+  "report": "crop-report-q1-fy26.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [242, 242, 242],
+    "tolerance": 8
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding and decorative mini-Sankey mark are not part of Chewy's income-statement semantics."
+    },
+    {
+      "key": "publisher-website",
+      "reason": "The appeconomyinsights.com footer URL is source attribution, not company or financial-statement content."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "The App Economy Insights footer logo and wordmark are source attribution and are intentionally excluded."
+    }
+  ],
+  "crops": [
+    {
+      "key": "chewy-company-wordmark",
+      "output": "crops/company-wordmark-q1-fy26.png",
+      "runtimeOutput": "company-wordmark-q1-fy26.png",
+      "searchBox": { "x": 548, "y": 248, "width": 700, "height": 225 },
+      "cropBox": { "x": 548, "y": 248, "width": 700, "height": 225 },
+      "threshold": 15,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 1, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Chewy wordmark only; excludes the title, revenue labels and Sankey flow pixels."
+    },
+    {
+      "key": "chewy-pet-parent-screen",
+      "output": "crops/pet-parent-screen-q1-fy26.png",
+      "runtimeOutput": "pet-parent-screen-q1-fy26.png",
+      "searchBox": { "x": 1560, "y": 1000, "width": 530, "height": 320 },
+      "cropBox": { "x": 1560, "y": 1000, "width": 530, "height": 320 },
+      "threshold": 15,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 1, "maxCenterOffset": 0.16, "maxForbiddenForegroundPixels": 0 },
+      "note": "Dog and Chewy.com monitor illustration only; excludes the period stamp, cost labels and source attribution."
+    }
+  ]
+}

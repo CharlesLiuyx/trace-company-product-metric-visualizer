@@ -1,0 +1,45 @@
+{
+  "source": "input/processed/amc-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/amc",
+  "runtimeOutputDir": "data/assets/raster-annotations/amc",
+  "validationSheetDir": "data/assets/icon-references/amc/validation-sheets",
+  "report": "crop-report.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "crops": [
+    {
+      "key": "amc-admissions-tickets",
+      "output": "crops/admissions-tickets.png",
+      "searchBox": { "x": 230, "y": 415, "width": 195, "height": 150 },
+      "threshold": 14,
+      "minComponentArea": 40,
+      "padding": 8,
+      "validation": { "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Admissions segment icon: the angled AMC ticket pair above the Admissions label. The box includes both ticket corners and excludes the revenue value block above and the label below."
+    },
+    {
+      "key": "amc-food-beverage",
+      "output": "crops/food-beverage.png",
+      "searchBox": { "x": 255, "y": 645, "width": 150, "height": 165 },
+      "threshold": 14,
+      "minComponentArea": 40,
+      "padding": 8,
+      "validation": { "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Food & Beverage segment icon: the Coca-Cola cup, popcorn tub, and popcorn cluster above the source label. The box excludes the revenue value and the two-line label."
+    },
+    {
+      "key": "amc-other-theatre-seat",
+      "output": "crops/other-theatre-seat.png",
+      "searchBox": { "x": 260, "y": 925, "width": 140, "height": 120 },
+      "threshold": 14,
+      "minComponentArea": 40,
+      "padding": 8,
+      "validation": { "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Other theatre segment icon: the red recliner above the Other theatre label. The box excludes the source value and the label/description block."
+    }
+  ]
+}

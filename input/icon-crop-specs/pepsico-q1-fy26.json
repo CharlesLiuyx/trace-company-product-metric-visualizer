@@ -1,0 +1,116 @@
+{
+  "source": "input/processed/pepsico-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/pepsico",
+  "runtimeOutputDir": "data/assets/raster-annotations/pepsico",
+  "validationSheetDir": "data/assets/icon-references/pepsico/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [242, 242, 242]
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Bottom-left 'HOW THEY MAKE MONEY' publisher badge and mini sankey mark, not part of PepsiCo's income-statement semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "appeconomyinsights.com URL watermark and the bottom-right APP ECONOMY INSIGHTS footer logo are intentionally excluded."
+    }
+  ],
+  "crops": [
+    {
+      "key": "pepsico-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": { "x": 1003, "y": 270, "width": 469, "height": 70 },
+      "cropBox": { "x": 1000, "y": 267, "width": 475, "height": 76 },
+      "threshold": 18,
+      "minComponentArea": 25,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "PEPSICO navy wordmark above the revenue hub; excludes the title, revenue label, and the multicolor globe below it."
+    },
+    {
+      "key": "pepsico-foods-lays-quaker",
+      "output": "crops/foods-lays-quaker.png",
+      "searchBox": { "x": 30, "y": 429, "width": 238, "height": 111 },
+      "cropBox": { "x": 27, "y": 426, "width": 244, "height": 117 },
+      "threshold": 18,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Lay's and Quaker brand marks for the Foods revenue line; excludes the 'Foods' label text to the right."
+    },
+    {
+      "key": "pepsico-beverages-pepsi",
+      "output": "crops/beverages-pepsi.png",
+      "searchBox": { "x": 54, "y": 706, "width": 130, "height": 131 },
+      "cropBox": { "x": 51, "y": 703, "width": 136, "height": 137 },
+      "threshold": 18,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Round Pepsi globe logo for the PepsiCo Beverages revenue line; excludes the 'PepsiCo Beverages' label text."
+    },
+    {
+      "key": "pepsico-ib-sodastream",
+      "output": "crops/ib-sodastream.png",
+      "searchBox": { "x": 489, "y": 862, "width": 100, "height": 162 },
+      "cropBox": { "x": 486, "y": 859, "width": 106, "height": 168 },
+      "threshold": 16,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "SodaStream Pepsi bottle for the IB franchise revenue line; excludes the 'IB franchise' label text to the right."
+    },
+    {
+      "key": "pepsico-revenue-globe",
+      "output": "crops/revenue-globe.png",
+      "searchBox": { "x": 1179, "y": 359, "width": 110, "height": 111 },
+      "cropBox": { "x": 1176, "y": 356, "width": 116, "height": 117 },
+      "threshold": 18,
+      "minComponentArea": 25,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Multicolor wireframe globe above the Revenue hub; excludes the PEPSICO wordmark above and the Revenue label below."
+    },
+    {
+      "key": "pepsico-globe-north-america",
+      "output": "crops/globe-north-america.png",
+      "searchBox": { "x": 809, "y": 305, "width": 92, "height": 92 },
+      "cropBox": { "x": 806, "y": 302, "width": 98, "height": 98 },
+      "threshold": 15,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "North America globe above the North America node."
+    },
+    {
+      "key": "pepsico-globe-latam",
+      "output": "crops/globe-latam.png",
+      "searchBox": { "x": 559, "y": 1033, "width": 86, "height": 86 },
+      "cropBox": { "x": 556, "y": 1030, "width": 92, "height": 92 },
+      "threshold": 15,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Latin America globe to the left of the LATAM label."
+    },
+    {
+      "key": "pepsico-globe-emea",
+      "output": "crops/globe-emea.png",
+      "searchBox": { "x": 484, "y": 1177, "width": 185, "height": 93 },
+      "cropBox": { "x": 481, "y": 1174, "width": 191, "height": 99 },
+      "threshold": 15,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Two EMEA globes (Europe and Africa/Middle East) to the left of the EMEA label."
+    },
+    {
+      "key": "pepsico-globe-apac",
+      "output": "crops/globe-apac.png",
+      "searchBox": { "x": 575, "y": 1321, "width": 85, "height": 85 },
+      "cropBox": { "x": 572, "y": 1318, "width": 91, "height": 91 },
+      "threshold": 15,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Asia Pacific globe to the left of the APAC label."
+    }
+  ]
+}

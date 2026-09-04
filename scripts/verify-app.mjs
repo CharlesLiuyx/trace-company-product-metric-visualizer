@@ -14,7 +14,7 @@ import {
   selectAllIncomeStatementPeriods,
 } from './lib/comparison-scale-browser.mjs';
 
-const APP_MODULE_COUNT = 20;
+const APP_MODULE_COUNT = 21;
 
 const { url, close } = await startStaticServer({ port: 0 });
 const browser = await chromium.launch();
@@ -90,6 +90,31 @@ async function waitForComparisonPhase(page, phase, predicate, argument, options 
     throw new Error(`${phase}: ${error.message}; comparison state ${JSON.stringify(diagnostic)}`);
   }
 }
+
+await scenario('metric library: exact values, source, search and export', async (page) => {
+  const sample = [{ key: 'test-only', subject: { name: '<示例产品>', type: 'product' }, period: '2026-08', basis: '月末活跃账户',
+    source: { locator: 'input/processed/test-only.txt', digest: 'sha256:' + 'a'.repeat(64) },
+    metrics: [{ name: '活跃账户', value: '12345678901234567890.125', unit: '个', currency: null, quote: '活跃账户：12345678901234567890.125 个', anchor: { type: 'text-range', range: [0, 32] } }] }];
+  await page.route('**/data/metric-observations.js', (route) => route.fulfill({ contentType: 'text/javascript', body: `window.METRIC_OBSERVATIONS=${JSON.stringify(sample)};` }));
+  await boot(page);
+  await page.locator('#metricLibraryOpen').click();
+  assert(await page.locator('#metricLibrary').isVisible(), 'metric library did not open');
+  assert((await page.locator('#metricLibraryRows').textContent()).includes('12345678901234567890.125'), 'exact decimal lost');
+  assert((await page.locator('#metricLibraryRows td').first().textContent()) === '<示例产品>', 'subject is not literal text');
+  await page.locator('#metricLibraryRows summary').click();
+  assert((await page.locator('#metricLibraryRows details').textContent()).includes(sample[0].source.digest), 'source digest missing');
+  await page.locator('#metricLibrarySearch').fill('不存在');
+  assert((await page.locator('#metricLibraryCount').textContent()).startsWith('0 '), 'search did not filter');
+  await page.locator('#metricLibrarySearch').fill('活跃账户');
+  assert((await page.locator('#metricLibraryCount').textContent()).startsWith('1 '), 'search did not restore');
+  const download = page.waitForEvent('download');
+  await page.locator('#metricLibraryExport').click();
+  const stream = await (await download).createReadStream();
+  const chunks = []; for await (const chunk of stream) chunks.push(chunk);
+  assert(JSON.parse(Buffer.concat(chunks).toString())[0].metrics[0].value === sample[0].metrics[0].value, 'export rounded the value');
+  await page.locator('#metricLibraryClose').click();
+  assert(!(await page.locator('#metricLibrary').isVisible()), 'metric library did not close');
+});
 
 await scenario('boot: default sankey', async (page) => {
   await boot(page);

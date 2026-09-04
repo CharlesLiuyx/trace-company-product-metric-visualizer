@@ -1,0 +1,20 @@
+{
+  "source": "input/processed/mondelez-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/mondelez",
+  "runtimeOutputDir": "data/assets/raster-annotations/mondelez",
+  "validationSheetDir": "data/assets/icon-references/mondelez/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": { "enabled": true, "mode": "edge-connected", "tolerance": 12 },
+  "crops": [
+    { "key": "mondelez-company-wordmark", "output": "crops/company-wordmark.png", "searchBox": { "x": 630, "y": 260, "width": 650, "height": 190 }, "cropBox": { "x": 610, "y": 245, "width": 690, "height": 220 }, "threshold": 18, "minComponentArea": 36, "validation": { "maxCenterOffset": 0.2 }, "note": "Mondelēz International company wordmark above the revenue hub; excludes the title and chart labels." },
+    { "key": "oreo", "output": "crops/oreo.png", "searchBox": { "x": 0, "y": 390, "width": 174, "height": 86 }, "cropBox": { "x": 0, "y": 392, "width": 174, "height": 80 }, "threshold": 18, "minComponentArea": 24, "note": "Oreo brand wordmark for Biscuits & Baked Snacks." },
+    { "key": "clif-bar", "output": "crops/clif-bar.png", "searchBox": { "x": 0, "y": 468, "width": 174, "height": 76 }, "cropBox": { "x": 0, "y": 469, "width": 174, "height": 70 }, "threshold": 18, "minComponentArea": 24, "validation": { "maxCenterOffset": 0.2 }, "note": "CLIF BAR brand wordmark for Biscuits & Baked Snacks." },
+    { "key": "chips-ahoy", "output": "crops/chips-ahoy.png", "searchBox": { "x": 0, "y": 540, "width": 156, "height": 136 }, "cropBox": { "x": 0, "y": 540, "width": 156, "height": 134 }, "threshold": 18, "minComponentArea": 24, "validation": { "maxCenterOffset": 0.2 }, "note": "Chips Ahoy! brand wordmark for Biscuits & Baked Snacks." },
+    { "key": "milka", "output": "crops/milka.png", "searchBox": { "x": 0, "y": 704, "width": 174, "height": 84 }, "cropBox": { "x": 0, "y": 706, "width": 174, "height": 86 }, "threshold": 18, "minComponentArea": 24, "validation": { "maxCenterOffset": 0.2 }, "note": "Milka brand wordmark for Chocolate." },
+    { "key": "cadbury", "output": "crops/cadbury.png", "searchBox": { "x": 0, "y": 786, "width": 174, "height": 76 }, "cropBox": { "x": 0, "y": 786, "width": 174, "height": 88 }, "threshold": 18, "minComponentArea": 24, "validation": { "maxCenterOffset": 0.2 }, "note": "Cadbury brand wordmark for Chocolate." },
+    { "key": "toblerone", "output": "crops/toblerone.png", "searchBox": { "x": 0, "y": 872, "width": 174, "height": 64 }, "cropBox": { "x": 0, "y": 870, "width": 174, "height": 84 }, "threshold": 18, "minComponentArea": 24, "validation": { "maxCenterOffset": 0.2 }, "note": "Toblerone brand wordmark for Chocolate." },
+    { "key": "sour-patch-kids", "output": "crops/sour-patch-kids.png", "searchBox": { "x": 0, "y": 936, "width": 160, "height": 120 }, "cropBox": { "x": 0, "y": 932, "width": 160, "height": 156 }, "threshold": 18, "minComponentArea": 24, "validation": { "maxCenterOffset": 0.2 }, "note": "Sour Patch Kids brand wordmark for Gum & Candy." },
+    { "key": "ritz", "output": "crops/ritz.png", "searchBox": { "x": 0, "y": 1130, "width": 150, "height": 116 }, "cropBox": { "x": 0, "y": 1118, "width": 160, "height": 150 }, "threshold": 18, "minComponentArea": 24, "validation": { "maxCenterOffset": 0.2 }, "note": "Ritz brand wordmark for Cheese & Grocery." }
+  ]
+}

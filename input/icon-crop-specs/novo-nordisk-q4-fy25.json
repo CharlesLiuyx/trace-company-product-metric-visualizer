@@ -1,0 +1,46 @@
+{
+  "source": "input/processed/novo-nordisk-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/novo-nordisk",
+  "runtimeOutputDir": "data/assets/raster-annotations/novo-nordisk",
+  "validationSheetDir": "data/assets/icon-references/novo-nordisk/validation-sheets",
+  "backgroundRemoval": { "enabled": true, "mode": "edge-connected", "tolerance": 8 },
+  "crops": [
+    {
+      "key": "novo-nordisk-diabetes-care-products",
+      "searchBox": { "x": 12, "y": 470, "width": 270, "height": 50 },
+      "padding": 5,
+      "output": "crops/diabetes-care-products.png"
+    },
+    {
+      "key": "novo-nordisk-victoza",
+      "searchBox": { "x": 48, "y": 530, "width": 180, "height": 58 },
+      "padding": 5,
+      "output": "crops/victoza.png"
+    },
+    {
+      "key": "novo-nordisk-insulin-products",
+      "searchBox": { "x": 52, "y": 733, "width": 200, "height": 93 },
+      "padding": 15,
+      "output": "crops/insulin-products.png"
+    },
+    {
+      "key": "novo-nordisk-wegovy",
+      "searchBox": { "x": 298, "y": 1032, "width": 214, "height": 48 },
+      "padding": 5,
+      "validation": { "borderBand": 0 },
+      "output": "crops/obesity-care-products.png"
+    },
+    {
+      "key": "novo-nordisk-saxenda",
+      "searchBox": { "x": 298, "y": 1082, "width": 214, "height": 47 },
+      "padding": 5,
+      "validation": { "borderBand": 0 },
+      "output": "crops/saxenda.png"
+    },
+    {
+      "key": "novo-nordisk-rare-disease-products",
+      "searchBox": { "x": 308, "y": 1223, "width": 212, "height": 66 },
+      "output": "crops/rare-disease-products.png"
+    }
+  ]
+}

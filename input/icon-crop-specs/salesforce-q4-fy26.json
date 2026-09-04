@@ -1,0 +1,210 @@
+{
+  "source": "input/processed/salesforce-q4-fy26.png",
+  "outputDir": "data/assets/icon-references/salesforce",
+  "validationSheetDir": "data/assets/icon-references/salesforce/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "salesforce-company-cloud-logo",
+      "output": "crops/company-cloud-logo.png",
+      "searchBox": {
+        "x": 1034,
+        "y": 222,
+        "width": 356,
+        "height": 258
+      },
+      "cropBox": {
+        "x": 1028,
+        "y": 218,
+        "width": 368,
+        "height": 266
+      },
+      "threshold": 18,
+      "minComponentArea": 80,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.06,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Salesforce cloud company logo only; excludes chart title, revenue labels, flows, website mark, and publisher attribution."
+    },
+    {
+      "key": "salesforce-business-sales-icon",
+      "output": "crops/business-sales-icon.png",
+      "searchBox": {
+        "x": 220,
+        "y": 360,
+        "width": 112,
+        "height": 116
+      },
+      "cropBox": {
+        "x": 214,
+        "y": 354,
+        "width": 126,
+        "height": 128
+      },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.06,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Sales business icon only; excludes the Sales label, value, flow bar, and connector."
+    },
+    {
+      "key": "salesforce-business-service-icon",
+      "output": "crops/business-service-icon.png",
+      "searchBox": {
+        "x": 196,
+        "y": 584,
+        "width": 102,
+        "height": 92
+      },
+      "cropBox": {
+        "x": 190,
+        "y": 574,
+        "width": 118,
+        "height": 112
+      },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.08,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Service heart icon only; excludes the Service label, value, flow bar, and connector."
+    },
+    {
+      "key": "salesforce-business-platform-slack-icon",
+      "output": "crops/business-platform-slack-icon.png",
+      "searchBox": {
+        "x": 60,
+        "y": 760,
+        "width": 124,
+        "height": 138
+      },
+      "cropBox": {
+        "x": 54,
+        "y": 754,
+        "width": 136,
+        "height": 150
+      },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.06,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Slack-style platform icon cluster only; excludes the Platform / Slack & Other label, values, and connector."
+    },
+    {
+      "key": "salesforce-business-marketing-commerce-icon",
+      "output": "crops/business-marketing-commerce-icon.png",
+      "searchBox": {
+        "x": 94,
+        "y": 984,
+        "width": 120,
+        "height": 130
+      },
+      "cropBox": {
+        "x": 84,
+        "y": 974,
+        "width": 136,
+        "height": 152
+      },
+      "excludeBoxes": [
+        {
+          "relativeTo": "crop",
+          "x": 126,
+          "y": 0,
+          "width": 10,
+          "height": 86
+        }
+      ],
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.08,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Marketing & Commerce magnifier icon only; excludes the business label, value, flow bar, and connector."
+    },
+    {
+      "key": "salesforce-business-integration-mulesoft-icon",
+      "output": "crops/business-integration-mulesoft-icon.png",
+      "searchBox": {
+        "x": 96,
+        "y": 1152,
+        "width": 122,
+        "height": 116
+      },
+      "cropBox": {
+        "x": 90,
+        "y": 1146,
+        "width": 134,
+        "height": 130
+      },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.08,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Integration & Analytics MuleSoft-style circular icon only; excludes text labels, values, publisher marks, and connector."
+    },
+    {
+      "key": "salesforce-business-integration-tableau-icon",
+      "output": "crops/business-integration-tableau-icon.png",
+      "searchBox": {
+        "x": 104,
+        "y": 1268,
+        "width": 124,
+        "height": 112
+      },
+      "cropBox": {
+        "x": 124,
+        "y": 1274,
+        "width": 118,
+        "height": 110
+      },
+      "excludeBoxes": [
+        {
+          "relativeTo": "crop",
+          "x": 104,
+          "y": 0,
+          "width": 14,
+          "height": 110
+        }
+      ],
+      "threshold": 18,
+      "minComponentArea": 12,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Integration & Analytics Tableau mark only; excludes MuleSoft, text labels, values, publisher marks, and connector."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding is not part of Salesforce income-statement semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "Source publisher branding, website URL, and social badge are intentionally excluded."
+    }
+  ]
+}

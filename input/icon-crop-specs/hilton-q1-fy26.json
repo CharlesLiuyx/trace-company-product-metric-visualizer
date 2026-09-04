@@ -1,0 +1,66 @@
+{
+  "source": "input/processed/hilton-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/hilton",
+  "validationSheetDir": "data/assets/icon-references/hilton/validation-sheets",
+  "report": "crop-report.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10,
+    "color": [242, 242, 242]
+  },
+  "crops": [
+    {
+      "key": "hilton-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": {
+        "x": 830,
+        "y": 225,
+        "width": 480,
+        "height": 335
+      },
+      "cropBox": {
+        "x": 815,
+        "y": 215,
+        "width": 520,
+        "height": 365
+      },
+      "threshold": 18,
+      "foreground": {
+        "channels": {
+          "r": [0, 80],
+          "g": [30, 95],
+          "b": [120, 190]
+        }
+      },
+      "minComponentArea": 60,
+      "padding": 20,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.08,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Hilton company logo and wordmark near the center of the source chart; excludes revenue labels, connectors, KPI cards, and publisher footer branding."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding and not part of Hilton's income-statement semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "Source publisher branding, website URL, social badge, and footer logo are intentionally excluded."
+    },
+    {
+      "key": "hilton-business-clusters",
+      "reason": "The source chart does not contain independent company-internal business or segment icon clusters for the revenue or expense lines."
+    }
+  ]
+}

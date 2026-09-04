@@ -1,0 +1,70 @@
+{
+  "source": "input/processed/rbi-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/rbi",
+  "runtimeOutputDir": "data/assets/raster-annotations/rbi",
+  "validationSheetDir": "data/assets/icon-references/rbi/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "rbi-company-logo",
+      "output": "crops/rbi-logo.png",
+      "runtimeOutput": "rbi-logo.png",
+      "searchBox": { "x": 712, "y": 232, "width": 218, "height": 274 },
+      "cropBox": { "x": 704, "y": 226, "width": 234, "height": 288 },
+      "threshold": 20,
+      "minComponentArea": 120,
+      "validation": { "borderBand": 3, "maxCenterOffset": 0.2 },
+      "note": "Red 'rbi restaurant brands international' company lockup above the first revenue hub; excludes the blue title and revenue bar/label."
+    },
+    {
+      "key": "rbi-tim-hortons-logo",
+      "output": "crops/tim-hortons-logo.png",
+      "runtimeOutput": "tim-hortons-logo.png",
+      "searchBox": { "x": 135, "y": 399, "width": 194, "height": 113 },
+      "cropBox": { "x": 123, "y": 387, "width": 218, "height": 137 },
+      "threshold": 20,
+      "minComponentArea": 70,
+      "validation": { "borderBand": 3, "maxCenterOffset": 0.14 },
+      "note": "Tim Hortons red script wordmark left of the Tim Hortons segment bar."
+    },
+    {
+      "key": "rbi-burger-king-logo",
+      "output": "crops/burger-king-logo.png",
+      "runtimeOutput": "burger-king-logo.png",
+      "searchBox": { "x": 148, "y": 545, "width": 174, "height": 185 },
+      "cropBox": { "x": 134, "y": 531, "width": 202, "height": 213 },
+      "threshold": 20,
+      "minComponentArea": 70,
+      "validation": { "borderBand": 3, "maxCenterOffset": 0.14 },
+      "note": "Burger King logo (bun lockup on cream badge) left of the Burger King segment bar."
+    },
+    {
+      "key": "rbi-popeyes-logo",
+      "output": "crops/popeyes-logo.png",
+      "runtimeOutput": "popeyes-logo.png",
+      "searchBox": { "x": 134, "y": 756, "width": 201, "height": 162 },
+      "cropBox": { "x": 122, "y": 744, "width": 225, "height": 186 },
+      "threshold": 20,
+      "minComponentArea": 70,
+      "validation": { "borderBand": 3, "maxCenterOffset": 0.14 },
+      "note": "Popeyes Louisiana Kitchen circular emblem and wordmark left of the Popeyes segment bar."
+    },
+    {
+      "key": "rbi-firehouse-subs-logo",
+      "output": "crops/firehouse-subs-logo.png",
+      "runtimeOutput": "firehouse-subs-logo.png",
+      "searchBox": { "x": 91, "y": 962, "width": 276, "height": 94 },
+      "cropBox": { "x": 79, "y": 950, "width": 300, "height": 118 },
+      "threshold": 20,
+      "minComponentArea": 70,
+      "validation": { "borderBand": 3, "maxCenterOffset": 0.14 },
+      "note": "Firehouse Subs red badge wordmark left of the Firehouse Subs segment bar."
+    }
+  ]
+}

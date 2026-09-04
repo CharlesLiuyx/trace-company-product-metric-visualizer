@@ -1,0 +1,59 @@
+{
+  "source": "input/processed/rivian-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/rivian",
+  "runtimeOutputDir": "data/assets/raster-annotations/rivian",
+  "validationSheetDir": "data/assets/icon-references/rivian/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [242, 242, 242]
+  },
+  "crops": [
+    {
+      "key": "rivian-automotive-vehicles",
+      "output": "crops/automotive-vehicles.png",
+      "runtimeOutput": "automotive-vehicles.png",
+      "searchBox": {
+        "x": 55,
+        "y": 625,
+        "width": 310,
+        "height": 178
+      },
+      "cropBox": {
+        "x": 50,
+        "y": 620,
+        "width": 320,
+        "height": 188
+      },
+      "threshold": 10,
+      "minComponentArea": 18,
+      "validation": {
+        "borderBand": 4,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "R1T, R1S, and commercial-van cluster for Automotive revenue; excludes labels, values, Sankey ribbons, and publisher marks."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "rivian-company-logo",
+      "reason": "The Rivian compass symbol and wordmark are re-authored as dataset-owned SVG, so no runtime raster is needed."
+    },
+    {
+      "key": "software-and-services",
+      "reason": "The Source has no independent icon cluster for Software & Services."
+    },
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding and not part of Rivian's income-statement semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "Source publisher branding, website URL, social badge, and footer lockup are intentionally excluded."
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "source": "input/processed/southwest-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/southwest",
+  "validationSheetDir": "data/assets/icon-references/southwest/validation-sheets",
+  "runtimeOutputDir": "data/assets/raster-annotations/southwest",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "southwest-company-lockup",
+      "output": "crops/company-lockup.png",
+      "searchBox": { "x": 600, "y": 295, "width": 800, "height": 130 },
+      "cropBox": { "x": 600, "y": 295, "width": 800, "height": 130 },
+      "threshold": 18,
+      "minComponentArea": 50,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Southwest corporate wordmark, heart logo, and registered mark above the Revenue hub; excludes the title and financial labels."
+    }
+  ]
+}

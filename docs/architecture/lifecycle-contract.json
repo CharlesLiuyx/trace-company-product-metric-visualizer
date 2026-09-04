@@ -14,7 +14,14 @@
     "datasetVerification": "dataset-verification/v1",
     "interfaceMatrix": "interface-matrix/v1",
     "fidelityResult": "fidelity-result/v2",
-    "publication": "dataset-publication/v1"
+    "publication": "dataset-publication/v2",
+    "sourceFacts": "source-facts/v1",
+    "textSourceClassification": "source-classification/v2",
+    "metricSourceCoverage": "source-coverage/v3",
+    "metricObservations": "metric-observations/v1",
+    "artifactManifest": "artifact-manifest/v1",
+    "checkpoint": "fidelity-checkpoints/v1",
+    "releaseAttempt": "release-attempt/v1"
   },
   "operationClasses": {
     "verify": "canonical-read-only",
@@ -32,47 +39,97 @@
         "SEALED"
       ],
       "transitions": [
-        ["INTAKED", "AUTHORED"],
-        ["CLOSED", "AUTHORED"],
-        ["BASELINE_STAGED", "AUTHORED"],
-        ["SEALED", "AUTHORED"],
-        ["AUTHORED", "CLOSED"],
-        ["CLOSED", "BASELINE_STAGED"],
-        ["BASELINE_STAGED", "SEALED"]
+        [
+          "INTAKED",
+          "AUTHORED"
+        ],
+        [
+          "CLOSED",
+          "AUTHORED"
+        ],
+        [
+          "BASELINE_STAGED",
+          "AUTHORED"
+        ],
+        [
+          "SEALED",
+          "AUTHORED"
+        ],
+        [
+          "AUTHORED",
+          "CLOSED"
+        ],
+        [
+          "CLOSED",
+          "BASELINE_STAGED"
+        ],
+        [
+          "BASELINE_STAGED",
+          "SEALED"
+        ]
       ]
     },
     "PublicationBatch": {
-      "states": ["PLANNED", "PUBLISHED", "CONFLICTED"],
+      "states": [
+        "PLANNED",
+        "PUBLISHED",
+        "CONFLICTED"
+      ],
       "transitions": [
-        ["PLANNED", "PUBLISHED"],
-        ["PLANNED", "CONFLICTED"]
+        [
+          "PLANNED",
+          "PUBLISHED"
+        ],
+        [
+          "PLANNED",
+          "CONFLICTED"
+        ]
       ],
       "conflictRecovery": "new-plan-reverify-reseal"
     },
     "ReleaseAttempt": {
-      "states": ["PENDING", "RELEASED", "RELEASE_FAILED"],
+      "states": [
+        "PENDING",
+        "RELEASED",
+        "RELEASE_FAILED"
+      ],
       "transitions": [
-        ["PENDING", "RELEASED"],
-        ["PENDING", "RELEASE_FAILED"]
+        [
+          "PENDING",
+          "RELEASED"
+        ],
+        [
+          "PENDING",
+          "RELEASE_FAILED"
+        ]
       ],
       "retryCreatesNewAttempt": true
     }
   },
-  "adapters": ["income-statement", "revenue-metric"],
+  "adapters": [
+    "income-statement",
+    "revenue-metric",
+    "metric-observation"
+  ],
   "sourceClassification": {
     "reviewMethod": "full-source-type-gate",
     "signals": [
       "income-statement-values",
       "sankey-flow-topology",
       "revenue-metric-definition",
-      "time-series-observations"
+      "time-series-observations",
+      "metric-observations"
     ],
     "requiredBeforeFreshRecordIntake": true,
     "bindsWholeNativeSource": true,
     "derivedAdapterMustMatchRequestedAdapter": true
   },
   "sourceCoverage": {
-    "scanPasses": ["geometry", "residual", "semantic-value"],
+    "scanPasses": [
+      "geometry",
+      "residual",
+      "semantic-value"
+    ],
     "objectClasses": [
       "financial-value",
       "metric-observation",
@@ -88,7 +145,12 @@
       "social-badge",
       "decorative-residue"
     ],
-    "amountUnits": ["K", "M", "B", "T"],
+    "amountUnits": [
+      "K",
+      "M",
+      "B",
+      "T"
+    ],
     "incomeStatementSsotPaths": [
       "revenue.total",
       "revenue.items",
@@ -118,7 +180,10 @@
     "precisionRecoveryMethod": "authoritative-supplemental-source",
     "authoritativeCorrectionMethod": "authoritative-source-correction",
     "authoritativeCorrectionApproval": "user-directed-source-correction",
-    "authoritativeCorrectionIssues": ["unit-typo", "numeric-typo"],
+    "authoritativeCorrectionIssues": [
+      "unit-typo",
+      "numeric-typo"
+    ],
     "amountWithinLiteralResolution": true,
     "inventoryOwnership": "exactly-once",
     "otherLabelsMayBeNonSemanticResidual": false,
@@ -131,8 +196,13 @@
     "invisibleSemanticNodesSupported": false,
     "incomeStatementNonNodeMetricsRequireZeroPaintEvidence": true,
     "prepareReviewPixelChecksZeroPaintNodeSlots": true,
-    "incomeStatementReconciliationTargets": ["metric-ssot", "sankey-view-adapter"],
-    "revenueMetricReconciliationTargets": ["metric-ssot"]
+    "incomeStatementReconciliationTargets": [
+      "metric-ssot",
+      "sankey-view-adapter"
+    ],
+    "revenueMetricReconciliationTargets": [
+      "metric-ssot"
+    ]
   },
   "nodeFacePolicy": {
     "derivedFrom": "source-coverage/v2",
@@ -144,11 +214,19 @@
   "sankeyAdapter": {
     "semanticNodesRequirePaintedFaces": true,
     "explicitTransparentSemanticNodesAllowed": false,
-    "nonNodeMetricRepresentations": ["annotation", "data-only", "flow"],
+    "nonNodeMetricRepresentations": [
+      "annotation",
+      "data-only",
+      "flow"
+    ],
     "routeGeometryOwnership": "link-owned",
     "routesProduceNodePaintAuditRows": false
   },
-  "sourceAvailability": ["public", "local-only", "restricted"],
+  "sourceAvailability": [
+    "public",
+    "local-only",
+    "restricted"
+  ],
   "sourceLocations": {
     "pending": "unclaimed",
     "processing": "build-local-working-locator",
@@ -201,5 +279,18 @@
     "humanAttestationRequiredForIncomeStatement": true,
     "verifyCommandsWriteDurableEvidence": false,
     "sourceRelocationChangesIdentity": false
+  },
+  "workflow": {
+    "owner": "docs/asset-workflow.md",
+    "sourceFormats": [
+      "png",
+      "txt",
+      "md"
+    ],
+    "newBuildsIsolated": true,
+    "draftsUseExistingBuildLedger": true,
+    "canonicalVisibility": "immutable-tree-with-atomic-pointer",
+    "readerPinsPublishedDigest": true,
+    "legacyBuildsAreNotAutoUpgraded": true
   }
 }

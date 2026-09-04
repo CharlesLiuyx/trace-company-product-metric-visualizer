@@ -1,0 +1,50 @@
+{
+  "source": "input/processed/qualcomm-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/qualcomm/",
+  "validationSheetDir": "data/assets/icon-references/qualcomm/validation-sheets/",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "crops": [
+    {
+      "key": "qualcomm-company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "searchBox": { "x": 858, "y": 262, "width": 540, "height": 126 },
+      "cropBox": { "x": 858, "y": 262, "width": 540, "height": 126 },
+      "threshold": 24,
+      "minComponentArea": 35
+    },
+    {
+      "key": "qualcomm-business-handsets-phone",
+      "output": "crops/business-handsets-phone.png",
+      "searchBox": { "x": 158, "y": 520, "width": 76, "height": 116 },
+      "cropBox": { "x": 154, "y": 512, "width": 88, "height": 128 },
+      "threshold": 24,
+      "minComponentArea": 35
+    },
+    {
+      "key": "qualcomm-business-automotive-car",
+      "output": "crops/business-automotive-car.png",
+      "searchBox": { "x": 144, "y": 758, "width": 120, "height": 91 },
+      "cropBox": { "x": 138, "y": 752, "width": 124, "height": 102 },
+      "threshold": 24,
+      "minComponentArea": 35
+    },
+    {
+      "key": "qualcomm-business-iot-cluster",
+      "output": "crops/business-iot-cluster.png",
+      "searchBox": { "x": 150, "y": 920, "width": 100, "height": 100 },
+      "cropBox": { "x": 143, "y": 914, "width": 114, "height": 112 },
+      "threshold": 24,
+      "minComponentArea": 35,
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 16
+      }
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "source": "input/processed/delta-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/delta",
+  "validationSheetDir": "data/assets/icon-references/delta/validation-sheets",
+  "runtimeOutputDir": "data/assets/raster-annotations/delta",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "delta-company-lockup",
+      "output": "crops/company-lockup.png",
+      "searchBox": { "x": 470, "y": 270, "width": 850, "height": 145 },
+      "cropBox": { "x": 470, "y": 270, "width": 850, "height": 145 },
+      "threshold": 18,
+      "minComponentArea": 50,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Delta red-widget and blue wordmark lockup above the revenue hub; excludes the title and financial labels."
+    }
+  ]
+}

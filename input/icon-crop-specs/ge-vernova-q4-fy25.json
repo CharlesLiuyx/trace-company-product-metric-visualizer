@@ -1,0 +1,73 @@
+{
+  "source": "input/processed/ge-vernova-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/ge-vernova",
+  "runtimeOutputDir": "data/assets/raster-annotations/ge-vernova",
+  "validationSheetDir": "data/assets/icon-references/ge-vernova/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "The lower-left HOW THEY MAKE MONEY mark and miniature Sankey are publisher attribution, not GE Vernova chart content."
+    },
+    {
+      "key": "publisher-website",
+      "reason": "appeconomyinsights.com is publisher attribution, not a company or business asset."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "The lower-right APP ECONOMY INSIGHTS lockup and social badge are publisher attribution, not chart content."
+    }
+  ],
+  "crops": [
+    {
+      "key": "ge-vernova-company-logo",
+      "output": "crops/company-logo.png",
+      "runtimeOutput": "company-logo.png",
+      "searchBox": { "x": 544, "y": 274, "width": 820, "height": 190 },
+      "cropBox": { "x": 544, "y": 274, "width": 820, "height": 190 },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 4, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "The complete GE Vernova circular monogram and wordmark above Revenue, excluding the page title and financial labels."
+    },
+    {
+      "key": "ge-vernova-power-icon",
+      "output": "crops/power-icon.png",
+      "runtimeOutput": "power-icon.png",
+      "searchBox": { "x": 128, "y": 430, "width": 140, "height": 138 },
+      "cropBox": { "x": 122, "y": 426, "width": 152, "height": 144 },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 4, "maxCenterOffset": 0.16, "maxForbiddenForegroundPixels": 0 },
+      "note": "The teal circular power icon and its lime lightning symbol, excluding the Power label and revenue bar."
+    },
+    {
+      "key": "ge-vernova-wind-icon",
+      "output": "crops/wind-icon.png",
+      "runtimeOutput": "wind-icon.png",
+      "searchBox": { "x": 128, "y": 720, "width": 140, "height": 140 },
+      "cropBox": { "x": 122, "y": 720, "width": 152, "height": 144 },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 4, "maxCenterOffset": 0.16, "maxForbiddenForegroundPixels": 0 },
+      "note": "The teal circular wind-turbine icon and its lime line art, excluding the Wind label and revenue bar."
+    },
+    {
+      "key": "ge-vernova-electrification-icon",
+      "output": "crops/electrification-icon.png",
+      "runtimeOutput": "electrification-icon.png",
+      "searchBox": { "x": 128, "y": 1010, "width": 140, "height": 140 },
+      "cropBox": { "x": 122, "y": 1020, "width": 152, "height": 138 },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 4, "maxCenterOffset": 0.16, "maxForbiddenForegroundPixels": 0 },
+      "note": "The teal circular electrification-transmission icon and its lime line art, excluding the Electrification label and revenue bar."
+    }
+  ]
+}

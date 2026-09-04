@@ -1,0 +1,50 @@
+{
+  "source": "input/processed/apple-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/apple/",
+  "validationSheetDir": "data/assets/icon-references/apple/validation-sheets/",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "crops": [
+    {
+      "key": "apple-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": { "x": 1048, "y": 238, "width": 246, "height": 276 },
+      "cropBox": { "x": 1038, "y": 232, "width": 258, "height": 286 },
+      "threshold": 24,
+      "minComponentArea": 500
+    },
+    {
+      "key": "apple-business-iphone-wordmark",
+      "output": "crops/business-iphone-wordmark.png",
+      "searchBox": { "x": 90, "y": 493, "width": 270, "height": 64 },
+      "cropBox": { "x": 86, "y": 486, "width": 278, "height": 78 },
+      "threshold": 24,
+      "minComponentArea": 35
+    },
+    {
+      "key": "apple-business-wearables-wordmark",
+      "output": "crops/business-wearables-wordmark.png",
+      "searchBox": { "x": 92, "y": 1028, "width": 270, "height": 118 },
+      "cropBox": { "x": 74, "y": 1017, "width": 286, "height": 134 },
+      "threshold": 24,
+      "minComponentArea": 35
+    },
+    {
+      "key": "apple-business-services-app-cluster",
+      "output": "crops/business-services-app-cluster.png",
+      "searchBox": { "x": 76, "y": 1222, "width": 668, "height": 100 },
+      "cropBox": { "x": 74, "y": 1218, "width": 672, "height": 108 },
+      "threshold": 8,
+      "minComponentArea": 35,
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8
+      }
+    }
+  ]
+}
