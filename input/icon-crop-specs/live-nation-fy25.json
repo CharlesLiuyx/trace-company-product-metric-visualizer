@@ -1,0 +1,50 @@
+{
+  "source": "input/processed/live-nation-fy25.png",
+  "outputDir": "data/assets/icon-references/live-nation",
+  "runtimeOutputDir": "data/assets/raster-annotations/live-nation",
+  "validationSheetDir": "data/assets/icon-references/live-nation/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [242, 242, 242],
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "live-nation-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": { "x": 570, "y": 270, "width": 665, "height": 165 },
+      "cropBox": { "x": 570, "y": 270, "width": 665, "height": 165 },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Live Nation Entertainment company wordmark above the Revenue hub; includes the complete red frame and Entertainment line, but excludes the chart title, values, flows, and publisher attribution."
+    },
+    {
+      "key": "live-nation-concerts-brand-cluster",
+      "output": "crops/concerts-brand-cluster.png",
+      "searchBox": { "x": 125, "y": 637, "width": 240, "height": 236 },
+      "cropBox": { "x": 125, "y": 637, "width": 240, "height": 236 },
+      "threshold": 18,
+      "minComponentArea": 15,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Concerts segment's stacked Live Nation, Ticketmaster, House of Blues, and VIP Nation brand-wordmark cluster; excludes the Concerts label, value, source bar, and publisher attribution."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher badge and miniature Sankey mark are attribution rather than Live Nation financial semantics."
+    },
+    {
+      "key": "publisher-appeconomyinsights-url",
+      "reason": "Publisher website URL is attribution and is intentionally not reproduced."
+    },
+    {
+      "key": "publisher-app-economy-insights-wordmark",
+      "reason": "Publisher footer wordmark and social badge are attribution and are intentionally not reproduced."
+    }
+  ]
+}

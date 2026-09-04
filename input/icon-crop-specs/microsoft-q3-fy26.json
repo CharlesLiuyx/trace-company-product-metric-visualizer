@@ -1,0 +1,211 @@
+{
+  "source": "input/processed/microsoft-q3-fy26.png",
+  "outputDir": "data/assets/icon-references/microsoft",
+  "validationSheetDir": "data/assets/icon-references/microsoft/validation-sheets",
+  "report": "crop-report.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "microsoft-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": {
+        "x": 862,
+        "y": 230,
+        "width": 220,
+        "height": 220
+      },
+      "cropBox": {
+        "x": 858,
+        "y": 226,
+        "width": 230,
+        "height": 230
+      },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.04,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Microsoft four-pane company logo above the revenue hub; excludes labels, flows, and publisher marks."
+    },
+    {
+      "key": "microsoft-business-server-azure",
+      "output": "crops/business-server-azure.png",
+      "searchBox": {
+        "x": 310,
+        "y": 313,
+        "width": 135,
+        "height": 130
+      },
+      "cropBox": {
+        "x": 300,
+        "y": 307,
+        "width": 155,
+        "height": 145
+      },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.04,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Azure-style Server business icon only; excludes the Server label, values, and flow marks."
+    },
+    {
+      "key": "microsoft-business-microsoft-365-commercial",
+      "output": "crops/business-microsoft-365-commercial.png",
+      "searchBox": {
+        "x": 315,
+        "y": 560,
+        "width": 115,
+        "height": 120
+      },
+      "cropBox": {
+        "x": 306,
+        "y": 552,
+        "width": 135,
+        "height": 140
+      },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.04,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Microsoft 365 Commercial loop icon only; excludes adjacent label text, values, and flow marks."
+    },
+    {
+      "key": "microsoft-business-gaming-xbox",
+      "output": "crops/business-gaming-xbox.png",
+      "searchBox": {
+        "x": 315,
+        "y": 720,
+        "width": 140,
+        "height": 125
+      },
+      "cropBox": {
+        "x": 291,
+        "y": 716,
+        "width": 159,
+        "height": 135
+      },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.05,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Xbox mark and wordmark for the Gaming business cluster only; excludes Gaming label text, values, and flow marks."
+    },
+    {
+      "key": "microsoft-business-linkedin",
+      "output": "crops/business-linkedin.png",
+      "searchBox": {
+        "x": 325,
+        "y": 870,
+        "width": 105,
+        "height": 105
+      },
+      "cropBox": {
+        "x": 317,
+        "y": 862,
+        "width": 121,
+        "height": 121
+      },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.04,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "LinkedIn app icon for the LinkedIn business line only; excludes label text and flow marks."
+    },
+    {
+      "key": "microsoft-business-windows-devices",
+      "output": "crops/business-windows-devices.png",
+      "searchBox": {
+        "x": 318,
+        "y": 990,
+        "width": 120,
+        "height": 110
+      },
+      "cropBox": {
+        "x": 306,
+        "y": 982,
+        "width": 145,
+        "height": 132
+      },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.04,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Windows pane icon for Windows & Devices only; excludes label text, values, and flow marks."
+    },
+    {
+      "key": "microsoft-business-search-bing",
+      "output": "crops/business-search-bing.png",
+      "searchBox": {
+        "x": 335,
+        "y": 1125,
+        "width": 95,
+        "height": 105
+      },
+      "cropBox": {
+        "x": 318,
+        "y": 1113,
+        "width": 115,
+        "height": 125
+      },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.05,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Bing/Search icon only; excludes Search label, values, and flow marks."
+    },
+    {
+      "key": "microsoft-business-other-cluster",
+      "output": "crops/business-other-cluster.png",
+      "searchBox": {
+        "x": 310,
+        "y": 1275,
+        "width": 130,
+        "height": 80
+      },
+      "cropBox": {
+        "x": 305,
+        "y": 1252,
+        "width": 140,
+        "height": 103
+      },
+      "threshold": 18,
+      "minComponentArea": 25,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.08,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Two source icons shown for the Other revenue line; excludes the Other label, revenue values, bottom publisher mark, and decorative mini-Sankey logo."
+    }
+  ]
+}

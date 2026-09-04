@@ -1,0 +1,28 @@
+{
+  "source": "input/processed/asml-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/asml/",
+  "validationSheetDir": "data/assets/icon-references/asml/validation-sheets/",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "crops": [
+    {
+      "key": "asml-company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "searchBox": { "x": 990, "y": 248, "width": 468, "height": 154 },
+      "cropBox": { "x": 982, "y": 242, "width": 484, "height": 168 },
+      "threshold": 24,
+      "minComponentArea": 120,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.04,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "ASML company wordmark only; excludes the title, chart labels, flows, website mark, and publisher attribution."
+    }
+  ]
+}

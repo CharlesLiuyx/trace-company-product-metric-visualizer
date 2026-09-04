@@ -1,0 +1,48 @@
+{
+  "source": "input/processed/birkenstock-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/birkenstock",
+  "runtimeOutputDir": "data/assets/raster-annotations/birkenstock",
+  "validationSheetDir": "data/assets/icon-references/birkenstock/validation-sheets",
+  "report": "crop-report.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "crops": [
+    {
+      "key": "birkenstock-business-to-business-sandal",
+      "output": "crops/business-to-business-sandal.png",
+      "searchBox": { "x": 52, "y": 365, "width": 365, "height": 190 },
+      "cropBox": { "x": 52, "y": 365, "width": 365, "height": 190 },
+      "threshold": 12,
+      "minComponentArea": 40,
+      "backgroundRemoval": { "enabled": false },
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.22, "maxForbiddenForegroundPixels": 0 },
+      "note": "Business-to-Business segment illustration: the complete two-strap sandal, including the outsole and both buckles, isolated above the B2B label. Kept as an opaque #f2f2f2 background-matched patch for exact source placement; the crop excludes the €215M / +18% Y/Y value block, the segment text, and the source bar."
+    },
+    {
+      "key": "birkenstock-direct-to-consumer-store",
+      "output": "crops/direct-to-consumer-store.png",
+      "searchBox": { "x": 58, "y": 720, "width": 350, "height": 228 },
+      "cropBox": { "x": 58, "y": 720, "width": 350, "height": 228 },
+      "threshold": 12,
+      "minComponentArea": 40,
+      "backgroundRemoval": { "enabled": false },
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.22, "maxForbiddenForegroundPixels": 0 },
+      "note": "Direct-to-Consumer segment illustration: the complete Birkenstock storefront, including the roof, facade and entrance, isolated above the DTC label. Kept as an opaque #f2f2f2 background-matched patch for exact source placement; the crop excludes the €186M / +4% Y/Y value block, the segment text, and the source bar."
+    },
+    {
+      "key": "birkenstock-company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "searchBox": { "x": 618, "y": 278, "width": 646, "height": 135 },
+      "cropBox": { "x": 618, "y": 278, "width": 646, "height": 135 },
+      "threshold": 12,
+      "minComponentArea": 60,
+      "backgroundRemoval": { "enabled": false },
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "BIRKENSTOCK company wordmark in the source’s custom blue logotype, placed above the revenue hub. Kept as an opaque #f2f2f2 background-matched patch because the custom mark cannot be faithfully reconstructed with the available text stack. The crop excludes the title and all Sankey flows and nodes."
+    }
+  ]
+}

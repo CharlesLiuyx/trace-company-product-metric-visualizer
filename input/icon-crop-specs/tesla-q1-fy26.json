@@ -1,0 +1,160 @@
+{
+  "source": "input/processed/tesla-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/tesla",
+  "validationSheetDir": "data/assets/icon-references/tesla/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [242, 242, 242]
+  },
+  "crops": [
+    {
+      "key": "tesla-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": {
+        "x": 1110,
+        "y": 256,
+        "width": 245,
+        "height": 210
+      },
+      "cropBox": {
+        "x": 1092,
+        "y": 245,
+        "width": 280,
+        "height": 232
+      },
+      "threshold": 18,
+      "foreground": {
+        "channels": {
+          "r": [175, 255],
+          "g": [0, 80],
+          "b": [20, 95]
+        }
+      },
+      "minComponentArea": 45,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Tesla company T logo above the Revenue hub; excludes title text, flow marks, values, and publisher branding."
+    },
+    {
+      "key": "tesla-business-auto-sales-cars",
+      "output": "crops/business-auto-sales-cars.png",
+      "searchBox": {
+        "x": 50,
+        "y": 566,
+        "width": 380,
+        "height": 82
+      },
+      "cropBox": {
+        "x": 45,
+        "y": 558,
+        "width": 390,
+        "height": 96
+      },
+      "threshold": 10,
+      "minComponentArea": 18,
+      "validation": {
+        "borderBand": 3,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Auto sales vehicle cluster only; excludes Auto sales label, values, connectors, and publisher marks."
+    },
+    {
+      "key": "tesla-business-energy-powerwall",
+      "output": "crops/business-energy-powerwall.png",
+      "searchBox": {
+        "x": 32,
+        "y": 1092,
+        "width": 65,
+        "height": 122
+      },
+      "cropBox": {
+        "x": 25,
+        "y": 1085,
+        "width": 82,
+        "height": 136
+      },
+      "threshold": 10,
+      "minComponentArea": 18,
+      "validation": {
+        "borderBand": 3,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Powerwall icon for Energy generation & storage only; split from the solar-panel crop to exclude overlapping label text."
+    },
+    {
+      "key": "tesla-business-energy-solar-panel",
+      "output": "crops/business-energy-solar-panel.png",
+      "searchBox": {
+        "x": 98,
+        "y": 1131,
+        "width": 155,
+        "height": 70
+      },
+      "cropBox": {
+        "x": 92,
+        "y": 1130,
+        "width": 170,
+        "height": 70
+      },
+      "threshold": 10,
+      "minComponentArea": 18,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Solar-panel icon for Energy generation & storage only; split from the Powerwall crop to exclude overlapping label text."
+    },
+    {
+      "key": "tesla-business-services-charger",
+      "output": "crops/business-services-charger.png",
+      "searchBox": {
+        "x": 635,
+        "y": 1248,
+        "width": 74,
+        "height": 105
+      },
+      "cropBox": {
+        "x": 626,
+        "y": 1238,
+        "width": 68,
+        "height": 124
+      },
+      "threshold": 10,
+      "minComponentArea": 14,
+      "validation": {
+        "borderBand": 3,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Wall-connector charger icon for Services only; excludes Services label, values, connectors, and publisher marks."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "tesla-business-regulatory-credits",
+      "reason": "The source line has no independent business icon cluster."
+    },
+    {
+      "key": "tesla-business-leasing",
+      "reason": "The source line has no independent business icon cluster."
+    },
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding and not part of Tesla's income-statement semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "Source publisher branding, website URL, social badge, and footer logo are intentionally excluded."
+    }
+  ]
+}

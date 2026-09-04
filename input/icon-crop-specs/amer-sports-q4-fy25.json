@@ -1,0 +1,84 @@
+{
+  "source": "input/processed/amer-sports-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/amer-sports",
+  "runtimeOutputDir": "data/assets/raster-annotations/amer-sports",
+  "validationSheetDir": "data/assets/icon-references/amer-sports/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding badge and mini Sankey logo are attribution, not Amer Sports financial semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "Source website URL, footer logo, and attribution are intentionally excluded."
+    }
+  ],
+  "crops": [
+    {
+      "key": "amer-sports-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": { "x": 760, "y": 260, "width": 430, "height": 210 },
+      "cropBox": { "x": 748, "y": 250, "width": 454, "height": 230 },
+      "threshold": 18,
+      "minComponentArea": 45,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.15, "maxForbiddenForegroundPixels": 0 },
+      "note": "Amer Sports sail mark and wordmark above the Revenue hub; excludes the title, Revenue label, and chart ribbons."
+    },
+    {
+      "key": "technical-apparel-brands",
+      "output": "crops/technical-apparel-brands.png",
+      "searchBox": { "x": 25, "y": 468, "width": 258, "height": 182 },
+      "cropBox": { "x": 18, "y": 460, "width": 270, "height": 200 },
+      "excludeBoxes": [
+        { "relativeTo": "crop", "x": 250, "y": 45, "width": 20, "height": 85 }
+      ],
+      "transparentColors": [
+        { "channels": { "r": [0, 90], "g": [0, 110], "b": [90, 255] } }
+      ],
+      "threshold": 18,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Technical Apparel puffer, beanie, Arc'teryx, and Peak Performance cluster; a blue-only filter removes the adjacent Technical Apparel label while preserving the full black product wordmarks."
+    },
+    {
+      "key": "outdoor-performance-salomon",
+      "output": "crops/outdoor-performance-salomon.png",
+      "searchBox": { "x": 25, "y": 790, "width": 160, "height": 90 },
+      "cropBox": { "x": 18, "y": 782, "width": 180, "height": 106 },
+      "threshold": 18,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Salomon shoe and wordmark for Outdoor Performance; excludes the business label, Atomic marks, values, and link."
+    },
+    {
+      "key": "outdoor-performance-atomic",
+      "output": "crops/outdoor-performance-atomic.png",
+      "searchBox": { "x": 55, "y": 900, "width": 200, "height": 90 },
+      "cropBox": { "x": 50, "y": 895, "width": 210, "height": 100 },
+      "excludeBoxes": [
+        { "relativeTo": "crop", "x": 150, "y": 0, "width": 60, "height": 35 }
+      ],
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Atomic ski illustration, mark, and wordmark for Outdoor Performance. The adjacent Performance-label fragment in the upper-right corner is explicitly transparent-masked; values and links are excluded."
+    },
+    {
+      "key": "ball-racquet-brands",
+      "output": "crops/ball-racquet-brands.png",
+      "searchBox": { "x": 25, "y": 1015, "width": 230, "height": 205 },
+      "cropBox": { "x": 15, "y": 1005, "width": 250, "height": 225 },
+      "threshold": 18,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Ball & Racquet basketball, tennis-racket, and Wilson-wordmark cluster; excludes the business label, values, and link."
+    }
+  ]
+}

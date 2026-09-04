@@ -1,0 +1,35 @@
+{
+  "source": "input/processed/marvell-q4-fy26.png",
+  "outputDir": "data/assets/icon-references/marvell/",
+  "validationSheetDir": "data/assets/icon-references/marvell/validation-sheets/",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "marvell-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": { "x": 770, "y": 250, "width": 320, "height": 320 },
+      "cropBox": { "x": 770, "y": 250, "width": 320, "height": 320 },
+      "foreground": {
+        "channels": {
+          "r": { "max": 70 },
+          "g": { "max": 70 },
+          "b": { "max": 70 }
+        }
+      },
+      "minComponentArea": 30,
+      "validation": {
+        "maxCenterOffsetRatio": 0.14,
+        "minForegroundPixelRatio": 0.08,
+        "maxEdgeForegroundPixelRatio": 0,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Company logo only; publisher watermark and bottom social/URL marks are intentionally skipped."
+    }
+  ]
+}

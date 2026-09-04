@@ -1,0 +1,28 @@
+{
+  "source": "input/processed/carnival-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/carnival",
+  "runtimeOutputDir": "data/assets/raster-annotations/carnival",
+  "validationSheetDir": "data/assets/icon-references/carnival/validation-sheets",
+  "crops": [
+    {
+      "key": "carnival-passenger-ticket",
+      "output": "crops/passenger-ticket.png",
+      "runtimeOutput": "passenger-ticket.png",
+      "searchBox": { "x": 103, "y": 495, "width": 218, "height": 121 },
+      "cropBox": { "x": 103, "y": 495, "width": 218, "height": 121 }
+    },
+    {
+      "key": "carnival-onboard-ship",
+      "output": "crops/onboard-ship.png",
+      "runtimeOutput": "onboard-ship.png",
+      "searchBox": { "x": 96, "y": 930, "width": 245, "height": 104 },
+      "cropBox": { "x": 119, "y": 939, "width": 202, "height": 97 }
+    },
+    {
+      "key": "carnival-brand-cluster",
+      "output": "crops/brand-cluster.png",
+      "runtimeOutput": "brand-cluster.png",
+      "searchBox": { "x": 72, "y": 755, "width": 320, "height": 115 }
+    }
+  ]
+}

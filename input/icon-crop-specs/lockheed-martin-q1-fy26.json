@@ -1,0 +1,60 @@
+{
+  "source": "input/processed/lockheed-martin-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/lockheed-martin",
+  "runtimeOutputDir": "data/assets/raster-annotations/lockheed-martin",
+  "validationSheetDir": "data/assets/icon-references/lockheed-martin/validation-sheets",
+  "report": "crop-report-q1-fy26.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "crops": [
+    {
+      "key": "lockheed-q1-aeronautics-jet",
+      "output": "crops/aeronautics-jet-q1-fy26.png",
+      "searchBox": { "x": 122, "y": 309, "width": 279, "height": 132 },
+      "cropBox": { "x": 118, "y": 305, "width": 285, "height": 140 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.25, "maxForbiddenForegroundPixels": 0 },
+      "note": "Aeronautics aircraft icon cluster; the crop stops before the $7.0B block and the Aeronautics label."
+    },
+    {
+      "key": "lockheed-q1-missile-fire-control",
+      "output": "crops/missile-fire-control-q1-fy26.png",
+      "searchBox": { "x": 176, "y": 541, "width": 163, "height": 98 },
+      "cropBox": { "x": 172, "y": 537, "width": 171, "height": 106 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.25, "maxForbiddenForegroundPixels": 0 },
+      "note": "Missile and Fire Control icon cluster; the crop contains only the missile render."
+    },
+    {
+      "key": "lockheed-q1-rotary-mission-systems",
+      "output": "crops/rotary-mission-systems-q1-fy26.png",
+      "searchBox": { "x": 151, "y": 788, "width": 188, "height": 76 },
+      "cropBox": { "x": 147, "y": 784, "width": 196, "height": 84 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.25, "maxForbiddenForegroundPixels": 0 },
+      "note": "Rotary & Mission Systems icon cluster; the crop contains only the aircraft render."
+    },
+    {
+      "key": "lockheed-q1-space-spacecraft",
+      "output": "crops/space-spacecraft-q1-fy26.png",
+      "searchBox": { "x": 188, "y": 1003, "width": 141, "height": 88 },
+      "cropBox": { "x": 198, "y": 1006, "width": 118, "height": 89 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.25, "maxForbiddenForegroundPixels": 0 },
+      "note": "Space icon cluster; the crop begins on the empty scanline at y=1006, excluding the adjacent Rotary margin text that ends at y=1005."
+    }
+  ]
+}

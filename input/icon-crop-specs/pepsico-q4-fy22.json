@@ -1,0 +1,24 @@
+{
+  "source": "input/processed/pepsico-q4-fy22.png",
+  "outputDir": "data/assets/icon-references/pepsico",
+  "runtimeOutputDir": "data/assets/raster-annotations/pepsico",
+  "validationSheetDir": "data/assets/icon-references/pepsico/validation-sheets",
+  "report": "crop-report-q4-fy22.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": { "enabled": true, "mode": "edge-connected", "tolerance": 8, "color": [242, 242, 242] },
+  "skipped": [
+    { "key": "source-quarterly-results", "reason": "Bottom-left source attribution is non-semantic residual." },
+    { "key": "publisher-social-and-branding", "reason": "Bottom publisher, social badge, and account attribution are non-semantic residuals." }
+  ],
+  "crops": [
+    { "key": "pepsico-fy22-lays", "output": "crops/fy22-lays.png", "searchBox": { "x": 15, "y": 391, "width": 142, "height": 133 }, "cropBox": { "x": 9, "y": 385, "width": 154, "height": 145 }, "threshold": 18, "minComponentArea": 30, "validation": { "borderBand": 2, "maxCenterOffset": 0.16, "maxForbiddenForegroundPixels": 0 }, "note": "Lay's brand mark, excluding the adjacent Frito-Lay label." },
+    { "key": "pepsico-fy22-quaker", "output": "crops/fy22-quaker.png", "searchBox": { "x": 14, "y": 573, "width": 133, "height": 118 }, "cropBox": { "x": 8, "y": 567, "width": 145, "height": 130 }, "threshold": 18, "minComponentArea": 30, "validation": { "borderBand": 2, "maxCenterOffset": 0.16, "maxForbiddenForegroundPixels": 0 }, "note": "Quaker brand mark, excluding the adjacent Quaker Foods label." },
+    { "key": "pepsico-fy22-company-logo", "output": "crops/fy22-company-logo.png", "searchBox": { "x": 972, "y": 461, "width": 463, "height": 66 }, "cropBox": { "x": 966, "y": 455, "width": 475, "height": 78 }, "threshold": 18, "minComponentArea": 25, "validation": { "borderBand": 2, "maxCenterOffset": 0.16, "maxForbiddenForegroundPixels": 0 }, "note": "PEPSICO wordmark, excluding the globe and Revenue label." },
+    { "key": "pepsico-fy22-revenue-globe", "output": "crops/fy22-revenue-globe.png", "searchBox": { "x": 1142, "y": 324, "width": 105, "height": 107 }, "cropBox": { "x": 1136, "y": 318, "width": 117, "height": 119 }, "threshold": 18, "minComponentArea": 25, "validation": { "borderBand": 2, "maxCenterOffset": 0.16, "maxForbiddenForegroundPixels": 0 }, "note": "Multicolor globe above the company wordmark." },
+    { "key": "pepsico-fy22-globe-north-america", "output": "crops/fy22-globe-north-america.png", "searchBox": { "x": 776, "y": 290, "width": 87, "height": 87 }, "cropBox": { "x": 770, "y": 284, "width": 99, "height": 99 }, "threshold": 15, "minComponentArea": 20, "validation": { "borderBand": 2, "maxCenterOffset": 0.16, "maxForbiddenForegroundPixels": 0 }, "note": "North America globe." },
+    { "key": "pepsico-fy22-globe-latam", "output": "crops/fy22-globe-latam.png", "searchBox": { "x": 529, "y": 882, "width": 82, "height": 78 }, "cropBox": { "x": 523, "y": 876, "width": 94, "height": 90 }, "threshold": 15, "minComponentArea": 20, "validation": { "borderBand": 2, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 }, "note": "Latin America globe." },
+    { "key": "pepsico-fy22-globe-europe", "output": "crops/fy22-globe-europe.png", "searchBox": { "x": 520, "y": 1035, "width": 87, "height": 85 }, "cropBox": { "x": 514, "y": 1029, "width": 99, "height": 97 }, "threshold": 15, "minComponentArea": 20, "validation": { "borderBand": 2, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 }, "note": "Europe globe." },
+    { "key": "pepsico-fy22-globe-amesa", "output": "crops/fy22-globe-amesa.png", "searchBox": { "x": 37, "y": 1166, "width": 76, "height": 74 }, "cropBox": { "x": 31, "y": 1160, "width": 88, "height": 86 }, "threshold": 15, "minComponentArea": 20, "validation": { "borderBand": 2, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 }, "note": "Africa, Middle East and South Asia globe." },
+    { "key": "pepsico-fy22-globe-apac", "output": "crops/fy22-globe-apac.png", "searchBox": { "x": 546, "y": 1296, "width": 80, "height": 80 }, "cropBox": { "x": 540, "y": 1290, "width": 92, "height": 92 }, "threshold": 15, "minComponentArea": 20, "validation": { "borderBand": 2, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 }, "note": "Asia Pacific globe." }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "source": "input/processed/align-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/align",
+  "runtimeOutputDir": "data/assets/raster-annotations/align",
+  "validationSheetDir": "data/assets/icon-references/align/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": { "enabled": true, "mode": "edge-connected", "tolerance": 8 },
+  "crops": [
+    {
+      "key": "align-company-wordmark",
+      "output": "crops/align-company-wordmark.png",
+      "runtimeOutput": "align-company-wordmark.png",
+      "searchBox": { "x": 555, "y": 260, "width": 635, "height": 275 },
+      "cropBox": { "x": 555, "y": 260, "width": 635, "height": 275 },
+      "backgroundRemoval": { "color": [242, 242, 242], "tolerance": 8 },
+      "threshold": 18,
+      "minComponentArea": 16,
+      "padding": 6,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Align lowercase corporate wordmark and cyan dot above Revenue; excludes the report title and Revenue label. The custom letterforms are retained as a validated raster because text-font approximation is materially inaccurate."
+    },
+    {
+      "key": "clear-aligners-product",
+      "output": "crops/clear-aligners-product.png",
+      "runtimeOutput": "clear-aligners-product.png",
+      "searchBox": { "x": 80, "y": 540, "width": 210, "height": 205 },
+      "cropBox": { "x": 80, "y": 540, "width": 210, "height": 205 },
+      "backgroundRemoval": { "color": [242, 242, 242], "tolerance": 8 },
+      "threshold": 18,
+      "minComponentArea": 16,
+      "padding": 6,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Open black Align case and blue clear-aligner product cluster for Clear Aligners; excludes the value, Y/Y, label, and flow ribbon."
+    },
+    {
+      "key": "systems-services-scanner",
+      "output": "crops/systems-services-scanner.png",
+      "runtimeOutput": "systems-services-scanner.png",
+      "searchBox": { "x": 150, "y": 925, "width": 140, "height": 199 },
+      "cropBox": { "x": 150, "y": 925, "width": 140, "height": 199 },
+      "backgroundRemoval": { "color": [242, 242, 242], "tolerance": 8 },
+      "threshold": 18,
+      "minComponentArea": 16,
+      "padding": 6,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Align iTero-style scanner/cart product cluster for Systems & Services; excludes the value, Y/Y, label, and flow ribbon."
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "source": "input/processed/gamestop-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/gamestop",
+  "runtimeOutputDir": "data/assets/raster-annotations/gamestop",
+  "validationSheetDir": "data/assets/icon-references/gamestop/validation-sheets/q1-fy26",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [242, 242, 242]
+  },
+  "crops": [
+    {
+      "key": "gamestop-hardware-consoles",
+      "output": "crops/hardware-consoles-q1-fy26.png",
+      "runtimeOutput": "hardware-consoles-q1-fy26.png",
+      "searchBox": { "x": 20, "y": 370, "width": 420, "height": 235 },
+      "cropBox": { "x": 20, "y": 370, "width": 420, "height": 235 },
+      "threshold": 10,
+      "minComponentArea": 18,
+      "validation": { "borderBand": 4, "maxCenterOffset": 0.17, "maxForbiddenForegroundPixels": 0 },
+      "note": "PlayStation and Xbox console cluster for the Hardware & Accessories revenue source; excludes source labels and Sankey marks."
+    },
+    {
+      "key": "gamestop-packaged-software-games",
+      "output": "crops/packaged-software-games-q1-fy26.png",
+      "runtimeOutput": "packaged-software-games-q1-fy26.png",
+      "searchBox": { "x": 120, "y": 750, "width": 270, "height": 180 },
+      "cropBox": { "x": 120, "y": 750, "width": 270, "height": 180 },
+      "threshold": 10,
+      "minComponentArea": 18,
+      "validation": { "borderBand": 4, "maxCenterOffset": 0.17, "maxForbiddenForegroundPixels": 0 },
+      "note": "Packaged video-game cover cluster for the Packaged Software revenue source; excludes the source label and value."
+    },
+    {
+      "key": "gamestop-collectibles-figure",
+      "output": "crops/collectibles-figure-q1-fy26.png",
+      "runtimeOutput": "collectibles-figure-q1-fy26.png",
+      "searchBox": { "x": 30, "y": 1090, "width": 180, "height": 225 },
+      "cropBox": { "x": 30, "y": 1090, "width": 180, "height": 225 },
+      "threshold": 10,
+      "minComponentArea": 18,
+      "validation": { "borderBand": 4, "maxCenterOffset": 0.17, "maxForbiddenForegroundPixels": 0 },
+      "note": "Collectibles figure for the Collectibles revenue source; excludes the source label and Sankey marks."
+    }
+  ],
+  "skipped": [
+    { "key": "gamestop-logo", "reason": "The GameStop wordmark is recreated as a compact dataset-owned vector wordmark." },
+    { "key": "regional-flags", "reason": "The regional flags are decorative geographic markers rather than business or segment icon clusters." },
+    { "key": "publisher-how-they-make-money", "reason": "Source publisher branding is not part of GameStop's income-statement semantics." },
+    { "key": "publisher-footer", "reason": "The source URL, App Economy Insights lockup, and social badge are source attribution and intentionally excluded." }
+  ]
+}

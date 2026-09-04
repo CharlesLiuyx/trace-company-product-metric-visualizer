@@ -1,0 +1,95 @@
+{
+  "source": "input/processed/nike-q4-fy26.png",
+  "outputDir": "data/assets/icon-references/nike",
+  "runtimeOutputDir": "data/assets/raster-annotations/nike",
+  "validationSheetDir": "data/assets/icon-references/nike/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding badge and mini sankey logo, not part of Nike's income-statement semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "Source publisher branding, website URL watermark, and footer logo are intentionally excluded."
+    }
+  ],
+  "crops": [
+    {
+      "key": "nike-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": { "x": 635, "y": 265, "width": 525, "height": 285 },
+      "cropBox": { "x": 627, "y": 257, "width": 541, "height": 301 },
+      "threshold": 18,
+      "minComponentArea": 45,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Nike wordmark and swoosh above the revenue hub; excludes title text, revenue text, and flows."
+    },
+    {
+      "key": "nike-business-footwear",
+      "output": "crops/business-footwear.png",
+      "searchBox": { "x": 121, "y": 507, "width": 193, "height": 128 },
+      "cropBox": { "x": 114, "y": 500, "width": 207, "height": 140 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Running shoe product photo for the Footwear revenue line; excludes value text, label text, and flow marks."
+    },
+    {
+      "key": "nike-business-apparel",
+      "output": "crops/business-apparel.png",
+      "searchBox": { "x": 146, "y": 741, "width": 188, "height": 152 },
+      "cropBox": { "x": 140, "y": 735, "width": 200, "height": 164 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "T-shirt product photo for the Apparel revenue line; excludes value text, label text, and flow marks."
+    },
+    {
+      "key": "nike-business-equipment",
+      "output": "crops/business-equipment.png",
+      "searchBox": { "x": 156, "y": 968, "width": 178, "height": 140 },
+      "cropBox": { "x": 150, "y": 962, "width": 190, "height": 152 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Basketball product photo for the Equipment revenue line; excludes value text, label text, and flow marks."
+    },
+    {
+      "key": "nike-business-converse",
+      "output": "crops/business-converse.png",
+      "searchBox": { "x": 131, "y": 1161, "width": 203, "height": 124 },
+      "cropBox": { "x": 125, "y": 1155, "width": 215, "height": 136 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Converse high-top sneaker product photo for the Converse revenue line; excludes value text, label text, and flow marks."
+    }
+  ]
+}

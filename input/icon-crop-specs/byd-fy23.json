@@ -1,0 +1,56 @@
+{
+  "source": "input/processing/byd-fy23.png",
+  "outputDir": "data/assets/icon-references/byd",
+  "runtimeOutputDir": "data/assets/raster-annotations/byd",
+  "validationSheetDir": "data/assets/icon-references/byd/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [242, 242, 242],
+    "tolerance": 8
+  },
+  "skipped": [
+    {
+      "key": "publisher-source-line",
+      "reason": "The Quarterly results source line is attribution, not BYD chart semantics."
+    },
+    {
+      "key": "publisher-website-and-lockup",
+      "reason": "appeconomyinsights.com and the APP ECONOMY INSIGHTS footer lockup are publisher attribution."
+    }
+  ],
+  "crops": [
+    {
+      "key": "byd-automobiles-product-cluster",
+      "output": "crops/automobiles-product-cluster.png",
+      "runtimeOutput": "automobiles-product-cluster.png",
+      "searchBox": { "x": 42, "y": 458, "width": 310, "height": 155 },
+      "cropBox": { "x": 35, "y": 452, "width": 325, "height": 165 },
+      "threshold": 16,
+      "minComponentArea": 8,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Three BYD passenger-car images grouped above the Automobiles label; the crop excludes all amount text, labels, nodes, links, and publisher marks."
+    },
+    {
+      "key": "byd-wordmark",
+      "output": "crops/byd-wordmark.png",
+      "runtimeOutput": "byd-wordmark.png",
+      "searchBox": { "x": 890, "y": 261, "width": 490, "height": 295 },
+      "cropBox": { "x": 884, "y": 255, "width": 502, "height": 307 },
+      "threshold": 16,
+      "minComponentArea": 20,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.05,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Source-native BYD oval wordmark; the crop excludes all financial labels, nodes, links, and publisher marks."
+    }
+  ]
+}

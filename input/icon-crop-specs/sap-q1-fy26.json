@@ -1,0 +1,38 @@
+{
+  "source": "input/processed/sap-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/sap/",
+  "validationSheetDir": "data/assets/icon-references/sap/validation-sheets/",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "sap-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": { "x": 1005, "y": 245, "width": 365, "height": 190 },
+      "cropBox": { "x": 1000, "y": 240, "width": 380, "height": 200 },
+      "threshold": 18,
+      "minComponentArea": 45,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Central SAP company logo only; excludes title, chart labels, Sankey flows, website mark, and publisher attribution."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding and not part of SAP's income-statement semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "Source publisher branding, website URL, social badge, and footer logo are intentionally excluded."
+    }
+  ]
+}

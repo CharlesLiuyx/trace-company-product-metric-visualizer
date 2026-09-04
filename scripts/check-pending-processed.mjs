@@ -47,7 +47,7 @@ function relativeProjectPath(...segments) {
 function pngFiles(dir) {
   if (!existsSync(dir)) return [];
   return readdirSync(dir, { withFileTypes: true })
-    .filter((entry) => entry.isFile() && /\.png$/i.test(entry.name))
+    .filter((entry) => entry.isFile() && /\.(png|txt|md)$/i.test(entry.name))
     .map((entry) => entry.name)
     .sort((a, b) => a.localeCompare(b));
 }
@@ -93,11 +93,11 @@ function datasetStatus(key, registeredScripts, incomeStatementSource) {
   );
 
   return {
-    processingImage: existsSync(projectPath(processingImage)),
-    processedImage: existsSync(projectPath(processedImage)),
+    processingImage: ['.png', '.txt', '.md'].some((ext) => existsSync(projectPath('input', 'processing', `${key}${ext}`))),
+    processedImage: ['.png', '.txt', '.md'].some((ext) => existsSync(projectPath('input', 'processed', `${key}${ext}`))),
     datasetScript: existsSync(projectPath(datasetScript)),
     indexRegistration: registeredScripts.has(datasetScript),
-    ssotRecord: ssotKeyRe.test(incomeStatementSource) || ssotImageRe.test(incomeStatementSource),
+    ssotRecord: existsSync(projectPath('data', 'metric-observations', `${key}.json`)) || ssotKeyRe.test(incomeStatementSource) || ssotImageRe.test(incomeStatementSource),
   };
 }
 
@@ -136,7 +136,7 @@ function selectedPendingNames(requestedFiles, availableNames) {
   const selected = new Set();
   for (const requested of requestedFiles) {
     const absolute = path.resolve(rootDir, requested);
-    if (path.dirname(absolute) !== pendingRoot || !/\.png$/i.test(absolute)) {
+    if (path.dirname(absolute) !== pendingRoot || !/\.(png|txt|md)$/i.test(absolute)) {
       throw new Error(`--file must name a PNG directly under input/pending/: ${requested}`);
     }
     const name = path.basename(absolute);

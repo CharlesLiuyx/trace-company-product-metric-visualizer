@@ -1,0 +1,63 @@
+{
+  "source": "input/processing/bullish-q3-fy25.png",
+  "outputDir": "data/assets/icon-references/bullish",
+  "validationSheetDir": "data/assets/icon-references/bullish/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [242, 242, 242],
+    "tolerance": 8
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "The lower-left HOW THEY MAKE MONEY badge and miniature Sankey are publisher branding."
+    },
+    {
+      "key": "publisher-website",
+      "reason": "appeconomyinsights.com is source attribution rather than Bullish financial content."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "The lower-right APP ECONOMY INSIGHTS lockup and social badge are publisher attribution."
+    }
+  ],
+  "crops": [
+    {
+      "key": "bullish-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": { "x": 1205, "y": 350, "width": 275, "height": 145 },
+      "cropBox": { "x": 1205, "y": 350, "width": 275, "height": 145 },
+      "threshold": 16,
+      "foreground": {
+        "channels": {
+          "r": [0, 60],
+          "g": [0, 60],
+          "b": [0, 60]
+        }
+      },
+      "minComponentArea": 35,
+      "note": "Central Bullish horn logo only; excludes the adjacent income ribbons and chart title."
+    },
+    {
+      "key": "bullish-trading-wordmark",
+      "output": "crops/trading-wordmark.png",
+      "searchBox": { "x": 105, "y": 272, "width": 195, "height": 48 },
+      "cropBox": { "x": 105, "y": 272, "width": 195, "height": 48 },
+      "threshold": 16,
+      "minComponentArea": 8,
+      "note": "Bullish icon and wordmark above Trading (net); excludes the financial label and node."
+    },
+    {
+      "key": "bullish-coindesk-wordmark",
+      "output": "crops/coindesk-wordmark.png",
+      "searchBox": { "x": 82, "y": 543, "width": 230, "height": 62 },
+      "cropBox": { "x": 82, "y": 543, "width": 230, "height": 62 },
+      "threshold": 16,
+      "minComponentArea": 8,
+      "note": "CoinDesk icon and wordmark identifying the subscription, services, and other revenue source; excludes the value, label, and Sankey node."
+    }
+  ]
+}

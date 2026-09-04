@@ -1,0 +1,59 @@
+{
+  "source": "input/processed/j-j-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/j-j",
+  "runtimeOutputDir": "data/assets/raster-annotations/j-j",
+  "validationSheetDir": "data/assets/icon-references/j-j/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [242, 242, 242]
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "The lower-left HOW THEY MAKE MONEY badge and miniature Sankey are publisher attribution, not J&J financial semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "The footer URL, social badge, and APP ECONOMY INSIGHTS lockup are publisher attribution, not J&J financial semantics."
+    }
+  ],
+  "crops": [
+    {
+      "key": "j-j-company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "runtimeOutput": "company-wordmark.png",
+      "searchBox": { "x": 708, "y": 318, "width": 430, "height": 182 },
+      "cropBox": { "x": 690, "y": 300, "width": 470, "height": 220 },
+      "threshold": 8,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.15, "maxForbiddenForegroundPixels": 0 },
+      "note": "J&J script wordmark centered above the Sales flow; excludes the title and all financial labels."
+    },
+    {
+      "key": "j-j-innovative-medicine-icon",
+      "output": "crops/innovative-medicine-icon.png",
+      "runtimeOutput": "innovative-medicine-icon.png",
+      "searchBox": { "x": 185, "y": 548, "width": 120, "height": 125 },
+      "cropBox": { "x": 165, "y": 530, "width": 160, "height": 160 },
+      "threshold": 8,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Red laboratory-flask icon for the Innovative Medicine revenue segment; excludes the label, value, note, and source bar."
+    },
+    {
+      "key": "j-j-medtech-icon",
+      "output": "crops/medtech-icon.png",
+      "runtimeOutput": "medtech-icon.png",
+      "searchBox": { "x": 185, "y": 910, "width": 130, "height": 205 },
+      "cropBox": { "x": 165, "y": 890, "width": 170, "height": 240 },
+      "threshold": 8,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Red medical-staff icon for the MedTech revenue segment; excludes the label, value, note, and source bar."
+    }
+  ]
+}

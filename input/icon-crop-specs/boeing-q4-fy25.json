@@ -1,0 +1,59 @@
+{
+  "source": "input/processed/boeing-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/boeing",
+  "runtimeOutputDir": "data/assets/raster-annotations/boeing",
+  "validationSheetDir": "data/assets/icon-references/boeing/validation-sheets",
+  "report": "boeing-q4-fy25-crop-report.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "crops": [
+    {
+      "key": "boeing-q4-737-tile",
+      "output": "crops/boeing-q4-commercial-airplanes-737.png",
+      "searchBox": {
+        "x": 95,
+        "y": 378,
+        "width": 295,
+        "height": 90
+      },
+      "threshold": 14,
+      "minComponentArea": 40,
+      "padding": 10,
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Commercial Airplanes segment icon: the photographic Boeing 737 above the segment label. Kept as an opaque, background-matched rectangular patch because the photograph sits on the uniform #f2f2f2 chart background. The crop excludes the $11.4B value block, segment label, and Boeing wordmark."
+    },
+    {
+      "key": "boeing-q4-starliner-tile",
+      "output": "crops/boeing-q4-defense-starliner.png",
+      "searchBox": {
+        "x": 170,
+        "y": 660,
+        "width": 170,
+        "height": 120
+      },
+      "threshold": 14,
+      "minComponentArea": 40,
+      "padding": 8,
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Defense, Space & Security segment icon: the photographic crew capsule above the segment label. Kept as an opaque, background-matched rectangular patch to avoid photo-edge speckle; it excludes the $7.4B value block and all segment text."
+    }
+  ]
+}

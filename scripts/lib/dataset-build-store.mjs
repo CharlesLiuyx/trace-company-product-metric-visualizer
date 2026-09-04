@@ -3,7 +3,7 @@ import { existsSync } from 'node:fs';
 import { mkdir, open, readFile, rename, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { advanceDatasetBuild, digestValue } from './dataset-build.mjs';
-import { projectPath, rootDir } from './project.mjs';
+import { projectPath, rootDir, buildProjectRoot } from './project.mjs';
 
 export const DEFAULT_BUILD_ROOT = projectPath('output', 'builds');
 
@@ -258,7 +258,7 @@ function latestReceipt(build, state) {
 
 export async function inspectDatasetBuild(buildId, options = {}) {
   const build = await readDatasetBuild(buildId, options);
-  const projectRoot = options.projectRoot || rootDir;
+  const projectRoot = buildProjectRoot(build, options.projectRoot);
   const authoredReceipt = latestReceipt(build, 'AUTHORED');
   const closureReceipt = latestReceipt(build, 'CLOSED');
   const baselineReceipt = latestReceipt(build, 'BASELINE_STAGED');
@@ -332,6 +332,13 @@ export async function inspectDatasetBuild(buildId, options = {}) {
     if (actualDigest !== artifact.digest) {
       staleArtifacts.push({ path: artifact.path, reason: 'digest-mismatch', expected: artifact.digest, actual: actualDigest });
     }
+  }
+
+  if (authoredReceipt?.payload?.artifacts.some((item) => item.role === 'semantic-inputs')) {
+    try {
+      const { inspectDerivedArtifacts } = await import('./workflow-dependencies.mjs');
+      staleArtifacts.push(...await inspectDerivedArtifacts(build, projectRoot, authoredReceipt.payload.artifacts));
+    } catch (error) { staleArtifacts.push({ path: 'derived-dependencies', reason: error.message }); }
   }
 
   let effectiveState = build.state;

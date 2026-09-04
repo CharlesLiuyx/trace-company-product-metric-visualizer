@@ -1,0 +1,61 @@
+{
+  "source": "input/processed/robinhood-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/robinhood",
+  "validationSheetDir": "data/assets/icon-references/robinhood/validation-sheets",
+  "report": "crop-report.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 9
+  },
+  "crops": [
+    {
+      "key": "robinhood-company-feather",
+      "output": "crops/company-feather.png",
+      "searchBox": {
+        "x": 1210,
+        "y": 280,
+        "width": 220,
+        "height": 250
+      },
+      "cropBox": {
+        "x": 1210,
+        "y": 280,
+        "width": 220,
+        "height": 250
+      },
+      "threshold": 14,
+      "foreground": {
+        "channels": {
+          "r": [0, 70],
+          "g": [130, 255],
+          "b": [0, 95]
+        }
+      },
+      "minComponentArea": 80,
+      "padding": 14,
+      "validation": {
+        "borderBand": 4,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Robinhood feather company mark only; excludes title, revenue label text, Sankey links, and publisher marks."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding and not part of Robinhood's income-statement semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "Source publisher website URL, social badge, and attribution are intentionally excluded."
+    }
+  ]
+}

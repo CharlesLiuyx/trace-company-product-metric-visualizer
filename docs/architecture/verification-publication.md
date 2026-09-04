@@ -19,8 +19,9 @@ Interface, not a naming preference.
 
 Implemented `verify:*` and `record:*` commands satisfy this contract. The one
 remaining canonical compatibility mutation is deliberately named
-`compat:baseline`, outside these classes, until M4 Publication replaces it;
-`publish:*` and `release:*` remain unimplemented target vocabulary.
+`compat:baseline`, outside these classes, for legacy direct-edit compatibility.
+`publish:datasets` and `release:dataset` implement the isolated workflow in
+[asset-workflow.md](../asset-workflow.md).
 Documentation and compatibility wrappers must state whether an operation is
 read-only or mutating; renaming alone does not change semantics.
 
@@ -65,7 +66,7 @@ record:build inspect / verify:closeout
 Interfaces behind that CLI. The review token is the digest of the recorded
 ReviewPacket; a JSON document cannot redirect an operation to another Build.
 This lane is the primary Build close-out workflow; canonical publication
-itself remains M4.
+itself is implemented by the isolated Publication module.
 
 The intake Type Gate is a current M3 guard, not a target command: explicit
 whole-Source signals must derive exactly one Adapter and agree with
@@ -206,10 +207,10 @@ re-executed, and the staged baseline stays excluded from the verdict. The
 Source classification, Coverage, and node-face policy remain bound through
 their authored/Plan digests; sealing does not reinterpret the Source. If a
 loaded SSOT or View artifact changed after preparation, artifact freshness
-fails and a new preparation must reconcile the new values. The
-remaining gap is M4-owned: a complete `ArtifactManifest` and the canonical
-projection arrive with the isolated authoring workspace and Publication, not
-with the seal.
+fails and a new preparation must reconcile the new values. New isolated Builds derive the complete artifact set and semantic contributions
+at preparation and recompute those dependencies at inspection; Publication
+then checks the combined canonical projection before its pointer swap. Legacy
+Builds retain the artifact lists and protocol they actually recorded.
 
 After sealing, inspection preserves both truths. `historicalState=SEALED`
 records what happened; if an authored file is missing or its bytes change,

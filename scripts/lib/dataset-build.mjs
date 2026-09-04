@@ -109,6 +109,7 @@ function normalizeSources(sources) {
       role: source.role || 'primary-reference',
       ...(source.processingUri == null ? {} : { processingUri: source.processingUri }),
       ...(source.processedUri == null ? {} : { processedUri: source.processedUri }),
+      ...(source.format ? { format: source.format, charLength: source.charLength } : {}),
       ...(source.width == null ? {} : { width: source.width }),
       ...(source.height == null ? {} : { height: source.height }),
     };
@@ -140,7 +141,8 @@ export function createDatasetBuild(input, options = {}) {
       sourceClassification.source.locator === primarySource.uri &&
         sourceClassification.source.digest === primarySource.digest &&
         sourceClassification.source.width === primarySource.width &&
-        sourceClassification.source.height === primarySource.height,
+        sourceClassification.source.height === primarySource.height &&
+        sourceClassification.source.charLength === primarySource.charLength,
       'SOURCE_CLASSIFICATION_SOURCE_MISMATCH',
       'Dataset Build Source classification must bind the complete primary Source identity'
     );
@@ -190,7 +192,7 @@ function authoredPayload(build, command) {
     const coverageDigest = command.sourceCoverage.coverageDigest || command.sourceCoverage.digest;
     assertDigest(coverageDigest, 'Source Coverage digest');
     invariant(
-      ['source-coverage/v1', 'source-coverage/v2'].includes(command.sourceCoverage.protocol) &&
+      ['source-coverage/v1', 'source-coverage/v2', 'source-coverage/v3'].includes(command.sourceCoverage.protocol) &&
         command.sourceCoverage.datasetKey === build.key &&
         command.sourceCoverage.adapter === build.adapter &&
         command.sourceCoverage.inventoryDigest === inventoryDigest,
@@ -218,7 +220,7 @@ function authoredPayload(build, command) {
       'VERIFICATION_PLAN_INVALID',
       'VerificationPlan Adapter does not match the Build'
     );
-    if (['verification-plan/v4', 'verification-plan/v5'].includes(command.verificationPlan.protocol)) {
+    if (['verification-plan/v4', 'verification-plan/v5', 'verification-plan/v6'].includes(command.verificationPlan.protocol)) {
       invariant(sourceCoverage, 'SOURCE_COVERAGE_REQUIRED', 'Versioned VerificationPlan requires Source Coverage in the authored snapshot');
       invariant(
         command.verificationPlan.sourceCoverageDigest === sourceCoverage.digest,
@@ -314,7 +316,7 @@ function closurePayload(build, command) {
     const item = evidence[axis];
     invariant(item && typeof item === 'object', 'CLOSURE_INVALID', `Closure evidence is missing the ${axis} axis`);
     assertDigest(item.digest, `${axis} evidence digest`);
-    const allowed = build.adapter === 'revenue-metric' && axis === 'reference'
+    const allowed = build.adapter !== 'income-statement' && axis === 'reference'
       ? ['passed', 'not-applicable']
       : ['passed'];
     invariant(allowed.includes(item.status), 'CLOSURE_INVALID', `${axis} evidence must be ${allowed.join(' or ')}`);
@@ -332,9 +334,9 @@ function baselinePayload(build, command) {
   const closure = [...build.receipts].reverse().find((receipt) => receipt.state === 'CLOSED')?.payload;
   invariant(closure, 'CLOSURE_REQUIRED', 'Baseline staging requires closure');
   invariant(command.closureDigest === closure.closureDigest, 'STALE_CLOSURE', 'Baseline claim does not match the current closure');
-  if (build.adapter === 'revenue-metric') {
+  if (build.adapter !== 'income-statement') {
     invariant(command.disposition === 'not-applicable', 'BASELINE_INVALID', 'Revenue Metric baseline must be not-applicable');
-    invariant(command.reason === 'revenue-metric-data-only', 'BASELINE_INVALID', 'Revenue Metric baseline needs the data-only reason');
+    invariant(command.reason === `${build.adapter}-data-only`, 'BASELINE_INVALID', 'Revenue Metric baseline needs the data-only reason');
     return {
       closureDigest: closure.closureDigest,
       disposition: 'not-applicable',
@@ -418,6 +420,18 @@ export function advanceDatasetBuild(build, command, options = {}) {
   invariant(Number.isInteger(command?.expectedRevision), 'REVISION_REQUIRED', 'expectedRevision is required');
   invariant(command.expectedRevision === build.revision, 'STALE_REVISION', 'Dataset Build revision changed');
 
+  if (command.type === 'rebase-canonical') {
+    invariant(build.authoringRoot, 'WORKSPACE_REQUIRED', 'Canonical refresh requires an isolated Build');
+    assertDigest(command.baseCanonicalDigest, 'New canonical base');
+    const authored = [...build.receipts].reverse().find((receipt) => receipt.state === 'AUTHORED');
+    return nextReceipt({ ...build, baseCanonicalDigest: command.baseCanonicalDigest }, authored ? 'AUTHORED' : 'INTAKED', { ...(authored?.payload || {}), rebasedFrom: build.baseCanonicalDigest, reason: 'explicit-canonical-refresh' }, now);
+  }
+  if (command.type === 'isolate-workspace') {
+    invariant(build.state === 'INTAKED' && !build.authoringRoot, 'WORKSPACE_PRECONDITION', 'Only a new intake may acquire an isolated workspace');
+    invariant(/^output\/builds\/build-[a-z0-9-]+\/workspace$/.test(command.authoringRoot), 'WORKSPACE_INVALID', 'Workspace must belong to this Build');
+    invariant(command.authoringRoot === `output/builds/${build.buildId}/workspace`, 'WORKSPACE_INVALID', 'Workspace Build mismatch');
+    return nextReceipt({ ...build, authoringRoot: command.authoringRoot }, 'INTAKED', { authoringRoot: command.authoringRoot, baseCanonicalDigest: build.baseCanonicalDigest }, now);
+  }
   if (command.type === 'record-authored') {
     invariant(['INTAKED', 'AUTHORED', 'CLOSED', 'BASELINE_STAGED', 'SEALED'].includes(build.state), 'STATE_PRECONDITION', 'Cannot author from the current state');
     return nextReceipt(build, 'AUTHORED', authoredPayload(build, command), now);

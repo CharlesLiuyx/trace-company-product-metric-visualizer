@@ -1,0 +1,43 @@
+{
+  "source": "input/processed/atlassian-q3-fy26.png",
+  "outputDir": "data/assets/icon-references/atlassian",
+  "validationSheetDir": "data/assets/icon-references/atlassian/validation-sheets",
+  "report": "crop-report.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "atlassian-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": {
+        "x": 760,
+        "y": 248,
+        "width": 245,
+        "height": 245
+      },
+      "cropBox": {
+        "x": 748,
+        "y": 238,
+        "width": 270,
+        "height": 270
+      },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.08,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Atlassian company logo above the revenue hub; excludes revenue labels, chart flows, and publisher marks."
+    }
+  ]
+}

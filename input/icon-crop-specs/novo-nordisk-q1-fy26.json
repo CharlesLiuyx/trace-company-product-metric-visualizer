@@ -1,0 +1,17 @@
+{
+  "source": "input/processed/novo-nordisk-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/novo-nordisk/q1-fy26",
+  "runtimeOutputDir": "data/assets/raster-annotations/novo-nordisk/q1-fy26",
+  "validationSheetDir": "data/assets/icon-references/novo-nordisk/q1-fy26/validation-sheets",
+  "backgroundRemoval": { "enabled": true, "mode": "edge-connected", "tolerance": 6, "color": [242, 242, 242] },
+  "crops": [
+    {
+      "key": "novo-nordisk-q1-fy26-company-logo",
+      "searchBox": { "x": 1020, "y": 221, "width": 390, "height": 280 },
+      "padding": 0,
+      "validation": { "borderBand": 0 },
+      "output": "crops/company-logo.png",
+      "runtimeOutput": "company-logo.png"
+    }
+  ]
+}

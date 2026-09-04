@@ -7,7 +7,7 @@ import {
   readDatasetBuild,
   recordBuildObject,
 } from './dataset-build-store.mjs';
-import { rootDir } from './project.mjs';
+import { rootDir, buildProjectRoot } from './project.mjs';
 
 export const DATASET_VERIFICATION_PROTOCOL = 'dataset-verification/v1';
 
@@ -40,8 +40,8 @@ function defaultVerifier({ key, projectRoot }) {
  */
 export async function recordDatasetVerification(buildId, options = {}) {
   const buildRoot = options.buildRoot || DEFAULT_BUILD_ROOT;
-  const projectRoot = options.projectRoot || rootDir;
   const before = await readDatasetBuild(buildId, { buildRoot });
+  const projectRoot = buildProjectRoot(before, options.projectRoot);
   const authoredBefore = latestReceipt(before, 'AUTHORED')?.payload;
   if (before.state !== 'AUTHORED' || !authoredBefore?.verificationPlanDigest) {
     throw verificationError('BUILD_NOT_REVIEWABLE', 'Dataset verification requires the current Build to be AUTHORED with a VerificationPlan');

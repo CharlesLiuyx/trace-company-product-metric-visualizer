@@ -1,0 +1,62 @@
+{
+  "source": "input/processed/hims-hers-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/hims-hers",
+  "runtimeOutputDir": "data/assets/raster-annotations/hims-hers",
+  "validationSheetDir": "data/assets/icon-references/hims-hers/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [242, 242, 242],
+    "tolerance": 8
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding and decorative mini-Sankey mark are attribution, not income-statement semantics."
+    },
+    {
+      "key": "publisher-website",
+      "reason": "The appeconomyinsights.com footer URL is source attribution, not company or financial-statement content."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "The App Economy Insights footer logo and wordmark are source attribution and are intentionally excluded."
+    }
+  ],
+  "crops": [
+    {
+      "key": "hims-hers-company-wordmark-q4-fy25",
+      "output": "crops/company-wordmark-q4-fy25.png",
+      "searchBox": { "x": 480, "y": 270, "width": 700, "height": 145 },
+      "cropBox": { "x": 480, "y": 270, "width": 700, "height": 145 },
+      "threshold": 14,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Complete Hims & Hers company wordmark above the Revenue hub. Excludes title text, financial labels, ribbons, KPI cards, and publisher attribution. A vector wordmark is used at runtime."
+    },
+    {
+      "key": "hims-hers-online-revenue-hims-card-q4-fy25",
+      "output": "crops/online-revenue-hims-card-q4-fy25.png",
+      "runtimeOutput": "online-revenue-hims-card-q4-fy25.png",
+      "searchBox": { "x": 40, "y": 738, "width": 143, "height": 142 },
+      "cropBox": { "x": 40, "y": 738, "width": 143, "height": 142 },
+      "threshold": 14,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Hims brand card for the Online revenue source. Excludes the source label, value, growth note, flow ribbon, and publisher attribution."
+    },
+    {
+      "key": "hims-hers-online-revenue-hers-card-q4-fy25",
+      "output": "crops/online-revenue-hers-card-q4-fy25.png",
+      "runtimeOutput": "online-revenue-hers-card-q4-fy25.png",
+      "searchBox": { "x": 188, "y": 738, "width": 143, "height": 142 },
+      "cropBox": { "x": 188, "y": 738, "width": 143, "height": 142 },
+      "threshold": 14,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Hers brand card for the Online revenue source. Excludes the source label, value, growth note, flow ribbon, and publisher attribution."
+    }
+  ]
+}

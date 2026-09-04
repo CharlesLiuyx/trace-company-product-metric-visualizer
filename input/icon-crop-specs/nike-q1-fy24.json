@@ -1,0 +1,40 @@
+{
+  "source": "input/processing/nike-q1-fy24.png",
+  "outputDir": "output/icon-crops/nike-q1-fy24",
+  "runtimeOutputDir": "data/assets/raster-annotations/nike",
+  "validationSheetDir": "output/icon-crops/nike-q1-fy24/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "skipped": [
+    {
+      "key": "nike-company-and-other-business-icons",
+      "reason": "Validated Nike runtime crops are reused; only the Converse crop is re-extracted because the shared legacy crop contains unrelated top-edge pixels."
+    },
+    {
+      "key": "publisher-branding",
+      "reason": "Source attribution, website, and publisher badge are not Nike income-statement semantics."
+    }
+  ],
+  "crops": [
+    {
+      "key": "nike-business-converse-q1-fy24",
+      "output": "business-converse-q1-fy24.png",
+      "runtimeOutput": "business-converse-q1-fy24.png",
+      "searchBox": { "x": 131, "y": 1188, "width": 203, "height": 132 },
+      "cropBox": { "x": 125, "y": 1178, "width": 215, "height": 146 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Converse high-top sneaker product photo; excludes the unrelated top-edge residue present in the legacy shared crop and stops above the Converse text label."
+    }
+  ]
+}

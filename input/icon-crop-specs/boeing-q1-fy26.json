@@ -1,0 +1,59 @@
+{
+  "source": "input/processed/boeing-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/boeing",
+  "runtimeOutputDir": "data/assets/raster-annotations/boeing",
+  "validationSheetDir": "data/assets/icon-references/boeing/validation-sheets",
+  "report": "crop-report.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "crops": [
+    {
+      "key": "boeing-737-tile",
+      "output": "crops/commercial-airplanes-737.png",
+      "searchBox": {
+        "x": 95,
+        "y": 328,
+        "width": 295,
+        "height": 90
+      },
+      "threshold": 14,
+      "minComponentArea": 40,
+      "padding": 10,
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Commercial Airplanes segment icon: a photographic Boeing 737 MAX in blue livery, above the 'Commercial Airplanes' label. The airplane's nose extends right to ~x380; the searchBox spans x95-390 to capture the full nose while staying clear of the '$9.2B' value block, which begins at ~x414 (clean ~30px background gap). Kept as an opaque, background-matched rectangular patch (background removal disabled) because the photo sits on the uniform #f2f2f2 chart background, so the padded corners blend seamlessly when the patch is re-placed at the source coordinates. borderBand is 0 because this is an intentional background-matched patch rather than a transparent die-cut icon; subject detection (threshold 14) still centers the crop on the airplane and centerOffset is validated. Excludes the '$9.2B'/'+13% Y/Y' value block, the segment name, and the Boeing wordmark logo."
+    },
+    {
+      "key": "boeing-starliner-tile",
+      "output": "crops/defense-starliner.png",
+      "searchBox": {
+        "x": 170,
+        "y": 590,
+        "width": 170,
+        "height": 120
+      },
+      "threshold": 14,
+      "minComponentArea": 40,
+      "padding": 8,
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Defense, Space & Security segment icon: a photographic Boeing CST-100 Starliner crew capsule, above the 'Defense, Space & Security' label. Kept as an opaque, background-matched rectangular patch (background removal disabled; die-cut removal leaves edge speckle on this photo). padding is 8 (tighter than the 737's 10) to keep the opaque patch from extending onto the 'Defense, Space' name top. The tile is placed a few px above its raw source y in the dataset rasterAnnotations so the patch bottom clears the name; the capsule photo sits on the uniform #f2f2f2 chart background so the padded corners still blend. borderBand is 0 (intentional patch, not a transparent die-cut). Excludes the '$7.6B'/'+21% Y/Y' value block and the segment name text below the capsule."
+    }
+  ]
+}

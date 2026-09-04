@@ -1,0 +1,25 @@
+{
+  "source": "input/processed/united-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/united",
+  "validationSheetDir": "data/assets/icon-references/united/validation-sheets",
+  "runtimeOutputDir": "data/assets/raster-annotations/united",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "united-company-lockup",
+      "output": "crops/company-lockup.png",
+      "searchBox": { "x": 500, "y": 295, "width": 860, "height": 165 },
+      "cropBox": { "x": 500, "y": 295, "width": 860, "height": 165 },
+      "threshold": 18,
+      "minComponentArea": 50,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "United corporate wordmark and globe lockup above the revenue hub; excludes the title and all financial labels."
+    }
+  ]
+}

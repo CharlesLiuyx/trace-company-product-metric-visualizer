@@ -1,0 +1,63 @@
+{
+  "source": "input/processed/toast-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/toast",
+  "validationSheetDir": "data/assets/icon-references/toast/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [242, 242, 242],
+    "tolerance": 10
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding and decorative mini-Sankey mark are not part of Toast's income-statement semantics."
+    },
+    {
+      "key": "publisher-website",
+      "reason": "The appeconomyinsights.com footer URL is source attribution, not company or financial-statement content."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "The App Economy Insights footer logo and wordmark are source attribution and are intentionally excluded."
+    }
+  ],
+  "crops": [
+    {
+      "key": "toast-company-logo",
+      "output": "crops/company-logo-q4-fy25.png",
+      "searchBox": { "x": 532, "y": 249, "width": 601, "height": 164 },
+      "cropBox": { "x": 520, "y": 240, "width": 625, "height": 180 },
+      "threshold": 18,
+      "foreground": {
+        "channels": {
+          "r": [245, 255],
+          "g": [0, 110],
+          "b": [0, 70]
+        }
+      },
+      "transparentColors": [
+        {
+          "channels": {
+            "r": [0, 244]
+          }
+        },
+        {
+          "channels": {
+            "g": [111, 255]
+          }
+        },
+        {
+          "channels": {
+            "b": [71, 255]
+          }
+        }
+      ],
+      "minComponentArea": 20,
+      "validation": { "borderBand": 5, "maxCenterOffset": 0.04, "maxForbiddenForegroundPixels": 0 },
+      "note": "Complete Toast bread icon and orange wordmark above the revenue hub; excludes the title, Revenue label, and ribbons."
+    }
+  ]
+}

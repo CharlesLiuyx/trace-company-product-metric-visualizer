@@ -1,0 +1,113 @@
+{
+  "source": "input/processed/nestle-h1-fy23.png",
+  "outputDir": "data/assets/icon-references/nestle",
+  "runtimeOutputDir": "data/assets/raster-annotations/nestle",
+  "validationSheetDir": "data/assets/icon-references/nestle/validation-sheets",
+  "report": "crop-report-h1-fy23.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": { "enabled": true, "mode": "edge-connected", "tolerance": 8 },
+  "skipped": [
+    {
+      "key": "publisher-source-line",
+      "reason": "The Source: Quarterly results footer is source attribution rather than Nestlé financial semantics."
+    },
+    {
+      "key": "publisher-url",
+      "reason": "appeconomyinsights.com is publisher attribution and is intentionally excluded."
+    },
+    {
+      "key": "publisher-lockup",
+      "reason": "The APP ECONOMY INSIGHTS badge and wordmark are publisher branding, not a Nestlé asset."
+    }
+  ],
+  "crops": [
+    {
+      "key": "nestle-company-wordmark-h1-fy23",
+      "output": "crops/company-wordmark-h1-fy23.png",
+      "runtimeOutput": "company-wordmark-h1-fy23.png",
+      "searchBox": { "x": 850, "y": 260, "width": 240, "height": 240 },
+      "cropBox": { "x": 850, "y": 260, "width": 240, "height": 240 },
+      "threshold": 18,
+      "minComponentArea": 24,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Nestlé bird-and-nest corporate wordmark above the Sales hub."
+    },
+    {
+      "key": "nestle-powdered-liquid-beverages-brands-h1-fy23",
+      "output": "crops/powdered-liquid-beverages-brands-h1-fy23.png",
+      "runtimeOutput": "powdered-liquid-beverages-brands-h1-fy23.png",
+      "searchBox": { "x": 0, "y": 255, "width": 200, "height": 120 },
+      "cropBox": { "x": 0, "y": 255, "width": 200, "height": 120 },
+      "threshold": 18,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Nescafé and Nespresso brand cluster for Powdered & Liquid Beverages."
+    },
+    {
+      "key": "nestle-water-brands-h1-fy23",
+      "output": "crops/water-brands-h1-fy23.png",
+      "runtimeOutput": "water-brands-h1-fy23.png",
+      "searchBox": { "x": 18, "y": 460, "width": 170, "height": 150 },
+      "cropBox": { "x": 18, "y": 460, "width": 170, "height": 150 },
+      "threshold": 18,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "S.Pellegrino and Perrier brand cluster for Water."
+    },
+    {
+      "key": "nestle-milk-ice-cream-brand-h1-fy23",
+      "output": "crops/milk-ice-cream-brand-h1-fy23.png",
+      "runtimeOutput": "milk-ice-cream-brand-h1-fy23.png",
+      "searchBox": { "x": 8, "y": 668, "width": 172, "height": 96 },
+      "cropBox": { "x": 8, "y": 668, "width": 172, "height": 96 },
+      "threshold": 18,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Häagen-Dazs brand mark for Milk products & Ice cream."
+    },
+    {
+      "key": "nestle-nutrition-health-science-brand-h1-fy23",
+      "output": "crops/nutrition-health-science-brand-h1-fy23.png",
+      "runtimeOutput": "nutrition-health-science-brand-h1-fy23.png",
+      "searchBox": { "x": 0, "y": 810, "width": 160, "height": 70 },
+      "cropBox": { "x": 0, "y": 810, "width": 160, "height": 70 },
+      "threshold": 18,
+      "minComponentArea": 12,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.22, "maxForbiddenForegroundPixels": 0 },
+      "note": "Nestlé Health Science wordmark for Nutrition & Health Science; the right edge stops before the adjacent category label."
+    },
+    {
+      "key": "nestle-prepared-dishes-brand-h1-fy23",
+      "output": "crops/prepared-dishes-brand-h1-fy23.png",
+      "runtimeOutput": "prepared-dishes-brand-h1-fy23.png",
+      "searchBox": { "x": 10, "y": 1033, "width": 145, "height": 84 },
+      "cropBox": { "x": 10, "y": 1033, "width": 145, "height": 84 },
+      "threshold": 18,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Maggi brand mark for Prepared dishes & Cooking aid; starts below the adjacent label isolation row."
+    },
+    {
+      "key": "nestle-confectionery-brand-h1-fy23",
+      "output": "crops/confectionery-brand-h1-fy23.png",
+      "runtimeOutput": "confectionery-brand-h1-fy23.png",
+      "searchBox": { "x": 20, "y": 1135, "width": 135, "height": 90 },
+      "cropBox": { "x": 20, "y": 1135, "width": 135, "height": 90 },
+      "threshold": 18,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "KitKat brand mark for Confectionery."
+    },
+    {
+      "key": "nestle-petcare-brand-h1-fy23",
+      "output": "crops/petcare-brand-h1-fy23.png",
+      "runtimeOutput": "petcare-brand-h1-fy23.png",
+      "searchBox": { "x": 5, "y": 1320, "width": 180, "height": 65 },
+      "cropBox": { "x": 5, "y": 1320, "width": 180, "height": 65 },
+      "threshold": 18,
+      "minComponentArea": 12,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.22, "maxForbiddenForegroundPixels": 0 },
+      "note": "Purina brand mark for PetCare."
+    }
+  ]
+}

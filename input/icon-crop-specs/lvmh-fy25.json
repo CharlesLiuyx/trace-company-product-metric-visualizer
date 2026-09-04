@@ -1,0 +1,88 @@
+{
+  "source": "input/processed/lvmh-fy25.png",
+  "outputDir": "data/assets/icon-references/lvmh",
+  "runtimeOutputDir": "data/assets/raster-annotations/lvmh",
+  "validationSheetDir": "data/assets/icon-references/lvmh/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 7
+  },
+  "crops": [
+    {
+      "key": "lvmh-company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "searchBox": { "x": 730, "y": 285, "width": 525, "height": 165 },
+      "threshold": 22,
+      "minComponentArea": 30,
+      "padding": 18,
+      "validation": { "borderBand": 4, "maxCenterOffset": 0.035, "maxForbiddenForegroundPixels": 0 },
+      "note": "Central LVMH wordmark; excludes the title and the Revenue label."
+    },
+    {
+      "key": "lvmh-business-wines-spirits-cluster",
+      "output": "crops/business-wines-spirits-cluster.png",
+      "searchBox": { "x": 8, "y": 290, "width": 178, "height": 190 },
+      "threshold": 18,
+      "minComponentArea": 16,
+      "padding": 12,
+      "validation": { "borderBand": 3, "maxCenterOffset": 0.045, "maxForbiddenForegroundPixels": 0 },
+      "note": "Wines & Spirits brand cluster: Hennessy, Moët & Chandon, and Dom Pérignon; excludes the segment label and chart marks."
+    },
+    {
+      "key": "lvmh-business-fashion-leather-goods-cluster",
+      "output": "crops/business-fashion-leather-goods-cluster.png",
+      "searchBox": { "x": 8, "y": 530, "width": 176, "height": 177 },
+      "excludeBoxes": [
+        { "x": 166, "y": 615, "width": 28, "height": 100 }
+      ],
+      "threshold": 18,
+      "minComponentArea": 16,
+      "padding": 12,
+      "validation": { "borderBand": 3, "maxCenterOffset": 0.045, "maxForbiddenForegroundPixels": 0 },
+      "note": "Fashion & Leather Goods brand cluster: Louis Vuitton, Christian Dior, and Givenchy; excludes the segment label and chart marks."
+    },
+    {
+      "key": "lvmh-business-perfumes-cosmetics-cluster",
+      "output": "crops/business-perfumes-cosmetics-cluster.png",
+      "searchBox": { "x": 8, "y": 785, "width": 178, "height": 124 },
+      "threshold": 18,
+      "minComponentArea": 16,
+      "padding": 12,
+      "validation": { "borderBand": 3, "maxCenterOffset": 0.045, "maxForbiddenForegroundPixels": 0 },
+      "note": "Perfumes & Cosmetics brand cluster: Sephora, Kenzo, and Guerlain; excludes the segment label and chart marks."
+    },
+    {
+      "key": "lvmh-business-watches-jewelry-cluster",
+      "output": "crops/business-watches-jewelry-cluster.png",
+      "searchBox": { "x": 8, "y": 965, "width": 184, "height": 112 },
+      "threshold": 18,
+      "minComponentArea": 16,
+      "padding": 12,
+      "validation": { "borderBand": 3, "maxCenterOffset": 0.045, "maxForbiddenForegroundPixels": 0 },
+      "note": "Watches & Jewelry brand cluster: Bulgari, Hublot, and Tiffany & Co.; excludes the segment label and chart marks."
+    },
+    {
+      "key": "lvmh-business-selective-retailing-cluster",
+      "output": "crops/business-selective-retailing-cluster.png",
+      "searchBox": { "x": 8, "y": 1125, "width": 184, "height": 135 },
+      "threshold": 18,
+      "minComponentArea": 16,
+      "padding": 12,
+      "validation": { "borderBand": 3, "maxCenterOffset": 0.045, "maxForbiddenForegroundPixels": 0 },
+      "note": "Selective Retailing brand cluster: DFS and La Grande Épicerie de Paris; excludes the segment label and chart marks."
+    },
+    {
+      "key": "lvmh-business-other-cluster",
+      "output": "crops/business-other-cluster.png",
+      "searchBox": { "x": 8, "y": 1272, "width": 184, "height": 104 },
+      "threshold": 18,
+      "minComponentArea": 16,
+      "padding": 12,
+      "validation": { "borderBand": 3, "maxCenterOffset": 0.045, "maxForbiddenForegroundPixels": 0 },
+      "note": "Other-activities media cluster: Le Parisien and Les Echos; excludes the segment label, source mark, and chart marks."
+    }
+  ]
+}

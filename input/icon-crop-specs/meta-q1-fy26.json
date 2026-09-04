@@ -1,0 +1,42 @@
+{
+  "source": "input/processed/meta-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/meta/",
+  "validationSheetDir": "data/assets/icon-references/meta/validation-sheets/",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 7
+  },
+  "crops": [
+    {
+      "key": "meta-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": { "x": 1098, "y": 265, "width": 292, "height": 210 },
+      "cropBox": { "x": 1084, "y": 250, "width": 320, "height": 238 },
+      "threshold": 10,
+      "minComponentArea": 200
+    },
+    {
+      "key": "meta-business-family-apps-cluster",
+      "output": "crops/business-family-apps-cluster.png",
+      "searchBox": { "x": 82, "y": 513, "width": 365, "height": 346 },
+      "cropBox": { "x": 74, "y": 504, "width": 386, "height": 366 },
+      "threshold": 10,
+      "minComponentArea": 120,
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 9
+      }
+    },
+    {
+      "key": "meta-business-reality-labs-quest-wordmark",
+      "output": "crops/business-reality-labs-quest-wordmark.png",
+      "searchBox": { "x": 498, "y": 1199, "width": 338, "height": 58 },
+      "cropBox": { "x": 490, "y": 1189, "width": 342, "height": 63 },
+      "threshold": 16,
+      "minComponentArea": 20
+    }
+  ]
+}

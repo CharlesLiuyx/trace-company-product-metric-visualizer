@@ -1,0 +1,123 @@
+{
+  "source": "input/processed/nintendo-fy26.png",
+  "outputDir": "data/assets/icon-references/nintendo",
+  "runtimeOutputDir": "data/assets/raster-annotations/nintendo",
+  "validationSheetDir": "data/assets/icon-references/nintendo/validation-sheets",
+  "report": "crop-report.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [1180, 1360, 80, 80]
+  ],
+  "crops": [
+    {
+      "key": "nintendo-company-logo",
+      "output": "crops/company-logo.png",
+      "runtimeOutput": "company-logo.png",
+      "searchBox": {
+        "x": 895,
+        "y": 234,
+        "width": 598,
+        "height": 148
+      },
+      "cropBox": {
+        "x": 880,
+        "y": 216,
+        "width": 622,
+        "height": 182
+      },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "padding": 18,
+      "validation": {
+        "borderBand": 3,
+        "maxCenterOffset": 0.03,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Nintendo company logo near the top center; excludes the title, chart labels, website, and publisher attribution."
+    },
+    {
+      "key": "nintendo-switch-console-icon",
+      "output": "crops/switch-console-icon.png",
+      "runtimeOutput": "switch-console-icon.png",
+      "searchBox": {
+        "x": 62,
+        "y": 568,
+        "width": 150,
+        "height": 146
+      },
+      "cropBox": {
+        "x": 49,
+        "y": 552,
+        "width": 168,
+        "height": 176
+      },
+      "backgroundRemoval": {
+        "color": [242, 242, 242],
+        "tolerance": 6
+      },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "padding": 14,
+      "validation": {
+        "borderBand": 3,
+        "maxCenterOffset": 0.03,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Nintendo Switch controller icon associated with the Hardware segment; excludes hardware text and financial values."
+    },
+    {
+      "key": "nintendo-switch-wordmark",
+      "output": "crops/switch-wordmark.png",
+      "runtimeOutput": "switch-wordmark.png",
+      "searchBox": {
+        "x": 715,
+        "y": 420,
+        "width": 224,
+        "height": 66
+      },
+      "cropBox": {
+        "x": 705,
+        "y": 406,
+        "width": 248,
+        "height": 96
+      },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "padding": 10,
+      "validation": {
+        "borderBand": 3,
+        "maxCenterOffset": 0.03,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Nintendo Switch wordmark above the main hardware flow; excludes values, chart links, and surrounding labels."
+    },
+    {
+      "key": "nintendo-mobile-store-icons",
+      "output": "crops/mobile-store-icons.png",
+      "runtimeOutput": "mobile-store-icons.png",
+      "searchBox": {
+        "x": 522,
+        "y": 1212,
+        "width": 198,
+        "height": 86
+      },
+      "cropBox": {
+        "x": 506,
+        "y": 1200,
+        "width": 210,
+        "height": 100
+      },
+      "threshold": 18,
+      "minComponentArea": 25,
+      "padding": 12,
+      "validation": {
+        "borderBand": 3,
+        "maxCenterOffset": 0.05,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "App Store and Google Play icons associated with the Other revenue line; excludes the Other label, values, and bottom publisher marks."
+    }
+  ]
+}

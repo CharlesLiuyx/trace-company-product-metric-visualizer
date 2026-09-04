@@ -1,0 +1,55 @@
+{
+  "source": "input/processed/kraft-heinz-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/kraft-heinz",
+  "runtimeOutputDir": "data/assets/raster-annotations/kraft-heinz",
+  "validationSheetDir": "data/assets/icon-references/kraft-heinz/validation-sheets",
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [242, 242, 242],
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "kraft-heinz-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": { "x": 650, "y": 265, "width": 605, "height": 135 },
+      "cropBox": { "x": 650, "y": 265, "width": 605, "height": 135 },
+      "note": "Kraft Heinz two-color wordmark above the net-sales hub; excludes the title and net-sales label."
+    },
+    {
+      "key": "kraft-heinz-north-america-kool-aid",
+      "output": "crops/north-america-kool-aid.png",
+      "searchBox": { "x": 20, "y": 240, "width": 170, "height": 185 },
+      "cropBox": { "x": 17, "y": 248, "width": 135, "height": 170 },
+      "padding": 14,
+      "cropWithinSearchBox": true,
+      "note": "Kool-Aid product-pack cluster for North America."
+    },
+    {
+      "key": "kraft-heinz-north-america-condiments",
+      "output": "crops/north-america-condiments.png",
+      "searchBox": { "x": 195, "y": 245, "width": 185, "height": 155 },
+      "padding": 14,
+      "cropWithinSearchBox": true,
+      "note": "Heinz ketchup, French's mustard, and Miracle Whip cluster for North America."
+    },
+    {
+      "key": "kraft-heinz-international-developed-maxwell-house",
+      "output": "crops/international-developed-maxwell-house.png",
+      "searchBox": { "x": 65, "y": 435, "width": 135, "height": 160 },
+      "padding": 14,
+      "cropWithinSearchBox": true,
+      "note": "Maxwell House coffee can for International Developed Markets."
+    },
+    {
+      "key": "kraft-heinz-emerging-markets-home-bake",
+      "output": "crops/emerging-markets-home-bake.png",
+      "searchBox": { "x": 220, "y": 390, "width": 145, "height": 125 },
+      "cropBox": { "x": 229, "y": 387, "width": 121, "height": 107 },
+      "padding": 14,
+      "cropWithinSearchBox": true,
+      "note": "Home Bake product-pack cluster for Emerging Markets."
+    }
+  ]
+}

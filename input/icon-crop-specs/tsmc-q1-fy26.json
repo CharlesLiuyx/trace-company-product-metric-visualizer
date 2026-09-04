@@ -1,0 +1,21 @@
+{
+  "source": "input/processed/tsmc-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/tsmc/",
+  "validationSheetDir": "data/assets/icon-references/tsmc/validation-sheets/",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "crops": [
+    {
+      "key": "tsmc-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": { "x": 786, "y": 231, "width": 318, "height": 236 },
+      "cropBox": { "x": 740, "y": 221, "width": 420, "height": 259 },
+      "threshold": 24,
+      "minComponentArea": 40
+    }
+  ]
+}

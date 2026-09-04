@@ -1,0 +1,24 @@
+{
+  "source": "input/processed/texas-instruments-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/texas-instruments",
+  "runtimeOutputDir": "data/assets/raster-annotations/texas-instruments",
+  "validationSheetDir": "data/assets/icon-references/texas-instruments/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": { "enabled": true, "mode": "edge-connected", "tolerance": 8 },
+  "crops": [
+    {
+      "key": "texas-instruments-company-wordmark",
+      "output": "crops/texas-instruments-company-wordmark.png",
+      "runtimeOutput": "texas-instruments-company-wordmark.png",
+      "searchBox": { "x": 555, "y": 265, "width": 660, "height": 230 },
+      "cropBox": { "x": 555, "y": 265, "width": 660, "height": 230 },
+      "backgroundRemoval": { "color": [242, 242, 242], "tolerance": 8 },
+      "threshold": 18,
+      "minComponentArea": 16,
+      "padding": 6,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Texas Instruments corporate wordmark centered above the Revenue hub; excludes the report title and financial labels. The complete red TI mark and black wordmark are retained as a validated runtime crop."
+    }
+  ]
+}

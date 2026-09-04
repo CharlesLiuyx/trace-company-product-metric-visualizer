@@ -1,0 +1,65 @@
+{
+  "source": "input/processed/celsius-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/celsius",
+  "runtimeOutputDir": "data/assets/raster-annotations/celsius",
+  "validationSheetDir": "data/assets/icon-references/celsius/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "The lower-left HOW THEY MAKE MONEY badge and miniature Sankey are publisher attribution, not Celsius financial content."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "The website URL and lower-right APP ECONOMY INSIGHTS lockup are publisher attribution, not chart objects."
+    }
+  ],
+  "crops": [
+    {
+      "key": "company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": { "x": 585, "y": 290, "width": 720, "height": 215 },
+      "cropBox": { "x": 565, "y": 275, "width": 760, "height": 255 },
+      "threshold": 18,
+      "minComponentArea": 45,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "The complete CELSIUS Live Fit company lockup above the North America hub; excludes the title and source labels."
+    },
+    {
+      "key": "celsius-product-cluster",
+      "output": "crops/celsius-product-cluster.png",
+      "searchBox": { "x": 30, "y": 405, "width": 310, "height": 205 },
+      "cropBox": { "x": 15, "y": 385, "width": 345, "height": 245 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.22, "maxForbiddenForegroundPixels": 0 },
+      "note": "Four CELSIUS and Alani Nu product cans for the North America revenue source; excludes its value label."
+    },
+    {
+      "key": "pepsico-wordmark",
+      "output": "crops/pepsico-wordmark.png",
+      "searchBox": { "x": 25, "y": 700, "width": 300, "height": 60 },
+      "cropBox": { "x": 15, "y": 685, "width": 330, "height": 90 },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "PEPSICO distribution-partner wordmark beside the $66M source; excludes financial text."
+    },
+    {
+      "key": "amazon-wordmark",
+      "output": "crops/amazon-wordmark.png",
+      "searchBox": { "x": 20, "y": 970, "width": 315, "height": 100 },
+      "cropBox": { "x": 10, "y": 955, "width": 340, "height": 125 },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Amazon wordmark and smile beside the $255M source; excludes financial text."
+    }
+  ]
+}

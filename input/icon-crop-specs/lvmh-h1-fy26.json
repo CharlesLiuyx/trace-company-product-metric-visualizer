@@ -1,0 +1,37 @@
+{
+  "source": "input/processed/lvmh-h1-fy26.png",
+  "outputDir": "data/assets/icon-references/lvmh",
+  "runtimeOutputDir": "data/assets/raster-annotations/lvmh",
+  "validationSheetDir": "data/assets/icon-references/lvmh/validation-sheets",
+  "report": "crop-report-h1-fy26.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 7
+  },
+  "crops": [
+    {
+      "key": "lvmh-business-perfumes-cosmetics-cluster-h1-fy26",
+      "output": "crops/business-perfumes-cosmetics-cluster-h1-fy26.png",
+      "runtimeOutput": "business-perfumes-cosmetics-cluster-h1-fy26.png",
+      "searchBox": { "x": 8, "y": 755, "width": 178, "height": 125 },
+      "threshold": 18,
+      "minComponentArea": 16,
+      "padding": 12,
+      "validation": { "borderBand": 3, "maxCenterOffset": 0.045, "maxForbiddenForegroundPixels": 0 },
+      "note": "H1 FY26 Perfumes & Cosmetics brand cluster: Fenty, Kenzo, and Guerlain."
+    },
+    {
+      "key": "lvmh-business-selective-retailing-cluster-h1-fy26",
+      "output": "crops/business-selective-retailing-cluster-h1-fy26.png",
+      "runtimeOutput": "business-selective-retailing-cluster-h1-fy26.png",
+      "searchBox": { "x": 8, "y": 1050, "width": 184, "height": 180 },
+      "threshold": 18,
+      "minComponentArea": 16,
+      "padding": 12,
+      "validation": { "borderBand": 3, "maxCenterOffset": 0.045, "maxForbiddenForegroundPixels": 0 },
+      "note": "H1 FY26 Selective Retailing brand cluster: DFS, Sephora, and La Grande Epicerie de Paris."
+    }
+  ]
+}

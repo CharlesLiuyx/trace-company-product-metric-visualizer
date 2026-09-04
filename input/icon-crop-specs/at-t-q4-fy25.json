@@ -1,0 +1,41 @@
+{
+  "source": "input/processed/at-t-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/at-t",
+  "runtimeOutputDir": "data/assets/raster-annotations/at-t",
+  "validationSheetDir": "data/assets/icon-references/at-t/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [242, 242, 242]
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "The lower-left HOW THEY MAKE MONEY badge and miniature Sankey are publisher attribution, not AT&T financial-chart content."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "The footer URL, social badge, and APP ECONOMY INSIGHTS lockup are publisher attribution, not AT&T financial-chart content."
+    },
+    {
+      "key": "segment-icons",
+      "reason": "The five revenue sources use text and financial nodes only; no independent business or segment icon cluster appears in the source."
+    }
+  ],
+  "crops": [
+    {
+      "key": "at-t-company-logo",
+      "output": "crops/company-logo.png",
+      "runtimeOutput": "company-logo.png",
+      "searchBox": { "x": 1090, "y": 270, "width": 460, "height": 200 },
+      "cropBox": { "x": 1060, "y": 250, "width": 520, "height": 230 },
+      "threshold": 8,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "AT&T globe and wordmark centered above the Revenue node; excludes the title, revenue label, chart flows, and publisher attribution. It is retained as the validation reference for the vector logo in the adapter."
+    }
+  ]
+}

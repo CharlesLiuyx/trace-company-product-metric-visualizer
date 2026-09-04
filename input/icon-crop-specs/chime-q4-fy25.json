@@ -1,0 +1,63 @@
+{
+  "source": "input/processed/chime-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/chime",
+  "runtimeOutputDir": "data/assets/raster-annotations/chime",
+  "validationSheetDir": "data/assets/icon-references/chime/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [242, 242, 242],
+    "tolerance": 8
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding and decorative mini-Sankey mark are not part of Chime's income-statement semantics."
+    },
+    {
+      "key": "publisher-website",
+      "reason": "The appeconomyinsights.com footer URL is source attribution, not company or financial-statement content."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "The App Economy Insights footer logo and wordmark are source attribution and are intentionally excluded."
+    }
+  ],
+  "crops": [
+    {
+      "key": "chime-company-wordmark",
+      "output": "crops/company-wordmark-q4-fy25.png",
+      "searchBox": { "x": 640, "y": 280, "width": 530, "height": 170 },
+      "cropBox": { "x": 635, "y": 275, "width": 545, "height": 180 },
+      "threshold": 15,
+      "minComponentArea": 20,
+      "foreground": { "channels": { "r": [0, 80], "g": [130, 255], "b": [50, 180] } },
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.07, "maxForbiddenForegroundPixels": 0 },
+      "note": "Complete Chime wordmark above the revenue hub; excludes title text, Revenue labels, KPI cards, ribbons, and publisher attribution. A vector wordmark is used at runtime."
+    },
+    {
+      "key": "chime-payment-revenue-card",
+      "output": "crops/payment-revenue-card-q4-fy25.png",
+      "runtimeOutput": "payment-revenue-card-q4-fy25.png",
+      "searchBox": { "x": 105, "y": 470, "width": 190, "height": 140 },
+      "cropBox": { "x": 105, "y": 470, "width": 190, "height": 140 },
+      "threshold": 15,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 1, "maxCenterOffset": 0.09, "maxForbiddenForegroundPixels": 0 },
+      "note": "Payment revenue Chime Card illustration only; excludes the segment label, values, notes, and source bar."
+    },
+    {
+      "key": "chime-platform-related-revenue-phone",
+      "output": "crops/platform-related-revenue-phone-q4-fy25.png",
+      "runtimeOutput": "platform-related-revenue-phone-q4-fy25.png",
+      "searchBox": { "x": 100, "y": 830, "width": 190, "height": 155 },
+      "cropBox": { "x": 95, "y": 830, "width": 200, "height": 155 },
+      "threshold": 15,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 1, "maxCenterOffset": 0.1, "maxForbiddenForegroundPixels": 0 },
+      "note": "Platform-related revenue mobile-app illustration only; excludes the segment label, values, notes, and source bar."
+    }
+  ]
+}

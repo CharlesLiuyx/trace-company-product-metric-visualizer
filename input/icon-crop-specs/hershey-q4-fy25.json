@@ -1,0 +1,65 @@
+{
+  "source": "input/processed/hershey-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/hershey",
+  "runtimeOutputDir": "data/assets/raster-annotations/hershey",
+  "validationSheetDir": "data/assets/icon-references/hershey/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding badge and mini Sankey logo are attribution, not Hershey financial semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "Source website URL, footer logo, and attribution are intentionally excluded."
+    }
+  ],
+  "crops": [
+    {
+      "key": "hershey-company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "searchBox": { "x": 660, "y": 250, "width": 600, "height": 250 },
+      "cropBox": { "x": 650, "y": 240, "width": 620, "height": 270 },
+      "threshold": 18,
+      "minComponentArea": 45,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.14, "maxForbiddenForegroundPixels": 0 },
+      "note": "The burgundy Hershey wordmark above net sales; excludes the title, revenue labels, and chart flows."
+    },
+    {
+      "key": "north-america-confectionery-products",
+      "output": "crops/north-america-confectionery-products.png",
+      "searchBox": { "x": 150, "y": 410, "width": 200, "height": 190 },
+      "cropBox": { "x": 140, "y": 400, "width": 220, "height": 210 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Jolly Rancher and Reese's product-pack cluster for North America Confectionery; excludes value and label text."
+    },
+    {
+      "key": "north-america-salty-snacks-products",
+      "output": "crops/north-america-salty-snacks-products.png",
+      "searchBox": { "x": 150, "y": 760, "width": 210, "height": 190 },
+      "cropBox": { "x": 140, "y": 750, "width": 230, "height": 210 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Dot's Pretzels and SkinnyPop product-pack cluster for North America Salty Snacks; excludes value and label text."
+    },
+    {
+      "key": "international-products",
+      "output": "crops/international-products.png",
+      "searchBox": { "x": 185, "y": 1110, "width": 160, "height": 130 },
+      "cropBox": { "x": 175, "y": 1105, "width": 180, "height": 145 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Kisses and snack product-pack cluster for International; starts below the Salty Snacks margin and ends above the International label."
+    }
+  ]
+}

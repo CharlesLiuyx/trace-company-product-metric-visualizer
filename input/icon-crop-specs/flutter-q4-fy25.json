@@ -1,0 +1,60 @@
+{
+  "source": "input/processed/flutter-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/flutter",
+  "runtimeOutputDir": "data/assets/raster-annotations/flutter",
+  "validationSheetDir": "data/assets/icon-references/flutter/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "crops": [
+    {
+      "key": "flutter-company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "runtimeOutput": "company-wordmark.png",
+      "searchBox": { "x": 820, "y": 264, "width": 625, "height": 142 },
+      "cropBox": { "x": 808, "y": 254, "width": 650, "height": 166 },
+      "threshold": 16,
+      "minComponentArea": 60,
+      "backgroundRemoval": { "enabled": false },
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.15, "maxForbiddenForegroundPixels": 0 },
+      "note": "Flutter wordmark and glyph above the revenue flow; opaque background-matched crop preserves the custom lockup while excluding the title and Sportsbook label."
+    },
+    {
+      "key": "fanduel-us-brand",
+      "output": "crops/fanduel-us-brand.png",
+      "runtimeOutput": "fanduel-us-brand.png",
+      "searchBox": { "x": 22, "y": 628, "width": 282, "height": 60 },
+      "cropBox": { "x": 14, "y": 620, "width": 300, "height": 76 },
+      "threshold": 16,
+      "minComponentArea": 20,
+      "backgroundRemoval": { "enabled": false },
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "FanDuel shield-and-wordmark cluster for the US segment; excludes the separate US flag/text and source value label."
+    },
+    {
+      "key": "flutter-international-brand-cluster",
+      "output": "crops/international-brand-cluster.png",
+      "runtimeOutput": "international-brand-cluster.png",
+      "searchBox": { "x": 90, "y": 1018, "width": 340, "height": 182 },
+      "cropBox": { "x": 78, "y": 1008, "width": 364, "height": 204 },
+      "threshold": 16,
+      "minComponentArea": 20,
+      "backgroundRemoval": { "enabled": false },
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.23, "maxForbiddenForegroundPixels": 0 },
+      "note": "International brand cluster with Betfair, Sportsbet, Sky Betting & Gaming, Paddy Power, Sisal, and PokerStars; excludes the International label, node, and publisher footer."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "us-flag-and-country-label",
+      "reason": "A locale marker rendered as text/emoji rather than a reusable business or company icon asset."
+    },
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding and not Flutter income-statement semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "Source publisher branding, website URL, and footer logo are intentionally excluded."
+    }
+  ]
+}

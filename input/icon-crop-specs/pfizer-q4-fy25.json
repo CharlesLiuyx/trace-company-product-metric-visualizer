@@ -1,0 +1,59 @@
+{
+  "source": "input/processed/pfizer-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/pfizer",
+  "runtimeOutputDir": "data/assets/raster-annotations/pfizer",
+  "validationSheetDir": "data/assets/icon-references/pfizer/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 5
+  },
+  "crops": [
+    {
+      "key": "pfizer-company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "runtimeOutput": "company-wordmark.png",
+      "searchBox": { "x": 820, "y": 230, "width": 625, "height": 255 },
+      "cropBox": { "x": 805, "y": 220, "width": 655, "height": 275 },
+      "threshold": 8,
+      "minComponentArea": 24,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.1, "maxForbiddenForegroundPixels": 0 },
+      "note": "Pfizer corporate icon and wordmark centered above the income-statement flow; excludes the title and all chart text."
+    },
+    {
+      "key": "pfizer-primary-care-products",
+      "output": "crops/primary-care-products.png",
+      "runtimeOutput": "primary-care-products.png",
+      "searchBox": { "x": 10, "y": 505, "width": 215, "height": 230 },
+      "cropBox": { "x": 0, "y": 495, "width": 230, "height": 245 },
+      "threshold": 8,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.14, "maxForbiddenForegroundPixels": 0 },
+      "note": "Eliquis, Paxlovid, and Prevnar 20 product-wordmark cluster for Primary Care; excludes the segment label, value, notes, and source bar."
+    },
+    {
+      "key": "pfizer-specialty-care-vyndaqel",
+      "output": "crops/specialty-care-vyndaqel.png",
+      "runtimeOutput": "specialty-care-vyndaqel.png",
+      "searchBox": { "x": 5, "y": 835, "width": 220, "height": 92 },
+      "cropBox": { "x": 0, "y": 825, "width": 230, "height": 108 },
+      "threshold": 8,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.13, "maxForbiddenForegroundPixels": 0 },
+      "note": "Vyndaqel product-wordmark cluster for Specialty Care; excludes the segment label, value, notes, and source bar."
+    },
+    {
+      "key": "pfizer-oncology-ibrance",
+      "output": "crops/oncology-ibrance.png",
+      "runtimeOutput": "oncology-ibrance.png",
+      "searchBox": { "x": 5, "y": 1050, "width": 225, "height": 95 },
+      "cropBox": { "x": 0, "y": 1040, "width": 235, "height": 115 },
+      "threshold": 8,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Ibrance product-wordmark cluster for Oncology; excludes the segment label, value, notes, and source bar."
+    }
+  ]
+}

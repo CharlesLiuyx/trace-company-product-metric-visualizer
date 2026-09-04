@@ -1,0 +1,84 @@
+{
+  "source": "input/processed/samsung-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/samsung",
+  "validationSheetDir": "data/assets/icon-references/samsung/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "samsung-company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "searchBox": { "x": 664, "y": 350, "width": 572, "height": 123 },
+      "cropBox": { "x": 646, "y": 330, "width": 608, "height": 158 },
+      "threshold": 18,
+      "minComponentArea": 45,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.08,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Samsung company wordmark above the sales hub; excludes title, values, flows, and publisher marks."
+    },
+    {
+      "key": "samsung-business-device-solutions-chip-cluster",
+      "output": "crops/business-device-solutions-chip-cluster.png",
+      "searchBox": { "x": 205, "y": 476, "width": 117, "height": 91 },
+      "cropBox": { "x": 196, "y": 466, "width": 136, "height": 112 },
+      "threshold": 18,
+      "minComponentArea": 12,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Device Solutions semiconductor/package icon cluster only; excludes the Device Solutions label, values, notes, and flow marks."
+    },
+    {
+      "key": "samsung-business-device-experience-device-cluster",
+      "output": "crops/business-device-experience-device-cluster.png",
+      "searchBox": { "x": 70, "y": 776, "width": 300, "height": 73 },
+      "cropBox": { "x": 56, "y": 762, "width": 328, "height": 101 },
+      "threshold": 18,
+      "minComponentArea": 12,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Device eXperience product icon cluster only; excludes the Device eXperience label, values, notes, and flow marks."
+    },
+    {
+      "key": "samsung-business-display-wordmark",
+      "output": "crops/business-display-wordmark.png",
+      "searchBox": { "x": 93, "y": 1127, "width": 303, "height": 51 },
+      "cropBox": { "x": 82, "y": 1116, "width": 326, "height": 50 },
+      "threshold": 18,
+      "minComponentArea": 30,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.10,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Samsung Display segment wordmark only; excludes the value, Y/Y note, flow marks, and adjacent Harman logo."
+    },
+    {
+      "key": "samsung-business-harman-wordmark",
+      "output": "crops/business-harman-wordmark.png",
+      "searchBox": { "x": 91, "y": 1185, "width": 319, "height": 148 },
+      "cropBox": { "x": 78, "y": 1172, "width": 344, "height": 174 },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Harman segment logo/wordmark only; excludes the value, Y/Y note, flow marks, and bottom publisher marks."
+    }
+  ]
+}

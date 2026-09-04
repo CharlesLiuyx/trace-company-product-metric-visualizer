@@ -1,0 +1,126 @@
+{
+  "source": "input/processed/pepsico-q3-fy24.png",
+  "outputDir": "data/assets/icon-references/pepsico-q3-fy24",
+  "runtimeOutputDir": "data/assets/raster-annotations/pepsico-q3-fy24",
+  "validationSheetDir": "data/assets/icon-references/pepsico-q3-fy24/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [242, 242, 242]
+  },
+  "skipped": [
+    {
+      "key": "how-they-make-money",
+      "reason": "Creator branding is a closed non-semantic residual."
+    },
+    {
+      "key": "publisher-wordmark",
+      "reason": "Publisher attribution and website marks are closed non-semantic residuals."
+    }
+  ],
+  "crops": [
+    {
+      "key": "pepsico-q3-fy24-company-logo",
+      "output": "crops/company-logo.png",
+      "runtimeOutput": "company-logo.png",
+      "searchBox": { "x": 1000, "y": 267, "width": 475, "height": 76 },
+      "cropBox": { "x": 1000, "y": 267, "width": 475, "height": 76 },
+      "threshold": 24,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 }
+    },
+    {
+      "key": "pepsico-q3-fy24-lays",
+      "output": "crops/lays.png",
+      "runtimeOutput": "lays.png",
+      "searchBox": { "x": 35, "y": 335, "width": 158, "height": 150 },
+      "cropBox": { "x": 35, "y": 335, "width": 158, "height": 150 },
+      "threshold": 24,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 }
+    },
+    {
+      "key": "pepsico-q3-fy24-quaker",
+      "output": "crops/quaker.png",
+      "runtimeOutput": "quaker.png",
+      "searchBox": { "x": 43, "y": 525, "width": 134, "height": 150 },
+      "cropBox": { "x": 43, "y": 525, "width": 134, "height": 150 },
+      "threshold": 24,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 }
+    },
+    {
+      "key": "pepsico-q3-fy24-pepsi",
+      "output": "crops/pepsi.png",
+      "runtimeOutput": "pepsi.png",
+      "searchBox": { "x": 30, "y": 695, "width": 153, "height": 155 },
+      "cropBox": { "x": 30, "y": 695, "width": 153, "height": 155 },
+      "threshold": 24,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 }
+    },
+    {
+      "key": "pepsico-q3-fy24-revenue-globe",
+      "output": "crops/revenue-globe.png",
+      "runtimeOutput": "revenue-globe.png",
+      "searchBox": { "x": 1171, "y": 363, "width": 121, "height": 118 },
+      "cropBox": { "x": 1171, "y": 363, "width": 121, "height": 118 },
+      "threshold": 24,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.15, "maxForbiddenForegroundPixels": 0 }
+    },
+    {
+      "key": "pepsico-q3-fy24-globe-north-america",
+      "output": "crops/globe-north-america.png",
+      "runtimeOutput": "globe-north-america.png",
+      "searchBox": { "x": 820, "y": 286, "width": 87, "height": 99 },
+      "cropBox": { "x": 818, "y": 284, "width": 91, "height": 103 },
+      "threshold": 24,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.15, "maxForbiddenForegroundPixels": 0 }
+    },
+    {
+      "key": "pepsico-q3-fy24-globe-latam",
+      "output": "crops/globe-latam.png",
+      "runtimeOutput": "globe-latam.png",
+      "searchBox": { "x": 571, "y": 874, "width": 84, "height": 98 },
+      "cropBox": { "x": 569, "y": 872, "width": 88, "height": 102 },
+      "threshold": 24,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.15, "maxForbiddenForegroundPixels": 0 }
+    },
+    {
+      "key": "pepsico-q3-fy24-globe-europe",
+      "output": "crops/globe-europe.png",
+      "runtimeOutput": "globe-europe.png",
+      "searchBox": { "x": 548, "y": 1027, "width": 103, "height": 94 },
+      "cropBox": { "x": 548, "y": 1027, "width": 103, "height": 94 },
+      "threshold": 24,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.15, "maxForbiddenForegroundPixels": 0 }
+    },
+    {
+      "key": "pepsico-q3-fy24-globe-amesa",
+      "output": "crops/globe-amesa.png",
+      "runtimeOutput": "globe-amesa.png",
+      "searchBox": { "x": 72, "y": 1167, "width": 100, "height": 91 },
+      "cropBox": { "x": 72, "y": 1167, "width": 100, "height": 91 },
+      "threshold": 24,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.15, "maxForbiddenForegroundPixels": 0 }
+    },
+    {
+      "key": "pepsico-q3-fy24-globe-apac",
+      "output": "crops/globe-apac.png",
+      "runtimeOutput": "globe-apac.png",
+      "searchBox": { "x": 571, "y": 1327, "width": 86, "height": 95 },
+      "cropBox": { "x": 569, "y": 1325, "width": 90, "height": 99 },
+      "threshold": 24,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.15, "maxForbiddenForegroundPixels": 0 }
+    }
+  ]
+}

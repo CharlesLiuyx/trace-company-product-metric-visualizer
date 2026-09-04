@@ -147,9 +147,9 @@ provenance，并与 Adapter 的 `fullFaceIds` 同 ID；仅在 Adapter 写一个 
 `documented-exception` 只能描述已有 typed reference/design-spec provenance 的拓扑差异，
 不能豁免 endpoint、水平切线、candidate containment 或其他 hard gate。
 
-### VerificationPlan v3
+### VerificationPlan v5
 
-`verification-plan/v3` 从 inventory feature、ChangeImpact 和 required locales 编译检查。
+`verification-plan/v5` 从 inventory feature、ChangeImpact 和 required locales 编译检查。
 每个 required check 都带执行方式、object scope 和 locale scope；只有 Plan 可以生成
 `notApplicable`。review caller 不能删检查，也不能自行声明不适用。
 ChangeImpact 的枚举和分类边界由 `docs/architecture/dataset-lifecycle.md` 与
@@ -957,6 +957,20 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 <!-- fidelity-rules:generated:end -->
 
 ## 4. 三层 sweep 状态机
+
+### 新 Build 的阶段检查点
+
+采用 `fidelity-checkpoints/v1` 的独立 Build 必须依次留下结构、文本、润色/本地化
+的冻结决定，才能提交最终人工接受。每次决定包含审阅人、说明、当前阶段输入摘要，
+并引用同一 Build 的真实、通过验证的阶段证据。润色阶段覆盖计划要求的全部语言。
+命令入口为 `record:workflow checkpoint`；它不代替最终人工 Review。
+
+程序由实际输入推导依赖摘要。相关输入改变、明确重开或证据文件改变时，相应阶段
+不能继续被当作已完成。无关公司的注册变化不改写该 Build 的语义贡献；最后的 seal
+仍执行适用的完整检查。历史无此协议的 Build 按原记录解释，不补造阶段审阅。
+该记录协议的字段见 [当前命令与协议表](workflow-command-reference.md)，阶段的视觉
+目标和回退条件仍以下文为准。
+
 
 `sweep stage` 是人工进度分层，不是 VerificationPlan 的字段，也不改变 checkResult 的
 scope。下面每节列出的对象/检查就是固定归属；跨 stage 的 global/final checks 在结束时汇总。

@@ -1,0 +1,91 @@
+{
+  "source": "input/processed/vail-resorts-q3-fy26.png",
+  "outputDir": "data/assets/icon-references/vail-resorts",
+  "runtimeOutputDir": "data/assets/raster-annotations/vail-resorts",
+  "validationSheetDir": "data/assets/icon-references/vail-resorts/validation-sheets/q3-fy26",
+  "report": "crop-report-q3-fy26.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [242, 242, 242],
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "vail-resorts-lift-resort-brands",
+      "output": "crops/lift-resort-brands-q3-fy26.png",
+      "runtimeOutput": "lift-resort-brands-q3-fy26.png",
+      "searchBox": { "x": 12, "y": 332, "width": 185, "height": 210 },
+      "cropBox": { "x": 12, "y": 332, "width": 185, "height": 210 },
+      "threshold": 16,
+      "minComponentArea": 12,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.26, "maxForbiddenForegroundPixels": 0 },
+      "note": "Vail, Beaver Creek, and Whistler Blackcomb brand marks grouped with the Lift revenue source. Excludes the Lift label, the gondola icon, source bar, and flow ribbon."
+    },
+    {
+      "key": "vail-resorts-lift-gondola",
+      "output": "crops/lift-gondola-q3-fy26.png",
+      "runtimeOutput": "lift-gondola-q3-fy26.png",
+      "searchBox": { "x": 232, "y": 400, "width": 66, "height": 62 },
+      "cropBox": { "x": 232, "y": 400, "width": 66, "height": 62 },
+      "excludeBoxes": [
+        { "relativeTo": "crop", "x": 52, "y": 0, "width": 14, "height": 62 }
+      ],
+      "threshold": 16,
+      "minComponentArea": 8,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.22, "maxForbiddenForegroundPixels": 0 },
+      "note": "Gondola illustration for the Lift revenue source. The right-edge exclusion removes a clipped fragment of the source Lift label; it excludes the Lift label, source value, source bar, and ribbon."
+    },
+    {
+      "key": "vail-resorts-mountain-skier",
+      "output": "crops/mountain-skier-q3-fy26.png",
+      "runtimeOutput": "mountain-skier-q3-fy26.png",
+      "searchBox": { "x": 566, "y": 292, "width": 108, "height": 112 },
+      "cropBox": { "x": 566, "y": 292, "width": 108, "height": 112 },
+      "threshold": 16,
+      "minComponentArea": 8,
+      "transparentColors": [
+        { "channels": { "r": [125, 165], "g": [145, 180], "b": [160, 205] } }
+      ],
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Skiing illustration placed above the Lift-to-Mountain route. The muted blue-gray ribbon sampled behind the skis is removed; the Mountain label and source value are excluded."
+    },
+    {
+      "key": "vail-resorts-mountain-icon",
+      "output": "crops/mountain-icon-q3-fy26.png",
+      "runtimeOutput": "mountain-icon-q3-fy26.png",
+      "searchBox": { "x": 858, "y": 260, "width": 75, "height": 68 },
+      "cropBox": { "x": 858, "y": 260, "width": 75, "height": 68 },
+      "threshold": 16,
+      "minComponentArea": 8,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Mountain illustration above the Mountain revenue aggregation label. Excludes the Vail Resorts wordmark and financial labels."
+    },
+    {
+      "key": "vail-resorts-lodging-icon",
+      "output": "crops/lodging-icon-q3-fy26.png",
+      "runtimeOutput": "lodging-icon-q3-fy26.png",
+      "searchBox": { "x": 858, "y": 848, "width": 75, "height": 72 },
+      "cropBox": { "x": 858, "y": 848, "width": 75, "height": 72 },
+      "threshold": 16,
+      "minComponentArea": 8,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "House illustration above the Lodging source label. Excludes the Lodging text, value, source bar, and flow ribbon."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "The lower-left HOW THEY MAKE MONEY mark and miniature Sankey are publisher branding, not Vail Resorts financial content."
+    },
+    {
+      "key": "publisher-url",
+      "reason": "appeconomyinsights.com is source attribution, not a chart target."
+    },
+    {
+      "key": "publisher-footer-lockup",
+      "reason": "The APP ECONOMY INSIGHTS footer logo, social badge, and rule are source attribution."
+    }
+  ]
+}

@@ -48,8 +48,10 @@ Spec conventions:
   within the configured tolerance, and only removes matching pixels connected to
   the crop edge. Override this per spec or per crop with `backgroundRemoval`, or
   run with `--keep-background` for an opaque debugging pass.
-- Keep crops as reference/conversion assets only; convert accepted icons to
-  SVG/vector assets before using them in d3 output.
+- Reference/conversion crops stay under `icon-references`. Accepted icons may
+  use vector assets or validated `runtimeOutputDir` raster output; the owning
+  runtime policy is `data/assets/README.md`. Crop recipes are tracked metadata,
+  while original processed PNGs remain local-only.
 
 Compression options:
 

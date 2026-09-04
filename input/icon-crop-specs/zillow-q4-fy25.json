@@ -1,0 +1,85 @@
+{
+  "source": "input/processed/zillow-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/zillow",
+  "runtimeOutputDir": "data/assets/raster-annotations/zillow",
+  "validationSheetDir": "data/assets/icon-references/zillow/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding and mini Sankey mark are not part of Zillow income-statement semantics."
+    },
+    {
+      "key": "publisher-website",
+      "reason": "The appeconomyinsights.com footer URL is publisher attribution and intentionally excluded."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "The footer account badge and App Economy Insights wordmark are publisher attribution and intentionally excluded."
+    }
+  ],
+  "crops": [
+    {
+      "key": "zillow-company-wordmark",
+      "output": "crops/company-wordmark-q4-fy25.png",
+      "searchBox": { "x": 569, "y": 265, "width": 658, "height": 84 },
+      "cropBox": { "x": 553, "y": 249, "width": 690, "height": 116 },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Zillow Group company wordmark above the revenue hub; excludes the chart title, revenue label, and flow marks."
+    },
+    {
+      "key": "zillow-premier-agent-wordmark",
+      "output": "crops/premier-agent-wordmark-q4-fy25.png",
+      "searchBox": { "x": 69, "y": 454, "width": 310, "height": 91 },
+      "cropBox": { "x": 54, "y": 439, "width": 340, "height": 121 },
+      "threshold": 18,
+      "minComponentArea": 30,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Zillow Premier Agent business wordmark for Residential revenue; excludes the Residential label, value text, and flow marks."
+    },
+    {
+      "key": "zillow-rentals-wordmark",
+      "output": "crops/rentals-wordmark-q4-fy25.png",
+      "searchBox": { "x": 104, "y": 761, "width": 242, "height": 88 },
+      "cropBox": { "x": 89, "y": 746, "width": 272, "height": 118 },
+      "threshold": 18,
+      "minComponentArea": 30,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Zillow Rentals business wordmark; excludes value text, node and link marks, and publisher attribution."
+    },
+    {
+      "key": "zillow-home-loans-wordmark",
+      "output": "crops/home-loans-wordmark-q4-fy25.png",
+      "searchBox": { "x": 92, "y": 949, "width": 271, "height": 77 },
+      "cropBox": { "x": 77, "y": 934, "width": 301, "height": 107 },
+      "threshold": 18,
+      "minComponentArea": 30,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Zillow Home Loans business wordmark; excludes value text, node and link marks, and publisher attribution."
+    }
+  ]
+}

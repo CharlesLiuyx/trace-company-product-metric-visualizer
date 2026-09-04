@@ -1,0 +1,37 @@
+{
+  "source": "input/processed/airbus-fy25.png",
+  "outputDir": "data/assets/icon-references/airbus",
+  "runtimeOutputDir": "data/assets/raster-annotations/airbus",
+  "validationSheetDir": "data/assets/icon-references/airbus/validation-sheets",
+  "report": "crop-report-fy25.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "crops": [
+    {
+      "key": "airbus-a380-fy25-tile",
+      "output": "crops/commercial-aircraft-a380-fy25.png",
+      "searchBox": { "x": 8, "y": 383, "width": 394, "height": 132 },
+      "cropBox": { "x": 6, "y": 378, "width": 402, "height": 142 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "backgroundRemoval": { "enabled": false },
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Commercial Aircraft segment icon. The FY25 Airbus label begins immediately below the aircraft, so this opaque background-matched crop ends at y=520 and excludes the label, value block, and navy segment node."
+    },
+    {
+      "key": "airbus-satellite-fy25-tile",
+      "output": "crops/defense-space-satellite-fy25.png",
+      "searchBox": { "x": 184, "y": 949, "width": 168, "height": 62 },
+      "cropBox": { "x": 180, "y": 944, "width": 178, "height": 70 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "backgroundRemoval": { "enabled": false },
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.25, "maxForbiddenForegroundPixels": 0 },
+      "note": "Defense & Space segment icon. The FY25 label begins directly below the satellite, so this opaque background-matched crop ends at y=1014 and excludes the label, value block, and navy segment node."
+    }
+  ]
+}

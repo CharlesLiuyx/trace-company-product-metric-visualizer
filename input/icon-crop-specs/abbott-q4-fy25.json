@@ -1,0 +1,85 @@
+{
+  "source": "input/processed/abbott-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/abbott",
+  "runtimeOutputDir": "data/assets/raster-annotations/abbott",
+  "validationSheetDir": "data/assets/icon-references/abbott/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [242, 242, 242],
+    "tolerance": 10
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "The bottom-left publisher badge and miniature Sankey are attribution, not Abbott financial semantics."
+    },
+    {
+      "key": "publisher-website",
+      "reason": "The appeconomyinsights.com footer URL is source attribution, not Abbott chart content."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "The App Economy Insights footer logo and social badge are publisher attribution, not Abbott chart content."
+    }
+  ],
+  "crops": [
+    {
+      "key": "abbott-company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "runtimeOutput": "company-wordmark.png",
+      "searchBox": { "x": 820, "y": 250, "width": 330, "height": 330 },
+      "cropBox": { "x": 800, "y": 230, "width": 370, "height": 370 },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 4, "maxCenterOffset": 0.15, "maxForbiddenForegroundPixels": 0 },
+      "note": "Complete Abbott logo and wordmark above the Net sales hub, excluding the Net sales label and all financial flow geometry."
+    },
+    {
+      "key": "abbott-established-pharma",
+      "output": "crops/established-pharma.png",
+      "runtimeOutput": "established-pharma.png",
+      "searchBox": { "x": 38, "y": 440, "width": 140, "height": 140 },
+      "cropBox": { "x": 32, "y": 434, "width": 152, "height": 152 },
+      "threshold": 18,
+      "minComponentArea": 12,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Purple established-pharma bottle icon tile, excluding the Established Pharma label and source ribbon."
+    },
+    {
+      "key": "abbott-nutritionals",
+      "output": "crops/nutritionals.png",
+      "runtimeOutput": "nutritionals.png",
+      "searchBox": { "x": 38, "y": 607, "width": 140, "height": 142 },
+      "cropBox": { "x": 32, "y": 601, "width": 152, "height": 154 },
+      "threshold": 18,
+      "minComponentArea": 12,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Purple nutritionals bottle icon tile, excluding the Nutritionals label and source ribbon."
+    },
+    {
+      "key": "abbott-diagnostics",
+      "output": "crops/diagnostics.png",
+      "runtimeOutput": "diagnostics.png",
+      "searchBox": { "x": 34, "y": 805, "width": 146, "height": 138 },
+      "cropBox": { "x": 28, "y": 799, "width": 158, "height": 150 },
+      "threshold": 18,
+      "minComponentArea": 12,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Purple diagnostics analyzer icon tile, excluding the Diagnostics label and source ribbon."
+    },
+    {
+      "key": "abbott-medical-devices",
+      "output": "crops/medical-devices.png",
+      "runtimeOutput": "medical-devices.png",
+      "searchBox": { "x": 34, "y": 1061, "width": 146, "height": 132 },
+      "cropBox": { "x": 28, "y": 1055, "width": 158, "height": 144 },
+      "threshold": 18,
+      "minComponentArea": 12,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Purple medical-devices implant icon tile, excluding the Medical Devices label and source ribbon."
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+import { createMetricCoverage } from './metric-source.mjs';
 import { createHash } from 'node:crypto';
 import { DATASET_ADAPTERS } from './dataset-adapters.mjs';
 import { MIN_VISIBLE_FACE_PX } from './node-face-policy.mjs';
@@ -12,6 +13,7 @@ export const SOURCE_CLASSIFICATION_SIGNALS = Object.freeze([
   'sankey-flow-topology',
   'revenue-metric-definition',
   'time-series-observations',
+  'metric-observations',
 ]);
 export const SOURCE_COVERAGE_SCAN_PASSES = Object.freeze([
   'geometry',
@@ -80,13 +82,17 @@ const AUTHORITATIVE_CORRECTION_ISSUE_SET = new Set(AUTHORITATIVE_CORRECTION_ISSU
 const UNIT_MULTIPLIERS = Object.freeze({ K: 1e3, M: 1e6, B: 1e9, T: 1e12 });
 
 const ADAPTER_SIGNATURES = Object.freeze({
+  'metric-observation': Object.freeze({
+    required: Object.freeze(['metric-observations']),
+    forbidden: Object.freeze(['income-statement-values', 'sankey-flow-topology', 'revenue-metric-definition', 'time-series-observations']),
+  }),
   'income-statement': Object.freeze({
     required: Object.freeze(['income-statement-values', 'sankey-flow-topology']),
-    forbidden: Object.freeze(['revenue-metric-definition', 'time-series-observations']),
+    forbidden: Object.freeze(['revenue-metric-definition', 'time-series-observations', 'metric-observations']),
   }),
   'revenue-metric': Object.freeze({
     required: Object.freeze(['revenue-metric-definition', 'time-series-observations']),
-    forbidden: Object.freeze(['income-statement-values', 'sankey-flow-topology']),
+    forbidden: Object.freeze(['income-statement-values', 'sankey-flow-topology', 'metric-observations']),
   }),
 });
 
@@ -169,6 +175,10 @@ function normalizeSource(source, label = 'Source') {
   invariant(source && typeof source === 'object', 'SOURCE_COVERAGE_SOURCE_REQUIRED', `${label} identity is required`);
   invariant(typeof source.locator === 'string' && source.locator, 'SOURCE_COVERAGE_SOURCE_INVALID', `${label} needs a locator`);
   invariant(DIGEST_RE.test(String(source.digest || '')), 'SOURCE_COVERAGE_SOURCE_INVALID', `${label} needs an immutable digest`);
+  if (source.format === 'text') {
+    invariant(Number.isInteger(source.charLength) && source.charLength > 0, 'SOURCE_COVERAGE_SOURCE_INVALID', `${label} needs a positive UTF-16 character length`);
+    return { locator: source.locator, digest: source.digest, format: 'text', charLength: source.charLength };
+  }
   invariant(Number.isInteger(source.width) && source.width > 0, 'SOURCE_COVERAGE_SOURCE_INVALID', `${label} needs a positive integer width`);
   invariant(Number.isInteger(source.height) && source.height > 0, 'SOURCE_COVERAGE_SOURCE_INVALID', `${label} needs a positive integer height`);
   return {
@@ -196,9 +206,11 @@ export function createSourceClassification(input) {
   );
   const derived = classifySourceSignals(input.signals, input.adapter);
   const source = normalizeSource(input.source, 'Source classification');
-  const fullImageBBox = normalizeBBox(input.fullImageBBox, 'Source classification fullImageBBox');
+  const textSource = source.format === 'text';
+  invariant(!textSource || derived.adapter === 'metric-observation', 'SOURCE_FORMAT_ADAPTER_INVALID', 'Text Sources use the metric-observation Adapter');
+  const fullImageBBox = textSource ? null : normalizeBBox(input.fullImageBBox, 'Source classification fullImageBBox');
   invariant(
-    JSON.stringify(fullImageBBox) === JSON.stringify([0, 0, source.width, source.height]),
+    textSource ? JSON.stringify(input.fullTextRange) === JSON.stringify([0, source.charLength]) : JSON.stringify(fullImageBBox) === JSON.stringify([0, 0, source.width, source.height]),
     'SOURCE_CLASSIFICATION_SCOPE_INVALID',
     'Source classification must bind the complete native Source image'
   );
@@ -208,15 +220,15 @@ export function createSourceClassification(input) {
     `Source classification must use reviewMethod ${SOURCE_CLASSIFICATION_REVIEW_METHOD}`
   );
   const value = {
-    schemaVersion: 1,
-    protocol: SOURCE_CLASSIFICATION_PROTOCOL,
+    schemaVersion: textSource ? 2 : 1,
+    protocol: textSource ? 'source-classification/v2' : SOURCE_CLASSIFICATION_PROTOCOL,
     kind: 'source-classification',
     datasetKey: input.datasetKey,
     adapter: derived.adapter,
     status: 'confirmed',
     reviewMethod: input.reviewMethod,
     source,
-    fullImageBBox,
+    ...(textSource ? { fullTextRange: [0, source.charLength] } : { fullImageBBox }),
     signals: derived.signals,
   };
   const classification = { ...value, classificationDigest: digestCanonical(value) };
@@ -675,6 +687,7 @@ export function createSourceCoverage(input, context = {}) {
   invariant(classification.datasetKey === inventory.datasetKey, 'SOURCE_COVERAGE_CLASSIFICATION_MISMATCH', 'Source classification dataset key does not match ObjectInventory');
   invariant(classification.adapter === adapter, 'SOURCE_COVERAGE_CLASSIFICATION_MISMATCH', 'Source classification Adapter does not match the Build');
   const source = normalizeSource(input.source);
+  if (adapter === 'metric-observation') return createMetricCoverage(input, { inventory, classification, source });
   invariant(
     source.digest === classification.source.digest && source.width === classification.source.width && source.height === classification.source.height,
     'SOURCE_COVERAGE_CLASSIFICATION_MISMATCH',

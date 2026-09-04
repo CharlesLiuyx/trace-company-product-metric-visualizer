@@ -1,0 +1,26 @@
+{
+  "source": "input/processed/aramco-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/aramco",
+  "runtimeOutputDir": "data/assets/raster-annotations/aramco",
+  "validationSheetDir": "data/assets/icon-references/aramco/validation-sheets",
+  "report": "crop-report.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "crops": [
+    {
+      "key": "aramco-company-lockup",
+      "output": "crops/company-lockup.png",
+      "searchBox": { "x": 760, "y": 217, "width": 722, "height": 198 },
+      "cropBox": { "x": 750, "y": 210, "width": 740, "height": 220 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "backgroundRemoval": { "enabled": false },
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Saudi Aramco bilingual company lockup: the Arabic and English wordmark plus its green-and-blue square mark above the Revenue hub. It is kept as an opaque #f2f2f2 background-matched patch because the bilingual custom wordmark and dot-pattern mark are company identity assets. The crop stops above the revenue labels and chart flows, and excludes the chart title and all publisher attribution."
+    }
+  ]
+}

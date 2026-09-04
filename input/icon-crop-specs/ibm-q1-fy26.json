@@ -1,0 +1,23 @@
+{
+  "source": "input/processed/ibm-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/ibm",
+  "validationSheetDir": "data/assets/icon-references/ibm/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "ibm-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": { "x": 675, "y": 305, "width": 430, "height": 176 },
+      "cropBox": { "x": 660, "y": 288, "width": 460, "height": 210 },
+      "threshold": 16,
+      "minComponentArea": 45,
+      "note": "IBM company wordmark above the revenue hub; excludes title, values, flows, and publisher attribution marks."
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "source": "input/processed/shopify-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/shopify",
+  "validationSheetDir": "data/assets/icon-references/shopify/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "crops": [
+    {
+      "key": "shopify-company-bag",
+      "output": "crops/company-bag.png",
+      "searchBox": {
+        "x": 1044,
+        "y": 224,
+        "width": 270,
+        "height": 300
+      },
+      "cropBox": {
+        "x": 1034,
+        "y": 216,
+        "width": 292,
+        "height": 318
+      },
+      "threshold": 18,
+      "minComponentArea": 80,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.08,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Main Shopify company bag icon above the revenue hub; excludes title, revenue text, flows, and publisher branding."
+    },
+    {
+      "key": "shopify-merchant-solutions-cluster",
+      "output": "crops/merchant-solutions-cluster.png",
+      "searchBox": {
+        "x": 142,
+        "y": 610,
+        "width": 572,
+        "height": 282
+      },
+      "cropBox": {
+        "x": 128,
+        "y": 596,
+        "width": 602,
+        "height": 312
+      },
+      "threshold": 16,
+      "minComponentArea": 80,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Merchant Solutions branded business cluster only; includes the source's in-cluster Shopify wordmark and merchant-service list, and excludes revenue labels, connector paths, and publisher marks."
+    },
+    {
+      "key": "shopify-plus-wordmark",
+      "output": "crops/shopify-plus-wordmark.png",
+      "searchBox": {
+        "x": 70,
+        "y": 992,
+        "width": 280,
+        "height": 66
+      },
+      "cropBox": {
+        "x": 50,
+        "y": 988,
+        "width": 315,
+        "height": 86
+      },
+      "threshold": 18,
+      "foreground": {
+        "channels": {
+          "r": [0, 105],
+          "g": [0, 105],
+          "b": [0, 105]
+        }
+      },
+      "minComponentArea": 40,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Shopify Plus wordmark used for the subscription-solutions source line; excludes values, Y/Y text, connectors, and nodes."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "other-revenue-segment",
+      "reason": "The Other revenue segment has no independent business icon cluster in the source image."
+    },
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding and not part of Shopify's income-statement semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "Source publisher website URL, social badge, and footer logo are attribution content and intentionally excluded."
+    }
+  ]
+}

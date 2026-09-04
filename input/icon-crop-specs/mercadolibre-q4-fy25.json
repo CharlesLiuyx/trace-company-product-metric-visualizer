@@ -1,0 +1,89 @@
+{
+  "source": "input/processed/mercadolibre-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/mercadolibre",
+  "runtimeOutputDir": "data/assets/raster-annotations/mercadolibre",
+  "validationSheetDir": "data/assets/icon-references/mercadolibre/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 9
+  },
+  "crops": [
+    {
+      "key": "mercadolibre-corporate-handshake",
+      "output": "crops/corporate-handshake.png",
+      "searchBox": { "x": 1148, "y": 268, "width": 248, "height": 174 },
+      "cropBox": { "x": 1144, "y": 264, "width": 256, "height": 182 },
+      "threshold": 14,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Mercado Libre corporate handshake mark above Net Revenue; excludes the chart title, revenue label, and flow ribbons."
+    },
+    {
+      "key": "mercadolibre-commerce-brand",
+      "output": "crops/commerce-brand.png",
+      "searchBox": { "x": 70, "y": 416, "width": 398, "height": 112 },
+      "cropBox": { "x": 64, "y": 410, "width": 412, "height": 124 },
+      "threshold": 14,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Mercado Libre marketplace handshake and wordmark tied to intermediation and advertising revenue; excludes the description, values, and source bar."
+    },
+    {
+      "key": "mercadolibre-ads-brand",
+      "output": "crops/ads-brand.png",
+      "searchBox": { "x": 235, "y": 596, "width": 160, "height": 48 },
+      "cropBox": { "x": 230, "y": 592, "width": 170, "height": 56 },
+      "threshold": 14,
+      "minComponentArea": 12,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.22, "maxForbiddenForegroundPixels": 0 },
+      "note": "Mercado Ads mini-logo attached to the commerce source; excludes the intermediation-services text above and chart flows."
+    },
+    {
+      "key": "mercadolibre-envios-brand",
+      "output": "crops/envios-brand.png",
+      "searchBox": { "x": 218, "y": 688, "width": 278, "height": 76 },
+      "cropBox": { "x": 212, "y": 682, "width": 290, "height": 90 },
+      "threshold": 14,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Mercado Envios handshake and wordmark for product sales and shipping fees; excludes its description, revenue value, and source bar."
+    },
+    {
+      "key": "mercadolibre-pago-brand",
+      "output": "crops/pago-brand.png",
+      "searchBox": { "x": 66, "y": 874, "width": 433, "height": 120 },
+      "cropBox": { "x": 60, "y": 868, "width": 445, "height": 132 },
+      "threshold": 14,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Mercado Pago handshake and wordmark for payment-solution revenue; excludes the description, value and accompanying Sankey band."
+    },
+    {
+      "key": "mercadolibre-credito-brand",
+      "output": "crops/credito-brand.png",
+      "searchBox": { "x": 66, "y": 1180, "width": 426, "height": 108 },
+      "cropBox": { "x": 60, "y": 1174, "width": 438, "height": 120 },
+      "threshold": 14,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Mercado Credito handshake and wordmark for interest income; excludes the description, value, source bar, and publisher mark below."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "commerce-and-fintech-category-labels",
+      "reason": "These are chart labels rendered as localized SVG text, not reusable visual assets."
+    },
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding and mini-Sankey mark are not MercadoLibre business or segment assets."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "Source URL, footer wordmark, social badge, and attribution are intentionally excluded."
+    }
+  ]
+}

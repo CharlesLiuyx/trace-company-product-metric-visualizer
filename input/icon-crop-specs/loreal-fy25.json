@@ -1,0 +1,55 @@
+{
+  "source": "input/processed/loreal-fy25.png",
+  "outputDir": "data/assets/icon-references/loreal",
+  "runtimeOutputDir": "data/assets/raster-annotations/loreal",
+  "validationSheetDir": "data/assets/icon-references/loreal/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": { "enabled": true, "mode": "edge-connected", "tolerance": 10 },
+  "skipped": [
+    { "key": "publisher-how-they-make-money", "reason": "Publisher badge and mini-Sankey logo are source attribution, not L’Oréal financial-statement semantics." },
+    { "key": "publisher-website-and-footer", "reason": "appeconomyinsights.com URL and App Economy Insights footer branding are source attribution, not chart content." }
+  ],
+  "crops": [
+    {
+      "key": "loreal-professional-products-brands",
+      "output": "crops/professional-products-brands.png",
+      "searchBox": { "x": 0, "y": 318, "width": 184, "height": 150 },
+      "cropBox": { "x": 0, "y": 318, "width": 184, "height": 150 },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.36, "maxForbiddenForegroundPixels": 0 },
+      "note": "L’Oréal Professionnel, Kérastase, and Redken wordmark cluster for Professional Products; excludes the division label and source bar."
+    },
+    {
+      "key": "loreal-consumer-products-brands",
+      "output": "crops/consumer-products-brands.png",
+      "searchBox": { "x": 0, "y": 572, "width": 184, "height": 154 },
+      "cropBox": { "x": 0, "y": 572, "width": 184, "height": 154 },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.36, "maxForbiddenForegroundPixels": 0 },
+      "note": "L’Oréal Paris, Garnier, and Maybelline New York wordmark cluster for Consumer Products; excludes the division label and source bar."
+    },
+    {
+      "key": "loreal-luxe-brands",
+      "output": "crops/loreal-luxe-brands.png",
+      "searchBox": { "x": 0, "y": 881, "width": 194, "height": 152 },
+      "cropBox": { "x": 0, "y": 881, "width": 194, "height": 152 },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.36, "maxForbiddenForegroundPixels": 0 },
+      "note": "Lancôme, Giorgio Armani Beauty, and Helena Rubinstein wordmark cluster for L’Oréal Luxe; excludes the division label and source bar."
+    },
+    {
+      "key": "loreal-active-cosmetics-brands",
+      "output": "crops/active-cosmetics-brands.png",
+      "searchBox": { "x": 0, "y": 1128, "width": 194, "height": 162 },
+      "cropBox": { "x": 0, "y": 1128, "width": 194, "height": 162 },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.36, "maxForbiddenForegroundPixels": 0 },
+      "note": "La Roche-Posay, Vichy, and CeraVe wordmark cluster for Active Cosmetics; excludes the division label and source bar."
+    }
+  ]
+}

@@ -1,5 +1,13 @@
 # Data Directory
 
+General company/product observations now live in `metric-observations/*.json`.
+Run `pnpm update:metric-catalog` to generate `metric-observations.js`;
+`pnpm verify:metrics` checks its registration, values, provenance and duplicate
+identities. The viewer's **指标资产 / Metrics** entry opens this searchable library.
+Use the [asset workflow](../docs/asset-workflow.md) for new images or text. New
+isolated Builds author these paths inside their own workspace, then Publication
+projects the accepted contribution into the formal snapshot.
+
 The `data/` directory is the source of truth for dataset records and reusable
 data-adjacent assets.
 

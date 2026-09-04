@@ -38,7 +38,7 @@ import {
   recordDatasetBuildCommand,
   recordDatasetBuildReviewOutcome,
 } from './dataset-build-store.mjs';
-import { rootDir } from './project.mjs';
+import { rootDir, buildProjectRoot } from './project.mjs';
 
 export const REVIEW_PACKET_PROTOCOL = 'review-packet/v4';
 const LEGACY_REVIEW_PACKET_PROTOCOL = 'review-packet/v3';
@@ -89,7 +89,7 @@ async function normalizeArtifacts(artifacts, projectRoot, sources = []) {
     invariant(!seen.has(artifact.path), 'ARTIFACT_DUPLICATE', `Artifact appears twice: ${artifact.path}`);
     seen.add(artifact.path);
     let absolute = resolveProjectLocator(artifact.path, projectRoot);
-    if (!existsSync(absolute) && artifact.role === 'reference-image') {
+    if (!existsSync(absolute) && ['reference-image', 'reference-text'].includes(artifact.role)) {
       const source = sources.find((candidate) =>
         [candidate.uri, candidate.processingUri, candidate.processedUri]
           .filter(Boolean)
@@ -134,7 +134,7 @@ function assertSourceBoundFeatureEvidence(build, inventory, artifacts) {
     }
   }
   const referenceArtifacts = new Map(
-    artifacts.filter((artifact) => artifact.role === 'reference-image')
+    artifacts.filter((artifact) => ['reference-image', 'reference-text'].includes(artifact.role))
       .map((artifact) => [artifact.path, artifact])
   );
 
@@ -212,8 +212,14 @@ function currentInventoryInput(input) {
 
 export async function prepareBuildReview(input, options = {}) {
   const buildRoot = options.buildRoot || DEFAULT_BUILD_ROOT;
-  const projectRoot = options.projectRoot || rootDir;
   const build = await readDatasetBuild(input.buildId, { buildRoot });
+  const projectRoot = buildProjectRoot(build, options.projectRoot);
+  if (build.authoringRoot) {
+    const { deriveArtifactManifest, CHECKPOINT_PROTOCOL } = await import('./workflow-dependencies.mjs');
+    const derived = await deriveArtifactManifest(build, projectRoot);
+    input = { ...input, artifacts: derived.manifest.artifacts, checkpointProtocol: CHECKPOINT_PROTOCOL, dependencyScopes: derived.manifest.scopes };
+    options = { ...options, loadedData: derived.loaded };
+  }
   const inventory = createObjectInventory(currentInventoryInput(input.inventory));
   invariant(inventory.datasetKey === build.key, 'INVENTORY_BUILD_MISMATCH', 'ObjectInventory dataset key does not match the Build');
   const primarySource = (build.sources || []).find((source) => source.role === 'primary-reference') || build.sources?.[0];
@@ -225,6 +231,7 @@ export async function prepareBuildReview(input, options = {}) {
   const authoritativeSource = {
     locator: sourceLocator,
     digest: primarySource.digest,
+    ...(primarySource.format ? { format: primarySource.format, charLength: primarySource.charLength } : {}),
     width: primarySource.width,
     height: primarySource.height,
   };
@@ -275,7 +282,7 @@ export async function prepareBuildReview(input, options = {}) {
   const artifacts = await normalizeArtifacts(input.artifacts, projectRoot, build.sources);
   assertSourceBoundFeatureEvidence(build, inventory, artifacts);
   const referenceArtifact = artifacts.find((artifact) =>
-    artifact.role === 'reference-image' && sourceLocators.has(artifact.path)
+    ['reference-image', 'reference-text'].includes(artifact.role) && sourceLocators.has(artifact.path)
   );
   invariant(
     referenceArtifact?.digest === authoritativeSource.digest,
@@ -295,6 +302,8 @@ export async function prepareBuildReview(input, options = {}) {
     sourceCoverage,
     changeImpact: input.changeImpact,
     requiredLocales: input.requiredLocales,
+    checkpointProtocol: input.checkpointProtocol,
+    dependencyScopes: input.dependencyScopes,
   });
   const [inventoryReference, sourceCoverageReference, planReference] = await Promise.all([
     recordBuildObject(build.buildId, 'object-inventory', inventory, { buildRoot, projectRoot }),
@@ -346,7 +355,7 @@ export async function prepareBuildReview(input, options = {}) {
   };
 }
 
-async function evidenceFromManifest(locator, context) {
+export async function evidenceFromManifest(locator, context) {
   const manifest = await readJsonLocator(locator, context.projectRoot);
   invariant(manifest.status === 'evidence-ready', 'EVIDENCE_NOT_READY', `Fidelity evidence is not review-ready: ${locator}`);
   invariant(manifest.identity?.buildId === context.buildId, 'EVIDENCE_BUILD_MISMATCH', `Fidelity evidence belongs to another Build: ${locator}`);
@@ -678,7 +687,7 @@ function localeEvidenceForCheck(check, entry, consistency, plan) {
   if (check.evidenceKind === 'full-review-profile') {
     return {
       passed: entry.status === 'passed' && consistency.status === 'passed',
-      evidenceDigests: [consistency.digest, entry.digest],
+      evidenceDigests: [...new Set([consistency.digest, entry.digest])],
     };
   }
   if (check.evidenceKind === 'interface-audit') {
@@ -930,8 +939,8 @@ function validateMatrixEvidence(matrix, evidenceEntries, required) {
 
 export async function finishReviewedBuild(input, options = {}) {
   const buildRoot = options.buildRoot || DEFAULT_BUILD_ROOT;
-  const projectRoot = options.projectRoot || rootDir;
   const build = await readDatasetBuild(input.buildId, { buildRoot });
+  const projectRoot = buildProjectRoot(build, options.projectRoot);
   const authoredReceipt = latestReceipt(build, 'AUTHORED');
   invariant(build.state === 'AUTHORED' && authoredReceipt, 'BUILD_NOT_AUTHORED', 'Build must be AUTHORED before review can finish');
   const authored = authoredReceipt.payload;
@@ -956,6 +965,12 @@ export async function finishReviewedBuild(input, options = {}) {
     'REVIEW_PACKET_STALE',
     'Review packet was prepared for older Source Coverage'
   );
+
+  if (authored.verificationPlan.checkpointProtocol && build.adapter === 'income-statement') {
+    invariant(authored.verificationPlan.checkpointProtocol === 'fidelity-checkpoints/v1', 'CHECKPOINT_PROTOCOL_INVALID', 'Unsupported checkpoint policy');
+    const { validateCheckpointClosure } = await import('./workflow-checkpoints.mjs');
+    await validateCheckpointClosure(build, authored.verificationPlan, input.checkpoints || [], { buildRoot, projectRoot });
+  }
 
   let automaticEvidence;
   let evidenceEntries = [];
@@ -1096,7 +1111,7 @@ export async function finishReviewedBuild(input, options = {}) {
   const evidence = {
     candidate: { status: 'passed', digest: fidelityResult.automaticEvidence.evidenceDigest },
     reference: {
-      status: build.adapter === 'revenue-metric' ? 'not-applicable' : 'passed',
+      status: build.adapter !== 'income-statement' ? 'not-applicable' : 'passed',
       digest: fidelityResult.interfaceMatrix?.digest || fidelityResult.resultDigest,
     },
     process: { status: 'passed', digest: plan.digest },
@@ -1126,17 +1141,17 @@ export async function finishReviewedBuild(input, options = {}) {
 
 export async function stageReviewedBaseline(input, options = {}) {
   const buildRoot = options.buildRoot || DEFAULT_BUILD_ROOT;
-  const projectRoot = options.projectRoot || rootDir;
   const build = await readDatasetBuild(input.buildId, { buildRoot });
+  const projectRoot = buildProjectRoot(build, options.projectRoot);
   const closure = latestReceipt(build, 'CLOSED');
   invariant(closure, 'BUILD_NOT_CLOSED', 'Build must be CLOSED before baseline staging');
-  const command = build.adapter === 'revenue-metric'
+  const command = build.adapter !== 'income-statement'
     ? {
         type: 'stage-baseline',
         expectedRevision: build.revision,
         closureDigest: closure.payload.closureDigest,
         disposition: 'not-applicable',
-        reason: 'revenue-metric-data-only',
+        reason: `${build.adapter}-data-only`,
       }
     : {
         type: 'stage-baseline',
@@ -1198,8 +1213,8 @@ function runExitStatus(run) {
 
 export async function sealReviewedBuild(input, options = {}) {
   const buildRoot = options.buildRoot || DEFAULT_BUILD_ROOT;
-  const projectRoot = options.projectRoot || rootDir;
   const build = await readDatasetBuild(input.buildId, { buildRoot });
+  const projectRoot = buildProjectRoot(build, options.projectRoot);
   const inspection = await inspectDatasetBuild(build.buildId, {
     ...options,
     buildRoot,

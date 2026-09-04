@@ -1,0 +1,71 @@
+{
+  "source": "input/processed/adidas-q3-fy25.png",
+  "outputDir": "data/assets/icon-references/adidas",
+  "runtimeOutputDir": "data/assets/raster-annotations/adidas",
+  "validationSheetDir": "data/assets/icon-references/adidas/validation-sheets",
+  "report": "crop-report-q3-fy25.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "skipped": [
+    {
+      "key": "adidas-company-logo",
+      "reason": "The Q3 company logo is pixel-identical to the already validated Adidas company-logo runtime asset."
+    },
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding badge and mini sankey logo, not part of Adidas income-statement semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "Source publisher website URL, footer logo, and attribution are intentionally excluded."
+    }
+  ],
+  "crops": [
+    {
+      "key": "adidas-q3-fy25-business-footwear",
+      "output": "crops/q3-fy25-business-footwear.png",
+      "searchBox": { "x": 121, "y": 484, "width": 185, "height": 174 },
+      "cropBox": { "x": 114, "y": 476, "width": 200, "height": 190 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "White sneaker product photo for Footwear; excludes the value, label, and source bar."
+    },
+    {
+      "key": "adidas-q3-fy25-business-apparel",
+      "output": "crops/q3-fy25-business-apparel.png",
+      "searchBox": { "x": 118, "y": 808, "width": 190, "height": 164 },
+      "cropBox": { "x": 112, "y": 802, "width": 202, "height": 176 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Red track-jacket product photo for Apparel; excludes the value, label, and source bar."
+    },
+    {
+      "key": "adidas-q3-fy25-business-accessories-gear",
+      "output": "crops/q3-fy25-business-accessories-gear.png",
+      "searchBox": { "x": 122, "y": 1058, "width": 202, "height": 126 },
+      "cropBox": { "x": 116, "y": 1050, "width": 214, "height": 142 },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Black duffle-bag product photo for Accessories & Gear; excludes value, label, and source bar."
+    }
+  ]
+}

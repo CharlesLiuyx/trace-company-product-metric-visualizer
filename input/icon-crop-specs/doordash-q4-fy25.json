@@ -1,0 +1,124 @@
+{
+  "source": "input/processed/doordash-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/doordash",
+  "validationSheetDir": "data/assets/icon-references/doordash/validation-sheets",
+  "report": "crop-report.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [242, 242, 242]
+  },
+  "crops": [
+    {
+      "key": "doordash-company-mark",
+      "output": "crops/company-mark.png",
+      "searchBox": {
+        "x": 735,
+        "y": 300,
+        "width": 280,
+        "height": 155
+      },
+      "cropBox": {
+        "x": 735,
+        "y": 300,
+        "width": 280,
+        "height": 155
+      },
+      "foreground": {
+        "channels": {
+          "r": [200, 255],
+          "g": [0, 80],
+          "b": [0, 70]
+        }
+      },
+      "threshold": 18,
+      "minComponentArea": 80,
+      "validation": {
+        "borderBand": 4,
+        "maxCenterOffset": 0.16,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "DoorDash company mark above the revenue hub; excludes revenue labels and chart flows."
+    },
+    {
+      "key": "doordash-left-wordmark",
+      "output": "crops/left-wordmark.png",
+      "searchBox": {
+        "x": 76,
+        "y": 520,
+        "width": 275,
+        "height": 62
+      },
+      "cropBox": {
+        "x": 76,
+        "y": 520,
+        "width": 275,
+        "height": 62
+      },
+      "foreground": {
+        "channels": {
+          "r": [200, 255],
+          "g": [0, 80],
+          "b": [0, 70]
+        }
+      },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": {
+        "borderBand": 4,
+        "maxCenterOffset": 0.22,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "DoorDash segment wordmark next to the United States label."
+    },
+    {
+      "key": "wolt-deliveroo-cluster",
+      "output": "crops/wolt-deliveroo-cluster.png",
+      "searchBox": {
+        "x": 62,
+        "y": 912,
+        "width": 275,
+        "height": 138
+      },
+      "cropBox": {
+        "x": 62,
+        "y": 912,
+        "width": 275,
+        "height": 138
+      },
+      "foreground": {
+        "any": [
+          {
+            "channels": {
+              "r": [35, 120],
+              "g": [150, 230],
+              "b": [170, 255]
+            }
+          },
+          {
+            "channels": {
+              "r": [35, 110],
+              "g": [160, 230],
+              "b": [145, 230]
+            }
+          }
+        ]
+      },
+      "threshold": 14,
+      "minComponentArea": 25,
+      "validation": {
+        "borderBand": 4,
+        "maxCenterOffset": 0.22,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "International sub-brand cluster with Wolt and Deliveroo; excludes the International text label and publisher marks."
+    }
+  ]
+}

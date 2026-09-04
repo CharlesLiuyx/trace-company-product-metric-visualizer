@@ -136,6 +136,15 @@ export function assertSourceCoverageAuthoredValues(sourceCoverage, options = {})
   const valueItems = (sourceCoverage?.items || []).filter((item) => item.amount);
   if (valueItems.length === 0) return { checked: 0 };
   const loaded = options.loadedData || (options.loadBrowserData || loadBrowserData)();
+  if (sourceCoverage.adapter === 'metric-observation') {
+    const record = (loaded.metricRecords || []).find((item) => item.key === sourceCoverage.datasetKey);
+    if (!record) throw coverageError('SOURCE_COVERAGE_AUTHORED_RECORD_MISSING', 'Metric observation record is missing');
+    for (const item of valueItems) {
+      const metric = record.metrics.find((value) => value.id === item.ssotRef.id);
+      if (!metric || metric.value !== item.amount.value || metric.unit !== item.amount.unit || metric.literal !== item.amount.literal) throw coverageError('SOURCE_COVERAGE_SSOT_VALUE_MISMATCH', item.sourceId);
+    }
+    return { checked: valueItems.length };
+  }
   if (sourceCoverage.adapter === 'income-statement') {
     const record = (loaded.records || []).find((item) => item.key === sourceCoverage.datasetKey);
     const dataset = (loaded.datasets || []).find((item) => item.key === sourceCoverage.datasetKey);

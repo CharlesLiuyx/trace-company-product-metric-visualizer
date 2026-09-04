@@ -1,0 +1,66 @@
+{
+  "source": "input/processed/nintendo-9m-fy26.png",
+  "outputDir": "data/assets/icon-references/nintendo",
+  "runtimeOutputDir": "data/assets/raster-annotations/nintendo",
+  "validationSheetDir": "data/assets/icon-references/nintendo/validation-sheets",
+  "report": "nintendo-9m-fy26-crop-report.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [1180, 1360, 80, 80]
+  ],
+  "crops": [
+    {
+      "key": "nintendo-9m-fy26-switch-console-icon",
+      "output": "crops/switch-console-icon-9m-fy26.png",
+      "runtimeOutput": "switch-console-icon-9m-fy26.png",
+      "searchBox": { "x": 10, "y": 552, "width": 142, "height": 142 },
+      "cropBox": { "x": 0, "y": 535, "width": 157, "height": 176 },
+      "backgroundRemoval": { "color": [242, 242, 242], "tolerance": 6 },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "padding": 14,
+      "validation": {
+        "borderBand": 3,
+        "maxCenterOffset": 0.04,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Nintendo Switch controller icon associated with Hardware; excludes Hardware text and financial values."
+    },
+    {
+      "key": "nintendo-9m-fy26-switch-wordmark",
+      "output": "crops/switch-wordmark-9m-fy26.png",
+      "runtimeOutput": "switch-wordmark-9m-fy26.png",
+      "searchBox": { "x": 663, "y": 395, "width": 220, "height": 63 },
+      "cropBox": { "x": 650, "y": 382, "width": 246, "height": 90 },
+      "backgroundRemoval": { "color": [242, 242, 242], "tolerance": 6 },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "padding": 10,
+      "validation": {
+        "borderBand": 3,
+        "maxCenterOffset": 0.04,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Nintendo Switch wordmark above the dedicated-platform flow; excludes financial labels and ribbons."
+    },
+    {
+      "key": "nintendo-9m-fy26-mobile-store-icons",
+      "output": "crops/mobile-store-icons-9m-fy26.png",
+      "runtimeOutput": "mobile-store-icons-9m-fy26.png",
+      "searchBox": { "x": 468, "y": 1164, "width": 175, "height": 81 },
+      "cropBox": { "x": 454, "y": 1152, "width": 203, "height": 105 },
+      "backgroundRemoval": { "color": [242, 242, 242], "tolerance": 6 },
+      "threshold": 18,
+      "minComponentArea": 25,
+      "padding": 11,
+      "validation": {
+        "borderBand": 3,
+        "maxCenterOffset": 0.05,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "App Store and Google Play icon cluster associated with Other revenue; excludes its label, values, and publisher marks."
+    }
+  ]
+}

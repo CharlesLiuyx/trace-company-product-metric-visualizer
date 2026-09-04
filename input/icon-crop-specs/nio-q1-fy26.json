@@ -1,0 +1,55 @@
+{
+  "source": "input/processed/nio-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/nio",
+  "runtimeOutputDir": "data/assets/raster-annotations/nio",
+  "validationSheetDir": "data/assets/icon-references/nio/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [242, 242, 242]
+  },
+  "crops": [
+    {
+      "key": "nio-vehicle-sales-cars",
+      "output": "crops/vehicle-sales-cars.png",
+      "runtimeOutput": "vehicle-sales-cars.png",
+      "searchBox": {
+        "x": 70,
+        "y": 550,
+        "width": 260,
+        "height": 245
+      },
+      "cropBox": {
+        "x": 64,
+        "y": 544,
+        "width": 272,
+        "height": 260
+      },
+      "threshold": 10,
+      "minComponentArea": 18,
+      "validation": {
+        "borderBand": 4,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Three NIO vehicles for the Vehicle sales source; excludes label text, values, Sankey ribbons, and publisher marks."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "nio-company-logo",
+      "reason": "The NIO horizon symbol and wordmark are re-authored as a dataset-owned SVG logo, so no raster runtime asset is needed."
+    },
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding and not part of NIO's income-statement semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "Source publisher branding, website URL, social badge, and footer lockup are intentionally excluded."
+    }
+  ]
+}

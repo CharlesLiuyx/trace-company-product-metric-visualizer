@@ -1,0 +1,23 @@
+{
+  "source": "input/processed/goldman-sachs-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/goldman-sachs",
+  "validationSheetDir": "data/assets/icon-references/goldman-sachs/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "goldman-sachs-company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "searchBox": { "x": 930, "y": 241, "width": 244, "height": 242 },
+      "cropBox": { "x": 920, "y": 232, "width": 264, "height": 264 },
+      "threshold": 18,
+      "minComponentArea": 45,
+      "note": "Goldman Sachs company wordmark plaque above the revenue hub; excludes title text, flow marks, metrics, and publisher attribution."
+    }
+  ]
+}

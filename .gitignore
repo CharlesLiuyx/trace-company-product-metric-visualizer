@@ -25,3 +25,6 @@ input/**
 input/processed/**
 !input/processed/.gitkeep
 input/**/.DS_Store
+
+# Crop recipes are durable metadata; reference PNGs remain local-only.
+!input/icon-crop-specs/*.json

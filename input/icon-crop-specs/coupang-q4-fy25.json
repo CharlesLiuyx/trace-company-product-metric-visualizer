@@ -1,0 +1,29 @@
+{
+  "source": "input/processed/coupang-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/coupang",
+  "runtimeOutputDir": "data/assets/raster-annotations/coupang",
+  "validationSheetDir": "data/assets/icon-references/coupang/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "coupang-developing-offerings-brands",
+      "output": "crops/developing-offerings-brands.png",
+      "searchBox": { "x": 132, "y": 941, "width": 272, "height": 96 },
+      "cropBox": { "x": 132, "y": 941, "width": 272, "height": 96 },
+      "threshold": 18,
+      "minComponentArea": 8,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.16,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Coupang Eats app icon and Coupang Play wordmark above the Developing Offerings source bar; excludes the segment label, source bar, KPI card, ribbons, and publisher attribution."
+    }
+  ]
+}

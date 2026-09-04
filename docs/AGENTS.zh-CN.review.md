@@ -6,6 +6,16 @@ agent 指令以英文版 `AGENTS.md` 为准。
 本仓库的 agent 工作指引。本文件负责“路由”：每条细则只存在于一个属主文档中，
 本文件给出工作流概览、以及每个领域的一行摘要和指针。
 
+**新输入的统一入口（2026-09-05）**
+
+图片和文字指标使用 `docs/asset-workflow.md`：`record:workflow start/continue`
+创建独立草稿、生成处理单并安排检查；`publish:datasets plan/commit` 检查整批结果后
+原子切换不可变版本；`release:dataset` 从已发布摘要生成输出。旧 Build 保留原有
+记录，不补写接受。通用指标 SSOT 在 `data/metric-observations/<source-key>.json`，
+生成目录为 `data/metric-observations.js`，主界面 `src/app/metric-library.js` 提供查询和
+来源查看。PNG、TXT、Markdown 均走来源认领；桑基图保留全部保真要求。命令与协议
+表由 `docs/workflow-command-reference.md` 自动生成。
+
 ## 规则归属表
 
 | 规则领域 | 属主文档 |
@@ -15,6 +25,7 @@ agent 指令以英文版 `AGENTS.md` 为准。
 | 目标验证/发布架构：证据、baseline、verify/record/publish 语义、CAS、Release | `docs/architecture/verification-publication.md` |
 | 机器可读 lifecycle protocol/state/Adapter 契约 | `docs/architecture/lifecycle-contract.json`（由 `pnpm verify:architecture` 强制奇偶） |
 | 已接受的架构决策 | `docs/adr/`（从 `docs/adr/0001-dataset-build-transactions.md` 开始） |
+| 图片/文字接收、独立草稿、处理单、批次编排与当前发布入口 | `docs/asset-workflow.md`；生成命令表 `docs/workflow-command-reference.md` |
 | 动态数据集工作流：当前 9 步流水线、intake 前 Adapter 分型门、Source → Inventory → SSOT → Adapter 覆盖对账、执行/分派、陷阱、最终检查与汇报 | `docs/dynamic-dataset-workflow.md` |
 | d3 保真：canonical 编号规则、preflight 测量、三层 sweep 状态机、自动/人工证据、接受条件 | `docs/fidelity-loop-rules.md`（其规则目录区为生成视图）；规则语义 SSOT：`scripts/lib/fidelity-rules-catalog.mjs` + 派生契约 `scripts/lib/fidelity-rule-contract.mjs`；用 `pnpm update:fidelity-rules-doc` 重新生成（`pnpm verify:architecture` 强制新鲜与一致） |
 | 历史用户反馈案例：根因、现行防线、复发升级路径（跨检出复发记忆） | `docs/fidelity-feedback-casebook.md`（登记/消费协议属主为 `docs/fidelity-loop-rules.md` §5） |
@@ -27,8 +38,8 @@ agent 指令以英文版 `AGENTS.md` 为准。
 
 ## 目标
 
-把 `input/pending/` 中的损益表参考图片转换为稳定的 Sankey 数据集和可复用的
-图标资产，然后通过 d3-sankey 保真循环验证。
+把图片或 UTF-8 文字中的指标完整数据化并纳入系统。新输入以
+`docs/asset-workflow.md` 为入口；损益表保留完整的 d3-sankey 保真循环。
 
 ## 架构边界
 
@@ -45,9 +56,8 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
 - 在命令词汇中，`verify:*` 只读，`record:*` 只写 build-local 证据或
   staging，`publish:*` 是唯一 canonical mutation，`release:*` 只作用于
   已发布 digest。已实现的 `verify:*` / `record:*` 命令均满足该契约；
-  `compat:baseline` 因在 M4 Publication 落地前仍要改 canonical baseline
-  ledger，被刻意命名在四类之外；`publish:*` / `release:*` 仍是未实现的
-  目标词汇。
+  `compat:baseline` 为历史直接编辑流程保留，仍修改 canonical baseline
+  ledger，因此命名在四类之外；`publish:*` / `release:*` 已在独立草稿流程实现。
 - Git 跟踪 `input/pending/` 与 `input/processing/` 中的 Source 文件，让共享
   队列与活动 claim 能在多个项目检出之间可见。`input/processed/` 是被忽略的
   本机归档；不得 force-add 其中内容。Git 可见性只是传输机制，不是生命周期授权。
@@ -74,7 +84,7 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
   `dataset-loader`、`hotkeys`、`i18n-runtime`、`state`、`selectors`、
   `financial`、`chart-theme` 为基础层；`shell`、`controls`、
   `company-panel`、`period-panel`、`tables`、`trend`、`comparison-zoom`、
-  `comparison-metric-trend`、`sankey`、`exports` 各自负责一个 UI 关注点；
+  `comparison-metric-trend`、`sankey`、`exports`、`metric-library` 各自负责一个 UI 关注点；
   `main.js` 负责全局事件接线并最后启动。新查看器代码放进对应归属模块
   （模块表见 `README.md` §How it's built）。加载期代码只能引用更早的
   script，运行期调用不受方向限制——该约束与跨文件重复顶层声明由
@@ -115,7 +125,7 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
 | `pnpm verify:i18n -- [--strict] [keys]` | i18n 覆盖检查 |
 | `pnpm verify:d3 -- <key> [--build <build-id>] [--focus <dir>] [--keep] [--language <code>]` | 只读 d3 诊断 + 自动硬门槛；`--build` 只加载 fresh Plan/node-face policy（typed floor exception 必需），不归档、不推进证据 lineage |
 | `pnpm verify:render-regression [-- <keys>]` | 只读批量渲染，对照 `data/render-baselines.json` 拦截回归；缺本地参考图时只跑渲染硬门槛；默认增量——基于 `output/render-regression/` 下的本机指纹缓存跳过未变更 key（跳过量在汇总中显式报告），显式 key 与 `--update` 永远真渲染，`--no-cache` 强制全量，CI 始终冷跑 |
-| `pnpm compat:baseline -- <key> [...]` | canonical baseline ledger 的兼容 mutation，刻意命名在 verify/record/publish/release 四类之外；M4 Publication 尚未替代它，也不能证明产生它的 Build 正确 |
+| `pnpm compat:baseline -- <key> [...]` | canonical baseline ledger 的兼容 mutation，刻意命名在 verify/record/publish/release 四类之外；新独立流程已使用 Publication，历史直接编辑流程继续兼容，也不能证明产生它的 Build 正确 |
 | `pnpm setup:git-hooks` | 启用仓库管理的 post-commit metadata 刷新与 pre-push 拦截；若已有自定义 `core.hooksPath` 则拒绝覆盖 |
 | `pnpm update:dataset-file-metadata` | 从 git author time 重新生成 `data/dataset-file-metadata.js`；受管 post-commit hook 会在 Dataset/revenue 提交后运行，刷新结果必须在 push 前 amend 或另行提交 |
 | `pnpm verify:dataset-file-metadata` | 检查工作区中的 metadata 是否最新；受管 pre-push hook 还要求该最新结果已提交 |

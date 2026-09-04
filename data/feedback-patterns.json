@@ -1,0 +1,448 @@
+{
+  "protocol": "feedback-pattern-index/v1",
+  "sourceDigest": "sha256:a695ad685e91481ef55a75216b6752b43f7ca2cd5b05cd544eac493324183ec9",
+  "patterns": [
+    {
+      "id": "CB-001",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "多入/出节点、显式 socket、同色入流的目标端顺序",
+      "rootCause": "execution-gap recurrence",
+      "ruleIds": [
+        "B8",
+        "G12",
+        "L11",
+        "L2",
+        "L3"
+      ],
+      "defense": "G12 + L11 接口审计与 Interface Matrix；B8 人工 reconcile 必须逐条核对目标端自上而下身份及 `targetOrder`（L2/L3）；Paramount、Alibaba、Verizon、Amazon Q4 FY22、TSMC Q3 FY22、Adidas FY23、Sony Q1 FY23 与 Nike Q4 FY26 数据集契约测试固定用户确认的端点宽度、中心线或目标端顺序；Sony Q1 FY23 额外固定 `[467,490]` 与 `[490,491]` 两个连续目标区间，使总宽严格等于 24px 柱高；Nike Q4 FY26 契约固定所有 full-face 双端 occupancy sum 与各自 node height，并强制 `interfaceAudit.mode=error`。同色入流在 reference raster 的二值 occupancy 中无法可靠恢复逐 link 身份，自动升级 disposition 为 `not-suitable`；保留逐条人工身份核对并绑定 before/after contact sheet。",
+      "recurrenceAction": ""
+    },
+    {
+      "id": "CB-002",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "同轴 label、短柱",
+      "rootCause": "execution-gap",
+      "ruleIds": [
+        "B1",
+        "B13",
+        "B4",
+        "G10",
+        "G8",
+        "G9"
+      ],
+      "defense": "G8、G9、G10 + `labelLayoutAudit`（B1/B4/B13 补盲）",
+      "recurrenceAction": ""
+    },
+    {
+      "id": "CB-003",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "短辅助柱（interest、tax、other、amortization、D&A、eliminations、operating loss、restructuring…）",
+      "rootCause": "ambiguous-rule → execution-gap recurrence",
+      "ruleIds": [
+        "B15",
+        "T13",
+        "T14",
+        "T21",
+        "T23"
+      ],
+      "defense": "T13 + T21 `node-face-policy/v2` 硬门；所有 `nodes.*` mapping 自动进入 B15 paint 审计，例外必须由 Source Coverage 绑定原生 face（T14）；T23 在 Plan 前像素复核任何 financial `nonNodeMetrics.*` 的 zero-paint 声明；Block/Marriott/Paramount/Axon/Palantir/JD.com/Docebo/Workday/GE Vernova/Alphabet/ASML Q4 FY24/Goldman Sachs Q2 FY26/Uber Q3 FY23 增加数据集契约测试，固定各自 Source face、非透明颜色及原生 link endpoint；Docebo 额外固定 `Other` 只能有一套金额 label；Uber 契约额外固定 Tax benefit Label 的 Source 测量中心与 top；用户明确要求原生高度时不得用共享可见高度替代",
+      "recurrenceAction": ""
+    },
+    {
+      "id": "CB-004",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "每个 `layout.labels.*` 组",
+      "rootCause": "execution-gap recurrence",
+      "ruleIds": [
+        "T18"
+      ],
+      "defense": "T18 `labelPositionAudit` + Plan 编译强制 `measured-label-position`；Amgen 数据集契约测试额外固定英中 label x 与柱体中心轴差不超过 0.5px；Domino's、Oracle Q1 FY26 与 ASML Q4 FY24 数据集契约测试固定英中金额块 `top` / 中心轴，并由逐 locale `labelLayoutAudit` 复核与 Source 柱面的关系；Microsoft Q1 FY24 By BU 重新绑定当前 Source digest 的原生 label union bbox，数据集契约测试固定 13 组 block anchor/top、两处关键 lineGap 与 Other route y；Coinbase 数据集契约测试固定英中 `other_subscription` 金额块 `top=1216`，逐 locale bbox 审计确认与 node 顶边净空 5px；Costco 数据集契约测试固定 Interest 细柱原生 face、共同中心轴，并由渲染审计固定文字 bbox 与柱底的 5px 边缘净空；Sony Q3 FY22 契约测试固定英中七组金额块的共同柱中心轴与用户批准 top，逐 locale `labelLayoutAudit` 复核为 `centerDelta=0px`、`edgeGap=5px`；Sony Q1 FY23 保留三个 Source `referenceBBox`，绑定用户批准的目标 bbox，并以数据集契约测试与逐 locale `labelLayoutAudit` 固定三组 5px 净空，另将 Financial services & other 的英中布局 `top=1094` 与柱顶固定为相同位置，并审计渲染字形 bbox 顶端为 `1092`；Uber Q3 FY23 契约固定英中 Tax benefit `x=2116` / `top=469` 并绑定 Source label bbox；PepsiCo Q2 FY23 保留 Europe 原生 `referenceBBox`，以 `approvedTargetBBox` 绑定用户批准位置，契约测试固定英中 `top=931`，并由逐 locale `labelLayoutAudit` 强制复核柱顶 5px 净空。同批 Microsoft Q1 FY24 Main 已按原图横向排查，未命中本次整体上移形态；Oracle 同批 processing 的 Q1 FY24、Q2 FY23、Q2 FY24、Q2 FY26、Q3 FY23、Q3 FY24、Q3 FY25、Q4 FY23、Q4 FY24、Q4 FY25 已逐数据集复查其最新 Hardware `labelLayoutAudit`，原生间距为 8–27px，均无第二个 71px 级异常，故保留各自 Source-bound 位置；Coinbase 所在 page-0075–0099 批次的最新 closeout `verticalStacks` 已横向扫描，仅 Moody's 出现 30px 以上候选，其对应位置与 Source 参考一致，因此未命中本次候选偏离形态；同批 Sony closeout `verticalStacks` 已横向扫描，其他期间对应三组 gap 为 4–37px、右下标签均保持各自 Source-bound 位置，未获得跨期间用户定向授权，故只修改 Q1 FY23 获得明确反馈的目标。Uber 同批 Q1 FY23、Q1 FY25、Q3 FY25、Q4 FY24 与 Q4 FY25 的 Tax 类对象已逐项横向排查：Q1 FY23 Source 无对应可见 face，其余均已建模为可见 node，未发现第二个同型误判。同批 11 个其他 PepsiCo Adapter 的最新英文 `verticalStacks` 已横向扫描；存在 11–71px 的 Source-bound 金额块净空，但未获得跨 Build 用户定向授权，因此只修改本次红框指定的 Q2 FY23 Europe 对象。",
+      "recurrenceAction": ""
+    },
+    {
+      "id": "CB-005",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "同公司相邻期间",
+      "rootCause": "execution-gap",
+      "ruleIds": [
+        "T19"
+      ],
+      "defense": "T19 prepare-review 测量 provenance（外来 digest 拒绝）",
+      "recurrenceAction": ""
+    },
+    {
+      "id": "CB-006",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "槽位歧义",
+      "rootCause": "rule-missing",
+      "ruleIds": [
+        "T20"
+      ],
+      "defense": "T20 + `ambiguous-label-slot`（渲染前操作者裁决）",
+      "recurrenceAction": ""
+    },
+    {
+      "id": "CB-007",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "细流带+引导线、无柱面对象",
+      "rootCause": "execution-gap recurrence",
+      "ruleIds": [
+        "B15",
+        "B7",
+        "T12",
+        "T13",
+        "T14",
+        "T21",
+        "T23"
+      ],
+      "defense": "B7/T12/T12a 已废止；现行模型要求有 face 的对象走 B15/T13/T14/T21，无 face 的数据、引导组和流端点分别进入 `nonNodeMetrics` 的 data-only/annotation/flow 表达，flow 几何由 `layout.routes` + link endpoint 拥有；T23 对 financial non-node 的 Source slot做像素级负向校验；SSOT gate 拒绝显式透明语义 node；Docebo、Workday、GE Vernova、Alphabet、ASML Q4 FY24、Goldman Sachs Q2 FY26 与 Uber Q3 FY23 数据集契约测试固定各自短柱 face、非透明颜色与原生 endpoint",
+      "recurrenceAction": ""
+    },
+    {
+      "id": "CB-008",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "node 映射 `annotations.*`，或无 graph link 的语义引导线",
+      "rootCause": "rule-missing → execution-gap recurrence",
+      "ruleIds": [
+        "A10",
+        "A4",
+        "A5",
+        "A9",
+        "B16",
+        "T17"
+      ],
+      "defense": "A4/A5/A9/A10 + B16 `semanticAnnotationAudit` 与 renderer hitbox（T17 分类）；语义 guide 必须声明 endpoints/anchor，已有 annotation guide 的 graph relationship 必须 `interactionOnly`，Hover Tag 锚到语义 Link 中心线；`verify:app` 逐 label + guide 断言 Tooltip，数据集契约测试固定唯一可见 guide、关系、anchor 与用户确认后的 label 组坐标；Alphabet 契约测试额外固定英中金额中心轴等于水平 guide 中点且 baseline 位于其上方；Microsoft Q1 FY24 Main 契约测试固定英中 Other 两行 baseline 为 619/661，并保留 route y=580；PepsiCo Q3 FY25 / Q3 FY24 契约测试固定 guide 位于首行 label baseline 至少 40px 上方，防止语义曲线穿过自身文字。同批 Microsoft Q1 FY24 By BU 已按各自 Source 横向排查，其 Other 标签维持原生 y=605–669，与 guide 无交叠；同批 PepsiCo Adapter 由既有测试与最新 closeout 证据横向排查，未获用户定向反馈的期间不跨 Build 改写 Source-bound 几何。",
+      "recurrenceAction": ""
+    },
+    {
+      "id": "CB-009",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "每个非默认 locale",
+      "rootCause": "execution-gap",
+      "ruleIds": [
+        "B6",
+        "Z1",
+        "Z5"
+      ],
+      "defense": "B6 + Z5 `textLayoutAudit` 每 required locale（Z1 独立证据）",
+      "recurrenceAction": ""
+    },
+    {
+      "id": "CB-010",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "zh overlay、含 `&` 缩写、品牌词",
+      "rootCause": "ambiguous-rule",
+      "ruleIds": [
+        "Z4",
+        "Z8"
+      ],
+      "defense": "`verify:i18n` 规则管线 + `EXACT_ZH` identity 词典（Z4/Z8 人工核对）",
+      "recurrenceAction": ""
+    },
+    {
+      "id": "CB-011",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "每个数据集",
+      "rootCause": "execution-gap",
+      "ruleIds": [
+        "G2"
+      ],
+      "defense": "G2 渲染 gate + `verify:ssot` 静态 render 画布 ↔ 参考图尺寸一致（`pnpm check` 级）",
+      "recurrenceAction": ""
+    },
+    {
+      "id": "CB-012",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "每次 execution-gap 复发",
+      "rootCause": "ambiguous-rule",
+      "ruleIds": [],
+      "defense": "Feedback Ledger 升级 disposition 收紧（复发只认 hard-gate / quantified-audit / not-suitable）",
+      "recurrenceAction": ""
+    },
+    {
+      "id": "CB-013",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "每个数据集",
+      "rootCause": "ambiguous-rule",
+      "ruleIds": [
+        "L14"
+      ],
+      "defense": "`CONTEXT.md` 公式 SSOT + `verify:ssot` 拒绝 deprecated override 字段（L14 人工核对）",
+      "recurrenceAction": ""
+    },
+    {
+      "id": "CB-014",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "render(engine) 改动",
+      "rootCause": "execution-gap",
+      "ruleIds": [],
+      "defense": "`verify:app` sankey hover 场景断言 Tooltip 份额与字体 + 引擎单测",
+      "recurrenceAction": ""
+    },
+    {
+      "id": "CB-015",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "每个数据集的 title/period；显式隐藏标志与 title/period 原生 bbox",
+      "rootCause": "execution-gap recurrence",
+      "ruleIds": [
+        "T18"
+      ],
+      "defense": "Microsoft Q1 FY24 By BU 数据集契约硬门固定非空 title、不得隐藏 period，以及 title/period/company-logo 的 Source 测量坐标；Alibaba Q4 FY24 契约固定用户批准后的 `periodY=306` / `periodNoteY=348`，并保留真实 Viewer 截图。同一 Build 的原图人工 bbox 核对与真实 Viewer 截图同时保留。全局 title/period 的 Source-bound bbox 审计仍是后续泛化方向",
+      "recurrenceAction": ""
+    },
+    {
+      "id": "CB-016",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "值恰为整数的 node",
+      "rootCause": "`data/schema.md` `valueText` override + workflow §Traps 逐 node 核对",
+      "ruleIds": [],
+      "defense": "为整数值 node 输出显式 `valueText` 决定审计（quantified-audit）",
+      "recurrenceAction": ""
+    },
+    {
+      "id": "CB-017",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "runtime raster + 非默认 locale",
+      "rootCause": "Z6a 人工移位 + workflow §Traps",
+      "ruleIds": [],
+      "defense": "每 locale raster bbox × 文本 bbox 交叠 quantified-audit",
+      "recurrenceAction": ""
+    },
+    {
+      "id": "CB-018",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "深色 hub/source 的 profit link",
+      "rootCause": "B9 + L12 人工近源取色",
+      "ruleIds": [
+        "B9",
+        "L12"
+      ],
+      "defense": "色彩语义判定不可自动化时记 not-suitable；可补 `linkTint` 存在性量化报告",
+      "recurrenceAction": ""
+    },
+    {
+      "id": "CB-019",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "tapered ribbon",
+      "rootCause": "渲染器已按中心线 `t=0.5` 锚定 + B11/L16 人工核对 clamp 遮挡",
+      "ruleIds": [
+        "B11",
+        "L16"
+      ],
+      "defense": "复发按 render-engine 回归处理并补引擎单测（quantified-audit）",
+      "recurrenceAction": ""
+    },
+    {
+      "id": "CB-020",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "interim span 记录",
+      "rootCause": "workflow §Traps + 人工核对 chip 标签/顺序/激活态",
+      "ruleIds": [],
+      "defense": "viewer variant label 单测（quantified-audit）",
+      "recurrenceAction": ""
+    },
+    {
+      "id": "CB-023",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "每个 value-bearing / Other-like Source 对象",
+      "rootCause": "rule-missing",
+      "ruleIds": [],
+      "defense": "`source-coverage/v2` 三遍扫描 + semantic 不可 skip + exactly-one SSOT/Adapter node-or-non-node-metric 对账 + rounded-zero precision recovery；manual coverage review 同时引用完整 Source 与 Coverage digest",
+      "recurrenceAction": ""
+    },
+    {
+      "id": "CB-024",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "每个 fresh intake Source",
+      "rootCause": "rule-missing",
+      "ruleIds": [],
+      "defense": "intake 前 `source-classification/v1` whole-Source Type Gate；完整 signals 必须唯一推导 Adapter 并与 `--adapter` 一致，否则 claim 前失败",
+      "recurrenceAction": ""
+    },
+    {
+      "id": "CB-025",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "贴近 label 的 SVG / raster 外观注释",
+      "rootCause": "execution-gap recurrence",
+      "ruleIds": [
+        "A6",
+        "B5"
+      ],
+      "defense": "`annotation-near-label` 编译 A6/B5；显式 `data-annotation-clearance` 图形 bbox 与 label/title/period 自动避让审计。Alphabet Q4 FY24 的五个 Google 业务图标全部接入该 quantified audit，并由数据集契约测试固定覆盖集合与 Cloud 变换；PepsiCo Q1 FY23 为 AMESA raster 的真实 bbox 增加同 ID 透明 clearance group，英中均要求 overlap=0；同批同型图标须逐项确认 `annotationLayoutAudit` graphic count 与 overlap=0",
+      "recurrenceAction": ""
+    },
+    {
+      "id": "CB-026",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "Other-like 小额支流、相邻的利润或费用终点",
+      "rootCause": "execution-gap recurrence",
+      "ruleIds": [
+        "B8"
+      ],
+      "defense": "Source Coverage 逐 flow 的 sourceId、Adapter source/target 映射与相邻节点金额平衡 + B8 人工方向核对；Amgen 数据集硬门固定 `other_income → operating_expenses`、禁止 `other_income → net_profit`，并量化两条入流完整连续覆盖目标柱左端面。同批 14 个其他新 Adapter 已横向排查：Abbott、Eli Lilly、Intuitive、UPS 的 Other income 在各自 Source 中均明确流向 Net profit，其余无同型误接；Operating expenses label 中心轴也无第二个约 31px 级偏差",
+      "recurrenceAction": "若在第三个数据集再次出现，升级为跨数据集的 Source endpoint measurement → Adapter target quantified-audit"
+    },
+    {
+      "id": "CB-027",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "非零金额的 K/M/B/T 单位与官方披露、图内比例或几何冲突",
+      "rootCause": "rule-missing",
+      "ruleIds": [],
+      "defense": "`source-coverage/v2` 的 `authoritative-source-correction`：保留原 literal，只允许用户明确批准的 `unit-typo`，绑定官方 locator/literal、纠正后 literal 与理由；官方值及纠正值均须落在 authored amount 的 resolution 内，且与 rounded-zero precision recovery 互斥",
+      "recurrenceAction": ""
+    },
+    {
+      "id": "CB-028",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "低于共享 floor 的细柱与相邻同色/近色柱共列，且两者垂直距离较近",
+      "rootCause": "execution-gap",
+      "ruleIds": [
+        "B8",
+        "T14",
+        "T21"
+      ],
+      "defense": "B8 逐接口人工核对 + T14/T21 Source-bound 原生像素扫描；测量时必须区分目标细柱色值与相邻柱抗锯齿边缘，并记录同批横向排查",
+      "recurrenceAction": "同型问题再次出现时，为 below-floor face 增加“flow endpoint ↔ observedBBox 中心距离”量化审计（quantified-audit）"
+    },
+    {
+      "id": "CB-029",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "侧置名称块与金额/备注分块布局，或名称、金额、备注合并在一个完整侧标组；应以 node face 为中心而完整 label union 仍保留源图关系；独立金额/备注块位于自身柱面上方时还须命中 T1/G8 的 `5px ±1px` 边缘净空目标",
+      "rootCause": "execution-gap recurrence",
+      "ruleIds": [
+        "B3",
+        "G8",
+        "T1",
+        "T18",
+        "T7"
+      ],
+      "defense": "为对象声明 `centered-side-label`，并按 T18 保留 Source `referenceBBox`、记录用户批准的 `approvedTargetBBox`；B3/T7 hard gate 每个 locale 强制中心差 `<=4px`。合并侧标使用显式 `semanticRole: centered-side-label`，render audit 不再依赖金额/备注文本拆分推断；Live Nation、Rivian、Oracle 与 Alibaba 数据集契约测试固定 label top 与 node face 中心关系；Alibaba 修正后英文完整标签组中心与柱中心差 0.5px。Moody's 三组英中金额块经 SVG bbox audit 均收敛为 5.58px，并由数据集契约测试固定其位置。PepsiCo Q4 FY22 将 AMESA 名称改为右缘 `x=759` 的 `centered-side-label`，与柱左缘保持 30px、垂直中心差 0.5px；保留原始 Source bbox 并以 `approvedTargetBBox` 绑定用户定向修正，数据集契约测试固定英中布局。同批其余 11 个 PepsiCo Adapter 已按最新 AMESA/EMEA side-label audit 横向排查：其余对象要么中心差已 `<=4px`，要么保留明确 Source-bound offset；未发现第二个同时具备大右侧间距与失去中心对齐的同型对象。On、Birkenstock、Chevron、Oxy、Home Depot、Lowe's、Target、Best Buy、SentinelOne、Rubrik、FedEx、HPE 已按最新 evidence 横向排查；其侧标均维持各自 Source 关系，未命中本次三联成本标签形态",
+      "recurrenceAction": "已落实 quantified-audit：显式语义 role 直接进入 B3/T7 中心差审计，不再依赖金额文本识别；T1/G8 继续输出逐对象实际边缘 gap，Moody's 另以数据集契约测试固定用户批准的 5px 目标"
+    },
+    {
+      "id": "CB-030",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "靠近独立卡片底边的多行语义 annotation，0 overlap 不足以表达所需留白",
+      "rootCause": "ambiguous-rule",
+      "ruleIds": [
+        "A5"
+      ],
+      "defense": "A5 人工净空复核 + AMC 数据集契约测试固定英文/中文三行 baseline 为 1100/1142/1176、卡片顶边为 1199；同批新 Adapter 横向排查未发现另一组同型“多行语义 annotation 紧邻 KPI 卡”布局",
+      "recurrenceAction": ""
+    },
+    {
+      "id": "CB-031",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "非零金额的数字与官方披露、图内算式或几何冲突，但 K/M/B/T 后缀本身正确",
+      "rootCause": "rule-missing",
+      "ruleIds": [],
+      "defense": "`source-coverage/v2` 的 `authoritative-source-correction` 新增 typed `numeric-typo`；要求 Source 单位与 authored unit 相同、保留原 literal、绑定用户批准、官方 locator/literal、纠正后 literal 与理由；官方值及纠正值仍须在 declared resolution 内，且与 rounded-zero precision recovery 互斥",
+      "recurrenceAction": ""
+    },
+    {
+      "id": "CB-032",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "图标紧邻上一组文字，crop 上边界跨过主体与邻接文字之间的空白扫描线；已修复的干净共享资产未被同批历史 Adapter 一致消费",
+      "rootCause": "execution-gap recurrence",
+      "ruleIds": [
+        "I4",
+        "I6"
+      ],
+      "defense": "`extract_icon_crops.py` 支持 `validation.sourceIsolationBands` quantified audit：spec 在 Source 坐标声明主体与邻接内容之间的水平/垂直隔离带及最大前景像素数，任一带超限即使 crop 自身边缘检查通过也会失败。Nike Q2 FY26 固定 `y=1159` 与 `x=330` 两条隔离带，实测均为 0 前景像素；通用回归测试同时证明污染隔离带会失败。用户指定的 7 个 Nike Adapter 统一引用 `business-converse-q2-fy26.png` 的 205×132 原始比例，数据集契约测试逐 key 固定 href、key 与尺寸。I4/I6 人工验收仍保留",
+      "recurrenceAction": "已落实 quantified-audit 与跨 Adapter 消费契约；后续同型紧邻文字 crop 必须声明 Source isolation band，不能只依赖 crop 边缘、居中或人工目测；共享干净资产获批后须横向排查并固定用户确认的消费范围"
+    },
+    {
+      "id": "CB-033",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "runtime raster 或 vector/text 业务/产品图标与侧置名称、node face 构成同一行语义组",
+      "rootCause": "execution-gap recurrence",
+      "ruleIds": [
+        "A6",
+        "B5",
+        "I10",
+        "I12",
+        "T11"
+      ],
+      "defense": "T11/I10 人工逐组核对仍保留；复发后新增 I12 `paired-node-annotation` quantified audit，语义图标簇通过 `data-annotation-paired-node` 声明语义 node；默认与 node face 对齐，用户明确要求与 Label 对齐时再声明 `data-annotation-paired-target=\"label\"` 和 side，逐 locale 强制 annotation union bbox 与显式目标 centerY 差 `<=4px`。Q4 FY24 英中各 7/7 组通过，最大差分别 3.46px / 3.5px；Q4 FY25 7 组英文、中文结果均收敛至约 0px。Samsung Q2 FY23 两组 wordmark 同时接入 I12 与 A6/B5 图形净空审计，修正后英文中心差约 0.00005px / 0.37px、与金额/同比文字零交叠，并由数据集契约测试固定左侧变换及 node 配对。Q4 FY24 同批其余 11 个 Alibaba Adapter 已用左侧 contact sheet 横向排查：Q4 FY25 由 I12 自动确认，另外 10 个未出现整列累积错位。PepsiCo Q4 FY22 将 AMESA globe 移到 `x=79, y=1175`，声明 paired label；英中图标与名称中心差均 1px、英文图文净空约 5.8px、overlap=0，并由数据集契约测试固定位置与配对。同批其余 11 个 PepsiCo Adapter 已检查 globe 配对与相应 AMESA/EMEA 中心关系；已配对对象 I12 为绿，其余保留 Source-bound 位置，未发现第二个同型的未配对且整体失准对象。AbbVie 作为历史案例保留；同批横向排查须检查 paired 声明和 I12 evidence",
+      "recurrenceAction": "已落实 quantified-audit（I12 + A6/B5）和 Samsung Q2 FY23 数据集契约 hard gate；后续同型图标簇不得只依赖不重叠审计或人工目测"
+    },
+    {
+      "id": "CB-034",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "侧置宽标题下方的独立短金额行，需要不同于标题的水平 anchor",
+      "rootCause": "execution-gap",
+      "ruleIds": [
+        "B1",
+        "B4"
+      ],
+      "defense": "B1/B4 人工语义组复核；GameStop 英中布局拆成 title start-anchor 与 amount middle-anchor 两个 block，数据集契约测试固定共同中心轴。同批另 14 个新 Adapter 已横向排查：Aramco、dLocal、HealthEquity 的 side-start 金额组按各自 Source 采用共同左缘，其余无同型结构",
+      "recurrenceAction": "同型问题再次出现时，为 label line/block 增加显式语义 role，并以 rendered bbox centerX 差做 quantified-audit"
+    },
+    {
+      "id": "CB-035",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "Source raster 保留财务标签和值、但未绘出操作方明确要求的语义柱面与连线",
+      "rootCause": "execution-gap",
+      "ruleIds": [
+        "G12"
+      ],
+      "defense": "`source-coverage/v2` 仅接受带 `user-directed-topology-restoration` authority、原因和 `targetBBox` 的 `design-specified` face，禁止 agent-only inference；该 face 进入完整 visible-node policy，Adapter 为候选专用接口声明 full-face intent，G12 对每个接口强制端点、切线和全柱面覆盖；AMD Build 另记录 19 行 Interface Matrix 与闭合 FeedbackRecord",
+      "recurrenceAction": ""
+    },
+    {
+      "id": "CB-036",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "semantic micro-flow annotation 的独立水平 guide segment 与同组文字共享水平中心轴",
+      "rootCause": "execution-gap",
+      "ruleIds": [
+        "A4",
+        "A5",
+        "A6",
+        "B5"
+      ],
+      "defense": "A4/A5 人工语义组复核 + `annotation-near-label` A6/B5；Micron 数据集契约测试在英中 locale 固定 guide 的 `M2144…H2232`，并量化 `(2144 + 2232) / 2 = text x=2188`",
+      "recurrenceAction": "同型问题再次出现时，为 annotation guide 声明 paired label，并增加 rendered guide bbox centerX ↔ label bbox centerX quantified-audit"
+    },
+    {
+      "id": "CB-037",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "同列、同语义层级的多组侧置 label 共享视觉中心轴或视觉边缘",
+      "rootCause": "execution-gap recurrence",
+      "ruleIds": [
+        "T18",
+        "T6"
+      ],
+      "defense": "T6 已升级为 `aligned-side-label-column` quantified audit：逐 locale 要求同一声明组位于同一 node 列、同一侧，渲染视觉边缘 spread `<=2px`；Goldman Sachs 契约固定英中八组费用 Label 的共同中心轴，LVMH 契约固定四组业务 Label 的共同右缘、27px 柱间距及逐柱垂直中心；PepsiCo Q1 FY23 将 LATAM、Europe、AMESA 英中侧标统一为 `x=768` end-anchor，T18 保留 Source bbox 并绑定用户批准的 AMESA target bbox，数据集契约固定共同右缘；同批其余 11 个 processing PepsiCo Adapter 的最新英文 evidence 已横向扫描，可比 AMESA 侧标均报告 label-node overlap=0，未发现第二个本次“长标签左散并贴住图标”的组合形态，故保留各自 Source-bound 布局",
+      "recurrenceAction": "已落实 quantified-audit；后续同型 label 列必须声明该 feature，不能只靠逐组 T18 中心点自洽"
+    },
+    {
+      "id": "CB-038",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "Adapter key 的公司片段与既有公司实体仅在空格、标点或品牌大小写上不同，且 Adapter 缺少显式 `company` / `meta.company`",
+      "rootCause": "execution-gap",
+      "ruleIds": [
+        "G11"
+      ],
+      "defense": "G11 consistency evidence 现通过 `verify:ssot` 硬门比较 Adapter 与 Metric SSOT 经 company metadata 解析后的实体 key；不一致时要求显式公司身份或有意登记 alias。ServiceNow 三个期间另有分组回归测试，固定只生成一个 `ServiceNow` 实体；同批 Adapter 由该全局硬门逐一横向排查。",
+      "recurrenceAction": ""
+    },
+    {
+      "id": "CB-039",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "semantic micro-flow annotation 的文字组被明确要求置于关联 node face 正下方",
+      "rootCause": "execution-gap",
+      "ruleIds": [],
+      "defense": "Adobe Q4 FY22 Adapter 记录 `data-user-directed-layout=\"other-income-below-net-profit\"`，数据集契约 hard gate 在英中 locale 固定两行 `centerX = net_profit.x + width / 2 = 2302.5` 且 baseline 位于柱底以下。同批 Adobe/IBM 扫描发现 Adobe Q1 FY23、Q1 FY25、Q3 FY24、Q4 FY24 的 Source 原图均明确把 Other 文字置于独立 guide 下方，未获得同一用户定向修正，因此保留各自 Source-bound 布局。",
+      "recurrenceAction": ""
+    },
+    {
+      "id": "CB-040",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "先前“柱子的正下方”缺少精确目标框，导致文字被误解为与柱中心轴对齐；颜色目标此前也未给出",
+      "rootCause": "ambiguous-rule",
+      "ruleIds": [],
+      "defense": "Adapter 记录 `data-user-directed-layout=\"other-income-under-guide-left-of-net-profit\"`；数据集契约 hard gate 将英中两行锚点固定为 `(2206,550)` / `(2206,590)`、要求其位于 Net profit 左侧，并将 Net profit face 色固定为用户要求的深绿 `#008f51`。",
+      "recurrenceAction": ""
+    }
+  ]
+}

@@ -17,6 +17,7 @@ or storage guarantees already exist.
 5. [`ADR-0001`](../adr/0001-dataset-build-transactions.md) — accepted decision,
    alternatives, and consequences.
 6. Operational owners when doing current work:
+   [`asset-workflow.md`](../asset-workflow.md),
    [`dynamic-dataset-workflow.md`](../dynamic-dataset-workflow.md) and
    [`fidelity-loop-rules.md`](../fidelity-loop-rules.md).
 
@@ -43,14 +44,11 @@ build can enter a `PublicationBatch`; only a `PUBLISHED` canonical digest can
 start a `ReleaseAttempt`.
 
 `pending/`, `processing/`, and `processed/` are Source locators, not additional
-states. The current compatibility implementation has `record:intake` claim a
-selected Source into the Build-local `processing/` locator and lease. The only
-current relocation authority is an explicit operator review-completion
-signal, confirmed against the enumerated processing batch before the move
-(owning rule: [`dynamic-dataset-workflow.md`](../dynamic-dataset-workflow.md)
-§Operator Review-Completion Signal); it creates no lifecycle receipts.
-Moving the same bytes does not change their digest identity. M4 replaces this
-transitional relocation with a Publication-owned Source projection.
+states. Both media formats use digest-bound Source claims. New inputs use an isolated
+Build workspace and share the existing Build ledger. Publication fixes Source
+locators and digests with the canonical data. Moving the local Source bytes
+still requires the explicit, list-confirmed operator signal defined in
+[dynamic-dataset-workflow.md](../dynamic-dataset-workflow.md); see ADR-0002.
 
 The repository currently tracks Source files in `pending/` and `processing/`
 so queue and claim changes can be shared across project checkouts. `processed/`
@@ -68,7 +66,7 @@ The target deepens four Modules:
 
 These are **Deep** Modules: callers get high Leverage from small lifecycle
 operations, while ordering, recovery, and correctness retain Locality inside
-the owning Module. Income Statement and Revenue Metric are real Adapters at
+the owning Module. Income Statement, Revenue Metric and Metric Observation are real Adapters at
 the input-type Seam; future input types add an Adapter instead of branching
 through every caller.
 
@@ -76,8 +74,7 @@ The implemented M3 Build path uses `source-classification/v1` before fresh
 intake, then `source-coverage/v2` plus actual SSOT/View reconciliation to
 compile `node-face-policy/v2`, `verification-plan/v5`, and
 `review-packet/v4`. Every current semantic node is expected painted; geometry
-without a Source face is modeled as flow or annotation. These are current
-build-local guards, not M4 Publication.
+without a Source face is modeled as flow or annotation. These remain build-local guards. Publication consumes the resulting fresh seals.
 
 ## Non-negotiable invariants
 
@@ -112,24 +109,29 @@ build-local guards, not M4 Publication.
   new seal against the new base.
 - Release failure never rolls back a successful Publication.
 
-## Current versus target
+## Current implementation
 
-| concern | current Implementation | accepted target |
-| --- | --- | --- |
-| intake | `record:intake` requires explicit Source signals, records a whole-image `source-classification/v1` whose derived Adapter must match `--adapter`, then records per-item Source/base digests and claims the selected file from `pending/` into the Build-local `processing/` working locator and lease | full isolated `DatasetBuild` workspace with the same digest-bound Type Gate and claim semantics |
-| Source projection | an explicit, batch-confirmed operator completion signal is the only relocation authority; the confirmed no-clobber move implies no Build closure or M4 Publication | Publication alone materializes the stable processed Source projection as part of the planned canonical result |
-| authoring and Plan | canonical paths are still edited directly; `prepare-review` records `source-coverage/v2`, reconciles Source amounts against the loaded SSOT and exactly one mapped Income Statement node or non-node metric, pixel-checks any claimed zero-paint non-node slot, records a typed `ObjectInventory`, compiles a visible-only NodeFacePolicy-bearing `verification-plan/v5`, hashes authored files, and returns a content-addressed `review-packet/v4` token | isolated build workspace plus complete `ArtifactManifest` and Adapter execution |
-| verification and fidelity | `record:verification` records Build-bound non-render consistency evidence; `verify:d3` is read-only diagnostic execution; `record:fidelity` alone may archive durable `fidelity-run/2` `evidence-ready` artifacts bound to Build/authored/Plan digests and evaluated against the Plan's node-face policy; legacy unbound archives remain compatibility-only | typed automatic evidence plus the complete Adapter verification profile |
-| human closure | `record:build finish` consumes the Review token, automatic evidence, `ManualAttestation`, `RegionDecision`, risk/Matrix facts, and `FeedbackLedger`; only an accepted `FidelityResult` records `CLOSED` | the same deep Interface as the sole operational closure path |
-| baseline | the Build chain records true build-local `BASELINE_STAGED`; `compat:baseline` (renamed from `record:baseline`, outside the command classes) remains a subset-only, failure-atomic compatibility mutation of the canonical ledger | publish the staged baseline with the sealed contribution |
-| seal and inspection | `record:build seal` recomputes current authored-file freshness and reruns the read-only Adapter final profile (non-render consistency plus per-locale render hard gates for Income Statement) without caller-supplied pass JSON, recording each run in `finalProfiles`. `inspect` reports historical and effective state | implemented — matches the target for Build scope; the canonical projection remains M4 |
-| reporting | inspection generates `CloseoutReport`, Task information, and Loop Fidelity Summary as pure Views | stable Views over immutable published/build-local facts |
-| registration and metadata | multiple generators mutate shared files | pure projections inside one `PublicationBatch` |
-| standalone | build no longer refreshes tracked metadata, but still reads the live worktree | isolated Release from an immutable published digest |
+New Sources use [asset-workflow.md](../asset-workflow.md). PNG, TXT and Markdown
+are supported; the media format is separate from Income Statement, Revenue
+Metric and the new generic Metric Observation Adapter. The latter has exact
+decimal strings, explicit units/basis, real Source anchors and a viewer library.
 
-The current column remains executable until the matching milestone below is
-implemented. Target terminology must not be presented as an available CLI
-before then.
+Build workspaces isolate data authoring. Preparation derives ArtifactManifest,
+semantic contributions, coverage and the Plan, generates review sheets, and
+records timings. New isolated Sankey Builds require digest-bound stage
+checkpoints before closure. Historical Builds are not silently upgraded.
+
+Publication composes owned data paths in a private candidate, runs shared
+projectors and checks, verifies fresh seals and performs one immutable-tree
+pointer CAS. Different writes to the same owned path conflict explicitly.
+Readers pin the digest before fetching HTML and assets. The working tree is
+still available for code development and legacy direct-edit data; it is not
+claimed to become atomic through a series of file copies.
+
+Release attempts build and verify Pages or standalone output from a published
+digest and retain their own success/error receipt. No external deployment is
+implicit. Local Source archive moves remain operator-controlled; canonical
+Source metadata is published with the data.
 
 ## Migration milestones
 
@@ -137,10 +139,10 @@ before then.
 | --- | --- | --- |
 | M0 — record the decision | implemented | architecture owners, vocabulary, invariants, and ADR exist |
 | M1 — isolate FidelityRun | implemented with operation separation and `fidelity-run/2` review identity | `verify:d3` remains ephemeral/read-only; `record:fidelity` alone finalizes durable automatic evidence, with legacy v1 archives explicitly non-closure |
-| M2 — introduce DatasetBuild | foundation implemented | per-item `record:intake` with a whole-Source Type Gate plus a Build-local working-Source claim, versioned state/storage, content-addressed objects, and historical/effective freshness exist; isolated authoring workspace remains pending |
-| M3 — close and stage | implemented — primary close-out path | `SourceClassification -> ObjectInventory + SourceCoverage -> actual authored-value reconciliation -> NodeFacePolicy + VerificationPlan v5 -> ReviewPacket v4 -> DatasetVerification + FidelityResult -> CLOSED -> BASELINE_STAGED -> SEALED`, plus inspection/Views; the seal reruns the complete Adapter final profile (non-render consistency + per-locale render hard gates). Canonical writes remain direct-edit until M4 |
-| M4 — publish atomically | pending | pure projectors, `baseCanonicalDigest`, path claims, CAS, conflict/replan/reseal |
-| M5 — separate Release | partial | standalone no longer mutates metadata and the base architecture contract checker is active; immutable published-input Release, attempt receipts, generated views, and Release-specific contract checks remain pending |
+| M2 — introduce DatasetBuild | implemented for the new workflow | isolated authoring workspace, existing ledger, PNG/text identity, facts compilation and derived dependencies; historical direct-edit Builds remain readable |
+| M3 — close and stage | implemented | coverage, existing full checks and human attestation; new isolated Sankey Builds also require scope-bound stage checkpoints; baseline and final seal remain separate |
+| M4 — publish atomically | implemented for local dataset publication | private combined candidate, pure-in-candidate shared projections, owned-path conflicts, fresh seal check, immutable tree and pointer CAS, digest-qualified reader, idempotent recovery |
+| M5 — separate Release | implemented for local site/standalone artifacts | published-digest input, independent attempt/error receipts and retries; external hosted deployment remains an explicit separate operation |
 
 Each milestone must run in shadow or compatibility mode until its observable
 results match the current verifier behavior. Do not delete an old Interface

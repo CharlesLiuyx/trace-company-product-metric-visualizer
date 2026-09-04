@@ -1,0 +1,37 @@
+{
+  "source": "input/processed/birkenstock-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/birkenstock",
+  "runtimeOutputDir": "data/assets/raster-annotations/birkenstock",
+  "validationSheetDir": "data/assets/icon-references/birkenstock/validation-sheets",
+  "report": "crop-report-q4-fy25.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "crops": [
+    {
+      "key": "birkenstock-business-to-business-sandal-q4-fy25",
+      "output": "crops/business-to-business-sandal-q4-fy25.png",
+      "searchBox": { "x": 60, "y": 365, "width": 352, "height": 171 },
+      "cropBox": { "x": 60, "y": 365, "width": 352, "height": 171 },
+      "threshold": 12,
+      "minComponentArea": 40,
+      "backgroundRemoval": { "enabled": false },
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.22, "maxForbiddenForegroundPixels": 0 },
+      "note": "Q4 FY25 Business-to-Business sandal cluster. The crop contains the full sandal and excludes the €293M value block, source bar, labels, and publisher attribution."
+    },
+    {
+      "key": "birkenstock-direct-to-consumer-store-q4-fy25",
+      "output": "crops/direct-to-consumer-store-q4-fy25.png",
+      "searchBox": { "x": 58, "y": 710, "width": 350, "height": 224 },
+      "cropBox": { "x": 58, "y": 710, "width": 350, "height": 224 },
+      "threshold": 12,
+      "minComponentArea": 40,
+      "backgroundRemoval": { "enabled": false },
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.22, "maxForbiddenForegroundPixels": 0 },
+      "note": "Q4 FY25 Direct-to-Consumer storefront cluster. The crop contains the full storefront and excludes the €232M value block, source bar, labels, and publisher attribution."
+    }
+  ]
+}

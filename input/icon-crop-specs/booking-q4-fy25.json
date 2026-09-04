@@ -1,0 +1,72 @@
+{
+  "source": "input/processed/booking-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/booking",
+  "runtimeOutputDir": "data/assets/raster-annotations/booking",
+  "validationSheetDir": "data/assets/icon-references/booking/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "crops": [
+    {
+      "key": "booking-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": { "x": 798, "y": 288, "width": 598, "height": 135 },
+      "cropBox": { "x": 784, "y": 276, "width": 626, "height": 160 },
+      "threshold": 16,
+      "minComponentArea": 60,
+      "validation": { "borderBand": 5, "maxCenterOffset": 0.1, "maxForbiddenForegroundPixels": 0 },
+      "note": "Booking Holdings dot-grid and wordmark above the revenue hub; excludes the title and operating-profit label."
+    },
+    {
+      "key": "booking-merchant-brands",
+      "output": "crops/merchant-brands.png",
+      "runtimeOutput": "merchant-brands.png",
+      "searchBox": { "x": 9, "y": 544, "width": 156, "height": 194 },
+      "cropBox": { "x": 0, "y": 532, "width": 180, "height": 220 },
+      "threshold": 16,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 4, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Merchant business brand cluster: Booking.com, priceline, Rentalcars.com, agoda, and the color dots; excludes the Merchant label and revenue node."
+    },
+    {
+      "key": "booking-agency-brand",
+      "output": "crops/agency-brand.png",
+      "runtimeOutput": "agency-brand.png",
+      "searchBox": { "x": 20, "y": 859, "width": 148, "height": 154 },
+      "cropBox": { "x": 8, "y": 848, "width": 174, "height": 176 },
+      "threshold": 16,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 4, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Booking.com rounded-square Agency brand icon; excludes the Agency label and revenue node."
+    },
+    {
+      "key": "booking-advertising-brands",
+      "output": "crops/advertising-brands.png",
+      "runtimeOutput": "advertising-brands.png",
+      "searchBox": { "x": 11, "y": 1052, "width": 157, "height": 130 },
+      "cropBox": { "x": 0, "y": 1040, "width": 184, "height": 154 },
+      "threshold": 16,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 4, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Advertising & Other brand cluster: KAYAK and OpenTable; excludes the Advertising & Other label and revenue node."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding and not part of Booking Holdings income-statement semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "Source publisher branding, website URL, and footer logo are intentionally excluded."
+    },
+    {
+      "key": "booking-stat-cards",
+      "reason": "Gross bookings and Nights booked cards are chart annotations rebuilt as vector SVG, not reusable icon reference assets."
+    }
+  ]
+}

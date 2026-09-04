@@ -1,0 +1,43 @@
+{
+  "source": "input/processed/blackrock-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/blackrock",
+  "validationSheetDir": "data/assets/icon-references/blackrock/validation-sheets",
+  "report": "crop-report.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "blackrock-company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "searchBox": {
+        "x": 704,
+        "y": 326,
+        "width": 726,
+        "height": 126
+      },
+      "cropBox": {
+        "x": 694,
+        "y": 318,
+        "width": 746,
+        "height": 142
+      },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.04,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "BlackRock company wordmark above the revenue hub; excludes labels, flows, publisher marks, website URL, and bottom attribution badges."
+    }
+  ]
+}

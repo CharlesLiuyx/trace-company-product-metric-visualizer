@@ -1,0 +1,69 @@
+{
+  "source": "input/processed/tripadvisor-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/tripadvisor",
+  "runtimeOutputDir": "data/assets/raster-annotations/tripadvisor",
+  "validationSheetDir": "data/assets/icon-references/tripadvisor/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "crops": [
+    {
+      "key": "tripadvisor-company-logo",
+      "output": "crops/company-logo.png",
+      "runtimeOutput": "company-logo.png",
+      "searchBox": { "x": 594, "y": 292, "width": 776, "height": 160 },
+      "cropBox": { "x": 602, "y": 270, "width": 763, "height": 186 },
+      "threshold": 16,
+      "minComponentArea": 40,
+      "validation": { "borderBand": 1, "maxCenterOffset": 0.16, "maxForbiddenForegroundPixels": 0 },
+      "note": "Tripadvisor owl roundel and wordmark above the revenue hub; excludes the page title and the gross-profit label."
+    },
+    {
+      "key": "tripadvisor-hotel-other-icon",
+      "output": "crops/hotel-other-icon.png",
+      "runtimeOutput": "hotel-other-icon.png",
+      "searchBox": { "x": 18, "y": 399, "width": 118, "height": 111 },
+      "cropBox": { "x": 4, "y": 386, "width": 146, "height": 137 },
+      "threshold": 16,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 4, "maxCenterOffset": 0.16, "maxForbiddenForegroundPixels": 0 },
+      "note": "Hotel & Other Tripadvisor app-icon cluster; excludes the Hotel & Other label and source node."
+    },
+    {
+      "key": "tripadvisor-experiences-icon",
+      "output": "crops/experiences-icon.png",
+      "runtimeOutput": "experiences-icon.png",
+      "searchBox": { "x": 14, "y": 742, "width": 120, "height": 115 },
+      "cropBox": { "x": 2, "y": 730, "width": 132, "height": 140 },
+      "threshold": 16,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 4, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Experiences (Viator) rounded-square logo; excludes the Experiences label and source node."
+    },
+    {
+      "key": "tripadvisor-thefork-icon",
+      "output": "crops/thefork-icon.png",
+      "runtimeOutput": "thefork-icon.png",
+      "searchBox": { "x": 15, "y": 1044, "width": 121, "height": 114 },
+      "cropBox": { "x": 2, "y": 1031, "width": 148, "height": 140 },
+      "threshold": 16,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 4, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "TheFork rounded-square fork logo; excludes the TheFork label and source node."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding is not Tripadvisor income-statement semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "Source publisher branding, website URL, and footer logo are intentionally excluded."
+    }
+  ]
+}

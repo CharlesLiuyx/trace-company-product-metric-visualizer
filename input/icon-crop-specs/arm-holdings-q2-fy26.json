@@ -1,0 +1,20 @@
+{
+  "source": "input/processed/arm-holdings-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/arm-holdings",
+  "report": "q2-fy26-crop-report.json",
+  "runtimeOutputDir": "data/assets/raster-annotations/arm-holdings",
+  "validationSheetDir": "data/assets/icon-references/arm-holdings/validation-sheets",
+  "background": [242, 242, 242],
+  "crops": [
+    {
+      "key": "arm-holdings-company-wordmark-q2-fy26",
+      "output": "crops/company-wordmark-q2-fy26.png",
+      "runtimeOutput": "company-wordmark-q2-fy26.png",
+      "searchBox": { "x": 690, "y": 260, "width": 540, "height": 175 },
+      "cropBox": { "x": 700, "y": 265, "width": 520, "height": 165 },
+      "foreground": { "mode": "rgb-range", "min": [0, 110, 160], "max": [10, 180, 220] },
+      "minComponentArea": 35,
+      "note": "Legacy Arm wordmark centered above the customer split. Excludes the Revenue hub, customer labels, chart flows, and publisher attribution."
+    }
+  ]
+}

@@ -33,13 +33,15 @@ function assertDatasetKey(key) {
 export function sourceLifecyclePaths(key, options = {}) {
   assertDatasetKey(key);
   const projectRoot = path.resolve(options.projectRoot || rootDir);
-  const processingUri = `input/processing/${key}.png`;
-  const processedUri = `input/processed/${key}.png`;
+  const extension = options.extension || '.png';
+  if (!['.png', '.txt', '.md'].includes(extension)) throw lifecycleError('SOURCE_FORMAT_INVALID', 'Supported Sources: PNG, UTF-8 TXT, Markdown');
+  const processingUri = `input/processing/${key}${extension}`;
+  const processedUri = `input/processed/${key}${extension}`;
   return {
     processingUri,
     processedUri,
-    processingPath: path.join(projectRoot, 'input', 'processing', `${key}.png`),
-    processedPath: path.join(projectRoot, 'input', 'processed', `${key}.png`),
+    processingPath: path.join(projectRoot, 'input', 'processing', `${key}${extension}`),
+    processedPath: path.join(projectRoot, 'input', 'processed', `${key}${extension}`),
   };
 }
 
@@ -47,8 +49,8 @@ export function pendingSourcePath(requested, options = {}) {
   const projectRoot = path.resolve(options.projectRoot || rootDir);
   const absolute = path.resolve(projectRoot, requested);
   assertInsideProject(absolute, projectRoot, 'Pending Source');
-  if (path.dirname(absolute) !== path.join(projectRoot, 'input', 'pending') || !/\.png$/i.test(absolute)) {
-    throw lifecycleError('SOURCE_PATH_INVALID', 'Source must be a PNG directly under input/pending/');
+  if (path.dirname(absolute) !== path.join(projectRoot, 'input', 'pending') || !/\.(png|txt|md)$/i.test(absolute)) {
+    throw lifecycleError('SOURCE_PATH_INVALID', 'Source must be PNG, TXT or Markdown directly under input/pending/');
   }
   return {
     originUri: slashPath(path.relative(projectRoot, absolute)),
@@ -93,7 +95,7 @@ export async function claimPendingSource({ source, key, expectedDigest = '', pro
     throw lifecycleError('SOURCE_DIGEST_INVALID', 'Expected Source digest must be sha256');
   }
   const origin = pendingSourcePath(source, { projectRoot });
-  const lifecycle = sourceLifecyclePaths(key, { projectRoot });
+  const lifecycle = sourceLifecyclePaths(key, { projectRoot, extension: path.extname(origin.originPath).toLowerCase() });
   if (existsSync(lifecycle.processedPath)) {
     throw lifecycleError(
       'PROCESSED_SOURCE_EXISTS',
@@ -124,7 +126,7 @@ export async function claimPendingSource({ source, key, expectedDigest = '', pro
 export async function isRecoverablePendingClaim({ source, key, expectedDigest, projectRoot = rootDir }) {
   if (!SHA256_RE.test(String(expectedDigest || ''))) return false;
   const origin = pendingSourcePath(source, { projectRoot });
-  const lifecycle = sourceLifecyclePaths(key, { projectRoot });
+  const lifecycle = sourceLifecyclePaths(key, { projectRoot, extension: path.extname(origin.originPath).toLowerCase() });
   if (
     !existsSync(origin.originPath) ||
     !existsSync(lifecycle.processingPath) ||
@@ -162,7 +164,7 @@ export function resolveSourcePath(requested, options = {}) {
   if (existsSync(absolute)) return absolute;
 
   const relative = slashPath(path.relative(projectRoot, absolute));
-  const match = relative.match(/^input\/processed\/([^/]+\.png)$/i);
+  const match = relative.match(/^input\/processed\/([^/]+\.(?:png|txt|md))$/i);
   if (!match) return absolute;
   const processingPath = path.join(projectRoot, 'input', 'processing', match[1]);
   return existsSync(processingPath) ? processingPath : absolute;

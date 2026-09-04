@@ -5,17 +5,21 @@ high-fidelity **View** artifacts. A dataset change is handled by three scopes:
 `DatasetBuild`, `PublicationBatch`, and `ReleaseAttempt`; a `FidelityRun` is
 build-local evidence, not publication state.
 
+New input uses `docs/asset-workflow.md`: a PNG or UTF-8 text Source, one facts
+file, an isolated Build, generated review records, atomic local publication,
+and an optional release from that published digest. Generic observations live
+in `data/metric-observations/` and appear in the viewer metric library.
+
 Source folders are operational locators, not a fourth lifecycle scope.
 `record:intake` fixes the Source digest and claims the selected file from
 `input/pending/` into the Build-local `input/processing/` working locator and
 lease. The Source remains there until an explicit operator review-completion
 signal; after the operator confirms the enumerated processing batch, the
-confirmed PNGs move no-clobber to `input/processed/`. That signal is the only
+confirmed Sources move no-clobber to `input/processed/`. That signal is the only
 current relocation trigger, changes no Source digest identity, and fabricates
 no Build state; its owning definition is `docs/dynamic-dataset-workflow.md`
-§Operator Review-Completion Signal. In the target M4 architecture,
-Publication replaces this transitional operation and owns the stable
-processed Source projection.
+§Operator Review-Completion Signal. Publication records the stable Source locator and digest with the data;
+local archive relocation retains this explicit operator policy (ADR-0002).
 
 Git transport is separate from lifecycle state: `input/pending/` and
 `input/processing/` are tracked so multiple project checkouts can exchange

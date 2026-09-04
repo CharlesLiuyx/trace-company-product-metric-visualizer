@@ -18,6 +18,7 @@ export function loadBrowserData({ runtime = [], datasetScripts = null } = {}) {
     ...runtime,
     ...listScripts(INCOME_STATEMENT_SCRIPT_DIR),
     'data/revenue-metrics.js',
+    'data/metric-observations.js',
     ...listScripts(COMPANY_METADATA_SCRIPT_DIR),
     ...(datasetScripts ?? registeredDatasetScripts()),
   ]);
@@ -28,6 +29,7 @@ export function loadBrowserData({ runtime = [], datasetScripts = null } = {}) {
     domain: context.TraceDomain,
     datasets: context.DATASETS || [],
     records: context.INCOME_STATEMENT_SSOT?.records || [],
+    metricRecords: context.METRIC_OBSERVATIONS || [],
     revenueRecords: context.REVENUE_METRIC_SSOT?.records || [],
     companies: context.COMPANY_METADATA?.companies || [],
   };

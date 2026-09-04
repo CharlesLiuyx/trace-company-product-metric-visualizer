@@ -3,7 +3,7 @@
 // smoke test. CLI: `node scripts/dev-server.mjs [--port 8000]` (pnpm dev).
 // Programmatic: `startStaticServer({ port: 0 })` returns { url, close }.
 import { createServer } from 'node:http';
-import { createReadStream, existsSync, statSync } from 'node:fs';
+import { createReadStream, existsSync, statSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { rootDir } from './lib/project.mjs';
@@ -41,9 +41,25 @@ function resolveRequestPath(root, requestUrl) {
   return resolved;
 }
 
-export function startStaticServer({ root = rootDir, port = 0 } = {}) {
+export function startStaticServer({ root = rootDir, port = 0, published = false } = {}) {
   const server = createServer((request, response) => {
-    const filePath = resolveRequestPath(root, request.url || '/');
+    let requestRoot = root;
+    let requestUrl = request.url || '/';
+    if (published && (published !== 'auto' || requestUrl === '/' || requestUrl.startsWith('/index.html') || requestUrl.startsWith('/snapshots/'))) {
+      const prefix = /^\/snapshots\/([a-f0-9]{64})(\/.*)?$/.exec(requestUrl.split('?')[0]);
+      if (prefix) { requestRoot = path.join(root, 'output/publications/trees', prefix[1]); requestUrl = prefix[2] || '/'; }
+      else {
+        const pointerPath = path.join(root, 'output/publications/current.json');
+        if (existsSync(pointerPath)) {
+          const pointer = JSON.parse(readFileSync(pointerPath, 'utf8'));
+          if (!/^sha256:[a-f0-9]{64}$/.test(pointer.publishedDigest)) { response.writeHead(503); response.end('Invalid publication pointer'); return; }
+          response.writeHead(302, { Location: `/snapshots/${pointer.publishedDigest.slice(7)}/`, 'Cache-Control': 'no-store' }); response.end(); return;
+        }
+        if (published !== 'auto') { response.writeHead(404); response.end('No published snapshot'); return; }
+      }
+    }
+    let filePath;
+    try { filePath = resolveRequestPath(requestRoot, requestUrl); } catch { response.writeHead(400); response.end('Invalid path'); return; }
     if (!filePath || !existsSync(filePath) || !statSync(filePath).isFile()) {
       response.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
       response.end('Not found');
@@ -79,7 +95,7 @@ if (isCli) {
     console.error(`Invalid port: ${portIndex >= 0 ? args[portIndex + 1] : process.env.PORT}`);
     process.exit(1);
   }
-  const { url } = await startStaticServer({ port });
+  const { url } = await startStaticServer({ port, published: args.includes('--draft') ? false : args.includes('--published') ? true : 'auto' });
   console.log(`Serving ${rootDir}`);
   console.log(`Viewer: ${url}`);
 }

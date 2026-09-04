@@ -7,6 +7,12 @@ Income Statement / Revenue Metric Adapter Seam. Verification and canonical
 write semantics are owned by
 [`verification-publication.md`](verification-publication.md).
 
+Current entry point: [asset-workflow.md](../asset-workflow.md). New isolated
+Builds add derived dependencies and checkpoints to the existing state machine;
+Metric Observation uses Source Coverage v3 and real text/image anchors.
+Historical protocol readers and the legacy direct-edit description below remain
+explicit compatibility paths.
+
 ## Scope model
 
 ### 1. DatasetBuild
@@ -65,10 +71,9 @@ key, and digest without inferring a transition or overwriting another file. A
 missing working file, a destination collision, or changed bytes is a hard
 recovery/freshness failure.
 
-The processed relocation above is explicitly transitional. In the target M4
-architecture, a `PublicationBatch` owns the stable Source projection together
-with the rest of the planned canonical result; sealing alone has no canonical-
-write authority.
+Publication owns the canonical Source locator/digest projection. The local
+processed archive remains operator-controlled, as clarified by ADR-0002;
+it is not a canonical visibility boundary.
 
 ### 2. PublicationBatch
 
@@ -460,7 +465,7 @@ Invalidation is explicit:
 | changed input | effective recovery point |
 | --- | --- |
 | Source bytes, key, availability identity, or intake classification | create a successor build; do not mutate the old Source/intake fact |
-| Source Coverage, inventory, or authored contribution | `AUTHORED`; prepare a fresh v4 Plan/v3 packet, then rerun closure, baseline staging, and seal |
+| Source Coverage, inventory, or authored contribution | `AUTHORED`; prepare a fresh v5 Plan/v4 packet, then rerun closure, baseline staging, and seal |
 | Adapter/schema, renderer, protocol, required locale, or Verification Plan | `AUTHORED`; existing authored artifacts may be reused only if the new Adapter accepts them |
 | accepted closure | `CLOSED`; restage baseline and reseal |
 | staged baseline content or policy | `BASELINE_STAGED`; reseal without using it as proof |
@@ -526,10 +531,10 @@ repository records removal from the shared processing queue rather than the
 archived PNG. Passing Build close-out alone does not move a Source.
 Neither filesystem move adds or infers a DatasetBuild state.
 
-This is not M4. Authored canonical paths are still edited directly,
-`compat:baseline` remains the canonical-baseline compatibility path, and no
-atomic Publication or path-claim CAS exists; the processed Source move is
-likewise a compatibility projection rather than Publication. The current seal operation re-hashes
+The preceding path describes legacy direct-edit compatibility. New isolated Builds use `docs/asset-workflow.md`;
+`compat:baseline` remains only the legacy baseline writer. New isolated Builds
+use immutable-tree Publication and path-claim CAS. The local Source archive
+move remains separate from that canonical publication boundary. The current seal operation re-hashes
 authored files and reruns the Adapter final-verification profile — the
 non-render consistency profile plus, for Income Statement, per-locale d3
 render hard gates — before recording `SEALED` against an accepted closure.

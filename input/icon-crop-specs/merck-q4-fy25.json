@@ -1,0 +1,81 @@
+{
+  "source": "input/processed/merck-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/merck",
+  "runtimeOutputDir": "data/assets/raster-annotations/merck",
+  "validationSheetDir": "data/assets/icon-references/merck/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [242, 242, 242]
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "The bottom-left How They Make Money badge and mini-Sankey are publisher attribution, not Merck financial semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "The footer URL, social badge, and App Economy Insights wordmark are publisher attribution, not Merck financial semantics."
+    }
+  ],
+  "crops": [
+    {
+      "key": "merck-company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "runtimeOutput": "company-wordmark.png",
+      "searchBox": { "x": 754, "y": 236, "width": 710, "height": 196 },
+      "cropBox": { "x": 744, "y": 226, "width": 730, "height": 216 },
+      "threshold": 8,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.14, "maxForbiddenForegroundPixels": 0 },
+      "note": "Merck emblem and wordmark centered above the Pharma and Revenue flow; excludes the title and all financial labels."
+    },
+    {
+      "key": "merck-keytruda",
+      "output": "crops/keytruda.png",
+      "runtimeOutput": "keytruda.png",
+      "searchBox": { "x": 8, "y": 494, "width": 206, "height": 70 },
+      "cropBox": { "x": 0, "y": 486, "width": 218, "height": 86 },
+      "threshold": 8,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Keytruda and pembrolizumab product-wordmark cluster for Oncology; excludes the Oncology label, value, note, and source bar."
+    },
+    {
+      "key": "merck-gardasil-9",
+      "output": "crops/gardasil-9.png",
+      "runtimeOutput": "gardasil-9.png",
+      "searchBox": { "x": 26, "y": 710, "width": 185, "height": 72 },
+      "cropBox": { "x": 16, "y": 700, "width": 205, "height": 92 },
+      "threshold": 8,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Gardasil 9 product-wordmark cluster for Vaccines; excludes the Vaccines label, value, note, and source bar."
+    },
+    {
+      "key": "merck-bridion",
+      "output": "crops/bridion.png",
+      "runtimeOutput": "bridion.png",
+      "searchBox": { "x": 28, "y": 858, "width": 184, "height": 78 },
+      "cropBox": { "x": 18, "y": 848, "width": 204, "height": 98 },
+      "threshold": 8,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Bridion and sugammadex product-wordmark cluster for Hospital Acute Care; excludes the segment label, value, note, and source bar."
+    },
+    {
+      "key": "merck-januvia",
+      "output": "crops/januvia.png",
+      "runtimeOutput": "januvia.png",
+      "searchBox": { "x": 39, "y": 992, "width": 159, "height": 96 },
+      "cropBox": { "x": 29, "y": 982, "width": 179, "height": 116 },
+      "threshold": 8,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Januvia and dosage product-wordmark cluster for Diabetes; excludes the Diabetes label, value, note, and source bar."
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "source": "input/processed/marriott-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/marriott",
+  "validationSheetDir": "data/assets/icon-references/marriott/validation-sheets",
+  "report": "crop-report.json",
+  "backgroundSampleBlocks": [
+    [0, 0, 80, 80],
+    [2587, 0, 80, 80],
+    [0, 1420, 80, 80],
+    [2587, 1420, 80, 80]
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10,
+    "color": [242, 242, 242]
+  },
+  "crops": [
+    {
+      "key": "marriott-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": {
+        "x": 1035,
+        "y": 210,
+        "width": 645,
+        "height": 205
+      },
+      "cropBox": {
+        "x": 1015,
+        "y": 200,
+        "width": 628,
+        "height": 230
+      },
+      "threshold": 18,
+      "foreground": {
+        "channels": {
+          "r": [0, 65],
+          "g": [0, 65],
+          "b": [0, 65]
+        }
+      },
+      "minComponentArea": 60,
+      "padding": 16,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Marriott company logo and wordmark near the top center of the source chart; excludes the title, flow labels, KPI cards, and publisher footer branding."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding and not part of Marriott's income-statement semantics."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "Source publisher branding, website URL, social badge, and footer logo are intentionally excluded."
+    },
+    {
+      "key": "publisher-sankey-illustration",
+      "reason": "Footer illustration belongs to the publisher branding block, not a Marriott business or segment icon."
+    },
+    {
+      "key": "marriott-business-clusters",
+      "reason": "The source chart does not contain independent company-internal business or segment icon clusters for the revenue or expense lines."
+    }
+  ]
+}

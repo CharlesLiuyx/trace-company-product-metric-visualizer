@@ -1,0 +1,66 @@
+{
+  "source": "input/processing/pepsico-q4-fy23.png",
+  "outputDir": "data/assets/icon-references/pepsico",
+  "runtimeOutputDir": "data/assets/raster-annotations/pepsico",
+  "validationSheetDir": "data/assets/icon-references/pepsico/validation-sheets",
+  "report": "crop-report-q4-fy23.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [242, 242, 242]
+  },
+  "skipped": [
+    {
+      "key": "publisher-source-line",
+      "reason": "Bottom-left Source: Quarterly results text is provenance, not a PepsiCo semantic asset."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "appeconomyinsights.com and the APP ECONOMY INSIGHTS footer lockup are non-semantic publisher residuals."
+    }
+  ],
+  "crops": [
+    {
+      "key": "pepsico-frito-lay-q4-fy23",
+      "output": "crops/frito-lay-q4-fy23.png",
+      "searchBox": { "x": 15, "y": 380, "width": 142, "height": 133 },
+      "cropBox": { "x": 12, "y": 377, "width": 148, "height": 139 },
+      "threshold": 18,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Lay's brand mark for the Frito-Lay revenue line; excludes the Frito-Lay label and chart geometry."
+    },
+    {
+      "key": "pepsico-quaker-q4-fy23",
+      "output": "crops/quaker-q4-fy23.png",
+      "searchBox": { "x": 14, "y": 581, "width": 133, "height": 118 },
+      "cropBox": { "x": 11, "y": 578, "width": 139, "height": 124 },
+      "threshold": 18,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Quaker brand mark for the Quaker Foods revenue line; excludes the label and chart geometry."
+    },
+    {
+      "key": "pepsico-globe-europe-q4-fy23",
+      "output": "crops/globe-europe-q4-fy23.png",
+      "searchBox": { "x": 528, "y": 1027, "width": 87, "height": 87 },
+      "cropBox": { "x": 525, "y": 1024, "width": 93, "height": 93 },
+      "threshold": 15,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Europe globe for the Europe revenue line."
+    },
+    {
+      "key": "pepsico-globe-amesa-q4-fy23",
+      "output": "crops/globe-amesa-q4-fy23.png",
+      "searchBox": { "x": 53, "y": 1172, "width": 77, "height": 76 },
+      "cropBox": { "x": 50, "y": 1169, "width": 83, "height": 82 },
+      "threshold": 15,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Africa, Middle East and South Asia globe for the AMESA revenue line."
+    }
+  ]
+}

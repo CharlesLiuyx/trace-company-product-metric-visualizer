@@ -1,0 +1,52 @@
+{
+  "source": "input/processing/home-depot-q3-fy25.png",
+  "outputDir": "data/assets/icon-references/home-depot",
+  "runtimeOutputDir": "data/assets/raster-annotations/home-depot",
+  "validationSheetDir": "data/assets/icon-references/home-depot/validation-sheets/q3-fy25",
+  "report": "crop-report-q3-fy25.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [242, 242, 242],
+    "tolerance": 8
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "The lower-left HOW THEY MAKE MONEY badge and miniature Sankey are publisher attribution, not Home Depot financial content."
+    },
+    {
+      "key": "publisher-website",
+      "reason": "appeconomyinsights.com is source attribution, not a financial-chart target."
+    },
+    {
+      "key": "publisher-footer-lockup",
+      "reason": "The lower-right APP ECONOMY INSIGHTS lockup is publisher attribution, not a financial-chart target."
+    }
+  ],
+  "crops": [
+    {
+      "key": "home-depot-company-logo",
+      "output": "crops/company-logo-q3-fy25.png",
+      "runtimeOutput": "company-logo-q3-fy25.png",
+      "searchBox": { "x": 791, "y": 249, "width": 275, "height": 275 },
+      "cropBox": { "x": 791, "y": 249, "width": 275, "height": 275 },
+      "threshold": 15,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 1, "maxCenterOffset": 0.04, "maxForbiddenForegroundPixels": 0 },
+      "note": "The Home Depot square wordmark only; excludes the Net Sales label, all Sankey nodes, and publisher attribution."
+    },
+    {
+      "key": "home-depot-other-distributor-logos",
+      "output": "crops/other-distributor-logos-q3-fy25.png",
+      "runtimeOutput": "other-distributor-logos-q3-fy25.png",
+      "searchBox": { "x": 190, "y": 1068, "width": 100, "height": 68 },
+      "cropBox": { "x": 190, "y": 1068, "width": 100, "height": 68 },
+      "threshold": 15,
+      "minComponentArea": 12,
+      "validation": { "borderBand": 1, "maxCenterOffset": 0.16, "maxForbiddenForegroundPixels": 0 },
+      "note": "Other segment's SRS Distribution logo only; excludes the Other label, value, note, source bar, and publisher footer."
+    }
+  ]
+}

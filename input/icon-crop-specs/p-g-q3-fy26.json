@@ -1,0 +1,96 @@
+{
+  "source": "input/processed/p-g-q3-fy26.png",
+  "outputDir": "data/assets/icon-references/p-g",
+  "runtimeOutputDir": "data/assets/raster-annotations/p-g",
+  "validationSheetDir": "data/assets/icon-references/p-g/validation-sheets/q3-fy26",
+  "report": "crop-report-q3-fy26.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [242, 242, 242],
+    "tolerance": 8
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "The lower-left HOW THEY MAKE MONEY badge and miniature Sankey are publisher attribution, not P&G financial-statement content."
+    },
+    {
+      "key": "publisher-website",
+      "reason": "appeconomyinsights.com is source attribution, not a chart object."
+    },
+    {
+      "key": "publisher-footer-lockup",
+      "reason": "The APP ECONOMY INSIGHTS footer lockup is publisher attribution and is intentionally excluded."
+    }
+  ],
+  "crops": [
+    {
+      "key": "p-g-company-logo",
+      "output": "crops/company-logo-q3-fy26.png",
+      "runtimeOutput": "company-logo-q3-fy26.png",
+      "searchBox": { "x": 808, "y": 232, "width": 300, "height": 300 },
+      "cropBox": { "x": 808, "y": 232, "width": 300, "height": 300 },
+      "threshold": 15,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 1, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "P&G orb logo only; excludes the Net sales label and all Sankey flow pixels."
+    },
+    {
+      "key": "beauty-product-cluster",
+      "output": "crops/beauty-product-cluster-q3-fy26.png",
+      "runtimeOutput": "beauty-product-cluster-q3-fy26.png",
+      "searchBox": { "x": 10, "y": 370, "width": 250, "height": 145 },
+      "cropBox": { "x": 10, "y": 370, "width": 250, "height": 145 },
+      "threshold": 15,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 1, "maxCenterOffset": 0.28, "maxForbiddenForegroundPixels": 0 },
+      "note": "Beauty product pack collage only; excludes the Beauty label and source node."
+    },
+    {
+      "key": "grooming-product-cluster",
+      "output": "crops/grooming-product-cluster-q3-fy26.png",
+      "runtimeOutput": "grooming-product-cluster-q3-fy26.png",
+      "searchBox": { "x": 10, "y": 545, "width": 235, "height": 115 },
+      "cropBox": { "x": 10, "y": 545, "width": 235, "height": 115 },
+      "threshold": 15,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 1, "maxCenterOffset": 0.28, "maxForbiddenForegroundPixels": 0 },
+      "note": "Grooming product pack collage only; excludes the Grooming label and source node."
+    },
+    {
+      "key": "health-care-product-cluster",
+      "output": "crops/health-care-product-cluster-q3-fy26.png",
+      "runtimeOutput": "health-care-product-cluster-q3-fy26.png",
+      "searchBox": { "x": 10, "y": 700, "width": 250, "height": 130 },
+      "cropBox": { "x": 10, "y": 700, "width": 250, "height": 130 },
+      "threshold": 15,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 1, "maxCenterOffset": 0.3, "maxForbiddenForegroundPixels": 0 },
+      "note": "Health Care product pack collage only; excludes the two-line label and source node."
+    },
+    {
+      "key": "fabric-home-care-product-cluster",
+      "output": "crops/fabric-home-care-product-cluster-q3-fy26.png",
+      "runtimeOutput": "fabric-home-care-product-cluster-q3-fy26.png",
+      "searchBox": { "x": 0, "y": 855, "width": 235, "height": 125 },
+      "cropBox": { "x": 0, "y": 855, "width": 235, "height": 125 },
+      "threshold": 15,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 1, "maxCenterOffset": 0.3, "maxForbiddenForegroundPixels": 0 },
+      "note": "Fabric & Home Care product pack collage only; excludes the two-line label and source node."
+    },
+    {
+      "key": "baby-feminine-family-care-product-cluster",
+      "output": "crops/baby-feminine-family-care-product-cluster-q3-fy26.png",
+      "runtimeOutput": "baby-feminine-family-care-product-cluster-q3-fy26.png",
+      "searchBox": { "x": 30, "y": 1080, "width": 115, "height": 125 },
+      "cropBox": { "x": 30, "y": 1080, "width": 115, "height": 125 },
+      "threshold": 15,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 1, "maxCenterOffset": 0.3, "maxForbiddenForegroundPixels": 0 },
+      "note": "Baby, Feminine & Family Care product packs only; excludes the label and source node."
+    }
+  ]
+}

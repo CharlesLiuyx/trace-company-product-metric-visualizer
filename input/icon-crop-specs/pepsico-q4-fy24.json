@@ -1,0 +1,74 @@
+{
+  "source": "input/processed/pepsico-q4-fy24.png",
+  "outputDir": "data/assets/icon-references/pepsico",
+  "runtimeOutputDir": "data/assets/raster-annotations/pepsico",
+  "validationSheetDir": "data/assets/icon-references/pepsico/validation-sheets/q4-fy24",
+  "report": "crop-report-q4-fy24.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [242, 242, 242],
+    "tolerance": 8
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "The lower-left HOW THEY MAKE MONEY badge and miniature Sankey are publisher attribution, not PepsiCo financial-statement content."
+    },
+    {
+      "key": "publisher-website",
+      "reason": "appeconomyinsights.com is source attribution, not a chart object."
+    },
+    {
+      "key": "publisher-footer-lockup",
+      "reason": "The APP ECONOMY INSIGHTS footer lockup is publisher attribution and is intentionally excluded."
+    }
+  ],
+  "crops": [
+    {
+      "key": "pepsico-lays-q4-fy24",
+      "output": "crops/lays-q4-fy24.png",
+      "runtimeOutput": "lays-q4-fy24.png",
+      "searchBox": { "x": 0, "y": 380, "width": 165, "height": 165 },
+      "cropBox": { "x": 6, "y": 394, "width": 154, "height": 145 },
+      "threshold": 15,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 1, "maxCenterOffset": 0.16, "maxForbiddenForegroundPixels": 0 },
+      "note": "Lay's round brand mark for the Frito-Lay source line; excludes the Frito-Lay label and all flow geometry."
+    },
+    {
+      "key": "pepsico-quaker-q4-fy24",
+      "output": "crops/quaker-q4-fy24.png",
+      "runtimeOutput": "quaker-q4-fy24.png",
+      "searchBox": { "x": 0, "y": 555, "width": 165, "height": 165 },
+      "cropBox": { "x": 11, "y": 584, "width": 144, "height": 129 },
+      "threshold": 15,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 1, "maxCenterOffset": 0.16, "maxForbiddenForegroundPixels": 0 },
+      "note": "Complete Quaker Foods portrait and wordmark for the Quaker Foods source line; excludes the adjacent label and flow geometry."
+    },
+    {
+      "key": "pepsico-globe-europe-q4-fy24",
+      "output": "crops/globe-europe-q4-fy24.png",
+      "runtimeOutput": "globe-europe-q4-fy24.png",
+      "searchBox": { "x": 510, "y": 1025, "width": 125, "height": 125 },
+      "cropBox": { "x": 525, "y": 1043, "width": 99, "height": 99 },
+      "threshold": 15,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 1, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Europe globe for the Europe revenue line; excludes the Europe label, value, and source bar."
+    },
+    {
+      "key": "pepsico-globe-amesa-q4-fy24",
+      "output": "crops/globe-amesa-q4-fy24.png",
+      "runtimeOutput": "globe-amesa-q4-fy24.png",
+      "searchBox": { "x": 45, "y": 1195, "width": 95, "height": 105 },
+      "cropBox": { "x": 53, "y": 1202, "width": 88, "height": 88 },
+      "threshold": 15,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 1, "maxCenterOffset": 0.14, "maxForbiddenForegroundPixels": 0 },
+      "note": "Africa, Middle East, and South Asia globe for the AMESA revenue line; excludes the long adjacent label and all flow geometry."
+    }
+  ]
+}

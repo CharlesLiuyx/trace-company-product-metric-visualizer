@@ -1,0 +1,76 @@
+{
+  "source": "input/processed/mercadolibre-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/mercadolibre",
+  "runtimeOutputDir": "data/assets/raster-annotations/mercadolibre/q1-fy26",
+  "validationSheetDir": "data/assets/icon-references/mercadolibre/validation-sheets/q1-fy26",
+  "report": "q1-fy26-crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": { "enabled": true, "mode": "edge-connected", "tolerance": 9 },
+  "crops": [
+    {
+      "key": "mercadolibre-q1-fy26-corporate-handshake",
+      "output": "crops/q1-fy26/corporate-handshake.png",
+      "searchBox": { "x": 1148, "y": 247, "width": 248, "height": 163 },
+      "cropBox": { "x": 1144, "y": 242, "width": 256, "height": 176 },
+      "threshold": 14,
+      "minComponentArea": 30,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Mercado Libre corporate handshake above Net Revenue; excludes title, revenue label, and flow ribbons."
+    },
+    {
+      "key": "mercadolibre-q1-fy26-commerce-brand",
+      "output": "crops/q1-fy26/commerce-brand.png",
+      "searchBox": { "x": 70, "y": 400, "width": 398, "height": 112 },
+      "cropBox": { "x": 64, "y": 394, "width": 412, "height": 110 },
+      "threshold": 14,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Mercado Libre marketplace handshake and wordmark for intermediation and advertising revenue."
+    },
+    {
+      "key": "mercadolibre-q1-fy26-ads-brand",
+      "output": "crops/q1-fy26/ads-brand.png",
+      "searchBox": { "x": 235, "y": 581, "width": 160, "height": 48 },
+      "cropBox": { "x": 230, "y": 577, "width": 170, "height": 56 },
+      "threshold": 14,
+      "minComponentArea": 12,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.22, "maxForbiddenForegroundPixels": 0 },
+      "note": "Mercado Ads mini-logo attached to the commerce source."
+    },
+    {
+      "key": "mercadolibre-q1-fy26-envios-brand",
+      "output": "crops/q1-fy26/envios-brand.png",
+      "searchBox": { "x": 218, "y": 672, "width": 278, "height": 76 },
+      "cropBox": { "x": 212, "y": 666, "width": 290, "height": 80 },
+      "threshold": 14,
+      "minComponentArea": 16,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Mercado Envios handshake and wordmark for product sales and shipping fees."
+    },
+    {
+      "key": "mercadolibre-q1-fy26-pago-brand",
+      "output": "crops/q1-fy26/pago-brand.png",
+      "searchBox": { "x": 66, "y": 860, "width": 433, "height": 120 },
+      "cropBox": { "x": 60, "y": 854, "width": 445, "height": 114 },
+      "threshold": 14,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Mercado Pago handshake and wordmark for payment-solution revenue."
+    },
+    {
+      "key": "mercadolibre-q1-fy26-credito-brand",
+      "output": "crops/q1-fy26/credito-brand.png",
+      "searchBox": { "x": 66, "y": 1160, "width": 426, "height": 108 },
+      "cropBox": { "x": 60, "y": 1154, "width": 438, "height": 120 },
+      "threshold": 14,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 0, "maxCenterOffset": 0.2, "maxForbiddenForegroundPixels": 0 },
+      "note": "Mercado Credito handshake and wordmark for interest income."
+    }
+  ],
+  "skipped": [
+    { "key": "commerce-and-fintech-category-labels", "reason": "Localized SVG chart text, not reusable visual assets." },
+    { "key": "publisher-how-they-make-money", "reason": "Publisher attribution, not a MercadoLibre business asset." },
+    { "key": "publisher-app-economy-insights", "reason": "Source URL, footer wordmark, social badge, and attribution are intentionally excluded." }
+  ]
+}

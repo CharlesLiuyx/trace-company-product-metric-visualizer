@@ -35,7 +35,20 @@
     "compat:baseline": "node scripts/verify-render-regression.mjs --update",
     "verify:render-regression": "node scripts/verify-render-regression.mjs",
     "verify:ssot": "node scripts/verify-ssot.mjs",
-    "verify:i18n": "node scripts/verify-i18n.mjs"
+    "verify:i18n": "node scripts/verify-i18n.mjs",
+    "update:metric-catalog": "node scripts/update-metric-catalog.mjs",
+    "verify:metrics": "node scripts/verify-metrics.mjs",
+    "record:workflow": "node scripts/record-workflow.mjs",
+    "publish:datasets": "node scripts/publish-datasets.mjs",
+    "release:dataset": "node scripts/release-dataset.mjs",
+    "view:published": "node scripts/dev-server.mjs --published --port 8001",
+    "update:asset-catalog": "node scripts/update-asset-catalog.mjs",
+    "verify:asset-catalog": "node scripts/update-asset-catalog.mjs --check",
+    "update:feedback-patterns": "node scripts/update-feedback-patterns.mjs",
+    "verify:feedback-patterns": "node scripts/update-feedback-patterns.mjs --check",
+    "update:workflow-reference": "node scripts/update-workflow-reference.mjs",
+    "verify:workflow": "node scripts/update-workflow-reference.mjs --check",
+    "update:workflow-graph": "node scripts/update-workflow-graph.mjs"
   },
   "devDependencies": {
     "@fontsource/montserrat": "5.2.8",

@@ -1,0 +1,69 @@
+{
+  "source": "input/processed/kraft-heinz-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/kraft-heinz",
+  "runtimeOutputDir": "data/assets/raster-annotations/kraft-heinz",
+  "validationSheetDir": "data/assets/icon-references/kraft-heinz/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [242, 242, 242]
+  },
+  "skipped": [
+    { "key": "publisher-badges", "reason": "The lower-left HOW THEY MAKE MONEY badge, URL watermark, and lower-right APP ECONOMY INSIGHTS branding are publisher attribution rather than income-statement semantics." }
+  ],
+  "crops": [
+    {
+      "key": "kraft-heinz-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": { "x": 655, "y": 270, "width": 595, "height": 125 },
+      "cropBox": { "x": 650, "y": 265, "width": 605, "height": 135 },
+      "threshold": 18,
+      "minComponentArea": 25,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Kraft Heinz two-color wordmark above the net-sales hub; excludes the page title and net-sales label."
+    },
+    {
+      "key": "kraft-heinz-accelerate-sauces",
+      "output": "crops/accelerate-sauces.png",
+      "searchBox": { "x": 15, "y": 505, "width": 185, "height": 145 },
+      "cropBox": { "x": 10, "y": 500, "width": 195, "height": 155 },
+      "threshold": 16,
+      "minComponentArea": 25,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Heinz ketchup, French's mustard, and Miracle Whip cluster for Accelerate."
+    },
+    {
+      "key": "kraft-heinz-accelerate-home-bake",
+      "output": "crops/accelerate-home-bake.png",
+      "searchBox": { "x": 55, "y": 650, "width": 105, "height": 90 },
+      "cropBox": { "x": 50, "y": 645, "width": 115, "height": 100 },
+      "threshold": 16,
+      "minComponentArea": 25,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Home Bake product package for Accelerate; excludes the adjacent strategy text."
+    },
+    {
+      "key": "kraft-heinz-protect-products",
+      "output": "crops/protect-products.png",
+      "searchBox": { "x": 75, "y": 838, "width": 140, "height": 190 },
+      "cropBox": { "x": 70, "y": 833, "width": 150, "height": 200 },
+      "threshold": 16,
+      "minComponentArea": 25,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Kool-Aid product cluster for Protect."
+    },
+    {
+      "key": "kraft-heinz-balance-products",
+      "output": "crops/balance-products.png",
+      "searchBox": { "x": 129, "y": 1119, "width": 100, "height": 118 },
+      "cropBox": { "x": 124, "y": 1114, "width": 110, "height": 128 },
+      "threshold": 16,
+      "minComponentArea": 25,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
+      "note": "Maxwell House can for Balance."
+    }
+  ]
+}

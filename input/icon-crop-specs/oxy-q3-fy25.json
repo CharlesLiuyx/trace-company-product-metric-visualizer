@@ -1,0 +1,96 @@
+{
+  "source": "input/processed/oxy-q3-fy25.png",
+  "outputDir": "data/assets/icon-references/oxy",
+  "runtimeOutputDir": "data/assets/raster-annotations/oxy",
+  "validationSheetDir": "data/assets/icon-references/oxy/validation-sheets",
+  "report": "crop-report-q3-fy25.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [242, 242, 242],
+    "tolerance": 10
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "Source publisher branding and decorative mini-Sankey are not part of Oxy's income-statement semantics."
+    },
+    {
+      "key": "publisher-website",
+      "reason": "The appeconomyinsights.com footer URL is source attribution, not company or financial-statement content."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "The App Economy Insights footer lockup is source attribution and is intentionally excluded."
+    }
+  ],
+  "crops": [
+    {
+      "key": "oxy-company-logo",
+      "output": "crops/company-logo-q3-fy25.png",
+      "runtimeOutput": "company-logo-q3-fy25.png",
+      "searchBox": { "x": 1192, "y": 239, "width": 291, "height": 299 },
+      "cropBox": { "x": 1192, "y": 239, "width": 291, "height": 299 },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Complete OXY roundel and wordmark; excludes the title, Revenue label, and Sankey ribbon."
+    },
+    {
+      "key": "oxy-oil-icon",
+      "output": "crops/oil-icon-q3-fy25.png",
+      "runtimeOutput": "oil-icon-q3-fy25.png",
+      "searchBox": { "x": 88, "y": 430, "width": 96, "height": 118 },
+      "cropBox": { "x": 88, "y": 430, "width": 96, "height": 118 },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Complete pumpjack icon; excludes the Oil label and source bar."
+    },
+    {
+      "key": "oxy-ngl-icon",
+      "output": "crops/ngl-icon-q3-fy25.png",
+      "runtimeOutput": "ngl-icon-q3-fy25.png",
+      "searchBox": { "x": 103, "y": 652, "width": 72, "height": 109 },
+      "cropBox": { "x": 103, "y": 652, "width": 72, "height": 109 },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Complete natural-gas-liquid canister icon; excludes the NGL and Natural Gas Liquid text."
+    },
+    {
+      "key": "oxy-gas-icon",
+      "output": "crops/gas-icon-q3-fy25.png",
+      "runtimeOutput": "gas-icon-q3-fy25.png",
+      "searchBox": { "x": 108, "y": 824, "width": 60, "height": 77 },
+      "cropBox": { "x": 108, "y": 824, "width": 60, "height": 77 },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Complete gas flame icon; excludes the Gas label and source bar."
+    },
+    {
+      "key": "oxy-chemical-icon",
+      "output": "crops/chemical-icon-q3-fy25.png",
+      "runtimeOutput": "chemical-icon-q3-fy25.png",
+      "searchBox": { "x": 508, "y": 967, "width": 66, "height": 121 },
+      "cropBox": { "x": 508, "y": 967, "width": 66, "height": 121 },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 1, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Complete chemical test-tube icon; excludes the Chemical label and node."
+    },
+    {
+      "key": "oxy-midstream-icon",
+      "output": "crops/midstream-icon-q3-fy25.png",
+      "runtimeOutput": "midstream-icon-q3-fy25.png",
+      "searchBox": { "x": 138, "y": 1104, "width": 137, "height": 139 },
+      "cropBox": { "x": 138, "y": 1104, "width": 137, "height": 139 },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": { "borderBand": 2, "maxCenterOffset": 0.12, "maxForbiddenForegroundPixels": 0 },
+      "note": "Complete pipeline valve icon; excludes the Midstream & Marketing label and source node."
+    }
+  ]
+}

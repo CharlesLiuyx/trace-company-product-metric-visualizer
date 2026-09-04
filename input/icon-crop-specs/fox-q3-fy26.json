@@ -1,0 +1,69 @@
+{
+  "source": "input/processed/fox-q3-fy26.png",
+  "outputDir": "data/assets/icon-references/fox",
+  "runtimeOutputDir": "data/assets/raster-annotations/fox",
+  "validationSheetDir": "data/assets/icon-references/fox/validation-sheets",
+  "report": "crop-report.json",
+  "background": [242, 242, 242],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "crops": [
+    {
+      "key": "fox-company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "runtimeOutput": "company-wordmark.png",
+      "searchBox": { "x": 806, "y": 268, "width": 378, "height": 162 },
+      "cropBox": { "x": 792, "y": 256, "width": 406, "height": 180 },
+      "threshold": 12,
+      "minComponentArea": 40,
+      "foreground": {
+        "any": [
+          { "channels": { "r": [0, 90], "g": [0, 100], "b": [110, 235] } }
+        ]
+      },
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.08,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Blue FOX wordmark above the revenue flow; excludes the title, source values, chart links, and publisher marks."
+    },
+    {
+      "key": "fox-cable-network-cluster",
+      "output": "crops/cable-network-cluster.png",
+      "runtimeOutput": "cable-network-cluster.png",
+      "searchBox": { "x": 14, "y": 327, "width": 213, "height": 233 },
+      "cropBox": { "x": 4, "y": 315, "width": 224, "height": 256 },
+      "threshold": 10,
+      "minComponentArea": 18,
+      "excludeBoxes": [
+        { "x": 176, "y": 372, "width": 54, "height": 50 },
+        { "x": 196, "y": 424, "width": 34, "height": 84 }
+      ],
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Cable Network Programming brand cluster: Fox News Channel, Fox Business, FS1, FS2. The Cable Network Programming label text is x-interleaved with the logos (starts x184/x208 on the upper rows while FS1/FS2 reach x225), so the two label-text fragments are blanked via excludeBoxes; excludes the segment label, values, margin text, and flow marks."
+    },
+    {
+      "key": "fox-television-cluster",
+      "output": "crops/television-cluster.png",
+      "runtimeOutput": "television-cluster.png",
+      "searchBox": { "x": 66, "y": 707, "width": 145, "height": 259 },
+      "cropBox": { "x": 54, "y": 695, "width": 167, "height": 283 },
+      "threshold": 10,
+      "minComponentArea": 18,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Television brand cluster: Fox, Fox TV Stations, MyNetworkTV, Tubi; excludes the segment label, values, margin text, and flow marks."
+    }
+  ]
+}
