@@ -46,12 +46,14 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
     previews.set(source, state);
     let debounce;
     const changed = () => {
+      if (closed) return;
       state.revision++; state.dirty = true; state.status = state.busy ? 'building' : 'queued';
       if (debounce) { clearTimeout(debounce); timers.delete(debounce); }
       debounce = setTimeout(() => { timers.delete(debounce); rebuild(state); }, 500); timers.add(debounce); notify();
     };
     state.changed = changed;
     state.watchWorkspace = (folder) => {
+      if (closed) return;
       if (state.watched.has(folder)) return;
       state.watched.add(folder);
       for (const item of ['src', 'data', 'vendor', 'scripts', 'output/workflow']) {
@@ -241,5 +243,15 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
   await mkdir(path.join(root, 'output/local-view/builds'), { recursive: true });
   watchers.push(watch(path.join(root, 'output/local-view/builds'), notify));
   await writeFile(path.join(root, 'output/local-view/workbench.js'), `window.TRACE_WORKBENCH_HINT = ${JSON.stringify({ root, url: server.url })};\n`);
-  return { ...server, close: async () => { closed = true; clearInterval(keepAlive); for (const timer of timers) clearTimeout(timer); for (const watcher of watchers) watcher.close(); for (const response of events) response.end(); await server.close(); } };
+  return { ...server, close: async () => {
+    closed = true;
+    clearInterval(keepAlive);
+    for (const timer of timers) clearTimeout(timer);
+    for (const watcher of watchers) watcher.close();
+    for (const response of events) response.end();
+    await server.close();
+    // A preview owns snapshot, site and receipt writes beyond its build callback.
+    // Drain that entire transaction before callers remove the workspace.
+    while (activeBuilds) await new Promise((resolve) => setTimeout(resolve, 20));
+  } };
 }
