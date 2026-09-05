@@ -247,9 +247,11 @@ script, so you do not need to reinstall them. Non-obvious caveats for this VM:
 ## Local review entry / 本机审阅入口
 
 Use the root `index.html` as the operator’s stable entry. Start `pnpm dev` once;
-the file entry discovers the same-project workbench. Each browser tab pins its
-Build and production candidate. Provide `/?source=<build-id>` for the current
-task; never infer acceptance from another tab or an automatic rebuild.
+the file entry discovers the same-project workbench. The default unified review
+combines prepared drafts and project data in one company/period view; next/previous
+navigates a fixed candidate member list. Provide `/?review=<build-id>#<key>` for
+the current task. Each browser tab pins the complete candidate; never infer
+acceptance from another tab, navigating items, or an automatic rebuild.
 
 Multiple Codex / Claude Code Sessions use this same checkout without worktrees.
 Use `record:workflow start` and its ordinary workspace, owner and generation;
@@ -258,7 +260,9 @@ same `TRACE_SESSION_ID` / `TRACE_SESSION_GENERATION`. Do not write shared data,
 registrations or Git from a draft. Refresh historical drafts before resuming.
 
 Successful `prepare` advertises the draft. New Session Build review requires
-its displayed `previewId` and current reviewToken. After explicit approval,
+the displayed candidate `previewId` and that Build's current reviewToken from
+`displayed.members` in workbench details. Individual Build/transport inspection
+remains under More and `?source=...`; it is not the default operator workflow. After explicit approval,
 complete review, seal and Publication without another publication question.
 Use `release:git` for the reviewed integration candidate and exact-path commit;
 only push on the operator’s explicit push instruction. Archive only the confirmed

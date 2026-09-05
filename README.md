@@ -25,9 +25,12 @@ General metrics retain exact values and original quotes in the observation SSOT.
 The main viewer has no **指标资产 / Metrics** toolbar entry. Financial tables,
 trends and Sankeys remain available.
 Run `pnpm dev` once, then open the repository's `index.html` or
-<http://127.0.0.1:8000/>. The local workbench provides automatic Dev refresh,
-immutable Pages previews, and CI/production comparison. Each tab pins its own
-Build and candidate; several Codex / Claude Code Sessions can process different
+<http://127.0.0.1:8000/>. The local workbench combines prepared drafts and project
+data in one review page. Use the company/period selectors or Previous/Next to
+inspect each item, then give your confirmation in the task. Each tab pins the
+complete Pages candidate and its member list, with a separate review binding per
+Build; updates appear only after clicking Load updates. Dev and individual-source
+inspection live under More, with CI/version details collapsed. Several Codex / Claude Code Sessions can process different
 Sources in this same directory using ordinary Build folders, without worktrees.
 
 See [local environments and concurrency](docs/local-environments.md). A published

@@ -1,12 +1,29 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Trace · 本地工作台</title><link rel="icon" href="data:,"><style>
-:root{color-scheme:light dark;--bg:#f7f8fa;--paper:#fff;--text:#182333;--line:#cbd3df;--accent:#2355a5;--soft:#edf3ff}*{box-sizing:border-box;border-radius:0}body{margin:0;font:14px/1.7 system-ui;background:var(--bg);color:var(--text)}header{padding:8px 16px;background:var(--paper);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px;flex-wrap:wrap}header strong{margin-right:auto}button,select{font:inherit;background:var(--paper);color:var(--text);border:1px solid var(--line);padding:4px 10px;cursor:pointer}button[aria-pressed=true]{background:var(--soft);border-color:var(--accent);color:var(--accent)}#status{padding:7px 16px;border-bottom:1px solid var(--line)}#status[data-error=true]{color:#a43c25}#layout{display:grid;grid-template-columns:260px minmax(0,1fr);height:calc(100vh - 118px)}aside{padding:12px;border-right:1px solid var(--line);overflow:auto}aside button{display:block;width:100%;text-align:left;margin:0 0 8px;overflow-wrap:anywhere}aside small{display:block;color:#677486}section{min-width:0;display:flex;flex-direction:column}iframe{border:0;width:100%;flex:1;background:var(--paper)}#notice{padding:8px 16px;background:var(--soft)}#empty{padding:28px}details{font-size:12px;padding:8px 16px;max-height:160px;overflow:auto}pre{white-space:pre-wrap;overflow-wrap:anywhere}a{color:var(--accent)}[hidden]{display:none!important}@media(prefers-color-scheme:dark){:root{--bg:#121820;--paper:#1b2330;--text:#e5eaf2;--line:#46536a;--accent:#9fbfff;--soft:#253c5e}}@media(max-width:700px){#layout{grid-template-columns:1fr;height:auto}aside{max-height:170px;border-bottom:1px solid var(--line)}section{height:75vh}header{gap:6px}header strong{width:100%}}
-</style></head><body><header><strong>Trace · 本地工作台</strong><button data-mode="dev">开发</button><button data-mode="preview" aria-pressed="true">生产方式审阅</button><button data-mode="production">线上对照</button><button id="openProduction">打开线上</button></header><div id="status" role="status">正在读取本机状态…</div><div id="remoteStatus" style="padding:2px 16px;font-size:12px"></div><div id="layout"><aside aria-label="处理任务"><button data-source="project">项目工作树<small>本机代码与已纳入 Git 的数据</small></button><div id="tasks"></div><p>多个 Session 共用此入口。每个标签页保留自己的任务与审阅版本。</p><p>人工确认和推送仍在 Codex / Claude Code 中执行。</p></aside><section><div id="notice" hidden><span>已有新候选，当前审阅版本保持不变。</span> <button id="useLatest">切换到新候选</button></div><div id="empty">正在构建预览。首次构建需要一点时间。</div><iframe id="viewer" title="Trace 当前选中版本" hidden></iframe><details><summary>版本与检查详情</summary><pre id="details"></pre></details></section></div><script>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Trace · 统一验收</title><link rel="icon" href="data:,">
+<style>
+:root{color-scheme:light dark;--bg:#f7f8fa;--paper:#fff;--text:#182333;--muted:#596779;--line:#cbd3df;--accent:#2355a5;--soft:#edf3ff;--error:#a43c25}
+*{box-sizing:border-box;border-radius:0}body{margin:0;height:100dvh;display:flex;flex-direction:column;font:13px/1.6 system-ui;background:var(--bg);color:var(--text)}
+header,#reviewBar{padding:5px 12px;background:var(--paper);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px;flex-wrap:wrap;flex:none}header strong{margin-right:auto;font-size:14px}button,select{font:inherit;background:var(--paper);color:var(--text);border:1px solid var(--line);padding:3px 9px;cursor:pointer;max-width:100%}button:disabled{opacity:.45;cursor:default}button[aria-pressed=true]{background:var(--soft);border-color:var(--accent);color:var(--accent)}button:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}#reviewBar label{color:var(--muted)}#reviewItem{width:230px;min-width:0}#position{font-variant-numeric:tabular-nums;color:var(--muted)}#reviewState{margin-left:auto;color:var(--muted)}#status{padding:4px 12px;border-bottom:1px solid var(--line);font-size:12px;flex:none}#status[data-error=true]{color:var(--error)}main{min-width:0;min-height:0;display:flex;flex:1;flex-direction:column}iframe{border:0;width:100%;flex:1;min-height:0;background:var(--paper)}#notice{padding:6px 12px;background:var(--soft);flex:none}#empty{padding:28px;overflow-wrap:anywhere}details{font-size:12px}summary{cursor:pointer}#versions{padding:4px 12px;max-height:30vh;overflow:auto;border-top:1px solid var(--line)}#more{position:relative}#more>summary{list-style:none;border:1px solid var(--line);padding:3px 9px;font-size:13px}#morePanel{position:absolute;right:0;top:100%;z-index:3;width:280px;max-width:calc(100vw - 24px);padding:12px;background:var(--paper);border:1px solid var(--line);display:grid;gap:8px}#morePanel button,#morePanel select{width:100%;text-align:left}#morePanel p{margin:0;color:var(--muted)}pre{white-space:pre-wrap;overflow-wrap:anywhere}a{color:var(--accent)}[hidden]{display:none!important}
+@media(prefers-color-scheme:dark){:root{--bg:#121820;--paper:#1b2330;--text:#e5eaf2;--muted:#a7b3c5;--line:#46536a;--accent:#9fbfff;--soft:#253c5e;--error:#ffb29e}}
+@media(max-width:600px){header,#reviewBar{gap:6px;padding:5px 8px}header strong{font-size:13px}#reviewBar label{width:100%}#reviewItem{flex:1;width:140px}#reviewState{width:100%;margin:0}#position{font-size:12px}}
+</style>
+</head>
+<body>
+<header><strong>Trace · 统一验收</strong><button id="localReview" aria-pressed="true">本机验收</button><button data-mode="production">线上对照</button><details id="more"><summary>更多</summary><div id="morePanel"><button data-mode="dev">开发 · 自动更新</button><button id="openProduction">打开线上</button><label for="sourceDetail">单项排查</label><select id="sourceDetail"><option value="review">全部待验收内容</option><option value="project">项目工作树</option></select><p>确认意见直接告诉当前 Codex / Claude Code 任务。</p></div></details></header>
+<nav id="reviewBar" aria-label="依次验收"><label for="reviewItem" id="queueSummary">正在读取待验收内容…</label><button id="previous" disabled>上一项</button><select id="reviewItem" aria-label="待验收内容" disabled></select><button id="next" disabled>下一项</button><span id="position"></span><span id="reviewState"></span></nav>
+<div id="status" role="status">正在汇总本机内容…</div>
+<main><div id="notice" hidden><span>已有更新，当前验收版本保持不变。</span> <button id="useLatest">载入更新</button></div><div id="empty">正在生成统一验收页面，首次构建需要一点时间。</div><iframe id="viewer" title="Trace 统一验收内容" hidden></iframe></main>
+<details id="versions"><summary>版本与检查详情</summary><div id="remoteStatus"></div><pre id="details"></pre></details>
+<script>
 (() => {
   'use strict';
   const $ = (selector) => document.querySelector(selector);
   const params = new URLSearchParams(location.search);
   const production = 'https://charlesliuyx.github.io/trace-company-product-metric-visualizer/';
-  let source = params.get('source') || '', mode = params.get('mode') || 'preview';
+  let source = params.get('source') || 'review', mode = params.get('mode') || 'preview';
   let pinned = /^[a-f0-9-]+$/.test(params.get('candidate') || '') ? params.get('candidate') : null;
   let viewPreferences = null;
   let state = null, lastFrame = '', activeHash = location.hash, devRevision = -1;
@@ -14,15 +31,39 @@
   if (!['dev', 'preview', 'production'].includes(mode)) mode = 'preview';
   function route() {
     const url = new URL(location.href);
-    if (source) url.searchParams.set('source', source);
-    url.searchParams.set('mode', mode);
+    url.searchParams.set('source', source); url.searchParams.set('mode', mode);
     if (pinned) url.searchParams.set('candidate', pinned); else url.searchParams.delete('candidate');
-    url.hash = activeHash;
-    history.replaceState(null, '', url);
+    url.hash = activeHash; history.replaceState(null, '', url);
   }
   function selectedHash() {
-    try { if (lastFrame && !$('#viewer').hidden) { activeHash = $('#viewer').contentWindow.location.hash || activeHash; viewPreferences = $('#viewer').contentWindow.TraceViewSession?.capture() || viewPreferences; } } catch { /* Cross-origin production. */ }
+    try { if (lastFrame && !$('#viewer').hidden && $('#viewer').contentWindow.location.href !== 'about:blank') { activeHash = $('#viewer').contentWindow.location.hash; viewPreferences = $('#viewer').contentWindow.TraceViewSession?.capture() || viewPreferences; } } catch { /* Cross-origin production. */ }
     return activeHash;
+  }
+  function displayedCandidate() {
+    return state?.pinnedCandidate?.id === pinned ? state.pinnedCandidate : state?.preview.candidate?.id === pinned ? state.preview.candidate : null;
+  }
+  function queue() {
+    const candidate = displayedCandidate();
+    if (source === 'review') return candidate?.members || [];
+    const task = state?.tasks.find((item) => item.buildId === source);
+    return task && source.startsWith('build-') ? [{ ...task, pending: task.reviewPending, reviewToken: candidate?.reviewToken }] : [];
+  }
+  function renderQueue() {
+    const items = queue(), index = items.findIndex((item) => '#' + item.key === activeHash);
+    const count = items.filter((item) => item.pending).length;
+    $('#queueSummary').textContent = items.length ? `待验收 ${count} 项` : '全部本机内容';
+    const signature = JSON.stringify(items.map((item) => [item.buildId, item.key, item.pending]));
+    if ($('#reviewItem').dataset.signature !== signature) {
+      $('#reviewItem').dataset.signature = signature;
+      $('#reviewItem').replaceChildren(new Option('选择待验收内容', ''), ...items.map((item) => new Option(item.key + (item.pending ? '' : ' · 已确认'), item.key)));
+    }
+    $('#reviewItem').value = index < 0 ? '' : items[index].key;
+    $('#reviewItem').disabled = !items.length;
+    $('#previous').disabled = index <= 0;
+    $('#next').disabled = !items.length || index === items.length - 1;
+    $('#position').textContent = index < 0 ? '' : `${index + 1} / ${items.length}`;
+    const item = items[index];
+    $('#reviewState').textContent = item ? item.pending ? item.reviewToken ? '待验收' : '可预览 · 待检查更新' : '此项已确认' : items.length ? '可在下方切换公司，或按下一项依次查看' : '待验收内容准备好后会出现在这里';
   }
   function frame(url) {
     if (lastFrame === url) return;
@@ -30,58 +71,72 @@
     selectedHash();
     try { scroll = $('#viewer').contentWindow.scrollY; offsets = [...$('#viewer').contentWindow.document.querySelectorAll('[id]')].filter((element) => element.scrollTop || element.scrollLeft).map((element) => ({ id: element.id, top: element.scrollTop, left: element.scrollLeft })); } catch { /* Production frame. */ }
     lastFrame = url;
-    $('#viewer').onload = () => { if (mode === 'dev') { try { $('#viewer').contentWindow.scrollTo(0, scroll); for (const saved of offsets) { const element = $('#viewer').contentWindow.document.getElementById(saved.id); if (element) element.scrollTo(saved.left, saved.top); } } catch {} } };
+    $('#viewer').onload = () => {
+      try {
+        const child = $('#viewer').contentWindow;
+        const selectionChanged = () => { selectedHash(); route(); renderQueue(); refresh(); };
+        child.addEventListener('hashchange', selectionChanged);
+        child.addEventListener('trace:selectionchange', selectionChanged);
+        if (mode === 'dev') { child.scrollTo(0, scroll); for (const saved of offsets) { const element = child.document.getElementById(saved.id); if (element) element.scrollTo(saved.left, saved.top); } }
+        selectedHash(); route(); renderQueue();
+      } catch { /* Production frame. */ }
+    };
     const target = new URL(url, location.href);
     for (const [key, value] of Object.entries(viewPreferences || {})) target.searchParams.set(key, value);
-    target.hash = activeHash;
-    $('#viewer').src = target.href;
+    target.hash = activeHash; $('#viewer').src = target.href;
     $('#viewer').hidden = false; $('#empty').hidden = true;
   }
-  function empty(message) {
-    $('#viewer').hidden = true; $('#empty').hidden = false; $('#empty').textContent = message;
+  function empty(message) { $('#viewer').hidden = true; $('#empty').hidden = false; $('#empty').textContent = message; }
+  function choose(key) {
+    if (!key) return;
+    activeHash = '#' + key; route();
+    try { if (mode !== 'production' && !$('#viewer').hidden) $('#viewer').contentWindow.location.hash = activeHash; } catch {}
+    renderQueue(); refresh();
   }
   function render() {
     if (!state || state.preview.source !== source) return;
     const p = state.preview, candidate = p.candidate;
     document.querySelectorAll('[data-mode]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.mode === mode)));
+    $('#localReview').setAttribute('aria-pressed', String(mode === 'preview' && source === 'review'));
     $('#status').dataset.error = String(p.status === 'failed');
-    let message = { queued: '修改已保存 · 等待重建', building: '正在构建 · 保留上次成功结果', failed: '构建失败 · 当前页面可能已过期', ready: '候选已生成 · 待任务内确认审阅' }[p.status] || p.status;
-    if (mode === 'dev') {
+    let message = { queued: '修改已保存 · 等待更新', building: '正在汇总更新 · 保留当前验收版本', failed: '汇总失败 · 当前页面可能已过期', ready: '统一验收 · 在同一页面查看全部本机内容，确认意见直接回复当前任务' }[p.status] || p.status;
+    if (mode === 'dev' && source !== 'review') {
       message = '开发视图 · 保存后自动刷新';
-      if (devRevision !== p.revision || !lastFrame.includes('/__trace/dev/')) {
-        devRevision = p.revision; frame('/__trace/dev/' + source + '/index.html?r=' + devRevision);
-      }
+      if (devRevision !== p.revision || !lastFrame.includes('/__trace/dev/')) { devRevision = p.revision; frame('/__trace/dev/' + source + '/index.html?r=' + devRevision); }
     } else if (mode === 'production') {
       const key = activeHash.slice(1), available = state.productionDataset;
       if (key && available.key !== key || key && available.status === 'unknown' || state.production.status !== 'available') empty('暂时无法核对线上对应数据，请查看最后核查时间。');
       else if (available.status === 'not-published') empty('当前数据集尚未上线。此处保留当前选择，发布后再核对。');
-      else frame(production);
+      else frame(production + activeHash);
       message = '线上对照 · ' + (state.production.status === 'available' ? '已读取生产版本' : '状态未知或网络不可用');
     } else {
-      if (!pinned && candidate) { pinned = candidate.id; route(); }
-      if (pinned) frame('/__trace/previews/' + source + '/' + pinned + '/trace-company-product-metric-visualizer/');
-      else empty(p.error || '正在构建预览。首次构建需要一点时间。');
-      if (candidate && candidate.id === pinned && p.status === 'ready' && state.production.status === 'available' && candidate.version === state.production.release.version && candidate.contentDigest === state.production.release.contentDigest) message += ' · 与线上当前内容一致';
-      if (p.status === 'ready' && source.startsWith('build-') && candidate && !candidate.reviewToken) message = '预览已生成 · 处理单需要更新，等待当前任务完成检查';
+      const requested = params.get('review');
+      const requestedKey = state.tasks.find((item) => item.buildId === requested)?.key;
+      const needsRequested = source === 'review' && requested && (!requestedKey || !activeHash || activeHash === '#' + requestedKey);
+      const includesRequested = (value) => !needsRequested || value?.members?.some((item) => item.buildId === requested);
+      if ((!pinned || mode === 'dev') && candidate && includesRequested(candidate)) { pinned = candidate.id; route(); }
+      if (pinned && includesRequested(displayedCandidate())) frame('/__trace/previews/' + source + '/' + pinned + '/trace-company-product-metric-visualizer/');
+      else if (needsRequested) empty('该项尚未加入当前验收版本。准备完成后载入更新，即可在这里查看。');
+      else empty(p.error || '正在生成统一验收页面，首次构建需要一点时间。');
+      if (source !== 'review' && p.status === 'ready') message = '单项排查 · 点击「本机验收」返回统一页面';
+      if (mode === 'dev') message = p.status === 'failed' ? '更新失败 · 保留上次成功版本' : '开发 · 全部本机内容自动更新';
       if (candidate?.transportMatches === false) message += ' · 已偏离 Git 集成候选，请重新准备';
     }
+    if (p.status === 'failed' && mode !== 'production') message += ' · ' + p.error;
     $('#status').textContent = message;
     $('#notice').hidden = !(mode === 'preview' && candidate && pinned !== candidate.id);
     const run = state.ci.runs?.find((item) => item.headSha === state.git.head);
     const remoteText = '本机：' + (state.git.dirty ? '含未提交修改' : '已提交') + ' · ' + (state.git.head?.slice(0, 8) || '未知提交') + ' · 线上核查：' + (state.production.checkedAt ? new Date(state.production.checkedAt).toLocaleString() : '尚未成功') + ' · ' + (state.production.status === 'available' ? state.production.release.version.slice(0, 10) : '未知 / 过期');
     $('#remoteStatus').replaceChildren(document.createTextNode(remoteText + ' · CI：' + (state.ci.status === 'available' ? run ? (run.conclusion || run.status) : '当前提交暂无运行' : '状态不可用') + ' '));
     const link = document.createElement('a'); link.href = run?.url || 'https://github.com/charlesliuyx/trace-company-product-metric-visualizer/actions'; link.textContent = '查看 Actions'; link.target = '_blank'; link.rel = 'noopener'; $('#remoteStatus').append(link);
-    $('#details').textContent = JSON.stringify({ selectedSource: source, pinnedCandidate: pinned, local: p, git: state.git, ci: state.ci, production: state.production }, null, 2);
+    $('#details').textContent = JSON.stringify({ displayed: displayedCandidate(), selectedKey: activeHash.slice(1), latest: p, git: state.git, ci: state.ci, production: state.production }, null, 2);
     const signature = JSON.stringify(state.tasks);
-    if ($('#tasks').dataset.signature !== signature) {
-      $('#tasks').dataset.signature = signature;
-      $('#tasks').replaceChildren(...state.tasks.map((task) => {
-        const button = document.createElement('button'); button.dataset.source = task.buildId;
-        button.textContent = task.key; button.disabled = !task.selectable;
-        const detail = document.createElement('small'); detail.textContent = '记录：' + task.historicalState + (task.owner ? ' · ' + task.owner.slice(0, 12) : ''); button.append(detail); return button;
-      }));
+    if ($('#sourceDetail').dataset.signature !== signature) {
+      $('#sourceDetail').dataset.signature = signature;
+      $('#sourceDetail').replaceChildren(new Option('全部待验收内容', 'review'), new Option('项目工作树', 'project'), ...state.tasks.filter((task) => task.selectable).map((task) => new Option(task.key, task.buildId)));
     }
-    document.querySelectorAll('[data-source]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.source === source)));
+    $('#sourceDetail').value = source;
+    renderQueue();
   }
   async function refresh(force = false) {
     if (busy && !force) { rerun = true; return; }
@@ -89,40 +144,46 @@
     busy = true; const id = ++requestId; controller = new AbortController();
     try {
       selectedHash();
-      const query = new URLSearchParams({ key: activeHash.slice(1) }); if (source) query.set('source', source);
+      const query = new URLSearchParams({ key: activeHash.slice(1), source }); if (pinned) query.set('candidate', pinned);
       const response = await fetch('/__trace/status?' + query, { signal: controller.signal });
       const value = await response.json();
       if (id !== requestId) return;
       if (!response.ok) throw new Error(value.error);
-      source = value.preview.source;
       if (!activeHash) {
-        const task = value.tasks.find((item) => item.buildId === source);
-        if (task && /^[a-z0-9-]+$/.test(task.key)) activeHash = '#' + task.key;
+        const task = value.tasks.find((item) => item.buildId === (params.get('review') || source));
+        const first = value.preview.candidate?.members?.find((item) => item.pending) || value.preview.candidate?.members?.[0];
+        if (task || first) activeHash = '#' + (task || first).key;
       }
       state = value; route(); render();
-    } catch (error) { if (id === requestId && error.name !== 'AbortError') $('#status').textContent = '本地服务状态不可用：' + error.message; }
+    } catch (error) { if (id === requestId && error.name !== 'AbortError') { $('#status').dataset.error = 'true'; $('#status').textContent = '本地服务状态不可用：' + error.message; } }
     finally { if (id === requestId) { busy = false; if (rerun) { rerun = false; refresh(); } } }
   }
+  function changeSource(value) {
+    selectedHash(); source = value; pinned = null; lastFrame = ''; devRevision = -1; state = null;
+    $('#viewer').src = 'about:blank'; empty('正在载入内容…'); route(); refresh(true);
+  }
   document.addEventListener('click', (event) => {
-    const task = event.target.closest('[data-source]'), tab = event.target.closest('[data-mode]');
-    if (task) {
-      source = task.dataset.source; pinned = null; viewPreferences = null; lastFrame = ''; devRevision = -1; state = null;
-      const selected = task.firstChild?.textContent || '';
-      activeHash = /^[a-z0-9-]+$/.test(selected) ? '#' + selected : '';
-      $('#viewer').src = 'about:blank'; empty('正在载入所选任务…'); route(); refresh(true);
-    }
-    if (tab) { selectedHash(); mode = tab.dataset.mode; route(); render(); refresh(); }
+    const tab = event.target.closest('[data-mode]');
+    if (tab) { selectedHash(); mode = tab.dataset.mode; $('#more').open = false; route(); render(); refresh(); }
   });
-  $('#useLatest').onclick = () => { selectedHash(); pinned = state.preview.candidate.id; route(); render(); };
+  $('#localReview').onclick = () => { mode = 'preview'; if (source !== 'review') changeSource('review'); else { route(); render(); refresh(); } };
+  $('#sourceDetail').onchange = (event) => { $('#more').open = false; mode = 'preview'; changeSource(event.target.value); };
+  $('#reviewItem').onchange = (event) => choose(event.target.value);
+  $('#previous').onclick = () => { selectedHash(); const items = queue(), index = items.findIndex((item) => '#' + item.key === activeHash); choose(items[index - 1]?.key); };
+  $('#next').onclick = () => { selectedHash(); const items = queue(), index = items.findIndex((item) => '#' + item.key === activeHash); choose(items[index + 1]?.key); };
+  $('#useLatest').onclick = () => { selectedHash(); pinned = state.preview.candidate.id; route(); render(); refresh(); };
   $('#openProduction').onclick = () => {
-    selectedHash();
+    selectedHash(); $('#more').open = false;
     if (activeHash && state?.productionDataset.status !== 'available') { mode = 'production'; route(); render(); refresh(); return; }
     window.open(production + activeHash, '_blank', 'noopener');
   };
+  window.addEventListener('hashchange', () => choose(location.hash.slice(1)));
   const events = new EventSource('/__trace/events'); events.onmessage = () => refresh();
   events.onerror = () => { $('#status').textContent = '本地连接已断开 · 正在重连'; };
   setInterval(() => { if (!document.hidden) refresh(); }, 15000);
   window.addEventListener('focus', () => refresh());
   refresh();
 })();
-</script></body></html>
+</script>
+</body>
+</html>
