@@ -1,3 +1,6 @@
+import { withFileLock } from './workflow-files.mjs';
+import { assertBuildSession } from './workflow-session.mjs';
+import { realpath } from 'node:fs/promises';
 import { createHash, randomUUID } from 'node:crypto';
 import { existsSync } from 'node:fs';
 import { mkdir, open, readFile, rename, rm, writeFile } from 'node:fs/promises';
@@ -105,22 +108,10 @@ export async function readDatasetBuild(buildId, options = {}) {
 async function withBuildLock(buildId, options, work) {
   const buildRoot = options.buildRoot || DEFAULT_BUILD_ROOT;
   const buildDir = buildDirectory(buildId, buildRoot);
-  const lockPath = path.join(buildDir, '.record.lock');
-  let handle;
-  try {
-    handle = await open(lockPath, 'wx');
-  } catch (cause) {
-    if (cause?.code === 'EEXIST') {
-      throw buildError('BUILD_LOCKED', `Dataset Build is being recorded by another process: ${buildId}`);
-    }
-    throw cause;
-  }
-  try {
-    return await work({ buildDir, buildRoot });
-  } finally {
-    await handle?.close().catch(() => {});
-    await rm(lockPath, { force: true });
-  }
+  return withFileLock(path.join(buildDir, '.record.lock'), () => withFileLock(path.join(buildDir, '.session-write.lock'), async () => {
+    await assertBuildSession(path.resolve(await realpath(buildDir), '../../..'), buildId, options);
+    return work({ buildDir, buildRoot });
+  }));
 }
 
 export async function recordDatasetBuildCommand(buildId, command, options = {}) {
@@ -209,6 +200,9 @@ export async function recordBuildObject(buildId, kind, value, options = {}) {
   if (!existsSync(path.join(buildDir, 'manifest.json'))) {
     throw buildError('BUILD_NOT_FOUND', `Dataset Build not found: ${buildId}`);
   }
+  return withFileLock(path.join(buildDir, '.session-write.lock'), async () => {
+  const sessionRoot = path.resolve(await realpath(buildDirectory(buildId, options.buildRoot || DEFAULT_BUILD_ROOT)), '../../..');
+  await assertBuildSession(sessionRoot, buildId, options);
   const digest = digestValue(value);
   const objectDir = path.join(buildDir, 'objects', kind);
   const objectPath = path.join(objectDir, `${digest.slice('sha256:'.length)}.json`);
@@ -228,6 +222,7 @@ export async function recordBuildObject(buildId, kind, value, options = {}) {
     digest,
     path: path.relative(options.projectRoot || rootDir, objectPath).split(path.sep).join('/'),
   };
+  });
 }
 
 export async function readBuildObject(buildId, reference, options = {}) {

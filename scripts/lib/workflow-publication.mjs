@@ -1,8 +1,12 @@
+import { mergeSource } from './workflow-merge.mjs';
+import { prepareWorkspaceTools } from './workspace-tools.mjs';
+import { applicationManifest, adoptApplication, isApplicationPath } from './workflow-application.mjs';
 import { selectPublishedView } from './workflow-local-view.mjs';
 import path from 'node:path';
 import { mkdir, readFile, writeFile, rename, rm, symlink } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { randomUUID } from 'node:crypto';
+import vm from 'node:vm';
 import { rootDir } from './project.mjs';
 import { planPublicationBatch, digestValue } from './dataset-build.mjs';
 import { inspectDatasetBuild } from './dataset-build-store.mjs';
@@ -17,18 +21,17 @@ const planDirectory = (root, digest) => {
   if (!/^sha256:[a-f0-9]{64}$/.test(digest || '')) throw new Error('Invalid publication digest');
   return inside(root, `output/publications/plans/${digest.slice(7)}`);
 };
-async function prepareTools(root, candidate) {
-  await copyFiles(root, candidate, await filesUnder(root, TOOL_ROOTS));
-  for (const directory of ['node_modules', '.git']) if (existsSync(path.join(root, directory))) await symlink(path.join(root, directory), path.join(candidate, directory), 'dir');
-}
+const prepareTools = prepareWorkspaceTools;
 export async function planAssetPublication(buildIds, root = rootDir, options = {}) {
   const snapshot = await canonicalSnapshot(root);
+  const application = await applicationManifest(root);
   const contexts = await Promise.all(buildIds.map((id) => buildContext(id, root)));
   for (const context of contexts) {
     if ((await fileManifest(context.projectRoot, ['scripts', 'package.json', 'pnpm-lock.yaml'])).digest !== (await fileManifest(root, ['scripts', 'package.json', 'pnpm-lock.yaml'])).digest) throw new Error('Workflow tools changed after intake; refresh the workspace and reverify under the current rules');
     if (!context.build.authoringRoot) throw new Error('Publication requires an isolated Build; legacy direct authoring must be migrated explicitly');
     const inspection = await inspectDatasetBuild(context.build.buildId, context);
     if (!inspection.fresh || inspection.effectiveState !== 'SEALED' || context.build.review?.status !== 'accepted') throw new Error(`Build is not fresh, sealed and reviewed: ${context.build.buildId}`);
+    if ((await applicationManifest(context.projectRoot)).digest !== application.digest) throw new Error('Application code differs from the current root; refresh, inspect and reseal the Build');
   }
   const preliminary = planPublicationBatch(contexts.map(({ build }) => build), snapshot.digest);
   if (preliminary.state === 'CONFLICTED') throw Object.assign(new Error('Canonical base changed; replan, review affected changes and reseal'), { code: 'PUBLICATION_CONFLICT', details: preliminary });
@@ -40,13 +43,13 @@ export async function planAssetPublication(buildIds, root = rootDir, options = {
     const draftEntries = new Map(draft.entries.map((entry) => [entry.path, entry.digest]));
     const paths = new Set([...baseEntries.keys(), ...draftEntries.keys()]);
     for (const file of paths) {
-      if (baseEntries.get(file) === draftEntries.get(file) || GENERATED.has(file)) continue;
+      if (baseEntries.get(file) === draftEntries.get(file) || GENERATED.has(file) || isApplicationPath(file)) continue;
       if (!file.startsWith('data/') && !/^input\/icon-crop-specs\/[^/]+\.json$/.test(file)) throw new Error(`Dataset publication cannot change application code: ${file}`);
       if (!draftEntries.has(file)) throw new Error(`Deletion needs an explicit migration, not intake publication: ${file}`);
       const existing = owned.get(file);
-      if (existing && existing.digest !== draftEntries.get(file)) throw Object.assign(new Error(`Conflicting contributions to ${file}: ${existing.buildId}, ${context.build.buildId}`), { code: 'PUBLICATION_PATH_CONFLICT' });
+
       const contribution = { path: file, digest: draftEntries.get(file), buildId: context.build.buildId, baseDigest: baseEntries.get(file) || null };
-      owned.set(file, contribution);
+      owned.set(file, { ...contribution, buildIds: [...(existing?.buildIds || []), context.build.buildId] });
       contributions.push({ ...contribution, workspace: context.projectRoot });
     }
   }
@@ -54,8 +57,20 @@ export async function planAssetPublication(buildIds, root = rootDir, options = {
   await mkdir(temporary, { recursive: true });
   try {
     await copyFiles(snapshot.root, temporary, snapshot.entries.map((entry) => entry.path));
+    await adoptApplication(root, temporary);
     await prepareTools(root, temporary);
-    for (const contribution of contributions) await copyFiles(contribution.workspace, temporary, [contribution.path]);
+    const applied = new Map();
+    for (const contribution of contributions) {
+      const file = contribution.path;
+      const read = async (base) => existsSync(inside(base, file)) ? readFile(inside(base, file), 'utf8') : null;
+      const [base, current, incoming] = await Promise.all([read(snapshot.root), read(temporary), read(contribution.workspace)]);
+      // Binary assets are copied by bytes. Only overlapping textual SSOTs merge.
+      const prior = applied.get(file);
+      if (!prior) await copyFiles(contribution.workspace, temporary, [file]);
+      else if (prior.digest !== contribution.digest) await writeFile(inside(temporary, file), mergeSource(file, base, current, incoming));
+      owned.get(file).digest = bytesDigest(await readFile(inside(temporary, file)));
+      applied.set(file, contribution);
+    }
     const incomeBuilds = contexts.filter(({ build }) => build.adapter === 'income-statement');
     if (incomeBuilds.length) {
       const baselinePath = path.join(temporary, 'data/render-baselines.json');
@@ -69,6 +84,24 @@ export async function planAssetPublication(buildIds, root = rootDir, options = {
       await atomicJson(baselinePath, ledger);
     }
     await updateMetricCatalog(temporary);
+    // Carry the exact Build-scoped display times into projection, rather than
+    // replacing a reviewed new dataset's time with this planning process's clock.
+    const frozenMetadata = path.join(temporary, 'output/workflow/frozen-metadata.js');
+    if (existsSync(frozenMetadata)) {
+      const view = { window: {} };
+      vm.runInNewContext(await readFile(frozenMetadata, 'utf8'), view, { timeout: 1000 });
+      const metadata = view.window.DATASET_FILE_METADATA;
+      const ownedTimes = new Map();
+      for (const context of contexts) {
+        if (context.build.adapter === 'metric-observation') continue;
+        const semantic = await readJson(path.join(context.projectRoot, 'output/workflow/semantic-inputs.json'));
+        const key = context.build.adapter === 'revenue-metric' ? 'data/revenue-metrics.js' : context.build.key;
+        if (!semantic.displayTime) throw new Error(`Reviewed display time is missing for ${key}; refresh the Build`);
+        if (ownedTimes.has(key) && digestValue(ownedTimes.get(key)) !== digestValue(semantic.displayTime)) throw new Error(`Conflicting reviewed display times for ${key}`);
+        ownedTimes.set(key, semantic.displayTime); metadata.files[key] = semantic.displayTime;
+      }
+      await writeFile(frozenMetadata, `window.DATASET_FILE_METADATA = ${JSON.stringify(metadata)};\n`);
+    }
     // Each projector writes only into this private candidate. No canonical
     // path is touched before the single pointer CAS below.
     if (contexts.some(({ build }) => build.adapter !== 'metric-observation')) {
@@ -90,7 +123,8 @@ export async function planAssetPublication(buildIds, root = rootDir, options = {
     // workspace mutation window while the combined candidate was prepared.
     for (const context of contexts) if (!(await inspectDatasetBuild(context.build.buildId, context)).fresh) throw new Error('Build changed while publication was planned');
     const projected = await fileManifest(temporary);
-    const value = { protocol: PUBLICATION_PROTOCOL, kind: 'publication-batch', state: 'PLANNED', baseCanonicalDigest: snapshot.digest, builds: preliminary.builds, contributions: [...owned.values()].sort((a, b) => a.path.localeCompare(b.path)), projectedTreeDigest: projected.digest, projectedEntries: projected.entries, checks };
+    if ((await applicationManifest(temporary)).digest !== application.digest) throw new Error('Application changed while the publication candidate was prepared');
+    const value = { protocol: PUBLICATION_PROTOCOL, kind: 'publication-batch', state: 'PLANNED', baseCanonicalDigest: snapshot.digest, applicationDigest: application.digest, builds: preliminary.builds, contributions: [...owned.values()].sort((a, b) => a.path.localeCompare(b.path)), projectedTreeDigest: projected.digest, projectedEntries: projected.entries, checks };
     const plan = { ...value, planDigest: digestValue(value) };
     const destination = planDirectory(root, plan.planDigest);
     await mkdir(path.dirname(destination), { recursive: true });
@@ -122,6 +156,7 @@ export async function publishAssetPlan(planDigest, root = rootDir, options = {})
       await atomicJson(receiptPath, receipt); return receipt;
     }
     const current = await canonicalSnapshot(root);
+    if (plan.applicationDigest && (await applicationManifest(root)).digest !== plan.applicationDigest) throw new Error('Application changed since planning; prepare a fresh publication candidate');
     if (current.digest !== plan.baseCanonicalDigest) {
       const conflict = { state: 'CONFLICTED', planDigest, expected: plan.baseCanonicalDigest, actual: current.digest };
       await atomicJson(path.join(directory, 'conflict.json'), conflict);

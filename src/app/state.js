@@ -73,7 +73,7 @@ function writeStoredValue(key, value) {
 }
 function readStoredViewMode() {
   try {
-    const value = window.localStorage.getItem(VIEW_MODE_KEY);
+    const value = new window.URLSearchParams(window.location.search).get('traceView') || window.localStorage.getItem(VIEW_MODE_KEY);
     return VIEW_MODES.includes(value) ? value : 'sankey';
   } catch (error) {
     return 'sankey';
@@ -81,7 +81,7 @@ function readStoredViewMode() {
 }
 function readStoredMetricMode() {
   try {
-    const value = window.localStorage.getItem(METRIC_MODE_KEY);
+    const value = new window.URLSearchParams(window.location.search).get('traceMetric') || window.localStorage.getItem(METRIC_MODE_KEY);
     return METRIC_MODES.includes(value) ? value : 'incomeStatement';
   } catch (error) {
     return 'incomeStatement';
@@ -89,16 +89,17 @@ function readStoredMetricMode() {
 }
 function readStoredLanguage() {
   try {
+    const value = new window.URLSearchParams(window.location.search).get('traceLanguage') || window.localStorage.getItem(LANGUAGE_KEY);
     return I18N_API.normalizeLanguage
-      ? I18N_API.normalizeLanguage(window.localStorage.getItem(LANGUAGE_KEY))
-      : window.localStorage.getItem(LANGUAGE_KEY) === 'zh' ? 'zh' : 'en';
+      ? I18N_API.normalizeLanguage(value)
+      : value === 'zh' ? 'zh' : 'en';
   } catch (error) {
     return I18N_API.defaultLanguage || 'en';
   }
 }
 function readStoredTheme() {
   try {
-    return window.localStorage.getItem(THEME_KEY) === 'dark' ? 'dark' : 'light';
+    return (new window.URLSearchParams(window.location.search).get('traceTheme') || window.localStorage.getItem(THEME_KEY)) === 'dark' ? 'dark' : 'light';
   } catch (error) {
     return 'light';
   }
@@ -374,3 +375,9 @@ function viewDataRequirement() {
     ? { family: activeTableKind() }
     : { companies: scopeCompanies() };
 }
+
+// Read-only view preferences for a parent local workbench. URL overrides keep
+// a reloaded tab's view independent of preferences written by another tab.
+window.TraceViewSession = {
+  capture: () => ({ traceLanguage: state.language, traceTheme: state.theme, traceView: state.viewMode, traceMetric: state.metricMode }),
+};

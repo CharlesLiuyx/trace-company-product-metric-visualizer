@@ -6,8 +6,9 @@ import path from 'node:path';
 import os from 'node:os';
 import { rootDir } from '../scripts/lib/project.mjs';
 import { PROJECT_FONT_FAMILIES, fontPackageRelativePath } from '../scripts/lib/local-fonts.mjs';
+import { verifySiteIdentity } from '../scripts/lib/site-release-identity.mjs';
 
-test('Pages releases bind build dependencies, preserve HTML, retain old bytes and tolerate a cold cache', () => {
+test('Pages releases bind build dependencies, preserve HTML, retain old bytes and tolerate a cold cache', async () => {
   const root = mkdtempSync(path.join(os.tmpdir(), 'trace-site-release-'));
   const file = (name) => path.join(root, name);
   const write = (name, contents) => { mkdirSync(path.dirname(file(name)), { recursive: true }); writeFileSync(file(name), contents); };
@@ -17,7 +18,7 @@ test('Pages releases bind build dependencies, preserve HTML, retain old bytes an
     return JSON.parse(readFileSync(file('_site/site-release.json'), 'utf8'));
   };
   try {
-    ['scripts/build-site.mjs', 'scripts/lib/site-data.mjs', 'scripts/lib/local-fonts.mjs', 'scripts/lib/project.mjs', 'src/trace-domain.js'].forEach(copy);
+    ['scripts/build-site.mjs', 'scripts/lib/site-data.mjs', 'scripts/lib/site-release-identity.mjs', 'scripts/lib/local-fonts.mjs', 'scripts/lib/project.mjs', 'src/trace-domain.js'].forEach(copy);
     for (const { slug, weights } of PROJECT_FONT_FAMILIES) {
       for (const weight of weights) write(fontPackageRelativePath(slug, weight), 'fixture font bytes');
     }
@@ -31,6 +32,10 @@ test('Pages releases bind build dependencies, preserve HTML, retain old bytes an
     write('index.html', '<!doctype html><html><head><script src="src/entry.js"></script><title>Preserved</title><link rel="stylesheet" href="src/app.css" /></head><body><main id="fixture">Preserved body</main><script src="src/trace-domain.js"></script><script src="data/catalog.js"></script><script src="vendor/chart.umd.min.js"></script><script src="src/app/main.js"></script></body></html>');
 
     const first = build();
+    await verifySiteIdentity(file('_site'));
+    write('_site/assets/app.js', '// tampered legacy bridge');
+    await assert.rejects(verifySiteIdentity(file('_site')), /do not match/);
+    build();
     const oldCss = readFileSync(file(`_site/${first.prefix}/assets/fonts.css`), 'utf8');
     const html = readFileSync(file('_site/index.html'), 'utf8');
     assert.ok(html.includes('<title>Preserved</title>'));

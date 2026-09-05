@@ -8,9 +8,13 @@
 // commits and CI. Files with no git history yet (a dataset mid-authoring)
 // fall back to filesystem mtime until their first commit; after that commit,
 // rerun this script so the recorded time switches to the git time.
+import { existsSync, readFileSync } from 'node:fs';
+import vm from 'node:vm';
 import { readFile, stat, writeFile } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
+const bytesDigest = (bytes) => 'sha256:' + createHash('sha256').update(bytes).digest('hex');
 import { registeredDatasetScripts } from './script-sources.mjs';
 import { projectPath, rootDir } from './lib/project.mjs';
 
@@ -58,6 +62,22 @@ function gitAuthorTimesMs() {
 }
 
 async function fileEntry(relativePath, gitTimes) {
+  const fixedFile = projectPath('data/workflow-timestamps.json');
+  const fixed = existsSync(fixedFile) ? JSON.parse(readFileSync(fixedFile, 'utf8')).files?.[relativePath] : null;
+  if (fixed && fixed.digest === bytesDigest(await readFile(projectPath(relativePath)))) {
+    if (!Number.isFinite(Date.parse(fixed.updatedAt))) throw new Error(`Invalid fixed timestamp: ${relativePath}`);
+    return { path: relativePath, updatedAtMs: Date.parse(fixed.updatedAt), updatedAt: new Date(fixed.updatedAt).toISOString(), timeSource: 'publication' };
+  }
+  const frozen = projectPath('output/workflow/frozen-metadata.js');
+  if (existsSync(frozen)) {
+    const context = { window: {} };
+    vm.runInNewContext(readFileSync(frozen, 'utf8'), context, { timeout: 1000 });
+    const entries = Object.values(context.window.DATASET_FILE_METADATA?.files || {});
+    const entry = entries.find((item) => item.path === relativePath);
+    if (entry) return entry;
+    const tools = JSON.parse(readFileSync(projectPath('output/workflow/tool-context.json'), 'utf8'));
+    return { path: relativePath, updatedAtMs: Date.parse(tools.preparedAt), updatedAt: tools.preparedAt, timeSource: 'mtime' };
+  }
   let updatedAtMs = gitTimes.get(relativePath) ?? null;
   let source = 'git';
   if (updatedAtMs == null) {

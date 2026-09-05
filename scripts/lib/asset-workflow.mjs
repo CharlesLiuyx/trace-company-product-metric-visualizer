@@ -1,3 +1,6 @@
+import { prepareWorkspaceTools } from './workspace-tools.mjs';
+import { adoptApplication } from './workflow-application.mjs';
+import { acquireBuildSession, assertBuildSession, readBuildSession } from './workflow-session.mjs';
 import { selectBuildPreview } from './workflow-local-view.mjs';
 import path from 'node:path';
 import { existsSync } from 'node:fs';
@@ -14,8 +17,9 @@ import { prepareBuildReview, finishReviewedBuild, stageReviewedBaseline, sealRev
 import { recordDatasetVerification } from './dataset-verification.mjs';
 import { deriveArtifactManifest, CHECKPOINT_PROTOCOL, nextCheckpoint } from './workflow-dependencies.mjs';
 import { recordCheckpoint } from './workflow-checkpoints.mjs';
-import { CANONICAL_ROOTS, TOOL_ROOTS, fileManifest, copyFiles, filesUnder, inside, atomicJson, readJson, withFileLock } from './workflow-files.mjs';
+import { CANONICAL_ROOTS, TOOL_ROOTS, bytesDigest, fileManifest, copyFiles, filesUnder, inside, atomicJson, readJson, withFileLock, freezeSnapshot } from './workflow-files.mjs';
 import { digestValue } from './dataset-build.mjs';
+import { verifySiteIdentity } from './site-release-identity.mjs';
 
 export function workflowOptions(root = rootDir) { return { projectRoot: root, buildRoot: path.join(root, 'output/builds') }; }
 export async function buildContext(buildId, root = rootDir) {
@@ -44,6 +48,7 @@ async function operation(buildId, name, root, work) {
   const initial = await buildContext(buildId, root);
   return withFileLock(path.join(initial.buildRoot, initial.build.buildId, '.workflow-operation.lock'), async () => {
     const options = await buildContext(buildId, root);
+    await assertBuildSession(root, buildId);
     try {
       const result = await work(options);
       await recordBuildObject(buildId, 'operation-report', { operation: name, status: 'completed', startedAt: new Date(started).toISOString(), elapsedMs: Date.now() - started }, options);
@@ -59,29 +64,50 @@ export async function startAsset(input, root = rootDir) {
   if (facts?.protocol !== SOURCE_FACTS_PROTOCOL) throw new Error(`Supply ${SOURCE_FACTS_PROTOCOL}: extracted facts, Source anchors and unresolved questions`);
   const signals = input.signals || facts.signals || ['metric-observations'];
   const { adapter } = classifySourceSignals(signals, input.adapter);
-  return withFileLock(path.join(root, 'output/workflow-intake.lock'), async () => {
-    const snapshot = await canonicalSnapshot(root);
+  const initialSnapshot = await freezeSnapshot(await canonicalSnapshot(root), root);
+  const reserved = await withFileLock(path.join(root, 'output/workflow-intake.lock'), async () => {
+    const snapshot = initialSnapshot;
+    const sourcePath = path.resolve(root, input.source);
+    if (existsSync(sourcePath)) {
+      const digest = bytesDigest(await readFile(sourcePath));
+      for (const claimed of await filesUnder(root, ['input/processing'])) {
+        if (/\.(png|txt|md)$/i.test(claimed) && path.basename(claimed, path.extname(claimed)) !== input.key && bytesDigest(await readFile(inside(root, claimed))) === digest) throw new Error(`Source already claimed at ${claimed}`);
+      }
+      const claims = path.join(root, 'output/source-claims');
+      const file = path.join(claims, `${digest.slice(7)}.json`);
+      const prior = existsSync(file) ? await readJson(file) : null;
+      if (prior && prior.key !== input.key) throw Object.assign(new Error(`Source already claimed by ${prior.buildId} (${prior.key})`), { code: 'SOURCE_ALREADY_CLAIMED', buildId: prior.buildId });
+    }
     const intake = await recordIntake({ source: input.source, key: input.key, adapter, signals, availability: input.availability || 'local-only' }, { ...workflowOptions(root), canonicalDataDigest: async () => snapshot.digest });
-    let build = intake.build;
+    const processing = inside(root, intake.build.sources[0].processingUri);
+    const digest = bytesDigest(await readFile(processing));
+    await atomicJson(path.join(root, 'output/source-claims', `${digest.slice(7)}.json`), { key: input.key, buildId: intake.build.buildId, sourceDigest: intake.build.sources[0].digest });
+    const session = input.session;
+    const lease = session ? await acquireBuildSession(root, intake.build.buildId, session) : null;
+    return { buildId: intake.build.buildId, snapshot, lease };
+  });
+  // The shared queue lock protects only reservation. Large copies are per-Build.
+  return withFileLock(path.join(root, 'output/builds', reserved.buildId, '.workflow-operation.lock'), async () => {
+    const { snapshot, lease } = reserved;
+    if (lease) await assertBuildSession(root, reserved.buildId, { session: lease.owner, generation: lease.generation });
+    let build = await readDatasetBuild(reserved.buildId, workflowOptions(root));
     const authoringRoot = `output/builds/${build.buildId}/workspace`;
     const workspace = inside(root, authoringRoot);
-    if (build.authoringRoot) return { buildId: build.buildId, workspace, next: 'show' };
+    if (build.authoringRoot) return { buildId: build.buildId, workspace, session: lease, next: 'show' };
     await mkdir(workspace, { recursive: true });
     await copyFiles(snapshot.root, workspace, snapshot.entries.map((entry) => entry.path));
-    await copyFiles(root, workspace, await filesUnder(root, TOOL_ROOTS));
+    await adoptApplication(root, workspace);
+    await prepareWorkspaceTools(root, workspace);
     await copyFiles(root, workspace, [build.sources[0].processingUri]);
-    for (const directory of ['node_modules', '.git']) {
-      if (existsSync(path.join(root, directory)) && !existsSync(path.join(workspace, directory))) await symlink(path.join(root, directory), path.join(workspace, directory), 'dir');
-    }
-    // The workspace shares the original Build ledger; there is one authority.
     await mkdir(path.join(workspace, 'output'), { recursive: true });
-    await symlink(path.join(root, 'output/builds'), path.join(workspace, 'output/builds'), 'dir');
+    if (!existsSync(path.join(workspace, 'output/builds'))) await symlink(path.join(root, 'output/builds'), path.join(workspace, 'output/builds'), 'dir');
     await atomicJson(path.join(workspace, 'output/workflow/base.json'), snapshot);
     await atomicJson(path.join(workspace, 'output/workflow/source-facts.json'), facts);
-    build = await recordDatasetBuildCommand(build.buildId, { type: 'isolate-workspace', expectedRevision: build.revision, authoringRoot }, workflowOptions(root));
-    return { buildId: build.buildId, workspace, adapter, next: 'prepare' };
+    build = await recordDatasetBuildCommand(build.buildId, { type: 'isolate-workspace', expectedRevision: build.revision, authoringRoot }, { ...workflowOptions(root), session: lease?.owner, generation: lease?.generation });
+    return { buildId: build.buildId, workspace, adapter, session: lease, next: 'prepare' };
   });
 }
+
 async function authoredFacts(build, root, input) {
   if (input?.protocol !== SOURCE_FACTS_PROTOCOL) throw new Error(`Expected ${SOURCE_FACTS_PROTOCOL}`);
   if (input.questions?.length) throw new Error(`Please resolve these Source questions: ${input.questions.join('; ')}`);
@@ -163,7 +189,7 @@ export async function showAsset(buildId, root = rootDir) {
   const facts = existsSync(factsFile) ? await readJson(factsFile) : null;
   const contributionFile = inside(options.projectRoot, 'output/workflow/semantic-inputs.json');
   const authoredRecord = existsSync(contributionFile) ? (await readJson(contributionFile)).record : null;
-  return { buildId, key: build.key, adapter: build.adapter, workspace: options.projectRoot, state: inspection.effectiveState, historicalState: inspection.historicalState, fresh: inspection.fresh, staleArtifacts: inspection.staleArtifacts, next,
+  return { buildId, key: build.key, adapter: build.adapter, workspace: options.projectRoot, session: await readBuildSession(root, buildId), reviewUrl: `http://127.0.0.1:8000/?source=${buildId}`, state: inspection.effectiveState, historicalState: inspection.historicalState, fresh: inspection.fresh, staleArtifacts: inspection.staleArtifacts, next,
     source: build.sources[0], subject: facts?.subject, period: facts?.period, metrics: facts?.metrics || [], questions: facts?.questions || [], authoredRecord,
     reviewToken: packet?.reference.digest, verificationReference: verification?.reference,
     checkpoints: checkpoints.map(({ reference }) => reference), plan: authored?.verificationPlan,
@@ -197,6 +223,14 @@ export async function reviewAsset(buildId, review, root = rootDir) {
   return operation(buildId, 'review', root, async (options) => {
     const current = await showAsset(buildId, root);
     if (review.reviewToken !== current.reviewToken) throw new Error('Review must cite the exact processing-sheet token; refresh the sheet before reviewing changed data');
+    if (current.session || review.previewId) {
+      if (!/^[a-f0-9-]+$/.test(review.previewId || '')) throw new Error('Review must cite the displayed production previewId from the workbench');
+      const directory = inside(root, `output/workbench/previews/${buildId}/${review.previewId}`);
+      const preview = await readJson(path.join(directory, 'candidate.json'));
+      if (preview.reviewToken !== current.reviewToken || preview.sourceDigest !== (await fileManifest(options.projectRoot)).digest || preview.toolDigest !== (await fileManifest(root, ['scripts', 'package.json', 'pnpm-lock.yaml'])).digest) throw new Error('Displayed production preview is stale; prepare and inspect a fresh candidate');
+      await verifySiteIdentity(path.join(directory, 'site'), preview);
+      await recordBuildObject(buildId, 'production-preview-review', { previewId: review.previewId, reviewToken: current.reviewToken, contentDigest: preview.contentDigest, version: preview.version, sourceDigest: preview.sourceDigest }, options);
+    }
     await finishReviewedBuild({ ...review, buildId, reviewToken: current.reviewToken, verificationReference: current.verificationReference, checkpoints: current.checkpoints }, options);
     return showAsset(buildId, root);
   });

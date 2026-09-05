@@ -29,7 +29,7 @@ jobs:
       - uses: pnpm/action-setup@v6
       - uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version-file: .node-version
           cache: pnpm
       - uses: actions/setup-python@v6
         with:
@@ -67,6 +67,10 @@ jobs:
         if: steps.plan.outputs.verify_app == 'true'
         run: pnpm verify:app
 
+      - name: Verify concurrent local review workbench
+        if: steps.plan.outputs.verify_app == 'true'
+        run: pnpm verify:workbench
+
       # Best-effort retention for already-open tabs. Only trusted main runs
       # save this cache; a cache miss still builds a complete current release.
       - name: Restore previous Pages runtimes
@@ -80,6 +84,10 @@ jobs:
       - name: Build Pages projection
         if: steps.plan.outputs.build_site == 'true'
         run: pnpm build:site
+
+      - name: Verify release bytes and reviewed transport mapping
+        if: steps.plan.outputs.build_site == 'true'
+        run: pnpm verify:release
 
       - name: Verify Pages loading and interaction budgets
         if: >-

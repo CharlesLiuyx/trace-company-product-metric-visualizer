@@ -21,7 +21,10 @@ Implemented `verify:*` and `record:*` commands satisfy this contract. The one
 remaining canonical compatibility mutation is deliberately named
 `compat:baseline`, outside these classes, for legacy direct-edit compatibility.
 `publish:datasets` and `release:dataset` implement the isolated workflow in
-[asset-workflow.md](../asset-workflow.md).
+[asset-workflow.md](../asset-workflow.md). `release:git` transports a published
+digest into a reviewed commit; `record:transport-review` records that integrated
+candidate’s explicit human acceptance. It does not alter Build acceptance or the
+Publication pointer. See [ADR-0003](../adr/0003-shared-checkout-sessions-and-git-transport.md).
 Documentation and compatibility wrappers must state whether an operation is
 read-only or mutating; renaming alone does not change semantics.
 

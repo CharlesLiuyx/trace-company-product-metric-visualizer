@@ -24,14 +24,16 @@ Open the [interactive workflow graph](docs/workflow-flowchart.zh-CN.html), or us
 General metrics retain exact values and original quotes in the observation SSOT.
 The main viewer has no **指标资产 / Metrics** toolbar entry. Financial tables,
 trends and Sankeys remain available.
-Open the repository's `index.html` directly for local review. After preparation it
-shows the selected draft with a pending-review label; after explicit human approval
-and publication it switches to the accepted result at the same address. The foreground
-page checks for selection changes every two seconds. No server is required.
+Run `pnpm dev` once, then open the repository's `index.html` or
+<http://127.0.0.1:8000/>. The local workbench provides automatic Dev refresh,
+immutable Pages previews, and CI/production comparison. Each tab pins its own
+Build and candidate; several Codex / Claude Code Sessions can process different
+Sources in this same directory using ordinary Build folders, without worktrees.
 
-`pnpm dev` shows the local published snapshot when present; `pnpm dev -- --draft`
-opens the development worktree. Local publication and HTML output do not deploy
-the online site. New snapshots and their Build ledger are currently machine-local.
+See [local environments and concurrency](docs/local-environments.md). A published
+snapshot is transported through `release:git` into an explicitly reviewed commit;
+push remains your separate instruction. Without the server, the file entry retains
+its offline viewer. `pnpm dev -- --draft` opens the plain static source viewer.
 
 ## Highlights
 
@@ -58,7 +60,8 @@ the online site. New snapshots and their Build ledger are currently machine-loca
 ## Quick start
 
 ```bash
-pnpm dev          # zero-dependency static server
+nvm use           # Node version matches CI (.nvmrc)
+pnpm dev          # local review workbench
 # open http://127.0.0.1:8000
 ```
 

@@ -1820,6 +1820,20 @@ await scenario('boot: zh sankey + progressive-load company switch', async (page)
   },
 });
 
+await scenario('workbench: pinned language/theme/view override another tab’s stored preferences', async (page) => {
+  await boot(page, `${url}?traceLanguage=zh&traceTheme=dark&traceView=table&traceMetric=incomeStatement#apple-q1-fy26`);
+  const other = await page.context().newPage();
+  await boot(other);
+  await other.evaluate(() => {
+    localStorage.setItem('sankey.language', 'en'); localStorage.setItem('sankey.theme', 'light');
+    localStorage.setItem('sankey.view.mode', 'sankey');
+  });
+  await page.reload(); await page.waitForSelector('#tableView:not([hidden])');
+  const view = await page.evaluate(() => window.TraceViewSession.capture());
+  assert(view.traceLanguage === 'zh' && view.traceTheme === 'dark' && view.traceView === 'table', 'another tab overwrote pinned viewer preferences');
+  assert(page.url().endsWith('#apple-q1-fy26'), 'selected dataset was lost');
+});
+
 try { await verifyLocalFileEntry(browser); } catch (error) { failures.push(`local file entry: ${error.message}`); }
 
 await browser.close();

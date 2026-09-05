@@ -42,7 +42,32 @@
     });
   }
   const ready = document.readyState === 'loading' ? new Promise((resolve) => document.addEventListener('DOMContentLoaded', resolve, { once: true })) : Promise.resolve();
-  window.TRACE_LOCAL_VIEW_READY = ready.then(readSelection);
+  async function workbench() {
+    if (new URL(location.href).searchParams.has('offline')) return false;
+    async function script(url) {
+      return new Promise((resolve) => {
+        const el = document.createElement('script'); const timer = setTimeout(done, 800);
+        function done() { clearTimeout(timer); el.remove(); resolve(); }
+        el.onload = done; el.onerror = done; el.src = url; document.head.append(el);
+      });
+    }
+    await script(new URL('output/local-view/workbench.js?t=' + Date.now(), entry).href);
+    const hint = window.TRACE_WORKBENCH_HINT;
+    const expectedRoot = decodeURIComponent(new URL('.', entry).pathname).replace(/\/$/, '');
+    if (!hint || hint.root !== expectedRoot || !/^http:\/\/127\.0\.0\.1:\d+\/$/.test(hint.url)) return false;
+    await script(new URL('__trace/ping.js?t=' + Date.now(), hint.url).href);
+    if (window.TRACE_WORKBENCH?.root !== expectedRoot) return false;
+    window.TRACE_LOCAL_VIEW_ACTIVE = true;
+    location.replace(hint.url + location.search + location.hash); return true;
+  }
+  window.TRACE_LOCAL_VIEW_READY = ready.then(async () => {
+    if (await workbench()) return true;
+    const hint = document.createElement('div'); hint.id = 'trace-workbench-offline';
+    hint.style.cssText = 'position:fixed;bottom:0;right:0;z-index:2147483647;background:#f5f5f5;color:#333;border:1px solid #aaa;padding:4px 10px;font:12px system-ui';
+    hint.textContent = '离线查看 · 在 Codex / Claude Code 执行 pnpm dev 后，重新打开此入口即可自动刷新并核对线上。';
+    document.body.append(hint);
+    return readSelection();
+  });
   window.TRACE_LOCAL_VIEW_READY.then(() => setInterval(() => { if (!document.hidden) readSelection(); }, 2000));
   window.addEventListener('focus', () => ready.then(readSelection));
   window.addEventListener('hashchange', () => {

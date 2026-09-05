@@ -14,7 +14,7 @@ export async function loadWorkspaceData(root) {
   vm.createContext(context);
   const ssots = await filesUnder(root, ['data/income-statements', 'data/company-metadata']);
   const html = await readFile(inside(root, 'index.html'), 'utf8');
-  const scripts = ['src/icons.js', ...ssots.filter((file) => file.endsWith('.js')), 'data/revenue-metrics.js', 'data/metric-observations.js', ...Array.from(html.matchAll(/<script src="(data\/datasets\/[^"<>]+)"/g), (match) => match[1])];
+  const scripts = ['src/icons.js', ...ssots.filter((file) => file.endsWith('.js')), 'data/revenue-metrics.js', 'data/metric-observations.js', 'data/dataset-file-metadata.js', ...Array.from(html.matchAll(/<script src="(data\/datasets\/[^"<>]+)"/g), (match) => match[1])];
   for (const script of scripts) if (existsSync(inside(root, script))) vm.runInContext(await readFile(inside(root, script), 'utf8'), context, { filename: script, timeout: 5000 });
   return { context, records: context.INCOME_STATEMENT_SSOT?.records || [], companies: context.COMPANY_METADATA?.companies || [], revenueRecords: context.REVENUE_METRIC_SSOT?.records || [], metricRecords: context.METRIC_OBSERVATIONS || [], datasets: context.DATASETS || [] };
 }
@@ -66,7 +66,8 @@ export async function deriveArtifactManifest(build, root, { writeProjection = tr
   // profile. Their semantic contribution is pinned here, so unrelated additions
   // cannot invalidate this Build. Publication still owns their global merge.
   const company = loaded.companies.find((item) => item.name === record.company || item.key === record.subject?.id) || null;
-  const contribution = { key: build.key, adapter: build.adapter, record, company, dataset };
+  const displayTime = loaded.context.DATASET_FILE_METADATA?.files?.[build.adapter === 'revenue-metric' ? 'data/revenue-metrics.js' : build.key] || null;
+  const contribution = { key: build.key, adapter: build.adapter, record, company, dataset, displayTime };
   const projectionPath = 'output/workflow/semantic-inputs.json';
   const semanticBytes = JSON.stringify(contribution, null, 2) + '\n';
   if (writeProjection) {

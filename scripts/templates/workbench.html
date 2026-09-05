@@ -1,0 +1,128 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Trace · 本地工作台</title><link rel="icon" href="data:,"><style>
+:root{color-scheme:light dark;--bg:#f7f8fa;--paper:#fff;--text:#182333;--line:#cbd3df;--accent:#2355a5;--soft:#edf3ff}*{box-sizing:border-box;border-radius:0}body{margin:0;font:14px/1.7 system-ui;background:var(--bg);color:var(--text)}header{padding:8px 16px;background:var(--paper);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px;flex-wrap:wrap}header strong{margin-right:auto}button,select{font:inherit;background:var(--paper);color:var(--text);border:1px solid var(--line);padding:4px 10px;cursor:pointer}button[aria-pressed=true]{background:var(--soft);border-color:var(--accent);color:var(--accent)}#status{padding:7px 16px;border-bottom:1px solid var(--line)}#status[data-error=true]{color:#a43c25}#layout{display:grid;grid-template-columns:260px minmax(0,1fr);height:calc(100vh - 118px)}aside{padding:12px;border-right:1px solid var(--line);overflow:auto}aside button{display:block;width:100%;text-align:left;margin:0 0 8px;overflow-wrap:anywhere}aside small{display:block;color:#677486}section{min-width:0;display:flex;flex-direction:column}iframe{border:0;width:100%;flex:1;background:var(--paper)}#notice{padding:8px 16px;background:var(--soft)}#empty{padding:28px}details{font-size:12px;padding:8px 16px;max-height:160px;overflow:auto}pre{white-space:pre-wrap;overflow-wrap:anywhere}a{color:var(--accent)}[hidden]{display:none!important}@media(prefers-color-scheme:dark){:root{--bg:#121820;--paper:#1b2330;--text:#e5eaf2;--line:#46536a;--accent:#9fbfff;--soft:#253c5e}}@media(max-width:700px){#layout{grid-template-columns:1fr;height:auto}aside{max-height:170px;border-bottom:1px solid var(--line)}section{height:75vh}header{gap:6px}header strong{width:100%}}
+</style></head><body><header><strong>Trace · 本地工作台</strong><button data-mode="dev">开发</button><button data-mode="preview" aria-pressed="true">生产方式审阅</button><button data-mode="production">线上对照</button><button id="openProduction">打开线上</button></header><div id="status" role="status">正在读取本机状态…</div><div id="remoteStatus" style="padding:2px 16px;font-size:12px"></div><div id="layout"><aside aria-label="处理任务"><button data-source="project">项目工作树<small>本机代码与已纳入 Git 的数据</small></button><div id="tasks"></div><p>多个 Session 共用此入口。每个标签页保留自己的任务与审阅版本。</p><p>人工确认和推送仍在 Codex / Claude Code 中执行。</p></aside><section><div id="notice" hidden><span>已有新候选，当前审阅版本保持不变。</span> <button id="useLatest">切换到新候选</button></div><div id="empty">正在构建预览。首次构建需要一点时间。</div><iframe id="viewer" title="Trace 当前选中版本" hidden></iframe><details><summary>版本与检查详情</summary><pre id="details"></pre></details></section></div><script>
+(() => {
+  'use strict';
+  const $ = (selector) => document.querySelector(selector);
+  const params = new URLSearchParams(location.search);
+  const production = 'https://charlesliuyx.github.io/trace-company-product-metric-visualizer/';
+  let source = params.get('source') || '', mode = params.get('mode') || 'preview';
+  let pinned = /^[a-f0-9-]+$/.test(params.get('candidate') || '') ? params.get('candidate') : null;
+  let viewPreferences = null;
+  let state = null, lastFrame = '', activeHash = location.hash, devRevision = -1;
+  let requestId = 0, controller = null, busy = false, rerun = false;
+  if (!['dev', 'preview', 'production'].includes(mode)) mode = 'preview';
+  function route() {
+    const url = new URL(location.href);
+    if (source) url.searchParams.set('source', source);
+    url.searchParams.set('mode', mode);
+    if (pinned) url.searchParams.set('candidate', pinned); else url.searchParams.delete('candidate');
+    url.hash = activeHash;
+    history.replaceState(null, '', url);
+  }
+  function selectedHash() {
+    try { if (lastFrame && !$('#viewer').hidden) { activeHash = $('#viewer').contentWindow.location.hash || activeHash; viewPreferences = $('#viewer').contentWindow.TraceViewSession?.capture() || viewPreferences; } } catch { /* Cross-origin production. */ }
+    return activeHash;
+  }
+  function frame(url) {
+    if (lastFrame === url) return;
+    let scroll = 0, offsets = [];
+    selectedHash();
+    try { scroll = $('#viewer').contentWindow.scrollY; offsets = [...$('#viewer').contentWindow.document.querySelectorAll('[id]')].filter((element) => element.scrollTop || element.scrollLeft).map((element) => ({ id: element.id, top: element.scrollTop, left: element.scrollLeft })); } catch { /* Production frame. */ }
+    lastFrame = url;
+    $('#viewer').onload = () => { if (mode === 'dev') { try { $('#viewer').contentWindow.scrollTo(0, scroll); for (const saved of offsets) { const element = $('#viewer').contentWindow.document.getElementById(saved.id); if (element) element.scrollTo(saved.left, saved.top); } } catch {} } };
+    const target = new URL(url, location.href);
+    for (const [key, value] of Object.entries(viewPreferences || {})) target.searchParams.set(key, value);
+    target.hash = activeHash;
+    $('#viewer').src = target.href;
+    $('#viewer').hidden = false; $('#empty').hidden = true;
+  }
+  function empty(message) {
+    $('#viewer').hidden = true; $('#empty').hidden = false; $('#empty').textContent = message;
+  }
+  function render() {
+    if (!state || state.preview.source !== source) return;
+    const p = state.preview, candidate = p.candidate;
+    document.querySelectorAll('[data-mode]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.mode === mode)));
+    $('#status').dataset.error = String(p.status === 'failed');
+    let message = { queued: '修改已保存 · 等待重建', building: '正在构建 · 保留上次成功结果', failed: '构建失败 · 当前页面可能已过期', ready: '候选已生成 · 待任务内确认审阅' }[p.status] || p.status;
+    if (mode === 'dev') {
+      message = '开发视图 · 保存后自动刷新';
+      if (devRevision !== p.revision || !lastFrame.includes('/__trace/dev/')) {
+        devRevision = p.revision; frame('/__trace/dev/' + source + '/index.html?r=' + devRevision);
+      }
+    } else if (mode === 'production') {
+      const key = activeHash.slice(1), available = state.productionDataset;
+      if (key && available.key !== key || key && available.status === 'unknown' || state.production.status !== 'available') empty('暂时无法核对线上对应数据，请查看最后核查时间。');
+      else if (available.status === 'not-published') empty('当前数据集尚未上线。此处保留当前选择，发布后再核对。');
+      else frame(production);
+      message = '线上对照 · ' + (state.production.status === 'available' ? '已读取生产版本' : '状态未知或网络不可用');
+    } else {
+      if (!pinned && candidate) { pinned = candidate.id; route(); }
+      if (pinned) frame('/__trace/previews/' + source + '/' + pinned + '/trace-company-product-metric-visualizer/');
+      else empty(p.error || '正在构建预览。首次构建需要一点时间。');
+      if (candidate && candidate.id === pinned && p.status === 'ready' && state.production.status === 'available' && candidate.version === state.production.release.version && candidate.contentDigest === state.production.release.contentDigest) message += ' · 与线上当前内容一致';
+      if (p.status === 'ready' && source.startsWith('build-') && candidate && !candidate.reviewToken) message = '预览已生成 · 处理单需要更新，等待当前任务完成检查';
+      if (candidate?.transportMatches === false) message += ' · 已偏离 Git 集成候选，请重新准备';
+    }
+    $('#status').textContent = message;
+    $('#notice').hidden = !(mode === 'preview' && candidate && pinned !== candidate.id);
+    const run = state.ci.runs?.find((item) => item.headSha === state.git.head);
+    const remoteText = '本机：' + (state.git.dirty ? '含未提交修改' : '已提交') + ' · ' + (state.git.head?.slice(0, 8) || '未知提交') + ' · 线上核查：' + (state.production.checkedAt ? new Date(state.production.checkedAt).toLocaleString() : '尚未成功') + ' · ' + (state.production.status === 'available' ? state.production.release.version.slice(0, 10) : '未知 / 过期');
+    $('#remoteStatus').replaceChildren(document.createTextNode(remoteText + ' · CI：' + (state.ci.status === 'available' ? run ? (run.conclusion || run.status) : '当前提交暂无运行' : '状态不可用') + ' '));
+    const link = document.createElement('a'); link.href = run?.url || 'https://github.com/charlesliuyx/trace-company-product-metric-visualizer/actions'; link.textContent = '查看 Actions'; link.target = '_blank'; link.rel = 'noopener'; $('#remoteStatus').append(link);
+    $('#details').textContent = JSON.stringify({ selectedSource: source, pinnedCandidate: pinned, local: p, git: state.git, ci: state.ci, production: state.production }, null, 2);
+    const signature = JSON.stringify(state.tasks);
+    if ($('#tasks').dataset.signature !== signature) {
+      $('#tasks').dataset.signature = signature;
+      $('#tasks').replaceChildren(...state.tasks.map((task) => {
+        const button = document.createElement('button'); button.dataset.source = task.buildId;
+        button.textContent = task.key; button.disabled = !task.selectable;
+        const detail = document.createElement('small'); detail.textContent = '记录：' + task.historicalState + (task.owner ? ' · ' + task.owner.slice(0, 12) : ''); button.append(detail); return button;
+      }));
+    }
+    document.querySelectorAll('[data-source]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.source === source)));
+  }
+  async function refresh(force = false) {
+    if (busy && !force) { rerun = true; return; }
+    if (force) controller?.abort();
+    busy = true; const id = ++requestId; controller = new AbortController();
+    try {
+      selectedHash();
+      const query = new URLSearchParams({ key: activeHash.slice(1) }); if (source) query.set('source', source);
+      const response = await fetch('/__trace/status?' + query, { signal: controller.signal });
+      const value = await response.json();
+      if (id !== requestId) return;
+      if (!response.ok) throw new Error(value.error);
+      source = value.preview.source;
+      if (!activeHash) {
+        const task = value.tasks.find((item) => item.buildId === source);
+        if (task && /^[a-z0-9-]+$/.test(task.key)) activeHash = '#' + task.key;
+      }
+      state = value; route(); render();
+    } catch (error) { if (id === requestId && error.name !== 'AbortError') $('#status').textContent = '本地服务状态不可用：' + error.message; }
+    finally { if (id === requestId) { busy = false; if (rerun) { rerun = false; refresh(); } } }
+  }
+  document.addEventListener('click', (event) => {
+    const task = event.target.closest('[data-source]'), tab = event.target.closest('[data-mode]');
+    if (task) {
+      source = task.dataset.source; pinned = null; viewPreferences = null; lastFrame = ''; devRevision = -1; state = null;
+      const selected = task.firstChild?.textContent || '';
+      activeHash = /^[a-z0-9-]+$/.test(selected) ? '#' + selected : '';
+      $('#viewer').src = 'about:blank'; empty('正在载入所选任务…'); route(); refresh(true);
+    }
+    if (tab) { selectedHash(); mode = tab.dataset.mode; route(); render(); refresh(); }
+  });
+  $('#useLatest').onclick = () => { selectedHash(); pinned = state.preview.candidate.id; route(); render(); };
+  $('#openProduction').onclick = () => {
+    selectedHash();
+    if (activeHash && state?.productionDataset.status !== 'available') { mode = 'production'; route(); render(); refresh(); return; }
+    window.open(production + activeHash, '_blank', 'noopener');
+  };
+  const events = new EventSource('/__trace/events'); events.onmessage = () => refresh();
+  events.onerror = () => { $('#status').textContent = '本地连接已断开 · 正在重连'; };
+  setInterval(() => { if (!document.hidden) refresh(); }, 15000);
+  window.addEventListener('focus', () => refresh());
+  refresh();
+})();
+</script></body></html>

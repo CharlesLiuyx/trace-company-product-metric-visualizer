@@ -41,8 +41,11 @@ function resolveRequestPath(root, requestUrl) {
   return resolved;
 }
 
-export function startStaticServer({ root = rootDir, port = 0, published = false } = {}) {
-  const server = createServer((request, response) => {
+export function startStaticServer({ root = rootDir, port = 0, published = false, handler } = {}) {
+  const server = createServer(async (request, response) => {
+    try {
+    if (handler && await handler(request, response)) return;
+    if (/(?:^|\/)\.(?:git|codex|agents)(?:\/|$)/.test(decodeURIComponent(new URL(request.url, 'http://localhost').pathname))) { response.writeHead(403); response.end('Private project path'); return; }
     let requestRoot = root;
     let requestUrl = request.url || '/';
     if (published && (published !== 'auto' || requestUrl === '/' || requestUrl.startsWith('/index.html') || requestUrl.startsWith('/snapshots/'))) {
@@ -71,6 +74,7 @@ export function startStaticServer({ root = rootDir, port = 0, published = false 
       'Cache-Control': 'no-store',
     });
     createReadStream(filePath).pipe(response);
+    } catch (error) { if (!response.headersSent) response.writeHead(500); response.end('Local request failed'); }
   });
   return new Promise((resolve, reject) => {
     server.once('error', reject);
@@ -87,7 +91,7 @@ export function startStaticServer({ root = rootDir, port = 0, published = false 
 }
 
 const isCli = process.argv[1] && path.resolve(process.argv[1]) === __filename;
-if (isCli) {
+async function main() {
   const args = process.argv.slice(2);
   const portIndex = args.indexOf('--port');
   const port = portIndex >= 0 ? Number(args[portIndex + 1]) : Number(process.env.PORT) || 8000;
@@ -95,7 +99,28 @@ if (isCli) {
     console.error(`Invalid port: ${portIndex >= 0 ? args[portIndex + 1] : process.env.PORT}`);
     process.exit(1);
   }
-  const { url } = await startStaticServer({ port, published: args.includes('--draft') ? false : args.includes('--published') ? true : 'auto' });
+  async function existingWorkbench() {
+    if (!port || args.includes('--draft') || args.includes('--published')) return null;
+    try {
+      const response = await fetch(`http://127.0.0.1:${port}/__trace/health`, { signal: AbortSignal.timeout(1000) });
+      const health = await response.json();
+      return health.schema === 'trace-workbench-health/v1' && health.root === rootDir ? health : null;
+    } catch { return null; }
+  }
+  let running = await existingWorkbench();
+  if (!running) {
+    try {
+      running = args.includes('--draft') || args.includes('--published')
+        ? await startStaticServer({ port, published: args.includes('--published') })
+        : await (await import('./lib/workbench-server.mjs')).startWorkbench({ root: rootDir, port });
+    } catch (error) {
+      running = error.code === 'EADDRINUSE' ? await existingWorkbench() : null;
+      if (!running) throw error;
+    }
+  }
+  const { url } = running;
   console.log(`Serving ${rootDir}`);
   console.log(`Viewer: ${url}`);
 }
+
+if (isCli) main().catch((error) => { console.error(error.message); process.exitCode = 1; });

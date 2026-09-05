@@ -7,6 +7,10 @@
 
 | 命令 | 作用 |
 | --- | --- |
+| `pnpm record:workflow -- recover-lock` | 核对锁 token 与已退出 PID 后恢复操作锁 |
+| `pnpm record:workflow -- recover-session` | 核对当前 generation 后恢复并更换执行代次 |
+| `pnpm record:workflow -- session` | 取得已释放 Build 的执行权（--session） |
+| `pnpm record:workflow -- release-session` | 当前 Session 显式释放 Build 执行权 |
 | `pnpm record:workflow -- start` | 接收来源、生成独立工作目录 |
 | `pnpm record:workflow -- prepare` | 从事实生成数据与检查记录 |
 | `pnpm record:workflow -- continue` | 根据现有记录执行下一步 |
@@ -44,6 +48,10 @@
 | `pnpm update:workflow-reference` | `node scripts/update-workflow-reference.mjs` |
 | `pnpm verify:workflow` | `node scripts/update-workflow-reference.mjs --check` |
 | `pnpm update:workflow-graph` | `node scripts/update-workflow-graph.mjs` |
+| `pnpm release:git` | `node scripts/release-git.mjs` |
+| `pnpm record:transport-review` | `node scripts/record-transport-review.mjs` |
+| `pnpm verify:release` | `node scripts/verify-release.mjs` |
+| `pnpm verify:workbench` | `node scripts/verify-workbench.mjs` |
 
 发布先 `publish:datasets -- plan <build-id> [...]`，再 `publish:datasets -- commit <plan-digest>`。
 输出使用 `release:dataset -- <published-digest> site|standalone [failed-attempt-id]`。
@@ -60,6 +68,11 @@
 | checkpoint | `fidelity-checkpoints/v1` |
 | publication | `dataset-publication/v2` |
 | releaseAttempt | `release-attempt/v1` |
+| session | `workflow-session/v1` |
+| gitTransport | `git-transport/v1` |
+| workbench | `trace-workbench/v1` |
+| workflowTimestamps | `workflow-timestamps/v1` |
+| application | `workflow-application/v1` |
 | verificationPlan | `verification-plan/v5` |
 | reviewPacket | `review-packet/v4` |
 

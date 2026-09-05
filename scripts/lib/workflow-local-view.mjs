@@ -3,7 +3,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { readFile, writeFile, mkdir, rename, rm } from 'node:fs/promises';
 import { randomUUID } from 'node:crypto';
-import { inside, readJson, withFileLock } from './workflow-files.mjs';
+import { inside, readJson, withFileLock, atomicJson } from './workflow-files.mjs';
 
 const relative = 'output/local-view/selection.js';
 export async function readLocalView(root) {
@@ -24,9 +24,15 @@ async function writeSelection(root, selection) {
 export async function selectBuildPreview(root, { buildId, key, workspace, reviewToken }) {
   const target = path.relative(root, path.join(workspace, 'index.html')).split(path.sep).join('/');
   if (!/^output\/builds\/build-[a-f0-9-]+\/workspace\/index\.html$/.test(target) || !reviewToken) throw new Error('Preview requires an isolated prepared Build');
-  return withFileLock(inside(root, 'output/local-view/.lock'), () => writeSelection(root, {
-    mode: 'review-pending', buildId, key, target, revision: reviewToken,
-  }));
+  return withFileLock(inside(root, 'output/local-view/.lock'), async () => {
+    const selection = { mode: 'review-pending', buildId, key, target, revision: reviewToken };
+    await mkdir(inside(root, 'output/local-view/builds'), { recursive: true });
+    await atomicJson(inside(root, `output/local-view/builds/${buildId}.json`), selection);
+    const previous = await readLocalView(root);
+    // Publish task availability without stealing a different selected review.
+    if (previous?.mode === 'review-pending' && previous.buildId !== buildId) return selection;
+    return writeSelection(root, selection);
+  });
 }
 export async function selectPublishedView(root, plan = null) {
   return withFileLock(inside(root, 'output/local-view/.lock'), async () => {

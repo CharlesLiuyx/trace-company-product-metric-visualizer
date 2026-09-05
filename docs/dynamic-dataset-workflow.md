@@ -20,10 +20,11 @@ compatibility procedure and their original review evidence.
 
 The user's explicit statement that human review is complete (including
 `人工审阅完毕`), or that local work was pushed to the remote and merged into
-`main`, is a batch review-completion signal for the PNG/TXT/Markdown Sources currently under
-`input/processing/`. On either signal:
+`main`, is a batch review-completion signal for the PNG/TXT/Markdown Sources selected in
+that task and currently under `input/processing/`. On either signal:
 
-1. enumerate every current processing Source;
+1. enumerate every processing Source in the selected Build/batch; include other
+   Sessions only if the operator explicitly selected the complete shared queue;
 2. present the complete list of dataset keys and paths to the operator and
    wait for their explicit confirmation; the confirmed list, not the raw directory
    contents, is the relocation scope;
@@ -35,7 +36,9 @@ The user's explicit statement that human review is complete (including
 
 This is the only Source-relocation authority; it neither requires nor creates
 a Build receipt, attestation, seal, or `verify:closeout`. Without a signal and
-confirmed list, every Source stays in `processing/`. A move preserves Source
+confirmed list, every Source stays in `processing/`. The confirmed signal may carry exact `entries` or selected `buildIds` alongside
+`sourceListDigest`; an interruption journal retains that same scope on retry.
+A move preserves Source
 digest identity and never overwrites or renames a processed image.
 
 ## Object Taxonomy
