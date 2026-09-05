@@ -260,6 +260,8 @@ async function renderLanguageForGates(page, pageErrors, key, language) {
   const renderedTypographyAudit = await typographyAudit(page, {
     dataset: key,
     language: meta.language,
+    // Unbound historical catalog: record proportions; Build fidelity enforces G3d.
+    glyphProportionPolicy: 'audit',
   });
   assertTypographyAudit(renderedTypographyAudit);
   if (pageErrors.length > errorsBefore) {

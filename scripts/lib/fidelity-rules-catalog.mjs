@@ -102,8 +102,8 @@ export const FIDELITY_RULES = Object.freeze([
     stage: 'text',
     topics: ['global'],
     trigger: '每个 evidence run。',
-    check: '字体总门槛要求 G3a、G3b、G3c 同时通过。',
-    evidence: '汇总保留三项结果。',
+    check: '字体总门槛要求 G3a、G3b、G3c、G3d 同时通过。',
+    evidence: '汇总保留字体角色与字形比例结果。',
   }),
   rule('G3a', 'hard-gate', {
     stage: 'text',
@@ -124,6 +124,15 @@ export const FIDELITY_RULES = Object.freeze([
       '仅最近祖先带 `data-typography-role="brand"` 的真实 Logo、wordmark、商标锁定或品牌插图' +
       '可不受 G3b 限制。',
     pass: '不能给普通 label 或整层 annotation 标 brand。',
+  }),
+  rule('G3d', 'hard-gate', {
+    stage: 'text',
+    topics: ['global', 'label', 'annotation'],
+    trigger: '每个 evidence run、verify:d3 与 Build seal 的非品牌产品文本，覆盖名称、金额、备注、标题及各 locale。',
+    check: '使用已加载字体的自然字宽，测量 textLength/spacingAndGlyphs 与祖先变换的组合字形比例；排除整体等比缩放及旋转。',
+    pass: '组合变换的最大/最小主轴比不得超过 1.25；禁止为贴合 bbox 把文字横向压窄成纵向细长字形。优先使用自然字形、合适字号和换行，不能以更大字号再压窄代替。',
+    evidence: 'typographyAudit 逐 text/tspan/textPath 保存 glyphScaleX、glyphAspectRatio，越界阻断 G3；普通标签不得借 brand 角色豁免。未绑定 Build 的历史目录回归、Pages 与 standalone 检查以 audit 模式单独保存字形失败状态和逐行 findings，不据此追认历史图，也不替代新增/返工 Build 的硬门。',
+    origin: '2026-09-05 Circle Q2 FY26：用户指出右侧费用名称与金额纵向拉伸过多。',
   }),
   rule('G4', 'hard-gate', {
     stage: 'structure',

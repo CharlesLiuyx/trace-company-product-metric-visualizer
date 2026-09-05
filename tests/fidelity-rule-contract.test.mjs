@@ -45,13 +45,14 @@ function generatedDocument({ handwritten = '', generated = null } = {}) {
 }
 
 test('default fidelity rule contract preserves the complete catalog and feature mappings', () => {
-  assert.equal(Object.keys(FIDELITY_RULE_CONTRACT.enforcements).length, 111);
-  assert.equal(FIDELITY_RULES.length, 111);
+  assert.equal(Object.keys(FIDELITY_RULE_CONTRACT.enforcements).length, 112);
+  assert.equal(FIDELITY_RULES.length, 112);
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T21, 'conditional-gate');
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T22, 'build-gate');
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T23, 'build-gate');
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T6, 'quantified-audit');
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.G11, 'build-gate');
+  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.G3d, 'hard-gate');
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.G12, 'hard-gate');
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.B15, 'conditional-gate');
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.B16, 'conditional-gate');
@@ -108,7 +109,7 @@ test('contract registries are derived from the structured catalog', () => {
 test('generated document validates as fresh and reference-complete', () => {
   const document = generatedDocument();
   const validated = validateFidelityRulesDocument(document);
-  assert.equal(validated.ruleCount, 111);
+  assert.equal(validated.ruleCount, 112);
   assert.ok(validated.references.includes('G1'));
   assert.ok(validated.references.includes('T21'));
 });

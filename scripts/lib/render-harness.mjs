@@ -597,11 +597,16 @@ export function classifyTypographyAudit({
   texts = [],
   runs = [],
   invalidBrandScopes = [],
+  glyphProportionPolicy = 'enforce',
 }) {
   if (!Array.isArray(texts) || !Array.isArray(runs) || !Array.isArray(invalidBrandScopes)) {
     throw new TypeError('Typography audit texts, runs, and invalidBrandScopes must be arrays');
   }
 
+  if (!['enforce', 'audit'].includes(glyphProportionPolicy)) {
+    throw new TypeError('Invalid glyph proportion policy');
+  }
+  const glyphViolations = [];
   const inventory = texts.map((record) => ({
     ...record,
     primaryFontFamily: parsedFontFamilies(record.fontFamily)[0] || '',
@@ -630,6 +635,14 @@ export function classifyTypographyAudit({
       continue;
     }
     if (record.role === 'brand') continue;
+    if (record.glyphAspectRatio != null && (!Number.isFinite(record.glyphAspectRatio) || record.glyphAspectRatio > 1.25 + 1e-6)) {
+      glyphViolations.push({
+        ...typographyViolation(record, 'product-text-distorted', 'product-glyph-axis-ratio-exceeds-1.25'),
+        ruleId: 'G3d',
+        glyphAspectRatio: record.glyphAspectRatio,
+        glyphScaleX: record.glyphScaleX,
+      });
+    }
     if (normalized.some((family) => FORBIDDEN_PRODUCT_FONT_FAMILIES.has(family))) {
       violations.push(
         typographyViolation(
@@ -651,6 +664,7 @@ export function classifyTypographyAudit({
     }
   }
 
+  if (glyphProportionPolicy === 'enforce') violations.push(...glyphViolations);
   const familyCounts = { product: {}, brand: {} };
   for (const record of inventory) {
     const family = record.primaryFontFamily || '(missing)';
@@ -669,6 +683,12 @@ export function classifyTypographyAudit({
     productTextCount: inventory.filter((record) => record.role !== 'brand').length,
     brandTextCount: inventory.filter((record) => record.role === 'brand').length,
     familyCounts,
+    glyphProportionAudit: {
+      ruleId: 'G3d',
+      policy: glyphProportionPolicy,
+      status: glyphViolations.length ? 'failed' : 'passed',
+      violations: glyphViolations,
+    },
     inventory,
     textRuns,
     invalidBrandScopes,
@@ -712,6 +732,45 @@ export async function typographyAudit(page, options = {}) {
       }
       return segments.join(' > ');
     };
+    // Measure textLength against the same resolved font without changing the
+    // candidate. Ancestor adjustments and transforms also apply to tspan runs.
+    const naturalLengths = new Map();
+    const naturalLength = (element) => {
+      if (naturalLengths.has(element)) return naturalLengths.get(element);
+      const clone = element.cloneNode(true);
+      for (const part of [clone, ...clone.querySelectorAll('[textLength]')]) {
+        part.removeAttribute('textLength');
+        part.removeAttribute('lengthAdjust');
+      }
+      clone.style.visibility = 'hidden';
+      clone.style.pointerEvents = 'none';
+      element.parentNode.appendChild(clone);
+      let length;
+      try { length = clone.getComputedTextLength(); }
+      finally { clone.remove(); }
+      naturalLengths.set(element, length);
+      return length;
+    };
+    const glyphGeometry = (element) => {
+      let glyphScaleX = 1;
+      for (let owner = element; owner && owner !== svg; owner = owner.parentElement) {
+        if (owner.hasAttribute('textLength') && owner.getAttribute('lengthAdjust') === 'spacingAndGlyphs') {
+          const natural = naturalLength(owner);
+          if (natural > 0) glyphScaleX *= owner.textLength.baseVal.value / natural;
+        }
+      }
+      const matrix = svg.getScreenCTM().inverse().multiply(element.getScreenCTM());
+      const a = matrix.a * glyphScaleX, b = matrix.b * glyphScaleX;
+      const c = matrix.c, d = matrix.d;
+      // Singular values detect skew as well as nonuniform scale, while uniform
+      // zoom and rotation preserve the natural glyph proportions.
+      const trace = a*a + b*b + c*c + d*d;
+      const determinant = (a*d - b*c) ** 2;
+      const discriminant = Math.sqrt(Math.max(0, trace*trace - 4*determinant));
+      const low = (trace - discriminant) / 2;
+      const glyphAspectRatio = low > 0 ? Math.sqrt((trace + discriminant) / 2 / low) : Infinity;
+      return { glyphScaleX, glyphAspectRatio };
+    };
     const recordFor = (element) => {
       const style = window.getComputedStyle(element);
       return {
@@ -720,6 +779,7 @@ export async function typographyAudit(page, options = {}) {
         role: element.closest('[data-typography-role="brand"]') ? 'brand' : 'product',
         fontFamily: String(style.fontFamily || ''),
         fontWeight: String(style.fontWeight || ''),
+        ...glyphGeometry(element),
         selectorPath: selectorPath(element),
       };
     };
@@ -744,7 +804,10 @@ export async function typographyAudit(page, options = {}) {
     dataset: options.dataset || '',
     language: options.language || '',
   });
-  return classifyTypographyAudit(collected);
+  return classifyTypographyAudit({
+    ...collected,
+    glyphProportionPolicy: options.glyphProportionPolicy || 'enforce',
+  });
 }
 
 export function assertTypographyAudit(audit) {

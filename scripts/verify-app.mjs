@@ -5,6 +5,7 @@
 // here as a page error or a failed assertion. Runs against the dev files via
 // an in-process static server; no build step involved.
 import { chromium } from 'playwright';
+import { typographyAudit } from './lib/render-harness.mjs';
 import { verifyLocalFileEntry } from './lib/local-view-browser.mjs';
 import { startStaticServer } from './dev-server.mjs';
 import { assert } from './lib/project.mjs';
@@ -170,6 +171,31 @@ await scenario('typography: Chrome and View scopes survive theme + language chan
   await page.click('#languageToggle');
   await page.waitForTimeout(200);
   await assertRoles('after theme/language switch');
+});
+
+await scenario('typography: glyph distortion gate measures final SVG and leaves it unchanged', async (page) => {
+  await page.setContent(`<svg id="type-fixture" xmlns="http://www.w3.org/2000/svg" width="1000" height="500" style="font-family: Noto Sans; font-size: 30px">
+    <text id="natural" y="40">Compensation</text>
+    <text id="compressed" y="80" textLength="80" lengthAdjust="spacingAndGlyphs">Compensation</text>
+    <g transform="scale(1,2)"><text id="vertical" y="60">Tax</text></g>
+    <g transform="scale(2) rotate(15)"><text id="uniform" y="80">Revenue</text></g>
+    <g transform="skewX(45)"><text id="skew" y="200">Other</text></g>
+    <text id="span" y="240" textLength="70" lengthAdjust="spacingAndGlyphs"><tspan>General &amp; admin</tspan></text>
+    <text id="spacing" y="280" textLength="90" lengthAdjust="spacing">Operating expenses</text>
+    <g data-typography-role="brand"><text id="brand" y="320" textLength="50" lengthAdjust="spacingAndGlyphs">Logo</text></g>
+  </svg>`);
+  const before = await page.locator('#type-fixture').evaluate(el => el.outerHTML);
+  const audit = await typographyAudit(page, { rootSelector: '#type-fixture' });
+  const distorted = audit.violations.filter(v => v.code === 'product-text-distorted');
+  for (const id of ['compressed', 'vertical', 'skew', 'span']) {
+    assert(distorted.some(v => v.selectorPath.includes(`#${id}`)), `distortion escaped: ${id}`);
+  }
+  for (const id of ['natural', 'uniform', 'spacing', 'brand']) {
+    assert(!distorted.some(v => v.selectorPath.includes(`#${id}`)), `natural proportions rejected: ${id}`);
+  }
+  assert(distorted.some(v => v.element === 'tspan'), 'inherited tspan compression escaped');
+  const after = await page.locator('#type-fixture').evaluate(el => el.outerHTML);
+  assert(before === after, 'typography measurement modified the candidate');
 });
 
 await scenario('typography: SVG export preserves explicit brand roles', async (page) => {

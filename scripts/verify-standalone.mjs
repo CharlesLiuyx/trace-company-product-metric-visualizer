@@ -129,6 +129,8 @@ async function verifyInBrowser(filePath) {
     const renderedTypographyAudit = await typographyAudit(page, {
       dataset: d3State.activeDatasetKey,
       language: d3State.language,
+    // Unbound historical catalog: record proportions; Build fidelity enforces G3d.
+    glyphProportionPolicy: 'audit',
     });
     assertTypographyAudit(renderedTypographyAudit);
     const fontBoundaries = await page.evaluate(() => {

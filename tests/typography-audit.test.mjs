@@ -133,3 +133,28 @@ test('project font assertion rejects a missing required face without changing it
   await assert.rejects(assertProjectFontsLoaded(page), /Local fonts did not load/);
   assert.equal(typeof status.loaded['Noto Sans'], 'boolean');
 });
+
+test('G3d rejects compressed and stretched product glyphs but permits bounded fitting', () => {
+  for (const ratio of [1, 1.2, 1.25]) {
+    assert.equal(classify({ texts: [{ ...record(), glyphAspectRatio: ratio }] }).status, 'passed');
+  }
+  for (const ratio of [1.26, 1.3, 2, Infinity, NaN]) {
+    const audit = classify({ texts: [{ ...record({ text: 'Compensation' }), glyphAspectRatio: ratio, glyphScaleX: 1 / ratio }] });
+    assert.equal(audit.status, 'failed');
+    assert.equal(audit.violations[0].ruleId, 'G3d');
+    assert.throws(() => assertTypographyAudit(audit), /product-text-distorted/);
+  }
+  assert.equal(classify({ texts: [{ ...record({ role: 'brand' }), glyphAspectRatio: 2 }] }).status, 'passed');
+});
+
+test('unbound historical audit retains glyph failures without relaxing the font-role gate', () => {
+  const texts = [{ ...record(), glyphAspectRatio: 1.3 }];
+  const audit = classifyTypographyAudit({ texts, runs: texts, glyphProportionPolicy: 'audit' });
+  assert.equal(audit.status, 'passed');
+  assert.equal(audit.glyphProportionAudit.status, 'failed');
+  assert.equal(audit.glyphProportionAudit.violations.length, 1);
+  assert.throws(() => classifyTypographyAudit({ glyphProportionPolicy: 'off' }), /Invalid glyph/);
+  const badFont = texts.map(item => ({ ...item, fontFamily: 'Montserrat' }));
+  const invalid = classifyTypographyAudit({ texts: badFont, runs: badFont, glyphProportionPolicy: 'audit' });
+  assert.throws(() => assertTypographyAudit(invalid), /product-text-uses-montserrat/);
+});

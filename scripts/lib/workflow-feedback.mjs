@@ -2,6 +2,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { rootDir } from './project.mjs';
 import { digestValue } from './dataset-build.mjs';
+import { extractFidelityRuleReferences } from './fidelity-rule-contract.mjs';
 import { createFeedbackRecord } from './feedback-ledger.mjs';
 import { recordBuildObject } from './dataset-build-store.mjs';
 import { readJson, inside, filesUnder, atomicJson } from './workflow-files.mjs';
@@ -12,8 +13,9 @@ export async function projectFeedbackPatterns(root = rootDir) {
   for (const line of source.split('\n')) {
     const id = line.match(/^\|\s*(CB-\d+)\s*\|/)?.[1];
     if (!id) continue;
+    if (cases.has(id)) throw new Error(`Duplicate fidelity feedback case ID: ${id}`);
     const columns = line.split('|').slice(1, -1).map((value) => value.trim());
-    cases.set(id, { id, source: 'docs/fidelity-feedback-casebook.md', pattern: columns[2], rootCause: columns[3], ruleIds: [...new Set(line.match(/\b[GBRLTAZI]\d+\b/g) || [])].sort(), defense: columns[4], recurrenceAction: columns.slice(5).join(' | ') });
+    cases.set(id, { id, source: 'docs/fidelity-feedback-casebook.md', pattern: columns[2], rootCause: columns[3], ruleIds: extractFidelityRuleReferences(line), defense: columns[4], recurrenceAction: columns.slice(5).join(' | ') });
   }
   return { protocol: 'feedback-pattern-index/v1', sourceDigest: digestValue(source), patterns: [...cases.values()].sort((a, b) => a.id.localeCompare(b.id)) };
 }
