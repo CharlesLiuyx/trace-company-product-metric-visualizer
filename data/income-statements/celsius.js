@@ -317,3 +317,272 @@
     },
   });
 })(window);
+
+window.INCOME_STATEMENT_SSOT.records.push({
+  "key": "celsius-q2-fy26",
+  "company": "Celsius",
+  "period": "Q2 FY26",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/celsius-q2-fy26.png",
+  "roundingTolerance": 1,
+  "revenue": {
+    "total": 818,
+    "notes": [
+      "+11% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "revenue_by_customer",
+        "label": "Revenue by customer",
+        "value": 818,
+        "children": [
+          {
+            "id": "pepsico",
+            "label": "PepsiCo",
+            "value": 492,
+            "notes": [
+              "+100% Y/Y"
+            ]
+          },
+          {
+            "id": "costco",
+            "label": "Costco",
+            "value": 71,
+            "notes": [
+              "(18%) Y/Y"
+            ]
+          },
+          {
+            "id": "all_others",
+            "label": "All Others",
+            "value": 254,
+            "notes": [
+              "(37%) Y/Y"
+            ]
+          }
+        ]
+      }
+    ],
+    "breakdowns": [
+      {
+        "id": "geography",
+        "label": "Revenue by geography",
+        "total": 818,
+        "items": [
+          {
+            "id": "north_america",
+            "label": "North America",
+            "value": 791,
+            "notes": [
+              "+11% Y/Y"
+            ]
+          },
+          {
+            "id": "international",
+            "label": "International",
+            "value": 27,
+            "notes": [
+              "+10% Y/Y"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 424
+    },
+    "operatingExpenses": {
+      "total": 319,
+      "items": [
+        {
+          "id": "sga",
+          "label": "SG&A expenses",
+          "value": 238,
+          "notes": [
+            "29% of revenue",
+            "+9pp Y/Y"
+          ]
+        },
+        {
+          "id": "distributor_termination_fees",
+          "label": "Distributor termination fees",
+          "value": 81,
+          "notes": [
+            "10% of revenue",
+            "(2pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 14
+    }
+  },
+  "otherExpenses": {
+    "total": 6,
+    "items": [
+      {
+        "id": "other_nonoperating",
+        "label": "Other",
+        "value": 6
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 394,
+      "notes": [
+        "48% margin",
+        "(3pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 75,
+      "notes": [
+        "9% margin",
+        "(10pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 55,
+      "notes": [
+        "7% margin",
+        "(7pp) Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "revenue": {
+        "notes": [
+          "同比 +11%"
+        ],
+        "items": [
+          {
+            "id": "revenue_by_customer",
+            "label": "按客户划分的收入",
+            "children": [
+              {
+                "id": "pepsico",
+                "label": "百事公司",
+                "notes": [
+                  "同比 +100%"
+                ]
+              },
+              {
+                "id": "costco",
+                "label": "开市客",
+                "notes": [
+                  "同比 (18%)"
+                ]
+              },
+              {
+                "id": "all_others",
+                "label": "其他所有客户",
+                "notes": [
+                  "同比 (37%)"
+                ]
+              }
+            ]
+          }
+        ],
+        "breakdowns": [
+          {
+            "id": "geography",
+            "label": "按地区划分的收入",
+            "items": [
+              {
+                "id": "north_america",
+                "label": "北美",
+                "notes": [
+                  "同比 +11%"
+                ]
+              },
+              {
+                "id": "international",
+                "label": "国际",
+                "notes": [
+                  "同比 +10%"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sga",
+              "label": "销售、一般及行政费用",
+              "notes": [
+                "占收入 29%",
+                "同比 +9 个百分点"
+              ]
+            },
+            {
+              "id": "distributor_termination_fees",
+              "label": "经销商终止费",
+              "notes": [
+                "占收入 10%",
+                "同比 (2 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other_nonoperating",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 48%",
+            "同比 (3 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 9%",
+            "同比 (10 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 7%",
+            "同比 (7 个百分点)"
+          ]
+        }
+      }
+    }
+  }
+});

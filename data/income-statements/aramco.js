@@ -220,3 +220,285 @@
     }
   );
 })(window);
+
+/* Q2 FY26: Source independently rounds subtotals; retain 0.5B Other precisely. */
+window.INCOME_STATEMENT_SSOT.records.push({
+  "key": "aramco-q2-fy26",
+  "company": "Saudi Aramco",
+  "period": "Q2 FY26",
+  "periodNote": "Ending Jun. 2026",
+  "currency": "SAR",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/aramco-q2-fy26.png",
+  "roundingTolerance": 1.1,
+  "revenue": {
+    "total": 522,
+    "notes": [
+      "+28% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "reported_revenue",
+        "label": "Revenue",
+        "value": 451,
+        "notes": [
+          "+19% Y/Y"
+        ],
+        "children": [
+          {
+            "id": "crude_oil",
+            "label": "Crude Oil",
+            "value": 188,
+            "notes": [
+              "+8% Y/Y"
+            ]
+          },
+          {
+            "id": "refined_chemical_products",
+            "label": "Refined & Chemical products",
+            "value": 246,
+            "notes": [
+              "+32% Y/Y"
+            ]
+          },
+          {
+            "id": "natural_gas_ngls",
+            "label": "Natural gas & NGLs",
+            "value": 16,
+            "notes": [
+              "(2%) Y/Y"
+            ]
+          },
+          {
+            "id": "other",
+            "label": "Other",
+            "value": 0.5,
+            "notes": [
+              "(79%) Y/Y"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "other_income_related_sales",
+        "label": "Other income related to sales",
+        "value": 71,
+        "notes": [
+          "+151% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "label": "Cost of revenue",
+      "value": 0,
+      "notes": [
+        "The source chart does not break out cost of revenue or gross profit."
+      ]
+    },
+    "operatingExpenses": {
+      "total": 306,
+      "items": [
+        {
+          "id": "purchases",
+          "label": "Purchases",
+          "value": 175
+        },
+        {
+          "id": "royalties",
+          "label": "Royalties",
+          "value": 52
+        },
+        {
+          "id": "sga",
+          "label": "SG&A",
+          "value": 25
+        },
+        {
+          "id": "producing_manufacturing",
+          "label": "Producing & Manufacturing",
+          "value": 27
+        },
+        {
+          "id": "da",
+          "label": "D&A",
+          "value": 24
+        },
+        {
+          "id": "exploration",
+          "label": "Exploration",
+          "value": 2
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 1
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 92
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "label": "Revenue and other income related to sales",
+      "value": 522,
+      "notes": [
+        "The source chart does not present a separate gross-profit subtotal."
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 216,
+      "notes": [
+        "48% margin",
+        "+0pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 123,
+      "notes": [
+        "23% margin",
+        "+3pp Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "periodNote": "截至 2026 年 6 月",
+      "revenue": {
+        "notes": [
+          "同比 +28%"
+        ],
+        "items": [
+          {
+            "id": "reported_revenue",
+            "label": "收入",
+            "notes": [
+              "同比 +19%"
+            ],
+            "children": [
+              {
+                "id": "crude_oil",
+                "label": "原油",
+                "notes": [
+                  "同比 +8%"
+                ]
+              },
+              {
+                "id": "refined_chemical_products",
+                "label": "炼油及化工产品",
+                "notes": [
+                  "同比 +32%"
+                ]
+              },
+              {
+                "id": "natural_gas_ngls",
+                "label": "天然气及天然气液",
+                "notes": [
+                  "同比 -2%"
+                ]
+              },
+              {
+                "id": "other",
+                "label": "其他",
+                "notes": [
+                  "同比 -79%"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "other_income_related_sales",
+            "label": "销售相关其他收入",
+            "notes": [
+              "同比 +151%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本",
+          "notes": [
+            "来源图未拆分收入成本或毛利润。"
+          ]
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "purchases",
+              "label": "采购"
+            },
+            {
+              "id": "royalties",
+              "label": "特许权使用费"
+            },
+            {
+              "id": "sga",
+              "label": "销售、一般及行政费用"
+            },
+            {
+              "id": "producing_manufacturing",
+              "label": "生产及制造"
+            },
+            {
+              "id": "da",
+              "label": "折旧及摊销"
+            },
+            {
+              "id": "exploration",
+              "label": "勘探"
+            },
+            {
+              "id": "rnd",
+              "label": "研发"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "收入及销售相关其他收入",
+          "notes": [
+            "来源图未单独呈现毛利润小计。"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 48%",
+            "同比 +0 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 23%",
+            "同比 +3 个百分点"
+          ]
+        }
+      }
+    }
+  }
+});

@@ -1,0 +1,41 @@
+{
+  "source": "input/processing/aramco-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/aramco/q2-fy26",
+  "runtimeOutputDir": "data/assets/raster-annotations/aramco",
+  "validationSheetDir": "data/assets/icon-references/aramco/q2-fy26/validation-sheets",
+  "crops": [
+    {
+      "key": "aramco-company-lockup-q2-fy26",
+      "output": "company-lockup-q2-fy26.png",
+      "cropBox": {
+        "x": 755,
+        "y": 215,
+        "width": 730,
+        "height": 205
+      },
+      "searchBox": {
+        "x": 755,
+        "y": 215,
+        "width": 730,
+        "height": 205
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.25,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Company Arabic/English lockup and square mark only; crop excludes title above and all financial labels below.",
+      "excludeBoxes": [
+        {
+          "x": 755,
+          "y": 215,
+          "width": 510,
+          "height": 25
+        }
+      ]
+    }
+  ]
+}

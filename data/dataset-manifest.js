@@ -22600,6 +22600,48 @@
             }
           }
         }
+      },
+      {
+        "key": "aramco-q2-fy26",
+        "src": "data/datasets/aramco-q2-fy26.js",
+        "data": {
+          "name": "Saudi Aramco · Q2 FY26",
+          "company": "Saudi Aramco",
+          "meta": {
+            "title": "Aramco Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "沙特阿美 · 2026 财年第二季度",
+              "meta": {
+                "title": "沙特阿美 2026 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "celsius-q2-fy26",
+        "src": "data/datasets/celsius-q2-fy26.js",
+        "data": {
+          "name": "Celsius · Q2 FY26",
+          "company": "Celsius",
+          "meta": {
+            "title": "Celsius Q2 FY26 Income Statement",
+            "period": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Celsius · 2026 财年第二季度",
+              "meta": {
+                "title": "Celsius 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度"
+              }
+            }
+          }
+        }
       }
     ]
   };

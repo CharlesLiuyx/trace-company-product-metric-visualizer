@@ -119,6 +119,25 @@ Git 工作树仍用于代码开发与历史兼容数据，正式新输入以发�
 `release:dataset <published-digest> site|standalone` 只从该正式版本生成并检查输出。
 失败保存独立 Attempt，不改变已经发布的数据；重试创建新 Attempt。这里不自动部署。
 
+### GitHub Pages 上线交接
+
+当前 GitHub Pages CI 从 `main` 的 Git 工作树运行 `build:site`；它拿不到本机忽略的
+`output/publications/`。因此本机「已发布」只证明本机正式快照已切换，不能据此报告
+线上已更新。用户要求上线时，执行者须继续完成以下交接：
+
+1. 以 `PUBLISHED` 收据固定快照摘要，核对该快照和相关发布计划的贡献文件摘要。
+   在干净的 Git 工作树中同步已接受的 SSOT、Adapter、资产与裁剪说明；已有路径须先
+   与贡献的 `baseDigest` 比对，有冲突则核对解决，不能覆盖其他修改或倒退应用代码。
+2. 将已发布的相应 baseline 条目一起带入，运行 `sync:index-datasets`、
+   `update:asset-catalog` 和 `update:dataset-file-metadata` 生成 Git 构建所需投影。
+   原始 processed 图片继续只保存在本机。交接不重新作者化数据，也不补造审阅或 seal。
+3. 提交完整的数据、资产、注册和相关 tracked queue 变更，提交说明引用发布摘要；
+   按 ChangeImpact 检查，处理提交后的 metadata 更新，然后推送到 `main`。
+4. 等待该提交的 CI **及 Pages 部署**成功，再从线上实际打开每个新增 key，确认期间
+   可选且 Sankey 已渲染。线上完成状态必须以此为依据，不能只看本机发布收据。
+
+这一步是现有 GitHub Pages 的传输与部署交接，不改变本机 Publication 的单指针事务。
+
 ## 原材料何时归档
 
 来源在系统里的位置和摘要随数据发布；本机文件归档仍只接受明确的操作员完成信号，

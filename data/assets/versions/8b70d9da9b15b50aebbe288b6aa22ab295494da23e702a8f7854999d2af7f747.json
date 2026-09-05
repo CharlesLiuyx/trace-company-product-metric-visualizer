@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "costco-wordmark",
+  "artifact": {
+    "path": "data/assets/raster-annotations/celsius-q2-fy26/costco-wordmark.png",
+    "digest": "sha256:cecb07b2dbd03cc50d6e4c5e2b2ad25985981631c72f4cd90c02052602f52015"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/celsius-q2-fy26.json",
+    "digest": "sha256:4e69a9957293de54d116637394dec9d0e4b60027d79f7fdbf6fd59ac966bf5a8"
+  },
+  "source": {
+    "path": "input/processing/celsius-q2-fy26.png",
+    "digest": "sha256:d632fece0a6ac5bff066aa74f4268da7b82d7c9cfd5aade4254ba1194e8add4a"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:cecb07b2dbd03cc50d6e4c5e2b2ad25985981631c72f4cd90c02052602f52015",
+    "note": "Inspected full Source and native crop validation sheet: complete subject, centered, no financial labels, links or publisher marks. Lossless compressed PNG preserves gradients and product detail."
+  },
+  "versionDigest": "sha256:8b70d9da9b15b50aebbe288b6aa22ab295494da23e702a8f7854999d2af7f747"
+}

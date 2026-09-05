@@ -915,6 +915,19 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/aramco/company-lockup-q2-fy26.png",
+      "digest": "sha256:f60a3ddd60340c5fdb45e2b47aba567475e48dd706e2133038f7bb218745b2e2",
+      "provenance": [],
+      "directConsumers": [
+        "aramco-q2-fy26"
+      ],
+      "consumers": [
+        "aramco-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/aramco/company-lockup.png",
       "digest": "sha256:b8f0c48cccfd31841e4602a2df98ceb085d18318d978f8ad3760bcef2a568ca8",
       "provenance": [],
@@ -1624,6 +1637,94 @@
       ],
       "acceptedVersions": [],
       "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/celsius-q2-fy26/celsius-product-cluster.png",
+      "digest": "sha256:200ad91f9121f31455bbec062dbe2d3156385bd4bfedaa5ce8b19185da4f829f",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/celsius-q2-fy26.json",
+          "recipeDigest": "sha256:4e69a9957293de54d116637394dec9d0e4b60027d79f7fdbf6fd59ac966bf5a8",
+          "source": "input/processing/celsius-q2-fy26.png",
+          "cropKey": "celsius-product-cluster"
+        }
+      ],
+      "directConsumers": [
+        "celsius-q2-fy26"
+      ],
+      "consumers": [
+        "celsius-q2-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:814e3370f487031eaeef460abacdaa426db62e8182feac8f2f009423b52d33cf"
+      ],
+      "reusable": true
+    },
+    {
+      "path": "data/assets/raster-annotations/celsius-q2-fy26/company-logo.png",
+      "digest": "sha256:0aaa75d05abfd8f432c6ff3795d2f9b9a45c6657223012a88b0629ccc09c7222",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/celsius-q2-fy26.json",
+          "recipeDigest": "sha256:4e69a9957293de54d116637394dec9d0e4b60027d79f7fdbf6fd59ac966bf5a8",
+          "source": "input/processing/celsius-q2-fy26.png",
+          "cropKey": "company-logo"
+        }
+      ],
+      "directConsumers": [
+        "celsius-q2-fy26"
+      ],
+      "consumers": [
+        "celsius-q2-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:939454d70876877bc068f4fed96023d9071e76ff8b4626129872b21ddf53dafb"
+      ],
+      "reusable": true
+    },
+    {
+      "path": "data/assets/raster-annotations/celsius-q2-fy26/costco-wordmark.png",
+      "digest": "sha256:cecb07b2dbd03cc50d6e4c5e2b2ad25985981631c72f4cd90c02052602f52015",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/celsius-q2-fy26.json",
+          "recipeDigest": "sha256:4e69a9957293de54d116637394dec9d0e4b60027d79f7fdbf6fd59ac966bf5a8",
+          "source": "input/processing/celsius-q2-fy26.png",
+          "cropKey": "costco-wordmark"
+        }
+      ],
+      "directConsumers": [
+        "celsius-q2-fy26"
+      ],
+      "consumers": [
+        "celsius-q2-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:8b70d9da9b15b50aebbe288b6aa22ab295494da23e702a8f7854999d2af7f747"
+      ],
+      "reusable": true
+    },
+    {
+      "path": "data/assets/raster-annotations/celsius-q2-fy26/pepsico-wordmark.png",
+      "digest": "sha256:305723ac77fe312ccb36b5b88a3b1e4fbe4d5cfab36c1dd4a39683d86fc1d159",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/celsius-q2-fy26.json",
+          "recipeDigest": "sha256:4e69a9957293de54d116637394dec9d0e4b60027d79f7fdbf6fd59ac966bf5a8",
+          "source": "input/processing/celsius-q2-fy26.png",
+          "cropKey": "pepsico-wordmark"
+        }
+      ],
+      "directConsumers": [
+        "celsius-q2-fy26"
+      ],
+      "consumers": [
+        "celsius-q2-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:680e2c45f4398e21838209f9bf7489d96b8eb6c97c0634953d4cd6a3f79d3671"
+      ],
+      "reusable": true
     },
     {
       "path": "data/assets/raster-annotations/celsius/amazon-wordmark.png",
@@ -10231,6 +10332,11 @@
       "source": "input/processed/aramco-q1-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/aramco-q2-fy26.json",
+      "digest": "sha256:b945c62c25eca1adcf5462b3d285097ea4ab125ea38cdf05977a25a2fbd97725",
+      "source": "input/processing/aramco-q2-fy26.png"
+    },
+    {
       "path": "input/icon-crop-specs/arm-holdings-q2-fy26.json",
       "digest": "sha256:cf3b01c327dc1b9f28c30b60a1e284a8bfacc47f57366a1dd6182b058b2dc1ba",
       "source": "input/processed/arm-holdings-q2-fy26.png"
@@ -10344,6 +10450,11 @@
       "path": "input/icon-crop-specs/celsius-q1-fy26.json",
       "digest": "sha256:3d5ee7d605d690fab707a1d5e680747d141d790ad022d45a7deb67819005e9d8",
       "source": "input/processed/celsius-q1-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/celsius-q2-fy26.json",
+      "digest": "sha256:4e69a9957293de54d116637394dec9d0e4b60027d79f7fdbf6fd59ac966bf5a8",
+      "source": "input/processing/celsius-q2-fy26.png"
     },
     {
       "path": "input/icon-crop-specs/celsius-q3-fy25.json",
