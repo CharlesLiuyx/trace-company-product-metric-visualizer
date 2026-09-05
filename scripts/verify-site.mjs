@@ -5,6 +5,8 @@
 // loading chain.
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
+import { gzipSync } from 'node:zlib';
+import { verifySplitData } from './lib/site-data-browser.mjs';
 import { chromium } from 'playwright';
 import { startStaticServer } from './dev-server.mjs';
 import { PROJECT_FONT_FAMILIES, fontFileName } from './lib/local-fonts.mjs';
@@ -104,6 +106,9 @@ if (!existsSync(path.join(SITE_ROOT, 'index.html'))) {
 
 const failures = [];
 const metrics = {};
+const release = JSON.parse(readFileSync(path.join(SITE_ROOT, 'site-release.json'), 'utf8'));
+assert(/^releases\/[a-f0-9]{64}$/.test(release.prefix), 'invalid versioned runtime prefix');
+const runtimeRoot = path.join(SITE_ROOT, release.prefix);
 let fatalError = null;
 let server;
 let browser;
@@ -114,15 +119,15 @@ try {
   // kept out of the eagerly executed foundation, and discovered through the
   // small inline runtime-asset map in the production document.
   const chartSource = projectPath('vendor', 'chart.umd.min.js');
-  const chartOutput = path.join(SITE_ROOT, 'assets', 'chart.js');
-  const foundationOutput = path.join(SITE_ROOT, 'assets', 'foundation.js');
+  const chartOutput = path.join(runtimeRoot, 'assets', 'chart.js');
+  const foundationOutput = path.join(runtimeRoot, 'assets', 'foundation.js');
   const productionHtml = readFileSync(path.join(SITE_ROOT, 'index.html'), 'utf8');
-  const fontStylesheet = path.join(SITE_ROOT, 'assets', 'fonts.css');
-  const fontDir = path.join(SITE_ROOT, 'assets', 'fonts');
+  const fontStylesheet = path.join(runtimeRoot, 'assets', 'fonts.css');
+  const fontDir = path.join(runtimeRoot, 'assets', 'fonts');
   const expectedFaces = expectedFontFaces();
   const expectedFiles = expectedFaces.map((face) => path.basename(face.src)).sort();
   const expectedPreloads = PROJECT_FONT_FAMILIES.map(({ slug, weights }) => (
-    `assets/fonts/${fontFileName(slug, weights.includes(400) ? 400 : weights[0])}`
+    `${release.prefix}/assets/fonts/${fontFileName(slug, weights.includes(400) ? 400 : weights[0])}`
   )).sort();
   if (/fonts\.(?:googleapis|gstatic)\.com/i.test(productionHtml)) {
     failures.push('production index still depends on Google Fonts');
@@ -253,7 +258,7 @@ try {
   if (!bootState.hasRegistry) failures.push('TraceDatasetRegistry is unavailable in the production build');
   if (!bootState.currentKey || !bootState.currentCompany) failures.push('default boot has no active dataset/company');
   if (!bootState.nodeCount) failures.push('default Sankey SVG contains no nodes');
-  if (bootState.chartAsset !== 'assets/chart.js') {
+  if (bootState.chartAsset !== `${release.prefix}/assets/chart.js`) {
     failures.push(`runtime Chart.js asset should be assets/chart.js, got ${bootState.chartAsset || 'none'}`);
   }
   if (scriptRequests.some((requestUrl) => new URL(requestUrl).pathname.endsWith('/assets/chart.js'))) {
@@ -276,6 +281,9 @@ try {
       pending: registry?.pendingKeys?.().length ?? -1,
       externalScriptCount: document.querySelectorAll('script[src]').length,
       activeCompanyAdapterPaths,
+      companyDetails: performance.getEntriesByType('resource').filter((entry) => /\/data\/companies\/.*\.json$/.test(entry.name)).map((entry) => new URL(entry.name).pathname),
+      tableDetails: performance.getEntriesByType('resource').filter((entry) => /\/data\/tables\/.*\.json$/.test(entry.name)).map((entry) => entry.name),
+      fullFinancialRecords: financialRecords.filter((record) => !record.__runtimeSummary).map((record) => record.key),
     };
   });
   metrics.pendingAfterIdle = idleState.pending;
@@ -283,6 +291,14 @@ try {
   metrics.bootAdapterRequests = datasetRequests.length;
   metrics.bootAdapterBudget = idleState.activeCompanyAdapterPaths.length;
   metrics.bootAdapterPaths = datasetRequests.map((request) => request.url);
+  assert(idleState.companyDetails.length === 1, 'default boot must load exactly one company detail');
+  assert(idleState.tableDetails.length === 0, 'default boot must not load global table details');
+  const initialCatalog = readFileSync(path.join(runtimeRoot, 'assets/catalog.js'));
+  const initialDetails = idleState.companyDetails.map((pathname) => readFileSync(path.join(SITE_ROOT, pathname)));
+  const bootstrapGzip = [initialCatalog, ...initialDetails].reduce((sum, bytes) => sum + gzipSync(bytes).length, 0);
+  assert(bootstrapGzip <= 150 * 1024, `bootstrap data gzip budget exceeded: ${bootstrapGzip} bytes / 150 KiB`);
+  assert(initialCatalog.length <= 1024 * 1024, `bootstrap catalog exceeds 1 MiB: ${initialCatalog.length}`);
+  console.log(`  bootstrap data: ${(bootstrapGzip / 1024).toFixed(1)} KiB gzip (budget 150 KiB)`);
 
   if (idleState.externalScriptCount > SCRIPT_TAG_BUDGET) {
     failures.push(`default boot left ${idleState.externalScriptCount} external script nodes (budget ${SCRIPT_TAG_BUDGET})`);
@@ -434,6 +450,7 @@ try {
   await page.waitForTimeout(100);
   metrics.pageErrors = pageErrors.length;
   if (pageErrors.length) failures.push(`page errors: ${pageErrors.join(' | ')}`);
+  await verifySplitData({ browser, url: server.url });
   printSummary(metrics, origin);
 } catch (error) {
   fatalError = error;

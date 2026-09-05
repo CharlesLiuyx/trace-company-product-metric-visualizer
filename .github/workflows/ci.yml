@@ -67,6 +67,16 @@ jobs:
         if: steps.plan.outputs.verify_app == 'true'
         run: pnpm verify:app
 
+      # Best-effort retention for already-open tabs. Only trusted main runs
+      # save this cache; a cache miss still builds a complete current release.
+      - name: Restore previous Pages runtimes
+        if: steps.plan.outputs.build_site == 'true'
+        uses: actions/cache/restore@v5
+        with:
+          path: output/site-releases
+          key: pages-runtimes-v1-${{ github.sha }}
+          restore-keys: pages-runtimes-v1-
+
       - name: Build Pages projection
         if: steps.plan.outputs.build_site == 'true'
         run: pnpm build:site
@@ -106,6 +116,15 @@ jobs:
         uses: actions/upload-pages-artifact@v5
         with:
           path: ./_site
+
+      - name: Retain verified Pages runtimes
+        if: >-
+          github.event_name != 'pull_request' && github.ref == 'refs/heads/main' &&
+          steps.plan.outputs.site_projection == 'true'
+        uses: actions/cache/save@v5
+        with:
+          path: output/site-releases
+          key: pages-runtimes-v1-${{ github.sha }}
 
   deploy:
     name: Deploy Pages

@@ -49,6 +49,7 @@ pngBtn.onclick = () => {
   img.src = URL.createObjectURL(new Blob([svgString()], { type: 'image/svg+xml' }));
 };
 companiesCsvBtn.onclick = () => {
+  if (!runtimeData.ready({ family: 'company' })) { draw(); return; }
   const columns = [
     { label: 'company', value: (row) => row.company },
     { label: 'legal_name', value: (row) => row.legalName },
@@ -72,6 +73,7 @@ companiesCsvBtn.onclick = () => {
   downloadText('companies.csv', csvFromRows(columns, companyRows()));
 };
 statementsCsvBtn.onclick = () => {
+  if (!runtimeData.ready({ family: 'statement' })) { draw(); return; }
   const columns = [
     { label: 'dataset_key', value: (row) => row.record.dataset.key },
     { label: 'company', value: (row) => row.displayCompany },
@@ -95,6 +97,7 @@ statementsCsvBtn.onclick = () => {
   downloadText('income-statements.csv', csvFromRows(columns, statementRows()));
 };
 revenueCsvBtn.onclick = () => {
+  if (!runtimeData.ready({ family: 'revenue' })) { draw(); return; }
   const columns = [
     { label: 'metric_key', value: (row) => row.record.metric.key },
     { label: 'company', value: (row) => row.displayCompany },

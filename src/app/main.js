@@ -2,6 +2,7 @@
  * Global wiring (hashchange, resize) and the boot sequence. Loads last. */
 
 window.addEventListener('hashchange', () => {
+  if (window.TRACE_LOCAL_VIEW_ACTIVE) return;
   const record = recordFromHash();
   if (!record) return;
   if (record.index === state.activeIndex && record.company === state.company) return;
@@ -17,6 +18,7 @@ window.addEventListener('hashchange', () => {
 
 let rt;
 window.addEventListener('resize', () => {
+  if (window.TRACE_LOCAL_VIEW_ACTIVE) return;
   clearTimeout(rt);
   rt = setTimeout(() => {
     syncResponsiveLayout();
@@ -26,11 +28,17 @@ window.addEventListener('resize', () => {
   }, 200);
 });
 
-applyStaticTranslations();
-syncResponsiveLayout();
-refresh();
-requestAnimationFrame(() => {
+runtimeData.subscribe(invalidateRuntimeViewCaches);
+
+Promise.resolve(window.TRACE_LOCAL_VIEW_READY).then((localViewActive) => {
+  if (localViewActive) return;
+  applyStaticTranslations();
+  syncResponsiveLayout();
+  refresh();
   requestAnimationFrame(() => {
-    document.body.classList.remove('boot-no-motion');
+    requestAnimationFrame(() => {
+      document.body.classList.remove('boot-no-motion');
+    });
   });
+
 });

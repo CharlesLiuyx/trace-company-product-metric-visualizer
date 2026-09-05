@@ -5,6 +5,7 @@
 // here as a page error or a failed assertion. Runs against the dev files via
 // an in-process static server; no build step involved.
 import { chromium } from 'playwright';
+import { verifyLocalFileEntry } from './lib/local-view-browser.mjs';
 import { startStaticServer } from './dev-server.mjs';
 import { assert } from './lib/project.mjs';
 import {
@@ -1813,6 +1814,8 @@ await scenario('boot: zh sankey + progressive-load company switch', async (page)
     localStorage.setItem('sankey.view.mode', 'sankey');
   },
 });
+
+try { await verifyLocalFileEntry(browser); } catch (error) { failures.push(`local file entry: ${error.message}`); }
 
 await browser.close();
 await close();

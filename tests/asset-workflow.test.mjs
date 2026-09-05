@@ -1,3 +1,4 @@
+import { readLocalView } from '../scripts/lib/workflow-local-view.mjs';
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import path from 'node:path';
@@ -97,12 +98,19 @@ test('text intake to sealed Build preserves source, isolates drafts, requires re
 test('publication rejects partial or changed candidates, commits atomically, recovers unknown outcomes and is idempotent', async (t) => {
   const root = await fixture(t);
   const started = await completed(root, 'example-a-q1');
+  const preview = await readLocalView(root);
+  assert.equal(preview.mode, 'review-pending');
+  assert.equal(preview.buildId, started.buildId);
+  assert.ok(preview.target.endsWith('/workspace/index.html'));
   const plan = await planAssetPublication([started.buildId], root);
   await assert.rejects(publishAssetPlan(plan.planDigest, root, { beforePointerCommit: () => { throw new Error('simulated disk failure'); } }), /simulated disk/);
   assert.equal(existsSync(path.join(root, 'output/publications/current.json')), false);
   await assert.rejects(publishAssetPlan(plan.planDigest, root, { afterPointerCommit: () => { throw new Error('simulated unknown outcome'); } }), /unknown outcome/);
   const receipt = await publishAssetPlan(plan.planDigest, root);
   assert.equal(receipt.state, 'PUBLISHED');
+  const selected = await readLocalView(root);
+  assert.equal(selected.mode, 'published');
+  assert.ok(selected.target.includes(receipt.publishedDigest.slice(7)));
   assert.deepEqual(await publishAssetPlan(plan.planDigest, root), receipt);
   assert.equal(existsSync(path.join(root, 'data/metric-observations/example-a-q1.json')), false);
   const server = await startStaticServer({ root, published: true }); t.after(server.close);

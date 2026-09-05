@@ -19,6 +19,23 @@ const i18nObjectCaches = {
 };
 const i18nTextCache = new Map();
 
+function invalidateRuntimeViewCaches({ financialRecords: updatedFinancial = [], companyMetadata: updatedCompanies = [], datasetKeys = [] } = {}) {
+  const companies = new Set([...updatedFinancial.map((record) => normalize(record.company)), ...updatedCompanies.map((record) => normalize(record.name))]);
+  const keys = new Set(datasetKeys);
+  const affectedRecords = records.filter((record) => companies.has(normalize(record.company)) || keys.has(record.dataset?.key));
+  const sources = {
+    financialRecords: updatedFinancial,
+    companies: updatedCompanies,
+    records: affectedRecords,
+    datasets: affectedRecords.map((record) => record.dataset).filter(Boolean),
+    groups: groups.filter((group) => companies.has(normalize(group.company)) || group.records.some((record) => keys.has(record.dataset?.key))),
+  };
+  for (const [kind, items] of Object.entries(sources)) {
+    for (const cache of i18nObjectCaches[kind].values()) items.forEach((source) => cache.delete(source));
+  }
+  tableModelCache.clear();
+}
+
 function t(key, values = {}, language = state?.language) {
   return I18N_API.t(key, values, languageCode(language));
 }

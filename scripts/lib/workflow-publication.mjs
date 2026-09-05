@@ -1,3 +1,4 @@
+import { selectPublishedView } from './workflow-local-view.mjs';
 import path from 'node:path';
 import { mkdir, readFile, writeFile, rename, rm, symlink } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
@@ -154,6 +155,9 @@ export async function publishAssetPlan(planDigest, root = rootDir, options = {})
     await options.afterPointerCommit?.();
     const receipt = { protocol: PUBLICATION_PROTOCOL, state: 'PUBLISHED', ...commit };
     await atomicJson(receiptPath, receipt);
+    return receipt;
+  }).then(async (receipt) => {
+    await selectPublishedView(root, plan);
     return receipt;
   });
 }

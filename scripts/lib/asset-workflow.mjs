@@ -1,3 +1,4 @@
+import { selectBuildPreview } from './workflow-local-view.mjs';
 import path from 'node:path';
 import { existsSync } from 'node:fs';
 import { mkdir, readFile, writeFile, readdir, symlink, copyFile } from 'node:fs/promises';
@@ -129,6 +130,9 @@ export async function prepareAsset(buildId, facts = null, root = rootDir) {
     const catalog = await projectAssetCatalog(options.projectRoot);
     await recordBuildObject(buildId, 'asset-plan', { protocol: 'asset-plan/v1', inventoryDigest: compiled.inventory.inventoryDigest, requiredObjects: compiled.inventory.objects.filter((item) => item.mapping.some((mapping) => mapping.role === 'asset')), candidates: catalog.entries.filter((item) => item.consumers.includes(options.build.key)) }, options);
     return showAsset(buildId, root);
+  }).then(async (result) => {
+    await selectBuildPreview(root, result);
+    return result;
   });
 }
 export async function buildObjects(buildId, kind, options) {

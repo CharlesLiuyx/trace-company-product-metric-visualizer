@@ -117,6 +117,11 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
 - **白话作用**：把开发目录投影成真正部署的 `_site`。
 - **原理**：生成 foundation/catalog/app 三个有序 bundle，保留 Adapter 按需脚本，复制
   Chart.js 与本地字体，明确排除 fidelity reference images。
+  catalog 只保留导航、搜索和排序所需的摘要；完整公司/财务详情、全量 Table family、
+  通用指标另存 JSON。所有运行资源位于同一个内容摘要目录 `releases/<digest>/`。
+  构建前恢复 `output/site-releases` 缓存，产物最多带上前两个版本；缓存缺失也能独立构建。
+  运行数据与 canonical publication 的边界见
+  [runtime-data.md](architecture/runtime-data.md)。
 - **触发**：任何会改变线上站点内容的数据、Adapter、viewer 或构建脚本。
 - **性质**：构建很快；它检查“能否生成”，不检查浏览器加载行为。
 
@@ -128,6 +133,10 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
   空闲后仍有 pending Adapter、公司切换按需加载、首次趋势交互只取一次 Chart.js、
   字体与页面错误；随后用与开发版相同、但不调用生产校准模块的 Adapter + Metric SSOT +
   实绘 DOM oracle 验证 Apple 全期间统一金额比例尺，防止 bundle 顺序或投影漏文件。
+  首页只允许一个公司详情 JSON、零全局 Table JSON；catalog 加默认公司详情的 gzip
+  总量不超过 **150 KiB**，catalog 原始大小不超过 **1 MiB**。另以完整源码 SSOT 为
+  oracle 核验 Table/CSV 完整性、中文缓存更新、多公司范围、失败重试、损坏字节拒绝、
+  收入趋势无多余详情依赖和快速切换公司时的旧请求隔离。
 - **触发**：viewer/站点构建变化；`main` 上只要要部署新 `_site` 也强制运行。
 - **为什么数据 PR 不必在 PR 阶段都跑**：Adapter 自身由受影响 key 渲染；Pages 的加载策略
   没有变化。合入 `main` 准备部署时仍会检查实际产物。
@@ -181,6 +190,9 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
   `actions/deploy-pages`。部署 Job 只有 Pages/id-token 写权限，检查 Job 只有 contents 读权限。
 - **消除的冗余**：旧 `pages.yml` 的第二次 checkout、pnpm setup、dependency install 和
   `build-site` 已删除。
+- **旧页面兼容**：只有验证完成的 main 运行保存 runtime 缓存；PR 不保存。
+  缓存保留是尽力行为，不能承诺任意旧页面永久可用。资源过期时页面提供重试与刷新
+  最新版本，不能把新版本详情拼进旧目录。
 
 ## ChangeImpact 触发矩阵
 
@@ -197,6 +209,29 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
 | 无法识别的可执行代码 | 必跑 | 安装 | 全目录 | 跑 | 跑 | 跑 |
 
 ## 耗时基线与预期
+
+2026-09-05 的 Pages 数据拆分采用同机受控 A/B：同一份 1,011 个 Dataset、241 家
+公司目录，前后各 10 次、交替顺序，每次新浏览器 Context、禁用 HTTP 缓存，统一 gzip、
+4× CPU slowdown、100 ms 网络延迟、1.6 Mbps 下行。首图时间指第一个 Sankey node
+进入 DOM；它不是 LCP、完整可交互时间或线上用户 p75。基线为改动前保存的 `_site`；
+候选 runtime digest 为 `3b2f96f2339486d39fda7eb81ba052b9f0d58f70a16e7602f4c2ca37c3165450`。
+
+| 指标 | 拆分前 | 拆分后 | 变化 |
+| --- | ---: | ---: | ---: |
+| 首屏数据 gzip（catalog + 默认公司详情） | 503.6 KiB | 95.0 KiB | −81.1% |
+| 首图中位时间 | 5,715 ms | 3,482 ms | −39.1% |
+| 首图 p90 | 5,769 ms | 3,514 ms | −39.1% |
+| 首图前累计 long task 中位值 | 901 ms | 731 ms | −18.8% |
+| 首次切到 Abbott 中位时间 | 628 ms | 683 ms | +56 ms |
+| 再次切到 Abbott 中位时间 | 56.8 ms | 57.4 ms | 基本持平 |
+
+首次进入未加载公司增加一个详情 JSON 请求；本次冷切约增加 8.9%，并非所有交互都
+变快。访问完整财报和公司 Table 后，公司详情已被覆盖，不再重复请求。这里只说明
+静态拆分的本机结果，不把它归因为数据库性能，也不承诺生产网络有同一绝对耗时。
+原始样本由 `scripts/benchmark-site.mjs` 写入 `output/site-benchmark/results.json`。
+表中中位数与 p90 使用 `q × (n − 1)` 线性插值；这不是不稳定的 CI 时间门禁。
+
+下列历史数据衡量 CI 执行成本，与上述浏览器首图指标不同。
 
 2026-07-12 审计了最近 20 次 CI 状态，并读取其中 11 次成功运行的逐 step 时间。
 工作流在这期间有演进；最新包含 site gate 的 5 次成功运行总耗时中位数约 **122 秒**：

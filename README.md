@@ -23,6 +23,11 @@ Open the [interactive workflow graph](docs/workflow-flowchart.zh-CN.html), or us
 [the operator guide](docs/asset-workflow.md) for commands and an example.
 General metrics appear under **指标资产 / Metrics**, with search, original quotes
 and JSON export. Existing financial tables, trends and Sankeys remain available.
+Open the repository's `index.html` directly for local review. After preparation it
+shows the selected draft with a pending-review label; after explicit human approval
+and publication it switches to the accepted result at the same address. The foreground
+page checks for selection changes every two seconds. No server is required.
+
 `pnpm dev` shows the local published snapshot when present; `pnpm dev -- --draft`
 opens the development worktree. Local publication and HTML output do not deploy
 the online site. New snapshots and their Build ledger are currently machine-local.
@@ -159,7 +164,12 @@ pnpm build:site && pnpm verify:site              # optimized GitHub Pages projec
 pnpm build:standalone && pnpm verify:standalone  # single self-contained HTML file
 ```
 
-The Pages build boots with just the active dataset adapter, then
+The Pages build boots with a light company/period catalog and the selected
+company's complete financial/profile detail. Tables load their complete data
+family on demand; CSV export waits for that data. All generated resources share
+a content-versioned path, with best-effort retention of two prior runtimes for
+open tabs. See [the runtime data contract](docs/architecture/runtime-data.md).
+The build boots with just the active dataset adapter, then
 asynchronously preloads the selected company's complete adapter set (every
 period and variant) so in-company navigation shows no loading state;
 pointer/keyboard intent prefetches ahead of the click, and Chart.js stays
@@ -221,6 +231,7 @@ scripts, and a hand-rolled d3-sankey engine.
 | `src/comparison-scale.js`   | Deep Comparison Visual Scale Module: validates renderer anchor geometry against Metric SSOT revenue lineage + money dimensions and produces one group-atomic USD normalization plan |
 | `src/sankey-engine.js`      | **d3-sankey** renderer: compiled fixed/dynamic graph geometry + custom nodes/links/labels/logo/interactions; owns the public compiled node-value Geometry Interface |
 | `src/dataset-registry.js`   | manifest-driven dataset stubs + in-place adapter upgrades on `DATASETS.push` |
+| `src/runtime-data.js` · `scripts/lib/site-data.mjs` | Pages summary/detail projection, version/integrity validation, deduplication, retry and in-place data hydration; full source/standalone no-op |
 | `src/i18n-dictionaries.js` · `src/i18n.js` | per-language translation data · language-neutral rule pipeline + deny-by-default overlays and visible-financial-token guard |
 | `src/icons.js`              | Lucide icon set (inline SVG) + the NVIDIA brand glyph         |
 | `scripts/build-site.mjs` · `verify-site.mjs` | builds the optimized Pages projection and enforces request/on-demand-loading budgets plus the all-period monetary-scale oracle |
