@@ -1,0 +1,117 @@
+{
+  "source": "input/processing/celsius-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/celsius-q2-fy26",
+  "runtimeOutputDir": "data/assets/raster-annotations/celsius-q2-fy26",
+  "validationSheetDir": "data/assets/icon-references/celsius-q2-fy26/validation-sheets",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "company-logo",
+      "output": "crops/company-logo.png",
+      "cropBox": {
+        "x": 574,
+        "y": 254,
+        "width": 694,
+        "height": 245
+      },
+      "searchBox": {
+        "x": 577,
+        "y": 257,
+        "width": 688,
+        "height": 239
+      },
+      "threshold": 18,
+      "minComponentArea": 30,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.25,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "runtimeOutput": "company-logo.png"
+    },
+    {
+      "key": "celsius-product-cluster",
+      "output": "crops/celsius-product-cluster.png",
+      "cropBox": {
+        "x": 23,
+        "y": 434,
+        "width": 314,
+        "height": 216
+      },
+      "searchBox": {
+        "x": 26,
+        "y": 437,
+        "width": 308,
+        "height": 210
+      },
+      "threshold": 18,
+      "minComponentArea": 30,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.25,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "runtimeOutput": "celsius-product-cluster.png"
+    },
+    {
+      "key": "pepsico-wordmark",
+      "output": "crops/pepsico-wordmark.png",
+      "cropBox": {
+        "x": 23,
+        "y": 732,
+        "width": 335,
+        "height": 59
+      },
+      "searchBox": {
+        "x": 26,
+        "y": 735,
+        "width": 329,
+        "height": 53
+      },
+      "threshold": 18,
+      "minComponentArea": 30,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.25,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "runtimeOutput": "pepsico-wordmark.png"
+    },
+    {
+      "key": "costco-wordmark",
+      "output": "crops/costco-wordmark.png",
+      "cropBox": {
+        "x": 20,
+        "y": 977,
+        "width": 346,
+        "height": 107
+      },
+      "searchBox": {
+        "x": 23,
+        "y": 980,
+        "width": 340,
+        "height": 101
+      },
+      "threshold": 18,
+      "minComponentArea": 30,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.25,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "runtimeOutput": "costco-wordmark.png"
+    }
+  ],
+  "compression": {
+    "paletteColors": []
+  }
+}

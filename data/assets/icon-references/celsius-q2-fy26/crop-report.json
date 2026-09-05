@@ -1,0 +1,352 @@
+{
+  "source": "input/processing/celsius-q2-fy26.png",
+  "spec": "input/icon-crop-specs/celsius-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-09-05T04:14:59.855920+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/celsius-q2-fy26",
+  "crops": [
+    {
+      "key": "company-logo",
+      "output": "data/assets/icon-references/celsius-q2-fy26/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 36456,
+        "losslessBytes": 36456,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 124480,
+        "transparentPixelRatio": 0.7321
+      },
+      "searchBox": {
+        "x": 577,
+        "y": 257,
+        "width": 688,
+        "height": 239
+      },
+      "componentCount": 17,
+      "subjectBox": {
+        "x0": 580,
+        "y0": 262,
+        "x1": 1256,
+        "y1": 495
+      },
+      "cropBox": {
+        "x0": 574,
+        "y0": 254,
+        "x1": 1268,
+        "y1": 499
+      },
+      "validation": {
+        "width": 694,
+        "height": 245,
+        "foregroundPixels": 44593,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 12,
+          "top": 8,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": -0.0043,
+          "y": 0.0082
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/celsius-q2-fy26/company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 36456,
+        "losslessBytes": 36456,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/celsius-q2-fy26/validation-sheets/company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 267954,
+        "losslessBytes": 267954,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "celsius-product-cluster",
+      "output": "data/assets/icon-references/celsius-q2-fy26/crops/celsius-product-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 101106,
+        "losslessBytes": 101106,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          235,
+          235,
+          228
+        ],
+        "transparentPixels": 0,
+        "transparentPixelRatio": 0.0
+      },
+      "searchBox": {
+        "x": 26,
+        "y": 437,
+        "width": 308,
+        "height": 210
+      },
+      "componentCount": 19,
+      "subjectBox": {
+        "x0": 32,
+        "y0": 440,
+        "x1": 332,
+        "y1": 647
+      },
+      "cropBox": {
+        "x0": 23,
+        "y0": 434,
+        "x1": 337,
+        "y1": 650
+      },
+      "validation": {
+        "width": 314,
+        "height": 216,
+        "foregroundPixels": 44619,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 9,
+          "right": 5,
+          "top": 6,
+          "bottom": 3
+        },
+        "centerOffset": {
+          "x": 0.0064,
+          "y": 0.0069
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/celsius-q2-fy26/celsius-product-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 101106,
+        "losslessBytes": 101106,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/celsius-q2-fy26/validation-sheets/celsius-product-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 410615,
+        "losslessBytes": 410615,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "pepsico-wordmark",
+      "output": "data/assets/icon-references/celsius-q2-fy26/crops/pepsico-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 7381,
+        "losslessBytes": 7381,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 9126,
+        "transparentPixelRatio": 0.4617
+      },
+      "searchBox": {
+        "x": 26,
+        "y": 735,
+        "width": 329,
+        "height": 53
+      },
+      "componentCount": 7,
+      "subjectBox": {
+        "x0": 31,
+        "y0": 738,
+        "x1": 352,
+        "y1": 784
+      },
+      "cropBox": {
+        "x0": 23,
+        "y0": 732,
+        "x1": 358,
+        "y1": 791
+      },
+      "validation": {
+        "width": 335,
+        "height": 59,
+        "foregroundPixels": 9848,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 8,
+          "right": 6,
+          "top": 6,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": 0.003,
+          "y": -0.0085
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/celsius-q2-fy26/pepsico-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 7381,
+        "losslessBytes": 7381,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/celsius-q2-fy26/validation-sheets/pepsico-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 260051,
+        "losslessBytes": 260051,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "costco-wordmark",
+      "output": "data/assets/icon-references/celsius-q2-fy26/crops/costco-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 23162,
+        "losslessBytes": 23162,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 7974,
+        "transparentPixelRatio": 0.2154
+      },
+      "searchBox": {
+        "x": 23,
+        "y": 980,
+        "width": 340,
+        "height": 101
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 24,
+        "y0": 985,
+        "x1": 356,
+        "y1": 1080
+      },
+      "cropBox": {
+        "x0": 20,
+        "y0": 977,
+        "x1": 366,
+        "y1": 1084
+      },
+      "validation": {
+        "width": 346,
+        "height": 107,
+        "foregroundPixels": 19767,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 4,
+          "right": 10,
+          "top": 8,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": -0.0087,
+          "y": 0.0187
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/celsius-q2-fy26/costco-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 23162,
+        "losslessBytes": 23162,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/celsius-q2-fy26/validation-sheets/costco-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 286748,
+        "losslessBytes": 286748,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

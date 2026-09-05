@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-08-27T16:29:23.000Z",
+  "generatedAt": "2026-09-05T06:31:30.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -6071,6 +6071,18 @@
       "path": "data/datasets/nvidia-q2-fy27.js",
       "updatedAtMs": 1787848163000,
       "updatedAt": "2026-08-27T16:29:23.000Z",
+      "timeSource": "git"
+    },
+    "aramco-q2-fy26": {
+      "path": "data/datasets/aramco-q2-fy26.js",
+      "updatedAtMs": 1788589890000,
+      "updatedAt": "2026-09-05T06:31:30.000Z",
+      "timeSource": "git"
+    },
+    "celsius-q2-fy26": {
+      "path": "data/datasets/celsius-q2-fy26.js",
+      "updatedAtMs": 1788589890000,
+      "updatedAt": "2026-09-05T06:31:30.000Z",
       "timeSource": "git"
     },
     "data/revenue-metrics.js": {

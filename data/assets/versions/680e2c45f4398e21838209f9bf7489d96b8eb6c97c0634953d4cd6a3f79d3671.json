@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "pepsico-wordmark",
+  "artifact": {
+    "path": "data/assets/raster-annotations/celsius-q2-fy26/pepsico-wordmark.png",
+    "digest": "sha256:305723ac77fe312ccb36b5b88a3b1e4fbe4d5cfab36c1dd4a39683d86fc1d159"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/celsius-q2-fy26.json",
+    "digest": "sha256:4e69a9957293de54d116637394dec9d0e4b60027d79f7fdbf6fd59ac966bf5a8"
+  },
+  "source": {
+    "path": "input/processing/celsius-q2-fy26.png",
+    "digest": "sha256:d632fece0a6ac5bff066aa74f4268da7b82d7c9cfd5aade4254ba1194e8add4a"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:305723ac77fe312ccb36b5b88a3b1e4fbe4d5cfab36c1dd4a39683d86fc1d159",
+    "note": "Inspected full Source and native crop validation sheet: complete subject, centered, no financial labels, links or publisher marks. Lossless compressed PNG preserves gradients and product detail."
+  },
+  "versionDigest": "sha256:680e2c45f4398e21838209f9bf7489d96b8eb6c97c0634953d4cd6a3f79d3671"
+}

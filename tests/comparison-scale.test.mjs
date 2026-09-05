@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { loadBrowserData } from '../scripts/lib/browser-data-loader.mjs';
+import { registeredDatasetScripts } from '../scripts/script-sources.mjs';
 import { loadClassicScripts } from './helpers/vm-load.mjs';
 
 const RUNTIME_SCRIPTS = [
@@ -678,7 +679,7 @@ function loadFullCorpus() {
   return fullCorpus;
 }
 
-test('all 1011 registered View Adapters calibrate to one view-units/USD scale with the known fallback set', () => {
+test('all registered View Adapters calibrate to one view-units/USD scale with the known fallback set', () => {
   const { context, datasets, records } = loadFullCorpus();
   const financialByKey = new Map(records.map((record) => [record.key, record]));
   const inputKeys = Array.from(datasets, (dataset) => dataset.key);
@@ -687,14 +688,17 @@ test('all 1011 registered View Adapters calibrate to one view-units/USD scale wi
     financial: financialByKey.get(dataset.key),
   }));
 
-  assert.equal(datasets.length, 1011);
-  assert.equal(financialByKey.size, 1011);
+  assert.ok(datasets.length > 0, 'full-corpus calibration must not pass on an empty catalog');
+  assert.equal(datasets.length, registeredDatasetScripts().length);
+  assert.equal(new Set(inputKeys).size, datasets.length, 'Adapter keys must be unique');
+  assert.equal(financialByKey.size, records.length, 'financial keys must be unique');
+  assert.deepEqual([...financialByKey.keys()].sort(), [...inputKeys].sort());
 
   const plan = context.TraceComparisonScale.createPlan(entries);
 
   assert.equal(plan.status, 'calibrated');
   assert.equal(plan.diagnostics.length, 0);
-  assert.equal(plan.measurements.length, 1011);
+  assert.equal(plan.measurements.length, datasets.length);
   assert.deepEqual(
     Array.from(plan.measurements, (measurement) => measurement.key),
     inputKeys,
