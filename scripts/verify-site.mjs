@@ -98,6 +98,46 @@ function printSummary(metrics, origin) {
   console.log(`  page errors            ${value(metrics.pageErrors)} / 0`);
 }
 
+async function verifyLegacyUpgrade(browser, url, version) {
+  // The retired entry points must upgrade a cached bootstrap and an open
+  // pre-versioned tab, without ever executing an Adapter against old data.
+  for (const legacyPath of ['assets/foundation.js', 'assets/catalog.js', 'assets/app.js', 'assets/chart.js', 'data/datasets/salesforce-q1-fy27.js']) {
+    const context = await browser.newContext();
+    try {
+      const page = await context.newPage();
+      const target = new URL(url);
+      target.searchParams.set('existing', 'keep');
+      target.hash = 'salesforce-q1-fy27';
+      let documents = 0;
+      const errors = [];
+      page.on('pageerror', (error) => errors.push(String(error)));
+      await page.route('**/*', async (route) => {
+        if (route.request().isNavigationRequest() && ++documents === 1) {
+          const script = `<script src="${legacyPath}"></script>`;
+          // Bootstrap scripts load immediately; an already-open tab requests
+          // its missing Adapter/Chart only when the user retries or switches.
+          const delayed = legacyPath.includes('/datasets/') || legacyPath.endsWith('/chart.js');
+          const body = delayed
+            ? `<button id="retry" onclick="const script=document.createElement('script');script.src='${legacyPath}';document.head.append(script)">Retry</button>`
+            : script;
+          await route.fulfill({ contentType: 'text/html', body: `<!doctype html><html><head></head><body>${body}</body></html>` });
+        } else await route.continue();
+      });
+      await page.goto(target.href, { waitUntil: 'commit' });
+      if (legacyPath.includes('/datasets/') || legacyPath.endsWith('/chart.js')) await page.locator('#retry').click();
+      await page.waitForURL((current) => current.searchParams.get('trace-runtime') === version);
+      await page.waitForSelector('#chart svg .sankey-node', { timeout: FIRST_RENDER_TIMEOUT_MS });
+      const upgraded = new URL(page.url());
+      assert(upgraded.searchParams.get('existing') === 'keep', 'legacy upgrade dropped query parameters');
+      assert(upgraded.hash === target.hash, 'legacy upgrade dropped the dataset hash');
+      assert(await page.locator('#metricLibraryOpen').count() === 0, 'legacy upgrade restored the metric toolbar entry');
+      assert(documents === 2, `legacy upgrade must navigate exactly once: ${legacyPath} (${documents})`);
+      assert(!errors.length, `legacy upgrade page errors: ${errors.join(' | ')}`);
+    } finally { await context.close(); }
+  }
+  console.log('  legacy upgrade: cached bootstrap and open-tab Adapter/Chart requests recover to the current Sankey');
+}
+
 if (!existsSync(path.join(SITE_ROOT, 'index.html'))) {
   console.error('production site verification FAILED');
   console.error('  missing _site/index.html; run the production site build first');
@@ -188,6 +228,7 @@ try {
   const navigationStartedAt = Date.now();
   await page.goto(server.url, { waitUntil: 'domcontentloaded' });
   await page.waitForSelector('#chart svg', { timeout: FIRST_RENDER_TIMEOUT_MS });
+  assert(await page.locator('#metricLibraryOpen').count() === 0, 'production must not expose the metric-library toolbar entry');
   metrics.firstSvgMs = Date.now() - navigationStartedAt;
   const fontStatus = await assertProjectFontsLoaded(page);
   metrics.fontFaces = `${fontStatus.faces.filter((face) => face.status === 'loaded').length}/${expectedFaces.length} loaded`;
@@ -451,6 +492,7 @@ try {
   metrics.pageErrors = pageErrors.length;
   if (pageErrors.length) failures.push(`page errors: ${pageErrors.join(' | ')}`);
   await verifySplitData({ browser, url: server.url });
+  await verifyLegacyUpgrade(browser, server.url, release.version);
   printSummary(metrics, origin);
 } catch (error) {
   fatalError = error;

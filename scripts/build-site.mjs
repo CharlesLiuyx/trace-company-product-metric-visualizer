@@ -224,6 +224,32 @@ async function emitRuntimeFonts() {
   await writeFile(path.join(bundleDir, 'fonts.css'), `${faces.join('\n\n')}\n`);
 }
 
+async function emitLegacyUpgradeScripts(version) {
+  // Before versioned runtimes, cached HTML and open tabs requested these
+  // unversioned scripts. Keep those URLs alive as navigation bridges: loading
+  // current data into their old catalog would mix two releases. The query
+  // bypasses a cached index; replacing history preserves the user's hash and
+  // other query parameters. The version guard prevents a reload loop.
+  const source = `/* Upgrade a pre-versioned Trace page without mixing runtimes. */
+(function () {
+  const next = new URL(window.location.href);
+  const version = ${JSON.stringify(version)};
+  if (next.searchParams.get('trace-runtime') === version) return;
+  next.searchParams.set('trace-runtime', version);
+  window.location.replace(next.href);
+})();\n`;
+  const destinations = [
+    ...Object.values(bundleSources),
+    deferredRuntimeAssets.chart.output,
+    ...(await filesWithin('data/datasets')).filter((file) => file.endsWith('.js')),
+  ];
+  for (const relativePath of destinations) {
+    const destination = path.join(outputDir, relativePath);
+    await mkdir(path.dirname(destination), { recursive: true });
+    await writeFile(destination, source);
+  }
+}
+
 function bytesLabel(bytes) {
   if (bytes < 1024) return `${bytes} B`;
   if (bytes < 1024 ** 2) return `${(bytes / 1024).toFixed(1)} KiB`;
@@ -304,6 +330,7 @@ async function main() {
     await writeFile(destination, contents);
   }
   await writeFile(path.join(outputDir, 'index.html'), html);
+  await emitLegacyUpgradeScripts(version);
 
   const emittedSources = externalClassicScripts(html).map(({ src }) => src);
   if (JSON.stringify(emittedSources) !== JSON.stringify(Object.values(bundleSources).map((src) => `${runtimePrefix}/${src}`))) {

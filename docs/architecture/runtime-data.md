@@ -78,6 +78,14 @@ is best effort: cache eviction, a fresh checkout, and sufficiently old tabs
 can make an old version unavailable. A failed load offers retry and reload of
 the latest index. It never fetches a new unversioned chunk into an old catalog.
 
+For the migration from the earlier unversioned site, the old `assets/*.js`
+bootstrap/Chart URLs and registered `data/datasets/*.js` URLs serve small
+upgrade scripts. A cached old index or an already-open tab navigates to the
+latest index with a runtime-version query to bypass its cached HTML, preserving
+the hash and other query parameters. A version guard prevents reload loops.
+These bridges contain no data and never merge current details into an old
+catalog. New pages continue to request only their immutable runtime paths.
+
 ## Verification and limits
 
 - `tests/runtime-data.test.mjs`: whole-corpus summary identity/sort parity,
@@ -93,7 +101,10 @@ the latest index. It never fetches a new unversioned chunk into an old catalog.
   usable. Render regression owns the existing diagram hard gates.
 - `tests/site-release.test.mjs`: real builds in an isolated fixture verify
   stable versions, compiler dependency invalidation, noncontiguous HTML script
-  removal, retained bytes, retention limits, and a fresh cache.
+  removal, legacy upgrade scripts, retained bytes, retention limits, and a fresh cache.
+- `verify:site` also exercises a cached unversioned index and an old tab's
+  on-demand script request against the new artifact, then requires a rendered
+  Sankey and no metric-library toolbar entry after upgrading.
 
 `node scripts/benchmark-site.mjs --baseline <saved-site> --runs 10` compares
 two immutable site directories with identical gzip, a fresh context per run,
