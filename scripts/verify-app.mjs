@@ -92,13 +92,18 @@ async function waitForComparisonPhase(page, phase, predicate, argument, options 
   }
 }
 
-await scenario('metric library: exact values, source, search and export', async (page) => {
+await scenario('metric library: no toolbar entry; retained view preserves exact values', async (page) => {
   const sample = [{ key: 'test-only', subject: { name: '<示例产品>', type: 'product' }, period: '2026-08', basis: '月末活跃账户',
     source: { locator: 'input/processed/test-only.txt', digest: 'sha256:' + 'a'.repeat(64) },
     metrics: [{ name: '活跃账户', value: '12345678901234567890.125', unit: '个', currency: null, quote: '活跃账户：12345678901234567890.125 个', anchor: { type: 'text-range', range: [0, 32] } }] }];
   await page.route('**/data/metric-observations.js', (route) => route.fulfill({ contentType: 'text/javascript', body: `window.METRIC_OBSERVATIONS=${JSON.stringify(sample)};` }));
   await boot(page);
-  await page.locator('#metricLibraryOpen').click();
+  assert(await page.locator('#metricLibraryOpen').count() === 0, 'metric library must not have a global toolbar entry');
+  // Exercise the retained observation view independently of a main-viewer launcher.
+  await page.evaluate(() => {
+    document.getElementById('metricLibrary').showModal();
+    document.getElementById('metricLibrarySearch').dispatchEvent(new Event('input'));
+  });
   assert(await page.locator('#metricLibrary').isVisible(), 'metric library did not open');
   assert((await page.locator('#metricLibraryRows').textContent()).includes('12345678901234567890.125'), 'exact decimal lost');
   assert((await page.locator('#metricLibraryRows td').first().textContent()) === '<示例产品>', 'subject is not literal text');

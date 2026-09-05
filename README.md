@@ -21,8 +21,9 @@ and keeps each draft isolated until reviewed publication.
 
 Open the [interactive workflow graph](docs/workflow-flowchart.zh-CN.html), or use
 [the operator guide](docs/asset-workflow.md) for commands and an example.
-General metrics appear under **指标资产 / Metrics**, with search, original quotes
-and JSON export. Existing financial tables, trends and Sankeys remain available.
+General metrics retain exact values and original quotes in the observation SSOT.
+The main viewer has no **指标资产 / Metrics** toolbar entry. Financial tables,
+trends and Sankeys remain available.
 Open the repository's `index.html` directly for local review. After preparation it
 shows the selected draft with a pending-review label; after explicit human approval
 and publication it switches to the accepted result at the same address. The foreground

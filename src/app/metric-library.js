@@ -49,7 +49,9 @@
       cell.append(retry); row.append(cell); rows.append(row);
     }
   }
-  button.addEventListener('click', () => { dialog.showModal(); search.focus(); loadRecords(); });
+  // The main viewer has no metric-library launcher in its global toolbar.
+  // A dedicated host may still provide one for this observation view.
+  button?.addEventListener('click', () => { dialog.showModal(); search.focus(); loadRecords(); });
   document.getElementById('metricLibraryClose').addEventListener('click', () => dialog.close());
   search.addEventListener('input', () => { if (window.TraceRuntimeData.ready({ family: 'metrics' })) render(); });
   document.getElementById('metricLibraryExport').addEventListener('click', async () => {

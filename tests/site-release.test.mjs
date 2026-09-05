@@ -35,6 +35,11 @@ test('Pages releases bind build dependencies, preserve HTML, retain old bytes an
     const html = readFileSync(file('_site/index.html'), 'utf8');
     assert.ok(html.includes('<title>Preserved</title>'));
     assert.ok(html.includes('<main id="fixture">Preserved body</main>'));
+    for (const legacyPath of ['assets/foundation.js', 'assets/catalog.js', 'assets/app.js', 'assets/chart.js', 'data/datasets/fixture.js']) {
+      const bridge = readFileSync(file(`_site/${legacyPath}`), 'utf8');
+      assert.ok(bridge.includes(first.version), `${legacyPath} must upgrade to the current runtime`);
+      assert.ok(bridge.includes('window.location.replace'), `${legacyPath} must navigate, not mix runtime data`);
+    }
     assert.ok(readFileSync(file(`_site/${first.prefix}/data/datasets/fixture.js`), 'utf8').includes(`${first.prefix}/data/assets/`));
     assert.equal(build().version, first.version, 'identical inputs must have stable paths');
 
