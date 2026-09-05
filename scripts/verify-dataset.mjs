@@ -19,18 +19,18 @@ const SUPPORT_DATA_FILES = [
 ];
 
 function usage() {
-  console.error('Usage: pnpm verify:dataset -- <dataset-key> [--skip-render]');
+  console.error('Usage: pnpm verify:dataset -- <dataset-key> [...] [--skip-render]');
 }
 
 function parseArgs(argv) {
   const args = argv.slice(2).filter((arg) => arg !== '--');
   const skipRender = args.includes('--skip-render');
   const positional = args.filter((arg) => !arg.startsWith('--'));
-  if (positional.length !== 1) {
+  if (!positional.length || args.some((arg) => arg.startsWith('--') && arg !== '--skip-render')) {
     usage();
     process.exit(2);
   }
-  return { datasetKey: positional[0], skipRender };
+  return { datasetKeys: [...new Set(positional)], skipRender };
 }
 
 function nonDefaultLanguages() {
@@ -66,27 +66,26 @@ function summarize(steps) {
 }
 
 function main() {
-  const { datasetKey, skipRender } = parseArgs(process.argv);
+  const { datasetKeys, skipRender } = parseArgs(process.argv);
   const steps = [];
-  if (existsSync(path.join(rootDir, 'data', 'metric-observations', `${datasetKey}.json`))) {
-    runStep(steps, 'verify:metrics', process.execPath, [path.join(__dirname, 'verify-metrics.mjs'), datasetKey]);
-    summarize(steps);
-    return;
+  const metricKeys = datasetKeys.filter((key) => existsSync(path.join(rootDir, 'data', 'metric-observations', `${key}.json`)));
+  for (const key of metricKeys) runStep(steps, `verify:metrics ${key}`, process.execPath, [path.join(__dirname, 'verify-metrics.mjs'), key]);
+  const financialKeys = datasetKeys.filter((key) => !metricKeys.includes(key));
+  if (!financialKeys.length) { summarize(steps); return; }
+  const registered = new Set(registeredDatasetScripts());
+  const syntaxTargets = new Set(SUPPORT_DATA_FILES.filter((file) => existsSync(path.join(rootDir, file))));
+  for (const key of financialKeys) {
+    const script = datasetScriptForKey(key);
+    if (existsSync(path.join(rootDir, script))) syntaxTargets.add(script);
   }
-
-  const datasetScript = datasetScriptForKey(datasetKey);
-  const registered = registeredDatasetScripts().includes(datasetScript);
-  const syntaxTargets = SUPPORT_DATA_FILES.filter((file) => existsSync(path.join(rootDir, file)));
-  if (existsSync(path.join(rootDir, datasetScript))) syntaxTargets.unshift(datasetScript);
-
   for (const file of syntaxTargets) {
     runStep(steps, `node --check ${file}`, process.execPath, ['--check', path.join(rootDir, file)]);
   }
   runStep(steps, 'verify:ssot', process.execPath, [path.join(__dirname, 'verify-ssot.mjs')]);
-  runStep(steps, `verify:i18n --strict ${datasetKey}`, process.execPath, [
+  runStep(steps, `verify:i18n --strict ${financialKeys.join(' ')}`, process.execPath, [
     path.join(__dirname, 'verify-i18n.mjs'),
     '--strict',
-    datasetKey,
+    ...financialKeys,
   ]);
   runStep(steps, 'verify:dataset-file-metadata', process.execPath, [
     path.join(__dirname, 'update-dataset-file-metadata.mjs'),
@@ -95,25 +94,23 @@ function main() {
 
   if (skipRender) {
     console.log('\nrender steps skipped: --skip-render');
-  } else if (!registered) {
-    console.log(`\nrender steps skipped: "${datasetKey}" is not a registered sankey dataset (revenue-metric keys stop here)`);
   } else {
-    runStep(steps, `verify:d3 ${datasetKey}`, process.execPath, [
-      path.join(__dirname, 'verify-d3.mjs'),
-      datasetKey,
-    ]);
-    for (const language of nonDefaultLanguages()) {
-      runStep(steps, `verify:d3 ${datasetKey} --language ${language}`, process.execPath, [
-        path.join(__dirname, 'verify-d3.mjs'),
-        datasetKey,
-        '--language',
-        language,
-      ]);
+    const languages = financialKeys.some((key) => registered.has(datasetScriptForKey(key))) ? nonDefaultLanguages() : [];
+    for (const datasetKey of financialKeys) {
+      if (!registered.has(datasetScriptForKey(datasetKey))) {
+        console.log(`\nrender steps skipped: "${datasetKey}" is not a registered sankey dataset (revenue-metric keys stop here)`);
+        continue;
+      }
+      for (const language of [null, ...languages]) {
+        runStep(steps, `verify:d3 ${datasetKey}${language ? ` --language ${language}` : ''}`, process.execPath, [
+          path.join(__dirname, 'verify-d3.mjs'), datasetKey, ...(language ? ['--language', language] : []),
+        ]);
+      }
     }
   }
 
   summarize(steps);
-  console.log(`\nverify:dataset passed for "${datasetKey}" (${steps.length} step(s)).`);
+  console.log(`\nverify:dataset passed for "${datasetKeys.join(', ')}" (${steps.length} step(s)).`);
 }
 
 main();

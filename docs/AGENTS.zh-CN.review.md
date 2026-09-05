@@ -109,7 +109,7 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
 | --- | --- |
 | `pnpm dev` | 本地审阅工作台，端口 8000（开发 / 固定 Pages 预览 / 线上） |
 | `pnpm plan:ci -- --base <sha> --head <sha>` | 把 Git diff 保守分类为 CI 验证计划；缺 SHA 或未知可执行影响一律回退完整浏览器套件 |
-| `pnpm check` | 快速聚合门：全仓 JS 语法、单元测试、pending 守卫、architecture/app-global 契约、manifest 与 render-baseline 结构新鲜度、SSOT 奇偶、i18n 与 metadata 新鲜度（秒级，无渲染）；`input/processing/` 中的在途文件不会让这个全局门失败；fresh checkout 可复现且由 CI 运行 |
+| `pnpm check` | 快速聚合门（最多两个并发检查、一个原生解析进程）：全仓 JS 语法、单元测试、pending 守卫、architecture/app-global 契约、manifest 与 render-baseline 结构新鲜度、SSOT 奇偶、i18n 与 metadata 新鲜度（秒级，无渲染）；`input/processing/` 中的在途文件不会让这个全局门失败；fresh checkout 可复现且由 CI 运行 |
 | `pnpm test` | `tests/` 下的 node:test 单元测试——Source claim/relocation、引擎布局数学与标签排版、trace-domain 解析/汇率、i18n 翻译规则、png-diff 指标、script-source 解析、dataset registry |
 | `pnpm verify:app` | 模块化查看器（`src/app/*`）的无头启动 + 交互冒烟：模块数量、持久化偏好启动、hash 路由、对比缩放 + 指标趋势、收入趋势、移动端视口 |
 | `pnpm verify:app-globals` | 共享顶层作用域契约的静态门：跨文件重复顶层声明、加载期引用晚加载 script（也包含在 `pnpm check` 中） |
@@ -127,7 +127,7 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
 | `pnpm sync:index-datasets` | 同步全部数据注册面与磁盘：`index.html` SSOT `<script>` 标签（损益表、公司档案）与生成的 dataset manifest（`--check` 只报告漂移） |
 | `pnpm update:dataset-manifest` / `pnpm verify:dataset-manifest` | 重新生成 / 校验 `data/dataset-manifest.js`（数据集注册 SSOT） |
 | `pnpm update:fidelity-rules-doc [-- --check]` | 从 `scripts/lib/fidelity-rules-catalog.mjs` 重新生成（或校验）`docs/fidelity-loop-rules.md` 的生成规则目录区 |
-| `pnpm verify:dataset -- <key> [--skip-render]` | 只读单数据集聚合诊断：语法、SSOT、strict i18n、metadata，然后每种语言各一次只读 d3 渲染 |
+| `pnpm verify:dataset -- <key> [...] [--skip-render]` | 只读批量诊断：全局 SSOT/metadata 只查一次，每个 key 的语法与 strict i18n 都检查，然后每个 key/语言各一次只读 d3 渲染 |
 | `pnpm verify:ssot` | SSOT ↔ 数据集奇偶 + 注册奇偶 + 货币/单位与汇率覆盖（全局） |
 | `pnpm verify:i18n -- [--strict] [keys]` | i18n 覆盖检查 |
 | `pnpm verify:d3 -- <key> [--build <build-id>] [--focus <dir>] [--keep] [--language <code>]` | 只读 d3 诊断 + 自动硬门槛；`--build` 只加载 fresh Plan/node-face policy（typed floor exception 必需），不归档、不推进证据 lineage |
@@ -146,6 +146,10 @@ CI（`.github/workflows/ci.yml`）始终运行 `pnpm check`，再由 ChangeImpac
 检查；未知可执行影响回退完整套件。`main` 上直接把同一次运行验证过的 `_site`
 artifact 交给 Pages deploy，不再二次 checkout/install/build。每个检查的白话作用、
 原理、盲区与触发矩阵由 `docs/ci-verification.zh-CN.md` 统一说明。
+
+main push 从最近成功的 CI 祖先开始计算检查范围；未知或缺失影响仍全量回退。
+输入未变时不重复执行已经完成的聚合门及其子命令；精确候选复用边界见
+`docs/local-environments.md`。
 
 ## 工作流
 

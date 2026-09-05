@@ -91,7 +91,7 @@ function requireChangedRender(plan, key, reason, existingDatasetKeys) {
 }
 
 function classifyPath(plan, file, status, options) {
-  const { existingDatasetKeys, incomeStatementKeysByPath } = options;
+  const { existingDatasetKeys, incomeStatementKeysByPath, registrationOnly, baselineKeys, assetKeysByPath } = options;
   const datasetMatch = DATASET_PATH_RE.exec(file);
   if (datasetMatch) {
     const key = datasetMatch[1];
@@ -142,6 +142,7 @@ function classifyPath(plan, file, status, options) {
     file === 'data/dataset-manifest.js'
     || file === 'data/dataset-file-metadata.js'
     || file === 'data/products.js'
+    || file === 'data/workflow-timestamps.json'
   ) {
     requireSiteProjection(plan, `site data projection changed: ${file}`);
     return;
@@ -154,6 +155,11 @@ function classifyPath(plan, file, status, options) {
 
   if (file === 'data/render-baselines.json') {
     addImpact(plan, 'geometry');
+    if (Array.isArray(baselineKeys)) {
+      for (const key of baselineKeys) requireChangedRender(plan, key, `baseline entry changed: ${key}`, existingDatasetKeys);
+      addReason(plan, `baseline diff covers ${baselineKeys.length} key(s); policy unchanged`);
+      return;
+    }
     plan.renderScope = 'full';
     plan.renderKeys.clear();
     addReason(plan, 'canonical render baselines changed');
@@ -162,6 +168,17 @@ function classifyPath(plan, file, status, options) {
 
   if (file.startsWith('data/assets/')) {
     addImpact(plan, 'asset');
+    if (file === 'data/assets/catalog.json' || /^data\/assets\/versions\/[^/]+\.json$/.test(file)
+      || /^data\/assets\/icon-references\/.+\.(?:json|png|jpe?g|webp|svg)$/i.test(file)) {
+      addReason(plan, `asset provenance covered by catalog verification: ${file}`);
+      return;
+    }
+    if (assetKeysByPath?.has(file)) {
+      for (const key of assetKeysByPath.get(file)) requireChangedRender(plan, key, `asset consumer changed: ${key}`, existingDatasetKeys);
+      requireSiteProjection(plan, `runtime asset changed: ${file}`);
+      requireStandalone(plan, `runtime asset changed: ${file}`);
+      return;
+    }
     requireFull(plan, `render asset changed: ${file}`);
     return;
   }
@@ -188,6 +205,11 @@ function classifyPath(plan, file, status, options) {
   }
 
   if (file === 'index.html') {
+    if (registrationOnly) {
+      requireSiteProjection(plan, 'generated SSOT registration changed; runtime order unchanged');
+      requireStandalone(plan, 'SSOT registration changed');
+      return;
+    }
     addImpact(plan, 'interaction');
     addImpact(plan, 'render-engine');
     requireFull(plan, 'script registration and load order changed: index.html');
@@ -208,6 +230,12 @@ function classifyPath(plan, file, status, options) {
 
   if (STANDALONE_PIPELINE_PATHS.has(file)) {
     requireStandalone(plan, `standalone build/verification changed: ${file}`);
+    return;
+  }
+
+  if (file === 'scripts/verify-app.mjs' || file === 'scripts/verify-workbench.mjs') {
+    plan.verifyApp = true;
+    addReason(plan, `browser verification changed: ${file}`);
     return;
   }
 
@@ -285,6 +313,7 @@ export function planCiChecks(entries, options = {}) {
     for (const file of paths) {
       plan.changedFiles.push(file);
       classifyPath(plan, file, file === normalizedPath(entry.path) ? status : 'D', {
+        ...options,
         existingDatasetKeys,
         incomeStatementKeysByPath,
       });

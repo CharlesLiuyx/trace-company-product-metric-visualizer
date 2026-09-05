@@ -111,12 +111,12 @@ export async function planAssetPublication(buildIds, root = rootDir, options = {
     await updateAssetCatalog(temporary);
     const checks = [];
     const verifier = options.verifyCandidate || (async ({ candidate, contexts: builds }) => {
-      const runs = [];
-      for (const { build } of builds) {
-        const run = runWorkspace(candidate, build.adapter === 'metric-observation' ? 'verify-metrics.mjs' : 'verify-dataset.mjs', [build.key, ...(build.adapter === 'metric-observation' ? [] : ['--skip-render'])]);
-        runs.push({ key: build.key, outputDigest: bytesDigest(run.stdout + '\0' + run.stderr) });
-      }
-      return runs;
+      // Global SSOT/registration/metadata checks belong to the combined tree,
+      // not to each member. Strict localization still covers every member key.
+      const keys = builds.map(({ build }) => build.key);
+      const run = runWorkspace(candidate, 'verify-dataset.mjs', [...keys, '--skip-render']);
+      const outputDigest = bytesDigest(run.stdout + '\0' + run.stderr);
+      return keys.map((key) => ({ key, outputDigest }));
     });
     checks.push(...await verifier({ candidate: temporary, contexts }));
     // Recheck all Build seals after projection and validation, closing the
