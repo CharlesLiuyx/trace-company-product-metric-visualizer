@@ -172,7 +172,7 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 | 阶段 | 规则 |
 | --- | --- |
 | structure | [G1](#rule-g1) [G2](#rule-g2) [G4](#rule-g4) [G5](#rule-g5) [G6](#rule-g6) [G7](#rule-g7) [G12](#rule-g12) [B7](#rule-b7) [B8](#rule-b8) [B10](#rule-b10) [B11](#rule-b11) [B12](#rule-b12) [B15](#rule-b15) [R3](#rule-r3) [R4](#rule-r4) [R5](#rule-r5) [R6](#rule-r6) [R7](#rule-r7) [R8](#rule-r8) [R9](#rule-r9) [L1](#rule-l1) [L2](#rule-l2) [L3](#rule-l3) [L4](#rule-l4) [L5](#rule-l5) [L6](#rule-l6) [L7](#rule-l7) [L8](#rule-l8) [L9](#rule-l9) [L10](#rule-l10) [L11](#rule-l11) [L13](#rule-l13) [L14](#rule-l14) [L15](#rule-l15) [L16](#rule-l16) [T12](#rule-t12) [T12a](#rule-t12a) [T13](#rule-t13) [T14](#rule-t14) [T21](#rule-t21) |
-| text | [G3](#rule-g3) [G3a](#rule-g3a) [G3b](#rule-g3b) [G3c](#rule-g3c) [G8](#rule-g8) [G9](#rule-g9) [G10](#rule-g10) [B1](#rule-b1) [B2](#rule-b2) [B3](#rule-b3) [B4](#rule-b4) [B5](#rule-b5) [B6](#rule-b6) [B13](#rule-b13) [B14](#rule-b14) [T1](#rule-t1) [T2](#rule-t2) [T3](#rule-t3) [T4](#rule-t4) [T5](#rule-t5) [T6](#rule-t6) [T7](#rule-t7) [T8](#rule-t8) [T9](#rule-t9) [T10](#rule-t10) [T11](#rule-t11) [T15](#rule-t15) [T16](#rule-t16) [T17](#rule-t17) [T18](#rule-t18) [T20](#rule-t20) [A1](#rule-a1) [A2](#rule-a2) [A3](#rule-a3) [A4](#rule-a4) [A5](#rule-a5) [A6](#rule-a6) [A7](#rule-a7) [A8](#rule-a8) [A9](#rule-a9) [A10](#rule-a10) |
+| text | [G3](#rule-g3) [G3a](#rule-g3a) [G3b](#rule-g3b) [G3c](#rule-g3c) [G3d](#rule-g3d) [G8](#rule-g8) [G9](#rule-g9) [G10](#rule-g10) [B1](#rule-b1) [B2](#rule-b2) [B3](#rule-b3) [B4](#rule-b4) [B5](#rule-b5) [B6](#rule-b6) [B13](#rule-b13) [B14](#rule-b14) [T1](#rule-t1) [T2](#rule-t2) [T3](#rule-t3) [T4](#rule-t4) [T5](#rule-t5) [T6](#rule-t6) [T7](#rule-t7) [T8](#rule-t8) [T9](#rule-t9) [T10](#rule-t10) [T11](#rule-t11) [T15](#rule-t15) [T16](#rule-t16) [T17](#rule-t17) [T18](#rule-t18) [T20](#rule-t20) [A1](#rule-a1) [A2](#rule-a2) [A3](#rule-a3) [A4](#rule-a4) [A5](#rule-a5) [A6](#rule-a6) [A7](#rule-a7) [A8](#rule-a8) [A9](#rule-a9) [A10](#rule-a10) |
 | polish-l10n | [B9](#rule-b9) [L12](#rule-l12) [Z1](#rule-z1) [Z2](#rule-z2) [Z3](#rule-z3) [Z4](#rule-z4) [Z5](#rule-z5) [Z6](#rule-z6) [Z6a](#rule-z6a) [Z7](#rule-z7) [Z8](#rule-z8) |
 | build | [G11](#rule-g11) [B16](#rule-b16) [T19](#rule-t19) [T22](#rule-t22) [T23](#rule-t23) |
 | subloop | [R1](#rule-r1) [R2](#rule-r2) [I1](#rule-i1) [I2](#rule-i2) [I3](#rule-i3) [I4](#rule-i4) [I5](#rule-i5) [I6](#rule-i6) [I7](#rule-i7) [I8](#rule-i8) [I9](#rule-i9) [I10](#rule-i10) [I11](#rule-i11) [I12](#rule-i12) |
@@ -183,18 +183,18 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 | --- | --- |
 | node | [G8](#rule-g8) [G9](#rule-g9) [G10](#rule-g10) [B1](#rule-b1) [B2](#rule-b2) [B4](#rule-b4) [B7](#rule-b7) [B10](#rule-b10) [B12](#rule-b12) [B13](#rule-b13) [B15](#rule-b15) [B16](#rule-b16) [L4](#rule-l4) [L6](#rule-l6) [L9](#rule-l9) [L11](#rule-l11) [L13](#rule-l13) [L14](#rule-l14) [T1](#rule-t1) [T2](#rule-t2) [T3](#rule-t3) [T4](#rule-t4) [T5](#rule-t5) [T8](#rule-t8) [T9](#rule-t9) [T10](#rule-t10) [T12](#rule-t12) [T12a](#rule-t12a) [T13](#rule-t13) [T14](#rule-t14) [T15](#rule-t15) [T21](#rule-t21) [T22](#rule-t22) [T23](#rule-t23) [A10](#rule-a10) [I12](#rule-i12) |
 | link | [G12](#rule-g12) [B8](#rule-b8) [B9](#rule-b9) [B10](#rule-b10) [B11](#rule-b11) [B12](#rule-b12) [L1](#rule-l1) [L2](#rule-l2) [L3](#rule-l3) [L4](#rule-l4) [L5](#rule-l5) [L6](#rule-l6) [L7](#rule-l7) [L8](#rule-l8) [L9](#rule-l9) [L10](#rule-l10) [L11](#rule-l11) [L12](#rule-l12) [L13](#rule-l13) [L14](#rule-l14) [L15](#rule-l15) [L16](#rule-l16) |
-| label | [G8](#rule-g8) [G9](#rule-g9) [G10](#rule-g10) [B1](#rule-b1) [B2](#rule-b2) [B3](#rule-b3) [B4](#rule-b4) [B5](#rule-b5) [B6](#rule-b6) [B13](#rule-b13) [B14](#rule-b14) [L13](#rule-l13) [T1](#rule-t1) [T2](#rule-t2) [T3](#rule-t3) [T4](#rule-t4) [T5](#rule-t5) [T6](#rule-t6) [T7](#rule-t7) [T8](#rule-t8) [T9](#rule-t9) [T10](#rule-t10) [T11](#rule-t11) [T15](#rule-t15) [T16](#rule-t16) [T17](#rule-t17) [T18](#rule-t18) [T20](#rule-t20) [A6](#rule-a6) [Z5](#rule-z5) [Z8](#rule-z8) [I12](#rule-i12) |
-| annotation | [B5](#rule-b5) [B16](#rule-b16) [T12a](#rule-t12a) [T17](#rule-t17) [A1](#rule-a1) [A2](#rule-a2) [A3](#rule-a3) [A4](#rule-a4) [A5](#rule-a5) [A6](#rule-a6) [A7](#rule-a7) [A8](#rule-a8) [A9](#rule-a9) [A10](#rule-a10) [Z6a](#rule-z6a) [I12](#rule-i12) |
+| label | [G3d](#rule-g3d) [G8](#rule-g8) [G9](#rule-g9) [G10](#rule-g10) [B1](#rule-b1) [B2](#rule-b2) [B3](#rule-b3) [B4](#rule-b4) [B5](#rule-b5) [B6](#rule-b6) [B13](#rule-b13) [B14](#rule-b14) [L13](#rule-l13) [T1](#rule-t1) [T2](#rule-t2) [T3](#rule-t3) [T4](#rule-t4) [T5](#rule-t5) [T6](#rule-t6) [T7](#rule-t7) [T8](#rule-t8) [T9](#rule-t9) [T10](#rule-t10) [T11](#rule-t11) [T15](#rule-t15) [T16](#rule-t16) [T17](#rule-t17) [T18](#rule-t18) [T20](#rule-t20) [A6](#rule-a6) [Z5](#rule-z5) [Z8](#rule-z8) [I12](#rule-i12) |
+| annotation | [G3d](#rule-g3d) [B5](#rule-b5) [B16](#rule-b16) [T12a](#rule-t12a) [T17](#rule-t17) [A1](#rule-a1) [A2](#rule-a2) [A3](#rule-a3) [A4](#rule-a4) [A5](#rule-a5) [A6](#rule-a6) [A7](#rule-a7) [A8](#rule-a8) [A9](#rule-a9) [A10](#rule-a10) [Z6a](#rule-z6a) [I12](#rule-i12) |
 | locale | [B6](#rule-b6) [A7](#rule-a7) [Z1](#rule-z1) [Z2](#rule-z2) [Z3](#rule-z3) [Z4](#rule-z4) [Z5](#rule-z5) [Z6](#rule-z6) [Z6a](#rule-z6a) [Z7](#rule-z7) [Z8](#rule-z8) |
 | raster | [G6](#rule-g6) [G7](#rule-g7) [R1](#rule-r1) [R2](#rule-r2) [R3](#rule-r3) [R4](#rule-r4) [R5](#rule-r5) [R6](#rule-r6) [R7](#rule-r7) [R8](#rule-r8) [R9](#rule-r9) [Z6a](#rule-z6a) |
 | icon | [R1](#rule-r1) [R2](#rule-r2) [I1](#rule-i1) [I2](#rule-i2) [I3](#rule-i3) [I4](#rule-i4) [I5](#rule-i5) [I6](#rule-i6) [I7](#rule-i7) [I8](#rule-i8) [I9](#rule-i9) [I10](#rule-i10) [I11](#rule-i11) [I12](#rule-i12) |
-| global | [G1](#rule-g1) [G2](#rule-g2) [G3](#rule-g3) [G3a](#rule-g3a) [G3b](#rule-g3b) [G3c](#rule-g3c) [G4](#rule-g4) [G5](#rule-g5) [G6](#rule-g6) [G7](#rule-g7) [G11](#rule-g11) [T19](#rule-t19) |
+| global | [G1](#rule-g1) [G2](#rule-g2) [G3](#rule-g3) [G3a](#rule-g3a) [G3b](#rule-g3b) [G3c](#rule-g3c) [G3d](#rule-g3d) [G4](#rule-g4) [G5](#rule-g5) [G6](#rule-g6) [G7](#rule-g7) [G11](#rule-g11) [T19](#rule-t19) |
 
 **按执行方式：**
 
 | 类别 | 规则 |
 | --- | --- |
-| `hard-gate` | [G1](#rule-g1) [G2](#rule-g2) [G3](#rule-g3) [G3a](#rule-g3a) [G3b](#rule-g3b) [G3c](#rule-g3c) [G4](#rule-g4) [G5](#rule-g5) [G6](#rule-g6) [G7](#rule-g7) [G8](#rule-g8) [G9](#rule-g9) [G10](#rule-g10) [G12](#rule-g12) [R3](#rule-r3) [R4](#rule-r4) [R5](#rule-r5) [R6](#rule-r6) [R7](#rule-r7) [R8](#rule-r8) [R9](#rule-r9) [L15](#rule-l15) |
+| `hard-gate` | [G1](#rule-g1) [G2](#rule-g2) [G3](#rule-g3) [G3a](#rule-g3a) [G3b](#rule-g3b) [G3c](#rule-g3c) [G3d](#rule-g3d) [G4](#rule-g4) [G5](#rule-g5) [G6](#rule-g6) [G7](#rule-g7) [G8](#rule-g8) [G9](#rule-g9) [G10](#rule-g10) [G12](#rule-g12) [R3](#rule-r3) [R4](#rule-r4) [R5](#rule-r5) [R6](#rule-r6) [R7](#rule-r7) [R8](#rule-r8) [R9](#rule-r9) [L15](#rule-l15) |
 | `build-gate` | [G11](#rule-g11) [T19](#rule-t19) [T22](#rule-t22) [T23](#rule-t23) |
 | `conditional-gate` | [B3](#rule-b3) [B5](#rule-b5) [B6](#rule-b6) [B7](#rule-b7) [B15](#rule-b15) [B16](#rule-b16) [T7](#rule-t7) [T13](#rule-t13) [T18](#rule-t18) [T21](#rule-t21) [A6](#rule-a6) [A10](#rule-a10) [Z5](#rule-z5) |
 | `quantified-audit` | [B8](#rule-b8) [B10](#rule-b10) [B12](#rule-b12) [L5](#rule-l5) [L6](#rule-l6) [L10](#rule-l10) [L11](#rule-l11) [T1](#rule-t1) [T2](#rule-t2) [T4](#rule-t4) [T6](#rule-t6) [I12](#rule-i12) |
@@ -223,8 +223,8 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 
 - 阶段：text · 主题：global
 - 触发：每个 evidence run。
-- 检查：字体总门槛要求 G3a、G3b、G3c 同时通过。
-- 证据：汇总保留三项结果。
+- 检查：字体总门槛要求 G3a、G3b、G3c、G3d 同时通过。
+- 证据：汇总保留字体角色与字形比例结果。
 
 #### <a id="rule-g3a"></a>G3a · hard-gate
 
@@ -243,6 +243,15 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 - 阶段：text · 主题：global
 - 检查：仅最近祖先带 `data-typography-role="brand"` 的真实 Logo、wordmark、商标锁定或品牌插图可不受 G3b 限制。
 - 通过：不能给普通 label 或整层 annotation 标 brand。
+
+#### <a id="rule-g3d"></a>G3d · hard-gate
+
+- 阶段：text · 主题：global、label、annotation
+- 触发：每个 evidence run、verify:d3 与 Build seal 的非品牌产品文本，覆盖名称、金额、备注、标题及各 locale。
+- 检查：使用已加载字体的自然字宽，测量 textLength/spacingAndGlyphs 与祖先变换的组合字形比例；排除整体等比缩放及旋转。
+- 通过：组合变换的最大/最小主轴比不得超过 1.25；禁止为贴合 bbox 把文字横向压窄成纵向细长字形。优先使用自然字形、合适字号和换行，不能以更大字号再压窄代替。
+- 证据：typographyAudit 逐 text/tspan/textPath 保存 glyphScaleX、glyphAspectRatio，越界阻断 G3；普通标签不得借 brand 角色豁免。未绑定 Build 的历史目录回归、Pages 与 standalone 检查以 audit 模式单独保存字形失败状态和逐行 findings，不据此追认历史图，也不替代新增/返工 Build 的硬门。
+- 来源：commit 2026-09-05 Circle Q2 FY26：用户指出右侧费用名称与金额纵向拉伸过多。
 
 #### <a id="rule-g4"></a>G4 · hard-gate
 

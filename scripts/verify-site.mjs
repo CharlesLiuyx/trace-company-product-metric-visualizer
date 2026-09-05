@@ -241,11 +241,16 @@ try {
       '',
     language: (typeof state !== 'undefined' && state?.language) || 'en',
   }));
-  const sankeyTypography = await typographyAudit(page, activeTypographyIdentity);
+  const sankeyTypography = await typographyAudit(page, {
+    ...activeTypographyIdentity,
+    // Published catalog has no Build context; fidelity and seal enforce G3d.
+    glyphProportionPolicy: 'audit',
+  });
   assertTypographyAudit(sankeyTypography);
   metrics.sankeyTypography =
     `${sankeyTypography.status}, product=${sankeyTypography.productTextCount}, ` +
-    `brand=${sankeyTypography.brandTextCount}`;
+    `brand=${sankeyTypography.brandTextCount}, glyph proportions=${sankeyTypography.glyphProportionAudit.status} ` +
+    `(unbound audit, ${sankeyTypography.glyphProportionAudit.violations.length} findings)`;
 
   const typographyState = await page.evaluate(() => {
     const font = (selector) => {

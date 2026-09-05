@@ -1,6 +1,6 @@
 {
   "protocol": "feedback-pattern-index/v1",
-  "sourceDigest": "sha256:a695ad685e91481ef55a75216b6752b43f7ca2cd5b05cd544eac493324183ec9",
+  "sourceDigest": "sha256:bc3bf4bcce7e5ce243acd50769f8d9a57fca0b1becaa4e58c7c47d12c7e53df7",
   "patterns": [
     {
       "id": "CB-001",
@@ -90,6 +90,7 @@
         "B15",
         "B7",
         "T12",
+        "T12a",
         "T13",
         "T14",
         "T21",
@@ -204,7 +205,9 @@
       "source": "docs/fidelity-feedback-casebook.md",
       "pattern": "runtime raster + 非默认 locale",
       "rootCause": "Z6a 人工移位 + workflow §Traps",
-      "ruleIds": [],
+      "ruleIds": [
+        "Z6a"
+      ],
       "defense": "每 locale raster bbox × 文本 bbox 交叠 quantified-audit",
       "recurrenceAction": ""
     },
@@ -443,6 +446,30 @@
       "ruleIds": [],
       "defense": "Adapter 记录 `data-user-directed-layout=\"other-income-under-guide-left-of-net-profit\"`；数据集契约 hard gate 将英中两行锚点固定为 `(2206,550)` / `(2206,590)`、要求其位于 Net profit 左侧，并将 Net profit face 色固定为用户要求的深绿 `#008f51`。",
       "recurrenceAction": ""
+    },
+    {
+      "id": "CB-041",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "普通产品文本使用 spacingAndGlyphs、非等比变换或为贴合 bbox 反向放大字号",
+      "rootCause": "rule-missing",
+      "ruleIds": [
+        "G3d"
+      ],
+      "defense": "G3d typographyAudit hard gate 测量自然字宽及组合变换，覆盖标题、名称、金额、tspan、祖先变换与各 locale；同批 Circle、Fiserv、Chime、Klarna、Docebo、DigitalOcean、Monday.com、Klaviyo、Autodesk、Zoom 均修复命中行，并保留逐 Build 前后审计",
+      "recurrenceAction": "已落实 hard-gate；字体名称与位置合规不能替代字形比例检查，禁止普通 label 冒充 brand"
+    },
+    {
+      "id": "CB-042",
+      "source": "docs/fidelity-feedback-casebook.md",
+      "pattern": "短柱与唯一输出 Link 应连续满面相接",
+      "rootCause": "execution-gap",
+      "ruleIds": [
+        "G12",
+        "L5",
+        "L9"
+      ],
+      "defense": "G12/L5/L9：Other 输出端宽度与完整柱面一致，声明 other:right 的 full-face intent，既有自动接口门检查上下边界、端点与水平切线；保留用户截图及 Source 的连续连接事实",
+      "recurrenceAction": "使用现有 hard-gate；同批逐接口横向排查，实际有 Source 间隔的接口保留原生占用，不把所有单 Link 一律补满"
     }
   ]
 }
