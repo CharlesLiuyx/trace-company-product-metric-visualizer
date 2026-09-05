@@ -111,6 +111,11 @@ without a Source face is modeled as flow or annotation. These remain build-local
 
 ## Current implementation
 
+The Pages runtime uses a light catalog plus versioned company/family JSON
+details. Its data readiness, complete Table/CSV behavior, offline compatibility,
+and deployment retention are owned by [runtime-data.md](runtime-data.md).
+This read projection does not change the dataset lifecycle or canonical storage.
+
 New Sources use [asset-workflow.md](../asset-workflow.md). PNG, TXT and Markdown
 are supported; the media format is separate from Income Statement, Revenue
 Metric and the new generic Metric Observation Adapter. The latter has exact
@@ -127,6 +132,11 @@ pointer CAS. Different writes to the same owned path conflict explicitly.
 Readers pin the digest before fetching HTML and assets. The working tree is
 still available for code development and legacy direct-edit data; it is not
 claimed to become atomic through a series of file copies.
+
+The root file viewer embeds one selected complete draft or published tree at a time.
+A machine-local selection is derived by preparation/publication and polled by the
+file entry; it neither merges data into the development worktree nor changes the
+canonical pointer/evidence contract. Drafts are visibly pending human review.
 
 Release attempts build and verify Pages or standalone output from a published
 digest and retain their own success/error receipt. No external deployment is

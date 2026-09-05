@@ -226,6 +226,13 @@ information and Loop Fidelity Summary. These are pure Views: status and
 confidence are derived from structured facts, and the rendered text is never
 fed back as evidence, attestation, or a state-transition input.
 
+The root `index.html` is also a stable local review View. Preparation selects a
+Build workspace; successful publication selects the current published tree. The
+machine-local `output/local-view/selection.js` is a rebuildable UI preference,
+not canonical registration, evidence or a Build transition. A pending label stays
+until publication, and selection cannot accept a review. File readers embed one
+complete selected tree and poll the preference; HTTP readers retain digest routing.
+
 ## Publication planning
 
 A `PublicationBatch` consumes only fresh `SEALED` builds. Planning is

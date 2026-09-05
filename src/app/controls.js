@@ -79,13 +79,12 @@ function renderAll() {
   renderActiveSummary();
   renderCompanies();
   if (isIncomeStatementMetric()) renderPeriods();
-  if (state.viewMode === 'table') renderTables();
   syncToolbarHeight();
   requestAnimationFrame(updatePeriodScrollIndicator);
 }
-/* Single full-refresh entry point after a state change: renderAll() already
- * synced the view controls and (when in table view) the tables, so draw()
- * skips both. Call draw() directly only for view-only repaints (resize,
+/* Single full-refresh entry point after a state change: renderAll() syncs
+ * navigation immediately; draw() owns data readiness and content. Call
+ * draw() directly only for view-only repaints (resize,
  * theme change) where sidebar/controls state is untouched.
  *
  * Every company-scope change funnels through here (company click, hash
@@ -94,7 +93,7 @@ function renderAll() {
  * draw() needs right now first in line; preloading is idempotent. */
 function refresh() {
   renderAll();
-  draw({ renderTable: false, syncView: false });
+  draw({ syncView: false });
   scheduleIdleTask(() => preloadScopeCompanyDatasets());
 }
 function renderMetricModeButtons(availableModes) {

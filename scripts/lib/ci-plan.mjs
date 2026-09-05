@@ -29,6 +29,9 @@ const D3_PIPELINE_PATHS = new Set([
 const SITE_PIPELINE_PATHS = new Set([
   'scripts/build-site.mjs',
   'scripts/verify-site.mjs',
+  'scripts/benchmark-site.mjs',
+  'scripts/lib/site-data.mjs',
+  'scripts/lib/site-data-browser.mjs',
 ]);
 
 const STANDALONE_PIPELINE_PATHS = new Set([
@@ -172,6 +175,7 @@ function classifyPath(plan, file, status, options) {
 
   if (
     file.startsWith('src/app/')
+    || file === 'src/runtime-data.js'
     || file === 'src/comparison-scale.js'
     || file === 'src/app.css'
     || file === 'vendor/chart.umd.min.js'

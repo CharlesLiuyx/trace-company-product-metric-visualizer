@@ -168,10 +168,11 @@ function requestVirtualTableUpdate() {
   });
 }
 
-function tableModelForLanguage(language = state.language) {
+function tableModelForLanguage(language = state.language, kind = activeTableKind()) {
   const code = languageCode(language);
-  if (tableModelCache.has(code)) return tableModelCache.get(code);
-  const companyRows = groups.map((group) => {
+  const cacheKey = `${code}:${kind}`;
+  if (tableModelCache.has(cacheKey)) return tableModelCache.get(cacheKey);
+  const companyRows = (kind === 'company' ? groups : []).map((group) => {
     const sourceMeta = metadataFor(group.company);
     const meta = localizedCompanyRecord(sourceMeta, code);
     const marketCapUsd = marketCapValueUsd(group.company);
@@ -188,7 +189,7 @@ function tableModelForLanguage(language = state.language) {
       tableAttrs: `data-company-key="${escapeHtml(companyKey(group.company))}"`,
     };
   });
-  const statementRows = [...records]
+  const statementRows = [...(kind === 'statement' ? records : [])]
     .sort((a, b) => a.company.localeCompare(b.company) || b.sortValue - a.sortValue || a.period.localeCompare(b.period))
     .map((record) => {
       const financial = localizedFinancialRecord(financialFor(record), code);
@@ -212,7 +213,7 @@ function tableModelForLanguage(language = state.language) {
         tableAttrs: `data-dataset-key="${escapeHtml(record.dataset.key)}"`,
       };
     });
-  const revenueRows = [...revenueRecords]
+  const revenueRows = [...(kind === 'revenue' ? revenueRecords : [])]
     .sort((a, b) => a.company.localeCompare(b.company) || b.sortValue - a.sortValue || a.period.localeCompare(b.period))
     .flatMap((record) => {
       const metric = localizedRevenueRecord(record.metric, code) || record.metric;
@@ -236,11 +237,11 @@ function tableModelForLanguage(language = state.language) {
       }));
     });
   const model = { companyRows, statementRows, revenueRows };
-  tableModelCache.set(code, model);
+  tableModelCache.set(cacheKey, model);
   return model;
 }
 function companyRows() {
-  const rowByCompany = new Map(tableModelForLanguage().companyRows.map((row) => [row.companyCanonical, row]));
+  const rowByCompany = new Map(tableModelForLanguage(state.language, 'company').companyRows.map((row) => [row.companyCanonical, row]));
   const scope = selectedCompanySet();
   const sourceGroups = state.multiCompanyMode ? groups.filter((group) => scope.has(group.company)) : groups;
   return sortedCompanyGroups(sourceGroups).map((group) => {
@@ -254,7 +255,7 @@ function companyRows() {
 function statementRows() {
   const scope = selectedCompanySet();
   const periodScope = new Set(isMultiPeriodScope() ? state.selectedPeriodIndexes : []);
-  return tableModelForLanguage().statementRows
+  return tableModelForLanguage(state.language, 'statement').statementRows
     .filter((row) => !state.multiCompanyMode || scope.has(row.record.company))
     .map((row) => ({
       ...row,
@@ -267,7 +268,7 @@ function statementRows() {
 }
 function revenueRows() {
   const scope = selectedCompanySet();
-  return tableModelForLanguage().revenueRows
+  return tableModelForLanguage(state.language, 'revenue').revenueRows
     .filter((row) => !state.multiCompanyMode || scope.has(row.record.company))
     .map((row) => ({
       ...row,
@@ -298,9 +299,11 @@ function renderDataTable(table, columns, rows, emptyText, targetWidth = 0) {
   renderVirtualTableBody(table, true);
 }
 function renderTables() {
-  const companies = companyRows();
-  const statements = statementRows();
-  const revenue = revenueRows();
+  const kind = activeTableKind();
+  if (!runtimeData.ready({ family: kind })) return;
+  const companies = kind === 'company' ? companyRows() : [];
+  const statements = kind === 'statement' ? statementRows() : [];
+  const revenue = kind === 'revenue' ? revenueRows() : [];
   const companyColumns = [
     { label: t('tableCompany'), className: 'nowrap', widthPreset: 'text', maxWidth: 118, grow: 0, value: (row) => row.company },
     { label: t('tableLegalName'), className: 'nowrap', widthPreset: 'text', minWidth: 116, maxWidth: 150, grow: 0, value: (row) => row.legalName },
@@ -349,9 +352,9 @@ function renderTables() {
   companiesTableCount.textContent = countText('companiesCountOne', 'companiesCountMany', companies.length);
   statementsTableCount.textContent = countText('statementsCountOne', 'statementsCountMany', statements.length);
   revenueTableCount.textContent = countText('revenueRowsCountOne', 'revenueRowsCountMany', revenue.length);
-  renderDataTable(companiesTable, companyColumns, companies, t('noCompaniesRegistered'), content.clientWidth);
-  renderDataTable(statementsTable, statementColumns, statements, t('noIncomeStatementsRegistered'), content.clientWidth);
-  renderDataTable(revenueTable, revenueColumns, revenue, t('noRevenueMetricsRegistered'), content.clientWidth);
+  if (kind === 'company') renderDataTable(companiesTable, companyColumns, companies, t('noCompaniesRegistered'), content.clientWidth);
+  if (kind === 'statement') renderDataTable(statementsTable, statementColumns, statements, t('noIncomeStatementsRegistered'), content.clientWidth);
+  if (kind === 'revenue') renderDataTable(revenueTable, revenueColumns, revenue, t('noRevenueMetricsRegistered'), content.clientWidth);
 }
 
 function virtualTableTarget(kind) {

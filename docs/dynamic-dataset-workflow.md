@@ -339,6 +339,10 @@ and report that no move was authorized.
 
 Always, before the final response:
 
+- Verify the selected result through the root `index.html` file entry. Preparation
+  must show a pending-review draft; after explicit approval and publication the
+  same entry must show the published result (owner: `asset-workflow.md`).
+
 - `pnpm check` passes; fresh-checkout/CI details stay in AGENTS and CI docs.
 - The Build has matching Source Classification/Coverage, ObjectInventory,
   Plan v5, Packet v4, consistency evidence, and authored digests.

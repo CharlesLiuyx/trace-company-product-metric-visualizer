@@ -25,6 +25,7 @@ together.
 | Trace product and data model | `docs/trace-specification.zh-CN.md` |
 | human quickstart, viewer usage | `README.md` |
 | CI check purpose, ChangeImpact routing, performance baseline, Pages artifact handoff | `docs/ci-verification.zh-CN.md` |
+| Pages runtime data projection, lazy detail loading, version retention and completeness | `docs/architecture/runtime-data.md` |
 
 ## Goal
 
@@ -74,6 +75,10 @@ already exists.
  loaded on demand by the viewer through `src/dataset-registry.js` +
  `src/app/dataset-loader.js`. `verify:ssot` enforces disk ↔ registration
  parity for both surfaces and `pnpm sync:index-datasets` repairs them.
+- Pages alone projects these complete SSOTs into a light catalog and versioned
+  JSON details through `scripts/lib/site-data.mjs` + `src/runtime-data.js`.
+  Source/standalone retain full data. Read `docs/architecture/runtime-data.md`
+  before changing data readiness, table/CSV completeness, or runtime versions.
 - `data/metric-observations/<source-key>.json` is the pure generic Metric SSOT;
   `data/metric-observations.js` is its generated catalog. The main viewer
   `src/app/metric-library.js` exposes company/product identity, exact values,
@@ -236,3 +241,14 @@ script, so you do not need to reinstall them. Non-obvious caveats for this VM:
 - `pnpm check`, `pnpm test`, `pnpm verify:app`, `pnpm build:standalone`, and
   `pnpm verify:standalone` run green on a fresh checkout. `pnpm verify:d3`
   additionally requires the selected reference in the machine-local archive.
+
+
+## Local review entry / 本机审阅入口
+
+Use the root `index.html` as the operator’s stable review address. Successful
+`record:workflow prepare` selects the isolated draft with a pending-review label;
+after explicit human approval, complete review, seal and publication without another
+publication permission question. `publish:datasets commit` switches the same entry
+to the published snapshot. Verify the actual file entry before reporting completion.
+The machine-local selection is a derived UI preference, not review evidence or
+canonical data. Operational details: `docs/asset-workflow.md`.

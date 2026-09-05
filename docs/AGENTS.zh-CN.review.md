@@ -35,6 +35,7 @@ agent 指令以英文版 `AGENTS.md` 为准。
 | Trace 产品与数据模型 | `docs/trace-specification.zh-CN.md` |
 | 人类快速上手、viewer 使用 | `README.md` |
 | CI 检查作用、ChangeImpact 路由、性能基线、Pages artifact 交接 | `docs/ci-verification.zh-CN.md` |
+| Pages 运行数据投影、详情按需加载、版本保留与完整性 | `docs/architecture/runtime-data.md` |
 
 ## 目标
 
@@ -75,6 +76,10 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
   `src/dataset-registry.js` + `src/app/dataset-loader.js` 在 viewer 中
   按需加载。`verify:ssot` 对两个注册面都强制磁盘 ↔ 注册一致性，
   `pnpm sync:index-datasets` 负责修复。
+- 仅 Pages 通过 `scripts/lib/site-data.mjs` + `src/runtime-data.js` 将完整
+  SSOT 投影为轻量目录与版本化 JSON 详情；源码版/standalone 保留全量数据。
+  修改数据就绪、Table/CSV 完整性或运行版本前，先读
+  `docs/architecture/runtime-data.md`。
 - `data/products.js` 是未来一等 Product SSOT 的空占位（暂不被 verifier
   校验）。不要把产品身份或归属历史藏进 Sankey adapter。
 - Trace 领域归一化放在 `src/trace-domain.js`；中文翻译数据放在
@@ -203,3 +208,13 @@ processed PNG 只留本机；可复用渲染器支持拆成前置 `render(engine
 - `pnpm check`、`pnpm test`、`pnpm verify:app`、`pnpm build:standalone` 与
   `pnpm verify:standalone` 在全新检出上全部绿色；`pnpm verify:d3` 还要求本机
   归档中存在所选 reference。
+
+
+## 本机审阅入口
+
+以根目录 `index.html` 作为操作员固定的审阅地址。`record:workflow prepare`
+成功后自动选择独立草稿，并标注「待人工审阅」；操作员明确确认通过后，连续完成
+审阅记录、最终检查和发布，不再另问是否发布。`publish:datasets commit` 将同一
+入口切换到正式快照。汇报完成前必须实际验证本地文件入口。
+机器本地的选择记录只是衍生 UI 偏好，不是审阅证据或正式数据。
+操作细节由 `docs/asset-workflow.md` 维护。

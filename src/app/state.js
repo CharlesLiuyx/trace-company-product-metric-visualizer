@@ -23,6 +23,8 @@ const {
   unitMultiplier,
 } = TraceDomain;
 const traceCatalog = TraceDomain.createCatalog(window);
+const runtimeData = window.TraceRuntimeData;
+runtimeData.bind(traceCatalog);
 const sets = traceCatalog.datasets;
 
 const SIDEBAR_WIDTH_KEY = 'sankey.sidebar.width';
@@ -355,11 +357,20 @@ function companyDatasetKeys(company) {
     .map((record) => record.dataset.key);
 }
 /* Selecting a company is the load signal for its complete Metric data:
- * revenue metrics and company metadata already ship with the catalog, so
- * this asynchronously pulls every income-statement dataset adapter of the
+ * the draw path ensures its financial/profile detail, while this
+ * asynchronously pulls every income-statement dataset adapter of the
  * scoped companies (all periods and variants) before the user clicks a
  * specific Metric object or period. Idempotent — loaded and in-flight keys
  * are skipped by the loader. */
 function preloadScopeCompanyDatasets(companies = scopeCompanies()) {
   datasetLoader.preload(uniqueCompanies(companies).flatMap((company) => companyDatasetKeys(company)));
+}
+
+function viewDataRequirement() {
+  // Single-company tables deliberately show every company, not just the
+  // active row. Family chunks keep that global surface complete.
+  if (isRevenueMetric()) return { family: 'revenue' };
+  return state.viewMode === 'table'
+    ? { family: activeTableKind() }
+    : { companies: scopeCompanies() };
 }

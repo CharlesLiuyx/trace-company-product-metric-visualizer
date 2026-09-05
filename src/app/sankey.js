@@ -399,6 +399,46 @@ function renderSankeyLoadError(compare) {
   svgBtn.disabled = true;
   pngBtn.disabled = true;
 }
+
+function setDataExportState(disabled) {
+  [companiesCsvBtn, statementsCsvBtn, revenueCsvBtn].forEach((button) => { button.disabled = disabled; });
+}
+
+function renderViewDataState(status, compare) {
+  if (state.viewMode === 'sankey') {
+    if (status === 'loading') renderSankeyLoading(compare);
+    else renderSankeyLoadError(compare);
+  } else {
+    const host = state.viewMode === 'table'
+      ? (isCompanyInfoMetric() ? companiesTable : isRevenueMetric() ? revenueTable : statementsTable)
+      : trendView;
+    if (state.viewMode === 'table') virtualTables.delete(host);
+    if (state.viewMode === 'trend') {
+      renderChartRuntimeState(status);
+    } else {
+      host.innerHTML = `<tbody><tr><td><div class="chart-loading" role="${status === 'error' ? 'alert' : 'status'}">${escapeHtml(t(status === 'error' ? 'datasetLoadError' : 'datasetLoading'))}</div></td></tr></tbody>`;
+      if (status === 'error') {
+        const retry = document.createElement('button');
+        retry.className = 'btn';
+        retry.textContent = t('datasetLoadRetry');
+        retry.onclick = () => draw();
+        host.querySelector('.chart-loading').appendChild(retry);
+      }
+    }
+  }
+  if (status === 'error') {
+    const host = state.viewMode === 'table' ? tableView : state.viewMode === 'trend' ? trendView : compare ? sankeyComparison : chartHost;
+    const target = host.querySelector('[role="alert"], .chart-loading-error, .chart-loading');
+    if (target) {
+      const reload = document.createElement('button');
+      reload.className = 'btn';
+      reload.textContent = t('datasetReloadVersion');
+      reload.onclick = () => window.location.reload();
+      target.appendChild(reload);
+    }
+  }
+}
+
 function draw({ renderTable = true, syncView = true } = {}) {
   if (syncView) syncViewModeControls();
   if (!comparisonZoomActive()) {
@@ -407,6 +447,34 @@ function draw({ renderTable = true, syncView = true } = {}) {
   }
   // any in-flight deferred draw is superseded by this call
   const drawGeneration = ++sankeyDrawGeneration;
+  const compare = isMultiCompanyScope() || isMultiPeriodScope();
+  const requirement = viewDataRequirement();
+  const neededKeys = state.viewMode === 'sankey' ? sankeyDrawDatasetKeys(compare) : [];
+  if (!runtimeData.ready(requirement) || !datasetLoader.ready(neededKeys)) {
+    svgBtn.disabled = true;
+    pngBtn.disabled = true;
+    setDataExportState(true);
+    const cancelIndicator = deferLoadingIndicator(drawGeneration, () => renderViewDataState('loading', compare));
+    Promise.all([
+      runtimeData.ensure(requirement),
+      datasetLoader.ensure(neededKeys),
+      state.viewMode === 'trend' ? viewRuntimeLoader.ensureChart() : Promise.resolve(),
+    ]).then(() => {
+      cancelIndicator();
+      if (drawGeneration !== sankeyDrawGeneration) return;
+      invalidateRuntimeViewCaches({ datasetKeys: neededKeys });
+      renderActiveSummary();
+      draw({ renderTable: true, syncView: false });
+      if (state.viewMode === 'table') scrollActiveTableRow(activeTableKind());
+    }).catch((error) => {
+      cancelIndicator();
+      console.error(error);
+      if (drawGeneration !== sankeyDrawGeneration) return;
+      renderViewDataState('error', compare);
+    });
+    return;
+  }
+  setDataExportState(false);
   if (state.viewMode === 'table') {
     clearSingleChart();
     clearSankeyComparison();
@@ -439,28 +507,6 @@ function draw({ renderTable = true, syncView = true } = {}) {
     renderRevenueTrend();
     svgBtn.disabled = true;
     pngBtn.disabled = true;
-    return;
-  }
-  const compare = isMultiCompanyScope() || isMultiPeriodScope();
-  const neededKeys = sankeyDrawDatasetKeys(compare);
-  if (!datasetLoader.ready(neededKeys)) {
-    // Exports must not capture the superseded chart while the async load is
-    // in flight; the successful redraw re-enables them.
-    svgBtn.disabled = true;
-    pngBtn.disabled = true;
-    const cancelIndicator = deferLoadingIndicator(drawGeneration, () => renderSankeyLoading(compare));
-    datasetLoader.ensure(neededKeys)
-      .then(() => {
-        cancelIndicator();
-        if (drawGeneration !== sankeyDrawGeneration) return;
-        draw({ renderTable, syncView: false });
-      })
-      .catch((error) => {
-        cancelIndicator();
-        console.error(error);
-        if (drawGeneration !== sankeyDrawGeneration) return;
-        renderSankeyLoadError(compare);
-      });
     return;
   }
   if (singleChartCard) singleChartCard.hidden = compare;

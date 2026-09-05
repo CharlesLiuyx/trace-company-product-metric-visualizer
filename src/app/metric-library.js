@@ -6,13 +6,13 @@
   const search = document.getElementById('metricLibrarySearch');
   const rows = document.getElementById('metricLibraryRows');
   const count = document.getElementById('metricLibraryCount');
-  const records = window.METRIC_OBSERVATIONS || [];
+  const records = () => window.METRIC_OBSERVATIONS || [];
   const text = (tag, value) => { const node = document.createElement(tag); node.textContent = value; return node; };
   function render() {
     const query = search.value.trim().toLocaleLowerCase();
     const fragment = document.createDocumentFragment();
     let matches = 0;
-    for (const record of records) {
+    for (const record of records()) {
       for (const metric of record.metrics) {
         const values = [record.subject.name, record.subject.type, metric.period || record.period, metric.name, metric.value + ' ' + metric.unit, metric.currency || '—', metric.basis || record.basis];
         if (query && ![...values, metric.quote, record.key].join(' ').toLocaleLowerCase().includes(query)) continue;
@@ -31,15 +31,30 @@
     rows.replaceChildren(fragment);
     count.textContent = `${matches} 项指标 / observations`;
     if (!matches) {
-      const row = document.createElement('tr'); const cell = text('td', records.length ? '没有匹配的指标 / No matches' : '暂无已纳入的通用指标。图片或文字通过处理与审阅后，会显示在这里。');
+      const row = document.createElement('tr'); const cell = text('td', records().length ? '没有匹配的指标 / No matches' : '暂无已纳入的通用指标。图片或文字通过处理与审阅后，会显示在这里。');
       cell.colSpan = 8; row.append(cell); rows.append(row);
     }
   }
-  button.addEventListener('click', () => { render(); dialog.showModal(); search.focus(); });
+  async function loadRecords() {
+    count.textContent = '正在加载 / Loading';
+    try {
+      await window.TraceRuntimeData.ensure({ family: 'metrics' });
+      render();
+    } catch {
+      count.textContent = '加载失败，请重试或刷新页面 / Load failed. Retry or reload the page.';
+      rows.replaceChildren();
+      const row = document.createElement('tr');
+      const cell = document.createElement('td'); cell.colSpan = 8;
+      const retry = text('button', '重试 / Retry'); retry.onclick = loadRecords;
+      cell.append(retry); row.append(cell); rows.append(row);
+    }
+  }
+  button.addEventListener('click', () => { dialog.showModal(); search.focus(); loadRecords(); });
   document.getElementById('metricLibraryClose').addEventListener('click', () => dialog.close());
-  search.addEventListener('input', render);
-  document.getElementById('metricLibraryExport').addEventListener('click', () => {
-    const blob = new Blob([JSON.stringify(records, null, 2)], { type: 'application/json' });
+  search.addEventListener('input', () => { if (window.TraceRuntimeData.ready({ family: 'metrics' })) render(); });
+  document.getElementById('metricLibraryExport').addEventListener('click', async () => {
+    try { await window.TraceRuntimeData.ensure({ family: 'metrics' }); } catch { await loadRecords(); return; }
+    const blob = new Blob([JSON.stringify(records(), null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob); const link = document.createElement('a');
     link.href = url; link.download = 'trace-metric-observations.json'; link.click();
     setTimeout(() => URL.revokeObjectURL(url), 0);
