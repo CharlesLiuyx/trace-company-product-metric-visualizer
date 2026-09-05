@@ -82,6 +82,7 @@ async function waitForComparisonPhase(page, phase, predicate, argument, options 
       failureStage: document.getElementById('sankeyComparison')?.dataset.scaleFailureStage || '',
       cards: document.querySelectorAll('#sankeyComparison .comparison-card').length,
       hosts: document.querySelectorAll('#sankeyComparison .comparison-chart-host').length,
+      keys: [...document.querySelectorAll('#sankeyComparison .comparison-chart-host')].map((host) => host.dataset.datasetKey),
       svgs: document.querySelectorAll('#sankeyComparison .comparison-chart-host > svg').length,
       alerts: [...document.querySelectorAll('#sankeyComparison [role="alert"]')]
         .map((element) => element.textContent.trim()),
@@ -1624,7 +1625,9 @@ await scenario('comparison: extreme company magnitudes preserve fractional calib
     clearMultiPeriodScope();
     state.company = aramco.company;
     state.activeIndex = aramco.index;
-    setCompanyActiveRecord(aramco);
+    // Pin every fixture period; new datasets must not replace one through the
+    // company's default latest-period selection and change this scale test.
+    for (const record of [aramco, docebo, adidas, sanofi, sony]) setCompanyActiveRecord(record);
     state.metricMode = 'incomeStatement';
     state.viewMode = 'sankey';
     state.multiCompanyMode = true;
