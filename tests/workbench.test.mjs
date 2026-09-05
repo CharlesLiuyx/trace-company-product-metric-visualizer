@@ -9,6 +9,28 @@ import { siteContentDigest } from '../scripts/lib/site-release-identity.mjs';
 const version = 'd'.repeat(64);
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 async function until(work, predicate) { for (let i = 0; i < 150; i++) { const result = await work(); if (predicate(result)) return result; await sleep(40); } throw new Error('Workbench condition timed out'); }
+test('closing the workbench drains an in-flight preview before workspace cleanup', async () => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'trace-workbench-close-'));
+  await writeFile(path.join(root, 'index.html'), '<html>fixture</html>');
+  let enter, release;
+  const entered = new Promise((resolve) => { enter = resolve; });
+  const blocked = new Promise((resolve) => { release = resolve; });
+  const server = await startWorkbench({ root, port: 0, readCi: async () => [], productionFetch: async () => { throw new Error('offline'); }, build: async () => {
+    enter(); await blocked; throw new Error('fixture build ended');
+  } });
+  try {
+    await fetch(server.url + '__trace/status?source=project');
+    await entered;
+    let closed = false;
+    const closing = server.close().then(() => { closed = true; });
+    await sleep(40);
+    assert.equal(closed, false, 'close must wait for the complete preview transaction');
+    release(); await closing;
+    await rm(root, { recursive: true, force: true });
+  } finally {
+    release(); await server.close(); await rm(root, { recursive: true, force: true });
+  }
+});
 test('workbench publishes complete immutable generations, reports failed builds, and limits concurrent work', async (t) => {
   const root = await mkdtemp(path.join(os.tmpdir(), 'trace-workbench-'));
   await mkdir(path.join(root, 'scripts/templates'), { recursive: true });
