@@ -320,3 +320,233 @@
     },
   });
 })(window);
+
+/* Source contribution: circle-q2-fy26. */
+(function(global){global.INCOME_STATEMENT_SSOT.records.push({
+  "key": "circle-q2-fy26",
+  "company": "Circle",
+  "period": "Q2 FY26",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/circle-q2-fy26.png",
+  "roundingTolerance": 1.5,
+  "notes": [
+    "Amounts and captions are transcribed from the source infographic; displayed totals may differ from sums because each amount is independently rounded.",
+    "USDC in circulation",
+    "$73.3B",
+    "+19% Y/Y"
+  ],
+  "revenue": {
+    "total": 701,
+    "notes": [
+      "+7% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "reserve_income",
+        "label": "Reserve income",
+        "value": 668,
+        "notes": [
+          "+5% Y/Y"
+        ]
+      },
+      {
+        "id": "other_revenue",
+        "label": "Other revenue",
+        "value": 34,
+        "notes": [
+          "+41% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "distribution_costs",
+      "label": "Distribution and transaction costs",
+      "value": 412,
+      "notes": []
+    },
+    "operatingExpenses": {
+      "total": 254,
+      "items": [
+        {
+          "id": "compensation",
+          "label": "Compensation",
+          "value": 134,
+          "notes": []
+        },
+        {
+          "id": "ga",
+          "label": "General & admin",
+          "value": 66,
+          "notes": []
+        },
+        {
+          "id": "da",
+          "label": "Depreciation & amortization",
+          "value": 30,
+          "notes": []
+        },
+        {
+          "id": "it_infrastructure",
+          "label": "IT Infrastructure",
+          "value": 16,
+          "notes": []
+        },
+        {
+          "id": "marketing_other",
+          "label": "Marketing & other",
+          "value": 8,
+          "notes": []
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 4,
+      "notes": []
+    }
+  },
+  "profit": {
+    "gross": {
+      "label": "Gross profit",
+      "value": 289,
+      "notes": [
+        "Derived as source revenue less distribution and transaction costs; no gross-profit face is drawn in the source."
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 34,
+      "notes": [
+        "2% margin",
+        "+26pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 48,
+      "notes": [
+        "3% margin",
+        "+38pp Y/Y"
+      ]
+    }
+  },
+  "otherIncome": {
+    "total": 18,
+    "items": [
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 18,
+        "notes": []
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "notes": [
+        "Amounts和captions are transcribed from the source infographic；displayed totals may differ from sums because each amount is independently rounded.",
+        "流通中的 USDC",
+        "$73.3B",
+        "同比 +19%"
+      ],
+      "revenue": {
+        "notes": [
+          "同比 +7%"
+        ],
+        "items": [
+          {
+            "label": "储备收入",
+            "notes": [
+              "同比 +5%"
+            ]
+          },
+          {
+            "label": "其他收入",
+            "notes": [
+              "同比 +41%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "分销和交易 costs",
+          "notes": []
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "label": "薪酬",
+              "notes": []
+            },
+            {
+              "label": "管理费用",
+              "notes": []
+            },
+            {
+              "label": "折旧与摊销",
+              "notes": []
+            },
+            {
+              "label": "信息技术基础设施",
+              "notes": []
+            },
+            {
+              "label": "营销及其他",
+              "notes": []
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费",
+          "notes": []
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "Derived as source 收入 less 分销和交易 costs；no gross-利润 face is drawn in the source."
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 2%",
+            "同比 +26 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 3%",
+            "同比 +38 个百分点"
+          ]
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "label": "其他",
+            "notes": []
+          }
+        ]
+      },
+      "otherExpenses": {
+        "items": []
+      }
+    }
+  }
+});})(window);

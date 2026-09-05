@@ -1,0 +1,47 @@
+{
+  "dataset": "klaviyo-q2-fy26",
+  "sourceDigest": "sha256:12dcd236abbaf194e74412ba2461ed1535b8776b3433271b1053aee351e2cc06",
+  "status": "executor-visual-check-complete; operator-review-pending",
+  "checks": [
+    "complete wordmark and integral symbols",
+    "no financial values or Sankey marks",
+    "native bounds and crop quality report inspected",
+    "compressed runtime PNG and Source recipe retained"
+  ],
+  "exclusions": [
+    "lower-right neighboring Gross profit initial explicitly masked"
+  ],
+  "crops": [
+    {
+      "key": "klaviyo-q2-fy26-company-logo",
+      "output": "data/assets/raster-annotations/klaviyo/company-logo-klaviyo-q2-fy26.png",
+      "validation": {
+        "width": 576,
+        "height": 178,
+        "foregroundPixels": 23481,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 11,
+          "top": 6,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": -0.0043,
+          "y": 0
+        },
+        "passes": true
+      },
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 23216,
+        "losslessBytes": 23216,
+        "savingsVsLossless": 0
+      }
+    }
+  ]
+}

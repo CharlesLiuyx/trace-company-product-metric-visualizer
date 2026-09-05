@@ -1,0 +1,549 @@
+{
+  "schema": "reviewed-git-release/v1",
+  "id": "transport-3cc50c86-49cd-4a87-8117-0104c6199ae4",
+  "baseHead": "5ee419c0626647f4a8d736ebc144e30c70fda020",
+  "planDigest": "sha256:b787389175e7812b0270c5d7c728a1b3208e82b68b46c75f73426e74c272f617",
+  "publishedDigest": "sha256:252481a792f1c1825c63e762fe6dc7e238903164139913c6755b02ab7e4f9009",
+  "builds": [
+    {
+      "buildId": "build-259d91b5-7bb1-4730-a621-2ff2ea0c48b6",
+      "key": "aramco-q2-fy26",
+      "sealDigest": "sha256:6df8c0e3eab18a8a3aea928807c18dd92195030b57bebd7726df3055c9713899"
+    },
+    {
+      "buildId": "build-ead28642-84c3-4e2a-9786-ccec1ebf5592",
+      "key": "celsius-q2-fy26",
+      "sealDigest": "sha256:945b1852dd3d32c1e64e8a0c0fc6f314555d5ba81599b53507a6f30ece64550a"
+    },
+    {
+      "buildId": "build-e069fced-30ef-4fd7-a5d0-c6ef747485be",
+      "key": "autodesk-q2-fy27",
+      "sealDigest": "sha256:6f6397e2d1e3d2f383d2ef2276847642879c7cf50366caf53bc25f54362a04bd"
+    },
+    {
+      "buildId": "build-22d9b2c1-dfe1-40a6-92a2-134bb8c2a5a2",
+      "key": "chime-q2-fy26",
+      "sealDigest": "sha256:f1acf86e17436c2027838d8214b3eb31a11af6eceac8307a84d3a4f144b1a03c"
+    },
+    {
+      "buildId": "build-ef9f93e2-c7f4-4c98-bd33-df24f3e650a0",
+      "key": "circle-q2-fy26",
+      "sealDigest": "sha256:ac723e6b61110902d188a4c5014e750f1446e3195cc58a7da2323166951a57b1"
+    },
+    {
+      "buildId": "build-9500230e-5e43-453f-9d66-a14e1ec7120a",
+      "key": "digitalocean-q2-fy26",
+      "sealDigest": "sha256:181065a94d14df1aedaec59a37d56017c3c51b6f373eedc76dda07e0eeb30174"
+    },
+    {
+      "buildId": "build-67f62c62-c1c6-4c7f-b529-63fb65dab6f8",
+      "key": "docebo-q2-fy26",
+      "sealDigest": "sha256:bec7d828a2885e1e326ea89473318d5c97ffad395d87fcfc23794e5d6e98f80c"
+    },
+    {
+      "buildId": "build-bc793758-58cd-43c1-b1ae-3c18b4816eed",
+      "key": "fiserv-q2-fy26",
+      "sealDigest": "sha256:9b0166fc4339e35828c93ba7c5a8bce6c08ec7c46a95bb44f41d21a49f0c8d62"
+    },
+    {
+      "buildId": "build-13e7aa4a-a3a7-4ce7-aceb-419950b527f0",
+      "key": "klarna-q2-fy26",
+      "sealDigest": "sha256:c8fe2044e66124713384c5c3a030e41c7befc953455f313dc8111a72406d6ca5"
+    },
+    {
+      "buildId": "build-307f0780-f6cd-41fd-88a3-e3aaeaa166a7",
+      "key": "klaviyo-q2-fy26",
+      "sealDigest": "sha256:8719fb3beb296e8875bd54e8a5e7590496c82577dd9bbbd6b8fadeacb570b727"
+    },
+    {
+      "buildId": "build-03c5c551-043f-4916-9a9f-7c6273e9ddb2",
+      "key": "monday-com-q2-fy26",
+      "sealDigest": "sha256:59800e9155582ec7068b081e754cfa97daa1ef03f0e5a19569ea1eb82b0131bb"
+    },
+    {
+      "buildId": "build-e70cabcd-a5e5-4389-a863-8b66996e3bad",
+      "key": "zoom-q2-fy27",
+      "sealDigest": "sha256:a4fed69438722610b8028040f9fd958eef411dce05154e03e921176b5ff77c4a"
+    }
+  ],
+  "candidateDigest": "sha256:30cc5e0fd67de99ade03a5e844e1fd1134c925ee07ef22f58462d4c4eba8da78",
+  "paths": [
+    {
+      "path": "data/assets/catalog.json",
+      "digest": "sha256:bbbb8d5f49aadbf201d00d094951a5422ddf3579cca57b715d1e19b4ac9c8aad",
+      "before": "sha256:82536141f9ba3bc14e5c27d8790a956b673cc36f40defab8bfc276a16d4549f9"
+    },
+    {
+      "path": "data/assets/icon-references/autodesk/crop-report-autodesk-q2-fy27.json",
+      "digest": "sha256:33932df254b3ed675b242ba6912d35a4104294824294f091fadcd106a37c48f4",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/autodesk/crops/company-logo-autodesk-q2-fy27.png",
+      "digest": "sha256:52c35dc1752e89610c2b52ce9bf166c6c448648cb8f80a697ff901d23fdfeb91",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/autodesk/model-validation-autodesk-q2-fy27.json",
+      "digest": "sha256:073310c9b8dad6bcb0f5b10e5f3e6872fe3e3ac8cab9860d38c6e241877f37dc",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/autodesk/validation-sheets/autodesk-q2-fy27/autodesk-q2-fy27-company-logo.png",
+      "digest": "sha256:fecd51901341734167388fc91c8530514aa45eb698a66e2521a51a7fbc5363a1",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/chime/crop-report-chime-q2-fy26.json",
+      "digest": "sha256:1cdc0f1e576f4e38bdf50d189dc627737c69058623cd7e2fbb8053f6ce8d3a59",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/chime/crops/company-logo-chime-q2-fy26.png",
+      "digest": "sha256:053abe79cacf751115c8720713292e2c484e115076e71160201633797f28ed8a",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/chime/model-validation-chime-q2-fy26.json",
+      "digest": "sha256:77822f187ec3c756b3a174cb9fc76cd8d28370a21b9d05d6dafd915f421b4e7e",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/chime/validation-sheets/chime-q2-fy26/chime-q2-fy26-company-logo.png",
+      "digest": "sha256:490b1bd83ebace80ffe89b6d4417e1e64b6e2fe99d0a7e848db446c4c1344875",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/circle/crop-report-circle-q2-fy26.json",
+      "digest": "sha256:6707d3d0ecc1c32cd1668de0796a7347911ee58c4a0c656dddb345fbe35f5d69",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/circle/crops/company-logo-circle-q2-fy26.png",
+      "digest": "sha256:f1cc76d296cbf78eaa2d0031b6020f5344b3515da2391e24b5f9cb73ed872009",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/circle/model-validation-circle-q2-fy26.json",
+      "digest": "sha256:5f0b03f63689167e291e2901b2ed2ea3490aca43b610bf6c775027ebf09e5f60",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/circle/validation-sheets/circle-q2-fy26/circle-q2-fy26-company-logo.png",
+      "digest": "sha256:389368afffb50da3a39198607192217ea3b81c1a076dd6618347ab02c2d89d71",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/digitalocean/crop-report-digitalocean-q2-fy26.json",
+      "digest": "sha256:b8aab47619f6c2588c1c2725badd2cad471f7e3e3ab0cd028c8bf1594cbf66f5",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/digitalocean/crops/company-logo-digitalocean-q2-fy26.png",
+      "digest": "sha256:28919cd309c8faafdde31d135cfd8bcf62463423cb044be58a76e1b920b87c78",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/digitalocean/model-validation-digitalocean-q2-fy26.json",
+      "digest": "sha256:8cf44dbcf243c8cfa49c7538a91ed29da6ee7aad8700cb8e92bc94ad19b4cb86",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/digitalocean/validation-sheets/digitalocean-q2-fy26/digitalocean-q2-fy26-company-logo.png",
+      "digest": "sha256:15bee3e36b98858585e2b473475a737c14731b3f93f78109b91120bb7a8f1dc5",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/docebo/crop-report-docebo-q2-fy26.json",
+      "digest": "sha256:f65832ea712a524bca9b4417a022d165fcbd8e07a47681aa0246d605116c628d",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/docebo/crops/company-logo-docebo-q2-fy26.png",
+      "digest": "sha256:c177b5c1f27dc9a423c51d8545e2b3649978832476ebfda8c90eb40af99acd2e",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/docebo/model-validation-docebo-q2-fy26.json",
+      "digest": "sha256:386098452ff660e8f5232d8048888ceafe9d90d2aef0d430a410eba3efe461af",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/docebo/validation-sheets/docebo-q2-fy26/docebo-q2-fy26-company-logo.png",
+      "digest": "sha256:28b4f0485aa85ff8813a84bb57b41f4f0580c4c7ef4d81faa96d497a4848c625",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/fiserv/crop-report-fiserv-q2-fy26.json",
+      "digest": "sha256:794600db86cf7eb1acbfa41dcbe3358164729e1cf07988fc56d5d1dc432bb49f",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/fiserv/crops/company-logo-fiserv-q2-fy26.png",
+      "digest": "sha256:be71fe778adf73bb1c6ef2219ddc51f2d6bc50ee3aa4a47d94937584cd5fb18d",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/fiserv/model-validation-fiserv-q2-fy26.json",
+      "digest": "sha256:03cc3df0c7fbdcd197a9452922c3538403c1ae6b542f989087476c36ed06dc87",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/fiserv/validation-sheets/fiserv-q2-fy26/fiserv-q2-fy26-company-logo.png",
+      "digest": "sha256:f5b402e6e09fffe1626775f92b10203ae8a6c41fff10f469c70c69804224304c",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/klarna/crop-report-klarna-q2-fy26.json",
+      "digest": "sha256:597c6a9f4899d1af93793c8ad1fd28b0651b025206bb59ed6a787d6232be8fd1",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/klarna/crops/company-logo-klarna-q2-fy26.png",
+      "digest": "sha256:436c3949434d1857ca28872c76f0192826e643a8ec0fdb09d0585522d5c2dcdc",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/klarna/model-validation-klarna-q2-fy26.json",
+      "digest": "sha256:1a4aa780da8b37a0d17546f3f45619df2e93db917464a88a54bbee14a30888e1",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/klarna/validation-sheets/klarna-q2-fy26/klarna-q2-fy26-company-logo.png",
+      "digest": "sha256:fd4a20b6541348e72e0541c84fd09743b7834efef0a33588bb94c4a2b4fbbaf4",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/klaviyo/crop-report-klaviyo-q2-fy26.json",
+      "digest": "sha256:217c79259c93bb6715cd66ae90c56e4cc80aec68c0ac2bcc206a5323b4671ea7",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/klaviyo/crops/company-logo-klaviyo-q2-fy26.png",
+      "digest": "sha256:844d9c9b447e00c813ecca2963e7bd2454e3b19346134ed9eb58b1d2c35c9d37",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/klaviyo/model-validation-klaviyo-q2-fy26.json",
+      "digest": "sha256:609ab3ad22d306b547d426a72ff94875c9e6ab57d24ee2c8a3c9131bbbcd5f35",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/klaviyo/validation-sheets/klaviyo-q2-fy26/klaviyo-q2-fy26-company-logo.png",
+      "digest": "sha256:325c4624ec8f7b8d9c59acacd93753b4d44845df6482a08241b210851761e640",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/zoom/crop-report-zoom-q2-fy27.json",
+      "digest": "sha256:ce2f5008293d937e60cd9a15216564bd11903b2a2745b5695c85afbe630e6e9e",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/zoom/crops/company-logo-zoom-q2-fy27.png",
+      "digest": "sha256:8fff6158df8b47f6b8197bd3c2fea5b8daf3c95c7383bf4926680493bcd31b8d",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/zoom/model-validation-zoom-q2-fy27.json",
+      "digest": "sha256:540d3dffb728e31305fe89efc7166f028aaadb1b9209c461214483d3903a6fd6",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/zoom/validation-sheets/zoom-q2-fy27/zoom-q2-fy27-company-logo.png",
+      "digest": "sha256:7ad751677fb5c569470a4a5e2772d8c01d60f5bd41a4ff247e85cf53ccc92aa2",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/autodesk/company-logo-autodesk-q2-fy27.png",
+      "digest": "sha256:52c35dc1752e89610c2b52ce9bf166c6c448648cb8f80a697ff901d23fdfeb91",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/chime/company-logo-chime-q2-fy26.png",
+      "digest": "sha256:053abe79cacf751115c8720713292e2c484e115076e71160201633797f28ed8a",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/circle/company-logo-circle-q2-fy26.png",
+      "digest": "sha256:f1cc76d296cbf78eaa2d0031b6020f5344b3515da2391e24b5f9cb73ed872009",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/digitalocean/company-logo-digitalocean-q2-fy26.png",
+      "digest": "sha256:28919cd309c8faafdde31d135cfd8bcf62463423cb044be58a76e1b920b87c78",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/docebo/company-logo-docebo-q2-fy26.png",
+      "digest": "sha256:c177b5c1f27dc9a423c51d8545e2b3649978832476ebfda8c90eb40af99acd2e",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/fiserv/company-logo-fiserv-q2-fy26.png",
+      "digest": "sha256:be71fe778adf73bb1c6ef2219ddc51f2d6bc50ee3aa4a47d94937584cd5fb18d",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/klarna/company-logo-klarna-q2-fy26.png",
+      "digest": "sha256:436c3949434d1857ca28872c76f0192826e643a8ec0fdb09d0585522d5c2dcdc",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/klaviyo/company-logo-klaviyo-q2-fy26.png",
+      "digest": "sha256:844d9c9b447e00c813ecca2963e7bd2454e3b19346134ed9eb58b1d2c35c9d37",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/zoom/company-logo-zoom-q2-fy27.png",
+      "digest": "sha256:8fff6158df8b47f6b8197bd3c2fea5b8daf3c95c7383bf4926680493bcd31b8d",
+      "before": null
+    },
+    {
+      "path": "data/dataset-file-metadata.js",
+      "digest": "sha256:00fbe1c71f3149b5caa0612f09c334229b43337b748dd21a5a60db3c30811581",
+      "before": "sha256:8216aee7bbe05b51933f6060e95a160269ec7f002a88c3e91abf78b5341d965b"
+    },
+    {
+      "path": "data/dataset-manifest.js",
+      "digest": "sha256:e7e66bbe227cf9760d075aae4518af1dc68b12c199d25f5f366db0ab3f78da57",
+      "before": "sha256:ea5b6dc165750e7ad18b2ce6c14cd10d7fc5bded1bf7f34296b326ec27d95c46"
+    },
+    {
+      "path": "data/datasets/autodesk-q2-fy27.js",
+      "digest": "sha256:6f813f84299fd10778686dc12b4b6e02d24661e2f117a42182bd71c0299acc6c",
+      "before": null
+    },
+    {
+      "path": "data/datasets/chime-q2-fy26.js",
+      "digest": "sha256:621b57638fcbb1464619753de6b9d0624a1141fac7ed17fbae36f7a4cf891b69",
+      "before": null
+    },
+    {
+      "path": "data/datasets/circle-q2-fy26.js",
+      "digest": "sha256:84a50629e4ca16f21299475da223d0a045920bc5383f8ea16787f693531134ee",
+      "before": null
+    },
+    {
+      "path": "data/datasets/digitalocean-q2-fy26.js",
+      "digest": "sha256:5431cbe8cf19a2b91047770930612b6b95f84f590ce59eed3c09c186cb837ee1",
+      "before": null
+    },
+    {
+      "path": "data/datasets/docebo-q2-fy26.js",
+      "digest": "sha256:54b15cb1cb4e19685cf33a82c97af376a809b14dfb1a05a2c06b36704b666ec0",
+      "before": null
+    },
+    {
+      "path": "data/datasets/fiserv-q2-fy26.js",
+      "digest": "sha256:ca4f666f2e4a489bc3c424644c7967104437927a251a26bedbc1ea810c1edf2f",
+      "before": null
+    },
+    {
+      "path": "data/datasets/klarna-q2-fy26.js",
+      "digest": "sha256:33aab85d3ecc8d13e25580678bc84194dc7ad572a0409b9a296e773333e08b75",
+      "before": null
+    },
+    {
+      "path": "data/datasets/klaviyo-q2-fy26.js",
+      "digest": "sha256:cf1dedabdc52758984818f3578ab5bab5a3c2be3b9e0ab8938b76c3fb716a8ab",
+      "before": null
+    },
+    {
+      "path": "data/datasets/monday-com-q2-fy26.js",
+      "digest": "sha256:79706ce08189ce1da0f50e20cbb60608ad7ebd6570d02ed1898a3eb50a0dab40",
+      "before": null
+    },
+    {
+      "path": "data/datasets/zoom-q2-fy27.js",
+      "digest": "sha256:d21834449c534b616b0d3b010e8facfd48bdaca1d9331921ab43a732cf82e77c",
+      "before": null
+    },
+    {
+      "path": "data/income-statements/autodesk.js",
+      "digest": "sha256:5d8f467c03b17081d914dd1afee92146b13eb03903d2490539893ccd30b36993",
+      "before": "sha256:2f4577b954b04d33bd5be9bad842aea7f1b4e03312ff0b5952bcd3f0fdfcb783"
+    },
+    {
+      "path": "data/income-statements/chime.js",
+      "digest": "sha256:9cbf8dc58a2b9fa1076910ef61fcfdb460ef2df031aab7b975a34fb1ff7e8e23",
+      "before": "sha256:be07c4e65889517670b57e6a7ee45d9a4032a2bc731b78f861a31a94923718ba"
+    },
+    {
+      "path": "data/income-statements/circle.js",
+      "digest": "sha256:f09c0f57051c73037ad25998b39be5b586a0e03cb8dafb445800064ae9919556",
+      "before": "sha256:963aa6b6cfb73ab984dc2fce816242ae030392d33ab75e54a39e4310443e3eec"
+    },
+    {
+      "path": "data/income-statements/digital-ocean.js",
+      "digest": "sha256:5173cf87f7ce8a455f8531d95eb26026046ab28fd37d8f244f4938983b74f98b",
+      "before": "sha256:fd35ba15cc7b9095f9564f6c3ff7dbd828075f400482537570ac9be75875ee88"
+    },
+    {
+      "path": "data/income-statements/docebo.js",
+      "digest": "sha256:95e260d4152d4f58f0e4ab25751af457461ae28dbca9e6bca79473fb125c8c8b",
+      "before": "sha256:d7fe0a8d038680c3ac063f443afcce3d4d8ddd620499c286e21196412a0fdd36"
+    },
+    {
+      "path": "data/income-statements/fiserv.js",
+      "digest": "sha256:e034061ef41c30200db31cc1c56d3dc12dd5a9d070731f9de43e30b51247b05d",
+      "before": "sha256:0100c76626980ef442bb700d64533053bfdd822cdc5af0578309aadf22892658"
+    },
+    {
+      "path": "data/income-statements/klarna.js",
+      "digest": "sha256:a1c11701ffc2bce737cec45c594d82b220b75ac4785e340743fe25c5e3126569",
+      "before": "sha256:ebdab8d592157867d2c011d053d1dbc64d85d04899b262b7621f123389cd15ee"
+    },
+    {
+      "path": "data/income-statements/klaviyo.js",
+      "digest": "sha256:8f7aebab03416d1d653c62e744f78550b287fe1888018270b783871d6a10ec89",
+      "before": "sha256:725f5458d699529ebf33448d02732d5ff43e95be57cd5c9545e2a60acfeae9a9"
+    },
+    {
+      "path": "data/income-statements/monday-com.js",
+      "digest": "sha256:6fa981e0c8e0bae0893a8663f7ac9b74b27618fb2d432a4f9f89aae8085ff268",
+      "before": "sha256:526dd27d09a0ce84778dd5343cbeca66c98175205ae916eb52fbc284f451a75f"
+    },
+    {
+      "path": "data/income-statements/zoom.js",
+      "digest": "sha256:568a17a35921d2b825a566da07b8dda00de56489f50630047caf7b95f30a8ac6",
+      "before": "sha256:602a60ab391c2693bf94d4c558e3978026dd02b5f857e536d2c7d8d23c8ac90d"
+    },
+    {
+      "path": "data/render-baselines.json",
+      "digest": "sha256:7022bad3479ee7af2b19644443c53f181bcd42b00868ace3e18e0743e185a172",
+      "before": "sha256:c390c4cd2b8cb19c6c43d6203cd35a020e1a7ab6837dbbd9b43a7806fc5e57db"
+    },
+    {
+      "path": "data/workflow-timestamps.json",
+      "digest": "sha256:adee74a941aa97955bb2ef38ec46546046494ddfeefda9c1f7e016adfb22a213",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/autodesk-q2-fy27-company-logo.json",
+      "digest": "sha256:fee2a56f938f5725f2c5b7b8f118a965cbc5bf95486a1f7494b2adb4831182c4",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/chime-q2-fy26-company-logo.json",
+      "digest": "sha256:c7d0fe528e6fcf66eac3c7b66d3ca2f0c7d84f1dcd65f919c2e99e0ff000093b",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/circle-q2-fy26-company-logo.json",
+      "digest": "sha256:730372086aa1b5e5cb1fa3397455e3bda61007ab3d5e1029b066b6eb4887ce7c",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/digitalocean-q2-fy26-company-logo.json",
+      "digest": "sha256:dc412ad3892b7eb6ff82f85e24f55c2eb222a6e91e2e5899e66ebc7c6173f82a",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/docebo-q2-fy26-company-logo.json",
+      "digest": "sha256:a5689c008cc58e32f3dbb30dccfef454a2b00c83b66bdbcefb5feadd4e5c0e85",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/fiserv-q2-fy26-company-logo.json",
+      "digest": "sha256:dc88034b80f8d4d5f59f1da0083ed76a2038192c89b68e18a02658b0594b6c77",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/klarna-q2-fy26-company-logo.json",
+      "digest": "sha256:a2ab557d9ffc1e78829bbe7107a1c16c04330fc0f570ee78a9bc0ef62ae795ab",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/klaviyo-q2-fy26-company-logo.json",
+      "digest": "sha256:f3098266442569899b891ea1879845e909dfd65c4878c3ba949747485a7a092e",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/zoom-q2-fy27-company-logo.json",
+      "digest": "sha256:dee3783d68c0a387780fc84c716c43530882abb08c7db5e7b385b1a6f9c34a54",
+      "before": null
+    },
+    {
+      "path": "input/pending/page-0126-Autodesk-Q2-FY27-Income-Statement.png",
+      "before": "sha256:43c6fc02f9c4c39304b6048d870900e809b47f04e1282a1b09a80cceec6d8c7d",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0133-Chime-Q2-FY26-Income-Statement.png",
+      "before": "sha256:9d7f03cb2152009c02b5ef6ff3f55940e2631aec676859633b9efafe60700d5d",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0131-Circle-Q2-FY26-Income-Statement.png",
+      "before": "sha256:3b40a44bcb36c3d1b60fd1e5c18d350eac5de67815459871c4e79a5bfb845dbc",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0129-DigitalOcean-Q2-FY26-Income-Statement.png",
+      "before": "sha256:e3b334b184518c4ff447083f1ef14c869193a03d19120d344ff116959c2643b7",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0130-Docebo-Q2-FY26-Income-Statement.png",
+      "before": "sha256:8a6b0b2e6c063a04f929d79a849f2d11241586a521814ba2aa514bd4ef682ab2",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0134-Fiserv-Q2-FY26-Income-Statement.png",
+      "before": "sha256:733c9b494258402eb3751811b32b085a35f8079926fd1b297a6f2acfee510dcc",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0132-Klarna-Q2-FY26-Income-Statement.png",
+      "before": "sha256:b8892082a1b256549b7993b7c9c3240c7acd0cffc06588e60d4c20045f7c8ff3",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0127-Klaviyo-Q2-FY26-Income-Statement.png",
+      "before": "sha256:12dcd236abbaf194e74412ba2461ed1535b8776b3433271b1053aee351e2cc06",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0128-Monday.com-Q2-FY26-Income-Statement.png",
+      "before": "sha256:41488c75cb067dd52e74332c916ac21a0ca710ea4b01abf134ec17a7543e79e4",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0125-Zoom-Q2-FY27-Income-Statement.png",
+      "before": "sha256:8712bffc518ca95eb77fba608fc6e6a4bd4d0b8b1f512cb20585b73d37e3ee0a",
+      "digest": null,
+      "intakeOwned": true
+    }
+  ],
+  "release": {
+    "version": "44291d95692251cacec2758e4a0aac806dbf24b90277aa6e1e009a46cf2a67e6",
+    "contentDigest": "sha256:314703e0fdcc10f16d2869b718ce209113121b42dcc44cc3f5eff6b94bb4dfe9"
+  },
+  "approval": {
+    "operator": "Charles Liu",
+    "accepted": true,
+    "candidateDigest": "sha256:30cc5e0fd67de99ade03a5e844e1fd1134c925ee07ef22f58462d4c4eba8da78",
+    "note": "Operator explicitly authorized merging and pushing all changes to main and confirmed all ten Processing images passed human review twice. The integrated candidate preserves the reviewed financial records and rendered data; workflow fixes passed regression tests.",
+    "humanReview": {
+      "total": 10,
+      "noIntervention": 8,
+      "intervention": 2,
+      "interventionKeys": [
+        "circle-q2-fy26",
+        "klarna-q2-fy26"
+      ],
+      "note": "Counts direct operator correction requests per dataset; automatic same-pattern peer repairs do not add direct operator interventions."
+    },
+    "planDigest": "sha256:b787389175e7812b0270c5d7c728a1b3208e82b68b46c75f73426e74c272f617",
+    "recordedAt": "2026-09-05T14:37:31.916Z"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "dataset": "klarna-q2-fy26",
+  "sourceDigest": "sha256:b8892082a1b256549b7993b7c9c3240c7acd0cffc06588e60d4c20045f7c8ff3",
+  "status": "executor-visual-check-complete; operator-review-pending",
+  "checks": [
+    "complete wordmark and integral symbols",
+    "no financial values or Sankey marks",
+    "native bounds and crop quality report inspected",
+    "compressed runtime PNG and Source recipe retained"
+  ],
+  "exclusions": [],
+  "crops": [
+    {
+      "key": "klarna-q2-fy26-company-logo",
+      "output": "data/assets/raster-annotations/klarna/company-logo-klarna-q2-fy26.png",
+      "validation": {
+        "width": 558,
+        "height": 237,
+        "foregroundPixels": 125382,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 2,
+          "right": 2,
+          "top": 2,
+          "bottom": 1
+        },
+        "centerOffset": {
+          "x": 0,
+          "y": 0.0021
+        },
+        "passes": true
+      },
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4286,
+        "losslessBytes": 27626,
+        "savingsVsLossless": 0.8449,
+        "metrics": {
+          "meanAbsoluteError": 0.6351,
+          "rootMeanSquareError": 1.9877,
+          "p99AbsoluteError": 10,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.9548
+        }
+      }
+    }
+  ]
+}

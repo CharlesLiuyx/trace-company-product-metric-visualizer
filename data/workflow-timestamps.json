@@ -1,0 +1,55 @@
+{
+  "schema": "workflow-timestamps/v1",
+  "files": {
+    "data/datasets/autodesk-q2-fy27.js": {
+      "digest": "sha256:6f813f84299fd10778686dc12b4b6e02d24661e2f117a42182bd71c0299acc6c",
+      "updatedAt": "2026-09-05T10:22:40.060Z",
+      "publishedDigest": "sha256:252481a792f1c1825c63e762fe6dc7e238903164139913c6755b02ab7e4f9009"
+    },
+    "data/datasets/chime-q2-fy26.js": {
+      "digest": "sha256:621b57638fcbb1464619753de6b9d0624a1141fac7ed17fbae36f7a4cf891b69",
+      "updatedAt": "2026-09-05T10:22:21.532Z",
+      "publishedDigest": "sha256:252481a792f1c1825c63e762fe6dc7e238903164139913c6755b02ab7e4f9009"
+    },
+    "data/datasets/circle-q2-fy26.js": {
+      "digest": "sha256:84a50629e4ca16f21299475da223d0a045920bc5383f8ea16787f693531134ee",
+      "updatedAt": "2026-09-05T10:22:26.785Z",
+      "publishedDigest": "sha256:252481a792f1c1825c63e762fe6dc7e238903164139913c6755b02ab7e4f9009"
+    },
+    "data/datasets/digitalocean-q2-fy26.js": {
+      "digest": "sha256:5431cbe8cf19a2b91047770930612b6b95f84f590ce59eed3c09c186cb837ee1",
+      "updatedAt": "2026-09-05T10:22:32.068Z",
+      "publishedDigest": "sha256:252481a792f1c1825c63e762fe6dc7e238903164139913c6755b02ab7e4f9009"
+    },
+    "data/datasets/docebo-q2-fy26.js": {
+      "digest": "sha256:54b15cb1cb4e19685cf33a82c97af376a809b14dfb1a05a2c06b36704b666ec0",
+      "updatedAt": "2026-09-05T10:22:29.377Z",
+      "publishedDigest": "sha256:252481a792f1c1825c63e762fe6dc7e238903164139913c6755b02ab7e4f9009"
+    },
+    "data/datasets/fiserv-q2-fy26.js": {
+      "digest": "sha256:ca4f666f2e4a489bc3c424644c7967104437927a251a26bedbc1ea810c1edf2f",
+      "updatedAt": "2026-09-05T10:22:18.837Z",
+      "publishedDigest": "sha256:252481a792f1c1825c63e762fe6dc7e238903164139913c6755b02ab7e4f9009"
+    },
+    "data/datasets/klarna-q2-fy26.js": {
+      "digest": "sha256:33aab85d3ecc8d13e25580678bc84194dc7ad572a0409b9a296e773333e08b75",
+      "updatedAt": "2026-09-05T10:22:24.137Z",
+      "publishedDigest": "sha256:252481a792f1c1825c63e762fe6dc7e238903164139913c6755b02ab7e4f9009"
+    },
+    "data/datasets/klaviyo-q2-fy26.js": {
+      "digest": "sha256:cf1dedabdc52758984818f3578ab5bab5a3c2be3b9e0ab8938b76c3fb716a8ab",
+      "updatedAt": "2026-09-05T10:22:37.384Z",
+      "publishedDigest": "sha256:252481a792f1c1825c63e762fe6dc7e238903164139913c6755b02ab7e4f9009"
+    },
+    "data/datasets/monday-com-q2-fy26.js": {
+      "digest": "sha256:79706ce08189ce1da0f50e20cbb60608ad7ebd6570d02ed1898a3eb50a0dab40",
+      "updatedAt": "2026-09-05T10:22:34.720Z",
+      "publishedDigest": "sha256:252481a792f1c1825c63e762fe6dc7e238903164139913c6755b02ab7e4f9009"
+    },
+    "data/datasets/zoom-q2-fy27.js": {
+      "digest": "sha256:d21834449c534b616b0d3b010e8facfd48bdaca1d9331921ab43a732cf82e77c",
+      "updatedAt": "2026-09-05T10:22:42.699Z",
+      "publishedDigest": "sha256:252481a792f1c1825c63e762fe6dc7e238903164139913c6755b02ab7e4f9009"
+    }
+  }
+}

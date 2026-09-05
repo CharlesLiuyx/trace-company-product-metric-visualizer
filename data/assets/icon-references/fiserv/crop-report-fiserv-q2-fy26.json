@@ -1,0 +1,133 @@
+{
+  "source": "input/processing/fiserv-q2-fy26.png",
+  "spec": "input/icon-crop-specs/fiserv-q2-fy26-company-logo.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-09-05T11:17:07.688701+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/fiserv",
+  "crops": [
+    {
+      "key": "fiserv-q2-fy26-company-logo",
+      "output": "data/assets/icon-references/fiserv/crops/company-logo-fiserv-q2-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3357,
+        "losslessBytes": 12962,
+        "savingsVsLossless": 0.741,
+        "metrics": {
+          "meanAbsoluteError": 0.2881,
+          "rootMeanSquareError": 1.2154,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.4307
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 43231,
+        "transparentPixelRatio": 0.5758
+      },
+      "searchBox": {
+        "x": 748,
+        "y": 265,
+        "width": 385,
+        "height": 195
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 750,
+        "y0": 267,
+        "x1": 1131,
+        "y1": 459
+      },
+      "cropBox": {
+        "x0": 748,
+        "y0": 265,
+        "x1": 1133,
+        "y1": 460
+      },
+      "validation": {
+        "width": 385,
+        "height": 195,
+        "foregroundPixels": 30702,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 2,
+          "right": 2,
+          "top": 2,
+          "bottom": 1
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0026
+        },
+        "passes": true
+      },
+      "note": "Only the company wordmark and its integral symbol; excludes financial values, labels, flows, and publisher content.",
+      "runtimeOutput": "data/assets/raster-annotations/fiserv/company-logo-fiserv-q2-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3357,
+        "losslessBytes": 12962,
+        "savingsVsLossless": 0.741,
+        "metrics": {
+          "meanAbsoluteError": 0.2881,
+          "rootMeanSquareError": 1.2154,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.4307
+        }
+      },
+      "validationSheet": "data/assets/icon-references/fiserv/validation-sheets/fiserv-q2-fy26/fiserv-q2-fy26-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 219277,
+        "losslessBytes": 219277,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "dataset": "chime-q2-fy26",
+  "sourceDigest": "sha256:9d7f03cb2152009c02b5ef6ff3f55940e2631aec676859633b9efafe60700d5d",
+  "status": "executor-visual-check-complete; operator-review-pending",
+  "checks": [
+    "complete wordmark and integral symbols",
+    "no financial values or Sankey marks",
+    "native bounds and crop quality report inspected",
+    "compressed runtime PNG and Source recipe retained"
+  ],
+  "exclusions": [],
+  "crops": [
+    {
+      "key": "chime-q2-fy26-company-logo",
+      "output": "data/assets/raster-annotations/chime/company-logo-chime-q2-fy26.png",
+      "validation": {
+        "width": 495,
+        "height": 144,
+        "foregroundPixels": 29004,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 2,
+          "right": 2,
+          "top": 2,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "passes": true
+      },
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 3668,
+        "losslessBytes": 15557,
+        "savingsVsLossless": 0.7642,
+        "metrics": {
+          "meanAbsoluteError": 0.3394,
+          "rootMeanSquareError": 1.0357,
+          "p99AbsoluteError": 5,
+          "maxChannelDiff": 18,
+          "changedPixelRatio": 0.4283
+        }
+      }
+    }
+  ]
+}

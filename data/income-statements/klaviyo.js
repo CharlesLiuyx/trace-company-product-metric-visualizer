@@ -290,3 +290,308 @@
     }
   );
 })(window);
+
+/* Source contribution: klaviyo-q2-fy26. */
+(function(global){global.INCOME_STATEMENT_SSOT.records.push({
+  "key": "klaviyo-q2-fy26",
+  "company": "Klaviyo",
+  "period": "Q2 FY26",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 3,
+  "sourceImage": "input/processed/klaviyo-q2-fy26.png",
+  "roundingTolerance": 1.5,
+  "notes": [
+    "Amounts and captions are transcribed from the source infographic; displayed totals may differ from sums because each amount is independently rounded.",
+    "DBNR",
+    "109%",
+    "+1pp Y/Y",
+    "Customers > $50K",
+    "4,477 (+36% Y/Y)",
+    "DBNR = Dollar Based Net Retention",
+    "The source ends at operating loss. Net income, income taxes and non-operating items are official supplementary data, without additional Sankey faces."
+  ],
+  "revenue": {
+    "total": 371,
+    "notes": [
+      "+26% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "americas",
+        "label": "Americas",
+        "value": 233,
+        "notes": [
+          "+22% Y/Y"
+        ],
+        "children": [
+          {
+            "id": "us",
+            "label": "United States",
+            "value": 216,
+            "notes": [
+              "+22% Y/Y"
+            ]
+          },
+          {
+            "id": "other_americas",
+            "label": "Other Americas",
+            "value": 17,
+            "notes": [
+              "+25% Y/Y"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "apac",
+        "label": "APAC",
+        "value": 39,
+        "notes": [
+          "+29% Y/Y"
+        ]
+      },
+      {
+        "id": "emea",
+        "label": "EMEA",
+        "value": 98,
+        "notes": [
+          "+37% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 101,
+      "notes": []
+    },
+    "operatingExpenses": {
+      "total": 284,
+      "items": [
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 139,
+          "notes": [
+            "38% of revenue",
+            "(6pp) Y/Y"
+          ]
+        },
+        {
+          "id": "rd",
+          "label": "R&D",
+          "value": 92,
+          "notes": [
+            "25% of revenue",
+            "+0pp Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 53,
+          "notes": [
+            "14% of revenue",
+            "(4pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "label": "Income tax expense",
+      "value": 1.743,
+      "notes": [
+        "https://investors.klaviyo.com/newsroom/news/news-details/2026/Klaviyo-Delivers-Strong-Q2-as-Autonomous-B2C-CRM-Strategy-Gains-Momentum/default.aspx"
+      ]
+    }
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 269,
+      "notes": [
+        "73% margin",
+        "(3pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_loss",
+      "label": "Operating loss",
+      "value": -15,
+      "notes": [
+        "(4%) margin",
+        "+7pp Y/Y"
+      ]
+    },
+    "net": {
+      "label": "Net loss",
+      "value": -8.849,
+      "notes": [
+        "Supplemented from the official Q2 2026 release; not drawn in the source infographic.",
+        "https://investors.klaviyo.com/newsroom/news/news-details/2026/Klaviyo-Delivers-Strong-Q2-as-Autonomous-B2C-CRM-Strategy-Gains-Momentum/default.aspx"
+      ]
+    }
+  },
+  "otherIncome": {
+    "total": 8.362,
+    "items": [
+      {
+        "label": "Interest income",
+        "value": 8.362,
+        "notes": [
+          "https://investors.klaviyo.com/newsroom/news/news-details/2026/Klaviyo-Delivers-Strong-Q2-as-Autonomous-B2C-CRM-Strategy-Gains-Momentum/default.aspx"
+        ]
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0.505,
+    "items": [
+      {
+        "label": "Other expense",
+        "value": 0.505,
+        "notes": [
+          "https://investors.klaviyo.com/newsroom/news/news-details/2026/Klaviyo-Delivers-Strong-Q2-as-Autonomous-B2C-CRM-Strategy-Gains-Momentum/default.aspx"
+        ]
+      }
+    ]
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "notes": [
+        "Amounts和captions are transcribed from the source infographic；displayed totals may differ from sums because each amount is independently rounded.",
+        "DBNR",
+        "109%",
+        "同比 +1 个百分点",
+        "年收入超过 $50K 的客户",
+        "4,477（同比 +36%）",
+        "DBNR = 金额净留存率",
+        "The source ends at 运营 亏损. 净利润、income taxes和non-运营 items are official supplementary data、without additional 桑基图 faces."
+      ],
+      "revenue": {
+        "notes": [
+          "同比 +26%"
+        ],
+        "items": [
+          {
+            "label": "美洲",
+            "notes": [
+              "同比 +22%"
+            ],
+            "children": [
+              {
+                "label": "美国",
+                "notes": [
+                  "同比 +22%"
+                ]
+              },
+              {
+                "label": "美洲其他地区",
+                "notes": [
+                  "同比 +25%"
+                ]
+              }
+            ]
+          },
+          {
+            "label": "亚太",
+            "notes": [
+              "同比 +29%"
+            ]
+          },
+          {
+            "label": "欧洲/中东/非洲",
+            "notes": [
+              "同比 +37%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本",
+          "notes": []
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "label": "销售与市场",
+              "notes": [
+                "占收入 38%",
+                "同比 (6 个百分点)"
+              ]
+            },
+            {
+              "label": "研发",
+              "notes": [
+                "占收入 25%",
+                "同比 +0 个百分点"
+              ]
+            },
+            {
+              "label": "管理费用",
+              "notes": [
+                "占收入 14%",
+                "同比 (4 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "所得税费用",
+          "notes": [
+            "https://investors.klaviyo.com/newsroom/news/news-details/2026/Klaviyo-Delivers-Strong-Q2-as-Autonomous-B2C-CRM-Strategy-Gains-Momentum/default.aspx"
+          ]
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 73%",
+            "同比 (3 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业亏损",
+          "notes": [
+            "利润率 (4%)",
+            "同比 +7 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净亏损",
+          "notes": [
+            "补充自官方 2026 年第二季度财报；原图未绘制此项。",
+            "https://investors.klaviyo.com/newsroom/news/news-details/2026/Klaviyo-Delivers-Strong-Q2-as-Autonomous-B2C-CRM-Strategy-Gains-Momentum/default.aspx"
+          ]
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "label": "利息 income",
+            "notes": [
+              "https://investors.klaviyo.com/newsroom/news/news-details/2026/Klaviyo-Delivers-Strong-Q2-as-Autonomous-B2C-CRM-Strategy-Gains-Momentum/default.aspx"
+            ]
+          }
+        ]
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "label": "其他费用",
+            "notes": [
+              "https://investors.klaviyo.com/newsroom/news/news-details/2026/Klaviyo-Delivers-Strong-Q2-as-Autonomous-B2C-CRM-Strategy-Gains-Momentum/default.aspx"
+            ]
+          }
+        ]
+      }
+    }
+  }
+});})(window);

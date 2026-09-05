@@ -1,0 +1,55 @@
+{
+  "source": "input/processing/autodesk-q2-fy27.png",
+  "outputDir": "data/assets/icon-references/autodesk",
+  "runtimeOutputDir": "data/assets/raster-annotations/autodesk",
+  "validationSheetDir": "data/assets/icon-references/autodesk/validation-sheets/autodesk-q2-fy27",
+  "report": "crop-report-autodesk-q2-fy27.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [
+      242,
+      242,
+      242
+    ],
+    "tolerance": 8
+  },
+  "skipped": [
+    {
+      "key": "publisher-marks",
+      "reason": "Non-semantic creator, website and publication branding are excluded."
+    }
+  ],
+  "crops": [
+    {
+      "key": "autodesk-q2-fy27-company-logo",
+      "output": "crops/company-logo-autodesk-q2-fy27.png",
+      "runtimeOutput": "company-logo-autodesk-q2-fy27.png",
+      "searchBox": {
+        "x": 688,
+        "y": 221,
+        "width": 417,
+        "height": 242
+      },
+      "cropBox": {
+        "x": 688,
+        "y": 221,
+        "width": 417,
+        "height": 242
+      },
+      "threshold": 15,
+      "minComponentArea": 2,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Only the company wordmark and its integral symbol; excludes financial values, labels, flows, and publisher content."
+    }
+  ]
+}

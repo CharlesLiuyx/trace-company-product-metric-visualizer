@@ -1,0 +1,52 @@
+{
+  "dataset": "fiserv-q2-fy26",
+  "sourceDigest": "sha256:733c9b494258402eb3751811b32b085a35f8079926fd1b297a6f2acfee510dcc",
+  "status": "executor-visual-check-complete; operator-review-pending",
+  "checks": [
+    "complete wordmark and integral symbols",
+    "no financial values or Sankey marks",
+    "native bounds and crop quality report inspected",
+    "compressed runtime PNG and Source recipe retained"
+  ],
+  "exclusions": [],
+  "crops": [
+    {
+      "key": "fiserv-q2-fy26-company-logo",
+      "output": "data/assets/raster-annotations/fiserv/company-logo-fiserv-q2-fy26.png",
+      "validation": {
+        "width": 385,
+        "height": 195,
+        "foregroundPixels": 30702,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 2,
+          "right": 2,
+          "top": 2,
+          "bottom": 1
+        },
+        "centerOffset": {
+          "x": 0,
+          "y": 0.0026
+        },
+        "passes": true
+      },
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3357,
+        "losslessBytes": 12962,
+        "savingsVsLossless": 0.741,
+        "metrics": {
+          "meanAbsoluteError": 0.2881,
+          "rootMeanSquareError": 1.2154,
+          "p99AbsoluteError": 6,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.4307
+        }
+      }
+    }
+  ]
+}

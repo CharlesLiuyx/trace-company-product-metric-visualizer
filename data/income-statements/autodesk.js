@@ -245,3 +245,278 @@
     }
   );
 })(window);
+
+/* Source contribution: autodesk-q2-fy27. */
+(function(global){global.INCOME_STATEMENT_SSOT.records.push({
+  "key": "autodesk-q2-fy27",
+  "company": "Autodesk",
+  "period": "Q2 FY27",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/autodesk-q2-fy27.png",
+  "roundingTolerance": 1.5,
+  "notes": [
+    "Amounts and captions are transcribed from the source infographic; displayed totals may differ from sums because each amount is independently rounded.",
+    "Q2 FY27",
+    "Ending July 2026"
+  ],
+  "revenue": {
+    "total": 2046,
+    "notes": [
+      "+16% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "aec",
+        "label": "Architecture Engineering & Construction",
+        "value": 1029,
+        "notes": [
+          "+17% Y/Y"
+        ]
+      },
+      {
+        "id": "autocad",
+        "label": "AutoCAD",
+        "value": 500,
+        "notes": [
+          "+14% Y/Y"
+        ]
+      },
+      {
+        "id": "manufacturing",
+        "label": "Manufacturing",
+        "value": 385,
+        "notes": [
+          "+15% Y/Y"
+        ]
+      },
+      {
+        "id": "media_entertainment",
+        "label": "Media & Entertainment",
+        "value": 92,
+        "notes": [
+          "+15% Y/Y"
+        ]
+      },
+      {
+        "id": "other_revenue",
+        "label": "Other",
+        "value": 40,
+        "notes": [
+          "+29% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 176,
+      "notes": []
+    },
+    "operatingExpenses": {
+      "total": 1271,
+      "items": [
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 616,
+          "notes": [
+            "30% of revenue",
+            "(2pp) Y/Y"
+          ]
+        },
+        {
+          "id": "rd",
+          "label": "R&D",
+          "value": 464,
+          "notes": [
+            "23% of revenue",
+            "(1pp) Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 179,
+          "notes": [
+            "9% of revenue",
+            "(1pp) Y/Y"
+          ]
+        },
+        {
+          "id": "other_opex",
+          "label": "Other",
+          "value": 12,
+          "notes": [
+            "1% of revenue",
+            "(1pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax_other",
+      "label": "Tax & Other",
+      "value": 107,
+      "notes": []
+    }
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 1870,
+      "notes": [
+        "91% margin",
+        "+0pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 599,
+      "notes": [
+        "29% margin",
+        "+4pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 492,
+      "notes": [
+        "24% margin",
+        "+6pp Y/Y"
+      ]
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "i18n": {
+    "zh": {
+      "period": "2027 财年第二季度",
+      "notes": [
+        "Amounts和captions are transcribed from the source infographic；displayed totals may differ from sums because each amount is independently rounded.",
+        "2027 财年第二季度",
+        "截至 2026 年 7 月"
+      ],
+      "revenue": {
+        "notes": [
+          "同比 +16%"
+        ],
+        "items": [
+          {
+            "label": "Architecture Engineering与Construction",
+            "notes": [
+              "同比 +17%"
+            ]
+          },
+          {
+            "label": "AutoCAD 产品",
+            "notes": [
+              "同比 +14%"
+            ]
+          },
+          {
+            "label": "制造业",
+            "notes": [
+              "同比 +15%"
+            ]
+          },
+          {
+            "label": "Media与Entertainment",
+            "notes": [
+              "同比 +15%"
+            ]
+          },
+          {
+            "label": "其他",
+            "notes": [
+              "同比 +29%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本",
+          "notes": []
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "label": "销售与市场",
+              "notes": [
+                "占收入 30%",
+                "同比 (2 个百分点)"
+              ]
+            },
+            {
+              "label": "研发",
+              "notes": [
+                "占收入 23%",
+                "同比 (1 个百分点)"
+              ]
+            },
+            {
+              "label": "管理费用",
+              "notes": [
+                "占收入 9%",
+                "同比 (1 个百分点)"
+              ]
+            },
+            {
+              "label": "其他",
+              "notes": [
+                "占收入 1%",
+                "同比 (1 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费 及其他",
+          "notes": []
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 91%",
+            "同比 +0 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 29%",
+            "同比 +4 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 24%",
+            "同比 +6 个百分点"
+          ]
+        }
+      },
+      "otherIncome": {
+        "items": []
+      },
+      "otherExpenses": {
+        "items": []
+      }
+    }
+  }
+});})(window);

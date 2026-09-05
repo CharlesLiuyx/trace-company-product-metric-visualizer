@@ -1,0 +1,55 @@
+{
+  "source": "input/processing/docebo-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/docebo",
+  "runtimeOutputDir": "data/assets/raster-annotations/docebo",
+  "validationSheetDir": "data/assets/icon-references/docebo/validation-sheets/docebo-q2-fy26",
+  "report": "crop-report-docebo-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [
+      242,
+      242,
+      242
+    ],
+    "tolerance": 8
+  },
+  "skipped": [
+    {
+      "key": "publisher-marks",
+      "reason": "Non-semantic creator, website and publication branding are excluded."
+    }
+  ],
+  "crops": [
+    {
+      "key": "docebo-q2-fy26-company-logo",
+      "output": "crops/company-logo-docebo-q2-fy26.png",
+      "runtimeOutput": "company-logo-docebo-q2-fy26.png",
+      "searchBox": {
+        "x": 558,
+        "y": 280,
+        "width": 620,
+        "height": 130
+      },
+      "cropBox": {
+        "x": 558,
+        "y": 280,
+        "width": 620,
+        "height": 130
+      },
+      "threshold": 15,
+      "minComponentArea": 2,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Only the company wordmark and its integral symbol; excludes financial values, labels, flows, and publisher content."
+    }
+  ]
+}

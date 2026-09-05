@@ -1,0 +1,133 @@
+{
+  "source": "input/processing/autodesk-q2-fy27.png",
+  "spec": "input/icon-crop-specs/autodesk-q2-fy27-company-logo.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-09-05T11:17:59.619171+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/autodesk",
+  "crops": [
+    {
+      "key": "autodesk-q2-fy27-company-logo",
+      "output": "data/assets/icon-references/autodesk/crops/company-logo-autodesk-q2-fy27.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4341,
+        "losslessBytes": 18713,
+        "savingsVsLossless": 0.768,
+        "metrics": {
+          "meanAbsoluteError": 0.2676,
+          "rootMeanSquareError": 1.2767,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.0864
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 69316,
+        "transparentPixelRatio": 0.6869
+      },
+      "searchBox": {
+        "x": 688,
+        "y": 221,
+        "width": 417,
+        "height": 242
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 693,
+        "y0": 227,
+        "x1": 1100,
+        "y1": 457
+      },
+      "cropBox": {
+        "x0": 688,
+        "y0": 221,
+        "x1": 1105,
+        "y1": 463
+      },
+      "validation": {
+        "width": 417,
+        "height": 242,
+        "foregroundPixels": 30128,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 5,
+          "right": 5,
+          "top": 6,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Only the company wordmark and its integral symbol; excludes financial values, labels, flows, and publisher content.",
+      "runtimeOutput": "data/assets/raster-annotations/autodesk/company-logo-autodesk-q2-fy27.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4341,
+        "losslessBytes": 18713,
+        "savingsVsLossless": 0.768,
+        "metrics": {
+          "meanAbsoluteError": 0.2676,
+          "rootMeanSquareError": 1.2767,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.0864
+        }
+      },
+      "validationSheet": "data/assets/icon-references/autodesk/validation-sheets/autodesk-q2-fy27/autodesk-q2-fy27-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 256102,
+        "losslessBytes": 256102,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

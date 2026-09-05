@@ -175,3 +175,302 @@
     },
   });
 })(window);
+
+/* Source contribution: docebo-q2-fy26. */
+(function(global){global.INCOME_STATEMENT_SSOT.records.push({
+  "key": "docebo-q2-fy26",
+  "company": "Docebo",
+  "period": "Q2 FY26",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/docebo-q2-fy26.png",
+  "roundingTolerance": 1.5,
+  "notes": [
+    "Amounts and captions are transcribed from the source infographic; displayed totals may differ from sums because each amount is independently rounded.",
+    "ARR",
+    "$255M",
+    "+10% Y/Y",
+    "Customers",
+    "3,578",
+    "(10%) Y/Y",
+    "ARR = Annual Recurring Revenue"
+  ],
+  "revenue": {
+    "total": 69,
+    "notes": [
+      "+13% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "subscription",
+        "label": "Subscription",
+        "value": 64,
+        "notes": [
+          "+12% Y/Y"
+        ]
+      },
+      {
+        "id": "professional_services",
+        "label": "Professional services",
+        "value": 5,
+        "notes": [
+          "+31% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 14,
+      "notes": []
+    },
+    "operatingExpenses": {
+      "total": 52,
+      "items": [
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 23,
+          "notes": [
+            "S&M ($23M)",
+            "33% of revenue",
+            "(1pp) Y/Y"
+          ]
+        },
+        {
+          "id": "rd",
+          "label": "R&D",
+          "value": 13,
+          "notes": [
+            "R&D ($13M)",
+            "19% of revenue",
+            "(2pp) Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 9,
+          "notes": [
+            "G&A ($9M)",
+            "14% of revenue",
+            "(0pp) Y/Y"
+          ]
+        },
+        {
+          "id": "sbc",
+          "label": "SBC",
+          "value": 2,
+          "notes": [
+            "SBC ($2M)",
+            "4% of revenue",
+            "+1pp Y/Y"
+          ]
+        },
+        {
+          "id": "depreciation",
+          "label": "Depreciation",
+          "value": 2,
+          "notes": [
+            "Depreciation ($2M)",
+            "3% of revenue",
+            "+2pp Y/Y"
+          ]
+        },
+        {
+          "id": "fx_loss",
+          "label": "Fx loss",
+          "value": 2,
+          "notes": [
+            "Fx loss ($2M)",
+            "3% of revenue",
+            "+2pp Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 1,
+      "notes": []
+    }
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 55,
+      "notes": [
+        "79% margin",
+        "(1pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 3,
+      "notes": [
+        "4% margin",
+        "(3pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 2,
+      "notes": [
+        "3% margin",
+        "(2pp) Y/Y"
+      ]
+    }
+  },
+  "otherIncome": {
+    "total": 1,
+    "items": [
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 1,
+        "notes": []
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "notes": [
+        "Amounts和captions are transcribed from the source infographic；displayed totals may differ from sums because each amount is independently rounded.",
+        "ARR",
+        "$255M",
+        "同比 +10%",
+        "客户",
+        "3,578",
+        "同比 (10%)",
+        "ARR = Annual Recurring 收入"
+      ],
+      "revenue": {
+        "notes": [
+          "同比 +13%"
+        ],
+        "items": [
+          {
+            "label": "订阅",
+            "notes": [
+              "同比 +12%"
+            ]
+          },
+          {
+            "label": "专业服务",
+            "notes": [
+              "同比 +31%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本",
+          "notes": []
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "label": "销售与市场",
+              "notes": [
+                "销售与市场 ($23M)",
+                "占收入 33%",
+                "同比 (1 个百分点)"
+              ]
+            },
+            {
+              "label": "研发",
+              "notes": [
+                "研发 ($13M)",
+                "占收入 19%",
+                "同比 (2 个百分点)"
+              ]
+            },
+            {
+              "label": "管理费用",
+              "notes": [
+                "管理费用 ($9M)",
+                "占收入 14%",
+                "同比 (0 个百分点)"
+              ]
+            },
+            {
+              "label": "SBC",
+              "notes": [
+                "股权薪酬 ($2M)",
+                "占收入 4%",
+                "同比 +1 个百分点"
+              ]
+            },
+            {
+              "label": "折旧",
+              "notes": [
+                "折旧 ($2M)",
+                "占收入 3%",
+                "同比 +2 个百分点"
+              ]
+            },
+            {
+              "label": "Fx 亏损",
+              "notes": [
+                "汇兑损失 ($2M)",
+                "占收入 3%",
+                "同比 +2 个百分点"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费",
+          "notes": []
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 79%",
+            "同比 (1 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 4%",
+            "同比 (3 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 3%",
+            "同比 (2 个百分点)"
+          ]
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "label": "其他",
+            "notes": []
+          }
+        ]
+      },
+      "otherExpenses": {
+        "items": []
+      }
+    }
+  }
+});})(window);

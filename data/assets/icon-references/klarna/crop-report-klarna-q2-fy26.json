@@ -1,0 +1,133 @@
+{
+  "source": "input/processing/klarna-q2-fy26.png",
+  "spec": "input/icon-crop-specs/klarna-q2-fy26-company-logo.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-09-05T11:17:09.714961+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/klarna",
+  "crops": [
+    {
+      "key": "klarna-q2-fy26-company-logo",
+      "output": "data/assets/icon-references/klarna/crops/company-logo-klarna-q2-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4286,
+        "losslessBytes": 27626,
+        "savingsVsLossless": 0.8449,
+        "metrics": {
+          "meanAbsoluteError": 0.6351,
+          "rootMeanSquareError": 1.9877,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.9548
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 6799,
+        "transparentPixelRatio": 0.0514
+      },
+      "searchBox": {
+        "x": 585,
+        "y": 243,
+        "width": 558,
+        "height": 237
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 587,
+        "y0": 245,
+        "x1": 1141,
+        "y1": 479
+      },
+      "cropBox": {
+        "x0": 585,
+        "y0": 243,
+        "x1": 1143,
+        "y1": 480
+      },
+      "validation": {
+        "width": 558,
+        "height": 237,
+        "foregroundPixels": 125382,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 2,
+          "right": 2,
+          "top": 2,
+          "bottom": 1
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0021
+        },
+        "passes": true
+      },
+      "note": "Only the company wordmark and its integral symbol; excludes financial values, labels, flows, and publisher content.",
+      "runtimeOutput": "data/assets/raster-annotations/klarna/company-logo-klarna-q2-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4286,
+        "losslessBytes": 27626,
+        "savingsVsLossless": 0.8449,
+        "metrics": {
+          "meanAbsoluteError": 0.6351,
+          "rootMeanSquareError": 1.9877,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.9548
+        }
+      },
+      "validationSheet": "data/assets/icon-references/klarna/validation-sheets/klarna-q2-fy26/klarna-q2-fy26-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 280154,
+        "losslessBytes": 280154,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

@@ -291,3 +291,281 @@
     }
   );
 })(window);
+
+/* Source contribution: klarna-q2-fy26. */
+(function(global){global.INCOME_STATEMENT_SSOT.records.push({
+  "key": "klarna-q2-fy26",
+  "company": "Klarna",
+  "period": "Q2 FY26",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/klarna-q2-fy26.png",
+  "roundingTolerance": 1.5,
+  "notes": [
+    "Amounts and captions are transcribed from the source infographic; displayed totals may differ from sums because each amount is independently rounded.",
+    "GMV",
+    "$36.6B",
+    "+15% Y/Y LfL",
+    "Active Consumers",
+    "120M",
+    "+8% Y/Y",
+    "Merchants",
+    "1,208K",
+    "+54% Y/Y",
+    "GMV = Gross Merchandise Value",
+    "Adjusted for the sale of",
+    "Klarna Checkout (KCO)"
+  ],
+  "revenue": {
+    "total": 1042,
+    "notes": [
+      "+27% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "transaction_revenue",
+        "label": "Transaction revenue",
+        "value": 707,
+        "notes": [
+          "+17% Y/Y"
+        ]
+      },
+      {
+        "id": "interest_revenue",
+        "label": "Interest",
+        "value": 266,
+        "notes": [
+          "+21% Y/Y"
+        ]
+      },
+      {
+        "id": "consumer_revenue",
+        "label": "Consumer Revenue",
+        "value": 69,
+        "notes": []
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "label": "Cost of revenue",
+      "value": 596,
+      "items": [
+        {
+          "id": "processing_servicing",
+          "label": "Processing and servicing costs",
+          "value": 233,
+          "notes": []
+        },
+        {
+          "id": "credit_losses",
+          "label": "Provision for credit losses",
+          "value": 192,
+          "notes": []
+        },
+        {
+          "id": "funding_costs",
+          "label": "Funding costs",
+          "value": 171,
+          "notes": []
+        }
+      ]
+    },
+    "operatingExpenses": {
+      "total": 420,
+      "items": [
+        {
+          "id": "technology_product",
+          "label": "Tech & product development",
+          "value": 111,
+          "notes": []
+        },
+        {
+          "id": "sales_marketing",
+          "label": "Sales & marketing",
+          "value": 111,
+          "notes": []
+        },
+        {
+          "id": "ga",
+          "label": "General & administrative",
+          "value": 76,
+          "notes": []
+        },
+        {
+          "id": "customer_service",
+          "label": "Customer service & operations",
+          "value": 57,
+          "notes": []
+        },
+        {
+          "id": "other_opex",
+          "label": "Other",
+          "value": 65,
+          "notes": []
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 18,
+      "notes": []
+    }
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Transaction margin dollars",
+      "value": 446,
+      "notes": [
+        "+42% Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 26,
+      "notes": [
+        "2% margin",
+        "+4pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 8,
+      "notes": [
+        "0% margin",
+        "+4pp Y/Y"
+      ]
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "notes": [
+        "Amounts和captions are transcribed from the source infographic；displayed totals may differ from sums because each amount is independently rounded.",
+        "GMV",
+        "$36.6B",
+        "可比口径同比 +15%",
+        "活跃消费者",
+        "120M",
+        "同比 +8%",
+        "商户",
+        "1,208K",
+        "同比 +54%",
+        "GMV = 毛 商品 Value",
+        "已对出售进行调整：",
+        "Klarna Checkout (KCO)"
+      ],
+      "revenue": {
+        "notes": [
+          "同比 +27%"
+        ],
+        "items": [
+          {
+            "label": "Transaction 收入",
+            "notes": [
+              "同比 +17%"
+            ]
+          },
+          {
+            "label": "利息",
+            "notes": [
+              "同比 +21%"
+            ]
+          },
+          {
+            "label": "消费者 收入",
+            "notes": []
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本",
+          "items": [
+            {
+              "label": "Processing和servicing costs",
+              "notes": []
+            },
+            {
+              "label": "信用损失拨备",
+              "notes": []
+            },
+            {
+              "label": "融资成本",
+              "notes": []
+            }
+          ]
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "label": "Tech与product 开发",
+              "notes": []
+            },
+            {
+              "label": "销售与市场",
+              "notes": []
+            },
+            {
+              "label": "一般及行政",
+              "notes": []
+            },
+            {
+              "label": "Customer service与operations",
+              "notes": []
+            },
+            {
+              "label": "其他",
+              "notes": []
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费",
+          "notes": []
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "交易利润额",
+          "notes": [
+            "同比 +42%"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 2%",
+            "同比 +4 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 0%",
+            "同比 +4 个百分点"
+          ]
+        }
+      },
+      "otherIncome": {
+        "items": []
+      },
+      "otherExpenses": {
+        "items": []
+      }
+    }
+  }
+});})(window);

@@ -1,0 +1,52 @@
+{
+  "dataset": "digitalocean-q2-fy26",
+  "sourceDigest": "sha256:e3b334b184518c4ff447083f1ef14c869193a03d19120d344ff116959c2643b7",
+  "status": "executor-visual-check-complete; operator-review-pending",
+  "checks": [
+    "complete wordmark and integral symbols",
+    "no financial values or Sankey marks",
+    "native bounds and crop quality report inspected",
+    "compressed runtime PNG and Source recipe retained"
+  ],
+  "exclusions": [],
+  "crops": [
+    {
+      "key": "digitalocean-q2-fy26-company-logo",
+      "output": "data/assets/raster-annotations/digitalocean/company-logo-digitalocean-q2-fy26.png",
+      "validation": {
+        "width": 392,
+        "height": 295,
+        "foregroundPixels": 26269,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 6,
+          "top": 6,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": 0,
+          "y": 0.0034
+        },
+        "passes": true
+      },
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 4413,
+        "losslessBytes": 20508,
+        "savingsVsLossless": 0.7848,
+        "metrics": {
+          "meanAbsoluteError": 0.2283,
+          "rootMeanSquareError": 1.2664,
+          "p99AbsoluteError": 6,
+          "maxChannelDiff": 31,
+          "changedPixelRatio": 0.2476
+        }
+      }
+    }
+  ]
+}

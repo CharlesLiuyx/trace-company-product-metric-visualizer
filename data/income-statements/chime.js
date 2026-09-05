@@ -261,3 +261,296 @@
     }
   );
 })(window);
+
+/* Source contribution: chime-q2-fy26. */
+(function(global){global.INCOME_STATEMENT_SSOT.records.push({
+  "key": "chime-q2-fy26",
+  "company": "Chime",
+  "period": "Q2 FY26",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/chime-q2-fy26.png",
+  "roundingTolerance": 1.5,
+  "notes": [
+    "Amounts and captions are transcribed from the source infographic; displayed totals may differ from sums because each amount is independently rounded.",
+    "Transaction Margin",
+    "73%",
+    "+4pp Y/Y",
+    "Active Members",
+    "10.4M",
+    "+20% Y/Y",
+    "ARPAM",
+    "$260",
+    "+6% Y/Y",
+    "ARPAM = Average Revenue per Active Member"
+  ],
+  "revenue": {
+    "total": 670,
+    "notes": [
+      "+27% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "payment_revenue",
+        "label": "Payment revenue",
+        "value": 430,
+        "notes": [
+          "+21% Y/Y"
+        ]
+      },
+      {
+        "id": "platform_related_revenue",
+        "label": "Platform-related revenue",
+        "value": 240,
+        "notes": [
+          "+48% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 75,
+      "notes": []
+    },
+    "operatingExpenses": {
+      "total": 573,
+      "items": [
+        {
+          "id": "marketing",
+          "label": "Marketing",
+          "value": 164,
+          "notes": [
+            "Marketing ($164M)",
+            "25% of revenue",
+            "(11pp) Y/Y"
+          ]
+        },
+        {
+          "id": "technology",
+          "label": "Technology",
+          "value": 112,
+          "notes": [
+            "Technology ($112M)",
+            "17% of revenue",
+            "(101pp) Y/Y"
+          ]
+        },
+        {
+          "id": "operations",
+          "label": "Operations",
+          "value": 110,
+          "notes": [
+            "Operations ($110M)",
+            "16% of revenue",
+            "(22pp) Y/Y"
+          ]
+        },
+        {
+          "id": "transaction_risk_losses",
+          "label": "Transaction and risk losses",
+          "value": 103,
+          "notes": [
+            "15% of revenue",
+            "(3pp) Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 80,
+          "notes": [
+            "G&A ($80M)",
+            "12% of revenue",
+            "(41pp) Y/Y"
+          ]
+        },
+        {
+          "id": "da",
+          "label": "D&A",
+          "value": 4,
+          "notes": [
+            "D&A ($4M)",
+            "1% of revenue",
+            "(0pp) Y/Y"
+          ]
+        }
+      ]
+    }
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 595,
+      "notes": [
+        "89% margin",
+        "+2pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 22,
+      "notes": [
+        "3% margin",
+        "+179pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 28,
+      "notes": [
+        "4% margin",
+        "+179pp Y/Y"
+      ]
+    }
+  },
+  "otherIncome": {
+    "total": 7,
+    "items": [
+      {
+        "id": "interest",
+        "label": "Interest",
+        "value": 7,
+        "notes": []
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "notes": [
+        "Amounts和captions are transcribed from the source infographic；displayed totals may differ from sums because each amount is independently rounded.",
+        "交易利润率",
+        "73%",
+        "同比 +4 个百分点",
+        "活跃会员",
+        "10.4M",
+        "同比 +20%",
+        "ARPAM",
+        "$260",
+        "同比 +6%",
+        "ARPAM = 每名活跃会员平均收入"
+      ],
+      "revenue": {
+        "notes": [
+          "同比 +27%"
+        ],
+        "items": [
+          {
+            "label": "Payment 收入",
+            "notes": [
+              "同比 +21%"
+            ]
+          },
+          {
+            "label": "Platform-related 收入",
+            "notes": [
+              "同比 +48%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本",
+          "notes": []
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "label": "市场营销",
+              "notes": [
+                "市场营销 ($164M)",
+                "占收入 25%",
+                "同比 (11 个百分点)"
+              ]
+            },
+            {
+              "label": "技术",
+              "notes": [
+                "技术 ($112M)",
+                "占收入 17%",
+                "同比 (101 个百分点)"
+              ]
+            },
+            {
+              "label": "运营",
+              "notes": [
+                "运营 ($110M)",
+                "占收入 16%",
+                "同比 (22 个百分点)"
+              ]
+            },
+            {
+              "label": "Transaction和risk losses",
+              "notes": [
+                "占收入 15%",
+                "同比 (3 个百分点)"
+              ]
+            },
+            {
+              "label": "管理费用",
+              "notes": [
+                "管理费用 ($80M)",
+                "占收入 12%",
+                "同比 (41 个百分点)"
+              ]
+            },
+            {
+              "label": "折旧与摊销",
+              "notes": [
+                "折旧与摊销 ($4M)",
+                "占收入 1%",
+                "同比 (0 个百分点)"
+              ]
+            }
+          ]
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 89%",
+            "同比 +2 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 3%",
+            "同比 +179 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 4%",
+            "同比 +179 个百分点"
+          ]
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "label": "利息",
+            "notes": []
+          }
+        ]
+      },
+      "otherExpenses": {
+        "items": []
+      }
+    }
+  }
+});})(window);

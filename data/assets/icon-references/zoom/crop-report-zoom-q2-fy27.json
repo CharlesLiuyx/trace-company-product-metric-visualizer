@@ -1,0 +1,133 @@
+{
+  "source": "input/processing/zoom-q2-fy27.png",
+  "spec": "input/icon-crop-specs/zoom-q2-fy27-company-logo.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-09-05T11:18:00.613753+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/zoom",
+  "crops": [
+    {
+      "key": "zoom-q2-fy27-company-logo",
+      "output": "data/assets/icon-references/zoom/crops/company-logo-zoom-q2-fy27.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 3589,
+        "losslessBytes": 20827,
+        "savingsVsLossless": 0.8277,
+        "metrics": {
+          "meanAbsoluteError": 0.6936,
+          "rootMeanSquareError": 1.8488,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 22,
+          "changedPixelRatio": 0.568
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 23810,
+        "transparentPixelRatio": 0.4386
+      },
+      "searchBox": {
+        "x": 588,
+        "y": 289,
+        "width": 468,
+        "height": 116
+      },
+      "componentCount": 4,
+      "subjectBox": {
+        "x0": 594,
+        "y0": 295,
+        "x1": 1050,
+        "y1": 399
+      },
+      "cropBox": {
+        "x0": 588,
+        "y0": 289,
+        "x1": 1056,
+        "y1": 405
+      },
+      "validation": {
+        "width": 468,
+        "height": 116,
+        "foregroundPixels": 23787,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 6,
+          "top": 6,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Only the company wordmark and its integral symbol; excludes financial values, labels, flows, and publisher content.",
+      "runtimeOutput": "data/assets/raster-annotations/zoom/company-logo-zoom-q2-fy27.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 3589,
+        "losslessBytes": 20827,
+        "savingsVsLossless": 0.8277,
+        "metrics": {
+          "meanAbsoluteError": 0.6936,
+          "rootMeanSquareError": 1.8488,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 22,
+          "changedPixelRatio": 0.568
+        }
+      },
+      "validationSheet": "data/assets/icon-references/zoom/validation-sheets/zoom-q2-fy27/zoom-q2-fy27-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 244791,
+        "losslessBytes": 244791,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}
