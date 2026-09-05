@@ -1,0 +1,52 @@
+{
+  "dataset": "zoom-q2-fy27",
+  "sourceDigest": "sha256:8712bffc518ca95eb77fba608fc6e6a4bd4d0b8b1f512cb20585b73d37e3ee0a",
+  "status": "executor-visual-check-complete; operator-review-pending",
+  "checks": [
+    "complete wordmark and integral symbols",
+    "no financial values or Sankey marks",
+    "native bounds and crop quality report inspected",
+    "compressed runtime PNG and Source recipe retained"
+  ],
+  "exclusions": [],
+  "crops": [
+    {
+      "key": "zoom-q2-fy27-company-logo",
+      "output": "data/assets/raster-annotations/zoom/company-logo-zoom-q2-fy27.png",
+      "validation": {
+        "width": 468,
+        "height": 116,
+        "foregroundPixels": 23787,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 6,
+          "top": 6,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "passes": true
+      },
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 3589,
+        "losslessBytes": 20827,
+        "savingsVsLossless": 0.8277,
+        "metrics": {
+          "meanAbsoluteError": 0.6936,
+          "rootMeanSquareError": 1.8488,
+          "p99AbsoluteError": 8,
+          "maxChannelDiff": 22,
+          "changedPixelRatio": 0.568
+        }
+      }
+    }
+  ]
+}

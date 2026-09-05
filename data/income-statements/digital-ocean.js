@@ -253,3 +253,272 @@
     }
   );
 })(window);
+
+/* Source contribution: digitalocean-q2-fy26. */
+(function(global){global.INCOME_STATEMENT_SSOT.records.push({
+  "key": "digitalocean-q2-fy26",
+  "company": "DigitalOcean",
+  "period": "Q2 FY26",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/digitalocean-q2-fy26.png",
+  "roundingTolerance": 1.5,
+  "notes": [
+    "Amounts and captions are transcribed from the source infographic; displayed totals may differ from sums because each amount is independently rounded.",
+    "ARR",
+    "$1,125M",
+    "+29% Y/Y",
+    "Customers",
+    ">$100K ARR",
+    "+9% Y/Y",
+    "ARR = Annual Run-Rate Revenue"
+  ],
+  "revenue": {
+    "total": 281,
+    "notes": [
+      "+29% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "north_america",
+        "label": "North America",
+        "value": 131,
+        "notes": [
+          "+65% Y/Y"
+        ]
+      },
+      {
+        "id": "europe",
+        "label": "Europe",
+        "value": 62,
+        "notes": [
+          "+9% Y/Y"
+        ]
+      },
+      {
+        "id": "asia",
+        "label": "Asia",
+        "value": 62,
+        "notes": [
+          "(9%) Y/Y"
+        ]
+      },
+      {
+        "id": "other_revenue",
+        "label": "Other",
+        "value": 26,
+        "notes": [
+          "(9%) Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 127,
+      "notes": []
+    },
+    "operatingExpenses": {
+      "total": 125,
+      "items": [
+        {
+          "id": "rd",
+          "label": "R&D",
+          "value": 58,
+          "notes": [
+            "20% of revenue",
+            "+2pp Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 45,
+          "notes": [
+            "16% of revenue",
+            "(1pp) Y/Y"
+          ]
+        },
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 23,
+          "notes": [
+            "8% of revenue",
+            "(1pp) Y/Y"
+          ]
+        }
+      ]
+    }
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 155,
+      "notes": [
+        "55% margin",
+        "(5pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 29,
+      "notes": [
+        "10% margin",
+        "(6pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 35,
+      "notes": [
+        "13% margin",
+        "(4pp) Y/Y"
+      ]
+    }
+  },
+  "otherIncome": {
+    "total": 8,
+    "items": [
+      {
+        "id": "tax_benefit",
+        "label": "Tax",
+        "value": 8,
+        "notes": []
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 2,
+    "items": [
+      {
+        "id": "interest",
+        "label": "Interest",
+        "value": 2,
+        "notes": []
+      }
+    ]
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "notes": [
+        "Amounts和captions are transcribed from the source infographic；displayed totals may differ from sums because each amount is independently rounded.",
+        "ARR",
+        "$1,125M",
+        "同比 +29%",
+        "客户",
+        "ARR 超过 $100K",
+        "同比 +9%",
+        "ARR = 年化收入运行率"
+      ],
+      "revenue": {
+        "notes": [
+          "同比 +29%"
+        ],
+        "items": [
+          {
+            "label": "北美",
+            "notes": [
+              "同比 +65%"
+            ]
+          },
+          {
+            "label": "欧洲",
+            "notes": [
+              "同比 +9%"
+            ]
+          },
+          {
+            "label": "亚洲",
+            "notes": [
+              "同比 (9%)"
+            ]
+          },
+          {
+            "label": "其他",
+            "notes": [
+              "同比 (9%)"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本",
+          "notes": []
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "label": "研发",
+              "notes": [
+                "占收入 20%",
+                "同比 +2 个百分点"
+              ]
+            },
+            {
+              "label": "管理费用",
+              "notes": [
+                "占收入 16%",
+                "同比 (1 个百分点)"
+              ]
+            },
+            {
+              "label": "销售与市场",
+              "notes": [
+                "占收入 8%",
+                "同比 (1 个百分点)"
+              ]
+            }
+          ]
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 55%",
+            "同比 (5 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 10%",
+            "同比 (6 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 13%",
+            "同比 (4 个百分点)"
+          ]
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "label": "税费",
+            "notes": []
+          }
+        ]
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "label": "利息",
+            "notes": []
+          }
+        ]
+      }
+    }
+  }
+});})(window);

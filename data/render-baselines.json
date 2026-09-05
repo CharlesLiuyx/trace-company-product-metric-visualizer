@@ -6080,6 +6080,66 @@
       "mae": 6.193397658626005,
       "width": 2667,
       "height": 1500
+    },
+    "autodesk-q2-fy27": {
+      "similarity": 0.9761789423380901,
+      "mae": 6.074369703787027,
+      "width": 2667,
+      "height": 1500
+    },
+    "chime-q2-fy26": {
+      "similarity": 0.9774811485165662,
+      "mae": 5.742307128275632,
+      "width": 2667,
+      "height": 1500
+    },
+    "circle-q2-fy26": {
+      "similarity": 0.9797384663518367,
+      "mae": 5.166691080281631,
+      "width": 2667,
+      "height": 1500
+    },
+    "digitalocean-q2-fy26": {
+      "similarity": 0.9789882624149105,
+      "mae": 5.357993084197808,
+      "width": 2667,
+      "height": 1500
+    },
+    "docebo-q2-fy26": {
+      "similarity": 0.9815681020264624,
+      "mae": 4.700133983252093,
+      "width": 2667,
+      "height": 1500
+    },
+    "fiserv-q2-fy26": {
+      "similarity": 0.983288285042801,
+      "mae": 4.261487314085739,
+      "width": 2667,
+      "height": 1500
+    },
+    "klarna-q2-fy26": {
+      "similarity": 0.9740984844214735,
+      "mae": 6.604886472524268,
+      "width": 2667,
+      "height": 1500
+    },
+    "klaviyo-q2-fy26": {
+      "similarity": 0.975897277546189,
+      "mae": 6.146194225721785,
+      "width": 2667,
+      "height": 1500
+    },
+    "monday-com-q2-fy26": {
+      "similarity": 0.9756933559775617,
+      "mae": 6.198194225721784,
+      "width": 2667,
+      "height": 1500
+    },
+    "zoom-q2-fy27": {
+      "similarity": 0.981041526018398,
+      "mae": 4.834410865308503,
+      "width": 2667,
+      "height": 1500
     }
   }
 }

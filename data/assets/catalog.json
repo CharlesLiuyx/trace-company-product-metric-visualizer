@@ -998,6 +998,26 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/autodesk/company-logo-autodesk-q2-fy27.png",
+      "digest": "sha256:52c35dc1752e89610c2b52ce9bf166c6c448648cb8f80a697ff901d23fdfeb91",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/autodesk-q2-fy27-company-logo.json",
+          "recipeDigest": "sha256:fee2a56f938f5725f2c5b7b8f118a965cbc5bf95486a1f7494b2adb4831182c4",
+          "source": "input/processing/autodesk-q2-fy27.png",
+          "cropKey": "autodesk-q2-fy27-company-logo"
+        }
+      ],
+      "directConsumers": [
+        "autodesk-q2-fy27"
+      ],
+      "consumers": [
+        "autodesk-q2-fy27"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/axon/business-personal-sensors-taser-cluster-q4-fy25.png",
       "digest": "sha256:1743d7c21a717b60367411b6ca553f8e3a80e3f84224924a1489e91060e9c3e1",
       "provenance": [],
@@ -1859,6 +1879,26 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/chime/company-logo-chime-q2-fy26.png",
+      "digest": "sha256:053abe79cacf751115c8720713292e2c484e115076e71160201633797f28ed8a",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/chime-q2-fy26-company-logo.json",
+          "recipeDigest": "sha256:c7d0fe528e6fcf66eac3c7b66d3ca2f0c7d84f1dcd65f919c2e99e0ff000093b",
+          "source": "input/processing/chime-q2-fy26.png",
+          "cropKey": "chime-q2-fy26-company-logo"
+        }
+      ],
+      "directConsumers": [
+        "chime-q2-fy26"
+      ],
+      "consumers": [
+        "chime-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/chime/company-wordmark-q4-fy25.png",
       "digest": "sha256:627032b18f0f2c6316cce6dd7582797b115823e0a85a7ea80ad2ffdd42dad701",
       "provenance": [],
@@ -1879,10 +1919,12 @@
         }
       ],
       "directConsumers": [
-        "chime-q1-fy26"
+        "chime-q1-fy26",
+        "chime-q2-fy26"
       ],
       "consumers": [
-        "chime-q1-fy26"
+        "chime-q1-fy26",
+        "chime-q2-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -1939,10 +1981,12 @@
         }
       ],
       "directConsumers": [
-        "chime-q1-fy26"
+        "chime-q1-fy26",
+        "chime-q2-fy26"
       ],
       "consumers": [
-        "chime-q1-fy26"
+        "chime-q1-fy26",
+        "chime-q2-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -2034,6 +2078,26 @@
         "chipotle-q1-fy26",
         "chipotle-q2-fy26",
         "chipotle-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/circle/company-logo-circle-q2-fy26.png",
+      "digest": "sha256:f1cc76d296cbf78eaa2d0031b6020f5344b3515da2391e24b5f9cb73ed872009",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/circle-q2-fy26-company-logo.json",
+          "recipeDigest": "sha256:730372086aa1b5e5cb1fa3397455e3bda61007ab3d5e1029b066b6eb4887ce7c",
+          "source": "input/processing/circle-q2-fy26.png",
+          "cropKey": "circle-q2-fy26-company-logo"
+        }
+      ],
+      "directConsumers": [
+        "circle-q2-fy26"
+      ],
+      "consumers": [
+        "circle-q2-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -2601,6 +2665,26 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/digitalocean/company-logo-digitalocean-q2-fy26.png",
+      "digest": "sha256:28919cd309c8faafdde31d135cfd8bcf62463423cb044be58a76e1b920b87c78",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/digitalocean-q2-fy26-company-logo.json",
+          "recipeDigest": "sha256:dc412ad3892b7eb6ff82f85e24f55c2eb222a6e91e2e5899e66ebc7c6173f82a",
+          "source": "input/processing/digitalocean-q2-fy26.png",
+          "cropKey": "digitalocean-q2-fy26-company-logo"
+        }
+      ],
+      "directConsumers": [
+        "digitalocean-q2-fy26"
+      ],
+      "consumers": [
+        "digitalocean-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/disney/business-entertainment-content-cluster.png",
       "digest": "sha256:8dc8c3c003c01a9bfe23c6a74d26e3d2f534e52cbabed1ef262cdd7fe259494e",
       "provenance": [],
@@ -2674,6 +2758,26 @@
       ],
       "consumers": [
         "disney-q2-fy26-by-segment"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/docebo/company-logo-docebo-q2-fy26.png",
+      "digest": "sha256:c177b5c1f27dc9a423c51d8545e2b3649978832476ebfda8c90eb40af99acd2e",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/docebo-q2-fy26-company-logo.json",
+          "recipeDigest": "sha256:a5689c008cc58e32f3dbb30dccfef454a2b00c83b66bdbcefb5feadd4e5c0e85",
+          "source": "input/processing/docebo-q2-fy26.png",
+          "cropKey": "docebo-q2-fy26-company-logo"
+        }
+      ],
+      "directConsumers": [
+        "docebo-q2-fy26"
+      ],
+      "consumers": [
+        "docebo-q2-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -2927,6 +3031,26 @@
         "ferrari-q2-fy26",
         "ferrari-q3-fy25",
         "ferrari-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/fiserv/company-logo-fiserv-q2-fy26.png",
+      "digest": "sha256:be71fe778adf73bb1c6ef2219ddc51f2d6bc50ee3aa4a47d94937584cd5fb18d",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/fiserv-q2-fy26-company-logo.json",
+          "recipeDigest": "sha256:dc88034b80f8d4d5f59f1da0083ed76a2038192c89b68e18a02658b0594b6c77",
+          "source": "input/processing/fiserv-q2-fy26.png",
+          "cropKey": "fiserv-q2-fy26-company-logo"
+        }
+      ],
+      "directConsumers": [
+        "fiserv-q2-fy26"
+      ],
+      "consumers": [
+        "fiserv-q2-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -4129,6 +4253,46 @@
         "jd-com-q1-fy26",
         "jd-com-q3-fy25",
         "jd-com-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/klarna/company-logo-klarna-q2-fy26.png",
+      "digest": "sha256:436c3949434d1857ca28872c76f0192826e643a8ec0fdb09d0585522d5c2dcdc",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/klarna-q2-fy26-company-logo.json",
+          "recipeDigest": "sha256:a2ab557d9ffc1e78829bbe7107a1c16c04330fc0f570ee78a9bc0ef62ae795ab",
+          "source": "input/processing/klarna-q2-fy26.png",
+          "cropKey": "klarna-q2-fy26-company-logo"
+        }
+      ],
+      "directConsumers": [
+        "klarna-q2-fy26"
+      ],
+      "consumers": [
+        "klarna-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/klaviyo/company-logo-klaviyo-q2-fy26.png",
+      "digest": "sha256:844d9c9b447e00c813ecca2963e7bd2454e3b19346134ed9eb58b1d2c35c9d37",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/klaviyo-q2-fy26-company-logo.json",
+          "recipeDigest": "sha256:f3098266442569899b891ea1879845e909dfd65c4878c3ba949747485a7a092e",
+          "source": "input/processing/klaviyo-q2-fy26.png",
+          "cropKey": "klaviyo-q2-fy26-company-logo"
+        }
+      ],
+      "directConsumers": [
+        "klaviyo-q2-fy26"
+      ],
+      "consumers": [
+        "klaviyo-q2-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -10213,6 +10377,26 @@
       ],
       "acceptedVersions": [],
       "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/zoom/company-logo-zoom-q2-fy27.png",
+      "digest": "sha256:8fff6158df8b47f6b8197bd3c2fea5b8daf3c95c7383bf4926680493bcd31b8d",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/zoom-q2-fy27-company-logo.json",
+          "recipeDigest": "sha256:dee3783d68c0a387780fc84c716c43530882abb08c7db5e7b385b1a6f9c34a54",
+          "source": "input/processing/zoom-q2-fy27.png",
+          "cropKey": "zoom-q2-fy27-company-logo"
+        }
+      ],
+      "directConsumers": [
+        "zoom-q2-fy27"
+      ],
+      "consumers": [
+        "zoom-q2-fy27"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
     }
   ],
   "recipes": [
@@ -10377,6 +10561,11 @@
       "source": "input/processed/autodesk-q1-fy27.png"
     },
     {
+      "path": "input/icon-crop-specs/autodesk-q2-fy27-company-logo.json",
+      "digest": "sha256:fee2a56f938f5725f2c5b7b8f118a965cbc5bf95486a1f7494b2adb4831182c4",
+      "source": "input/processing/autodesk-q2-fy27.png"
+    },
+    {
       "path": "input/icon-crop-specs/axon-q4-fy25.json",
       "digest": "sha256:cc36c30cd901cdaed2156ec396aac7857cf9fd0c670987b48577c8799d67058e",
       "source": "input/processed/axon-q4-fy25.png"
@@ -10477,6 +10666,11 @@
       "source": "input/processed/chime-q1-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/chime-q2-fy26-company-logo.json",
+      "digest": "sha256:c7d0fe528e6fcf66eac3c7b66d3ca2f0c7d84f1dcd65f919c2e99e0ff000093b",
+      "source": "input/processing/chime-q2-fy26.png"
+    },
+    {
       "path": "input/icon-crop-specs/chime-q3-fy25.json",
       "digest": "sha256:34d253be93904821f845a9f83608b12ace15039c07f468797d751e6b413928ec",
       "source": "input/processed/chime-q3-fy25.png"
@@ -10490,6 +10684,11 @@
       "path": "input/icon-crop-specs/chipotle-q4-fy25.json",
       "digest": "sha256:6300e4ef0870804695b8aed5210334f9bae9e93cd65eeac3f7caa75b48bbdece",
       "source": "input/processed/chipotle-q4-fy25.png"
+    },
+    {
+      "path": "input/icon-crop-specs/circle-q2-fy26-company-logo.json",
+      "digest": "sha256:730372086aa1b5e5cb1fa3397455e3bda61007ab3d5e1029b066b6eb4887ce7c",
+      "source": "input/processing/circle-q2-fy26.png"
     },
     {
       "path": "input/icon-crop-specs/cloudflare-q1-fy26.json",
@@ -10552,9 +10751,19 @@
       "source": "input/processed/didi-q1-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/digitalocean-q2-fy26-company-logo.json",
+      "digest": "sha256:dc412ad3892b7eb6ff82f85e24f55c2eb222a6e91e2e5899e66ebc7c6173f82a",
+      "source": "input/processing/digitalocean-q2-fy26.png"
+    },
+    {
       "path": "input/icon-crop-specs/disney-q2-fy26-by-segment.json",
       "digest": "sha256:e707cb280c213be4acf2f05cacc4ea1d11d4dbf3db381918d95dfa8690374a2a",
       "source": "input/processed/disney-q2-fy26-by-segment.png"
+    },
+    {
+      "path": "input/icon-crop-specs/docebo-q2-fy26-company-logo.json",
+      "digest": "sha256:a5689c008cc58e32f3dbb30dccfef454a2b00c83b66bdbcefb5feadd4e5c0e85",
+      "source": "input/processing/docebo-q2-fy26.png"
     },
     {
       "path": "input/icon-crop-specs/doordash-q4-fy25.json",
@@ -10605,6 +10814,11 @@
       "path": "input/icon-crop-specs/figma-q1-fy26.json",
       "digest": "sha256:4e50dff4a19d013fcca09f41879f3e4c54c4ba04ad029cff0298ecf254467f82",
       "source": "input/processed/figma-q1-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/fiserv-q2-fy26-company-logo.json",
+      "digest": "sha256:dc88034b80f8d4d5f59f1da0083ed76a2038192c89b68e18a02658b0594b6c77",
+      "source": "input/processing/fiserv-q2-fy26.png"
     },
     {
       "path": "input/icon-crop-specs/flutter-q4-fy25.json",
@@ -10732,9 +10946,19 @@
       "source": "input/processed/jd-com-q1-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/klarna-q2-fy26-company-logo.json",
+      "digest": "sha256:a2ab557d9ffc1e78829bbe7107a1c16c04330fc0f570ee78a9bc0ef62ae795ab",
+      "source": "input/processing/klarna-q2-fy26.png"
+    },
+    {
       "path": "input/icon-crop-specs/klaviyo-q1-fy26.json",
       "digest": "sha256:182a99f92979425d61cafdd82513f95d44ab4aa0a3e12695e7392de41d55f75b",
       "source": "input/processed/klaviyo-q1-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/klaviyo-q2-fy26-company-logo.json",
+      "digest": "sha256:f3098266442569899b891ea1879845e909dfd65c4878c3ba949747485a7a092e",
+      "source": "input/processing/klaviyo-q2-fy26.png"
     },
     {
       "path": "input/icon-crop-specs/kraft-heinz-q1-fy26.json",
@@ -11305,6 +11529,11 @@
       "path": "input/icon-crop-specs/zillow-q4-fy25.json",
       "digest": "sha256:fdae1dc24df2db95ea572a14b57fe88e69aaa5aa263a20f2797d90c352388a4d",
       "source": "input/processed/zillow-q4-fy25.png"
+    },
+    {
+      "path": "input/icon-crop-specs/zoom-q2-fy27-company-logo.json",
+      "digest": "sha256:dee3783d68c0a387780fc84c716c43530882abb08c7db5e7b385b1a6f9c34a54",
+      "source": "input/processing/zoom-q2-fy27.png"
     }
   ]
 }

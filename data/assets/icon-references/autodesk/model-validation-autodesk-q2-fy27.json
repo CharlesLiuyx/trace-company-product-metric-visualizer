@@ -1,0 +1,52 @@
+{
+  "dataset": "autodesk-q2-fy27",
+  "sourceDigest": "sha256:43c6fc02f9c4c39304b6048d870900e809b47f04e1282a1b09a80cceec6d8c7d",
+  "status": "executor-visual-check-complete; operator-review-pending",
+  "checks": [
+    "complete wordmark and integral symbols",
+    "no financial values or Sankey marks",
+    "native bounds and crop quality report inspected",
+    "compressed runtime PNG and Source recipe retained"
+  ],
+  "exclusions": [],
+  "crops": [
+    {
+      "key": "autodesk-q2-fy27-company-logo",
+      "output": "data/assets/raster-annotations/autodesk/company-logo-autodesk-q2-fy27.png",
+      "validation": {
+        "width": 417,
+        "height": 242,
+        "foregroundPixels": 30128,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 5,
+          "right": 5,
+          "top": 6,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "passes": true
+      },
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4341,
+        "losslessBytes": 18713,
+        "savingsVsLossless": 0.768,
+        "metrics": {
+          "meanAbsoluteError": 0.2676,
+          "rootMeanSquareError": 1.2767,
+          "p99AbsoluteError": 7,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.0864
+        }
+      }
+    }
+  ]
+}

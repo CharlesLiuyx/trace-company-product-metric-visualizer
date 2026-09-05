@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-09-05T06:31:30.000Z",
+  "generatedAt": "2026-09-05T10:22:42.699Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -6084,6 +6084,66 @@
       "updatedAtMs": 1788589890000,
       "updatedAt": "2026-09-05T06:31:30.000Z",
       "timeSource": "git"
+    },
+    "autodesk-q2-fy27": {
+      "path": "data/datasets/autodesk-q2-fy27.js",
+      "updatedAtMs": 1788603760060,
+      "updatedAt": "2026-09-05T10:22:40.060Z",
+      "timeSource": "publication"
+    },
+    "chime-q2-fy26": {
+      "path": "data/datasets/chime-q2-fy26.js",
+      "updatedAtMs": 1788603741532,
+      "updatedAt": "2026-09-05T10:22:21.532Z",
+      "timeSource": "publication"
+    },
+    "circle-q2-fy26": {
+      "path": "data/datasets/circle-q2-fy26.js",
+      "updatedAtMs": 1788603746785,
+      "updatedAt": "2026-09-05T10:22:26.785Z",
+      "timeSource": "publication"
+    },
+    "digitalocean-q2-fy26": {
+      "path": "data/datasets/digitalocean-q2-fy26.js",
+      "updatedAtMs": 1788603752068,
+      "updatedAt": "2026-09-05T10:22:32.068Z",
+      "timeSource": "publication"
+    },
+    "docebo-q2-fy26": {
+      "path": "data/datasets/docebo-q2-fy26.js",
+      "updatedAtMs": 1788603749377,
+      "updatedAt": "2026-09-05T10:22:29.377Z",
+      "timeSource": "publication"
+    },
+    "fiserv-q2-fy26": {
+      "path": "data/datasets/fiserv-q2-fy26.js",
+      "updatedAtMs": 1788603738837,
+      "updatedAt": "2026-09-05T10:22:18.837Z",
+      "timeSource": "publication"
+    },
+    "klarna-q2-fy26": {
+      "path": "data/datasets/klarna-q2-fy26.js",
+      "updatedAtMs": 1788603744137,
+      "updatedAt": "2026-09-05T10:22:24.137Z",
+      "timeSource": "publication"
+    },
+    "klaviyo-q2-fy26": {
+      "path": "data/datasets/klaviyo-q2-fy26.js",
+      "updatedAtMs": 1788603757384,
+      "updatedAt": "2026-09-05T10:22:37.384Z",
+      "timeSource": "publication"
+    },
+    "monday-com-q2-fy26": {
+      "path": "data/datasets/monday-com-q2-fy26.js",
+      "updatedAtMs": 1788603754720,
+      "updatedAt": "2026-09-05T10:22:34.720Z",
+      "timeSource": "publication"
+    },
+    "zoom-q2-fy27": {
+      "path": "data/datasets/zoom-q2-fy27.js",
+      "updatedAtMs": 1788603762699,
+      "updatedAt": "2026-09-05T10:22:42.699Z",
+      "timeSource": "publication"
     },
     "data/revenue-metrics.js": {
       "path": "data/revenue-metrics.js",

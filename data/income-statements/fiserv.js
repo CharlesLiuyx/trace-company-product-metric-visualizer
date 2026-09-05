@@ -228,3 +228,251 @@
     }
   );
 })(window);
+
+/* Source contribution: fiserv-q2-fy26. */
+(function(global){global.INCOME_STATEMENT_SSOT.records.push({
+  "key": "fiserv-q2-fy26",
+  "company": "Fiserv",
+  "period": "Q2 FY26",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/fiserv-q2-fy26.png",
+  "roundingTolerance": 0.15,
+  "notes": [
+    "Amounts and captions are transcribed from the source infographic; displayed totals may differ from sums because each amount is independently rounded.",
+    "Clover GPV",
+    "+9% Y/Y",
+    "Organic revenue growth",
+    "(5%) Y/Y",
+    "GPV = Gross Payment Volume"
+  ],
+  "revenue": {
+    "total": 5.3,
+    "notes": [
+      "(4%) Y/Y"
+    ],
+    "items": [
+      {
+        "id": "merchants_solutions",
+        "label": "Merchants Solutions",
+        "value": 2.6,
+        "notes": [
+          "(1%) Y/Y",
+          "30% operating margin"
+        ]
+      },
+      {
+        "id": "financial_solutions",
+        "label": "Financial Solutions",
+        "value": 2.4,
+        "notes": [
+          "(8%) Y/Y",
+          "39% operating margin"
+        ]
+      },
+      {
+        "id": "corporate",
+        "label": "Corporate",
+        "value": 0.3,
+        "notes": [
+          "+3% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "label": "Cost of revenue",
+      "value": 2.4,
+      "items": [
+        {
+          "id": "cost_processing",
+          "label": "Cost of processing",
+          "value": 1.7,
+          "notes": []
+        },
+        {
+          "id": "cost_product",
+          "label": "Cost of product",
+          "value": 0.7,
+          "notes": []
+        }
+      ]
+    },
+    "operatingExpenses": {
+      "total": 1.9,
+      "items": [
+        {
+          "id": "operating_expenses",
+          "label": "Operating expenses",
+          "value": 1.9,
+          "notes": []
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.2,
+      "notes": []
+    }
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 2.9,
+      "notes": [
+        "55% margin",
+        "(7pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 1,
+      "notes": [
+        "19% margin",
+        "(12pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 0.6,
+      "notes": [
+        "12% margin",
+        "(7pp) Y/Y"
+      ]
+    }
+  },
+  "otherIncome": {
+    "total": 0.1,
+    "items": [
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 0.1,
+        "notes": []
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0.4,
+    "items": [
+      {
+        "id": "interest_other",
+        "label": "Interest & Other",
+        "value": 0.4,
+        "notes": []
+      }
+    ]
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "notes": [
+        "Amounts和captions are transcribed from the source infographic；displayed totals may differ from sums because each amount is independently rounded.",
+        "Clover GPV",
+        "同比 +9%",
+        "内生收入增长",
+        "同比 (5%)",
+        "GPV = 毛 Payment Volume"
+      ],
+      "revenue": {
+        "notes": [
+          "同比 (4%)"
+        ],
+        "items": [
+          {
+            "label": "Merchants 方案",
+            "notes": [
+              "同比 (1%)",
+              "营业利润率 30%"
+            ]
+          },
+          {
+            "label": "财务 方案",
+            "notes": [
+              "同比 (8%)",
+              "营业利润率 39%"
+            ]
+          },
+          {
+            "label": "公司业务",
+            "notes": [
+              "同比 +3%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本",
+          "items": [
+            {
+              "label": "处理成本",
+              "notes": []
+            },
+            {
+              "label": "产品成本",
+              "notes": []
+            }
+          ]
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "label": "运营费用",
+              "notes": []
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费",
+          "notes": []
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 55%",
+            "同比 (7 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 19%",
+            "同比 (12 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 12%",
+            "同比 (7 个百分点)"
+          ]
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "label": "其他",
+            "notes": []
+          }
+        ]
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "label": "利息 及其他",
+            "notes": []
+          }
+        ]
+      }
+    }
+  }
+});})(window);

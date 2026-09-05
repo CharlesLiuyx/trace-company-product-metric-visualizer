@@ -1,0 +1,52 @@
+{
+  "dataset": "circle-q2-fy26",
+  "sourceDigest": "sha256:3b40a44bcb36c3d1b60fd1e5c18d350eac5de67815459871c4e79a5bfb845dbc",
+  "status": "executor-visual-check-complete; operator-review-pending",
+  "checks": [
+    "complete wordmark and integral symbols",
+    "no financial values or Sankey marks",
+    "native bounds and crop quality report inspected",
+    "compressed runtime PNG and Source recipe retained"
+  ],
+  "exclusions": [],
+  "crops": [
+    {
+      "key": "circle-q2-fy26-company-logo",
+      "output": "data/assets/raster-annotations/circle/company-logo-circle-q2-fy26.png",
+      "validation": {
+        "width": 660,
+        "height": 173,
+        "foregroundPixels": 30861,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 2,
+          "right": 2,
+          "top": 2,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": 0,
+          "y": 0
+        },
+        "passes": true
+      },
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 5581,
+        "losslessBytes": 33201,
+        "savingsVsLossless": 0.8319,
+        "metrics": {
+          "meanAbsoluteError": 0.4606,
+          "rootMeanSquareError": 2.0171,
+          "p99AbsoluteError": 10,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.1698
+        }
+      }
+    }
+  ]
+}

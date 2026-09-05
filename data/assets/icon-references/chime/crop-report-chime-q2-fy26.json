@@ -1,0 +1,133 @@
+{
+  "source": "input/processing/chime-q2-fy26.png",
+  "spec": "input/icon-crop-specs/chime-q2-fy26-company-logo.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-09-05T11:17:08.706378+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/chime",
+  "crops": [
+    {
+      "key": "chime-q2-fy26-company-logo",
+      "output": "data/assets/icon-references/chime/crops/company-logo-chime-q2-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 3668,
+        "losslessBytes": 15557,
+        "savingsVsLossless": 0.7642,
+        "metrics": {
+          "meanAbsoluteError": 0.3394,
+          "rootMeanSquareError": 1.0357,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 18,
+          "changedPixelRatio": 0.4283
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 41095,
+        "transparentPixelRatio": 0.5765
+      },
+      "searchBox": {
+        "x": 657,
+        "y": 292,
+        "width": 495,
+        "height": 144
+      },
+      "componentCount": 7,
+      "subjectBox": {
+        "x0": 659,
+        "y0": 294,
+        "x1": 1150,
+        "y1": 434
+      },
+      "cropBox": {
+        "x0": 657,
+        "y0": 292,
+        "x1": 1152,
+        "y1": 436
+      },
+      "validation": {
+        "width": 495,
+        "height": 144,
+        "foregroundPixels": 29004,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 2,
+          "right": 2,
+          "top": 2,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Only the company wordmark and its integral symbol; excludes financial values, labels, flows, and publisher content.",
+      "runtimeOutput": "data/assets/raster-annotations/chime/company-logo-chime-q2-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 3668,
+        "losslessBytes": 15557,
+        "savingsVsLossless": 0.7642,
+        "metrics": {
+          "meanAbsoluteError": 0.3394,
+          "rootMeanSquareError": 1.0357,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 18,
+          "changedPixelRatio": 0.4283
+        }
+      },
+      "validationSheet": "data/assets/icon-references/chime/validation-sheets/chime-q2-fy26/chime-q2-fy26-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 272859,
+        "losslessBytes": 272859,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

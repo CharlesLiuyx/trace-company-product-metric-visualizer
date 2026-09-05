@@ -22642,6 +22642,216 @@
             }
           }
         }
+      },
+      {
+        "key": "autodesk-q2-fy27",
+        "src": "data/datasets/autodesk-q2-fy27.js",
+        "data": {
+          "name": "Autodesk · Q2 FY27",
+          "company": "Autodesk",
+          "meta": {
+            "title": "Autodesk Q2 FY27 Income Statement",
+            "period": "Q2 FY27"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Autodesk · 2027 财年第二季度",
+              "meta": {
+                "title": "Autodesk 2027 财年第二季度利润表",
+                "period": "2027 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "chime-q2-fy26",
+        "src": "data/datasets/chime-q2-fy26.js",
+        "data": {
+          "name": "Chime · Q2 FY26",
+          "company": "Chime",
+          "meta": {
+            "title": "Chime Q2 FY26 Income Statement",
+            "period": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Chime · 2026 财年第二季度",
+              "meta": {
+                "title": "Chime 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "circle-q2-fy26",
+        "src": "data/datasets/circle-q2-fy26.js",
+        "data": {
+          "name": "Circle · Q2 FY26",
+          "company": "Circle",
+          "meta": {
+            "title": "Circle Q2 FY26 Income Statement",
+            "period": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Circle · 2026 财年第二季度",
+              "meta": {
+                "title": "Circle 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "digitalocean-q2-fy26",
+        "src": "data/datasets/digitalocean-q2-fy26.js",
+        "data": {
+          "name": "DigitalOcean · Q2 FY26",
+          "company": "DigitalOcean",
+          "meta": {
+            "title": "DigitalOcean Q2 FY26 Income Statement",
+            "period": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "DigitalOcean · 2026 财年第二季度",
+              "meta": {
+                "title": "DigitalOcean 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "docebo-q2-fy26",
+        "src": "data/datasets/docebo-q2-fy26.js",
+        "data": {
+          "name": "Docebo · Q2 FY26",
+          "company": "Docebo",
+          "meta": {
+            "title": "Docebo Q2 FY26 Income Statement",
+            "period": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Docebo · 2026 财年第二季度",
+              "meta": {
+                "title": "Docebo 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "fiserv-q2-fy26",
+        "src": "data/datasets/fiserv-q2-fy26.js",
+        "data": {
+          "name": "Fiserv · Q2 FY26",
+          "company": "Fiserv",
+          "meta": {
+            "title": "Fiserv Q2 FY26 Income Statement",
+            "period": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Fiserv · 2026 财年第二季度",
+              "meta": {
+                "title": "Fiserv 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "klarna-q2-fy26",
+        "src": "data/datasets/klarna-q2-fy26.js",
+        "data": {
+          "name": "Klarna · Q2 FY26",
+          "company": "Klarna",
+          "meta": {
+            "title": "Klarna Q2 FY26 Income Statement",
+            "period": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Klarna · 2026 财年第二季度",
+              "meta": {
+                "title": "Klarna 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "klaviyo-q2-fy26",
+        "src": "data/datasets/klaviyo-q2-fy26.js",
+        "data": {
+          "name": "Klaviyo · Q2 FY26",
+          "company": "Klaviyo",
+          "meta": {
+            "title": "Klaviyo Q2 FY26 Income Statement",
+            "period": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Klaviyo · 2026 财年第二季度",
+              "meta": {
+                "title": "Klaviyo 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "monday-com-q2-fy26",
+        "src": "data/datasets/monday-com-q2-fy26.js",
+        "data": {
+          "name": "Monday.com · Q2 FY26",
+          "company": "Monday.com",
+          "meta": {
+            "title": "Monday.com Q2 FY26 Income Statement",
+            "period": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Monday.com · 2026 财年第二季度",
+              "meta": {
+                "title": "Monday.com 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "zoom-q2-fy27",
+        "src": "data/datasets/zoom-q2-fy27.js",
+        "data": {
+          "name": "Zoom · Q2 FY27",
+          "company": "Zoom",
+          "meta": {
+            "title": "Zoom Q2 FY27 Income Statement",
+            "period": "Q2 FY27"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Zoom · 2027 财年第二季度",
+              "meta": {
+                "title": "Zoom 2027 财年第二季度利润表",
+                "period": "2027 财年第二季度"
+              }
+            }
+          }
+        }
       }
     ]
   };

@@ -1,0 +1,133 @@
+{
+  "source": "input/processing/circle-q2-fy26.png",
+  "spec": "input/icon-crop-specs/circle-q2-fy26-company-logo.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-09-05T11:17:10.897623+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/circle",
+  "crops": [
+    {
+      "key": "circle-q2-fy26-company-logo",
+      "output": "data/assets/icon-references/circle/crops/company-logo-circle-q2-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 5581,
+        "losslessBytes": 33201,
+        "savingsVsLossless": 0.8319,
+        "metrics": {
+          "meanAbsoluteError": 0.4606,
+          "rootMeanSquareError": 2.0171,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.1698
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 82105,
+        "transparentPixelRatio": 0.7191
+      },
+      "searchBox": {
+        "x": 609,
+        "y": 282,
+        "width": 660,
+        "height": 173
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 611,
+        "y0": 284,
+        "x1": 1267,
+        "y1": 453
+      },
+      "cropBox": {
+        "x0": 609,
+        "y0": 282,
+        "x1": 1269,
+        "y1": 455
+      },
+      "validation": {
+        "width": 660,
+        "height": 173,
+        "foregroundPixels": 30861,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 2,
+          "right": 2,
+          "top": 2,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Only the company wordmark and its integral symbol; excludes financial values, labels, flows, and publisher content.",
+      "runtimeOutput": "data/assets/raster-annotations/circle/company-logo-circle-q2-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 5581,
+        "losslessBytes": 33201,
+        "savingsVsLossless": 0.8319,
+        "metrics": {
+          "meanAbsoluteError": 0.4606,
+          "rootMeanSquareError": 2.0171,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.1698
+        }
+      },
+      "validationSheet": "data/assets/icon-references/circle/validation-sheets/circle-q2-fy26/circle-q2-fy26-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 231265,
+        "losslessBytes": 231265,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

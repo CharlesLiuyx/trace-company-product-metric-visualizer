@@ -232,3 +232,247 @@
     }
   );
 })(window);
+
+/* Source contribution: monday-com-q2-fy26. */
+(function(global){global.INCOME_STATEMENT_SSOT.records.push({
+  "key": "monday-com-q2-fy26",
+  "company": "Monday.com",
+  "period": "Q2 FY26",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 3,
+  "sourceImage": "input/processed/monday-com-q2-fy26.png",
+  "roundingTolerance": 2.5,
+  "notes": [
+    "Amounts and captions are transcribed from the source infographic; displayed totals may differ from sums because each amount is independently rounded.",
+    "NDR 109%",
+    "10+ users 113%",
+    "Customers> $50K+",
+    "4,834 +31% Y/Y",
+    "NDR = Net Dollar Retention",
+    "The source ends at operating loss. Net income, income taxes and non-operating items are official supplementary data, without additional Sankey faces."
+  ],
+  "revenue": {
+    "total": 365,
+    "notes": [
+      "+22% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "revenue",
+        "label": "Revenue",
+        "value": 365,
+        "notes": [
+          "+22% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 43,
+      "notes": []
+    },
+    "operatingExpenses": {
+      "total": 324,
+      "items": [
+        {
+          "id": "sm",
+          "label": "Sales & marketing",
+          "value": 162,
+          "notes": [
+            "45% of revenue",
+            "(6pp) Y/Y"
+          ]
+        },
+        {
+          "id": "rd",
+          "label": "Research & development",
+          "value": 99,
+          "notes": [
+            "27% of revenue",
+            "(2pp) Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "General & admin",
+          "value": 40,
+          "notes": [
+            "11% of revenue",
+            "(2pp) Y/Y"
+          ]
+        },
+        {
+          "id": "restructuring",
+          "label": "Restructuring",
+          "value": 21,
+          "notes": [
+            "6% of revenue",
+            "+6pp Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "label": "Income tax expense",
+      "value": 1.956,
+      "notes": [
+        "https://ir.monday.com/news-and-events/news-releases/news-details/2026/monday-com-Announces-Second-Quarter-2026-Results/default.aspx"
+      ]
+    }
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 322,
+      "notes": [
+        "88% margin",
+        "(1pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_loss",
+      "label": "Operating loss",
+      "value": -2,
+      "notes": [
+        "(0%) margin",
+        "+3pp Y/Y"
+      ]
+    },
+    "net": {
+      "label": "Net profit",
+      "value": 3.46,
+      "notes": [
+        "Supplemented from the official Q2 2026 release; not drawn in the source infographic.",
+        "https://ir.monday.com/news-and-events/news-releases/news-details/2026/monday-com-Announces-Second-Quarter-2026-Results/default.aspx"
+      ]
+    }
+  },
+  "otherIncome": {
+    "total": 6.96,
+    "items": [
+      {
+        "label": "Financial income, net",
+        "value": 6.96,
+        "notes": [
+          "https://ir.monday.com/news-and-events/news-releases/news-details/2026/monday-com-Announces-Second-Quarter-2026-Results/default.aspx"
+        ]
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "notes": [
+        "Amounts和captions are transcribed from the source infographic；displayed totals may differ from sums because each amount is independently rounded.",
+        "净金额留存率 109%",
+        "10 人以上客户 113%",
+        "年收入超过 $50K 的客户",
+        "4,834 同比 +31%",
+        "NDR = 净金额留存率",
+        "The source ends at 运营 亏损. 净利润、income taxes和non-运营 items are official supplementary data、without additional 桑基图 faces."
+      ],
+      "revenue": {
+        "notes": [
+          "同比 +22%"
+        ],
+        "items": [
+          {
+            "label": "收入",
+            "notes": [
+              "同比 +22%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本",
+          "notes": []
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "label": "销售与市场",
+              "notes": [
+                "占收入 45%",
+                "同比 (6 个百分点)"
+              ]
+            },
+            {
+              "label": "研发",
+              "notes": [
+                "占收入 27%",
+                "同比 (2 个百分点)"
+              ]
+            },
+            {
+              "label": "管理费用",
+              "notes": [
+                "占收入 11%",
+                "同比 (2 个百分点)"
+              ]
+            },
+            {
+              "label": "重组",
+              "notes": [
+                "占收入 6%",
+                "同比 +6 个百分点"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "所得税费用",
+          "notes": [
+            "https://ir.monday.com/news-and-events/news-releases/news-details/2026/monday-com-Announces-Second-Quarter-2026-Results/default.aspx"
+          ]
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 88%",
+            "同比 (1 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业亏损",
+          "notes": [
+            "利润率 (0%)",
+            "同比 +3 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "补充自官方 2026 年第二季度财报；原图未绘制此项。",
+            "https://ir.monday.com/news-and-events/news-releases/news-details/2026/monday-com-Announces-Second-Quarter-2026-Results/default.aspx"
+          ]
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "label": "财务收益净额",
+            "notes": [
+              "https://ir.monday.com/news-and-events/news-releases/news-details/2026/monday-com-Announces-Second-Quarter-2026-Results/default.aspx"
+            ]
+          }
+        ]
+      },
+      "otherExpenses": {
+        "items": []
+      }
+    }
+  }
+});})(window);
