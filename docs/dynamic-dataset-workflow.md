@@ -312,6 +312,14 @@ this document; `verify:closeout` never authorizes relocation. Then run
 `pnpm check` plus any scoped app/icon/standalone checks, and commit according
 to `docs/commit-messages.md`.
 
+After all local work and requested delivery finish, stop the workbench and run
+`pnpm clean:artifacts -- --completed`, using the existing operator completion signal.
+Only compact historical meta remains; inspect the root file entry against project
+data and report final output/compare sizes. Retention and audit limitations are
+owned by [artifact-retention.md](artifact-retention.md). Do this after checks that
+create artifacts, not before evidence is consumed.
+
+
 **STOP:** required closeout fails; final checks fail; the operator has not
 confirmed the enumerated list; or a confirmed processed destination collides.
 With no completion signal, stop relocation only, retain Sources in processing,

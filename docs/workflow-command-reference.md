@@ -35,6 +35,7 @@
 
 | 命令 | 执行文件 |
 | --- | --- |
+| `pnpm clean:artifacts` | `node scripts/clean-artifacts.mjs` |
 | `pnpm update:metric-catalog` | `node scripts/update-metric-catalog.mjs` |
 | `pnpm verify:metrics` | `node scripts/verify-metrics.mjs` |
 | `pnpm record:workflow` | `node scripts/record-workflow.mjs` |

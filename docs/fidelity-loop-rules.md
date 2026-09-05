@@ -1156,3 +1156,10 @@ closeout 和最终汇报流程由架构文档与动态工作流拥有。任何�
 的字母取下一个自由号，检索靠 §3 的 stage/topics 索引。盲点补偿类规则的执行
 方式升级时，必须同时更新 catalog 执行方式、feature 编译与回归测试，不能只把
 说明写长。
+
+### 完成后的证据清理
+
+本节要求的完整证据保留至人工审阅、最终 seal 和所需 closeout 检查完成。
+全部本机处理与交付结束后，按 [artifact-retention.md](artifact-retention.md)
+执行统一清理，只保留历史摘要，删除 raster evidence 和 scratch。摘要不再构成
+可重验的 evidence，不得将旧 digest 当成仍存在的图形证据或 fresh seal。

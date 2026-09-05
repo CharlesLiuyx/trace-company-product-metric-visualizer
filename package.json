@@ -9,6 +9,7 @@
     "dev": "node scripts/dev-server.mjs --port 8000",
     "plan:ci": "node scripts/plan-ci.mjs",
     "check": "node scripts/check.mjs",
+    "clean:artifacts": "node scripts/clean-artifacts.mjs",
     "test": "node --test \"tests/*.test.mjs\"",
     "build:site": "node scripts/build-site.mjs",
     "verify:site": "node scripts/verify-site.mjs",

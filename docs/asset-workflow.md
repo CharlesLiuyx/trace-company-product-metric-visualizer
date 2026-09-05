@@ -153,3 +153,10 @@ processed 永不 force-add。
 底层 `record:build` / `record:fidelity` 继续可用；旧 Build 使用原版本协议，独立新
 Build 由完整依赖和检查点策略约束。架构分工与迁移状态只在
 [architecture/README.md](architecture/README.md) 维护。
+
+## 最后清理
+
+所需验证、Source 归档及交付全部完成后，停止工作台并执行
+`pnpm clean:artifacts -- --completed`。删除工作副本、图形证据、报告、预览与本机发布树，
+只保留精简历史 meta；已确认完成时不再重复询问。先验证再清理，清理后再统计目录大小。
+保留范围与旧 Build 不可恢复的含义只由 [artifact-retention.md](artifact-retention.md) 定义。

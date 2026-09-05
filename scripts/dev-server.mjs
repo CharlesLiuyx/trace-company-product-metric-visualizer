@@ -119,6 +119,17 @@ async function main() {
     }
   }
   const { url } = running;
+  if (running.close) {
+    let stopping = false;
+    const stop = async () => {
+      if (stopping) return;
+      stopping = true;
+      try { await running.close(); process.exitCode = 0; }
+      catch (error) { console.error(error.message); process.exitCode = 1; }
+    };
+    process.once('SIGINT', stop);
+    process.once('SIGTERM', stop);
+  }
   console.log(`Serving ${rootDir}`);
   console.log(`Viewer: ${url}`);
 }

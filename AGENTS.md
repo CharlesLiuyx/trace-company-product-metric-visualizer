@@ -24,6 +24,7 @@ together.
 | data-adjacent asset layout (icon crops, raster annotations) | `data/assets/README.md` |
 | Trace product and data model | `docs/trace-specification.zh-CN.md` |
 | same-checkout Sessions, local workbench, Git transport and recovery | `docs/local-environments.md` |
+| output/compare retention, completed-work cleanup and historical metadata | `docs/artifact-retention.md` |
 | human quickstart, viewer usage | `README.md` |
 | CI check purpose, ChangeImpact routing, performance baseline, Pages artifact handoff | `docs/ci-verification.zh-CN.md` |
 | Pages runtime data projection, lazy detail loading, version retention and completeness | `docs/architecture/runtime-data.md` |
@@ -156,6 +157,11 @@ purpose, mechanism, blind spots, and trigger matrix for every check live in
 `docs/ci-verification.zh-CN.md`.
 
 ## Workflow
+
+After all local processing, verification and required delivery are complete, stop the
+workbench and run `pnpm clean:artifacts -- --completed`. Keep only compact historical
+meta in output/compare; an existing operator completion confirmation is sufficient.
+Read `docs/artifact-retention.md` for retention, pointer reset and audit limits.
 
 New Sources use `record:workflow start` and `continue` in isolated Build
 workspaces. Read `docs/asset-workflow.md` before processing any new asset.
