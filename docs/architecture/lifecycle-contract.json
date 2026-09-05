@@ -21,7 +21,12 @@
     "metricObservations": "metric-observations/v1",
     "artifactManifest": "artifact-manifest/v1",
     "checkpoint": "fidelity-checkpoints/v1",
-    "releaseAttempt": "release-attempt/v1"
+    "releaseAttempt": "release-attempt/v1",
+    "session": "workflow-session/v1",
+    "gitTransport": "git-transport/v1",
+    "workbench": "trace-workbench/v1",
+    "workflowTimestamps": "workflow-timestamps/v1",
+    "application": "workflow-application/v1"
   },
   "operationClasses": {
     "verify": "canonical-read-only",

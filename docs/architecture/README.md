@@ -21,6 +21,15 @@ or storage guarantees already exist.
    [`dynamic-dataset-workflow.md`](../dynamic-dataset-workflow.md) and
    [`fidelity-loop-rules.md`](../fidelity-loop-rules.md).
 
+## Same-checkout implementation
+
+[ADR-0003](../adr/0003-shared-checkout-sessions-and-git-transport.md) adds ordinary
+Build folder ownership, typed SSOT merging, a local workbench and reviewed Git
+transport. [Local environment operations](../local-environments.md) own commands
+and recovery. These are implemented local P0/P1 features; remote staging and
+automatic reuse of changed human review remain outside the implemented guarantee.
+The three lifecycle scopes and Publication pointer CAS remain unchanged.
+
 ## Architecture summary
 
 The target has three state scopes with different ownership and retry rules:

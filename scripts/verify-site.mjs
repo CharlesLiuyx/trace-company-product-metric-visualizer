@@ -23,7 +23,9 @@ import {
   typographyAudit,
 } from './lib/render-harness.mjs';
 
-const SITE_ROOT = projectPath('_site');
+const siteArgs = process.argv.slice(2).filter((arg) => arg !== '--');
+if (siteArgs.length && (siteArgs.length !== 2 || siteArgs[0] !== '--site')) throw new Error('Usage: verify:site [--site <directory>]');
+const SITE_ROOT = siteArgs.length ? path.resolve(siteArgs[1]) : projectPath('_site');
 const FIRST_RENDER_TIMEOUT_MS = 15_000;
 const IDLE_OBSERVATION_MS = 1_500;
 const SCRIPT_TAG_BUDGET = 4;

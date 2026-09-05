@@ -13,6 +13,7 @@ import { startAsset, continueAsset, reviewAsset, sealAsset, showAsset, buildCont
 import { planAssetPublication, publishAssetPlan, releasePublished } from '../scripts/lib/workflow-publication.mjs';
 import { refreshAssetWorkspace, processingSourceList, archiveProcessingSources } from '../scripts/lib/workflow-recovery.mjs';
 import { renderAssetReview } from '../scripts/lib/workflow-review.mjs';
+import { spawn } from 'node:child_process';
 import { startStaticServer } from '../scripts/dev-server.mjs';
 import { recordAssetBatch } from '../scripts/lib/workflow-batch.mjs';
 import { recordWorkflowFeedback } from '../scripts/lib/workflow-feedback.mjs';
@@ -61,6 +62,33 @@ async function intake(root, key = 'example-a-q1', input = facts()) {
   await writeFile(path.join(root, `input/pending/${key}.txt`), literal);
   return startAsset({ source: `input/pending/${key}.txt`, key, facts: input }, root);
 }
+test('two actual CLI Sessions intake independently, fence wrong writers, and archive only the selected Source', async (t) => {
+  const root = await fixture(t);
+  await writeFile(path.join(root, 'facts.json'), JSON.stringify(facts()));
+  await writeFile(path.join(root, 'input/pending/session-a.txt'), literal);
+  await writeFile(path.join(root, 'input/pending/session-b.txt'), literal + '\nA distinct second Source.');
+  const cli = (args) => new Promise((resolve, reject) => {
+    const child = spawn(process.execPath, [path.join(root, 'scripts/record-workflow.mjs'), ...args, '--json'], { cwd: root });
+    let stdout = '', stderr = '';
+    child.stdout.on('data', (chunk) => { stdout += chunk; }); child.stderr.on('data', (chunk) => { stderr += chunk; });
+    child.on('error', reject); child.on('close', (code) => resolve({ code, stdout, stderr }));
+  });
+  const results = await Promise.all(['a', 'b'].map((name) => cli(['start', '--source', `input/pending/session-${name}.txt`, '--key', `session-${name}`, '--facts', 'facts.json', '--session', `owner-${name}`])));
+  for (const result of results) assert.equal(result.code, 0, result.stderr);
+  const [a, b] = results.map((result) => JSON.parse(result.stdout));
+  assert.notEqual(a.buildId, b.buildId); assert.notEqual(a.workspace, b.workspace); assert.notEqual(a.session.generation, b.session.generation);
+  const wrong = await cli(['prepare', a.buildId, '--session', 'owner-b', '--generation', a.session.generation]);
+  assert.notEqual(wrong.code, 0); assert.match(wrong.stderr, /requires its active Session/);
+  await writeFile(path.join(root, 'input/pending/renamed-copy.txt'), literal);
+  const duplicate = await cli(['start', '--source', 'input/pending/renamed-copy.txt', '--key', 'renamed-copy', '--facts', 'facts.json', '--session', 'owner-c']);
+  assert.notEqual(duplicate.code, 0); assert.match(duplicate.stderr, /Source already claimed/);
+  assert.ok(existsSync(path.join(root, 'input/pending/renamed-copy.txt')));
+  const selected = await processingSourceList(root, [a.buildId]);
+  assert.equal(selected.entries.length, 1);
+  await archiveProcessingSources({ kind: 'review-completed', confirmed: true, operator: 'synthetic test operator', sourceListDigest: selected.digest, entries: selected.entries }, root);
+  assert.ok(!existsSync(path.join(root, 'input/processing/session-a.txt')));
+  assert.ok(existsSync(path.join(root, 'input/processing/session-b.txt')));
+});
 function reviewFor(current, decision = 'accepted') {
   return { reviewToken: current.reviewToken, attestation: { reviewer: 'synthetic-test-reviewer', decision, note: 'Synthetic fixture; not a real dataset acceptance' }, attention: { status: 'closed', closureNote: 'Source and rows inspected in the fixture' }, manualCheckDecisions: [{ checkId: 'adapter:source-coverage-review', status: 'passed', evidenceDigests: [current.plan.sourceDigest, current.plan.sourceCoverageDigest], note: 'Fixture coverage compared' }] };
 }
@@ -71,6 +99,17 @@ async function completed(root, key, input) {
   await sealAsset(started.buildId, root);
   return started;
 }
+test('new Builds use current application code even when the published data tree contains an older UI', async (t) => {
+  const root = await fixture(t), first = await completed(root, 'app-baseline', facts());
+  const plan = await planAssetPublication([first.buildId], root);
+  const published = await publishAssetPlan(plan.planDigest, root);
+  await writeFile(path.join(root, 'src/runtime.js'), '// current application version\n');
+  await writeFile(path.join(root, 'input/pending/current-app.txt'), 'A different Source for the next Build.');
+  const next = await startAsset({ source: 'input/pending/current-app.txt', key: 'current-app', facts: facts() }, root);
+  assert.equal(await readFile(path.join(next.workspace, 'src/runtime.js'), 'utf8'), '// current application version\n');
+  assert.equal(await readFile(path.join(root, `output/publications/trees/${published.publishedDigest.slice(7)}/src/runtime.js`), 'utf8'), '// fixture runtime\n');
+  await assert.rejects(planAssetPublication([first.buildId], root), /Application code differs/);
+});
 test('text intake to sealed Build preserves source, isolates drafts, requires review and emits a usable sheet', async (t) => {
   const root = await fixture(t);
   const base = await fileManifest(root);

@@ -36,6 +36,7 @@ agent 指令以英文版 `AGENTS.md` 为准。
 | 人类快速上手、viewer 使用 | `README.md` |
 | CI 检查作用、ChangeImpact 路由、性能基线、Pages artifact 交接 | `docs/ci-verification.zh-CN.md` |
 | Pages 运行数据投影、详情按需加载、版本保留与完整性 | `docs/architecture/runtime-data.md` |
+| 同目录 Session、本地工作台、Git 传输与恢复 | `docs/local-environments.md` |
 
 ## 目标
 
@@ -105,7 +106,7 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
 
 | 命令 | 用途 |
 | --- | --- |
-| `pnpm dev` | 零依赖本地静态服务器，端口 8000 |
+| `pnpm dev` | 本地审阅工作台，端口 8000（开发 / 固定 Pages 预览 / 线上） |
 | `pnpm plan:ci -- --base <sha> --head <sha>` | 把 Git diff 保守分类为 CI 验证计划；缺 SHA 或未知可执行影响一律回退完整浏览器套件 |
 | `pnpm check` | 快速聚合门：全仓 JS 语法、单元测试、pending 守卫、architecture/app-global 契约、manifest 与 render-baseline 结构新鲜度、SSOT 奇偶、i18n 与 metadata 新鲜度（秒级，无渲染）；`input/processing/` 中的在途文件不会让这个全局门失败；fresh checkout 可复现且由 CI 运行 |
 | `pnpm test` | `tests/` 下的 node:test 单元测试——Source claim/relocation、引擎布局数学与标签排版、trace-domain 解析/汇率、i18n 翻译规则、png-diff 指标、script-source 解析、dataset registry |
@@ -212,9 +213,18 @@ processed PNG 只留本机；可复用渲染器支持拆成前置 `render(engine
 
 ## 本机审阅入口
 
-以根目录 `index.html` 作为操作员固定的审阅地址。`record:workflow prepare`
-成功后自动选择独立草稿，并标注「待人工审阅」；操作员明确确认通过后，连续完成
-审阅记录、最终检查和发布，不再另问是否发布。`publish:datasets commit` 将同一
-入口切换到正式快照。汇报完成前必须实际验证本地文件入口。
-机器本地的选择记录只是衍生 UI 偏好，不是审阅证据或正式数据。
-操作细节由 `docs/asset-workflow.md` 维护。
+根目录 `index.html` 是固定入口。启动一次 `pnpm dev` 后，文件入口发现同一项目的 HTTP
+工作台。每个标签页固定 Build 与生产候选；当前任务提供 `/?source=<build-id>`，
+不得把另一标签页的选择或自动构建当作人工接受。
+
+多个 Codex / Claude Code Session 共用此 checkout，不创建 worktree。
+使用 `record:workflow start` 返回的普通 workspace、owner 和 generation；后续写操作
+携带同一代次。低层 record 命令使用 `TRACE_SESSION_ID` / `TRACE_SESSION_GENERATION`。
+草稿不写共享数据、注册或 Git；历史草稿先 refresh 再继续。
+
+`prepare` 成功后公布草稿。带 Session 的新 Build 审阅须绑定已显示的 `previewId`
+与当前 reviewToken。明确确认后连续完成审阅、seal 和 Publication，不再询问是否本地发布。
+通过 `release:git` 准备经审阅的集成候选和精确路径提交；只有操作员明确要求才 push。
+归档仅覆盖已确认的所选 Source 清单。汇报完成前实际验证文件入口。
+机器本地选择仅是 UI 偏好，不是证据或正式数据。
+细节及恢复由 `docs/local-environments.md` 与 `docs/asset-workflow.md` 维护。

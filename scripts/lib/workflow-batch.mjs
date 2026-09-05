@@ -1,3 +1,4 @@
+import { sessionIdentity } from './workflow-session.mjs';
 import { randomUUID } from 'node:crypto';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
@@ -15,7 +16,7 @@ export async function recordAssetBatch(input, { root = rootDir, concurrency = 2 
   for (const source of input.sources) {
     try {
       const facts = typeof source.facts === 'string' ? await readJson(path.resolve(root, source.facts)) : source.facts;
-      batch.sources.push(await startAsset({ ...source, facts }, root));
+      batch.sources.push(await startAsset({ ...source, facts, session: source.session || sessionIdentity() || `batch-session-${batch.batchId}` }, root));
     } catch (error) { batch.sources.push({ key: source.key, error: error.message }); }
     await atomicJson(file, batch);
   }
@@ -25,7 +26,7 @@ export async function recordAssetBatch(input, { root = rootDir, concurrency = 2 
       const source = batch.sources[cursor++];
       if (!source.buildId) continue;
       const result = await new Promise((resolve) => {
-        const child = spawn(process.execPath, [path.join(root, 'scripts/record-workflow.mjs'), 'continue', source.buildId, '--json'], { cwd: root });
+        const child = spawn(process.execPath, [path.join(root, 'scripts/record-workflow.mjs'), 'continue', source.buildId, '--json', ...(source.session ? ['--session', source.session.owner, '--generation', source.session.generation] : [])], { cwd: root });
         let stdout = '', stderr = '';
         child.stdout.on('data', (chunk) => { stdout += chunk; }); child.stderr.on('data', (chunk) => { stderr += chunk; });
         child.once('error', (error) => resolve({ buildId: source.buildId, error: error.message }));

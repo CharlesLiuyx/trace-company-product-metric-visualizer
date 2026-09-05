@@ -103,18 +103,16 @@ SourceCoverage 和 ObjectInventory，避免重复抄录。文本还会检查是�
 检查路径冲突、更新工作目录和工具，重新准备，再完成适用的审阅与新 seal，最后
 生成新发布计划。相同文件的实质冲突须先由执行者核对解决。
 
-根目录 `index.html` 是固定的本机审阅入口。`src/local-view-entry.js` 在直接打开文件时，
-读取机器本地的 `output/local-view/selection.js`，在完整页面框架内加载一个独立 Build 或
-已发布快照，地址栏保持根目录文件。前台页面每 2 秒检查选择变化；内容版本未变时不重载，
-切回窗口也会检查。没有选择记录时仍显示工作树；HTTP、嵌入页面及独立 HTML 保持原入口。
-草稿选择来自 `prepare`，发布选择来自成功的 `publish:datasets commit`；其他 Build 的
-发布不会抢走正在审阅的草稿。同一发布重试读取当前正式指针，不回退到旧快照。
-这个可重建选择仅是本机 UI 偏好，不是人工接受证据或新的生命周期状态，不复制、混合
-正式目录与草稿文件。文件模式浏览器不提供写盘审批；确认仍由任务或处理单记录进入 Build。
+根目录 `index.html` 是固定的本机审阅入口。运行一次 `pnpm dev` 后，文件入口发现同项目
+HTTP 工作台。每个标签页固定 Build 与候选；新任务只更新可选列表，新候选仅提示。
+工作台提供自动刷新的开发视图、Pages 构建的固定审阅版本，以及 CI / 线上对照。
+没有服务时保留原来的离线选择，`?offline` 显式使用离线方式。
 
-`pnpm dev` 在存在正式快照时打开它；`pnpm dev -- --draft` 明确查看开发工作树。
-`pnpm view:published` 只查看正式快照。发布不会将多文件副本伪装成原子 Git 写入；
-Git 工作树仍用于代码开发与历史兼容数据，正式新输入以发布快照为准。
+并发处理必须记录 Session owner/generation，进入自己的普通 Build workspace，不创建
+Git worktree，也不在草稿中操作 Git。新 Session Build 的审阅输入还需 `previewId`，绑定
+工作台展示的有效生产预览。详细命令、恢复规则与环境状态由
+[local-environments.md](local-environments.md) 维护。
+`pnpm dev -- --draft` 查看原始静态源文件；`pnpm view:published` 查看正式快照。
 
 `release:dataset <published-digest> site|standalone` 只从该正式版本生成并检查输出。
 失败保存独立 Attempt，不改变已经发布的数据；重试创建新 Attempt。这里不自动部署。
@@ -125,25 +123,26 @@ Git 工作树仍用于代码开发与历史兼容数据，正式新输入以发�
 `output/publications/`。因此本机「已发布」只证明本机正式快照已切换，不能据此报告
 线上已更新。用户要求上线时，执行者须继续完成以下交接：
 
-1. 以 `PUBLISHED` 收据固定快照摘要，核对该快照和相关发布计划的贡献文件摘要。
-   在干净的 Git 工作树中同步已接受的 SSOT、Adapter、资产与裁剪说明；已有路径须先
-   与贡献的 `baseDigest` 比对，有冲突则核对解决，不能覆盖其他修改或倒退应用代码。
-2. 将已发布的相应 baseline 条目一起带入，运行 `sync:index-datasets`、
-   `update:asset-catalog` 和 `update:dataset-file-metadata` 生成 Git 构建所需投影。
-   原始 processed 图片继续只保存在本机。交接不重新作者化数据，也不补造审阅或 seal。
-3. 提交完整的数据、资产、注册和相关 tracked queue 变更，提交说明引用发布摘要；
-   按 ChangeImpact 检查，处理提交后的 metadata 更新，然后推送到 `main`。
-4. 等待该提交的 CI **及 Pages 部署**成功，再从线上实际打开每个新增 key，确认期间
-   可选且 Sankey 已渲染。线上完成状态必须以此为依据，不能只看本机发布收据。
+1. 用 `release:git prepare <published-digest>` 从已发布贡献和当前已提交代码生成完整候选。
+   它不覆盖应用代码或无关草稿，按记录合并同一公司文件，投影注册和固定的显示时间。
+2. 在工作台 `/?source=<transport-id>` 查看通过检查的候选，并把真实确认记录为
+   `record:transport-review <transport-id> --input <review.json>`。历史 Build 接受不自动
+   接受后来改变的应用或集成结果。
+3. `release:git commit <transport-id>` 使用共享发布写锁、明确的路径清单、私有临时
+   index 和恢复日志。有关 Source 的 tracked queue 变更随数据提交；processed 保持忽略。
+4. 你明确要求推送后执行 `release:git push <transport-id>`；等待 CI 及 Pages 部署成功，
+   读取线上清单并实际打开每个新增 key。CI 对 transport 提交校验审阅与实际产物映射。
 
-这一步是现有 GitHub Pages 的传输与部署交接，不改变本机 Publication 的单指针事务。
+这条交接保留本地 Publication 的单指针事务。Git 工作树应用是可恢复操作，
+不声称多文件原子替换。完整协议和失败恢复见 [local-environments.md](local-environments.md)。
 
 ## 原材料何时归档
 
 来源在系统里的位置和摘要随数据发布；本机文件归档仍只接受明确的操作员完成信号，
 见 [dynamic-dataset-workflow.md](dynamic-dataset-workflow.md) 的 Operator Review-Completion
-Signal。`archive-list` 生成当前完整清单，`archive --input <signal.json>` 消费对应摘要
-和确认。目标不同内容则拒绝；相同内容仅用于恢复已经复制但尚未删除的中断移动。
+Signal。`archive-list <build-id>` 只枚举所选 Build 的完整 Source 清单；省略 Build
+才枚举整个 processing。`archive --input <signal.json>` 消费对应摘要以及明确的 `entries`
+或 `buildIds` 和确认，不会带走其他 Session 的材料。目标不同内容则拒绝；相同内容仅用于恢复已经复制但尚未删除的中断移动。
 processed 永不 force-add。
 
 ## 现有资料与命令

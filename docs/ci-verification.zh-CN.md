@@ -278,3 +278,14 @@ CI 无缓存持久化，仍按 ChangeImpact 矩阵冷跑；上表只改变本机
   出现在汇总行里（欠检查永远可见）。缓存是 gitignored 的本机 `output/` 产物，CI 永远
   冷跑；管线脚本自身在指纹内，改判定逻辑会自动作废全部缓存。baseline 缺失仍在渲染前
   确定性失败，不受缓存影响。
+
+
+## 本地多环境与 Git 传输对齐
+
+Node 版本由 `.node-version` 固定，本地 `.nvmrc` 同值。`verify:workbench` 在 app gate
+路径运行，检查文件入口、标签页固定、自动刷新、构建失败与未上线状态。
+`build:site` 后运行 `verify:release`，核对实际文件与 `site-release.json`；带
+`Trace-Transport` 的提交必须匹配 `docs/releases/current.json` 的输入、人工接受与
+产物摘要。普通代码/历史直接编辑提交会明确报告没有 transport 映射，仍运行相应站点检查。
+生产清单记录实际 `GITHUB_SHA`。部署继续复用已经检查的同一份 `_site` artifact。
+完整本机操作见 [local-environments.md](local-environments.md)。

@@ -23,6 +23,7 @@ together.
 | commit message convention | `docs/commit-messages.md` |
 | data-adjacent asset layout (icon crops, raster annotations) | `data/assets/README.md` |
 | Trace product and data model | `docs/trace-specification.zh-CN.md` |
+| same-checkout Sessions, local workbench, Git transport and recovery | `docs/local-environments.md` |
 | human quickstart, viewer usage | `README.md` |
 | CI check purpose, ChangeImpact routing, performance baseline, Pages artifact handoff | `docs/ci-verification.zh-CN.md` |
 | Pages runtime data projection, lazy detail loading, version retention and completeness | `docs/architecture/runtime-data.md` |
@@ -112,7 +113,7 @@ Install once; the d3/standalone verifiers render in Chromium:
 
 | command | purpose |
 | --- | --- |
-| `pnpm dev` | zero-dependency local static server on port 8000 |
+| `pnpm dev` | local review workbench on port 8000 (Dev / pinned Pages preview / production) |
 | `pnpm plan:ci -- --base <sha> --head <sha>` | classify a Git diff into the conservative CI verification plan; missing/unknown executable impact falls back to the full browser suite |
 | `pnpm check` | fast aggregate gate: repo-wide JS syntax, unit tests, pending guard, architecture/app-global contracts, manifest and render-baseline structure freshness, SSOT parity, i18n coverage, metadata freshness (seconds, no rendering); active files in `input/processing/` do not fail this global gate; reproducible on fresh checkouts and run by CI |
 | `pnpm test` | node:test unit tests in `tests/` — Source claim/relocation, engine layout math + label passes, trace-domain parsing/FX, i18n translation rules, png-diff metrics, script-source parsing, dataset registry |
@@ -245,10 +246,22 @@ script, so you do not need to reinstall them. Non-obvious caveats for this VM:
 
 ## Local review entry / 本机审阅入口
 
-Use the root `index.html` as the operator’s stable review address. Successful
-`record:workflow prepare` selects the isolated draft with a pending-review label;
-after explicit human approval, complete review, seal and publication without another
-publication permission question. `publish:datasets commit` switches the same entry
-to the published snapshot. Verify the actual file entry before reporting completion.
-The machine-local selection is a derived UI preference, not review evidence or
-canonical data. Operational details: `docs/asset-workflow.md`.
+Use the root `index.html` as the operator’s stable entry. Start `pnpm dev` once;
+the file entry discovers the same-project workbench. Each browser tab pins its
+Build and production candidate. Provide `/?source=<build-id>` for the current
+task; never infer acceptance from another tab or an automatic rebuild.
+
+Multiple Codex / Claude Code Sessions use this same checkout without worktrees.
+Use `record:workflow start` and its ordinary workspace, owner and generation;
+carry that generation on subsequent writes. Low-level record commands need the
+same `TRACE_SESSION_ID` / `TRACE_SESSION_GENERATION`. Do not write shared data,
+registrations or Git from a draft. Refresh historical drafts before resuming.
+
+Successful `prepare` advertises the draft. New Session Build review requires
+its displayed `previewId` and current reviewToken. After explicit approval,
+complete review, seal and Publication without another publication question.
+Use `release:git` for the reviewed integration candidate and exact-path commit;
+only push on the operator’s explicit push instruction. Archive only the confirmed
+selected Source list. Verify the actual file entry before reporting completion.
+Machine-local selection is UI preference, never evidence or canonical authority.
+Details and recovery: `docs/local-environments.md` and `docs/asset-workflow.md`.

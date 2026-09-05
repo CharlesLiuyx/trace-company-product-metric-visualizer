@@ -48,7 +48,11 @@
     "verify:feedback-patterns": "node scripts/update-feedback-patterns.mjs --check",
     "update:workflow-reference": "node scripts/update-workflow-reference.mjs",
     "verify:workflow": "node scripts/update-workflow-reference.mjs --check",
-    "update:workflow-graph": "node scripts/update-workflow-graph.mjs"
+    "update:workflow-graph": "node scripts/update-workflow-graph.mjs",
+    "release:git": "node scripts/release-git.mjs",
+    "record:transport-review": "node scripts/record-transport-review.mjs",
+    "verify:release": "node scripts/verify-release.mjs",
+    "verify:workbench": "node scripts/verify-workbench.mjs"
   },
   "devDependencies": {
     "@fontsource/montserrat": "5.2.8",

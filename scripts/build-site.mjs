@@ -1,7 +1,9 @@
 #!/usr/bin/env node
+import { siteContentDigest } from './lib/site-release-identity.mjs';
 
 import { cp, mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
+import { constants } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
@@ -11,12 +13,23 @@ import {
 } from './lib/local-fonts.mjs';
 import { buildSiteData } from './lib/site-data.mjs';
 
-const rootDir = path.resolve(fileURLToPath(new URL('..', import.meta.url)));
-const outputDir = path.join(rootDir, '_site');
+const args = process.argv.slice(2).filter((arg) => arg !== '--');
+const options = {};
+for (let i = 0; i < args.length; i += 2) {
+  if (!['--root', '--out', '--cache'].includes(args[i]) || !args[i + 1]) throw new Error(`Invalid build option ${args[i]}`);
+  options[args[i].slice(2)] = path.resolve(args[i + 1]);
+}
+const rootDir = options.root || path.resolve(fileURLToPath(new URL('..', import.meta.url)));
+const outputDir = options.out || path.join(rootDir, '_site');
+if (rootDir === outputDir || rootDir.startsWith(outputDir + path.sep) || ['data', 'src', 'input', 'scripts', 'vendor'].some((dir) => outputDir === path.join(rootDir, dir) || outputDir.startsWith(path.join(rootDir, dir) + path.sep))) throw new Error('Build output must not overwrite project inputs');
 let runtimePrefix = '';
 let runtimeDir = outputDir;
 let bundleDir = path.join(outputDir, 'assets');
-const cacheDir = path.join(rootDir, 'output/site-releases');
+const cacheDir = options.cache || path.join(rootDir, 'output/site-releases');
+for (const destination of [outputDir, cacheDir]) {
+  if (rootDir === destination || rootDir.startsWith(destination + path.sep) || destination.startsWith(rootDir + path.sep) && destination !== path.join(rootDir, '_site') && !destination.startsWith(path.join(rootDir, 'output') + path.sep)) throw new Error('Output/cache must use _site, output/, or a directory outside the project');
+}
+if (outputDir === cacheDir || outputDir.startsWith(cacheDir + path.sep) || cacheDir.startsWith(outputDir + path.sep)) throw new Error('Output and retention cache must be separate directories');
 const RETAINED_PREVIOUS_RELEASES = 2;
 const bundleSources = Object.freeze({
   foundation: 'assets/foundation.js',
@@ -189,6 +202,7 @@ async function copyRuntimeFiles() {
     await cp(projectPath(source), path.join(runtimeDir, destination), {
       recursive: true,
       force: true,
+      mode: constants.COPYFILE_FICLONE,
     });
   }
   // Adapter-owned raster paths are document-relative. Bind those references
@@ -268,7 +282,7 @@ async function filesWithin(relativeDir) {
 
 async function runtimeVersion(scripts) {
   const files = [...new Set([
-    'index.html', 'scripts/build-site.mjs', 'scripts/lib/site-data.mjs', 'scripts/lib/local-fonts.mjs',
+    'index.html', 'scripts/build-site.mjs', 'scripts/lib/site-data.mjs', 'scripts/lib/local-fonts.mjs', 'scripts/lib/site-release-identity.mjs',
     ...scripts.map(({ src }) => src), 'src/app.css',
     ...await filesWithin('data/datasets'),
     ...await filesWithin('data/assets/raster-annotations'),
@@ -290,19 +304,21 @@ async function retainReleases(version) {
   const retained = [];
   for (const id of candidates.slice(0, RETAINED_PREVIOUS_RELEASES)) {
     try {
-      await cp(path.join(cacheDir, id), path.join(outputDir, 'releases', id), { recursive: true });
+      await cp(path.join(cacheDir, id), path.join(outputDir, 'releases', id), { recursive: true, mode: constants.COPYFILE_FICLONE });
       retained.push(id);
     } catch (error) {
       if (error.code !== 'ENOENT') throw error;
     }
   }
-  await cp(runtimeDir, path.join(cacheDir, version), { recursive: true, force: true });
+  await cp(runtimeDir, path.join(cacheDir, version), { recursive: true, force: true, mode: constants.COPYFILE_FICLONE });
   const versions = [version, ...retained];
   await writeFile(path.join(cacheDir, 'releases.json'), JSON.stringify(versions));
   for (const entry of await readdir(cacheDir)) {
     if (/^[a-f0-9]{64}$/.test(entry) && !versions.includes(entry)) await rm(path.join(cacheDir, entry), { recursive: true, force: true });
   }
-  await writeFile(path.join(outputDir, 'site-release.json'), JSON.stringify({ schema: 'trace-site-release/v1', version, retained, prefix: runtimePrefix }));
+  const contentDigest = await siteContentDigest(outputDir, version);
+  const sourceCommit = process.env.TRACE_SOURCE_COMMIT || process.env.GITHUB_SHA || null;
+  await writeFile(path.join(outputDir, 'site-release.json'), JSON.stringify({ schema: 'trace-site-release/v1', version, retained, prefix: runtimePrefix, contentDigest, sourceCommit, toolchain: { node: process.version } }));
 }
 
 async function main() {

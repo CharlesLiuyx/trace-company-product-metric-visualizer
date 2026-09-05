@@ -8,8 +8,12 @@ build-local evidence, not publication state.
 New input uses `docs/asset-workflow.md`: a PNG or UTF-8 text Source, one facts
 file, an isolated Build, generated review records, atomic local publication,
 and an optional release from that published digest. The root `index.html` is the
-stable local review entry: a derived UI selection shows the prepared draft, then
-the accepted published tree, without changing the address or canonical authority. Generic observations live
+stable local review entry: it discovers the local HTTP workbench, where each tab
+pins one ordinary Build/transport candidate. Session owner/generation fences
+writers; no Git worktree is needed. A reviewed Git transport uses a shared write
+mutex, exact paths, a private index and a recovery journal. The operational owner
+is `docs/local-environments.md`; ADR-0003 preserves the existing lifecycle scopes.
+Generic observations live
 in `data/metric-observations/` and appear in the viewer metric library.
 
 Source folders are operational locators, not a fourth lifecycle scope.

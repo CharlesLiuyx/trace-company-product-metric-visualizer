@@ -1,4 +1,5 @@
 import test from 'node:test';
+import { createHash } from 'node:crypto';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
 import {
@@ -124,4 +125,17 @@ test('managed hooks refresh after commit and block an uncommitted metadata push'
     run(root, process.execPath, ['scripts/git-hook-dataset-metadata.mjs', 'pre-push']),
     'clean pre-push metadata gate'
   );
+  // A reviewed transport freezes time before commit; changing Git author time
+  // must not change the reviewed Pages bytes or require a metadata amend.
+  const fixedSource = '// alpha v3 reviewed transport\n';
+  await writeFile(path.join(root, 'data/datasets/alpha.js'), fixedSource);
+  await writeFile(path.join(root, 'data/workflow-timestamps.json'), JSON.stringify({ schema: 'workflow-timestamps/v1', files: {
+    'data/datasets/alpha.js': { digest: 'sha256:' + createHash('sha256').update(fixedSource).digest('hex'), updatedAt: '2026-01-02T00:00:00.000Z' }
+  } }));
+  assertPassed(run(root, process.execPath, ['scripts/update-dataset-file-metadata.mjs']), 'fixed metadata before review');
+  assertPassed(run(root, 'git', ['add', 'data/datasets/alpha.js', 'data/workflow-timestamps.json', 'data/dataset-file-metadata.js']), 'exact reviewed paths');
+  assertPassed(run(root, 'git', ['commit', '-m', 'transport fixed timestamp'], { env: { GIT_AUTHOR_DATE: '2026-02-01T00:00:00Z' } }), 'fixed timestamp commit');
+  assert.equal(run(root, 'git', ['status', '--short']).stdout, '');
+  assertPassed(run(root, process.execPath, ['scripts/git-hook-dataset-metadata.mjs', 'pre-push']), 'fixed metadata survives commit');
+
 });
