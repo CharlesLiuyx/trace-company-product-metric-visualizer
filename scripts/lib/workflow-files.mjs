@@ -5,7 +5,7 @@ import path from 'node:path';
 import { digestValue } from './dataset-build.mjs';
 
 export const CANONICAL_ROOTS = Object.freeze(['index.html', 'src', 'data', 'vendor', 'input/icon-crop-specs']);
-export const TOOL_ROOTS = Object.freeze(['scripts', 'tests', 'docs', 'AGENTS.md', 'CONTEXT.md', 'package.json', 'pnpm-lock.yaml', '.gitignore']);
+export const TOOL_ROOTS = Object.freeze(['scripts', 'tests', 'docs', 'AGENTS.md', 'CONTEXT.md', 'README.md', 'input/README.md', 'package.json', 'pnpm-lock.yaml', '.gitignore', '.githooks', '.node-version', '.nvmrc']);
 export function inside(root, relative) {
   const result = path.resolve(root, relative);
   if (!relative || path.isAbsolute(relative) || result === path.resolve(root) || !result.startsWith(path.resolve(root) + path.sep)) throw new Error(`Path outside workspace: ${relative}`);
