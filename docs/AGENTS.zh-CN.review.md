@@ -214,16 +214,19 @@ processed PNG 只留本机；可复用渲染器支持拆成前置 `render(engine
 ## 本机审阅入口
 
 根目录 `index.html` 是固定入口。启动一次 `pnpm dev` 后，文件入口发现同一项目的 HTTP
-工作台。每个标签页固定 Build 与生产候选；当前任务提供 `/?source=<build-id>`，
-不得把另一标签页的选择或自动构建当作人工接受。
+工作台。默认统一验收将已准备草稿与项目数据汇入同一公司/期间视图；上一项 / 下一项
+定位固定的候选成员列表。当前任务提供 `/?review=<build-id>#<key>`；每个标签页固定整份候选，
+不得把另一标签页的选择、切换条目或自动构建当作人工接受。
 
 多个 Codex / Claude Code Session 共用此 checkout，不创建 worktree。
 使用 `record:workflow start` 返回的普通 workspace、owner 和 generation；后续写操作
 携带同一代次。低层 record 命令使用 `TRACE_SESSION_ID` / `TRACE_SESSION_GENERATION`。
 草稿不写共享数据、注册或 Git；历史草稿先 refresh 再继续。
 
-`prepare` 成功后公布草稿。带 Session 的新 Build 审阅须绑定已显示的 `previewId`
-与当前 reviewToken。明确确认后连续完成审阅、seal 和 Publication，不再询问是否本地发布。
+`prepare` 成功后公布草稿。带 Session 的新 Build 审阅须绑定已显示候选的 `previewId`
+与详情 `displayed.members` 中对应 Build 的当前 reviewToken。单项 Build / transport
+排查保留在“更多”与 `?source=...`，不作为默认操作流程。
+明确确认后连续完成审阅、seal 和 Publication，不再询问是否本地发布。
 通过 `release:git` 准备经审阅的集成候选和精确路径提交；只有操作员明确要求才 push。
 归档仅覆盖已确认的所选 Source 清单。汇报完成前实际验证文件入口。
 机器本地选择仅是 UI 偏好，不是证据或正式数据。

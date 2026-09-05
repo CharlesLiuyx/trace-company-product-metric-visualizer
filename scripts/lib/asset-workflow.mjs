@@ -20,6 +20,7 @@ import { recordCheckpoint } from './workflow-checkpoints.mjs';
 import { CANONICAL_ROOTS, TOOL_ROOTS, bytesDigest, fileManifest, copyFiles, filesUnder, inside, atomicJson, readJson, withFileLock, freezeSnapshot } from './workflow-files.mjs';
 import { digestValue } from './dataset-build.mjs';
 import { verifySiteIdentity } from './site-release-identity.mjs';
+import { readReviewPreview } from './workbench-review.mjs';
 
 export function workflowOptions(root = rootDir) { return { projectRoot: root, buildRoot: path.join(root, 'output/builds') }; }
 export async function buildContext(buildId, root = rootDir) {
@@ -189,7 +190,7 @@ export async function showAsset(buildId, root = rootDir) {
   const facts = existsSync(factsFile) ? await readJson(factsFile) : null;
   const contributionFile = inside(options.projectRoot, 'output/workflow/semantic-inputs.json');
   const authoredRecord = existsSync(contributionFile) ? (await readJson(contributionFile)).record : null;
-  return { buildId, key: build.key, adapter: build.adapter, workspace: options.projectRoot, session: await readBuildSession(root, buildId), reviewUrl: `http://127.0.0.1:8000/?source=${buildId}`, state: inspection.effectiveState, historicalState: inspection.historicalState, fresh: inspection.fresh, staleArtifacts: inspection.staleArtifacts, next,
+  return { buildId, key: build.key, adapter: build.adapter, workspace: options.projectRoot, session: await readBuildSession(root, buildId), reviewUrl: `http://127.0.0.1:8000/?review=${buildId}#${build.key}`, state: inspection.effectiveState, historicalState: inspection.historicalState, fresh: inspection.fresh, staleArtifacts: inspection.staleArtifacts, next,
     source: build.sources[0], subject: facts?.subject, period: facts?.period, metrics: facts?.metrics || [], questions: facts?.questions || [], authoredRecord,
     reviewToken: packet?.reference.digest, verificationReference: verification?.reference,
     checkpoints: checkpoints.map(({ reference }) => reference), plan: authored?.verificationPlan,
@@ -225,11 +226,10 @@ export async function reviewAsset(buildId, review, root = rootDir) {
     if (review.reviewToken !== current.reviewToken) throw new Error('Review must cite the exact processing-sheet token; refresh the sheet before reviewing changed data');
     if (current.session || review.previewId) {
       if (!/^[a-f0-9-]+$/.test(review.previewId || '')) throw new Error('Review must cite the displayed production previewId from the workbench');
-      const directory = inside(root, `output/workbench/previews/${buildId}/${review.previewId}`);
-      const preview = await readJson(path.join(directory, 'candidate.json'));
-      if (preview.reviewToken !== current.reviewToken || preview.sourceDigest !== (await fileManifest(options.projectRoot)).digest || preview.toolDigest !== (await fileManifest(root, ['scripts', 'package.json', 'pnpm-lock.yaml'])).digest) throw new Error('Displayed production preview is stale; prepare and inspect a fresh candidate');
+      const { directory, preview, member } = await readReviewPreview(root, buildId, review.previewId);
+      if (member.reviewToken !== current.reviewToken || member.sourceDigest !== (await fileManifest(options.projectRoot)).digest || preview.toolDigest !== (await fileManifest(root, ['scripts', 'package.json', 'pnpm-lock.yaml'])).digest) throw new Error('Displayed production preview is stale; prepare and inspect a fresh candidate');
       await verifySiteIdentity(path.join(directory, 'site'), preview);
-      await recordBuildObject(buildId, 'production-preview-review', { previewId: review.previewId, reviewToken: current.reviewToken, contentDigest: preview.contentDigest, version: preview.version, sourceDigest: preview.sourceDigest }, options);
+      await recordBuildObject(buildId, 'production-preview-review', { previewId: review.previewId, previewSource: preview.source, reviewToken: current.reviewToken, contentDigest: preview.contentDigest, version: preview.version, sourceDigest: member.sourceDigest }, options);
     }
     await finishReviewedBuild({ ...review, buildId, reviewToken: current.reviewToken, verificationReference: current.verificationReference, checkpoints: current.checkpoints }, options);
     return showAsset(buildId, root);

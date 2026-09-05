@@ -160,10 +160,12 @@ function syncDatasetHash(record) {
   const nextHash = `#${encodeURIComponent(key)}`;
   if (window.location.hash === nextHash) return;
   window.history.replaceState(null, '', nextHash);
+  window.dispatchEvent(new Event('trace:selectionchange'));
 }
 function clearDatasetHash() {
   if (!window.location.hash) return;
   window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}`);
+  window.dispatchEvent(new Event('trace:selectionchange'));
 }
 function companyGroupsForMetric(mode) {
   if (mode === 'incomeStatement') return statementGroups;

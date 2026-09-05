@@ -26,7 +26,9 @@ or storage guarantees already exist.
 [ADR-0003](../adr/0003-shared-checkout-sessions-and-git-transport.md) adds ordinary
 Build folder ownership, typed SSOT merging, a local workbench and reviewed Git
 transport. [Local environment operations](../local-environments.md) own commands
-and recovery. These are implemented local P0/P1 features; remote staging and
+and recovery. The workbench defaults to one immutable combined review projection
+of prepared drafts and project data, with per-Build semantic/preview bindings;
+this derived view adds no publication state or write authority. These are implemented local P0/P1 features; remote staging and
 automatic reuse of changed human review remain outside the implemented guarantee.
 The three lifecycle scopes and Publication pointer CAS remain unchanged.
 

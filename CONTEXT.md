@@ -8,8 +8,10 @@ build-local evidence, not publication state.
 New input uses `docs/asset-workflow.md`: a PNG or UTF-8 text Source, one facts
 file, an isolated Build, generated review records, atomic local publication,
 and an optional release from that published digest. The root `index.html` is the
-stable local review entry: it discovers the local HTTP workbench, where each tab
-pins one ordinary Build/transport candidate. Session owner/generation fences
+stable local review entry: it discovers the local HTTP workbench, where the default
+view combines prepared drafts and current project data in one tab-pinned candidate.
+Next/previous navigates its fixed member list; each Build retains its own review
+binding. Individual Build/transport views remain available for inspection. Session owner/generation fences
 writers; no Git worktree is needed. A reviewed Git transport uses a shared write
 mutex, exact paths, a private index and a recovery journal. The operational owner
 is `docs/local-environments.md`; ADR-0003 preserves the existing lifecycle scopes.

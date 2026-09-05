@@ -8,9 +8,10 @@ import { startStaticServer } from '../dev-server.mjs';
 import { rootDir } from './project.mjs';
 import { atomicJson, readJson, inside, copyFiles, filesUnder, CANONICAL_ROOTS, fileManifest } from './workflow-files.mjs';
 import { verifySiteIdentity } from './site-release-identity.mjs';
-import { readLocalView } from './workflow-local-view.mjs';
 import { prepareWorkspaceTools } from './workspace-tools.mjs';
 import { showAsset } from './asset-workflow.mjs';
+import { composeReviewData, bindReviewMembers, assertReviewMembersFresh, reviewTasks } from './workbench-review.mjs';
+import { updateMetricCatalog } from './metric-catalog.mjs';
 
 const exec = promisify(execFile);
 const productionUrl = 'https://charlesliuyx.github.io/trace-company-product-metric-visualizer/';
@@ -32,7 +33,7 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
   const availability = new Map();
   const notify = () => { for (const response of events) response.write(`data: ${JSON.stringify({ changedAt: Date.now() })}\n\n`); };
   function sourceRoot(source) {
-    if (source === 'project') return root;
+    if (source === 'project' || source === 'review') return root;
     if (!/^(?:build|transport)-[a-z0-9-]+$/.test(source)) throw new Error('Invalid preview source');
     const workspace = inside(root, `output/${source.startsWith('transport-') ? 'git-transports' : 'builds'}/${source}/workspace`);
     if (!existsSync(path.join(workspace, 'index.html'))) throw new Error('Build workspace not ready');
@@ -41,7 +42,7 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
   function ensurePreview(source) {
     if (previews.has(source)) return previews.get(source);
     const workspace = sourceRoot(source);
-    const state = { source, workspace, status: 'queued', revision: 0, candidate: null, error: null, busy: false, dirty: true };
+    const state = { source, workspace, status: 'queued', revision: 0, candidate: null, error: null, busy: false, dirty: true, watched: new Set() };
     previews.set(source, state);
     let debounce;
     const changed = () => {
@@ -49,11 +50,17 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
       if (debounce) { clearTimeout(debounce); timers.delete(debounce); }
       debounce = setTimeout(() => { timers.delete(debounce); rebuild(state); }, 500); timers.add(debounce); notify();
     };
-    for (const item of ['src', 'data', 'vendor', 'scripts']) {
-      const file = path.join(workspace, item);
-      if (existsSync(file)) watchers.push(watch(file, { recursive: true }, changed));
-    }
-    watchers.push(watch(workspace, (_event, file) => { if (['index.html', 'package.json', 'pnpm-lock.yaml'].includes(String(file))) changed(); }));
+    state.changed = changed;
+    state.watchWorkspace = (folder) => {
+      if (state.watched.has(folder)) return;
+      state.watched.add(folder);
+      for (const item of ['src', 'data', 'vendor', 'scripts', 'output/workflow']) {
+        const file = path.join(folder, item);
+        if (existsSync(file)) watchers.push(watch(file, { recursive: true }, changed));
+      }
+      watchers.push(watch(folder, (_event, file) => { if (['index.html', 'package.json', 'pnpm-lock.yaml'].includes(String(file))) changed(); }));
+    };
+    state.watchWorkspace(workspace);
     rebuild(state); return state;
   }
   async function rebuild(state) {
@@ -68,7 +75,16 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
       const before = await fileManifest(state.workspace);
       await copyFiles(state.workspace, snapshot, await filesUnder(state.workspace, CANONICAL_ROOTS));
       if ((await fileManifest(snapshot)).digest !== before.digest) throw new Error('Files changed while the preview snapshot was copied');
+      let members = [];
+      if (state.source === 'review') {
+        members = await composeReviewData(root, snapshot, await tasks());
+        for (const member of members) state.watchWorkspace(member.workspace);
+      }
       await prepareWorkspaceTools(root, snapshot);
+      if (members.length) {
+        await updateMetricCatalog(snapshot);
+        await run(path.join(snapshot, 'scripts/sync-index-datasets.mjs'), [], snapshot);
+      }
       await build(path.join(snapshot, 'scripts/build-site.mjs'), ['--root', snapshot, '--out', target, '--cache', path.join(path.dirname(target), 'cache')], snapshot);
       if (revision !== state.revision) throw new Error('Files changed during preview build; rebuilding the latest version');
       const release = await verifySiteIdentity(target);
@@ -78,12 +94,18 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
       candidate.reviewToken = selection?.revision || null;
       candidate.sourceDigest = before.digest;
       candidate.toolDigest = (await fileManifest(snapshot, ['scripts', 'package.json', 'pnpm-lock.yaml'])).digest;
+      if (state.source === 'review') {
+        candidate.members = await bindReviewMembers(root, snapshot, members, (buildId) => showAsset(buildId, root));
+        await assertReviewMembersFresh(root, members);
+        if ((await fileManifest(root)).digest !== before.digest) throw new Error('Project files changed during combined review build');
+      }
       if (selection) {
         const inspection = await showAsset(state.source, root).catch(() => null);
         if (!inspection?.fresh || inspection.reviewToken !== selection.revision) candidate.reviewToken = null;
       }
       candidate.transportDigest = transport?.candidateDigest || null;
       candidate.transportMatches = transport ? transport.release.contentDigest === release.contentDigest && transport.release.version === release.version : null;
+      if ((await fileManifest(root, ['scripts', 'package.json', 'pnpm-lock.yaml'])).digest !== candidate.toolDigest) throw new Error('Preview tools changed during construction; rebuilding the latest version');
       await atomicJson(path.join(path.dirname(target), 'candidate.json'), candidate);
       if (revision !== state.revision) throw new Error('Preview input changed before activation');
       await atomicJson(inside(root, `output/workbench/previews/${state.source}/current.json`), candidate);
@@ -150,7 +172,7 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
         if (!manifest.authoringRoot) return null;
         const selected = await readJson(inside(root, `output/local-view/builds/${buildId}.json`)).catch(() => ({}));
         const session = await readJson(path.join(folder, buildId, 'session.json')).catch(() => null);
-        return { ...selected, buildId, key: manifest.key, historicalState: manifest.state, owner: session?.owner || '历史任务', selectable: existsSync(path.join(folder, buildId, 'workspace/index.html')) };
+        return { ...selected, buildId, key: manifest.key, historicalState: manifest.state, reviewPending: Boolean(selected.revision) && manifest.review?.status !== 'accepted', owner: session?.owner || '历史任务', selectable: existsSync(path.join(folder, buildId, 'workspace/index.html')) };
       } catch { return null; }
     }));
     for (const id of await readdir(path.join(root, 'output/git-transports')).catch(() => [])) {
@@ -180,16 +202,28 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
       response.writeHead(200, { 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-store', Connection: 'keep-alive' }); response.write('data: {}\n\n'); events.add(response); request.on('close', () => events.delete(response)); return true;
     }
     if (url.pathname === '/__trace/status') {
-      const selected = await readLocalView(root);
-      const source = url.searchParams.get('source') || (selected?.mode === 'review-pending' ? selected.buildId : 'project');
+      const source = url.searchParams.get('source') || 'review';
       try {
         const state = ensurePreview(source);
+        const taskList = await tasks();
+        if (source === 'review') {
+          const signature = JSON.stringify(reviewTasks(taskList));
+          if (state.taskSignature && state.taskSignature !== signature) state.changed();
+          state.taskSignature = signature;
+        }
         remoteState(); ciState();
-        sendJson(response, { schema: 'trace-workbench/v1', root, preview: { source, status: state.status, revision: state.revision, candidate: state.candidate, error: state.error }, tasks: await tasks(), git: await gitState(), ci, production: remote, productionDataset: await productionDataset(url.searchParams.get('key')) });
+        const pinnedId = url.searchParams.get('candidate');
+        let pinnedCandidate = null;
+        if (pinnedId) {
+          if (!/^[a-f0-9-]+$/.test(pinnedId)) throw new Error('Invalid preview candidate');
+          pinnedCandidate = await readJson(inside(root, `output/workbench/previews/${source}/${pinnedId}/candidate.json`));
+          if (pinnedCandidate.source !== source || pinnedCandidate.id !== pinnedId) throw new Error('Preview candidate mismatch');
+        }
+        sendJson(response, { schema: 'trace-workbench/v1', root, preview: { source, status: state.status, revision: state.revision, candidate: state.candidate, error: state.error }, pinnedCandidate, tasks: taskList, git: await gitState(), ci, production: remote, productionDataset: await productionDataset(url.searchParams.get('key')) });
       } catch (error) { sendJson(response, { error: error.message }, 400); }
       return true;
     }
-    const preview = /^\/__trace\/previews\/(project|(?:build|transport)-[a-z0-9-]+)\/([a-f0-9-]+)\/trace-company-product-metric-visualizer\/(.*)$/.exec(url.pathname);
+    const preview = /^\/__trace\/previews\/(review|project|(?:build|transport)-[a-z0-9-]+)\/([a-f0-9-]+)\/trace-company-product-metric-visualizer\/(.*)$/.exec(url.pathname);
     const dev = /^\/__trace\/dev\/(project|(?:build|transport)-[a-z0-9-]+)\/(.*)$/.exec(url.pathname);
     if (preview || dev) {
       const folder = preview ? inside(root, `output/workbench/previews/${preview[1]}/${preview[2]}/site`) : sourceRoot(dev[1]);
@@ -204,6 +238,8 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
   } });
   const keepAlive = setInterval(() => { for (const response of events) response.write(': keepalive\n\n'); }, 15000);
   await mkdir(path.join(root, 'output/local-view'), { recursive: true });
+  await mkdir(path.join(root, 'output/local-view/builds'), { recursive: true });
+  watchers.push(watch(path.join(root, 'output/local-view/builds'), notify));
   await writeFile(path.join(root, 'output/local-view/workbench.js'), `window.TRACE_WORKBENCH_HINT = ${JSON.stringify({ root, url: server.url })};\n`);
   return { ...server, close: async () => { closed = true; clearInterval(keepAlive); for (const timer of timers) clearTimeout(timer); for (const watcher of watchers) watcher.close(); for (const response of events) response.end(); await server.close(); } };
 }

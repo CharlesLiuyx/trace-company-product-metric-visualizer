@@ -34,6 +34,17 @@ async function datasetAt(root, key, loaded) {
   loaded.datasets = context.DATASETS || [];
   return loaded.datasets.find((item) => item.key === key);
 }
+// The same semantic slice binds isolated authoring and a combined review view.
+export async function readSemanticContribution(build, root, loaded = null) {
+  loaded ||= await loadWorkspaceData(root);
+  const dataset = build.adapter === 'income-statement' ? await datasetAt(root, build.key, loaded) : null;
+  const record = (build.adapter === 'metric-observation' ? loaded.metricRecords : build.adapter === 'income-statement' ? loaded.records : loaded.revenueRecords).find((item) => item.key === build.key);
+  if (!record) throw new Error(`Missing authored record: ${build.key}`);
+  if (build.adapter === 'income-statement' && !dataset) throw new Error(`Missing View Adapter: ${build.key}`);
+  const company = loaded.companies.find((item) => item.name === record.company || item.key === record.subject?.id) || null;
+  const displayTime = loaded.context.DATASET_FILE_METADATA?.files?.[build.adapter === 'revenue-metric' ? 'data/revenue-metrics.js' : build.key] || null;
+  return { key: build.key, adapter: build.adapter, record, company, dataset, displayTime };
+}
 export async function deriveArtifactManifest(build, root, { writeProjection = true } = {}) {
   const artifacts = [];
   const add = async (file, role) => {
@@ -41,10 +52,8 @@ export async function deriveArtifactManifest(build, root, { writeProjection = tr
     if (!artifacts.some((item) => item.path === file)) artifacts.push({ path: file, role, digest: bytesDigest(await readFile(inside(root, file))) });
   };
   const loaded = await loadWorkspaceData(root);
-  const dataset = build.adapter === 'income-statement' ? await datasetAt(root, build.key, loaded) : null;
-  const record = (build.adapter === 'metric-observation' ? loaded.metricRecords : build.adapter === 'income-statement' ? loaded.records : loaded.revenueRecords).find((item) => item.key === build.key);
-  if (!record) throw new Error(`Missing authored record: ${build.key}`);
-  if (build.adapter === 'income-statement' && !dataset) throw new Error(`Missing View Adapter: ${build.key}`);
+  const contribution = await readSemanticContribution(build, root, loaded);
+  const { dataset, record } = contribution;
   const sources = build.sources.map((source) => ({ path: [source.processingUri, source.processedUri].find((file) => file && existsSync(inside(root, file))), role: source.format === 'text' ? 'reference-text' : 'reference-image' }));
   for (const source of sources) await add(source.path, source.role);
   // These are complete verifier/runtime inputs. Unknown executable dependencies
@@ -65,9 +74,6 @@ export async function deriveArtifactManifest(build, root, { writeProjection = tr
   // Shared registries and company files are checked by the final consistency
   // profile. Their semantic contribution is pinned here, so unrelated additions
   // cannot invalidate this Build. Publication still owns their global merge.
-  const company = loaded.companies.find((item) => item.name === record.company || item.key === record.subject?.id) || null;
-  const displayTime = loaded.context.DATASET_FILE_METADATA?.files?.[build.adapter === 'revenue-metric' ? 'data/revenue-metrics.js' : build.key] || null;
-  const contribution = { key: build.key, adapter: build.adapter, record, company, dataset, displayTime };
   const projectionPath = 'output/workflow/semantic-inputs.json';
   const semanticBytes = JSON.stringify(contribution, null, 2) + '\n';
   if (writeProjection) {
