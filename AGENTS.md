@@ -116,7 +116,7 @@ Install once; the d3/standalone verifiers render in Chromium:
 | --- | --- |
 | `pnpm dev` | local review workbench on port 8000 (Dev / pinned Pages preview / production) |
 | `pnpm plan:ci -- --base <sha> --head <sha>` | classify a Git diff into the conservative CI verification plan; missing/unknown executable impact falls back to the full browser suite |
-| `pnpm check` | fast aggregate gate: repo-wide JS syntax, unit tests, pending guard, architecture/app-global contracts, manifest and render-baseline structure freshness, SSOT parity, i18n coverage, metadata freshness (seconds, no rendering); active files in `input/processing/` do not fail this global gate; reproducible on fresh checkouts and run by CI |
+| `pnpm check` | fast aggregate gate (two bounded workers, one native parser process): repo-wide JS syntax, unit tests, pending guard, architecture/app-global contracts, manifest and render-baseline structure freshness, SSOT parity, i18n coverage, metadata freshness (seconds, no rendering); active files in `input/processing/` do not fail this global gate; reproducible on fresh checkouts and run by CI |
 | `pnpm test` | node:test unit tests in `tests/` — Source claim/relocation, engine layout math + label passes, trace-domain parsing/FX, i18n translation rules, png-diff metrics, script-source parsing, dataset registry |
 | `pnpm verify:app` | headless boot + interaction smoke of the modular viewer (`src/app/*`): module count, persisted-prefs boot, hash routing, comparison zoom + metric trend, revenue trend, mobile viewport |
 | `pnpm verify:app-globals` | static gate for the shared-top-level-scope contract: cross-file duplicate declarations and load-time references to later scripts (also part of `pnpm check`) |
@@ -134,7 +134,7 @@ Install once; the d3/standalone verifiers render in Chromium:
 | `pnpm sync:index-datasets` | syncs every data registration surface with disk: `index.html` SSOT `<script>` tags (income statements, company metadata) and the generated dataset manifest (`--check` reports drift) |
 | `pnpm update:dataset-manifest` / `pnpm verify:dataset-manifest` | regenerate / freshness-check `data/dataset-manifest.js` (dataset registration SSOT) |
 | `pnpm update:fidelity-rules-doc [-- --check]` | regenerate (or freshness-check) the generated rule-catalog section of `docs/fidelity-loop-rules.md` from `scripts/lib/fidelity-rules-catalog.mjs` |
-| `pnpm verify:dataset -- <key> [--skip-render]` | read-only aggregate diagnostic: syntax, SSOT, strict i18n, metadata, then a read-only d3 render per language |
+| `pnpm verify:dataset -- <key> [...] [--skip-render]` | read-only batch diagnostic: global SSOT/metadata once, syntax and strict i18n for every key, then a read-only d3 render per key/language |
 | `pnpm verify:ssot` | SSOT ↔ dataset parity, registration parity, and currency/unit + FX coverage (global) |
 | `pnpm verify:i18n -- [--strict] [keys]` | i18n overlay coverage |
 | `pnpm verify:d3 -- <key> [--build <build-id>] [--focus <dir>] [--keep] [--language <code>]` | read-only d3 diagnostic + automatic hard gates; `--build` loads the fresh Plan/node-face policy (required for typed floor exceptions) without archiving or advancing evidence lineage |
@@ -154,7 +154,10 @@ and standalone checks. Unknown executable impact falls back to the complete
 suite. On `main`, the exact verified `_site` artifact is handed to the Pages
 deploy job without a second checkout/install/build. The plain-language
 purpose, mechanism, blind spots, and trigger matrix for every check live in
-`docs/ci-verification.zh-CN.md`.
+`docs/ci-verification.zh-CN.md`. Main push coverage starts at the last successful
+CI ancestor; unknown/missing impact still falls back to the full suite. Avoid
+rerunning a completed aggregate or its children on unchanged inputs; the
+exact-candidate reuse boundary is in `docs/local-environments.md`.
 
 ## Workflow
 

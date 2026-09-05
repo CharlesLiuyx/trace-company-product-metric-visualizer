@@ -1,52 +1,14 @@
 #!/usr/bin/env node
-// Aggregate fast gate (pnpm check): repo-wide JS syntax sweep plus the
-// sub-second data verifiers. No rendering, no browser — suitable before
+// Aggregate fast gate (pnpm check): native syntax parsing and bounded,
+// independent consistency checks. No rendering, no browser — suitable before
 // every commit. Render-level gates stay separate (verify:dataset,
 // verify:d3, verify:app, verify:standalone).
-import { spawnSync } from 'node:child_process';
-import { readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
-import vm from 'node:vm';
 import { rootDir } from './lib/project.mjs';
+import { runCheckProcess, runChecks } from './lib/check-runner.mjs';
 
-const SCAN_DIRS = ['src', 'data', 'scripts', 'tests'];
-const SKIP_DIRS = new Set(['node_modules', '__pycache__', 'assets']);
-
-function jsFiles(dir) {
-  return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
-    const fullPath = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      return SKIP_DIRS.has(entry.name) ? [] : jsFiles(fullPath);
-    }
-    return /\.(js|mjs)$/.test(entry.name) ? [fullPath] : [];
-  });
-}
-
-function checkSyntax() {
-  const files = SCAN_DIRS.flatMap((dir) => jsFiles(path.join(rootDir, dir)));
-  const errors = [];
-  for (const file of files) {
-    const relative = path.relative(rootDir, file);
-    if (file.endsWith('.mjs')) {
-      // ES modules need node's own parser; vm.Script rejects import/export
-      const result = spawnSync(process.execPath, ['--check', file], { encoding: 'utf8' });
-      if (result.status !== 0) errors.push(`${relative}\n${result.stderr.trim()}`);
-      continue;
-    }
-    try {
-      new vm.Script(readFileSync(file, 'utf8'), { filename: relative });
-    } catch (error) {
-      errors.push(`${relative}: ${error.message}`);
-    }
-  }
-  if (errors.length) {
-    throw new Error(`syntax errors in ${errors.length} file(s):\n${errors.join('\n')}`);
-  }
-  return `${files.length} JS files parsed`;
-}
-
-function runVerifier(script, args = []) {
-  const result = spawnSync(process.execPath, [path.join(rootDir, 'scripts', script), ...args], {
+async function runVerifier(script, args = [], nodeArgs = []) {
+  const result = await runCheckProcess(process.execPath, [...nodeArgs, path.join(rootDir, 'scripts', script), ...args], {
     cwd: rootDir,
     encoding: 'utf8',
   });
@@ -57,8 +19,8 @@ function runVerifier(script, args = []) {
   return lastLine.length > 100 ? `${lastLine.slice(0, 97)}...` : lastLine;
 }
 
-function runUnitTests() {
-  const result = spawnSync(process.execPath, ['--test', '--test-reporter=tap', 'tests/*.test.mjs'], {
+async function runUnitTests() {
+  const result = await runCheckProcess(process.execPath, ['--test', '--test-reporter=tap', 'tests/*.test.mjs'], {
     cwd: rootDir,
     encoding: 'utf8',
   });
@@ -79,7 +41,7 @@ function runUnitTests() {
 }
 
 const steps = [
-  ['syntax', checkSyntax],
+  ['syntax', () => runVerifier('check-syntax.mjs', [], ['--experimental-vm-modules'])],
   ['test', runUnitTests],
   ['check:pending', () => runVerifier('check-pending-processed.mjs')],
   ['verify:architecture', () => runVerifier('verify-architecture-contract.mjs')],
@@ -96,20 +58,10 @@ const steps = [
   ['verify:dataset-file-metadata', () => runVerifier('update-dataset-file-metadata.mjs', ['--check'])],
 ];
 
-let failed = false;
-for (const [name, run] of steps) {
-  const startedAt = Date.now();
-  try {
-    const summary = run();
-    console.log(`ok   ${name} (${Date.now() - startedAt}ms) — ${summary}`);
-  } catch (error) {
-    failed = true;
-    console.error(`FAIL ${name}: ${error.message}`);
-  }
-}
-
-if (failed) {
-  console.error('\ncheck FAILED');
-  process.exit(1);
-}
-console.log('\ncheck passed');
+const startedAt = Date.now();
+const results = await runChecks(steps, 2, (result) => {
+  if (result.passed) console.log(`ok   ${result.name} (${result.elapsedMs}ms) — ${result.summary}`);
+  else console.error(`FAIL ${result.name}: ${result.error}`);
+});
+console.log(`\ncheck ${results.every((result) => result.passed) ? 'passed' : 'FAILED'} (${Date.now() - startedAt}ms wall; 2 workers)`);
+if (results.some((result) => !result.passed)) process.exitCode = 1;

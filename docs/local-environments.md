@@ -141,6 +141,25 @@ pnpm 版本以 packageManager 为准，依赖以锁文件为准。
 未上线状态和移动布局。`verify:app`、`verify:site`、render regression 与 standalone
 继续承担各自原有的交互、生产加载、图形与独立文件门槛。
 
+## 一次合入的验证边界
+
+先完成共享工具/应用代码修改，再刷新有影响的 Build，避免在已经完成逐语言保真后
+反复升级工具、使整批证据失效。开发中先跑直接受影响的测试；最终候选只跑一次
+`pnpm check`，它已包含单元测试和各个结构/一致性检查，之后不要再单独补跑相同命令。
+
+Publication 将本批所有 key 交给一次 `verify:dataset -- <key> [...] --skip-render`，
+全局 SSOT/注册/metadata 共享一次，逐 key strict i18n 保留。Git transport prepare
+随后检查合并后的实际候选（check、相关图表、site）；它和 Build 单项检查的输入不同，
+不能凭“都通过过”互相替代。
+
+成功 prepare 之后，如果 commit 的精确路径/内容校验通过且没有新增改动，候选内的
+check/site 结果已经覆盖这些字节，不必再在共享根目录重跑同一套聚合门、build:site 和
+verify:site。根 file 入口仍验证发布结果；Git hooks 仍检查提交后 metadata。若应用、
+工具、数据、依赖或队列在检查后改变，按新输入重新检查，禁止按时间或人工印象复用。
+CI 仍在 fresh checkout 独立执行，从最近成功 main 祖先覆盖所有未通过的改动；线上只核对
+部署版本和必要的数据冒烟，不再重复本机全量诊断。失败时先修复并跑失败的最小检查，
+最终再执行受影响的完整门禁；不要原样重复运行未改变且已通过的本机全套检查。
+
 ## 退出与收尾清理
 
 工作台收到 SIGINT/SIGTERM 后等待本进程的预览构建结束，清除本次生成的站点文件，

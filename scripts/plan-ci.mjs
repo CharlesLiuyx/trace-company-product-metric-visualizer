@@ -10,11 +10,12 @@ import {
   planCiChecks,
 } from './lib/ci-plan.mjs';
 import { projectPath, rootDir } from './lib/project.mjs';
+import { dataRegistrationOnly, changedBaselineKeys, assetConsumers, lastSuccessfulMain } from './lib/ci-diff-facts.mjs';
 
 const ZERO_SHA = /^0+$/;
 
 function usage() {
-  console.error('Usage: pnpm plan:ci -- --base <git-sha> --head <git-sha> [--github-output <path>] [--json]');
+  console.error('Usage: pnpm plan:ci -- --base <git-sha> --head <git-sha> [--last-successful-main] [--github-output <path>] [--json]');
 }
 
 export function parseArgs(argv) {
@@ -22,6 +23,7 @@ export function parseArgs(argv) {
   const options = { base: '', head: '', githubOutput: '', json: false };
   for (let index = 0; index < args.length; index += 1) {
     const arg = args[index];
+    if (arg === '--last-successful-main') { options.lastSuccessfulMain = true; continue; }
     if (arg === '--json') {
       options.json = true;
       continue;
@@ -79,6 +81,26 @@ function readChangedEntries(base, head) {
   return parseNameStatusZ(result.stdout);
 }
 
+function sourceAt(revision, file) {
+  const result = spawnSync('git', ['show', `${revision}:${file}`], { cwd: rootDir, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 });
+  return result.status === 0 ? result.stdout : null;
+}
+
+function contentFacts(entries, base, head) {
+  const changed = new Set(entries.flatMap((entry) => [entry.path, entry.oldPath].filter(Boolean)));
+  const sources = (file) => [sourceAt(base, file), sourceAt(head, file)];
+  const facts = {};
+  if (changed.has('index.html')) facts.registrationOnly = dataRegistrationOnly(...sources('index.html'));
+  if (changed.has('data/render-baselines.json')) facts.baselineKeys = changedBaselineKeys(...sources('data/render-baselines.json'));
+  if ([...changed].some((file) => file.startsWith('data/assets/'))) {
+    // Catalog reverse lookup owns Adapter assets. Shared runtime references
+    // would need app coverage, so keep that unfamiliar case on the full route.
+    const shared = spawnSync('git', ['grep', '-l', 'data/assets/', head, '--', 'src', 'vendor', 'index.html'], { cwd: rootDir, encoding: 'utf8' });
+    if (shared.status === 1) facts.assetKeysByPath = assetConsumers(...sources('data/assets/catalog.json'));
+  }
+  return facts;
+}
+
 function outputValues(plan) {
   const bool = (value) => String(Boolean(value));
   return {
@@ -107,17 +129,26 @@ function printHuman(plan) {
   for (const reason of plan.reasons) console.log(`  - ${reason}`);
 }
 
-function main() {
+async function main() {
   const options = parseArgs(process.argv);
   if (!options) return;
   let plan;
   try {
+    if (options.lastSuccessfulMain) {
+      options.base = await lastSuccessfulMain({
+        repository: process.env.GITHUB_REPOSITORY, head: options.head,
+        token: process.env.GITHUB_TOKEN, apiUrl: process.env.GITHUB_API_URL,
+        isAncestor: (base, head) => spawnSync('git', ['merge-base', '--is-ancestor', base, head], { cwd: rootDir }).status === 0,
+      });
+      console.error(`CI comparison base: last successful main ${options.base}`);
+    }
     const entries = readChangedEntries(options.base, options.head);
     plan = entries == null
       ? createFullCiPlan('missing or zero Git comparison SHA; strict fallback')
       : planCiChecks(entries, {
           existingDatasetKeys: currentDatasetKeys(),
           incomeStatementKeysByPath: incomeStatementKeys(entries),
+          ...contentFacts(entries, options.base, options.head),
         });
   } catch (error) {
     console.warn(`CI planner could not classify the diff: ${error.message}`);
@@ -134,4 +165,4 @@ function main() {
 }
 
 const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
-if (isDirectRun) main();
+if (isDirectRun) await main();

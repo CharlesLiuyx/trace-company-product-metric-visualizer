@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
 
 concurrency:
   group: ci-${{ github.event.pull_request.number || github.ref }}
@@ -42,7 +43,13 @@ jobs:
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before || '0000000000000000000000000000000000000000' }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
-        run: pnpm plan:ci -- --base "$BASE_SHA" --head "$HEAD_SHA" --github-output "$GITHUB_OUTPUT"
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = push ] && [ "$GITHUB_REF" = refs/heads/main ]; then
+            pnpm plan:ci -- --head "$HEAD_SHA" --last-successful-main --github-output "$GITHUB_OUTPUT"
+          else
+            pnpm plan:ci -- --base "$BASE_SHA" --head "$HEAD_SHA" --github-output "$GITHUB_OUTPUT"
+          fi
 
       - name: Install JavaScript dependencies
         run: pnpm install --frozen-lockfile

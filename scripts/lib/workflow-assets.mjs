@@ -6,6 +6,28 @@ import { inside, filesUnder, bytesDigest, readJson } from './workflow-files.mjs'
 import { digestValue } from './dataset-build.mjs';
 import { resolveSourcePath } from './source-lifecycle.mjs';
 
+export function assetConsumerIndex(adapters) {
+  const keys = new Set(adapters.map(({ key }) => key));
+  const dependents = new Map();
+  for (const { key, code } of adapters) {
+    // This is the same quoted-key relation used by the catalog, indexed once
+    // instead of rescanning every adapter for every asset at every depth.
+    for (const match of code.matchAll(/(?=(['"])([a-z0-9-]+)\1)/g)) {
+      const dependency = match[2];
+      if (!keys.has(dependency)) continue;
+      if (!dependents.has(dependency)) dependents.set(dependency, new Set());
+      dependents.get(dependency).add(key);
+    }
+  }
+  return (direct) => {
+    const consumers = new Set(direct), queue = [...direct];
+    for (let i = 0; i < queue.length; i += 1) for (const key of dependents.get(queue[i]) || []) {
+      if (!consumers.has(key)) { consumers.add(key); queue.push(key); }
+    }
+    return [...consumers].sort();
+  };
+}
+
 export async function projectAssetCatalog(root = rootDir) {
   const recipes = [];
   for (const file of await filesUnder(root, ['input/icon-crop-specs'])) {
@@ -20,22 +42,20 @@ export async function projectAssetCatalog(root = rootDir) {
   }
   const adapters = [];
   for (const file of await filesUnder(root, ['data/datasets'])) if (file.endsWith('.js')) adapters.push({ path: file, key: path.basename(file, '.js'), code: await readFile(inside(root, file), 'utf8') });
+  const consumersOf = assetConsumerIndex(adapters);
   const entries = [];
   for (const file of await filesUnder(root, ['data/assets/raster-annotations'])) {
     if (!/\.(png|jpe?g|webp|svg)$/i.test(file)) continue;
     const digest = bytesDigest(await readFile(inside(root, file)));
     const provenance = recipes.flatMap((recipe) => recipe.crops.filter((crop) => recipe.runtimeOutputDir && crop.runtimeOutput && path.posix.join(recipe.runtimeOutputDir, crop.runtimeOutput) === file).map((crop) => ({ recipe: recipe.path, recipeDigest: recipe.digest, source: recipe.source, cropKey: crop.key })));
     const direct = adapters.filter((adapter) => adapter.code.includes(file)).map((adapter) => adapter.key);
-    const consumers = new Set(direct);
-    // Expand explicit sibling reuse so reverse lookup covers derived adapters.
-    let changed = true;
-    while (changed) { changed = false; for (const adapter of adapters) if (!consumers.has(adapter.key) && [...consumers].some((key) => adapter.code.includes(`'${key}'`) || adapter.code.includes(`"${key}"`))) { consumers.add(adapter.key); changed = true; } }
+    const consumers = consumersOf(direct);
     const acceptedVersions = versions.filter((version) => {
       const { versionDigest, ...value } = version;
       if (digestValue(value) !== versionDigest) throw new Error('Asset version metadata changed');
       return version.artifact.path === file && version.artifact.digest === digest && version.review?.decision === 'accepted' && version.review.artifactDigest === digest && provenance.some((item) => item.recipeDigest === version.recipe.digest);
     }).map((version) => version.versionDigest);
-    entries.push({ path: file, digest, provenance, directConsumers: direct.sort(), consumers: [...consumers].sort(), acceptedVersions, reusable: acceptedVersions.length > 0 });
+    entries.push({ path: file, digest, provenance, directConsumers: direct.sort(), consumers, acceptedVersions, reusable: acceptedVersions.length > 0 });
   }
   return { protocol: 'asset-catalog/v1', entries, recipes: recipes.map(({ path: file, digest, source }) => ({ path: file, digest, source })) };
 }

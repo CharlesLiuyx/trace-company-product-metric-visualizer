@@ -7,7 +7,9 @@
 3. **快**：只运行与本次 ChangeImpact 有关的浏览器检查；无法分类时回退全量。
 
 `scripts/lib/ci-plan.mjs` 是检查选择 Module，`scripts/plan-ci.mjs` 是 Git diff Adapter。
-调用方只提供两个 Git SHA；路径分类、受影响 Dataset key、严格回退和 GitHub Actions
+本地/PR 调用方提供两个 Git SHA；main push 自动选择此工作流最近成功且为当前提交祖先的
+main push 作为 base，覆盖上次失败或仍在运行的提交。历史查询失败、没有有效祖先时全量回退，
+不能只检查补救提交而漏掉前次未验证/未部署的改动。路径分类、受影响 Dataset key、严格回退和 GitHub Actions
 输出都保留在 Module 内，测试也通过同一个 Interface 验证。
 
 ## 新输入流程的快速检查
@@ -21,8 +23,8 @@
 
 `tests/asset-workflow.test.mjs` 用临时来源验证隔离、拒绝、失效、并发冲突、发布中断、
 重试和明确归档信号；阶段检查点由 closeout 测试验证。`verify:app` 还验证指标资产
-入口的搜索、原文显示和精确数值导出。当前新增执行文件按现有 ChangeImpact 保守
-回退逻辑选择浏览器检查，不为追求速度扩大跳检范围。
+入口的搜索、原文显示和精确数值导出。未登记的新增执行文件继续按 ChangeImpact 保守回退；已知检查入口及生成文件使用下面
+经过测试的精确路由，不把检查脚本的改动自动当作渲染器改动。
 
 ## 一次 CI 怎么走
 
@@ -72,12 +74,12 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
 
 ### 4. Fast deterministic checks (`pnpm check`)
 
-这一项永远执行，不依赖 ChangeImpact。内部各子项会全部跑完，再统一报失败，因此一次
-运行能看到多个独立问题。
+这一项永远执行，不依赖 ChangeImpact。内部以最多两个子进程并发执行独立项，每项完成立即输出耗时，全部
+跑完后统一报失败和总墙钟耗时。失败不会跳过其余检查；没有引入跨版本结果缓存。
 
 | 子项 | 白话作用 | 实际原理 | 典型失败 | 不负责什么 |
 | --- | --- | --- | --- | --- |
-| `syntax` | 所有 JS 至少能被解析 | `.js` 用 `vm.Script`；`.mjs` 用 Node 自己的 `--check` | 少括号、非法 import、语法残缺 | 不执行浏览器交互 |
+| `syntax` | 所有 JS 至少能被解析 | 单个 Node 进程中 `.js` 用 `vm.Script`、`.mjs` 用 `vm.SourceTextModule`（原生 V8 parser，只解析不执行；通过 grammar parity 测试） | 少括号、非法 import、语法残缺 | 不执行浏览器交互 |
 | `test` | 纯逻辑仍符合约定 | `node --test tests/*.test.mjs` | 布局数学、生命周期状态、i18n、Diff 等断言失败 | 不证明页面能启动 |
 | `check:pending` | 新图片不是重复上传或 key 冲突 | 比较 pending/processing/processed 的 SHA-256、候选 key 与已有注册 | 同内容重复、同 key 两张图、已被领取 | 不移动 Source |
 | `verify:architecture` | 文档、机器契约和实现没有各说各话 | 对 lifecycle protocol、状态、Adapter、ChangeImpact、命令语义及文档链接逐项对账；校验保真规则目录生成区与 catalog 一致（改规则后须跑 `pnpm update:fidelity-rules-doc`）及 AGENTS 中文镜像章节/命令表奇偶 | JSON 契约和代码常量漂移 | 不宣称未实现的 M4/M5 已完成 |
@@ -157,8 +159,12 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
 - **为什么不在这里强制 `verify:d3` 的严格标签间距**：全目录受控试跑发现 48 个历史已接受
   固定布局会触发该门槛。没有 per-Dataset 例外/baseline 前直接推广会制造误报；严格标签、
   Interface 和人工视觉判断仍由每个 Dataset 的 Build/fidelity 流程负责。
-- **选择规则**：Adapter/对应 Income Statement SSOT/reference image → 受影响 key；共享
-  engine/i18n/icons/fonts/d3/runtime → 全目录；未知可执行影响 → 全目录。
+- **选择规则**：Adapter/对应 Income Statement SSOT/reference image → 受影响 key；baseline
+  顶层 policy 不变时只取变化条目；raster asset 取前后已校验 catalog 的使用者并集
+  （含间接复用）。查不到完整 catalog 或共享 runtime 出现资产引用时仍全量。
+  仅生成的 SSOT script 标签变化不改变 runtime 加载顺序；其他 `index.html` 改动仍全量。
+  参考裁剪和审阅 JSON 不是运行资产。共享 engine/i18n/icons/fonts/d3/runtime、baseline
+  policy 变动和未知可执行影响继续全目录。
 - **本机增量（指纹缓存）**：默认全 key 运行时，按 key 计算内容指纹（Adapter 源文件 +
   其引用的 raster-annotation 资产 + 按 processed→processing 回退解析的 reference image +
   该 key 的 baseline 条目），再叠加全局 runtime 指纹（engine/i18n/icons/d3 按 index.html
@@ -187,7 +193,7 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
 
 - **白话作用**：部署的必须是刚才验证过的那个 `_site`，不是另一个 Job 重新构建的近似产物。
 - **原理**：`check` Job 在 `main` 上上传 `_site`；`deploy` Job 只下载该 artifact 并调用
-  `actions/deploy-pages`。部署 Job 只有 Pages/id-token 写权限，检查 Job 只有 contents 读权限。
+  `actions/deploy-pages`。部署 Job 只有 Pages/id-token 写权限，检查 Job 只有 contents/actions 读权限。
 - **消除的冗余**：旧 `pages.yml` 的第二次 checkout、pnpm setup、dependency install 和
   `build-site` 已删除。
 - **旧页面兼容**：只有验证完成的 main 运行保存 runtime 缓存；PR 不保存。
@@ -204,9 +210,43 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
 | 单个或多个 Dataset Adapter | 必跑 | 安装 | 只跑受影响 key | 不跑 | 构建；main 部署前浏览器验证 | 构建 + 浏览器验证 |
 | Income Statement SSOT | 必跑 | 有对应 key 时安装 | 对应记录 key | 不跑 | 构建；main 部署前浏览器验证 | 对应 Adapter 存在时验证 |
 | `src/app/*` / app CSS / Chart.js | 必跑 | 安装 | 不重复跑全目录 | 跑 | 跑 | 跑 |
-| engine / i18n / icons / d3 / render asset | 必跑 | 安装 | 全目录 | 跑 | 跑 | 跑 |
+| engine / i18n / icons / d3 / 未识别 render asset | 必跑 | 安装 | 全目录 | 跑 | 跑 | 跑 |
+| `verify-app.mjs` / `verify-workbench.mjs` | 必跑 | 安装 | 不跑 | 跑 | 不重建 | 不跑 |
+| 已登记 raster asset | 必跑 | 安装 | 前后 catalog 的全部使用者，含间接复用 | 不跑 | 构建；main 部署前浏览器验证 | 构建 + 浏览器验证 |
+| 仅生成 SSOT script 注册 / 时间账目 | 必跑 | 按其他影响 | 不自行扩大 | 不跑 | 构建；main 部署前浏览器验证 | script 注册变更时验证 |
+| 仅 baseline 条目 | 必跑 | 有受影响 key 时安装 | 变更条目 key；policy 变化仍全量 | 按其他影响 | 按其他影响 | 按其他影响 |
+| 图标参考裁剪/审阅 JSON、生成资产 catalog | 必跑 | 按其他影响 | 不自行扩大 | 按其他影响 | 按其他影响 | 按其他影响 |
 | d3 验证工具 | 必跑 | 安装 | 全目录 | 按实际影响 | 按实际影响 | 按实际影响 |
 | 无法识别的可执行代码 | 必跑 | 安装 | 全目录 | 跑 | 跑 | 跑 |
+
+## 2026-09-05 合入验证提速
+
+这次成功运行 `33972806962` 的主要耗时：基础检查 85 秒、app 54 秒、全量 render
+89 秒、site 18 秒、standalone 浏览器 34 秒；还包含安装和部署。此前本地收尾另遇到
+反馈摘要、工作台退出和隔离 Git 检查三处缺陷，修复后重新校验，加上失败 CI 再跑，
+所以整个任务耗时不能等同于一次 CI。
+
+本轮移除三类重复计算，而不放宽通过条件：
+
+- `check`：原生 parser 单进程解析全部 JS，独立检查最多 2 个并发；资产索引先建立
+  Adapter 依赖反向图，再遍历使用者，不为每张图重复扫描全目录。
+- Publication：`verify:dataset -- <key> [...] --skip-render` 一次接收全部成员，
+  全局 SSOT/注册/metadata 只检查一次；strict i18n 覆盖每个 key，其他 Adapter 检查保留。
+- CI：测试入口不再误触发全目录；baseline、生成注册和资产均按上述边界取受影响集合。
+  main 的上次成功祖先仍是覆盖边界，失败补救不能丢掉前次改动。
+
+初次本机观测（同一份 1,023 个 Dataset；非严格交替 A/B，负载和版本会影响绝对值）：
+
+| 项目 | 之前 | 之后 |
+| --- | ---: | ---: |
+| 完整 `check` | 旧日志各串行项累计约 74 秒 | 18 秒，702 项单测通过 |
+| 资产 catalog 检查 | 约 14 秒 | 约 2 秒，生成字节完全一致 |
+| 十个 key 的非渲染一致性检查 | 逐 key 15.1 秒 | 合并调用 1.8 秒（−88%） |
+| 真实十数据集提交的 render 范围 | 1,023 keys | 37 keys，含相关公司旧期次/资产复用 |
+
+这些是实测/计划对比，不是 GitHub runner 墙钟保证；共享 renderer、验证调度和依赖
+本身的改动仍须完整 CI。原有人工接受、Source Coverage、逐语言保真、seal、CAS 和
+实际部署产物检查均未移除。CI 仍冷跑，不复用本机证据作为远端通过结果。
 
 ## 耗时基线与预期
 
