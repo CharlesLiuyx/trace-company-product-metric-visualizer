@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import path from 'node:path';
 import os from 'node:os';
-import { mkdtemp, mkdir, readFile, writeFile, copyFile, rm } from 'node:fs/promises';
+import { mkdtemp, mkdir, readFile, writeFile, copyFile, rm, readdir } from 'node:fs/promises';
 import { startWorkbench } from '../scripts/lib/workbench-server.mjs';
 import { atomicJson } from '../scripts/lib/workflow-files.mjs';
 import { siteContentDigest } from '../scripts/lib/site-release-identity.mjs';
@@ -48,10 +48,10 @@ test('workbench publishes complete immutable generations, reports failed builds,
     active++; maxActive = Math.max(maxActive, active);
     try {
       await sleep(80);
-      if (fail) throw new Error('simulated invalid source');
       const target = args[args.indexOf('--out') + 1];
       await mkdir(path.join(target, `releases/${version}`), { recursive: true });
       await writeFile(path.join(target, 'index.html'), await readFile(path.join(snapshot, 'src/app.js')));
+      if (fail) throw new Error('simulated invalid source');
       await writeFile(path.join(target, `releases/${version}/app.js`), 'complete');
       await atomicJson(path.join(target, 'site-release.json'), { schema: 'trace-site-release/v1', version, contentDigest: await siteContentDigest(target, version) });
     } finally { active--; }
@@ -71,7 +71,14 @@ test('workbench publishes complete immutable generations, reports failed builds,
   fail = true; await writeFile(path.join(root, 'src/app.js'), 'broken');
   const failed = await until(() => status(), (state) => state.preview.status === 'failed');
   assert.equal(failed.preview.candidate.id, updated.preview.candidate.id); assert.match(failed.preview.error, /invalid source/);
+  const previewRoot = path.join(root, 'output/workbench/previews/project');
+  await until(() => readdir(previewRoot), (names) => names.length === 3);
+  assert.deepEqual((await readdir(previewRoot)).sort(), [first.id, updated.preview.candidate.id, 'current.json'].sort(), 'failed site is removed; both pinned successful sites survive');
   assert.equal((await fetch(server.url + '__trace/status', { method: 'POST' })).status, 405);
   assert.equal((await fetch(server.url + '.git/config')).status, 403);
   assert.equal((await fetch(server.url + '__trace/status?source=../../private')).status, 400);
+  await server.close();
+  for (const id of [first.id, updated.preview.candidate.id]) {
+    assert.deepEqual(await readdir(path.join(previewRoot, id)), ['candidate.json'], 'shutdown retains only candidate metadata');
+  }
 });

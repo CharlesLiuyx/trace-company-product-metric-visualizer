@@ -8,7 +8,7 @@ __pycache__/
 compare/*
 !compare/.gitkeep
 output/*
-!output/trace-company-product-metric-visualizer.html
+.artifact-cleanup.lock
 output/compare/
 
 input/**

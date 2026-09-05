@@ -183,6 +183,10 @@ pointer/keyboard intent prefetches ahead of the click, and Chart.js stays
 deferred until the first Trend interaction. The standalone build inlines
 CSS, scripts, fonts, and datasets into one file:
 `output/trace-company-product-metric-visualizer.html`.
+This generated file is ignored by Git. After all local work and delivery finish,
+run `pnpm clean:artifacts -- --completed` to leave only historical meta in
+output/compare; see [artifact retention](docs/artifact-retention.md).
+
 
 CI ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) always runs
 `pnpm check`, plans browser/render gates from the Git diff, and deploys the

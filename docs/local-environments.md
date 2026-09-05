@@ -140,3 +140,11 @@ pnpm 版本以 packageManager 为准，依赖以锁文件为准。
 `pnpm verify:workbench` 用 Chromium 检查文件入口、双标签页、候选固定、失败保留、Dev 刷新、
 未上线状态和移动布局。`verify:app`、`verify:site`、render regression 与 standalone
 继续承担各自原有的交互、生产加载、图形与独立文件门槛。
+
+## 退出与收尾清理
+
+工作台收到 SIGINT/SIGTERM 后等待本进程的预览构建结束，清除本次生成的站点文件，
+仅留候选 meta；运行中的固定标签页仍保留全部成功候选。失败预览立即清除半成品。
+全部处理与交付完成后执行 `pnpm clean:artifacts -- --completed`，连同历史工作副本、
+本机发布树和选择指针一起清理。根文件入口回到项目正式数据。详见
+[artifact-retention.md](artifact-retention.md)。

@@ -342,3 +342,13 @@ compatibility rule is replace, not layer indefinitely:
 Until each replacement lands, the current operational commands in
 [`dynamic-dataset-workflow.md`](../dynamic-dataset-workflow.md) remain the
 executable instructions, including their known transitional limitations.
+
+## Completed-work artifact retirement
+
+After the operator declares all local work and delivery complete, the explicit
+`clean:artifacts -- --completed` maintenance command retires local workspaces,
+evidence and publication trees together with their local pointers. It preserves
+compact historical summaries, not resumable Build state or fresh proof. The root
+project data becomes the base of subsequent work. This is not a lifecycle transition
+and never fabricates acceptance. [Artifact retention](../artifact-retention.md)
+owns the operation and its audit limits.

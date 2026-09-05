@@ -31,6 +31,7 @@ agent 指令以英文版 `AGENTS.md` 为准。
 | 历史用户反馈案例：根因、现行防线、复发升级路径（跨检出复发记忆） | `docs/fidelity-feedback-casebook.md`（登记/消费协议属主为 `docs/fidelity-loop-rules.md` §5） |
 | 数据集 / SSOT 字段级格式 | `data/schema.md` |
 | 提交信息约定 | `docs/commit-messages.md` |
+| output/compare 产物保留、完成后清理和历史 meta | `docs/artifact-retention.md` |
 | 数据相邻资产布局（图标 crop、raster annotation） | `data/assets/README.md` |
 | Trace 产品与数据模型 | `docs/trace-specification.zh-CN.md` |
 | 人类快速上手、viewer 使用 | `README.md` |
@@ -231,3 +232,10 @@ processed PNG 只留本机；可复用渲染器支持拆成前置 `render(engine
 归档仅覆盖已确认的所选 Source 清单。汇报完成前实际验证文件入口。
 机器本地选择仅是 UI 偏好，不是证据或正式数据。
 细节及恢复由 `docs/local-environments.md` 与 `docs/asset-workflow.md` 维护。
+
+### 完成后的产物清理
+
+全部本机处理、验证及所需交付完成后，停止工作台，执行
+`pnpm clean:artifacts -- --completed`，output/compare 仅保留精简历史 meta。
+已有操作员完成确认即为授权，不重复询问。保留范围、本机指针重置和审计限制见
+[artifact-retention.md](artifact-retention.md)。

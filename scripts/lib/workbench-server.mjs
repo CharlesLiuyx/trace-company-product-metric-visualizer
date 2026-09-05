@@ -28,6 +28,9 @@ function run(file, args, root) {
 }
 export async function startWorkbench({ root = rootDir, port = 8000, build = run, productionFetch = fetch, readCi = null, maxBuilds = 2 } = {}) {
   const previews = new Map(), events = new Set(), watchers = [], timers = new Set();
+  const ownedPreviews = new Set();
+  const serverRecord = path.join(root, `output/workbench/servers/${randomUUID()}.json`);
+  let closing;
   let closed = false, remote = { status: 'unknown', checkedAt: null }, remoteAt = 0, remoteBusy = false;
   let git = {}, gitAt = 0, ci = { status: 'unknown' }, ciAt = 0, ciBusy = false, activeBuilds = 0;
   const availability = new Map();
@@ -71,6 +74,8 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
     state.busy = true; state.dirty = false; state.status = 'building'; state.error = null; notify();
     const revision = state.revision;
     const id = randomUUID(), target = inside(root, `output/workbench/previews/${state.source}/${id}/site`);
+    ownedPreviews.add(path.dirname(target));
+    let activated = false;
     try {
       await mkdir(path.dirname(target), { recursive: true });
       const snapshot = path.join(path.dirname(target), 'source');
@@ -113,11 +118,14 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
       await atomicJson(inside(root, `output/workbench/previews/${state.source}/current.json`), candidate);
       state.candidate = candidate;
       state.status = 'ready';
+      activated = true;
     } catch (error) { state.status = 'failed'; state.error = error.message; }
     finally {
       // These are build-owned scratch copies; immutable site URLs and their
       // candidate receipts remain available to pinned review tabs.
       for (const name of ['source', 'cache']) await rm(path.join(path.dirname(target), name), { recursive: true, force: true }).catch(() => {});
+      // An unsuccessful candidate has no immutable URL to preserve.
+      if (!activated) await rm(path.dirname(target), { recursive: true, force: true }).catch(() => {});
       state.busy = false; activeBuilds--; notify(); for (const waiting of previews.values()) if (waiting.dirty) rebuild(waiting);
     }
   }
@@ -238,12 +246,13 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
     }
     return false;
   } });
+  await atomicJson(serverRecord, { pid: process.pid, url: server.url, startedAt: new Date().toISOString() });
   const keepAlive = setInterval(() => { for (const response of events) response.write(': keepalive\n\n'); }, 15000);
   await mkdir(path.join(root, 'output/local-view'), { recursive: true });
   await mkdir(path.join(root, 'output/local-view/builds'), { recursive: true });
   watchers.push(watch(path.join(root, 'output/local-view/builds'), notify));
   await writeFile(path.join(root, 'output/local-view/workbench.js'), `window.TRACE_WORKBENCH_HINT = ${JSON.stringify({ root, url: server.url })};\n`);
-  return { ...server, close: async () => {
+  return { ...server, close: () => closing ||= (async () => {
     closed = true;
     clearInterval(keepAlive);
     for (const timer of timers) clearTimeout(timer);
@@ -253,5 +262,9 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
     // A preview owns snapshot, site and receipt writes beyond its build callback.
     // Drain that entire transaction before callers remove the workspace.
     while (activeBuilds) await new Promise((resolve) => setTimeout(resolve, 20));
-  } };
+    // Preserve pinned sites while serving. After shutdown only their small
+    // identity receipts remain; a new server renders a new candidate.
+    for (const directory of ownedPreviews) await rm(path.join(directory, 'site'), { recursive: true, force: true });
+    await rm(serverRecord, { force: true });
+  })() };
 }
