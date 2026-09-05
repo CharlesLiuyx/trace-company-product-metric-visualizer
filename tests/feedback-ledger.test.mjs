@@ -10,6 +10,29 @@ import {
 
 const evidence = (value) => digestFeedbackValue({ value });
 
+test('stored object references resolve feedback supersession without rewriting history', () => {
+  const open = feedback({ status: 'open', afterEvidenceDigests: [] });
+  const closed = feedback({ supersedes: digestFeedbackValue(open) });
+  const ledger = projectFeedbackLedger([closed, open]);
+  assert.equal(ledger.openFeedback.length, 0);
+  assert.equal(ledger.byRule[0].occurrenceCount, 1);
+  assert.equal(assertFeedbackLedgerClosable(ledger), ledger);
+  assert.equal(closed.supersedes, digestFeedbackValue(open));
+});
+
+test('semantic and stored object references cannot fork one feedback parent', () => {
+  const open = feedback({ status: 'open', afterEvidenceDigests: [] });
+  const left = feedback({ supersedes: open.digest });
+  const right = feedback({ supersedes: digestFeedbackValue(open), remedy: 'Another closure.' });
+  assert.throws(() => projectFeedbackLedger([open, left, right]), { code: 'SUPERSESSION_FORK' });
+});
+
+test('stored object references retain feedback identity checks', () => {
+  const open = feedback({ status: 'open', afterEvidenceDigests: [] });
+  const foreign = feedback({ buildId: 'build-other', supersedes: digestFeedbackValue(open) });
+  assert.throws(() => projectFeedbackLedger([open, foreign]), { code: 'SUPERSESSION_IDENTITY_MISMATCH' });
+});
+
 function feedback(overrides = {}) {
   return createFeedbackRecord({
     buildId: 'build-alpha',

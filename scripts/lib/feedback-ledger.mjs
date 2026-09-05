@@ -180,6 +180,10 @@ function validateGraph(records) {
     invariant(!byDigest.has(record.digest), 'DUPLICATE_RECORD_DIGEST', `FeedbackRecord ${record.digest} appears twice`);
     byDigest.set(record.digest, record);
   }
+  // recordBuildObject addresses the complete record, including its self digest.
+  // Accept that verified storage address as well as the semantic record digest,
+  // without rewriting immutable history. Graph edges use the resolved identity.
+  for (const record of records) byDigest.set(digestFeedbackValue(record), record);
 
   const rootsByIdentity = new Map();
   const childByParent = new Map();
@@ -207,11 +211,11 @@ function validateGraph(records) {
       'A FeedbackRecord supersession must retain its stable regionId'
     );
     invariant(
-      !childByParent.has(record.supersedes),
+      !childByParent.has(parent.digest),
       'SUPERSESSION_FORK',
       `FeedbackRecord ${record.supersedes} has more than one successor`
     );
-    childByParent.set(record.supersedes, record.digest);
+    childByParent.set(parent.digest, record.digest);
   }
 
   for (const record of records) {
