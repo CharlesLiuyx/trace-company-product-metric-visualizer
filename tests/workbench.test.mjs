@@ -44,8 +44,14 @@ test('workbench publishes complete immutable generations, reports failed builds,
     await writeFile(path.join(workspace, 'src/app.js'), source); await writeFile(path.join(workspace, 'index.html'), '<html>fixture</html>');
     await atomicJson(path.join(root, `output/builds/${source}/manifest.json`), { key: source, authoringRoot: `output/builds/${source}/workspace`, state: 'INTAKED' });
   }
-  let active = 0, maxActive = 0, fail = false, buildCount = 0;
-  const server = await startWorkbench({ root, port: 0, readCi: async () => [], productionFetch: async () => { throw new Error('simulated offline'); }, build: async (_file, args, snapshot) => {
+  let active = 0, maxActive = 0, fail = false, buildCount = 0, earlyTimerDelivered = false;
+  const server = await startWorkbench({ root, port: 0, readCi: async () => [],
+    scheduleDebounce: (callback, delay) => {
+      // Force a timer callback before the wall-clock deadline. Real timers can
+      // arrive early when their monotonic clock and Date.now() straddle a tick.
+      if (!earlyTimerDelivered) { earlyTimerDelivered = true; return setTimeout(callback, 1); }
+      return setTimeout(callback, delay);
+    }, productionFetch: async () => { throw new Error('simulated offline'); }, build: async (_file, args, snapshot) => {
     active++; buildCount++; maxActive = Math.max(maxActive, active);
     try {
       await sleep(80);
@@ -67,6 +73,7 @@ test('workbench publishes complete immutable generations, reports failed builds,
   assert.equal(await fetch(server.url + first.url.slice(1)).then((response) => response.text()), 'first');
   await writeFile(path.join(root, 'src/app.js'), 'second');
   const updated = await until(() => status(), (state) => state.preview.status === 'ready' && state.preview.candidate.id !== first.id);
+  assert.equal(earlyTimerDelivered, true, 'the early debounce callback must still deliver the update');
   assert.equal(await fetch(server.url + first.url.slice(1)).then((response) => response.text()), 'first');
   assert.equal(await fetch(server.url + updated.preview.candidate.url.slice(1)).then((response) => response.text()), 'second');
   const countBeforeRewrite = buildCount, revisionBeforeRewrite = updated.preview.revision;
