@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "business-streaming-cluster",
+  "artifact": {
+    "path": "data/assets/raster-annotations/warner-bros-q2-fy26/business-streaming-cluster.png",
+    "digest": "sha256:5a8c9da63f9c2b3ae5c9ebcbfa7d30fb501831bbf94ddf667c5e077c1f1e1fdf"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/warner-bros-q2-fy26.json",
+    "digest": "sha256:6c3a42f9c2a77c3fee88db5004d54b2bccbd4731318e90332b8bff78a5195fce"
+  },
+  "source": {
+    "path": "input/processing/warner-bros-q2-fy26.png",
+    "digest": "sha256:0eeb3d135d506db5fb565d0abff3b2c56081f272d59c08426372c45e51a628e5"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:5a8c9da63f9c2b3ae5c9ebcbfa7d30fb501831bbf94ddf667c5e077c1f1e1fdf",
+    "note": "Inspected current PNG against full Q2 source: complete brand cluster, no chart labels, links or publisher marks, original placement retained."
+  },
+  "versionDigest": "sha256:327bf9be756616dab93b45b4e93641675d59b35255fcb51d42ca1496c2e7b5a4"
+}

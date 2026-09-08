@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Cloudflare cloud",
+  "artifact": {
+    "path": "data/assets/raster-annotations/cloudflare/cloud-q2-fy26.png",
+    "digest": "sha256:08b1b0111f4a945c48d4dc9b80f432a6efb1e9d996a357ef8bb93b0a2b031d7f"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/cloudflare-q2-fy26.json",
+    "digest": "sha256:0e1738643870e14c2592c782ee0337fd964ac5a4bf1c82b486cf48032ed64aa7"
+  },
+  "source": {
+    "path": "input/processing/cloudflare-q2-fy26.png",
+    "digest": "sha256:2f0063fbeb224c8bd76ed463794d46e310d3c8ff4fc9bcd0652ed4a43dc087b1"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:08b1b0111f4a945c48d4dc9b80f432a6efb1e9d996a357ef8bb93b0a2b031d7f",
+    "note": "Compared native Source and crop: complete company cloud, native proportions, no chart labels or links. Cloud title fragment is excluded outside the logo; excluded rectangle has zero opaque pixels."
+  },
+  "versionDigest": "sha256:c7c3d088211e845442a0e63522495ea55151a04198427c4134bcabbd2d02ccd7"
+}

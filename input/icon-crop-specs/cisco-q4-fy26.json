@@ -1,0 +1,47 @@
+{
+  "source": "input/processed/cisco-q4-fy26.png",
+  "outputDir": "data/assets/icon-references/cisco-q4-fy26",
+  "validationSheetDir": "data/assets/icon-references/cisco-q4-fy26/validation-sheets",
+  "report": "crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [
+      242,
+      242,
+      242
+    ],
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "cisco-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": {
+        "x": 930,
+        "y": 260,
+        "width": 470,
+        "height": 245
+      },
+      "cropBox": {
+        "x": 930,
+        "y": 260,
+        "width": 470,
+        "height": 245
+      },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete Cisco bars and company wordmark; excludes financial labels and publisher marks."
+    }
+  ]
+}

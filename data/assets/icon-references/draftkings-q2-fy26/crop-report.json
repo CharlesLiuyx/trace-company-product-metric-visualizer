@@ -1,0 +1,140 @@
+{
+  "source": "input/processing/draftkings-q2-fy26.png",
+  "spec": "input/icon-crop-specs/draftkings-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-09-07T20:32:21.189364+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/draftkings-q2-fy26",
+  "crops": [
+    {
+      "key": "draftkings-q2-company-wordmark",
+      "output": "data/assets/icon-references/draftkings-q2-fy26/crops/company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 5536,
+        "losslessBytes": 25508,
+        "savingsVsLossless": 0.783,
+        "metrics": {
+          "meanAbsoluteError": 0.3127,
+          "rootMeanSquareError": 1.8446,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.1219
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 64228,
+        "transparentPixelRatio": 0.6822
+      },
+      "searchBox": {
+        "x": 618,
+        "y": 233,
+        "width": 426,
+        "height": 221
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 624,
+        "y0": 239,
+        "x1": 1038,
+        "y1": 449
+      },
+      "cropBox": {
+        "x0": 618,
+        "y0": 233,
+        "x1": 1044,
+        "y1": 454
+      },
+      "validation": {
+        "width": 426,
+        "height": 221,
+        "foregroundPixels": 29328,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 6,
+          "top": 6,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0023
+        },
+        "passes": true
+      },
+      "note": "Current source logo only; native bounds x624\u20131037 y239\u2013448. Excludes title and revenue label.",
+      "runtimeOutput": "data/assets/raster-annotations/draftkings-q2-fy26/company-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 5536,
+        "losslessBytes": 25508,
+        "savingsVsLossless": 0.783,
+        "metrics": {
+          "meanAbsoluteError": 0.3127,
+          "rootMeanSquareError": 1.8446,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.1219
+        }
+      },
+      "validationSheet": "data/assets/icon-references/draftkings-q2-fy26/validation-sheets/draftkings-q2-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 92839,
+        "losslessBytes": 243747,
+        "savingsVsLossless": 0.6191,
+        "metrics": {
+          "meanAbsoluteError": 0.2042,
+          "rootMeanSquareError": 1.3838,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 66,
+          "changedPixelRatio": 0.0674
+        }
+      }
+    }
+  ]
+}

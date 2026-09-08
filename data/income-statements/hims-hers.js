@@ -256,3 +256,240 @@
     }
   );
 })(window);
+
+(function (global) { global.INCOME_STATEMENT_SSOT.records.push({
+  "key": "hims-hers-q2-fy26",
+  "company": "Hims & Hers",
+  "period": "Q2 FY26",
+  "periodNote": "Q2 FY26; source does not specify quarter-end date",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/hims-hers-q2-fy26.png",
+  "roundingTolerance": 1.1,
+  "revenue": {
+    "total": 753,
+    "notes": [
+      "+38% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "united_states",
+        "label": "United States",
+        "value": 622,
+        "notes": [
+          "+16% Y/Y"
+        ]
+      },
+      {
+        "id": "rest_of_world",
+        "label": "Rest of World",
+        "value": 131,
+        "notes": [
+          "+1,641% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 272
+    },
+    "operatingExpenses": {
+      "total": 578,
+      "notes": [
+        "Source displays $578M total; rounded items sum to $577M."
+      ],
+      "items": [
+        {
+          "id": "marketing",
+          "label": "Marketing",
+          "value": 262,
+          "notes": [
+            "35% of revenue",
+            "(5pp) Y/Y"
+          ]
+        },
+        {
+          "id": "general_admin",
+          "label": "General & admin",
+          "value": 165,
+          "notes": [
+            "22% of revenue",
+            "+10pp Y/Y"
+          ]
+        },
+        {
+          "id": "operations_support",
+          "label": "Operations & support",
+          "value": 95,
+          "notes": [
+            "13% of revenue",
+            "+0pp Y/Y"
+          ]
+        },
+        {
+          "id": "tech_development",
+          "label": "Tech & development",
+          "value": 55,
+          "notes": [
+            "7% of revenue",
+            "+0pp Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "label": "Tax",
+      "value": 0,
+      "notes": [
+        "No separate tax line is shown in the source chart."
+      ]
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 481,
+      "notes": [
+        "64% margin",
+        "(13pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_loss",
+      "label": "Operating loss",
+      "value": -97,
+      "notes": [
+        "(13%) margin",
+        "(18pp) Y/Y"
+      ]
+    },
+    "net": {
+      "availability": "not-reported",
+      "value": null,
+      "label": "Net result not reported",
+      "notes": [
+        "Source ends at operating loss and does not report a net result."
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "periodNote": "2026 财年第二季度；来源未注明季度截止日",
+      "revenue": {
+        "notes": [
+          "同比 +38%"
+        ],
+        "items": [
+          {
+            "id": "united_states",
+            "label": "美国",
+            "notes": [
+              "同比 +16%"
+            ]
+          },
+          {
+            "id": "rest_of_world",
+            "label": "世界其他地区",
+            "notes": [
+              "同比 +1,641%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "notes": [
+            "原图营业费用总额 $578M，取整后的分项合计 $577M。"
+          ],
+          "items": [
+            {
+              "id": "marketing",
+              "label": "营销费用",
+              "notes": [
+                "占收入 35%",
+                "同比 (5 个百分点)"
+              ]
+            },
+            {
+              "id": "general_admin",
+              "label": "一般及行政费用",
+              "notes": [
+                "占收入 22%",
+                "同比 +10 个百分点"
+              ]
+            },
+            {
+              "id": "operations_support",
+              "label": "运营与支持",
+              "notes": [
+                "占收入 13%",
+                "同比 +0 个百分点"
+              ]
+            },
+            {
+              "id": "tech_development",
+              "label": "技术与开发",
+              "notes": [
+                "占收入 7%",
+                "同比 +0 个百分点"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费",
+          "notes": [
+            "来源图未显示单独的税费项目。"
+          ]
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 64%",
+            "同比 (13 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业亏损",
+          "notes": [
+            "利润率 (13%)",
+            "同比 (18 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "来源未提供净利润",
+          "notes": [
+            "来源止于营业亏损，未报告净利润。"
+          ]
+        }
+      },
+      "notes": [
+        "原图止于营业亏损，未单列净利润或税费。",
+        "订阅用户 2.9M，同比 +19%；每位订阅用户月收入 $92，同比 +21%。"
+      ]
+    }
+  },
+  "notes": [
+    "Source ends at operating loss; no separate net result or taxes are reported.",
+    "Subscribers: 2.9M; +19% Y/Y. Monthly revenue per subscriber: $92; +21% Y/Y."
+  ]
+}); })(window);

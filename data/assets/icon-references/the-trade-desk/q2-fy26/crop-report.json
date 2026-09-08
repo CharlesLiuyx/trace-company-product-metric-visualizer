@@ -1,0 +1,117 @@
+{
+  "source": "input/processing/the-trade-desk-q2-fy26.png",
+  "spec": "input/icon-crop-specs/the-trade-desk-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-09-07T20:33:03.389702+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "the-trade-desk-company-mark",
+      "output": "data/assets/icon-references/the-trade-desk/q2-fy26/crops/company-mark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2688,
+        "losslessBytes": 10475,
+        "savingsVsLossless": 0.7434,
+        "metrics": {
+          "meanAbsoluteError": 0.2388,
+          "rootMeanSquareError": 1.3082,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 38,
+          "changedPixelRatio": 0.3975
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 43455,
+        "transparentPixelRatio": 0.6031
+      },
+      "searchBox": {
+        "x": 40,
+        "y": 695,
+        "width": 263,
+        "height": 268
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 49,
+        "y0": 699,
+        "x1": 294,
+        "y1": 959
+      },
+      "cropBox": {
+        "x0": 40,
+        "y0": 691,
+        "x1": 302,
+        "y1": 966
+      },
+      "validation": {
+        "width": 262,
+        "height": 275,
+        "foregroundPixels": 28574,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 9,
+          "right": 8,
+          "top": 8,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": 0.0019,
+          "y": 0.0018
+        },
+        "passes": true
+      },
+      "note": "Complete corporate logo; excludes revenue bar and source publisher footer.",
+      "validationSheet": "data/assets/icon-references/the-trade-desk/q2-fy26/validation-sheets/the-trade-desk-company-mark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 215274,
+        "losslessBytes": 215274,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

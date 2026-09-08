@@ -1,0 +1,133 @@
+{
+  "source": "input/processed/rubrik-q2-fy27.png",
+  "spec": "input/icon-crop-specs/rubrik-q2-fy27.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-09-07T20:43:42.330252+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/rubrik",
+  "crops": [
+    {
+      "key": "rubrik-company-logo",
+      "output": "data/assets/icon-references/rubrik/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4693,
+        "losslessBytes": 21200,
+        "savingsVsLossless": 0.7786,
+        "metrics": {
+          "meanAbsoluteError": 0.4488,
+          "rootMeanSquareError": 2.1229,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.1624
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 76642,
+        "transparentPixelRatio": 0.7573
+      },
+      "searchBox": {
+        "x": 619,
+        "y": 284,
+        "width": 559,
+        "height": 162
+      },
+      "componentCount": 22,
+      "subjectBox": {
+        "x0": 619,
+        "y0": 284,
+        "x1": 1178,
+        "y1": 446
+      },
+      "cropBox": {
+        "x0": 611,
+        "y0": 277,
+        "x1": 1186,
+        "y1": 453
+      },
+      "validation": {
+        "width": 575,
+        "height": 176,
+        "foregroundPixels": 22406,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 8,
+          "right": 8,
+          "top": 7,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Complete Rubrik symbol and wordmark; no financial labels or publisher branding.",
+      "runtimeOutput": "data/assets/raster-annotations/rubrik/company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4693,
+        "losslessBytes": 21200,
+        "savingsVsLossless": 0.7786,
+        "metrics": {
+          "meanAbsoluteError": 0.4488,
+          "rootMeanSquareError": 2.1229,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.1624
+        }
+      },
+      "validationSheet": "data/assets/icon-references/rubrik/validation-sheets/rubrik-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 227074,
+        "losslessBytes": 227074,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

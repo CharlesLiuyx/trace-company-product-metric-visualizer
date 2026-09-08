@@ -22852,6 +22852,722 @@
             }
           }
         }
+      },
+      {
+        "key": "airbnb-q2-fy26",
+        "src": "data/datasets/airbnb-q2-fy26.js",
+        "data": {
+          "name": "Airbnb · Q2 FY26",
+          "company": "Airbnb",
+          "meta": {
+            "title": "Airbnb Q2 FY26 Income Statement",
+            "period": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Airbnb · 2026 财年第二季度",
+              "meta": {
+                "title": "Airbnb 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amer-sports-q2-fy26",
+        "src": "data/datasets/amer-sports-q2-fy26.js",
+        "data": {
+          "name": "Amer Sports · Q2 FY26",
+          "company": "Amer Sports",
+          "meta": {
+            "title": "Amer Sports Q2 FY26 Income Statement",
+            "period": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "亚玛芬体育 · 2026 财年第二季度",
+              "meta": {
+                "title": "亚玛芬体育 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "applovin-q2-fy26",
+        "src": "data/datasets/applovin-q2-fy26.js",
+        "data": {
+          "name": "AppLovin · Q2 FY26",
+          "company": "AppLovin",
+          "meta": {
+            "title": "AppLovin Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Quarter ended Jun. 30, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AppLovin · 2026 财年第二季度",
+              "meta": {
+                "title": "AppLovin 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "arista-q2-fy26",
+        "src": "data/datasets/arista-q2-fy26.js",
+        "data": {
+          "name": "Arista · Q2 FY26",
+          "company": "Arista",
+          "meta": {
+            "title": "Arista Q2 FY26 Income Statement",
+            "period": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "阿里斯塔网络 · 2026 财年第二季度",
+              "meta": {
+                "title": "阿里斯塔网络 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "axon-q2-fy26",
+        "src": "data/datasets/axon-q2-fy26.js",
+        "data": {
+          "name": "Axon · Q2 FY26",
+          "company": "Axon",
+          "meta": {
+            "title": "AXON Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Axon · 2026 财年第二季度",
+              "meta": {
+                "title": "Axon 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "booking-q2-fy26",
+        "src": "data/datasets/booking-q2-fy26.js",
+        "data": {
+          "name": "Booking Holdings · Q2 FY26",
+          "company": "Booking Holdings",
+          "meta": {
+            "title": "Booking Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Quarter ended June 30, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "缤客控股 · 2026 财年第二季度",
+              "meta": {
+                "title": "缤客控股 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "cisco-q4-fy26",
+        "src": "data/datasets/cisco-q4-fy26.js",
+        "data": {
+          "name": "Cisco · Q4 FY26",
+          "company": "Cisco",
+          "meta": {
+            "title": "Cisco Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending July 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "思科 · 2026 财年第四季度",
+              "meta": {
+                "title": "思科 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "cloudflare-q2-fy26",
+        "src": "data/datasets/cloudflare-q2-fy26.js",
+        "data": {
+          "name": "Cloudflare · Q2 FY26",
+          "company": "Cloudflare",
+          "meta": {
+            "title": "Cloudflare Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Q2 FY26 · Source chart"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Cloudflare · 2026 财年第二季度",
+              "meta": {
+                "title": "Cloudflare 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "2026 财年第二季度 · 来源图"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "datadog-q2-fy26",
+        "src": "data/datasets/datadog-q2-fy26.js",
+        "data": {
+          "name": "Datadog · Q2 FY26",
+          "company": "Datadog",
+          "meta": {
+            "title": "Datadog Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Quarter ended Jun. 30, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Datadog · 2026 财年第二季度",
+              "meta": {
+                "title": "Datadog 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "draftkings-q2-fy26",
+        "src": "data/datasets/draftkings-q2-fy26.js",
+        "data": {
+          "name": "DraftKings · Q2 FY26",
+          "company": "DraftKings",
+          "meta": {
+            "title": "DraftKings Q2 FY26 Income Statement",
+            "period": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "DraftKings · 2026 财年第二季度",
+              "meta": {
+                "title": "DraftKings 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "dynatrace-q1-fy27",
+        "src": "data/datasets/dynatrace-q1-fy27.js",
+        "data": {
+          "name": "Dynatrace · Q1 FY27",
+          "company": "Dynatrace",
+          "meta": {
+            "title": "Dynatrace Q1 FY27 Income Statement",
+            "period": "Q1 FY27",
+            "periodNote": "Ending June 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Dynatrace · 2027 财年第一季度",
+              "meta": {
+                "title": "Dynatrace 2027 财年第一季度利润表",
+                "period": "2027 财年第一季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "elastic-q1-fy27",
+        "src": "data/datasets/elastic-q1-fy27.js",
+        "data": {
+          "name": "Elastic · Q1 FY27",
+          "company": "Elastic",
+          "meta": {
+            "title": "Elastic Q1 FY27 Income Statement",
+            "period": "Q1 FY27",
+            "periodNote": "Ending July 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Elastic · 2027 财年第一季度",
+              "meta": {
+                "title": "Elastic 2027 财年第一季度利润表",
+                "period": "2027 财年第一季度",
+                "periodNote": "截至 2026 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "expedia-q2-fy26",
+        "src": "data/datasets/expedia-q2-fy26.js",
+        "data": {
+          "name": "Expedia · Q2 FY26",
+          "company": "Expedia",
+          "meta": {
+            "title": "Expedia Q2 FY26 Income Statement",
+            "period": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Expedia · 2026 财年第二季度",
+              "meta": {
+                "title": "Expedia 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "figma-q2-fy26",
+        "src": "data/datasets/figma-q2-fy26.js",
+        "data": {
+          "name": "Figma · Q2 FY26",
+          "company": "Figma",
+          "meta": {
+            "title": "Figma Q2 FY26 Income Statement",
+            "period": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Figma · 2026 财年第二季度",
+              "meta": {
+                "title": "Figma 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "flutter-q2-fy26",
+        "src": "data/datasets/flutter-q2-fy26.js",
+        "data": {
+          "name": "Flutter Entertainment · Q2 FY26",
+          "company": "Flutter Entertainment",
+          "meta": {
+            "title": "Flutter Q2 FY26 Income Statement",
+            "period": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Flutter Entertainment · 2026 财年第二季度",
+              "meta": {
+                "title": "Flutter 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hims-hers-q2-fy26",
+        "src": "data/datasets/hims-hers-q2-fy26.js",
+        "data": {
+          "name": "Hims & Hers · Q2 FY26",
+          "company": "Hims & Hers",
+          "meta": {
+            "title": "Hims & Hers Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Q2 FY26; source does not specify quarter-end date"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Hims & Hers · 2026 财年第二季度",
+              "meta": {
+                "title": "Hims & Hers 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "2026 财年第二季度；来源未注明季度截止日"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hubspot-q2-fy26",
+        "src": "data/datasets/hubspot-q2-fy26.js",
+        "data": {
+          "name": "HubSpot · Q2 FY26",
+          "company": "HubSpot",
+          "meta": {
+            "title": "HubSpot Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HubSpot · 2026 财年第二季度",
+              "meta": {
+                "title": "HubSpot 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "marriott-q2-fy26",
+        "src": "data/datasets/marriott-q2-fy26.js",
+        "data": {
+          "name": "Marriott · Q2 FY26",
+          "company": "Marriott",
+          "meta": {
+            "title": "Marriott Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Quarter ended Jun. 30, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Marriott · 2026 财年第二季度",
+              "meta": {
+                "title": "Marriott 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nutanix-q4-fy26",
+        "src": "data/datasets/nutanix-q4-fy26.js",
+        "data": {
+          "name": "Nutanix · Q4 FY26",
+          "company": "Nutanix",
+          "meta": {
+            "title": "Nutanix Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending July 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Nutanix · 2026 财年第四季度",
+              "meta": {
+                "title": "Nutanix 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "okta-q2-fy27",
+        "src": "data/datasets/okta-q2-fy27.js",
+        "data": {
+          "name": "Okta · Q2 FY27",
+          "company": "Okta",
+          "meta": {
+            "title": "Okta Q2 FY27 Income Statement",
+            "period": "Q2 FY27",
+            "periodNote": "Ending July. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Okta · 2027 财年第二季度",
+              "meta": {
+                "title": "Okta 2027 财年第二季度利润表",
+                "period": "2027 财年第二季度",
+                "periodNote": "截至 2026 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "on-q2-fy26",
+        "src": "data/datasets/on-q2-fy26.js",
+        "data": {
+          "name": "On · Q2 FY26",
+          "company": "On",
+          "meta": {
+            "title": "On Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "昂跑 · 2026 财年第二季度",
+              "meta": {
+                "title": "昂跑 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "palantir-q2-fy26",
+        "src": "data/datasets/palantir-q2-fy26.js",
+        "data": {
+          "name": "Palantir · Q2 FY26",
+          "company": "Palantir",
+          "meta": {
+            "title": "Palantir Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Palantir · 2026 财年第二季度",
+              "meta": {
+                "title": "Palantir 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "paramount-q2-fy26",
+        "src": "data/datasets/paramount-q2-fy26.js",
+        "data": {
+          "name": "Paramount · Q2 FY26",
+          "company": "Paramount",
+          "meta": {
+            "title": "Paramount Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Quarter ended Jun. 30, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Paramount · 2026 财年第二季度",
+              "meta": {
+                "title": "Paramount 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "paycom-q2-fy26",
+        "src": "data/datasets/paycom-q2-fy26.js",
+        "data": {
+          "name": "Paycom · Q2 FY26",
+          "company": "Paycom",
+          "meta": {
+            "title": "Paycom Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Paycom · 2026 财年第二季度",
+              "meta": {
+                "title": "Paycom 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pfizer-q2-fy26",
+        "src": "data/datasets/pfizer-q2-fy26.js",
+        "data": {
+          "name": "Pfizer · Q2 FY26",
+          "company": "Pfizer",
+          "meta": {
+            "title": "Pfizer Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Source-stated Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "辉瑞 · 2026 财年第二季度",
+              "meta": {
+                "title": "辉瑞 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "来源标注为 2026 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "procore-q2-fy26",
+        "src": "data/datasets/procore-q2-fy26.js",
+        "data": {
+          "name": "Procore · Q2 FY26",
+          "company": "Procore",
+          "meta": {
+            "title": "Procore Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Procore · 2026 财年第二季度",
+              "meta": {
+                "title": "Procore 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "rubrik-q2-fy27",
+        "src": "data/datasets/rubrik-q2-fy27.js",
+        "data": {
+          "name": "Rubrik · Q2 FY27",
+          "company": "Rubrik",
+          "meta": {
+            "title": "Rubrik Q2 FY27 Income Statement",
+            "period": "Q2 FY27",
+            "periodNote": "Ending July 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Rubrik · 2027 财年第二季度",
+              "meta": {
+                "title": "Rubrik 2027 财年第二季度利润表",
+                "period": "2027 财年第二季度",
+                "periodNote": "截至 2026 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sentinelone-q2-fy27",
+        "src": "data/datasets/sentinelone-q2-fy27.js",
+        "data": {
+          "name": "SentinelOne · Q2 FY27",
+          "company": "SentinelOne",
+          "meta": {
+            "title": "SentinelOne Q2 FY27 Income Statement",
+            "period": "Q2 FY27",
+            "periodNote": "Ending July 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "SentinelOne · 2027 财年第二季度",
+              "meta": {
+                "title": "SentinelOne 2027 财年第二季度利润表",
+                "period": "2027 财年第二季度",
+                "periodNote": "截至 2026 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "the-trade-desk-q2-fy26",
+        "src": "data/datasets/the-trade-desk-q2-fy26.js",
+        "data": {
+          "name": "The Trade Desk · Q2 FY26",
+          "company": "The Trade Desk",
+          "meta": {
+            "title": "The Trade Desk Q2 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "The Trade Desk · 2026 财年第二季度",
+              "meta": {
+                "title": "The Trade Desk 2026 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tripadvisor-q2-fy26",
+        "src": "data/datasets/tripadvisor-q2-fy26.js",
+        "data": {
+          "name": "Tripadvisor · Q2 FY26",
+          "company": "Tripadvisor",
+          "meta": {
+            "title": "Tripadvisor Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "猫途鹰 · 2026 财年第二季度",
+              "meta": {
+                "title": "猫途鹰 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "2026 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "warner-bros-q2-fy26",
+        "src": "data/datasets/warner-bros-q2-fy26.js",
+        "data": {
+          "name": "Warner Bros. Discovery · Q2 FY26",
+          "company": "Warner Bros. Discovery",
+          "meta": {
+            "title": "Warner Bros. Q2 FY26 Income Statement",
+            "period": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Warner Bros. Discovery · 2026 财年第二季度",
+              "meta": {
+                "title": "Warner Bros. 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "workday-q2-fy27",
+        "src": "data/datasets/workday-q2-fy27.js",
+        "data": {
+          "name": "Workday · Q2 FY27",
+          "company": "Workday",
+          "meta": {
+            "title": "Workday Q2 FY27 Income Statement",
+            "period": "Q2 FY27",
+            "periodNote": "Ending July. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Workday · 2027 财年第二季度",
+              "meta": {
+                "title": "Workday 2027 财年第二季度利润表",
+                "period": "2027 财年第二季度",
+                "periodNote": "截至 2026 年 7 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

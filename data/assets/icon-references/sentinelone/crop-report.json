@@ -1,0 +1,133 @@
+{
+  "source": "input/processed/sentinelone-q2-fy27.png",
+  "spec": "input/icon-crop-specs/sentinelone-q2-fy27.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-09-07T20:37:45.284131+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/sentinelone",
+  "crops": [
+    {
+      "key": "sentinelone-company-logo",
+      "output": "data/assets/icon-references/sentinelone/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 5075,
+        "losslessBytes": 22201,
+        "savingsVsLossless": 0.7714,
+        "metrics": {
+          "meanAbsoluteError": 0.3787,
+          "rootMeanSquareError": 2.3241,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 47,
+          "changedPixelRatio": 0.1766
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 115977,
+        "transparentPixelRatio": 0.7819
+      },
+      "searchBox": {
+        "x": 610,
+        "y": 224,
+        "width": 508,
+        "height": 292
+      },
+      "componentCount": 17,
+      "subjectBox": {
+        "x0": 624,
+        "y0": 229,
+        "x1": 1106,
+        "y1": 506
+      },
+      "cropBox": {
+        "x0": 610,
+        "y0": 224,
+        "x1": 1118,
+        "y1": 516
+      },
+      "validation": {
+        "width": 508,
+        "height": 292,
+        "foregroundPixels": 29114,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 14,
+          "right": 12,
+          "top": 5,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": 0.002,
+          "y": -0.0086
+        },
+        "passes": true
+      },
+      "note": "Complete SentinelOne shield and wordmark; no Revenue label or source title.",
+      "runtimeOutput": "data/assets/raster-annotations/sentinelone/company-logo-q2-fy27.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 5075,
+        "losslessBytes": 22201,
+        "savingsVsLossless": 0.7714,
+        "metrics": {
+          "meanAbsoluteError": 0.3787,
+          "rootMeanSquareError": 2.3241,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 47,
+          "changedPixelRatio": 0.1766
+        }
+      },
+      "validationSheet": "data/assets/icon-references/sentinelone/validation-sheets/sentinelone-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 224937,
+        "losslessBytes": 224937,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

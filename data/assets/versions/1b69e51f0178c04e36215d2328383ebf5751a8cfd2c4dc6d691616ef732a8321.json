@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Pfizer primary-care-products",
+  "artifact": {
+    "path": "data/assets/raster-annotations/pfizer/primary-care-products.png",
+    "digest": "sha256:3b7b023347f322b37da66a144bec9dd646b4cca1599afcb2828177da290ff0af"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/pfizer-q4-fy25.json",
+    "digest": "sha256:ead1b3d75518f182cdabccafd93b324ff24d0d5b93fbf1d468713ddbee54b01f"
+  },
+  "source": {
+    "path": "input/processed/pfizer-q4-fy25.png",
+    "digest": "sha256:c1d3ad8ac3c8c38d7667744e4531ed3373d5f937d2b0d88d7830c33f1db118cf"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:3b7b023347f322b37da66a144bec9dd646b4cca1599afcb2828177da290ff0af",
+    "note": "Viewed the original crop validation sheet and runtime PNG, then compared against the complete Q2 FY26 Source. Brand subject is complete with no financial label, link or publisher residue; matching wordmark structure and negative space. Reuse with Q2-specific placement."
+  },
+  "versionDigest": "sha256:1b69e51f0178c04e36215d2328383ebf5751a8cfd2c4dc6d691616ef732a8321"
+}

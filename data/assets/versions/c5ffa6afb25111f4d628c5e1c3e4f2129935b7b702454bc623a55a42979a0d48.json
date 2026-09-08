@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Axon TASER revenue brand cluster",
+  "artifact": {
+    "path": "data/assets/raster-annotations/axon/business-personal-sensors-taser-cluster-q4-fy25.png",
+    "digest": "sha256:1743d7c21a717b60367411b6ca553f8e3a80e3f84224924a1489e91060e9c3e1"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/axon-q4-fy25.json",
+    "digest": "sha256:084fd23a8603dcb7c7d1a4fd327143819ef255c39439baedfd1f083753ea0df5"
+  },
+  "source": {
+    "path": "input/processed/axon-q4-fy25.png",
+    "digest": "sha256:57fa37a6d34a18aac0ee341d2ffa1c2c600fac23e1b233ec007e06e8aa12783a"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:1743d7c21a717b60367411b6ca553f8e3a80e3f84224924a1489e91060e9c3e1",
+    "note": "Inspected full Q4 FY25 crop validation sheet, runtime image bytes, and Q2 FY26 native Source. Subject is complete, no unrelated labels/flows/watermarks; the same mark is suitable for reuse at the Q2 measured placement. Asset acceptance only; operator dataset review remains pending."
+  },
+  "versionDigest": "sha256:c5ffa6afb25111f4d628c5e1c3e4f2129935b7b702454bc623a55a42979a0d48"
+}

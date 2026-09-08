@@ -1,0 +1,39 @@
+{
+  "source": "input/processing/okta-q2-fy27.png",
+  "outputDir": "data/assets/icon-references/okta-q2-fy27",
+  "validationSheetDir": "data/assets/icon-references/okta-q2-fy27/validation-sheets",
+  "report": "crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "okta-company-logo-wordmark",
+      "output": "crops/company-logo-wordmark.png",
+      "searchBox": {
+        "x": 600,
+        "y": 235,
+        "width": 520,
+        "height": 180
+      },
+      "threshold": 24,
+      "minComponentArea": 35,
+      "padding": 18,
+      "validation": {
+        "borderBand": 3,
+        "maxCenterOffset": 0.08,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Okta company logo wordmark centered above the revenue node; excludes the Revenue label, chart flows, KPI cards, website URL, How They Make Money mark, and App Economy Insights attribution.",
+      "runtimeOutput": "company-logo-wordmark-q2-fy27.png"
+    }
+  ],
+  "runtimeOutputDir": "data/assets/raster-annotations/okta"
+}

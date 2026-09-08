@@ -1,0 +1,109 @@
+{
+  "source": "input/processed/paycom-q2-fy26.png",
+  "spec": "input/icon-crop-specs/paycom-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-09-07T20:41:49.913398+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 9
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/paycom-q2-fy26",
+  "crops": [
+    {
+      "key": "paycom-company-logo",
+      "output": "data/assets/icon-references/paycom-q2-fy26/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 27003,
+        "losslessBytes": 27003,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 9,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 69395,
+        "transparentPixelRatio": 0.6951
+      },
+      "searchBox": {
+        "x": 514,
+        "y": 266,
+        "width": 640,
+        "height": 156
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 524,
+        "y0": 275,
+        "x1": 1145,
+        "y1": 412
+      },
+      "cropBox": {
+        "x0": 514,
+        "y0": 266,
+        "x1": 1154,
+        "y1": 422
+      },
+      "validation": {
+        "width": 640,
+        "height": 156,
+        "foregroundPixels": 27538,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 10,
+          "right": 9,
+          "top": 9,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": 0.0008,
+          "y": -0.0032
+        },
+        "passes": true
+      },
+      "note": "Complete Paycom company mark and wordmark only; source title and publisher footer excluded.",
+      "runtimeOutput": "data/assets/raster-annotations/paycom-q2-fy26/company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 27003,
+        "losslessBytes": 27003,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/paycom-q2-fy26/validation-sheets/paycom-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 217536,
+        "losslessBytes": 217536,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

@@ -227,6 +227,225 @@
           },
         },
       },
+    },
+    {
+      "key": "draftkings-q2-fy26",
+      "company": "DraftKings",
+      "period": "Q2 FY26",
+      "periodNote": "",
+      "currency": "$",
+      "unit": "M",
+      "decimals": 0,
+      "sourceImage": "input/processed/draftkings-q2-fy26.png",
+      "roundingTolerance": 1.5,
+      "revenue": {
+        "total": 1443,
+        "notes": [
+          "(5%) Y/Y"
+        ],
+        "items": [
+          {
+            "id": "online_gaming",
+            "label": "Online Gaming",
+            "value": 892,
+            "notes": [
+              "(11%) Y/Y"
+            ]
+          },
+          {
+            "id": "gaming_software",
+            "label": "Gaming Software",
+            "value": 462,
+            "notes": [
+              "+8% Y/Y"
+            ]
+          },
+          {
+            "id": "other_revenue",
+            "label": "Other",
+            "value": 89,
+            "notes": [
+              "+5% Y/Y"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "id": "cost_of_revenue",
+          "label": "Cost of revenue",
+          "value": 892
+        },
+        "operatingExpenses": {
+          "total": 620,
+          "items": [
+            {
+              "id": "sm",
+              "label": "S&M",
+              "value": 323,
+              "notes": [
+                "22% of revenue",
+                "+7pp Y/Y"
+              ]
+            },
+            {
+              "id": "ga",
+              "label": "G&A",
+              "value": 169,
+              "notes": [
+                "12% of revenue",
+                "+1pp Y/Y"
+              ]
+            },
+            {
+              "id": "rnd",
+              "label": "R&D",
+              "value": 128,
+              "notes": [
+                "9% of revenue",
+                "+2pp Y/Y"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "Tax",
+          "value": 0
+        }
+      },
+      "otherIncome": {
+        "total": 0,
+        "items": []
+      },
+      "otherExpenses": {
+        "total": 0,
+        "items": []
+      },
+      "profit": {
+        "gross": {
+          "id": "gross_profit",
+          "label": "Gross profit",
+          "value": 551,
+          "notes": [
+            "38% margin",
+            "(5pp) Y/Y"
+          ]
+        },
+        "operating": {
+          "id": "operating_loss",
+          "label": "Operating loss",
+          "value": -68,
+          "notes": [
+            "(5%) margin",
+            "(15pp) Y/Y"
+          ]
+        },
+        "net": {
+          "id": "operating_loss",
+          "label": "Operating loss",
+          "value": -68,
+          "notes": [
+            "No separate net income line is shown in the source chart."
+          ]
+        }
+      },
+      "i18n": {
+        "zh": {
+          "period": "2026 财年第二季度",
+          "periodNote": "",
+          "revenue": {
+            "notes": [
+              "同比 (5%)"
+            ],
+            "items": [
+              {
+                "id": "online_gaming",
+                "label": "在线博彩",
+                "notes": [
+                  "同比 (11%)"
+                ]
+              },
+              {
+                "id": "gaming_software",
+                "label": "游戏软件",
+                "notes": [
+                  "同比 +8%"
+                ]
+              },
+              {
+                "id": "other_revenue",
+                "label": "其他",
+                "notes": [
+                  "同比 +5%"
+                ]
+              }
+            ]
+          },
+          "costs": {
+            "costOfRevenue": {
+              "label": "收入成本"
+            },
+            "operatingExpenses": {
+              "items": [
+                {
+                  "id": "sm",
+                  "label": "销售与市场",
+                  "notes": [
+                    "占收入 22%",
+                    "同比 +7 个百分点"
+                  ]
+                },
+                {
+                  "id": "ga",
+                  "label": "管理费用",
+                  "notes": [
+                    "占收入 12%",
+                    "同比 +1 个百分点"
+                  ]
+                },
+                {
+                  "id": "rnd",
+                  "label": "研发",
+                  "notes": [
+                    "占收入 9%",
+                    "同比 +2 个百分点"
+                  ]
+                }
+              ]
+            },
+            "tax": {
+              "label": "税费"
+            }
+          },
+          "profit": {
+            "gross": {
+              "label": "毛利润",
+              "notes": [
+                "利润率 38%",
+                "同比 (5 个百分点)"
+              ]
+            },
+            "operating": {
+              "label": "营业亏损",
+              "notes": [
+                "利润率 (5%)",
+                "同比 (15 个百分点)"
+              ]
+            },
+            "net": {
+              "label": "营业亏损",
+              "notes": [
+                "来源图未单独显示净利润项目。"
+              ]
+            }
+          }
+        }
+      },
+      "sourceNotes": [
+        "The source ends at operating loss; no separate net income or tax line is reported.",
+        "Displayed financial amounts have a 1M rounding residual between gross profit, operating loss and operating expenses.",
+        "MUPs: 3.6M; +9% Y/Y. ARPMUP: $132; (13%) Y/Y. MUP = Monthly Unique Players; ARPMUP = Average Revenue per MUP."
+      ]
     }
   );
 })(window);

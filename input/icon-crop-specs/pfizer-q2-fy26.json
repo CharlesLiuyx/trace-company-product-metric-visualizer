@@ -1,0 +1,54 @@
+{
+  "source": "input/processed/pfizer-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/pfizer",
+  "runtimeOutputDir": "data/assets/raster-annotations/pfizer",
+  "validationSheetDir": "data/assets/icon-references/pfizer/validation-sheets",
+  "report": "pfizer-q2-fy26-crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [
+      242,
+      242,
+      242
+    ]
+  },
+  "reused": [
+    "company-wordmark: reviewed version recorded from pfizer-q4-fy25 recipe",
+    "primary-care-products: reviewed version recorded from pfizer-q4-fy25 recipe",
+    "specialty-care-vyndaqel: reviewed version recorded from pfizer-q4-fy25 recipe"
+  ],
+  "crops": [
+    {
+      "key": "pfizer-q2-oncology-tight",
+      "output": "crops/pfizer-q2-oncology-tight.png",
+      "runtimeOutput": "oncology-ibrance-tight.png",
+      "searchBox": {
+        "x": 4,
+        "y": 1040,
+        "width": 214,
+        "height": 82
+      },
+      "cropBox": {
+        "x": 4,
+        "y": 1040,
+        "width": 214,
+        "height": 82
+      },
+      "threshold": 8,
+      "minComponentArea": 8,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Source-specific tight version removes excess empty runtime image margin that collides with Oncology label clearance; retains complete Ibrance/palbociclib mark."
+    }
+  ]
+}

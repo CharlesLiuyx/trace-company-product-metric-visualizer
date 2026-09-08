@@ -415,6 +415,116 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/airbnb/airbnb-q2-fy26-apac.png",
+      "digest": "sha256:272f8f8ce048a8e184b69655036090ec0cf253fe370aea48ef73d06ca8cb2d26",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/airbnb-q2-fy26.json",
+          "recipeDigest": "sha256:b5a628092174e8fd7d18787a51335ed21f5b8d8a4990a1ab97ec6a280dfc52c4",
+          "source": "input/processed/airbnb-q2-fy26.png",
+          "cropKey": "apac"
+        }
+      ],
+      "directConsumers": [
+        "airbnb-q2-fy26"
+      ],
+      "consumers": [
+        "airbnb-q2-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:e41d28e3e17c3b6c768ed73c2ac7018f3ee5bce798579aecfa4f94dcf18a5bc8"
+      ],
+      "reusable": true
+    },
+    {
+      "path": "data/assets/raster-annotations/airbnb/airbnb-q2-fy26-emea.png",
+      "digest": "sha256:94d402e9fee81aebe300223334cef15dc54b9a642197fa629621dee9de7f3d68",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/airbnb-q2-fy26.json",
+          "recipeDigest": "sha256:b5a628092174e8fd7d18787a51335ed21f5b8d8a4990a1ab97ec6a280dfc52c4",
+          "source": "input/processed/airbnb-q2-fy26.png",
+          "cropKey": "emea"
+        }
+      ],
+      "directConsumers": [
+        "airbnb-q2-fy26"
+      ],
+      "consumers": [
+        "airbnb-q2-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:282bedcb350520569cef0bf2f37fabae58e019c8c1492e507e78d15a4075d9f9"
+      ],
+      "reusable": true
+    },
+    {
+      "path": "data/assets/raster-annotations/airbnb/airbnb-q2-fy26-latam.png",
+      "digest": "sha256:8f5c65da8cd42a01eafdafb2f8f5b7da497d02b1e3cf5f90db642440ba7ce2c8",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/airbnb-q2-fy26.json",
+          "recipeDigest": "sha256:b5a628092174e8fd7d18787a51335ed21f5b8d8a4990a1ab97ec6a280dfc52c4",
+          "source": "input/processed/airbnb-q2-fy26.png",
+          "cropKey": "latam"
+        }
+      ],
+      "directConsumers": [
+        "airbnb-q2-fy26"
+      ],
+      "consumers": [
+        "airbnb-q2-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:5d6c4b2cd44bc36181f1cf9fa65cf8bc4f4401e705c818fb67a3b43796fecfa8"
+      ],
+      "reusable": true
+    },
+    {
+      "path": "data/assets/raster-annotations/airbnb/airbnb-q2-fy26-logo.png",
+      "digest": "sha256:b298eacc27440b15f9b88a0bff37e365e3c64847252cc71e86ef6da3deffa24f",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/airbnb-q2-fy26.json",
+          "recipeDigest": "sha256:b5a628092174e8fd7d18787a51335ed21f5b8d8a4990a1ab97ec6a280dfc52c4",
+          "source": "input/processed/airbnb-q2-fy26.png",
+          "cropKey": "logo"
+        }
+      ],
+      "directConsumers": [
+        "airbnb-q2-fy26"
+      ],
+      "consumers": [
+        "airbnb-q2-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:c9f006b6af4f24dc149f77a9b361a57e5d5cecb5a7134d8bd1ab3464c8250b7f"
+      ],
+      "reusable": true
+    },
+    {
+      "path": "data/assets/raster-annotations/airbnb/airbnb-q2-fy26-north-america.png",
+      "digest": "sha256:4a554c511c379ba6dd394071bc4ffa99e81f374c46a1368cb9408fe29d7e23e7",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/airbnb-q2-fy26.json",
+          "recipeDigest": "sha256:b5a628092174e8fd7d18787a51335ed21f5b8d8a4990a1ab97ec6a280dfc52c4",
+          "source": "input/processed/airbnb-q2-fy26.png",
+          "cropKey": "north-america"
+        }
+      ],
+      "directConsumers": [
+        "airbnb-q2-fy26"
+      ],
+      "consumers": [
+        "airbnb-q2-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:d8bb983e194d5247de6dc08652279135bff87aa394aa92089659d884eaa18273"
+      ],
+      "reusable": true
+    },
+    {
       "path": "data/assets/raster-annotations/airbus/commercial-aircraft-a380-fy25.png",
       "digest": "sha256:317702746b6c2423feeaba366135f5c9db19d71c7a7db2f88fdb25f0d13c4f38",
       "provenance": [],
@@ -650,11 +760,13 @@
       "provenance": [],
       "directConsumers": [
         "amer-sports-q1-fy26",
+        "amer-sports-q2-fy26",
         "amer-sports-q3-fy25",
         "amer-sports-q4-fy25"
       ],
       "consumers": [
         "amer-sports-q1-fy26",
+        "amer-sports-q2-fy26",
         "amer-sports-q3-fy25",
         "amer-sports-q4-fy25"
       ],
@@ -667,11 +779,13 @@
       "provenance": [],
       "directConsumers": [
         "amer-sports-q1-fy26",
+        "amer-sports-q2-fy26",
         "amer-sports-q3-fy25",
         "amer-sports-q4-fy25"
       ],
       "consumers": [
         "amer-sports-q1-fy26",
+        "amer-sports-q2-fy26",
         "amer-sports-q3-fy25",
         "amer-sports-q4-fy25"
       ],
@@ -684,11 +798,13 @@
       "provenance": [],
       "directConsumers": [
         "amer-sports-q1-fy26",
+        "amer-sports-q2-fy26",
         "amer-sports-q3-fy25",
         "amer-sports-q4-fy25"
       ],
       "consumers": [
         "amer-sports-q1-fy26",
+        "amer-sports-q2-fy26",
         "amer-sports-q3-fy25",
         "amer-sports-q4-fy25"
       ],
@@ -701,11 +817,13 @@
       "provenance": [],
       "directConsumers": [
         "amer-sports-q1-fy26",
+        "amer-sports-q2-fy26",
         "amer-sports-q3-fy25",
         "amer-sports-q4-fy25"
       ],
       "consumers": [
         "amer-sports-q1-fy26",
+        "amer-sports-q2-fy26",
         "amer-sports-q3-fy25",
         "amer-sports-q4-fy25"
       ],
@@ -718,11 +836,13 @@
       "provenance": [],
       "directConsumers": [
         "amer-sports-q1-fy26",
+        "amer-sports-q2-fy26",
         "amer-sports-q3-fy25",
         "amer-sports-q4-fy25"
       ],
       "consumers": [
         "amer-sports-q1-fy26",
+        "amer-sports-q2-fy26",
         "amer-sports-q3-fy25",
         "amer-sports-q4-fy25"
       ],
@@ -1020,53 +1140,86 @@
     {
       "path": "data/assets/raster-annotations/axon/business-personal-sensors-taser-cluster-q4-fy25.png",
       "digest": "sha256:1743d7c21a717b60367411b6ca553f8e3a80e3f84224924a1489e91060e9c3e1",
-      "provenance": [],
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/axon-q4-fy25.json",
+          "recipeDigest": "sha256:084fd23a8603dcb7c7d1a4fd327143819ef255c39439baedfd1f083753ea0df5",
+          "source": "input/processed/axon-q4-fy25.png",
+          "cropKey": "axon-business-personal-sensors-taser-cluster-q4-fy25"
+        }
+      ],
       "directConsumers": [
         "axon-q1-fy26",
+        "axon-q2-fy26",
         "axon-q3-fy25",
         "axon-q4-fy25"
       ],
       "consumers": [
         "axon-q1-fy26",
+        "axon-q2-fy26",
         "axon-q3-fy25",
         "axon-q4-fy25"
       ],
-      "acceptedVersions": [],
-      "reusable": false
+      "acceptedVersions": [
+        "sha256:c5ffa6afb25111f4d628c5e1c3e4f2129935b7b702454bc623a55a42979a0d48"
+      ],
+      "reusable": true
     },
     {
       "path": "data/assets/raster-annotations/axon/business-platform-solutions-evidence-wordmark-q4-fy25.png",
       "digest": "sha256:485ab8f8944478dac53b916831c130f643e38b87fe62a1f43e319e529ad12993",
-      "provenance": [],
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/axon-q4-fy25.json",
+          "recipeDigest": "sha256:084fd23a8603dcb7c7d1a4fd327143819ef255c39439baedfd1f083753ea0df5",
+          "source": "input/processed/axon-q4-fy25.png",
+          "cropKey": "axon-business-platform-solutions-evidence-wordmark-q4-fy25"
+        }
+      ],
       "directConsumers": [
         "axon-q1-fy26",
+        "axon-q2-fy26",
         "axon-q3-fy25",
         "axon-q4-fy25"
       ],
       "consumers": [
         "axon-q1-fy26",
+        "axon-q2-fy26",
         "axon-q3-fy25",
         "axon-q4-fy25"
       ],
-      "acceptedVersions": [],
-      "reusable": false
+      "acceptedVersions": [
+        "sha256:3d9408c1ec81470593b2ca1146696eb59eea001457f036d93c3529793cbc9bb8"
+      ],
+      "reusable": true
     },
     {
       "path": "data/assets/raster-annotations/axon/company-mark-q4-fy25.png",
       "digest": "sha256:d9abf3e3220ee09bd15e09c309d25c2a24b849599d8b3d6fd025a521ed6ea2b0",
-      "provenance": [],
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/axon-q4-fy25.json",
+          "recipeDigest": "sha256:084fd23a8603dcb7c7d1a4fd327143819ef255c39439baedfd1f083753ea0df5",
+          "source": "input/processed/axon-q4-fy25.png",
+          "cropKey": "axon-company-mark-q4-fy25"
+        }
+      ],
       "directConsumers": [
         "axon-q1-fy26",
+        "axon-q2-fy26",
         "axon-q3-fy25",
         "axon-q4-fy25"
       ],
       "consumers": [
         "axon-q1-fy26",
+        "axon-q2-fy26",
         "axon-q3-fy25",
         "axon-q4-fy25"
       ],
-      "acceptedVersions": [],
-      "reusable": false
+      "acceptedVersions": [
+        "sha256:b4b46bf9e9eda807a6a07e4c34431b024c8097bd82de344e16fcaf7bf1876cad"
+      ],
+      "reusable": true
     },
     {
       "path": "data/assets/raster-annotations/berkshire-hathaway/business-bhe-logo.png",
@@ -1476,6 +1629,12 @@
       "digest": "sha256:1de2110e0be42894ec6eae83c8afbdeaf1aa1d55a2b8884c482dfb88f8701cb2",
       "provenance": [
         {
+          "recipe": "input/icon-crop-specs/booking-q2-fy26-reuse.json",
+          "recipeDigest": "sha256:26ce041f17158405bf9645a288655412d6f4f850c4345ecc317991c97e40ad72",
+          "source": "input/processed/booking-q4-fy25.png",
+          "cropKey": "booking-advertising-brands"
+        },
+        {
           "recipe": "input/icon-crop-specs/booking-q4-fy25.json",
           "recipeDigest": "sha256:8856f7e010b5487c1eff80018e9e58414ca6b11015bd137fad89b46a9d4af2a6",
           "source": "input/processed/booking-q4-fy25.png",
@@ -1484,19 +1643,29 @@
       ],
       "directConsumers": [
         "booking-q1-fy26",
+        "booking-q2-fy26",
         "booking-q4-fy25"
       ],
       "consumers": [
         "booking-q1-fy26",
+        "booking-q2-fy26",
         "booking-q4-fy25"
       ],
-      "acceptedVersions": [],
-      "reusable": false
+      "acceptedVersions": [
+        "sha256:436662b670777a8850b8524885eaeadb2a9e4542b12d1f29ec0e2c5ab2994270"
+      ],
+      "reusable": true
     },
     {
       "path": "data/assets/raster-annotations/booking/agency-brand.png",
       "digest": "sha256:2bb921d82f184abc3ea27e14402d03a028f596057a70e4924df188075c1b02a1",
       "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/booking-q2-fy26-reuse.json",
+          "recipeDigest": "sha256:26ce041f17158405bf9645a288655412d6f4f850c4345ecc317991c97e40ad72",
+          "source": "input/processed/booking-q4-fy25.png",
+          "cropKey": "booking-agency-brand"
+        },
         {
           "recipe": "input/icon-crop-specs/booking-q4-fy25.json",
           "recipeDigest": "sha256:8856f7e010b5487c1eff80018e9e58414ca6b11015bd137fad89b46a9d4af2a6",
@@ -1506,34 +1675,55 @@
       ],
       "directConsumers": [
         "booking-q1-fy26",
+        "booking-q2-fy26",
         "booking-q4-fy25"
       ],
       "consumers": [
         "booking-q1-fy26",
+        "booking-q2-fy26",
         "booking-q4-fy25"
       ],
-      "acceptedVersions": [],
-      "reusable": false
+      "acceptedVersions": [
+        "sha256:12dc88c84f6758427db71cb207696a4c051cc05377fc3678058a7042553444c8"
+      ],
+      "reusable": true
     },
     {
       "path": "data/assets/raster-annotations/booking/company-logo.png",
       "digest": "sha256:0881e3d7ac27a9b193a8ce1535ae7d2229c773241ed88906b8a781a43f67626c",
-      "provenance": [],
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/booking-q2-fy26-reuse.json",
+          "recipeDigest": "sha256:26ce041f17158405bf9645a288655412d6f4f850c4345ecc317991c97e40ad72",
+          "source": "input/processed/booking-q4-fy25.png",
+          "cropKey": "booking-company-logo"
+        }
+      ],
       "directConsumers": [
         "booking-q1-fy26",
+        "booking-q2-fy26",
         "booking-q4-fy25"
       ],
       "consumers": [
         "booking-q1-fy26",
+        "booking-q2-fy26",
         "booking-q4-fy25"
       ],
-      "acceptedVersions": [],
-      "reusable": false
+      "acceptedVersions": [
+        "sha256:29b6608335bc807de90c8ed73bc7b0b24c90f91cfdbbee596a64eaf6a1f3506e"
+      ],
+      "reusable": true
     },
     {
       "path": "data/assets/raster-annotations/booking/merchant-brands.png",
       "digest": "sha256:249909284de8551570a1885e69ac4d2f839e123df4d4b6a2c95f0a736279bc1d",
       "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/booking-q2-fy26-reuse.json",
+          "recipeDigest": "sha256:26ce041f17158405bf9645a288655412d6f4f850c4345ecc317991c97e40ad72",
+          "source": "input/processed/booking-q4-fy25.png",
+          "cropKey": "booking-merchant-brands"
+        },
         {
           "recipe": "input/icon-crop-specs/booking-q4-fy25.json",
           "recipeDigest": "sha256:8856f7e010b5487c1eff80018e9e58414ca6b11015bd137fad89b46a9d4af2a6",
@@ -1543,14 +1733,18 @@
       ],
       "directConsumers": [
         "booking-q1-fy26",
+        "booking-q2-fy26",
         "booking-q4-fy25"
       ],
       "consumers": [
         "booking-q1-fy26",
+        "booking-q2-fy26",
         "booking-q4-fy25"
       ],
-      "acceptedVersions": [],
-      "reusable": false
+      "acceptedVersions": [
+        "sha256:e4d84707ef11423b8b180d25fc2870d46936d1afe86a27e5959325a3f1cffc96"
+      ],
+      "reusable": true
     },
     {
       "path": "data/assets/raster-annotations/byd/automobiles-product-cluster.png",
@@ -2103,6 +2297,50 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/cloudflare/cloud-q2-fy26.png",
+      "digest": "sha256:08b1b0111f4a945c48d4dc9b80f432a6efb1e9d996a357ef8bb93b0a2b031d7f",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/cloudflare-q2-fy26.json",
+          "recipeDigest": "sha256:0e1738643870e14c2592c782ee0337fd964ac5a4bf1c82b486cf48032ed64aa7",
+          "source": "input/processing/cloudflare-q2-fy26.png",
+          "cropKey": "cloudflare-cloud-q2-fy26"
+        }
+      ],
+      "directConsumers": [
+        "cloudflare-q2-fy26"
+      ],
+      "consumers": [
+        "cloudflare-q2-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:c7c3d088211e845442a0e63522495ea55151a04198427c4134bcabbd2d02ccd7"
+      ],
+      "reusable": true
+    },
+    {
+      "path": "data/assets/raster-annotations/cloudflare/wordmark-q2-fy26.png",
+      "digest": "sha256:f70916c5c5b8705e6eff47bddf4ee5800ddb4995e01b67d3edf8327df3783fd8",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/cloudflare-q2-fy26.json",
+          "recipeDigest": "sha256:0e1738643870e14c2592c782ee0337fd964ac5a4bf1c82b486cf48032ed64aa7",
+          "source": "input/processing/cloudflare-q2-fy26.png",
+          "cropKey": "cloudflare-wordmark-q2-fy26"
+        }
+      ],
+      "directConsumers": [
+        "cloudflare-q2-fy26"
+      ],
+      "consumers": [
+        "cloudflare-q2-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:f294ee479e91efe2be576413f5f5be3062975c1ceeb88fea1323dde186afae55"
+      ],
+      "reusable": true
+    },
+    {
       "path": "data/assets/raster-annotations/coca-cola/company-wordmark.png",
       "digest": "sha256:265587ef9eabf799eb601922e30b596e75f7032eae8065b1fb838395f12eefdc",
       "provenance": [
@@ -2606,11 +2844,13 @@
       "provenance": [],
       "directConsumers": [
         "datadog-q1-fy26",
+        "datadog-q2-fy26",
         "datadog-q3-fy25",
         "datadog-q4-fy25"
       ],
       "consumers": [
         "datadog-q1-fy26",
+        "datadog-q2-fy26",
         "datadog-q3-fy25",
         "datadog-q4-fy25"
       ],
@@ -2783,6 +3023,50 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/draftkings-q2-fy26/company-wordmark.png",
+      "digest": "sha256:3b7c89c55b520e61ae58955fc6c2cfef22ab7ea4a3a1b4c52f2ca514d29c41c1",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/draftkings-q2-fy26.json",
+          "recipeDigest": "sha256:6101aad91d55efd8f88a4af65d19c9e241d79f3a9ef5f704db2200025e66cb2e",
+          "source": "input/processing/draftkings-q2-fy26.png",
+          "cropKey": "draftkings-q2-company-wordmark"
+        }
+      ],
+      "directConsumers": [
+        "draftkings-q2-fy26"
+      ],
+      "consumers": [
+        "draftkings-q2-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:0b572620fb38e5637dd22e75b024f6282b05562330a574243471d2d78d85fc8c"
+      ],
+      "reusable": true
+    },
+    {
+      "path": "data/assets/raster-annotations/draftkings-q2-fy26/online-gaming-cluster.png",
+      "digest": "sha256:3cb7110fe0b9cdbf70046504615c76e3c26afc1ff71dc7469efd6c07a3e2a375",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/draftkings-q2-fy26-cluster.json",
+          "recipeDigest": "sha256:8af8d23a9f002e1bae9a246989c22b961d89fb5062810425e5df7eeff5873bbe",
+          "source": "input/processing/draftkings-q2-fy26.png",
+          "cropKey": "draftkings-q2-online-gaming-cluster"
+        }
+      ],
+      "directConsumers": [
+        "draftkings-q2-fy26"
+      ],
+      "consumers": [
+        "draftkings-q2-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:e97a85dd432b5ff1ba6c39a174d2a4f53888daaef5f98eee58d63e187ac03f45"
+      ],
+      "reusable": true
+    },
+    {
       "path": "data/assets/raster-annotations/draftkings/company-wordmark.png",
       "digest": "sha256:c605cc76c2878f3e3d5bc2667dd88974755130eb0a7c9552689e22dd73bca5c3",
       "provenance": [],
@@ -2872,11 +3156,13 @@
       "digest": "sha256:179048d1c20de7807d8ab37a440048ada5d0239275d8d016bc7720f7779ab056",
       "provenance": [],
       "directConsumers": [
+        "dynatrace-q1-fy27",
         "dynatrace-q2-fy26",
         "dynatrace-q3-fy26",
         "dynatrace-q4-fy26"
       ],
       "consumers": [
+        "dynatrace-q1-fy27",
         "dynatrace-q2-fy26",
         "dynatrace-q3-fy26",
         "dynatrace-q4-fy26"
@@ -3068,11 +3354,13 @@
       ],
       "directConsumers": [
         "flutter-q1-fy26",
+        "flutter-q2-fy26",
         "flutter-q3-fy25",
         "flutter-q4-fy25"
       ],
       "consumers": [
         "flutter-q1-fy26",
+        "flutter-q2-fy26",
         "flutter-q3-fy25",
         "flutter-q4-fy25"
       ],
@@ -3092,11 +3380,13 @@
       ],
       "directConsumers": [
         "flutter-q1-fy26",
+        "flutter-q2-fy26",
         "flutter-q3-fy25",
         "flutter-q4-fy25"
       ],
       "consumers": [
         "flutter-q1-fy26",
+        "flutter-q2-fy26",
         "flutter-q3-fy25",
         "flutter-q4-fy25"
       ],
@@ -3116,11 +3406,13 @@
       ],
       "directConsumers": [
         "flutter-q1-fy26",
+        "flutter-q2-fy26",
         "flutter-q3-fy25",
         "flutter-q4-fy25"
       ],
       "consumers": [
         "flutter-q1-fy26",
+        "flutter-q2-fy26",
         "flutter-q3-fy25",
         "flutter-q4-fy25"
       ],
@@ -3964,11 +4256,13 @@
       "provenance": [],
       "directConsumers": [
         "hubspot-q1-fy26",
+        "hubspot-q2-fy26",
         "hubspot-q3-fy25",
         "hubspot-q4-fy25"
       ],
       "consumers": [
         "hubspot-q1-fy26",
+        "hubspot-q2-fy26",
         "hubspot-q3-fy25",
         "hubspot-q4-fy25"
       ],
@@ -4805,6 +5099,28 @@
       ],
       "acceptedVersions": [],
       "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/marriott/q2-fy26-logo.png",
+      "digest": "sha256:59ec2e4c11989dcdd16042b356ca2b8f085d984f560d6a5ca490fe623f4e863e",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/marriott-q2-fy26.json",
+          "recipeDigest": "sha256:7a7a59189c3c696ca2cbb1121760f4e444ebd069bd9182283f246473d9411896",
+          "source": "input/processed/marriott-q2-fy26.png",
+          "cropKey": "q2-fy26-logo"
+        }
+      ],
+      "directConsumers": [
+        "marriott-q2-fy26"
+      ],
+      "consumers": [
+        "marriott-q2-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:364eeea65f37669ff2d9b819e5680accbdf2274b49dab012a0343d3e005083be"
+      ],
+      "reusable": true
     },
     {
       "path": "data/assets/raster-annotations/match-group/brand-asia-cluster-q1-fy26.png",
@@ -6525,6 +6841,28 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/nutanix/q4-company-logo.png",
+      "digest": "sha256:72f16092610967caf5aa69e84ee5bd5b23ed6b49f982941ef2c2790190953b67",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/nutanix-q4-fy26.json",
+          "recipeDigest": "sha256:1c43902618059c16f8ab56d876c10b9ace5bf65133cc2180f5db795d40da038f",
+          "source": "input/processed/nutanix-q4-fy26.png",
+          "cropKey": "nutanix-company-logo"
+        }
+      ],
+      "directConsumers": [
+        "nutanix-q4-fy26"
+      ],
+      "consumers": [
+        "nutanix-q4-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:65292594afde9639f2684e2656ca51ef4bab14eeb927fa6deca64aaeab0cc42d"
+      ],
+      "reusable": true
+    },
+    {
       "path": "data/assets/raster-annotations/nyt/business-digital-device.png",
       "digest": "sha256:390a0c2dc2b4adb202e638103b36e6ca7988fb3b5f65b9b35448ce5433ff5941",
       "provenance": [],
@@ -6585,16 +6923,40 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/okta/company-logo-wordmark-q2-fy27.png",
+      "digest": "sha256:4cf935ea9f60c807800a1bfb9180775633615fa55a7c2f5671c3efff80122cf1",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/okta-q2-fy27.json",
+          "recipeDigest": "sha256:fa454247db92d64cbbc145aac179b0a6bad45570cf7b4344d41a41f0e33720fa",
+          "source": "input/processing/okta-q2-fy27.png",
+          "cropKey": "okta-company-logo-wordmark"
+        }
+      ],
+      "directConsumers": [
+        "okta-q2-fy27"
+      ],
+      "consumers": [
+        "okta-q2-fy27"
+      ],
+      "acceptedVersions": [
+        "sha256:3650c389d84596790760ef9b5beca637f3033cecabefa1150c76bd627c85efb2"
+      ],
+      "reusable": true
+    },
+    {
       "path": "data/assets/raster-annotations/on/accessories-product.png",
       "digest": "sha256:c656a983776a1b06a95821dd5fd83ac4eec36726fc03723e4f094a247a0b3121",
       "provenance": [],
       "directConsumers": [
         "on-q1-fy26",
+        "on-q2-fy26",
         "on-q3-fy25",
         "on-q4-fy25"
       ],
       "consumers": [
         "on-q1-fy26",
+        "on-q2-fy26",
         "on-q3-fy25",
         "on-q4-fy25"
       ],
@@ -6607,11 +6969,13 @@
       "provenance": [],
       "directConsumers": [
         "on-q1-fy26",
+        "on-q2-fy26",
         "on-q3-fy25",
         "on-q4-fy25"
       ],
       "consumers": [
         "on-q1-fy26",
+        "on-q2-fy26",
         "on-q3-fy25",
         "on-q4-fy25"
       ],
@@ -6624,11 +6988,13 @@
       "provenance": [],
       "directConsumers": [
         "on-q1-fy26",
+        "on-q2-fy26",
         "on-q3-fy25",
         "on-q4-fy25"
       ],
       "consumers": [
         "on-q1-fy26",
+        "on-q2-fy26",
         "on-q3-fy25",
         "on-q4-fy25"
       ],
@@ -6641,11 +7007,13 @@
       "provenance": [],
       "directConsumers": [
         "on-q1-fy26",
+        "on-q2-fy26",
         "on-q3-fy25",
         "on-q4-fy25"
       ],
       "consumers": [
         "on-q1-fy26",
+        "on-q2-fy26",
         "on-q3-fy25",
         "on-q4-fy25"
       ],
@@ -7155,16 +7523,20 @@
       ],
       "directConsumers": [
         "paramount-q1-fy26",
+        "paramount-q2-fy26",
         "paramount-q3-fy25",
         "paramount-q4-fy25"
       ],
       "consumers": [
         "paramount-q1-fy26",
+        "paramount-q2-fy26",
         "paramount-q3-fy25",
         "paramount-q4-fy25"
       ],
-      "acceptedVersions": [],
-      "reusable": false
+      "acceptedVersions": [
+        "sha256:639a24ff34ae13c9bc2ae3889a5accba35efa11cd07d0e34dfb1a08733807641"
+      ],
+      "reusable": true
     },
     {
       "path": "data/assets/raster-annotations/paramount/business-filmed-entertainment-cluster.png",
@@ -7179,16 +7551,20 @@
       ],
       "directConsumers": [
         "paramount-q1-fy26",
+        "paramount-q2-fy26",
         "paramount-q3-fy25",
         "paramount-q4-fy25"
       ],
       "consumers": [
         "paramount-q1-fy26",
+        "paramount-q2-fy26",
         "paramount-q3-fy25",
         "paramount-q4-fy25"
       ],
-      "acceptedVersions": [],
-      "reusable": false
+      "acceptedVersions": [
+        "sha256:21075125c3ffe5fb240f241c7fc46b8505ebf99586d5fae045674f81b67baadb"
+      ],
+      "reusable": true
     },
     {
       "path": "data/assets/raster-annotations/paramount/business-tv-media-cluster.png",
@@ -7203,16 +7579,20 @@
       ],
       "directConsumers": [
         "paramount-q1-fy26",
+        "paramount-q2-fy26",
         "paramount-q3-fy25",
         "paramount-q4-fy25"
       ],
       "consumers": [
         "paramount-q1-fy26",
+        "paramount-q2-fy26",
         "paramount-q3-fy25",
         "paramount-q4-fy25"
       ],
-      "acceptedVersions": [],
-      "reusable": false
+      "acceptedVersions": [
+        "sha256:322ce35a709c3556c6e8d6a7cb6b3e96101393f320d8551da5e2aab445c4d4e4"
+      ],
+      "reusable": true
     },
     {
       "path": "data/assets/raster-annotations/paramount/company-wordmark.png",
@@ -7227,16 +7607,42 @@
       ],
       "directConsumers": [
         "paramount-q1-fy26",
+        "paramount-q2-fy26",
         "paramount-q3-fy25",
         "paramount-q4-fy25"
       ],
       "consumers": [
         "paramount-q1-fy26",
+        "paramount-q2-fy26",
         "paramount-q3-fy25",
         "paramount-q4-fy25"
       ],
-      "acceptedVersions": [],
-      "reusable": false
+      "acceptedVersions": [
+        "sha256:a1402b401f781b6ef26e941abc70b3a2d9495317698e823037439ba5ed60fdaa"
+      ],
+      "reusable": true
+    },
+    {
+      "path": "data/assets/raster-annotations/paycom-q2-fy26/company-logo.png",
+      "digest": "sha256:0e103491ed51955913a8c31c4b8a458fc03b26798245dbb5a82342f81d3ec23e",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/paycom-q2-fy26.json",
+          "recipeDigest": "sha256:9e84e17b78991f15550908861d45736323f132bf749423425c95e14774ca7012",
+          "source": "input/processed/paycom-q2-fy26.png",
+          "cropKey": "paycom-company-logo"
+        }
+      ],
+      "directConsumers": [
+        "paycom-q2-fy26"
+      ],
+      "consumers": [
+        "paycom-q2-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:928fe519a6ce0c0c6e90d051d5648e48d6f83ac32ff5b1dc2877895dcb870214"
+      ],
+      "reusable": true
     },
     {
       "path": "data/assets/raster-annotations/paypal/company-wordmark-q1-fy26.png",
@@ -8489,15 +8895,41 @@
         }
       ],
       "directConsumers": [
+        "pfizer-q2-fy26",
         "pfizer-q3-fy25",
         "pfizer-q4-fy25"
       ],
       "consumers": [
+        "pfizer-q2-fy26",
         "pfizer-q3-fy25",
         "pfizer-q4-fy25"
       ],
-      "acceptedVersions": [],
-      "reusable": false
+      "acceptedVersions": [
+        "sha256:4c4e5857f6ae4cbad0e30a5a64e839fc655669fcab848bb22b35ab49d9f256a6"
+      ],
+      "reusable": true
+    },
+    {
+      "path": "data/assets/raster-annotations/pfizer/oncology-ibrance-tight.png",
+      "digest": "sha256:521c6469f92727041ba396229501bb35f21388732e437e760bd0fea3ff8ac758",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/pfizer-q2-fy26.json",
+          "recipeDigest": "sha256:fa7c68c1fe0a1aa43c3301560dd506813b7078e0bc884791d299f9395f6b3993",
+          "source": "input/processed/pfizer-q2-fy26.png",
+          "cropKey": "pfizer-q2-oncology-tight"
+        }
+      ],
+      "directConsumers": [
+        "pfizer-q2-fy26"
+      ],
+      "consumers": [
+        "pfizer-q2-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:8b85bf4c7ea117e04b63b10fe3181fe4d0312d1bd60d7fa3f5b057ff3c05a4cb"
+      ],
+      "reusable": true
     },
     {
       "path": "data/assets/raster-annotations/pfizer/oncology-ibrance.png",
@@ -8518,8 +8950,10 @@
         "pfizer-q3-fy25",
         "pfizer-q4-fy25"
       ],
-      "acceptedVersions": [],
-      "reusable": false
+      "acceptedVersions": [
+        "sha256:de61dad71def50c1fbede3d73fa0da41c8c3a8017cffdaa9c8a0884f66cfac75"
+      ],
+      "reusable": true
     },
     {
       "path": "data/assets/raster-annotations/pfizer/pfizer-q1-company-wordmark.png",
@@ -8613,15 +9047,19 @@
         }
       ],
       "directConsumers": [
+        "pfizer-q2-fy26",
         "pfizer-q3-fy25",
         "pfizer-q4-fy25"
       ],
       "consumers": [
+        "pfizer-q2-fy26",
         "pfizer-q3-fy25",
         "pfizer-q4-fy25"
       ],
-      "acceptedVersions": [],
-      "reusable": false
+      "acceptedVersions": [
+        "sha256:1b69e51f0178c04e36215d2328383ebf5751a8cfd2c4dc6d691616ef732a8321"
+      ],
+      "reusable": true
     },
     {
       "path": "data/assets/raster-annotations/pfizer/specialty-care-vyndaqel.png",
@@ -8635,15 +9073,41 @@
         }
       ],
       "directConsumers": [
+        "pfizer-q2-fy26",
         "pfizer-q3-fy25",
         "pfizer-q4-fy25"
       ],
       "consumers": [
+        "pfizer-q2-fy26",
         "pfizer-q3-fy25",
         "pfizer-q4-fy25"
       ],
-      "acceptedVersions": [],
-      "reusable": false
+      "acceptedVersions": [
+        "sha256:4ab16c283252e30f21937711f10450b0ea6ddcbddb58c21762ce8111502fc14c"
+      ],
+      "reusable": true
+    },
+    {
+      "path": "data/assets/raster-annotations/procore/company-wordmark-q2-fy26.png",
+      "digest": "sha256:30c2fb6430002c504e6d36396b72048838cf2867b654663cc7ff52980ebc537b",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/procore-q2-fy26.json",
+          "recipeDigest": "sha256:673b291d20e872487e2e16d636b92aa98bf27d9fd5600a64dbd2bec4e8765ba1",
+          "source": "input/processed/procore-q2-fy26.png",
+          "cropKey": "procore-company-wordmark-q2-fy26"
+        }
+      ],
+      "directConsumers": [
+        "procore-q2-fy26"
+      ],
+      "consumers": [
+        "procore-q2-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:08240bad13f74eedd7eeea4de21aaa8847cd3e45bd967019d79ffb2ae3862cbb"
+      ],
+      "reusable": true
     },
     {
       "path": "data/assets/raster-annotations/rbi/burger-king-logo.png",
@@ -8900,6 +9364,28 @@
       ],
       "acceptedVersions": [],
       "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/rubrik/company-logo.png",
+      "digest": "sha256:300685548224bcc78e1ff84bcdffe2e75894392e605b888ad8e0147f8ec1d5a6",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/rubrik-q2-fy27.json",
+          "recipeDigest": "sha256:c1b3cace99e12daf6b5607bcd51c4a2e0d447a08c0ad1b4ca3633fb0c5e1d772",
+          "source": "input/processed/rubrik-q2-fy27.png",
+          "cropKey": "rubrik-company-logo"
+        }
+      ],
+      "directConsumers": [
+        "rubrik-q2-fy27"
+      ],
+      "consumers": [
+        "rubrik-q2-fy27"
+      ],
+      "acceptedVersions": [
+        "sha256:6742d780b4eb59afe6b5fecb459bc0ca5078865509a00b277e39feae797e40b5"
+      ],
+      "reusable": true
     },
     {
       "path": "data/assets/raster-annotations/sandisk/company-wordmark.png",
@@ -9200,6 +9686,28 @@
       ],
       "acceptedVersions": [],
       "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/sentinelone/company-logo-q2-fy27.png",
+      "digest": "sha256:ebb7b20d88f9b09380bc709eb81a071f474adf51c1368edf5bc9eceb5257db5c",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/sentinelone-q2-fy27.json",
+          "recipeDigest": "sha256:cbd3fc888d5fb72654af4754625614587c3f8b8507b15e90100187c81b4fd7bf",
+          "source": "input/processed/sentinelone-q2-fy27.png",
+          "cropKey": "sentinelone-company-logo"
+        }
+      ],
+      "directConsumers": [
+        "sentinelone-q2-fy27"
+      ],
+      "consumers": [
+        "sentinelone-q2-fy27"
+      ],
+      "acceptedVersions": [
+        "sha256:fdcbf048fcad56f6a9c70b7650db203017b3335c4830a7a7282651422bad9e6a"
+      ],
+      "reusable": true
     },
     {
       "path": "data/assets/raster-annotations/sofi/company-wordmark-q4-fy25.png",
@@ -9839,11 +10347,13 @@
       ],
       "directConsumers": [
         "tripadvisor-q1-fy26",
+        "tripadvisor-q2-fy26",
         "tripadvisor-q3-fy25",
         "tripadvisor-q4-fy25"
       ],
       "consumers": [
         "tripadvisor-q1-fy26",
+        "tripadvisor-q2-fy26",
         "tripadvisor-q3-fy25",
         "tripadvisor-q4-fy25"
       ],
@@ -9863,11 +10373,13 @@
       ],
       "directConsumers": [
         "tripadvisor-q1-fy26",
+        "tripadvisor-q2-fy26",
         "tripadvisor-q3-fy25",
         "tripadvisor-q4-fy25"
       ],
       "consumers": [
         "tripadvisor-q1-fy26",
+        "tripadvisor-q2-fy26",
         "tripadvisor-q3-fy25",
         "tripadvisor-q4-fy25"
       ],
@@ -9887,11 +10399,13 @@
       ],
       "directConsumers": [
         "tripadvisor-q1-fy26",
+        "tripadvisor-q2-fy26",
         "tripadvisor-q3-fy25",
         "tripadvisor-q4-fy25"
       ],
       "consumers": [
         "tripadvisor-q1-fy26",
+        "tripadvisor-q2-fy26",
         "tripadvisor-q3-fy25",
         "tripadvisor-q4-fy25"
       ],
@@ -10089,6 +10603,94 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/warner-bros-q2-fy26/business-networks-cluster.png",
+      "digest": "sha256:f7f229cd48440443679c2a794c08b2277068047537179898f6d4a0014ccbecc0",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/warner-bros-q2-fy26.json",
+          "recipeDigest": "sha256:6c3a42f9c2a77c3fee88db5004d54b2bccbd4731318e90332b8bff78a5195fce",
+          "source": "input/processing/warner-bros-q2-fy26.png",
+          "cropKey": "business-networks-cluster"
+        }
+      ],
+      "directConsumers": [
+        "warner-bros-q2-fy26"
+      ],
+      "consumers": [
+        "warner-bros-q2-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:b7b98b85e441b3632cf2f91e16c911593cc4b02855a49b3d557a6b85c2fb5caa"
+      ],
+      "reusable": true
+    },
+    {
+      "path": "data/assets/raster-annotations/warner-bros-q2-fy26/business-streaming-cluster.png",
+      "digest": "sha256:5a8c9da63f9c2b3ae5c9ebcbfa7d30fb501831bbf94ddf667c5e077c1f1e1fdf",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/warner-bros-q2-fy26.json",
+          "recipeDigest": "sha256:6c3a42f9c2a77c3fee88db5004d54b2bccbd4731318e90332b8bff78a5195fce",
+          "source": "input/processing/warner-bros-q2-fy26.png",
+          "cropKey": "business-streaming-cluster"
+        }
+      ],
+      "directConsumers": [
+        "warner-bros-q2-fy26"
+      ],
+      "consumers": [
+        "warner-bros-q2-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:327bf9be756616dab93b45b4e93641675d59b35255fcb51d42ca1496c2e7b5a4"
+      ],
+      "reusable": true
+    },
+    {
+      "path": "data/assets/raster-annotations/warner-bros-q2-fy26/business-studios-cluster.png",
+      "digest": "sha256:011392313ad680ebb72b6adad2398728202298f44b0296117f11baa5f53dd61d",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/warner-bros-q2-fy26.json",
+          "recipeDigest": "sha256:6c3a42f9c2a77c3fee88db5004d54b2bccbd4731318e90332b8bff78a5195fce",
+          "source": "input/processing/warner-bros-q2-fy26.png",
+          "cropKey": "business-studios-cluster"
+        }
+      ],
+      "directConsumers": [
+        "warner-bros-q2-fy26"
+      ],
+      "consumers": [
+        "warner-bros-q2-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:4915eb31f33dfb1c4a64bd30552ba3bad96dd035222f9d986728164ea2b55231"
+      ],
+      "reusable": true
+    },
+    {
+      "path": "data/assets/raster-annotations/warner-bros-q2-fy26/company-wordmark.png",
+      "digest": "sha256:8aa2c9961fb8c84a52ebb411b190951de96e2fcda69a205e991c9b2c38c4c37b",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/warner-bros-q2-fy26.json",
+          "recipeDigest": "sha256:6c3a42f9c2a77c3fee88db5004d54b2bccbd4731318e90332b8bff78a5195fce",
+          "source": "input/processing/warner-bros-q2-fy26.png",
+          "cropKey": "company-wordmark"
+        }
+      ],
+      "directConsumers": [
+        "warner-bros-q2-fy26"
+      ],
+      "consumers": [
+        "warner-bros-q2-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:2beb98a0da62c5ee7ba57fd1c5907f7f8f07a8fa1e270a8c0a4b9cd54d9c8481"
+      ],
+      "reusable": true
+    },
+    {
       "path": "data/assets/raster-annotations/warner-bros/business-networks-cluster.png",
       "digest": "sha256:d091a9b5fd7282f710d7426506aac7187d4aaf3072d125c43d796228c9c24868",
       "provenance": [
@@ -10183,6 +10785,28 @@
       ],
       "acceptedVersions": [],
       "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/workday/company-logo-q2-fy27.png",
+      "digest": "sha256:b952d7909c7a06c794e09faf68f387ba9563555effba0d07b4f4b0c563253f57",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/workday-q2-fy27.json",
+          "recipeDigest": "sha256:8d30257646ac594613f9c3a02a0c0a0b545a7e008ca68e8ddadebc745fffe3ee",
+          "source": "input/processed/workday-q2-fy27.png",
+          "cropKey": "workday-company-logo"
+        }
+      ],
+      "directConsumers": [
+        "workday-q2-fy27"
+      ],
+      "consumers": [
+        "workday-q2-fy27"
+      ],
+      "acceptedVersions": [
+        "sha256:f820f79f537723d9de44b5813a00133332bee9d4a92a9a567bb0e1565cce291f"
+      ],
+      "reusable": true
     },
     {
       "path": "data/assets/raster-annotations/xiaomi/company-logo.png",
@@ -10441,6 +11065,11 @@
       "source": "input/processed/airbnb-q1-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/airbnb-q2-fy26.json",
+      "digest": "sha256:b5a628092174e8fd7d18787a51335ed21f5b8d8a4990a1ab97ec6a280dfc52c4",
+      "source": "input/processed/airbnb-q2-fy26.png"
+    },
+    {
       "path": "input/icon-crop-specs/airbus-fy25.json",
       "digest": "sha256:a020732242a6403d4578e3c51dab8471bc50e329b31ea7c29afe6dca63413f0f",
       "source": "input/processed/airbus-fy25.png"
@@ -10567,7 +11196,7 @@
     },
     {
       "path": "input/icon-crop-specs/axon-q4-fy25.json",
-      "digest": "sha256:cc36c30cd901cdaed2156ec396aac7857cf9fd0c670987b48577c8799d67058e",
+      "digest": "sha256:084fd23a8603dcb7c7d1a4fd327143819ef255c39439baedfd1f083753ea0df5",
       "source": "input/processed/axon-q4-fy25.png"
     },
     {
@@ -10609,6 +11238,11 @@
       "path": "input/icon-crop-specs/boeing-q4-fy25.json",
       "digest": "sha256:627d26ddc2645b2e4c111a967b100ebc5a035ad82b64865a0f999283ddf15ddd",
       "source": "input/processed/boeing-q4-fy25.png"
+    },
+    {
+      "path": "input/icon-crop-specs/booking-q2-fy26-reuse.json",
+      "digest": "sha256:26ce041f17158405bf9645a288655412d6f4f850c4345ecc317991c97e40ad72",
+      "source": "input/processed/booking-q4-fy25.png"
     },
     {
       "path": "input/icon-crop-specs/booking-q4-fy25.json",
@@ -10691,9 +11325,19 @@
       "source": "input/processing/circle-q2-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/cisco-q4-fy26.json",
+      "digest": "sha256:264f21b524b4d84a19662cd105317c052875cd722ac8171c9763f750a672e5b4",
+      "source": "input/processed/cisco-q4-fy26.png"
+    },
+    {
       "path": "input/icon-crop-specs/cloudflare-q1-fy26.json",
       "digest": "sha256:77ca64a45df4f8fea0fa51205f67ccee7b696bb3aa48cd623c38d441ed9f06ff",
       "source": "input/processed/cloudflare-q1-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/cloudflare-q2-fy26.json",
+      "digest": "sha256:0e1738643870e14c2592c782ee0337fd964ac5a4bf1c82b486cf48032ed64aa7",
+      "source": "input/processing/cloudflare-q2-fy26.png"
     },
     {
       "path": "input/icon-crop-specs/coca-cola-q1-fy26.json",
@@ -10769,6 +11413,16 @@
       "path": "input/icon-crop-specs/doordash-q4-fy25.json",
       "digest": "sha256:6b9eb7e21427f53629f338fddf5b2b314666e901df5d7f04a64034e7485d7491",
       "source": "input/processed/doordash-q4-fy25.png"
+    },
+    {
+      "path": "input/icon-crop-specs/draftkings-q2-fy26-cluster.json",
+      "digest": "sha256:8af8d23a9f002e1bae9a246989c22b961d89fb5062810425e5df7eeff5873bbe",
+      "source": "input/processing/draftkings-q2-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/draftkings-q2-fy26.json",
+      "digest": "sha256:6101aad91d55efd8f88a4af65d19c9e241d79f3a9ef5f704db2200025e66cb2e",
+      "source": "input/processing/draftkings-q2-fy26.png"
     },
     {
       "path": "input/icon-crop-specs/draftkings-q4-fy25.json",
@@ -11021,6 +11675,11 @@
       "source": "input/processed/marriott-q1-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/marriott-q2-fy26.json",
+      "digest": "sha256:7a7a59189c3c696ca2cbb1121760f4e444ebd069bd9182283f246473d9411896",
+      "source": "input/processed/marriott-q2-fy26.png"
+    },
+    {
       "path": "input/icon-crop-specs/marvell-q4-fy26.json",
       "digest": "sha256:7dbacc905657e7dabf31980be7de1b05f109ccdf27792d210ce3f7bd2aab9371",
       "source": "input/processed/marvell-q4-fy26.png"
@@ -11161,6 +11820,11 @@
       "source": "input/processed/nu-q4-fy25.png"
     },
     {
+      "path": "input/icon-crop-specs/nutanix-q4-fy26.json",
+      "digest": "sha256:1c43902618059c16f8ab56d876c10b9ace5bf65133cc2180f5db795d40da038f",
+      "source": "input/processed/nutanix-q4-fy26.png"
+    },
+    {
       "path": "input/icon-crop-specs/nyt-q1-fy26.json",
       "digest": "sha256:35586de31d09503e8157512a1a4fd489acf4e20ab0698d0b73bc73caa9ea214c",
       "source": "input/processed/nyt-q1-fy26.png"
@@ -11169,6 +11833,11 @@
       "path": "input/icon-crop-specs/okta-q1-fy27.json",
       "digest": "sha256:2186dcdc9455d82ff12f89b7a1b0080582a842655e9ff9a2ba081f6c342e3cc8",
       "source": "input/processed/okta-q1-fy27.png"
+    },
+    {
+      "path": "input/icon-crop-specs/okta-q2-fy27.json",
+      "digest": "sha256:fa454247db92d64cbbc145aac179b0a6bad45570cf7b4344d41a41f0e33720fa",
+      "source": "input/processing/okta-q2-fy27.png"
     },
     {
       "path": "input/icon-crop-specs/on-q1-fy26.json",
@@ -11209,6 +11878,11 @@
       "path": "input/icon-crop-specs/paycom-q1-fy26.json",
       "digest": "sha256:68100abc9a6fc6c87bc6ea76cc981d2f07d65b502fe815966bb4407c8a7eff57",
       "source": "input/processed/paycom-q1-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/paycom-q2-fy26.json",
+      "digest": "sha256:9e84e17b78991f15550908861d45736323f132bf749423425c95e14774ca7012",
+      "source": "input/processed/paycom-q2-fy26.png"
     },
     {
       "path": "input/icon-crop-specs/paypal-q1-fy26.json",
@@ -11286,6 +11960,11 @@
       "source": "input/processed/pfizer-q1-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/pfizer-q2-fy26.json",
+      "digest": "sha256:fa7c68c1fe0a1aa43c3301560dd506813b7078e0bc884791d299f9395f6b3993",
+      "source": "input/processed/pfizer-q2-fy26.png"
+    },
+    {
       "path": "input/icon-crop-specs/pfizer-q4-fy25.json",
       "digest": "sha256:ead1b3d75518f182cdabccafd93b324ff24d0d5b93fbf1d468713ddbee54b01f",
       "source": "input/processed/pfizer-q4-fy25.png"
@@ -11294,6 +11973,11 @@
       "path": "input/icon-crop-specs/pinterest-q1-fy26.json",
       "digest": "sha256:608d045b45845bb94413950de90b96afd6eb4f7be48534c6c7f28dd59788c965",
       "source": "input/processed/pinterest-q1-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/procore-q2-fy26.json",
+      "digest": "sha256:673b291d20e872487e2e16d636b92aa98bf27d9fd5600a64dbd2bec4e8765ba1",
+      "source": "input/processed/procore-q2-fy26.png"
     },
     {
       "path": "input/icon-crop-specs/procore-q4-fy25.json",
@@ -11341,6 +12025,11 @@
       "source": "input/processed/roku-q4-fy25.png"
     },
     {
+      "path": "input/icon-crop-specs/rubrik-q2-fy27.json",
+      "digest": "sha256:c1b3cace99e12daf6b5607bcd51c4a2e0d447a08c0ad1b4ca3633fb0c5e1d772",
+      "source": "input/processed/rubrik-q2-fy27.png"
+    },
+    {
       "path": "input/icon-crop-specs/salesforce-q4-fy26.json",
       "digest": "sha256:cb9a58f7313864200ac5b1c4e6a8917a57a83889c41a3cab067336257f2069a4",
       "source": "input/processed/salesforce-q4-fy26.png"
@@ -11374,6 +12063,11 @@
       "path": "input/icon-crop-specs/sea-q4-fy25.json",
       "digest": "sha256:1818b9bdb28d958d8bbd7a86249f9262815d1add57d196fd15d9c1500668cf37",
       "source": "input/processed/sea-q4-fy25.png"
+    },
+    {
+      "path": "input/icon-crop-specs/sentinelone-q2-fy27.json",
+      "digest": "sha256:cbd3fc888d5fb72654af4754625614587c3f8b8507b15e90100187c81b4fd7bf",
+      "source": "input/processed/sentinelone-q2-fy27.png"
     },
     {
       "path": "input/icon-crop-specs/servicenow-q1-fy26.json",
@@ -11456,6 +12150,11 @@
       "source": "input/processed/texas-instruments-q4-fy25.png"
     },
     {
+      "path": "input/icon-crop-specs/the-trade-desk-q2-fy26.json",
+      "digest": "sha256:c24fbe851cd11db3b7e5d71b3dea437dbd6f8f986f3f7060cd4c76fe376f9826",
+      "source": "input/processing/the-trade-desk-q2-fy26.png"
+    },
+    {
       "path": "input/icon-crop-specs/tilray-q2-fy26.json",
       "digest": "sha256:72382ebddbe7675664f42a1a8cfbed0f840f9cda9d3501a620dc374b7ad3f9ed",
       "source": "input/processed/tilray-q2-fy26.png"
@@ -11506,9 +12205,19 @@
       "source": "input/processed/warner-bros-q1-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/warner-bros-q2-fy26.json",
+      "digest": "sha256:6c3a42f9c2a77c3fee88db5004d54b2bccbd4731318e90332b8bff78a5195fce",
+      "source": "input/processing/warner-bros-q2-fy26.png"
+    },
+    {
       "path": "input/icon-crop-specs/workday-q1-fy27.json",
       "digest": "sha256:dcd11c7f82bfef9365cd5fae25161634a92ad41e4f9b9f41dab8042d14d1100c",
       "source": "input/processed/workday-q1-fy27.png"
+    },
+    {
+      "path": "input/icon-crop-specs/workday-q2-fy27.json",
+      "digest": "sha256:8d30257646ac594613f9c3a02a0c0a0b545a7e008ca68e8ddadebc745fffe3ee",
+      "source": "input/processed/workday-q2-fy27.png"
     },
     {
       "path": "input/icon-crop-specs/xiaomi-q4-fy25.json",

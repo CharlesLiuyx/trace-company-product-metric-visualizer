@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "DraftKings company-wordmark",
+  "artifact": {
+    "path": "data/assets/raster-annotations/draftkings-q2-fy26/company-wordmark.png",
+    "digest": "sha256:3b7c89c55b520e61ae58955fc6c2cfef22ab7ea4a3a1b4c52f2ca514d29c41c1"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/draftkings-q2-fy26.json",
+    "digest": "sha256:6101aad91d55efd8f88a4af65d19c9e241d79f3a9ef5f704db2200025e66cb2e"
+  },
+  "source": {
+    "path": "input/processing/draftkings-q2-fy26.png",
+    "digest": "sha256:2c8bdf19de18070a4f7b5db01bf23c5c2bab4e0fb393f1cc7e5848730384a099"
+  },
+  "review": {
+    "decision": "accepted",
+    "reviewer": "Codex visual inspection",
+    "artifactDigest": "sha256:3b7c89c55b520e61ae58955fc6c2cfef22ab7ea4a3a1b4c52f2ca514d29c41c1",
+    "note": "Compared exact runtime image to current native Source. Complete crown, wordmark or badge text; no title contamination or adjacent chart marks. Company logo additionally checked through generated validation sheet; two existing badges visually match and retain original runtime bytes."
+  },
+  "versionDigest": "sha256:0b572620fb38e5637dd22e75b024f6282b05562330a574243471d2d78d85fc8c"
+}

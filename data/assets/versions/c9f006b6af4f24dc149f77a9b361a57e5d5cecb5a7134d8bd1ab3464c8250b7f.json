@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Airbnb logo",
+  "artifact": {
+    "path": "data/assets/raster-annotations/airbnb/airbnb-q2-fy26-logo.png",
+    "digest": "sha256:b298eacc27440b15f9b88a0bff37e365e3c64847252cc71e86ef6da3deffa24f"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/airbnb-q2-fy26.json",
+    "digest": "sha256:b5a628092174e8fd7d18787a51335ed21f5b8d8a4990a1ab97ec6a280dfc52c4"
+  },
+  "source": {
+    "path": "input/processed/airbnb-q2-fy26.png",
+    "digest": "sha256:222631f20e4ee3c5486c2b6b73def9880d8bea858eabc9b71c548dc5206b4869"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:b298eacc27440b15f9b88a0bff37e365e3c64847252cc71e86ef6da3deffa24f",
+    "note": "Inspected full-source validation sheet and extracted crop. Icon is complete, centered, and free of labels, links, neighboring objects and publisher marks."
+  },
+  "versionDigest": "sha256:c9f006b6af4f24dc149f77a9b361a57e5d5cecb5a7134d8bd1ab3464c8250b7f"
+}

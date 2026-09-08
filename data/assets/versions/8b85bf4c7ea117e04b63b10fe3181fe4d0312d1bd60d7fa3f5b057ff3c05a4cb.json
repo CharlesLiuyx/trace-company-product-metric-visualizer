@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Pfizer Ibrance tight runtime crop",
+  "artifact": {
+    "path": "data/assets/raster-annotations/pfizer/oncology-ibrance-tight.png",
+    "digest": "sha256:521c6469f92727041ba396229501bb35f21388732e437e760bd0fea3ff8ac758"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/pfizer-q2-fy26.json",
+    "digest": "sha256:fa7c68c1fe0a1aa43c3301560dd506813b7078e0bc884791d299f9395f6b3993"
+  },
+  "source": {
+    "path": "input/processed/pfizer-q2-fy26.png",
+    "digest": "sha256:20dc35621a3d02e837fcc52ce81f29b16d39bfd65b4101aa5714186ee6382af2"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:521c6469f92727041ba396229501bb35f21388732e437e760bd0fea3ff8ac758",
+    "note": "Viewed the current Q2 Source crop validation sheet: complete IBRANCE/palbociclib mark, balanced small padding, no financial text or flow. Tight crop preserves the Source label position while avoiding a blank-margin collision in the I12 runtime rectangle."
+  },
+  "versionDigest": "sha256:8b85bf4c7ea117e04b63b10fe3181fe4d0312d1bd60d7fa3f5b057ff3c05a4cb"
+}

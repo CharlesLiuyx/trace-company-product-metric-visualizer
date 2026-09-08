@@ -50,6 +50,166 @@
       "digest": "sha256:d21834449c534b616b0d3b010e8facfd48bdaca1d9331921ab43a732cf82e77c",
       "updatedAt": "2026-09-05T10:22:42.699Z",
       "publishedDigest": "sha256:252481a792f1c1825c63e762fe6dc7e238903164139913c6755b02ab7e4f9009"
+    },
+    "data/datasets/airbnb-q2-fy26.js": {
+      "digest": "sha256:eda81a4f0e0d5ae2d5029805373dc48651b4da7eaf40395684d3e186f4601f17",
+      "updatedAt": "2026-09-07T20:41:32.981Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/amer-sports-q2-fy26.js": {
+      "digest": "sha256:4ebe6b1c6672c0d43cc613a6953adcb4af7856b3abb3eb7330f0e1b815fc32b4",
+      "updatedAt": "2026-09-07T20:28:04.072Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/applovin-q2-fy26.js": {
+      "digest": "sha256:60bd7572319cbf381c9b812df0a7d7867a41fea31fb95b740b2128cb3e3831fb",
+      "updatedAt": "2026-09-07T20:30:44.591Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/arista-q2-fy26.js": {
+      "digest": "sha256:200e2d32599ef4d33fc209933aac67c9f94ed7ac4269dfe04df3424fdffd4d7a",
+      "updatedAt": "2026-09-07T20:34:50.402Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/axon-q2-fy26.js": {
+      "digest": "sha256:6fb48d39d87e941654fe41e813f96d695e9414d02abb7f241bd2fb8037a87885",
+      "updatedAt": "2026-09-07T20:30:45.378Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/booking-q2-fy26.js": {
+      "digest": "sha256:704010ed97fe137c9ccb080775d83b3ed57f68b0cec2b0a2a2e3a3ffeff27da8",
+      "updatedAt": "2026-09-07T20:46:04.013Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/cisco-q4-fy26.js": {
+      "digest": "sha256:6a453bc5693af3e08208a44aef69431dbd3b65a4511587315e3c05b52e8a06b6",
+      "updatedAt": "2026-09-07T20:33:43.139Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/cloudflare-q2-fy26.js": {
+      "digest": "sha256:35b2e877725306aa138ce9fa131511a3e61b77efbbbd1ded7f7996f74044eb4a",
+      "updatedAt": "2026-09-07T20:28:26.202Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/datadog-q2-fy26.js": {
+      "digest": "sha256:3718a6249b5e463e6f4cd5a181fda5a5459344e2c701eab8f565351e4c540cd3",
+      "updatedAt": "2026-09-07T20:29:55.056Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/draftkings-q2-fy26.js": {
+      "digest": "sha256:72766ad238c9493676ab14168ee71a106c40fb171d9dd17b8bca8083f7c28249",
+      "updatedAt": "2026-09-07T20:28:24.367Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/dynatrace-q1-fy27.js": {
+      "digest": "sha256:8bd429ce90f92d12f6c604051477db586d9011cf3bf63a2f55825270ea4a0aa3",
+      "updatedAt": "2026-09-08T03:26:51.864Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/elastic-q1-fy27.js": {
+      "digest": "sha256:60f4cdb2692f71962bc0ff7dfd6faec053372f104dc946ae1d1a8ee7b52e1113",
+      "updatedAt": "2026-09-07T20:29:10.033Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/expedia-q2-fy26.js": {
+      "digest": "sha256:0e1984e3441b2cc70089261645b91c46e1d17311aa0fd2a2424ec43c2e45ee40",
+      "updatedAt": "2026-09-07T20:43:42.273Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/figma-q2-fy26.js": {
+      "digest": "sha256:2503902697288eebe0b0cd6e5b6af23cf685a0c7b2bcebc0992ac9ea53b9f74f",
+      "updatedAt": "2026-09-08T03:17:01.564Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/flutter-q2-fy26.js": {
+      "digest": "sha256:da89fd6fbdb6079da61f39432bf62d784a76ef3554f3e414ae39b22e8645378b",
+      "updatedAt": "2026-09-07T20:30:09.172Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/hims-hers-q2-fy26.js": {
+      "digest": "sha256:6f3e1f1ac07f5c1345c558aa28eb7322b854fed4aa330d6c0ab8ea7d51916382",
+      "updatedAt": "2026-09-07T20:27:56.088Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/hubspot-q2-fy26.js": {
+      "digest": "sha256:8b6b5081b90dbcac8dfd657e272a27362f5768b27a4b1d29bc2fb1bb3ed5ac00",
+      "updatedAt": "2026-09-07T20:29:39.160Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/marriott-q2-fy26.js": {
+      "digest": "sha256:adaf01006e4d45c663b288d201493090cb55af4d8a37ff25602e9810eeb36e93",
+      "updatedAt": "2026-09-07T20:34:18.490Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/nutanix-q4-fy26.js": {
+      "digest": "sha256:e281ccc2e5cc9206eebe88744bac35bd6c151ed5ca5a0ff4b5de276622931ff5",
+      "updatedAt": "2026-09-07T20:37:31.188Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/okta-q2-fy27.js": {
+      "digest": "sha256:06fdd555f538fe6412902bfa7fd9c6096f237b41f87c3d069c74a6b345a38b4e",
+      "updatedAt": "2026-09-07T20:30:49.709Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/on-q2-fy26.js": {
+      "digest": "sha256:ae19e61b2bb587da4bbd6838146faf7ba85adf7818e35029d23c8a5045254885",
+      "updatedAt": "2026-09-07T20:29:06.185Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/palantir-q2-fy26.js": {
+      "digest": "sha256:e7bfd3d21b921efc09bb0a103b18867e369df6ab365132b043bd66be453c8797",
+      "updatedAt": "2026-09-07T20:28:47.278Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/paramount-q2-fy26.js": {
+      "digest": "sha256:78fca197e62dc59332b893fe3535f2a1b34391e905af5e3acdd4eab2149b7e2d",
+      "updatedAt": "2026-09-07T20:30:16.758Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/paycom-q2-fy26.js": {
+      "digest": "sha256:efe12cfc65e5df123eb1a9eb25e528db0d43651a5f833508fd32d9dae91ffe71",
+      "updatedAt": "2026-09-07T20:30:45.053Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/pfizer-q2-fy26.js": {
+      "digest": "sha256:55da173eee0b1c678109af3789079ed8e23ff7e56ff4c12c7f36450276768b6b",
+      "updatedAt": "2026-09-07T20:38:01.553Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/procore-q2-fy26.js": {
+      "digest": "sha256:1978a47b6d2a0a713b8f7648d762ecdc628644d6c7ef41bbaebdff78605e9e3f",
+      "updatedAt": "2026-09-07T20:29:52.428Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/rubrik-q2-fy27.js": {
+      "digest": "sha256:175ba11cfe99f104f3a362131636e86c5a49016544fbbe234be4b1dd5a837a7d",
+      "updatedAt": "2026-09-07T20:41:41.149Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/sentinelone-q2-fy27.js": {
+      "digest": "sha256:cd816a9b36a3c01169bbbd934b94fc9322cb91547ef064e41530baf46701c6a7",
+      "updatedAt": "2026-09-07T20:34:40.959Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/the-trade-desk-q2-fy26.js": {
+      "digest": "sha256:da74b4acc927a7494ac610f8549d56dab1ed1236d257635323d073b99e544937",
+      "updatedAt": "2026-09-07T20:30:12.154Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/tripadvisor-q2-fy26.js": {
+      "digest": "sha256:fd8a54498523d65e17386016af80ceeaf9c900b6bdf82153c6bfd4d45a13e104",
+      "updatedAt": "2026-09-07T20:36:12.891Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/warner-bros-q2-fy26.js": {
+      "digest": "sha256:4c23fd1114c93480b47a4915061b2a9061f7a86bb76c7afb2fa8d14a8f394a91",
+      "updatedAt": "2026-09-07T20:30:08.696Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/workday-q2-fy27.js": {
+      "digest": "sha256:0fb3aa72fbfa7ec437ccd5dc767d826b3beb607725d01462502a22de35c293dc",
+      "updatedAt": "2026-09-07T20:28:24.781Z",
+      "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
     }
   }
 }

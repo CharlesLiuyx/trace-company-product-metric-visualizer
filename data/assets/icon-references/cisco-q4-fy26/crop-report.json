@@ -1,0 +1,117 @@
+{
+  "source": "input/processed/cisco-q4-fy26.png",
+  "spec": "input/icon-crop-specs/cisco-q4-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-09-07T20:44:11.755430+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "cisco-company-logo",
+      "output": "data/assets/icon-references/cisco-q4-fy26/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 3476,
+        "losslessBytes": 15542,
+        "savingsVsLossless": 0.7763,
+        "metrics": {
+          "meanAbsoluteError": 0.1788,
+          "rootMeanSquareError": 1.0674,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 31,
+          "changedPixelRatio": 0.2431
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 87938,
+        "transparentPixelRatio": 0.7637
+      },
+      "searchBox": {
+        "x": 930,
+        "y": 260,
+        "width": 470,
+        "height": 245
+      },
+      "componentCount": 14,
+      "subjectBox": {
+        "x0": 946,
+        "y0": 268,
+        "x1": 1385,
+        "y1": 500
+      },
+      "cropBox": {
+        "x0": 930,
+        "y0": 260,
+        "x1": 1400,
+        "y1": 505
+      },
+      "validation": {
+        "width": 470,
+        "height": 245,
+        "foregroundPixels": 25743,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 16,
+          "right": 15,
+          "top": 8,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0011,
+          "y": 0.0061
+        },
+        "passes": true
+      },
+      "note": "Complete Cisco bars and company wordmark; excludes financial labels and publisher marks.",
+      "validationSheet": "data/assets/icon-references/cisco-q4-fy26/validation-sheets/cisco-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 248290,
+        "losslessBytes": 248290,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

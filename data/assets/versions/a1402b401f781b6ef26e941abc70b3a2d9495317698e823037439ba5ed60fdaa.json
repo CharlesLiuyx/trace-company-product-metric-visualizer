@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Paramount company-wordmark",
+  "artifact": {
+    "path": "data/assets/raster-annotations/paramount/company-wordmark.png",
+    "digest": "sha256:dbf2601d27ffef23eca02f28e2dc9982e393125e46c2f9f418bcba3c585d9dc9"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/paramount-q1-fy26.json",
+    "digest": "sha256:d3d34de36362dded987e9417a2fa58af9e2558efa6128180b1fb723e1a921592"
+  },
+  "source": {
+    "path": "input/processed/paramount-q1-fy26.png",
+    "digest": "sha256:d80b941f74c7db9ea4d6a519c94cd152eb9c132b047aac4767313148b044677f"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:dbf2601d27ffef23eca02f28e2dc9982e393125e46c2f9f418bcba3c585d9dc9",
+    "note": "Inspected runtime PNG individually against full Q1 source and current Q2 source. Complete matching brands, intact negative space and centering; no adjacent financial labels, links or publisher watermark. Q2 reuses these same brand shapes at Source-measured positions."
+  },
+  "versionDigest": "sha256:a1402b401f781b6ef26e941abc70b3a2d9495317698e823037439ba5ed60fdaa"
+}

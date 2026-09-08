@@ -1,0 +1,44 @@
+{
+  "source": "input/processing/draftkings-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/draftkings-q2-fy26",
+  "runtimeOutputDir": "data/assets/raster-annotations/draftkings-q2-fy26",
+  "validationSheetDir": "data/assets/icon-references/draftkings-q2-fy26/validation-sheets",
+  "report": "crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "draftkings-q2-company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "runtimeOutput": "company-wordmark.png",
+      "searchBox": {
+        "x": 618,
+        "y": 233,
+        "width": 426,
+        "height": 221
+      },
+      "cropBox": {
+        "x": 618,
+        "y": 233,
+        "width": 426,
+        "height": 221
+      },
+      "threshold": 18,
+      "minComponentArea": 30,
+      "padding": 0,
+      "validation": {
+        "maxCenterOffset": 0.25,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Current source logo only; native bounds x624\u20131037 y239\u2013448. Excludes title and revenue label."
+    }
+  ]
+}

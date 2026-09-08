@@ -1,0 +1,39 @@
+{
+  "source": "input/processed/workday-q2-fy27.png",
+  "outputDir": "data/assets/icon-references/workday/q2-fy27",
+  "validationSheetDir": "data/assets/icon-references/workday/q2-fy27/validation-sheets",
+  "runtimeOutputDir": "data/assets/raster-annotations/workday",
+  "report": "crop-report.json",
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "workday-company-logo",
+      "output": "crops/company-logo.png",
+      "runtimeOutput": "company-logo-q2-fy27.png",
+      "cropBox": {
+        "x": 535,
+        "y": 233,
+        "width": 660,
+        "height": 259
+      },
+      "searchBox": {
+        "x": 535,
+        "y": 233,
+        "width": 660,
+        "height": 259
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "One Workday wordmark and orange arch; no financial text or publisher marks."
+    }
+  ]
+}

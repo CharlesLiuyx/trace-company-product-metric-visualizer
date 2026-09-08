@@ -1,0 +1,39 @@
+{
+  "source": "input/processed/rubrik-q2-fy27.png",
+  "outputDir": "data/assets/icon-references/rubrik",
+  "runtimeOutputDir": "data/assets/raster-annotations/rubrik",
+  "validationSheetDir": "data/assets/icon-references/rubrik/validation-sheets",
+  "report": "crop-report.json",
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "rubrik-company-logo",
+      "output": "crops/company-logo.png",
+      "runtimeOutput": "company-logo.png",
+      "searchBox": {
+        "x": 619,
+        "y": 284,
+        "width": 559,
+        "height": 162
+      },
+      "cropBox": {
+        "x": 611,
+        "y": 277,
+        "width": 575,
+        "height": 176
+      },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.08,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete Rubrik symbol and wordmark; no financial labels or publisher branding."
+    }
+  ]
+}

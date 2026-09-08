@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Marriott International company logo",
+  "artifact": {
+    "path": "data/assets/raster-annotations/marriott/q2-fy26-logo.png",
+    "digest": "sha256:59ec2e4c11989dcdd16042b356ca2b8f085d984f560d6a5ca490fe623f4e863e"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/marriott-q2-fy26.json",
+    "digest": "sha256:7a7a59189c3c696ca2cbb1121760f4e444ebd069bd9182283f246473d9411896"
+  },
+  "source": {
+    "path": "input/processed/marriott-q2-fy26.png",
+    "digest": "sha256:f4077b4bbe310fa0715547a05c26c99bc83a7d128e623bed9799c32b8e402b28"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:59ec2e4c11989dcdd16042b356ca2b8f085d984f560d6a5ca490fe623f4e863e",
+    "note": "Inspected native Source and extraction validation sheet: complete Marriott wordmark and INTERNATIONAL lettering, centered with margins, no adjacent financial text or publisher marks."
+  },
+  "versionDigest": "sha256:364eeea65f37669ff2d9b819e5680accbdf2274b49dab012a0343d3e005083be"
+}

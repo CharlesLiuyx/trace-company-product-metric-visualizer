@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Pfizer specialty-care-vyndaqel",
+  "artifact": {
+    "path": "data/assets/raster-annotations/pfizer/specialty-care-vyndaqel.png",
+    "digest": "sha256:91c75bea0f89a148008c47cb68b544c410daee9a1632c5f7e242f5aea23c7b6c"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/pfizer-q4-fy25.json",
+    "digest": "sha256:ead1b3d75518f182cdabccafd93b324ff24d0d5b93fbf1d468713ddbee54b01f"
+  },
+  "source": {
+    "path": "input/processed/pfizer-q4-fy25.png",
+    "digest": "sha256:c1d3ad8ac3c8c38d7667744e4531ed3373d5f937d2b0d88d7830c33f1db118cf"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:91c75bea0f89a148008c47cb68b544c410daee9a1632c5f7e242f5aea23c7b6c",
+    "note": "Viewed the original crop validation sheet and runtime PNG, then compared against the complete Q2 FY26 Source. Brand subject is complete with no financial label, link or publisher residue; matching wordmark structure and negative space. Reuse with Q2-specific placement."
+  },
+  "versionDigest": "sha256:4ab16c283252e30f21937711f10450b0ea6ddcbddb58c21762ce8111502fc14c"
+}

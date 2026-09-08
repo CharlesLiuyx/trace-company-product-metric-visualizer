@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "business-networks-cluster",
+  "artifact": {
+    "path": "data/assets/raster-annotations/warner-bros-q2-fy26/business-networks-cluster.png",
+    "digest": "sha256:f7f229cd48440443679c2a794c08b2277068047537179898f6d4a0014ccbecc0"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/warner-bros-q2-fy26.json",
+    "digest": "sha256:6c3a42f9c2a77c3fee88db5004d54b2bccbd4731318e90332b8bff78a5195fce"
+  },
+  "source": {
+    "path": "input/processing/warner-bros-q2-fy26.png",
+    "digest": "sha256:0eeb3d135d506db5fb565d0abff3b2c56081f272d59c08426372c45e51a628e5"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:f7f229cd48440443679c2a794c08b2277068047537179898f6d4a0014ccbecc0",
+    "note": "Inspected current PNG against full Q2 source: complete brand cluster, no chart labels, links or publisher marks, original placement retained."
+  },
+  "versionDigest": "sha256:b7b98b85e441b3632cf2f91e16c911593cc4b02855a49b3d557a6b85c2fb5caa"
+}

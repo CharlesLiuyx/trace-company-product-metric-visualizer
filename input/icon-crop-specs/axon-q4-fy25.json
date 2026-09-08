@@ -4,7 +4,11 @@
   "runtimeOutputDir": "data/assets/raster-annotations/axon",
   "validationSheetDir": "data/assets/icon-references/axon/validation-sheets",
   "report": "crop-report.json",
-  "background": [242, 242, 242],
+  "background": [
+    242,
+    242,
+    242
+  ],
   "backgroundRemoval": {
     "enabled": true,
     "mode": "edge-connected",
@@ -12,7 +16,16 @@
   },
   "compression": {
     "enabled": true,
-    "paletteColors": [256, 192, 128, 96, 64, 48, 32, 24],
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24
+    ],
     "maxMeanAbsoluteError": 1.2,
     "maxRootMeanSquareError": 3,
     "maxP99AbsoluteError": 12,
@@ -22,35 +35,80 @@
     {
       "key": "axon-business-personal-sensors-taser-cluster-q4-fy25",
       "output": "crops/business-personal-sensors-taser-cluster-q4-fy25.png",
-      "searchBox": { "x": 58, "y": 416, "width": 340, "height": 128 },
-      "cropBox": { "x": 58, "y": 416, "width": 340, "height": 128 },
+      "searchBox": {
+        "x": 58,
+        "y": 416,
+        "width": 340,
+        "height": 128
+      },
+      "cropBox": {
+        "x": 58,
+        "y": 416,
+        "width": 340,
+        "height": 128
+      },
       "threshold": 18,
       "minComponentArea": 20,
       "padding": 0,
-      "validation": { "borderBand": 0, "maxCenterOffset": 0.35, "maxForbiddenForegroundPixels": 0 },
-      "note": "TASER weapon, Axon bolt roundel, and TASER wordmark for the Personal Sensors revenue segment. Excludes its value/label, flow ribbon, Revenue hub, source branding, and other attribution."
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.35,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "TASER device, bolt roundel and wordmark for the top TASER revenue row; excludes Personal Sensors label and all financial flows.",
+      "runtimeOutput": "business-personal-sensors-taser-cluster-q4-fy25.png"
     },
     {
       "key": "axon-company-mark-q4-fy25",
       "output": "crops/company-mark-q4-fy25.png",
-      "searchBox": { "x": 1088, "y": 307, "width": 219, "height": 197 },
-      "cropBox": { "x": 1088, "y": 307, "width": 219, "height": 197 },
+      "searchBox": {
+        "x": 1088,
+        "y": 307,
+        "width": 219,
+        "height": 197
+      },
+      "cropBox": {
+        "x": 1088,
+        "y": 307,
+        "width": 219,
+        "height": 197
+      },
       "threshold": 18,
       "minComponentArea": 30,
       "padding": 0,
-      "validation": { "borderBand": 0, "maxCenterOffset": 0.18, "maxForbiddenForegroundPixels": 0 },
-      "note": "Black Axon company mark shown above the Revenue hub. Excludes Revenue labels, financial flows, the title, website URL, publisher marks, and attribution."
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.18,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Black Axon company mark shown above the Revenue hub. Excludes Revenue labels, financial flows, the title, website URL, publisher marks, and attribution.",
+      "runtimeOutput": "company-mark-q4-fy25.png"
     },
     {
       "key": "axon-business-platform-solutions-evidence-wordmark-q4-fy25",
       "output": "crops/business-platform-solutions-evidence-wordmark-q4-fy25.png",
-      "searchBox": { "x": 418, "y": 1021, "width": 351, "height": 31 },
-      "cropBox": { "x": 418, "y": 1021, "width": 351, "height": 31 },
+      "searchBox": {
+        "x": 418,
+        "y": 1021,
+        "width": 351,
+        "height": 31
+      },
+      "cropBox": {
+        "x": 418,
+        "y": 1021,
+        "width": 351,
+        "height": 31
+      },
       "threshold": 18,
       "minComponentArea": 10,
       "padding": 0,
-      "validation": { "borderBand": 0, "maxCenterOffset": 0.20, "maxForbiddenForegroundPixels": 0 },
-      "note": "Evidence.com wordmark for the Platform Solutions revenue segment. Excludes the segment label and value, Revenue flow, publisher marks, website URL, and attribution."
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Evidence.com wordmark above Software & Services; excludes the software label/value, Platform Solutions row, financial flows and publisher attribution.",
+      "runtimeOutput": "business-platform-solutions-evidence-wordmark-q4-fy25.png"
     }
   ]
 }

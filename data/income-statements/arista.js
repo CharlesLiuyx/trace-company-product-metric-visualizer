@@ -1226,3 +1226,250 @@
     }
   );
 })(window);
+
+window.INCOME_STATEMENT_SSOT.records.push({
+  "key": "arista-q2-fy26",
+  "company": "Arista",
+  "period": "Q2 FY26",
+  "periodNote": "",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 3,
+  "sourceImage": "input/processed/arista-q2-fy26.png",
+  "roundingTolerance": 0.12,
+  "revenue": {
+    "total": 3,
+    "notes": [
+      "+38% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "product",
+        "label": "Product",
+        "value": 2.6,
+        "notes": [
+          "+39% Y/Y",
+          "60% gross margin",
+          "(3pp) Y/Y"
+        ]
+      },
+      {
+        "id": "service",
+        "label": "Service",
+        "value": 0.4,
+        "notes": [
+          "+31% Y/Y",
+          "82% gross margin",
+          "(0pp) Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 1.1,
+      "items": [
+        {
+          "id": "product_cor",
+          "label": "Product",
+          "value": 1
+        },
+        {
+          "id": "service_cor",
+          "label": "Service",
+          "value": 0.1
+        }
+      ]
+    },
+    "operatingExpenses": {
+      "total": 0.5,
+      "items": [
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 0.3,
+          "notes": [
+            "11% of revenue",
+            "(2pp) Y/Y"
+          ]
+        },
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 0.2,
+          "notes": [
+            "5% of revenue",
+            "(1pp) Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 0.034,
+          "notes": [
+            "1% of revenue",
+            "(0pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.3
+    }
+  },
+  "otherIncome": {
+    "total": 0.1,
+    "items": [
+      {
+        "id": "other_income",
+        "label": "Other",
+        "value": 0.1
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 1.9,
+      "notes": [
+        "63% margin",
+        "(2pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 1.4,
+      "notes": [
+        "45% margin",
+        "+1pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 1.2,
+      "notes": [
+        "40% margin",
+        "(0pp) Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "periodNote": "",
+      "revenue": {
+        "notes": [
+          "同比 +38%"
+        ],
+        "items": [
+          {
+            "id": "product",
+            "label": "产品",
+            "notes": [
+              "同比 +39%",
+              "毛利率 60%",
+              "同比 (3 个百分点)"
+            ]
+          },
+          {
+            "id": "service",
+            "label": "服务",
+            "notes": [
+              "同比 +31%",
+              "毛利率 82%",
+              "同比 (0 个百分点)"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本",
+          "items": [
+            {
+              "id": "product_cor",
+              "label": "产品"
+            },
+            {
+              "id": "service_cor",
+              "label": "服务"
+            }
+          ]
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 11%",
+                "同比 (2 个百分点)"
+              ]
+            },
+            {
+              "id": "sm",
+              "label": "销售与市场",
+              "notes": [
+                "占收入 5%",
+                "同比 (1 个百分点)"
+              ]
+            },
+            {
+              "id": "ga",
+              "label": "一般及行政",
+              "notes": [
+                "占收入 1%",
+                "同比 (0 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "other_income",
+            "label": "其他收入"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 63%",
+            "同比 (2 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 45%",
+            "同比 +1 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 40%",
+            "同比 (0 个百分点)"
+          ]
+        }
+      }
+    }
+  }
+});

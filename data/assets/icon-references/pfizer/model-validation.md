@@ -35,3 +35,8 @@ All four generated validation sheets were visually reviewed. `pfizer-q1-fy26-cro
 
 - The How They Make Money mark, App Economy Insights URL, social badge, and publisher wordmark are attribution, not Pfizer income-statement semantics.
 - Hospital & Biosimilars and Business Innovation have no independent icon cluster.
+
+
+## Pfizer Q2 FY26
+
+Company, Primary Care and Specialty Care assets were visually compared with the current Source and their original validation sheets; accepted byte-bound reuse versions are recorded. Ibrance uses a new 214 × 82 crop from native [4,1040,214,82], with explicit background removal, to remove the historical runtime image's excess padding. The crop validation sheet was inspected: complete IBRANCE/palbociclib subject, no chart label/flow/watermark, compression and crop validation passed.

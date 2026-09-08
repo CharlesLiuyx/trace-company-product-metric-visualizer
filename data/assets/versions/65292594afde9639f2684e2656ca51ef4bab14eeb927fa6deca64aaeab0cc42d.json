@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Nutanix company wordmark",
+  "artifact": {
+    "path": "data/assets/raster-annotations/nutanix/q4-company-logo.png",
+    "digest": "sha256:72f16092610967caf5aa69e84ee5bd5b23ed6b49f982941ef2c2790190953b67"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/nutanix-q4-fy26.json",
+    "digest": "sha256:1c43902618059c16f8ab56d876c10b9ace5bf65133cc2180f5db795d40da038f"
+  },
+  "source": {
+    "path": "input/processed/nutanix-q4-fy26.png",
+    "digest": "sha256:c48bce0f1570f7ea7bcd8008f05fbf60d3dd1c4b6162136d2f6b1c42fd9b6da6"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:72f16092610967caf5aa69e84ee5bd5b23ed6b49f982941ef2c2790190953b67",
+    "note": "Inspected original-image crop-box validation sheet and native transparent output: complete NUTANIX lettering including the split X, centered, no title/flow/text contamination; one company logo owner."
+  },
+  "versionDigest": "sha256:65292594afde9639f2684e2656ca51ef4bab14eeb927fa6deca64aaeab0cc42d"
+}

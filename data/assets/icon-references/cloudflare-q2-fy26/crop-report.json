@@ -1,0 +1,214 @@
+{
+  "source": "input/processing/cloudflare-q2-fy26.png",
+  "spec": "input/icon-crop-specs/cloudflare-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-09-07T20:33:03.783531+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3,
+      "maxP99AbsoluteError": 12,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/cloudflare",
+  "crops": [
+    {
+      "key": "cloudflare-cloud-q2-fy26",
+      "output": "data/assets/icon-references/cloudflare-q2-fy26/crops/cloud-q2-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 6297,
+        "losslessBytes": 6297,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 11082,
+        "transparentPixelRatio": 0.3374
+      },
+      "searchBox": {
+        "x": 916,
+        "y": 211,
+        "width": 267,
+        "height": 123
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 917,
+        "y0": 211,
+        "x1": 1180,
+        "y1": 332
+      },
+      "cropBox": {
+        "x0": 916,
+        "y0": 211,
+        "x1": 1183,
+        "y1": 334
+      },
+      "validation": {
+        "width": 267,
+        "height": 123,
+        "foregroundPixels": 20148,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 1,
+          "right": 3,
+          "top": 0,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": -0.0037,
+          "y": -0.0081
+        },
+        "passes": true
+      },
+      "note": "Isolated cloud excluding the title, chart labels and neighboring content. Source title fragment at top-left is excluded in a 12\u00d718 rectangle entirely clear of the cloud.",
+      "excludedPixels": 216,
+      "runtimeOutput": "data/assets/raster-annotations/cloudflare/cloud-q2-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 6297,
+        "losslessBytes": 6297,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/cloudflare-q2-fy26/validation-sheets/cloudflare-cloud-q2-fy26.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 228276,
+        "losslessBytes": 228276,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "cloudflare-wordmark-q2-fy26",
+      "output": "data/assets/icon-references/cloudflare-q2-fy26/crops/wordmark-q2-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2139,
+        "losslessBytes": 9180,
+        "savingsVsLossless": 0.767,
+        "metrics": {
+          "meanAbsoluteError": 0.3582,
+          "rootMeanSquareError": 1.4343,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 16,
+          "changedPixelRatio": 0.1456
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 15905,
+        "transparentPixelRatio": 0.5539
+      },
+      "searchBox": {
+        "x": 635,
+        "y": 346,
+        "width": 563,
+        "height": 51
+      },
+      "componentCount": 11,
+      "subjectBox": {
+        "x0": 639,
+        "y0": 349,
+        "x1": 1192,
+        "y1": 395
+      },
+      "cropBox": {
+        "x0": 635,
+        "y0": 346,
+        "x1": 1198,
+        "y1": 397
+      },
+      "validation": {
+        "width": 563,
+        "height": 51,
+        "foregroundPixels": 11785,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 4,
+          "right": 6,
+          "top": 3,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": -0.0018,
+          "y": 0.0098
+        },
+        "passes": true
+      },
+      "note": "Isolated wordmark excluding the title, chart labels and neighboring content.",
+      "runtimeOutput": "data/assets/raster-annotations/cloudflare/wordmark-q2-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2139,
+        "losslessBytes": 9180,
+        "savingsVsLossless": 0.767,
+        "metrics": {
+          "meanAbsoluteError": 0.3582,
+          "rootMeanSquareError": 1.4343,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 16,
+          "changedPixelRatio": 0.1456
+        }
+      },
+      "validationSheet": "data/assets/icon-references/cloudflare-q2-fy26/validation-sheets/cloudflare-wordmark-q2-fy26.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 221616,
+        "losslessBytes": 221616,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

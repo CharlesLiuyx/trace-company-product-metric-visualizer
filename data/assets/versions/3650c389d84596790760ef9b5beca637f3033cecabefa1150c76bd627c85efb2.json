@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Okta company wordmark",
+  "artifact": {
+    "path": "data/assets/raster-annotations/okta/company-logo-wordmark-q2-fy27.png",
+    "digest": "sha256:4cf935ea9f60c807800a1bfb9180775633615fa55a7c2f5671c3efff80122cf1"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/okta-q2-fy27.json",
+    "digest": "sha256:fa454247db92d64cbbc145aac179b0a6bad45570cf7b4344d41a41f0e33720fa"
+  },
+  "source": {
+    "path": "input/processing/okta-q2-fy27.png",
+    "digest": "sha256:9a7483eb2061457f00c66a504a97cff728f9476918669886ac9f63e0a155bd9b"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:4cf935ea9f60c807800a1bfb9180775633615fa55a7c2f5671c3efff80122cf1",
+    "note": "Inspected full Source, crop and validation sheet: four complete letters with correct rounded geometry and negative space, centered 18px margins, no Revenue label or adjacent chart marks. Transparent background and compressed runtime preserve the Source wordmark."
+  },
+  "versionDigest": "sha256:3650c389d84596790760ef9b5beca637f3033cecabefa1150c76bd627c85efb2"
+}

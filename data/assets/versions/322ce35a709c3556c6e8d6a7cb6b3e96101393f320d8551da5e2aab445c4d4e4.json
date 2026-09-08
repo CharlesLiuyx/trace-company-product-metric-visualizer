@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Paramount business-tv-media-cluster",
+  "artifact": {
+    "path": "data/assets/raster-annotations/paramount/business-tv-media-cluster.png",
+    "digest": "sha256:37107853a55e5b853aee74c40d8b3f1f1c5bc06a13e2e2d337ad77d8ad2bfffe"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/paramount-q1-fy26.json",
+    "digest": "sha256:d3d34de36362dded987e9417a2fa58af9e2558efa6128180b1fb723e1a921592"
+  },
+  "source": {
+    "path": "input/processed/paramount-q1-fy26.png",
+    "digest": "sha256:d80b941f74c7db9ea4d6a519c94cd152eb9c132b047aac4767313148b044677f"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:37107853a55e5b853aee74c40d8b3f1f1c5bc06a13e2e2d337ad77d8ad2bfffe",
+    "note": "Inspected runtime PNG individually against full Q1 source and current Q2 source. Complete matching brands, intact negative space and centering; no adjacent financial labels, links or publisher watermark. Q2 reuses these same brand shapes at Source-measured positions."
+  },
+  "versionDigest": "sha256:322ce35a709c3556c6e8d6a7cb6b3e96101393f320d8551da5e2aab445c4d4e4"
+}

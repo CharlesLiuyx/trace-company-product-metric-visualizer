@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Pfizer oncology-ibrance",
+  "artifact": {
+    "path": "data/assets/raster-annotations/pfizer/oncology-ibrance.png",
+    "digest": "sha256:41fd8db46af3d1ffa4041f44199fac20a724666946a88e068f385e99ddec92bb"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/pfizer-q4-fy25.json",
+    "digest": "sha256:ead1b3d75518f182cdabccafd93b324ff24d0d5b93fbf1d468713ddbee54b01f"
+  },
+  "source": {
+    "path": "input/processed/pfizer-q4-fy25.png",
+    "digest": "sha256:c1d3ad8ac3c8c38d7667744e4531ed3373d5f937d2b0d88d7830c33f1db118cf"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:41fd8db46af3d1ffa4041f44199fac20a724666946a88e068f385e99ddec92bb",
+    "note": "Viewed the original crop validation sheet and runtime PNG, then compared against the complete Q2 FY26 Source. Brand subject is complete with no financial label, link or publisher residue; matching wordmark structure and negative space. Reuse with Q2-specific placement."
+  },
+  "versionDigest": "sha256:de61dad71def50c1fbede3d73fa0da41c8c3a8017cffdaa9c8a0884f66cfac75"
+}

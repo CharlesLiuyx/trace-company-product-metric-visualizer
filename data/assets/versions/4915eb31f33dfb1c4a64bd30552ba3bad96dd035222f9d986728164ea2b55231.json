@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "business-studios-cluster",
+  "artifact": {
+    "path": "data/assets/raster-annotations/warner-bros-q2-fy26/business-studios-cluster.png",
+    "digest": "sha256:011392313ad680ebb72b6adad2398728202298f44b0296117f11baa5f53dd61d"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/warner-bros-q2-fy26.json",
+    "digest": "sha256:6c3a42f9c2a77c3fee88db5004d54b2bccbd4731318e90332b8bff78a5195fce"
+  },
+  "source": {
+    "path": "input/processing/warner-bros-q2-fy26.png",
+    "digest": "sha256:0eeb3d135d506db5fb565d0abff3b2c56081f272d59c08426372c45e51a628e5"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:011392313ad680ebb72b6adad2398728202298f44b0296117f11baa5f53dd61d",
+    "note": "Inspected current PNG against full Q2 source: complete brand cluster, no chart labels, links or publisher marks, original placement retained."
+  },
+  "versionDigest": "sha256:4915eb31f33dfb1c4a64bd30552ba3bad96dd035222f9d986728164ea2b55231"
+}

@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Workday company logo",
+  "artifact": {
+    "path": "data/assets/raster-annotations/workday/company-logo-q2-fy27.png",
+    "digest": "sha256:b952d7909c7a06c794e09faf68f387ba9563555effba0d07b4f4b0c563253f57"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/workday-q2-fy27.json",
+    "digest": "sha256:8d30257646ac594613f9c3a02a0c0a0b545a7e008ca68e8ddadebc745fffe3ee"
+  },
+  "source": {
+    "path": "input/processed/workday-q2-fy27.png",
+    "digest": "sha256:45cbcd0dadc681f93d8304e770ec295bc103da76e1af185e3b374f96bc7b8fc1"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:b952d7909c7a06c794e09faf68f387ba9563555effba0d07b4f4b0c563253f57",
+    "note": "Inspected extracted logo against complete Source. Arch, all seven letters, registered mark and y descender are complete. Native placement preserved. No revenue text, title or publisher fragments. Crop validation passes; compressed runtime copy is distinct from reference storage."
+  },
+  "versionDigest": "sha256:f820f79f537723d9de44b5813a00133332bee9d4a92a9a567bb0e1565cce291f"
+}

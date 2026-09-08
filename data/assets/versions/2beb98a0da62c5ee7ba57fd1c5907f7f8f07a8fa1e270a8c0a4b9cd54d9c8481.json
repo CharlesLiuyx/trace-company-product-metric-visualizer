@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "company-wordmark",
+  "artifact": {
+    "path": "data/assets/raster-annotations/warner-bros-q2-fy26/company-wordmark.png",
+    "digest": "sha256:8aa2c9961fb8c84a52ebb411b190951de96e2fcda69a205e991c9b2c38c4c37b"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/warner-bros-q2-fy26.json",
+    "digest": "sha256:6c3a42f9c2a77c3fee88db5004d54b2bccbd4731318e90332b8bff78a5195fce"
+  },
+  "source": {
+    "path": "input/processing/warner-bros-q2-fy26.png",
+    "digest": "sha256:0eeb3d135d506db5fb565d0abff3b2c56081f272d59c08426372c45e51a628e5"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:8aa2c9961fb8c84a52ebb411b190951de96e2fcda69a205e991c9b2c38c4c37b",
+    "note": "Inspected current PNG against full Q2 source: complete brand cluster, no chart labels, links or publisher marks, original placement retained."
+  },
+  "versionDigest": "sha256:2beb98a0da62c5ee7ba57fd1c5907f7f8f07a8fa1e270a8c0a4b9cd54d9c8481"
+}

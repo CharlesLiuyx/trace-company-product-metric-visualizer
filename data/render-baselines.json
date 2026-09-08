@@ -6140,6 +6140,198 @@
       "mae": 4.834410865308503,
       "width": 2667,
       "height": 1500
+    },
+    "airbnb-q2-fy26": {
+      "similarity": 0.9719387318415263,
+      "mae": 7.155623380410782,
+      "width": 2667,
+      "height": 1500
+    },
+    "amer-sports-q2-fy26": {
+      "similarity": 0.9740551306903631,
+      "mae": 6.615941673957422,
+      "width": 2667,
+      "height": 1500
+    },
+    "applovin-q2-fy26": {
+      "similarity": 0.9802573256774276,
+      "mae": 5.034381952255968,
+      "width": 2667,
+      "height": 1500
+    },
+    "arista-q2-fy26": {
+      "similarity": 0.9796777285192292,
+      "mae": 5.18217922759655,
+      "width": 2667,
+      "height": 1500
+    },
+    "axon-q2-fy26": {
+      "similarity": 0.9742233305804094,
+      "mae": 6.573050701995584,
+      "width": 2667,
+      "height": 1500
+    },
+    "booking-q2-fy26": {
+      "similarity": 0.9790318785315234,
+      "mae": 5.346870974461526,
+      "width": 2667,
+      "height": 1500
+    },
+    "cisco-q4-fy26": {
+      "similarity": 0.9760467840212784,
+      "mae": 6.1080700745740115,
+      "width": 2667,
+      "height": 1500
+    },
+    "cloudflare-q2-fy26": {
+      "similarity": 0.9763688480116456,
+      "mae": 6.0259437570303716,
+      "width": 2667,
+      "height": 1500
+    },
+    "datadog-q2-fy26": {
+      "similarity": 0.977438963593603,
+      "mae": 5.753064283631213,
+      "width": 2667,
+      "height": 1500
+    },
+    "draftkings-q2-fy26": {
+      "similarity": 0.977267502673277,
+      "mae": 5.796786818314377,
+      "width": 2667,
+      "height": 1500
+    },
+    "dynatrace-q1-fy27": {
+      "similarity": 0.9762909737589991,
+      "mae": 6.045801691455234,
+      "width": 2667,
+      "height": 1500
+    },
+    "elastic-q1-fy27": {
+      "similarity": 0.9773120147563253,
+      "mae": 5.7854362371370245,
+      "width": 2667,
+      "height": 1500
+    },
+    "expedia-q2-fy26": {
+      "similarity": 0.9732405550613363,
+      "mae": 6.823658459359247,
+      "width": 2667,
+      "height": 1500
+    },
+    "figma-q2-fy26": {
+      "similarity": 0.979103059503183,
+      "mae": 5.328719826688331,
+      "width": 2667,
+      "height": 1500
+    },
+    "flutter-q2-fy26": {
+      "similarity": 0.9759457495917585,
+      "mae": 6.133833854101571,
+      "width": 2667,
+      "height": 1500
+    },
+    "hims-hers-q2-fy26": {
+      "similarity": 0.9692576228625016,
+      "mae": 7.839306170062075,
+      "width": 2667,
+      "height": 1500
+    },
+    "hubspot-q2-fy26": {
+      "similarity": 0.9744335379646172,
+      "mae": 6.519447819022623,
+      "width": 2667,
+      "height": 1500
+    },
+    "marriott-q2-fy26": {
+      "similarity": 0.9773906026452576,
+      "mae": 5.765396325459317,
+      "width": 2667,
+      "height": 1500
+    },
+    "nutanix-q4-fy26": {
+      "similarity": 0.9778901986924837,
+      "mae": 5.637999333416656,
+      "width": 2667,
+      "height": 1500
+    },
+    "okta-q2-fy27": {
+      "similarity": 0.9731294790765533,
+      "mae": 6.851982835478898,
+      "width": 2667,
+      "height": 1500
+    },
+    "on-q2-fy26": {
+      "similarity": 0.9785446195042613,
+      "mae": 5.471122026413365,
+      "width": 2667,
+      "height": 1500
+    },
+    "palantir-q2-fy26": {
+      "similarity": 0.9713557851020257,
+      "mae": 7.30427479898346,
+      "width": 2667,
+      "height": 1500
+    },
+    "paramount-q2-fy26": {
+      "similarity": 0.9647322045528622,
+      "mae": 8.993287839020123,
+      "width": 2667,
+      "height": 1500
+    },
+    "paycom-q2-fy26": {
+      "similarity": 0.9787758863475399,
+      "mae": 5.412148981377328,
+      "width": 2667,
+      "height": 1500
+    },
+    "pfizer-q2-fy26": {
+      "similarity": 0.9755174426726071,
+      "mae": 6.243052118485189,
+      "width": 2667,
+      "height": 1500
+    },
+    "procore-q2-fy26": {
+      "similarity": 0.9770484218884404,
+      "mae": 5.852652418447694,
+      "width": 2667,
+      "height": 1500
+    },
+    "rubrik-q2-fy27": {
+      "similarity": 0.9817176094818213,
+      "mae": 4.662009582135567,
+      "width": 2667,
+      "height": 1500
+    },
+    "sentinelone-q2-fy27": {
+      "similarity": 0.9800184405053943,
+      "mae": 5.095297671124443,
+      "width": 2667,
+      "height": 1500
+    },
+    "the-trade-desk-q2-fy26": {
+      "similarity": 0.9790271823865154,
+      "mae": 5.34806849143857,
+      "width": 2667,
+      "height": 1500
+    },
+    "tripadvisor-q2-fy26": {
+      "similarity": 0.9648009557628826,
+      "mae": 8.975756280464942,
+      "width": 2667,
+      "height": 1500
+    },
+    "warner-bros-q2-fy26": {
+      "similarity": 0.9739911426104416,
+      "mae": 6.632258634337375,
+      "width": 2667,
+      "height": 1500
+    },
+    "workday-q2-fy27": {
+      "similarity": 0.9657116683943918,
+      "mae": 8.743524559430071,
+      "width": 2667,
+      "height": 1500
     }
   }
 }

@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-09-05T10:22:42.699Z",
+  "generatedAt": "2026-09-08T03:26:51.864Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -6143,6 +6143,198 @@
       "path": "data/datasets/zoom-q2-fy27.js",
       "updatedAtMs": 1788603762699,
       "updatedAt": "2026-09-05T10:22:42.699Z",
+      "timeSource": "publication"
+    },
+    "airbnb-q2-fy26": {
+      "path": "data/datasets/airbnb-q2-fy26.js",
+      "updatedAtMs": 1788813692981,
+      "updatedAt": "2026-09-07T20:41:32.981Z",
+      "timeSource": "publication"
+    },
+    "amer-sports-q2-fy26": {
+      "path": "data/datasets/amer-sports-q2-fy26.js",
+      "updatedAtMs": 1788812884072,
+      "updatedAt": "2026-09-07T20:28:04.072Z",
+      "timeSource": "publication"
+    },
+    "applovin-q2-fy26": {
+      "path": "data/datasets/applovin-q2-fy26.js",
+      "updatedAtMs": 1788813044591,
+      "updatedAt": "2026-09-07T20:30:44.591Z",
+      "timeSource": "publication"
+    },
+    "arista-q2-fy26": {
+      "path": "data/datasets/arista-q2-fy26.js",
+      "updatedAtMs": 1788813290402,
+      "updatedAt": "2026-09-07T20:34:50.402Z",
+      "timeSource": "publication"
+    },
+    "axon-q2-fy26": {
+      "path": "data/datasets/axon-q2-fy26.js",
+      "updatedAtMs": 1788813045378,
+      "updatedAt": "2026-09-07T20:30:45.378Z",
+      "timeSource": "publication"
+    },
+    "booking-q2-fy26": {
+      "path": "data/datasets/booking-q2-fy26.js",
+      "updatedAtMs": 1788813964013,
+      "updatedAt": "2026-09-07T20:46:04.013Z",
+      "timeSource": "publication"
+    },
+    "cisco-q4-fy26": {
+      "path": "data/datasets/cisco-q4-fy26.js",
+      "updatedAtMs": 1788813223139,
+      "updatedAt": "2026-09-07T20:33:43.139Z",
+      "timeSource": "publication"
+    },
+    "cloudflare-q2-fy26": {
+      "path": "data/datasets/cloudflare-q2-fy26.js",
+      "updatedAtMs": 1788812906202,
+      "updatedAt": "2026-09-07T20:28:26.202Z",
+      "timeSource": "publication"
+    },
+    "datadog-q2-fy26": {
+      "path": "data/datasets/datadog-q2-fy26.js",
+      "updatedAtMs": 1788812995056,
+      "updatedAt": "2026-09-07T20:29:55.056Z",
+      "timeSource": "publication"
+    },
+    "draftkings-q2-fy26": {
+      "path": "data/datasets/draftkings-q2-fy26.js",
+      "updatedAtMs": 1788812904367,
+      "updatedAt": "2026-09-07T20:28:24.367Z",
+      "timeSource": "publication"
+    },
+    "dynatrace-q1-fy27": {
+      "path": "data/datasets/dynatrace-q1-fy27.js",
+      "updatedAtMs": 1788838011864,
+      "updatedAt": "2026-09-08T03:26:51.864Z",
+      "timeSource": "publication"
+    },
+    "elastic-q1-fy27": {
+      "path": "data/datasets/elastic-q1-fy27.js",
+      "updatedAtMs": 1788812950033,
+      "updatedAt": "2026-09-07T20:29:10.033Z",
+      "timeSource": "publication"
+    },
+    "expedia-q2-fy26": {
+      "path": "data/datasets/expedia-q2-fy26.js",
+      "updatedAtMs": 1788813822273,
+      "updatedAt": "2026-09-07T20:43:42.273Z",
+      "timeSource": "publication"
+    },
+    "figma-q2-fy26": {
+      "path": "data/datasets/figma-q2-fy26.js",
+      "updatedAtMs": 1788837421564,
+      "updatedAt": "2026-09-08T03:17:01.564Z",
+      "timeSource": "publication"
+    },
+    "flutter-q2-fy26": {
+      "path": "data/datasets/flutter-q2-fy26.js",
+      "updatedAtMs": 1788813009172,
+      "updatedAt": "2026-09-07T20:30:09.172Z",
+      "timeSource": "publication"
+    },
+    "hims-hers-q2-fy26": {
+      "path": "data/datasets/hims-hers-q2-fy26.js",
+      "updatedAtMs": 1788812876088,
+      "updatedAt": "2026-09-07T20:27:56.088Z",
+      "timeSource": "publication"
+    },
+    "hubspot-q2-fy26": {
+      "path": "data/datasets/hubspot-q2-fy26.js",
+      "updatedAtMs": 1788812979160,
+      "updatedAt": "2026-09-07T20:29:39.160Z",
+      "timeSource": "publication"
+    },
+    "marriott-q2-fy26": {
+      "path": "data/datasets/marriott-q2-fy26.js",
+      "updatedAtMs": 1788813258490,
+      "updatedAt": "2026-09-07T20:34:18.490Z",
+      "timeSource": "publication"
+    },
+    "nutanix-q4-fy26": {
+      "path": "data/datasets/nutanix-q4-fy26.js",
+      "updatedAtMs": 1788813451188,
+      "updatedAt": "2026-09-07T20:37:31.188Z",
+      "timeSource": "publication"
+    },
+    "okta-q2-fy27": {
+      "path": "data/datasets/okta-q2-fy27.js",
+      "updatedAtMs": 1788813049709,
+      "updatedAt": "2026-09-07T20:30:49.709Z",
+      "timeSource": "publication"
+    },
+    "on-q2-fy26": {
+      "path": "data/datasets/on-q2-fy26.js",
+      "updatedAtMs": 1788812946185,
+      "updatedAt": "2026-09-07T20:29:06.185Z",
+      "timeSource": "publication"
+    },
+    "palantir-q2-fy26": {
+      "path": "data/datasets/palantir-q2-fy26.js",
+      "updatedAtMs": 1788812927278,
+      "updatedAt": "2026-09-07T20:28:47.278Z",
+      "timeSource": "publication"
+    },
+    "paramount-q2-fy26": {
+      "path": "data/datasets/paramount-q2-fy26.js",
+      "updatedAtMs": 1788813016758,
+      "updatedAt": "2026-09-07T20:30:16.758Z",
+      "timeSource": "publication"
+    },
+    "paycom-q2-fy26": {
+      "path": "data/datasets/paycom-q2-fy26.js",
+      "updatedAtMs": 1788813045053,
+      "updatedAt": "2026-09-07T20:30:45.053Z",
+      "timeSource": "publication"
+    },
+    "pfizer-q2-fy26": {
+      "path": "data/datasets/pfizer-q2-fy26.js",
+      "updatedAtMs": 1788813481553,
+      "updatedAt": "2026-09-07T20:38:01.553Z",
+      "timeSource": "publication"
+    },
+    "procore-q2-fy26": {
+      "path": "data/datasets/procore-q2-fy26.js",
+      "updatedAtMs": 1788812992428,
+      "updatedAt": "2026-09-07T20:29:52.428Z",
+      "timeSource": "publication"
+    },
+    "rubrik-q2-fy27": {
+      "path": "data/datasets/rubrik-q2-fy27.js",
+      "updatedAtMs": 1788813701149,
+      "updatedAt": "2026-09-07T20:41:41.149Z",
+      "timeSource": "publication"
+    },
+    "sentinelone-q2-fy27": {
+      "path": "data/datasets/sentinelone-q2-fy27.js",
+      "updatedAtMs": 1788813280959,
+      "updatedAt": "2026-09-07T20:34:40.959Z",
+      "timeSource": "publication"
+    },
+    "the-trade-desk-q2-fy26": {
+      "path": "data/datasets/the-trade-desk-q2-fy26.js",
+      "updatedAtMs": 1788813012154,
+      "updatedAt": "2026-09-07T20:30:12.154Z",
+      "timeSource": "publication"
+    },
+    "tripadvisor-q2-fy26": {
+      "path": "data/datasets/tripadvisor-q2-fy26.js",
+      "updatedAtMs": 1788813372891,
+      "updatedAt": "2026-09-07T20:36:12.891Z",
+      "timeSource": "publication"
+    },
+    "warner-bros-q2-fy26": {
+      "path": "data/datasets/warner-bros-q2-fy26.js",
+      "updatedAtMs": 1788813008696,
+      "updatedAt": "2026-09-07T20:30:08.696Z",
+      "timeSource": "publication"
+    },
+    "workday-q2-fy27": {
+      "path": "data/datasets/workday-q2-fy27.js",
+      "updatedAtMs": 1788812904781,
+      "updatedAt": "2026-09-07T20:28:24.781Z",
       "timeSource": "publication"
     },
     "data/revenue-metrics.js": {

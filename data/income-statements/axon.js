@@ -313,3 +313,290 @@
     }
   );
 })(window);
+
+/* Source: input/processed/axon-q2-fy26.png */
+window.INCOME_STATEMENT_SSOT.records.push({
+  "key": "axon-q2-fy26",
+  "company": "Axon",
+  "period": "Q2 FY26",
+  "periodNote": "Ending Jun. 2026",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/axon-q2-fy26.png",
+  "roundingTolerance": 1.1,
+  "revenue": {
+    "total": 904,
+    "notes": [
+      "+35% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "connected_devices",
+        "label": "Connected Devices",
+        "value": 507,
+        "notes": [
+          "+35% Y/Y"
+        ],
+        "children": [
+          {
+            "id": "taser",
+            "label": "TASER",
+            "value": 261,
+            "notes": [
+              "+21% Y/Y"
+            ]
+          },
+          {
+            "id": "personal_sensors",
+            "label": "Personal Sensors",
+            "value": 95,
+            "notes": [
+              "+3% Y/Y"
+            ]
+          },
+          {
+            "id": "platform_solutions",
+            "label": "Plateform Solutions",
+            "value": 150,
+            "notes": [
+              "+123% Y/Y"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "software_services",
+        "label": "Software & Services",
+        "value": 398,
+        "notes": [
+          "+36% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 358,
+      "items": [
+        {
+          "id": "products",
+          "label": "Products",
+          "value": 244,
+          "notes": [
+            "52% gross margin"
+          ]
+        },
+        {
+          "id": "services",
+          "label": "Services",
+          "value": 114,
+          "notes": [
+            "71% gross margin"
+          ]
+        }
+      ]
+    },
+    "operatingExpenses": {
+      "total": 500,
+      "items": [
+        {
+          "id": "sga",
+          "label": "SG&A",
+          "value": 291,
+          "notes": [
+            "32% of revenue",
+            "(4pp) Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 209,
+          "notes": [
+            "23% of revenue",
+            "(1pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 3
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 14,
+    "items": [
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 14
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 546,
+      "notes": [
+        "60% margin",
+        "+0pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 47,
+      "notes": [
+        "5% margin",
+        "+5pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 29,
+      "notes": [
+        "3% margin",
+        "+3pp Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "periodNote": "截至 2026 年 6 月",
+      "revenue": {
+        "notes": [
+          "同比 +35%"
+        ],
+        "items": [
+          {
+            "id": "connected_devices",
+            "label": "联网设备",
+            "notes": [
+              "同比 +35%"
+            ],
+            "children": [
+              {
+                "id": "taser",
+                "label": "TASER",
+                "notes": [
+                  "同比 +21%"
+                ]
+              },
+              {
+                "id": "personal_sensors",
+                "label": "个人传感器",
+                "notes": [
+                  "同比 +3%"
+                ]
+              },
+              {
+                "id": "platform_solutions",
+                "label": "平台解决方案",
+                "notes": [
+                  "同比 +123%"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "software_services",
+            "label": "软件与服务",
+            "notes": [
+              "同比 +36%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本",
+          "items": [
+            {
+              "id": "products",
+              "label": "产品",
+              "notes": [
+                "毛利率 52%"
+              ]
+            },
+            {
+              "id": "services",
+              "label": "服务",
+              "notes": [
+                "毛利率 71%"
+              ]
+            }
+          ]
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sga",
+              "label": "销售、一般及行政费用",
+              "notes": [
+                "占收入 32%",
+                "同比 (4 个百分点)"
+              ]
+            },
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 23%",
+                "同比 (1 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": []
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 60%",
+            "同比 +0 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 5%",
+            "同比 +5 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 3%",
+            "同比 +3 个百分点"
+          ]
+        }
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other",
+            "label": "其他"
+          }
+        ]
+      }
+    }
+  }
+});

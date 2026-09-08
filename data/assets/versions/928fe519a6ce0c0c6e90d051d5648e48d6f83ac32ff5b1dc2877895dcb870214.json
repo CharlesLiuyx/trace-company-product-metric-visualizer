@@ -1,0 +1,24 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Paycom company mark and wordmark",
+  "artifact": {
+    "path": "data/assets/raster-annotations/paycom-q2-fy26/company-logo.png",
+    "digest": "sha256:0e103491ed51955913a8c31c4b8a458fc03b26798245dbb5a82342f81d3ec23e"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/paycom-q2-fy26.json",
+    "digest": "sha256:9e84e17b78991f15550908861d45736323f132bf749423425c95e14774ca7012"
+  },
+  "source": {
+    "path": "input/processed/paycom-q2-fy26.png",
+    "digest": "sha256:ec75061ee7a4a1f3c1cd8b820ec7f5d1a39916060636a73a1fef05358a35cc21"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:0e103491ed51955913a8c31c4b8a458fc03b26798245dbb5a82342f81d3ec23e",
+    "note": "Inspected full Source and crop validation sheet; complete mark, wordmark and registration symbol, clear margins, no chart or publisher content. Lossless PNG compression preserves the smooth gradient without palette banding.",
+    "reviewedAt": "2026-09-07T20:36:54.698Z"
+  },
+  "versionDigest": "sha256:928fe519a6ce0c0c6e90d051d5648e48d6f83ac32ff5b1dc2877895dcb870214"
+}

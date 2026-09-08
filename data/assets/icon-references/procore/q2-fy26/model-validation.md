@@ -1,0 +1,1 @@
+Model inspected current Source crop validation sheet at native boundaries: complete PROCORE wordmark and orange inset, centered with margins, no labels/links/publisher residue. Transparent background 51.13%; 32-color compressed PNG preserves shape.
