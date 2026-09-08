@@ -35,6 +35,23 @@ Turn metric assets (PNG images or UTF-8 text) into complete, auditable data
 and usable system views. Use `docs/asset-workflow.md` for new inputs. Income
 Statement inputs retain the complete d3-sankey fidelity loop.
 
+## Execution Scope
+
+Apply the dataset intake, review, publication and Source-archive procedures
+when processing dataset contributions or operating on Builds. For code,
+documentation and review-only tasks, use the relevant owning documents and
+ChangeImpact checks; editing workflow documentation alone does not require
+creating a Build or obtaining dataset acceptance. Changes that affect existing
+Build inputs still follow their freshness and re-review rules.
+
+In the dataset workflow, `STOP` blocks advancement past the failed gate.
+Continue diagnosis, authorized repairs and the necessary re-verification in
+the owning workspace. If progress needs an operator decision, permission or
+conflict resolution that cannot be inferred safely, pause only the dependent
+steps and complete independent work. Source corrections, human acceptance,
+freshness checks and other Sessions' ownership remain governed by their owning
+documents; a failed check never authorizes bypassing them.
+
 ## Architecture Boundaries
 
 Load `CONTEXT.md` and `docs/architecture/README.md` before changing the dataset
@@ -164,10 +181,14 @@ exact-candidate reuse boundary is in `docs/local-environments.md`.
 
 ## Workflow
 
-After all local processing, verification and required delivery are complete, stop the
-workbench and run `pnpm clean:artifacts -- --completed`. Keep only compact historical
-meta in output/compare; an existing operator completion confirmation is sufficient.
-Read `docs/artifact-retention.md` for retention, pointer reset and audit limits.
+Before stopping the shared workbench or running global cleanup, read
+`docs/artifact-retention.md`. Run `pnpm clean:artifacts -- --completed` only
+after all affected local processing, verification and required delivery are
+complete, the operator's completion confirmation covers that scope, and no
+other Session is using the shared workbench or artifact directories. Reuse an
+existing confirmation for that same scope. Keep only compact historical meta
+in output/compare. If another Session still needs these resources, deliver the
+current task's result and report global cleanup as deferred.
 
 New Sources use `record:workflow start` and `continue` in isolated Build
 workspaces. Read `docs/asset-workflow.md` before processing any new asset.
@@ -180,9 +201,10 @@ retain their actual protocol and review history.
 
 `docs/dynamic-dataset-workflow.md` owns the current nine-step pipeline, Type
 Gate, Source Coverage, execution/delegation, traps, final checklist, and
-reporting. Load it before pending work and before the final response. M0–M5
-implementation status remains owned by `docs/architecture/README.md`; never present
-target state as current. Five-phase summary:
+reporting. Load it before processing pending Sources and before the final
+response for dataset-processing work. M0–M5 implementation status remains
+owned by `docs/architecture/README.md`; never present target state as current.
+Five-phase summary:
 
 1. Guard, classify, intake — inspect the complete Source and pass the
    signal-based Adapter Type Gate before `record:intake`; ambiguous or
@@ -205,8 +227,12 @@ target state as current. Five-phase summary:
    then `stage-baseline` and `seal`.
 5. Close out — only an explicit operator review-completion signal relocates
    confirmed Sources to `input/processed/` (owning rule:
-   `docs/dynamic-dataset-workflow.md` §Operator Review-Completion Signal);
-   the confirmed move is committed as a removal from the tracked processing
+   `docs/dynamic-dataset-workflow.md` §Operator Review-Completion Signal).
+   Present the complete selected Source list before requesting completion
+   confirmation, so one explicit reply can confirm both completion and that
+   list. If the list was not presented or has changed, obtain its explicit
+   confirmation before moving anything; retries retain the confirmed scope.
+   The confirmed move is committed as a removal from the tracked processing
    queue while the ignored processed PNG stays machine-local;
    `verify:closeout` is the read-only audit per that document's close-out
    requirement policy; finish with `pnpm check` and commit per
@@ -274,10 +300,15 @@ registrations or Git from a draft. Refresh historical drafts before resuming.
 Successful `prepare` advertises the draft. New Session Build review requires
 the displayed candidate `previewId` and that Build's current reviewToken from
 `displayed.members` in workbench details. Individual Build/transport inspection
-remains under More and `?source=...`; it is not the default operator workflow. After explicit approval,
-complete review, seal and Publication without another publication question.
-Use `release:git` for the reviewed integration candidate and exact-path commit;
-only push on the operator’s explicit push instruction. Archive only the confirmed
-selected Source list. Verify the actual file entry before reporting completion.
+remains under More and `?source=...`; it is not the default operator workflow.
+After explicit Build acceptance, complete review, seal and local Publication
+without another publication question. Git transport separately requires
+explicit human acceptance of its displayed integration candidate: prepare and
+check that candidate before requesting approval, then use `release:git` for
+the exact-path commit. Reuse an existing acceptance only when its required
+candidate and plan bindings remain valid; Build acceptance alone is not
+transport acceptance. Only push on the operator's explicit push instruction.
+Archive only the confirmed selected Source list. Verify the actual file entry
+before reporting dataset delivery complete.
 Machine-local selection is UI preference, never evidence or canonical authority.
 Details and recovery: `docs/local-environments.md` and `docs/asset-workflow.md`.

@@ -44,6 +44,19 @@ agent 指令以英文版 `AGENTS.md` 为准。
 把图片或 UTF-8 文字中的指标完整数据化并纳入系统。新输入以
 `docs/asset-workflow.md` 为入口；损益表保留完整的 d3-sankey 保真循环。
 
+## 执行范围
+
+处理数据集贡献或操作 Build 时，执行数据接收、审阅、发布和 Source 归档流程。
+代码、文档及纯审阅任务按对应属主文档和 ChangeImpact 要求检查；仅修改工作流
+文档不要求创建 Build 或取得数据集人工接受。改动若影响既有 Build 的输入，
+仍须遵守其新鲜度和重新审阅规则。
+
+数据集工作流中的 `STOP` 表示禁止越过失败的门禁。执行者继续在所属工作区
+诊断、进行已授权修复，并执行必要的重新验证。确需操作员决定、权限或无法安全
+推断的冲突处理时，只暂停依赖这些条件的步骤，完成独立工作。Source 纠正、
+人工接受、新鲜度检查及其他 Session 的所有权仍由各自属主文档约束；检查失败
+不构成绕过这些要求的授权。
+
 ## 架构边界
 
 修改数据集生命周期、verifier 编排、生成的注册/metadata、baseline、standalone
@@ -154,9 +167,9 @@ main push 从最近成功的 CI 祖先开始计算检查范围；未知或缺失
 ## 工作流
 
 `docs/dynamic-dataset-workflow.md` 拥有当前 9 步流水线、分型门、Source
-Coverage、执行/分派、陷阱、最终检查与汇报。处理 pending 工作及最终回复前都要
-加载它。M0–M5 目标迁移仍由 `docs/architecture/README.md` 拥有——不得把目标
-状态说成当前状态。五阶段摘要:
+Coverage、执行/分派、陷阱、最终检查与汇报。处理 pending Source 前，以及数据集
+处理任务的最终回复前，都要加载它。M0–M5 目标迁移仍由
+`docs/architecture/README.md` 拥有——不得把目标状态说成当前状态。五阶段摘要:
 
 1. 守卫、分型与 intake——完整查看 Source，在 `record:intake` 前通过基于
    signals 的 Adapter 分型门；歧义或未识别输入在 no-clobber claim 前停止。
@@ -175,8 +188,11 @@ Coverage、执行/分派、陷阱、最终检查与汇报。处理 pending 工�
    attestation,然后 `stage-baseline` 与 `seal`。
 5. 收尾——只有显式的操作者审阅完成信号才把确认的 Source 移到
    `input/processed/`(owning 规则:`docs/dynamic-dataset-workflow.md`
-   §Operator Review-Completion Signal);确认后的移动在 Git 中提交为
-   tracked processing queue 的删除,被忽略的 processed PNG 只留在本机归档;
+   §Operator Review-Completion Signal)。请求完成确认前，先展示所选 Source
+   的完整清单，让同一次明确回复同时确认完成和该清单。若此前未展示清单或清单
+   已变化，移动前仍须取得清单的明确确认；重试沿用已确认的范围。
+   确认后的移动在 Git 中提交为 tracked processing queue 的删除，
+   被忽略的 processed PNG 只留在本机归档;
    `verify:closeout` 是按该文档 close-out requirement policy 执行的只读审计;
    最后 `pnpm check` 全绿并按 `docs/commit-messages.md` 提交。
 
@@ -232,18 +248,23 @@ processed PNG 只留本机；可复用渲染器支持拆成前置 `render(engine
 `prepare` 成功后公布草稿。带 Session 的新 Build 审阅须绑定已显示候选的 `previewId`
 与详情 `displayed.members` 中对应 Build 的当前 reviewToken。单项 Build / transport
 排查保留在“更多”与 `?source=...`，不作为默认操作流程。
-明确确认后连续完成审阅、seal 和 Publication，不再询问是否本地发布。
-通过 `release:git` 准备经审阅的集成候选和精确路径提交；只有操作员明确要求才 push。
-归档仅覆盖已确认的所选 Source 清单。汇报完成前实际验证文件入口。
+Build 获得明确接受后，连续完成审阅、seal 和本地 Publication，不再询问是否本地发布。
+Git transport 另需对实际展示的集成候选取得明确人工接受：先准备候选并完成检查，
+再请求批准，随后通过 `release:git` 做精确路径提交。已有接受只在候选和 plan 的
+必要绑定仍有效时复用；Build 接受本身不构成 transport 接受。只有操作员明确要求
+推送时才 push。归档仅覆盖已确认的所选 Source 清单。汇报数据集交付完成前，
+实际验证文件入口。
 机器本地选择仅是 UI 偏好，不是证据或正式数据。
 细节及恢复由 `docs/local-environments.md` 与 `docs/asset-workflow.md` 维护。
 
 ### 完成后的产物清理
 
-全部本机处理、验证及所需交付完成后，停止工作台，执行
-`pnpm clean:artifacts -- --completed`，output/compare 仅保留精简历史 meta。
-已有操作员完成确认即为授权，不重复询问。保留范围、本机指针重置和审计限制见
-[artifact-retention.md](artifact-retention.md)。
+停止共享工作台或执行全局清理前，先读 [artifact-retention.md](artifact-retention.md)。
+仅当所有受影响的本机处理、验证及所需交付均已完成，操作员的完成确认覆盖该范围，
+且没有其他 Session 使用共享工作台或产物目录时，才执行
+`pnpm clean:artifacts -- --completed`。同一范围已有完成确认时不重复询问；
+output/compare 仅保留精简历史 meta。若其他 Session 仍需使用这些资源，交付当前
+任务结果并报告全局清理暂缓。
 
 
 利润表可附带 `operatingMetrics`（ARR、留存率、客户数等经营指标）。完整原图类型检查记录 `supplemental-operating-metrics`；来源覆盖采用 `operating-metric`，保留精确十进制值、单位、币种、比较符号和原生像素位置。经营指标不参与财务加总或桑基图流量，在带数据绑定的 SVG 卡片以及表格、CSV 中展示。字段和校验规则由 `data/schema.md`、`scripts/lib/operating-metrics.mjs` 维护。
