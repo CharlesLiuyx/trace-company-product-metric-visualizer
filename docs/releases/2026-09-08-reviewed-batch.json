@@ -1,0 +1,4968 @@
+{
+  "schema": "trace-batch-delivery-summary/v1",
+  "date": "2026-09-08",
+  "historicalOnly": true,
+  "evidenceRetainedAfterCleanup": false,
+  "operatorConfirmation": "Processing 内所有图片经过我确认已经人工审阅完毕通过。所有更改 main 推送远端合并；CI 未通过需修复。",
+  "items": [
+    {
+      "key": "airbnb-q2-fy26",
+      "buildId": "build-de041f5a-5fdb-4ae7-a19a-0aed9cb14c22",
+      "manifest": "output/builds/build-de041f5a-5fdb-4ae7-a19a-0aed9cb14c22/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology",
+        "supplemental-operating-metrics"
+      ],
+      "source": {
+        "uri": "input/pending/page-0090-Airbnb-Q2-FY26-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:222631f20e4ee3c5486c2b6b73def9880d8bea858eabc9b71c548dc5206b4869",
+        "role": "primary-reference",
+        "processingUri": "input/processing/airbnb-q2-fy26.png",
+        "processedUri": "input/processed/airbnb-q2-fy26.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:d765cd27650371a96de2c71993e6769b1c6453d30d86334157d44de267b7a893",
+      "inventoryDigest": "sha256:008a0add332d35a9fe494f22453d005e3dfd8dae225b86fd9781868a8c070dcd",
+      "coverageDigest": "sha256:00b65552ad8352e4aa7b896041ea491af0415f7fc549b7b4739b4c64dbc453d9",
+      "coverageSummary": {
+        "sourceObjects": 43,
+        "inventoryObjects": 43,
+        "semantic": 40,
+        "skippedResidual": 3,
+        "otherSourceIds": [
+          "source:other_income"
+        ],
+        "correctedSourceIds": [],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:other_income",
+            "sourceLabel": "Other",
+            "amount": {
+              "literal": "$0.1B",
+              "value": "0.1",
+              "unit": "B",
+              "resolution": "0.1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "otherIncome.items",
+              "id": "other_income"
+            }
+          },
+          {
+            "sourceId": "source:tax",
+            "sourceLabel": "Tax",
+            "amount": {
+              "literal": "($0.1B)",
+              "value": "0.1",
+              "unit": "B",
+              "resolution": "0.1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.tax",
+              "id": "tax"
+            }
+          },
+          {
+            "sourceId": "source:apac",
+            "sourceLabel": "APAC",
+            "amount": {
+              "literal": "$0.3B",
+              "value": "0.3",
+              "unit": "B",
+              "resolution": "0.1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "revenue.items",
+              "id": "apac"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "apac",
+          "cost_of_revenue",
+          "emea",
+          "ga",
+          "gross_profit",
+          "latam",
+          "net_profit",
+          "north_america",
+          "operating_expenses",
+          "operating_profit",
+          "other_income",
+          "product",
+          "revenue",
+          "sm",
+          "support",
+          "tax"
+        ],
+        "visibilityFloorExceptionNodeIds": []
+      },
+      "iconsCovered": 5,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:dbadea0212f1d44153063d7accb9b8db7d722f85c46a99ed2ff0127200e8b89c",
+        "path": "../objects/dataset-verification/dbadea0212f1d44153063d7accb9b8db7d722f85c46a99ed2ff0127200e8b89c.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "bddf87fd-9b04-4dcb-aae9-0613d69c4468",
+          "candidateHash": "bda8eda50786353346e7fbb8fed9b4e583aa920d0bdc30f6857fe4e4e4585741",
+          "expected": 16,
+          "confirmed": 16,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9719387318415263
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "dc318aa4-f799-4e98-b395-4da90bbf9131",
+          "candidateHash": "9a0d4597d2e9595f40b93e93d4ded30428eb894854250bed7425d92c686dead9",
+          "expected": 16,
+          "confirmed": 16,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9608200782091781
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-028",
+        "CB-029",
+        "CB-035",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "amer-sports-q2-fy26",
+      "buildId": "build-66997500-4730-433e-a144-c50e497771d9",
+      "manifest": "output/builds/build-66997500-4730-433e-a144-c50e497771d9/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology"
+      ],
+      "source": {
+        "uri": "input/pending/page-0119-Amer-Sports-Q2-FY26-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:62d751e8aa466b4cebd302f79a343c3c6e1ad8910c573d14c74576a40655e784",
+        "role": "primary-reference",
+        "processingUri": "input/processing/amer-sports-q2-fy26.png",
+        "processedUri": "input/processed/amer-sports-q2-fy26.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:37c86c9c5cd65a503f0db66a7e6850447423542965c86faa592293c3c33b69b7",
+      "inventoryDigest": "sha256:af3c24f2d08b5980ecf6fb0779e10fd9eaca17ab15268df3d0674b5a44b6ade3",
+      "coverageDigest": "sha256:d06168f59460c7f5bc9cc33aec0999fa15bff09862d8a7ffbcc2d0e61da6dd64",
+      "coverageSummary": {
+        "sourceObjects": 35,
+        "inventoryObjects": 35,
+        "semantic": 32,
+        "skippedResidual": 3,
+        "otherSourceIds": [
+          "source:flow-other-operating_profit",
+          "source:node-other"
+        ],
+        "correctedSourceIds": [],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:node-other",
+            "sourceLabel": "Other $29M",
+            "amount": {
+              "literal": "$29M",
+              "value": "29",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "operatingOtherIncome.items",
+              "id": "other"
+            }
+          },
+          {
+            "sourceId": "source:node-finance",
+            "sourceLabel": "Finance ($31M)",
+            "amount": {
+              "literal": "($31M)",
+              "value": "31",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "otherExpenses.items",
+              "id": "finance"
+            }
+          },
+          {
+            "sourceId": "source:node-tax",
+            "sourceLabel": "Tax ($43M)",
+            "amount": {
+              "literal": "($43M)",
+              "value": "43",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.tax",
+              "id": "tax"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "ball_racquet",
+          "cost_of_revenue",
+          "finance",
+          "gross_profit",
+          "net_profit",
+          "operating_expenses",
+          "operating_profit",
+          "other",
+          "outdoor_performance",
+          "revenue",
+          "sga",
+          "tax",
+          "technical_apparel"
+        ],
+        "visibilityFloorExceptionNodeIds": []
+      },
+      "iconsCovered": 5,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:2387d99af18deccd17b0ca5c68fdce675fc89bca9fa52bbd50ac7bae7440939e",
+        "path": "../objects/dataset-verification/2387d99af18deccd17b0ca5c68fdce675fc89bca9fa52bbd50ac7bae7440939e.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "3c2b97f4-6978-4142-880c-52b70b8db4fd",
+          "candidateHash": "80af3d3271fd9091d282fd2c43383a7c9404b01ef9ae4e45909d58da4d29350a",
+          "expected": 13,
+          "confirmed": 13,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9740551306903631
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "0f9ffdc8-e5e8-43fd-85ac-3e98bc8b9446",
+          "candidateHash": "83f35a499a23f3dc97aa9bf1f3027bc27a1dc20b3793f00da512ba2e38ff4c20",
+          "expected": 13,
+          "confirmed": 13,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9562862400369888
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-028",
+        "CB-029",
+        "CB-035",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "applovin-q2-fy26",
+      "buildId": "build-891f0b5f-11c1-4ce8-997a-6507f9d5e337",
+      "manifest": "output/builds/build-891f0b5f-11c1-4ce8-997a-6507f9d5e337/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology"
+      ],
+      "source": {
+        "uri": "input/pending/page-0101-AppLovin-Q2-FY26-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:f00dbe557e94402377f45733bae92497a33c8b28a2ca4b85cda019b5b07cefe0",
+        "role": "primary-reference",
+        "processingUri": "input/processing/applovin-q2-fy26.png",
+        "processedUri": "input/processed/applovin-q2-fy26.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:ca5096d99afb821c48157c50d44ba3f50517fd80374d7ed385b4877ae7b839fe",
+      "inventoryDigest": "sha256:a5f0c8d4b44be4f6e8915be2410d634437e45d25385ddd5c68ef11c01a53eff3",
+      "coverageDigest": "sha256:89b9dc9fc529d9404d4a1d25d82fa3d4a9b06747cf3252547101c0150deb4aab",
+      "coverageSummary": {
+        "sourceObjects": 43,
+        "inventoryObjects": 43,
+        "semantic": 40,
+        "skippedResidual": 3,
+        "otherSourceIds": [
+          "source:flow-other-net_profit",
+          "source:label-other",
+          "source:node-other"
+        ],
+        "correctedSourceIds": [],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:node-other",
+            "sourceLabel": "Other",
+            "amount": {
+              "literal": "$11M",
+              "value": "11",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "otherIncome.items",
+              "id": "other"
+            }
+          },
+          {
+            "sourceId": "source:node-ga",
+            "sourceLabel": "G&A",
+            "amount": {
+              "literal": "($40M)",
+              "value": "40",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.operatingExpenses.items",
+              "id": "ga"
+            }
+          },
+          {
+            "sourceId": "source:node-sm",
+            "sourceLabel": "S&M",
+            "amount": {
+              "literal": "($63M)",
+              "value": "63",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.operatingExpenses.items",
+              "id": "sm"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "cost_of_revenue",
+          "ga",
+          "gross_profit",
+          "net_profit",
+          "operating_expenses",
+          "operating_profit",
+          "other",
+          "rest_of_world",
+          "revenue",
+          "rnd",
+          "sm",
+          "tax",
+          "united_states"
+        ],
+        "visibilityFloorExceptionNodeIds": []
+      },
+      "iconsCovered": 1,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:73bac68ea231ab4b7b1b42d82d37cb6f022ded8fa605c323a802216ddd904bb2",
+        "path": "../objects/dataset-verification/73bac68ea231ab4b7b1b42d82d37cb6f022ded8fa605c323a802216ddd904bb2.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "7bc39592-be39-4411-abb6-f62f2d51a161",
+          "candidateHash": "f07c8d9df7e7f9cc7e7db13ff2cdd2f904121f7bd081987f4d38a20b37bd12f0",
+          "expected": 13,
+          "confirmed": 13,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9802573256774276
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "ad11c7cd-7756-4f95-a22b-f766a178baf8",
+          "candidateHash": "ef3e28b839e04dd058ac820331cb67daa863c5a4fb4713cf1181bda32026ae1e",
+          "expected": 13,
+          "confirmed": 13,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.964528101961111
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-028",
+        "CB-029",
+        "CB-035",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "arista-q2-fy26",
+      "buildId": "build-3014f0ad-a7d1-456e-b4ef-7074f5f71a88",
+      "manifest": "output/builds/build-3014f0ad-a7d1-456e-b4ef-7074f5f71a88/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology"
+      ],
+      "source": {
+        "uri": "input/pending/page-0096-Arista-Q2-FY26-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:4b9ebf31342c53168a216eb2fde579dffb23c2193a1932f325cf65896e624ed4",
+        "role": "primary-reference",
+        "processingUri": "input/processing/arista-q2-fy26.png",
+        "processedUri": "input/processed/arista-q2-fy26.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:ade94bb20e5e73be454c1296f0e81c4e275fb8e488dd0b502807e7af4bd783ac",
+      "inventoryDigest": "sha256:3edce0c948e94498d850c0cfde6718d9e837699899fbf6b01e9e99c83da6a919",
+      "coverageDigest": "sha256:0d6565889d883c817bfebf507691edbee758959702140414c2c6686c402b6082",
+      "coverageSummary": {
+        "sourceObjects": 34,
+        "inventoryObjects": 34,
+        "semantic": 31,
+        "skippedResidual": 3,
+        "otherSourceIds": [
+          "source:other_income"
+        ],
+        "correctedSourceIds": [],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:ga",
+            "sourceLabel": "G&A",
+            "amount": {
+              "literal": "($34M)",
+              "value": "0.034",
+              "unit": "B",
+              "resolution": "0.001"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.operatingExpenses.items",
+              "id": "ga"
+            }
+          },
+          {
+            "sourceId": "source:other_income",
+            "sourceLabel": "Other",
+            "amount": {
+              "literal": "$0.1B",
+              "value": "0.1",
+              "unit": "B",
+              "resolution": "0.1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "otherIncome.items",
+              "id": "other_income"
+            }
+          },
+          {
+            "sourceId": "source:service_cor",
+            "sourceLabel": "Service",
+            "amount": {
+              "literal": "($0.1B)",
+              "value": "0.1",
+              "unit": "B",
+              "resolution": "0.1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.costOfRevenue.items",
+              "id": "service_cor"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "cost_of_revenue",
+          "ga",
+          "gross_profit",
+          "net_profit",
+          "operating_expenses",
+          "operating_profit",
+          "other_income",
+          "product",
+          "product_cor",
+          "revenue",
+          "rnd",
+          "service",
+          "service_cor",
+          "sm",
+          "tax"
+        ],
+        "visibilityFloorExceptionNodeIds": [
+          "ga"
+        ]
+      },
+      "iconsCovered": 1,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:6f5838d359d43bffcb6e4e32a35c30110f704cd761aa8c5bf942fcb7f82f156e",
+        "path": "../objects/dataset-verification/6f5838d359d43bffcb6e4e32a35c30110f704cd761aa8c5bf942fcb7f82f156e.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "8130d3b5-c571-4986-a331-dd701c72150b",
+          "candidateHash": "e17721f23878e4dc27840d409e0c0894629565ed973a90e3cd2e38775ca238fc",
+          "expected": 15,
+          "confirmed": 15,
+          "hidden": [],
+          "floorExceptions": [
+            "ga"
+          ],
+          "unclassified": [],
+          "similarity": 0.9796777285192292
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "acfb9038-87b2-44b0-b803-0deb5a9e107d",
+          "candidateHash": "64ddfafed82b01f7347d78642061c4617e76fecbcdb95aefd187e5c0105ec6ae",
+          "expected": 15,
+          "confirmed": 15,
+          "hidden": [],
+          "floorExceptions": [
+            "ga"
+          ],
+          "unclassified": [],
+          "similarity": 0.9658917713717158
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-028",
+        "CB-029",
+        "CB-035",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "axon-q2-fy26",
+      "buildId": "build-c601179d-d5c3-4c3e-8af8-42002be961a9",
+      "manifest": "output/builds/build-c601179d-d5c3-4c3e-8af8-42002be961a9/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology"
+      ],
+      "source": {
+        "uri": "input/pending/page-0100-AXON-Q2-FY26-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:632150bfef9efa0b35cbe50f4fd22d3d744fee8ddf043fcea38c81a1eaaece6a",
+        "role": "primary-reference",
+        "processingUri": "input/processing/axon-q2-fy26.png",
+        "processedUri": "input/processed/axon-q2-fy26.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:5af4aabf9bbe2d3938e0ff1be77b9e5a7a5ad608b407ed79bc8ab2ccfa501bf5",
+      "inventoryDigest": "sha256:259b5426cd6b56f2605315e575eff2f42156aaab76a1794d4d83b7a533283c0d",
+      "coverageDigest": "sha256:97caf81a666225621c3475d80f5a11f245003344cea98a3246cc40a7281888d2",
+      "coverageSummary": {
+        "sourceObjects": 57,
+        "inventoryObjects": 57,
+        "semantic": 54,
+        "skippedResidual": 3,
+        "otherSourceIds": [
+          "source:flow-operating_profit-other",
+          "source:label-other",
+          "source:other"
+        ],
+        "correctedSourceIds": [],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:tax",
+            "sourceLabel": "Tax ($3M)",
+            "amount": {
+              "literal": "($3M)",
+              "value": "3",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.tax",
+              "id": "tax"
+            }
+          },
+          {
+            "sourceId": "source:other",
+            "sourceLabel": "Other ($14M)",
+            "amount": {
+              "literal": "($14M)",
+              "value": "14",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "otherExpenses.items",
+              "id": "other"
+            }
+          },
+          {
+            "sourceId": "source:net_profit",
+            "sourceLabel": "Net profit $29M",
+            "amount": {
+              "literal": "$29M",
+              "value": "29",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "profit.net",
+              "id": "net_profit"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "connected_devices",
+          "cost_of_revenue",
+          "gross_profit",
+          "net_profit",
+          "operating_expenses",
+          "operating_profit",
+          "other",
+          "personal_sensors",
+          "platform_solutions",
+          "products",
+          "revenue",
+          "rnd",
+          "services",
+          "sga",
+          "software_services",
+          "taser",
+          "tax"
+        ],
+        "visibilityFloorExceptionNodeIds": [
+          "tax"
+        ]
+      },
+      "iconsCovered": 3,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:d7da43b6388e78838654f8fd65d653e739058e5fbc62b6d73f11297bed50557c",
+        "path": "../objects/dataset-verification/d7da43b6388e78838654f8fd65d653e739058e5fbc62b6d73f11297bed50557c.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "76547677-051e-4f71-8d61-87c6aac2f4e1",
+          "candidateHash": "837efd80661c007ea3116ca74af6f972d7c79a7f3ac4e35e3da4de274a71d95d",
+          "expected": 17,
+          "confirmed": 17,
+          "hidden": [],
+          "floorExceptions": [
+            "tax"
+          ],
+          "unclassified": [],
+          "similarity": 0.9742233305804094
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "ebc3d3f8-fc8c-4179-859d-ace763260c1c",
+          "candidateHash": "400a941d142a906e79778f9fd2399fc0bdef57c0e98a03180d59c5de67930183",
+          "expected": 17,
+          "confirmed": 17,
+          "hidden": [],
+          "floorExceptions": [
+            "tax"
+          ],
+          "unclassified": [],
+          "similarity": 0.9579510492560979
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-028",
+        "CB-029",
+        "CB-033",
+        "CB-035",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "booking-q2-fy26",
+      "buildId": "build-ce330c6e-c077-40c4-83cc-5e6a1ed877fa",
+      "manifest": "output/builds/build-ce330c6e-c077-40c4-83cc-5e6a1ed877fa/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology",
+        "supplemental-operating-metrics"
+      ],
+      "source": {
+        "uri": "input/pending/page-0091-Booking-Q2-FY26-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:904c3c6a1570c2eaf4dc143bbe88b439e79aa6db30b3d5843914c110789ab21f",
+        "role": "primary-reference",
+        "processingUri": "input/processing/booking-q2-fy26.png",
+        "processedUri": "input/processed/booking-q2-fy26.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:df492fb68b31270b892b280ccccb1da22b569114cc881ca9a20ac232925834cd",
+      "inventoryDigest": "sha256:2fca1541e381ec0747d5e4b830f38f04520fc954c86699146327756a0c274ee2",
+      "coverageDigest": "sha256:f9254e6066b2033cc3860d74ac6d8b34faacbc7650d312d881bcd5b56725a3c8",
+      "coverageSummary": {
+        "sourceObjects": 39,
+        "inventoryObjects": 39,
+        "semantic": 36,
+        "skippedResidual": 3,
+        "otherSourceIds": [
+          "source:node:advertising_other",
+          "source:node:other_income"
+        ],
+        "correctedSourceIds": [
+          "source:node:ga",
+          "source:node:info_tech"
+        ],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:node:other_income",
+            "sourceLabel": "Other $0.1B",
+            "amount": {
+              "literal": "$0.1B",
+              "value": "0.06",
+              "unit": "B",
+              "resolution": "0.1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "otherIncome.items",
+              "id": "other_income"
+            }
+          },
+          {
+            "sourceId": "source:node:da",
+            "sourceLabel": "D&A ($0.1B)",
+            "amount": {
+              "literal": "($0.1B)",
+              "value": "0.129",
+              "unit": "B",
+              "resolution": "0.1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.operatingExpenses.items",
+              "id": "da"
+            }
+          },
+          {
+            "sourceId": "source:node:ga",
+            "sourceLabel": "G&A ($0.3B)",
+            "amount": {
+              "literal": "($0.3B)",
+              "value": "0.217",
+              "unit": "B",
+              "resolution": "0.1",
+              "authoritativeCorrection": {
+                "method": "authoritative-source-correction",
+                "issue": "numeric-typo",
+                "approval": "user-directed-source-correction",
+                "locator": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000037/bkng-20260630.htm#statements-of-operations-page-5",
+                "authoritativeLiteral": "$217M",
+                "correctedLiteral": "($0.2B)",
+                "reason": "用户：好的，按收集到信息来，继续（2026-09-08）。 Official GAAP expense differs from the Source label beyond its 0.1B rounding interval."
+              }
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.operatingExpenses.items",
+              "id": "ga"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "advertising_other",
+          "agency",
+          "da",
+          "ga",
+          "info_tech",
+          "marketing",
+          "merchant",
+          "net_profit",
+          "operating_expenses",
+          "operating_profit",
+          "other_income",
+          "personnel",
+          "revenue",
+          "sales",
+          "tax"
+        ],
+        "visibilityFloorExceptionNodeIds": []
+      },
+      "iconsCovered": 4,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:411706ad9e785953a57f0deb789c8bd5b97aa1bfb2db716bc5829a017572e6c9",
+        "path": "../objects/dataset-verification/411706ad9e785953a57f0deb789c8bd5b97aa1bfb2db716bc5829a017572e6c9.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "adbceffb-a8d3-466a-ba70-2f016033edb0",
+          "candidateHash": "c659393ef79975ec3d40afbb7d9313c0bbde1d80f2e1cbe74fab8dcb4b279b17",
+          "expected": 15,
+          "confirmed": 15,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9790318785315234
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "ed22ec1f-5dd5-470c-8ee9-a9501844f335",
+          "candidateHash": "fa41c94d64b5b571b6462bbcdd9c02174fd7c37d5670ac46064045f25aea5aa4",
+          "expected": 15,
+          "confirmed": 15,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9617055351741163
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-028",
+        "CB-029",
+        "CB-035",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "cisco-q4-fy26",
+      "buildId": "build-12ce3bd9-1585-4e0b-9dc1-4e01a463a5ac",
+      "manifest": "output/builds/build-12ce3bd9-1585-4e0b-9dc1-4e01a463a5ac/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology"
+      ],
+      "source": {
+        "uri": "input/pending/page-0095-Cisco-Q4-FY26-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:58eb9c6c7d8965626bfc1a0a334ef4015356dc3ee768ce2ee4b9f30d277fb85f",
+        "role": "primary-reference",
+        "processingUri": "input/processing/cisco-q4-fy26.png",
+        "processedUri": "input/processed/cisco-q4-fy26.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:45c9b54445fa1cf42538a39da24fafe809b345357eaed1c7585146823eb146f8",
+      "inventoryDigest": "sha256:ebb7cec36ff705ebc10ed09e37a239e554b8a0093142590488afaa26f4dc2f2c",
+      "coverageDigest": "sha256:39f0cf38148dc288548b3621a03f8f010cafe99b0507f47e7522233a202b261c",
+      "coverageSummary": {
+        "sourceObjects": 68,
+        "inventoryObjects": 68,
+        "semantic": 65,
+        "skippedResidual": 3,
+        "otherSourceIds": [
+          "source:label-other_income-0",
+          "source:label-other_opex-0",
+          "source:other_income",
+          "source:other_opex"
+        ],
+        "correctedSourceIds": [],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:amortization",
+            "sourceLabel": "Amortization",
+            "amount": {
+              "literal": "($0.2B)",
+              "value": "0.2",
+              "unit": "B",
+              "resolution": "0.1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.operatingExpenses.items",
+              "id": "amortization"
+            }
+          },
+          {
+            "sourceId": "source:observability",
+            "sourceLabel": "Observability",
+            "amount": {
+              "literal": "$0.3B",
+              "value": "0.3",
+              "unit": "B",
+              "resolution": "0.1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "revenue.items",
+              "id": "observability"
+            }
+          },
+          {
+            "sourceId": "source:other_opex",
+            "sourceLabel": "Other",
+            "amount": {
+              "literal": "($0.5B)",
+              "value": "0.5",
+              "unit": "B",
+              "resolution": "0.1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.operatingExpenses.items",
+              "id": "other_opex"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "amortization",
+          "collaboration",
+          "cost_of_sales",
+          "ga",
+          "gross_profit",
+          "net_profit",
+          "networking",
+          "observability",
+          "operating_expenses",
+          "operating_profit",
+          "other_income",
+          "other_opex",
+          "product_cost_of_sales",
+          "products",
+          "revenue",
+          "rnd",
+          "security",
+          "services",
+          "services_cost_of_sales",
+          "sm",
+          "tax"
+        ],
+        "visibilityFloorExceptionNodeIds": [
+          "amortization"
+        ]
+      },
+      "iconsCovered": 1,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:cbda3f9b99380c1bdb3092ad31f89b0f8c7d2715e16850df65efdf8443a7f3bd",
+        "path": "../objects/dataset-verification/cbda3f9b99380c1bdb3092ad31f89b0f8c7d2715e16850df65efdf8443a7f3bd.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "c14fd736-307b-4891-acf9-bd09eefe6041",
+          "candidateHash": "b7c0f5be076b58c43f170a93e0b2c528b4cce1b0c2f20821c33c9f2fe783dd72",
+          "expected": 21,
+          "confirmed": 21,
+          "hidden": [],
+          "floorExceptions": [
+            "amortization"
+          ],
+          "unclassified": [],
+          "similarity": 0.9760467840212784
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "9fe325d3-1550-4d20-a738-e87fbb2e8dac",
+          "candidateHash": "d8945f36f7f153bac88803a15c134d36dc5be6c90c44ffc5f2bf75c95396a7fb",
+          "expected": 21,
+          "confirmed": 21,
+          "hidden": [],
+          "floorExceptions": [
+            "amortization"
+          ],
+          "unclassified": [],
+          "similarity": 0.9592217900866967
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-028",
+        "CB-029",
+        "CB-035",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "cloudflare-q2-fy26",
+      "buildId": "build-6e162baf-102b-483f-8078-b71013851594",
+      "manifest": "output/builds/build-6e162baf-102b-483f-8078-b71013851594/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology"
+      ],
+      "source": {
+        "uri": "input/pending/page-0124-Cloudflare-Q2-FY26-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:2f0063fbeb224c8bd76ed463794d46e310d3c8ff4fc9bcd0652ed4a43dc087b1",
+        "role": "primary-reference",
+        "processingUri": "input/processing/cloudflare-q2-fy26.png",
+        "processedUri": "input/processed/cloudflare-q2-fy26.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:a4bdbe9da1658eb729693f6048dc4b34bf37657f6904ae804346870bdfa148e5",
+      "inventoryDigest": "sha256:2dbcd801b2ca9f9fbb4f18f496c130ba00d92d37a5807bb904d442fa47e87b78",
+      "coverageDigest": "sha256:c0df32035d961dd95dbfca1469573f101bb575601050a07c39315614add84371",
+      "coverageSummary": {
+        "sourceObjects": 29,
+        "inventoryObjects": 29,
+        "semantic": 28,
+        "skippedResidual": 1,
+        "otherSourceIds": [
+          "source:flow:3",
+          "source:node:other"
+        ],
+        "correctedSourceIds": [],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:node:other",
+            "sourceLabel": "Other: $55M; +32% Y/Y",
+            "amount": {
+              "literal": "$55M",
+              "value": "55",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "revenue.items",
+              "id": "other"
+            }
+          },
+          {
+            "sourceId": "source:node:apac",
+            "sourceLabel": "APAC: $99M; +32% Y/Y",
+            "amount": {
+              "literal": "$99M",
+              "value": "99",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "revenue.items",
+              "id": "apac"
+            }
+          },
+          {
+            "sourceId": "source:node:ga",
+            "sourceLabel": "G&A: ($119M); 17% of revenue; (2pp) Y/Y",
+            "amount": {
+              "literal": "($119M)",
+              "value": "119",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.operatingExpenses.items",
+              "id": "ga"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "apac",
+          "cost_of_revenue",
+          "emea",
+          "ga",
+          "gross_profit",
+          "operating_expenses",
+          "operating_loss",
+          "other",
+          "restructuring",
+          "revenue",
+          "rnd",
+          "sm",
+          "united_states"
+        ],
+        "visibilityFloorExceptionNodeIds": []
+      },
+      "iconsCovered": 1,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:8c881f05dba0df453527a117cce0601b81a88e7351b180e70cd68630ca8230a6",
+        "path": "../objects/dataset-verification/8c881f05dba0df453527a117cce0601b81a88e7351b180e70cd68630ca8230a6.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "17c61373-a390-4fdd-911e-7d3c61c5196e",
+          "candidateHash": "2ee00442b524de13740c1752d4757c41fa95ba01a58b0b74be5e9ab837fe0501",
+          "expected": 13,
+          "confirmed": 13,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9763688480116456
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "7bf3dd38-c542-4ef0-abab-a651174b1128",
+          "candidateHash": "253a4794042b5645384b09f019d08400dcf47860ffab851c0a4e0d3996b3af7e",
+          "expected": 13,
+          "confirmed": 13,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9604477293279516
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-025",
+        "CB-028",
+        "CB-029",
+        "CB-033",
+        "CB-035",
+        "CB-036",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "datadog-q2-fy26",
+      "buildId": "build-8788869c-493a-430f-866b-a99722557fdb",
+      "manifest": "output/builds/build-8788869c-493a-430f-866b-a99722557fdb/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology"
+      ],
+      "source": {
+        "uri": "input/pending/page-0109-Datadog-Q2-FY26-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:1a6de9a9486c2197206817e63b959f5ee2208f8770e70cbb878fa279a9f76135",
+        "role": "primary-reference",
+        "processingUri": "input/processing/datadog-q2-fy26.png",
+        "processedUri": "input/processed/datadog-q2-fy26.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:ee2f75aefd873ab50a7428fb37c2bc50dc2e000c538fe2675568bb3b6d2d5675",
+      "inventoryDigest": "sha256:31acef145f5d4b3829e983bc673671d3d8218a4eb79aa44395ede560b692cdac",
+      "coverageDigest": "sha256:12e6ddbc727941dd72653d8d827a111ff343bc4e238d0d3963a17c9615016d82",
+      "coverageSummary": {
+        "sourceObjects": 41,
+        "inventoryObjects": 41,
+        "semantic": 38,
+        "skippedResidual": 3,
+        "otherSourceIds": [
+          "source:flow-7",
+          "source:label-other",
+          "source:other"
+        ],
+        "correctedSourceIds": [],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:operating_profit",
+            "sourceLabel": "Operating profit $5M",
+            "amount": {
+              "literal": "$5M",
+              "value": "5",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "profit.operating",
+              "id": "operating_profit"
+            }
+          },
+          {
+            "sourceId": "source:other",
+            "sourceLabel": "Other $39M",
+            "amount": {
+              "literal": "$39M",
+              "value": "39",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "otherIncome.items",
+              "id": "other"
+            }
+          },
+          {
+            "sourceId": "source:net_profit",
+            "sourceLabel": "Net profit $45M",
+            "amount": {
+              "literal": "$45M",
+              "value": "45",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "profit.net",
+              "id": "net_profit"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "cost_of_revenue",
+          "ga",
+          "gross_profit",
+          "international",
+          "net_profit",
+          "north_america",
+          "operating_expenses",
+          "operating_profit",
+          "other",
+          "revenue",
+          "rnd",
+          "sm"
+        ],
+        "visibilityFloorExceptionNodeIds": [
+          "operating_profit"
+        ]
+      },
+      "iconsCovered": 1,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:66da1e3a99eddd42130efafe0e18a8fe06d621d0e6fb57c101c2747969ea0335",
+        "path": "../objects/dataset-verification/66da1e3a99eddd42130efafe0e18a8fe06d621d0e6fb57c101c2747969ea0335.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "771257d5-a145-461e-b92d-b7bb8f10ff79",
+          "candidateHash": "5de1f834bb7c4efa6797b8ce85783c8fd0d8eda3cb7f7b93e8126b2920f44d32",
+          "expected": 12,
+          "confirmed": 12,
+          "hidden": [],
+          "floorExceptions": [
+            "operating_profit"
+          ],
+          "unclassified": [],
+          "similarity": 0.977438963593603
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "17844359-5d0c-4207-8388-baa203475a6b",
+          "candidateHash": "100d10dcd253595069bda3832d93aba96e046dadc750b0478d4523f578e44aa6",
+          "expected": 12,
+          "confirmed": 12,
+          "hidden": [],
+          "floorExceptions": [
+            "operating_profit"
+          ],
+          "unclassified": [],
+          "similarity": 0.963563334975285
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-028",
+        "CB-029",
+        "CB-035",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "draftkings-q2-fy26",
+      "buildId": "build-694d0063-af65-4c77-89d9-117e04b79f2f",
+      "manifest": "output/builds/build-694d0063-af65-4c77-89d9-117e04b79f2f/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology"
+      ],
+      "source": {
+        "uri": "input/pending/page-0118-DraftKings-Q2-FY26-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:2c8bdf19de18070a4f7b5db01bf23c5c2bab4e0fb393f1cc7e5848730384a099",
+        "role": "primary-reference",
+        "processingUri": "input/processing/draftkings-q2-fy26.png",
+        "processedUri": "input/processed/draftkings-q2-fy26.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:eae31ba0f9ac5a23471ed282e079fb583e3f47f546ade05d6dc2b0896dca8593",
+      "inventoryDigest": "sha256:ff3e9eda49b0b45f004285b4935a3a18f8af91730c039e1309bec2ec0ca21d16",
+      "coverageDigest": "sha256:3ba925b50f29f9b3bd4394a15e5243aecc610dd2bcf618ceda928283882afa14",
+      "coverageSummary": {
+        "sourceObjects": 39,
+        "inventoryObjects": 39,
+        "semantic": 36,
+        "skippedResidual": 3,
+        "otherSourceIds": [
+          "source:label:other_revenue",
+          "source:node:other_revenue"
+        ],
+        "correctedSourceIds": [],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:node:operating_loss",
+            "sourceLabel": "Operating,loss ($68M)",
+            "amount": {
+              "literal": "($68M)",
+              "value": "-68",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "profit.operating",
+              "id": "operating_loss"
+            }
+          },
+          {
+            "sourceId": "source:node:other_revenue",
+            "sourceLabel": "Other $89M",
+            "amount": {
+              "literal": "$89M",
+              "value": "89",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "revenue.items",
+              "id": "other_revenue"
+            }
+          },
+          {
+            "sourceId": "source:node:rnd",
+            "sourceLabel": "R&D $128M",
+            "amount": {
+              "literal": "$128M",
+              "value": "128",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.operatingExpenses.items",
+              "id": "rnd"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "cost_of_revenue",
+          "ga",
+          "gaming_software",
+          "gross_profit",
+          "online_gaming",
+          "operating_expenses",
+          "operating_loss",
+          "other_revenue",
+          "revenue",
+          "rnd",
+          "sm"
+        ],
+        "visibilityFloorExceptionNodeIds": []
+      },
+      "iconsCovered": 2,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:3579437eb024d08ddec0c950795a37220af04128f267f63543c97c3725d14114",
+        "path": "../objects/dataset-verification/3579437eb024d08ddec0c950795a37220af04128f267f63543c97c3725d14114.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "401d98d8-6039-4068-94a7-24455a810049",
+          "candidateHash": "9cf2a0150a2962e7bab13f94d65dc690bfe377961ae48b14a9448920e9f5c175",
+          "expected": 11,
+          "confirmed": 11,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.977267502673277
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "04dce81c-e7e7-49d9-8f06-d2e730bfcac2",
+          "candidateHash": "10cb91f0451f53860f7f99eeef01706446f909e9520379618f9296e8dc5e944c",
+          "expected": 11,
+          "confirmed": 11,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9592323443229727
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-025",
+        "CB-028",
+        "CB-029",
+        "CB-033",
+        "CB-035",
+        "CB-036",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "dynatrace-q1-fy27",
+      "buildId": "build-13382dd3-6a1d-4171-8c37-67668129d20e",
+      "manifest": "output/builds/build-13382dd3-6a1d-4171-8c37-67668129d20e/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology",
+        "supplemental-operating-metrics"
+      ],
+      "source": {
+        "uri": "input/pending/page-0098-Dynatrace-Q1-FY27-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:036dbbc8778643dfd7d6e1cc5b875e844d0b94a789ee3444f035e45bacf5ccd5",
+        "role": "primary-reference",
+        "processingUri": "input/processing/dynatrace-q1-fy27.png",
+        "processedUri": "input/processed/dynatrace-q1-fy27.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:b93880f526b39e6091c164ceb0118558a4d73f92c164760dd8bbc558585758c0",
+      "inventoryDigest": "sha256:ef268c1a56758f15e5131808bf19cdde12109c619d2fa804a03e15ce0a6df908",
+      "coverageDigest": "sha256:13f2095fe12461aa0333639dcda018e60f2ee38d645cbef459b1b49d94671f44",
+      "coverageSummary": {
+        "sourceObjects": 46,
+        "inventoryObjects": 46,
+        "semantic": 43,
+        "skippedResidual": 3,
+        "otherSourceIds": [
+          "source:other_income"
+        ],
+        "correctedSourceIds": [],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:other_income",
+            "sourceLabel": "Other $8M",
+            "amount": {
+              "literal": "$8M",
+              "value": "8",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "otherIncome.items",
+              "id": "other_income"
+            }
+          },
+          {
+            "sourceId": "source:service",
+            "sourceLabel": "Service $24M",
+            "amount": {
+              "literal": "$24M",
+              "value": "24",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "revenue.items",
+              "id": "service"
+            }
+          },
+          {
+            "sourceId": "source:net_profit",
+            "sourceLabel": "Net profit $36M",
+            "amount": {
+              "literal": "$36M",
+              "value": "36",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "profit.net",
+              "id": "net_profit"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "cost_of_revenue",
+          "ga",
+          "gross_profit",
+          "net_profit",
+          "operating_expenses",
+          "operating_profit",
+          "other_income",
+          "revenue",
+          "rnd",
+          "service",
+          "sm",
+          "subscription",
+          "tax"
+        ],
+        "visibilityFloorExceptionNodeIds": []
+      },
+      "iconsCovered": 1,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:af1e609fd1cf2ea02f09a74d627b865b97cc1e820ab0431611ad9cb68e2e479a",
+        "path": "../objects/dataset-verification/af1e609fd1cf2ea02f09a74d627b865b97cc1e820ab0431611ad9cb68e2e479a.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "37cdcdbc-9be9-46af-869e-8167a0301e04",
+          "candidateHash": "075607d642adff99b131274a13b1fdb3860cc352138081ca2767669b5333c3a5",
+          "expected": 13,
+          "confirmed": 13,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9762909737589991
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "45e97338-4966-436e-8a8d-43906ccc1356",
+          "candidateHash": "adc7ec36a09c7a6e8231fc76f77ad2653d63c412a80556ef7c717b95ee2c85e6",
+          "expected": 13,
+          "confirmed": 13,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9623128197210643
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-025",
+        "CB-028",
+        "CB-029",
+        "CB-033",
+        "CB-035",
+        "CB-036",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "elastic-q1-fy27",
+      "buildId": "build-65e59c14-6d03-42a8-b9e4-78b2a0b7e3fe",
+      "manifest": "output/builds/build-65e59c14-6d03-42a8-b9e4-78b2a0b7e3fe/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology"
+      ],
+      "source": {
+        "uri": "input/pending/page-0112-Elastic-Q1-FY27-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:af7d42fa9a2162895bedcbeae7058370c170f2f218c0bf6aaba9997095da3065",
+        "role": "primary-reference",
+        "processingUri": "input/processing/elastic-q1-fy27.png",
+        "processedUri": "input/processed/elastic-q1-fy27.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:48fb9c3d5908e0b7e987bb9fc98de62667e1f4632ea15b0f5cabf8fb7fa72af9",
+      "inventoryDigest": "sha256:fcc176e36a8378cf02e2bdc2af7a7f25e2b25e71779c9187c2bd0800928ad0b8",
+      "coverageDigest": "sha256:ee19dd3a2e0c8b20de1bf2ebccfde3c9636dace7184a361827ee85e1038f0bdd",
+      "coverageSummary": {
+        "sourceObjects": 34,
+        "inventoryObjects": 34,
+        "semantic": 31,
+        "skippedResidual": 3,
+        "otherSourceIds": [
+          "source:flow:operating_expenses:other",
+          "source:flow:other_subscription:subscription",
+          "source:node:other",
+          "source:node:other_subscription"
+        ],
+        "correctedSourceIds": [],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:node:other",
+            "sourceLabel": "Other; ($20M); 4% of revenue; +4pp Y/Y",
+            "amount": {
+              "literal": "($20M)",
+              "value": "20",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.operatingExpenses.items",
+              "id": "other"
+            }
+          },
+          {
+            "sourceId": "source:node:operating_loss",
+            "sourceLabel": "Operating loss; ($24M); (5%) margin; (3pp) Y/Y",
+            "amount": {
+              "literal": "($24M)",
+              "value": "-24",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "profit.operating",
+              "id": "operating_loss"
+            }
+          },
+          {
+            "sourceId": "source:node:service",
+            "sourceLabel": "Service; $29M; +10% Y/Y",
+            "amount": {
+              "literal": "$29M",
+              "value": "29",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "revenue.items",
+              "id": "service"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "cloud",
+          "cost_of_revenue",
+          "ga",
+          "gross_profit",
+          "operating_expenses",
+          "operating_loss",
+          "other",
+          "other_subscription",
+          "revenue",
+          "rnd",
+          "service",
+          "sm",
+          "subscription"
+        ],
+        "visibilityFloorExceptionNodeIds": []
+      },
+      "iconsCovered": 1,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:bc9173d8ac55dd2624884cba7dfc96dc60e850e55a2503997d221418f4a3d89d",
+        "path": "../objects/dataset-verification/bc9173d8ac55dd2624884cba7dfc96dc60e850e55a2503997d221418f4a3d89d.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "f73914f3-9a18-4e91-a766-6697e3dfafb6",
+          "candidateHash": "fd7ad2fc8e59a8b36848d9da6e7a9d9a2ec2d818c13b4c4f5a938f0f0371efd5",
+          "expected": 13,
+          "confirmed": 13,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9773120147563253
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "aba0233f-658b-47f8-95da-231ecad6a247",
+          "candidateHash": "a33a37189f5258855d3430ca14ffed4e2f1984b7f9759cc9aaf2c9ef89898f4c",
+          "expected": 13,
+          "confirmed": 13,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9589281483605399
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-025",
+        "CB-028",
+        "CB-029",
+        "CB-033",
+        "CB-035",
+        "CB-036",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "expedia-q2-fy26",
+      "buildId": "build-0bea0353-d381-4b99-bf51-962b32531fb8",
+      "manifest": "output/builds/build-0bea0353-d381-4b99-bf51-962b32531fb8/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology",
+        "supplemental-operating-metrics"
+      ],
+      "source": {
+        "uri": "input/pending/page-0092-Expedia-Q2-FY26-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:304d08067376e9eaaeece61d62eba11943b7618296b17a0c4232c121bc754dd3",
+        "role": "primary-reference",
+        "processingUri": "input/processing/expedia-q2-fy26.png",
+        "processedUri": "input/processed/expedia-q2-fy26.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:3fc066113096b99bd64d5f57dbe823e94e6d7378c4e098644d7ba99a4487b1c7",
+      "inventoryDigest": "sha256:fa9294a86baed3758653af608f2b0afc914041e7370f048fe76d71499ce125ed",
+      "coverageDigest": "sha256:7367a7d72ef2b7842b3b630b36449a5442bebec2442f74ce66eb3cdf72d4a0c2",
+      "coverageSummary": {
+        "sourceObjects": 58,
+        "inventoryObjects": 58,
+        "semantic": 55,
+        "skippedResidual": 3,
+        "otherSourceIds": [
+          "source:label-other_income",
+          "source:label-other_revenue",
+          "source:other_income",
+          "source:other_revenue"
+        ],
+        "correctedSourceIds": [],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:air",
+            "sourceLabel": "Air",
+            "amount": {
+              "literal": "$0.1B",
+              "value": "0.1",
+              "unit": "B",
+              "resolution": "0.1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "revenue.items",
+              "id": "air"
+            }
+          },
+          {
+            "sourceId": "source:amortization",
+            "sourceLabel": "Amortization",
+            "amount": {
+              "literal": "($0.2B)",
+              "value": "0.2",
+              "unit": "B",
+              "resolution": "0.1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.operatingExpenses.items",
+              "id": "amortization"
+            }
+          },
+          {
+            "sourceId": "source:ga",
+            "sourceLabel": "G&A",
+            "amount": {
+              "literal": "($0.2B)",
+              "value": "0.2",
+              "unit": "B",
+              "resolution": "0.1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.operatingExpenses.items",
+              "id": "ga"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "advertising",
+          "air",
+          "amortization",
+          "cost_of_revenue",
+          "ga",
+          "gross_profit",
+          "lodging",
+          "net_profit",
+          "operating_expenses",
+          "operating_profit",
+          "other_income",
+          "other_revenue",
+          "revenue",
+          "sm",
+          "tax",
+          "technology"
+        ],
+        "visibilityFloorExceptionNodeIds": []
+      },
+      "iconsCovered": 5,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:4df4c2ad2c754784fdb4ce147ed44c61e5cc13e4fade799c3001227fabef0743",
+        "path": "../objects/dataset-verification/4df4c2ad2c754784fdb4ce147ed44c61e5cc13e4fade799c3001227fabef0743.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "00432aab-5fba-4fb1-9f2c-eddcff3fba0a",
+          "candidateHash": "e2e1e1ca129540e2794c3e352e3bb747eaea39067c6dd138c32482b29c47a0fc",
+          "expected": 16,
+          "confirmed": 16,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9732405550613363
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "47640b69-c62d-4aa8-bf99-0146c5f0a123",
+          "candidateHash": "19ab71d5a7c58989395caf54c14b33dbede2292a0d7ae6f1ae201bee8dbcdebb",
+          "expected": 16,
+          "confirmed": 16,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9562632187316454
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-025",
+        "CB-028",
+        "CB-029",
+        "CB-033",
+        "CB-035",
+        "CB-036",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "figma-q2-fy26",
+      "buildId": "build-4abfbc47-4502-4482-aad2-9dd7203545b9",
+      "manifest": "output/builds/build-4abfbc47-4502-4482-aad2-9dd7203545b9/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology",
+        "supplemental-operating-metrics"
+      ],
+      "source": {
+        "uri": "input/pending/page-0099-Figma-Q2-FY26-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:d060b292997cb78455572c22459e822fa639747f4221fd924cae4298c804064e",
+        "role": "primary-reference",
+        "processingUri": "input/processing/figma-q2-fy26.png",
+        "processedUri": "input/processed/figma-q2-fy26.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:c7acb71f8f325017570d64a0bb268519f297fb9d372ecde38d417931c6bf929d",
+      "inventoryDigest": "sha256:e10b76d0aeb69bd1e5df61fd7f4524f3090794dd4fa116f04d6676ae1b8bbb48",
+      "coverageDigest": "sha256:09eb14ca51175ec51b49fa3f46d1744a1ee9fa0a58cc19387f2f428073217efb",
+      "coverageSummary": {
+        "sourceObjects": 39,
+        "inventoryObjects": 39,
+        "semantic": 36,
+        "skippedResidual": 3,
+        "otherSourceIds": [],
+        "correctedSourceIds": [],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:node:cost_of_revenue",
+            "sourceLabel": "Cost of Revenue ($60M)",
+            "amount": {
+              "literal": "($60M)",
+              "value": "-60",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.costOfRevenue",
+              "id": "cost_of_revenue"
+            }
+          },
+          {
+            "sourceId": "source:node:ga",
+            "sourceLabel": "General & Admin ($105M)",
+            "amount": {
+              "literal": "($105M)",
+              "value": "-105",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.operatingExpenses.items",
+              "id": "ga"
+            }
+          },
+          {
+            "sourceId": "source:node:operating_loss",
+            "sourceLabel": "operating loss ($117M)",
+            "amount": {
+              "literal": "($117M)",
+              "value": "-117",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "profit.operating",
+              "id": "operating_loss"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "cost_of_revenue",
+          "ga",
+          "gross_profit",
+          "international",
+          "operating_expenses",
+          "operating_loss",
+          "revenue",
+          "rnd",
+          "sm",
+          "united_states"
+        ],
+        "visibilityFloorExceptionNodeIds": []
+      },
+      "iconsCovered": 1,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:70a3db032bafe432116a5a3474f44b6e10c59b65f8c0499a6dd1b3222043a014",
+        "path": "../objects/dataset-verification/70a3db032bafe432116a5a3474f44b6e10c59b65f8c0499a6dd1b3222043a014.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "79706ab0-96b7-461a-9eee-7880dad48a95",
+          "candidateHash": "34d5d57a39b9a8ffbbb4803dd862e08a113833b39bbf5e19e5ecabbbee061810",
+          "expected": 10,
+          "confirmed": 10,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.979103059503183
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "97db3215-fe83-4846-8e0a-570a6c100163",
+          "candidateHash": "a9c3d240364ac068f07c8192ce826b1d7e31f26acb064405dc159da61b05fdd5",
+          "expected": 10,
+          "confirmed": 10,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9641693089017468
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-028",
+        "CB-029",
+        "CB-035",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "flutter-q2-fy26",
+      "buildId": "build-31fafa64-a377-4487-8202-0be4b723676c",
+      "manifest": "output/builds/build-31fafa64-a377-4487-8202-0be4b723676c/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology"
+      ],
+      "source": {
+        "uri": "input/pending/page-0117-Flutter-Q2-FY26-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:ef8aca43167188d5914bb6269f97f12ba38577951ea6d8ff4379591e2f8c05b5",
+        "role": "primary-reference",
+        "processingUri": "input/processing/flutter-q2-fy26.png",
+        "processedUri": "input/processed/flutter-q2-fy26.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:7675a545f164d2ab6910bfc65a96084a6249ab1caa4629d548c0f0b27aab13b0",
+      "inventoryDigest": "sha256:52ad98cf6cb7eccd3a4de4890c87ee3b5370a6a7e296262fbf97b17e1edfdcb8",
+      "coverageDigest": "sha256:c4f45ed45f70559bd145977048c7fd0bd3016464e11de419f86df5dc1a8fb76b",
+      "coverageSummary": {
+        "sourceObjects": 52,
+        "inventoryObjects": 52,
+        "semantic": 49,
+        "skippedResidual": 3,
+        "otherSourceIds": [
+          "source:label-other_revenue",
+          "source:other_revenue"
+        ],
+        "correctedSourceIds": [],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:operating_loss",
+            "sourceLabel": "Operating loss ($0.1B)",
+            "amount": {
+              "literal": "($0.1B)",
+              "value": "-0.1",
+              "unit": "B",
+              "resolution": "0.1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "profit.operating",
+              "id": "operating_loss"
+            }
+          },
+          {
+            "sourceId": "source:other_revenue",
+            "sourceLabel": "Other $0.2B",
+            "amount": {
+              "literal": "$0.2B",
+              "value": "0.2",
+              "unit": "B",
+              "resolution": "0.1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "revenue.breakdowns",
+              "id": "other_revenue"
+            }
+          },
+          {
+            "sourceId": "source:rnd",
+            "sourceLabel": "R&D ($0.3B)",
+            "amount": {
+              "literal": "($0.3B)",
+              "value": "0.3",
+              "unit": "B",
+              "resolution": "0.1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.operatingExpenses.items",
+              "id": "rnd"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "cost_of_sales",
+          "ga",
+          "gross_profit",
+          "igaming",
+          "international",
+          "operating_expenses",
+          "operating_loss",
+          "other_revenue",
+          "revenue",
+          "revenue_geo",
+          "rnd",
+          "sm",
+          "sportsbook",
+          "us"
+        ],
+        "visibilityFloorExceptionNodeIds": []
+      },
+      "iconsCovered": 3,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:063af054d4d8194d6deaea90ac679b43cc05272fee7b46dfab125592dd0c6ad1",
+        "path": "../objects/dataset-verification/063af054d4d8194d6deaea90ac679b43cc05272fee7b46dfab125592dd0c6ad1.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "5dd42615-ce0c-4f4a-bd31-16b3a2170bd9",
+          "candidateHash": "81c9119caa747b07119da8714426d688f50d2ec3f530cfec2a8ee3a94b013ac5",
+          "expected": 14,
+          "confirmed": 14,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9759457495917585
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "d6a64cc9-49a9-4113-b02e-84e707797905",
+          "candidateHash": "b4d8984b5885bca1d4a63f212cee5c4143e2796a62f6442799ae71b906847a6f",
+          "expected": 14,
+          "confirmed": 14,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.961251417102274
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-028",
+        "CB-029",
+        "CB-035",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "hims-hers-q2-fy26",
+      "buildId": "build-e27f8e1a-a4c2-4b2d-92ec-4ef9147eed02",
+      "manifest": "output/builds/build-e27f8e1a-a4c2-4b2d-92ec-4ef9147eed02/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology"
+      ],
+      "source": {
+        "uri": "input/pending/page-0121-Hims-Hers-Q2-FY26-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:c8b7b286f392276faaa17117e9343e37c06e01a38ae20955fb40e38426a23f50",
+        "role": "primary-reference",
+        "processingUri": "input/processing/hims-hers-q2-fy26.png",
+        "processedUri": "input/processed/hims-hers-q2-fy26.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:bd84b81c13982d4ce185321c4fd0797f614df0d548cd732e38445afa9d3c1bca",
+      "inventoryDigest": "sha256:8c994eb9b5af9897d52fed747c4a0a3a2b4c3d007866f8259ba995cd456fc947",
+      "coverageDigest": "sha256:5efd174ff030dd2437d96d4e96caa4329ddd1f91ace33bf2250449a68a5a1f6b",
+      "coverageSummary": {
+        "sourceObjects": 41,
+        "inventoryObjects": 41,
+        "semantic": 38,
+        "skippedResidual": 3,
+        "otherSourceIds": [],
+        "correctedSourceIds": [],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:tech_development",
+            "sourceLabel": "Tech & Development",
+            "amount": {
+              "literal": "$55M",
+              "value": "55",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.operatingExpenses.items",
+              "id": "tech_development"
+            }
+          },
+          {
+            "sourceId": "source:operations_support",
+            "sourceLabel": "Operations & support",
+            "amount": {
+              "literal": "$95M",
+              "value": "95",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.operatingExpenses.items",
+              "id": "operations_support"
+            }
+          },
+          {
+            "sourceId": "source:operating_loss",
+            "sourceLabel": "Operating loss",
+            "amount": {
+              "literal": "($97M)",
+              "value": "-97",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "profit.operating",
+              "id": "operating_loss"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "cost_of_revenue",
+          "general_admin",
+          "gross_profit",
+          "marketing",
+          "operating_expenses",
+          "operating_loss",
+          "operations_support",
+          "rest_of_world",
+          "revenue",
+          "tech_development",
+          "united_states"
+        ],
+        "visibilityFloorExceptionNodeIds": []
+      },
+      "iconsCovered": 3,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:8a5e95c0eb82447281b4ba3f97cd157c3c043cb6ac09bf8f8efc3de5808316d5",
+        "path": "../objects/dataset-verification/8a5e95c0eb82447281b4ba3f97cd157c3c043cb6ac09bf8f8efc3de5808316d5.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "cf19dd5f-0d1a-4dd3-b733-9c1858c676d3",
+          "candidateHash": "bc9094d6a15919072045d79fcf6ed088a46cf6b603acf5b134c36e0d0bc90501",
+          "expected": 11,
+          "confirmed": 11,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9692576228625016
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "75c2028d-bad8-4f26-bbbd-1386c395bf02",
+          "candidateHash": "d6a39444483f3bedc598450b8f74c2b137d9349a169b26ed716a548d4243fff5",
+          "expected": 11,
+          "confirmed": 11,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9538847454525701
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-028",
+        "CB-029",
+        "CB-035",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "hubspot-q2-fy26",
+      "buildId": "build-263aee25-f61a-4254-bd8c-0f9976d387e1",
+      "manifest": "output/builds/build-263aee25-f61a-4254-bd8c-0f9976d387e1/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology"
+      ],
+      "source": {
+        "uri": "input/pending/page-0116-HubSpot-Q2-FY26-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:df44809b6d66343344e11d568708582940308c840c21e34376970c22de127359",
+        "role": "primary-reference",
+        "processingUri": "input/processing/hubspot-q2-fy26.png",
+        "processedUri": "input/processed/hubspot-q2-fy26.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:66e187dd580e4153cd3f6dbb3201d9c81dfc1999cb8519f3b8f52e379cc6f0ef",
+      "inventoryDigest": "sha256:7a2c54730387ed2b388672ab900ed81871fdea6bb67516dee571e663acb9a3c0",
+      "coverageDigest": "sha256:e475f4d4cac2c52d4592c54a40a63a4a52cb68d40610b461048502b02a057d12",
+      "coverageSummary": {
+        "sourceObjects": 47,
+        "inventoryObjects": 47,
+        "semantic": 44,
+        "skippedResidual": 3,
+        "otherSourceIds": [
+          "source:label-other-0",
+          "source:link-8",
+          "source:other"
+        ],
+        "correctedSourceIds": [],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:restructuring",
+            "sourceLabel": "Restructuring",
+            "amount": {
+              "literal": "($1M)",
+              "value": "1",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.operatingExpenses.items",
+              "id": "restructuring"
+            }
+          },
+          {
+            "sourceId": "source:other",
+            "sourceLabel": "Other",
+            "amount": {
+              "literal": "$6M",
+              "value": "6",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "otherIncome.items",
+              "id": "other"
+            }
+          },
+          {
+            "sourceId": "source:tax",
+            "sourceLabel": "Tax",
+            "amount": {
+              "literal": "($6M)",
+              "value": "6",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.tax",
+              "id": "tax"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "cost_of_revenue",
+          "ga",
+          "gross_profit",
+          "net_profit",
+          "operating_expenses",
+          "operating_profit",
+          "other",
+          "professional_services",
+          "restructuring",
+          "revenue",
+          "rnd",
+          "sm",
+          "subscription",
+          "tax"
+        ],
+        "visibilityFloorExceptionNodeIds": [
+          "other",
+          "restructuring",
+          "tax"
+        ]
+      },
+      "iconsCovered": 1,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:f95534f06806759d8160ad30faf018a8580fca7f6db56a074a1ef9c64bf5c4bc",
+        "path": "../objects/dataset-verification/f95534f06806759d8160ad30faf018a8580fca7f6db56a074a1ef9c64bf5c4bc.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "742be036-1255-4259-936b-4a3ad44f4950",
+          "candidateHash": "80729b6129a49fd5874a122ce4a1f7617bb81860943cfd294b0a4820497fe83b",
+          "expected": 14,
+          "confirmed": 14,
+          "hidden": [],
+          "floorExceptions": [
+            "other",
+            "restructuring",
+            "tax"
+          ],
+          "unclassified": [],
+          "similarity": 0.9744335379646172
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "e28a1159-9461-449a-9371-4ad4340c510d",
+          "candidateHash": "58e2aa10ad2240a865fed7a7daf23bce88b1334226056ad64212a1270673f3f6",
+          "expected": 14,
+          "confirmed": 14,
+          "hidden": [],
+          "floorExceptions": [
+            "other",
+            "restructuring",
+            "tax"
+          ],
+          "unclassified": [],
+          "similarity": 0.9593056554205234
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-028",
+        "CB-029",
+        "CB-035",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "marriott-q2-fy26",
+      "buildId": "build-db77f1ee-dafd-4504-8957-839f8c702673",
+      "manifest": "output/builds/build-db77f1ee-dafd-4504-8957-839f8c702673/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology",
+        "supplemental-operating-metrics"
+      ],
+      "source": {
+        "uri": "input/pending/page-0094-Marriott-Q2-FY26-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:f4077b4bbe310fa0715547a05c26c99bc83a7d128e623bed9799c32b8e402b28",
+        "role": "primary-reference",
+        "processingUri": "input/processing/marriott-q2-fy26.png",
+        "processedUri": "input/processed/marriott-q2-fy26.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:62bbf8ca5bb227f6f92db300c10c1af7601863794279c3c710c2cbb2a2e8f767",
+      "inventoryDigest": "sha256:3b0b8eace4b5259b1592a236a683bd773773d3344364406ea0c6b59e47fd0c56",
+      "coverageDigest": "sha256:ce34a77272838a093ddfbb04e6ddd1071303f31d876e14cc20a558f447ca1acb",
+      "coverageSummary": {
+        "sourceObjects": 59,
+        "inventoryObjects": 59,
+        "semantic": 56,
+        "skippedResidual": 3,
+        "otherSourceIds": [
+          "source:label-da",
+          "source:label-other_nonoperating",
+          "source:label-owned_leased_and_other_revenue",
+          "source:label-owned_leased_other_direct_costs",
+          "source:node-da",
+          "source:node-other_nonoperating",
+          "source:node-owned_leased_and_other_revenue",
+          "source:node-owned_leased_other_direct_costs"
+        ],
+        "correctedSourceIds": [
+          "source:node-gross_fee_revenue"
+        ],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:node-contract_investment_amortization",
+            "sourceLabel": "Amortization",
+            "amount": {
+              "literal": "($31M)",
+              "value": "-0.031",
+              "unit": "B",
+              "resolution": "0.001"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "revenue.items",
+              "id": "contract_investment_amortization"
+            }
+          },
+          {
+            "sourceId": "source:node-da",
+            "sourceLabel": "D&A & other",
+            "amount": {
+              "literal": "($0.1B)",
+              "value": "0.105",
+              "unit": "B",
+              "resolution": "0.1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.operatingExpenses.items",
+              "id": "da"
+            }
+          },
+          {
+            "sourceId": "source:node-other_nonoperating",
+            "sourceLabel": "Other",
+            "amount": {
+              "literal": "($0.2B)",
+              "value": "0.185",
+              "unit": "B",
+              "resolution": "0.1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "otherExpenses.items",
+              "id": "other_nonoperating"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "base_management_fees",
+          "contract_investment_amortization",
+          "cost_reimbursement",
+          "da",
+          "franchise_fees",
+          "ga",
+          "gross_fee_revenue",
+          "incentive_management_fees",
+          "net_profit",
+          "operating_expenses",
+          "operating_profit",
+          "other_nonoperating",
+          "owned_leased_and_other_revenue",
+          "owned_leased_other_direct_costs",
+          "reimbursed_expenses",
+          "revenue",
+          "tax"
+        ],
+        "visibilityFloorExceptionNodeIds": [
+          "contract_investment_amortization"
+        ]
+      },
+      "iconsCovered": 1,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:53a24f88c9a393782edc712650868c6a891a29338d4873c493b3f0baea774162",
+        "path": "../objects/dataset-verification/53a24f88c9a393782edc712650868c6a891a29338d4873c493b3f0baea774162.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "ae1877f6-d476-40e5-a2b8-91d270d6b926",
+          "candidateHash": "f25c43ada3a61de732b60463aa5efba1224868b938082c9cb3ec587c7949f319",
+          "expected": 17,
+          "confirmed": 17,
+          "hidden": [],
+          "floorExceptions": [
+            "contract_investment_amortization"
+          ],
+          "unclassified": [],
+          "similarity": 0.9773906026452576
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "84407aca-fa28-4875-88c9-e9ee429864d6",
+          "candidateHash": "51dda814375e215a59622cedb33f731d90d9dd965cb3547fcfe503a00c660d9d",
+          "expected": 17,
+          "confirmed": 17,
+          "hidden": [],
+          "floorExceptions": [
+            "contract_investment_amortization"
+          ],
+          "unclassified": [],
+          "similarity": 0.9587400774249624
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-028",
+        "CB-029",
+        "CB-035",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "nutanix-q4-fy26",
+      "buildId": "build-a9d5dbe7-9edb-4755-a784-6145825a28a0",
+      "manifest": "output/builds/build-a9d5dbe7-9edb-4755-a784-6145825a28a0/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology",
+        "supplemental-operating-metrics"
+      ],
+      "source": {
+        "uri": "input/pending/page-0097-Nutanix-Q4-FY26-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:c48bce0f1570f7ea7bcd8008f05fbf60d3dd1c4b6162136d2f6b1c42fd9b6da6",
+        "role": "primary-reference",
+        "processingUri": "input/processing/nutanix-q4-fy26.png",
+        "processedUri": "input/processed/nutanix-q4-fy26.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:5e9a698059f7f936b5b480e0007176cd2f0cbbcf2bfb65d869a9c88bbd2c0370",
+      "inventoryDigest": "sha256:d8390c489313bc24fea4bf3eda59b70f1b248d43f3df2d54553c6d30b281ddd0",
+      "coverageDigest": "sha256:daa6118b757f5ee581fe367fd14c46128e986a2765ad5701e6b1d510b3faa1b1",
+      "coverageSummary": {
+        "sourceObjects": 31,
+        "inventoryObjects": 31,
+        "semantic": 30,
+        "skippedResidual": 1,
+        "otherSourceIds": [
+          "source:node:professional_services"
+        ],
+        "correctedSourceIds": [],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:node:interest",
+            "sourceLabel": "Interest $13M",
+            "amount": {
+              "literal": "$13M",
+              "value": "13",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "otherIncome.items",
+              "id": "interest"
+            }
+          },
+          {
+            "sourceId": "source:node:professional_services",
+            "sourceLabel": "Professional services & Other $38M +2% Y/Y",
+            "amount": {
+              "literal": "$38M",
+              "value": "38",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "revenue.items",
+              "id": "professional_services"
+            }
+          },
+          {
+            "sourceId": "source:node:operating_profit",
+            "sourceLabel": "Operating profit $70M 9% margin; +4pp Y/Y",
+            "amount": {
+              "literal": "$70M",
+              "value": "70",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "profit.operating",
+              "id": "operating_profit"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "cost_of_revenue",
+          "ga",
+          "gross_profit",
+          "interest",
+          "net_profit",
+          "operating_expenses",
+          "operating_profit",
+          "professional_services",
+          "revenue",
+          "rnd",
+          "sm",
+          "subscription",
+          "tax"
+        ],
+        "visibilityFloorExceptionNodeIds": [
+          "interest"
+        ]
+      },
+      "iconsCovered": 1,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:d4c9ef5cd6f8d0c3736643460d847f737686a55f4d4b4cc21f69b9b2a393b135",
+        "path": "../objects/dataset-verification/d4c9ef5cd6f8d0c3736643460d847f737686a55f4d4b4cc21f69b9b2a393b135.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "5ef67361-81e3-41d9-b5b5-715f5398a8b3",
+          "candidateHash": "b8347094dcbbf9082b47def8f9b0a69f61450434b82cec06b9249acfb68a87fa",
+          "expected": 13,
+          "confirmed": 13,
+          "hidden": [],
+          "floorExceptions": [
+            "interest"
+          ],
+          "unclassified": [],
+          "similarity": 0.9778901986924837
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "c6ed8ead-4d97-4e81-979e-194bd69a77c7",
+          "candidateHash": "314ad63b90a6e85e7622859041511d021e8996321ad8ca9d5b5ead472fc4f867",
+          "expected": 13,
+          "confirmed": 13,
+          "hidden": [],
+          "floorExceptions": [
+            "interest"
+          ],
+          "unclassified": [],
+          "similarity": 0.9626810112788189
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-028",
+        "CB-029",
+        "CB-035",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "okta-q2-fy27",
+      "buildId": "build-c6a0b19d-ac02-462d-89ff-110e96d5f626",
+      "manifest": "output/builds/build-c6a0b19d-ac02-462d-89ff-110e96d5f626/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology"
+      ],
+      "source": {
+        "uri": "input/pending/page-0110-Okta-Q2-FY27-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:9a7483eb2061457f00c66a504a97cff728f9476918669886ac9f63e0a155bd9b",
+        "role": "primary-reference",
+        "processingUri": "input/processing/okta-q2-fy27.png",
+        "processedUri": "input/processed/okta-q2-fy27.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:2b69c8b388bb7091f293d13d8c3b4a27184794b6ccd20a8120fbcd598eca6120",
+      "inventoryDigest": "sha256:8079c280199128d13b1164bcd76f0e43514981162819bdfb59135df8c9c8cc0d",
+      "coverageDigest": "sha256:fe0b22abf0e4d01a870eb5626a5abebdddd9007d9f35736e00103177f89e56b0",
+      "coverageSummary": {
+        "sourceObjects": 48,
+        "inventoryObjects": 48,
+        "semantic": 45,
+        "skippedResidual": 3,
+        "otherSourceIds": [],
+        "correctedSourceIds": [],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:tax",
+            "sourceLabel": "Tax",
+            "amount": {
+              "literal": "$10M",
+              "value": "10",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.tax",
+              "id": "tax"
+            }
+          },
+          {
+            "sourceId": "source:professional_services",
+            "sourceLabel": "Professional services",
+            "amount": {
+              "literal": "$12M",
+              "value": "12",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "revenue.items",
+              "id": "professional_services"
+            }
+          },
+          {
+            "sourceId": "source:interest",
+            "sourceLabel": "Interest",
+            "amount": {
+              "literal": "$19M",
+              "value": "19",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "otherIncome.items",
+              "id": "interest"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "cost_of_revenue",
+          "ga",
+          "gross_profit",
+          "interest",
+          "net_profit",
+          "operating_expenses",
+          "operating_profit",
+          "professional_services",
+          "revenue",
+          "rnd",
+          "sm",
+          "subscription",
+          "tax"
+        ],
+        "visibilityFloorExceptionNodeIds": []
+      },
+      "iconsCovered": 1,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:b11366ff52c0501d3430b5436130898cf57b9f6aec7ad95ef3078ac631f10dca",
+        "path": "../objects/dataset-verification/b11366ff52c0501d3430b5436130898cf57b9f6aec7ad95ef3078ac631f10dca.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "e5844599-5c19-4aae-a704-f585b6bae19b",
+          "candidateHash": "2445eff6d5ea44bcdc8fac23e41946cd59088fd879560c7ff605f1f59835070a",
+          "expected": 13,
+          "confirmed": 13,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9731294790765533
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "69553eff-3f20-4033-bb15-297ac8079de0",
+          "candidateHash": "e1bda1137d8a76fcc629c0f898e17d980e8741467e90effe9f70576e2dd60f74",
+          "expected": 13,
+          "confirmed": 13,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9570666477147873
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-028",
+        "CB-029",
+        "CB-035",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "on-q2-fy26",
+      "buildId": "build-88dd1227-5a8a-4c65-b9dc-01cd730cd78f",
+      "manifest": "output/builds/build-88dd1227-5a8a-4c65-b9dc-01cd730cd78f/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology"
+      ],
+      "source": {
+        "uri": "input/pending/page-0120-On-Q2-FY26-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:cf4060efbdf63fae7ae1cfd19e2e3f2f5ab8ae58f45089b10fdc62f52631a3b7",
+        "role": "primary-reference",
+        "processingUri": "input/processing/on-q2-fy26.png",
+        "processedUri": "input/processed/on-q2-fy26.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:cd56ebc3af5b2ed9e0a0031c1af5a4cab25618f843b076ed0d9e5eedc0bfa040",
+      "inventoryDigest": "sha256:7c762c2d8e2a00d9985862a51edc097c3f81e1f298815366d8c46db94c69a8ac",
+      "coverageDigest": "sha256:9ab48d9af29c6c36fd447823cf6e2462dda8c9a84d2605c56ea991f8082aac02",
+      "coverageSummary": {
+        "sourceObjects": 51,
+        "inventoryObjects": 51,
+        "semantic": 48,
+        "skippedResidual": 3,
+        "otherSourceIds": [
+          "source:label-other",
+          "source:link-13",
+          "source:other"
+        ],
+        "correctedSourceIds": [],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:other",
+            "sourceLabel": "other",
+            "amount": {
+              "literal": "₣6M",
+              "value": "6",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "otherIncome.items",
+              "id": "other"
+            }
+          },
+          {
+            "sourceId": "source:accessories",
+            "sourceLabel": "accessories",
+            "amount": {
+              "literal": "₣15M",
+              "value": "15",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "revenue.items",
+              "id": "accessories"
+            }
+          },
+          {
+            "sourceId": "source:tax",
+            "sourceLabel": "tax",
+            "amount": {
+              "literal": "(₣21M)",
+              "value": "21",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.tax",
+              "id": "tax"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "accessories",
+          "apparel",
+          "cost_of_sales",
+          "direct_to_consumer",
+          "gross_profit",
+          "net_profit",
+          "operating_expenses",
+          "operating_profit",
+          "other",
+          "revenue",
+          "revenue_by_product",
+          "shoes",
+          "tax",
+          "wholesale"
+        ],
+        "visibilityFloorExceptionNodeIds": [
+          "other"
+        ]
+      },
+      "iconsCovered": 4,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:cea7e6854128136447563f57f039d4b3ab30e7460c3131b9724677383c01fbd4",
+        "path": "../objects/dataset-verification/cea7e6854128136447563f57f039d4b3ab30e7460c3131b9724677383c01fbd4.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "45af8004-52d1-40bb-9884-5872c31525af",
+          "candidateHash": "058ba169e418b9d8064833f3bd5805e20fed91e241f6bb580e355ad7d120e74c",
+          "expected": 14,
+          "confirmed": 14,
+          "hidden": [],
+          "floorExceptions": [
+            "other"
+          ],
+          "unclassified": [],
+          "similarity": 0.9785446195042613
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "eb7479f1-b37e-4e73-8318-b1039e99696f",
+          "candidateHash": "b4e402468adf4221c0c34be7c964727491447c24b52e10ec1ce1e5c5c7397160",
+          "expected": 14,
+          "confirmed": 14,
+          "hidden": [],
+          "floorExceptions": [
+            "other"
+          ],
+          "unclassified": [],
+          "similarity": 0.9631201348197488
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-028",
+        "CB-029",
+        "CB-035",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "palantir-q2-fy26",
+      "buildId": "build-8bd48375-053f-4856-be9c-4d6288e21068",
+      "manifest": "output/builds/build-8bd48375-053f-4856-be9c-4d6288e21068/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology"
+      ],
+      "source": {
+        "uri": "input/pending/page-0115-Palantir-Q2-FY26-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:57240beedc1e569db86e6ac8fa32446a8e702798a0c57cbd03fe22db48de1108",
+        "role": "primary-reference",
+        "processingUri": "input/processing/palantir-q2-fy26.png",
+        "processedUri": "input/processed/palantir-q2-fy26.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:2ad6c8cbc73c60954be58e73194e323dd47ea243c8daeb13b67522927e0f903f",
+      "inventoryDigest": "sha256:ffadb5f29282cbc3c49dba2bae31ed54ac04895750a3beab9e276110d422d53c",
+      "coverageDigest": "sha256:445321cee4dac2902952e60334d212fcd31858b88f858f18c811f8cfc2d5e621",
+      "coverageSummary": {
+        "sourceObjects": 49,
+        "inventoryObjects": 49,
+        "semantic": 46,
+        "skippedResidual": 3,
+        "otherSourceIds": [
+          "source:flow:8",
+          "source:label:other:0",
+          "source:node:other"
+        ],
+        "correctedSourceIds": [],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:node:tax",
+            "sourceLabel": "Tax",
+            "amount": {
+              "literal": "($15M)",
+              "value": "15",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.tax",
+              "id": "tax"
+            }
+          },
+          {
+            "sourceId": "source:node:interest",
+            "sourceLabel": "Interest",
+            "amount": {
+              "literal": "$78M",
+              "value": "78",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "otherIncome.items",
+              "id": "interest"
+            }
+          },
+          {
+            "sourceId": "source:node:other",
+            "sourceLabel": "Other",
+            "amount": {
+              "literal": "$92M",
+              "value": "92",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "otherIncome.items",
+              "id": "other"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "commercial",
+          "cost_of_revenue",
+          "ga",
+          "government",
+          "gross_profit",
+          "interest",
+          "net_profit",
+          "operating_expenses",
+          "operating_profit",
+          "other",
+          "revenue",
+          "rnd",
+          "sm",
+          "tax"
+        ],
+        "visibilityFloorExceptionNodeIds": []
+      },
+      "iconsCovered": 1,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:0e8ae26b446f7986f85aef49b05a75eecf941b26e8a8bba2efdaa56df49df621",
+        "path": "../objects/dataset-verification/0e8ae26b446f7986f85aef49b05a75eecf941b26e8a8bba2efdaa56df49df621.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "5705f464-d8bc-4737-a05c-0bcde4344d24",
+          "candidateHash": "3c0bdbe3423e9f924828a365a2cb0abc342dd7c2a37f6b4b703108f355fb323a",
+          "expected": 14,
+          "confirmed": 14,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9713557851020257
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "0dbc6647-5c69-49f3-b188-e820703224d0",
+          "candidateHash": "737afc16a6781839401a00cde4bee5f1a7d1b5dafe9c7cd75aeaccf80c4601ba",
+          "expected": 14,
+          "confirmed": 14,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9555144963088764
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-028",
+        "CB-029",
+        "CB-035",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "paramount-q2-fy26",
+      "buildId": "build-a8d6c559-9b87-4469-8ed3-26a481b7577d",
+      "manifest": "output/builds/build-a8d6c559-9b87-4469-8ed3-26a481b7577d/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology"
+      ],
+      "source": {
+        "uri": "input/pending/page-0106-Paramount-Q2-FY26-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:d58f4af89626595504e8fc9d4367dbdbc46f11c3fd5e798ca7bbe9687b97d441",
+        "role": "primary-reference",
+        "processingUri": "input/processing/paramount-q2-fy26.png",
+        "processedUri": "input/processed/paramount-q2-fy26.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:e20f6696d2706b07cc6a04b313f6e8e472b8d647300965ebd57473a21f67d812",
+      "inventoryDigest": "sha256:5adbfe0d5b0cee08893c939251cc9009f8a276c6c2eeeb3faabcc855b4035626",
+      "coverageDigest": "sha256:ea7b98e70d09779e8476a972d86bba0f5ba6acaa6566e662e2bd0e9507203b52",
+      "coverageSummary": {
+        "sourceObjects": 52,
+        "inventoryObjects": 52,
+        "semantic": 49,
+        "skippedResidual": 3,
+        "otherSourceIds": [
+          "source:flow-operating_profit-other",
+          "source:label-other",
+          "source:other"
+        ],
+        "correctedSourceIds": [],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:eliminations",
+            "sourceLabel": "Eliminations",
+            "amount": {
+              "literal": "($0.0B)",
+              "value": "-0.003",
+              "unit": "B",
+              "resolution": "0.1",
+              "precisionRecovery": {
+                "method": "authoritative-supplemental-source",
+                "locator": "https://www.sec.gov/Archives/edgar/data/2041610/000204161026000052/ex99_q226.htm",
+                "literal": "$-3M"
+              }
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "revenue.items",
+              "id": "eliminations"
+            }
+          },
+          {
+            "sourceId": "source:net_profit",
+            "sourceLabel": "Net profit",
+            "amount": {
+              "literal": "$41M",
+              "value": "0.041",
+              "unit": "B",
+              "resolution": "0.001"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "profit.net",
+              "id": "net_profit"
+            }
+          },
+          {
+            "sourceId": "source:tax",
+            "sourceLabel": "Tax",
+            "amount": {
+              "literal": "($0.1B)",
+              "value": "0.1",
+              "unit": "B",
+              "resolution": "0.1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.tax",
+              "id": "tax"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "amortization",
+          "direct_to_consumer",
+          "eliminations",
+          "net_profit",
+          "operating",
+          "operating_expenses",
+          "operating_profit",
+          "other",
+          "restructuring",
+          "revenue",
+          "segment_revenue",
+          "sga",
+          "studios",
+          "tax",
+          "tv_media"
+        ],
+        "visibilityFloorExceptionNodeIds": [
+          "eliminations",
+          "net_profit"
+        ]
+      },
+      "iconsCovered": 4,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:a45782a04e2d183f1ffedc34d2e11a400cbe8f6db5ca39a96c00d7a182bcce02",
+        "path": "../objects/dataset-verification/a45782a04e2d183f1ffedc34d2e11a400cbe8f6db5ca39a96c00d7a182bcce02.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "c906784e-9de5-4569-b5e2-a171dae650e1",
+          "candidateHash": "db7ffef24922cf61615437b7fab380e8d1de8c8c52547329ec44ffa288cd309c",
+          "expected": 15,
+          "confirmed": 15,
+          "hidden": [],
+          "floorExceptions": [
+            "eliminations",
+            "net_profit"
+          ],
+          "unclassified": [],
+          "similarity": 0.9647322045528622
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "10636792-3fb4-4376-8246-6a7587c1bad3",
+          "candidateHash": "bfc31bf0231d47fb9f396b9ea4d1d5f3c35a780a0fe675ab30dd4b25c19779d5",
+          "expected": 15,
+          "confirmed": 15,
+          "hidden": [],
+          "floorExceptions": [
+            "eliminations",
+            "net_profit"
+          ],
+          "unclassified": [],
+          "similarity": 0.9454503275325878
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-028",
+        "CB-029",
+        "CB-033",
+        "CB-035",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "paycom-q2-fy26",
+      "buildId": "build-f17b69e4-84d7-4498-8215-4d375f8e2e8f",
+      "manifest": "output/builds/build-f17b69e4-84d7-4498-8215-4d375f8e2e8f/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology"
+      ],
+      "source": {
+        "uri": "input/pending/page-0108-Paycom-Q2-FY26-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:ec75061ee7a4a1f3c1cd8b820ec7f5d1a39916060636a73a1fef05358a35cc21",
+        "role": "primary-reference",
+        "processingUri": "input/processing/paycom-q2-fy26.png",
+        "processedUri": "input/processed/paycom-q2-fy26.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:1f1929d657ea199a15a47a01291fce682ad9655bed329589f6845ffa3d3712c2",
+      "inventoryDigest": "sha256:bd6b686baa31ff933895dc89a678c1eac7177906333ee5859308fbce26e0c194",
+      "coverageDigest": "sha256:45ebde425bf3f4b0848fee91a5e32a8228e4b085c41169205bc9e6e449ea0589",
+      "coverageSummary": {
+        "sourceObjects": 46,
+        "inventoryObjects": 46,
+        "semantic": 43,
+        "skippedResidual": 3,
+        "otherSourceIds": [
+          "source:flow-operating_profit-other",
+          "source:implementation_other",
+          "source:label-implementation_other",
+          "source:label-other",
+          "source:other"
+        ],
+        "correctedSourceIds": [],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:other",
+            "sourceLabel": "Other",
+            "amount": {
+              "literal": "($12M)",
+              "value": "12",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "otherExpenses.items",
+              "id": "other"
+            }
+          },
+          {
+            "sourceId": "source:depreciation",
+            "sourceLabel": "Depreciation",
+            "amount": {
+              "literal": "($26M)",
+              "value": "26",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.operatingExpenses.items",
+              "id": "depreciation"
+            }
+          },
+          {
+            "sourceId": "source:implementation_other",
+            "sourceLabel": "Implementation and other",
+            "amount": {
+              "literal": "$26M",
+              "value": "26",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "revenue.items",
+              "id": "implementation_other"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "cost_of_revenue",
+          "depreciation",
+          "ga",
+          "gross_profit",
+          "implementation_other",
+          "net_profit",
+          "operating_expenses",
+          "operating_profit",
+          "other",
+          "recurring",
+          "revenue",
+          "rnd",
+          "sm",
+          "tax"
+        ],
+        "visibilityFloorExceptionNodeIds": []
+      },
+      "iconsCovered": 1,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:019b8b453afc150a2c1c6d2304399771426a858cacc4d63213932615d777bdc3",
+        "path": "../objects/dataset-verification/019b8b453afc150a2c1c6d2304399771426a858cacc4d63213932615d777bdc3.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "974cf158-aae7-4684-800c-45ade32c24e1",
+          "candidateHash": "de25d172f36dc15bae7d5beba4276708a0bd48f77cd1d0fd6ab5b99008191b7f",
+          "expected": 14,
+          "confirmed": 14,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9787758863475399
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "0b3a4a3c-9b68-4410-932e-0c9b96e08f95",
+          "candidateHash": "f707f1b8c32e0f35c58781d4a02257bc569db6f4930fb79d413ac844bf4d20a3",
+          "expected": 14,
+          "confirmed": 14,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9611929515346529
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-028",
+        "CB-029",
+        "CB-035",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "pfizer-q2-fy26",
+      "buildId": "build-69e96e0d-cd79-451b-8de6-fa4040ae828d",
+      "manifest": "output/builds/build-69e96e0d-cd79-451b-8de6-fa4040ae828d/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology"
+      ],
+      "source": {
+        "uri": "input/pending/page-0088-Pfizer-Q2-FY26-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:20dc35621a3d02e837fcc52ce81f29b16d39bfd65b4101aa5714186ee6382af2",
+        "role": "primary-reference",
+        "processingUri": "input/processing/pfizer-q2-fy26.png",
+        "processedUri": "input/processed/pfizer-q2-fy26.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:1c353b8b7782877403df2cd78455678ed10da1d39e525b2004bfe98f83f2fb3b",
+      "inventoryDigest": "sha256:b3ef0f42935a9de092c083fd2c053091fcb2bc061763e834a37d2daf8d750705",
+      "coverageDigest": "sha256:718584225de9f02203215b31115e57e72bf82d490d21586f8e885ed0d12a7d30",
+      "coverageSummary": {
+        "sourceObjects": 52,
+        "inventoryObjects": 52,
+        "semantic": 49,
+        "skippedResidual": 3,
+        "otherSourceIds": [
+          "source:flow-operating_expenses-other",
+          "source:label-other",
+          "source:label-other_revenue",
+          "source:node-other",
+          "source:node-other_revenue"
+        ],
+        "correctedSourceIds": [],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:node-other_revenue",
+            "sourceLabel": "Other $0.4B",
+            "amount": {
+              "literal": "$0.4B",
+              "value": "0.4",
+              "unit": "B",
+              "resolution": "0.1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "revenue.items",
+              "id": "other_revenue"
+            }
+          },
+          {
+            "sourceId": "source:node-operating_loss",
+            "sourceLabel": "Operating loss ($0.7B)",
+            "amount": {
+              "literal": "($0.7B)",
+              "value": "-0.7",
+              "unit": "B",
+              "resolution": "0.1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "profit.operating",
+              "id": "operating_loss"
+            }
+          },
+          {
+            "sourceId": "source:node-amortization",
+            "sourceLabel": "Amortization ($1.2B)",
+            "amount": {
+              "literal": "($1.2B)",
+              "value": "1.2",
+              "unit": "B",
+              "resolution": "0.1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.operatingExpenses.items",
+              "id": "amortization"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "amortization",
+          "biopharma",
+          "cost_of_sales",
+          "gross_profit",
+          "hospital_biosimilars",
+          "oncology",
+          "operating_expenses",
+          "operating_loss",
+          "other",
+          "other_revenue",
+          "primary_care",
+          "revenue",
+          "rnd",
+          "sga",
+          "specialty_care"
+        ],
+        "visibilityFloorExceptionNodeIds": []
+      },
+      "iconsCovered": 4,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:9094e537c2a09332042ff1793620bfcb2bfdca330658dd2d6891b3bb9d6bccb1",
+        "path": "../objects/dataset-verification/9094e537c2a09332042ff1793620bfcb2bfdca330658dd2d6891b3bb9d6bccb1.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "0c8cbd57-f783-4ec9-844b-31291a82bd64",
+          "candidateHash": "0d4a07f64f4177bc2e57f7ca80defd503f125f508e962197f39de29a33d7d60a",
+          "expected": 15,
+          "confirmed": 15,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9755174426726071
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "2e4aafdd-672f-4408-a4d0-3fb9cead8318",
+          "candidateHash": "3259713027617ea21770808bab04611a5b4d44ce62d49b11fc7da305d8f1870f",
+          "expected": 15,
+          "confirmed": 15,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9596727899208677
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-025",
+        "CB-028",
+        "CB-029",
+        "CB-033",
+        "CB-035",
+        "CB-036",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "procore-q2-fy26",
+      "buildId": "build-78ea1092-f3c2-476d-bed2-6194518e1dcb",
+      "manifest": "output/builds/build-78ea1092-f3c2-476d-bed2-6194518e1dcb/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology"
+      ],
+      "source": {
+        "uri": "input/pending/page-0111-Procore-Q2-FY26-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:9532b155497b5e71ab344c5b6f3090d38924aa7403fb0915787c552b621a629f",
+        "role": "primary-reference",
+        "processingUri": "input/processing/procore-q2-fy26.png",
+        "processedUri": "input/processed/procore-q2-fy26.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:f90112065c82ece2acff10a63adfb5a056b37813a066aeebeb56f60827023517",
+      "inventoryDigest": "sha256:9c5ecce170b53292b96f23ef0e8414eca79a6dfc63931af01b4999ff6ba20c94",
+      "coverageDigest": "sha256:345aef9e441063090b382398db60474027041661abd06f9fab067abe0e9a29bb",
+      "coverageSummary": {
+        "sourceObjects": 32,
+        "inventoryObjects": 32,
+        "semantic": 29,
+        "skippedResidual": 3,
+        "otherSourceIds": [
+          "source:flow:11",
+          "source:node:other"
+        ],
+        "correctedSourceIds": [],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:node:interest",
+            "sourceLabel": "Interest / $4M",
+            "amount": {
+              "literal": "$4M",
+              "value": "4",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "otherIncome.items",
+              "id": "interest"
+            }
+          },
+          {
+            "sourceId": "source:node:operating_profit",
+            "sourceLabel": "Operating profit / $4M / 1% margin / +10pp Y/Y",
+            "amount": {
+              "literal": "$4M",
+              "value": "4",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "profit.operating",
+              "id": "operating_profit"
+            }
+          },
+          {
+            "sourceId": "source:node:other",
+            "sourceLabel": "Other / $8M",
+            "amount": {
+              "literal": "$8M",
+              "value": "8",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "otherIncome.items",
+              "id": "other"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "cost_of_revenue",
+          "ga",
+          "gross_profit",
+          "interest",
+          "net_profit",
+          "operating_expenses",
+          "operating_profit",
+          "other",
+          "rest_of_world",
+          "revenue",
+          "rnd",
+          "sm",
+          "united_states"
+        ],
+        "visibilityFloorExceptionNodeIds": []
+      },
+      "iconsCovered": 1,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:705a0fca8391ce2d21ec2510050e2e7f545ac309e8a7e7b78d827af4e72c7665",
+        "path": "../objects/dataset-verification/705a0fca8391ce2d21ec2510050e2e7f545ac309e8a7e7b78d827af4e72c7665.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "366cbd70-45d6-485e-b11d-750f115eccec",
+          "candidateHash": "4359ca69addf3b6b3153c25f49d14c3b4b24a629c5189fbab13ae5e17a24f4bb",
+          "expected": 13,
+          "confirmed": 13,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9770484218884404
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "7ef40126-f05d-4e9e-83e2-2242cf637a21",
+          "candidateHash": "c5d33f72348205324847231f5d8804cc0c799b94fae3eab17a93b68eb481132d",
+          "expected": 13,
+          "confirmed": 13,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9609750924925234
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-025",
+        "CB-028",
+        "CB-029",
+        "CB-033",
+        "CB-035",
+        "CB-036",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "rubrik-q2-fy27",
+      "buildId": "build-211e95cb-5c42-4452-9177-23ab1324d78f",
+      "manifest": "output/builds/build-211e95cb-5c42-4452-9177-23ab1324d78f/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology",
+        "supplemental-operating-metrics"
+      ],
+      "source": {
+        "uri": "input/pending/page-0113-Rubrik-Q2-FY27-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:817d05f0a105d9e480fa5d4dbb551bcefd5ab63b48180e62e62ee8607f479c86",
+        "role": "primary-reference",
+        "processingUri": "input/processing/rubrik-q2-fy27.png",
+        "processedUri": "input/processed/rubrik-q2-fy27.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:01d278b333ddd8050f9cf00606b7545b061828b2733670a50a0dbf9072226a72",
+      "inventoryDigest": "sha256:d8d845835222c71a066e23288c350982595e7f845c82f79f9c259aed89fe053a",
+      "coverageDigest": "sha256:0b751a6e5ff91cb12092fa8e54bc954bd7d40dd32e34feb3656f368b301f5145",
+      "coverageSummary": {
+        "sourceObjects": 41,
+        "inventoryObjects": 41,
+        "semantic": 38,
+        "skippedResidual": 3,
+        "otherSourceIds": [
+          "source:flow:other-revenue",
+          "source:label:other",
+          "source:node:other"
+        ],
+        "correctedSourceIds": [],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:node:other",
+            "sourceLabel": "Other",
+            "amount": {
+              "literal": "$20M",
+              "value": "20",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "revenue.items",
+              "id": "other"
+            }
+          },
+          {
+            "sourceId": "source:node:ga",
+            "sourceLabel": "G&A",
+            "amount": {
+              "literal": "($56M)",
+              "value": "56",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.operatingExpenses.items",
+              "id": "ga"
+            }
+          },
+          {
+            "sourceId": "source:node:operating_loss",
+            "sourceLabel": "Operating loss",
+            "amount": {
+              "literal": "($72M)",
+              "value": "-72",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "profit.operating",
+              "id": "operating_loss"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "cost_of_revenue",
+          "ga",
+          "gross_profit",
+          "operating_expenses",
+          "operating_loss",
+          "other",
+          "revenue",
+          "rnd",
+          "sm",
+          "subscription"
+        ],
+        "visibilityFloorExceptionNodeIds": []
+      },
+      "iconsCovered": 1,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:59c7e1b6687004b7882b677d6ab67a205f33ed989a0e1651223f8b4e3834f595",
+        "path": "../objects/dataset-verification/59c7e1b6687004b7882b677d6ab67a205f33ed989a0e1651223f8b4e3834f595.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "14737c0d-4686-410b-888e-ae22ef4ed2ff",
+          "candidateHash": "e32a9671ec5d852dcf55f9055d1d869f012b73320ccb2be6c890f36187593581",
+          "expected": 10,
+          "confirmed": 10,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9817176094818213
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "2e065692-7e1d-4560-84de-350af391441a",
+          "candidateHash": "168f888b6b4f79429a0e83e891ad4dfae0ce64edcdcff7fbfa05ace45026976c",
+          "expected": 10,
+          "confirmed": 10,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9622848268149488
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-025",
+        "CB-028",
+        "CB-029",
+        "CB-033",
+        "CB-035",
+        "CB-036",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "sentinelone-q2-fy27",
+      "buildId": "build-fcf9ede8-716e-45e7-8868-d27b0ddd0f68",
+      "manifest": "output/builds/build-fcf9ede8-716e-45e7-8868-d27b0ddd0f68/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology",
+        "supplemental-operating-metrics"
+      ],
+      "source": {
+        "uri": "input/pending/page-0114-SentinelOne-Q2-FY27-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:b3a725fd26a2a79a25b1c210997239b2a2eab7a7bf5de031565ca65ae659aae6",
+        "role": "primary-reference",
+        "processingUri": "input/processing/sentinelone-q2-fy27.png",
+        "processedUri": "input/processed/sentinelone-q2-fy27.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:472f14aca50b862edb11d9d53af5f516adcf945b20c08b464f5fa60075b03be8",
+      "inventoryDigest": "sha256:0bf41c71e31e6d64b4391e22cdb9452a9aa4a4bf4cf2261e07d96b7bfc5effd1",
+      "coverageDigest": "sha256:8f8d66a67eb97027e64dbc8be5c0d6d037cb2bf719bc5a94aeb5a66433eeed6d",
+      "coverageSummary": {
+        "sourceObjects": 39,
+        "inventoryObjects": 39,
+        "semantic": 38,
+        "skippedResidual": 1,
+        "otherSourceIds": [],
+        "correctedSourceIds": [],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:node:restructuring",
+            "sourceLabel": "Restructuring",
+            "amount": {
+              "literal": "($24M)",
+              "value": "24",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.operatingExpenses.items",
+              "id": "restructuring"
+            }
+          },
+          {
+            "sourceId": "source:node:ga",
+            "sourceLabel": "G&A",
+            "amount": {
+              "literal": "($56M)",
+              "value": "56",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.operatingExpenses.items",
+              "id": "ga"
+            }
+          },
+          {
+            "sourceId": "source:node:cost_of_revenue",
+            "sourceLabel": "Cost of revenue",
+            "amount": {
+              "literal": "($82M)",
+              "value": "82",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.costOfRevenue",
+              "id": "cost_of_revenue"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "cost_of_revenue",
+          "ga",
+          "gross_profit",
+          "international",
+          "operating_expenses",
+          "operating_loss",
+          "restructuring",
+          "revenue",
+          "rnd",
+          "sm",
+          "united_states"
+        ],
+        "visibilityFloorExceptionNodeIds": []
+      },
+      "iconsCovered": 1,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:46de4a29d40644cc3bc874b44a1be4d1a13ed81cb516119a80edd5405475a489",
+        "path": "../objects/dataset-verification/46de4a29d40644cc3bc874b44a1be4d1a13ed81cb516119a80edd5405475a489.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "1eead43e-cf46-4fa7-b733-a8a7a2cb98f9",
+          "candidateHash": "b3d84facd864e6c2e51b12c6a62b6ca67e31235d1c8fd1fd14a7d2947da51ccc",
+          "expected": 11,
+          "confirmed": 11,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9800184405053943
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "665ee38e-d0d8-4b8c-b18c-8bae06ecf3cb",
+          "candidateHash": "5b87e8dbb2662e36b57791f6dd5ad1c34ecf7512578a55f807944a6e3858a005",
+          "expected": 11,
+          "confirmed": 11,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9625863387991533
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-025",
+        "CB-028",
+        "CB-029",
+        "CB-033",
+        "CB-035",
+        "CB-036",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "the-trade-desk-q2-fy26",
+      "buildId": "build-59fcc240-e88d-4a0a-9193-02549cb574b6",
+      "manifest": "output/builds/build-59fcc240-e88d-4a0a-9193-02549cb574b6/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology"
+      ],
+      "source": {
+        "uri": "input/pending/page-0102-The-Trade-Desk-Q2-FY26-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:e37d317eb4b23b34ed43f83b723b677b418e78468abb1cd8e5371de9f836d774",
+        "role": "primary-reference",
+        "processingUri": "input/processing/the-trade-desk-q2-fy26.png",
+        "processedUri": "input/processed/the-trade-desk-q2-fy26.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:8a9a90a7e58d2726f225e04b3306396fd5646dd780561f46e948c0da3d91336c",
+      "inventoryDigest": "sha256:e86a8e78883c7b11c9aa190fb5f84de5e46ae351ddb2e9cac4b2d19a01bd15ec",
+      "coverageDigest": "sha256:b80eb27210af6a59908e286a30002b4b639086fb6ee149b75d479f6eabb28e82",
+      "coverageSummary": {
+        "sourceObjects": 25,
+        "inventoryObjects": 25,
+        "semantic": 24,
+        "skippedResidual": 1,
+        "otherSourceIds": [
+          "source:node:other_income"
+        ],
+        "correctedSourceIds": [],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:node:other_income",
+            "sourceLabel": "Other; $12M",
+            "amount": {
+              "literal": "$12M",
+              "value": "12",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "otherIncome.items",
+              "id": "other_income"
+            }
+          },
+          {
+            "sourceId": "source:node:tax",
+            "sourceLabel": "Tax; ($49M)",
+            "amount": {
+              "literal": "($49M)",
+              "value": "49",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.tax",
+              "id": "tax"
+            }
+          },
+          {
+            "sourceId": "source:node:net_profit",
+            "sourceLabel": "Net profit; $64M; 9% margin; (4pp) Y/Y",
+            "amount": {
+              "literal": "$64M",
+              "value": "64",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "profit.net",
+              "id": "net_profit"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "general_admin",
+          "gross_profit",
+          "net_profit",
+          "operating_expenses",
+          "operating_profit",
+          "other_income",
+          "platform_operations",
+          "revenue",
+          "sales_marketing",
+          "tax",
+          "technology_development"
+        ],
+        "visibilityFloorExceptionNodeIds": []
+      },
+      "iconsCovered": 1,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:b674255cce22a8ddddd60999233ecd4c6665b240e9d08e687a7f83f7a20d92f7",
+        "path": "../objects/dataset-verification/b674255cce22a8ddddd60999233ecd4c6665b240e9d08e687a7f83f7a20d92f7.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "00343c1a-2e7a-402e-9844-16064d4ec8ff",
+          "candidateHash": "5b86d6b8e06164f3b47e729eeb57ce11540861f60527303d9b2a57c613af4bdb",
+          "expected": 11,
+          "confirmed": 11,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9790271823865154
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "b2cbd741-ca38-4a6f-b9cd-8c4bda04036a",
+          "candidateHash": "dc077138df7b9726657f2c08378f6ef625551946dde640377ad8d9b101c16740",
+          "expected": 11,
+          "confirmed": 11,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9670918265935712
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-028",
+        "CB-029",
+        "CB-035",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "tripadvisor-q2-fy26",
+      "buildId": "build-66cca576-3759-4cbf-acd9-e3c39c8d5e4b",
+      "manifest": "output/builds/build-66cca576-3759-4cbf-acd9-e3c39c8d5e4b/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology"
+      ],
+      "source": {
+        "uri": "input/pending/page-0093-Tripadvisor-Q2-FY26-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:9abdae6cee2ce5a2d6ac566b8aa6d2c95f5afc941a46a5db8e402b245388016d",
+        "role": "primary-reference",
+        "processingUri": "input/processing/tripadvisor-q2-fy26.png",
+        "processedUri": "input/processed/tripadvisor-q2-fy26.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:eaca8a1b793f6e25e64f88972c6b6cbbe6b79a92b8c6f28395be5eb7f5ba1f96",
+      "inventoryDigest": "sha256:7438b75cf7800521565d2b419037f7c563e0211058fc7deb4dd5ab200262e911",
+      "coverageDigest": "sha256:001a1725053e774f6ab53da7999cbc4c8a12b8c677b903a525abd8f1354122e8",
+      "coverageSummary": {
+        "sourceObjects": 63,
+        "inventoryObjects": 63,
+        "semantic": 60,
+        "skippedResidual": 3,
+        "otherSourceIds": [
+          "source:asset:1",
+          "source:label:hotels_other",
+          "source:label:other_expense",
+          "source:label:other_revenue",
+          "source:node:hotels_other",
+          "source:node:other_expense",
+          "source:node:other_revenue"
+        ],
+        "correctedSourceIds": [],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:node:restructuring",
+            "sourceLabel": "Restructuring",
+            "amount": {
+              "literal": "($4M)",
+              "value": "4",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.operatingExpenses.items",
+              "id": "restructuring"
+            }
+          },
+          {
+            "sourceId": "source:node:tax",
+            "sourceLabel": "Tax",
+            "amount": {
+              "literal": "($5M)",
+              "value": "5",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.tax",
+              "id": "tax"
+            }
+          },
+          {
+            "sourceId": "source:node:other_expense",
+            "sourceLabel": "Other",
+            "amount": {
+              "literal": "($10M)",
+              "value": "10",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "otherExpenses.items",
+              "id": "other_expense"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "cost_of_revenue",
+          "da",
+          "experiences",
+          "ga",
+          "gross_profit",
+          "hotels",
+          "hotels_other",
+          "media",
+          "net_profit",
+          "operating_expenses",
+          "operating_profit",
+          "other_expense",
+          "other_revenue",
+          "personnel",
+          "restructuring",
+          "revenue",
+          "sm",
+          "tax",
+          "technology"
+        ],
+        "visibilityFloorExceptionNodeIds": []
+      },
+      "iconsCovered": 3,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:37ee473bda91259bcbe807b47ee2327e8b4146da250175f96ad3bda29d373d71",
+        "path": "../objects/dataset-verification/37ee473bda91259bcbe807b47ee2327e8b4146da250175f96ad3bda29d373d71.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "3c85ab5d-ab62-4274-9d6b-10d8a96d89dd",
+          "candidateHash": "2b33e6ede6369e3a704acdfd164227ca8f7f8e674952057e6132aa9739aacf37",
+          "expected": 19,
+          "confirmed": 19,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9648009557628826
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "3ebba0cc-1765-4601-b76d-720eb18b9a96",
+          "candidateHash": "0cccf4bddff290b58bf54ff259f9a558df804ae91997a60abe8219dd340bdc18",
+          "expected": 19,
+          "confirmed": 19,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9482458176388082
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-025",
+        "CB-028",
+        "CB-029",
+        "CB-033",
+        "CB-035",
+        "CB-036",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "warner-bros-q2-fy26",
+      "buildId": "build-8f2f056f-7bb2-4f2f-b7ad-0d98fc25d789",
+      "manifest": "output/builds/build-8f2f056f-7bb2-4f2f-b7ad-0d98fc25d789/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology"
+      ],
+      "source": {
+        "uri": "input/pending/page-0105-Warner-Bros.-Q2-FY26-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:0eeb3d135d506db5fb565d0abff3b2c56081f272d59c08426372c45e51a628e5",
+        "role": "primary-reference",
+        "processingUri": "input/processing/warner-bros-q2-fy26.png",
+        "processedUri": "input/processed/warner-bros-q2-fy26.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:0d3b9f3f23bca45a81f13e2670aede931975bd83169eeab3ced286e468a62df1",
+      "inventoryDigest": "sha256:7fbcacd906ded5b4b6390b5eca244283b1f6ae49c4d43df9a7d5d0c35b121fce",
+      "coverageDigest": "sha256:0cb8a9fd63d83efd108c1d421a45f243a5f8f38bf0e2af55b2f0f497915109e8",
+      "coverageSummary": {
+        "sourceObjects": 49,
+        "inventoryObjects": 49,
+        "semantic": 46,
+        "skippedResidual": 3,
+        "otherSourceIds": [
+          "source:node-other_nonoperating",
+          "source:node-other_operating_expense"
+        ],
+        "correctedSourceIds": [],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:node-other_nonoperating",
+            "sourceLabel": "Other ($0.1B)",
+            "amount": {
+              "literal": "($0.1B)",
+              "value": "0.1",
+              "unit": "B",
+              "resolution": "0.1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "otherExpenses.items",
+              "id": "other_nonoperating"
+            }
+          },
+          {
+            "sourceId": "source:node-other_operating_expense",
+            "sourceLabel": "Other ($0.1B)",
+            "amount": {
+              "literal": "($0.1B)",
+              "value": "0.1",
+              "unit": "B",
+              "resolution": "0.1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.operatingExpenses.items",
+              "id": "other_operating_expense"
+            }
+          },
+          {
+            "sourceId": "source:node-net_profit",
+            "sourceLabel": "Net profit $0.2B",
+            "amount": {
+              "literal": "$0.2B",
+              "value": "0.2",
+              "unit": "B",
+              "resolution": "0.1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "profit.net",
+              "id": "net_profit"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "amortization",
+          "cost_of_revenue",
+          "eliminations",
+          "gross_profit",
+          "gross_revenue",
+          "net_profit",
+          "networks",
+          "operating_expenses",
+          "operating_profit",
+          "other_nonoperating",
+          "other_operating_expense",
+          "revenue",
+          "sga",
+          "streaming",
+          "studios"
+        ],
+        "visibilityFloorExceptionNodeIds": []
+      },
+      "iconsCovered": 4,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:bcf97d18c6af09ec51733ef9240cdb5ba6ee6e3c848dda9045a546b2c154486c",
+        "path": "../objects/dataset-verification/bcf97d18c6af09ec51733ef9240cdb5ba6ee6e3c848dda9045a546b2c154486c.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "7492c4cf-909b-44e9-9f72-09191492f601",
+          "candidateHash": "173cc14ecf96b1544a69a7103b2d61d2e84dfb3ea4b2157968bcdcedbbe024a8",
+          "expected": 15,
+          "confirmed": 15,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.9739911426104416
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "e313025c-6819-4271-bb80-dbc86f6ae7f4",
+          "candidateHash": "5eff435e6b42fc31d61bb7d7d8791a6c7e8838aeb647cc8c1c469393a305f833",
+          "expected": 15,
+          "confirmed": 15,
+          "hidden": [],
+          "floorExceptions": [],
+          "unclassified": [],
+          "similarity": 0.96005610115729
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-028",
+        "CB-029",
+        "CB-035",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    },
+    {
+      "key": "workday-q2-fy27",
+      "buildId": "build-a5ca6a8e-0194-4e35-bd3b-57686dcb4fbe",
+      "manifest": "output/builds/build-a5ca6a8e-0194-4e35-bd3b-57686dcb4fbe/manifest.json",
+      "adapter": "income-statement",
+      "signals": [
+        "income-statement-values",
+        "sankey-flow-topology"
+      ],
+      "source": {
+        "uri": "input/pending/page-0123-Workday-Q2-FY27-Income-Statement.png",
+        "availability": "local-only",
+        "digest": "sha256:45cbcd0dadc681f93d8304e770ec295bc103da76e1af185e3b374f96bc7b8fc1",
+        "role": "primary-reference",
+        "processingUri": "input/processing/workday-q2-fy27.png",
+        "processedUri": "input/processed/workday-q2-fy27.png",
+        "width": 2667,
+        "height": 1500
+      },
+      "stateAtCloseout": "SEALED",
+      "closeout": {
+        "ok": true,
+        "reasons": []
+      },
+      "reviewToken": "sha256:ddc5372c891ba8e4ebc819530a37c28db9ba35a38c3c5ff9bfc5cfe12b3a9809",
+      "inventoryDigest": "sha256:49edf10e1eda5d2b4f9bbbcfefa4d619c9a9a10d9e3d6280f1c9f9aede39d5af",
+      "coverageDigest": "sha256:38a93bef03bd3c5124d5a518e9fcdbb8e47eacff02545574473abc76c6012f04",
+      "coverageSummary": {
+        "sourceObjects": 46,
+        "inventoryObjects": 46,
+        "semantic": 43,
+        "skippedResidual": 3,
+        "otherSourceIds": [
+          "source:flow-other-net_profit",
+          "source:label-other",
+          "source:other"
+        ],
+        "correctedSourceIds": [],
+        "smallestNonZero": [
+          {
+            "sourceId": "source:other",
+            "sourceLabel": "Other $14M",
+            "amount": {
+              "literal": "$14M",
+              "value": "14",
+              "unit": "M",
+              "resolution": "1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "otherIncome.items",
+              "id": "other"
+            }
+          },
+          {
+            "sourceId": "source:ga",
+            "sourceLabel": "G&A ($0.2B)",
+            "amount": {
+              "literal": "($0.2B)",
+              "value": "0.2",
+              "unit": "B",
+              "resolution": "0.1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "costs.operatingExpenses.items",
+              "id": "ga"
+            }
+          },
+          {
+            "sourceId": "source:professional_services",
+            "sourceLabel": "Professional services $0.2B",
+            "amount": {
+              "literal": "$0.2B",
+              "value": "0.2",
+              "unit": "B",
+              "resolution": "0.1"
+            },
+            "ssotRef": {
+              "family": "income-statement",
+              "path": "revenue.items",
+              "id": "professional_services"
+            }
+          }
+        ],
+        "visibleNodeIds": [
+          "cost_of_revenue",
+          "ga",
+          "gross_profit",
+          "net_profit",
+          "operating_expenses",
+          "operating_profit",
+          "other",
+          "product_development",
+          "professional_services",
+          "revenue",
+          "sm",
+          "subscription",
+          "tax_benefit"
+        ],
+        "visibilityFloorExceptionNodeIds": [
+          "other"
+        ]
+      },
+      "iconsCovered": 1,
+      "verificationReference": {
+        "kind": "dataset-verification",
+        "digest": "sha256:bd6de09c58c9ec2c59f92f1d4d1def4235d35f5954c8b7bb590f54fb6073e5c8",
+        "path": "../objects/dataset-verification/bd6de09c58c9ec2c59f92f1d4d1def4235d35f5954c8b7bb590f54fb6073e5c8.json"
+      },
+      "locales": {
+        "en": {
+          "status": "evidence-ready",
+          "runId": "a956e797-5a43-4b30-9980-5698923edd3e",
+          "candidateHash": "5a4a172b1b630afb629a86ec5bdfc388b850107ede1afad2521472c4625df38f",
+          "expected": 13,
+          "confirmed": 13,
+          "hidden": [],
+          "floorExceptions": [
+            "other"
+          ],
+          "unclassified": [],
+          "similarity": 0.9657116683943918
+        },
+        "zh": {
+          "status": "evidence-ready",
+          "runId": "28bbd785-eaaa-4bf6-a8c0-ee87f8bb93fd",
+          "candidateHash": "420e7f4b9b42dcc510038bff6ee38b52f0ddfae037ee51cbf349be099daa17c5",
+          "expected": 13,
+          "confirmed": 13,
+          "hidden": [],
+          "floorExceptions": [
+            "other"
+          ],
+          "unclassified": [],
+          "similarity": 0.9601372086659102
+        }
+      },
+      "casebookHits": [
+        "CB-001",
+        "CB-002",
+        "CB-003",
+        "CB-004",
+        "CB-005",
+        "CB-007",
+        "CB-009",
+        "CB-011",
+        "CB-015",
+        "CB-028",
+        "CB-029",
+        "CB-035",
+        "CB-037",
+        "CB-038",
+        "CB-042"
+      ]
+    }
+  ],
+  "localChecks": [
+    "pnpm check (725 tests)",
+    "pnpm verify:workbench",
+    "pnpm verify:app",
+    "all Build consistency checks",
+    "all en/zh stage evidence and seal render hard gates",
+    "all verify:closeout"
+  ],
+  "repair": "Expedia Lodging name and two icons shifted up 31px to satisfy split-side-label center gate. Source referenceBBox retained with explicit corrected target. Codex inspected final en/zh renders under operator repair authorization; this was not a second operator visual review.",
+  "humanInterventionStatistics": {
+    "total": 32,
+    "knownInterventionKeys": [
+      "airbnb-q2-fy26",
+      "cisco-q4-fy26",
+      "expedia-q2-fy26",
+      "paramount-q2-fy26"
+    ],
+    "others": "Unknown: absence of feedback records does not prove zero intervention. Operator was asked for missing statistics; no rates fabricated."
+  }
+}
