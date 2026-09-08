@@ -1,0 +1,133 @@
+{
+  "source": "input/processing/okta-q2-fy27.png",
+  "spec": "input/icon-crop-specs/okta-q2-fy27.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-09-07T20:35:55.191360+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/okta",
+  "crops": [
+    {
+      "key": "okta-company-logo-wordmark",
+      "output": "data/assets/icon-references/okta-q2-fy27/crops/company-logo-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 3906,
+        "losslessBytes": 16607,
+        "savingsVsLossless": 0.7648,
+        "metrics": {
+          "meanAbsoluteError": 0.1737,
+          "rootMeanSquareError": 1.0887,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.094
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 61235,
+        "transparentPixelRatio": 0.5814
+      },
+      "searchBox": {
+        "x": 600,
+        "y": 235,
+        "width": 520,
+        "height": 180
+      },
+      "componentCount": 4,
+      "subjectBox": {
+        "x0": 618,
+        "y0": 244,
+        "x1": 1106,
+        "y1": 409
+      },
+      "cropBox": {
+        "x0": 600,
+        "y0": 226,
+        "x1": 1124,
+        "y1": 427
+      },
+      "validation": {
+        "width": 524,
+        "height": 201,
+        "foregroundPixels": 38029,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 18,
+          "right": 18,
+          "top": 18,
+          "bottom": 18
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Okta company logo wordmark centered above the revenue node; excludes the Revenue label, chart flows, KPI cards, website URL, How They Make Money mark, and App Economy Insights attribution.",
+      "runtimeOutput": "data/assets/raster-annotations/okta/company-logo-wordmark-q2-fy27.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 3906,
+        "losslessBytes": 16607,
+        "savingsVsLossless": 0.7648,
+        "metrics": {
+          "meanAbsoluteError": 0.1737,
+          "rootMeanSquareError": 1.0887,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.094
+        }
+      },
+      "validationSheet": "data/assets/icon-references/okta-q2-fy27/validation-sheets/okta-company-logo-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 253697,
+        "losslessBytes": 253697,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

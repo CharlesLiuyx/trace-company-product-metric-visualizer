@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "booking-merchant-brands",
+  "artifact": {
+    "path": "data/assets/raster-annotations/booking/merchant-brands.png",
+    "digest": "sha256:249909284de8551570a1885e69ac4d2f839e123df4d4b6a2c95f0a736279bc1d"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/booking-q2-fy26-reuse.json",
+    "digest": "sha256:26ce041f17158405bf9645a288655412d6f4f850c4345ecc317991c97e40ad72"
+  },
+  "source": {
+    "path": "input/processed/booking-q4-fy25.png",
+    "digest": "sha256:28f0bbf771afd13250201f9d0a487caa313b16f5cc044f7b590095873de34644"
+  },
+  "review": {
+    "reviewer": "Codex executor visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:249909284de8551570a1885e69ac4d2f839e123df4d4b6a2c95f0a736279bc1d",
+    "note": "Inspected runtime crop at native size and compared with complete Q2 Source. Complete company/business identity, clean margins, no chart labels, connectors or publisher marks. Reuses existing Q4 source crop bytes with original dimensions."
+  },
+  "versionDigest": "sha256:e4d84707ef11423b8b180d25fc2870d46936d1afe86a27e5959325a3f1cffc96"
+}

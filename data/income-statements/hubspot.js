@@ -262,3 +262,241 @@
     }
   );
 })(window);
+
+window.INCOME_STATEMENT_SSOT.records.push({
+  "key": "hubspot-q2-fy26",
+  "company": "HubSpot",
+  "period": "Q2 FY26",
+  "periodNote": "Ending Jun. 2026",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/hubspot-q2-fy26.png",
+  "roundingTolerance": 1.1,
+  "revenue": {
+    "total": 912,
+    "notes": [
+      "+20% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "subscription",
+        "label": "Subscription",
+        "value": 894,
+        "notes": [
+          "+20% Y/Y",
+          "84% gross margin"
+        ]
+      },
+      {
+        "id": "professional_services",
+        "label": "Professional services",
+        "value": 18,
+        "notes": [
+          "+8% Y/Y",
+          "8% gross margin"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 161
+    },
+    "operatingExpenses": {
+      "total": 708,
+      "items": [
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 398,
+          "notes": [
+            "44% of revenue",
+            "(1pp) Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 226,
+          "notes": [
+            "25% of revenue",
+            "(6pp) Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 83,
+          "notes": [
+            "9% of revenue",
+            "(2pp) Y/Y"
+          ]
+        },
+        {
+          "id": "restructuring",
+          "label": "Restructuring",
+          "value": 1,
+          "notes": [
+            "0% of revenue",
+            "(0pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 6
+    }
+  },
+  "otherIncome": {
+    "total": 6,
+    "items": [
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 6
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 751,
+      "notes": [
+        "82% margin",
+        "(2pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 43,
+      "notes": [
+        "5% margin",
+        "+2pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 43,
+      "notes": [
+        "5% margin",
+        "+8pp Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "periodNote": "截至 2026 年 6 月",
+      "revenue": {
+        "notes": [
+          "同比 +20%"
+        ],
+        "items": [
+          {
+            "id": "subscription",
+            "label": "订阅",
+            "notes": [
+              "同比 +20%",
+              "毛利率 84%"
+            ]
+          },
+          {
+            "id": "professional_services",
+            "label": "专业服务",
+            "notes": [
+              "同比 +8%",
+              "毛利率 8%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sm",
+              "label": "销售与市场",
+              "notes": [
+                "占收入 44%",
+                "同比 (1 个百分点)"
+              ]
+            },
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 25%",
+                "同比 (6 个百分点)"
+              ]
+            },
+            {
+              "id": "ga",
+              "label": "管理费用",
+              "notes": [
+                "占收入 9%",
+                "同比 (2 个百分点)"
+              ]
+            },
+            {
+              "id": "restructuring",
+              "label": "重组费用",
+              "notes": [
+                "占收入 0%",
+                "同比 (0 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "other",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 82%",
+            "同比 (2 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 5%",
+            "同比 +2 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 5%",
+            "同比 +8 个百分点"
+          ]
+        }
+      }
+    }
+  }
+});

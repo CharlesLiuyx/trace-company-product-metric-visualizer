@@ -229,4 +229,234 @@
       },
     },
   });
+ssot.records.push({
+  "key": "procore-q2-fy26",
+  "company": "Procore",
+  "period": "Q2 FY26",
+  "periodNote": "Ending Jun. 2026",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/procore-q2-fy26.png",
+  "roundingTolerance": 1.1,
+  "revenue": {
+    "total": 375,
+    "notes": [
+      "+16% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "united_states",
+        "label": "United States",
+        "value": 317,
+        "notes": [
+          "+15% Y/Y"
+        ]
+      },
+      {
+        "id": "rest_of_world",
+        "label": "Rest of World",
+        "value": 59,
+        "notes": [
+          "+23% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 75
+    },
+    "operatingExpenses": {
+      "total": 295,
+      "items": [
+        {
+          "id": "sm",
+          "label": "Sales & marketing",
+          "value": 146,
+          "notes": [
+            "39% of revenue",
+            "(5pp) Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "Research & development",
+          "value": 93,
+          "notes": [
+            "25% of revenue",
+            "(3pp) Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "General & administrative",
+          "value": 56,
+          "notes": [
+            "15% of revenue",
+            "(2pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "label": "Tax",
+      "value": 0,
+      "notes": [
+        "No separate tax line is shown in the source chart."
+      ]
+    }
+  },
+  "otherIncome": {
+    "total": 12,
+    "items": [
+      {
+        "id": "interest",
+        "label": "Interest",
+        "value": 4
+      },
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 8
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 300,
+      "notes": [
+        "80% margin",
+        "+1pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 4,
+      "notes": [
+        "1% margin",
+        "+10pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 17,
+      "notes": [
+        "4% margin",
+        "+11pp Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "periodNote": "截至 2026 年 6 月",
+      "revenue": {
+        "notes": [
+          "同比 +16%"
+        ],
+        "items": [
+          {
+            "id": "united_states",
+            "label": "美国",
+            "notes": [
+              "同比 +15%"
+            ]
+          },
+          {
+            "id": "rest_of_world",
+            "label": "世界其他地区",
+            "notes": [
+              "同比 +23%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sm",
+              "label": "销售与营销",
+              "notes": [
+                "占收入 39%",
+                "同比 (5 个百分点)"
+              ]
+            },
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 25%",
+                "同比 (3 个百分点)"
+              ]
+            },
+            {
+              "id": "ga",
+              "label": "一般及行政",
+              "notes": [
+                "占收入 15%",
+                "同比 (2 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费",
+          "notes": [
+            "来源图未显示单独的税费项目。"
+          ]
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 80%",
+            "同比 +1 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 1%",
+            "同比 +10 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 4%",
+            "同比 +11 个百分点"
+          ]
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "interest",
+            "label": "利息"
+          },
+          {
+            "id": "other",
+            "label": "其他"
+          }
+        ]
+      }
+    }
+  }
+});
 })(window);

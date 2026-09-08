@@ -1,0 +1,133 @@
+{
+  "source": "input/processed/marriott-q2-fy26.png",
+  "spec": "input/icon-crop-specs/marriott-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-09-07T20:41:44.470189+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/marriott",
+  "crops": [
+    {
+      "key": "q2-fy26-logo",
+      "output": "data/assets/icon-references/marriott-q2-fy26/q2-fy26-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 5183,
+        "losslessBytes": 22997,
+        "savingsVsLossless": 0.7746,
+        "metrics": {
+          "meanAbsoluteError": 0.2047,
+          "rootMeanSquareError": 1.1244,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.0737
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 89526,
+        "transparentPixelRatio": 0.6662
+      },
+      "searchBox": {
+        "x": 1003,
+        "y": 240,
+        "width": 625,
+        "height": 215
+      },
+      "componentCount": 21,
+      "subjectBox": {
+        "x0": 1014,
+        "y0": 251,
+        "x1": 1619,
+        "y1": 444
+      },
+      "cropBox": {
+        "x0": 1003,
+        "y0": 240,
+        "x1": 1628,
+        "y1": 455
+      },
+      "validation": {
+        "width": 625,
+        "height": 215,
+        "foregroundPixels": 38766,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 11,
+          "right": 9,
+          "top": 11,
+          "bottom": 11
+        },
+        "centerOffset": {
+          "x": 0.0016,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Marriott company logo and wordmark near the top center of the source chart; excludes the title, flow labels, KPI cards, and publisher footer branding.",
+      "runtimeOutput": "data/assets/raster-annotations/marriott/q2-fy26-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 5183,
+        "losslessBytes": 22997,
+        "savingsVsLossless": 0.7746,
+        "metrics": {
+          "meanAbsoluteError": 0.2047,
+          "rootMeanSquareError": 1.1244,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.0737
+        }
+      },
+      "validationSheet": "data/assets/icon-references/marriott-q2-fy26/validation-sheets/q2-fy26-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 256752,
+        "losslessBytes": 256752,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

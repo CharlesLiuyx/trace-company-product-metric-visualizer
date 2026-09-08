@@ -1,0 +1,96 @@
+{
+  "source": "input/processing/cloudflare-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/cloudflare-q2-fy26/crops",
+  "validationSheetDir": "data/assets/icon-references/cloudflare-q2-fy26/validation-sheets",
+  "report": "../crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24
+    ],
+    "maxMeanAbsoluteError": 1.2,
+    "maxRootMeanSquareError": 3,
+    "maxP99AbsoluteError": 12,
+    "maxMaxChannelDiff": 72
+  },
+  "crops": [
+    {
+      "key": "cloudflare-cloud-q2-fy26",
+      "output": "cloud-q2-fy26.png",
+      "searchBox": {
+        "x": 916,
+        "y": 211,
+        "width": 267,
+        "height": 123
+      },
+      "cropBox": {
+        "x": 916,
+        "y": 211,
+        "width": 267,
+        "height": 123
+      },
+      "threshold": 18,
+      "minComponentArea": 4,
+      "padding": 0,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Isolated cloud excluding the title, chart labels and neighboring content. Source title fragment at top-left is excluded in a 12\u00d718 rectangle entirely clear of the cloud.",
+      "excludeBoxes": [
+        {
+          "x": 916,
+          "y": 211,
+          "width": 12,
+          "height": 18
+        }
+      ],
+      "runtimeOutput": "cloud-q2-fy26.png"
+    },
+    {
+      "key": "cloudflare-wordmark-q2-fy26",
+      "output": "wordmark-q2-fy26.png",
+      "searchBox": {
+        "x": 635,
+        "y": 346,
+        "width": 563,
+        "height": 51
+      },
+      "cropBox": {
+        "x": 635,
+        "y": 346,
+        "width": 563,
+        "height": 51
+      },
+      "threshold": 18,
+      "minComponentArea": 4,
+      "padding": 0,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Isolated wordmark excluding the title, chart labels and neighboring content.",
+      "runtimeOutput": "wordmark-q2-fy26.png"
+    }
+  ],
+  "runtimeOutputDir": "data/assets/raster-annotations/cloudflare"
+}

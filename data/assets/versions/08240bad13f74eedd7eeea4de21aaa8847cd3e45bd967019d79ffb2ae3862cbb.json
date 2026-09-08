@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Procore company wordmark",
+  "artifact": {
+    "path": "data/assets/raster-annotations/procore/company-wordmark-q2-fy26.png",
+    "digest": "sha256:30c2fb6430002c504e6d36396b72048838cf2867b654663cc7ff52980ebc537b"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/procore-q2-fy26.json",
+    "digest": "sha256:673b291d20e872487e2e16d636b92aa98bf27d9fd5600a64dbd2bec4e8765ba1"
+  },
+  "source": {
+    "path": "input/processed/procore-q2-fy26.png",
+    "digest": "sha256:9532b155497b5e71ab344c5b6f3090d38924aa7403fb0915787c552b621a629f"
+  },
+  "review": {
+    "reviewer": "Codex model visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:30c2fb6430002c504e6d36396b72048838cf2867b654663cc7ff52980ebc537b",
+    "note": "Model inspected current Source crop validation sheet at native boundaries: complete PROCORE wordmark and orange inset, centered with margins, no labels/links/publisher residue. Transparent background 51.13%; 32-color compressed PNG preserves shape."
+  },
+  "versionDigest": "sha256:08240bad13f74eedd7eeea4de21aaa8847cd3e45bd967019d79ffb2ae3862cbb"
+}

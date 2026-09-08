@@ -1,0 +1,150 @@
+{
+  "source": "input/processed/airbnb-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/airbnb/airbnb-q2-fy26",
+  "validationSheetDir": "data/assets/icon-references/airbnb/airbnb-q2-fy26/validation-sheets",
+  "runtimeOutputDir": "data/assets/raster-annotations/airbnb",
+  "report": "crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "crops": [
+    {
+      "key": "logo",
+      "output": "crops/logo.png",
+      "runtimeOutput": "airbnb-q2-fy26-logo.png",
+      "searchBox": {
+        "x": 774,
+        "y": 229,
+        "width": 251,
+        "height": 253
+      },
+      "cropBox": {
+        "x": 774,
+        "y": 229,
+        "width": 251,
+        "height": 253
+      },
+      "threshold": 16,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.18,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete Airbnb brand/region icon; excludes neighboring labels, graph and publisher."
+    },
+    {
+      "key": "north-america",
+      "output": "crops/north-america.png",
+      "runtimeOutput": "airbnb-q2-fy26-north-america.png",
+      "searchBox": {
+        "x": 83,
+        "y": 408,
+        "width": 102,
+        "height": 102
+      },
+      "cropBox": {
+        "x": 83,
+        "y": 408,
+        "width": 102,
+        "height": 102
+      },
+      "threshold": 16,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.18,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete Airbnb brand/region icon; excludes neighboring labels, graph and publisher."
+    },
+    {
+      "key": "emea",
+      "output": "crops/emea.png",
+      "runtimeOutput": "airbnb-q2-fy26-emea.png",
+      "searchBox": {
+        "x": 85,
+        "y": 689,
+        "width": 96,
+        "height": 94
+      },
+      "cropBox": {
+        "x": 85,
+        "y": 689,
+        "width": 96,
+        "height": 94
+      },
+      "threshold": 16,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.18,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete Airbnb brand/region icon; excludes neighboring labels, graph and publisher."
+    },
+    {
+      "key": "latam",
+      "output": "crops/latam.png",
+      "runtimeOutput": "airbnb-q2-fy26-latam.png",
+      "searchBox": {
+        "x": 92,
+        "y": 891,
+        "width": 82,
+        "height": 86
+      },
+      "cropBox": {
+        "x": 92,
+        "y": 891,
+        "width": 82,
+        "height": 86
+      },
+      "threshold": 16,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.18,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete Airbnb brand/region icon; excludes neighboring labels, graph and publisher."
+    },
+    {
+      "key": "apac",
+      "output": "crops/apac.png",
+      "runtimeOutput": "airbnb-q2-fy26-apac.png",
+      "searchBox": {
+        "x": 99,
+        "y": 1047,
+        "width": 86,
+        "height": 95
+      },
+      "cropBox": {
+        "x": 99,
+        "y": 1047,
+        "width": 86,
+        "height": 95
+      },
+      "threshold": 16,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.18,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete Airbnb brand/region icon; excludes neighboring labels, graph and publisher."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "publisher",
+      "reason": "Publisher and creator marks are non-semantic residuals."
+    }
+  ]
+}

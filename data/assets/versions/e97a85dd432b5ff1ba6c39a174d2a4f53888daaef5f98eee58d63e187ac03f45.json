@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "DraftKings Online Gaming brand cluster",
+  "artifact": {
+    "path": "data/assets/raster-annotations/draftkings-q2-fy26/online-gaming-cluster.png",
+    "digest": "sha256:3cb7110fe0b9cdbf70046504615c76e3c26afc1ff71dc7469efd6c07a3e2a375"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/draftkings-q2-fy26-cluster.json",
+    "digest": "sha256:8af8d23a9f002e1bae9a246989c22b961d89fb5062810425e5df7eeff5873bbe"
+  },
+  "source": {
+    "path": "input/processing/draftkings-q2-fy26.png",
+    "digest": "sha256:2c8bdf19de18070a4f7b5db01bf23c5c2bab4e0fb393f1cc7e5848730384a099"
+  },
+  "review": {
+    "decision": "accepted",
+    "reviewer": "Codex visual inspection",
+    "artifactDigest": "sha256:3cb7110fe0b9cdbf70046504615c76e3c26afc1ff71dc7469efd6c07a3e2a375",
+    "note": "Inspected current Source and generated validation sheet: both complete badges, complete words and crowns, original gap preserved, no financial labels or chart marks included. One cluster pairs with Online Gaming."
+  },
+  "versionDigest": "sha256:e97a85dd432b5ff1ba6c39a174d2a4f53888daaef5f98eee58d63e187ac03f45"
+}

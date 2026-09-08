@@ -241,3 +241,284 @@
     }
   );
 })(window);
+
+window.INCOME_STATEMENT_SSOT.records.push({
+  "key": "dynatrace-q1-fy27",
+  "company": "Dynatrace",
+  "period": "Q1 FY27",
+  "periodNote": "Ending June 2026",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/dynatrace-q1-fy27.png",
+  "roundingTolerance": 1.1,
+  "revenue": {
+    "total": 555,
+    "notes": [
+      "+16% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "subscription",
+        "label": "Subscription",
+        "value": 530,
+        "notes": [
+          "+16% Y/Y"
+        ]
+      },
+      {
+        "id": "service",
+        "label": "Service",
+        "value": 24,
+        "notes": [
+          "+23% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 104
+    },
+    "operatingExpenses": {
+      "total": 379,
+      "items": [
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 182,
+          "notes": [
+            "33% of revenue",
+            "(2pp) Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 136,
+          "notes": [
+            "25% of revenue",
+            "+2pp Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 62,
+          "notes": [
+            "11% of revenue",
+            "(1pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 44
+    }
+  },
+  "otherIncome": {
+    "total": 8,
+    "items": [
+      {
+        "id": "other_income",
+        "label": "Other",
+        "value": 8
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 451,
+      "notes": [
+        "81% margin",
+        "(1pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 72,
+      "notes": [
+        "13% margin",
+        "(0pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 36,
+      "notes": [
+        "7% margin",
+        "(4pp) Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2027 财年第一季度",
+      "periodNote": "截至 2026 年 6 月",
+      "revenue": {
+        "notes": [
+          "同比 +16%"
+        ],
+        "items": [
+          {
+            "id": "subscription",
+            "label": "订阅",
+            "notes": [
+              "同比 +16%"
+            ]
+          },
+          {
+            "id": "service",
+            "label": "服务",
+            "notes": [
+              "同比 +23%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sm",
+              "label": "销售与市场",
+              "notes": [
+                "占收入 33%",
+                "同比 (2 个百分点)"
+              ]
+            },
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 25%",
+                "同比 +2 个百分点"
+              ]
+            },
+            {
+              "id": "ga",
+              "label": "管理费用",
+              "notes": [
+                "占收入 11%",
+                "同比 (1 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "other_income",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 81%",
+            "同比 (1 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 13%",
+            "同比 (0 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 7%",
+            "同比 (4 个百分点)"
+          ]
+        }
+      },
+      "operatingMetrics": [
+        {
+          "id": "arr",
+          "label": "ARR",
+          "notes": [
+            "同比 +17%"
+          ]
+        },
+        {
+          "id": "dbnr",
+          "label": "DBNR",
+          "notes": [
+            "环比持平"
+          ]
+        }
+      ]
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "arr",
+      "label": "ARR",
+      "value": "2.1",
+      "unit": "B",
+      "currency": "USD",
+      "comparison": "eq",
+      "literal": "$2.1B",
+      "basis": "unspecified",
+      "notes": [
+        "+17% Y/Y"
+      ],
+      "quote": "ARR\n$2.1B\n+17% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          256,
+          1102,
+          148,
+          166
+        ]
+      }
+    },
+    {
+      "id": "dbnr",
+      "label": "DBNR",
+      "value": "110",
+      "unit": "%",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "110%",
+      "basis": "unspecified",
+      "notes": [
+        "Flat Q/Q"
+      ],
+      "quote": "DBNR\n110%\nFlat Q/Q",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          409,
+          1102,
+          199,
+          166
+        ]
+      }
+    }
+  ]
+});

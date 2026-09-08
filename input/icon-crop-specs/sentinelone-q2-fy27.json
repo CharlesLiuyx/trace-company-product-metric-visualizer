@@ -1,0 +1,44 @@
+{
+  "source": "input/processed/sentinelone-q2-fy27.png",
+  "outputDir": "data/assets/icon-references/sentinelone",
+  "validationSheetDir": "data/assets/icon-references/sentinelone/validation-sheets",
+  "report": "crop-report.json",
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [
+      242,
+      242,
+      242
+    ]
+  },
+  "crops": [
+    {
+      "key": "sentinelone-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": {
+        "x": 610,
+        "y": 224,
+        "width": 508,
+        "height": 292
+      },
+      "cropBox": {
+        "x": 610,
+        "y": 224,
+        "width": 508,
+        "height": 292
+      },
+      "threshold": 18,
+      "minComponentArea": 8,
+      "validation": {
+        "borderBand": 5,
+        "maxCenterOffset": 0.08,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete SentinelOne shield and wordmark; no Revenue label or source title.",
+      "runtimeOutput": "company-logo-q2-fy27.png"
+    }
+  ],
+  "runtimeOutputDir": "data/assets/raster-annotations/sentinelone"
+}

@@ -1,0 +1,140 @@
+{
+  "source": "input/processed/workday-q2-fy27.png",
+  "spec": "input/icon-crop-specs/workday-q2-fy27.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-09-07T20:33:00.041242+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/workday",
+  "crops": [
+    {
+      "key": "workday-company-logo",
+      "output": "data/assets/icon-references/workday/q2-fy27/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 5558,
+        "losslessBytes": 29331,
+        "savingsVsLossless": 0.8105,
+        "metrics": {
+          "meanAbsoluteError": 0.2469,
+          "rootMeanSquareError": 1.5467,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 50,
+          "changedPixelRatio": 0.2076
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 136209,
+        "transparentPixelRatio": 0.7968
+      },
+      "searchBox": {
+        "x": 535,
+        "y": 233,
+        "width": 660,
+        "height": 259
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 551,
+        "y0": 235,
+        "x1": 1179,
+        "y1": 489
+      },
+      "cropBox": {
+        "x0": 535,
+        "y0": 233,
+        "x1": 1195,
+        "y1": 492
+      },
+      "validation": {
+        "width": 660,
+        "height": 259,
+        "foregroundPixels": 29370,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 16,
+          "right": 16,
+          "top": 2,
+          "bottom": 3
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0019
+        },
+        "passes": true
+      },
+      "note": "One Workday wordmark and orange arch; no financial text or publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/workday/company-logo-q2-fy27.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 5558,
+        "losslessBytes": 29331,
+        "savingsVsLossless": 0.8105,
+        "metrics": {
+          "meanAbsoluteError": 0.2469,
+          "rootMeanSquareError": 1.5467,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 50,
+          "changedPixelRatio": 0.2076
+        }
+      },
+      "validationSheet": "data/assets/icon-references/workday/q2-fy27/validation-sheets/workday-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 85537,
+        "losslessBytes": 247518,
+        "savingsVsLossless": 0.6544,
+        "metrics": {
+          "meanAbsoluteError": 0.2687,
+          "rootMeanSquareError": 1.8206,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 54,
+          "changedPixelRatio": 0.075
+        }
+      }
+    }
+  ]
+}

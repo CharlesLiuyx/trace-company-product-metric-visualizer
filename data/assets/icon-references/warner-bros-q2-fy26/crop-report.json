@@ -1,0 +1,404 @@
+{
+  "source": "input/processing/warner-bros-q2-fy26.png",
+  "spec": "input/icon-crop-specs/warner-bros-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-09-07T20:32:57.805426+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 5
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/warner-bros-q2-fy26",
+  "crops": [
+    {
+      "key": "company-wordmark",
+      "output": "data/assets/icon-references/warner-bros-q2-fy26/crops/company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 14535,
+        "losslessBytes": 78483,
+        "savingsVsLossless": 0.8148,
+        "metrics": {
+          "meanAbsoluteError": 0.684,
+          "rootMeanSquareError": 2.2719,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.3408
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 5,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 107441,
+        "transparentPixelRatio": 0.6666
+      },
+      "searchBox": {
+        "x": 586,
+        "y": 268,
+        "width": 710,
+        "height": 227
+      },
+      "componentCount": 21,
+      "subjectBox": {
+        "x0": 592,
+        "y0": 276,
+        "x1": 1288,
+        "y1": 492
+      },
+      "cropBox": {
+        "x0": 586,
+        "y0": 268,
+        "x1": 1296,
+        "y1": 495
+      },
+      "validation": {
+        "width": 710,
+        "height": 227,
+        "foregroundPixels": 50664,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 8,
+          "top": 8,
+          "bottom": 3
+        },
+        "centerOffset": {
+          "x": -0.0014,
+          "y": 0.011
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/warner-bros-q2-fy26/company-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 14535,
+        "losslessBytes": 78483,
+        "savingsVsLossless": 0.8148,
+        "metrics": {
+          "meanAbsoluteError": 0.684,
+          "rootMeanSquareError": 2.2719,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.3408
+        }
+      },
+      "validationSheet": "data/assets/icon-references/warner-bros-q2-fy26/validation-sheets/company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 278495,
+        "losslessBytes": 278495,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "business-streaming-cluster",
+      "output": "data/assets/icon-references/warner-bros-q2-fy26/crops/business-streaming-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 16797,
+        "losslessBytes": 16797,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 5,
+        "background": [
+          24,
+          38,
+          187
+        ],
+        "transparentPixels": 0,
+        "transparentPixelRatio": 0.0
+      },
+      "searchBox": {
+        "x": 59,
+        "y": 469,
+        "width": 87,
+        "height": 165
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 64,
+        "y0": 472,
+        "x1": 142,
+        "y1": 630
+      },
+      "cropBox": {
+        "x0": 59,
+        "y0": 469,
+        "x1": 146,
+        "y1": 634
+      },
+      "validation": {
+        "width": 87,
+        "height": 165,
+        "foregroundPixels": 11222,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 5,
+          "right": 4,
+          "top": 3,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": 0.0057,
+          "y": -0.003
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/warner-bros-q2-fy26/business-streaming-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 16797,
+        "losslessBytes": 16797,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/warner-bros-q2-fy26/validation-sheets/business-streaming-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 311075,
+        "losslessBytes": 311075,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "business-studios-cluster",
+      "output": "data/assets/icon-references/warner-bros-q2-fy26/crops/business-studios-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 3252,
+        "losslessBytes": 14718,
+        "savingsVsLossless": 0.779,
+        "metrics": {
+          "meanAbsoluteError": 0.5963,
+          "rootMeanSquareError": 2.0464,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 31,
+          "changedPixelRatio": 0.3135
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 5,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 14600,
+        "transparentPixelRatio": 0.5428
+      },
+      "searchBox": {
+        "x": 22,
+        "y": 704,
+        "width": 164,
+        "height": 164
+      },
+      "componentCount": 18,
+      "subjectBox": {
+        "x0": 27,
+        "y0": 709,
+        "x1": 181,
+        "y1": 862
+      },
+      "cropBox": {
+        "x0": 22,
+        "y0": 704,
+        "x1": 186,
+        "y1": 868
+      },
+      "validation": {
+        "width": 164,
+        "height": 164,
+        "foregroundPixels": 9253,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 5,
+          "right": 5,
+          "top": 5,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.003
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/warner-bros-q2-fy26/business-studios-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 3252,
+        "losslessBytes": 14718,
+        "savingsVsLossless": 0.779,
+        "metrics": {
+          "meanAbsoluteError": 0.5963,
+          "rootMeanSquareError": 2.0464,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 31,
+          "changedPixelRatio": 0.3135
+        }
+      },
+      "validationSheet": "data/assets/icon-references/warner-bros-q2-fy26/validation-sheets/business-studios-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 330824,
+        "losslessBytes": 330824,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "business-networks-cluster",
+      "output": "data/assets/icon-references/warner-bros-q2-fy26/crops/business-networks-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 4922,
+        "losslessBytes": 20408,
+        "savingsVsLossless": 0.7588,
+        "metrics": {
+          "meanAbsoluteError": 0.7366,
+          "rootMeanSquareError": 2.662,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 54,
+          "changedPixelRatio": 0.3145
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 5,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 19704,
+        "transparentPixelRatio": 0.6013
+      },
+      "searchBox": {
+        "x": 22,
+        "y": 988,
+        "width": 145,
+        "height": 226
+      },
+      "componentCount": 14,
+      "subjectBox": {
+        "x0": 29,
+        "y0": 995,
+        "x1": 163,
+        "y1": 1209
+      },
+      "cropBox": {
+        "x0": 22,
+        "y0": 988,
+        "x1": 167,
+        "y1": 1214
+      },
+      "validation": {
+        "width": 145,
+        "height": 226,
+        "foregroundPixels": 12012,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 4,
+          "top": 7,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0103,
+          "y": 0.0044
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/warner-bros-q2-fy26/business-networks-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 4922,
+        "losslessBytes": 20408,
+        "savingsVsLossless": 0.7588,
+        "metrics": {
+          "meanAbsoluteError": 0.7366,
+          "rootMeanSquareError": 2.662,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 54,
+          "changedPixelRatio": 0.3145
+        }
+      },
+      "validationSheet": "data/assets/icon-references/warner-bros-q2-fy26/validation-sheets/business-networks-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 317076,
+        "losslessBytes": 317076,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

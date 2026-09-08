@@ -268,3 +268,331 @@
     },
   });
 })(window);
+
+window.INCOME_STATEMENT_SSOT.records.push({
+  "key": "cisco-q4-fy26",
+  "company": "Cisco",
+  "period": "Q4 FY26",
+  "periodNote": "Ending July 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/cisco-q4-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 17.3,
+    "notes": [
+      "+18% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "products",
+        "label": "Products",
+        "value": 13.5,
+        "notes": [
+          "+24% Y/Y"
+        ],
+        "children": [
+          {
+            "id": "networking",
+            "label": "Networking",
+            "value": 9.8,
+            "notes": [
+              "+28% Y/Y"
+            ]
+          },
+          {
+            "id": "security",
+            "label": "Security",
+            "value": 2.2,
+            "notes": [
+              "+14% Y/Y"
+            ]
+          },
+          {
+            "id": "collaboration",
+            "label": "Collaboration",
+            "value": 1.2,
+            "notes": [
+              "+12% Y/Y"
+            ]
+          },
+          {
+            "id": "observability",
+            "label": "Observability",
+            "value": 0.3,
+            "notes": [
+              "+6% Y/Y"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "services",
+        "label": "Services",
+        "value": 3.8,
+        "notes": [
+          "+0% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_sales",
+      "label": "Cost of sales",
+      "value": 6.2,
+      "notes": [],
+      "items": [
+        {
+          "id": "product_cost_of_sales",
+          "label": "Products",
+          "value": 5,
+          "notes": [
+            "63% gross margin"
+          ]
+        },
+        {
+          "id": "services_cost_of_sales",
+          "label": "Services",
+          "value": 1.2,
+          "notes": [
+            "69% gross margin"
+          ]
+        }
+      ]
+    },
+    "operatingExpenses": {
+      "total": 6.8,
+      "items": [
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 3,
+          "notes": []
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 2.4,
+          "notes": []
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 0.7,
+          "notes": []
+        },
+        {
+          "id": "other_opex",
+          "label": "Other",
+          "value": 0.5,
+          "notes": []
+        },
+        {
+          "id": "amortization",
+          "label": "Amortization",
+          "value": 0.2,
+          "notes": []
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 1.1,
+      "notes": []
+    }
+  },
+  "otherIncome": {
+    "total": 0.7,
+    "items": [
+      {
+        "id": "other_income",
+        "label": "Other",
+        "value": 0.7,
+        "notes": []
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 11.1,
+      "notes": [
+        "64% margin",
+        "+1pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 4.3,
+      "notes": [
+        "25% margin",
+        "+4pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 3.9,
+      "notes": [
+        "22% margin",
+        "+5pp Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第四季度",
+      "periodNote": "截至 2026 年 7 月",
+      "revenue": {
+        "notes": [
+          "同比 +18%"
+        ],
+        "items": [
+          {
+            "id": "products",
+            "label": "产品",
+            "notes": [
+              "同比 +24%"
+            ],
+            "children": [
+              {
+                "id": "networking",
+                "label": "网络",
+                "notes": [
+                  "同比 +28%"
+                ]
+              },
+              {
+                "id": "security",
+                "label": "安全",
+                "notes": [
+                  "同比 +14%"
+                ]
+              },
+              {
+                "id": "collaboration",
+                "label": "协作",
+                "notes": [
+                  "同比 +12%"
+                ]
+              },
+              {
+                "id": "observability",
+                "label": "可观测性",
+                "notes": [
+                  "同比 +6%"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "services",
+            "label": "服务",
+            "notes": [
+              "同比 +0%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "销售成本",
+          "items": [
+            {
+              "id": "product_cost_of_sales",
+              "label": "产品",
+              "notes": [
+                "毛利率 63%"
+              ]
+            },
+            {
+              "id": "services_cost_of_sales",
+              "label": "服务",
+              "notes": [
+                "毛利率 69%"
+              ]
+            }
+          ]
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sm",
+              "label": "销售与市场",
+              "notes": []
+            },
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": []
+            },
+            {
+              "id": "ga",
+              "label": "一般及行政",
+              "notes": []
+            },
+            {
+              "id": "other_opex",
+              "label": "其他",
+              "notes": []
+            },
+            {
+              "id": "amortization",
+              "label": "摊销",
+              "notes": []
+            }
+          ]
+        },
+        "tax": {
+          "id": "tax",
+          "label": "税费",
+          "notes": []
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "other_income",
+            "label": "其他",
+            "notes": []
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "id": "gross_profit",
+          "label": "毛利润",
+          "notes": [
+            "利润率 64%",
+            "同比 +1 个百分点"
+          ]
+        },
+        "operating": {
+          "id": "operating_profit",
+          "label": "营业利润",
+          "notes": [
+            "利润率 25%",
+            "同比 +4 个百分点"
+          ]
+        },
+        "net": {
+          "id": "net_profit",
+          "label": "净利润",
+          "notes": [
+            "利润率 22%",
+            "同比 +5 个百分点"
+          ]
+        }
+      }
+    }
+  }
+});

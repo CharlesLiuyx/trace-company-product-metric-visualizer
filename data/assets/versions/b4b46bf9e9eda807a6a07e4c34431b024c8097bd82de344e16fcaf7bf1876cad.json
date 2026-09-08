@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Axon company mark",
+  "artifact": {
+    "path": "data/assets/raster-annotations/axon/company-mark-q4-fy25.png",
+    "digest": "sha256:d9abf3e3220ee09bd15e09c309d25c2a24b849599d8b3d6fd025a521ed6ea2b0"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/axon-q4-fy25.json",
+    "digest": "sha256:084fd23a8603dcb7c7d1a4fd327143819ef255c39439baedfd1f083753ea0df5"
+  },
+  "source": {
+    "path": "input/processed/axon-q4-fy25.png",
+    "digest": "sha256:57fa37a6d34a18aac0ee341d2ffa1c2c600fac23e1b233ec007e06e8aa12783a"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:d9abf3e3220ee09bd15e09c309d25c2a24b849599d8b3d6fd025a521ed6ea2b0",
+    "note": "Inspected full Q4 FY25 crop validation sheet, runtime image bytes, and Q2 FY26 native Source. Subject is complete, no unrelated labels/flows/watermarks; the same mark is suitable for reuse at the Q2 measured placement. Asset acceptance only; operator dataset review remains pending."
+  },
+  "versionDigest": "sha256:b4b46bf9e9eda807a6a07e4c34431b024c8097bd82de344e16fcaf7bf1876cad"
+}

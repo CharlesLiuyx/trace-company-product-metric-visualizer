@@ -1,0 +1,45 @@
+{
+  "source": "input/processing/draftkings-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/draftkings-q2-fy26",
+  "runtimeOutputDir": "data/assets/raster-annotations/draftkings-q2-fy26",
+  "validationSheetDir": "data/assets/icon-references/draftkings-q2-fy26/validation-sheets",
+  "report": "cluster-crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "draftkings-q2-online-gaming-cluster",
+      "output": "crops/online-gaming-cluster.png",
+      "runtimeOutput": "online-gaming-cluster.png",
+      "searchBox": {
+        "x": 14,
+        "y": 370,
+        "width": 154,
+        "height": 315
+      },
+      "cropBox": {
+        "x": 14,
+        "y": 370,
+        "width": 154,
+        "height": 315
+      },
+      "threshold": 18,
+      "minComponentArea": 30,
+      "padding": 0,
+      "backgroundRemoval": false,
+      "validation": {
+        "maxCenterOffset": 0.25,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete Sportsbook & Casino plus Fantasy brand cluster adjacent to Online Gaming. Both symbols belong to the same semantic source branch."
+    }
+  ]
+}

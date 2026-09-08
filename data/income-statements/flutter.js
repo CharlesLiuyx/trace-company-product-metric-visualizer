@@ -279,3 +279,275 @@
     }
   );
 })(window);
+
+window.INCOME_STATEMENT_SSOT.records.push({
+  "key": "flutter-q2-fy26",
+  "company": "Flutter Entertainment",
+  "period": "Q2 FY26",
+  "periodNote": "",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/flutter-q2-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 4.3,
+    "notes": [
+      "+3% Y/Y",
+      "Geographic and product-category views describe the same revenue."
+    ],
+    "items": [
+      {
+        "id": "us",
+        "label": "US",
+        "value": 1.7,
+        "notes": [
+          "(6%) Y/Y"
+        ]
+      },
+      {
+        "id": "international",
+        "label": "International",
+        "value": 2.6,
+        "notes": [
+          "+10% Y/Y"
+        ]
+      }
+    ],
+    "breakdowns": [
+      {
+        "id": "product_category",
+        "label": "Revenue by product category",
+        "total": 4.3,
+        "items": [
+          {
+            "id": "sportsbook",
+            "label": "Sportsbook",
+            "value": 2.2,
+            "notes": [
+              "(1%) Y/Y"
+            ]
+          },
+          {
+            "id": "igaming",
+            "label": "iGaming",
+            "value": 1.9,
+            "notes": [
+              "+9% Y/Y"
+            ]
+          },
+          {
+            "id": "other_revenue",
+            "label": "Other",
+            "value": 0.2,
+            "notes": [
+              "+7% Y/Y"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_sales",
+      "label": "Cost of sales",
+      "value": 2.6
+    },
+    "operatingExpenses": {
+      "total": 1.9,
+      "items": [
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 1,
+          "notes": [
+            "23% of revenue",
+            "+5pp Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 0.5,
+          "notes": [
+            "13% of revenue",
+            "+0pp Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 0.3,
+          "notes": [
+            "7% of revenue",
+            "+1pp Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "label": "Tax",
+      "value": 0,
+      "notes": [
+        "No separate tax line is shown in the source chart."
+      ]
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 1.7,
+      "notes": [
+        "40% margin",
+        "(7pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_loss",
+      "label": "Operating loss",
+      "value": -0.1,
+      "notes": [
+        "(3%) margin",
+        "(13pp) Y/Y",
+        "Source rounded gross profit less operating expenses differs from stated operating loss by $0.1B."
+      ]
+    },
+    "net": {
+      "id": "operating_loss",
+      "label": "Operating loss",
+      "value": -0.1,
+      "notes": [
+        "No separate net income line is shown in the source chart."
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "periodNote": "",
+      "revenue": {
+        "notes": [
+          "同比 +3%",
+          "地域和产品类别展示同一笔收入。"
+        ],
+        "items": [
+          {
+            "id": "us",
+            "label": "美国",
+            "notes": [
+              "同比 (6%)"
+            ]
+          },
+          {
+            "id": "international",
+            "label": "国际业务",
+            "notes": [
+              "同比 +10%"
+            ]
+          }
+        ],
+        "breakdowns": [
+          {
+            "id": "product_category",
+            "label": "按产品类别划分的收入",
+            "items": [
+              {
+                "id": "sportsbook",
+                "label": "体育博彩",
+                "notes": [
+                  "同比 (1%)"
+                ]
+              },
+              {
+                "id": "igaming",
+                "label": "在线博彩",
+                "notes": [
+                  "同比 +9%"
+                ]
+              },
+              {
+                "id": "other_revenue",
+                "label": "其他",
+                "notes": [
+                  "同比 +7%"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "销售成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sm",
+              "label": "销售与营销",
+              "notes": [
+                "占收入 23%",
+                "同比 +5 个百分点"
+              ]
+            },
+            {
+              "id": "ga",
+              "label": "一般及行政",
+              "notes": [
+                "占收入 13%",
+                "同比 +0 个百分点"
+              ]
+            },
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 7%",
+                "同比 +1 个百分点"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费",
+          "notes": [
+            "来源图未单列税费。"
+          ]
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "毛利率 40%",
+            "同比 (7 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业亏损",
+          "notes": [
+            "利润率 (3%)",
+            "同比 (13 个百分点)",
+            "原图毛利润减营业费用与标注营业亏损相差 $0.1B，保留来源的四舍五入数值。"
+          ]
+        },
+        "net": {
+          "label": "营业亏损",
+          "notes": [
+            "来源图未单列净利润。"
+          ]
+        }
+      }
+    }
+  }
+});

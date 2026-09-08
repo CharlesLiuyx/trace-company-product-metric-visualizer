@@ -1,549 +1,1481 @@
 {
   "schema": "reviewed-git-release/v1",
-  "id": "transport-3cc50c86-49cd-4a87-8117-0104c6199ae4",
-  "baseHead": "5ee419c0626647f4a8d736ebc144e30c70fda020",
-  "planDigest": "sha256:b787389175e7812b0270c5d7c728a1b3208e82b68b46c75f73426e74c272f617",
-  "publishedDigest": "sha256:252481a792f1c1825c63e762fe6dc7e238903164139913c6755b02ab7e4f9009",
+  "id": "transport-274b238a-8e99-442d-a341-31eabd5d5caf",
+  "baseHead": "3127f5c97967dac2cd4c8fc98554c0ab1325cba7",
+  "planDigest": "sha256:6df5dba9ac6d404a0000b484bfb32237311cd6f7f2bbe5fb20550e6f37b5453c",
+  "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1",
   "builds": [
     {
-      "buildId": "build-259d91b5-7bb1-4730-a621-2ff2ea0c48b6",
-      "key": "aramco-q2-fy26",
-      "sealDigest": "sha256:6df8c0e3eab18a8a3aea928807c18dd92195030b57bebd7726df3055c9713899"
+      "buildId": "build-de041f5a-5fdb-4ae7-a19a-0aed9cb14c22",
+      "key": "airbnb-q2-fy26",
+      "sealDigest": "sha256:417427215cbcb97ec89dc733e0f595fee27a235b29470819d0d2bba438f50e1e"
     },
     {
-      "buildId": "build-ead28642-84c3-4e2a-9786-ccec1ebf5592",
-      "key": "celsius-q2-fy26",
-      "sealDigest": "sha256:945b1852dd3d32c1e64e8a0c0fc6f314555d5ba81599b53507a6f30ece64550a"
+      "buildId": "build-66997500-4730-433e-a144-c50e497771d9",
+      "key": "amer-sports-q2-fy26",
+      "sealDigest": "sha256:6f055ab458f4569754b1e4d8ddd9fce923c2fe9a9b31352bda1da6946998c39b"
     },
     {
-      "buildId": "build-e069fced-30ef-4fd7-a5d0-c6ef747485be",
-      "key": "autodesk-q2-fy27",
-      "sealDigest": "sha256:6f6397e2d1e3d2f383d2ef2276847642879c7cf50366caf53bc25f54362a04bd"
+      "buildId": "build-891f0b5f-11c1-4ce8-997a-6507f9d5e337",
+      "key": "applovin-q2-fy26",
+      "sealDigest": "sha256:9a3f021fff84e523757a526d49725188a7c4fa026de0284342d9a9121405d8a6"
     },
     {
-      "buildId": "build-22d9b2c1-dfe1-40a6-92a2-134bb8c2a5a2",
-      "key": "chime-q2-fy26",
-      "sealDigest": "sha256:f1acf86e17436c2027838d8214b3eb31a11af6eceac8307a84d3a4f144b1a03c"
+      "buildId": "build-3014f0ad-a7d1-456e-b4ef-7074f5f71a88",
+      "key": "arista-q2-fy26",
+      "sealDigest": "sha256:dc55775825c374e012bd41484479b8e15d3576d4069a4dfec5f580dd3152ae63"
     },
     {
-      "buildId": "build-ef9f93e2-c7f4-4c98-bd33-df24f3e650a0",
-      "key": "circle-q2-fy26",
-      "sealDigest": "sha256:ac723e6b61110902d188a4c5014e750f1446e3195cc58a7da2323166951a57b1"
+      "buildId": "build-c601179d-d5c3-4c3e-8af8-42002be961a9",
+      "key": "axon-q2-fy26",
+      "sealDigest": "sha256:29dfe88e0090c9eb0353ec5b3b0486e3761427b425264cc4c2c5c5186b81115f"
     },
     {
-      "buildId": "build-9500230e-5e43-453f-9d66-a14e1ec7120a",
-      "key": "digitalocean-q2-fy26",
-      "sealDigest": "sha256:181065a94d14df1aedaec59a37d56017c3c51b6f373eedc76dda07e0eeb30174"
+      "buildId": "build-ce330c6e-c077-40c4-83cc-5e6a1ed877fa",
+      "key": "booking-q2-fy26",
+      "sealDigest": "sha256:36f1a3d1edd32e4de63b25f6fbdd710fce185a9c3cbd408031211f8781bdc3e1"
     },
     {
-      "buildId": "build-67f62c62-c1c6-4c7f-b529-63fb65dab6f8",
-      "key": "docebo-q2-fy26",
-      "sealDigest": "sha256:bec7d828a2885e1e326ea89473318d5c97ffad395d87fcfc23794e5d6e98f80c"
+      "buildId": "build-12ce3bd9-1585-4e0b-9dc1-4e01a463a5ac",
+      "key": "cisco-q4-fy26",
+      "sealDigest": "sha256:501a90982bedd9f16ff04fd654559bef7de04d4750bbcbe51443ca8f33133997"
     },
     {
-      "buildId": "build-bc793758-58cd-43c1-b1ae-3c18b4816eed",
-      "key": "fiserv-q2-fy26",
-      "sealDigest": "sha256:9b0166fc4339e35828c93ba7c5a8bce6c08ec7c46a95bb44f41d21a49f0c8d62"
+      "buildId": "build-6e162baf-102b-483f-8078-b71013851594",
+      "key": "cloudflare-q2-fy26",
+      "sealDigest": "sha256:dcd478bc57f2f3944e0ea4a4f337553d249c6382e50d40abf93ea0625351179a"
     },
     {
-      "buildId": "build-13e7aa4a-a3a7-4ce7-aceb-419950b527f0",
-      "key": "klarna-q2-fy26",
-      "sealDigest": "sha256:c8fe2044e66124713384c5c3a030e41c7befc953455f313dc8111a72406d6ca5"
+      "buildId": "build-8788869c-493a-430f-866b-a99722557fdb",
+      "key": "datadog-q2-fy26",
+      "sealDigest": "sha256:f5c16f180c09d4929dc4028762416b730ca4ba50851685764698bbf87146ddf0"
     },
     {
-      "buildId": "build-307f0780-f6cd-41fd-88a3-e3aaeaa166a7",
-      "key": "klaviyo-q2-fy26",
-      "sealDigest": "sha256:8719fb3beb296e8875bd54e8a5e7590496c82577dd9bbbd6b8fadeacb570b727"
+      "buildId": "build-694d0063-af65-4c77-89d9-117e04b79f2f",
+      "key": "draftkings-q2-fy26",
+      "sealDigest": "sha256:e09a2712259df4016f9851a411ea78dd031073c2ae3f3ef51617089c9983268b"
     },
     {
-      "buildId": "build-03c5c551-043f-4916-9a9f-7c6273e9ddb2",
-      "key": "monday-com-q2-fy26",
-      "sealDigest": "sha256:59800e9155582ec7068b081e754cfa97daa1ef03f0e5a19569ea1eb82b0131bb"
+      "buildId": "build-13382dd3-6a1d-4171-8c37-67668129d20e",
+      "key": "dynatrace-q1-fy27",
+      "sealDigest": "sha256:289f8b91f065be3249846967d5da8c33af8bc5bbc86eee8bf2aa52eb1dab7c88"
     },
     {
-      "buildId": "build-e70cabcd-a5e5-4389-a863-8b66996e3bad",
-      "key": "zoom-q2-fy27",
-      "sealDigest": "sha256:a4fed69438722610b8028040f9fd958eef411dce05154e03e921176b5ff77c4a"
+      "buildId": "build-65e59c14-6d03-42a8-b9e4-78b2a0b7e3fe",
+      "key": "elastic-q1-fy27",
+      "sealDigest": "sha256:f1a62bb55259abf7b1fde21b9a9b22f4befb9cf1ed97c2ee7b08e016da30882a"
+    },
+    {
+      "buildId": "build-0bea0353-d381-4b99-bf51-962b32531fb8",
+      "key": "expedia-q2-fy26",
+      "sealDigest": "sha256:b15947f3b82fe30564bfe34593e656e8fd8628e4d777941a73a75f50bb1eb3f6"
+    },
+    {
+      "buildId": "build-4abfbc47-4502-4482-aad2-9dd7203545b9",
+      "key": "figma-q2-fy26",
+      "sealDigest": "sha256:25d06f7532ecb971243688068977a9fbeb01c0927dc2485f212157eab14991db"
+    },
+    {
+      "buildId": "build-31fafa64-a377-4487-8202-0be4b723676c",
+      "key": "flutter-q2-fy26",
+      "sealDigest": "sha256:d30632d2f826e8733527d296c76e5745ea1a95a6262a368c5e0e83a46b3ee4aa"
+    },
+    {
+      "buildId": "build-e27f8e1a-a4c2-4b2d-92ec-4ef9147eed02",
+      "key": "hims-hers-q2-fy26",
+      "sealDigest": "sha256:78211947d578a34e7f602f7bdfe61fd8abec76f9c594a6bd14ba55f0ca23fb95"
+    },
+    {
+      "buildId": "build-263aee25-f61a-4254-bd8c-0f9976d387e1",
+      "key": "hubspot-q2-fy26",
+      "sealDigest": "sha256:f78d679a82e14bda0d576a960583fe4569cc5ae3df6bf13f6341c4c7b8a39f91"
+    },
+    {
+      "buildId": "build-db77f1ee-dafd-4504-8957-839f8c702673",
+      "key": "marriott-q2-fy26",
+      "sealDigest": "sha256:f77be126a114811d82795f36ae83b46b56bcbc6cfa8e8bb275f69e88c6dd30db"
+    },
+    {
+      "buildId": "build-a9d5dbe7-9edb-4755-a784-6145825a28a0",
+      "key": "nutanix-q4-fy26",
+      "sealDigest": "sha256:0ba868364e88a5cc2a2ae604a45ccd8a9e8c3131f0503d7445fbbcb09407ab59"
+    },
+    {
+      "buildId": "build-c6a0b19d-ac02-462d-89ff-110e96d5f626",
+      "key": "okta-q2-fy27",
+      "sealDigest": "sha256:1d5c187e5f114ede16f2c8829c165a6bbf03bf70d8b9a4ddec4b26c96b5dd782"
+    },
+    {
+      "buildId": "build-88dd1227-5a8a-4c65-b9dc-01cd730cd78f",
+      "key": "on-q2-fy26",
+      "sealDigest": "sha256:1996283186b4cbc3ec87c3304c13a41c9545eb15e5584ea6ea2cedc6bde857c6"
+    },
+    {
+      "buildId": "build-8bd48375-053f-4856-be9c-4d6288e21068",
+      "key": "palantir-q2-fy26",
+      "sealDigest": "sha256:4baf085ad0b22f09d1083d8f576fe5a87a94e7aaa472e46397fa5a5ee9e89008"
+    },
+    {
+      "buildId": "build-a8d6c559-9b87-4469-8ed3-26a481b7577d",
+      "key": "paramount-q2-fy26",
+      "sealDigest": "sha256:c5f924fe4b45dbf20966f7803f2e716dd172e14fc54fd0daab7bec58cd9bd977"
+    },
+    {
+      "buildId": "build-f17b69e4-84d7-4498-8215-4d375f8e2e8f",
+      "key": "paycom-q2-fy26",
+      "sealDigest": "sha256:5afe5c29fbc3cebfd255ab2622acdaf4b571bf31b2625ba22e03982b37dcc380"
+    },
+    {
+      "buildId": "build-69e96e0d-cd79-451b-8de6-fa4040ae828d",
+      "key": "pfizer-q2-fy26",
+      "sealDigest": "sha256:a62dc9ac7ef64fd0e7480b2167e26eb4ea5bf8b0801491e3d1f11f923533fd93"
+    },
+    {
+      "buildId": "build-78ea1092-f3c2-476d-bed2-6194518e1dcb",
+      "key": "procore-q2-fy26",
+      "sealDigest": "sha256:89ddf2eae668a489ee68efba539eb602be1db78d50e2af64fce9bb2a3c91d001"
+    },
+    {
+      "buildId": "build-211e95cb-5c42-4452-9177-23ab1324d78f",
+      "key": "rubrik-q2-fy27",
+      "sealDigest": "sha256:25204a4e57ac805fcb9afd35ca01e7b6edac28c12789d3defb70f0dab7026b1c"
+    },
+    {
+      "buildId": "build-fcf9ede8-716e-45e7-8868-d27b0ddd0f68",
+      "key": "sentinelone-q2-fy27",
+      "sealDigest": "sha256:fceb79759fa822cb7b4449b371d7ac99fca7223df62bfb0482ccfc7d5c0e57c9"
+    },
+    {
+      "buildId": "build-59fcc240-e88d-4a0a-9193-02549cb574b6",
+      "key": "the-trade-desk-q2-fy26",
+      "sealDigest": "sha256:a9c504f0ecca9c7a69dedc2a92a112c5cb6f4909fde1d832967f3925d849be8f"
+    },
+    {
+      "buildId": "build-66cca576-3759-4cbf-acd9-e3c39c8d5e4b",
+      "key": "tripadvisor-q2-fy26",
+      "sealDigest": "sha256:5f2d60b252458f4645ecc7630903891e1de8066bb83e42906a80804d4da83284"
+    },
+    {
+      "buildId": "build-8f2f056f-7bb2-4f2f-b7ad-0d98fc25d789",
+      "key": "warner-bros-q2-fy26",
+      "sealDigest": "sha256:41b79cd2912ebb2a72b2e497f047444f426dc50d548378d2037ada58cb1f60f7"
+    },
+    {
+      "buildId": "build-a5ca6a8e-0194-4e35-bd3b-57686dcb4fbe",
+      "key": "workday-q2-fy27",
+      "sealDigest": "sha256:79559250fabbbef673fe34def87cf819ebbd1b23dc135e0caa7278350e96e86a"
     }
   ],
-  "candidateDigest": "sha256:30cc5e0fd67de99ade03a5e844e1fd1134c925ee07ef22f58462d4c4eba8da78",
+  "candidateDigest": "sha256:97376eb273b2b66b27c26e8580038d53f72e786d686850e7e1d441053469c43a",
   "paths": [
     {
       "path": "data/assets/catalog.json",
-      "digest": "sha256:bbbb8d5f49aadbf201d00d094951a5422ddf3579cca57b715d1e19b4ac9c8aad",
-      "before": "sha256:82536141f9ba3bc14e5c27d8790a956b673cc36f40defab8bfc276a16d4549f9"
+      "digest": "sha256:4bcf7f2b4bce0590c182460d94e678df171997b633794f9dabe837479858fec9",
+      "before": "sha256:bbbb8d5f49aadbf201d00d094951a5422ddf3579cca57b715d1e19b4ac9c8aad"
     },
     {
-      "path": "data/assets/icon-references/autodesk/crop-report-autodesk-q2-fy27.json",
-      "digest": "sha256:33932df254b3ed675b242ba6912d35a4104294824294f091fadcd106a37c48f4",
+      "path": "data/assets/icon-references/airbnb/airbnb-q2-fy26/crop-report.json",
+      "digest": "sha256:9db4d7d79089ed69b66a85038233bf8f582001adfe74d2b4a7cafba453ff6c65",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/autodesk/crops/company-logo-autodesk-q2-fy27.png",
-      "digest": "sha256:52c35dc1752e89610c2b52ce9bf166c6c448648cb8f80a697ff901d23fdfeb91",
+      "path": "data/assets/icon-references/airbnb/airbnb-q2-fy26/crops/apac.png",
+      "digest": "sha256:272f8f8ce048a8e184b69655036090ec0cf253fe370aea48ef73d06ca8cb2d26",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/autodesk/model-validation-autodesk-q2-fy27.json",
-      "digest": "sha256:073310c9b8dad6bcb0f5b10e5f3e6872fe3e3ac8cab9860d38c6e241877f37dc",
+      "path": "data/assets/icon-references/airbnb/airbnb-q2-fy26/crops/emea.png",
+      "digest": "sha256:94d402e9fee81aebe300223334cef15dc54b9a642197fa629621dee9de7f3d68",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/autodesk/validation-sheets/autodesk-q2-fy27/autodesk-q2-fy27-company-logo.png",
-      "digest": "sha256:fecd51901341734167388fc91c8530514aa45eb698a66e2521a51a7fbc5363a1",
+      "path": "data/assets/icon-references/airbnb/airbnb-q2-fy26/crops/latam.png",
+      "digest": "sha256:8f5c65da8cd42a01eafdafb2f8f5b7da497d02b1e3cf5f90db642440ba7ce2c8",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/chime/crop-report-chime-q2-fy26.json",
-      "digest": "sha256:1cdc0f1e576f4e38bdf50d189dc627737c69058623cd7e2fbb8053f6ce8d3a59",
+      "path": "data/assets/icon-references/airbnb/airbnb-q2-fy26/crops/logo.png",
+      "digest": "sha256:b298eacc27440b15f9b88a0bff37e365e3c64847252cc71e86ef6da3deffa24f",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/chime/crops/company-logo-chime-q2-fy26.png",
-      "digest": "sha256:053abe79cacf751115c8720713292e2c484e115076e71160201633797f28ed8a",
+      "path": "data/assets/icon-references/airbnb/airbnb-q2-fy26/crops/north-america.png",
+      "digest": "sha256:4a554c511c379ba6dd394071bc4ffa99e81f374c46a1368cb9408fe29d7e23e7",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/chime/model-validation-chime-q2-fy26.json",
-      "digest": "sha256:77822f187ec3c756b3a174cb9fc76cd8d28370a21b9d05d6dafd915f421b4e7e",
+      "path": "data/assets/icon-references/airbnb/airbnb-q2-fy26/model-validation.md",
+      "digest": "sha256:294665e19f94f5cf8f16e1e66f520e46713b8692eea5a510f5d2ea7f8892465d",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/chime/validation-sheets/chime-q2-fy26/chime-q2-fy26-company-logo.png",
-      "digest": "sha256:490b1bd83ebace80ffe89b6d4417e1e64b6e2fe99d0a7e848db446c4c1344875",
+      "path": "data/assets/icon-references/airbnb/airbnb-q2-fy26/validation-sheets/apac.png",
+      "digest": "sha256:17dedf9d7c4eaa1dda5def17ee2a61839c6df84688dffe27284c9fa656e93a41",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/circle/crop-report-circle-q2-fy26.json",
-      "digest": "sha256:6707d3d0ecc1c32cd1668de0796a7347911ee58c4a0c656dddb345fbe35f5d69",
+      "path": "data/assets/icon-references/airbnb/airbnb-q2-fy26/validation-sheets/emea.png",
+      "digest": "sha256:778a65c5c789108cbad7e8ffa0ce88ded0c64eabe0f9085bef1614b17cbdb6cb",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/circle/crops/company-logo-circle-q2-fy26.png",
-      "digest": "sha256:f1cc76d296cbf78eaa2d0031b6020f5344b3515da2391e24b5f9cb73ed872009",
+      "path": "data/assets/icon-references/airbnb/airbnb-q2-fy26/validation-sheets/latam.png",
+      "digest": "sha256:ae574f3e85b7272c8dbf1234a652dc48df20d70ec0e56d2e0818461a6f0f81cf",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/circle/model-validation-circle-q2-fy26.json",
-      "digest": "sha256:5f0b03f63689167e291e2901b2ed2ea3490aca43b610bf6c775027ebf09e5f60",
+      "path": "data/assets/icon-references/airbnb/airbnb-q2-fy26/validation-sheets/logo.png",
+      "digest": "sha256:25fffeeb397389b35f8b011f0c3115a4f9ebb2d30694adb0281712569a4f748b",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/circle/validation-sheets/circle-q2-fy26/circle-q2-fy26-company-logo.png",
-      "digest": "sha256:389368afffb50da3a39198607192217ea3b81c1a076dd6618347ab02c2d89d71",
+      "path": "data/assets/icon-references/airbnb/airbnb-q2-fy26/validation-sheets/north-america.png",
+      "digest": "sha256:320aa3ecb0f6ae566f5a474479d94ea2185382fe87f94841b3d3fbc789dd87be",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/digitalocean/crop-report-digitalocean-q2-fy26.json",
-      "digest": "sha256:b8aab47619f6c2588c1c2725badd2cad471f7e3e3ab0cd028c8bf1594cbf66f5",
+      "path": "data/assets/icon-references/cisco-q4-fy26/crop-report.json",
+      "digest": "sha256:953b64d31ff8ada6e7244e2c65513e8fcab9b4747abc90d7f903ca8cf4c6c680",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/digitalocean/crops/company-logo-digitalocean-q2-fy26.png",
-      "digest": "sha256:28919cd309c8faafdde31d135cfd8bcf62463423cb044be58a76e1b920b87c78",
+      "path": "data/assets/icon-references/cisco-q4-fy26/crops/company-logo.png",
+      "digest": "sha256:6c0c31eac2fe467a8c813b270b249bca86099a02cfc95d54db16baf331ee5746",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/digitalocean/model-validation-digitalocean-q2-fy26.json",
-      "digest": "sha256:8cf44dbcf243c8cfa49c7538a91ed29da6ee7aad8700cb8e92bc94ad19b4cb86",
+      "path": "data/assets/icon-references/cisco-q4-fy26/model-validation.md",
+      "digest": "sha256:fec6942979c3d373bbcd3af68cbd302e1ed8de0167a25a7cf3e028990423725a",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/digitalocean/validation-sheets/digitalocean-q2-fy26/digitalocean-q2-fy26-company-logo.png",
-      "digest": "sha256:15bee3e36b98858585e2b473475a737c14731b3f93f78109b91120bb7a8f1dc5",
+      "path": "data/assets/icon-references/cisco-q4-fy26/validation-sheets/cisco-company-logo.png",
+      "digest": "sha256:a0aa970d655326e6d96e72797fa47594274c20f91b2ec7f8a67e6af4b7c29c49",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/docebo/crop-report-docebo-q2-fy26.json",
-      "digest": "sha256:f65832ea712a524bca9b4417a022d165fcbd8e07a47681aa0246d605116c628d",
+      "path": "data/assets/icon-references/cloudflare-q2-fy26/crop-report.json",
+      "digest": "sha256:5676a8efdef286708929b3626435eafeaa65d20fbed544c109eef67a4414a289",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/docebo/crops/company-logo-docebo-q2-fy26.png",
-      "digest": "sha256:c177b5c1f27dc9a423c51d8545e2b3649978832476ebfda8c90eb40af99acd2e",
+      "path": "data/assets/icon-references/cloudflare-q2-fy26/crops/cloud-q2-fy26.png",
+      "digest": "sha256:08b1b0111f4a945c48d4dc9b80f432a6efb1e9d996a357ef8bb93b0a2b031d7f",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/docebo/model-validation-docebo-q2-fy26.json",
-      "digest": "sha256:386098452ff660e8f5232d8048888ceafe9d90d2aef0d430a410eba3efe461af",
+      "path": "data/assets/icon-references/cloudflare-q2-fy26/crops/wordmark-q2-fy26.png",
+      "digest": "sha256:f70916c5c5b8705e6eff47bddf4ee5800ddb4995e01b67d3edf8327df3783fd8",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/docebo/validation-sheets/docebo-q2-fy26/docebo-q2-fy26-company-logo.png",
-      "digest": "sha256:28b4f0485aa85ff8813a84bb57b41f4f0580c4c7ef4d81faa96d497a4848c625",
+      "path": "data/assets/icon-references/cloudflare-q2-fy26/validation-sheets/cloudflare-cloud-q2-fy26.png",
+      "digest": "sha256:e9c58727ebd07c7153d6da632af9104a0af945aa64140ee2a7baead47f38ca74",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/fiserv/crop-report-fiserv-q2-fy26.json",
-      "digest": "sha256:794600db86cf7eb1acbfa41dcbe3358164729e1cf07988fc56d5d1dc432bb49f",
+      "path": "data/assets/icon-references/cloudflare-q2-fy26/validation-sheets/cloudflare-wordmark-q2-fy26.png",
+      "digest": "sha256:ec0bf279cfd53af8c709fb0014b3de66f6f703089f1c194fc95d4dd2eb7d81fb",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/fiserv/crops/company-logo-fiserv-q2-fy26.png",
-      "digest": "sha256:be71fe778adf73bb1c6ef2219ddc51f2d6bc50ee3aa4a47d94937584cd5fb18d",
+      "path": "data/assets/icon-references/draftkings-q2-fy26/cluster-crop-report.json",
+      "digest": "sha256:b067b1d5cc570b2075122a86e96bd7cd97a5f56d254e762af3691eca1eb09abb",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/fiserv/model-validation-fiserv-q2-fy26.json",
-      "digest": "sha256:03cc3df0c7fbdcd197a9452922c3538403c1ae6b542f989087476c36ed06dc87",
+      "path": "data/assets/icon-references/draftkings-q2-fy26/crop-report.json",
+      "digest": "sha256:4452859efa95121544a5844b96335e551e83cc1784dea7df21d66308b53c569b",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/fiserv/validation-sheets/fiserv-q2-fy26/fiserv-q2-fy26-company-logo.png",
-      "digest": "sha256:f5b402e6e09fffe1626775f92b10203ae8a6c41fff10f469c70c69804224304c",
+      "path": "data/assets/icon-references/draftkings-q2-fy26/crops/company-wordmark.png",
+      "digest": "sha256:3b7c89c55b520e61ae58955fc6c2cfef22ab7ea4a3a1b4c52f2ca514d29c41c1",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/klarna/crop-report-klarna-q2-fy26.json",
-      "digest": "sha256:597c6a9f4899d1af93793c8ad1fd28b0651b025206bb59ed6a787d6232be8fd1",
+      "path": "data/assets/icon-references/draftkings-q2-fy26/crops/online-gaming-cluster.png",
+      "digest": "sha256:3cb7110fe0b9cdbf70046504615c76e3c26afc1ff71dc7469efd6c07a3e2a375",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/klarna/crops/company-logo-klarna-q2-fy26.png",
-      "digest": "sha256:436c3949434d1857ca28872c76f0192826e643a8ec0fdb09d0585522d5c2dcdc",
+      "path": "data/assets/icon-references/draftkings-q2-fy26/validation-sheets/draftkings-q2-company-wordmark.png",
+      "digest": "sha256:39f55b13a0c1a921ba74e0f81434f8597b9ef2054582849c56cb7759f5be0f20",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/klarna/model-validation-klarna-q2-fy26.json",
-      "digest": "sha256:1a4aa780da8b37a0d17546f3f45619df2e93db917464a88a54bbee14a30888e1",
+      "path": "data/assets/icon-references/draftkings-q2-fy26/validation-sheets/draftkings-q2-online-gaming-cluster.png",
+      "digest": "sha256:a3580800087992a10eb608bbd83e0a31b622b9ea5fc125c04491898372878e9d",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/klarna/validation-sheets/klarna-q2-fy26/klarna-q2-fy26-company-logo.png",
-      "digest": "sha256:fd4a20b6541348e72e0541c84fd09743b7834efef0a33588bb94c4a2b4fbbaf4",
+      "path": "data/assets/icon-references/marriott-q2-fy26/crop-report.json",
+      "digest": "sha256:bb0f097678e019e755851ce761e5343089478a06da5e0fc02cbf074139762fcc",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/klaviyo/crop-report-klaviyo-q2-fy26.json",
-      "digest": "sha256:217c79259c93bb6715cd66ae90c56e4cc80aec68c0ac2bcc206a5323b4671ea7",
+      "path": "data/assets/icon-references/marriott-q2-fy26/model-validation.md",
+      "digest": "sha256:e7800767cbcb19fbd407423460cd3756597d27e4477ce7aa79f6c5b8179a69ec",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/klaviyo/crops/company-logo-klaviyo-q2-fy26.png",
-      "digest": "sha256:844d9c9b447e00c813ecca2963e7bd2454e3b19346134ed9eb58b1d2c35c9d37",
+      "path": "data/assets/icon-references/marriott-q2-fy26/q2-fy26-logo.png",
+      "digest": "sha256:59ec2e4c11989dcdd16042b356ca2b8f085d984f560d6a5ca490fe623f4e863e",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/klaviyo/model-validation-klaviyo-q2-fy26.json",
-      "digest": "sha256:609ab3ad22d306b547d426a72ff94875c9e6ab57d24ee2c8a3c9131bbbcd5f35",
+      "path": "data/assets/icon-references/marriott-q2-fy26/validation-sheets/q2-fy26-logo.png",
+      "digest": "sha256:6b18d349dac06ca833a101deeb3d3f221e4cbcc9e1dece598bfe920dfd6a1299",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/klaviyo/validation-sheets/klaviyo-q2-fy26/klaviyo-q2-fy26-company-logo.png",
-      "digest": "sha256:325c4624ec8f7b8d9c59acacd93753b4d44845df6482a08241b210851761e640",
+      "path": "data/assets/icon-references/nutanix-q4/crop-report.json",
+      "digest": "sha256:1fc9ff2d823302db4bf20ec9b671cdabff2d2ebdf9c38028d468d28c1d910b14",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/zoom/crop-report-zoom-q2-fy27.json",
-      "digest": "sha256:ce2f5008293d937e60cd9a15216564bd11903b2a2745b5695c85afbe630e6e9e",
+      "path": "data/assets/icon-references/nutanix-q4/crops/q4-company-logo.png",
+      "digest": "sha256:72f16092610967caf5aa69e84ee5bd5b23ed6b49f982941ef2c2790190953b67",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/zoom/crops/company-logo-zoom-q2-fy27.png",
-      "digest": "sha256:8fff6158df8b47f6b8197bd3c2fea5b8daf3c95c7383bf4926680493bcd31b8d",
+      "path": "data/assets/icon-references/nutanix-q4/model-validation.md",
+      "digest": "sha256:31005e6fbd27231b5d1e06fc70f7da9879274848ff9480d555eec6c8a2edd701",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/zoom/model-validation-zoom-q2-fy27.json",
-      "digest": "sha256:540d3dffb728e31305fe89efc7166f028aaadb1b9209c461214483d3903a6fd6",
+      "path": "data/assets/icon-references/nutanix-q4/validation-sheets/nutanix-company-logo.png",
+      "digest": "sha256:47a1a577c378be45348fdb07c552b9d9e7b6581dfa3fde00fc3c75ad0ecfe96d",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/zoom/validation-sheets/zoom-q2-fy27/zoom-q2-fy27-company-logo.png",
-      "digest": "sha256:7ad751677fb5c569470a4a5e2772d8c01d60f5bd41a4ff247e85cf53ccc92aa2",
+      "path": "data/assets/icon-references/okta-q2-fy27/crop-report.json",
+      "digest": "sha256:77d341acf41c1f085c25c7e03ce72b8cabe21e0af2c85300fd3b623fb73352c3",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/autodesk/company-logo-autodesk-q2-fy27.png",
-      "digest": "sha256:52c35dc1752e89610c2b52ce9bf166c6c448648cb8f80a697ff901d23fdfeb91",
+      "path": "data/assets/icon-references/okta-q2-fy27/crops/company-logo-wordmark.png",
+      "digest": "sha256:4cf935ea9f60c807800a1bfb9180775633615fa55a7c2f5671c3efff80122cf1",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/chime/company-logo-chime-q2-fy26.png",
-      "digest": "sha256:053abe79cacf751115c8720713292e2c484e115076e71160201633797f28ed8a",
+      "path": "data/assets/icon-references/okta-q2-fy27/validation-sheets/okta-company-logo-wordmark.png",
+      "digest": "sha256:2056ae6b3b8a0410c35e8e7bcd72279a0cf907a20a7564d17ecc507a75dda7da",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/circle/company-logo-circle-q2-fy26.png",
-      "digest": "sha256:f1cc76d296cbf78eaa2d0031b6020f5344b3515da2391e24b5f9cb73ed872009",
+      "path": "data/assets/icon-references/paycom-q2-fy26/crop-report.json",
+      "digest": "sha256:7751036873c0c5c64fba4f6aca5c33cfcbc142a2d073012db9555e2e4ed3bfe3",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/digitalocean/company-logo-digitalocean-q2-fy26.png",
-      "digest": "sha256:28919cd309c8faafdde31d135cfd8bcf62463423cb044be58a76e1b920b87c78",
+      "path": "data/assets/icon-references/paycom-q2-fy26/crops/company-logo.png",
+      "digest": "sha256:0e103491ed51955913a8c31c4b8a458fc03b26798245dbb5a82342f81d3ec23e",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/docebo/company-logo-docebo-q2-fy26.png",
-      "digest": "sha256:c177b5c1f27dc9a423c51d8545e2b3649978832476ebfda8c90eb40af99acd2e",
+      "path": "data/assets/icon-references/paycom-q2-fy26/model-validation.md",
+      "digest": "sha256:74dfe7409b38336a0478135b1a693b26df8ae8827e6b63b203be91a875a3e461",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/fiserv/company-logo-fiserv-q2-fy26.png",
-      "digest": "sha256:be71fe778adf73bb1c6ef2219ddc51f2d6bc50ee3aa4a47d94937584cd5fb18d",
+      "path": "data/assets/icon-references/paycom-q2-fy26/validation-sheets/paycom-company-logo.png",
+      "digest": "sha256:ffab3e0d7c966f1c8a024c99f6eb36b8d0c53e3ab7ceba23457e79fedd132db3",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/klarna/company-logo-klarna-q2-fy26.png",
-      "digest": "sha256:436c3949434d1857ca28872c76f0192826e643a8ec0fdb09d0585522d5c2dcdc",
+      "path": "data/assets/icon-references/pfizer/crops/pfizer-q2-oncology-tight.png",
+      "digest": "sha256:521c6469f92727041ba396229501bb35f21388732e437e760bd0fea3ff8ac758",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/klaviyo/company-logo-klaviyo-q2-fy26.png",
-      "digest": "sha256:844d9c9b447e00c813ecca2963e7bd2454e3b19346134ed9eb58b1d2c35c9d37",
+      "path": "data/assets/icon-references/pfizer/model-validation.md",
+      "digest": "sha256:a24e1b02e331dd17109d511ce3a0d670dbd4c6d4214fe4f446cc5fb85252fd01",
+      "before": "sha256:e13f2b51469985ca5c3701909184fc2807ea21ab9da510eae93acc1ae10e535d"
+    },
+    {
+      "path": "data/assets/icon-references/pfizer/pfizer-q2-fy26-crop-report.json",
+      "digest": "sha256:18e708aa3bf91b0e234797385c2042daed5c982d24586e6ebaefed5e3dc6375b",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/zoom/company-logo-zoom-q2-fy27.png",
-      "digest": "sha256:8fff6158df8b47f6b8197bd3c2fea5b8daf3c95c7383bf4926680493bcd31b8d",
+      "path": "data/assets/icon-references/pfizer/validation-sheets/pfizer-q2-oncology-tight.png",
+      "digest": "sha256:4c170d84933ac458add84fabcebb5b6bd1acd30707e020ac733be3b19a52d9eb",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/procore/q2-fy26/crop-report.json",
+      "digest": "sha256:807806496bc39b1b2798391b1534df1250939a5c3d356f574658be006b8d86c5",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/procore/q2-fy26/crops/company-wordmark.png",
+      "digest": "sha256:30c2fb6430002c504e6d36396b72048838cf2867b654663cc7ff52980ebc537b",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/procore/q2-fy26/model-validation.md",
+      "digest": "sha256:b91c82c46b6a3c9fee192a9dd33b091ea6117da761280705d4107520646d9587",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/procore/q2-fy26/validation-sheets/procore-company-wordmark-q2-fy26.png",
+      "digest": "sha256:1f0a41229df8f38fa9699e3a5de6a6cc7a4b6ed2635191b83632e70755c0e2ad",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/rubrik/crop-report.json",
+      "digest": "sha256:e1352c1a57e7a80c304df79435ced15bc6f0ca2eb12ef9c1a692c5ab79ddd0ed",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/rubrik/crops/company-logo.png",
+      "digest": "sha256:300685548224bcc78e1ff84bcdffe2e75894392e605b888ad8e0147f8ec1d5a6",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/rubrik/model-validation.md",
+      "digest": "sha256:77b6d909027e19cbcce2bca533d57b6bdb669bc1030079f54fa3d8251b5e9619",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/rubrik/validation-sheets/rubrik-company-logo.png",
+      "digest": "sha256:3000c98ea1848107c58c9c6bfaf46ba493afe7aecdba76a29816702399a89730",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/sentinelone/crop-report.json",
+      "digest": "sha256:ef3d3e2598e710cb1c04f129bb2c16d5973e85cf8fabb2db755665b67c3ccab1",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/sentinelone/crops/company-logo.png",
+      "digest": "sha256:ebb7b20d88f9b09380bc709eb81a071f474adf51c1368edf5bc9eceb5257db5c",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/sentinelone/model-validation.md",
+      "digest": "sha256:11e582ccaa709e4cb2d02ac1ff0080eab72d90abf226f2f6e9a4d8189489e27a",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/sentinelone/validation-sheets/sentinelone-company-logo.png",
+      "digest": "sha256:06dc284ecc070bd79e584e2df52ee39a8309509e4b1d1471cd0d7bfad8ff60cb",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/the-trade-desk/q2-fy26/crop-report.json",
+      "digest": "sha256:353e2d74d1952e74a2ffec202185384b26521c1002ead6c114f2fd66031cb77f",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/the-trade-desk/q2-fy26/crops/company-mark.png",
+      "digest": "sha256:3faf9d15b73e2c49672b1c98420dcb89482e169ed4f689efd2480745634f4264",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/the-trade-desk/q2-fy26/model-validation.md",
+      "digest": "sha256:b1c0cc449ce58c00a8bf4c06ddbdacdd01740098e3e674ba5638cdf590ba9d34",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/the-trade-desk/q2-fy26/validation-sheets/the-trade-desk-company-mark.png",
+      "digest": "sha256:3b95e233607ae4cf408f46c41940ef85a20061d9a91f494b2cc0866a0b3f54b2",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/warner-bros-q2-fy26/crop-report.json",
+      "digest": "sha256:362375a1f85ba173e9c51b978c50178397827ecff5c02f69c2e7f95d986550b6",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/warner-bros-q2-fy26/crops/business-networks-cluster.png",
+      "digest": "sha256:f7f229cd48440443679c2a794c08b2277068047537179898f6d4a0014ccbecc0",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/warner-bros-q2-fy26/crops/business-streaming-cluster.png",
+      "digest": "sha256:5a8c9da63f9c2b3ae5c9ebcbfa7d30fb501831bbf94ddf667c5e077c1f1e1fdf",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/warner-bros-q2-fy26/crops/business-studios-cluster.png",
+      "digest": "sha256:011392313ad680ebb72b6adad2398728202298f44b0296117f11baa5f53dd61d",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/warner-bros-q2-fy26/crops/company-wordmark.png",
+      "digest": "sha256:8aa2c9961fb8c84a52ebb411b190951de96e2fcda69a205e991c9b2c38c4c37b",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/warner-bros-q2-fy26/validation-sheets/business-networks-cluster.png",
+      "digest": "sha256:39fc4113fce70975ced765f4b02768fd98f3e2a44825b13fd02d8b920c50b0d9",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/warner-bros-q2-fy26/validation-sheets/business-streaming-cluster.png",
+      "digest": "sha256:c6af43e8682eeef78cbb191d7a9b44077a3ae2ec2f0f1d6f4dc0bb3bce2c4d2e",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/warner-bros-q2-fy26/validation-sheets/business-studios-cluster.png",
+      "digest": "sha256:10b91fd30fdf22fe22f9ccc8c642a223702349f2fe00eb796b0f50cc084270aa",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/warner-bros-q2-fy26/validation-sheets/company-wordmark.png",
+      "digest": "sha256:92fc8e2ad8103bfdf7231dc2947ea9468adce3b99c25f14d01bd50b15e013c3b",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/workday/q2-fy27/crop-report.json",
+      "digest": "sha256:9c5e872d7a0993fd8701d776af6d2be6a8c314a23d4459b0a136b7c7a4ee9077",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/workday/q2-fy27/crops/company-logo.png",
+      "digest": "sha256:b952d7909c7a06c794e09faf68f387ba9563555effba0d07b4f4b0c563253f57",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/workday/q2-fy27/validation-sheets/workday-company-logo.png",
+      "digest": "sha256:241711c801bac31cd4c4abd8e54afb030502bdbf30c7584e10dd3378c40cf450",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/airbnb/airbnb-q2-fy26-apac.png",
+      "digest": "sha256:272f8f8ce048a8e184b69655036090ec0cf253fe370aea48ef73d06ca8cb2d26",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/airbnb/airbnb-q2-fy26-emea.png",
+      "digest": "sha256:94d402e9fee81aebe300223334cef15dc54b9a642197fa629621dee9de7f3d68",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/airbnb/airbnb-q2-fy26-latam.png",
+      "digest": "sha256:8f5c65da8cd42a01eafdafb2f8f5b7da497d02b1e3cf5f90db642440ba7ce2c8",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/airbnb/airbnb-q2-fy26-logo.png",
+      "digest": "sha256:b298eacc27440b15f9b88a0bff37e365e3c64847252cc71e86ef6da3deffa24f",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/airbnb/airbnb-q2-fy26-north-america.png",
+      "digest": "sha256:4a554c511c379ba6dd394071bc4ffa99e81f374c46a1368cb9408fe29d7e23e7",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/cloudflare/cloud-q2-fy26.png",
+      "digest": "sha256:08b1b0111f4a945c48d4dc9b80f432a6efb1e9d996a357ef8bb93b0a2b031d7f",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/cloudflare/wordmark-q2-fy26.png",
+      "digest": "sha256:f70916c5c5b8705e6eff47bddf4ee5800ddb4995e01b67d3edf8327df3783fd8",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/draftkings-q2-fy26/company-wordmark.png",
+      "digest": "sha256:3b7c89c55b520e61ae58955fc6c2cfef22ab7ea4a3a1b4c52f2ca514d29c41c1",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/draftkings-q2-fy26/online-gaming-cluster.png",
+      "digest": "sha256:3cb7110fe0b9cdbf70046504615c76e3c26afc1ff71dc7469efd6c07a3e2a375",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/marriott/q2-fy26-logo.png",
+      "digest": "sha256:59ec2e4c11989dcdd16042b356ca2b8f085d984f560d6a5ca490fe623f4e863e",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/nutanix/q4-company-logo.png",
+      "digest": "sha256:72f16092610967caf5aa69e84ee5bd5b23ed6b49f982941ef2c2790190953b67",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/okta/company-logo-wordmark-q2-fy27.png",
+      "digest": "sha256:4cf935ea9f60c807800a1bfb9180775633615fa55a7c2f5671c3efff80122cf1",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/paycom-q2-fy26/company-logo.png",
+      "digest": "sha256:0e103491ed51955913a8c31c4b8a458fc03b26798245dbb5a82342f81d3ec23e",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/pfizer/oncology-ibrance-tight.png",
+      "digest": "sha256:521c6469f92727041ba396229501bb35f21388732e437e760bd0fea3ff8ac758",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/procore/company-wordmark-q2-fy26.png",
+      "digest": "sha256:30c2fb6430002c504e6d36396b72048838cf2867b654663cc7ff52980ebc537b",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/rubrik/company-logo.png",
+      "digest": "sha256:300685548224bcc78e1ff84bcdffe2e75894392e605b888ad8e0147f8ec1d5a6",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/sentinelone/company-logo-q2-fy27.png",
+      "digest": "sha256:ebb7b20d88f9b09380bc709eb81a071f474adf51c1368edf5bc9eceb5257db5c",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/warner-bros-q2-fy26/business-networks-cluster.png",
+      "digest": "sha256:f7f229cd48440443679c2a794c08b2277068047537179898f6d4a0014ccbecc0",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/warner-bros-q2-fy26/business-streaming-cluster.png",
+      "digest": "sha256:5a8c9da63f9c2b3ae5c9ebcbfa7d30fb501831bbf94ddf667c5e077c1f1e1fdf",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/warner-bros-q2-fy26/business-studios-cluster.png",
+      "digest": "sha256:011392313ad680ebb72b6adad2398728202298f44b0296117f11baa5f53dd61d",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/warner-bros-q2-fy26/company-wordmark.png",
+      "digest": "sha256:8aa2c9961fb8c84a52ebb411b190951de96e2fcda69a205e991c9b2c38c4c37b",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/workday/company-logo-q2-fy27.png",
+      "digest": "sha256:b952d7909c7a06c794e09faf68f387ba9563555effba0d07b4f4b0c563253f57",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/08240bad13f74eedd7eeea4de21aaa8847cd3e45bd967019d79ffb2ae3862cbb.json",
+      "digest": "sha256:45301e4d5aa10fe3f53fbbe64baa2cbcddfd01e28f05871fb98e2491c018527f",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/0b572620fb38e5637dd22e75b024f6282b05562330a574243471d2d78d85fc8c.json",
+      "digest": "sha256:b808671d4d91b6e0d6d6235c6e97c7a923b48c56b743d668577106d328b8438f",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/12dc88c84f6758427db71cb207696a4c051cc05377fc3678058a7042553444c8.json",
+      "digest": "sha256:297613367eb66e8ce8433e48cf10fe4019ee1b0f70fe075e14aba7406ceb17cd",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/1b69e51f0178c04e36215d2328383ebf5751a8cfd2c4dc6d691616ef732a8321.json",
+      "digest": "sha256:1ca2fe6a78f4fb7a7d4b95e797da6c915b1bba934774b243982cdac99d139279",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/21075125c3ffe5fb240f241c7fc46b8505ebf99586d5fae045674f81b67baadb.json",
+      "digest": "sha256:537953631caa3afeb806f8185201b70d99a9d045053912fbdb5f3e64527339a2",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/282bedcb350520569cef0bf2f37fabae58e019c8c1492e507e78d15a4075d9f9.json",
+      "digest": "sha256:7894aa23fa8aa7108a63a1304be9e98858908ba0e77b547f8e20bc7f1ba13fbe",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/29b6608335bc807de90c8ed73bc7b0b24c90f91cfdbbee596a64eaf6a1f3506e.json",
+      "digest": "sha256:79eab5741ff3d32854b24f21b84075fa00886b5bb41b4c12ad5149c0bf1ece6d",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/2beb98a0da62c5ee7ba57fd1c5907f7f8f07a8fa1e270a8c0a4b9cd54d9c8481.json",
+      "digest": "sha256:6e55dc13eb17914ff43a2cc2a5849c8e7e7f38fcbc9cf8cde125801ada5aa1cd",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/322ce35a709c3556c6e8d6a7cb6b3e96101393f320d8551da5e2aab445c4d4e4.json",
+      "digest": "sha256:0472f30edda5af3827db073fa1a6d4faddb61b24d790736d0ee58000e4c4bee5",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/327bf9be756616dab93b45b4e93641675d59b35255fcb51d42ca1496c2e7b5a4.json",
+      "digest": "sha256:f71bfb4573a2456759d23bf0fd2c70b5510bcbfe15a14f2d08cf61340f8528f3",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/364eeea65f37669ff2d9b819e5680accbdf2274b49dab012a0343d3e005083be.json",
+      "digest": "sha256:a7a0bf68645a9b1f39bc29d86707a502a53bb858968daed68c9e3106d6e1e1f5",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/3650c389d84596790760ef9b5beca637f3033cecabefa1150c76bd627c85efb2.json",
+      "digest": "sha256:d51edfb76e695c2411a5599e864cd96ec2bba3509b7568f75c49bb27d4b922ce",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/3d9408c1ec81470593b2ca1146696eb59eea001457f036d93c3529793cbc9bb8.json",
+      "digest": "sha256:ec9b5f2a0583e1ddf86d7858af942025a3c568e13ddb58ceb273a03368c0bf3d",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/436662b670777a8850b8524885eaeadb2a9e4542b12d1f29ec0e2c5ab2994270.json",
+      "digest": "sha256:eb2c75e8f6c33f3acebd82c787a0f95db6573cd9736192a5a87ffe481a39856c",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/4521c47460b97ff5936c19796f0b2a44de2a62d46c37c64c8d9262cc54e1fbdd.json",
+      "digest": "sha256:674e93f2352df82ee03c82c1fa5e63aac65c84a2e8a82e838393812d6c625802",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/4915eb31f33dfb1c4a64bd30552ba3bad96dd035222f9d986728164ea2b55231.json",
+      "digest": "sha256:0335dff80b7d7471ea19c27999787164d67f0b3eb89a455fa2d3e2878923c60d",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/4ab16c283252e30f21937711f10450b0ea6ddcbddb58c21762ce8111502fc14c.json",
+      "digest": "sha256:9578dc7480a28514a77eb86f5c3ad0e73ac649d2b7788ad8c48ab49f16ac88f8",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/4c4e5857f6ae4cbad0e30a5a64e839fc655669fcab848bb22b35ab49d9f256a6.json",
+      "digest": "sha256:1638eb4f93fa82ded3dc019b3968c9227fae4a58b3d1ede8d47052ffc71062cf",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/5d6c4b2cd44bc36181f1cf9fa65cf8bc4f4401e705c818fb67a3b43796fecfa8.json",
+      "digest": "sha256:9bfacb3e34d49390503a3c4ab2b3cd0a7d94f82748f3b6c4e6ddda944c82693d",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/639a24ff34ae13c9bc2ae3889a5accba35efa11cd07d0e34dfb1a08733807641.json",
+      "digest": "sha256:92abea08e9ef7baab7f6164a07d7abd62f239fd8fa025adf9fca83cfec5f7b70",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/65292594afde9639f2684e2656ca51ef4bab14eeb927fa6deca64aaeab0cc42d.json",
+      "digest": "sha256:58840d7850ae16cbbb9c71124af4239d1510a4de08664e39654edefe1b1e1621",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/6742d780b4eb59afe6b5fecb459bc0ca5078865509a00b277e39feae797e40b5.json",
+      "digest": "sha256:aa08fc287683a13bf1eb524deca924742ff0e0711c24adddaa9d3b57f70f6e54",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/8b85bf4c7ea117e04b63b10fe3181fe4d0312d1bd60d7fa3f5b057ff3c05a4cb.json",
+      "digest": "sha256:88a66e8cc24c2c65531e918a7381c5b17a2afdc987ddd7d2ef8fe9967de2f90e",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/928fe519a6ce0c0c6e90d051d5648e48d6f83ac32ff5b1dc2877895dcb870214.json",
+      "digest": "sha256:8db3debc36d17a0b91c47307c78377f8f4408bd8091e3df9bed12681114ea231",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/a1402b401f781b6ef26e941abc70b3a2d9495317698e823037439ba5ed60fdaa.json",
+      "digest": "sha256:f8fc47b557ced300c5629bd73f7f2a22b09040723a9375665e8ea0ce484f4231",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/b4b46bf9e9eda807a6a07e4c34431b024c8097bd82de344e16fcaf7bf1876cad.json",
+      "digest": "sha256:1a7d4a13c5ee288c0e391fc0548b9c37cec89f831419dccb99256b6a3ba6077b",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/b7b98b85e441b3632cf2f91e16c911593cc4b02855a49b3d557a6b85c2fb5caa.json",
+      "digest": "sha256:00e055f076c5329fc7c13569413d17bfc56d8a0ecf479385b8f2eb9fa83d57ca",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/c5ffa6afb25111f4d628c5e1c3e4f2129935b7b702454bc623a55a42979a0d48.json",
+      "digest": "sha256:efc8affa998caaf9b8154fbf5a05a712cf6fd3425bdc7a683bb356a371fc2e94",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/c7c3d088211e845442a0e63522495ea55151a04198427c4134bcabbd2d02ccd7.json",
+      "digest": "sha256:d317a2c8983d0dae49072fe1f8644e37b4b731ff5d549cce4221fb1dd215a0b1",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/c9f006b6af4f24dc149f77a9b361a57e5d5cecb5a7134d8bd1ab3464c8250b7f.json",
+      "digest": "sha256:5b2e786b179d325023de9a0c1ebacb3809aebec203dfa3f2c4abe3974d61d7e3",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/d8bb983e194d5247de6dc08652279135bff87aa394aa92089659d884eaa18273.json",
+      "digest": "sha256:aea504d5606495f5d5cc59cd60b98e20fa0c90d37454b6c2e71791defbdd019e",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/de61dad71def50c1fbede3d73fa0da41c8c3a8017cffdaa9c8a0884f66cfac75.json",
+      "digest": "sha256:627c69447e121ea5fba809ac921ccd0b40e3d0d1d6004a3d4cff659301990e27",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/e41d28e3e17c3b6c768ed73c2ac7018f3ee5bce798579aecfa4f94dcf18a5bc8.json",
+      "digest": "sha256:4034d00ce6a139c8ae22650aeb4d909e82f3ee34b6649abae4749d676de0c7dd",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/e4d84707ef11423b8b180d25fc2870d46936d1afe86a27e5959325a3f1cffc96.json",
+      "digest": "sha256:24a3c3c78bfda0a17023bd21f50ed2ec6bce6450a2b42869a86e421d36991c66",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/e97a85dd432b5ff1ba6c39a174d2a4f53888daaef5f98eee58d63e187ac03f45.json",
+      "digest": "sha256:518aa15e531d60c3b15dfe490c2a8dfa53b2931595b3237a14e7899fc653095f",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/f294ee479e91efe2be576413f5f5be3062975c1ceeb88fea1323dde186afae55.json",
+      "digest": "sha256:48a621d9de1ca820538094213bd2873c25862762cf2efab8f0c57d64d30ffdc9",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/f820f79f537723d9de44b5813a00133332bee9d4a92a9a567bb0e1565cce291f.json",
+      "digest": "sha256:9114229ab074351cda054f36165a7da82888d91d3ce1c654bb326fd12dc725ac",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/fdcbf048fcad56f6a9c70b7650db203017b3335c4830a7a7282651422bad9e6a.json",
+      "digest": "sha256:11cc2abdbc08855a3f49ef3c1e8883535a961e73ed0ae6852b5f0fe91095f6f9",
       "before": null
     },
     {
       "path": "data/dataset-file-metadata.js",
-      "digest": "sha256:00fbe1c71f3149b5caa0612f09c334229b43337b748dd21a5a60db3c30811581",
-      "before": "sha256:8216aee7bbe05b51933f6060e95a160269ec7f002a88c3e91abf78b5341d965b"
+      "digest": "sha256:b6ac44311847939357670cca217cd8890b10041ac92f1cc8f9e6a36dd655ba0b",
+      "before": "sha256:00fbe1c71f3149b5caa0612f09c334229b43337b748dd21a5a60db3c30811581"
     },
     {
       "path": "data/dataset-manifest.js",
-      "digest": "sha256:e7e66bbe227cf9760d075aae4518af1dc68b12c199d25f5f366db0ab3f78da57",
-      "before": "sha256:ea5b6dc165750e7ad18b2ce6c14cd10d7fc5bded1bf7f34296b326ec27d95c46"
+      "digest": "sha256:ff2df7684c88206394df4a615b7e1ee2187323cea7ae08f2dabff903f1b32310",
+      "before": "sha256:e7e66bbe227cf9760d075aae4518af1dc68b12c199d25f5f366db0ab3f78da57"
     },
     {
-      "path": "data/datasets/autodesk-q2-fy27.js",
-      "digest": "sha256:6f813f84299fd10778686dc12b4b6e02d24661e2f117a42182bd71c0299acc6c",
+      "path": "data/datasets/airbnb-q2-fy26.js",
+      "digest": "sha256:eda81a4f0e0d5ae2d5029805373dc48651b4da7eaf40395684d3e186f4601f17",
       "before": null
     },
     {
-      "path": "data/datasets/chime-q2-fy26.js",
-      "digest": "sha256:621b57638fcbb1464619753de6b9d0624a1141fac7ed17fbae36f7a4cf891b69",
+      "path": "data/datasets/amer-sports-q2-fy26.js",
+      "digest": "sha256:4ebe6b1c6672c0d43cc613a6953adcb4af7856b3abb3eb7330f0e1b815fc32b4",
       "before": null
     },
     {
-      "path": "data/datasets/circle-q2-fy26.js",
-      "digest": "sha256:84a50629e4ca16f21299475da223d0a045920bc5383f8ea16787f693531134ee",
+      "path": "data/datasets/applovin-q2-fy26.js",
+      "digest": "sha256:60bd7572319cbf381c9b812df0a7d7867a41fea31fb95b740b2128cb3e3831fb",
       "before": null
     },
     {
-      "path": "data/datasets/digitalocean-q2-fy26.js",
-      "digest": "sha256:5431cbe8cf19a2b91047770930612b6b95f84f590ce59eed3c09c186cb837ee1",
+      "path": "data/datasets/arista-q2-fy26.js",
+      "digest": "sha256:200e2d32599ef4d33fc209933aac67c9f94ed7ac4269dfe04df3424fdffd4d7a",
       "before": null
     },
     {
-      "path": "data/datasets/docebo-q2-fy26.js",
-      "digest": "sha256:54b15cb1cb4e19685cf33a82c97af376a809b14dfb1a05a2c06b36704b666ec0",
+      "path": "data/datasets/axon-q2-fy26.js",
+      "digest": "sha256:6fb48d39d87e941654fe41e813f96d695e9414d02abb7f241bd2fb8037a87885",
       "before": null
     },
     {
-      "path": "data/datasets/fiserv-q2-fy26.js",
-      "digest": "sha256:ca4f666f2e4a489bc3c424644c7967104437927a251a26bedbc1ea810c1edf2f",
+      "path": "data/datasets/booking-q2-fy26.js",
+      "digest": "sha256:704010ed97fe137c9ccb080775d83b3ed57f68b0cec2b0a2a2e3a3ffeff27da8",
       "before": null
     },
     {
-      "path": "data/datasets/klarna-q2-fy26.js",
-      "digest": "sha256:33aab85d3ecc8d13e25580678bc84194dc7ad572a0409b9a296e773333e08b75",
+      "path": "data/datasets/cisco-q4-fy26.js",
+      "digest": "sha256:6a453bc5693af3e08208a44aef69431dbd3b65a4511587315e3c05b52e8a06b6",
       "before": null
     },
     {
-      "path": "data/datasets/klaviyo-q2-fy26.js",
-      "digest": "sha256:cf1dedabdc52758984818f3578ab5bab5a3c2be3b9e0ab8938b76c3fb716a8ab",
+      "path": "data/datasets/cloudflare-q2-fy26.js",
+      "digest": "sha256:35b2e877725306aa138ce9fa131511a3e61b77efbbbd1ded7f7996f74044eb4a",
       "before": null
     },
     {
-      "path": "data/datasets/monday-com-q2-fy26.js",
-      "digest": "sha256:79706ce08189ce1da0f50e20cbb60608ad7ebd6570d02ed1898a3eb50a0dab40",
+      "path": "data/datasets/datadog-q2-fy26.js",
+      "digest": "sha256:3718a6249b5e463e6f4cd5a181fda5a5459344e2c701eab8f565351e4c540cd3",
       "before": null
     },
     {
-      "path": "data/datasets/zoom-q2-fy27.js",
-      "digest": "sha256:d21834449c534b616b0d3b010e8facfd48bdaca1d9331921ab43a732cf82e77c",
+      "path": "data/datasets/draftkings-q2-fy26.js",
+      "digest": "sha256:72766ad238c9493676ab14168ee71a106c40fb171d9dd17b8bca8083f7c28249",
       "before": null
     },
     {
-      "path": "data/income-statements/autodesk.js",
-      "digest": "sha256:5d8f467c03b17081d914dd1afee92146b13eb03903d2490539893ccd30b36993",
-      "before": "sha256:2f4577b954b04d33bd5be9bad842aea7f1b4e03312ff0b5952bcd3f0fdfcb783"
+      "path": "data/datasets/dynatrace-q1-fy27.js",
+      "digest": "sha256:8bd429ce90f92d12f6c604051477db586d9011cf3bf63a2f55825270ea4a0aa3",
+      "before": null
     },
     {
-      "path": "data/income-statements/chime.js",
-      "digest": "sha256:9cbf8dc58a2b9fa1076910ef61fcfdb460ef2df031aab7b975a34fb1ff7e8e23",
-      "before": "sha256:be07c4e65889517670b57e6a7ee45d9a4032a2bc731b78f861a31a94923718ba"
+      "path": "data/datasets/elastic-q1-fy27.js",
+      "digest": "sha256:60f4cdb2692f71962bc0ff7dfd6faec053372f104dc946ae1d1a8ee7b52e1113",
+      "before": null
     },
     {
-      "path": "data/income-statements/circle.js",
-      "digest": "sha256:f09c0f57051c73037ad25998b39be5b586a0e03cb8dafb445800064ae9919556",
-      "before": "sha256:963aa6b6cfb73ab984dc2fce816242ae030392d33ab75e54a39e4310443e3eec"
+      "path": "data/datasets/expedia-q2-fy26.js",
+      "digest": "sha256:0e1984e3441b2cc70089261645b91c46e1d17311aa0fd2a2424ec43c2e45ee40",
+      "before": null
     },
     {
-      "path": "data/income-statements/digital-ocean.js",
-      "digest": "sha256:5173cf87f7ce8a455f8531d95eb26026046ab28fd37d8f244f4938983b74f98b",
-      "before": "sha256:fd35ba15cc7b9095f9564f6c3ff7dbd828075f400482537570ac9be75875ee88"
+      "path": "data/datasets/figma-q2-fy26.js",
+      "digest": "sha256:2503902697288eebe0b0cd6e5b6af23cf685a0c7b2bcebc0992ac9ea53b9f74f",
+      "before": null
     },
     {
-      "path": "data/income-statements/docebo.js",
-      "digest": "sha256:95e260d4152d4f58f0e4ab25751af457461ae28dbca9e6bca79473fb125c8c8b",
-      "before": "sha256:d7fe0a8d038680c3ac063f443afcce3d4d8ddd620499c286e21196412a0fdd36"
+      "path": "data/datasets/flutter-q2-fy26.js",
+      "digest": "sha256:da89fd6fbdb6079da61f39432bf62d784a76ef3554f3e414ae39b22e8645378b",
+      "before": null
     },
     {
-      "path": "data/income-statements/fiserv.js",
-      "digest": "sha256:e034061ef41c30200db31cc1c56d3dc12dd5a9d070731f9de43e30b51247b05d",
-      "before": "sha256:0100c76626980ef442bb700d64533053bfdd822cdc5af0578309aadf22892658"
+      "path": "data/datasets/hims-hers-q2-fy26.js",
+      "digest": "sha256:6f3e1f1ac07f5c1345c558aa28eb7322b854fed4aa330d6c0ab8ea7d51916382",
+      "before": null
     },
     {
-      "path": "data/income-statements/klarna.js",
-      "digest": "sha256:a1c11701ffc2bce737cec45c594d82b220b75ac4785e340743fe25c5e3126569",
-      "before": "sha256:ebdab8d592157867d2c011d053d1dbc64d85d04899b262b7621f123389cd15ee"
+      "path": "data/datasets/hubspot-q2-fy26.js",
+      "digest": "sha256:8b6b5081b90dbcac8dfd657e272a27362f5768b27a4b1d29bc2fb1bb3ed5ac00",
+      "before": null
     },
     {
-      "path": "data/income-statements/klaviyo.js",
-      "digest": "sha256:8f7aebab03416d1d653c62e744f78550b287fe1888018270b783871d6a10ec89",
-      "before": "sha256:725f5458d699529ebf33448d02732d5ff43e95be57cd5c9545e2a60acfeae9a9"
+      "path": "data/datasets/marriott-q2-fy26.js",
+      "digest": "sha256:adaf01006e4d45c663b288d201493090cb55af4d8a37ff25602e9810eeb36e93",
+      "before": null
     },
     {
-      "path": "data/income-statements/monday-com.js",
-      "digest": "sha256:6fa981e0c8e0bae0893a8663f7ac9b74b27618fb2d432a4f9f89aae8085ff268",
-      "before": "sha256:526dd27d09a0ce84778dd5343cbeca66c98175205ae916eb52fbc284f451a75f"
+      "path": "data/datasets/nutanix-q4-fy26.js",
+      "digest": "sha256:e281ccc2e5cc9206eebe88744bac35bd6c151ed5ca5a0ff4b5de276622931ff5",
+      "before": null
     },
     {
-      "path": "data/income-statements/zoom.js",
-      "digest": "sha256:568a17a35921d2b825a566da07b8dda00de56489f50630047caf7b95f30a8ac6",
-      "before": "sha256:602a60ab391c2693bf94d4c558e3978026dd02b5f857e536d2c7d8d23c8ac90d"
+      "path": "data/datasets/okta-q2-fy27.js",
+      "digest": "sha256:06fdd555f538fe6412902bfa7fd9c6096f237b41f87c3d069c74a6b345a38b4e",
+      "before": null
+    },
+    {
+      "path": "data/datasets/on-q2-fy26.js",
+      "digest": "sha256:ae19e61b2bb587da4bbd6838146faf7ba85adf7818e35029d23c8a5045254885",
+      "before": null
+    },
+    {
+      "path": "data/datasets/palantir-q2-fy26.js",
+      "digest": "sha256:e7bfd3d21b921efc09bb0a103b18867e369df6ab365132b043bd66be453c8797",
+      "before": null
+    },
+    {
+      "path": "data/datasets/paramount-q2-fy26.js",
+      "digest": "sha256:78fca197e62dc59332b893fe3535f2a1b34391e905af5e3acdd4eab2149b7e2d",
+      "before": null
+    },
+    {
+      "path": "data/datasets/paycom-q2-fy26.js",
+      "digest": "sha256:efe12cfc65e5df123eb1a9eb25e528db0d43651a5f833508fd32d9dae91ffe71",
+      "before": null
+    },
+    {
+      "path": "data/datasets/pfizer-q2-fy26.js",
+      "digest": "sha256:55da173eee0b1c678109af3789079ed8e23ff7e56ff4c12c7f36450276768b6b",
+      "before": null
+    },
+    {
+      "path": "data/datasets/procore-q2-fy26.js",
+      "digest": "sha256:1978a47b6d2a0a713b8f7648d762ecdc628644d6c7ef41bbaebdff78605e9e3f",
+      "before": null
+    },
+    {
+      "path": "data/datasets/rubrik-q2-fy27.js",
+      "digest": "sha256:175ba11cfe99f104f3a362131636e86c5a49016544fbbe234be4b1dd5a837a7d",
+      "before": null
+    },
+    {
+      "path": "data/datasets/sentinelone-q2-fy27.js",
+      "digest": "sha256:cd816a9b36a3c01169bbbd934b94fc9322cb91547ef064e41530baf46701c6a7",
+      "before": null
+    },
+    {
+      "path": "data/datasets/the-trade-desk-q2-fy26.js",
+      "digest": "sha256:da74b4acc927a7494ac610f8549d56dab1ed1236d257635323d073b99e544937",
+      "before": null
+    },
+    {
+      "path": "data/datasets/tripadvisor-q2-fy26.js",
+      "digest": "sha256:fd8a54498523d65e17386016af80ceeaf9c900b6bdf82153c6bfd4d45a13e104",
+      "before": null
+    },
+    {
+      "path": "data/datasets/warner-bros-q2-fy26.js",
+      "digest": "sha256:4c23fd1114c93480b47a4915061b2a9061f7a86bb76c7afb2fa8d14a8f394a91",
+      "before": null
+    },
+    {
+      "path": "data/datasets/workday-q2-fy27.js",
+      "digest": "sha256:0fb3aa72fbfa7ec437ccd5dc767d826b3beb607725d01462502a22de35c293dc",
+      "before": null
+    },
+    {
+      "path": "data/income-statements/airbnb.js",
+      "digest": "sha256:4fd287f1f6ca325f0bca8870363500f0425847ff423ec9f04dce227baa53adc4",
+      "before": "sha256:1353306a64c9ccc660b734c6bcbab13c3d41eb02e227adf9751375bf0ddeee99"
+    },
+    {
+      "path": "data/income-statements/amer-sports.js",
+      "digest": "sha256:27da7c02ec5703b40cf9eae4f8628e19c990364e31c7bde53d6d70dbd565599c",
+      "before": "sha256:f497c127ef5f4f79699b11a9688d7e9ba1968235d67a6c01b274dd1279c963a6"
+    },
+    {
+      "path": "data/income-statements/applovin.js",
+      "digest": "sha256:144501d69a27e73f18ae3caedccbae344ab03f22d083f540da470d57c9e372c1",
+      "before": "sha256:d4b30519b299dc04e54a6fb72811d1f2d257e5898c0897e47847c4d4611bf1a8"
+    },
+    {
+      "path": "data/income-statements/arista.js",
+      "digest": "sha256:e3f867d31bb1bdd549bab2f48bcfc9c94d22d4149352818345039b717db1b3b2",
+      "before": "sha256:bc5df5dc047bbf54b7e967f778185a45019ad2656a3561effa8292c05c4a6b13"
+    },
+    {
+      "path": "data/income-statements/axon.js",
+      "digest": "sha256:50f9bd01edc2f43f5d8e567b2e551529fbda15e2747700c0b9337bf35c1a46ea",
+      "before": "sha256:c3bcd8078fa495b7ceca2b3963abc3461ec9b178490c6deb30a434e230f4531c"
+    },
+    {
+      "path": "data/income-statements/booking.js",
+      "digest": "sha256:7dc03438095c28bb148041235bfa5697948655311a676243d7cd4205d32e2e9a",
+      "before": "sha256:ec9961b2300f804b1d0e43ffa505ce7bf8095dc52bf643f2c14d233823a648c4"
+    },
+    {
+      "path": "data/income-statements/cisco.js",
+      "digest": "sha256:924948a3a13f8b8e14678e4efd363e4225473b2bac67f63144874137b6a59ab5",
+      "before": "sha256:1820fb24a8e83d44978f4f05790ccb9c0002dfc7aeb59225cef99f7fb8c9a86d"
+    },
+    {
+      "path": "data/income-statements/cloudflare.js",
+      "digest": "sha256:4b8b7aa21325c6ee1d5ccd55996f21e6a670aee47868bb641e6495d96c5e9d33",
+      "before": "sha256:22901f14e63360716c3705a51de2ed252cb946f367081b017e8e7acf8518cba9"
+    },
+    {
+      "path": "data/income-statements/datadog.js",
+      "digest": "sha256:cd4fd05ef0647d3d816ac884dc5c185d106e835520bca284957a975c8f447318",
+      "before": "sha256:4db4342b6776b5d1568c72f0431bf1c15e314dd377f98ba95d254f984dd7bc97"
+    },
+    {
+      "path": "data/income-statements/draftkings.js",
+      "digest": "sha256:be916ab9b9603723393d6b7e114df578a6237fc9f71982d75ad278f4aa60fa25",
+      "before": "sha256:e7f7d258de37fc2437e013a8fb8cc732d55d53069dc7318aa6015594ceece6f0"
+    },
+    {
+      "path": "data/income-statements/dynatrace.js",
+      "digest": "sha256:156e3dce590c5c93676d26c79ded7851eb09a8eb2666ace3d1857f83cf83bf1f",
+      "before": "sha256:4c729187adac11f3c164259fe2470c551cdd320f04f99aba9e0c8d6f6b192c4b"
+    },
+    {
+      "path": "data/income-statements/elastic.js",
+      "digest": "sha256:fef9a148da15cc9d2ff9d2a54467511dbfeb5e369c98bdc0666ebdd90b7289ff",
+      "before": "sha256:3e65c60f2a964a3d95ed43054a117334cdc072bb23e403a3c1da521c38b5f0d0"
+    },
+    {
+      "path": "data/income-statements/expedia.js",
+      "digest": "sha256:be0b456c6f13326e3b21cafea0f1affc34852ea88d5be3b7d5afb267321b4307",
+      "before": "sha256:06553c3e186621f79099a08e265469cc4397ec01e664993bb33658602a82074f"
+    },
+    {
+      "path": "data/income-statements/figma.js",
+      "digest": "sha256:780ce5724077dec443635f1285bfbee31d2df92e66b78be27179da26a5598307",
+      "before": "sha256:8020c8dae4283a2c889fdd40b3b87d802f440f088e8ee86ad765cf5ef51479fe"
+    },
+    {
+      "path": "data/income-statements/flutter.js",
+      "digest": "sha256:49383527ea2134fea26d4d373cf5df23a14849673b8cec83548ebeb0dd3f47ba",
+      "before": "sha256:06a63191908664493d5d122d9845c66a62b1cf2c328a4eb409e75b0c710fcd5e"
+    },
+    {
+      "path": "data/income-statements/hims-hers.js",
+      "digest": "sha256:0935e5e5d67a937518ad530a9fa153e752f1f277591851a7eaa8ed0d01c024a4",
+      "before": "sha256:ed3fc6519b475cdbe735d348995e4d5bc33885c115b08c23136561c3224654d6"
+    },
+    {
+      "path": "data/income-statements/hubspot.js",
+      "digest": "sha256:a4e04c7db54147a6d536de362f0d61c084eada3075471f4d82a5ca6d2be7d8d4",
+      "before": "sha256:e751239f95b9dc62709614134c37d150a84cf771680cd6a5e1d3f69fa9162f77"
+    },
+    {
+      "path": "data/income-statements/marriott.js",
+      "digest": "sha256:33d48fbfa55a688b37e504e26d5e6d61d7133ce128a897dd8df350468156e5e7",
+      "before": "sha256:201896e76a6552435127d87baa4640bdeb1b837fc919e2556f8dcff8619322a8"
+    },
+    {
+      "path": "data/income-statements/nutanix.js",
+      "digest": "sha256:c0c46d1dd28b789158f69801aa3a732433d6c9de3a5d97b18d30e2f3eb451ee9",
+      "before": "sha256:3dd707646df46da72fddfeb01b713d0f297f16d66ff8acb0933603fc5906ad4a"
+    },
+    {
+      "path": "data/income-statements/okta.js",
+      "digest": "sha256:378c13053e2557ea7dba3cfcaf47f66378011bcaf86dd6c0f8419c7b8dc41973",
+      "before": "sha256:9d58810bf9bdc39311568d142fbef44333780f480ba5608410ed2cd8e9998b32"
+    },
+    {
+      "path": "data/income-statements/on.js",
+      "digest": "sha256:6d4dfa80cd8d7c57ec7d6be6b224c306c6b7ae021eab466fea27353cd090256b",
+      "before": "sha256:cf0447d83d5532bdc4c7ce50063b88e5360a937daa6b38e32a33239cfb64fc5c"
+    },
+    {
+      "path": "data/income-statements/palantir.js",
+      "digest": "sha256:3f8626d52082087deb791ed365d8b59d6c6e54eacaa7e357f3b2c0f21abb1b74",
+      "before": "sha256:accb2c2c38560a2af9e782eb273796b14b50e33ddca088bf2d920ba1bc5bbdb6"
+    },
+    {
+      "path": "data/income-statements/paramount.js",
+      "digest": "sha256:8133fe01c92cf492a4bb89a4323b22ffbce16f902d805cd97a7cbb31ab75ca87",
+      "before": "sha256:ae6f2e8b5ac4dffd9aeddb39f23a31ed6e2f4bc0e904447fcfaad200775fe165"
+    },
+    {
+      "path": "data/income-statements/paycom.js",
+      "digest": "sha256:951a81abafc0318648983789152aeab372d708883b29ffdc4fdb03884f6fc774",
+      "before": "sha256:f9d7be7b0625c4387ee03478efa5f3f25bb137e248ae25b0eeee58ee5ebf4044"
+    },
+    {
+      "path": "data/income-statements/pfizer.js",
+      "digest": "sha256:e8d9b1d4a58d73bc159c139bac5a42a424c0b70e62ea5da98f5ae569d6b5c11a",
+      "before": "sha256:1ac0c3856c16f57a0d9f869abd3015cd15890a3e3fa541ea5deedafb0dd034a1"
+    },
+    {
+      "path": "data/income-statements/procore.js",
+      "digest": "sha256:0ae152f2a0e85687a058c729397e0c790485bb7daf45082cbb7f2b982974fdf6",
+      "before": "sha256:2b9ac14ed43de75376e8e1eeef91f886079410e42f85a9ac0a6cb4bab2fb831c"
+    },
+    {
+      "path": "data/income-statements/rubrik.js",
+      "digest": "sha256:ffb832ffc2136a6331d1fb43ffc5e46bf601f54c8b47310cbe50feaff3940db8",
+      "before": "sha256:bf7fb343301914e5f0a048325d27b4b7e5e38cd93a6d86b39dee2e424d5f3144"
+    },
+    {
+      "path": "data/income-statements/sentinelone.js",
+      "digest": "sha256:bf953876205297f5251fd1d820f2590c940fc5abd65f570dd30ea4594d7edb00",
+      "before": "sha256:3bb95368fe1142f70569a0924737431c875e22e93be3702ef2348e0ff6df5b66"
+    },
+    {
+      "path": "data/income-statements/the-trade-desk.js",
+      "digest": "sha256:fc04b38c489ba495884df390a1624b81b1651bf5559b9b32c4e35713122477b4",
+      "before": "sha256:b36b034927e432a36c5d3db8c6b8a359920936ecc9080d280965f3e60f0c2e3a"
+    },
+    {
+      "path": "data/income-statements/tripadvisor.js",
+      "digest": "sha256:bf6af973b2d7bfffb7b7d0bf7259edd2aa5454293f9c8274490b31d835628d7d",
+      "before": "sha256:d49c4214deb7c05f297bc5b389e3f996facc538961e70d4a128d964b9ca390fb"
+    },
+    {
+      "path": "data/income-statements/warner-bros.js",
+      "digest": "sha256:657f0b25b5698eba76bc3ce50d05d95970fd421eea786b77cae9b8c89e94e720",
+      "before": "sha256:2a5fa64eb26f5b1cb51ef9e5d450f6a2171e1ab68756fd70a20e2dcde88d2e88"
+    },
+    {
+      "path": "data/income-statements/workday.js",
+      "digest": "sha256:1b943a23e9368be50098bc7aa2afbb2db915ef912962962a7276ea8b71d9a8c0",
+      "before": "sha256:eefbbcc7f86493ff9a7da6e9c905dac928aa03fd346159f0ed527bdf91f6b4bf"
     },
     {
       "path": "data/render-baselines.json",
-      "digest": "sha256:7022bad3479ee7af2b19644443c53f181bcd42b00868ace3e18e0743e185a172",
-      "before": "sha256:c390c4cd2b8cb19c6c43d6203cd35a020e1a7ab6837dbbd9b43a7806fc5e57db"
+      "digest": "sha256:fe28f518a51f289137e40b5d9c11eb84bd122c36e6d1ae1cdd399ffb82c637d5",
+      "before": "sha256:7022bad3479ee7af2b19644443c53f181bcd42b00868ace3e18e0743e185a172"
     },
     {
       "path": "data/workflow-timestamps.json",
-      "digest": "sha256:adee74a941aa97955bb2ef38ec46546046494ddfeefda9c1f7e016adfb22a213",
+      "digest": "sha256:eda58c97e5baed9d574cdb5074d646b275160636d570eb96ee509a9029bdfc36",
+      "before": "sha256:adee74a941aa97955bb2ef38ec46546046494ddfeefda9c1f7e016adfb22a213"
+    },
+    {
+      "path": "input/icon-crop-specs/airbnb-q2-fy26.json",
+      "digest": "sha256:b5a628092174e8fd7d18787a51335ed21f5b8d8a4990a1ab97ec6a280dfc52c4",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/autodesk-q2-fy27-company-logo.json",
-      "digest": "sha256:fee2a56f938f5725f2c5b7b8f118a965cbc5bf95486a1f7494b2adb4831182c4",
+      "path": "input/icon-crop-specs/axon-q4-fy25.json",
+      "digest": "sha256:084fd23a8603dcb7c7d1a4fd327143819ef255c39439baedfd1f083753ea0df5",
+      "before": "sha256:cc36c30cd901cdaed2156ec396aac7857cf9fd0c670987b48577c8799d67058e"
+    },
+    {
+      "path": "input/icon-crop-specs/booking-q2-fy26-reuse.json",
+      "digest": "sha256:26ce041f17158405bf9645a288655412d6f4f850c4345ecc317991c97e40ad72",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/chime-q2-fy26-company-logo.json",
-      "digest": "sha256:c7d0fe528e6fcf66eac3c7b66d3ca2f0c7d84f1dcd65f919c2e99e0ff000093b",
+      "path": "input/icon-crop-specs/cisco-q4-fy26.json",
+      "digest": "sha256:264f21b524b4d84a19662cd105317c052875cd722ac8171c9763f750a672e5b4",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/circle-q2-fy26-company-logo.json",
-      "digest": "sha256:730372086aa1b5e5cb1fa3397455e3bda61007ab3d5e1029b066b6eb4887ce7c",
+      "path": "input/icon-crop-specs/cloudflare-q2-fy26.json",
+      "digest": "sha256:0e1738643870e14c2592c782ee0337fd964ac5a4bf1c82b486cf48032ed64aa7",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/digitalocean-q2-fy26-company-logo.json",
-      "digest": "sha256:dc412ad3892b7eb6ff82f85e24f55c2eb222a6e91e2e5899e66ebc7c6173f82a",
+      "path": "input/icon-crop-specs/draftkings-q2-fy26-cluster.json",
+      "digest": "sha256:8af8d23a9f002e1bae9a246989c22b961d89fb5062810425e5df7eeff5873bbe",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/docebo-q2-fy26-company-logo.json",
-      "digest": "sha256:a5689c008cc58e32f3dbb30dccfef454a2b00c83b66bdbcefb5feadd4e5c0e85",
+      "path": "input/icon-crop-specs/draftkings-q2-fy26.json",
+      "digest": "sha256:6101aad91d55efd8f88a4af65d19c9e241d79f3a9ef5f704db2200025e66cb2e",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/fiserv-q2-fy26-company-logo.json",
-      "digest": "sha256:dc88034b80f8d4d5f59f1da0083ed76a2038192c89b68e18a02658b0594b6c77",
+      "path": "input/icon-crop-specs/marriott-q2-fy26.json",
+      "digest": "sha256:7a7a59189c3c696ca2cbb1121760f4e444ebd069bd9182283f246473d9411896",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/klarna-q2-fy26-company-logo.json",
-      "digest": "sha256:a2ab557d9ffc1e78829bbe7107a1c16c04330fc0f570ee78a9bc0ef62ae795ab",
+      "path": "input/icon-crop-specs/nutanix-q4-fy26.json",
+      "digest": "sha256:1c43902618059c16f8ab56d876c10b9ace5bf65133cc2180f5db795d40da038f",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/klaviyo-q2-fy26-company-logo.json",
-      "digest": "sha256:f3098266442569899b891ea1879845e909dfd65c4878c3ba949747485a7a092e",
+      "path": "input/icon-crop-specs/okta-q2-fy27.json",
+      "digest": "sha256:fa454247db92d64cbbc145aac179b0a6bad45570cf7b4344d41a41f0e33720fa",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/zoom-q2-fy27-company-logo.json",
-      "digest": "sha256:dee3783d68c0a387780fc84c716c43530882abb08c7db5e7b385b1a6f9c34a54",
+      "path": "input/icon-crop-specs/paycom-q2-fy26.json",
+      "digest": "sha256:9e84e17b78991f15550908861d45736323f132bf749423425c95e14774ca7012",
       "before": null
     },
     {
-      "path": "input/pending/page-0126-Autodesk-Q2-FY27-Income-Statement.png",
-      "before": "sha256:43c6fc02f9c4c39304b6048d870900e809b47f04e1282a1b09a80cceec6d8c7d",
+      "path": "input/icon-crop-specs/pfizer-q2-fy26.json",
+      "digest": "sha256:fa7c68c1fe0a1aa43c3301560dd506813b7078e0bc884791d299f9395f6b3993",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/procore-q2-fy26.json",
+      "digest": "sha256:673b291d20e872487e2e16d636b92aa98bf27d9fd5600a64dbd2bec4e8765ba1",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/rubrik-q2-fy27.json",
+      "digest": "sha256:c1b3cace99e12daf6b5607bcd51c4a2e0d447a08c0ad1b4ca3633fb0c5e1d772",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/sentinelone-q2-fy27.json",
+      "digest": "sha256:cbd3fc888d5fb72654af4754625614587c3f8b8507b15e90100187c81b4fd7bf",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/the-trade-desk-q2-fy26.json",
+      "digest": "sha256:c24fbe851cd11db3b7e5d71b3dea437dbd6f8f986f3f7060cd4c76fe376f9826",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/warner-bros-q2-fy26.json",
+      "digest": "sha256:6c3a42f9c2a77c3fee88db5004d54b2bccbd4731318e90332b8bff78a5195fce",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/workday-q2-fy27.json",
+      "digest": "sha256:8d30257646ac594613f9c3a02a0c0a0b545a7e008ca68e8ddadebc745fffe3ee",
+      "before": null
+    },
+    {
+      "path": "input/pending/page-0090-Airbnb-Q2-FY26-Income-Statement.png",
+      "before": "sha256:222631f20e4ee3c5486c2b6b73def9880d8bea858eabc9b71c548dc5206b4869",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0133-Chime-Q2-FY26-Income-Statement.png",
-      "before": "sha256:9d7f03cb2152009c02b5ef6ff3f55940e2631aec676859633b9efafe60700d5d",
+      "path": "input/pending/page-0119-Amer-Sports-Q2-FY26-Income-Statement.png",
+      "before": "sha256:62d751e8aa466b4cebd302f79a343c3c6e1ad8910c573d14c74576a40655e784",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0131-Circle-Q2-FY26-Income-Statement.png",
-      "before": "sha256:3b40a44bcb36c3d1b60fd1e5c18d350eac5de67815459871c4e79a5bfb845dbc",
+      "path": "input/pending/page-0101-AppLovin-Q2-FY26-Income-Statement.png",
+      "before": "sha256:f00dbe557e94402377f45733bae92497a33c8b28a2ca4b85cda019b5b07cefe0",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0129-DigitalOcean-Q2-FY26-Income-Statement.png",
-      "before": "sha256:e3b334b184518c4ff447083f1ef14c869193a03d19120d344ff116959c2643b7",
+      "path": "input/pending/page-0096-Arista-Q2-FY26-Income-Statement.png",
+      "before": "sha256:4b9ebf31342c53168a216eb2fde579dffb23c2193a1932f325cf65896e624ed4",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0130-Docebo-Q2-FY26-Income-Statement.png",
-      "before": "sha256:8a6b0b2e6c063a04f929d79a849f2d11241586a521814ba2aa514bd4ef682ab2",
+      "path": "input/pending/page-0100-AXON-Q2-FY26-Income-Statement.png",
+      "before": "sha256:632150bfef9efa0b35cbe50f4fd22d3d744fee8ddf043fcea38c81a1eaaece6a",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0134-Fiserv-Q2-FY26-Income-Statement.png",
-      "before": "sha256:733c9b494258402eb3751811b32b085a35f8079926fd1b297a6f2acfee510dcc",
+      "path": "input/pending/page-0091-Booking-Q2-FY26-Income-Statement.png",
+      "before": "sha256:904c3c6a1570c2eaf4dc143bbe88b439e79aa6db30b3d5843914c110789ab21f",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0132-Klarna-Q2-FY26-Income-Statement.png",
-      "before": "sha256:b8892082a1b256549b7993b7c9c3240c7acd0cffc06588e60d4c20045f7c8ff3",
+      "path": "input/pending/page-0095-Cisco-Q4-FY26-Income-Statement.png",
+      "before": "sha256:58eb9c6c7d8965626bfc1a0a334ef4015356dc3ee768ce2ee4b9f30d277fb85f",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0127-Klaviyo-Q2-FY26-Income-Statement.png",
-      "before": "sha256:12dcd236abbaf194e74412ba2461ed1535b8776b3433271b1053aee351e2cc06",
+      "path": "input/pending/page-0124-Cloudflare-Q2-FY26-Income-Statement.png",
+      "before": "sha256:2f0063fbeb224c8bd76ed463794d46e310d3c8ff4fc9bcd0652ed4a43dc087b1",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0128-Monday.com-Q2-FY26-Income-Statement.png",
-      "before": "sha256:41488c75cb067dd52e74332c916ac21a0ca710ea4b01abf134ec17a7543e79e4",
+      "path": "input/pending/page-0109-Datadog-Q2-FY26-Income-Statement.png",
+      "before": "sha256:1a6de9a9486c2197206817e63b959f5ee2208f8770e70cbb878fa279a9f76135",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0125-Zoom-Q2-FY27-Income-Statement.png",
-      "before": "sha256:8712bffc518ca95eb77fba608fc6e6a4bd4d0b8b1f512cb20585b73d37e3ee0a",
+      "path": "input/pending/page-0118-DraftKings-Q2-FY26-Income-Statement.png",
+      "before": "sha256:2c8bdf19de18070a4f7b5db01bf23c5c2bab4e0fb393f1cc7e5848730384a099",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0098-Dynatrace-Q1-FY27-Income-Statement.png",
+      "before": "sha256:036dbbc8778643dfd7d6e1cc5b875e844d0b94a789ee3444f035e45bacf5ccd5",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0112-Elastic-Q1-FY27-Income-Statement.png",
+      "before": "sha256:af7d42fa9a2162895bedcbeae7058370c170f2f218c0bf6aaba9997095da3065",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0092-Expedia-Q2-FY26-Income-Statement.png",
+      "before": "sha256:304d08067376e9eaaeece61d62eba11943b7618296b17a0c4232c121bc754dd3",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0099-Figma-Q2-FY26-Income-Statement.png",
+      "before": "sha256:d060b292997cb78455572c22459e822fa639747f4221fd924cae4298c804064e",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0117-Flutter-Q2-FY26-Income-Statement.png",
+      "before": "sha256:ef8aca43167188d5914bb6269f97f12ba38577951ea6d8ff4379591e2f8c05b5",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0121-Hims-Hers-Q2-FY26-Income-Statement.png",
+      "before": "sha256:c8b7b286f392276faaa17117e9343e37c06e01a38ae20955fb40e38426a23f50",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0116-HubSpot-Q2-FY26-Income-Statement.png",
+      "before": "sha256:df44809b6d66343344e11d568708582940308c840c21e34376970c22de127359",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0094-Marriott-Q2-FY26-Income-Statement.png",
+      "before": "sha256:f4077b4bbe310fa0715547a05c26c99bc83a7d128e623bed9799c32b8e402b28",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0097-Nutanix-Q4-FY26-Income-Statement.png",
+      "before": "sha256:c48bce0f1570f7ea7bcd8008f05fbf60d3dd1c4b6162136d2f6b1c42fd9b6da6",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0110-Okta-Q2-FY27-Income-Statement.png",
+      "before": "sha256:9a7483eb2061457f00c66a504a97cff728f9476918669886ac9f63e0a155bd9b",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0120-On-Q2-FY26-Income-Statement.png",
+      "before": "sha256:cf4060efbdf63fae7ae1cfd19e2e3f2f5ab8ae58f45089b10fdc62f52631a3b7",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0115-Palantir-Q2-FY26-Income-Statement.png",
+      "before": "sha256:57240beedc1e569db86e6ac8fa32446a8e702798a0c57cbd03fe22db48de1108",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0106-Paramount-Q2-FY26-Income-Statement.png",
+      "before": "sha256:d58f4af89626595504e8fc9d4367dbdbc46f11c3fd5e798ca7bbe9687b97d441",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0108-Paycom-Q2-FY26-Income-Statement.png",
+      "before": "sha256:ec75061ee7a4a1f3c1cd8b820ec7f5d1a39916060636a73a1fef05358a35cc21",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0088-Pfizer-Q2-FY26-Income-Statement.png",
+      "before": "sha256:20dc35621a3d02e837fcc52ce81f29b16d39bfd65b4101aa5714186ee6382af2",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0111-Procore-Q2-FY26-Income-Statement.png",
+      "before": "sha256:9532b155497b5e71ab344c5b6f3090d38924aa7403fb0915787c552b621a629f",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0113-Rubrik-Q2-FY27-Income-Statement.png",
+      "before": "sha256:817d05f0a105d9e480fa5d4dbb551bcefd5ab63b48180e62e62ee8607f479c86",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0114-SentinelOne-Q2-FY27-Income-Statement.png",
+      "before": "sha256:b3a725fd26a2a79a25b1c210997239b2a2eab7a7bf5de031565ca65ae659aae6",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0102-The-Trade-Desk-Q2-FY26-Income-Statement.png",
+      "before": "sha256:e37d317eb4b23b34ed43f83b723b677b418e78468abb1cd8e5371de9f836d774",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0093-Tripadvisor-Q2-FY26-Income-Statement.png",
+      "before": "sha256:9abdae6cee2ce5a2d6ac566b8aa6d2c95f5afc941a46a5db8e402b245388016d",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0105-Warner-Bros.-Q2-FY26-Income-Statement.png",
+      "before": "sha256:0eeb3d135d506db5fb565d0abff3b2c56081f272d59c08426372c45e51a628e5",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0123-Workday-Q2-FY27-Income-Statement.png",
+      "before": "sha256:45cbcd0dadc681f93d8304e770ec295bc103da76e1af185e3b374f96bc7b8fc1",
       "digest": null,
       "intakeOwned": true
     }
   ],
   "release": {
-    "version": "44291d95692251cacec2758e4a0aac806dbf24b90277aa6e1e009a46cf2a67e6",
-    "contentDigest": "sha256:314703e0fdcc10f16d2869b718ce209113121b42dcc44cc3f5eff6b94bb4dfe9"
+    "version": "a4dd72324e70bd9ea5e69d0f7693124df4711a9383f0d10c8ede8015e60a37dc",
+    "contentDigest": "sha256:0e8db1c314ab98a057c7b57d75280f0cc3d3d7c364464da8e108451bb94b7d11"
   },
   "approval": {
-    "operator": "Charles Liu",
+    "operator": "Charles Liu (explicit task approval, recorded by Codex)",
     "accepted": true,
-    "candidateDigest": "sha256:30cc5e0fd67de99ade03a5e844e1fd1134c925ee07ef22f58462d4c4eba8da78",
-    "note": "Operator explicitly authorized merging and pushing all changes to main and confirmed all ten Processing images passed human review twice. The integrated candidate preserves the reviewed financial records and rendered data; workflow fixes passed regression tests.",
-    "humanReview": {
-      "total": 10,
-      "noIntervention": 8,
-      "intervention": 2,
-      "interventionKeys": [
-        "circle-q2-fy26",
-        "klarna-q2-fy26"
-      ],
-      "note": "Counts direct operator correction requests per dataset; automatic same-pattern peer repairs do not add direct operator interventions."
-    },
-    "planDigest": "sha256:b787389175e7812b0270c5d7c728a1b3208e82b68b46c75f73426e74c272f617",
-    "recordedAt": "2026-09-05T14:37:31.916Z"
+    "candidateDigest": "sha256:97376eb273b2b66b27c26e8580038d53f72e786d686850e7e1d441053469c43a",
+    "note": "Operator explicitly authorized all changes on main to be pushed and confirmed every Processing image manually reviewed and accepted on 2026-09-08. Candidate combines exactly those 32 accepted, sealed contributions with the shared application approved in this task; code CI 34189287076 passed. The Expedia label correction is covered by the operator instruction to repair failed checks and was separately inspected by Codex in en/zh. No separate later operator visual inspection is claimed. Combined candidate passed check, 32-key render regression and Pages verification.",
+    "planDigest": "sha256:6df5dba9ac6d404a0000b484bfb32237311cd6f7f2bbe5fb20550e6f37b5453c",
+    "recordedAt": "2026-09-08T05:16:07.800Z"
   }
 }

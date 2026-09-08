@@ -1,182 +1,742 @@
-/* Pure income-statement SSOT records. Financial data only — Sankey view
- * geometry stays in data/datasets/<dataset-key>.js. Format: data/schema.md. */
-(function (global) {
-  'use strict';
-
-  const ssot = (global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || {
-    schemaVersion: 1,
-    records: [],
-  });
-
-  ssot.records.push({
-    key: 'rubrik-q4-fy26',
-    company: 'Rubrik',
-    period: 'Q4 FY26',
-    periodNote: 'Ending Jan. 2026',
-    currency: '$',
-    unit: 'M',
-    decimals: 0,
-    sourceImage: 'input/processed/rubrik-q4-fy26.png',
-    roundingTolerance: 1.1,
-    revenue: {
-      total: 378,
-      notes: ['+46% Y/Y'],
-      items: [
-        { id: 'subscription', label: 'Subscription', value: 365, notes: ['+50% Y/Y', '83% gross margin'] },
-        { id: 'other', label: 'Other', value: 13, notes: ['(11%) Y/Y', '39% gross margin'] },
+/* Pure Rubrik financial and supplemental operating Metric SSOT. */
+(function(global){
+const ssot=global.INCOME_STATEMENT_SSOT=global.INCOME_STATEMENT_SSOT||{schemaVersion:1,records:[]};
+ssot.records.push({
+  "key": "rubrik-q4-fy26",
+  "company": "Rubrik",
+  "period": "Q4 FY26",
+  "periodNote": "Ending Jan. 2026",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/rubrik-q4-fy26.png",
+  "roundingTolerance": 1.1,
+  "revenue": {
+    "total": 378,
+    "notes": [
+      "+46% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "subscription",
+        "label": "Subscription",
+        "value": 365,
+        "notes": [
+          "+50% Y/Y",
+          "83% gross margin"
+        ]
+      },
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 13,
+        "notes": [
+          "(11%) Y/Y",
+          "39% gross margin"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 70
+    },
+    "operatingExpenses": {
+      "total": 390,
+      "notes": [
+        "S&M, R&D, and G&A sum to the displayed $390M."
       ],
+      "items": [
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 224,
+          "notes": [
+            "59% of revenue",
+            "(3pp) Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 102,
+          "notes": [
+            "27% of revenue",
+            "(4pp) Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 64,
+          "notes": [
+            "17% of revenue",
+            "(12pp) Y/Y"
+          ]
+        }
+      ]
     },
-    costs: {
-      costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 70 },
-      operatingExpenses: {
-        total: 390,
-        notes: ['S&M, R&D, and G&A sum to the displayed $390M.'],
-        items: [
-          { id: 'sm', label: 'S&M', value: 224, notes: ['59% of revenue', '(3pp) Y/Y'] },
-          { id: 'rnd', label: 'R&D', value: 102, notes: ['27% of revenue', '(4pp) Y/Y'] },
-          { id: 'ga', label: 'G&A', value: 64, notes: ['17% of revenue', '(12pp) Y/Y'] },
+    "tax": {
+      "label": "Tax",
+      "value": 0
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 308,
+      "notes": [
+        "82% margin",
+        "+4pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_loss",
+      "label": "Operating loss",
+      "value": -82,
+      "notes": [
+        "(22%) margin",
+        "+23pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "operating_loss",
+      "label": "Operating loss",
+      "value": -82,
+      "notes": [
+        "No separate net loss line is shown in the source chart."
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第四季度",
+      "periodNote": "截至 2026 年 1 月",
+      "revenue": {
+        "notes": [
+          "同比 +46%"
         ],
-      },
-      tax: { label: 'Tax', value: 0 },
-    },
-    otherIncome: {
-      total: 0,
-      items: [],
-    },
-    otherExpenses: {
-      total: 0,
-      items: [],
-    },
-    profit: {
-      gross: { id: 'gross_profit', label: 'Gross profit', value: 308, notes: ['82% margin', '+4pp Y/Y'] },
-      operating: {
-        id: 'operating_loss',
-        label: 'Operating loss',
-        value: -82,
-        notes: ['(22%) margin', '+23pp Y/Y'],
-      },
-      net: {
-        id: 'operating_loss',
-        label: 'Operating loss',
-        value: -82,
-        notes: ['No separate net loss line is shown in the source chart.'],
-      },
-    },
-    i18n: {
-      zh: {
-        period: '2026 财年第四季度',
-        periodNote: '截至 2026 年 1 月',
-        revenue: {
-          notes: ['同比 +46%'],
-          items: [
-            { id: 'subscription', label: '订阅', notes: ['同比 +50%', '毛利率 83%'] },
-            { id: 'other', label: '其他', notes: ['同比 (11%)', '毛利率 39%'] },
-          ],
-        },
-        costs: {
-          costOfRevenue: { label: '收入成本' },
-          operatingExpenses: {
-            notes: ['销售与市场、研发和管理费用合计为图中显示的 $390M。'],
-            items: [
-              { id: 'sm', label: '销售与市场', notes: ['占收入 59%', '同比 (3 个百分点)'] },
-              { id: 'rnd', label: '研发', notes: ['占收入 27%', '同比 (4 个百分点)'] },
-              { id: 'ga', label: '管理费用', notes: ['占收入 17%', '同比 (12 个百分点)'] },
-            ],
+        "items": [
+          {
+            "id": "subscription",
+            "label": "订阅",
+            "notes": [
+              "同比 +50%",
+              "毛利率 83%"
+            ]
           },
-          tax: { label: '税费' },
-        },
-        profit: {
-          gross: { label: '毛利润', notes: ['利润率 82%', '同比 +4 个百分点'] },
-          operating: { label: '营业亏损', notes: ['利润率 (22%)', '同比 +23 个百分点'] },
-          net: { label: '营业亏损', notes: ['来源图未单独显示净亏损项目。'] },
-        },
+          {
+            "id": "other",
+            "label": "其他",
+            "notes": [
+              "同比 (11%)",
+              "毛利率 39%"
+            ]
+          }
+        ]
       },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "notes": [
+            "销售与市场、研发和管理费用合计为图中显示的 $390M。"
+          ],
+          "items": [
+            {
+              "id": "sm",
+              "label": "销售与市场",
+              "notes": [
+                "占收入 59%",
+                "同比 (3 个百分点)"
+              ]
+            },
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 27%",
+                "同比 (4 个百分点)"
+              ]
+            },
+            {
+              "id": "ga",
+              "label": "管理费用",
+              "notes": [
+                "占收入 17%",
+                "同比 (12 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 82%",
+            "同比 +4 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业亏损",
+          "notes": [
+            "利润率 (22%)",
+            "同比 +23 个百分点"
+          ]
+        },
+        "net": {
+          "label": "营业亏损",
+          "notes": [
+            "来源图未单独显示净亏损项目。"
+          ]
+        }
+      }
+    }
+  }
+});
+ssot.records.push({
+  "key": "rubrik-q1-fy27",
+  "company": "Rubrik",
+  "period": "Q1 FY27",
+  "periodNote": "Ending Apr. 2026",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/rubrik-q1-fy27.png",
+  "roundingTolerance": 1.1,
+  "revenue": {
+    "total": 387,
+    "notes": [
+      "+39% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "subscription",
+        "label": "Subscription",
+        "value": 374,
+        "notes": [
+          "+41% Y/Y",
+          "82% gross margin"
+        ]
+      },
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 13,
+        "notes": [
+          "+23% Y/Y",
+          "34% gross margin"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 75
     },
-  });
-
-  ssot.records.push({
-    key: 'rubrik-q1-fy27',
-    company: 'Rubrik',
-    period: 'Q1 FY27',
-    periodNote: 'Ending Apr. 2026',
-    currency: '$',
-    unit: 'M',
-    decimals: 0,
-    sourceImage: 'input/processed/rubrik-q1-fy27.png',
-    roundingTolerance: 1.1,
-    revenue: {
-      total: 387,
-      notes: ['+39% Y/Y'],
-      items: [
-        { id: 'subscription', label: 'Subscription', value: 374, notes: ['+41% Y/Y', '82% gross margin'] },
-        { id: 'other', label: 'Other', value: 13, notes: ['+23% Y/Y', '34% gross margin'] },
+    "operatingExpenses": {
+      "total": 364,
+      "notes": [
+        "S&M, R&D, and G&A sum to the displayed $364M."
       ],
+      "items": [
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 193,
+          "notes": [
+            "50% of revenue",
+            "(11pp) Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 114,
+          "notes": [
+            "30% of revenue",
+            "+0pp Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 57,
+          "notes": [
+            "15% of revenue",
+            "(7pp) Y/Y"
+          ]
+        }
+      ]
     },
-    costs: {
-      costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 75 },
-      operatingExpenses: {
-        total: 364,
-        notes: ['S&M, R&D, and G&A sum to the displayed $364M.'],
-        items: [
-          { id: 'sm', label: 'S&M', value: 193, notes: ['50% of revenue', '(11pp) Y/Y'] },
-          { id: 'rnd', label: 'R&D', value: 114, notes: ['30% of revenue', '+0pp Y/Y'] },
-          { id: 'ga', label: 'G&A', value: 57, notes: ['15% of revenue', '(7pp) Y/Y'] },
+    "tax": {
+      "label": "Tax",
+      "value": 0
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 312,
+      "notes": [
+        "81% margin",
+        "+2pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_loss",
+      "label": "Operating loss",
+      "value": -53,
+      "notes": [
+        "(14%) margin",
+        "+20pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "operating_loss",
+      "label": "Operating loss",
+      "value": -53,
+      "notes": [
+        "No separate net loss line is shown in the source chart."
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2027 财年第一季度",
+      "periodNote": "截至 2026 年 4 月",
+      "revenue": {
+        "notes": [
+          "同比 +39%"
         ],
-      },
-      tax: { label: 'Tax', value: 0 },
-    },
-    otherIncome: {
-      total: 0,
-      items: [],
-    },
-    otherExpenses: {
-      total: 0,
-      items: [],
-    },
-    profit: {
-      gross: { id: 'gross_profit', label: 'Gross profit', value: 312, notes: ['81% margin', '+2pp Y/Y'] },
-      operating: {
-        id: 'operating_loss',
-        label: 'Operating loss',
-        value: -53,
-        notes: ['(14%) margin', '+20pp Y/Y'],
-      },
-      net: {
-        id: 'operating_loss',
-        label: 'Operating loss',
-        value: -53,
-        notes: ['No separate net loss line is shown in the source chart.'],
-      },
-    },
-    i18n: {
-      zh: {
-        period: '2027 财年第一季度',
-        periodNote: '截至 2026 年 4 月',
-        revenue: {
-          notes: ['同比 +39%'],
-          items: [
-            { id: 'subscription', label: '订阅', notes: ['同比 +41%', '毛利率 82%'] },
-            { id: 'other', label: '其他', notes: ['同比 +23%', '毛利率 34%'] },
-          ],
-        },
-        costs: {
-          costOfRevenue: { label: '收入成本' },
-          operatingExpenses: {
-            notes: ['销售与市场、研发和管理费用合计为图中显示的 $364M。'],
-            items: [
-              { id: 'sm', label: '销售与市场', notes: ['占收入 50%', '同比 (11 个百分点)'] },
-              { id: 'rnd', label: '研发', notes: ['占收入 30%', '同比 +0 个百分点'] },
-              { id: 'ga', label: '管理费用', notes: ['占收入 15%', '同比 (7 个百分点)'] },
-            ],
+        "items": [
+          {
+            "id": "subscription",
+            "label": "订阅",
+            "notes": [
+              "同比 +41%",
+              "毛利率 82%"
+            ]
           },
-          tax: { label: '税费' },
-        },
-        profit: {
-          gross: { label: '毛利润', notes: ['利润率 81%', '同比 +2 个百分点'] },
-          operating: { label: '营业亏损', notes: ['利润率 (14%)', '同比 +20 个百分点'] },
-          net: { label: '营业亏损', notes: ['来源图未单独显示净亏损项目。'] },
-        },
+          {
+            "id": "other",
+            "label": "其他",
+            "notes": [
+              "同比 +23%",
+              "毛利率 34%"
+            ]
+          }
+        ]
       },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "notes": [
+            "销售与市场、研发和管理费用合计为图中显示的 $364M。"
+          ],
+          "items": [
+            {
+              "id": "sm",
+              "label": "销售与市场",
+              "notes": [
+                "占收入 50%",
+                "同比 (11 个百分点)"
+              ]
+            },
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 30%",
+                "同比 +0 个百分点"
+              ]
+            },
+            {
+              "id": "ga",
+              "label": "管理费用",
+              "notes": [
+                "占收入 15%",
+                "同比 (7 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 81%",
+            "同比 +2 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业亏损",
+          "notes": [
+            "利润率 (14%)",
+            "同比 +20 个百分点"
+          ]
+        },
+        "net": {
+          "label": "营业亏损",
+          "notes": [
+            "来源图未单独显示净亏损项目。"
+          ]
+        }
+      }
+    }
+  }
+});
+ssot.records.push({
+  "key": "rubrik-q2-fy27",
+  "company": "Rubrik",
+  "period": "Q2 FY27",
+  "periodNote": "Ending July 2026",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/rubrik-q2-fy27.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 427,
+    "notes": [
+      "+38% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "subscription",
+        "label": "Subscription",
+        "value": 407,
+        "notes": [
+          "+37% Y/Y",
+          "82% gross margin"
+        ]
+      },
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 20,
+        "notes": [
+          "+56% Y/Y",
+          "10% gross margin"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 92
     },
-  });
+    "operatingExpenses": {
+      "total": 407,
+      "items": [
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 224,
+          "notes": [
+            "53% of revenue",
+            "(6pp) Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 127,
+          "notes": [
+            "30% of revenue",
+            "(0pp) Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 56,
+          "notes": [
+            "13% of revenue",
+            "(8pp) Y/Y"
+          ]
+        }
+      ]
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 335,
+      "notes": [
+        "78% margin",
+        "(1pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_loss",
+      "label": "Operating loss",
+      "value": -72,
+      "notes": [
+        "(17%) margin",
+        "+14pp Y/Y"
+      ]
+    },
+    "net": {
+      "label": "Net profit",
+      "value": null,
+      "availability": "not-reported",
+      "notes": [
+        "Source ends at operating loss and does not report net profit or loss."
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2027 财年第二季度",
+      "periodNote": "截至 2026 年 7 月",
+      "revenue": {
+        "notes": [
+          "同比 +38%"
+        ],
+        "items": [
+          {
+            "id": "subscription",
+            "label": "订阅",
+            "notes": [
+              "同比 +37%",
+              "毛利率 82%"
+            ]
+          },
+          {
+            "id": "other",
+            "label": "其他",
+            "notes": [
+              "同比 +56%",
+              "毛利率 10%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sm",
+              "label": "销售与市场",
+              "notes": [
+                "占收入 53%",
+                "同比 (6 个百分点)"
+              ]
+            },
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 30%",
+                "同比 (0 个百分点)"
+              ]
+            },
+            {
+              "id": "ga",
+              "label": "管理费用",
+              "notes": [
+                "占收入 13%",
+                "同比 (8 个百分点)"
+              ]
+            }
+          ]
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 78%",
+            "同比 (1 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业亏损",
+          "notes": [
+            "利润率 (17%)",
+            "同比 +14 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "来源图止于营业亏损，未披露净利润或净亏损。"
+          ]
+        }
+      },
+      "operatingMetrics": [
+        {
+          "id": "subscription_arr",
+          "label": "订阅 ARR",
+          "notes": [
+            "同比 +33%"
+          ]
+        },
+        {
+          "id": "cloud_arr",
+          "label": "云 ARR",
+          "notes": [
+            "同比 +39%"
+          ]
+        },
+        {
+          "id": "dbnr",
+          "label": "DBNR",
+          "notes": [
+            "环比 (1 个百分点)"
+          ]
+        },
+        {
+          "id": "customers_above_100k",
+          "label": "客户数 > $100K",
+          "notes": [
+            "同比 +23%"
+          ]
+        }
+      ]
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "subscription_arr",
+      "label": "Subscription ARR",
+      "value": "1.66",
+      "unit": "B",
+      "currency": "USD",
+      "comparison": "eq",
+      "literal": "$1.66B",
+      "notes": [
+        "+33% Y/Y"
+      ],
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          23,
+          1113,
+          379,
+          159
+        ]
+      },
+      "basis": "unspecified",
+      "quote": "Subscription ARR\n$1.66B\n+33% Y/Y"
+    },
+    {
+      "id": "cloud_arr",
+      "label": "Cloud ARR",
+      "value": "1.48",
+      "unit": "B",
+      "currency": "USD",
+      "comparison": "eq",
+      "literal": "$1.48B",
+      "notes": [
+        "+39% Y/Y"
+      ],
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          415,
+          1108,
+          274,
+          159
+        ]
+      },
+      "basis": "unspecified",
+      "quote": "Cloud ARR\n$1.48B\n+39% Y/Y"
+    },
+    {
+      "id": "dbnr",
+      "label": "DBNR",
+      "value": "119",
+      "unit": "%",
+      "currency": null,
+      "comparison": "gt",
+      "literal": "> 119%",
+      "notes": [
+        "(1pp) Q/Q"
+      ],
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          702,
+          1105,
+          189,
+          165
+        ]
+      },
+      "basis": "unspecified",
+      "quote": "DBNR\n> 119%\n(1pp) Q/Q"
+    },
+    {
+      "id": "customers_above_100k",
+      "label": "Customers > $100K",
+      "value": "3084",
+      "unit": "count",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "3,084",
+      "notes": [
+        "+23% Y/Y"
+      ],
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          902,
+          1105,
+          379,
+          165
+        ]
+      },
+      "basis": "unspecified",
+      "quote": "Customers > $100K\n3,084\n+23% Y/Y"
+    }
+  ]
+});
 })(window);

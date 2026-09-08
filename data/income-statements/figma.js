@@ -1,254 +1,940 @@
-/* Pure income-statement SSOT records. Financial data only — Sankey view
- * geometry stays in data/datasets/<dataset-key>.js. Format: data/schema.md. */
-(function (global) {
-  'use strict';
-
-  const ssot = (global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || {
-    schemaVersion: 1,
-    records: [],
-  });
-
-  ssot.records.push(
-    {
-      key: 'figma-q1-fy26',
-      company: 'Figma',
-      period: 'Q1 FY26',
-      periodNote: 'Quarter ended Mar. 31, 2026',
-      currency: '$',
-      unit: 'M',
-      decimals: 0,
-      sourceImage: 'input/processed/figma-q1-fy26.png',
-      roundingTolerance: 1.1,
-      revenue: {
-        total: 333,
-        notes: ['+46% Y/Y'],
-        items: [
-          { id: 'united_states', label: 'United States', value: 155, notes: ['+44% Y/Y'] },
-          { id: 'international', label: 'International', value: 178, notes: ['+48% Y/Y'] },
-        ],
-      },
-      costs: {
-        costOfRevenue: {
-          id: 'cost_of_revenue',
-          label: 'Cost of revenue',
-          value: 69,
-          notes: ['Gross profit plus cost of revenue sums to $334M because the source chart rounds visible values.'],
+/* Pure financial and operating metrics SSOT. */
+(function(global){const ssot=global.INCOME_STATEMENT_SSOT=global.INCOME_STATEMENT_SSOT||{schemaVersion:1,records:[]};ssot.records.push(...[
+  {
+    "key": "figma-q1-fy26",
+    "company": "Figma",
+    "period": "Q1 FY26",
+    "periodNote": "Quarter ended Mar. 31, 2026",
+    "currency": "$",
+    "unit": "M",
+    "decimals": 0,
+    "sourceImage": "input/processed/figma-q1-fy26.png",
+    "roundingTolerance": 1.1,
+    "revenue": {
+      "total": 333,
+      "notes": [
+        "+46% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "united_states",
+          "label": "United States",
+          "value": 155,
+          "notes": [
+            "+44% Y/Y"
+          ]
         },
-        operatingExpenses: {
-          total: 402,
-          notes: ['Visible operating-expense line items sum to $403M because the source chart rounds values.'],
-          items: [
-            { id: 'rnd', label: 'Research & development', value: 173, notes: ['52% of revenue', '+21pp Y/Y'] },
-            { id: 'sm', label: 'Sales & marketing', value: 126, notes: ['38% of revenue', '+7pp Y/Y'] },
-            { id: 'ga', label: 'General & Admin', value: 104, notes: ['31% of revenue', '+18pp Y/Y'] },
-          ],
-        },
-        tax: {
-          label: 'Tax',
-          value: 0,
-          notes: ['No separate tax line is shown in the source chart.'],
-        },
-      },
-      otherIncome: {
-        total: 0,
-        items: [],
-      },
-      otherExpenses: {
-        total: 0,
-        items: [],
-      },
-      profit: {
-        gross: { id: 'gross_profit', label: 'Gross profit', value: 265, notes: ['79% margin', '(12pp) Y/Y'] },
-        operating: { id: 'operating_loss', label: 'Operating loss', value: -137, notes: ['(41%) margin', '(59pp) Y/Y'] },
-        net: {
-          id: 'operating_loss',
-          label: 'Operating loss',
-          value: -137,
-          notes: ['No separate net income or net loss line is shown in the source chart.'],
-        },
-      },
-      i18n: {
-        zh: {
-          period: '2026 财年第一季度',
-          periodNote: '截至 2026 年 3 月 31 日的季度',
-          revenue: {
-            notes: ['同比 +46%'],
-            items: [
-              { id: 'united_states', label: '美国', notes: ['同比 +44%'] },
-              { id: 'international', label: '国际', notes: ['同比 +48%'] },
-            ],
-          },
-          costs: {
-            costOfRevenue: {
-              label: '收入成本',
-              notes: ['毛利润加收入成本为 $334M，差异来自来源图可见数值四舍五入。'],
-            },
-            operatingExpenses: {
-              notes: ['可见营业费用明细合计为 $403M，差异来自来源图数值四舍五入。'],
-              items: [
-                { id: 'rnd', label: '研发', notes: ['占收入 52%', '同比 +21 个百分点'] },
-                { id: 'sm', label: '销售与营销', notes: ['占收入 38%', '同比 +7 个百分点'] },
-                { id: 'ga', label: '一般及行政', notes: ['占收入 31%', '同比 +18 个百分点'] },
-              ],
-            },
-            tax: {
-              label: '税费',
-              notes: ['来源图未显示单独的税费项目。'],
-            },
-          },
-          profit: {
-            gross: { label: '毛利润', notes: ['利润率 79%', '同比 (12 个百分点)'] },
-            operating: { label: '营业亏损', notes: ['利润率 (41%)', '同比 (59 个百分点)'] },
-            net: {
-              label: '营业亏损',
-              notes: ['来源图未单独显示净利润或净亏损项目。'],
-            },
-          },
-        },
-      },
+        {
+          "id": "international",
+          "label": "International",
+          "value": 178,
+          "notes": [
+            "+48% Y/Y"
+          ]
+        }
+      ]
     },
-    {
-      key: 'figma-q4-fy25',
-      company: 'Figma',
-      period: 'Q4 FY25',
-      periodNote: 'Quarter ended Dec. 31, 2025',
-      currency: '$',
-      unit: 'M',
-      decimals: 0,
-      sourceImage: 'input/processed/figma-q4-fy25.png',
-      roundingTolerance: 1.1,
-      revenue: {
-        total: 304,
-        notes: ['+40% Y/Y'],
-        items: [
-          { id: 'united_states', label: 'United States', value: 141, notes: ['+36% Y/Y'] },
-          { id: 'international', label: 'International', value: 163, notes: ['+43% Y/Y'] },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_revenue",
+        "label": "Cost of revenue",
+        "value": 69,
+        "notes": [
+          "Gross profit plus cost of revenue sums to $334M because the source chart rounds visible values."
+        ]
+      },
+      "operatingExpenses": {
+        "total": 402,
+        "notes": [
+          "Visible operating-expense line items sum to $403M because the source chart rounds values."
         ],
-      },
-      costs: {
-        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 54, notes: ['Gross profit plus cost of revenue sums to $303M because the source chart rounds visible values.'] },
-        operatingExpenses: {
-          total: 445,
-          items: [
-            { id: 'rnd', label: 'Research & development', value: 196, notes: ['64% of revenue', '+37pp Y/Y'] },
-            { id: 'sm', label: 'Sales & marketing', value: 134, notes: ['44% of revenue', '+16pp Y/Y'] },
-            { id: 'ga', label: 'General & Admin', value: 115, notes: ['38% of revenue', '+24pp Y/Y'] },
-          ],
-        },
-        tax: { label: 'Tax', value: 0, notes: ['No separate tax line is shown in the source chart.'] },
-      },
-      otherIncome: { total: 0, items: [] },
-      otherExpenses: { total: 0, items: [] },
-      profit: {
-        gross: { id: 'gross_profit', label: 'Gross profit', value: 249, notes: ['82% margin', '(10pp) Y/Y'] },
-        operating: { id: 'operating_loss', label: 'Operating loss', value: -196, notes: ['(64%) margin', '(88pp) Y/Y'] },
-        net: { id: 'operating_loss', label: 'Operating loss', value: -196, notes: ['No separate net income or net loss line is shown in the source chart.'] },
-      },
-      i18n: {
-        zh: {
-          period: '2025 财年第四季度',
-          periodNote: '截至 2025 年 12 月 31 日的季度',
-          revenue: { notes: ['同比 +40%'], items: [{ id: 'united_states', label: '美国', notes: ['同比 +36%'] }, { id: 'international', label: '国际', notes: ['同比 +43%'] }] },
-          costs: {
-            costOfRevenue: { label: '收入成本', notes: ['毛利润加收入成本为 $303M，差异来自来源图可见数值四舍五入。'] },
-            operatingExpenses: { items: [{ id: 'rnd', label: '研发', notes: ['占收入 64%', '同比 +37 个百分点'] }, { id: 'sm', label: '销售与营销', notes: ['占收入 44%', '同比 +16 个百分点'] }, { id: 'ga', label: '一般及行政', notes: ['占收入 38%', '同比 +24 个百分点'] }] },
-            tax: { label: '税费', notes: ['来源图未显示单独的税费项目。'] },
+        "items": [
+          {
+            "id": "rnd",
+            "label": "Research & development",
+            "value": 173,
+            "notes": [
+              "52% of revenue",
+              "+21pp Y/Y"
+            ]
           },
-          profit: { gross: { label: '毛利润', notes: ['利润率 82%', '同比 (10 个百分点)'] }, operating: { label: '营业亏损', notes: ['利润率 (64%)', '同比 (88 个百分点)'] }, net: { label: '营业亏损', notes: ['来源图未单独显示净利润或净亏损项目。'] } },
-        },
+          {
+            "id": "sm",
+            "label": "Sales & marketing",
+            "value": 126,
+            "notes": [
+              "38% of revenue",
+              "+7pp Y/Y"
+            ]
+          },
+          {
+            "id": "ga",
+            "label": "General & Admin",
+            "value": 104,
+            "notes": [
+              "31% of revenue",
+              "+18pp Y/Y"
+            ]
+          }
+        ]
       },
+      "tax": {
+        "label": "Tax",
+        "value": 0,
+        "notes": [
+          "No separate tax line is shown in the source chart."
+        ]
+      }
     },
-    {
-      key: 'figma-q3-fy25',
-      company: 'Figma',
-      period: 'Q3 FY25',
-      periodNote: 'Quarter ended Sep. 30, 2025',
-      currency: '$',
-      unit: 'M',
-      decimals: 0,
-      sourceImage: 'input/processed/figma-q3-fy25.png',
-      roundingTolerance: 1.1,
-      revenue: {
-        total: 274,
-        notes: ['+38% Y/Y'],
-        items: [
-          { id: 'united_states', label: 'United States', value: 127, notes: ['+34% Y/Y'] },
-          { id: 'international', label: 'International', value: 147, notes: ['+42% Y/Y'] },
-        ],
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 0,
+      "items": []
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 265,
+        "notes": [
+          "79% margin",
+          "(12pp) Y/Y"
+        ]
       },
-      costs: {
-        costOfRevenue: {
-          id: 'cost_of_revenue',
-          label: 'Cost of revenue',
-          value: 84,
-        },
-        operatingExpenses: {
-          total: 1327,
-          items: [
-            { id: 'rnd', label: 'Research & development', value: 681, notes: ['248% of revenue', '+196pp Y/Y'] },
-            { id: 'sm', label: 'Sales & marketing', value: 275, notes: ['100% of revenue', '+60pp Y/Y'] },
-            { id: 'ga', label: 'General & Admin', value: 371, notes: ['135% of revenue', '+113pp Y/Y'] },
+      "operating": {
+        "id": "operating_loss",
+        "label": "Operating loss",
+        "value": -137,
+        "notes": [
+          "(41%) margin",
+          "(59pp) Y/Y"
+        ]
+      },
+      "net": {
+        "id": "operating_loss",
+        "label": "Operating loss",
+        "value": -137,
+        "notes": [
+          "No separate net income or net loss line is shown in the source chart."
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2026 财年第一季度",
+        "periodNote": "截至 2026 年 3 月 31 日的季度",
+        "revenue": {
+          "notes": [
+            "同比 +46%"
           ],
+          "items": [
+            {
+              "id": "united_states",
+              "label": "美国",
+              "notes": [
+                "同比 +44%"
+              ]
+            },
+            {
+              "id": "international",
+              "label": "国际",
+              "notes": [
+                "同比 +48%"
+              ]
+            }
+          ]
         },
-        tax: {
-          label: 'Tax',
-          value: 0,
-          notes: ['No separate tax line is shown in the source chart.'],
-        },
-      },
-      otherIncome: {
-        total: 0,
-        items: [],
-      },
-      otherExpenses: {
-        total: 0,
-        items: [],
-      },
-      profit: {
-        gross: { id: 'gross_profit', label: 'Gross profit', value: 190, notes: ['69% margin', '(21pp) Y/Y'] },
-        operating: { id: 'operating_loss', label: 'Operating loss', value: -1137, notes: ['(415%) margin', '(391pp) Y/Y'] },
-        net: {
-          id: 'operating_loss',
-          label: 'Operating loss',
-          value: -1137,
-          notes: ['No separate net income or net loss line is shown in the source chart.'],
-        },
-      },
-      i18n: {
-        zh: {
-          period: '2025 财年第三季度',
-          periodNote: '截至 2025 年 9 月 30 日的季度',
-          revenue: {
-            notes: ['同比 +38%'],
-            items: [
-              { id: 'united_states', label: '美国', notes: ['同比 +34%'] },
-              { id: 'international', label: '国际', notes: ['同比 +42%'] },
+        "costs": {
+          "costOfRevenue": {
+            "label": "收入成本",
+            "notes": [
+              "毛利润加收入成本为 $334M，差异来自来源图可见数值四舍五入。"
+            ]
+          },
+          "operatingExpenses": {
+            "notes": [
+              "可见营业费用明细合计为 $403M，差异来自来源图数值四舍五入。"
             ],
+            "items": [
+              {
+                "id": "rnd",
+                "label": "研发",
+                "notes": [
+                  "占收入 52%",
+                  "同比 +21 个百分点"
+                ]
+              },
+              {
+                "id": "sm",
+                "label": "销售与营销",
+                "notes": [
+                  "占收入 38%",
+                  "同比 +7 个百分点"
+                ]
+              },
+              {
+                "id": "ga",
+                "label": "一般及行政",
+                "notes": [
+                  "占收入 31%",
+                  "同比 +18 个百分点"
+                ]
+              }
+            ]
           },
-          costs: {
-            costOfRevenue: { label: '收入成本' },
-            operatingExpenses: {
-              items: [
-                { id: 'rnd', label: '研发', notes: ['占收入 248%', '同比 +196 个百分点'] },
-                { id: 'sm', label: '销售与营销', notes: ['占收入 100%', '同比 +60 个百分点'] },
-                { id: 'ga', label: '一般及行政', notes: ['占收入 135%', '同比 +113 个百分点'] },
-              ],
-            },
-            tax: {
-              label: '税费',
-              notes: ['来源图未显示单独的税费项目。'],
-            },
-          },
-          profit: {
-            gross: { label: '毛利润', notes: ['利润率 69%', '同比 (21 个百分点)'] },
-            operating: { label: '营业亏损', notes: ['利润率 (415%)', '同比 (391 个百分点)'] },
-            net: {
-              label: '营业亏损',
-              notes: ['来源图未单独显示净利润或净亏损项目。'],
-            },
-          },
+          "tax": {
+            "label": "税费",
+            "notes": [
+              "来源图未显示单独的税费项目。"
+            ]
+          }
         },
-      },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 79%",
+              "同比 (12 个百分点)"
+            ]
+          },
+          "operating": {
+            "label": "营业亏损",
+            "notes": [
+              "利润率 (41%)",
+              "同比 (59 个百分点)"
+            ]
+          },
+          "net": {
+            "label": "营业亏损",
+            "notes": [
+              "来源图未单独显示净利润或净亏损项目。"
+            ]
+          }
+        }
+      }
     }
-  );
-})(window);
+  },
+  {
+    "key": "figma-q4-fy25",
+    "company": "Figma",
+    "period": "Q4 FY25",
+    "periodNote": "Quarter ended Dec. 31, 2025",
+    "currency": "$",
+    "unit": "M",
+    "decimals": 0,
+    "sourceImage": "input/processed/figma-q4-fy25.png",
+    "roundingTolerance": 1.1,
+    "revenue": {
+      "total": 304,
+      "notes": [
+        "+40% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "united_states",
+          "label": "United States",
+          "value": 141,
+          "notes": [
+            "+36% Y/Y"
+          ]
+        },
+        {
+          "id": "international",
+          "label": "International",
+          "value": 163,
+          "notes": [
+            "+43% Y/Y"
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_revenue",
+        "label": "Cost of revenue",
+        "value": 54,
+        "notes": [
+          "Gross profit plus cost of revenue sums to $303M because the source chart rounds visible values."
+        ]
+      },
+      "operatingExpenses": {
+        "total": 445,
+        "items": [
+          {
+            "id": "rnd",
+            "label": "Research & development",
+            "value": 196,
+            "notes": [
+              "64% of revenue",
+              "+37pp Y/Y"
+            ]
+          },
+          {
+            "id": "sm",
+            "label": "Sales & marketing",
+            "value": 134,
+            "notes": [
+              "44% of revenue",
+              "+16pp Y/Y"
+            ]
+          },
+          {
+            "id": "ga",
+            "label": "General & Admin",
+            "value": 115,
+            "notes": [
+              "38% of revenue",
+              "+24pp Y/Y"
+            ]
+          }
+        ]
+      },
+      "tax": {
+        "label": "Tax",
+        "value": 0,
+        "notes": [
+          "No separate tax line is shown in the source chart."
+        ]
+      }
+    },
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 0,
+      "items": []
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 249,
+        "notes": [
+          "82% margin",
+          "(10pp) Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_loss",
+        "label": "Operating loss",
+        "value": -196,
+        "notes": [
+          "(64%) margin",
+          "(88pp) Y/Y"
+        ]
+      },
+      "net": {
+        "id": "operating_loss",
+        "label": "Operating loss",
+        "value": -196,
+        "notes": [
+          "No separate net income or net loss line is shown in the source chart."
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2025 财年第四季度",
+        "periodNote": "截至 2025 年 12 月 31 日的季度",
+        "revenue": {
+          "notes": [
+            "同比 +40%"
+          ],
+          "items": [
+            {
+              "id": "united_states",
+              "label": "美国",
+              "notes": [
+                "同比 +36%"
+              ]
+            },
+            {
+              "id": "international",
+              "label": "国际",
+              "notes": [
+                "同比 +43%"
+              ]
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "收入成本",
+            "notes": [
+              "毛利润加收入成本为 $303M，差异来自来源图可见数值四舍五入。"
+            ]
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "rnd",
+                "label": "研发",
+                "notes": [
+                  "占收入 64%",
+                  "同比 +37 个百分点"
+                ]
+              },
+              {
+                "id": "sm",
+                "label": "销售与营销",
+                "notes": [
+                  "占收入 44%",
+                  "同比 +16 个百分点"
+                ]
+              },
+              {
+                "id": "ga",
+                "label": "一般及行政",
+                "notes": [
+                  "占收入 38%",
+                  "同比 +24 个百分点"
+                ]
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费",
+            "notes": [
+              "来源图未显示单独的税费项目。"
+            ]
+          }
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 82%",
+              "同比 (10 个百分点)"
+            ]
+          },
+          "operating": {
+            "label": "营业亏损",
+            "notes": [
+              "利润率 (64%)",
+              "同比 (88 个百分点)"
+            ]
+          },
+          "net": {
+            "label": "营业亏损",
+            "notes": [
+              "来源图未单独显示净利润或净亏损项目。"
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "key": "figma-q3-fy25",
+    "company": "Figma",
+    "period": "Q3 FY25",
+    "periodNote": "Quarter ended Sep. 30, 2025",
+    "currency": "$",
+    "unit": "M",
+    "decimals": 0,
+    "sourceImage": "input/processed/figma-q3-fy25.png",
+    "roundingTolerance": 1.1,
+    "revenue": {
+      "total": 274,
+      "notes": [
+        "+38% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "united_states",
+          "label": "United States",
+          "value": 127,
+          "notes": [
+            "+34% Y/Y"
+          ]
+        },
+        {
+          "id": "international",
+          "label": "International",
+          "value": 147,
+          "notes": [
+            "+42% Y/Y"
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_revenue",
+        "label": "Cost of revenue",
+        "value": 84
+      },
+      "operatingExpenses": {
+        "total": 1327,
+        "items": [
+          {
+            "id": "rnd",
+            "label": "Research & development",
+            "value": 681,
+            "notes": [
+              "248% of revenue",
+              "+196pp Y/Y"
+            ]
+          },
+          {
+            "id": "sm",
+            "label": "Sales & marketing",
+            "value": 275,
+            "notes": [
+              "100% of revenue",
+              "+60pp Y/Y"
+            ]
+          },
+          {
+            "id": "ga",
+            "label": "General & Admin",
+            "value": 371,
+            "notes": [
+              "135% of revenue",
+              "+113pp Y/Y"
+            ]
+          }
+        ]
+      },
+      "tax": {
+        "label": "Tax",
+        "value": 0,
+        "notes": [
+          "No separate tax line is shown in the source chart."
+        ]
+      }
+    },
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 0,
+      "items": []
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 190,
+        "notes": [
+          "69% margin",
+          "(21pp) Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_loss",
+        "label": "Operating loss",
+        "value": -1137,
+        "notes": [
+          "(415%) margin",
+          "(391pp) Y/Y"
+        ]
+      },
+      "net": {
+        "id": "operating_loss",
+        "label": "Operating loss",
+        "value": -1137,
+        "notes": [
+          "No separate net income or net loss line is shown in the source chart."
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2025 财年第三季度",
+        "periodNote": "截至 2025 年 9 月 30 日的季度",
+        "revenue": {
+          "notes": [
+            "同比 +38%"
+          ],
+          "items": [
+            {
+              "id": "united_states",
+              "label": "美国",
+              "notes": [
+                "同比 +34%"
+              ]
+            },
+            {
+              "id": "international",
+              "label": "国际",
+              "notes": [
+                "同比 +42%"
+              ]
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "收入成本"
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "rnd",
+                "label": "研发",
+                "notes": [
+                  "占收入 248%",
+                  "同比 +196 个百分点"
+                ]
+              },
+              {
+                "id": "sm",
+                "label": "销售与营销",
+                "notes": [
+                  "占收入 100%",
+                  "同比 +60 个百分点"
+                ]
+              },
+              {
+                "id": "ga",
+                "label": "一般及行政",
+                "notes": [
+                  "占收入 135%",
+                  "同比 +113 个百分点"
+                ]
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费",
+            "notes": [
+              "来源图未显示单独的税费项目。"
+            ]
+          }
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 69%",
+              "同比 (21 个百分点)"
+            ]
+          },
+          "operating": {
+            "label": "营业亏损",
+            "notes": [
+              "利润率 (415%)",
+              "同比 (391 个百分点)"
+            ]
+          },
+          "net": {
+            "label": "营业亏损",
+            "notes": [
+              "来源图未单独显示净利润或净亏损项目。"
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "key": "figma-q2-fy26",
+    "company": "Figma",
+    "period": "Q2 FY26",
+    "periodNote": "",
+    "currency": "$",
+    "unit": "M",
+    "decimals": 0,
+    "sourceImage": "input/processed/figma-q2-fy26.png",
+    "roundingTolerance": 1.1,
+    "revenue": {
+      "total": 370,
+      "notes": [
+        "+48% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "united_states",
+          "label": "United States",
+          "value": 171,
+          "notes": [
+            "+46% Y/Y"
+          ]
+        },
+        {
+          "id": "international",
+          "label": "International",
+          "value": 199,
+          "notes": [
+            "+50% Y/Y"
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_revenue",
+        "label": "Cost of revenue",
+        "value": 60,
+        "notes": []
+      },
+      "operatingExpenses": {
+        "total": 427,
+        "notes": [],
+        "items": [
+          {
+            "id": "rnd",
+            "label": "Research & development",
+            "value": 167,
+            "notes": [
+              "45% of revenue",
+              "+12pp Y/Y"
+            ]
+          },
+          {
+            "id": "sm",
+            "label": "Sales & marketing",
+            "value": 155,
+            "notes": [
+              "42% of revenue",
+              "+3pp Y/Y"
+            ]
+          },
+          {
+            "id": "ga",
+            "label": "General & Admin",
+            "value": 105,
+            "notes": [
+              "28% of revenue",
+              "+13pp Y/Y"
+            ]
+          }
+        ]
+      },
+      "tax": {
+        "label": "Tax",
+        "value": 0,
+        "notes": [
+          "No separate tax line is shown in the source chart."
+        ]
+      }
+    },
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 0,
+      "items": []
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 310,
+        "notes": [
+          "84% margin",
+          "(5pp) Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_loss",
+        "label": "Operating loss",
+        "value": -117,
+        "notes": [
+          "(32%) margin",
+          "(33pp) Y/Y"
+        ]
+      },
+      "net": {
+        "availability": "not-reported",
+        "value": null,
+        "label": "Net result not reported",
+        "notes": [
+          "Source ends at operating loss and does not report net income or net loss."
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2026 财年第二季度",
+        "periodNote": "",
+        "revenue": {
+          "notes": [
+            "同比 +48%"
+          ],
+          "items": [
+            {
+              "id": "united_states",
+              "label": "美国",
+              "notes": [
+                "同比 +46%"
+              ]
+            },
+            {
+              "id": "international",
+              "label": "国际",
+              "notes": [
+                "同比 +50%"
+              ]
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "收入成本",
+            "notes": []
+          },
+          "operatingExpenses": {
+            "notes": [],
+            "items": [
+              {
+                "id": "rnd",
+                "label": "研发",
+                "notes": [
+                  "占收入 45%",
+                  "同比 +12 个百分点"
+                ]
+              },
+              {
+                "id": "sm",
+                "label": "销售与营销",
+                "notes": [
+                  "占收入 42%",
+                  "同比 +3 个百分点"
+                ]
+              },
+              {
+                "id": "ga",
+                "label": "一般及行政",
+                "notes": [
+                  "占收入 28%",
+                  "同比 +13 个百分点"
+                ]
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费",
+            "notes": [
+              "来源图未显示单独的税费项目。"
+            ]
+          }
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 84%",
+              "同比 (5 个百分点)"
+            ]
+          },
+          "operating": {
+            "label": "营业亏损",
+            "notes": [
+              "利润率 (32%)",
+              "同比 (33 个百分点)"
+            ]
+          },
+          "net": {
+            "label": "净利润未披露",
+            "notes": [
+              "来源图止于营业亏损，未披露净利润或净亏损。"
+            ]
+          }
+        },
+        "operatingMetrics": [
+          {
+            "id": "ndr",
+            "label": "净美元留存率",
+            "notes": [
+              "环比下降 3 个百分点"
+            ]
+          },
+          {
+            "id": "customers-over-10k",
+            "label": "超过 $10K 的客户",
+            "notes": [
+              "同比 +34%"
+            ]
+          },
+          {
+            "id": "customers-over-100k",
+            "label": "超过 $100K 的客户",
+            "notes": [
+              "同比 +46%"
+            ]
+          }
+        ]
+      }
+    },
+    "notes": [],
+    "operatingMetrics": [
+      {
+        "id": "ndr",
+        "label": "NDR",
+        "value": "136",
+        "unit": "%",
+        "currency": null,
+        "comparison": "eq",
+        "literal": "136%",
+        "basis": "unspecified",
+        "notes": [
+          "(3pp) Q/Q"
+        ],
+        "quote": "NDR 136% (3pp) Q/Q",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            36,
+            1153,
+            190,
+            166
+          ]
+        }
+      },
+      {
+        "id": "customers-over-10k",
+        "label": "Customers > $10K",
+        "value": "15964",
+        "unit": "count",
+        "currency": null,
+        "comparison": "eq",
+        "literal": "15,964",
+        "basis": "unspecified",
+        "notes": [
+          "+34% Y/Y"
+        ],
+        "quote": "Customers > $10K 15,964 +34% Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            255,
+            1219,
+            350,
+            43
+          ]
+        }
+      },
+      {
+        "id": "customers-over-100k",
+        "label": "Customers > $100K",
+        "value": "1635",
+        "unit": "count",
+        "currency": null,
+        "comparison": "eq",
+        "literal": "1,635",
+        "basis": "unspecified",
+        "notes": [
+          "+46% Y/Y"
+        ],
+        "quote": "Customers > $100K 1,635 +46% Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            255,
+            1262,
+            350,
+            43
+          ]
+        }
+      }
+    ]
+  }
+]);})(window);

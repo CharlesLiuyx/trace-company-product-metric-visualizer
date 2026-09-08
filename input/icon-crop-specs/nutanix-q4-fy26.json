@@ -1,0 +1,50 @@
+{
+  "source": "input/processed/nutanix-q4-fy26.png",
+  "outputDir": "data/assets/icon-references/nutanix-q4",
+  "runtimeOutputDir": "data/assets/raster-annotations/nutanix",
+  "validationSheetDir": "data/assets/icon-references/nutanix-q4/validation-sheets",
+  "report": "crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "crops": [
+    {
+      "key": "nutanix-company-logo",
+      "output": "crops/q4-company-logo.png",
+      "runtimeOutput": "q4-company-logo.png",
+      "searchBox": {
+        "x": 580,
+        "y": 297,
+        "width": 568,
+        "height": 77
+      },
+      "cropBox": {
+        "x": 575,
+        "y": 290,
+        "width": 580,
+        "height": 90
+      },
+      "threshold": 16,
+      "minComponentArea": 30,
+      "validation": {
+        "borderBand": 4,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete black Nutanix wordmark; no adjacent heading, flow or label."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "publisher-footer",
+      "reason": "Publisher marks are not company assets."
+    }
+  ]
+}

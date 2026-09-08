@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Evidence.com Software & Services wordmark",
+  "artifact": {
+    "path": "data/assets/raster-annotations/axon/business-platform-solutions-evidence-wordmark-q4-fy25.png",
+    "digest": "sha256:485ab8f8944478dac53b916831c130f643e38b87fe62a1f43e319e529ad12993"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/axon-q4-fy25.json",
+    "digest": "sha256:084fd23a8603dcb7c7d1a4fd327143819ef255c39439baedfd1f083753ea0df5"
+  },
+  "source": {
+    "path": "input/processed/axon-q4-fy25.png",
+    "digest": "sha256:57fa37a6d34a18aac0ee341d2ffa1c2c600fac23e1b233ec007e06e8aa12783a"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:485ab8f8944478dac53b916831c130f643e38b87fe62a1f43e319e529ad12993",
+    "note": "Inspected full Q4 FY25 crop validation sheet, runtime image bytes, and Q2 FY26 native Source. Subject is complete, no unrelated labels/flows/watermarks; the same mark is suitable for reuse at the Q2 measured placement. Asset acceptance only; operator dataset review remains pending."
+  },
+  "versionDigest": "sha256:3d9408c1ec81470593b2ca1146696eb59eea001457f036d93c3529793cbc9bb8"
+}

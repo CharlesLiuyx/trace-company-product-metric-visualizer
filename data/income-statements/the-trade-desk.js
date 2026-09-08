@@ -206,4 +206,211 @@
       },
     },
   });
+  ssot.records.push({
+  "key": "the-trade-desk-q2-fy26",
+  "company": "The Trade Desk",
+  "period": "Q2 FY26",
+  "periodNote": "",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/the-trade-desk-q2-fy26.png",
+  "roundingTolerance": 1.1,
+  "revenue": {
+    "total": 715,
+    "notes": [
+      "+3% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "revenue",
+        "label": "Revenue",
+        "value": 715,
+        "notes": [
+          "+3% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "platform_operations",
+      "label": "Platform operations",
+      "value": 184,
+      "notes": []
+    },
+    "operatingExpenses": {
+      "total": 429,
+      "items": [
+        {
+          "id": "sales_marketing",
+          "label": "Sales & marketing",
+          "value": 174,
+          "notes": [
+            "24% of revenue",
+            "+1pp Y/Y"
+          ]
+        },
+        {
+          "id": "technology_development",
+          "label": "Technology & development",
+          "value": 141,
+          "notes": [
+            "20% of revenue",
+            "+0pp Y/Y"
+          ]
+        },
+        {
+          "id": "general_admin",
+          "label": "General & admin",
+          "value": 114,
+          "notes": [
+            "14% of revenue",
+            "(3pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 49,
+      "notes": []
+    }
+  },
+  "otherIncome": {
+    "total": 12,
+    "items": [
+      {
+        "id": "other_income",
+        "label": "Other",
+        "value": 12,
+        "notes": []
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 531,
+      "notes": [
+        "74% margin",
+        "(4pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 102,
+      "notes": [
+        "14% margin",
+        "(3pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 64,
+      "notes": [
+        "9% margin",
+        "(4pp) Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "periodNote": "",
+      "revenue": {
+        "notes": [
+          "同比 +3%"
+        ],
+        "items": [
+          {
+            "id": "revenue",
+            "label": "收入",
+            "notes": [
+              "同比 +3%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "平台运营"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sales_marketing",
+              "label": "销售与营销",
+              "notes": [
+                "占收入 24%",
+                "同比 +1 个百分点"
+              ]
+            },
+            {
+              "id": "technology_development",
+              "label": "技术与开发",
+              "notes": [
+                "占收入 20%",
+                "同比 +0 个百分点"
+              ]
+            },
+            {
+              "id": "general_admin",
+              "label": "一般与行政",
+              "notes": [
+                "占收入 14%",
+                "同比 (3 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "other_income",
+            "label": "其他",
+            "notes": []
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 74%",
+            "同比 (4 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 14%",
+            "同比 (3 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 9%",
+            "同比 (4 个百分点)"
+          ]
+        }
+      },
+      "notes": [
+        "源图金额经取整。营业利润 $102M + 其他 $12M - 税费 $49M 为 $65M，与原图净利润 $64M 存在差额。客户留存率 >95%。"
+      ]
+    }
+  },
+  "notes": [
+    "Source chart amounts are rounded. Operating profit $102M + Other $12M - Tax $49M is $65M versus displayed net profit $64M. Customer retention >95%."
+  ]
+});
 })(window);

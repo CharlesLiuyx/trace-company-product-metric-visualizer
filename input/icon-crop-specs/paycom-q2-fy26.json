@@ -1,0 +1,48 @@
+{
+  "source": "input/processed/paycom-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/paycom-q2-fy26",
+  "runtimeOutputDir": "data/assets/raster-annotations/paycom-q2-fy26",
+  "validationSheetDir": "data/assets/icon-references/paycom-q2-fy26/validation-sheets",
+  "report": "crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 9
+  },
+  "crops": [
+    {
+      "key": "paycom-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": {
+        "x": 514,
+        "y": 266,
+        "width": 640,
+        "height": 156
+      },
+      "cropBox": {
+        "x": 514,
+        "y": 266,
+        "width": 640,
+        "height": 156
+      },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": {
+        "borderBand": 3,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete Paycom company mark and wordmark only; source title and publisher footer excluded.",
+      "runtimeOutput": "company-logo.png"
+    }
+  ],
+  "compression": {
+    "enabled": true,
+    "paletteColors": []
+  }
+}

@@ -373,3 +373,249 @@
     }
   );
 })(window);
+
+window.INCOME_STATEMENT_SSOT.records.push({
+  "key": "paramount-q2-fy26",
+  "company": "Paramount",
+  "period": "Q2 FY26",
+  "periodNote": "Quarter ended Jun. 30, 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 3,
+  "sourceImage": "input/processed/paramount-q2-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 6.9,
+    "notes": [
+      "+1% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "direct_to_consumer",
+        "label": "Direct to consumer",
+        "value": 2.5,
+        "notes": [
+          "+9% Y/Y",
+          "15% adj. margin",
+          "+11pp Y/Y"
+        ]
+      },
+      {
+        "id": "studios",
+        "label": "Studios",
+        "value": 1.3,
+        "notes": [
+          "+16% Y/Y",
+          "3% adj. margin",
+          "+5pp Y/Y"
+        ]
+      },
+      {
+        "id": "tv_media",
+        "label": "TV Media",
+        "value": 3.1,
+        "notes": [
+          "(9%) Y/Y",
+          "34% adj. margin",
+          "+8pp Y/Y"
+        ]
+      },
+      {
+        "id": "eliminations",
+        "label": "Eliminations",
+        "value": -0.003,
+        "notes": [
+          "Source displays ($0.0B); official Q2 2026 eliminations are $3M. https://www.sec.gov/Archives/edgar/data/2041610/000204161026000052/ex99_q226.htm"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "label": "Cost of revenue",
+      "value": 0,
+      "notes": [
+        "Source chart does not show a gross-profit layer."
+      ]
+    },
+    "operatingExpenses": {
+      "total": 6.4,
+      "items": [
+        {
+          "id": "operating",
+          "label": "Operating",
+          "value": 4.4
+        },
+        {
+          "id": "sga",
+          "label": "SG&A",
+          "value": 1.4
+        },
+        {
+          "id": "amortization",
+          "label": "Amortization",
+          "value": 0.4
+        },
+        {
+          "id": "restructuring",
+          "label": "Restructuring",
+          "value": 0.2
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.1
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0.3,
+    "items": [
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 0.3
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "label": "Gross profit bridge",
+      "value": 6.9,
+      "notes": [
+        "Arithmetic bridge only; not shown in Source."
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 0.5,
+      "notes": [
+        "7% margin",
+        "+1pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 0.041,
+      "notes": [
+        "1% margin",
+        "(0pp) Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "periodNote": "截至 2026 年 6 月 30 日的季度",
+      "revenue": {
+        "notes": [
+          "同比 +1%"
+        ],
+        "items": [
+          {
+            "id": "direct_to_consumer",
+            "label": "直接面向消费者",
+            "notes": [
+              "同比 +9%",
+              "调整后利润率 15%",
+              "同比 +11 个百分点"
+            ]
+          },
+          {
+            "id": "studios",
+            "label": "制片业务",
+            "notes": [
+              "同比 +16%",
+              "调整后利润率 3%",
+              "同比 +5 个百分点"
+            ]
+          },
+          {
+            "id": "tv_media",
+            "label": "电视媒体",
+            "notes": [
+              "同比 (9%)",
+              "调整后利润率 34%",
+              "同比 +8 个百分点"
+            ]
+          },
+          {
+            "id": "eliminations",
+            "label": "抵销",
+            "notes": [
+              "来源图显示 ($0.0B)；官方 2026 年第二季度抵销额为 300 万美元。"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本",
+          "notes": [
+            "来源图未展示毛利润层。"
+          ]
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "operating",
+              "label": "运营成本"
+            },
+            {
+              "id": "sga",
+              "label": "销售、一般及行政"
+            },
+            {
+              "id": "amortization",
+              "label": "摊销"
+            },
+            {
+              "id": "restructuring",
+              "label": "重组"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润桥接",
+          "notes": [
+            "仅作算术桥接；原图未显示。"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 7%",
+            "同比 +1 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 1%",
+            "同比 (0 个百分点)"
+          ]
+        }
+      }
+    }
+  }
+});

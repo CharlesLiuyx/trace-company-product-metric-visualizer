@@ -1,0 +1,24 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Paycom company mark and wordmark",
+  "artifact": {
+    "path": "data/assets/raster-annotations/paycom-q2-fy26/company-logo.png",
+    "digest": "sha256:b52fc750e42acaf899123b8b9df6339c2b2f11d073662c6708752240e93c585b"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/paycom-q2-fy26.json",
+    "digest": "sha256:4d4e01c1e7a01b3375ef5eb18cfb0fc2db28702f947dd647df7d62beb0bfe65c"
+  },
+  "source": {
+    "path": "input/processed/paycom-q2-fy26.png",
+    "digest": "sha256:ec75061ee7a4a1f3c1cd8b820ec7f5d1a39916060636a73a1fef05358a35cc21"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:b52fc750e42acaf899123b8b9df6339c2b2f11d073662c6708752240e93c585b",
+    "note": "Inspected the native crop validation sheet against the complete Source: logo, wordmark and registration mark are complete and centered; no chart, title, or publisher content enters the crop.",
+    "reviewedAt": "2026-09-07T20:36:54.698Z"
+  },
+  "versionDigest": "sha256:4521c47460b97ff5936c19796f0b2a44de2a62d46c37c64c8d9262cc54e1fbdd"
+}

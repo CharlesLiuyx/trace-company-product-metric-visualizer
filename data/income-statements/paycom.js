@@ -256,3 +256,225 @@
     }
   );
 })(window);
+
+(function(){window.INCOME_STATEMENT_SSOT.records.push({
+  "key": "paycom-q2-fy26",
+  "company": "Paycom",
+  "period": "Q2 FY26",
+  "periodNote": "Ending Jun. 2026",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/paycom-q2-fy26.png",
+  "roundingTolerance": 1.1,
+  "revenue": {
+    "total": 531,
+    "notes": [
+      "+10% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "recurring",
+        "label": "Recurring",
+        "value": 505,
+        "notes": [
+          "+11% Y/Y"
+        ]
+      },
+      {
+        "id": "implementation_other",
+        "label": "Implementation and other",
+        "value": 26,
+        "notes": [
+          "(9%) Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 89
+    },
+    "operatingExpenses": {
+      "total": 274,
+      "items": [
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 119,
+          "notes": [
+            "22% of revenue",
+            "(2pp) Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 77,
+          "notes": [
+            "15% of revenue",
+            "+0pp Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 52,
+          "notes": [
+            "10% of revenue",
+            "(6pp) Y/Y"
+          ]
+        },
+        {
+          "id": "depreciation",
+          "label": "Depreciation",
+          "value": 26
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 50
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 12,
+    "items": [
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 12
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 442,
+      "notes": [
+        "83% margin",
+        "+1pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 169,
+      "notes": [
+        "32% margin",
+        "+8pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 107,
+      "notes": [
+        "20% margin",
+        "+2pp Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "revenue": {
+        "notes": [
+          "同比 +10%"
+        ],
+        "items": [
+          {
+            "label": "经常性收入",
+            "notes": [
+              "同比 +11%"
+            ]
+          },
+          {
+            "label": "实施及其他",
+            "notes": [
+              "同比 (9%)"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "label": "销售与市场",
+              "notes": [
+                "占收入 22%",
+                "同比 (2 个百分点)"
+              ]
+            },
+            {
+              "label": "一般及行政",
+              "notes": [
+                "占收入 15%",
+                "同比 +0 个百分点"
+              ]
+            },
+            {
+              "label": "研发",
+              "notes": [
+                "占收入 10%",
+                "同比 (6 个百分点)"
+              ]
+            },
+            {
+              "label": "折旧"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": []
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 83%",
+            "同比 +1 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 32%",
+            "同比 +8 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 20%",
+            "同比 +2 个百分点"
+          ]
+        }
+      },
+      "period": "2026 财年第二季度",
+      "periodNote": "截至 2026 年 6 月"
+    }
+  }
+});})();

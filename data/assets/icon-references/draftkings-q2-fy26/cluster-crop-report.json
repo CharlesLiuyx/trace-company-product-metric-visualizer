@@ -1,0 +1,124 @@
+{
+  "source": "input/processing/draftkings-q2-fy26.png",
+  "spec": "input/icon-crop-specs/draftkings-q2-fy26-cluster.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-09-07T20:39:40.849847+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/draftkings-q2-fy26",
+  "crops": [
+    {
+      "key": "draftkings-q2-online-gaming-cluster",
+      "output": "data/assets/icon-references/draftkings-q2-fy26/crops/online-gaming-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 4778,
+        "losslessBytes": 14602,
+        "savingsVsLossless": 0.6728,
+        "metrics": {
+          "meanAbsoluteError": 0.3229,
+          "rootMeanSquareError": 2.1433,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 51,
+          "changedPixelRatio": 0.0809
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 14,
+        "y": 370,
+        "width": 154,
+        "height": 315
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 22,
+        "y0": 378,
+        "x1": 160,
+        "y1": 677
+      },
+      "cropBox": {
+        "x0": 14,
+        "y0": 370,
+        "x1": 168,
+        "y1": 685
+      },
+      "validation": {
+        "width": 154,
+        "height": 315,
+        "foregroundPixels": 35155,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 8,
+          "right": 8,
+          "top": 8,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Complete Sportsbook & Casino plus Fantasy brand cluster adjacent to Online Gaming. Both symbols belong to the same semantic source branch.",
+      "runtimeOutput": "data/assets/raster-annotations/draftkings-q2-fy26/online-gaming-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 4778,
+        "losslessBytes": 14602,
+        "savingsVsLossless": 0.6728,
+        "metrics": {
+          "meanAbsoluteError": 0.3229,
+          "rootMeanSquareError": 2.1433,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 51,
+          "changedPixelRatio": 0.0809
+        }
+      },
+      "validationSheet": "data/assets/icon-references/draftkings-q2-fy26/validation-sheets/draftkings-q2-online-gaming-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 241378,
+        "losslessBytes": 241378,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

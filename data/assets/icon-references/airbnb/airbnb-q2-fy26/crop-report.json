@@ -1,0 +1,513 @@
+{
+  "source": "input/processed/airbnb-q2-fy26.png",
+  "spec": "input/icon-crop-specs/airbnb-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-09-07T20:43:22.213186+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/airbnb",
+  "crops": [
+    {
+      "key": "logo",
+      "output": "data/assets/icon-references/airbnb/airbnb-q2-fy26/crops/logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4649,
+        "losslessBytes": 41118,
+        "savingsVsLossless": 0.8869,
+        "metrics": {
+          "meanAbsoluteError": 1.167,
+          "rootMeanSquareError": 2.3674,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.9192
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 5273,
+        "transparentPixelRatio": 0.083
+      },
+      "searchBox": {
+        "x": 774,
+        "y": 229,
+        "width": 251,
+        "height": 253
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 776,
+        "y0": 232,
+        "x1": 1023,
+        "y1": 479
+      },
+      "cropBox": {
+        "x0": 774,
+        "y0": 229,
+        "x1": 1025,
+        "y1": 482
+      },
+      "validation": {
+        "width": 251,
+        "height": 253,
+        "foregroundPixels": 52479,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 2,
+          "right": 2,
+          "top": 3,
+          "bottom": 3
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Complete Airbnb brand/region icon; excludes neighboring labels, graph and publisher.",
+      "runtimeOutput": "data/assets/raster-annotations/airbnb/airbnb-q2-fy26-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4649,
+        "losslessBytes": 41118,
+        "savingsVsLossless": 0.8869,
+        "metrics": {
+          "meanAbsoluteError": 1.167,
+          "rootMeanSquareError": 2.3674,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.9192
+        }
+      },
+      "validationSheet": "data/assets/icon-references/airbnb/airbnb-q2-fy26/validation-sheets/logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 313613,
+        "losslessBytes": 313613,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "north-america",
+      "output": "data/assets/icon-references/airbnb/airbnb-q2-fy26/crops/north-america.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1432,
+        "losslessBytes": 6939,
+        "savingsVsLossless": 0.7936,
+        "metrics": {
+          "meanAbsoluteError": 0.7193,
+          "rootMeanSquareError": 2.0898,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.2707
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 5084,
+        "transparentPixelRatio": 0.4887
+      },
+      "searchBox": {
+        "x": 83,
+        "y": 408,
+        "width": 102,
+        "height": 102
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 88,
+        "y0": 413,
+        "x1": 180,
+        "y1": 506
+      },
+      "cropBox": {
+        "x0": 83,
+        "y0": 408,
+        "x1": 185,
+        "y1": 510
+      },
+      "validation": {
+        "width": 102,
+        "height": 102,
+        "foregroundPixels": 4396,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 5,
+          "right": 5,
+          "top": 5,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0049
+        },
+        "passes": true
+      },
+      "note": "Complete Airbnb brand/region icon; excludes neighboring labels, graph and publisher.",
+      "runtimeOutput": "data/assets/raster-annotations/airbnb/airbnb-q2-fy26-north-america.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1432,
+        "losslessBytes": 6939,
+        "savingsVsLossless": 0.7936,
+        "metrics": {
+          "meanAbsoluteError": 0.7193,
+          "rootMeanSquareError": 2.0898,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.2707
+        }
+      },
+      "validationSheet": "data/assets/icon-references/airbnb/airbnb-q2-fy26/validation-sheets/north-america.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 292305,
+        "losslessBytes": 292305,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "emea",
+      "output": "data/assets/icon-references/airbnb/airbnb-q2-fy26/crops/emea.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1053,
+        "losslessBytes": 4483,
+        "savingsVsLossless": 0.7651,
+        "metrics": {
+          "meanAbsoluteError": 0.5075,
+          "rootMeanSquareError": 1.9913,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 16,
+          "changedPixelRatio": 0.1473
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 6044,
+        "transparentPixelRatio": 0.6698
+      },
+      "searchBox": {
+        "x": 85,
+        "y": 689,
+        "width": 96,
+        "height": 94
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 90,
+        "y0": 695,
+        "x1": 173,
+        "y1": 778
+      },
+      "cropBox": {
+        "x0": 85,
+        "y0": 689,
+        "x1": 181,
+        "y1": 783
+      },
+      "validation": {
+        "width": 96,
+        "height": 94,
+        "foregroundPixels": 2776,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 5,
+          "right": 8,
+          "top": 6,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": -0.0156,
+          "y": 0.0053
+        },
+        "passes": true
+      },
+      "note": "Complete Airbnb brand/region icon; excludes neighboring labels, graph and publisher.",
+      "runtimeOutput": "data/assets/raster-annotations/airbnb/airbnb-q2-fy26-emea.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1053,
+        "losslessBytes": 4483,
+        "savingsVsLossless": 0.7651,
+        "metrics": {
+          "meanAbsoluteError": 0.5075,
+          "rootMeanSquareError": 1.9913,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 16,
+          "changedPixelRatio": 0.1473
+        }
+      },
+      "validationSheet": "data/assets/icon-references/airbnb/airbnb-q2-fy26/validation-sheets/emea.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 277870,
+        "losslessBytes": 277870,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "latam",
+      "output": "data/assets/icon-references/airbnb/airbnb-q2-fy26/crops/latam.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1154,
+        "losslessBytes": 4988,
+        "savingsVsLossless": 0.7686,
+        "metrics": {
+          "meanAbsoluteError": 0.6842,
+          "rootMeanSquareError": 1.9176,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 16,
+          "changedPixelRatio": 0.3633
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 4510,
+        "transparentPixelRatio": 0.6395
+      },
+      "searchBox": {
+        "x": 92,
+        "y": 891,
+        "width": 82,
+        "height": 86
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 98,
+        "y0": 896,
+        "x1": 168,
+        "y1": 969
+      },
+      "cropBox": {
+        "x0": 92,
+        "y0": 891,
+        "x1": 174,
+        "y1": 977
+      },
+      "validation": {
+        "width": 82,
+        "height": 86,
+        "foregroundPixels": 1933,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 6,
+          "top": 5,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0174
+        },
+        "passes": true
+      },
+      "note": "Complete Airbnb brand/region icon; excludes neighboring labels, graph and publisher.",
+      "runtimeOutput": "data/assets/raster-annotations/airbnb/airbnb-q2-fy26-latam.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1154,
+        "losslessBytes": 4988,
+        "savingsVsLossless": 0.7686,
+        "metrics": {
+          "meanAbsoluteError": 0.6842,
+          "rootMeanSquareError": 1.9176,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 16,
+          "changedPixelRatio": 0.3633
+        }
+      },
+      "validationSheet": "data/assets/icon-references/airbnb/airbnb-q2-fy26/validation-sheets/latam.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 281635,
+        "losslessBytes": 281635,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "apac",
+      "output": "data/assets/icon-references/airbnb/airbnb-q2-fy26/crops/apac.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1265,
+        "losslessBytes": 6031,
+        "savingsVsLossless": 0.7903,
+        "metrics": {
+          "meanAbsoluteError": 0.6201,
+          "rootMeanSquareError": 2.0102,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 16,
+          "changedPixelRatio": 0.2146
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 5140,
+        "transparentPixelRatio": 0.6291
+      },
+      "searchBox": {
+        "x": 99,
+        "y": 1047,
+        "width": 86,
+        "height": 95
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 103,
+        "y0": 1052,
+        "x1": 180,
+        "y1": 1136
+      },
+      "cropBox": {
+        "x0": 99,
+        "y0": 1047,
+        "x1": 185,
+        "y1": 1142
+      },
+      "validation": {
+        "width": 86,
+        "height": 95,
+        "foregroundPixels": 2514,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 4,
+          "right": 5,
+          "top": 5,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": -0.0058,
+          "y": -0.0053
+        },
+        "passes": true
+      },
+      "note": "Complete Airbnb brand/region icon; excludes neighboring labels, graph and publisher.",
+      "runtimeOutput": "data/assets/raster-annotations/airbnb/airbnb-q2-fy26-apac.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1265,
+        "losslessBytes": 6031,
+        "savingsVsLossless": 0.7903,
+        "metrics": {
+          "meanAbsoluteError": 0.6201,
+          "rootMeanSquareError": 2.0102,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 16,
+          "changedPixelRatio": 0.2146
+        }
+      },
+      "validationSheet": "data/assets/icon-references/airbnb/airbnb-q2-fy26/validation-sheets/apac.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 290570,
+        "losslessBytes": 290570,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

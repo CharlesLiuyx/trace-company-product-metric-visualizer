@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Rubrik company logo",
+  "artifact": {
+    "path": "data/assets/raster-annotations/rubrik/company-logo.png",
+    "digest": "sha256:300685548224bcc78e1ff84bcdffe2e75894392e605b888ad8e0147f8ec1d5a6"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/rubrik-q2-fy27.json",
+    "digest": "sha256:c1b3cace99e12daf6b5607bcd51c4a2e0d447a08c0ad1b4ca3633fb0c5e1d772"
+  },
+  "source": {
+    "path": "input/processed/rubrik-q2-fy27.png",
+    "digest": "sha256:817d05f0a105d9e480fa5d4dbb551bcefd5ab63b48180e62e62ee8607f479c86"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:300685548224bcc78e1ff84bcdffe2e75894392e605b888ad8e0147f8ec1d5a6",
+    "note": "Inspected the full Source and the 575×176 runtime crop: all colored symbol pieces and the complete rubrik wordmark are present; transparent edge-connected background; no financial text, links or publisher attribution. Native placement [611,277,575,176]."
+  },
+  "versionDigest": "sha256:6742d780b4eb59afe6b5fecb459bc0ca5078865509a00b277e39feae797e40b5"
+}

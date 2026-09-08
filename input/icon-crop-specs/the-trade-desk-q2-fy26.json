@@ -1,0 +1,42 @@
+{
+  "source": "input/processing/the-trade-desk-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/the-trade-desk/q2-fy26",
+  "validationSheetDir": "data/assets/icon-references/the-trade-desk/q2-fy26/validation-sheets",
+  "report": "crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "crops": [
+    {
+      "key": "the-trade-desk-company-mark",
+      "output": "crops/company-mark.png",
+      "searchBox": {
+        "x": 40,
+        "y": 695,
+        "width": 263,
+        "height": 268
+      },
+      "cropBox": {
+        "x": 40,
+        "y": 691,
+        "width": 262,
+        "height": 275
+      },
+      "threshold": 8,
+      "minComponentArea": 20,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete corporate logo; excludes revenue bar and source publisher footer."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "SentinelOne company logo",
+  "artifact": {
+    "path": "data/assets/raster-annotations/sentinelone/company-logo-q2-fy27.png",
+    "digest": "sha256:ebb7b20d88f9b09380bc709eb81a071f474adf51c1368edf5bc9eceb5257db5c"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/sentinelone-q2-fy27.json",
+    "digest": "sha256:cbd3fc888d5fb72654af4754625614587c3f8b8507b15e90100187c81b4fd7bf"
+  },
+  "source": {
+    "path": "input/processed/sentinelone-q2-fy27.png",
+    "digest": "sha256:b3a725fd26a2a79a25b1c210997239b2a2eab7a7bf5de031565ca65ae659aae6"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:ebb7b20d88f9b09380bc709eb81a071f474adf51c1368edf5bc9eceb5257db5c",
+    "note": "Inspected final 508x292 native crop after removing an unrelated title-edge remnant. Full shield and wordmark remain intact and centred with clear margins. Crop validation passed; model QA only."
+  },
+  "versionDigest": "sha256:fdcbf048fcad56f6a9c70b7650db203017b3335c4830a7a7282651422bad9e6a"
+}

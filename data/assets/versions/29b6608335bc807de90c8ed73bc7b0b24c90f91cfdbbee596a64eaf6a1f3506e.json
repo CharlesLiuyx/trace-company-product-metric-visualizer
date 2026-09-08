@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "booking-company-logo",
+  "artifact": {
+    "path": "data/assets/raster-annotations/booking/company-logo.png",
+    "digest": "sha256:0881e3d7ac27a9b193a8ce1535ae7d2229c773241ed88906b8a781a43f67626c"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/booking-q2-fy26-reuse.json",
+    "digest": "sha256:26ce041f17158405bf9645a288655412d6f4f850c4345ecc317991c97e40ad72"
+  },
+  "source": {
+    "path": "input/processed/booking-q4-fy25.png",
+    "digest": "sha256:28f0bbf771afd13250201f9d0a487caa313b16f5cc044f7b590095873de34644"
+  },
+  "review": {
+    "reviewer": "Codex executor visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:0881e3d7ac27a9b193a8ce1535ae7d2229c773241ed88906b8a781a43f67626c",
+    "note": "Inspected runtime crop at native size and compared with complete Q2 Source. Complete company/business identity, clean margins, no chart labels, connectors or publisher marks. Reuses existing Q4 source crop bytes with original dimensions."
+  },
+  "versionDigest": "sha256:29b6608335bc807de90c8ed73bc7b0b24c90f91cfdbbee596a64eaf6a1f3506e"
+}

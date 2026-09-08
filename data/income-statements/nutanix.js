@@ -205,4 +205,257 @@
       },
     },
   });
+  ssot.records.push({
+  "key": "nutanix-q4-fy26",
+  "company": "Nutanix",
+  "period": "Q4 FY26",
+  "periodNote": "Ending July 2026",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/nutanix-q4-fy26.png",
+  "roundingTolerance": 0.1,
+  "revenue": {
+    "total": 757,
+    "notes": [
+      "+16% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "subscription",
+        "label": "Subscription",
+        "value": 719,
+        "notes": [
+          "+17% Y/Y"
+        ]
+      },
+      {
+        "id": "professional_services",
+        "label": "Professional services & Other",
+        "value": 38,
+        "notes": [
+          "+2% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 106,
+      "notes": []
+    },
+    "operatingExpenses": {
+      "total": 581,
+      "items": [
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 304,
+          "notes": [
+            "40% of revenue",
+            "(3pp) Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 205,
+          "notes": [
+            "27% of revenue",
+            "(3pp) Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 72,
+          "notes": [
+            "10% of revenue",
+            "(0pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax benefit",
+      "value": -1187,
+      "notes": []
+    }
+  },
+  "otherIncome": {
+    "total": 13,
+    "items": [
+      {
+        "id": "interest",
+        "label": "Interest",
+        "value": 13,
+        "notes": []
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 651,
+      "notes": [
+        "86% margin",
+        "(1pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 70,
+      "notes": [
+        "9% margin",
+        "+4pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 1270,
+      "notes": [
+        "168% margin",
+        "+162pp Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第四季度",
+      "periodNote": "截至 2026 年 7 月",
+      "revenue": {
+        "notes": [
+          "同比 +16%"
+        ],
+        "items": [
+          {
+            "id": "subscription",
+            "label": "订阅收入",
+            "notes": [
+              "同比 +17%"
+            ]
+          },
+          {
+            "id": "professional_services",
+            "label": "专业服务及其他收入",
+            "notes": [
+              "同比 +2%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sm",
+              "label": "销售与营销",
+              "notes": [
+                "占收入 40%",
+                "同比 (3 个百分点)"
+              ]
+            },
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 27%",
+                "同比 (3 个百分点)"
+              ]
+            },
+            {
+              "id": "ga",
+              "label": "一般及行政",
+              "notes": [
+                "占收入 10%",
+                "同比 (0 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "所得税收益"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "interest",
+            "label": "利息收入"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 86%",
+            "同比 (1 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 9%",
+            "同比 +4 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 168%",
+            "同比 +162 个百分点"
+          ]
+        }
+      },
+      "operatingMetrics": [
+        {
+          "id": "arr",
+          "label": "年度经常性收入",
+          "notes": [
+            "同比 +16%"
+          ]
+        }
+      ]
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "arr",
+      "label": "ARR",
+      "value": "2.54",
+      "unit": "B",
+      "currency": "USD",
+      "comparison": "eq",
+      "literal": "$2.54B",
+      "basis": "unspecified",
+      "quote": "ARR $2.54B +16% Y/Y",
+      "notes": [
+        "+16% Y/Y"
+      ],
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          202,
+          1129,
+          165,
+          165
+        ]
+      }
+    }
+  ]
+});
 })(window);

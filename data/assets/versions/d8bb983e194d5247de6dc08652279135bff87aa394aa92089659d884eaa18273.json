@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Airbnb north-america",
+  "artifact": {
+    "path": "data/assets/raster-annotations/airbnb/airbnb-q2-fy26-north-america.png",
+    "digest": "sha256:4a554c511c379ba6dd394071bc4ffa99e81f374c46a1368cb9408fe29d7e23e7"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/airbnb-q2-fy26.json",
+    "digest": "sha256:b5a628092174e8fd7d18787a51335ed21f5b8d8a4990a1ab97ec6a280dfc52c4"
+  },
+  "source": {
+    "path": "input/processed/airbnb-q2-fy26.png",
+    "digest": "sha256:222631f20e4ee3c5486c2b6b73def9880d8bea858eabc9b71c548dc5206b4869"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:4a554c511c379ba6dd394071bc4ffa99e81f374c46a1368cb9408fe29d7e23e7",
+    "note": "Inspected full-source validation sheet and extracted crop. Icon is complete, centered, and free of labels, links, neighboring objects and publisher marks."
+  },
+  "versionDigest": "sha256:d8bb983e194d5247de6dc08652279135bff87aa394aa92089659d884eaa18273"
+}

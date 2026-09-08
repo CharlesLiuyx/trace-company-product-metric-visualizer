@@ -1127,3 +1127,224 @@
     }
   );
 })(window);
+
+(function(global){global.INCOME_STATEMENT_SSOT.records.push({
+  "key": "palantir-q2-fy26",
+  "company": "Palantir",
+  "period": "Q2 FY26",
+  "periodNote": "Ending Jun. 2026",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/palantir-q2-fy26.png",
+  "roundingTolerance": 2.1,
+  "revenue": {
+    "total": 1935,
+    "notes": [
+      "+93% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "commercial",
+        "label": "Commercial",
+        "value": 945,
+        "notes": [
+          "+110% Y/Y"
+        ]
+      },
+      {
+        "id": "government",
+        "label": "Government",
+        "value": 990,
+        "notes": [
+          "+79% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 297
+    },
+    "operatingExpenses": {
+      "total": 727,
+      "items": [
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 340,
+          "notes": [
+            "18% of revenue",
+            "(7pp) Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 195,
+          "notes": [
+            "10% of revenue",
+            "(6pp) Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 193,
+          "notes": [
+            "10% of revenue",
+            "(4pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 15
+    }
+  },
+  "otherIncome": {
+    "total": 170,
+    "items": [
+      {
+        "id": "interest",
+        "label": "Interest",
+        "value": 78
+      },
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 92
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 1639,
+      "notes": [
+        "85% margin",
+        "+4pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 912,
+      "notes": [
+        "47% margin",
+        "+20pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 1065,
+      "notes": [
+        "55% margin",
+        "+22pp Y/Y",
+        "Source bridge totals $1,067M versus displayed net profit $1,065M; source values retained."
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "periodNote": "截至 2026 年 6 月",
+      "revenue": {
+        "notes": [
+          "同比 +93%"
+        ],
+        "items": [
+          {
+            "label": "商业",
+            "notes": [
+              "同比 +110%"
+            ]
+          },
+          {
+            "label": "政府",
+            "notes": [
+              "同比 +79%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "label": "销售与营销",
+              "notes": [
+                "占收入 18%",
+                "同比 (7 个百分点)"
+              ]
+            },
+            {
+              "label": "管理费用",
+              "notes": [
+                "占收入 10%",
+                "同比 (6 个百分点)"
+              ]
+            },
+            {
+              "label": "研发",
+              "notes": [
+                "占收入 10%",
+                "同比 (4 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "label": "利息"
+          },
+          {
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 85%",
+            "同比 +4 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 47%",
+            "同比 +20 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 55%",
+            "同比 +22 个百分点",
+            "原图利润桥计算值为 1,067M 美元，显示净利润为 1,065M 美元；保留原图各项数值。"
+          ]
+        }
+      }
+    }
+  }
+});})(window);
