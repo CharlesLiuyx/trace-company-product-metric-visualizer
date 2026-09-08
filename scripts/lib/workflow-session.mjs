@@ -29,7 +29,8 @@ export async function acquireBuildSession(root, buildId, session = sessionIdenti
     return next;
   }));
 }
-export async function assertBuildSession(root, buildId, { session = sessionIdentity(), generation = process.env.TRACE_SESSION_GENERATION } = {}) {
+export async function assertBuildSession(root, buildId, { session = sessionIdentity(), generation = process.env.TRACE_SESSION_GENERATION, allowSuccessorRecovery = false } = {}) {
+  if (!allowSuccessorRecovery && existsSync(inside(root, `output/builds/${buildId}/successor.json`))) throw new Error(`Build ${buildId} has an intake successor; continue the successor Build`);
   const current = await readBuildSession(root, buildId);
   // Historical/programmatic builds without an owner retain their real history.
   if (!current) return null;

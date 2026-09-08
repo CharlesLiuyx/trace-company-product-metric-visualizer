@@ -41,6 +41,13 @@ try {
     active++;
     try {
       if (fail) throw new Error('Fixture build failed');
+      // Reports may be regenerated during rendering without changing the
+      // candidate's data. Such watched events must not starve publication of
+      // the immutable preview.
+      if (snapshot.includes(`${path.sep}review${path.sep}`)) {
+        await writeFile(path.join(root, `output/builds/${task}/workspace/output/workflow/review.html`), `Report ${Date.now()}`);
+        await new Promise((resolve) => setTimeout(resolve, 100));
+      }
       const site = args[args.indexOf('--out') + 1], version = 'b'.repeat(64);
       await mkdir(path.join(site, `releases/${version}`), { recursive: true });
       await writeFile(path.join(site, 'index.html'), '<!doctype html><title>Candidate</title><h1>Fixed candidate</h1><pre id="data"></pre><script>' + await readFile(path.join(snapshot, 'data/revenue-metrics.js'), 'utf8') + ';document.querySelector("#data").textContent=JSON.stringify(window.REVENUE_METRIC_SSOT);</script>');
@@ -50,6 +57,10 @@ try {
   } });
   const context = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
   const first = await context.newPage(), second = await context.newPage(), errors = [];
+  const cpuRate = Number(process.env.TRACE_WORKBENCH_CPU_RATE || 1);
+  if (cpuRate > 1) {
+    for (const page of [first, second]) await (await context.newCDPSession(page)).send('Emulation.setCPUThrottlingRate', { rate: cpuRate });
+  }
   for (const page of [first, second]) page.on('pageerror', (error) => errors.push(error.message));
   // Exercise the real file launcher: it discovers only the matching root's service.
   await first.goto(pathToFileURL(path.join(root, 'index.html')).href);
@@ -78,30 +89,48 @@ try {
   });
   await first.waitForURL((url) => url.hash === '#second-example');
   assert.equal(await first.locator('#reviewItem').inputValue(), 'second-example', 'company/period selection must update the review position immediately');
+  // Explicit freeze is opt-in; ordinary tabs always follow successful saves.
+  const frozen = await context.newPage();
+  await frozen.goto(server.url + '?source=review&follow=0&candidate=' + pinned + '#new-example');
+  await frozen.frameLocator('#viewer').getByRole('heading', { name: 'Fixed candidate' }).waitFor();
   await addTask('build-cccccccc-bbbb-cccc-dddd-eeeeeeeeeeee', 'third-example');
   await writeFile(path.join(root, 'src/version.js'), '2');
-  await first.locator('#notice').waitFor({ state: 'visible' });
-  assert.equal(new URL(first.url()).searchParams.get('candidate'), pinned, 'a completed rebuild must not steal a pinned review');
-  const missing = await context.newPage();
-  await missing.goto(server.url + '?source=review&candidate=' + pinned + '&review=build-cccccccc-bbbb-cccc-dddd-eeeeeeeeeeee#third-example');
-  await missing.locator('#empty').filter({ hasText: '该项尚未加入当前验收版本' }).waitFor();
-  assert.equal(await missing.locator('#viewer').isVisible(), false, 'a task absent from the pinned candidate must never fall back to a different company');
-  await missing.close();
-  assert.match(await first.locator('#queueSummary').textContent(), /2 项/, 'new membership must not alter the pinned review');
-  await first.reload();
-  await first.frameLocator('#viewer').getByRole('heading', { name: 'Fixed candidate' }).waitFor();
-  assert.match(await first.locator('#queueSummary').textContent(), /2 项/, 'pinned membership survives reloading the tab');
-  await first.evaluate(() => { document.querySelector('#viewer').contentWindow.TraceViewSession = { capture: () => ({ traceLanguage: 'zh', traceTheme: 'dark', traceView: 'table', traceMetric: 'incomeStatement' }) }; });
-  await first.getByRole('button', { name: '载入更新' }).click();
   await first.locator('#queueSummary').filter({ hasText: '待验收 3 项' }).waitFor();
-  assert.notEqual(new URL(first.url()).searchParams.get('candidate'), pinned);
+  assert.notEqual(new URL(first.url()).searchParams.get('candidate'), pinned, 'default review automatically follows the latest candidate');
+  assert.equal(new URL(first.url()).hash, '#second-example');
+  assert.equal(await first.locator('#notice').isVisible(), false);
+  await frozen.locator('#notice').waitFor({ state: 'visible' });
+  assert.equal(new URL(frozen.url()).searchParams.get('candidate'), pinned, 'explicitly frozen tabs keep their candidate');
+  assert.match(await frozen.locator('#queueSummary').textContent(), /2 项/);
+  await frozen.reload();
+  await frozen.frameLocator('#viewer').getByRole('heading', { name: 'Fixed candidate' }).waitFor();
+  assert.match(await frozen.locator('#queueSummary').textContent(), /2 项/);
+  await frozen.close();
   const replay = new URL(await first.locator('#viewer').getAttribute('src'));
   assert.equal(replay.searchParams.get('traceLanguage'), 'zh'); assert.equal(replay.searchParams.get('traceTheme'), 'dark'); assert.equal(replay.searchParams.get('traceView'), 'table');
+  // A second edit in an already prepared draft must propagate without prepare,
+  // root writes, a refresh click, or changing the selected company.
+  const firstUpdate = new URL(first.url()).searchParams.get('candidate');
+  await writeFile(path.join(root, `output/builds/${task}/workspace/data/revenue-metrics.js`), ssot(['existing', 'new-example']).replace('10', '11'));
+  await first.waitForURL((url) => url.searchParams.get('candidate') !== firstUpdate);
+  await first.frameLocator('#viewer').locator('#data').filter({ hasText: '11' }).waitFor();
+  assert.equal(new URL(first.url()).hash, '#second-example');
+  await first.locator('#versions > summary').click();
+  await first.waitForFunction(() => document.querySelector('#details').textContent && JSON.parse(document.querySelector('#details').textContent).displayed?.id === new URL(location.href).searchParams.get('candidate'));
+  await first.locator('#versions > summary').click();
+  const missing = await context.newPage();
+  await missing.goto(server.url + '?source=review&candidate=' + pinned + '&review=build-cccccccc-bbbb-cccc-dddd-eeeeeeeeeeee#third-example');
+  await missing.locator('#reviewItem').filter({ has: missing.locator('option[value="third-example"]') }).waitFor();
+  await missing.waitForURL((url) => url.searchParams.get('candidate') !== pinned && url.hash === '#third-example');
+  await missing.close();
   const fixedFrame = await first.locator('#viewer').getAttribute('src');
   fail = true; await writeFile(path.join(root, 'src/version.js'), '3');
   await first.waitForFunction(() => document.querySelector('#status').textContent.includes('汇总失败'));
   assert.equal(await first.locator('#viewer').getAttribute('src'), fixedFrame);
   fail = false;
+  await writeFile(path.join(root, 'src/version.js'), '4');
+  await first.waitForFunction((previous) => document.querySelector('#viewer').src !== previous, fixedFrame);
+  await first.frameLocator('#viewer').getByRole('heading', { name: 'Fixed candidate' }).waitFor();
   await first.locator('#more > summary').click();
   await first.locator('#sourceDetail').selectOption('project');
   await first.locator('#more > summary').click();
@@ -109,6 +138,9 @@ try {
   await first.frameLocator('#viewer').getByRole('heading', { name: 'Dev', exact: true }).waitFor();
   await writeFile(path.join(root, 'index.html'), '<!doctype html><h1>Dev updated</h1>');
   await first.frameLocator('#viewer').getByRole('heading', { name: 'Dev updated' }).waitFor();
+  await writeFile(path.join(root, 'scripts/templates/workbench.html'), (await readFile(path.join(root, 'scripts/templates/workbench.html'), 'utf8')).replace('<title>Trace · 统一验收</title>', '<title>Trace · 自动更新验证</title>'));
+  await first.waitForFunction(() => document.title === 'Trace · 自动更新验证');
+  await second.locator('#notice').waitFor({ state: 'visible' });
   await second.getByRole('button', { name: '线上对照', exact: true }).click();
   await second.locator('#empty').filter({ hasText: '尚未上线' }).waitFor();
   assert.equal(await second.locator('#viewer').isVisible(), false, 'an unpublished dataset must not fall back to another online dataset');
@@ -116,7 +148,7 @@ try {
   assert.equal(await first.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
   assert.deepEqual(errors, []);
   await context.close();
-  console.log('Workbench browser verification passed: file launcher, combined data, next/previous in one frame, pinned membership/reload, independent tabs, failed-build retention, Dev reload, unpublished state, mobile layout');
+  console.log('Workbench browser verification passed: file launcher, combined data, next/previous in one frame, automatic second-edit updates, explicit freeze/reload, preserved preferences, independent tabs, failed-build retention, Dev reload, unpublished state, mobile layout');
 } finally {
   await browser.close();
   if (server) await server.close();

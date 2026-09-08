@@ -123,7 +123,8 @@
       "sankey-flow-topology",
       "revenue-metric-definition",
       "time-series-observations",
-      "metric-observations"
+      "metric-observations",
+      "supplemental-operating-metrics"
     ],
     "requiredBeforeFreshRecordIntake": true,
     "bindsWholeNativeSource": true,
@@ -137,6 +138,7 @@
     ],
     "objectClasses": [
       "financial-value",
+      "operating-metric",
       "metric-observation",
       "structural-flow",
       "label-or-annotation",
@@ -207,7 +209,29 @@
     ],
     "revenueMetricReconciliationTargets": [
       "metric-ssot"
-    ]
+    ],
+    "supplementalOperatingMetrics": {
+      "ssotPath": "operatingMetrics",
+      "viewPath": "operatingMetrics",
+      "sourceClass": "operating-metric",
+      "units": [
+        "K",
+        "M",
+        "B",
+        "T",
+        "%",
+        "count"
+      ],
+      "comparisons": [
+        "eq",
+        "gt",
+        "gte",
+        "lt",
+        "lte"
+      ],
+      "participatesInAccountingSums": false,
+      "dedicatedVisibleValueText": true
+    }
   },
   "nodeFacePolicy": {
     "derivedFrom": "source-coverage/v2",

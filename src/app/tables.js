@@ -209,6 +209,7 @@ function tableModelForLanguage(language = state.language, kind = activeTableKind
         otherIncome: formatAmount(financial, financial?.otherIncome?.total || 0),
         tax: formatAmount(financial, financial?.costs?.tax?.value, true),
         netProfit: formatAmount(financial, financial?.profit?.net?.value),
+        operatingMetrics: (financial?.operatingMetrics || []).map((metric) => `${metric.label}: ${metric.literal}${metric.notes?.length ? ` (${metric.notes.join('; ')})` : ''}`).join('; '),
         sourceImage: financial?.sourceImage || '',
         tableAttrs: `data-dataset-key="${escapeHtml(record.dataset.key)}"`,
       };
@@ -335,6 +336,7 @@ function renderTables() {
     { label: t('tableOtherIncome'), className: 'num', widthPreset: 'money', maxWidth: 108, grow: 0, value: (row) => row.otherIncome },
     { label: t('tableTax'), className: 'num', widthPreset: 'money', maxWidth: 98, grow: 0, value: (row) => row.tax },
     { label: t('tableNetProfit'), className: 'num', widthPreset: 'money', maxWidth: 104, grow: 0, value: (row) => row.netProfit },
+    ...(statements.some((row) => row.operatingMetrics) ? [{ label: t('tableOperatingMetrics'), className: 'wide', widthPreset: 'wide', maxWidth: 360, grow: 2, value: (row) => row.operatingMetrics }] : []),
     { label: t('tableSourceImage'), className: 'nowrap', widthPreset: 'id', maxWidth: 150, grow: 0.1, value: (row) => row.sourceImage },
   ];
   const revenueColumns = [

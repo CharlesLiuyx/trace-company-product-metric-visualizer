@@ -1137,6 +1137,9 @@ function collectFinancialTexts(record, localized) {
   (record.costs?.operatingExpenses?.items || []).forEach((item, index) => {
     collectItemTexts(list, record.key, item, localized.costs?.operatingExpenses?.items?.[index], `costs.operatingExpenses.items[${index}]`);
   });
+  (record.operatingMetrics || []).forEach((item, index) => {
+    collectItemTexts(list, record.key, item, localized.operatingMetrics?.[index], `operatingMetrics[${index}]`);
+  });
   collectItemTexts(list, record.key, record.costs?.tax, localized.costs?.tax, 'costs.tax');
   (record.otherIncome?.items || []).forEach((item, index) => {
     collectItemTexts(list, record.key, item, localized.otherIncome?.items?.[index], `otherIncome.items[${index}]`);

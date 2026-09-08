@@ -1,10 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtemp, rm } from 'node:fs/promises';
+import { mkdtemp, rm, access } from 'node:fs/promises';
 import path from 'node:path';
 import os from 'node:os';
 import { atomicJson } from '../scripts/lib/workflow-files.mjs';
-import { selectBuildPreview, selectPublishedView, readLocalView } from '../scripts/lib/workflow-local-view.mjs';
+import { selectBuildPreview, selectPublishedView, readLocalView, retireBuildPreview } from '../scripts/lib/workflow-local-view.mjs';
 
 test('local selection preserves an unrelated review and never rewinds publication on retry', async (t) => {
   const root = await mkdtemp(path.join(os.tmpdir(), 'trace-local-selection-'));
@@ -24,4 +24,22 @@ test('local selection preserves an unrelated review and never rewinds publicatio
   assert.equal((await readLocalView(root)).revision, newest);
   await assert.rejects(selectBuildPreview(root, { ...draft, workspace: '/tmp/elsewhere' }), /isolated prepared Build/);
   assert.equal((await readLocalView(root)).revision, newest);
+});
+
+test('successor retirement removes only its predecessor advertisement and is retry-safe', async (t) => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'trace-local-retirement-'));
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const draft = (buildId) => ({ buildId, key: buildId, workspace: path.join(root, 'output/builds', buildId, 'workspace'), reviewToken: 'sha256:' + 'a'.repeat(64) });
+  const first = draft('build-aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee');
+  const second = draft('build-bbbbbbbb-bbbb-cccc-dddd-eeeeeeeeeeee');
+  await selectBuildPreview(root, first);
+  await selectBuildPreview(root, second);
+  await retireBuildPreview(root, second.buildId);
+  assert.equal((await readLocalView(root)).buildId, first.buildId);
+  await assert.rejects(access(path.join(root, 'output/local-view/builds', second.buildId + '.json')), { code: 'ENOENT' });
+  await retireBuildPreview(root, first.buildId);
+  assert.equal(await readLocalView(root), null);
+  await selectBuildPreview(root, second);
+  await retireBuildPreview(root, first.buildId);
+  assert.equal((await readLocalView(root)).buildId, second.buildId);
 });

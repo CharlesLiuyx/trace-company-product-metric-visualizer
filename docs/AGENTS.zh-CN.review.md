@@ -107,7 +107,7 @@ Implementation 与已接受的目标架构。在某个迁移里程碑落地之�
 
 | 命令 | 用途 |
 | --- | --- |
-| `pnpm dev` | 本地审阅工作台，端口 8000（开发 / 固定 Pages 预览 / 线上） |
+| `pnpm dev` | 本地审阅工作台，端口 8000（开发 / 自动更新 Pages 预览 / 线上） |
 | `pnpm plan:ci -- --base <sha> --head <sha>` | 把 Git diff 保守分类为 CI 验证计划；缺 SHA 或未知可执行影响一律回退完整浏览器套件 |
 | `pnpm check` | 快速聚合门（最多两个并发检查、一个原生解析进程）：全仓 JS 语法、单元测试、pending 守卫、architecture/app-global 契约、manifest 与 render-baseline 结构新鲜度、SSOT 奇偶、i18n 与 metadata 新鲜度（秒级，无渲染）；`input/processing/` 中的在途文件不会让这个全局门失败；fresh checkout 可复现且由 CI 运行 |
 | `pnpm test` | `tests/` 下的 node:test 单元测试——Source claim/relocation、引擎布局数学与标签排版、trace-domain 解析/汇率、i18n 翻译规则、png-diff 指标、script-source 解析、dataset registry |
@@ -220,7 +220,8 @@ processed PNG 只留本机；可复用渲染器支持拆成前置 `render(engine
 
 根目录 `index.html` 是固定入口。启动一次 `pnpm dev` 后，文件入口发现同一项目的 HTTP
 工作台。默认统一验收将已准备草稿与项目数据汇入同一公司/期间视图；上一项 / 下一项
-定位固定的候选成员列表。当前任务提供 `/?review=<build-id>#<key>`；每个标签页固定整份候选，
+定位当前显示的候选成员列表。成功更新（含二次修改）自动载入，保留选择和显示设置；更多菜单可主动暂停。
+当前任务提供 `/?review=<build-id>#<key>`；每个标签页记录实际显示的完整候选，
 不得把另一标签页的选择、切换条目或自动构建当作人工接受。
 
 多个 Codex / Claude Code Session 共用此 checkout，不创建 worktree。
@@ -243,3 +244,6 @@ processed PNG 只留本机；可复用渲染器支持拆成前置 `render(engine
 `pnpm clean:artifacts -- --completed`，output/compare 仅保留精简历史 meta。
 已有操作员完成确认即为授权，不重复询问。保留范围、本机指针重置和审计限制见
 [artifact-retention.md](artifact-retention.md)。
+
+
+利润表可附带 `operatingMetrics`（ARR、留存率、客户数等经营指标）。完整原图类型检查记录 `supplemental-operating-metrics`；来源覆盖采用 `operating-metric`，保留精确十进制值、单位、币种、比较符号和原生像素位置。经营指标不参与财务加总或桑基图流量，在带数据绑定的 SVG 卡片以及表格、CSV 中展示。字段和校验规则由 `data/schema.md`、`scripts/lib/operating-metrics.mjs` 维护。

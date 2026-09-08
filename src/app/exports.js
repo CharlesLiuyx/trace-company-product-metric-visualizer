@@ -92,6 +92,8 @@ statementsCsvBtn.onclick = () => {
     { label: 'other_income', value: (row) => row.financial?.otherIncome?.total ?? 0 },
     { label: 'tax', value: (row) => row.financial?.costs?.tax?.value ?? '' },
     { label: 'net_profit', value: (row) => row.financial?.profit?.net?.value ?? '' },
+    { label: 'operating_metrics', value: (row) => row.operatingMetrics },
+    { label: 'operating_metrics_json', value: (row) => JSON.stringify(row.financial?.operatingMetrics || []) },
     { label: 'source_image', value: (row) => row.financial?.sourceImage || '' },
   ];
   downloadText('income-statements.csv', csvFromRows(columns, statementRows()));

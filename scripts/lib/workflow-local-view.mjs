@@ -34,6 +34,14 @@ export async function selectBuildPreview(root, { buildId, key, workspace, review
     return writeSelection(root, selection);
   });
 }
+// Retiring a predecessor affects new candidates, never a pinned historical view.
+export async function retireBuildPreview(root, buildId) {
+  if (!/^build-[a-f0-9-]+$/.test(buildId)) throw new Error('Invalid Build id');
+  return withFileLock(inside(root, 'output/local-view/.lock'), async () => {
+    await rm(inside(root, `output/local-view/builds/${buildId}.json`), { force: true });
+    if ((await readLocalView(root))?.buildId === buildId) await rm(inside(root, relative), { force: true });
+  });
+}
 export async function selectPublishedView(root, plan = null) {
   return withFileLock(inside(root, 'output/local-view/.lock'), async () => {
     // Read the authoritative pointer even on retry of an older publication.

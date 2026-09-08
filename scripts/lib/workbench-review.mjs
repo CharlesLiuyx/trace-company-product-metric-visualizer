@@ -22,7 +22,7 @@ async function metadata(root) {
 export const reviewTasks = (tasks) => tasks.filter((task) => task.buildId.startsWith('build-') && task.selectable && task.revision)
   .sort((a, b) => a.key.localeCompare(b.key) || a.buildId.localeCompare(b.buildId));
 
-export async function composeReviewData(root, snapshot, tasks) {
+export async function composeReviewData(root, snapshot, tasks, manifest = fileManifest) {
   const members = [], keys = new Set(), times = await metadata(snapshot), ownedTimes = new Map();
   for (const task of reviewTasks(tasks)) {
     if (keys.has(task.key)) throw new Error(`统一验收存在重复数据：${task.key}；请先解决两个草稿的归属。`);
@@ -33,7 +33,7 @@ export async function composeReviewData(root, snapshot, tasks) {
       const base = await readJson(path.join(workspace, 'output/workflow/base.json'));
       if (digestValue(base.entries) !== base.digest) throw new Error('草稿基线摘要不匹配，请刷新草稿');
       const baseRoot = inside(root, path.relative(root, base.root));
-      const draft = await fileManifest(workspace);
+      const draft = await manifest(workspace);
       const before = new Map(base.entries.map((entry) => [entry.path, entry.digest]));
       const incoming = new Map(draft.entries.map((entry) => [entry.path, entry.digest]));
       for (const file of new Set([...before.keys(), ...incoming.keys()])) {
@@ -64,32 +64,42 @@ export async function composeReviewData(root, snapshot, tasks) {
 export async function bindReviewMembers(root, snapshot, members, inspect) {
   const application = await applicationManifest(snapshot);
   const projected = new Map((await fileManifest(snapshot)).entries.map((entry) => [entry.path, entry.digest]));
-  const result = [];
-  for (const member of members) {
-    const { workspace, build, revision, ...identity } = member;
-    let reviewToken = null, reason = '待任务更新检查';
-    const current = await inspect(member.buildId).catch(() => null);
-    if (current?.fresh && current.reviewToken === revision) {
-      const [shown, authored, draftApplication] = await Promise.all([
-        readSemanticContribution(build, snapshot), readSemanticContribution(build, workspace), applicationManifest(workspace),
-      ]);
-      const authoredArtifacts = build.receipts.filter((receipt) => receipt.state === 'AUTHORED').at(-1)?.payload.artifacts || [];
-      // Additional companies may be visible, but the reviewed company's values,
-      // display time, application and all its existing assets must be identical.
+  const result = new Array(members.length);
+  let cursor = 0;
+  // Binding is read-only. Bound concurrency avoids serializing every Build's
+  // independent filesystem checks while keeping disk pressure predictable.
+  const bindings = await Promise.allSettled(Array.from({ length: Math.min(4, members.length) }, async () => {
+    while (cursor < members.length) {
+      const index = cursor++, member = members[index];
+      const { workspace, build, revision, ...identity } = member;
+      let reviewToken = null, reason = '待任务更新检查';
+      const authoredArtifacts = build.receipts?.filter((receipt) => receipt.state === 'AUTHORED').at(-1)?.payload.artifacts || [];
       const assetsMatch = authoredArtifacts.filter((item) => ['asset', 'asset-recipe'].includes(item.role) && !GENERATED.has(item.path)).every((item) => projected.get(item.path) === item.digest);
-      if (digestValue(shown) === digestValue(authored) && application.digest === draftApplication.digest && assetsMatch) { reviewToken = revision; reason = '待验收'; }
-      else reason = '汇总后的依赖已变化，待任务更新检查';
+      const draftApplication = await applicationManifest(workspace);
+      if (application.digest === draftApplication.digest && assetsMatch) {
+        const [shown, authored] = await Promise.all([
+          readSemanticContribution(build, snapshot), readSemanticContribution(build, workspace),
+        ]);
+        if (digestValue(shown) === digestValue(authored)) {
+          // Only an otherwise bindable member needs full lifecycle inspection.
+          // No positive acceptance binding ever relies on the preview cache.
+          const current = await inspect(member.buildId).catch(() => null);
+          if (current?.fresh && current.reviewToken === revision) { reviewToken = revision; reason = '待验收'; }
+        } else reason = '汇总后的依赖已变化，待任务更新检查';
+      } else reason = '汇总后的依赖已变化，待任务更新检查';
+      result[index] = { ...identity, reviewToken, reason };
     }
-    result.push({ ...identity, reviewToken, reason });
-  }
+  }));
+  const failed = bindings.find((result) => result.status === 'rejected');
+  if (failed) throw failed.reason;
   return result;
 }
 
-export async function assertReviewMembersFresh(root, members) {
+export async function assertReviewMembersFresh(root, members, manifest = fileManifest) {
   for (const member of members) {
     const workspace = inside(root, `output/builds/${member.buildId}/workspace`);
     const selection = await readJson(inside(root, `output/local-view/builds/${member.buildId}.json`));
-    if ((await fileManifest(workspace)).digest !== member.sourceDigest || selection.revision !== member.revision) throw new Error(`${member.key} 在汇总期间已更新，正在重新生成验收版本`);
+    if ((await manifest(workspace)).digest !== member.sourceDigest || selection.revision !== member.revision) throw new Error(`${member.key} 在汇总期间已更新，正在重新生成验收版本`);
   }
 }
 

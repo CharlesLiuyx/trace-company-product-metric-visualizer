@@ -1,4 +1,5 @@
 import { createMetricCoverage } from './metric-source.mjs';
+import { OPERATING_METRIC_SIGNAL, normalizeOperatingObservation } from './operating-metrics.mjs';
 import { createHash } from 'node:crypto';
 import { DATASET_ADAPTERS } from './dataset-adapters.mjs';
 import { MIN_VISIBLE_FACE_PX } from './node-face-policy.mjs';
@@ -14,6 +15,7 @@ export const SOURCE_CLASSIFICATION_SIGNALS = Object.freeze([
   'revenue-metric-definition',
   'time-series-observations',
   'metric-observations',
+  OPERATING_METRIC_SIGNAL,
 ]);
 export const SOURCE_COVERAGE_SCAN_PASSES = Object.freeze([
   'geometry',
@@ -22,6 +24,7 @@ export const SOURCE_COVERAGE_SCAN_PASSES = Object.freeze([
 ]);
 export const SOURCE_OBJECT_CLASSES = Object.freeze([
   'financial-value',
+  'operating-metric',
   'metric-observation',
   'structural-flow',
   'label-or-annotation',
@@ -84,7 +87,7 @@ const UNIT_MULTIPLIERS = Object.freeze({ K: 1e3, M: 1e6, B: 1e9, T: 1e12 });
 const ADAPTER_SIGNATURES = Object.freeze({
   'metric-observation': Object.freeze({
     required: Object.freeze(['metric-observations']),
-    forbidden: Object.freeze(['income-statement-values', 'sankey-flow-topology', 'revenue-metric-definition', 'time-series-observations']),
+    forbidden: Object.freeze(['income-statement-values', 'sankey-flow-topology', 'revenue-metric-definition', 'time-series-observations', OPERATING_METRIC_SIGNAL]),
   }),
   'income-statement': Object.freeze({
     required: Object.freeze(['income-statement-values', 'sankey-flow-topology']),
@@ -92,7 +95,7 @@ const ADAPTER_SIGNATURES = Object.freeze({
   }),
   'revenue-metric': Object.freeze({
     required: Object.freeze(['revenue-metric-definition', 'time-series-observations']),
-    forbidden: Object.freeze(['income-statement-values', 'sankey-flow-topology', 'metric-observations']),
+    forbidden: Object.freeze(['income-statement-values', 'sankey-flow-topology', 'metric-observations', OPERATING_METRIC_SIGNAL]),
   }),
 });
 
@@ -266,6 +269,10 @@ function nodeObjects(objects) {
 }
 
 function requiredRolesFor(raw, adapter) {
+  if (raw.sourceClass === 'operating-metric') {
+    invariant(adapter === 'income-statement', 'SOURCE_COVERAGE_CLASS_ADAPTER_MISMATCH', `${raw.sourceId} operating-metric requires the Income Statement Adapter`);
+    return ['data', 'render'];
+  }
   if (raw.sourceClass === 'financial-value') {
     invariant(adapter === 'income-statement', 'SOURCE_COVERAGE_CLASS_ADAPTER_MISMATCH', `${raw.sourceId} financial-value requires the Income Statement Adapter`);
     return ['data', 'render'];
@@ -628,8 +635,18 @@ function normalizeCoverageItem(raw, index, context) {
   const valueBearing = ['financial-value', 'metric-observation'].includes(raw.sourceClass);
   const amount = valueBearing ? normalizeAmount(raw.amount, raw.sourceId) : null;
   invariant(valueBearing || raw.amount == null, 'SOURCE_COVERAGE_VALUE_CLASS_INVALID', `${raw.sourceId} amount requires a value-bearing sourceClass`);
-  const ssotRef = valueBearing ? normalizeSsotRef(raw.ssotRef, raw.sourceId, context.adapter) : null;
-  invariant(valueBearing || raw.ssotRef == null, 'SOURCE_COVERAGE_SSOT_REF_INVALID', `${raw.sourceId} ssotRef requires a value-bearing sourceClass`);
+  const operating = raw.sourceClass === 'operating-metric';
+  const observation = operating ? normalizeOperatingObservation(raw.observation) : null;
+  invariant(operating || raw.observation == null, 'SOURCE_COVERAGE_VALUE_CLASS_INVALID', `${raw.sourceId} observation requires operating-metric`);
+  if (operating) {
+    invariant(raw.ssotRef?.family === 'income-statement' && raw.ssotRef.path === 'operatingMetrics' && STABLE_ID_RE.test(raw.ssotRef.id || ''), 'SOURCE_COVERAGE_SSOT_REF_INVALID', `${raw.sourceId} needs an operatingMetrics SSOT reference`);
+    const renders = objects.flatMap((object) => object.mapping.filter((mapping) => mapping.role === 'render'));
+    const data = objects.flatMap((object) => object.mapping.filter((mapping) => mapping.role === 'data'));
+    invariant(renders.length === 1 && renders[0].target === `operatingMetrics.${raw.ssotRef.id}` && data.length === 1 && data[0].target === `incomeStatement.operatingMetrics.${raw.ssotRef.id}` && raw.face == null, 'SOURCE_COVERAGE_OPERATING_MAPPING_INVALID', `${raw.sourceId} must bind one supplemental metric, without a Sankey face`);
+    invariant(typeof raw.quote === 'string' && raw.quote.includes(raw.sourceLabel) && raw.quote.includes(observation.literal), 'SOURCE_COVERAGE_OPERATING_QUOTE_REQUIRED', `${raw.sourceId} must retain its Source quote`);
+  }
+  const ssotRef = operating ? { family: 'income-statement', path: 'operatingMetrics', id: raw.ssotRef.id } : valueBearing ? normalizeSsotRef(raw.ssotRef, raw.sourceId, context.adapter) : null;
+  invariant(valueBearing || operating || raw.ssotRef == null, 'SOURCE_COVERAGE_SSOT_REF_INVALID', `${raw.sourceId} ssotRef requires a value-bearing sourceClass`);
   const face = normalizeFace(raw.face, { sourceId: raw.sourceId, source: context.source, objects });
   // T22: an Other that carries an amount is a data metric — never an
   // annotation — and every semantic node has an observed painted face.
@@ -672,6 +689,7 @@ function normalizeCoverageItem(raw, index, context) {
     ...(raw.mappingRole ? { mappingRole: raw.mappingRole } : {}),
     ...(raw.residualKind ? { residualKind: raw.residualKind } : {}),
     ...(amount ? { amount, ssotRef } : {}),
+    ...(observation ? { observation, ssotRef, quote: raw.quote } : {}),
     ...(face ? { face } : {}),
     nodeTargets: targets,
     metricTargets: viewMetricTargets,
@@ -705,6 +723,7 @@ export function createSourceCoverage(input, context = {}) {
     .map((item, index) => normalizeCoverageItem(item, index, { adapter, objectById, source }))
     .sort((left, right) => left.sourceId.localeCompare(right.sourceId));
   const sourceIds = new Set();
+  invariant(classification.signals.includes(OPERATING_METRIC_SIGNAL) === items.some((item) => item.observation), 'SOURCE_COVERAGE_OPERATING_SIGNAL_MISMATCH', 'Supplemental operating metric coverage must match the full-Source Type Gate signal');
   const inventoryOwners = new Map();
   for (const item of items) {
     invariant(!sourceIds.has(item.sourceId), 'SOURCE_COVERAGE_ITEM_DUPLICATE', `Source Coverage item appears more than once: ${item.sourceId}`);

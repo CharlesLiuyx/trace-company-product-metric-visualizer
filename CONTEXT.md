@@ -9,8 +9,8 @@ New input uses `docs/asset-workflow.md`: a PNG or UTF-8 text Source, one facts
 file, an isolated Build, generated review records, atomic local publication,
 and an optional release from that published digest. The root `index.html` is the
 stable local review entry: it discovers the local HTTP workbench, where the default
-view combines prepared drafts and current project data in one tab-pinned candidate.
-Next/previous navigates its fixed member list; each Build retains its own review
+view combines prepared drafts and current project data in one complete candidate that automatically follows successful updates.
+Next/previous navigates the displayed member list; an explicit pause freezes the tab; each Build retains its own review
 binding. Individual Build/transport views remain available for inspection. Session owner/generation fences
 writers; no Git worktree is needed. A reviewed Git transport uses a shared write
 mutex, exact paths, a private index and a recovery journal. The operational owner
@@ -127,8 +127,10 @@ presentation boundary, and zoom is the inspection path.
 
 Architecture vocabulary is **Module**, **Interface**, **Implementation**,
 **Depth**, **Deep/Shallow**, **Seam**, **Adapter**, **Leverage**, and
-**Locality**. The two current input-type Adapters are Income Statement and
-Revenue Metric.
+**Locality**. The current input-type Adapters are Income Statement, Revenue Metric and
+Metric Observation. Income Statement may include typed supplemental
+`operatingMetrics` (ARR, retention, counts); these keep their own units and
+comparisons and do not enter accounting sums or Sankey flow geometry.
 
 The **CI Verification Plan Module** derives a conservative check set from a
 Git diff using the same `ChangeImpact` language. Its Interface returns fast,

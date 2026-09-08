@@ -175,6 +175,7 @@
       tableTax: 'Tax',
       tableNetProfit: 'Net profit',
       tableSourceImage: 'Source image',
+      tableOperatingMetrics: 'Operating metrics',
       tableMetric: 'Metric',
       tableDate: 'Date',
       tableAnnualizedRevenue: 'Annualized revenue',
@@ -344,6 +345,7 @@
       tableTax: '税费',
       tableNetProfit: '净利润',
       tableSourceImage: '来源图片',
+      tableOperatingMetrics: '经营指标',
       tableMetric: '指标',
       tableDate: '日期',
       tableAnnualizedRevenue: '年化收入',
@@ -599,6 +601,7 @@
     'otherIncome', 'otherExpenses', 'operatingOtherIncome', 'operatingOtherExpenses',
     'profit', 'gross', 'operating', 'net', 'items', 'children', 'breakdowns',
     'paymentNetwork', 'grossItems', 'rebates',
+    'operatingMetrics',
   ]);
   const REVENUE_METRIC_OVERLAY_KEYS = new Set([
     'displayName', 'period', 'periodNote', 'definition', 'lineage', 'conditions', 'observations',
@@ -3742,6 +3745,7 @@
     localizeFinancialItem(out.costs.tax, code);
     (out.otherIncome?.items || []).forEach((item) => localizeFinancialItem(item, code));
     (out.otherExpenses?.items || []).forEach((item) => localizeFinancialItem(item, code));
+    (out.operatingMetrics || []).forEach((item) => localizeFinancialItem(item, code));
     Object.keys(out.profit || {}).forEach((key) => localizeFinancialItem(out.profit[key], code));
     mergeFinancialOverlay(out, record.i18n?.[code]);
     return out;

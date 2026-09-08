@@ -11,12 +11,12 @@
 1. 在任意 Session 指定 `input/pending/` 的一份或多份文件。执行者先按
    [输入流程](asset-workflow.md) 完成 Type Gate，再使用 `record:workflow start`。
    `start` 返回 Build、workspace、Session owner 和 generation，后续命令保存并携带这些值。
-2. 运行一次 `pnpm dev`，打开根目录 `index.html` 或 <http://127.0.0.1:8000/>。
+2. 运行一次 `pnpm dev`（不同 Session 或端口请求自动复用同项目已有服务），打开根目录 `index.html` 或 <http://127.0.0.1:8000/>。
    文件入口会发现同一项目的服务并进入工作台；服务未运行时仍能离线查看。
    默认进入统一验收：已准备的草稿与项目现有数据在同一个公司/期间列表中查看。
    顶部“上一项 / 下一项”依次定位，指定任务使用 `/?review=<build-id>#<key>`，
    无需在左侧切换十个环境。执行者应提供这个统一入口及当前 key。
-3. 在工作台审阅固定候选，在原 Session 明确确认。执行者把详情 `displayed` 中
+3. 在工作台审阅当前显示的候选，在原 Session 明确确认。执行者把详情 `displayed` 中
    对应 `members[].buildId` 的 `reviewToken` 和这份候选的 `id`（作为 `previewId`）
    放入原有人类审阅输入，继续
    finish、baseline、seal、Publication；无需再次询问是否执行已授权的本地发布。
@@ -29,7 +29,7 @@
 
 | 视图 | 行为 | 审阅含义 |
 | --- | --- | --- |
-| 本机验收（默认） | 项目当前应用与数据，加上所有成功 prepare 的普通草稿，以各自不可变 base 做三方合并；在私有临时目录重建注册和 Pages 产物 | 一个公司/期间列表；上一项 / 下一项只改数据选择，不换环境。URL 固定整份 candidate 和成员列表；新候选仅提示，点击“载入更新”后切换 |
+| 本机验收（默认） | 项目当前应用与数据，加上所有成功 prepare 的普通草稿，以各自不可变 base 做三方合并；在私有临时目录重建注册和 Pages 产物 | 一个公司/期间列表；上一项 / 下一项只改数据选择，不换环境。默认自动载入最新成功 candidate，保留当前公司、期间、语言、主题、视图和滚动位置；URL 记录所载入候选 |
 | 线上对照 | 读取生产清单，并核对同一 key 是否存在 | 不存在时显示“尚未上线”；读取失败显示未知或过期 |
 | 更多 → 开发 · 自动更新 | 统一视图自动切换至最新成功的汇总版本；单项排查使用该 workspace 源文件自动刷新 | 适合快速调整，保留当前 hash、语言、主题、视图和滚动位置 |
 | 更多 → 单项排查 | 可查看项目工作树、历史 Build 或 Git 集成候选；兼容 `/?source=<build-id>` / `/?source=<transport-id>` | 故障定位及独立集成审阅；点击“本机验收”回到统一页面 |
@@ -38,7 +38,7 @@
 不修改草稿、公共数据、Publication pointer 或 Build 状态。只纳入成功公布的 prepare
 记录，历史未公布 Build 不自动加入。多个草稿的同一记录不同字段可按已有 typed SSOT
 规则合并；同字段冲突、重复 key、删除或缺失基线阻止新候选，保留原候选并显示错误。
-队列及每项的待验收状态也固定在所见候选中，刷新页面不会将新成员塞进旧候选。
+队列及每项的待验收状态绑定所见候选；新成员随完整新候选自动进入页面。二次修改已经准备的草稿也会自动重建，不要求操作员再 prepare、点击更新或推送。更多 → 暂停自动更新（`follow=0`）仅供主动对照旧版本；恢复自动更新后立即跟进最新成功候选。自动更新不产生人工接受，验收仍引用实际显示版本的 `displayed.id` 与对应 reviewToken。
 
 候选 `members` 分别绑定每个 Build 的 sourceDigest 与 reviewToken。只有其当前检查
 仍然有效，且汇总后该 Build 的语义数据、显示时间、应用代码与已有资产仍一致，才给出
@@ -51,8 +51,10 @@
 执行 `review` 时必须引用对应 previewId，过期候选不能通过。
 Git 集成候选还执行 `check`、`build:site` 和 `verify:site`。
 
-保存事件合并 500 ms 后开始重建；工作台最多同时构建 2 个候选。失败保留上次成功结果，
-明确标示过期。CI 和生产状态最多每 30 秒刷新；工作台关闭后停止这些查询。
+保存事件合并 500 ms 后开始重建；工作台最多同时构建 2 个候选。先比较实际输入摘要，相同内容的重写不重建；工作报告生成不触发汇总。失败保留上次成功结果，
+明确标示过期；后续保存成功后自动恢复。草稿文件以有并发上限的读取计算摘要，只有文件身份、大小、mtime 与 ctime 均一致才复用摘要；新增、删除、重命名仍重新枚举。该缓存仅用于预览，正式审阅与发布继续独立校验原始字节。验收绑定先比较应用、资产和语义贡献，再对可绑定项执行完整检查；独立 Build 检查最多并发 4 项。CI 和生产状态最多每 30 秒刷新，线上数据查询在后台进行，同一请求合并，不阻塞本机操作；工作台关闭后停止这些查询。页面事件合并推送，折叠的版本详情按需生成；工作台页面模板变化也自动重新载入。
+激活预览前按实际源文件摘要、草稿摘要和成员列表核对新鲜度；审阅报告保存或内容相同的
+文件重写不会仅因触发文件事件而作废候选。实际数据或成员变化仍会阻止过期候选激活。
 打开工作台不授予浏览器写盘审批、提交或推送权限，`/__trace/*` 的写请求会被拒绝。
 
 ## Session 认领、转交与恢复
@@ -137,7 +139,7 @@ pnpm 版本以 packageManager 为准，依赖以锁文件为准。
 `pnpm verify:site -- --site <directory>` 在对应源 workspace 中校验该输出。
 
 `pnpm check` 覆盖并发锁、所有权、合并、Git 恢复与工作台 HTTP 协议；
-`pnpm verify:workbench` 用 Chromium 检查文件入口、双标签页、候选固定、失败保留、Dev 刷新、
+`pnpm verify:workbench` 用 Chromium 检查文件入口、双标签页、连续修改自动更新、主动暂停、选择与设置保留、失败恢复、Dev 刷新、
 未上线状态和移动布局。`verify:app`、`verify:site`、render regression 与 standalone
 继续承担各自原有的交互、生产加载、图形与独立文件门槛。
 
@@ -167,3 +169,14 @@ CI 仍在 fresh checkout 独立执行，从最近成功 main 祖先覆盖所有�
 全部处理与交付完成后执行 `pnpm clean:artifacts -- --completed`，连同历史工作副本、
 本机发布树和选择指针一起清理。根文件入口回到项目正式数据。详见
 [artifact-retention.md](artifact-retention.md)。
+
+## 未验收草稿的接收记录恢复
+
+若旧利润表接收记录缺少后来支持的经营指标信号，可执行
+`record:workflow recover-intake <build-id> --facts <facts.json> --session <owner> --generation <generation>`。
+仅允许历史始终处于 INTAKED / AUTHORED、从未验收的同类利润表增加 `supplemental-operating-metrics`；不得更换 Source、key 或 Adapter。
+操作核对 owner/generation 和 processing 字节，创建带新分类的后继 Build，保留原始接收记录。
+原 Build 的 `successor.json` 提交执行权交接，此后原 Build 拒绝写入；来源不移动。
+原草稿退出新的统一审阅候选。后继从当前正式基线开始；执行者可迁入仍适用的数据贡献，
+但旧审阅包、证据和冻结记录不能移作新 Build 的接受依据，必须重新准备和检查。
+中断时用相同参数重试，pending journal 保留后继 ID，避免重复创建。
