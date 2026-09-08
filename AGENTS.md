@@ -106,6 +106,9 @@ already exists.
 - When adding a metric family or SSOT, backfill this file and
   `docs/trace-specification.zh-CN.md`.
 
+
+Income Statement records may carry supplemental `operatingMetrics` (ARR, retention, customer counts). The full-Source Type Gate records `supplemental-operating-metrics`; Source Coverage uses `operating-metric` with exact decimal/unit/currency/comparison and native Source anchors. These values are separate from accounting sums and Sankey flow metrics, and appear in typed SVG cards plus Table/CSV. Field and verification ownership: `data/schema.md`, `scripts/lib/operating-metrics.mjs`.
+
 ## Commands
 
 Install once; the d3/standalone verifiers render in Chromium:
@@ -114,7 +117,7 @@ Install once; the d3/standalone verifiers render in Chromium:
 
 | command | purpose |
 | --- | --- |
-| `pnpm dev` | local review workbench on port 8000 (Dev / pinned Pages preview / production) |
+| `pnpm dev` | local review workbench on port 8000 (Dev / automatically updated Pages preview / production) |
 | `pnpm plan:ci -- --base <sha> --head <sha>` | classify a Git diff into the conservative CI verification plan; missing/unknown executable impact falls back to the full browser suite |
 | `pnpm check` | fast aggregate gate (two bounded workers, one native parser process): repo-wide JS syntax, unit tests, pending guard, architecture/app-global contracts, manifest and render-baseline structure freshness, SSOT parity, i18n coverage, metadata freshness (seconds, no rendering); active files in `input/processing/` do not fail this global gate; reproducible on fresh checkouts and run by CI |
 | `pnpm test` | node:test unit tests in `tests/` — Source claim/relocation, engine layout math + label passes, trace-domain parsing/FX, i18n translation rules, png-diff metrics, script-source parsing, dataset registry |
@@ -258,8 +261,8 @@ script, so you do not need to reinstall them. Non-obvious caveats for this VM:
 Use the root `index.html` as the operator’s stable entry. Start `pnpm dev` once;
 the file entry discovers the same-project workbench. The default unified review
 combines prepared drafts and project data in one company/period view; next/previous
-navigates a fixed candidate member list. Provide `/?review=<build-id>#<key>` for
-the current task. Each browser tab pins the complete candidate; never infer
+navigates the displayed candidate member list. Successful updates, including subsequent draft edits, load automatically and preserve selection/preferences; More can explicitly pause updates. Provide `/?review=<build-id>#<key>` for
+the current task. Each browser tab records the complete displayed candidate; never infer
 acceptance from another tab, navigating items, or an automatic rebuild.
 
 Multiple Codex / Claude Code Sessions use this same checkout without worktrees.

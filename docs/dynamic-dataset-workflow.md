@@ -52,6 +52,12 @@ Inspect the complete native Source before intake and pass one signature:
 | `income-statement` | `income-statement-values`, `sankey-flow-topology` | one-period financial values plus visible Sankey flow topology; standard, `-by-segment`, and `-by-bu` are variants |
 | `revenue-metric` | `revenue-metric-definition`, `time-series-observations` | one defined metric observed across dates in a table/chart, without authored Source Sankey topology |
 
+An Income Statement with supplemental operating cards (ARR, retention, customer
+counts) also records `supplemental-operating-metrics`. This is a supported
+Income Statement variant; coverage must contain matching `operating-metric`
+observations and the typed `operatingMetrics` SSOT/View contract in
+`data/schema.md`. The supplemental signal alone selects no Adapter.
+
 Company, title, “revenue,” or one period token are not classifiers. Mixed,
 incomplete, or contradictory signals stop before intake. Define a new Adapter
 first; a new metric/SSOT also updates AGENTS, its mirror, and the Trace spec.
@@ -62,6 +68,7 @@ Every independent Source observation uses one `source:*` ID and one class:
 
 | class | required authored coverage |
 | --- | --- |
+| `operating-metric` | supplemental Income Statement `operatingMetrics` data and dedicated View value text, exact decimal/unit/currency/comparison, quote and native anchor |
 | `financial-value` | Income Statement data + exactly one Adapter node or non-node metric, exact amount, typed SSOT reference |
 | `metric-observation` | Revenue Metric data mapping, exact amount, dated SSOT reference |
 | `structural-flow` | Income Statement render mapping |

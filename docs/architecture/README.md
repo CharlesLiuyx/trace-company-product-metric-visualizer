@@ -127,6 +127,11 @@ details. Its data readiness, complete Table/CSV behavior, offline compatibility,
 and deployment retention are owned by [runtime-data.md](runtime-data.md).
 This read projection does not change the dataset lifecycle or canonical storage.
 
+Income Statement also supports supplemental operating cards through typed
+`operatingMetrics`; they retain their own units and comparisons without
+entering financial sums or creating Sankey faces. The lifecycle owner describes
+the optional Source signal and complete reconciliation.
+
 New Sources use [asset-workflow.md](../asset-workflow.md). PNG, TXT and Markdown
 are supported; the media format is separate from Income Statement, Revenue
 Metric and the new generic Metric Observation Adapter. The latter has exact
@@ -144,7 +149,10 @@ Readers pin the digest before fetching HTML and assets. The working tree is
 still available for code development and legacy direct-edit data; it is not
 claimed to become atomic through a series of file copies.
 
-The root file viewer embeds one selected complete draft or published tree at a time.
+The root file entry discovers the local workbench, which automatically follows each
+latest successful complete review candidate. An explicit pause freezes a tab; each
+displayed candidate retains its immutable identity and per-Build review bindings.
+Without the workbench, the file viewer embeds one selected complete draft or published tree at a time.
 A machine-local selection is derived by preparation/publication and polled by the
 file entry; it neither merges data into the development worktree nor changes the
 canonical pointer/evidence contract. Drafts are visibly pending human review.

@@ -15,7 +15,7 @@ header strong{font-size:13px;flex:none}button,select{font:inherit;line-height:20
 </style>
 </head>
 <body>
-<header><strong>Trace<span class="brandSuffix"> · 统一验收</span></strong><div id="headerStatus"><span id="status" role="status">正在汇总本机内容…</span><span id="reviewState"></span><span id="notice" hidden><span>已有更新</span><button id="useLatest">载入更新</button></span></div><button id="localReview" aria-pressed="true">本机验收</button><button data-mode="production">线上对照</button><details id="more"><summary>更多</summary><div id="morePanel"><button data-mode="dev">开发 · 自动更新</button><button id="openProduction">打开线上</button><label for="sourceDetail">单项排查</label><select id="sourceDetail"><option value="review">全部待验收内容</option><option value="project">项目工作树</option></select><p>确认意见直接告诉当前 Codex / Claude Code 任务。当前验收版本会保持不变，点击“载入更新”后才切换。</p></div></details></header>
+<header><strong>Trace<span class="brandSuffix"> · 统一验收</span></strong><div id="headerStatus"><span id="status" role="status">正在汇总本机内容…</span><span id="reviewState"></span><span id="notice" hidden><span>已有更新</span><button id="useLatest">载入更新</button></span></div><button id="localReview" aria-pressed="true">本机验收</button><button data-mode="production">线上对照</button><details id="more"><summary>更多</summary><div id="morePanel"><button id="freezeReview" aria-pressed="false">暂停自动更新</button><button data-mode="dev">开发 · 自动更新</button><button id="openProduction">打开线上</button><label for="sourceDetail">单项排查</label><select id="sourceDetail"><option value="review">全部待验收内容</option><option value="project">项目工作树</option></select><p>确认意见直接告诉当前 Codex / Claude Code 任务。本机验收自动跟进最新成功版本，保留当前公司、期间和显示设置。需要对照旧版本时，可暂停自动更新。</p></div></details></header>
 <nav id="reviewBar" aria-label="依次验收"><label for="reviewItem" id="queueSummary">待验收内容</label><button id="previous" disabled>上一项</button><select id="reviewItem" aria-label="待验收内容" disabled></select><button id="next" disabled>下一项</button><span id="position"></span></nav>
 <main><div id="empty">正在生成统一验收页面，首次构建需要一点时间。</div><iframe id="viewer" title="Trace 统一验收内容" hidden></iframe></main>
 <details id="versions"><summary>版本与检查详情</summary><div id="remoteStatus"></div><pre id="details"></pre></details>
@@ -24,10 +24,12 @@ header strong{font-size:13px;flex:none}button,select{font:inherit;line-height:20
   'use strict';
   const $ = (selector) => document.querySelector(selector);
   const params = new URLSearchParams(location.search);
+  const shellDigest = '__TRACE_SHELL_DIGEST__';
   const production = 'https://charlesliuyx.github.io/trace-company-product-metric-visualizer/';
   let source = params.get('source') || 'review', mode = params.get('mode') || 'preview';
   let pinned = /^[a-f0-9-]+$/.test(params.get('candidate') || '') ? params.get('candidate') : null;
-  let viewPreferences = null;
+  let viewPreferences = null, shownCandidate = null;
+  let follow = params.get('follow') !== '0';
   let state = null, lastFrame = '', activeHash = location.hash, devRevision = -1;
   let requestId = 0, controller = null, busy = false, rerun = false;
   if (!['dev', 'preview', 'production'].includes(mode)) mode = 'preview';
@@ -35,15 +37,17 @@ header strong{font-size:13px;flex:none}button,select{font:inherit;line-height:20
     const url = new URL(location.href);
     url.searchParams.set('source', source); url.searchParams.set('mode', mode);
     if (pinned) url.searchParams.set('candidate', pinned); else url.searchParams.delete('candidate');
-    url.hash = activeHash; history.replaceState(null, '', url);
+    if (follow) url.searchParams.delete('follow'); else url.searchParams.set('follow', '0');
+    url.hash = activeHash; if (url.href !== location.href) history.replaceState(null, '', url);
   }
   function selectedHash() {
     try { if (lastFrame && !$('#viewer').hidden && $('#viewer').contentWindow.location.href !== 'about:blank') { activeHash = $('#viewer').contentWindow.location.hash; viewPreferences = $('#viewer').contentWindow.TraceViewSession?.capture() || viewPreferences; } } catch { /* Cross-origin production. */ }
     return activeHash;
   }
-  function displayedCandidate() {
+  function candidateForPin() {
     return state?.pinnedCandidate?.id === pinned ? state.pinnedCandidate : state?.preview.candidate?.id === pinned ? state.preview.candidate : null;
   }
+  function displayedCandidate() { return shownCandidate; }
   function queue() {
     const candidate = displayedCandidate();
     if (source === 'review') return candidate?.members || [];
@@ -73,14 +77,16 @@ header strong{font-size:13px;flex:none}button,select{font:inherit;line-height:20
     selectedHash();
     try { scroll = $('#viewer').contentWindow.scrollY; offsets = [...$('#viewer').contentWindow.document.querySelectorAll('[id]')].filter((element) => element.scrollTop || element.scrollLeft).map((element) => ({ id: element.id, top: element.scrollTop, left: element.scrollLeft })); } catch { /* Production frame. */ }
     lastFrame = url;
+    const loadingCandidate = candidateForPin();
     $('#viewer').onload = () => {
       try {
         const child = $('#viewer').contentWindow;
+        shownCandidate = loadingCandidate;
         const selectionChanged = () => { selectedHash(); route(); renderQueue(); refresh(); };
         child.addEventListener('hashchange', selectionChanged);
         child.addEventListener('trace:selectionchange', selectionChanged);
-        if (mode === 'dev') { child.scrollTo(0, scroll); for (const saved of offsets) { const element = child.document.getElementById(saved.id); if (element) element.scrollTo(saved.left, saved.top); } }
-        selectedHash(); route(); renderQueue();
+        if (mode !== 'production') { child.scrollTo(0, scroll); for (const saved of offsets) { const element = child.document.getElementById(saved.id); if (element) element.scrollTo(saved.left, saved.top); } }
+        selectedHash(); route(); renderQueue(); renderDetails();
       } catch { /* Production frame. */ }
     };
     const target = new URL(url, location.href);
@@ -101,7 +107,7 @@ header strong{font-size:13px;flex:none}button,select{font:inherit;line-height:20
     document.querySelectorAll('[data-mode]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.mode === mode)));
     $('#localReview').setAttribute('aria-pressed', String(mode === 'preview' && source === 'review'));
     $('#status').dataset.error = String(p.status === 'failed');
-    let message = { queued: '修改已保存 · 等待更新', building: '正在汇总更新 · 保留当前验收版本', failed: '汇总失败 · 当前页面可能已过期', ready: '统一验收 · 版本已就绪' }[p.status] || p.status;
+    let message = { queued: '修改已保存 · 等待更新', building: '正在汇总更新 · 保留当前验收版本', failed: '汇总失败 · 当前页面可能已过期', ready: follow ? '统一验收 · 已自动更新' : '统一验收 · 已暂停自动更新' }[p.status] || p.status;
     if (mode === 'dev' && source !== 'review') {
       message = '开发视图 · 保存后自动刷新';
       if (devRevision !== p.revision || !lastFrame.includes('/__trace/dev/')) { devRevision = p.revision; frame('/__trace/dev/' + source + '/index.html?r=' + devRevision); }
@@ -116,9 +122,9 @@ header strong{font-size:13px;flex:none}button,select{font:inherit;line-height:20
       const requestedKey = state.tasks.find((item) => item.buildId === requested)?.key;
       const needsRequested = source === 'review' && requested && (!requestedKey || !activeHash || activeHash === '#' + requestedKey);
       const includesRequested = (value) => !needsRequested || value?.members?.some((item) => item.buildId === requested);
-      if ((!pinned || mode === 'dev') && candidate && includesRequested(candidate)) { pinned = candidate.id; route(); }
-      if (pinned && includesRequested(displayedCandidate())) frame('/__trace/previews/' + source + '/' + pinned + '/trace-company-product-metric-visualizer/');
-      else if (needsRequested) empty('该项尚未加入当前验收版本。准备完成后载入更新，即可在这里查看。');
+      if ((!pinned || mode === 'dev' || source === 'review' && follow) && candidate && includesRequested(candidate)) { pinned = candidate.id; route(); }
+      if (pinned && candidateForPin() && includesRequested(candidateForPin())) frame('/__trace/previews/' + source + '/' + pinned + '/trace-company-product-metric-visualizer/');
+      else if (needsRequested) empty('该项尚未加入当前验收版本。准备完成后会自动显示。');
       else empty(p.error || '正在生成统一验收页面，首次构建需要一点时间。');
       if (source !== 'review' && p.status === 'ready') message = '单项排查 · 点击「本机验收」返回统一页面';
       if (mode === 'dev') message = p.status === 'failed' ? '更新失败 · 保留上次成功版本' : '开发 · 全部本机内容自动更新';
@@ -126,12 +132,17 @@ header strong{font-size:13px;flex:none}button,select{font:inherit;line-height:20
     }
     if (p.status === 'failed' && mode !== 'production') message += ' · ' + p.error;
     $('#status').textContent = message;
-    $('#notice').hidden = !(mode === 'preview' && candidate && pinned !== candidate.id);
+    $('#notice').hidden = !(mode === 'preview' && !(source === 'review' && follow) && candidate && pinned !== candidate.id);
+    $('#freezeReview').textContent = follow ? '暂停自动更新' : '恢复自动更新';
+    $('#freezeReview').setAttribute('aria-pressed', String(!follow));
     const run = state.ci.runs?.find((item) => item.headSha === state.git.head);
     const remoteText = '本机：' + (state.git.dirty ? '含未提交修改' : '已提交') + ' · ' + (state.git.head?.slice(0, 8) || '未知提交') + ' · 线上核查：' + (state.production.checkedAt ? new Date(state.production.checkedAt).toLocaleString() : '尚未成功') + ' · ' + (state.production.status === 'available' ? state.production.release.version.slice(0, 10) : '未知 / 过期');
-    $('#remoteStatus').replaceChildren(document.createTextNode(remoteText + ' · CI：' + (state.ci.status === 'available' ? run ? (run.conclusion || run.status) : '当前提交暂无运行' : '状态不可用') + ' '));
-    const link = document.createElement('a'); link.href = run?.url || 'https://github.com/charlesliuyx/trace-company-product-metric-visualizer/actions'; link.textContent = '查看 Actions'; link.target = '_blank'; link.rel = 'noopener'; $('#remoteStatus').append(link);
-    $('#details').textContent = JSON.stringify({ displayed: displayedCandidate(), selectedKey: activeHash.slice(1), latest: p, git: state.git, ci: state.ci, production: state.production }, null, 2);
+    if ($('#remoteStatus').dataset.signature !== remoteText + JSON.stringify(run) + state.ci.status) {
+      $('#remoteStatus').dataset.signature = remoteText + JSON.stringify(run) + state.ci.status;
+      $('#remoteStatus').replaceChildren(document.createTextNode(remoteText + ' · CI：' + (state.ci.status === 'available' ? run ? (run.conclusion || run.status) : '当前提交暂无运行' : '状态不可用') + ' '));
+      const link = document.createElement('a'); link.href = run?.url || 'https://github.com/charlesliuyx/trace-company-product-metric-visualizer/actions'; link.textContent = '查看 Actions'; link.target = '_blank'; link.rel = 'noopener'; $('#remoteStatus').append(link);
+    }
+    renderDetails();
     const signature = JSON.stringify(state.tasks);
     if ($('#sourceDetail').dataset.signature !== signature) {
       $('#sourceDetail').dataset.signature = signature;
@@ -140,6 +151,12 @@ header strong{font-size:13px;flex:none}button,select{font:inherit;line-height:20
     $('#sourceDetail').value = source;
     renderQueue();
   }
+  function renderDetails() {
+    if (!state || !$('#versions').open) return;
+    const text = JSON.stringify({ displayed: displayedCandidate(), selectedKey: activeHash.slice(1), latest: state.preview, git: state.git, ci: state.ci, production: state.production }, null, 2);
+    if ($('#details').textContent !== text) $('#details').textContent = text;
+  }
+  $('#versions').addEventListener('toggle', renderDetails);
   async function refresh(force = false) {
     if (busy && !force) { rerun = true; return; }
     if (force) controller?.abort();
@@ -151,6 +168,7 @@ header strong{font-size:13px;flex:none}button,select{font:inherit;line-height:20
       const value = await response.json();
       if (id !== requestId) return;
       if (!response.ok) throw new Error(value.error);
+      if (value.shellDigest && shellDigest.startsWith('sha256:') && value.shellDigest !== shellDigest) { selectedHash(); route(); location.reload(); return; }
       if (!activeHash) {
         const task = value.tasks.find((item) => item.buildId === (params.get('review') || source));
         const first = value.preview.candidate?.members?.find((item) => item.pending) || value.preview.candidate?.members?.[0];
@@ -161,18 +179,19 @@ header strong{font-size:13px;flex:none}button,select{font:inherit;line-height:20
     finally { if (id === requestId) { busy = false; if (rerun) { rerun = false; refresh(); } } }
   }
   function changeSource(value) {
-    selectedHash(); source = value; pinned = null; lastFrame = ''; devRevision = -1; state = null;
+    selectedHash(); source = value; pinned = null; shownCandidate = null; lastFrame = ''; devRevision = -1; state = null;
     $('#viewer').src = 'about:blank'; empty('正在载入内容…'); route(); refresh(true);
   }
   document.addEventListener('click', (event) => {
     const tab = event.target.closest('[data-mode]');
     if (tab) { selectedHash(); mode = tab.dataset.mode; $('#more').open = false; route(); render(); refresh(); }
   });
-  $('#localReview').onclick = () => { mode = 'preview'; if (source !== 'review') changeSource('review'); else { route(); render(); refresh(); } };
+  $('#localReview').onclick = () => { mode = 'preview'; follow = true; if (source !== 'review') changeSource('review'); else { route(); render(); refresh(); } };
   $('#sourceDetail').onchange = (event) => { $('#more').open = false; mode = 'preview'; changeSource(event.target.value); };
   $('#reviewItem').onchange = (event) => choose(event.target.value);
   $('#previous').onclick = () => { selectedHash(); const items = queue(), index = items.findIndex((item) => '#' + item.key === activeHash); choose(items[index - 1]?.key); };
   $('#next').onclick = () => { selectedHash(); const items = queue(), index = items.findIndex((item) => '#' + item.key === activeHash); choose(items[index + 1]?.key); };
+  $('#freezeReview').onclick = () => { follow = !follow; $('#more').open = false; route(); render(); refresh(); };
   $('#useLatest').onclick = () => { selectedHash(); pinned = state.preview.candidate.id; route(); render(); refresh(); };
   $('#openProduction').onclick = () => {
     selectedHash(); $('#more').open = false;
@@ -180,7 +199,10 @@ header strong{font-size:13px;flex:none}button,select{font:inherit;line-height:20
     window.open(production + activeHash, '_blank', 'noopener');
   };
   window.addEventListener('hashchange', () => choose(location.hash.slice(1)));
-  const events = new EventSource('/__trace/events'); events.onmessage = () => refresh();
+  let refreshTimer;
+  const events = new EventSource('/__trace/events'); events.onmessage = () => {
+    if (!refreshTimer) refreshTimer = setTimeout(() => { refreshTimer = null; refresh(); }, 80);
+  };
   events.onerror = () => { $('#status').textContent = '本地连接已断开 · 正在重连'; };
   setInterval(() => { if (!document.hidden) refresh(); }, 15000);
   window.addEventListener('focus', () => refresh());

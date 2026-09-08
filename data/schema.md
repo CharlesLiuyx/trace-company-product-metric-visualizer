@@ -279,6 +279,16 @@ is needed. Do not create parallel dataset files per language.
 }
 ```
 
+If the Source stops at operating profit/loss and does not report a net result,
+use `profit.net: { availability: 'not-reported', value: null,
+label: 'Net result not reported', notes: ['Source ends at operating loss.'] }`.
+Do not give this absent result a node `id`, copy operating profit into it, or
+write zero. A nonempty Source explanation is required. The net-result arithmetic
+identity is checked only for reported net values; revenue, gross-profit and
+operating-profit identities still apply. Existing table, CSV, sorting and trend
+numeric paths preserve null as missing data, and Pages details retain the
+availability and explanation. Reported zero remains the numeric value `0`.
+
 Use `operatingOtherIncome` / `operatingOtherExpenses` for source-chart adjustments
 that explicitly enter before operating profit. Use `otherIncome` for non-operating
 gains that add after operating profit on the path to net profit, and
@@ -892,3 +902,55 @@ lives in `CONTEXT.md` and the fidelity acceptance rule lives in
 `verify:ssot` rejects them. Use `showTooltip: false` only as an explicit
 visibility control for a visual-only route—it never changes the share formula.
 Link colour or transparency never changes which relationship is calculated.
+
+## Supplemental operating metrics on an income statement
+
+`operatingMetrics` is an optional array on the pure Income Statement SSOT. It
+retains Source cards such as ARR, retention and customer counts, independently
+of accounting totals, money conversion, Sankey nodes and hover shares. This
+variant records `supplemental-operating-metrics` alongside the two financial
+Type Gate signals. It is not a standalone Adapter or a second Build.
+
+```js
+operatingMetrics: [{
+  id: 'dbnr', label: 'DBNR', value: '119', unit: '%', currency: null,
+  comparison: 'gt', literal: '> 119%', basis: 'unspecified',
+  notes: ['(1pp) Q/Q'], quote: 'DBNR\n> 119%\n(1pp) Q/Q',
+  anchor: { type: 'image-box', box: [702, 1105, 189, 164] },
+}]
+```
+
+Values use exact decimal strings. Units are `K/M/B/T` with an explicit supported
+ISO currency (`USD/EUR/GBP/JPY/CNY/HKD`), or `%/count` with `currency: null`.
+Comparison is explicit: `eq/gt/gte/lt/lte`; literal must carry the same value,
+unit, currency and inequality. Counts are nonnegative integers. A count literal
+may preserve a Source `K/M/B/T` suffix: `value: '112000000', unit: 'count',
+currency: null, literal: '112M'`. Exact decimal arithmetic must reconcile the
+scaled literal to the integer value; a currency prefix or fractional count fails.
+Quotes retain
+the label, literal and all notes; anchors use native Source pixels.
+`basis: "unspecified"` preserves an unstated Source basis.
+
+Source Coverage class `operating-metric` requires `observation` containing the
+five value fields (`value`, `unit`, `currency`, `comparison`, `literal`),
+`quote`, `contentBBox`, and typed
+`ssotRef: { family: "income-statement", path: "operatingMetrics", id }`.
+Its inventory maps once to `incomeStatement.operatingMetrics.<id>` (data) and
+`operatingMetrics.<id>` (render), with `text` and applicable annotation features.
+It cannot map to a financial node or use a node-face observation.
+
+The View Adapter mirrors each item's `id` and five value fields in its own
+`operatingMetrics` array. Its SVG uses exactly one plain
+`<text data-operating-metric="dbnr">&gt; 119%</text>` per metric, in every locale.
+`verify:ssot` validates the exact SSOT/View/literal parity; review preparation
+also rejects missing or duplicated Source coverage and changed quotes/anchors.
+Normal text/annotation fidelity and per-locale visual inspection apply to the
+card and its dedicated value text. Labels and notes localize through the
+financial overlay; values, literals, units, comparisons, quotes and anchors
+cannot be changed by localization.
+
+The statement Table adds an operating-metric column when relevant. CSV includes
+the readable summary and the complete `operating_metrics_json`, preserving
+source-stated dimensions and inequalities. Pages detail projection retains
+these fields; standalone keeps full SSOTs. Historical records without this
+optional array retain their existing semantics and review history.

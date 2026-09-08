@@ -13,6 +13,8 @@ import {
 import { assert, listScripts, readProjectFile, rootDir } from './lib/project.mjs';
 import { loadBrowserData } from './lib/browser-data-loader.mjs';
 import { resolveSourcePath } from './lib/source-lifecycle.mjs';
+import { assertOperatingMetricView } from './lib/operating-metrics.mjs';
+import { isUnreportedNetProfit, validNetProfit } from './lib/net-profit-availability.mjs';
 
 function dataScripts() {
   return registeredDatasetScripts();
@@ -97,6 +99,7 @@ function validateRenderCanvas(dataset, errors) {
 }
 
 function validateRecordShape(record, errors) {
+  assert(validNetProfit(record.profit?.net), `${record.key}: net profit must be finite or explicitly not-reported with null value, no node id, a label and Source explanation`, errors);
   const forbidden = ['nodes', 'links', 'layout', 'render'];
   for (const field of forbidden) {
     assert(record[field] === undefined, `${record.key}: SSOT record must not contain Sankey field "${field}"`, errors);
@@ -144,6 +147,7 @@ function validateCompanyMetadata(records, companies, errors) {
 }
 
 function validateDatasetParity(record, dataset, domain, errors) {
+  try { assertOperatingMetricView(record, dataset); } catch (error) { errors.push(`${record.key}: ${error.message}`); }
   const tolerance = record.roundingTolerance ?? 0.15;
   const nodeById = new Map((dataset.nodes || []).map((node) => [node.id, node]));
   const nonNodeById = new Map();
@@ -363,13 +367,15 @@ function validateArithmetic(record, errors) {
     `${record.key}: operating profit arithmetic`,
     errors
   );
-  assertClose(
-    record.profit.operating.value - taxTotal + otherTotal - otherExpenseTotal,
-    record.profit.net.value,
-    tolerance,
-    `${record.key}: net profit arithmetic`,
-    errors
-  );
+  if (!isUnreportedNetProfit(record.profit.net)) {
+    assertClose(
+      record.profit.operating.value - taxTotal + otherTotal - otherExpenseTotal,
+      record.profit.net.value,
+      tolerance,
+      `${record.key}: net profit arithmetic`,
+      errors
+    );
+  }
 }
 
 function validateCurrencyCoverage({ records, revenueRecords, companies, datasets, domain }, errors) {

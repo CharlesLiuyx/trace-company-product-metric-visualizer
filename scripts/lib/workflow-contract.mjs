@@ -9,6 +9,7 @@ import { VERIFICATION_PLAN_PROTOCOL } from './verification-plan.mjs';
 import { REVIEW_PACKET_PROTOCOL } from './dataset-build-closeout.mjs';
 
 export const WORKFLOW_ACTIONS = Object.freeze({
+  'recover-intake': '为从未验收的利润表草稿补登记经营指标信号，建立后继 Build 并保留原记录',
   'recover-lock': '核对锁 token 与已退出 PID 后恢复操作锁',
   'recover-session': '核对当前 generation 后恢复并更换执行代次',
   session: '取得已释放 Build 的执行权（--session）', 'release-session': '当前 Session 显式释放 Build 执行权',

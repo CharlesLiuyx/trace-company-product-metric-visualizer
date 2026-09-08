@@ -51,6 +51,7 @@ async function fixture(t) {
   for (const dir of ['scripts', 'docs']) await cp(path.join(rootDir, dir), path.join(root, dir), { recursive: true });
   for (const file of ['package.json', 'pnpm-lock.yaml', 'AGENTS.md', 'CONTEXT.md', '.gitignore']) await cp(path.join(rootDir, file), path.join(root, file));
   for (const dir of ['input/pending', 'data', 'src']) await mkdir(path.join(root, dir), { recursive: true });
+  await cp(path.join(rootDir, 'src/trace-domain.js'), path.join(root, 'src/trace-domain.js'));
   await symlink(path.join(rootDir, 'node_modules'), path.join(root, 'node_modules'));
   await writeFile(path.join(root, 'src/runtime.js'), '// fixture runtime\n');
   await writeFile(path.join(root, 'index.html'), '<html><script src="data/metric-observations.js"></script></html>');

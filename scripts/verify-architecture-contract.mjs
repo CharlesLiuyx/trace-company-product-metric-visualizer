@@ -26,6 +26,7 @@ import { validateFidelityRulesDocument } from './lib/fidelity-rules-doc.mjs';
 import { projectPath, rootDir } from './lib/project.mjs';
 import { OBJECT_INVENTORY_PROTOCOL } from './lib/object-inventory.mjs';
 import { NODE_FACE_POLICY_PROTOCOL } from './lib/node-face-policy.mjs';
+import { OPERATING_METRIC_UNITS, OPERATING_METRIC_COMPARISONS } from './lib/operating-metrics.mjs';
 import {
   AUTHORITATIVE_CORRECTION_APPROVAL,
   AUTHORITATIVE_CORRECTION_ISSUES,
@@ -213,6 +214,11 @@ async function main() {
   assert.deepEqual(contract.sourceCoverage.objectClasses, SOURCE_OBJECT_CLASSES, 'Source Coverage object-class drift');
   assert.deepEqual(contract.sourceCoverage.residualKinds, SOURCE_RESIDUAL_KINDS, 'Source Coverage residual-kind drift');
   assert.deepEqual(contract.sourceCoverage.amountUnits, SOURCE_AMOUNT_UNITS, 'Source Coverage amount-unit drift');
+  assert.deepEqual(contract.sourceCoverage.supplementalOperatingMetrics, {
+    ssotPath: 'operatingMetrics', viewPath: 'operatingMetrics', sourceClass: 'operating-metric',
+    units: OPERATING_METRIC_UNITS, comparisons: OPERATING_METRIC_COMPARISONS,
+    participatesInAccountingSums: false, dedicatedVisibleValueText: true,
+  }, 'Supplemental operating metric contract drift');
   assert.deepEqual(
     contract.sourceCoverage.incomeStatementSsotPaths,
     INCOME_STATEMENT_SSOT_PATHS,

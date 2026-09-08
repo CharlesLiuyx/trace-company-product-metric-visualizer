@@ -27,9 +27,10 @@ trends and Sankeys remain available.
 Run `pnpm dev` once, then open the repository's `index.html` or
 <http://127.0.0.1:8000/>. The local workbench combines prepared drafts and project
 data in one review page. Use the company/period selectors or Previous/Next to
-inspect each item, then give your confirmation in the task. Each tab pins the
-complete Pages candidate and its member list, with a separate review binding per
-Build; updates appear only after clicking Load updates. Dev and individual-source
+inspect each item, then give your confirmation in the task. Review tabs automatically load each latest successful
+complete Pages candidate, including subsequent draft edits, while preserving the
+selection and display preferences. More → Pause automatic updates explicitly freezes
+a tab. Each displayed candidate retains a separate review binding per Build. Dev and individual-source
 inspection live under More, with CI/version details collapsed. Several Codex / Claude Code Sessions can process different
 Sources in this same directory using ordinary Build folders, without worktrees.
 

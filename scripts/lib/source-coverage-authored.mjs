@@ -1,4 +1,6 @@
+import { loadClassicScripts } from './vm-browser.mjs';
 import { loadBrowserData } from './browser-data-loader.mjs';
+import { assertOperatingMetricView, sameOperatingObservation } from './operating-metrics.mjs';
 
 const UNIT_MULTIPLIERS = Object.freeze({ K: 1e3, M: 1e6, B: 1e9, T: 1e12 });
 
@@ -133,7 +135,7 @@ function incomePathValue(record, ref) {
 }
 
 export function assertSourceCoverageAuthoredValues(sourceCoverage, options = {}) {
-  const valueItems = (sourceCoverage?.items || []).filter((item) => item.amount);
+  const valueItems = (sourceCoverage?.items || []).filter((item) => item.amount || item.observation);
   if (valueItems.length === 0) return { checked: 0 };
   const loaded = options.loadedData || (options.loadBrowserData || loadBrowserData)();
   if (sourceCoverage.adapter === 'metric-observation') {
@@ -146,17 +148,31 @@ export function assertSourceCoverageAuthoredValues(sourceCoverage, options = {})
     return { checked: valueItems.length };
   }
   if (sourceCoverage.adapter === 'income-statement') {
+    // Generic/text workflows have no chart runtime. Load this dependency only
+    // when reconciling financial flows, not when importing the shared module.
+    const { normalizeSankeyMetricValue } = loaded.domain || loadClassicScripts(['src/trace-domain.js']).TraceDomain;
     const record = (loaded.records || []).find((item) => item.key === sourceCoverage.datasetKey);
     const dataset = (loaded.datasets || []).find((item) => item.key === sourceCoverage.datasetKey);
     if (!record || !dataset) {
       throw coverageError('SOURCE_COVERAGE_AUTHORED_RECORD_MISSING', `Cannot load Income Statement SSOT and View Adapter for ${sourceCoverage.datasetKey}`);
     }
     const nodes = new Map((dataset.nodes || []).map((node) => [node.id, node]));
+    const operating = assertOperatingMetricView(record, dataset);
+    const observations = valueItems.filter((item) => item.observation);
+    if (operating.length !== observations.length) throw coverageError('SOURCE_COVERAGE_OPERATING_MISSING', 'Every supplemental SSOT metric needs exactly one Source observation');
+    for (const metric of operating) {
+      const matches = observations.filter((item) => item.ssotRef.id === metric.id);
+      const item = matches[0];
+      if (matches.length !== 1 || !sameOperatingObservation(metric, item.observation) || metric.quote !== item.quote || metric.label !== item.sourceLabel || JSON.stringify(metric.anchor.box) !== JSON.stringify(item.contentBBox)) throw coverageError('SOURCE_COVERAGE_SSOT_VALUE_MISMATCH', `Supplemental observation ${metric.id} differs from its Source value or anchor`);
+    }
     const nonNodeMetrics = new Map((dataset.nonNodeMetrics || []).map((metric) => [metric.id, metric]));
     for (const item of valueItems) {
+      if (item.observation) continue;
       const expected = convertAmount(item.amount, record.unit, item.sourceId);
       const actualSsot = incomePathValue(record, item.ssotRef);
-      if (!equalAmount(actualSsot, expected)) {
+      const mappedMetric = nodes.get((item.metricTargets || item.nodeTargets)[0]) || nonNodeMetrics.get((item.metricTargets || item.nodeTargets)[0]);
+      const type = mappedMetric?.type;
+      if (!equalAmount(normalizeSankeyMetricValue(actualSsot, type), normalizeSankeyMetricValue(expected, type))) {
         throw coverageError('SOURCE_COVERAGE_SSOT_VALUE_MISMATCH', `${item.sourceId} Source amount ${item.amount.value}${item.amount.unit} does not match SSOT ${item.ssotRef.path}/${item.ssotRef.id}: ${actualSsot}`);
       }
       assertRecordDisplayPrecision(record, expected, item.sourceId);
@@ -164,7 +180,7 @@ export function assertSourceCoverageAuthoredValues(sourceCoverage, options = {})
         const node = nodes.get(metricId);
         const nonNodeMetric = nonNodeMetrics.get(metricId);
         const adapterValue = node?.value ?? nonNodeMetric?.value;
-        if (!equalAmount(adapterValue, expected)) {
+        if (!equalAmount(normalizeSankeyMetricValue(adapterValue, type), normalizeSankeyMetricValue(expected, type))) {
           throw coverageError('SOURCE_COVERAGE_ADAPTER_VALUE_MISMATCH', `${item.sourceId} Source amount ${item.amount.value}${item.amount.unit} does not match Adapter metric ${metricId}: ${adapterValue}`);
         }
         if (node) assertNodeDisplayPrecision(dataset, node, expected, record.unit, item.sourceId);

@@ -136,7 +136,7 @@ async function activeBuildForKey(key, buildRoot = BUILD_ROOT, projectRoot = root
   for (const entry of entries) {
     if (!entry.isDirectory()) continue;
     const manifestPath = path.join(buildRoot, entry.name, 'manifest.json');
-    if (!existsSync(manifestPath)) continue;
+    if (!existsSync(manifestPath) || existsSync(path.join(buildRoot, entry.name, 'successor.json'))) continue;
     try {
       const manifest = JSON.parse(await readFile(manifestPath, 'utf8'));
       if (manifest.key === key && manifest.state !== 'ABANDONED') return { manifest, manifestPath };

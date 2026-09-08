@@ -28,7 +28,11 @@ export async function main(args = process.argv.slice(2)) {
   if (input.generation) process.env.TRACE_SESSION_GENERATION = input.generation;
   if (!Object.hasOwn(WORKFLOW_ACTIONS, input.command)) throw new Error(`Supported actions: ${Object.keys(WORKFLOW_ACTIONS).join(', ')}`);
   let result;
-  if (input.command === 'recover-lock') {
+  if (input.command === 'recover-intake') {
+    if (!input.facts) throw new Error('recover-intake requires --facts');
+    const { recoverIntakeSuccessor } = await import('./lib/workflow-intake-successor.mjs');
+    result = await recoverIntakeSuccessor(input.buildId, await readJson(path.resolve(input.facts)), rootDir);
+  } else if (input.command === 'recover-lock') {
     if (!/^(?:output\/(?:workflow-intake|source-relocation)\.lock|output\/publications\/\.publish\.lock|output\/builds\/build-[a-z0-9-]+\/\.(?:workflow-operation|record|session-write)\.lock)$/.test(input.lock || '')) throw new Error('Recovery only accepts known workflow lock paths');
     result = await recoverFileLock(inside(rootDir, input.lock), input.token);
   } else if (input.command === 'start') {

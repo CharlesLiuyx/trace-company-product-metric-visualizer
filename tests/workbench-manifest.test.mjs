@@ -1,0 +1,31 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import path from 'node:path';
+import os from 'node:os';
+import { mkdtemp, writeFile, rm, rename, stat, utimes, symlink, mkdir } from 'node:fs/promises';
+import { fileManifest } from '../scripts/lib/workflow-files.mjs';
+import { createPreviewManifest } from '../scripts/lib/workbench-manifest.mjs';
+
+test('preview cache matches byte manifests across rewrites, renames, additions and deletions', async (t) => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'trace-preview-manifest-'));
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const manifest = createPreviewManifest(), file = path.join(root, 'index.html');
+  await writeFile(file, 'first');
+  const first = await manifest(root);
+  assert.deepEqual(first, await fileManifest(root));
+  assert.deepEqual(await manifest(root), first);
+  const original = await stat(file);
+  await writeFile(file, 'other');
+  await utimes(file, original.atime, original.mtime);
+  assert.notEqual((await manifest(root)).digest, first.digest, 'same size and restored mtime still invalidate by ctime');
+  await writeFile(path.join(root, 'replacement'), 'third');
+  await rename(path.join(root, 'replacement'), file);
+  assert.deepEqual(await manifest(root), await fileManifest(root));
+  await mkdir(path.join(root, 'data/nested'), { recursive: true });
+  await writeFile(path.join(root, 'data/nested/new.js'), 'added');
+  assert.deepEqual(await manifest(root), await fileManifest(root));
+  await rm(file);
+  assert.deepEqual(await manifest(root), await fileManifest(root));
+  await symlink(path.join(root, 'data/nested/new.js'), file);
+  await assert.rejects(manifest(root), /symlinks/);
+});

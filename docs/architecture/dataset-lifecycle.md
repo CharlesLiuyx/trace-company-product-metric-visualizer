@@ -150,6 +150,16 @@ The current Adapter signatures are deliberately mutually exclusive:
 | Income Statement | `income-statement-values`, `sankey-flow-topology` | `revenue-metric-definition`, `time-series-observations` |
 | Revenue Metric | `revenue-metric-definition`, `time-series-observations` | `income-statement-values`, `sankey-flow-topology` |
 
+Income Statement optionally accepts `supplemental-operating-metrics` when the
+Source includes separate operating cards. This signal is forbidden for the
+other Adapters and alone cannot select an Adapter. Its typed observations
+use `operating-metric` coverage and `operatingMetrics` on the same SSOT record;
+see `data/schema.md` for fields. They are excluded from accounting sums and
+node-face policy, while requiring one dedicated value text in each locale.
+Preparation reconciles their exact values, comparison operators, quotes and
+native anchors against the loaded SSOT/View. Existing states and financial
+face/precision obligations remain unchanged.
+
 The signals must select exactly one supported Adapter and that result must
 match the requested `--adapter`. Otherwise intake fails before a Build is
 initialized or the Source is claimed. Fresh CLI intakes require this record;

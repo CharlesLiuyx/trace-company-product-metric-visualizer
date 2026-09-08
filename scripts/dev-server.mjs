@@ -99,24 +99,13 @@ async function main() {
     console.error(`Invalid port: ${portIndex >= 0 ? args[portIndex + 1] : process.env.PORT}`);
     process.exit(1);
   }
-  async function existingWorkbench() {
-    if (!port || args.includes('--draft') || args.includes('--published')) return null;
-    try {
-      const response = await fetch(`http://127.0.0.1:${port}/__trace/health`, { signal: AbortSignal.timeout(1000) });
-      const health = await response.json();
-      return health.schema === 'trace-workbench-health/v1' && health.root === rootDir ? health : null;
-    } catch { return null; }
-  }
-  let running = await existingWorkbench();
-  if (!running) {
-    try {
-      running = args.includes('--draft') || args.includes('--published')
-        ? await startStaticServer({ port, published: args.includes('--published') })
-        : await (await import('./lib/workbench-server.mjs')).startWorkbench({ root: rootDir, port });
-    } catch (error) {
-      running = error.code === 'EADDRINUSE' ? await existingWorkbench() : null;
-      if (!running) throw error;
-    }
+  let running;
+  if (args.includes('--draft') || args.includes('--published')) {
+    running = await startStaticServer({ port, published: args.includes('--published') });
+  } else {
+    const { startOrReuseWorkbench } = await import('./lib/workbench-discovery.mjs');
+    running = await startOrReuseWorkbench(rootDir, port, async () =>
+      (await import('./lib/workbench-server.mjs')).startWorkbench({ root: rootDir, port }));
   }
   const { url } = running;
   if (running.close) {
