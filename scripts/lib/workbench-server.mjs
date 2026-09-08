@@ -27,7 +27,7 @@ function run(file, args, root) {
     child.on('error', reject); child.on('close', (code) => code === 0 ? resolve(output) : reject(new Error(output || `Build exited ${code}`)));
   });
 }
-export async function startWorkbench({ root = rootDir, port = 8000, build = run, productionFetch = fetch, readCi = null, maxBuilds = 2 } = {}) {
+export async function startWorkbench({ root = rootDir, port = 8000, build = run, productionFetch = fetch, readCi = null, maxBuilds = 2, scheduleDebounce = setTimeout } = {}) {
   const previews = new Map(), events = new Set(), watchers = [], timers = new Set();
   const ownedPreviews = new Set();
   const serverRecord = path.join(root, `output/workbench/servers/${randomUUID()}.json`);
@@ -54,12 +54,25 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
     const state = { source, workspace, status: 'queued', revision: 0, candidate: null, error: null, busy: false, dirty: true, watched: new Set() };
     previews.set(source, state);
     let debounce;
+    const flush = () => {
+      timers.delete(debounce);
+      if (closed) return;
+      // A timer may fire just before the Date.now() deadline. Re-arm it rather
+      // than leaving a dirty preview queued with no future wake-up.
+      const remaining = state.notBefore - Date.now();
+      if (remaining > 0) {
+        debounce = scheduleDebounce(flush, remaining); timers.add(debounce);
+        return;
+      }
+      debounce = null;
+      rebuild(state);
+    };
     const changed = () => {
       if (closed) return;
       state.notBefore = Date.now() + 500;
       state.revision++; state.dirty = true; state.status = state.busy ? 'building' : 'queued';
       if (debounce) { clearTimeout(debounce); timers.delete(debounce); }
-      debounce = setTimeout(() => { timers.delete(debounce); rebuild(state); }, 500); timers.add(debounce); notify();
+      debounce = scheduleDebounce(flush, 500); timers.add(debounce); notify();
     };
     state.changed = changed;
     state.watchWorkspace = (folder) => {
