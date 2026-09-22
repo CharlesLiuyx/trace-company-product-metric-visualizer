@@ -1849,6 +1849,27 @@ await scenario('boot: zh sankey + progressive-load company switch', async (page)
   },
 });
 
+await scenario('statement Table and CSV retain operating and non-operating adjustments', async (page) => {
+  await boot(page, `${url}?traceLanguage=en&traceView=table&traceMetric=incomeStatement#domino-s-q1-fy26`);
+  const values = await page.evaluate(() => ({
+    en: tableModelForLanguage('en', 'statement').statementRows.find((row) => row.record.dataset.key === 'domino-s-q1-fy26').profitAdjustments,
+    zh: tableModelForLanguage('zh', 'statement').statementRows.find((row) => row.record.dataset.key === 'domino-s-q1-fy26').profitAdjustments,
+    small: describeProfitAdjustments({ currency: '$', unit: 'B', decimals: 3, operatingOtherIncome: { total: 0.028, items: [{ id: 'other_income', label: 'Other income', value: 0.028 }] } }, 'en'),
+  }));
+  assert(values.en.includes('Gains: $8M') && values.en.includes('Other: ($50M)'), 'Table dropped adjustment identity or expense sign');
+  assert(values.zh.includes('营业利润调整收入') && values.zh.includes('收益') && values.zh.includes('其他支出'), 'adjustment labels were not localized');
+  assert(values.small.includes('$0.028B'), 'small operating adjustment was rounded to zero');
+  assert((await page.locator('#statementsTable thead').innerText()).toLowerCase().includes('profit adjustments'), 'adjustments are absent from the rendered Table');
+  const download = page.waitForEvent('download');
+  await page.locator('#statementsCsvBtn').click();
+  const stream = await (await download).createReadStream();
+  const chunks = []; for await (const chunk of stream) chunks.push(chunk);
+  const csv = Buffer.concat(chunks).toString('utf8');
+  const row = csv.split('\n').find((line) => line.startsWith('domino-s-q1-fy26,') || line.startsWith('"domino-s-q1-fy26",'));
+  assert(csv.includes('operating_other_income') && csv.includes('profit_adjustments_json'), 'CSV adjustment columns missing');
+  assert(row?.includes('""operatingOtherIncome"":{""total"":8') && row.includes('""otherExpenses"":{""total"":50'), 'CSV lost exact adjustment groups');
+});
+
 await scenario('workbench: pinned language/theme/view override another tab’s stored preferences', async (page) => {
   await boot(page, `${url}?traceLanguage=zh&traceTheme=dark&traceView=table&traceMetric=incomeStatement#apple-q1-fy26`);
   const other = await page.context().newPage();
