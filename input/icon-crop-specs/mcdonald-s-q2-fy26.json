@@ -1,0 +1,31 @@
+{
+  "source": "input/processed/mcdonald-s-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/mcdonald-s/crops",
+  "validationSheetDir": "data/assets/icon-references/mcdonald-s/validation-sheets",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "crops": [
+    {
+      "key": "mcdonalds-arches-q2-fy26",
+      "output": "arches-q2-fy26.png",
+      "searchBox": {
+        "x": 755,
+        "y": 266,
+        "width": 253,
+        "height": 225
+      },
+      "cropBox": {
+        "x": 755,
+        "y": 266,
+        "width": 253,
+        "height": 225
+      },
+      "minComponentArea": 20,
+      "padding": 10,
+      "note": "Company golden arches; no publisher marks or adjacent Revenue label."
+    }
+  ]
+}

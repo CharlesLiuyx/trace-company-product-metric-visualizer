@@ -1,0 +1,117 @@
+{
+  "source": "input/processed/mcdonald-s-q2-fy26.png",
+  "spec": "input/icon-crop-specs/mcdonald-s-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-09-22T09:49:41.790363+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": null,
+  "crops": [
+    {
+      "key": "mcdonalds-arches-q2-fy26",
+      "output": "data/assets/icon-references/mcdonald-s/crops/arches-q2-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2638,
+        "losslessBytes": 10508,
+        "savingsVsLossless": 0.749,
+        "metrics": {
+          "meanAbsoluteError": 0.191,
+          "rootMeanSquareError": 1.0599,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 31,
+          "changedPixelRatio": 0.318
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 39115,
+        "transparentPixelRatio": 0.6871
+      },
+      "searchBox": {
+        "x": 755,
+        "y": 266,
+        "width": 253,
+        "height": 225
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 766,
+        "y0": 278,
+        "x1": 996,
+        "y1": 480
+      },
+      "cropBox": {
+        "x0": 755,
+        "y0": 266,
+        "x1": 1008,
+        "y1": 491
+      },
+      "validation": {
+        "width": 253,
+        "height": 225,
+        "foregroundPixels": 17525,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 11,
+          "right": 12,
+          "top": 12,
+          "bottom": 11
+        },
+        "centerOffset": {
+          "x": -0.002,
+          "y": 0.0022
+        },
+        "passes": true
+      },
+      "note": "Company golden arches; no publisher marks or adjacent Revenue label.",
+      "validationSheet": "data/assets/icon-references/mcdonald-s/validation-sheets/mcdonalds-arches-q2-fy26.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 247172,
+        "losslessBytes": 247172,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

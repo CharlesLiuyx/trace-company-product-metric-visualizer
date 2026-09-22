@@ -6332,6 +6332,72 @@
       "mae": 8.743524559430071,
       "width": 2667,
       "height": 1500
+    },
+    "affirm-q4-fy26": {
+      "similarity": 0.9709978592545213,
+      "mae": 7.395545890097071,
+      "width": 2667,
+      "height": 1500
+    },
+    "amgen-q2-fy26": {
+      "similarity": 0.9757044810575148,
+      "mae": 6.195357330333708,
+      "width": 2667,
+      "height": 1500
+    },
+    "eli-lilly-q2-fy26": {
+      "similarity": 0.9705856673144615,
+      "mae": 7.500654834812315,
+      "width": 2667,
+      "height": 1500
+    },
+    "etsy-q2-fy26": {
+      "similarity": 0.9711004232314098,
+      "mae": 7.369392075990501,
+      "width": 2667,
+      "height": 1500
+    },
+    "global-e-q2-fy26": {
+      "similarity": 0.9742039529372554,
+      "mae": 6.577992000999875,
+      "width": 2667,
+      "height": 1500
+    },
+    "kraft-heinz-q2-fy26": {
+      "similarity": 0.9659075906361378,
+      "mae": 8.69356438778486,
+      "width": 2667,
+      "height": 1500
+    },
+    "mcdonald-s-q2-fy26": {
+      "similarity": 0.9631533290364849,
+      "mae": 9.395901095696372,
+      "width": 2667,
+      "height": 1500
+    },
+    "merck-q2-fy26": {
+      "similarity": 0.9651685049172775,
+      "mae": 8.882031246094238,
+      "width": 2667,
+      "height": 1500
+    },
+    "novo-nordisk-q2-fy26": {
+      "similarity": 0.9700866947187157,
+      "mae": 7.627892846727493,
+      "width": 2667,
+      "height": 1500
+    },
+    "rbi-q2-fy26": {
+      "similarity": 0.9591219702112399,
+      "mae": 10.423897596133816,
+      "width": 2667,
+      "height": 1500
+    },
+    "shopify-q2-fy26": {
+      "similarity": 0.9767447850064493,
+      "mae": 5.930079823355414,
+      "width": 2667,
+      "height": 1500
     }
   }
 }

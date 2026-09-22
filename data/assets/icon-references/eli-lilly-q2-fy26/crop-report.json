@@ -1,0 +1,500 @@
+{
+  "source": "input/processing/eli-lilly-q2-fy26.png",
+  "spec": "input/icon-crop-specs/eli-lilly-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-09-22T09:56:50.135690+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/eli-lilly-q2-fy26",
+  "crops": [
+    {
+      "key": "company-wordmark",
+      "output": "data/assets/icon-references/eli-lilly-q2-fy26/crops/company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 5585,
+        "losslessBytes": 29508,
+        "savingsVsLossless": 0.8107,
+        "metrics": {
+          "meanAbsoluteError": 0.2448,
+          "rootMeanSquareError": 1.7312,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 34,
+          "changedPixelRatio": 0.0747
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 89436,
+        "transparentPixelRatio": 0.7366
+      },
+      "searchBox": {
+        "x": 650,
+        "y": 249,
+        "width": 467,
+        "height": 260
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 661,
+        "y0": 260,
+        "x1": 1104,
+        "y1": 502
+      },
+      "cropBox": {
+        "x0": 650,
+        "y0": 249,
+        "x1": 1117,
+        "y1": 509
+      },
+      "validation": {
+        "width": 467,
+        "height": 260,
+        "foregroundPixels": 28648,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 11,
+          "right": 13,
+          "top": 11,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": -0.0021,
+          "y": 0.0077
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/eli-lilly-q2-fy26/company-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 5585,
+        "losslessBytes": 29508,
+        "savingsVsLossless": 0.8107,
+        "metrics": {
+          "meanAbsoluteError": 0.2448,
+          "rootMeanSquareError": 1.7312,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 34,
+          "changedPixelRatio": 0.0747
+        }
+      },
+      "validationSheet": "data/assets/icon-references/eli-lilly-q2-fy26/validation-sheets/company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 286585,
+        "losslessBytes": 286585,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "cardiometabolic-brands",
+      "output": "data/assets/icon-references/eli-lilly-q2-fy26/crops/cardiometabolic-brands.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 36310,
+        "losslessBytes": 36310,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 50530,
+        "transparentPixelRatio": 0.7486
+      },
+      "searchBox": {
+        "x": 65,
+        "y": 389,
+        "width": 300,
+        "height": 225
+      },
+      "componentCount": 75,
+      "subjectBox": {
+        "x0": 76,
+        "y0": 394,
+        "x1": 357,
+        "y1": 612
+      },
+      "cropBox": {
+        "x0": 65,
+        "y0": 389,
+        "x1": 365,
+        "y1": 614
+      },
+      "validation": {
+        "width": 300,
+        "height": 225,
+        "foregroundPixels": 15166,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 11,
+          "right": 8,
+          "top": 5,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": 0.005,
+          "y": 0.0067
+        },
+        "passes": true
+      },
+      "note": "",
+      "excludedPixels": 1350,
+      "runtimeOutput": "data/assets/raster-annotations/eli-lilly-q2-fy26/cardiometabolic-brands.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 36310,
+        "losslessBytes": 36310,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/eli-lilly-q2-fy26/validation-sheets/cardiometabolic-brands.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 332156,
+        "losslessBytes": 332156,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "oncology-verzenio",
+      "output": "data/assets/icon-references/eli-lilly-q2-fy26/crops/oncology-verzenio.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 1898,
+        "losslessBytes": 7342,
+        "savingsVsLossless": 0.7415,
+        "metrics": {
+          "meanAbsoluteError": 0.5695,
+          "rootMeanSquareError": 1.9805,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 29,
+          "changedPixelRatio": 0.3289
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 8716,
+        "transparentPixelRatio": 0.6862
+      },
+      "searchBox": {
+        "x": 129,
+        "y": 759,
+        "width": 174,
+        "height": 73
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 137,
+        "y0": 766,
+        "x1": 299,
+        "y1": 824
+      },
+      "cropBox": {
+        "x0": 129,
+        "y0": 759,
+        "x1": 303,
+        "y1": 832
+      },
+      "validation": {
+        "width": 174,
+        "height": 73,
+        "foregroundPixels": 3611,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 8,
+          "right": 4,
+          "top": 7,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0115,
+          "y": -0.0068
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/eli-lilly-q2-fy26/oncology-verzenio.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 1898,
+        "losslessBytes": 7342,
+        "savingsVsLossless": 0.7415,
+        "metrics": {
+          "meanAbsoluteError": 0.5695,
+          "rootMeanSquareError": 1.9805,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 29,
+          "changedPixelRatio": 0.3289
+        }
+      },
+      "validationSheet": "data/assets/icon-references/eli-lilly-q2-fy26/validation-sheets/oncology-verzenio.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 291262,
+        "losslessBytes": 291262,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "immunology-taltz",
+      "output": "data/assets/icon-references/eli-lilly-q2-fy26/crops/immunology-taltz.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 1726,
+        "losslessBytes": 7558,
+        "savingsVsLossless": 0.7716,
+        "metrics": {
+          "meanAbsoluteError": 0.8026,
+          "rootMeanSquareError": 2.324,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 25,
+          "changedPixelRatio": 0.32
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 7384,
+        "transparentPixelRatio": 0.7155
+      },
+      "searchBox": {
+        "x": 155,
+        "y": 910,
+        "width": 120,
+        "height": 86
+      },
+      "componentCount": 20,
+      "subjectBox": {
+        "x0": 163,
+        "y0": 917,
+        "x1": 269,
+        "y1": 991
+      },
+      "cropBox": {
+        "x0": 155,
+        "y0": 910,
+        "x1": 275,
+        "y1": 996
+      },
+      "validation": {
+        "width": 120,
+        "height": 86,
+        "foregroundPixels": 2573,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 8,
+          "right": 6,
+          "top": 7,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0083,
+          "y": 0.0116
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/eli-lilly-q2-fy26/immunology-taltz.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 1726,
+        "losslessBytes": 7558,
+        "savingsVsLossless": 0.7716,
+        "metrics": {
+          "meanAbsoluteError": 0.8026,
+          "rootMeanSquareError": 2.324,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 25,
+          "changedPixelRatio": 0.32
+        }
+      },
+      "validationSheet": "data/assets/icon-references/eli-lilly-q2-fy26/validation-sheets/immunology-taltz.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 326347,
+        "losslessBytes": 326347,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "neuroscience-emgality",
+      "output": "data/assets/icon-references/eli-lilly-q2-fy26/crops/neuroscience-emgality.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2359,
+        "losslessBytes": 10774,
+        "savingsVsLossless": 0.781,
+        "metrics": {
+          "meanAbsoluteError": 0.7568,
+          "rootMeanSquareError": 2.4666,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 46,
+          "changedPixelRatio": 0.3012
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 10496,
+        "transparentPixelRatio": 0.7229
+      },
+      "searchBox": {
+        "x": 128,
+        "y": 1063,
+        "width": 165,
+        "height": 88
+      },
+      "componentCount": 29,
+      "subjectBox": {
+        "x0": 136,
+        "y0": 1068,
+        "x1": 285,
+        "y1": 1146
+      },
+      "cropBox": {
+        "x0": 128,
+        "y0": 1063,
+        "x1": 293,
+        "y1": 1151
+      },
+      "validation": {
+        "width": 165,
+        "height": 88,
+        "foregroundPixels": 3449,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 8,
+          "right": 8,
+          "top": 5,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/eli-lilly-q2-fy26/neuroscience-emgality.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2359,
+        "losslessBytes": 10774,
+        "savingsVsLossless": 0.781,
+        "metrics": {
+          "meanAbsoluteError": 0.7568,
+          "rootMeanSquareError": 2.4666,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 46,
+          "changedPixelRatio": 0.3012
+        }
+      },
+      "validationSheet": "data/assets/icon-references/eli-lilly-q2-fy26/validation-sheets/neuroscience-emgality.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 313830,
+        "losslessBytes": 313830,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

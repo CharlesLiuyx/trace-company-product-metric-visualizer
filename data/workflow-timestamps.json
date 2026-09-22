@@ -210,6 +210,61 @@
       "digest": "sha256:0fb3aa72fbfa7ec437ccd5dc767d826b3beb607725d01462502a22de35c293dc",
       "updatedAt": "2026-09-07T20:28:24.781Z",
       "publishedDigest": "sha256:30cd76ef212ddf243a3dd135f4640710b4eddf5e75029a698d7354257c3e5fb1"
+    },
+    "data/datasets/affirm-q4-fy26.js": {
+      "digest": "sha256:ca339e8031e0bc442f8a3ca93cc46ebbf66bcc4058b70d0e126707ff3d30275f",
+      "updatedAt": "2026-09-22T09:42:45.586Z",
+      "publishedDigest": "sha256:b32071c5bb8f813b60abf446d60d1564a16af4b98b4523c1e6ca41cb4e0025c9"
+    },
+    "data/datasets/amgen-q2-fy26.js": {
+      "digest": "sha256:1967687d9ee86281270fc919a588c17831d2f5f9f413f7c7f27aabab6708ffbe",
+      "updatedAt": "2026-09-22T09:42:36.108Z",
+      "publishedDigest": "sha256:b32071c5bb8f813b60abf446d60d1564a16af4b98b4523c1e6ca41cb4e0025c9"
+    },
+    "data/datasets/eli-lilly-q2-fy26.js": {
+      "digest": "sha256:172427e9381df9110a363f31fc2a86e9866e7b2904422e1b3ddec7f8ed524e30",
+      "updatedAt": "2026-09-22T09:45:30.310Z",
+      "publishedDigest": "sha256:b32071c5bb8f813b60abf446d60d1564a16af4b98b4523c1e6ca41cb4e0025c9"
+    },
+    "data/datasets/etsy-q2-fy26.js": {
+      "digest": "sha256:5b86682550e48745949ae46795269e21ceb9e73df7a545d88d74143bd156540b",
+      "updatedAt": "2026-09-22T09:42:55.596Z",
+      "publishedDigest": "sha256:b32071c5bb8f813b60abf446d60d1564a16af4b98b4523c1e6ca41cb4e0025c9"
+    },
+    "data/datasets/global-e-q2-fy26.js": {
+      "digest": "sha256:a811bdd4845ad9433e704064401570cb234bad965ed91c68c65e8c23c469db2c",
+      "updatedAt": "2026-09-22T09:43:05.114Z",
+      "publishedDigest": "sha256:b32071c5bb8f813b60abf446d60d1564a16af4b98b4523c1e6ca41cb4e0025c9"
+    },
+    "data/datasets/kraft-heinz-q2-fy26.js": {
+      "digest": "sha256:e273ac9c51225fb779019332b2dd7dde4b86179cb7fcc329b6893c5b7917774b",
+      "updatedAt": "2026-09-22T09:44:23.308Z",
+      "publishedDigest": "sha256:b32071c5bb8f813b60abf446d60d1564a16af4b98b4523c1e6ca41cb4e0025c9"
+    },
+    "data/datasets/mcdonald-s-q2-fy26.js": {
+      "digest": "sha256:98df713e406192ce74defe2a3bdb606b299b1c08a8a6201995923123ebd4c127",
+      "updatedAt": "2026-09-22T09:45:03.185Z",
+      "publishedDigest": "sha256:b32071c5bb8f813b60abf446d60d1564a16af4b98b4523c1e6ca41cb4e0025c9"
+    },
+    "data/datasets/merck-q2-fy26.js": {
+      "digest": "sha256:df945d594632b74ec2e88c4b6f6179875e17056d5f32253b32c99996a914f1d8",
+      "updatedAt": "2026-09-22T09:45:23.899Z",
+      "publishedDigest": "sha256:b32071c5bb8f813b60abf446d60d1564a16af4b98b4523c1e6ca41cb4e0025c9"
+    },
+    "data/datasets/novo-nordisk-q2-fy26.js": {
+      "digest": "sha256:4b804d0757e241ae492319be4477acc0c7cf66402b2ea26bc85df8427f54331e",
+      "updatedAt": "2026-09-22T09:42:17.374Z",
+      "publishedDigest": "sha256:b32071c5bb8f813b60abf446d60d1564a16af4b98b4523c1e6ca41cb4e0025c9"
+    },
+    "data/datasets/rbi-q2-fy26.js": {
+      "digest": "sha256:e53cd65533de18c7c7db950583e1f151c5b2e0532b0e27e9e911e1a847239f38",
+      "updatedAt": "2026-09-22T09:42:44.010Z",
+      "publishedDigest": "sha256:b32071c5bb8f813b60abf446d60d1564a16af4b98b4523c1e6ca41cb4e0025c9"
+    },
+    "data/datasets/shopify-q2-fy26.js": {
+      "digest": "sha256:daf8af89ca952a9c5e5cbb40609efab65fb4f936f95e7113ef2c6bf699b37217",
+      "updatedAt": "2026-09-22T09:43:47.187Z",
+      "publishedDigest": "sha256:b32071c5bb8f813b60abf446d60d1564a16af4b98b4523c1e6ca41cb4e0025c9"
     }
   }
 }

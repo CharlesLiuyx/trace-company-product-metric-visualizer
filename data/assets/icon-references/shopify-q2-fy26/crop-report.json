@@ -1,0 +1,228 @@
+{
+  "source": "input/processing/shopify-q2-fy26.png",
+  "spec": "input/icon-crop-specs/shopify-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-09-22T09:49:54.047238+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/shopify-q2-fy26",
+  "crops": [
+    {
+      "key": "company-bag",
+      "output": "data/assets/icon-references/shopify-q2-fy26/crops/company-bag.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4633,
+        "losslessBytes": 22889,
+        "savingsVsLossless": 0.7976,
+        "metrics": {
+          "meanAbsoluteError": 0.8721,
+          "rootMeanSquareError": 2.5723,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.6786
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 28328,
+        "transparentPixelRatio": 0.3256
+      },
+      "searchBox": {
+        "x": 1040,
+        "y": 216,
+        "width": 278,
+        "height": 313
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 1047,
+        "y0": 223,
+        "x1": 1310,
+        "y1": 522
+      },
+      "cropBox": {
+        "x0": 1040,
+        "y0": 216,
+        "x1": 1318,
+        "y1": 529
+      },
+      "validation": {
+        "width": 278,
+        "height": 313,
+        "foregroundPixels": 49702,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 8,
+          "top": 7,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": -0.0018,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/shopify-q2-fy26/company-bag.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4633,
+        "losslessBytes": 22889,
+        "savingsVsLossless": 0.7976,
+        "metrics": {
+          "meanAbsoluteError": 0.8721,
+          "rootMeanSquareError": 2.5723,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.6786
+        }
+      },
+      "validationSheet": "data/assets/icon-references/shopify-q2-fy26/validation-sheets/company-bag.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 285729,
+        "losslessBytes": 285729,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "plus-wordmark",
+      "output": "data/assets/icon-references/shopify-q2-fy26/crops/plus-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2776,
+        "losslessBytes": 12678,
+        "savingsVsLossless": 0.781,
+        "metrics": {
+          "meanAbsoluteError": 0.605,
+          "rootMeanSquareError": 1.9992,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 16,
+          "changedPixelRatio": 0.1953
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 13711,
+        "transparentPixelRatio": 0.6573
+      },
+      "searchBox": {
+        "x": 64,
+        "y": 1007,
+        "width": 298,
+        "height": 70
+      },
+      "componentCount": 13,
+      "subjectBox": {
+        "x0": 70,
+        "y0": 1011,
+        "x1": 359,
+        "y1": 1073
+      },
+      "cropBox": {
+        "x0": 64,
+        "y0": 1007,
+        "x1": 362,
+        "y1": 1077
+      },
+      "validation": {
+        "width": 298,
+        "height": 70,
+        "foregroundPixels": 6297,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 3,
+          "top": 4,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": 0.005,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/shopify-q2-fy26/plus-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2776,
+        "losslessBytes": 12678,
+        "savingsVsLossless": 0.781,
+        "metrics": {
+          "meanAbsoluteError": 0.605,
+          "rootMeanSquareError": 1.9992,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 16,
+          "changedPixelRatio": 0.1953
+        }
+      },
+      "validationSheet": "data/assets/icon-references/shopify-q2-fy26/validation-sheets/plus-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 273248,
+        "losslessBytes": 273248,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

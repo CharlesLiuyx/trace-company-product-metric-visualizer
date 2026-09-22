@@ -1,0 +1,152 @@
+{
+  "source": "input/processed/eli-lilly-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/eli-lilly-q2-fy26",
+  "runtimeOutputDir": "data/assets/raster-annotations/eli-lilly-q2-fy26",
+  "validationSheetDir": "data/assets/icon-references/eli-lilly-q2-fy26/validation-sheets",
+  "report": "crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [
+      242,
+      242,
+      242
+    ]
+  },
+  "crops": [
+    {
+      "key": "company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "runtimeOutput": "company-wordmark.png",
+      "searchBox": {
+        "x": 650,
+        "y": 249,
+        "width": 467,
+        "height": 260
+      },
+      "cropBox": {
+        "x": 650,
+        "y": 249,
+        "width": 467,
+        "height": 260
+      },
+      "threshold": 16,
+      "minComponentArea": 2,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "cardiometabolic-brands",
+      "output": "crops/cardiometabolic-brands.png",
+      "runtimeOutput": "cardiometabolic-brands.png",
+      "searchBox": {
+        "x": 65,
+        "y": 389,
+        "width": 300,
+        "height": 225
+      },
+      "cropBox": {
+        "x": 65,
+        "y": 389,
+        "width": 300,
+        "height": 225
+      },
+      "threshold": 16,
+      "minComponentArea": 2,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "excludeBoxes": [
+        {
+          "x": 350,
+          "y": 389,
+          "width": 15,
+          "height": 90
+        }
+      ]
+    },
+    {
+      "key": "oncology-verzenio",
+      "output": "crops/oncology-verzenio.png",
+      "runtimeOutput": "oncology-verzenio.png",
+      "searchBox": {
+        "x": 129,
+        "y": 759,
+        "width": 174,
+        "height": 73
+      },
+      "cropBox": {
+        "x": 129,
+        "y": 759,
+        "width": 174,
+        "height": 73
+      },
+      "threshold": 16,
+      "minComponentArea": 2,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "immunology-taltz",
+      "output": "crops/immunology-taltz.png",
+      "runtimeOutput": "immunology-taltz.png",
+      "searchBox": {
+        "x": 155,
+        "y": 910,
+        "width": 120,
+        "height": 86
+      },
+      "cropBox": {
+        "x": 155,
+        "y": 910,
+        "width": 120,
+        "height": 86
+      },
+      "threshold": 16,
+      "minComponentArea": 2,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "neuroscience-emgality",
+      "output": "crops/neuroscience-emgality.png",
+      "runtimeOutput": "neuroscience-emgality.png",
+      "searchBox": {
+        "x": 128,
+        "y": 1063,
+        "width": 165,
+        "height": 88
+      },
+      "cropBox": {
+        "x": 128,
+        "y": 1063,
+        "width": 165,
+        "height": 88
+      },
+      "threshold": 16,
+      "minComponentArea": 2,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ]
+}

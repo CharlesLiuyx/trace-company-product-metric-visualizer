@@ -1,0 +1,24 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Eli Lilly oncology-verzenio",
+  "artifact": {
+    "path": "data/assets/raster-annotations/eli-lilly-q2-fy26/oncology-verzenio.png",
+    "digest": "sha256:5d4b6e9d1ea4e27d9b3d826a445725824b9929c78942f8e265906ed0e74fca49"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/eli-lilly-q2-fy26.json",
+    "digest": "sha256:8d7aff567f219b4eff2bc57c4b96851998905c6d3d199ff68103b543d6e6f025"
+  },
+  "source": {
+    "path": "input/processed/eli-lilly-q2-fy26.png",
+    "digest": "sha256:06392d33ad681fb6a2406cf997962164a8de8f5b59256b484ce4e677a3e551a4"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:5d4b6e9d1ea4e27d9b3d826a445725824b9929c78942f8e265906ed0e74fca49",
+    "note": "Inspected native Source and crop validation sheet: full brand artwork and microcopy retained, centered with margins, no financial text, ribbons or publisher marks. All extractor validation gates pass.",
+    "reviewedAt": "2026-09-22T09:57:40.019Z"
+  },
+  "versionDigest": "sha256:3497ad52ab2dac0975376d31dc92b827bd7e1a6e9eef393bf615c083cab9feae"
+}

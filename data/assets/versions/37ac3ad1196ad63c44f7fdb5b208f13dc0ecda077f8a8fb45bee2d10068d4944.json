@@ -1,0 +1,24 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Eli Lilly company-wordmark",
+  "artifact": {
+    "path": "data/assets/raster-annotations/eli-lilly-q2-fy26/company-wordmark.png",
+    "digest": "sha256:54784fe39c811418c93c3dfbfb464ff775117c65130dd873eda017f6d3cac421"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/eli-lilly-q2-fy26.json",
+    "digest": "sha256:8d7aff567f219b4eff2bc57c4b96851998905c6d3d199ff68103b543d6e6f025"
+  },
+  "source": {
+    "path": "input/processed/eli-lilly-q2-fy26.png",
+    "digest": "sha256:06392d33ad681fb6a2406cf997962164a8de8f5b59256b484ce4e677a3e551a4"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:54784fe39c811418c93c3dfbfb464ff775117c65130dd873eda017f6d3cac421",
+    "note": "Inspected native Source and crop validation sheet: full brand artwork and microcopy retained, centered with margins, no financial text, ribbons or publisher marks. All extractor validation gates pass.",
+    "reviewedAt": "2026-09-22T09:57:35.542Z"
+  },
+  "versionDigest": "sha256:37ac3ad1196ad63c44f7fdb5b208f13dc0ecda077f8a8fb45bee2d10068d4944"
+}

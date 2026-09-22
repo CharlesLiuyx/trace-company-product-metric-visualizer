@@ -140,4 +140,202 @@
       },
     },
   });
+  ssot.records.push({
+  "key": "kraft-heinz-q2-fy26",
+  "company": "Kraft Heinz",
+  "period": "Q2 FY26",
+  "periodNote": "",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/kraft-heinz-q2-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 6.3,
+    "notes": [
+      "(1%) Y/Y"
+    ],
+    "items": [
+      {
+        "id": "north_america",
+        "label": "North America",
+        "value": 4.6,
+        "notes": [
+          "(3%) Y/Y"
+        ]
+      },
+      {
+        "id": "international_developed_markets",
+        "label": "International Developed Markets",
+        "value": 0.9,
+        "notes": [
+          "(4%) Y/Y"
+        ]
+      },
+      {
+        "id": "emerging_markets",
+        "label": "Emerging Markets",
+        "value": 0.8,
+        "notes": [
+          "+10% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_sales",
+      "label": "Cost of sales",
+      "value": 4.2
+    },
+    "operatingExpenses": {
+      "total": 8.5,
+      "items": [
+        {
+          "id": "sga",
+          "label": "SG&A",
+          "value": 1.1,
+          "notes": [
+            "18% of revenue",
+            "+4pp Y/Y"
+          ]
+        },
+        {
+          "id": "goodwill",
+          "label": "Goodwill impairment",
+          "value": 2.4,
+          "notes": [
+            "39% of revenue",
+            "(66pp) Y/Y"
+          ]
+        },
+        {
+          "id": "intangible",
+          "label": "Intangible asset impairment",
+          "value": 4.9,
+          "notes": [
+            "78% of revenue",
+            "+38pp Y/Y"
+          ]
+        }
+      ]
+    }
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 2,
+      "notes": [
+        "32% margin",
+        "(2pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_loss",
+      "label": "Operating loss",
+      "value": -6.4,
+      "notes": [
+        "(103%) margin",
+        "(23pp) Y/Y"
+      ]
+    },
+    "net": {
+      "availability": "not-reported",
+      "value": null,
+      "label": "Net result not reported",
+      "notes": [
+        "Source ends at operating loss."
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "revenue": {
+        "notes": [
+          "同比 (1%)"
+        ],
+        "items": [
+          {
+            "id": "north_america",
+            "label": "北美",
+            "notes": [
+              "同比 (3%)"
+            ]
+          },
+          {
+            "id": "international_developed_markets",
+            "label": "国际发达市场",
+            "notes": [
+              "同比 (4%)"
+            ]
+          },
+          {
+            "id": "emerging_markets",
+            "label": "新兴市场",
+            "notes": [
+              "同比 +10%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "销售成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sga",
+              "label": "销售、一般及管理费用",
+              "notes": [
+                "占收入 18%",
+                "同比 +4 个百分点"
+              ]
+            },
+            {
+              "id": "goodwill",
+              "label": "商誉减值",
+              "notes": [
+                "占收入 39%",
+                "同比 (66 个百分点)"
+              ]
+            },
+            {
+              "id": "intangible",
+              "label": "无形资产减值",
+              "notes": [
+                "占收入 78%",
+                "同比 +38 个百分点"
+              ]
+            }
+          ]
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 32%",
+            "同比 (2 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业亏损",
+          "notes": [
+            "利润率 (103%)",
+            "同比 (23 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "来源未报告净利润",
+          "notes": [
+            "来源止于营业亏损。"
+          ]
+        }
+      }
+    }
+  }
+});
 })(window);

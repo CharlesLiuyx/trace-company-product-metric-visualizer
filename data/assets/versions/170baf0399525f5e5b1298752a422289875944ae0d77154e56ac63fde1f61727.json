@@ -1,0 +1,24 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Eli Lilly cardiometabolic-brands",
+  "artifact": {
+    "path": "data/assets/raster-annotations/eli-lilly-q2-fy26/cardiometabolic-brands.png",
+    "digest": "sha256:538e5fe8ae85b9e5c2e87287ee8574cac021185f839e0593dc7f3ac1fa2cc5e5"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/eli-lilly-q2-fy26.json",
+    "digest": "sha256:8d7aff567f219b4eff2bc57c4b96851998905c6d3d199ff68103b543d6e6f025"
+  },
+  "source": {
+    "path": "input/processed/eli-lilly-q2-fy26.png",
+    "digest": "sha256:06392d33ad681fb6a2406cf997962164a8de8f5b59256b484ce4e677a3e551a4"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:538e5fe8ae85b9e5c2e87287ee8574cac021185f839e0593dc7f3ac1fa2cc5e5",
+    "note": "Inspected native Source and crop validation sheet: full brand artwork and microcopy retained, centered with margins, no financial text, ribbons or publisher marks. All extractor validation gates pass.",
+    "reviewedAt": "2026-09-22T09:57:38.048Z"
+  },
+  "versionDigest": "sha256:170baf0399525f5e5b1298752a422289875944ae0d77154e56ac63fde1f61727"
+}

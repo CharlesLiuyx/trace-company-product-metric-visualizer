@@ -415,6 +415,28 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/affirm/company-logo-affirm-q4-fy26.png",
+      "digest": "sha256:08b2792c6829cc4fb4c9cada06b3172b60514face0b1ba99e890cf261b06c95e",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/affirm-q4-fy26.json",
+          "recipeDigest": "sha256:dc03eed6cdec4d0e51424c3c795879caaebeffe4e5ba62343001a6b9062a2b78",
+          "source": "input/processed/affirm-q4-fy26.png",
+          "cropKey": "affirm-company-logo"
+        }
+      ],
+      "directConsumers": [
+        "affirm-q4-fy26"
+      ],
+      "consumers": [
+        "affirm-q4-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:478a14abd80146be0612a59542549d30ef57c14cd904d4c1ad299f19ed2ed0a2"
+      ],
+      "reusable": true
+    },
+    {
       "path": "data/assets/raster-annotations/airbnb/airbnb-q2-fy26-apac.png",
       "digest": "sha256:272f8f8ce048a8e184b69655036090ec0cf253fe370aea48ef73d06ca8cb2d26",
       "provenance": [
@@ -879,11 +901,13 @@
       ],
       "directConsumers": [
         "amgen-q1-fy26",
+        "amgen-q2-fy26",
         "amgen-q3-fy25",
         "amgen-q4-fy25"
       ],
       "consumers": [
         "amgen-q1-fy26",
+        "amgen-q2-fy26",
         "amgen-q3-fy25",
         "amgen-q4-fy25"
       ],
@@ -903,11 +927,13 @@
       ],
       "directConsumers": [
         "amgen-q1-fy26",
+        "amgen-q2-fy26",
         "amgen-q3-fy25",
         "amgen-q4-fy25"
       ],
       "consumers": [
         "amgen-q1-fy26",
+        "amgen-q2-fy26",
         "amgen-q3-fy25",
         "amgen-q4-fy25"
       ],
@@ -927,11 +953,13 @@
       ],
       "directConsumers": [
         "amgen-q1-fy26",
+        "amgen-q2-fy26",
         "amgen-q3-fy25",
         "amgen-q4-fy25"
       ],
       "consumers": [
         "amgen-q1-fy26",
+        "amgen-q2-fy26",
         "amgen-q3-fy25",
         "amgen-q4-fy25"
       ],
@@ -951,11 +979,13 @@
       ],
       "directConsumers": [
         "amgen-q1-fy26",
+        "amgen-q2-fy26",
         "amgen-q3-fy25",
         "amgen-q4-fy25"
       ],
       "consumers": [
         "amgen-q1-fy26",
+        "amgen-q2-fy26",
         "amgen-q3-fy25",
         "amgen-q4-fy25"
       ],
@@ -975,11 +1005,13 @@
       ],
       "directConsumers": [
         "amgen-q1-fy26",
+        "amgen-q2-fy26",
         "amgen-q3-fy25",
         "amgen-q4-fy25"
       ],
       "consumers": [
         "amgen-q1-fy26",
+        "amgen-q2-fy26",
         "amgen-q3-fy25",
         "amgen-q4-fy25"
       ],
@@ -999,11 +1031,13 @@
       ],
       "directConsumers": [
         "amgen-q1-fy26",
+        "amgen-q2-fy26",
         "amgen-q3-fy25",
         "amgen-q4-fy25"
       ],
       "consumers": [
         "amgen-q1-fy26",
+        "amgen-q2-fy26",
         "amgen-q3-fy25",
         "amgen-q4-fy25"
       ],
@@ -1023,11 +1057,13 @@
       ],
       "directConsumers": [
         "amgen-q1-fy26",
+        "amgen-q2-fy26",
         "amgen-q3-fy25",
         "amgen-q4-fy25"
       ],
       "consumers": [
         "amgen-q1-fy26",
+        "amgen-q2-fy26",
         "amgen-q3-fy25",
         "amgen-q4-fy25"
       ],
@@ -3171,6 +3207,116 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/eli-lilly-q2-fy26/cardiometabolic-brands.png",
+      "digest": "sha256:538e5fe8ae85b9e5c2e87287ee8574cac021185f839e0593dc7f3ac1fa2cc5e5",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/eli-lilly-q2-fy26.json",
+          "recipeDigest": "sha256:8d7aff567f219b4eff2bc57c4b96851998905c6d3d199ff68103b543d6e6f025",
+          "source": "input/processed/eli-lilly-q2-fy26.png",
+          "cropKey": "cardiometabolic-brands"
+        }
+      ],
+      "directConsumers": [
+        "eli-lilly-q2-fy26"
+      ],
+      "consumers": [
+        "eli-lilly-q2-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:170baf0399525f5e5b1298752a422289875944ae0d77154e56ac63fde1f61727"
+      ],
+      "reusable": true
+    },
+    {
+      "path": "data/assets/raster-annotations/eli-lilly-q2-fy26/company-wordmark.png",
+      "digest": "sha256:54784fe39c811418c93c3dfbfb464ff775117c65130dd873eda017f6d3cac421",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/eli-lilly-q2-fy26.json",
+          "recipeDigest": "sha256:8d7aff567f219b4eff2bc57c4b96851998905c6d3d199ff68103b543d6e6f025",
+          "source": "input/processed/eli-lilly-q2-fy26.png",
+          "cropKey": "company-wordmark"
+        }
+      ],
+      "directConsumers": [
+        "eli-lilly-q2-fy26"
+      ],
+      "consumers": [
+        "eli-lilly-q2-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:37ac3ad1196ad63c44f7fdb5b208f13dc0ecda077f8a8fb45bee2d10068d4944"
+      ],
+      "reusable": true
+    },
+    {
+      "path": "data/assets/raster-annotations/eli-lilly-q2-fy26/immunology-taltz.png",
+      "digest": "sha256:c075fa49cd350e8b2a6dd5ceb64ead0ca3ccf3b60c831560b8e162a0b63dc3dc",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/eli-lilly-q2-fy26.json",
+          "recipeDigest": "sha256:8d7aff567f219b4eff2bc57c4b96851998905c6d3d199ff68103b543d6e6f025",
+          "source": "input/processed/eli-lilly-q2-fy26.png",
+          "cropKey": "immunology-taltz"
+        }
+      ],
+      "directConsumers": [
+        "eli-lilly-q2-fy26"
+      ],
+      "consumers": [
+        "eli-lilly-q2-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:3fb40ab8f8f84cd595d0dacd64bc9f8a6ce720b7387e6081a0110bc3ff569aea"
+      ],
+      "reusable": true
+    },
+    {
+      "path": "data/assets/raster-annotations/eli-lilly-q2-fy26/neuroscience-emgality.png",
+      "digest": "sha256:eeb842b79d23643257f4e7f523595607806c61ad56af9a1cb194961c8f9bea57",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/eli-lilly-q2-fy26.json",
+          "recipeDigest": "sha256:8d7aff567f219b4eff2bc57c4b96851998905c6d3d199ff68103b543d6e6f025",
+          "source": "input/processed/eli-lilly-q2-fy26.png",
+          "cropKey": "neuroscience-emgality"
+        }
+      ],
+      "directConsumers": [
+        "eli-lilly-q2-fy26"
+      ],
+      "consumers": [
+        "eli-lilly-q2-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:a61f6e8c41c5d8a4795b5ced129329f4aeeaa72556d746b8862f7d8cd8c1c5c6"
+      ],
+      "reusable": true
+    },
+    {
+      "path": "data/assets/raster-annotations/eli-lilly-q2-fy26/oncology-verzenio.png",
+      "digest": "sha256:5d4b6e9d1ea4e27d9b3d826a445725824b9929c78942f8e265906ed0e74fca49",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/eli-lilly-q2-fy26.json",
+          "recipeDigest": "sha256:8d7aff567f219b4eff2bc57c4b96851998905c6d3d199ff68103b543d6e6f025",
+          "source": "input/processed/eli-lilly-q2-fy26.png",
+          "cropKey": "oncology-verzenio"
+        }
+      ],
+      "directConsumers": [
+        "eli-lilly-q2-fy26"
+      ],
+      "consumers": [
+        "eli-lilly-q2-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:3497ad52ab2dac0975376d31dc92b827bd7e1a6e9eef393bf615c083cab9feae"
+      ],
+      "reusable": true
+    },
+    {
       "path": "data/assets/raster-annotations/eli-lilly/cardiometabolic-brands.png",
       "digest": "sha256:277eefe59d5430321fbc9cb82c17095ae68575fc4d9c07fd3388c3c4ca21e20d",
       "provenance": [],
@@ -4645,10 +4791,12 @@
       "provenance": [],
       "directConsumers": [
         "kraft-heinz-q1-fy26",
+        "kraft-heinz-q2-fy26",
         "kraft-heinz-q4-fy25"
       ],
       "consumers": [
         "kraft-heinz-q1-fy26",
+        "kraft-heinz-q2-fy26",
         "kraft-heinz-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -4659,10 +4807,12 @@
       "digest": "sha256:2ecf9fd0058c19576b1deb404f251288d53d011db32b8aef173778bcd2addcda",
       "provenance": [],
       "directConsumers": [
-        "kraft-heinz-q1-fy26"
+        "kraft-heinz-q1-fy26",
+        "kraft-heinz-q2-fy26"
       ],
       "consumers": [
-        "kraft-heinz-q1-fy26"
+        "kraft-heinz-q1-fy26",
+        "kraft-heinz-q2-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -4672,10 +4822,12 @@
       "digest": "sha256:4a344637be1cc9994c689163d1636e45f3546b1be687050fc1d7df1b90a5174e",
       "provenance": [],
       "directConsumers": [
-        "kraft-heinz-q1-fy26"
+        "kraft-heinz-q1-fy26",
+        "kraft-heinz-q2-fy26"
       ],
       "consumers": [
-        "kraft-heinz-q1-fy26"
+        "kraft-heinz-q1-fy26",
+        "kraft-heinz-q2-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -4685,10 +4837,12 @@
       "digest": "sha256:d8f8ceda20e26bcf74887da078ee0824273f5972ca05f0347c17a75c85ef9220",
       "provenance": [],
       "directConsumers": [
-        "kraft-heinz-q1-fy26"
+        "kraft-heinz-q1-fy26",
+        "kraft-heinz-q2-fy26"
       ],
       "consumers": [
-        "kraft-heinz-q1-fy26"
+        "kraft-heinz-q1-fy26",
+        "kraft-heinz-q2-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -4698,10 +4852,12 @@
       "digest": "sha256:777951d3bdb8291f8f416b26f7355a69d3413f75ed7e2bc809ad1ac75b3c2c7d",
       "provenance": [],
       "directConsumers": [
-        "kraft-heinz-q1-fy26"
+        "kraft-heinz-q1-fy26",
+        "kraft-heinz-q2-fy26"
       ],
       "consumers": [
-        "kraft-heinz-q1-fy26"
+        "kraft-heinz-q1-fy26",
+        "kraft-heinz-q2-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -5446,10 +5602,12 @@
       ],
       "directConsumers": [
         "merck-q1-fy26",
+        "merck-q2-fy26",
         "merck-q4-fy25"
       ],
       "consumers": [
         "merck-q1-fy26",
+        "merck-q2-fy26",
         "merck-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -5468,10 +5626,12 @@
       ],
       "directConsumers": [
         "merck-q1-fy26",
+        "merck-q2-fy26",
         "merck-q4-fy25"
       ],
       "consumers": [
         "merck-q1-fy26",
+        "merck-q2-fy26",
         "merck-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -5490,10 +5650,12 @@
       ],
       "directConsumers": [
         "merck-q1-fy26",
+        "merck-q2-fy26",
         "merck-q4-fy25"
       ],
       "consumers": [
         "merck-q1-fy26",
+        "merck-q2-fy26",
         "merck-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -5512,10 +5674,12 @@
       ],
       "directConsumers": [
         "merck-q1-fy26",
+        "merck-q2-fy26",
         "merck-q4-fy25"
       ],
       "consumers": [
         "merck-q1-fy26",
+        "merck-q2-fy26",
         "merck-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -5534,10 +5698,12 @@
       ],
       "directConsumers": [
         "merck-q1-fy26",
+        "merck-q2-fy26",
         "merck-q4-fy25"
       ],
       "consumers": [
         "merck-q1-fy26",
+        "merck-q2-fy26",
         "merck-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -6722,11 +6888,13 @@
       "provenance": [],
       "directConsumers": [
         "novo-nordisk-q1-fy26",
+        "novo-nordisk-q2-fy26",
         "novo-nordisk-q3-fy25",
         "novo-nordisk-q4-fy25"
       ],
       "consumers": [
         "novo-nordisk-q1-fy26",
+        "novo-nordisk-q2-fy26",
         "novo-nordisk-q3-fy25",
         "novo-nordisk-q4-fy25"
       ],
@@ -6739,11 +6907,13 @@
       "provenance": [],
       "directConsumers": [
         "novo-nordisk-q1-fy26",
+        "novo-nordisk-q2-fy26",
         "novo-nordisk-q3-fy25",
         "novo-nordisk-q4-fy25"
       ],
       "consumers": [
         "novo-nordisk-q1-fy26",
+        "novo-nordisk-q2-fy26",
         "novo-nordisk-q3-fy25",
         "novo-nordisk-q4-fy25"
       ],
@@ -6756,11 +6926,13 @@
       "provenance": [],
       "directConsumers": [
         "novo-nordisk-q1-fy26",
+        "novo-nordisk-q2-fy26",
         "novo-nordisk-q3-fy25",
         "novo-nordisk-q4-fy25"
       ],
       "consumers": [
         "novo-nordisk-q1-fy26",
+        "novo-nordisk-q2-fy26",
         "novo-nordisk-q3-fy25",
         "novo-nordisk-q4-fy25"
       ],
@@ -6780,10 +6952,12 @@
       ],
       "directConsumers": [
         "novo-nordisk-q1-fy26",
+        "novo-nordisk-q2-fy26",
         "novo-nordisk-q3-fy25"
       ],
       "consumers": [
         "novo-nordisk-q1-fy26",
+        "novo-nordisk-q2-fy26",
         "novo-nordisk-q3-fy25"
       ],
       "acceptedVersions": [],
@@ -6795,11 +6969,13 @@
       "provenance": [],
       "directConsumers": [
         "novo-nordisk-q1-fy26",
+        "novo-nordisk-q2-fy26",
         "novo-nordisk-q3-fy25",
         "novo-nordisk-q4-fy25"
       ],
       "consumers": [
         "novo-nordisk-q1-fy26",
+        "novo-nordisk-q2-fy26",
         "novo-nordisk-q3-fy25",
         "novo-nordisk-q4-fy25"
       ],
@@ -6812,11 +6988,13 @@
       "provenance": [],
       "directConsumers": [
         "novo-nordisk-q1-fy26",
+        "novo-nordisk-q2-fy26",
         "novo-nordisk-q3-fy25",
         "novo-nordisk-q4-fy25"
       ],
       "consumers": [
         "novo-nordisk-q1-fy26",
+        "novo-nordisk-q2-fy26",
         "novo-nordisk-q3-fy25",
         "novo-nordisk-q4-fy25"
       ],
@@ -6829,11 +7007,13 @@
       "provenance": [],
       "directConsumers": [
         "novo-nordisk-q1-fy26",
+        "novo-nordisk-q2-fy26",
         "novo-nordisk-q3-fy25",
         "novo-nordisk-q4-fy25"
       ],
       "consumers": [
         "novo-nordisk-q1-fy26",
+        "novo-nordisk-q2-fy26",
         "novo-nordisk-q3-fy25",
         "novo-nordisk-q4-fy25"
       ],
@@ -9120,8 +9300,12 @@
           "cropKey": "rbi-burger-king-logo"
         }
       ],
-      "directConsumers": [],
-      "consumers": [],
+      "directConsumers": [
+        "rbi-q2-fy26"
+      ],
+      "consumers": [
+        "rbi-q2-fy26"
+      ],
       "acceptedVersions": [],
       "reusable": false
     },
@@ -9136,8 +9320,12 @@
           "cropKey": "rbi-firehouse-subs-logo"
         }
       ],
-      "directConsumers": [],
-      "consumers": [],
+      "directConsumers": [
+        "rbi-q2-fy26"
+      ],
+      "consumers": [
+        "rbi-q2-fy26"
+      ],
       "acceptedVersions": [],
       "reusable": false
     },
@@ -9152,8 +9340,12 @@
           "cropKey": "rbi-popeyes-logo"
         }
       ],
-      "directConsumers": [],
-      "consumers": [],
+      "directConsumers": [
+        "rbi-q2-fy26"
+      ],
+      "consumers": [
+        "rbi-q2-fy26"
+      ],
       "acceptedVersions": [],
       "reusable": false
     },
@@ -9168,8 +9360,12 @@
           "cropKey": "rbi-company-logo"
         }
       ],
-      "directConsumers": [],
-      "consumers": [],
+      "directConsumers": [
+        "rbi-q2-fy26"
+      ],
+      "consumers": [
+        "rbi-q2-fy26"
+      ],
       "acceptedVersions": [],
       "reusable": false
     },
@@ -9184,8 +9380,12 @@
           "cropKey": "rbi-tim-hortons-logo"
         }
       ],
-      "directConsumers": [],
-      "consumers": [],
+      "directConsumers": [
+        "rbi-q2-fy26"
+      ],
+      "consumers": [
+        "rbi-q2-fy26"
+      ],
       "acceptedVersions": [],
       "reusable": false
     },
@@ -9708,6 +9908,32 @@
         "sha256:fdcbf048fcad56f6a9c70b7650db203017b3335c4830a7a7282651422bad9e6a"
       ],
       "reusable": true
+    },
+    {
+      "path": "data/assets/raster-annotations/shopify-q2-fy26/company-bag.png",
+      "digest": "sha256:18beea4582d3bbf6c0c97db33174dfa9820a144a253b0946698509e7e879b861",
+      "provenance": [],
+      "directConsumers": [
+        "shopify-q2-fy26"
+      ],
+      "consumers": [
+        "shopify-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/shopify-q2-fy26/plus-wordmark.png",
+      "digest": "sha256:264084920dbcb5621fdfa525a4dc835200dd08115548322d05763e33101306ed",
+      "provenance": [],
+      "directConsumers": [
+        "shopify-q2-fy26"
+      ],
+      "consumers": [
+        "shopify-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
     },
     {
       "path": "data/assets/raster-annotations/sofi/company-wordmark-q4-fy25.png",
@@ -11060,6 +11286,11 @@
       "source": "input/processed/affirm-q2-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/affirm-q4-fy26.json",
+      "digest": "sha256:dc03eed6cdec4d0e51424c3c795879caaebeffe4e5ba62343001a6b9062a2b78",
+      "source": "input/processed/affirm-q4-fy26.png"
+    },
+    {
       "path": "input/icon-crop-specs/airbnb-q1-fy26.json",
       "digest": "sha256:007f35c6cd5799ca060e9ad594a08ca749b01e1927ae3eda1d869174169a2c74",
       "source": "input/processed/airbnb-q1-fy26.png"
@@ -11450,6 +11681,11 @@
       "source": "input/processed/elastic-q4-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/eli-lilly-q2-fy26.json",
+      "digest": "sha256:8d7aff567f219b4eff2bc57c4b96851998905c6d3d199ff68103b543d6e6f025",
+      "source": "input/processed/eli-lilly-q2-fy26.png"
+    },
+    {
       "path": "input/icon-crop-specs/eli-lilly-q4-fy25.json",
       "digest": "sha256:1607d601004257b2f9dac95d68993cd3e34d772afb773dd5b5999ea1fa6334f5",
       "source": "input/processed/eli-lilly-q4-fy25.png"
@@ -11693,6 +11929,11 @@
       "path": "input/icon-crop-specs/match-group-q4-fy25.json",
       "digest": "sha256:9e0ac40b95057765fbd237ad83ab1a02b7b6374ae1d8d6197298cbbbee51de32",
       "source": "input/processed/match-group-q4-fy25.png"
+    },
+    {
+      "path": "input/icon-crop-specs/mcdonald-s-q2-fy26.json",
+      "digest": "sha256:f6bb2e5bbf3802283fa2316aa29d5a681a796e27b4865f3093f762a2c9895c45",
+      "source": "input/processed/mcdonald-s-q2-fy26.png"
     },
     {
       "path": "input/icon-crop-specs/meituan-q1-fy26.json",
@@ -12078,6 +12319,11 @@
       "path": "input/icon-crop-specs/shopify-q1-fy26.json",
       "digest": "sha256:4837310b87d951799297aead8fbdebb71c0180cd8e3882685fbca3892e2e001b",
       "source": "input/processed/shopify-q1-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/shopify-q2-fy26.json",
+      "digest": "sha256:06f056cfa23dd0880af11bd896b25952d9c8390bddb4de5e5d9f4010b230e616",
+      "source": "input/processing/shopify-q2-fy26.png"
     },
     {
       "path": "input/icon-crop-specs/snap-q1-fy26.json",
