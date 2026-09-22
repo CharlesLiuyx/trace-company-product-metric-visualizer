@@ -62,6 +62,15 @@ test('abbreviated counts preserve source literals and exact integer magnitude', 
     assert.throws(() => normalizeOperatingObservation({ ...count, ...update }));
   }
 });
+test('explicit positive growth preserves its Source sign and rejects mismatched or malformed signs', () => {
+  const growth = { ...metrics[1], value: '1', comparison: 'eq', literal: '+1%' };
+  assert.equal(normalizeOperatingObservation(growth).literal, '+1%');
+  assert.equal(normalizeOperatingObservation({ ...growth, value: '5', literal: '+5%' }).value, '5');
+  for (const update of [{ value: '-1' }, { value: '2' }, { literal: '++1%' }, { literal: '+-1%' }, { value: '+1' }]) {
+    assert.throws(() => normalizeOperatingObservation({ ...growth, ...update }));
+  }
+  assert.equal(normalizeOperatingObservation({ ...growth, value: '-1', literal: '-1%' }).value, '-1');
+});
 test('supplemental metrics cannot masquerade as financial nodes or lose their quotes', () => {
   const f = fixture();
   f.dataset.nodes.push({ id: 'arr', value: 1.66 });
