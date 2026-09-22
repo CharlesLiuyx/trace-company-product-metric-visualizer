@@ -19,6 +19,22 @@ let virtualTableFrame = 0;
 
 const tableModelCache = new Map();
 
+function describeProfitAdjustments(financial, language) {
+  return [
+    ['operatingOtherIncome', 'tableOperatingOtherIncome', false],
+    ['operatingOtherExpenses', 'tableOperatingOtherExpenses', true],
+    ['otherIncome', 'tableOtherIncome', false],
+    ['otherExpenses', 'tableOtherExpenses', true],
+  ].flatMap(([field, label, expense]) => {
+    const group = financial?.[field];
+    if (!group || (!group.total && !group.items?.length)) return [];
+    const items = (group.items || []).map((item) =>
+      `${labelText(item.label)}: ${formatAmount(financial, item.value, expense)}${item.notes?.length ? ` (${notesText(item.notes)})` : ''}`
+    ).join('; ');
+    return [`${t(label, {}, language)}: ${formatAmount(financial, group.total, expense)}${items ? ` · ${items}` : ''}`];
+  }).join('; ');
+}
+
 function tableColumnPreset(column) {
   if (column.widthPreset && TABLE_COLUMN_PRESETS[column.widthPreset]) return TABLE_COLUMN_PRESETS[column.widthPreset];
   const className = column.className || '';
@@ -207,6 +223,7 @@ function tableModelForLanguage(language = state.language, kind = activeTableKind
         operatingExpenseItems: describeItems(financial?.costs?.operatingExpenses?.items, financial),
         operatingProfit: formatAmount(financial, financial?.profit?.operating?.value),
         otherIncome: formatAmount(financial, financial?.otherIncome?.total || 0),
+        profitAdjustments: describeProfitAdjustments(financial, code),
         tax: formatAmount(financial, financial?.costs?.tax?.value, true),
         netProfit: formatAmount(financial, financial?.profit?.net?.value),
         operatingMetrics: (financial?.operatingMetrics || []).map((metric) => `${metric.label}: ${metric.literal}${metric.notes?.length ? ` (${metric.notes.join('; ')})` : ''}`).join('; '),
@@ -334,6 +351,7 @@ function renderTables() {
     { label: t('tableOpexItems'), className: 'wide', widthPreset: 'wide', maxWidth: 330, grow: 2, value: (row) => row.operatingExpenseItems },
     { label: t('tableOperatingProfit'), className: 'num', widthPreset: 'money', maxWidth: 112, grow: 0, value: (row) => row.operatingProfit },
     { label: t('tableOtherIncome'), className: 'num', widthPreset: 'money', maxWidth: 108, grow: 0, value: (row) => row.otherIncome },
+    ...(statements.some((row) => row.profitAdjustments) ? [{ label: t('tableProfitAdjustments'), className: 'wide', widthPreset: 'wide', maxWidth: 360, grow: 2, value: (row) => row.profitAdjustments }] : []),
     { label: t('tableTax'), className: 'num', widthPreset: 'money', maxWidth: 98, grow: 0, value: (row) => row.tax },
     { label: t('tableNetProfit'), className: 'num', widthPreset: 'money', maxWidth: 104, grow: 0, value: (row) => row.netProfit },
     ...(statements.some((row) => row.operatingMetrics) ? [{ label: t('tableOperatingMetrics'), className: 'wide', widthPreset: 'wide', maxWidth: 360, grow: 2, value: (row) => row.operatingMetrics }] : []),

@@ -37,7 +37,7 @@ export async function renderAssetReview(buildId, root = rootDir) {
       if (typeof value.total === 'number') displayRows.push([record.company, record.period, `${value.label || label} · 合计`, `${value.total} ${record.unit}`, record.currency, (value.notes || []).join('；')]);
       for (const [key, child] of Object.entries(value)) if (!['notes', 'i18n'].includes(key)) collect(child, `${label} / ${key}`);
     };
-    for (const [key, label] of Object.entries({ revenue: '收入', costs: '成本费用', otherIncome: '其他收入', otherExpenses: '其他费用', profit: '利润' })) collect(record[key], label);
+    for (const [key, label] of Object.entries({ revenue: '收入', costs: '成本费用', operatingOtherIncome: '营业利润调整收入', operatingOtherExpenses: '营业利润调整支出', otherIncome: '其他收入', otherExpenses: '其他费用', profit: '利润' })) collect(record[key], label);
   }
   const rows = displayRows.map((values) => `<tr>${values.map((value) => `<td>${e(value)}</td>`).join('')}</tr>`).join('');
   const manual = (current.plan?.requiredChecks || []).filter((check) => check.enforcement === 'manual').flatMap((check) => (check.localeScope === 'global' ? [null] : current.plan.requiredLocales).map((locale) => ({ check, locale })));

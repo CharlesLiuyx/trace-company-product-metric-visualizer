@@ -90,6 +90,15 @@ statementsCsvBtn.onclick = () => {
     { label: 'operating_expense_items', value: (row) => row.operatingExpenseItems },
     { label: 'operating_profit', value: (row) => row.financial?.profit?.operating?.value ?? '' },
     { label: 'other_income', value: (row) => row.financial?.otherIncome?.total ?? 0 },
+    { label: 'operating_other_income', value: (row) => row.financial?.operatingOtherIncome?.total ?? 0 },
+    { label: 'operating_other_expenses', value: (row) => row.financial?.operatingOtherExpenses?.total ?? 0 },
+    { label: 'other_expenses', value: (row) => row.financial?.otherExpenses?.total ?? 0 },
+    { label: 'profit_adjustments', value: (row) => row.profitAdjustments },
+    { label: 'profit_adjustments_json', value: (row) => JSON.stringify(Object.fromEntries(
+      ['operatingOtherIncome', 'operatingOtherExpenses', 'otherIncome', 'otherExpenses']
+        .filter((field) => row.financial?.[field])
+        .map((field) => [field, row.financial[field]])
+    )) },
     { label: 'tax', value: (row) => row.financial?.costs?.tax?.value ?? '' },
     { label: 'net_profit', value: (row) => row.financial?.profit?.net?.value ?? '' },
     { label: 'operating_metrics', value: (row) => row.operatingMetrics },
