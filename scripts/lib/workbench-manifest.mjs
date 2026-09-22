@@ -2,7 +2,7 @@
 // identity; lifecycle verification continues to use uncached byte manifests.
 import path from 'node:path';
 import { readdir, lstat, readFile } from 'node:fs/promises';
-import { CANONICAL_ROOTS, inside, bytesDigest } from './workflow-files.mjs';
+import { CANONICAL_ROOTS, inside, bytesDigest, isSnapshotCachePath } from './workflow-files.mjs';
 import { digestValue } from './dataset-build.mjs';
 
 export function createPreviewManifest() {
@@ -11,6 +11,7 @@ export function createPreviewManifest() {
   return async function manifest(root, roots = CANONICAL_ROOTS) {
     const files = new Set();
     async function visit(relative) {
+      if (isSnapshotCachePath(relative)) return;
       const file = inside(root, relative);
       const info = await lstat(file).catch((error) => { if (error.code !== 'ENOENT') throw error; });
       if (!info) return;
@@ -20,8 +21,8 @@ export function createPreviewManifest() {
     }
     async function directory(relative) {
       for (const item of await readdir(inside(root, relative), { withFileTypes: true })) {
-        if (item.name === '.DS_Store') continue;
         const name = `${relative}/${item.name}`;
+        if (isSnapshotCachePath(name)) continue;
         if (item.isSymbolicLink()) throw new Error(`Snapshot may not follow symlinks: ${name}`);
         if (item.isDirectory()) await directory(name);
         else if (item.isFile()) files.add(name);
