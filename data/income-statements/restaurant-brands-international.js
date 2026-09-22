@@ -372,3 +372,386 @@
     }
   );
 })(window);
+
+(function(global){ global.INCOME_STATEMENT_SSOT.records.push({
+  "key": "rbi-q2-fy26",
+  "company": "Restaurant Brands International",
+  "period": "Q2 FY26",
+  "periodNote": "",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 3,
+  "sourceImage": "input/processed/rbi-q2-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 2.5,
+    "notes": [
+      "+5% Y/Y",
+      "Source rounded brand segments sum to $2.6B."
+    ],
+    "items": [
+      {
+        "id": "tim_hortons",
+        "label": "Tim Hortons",
+        "value": 1.1,
+        "notes": [
+          "+5% Y/Y"
+        ]
+      },
+      {
+        "id": "burger_king",
+        "label": "Burger King",
+        "value": 0.4,
+        "notes": [
+          "+2% Y/Y"
+        ]
+      },
+      {
+        "id": "popeyes",
+        "label": "Popeyes",
+        "value": 0.2,
+        "notes": [
+          "(5%) Y/Y"
+        ]
+      },
+      {
+        "id": "firehouse_subs",
+        "label": "Firehouse Subs",
+        "value": 0.1,
+        "notes": [
+          "+5% Y/Y"
+        ]
+      },
+      {
+        "id": "international",
+        "label": "International",
+        "value": 0.3,
+        "notes": [
+          "+10% Y/Y"
+        ]
+      },
+      {
+        "id": "restaurant_holdings",
+        "label": "Restaurant Holdings",
+        "value": 0.5,
+        "notes": [
+          "+8% Y/Y"
+        ]
+      }
+    ],
+    "breakdowns": [
+      {
+        "id": "revenue_type",
+        "label": "Revenue by type",
+        "total": 2.5,
+        "items": [
+          {
+            "id": "supply_chain_sales",
+            "label": "Supply chain sales",
+            "value": 0.8,
+            "notes": [
+              "+8% Y/Y"
+            ]
+          },
+          {
+            "id": "company_restaurant",
+            "label": "Company restaurant",
+            "value": 0.6,
+            "notes": [
+              "+3% Y/Y"
+            ]
+          },
+          {
+            "id": "franchise_property_rev",
+            "label": "Franchise & property",
+            "value": 0.8,
+            "notes": [
+              "+4% Y/Y"
+            ]
+          },
+          {
+            "id": "advertising",
+            "label": "Advertising revenue",
+            "value": 0.3,
+            "notes": [
+              "+1% Y/Y"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 0,
+      "notes": [
+        "Not separately reported in Source; schema bookkeeping only."
+      ]
+    },
+    "operatingExpenses": {
+      "total": 1.8,
+      "items": [
+        {
+          "id": "supply_chain_costs",
+          "label": "Supply chain costs",
+          "value": 0.6
+        },
+        {
+          "id": "company_restaurants",
+          "label": "Company restaurants",
+          "value": 0.5
+        },
+        {
+          "id": "franchise_expenses",
+          "label": "Franchise expenses",
+          "value": 0.5
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 0.2
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax expense",
+      "value": 0,
+      "notes": [
+        "Tax benefit is separately reported under other income."
+      ]
+    }
+  },
+  "operatingOtherIncome": {
+    "total": 0.028,
+    "items": [
+      {
+        "id": "other_income",
+        "label": "Other income",
+        "value": 0.028
+      }
+    ]
+  },
+  "otherIncome": {
+    "total": 0.1,
+    "items": [
+      {
+        "id": "tax_benefit",
+        "label": "Tax benefit",
+        "value": 0.1
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0.1,
+    "items": [
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 0.1
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 2.5,
+      "notes": [
+        "Not separately reported in Source; schema bookkeeping only."
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 0.7,
+      "notes": [
+        "28% margin",
+        "+8pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 0.7,
+      "notes": [
+        "26% margin",
+        "+15pp Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "periodNote": "",
+      "revenue": {
+        "notes": [
+          "同比 +5%",
+          "来源中按品牌显示的舍入分项合计为 $2.6B。"
+        ],
+        "items": [
+          {
+            "id": "tim_hortons",
+            "label": "Tim Hortons",
+            "notes": [
+              "同比 +5%"
+            ]
+          },
+          {
+            "id": "burger_king",
+            "label": "汉堡王",
+            "notes": [
+              "同比 +2%"
+            ]
+          },
+          {
+            "id": "popeyes",
+            "label": "Popeyes",
+            "notes": [
+              "同比 (5%)"
+            ]
+          },
+          {
+            "id": "firehouse_subs",
+            "label": "Firehouse Subs",
+            "notes": [
+              "同比 +5%"
+            ]
+          },
+          {
+            "id": "international",
+            "label": "国际",
+            "notes": [
+              "同比 +10%"
+            ]
+          },
+          {
+            "id": "restaurant_holdings",
+            "label": "餐厅控股",
+            "notes": [
+              "同比 +8%"
+            ]
+          }
+        ],
+        "breakdowns": [
+          {
+            "id": "revenue_type",
+            "label": "按类型划分的收入",
+            "items": [
+              {
+                "id": "supply_chain_sales",
+                "label": "供应链销售",
+                "notes": [
+                  "同比 +8%"
+                ]
+              },
+              {
+                "id": "company_restaurant",
+                "label": "自营餐厅",
+                "notes": [
+                  "同比 +3%"
+                ]
+              },
+              {
+                "id": "franchise_property_rev",
+                "label": "特许经营及物业",
+                "notes": [
+                  "同比 +4%"
+                ]
+              },
+              {
+                "id": "advertising",
+                "label": "广告收入",
+                "notes": [
+                  "同比 +1%"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本",
+          "notes": [
+            "原图未单列，仅用于数据结构记账。"
+          ]
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "supply_chain_costs",
+              "label": "供应链成本"
+            },
+            {
+              "id": "company_restaurants",
+              "label": "公司自营餐厅"
+            },
+            {
+              "id": "franchise_expenses",
+              "label": "特许经营费用"
+            },
+            {
+              "id": "ga",
+              "label": "管理费用"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费",
+          "notes": [
+            "税收收益单独列入其他收入。"
+          ]
+        }
+      },
+      "operatingOtherIncome": {
+        "items": [
+          {
+            "id": "other_income",
+            "label": "其他收入"
+          }
+        ]
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "tax_benefit",
+            "label": "税收收益"
+          }
+        ]
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "原图未单列，仅用于数据结构记账。"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 28%",
+            "同比 +8 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 26%",
+            "同比 +15 个百分点"
+          ]
+        }
+      }
+    }
+  }
+}); })(window);

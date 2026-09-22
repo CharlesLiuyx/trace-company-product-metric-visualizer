@@ -236,6 +236,249 @@
           },
         },
       },
+    },
+{
+  "key": "global-e-q2-fy26",
+  "company": "Global-e",
+  "period": "Q2 FY26",
+  "periodNote": "",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/global-e-q2-fy26.png",
+  "roundingTolerance": 0.01,
+  "revenue": {
+    "total": 299,
+    "notes": [
+      "+39% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "service_fees",
+        "label": "Service fees",
+        "value": 139,
+        "notes": [
+          "+36% Y/Y"
+        ]
+      },
+      {
+        "id": "fulfillment",
+        "label": "Fulfillment",
+        "value": 160,
+        "notes": [
+          "+42% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 167
+    },
+    "operatingExpenses": {
+      "total": 87,
+      "items": [
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 36,
+          "notes": [
+            "12% of revenue",
+            "(8pp) Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 35,
+          "notes": [
+            "12% of revenue",
+            "(3pp) Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 16,
+          "notes": [
+            "5% of revenue",
+            "(0pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 2
     }
+  },
+  "otherIncome": {
+    "total": 5,
+    "items": [
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 5
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 132,
+      "notes": [
+        "44% margin",
+        "(1pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 45,
+      "notes": [
+        "15% margin",
+        "+10pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 48,
+      "notes": [
+        "16% margin",
+        "+11pp Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "periodNote": "",
+      "revenue": {
+        "notes": [
+          "同比 +39%"
+        ],
+        "items": [
+          {
+            "label": "服务费",
+            "notes": [
+              "同比 +36%"
+            ]
+          },
+          {
+            "label": "履约服务",
+            "notes": [
+              "同比 +42%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "label": "销售与营销",
+              "notes": [
+                "占收入 12%",
+                "同比 (8 个百分点)"
+              ]
+            },
+            {
+              "label": "研发",
+              "notes": [
+                "占收入 12%",
+                "同比 (3 个百分点)"
+              ]
+            },
+            {
+              "label": "一般及行政",
+              "notes": [
+                "占收入 5%",
+                "同比 (0 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 44%",
+            "同比 (1 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 15%",
+            "同比 +10 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 16%",
+            "同比 +11 个百分点"
+          ]
+        }
+      },
+      "operatingMetrics": [
+        {
+          "label": "GMV",
+          "notes": [
+            "同比 +44%"
+          ]
+        }
+      ]
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "gmv",
+      "label": "GMV",
+      "value": "2.1",
+      "unit": "B",
+      "currency": "USD",
+      "comparison": "eq",
+      "literal": "$2.1B",
+      "basis": "unspecified",
+      "notes": [
+        "+44% Y/Y"
+      ],
+      "quote": "GMV\n$2.1B\n+44% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          217,
+          1144,
+          147,
+          159
+        ]
+      }
+    }
+  ]
+}
   );
 })(window);

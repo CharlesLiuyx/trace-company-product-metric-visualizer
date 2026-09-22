@@ -367,3 +367,309 @@
     }
   );
 })(window);
+
+window.INCOME_STATEMENT_SSOT.records.push({
+  "key": "shopify-q2-fy26",
+  "company": "Shopify",
+  "period": "Q2 FY26",
+  "periodNote": "Quarter ended Jun. 30, 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 3,
+  "sourceImage": "input/processed/shopify-q2-fy26.png",
+  "roundingTolerance": 0.005,
+  "revenue": {
+    "total": 3.583,
+    "notes": [
+      "+34% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "merchant_solutions",
+        "label": "Merchant Solutions",
+        "value": 2.781,
+        "notes": [
+          "+37% Y/Y"
+        ]
+      },
+      {
+        "id": "subscription_solutions",
+        "label": "Subscription Solutions",
+        "value": 0.802,
+        "notes": [
+          "+22% Y/Y"
+        ],
+        "children": [
+          {
+            "id": "shopify_plus",
+            "label": "Shopify Plus",
+            "value": 0.2,
+            "notes": [
+              "+18% Y/Y",
+              "Source-rounded subscription split; precise component amounts are not disclosed in the supplied chart."
+            ]
+          },
+          {
+            "id": "other_subscription",
+            "label": "Other",
+            "value": 0.6,
+            "notes": [
+              "+24% Y/Y",
+              "Source-rounded subscription split; precise component amounts are not disclosed in the supplied chart."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 1.875,
+      "items": [
+        {
+          "id": "merchant_cost",
+          "label": "Merchant",
+          "value": 1.712,
+          "notes": [
+            "38% gross margin"
+          ]
+        },
+        {
+          "id": "subscription_cost",
+          "label": "Subscription",
+          "value": 0.163,
+          "notes": [
+            "80% gross margin"
+          ]
+        }
+      ]
+    },
+    "operatingExpenses": {
+      "total": 1.22,
+      "items": [
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 0.498,
+          "notes": [
+            "14% of revenue",
+            "(2pp) Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 0.445,
+          "notes": [
+            "12% of revenue",
+            "(2pp) Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 0.136,
+          "notes": [
+            "4% of revenue",
+            "(1pp) Y/Y"
+          ]
+        },
+        {
+          "id": "loan_losses",
+          "label": "Loan losses",
+          "value": 0.141,
+          "notes": [
+            "4% of revenue",
+            "+1pp Y/Y"
+          ]
+        }
+      ]
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0.049,
+    "items": [
+      {
+        "id": "other_expense",
+        "label": "Other",
+        "value": 0.049,
+        "notes": [
+          "Derived from official operating income $488M minus net income excluding equity investments $439M; includes taxes."
+        ]
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 1.708,
+      "notes": [
+        "48% margin",
+        "(1pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 0.488,
+      "notes": [
+        "14% margin",
+        "+3pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit excluding equity investment impacts",
+      "value": 0.439,
+      "notes": [
+        "12% margin",
+        "+6pp Y/Y",
+        "The Source chart margin comparison conflicts with the official figures on the same basis."
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "periodNote": "截至 2026 年 6 月 30 日的季度",
+      "revenue": {
+        "notes": [
+          "同比 +34%"
+        ],
+        "items": [
+          {
+            "id": "merchant_solutions",
+            "label": "商家解决方案",
+            "notes": [
+              "同比 +37%"
+            ]
+          },
+          {
+            "id": "subscription_solutions",
+            "label": "订阅解决方案",
+            "notes": [
+              "同比 +22%"
+            ],
+            "children": [
+              {
+                "id": "shopify_plus",
+                "label": "Shopify Plus 方案",
+                "notes": [
+                  "同比 +18%",
+                  "来源仅提供四舍五入的订阅收入子项，未披露精确金额。"
+                ]
+              },
+              {
+                "id": "other_subscription",
+                "label": "其他",
+                "notes": [
+                  "同比 +24%",
+                  "来源仅提供四舍五入的订阅收入子项，未披露精确金额。"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本",
+          "items": [
+            {
+              "id": "merchant_cost",
+              "label": "商家",
+              "notes": [
+                "毛利率 38%"
+              ]
+            },
+            {
+              "id": "subscription_cost",
+              "label": "订阅",
+              "notes": [
+                "毛利率 80%"
+              ]
+            }
+          ]
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sm",
+              "label": "销售与市场",
+              "notes": [
+                "占收入 14%",
+                "同比 (2 个百分点)"
+              ]
+            },
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 12%",
+                "同比 (2 个百分点)"
+              ]
+            },
+            {
+              "id": "ga",
+              "label": "管理费用",
+              "notes": [
+                "占收入 4%",
+                "同比 (1 个百分点)"
+              ]
+            },
+            {
+              "id": "loan_losses",
+              "label": "贷款损失",
+              "notes": [
+                "占收入 4%",
+                "同比 +1 个百分点"
+              ]
+            }
+          ]
+        }
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other_expense",
+            "label": "其他",
+            "notes": [
+              "按官方营业利润 $488M 减去剔除股权投资影响的净利润 $439M 推导，包含税项。"
+            ]
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 48%",
+            "同比 (1 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 14%",
+            "同比 +3 个百分点"
+          ]
+        },
+        "net": {
+          "label": "剔除股权投资影响的净利润",
+          "notes": [
+            "利润率 12%",
+            "同比 +6 个百分点",
+            "同比变化保留自原图，与官方同口径数据不一致。"
+          ]
+        }
+      }
+    }
+  }
+});

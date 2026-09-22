@@ -1130,3 +1130,268 @@
     },
   });
 })(window);
+
+window.INCOME_STATEMENT_SSOT.records.push({
+  "key": "mcdonald-s-q2-fy26",
+  "company": "McDonald's",
+  "period": "Q2 FY26",
+  "periodNote": "",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/mcdonald-s-q2-fy26.png",
+  "roundingTolerance": 0.2,
+  "revenue": {
+    "total": 7.1,
+    "notes": [
+      "+4% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "company_owned_restaurants",
+        "label": "Sales from company-owned restaurants",
+        "value": 2.5,
+        "notes": [
+          "+3% Y/Y",
+          "15% gross margin"
+        ]
+      },
+      {
+        "id": "franchised_restaurants",
+        "label": "Franchised restaurants",
+        "value": 4.4,
+        "notes": [
+          "+4% Y/Y",
+          "85% gross margin"
+        ]
+      },
+      {
+        "id": "other_revenue",
+        "label": "Other revenue",
+        "value": 0.2,
+        "notes": [
+          "+6% Y/Y",
+          "Other restaurants"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "restaurant_expenses",
+      "label": "Restaurant expenses",
+      "value": 3
+    },
+    "operatingExpenses": {
+      "total": 0.8,
+      "items": [
+        {
+          "id": "other_sga",
+          "label": "Other SG&A",
+          "value": 0.7
+        },
+        {
+          "id": "depreciation_amortization",
+          "label": "Depreciation & amortization",
+          "value": 0.1
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.6
+    }
+  },
+  "otherExpenses": {
+    "total": 0.4,
+    "items": [
+      {
+        "id": "interest",
+        "label": "Interest",
+        "value": 0.4
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 4.1,
+      "notes": [
+        "58% margin",
+        "+0pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 3.3,
+      "notes": [
+        "47% margin",
+        "(0pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 2.4,
+      "notes": [
+        "33% margin",
+        "+0pp Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "periodNote": "",
+      "revenue": {
+        "notes": [
+          "同比 +4%"
+        ],
+        "items": [
+          {
+            "id": "company_owned_restaurants",
+            "label": "自营餐厅销售额",
+            "notes": [
+              "同比 +3%",
+              "毛利率 15%"
+            ]
+          },
+          {
+            "id": "franchised_restaurants",
+            "label": "加盟餐厅",
+            "notes": [
+              "同比 +4%",
+              "毛利率 85%"
+            ]
+          },
+          {
+            "id": "other_revenue",
+            "label": "其他收入",
+            "notes": [
+              "同比 +6%",
+              "其他餐厅"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "餐厅费用"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "other_sga",
+              "label": "其他销售、一般及行政费用"
+            },
+            {
+              "id": "depreciation_amortization",
+              "label": "折旧及摊销"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "interest",
+            "label": "利息"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 58%",
+            "同比 +0 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 47%",
+            "同比 (0 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 33%",
+            "同比 +0 个百分点"
+          ]
+        }
+      },
+      "operatingMetrics": [
+        {
+          "id": "global_comparable_sales_growth",
+          "label": "全球可比销售额",
+          "notes": [
+            "同比"
+          ]
+        },
+        {
+          "id": "systemwide_sales_growth",
+          "label": "系统销售额",
+          "notes": [
+            "同比"
+          ]
+        }
+      ]
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "global_comparable_sales_growth",
+      "label": "Global comparable sales",
+      "value": "1",
+      "unit": "%",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "+1%",
+      "basis": "unspecified",
+      "notes": [
+        "Y/Y"
+      ],
+      "quote": "Global comparable sales\n+1% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          150,
+          1199,
+          272,
+          149
+        ]
+      }
+    },
+    {
+      "id": "systemwide_sales_growth",
+      "label": "Systemwide sales",
+      "value": "5",
+      "unit": "%",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "+5%",
+      "basis": "unspecified",
+      "notes": [
+        "Y/Y"
+      ],
+      "quote": "Systemwide sales\n+5% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          436,
+          1199,
+          273,
+          149
+        ]
+      }
+    }
+  ]
+});

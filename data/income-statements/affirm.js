@@ -371,3 +371,434 @@
     }
   );
 })(window);
+
+window.INCOME_STATEMENT_SSOT.records.push({
+  "key": "affirm-q4-fy26",
+  "company": "Affirm",
+  "period": "Q4 FY26",
+  "periodNote": "Ending June 2026",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/affirm-q4-fy26.png",
+  "roundingTolerance": 2,
+  "notes": [
+    "Source rounding: network components sum to $387M versus $388M shown; operating expense components sum to $1,019M; operating profit plus tax benefit and Other sum to $1,617M versus $1,616M net profit shown.",
+    "The source flows revenue directly to operating profit and operating expenses; it does not show a separate gross-profit stage."
+  ],
+  "revenue": {
+    "total": 1166,
+    "notes": [
+      "+33% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "total_network_revenue",
+        "label": "Total network revenue",
+        "value": 388,
+        "notes": [
+          "+26% Y/Y"
+        ],
+        "children": [
+          {
+            "id": "merchant_network_revenue",
+            "label": "Merchant network revenue",
+            "value": 302,
+            "notes": [
+              "+26% Y/Y"
+            ]
+          },
+          {
+            "id": "card_network_revenue",
+            "label": "Card network revenue",
+            "value": 85,
+            "notes": [
+              "+27% Y/Y"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "interest_income",
+        "label": "Interest income",
+        "value": 567,
+        "notes": [
+          "+35% Y/Y"
+        ]
+      },
+      {
+        "id": "gain_on_sale_of_loans",
+        "label": "Gain on sale of loans",
+        "value": 165,
+        "notes": [
+          "+41% Y/Y"
+        ]
+      },
+      {
+        "id": "servicing_income",
+        "label": "Servicing income",
+        "value": 46,
+        "notes": [
+          "+36% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "label": "Cost of revenue not separately shown",
+      "value": 0,
+      "notes": [
+        "The source flows revenue directly to operating profit and operating expenses."
+      ]
+    },
+    "operatingExpenses": {
+      "total": 1019,
+      "items": [
+        {
+          "id": "loss_on_loan_purchase_commitment",
+          "label": "Loss on loan purchase commitment",
+          "value": 76
+        },
+        {
+          "id": "provision_for_credit_losses",
+          "label": "Provision for credit losses",
+          "value": 223
+        },
+        {
+          "id": "funding_costs",
+          "label": "Funding costs",
+          "value": 119
+        },
+        {
+          "id": "processing_servicing",
+          "label": "Processing & Servicing",
+          "value": 159
+        },
+        {
+          "id": "technology_data_analytics",
+          "label": "Technology & data analytics",
+          "value": 203
+        },
+        {
+          "id": "sales_marketing",
+          "label": "S&M",
+          "value": 92
+        },
+        {
+          "id": "general_administrative",
+          "label": "G&A",
+          "value": 147
+        }
+      ]
+    },
+    "tax": {
+      "label": "Tax expense not shown separately",
+      "value": 0
+    }
+  },
+  "otherIncome": {
+    "total": 1470,
+    "items": [
+      {
+        "id": "tax_benefit",
+        "label": "Tax benefit",
+        "value": 1448
+      },
+      {
+        "id": "other_income",
+        "label": "Other",
+        "value": 22
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "label": "Gross profit not separately shown",
+      "value": 1166,
+      "notes": [
+        "No separate gross-profit stage appears in the source infographic."
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 147,
+      "notes": [
+        "13% margin",
+        "+6pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 1616,
+      "notes": [
+        "139% margin",
+        "+131pp Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第四季度",
+      "periodNote": "截至 2026 年 6 月",
+      "revenue": {
+        "notes": [
+          "同比 +33%"
+        ],
+        "items": [
+          {
+            "id": "total_network_revenue",
+            "label": "网络总收入",
+            "notes": [
+              "同比 +26%"
+            ],
+            "children": [
+              {
+                "id": "merchant_network_revenue",
+                "label": "商户网络收入",
+                "notes": [
+                  "同比 +26%"
+                ]
+              },
+              {
+                "id": "card_network_revenue",
+                "label": "卡网络收入",
+                "notes": [
+                  "同比 +27%"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "interest_income",
+            "label": "利息收入",
+            "notes": [
+              "同比 +35%"
+            ]
+          },
+          {
+            "id": "gain_on_sale_of_loans",
+            "label": "贷款出售收益",
+            "notes": [
+              "同比 +41%"
+            ]
+          },
+          {
+            "id": "servicing_income",
+            "label": "服务收入",
+            "notes": [
+              "同比 +36%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "未单列收入成本",
+          "notes": [
+            "源图将收入直接分流至营业利润和运营费用。"
+          ]
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "loss_on_loan_purchase_commitment",
+              "label": "贷款购买承诺损失"
+            },
+            {
+              "id": "provision_for_credit_losses",
+              "label": "信贷损失准备"
+            },
+            {
+              "id": "funding_costs",
+              "label": "融资成本"
+            },
+            {
+              "id": "processing_servicing",
+              "label": "处理与服务"
+            },
+            {
+              "id": "technology_data_analytics",
+              "label": "技术与数据分析"
+            },
+            {
+              "id": "sales_marketing",
+              "label": "销售与营销"
+            },
+            {
+              "id": "general_administrative",
+              "label": "一般及行政"
+            }
+          ]
+        },
+        "tax": {
+          "label": "未单列税费"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "tax_benefit",
+            "label": "税收收益"
+          },
+          {
+            "id": "other_income",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "未单列毛利润",
+          "notes": [
+            "源图未显示单独的毛利润阶段。"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 13%",
+            "同比 +6 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 139%",
+            "同比 +131 个百分点"
+          ]
+        }
+      },
+      "operatingMetrics": [
+        {
+          "id": "gmv",
+          "label": "GMV",
+          "notes": [
+            "同比 +36%"
+          ]
+        },
+        {
+          "id": "d2c_gmv",
+          "label": "D2C GMV",
+          "notes": [
+            "同比 +49%"
+          ]
+        },
+        {
+          "id": "active_consumers",
+          "label": "活跃消费者",
+          "notes": [
+            "同比 +21%"
+          ]
+        },
+        {
+          "id": "active_merchants",
+          "label": "活跃商户",
+          "notes": [
+            "同比 +51%"
+          ]
+        }
+      ]
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "gmv",
+      "label": "GMV",
+      "value": "14.1",
+      "unit": "B",
+      "currency": "USD",
+      "literal": "$14.1B",
+      "comparison": "eq",
+      "basis": "unspecified",
+      "notes": [
+        "+36% Y/Y"
+      ],
+      "quote": "GMV\n$14.1B\n+36% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          102,
+          821,
+          147,
+          160
+        ]
+      }
+    },
+    {
+      "id": "d2c_gmv",
+      "label": "D2C GMV",
+      "value": "4.7",
+      "unit": "B",
+      "currency": "USD",
+      "literal": "$4.7B",
+      "comparison": "eq",
+      "basis": "unspecified",
+      "notes": [
+        "+49% Y/Y"
+      ],
+      "quote": "D2C GMV\n$4.7B\n+49% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          255,
+          821,
+          240,
+          160
+        ]
+      }
+    },
+    {
+      "id": "active_consumers",
+      "label": "Active consumers",
+      "value": "27800000",
+      "unit": "count",
+      "currency": null,
+      "literal": "27.8M",
+      "comparison": "eq",
+      "basis": "unspecified",
+      "notes": [
+        "+21% Y/Y"
+      ],
+      "quote": "Active consumers\n27.8M\n+21% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          103,
+          990,
+          391,
+          159
+        ]
+      }
+    },
+    {
+      "id": "active_merchants",
+      "label": "Active merchants",
+      "value": "571000",
+      "unit": "count",
+      "currency": null,
+      "literal": "571K",
+      "comparison": "eq",
+      "basis": "unspecified",
+      "notes": [
+        "+51% Y/Y"
+      ],
+      "quote": "Active merchants\n571K\n+51% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          103,
+          1159,
+          391,
+          159
+        ]
+      }
+    }
+  ]
+});

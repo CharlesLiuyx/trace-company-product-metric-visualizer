@@ -1,0 +1,24 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Eli Lilly immunology-taltz",
+  "artifact": {
+    "path": "data/assets/raster-annotations/eli-lilly-q2-fy26/immunology-taltz.png",
+    "digest": "sha256:c075fa49cd350e8b2a6dd5ceb64ead0ca3ccf3b60c831560b8e162a0b63dc3dc"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/eli-lilly-q2-fy26.json",
+    "digest": "sha256:8d7aff567f219b4eff2bc57c4b96851998905c6d3d199ff68103b543d6e6f025"
+  },
+  "source": {
+    "path": "input/processed/eli-lilly-q2-fy26.png",
+    "digest": "sha256:06392d33ad681fb6a2406cf997962164a8de8f5b59256b484ce4e677a3e551a4"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:c075fa49cd350e8b2a6dd5ceb64ead0ca3ccf3b60c831560b8e162a0b63dc3dc",
+    "note": "Inspected native Source and crop validation sheet: full brand artwork and microcopy retained, centered with margins, no financial text, ribbons or publisher marks. All extractor validation gates pass.",
+    "reviewedAt": "2026-09-22T09:57:41.997Z"
+  },
+  "versionDigest": "sha256:3fb40ab8f8f84cd595d0dacd64bc9f8a6ce720b7387e6081a0110bc3ff569aea"
+}

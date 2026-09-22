@@ -196,4 +196,285 @@
       },
     },
   });
+ssot.records.push({
+  "key": "novo-nordisk-q2-fy26",
+  "company": "Novo Nordisk",
+  "period": "Q2 FY26",
+  "periodNote": "",
+  "currency": "DKK",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/novo-nordisk-q2-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 78.5,
+    "notes": [
+      "+2% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "diabetes_care",
+        "label": "Diabetes care",
+        "value": 50.4,
+        "notes": [
+          "(2%) Y/Y"
+        ],
+        "children": [
+          {
+            "id": "glp1",
+            "label": "GLP-1",
+            "value": 36.8,
+            "notes": [
+              "(4%) Y/Y"
+            ]
+          },
+          {
+            "id": "insulin",
+            "label": "Insulin",
+            "value": 12.9,
+            "notes": [
+              "+2% Y/Y"
+            ]
+          },
+          {
+            "id": "other_diabetes",
+            "label": "Other diabetes",
+            "value": 0.7,
+            "notes": [
+              "+55% Y/Y"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "obesity_care",
+        "label": "Obesity care",
+        "value": 23.2,
+        "notes": [
+          "+14% Y/Y"
+        ]
+      },
+      {
+        "id": "rare_disease",
+        "label": "Rare disease",
+        "value": 4.9,
+        "notes": [
+          "(0%) Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_sales",
+      "label": "Cost of sales",
+      "value": 17.1
+    },
+    "operatingExpenses": {
+      "total": 34.3,
+      "items": [
+        {
+          "id": "sales_distribution",
+          "label": "Sales & Distribution",
+          "value": 15,
+          "notes": [
+            "19% of revenue",
+            "(4pp) Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 17.8,
+          "notes": [
+            "23% of revenue",
+            "+7pp Y/Y"
+          ]
+        },
+        {
+          "id": "admin_other",
+          "label": "Admin & Other",
+          "value": 1.5,
+          "notes": [
+            "User-authorized Source correction: original 1.3B; corrected 1.5B. Official administrative costs 1309M and other operating expenses 234M total 1543M. https://www.sec.gov/Archives/edgar/data/353278/000035327826000023/caq22026.htm"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 5.9
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0.2,
+    "items": [
+      {
+        "id": "other_expense",
+        "label": "Other",
+        "value": 0.2
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 61.4,
+      "notes": [
+        "78% margin",
+        "(5pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 27.1,
+      "notes": [
+        "34% margin",
+        "(9pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 21,
+      "notes": [
+        "27% margin",
+        "(8pp) Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "periodNote": "",
+      "revenue": {
+        "notes": [
+          "同比 +2%"
+        ],
+        "items": [
+          {
+            "id": "diabetes_care",
+            "label": "糖尿病护理",
+            "notes": [
+              "同比 (2%)"
+            ],
+            "children": [
+              {
+                "id": "glp1",
+                "label": "GLP-1",
+                "notes": [
+                  "同比 (4%)"
+                ]
+              },
+              {
+                "id": "insulin",
+                "label": "胰岛素",
+                "notes": [
+                  "同比 +2%"
+                ]
+              },
+              {
+                "id": "other_diabetes",
+                "label": "其他糖尿病业务",
+                "notes": [
+                  "同比 +55%"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "obesity_care",
+            "label": "肥胖症护理",
+            "notes": [
+              "同比 +14%"
+            ]
+          },
+          {
+            "id": "rare_disease",
+            "label": "罕见病",
+            "notes": [
+              "同比 (0%)"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "销售成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sales_distribution",
+              "label": "销售与分销",
+              "notes": [
+                "占收入 19%",
+                "同比 (4 个百分点)"
+              ]
+            },
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 23%",
+                "同比 +7 个百分点"
+              ]
+            },
+            {
+              "id": "admin_other",
+              "label": "管理及其他",
+              "notes": [
+                "按用户授权纠正来源：原图 1.3B；更正为 1.5B。官方管理费用 1309M 与其他营业支出 234M 合计 1543M。https://www.sec.gov/Archives/edgar/data/353278/000035327826000023/caq22026.htm"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": []
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 78%",
+            "同比 (5 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 34%",
+            "同比 (9 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 27%",
+            "同比 (8 个百分点)"
+          ]
+        }
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other_expense",
+            "label": "其他"
+          }
+        ]
+      }
+    }
+  }
+});
 })(window);

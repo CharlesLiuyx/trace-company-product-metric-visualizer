@@ -338,3 +338,346 @@
     }
   );
 })(window);
+
+window.INCOME_STATEMENT_SSOT.records.push({
+  "key": "amgen-q2-fy26",
+  "company": "Amgen",
+  "period": "Q2 FY26",
+  "periodNote": "Ending Jun. 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/amgen-q2-fy26.png",
+  "roundingTolerance": 0.25,
+  "revenue": {
+    "total": 10.1,
+    "notes": [
+      "+10% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "product_sales",
+        "label": "Product sales",
+        "value": 9.5,
+        "notes": [
+          "+9% Y/Y"
+        ],
+        "children": [
+          {
+            "id": "repatha",
+            "label": "Repatha",
+            "value": 1,
+            "notes": [
+              "+37% Y/Y"
+            ]
+          },
+          {
+            "id": "prolia",
+            "label": "Prolia",
+            "value": 0.8,
+            "notes": [
+              "(32%) Y/Y"
+            ]
+          },
+          {
+            "id": "evenity",
+            "label": "EVENITY",
+            "value": 0.7,
+            "notes": [
+              "+38% Y/Y"
+            ]
+          },
+          {
+            "id": "blincyto",
+            "label": "BLINCYTO",
+            "value": 0.5,
+            "notes": [
+              "+42% Y/Y"
+            ]
+          },
+          {
+            "id": "tezspire",
+            "label": "Tezspire",
+            "value": 0.5,
+            "notes": [
+              "+42% Y/Y"
+            ]
+          },
+          {
+            "id": "tepezza",
+            "label": "Tepezza",
+            "value": 0.6,
+            "notes": [
+              "+14% Y/Y"
+            ]
+          },
+          {
+            "id": "other_products",
+            "label": "Other",
+            "value": 5.6,
+            "notes": [
+              "+7% Y/Y"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "other_revenue",
+        "label": "Other",
+        "value": 0.5,
+        "notes": [
+          "+27% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_sales",
+      "label": "Cost of sales",
+      "value": 2.8
+    },
+    "operatingExpenses": {
+      "total": 3.7,
+      "items": [
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 1.9,
+          "notes": [
+            "19% of revenue",
+            "(0pp) Y/Y"
+          ]
+        },
+        {
+          "id": "sga",
+          "label": "SG&A",
+          "value": 1.7,
+          "notes": [
+            "17% of revenue",
+            "(1pp) Y/Y"
+          ]
+        },
+        {
+          "id": "other_opex",
+          "label": "Other",
+          "value": 0.1,
+          "notes": [
+            "1% of revenue",
+            "+0pp Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.4
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0.8,
+    "items": [
+      {
+        "id": "interest",
+        "label": "Interest",
+        "value": 0.7
+      },
+      {
+        "id": "other_expense",
+        "label": "Other",
+        "value": 0.1
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 7.2,
+      "notes": [
+        "72% margin",
+        "+5pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 3.5,
+      "notes": [
+        "35% margin",
+        "+6pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 2.4,
+      "notes": [
+        "24% margin",
+        "+8pp Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "periodNote": "截至 2026 年 6 月",
+      "revenue": {
+        "notes": [
+          "同比 +10%"
+        ],
+        "items": [
+          {
+            "id": "product_sales",
+            "label": "产品销售",
+            "notes": [
+              "同比 +9%"
+            ],
+            "children": [
+              {
+                "id": "repatha",
+                "label": "Repatha",
+                "notes": [
+                  "同比 +37%"
+                ]
+              },
+              {
+                "id": "prolia",
+                "label": "Prolia",
+                "notes": [
+                  "同比 (32%)"
+                ]
+              },
+              {
+                "id": "evenity",
+                "label": "EVENITY",
+                "notes": [
+                  "同比 +38%"
+                ]
+              },
+              {
+                "id": "blincyto",
+                "label": "BLINCYTO",
+                "notes": [
+                  "同比 +42%"
+                ]
+              },
+              {
+                "id": "tezspire",
+                "label": "Tezspire",
+                "notes": [
+                  "同比 +42%"
+                ]
+              },
+              {
+                "id": "tepezza",
+                "label": "Tepezza",
+                "notes": [
+                  "同比 +14%"
+                ]
+              },
+              {
+                "id": "other_products",
+                "label": "其他",
+                "notes": [
+                  "同比 +7%"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "other_revenue",
+            "label": "其他",
+            "notes": [
+              "同比 +27%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "id": "cost_of_sales",
+          "label": "销售成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 19%",
+                "同比 (0 个百分点)"
+              ]
+            },
+            {
+              "id": "sga",
+              "label": "销售及管理",
+              "notes": [
+                "占收入 17%",
+                "同比 (1 个百分点)"
+              ]
+            },
+            {
+              "id": "other_opex",
+              "label": "其他",
+              "notes": [
+                "占收入 1%",
+                "同比 +0 个百分点"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "id": "tax",
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": []
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "interest",
+            "label": "利息"
+          },
+          {
+            "id": "other_expense",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "id": "gross_profit",
+          "label": "毛利润",
+          "notes": [
+            "利润率 72%",
+            "同比 +5 个百分点"
+          ]
+        },
+        "operating": {
+          "id": "operating_profit",
+          "label": "营业利润",
+          "notes": [
+            "利润率 35%",
+            "同比 +6 个百分点"
+          ]
+        },
+        "net": {
+          "id": "net_profit",
+          "label": "净利润",
+          "notes": [
+            "利润率 24%",
+            "同比 +8 个百分点"
+          ]
+        }
+      }
+    }
+  }
+});

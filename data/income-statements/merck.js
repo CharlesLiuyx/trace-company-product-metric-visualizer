@@ -189,3 +189,296 @@
     },
   });
 })(window);
+
+window.INCOME_STATEMENT_SSOT.records.push({
+  "key": "merck-q2-fy26",
+  "company": "Merck",
+  "period": "Q2 FY26",
+  "periodNote": "Quarter ended Jun. 30, 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/merck-q2-fy26.png",
+  "roundingTolerance": 0.2,
+  "revenue": {
+    "total": 16.6,
+    "notes": [
+      "+5% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "pharma",
+        "label": "Pharma",
+        "value": 14.8,
+        "notes": [
+          "+5% Y/Y"
+        ],
+        "children": [
+          {
+            "id": "oncology",
+            "label": "Oncology",
+            "value": 9.4,
+            "notes": [
+              "+6% Y/Y"
+            ]
+          },
+          {
+            "id": "vaccines",
+            "label": "Vaccines",
+            "value": 2.2,
+            "notes": [
+              "(1%) Y/Y"
+            ]
+          },
+          {
+            "id": "infectious_diseases",
+            "label": [
+              "Infectious",
+              "Diseases"
+            ],
+            "value": 1.1,
+            "notes": [
+              "+3% Y/Y"
+            ]
+          },
+          {
+            "id": "diabetes",
+            "label": "Diabetes",
+            "value": 0.4,
+            "notes": [
+              "(31%) Y/Y"
+            ]
+          },
+          {
+            "id": "other_pharma",
+            "label": "Other",
+            "value": 1.6,
+            "notes": [
+              "+27% Y/Y"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "animal_health",
+        "label": "Animal Health",
+        "value": 1.8,
+        "notes": [
+          "+8% Y/Y"
+        ]
+      },
+      {
+        "id": "other_revenue",
+        "label": "Other",
+        "value": 0.1,
+        "notes": [
+          "(35%) Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_sales",
+      "label": "Cost of sales",
+      "value": 4.4,
+      "notes": []
+    },
+    "operatingExpenses": {
+      "total": 12.9,
+      "items": [
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 9.7,
+          "notes": [
+            "59% of revenue",
+            "+33pp Y/Y"
+          ]
+        },
+        {
+          "id": "sga",
+          "label": "SG&A",
+          "value": 2.9,
+          "notes": [
+            "17% of revenue",
+            "+1pp Y/Y"
+          ]
+        },
+        {
+          "id": "other_opex",
+          "label": "Other",
+          "value": 0.3,
+          "notes": [
+            "2% of revenue",
+            "(2pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "label": "Tax",
+      "value": 0,
+      "notes": [
+        "No separate tax line is shown in the source chart."
+      ]
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 12.2,
+      "notes": [
+        "74% margin",
+        "(4pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_loss",
+      "label": "Operating loss",
+      "value": -0.7,
+      "notes": [
+        "(4%) margin",
+        "(36pp) Y/Y"
+      ]
+    },
+    "net": {
+      "label": "Net income",
+      "value": null,
+      "availability": "not-reported",
+      "notes": [
+        "Source ends at operating loss; no separate net income or net loss is shown."
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "periodNote": "截至 2026 年 6 月 30 日的季度",
+      "revenue": {
+        "notes": [
+          "同比 +5%"
+        ],
+        "items": [
+          {
+            "label": "制药业务",
+            "notes": [
+              "同比 +5%"
+            ],
+            "children": [
+              {
+                "label": "肿瘤",
+                "notes": [
+                  "同比 +6%"
+                ]
+              },
+              {
+                "label": "疫苗",
+                "notes": [
+                  "同比 (1%)"
+                ]
+              },
+              {
+                "label": "传染病",
+                "notes": [
+                  "同比 +3%"
+                ]
+              },
+              {
+                "label": "糖尿病",
+                "notes": [
+                  "同比 (31%)"
+                ]
+              },
+              {
+                "label": "其他",
+                "notes": [
+                  "同比 +27%"
+                ]
+              }
+            ]
+          },
+          {
+            "label": "动物保健",
+            "notes": [
+              "同比 +8%"
+            ]
+          },
+          {
+            "label": "其他",
+            "notes": [
+              "同比 (35%)"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "销售成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "label": "研发",
+              "notes": [
+                "占收入 59%",
+                "同比 +33 个百分点"
+              ]
+            },
+            {
+              "label": "销售、一般及管理费用",
+              "notes": [
+                "占收入 17%",
+                "同比 +1 个百分点"
+              ]
+            },
+            {
+              "label": "其他",
+              "notes": [
+                "占收入 2%",
+                "同比 (2 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费",
+          "notes": [
+            "来源图未显示单独的税费项目。"
+          ]
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 74%",
+            "同比 (4 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业亏损",
+          "notes": [
+            "利润率 (4%)",
+            "同比 (36 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "原图止于营业亏损，未披露净利润或净亏损。"
+          ]
+        }
+      }
+    }
+  }
+});

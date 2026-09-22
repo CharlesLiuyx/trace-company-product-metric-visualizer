@@ -2,7 +2,295 @@
 (function (global) {
   'use strict';
   const ssot = (global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || { schemaVersion: 1, records: [] });
-  ssot.records.push({
+  // Preserve the reported net profit: 9.0 + 0.5 - 2.2 - 0.3 = 7.0 versus 7.1 in the Source.
+  // The 0.1 difference is within the existing 0.15 published-rounding tolerance.
+  ssot.records.push(
+  {
+    "key": "eli-lilly-q2-fy26",
+    "company": "Eli Lilly",
+    "period": "Q2 FY26",
+    "periodNote": "Ending Jun. 2026",
+    "currency": "$",
+    "unit": "B",
+    "decimals": 1,
+    "sourceImage": "input/processed/eli-lilly-q2-fy26.png",
+    "roundingTolerance": 0.15,
+    "revenue": {
+      "total": 23.0,
+      "notes": [
+        "+48% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "cardiometabolic",
+          "label": "Cardiometabolic Health",
+          "value": 18.4,
+          "notes": [
+            "+52% Y/Y"
+          ]
+        },
+        {
+          "id": "oncology",
+          "label": "Oncology",
+          "value": 2.6,
+          "notes": [
+            "+6% Y/Y"
+          ]
+        },
+        {
+          "id": "immunology",
+          "label": "Immunology",
+          "value": 1.4,
+          "notes": [
+            "+13% Y/Y"
+          ]
+        },
+        {
+          "id": "neuroscience",
+          "label": "Neurosciences",
+          "value": 0.4,
+          "notes": [
+            "+25% Y/Y"
+          ]
+        },
+        {
+          "id": "other_revenue",
+          "label": "Other",
+          "value": 0.2,
+          "notes": [
+            "+2% Y/Y"
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_sales",
+        "label": "Cost of sales",
+        "value": 3.3
+      },
+      "operatingExpenses": {
+        "total": 10.7,
+        "items": [
+          {
+            "id": "rnd",
+            "label": "R&D",
+            "value": 3.8,
+            "notes": [
+              "17% of revenue",
+              "(5pp) Y/Y"
+            ]
+          },
+          {
+            "id": "sma",
+            "label": "SM&A",
+            "value": 3.4,
+            "notes": [
+              "15% of revenue",
+              "(3pp) Y/Y"
+            ]
+          },
+          {
+            "id": "acquired_iprd",
+            "label": "Acquired IPR&D",
+            "value": 2.8,
+            "notes": [
+              "12% of revenue",
+              "+11pp Y/Y"
+            ]
+          },
+          {
+            "id": "other_opex",
+            "label": "Other",
+            "value": 0.7
+          }
+        ]
+      },
+      "tax": {
+        "id": "tax",
+        "label": "Tax",
+        "value": 2.2
+      }
+    },
+    "otherIncome": {
+      "total": 0.5,
+      "items": [
+        {
+          "id": "other_income",
+          "label": "Other",
+          "value": 0.5
+        }
+      ]
+    },
+    "otherExpenses": {
+      "total": 0.3,
+      "items": [
+        {
+          "id": "interest",
+          "label": "Interest",
+          "value": 0.3
+        }
+      ]
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 19.7,
+        "notes": [
+          "86% margin",
+          "+2pp Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_profit",
+        "label": "Operating profit",
+        "value": 9.0,
+        "notes": [
+          "39% margin",
+          "(5pp) Y/Y"
+        ]
+      },
+      "net": {
+        "id": "net_profit",
+        "label": "Net profit",
+        "value": 7.1,
+        "notes": [
+          "31% margin",
+          "(6pp) Y/Y",
+          "Operating profit plus other income less tax and interest rounds to $7.0B; the source reports $7.1B net profit."
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2026 财年第二季度",
+        "periodNote": "截至 2026 年 6 月",
+        "revenue": {
+          "notes": [
+            "同比 +48%"
+          ],
+          "items": [
+            {
+              "id": "cardiometabolic",
+              "label": "心血管代谢健康",
+              "notes": [
+                "同比 +52%"
+              ]
+            },
+            {
+              "id": "oncology",
+              "label": "肿瘤",
+              "notes": [
+                "同比 +6%"
+              ]
+            },
+            {
+              "id": "immunology",
+              "label": "免疫",
+              "notes": [
+                "同比 +13%"
+              ]
+            },
+            {
+              "id": "neuroscience",
+              "label": "神经科学",
+              "notes": [
+                "同比 +25%"
+              ]
+            },
+            {
+              "id": "other_revenue",
+              "label": "其他",
+              "notes": [
+                "同比 +2%"
+              ]
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "销售成本"
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "rnd",
+                "label": "研发",
+                "notes": [
+                  "占收入 17%",
+                  "同比 (5 个百分点)"
+                ]
+              },
+              {
+                "id": "sma",
+                "label": "销售、市场与管理",
+                "notes": [
+                  "占收入 15%",
+                  "同比 (3 个百分点)"
+                ]
+              },
+              {
+                "id": "acquired_iprd",
+                "label": "收购的 IPR&D",
+                "notes": [
+                  "占收入 12%",
+                  "同比 +11 个百分点"
+                ]
+              },
+              {
+                "id": "other_opex",
+                "label": "其他"
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费"
+          }
+        },
+        "otherIncome": {
+          "items": [
+            {
+              "id": "other_income",
+              "label": "其他"
+            }
+          ]
+        },
+        "otherExpenses": {
+          "items": [
+            {
+              "id": "interest",
+              "label": "利息"
+            }
+          ]
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 86%",
+              "同比 +2 个百分点"
+            ]
+          },
+          "operating": {
+            "label": "营业利润",
+            "notes": [
+              "利润率 39%",
+              "同比 (5 个百分点)"
+            ]
+          },
+          "net": {
+            "label": "净利润",
+            "notes": [
+              "利润率 31%",
+              "同比 (6 个百分点)",
+              "营业利润加其他收入、减税费和利息后为 70 亿美元；原图报告的净利润为 71 亿美元，差额属于列示金额的舍入差异。"
+            ]
+          }
+        }
+      }
+    }
+  }, {
     key: 'eli-lilly-q1-fy26', company: 'Eli Lilly', period: 'Q1 FY26', periodNote: 'Ending Mar. 2026', currency: '$', unit: 'B', decimals: 1,
     sourceImage: 'input/processed/eli-lilly-q1-fy26.png', roundingTolerance: 0.15,
     revenue: { total: 19.8, notes: ['+56% Y/Y'], items: [

@@ -23568,6 +23568,249 @@
             }
           }
         }
+      },
+      {
+        "key": "affirm-q4-fy26",
+        "src": "data/datasets/affirm-q4-fy26.js",
+        "data": {
+          "name": "Affirm · Q4 FY26",
+          "company": "Affirm",
+          "meta": {
+            "title": "Affirm Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending June 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Affirm · 2026 财年第四季度",
+              "meta": {
+                "title": "Affirm 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amgen-q2-fy26",
+        "src": "data/datasets/amgen-q2-fy26.js",
+        "data": {
+          "name": "Amgen · Q2 FY26",
+          "company": "Amgen",
+          "meta": {
+            "title": "Amgen Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "安进 · 2026 财年第二季度",
+              "meta": {
+                "title": "安进 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "eli-lilly-q2-fy26",
+        "src": "data/datasets/eli-lilly-q2-fy26.js",
+        "data": {
+          "name": "Eli Lilly · Q2 FY26",
+          "company": "Eli Lilly",
+          "meta": {
+            "title": "Eli Lilly Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "礼来 · 2026 财年第二季度",
+              "meta": {
+                "title": "礼来 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "etsy-q2-fy26",
+        "src": "data/datasets/etsy-q2-fy26.js",
+        "data": {
+          "name": "Etsy · Q2 FY26",
+          "company": "Etsy",
+          "meta": {
+            "title": "Etsy Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Etsy · 2026 财年第二季度",
+              "meta": {
+                "title": "Etsy 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "global-e-q2-fy26",
+        "src": "data/datasets/global-e-q2-fy26.js",
+        "data": {
+          "name": "Global-e · Q2 FY26",
+          "company": "Global-e",
+          "meta": {
+            "title": "Global-e Q2 FY26 Income Statement",
+            "period": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Global-e · 2026 财年第二季度",
+              "meta": {
+                "title": "Global-e 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "kraft-heinz-q2-fy26",
+        "src": "data/datasets/kraft-heinz-q2-fy26.js",
+        "data": {
+          "name": "Kraft Heinz · Q2 FY26",
+          "company": "Kraft Heinz",
+          "meta": {
+            "title": "Kraft Heinz Q2 FY26 Income Statement",
+            "period": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "卡夫亨氏 · 2026 财年第二季度",
+              "meta": {
+                "title": "卡夫亨氏 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mcdonald-s-q2-fy26",
+        "src": "data/datasets/mcdonald-s-q2-fy26.js",
+        "data": {
+          "name": "McDonald's · Q2 FY26",
+          "company": "McDonald's",
+          "meta": {
+            "title": "McDonald’s Q2 FY26 Income Statement",
+            "period": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "麦当劳 · 2026 财年第二季度",
+              "meta": {
+                "title": "麦当劳 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "merck-q2-fy26",
+        "src": "data/datasets/merck-q2-fy26.js",
+        "data": {
+          "name": "Merck · Q2 FY26",
+          "company": "Merck",
+          "meta": {
+            "title": "Merck Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Quarter ended Jun. 30, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "默沙东 · 2026 财年第二季度",
+              "meta": {
+                "title": "默沙东 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "novo-nordisk-q2-fy26",
+        "src": "data/datasets/novo-nordisk-q2-fy26.js",
+        "data": {
+          "name": "Novo Nordisk · Q2 FY26",
+          "company": "Novo Nordisk",
+          "meta": {
+            "title": "Novo Nordisk Q2 FY26 Income Statement",
+            "period": "in DKK"
+          },
+          "i18n": {
+            "zh": {
+              "name": "诺和诺德 · 2026 财年第二季度",
+              "meta": {
+                "title": "诺和诺德 2026 财年第二季度利润表",
+                "period": "单位：丹麦克朗"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "rbi-q2-fy26",
+        "src": "data/datasets/rbi-q2-fy26.js",
+        "data": {
+          "name": "RBI · Q2 FY26",
+          "company": "Restaurant Brands International",
+          "meta": {
+            "title": "RBI Q2 FY26 Income Statement",
+            "period": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "RBI · 2026 财年第二季度",
+              "meta": {
+                "title": "RBI 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "shopify-q2-fy26",
+        "src": "data/datasets/shopify-q2-fy26.js",
+        "data": {
+          "name": "Shopify · Q2 FY26",
+          "company": "Shopify",
+          "meta": {
+            "title": "Shopify Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Quarter ended Jun. 30, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Shopify · 2026 财年第二季度",
+              "meta": {
+                "title": "Shopify 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月 30 日的季度"
+              }
+            }
+          }
+        }
       }
     ]
   };

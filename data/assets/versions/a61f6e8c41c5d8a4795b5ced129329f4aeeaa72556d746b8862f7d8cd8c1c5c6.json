@@ -1,0 +1,24 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Eli Lilly neuroscience-emgality",
+  "artifact": {
+    "path": "data/assets/raster-annotations/eli-lilly-q2-fy26/neuroscience-emgality.png",
+    "digest": "sha256:eeb842b79d23643257f4e7f523595607806c61ad56af9a1cb194961c8f9bea57"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/eli-lilly-q2-fy26.json",
+    "digest": "sha256:8d7aff567f219b4eff2bc57c4b96851998905c6d3d199ff68103b543d6e6f025"
+  },
+  "source": {
+    "path": "input/processed/eli-lilly-q2-fy26.png",
+    "digest": "sha256:06392d33ad681fb6a2406cf997962164a8de8f5b59256b484ce4e677a3e551a4"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:eeb842b79d23643257f4e7f523595607806c61ad56af9a1cb194961c8f9bea57",
+    "note": "Inspected native Source and crop validation sheet: full brand artwork and microcopy retained, centered with margins, no financial text, ribbons or publisher marks. All extractor validation gates pass.",
+    "reviewedAt": "2026-09-22T09:57:43.944Z"
+  },
+  "versionDigest": "sha256:a61f6e8c41c5d8a4795b5ced129329f4aeeaa72556d746b8862f7d8cd8c1c5c6"
+}

@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Affirm company logo",
+  "artifact": {
+    "path": "data/assets/raster-annotations/affirm/company-logo-affirm-q4-fy26.png",
+    "digest": "sha256:08b2792c6829cc4fb4c9cada06b3172b60514face0b1ba99e890cf261b06c95e"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/affirm-q4-fy26.json",
+    "digest": "sha256:dc03eed6cdec4d0e51424c3c795879caaebeffe4e5ba62343001a6b9062a2b78"
+  },
+  "source": {
+    "path": "input/processed/affirm-q4-fy26.png",
+    "digest": "sha256:3357a10763e741c2d07522750b220dcc43e0145b0afd1c4452760ee75f042bd0"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:08b2792c6829cc4fb4c9cada06b3172b60514face0b1ba99e890cf261b06c95e",
+    "note": "Inspected Source/crop validation sheet: full black wordmark and purple arch, balanced margin, no financial text, connectors or publisher marks. Runtime PNG compressed from native crop."
+  },
+  "versionDigest": "sha256:478a14abd80146be0612a59542549d30ef57c14cd904d4c1ad299f19ed2ed0a2"
+}

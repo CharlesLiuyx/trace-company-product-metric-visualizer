@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-09-08T03:26:51.864Z",
+  "generatedAt": "2026-09-22T09:45:30.310Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -6335,6 +6335,72 @@
       "path": "data/datasets/workday-q2-fy27.js",
       "updatedAtMs": 1788812904781,
       "updatedAt": "2026-09-07T20:28:24.781Z",
+      "timeSource": "publication"
+    },
+    "affirm-q4-fy26": {
+      "path": "data/datasets/affirm-q4-fy26.js",
+      "updatedAtMs": 1790070165586,
+      "updatedAt": "2026-09-22T09:42:45.586Z",
+      "timeSource": "publication"
+    },
+    "amgen-q2-fy26": {
+      "path": "data/datasets/amgen-q2-fy26.js",
+      "updatedAtMs": 1790070156108,
+      "updatedAt": "2026-09-22T09:42:36.108Z",
+      "timeSource": "publication"
+    },
+    "eli-lilly-q2-fy26": {
+      "path": "data/datasets/eli-lilly-q2-fy26.js",
+      "updatedAtMs": 1790070330310,
+      "updatedAt": "2026-09-22T09:45:30.310Z",
+      "timeSource": "publication"
+    },
+    "etsy-q2-fy26": {
+      "path": "data/datasets/etsy-q2-fy26.js",
+      "updatedAtMs": 1790070175596,
+      "updatedAt": "2026-09-22T09:42:55.596Z",
+      "timeSource": "publication"
+    },
+    "global-e-q2-fy26": {
+      "path": "data/datasets/global-e-q2-fy26.js",
+      "updatedAtMs": 1790070185114,
+      "updatedAt": "2026-09-22T09:43:05.114Z",
+      "timeSource": "publication"
+    },
+    "kraft-heinz-q2-fy26": {
+      "path": "data/datasets/kraft-heinz-q2-fy26.js",
+      "updatedAtMs": 1790070263308,
+      "updatedAt": "2026-09-22T09:44:23.308Z",
+      "timeSource": "publication"
+    },
+    "mcdonald-s-q2-fy26": {
+      "path": "data/datasets/mcdonald-s-q2-fy26.js",
+      "updatedAtMs": 1790070303185,
+      "updatedAt": "2026-09-22T09:45:03.185Z",
+      "timeSource": "publication"
+    },
+    "merck-q2-fy26": {
+      "path": "data/datasets/merck-q2-fy26.js",
+      "updatedAtMs": 1790070323899,
+      "updatedAt": "2026-09-22T09:45:23.899Z",
+      "timeSource": "publication"
+    },
+    "novo-nordisk-q2-fy26": {
+      "path": "data/datasets/novo-nordisk-q2-fy26.js",
+      "updatedAtMs": 1790070137374,
+      "updatedAt": "2026-09-22T09:42:17.374Z",
+      "timeSource": "publication"
+    },
+    "rbi-q2-fy26": {
+      "path": "data/datasets/rbi-q2-fy26.js",
+      "updatedAtMs": 1790070164010,
+      "updatedAt": "2026-09-22T09:42:44.010Z",
+      "timeSource": "publication"
+    },
+    "shopify-q2-fy26": {
+      "path": "data/datasets/shopify-q2-fy26.js",
+      "updatedAtMs": 1790070227187,
+      "updatedAt": "2026-09-22T09:43:47.187Z",
       "timeSource": "publication"
     },
     "data/revenue-metrics.js": {

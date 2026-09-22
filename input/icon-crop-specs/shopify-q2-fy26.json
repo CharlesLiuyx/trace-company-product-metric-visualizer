@@ -1,0 +1,65 @@
+{
+  "source": "input/processing/shopify-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/shopify-q2-fy26",
+  "runtimeOutputDir": "data/assets/raster-annotations/shopify-q2-fy26",
+  "validationSheetDir": "data/assets/icon-references/shopify-q2-fy26/validation-sheets",
+  "report": "crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "crops": [
+    {
+      "key": "company-bag",
+      "output": "crops/company-bag.png",
+      "cropBox": {
+        "x": 1040,
+        "y": 216,
+        "width": 278,
+        "height": 313
+      },
+      "searchBox": {
+        "x": 1040,
+        "y": 216,
+        "width": 278,
+        "height": 313
+      },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": {
+        "borderBand": 3,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "plus-wordmark",
+      "output": "crops/plus-wordmark.png",
+      "cropBox": {
+        "x": 64,
+        "y": 1007,
+        "width": 298,
+        "height": 70
+      },
+      "searchBox": {
+        "x": 64,
+        "y": 1007,
+        "width": 298,
+        "height": 70
+      },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": {
+        "borderBand": 3,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ]
+}
