@@ -12,15 +12,21 @@ export function inside(root, relative) {
   return result;
 }
 export const bytesDigest = (bytes) => `sha256:${createHash('sha256').update(bytes).digest('hex')}`;
+// These host-generated files never travel with Git and are not authored inputs.
+// Keep ordinary and cached preview manifests on the same exclusion policy.
+export const isSnapshotCachePath = (relative) => relative.split('/').some((name) =>
+  name === '.DS_Store' || name === '__pycache__' || /\.py[co]$/.test(name)
+);
 export async function filesUnder(root, roots) {
   const files = [];
   async function visit(relative) {
+    if (isSnapshotCachePath(relative)) return;
     const file = inside(root, relative);
     if (!existsSync(file)) return;
     const stat = await lstat(file);
     if (stat.isSymbolicLink()) throw new Error(`Snapshot may not follow symlinks: ${relative}`);
     if (stat.isDirectory()) {
-      for (const name of (await readdir(file)).sort()) if (name !== '.DS_Store') await visit(`${relative}/${name}`);
+      for (const name of (await readdir(file)).sort()) await visit(`${relative}/${name}`);
     } else if (stat.isFile()) files.push(relative);
   }
   for (const entry of roots) await visit(entry);

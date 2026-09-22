@@ -5,7 +5,8 @@ import os from 'node:os';
 import { mkdtemp, mkdir, writeFile, readFile, rm } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 import { prepareGitTransport, reviewGitTransport, commitGitTransport } from '../scripts/lib/git-transport.mjs';
-import { atomicJson, fileManifest, copyFiles, bytesDigest } from '../scripts/lib/workflow-files.mjs';
+import { atomicJson, fileManifest, copyFiles, bytesDigest, CANONICAL_ROOTS } from '../scripts/lib/workflow-files.mjs';
+import { createPreviewManifest } from '../scripts/lib/workbench-manifest.mjs';
 import { digestValue } from '../scripts/lib/dataset-build.mjs';
 import { siteContentDigest } from '../scripts/lib/site-release-identity.mjs';
 const git = (root, args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
@@ -73,4 +74,36 @@ test('an interrupted application is resumable and an edited approved candidate i
   await assert.rejects(commitGitTransport(plan.id, root, { afterApply() { throw new Error('simulated copy interruption'); } }), /simulated copy/);
   assert.equal(git(root, ['rev-list', '--count', 'HEAD']), '1');
   await commitGitTransport(plan.id, root); assert.equal(git(root, ['rev-list', '--count', 'HEAD']), '2');
+});
+
+test('reviewed transport inputs reproduce in a clean clone despite host Python caches', async (t) => {
+  const { root, prepare } = await fixture(t);
+  await writeFile(path.join(root, '.gitignore'), 'output/\n_site/\n__pycache__/\n*.py[co]\n.DS_Store\n');
+  await mkdir(path.join(root, 'scripts'), { recursive: true });
+  await writeFile(path.join(root, 'scripts/helper.py'), 'print("authored tool")\n');
+  git(root, ['add', '.gitignore', 'scripts/helper.py']);
+  git(root, ['commit', '-m', 'test: authored tool']);
+  await mkdir(path.join(root, 'scripts/__pycache__'), { recursive: true });
+  await writeFile(path.join(root, 'scripts/__pycache__/helper.cpython-313.pyc'), 'macOS cache');
+  await writeFile(path.join(root, 'scripts/helper.pyc'), 'legacy bytecode');
+  await writeFile(path.join(root, 'scripts/.DS_Store'), 'Finder metadata');
+  const plan = await prepare();
+  await approve(plan, root);
+  await commitGitTransport(plan.id, root);
+
+  const clone = path.join(root, 'output/clean-clone');
+  git(root, ['clone', '--quiet', '--no-hardlinks', root, clone]);
+  const roots = [...CANONICAL_ROOTS, 'scripts', 'package.json', 'pnpm-lock.yaml'];
+  const original = await fileManifest(root, roots);
+  assert.equal(original.digest, plan.candidateDigest);
+  assert.deepEqual(await fileManifest(clone, roots), original);
+  await mkdir(path.join(clone, 'scripts/__pycache__'), { recursive: true });
+  await writeFile(path.join(clone, 'scripts/__pycache__/helper.cpython-312.pyc'), 'Linux cache');
+  assert.deepEqual(await fileManifest(clone, roots), original);
+  const preview = createPreviewManifest();
+  assert.deepEqual(await preview(root, roots), original);
+  assert.deepEqual(await preview(clone, roots), original);
+  await writeFile(path.join(clone, 'scripts/helper.py'), 'print("changed tool")\n');
+  assert.notEqual((await fileManifest(clone, roots)).digest, plan.candidateDigest);
+  assert.deepEqual(await preview(clone, roots), await fileManifest(clone, roots));
 });
