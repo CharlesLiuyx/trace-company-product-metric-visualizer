@@ -40,7 +40,10 @@ export function normalizeOperatingObservation(raw) {
   const suffix = raw.unit;
   requireThat(literal.startsWith(prefix) && literal.endsWith(suffix), 'Operating metric unit/currency disagrees with its literal');
   const numeric = literal.slice(prefix.length, suffix ? -suffix.length : undefined);
-  requireThat(decimal(numeric) === value, 'Operating metric value disagrees with its literal');
+  // A Source may explicitly print positive growth; retain that literal while
+  // comparing its magnitude with the canonical, unsigned positive value.
+  const magnitude = /^\+(?:0|[1-9]\d*)(?:\.\d+)?$/.test(numeric) ? numeric.slice(1) : numeric;
+  requireThat(decimal(magnitude) === value, 'Operating metric value disagrees with its literal');
   return { value, unit: raw.unit, currency: raw.currency, comparison: raw.comparison, literal: raw.literal };
 }
 export function validateOperatingMetrics(record) {
