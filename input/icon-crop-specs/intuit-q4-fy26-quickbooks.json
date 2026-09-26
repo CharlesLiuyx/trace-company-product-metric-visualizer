@@ -1,0 +1,74 @@
+{
+  "source": "input/processed/intuit-q4-fy26.png",
+  "outputDir": "data/assets/icon-references/intuit",
+  "runtimeOutputDir": "data/assets/raster-annotations/intuit",
+  "validationSheetDir": "data/assets/icon-references/intuit/validation-sheets",
+  "report": "crop-report-q4-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [
+      242,
+      242,
+      242
+    ],
+    "tolerance": 10
+  },
+  "crops": [
+    {
+      "key": "intuit-quickbooks-icon-q4-fy26",
+      "output": "crops/quickbooks-icon-q4-fy26.png",
+      "runtimeOutput": "quickbooks-icon-q4-fy26.png",
+      "searchBox": {
+        "x": 84,
+        "y": 572,
+        "width": 127,
+        "height": 128
+      },
+      "cropBox": {
+        "x": 78,
+        "y": 566,
+        "width": 140,
+        "height": 140
+      },
+      "threshold": 16,
+      "minComponentArea": 40,
+      "validation": {
+        "borderBand": 4,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "QuickBooks app icon shown in the Q4 FY26 Source: green circle with white qb monogram. This Q4 mark differs from the Q3 mark and is isolated from the wordmark below."
+    },
+    {
+      "key": "intuit-mailchimp-icon-q4-fy26",
+      "output": "crops/mailchimp-icon-q4-fy26.png",
+      "runtimeOutput": "mailchimp-icon-q4-fy26.png",
+      "searchBox": {
+        "x": 243,
+        "y": 575,
+        "width": 120,
+        "height": 127
+      },
+      "cropBox": {
+        "x": 237,
+        "y": 562,
+        "width": 132,
+        "height": 144
+      },
+      "threshold": 16,
+      "minComponentArea": 40,
+      "validation": {
+        "borderBand": 4,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Mailchimp mascot shown in the Q4 FY26 Source, isolated from the QuickBooks icon and the wordmark below."
+    }
+  ]
+}

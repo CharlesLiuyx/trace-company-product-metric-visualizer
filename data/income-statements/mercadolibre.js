@@ -10,6 +10,275 @@
 
   ssot.records.push(
     {
+      "key": "mercadolibre-q2-fy26",
+      "company": "MercadoLibre",
+      "period": "Q2 FY26",
+      "currency": "$",
+      "unit": "B",
+      "decimals": 3,
+      "sourceImage": "input/processed/mercadolibre-q2-fy26.png",
+      "roundingTolerance": 0.15,
+      "revenue": {
+        "total": 10.2,
+        "notes": [
+          "+50% Y/Y"
+        ],
+        "items": [
+          {
+            "id": "marketplace",
+            "label": "Intermediation services and advertising sales",
+            "value": 4.3,
+            "notes": [
+              "+42% Y/Y"
+            ]
+          },
+          {
+            "id": "shipping",
+            "label": "Product sales and shipping fees",
+            "value": 1.5,
+            "notes": [
+              "+80% Y/Y"
+            ]
+          },
+          {
+            "id": "payments",
+            "label": "Payment solution, installments, credit & debit card fees, insurtech fees",
+            "value": 2.1,
+            "notes": [
+              "+31% Y/Y"
+            ]
+          },
+          {
+            "id": "pos",
+            "label": "Point of sales devices",
+            "value": 0.016,
+            "notes": [
+              "+7% Y/Y"
+            ]
+          },
+          {
+            "id": "credit",
+            "label": "Interest earned on loans and credit card transactions",
+            "value": 2.3,
+            "notes": [
+              "+72% Y/Y"
+            ]
+          }
+        ],
+        "breakdowns": [
+        {
+          "id": "revenue_segments",
+          "label": "Revenue by segment",
+          "total": 10.2,
+          "items": [
+            {
+              "id": "commerce",
+              "label": "Commerce",
+              "value": 5.8
+            },
+            {
+              "id": "fintech",
+              "label": "Fintech",
+              "value": 4.4
+            }
+          ]
+        }
+      ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "id": "cost_of_revenue",
+          "label": "Cost of revenue",
+          "value": 6
+        },
+        "operatingExpenses": {
+          "total": 3.5,
+          "items": [
+            {
+              "id": "sm",
+              "label": "Sales & Marketing",
+              "value": 1.1
+            },
+            {
+              "id": "product_development",
+              "label": "Product Development",
+              "value": 0.7
+            },
+            {
+              "id": "ga",
+              "label": "General & Admin",
+              "value": 0.3
+            },
+            {
+              "id": "provision_doubtful",
+              "label": "Provision doubtful",
+              "value": 1.3,
+              "notes": [
+                "Interest margin after losses 21%"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "id": "tax",
+          "label": "Tax",
+          "value": 0.1
+        }
+      },
+      "otherIncome": {
+        "total": 0,
+        "items": []
+      },
+      "otherExpenses": {
+        "total": 0.1,
+        "items": [
+          {
+            "id": "other",
+            "label": "Other",
+            "value": 0.1
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "id": "gross_profit",
+          "label": "Gross profit",
+          "value": 4.2,
+          "notes": [
+            "41% margin",
+            "(4pp) Y/Y"
+          ]
+        },
+        "operating": {
+          "id": "operating_profit",
+          "label": "Operating profit",
+          "value": 0.7,
+          "notes": [
+            "7% margin",
+            "(5pp) Y/Y"
+          ]
+        },
+        "net": {
+          "id": "net_profit",
+          "label": "Net profit",
+          "value": 0.5,
+          "notes": [
+            "5% margin",
+            "(3pp) Y/Y"
+          ]
+        }
+      },
+      "i18n": {
+        "zh": {
+          "period": "2026 财年第二季度",
+          "revenue": {
+            "notes": [
+              "同比 +50%"
+            ],
+            "items": [
+              {
+                "id": "marketplace",
+                "label": "撮合服务与广告销售",
+                "notes": [
+                  "同比 +42%"
+                ]
+              },
+              {
+                "id": "shipping",
+                "label": "商品销售与配送费",
+                "notes": [
+                  "同比 +80%"
+                ]
+              },
+              {
+                "id": "payments",
+                "label": "支付解决方案、分期、信用卡及借记卡手续费、保险科技费",
+                "notes": [
+                  "同比 +31%"
+                ]
+              },
+              {
+                "id": "pos",
+                "label": "销售点设备",
+                "notes": [
+                  "同比 +7%"
+                ]
+              },
+              {
+                "id": "credit",
+                "label": "贷款与信用卡交易利息收入",
+                "notes": [
+                  "同比 +72%"
+                ]
+              }
+            ]
+          },
+          "costs": {
+            "costOfRevenue": {
+              "label": "收入成本"
+            },
+            "operatingExpenses": {
+              "items": [
+                {
+                  "id": "sm",
+                  "label": "销售与营销"
+                },
+                {
+                  "id": "product_development",
+                  "label": "产品开发"
+                },
+                {
+                  "id": "ga",
+                  "label": "管理费用"
+                },
+                {
+                  "id": "provision_doubtful",
+                  "label": "坏账准备",
+                  "notes": [
+                    "损失后利息利润率 21%"
+                  ]
+                }
+              ]
+            },
+            "tax": {
+              "label": "税费"
+            }
+          },
+          "otherExpenses": {
+            "items": [
+              {
+                "id": "other",
+                "label": "其他"
+              }
+            ]
+          },
+          "profit": {
+            "gross": {
+              "label": "毛利润",
+              "notes": [
+                "利润率 41%",
+                "同比 (4 个百分点)"
+              ]
+            },
+            "operating": {
+              "label": "营业利润",
+              "notes": [
+                "利润率 7%",
+                "同比 (5 个百分点)"
+              ]
+            },
+            "net": {
+              "label": "净利润",
+              "notes": [
+                "利润率 5%",
+                "同比 (3 个百分点)"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
       key: 'mercadolibre-q1-fy26',
       company: 'MercadoLibre',
       period: 'Q1 FY26',

@@ -1,495 +1,262 @@
 {
   "schema": "reviewed-git-release/v1",
-  "id": "transport-890575b3-9071-4dfc-a46c-f60f31934a90",
-  "baseHead": "9e28e914dd47057f443fce9def0a11ab7824c9b1",
-  "planDigest": "sha256:c14737001191c3bc976f76fff01abc8f4014c1d7033ef25ee2889f50f0368700",
-  "publishedDigest": "sha256:b32071c5bb8f813b60abf446d60d1564a16af4b98b4523c1e6ca41cb4e0025c9",
+  "id": "transport-8e704469-82bd-4b31-bb5c-eaa3919359a4",
+  "baseHead": "f1cdb3b5abd6e58850692ab60d71ea325fc7a86e",
+  "planDigest": "sha256:bbff60bb12dd8cafaa1dd00a8a207e163fa1cf679237f00ef44775ec64341a96",
+  "publishedDigest": "sha256:672a97a9caaf183c6dcab94a8266241ad653f4f2a42c23b9c768dacb445888f3",
   "builds": [
     {
-      "buildId": "build-62711a88-73d2-42ad-b164-01b30f364990",
-      "key": "affirm-q4-fy26",
-      "sealDigest": "sha256:fed04866aa48ee377a19ab4a39f39ab14e1f8cc3e5709ab88917189646f039de"
+      "buildId": "build-77b97370-b457-4e77-8338-0874166d3ed0",
+      "key": "atlassian-q4-fy26",
+      "sealDigest": "sha256:befd3dfbe8609762806c8211d12b95919552e262b53f042e2b1945be8a365c2a"
     },
     {
-      "buildId": "build-e068550f-5e8b-4215-a769-370a03e3cbf6",
-      "key": "amgen-q2-fy26",
-      "sealDigest": "sha256:af2c5750263f640d416975367e8757d5834f92f56c84232e6e762a30892390e9"
+      "buildId": "build-c7be6094-7a18-4902-ac47-605f9298f181",
+      "key": "intuit-q4-fy26",
+      "sealDigest": "sha256:fb099bdc7103210762f4706c41b58ae9cf14e8979b7ec470252a06de93b316d5"
     },
     {
-      "buildId": "build-da0b66d4-4627-4d58-8249-6dbe2c609807",
-      "key": "eli-lilly-q2-fy26",
-      "sealDigest": "sha256:4d017f5aa346da22212e674e5dcbdf18abd748278034fe4cb3393d89b94d2f1d"
-    },
-    {
-      "buildId": "build-530e7e2b-b07e-48b9-9f87-241e9942aef8",
-      "key": "etsy-q2-fy26",
-      "sealDigest": "sha256:6c7d2536a2e9c316f15e192732e163806fd11f45628e4be08bd130bc7843c136"
-    },
-    {
-      "buildId": "build-11c2d648-7e33-4a27-bd40-1bc477c06815",
-      "key": "global-e-q2-fy26",
-      "sealDigest": "sha256:4af8848a38f6a7b5201001d1ab0acac361b1cbe0d393cae9e200ff05651cb2cf"
-    },
-    {
-      "buildId": "build-9ad0d54c-d50d-4617-b4d4-f1dac8d0759a",
-      "key": "kraft-heinz-q2-fy26",
-      "sealDigest": "sha256:563ffb92df1891e2861c79808481d25016690afd9bff6f4b6691e6e50a5ef331"
-    },
-    {
-      "buildId": "build-0c7725b1-2f4d-4d30-884f-20c7f2307a62",
-      "key": "mcdonald-s-q2-fy26",
-      "sealDigest": "sha256:efebf9cf71cc70536fe516aed2b40ca8ccb1c1692c33e0318b07142de8ccabfe"
-    },
-    {
-      "buildId": "build-c98384d7-51b1-440e-8cf8-936253c7b2e7",
-      "key": "merck-q2-fy26",
-      "sealDigest": "sha256:2c53307f92bad30417227673f4225108f1cbf30957d7295e94d8872b8e9727b0"
-    },
-    {
-      "buildId": "build-b365ea83-0b7b-45f8-b0ba-e83e8fee3cc4",
-      "key": "novo-nordisk-q2-fy26",
-      "sealDigest": "sha256:e32c109195d2e7e83fbba4211d20c0ffa34a8730aa6041f89aaa9e1d005e5103"
-    },
-    {
-      "buildId": "build-564e7e1f-4c38-4d92-b730-7a4280b8f73d",
-      "key": "rbi-q2-fy26",
-      "sealDigest": "sha256:9bf369f3af70c2e02c6dd10aad98f724e60b0406bdacf13bb7e75002030fe0a1"
-    },
-    {
-      "buildId": "build-c4bd64c9-5679-4e41-8926-783221a8c2b1",
-      "key": "shopify-q2-fy26",
-      "sealDigest": "sha256:995227f2d9e7390070c625dbdf86ba8dda17e5b607c993b59eb6d71517f7b0c4"
+      "buildId": "build-dbdb12b1-8496-4d56-82c9-95f260dcd9bf",
+      "key": "mercadolibre-q2-fy26",
+      "sealDigest": "sha256:1a4c9267a3a3f15d6438155b7c201261bd71c6255dc56eb8d6c3acc7ff8b5de0"
     }
   ],
-  "candidateDigest": "sha256:6459b14bd4f8ff728c6a3184f0a933744ac58ddebf688c033ce019b98c0800a5",
+  "candidateDigest": "sha256:5d684d9a8e5eb90a63d9390e904cc9d52603980c9c1398d5ba81764a746a627e",
   "paths": [
     {
       "path": "data/assets/catalog.json",
-      "digest": "sha256:a0d3704102161dd2ad73a6334a705ee5e66fc2b352799a5725e5250e4bc404fd",
-      "before": "sha256:4bcf7f2b4bce0590c182460d94e678df171997b633794f9dabe837479858fec9"
+      "digest": "sha256:b5c3f571601b380a66cc603b3f8b01be56bc3d7f7e40a1a7f4dfdcee1ec02102",
+      "before": "sha256:a0d3704102161dd2ad73a6334a705ee5e66fc2b352799a5725e5250e4bc404fd"
     },
     {
-      "path": "data/assets/icon-references/affirm/crop-report-q4-fy26.json",
-      "digest": "sha256:fdde59de3019880939c6b84d7f2920fb2af119ae3dc37c62d15e6b8645e839f3",
+      "path": "data/assets/icon-references/intuit/crop-report-q4-fy26.json",
+      "digest": "sha256:290fddaf3da8819a97b8c27027246f63c2362a19a46f7fa6cfd2268a5f39c341",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/affirm/crops/company-logo-q4-fy26.png",
-      "digest": "sha256:08b2792c6829cc4fb4c9cada06b3172b60514face0b1ba99e890cf261b06c95e",
+      "path": "data/assets/icon-references/intuit/crops/mailchimp-icon-q4-fy26.png",
+      "digest": "sha256:1a7497c876f49fe5300597cc34d81453c61f4d6948e0832111ffafb504a11345",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/affirm/validation-sheets/affirm-q4-fy26/affirm-company-logo.png",
-      "digest": "sha256:7acdac76d78a5011a13192dd9215a1549c954ebdf2cf9fe983ae3ae50a704f41",
+      "path": "data/assets/icon-references/intuit/crops/quickbooks-icon-q4-fy26.png",
+      "digest": "sha256:52b06f3a46638bef914a648a7700446e2b7733fcd0d5a9cb58fa766a83d9071b",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/eli-lilly-q2-fy26/crop-report.json",
-      "digest": "sha256:9cf9a5a8ca8c8403b73a939606910293638047d6fd55269954947c35b373858d",
+      "path": "data/assets/icon-references/intuit/validation-sheets/intuit-mailchimp-icon-q4-fy26.png",
+      "digest": "sha256:49102c1e4f84e75cbff0625f1fdc08e2e1040b682e19c0ce66fa25fc3ce3df09",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/eli-lilly-q2-fy26/crops/cardiometabolic-brands.png",
-      "digest": "sha256:538e5fe8ae85b9e5c2e87287ee8574cac021185f839e0593dc7f3ac1fa2cc5e5",
+      "path": "data/assets/icon-references/intuit/validation-sheets/intuit-quickbooks-icon-q4-fy26.png",
+      "digest": "sha256:bc310fa1254f0d7e3893d1f6ccfe30b1a229a5f4bde62141e7bf55c412605fe1",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/eli-lilly-q2-fy26/crops/company-wordmark.png",
-      "digest": "sha256:54784fe39c811418c93c3dfbfb464ff775117c65130dd873eda017f6d3cac421",
+      "path": "data/assets/icon-references/mercadolibre/crops/q2-fy26/ads-brand.png",
+      "digest": "sha256:06248a5541b10ba9fc936ff0d46dabb2398136638c1e6b810b9c191c52cf8835",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/eli-lilly-q2-fy26/crops/immunology-taltz.png",
-      "digest": "sha256:c075fa49cd350e8b2a6dd5ceb64ead0ca3ccf3b60c831560b8e162a0b63dc3dc",
+      "path": "data/assets/icon-references/mercadolibre/crops/q2-fy26/commerce-brand.png",
+      "digest": "sha256:8a7bd9a1815f37ffd6772e465023b2066ddce5b7a75c07e761ba86336fa156ba",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/eli-lilly-q2-fy26/crops/neuroscience-emgality.png",
-      "digest": "sha256:eeb842b79d23643257f4e7f523595607806c61ad56af9a1cb194961c8f9bea57",
+      "path": "data/assets/icon-references/mercadolibre/crops/q2-fy26/corporate-handshake.png",
+      "digest": "sha256:eaff8b360ba89a894cb136bbaa9996a6ee68a8a1cd3787769905cb1bc17ec8c5",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/eli-lilly-q2-fy26/crops/oncology-verzenio.png",
-      "digest": "sha256:5d4b6e9d1ea4e27d9b3d826a445725824b9929c78942f8e265906ed0e74fca49",
+      "path": "data/assets/icon-references/mercadolibre/crops/q2-fy26/credito-brand.png",
+      "digest": "sha256:16835c026be4c68f52875741e03d9df9c777129c460e859e46e3c5cc53fab1f6",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/eli-lilly-q2-fy26/model-validation.md",
-      "digest": "sha256:84a9a87683db53b9c9a03a2861fa00b068d58ad2fc8749887dbeab84179d6843",
+      "path": "data/assets/icon-references/mercadolibre/crops/q2-fy26/envios-brand.png",
+      "digest": "sha256:5b1a261b831c6f311b1355ee3a1f320a7fc487886af046b759fb30d1f440d656",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/eli-lilly-q2-fy26/validation-sheets/cardiometabolic-brands.png",
-      "digest": "sha256:f2de74250055b6ad218ea45d50ed728b2be812221fa72cda7e65f0a90366e347",
+      "path": "data/assets/icon-references/mercadolibre/crops/q2-fy26/pago-brand.png",
+      "digest": "sha256:a9f4420f5a16ac28d0984a817aa5698ee70e5f85aaca6368e5b3a60fa333e0db",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/eli-lilly-q2-fy26/validation-sheets/company-wordmark.png",
-      "digest": "sha256:3739893c8faac5c4e94f2db643f581f3942af85c4ca2ee5a80f0c3d08ac59c25",
+      "path": "data/assets/icon-references/mercadolibre/q2-fy26-crop-report.json",
+      "digest": "sha256:4165dd979700d262dbd1006d63a96717895ef7068a52c236547283b035947097",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/eli-lilly-q2-fy26/validation-sheets/immunology-taltz.png",
-      "digest": "sha256:a4609ed1b433c0027ec4ae312dd0fdfb28f91cf1d09a68c248b4138effd65d7c",
+      "path": "data/assets/icon-references/mercadolibre/validation-sheets/q2-fy26/mercadolibre-q2-fy26-ads-brand.png",
+      "digest": "sha256:d4813bd074c10e5a77cf4c11977e596c2bb21be40ba9398a3b5994873eb9312e",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/eli-lilly-q2-fy26/validation-sheets/neuroscience-emgality.png",
-      "digest": "sha256:7b3a7e2799dc0f74ad57f943369cfda03a8583eb240f054b5a4da3dbde5d709b",
+      "path": "data/assets/icon-references/mercadolibre/validation-sheets/q2-fy26/mercadolibre-q2-fy26-commerce-brand.png",
+      "digest": "sha256:218fb1790971bae2cd22119a87a046a5b2be4fb92906fb4d5202d19fa1ee99e9",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/eli-lilly-q2-fy26/validation-sheets/oncology-verzenio.png",
-      "digest": "sha256:fbcda3b877ad53416900fe213dc20a8e6fdd7f4aaac7215e65b2e0afc8b57cf5",
+      "path": "data/assets/icon-references/mercadolibre/validation-sheets/q2-fy26/mercadolibre-q2-fy26-corporate-handshake.png",
+      "digest": "sha256:6d79612b40aa0772cc8198cc17cfef20c155fb6a98cf28551713372783188da6",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/mcdonald-s/crops/arches-q2-fy26.png",
-      "digest": "sha256:c66d54c490a15b2f5e3434f4a13cf0236a6e4632bf1698928fb9f91944a96063",
+      "path": "data/assets/icon-references/mercadolibre/validation-sheets/q2-fy26/mercadolibre-q2-fy26-credito-brand.png",
+      "digest": "sha256:8f94be2a0413e9d242969aa3d726e94b7e2a8dcac58dadc8d1d2a5a7d74715db",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/mcdonald-s/crops/crop-report.json",
-      "digest": "sha256:4c99ffe79915819d5818ff3f55ea7c9821b11ded308394eb44530fcb8f283879",
+      "path": "data/assets/icon-references/mercadolibre/validation-sheets/q2-fy26/mercadolibre-q2-fy26-envios-brand.png",
+      "digest": "sha256:f4d718822885330d85114ca294a62cc155de79f1b2b4c2830a87f692d7e7e18c",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/mcdonald-s/model-validation.md",
-      "digest": "sha256:5e45fa60ecc13b8d84be51996ec4bf726e207e012d1d46cfa8d362d5f99d7f54",
+      "path": "data/assets/icon-references/mercadolibre/validation-sheets/q2-fy26/mercadolibre-q2-fy26-pago-brand.png",
+      "digest": "sha256:8b090ca0ada4b8776186cf6a99adf8bbc7ac42d6acfe3deb09869c36c85058d9",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/mcdonald-s/validation-sheets/mcdonalds-arches-q2-fy26.png",
-      "digest": "sha256:dda7e8446c7416c8162b512e4aee2ab8ff9928777e2ad90a214ec6752afe10fd",
+      "path": "data/assets/raster-annotations/intuit/mailchimp-icon-q4-fy26.png",
+      "digest": "sha256:1a7497c876f49fe5300597cc34d81453c61f4d6948e0832111ffafb504a11345",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/shopify-q2-fy26/crop-report.json",
-      "digest": "sha256:5fd143067cd557a05b3e1b4b47fba7a1204600d47f328613754abc293fa27e72",
+      "path": "data/assets/raster-annotations/intuit/quickbooks-icon-q4-fy26.png",
+      "digest": "sha256:52b06f3a46638bef914a648a7700446e2b7733fcd0d5a9cb58fa766a83d9071b",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/shopify-q2-fy26/crops/company-bag.png",
-      "digest": "sha256:18beea4582d3bbf6c0c97db33174dfa9820a144a253b0946698509e7e879b861",
+      "path": "data/assets/raster-annotations/mercadolibre/q2-fy26/ads-brand.png",
+      "digest": "sha256:06248a5541b10ba9fc936ff0d46dabb2398136638c1e6b810b9c191c52cf8835",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/shopify-q2-fy26/crops/plus-wordmark.png",
-      "digest": "sha256:264084920dbcb5621fdfa525a4dc835200dd08115548322d05763e33101306ed",
+      "path": "data/assets/raster-annotations/mercadolibre/q2-fy26/commerce-brand.png",
+      "digest": "sha256:8a7bd9a1815f37ffd6772e465023b2066ddce5b7a75c07e761ba86336fa156ba",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/shopify-q2-fy26/model-validation.md",
-      "digest": "sha256:c2ed059e424eb24fd2dbb7ebae905fa61402ed7a260e520e11baca0691ee08d9",
+      "path": "data/assets/raster-annotations/mercadolibre/q2-fy26/corporate-handshake.png",
+      "digest": "sha256:eaff8b360ba89a894cb136bbaa9996a6ee68a8a1cd3787769905cb1bc17ec8c5",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/shopify-q2-fy26/validation-sheets/company-bag.png",
-      "digest": "sha256:e2a1868677a60c6f48eb30b97057c463b34a47e3a29aaebd786edc0c887e06d3",
+      "path": "data/assets/raster-annotations/mercadolibre/q2-fy26/credito-brand.png",
+      "digest": "sha256:16835c026be4c68f52875741e03d9df9c777129c460e859e46e3c5cc53fab1f6",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/shopify-q2-fy26/validation-sheets/plus-wordmark.png",
-      "digest": "sha256:8c6f31cc24f909f5475bc48e86ba6219731dbd6639a16eae86451e0b9c2a3131",
+      "path": "data/assets/raster-annotations/mercadolibre/q2-fy26/envios-brand.png",
+      "digest": "sha256:5b1a261b831c6f311b1355ee3a1f320a7fc487886af046b759fb30d1f440d656",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/affirm/company-logo-affirm-q4-fy26.png",
-      "digest": "sha256:08b2792c6829cc4fb4c9cada06b3172b60514face0b1ba99e890cf261b06c95e",
+      "path": "data/assets/raster-annotations/mercadolibre/q2-fy26/pago-brand.png",
+      "digest": "sha256:a9f4420f5a16ac28d0984a817aa5698ee70e5f85aaca6368e5b3a60fa333e0db",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/eli-lilly-q2-fy26/cardiometabolic-brands.png",
-      "digest": "sha256:538e5fe8ae85b9e5c2e87287ee8574cac021185f839e0593dc7f3ac1fa2cc5e5",
+      "path": "data/assets/versions/ae23b06eae7ee73af74fe5aabb03eed3dff24cc4b4fe209913e74b1ca1a87173.json",
+      "digest": "sha256:d3a1273184bdea3187cc3ce026804d69c8fcdf5f17b902e38faec91456f2015d",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/eli-lilly-q2-fy26/company-wordmark.png",
-      "digest": "sha256:54784fe39c811418c93c3dfbfb464ff775117c65130dd873eda017f6d3cac421",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/eli-lilly-q2-fy26/immunology-taltz.png",
-      "digest": "sha256:c075fa49cd350e8b2a6dd5ceb64ead0ca3ccf3b60c831560b8e162a0b63dc3dc",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/eli-lilly-q2-fy26/neuroscience-emgality.png",
-      "digest": "sha256:eeb842b79d23643257f4e7f523595607806c61ad56af9a1cb194961c8f9bea57",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/eli-lilly-q2-fy26/oncology-verzenio.png",
-      "digest": "sha256:5d4b6e9d1ea4e27d9b3d826a445725824b9929c78942f8e265906ed0e74fca49",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/shopify-q2-fy26/company-bag.png",
-      "digest": "sha256:18beea4582d3bbf6c0c97db33174dfa9820a144a253b0946698509e7e879b861",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/shopify-q2-fy26/plus-wordmark.png",
-      "digest": "sha256:264084920dbcb5621fdfa525a4dc835200dd08115548322d05763e33101306ed",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/170baf0399525f5e5b1298752a422289875944ae0d77154e56ac63fde1f61727.json",
-      "digest": "sha256:4354c859ac7807cf434eeeaaa096da02f2ea0d5806e9fac914410921e14cb191",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/3497ad52ab2dac0975376d31dc92b827bd7e1a6e9eef393bf615c083cab9feae.json",
-      "digest": "sha256:44b671cbd27c304ce65759ca3f1d74496b5b6d990ef57df25387fe2acde656b9",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/37ac3ad1196ad63c44f7fdb5b208f13dc0ecda077f8a8fb45bee2d10068d4944.json",
-      "digest": "sha256:ae49c711a76f91b8d18e24e1321dc870778a141f4b92d481b1607ce3e44f18ee",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/3fb40ab8f8f84cd595d0dacd64bc9f8a6ce720b7387e6081a0110bc3ff569aea.json",
-      "digest": "sha256:cb71283ecb2dfb24f49f38d76a088ba5b7f351e496202256d77a636fedd12200",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/478a14abd80146be0612a59542549d30ef57c14cd904d4c1ad299f19ed2ed0a2.json",
-      "digest": "sha256:0d63a4d078a98d3e2c3efbfa091b1c20cda1113d1df204feb4837a3bb1dcc2a6",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/a61f6e8c41c5d8a4795b5ced129329f4aeeaa72556d746b8862f7d8cd8c1c5c6.json",
-      "digest": "sha256:6f711343320c34ddabce12edf8e2cfb69e1c9d08d020937f784c218ed671ebec",
+      "path": "data/assets/versions/dba53d97c95fa59c25b17530542e7085d6364ba278c2bd6557f59f3f7f1f62d2.json",
+      "digest": "sha256:fec0268e4cbb3e155ed8842c6d276a64851d83590956ca0617903e6f1fd3555b",
       "before": null
     },
     {
       "path": "data/dataset-file-metadata.js",
-      "digest": "sha256:1b4a11d16dbb406ffdf3281f389671cc3134d2222a16a26cf36c4c7231e47741",
-      "before": "sha256:b6ac44311847939357670cca217cd8890b10041ac92f1cc8f9e6a36dd655ba0b"
+      "digest": "sha256:a47fc3ac98b761fd5272ec095c0ff527aa741284c4490ad16c138236a8b428f5",
+      "before": "sha256:1b4a11d16dbb406ffdf3281f389671cc3134d2222a16a26cf36c4c7231e47741"
     },
     {
       "path": "data/dataset-manifest.js",
-      "digest": "sha256:08de59b1915b94938012a0919bfbd71f709576ca6c8369a16d9594f618014f22",
-      "before": "sha256:ff2df7684c88206394df4a615b7e1ee2187323cea7ae08f2dabff903f1b32310"
+      "digest": "sha256:4adaf9746f4463c9ee085e62a33d7f98fdc9e028e5c9d81a02e012d4c833c6f8",
+      "before": "sha256:08de59b1915b94938012a0919bfbd71f709576ca6c8369a16d9594f618014f22"
     },
     {
-      "path": "data/datasets/affirm-q4-fy26.js",
-      "digest": "sha256:ca339e8031e0bc442f8a3ca93cc46ebbf66bcc4058b70d0e126707ff3d30275f",
+      "path": "data/datasets/atlassian-q4-fy26.js",
+      "digest": "sha256:bc7f3f05519778ab2628ce495d75044873f4d7bb628d6cfc629aa5e3211f32b1",
       "before": null
     },
     {
-      "path": "data/datasets/amgen-q2-fy26.js",
-      "digest": "sha256:1967687d9ee86281270fc919a588c17831d2f5f9f413f7c7f27aabab6708ffbe",
+      "path": "data/datasets/intuit-q4-fy26.js",
+      "digest": "sha256:bc407adcfd79916497bcbaffdcb3ca67211fa1c58be5a168f32da7676de69402",
       "before": null
     },
     {
-      "path": "data/datasets/eli-lilly-q2-fy26.js",
-      "digest": "sha256:172427e9381df9110a363f31fc2a86e9866e7b2904422e1b3ddec7f8ed524e30",
+      "path": "data/datasets/mercadolibre-q2-fy26.js",
+      "digest": "sha256:802b9812826a352d359f3042a8508774a21e4e7f3e3c520e4934eb9f5a9b27b2",
       "before": null
     },
     {
-      "path": "data/datasets/etsy-q2-fy26.js",
-      "digest": "sha256:5b86682550e48745949ae46795269e21ceb9e73df7a545d88d74143bd156540b",
-      "before": null
+      "path": "data/income-statements/atlassian.js",
+      "digest": "sha256:ba9c7c3239ac9c5ee7fa483c13cff6392e897a4d3bb0521ff350419354c00254",
+      "before": "sha256:aeaf18ec5e0ee5e8121816258e80efb89ee0a251df7046cb4ad607ef3c276352"
     },
     {
-      "path": "data/datasets/global-e-q2-fy26.js",
-      "digest": "sha256:a811bdd4845ad9433e704064401570cb234bad965ed91c68c65e8c23c469db2c",
-      "before": null
+      "path": "data/income-statements/intuit.js",
+      "digest": "sha256:a6095fc3d6011b48713e487dedfce385e6adcd3255b7b201562c38610803debf",
+      "before": "sha256:23bfa02a75e51fa591da5d08d4d20775873aaab5fed7fd9bc7aeeb30698d26cf"
     },
     {
-      "path": "data/datasets/kraft-heinz-q2-fy26.js",
-      "digest": "sha256:e273ac9c51225fb779019332b2dd7dde4b86179cb7fcc329b6893c5b7917774b",
-      "before": null
-    },
-    {
-      "path": "data/datasets/mcdonald-s-q2-fy26.js",
-      "digest": "sha256:98df713e406192ce74defe2a3bdb606b299b1c08a8a6201995923123ebd4c127",
-      "before": null
-    },
-    {
-      "path": "data/datasets/merck-q2-fy26.js",
-      "digest": "sha256:df945d594632b74ec2e88c4b6f6179875e17056d5f32253b32c99996a914f1d8",
-      "before": null
-    },
-    {
-      "path": "data/datasets/novo-nordisk-q2-fy26.js",
-      "digest": "sha256:4b804d0757e241ae492319be4477acc0c7cf66402b2ea26bc85df8427f54331e",
-      "before": null
-    },
-    {
-      "path": "data/datasets/rbi-q2-fy26.js",
-      "digest": "sha256:e53cd65533de18c7c7db950583e1f151c5b2e0532b0e27e9e911e1a847239f38",
-      "before": null
-    },
-    {
-      "path": "data/datasets/shopify-q2-fy26.js",
-      "digest": "sha256:daf8af89ca952a9c5e5cbb40609efab65fb4f936f95e7113ef2c6bf699b37217",
-      "before": null
-    },
-    {
-      "path": "data/income-statements/affirm.js",
-      "digest": "sha256:d3bdec250414cdf681eb84312fe6fdbe7916f7105efe05d7bc7effe85eb62ac3",
-      "before": "sha256:de20c81fa584f3ebdbfa79bbed001eb6c36370cc57f36a79881587d88b839663"
-    },
-    {
-      "path": "data/income-statements/amgen.js",
-      "digest": "sha256:5b154b4c1dbd09063d0264ba0dbd2c038561b583ddfa6fe10a227519f60082a6",
-      "before": "sha256:116c0d3a5637dfef58df2996cd13c52a641cca2a0a906e4f76c8e5da9d68d987"
-    },
-    {
-      "path": "data/income-statements/eli-lilly.js",
-      "digest": "sha256:f6e43a9f14a6b6449f3826609a00c2e27523bc106dbefa6a60c47c7a91cd300f",
-      "before": "sha256:ff218f6a0751f02890624d24795e6ce9e94fbeca3958a0e1f334c52435883d2f"
-    },
-    {
-      "path": "data/income-statements/etsy.js",
-      "digest": "sha256:80b205ec646413d172d10fbe397d439a3c4ace1542e224ce57c2f30dd3b7d8fa",
-      "before": "sha256:1ff1f4543d0def3113381bee229fd0c00b1e4415951ea3113ac6f45bf27b7396"
-    },
-    {
-      "path": "data/income-statements/global-e.js",
-      "digest": "sha256:d636b76ac3dfc3696797658364fc538be8338e2856ef28885676a1dfb5443ac7",
-      "before": "sha256:b3f457fc8c993b8740042d7fa5ded3a284444343e9fcab427351fb8791689efa"
-    },
-    {
-      "path": "data/income-statements/kraft-heinz.js",
-      "digest": "sha256:cae2d1be958c84c363fc216576dcff44f4abdbe94003a90d5aa5350363e30af4",
-      "before": "sha256:21b684fb9d695d5d5e396cfd0dfd142014c35f31e775b3f41931c7d0057938d7"
-    },
-    {
-      "path": "data/income-statements/mcdonald-s.js",
-      "digest": "sha256:1c1d6ff26f55a9ab642e8eb5ce76d53e9372027e234a3b8af2e45bff9fef6204",
-      "before": "sha256:bdb57a72d254d80b0564ccb113ec417a2848b92f00faece5b54a8e97699d47af"
-    },
-    {
-      "path": "data/income-statements/merck.js",
-      "digest": "sha256:8a857289dce337d6b01e36f83a627f04608a454948a6f1728f14910efb920441",
-      "before": "sha256:03fbc74668c77c193d186b2c88ad3375016dd48eb625c797b42c83de47f6961c"
-    },
-    {
-      "path": "data/income-statements/novo-nordisk.js",
-      "digest": "sha256:dc63da93402e482876dbfc61a1eff0153367dff8e1c5a260ae173bea5da2b9ef",
-      "before": "sha256:51f1b600ba1a860650775c9d198642f2ef51efa286b3e2d2473a7ea98f5e799b"
-    },
-    {
-      "path": "data/income-statements/restaurant-brands-international.js",
-      "digest": "sha256:418c10a55159b5acc2f241642df6bf6a0a2bc966f25448161dd9d7589c03495b",
-      "before": "sha256:d2219991f3f1c9bcffdc2deb4c0029822fa55a31a4307c4197127dfa68f51e4b"
-    },
-    {
-      "path": "data/income-statements/shopify.js",
-      "digest": "sha256:3a4b6faeb6790491c8a8b0f4d31ee6d81130a3b6cbb0022c7d5438b5c0bf69d0",
-      "before": "sha256:d2e94d478f496d2a6086f138e6a495a330687ed1f6b2f6879a283304c7cf079b"
+      "path": "data/income-statements/mercadolibre.js",
+      "digest": "sha256:6c432067ad3f77f8e0edc385b3904b7315f69c319251d551c9d75e1febbbf2a8",
+      "before": "sha256:ddf4ecddee213503f588f480bb332d5c93045976d2d1a6db0c85177a066566b4"
     },
     {
       "path": "data/render-baselines.json",
-      "digest": "sha256:58f54d6f4a8416900e3439f4e599eb6df261c110cfbbd543751967568f074ad0",
-      "before": "sha256:fe28f518a51f289137e40b5d9c11eb84bd122c36e6d1ae1cdd399ffb82c637d5"
+      "digest": "sha256:dee291dbf39084319beeafe214792cf4fe937f2b8275f2986a2f11ad7c1ee14a",
+      "before": "sha256:58f54d6f4a8416900e3439f4e599eb6df261c110cfbbd543751967568f074ad0"
     },
     {
       "path": "data/workflow-timestamps.json",
-      "digest": "sha256:e60323cd30219f548a2a1cc2bc3777e8f97dbbf0a24685df1c69857dbc8a4cc3",
-      "before": "sha256:eda58c97e5baed9d574cdb5074d646b275160636d570eb96ee509a9029bdfc36"
+      "digest": "sha256:b2d79b3cfd75f8ae327daec5b39e36f9cfaae693a44f7bd5448a21524896b982",
+      "before": "sha256:e60323cd30219f548a2a1cc2bc3777e8f97dbbf0a24685df1c69857dbc8a4cc3"
     },
     {
-      "path": "input/icon-crop-specs/affirm-q4-fy26.json",
-      "digest": "sha256:dc03eed6cdec4d0e51424c3c795879caaebeffe4e5ba62343001a6b9062a2b78",
+      "path": "input/icon-crop-specs/intuit-q4-fy26-quickbooks.json",
+      "digest": "sha256:e3ffc9a57d7d3861fac264fa7395f6d66b4e4f57212096cc63eb1fc4a0dc28dd",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/eli-lilly-q2-fy26.json",
-      "digest": "sha256:8d7aff567f219b4eff2bc57c4b96851998905c6d3d199ff68103b543d6e6f025",
+      "path": "input/icon-crop-specs/mercadolibre-q2-fy26.json",
+      "digest": "sha256:5d43b7a7a9447e71d6278bd9dbbc39ec977e63610d0282048708e418bdae0d7b",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/mcdonald-s-q2-fy26.json",
-      "digest": "sha256:f6bb2e5bbf3802283fa2316aa29d5a681a796e27b4865f3093f762a2c9895c45",
-      "before": null
-    },
-    {
-      "path": "input/icon-crop-specs/shopify-q2-fy26.json",
-      "digest": "sha256:06f056cfa23dd0880af11bd896b25952d9c8390bddb4de5e5d9f4010b230e616",
-      "before": null
-    },
-    {
-      "path": "input/pending/page-0080-Affirm-Q4-FY26-Income-Statement.png",
-      "before": "sha256:3357a10763e741c2d07522750b220dcc43e0145b0afd1c4452760ee75f042bd0",
+      "path": "input/pending/page-0073-Atlassian-Q4-FY26-Income-Statement.png",
+      "before": "sha256:547f67c1daacd646aef36982ae63ea3646b2883ff51fc6abe15bb11ffdce790e",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0087-Amgen-Q2-FY26-Income-Statement.png",
-      "before": "sha256:6ca49da2db792525e6701bad35ed51b9ba4aae3ea69eb877d1a487e4e214fee3",
+      "path": "input/pending/page-0072-Intuit-Q4-FY26-Income-Statement.png",
+      "before": "sha256:006f4fefd7eb5754645c0c53851974945951d44ddf6bec4a59d64b5ba0d47f20",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0084-Eli-Lilly-Q2-FY26-Income-Statement.png",
-      "before": "sha256:06392d33ad681fb6a2406cf997962164a8de8f5b59256b484ce4e677a3e551a4",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0079-Etsy-Q2-FY26-Income-Statement.png",
-      "before": "sha256:533ad90502d50fb3f1a75f2390d05139af402d8c91279b558dabb41115743c6c",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0078-Global-e-Q2-FY26-Income-Statement.png",
-      "before": "sha256:7f5c0a94ae6b6e59e6a3a221fbecf3f5d7346cb0c21cce1b9906010ccaf7643c",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0083-Kraft-Heinz-Q2-FY26-Income-Statement.png",
-      "before": "sha256:2f56ae576842feb52752b23e673e64e4238fa47b9a8efeb052aa1df0c01d6db5",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0081-McDonald-s-Q2-FY26-Income-Statement.png",
-      "before": "sha256:5537394ddabba6b6c5915d99364170afbb705d8827372372be058e707918d21c",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0086-Merck-Q2-FY26-Income-Statement.png",
-      "before": "sha256:9a475a62f21b6d1996f67ccb8f556f3ee07821466af7733c3a3600bdf9273e79",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0085-Novo-Nordisk-Q2-FY26-Income-Statement.png",
-      "before": "sha256:c6965eab06254949783400c894d2bdb4741801c7334d7f7e38367a40dec54bfe",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0082-RBI-Q2-FY26-Income-Statement.png",
-      "before": "sha256:6b7bd650e774acb936a7dffa6374e3dfbc6ef2450212d245bb9df25ec57a390e",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0076-Shopify-Q2-FY26-Income-Statement.png",
-      "before": "sha256:1640ce7a8231106505f757232df3bdb8043131204353ad37303f17900c47f854",
+      "path": "input/pending/page-0074-MercadoLibre-Q2-FY26-Income-Statement.png",
+      "before": "sha256:72c5a0635fdb01872d411800f0c76202d59d276c84c4fd5d25cc6a9f06b3fce6",
       "digest": null,
       "intakeOwned": true
     }
   ],
   "release": {
-    "version": "eecc2df9cc776c62719ef81dd6d952a99408f2dfc9d78847f7372c495b15a02d",
-    "contentDigest": "sha256:ed306e93860f9d0759e2f1f3da90cac33a206b149ad64b4d384afe6532b26619"
+    "version": "875b8ee7500c8ddea96d19ed830797c144e8229151e0acd43f2708515044081d",
+    "contentDigest": "sha256:2c49fcbe2640c13c051d1a86200ce38842bc1d8868c12a268f96f5f74b485b5f"
   },
   "approval": {
-    "operator": "Charles Liu",
+    "operator": "user",
     "accepted": true,
-    "candidateDigest": "sha256:6459b14bd4f8ff728c6a3184f0a933744ac58ddebf688c033ce019b98c0800a5",
-    "note": "用户在展示集成候选 21dc76ac-f0b2-4900-a346-ba3921359c8d 后明确回复：接受。原任务已明确授权推送 main。",
-    "planDigest": "sha256:c14737001191c3bc976f76fff01abc8f4014c1d7033ef25ee2889f50f0368700",
-    "recordedAt": "2026-09-22T20:58:32.002Z"
+    "candidateDigest": "sha256:5d684d9a8e5eb90a63d9390e904cc9d52603980c9c1398d5ba81764a746a627e",
+    "note": "用户已核对并确认展示的 44 路径 Git 集成候选，授权提交并推送 main。",
+    "planDigest": "sha256:bbff60bb12dd8cafaa1dd00a8a207e163fa1cf679237f00ef44775ec64341a96",
+    "recordedAt": "2026-09-26T04:56:48.962Z"
   }
 }

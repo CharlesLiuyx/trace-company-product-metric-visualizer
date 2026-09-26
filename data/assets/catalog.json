@@ -4434,6 +4434,28 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/intuit/mailchimp-icon-q4-fy26.png",
+      "digest": "sha256:1a7497c876f49fe5300597cc34d81453c61f4d6948e0832111ffafb504a11345",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/intuit-q4-fy26-quickbooks.json",
+          "recipeDigest": "sha256:e3ffc9a57d7d3861fac264fa7395f6d66b4e4f57212096cc63eb1fc4a0dc28dd",
+          "source": "input/processed/intuit-q4-fy26.png",
+          "cropKey": "intuit-mailchimp-icon-q4-fy26"
+        }
+      ],
+      "directConsumers": [
+        "intuit-q4-fy26"
+      ],
+      "consumers": [
+        "intuit-q4-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:dba53d97c95fa59c25b17530542e7085d6364ba278c2bd6557f59f3f7f1f62d2"
+      ],
+      "reusable": true
+    },
+    {
       "path": "data/assets/raster-annotations/intuit/mailchimp-icon.png",
       "digest": "sha256:55512bd9078cd8f1f3a29ef1a8e0481f53a1778fa7de48b3a0ad8df71c25341e",
       "provenance": [],
@@ -4449,6 +4471,28 @@
       ],
       "acceptedVersions": [],
       "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/intuit/quickbooks-icon-q4-fy26.png",
+      "digest": "sha256:52b06f3a46638bef914a648a7700446e2b7733fcd0d5a9cb58fa766a83d9071b",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/intuit-q4-fy26-quickbooks.json",
+          "recipeDigest": "sha256:e3ffc9a57d7d3861fac264fa7395f6d66b4e4f57212096cc63eb1fc4a0dc28dd",
+          "source": "input/processed/intuit-q4-fy26.png",
+          "cropKey": "intuit-quickbooks-icon-q4-fy26"
+        }
+      ],
+      "directConsumers": [
+        "intuit-q4-fy26"
+      ],
+      "consumers": [
+        "intuit-q4-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:ae23b06eae7ee73af74fe5aabb03eed3dff24cc4b4fe209913e74b1ca1a87173"
+      ],
+      "reusable": true
     },
     {
       "path": "data/assets/raster-annotations/intuit/quickbooks-icon.png",
@@ -5585,6 +5629,84 @@
       ],
       "consumers": [
         "mercadolibre-q1-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/mercadolibre/q2-fy26/ads-brand.png",
+      "digest": "sha256:06248a5541b10ba9fc936ff0d46dabb2398136638c1e6b810b9c191c52cf8835",
+      "provenance": [],
+      "directConsumers": [
+        "mercadolibre-q2-fy26"
+      ],
+      "consumers": [
+        "mercadolibre-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/mercadolibre/q2-fy26/commerce-brand.png",
+      "digest": "sha256:8a7bd9a1815f37ffd6772e465023b2066ddce5b7a75c07e761ba86336fa156ba",
+      "provenance": [],
+      "directConsumers": [
+        "mercadolibre-q2-fy26"
+      ],
+      "consumers": [
+        "mercadolibre-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/mercadolibre/q2-fy26/corporate-handshake.png",
+      "digest": "sha256:eaff8b360ba89a894cb136bbaa9996a6ee68a8a1cd3787769905cb1bc17ec8c5",
+      "provenance": [],
+      "directConsumers": [
+        "mercadolibre-q2-fy26"
+      ],
+      "consumers": [
+        "mercadolibre-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/mercadolibre/q2-fy26/credito-brand.png",
+      "digest": "sha256:16835c026be4c68f52875741e03d9df9c777129c460e859e46e3c5cc53fab1f6",
+      "provenance": [],
+      "directConsumers": [
+        "mercadolibre-q2-fy26"
+      ],
+      "consumers": [
+        "mercadolibre-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/mercadolibre/q2-fy26/envios-brand.png",
+      "digest": "sha256:5b1a261b831c6f311b1355ee3a1f320a7fc487886af046b759fb30d1f440d656",
+      "provenance": [],
+      "directConsumers": [
+        "mercadolibre-q2-fy26"
+      ],
+      "consumers": [
+        "mercadolibre-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/mercadolibre/q2-fy26/pago-brand.png",
+      "digest": "sha256:a9f4420f5a16ac28d0984a817aa5698ee70e5f85aaca6368e5b3a60fa333e0db",
+      "provenance": [],
+      "directConsumers": [
+        "mercadolibre-q2-fy26"
+      ],
+      "consumers": [
+        "mercadolibre-q2-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -11821,6 +11943,11 @@
       "source": "input/processed/intuit-q3-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/intuit-q4-fy26-quickbooks.json",
+      "digest": "sha256:e3ffc9a57d7d3861fac264fa7395f6d66b4e4f57212096cc63eb1fc4a0dc28dd",
+      "source": "input/processed/intuit-q4-fy26.png"
+    },
+    {
       "path": "input/icon-crop-specs/intuitive-q4-fy25.json",
       "digest": "sha256:d8a3030c44f9ae7f176ac30ea10498f988e1078443ef7e8d465de4d80ae326a6",
       "source": "input/processed/intuitive-q4-fy25.png"
@@ -11944,6 +12071,11 @@
       "path": "input/icon-crop-specs/mercadolibre-q1-fy26.json",
       "digest": "sha256:013dd0bb3d374c0d456c8a35dca268e0746b683a16d4ced0c21f7f51dcb02ba3",
       "source": "input/processed/mercadolibre-q1-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/mercadolibre-q2-fy26.json",
+      "digest": "sha256:5d43b7a7a9447e71d6278bd9dbbc39ec977e63610d0282048708e418bdae0d7b",
+      "source": "input/processing/mercadolibre-q2-fy26.png"
     },
     {
       "path": "input/icon-crop-specs/mercadolibre-q4-fy25.json",
