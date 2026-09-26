@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-09-22T09:45:30.310Z",
+  "generatedAt": "2026-09-25T19:07:37.665Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -6401,6 +6401,24 @@
       "path": "data/datasets/shopify-q2-fy26.js",
       "updatedAtMs": 1790070227187,
       "updatedAt": "2026-09-22T09:43:47.187Z",
+      "timeSource": "publication"
+    },
+    "atlassian-q4-fy26": {
+      "path": "data/datasets/atlassian-q4-fy26.js",
+      "updatedAtMs": 1790362315541,
+      "updatedAt": "2026-09-25T18:51:55.541Z",
+      "timeSource": "publication"
+    },
+    "intuit-q4-fy26": {
+      "path": "data/datasets/intuit-q4-fy26.js",
+      "updatedAtMs": 1790362168524,
+      "updatedAt": "2026-09-25T18:49:28.524Z",
+      "timeSource": "publication"
+    },
+    "mercadolibre-q2-fy26": {
+      "path": "data/datasets/mercadolibre-q2-fy26.js",
+      "updatedAtMs": 1790363257665,
+      "updatedAt": "2026-09-25T19:07:37.665Z",
       "timeSource": "publication"
     },
     "data/revenue-metrics.js": {

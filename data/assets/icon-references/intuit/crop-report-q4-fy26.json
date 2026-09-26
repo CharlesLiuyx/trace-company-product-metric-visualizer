@@ -1,0 +1,228 @@
+{
+  "source": "input/processed/intuit-q4-fy26.png",
+  "spec": "input/icon-crop-specs/intuit-q4-fy26-quickbooks.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-09-25T19:51:04.219455+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/intuit",
+  "crops": [
+    {
+      "key": "intuit-quickbooks-icon-q4-fy26",
+      "output": "data/assets/icon-references/intuit/crops/quickbooks-icon-q4-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1518,
+        "losslessBytes": 6853,
+        "savingsVsLossless": 0.7785,
+        "metrics": {
+          "meanAbsoluteError": 0.8095,
+          "rootMeanSquareError": 2.3236,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 35,
+          "changedPixelRatio": 0.5731
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 8316,
+        "transparentPixelRatio": 0.4243
+      },
+      "searchBox": {
+        "x": 84,
+        "y": 572,
+        "width": 127,
+        "height": 128
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 87,
+        "y0": 575,
+        "x1": 207,
+        "y1": 695
+      },
+      "cropBox": {
+        "x0": 78,
+        "y0": 566,
+        "x1": 218,
+        "y1": 706
+      },
+      "validation": {
+        "width": 140,
+        "height": 140,
+        "foregroundPixels": 9372,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 9,
+          "right": 11,
+          "top": 9,
+          "bottom": 11
+        },
+        "centerOffset": {
+          "x": -0.0071,
+          "y": -0.0071
+        },
+        "passes": true
+      },
+      "note": "QuickBooks app icon shown in the Q4 FY26 Source: green circle with white qb monogram. This Q4 mark differs from the Q3 mark and is isolated from the wordmark below.",
+      "runtimeOutput": "data/assets/raster-annotations/intuit/quickbooks-icon-q4-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1518,
+        "losslessBytes": 6853,
+        "savingsVsLossless": 0.7785,
+        "metrics": {
+          "meanAbsoluteError": 0.8095,
+          "rootMeanSquareError": 2.3236,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 35,
+          "changedPixelRatio": 0.5731
+        }
+      },
+      "validationSheet": "data/assets/icon-references/intuit/validation-sheets/intuit-quickbooks-icon-q4-fy26.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 283354,
+        "losslessBytes": 283354,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "intuit-mailchimp-icon-q4-fy26",
+      "output": "data/assets/icon-references/intuit/crops/mailchimp-icon-q4-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2181,
+        "losslessBytes": 10637,
+        "savingsVsLossless": 0.795,
+        "metrics": {
+          "meanAbsoluteError": 0.5249,
+          "rootMeanSquareError": 1.6063,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.2923
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 9308,
+        "transparentPixelRatio": 0.4897
+      },
+      "searchBox": {
+        "x": 243,
+        "y": 575,
+        "width": 120,
+        "height": 127
+      },
+      "componentCount": 4,
+      "subjectBox": {
+        "x0": 246,
+        "y0": 575,
+        "x1": 358,
+        "y1": 693
+      },
+      "cropBox": {
+        "x0": 237,
+        "y0": 562,
+        "x1": 369,
+        "y1": 706
+      },
+      "validation": {
+        "width": 132,
+        "height": 144,
+        "foregroundPixels": 6205,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 9,
+          "right": 11,
+          "top": 13,
+          "bottom": 13
+        },
+        "centerOffset": {
+          "x": -0.0076,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Mailchimp mascot shown in the Q4 FY26 Source, isolated from the QuickBooks icon and the wordmark below.",
+      "runtimeOutput": "data/assets/raster-annotations/intuit/mailchimp-icon-q4-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2181,
+        "losslessBytes": 10637,
+        "savingsVsLossless": 0.795,
+        "metrics": {
+          "meanAbsoluteError": 0.5249,
+          "rootMeanSquareError": 1.6063,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.2923
+        }
+      },
+      "validationSheet": "data/assets/icon-references/intuit/validation-sheets/intuit-mailchimp-icon-q4-fy26.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 295465,
+        "losslessBytes": 295465,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

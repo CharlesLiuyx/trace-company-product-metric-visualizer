@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Intuit QuickBooks Q4 FY26 icon",
+  "artifact": {
+    "path": "data/assets/raster-annotations/intuit/quickbooks-icon-q4-fy26.png",
+    "digest": "sha256:52b06f3a46638bef914a648a7700446e2b7733fcd0d5a9cb58fa766a83d9071b"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/intuit-q4-fy26-quickbooks.json",
+    "digest": "sha256:e3ffc9a57d7d3861fac264fa7395f6d66b4e4f57212096cc63eb1fc4a0dc28dd"
+  },
+  "source": {
+    "path": "input/processed/intuit-q4-fy26.png",
+    "digest": "sha256:006f4fefd7eb5754645c0c53851974945951d44ddf6bec4a59d64b5ba0d47f20"
+  },
+  "review": {
+    "reviewer": "Codex visual QA",
+    "decision": "accepted",
+    "note": "Compared the extracted icon against the complete Q4 FY26 Source at native scale. The green circular mark, white qb monogram, crop bounds and centered placement match; the candidate preserves the Q4 mark instead of the different Q3 mark.",
+    "artifactDigest": "sha256:52b06f3a46638bef914a648a7700446e2b7733fcd0d5a9cb58fa766a83d9071b"
+  },
+  "versionDigest": "sha256:ae23b06eae7ee73af74fe5aabb03eed3dff24cc4b4fe209913e74b1ca1a87173"
+}

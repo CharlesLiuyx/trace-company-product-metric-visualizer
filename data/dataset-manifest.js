@@ -23811,6 +23811,73 @@
             }
           }
         }
+      },
+      {
+        "key": "atlassian-q4-fy26",
+        "src": "data/datasets/atlassian-q4-fy26.js",
+        "data": {
+          "name": "Atlassian · Q4 FY26",
+          "company": "Atlassian",
+          "meta": {
+            "title": "Atlassian Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending June 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Atlassian · 2026 财年第四季度",
+              "meta": {
+                "title": "Atlassian 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intuit-q4-fy26",
+        "src": "data/datasets/intuit-q4-fy26.js",
+        "data": {
+          "name": "Intuit · Q4 FY26",
+          "company": "Intuit",
+          "meta": {
+            "title": "Intuit Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending July 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Intuit · 2026 财年第四季度",
+              "meta": {
+                "title": "Intuit 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mercadolibre-q2-fy26",
+        "src": "data/datasets/mercadolibre-q2-fy26.js",
+        "data": {
+          "name": "MercadoLibre Q2 FY26 Income Statement",
+          "company": "MercadoLibre",
+          "meta": {
+            "title": "MercadoLibre Q2 FY26 Income Statement",
+            "period": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美客多 · 2026 财年第二季度",
+              "meta": {
+                "title": "美客多 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度"
+              }
+            }
+          }
+        }
       }
     ]
   };

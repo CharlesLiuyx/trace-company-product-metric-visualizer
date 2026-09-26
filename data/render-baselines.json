@@ -6398,6 +6398,24 @@
       "mae": 5.930079823355414,
       "width": 2667,
       "height": 1500
+    },
+    "atlassian-q4-fy26": {
+      "similarity": 0.9642348938408842,
+      "mae": 9.12010207057451,
+      "width": 2667,
+      "height": 1500
+    },
+    "intuit-q4-fy26": {
+      "similarity": 0.9657382238984833,
+      "mae": 8.736752905886764,
+      "width": 2667,
+      "height": 1500
+    },
+    "mercadolibre-q2-fy26": {
+      "similarity": 0.9690695888504133,
+      "mae": 7.887254843144607,
+      "width": 2667,
+      "height": 1500
     }
   }
 }

@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Intuit Mailchimp Q4 FY26 icon",
+  "artifact": {
+    "path": "data/assets/raster-annotations/intuit/mailchimp-icon-q4-fy26.png",
+    "digest": "sha256:1a7497c876f49fe5300597cc34d81453c61f4d6948e0832111ffafb504a11345"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/intuit-q4-fy26-quickbooks.json",
+    "digest": "sha256:e3ffc9a57d7d3861fac264fa7395f6d66b4e4f57212096cc63eb1fc4a0dc28dd"
+  },
+  "source": {
+    "path": "input/processed/intuit-q4-fy26.png",
+    "digest": "sha256:006f4fefd7eb5754645c0c53851974945951d44ddf6bec4a59d64b5ba0d47f20"
+  },
+  "review": {
+    "reviewer": "Codex visual QA",
+    "decision": "accepted",
+    "note": "Compared the extracted Mailchimp mascot against the complete Q4 FY26 Source at native scale. The full mascot silhouette is isolated from neighboring marks and the wordmark; bounds and centering pass crop validation.",
+    "artifactDigest": "sha256:1a7497c876f49fe5300597cc34d81453c61f4d6948e0832111ffafb504a11345"
+  },
+  "versionDigest": "sha256:dba53d97c95fa59c25b17530542e7085d6364ba278c2bd6557f59f3f7f1f62d2"
+}
