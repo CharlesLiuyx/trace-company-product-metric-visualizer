@@ -1,0 +1,127 @@
+{
+  "source": "input/processed/zillow-q2-fy26.png",
+  "spec": "input/icon-crop-specs/zillow-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-09-29T19:54:54.329070+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/zillow",
+  "crops": [
+    {
+      "key": "zillow-home-loans-wordmark-q2-fy26",
+      "output": "data/assets/icon-references/zillow/crops/home-loans-wordmark-q2-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 15145,
+        "losslessBytes": 15145,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 23019,
+        "transparentPixelRatio": 0.7358
+      },
+      "searchBox": {
+        "x": 77,
+        "y": 924,
+        "width": 316,
+        "height": 99
+      },
+      "componentCount": 18,
+      "subjectBox": {
+        "x0": 92,
+        "y0": 934,
+        "x1": 386,
+        "y1": 1011
+      },
+      "cropBox": {
+        "x0": 77,
+        "y0": 924,
+        "x1": 393,
+        "y1": 1023
+      },
+      "validation": {
+        "width": 316,
+        "height": 99,
+        "foregroundPixels": 7526,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 15,
+          "right": 7,
+          "top": 10,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": 0.0127,
+          "y": -0.0101
+        },
+        "passes": true
+      },
+      "note": "Complete HomeLoans wordmark. Excludes the adjacent +75% note in the upper-right margin; preserves every blue glyph.",
+      "excludedPixels": 486,
+      "runtimeOutput": "data/assets/raster-annotations/zillow/home-loans-wordmark-q2-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 15145,
+        "losslessBytes": 15145,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/zillow/validation-sheets/zillow-home-loans-wordmark-q2-fy26.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 128,
+        "bytes": 79925,
+        "losslessBytes": 250793,
+        "savingsVsLossless": 0.6813,
+        "metrics": {
+          "meanAbsoluteError": 0.4096,
+          "rootMeanSquareError": 2.6078,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 68,
+          "changedPixelRatio": 0.086
+        }
+      }
+    }
+  ]
+}

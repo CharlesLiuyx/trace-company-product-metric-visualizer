@@ -1,0 +1,63 @@
+{
+  "source": "input/processed/zillow-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/zillow",
+  "runtimeOutputDir": "data/assets/raster-annotations/zillow",
+  "validationSheetDir": "data/assets/icon-references/zillow/validation-sheets",
+  "report": "zillow-q2-fy26-crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [
+      242,
+      242,
+      242
+    ],
+    "tolerance": 10
+  },
+  "crops": [
+    {
+      "key": "zillow-home-loans-wordmark-q2-fy26",
+      "output": "crops/home-loans-wordmark-q2-fy26.png",
+      "runtimeOutput": "home-loans-wordmark-q2-fy26.png",
+      "searchBox": {
+        "x": 77,
+        "y": 924,
+        "width": 316,
+        "height": 99
+      },
+      "cropBox": {
+        "x": 77,
+        "y": 924,
+        "width": 316,
+        "height": 99
+      },
+      "excludeBoxes": [
+        {
+          "x": 375,
+          "y": 924,
+          "width": 18,
+          "height": 27
+        }
+      ],
+      "threshold": 18,
+      "minComponentArea": 30,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete HomeLoans wordmark. Excludes the adjacent +75% note in the upper-right margin; preserves every blue glyph."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "company-premier-rentals",
+      "reason": "Reuse materially identical clean existing Q1 FY26 runtime assets after full visual comparison."
+    }
+  ]
+}

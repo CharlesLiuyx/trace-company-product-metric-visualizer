@@ -280,6 +280,66 @@
       "digest": "sha256:802b9812826a352d359f3042a8508774a21e4e7f3e3c520e4934eb9f5a9b27b2",
       "updatedAt": "2026-09-25T19:07:37.665Z",
       "publishedDigest": "sha256:672a97a9caaf183c6dcab94a8266241ad653f4f2a42c23b9c768dacb445888f3"
+    },
+    "data/datasets/adyen-h1-fy26.js": {
+      "digest": "sha256:8310b6a0296aa6012f887fcf4e726111536ff80a21d49e431e2c6b19304c2310",
+      "updatedAt": "2026-09-29T19:53:37.791Z",
+      "publishedDigest": "sha256:4ba8a540a34545f4a481170f664dffaf5c0b5803d6ad6d9450fa660307ed0fa3"
+    },
+    "data/datasets/block-q2-fy26.js": {
+      "digest": "sha256:148004ef2f7c68c9b80eca87d27d6ebc40ea0cb8a4bf130fc616c86fef369014",
+      "updatedAt": "2026-09-29T19:51:09.608Z",
+      "publishedDigest": "sha256:4ba8a540a34545f4a481170f664dffaf5c0b5803d6ad6d9450fa660307ed0fa3"
+    },
+    "data/datasets/coupang-q2-fy26.js": {
+      "digest": "sha256:62360e03d343da5859fe27bd032b7c1207f1ef73a70c274f22dcacc249cfb69a",
+      "updatedAt": "2026-09-29T19:51:37.536Z",
+      "publishedDigest": "sha256:4ba8a540a34545f4a481170f664dffaf5c0b5803d6ad6d9450fa660307ed0fa3"
+    },
+    "data/datasets/dlocal-q2-fy26.js": {
+      "digest": "sha256:9d15e9bb2c1d43ef71a89afa4c1b16773ac1d4d59591ca695ecc385a6a698cb5",
+      "updatedAt": "2026-09-29T19:53:11.304Z",
+      "publishedDigest": "sha256:4ba8a540a34545f4a481170f664dffaf5c0b5803d6ad6d9450fa660307ed0fa3"
+    },
+    "data/datasets/health-equity-q2-fy27.js": {
+      "digest": "sha256:682952ebcd2dd759e17a7d75b60665c7aa793aca0a54a973052b91a7612a454e",
+      "updatedAt": "2026-09-29T19:50:43.246Z",
+      "publishedDigest": "sha256:4ba8a540a34545f4a481170f664dffaf5c0b5803d6ad6d9450fa660307ed0fa3"
+    },
+    "data/datasets/nu-q2-fy26.js": {
+      "digest": "sha256:e5c392251d7ee57b6201607d6718d3042a0fec57d45556e50f287fb0feb4d587",
+      "updatedAt": "2026-09-29T19:49:00.885Z",
+      "publishedDigest": "sha256:4ba8a540a34545f4a481170f664dffaf5c0b5803d6ad6d9450fa660307ed0fa3"
+    },
+    "data/datasets/nyt-q2-fy26.js": {
+      "digest": "sha256:74d319f8462704a2e85da959a05accb818f56b0bc1fb958873d79d27b752296d",
+      "updatedAt": "2026-09-29T20:00:24.522Z",
+      "publishedDigest": "sha256:4ba8a540a34545f4a481170f664dffaf5c0b5803d6ad6d9450fa660307ed0fa3"
+    },
+    "data/datasets/peloton-q4-fy26.js": {
+      "digest": "sha256:2017b7f7afe9b4e4af0803ac97f54e7377e98897aa90ca1ebc44180811ddf336",
+      "updatedAt": "2026-09-29T19:51:25.127Z",
+      "publishedDigest": "sha256:4ba8a540a34545f4a481170f664dffaf5c0b5803d6ad6d9450fa660307ed0fa3"
+    },
+    "data/datasets/sea-q2-fy26.js": {
+      "digest": "sha256:36129999106c8c5662c44bf421a577233efb1e3d999d992aaf7b173bac5c166f",
+      "updatedAt": "2026-09-29T19:50:49.054Z",
+      "publishedDigest": "sha256:4ba8a540a34545f4a481170f664dffaf5c0b5803d6ad6d9450fa660307ed0fa3"
+    },
+    "data/datasets/stoneco-q2-fy26.js": {
+      "digest": "sha256:9d164e8c08233c42769deb9605874d2f375e1d138f7166bdb5a13390f4f3ec76",
+      "updatedAt": "2026-09-29T19:51:16.466Z",
+      "publishedDigest": "sha256:4ba8a540a34545f4a481170f664dffaf5c0b5803d6ad6d9450fa660307ed0fa3"
+    },
+    "data/datasets/toast-q2-fy26.js": {
+      "digest": "sha256:b2ee3a9e63c8c58ead5a32578591dd4e29aca86baa3f443e3d2a28df51c3ab01",
+      "updatedAt": "2026-09-29T19:51:23.867Z",
+      "publishedDigest": "sha256:4ba8a540a34545f4a481170f664dffaf5c0b5803d6ad6d9450fa660307ed0fa3"
+    },
+    "data/datasets/zillow-q2-fy26.js": {
+      "digest": "sha256:4a7f24ca16a82449148597fb80b3266ebb76187686f9736aa08333b3ef17278b",
+      "updatedAt": "2026-09-29T19:51:50.036Z",
+      "publishedDigest": "sha256:4ba8a540a34545f4a481170f664dffaf5c0b5803d6ad6d9450fa660307ed0fa3"
     }
   }
 }

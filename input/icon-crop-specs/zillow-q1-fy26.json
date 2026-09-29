@@ -4,11 +4,19 @@
   "runtimeOutputDir": "data/assets/raster-annotations/zillow",
   "validationSheetDir": "data/assets/icon-references/zillow/validation-sheets",
   "report": "zillow-q1-fy26-crop-report.json",
-  "background": [242, 242, 242],
+  "background": [
+    242,
+    242,
+    242
+  ],
   "backgroundRemoval": {
     "enabled": true,
     "mode": "edge-connected",
-    "color": [242, 242, 242],
+    "color": [
+      242,
+      242,
+      242
+    ],
     "tolerance": 10
   },
   "skipped": [
@@ -29,42 +37,102 @@
     {
       "key": "zillow-company-wordmark-q1-fy26",
       "output": "crops/company-wordmark-q1-fy26.png",
-      "searchBox": { "x": 570, "y": 282, "width": 656, "height": 81 },
-      "cropBox": { "x": 553, "y": 276, "width": 690, "height": 103 },
+      "searchBox": {
+        "x": 570,
+        "y": 282,
+        "width": 656,
+        "height": 81
+      },
+      "cropBox": {
+        "x": 553,
+        "y": 276,
+        "width": 690,
+        "height": 103
+      },
       "threshold": 18,
       "minComponentArea": 35,
-      "validation": { "borderBand": 0, "maxCenterOffset": 0.15, "maxForbiddenForegroundPixels": 0 },
-      "note": "Zillow Group company wordmark above the revenue hub; excludes the title, revenue label, and flow marks."
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Zillow Group company wordmark above the revenue hub; excludes the title, revenue label, and flow marks.",
+      "runtimeOutput": "company-wordmark-q1-fy26.png"
     },
     {
       "key": "zillow-premier-agent-wordmark-q1-fy26",
       "output": "crops/premier-agent-wordmark-q1-fy26.png",
-      "searchBox": { "x": 69, "y": 463, "width": 296, "height": 90 },
-      "cropBox": { "x": 54, "y": 448, "width": 340, "height": 121 },
+      "searchBox": {
+        "x": 69,
+        "y": 463,
+        "width": 296,
+        "height": 90
+      },
+      "cropBox": {
+        "x": 54,
+        "y": 448,
+        "width": 340,
+        "height": 121
+      },
       "threshold": 18,
       "minComponentArea": 30,
-      "validation": { "borderBand": 0, "maxCenterOffset": 0.15, "maxForbiddenForegroundPixels": 0 },
-      "note": "Zillow Premier Agent business wordmark for Residential revenue; excludes the Residential label, value text, and flow marks."
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Zillow Premier Agent business wordmark for Residential revenue; excludes the Residential label, value text, and flow marks.",
+      "runtimeOutput": "premier-agent-wordmark-q1-fy26.png"
     },
     {
       "key": "zillow-rentals-wordmark-q1-fy26",
       "output": "crops/rentals-wordmark-q1-fy26.png",
-      "searchBox": { "x": 104, "y": 790, "width": 242, "height": 88 },
-      "cropBox": { "x": 89, "y": 775, "width": 272, "height": 118 },
+      "searchBox": {
+        "x": 104,
+        "y": 790,
+        "width": 242,
+        "height": 88
+      },
+      "cropBox": {
+        "x": 89,
+        "y": 775,
+        "width": 272,
+        "height": 118
+      },
       "threshold": 18,
       "minComponentArea": 30,
-      "validation": { "borderBand": 0, "maxCenterOffset": 0.15, "maxForbiddenForegroundPixels": 0 },
-      "note": "Zillow Rentals business wordmark; excludes value text, node and link marks, and publisher attribution."
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Zillow Rentals business wordmark; excludes value text, node and link marks, and publisher attribution.",
+      "runtimeOutput": "rentals-wordmark-q1-fy26.png"
     },
     {
       "key": "zillow-home-loans-wordmark-q1-fy26",
       "output": "crops/home-loans-wordmark-q1-fy26.png",
-      "searchBox": { "x": 92, "y": 980, "width": 275, "height": 76 },
-      "cropBox": { "x": 77, "y": 965, "width": 301, "height": 107 },
+      "searchBox": {
+        "x": 92,
+        "y": 980,
+        "width": 275,
+        "height": 76
+      },
+      "cropBox": {
+        "x": 77,
+        "y": 965,
+        "width": 301,
+        "height": 107
+      },
       "threshold": 18,
       "minComponentArea": 30,
-      "validation": { "borderBand": 0, "maxCenterOffset": 0.15, "maxForbiddenForegroundPixels": 0 },
-      "note": "Zillow Home Loans business wordmark; excludes value text, node and link marks, and publisher attribution."
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Zillow Home Loans business wordmark; excludes value text, node and link marks, and publisher attribution.",
+      "runtimeOutput": "home-loans-wordmark-q1-fy26.png"
     }
   ]
 }
