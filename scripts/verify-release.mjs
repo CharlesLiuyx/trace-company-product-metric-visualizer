@@ -5,7 +5,19 @@ import { rootDir } from './lib/project.mjs';
 import { readJson, fileManifest, CANONICAL_ROOTS, inside, bytesDigest } from './lib/workflow-files.mjs';
 import { readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
-import { verifySiteIdentity } from './lib/site-release-identity.mjs';
+import { verifySiteIdentity, verifyOnlineRelease } from './lib/site-release-identity.mjs';
+// Default mode is the CI release gate over the local _site build. `--online`
+// is the post-push delivery check: HTTP only, no browser.
+const args = process.argv.slice(2).filter((arg) => arg !== '--');
+if (args.includes('--online')) {
+  try {
+    const commit = args.includes('--commit') ? args[args.indexOf('--commit') + 1] : execFileSync('git', ['rev-parse', 'HEAD'], { cwd: rootDir, encoding: 'utf8' }).trim();
+    const keys = args.flatMap((arg, index) => args[index - 1] === '--key' ? [arg] : []);
+    const result = await verifyOnlineRelease({ commit, keys });
+    console.log(`Production serves ${result.sourceCommit} (release ${result.version.slice(0, 12)})${keys.length ? `; datasets present: ${keys.join(', ')}` : ''}`);
+  } catch (error) { console.error(error.message); process.exitCode = 1; }
+  process.exit();
+}
 try {
   const release = await verifySiteIdentity(path.join(rootDir, '_site'));
   const message = execFileSync('git', ['show', '-s', '--format=%B', 'HEAD'], { cwd: rootDir, encoding: 'utf8' });

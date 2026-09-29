@@ -9,8 +9,9 @@ import { atomicJson, fileManifest, copyFiles, bytesDigest, CANONICAL_ROOTS } fro
 import { createPreviewManifest } from '../scripts/lib/workbench-manifest.mjs';
 import { digestValue } from '../scripts/lib/dataset-build.mjs';
 import { siteContentDigest } from '../scripts/lib/site-release-identity.mjs';
+import { applicationManifest } from '../scripts/lib/workflow-application.mjs';
 const git = (root, args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
-async function fixture(t) {
+async function fixture(t, { reviewedApplication = false } = {}) {
   const root = await mkdtemp(path.join(os.tmpdir(), 'trace-git-transport-'));
   t.after(() => rm(root, { recursive: true, force: true }));
   await mkdir(path.join(root, 'data/metric-observations'), { recursive: true });
@@ -27,7 +28,7 @@ async function fixture(t) {
   let planDigest;
   const buildId = 'build-aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee';
   await atomicJson(path.join(root, `output/builds/${buildId}/manifest.json`), { sources: [] });
-  const publication = { projectedTreeDigest: published.digest, baseCanonicalDigest: base.digest, builds: [{ buildId, key: 'example', sealDigest: 'fixture' }], contributions: [{ path: file, digest: bytesDigest(value), baseDigest: null, buildId }] };
+  const publication = { ...(reviewedApplication ? { applicationDigest: (await applicationManifest(root)).digest } : {}), projectedTreeDigest: published.digest, baseCanonicalDigest: base.digest, builds: [{ buildId, key: 'example', sealDigest: 'fixture' }], contributions: [{ path: file, digest: bytesDigest(value), baseDigest: null, buildId }] };
   planDigest = digestValue(publication);
   await atomicJson(path.join(root, `output/publications/plans/${planDigest.slice(7)}/plan.json`), { ...publication, planDigest });
   await atomicJson(path.join(root, 'output/publications/current.json'), { publishedDigest: published.digest, planDigest, previousDigest: base.digest });
@@ -106,4 +107,18 @@ test('reviewed transport inputs reproduce in a clean clone despite host Python c
   await writeFile(path.join(clone, 'scripts/helper.py'), 'print("changed tool")\n');
   assert.notEqual((await fileManifest(clone, roots)).digest, plan.candidateDigest);
   assert.deepEqual(await preview(clone, roots), await fileManifest(clone, roots));
+});
+
+test('Build acceptance carries over to the transport only under the reviewed application code', async (t) => {
+  const legacy = await fixture(t);
+  const unbound = await legacy.prepare();
+  assert.equal(unbound.validation, 'standard');
+  assert.equal(unbound.acceptance.inheritsBuildAcceptance, false);
+  await assert.rejects(reviewGitTransport(unbound.id, { operator: 'test fixture', accepted: true, candidateDigest: unbound.candidateDigest, basis: 'inherited-build-acceptance' }, legacy.root), /does not carry over/);
+  const reviewed = await fixture(t, { reviewedApplication: true });
+  const bound = await reviewed.prepare();
+  assert.equal(bound.acceptance.inheritsBuildAcceptance, true);
+  const approval = await reviewGitTransport(bound.id, { operator: 'test fixture', accepted: true, candidateDigest: bound.candidateDigest, basis: 'inherited-build-acceptance' }, reviewed.root);
+  assert.equal(approval.basis, 'inherited-build-acceptance');
+  await commitGitTransport(bound.id, reviewed.root);
 });
