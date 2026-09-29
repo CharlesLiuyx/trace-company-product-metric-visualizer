@@ -5,7 +5,7 @@ export const OPERATING_METRIC_UNITS = Object.freeze(['K', 'M', 'B', 'T', '%', 'c
 export const OPERATING_METRIC_COMPARISONS = Object.freeze(['eq', 'gt', 'gte', 'lt', 'lte']);
 const COMPARISONS = { eq: '', gt: '>', gte: '>=', lt: '<', lte: '<=' };
 const MONEY = new Set(['K', 'M', 'B', 'T']);
-const CURRENCY_PREFIX = { USD: '$', EUR: '€', GBP: '£', JPY: '¥', CNY: 'CN¥', HKD: 'HK$' };
+const CURRENCY_PREFIX = { USD: '$', EUR: '€', GBP: '£', JPY: '¥', CNY: 'CN¥', HKD: 'HK$', BRL: 'R$' };
 const ID = /^[a-z0-9]+(?:[._:-][a-z0-9]+)*$/;
 function requireThat(ok, message) {
   if (!ok) throw Object.assign(new Error(message), { code: 'OPERATING_METRIC_INVALID' });
@@ -25,6 +25,10 @@ export function normalizeOperatingObservation(raw) {
   const comparison = literal.match(/^(>=|<=|>|<)/)?.[0] || '';
   requireThat(comparison === COMPARISONS[raw.comparison], 'Operating metric comparison disagrees with its literal');
   literal = literal.slice(comparison.length);
+  // Accounting parentheses retain a negative supplemental monetary amount.
+  if (MONEY.has(raw.unit) && /^\([^()]+\)$/.test(literal)) {
+    literal = literal.slice(1, -1).replace(CURRENCY_PREFIX[raw.currency], CURRENCY_PREFIX[raw.currency] + '-');
+  }
   if (raw.unit === 'count') {
     requireThat(!value.includes('.') && !value.startsWith('-'), 'Counts must be nonnegative integers');
     const match = literal.match(/^(\d+)(?:\.(\d+))?([KMBT])?$/);
@@ -37,6 +41,20 @@ export function normalizeOperatingObservation(raw) {
     return { value, unit: raw.unit, currency: raw.currency, comparison: raw.comparison, literal: raw.literal };
   }
   const prefix = MONEY.has(raw.unit) ? CURRENCY_PREFIX[raw.currency] : '';
+  if (MONEY.has(raw.unit) && literal.startsWith(prefix) && /^-?\d+(?:\.\d+)?$/.test(literal.slice(prefix.length))) {
+    // Source dollar-per-customer cards often omit a scale suffix. Keep their
+    // literal while comparing base-currency magnitude with the declared scale.
+    const base = decimal(literal.slice(prefix.length));
+    const exact = (input) => {
+      const [whole, fraction = ''] = input.split('.');
+      return { numerator: BigInt(whole.replace('-', '') + fraction) * (input.startsWith('-') ? -1n : 1n), denominator: 10n ** BigInt(fraction.length) };
+    };
+    const left = exact(base);
+    const right = exact(value);
+    const scale = 10n ** BigInt({ K: 3, M: 6, B: 9, T: 12 }[raw.unit]);
+    requireThat(left.numerator * right.denominator === right.numerator * scale * left.denominator, 'Operating metric base-currency literal does not equal its scaled value');
+    return { value, unit: raw.unit, currency: raw.currency, comparison: raw.comparison, literal: raw.literal };
+  }
   const suffix = raw.unit;
   requireThat(literal.startsWith(prefix) && literal.endsWith(suffix), 'Operating metric unit/currency disagrees with its literal');
   const numeric = literal.slice(prefix.length, suffix ? -suffix.length : undefined);

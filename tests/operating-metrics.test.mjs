@@ -62,6 +62,15 @@ test('abbreviated counts preserve source literals and exact integer magnitude', 
     assert.throws(() => normalizeOperatingObservation({ ...count, ...update }));
   }
 });
+test('per-customer money preserves unscaled Source amounts with exact scale reconciliation', () => {
+  const raw = { value: '0.301', unit: 'K', currency: 'USD', comparison: 'eq', literal: '$301' };
+  assert.deepEqual(normalizeOperatingObservation(raw), raw);
+  assert.equal(normalizeOperatingObservation({ ...raw, value: '0.000301', unit: 'M' }).literal, '$301');
+  assert.equal(normalizeOperatingObservation({ ...raw, value: '-0.301', literal: '$-301' }).value, '-0.301');
+  for (const update of [{ value: '301' }, { value: '0.302' }, { currency: 'EUR' }, { literal: '$301M' }]) {
+    assert.throws(() => normalizeOperatingObservation({ ...raw, ...update }));
+  }
+});
 test('explicit positive growth preserves its Source sign and rejects mismatched or malformed signs', () => {
   const growth = { ...metrics[1], value: '1', comparison: 'eq', literal: '+1%' };
   assert.equal(normalizeOperatingObservation(growth).literal, '+1%');
@@ -91,4 +100,11 @@ test('financial localization changes supplemental labels/notes but rejects value
     f.record.i18n.zh.operatingMetrics = [{ id: 'arr', [field]: 'changed' }];
     assert.throws(() => SANKEY_I18N.localizeFinancialRecord(f.record, 'zh'));
   }
+});
+
+ test('BRL TPV preserves Source currency and exact decimal', () => {
+  const raw = { value: '142.2', unit: 'B', currency: 'BRL', comparison: 'eq', literal: 'R$142.2B' };
+  assert.deepEqual(normalizeOperatingObservation(raw), raw);
+  assert.throws(() => normalizeOperatingObservation({ ...raw, currency: 'USD' }));
+  assert.throws(() => normalizeOperatingObservation({ ...raw, literal: '$142.2B' }));
 });
