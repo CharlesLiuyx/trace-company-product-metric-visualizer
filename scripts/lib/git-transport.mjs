@@ -14,6 +14,7 @@ import { updateMetricCatalog } from './metric-catalog.mjs';
 import { updateAssetCatalog } from './workflow-assets.mjs';
 import { verifySiteIdentity } from './site-release-identity.mjs';
 import { digestValue } from './dataset-build.mjs';
+import { applicationManifest } from './workflow-application.mjs';
 
 const trackedReceipt = 'docs/releases/current.json';
 const runtimeRoots = [...CANONICAL_ROOTS, 'scripts', 'package.json', 'pnpm-lock.yaml'];
@@ -157,23 +158,37 @@ export async function prepareGitTransport(publishedDigest, root, options = {}) {
       }
     }
   }
+  // Standard validation is the fast aggregate gate plus the Pages build whose
+  // identity the commit binds. Browser checks (render regression, verify:site)
+  // run once in CI on the pushed commit; `full` repeats them locally.
+  const validation = options.full ? 'full' : 'standard';
   const validate = options.validate || (async () => {
     await updateMetricCatalog(candidate); await updateAssetCatalog(candidate);
     runWorkspace(candidate, 'sync-index-datasets.mjs'); runWorkspace(candidate, 'update-dataset-file-metadata.mjs');
     runWorkspace(candidate, 'check.mjs');
-    const renderKeys = [...new Set(lineage.flatMap(({ plan }) => plan.builds.map((item) => item.key)))].filter((key) => existsSync(inside(candidate, `data/datasets/${key}.js`)));
-    if (renderKeys.length) runWorkspace(candidate, 'verify-render-regression.mjs', renderKeys);
-    runWorkspace(candidate, 'build-site.mjs'); runWorkspace(candidate, 'verify-site.mjs');
+    if (validation === 'full') {
+      const renderKeys = [...new Set(lineage.flatMap(({ plan }) => plan.builds.map((item) => item.key)))].filter((key) => existsSync(inside(candidate, `data/datasets/${key}.js`)));
+      if (renderKeys.length) runWorkspace(candidate, 'verify-render-regression.mjs', renderKeys);
+    }
+    runWorkspace(candidate, 'build-site.mjs');
+    if (validation === 'full') runWorkspace(candidate, 'verify-site.mjs');
   });
   await validate(candidate);
   const release = await verifySiteIdentity(path.join(candidate, '_site'));
+  // Build acceptance carries over only when every changed contribution was
+  // reviewed under the same application code the candidate now ships.
+  const candidateApplication = (await applicationManifest(candidate)).digest;
+  const reviewedPlans = [...new Set(changed.map((file) => owned.get(file).plan))];
+  const staleApplication = reviewedPlans.filter((item) => item.applicationDigest !== candidateApplication);
+  const acceptance = { inheritsBuildAcceptance: staleApplication.length === 0, applicationDigest: candidateApplication,
+    reason: staleApplication.length ? 'Application code differs from what the Builds were reviewed with; show the changed result and ask for explicit acceptance' : 'Candidate ships reviewed contributions under the reviewed application code' };
   const before = await fileManifest(root), after = await fileManifest(candidate);
   const paths = after.entries.filter((entry) => before.entries.find((item) => item.path === entry.path)?.digest !== entry.digest);
   if (git(root, ['rev-parse', 'HEAD']).trim() !== baseHead || git(root, ['status', '--porcelain', '--', ...runtimeRoots]).trim()) throw new Error('Git inputs changed during candidate verification; prepare a new candidate');
-  const plan = { schema: 'git-transport/v1', id, state: 'REVIEW_PENDING', baseHead, publishedDigest, lineage: lineage.map(({ receipt }) => receipt.planDigest), builds: lineage.flatMap(({ plan: item }) => item.builds), candidateDigest: (await fileManifest(candidate, runtimeRoots)).digest, release: { version: release.version, contentDigest: release.contentDigest }, paths: [...paths.map((entry) => ({ ...entry, before: before.entries.find((item) => item.path === entry.path)?.digest || null })), ...queue], receiptBefore: await hashAt(root, trackedReceipt), preparedAt: new Date().toISOString() };
+  const plan = { schema: 'git-transport/v1', id, state: 'REVIEW_PENDING', baseHead, publishedDigest, lineage: lineage.map(({ receipt }) => receipt.planDigest), builds: lineage.flatMap(({ plan: item }) => item.builds), candidateDigest: (await fileManifest(candidate, runtimeRoots)).digest, release: { version: release.version, contentDigest: release.contentDigest }, validation, acceptance, paths: [...paths.map((entry) => ({ ...entry, before: before.entries.find((item) => item.path === entry.path)?.digest || null })), ...queue], receiptBefore: await hashAt(root, trackedReceipt), preparedAt: new Date().toISOString() };
   plan.planDigest = digestValue(plan);
   await atomicJson(path.join(directory, 'plan.json'), plan);
-  return { ...plan, workspace: candidate, preview: `_site/index.html`, reviewRequired: 'Confirm this exact integrated candidate in the task; earlier Build acceptance does not accept changed application code' };
+  return { ...plan, workspace: candidate, preview: `_site/index.html`, reviewRequired: acceptance.inheritsBuildAcceptance ? 'Covered by the operator push instruction: record the transport review with basis inherited-build-acceptance' : 'Confirm this exact integrated candidate in the task; earlier Build acceptance does not accept changed application code' };
 }
 export async function inspectGitTransport(id, root) {
   const directory = folder(root, id), plan = await readPlan(root, id);
@@ -183,6 +198,8 @@ export async function inspectGitTransport(id, root) {
 export async function reviewGitTransport(id, input, root) {
   const directory = folder(root, id), plan = await readPlan(root, id);
   if (input.accepted !== true || !input.operator?.trim() || input.candidateDigest !== plan.candidateDigest) throw new Error('Transport review requires explicit human acceptance of the displayed candidate digest');
+  if (input.basis !== undefined && !['displayed-candidate', 'inherited-build-acceptance'].includes(input.basis)) throw new Error('Unknown transport review basis');
+  if (input.basis === 'inherited-build-acceptance' && plan.acceptance?.inheritsBuildAcceptance !== true) throw new Error(`Build acceptance does not carry over: ${plan.acceptance?.reason || 'candidate predates acceptance inheritance'}`);
   if ((await fileManifest(path.join(directory, 'workspace'), runtimeRoots)).digest !== plan.candidateDigest) throw new Error('Candidate changed since display');
   const approval = { ...input, accepted: true, planDigest: plan.planDigest, recordedAt: new Date().toISOString() };
   await atomicJson(path.join(directory, 'approval.json'), approval); return approval;

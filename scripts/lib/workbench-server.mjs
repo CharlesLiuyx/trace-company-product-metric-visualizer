@@ -7,7 +7,7 @@ import { randomUUID } from 'node:crypto';
 import { startStaticServer } from '../dev-server.mjs';
 import { rootDir } from './project.mjs';
 import { atomicJson, readJson, inside, copyFiles, fileManifest, bytesDigest } from './workflow-files.mjs';
-import { verifySiteIdentity } from './site-release-identity.mjs';
+import { verifySiteIdentity, PRODUCTION_URL } from './site-release-identity.mjs';
 import { prepareWorkspaceTools } from './workspace-tools.mjs';
 import { showAsset } from './asset-workflow.mjs';
 import { composeReviewData, bindReviewMembers, assertReviewMembersFresh, reviewTasks } from './workbench-review.mjs';
@@ -15,7 +15,7 @@ import { createPreviewManifest } from './workbench-manifest.mjs';
 import { updateMetricCatalog } from './metric-catalog.mjs';
 
 const exec = promisify(execFile);
-const productionUrl = 'https://charlesliuyx.github.io/trace-company-product-metric-visualizer/';
+const productionUrl = PRODUCTION_URL;
 const basePath = '/trace-company-product-metric-visualizer/';
 const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.png': 'image/png', '.svg': 'image/svg+xml', '.woff2': 'font/woff2' };
 function sendJson(response, body, status = 200) { response.writeHead(status, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' }); response.end(JSON.stringify(body)); }
