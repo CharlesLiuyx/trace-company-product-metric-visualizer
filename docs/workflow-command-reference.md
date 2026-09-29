@@ -14,12 +14,12 @@
 | `pnpm record:workflow -- release-session` | 当前 Session 显式释放 Build 执行权 |
 | `pnpm record:workflow -- start` | 接收来源、生成独立工作目录 |
 | `pnpm record:workflow -- prepare` | 从事实生成数据与检查记录 |
-| `pnpm record:workflow -- continue` | 根据现有记录执行下一步 |
+| `pnpm record:workflow -- continue` | 连续执行全部自动步骤（准备、数据检查、一次全语言渲染），停在待人工审阅 |
 | `pnpm record:workflow -- show` | 只读查看处理进度 |
-| `pnpm record:workflow -- report` | 生成供审阅的 HTML 处理单 |
-| `pnpm record:workflow -- checkpoint` | 记录图形阶段的明确冻结或重开决定 |
-| `pnpm record:workflow -- review` | 消费当前版本的人工审阅 |
-| `pnpm record:workflow -- seal` | 暂存基线并重新执行最终检查 |
+| `pnpm record:workflow -- report` | 按需生成 HTML 处理单（非必需） |
+| `pnpm record:workflow -- checkpoint` | 仅历史 fidelity-checkpoints/v1 Build：记录阶段冻结或重开 |
+| `pnpm record:workflow -- review` | 消费人工审阅（简式：reviewToken、previewId、reviewer、decision、note） |
+| `pnpm record:workflow -- seal` | 暂存基线、重跑数据一致性；渲染复用已接受证据（--fresh-render 强制重渲染） |
 | `pnpm record:workflow -- batch` | 记录成员并以独立进程继续多个 Build |
 | `pnpm record:workflow -- refresh` | 核对冲突后更新工作目录、准备新计划 |
 | `pnpm record:workflow -- assets` | 只读查找资产版本、来源与使用位置 |
@@ -68,6 +68,7 @@
 | metricObservations | `metric-observations/v1` |
 | artifactManifest | `artifact-manifest/v1` |
 | checkpoint | `fidelity-checkpoints/v1` |
+| reviewCandidate | `review-candidate/v1` |
 | publication | `dataset-publication/v2` |
 | releaseAttempt | `release-attempt/v1` |
 | session | `workflow-session/v1` |

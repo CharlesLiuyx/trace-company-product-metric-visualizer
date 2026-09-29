@@ -268,3 +268,17 @@ test('batch workers persist independent progress and one rejected source cannot 
   assert.equal(saved.results.length, 2);
   assert.equal(existsSync(path.join(root, 'output/publications/current.json')), false);
 });
+
+test('a short operator review expands into derived per-check decisions and only acceptance closes', async (t) => {
+  const root = await fixture(t);
+  const started = await intake(root);
+  const current = await continueAsset(started.buildId, root);
+  assert.equal(current.next, 'review');
+  assert.match(current.actionRequired, /Waiting for human review/);
+  const short = { reviewToken: current.reviewToken, reviewer: 'synthetic-test-reviewer', note: 'Synthetic fixture; not a real dataset acceptance' };
+  await assert.rejects(reviewAsset(started.buildId, { ...short, decision: 'rejected' }, root), /Only an explicit acceptance/);
+  await assert.rejects(reviewAsset(started.buildId, { ...short, note: ' ', decision: 'accepted' }, root), /concrete note/);
+  const reviewed = await reviewAsset(started.buildId, { ...short, decision: 'accepted' }, root);
+  assert.equal(reviewed.state, 'CLOSED');
+  assert.equal((await sealAsset(started.buildId, root)).state, 'SEALED');
+});

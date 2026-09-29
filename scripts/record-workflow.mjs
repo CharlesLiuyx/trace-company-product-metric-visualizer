@@ -15,6 +15,7 @@ export function parseWorkflowArgs(args) {
   for (let i = 0; i < args.length; i++) {
     if (args[i] === '--') continue;
     if (args[i] === '--json') { values.json = true; continue; }
+    if (args[i] === '--fresh-render') { values.freshRender = true; continue; }
     if (args[i].startsWith('--')) {
       if (!['--source', '--key', '--facts', '--input', '--availability', '--concurrency', '--session', '--generation', '--lock', '--token'].includes(args[i]) || !args[i + 1] || args[i + 1].startsWith('--')) throw new Error(`Invalid option: ${args[i]}`);
       values[args[i].slice(2)] = args[++i];
@@ -47,7 +48,7 @@ export async function main(args = process.argv.slice(2)) {
   else if (input.command === 'continue') result = await continueAsset(input.buildId);
   else if (input.command === 'show') result = await showAsset(input.buildId);
   else if (input.command === 'report') result = await renderAssetReview(input.buildId);
-  else if (input.command === 'seal') result = await sealAsset(input.buildId);
+  else if (input.command === 'seal') result = await sealAsset(input.buildId, rootDir, { freshRender: input.freshRender === true });
   else if (input.command === 'checkpoint' || input.command === 'review') {
     if (!input.input) throw new Error(`${input.command} requires --input`);
     result = await (input.command === 'checkpoint' ? checkpointAsset : reviewAsset)(input.buildId, await readJson(path.resolve(input.input)));

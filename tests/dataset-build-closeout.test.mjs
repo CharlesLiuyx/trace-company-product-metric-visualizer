@@ -848,7 +848,7 @@ async function prepareWithManualFeatures(t) {
   return { ...base, prepared };
 }
 
-async function prepareWithSharedNodeLabelMeasurements(t) {
+async function prepareWithSharedNodeLabelMeasurements(t, { locatorPath = null, locatorDigest = null } = {}) {
   const base = await fixture(t, 'shared-node-label-measurements-fy25');
   const measured = (id, target, referenceBBox) => ({
     id,
@@ -859,8 +859,8 @@ async function prepareWithSharedNodeLabelMeasurements(t) {
     featureEvidence: {
       'measured-label-position': {
         source: 'reference-measurement',
-        locator: `${base.sourcePath}#${id}`,
-        digest: base.sourceDigest,
+        locator: `${locatorPath || base.sourcePath}#${id}`,
+        digest: locatorDigest || base.sourceDigest,
         referenceBBox,
         inspectionMethod: 'native-scale-reference-measurement',
       },
@@ -1430,16 +1430,20 @@ test('reviewed evidence closes, stages, seals, and becomes stale when authored b
   assert.equal(sealed.state, 'SEALED');
   assert.equal(profileCalls.length, 1);
   assert.equal(profileCalls[0].key, prepared.build.key);
-  assert.deepEqual(renderCalls.map((call) => call.locales), [['en']]);
-  assert.deepEqual(renderCalls.map((call) => call.buildId), [prepared.build.buildId]);
+  // The accepted per-locale render proof on this exact snapshot is reused.
+  assert.deepEqual(renderCalls, []);
   const sealPayload = sealed.receipts.at(-1).payload;
   assert.equal(sealPayload.finalProfiles.length, 2);
   assert.equal(sealPayload.finalProfiles[0].profile, 'verify:dataset --skip-render');
   assert.equal(sealPayload.finalProfiles[0].status, 'passed');
   assert.match(sealPayload.finalProfiles[0].outputDigest, /^sha256:[a-f0-9]{64}$/);
   assert.deepEqual(
-    sealPayload.finalProfiles.slice(1).map((row) => [row.profile, row.locale]),
-    [['verify:d3', 'en']]
+    sealPayload.finalProfiles.slice(1).map((row) => [row.profile, row.locale, row.reusedEvidence]),
+    [['verify:d3', 'en', true]]
+  );
+  assert.equal(
+    sealPayload.finalProfiles[1].outputDigest,
+    reviewed.fidelityResult.automaticEvidence.locales.find((item) => item.locale === 'en').digest
   );
   const fresh = await inspectBuildCloseout(prepared.build.buildId, { buildRoot, projectRoot: root });
   assert.equal(fresh.fresh, true);
@@ -1506,7 +1510,7 @@ test('Revenue Metric closes through consistency evidence with Sankey fidelity ex
   assert.deepEqual(sealPayload.finalProfiles.map((row) => row.profile), ['verify:dataset --skip-render']);
 });
 
-test('seal refuses to record when a locale render final profile fails', async (t) => {
+test('seal --fresh-render refuses to record when a locale render final profile fails', async (t) => {
   const { root, buildRoot, prepared } = await prepare(t);
   const evidenceManifest = await writeEvidence(root, prepared, 0);
   const verificationReference = await writeDatasetVerification(root, buildRoot, prepared);
@@ -1532,6 +1536,7 @@ test('seal refuses to record when a locale render final profile fails', async (t
       buildRoot,
       projectRoot: root,
       now,
+      freshRender: true,
       runSealProfile: () => ({ status: 0, stdout: 'consistency ok\n', stderr: '' }),
       runRenderProfile: () => ({ status: 1, stdout: '', stderr: 'G8 label clearance failed' }),
     }),
@@ -1745,4 +1750,25 @@ test('versioned Sankey checkpoints require ordered, evidence-bound freezes befor
   checkpoints.push(await recordCheckpoint(prepared.build, plan, { stage: 'structure', status: 'frozen', reviewer: 'fixture', note: 'Concern rechecked', evidenceManifests: ['output/structure-fidelity-run.json'] }, { buildRoot, projectRoot: root }));
   const closed = await finishReviewedBuild({ ...review, checkpoints }, { buildRoot, projectRoot: root, now });
   assert.equal(closed.build.state, 'CLOSED');
+});
+
+test('review-candidate/v1 Sankey Builds close on one evidence set and human acceptance without stage checkpoints', async (t) => {
+  const { root, buildRoot, prepared } = await prepare(t, {
+    checkpointProtocol: 'review-candidate/v1',
+    dependencyScopes: { structure: digest('structure'), text: digest('text'), 'polish-l10n': digest('polish') },
+  });
+  const evidence = await writeEvidence(root, prepared);
+  const verificationReference = await writeDatasetVerification(root, buildRoot, prepared);
+  const review = { ...pendingReviewInput(prepared, evidence, verificationReference), attestation: { reviewer: 'synthetic-reviewer', decision: 'accepted' } };
+  const closed = await finishReviewedBuild(review, { buildRoot, projectRoot: root, now });
+  assert.equal(closed.build.state, 'CLOSED');
+});
+
+test('measurement provenance accepts either locator of the same Build Source digest, never a foreign digest', async (t) => {
+  const processed = await prepareWithSharedNodeLabelMeasurements(t, { locatorPath: 'input/processed/shared-node-label-measurements-fy25.png' });
+  assert.equal(processed.prepared.build.state, 'AUTHORED');
+  await assert.rejects(
+    prepareWithSharedNodeLabelMeasurements(t, { locatorPath: 'input/processed/shared-node-label-measurements-fy25.png', locatorDigest: digest('adjacent-period-source') }),
+    (error) => error.code === 'FEATURE_EVIDENCE_SOURCE_DIGEST_MISMATCH'
+  );
 });
