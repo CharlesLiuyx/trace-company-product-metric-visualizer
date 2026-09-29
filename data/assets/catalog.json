@@ -1465,11 +1465,13 @@
       ],
       "directConsumers": [
         "block-fy25",
-        "block-q1-fy26"
+        "block-q1-fy26",
+        "block-q2-fy26"
       ],
       "consumers": [
         "block-fy25",
-        "block-q1-fy26"
+        "block-q1-fy26",
+        "block-q2-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -1507,11 +1509,13 @@
       ],
       "directConsumers": [
         "block-fy25",
-        "block-q1-fy26"
+        "block-q1-fy26",
+        "block-q2-fy26"
       ],
       "consumers": [
         "block-fy25",
-        "block-q1-fy26"
+        "block-q1-fy26",
+        "block-q2-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -1530,11 +1534,13 @@
       "directConsumers": [
         "block-fy25",
         "block-q1-fy26",
+        "block-q2-fy26",
         "block-q3-fy25"
       ],
       "consumers": [
         "block-fy25",
         "block-q1-fy26",
+        "block-q2-fy26",
         "block-q3-fy25"
       ],
       "acceptedVersions": [],
@@ -1554,11 +1560,13 @@
       "directConsumers": [
         "block-fy25",
         "block-q1-fy26",
+        "block-q2-fy26",
         "block-q3-fy25"
       ],
       "consumers": [
         "block-fy25",
         "block-q1-fy26",
+        "block-q2-fy26",
         "block-q3-fy25"
       ],
       "acceptedVersions": [],
@@ -2766,11 +2774,13 @@
       "provenance": [],
       "directConsumers": [
         "coupang-q1-fy26",
+        "coupang-q2-fy26",
         "coupang-q3-fy25",
         "coupang-q4-fy25"
       ],
       "consumers": [
         "coupang-q1-fy26",
+        "coupang-q2-fy26",
         "coupang-q3-fy25",
         "coupang-q4-fy25"
       ],
@@ -8082,13 +8092,17 @@
         }
       ],
       "directConsumers": [
-        "peloton-q3-fy26"
+        "peloton-q3-fy26",
+        "peloton-q4-fy26"
       ],
       "consumers": [
-        "peloton-q3-fy26"
+        "peloton-q3-fy26",
+        "peloton-q4-fy26"
       ],
-      "acceptedVersions": [],
-      "reusable": false
+      "acceptedVersions": [
+        "sha256:2716cc38602db0b438487fdb736fc9292eafa9efff0f9c85d2d2cd527ffffbd1"
+      ],
+      "reusable": true
     },
     {
       "path": "data/assets/raster-annotations/peloton/connected-fitness-bike-q1-fy26.png",
@@ -8142,13 +8156,17 @@
         }
       ],
       "directConsumers": [
-        "peloton-q3-fy26"
+        "peloton-q3-fy26",
+        "peloton-q4-fy26"
       ],
       "consumers": [
-        "peloton-q3-fy26"
+        "peloton-q3-fy26",
+        "peloton-q4-fy26"
       ],
-      "acceptedVersions": [],
-      "reusable": false
+      "acceptedVersions": [
+        "sha256:cb8bf7ec1f701d9719a66906fcf6b358f051ddd4414b178a8779be00ba486b7b"
+      ],
+      "reusable": true
     },
     {
       "path": "data/assets/raster-annotations/peloton/subscription-app-icon-q1-fy26.png",
@@ -8202,13 +8220,17 @@
         }
       ],
       "directConsumers": [
-        "peloton-q3-fy26"
+        "peloton-q3-fy26",
+        "peloton-q4-fy26"
       ],
       "consumers": [
-        "peloton-q3-fy26"
+        "peloton-q3-fy26",
+        "peloton-q4-fy26"
       ],
-      "acceptedVersions": [],
-      "reusable": false
+      "acceptedVersions": [
+        "sha256:1d9a8151dac3ce7df253f081723b0db56770d9be8f734ad63d854ac6e2098238"
+      ],
+      "reusable": true
     },
     {
       "path": "data/assets/raster-annotations/pepsico-q2-fy23/company-logo.png",
@@ -10010,6 +10032,97 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/sea-q2-fy26/callout-garena.png",
+      "digest": "sha256:306ee26107662b80b7dab9cfda38858a681871741b1df6573768d344ec73bae6",
+      "provenance": [],
+      "directConsumers": [
+        "sea-q2-fy26"
+      ],
+      "consumers": [
+        "sea-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q2-fy26/callout-monee.png",
+      "digest": "sha256:991726ed70a6efccf59b3420ec3fff8c9278bab142d73004428c11709baa8f59",
+      "provenance": [],
+      "directConsumers": [
+        "sea-q2-fy26"
+      ],
+      "consumers": [
+        "sea-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q2-fy26/callout-shopee.png",
+      "digest": "sha256:2f923e5566d55502600daf008014073669e45911fa3a0624c6f98c45c0a8e38a",
+      "provenance": [],
+      "directConsumers": [
+        "sea-q2-fy26"
+      ],
+      "consumers": [
+        "sea-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q2-fy26/company.png",
+      "digest": "sha256:d0fd7b683af19b3a63ba329e89a965d7f1c142fc9cbf3ec2830f9037745f3fe7",
+      "provenance": [],
+      "directConsumers": [
+        "sea-q2-fy26"
+      ],
+      "consumers": [
+        "sea-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q2-fy26/garena.png",
+      "digest": "sha256:684714d297cfdf0219f4501e53c9f0fe27eca2a12a20d37b83b884dada303f33",
+      "provenance": [],
+      "directConsumers": [
+        "sea-q2-fy26"
+      ],
+      "consumers": [
+        "sea-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q2-fy26/monee.png",
+      "digest": "sha256:cfd5209b0e69ce0a3503e72b2f30753badcd1577130cda429d20a1ebb2aa3e82",
+      "provenance": [],
+      "directConsumers": [
+        "sea-q2-fy26"
+      ],
+      "consumers": [
+        "sea-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q2-fy26/shopee.png",
+      "digest": "sha256:fd1baa2fcbe19903b7e355299a6ff7803ea4b2db977a81ecdd480883d6724d3a",
+      "provenance": [],
+      "directConsumers": [
+        "sea-q2-fy26"
+      ],
+      "consumers": [
+        "sea-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/sentinelone/company-logo-q2-fy27.png",
       "digest": "sha256:ebb7b20d88f9b09380bc709eb81a071f474adf51c1368edf5bc9eceb5257db5c",
       "provenance": [
@@ -11241,15 +11354,26 @@
     {
       "path": "data/assets/raster-annotations/zillow/company-wordmark-q1-fy26.png",
       "digest": "sha256:9d996603b1d3fd5256d531dc3314e0b509eb2b1f27cdefd21b538c0f46346153",
-      "provenance": [],
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/zillow-q1-fy26.json",
+          "recipeDigest": "sha256:c58436d4f6c112e46b9d1c856c65e6fe56c5a2dba177546947d288dc8ffde909",
+          "source": "input/processed/zillow-q1-fy26.png",
+          "cropKey": "zillow-company-wordmark-q1-fy26"
+        }
+      ],
       "directConsumers": [
-        "zillow-q1-fy26"
+        "zillow-q1-fy26",
+        "zillow-q2-fy26"
       ],
       "consumers": [
-        "zillow-q1-fy26"
+        "zillow-q1-fy26",
+        "zillow-q2-fy26"
       ],
-      "acceptedVersions": [],
-      "reusable": false
+      "acceptedVersions": [
+        "sha256:ef5ce24894de8a49c94a50635408c90633e0ea77226f29cfabee5b9194710d22"
+      ],
+      "reusable": true
     },
     {
       "path": "data/assets/raster-annotations/zillow/company-wordmark-q4-fy25.png",
@@ -11269,7 +11393,14 @@
     {
       "path": "data/assets/raster-annotations/zillow/home-loans-wordmark-q1-fy26.png",
       "digest": "sha256:d97f01b8f4aa8bfd786b96f5b2933c5cc21005f365ccc9f42171a2c61a7c807f",
-      "provenance": [],
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/zillow-q1-fy26.json",
+          "recipeDigest": "sha256:c58436d4f6c112e46b9d1c856c65e6fe56c5a2dba177546947d288dc8ffde909",
+          "source": "input/processed/zillow-q1-fy26.png",
+          "cropKey": "zillow-home-loans-wordmark-q1-fy26"
+        }
+      ],
       "directConsumers": [
         "zillow-q1-fy26"
       ],
@@ -11278,6 +11409,28 @@
       ],
       "acceptedVersions": [],
       "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/zillow/home-loans-wordmark-q2-fy26.png",
+      "digest": "sha256:edd761c9d80bc944f605725eabfdf6577d666904018e17d5c92ccf108c081ac7",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/zillow-q2-fy26.json",
+          "recipeDigest": "sha256:00ea3318eefd9d1196c0d47dced215802486b779fb3f4206a1489bc7af8aff01",
+          "source": "input/processed/zillow-q2-fy26.png",
+          "cropKey": "zillow-home-loans-wordmark-q2-fy26"
+        }
+      ],
+      "directConsumers": [
+        "zillow-q2-fy26"
+      ],
+      "consumers": [
+        "zillow-q2-fy26"
+      ],
+      "acceptedVersions": [
+        "sha256:5d43e8443460b0fc9bce5fca1a3a9e503fe1e6f307469fcd6ea5d751978e48cb"
+      ],
+      "reusable": true
     },
     {
       "path": "data/assets/raster-annotations/zillow/home-loans-wordmark-q4-fy25.png",
@@ -11297,15 +11450,26 @@
     {
       "path": "data/assets/raster-annotations/zillow/premier-agent-wordmark-q1-fy26.png",
       "digest": "sha256:3cab891d057b5790be0b622a361d2440c55b1fa9e3624ce321de9404f3bd051a",
-      "provenance": [],
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/zillow-q1-fy26.json",
+          "recipeDigest": "sha256:c58436d4f6c112e46b9d1c856c65e6fe56c5a2dba177546947d288dc8ffde909",
+          "source": "input/processed/zillow-q1-fy26.png",
+          "cropKey": "zillow-premier-agent-wordmark-q1-fy26"
+        }
+      ],
       "directConsumers": [
-        "zillow-q1-fy26"
+        "zillow-q1-fy26",
+        "zillow-q2-fy26"
       ],
       "consumers": [
-        "zillow-q1-fy26"
+        "zillow-q1-fy26",
+        "zillow-q2-fy26"
       ],
-      "acceptedVersions": [],
-      "reusable": false
+      "acceptedVersions": [
+        "sha256:27830cf94ad290b9b163af9df5369a2419b0603f86d2ac1354d1b98d7df8c417"
+      ],
+      "reusable": true
     },
     {
       "path": "data/assets/raster-annotations/zillow/premier-agent-wordmark-q4-fy25.png",
@@ -11325,15 +11489,26 @@
     {
       "path": "data/assets/raster-annotations/zillow/rentals-wordmark-q1-fy26.png",
       "digest": "sha256:41f3b028ceef98ed1e1a75b534ec0c6ee850edb0cbbd5653a9c1017a45540d2a",
-      "provenance": [],
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/zillow-q1-fy26.json",
+          "recipeDigest": "sha256:c58436d4f6c112e46b9d1c856c65e6fe56c5a2dba177546947d288dc8ffde909",
+          "source": "input/processed/zillow-q1-fy26.png",
+          "cropKey": "zillow-rentals-wordmark-q1-fy26"
+        }
+      ],
       "directConsumers": [
-        "zillow-q1-fy26"
+        "zillow-q1-fy26",
+        "zillow-q2-fy26"
       ],
       "consumers": [
-        "zillow-q1-fy26"
+        "zillow-q1-fy26",
+        "zillow-q2-fy26"
       ],
-      "acceptedVersions": [],
-      "reusable": false
+      "acceptedVersions": [
+        "sha256:0be6f729faf135ac6f2a7eaf7ce4daf25888638cd7b03e56be0b7953b82352eb"
+      ],
+      "reusable": true
     },
     {
       "path": "data/assets/raster-annotations/zillow/rentals-wordmark-q4-fy25.png",
@@ -12433,6 +12608,11 @@
       "source": "input/processed/sap-q1-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/sea-q2-fy26.json",
+      "digest": "sha256:628d70719ab1a44cc003158c2291be104f27eee12e35a31eb439abe6465fbe30",
+      "source": "input/processing/sea-q2-fy26.png"
+    },
+    {
       "path": "input/icon-crop-specs/sea-q4-fy25.json",
       "digest": "sha256:1818b9bdb28d958d8bbd7a86249f9262815d1add57d196fd15d9c1500668cf37",
       "source": "input/processed/sea-q4-fy25.png"
@@ -12609,8 +12789,13 @@
     },
     {
       "path": "input/icon-crop-specs/zillow-q1-fy26.json",
-      "digest": "sha256:bb90a655efa0c5d806e3f4033a6cb8bece7bb86c3b48987b5916ba8a1c514645",
+      "digest": "sha256:c58436d4f6c112e46b9d1c856c65e6fe56c5a2dba177546947d288dc8ffde909",
       "source": "input/processed/zillow-q1-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/zillow-q2-fy26.json",
+      "digest": "sha256:00ea3318eefd9d1196c0d47dced215802486b779fb3f4206a1489bc7af8aff01",
+      "source": "input/processed/zillow-q2-fy26.png"
     },
     {
       "path": "input/icon-crop-specs/zillow-q4-fy25.json",

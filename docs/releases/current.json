@@ -1,9 +1,9 @@
 {
   "schema": "reviewed-git-release/v1",
-  "id": "transport-8e704469-82bd-4b31-bb5c-eaa3919359a4",
-  "baseHead": "f1cdb3b5abd6e58850692ab60d71ea325fc7a86e",
-  "planDigest": "sha256:bbff60bb12dd8cafaa1dd00a8a207e163fa1cf679237f00ef44775ec64341a96",
-  "publishedDigest": "sha256:672a97a9caaf183c6dcab94a8266241ad653f4f2a42c23b9c768dacb445888f3",
+  "id": "transport-f5ce0dc8-c6df-4205-9ccf-4a1890ba8e91",
+  "baseHead": "ada7fcb27c297b41e5b0aefea8cbe17972dd5689",
+  "planDigest": "sha256:1a5d947cbf67bca4cfeb9eb6189e6589fe8b84188f8b12ef65c8c683874e84f3",
+  "publishedDigest": "sha256:4ba8a540a34545f4a481170f664dffaf5c0b5803d6ad6d9450fa660307ed0fa3",
   "builds": [
     {
       "buildId": "build-77b97370-b457-4e77-8338-0874166d3ed0",
@@ -19,244 +19,478 @@
       "buildId": "build-dbdb12b1-8496-4d56-82c9-95f260dcd9bf",
       "key": "mercadolibre-q2-fy26",
       "sealDigest": "sha256:1a4c9267a3a3f15d6438155b7c201261bd71c6255dc56eb8d6c3acc7ff8b5de0"
+    },
+    {
+      "buildId": "build-f5ffebf7-b696-4e5b-83dd-90c358dece60",
+      "key": "adyen-h1-fy26",
+      "sealDigest": "sha256:e4c8fdc5f13c07df4a12c5389f4a19f2c8ab7604643b4d760eb7f2f3aa8beb37"
+    },
+    {
+      "buildId": "build-dd710536-a979-4a8e-b0cf-24d4f6b46ebf",
+      "key": "block-q2-fy26",
+      "sealDigest": "sha256:51fcace29a8a2d032f6074c42abc422ccbaedbb9ba2ad3eb5509cd281179442a"
+    },
+    {
+      "buildId": "build-29c80d86-8491-4890-8c07-29ae0f15e8c3",
+      "key": "coupang-q2-fy26",
+      "sealDigest": "sha256:ac04179e01df794a274904e8b4f19b2c1b0b9074e3674937fde4700338f37aed"
+    },
+    {
+      "buildId": "build-6bb3d8fd-39c0-43bc-bed4-18423c89eac9",
+      "key": "dlocal-q2-fy26",
+      "sealDigest": "sha256:b0aea619c5ea9840f24d359080906b46ed5738deb6ffd784b20ace4406555523"
+    },
+    {
+      "buildId": "build-a458e90c-5c5b-4e37-89a2-fd02741eb412",
+      "key": "health-equity-q2-fy27",
+      "sealDigest": "sha256:41bda8f15c320b20fbf8661a54916af126230c02c0f78b501cd772030e6ef650"
+    },
+    {
+      "buildId": "build-fdd10697-ef20-4ee1-be7f-8f53499fd77a",
+      "key": "nu-q2-fy26",
+      "sealDigest": "sha256:39b87c8686334df5c36ab63ce6277c2f982d320b77262022c6f393365487c31c"
+    },
+    {
+      "buildId": "build-14d71088-da8d-4ac2-afcd-93b0a0f99ade",
+      "key": "nyt-q2-fy26",
+      "sealDigest": "sha256:a20ba2d4c320b39aebbd022be8f7a398f730672504011231daa997dae8ae922d"
+    },
+    {
+      "buildId": "build-775d20ec-d21c-4695-a8bd-2de3af290181",
+      "key": "peloton-q4-fy26",
+      "sealDigest": "sha256:85a45588cf6fbd51017dd2341dad41b84889eb8e086c282065223f2e1171afda"
+    },
+    {
+      "buildId": "build-7aa6bf59-31e5-4135-b6b7-9817ce113889",
+      "key": "sea-q2-fy26",
+      "sealDigest": "sha256:60cf79ea640c78b0d170ff8913ec4d6c5465987115eef7b9e3005478a28bd784"
+    },
+    {
+      "buildId": "build-c89c9ed4-9e27-4a4c-b231-0fa4beb7737c",
+      "key": "stoneco-q2-fy26",
+      "sealDigest": "sha256:cdd904b67d72d0eed96e2c7196bef3479e94c0ff17dd2657852c807b99b1fdb1"
+    },
+    {
+      "buildId": "build-cca3ff79-8827-4ba1-894f-c1a011d7c093",
+      "key": "toast-q2-fy26",
+      "sealDigest": "sha256:ff2d9e8cb8ac1e1df667834ce9d1de8d7a995874fd93ff2eea4e47ca767ce757"
+    },
+    {
+      "buildId": "build-cd73e144-c043-4abd-9f83-9a7701d844b6",
+      "key": "zillow-q2-fy26",
+      "sealDigest": "sha256:ec193dcb2e85107b09f6ee5f3080afd5cadca3af4715c2868bf551e49ddc9132"
     }
   ],
-  "candidateDigest": "sha256:5d684d9a8e5eb90a63d9390e904cc9d52603980c9c1398d5ba81764a746a627e",
+  "candidateDigest": "sha256:6a0486becf12048138eabf982b706a4bbb9b200eaae1bbfd01be0f0d8ac2a259",
   "paths": [
     {
       "path": "data/assets/catalog.json",
-      "digest": "sha256:b5c3f571601b380a66cc603b3f8b01be56bc3d7f7e40a1a7f4dfdcee1ec02102",
-      "before": "sha256:a0d3704102161dd2ad73a6334a705ee5e66fc2b352799a5725e5250e4bc404fd"
+      "digest": "sha256:9b367b04f424e36be708e14f7522ce02858a6faba17b42801211c6c54023ccc8",
+      "before": "sha256:b5c3f571601b380a66cc603b3f8b01be56bc3d7f7e40a1a7f4dfdcee1ec02102"
     },
     {
-      "path": "data/assets/icon-references/intuit/crop-report-q4-fy26.json",
-      "digest": "sha256:290fddaf3da8819a97b8c27027246f63c2362a19a46f7fa6cfd2268a5f39c341",
+      "path": "data/assets/icon-references/sea-q2-fy26/crop-report.json",
+      "digest": "sha256:319e1c6ab9e1542bda3869e775bf3275b9cca07a02846b1e969e5fa1df9e32c2",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/intuit/crops/mailchimp-icon-q4-fy26.png",
-      "digest": "sha256:1a7497c876f49fe5300597cc34d81453c61f4d6948e0832111ffafb504a11345",
+      "path": "data/assets/icon-references/sea-q2-fy26/crops/callout-garena.png",
+      "digest": "sha256:306ee26107662b80b7dab9cfda38858a681871741b1df6573768d344ec73bae6",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/intuit/crops/quickbooks-icon-q4-fy26.png",
-      "digest": "sha256:52b06f3a46638bef914a648a7700446e2b7733fcd0d5a9cb58fa766a83d9071b",
+      "path": "data/assets/icon-references/sea-q2-fy26/crops/callout-monee.png",
+      "digest": "sha256:991726ed70a6efccf59b3420ec3fff8c9278bab142d73004428c11709baa8f59",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/intuit/validation-sheets/intuit-mailchimp-icon-q4-fy26.png",
-      "digest": "sha256:49102c1e4f84e75cbff0625f1fdc08e2e1040b682e19c0ce66fa25fc3ce3df09",
+      "path": "data/assets/icon-references/sea-q2-fy26/crops/callout-shopee.png",
+      "digest": "sha256:2f923e5566d55502600daf008014073669e45911fa3a0624c6f98c45c0a8e38a",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/intuit/validation-sheets/intuit-quickbooks-icon-q4-fy26.png",
-      "digest": "sha256:bc310fa1254f0d7e3893d1f6ccfe30b1a229a5f4bde62141e7bf55c412605fe1",
+      "path": "data/assets/icon-references/sea-q2-fy26/crops/company.png",
+      "digest": "sha256:d0fd7b683af19b3a63ba329e89a965d7f1c142fc9cbf3ec2830f9037745f3fe7",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/mercadolibre/crops/q2-fy26/ads-brand.png",
-      "digest": "sha256:06248a5541b10ba9fc936ff0d46dabb2398136638c1e6b810b9c191c52cf8835",
+      "path": "data/assets/icon-references/sea-q2-fy26/crops/garena.png",
+      "digest": "sha256:684714d297cfdf0219f4501e53c9f0fe27eca2a12a20d37b83b884dada303f33",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/mercadolibre/crops/q2-fy26/commerce-brand.png",
-      "digest": "sha256:8a7bd9a1815f37ffd6772e465023b2066ddce5b7a75c07e761ba86336fa156ba",
+      "path": "data/assets/icon-references/sea-q2-fy26/crops/monee.png",
+      "digest": "sha256:cfd5209b0e69ce0a3503e72b2f30753badcd1577130cda429d20a1ebb2aa3e82",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/mercadolibre/crops/q2-fy26/corporate-handshake.png",
-      "digest": "sha256:eaff8b360ba89a894cb136bbaa9996a6ee68a8a1cd3787769905cb1bc17ec8c5",
+      "path": "data/assets/icon-references/sea-q2-fy26/crops/shopee.png",
+      "digest": "sha256:fd1baa2fcbe19903b7e355299a6ff7803ea4b2db977a81ecdd480883d6724d3a",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/mercadolibre/crops/q2-fy26/credito-brand.png",
-      "digest": "sha256:16835c026be4c68f52875741e03d9df9c777129c460e859e46e3c5cc53fab1f6",
+      "path": "data/assets/icon-references/sea-q2-fy26/validation-sheets/sea-q2-callout-garena.png",
+      "digest": "sha256:13808b776948df7fa22fc66107a32f305535513548d1ba852cab3a69d168e044",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/mercadolibre/crops/q2-fy26/envios-brand.png",
-      "digest": "sha256:5b1a261b831c6f311b1355ee3a1f320a7fc487886af046b759fb30d1f440d656",
+      "path": "data/assets/icon-references/sea-q2-fy26/validation-sheets/sea-q2-callout-monee.png",
+      "digest": "sha256:263540d2d6a6114fdd0ce59ff1d75ca19ebea917be69baef4a304f0dc3f1f410",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/mercadolibre/crops/q2-fy26/pago-brand.png",
-      "digest": "sha256:a9f4420f5a16ac28d0984a817aa5698ee70e5f85aaca6368e5b3a60fa333e0db",
+      "path": "data/assets/icon-references/sea-q2-fy26/validation-sheets/sea-q2-callout-shopee.png",
+      "digest": "sha256:6a91315c368fd2aa94d90e201c2becb1c6c173202e45f72490af7b9c3e5b5b5f",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/mercadolibre/q2-fy26-crop-report.json",
-      "digest": "sha256:4165dd979700d262dbd1006d63a96717895ef7068a52c236547283b035947097",
+      "path": "data/assets/icon-references/sea-q2-fy26/validation-sheets/sea-q2-company.png",
+      "digest": "sha256:c13cf8877cfba107505735697d0f9caaa02db6ec99ce6bb2d0f6a4efc58f0397",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/mercadolibre/validation-sheets/q2-fy26/mercadolibre-q2-fy26-ads-brand.png",
-      "digest": "sha256:d4813bd074c10e5a77cf4c11977e596c2bb21be40ba9398a3b5994873eb9312e",
+      "path": "data/assets/icon-references/sea-q2-fy26/validation-sheets/sea-q2-garena.png",
+      "digest": "sha256:eedf54156849a25f0b1c7d837079121723c45b0bf1e071ff2a91ac8d990a27bd",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/mercadolibre/validation-sheets/q2-fy26/mercadolibre-q2-fy26-commerce-brand.png",
-      "digest": "sha256:218fb1790971bae2cd22119a87a046a5b2be4fb92906fb4d5202d19fa1ee99e9",
+      "path": "data/assets/icon-references/sea-q2-fy26/validation-sheets/sea-q2-monee.png",
+      "digest": "sha256:899233387dcd3674f7dc8c929f5dce8ad882574916826067296ac3edec9ce1c2",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/mercadolibre/validation-sheets/q2-fy26/mercadolibre-q2-fy26-corporate-handshake.png",
-      "digest": "sha256:6d79612b40aa0772cc8198cc17cfef20c155fb6a98cf28551713372783188da6",
+      "path": "data/assets/icon-references/sea-q2-fy26/validation-sheets/sea-q2-shopee.png",
+      "digest": "sha256:0ab218e04a00824486584877c182c6b3ece8571f58f20320d9ab36ced7d7f94e",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/mercadolibre/validation-sheets/q2-fy26/mercadolibre-q2-fy26-credito-brand.png",
-      "digest": "sha256:8f94be2a0413e9d242969aa3d726e94b7e2a8dcac58dadc8d1d2a5a7d74715db",
+      "path": "data/assets/icon-references/zillow/crops/home-loans-wordmark-q2-fy26.png",
+      "digest": "sha256:edd761c9d80bc944f605725eabfdf6577d666904018e17d5c92ccf108c081ac7",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/mercadolibre/validation-sheets/q2-fy26/mercadolibre-q2-fy26-envios-brand.png",
-      "digest": "sha256:f4d718822885330d85114ca294a62cc155de79f1b2b4c2830a87f692d7e7e18c",
+      "path": "data/assets/icon-references/zillow/validation-sheets/zillow-home-loans-wordmark-q2-fy26.png",
+      "digest": "sha256:c2760687bd2cfccec3e3d6572f04ecf54df8350446262605b8c9b7044c27871a",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/mercadolibre/validation-sheets/q2-fy26/mercadolibre-q2-fy26-pago-brand.png",
-      "digest": "sha256:8b090ca0ada4b8776186cf6a99adf8bbc7ac42d6acfe3deb09869c36c85058d9",
+      "path": "data/assets/icon-references/zillow/zillow-q2-fy26-crop-report.json",
+      "digest": "sha256:1e301d5d9b6a247abef7c7cac907c4aa1394f2b599d24e3562865defd13f6edd",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/intuit/mailchimp-icon-q4-fy26.png",
-      "digest": "sha256:1a7497c876f49fe5300597cc34d81453c61f4d6948e0832111ffafb504a11345",
+      "path": "data/assets/raster-annotations/sea-q2-fy26/callout-garena.png",
+      "digest": "sha256:306ee26107662b80b7dab9cfda38858a681871741b1df6573768d344ec73bae6",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/intuit/quickbooks-icon-q4-fy26.png",
-      "digest": "sha256:52b06f3a46638bef914a648a7700446e2b7733fcd0d5a9cb58fa766a83d9071b",
+      "path": "data/assets/raster-annotations/sea-q2-fy26/callout-monee.png",
+      "digest": "sha256:991726ed70a6efccf59b3420ec3fff8c9278bab142d73004428c11709baa8f59",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/mercadolibre/q2-fy26/ads-brand.png",
-      "digest": "sha256:06248a5541b10ba9fc936ff0d46dabb2398136638c1e6b810b9c191c52cf8835",
+      "path": "data/assets/raster-annotations/sea-q2-fy26/callout-shopee.png",
+      "digest": "sha256:2f923e5566d55502600daf008014073669e45911fa3a0624c6f98c45c0a8e38a",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/mercadolibre/q2-fy26/commerce-brand.png",
-      "digest": "sha256:8a7bd9a1815f37ffd6772e465023b2066ddce5b7a75c07e761ba86336fa156ba",
+      "path": "data/assets/raster-annotations/sea-q2-fy26/company.png",
+      "digest": "sha256:d0fd7b683af19b3a63ba329e89a965d7f1c142fc9cbf3ec2830f9037745f3fe7",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/mercadolibre/q2-fy26/corporate-handshake.png",
-      "digest": "sha256:eaff8b360ba89a894cb136bbaa9996a6ee68a8a1cd3787769905cb1bc17ec8c5",
+      "path": "data/assets/raster-annotations/sea-q2-fy26/garena.png",
+      "digest": "sha256:684714d297cfdf0219f4501e53c9f0fe27eca2a12a20d37b83b884dada303f33",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/mercadolibre/q2-fy26/credito-brand.png",
-      "digest": "sha256:16835c026be4c68f52875741e03d9df9c777129c460e859e46e3c5cc53fab1f6",
+      "path": "data/assets/raster-annotations/sea-q2-fy26/monee.png",
+      "digest": "sha256:cfd5209b0e69ce0a3503e72b2f30753badcd1577130cda429d20a1ebb2aa3e82",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/mercadolibre/q2-fy26/envios-brand.png",
-      "digest": "sha256:5b1a261b831c6f311b1355ee3a1f320a7fc487886af046b759fb30d1f440d656",
+      "path": "data/assets/raster-annotations/sea-q2-fy26/shopee.png",
+      "digest": "sha256:fd1baa2fcbe19903b7e355299a6ff7803ea4b2db977a81ecdd480883d6724d3a",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/mercadolibre/q2-fy26/pago-brand.png",
-      "digest": "sha256:a9f4420f5a16ac28d0984a817aa5698ee70e5f85aaca6368e5b3a60fa333e0db",
+      "path": "data/assets/raster-annotations/zillow/home-loans-wordmark-q2-fy26.png",
+      "digest": "sha256:edd761c9d80bc944f605725eabfdf6577d666904018e17d5c92ccf108c081ac7",
       "before": null
     },
     {
-      "path": "data/assets/versions/ae23b06eae7ee73af74fe5aabb03eed3dff24cc4b4fe209913e74b1ca1a87173.json",
-      "digest": "sha256:d3a1273184bdea3187cc3ce026804d69c8fcdf5f17b902e38faec91456f2015d",
+      "path": "data/assets/versions/0be6f729faf135ac6f2a7eaf7ce4daf25888638cd7b03e56be0b7953b82352eb.json",
+      "digest": "sha256:b3a76aa3f9eff8446483def7c22496c93ce6657fabf18a51419a62c3a0655b7f",
       "before": null
     },
     {
-      "path": "data/assets/versions/dba53d97c95fa59c25b17530542e7085d6364ba278c2bd6557f59f3f7f1f62d2.json",
-      "digest": "sha256:fec0268e4cbb3e155ed8842c6d276a64851d83590956ca0617903e6f1fd3555b",
+      "path": "data/assets/versions/1d9a8151dac3ce7df253f081723b0db56770d9be8f734ad63d854ac6e2098238.json",
+      "digest": "sha256:c67959bf1ec1eb2afd846e3166771e4e9e8ad59ec1517087df043d82cb77bbf7",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/2716cc38602db0b438487fdb736fc9292eafa9efff0f9c85d2d2cd527ffffbd1.json",
+      "digest": "sha256:1c55fc5b9b25383dabdb417f67baaf21dc23c6e57bf76f1bf1c22b7c98955452",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/27830cf94ad290b9b163af9df5369a2419b0603f86d2ac1354d1b98d7df8c417.json",
+      "digest": "sha256:6341378f1422345f46aeb1e83728c444aa0ddb74b8a12fcb2fe1273522eba3ce",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/5d43e8443460b0fc9bce5fca1a3a9e503fe1e6f307469fcd6ea5d751978e48cb.json",
+      "digest": "sha256:bc4dc3783b0dc7ecf8716f0f81bb0265154e7541c1ac3d70704555c5f529fd77",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/cb8bf7ec1f701d9719a66906fcf6b358f051ddd4414b178a8779be00ba486b7b.json",
+      "digest": "sha256:6575a8f72f0d050a5ec21adf07859003a0decd92f182e142fb09659407a16463",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/ef5ce24894de8a49c94a50635408c90633e0ea77226f29cfabee5b9194710d22.json",
+      "digest": "sha256:789420ac1f0389cac7f621ca25feb0a6203abf1262f72a56e17ff29d42c9e2c8",
       "before": null
     },
     {
       "path": "data/dataset-file-metadata.js",
-      "digest": "sha256:a47fc3ac98b761fd5272ec095c0ff527aa741284c4490ad16c138236a8b428f5",
-      "before": "sha256:1b4a11d16dbb406ffdf3281f389671cc3134d2222a16a26cf36c4c7231e47741"
+      "digest": "sha256:69f74fe5b7998f501979814c311541fa888ff90cbae5f34da67fa5ec6a3d9967",
+      "before": "sha256:a47fc3ac98b761fd5272ec095c0ff527aa741284c4490ad16c138236a8b428f5"
     },
     {
       "path": "data/dataset-manifest.js",
-      "digest": "sha256:4adaf9746f4463c9ee085e62a33d7f98fdc9e028e5c9d81a02e012d4c833c6f8",
-      "before": "sha256:08de59b1915b94938012a0919bfbd71f709576ca6c8369a16d9594f618014f22"
+      "digest": "sha256:221b2bf8fda674722f7a9e7227753ed52433697e4b96ed817c56054af84124f5",
+      "before": "sha256:4adaf9746f4463c9ee085e62a33d7f98fdc9e028e5c9d81a02e012d4c833c6f8"
     },
     {
-      "path": "data/datasets/atlassian-q4-fy26.js",
-      "digest": "sha256:bc7f3f05519778ab2628ce495d75044873f4d7bb628d6cfc629aa5e3211f32b1",
+      "path": "data/datasets/adyen-h1-fy26.js",
+      "digest": "sha256:8310b6a0296aa6012f887fcf4e726111536ff80a21d49e431e2c6b19304c2310",
       "before": null
     },
     {
-      "path": "data/datasets/intuit-q4-fy26.js",
-      "digest": "sha256:bc407adcfd79916497bcbaffdcb3ca67211fa1c58be5a168f32da7676de69402",
+      "path": "data/datasets/block-q2-fy26.js",
+      "digest": "sha256:148004ef2f7c68c9b80eca87d27d6ebc40ea0cb8a4bf130fc616c86fef369014",
       "before": null
     },
     {
-      "path": "data/datasets/mercadolibre-q2-fy26.js",
-      "digest": "sha256:802b9812826a352d359f3042a8508774a21e4e7f3e3c520e4934eb9f5a9b27b2",
+      "path": "data/datasets/coupang-q2-fy26.js",
+      "digest": "sha256:62360e03d343da5859fe27bd032b7c1207f1ef73a70c274f22dcacc249cfb69a",
       "before": null
     },
     {
-      "path": "data/income-statements/atlassian.js",
-      "digest": "sha256:ba9c7c3239ac9c5ee7fa483c13cff6392e897a4d3bb0521ff350419354c00254",
-      "before": "sha256:aeaf18ec5e0ee5e8121816258e80efb89ee0a251df7046cb4ad607ef3c276352"
+      "path": "data/datasets/dlocal-q2-fy26.js",
+      "digest": "sha256:9d15e9bb2c1d43ef71a89afa4c1b16773ac1d4d59591ca695ecc385a6a698cb5",
+      "before": null
     },
     {
-      "path": "data/income-statements/intuit.js",
-      "digest": "sha256:a6095fc3d6011b48713e487dedfce385e6adcd3255b7b201562c38610803debf",
-      "before": "sha256:23bfa02a75e51fa591da5d08d4d20775873aaab5fed7fd9bc7aeeb30698d26cf"
+      "path": "data/datasets/health-equity-q2-fy27.js",
+      "digest": "sha256:682952ebcd2dd759e17a7d75b60665c7aa793aca0a54a973052b91a7612a454e",
+      "before": null
     },
     {
-      "path": "data/income-statements/mercadolibre.js",
-      "digest": "sha256:6c432067ad3f77f8e0edc385b3904b7315f69c319251d551c9d75e1febbbf2a8",
-      "before": "sha256:ddf4ecddee213503f588f480bb332d5c93045976d2d1a6db0c85177a066566b4"
+      "path": "data/datasets/nu-q2-fy26.js",
+      "digest": "sha256:e5c392251d7ee57b6201607d6718d3042a0fec57d45556e50f287fb0feb4d587",
+      "before": null
+    },
+    {
+      "path": "data/datasets/nyt-q2-fy26.js",
+      "digest": "sha256:74d319f8462704a2e85da959a05accb818f56b0bc1fb958873d79d27b752296d",
+      "before": null
+    },
+    {
+      "path": "data/datasets/peloton-q4-fy26.js",
+      "digest": "sha256:2017b7f7afe9b4e4af0803ac97f54e7377e98897aa90ca1ebc44180811ddf336",
+      "before": null
+    },
+    {
+      "path": "data/datasets/sea-q2-fy26.js",
+      "digest": "sha256:36129999106c8c5662c44bf421a577233efb1e3d999d992aaf7b173bac5c166f",
+      "before": null
+    },
+    {
+      "path": "data/datasets/stoneco-q2-fy26.js",
+      "digest": "sha256:9d164e8c08233c42769deb9605874d2f375e1d138f7166bdb5a13390f4f3ec76",
+      "before": null
+    },
+    {
+      "path": "data/datasets/toast-q2-fy26.js",
+      "digest": "sha256:b2ee3a9e63c8c58ead5a32578591dd4e29aca86baa3f443e3d2a28df51c3ab01",
+      "before": null
+    },
+    {
+      "path": "data/datasets/zillow-q2-fy26.js",
+      "digest": "sha256:4a7f24ca16a82449148597fb80b3266ebb76187686f9736aa08333b3ef17278b",
+      "before": null
+    },
+    {
+      "path": "data/income-statements/adyen.js",
+      "digest": "sha256:dce84c5ecc6e9f396cecf76d4c49966d9267401add6b53b1c5380761a7cb2553",
+      "before": "sha256:90d7d24413e0fecc83dfb1bca34fb5497960d1069d45bb7a6825cbf5636d6ccd"
+    },
+    {
+      "path": "data/income-statements/block.js",
+      "digest": "sha256:ac7fa2820b060ca7b5f1f40f774c46948238229a0de72ba90daf9645267db238",
+      "before": "sha256:e9fd1e1be028f8689b27954620fc02685b9a7420fada5f0e97442b96cdc0b1bd"
+    },
+    {
+      "path": "data/income-statements/coupang.js",
+      "digest": "sha256:337825646fed11b1df65165872304e99b6082c6d19127543ed4e6ba06240c9bc",
+      "before": "sha256:71665fa03ee700dc77f288bc5f5f8c785b737c650ebc8deb12888cf430588fc8"
+    },
+    {
+      "path": "data/income-statements/dlocal.js",
+      "digest": "sha256:2de865b52acd9a8b86b724f2b1f78b60e9a4b200e4ddd2480903be6d5690d3f6",
+      "before": "sha256:f28b31f706865761e01cd37a480074a9ffefb3ba03b00e720edfce53c4f0f69c"
+    },
+    {
+      "path": "data/income-statements/health-equity.js",
+      "digest": "sha256:bba24e10a30be72f9148083b4ae3d4fdf1ddce92b7c7ce740c74ea496c29d930",
+      "before": "sha256:b59f7f1ce67ee59f8ce8e5862c459b0bd37cd0f0192d7b2960b21d4b13f8c61d"
+    },
+    {
+      "path": "data/income-statements/nu.js",
+      "digest": "sha256:ee70442c8e00c2e5251631d35577349bd8e654b66ad02c25063a870fad3cda98",
+      "before": "sha256:e341adac4e7f672feccb83a941dac40d5ec70586f6842123fba26b8b5c5312ff"
+    },
+    {
+      "path": "data/income-statements/nyt.js",
+      "digest": "sha256:3e06ac031d33562fdb71ed20352da4b495ee5e1e8fad83ca0c15a4d944d1208a",
+      "before": "sha256:4c467eba1820423132ffcc335d507c04c2e53cb92153e844c1080795f1b9718c"
+    },
+    {
+      "path": "data/income-statements/peloton.js",
+      "digest": "sha256:d3e3132b8c4dbcc0c5810fe803834d6eb8077787a77402c96c90fcc52ec1f111",
+      "before": "sha256:493612fc7049031cff82d28c73690dea91cf498b7e9010ee7a1f30831c9d7776"
+    },
+    {
+      "path": "data/income-statements/sea.js",
+      "digest": "sha256:36a3320187d842d96fd72612015e21644849fe11fc6690614865d9d2d08f6631",
+      "before": "sha256:998198333cedf7e2e2a0f74c4a86e2d713b9e1e37fee9e4c7c6e03c92f8e66b6"
+    },
+    {
+      "path": "data/income-statements/stoneco.js",
+      "digest": "sha256:57a62605862be8b30a24cbc1e0c7065d8a5682e49d40284df9b32aec7081b608",
+      "before": "sha256:fcdcf7b5a2089ed4a410e921c3a052c42ac0106feadd1b822893205cc208b32b"
+    },
+    {
+      "path": "data/income-statements/toast.js",
+      "digest": "sha256:ac84e6be6fe279f24ee2ac1952d2e0eff898a88edf89fe830cff2ac92d4bb0c6",
+      "before": "sha256:11aa8e61d9fcc255749136b0a2fbcf14e45d8e34531bf94259b83a94e3f7a14f"
+    },
+    {
+      "path": "data/income-statements/zillow.js",
+      "digest": "sha256:8f041f6864749e3d904a8968e59d25887109a0a24791322dca8a6a1c2f627d6c",
+      "before": "sha256:98cd265560076926dd5b5c0d37ce6bdf011589ea2b102b4851b658a63d504b46"
     },
     {
       "path": "data/render-baselines.json",
-      "digest": "sha256:dee291dbf39084319beeafe214792cf4fe937f2b8275f2986a2f11ad7c1ee14a",
-      "before": "sha256:58f54d6f4a8416900e3439f4e599eb6df261c110cfbbd543751967568f074ad0"
+      "digest": "sha256:735953e8c5a836176a966a361ce17883f971f6d394251bf1b45224cba42d0d4f",
+      "before": "sha256:dee291dbf39084319beeafe214792cf4fe937f2b8275f2986a2f11ad7c1ee14a"
     },
     {
       "path": "data/workflow-timestamps.json",
-      "digest": "sha256:b2d79b3cfd75f8ae327daec5b39e36f9cfaae693a44f7bd5448a21524896b982",
-      "before": "sha256:e60323cd30219f548a2a1cc2bc3777e8f97dbbf0a24685df1c69857dbc8a4cc3"
+      "digest": "sha256:586bbb31c38db8d33f70c8ddbacdca36c2053ce71b99e95c89ef81062912683d",
+      "before": "sha256:b2d79b3cfd75f8ae327daec5b39e36f9cfaae693a44f7bd5448a21524896b982"
     },
     {
-      "path": "input/icon-crop-specs/intuit-q4-fy26-quickbooks.json",
-      "digest": "sha256:e3ffc9a57d7d3861fac264fa7395f6d66b4e4f57212096cc63eb1fc4a0dc28dd",
+      "path": "input/icon-crop-specs/sea-q2-fy26.json",
+      "digest": "sha256:628d70719ab1a44cc003158c2291be104f27eee12e35a31eb439abe6465fbe30",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/mercadolibre-q2-fy26.json",
-      "digest": "sha256:5d43b7a7a9447e71d6278bd9dbbc39ec977e63610d0282048708e418bdae0d7b",
+      "path": "input/icon-crop-specs/zillow-q1-fy26.json",
+      "digest": "sha256:c58436d4f6c112e46b9d1c856c65e6fe56c5a2dba177546947d288dc8ffde909",
+      "before": "sha256:bb90a655efa0c5d806e3f4033a6cb8bece7bb86c3b48987b5916ba8a1c514645"
+    },
+    {
+      "path": "input/icon-crop-specs/zillow-q2-fy26.json",
+      "digest": "sha256:00ea3318eefd9d1196c0d47dced215802486b779fb3f4206a1489bc7af8aff01",
       "before": null
     },
     {
-      "path": "input/pending/page-0073-Atlassian-Q4-FY26-Income-Statement.png",
-      "before": "sha256:547f67c1daacd646aef36982ae63ea3646b2883ff51fc6abe15bb11ffdce790e",
+      "path": "input/pending/page-0065-Adyen-H1-FY26-Income-Statement.png",
+      "before": "sha256:da7aefaf7e6d91ce2731731f18e0b3b7a5a3cf190447ceee1d6c15e0898b202f",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0072-Intuit-Q4-FY26-Income-Statement.png",
-      "before": "sha256:006f4fefd7eb5754645c0c53851974945951d44ddf6bec4a59d64b5ba0d47f20",
+      "path": "input/pending/page-0068-Block-Q2-FY26-Income-Statement.png",
+      "before": "sha256:1dad81513d3e44de1a3a9fdb442006217ab0df945d5852ee919c62bf49e98993",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0074-MercadoLibre-Q2-FY26-Income-Statement.png",
-      "before": "sha256:72c5a0635fdb01872d411800f0c76202d59d276c84c4fd5d25cc6a9f06b3fce6",
+      "path": "input/pending/page-0061-Coupang-Q2-FY26-Income-Statement.png",
+      "before": "sha256:47356404f4e75dbdb30ce7ac78ec855be52435737464b862a63611e6119ed48c",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0066-dLocal-Q2-FY26-Income-Statement.png",
+      "before": "sha256:f175ea166463395b1c9bc12c4c5885841f76653f19f1a0816be9f9663dbed941",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0071-HealthEquity-Q2-FY27-Income-Statement.png",
+      "before": "sha256:e860ba29e3e6fe73aadb3513534f404745f0c168f3ea0acb84ead50ddf584c66",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0069-Nu-Q2-FY26-Income-Statement.png",
+      "before": "sha256:7a9818b26ff6b93791fb4fdcfcd6828bfaa3434acd5f12bd5c5066f67d9cf452",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0063-The-NYT-Q2-FY26-Income-Statement.png",
+      "before": "sha256:2b87435b60ab7ff91450869c5af94088c627b257c464e3e2569420237943db60",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0062-Peloton-Q4-FY26-Income-Statement.png",
+      "before": "sha256:f7e759b9590317a3e5a08b0f6b2a23c0183bf893528c907bbc86e4ba8e90e446",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0060-Sea-Q2-FY26-Income-Statement.png",
+      "before": "sha256:a332bc25241185e81ea9fcb9f5b6f4744fc31f70b917f32d9a63349f59c3c2f3",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0067-StoneCo-Q2-FY26-Income-Statement.png",
+      "before": "sha256:8adcd4d2189b0ce1f087aa4734a6efbfd01b0e57be8bc6065db88cfdbfb25869",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0070-Toast-Q2-FY26-Income-Statement.png",
+      "before": "sha256:8d5a859f70e46f19e2cb18678a541f9d03fced1ba91fbb6e3963457de61a3ce6",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0064-Zillow-Q2-FY26-Income-Statement.png",
+      "before": "sha256:b177142f9dbf73f1f057c12b4b28a541fa644c6b4e4a9838bbfdb0add942d082",
       "digest": null,
       "intakeOwned": true
     }
   ],
   "release": {
-    "version": "875b8ee7500c8ddea96d19ed830797c144e8229151e0acd43f2708515044081d",
-    "contentDigest": "sha256:2c49fcbe2640c13c051d1a86200ce38842bc1d8868c12a268f96f5f74b485b5f"
+    "version": "87e0fd77ace8847c317f6a4599768feafecb7fee538ff9041760c76c650e17dd",
+    "contentDigest": "sha256:bb5571f186f8c277458ada7e2fb2b35be8c4dc48b1229bc8a2a6afa6c61b5232"
   },
   "approval": {
-    "operator": "user",
+    "operator": "Charles Liu",
     "accepted": true,
-    "candidateDigest": "sha256:5d684d9a8e5eb90a63d9390e904cc9d52603980c9c1398d5ba81764a746a627e",
-    "note": "用户已核对并确认展示的 44 路径 Git 集成候选，授权提交并推送 main。",
-    "planDigest": "sha256:bbff60bb12dd8cafaa1dd00a8a207e163fa1cf679237f00ef44775ec64341a96",
-    "recordedAt": "2026-09-26T04:56:48.962Z"
+    "candidateDigest": "sha256:6a0486becf12048138eabf982b706a4bbb9b200eaae1bbfd01be0f0d8ac2a259",
+    "note": "用户在当前任务对已展示最终集成候选明确回复：接受该候选，立即推送并跟进 CI。",
+    "planDigest": "sha256:1a5d947cbf67bca4cfeb9eb6189e6589fe8b84188f8b12ef65c8c683874e84f3",
+    "recordedAt": "2026-09-29T21:17:34.843Z"
   }
 }

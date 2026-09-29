@@ -238,3 +238,262 @@
     }
   );
 })(window);
+
+(function (global) {
+  global.INCOME_STATEMENT_SSOT.records.push({
+  "key": "dlocal-q2-fy26",
+  "company": "dLocal",
+  "period": "Q2 FY26",
+  "periodNote": "Ending Jun. 2026",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/dlocal-q2-fy26.png",
+  "roundingTolerance": 1.5,
+  "revenue": {
+    "total": 400,
+    "notes": [
+      "+56% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "latam",
+        "label": "LATAM",
+        "value": 327,
+        "notes": [
+          "+61% Y/Y"
+        ]
+      },
+      {
+        "id": "africa_asia",
+        "label": "Africa & Asia",
+        "value": 73,
+        "notes": [
+          "+36% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_services",
+      "label": "Cost of services",
+      "value": 273
+    },
+    "operatingExpenses": {
+      "total": 63,
+      "items": [
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 37
+        },
+        {
+          "id": "technology_development",
+          "label": "Technology & development",
+          "value": 13
+        },
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 10
+        },
+        {
+          "id": "other_opex",
+          "label": "Other",
+          "value": 3
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 10
+    }
+  },
+  "otherIncome": {
+    "total": 1,
+    "items": [
+      {
+        "id": "other_income",
+        "label": "Other",
+        "value": 1
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 127,
+      "notes": [
+        "32% margin",
+        "(7pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 64,
+      "notes": [
+        "16% margin",
+        "(6pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 55,
+      "notes": [
+        "14% margin",
+        "(3pp) Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "periodNote": "截至 2026 年 6 月",
+      "revenue": {
+        "notes": [
+          "同比 +56%"
+        ],
+        "items": [
+          {
+            "label": "拉丁美洲",
+            "notes": [
+              "同比 +61%"
+            ]
+          },
+          {
+            "label": "非洲和亚洲",
+            "notes": [
+              "同比 +36%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "服务成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "label": "一般及行政"
+            },
+            {
+              "label": "技术与开发"
+            },
+            {
+              "label": "销售与营销"
+            },
+            {
+              "label": "其他"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 32%",
+            "同比 (7 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 16%",
+            "同比 (6 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 14%",
+            "同比 (3 个百分点)"
+          ]
+        }
+      },
+      "operatingMetrics": [
+        {
+          "label": "净收入留存率",
+          "notes": [
+            "环比 +1 个百分点"
+          ]
+        },
+        {
+          "label": "总支付额（TPV）",
+          "notes": [
+            "同比 +92%"
+          ]
+        }
+      ]
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "net_revenue_retention",
+      "label": "Net Revenue Retention",
+      "value": "153",
+      "unit": "%",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "153%",
+      "basis": "unspecified",
+      "notes": [
+        "+1p Q/Q"
+      ],
+      "quote": "Net Revenue Retention\n153% +1p Q/Q",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          88,
+          1170,
+          332,
+          144
+        ]
+      }
+    },
+    {
+      "id": "tpv",
+      "label": "TPV",
+      "value": "17.7",
+      "unit": "B",
+      "currency": "USD",
+      "comparison": "eq",
+      "literal": "$17.7B",
+      "basis": "unspecified",
+      "notes": [
+        "+92% Y/Y"
+      ],
+      "quote": "TPV\n$17.7B\n+92% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          430,
+          1170,
+          333,
+          144
+        ]
+      }
+    }
+  ]
+});
+})(window);

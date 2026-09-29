@@ -10,6 +10,260 @@
 
   ssot.records.push(
     {
+      key: 'nyt-q2-fy26',
+      company: 'The New York Times Company',
+      period: 'Q2 FY26',
+      periodNote: 'Ending Jun. 2026',
+      currency: '$',
+      unit: 'M',
+      decimals: 0,
+      sourceImage: 'input/processed/nyt-q2-fy26.png',
+      roundingTolerance: 1.1,
+      revenue: {
+        total: 762,
+        notes: ['+11% Y/Y'],
+        items: [
+          {
+            id: 'subscription',
+            label: 'Subscription',
+            value: 538,
+            notes: ['+12% Y/Y'],
+            children: [
+              {
+                id: 'digital',
+                label: 'Digital',
+                value: 408,
+                notes: ['+16% Y/Y'],
+              },
+              {
+                id: 'print',
+                label: 'Print',
+                value: 130,
+                notes: ['(1%) Y/Y'],
+              },
+            ],
+          },
+          {
+            id: 'advertising',
+            label: 'Advertising',
+            value: 149,
+            notes: ['+11% Y/Y'],
+          },
+          {
+            id: 'other_revenue',
+            label: 'Other',
+            value: 75,
+            notes: ['+7% Y/Y', 'Wirecutter'],
+          },
+        ],
+      },
+      costs: {
+        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 368 },
+        operatingExpenses: {
+          total: 277,
+          items: [
+            {
+              id: 'ga',
+              label: 'G&A',
+              value: 86,
+              notes: ['11% of revenue', '(1pp) Y/Y'],
+            },
+            {
+              id: 'sm',
+              label: 'S&M',
+              value: 86,
+              notes: ['11% of revenue', '+1pp Y/Y'],
+            },
+            {
+              id: 'product',
+              label: 'Product',
+              value: 70,
+              notes: ['9% of revenue', '(0pp) Y/Y'],
+            },
+            {
+              id: 'da',
+              label: 'D&A',
+              value: 21,
+              notes: ['3% of revenue', '(0pp) Y/Y'],
+            },
+            {
+              id: 'other_expense',
+              label: 'Other',
+              value: 14,
+              notes: ['2% of revenue', '+1pp Y/Y'],
+            },
+          ],
+        },
+        tax: { id: 'tax_other', label: 'Tax & other', value: 35 },
+      },
+      otherIncome: {
+        total: 11,
+        items: [
+          { id: 'interest', label: 'Interest', value: 11 },
+        ],
+      },
+      otherExpenses: {
+        total: 0,
+        items: [],
+      },
+      profit: {
+        gross: {
+          id: 'gross_profit',
+          label: 'Gross profit',
+          value: 395,
+          notes: ['52% margin', '+1pp Y/Y'],
+        },
+        operating: {
+          id: 'operating_profit',
+          label: 'Operating profit',
+          value: 118,
+          notes: ['15% margin', '(0pp) Y/Y'],
+        },
+        net: {
+          id: 'net_profit',
+          label: 'Net profit',
+          value: 93,
+          notes: ['12% margin', '+0pp Y/Y'],
+        },
+      },
+      operatingMetrics: [
+        {
+          id: 'digital-subscribers',
+          label: 'Digital subscribers',
+          value: '12800000',
+          literal: '12.8M',
+          unit: 'count',
+          currency: null,
+          comparison: 'eq',
+          basis: 'unspecified',
+          quote: 'Digital subscribers 12.8M +13% Y/Y',
+          notes: ['+13% Y/Y'],
+          anchor: {
+            type: 'image-box',
+            box: [19, 1160, 380, 165],
+          },
+        },
+        {
+          id: 'digital-arpu',
+          label: 'Digital ARPU',
+          value: '0.00994',
+          literal: '$9.94',
+          unit: 'K',
+          currency: 'USD',
+          comparison: 'eq',
+          basis: 'unspecified',
+          quote: 'Digital ARPU $9.94 +3% Y/Y',
+          notes: ['+3% Y/Y'],
+          anchor: {
+            type: 'image-box',
+            box: [410, 1160, 306, 165],
+          },
+        },
+      ],
+      i18n: {
+        zh: {
+          period: '2026 财年第二季度',
+          periodNote: '截至 2026 年 6 月',
+          revenue: {
+            notes: ['同比 +11%'],
+            items: [
+              {
+                id: 'subscription',
+                label: '订阅',
+                notes: ['同比 +12%'],
+                children: [
+                  {
+                    id: 'digital',
+                    label: '数字',
+                    notes: ['同比 +16%'],
+                  },
+                  {
+                    id: 'print',
+                    label: '印刷',
+                    notes: ['同比 (1%)'],
+                  },
+                ],
+              },
+              {
+                id: 'advertising',
+                label: '广告',
+                notes: ['同比 +11%'],
+              },
+              {
+                id: 'other_revenue',
+                label: '其他',
+                notes: ['同比 +7%', 'Wirecutter'],
+              },
+            ],
+          },
+          costs: {
+            costOfRevenue: { label: '收入成本' },
+            operatingExpenses: {
+              items: [
+                {
+                  id: 'ga',
+                  label: '管理费用',
+                  notes: ['占收入 11%', '同比 (1 个百分点)'],
+                },
+                {
+                  id: 'sm',
+                  label: '销售与市场',
+                  notes: ['占收入 11%', '同比 +1 个百分点'],
+                },
+                {
+                  id: 'product',
+                  label: '产品',
+                  notes: ['占收入 9%', '同比 (0 个百分点)'],
+                },
+                {
+                  id: 'da',
+                  label: '折旧与摊销',
+                  notes: ['占收入 3%', '同比 (0 个百分点)'],
+                },
+                {
+                  id: 'other_expense',
+                  label: '其他',
+                  notes: ['占收入 2%', '同比 +1 个百分点'],
+                },
+              ],
+            },
+            tax: { label: '税费及其他' },
+          },
+          otherIncome: {
+            items: [
+              { id: 'interest', label: '利息' },
+            ],
+          },
+          profit: {
+            gross: {
+              label: '毛利润',
+              notes: ['利润率 52%', '同比 +1 个百分点'],
+            },
+            operating: {
+              label: '营业利润',
+              notes: ['利润率 15%', '同比 (0 个百分点)'],
+            },
+            net: {
+              label: '净利润',
+              notes: ['利润率 12%', '同比 +0 个百分点'],
+            },
+          },
+          operatingMetrics: [
+            {
+              id: 'digital-subscribers',
+              label: '数字订阅用户',
+              notes: ['同比 +13%'],
+            },
+            {
+              id: 'digital-arpu',
+              label: '数字 ARPU',
+              notes: ['同比 +3%'],
+            },
+          ],
+        },
+      },
+    },
+    {
       key: 'nyt-q1-fy26',
       company: 'The New York Times Company',
       period: 'Q1 FY26',

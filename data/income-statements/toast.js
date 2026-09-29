@@ -246,4 +246,299 @@
       },
     }
   );
+  ssot.records.push({
+  "key": "toast-q2-fy26",
+  "company": "Toast",
+  "period": "Q2 FY26",
+  "periodNote": "Ending Jun. 2026",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/toast-q2-fy26.png",
+  "roundingTolerance": 1.1,
+  "revenue": {
+    "total": 1908,
+    "notes": [
+      "+23% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "subscription_services",
+        "label": "Subscription services",
+        "value": 290,
+        "notes": [
+          "+28% Y/Y"
+        ]
+      },
+      {
+        "id": "financial_technology_solutions",
+        "label": "Financial technology solutions",
+        "value": 1570,
+        "notes": [
+          "+22% Y/Y"
+        ]
+      },
+      {
+        "id": "hardware_professional_services",
+        "label": "Hardware and professional services",
+        "value": 48,
+        "notes": [
+          "+2% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 1392
+    },
+    "operatingExpenses": {
+      "total": 364,
+      "items": [
+        {
+          "id": "sm",
+          "label": "Sales & marketing",
+          "value": 166,
+          "notes": [
+            "9% of revenue",
+            "(0pp) Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "Research & development",
+          "value": 109,
+          "notes": [
+            "6% of revenue",
+            "(0pp) Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "General & administrative",
+          "value": 89,
+          "notes": [
+            "5% of revenue",
+            "(1pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 8
+    }
+  },
+  "otherIncome": {
+    "total": 10,
+    "items": [
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 10
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 516,
+      "notes": [
+        "27% margin",
+        "+2pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 152,
+      "notes": [
+        "8% margin",
+        "+3pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 154,
+      "notes": [
+        "8% margin",
+        "+3pp Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "periodNote": "截至 2026 年 6 月",
+      "revenue": {
+        "notes": [
+          "同比 +23%"
+        ],
+        "items": [
+          {
+            "id": "subscription_services",
+            "label": "订阅服务",
+            "notes": [
+              "同比 +28%"
+            ]
+          },
+          {
+            "id": "financial_technology_solutions",
+            "label": "金融科技解决方案",
+            "notes": [
+              "同比 +22%"
+            ]
+          },
+          {
+            "id": "hardware_professional_services",
+            "label": "硬件与专业服务",
+            "notes": [
+              "同比 +2%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sm",
+              "label": "销售与营销",
+              "notes": [
+                "占收入 9%",
+                "同比 (0 个百分点)"
+              ]
+            },
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 6%",
+                "同比 (0 个百分点)"
+              ]
+            },
+            {
+              "id": "ga",
+              "label": "一般及行政",
+              "notes": [
+                "占收入 5%",
+                "同比 (1 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "other",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 27%",
+            "同比 +2 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 8%",
+            "同比 +3 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 8%",
+            "同比 +3 个百分点"
+          ]
+        }
+      },
+      "operatingMetrics": [
+        {
+          "id": "arr",
+          "label": "ARR",
+          "notes": [
+            "同比 +25%"
+          ]
+        },
+        {
+          "id": "locations",
+          "label": "门店数",
+          "notes": [
+            "同比 +22%"
+          ]
+        }
+      ]
+    }
+  },
+  "operatingMetrics": [
+    {
+      "value": "2.4",
+      "unit": "B",
+      "currency": "USD",
+      "comparison": "eq",
+      "literal": "$2.4B",
+      "id": "arr",
+      "label": "ARR",
+      "notes": [
+        "+25% Y/Y"
+      ],
+      "quote": "ARR\n$2.4B\n+25% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          194,
+          1157,
+          220,
+          150
+        ]
+      },
+      "basis": "unspecified"
+    },
+    {
+      "value": "180000",
+      "unit": "count",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "180,000",
+      "id": "locations",
+      "label": "Locations",
+      "notes": [
+        "+22% Y/Y"
+      ],
+      "quote": "Locations\n180,000\n+22% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          437,
+          1157,
+          240,
+          150
+        ]
+      },
+      "basis": "unspecified"
+    }
+  ]
+});
 })(window);

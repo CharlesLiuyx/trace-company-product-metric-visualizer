@@ -302,3 +302,238 @@
     }
   );
 })(window);
+
+window.INCOME_STATEMENT_SSOT.records.push({
+  "key": "block-q2-fy26",
+  "company": "Block",
+  "period": "Q2 FY26",
+  "periodNote": "",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 3,
+  "sourceImage": "input/processed/block-q2-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 6.6,
+    "notes": [
+      "+9% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "commerce_enablement",
+        "label": "Commerce Enablement",
+        "value": 3.3,
+        "notes": [
+          "+15% Y/Y",
+          "54% gross margin"
+        ]
+      },
+      {
+        "id": "financial_solutions",
+        "label": "Financial Solutions",
+        "value": 1.4,
+        "notes": [
+          "+40% Y/Y",
+          "93% gross margin"
+        ]
+      },
+      {
+        "id": "bitcoin_ecosystem",
+        "label": "Bitcoin Ecosystem",
+        "value": 1.9,
+        "notes": [
+          "(13%) Y/Y",
+          "4% gross margin"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 3.5
+    },
+    "operatingExpenses": {
+      "total": 2.7,
+      "items": [
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 0.8
+        },
+        {
+          "id": "sales_marketing",
+          "label": "S&M",
+          "value": 0.7
+        },
+        {
+          "id": "product_development",
+          "label": "Product Development",
+          "value": 0.6
+        },
+        {
+          "id": "loan_losses",
+          "label": "Loan losses",
+          "value": 0.5
+        },
+        {
+          "id": "other_operating",
+          "label": "Other",
+          "value": 0.034
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.2
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0.1,
+    "items": [
+      {
+        "id": "other_non_operating",
+        "label": "Other",
+        "value": 0.1
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 3.2,
+      "notes": [
+        "+25% Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 0.4,
+      "notes": [
+        "7% margin",
+        "(1pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 0.1,
+      "notes": [
+        "+1% margin",
+        "(8pp) Y/Y"
+      ]
+    }
+  },
+  "notes": [
+    "Period and values follow the Source chart. Totals and components have independent displayed rounding; gross profit less operating expenses differs from operating profit by $0.1B."
+  ],
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "notes": [
+        "期间与金额依照来源图。汇总和明细分别取整；毛利润减运营费用与营业利润相差 $0.1B。"
+      ],
+      "revenue": {
+        "notes": [
+          "同比 +9%"
+        ],
+        "items": [
+          {
+            "id": "commerce_enablement",
+            "label": "商业赋能",
+            "notes": [
+              "同比 +15%",
+              "毛利率 54%"
+            ]
+          },
+          {
+            "id": "financial_solutions",
+            "label": "金融解决方案",
+            "notes": [
+              "同比 +40%",
+              "毛利率 93%"
+            ]
+          },
+          {
+            "id": "bitcoin_ecosystem",
+            "label": "比特币生态",
+            "notes": [
+              "同比 (13%)",
+              "毛利率 4%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "ga",
+              "label": "一般及行政"
+            },
+            {
+              "id": "sales_marketing",
+              "label": "销售与营销"
+            },
+            {
+              "id": "product_development",
+              "label": "产品开发"
+            },
+            {
+              "id": "loan_losses",
+              "label": "贷款损失"
+            },
+            {
+              "id": "other_operating",
+              "label": "其他"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other_non_operating",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "同比 +25%"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 7%",
+            "同比 (1 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 +1%",
+            "同比 (8 个百分点)"
+          ]
+        }
+      }
+    }
+  }
+});

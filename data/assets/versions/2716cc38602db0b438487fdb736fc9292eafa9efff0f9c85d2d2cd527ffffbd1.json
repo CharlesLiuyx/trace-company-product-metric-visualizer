@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Peloton company-wordmark",
+  "artifact": {
+    "path": "data/assets/raster-annotations/peloton/company-wordmark-q3-fy26.png",
+    "digest": "sha256:1423db803954748c02025c8e35c5189fef3a615afdc3418801173fb7f9c302d7"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/peloton-q3-fy26.json",
+    "digest": "sha256:9d45010488293e042a9d7a5b0d72f9a24e70903b7d0565b9b4e0aa2d11b4bffd"
+  },
+  "source": {
+    "path": "input/processed/peloton-q3-fy26.png",
+    "digest": "sha256:943bb493de4a74806912ff9af32f86e6fde7497a0fa3709064d47e769652dc3d"
+  },
+  "review": {
+    "reviewer": "Codex asset visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:1423db803954748c02025c8e35c5189fef3a615afdc3418801173fb7f9c302d7",
+    "note": "Inspected transparent runtime image and full Q4 native Source; subject is complete and matches the same Peloton brand/product graphic, with clear background and no labels, flows or publisher marks. Original Q3 crop recipe and restored original source retained for provenance."
+  },
+  "versionDigest": "sha256:2716cc38602db0b438487fdb736fc9292eafa9efff0f9c85d2d2cd527ffffbd1"
+}

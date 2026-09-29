@@ -23878,6 +23878,278 @@
             }
           }
         }
+      },
+      {
+        "key": "adyen-h1-fy26",
+        "src": "data/datasets/adyen-h1-fy26.js",
+        "data": {
+          "name": "Adyen · H1 FY26",
+          "company": "Adyen",
+          "meta": {
+            "title": "Adyen H1 FY26 Income Statement",
+            "period": "H1 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Adyen · 2026 财年上半年",
+              "meta": {
+                "title": "Adyen 2026 财年上半年利润表",
+                "period": "2026 财年上半年",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "block-q2-fy26",
+        "src": "data/datasets/block-q2-fy26.js",
+        "data": {
+          "name": "Block · Q2 FY26",
+          "company": "Block",
+          "meta": {
+            "title": "Block Q2 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Block · 2026 财年第二季度",
+              "meta": {
+                "title": "Block 2026 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "coupang-q2-fy26",
+        "src": "data/datasets/coupang-q2-fy26.js",
+        "data": {
+          "name": "Coupang · Q2 FY26",
+          "company": "Coupang",
+          "meta": {
+            "title": "Coupang Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Q2 FY26 (Source-stated)"
+          },
+          "i18n": {
+            "zh": {
+              "name": "酷澎 · 2026 财年第二季度",
+              "meta": {
+                "title": "酷澎 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "2026 财年第二季度（原图标注）"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "dlocal-q2-fy26",
+        "src": "data/datasets/dlocal-q2-fy26.js",
+        "data": {
+          "name": "dLocal · Q2 FY26",
+          "company": "dLocal",
+          "meta": {
+            "title": "dLocal Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "dLocal · 2026 财年第二季度",
+              "meta": {
+                "title": "dLocal 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "health-equity-q2-fy27",
+        "src": "data/datasets/health-equity-q2-fy27.js",
+        "data": {
+          "name": "HealthEquity · Q2 FY27",
+          "company": "HealthEquity",
+          "meta": {
+            "title": "HealthEquity Q2 FY27 Income Statement",
+            "period": "Q2 FY27",
+            "periodNote": "Ending July 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HealthEquity · 2027 财年第二季度",
+              "meta": {
+                "title": "HealthEquity 2027 财年第二季度利润表",
+                "period": "2027 财年第二季度",
+                "periodNote": "截至 2026 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nu-q2-fy26",
+        "src": "data/datasets/nu-q2-fy26.js",
+        "data": {
+          "name": "Nu · Q2 FY26",
+          "company": "Nu",
+          "meta": {
+            "title": "Nu Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Nu · 2026 财年第二季度",
+              "meta": {
+                "title": "Nu 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nyt-q2-fy26",
+        "src": "data/datasets/nyt-q2-fy26.js",
+        "data": {
+          "name": "The NYT - Q2 FY26",
+          "company": "The New York Times Company",
+          "meta": {
+            "title": "The NYT Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "The NYT · 2026 财年第二季度",
+              "meta": {
+                "title": "The NYT 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "peloton-q4-fy26",
+        "src": "data/datasets/peloton-q4-fy26.js",
+        "data": {
+          "name": "Peloton · Q4 FY26",
+          "company": "Peloton",
+          "meta": {
+            "title": "Peloton Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending June 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Peloton · 2026 财年第四季度",
+              "meta": {
+                "title": "Peloton 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sea-q2-fy26",
+        "src": "data/datasets/sea-q2-fy26.js",
+        "data": {
+          "name": "Sea · Q2 FY26",
+          "company": "Sea",
+          "meta": {
+            "title": "Sea Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Sea · 2026 财年第二季度",
+              "meta": {
+                "title": "Sea 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "stoneco-q2-fy26",
+        "src": "data/datasets/stoneco-q2-fy26.js",
+        "data": {
+          "name": "StoneCo · Q2 FY26",
+          "company": "StoneCo",
+          "meta": {
+            "title": "StoneCo Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "StoneCo · 2026 财年第二季度",
+              "meta": {
+                "title": "StoneCo 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "toast-q2-fy26",
+        "src": "data/datasets/toast-q2-fy26.js",
+        "data": {
+          "name": "Toast · Q2 FY26",
+          "company": "Toast",
+          "meta": {
+            "title": "Toast Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Toast · 2026 财年第二季度",
+              "meta": {
+                "title": "Toast 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "zillow-q2-fy26",
+        "src": "data/datasets/zillow-q2-fy26.js",
+        "data": {
+          "name": "Zillow · Q2 FY26",
+          "company": "Zillow",
+          "meta": {
+            "title": "Zillow Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Zillow · 2026 财年第二季度",
+              "meta": {
+                "title": "Zillow 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

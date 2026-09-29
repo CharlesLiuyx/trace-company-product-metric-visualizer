@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Zillow company",
+  "artifact": {
+    "path": "data/assets/raster-annotations/zillow/company-wordmark-q1-fy26.png",
+    "digest": "sha256:9d996603b1d3fd5256d531dc3314e0b509eb2b1f27cdefd21b538c0f46346153"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/zillow-q1-fy26.json",
+    "digest": "sha256:c58436d4f6c112e46b9d1c856c65e6fe56c5a2dba177546947d288dc8ffde909"
+  },
+  "source": {
+    "path": "input/processed/zillow-q1-fy26.png",
+    "digest": "sha256:40dfcbba75db087ae81aede92675b726fe069d65339b71a21dc82daca025de0e"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:9d996603b1d3fd5256d531dc3314e0b509eb2b1f27cdefd21b538c0f46346153",
+    "note": "Compared with current Source and original recipe: same brand, complete glyphs, no neighboring labels or flow marks."
+  },
+  "versionDigest": "sha256:ef5ce24894de8a49c94a50635408c90633e0ea77226f29cfabee5b9194710d22"
+}

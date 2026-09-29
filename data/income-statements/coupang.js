@@ -264,4 +264,237 @@
       },
     }
   );
+  ssot.records.push({
+  "key": "coupang-q2-fy26",
+  "company": "Coupang",
+  "period": "Q2 FY26",
+  "periodNote": "Q2 FY26 (Source-stated)",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/coupang-q2-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 8.9,
+    "notes": [
+      "+4% Y/Y",
+      "+10% Y/Y fxn"
+    ],
+    "items": [
+      {
+        "id": "product_commerce",
+        "label": [
+          "Product",
+          "Commerce"
+        ],
+        "value": 7.4,
+        "notes": [
+          "+1% Y/Y",
+          "5% adjusted margin",
+          "(4pp) Y/Y",
+          "Core retail",
+          "Marketplace",
+          "Rocket Fresh"
+        ]
+      },
+      {
+        "id": "developing_offerings",
+        "label": [
+          "Developing",
+          "Offerings"
+        ],
+        "value": 1.4,
+        "notes": [
+          "+20% Y/Y",
+          "(15%) adjusted margin",
+          "(4pp) Y/Y",
+          "Coupang Eats and Coupang Play"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 6.4
+    },
+    "operatingExpenses": {
+      "total": 3.1,
+      "items": [
+        {
+          "id": "operating_expenses",
+          "label": "Operating expenses",
+          "value": 3.1
+        }
+      ]
+    }
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 2.5,
+      "notes": [
+        "28% margin",
+        "(2pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_loss",
+      "label": "Operating loss",
+      "value": -0.6,
+      "notes": [
+        "(6%) of revenue",
+        "(8pp) Y/Y"
+      ]
+    },
+    "net": {
+      "availability": "not-reported",
+      "value": null,
+      "label": "Net result not reported",
+      "notes": [
+        "Source ends at operating loss."
+      ]
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "active_customers",
+      "label": "Active Customers",
+      "value": "24700000",
+      "unit": "count",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "24.7M",
+      "basis": "unspecified",
+      "quote": "Active Customers 24.7M (+3% Y/Y)",
+      "notes": [
+        "+3% Y/Y"
+      ],
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          180,
+          1269,
+          509,
+          31
+        ]
+      }
+    },
+    {
+      "id": "revenue_per_active_customer",
+      "label": "Revenue per Active Customers",
+      "value": "0.301",
+      "unit": "K",
+      "currency": "USD",
+      "comparison": "eq",
+      "literal": "$301",
+      "basis": "unspecified",
+      "quote": "Revenue per Active Customers $301 (-2% Y/Y)",
+      "notes": [
+        "-2% Y/Y"
+      ],
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          95,
+          1310,
+          679,
+          34
+        ]
+      }
+    }
+  ],
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "periodNote": "2026 财年第二季度（原图标注）",
+      "revenue": {
+        "notes": [
+          "同比 +4%",
+          "按固定汇率同比 +10%"
+        ],
+        "items": [
+          {
+            "label": [
+              "产品",
+              "商业"
+            ],
+            "notes": [
+              "同比 +1%",
+              "调整后利润率 5%",
+              "同比 (4 个百分点)",
+              "核心零售",
+              "平台业务",
+              "火箭生鲜"
+            ]
+          },
+          {
+            "label": [
+              "培育中",
+              "业务"
+            ],
+            "notes": [
+              "同比 +20%",
+              "调整后利润率 (15%)",
+              "同比 (4 个百分点)",
+              "Coupang Eats 和 Coupang Play"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "label": "运营费用"
+            }
+          ]
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 28%",
+            "同比 (2 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业亏损",
+          "notes": [
+            "占收入 (6%)",
+            "同比 (8 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润未报告",
+          "notes": [
+            "原图止于营业亏损。"
+          ]
+        }
+      },
+      "operatingMetrics": [
+        {
+          "id": "active_customers",
+          "label": "活跃客户",
+          "notes": [
+            "同比 +3%"
+          ]
+        },
+        {
+          "id": "revenue_per_active_customer",
+          "label": "每位活跃客户收入",
+          "notes": [
+            "同比 -2%"
+          ]
+        }
+      ]
+    }
+  }
+});
 })(window);

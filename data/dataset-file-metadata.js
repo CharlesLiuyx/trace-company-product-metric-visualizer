@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-09-25T19:07:37.665Z",
+  "generatedAt": "2026-09-29T20:00:24.522Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -6419,6 +6419,78 @@
       "path": "data/datasets/mercadolibre-q2-fy26.js",
       "updatedAtMs": 1790363257665,
       "updatedAt": "2026-09-25T19:07:37.665Z",
+      "timeSource": "publication"
+    },
+    "adyen-h1-fy26": {
+      "path": "data/datasets/adyen-h1-fy26.js",
+      "updatedAtMs": 1790711617791,
+      "updatedAt": "2026-09-29T19:53:37.791Z",
+      "timeSource": "publication"
+    },
+    "block-q2-fy26": {
+      "path": "data/datasets/block-q2-fy26.js",
+      "updatedAtMs": 1790711469608,
+      "updatedAt": "2026-09-29T19:51:09.608Z",
+      "timeSource": "publication"
+    },
+    "coupang-q2-fy26": {
+      "path": "data/datasets/coupang-q2-fy26.js",
+      "updatedAtMs": 1790711497536,
+      "updatedAt": "2026-09-29T19:51:37.536Z",
+      "timeSource": "publication"
+    },
+    "dlocal-q2-fy26": {
+      "path": "data/datasets/dlocal-q2-fy26.js",
+      "updatedAtMs": 1790711591304,
+      "updatedAt": "2026-09-29T19:53:11.304Z",
+      "timeSource": "publication"
+    },
+    "health-equity-q2-fy27": {
+      "path": "data/datasets/health-equity-q2-fy27.js",
+      "updatedAtMs": 1790711443246,
+      "updatedAt": "2026-09-29T19:50:43.246Z",
+      "timeSource": "publication"
+    },
+    "nu-q2-fy26": {
+      "path": "data/datasets/nu-q2-fy26.js",
+      "updatedAtMs": 1790711340885,
+      "updatedAt": "2026-09-29T19:49:00.885Z",
+      "timeSource": "publication"
+    },
+    "nyt-q2-fy26": {
+      "path": "data/datasets/nyt-q2-fy26.js",
+      "updatedAtMs": 1790712024522,
+      "updatedAt": "2026-09-29T20:00:24.522Z",
+      "timeSource": "publication"
+    },
+    "peloton-q4-fy26": {
+      "path": "data/datasets/peloton-q4-fy26.js",
+      "updatedAtMs": 1790711485127,
+      "updatedAt": "2026-09-29T19:51:25.127Z",
+      "timeSource": "publication"
+    },
+    "sea-q2-fy26": {
+      "path": "data/datasets/sea-q2-fy26.js",
+      "updatedAtMs": 1790711449054,
+      "updatedAt": "2026-09-29T19:50:49.054Z",
+      "timeSource": "publication"
+    },
+    "stoneco-q2-fy26": {
+      "path": "data/datasets/stoneco-q2-fy26.js",
+      "updatedAtMs": 1790711476466,
+      "updatedAt": "2026-09-29T19:51:16.466Z",
+      "timeSource": "publication"
+    },
+    "toast-q2-fy26": {
+      "path": "data/datasets/toast-q2-fy26.js",
+      "updatedAtMs": 1790711483867,
+      "updatedAt": "2026-09-29T19:51:23.867Z",
+      "timeSource": "publication"
+    },
+    "zillow-q2-fy26": {
+      "path": "data/datasets/zillow-q2-fy26.js",
+      "updatedAtMs": 1790711510036,
+      "updatedAt": "2026-09-29T19:51:50.036Z",
       "timeSource": "publication"
     },
     "data/revenue-metrics.js": {

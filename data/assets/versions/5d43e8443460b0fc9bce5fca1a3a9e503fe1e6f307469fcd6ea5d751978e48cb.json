@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Zillow home-loans",
+  "artifact": {
+    "path": "data/assets/raster-annotations/zillow/home-loans-wordmark-q2-fy26.png",
+    "digest": "sha256:edd761c9d80bc944f605725eabfdf6577d666904018e17d5c92ccf108c081ac7"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/zillow-q2-fy26.json",
+    "digest": "sha256:00ea3318eefd9d1196c0d47dced215802486b779fb3f4206a1489bc7af8aff01"
+  },
+  "source": {
+    "path": "input/processed/zillow-q2-fy26.png",
+    "digest": "sha256:b177142f9dbf73f1f057c12b4b28a541fa644c6b4e4a9838bbfdb0add942d082"
+  },
+  "review": {
+    "reviewer": "Codex visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:edd761c9d80bc944f605725eabfdf6577d666904018e17d5c92ccf108c081ac7",
+    "note": "Compared the complete Source glyphs and transparent runtime: full HomeLoans wordmark retained, adjacent gray comparison text excluded."
+  },
+  "versionDigest": "sha256:5d43e8443460b0fc9bce5fca1a3a9e503fe1e6f307469fcd6ea5d751978e48cb"
+}

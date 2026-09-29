@@ -1,0 +1,226 @@
+{
+  "source": "input/processing/sea-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/sea-q2-fy26",
+  "validationSheetDir": "data/assets/icon-references/sea-q2-fy26/validation-sheets",
+  "runtimeOutputDir": "data/assets/raster-annotations/sea-q2-fy26",
+  "report": "crop-report.json",
+  "crops": [
+    {
+      "key": "sea-q2-company",
+      "output": "crops/company.png",
+      "searchBox": {
+        "x": 689,
+        "y": 306,
+        "width": 430,
+        "height": 175
+      },
+      "cropBox": {
+        "x": 689,
+        "y": 306,
+        "width": 430,
+        "height": 175
+      },
+      "threshold": 18,
+      "minComponentArea": 15,
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10
+      },
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.25,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Native brand only; excludes financial values, descriptors, chart and publisher."
+    },
+    {
+      "key": "sea-q2-shopee",
+      "output": "crops/shopee.png",
+      "searchBox": {
+        "x": 115,
+        "y": 505,
+        "width": 290,
+        "height": 108
+      },
+      "cropBox": {
+        "x": 115,
+        "y": 505,
+        "width": 290,
+        "height": 108
+      },
+      "threshold": 18,
+      "minComponentArea": 15,
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10
+      },
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.25,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Native brand only; excludes financial values, descriptors, chart and publisher."
+    },
+    {
+      "key": "sea-q2-monee",
+      "output": "crops/monee.png",
+      "searchBox": {
+        "x": 126,
+        "y": 835,
+        "width": 290,
+        "height": 66
+      },
+      "cropBox": {
+        "x": 126,
+        "y": 835,
+        "width": 290,
+        "height": 66
+      },
+      "threshold": 18,
+      "minComponentArea": 15,
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10
+      },
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.25,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Native brand only; excludes financial values, descriptors, chart and publisher."
+    },
+    {
+      "key": "sea-q2-garena",
+      "output": "crops/garena.png",
+      "searchBox": {
+        "x": 110,
+        "y": 990,
+        "width": 290,
+        "height": 83
+      },
+      "cropBox": {
+        "x": 110,
+        "y": 990,
+        "width": 290,
+        "height": 83
+      },
+      "threshold": 18,
+      "minComponentArea": 15,
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10
+      },
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.25,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Native brand only; excludes financial values, descriptors, chart and publisher."
+    },
+    {
+      "key": "sea-q2-callout-shopee",
+      "output": "crops/callout-shopee.png",
+      "searchBox": {
+        "x": 2009,
+        "y": 280,
+        "width": 171,
+        "height": 63
+      },
+      "cropBox": {
+        "x": 2009,
+        "y": 280,
+        "width": 171,
+        "height": 63
+      },
+      "threshold": 18,
+      "minComponentArea": 15,
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10
+      },
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.25,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Native brand only; excludes financial values, descriptors, chart and publisher.",
+      "excludeBoxes": [
+        {
+          "x": 2009,
+          "y": 280,
+          "width": 171,
+          "height": 4
+        },
+        {
+          "x": 2009,
+          "y": 280,
+          "width": 5,
+          "height": 20
+        }
+      ]
+    },
+    {
+      "key": "sea-q2-callout-monee",
+      "output": "crops/callout-monee.png",
+      "searchBox": {
+        "x": 2010,
+        "y": 361,
+        "width": 168,
+        "height": 37
+      },
+      "cropBox": {
+        "x": 2010,
+        "y": 361,
+        "width": 168,
+        "height": 37
+      },
+      "threshold": 18,
+      "minComponentArea": 15,
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10
+      },
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.25,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Native brand only; excludes financial values, descriptors, chart and publisher."
+    },
+    {
+      "key": "sea-q2-callout-garena",
+      "output": "crops/callout-garena.png",
+      "searchBox": {
+        "x": 2009,
+        "y": 411,
+        "width": 169,
+        "height": 57
+      },
+      "cropBox": {
+        "x": 2009,
+        "y": 411,
+        "width": 169,
+        "height": 57
+      },
+      "threshold": 18,
+      "minComponentArea": 15,
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10
+      },
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.25,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Native brand only; excludes financial values, descriptors, chart and publisher."
+    }
+  ]
+}
