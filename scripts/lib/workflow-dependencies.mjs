@@ -7,7 +7,11 @@ import { digestValue } from './dataset-build.mjs';
 import { PROJECT_FONT_FAMILIES, fontPackageRelativePath } from './local-fonts.mjs';
 
 export const ARTIFACT_MANIFEST_PROTOCOL = 'artifact-manifest/v1';
+// Historical isolated Sankey Builds froze three stages with evidence-bound
+// checkpoints. New Builds record one all-locale review candidate and go
+// straight to human review; the operator's acceptance is the closure decision.
 export const CHECKPOINT_PROTOCOL = 'fidelity-checkpoints/v1';
+export const REVIEW_CANDIDATE_PROTOCOL = 'review-candidate/v1';
 
 export async function loadWorkspaceData(root) {
   const context = { console }; context.window = context; context.document = undefined;

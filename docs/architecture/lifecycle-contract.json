@@ -21,6 +21,7 @@
     "metricObservations": "metric-observations/v1",
     "artifactManifest": "artifact-manifest/v1",
     "checkpoint": "fidelity-checkpoints/v1",
+    "reviewCandidate": "review-candidate/v1",
     "releaseAttempt": "release-attempt/v1",
     "session": "workflow-session/v1",
     "gitTransport": "git-transport/v1",

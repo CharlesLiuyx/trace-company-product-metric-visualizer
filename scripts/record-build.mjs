@@ -23,7 +23,7 @@ function usage() {
   node scripts/record-build.mjs prepare-review <build-id> --input <review-input.json> [--json]
   node scripts/record-build.mjs finish <build-id> --review <review.json> [--json]
   node scripts/record-build.mjs stage-baseline <build-id> --input <baseline.json> [--json]
-  node scripts/record-build.mjs seal <build-id> [--json]
+  node scripts/record-build.mjs seal <build-id> [--fresh-render] [--json]
   node scripts/record-build.mjs inspect <build-id> [--json]
 
 All mutation commands write build-local state only. A JSON document cannot
@@ -57,6 +57,7 @@ export function parseArgs(argv) {
 
   let inputPath = '';
   let json = false;
+  let freshRender = false;
   const expectedInputOption = command === 'finish'
     ? '--review'
     : ['prepare-review', 'stage-baseline'].includes(command)
@@ -68,6 +69,10 @@ export function parseArgs(argv) {
     if (arg === '--json') {
       if (json) throw usageError('--json may be supplied only once');
       json = true;
+      continue;
+    }
+    if (arg === '--fresh-render' && command === 'seal') {
+      freshRender = true;
       continue;
     }
     if (arg === '--input' || arg === '--review') {
@@ -90,7 +95,7 @@ export function parseArgs(argv) {
   if (!expectedInputOption && inputPath) {
     throw usageError(`${command} does not accept JSON input`);
   }
-  return { command, buildId, ...(inputPath ? { inputPath } : {}), json };
+  return { command, buildId, ...(inputPath ? { inputPath } : {}), ...(freshRender ? { freshRender } : {}), json };
 }
 
 async function readJsonDocument(filePath) {
@@ -138,7 +143,7 @@ export async function runRecordBuild(options, dependencies = {}) {
     return deps.inspectBuildCloseout(options.buildId);
   }
   if (options.command === 'seal') {
-    return deps.sealReviewedBuild({ buildId: options.buildId });
+    return deps.sealReviewedBuild({ buildId: options.buildId }, options.freshRender ? { freshRender: true } : undefined);
   }
   const input = bindCliBuildId(await deps.readJson(options.inputPath), options.buildId);
   if (options.command === 'prepare-review') return deps.prepareBuildReview(input);

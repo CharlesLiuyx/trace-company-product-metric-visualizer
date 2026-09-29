@@ -13,9 +13,9 @@ import { createObjectInventory } from './object-inventory.mjs';
 import { compileMetricFacts, SOURCE_FACTS_PROTOCOL } from './metric-source.mjs';
 import { updateMetricCatalog } from './metric-catalog.mjs';
 import { recordDatasetBuildCommand, readDatasetBuild, recordBuildObject, inspectDatasetBuild, readBuildObject } from './dataset-build-store.mjs';
-import { prepareBuildReview, finishReviewedBuild, stageReviewedBaseline, sealReviewedBuild } from './dataset-build-closeout.mjs';
+import { prepareBuildReview, finishReviewedBuild, stageReviewedBaseline, sealReviewedBuild, evidenceFromManifest } from './dataset-build-closeout.mjs';
 import { recordDatasetVerification } from './dataset-verification.mjs';
-import { deriveArtifactManifest, CHECKPOINT_PROTOCOL, nextCheckpoint } from './workflow-dependencies.mjs';
+import { deriveArtifactManifest, CHECKPOINT_PROTOCOL, REVIEW_CANDIDATE_PROTOCOL, nextCheckpoint } from './workflow-dependencies.mjs';
 import { recordCheckpoint } from './workflow-checkpoints.mjs';
 import { CANONICAL_ROOTS, TOOL_ROOTS, bytesDigest, fileManifest, copyFiles, filesUnder, inside, atomicJson, readJson, withFileLock, freezeSnapshot } from './workflow-files.mjs';
 import { digestValue } from './dataset-build.mjs';
@@ -147,7 +147,7 @@ export async function prepareAsset(buildId, facts = null, root = rootDir) {
     await recordBuildObject(buildId, 'artifact-manifest', manifest, options);
     const prepared = await prepareBuildReview({ buildId, inventory: compiled.inventory, sourceCoverage: compiled.coverageInput, artifacts: manifest.artifacts,
       changeImpact: input.changeImpact || ['new-dataset'], requiredLocales: input.requiredLocales || (options.build.adapter === 'income-statement' ? ['en', 'zh'] : ['en']),
-      checkpointProtocol: CHECKPOINT_PROTOCOL, dependencyScopes: manifest.scopes,
+      checkpointProtocol: REVIEW_CANDIDATE_PROTOCOL, dependencyScopes: manifest.scopes,
     }, { ...options, loadedData: loaded });
     const { projectFeedbackPatterns } = await import('./workflow-feedback.mjs');
     const patterns = await projectFeedbackPatterns(options.projectRoot);
@@ -170,6 +170,21 @@ export async function buildObjects(buildId, kind, options) {
     return { value: await readBuildObject(buildId, reference, options), reference };
   }));
 }
+// Build-bound, review-ready render evidence for the current authored snapshot
+// and Plan, oldest first. Any canonical focus counts; the latest per locale is
+// the review candidate.
+export async function currentEvidence(current, authoredDigest = current.authoredDigest) {
+  const entries = [];
+  for (const locator of await filesUnder(current.workspace, [`output/compare/${current.key}`])) {
+    if (!/\/(?:manifest|fidelity-run)\.json$/.test(locator)) continue;
+    const manifest = await readJson(inside(current.workspace, locator));
+    if (manifest.status === 'evidence-ready' && manifest.identity?.buildId === current.buildId && manifest.identity?.verificationPlanDigest === current.plan?.planDigest && (!authoredDigest || manifest.identity?.authoredDigest === authoredDigest)) entries.push({ locator, manifest });
+  }
+  return entries.sort((a, b) => (a.manifest.evidenceReadyAt || '').localeCompare(b.manifest.evidenceReadyAt || ''));
+}
+export function latestPerLocale(evidence, locales = []) {
+  return locales.map((locale) => evidence.filter(({ manifest }) => manifest.identity.language === locale).at(-1)).filter(Boolean);
+}
 export async function showAsset(buildId, root = rootDir) {
   const options = await buildContext(buildId, root);
   const { build } = options;
@@ -184,7 +199,15 @@ export async function showAsset(buildId, root = rootDir) {
     if (build.state === 'CLOSED') next = 'seal';
     if (build.state === 'BASELINE_STAGED') next = 'seal';
     if (build.state === 'SEALED') next = 'publish';
-    if (build.state === 'AUTHORED' && verification && build.adapter === 'income-statement' && authored.verificationPlan.checkpointProtocol) next = nextCheckpoint({ scopes: authored.verificationPlan.dependencyScopes }, checkpoints.map(({ value }) => value)) || 'review';
+    if (build.state === 'AUTHORED' && verification && build.adapter === 'income-statement') {
+      const policy = authored.verificationPlan.checkpointProtocol;
+      if (policy === CHECKPOINT_PROTOCOL) next = nextCheckpoint({ scopes: authored.verificationPlan.dependencyScopes }, checkpoints.map(({ value }) => value)) || 'review';
+      else if (policy === REVIEW_CANDIDATE_PROTOCOL) {
+        const locales = authored.verificationPlan.requiredLocales || [];
+        const evidence = await currentEvidence({ workspace: options.projectRoot, key: build.key, buildId, plan: authored.verificationPlan }, authored.snapshotDigest);
+        next = latestPerLocale(evidence, locales).length === locales.length ? 'review' : 'render';
+      }
+    }
   }
   const factsFile = inside(options.projectRoot, 'output/workflow/source-facts.json');
   const facts = existsSync(factsFile) ? await readJson(factsFile) : null;
@@ -192,37 +215,47 @@ export async function showAsset(buildId, root = rootDir) {
   const authoredRecord = existsSync(contributionFile) ? (await readJson(contributionFile)).record : null;
   return { buildId, key: build.key, adapter: build.adapter, workspace: options.projectRoot, session: await readBuildSession(root, buildId), reviewUrl: `http://127.0.0.1:8000/?review=${buildId}#${build.key}`, state: inspection.effectiveState, historicalState: inspection.historicalState, fresh: inspection.fresh, staleArtifacts: inspection.staleArtifacts, next,
     source: build.sources[0], subject: facts?.subject, period: facts?.period, metrics: facts?.metrics || [], questions: facts?.questions || [], authoredRecord,
-    reviewToken: packet?.reference.digest, verificationReference: verification?.reference,
+    authoredDigest: authored?.snapshotDigest, reviewToken: packet?.reference.digest, verificationReference: verification?.reference,
     checkpoints: checkpoints.map(({ reference }) => reference), plan: authored?.verificationPlan,
     timing: (await buildObjects(buildId, 'operation-report', options)).map(({ value }) => value),
   };
 }
+// Runs every automatic step in one call and stops where a person is needed:
+// the human review of the rendered candidate (or a legacy stage freeze).
 export async function continueAsset(buildId, root = rootDir) {
-  const current = await showAsset(buildId, root);
-  if (current.next === 'prepare') { await prepareAsset(buildId, null, root); return continueAsset(buildId, root); }
-  if (current.next === 'verify') {
-    await operation(buildId, 'verify', root, (options) => recordDatasetVerification(buildId, options));
-    return showAsset(buildId, root);
+  for (let step = 0; step < 8; step++) {
+    const current = await showAsset(buildId, root);
+    if (current.next === 'prepare') { await prepareAsset(buildId, null, root); continue; }
+    if (current.next === 'verify') { await operation(buildId, 'verify', root, (options) => recordDatasetVerification(buildId, options)); continue; }
+    if (current.next === 'render') {
+      await operation(buildId, 'render', root, async (options) => runWorkspace(options.projectRoot, 'record-fidelity.mjs', [current.key, '--build', buildId, '--focus', 'review-candidate', ...current.plan.requiredLocales.flatMap((locale) => ['--language', locale])]));
+      continue;
+    }
+    if (['structure', 'text', 'polish-l10n'].includes(current.next)) {
+      return operation(buildId, current.next, root, async (options) => {
+        const run = runWorkspace(options.projectRoot, 'record-fidelity.mjs', [current.key, '--build', buildId, '--focus', `${current.next}-sweep`, ...current.plan.requiredLocales.flatMap((locale) => ['--language', locale])]);
+        return { ...await showAsset(buildId, root), actionRequired: 'Legacy checkpoint Build: inspect the rendered evidence, then record a stage checkpoint', output: run.stdout };
+      });
+    }
+    if (current.next === 'seal') return sealAsset(buildId, root);
+    if (current.next === 'review') return { ...current, actionRequired: `Waiting for human review: ${current.reviewUrl}` };
+    return current;
   }
-  if (['structure', 'text', 'polish-l10n'].includes(current.next)) {
-    return operation(buildId, current.next, root, async (options) => {
-      const run = runWorkspace(options.projectRoot, 'record-fidelity.mjs', [current.key, '--build', buildId, '--focus', `${current.next}-sweep`, ...current.plan.requiredLocales.flatMap((locale) => ['--language', locale])]);
-      return { ...await showAsset(buildId, root), actionRequired: 'Inspect the rendered evidence, then record a stage checkpoint', output: run.stdout };
-    });
-  }
-  if (current.next === 'seal') return sealAsset(buildId, root);
-  return current;
+  throw new Error('continue did not converge; inspect record:workflow show');
 }
 export async function checkpointAsset(buildId, input, root = rootDir) {
   return operation(buildId, 'checkpoint', root, async (options) => {
     const current = await showAsset(buildId, root);
+    if (current.plan?.checkpointProtocol !== CHECKPOINT_PROTOCOL) throw new Error('This Build uses review-candidate/v1 without stage checkpoints; report problems with record:workflow feedback');
     await recordCheckpoint(options.build, current.plan, { ...input, prior: current.checkpoints }, options);
     return showAsset(buildId, root);
   });
 }
-export async function reviewAsset(buildId, review, root = rootDir) {
+export async function reviewAsset(buildId, input, root = rootDir) {
   return operation(buildId, 'review', root, async (options) => {
     const current = await showAsset(buildId, root);
+    const { expandHumanReview } = await import('./workflow-review.mjs');
+    const review = await expandHumanReview(current, input);
     if (review.reviewToken !== current.reviewToken) throw new Error('Review must cite the exact processing-sheet token; refresh the sheet before reviewing changed data');
     if (current.session || review.previewId) {
       if (!/^[a-f0-9-]+$/.test(review.previewId || '')) throw new Error('Review must cite the displayed production previewId from the workbench');
@@ -235,7 +268,7 @@ export async function reviewAsset(buildId, review, root = rootDir) {
     return showAsset(buildId, root);
   });
 }
-export async function sealAsset(buildId, root = rootDir) {
+export async function sealAsset(buildId, root = rootDir, { freshRender = false } = {}) {
   return operation(buildId, 'seal', root, async (options) => {
     const current = await showAsset(buildId, root);
     if (!current.fresh) throw new Error('Inputs changed; prepare and review the changed result first');
@@ -245,20 +278,19 @@ export async function sealAsset(buildId, root = rootDir) {
         const closure = options.build.receipts.filter((receipt) => receipt.state === 'CLOSED').at(-1).payload;
         const result = await readBuildObject(buildId, closure.reviewObjects.fidelityResult, options);
         const baseline = result.automaticEvidence.locales.find((item) => item.locale === 'en');
-        // Baseline values must come from the actual accepted English candidate.
-        const checkpoints = await Promise.all(current.checkpoints.map((ref) => readBuildObject(buildId, ref, options)));
-        const polish = checkpoints.filter((item) => item.stage === 'polish-l10n' && item.status === 'frozen').at(-1);
-        for (const entry of polish?.evidence || []) {
-          const evidence = await readJson(inside(options.projectRoot, entry.locator));
-          if (evidence.identity.language !== 'en') continue;
-          const measured = await readJson(inside(options.projectRoot, evidence.artifacts.metrics));
+        // Baseline values come from the exact English evidence the reviewer accepted.
+        for (const { locator } of (await currentEvidence(current)).filter(({ manifest }) => manifest.identity.language === 'en').reverse()) {
+          const entry = await evidenceFromManifest(locator, { buildId, key: current.key, authoredDigest: current.authoredDigest, verificationPlanDigest: current.plan.planDigest, projectRoot: options.projectRoot });
+          if (entry.digest !== baseline?.digest) continue;
+          const measured = entry.metrics;
           metrics = { similarity: measured.full?.similarity ?? measured.comparison?.full?.similarity, mae: measured.full?.mae ?? measured.comparison?.full?.mae, width: measured.full?.width, height: measured.full?.height };
+          break;
         }
         if (!baseline || !Number.isFinite(metrics?.similarity)) throw new Error('Accepted English baseline measurements missing');
       }
       await stageReviewedBaseline({ buildId, metrics }, options);
     }
-    await sealReviewedBuild({ buildId }, options);
+    await sealReviewedBuild({ buildId }, { ...options, freshRender });
     return showAsset(buildId, root);
   });
 }

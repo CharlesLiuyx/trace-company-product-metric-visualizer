@@ -1,10 +1,13 @@
-// Shared vocabulary for the three-sweep fidelity loop. Stage semantics are
-// owned by docs/fidelity-loop-rules.md §4; this module is the machine enum so
-// Build-bound evidence archives stay queryable by stage instead of free-form
-// focus strings.
+// Shared vocabulary for Build-bound fidelity evidence. Semantics are owned by
+// docs/fidelity-loop-rules.md §4; this module is the machine enum so evidence
+// archives stay queryable instead of free-form focus strings.
+// `review-candidate` is the single all-locale run of review-candidate/v1
+// Builds. The three sweep stages remain for historical fidelity-checkpoints/v1
+// Builds and as an optional repair order.
 export const SWEEP_STAGES = Object.freeze(['structure', 'text', 'polish-l10n']);
 
 export const STAGE_FOCUS_VALUES = Object.freeze([
+  'review-candidate',
   'structure-sweep',
   'text-sweep',
   'polish-l10n-sweep',

@@ -147,7 +147,12 @@ function assertSourceBoundFeatureEvidence(build, inventory, artifacts) {
       'FEATURE_EVIDENCE_SOURCE_MISMATCH',
       `${feature} evidence for ${object.id} is not bound to a Build Source: ${sourceLocator || '(missing locator)'}`
     );
-    const artifact = referenceArtifacts.get(sourceLocator);
+    // processing and processed are two locators of one Source digest; the
+    // artifact is recorded at whichever exists, so accept either spelling.
+    const artifact = [source.uri, source.processingUri, source.processedUri]
+      .filter(Boolean)
+      .map((locator) => referenceArtifacts.get(locator))
+      .find(Boolean);
     invariant(
       artifact && artifact.digest === source.digest && evidence.digest === source.digest,
       'FEATURE_EVIDENCE_SOURCE_DIGEST_MISMATCH',
@@ -215,9 +220,9 @@ export async function prepareBuildReview(input, options = {}) {
   const build = await readDatasetBuild(input.buildId, { buildRoot });
   const projectRoot = buildProjectRoot(build, options.projectRoot);
   if (build.authoringRoot) {
-    const { deriveArtifactManifest, CHECKPOINT_PROTOCOL } = await import('./workflow-dependencies.mjs');
+    const { deriveArtifactManifest, REVIEW_CANDIDATE_PROTOCOL } = await import('./workflow-dependencies.mjs');
     const derived = await deriveArtifactManifest(build, projectRoot);
-    input = { ...input, artifacts: derived.manifest.artifacts, checkpointProtocol: CHECKPOINT_PROTOCOL, dependencyScopes: derived.manifest.scopes };
+    input = { ...input, artifacts: derived.manifest.artifacts, checkpointProtocol: REVIEW_CANDIDATE_PROTOCOL, dependencyScopes: derived.manifest.scopes };
     options = { ...options, loadedData: derived.loaded };
   }
   const inventory = createObjectInventory(currentInventoryInput(input.inventory));
@@ -966,10 +971,16 @@ export async function finishReviewedBuild(input, options = {}) {
     'Review packet was prepared for older Source Coverage'
   );
 
-  if (authored.verificationPlan.checkpointProtocol && build.adapter === 'income-statement') {
-    invariant(authored.verificationPlan.checkpointProtocol === 'fidelity-checkpoints/v1', 'CHECKPOINT_PROTOCOL_INVALID', 'Unsupported checkpoint policy');
-    const { validateCheckpointClosure } = await import('./workflow-checkpoints.mjs');
-    await validateCheckpointClosure(build, authored.verificationPlan, input.checkpoints || [], { buildRoot, projectRoot });
+  // review-candidate/v1 has no stage freezes: the per-locale evidence below
+  // and the human attestation close the Build. Historical checkpoint Builds
+  // keep their original ordered-freeze requirement.
+  const checkpointPolicy = authored.verificationPlan.checkpointProtocol;
+  if (checkpointPolicy && build.adapter === 'income-statement') {
+    invariant(['fidelity-checkpoints/v1', 'review-candidate/v1'].includes(checkpointPolicy), 'CHECKPOINT_PROTOCOL_INVALID', 'Unsupported checkpoint policy');
+    if (checkpointPolicy === 'fidelity-checkpoints/v1') {
+      const { validateCheckpointClosure } = await import('./workflow-checkpoints.mjs');
+      await validateCheckpointClosure(build, authored.verificationPlan, input.checkpoints || [], { buildRoot, projectRoot });
+    }
   }
 
   let automaticEvidence;
@@ -1241,9 +1252,11 @@ export async function sealReviewedBuild(input, options = {}) {
     checkedAt: now(),
   });
 
-  // Income Statement seals rerun the render hard gates fresh for every
-  // required locale; Revenue Metric render obligations are Adapter-owned
-  // notApplicable and record no render profile row.
+  // Income Statement render hard gates: the accepted FidelityResult already
+  // proved them per locale on this exact authored snapshot, and freshness
+  // (checked above) pins renderer, fonts, adapter and semantic data. Reuse
+  // that proof unless the caller asks for a fresh render. Revenue Metric
+  // render obligations are Adapter-owned notApplicable and record no row.
   if (build.adapter === 'income-statement') {
     const requiredLocales = authored.payload.verificationPlan?.requiredLocales;
     invariant(
@@ -1251,32 +1264,51 @@ export async function sealReviewedBuild(input, options = {}) {
       'SEAL_PLAN_LOCALES_REQUIRED',
       'Sealing an Income Statement Build requires the authored VerificationPlan locales'
     );
-    const runRenderProfile = options.runRenderProfile || defaultRenderProfileRunner;
-    const renderRun = await runRenderProfile({ key: build.key, locales: requiredLocales, buildId: build.buildId, projectRoot });
-    const renderStatus = runExitStatus(renderRun);
-    invariant(
-      renderStatus === 0,
-      'SEAL_RENDER_PROFILE_FAILED',
-      `Render final profile failed for ${build.key} (${requiredLocales.join(', ')})`,
-      {
-        locales: requiredLocales,
-        status: renderStatus ?? null,
-        stdout: String(renderRun?.stdout || ''),
-        stderr: String(renderRun?.stderr || ''),
+    const acceptedResult = !options.freshRender && closure.payload.reviewObjects?.fidelityResult
+      ? await readBuildObject(build.buildId, closure.payload.reviewObjects.fidelityResult, { buildRoot })
+      : null;
+    const acceptedEvidence = acceptedResult?.automaticEvidence;
+    const reusable = Boolean(acceptedResult)
+      && acceptedResult.status === 'accepted'
+      && acceptedResult.resultDigest === closure.payload.fidelityResult?.resultDigest
+      && acceptedEvidence?.authoredDigest === authored.payload.snapshotDigest
+      && acceptedEvidence?.verificationPlanDigest === authored.payload.verificationPlanDigest
+      && requiredLocales.every((locale) => acceptedEvidence.locales?.some((item) => item.locale === locale && item.status === 'passed'));
+    if (reusable) {
+      const checkedAt = now();
+      for (const locale of requiredLocales) {
+        const accepted = acceptedEvidence.locales.find((item) => item.locale === locale);
+        finalProfiles.push({ profile: SEAL_RENDER_PROFILE, locale, status: 'passed', outputDigest: accepted.digest, reusedEvidence: true, checkedAt });
       }
-    );
-    // One row per locale preserves the audit shape; the rows share the single
-    // run's output digest and timestamp.
-    const renderDigest = runOutputDigest(renderRun);
-    const renderCheckedAt = now();
-    for (const locale of requiredLocales) {
-      finalProfiles.push({
-        profile: SEAL_RENDER_PROFILE,
-        locale,
-        status: 'passed',
-        outputDigest: renderDigest,
-        checkedAt: renderCheckedAt,
-      });
+    }
+    if (!reusable) {
+      const runRenderProfile = options.runRenderProfile || defaultRenderProfileRunner;
+      const renderRun = await runRenderProfile({ key: build.key, locales: requiredLocales, buildId: build.buildId, projectRoot });
+      const renderStatus = runExitStatus(renderRun);
+      invariant(
+        renderStatus === 0,
+        'SEAL_RENDER_PROFILE_FAILED',
+        `Render final profile failed for ${build.key} (${requiredLocales.join(', ')})`,
+        {
+          locales: requiredLocales,
+          status: renderStatus ?? null,
+          stdout: String(renderRun?.stdout || ''),
+          stderr: String(renderRun?.stderr || ''),
+        }
+      );
+      // One row per locale preserves the audit shape; the rows share the single
+      // run's output digest and timestamp.
+      const renderDigest = runOutputDigest(renderRun);
+      const renderCheckedAt = now();
+      for (const locale of requiredLocales) {
+        finalProfiles.push({
+          profile: SEAL_RENDER_PROFILE,
+          locale,
+          status: 'passed',
+          outputDigest: renderDigest,
+          checkedAt: renderCheckedAt,
+        });
+      }
     }
   }
 

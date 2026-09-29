@@ -87,7 +87,7 @@ test('record:fidelity binds review evidence to a Build', () => {
 });
 
 test('record:fidelity accepts every canonical stage focus for Build evidence', () => {
-  for (const focus of ['structure-sweep', 'text-sweep', 'polish-l10n-sweep', 'closeout-refresh']) {
+  for (const focus of ['review-candidate', 'structure-sweep', 'text-sweep', 'polish-l10n-sweep', 'closeout-refresh']) {
     const options = parseArgs([
       'node',
       'verify-d3.mjs',
@@ -113,7 +113,7 @@ test('record:fidelity rejects Build evidence with a free-form focus', () => {
   ]);
   assert.throws(
     () => fidelityExecutionModeForOperation(options, 'record'),
-    /--focus to be one of structure-sweep, text-sweep, polish-l10n-sweep, closeout-refresh/
+    /--focus to be one of review-candidate, structure-sweep, text-sweep, polish-l10n-sweep, closeout-refresh/
   );
 });
 

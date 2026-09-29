@@ -398,6 +398,7 @@ function sealPayload(build, command) {
         outputDigest: profile.outputDigest,
         checkedAt: profile.checkedAt,
         ...(profile.locale ? { locale: profile.locale } : {}),
+        ...(profile.reusedEvidence === true ? { reusedEvidence: true } : {}),
       };
     });
   }
