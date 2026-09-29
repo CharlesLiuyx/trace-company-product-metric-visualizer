@@ -1,74 +1,47 @@
 # 保真循环规则
 
-本文档只负责 d3-Sankey 的视觉保真规则、人工检查方法和结束条件。
-字段格式、Build 生命周期、命令顺序和资产目录分别由下列文档负责；本文不再复制：
+本文档只负责 d3-Sankey 的视觉保真规则、人工检查方法和结束条件。处理流程与命令
+由 [asset-workflow.md](asset-workflow.md) 拥有；建模规则由
+[dynamic-dataset-workflow.md](dynamic-dataset-workflow.md) 拥有；字段由 `data/schema.md`、
+资产由 `data/assets/README.md`、Build/证据/发布语义由
+`docs/architecture/verification-publication.md` 拥有。本文不复制它们。
 
-- 工作流与命令：`docs/dynamic-dataset-workflow.md`
-- Build、证据与发布语义：`docs/architecture/verification-publication.md`
-- dataset / SSOT 字段：`data/schema.md`
-- 图标与 raster 目录：`data/assets/README.md`
-
-规则 ID 必须稳定。规则语义的 SSOT 是结构化目录
-`scripts/lib/fidelity-rules-catalog.mjs`；本文 §3 的目录区是它的生成视图
-（`pnpm update:fidelity-rules-doc`），是规则条目的唯一呈现面。领域公式可由
-明确链接的上游文档拥有，例如 L14 引用 `CONTEXT.md`，但其他段落和文档不得
-重写该公式。机器契约 `scripts/lib/fidelity-rule-contract.mjs` 从 catalog 派生
-执行方式与 feature 注册表；`pnpm verify:architecture` 校验生成区新鲜、手写区
-没有第二个规则定义面、所有规则引用可解析。
-文档长度只是可读性指标，不设可用压行规避的行数 gate。
+规则语义的 SSOT 是 `scripts/lib/fidelity-rules-catalog.mjs`；§3 是它的生成视图
+（`pnpm update:fidelity-rules-doc`），也是规则条目的唯一呈现面。机器契约
+`scripts/lib/fidelity-rule-contract.mjs` 从 catalog 派生执行方式与 feature 注册表；
+`pnpm verify:architecture` 校验生成区新鲜、手写区没有第二个定义面、引用可解析。
+领域公式可由明确链接的上游文档拥有（例如 L14 引用 `CONTEXT.md`），其他段落不得重写。
 
 ## 1. 契约、术语与判定原则
 
-### 规则记录的字段
+每条规则是 catalog 中的一条结构化记录：`id`（稳定，不重编号、不改义；系列字母只是
+命名空间）、`enforcement`、`stage` / `topics`（驱动 §3 索引）、`trigger` / `check` /
+`pass` / `evidence`、`compensates`（盲点补偿指回的自动规则）、`features`（与 Plan
+编译共享）、`rationale` / `origin`（不参与判定）、`status`（`active` 或 `superseded`
+附 `supersededBy`；废弃规则保留记录，不复用 ID）。
 
-每条规则是 catalog 中的一条结构化记录：
-
-| 字段 | 含义 |
+| 执行方式 | 含义 |
 | --- | --- |
-| `id` | 稳定 ID；已有 ID 不重编号、不改义。系列字母只是命名空间，检索用 §3 索引 |
-| `enforcement` | `hard-gate`、`build-gate`、`conditional-gate`、`quantified-audit` 或 `manual` |
-| `stage` / `topics` | 主要归属的 sweep stage（§4）与对象主题，驱动 §3 导航索引 |
-| `trigger` / `check` / `pass` / `evidence` | 何时触发 → 检查什么 → 怎样通过 → 留什么证据 |
-| `compensates` | 盲点补偿类规则指回被补偿的自动规则 |
-| `features` | 关联的 ObjectInventory feature（与 Plan 编译共享） |
-| `rationale` / `origin` | 设计理由、历史教训与引入来源；永不参与判定 |
-| `status` | `active` 或 `superseded`（附 `supersededBy`）；废弃规则保留记录，不删除、不复用 ID |
+| `hard-gate` | 自动失败会阻断本次有效证据 |
+| `build-gate` | 独立的 Build-bound 检查，不要求每次截图重复执行 |
+| `conditional-gate` | `ObjectInventory` 命中特征后由 `VerificationPlan` 强制 |
+| `quantified-audit` | 程序给出量化事实，语义判断属于人工审阅 |
+| `manual` | 人工判断；由操作员对整份候选的接受记录承载 |
 
-五种执行方式的含义：
+| 术语 | 含义 |
+| --- | --- |
+| `preflight` / 渲染前测量 | 第一次候选渲染前，对参考图逐对象测量（§2） |
+| `review candidate` / 审阅候选 | 当前 authored 快照上每个 required locale 一次的 Build-bound 渲染证据（§4） |
+| `evidence run` / 证据运行 | 一次真实渲染及其归档；序号由工具自动递增 |
+| `focus` | 证据方向标签；Build-bound 证据只接受 `scripts/lib/fidelity-stages.mjs` 的枚举值 |
+| `stage` | 修复顺序中的一层：structure → text → polish-l10n（§4） |
 
-- `hard-gate`：自动失败会阻断本次有效证据。
-- `build-gate`：独立的 Build-bound 检查；不要求每次截图重复执行。
-- `conditional-gate`：`ObjectInventory` 命中特征后，由 `VerificationPlan` 强制。
-- `quantified-audit`：程序给出量化事实，仍需人工完成语义判断。
-- `manual`：必须人工判断并留下绑定证据的决定。
-
-### 迭代术语表
-
-| 术语 | 中文 | 含义 |
-| --- | --- | --- |
-| `preflight` | 渲染前测量 | 第一次候选渲染前，对参考图逐对象测量。 |
-| `sweep stage` | 检查层 | 结构、文本、润色/本地化三层检查中的一层（§4）。 |
-| `evidence run` | 证据运行 | 一次真实渲染及其证据归档；存档序号只表示运行顺序，由工具自动递增，不接受手工指定。 |
-| `human iteration` | 人工迭代 | 一次人工发现、修复、复查和决定。 |
-| `focus` | 证据方向标签 | 证据存档的方向标签；Build-bound 证据必须取 §4 的 canonical stage focus 枚举值，自由字符串仅限只读诊断。 |
-| `freeze` / `reopen` | 冻结 / 重开 | 当前层检查闭合 / 因对象变化、自动回退、用户反馈或早层错误而重新打开（§4）。 |
-
-不要再用含义不清的“第几轮”同时指代以上概念；运行顺序只由 evidence run 的
-自动序号表达。
-
-### 判定优先级
-
-1. 先保证语义、拓扑、接口和文本归属正确。
-2. 再修人眼显著的几何和布局错误。
-3. 最后优化颜色、图标、抗锯齿等视觉残差。
-4. 全图 Diff 是证据，不是凌驾于局部语义事实之上的裁判。
-
-差异分为四类：
-
-- **必须修复**：接口/拓扑错误、节点或短柱消失、文本错属/交叠/越界、关键注释错误。
-- **需要优化**：明显的几何、间距、字号、颜色或图标偏差。
-- **可接受残留**：浏览器字形、抗锯齿、亚像素和轻微手绘曲线差异。
-- **无语义跳过**：水印、发布者品牌、URL、社交徽标、署名和纯装饰残片。
+判定优先级：先保证语义、拓扑、接口和文本归属正确；再修人眼显著的几何与布局；
+最后才是颜色、图标、抗锯齿等视觉残差。全图 Diff 是证据，不是凌驾于局部语义事实
+之上的裁判。差异分为：必须修复（接口/拓扑错误、节点或短柱消失、文本错属/交叠/越界、
+关键注释错误）、需要优化（明显的几何、间距、字号、颜色或图标偏差）、可接受残留
+（字形、抗锯齿、亚像素、轻微手绘曲线差异）、无语义跳过（水印、发布者品牌、URL、
+社交徽标、署名、纯装饰残片）。
 
 `REG-001` 表示稳定检查区域，`FB-001` 表示稳定反馈；二者不能复用规则 ID。
 
@@ -77,86 +50,58 @@
 ### ObjectInventory v4
 
 `object-inventory/v4` 是 preflight 的入口。每个参考图对象需要稳定 object ID、
-render/data-only/skip 处置、authored mapping、来源证据和风险 feature。
-任何 skip 都必须有理由。
+render/data-only/skip 处置、authored mapping、来源证据和风险 feature；任何 skip
+都要有理由。映射到 `nodes.*` 的对象必须对应 Source 中真实绘制的柱面（1–3px 的连续
+有色直线仍是 node，声明 `visible-short-node` 并记录原生 crop、bbox、柱面色、背景色）。
+确认没有独立柱面的对象不得进入 `nodes[]`：纯数据用
+`nonNodeMetrics[].representation = "data-only"`，可见引导组用 `"annotation"`，
+流带端点用 `"flow"` + `layout.routes`；route 只拥有 link 几何。
 
-每个映射到 `nodes.*` 的对象都必须对应 Source 中真实绘制的柱面；node 可见性是
-mapping 的固有约束，不再由 feature 声明。原生尺寸下 1–3px 的连续有色直线仍是
-node，并声明 `visible-short-node`、记录原生 crop、bbox、柱面色和背景色。若预期
-槽位经原生像素 crop 与扫描确认没有独立柱面，该对象不得进入 `nodes[]`：纯数据
-使用 `nonNodeMetrics[].representation = "data-only"`，可见引导组使用
-`"annotation"`，流带端点使用 `"flow"` + `layout.routes`；route 只拥有 link 几何，
-不产生柱面、节点 hitbox 或 node paint 审计项。
+feature 按对象事实声明，不能为减少检查而省略：
 
-附加 feature：
-
-- `visible-short-node` 附短柱 crop、bbox、柱面色和背景色；可保留
-  `visible-node-face` 作为迁移期冗余 feature，但 Plan 不依赖作者声明来发现 node。
-- `specified-label-weight` 只在来源或设计规格明确字重时使用，记录语义 heading、期望字重和证据。
-- `semantic-annotation` 只用于参考图确认必须以 annotation 呈现的 Sankey node 名称/金额/引导组；该 node object 必须映射 `annotations.*`，并记录原生 crop、bbox、Source digest、`inspectionMethod: native-scale-crop-and-object-inventory`、`classificationClaim: semantic-node-annotation-required` 与理由。默认选择 `layout.labels`；不能仅为方便定位把 node label 降级为普通 annotation。
-- `measured-label-position` 是每个映射 `layout.labels.*`（icon 位除外）的 render object 的
-  必备 feature：Plan 编译对 income-statement 强制，缺声明即拒绝编译。其
-  `featureEvidence` 必须记录带稳定 fragment 的 Source `locator`、该 label 组文字 union 的
-  原生像素 `referenceBBox: [x, y, width, height]`、本 Build 的 Source `digest` 和
-  `inspectionMethod: native-scale-reference-measurement`。这份测量默认就是 T18 自动比对的
-  参考答案，T19 在 prepare-review 时验证它确实量自本 Build 的 Source。只有用户明确要求改变
-  label 布局时，才可在保留该 `referenceBBox` 的前提下另记 `approvedTargetBBox`、
-  `approvedTargetAuthority: user-directed-layout-correction` 与具体 `approvedTargetReason`；T18
-  对该目标框验收，并在证据中同时保留原图框，不能用目标框改写原图测量。
-- `ambiguous-label-slot`：preflight 无法从参考图唯一判定某 label 的槽位或归属时声明；
-  记录竞争解释的 `reason`、带 fragment 的 crop `locator`、`referenceBBox`、Source `digest`
-  与 `classificationClaim: label-slot-ambiguous-operator-decision-required`。它编译出 T20
-  的 render 前操作者裁决检查。
-- `visible-interface`、`centered-side-label`、`text`、`annotation-near-label` 等既有 feature
-  继续按对象事实声明，不能为了减少检查而省略。
-
-任一 node 缺 Source face observation，任一 zero-paint 对象仍映射 `nodes.*`，或任一
-feature 缺必要证据时，不得准备 review。
+- `measured-label-position`：每个映射 `layout.labels.*`（icon 位除外）的 render object
+  必备，Plan 编译对 income-statement 强制。`featureEvidence` 记录带 fragment 的 Source
+  `locator`（processing 或 processed 路径均可）、label 组文字 union 的原生
+  `referenceBBox: [x, y, width, height]`、本 Build 的 Source `digest` 与
+  `inspectionMethod: native-scale-reference-measurement`。T18 以它为参考答案，T19 验证
+  它量自本 Build 的 Source。只有用户明确要求改变布局时，才可另记 `approvedTargetBBox`、
+  `approvedTargetAuthority: user-directed-layout-correction` 与 `approvedTargetReason`，
+  且保留原 `referenceBBox`。
+- `ambiguous-label-slot`：无法从参考图唯一判定 label 槽位或归属时声明，记录竞争解释的
+  `reason`、crop `locator`、`referenceBBox`、Source `digest` 与
+  `classificationClaim: label-slot-ambiguous-operator-decision-required`；编译出 T20 的
+  render 前操作者裁决。
+- `semantic-annotation`：参考图确认必须以 annotation 呈现的 node 名称/金额/引导组，
+  记录原生 crop、bbox、Source digest、`inspectionMethod: native-scale-crop-and-object-inventory`、
+  `classificationClaim: semantic-node-annotation-required` 与理由；默认仍用 `layout.labels`。
+- `specified-label-weight`、`visible-interface`、`centered-side-label`、`text`、
+  `annotation-near-label` 等按对象事实声明。
 
 ### 必须测量的对象事实
 
-preflight 至少逐对象记录：
-
-- 原始画布宽高、各列 x、node bbox；短柱另记局部 crop、语义 ID、柱面色和背景色。
-- 每条 link 的 source/target、两端 socket、可见宽度、中心和顺序。
-- 每个端面的 binary occupancy union；先判连续/间隔，再辨认可靠的 per-link interval。
-- 每个 label 的语义组、anchor、渲染目标位置；名称、金额、备注、margin、Y/Y 不拆散归属。
-- 注释容器、内容 union、图标 cluster 和受保护文本的 bbox。
-
-固定 `layout.labels.<node>.blocks` 的纵向位置必须逐组从当前参考图测量：记录文字 union（或逐行 bbox）、`block.top`、x/anchor，以及它与 node/link 的关系。这些测量不是草稿，而是 `measured-label-position` 的 `featureEvidence`（referenceBBox + Source digest），由 T18 在每次 evidence run 自动对照、T19 在 prepare-review 验证 provenance。同公司相邻期间或相邻对象只能作为视觉语言参考，不能作为坐标来源——外来 digest 会被 T19 直接拒绝。用户明确指定的定向修正是唯一例外：保留 Source `referenceBBox`，以 `approvedTargetBBox` + `approvedTargetAuthority: user-directed-layout-correction` + `approvedTargetReason` 形成可追溯目标，T18 输出中必须同时显示二者。每次改变 `top`、行距、字号或 `textLength` 后，必须在下一次 text sweep 中逐 locale 对照候选与参考的 top/bottom/anchor；任何未测量或明显偏移的组都以 reference red-box 重开 text stage。
-
-测量值直接用于第一版 Adapter；不能先粗排，再靠多次 evidence run 逼近。
+preflight 至少逐对象记录：原始画布宽高、各列 x、node bbox（短柱另记局部 crop、语义 ID、
+柱面色与背景色）；每条 link 的 source/target、两端 socket、可见宽度、中心和顺序；每个端面
+的 occupancy union（先判连续/间隔，再辨认可靠的 per-link interval）；每个 label 的语义组、
+anchor 与目标位置（名称、金额、备注、margin、Y/Y 不拆散）；注释容器、内容 union、图标
+cluster 和受保护文本的 bbox。固定 label 的纵向位置逐组从当前参考图测量；相邻期间或
+相邻对象只能作视觉语言参考，不能作坐标来源（外来 digest 会被 T19 拒绝）。测量值直接
+用于第一版 Adapter，不先粗排再靠多次渲染逼近。
 
 ### Interface Matrix v1
 
-新数据集、geometry 或 render-engine 影响必须提供完整 `interface-matrix/v1`，覆盖
-参考图与候选图接口 ID 的并集。纯 display-text/localization 变化仍跑候选接口回归；
-没有几何变化时不必重建未受影响的完整 Matrix。每行至少包含：
-
-- interface ID、node、side、coverage intent（`reference` 或 `full-face`）；
-- reference/candidate node bbox、union intervals，以及能可靠识别的 per-link intervals；
-  reference-only 或 candidate-only 行缺少的一侧写 `null`，两侧都存在时才有 deltas；
-- top、bottom、center、width deltas；endpoint、tangent 结果；containment 由绑定的自动 audit 证明；
-- reference crop、automatic audit、contact sheet 的 evidence digest；
-- `passed`、`failed`、`documented-exception`、`manual-pending` 或 `not-scored`。
-
-summary 只能从 rows 派生，不能手填。`full-face` 必须有 reference 测量或设计规格
-provenance，并与 Adapter 的 `fullFaceIds` 同 ID；仅在 Adapter 写一个 ID 不能覆盖参考事实。
-三类 evidence digest 在单边行也都必填：缺失侧的局部 crop 用来证明“确实没有接口”。
-单边行默认 `failed`；Matrix 不能把自动层的 reference/candidate mismatch 改成通过。
-`documented-exception` 只能描述已有 typed reference/design-spec provenance 的拓扑差异，
-不能豁免 endpoint、水平切线、candidate containment 或其他 hard gate。
+新数据集、geometry 或 render-engine 影响需要完整 `interface-matrix/v1`，覆盖参考图与
+候选图接口 ID 的并集。每行含 interface ID、node、side、coverage intent、双侧 bbox 与
+intervals（单边行缺失侧写 `null`）、top/bottom/center/width deltas、endpoint 与 tangent
+结果、三类 evidence digest 和结果。summary 只能从 rows 派生；单边行默认 `failed`；
+`documented-exception` 只描述已有 typed provenance 的拓扑差异，不豁免 hard gate。
+审阅时由工具从候选证据派生 Matrix。
 
 ### VerificationPlan v5
 
 `verification-plan/v5` 从 inventory feature、ChangeImpact 和 required locales 编译检查。
-每个 required check 都带执行方式、object scope 和 locale scope；只有 Plan 可以生成
-`notApplicable`。review caller 不能删检查，也不能自行声明不适用。
-ChangeImpact 的枚举和分类边界由 `docs/architecture/dataset-lifecycle.md` 与
-`docs/dynamic-dataset-workflow.md` 拥有；本文只消费 Plan 的结论。
-
-开始 Plan 要求的 structure sweep stage 前，必须同时具备：完整 inventory、preflight
-测量、reference 侧 Matrix、当前 authored artifact 映射和编译成功的 Plan。
+每个 required check 带执行方式、object scope 和 locale scope；只有 Plan 可以生成
+`notApplicable`，review caller 不能删检查。ChangeImpact 的枚举与分类边界由
+`docs/architecture/dataset-lifecycle.md` 拥有。
 
 ## 3. 规则目录
 
@@ -965,201 +910,88 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 
 <!-- fidelity-rules:generated:end -->
 
-## 4. 三层 sweep 状态机
+## 4. 审阅候选与修复顺序
 
-### 新 Build 的阶段检查点
+新 Build 使用 `review-candidate/v1`：`record:workflow continue` 在当前 authored 快照上
+为每个 required locale 渲染一次（focus `review-candidate`），全部 render-scoped
+hard gate 通过即成为审阅候选，Build 停在待人工审阅。没有阶段冻结记录；候选之后
+authored 输入的任何变化都会使候选过期，`continue` 自动重新渲染。历史
+`fidelity-checkpoints/v1` Build 仍按其三阶段冻结记录解释。
 
-采用 `fidelity-checkpoints/v1` 的独立 Build 必须依次留下结构、文本、润色/本地化
-的冻结决定，才能提交最终人工接受。每次决定包含审阅人、说明、当前阶段输入摘要，
-并引用同一 Build 的真实、通过验证的阶段证据。润色阶段覆盖计划要求的全部语言。
-命令入口为 `record:workflow checkpoint`；它不代替最终人工 Review。
+修复顺序与 §1 判定优先级一一对应，只用于执行者排错，不产生记录：
 
-程序由实际输入推导依赖摘要。相关输入改变、明确重开或证据文件改变时，相应阶段
-不能继续被当作已完成。无关公司的注册变化不改写该 Build 的语义贡献；最后的 seal
-仍执行适用的完整检查。历史无此协议的 Build 按原记录解释，不补造阶段审阅。
-该记录协议的字段见 [当前命令与协议表](workflow-command-reference.md)，阶段的视觉
-目标和回退条件仍以下文为准。
+1. structure：输出纯净性、画布、node/column 几何、短柱可见性、link 拓扑、双端宽度、
+   socket、curve 与可见接口；
+2. text：label 语义归组、与自身/相邻 node 的关系、侧置/同轴对齐、字重层级、注释容器、
+   标题与期间；
+3. polish-l10n：颜色、透明度、图标、细微曲线与每个 required locale 的固定布局。
 
+后层发现早层错误时先修早层。编写期诊断只渲染源语言（只读 `verify:d3`）；审阅候选
+必须覆盖全部 required locale，默认语言通过不能证明其他语言通过（Z1）。
 
-`sweep stage` 是人工进度分层，不是 VerificationPlan 的字段，也不改变 checkResult 的
-scope。下面每节列出的对象/检查就是固定归属；跨 stage 的 global/final checks 在结束时汇总。
-
-本文档拥有 canonical stage focus 枚举，机器镜像是
-`scripts/lib/fidelity-stages.mjs`：`structure-sweep`、`text-sweep`、
-`polish-l10n-sweep`，外加收尾复验的 `closeout-refresh`。`record:fidelity
---build` 只接受这四个值；自由 focus 字符串仅限只读诊断与 legacy 兼容存档。
-
-三层与 §1 判定优先级一一对应：structure 承载优先级 1–2 的语义、拓扑、接口与
-几何，text 承载文本归属与排版，polish/localization 承载优先级 3 的视觉残差与
-本地化。两套顺序是同一件事的两个视角，不存在第三种排序。
-
-locale 最小集按 stage 决定：`structure-sweep` 与 `text-sweep` 的中间迭代只需
-源语言 evidence run；`polish-l10n-sweep` 与 `closeout-refresh` 必须覆盖每个
-required locale。最终验收不变——finish 仍要求最终 authored digest 上每个
-required locale 的 fresh 证据（Z1）。
-
-### Structure stage
-
-一次检查并修完：输出纯净性、原始画布、node/column 几何、短柱可见性、link 拓扑、
-双端宽度、socket、curve 和所有可见候选接口；Plan 要求时再核完 Matrix 的完整并集。
-
-必须产出候选/参考/Diff、自动接口报告、contact sheet、`nodePaintAudit` 和逐对象结论；
-Plan 要求时再产出完整 Matrix，纯文本/本地化变化可复用未受影响的既有 Matrix。
-接口或短柱仍有 failed/pending/not-scored 时不能冻结结构。
-
-### Text stage
-
-一次检查并修完：label 语义归组、与自身/相邻 node 的 bbox 关系、侧置/同轴对齐、
-字重层级，以及 annotation 容器、标题、期间和受保护文本之间的关系。
-
-必须读取量化 bbox audit；自动结果不能替代错误归组、参考距离和语义归属的人工判断。
-
-### Polish and localization stage
-
-一次检查并修完：颜色、透明度、图标、细微曲线和每个 required locale 的固定布局。
-每种语言分别产生 evidence run；默认语言通过不能证明其他语言通过。
-
-### 冻结与重开
-
-一个 stage 只要求本节列出的检查，以及由这些对象触发的 feature/impact checks 全有结果；
-后续 stage 的检查不需要提前完成。当前 stage 无开放 region 且证据 digest 完整时才能冻结。
-以下任一情况会重开：相关对象/渲染器改变、自动检查回退、用户再次指出问题、或后层
-发现更早层错误。
-
-后层发现早层错误时，立即停止当前 human iteration，正式重开早层 stage；
-修复、重新 evidence run、重新冻结后才回到后层。不能在后层“顺手修、顺手验”。
-
-### 停止可选润色
-
-当所有 required checks、locales、Matrix、feedback 和 attention 已关闭后，若预计新的
-**可选润色**只使全图 similarity 提升 `<0.0005`，停止继续微调并记录可接受残留。
-该阈值不能跳过 hard gate、required check、人工决定或用户反馈复查。
-“预计”必须来自最近两次同方向 evidence run，或一次局部试改的指标；没有可比数据时
-不得使用该阈值停止。可比 run 必须具有相同 dataset、locale、reference digest、画布、
-renderer 与 metric 配置；局部试改也必须重渲染整图并换算为全图 similarity delta。
+所有 required check 已关闭后，若预计新的可选润色只使全图 similarity 提升 `<0.0005`，
+停止微调并记录可接受残留。预计值必须来自最近两次同方向、同配置的证据运行或一次整图
+局部试改；该阈值不能跳过 hard gate、required check 或用户反馈复查。
 
 ## 5. 证据、反馈与结束条件
 
-### 自动证据必须包含什么
+每个 raster evidence run 至少保留候选图、reference、Diff、全图指标（`mae`、`similarity`、
+`maxChannelDiff`、`samePixelRatio`、`changedPixelRatio`、`diffBoundingBox`）、DOM 分区
+指标、Plan 选中的 render-scoped gate 结果、interface audit、contact sheet 与当前 locale 的
+`nodePaintAudit`。G11 的一致性证据单独记录。`nodePaintAudit` 基于 node face 元素自身
+判定 `faceVisible` 与 `faceHeight`（含是否低于 `MIN_VISIBLE_FACE_PX`）；link、guide、
+annotation 或 hitbox 不能替代，required locales 覆盖相同语义 ID 集合。
+`fidelity-run/2 evidence-ready` 只表示可供审阅，不等于接受。
 
-每个 raster evidence run 至少保留：候选图、reference、Diff、全图指标、DOM 分区指标、
-Plan 选中的 render-scoped gate 结果、interface audit、contact sheet，以及当前 locale 的 `nodePaintAudit`。
-G11 的 consistency evidence 单独记录，不塞进每次 raster manifest。
-
-全图指标至少有 `mae`、`similarity`、`maxChannelDiff`、`samePixelRatio`、
-`changedPixelRatio` 和 `diffBoundingBox`。局部事实优先使用 object/region/interface 指标；
-整条 link 的平均 Diff 不能证明端面正确。
-
-`nodePaintAudit` 每行记录：semantic node ID、bbox、computed fill/stroke、fill/stroke alpha、
-stroke width、opacity、display、visibility、背景色、`faceVisible` 与 `faceHeight`（含是否低于
-`MIN_VISIBLE_FACE_PX` 最小可见高度）。判定必须基于 node face 元素自身；link、guide、
-annotation、hitbox 或非空 bbox 都不能替代。required locales 必须覆盖相同语义 ID 集合。
-
-程序判定 `faceVisible` 的最低条件是：元素未被 display/visibility 隐藏、bbox 非零，且
-有效 fill alpha 大于 0 并非背景同色，或有效 stroke alpha 大于 0、stroke width 大于 0
-且并非背景同色。这不是“肉眼足够清楚”的对比度保证；structure stage 的人工 visual
-closure 负责所有 `visible-node-face` 的辨识度，极短柱的参考长度另由 T14 决定。渲染柱面低于
-`MIN_VISIBLE_FACE_PX` 最小可见高度的可见节点由 T21 量化标记，用于消除亚像素不可见柱、
-统一 short 节点最小柱高，把此前逐 Build 各自取值收敛到一个共享 floor。
-
-### required checks 必须逐项消费
-
-`FidelityResult` v2 保存 Plan 派生的完整 `checkResults`：
-
-- 自动检查引用匹配 Build、authored digest、Plan digest、object ID 和 locale 的 evidence。
-- 纯人工检查由 review JSON 的 `manualCheckDecisions` 提交，并引用 evidence digest。
-- 每个 global required check 恰有一条结果；`required-locales` check 每个 required
-  locale 恰有一条结果；该行的 `objectIds` 必须完整等于 Plan scope，不为每个 object
-  再造一行。一项 feature check 可引用多条互补规则，共用这一条结果和证据。
-  缺失、重复、错误 scope 或 caller 自造 `notApplicable` 都是 blocker。
-- `fidelity-run/2 evidence-ready` 只表示自动证据可供 review，不等于 accepted。
-
-Plan 要求完整 Matrix 时，接口类结果还必须引用经过验证的 `interface-matrix/v1`。
-summary-only Matrix、漏行、warning/off/not-scored/failed 自动报告、缺 contact sheet、
-无 provenance 的 full-face、或自动/人工覆盖集合不一致，都不能接受。
-
-### 人工 evidence 与 attention
-
-人工决定以完整语义 region 为单位，引用 reference/candidate/Diff 和局部指标。
-开放问题使用 `attention: open` 加 red-box reference digest；无开放问题使用
-`attention: closed` 加 closure note。红框以 reference 为底，不用候选或 Diff 当底图。
-
-stage 冻结、重开和用户反馈都必须绑定 evidence digest。手写 Task Markdown、口头
-“看起来通过”和全图 similarity 不能代替结构化决定。
+`FidelityResult` v2 保存 Plan 派生的完整 `checkResults`：自动检查引用匹配 Build、authored
+digest、Plan digest、object 与 locale 的证据；人工检查来自审阅记录。每个 global check
+恰一条结果，`required-locales` check 每个 locale 恰一条；缺失、重复、错误 scope 或自造
+`notApplicable` 都是 blocker。操作员的简式接受由 `record:workflow review` 展开为这些
+人工结果、attention 与 Matrix，并在说明中注明依据。
 
 ### 反馈如何防复发
 
-每条用户反馈先判断：
-
-- `rule-missing`：确实没有 owner，才新增规则 ID。
-- `execution-gap`：已有规则未逐对象执行；优先补 hard gate、量化 audit 或 required check。
-- `ambiguous-rule`：规则不能独立判定；改成有触发条件、阈值和证据的口径。
-
-用户反馈命中批量提交中的一个数据集时，修复不止于该数据集：必须对同一批次
-提交的其余数据集做**同型横向排查**（同规则 ID、同类对象），逐数据集持久化
-排查结论；同型问题在两个及以上数据集复现即按下述复发升级处理。批量批次里
-同一个执行缺口会系统性复制到整批数据集，只修被指出的那一个是禁止做法。
+每条用户反馈先归因：`rule-missing`（确实没有 owner 才新增规则 ID）、`execution-gap`
+（已有规则未逐对象执行，优先补 hard gate、量化 audit 或 required check）、
+`ambiguous-rule`（改成有触发条件、阈值和证据的口径）。反馈命中批量中的一个数据集时，
+必须对同批其余数据集做同型横向排查并逐一持久化结论；同型问题在两个及以上数据集复现
+即按复发升级处理。
 
 FeedbackRecord 保存稳定 ID、rule IDs、归因、before/after evidence、remedy、状态和
-supersession。相同规则在第二个 Build 再出现 execution gap 时，必须记录自动化升级
-disposition；不能用再次加长文档代替。升级 disposition 只有三种合法值：`hard-gate`、
-`quantified-audit`，或带具体理由的 `not-suitable`。`required-checklist` 不编译任何
-机器检查，只在同一规则的**首次** execution gap 上合法；复发后仍以 `required-checklist`
-关闭会被 Feedback Ledger 判为未升级并阻断 close-out。已有自动化落地时，用 supersession
-记录把旧 disposition 升级为真实的自动化类别。
+supersession。相同规则在第二个 Build 再出现 execution gap 时，升级 disposition 只能是
+`hard-gate`、`quantified-audit` 或带理由的 `not-suitable`；`required-checklist` 只在首次
+execution gap 上合法，复发后仍以它关闭会阻断 close-out。Ledger 只覆盖本机
+`output/builds/`；跨检出的复发记忆是 Git 跟踪的
+[`docs/fidelity-feedback-casebook.md`](fidelity-feedback-casebook.md)：preflight 按盘点特征
+查其触发列，反馈闭环时新增或更新案例行。登记簿未更新的反馈不得声称已沉淀。
 
-Ledger 的机器强制只覆盖本机 `output/builds/`（Git 忽略）；跨机器、跨检出的
-复发它看不见。跨检出的复发记忆是 Git 跟踪的
-[`docs/fidelity-feedback-casebook.md`](fidelity-feedback-casebook.md)：
-preflight 时按盘点特征查其触发列，反馈闭环时新增或更新对应案例行（含升级
-disposition 的回写）。登记簿未更新的反馈不得声称已沉淀完毕。
+### 结束条件
 
-### 可以结束的唯一条件
+| 条件 | 执行面 |
+| --- | --- |
+| 当前 authored/Plan digest 上每个 required locale 的 render-scoped gate 通过、候选纯净 | 工具（`record:fidelity` 硬门槛）+ finish（`AUTOMATIC_LOCALE_MISSING` / `_NOT_PASSED`） |
+| 独立 G11 一致性证据 fresh | finish（`AUTOMATIC_CONSISTENCY_NOT_PASSED`） |
+| 每个 required check、object 和 locale 有有效 `checkResults` | finish（`REQUIRED_CHECK_MISSING` / `_NOT_PASSED`） |
+| node 映射均有 Source face，各 locale paint 与 inventory 一致 | 工具（Coverage/Plan 与 Build-bound run） |
+| Plan 要求时完整 Matrix 无 failed / pending / not-scored | finish（`INTERFACE_MATRIX_*`、endpoint、tangent blockers） |
+| region、attention、feedback 与复发升级全部关闭 | finish（`REGION_OPEN`、`ATTENTION_REFERENCE_OPEN`、`FEEDBACK_OPEN`、`FEEDBACK_AUTOMATION_UPGRADE_REQUIRED`） |
+| 操作员接受当前候选；剩余差异只有可接受残留或无语义跳过 | 人工（简式审阅） |
 
-保真工作结束必须同时满足下表全部条件。`执行面` 标明漏项由哪一层拦截：
-`finish` 表示 `record:build finish` 以对应 blocker 拒绝 accepted，`工具` 表示
-evidence/Plan 工具在更早处失败，`人工` 表示 attestation 责任、机器不校验：
-
-| 条件 | 执行面 | 证据 |
-| --- | --- | --- |
-| 当前 authored/Plan digest 的 render-scoped gates 通过；候选纯净 | 工具（`record:fidelity` 硬门槛）+ finish（`AUTOMATIC_LOCALE_MISSING` / `AUTOMATIC_LOCALE_NOT_PASSED`） | 每 locale 的 `fidelity-run/2` 存档 |
-| 独立 G11 一致性证据 fresh | finish（`AUTOMATIC_CONSISTENCY_NOT_PASSED`） | `dataset-verification/v1` reference |
-| 每个 required check、object 和 locale 都有有效 `checkResults` | finish（`REQUIRED_CHECK_MISSING` / `REQUIRED_CHECK_NOT_PASSED`） | `FidelityResult.checkResults` |
-| 所有映射到 node 的对象均有 Source face；各 locale paint 结果与 inventory 一致，zero-paint 对象只存在于 non-node/route 契约 | 工具（Coverage/Plan 拒绝缺面 node；Build-bound run 校验 `nodePaintAudit` 期望）+ 人工 | 逐 locale `nodePaintAudit` + non-node/route review |
-| Plan 要求时，完整 Matrix 无 `failed` / `manual-pending` / `not-scored`，audit/contact sheet/digests 齐全 | finish（`INTERFACE_MATRIX_REQUIRED` / `_INCOMPLETE` / `_FAILED` / `_PENDING` / `_NOT_SCORED` / `_NOT_CLOSED` / `_IDENTITY_MISMATCH` / endpoint、tangent blockers） | `interface-matrix/v1` |
-| structure、text、polish/localization stages 均冻结且未被重开 | 人工（可选的 `stageDecisions` 提供结构化审计记录，不是 blocker） | 绑定 evidence digest 的冻结记录 |
-| 用户 region、attention、feedback 和 recurrence upgrade 全部关闭 | finish（`REGION_OPEN` / `ATTENTION_REFERENCE_OPEN` / `FEEDBACK_OPEN` / `FEEDBACK_AUTOMATION_UPGRADE_REQUIRED`） | RegionDecision / attention / FeedbackLedger |
-| 剩余差异只有有证据的可接受残留、无语义跳过或明确超范围 | 人工（attestation 责任） | region decisions + closure note |
-
-满足这些条件才允许 human review 接受；Build 后续的 CLOSED、baseline、seal、
-closeout 和最终汇报流程由架构文档与动态工作流拥有。任何机器全绿但缺人工决定的
-状态只能报告为 `review-pending`，不能写 accepted 或 converged。
+机器全绿而缺人工接受时只能报告为 `review-pending`，不能写 accepted 或 converged。
 
 ## 6. 规则如何落地与升级
 
 新增或升级一条规则只有三个落点：
 
-1. **catalog** —— 在 `scripts/lib/fidelity-rules-catalog.mjs` 增加或修改结构化
-   记录（含 stage、topics、trigger/check/pass/evidence、features、compensates、
-   rationale、origin），然后运行 `pnpm update:fidelity-rules-doc` 重新生成本文
-   §3；`pnpm verify:architecture` 会拦截过期的生成区。
-2. **实现** —— `hard-gate` / `conditional-gate` / `quantified-audit` 必须在
-   render harness、interface fidelity 或 Plan 编译中有真实执行点；纯 `manual`
-   规则无此步。脚本引用新规则 ID 时同步把 ID 加进 `FIDELITY_CODE_RULE_IDS`；
-   feature 触发的规则同步更新 `FEATURE_REQUIRED_CHECKS`
-   （`scripts/lib/verification-plan.mjs`）。
-3. **测试** —— 更新契约计数与代表性断言
-   （`tests/fidelity-rule-contract.test.mjs`），并为新的执行点补回归测试。
+1. **catalog**：在 `scripts/lib/fidelity-rules-catalog.mjs` 增改结构化记录，运行
+   `pnpm update:fidelity-rules-doc` 重新生成 §3。
+2. **实现**：`hard-gate` / `conditional-gate` / `quantified-audit` 必须在 render harness、
+   interface fidelity 或 Plan 编译中有真实执行点；脚本引用新 ID 时同步加入
+   `FIDELITY_CODE_RULE_IDS`，feature 触发的规则同步更新 `FEATURE_REQUIRED_CHECKS`
+   （`scripts/lib/verification-plan.mjs`）。纯 `manual` 规则无此步。
+3. **测试**：更新 `tests/fidelity-rule-contract.test.mjs` 的计数与代表性断言，并为新的
+   执行点补回归测试。
 
-约束：已有 ID 永不重编号、不改义；废弃用 `status: superseded` 加
-`supersededBy`，不得删除记录或复用 ID；系列字母只是命名空间——新规则挑最贴近
-的字母取下一个自由号，检索靠 §3 的 stage/topics 索引。盲点补偿类规则的执行
-方式升级时，必须同时更新 catalog 执行方式、feature 编译与回归测试，不能只把
-说明写长。
-
-### 完成后的证据清理
-
-本节要求的完整证据保留至人工审阅、最终 seal 和所需 closeout 检查完成。
-全部本机处理与交付结束后，按 [artifact-retention.md](artifact-retention.md)
-执行统一清理，只保留历史摘要，删除 raster evidence 和 scratch。摘要不再构成
-可重验的 evidence，不得将旧 digest 当成仍存在的图形证据或 fresh seal。
+盲点补偿类规则升级执行方式时，必须同时更新 catalog、feature 编译与回归测试，不能只把
+说明写长。证据在人工审阅、seal 与发布完成后按 [artifact-retention.md](artifact-retention.md)
+统一清理，只保留历史摘要；摘要不再构成可重验的证据。

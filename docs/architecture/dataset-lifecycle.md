@@ -8,7 +8,7 @@ write semantics are owned by
 [`verification-publication.md`](verification-publication.md).
 
 Current entry point: [asset-workflow.md](../asset-workflow.md). New isolated
-Builds add derived dependencies and checkpoints to the existing state machine;
+Builds add derived dependencies and a single review candidate to the existing state machine;
 Metric Observation uses Source Coverage v3 and real text/image anchors.
 Historical protocol readers and the legacy direct-edit description below remain
 explicit compatibility paths.
@@ -545,7 +545,8 @@ The preceding path describes legacy direct-edit compatibility. New isolated Buil
 `compat:baseline` remains only the legacy baseline writer. New isolated Builds
 use immutable-tree Publication and path-claim CAS. The local Source archive
 move remains separate from that canonical publication boundary. The current seal operation re-hashes
-authored files and reruns the Adapter final-verification profile — the
-non-render consistency profile plus, for Income Statement, per-locale d3
-render hard gates — before recording `SEALED` against an accepted closure.
+authored files, reruns the non-render consistency profile and, for Income
+Statement, reuses the accepted per-locale d3 render proof on the same authored
+snapshot (or renders again with `--fresh-render`) before recording `SEALED`
+against an accepted closure.
 See the live status table in [`README.md`](README.md).

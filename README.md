@@ -198,8 +198,8 @@ documents every check.
 
 New datasets follow a source-to-sealed pipeline: intake a reference image
 from `input/pending/`, author the data SSOTs and dataset adapter, localize
-fixed-layout text, then pass automated render gates and human fidelity review
-before the build seals. The rendered output under comparison is always the
+fixed-layout text, then pass automated render gates once per locale and your
+review before the build seals. The rendered output under comparison is always the
 SVG produced by `SankeyEngine.render()` — never the source PNG or crops of
 it.
 
@@ -210,8 +210,10 @@ only on the local machine.
 
 The owning documents:
 
+- [`docs/asset-workflow.md`](docs/asset-workflow.md) — the processing
+  process: commands, check boundaries, review, publication, and delivery.
 - [`docs/dynamic-dataset-workflow.md`](docs/dynamic-dataset-workflow.md) —
-  the end-to-end pipeline, commands, and hard constraints.
+  dataset modeling rules and hard constraints.
 - [`docs/fidelity-loop-rules.md`](docs/fidelity-loop-rules.md) — review
   gates, measurement rules, and known blind spots.
 - [`CONTEXT.md`](CONTEXT.md) and [`docs/architecture/`](docs/architecture/README.md) —

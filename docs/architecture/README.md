@@ -139,8 +139,10 @@ decimal strings, explicit units/basis, real Source anchors and a viewer library.
 
 Build workspaces isolate data authoring. Preparation derives ArtifactManifest,
 semantic contributions, coverage and the Plan, generates review sheets, and
-records timings. New isolated Sankey Builds require digest-bound stage
-checkpoints before closure. Historical Builds are not silently upgraded.
+records timings. New isolated Sankey Builds (`review-candidate/v1`) render one
+all-locale review candidate and close on human acceptance; Builds prepared under
+`fidelity-checkpoints/v1` keep their digest-bound stage checkpoints. Historical
+Builds are not silently upgraded.
 
 Publication composes owned data paths in a private candidate, runs shared
 projectors and checks, verifies fresh seals and performs one immutable-tree
@@ -153,9 +155,10 @@ The root file entry discovers the local workbench, which automatically follows e
 latest successful complete review candidate. An explicit pause freezes a tab; each
 displayed candidate retains its immutable identity and per-Build review bindings.
 Without the workbench, the file viewer embeds one selected complete draft or published tree at a time.
-A machine-local selection is derived by preparation/publication and polled by the
-file entry; it neither merges data into the development worktree nor changes the
-canonical pointer/evidence contract. Drafts are visibly pending human review.
+A machine-local selection is derived by preparation/publication; it neither merges
+data into the development worktree nor changes the canonical pointer/evidence
+contract. Drafts are visibly pending human review. Delivery and production checks
+are command/HTTP only; the operator, not the executor, views the page.
 
 Release attempts build and verify Pages or standalone output from a published
 digest and retain their own success/error receipt. No external deployment is
@@ -169,7 +172,7 @@ Source metadata is published with the data.
 | M0 — record the decision | implemented | architecture owners, vocabulary, invariants, and ADR exist |
 | M1 — isolate FidelityRun | implemented with operation separation and `fidelity-run/2` review identity | `verify:d3` remains ephemeral/read-only; `record:fidelity` alone finalizes durable automatic evidence, with legacy v1 archives explicitly non-closure |
 | M2 — introduce DatasetBuild | implemented for the new workflow | isolated authoring workspace, existing ledger, PNG/text identity, facts compilation and derived dependencies; historical direct-edit Builds remain readable |
-| M3 — close and stage | implemented | coverage, existing full checks and human attestation; new isolated Sankey Builds also require scope-bound stage checkpoints; baseline and final seal remain separate |
+| M3 — close and stage | implemented | coverage, consistency, one per-locale review candidate and human attestation (historical checkpoint Builds keep stage freezes); baseline and final seal remain separate |
 | M4 — publish atomically | implemented for local dataset publication | private combined candidate, pure-in-candidate shared projections, owned-path conflicts, fresh seal check, immutable tree and pointer CAS, digest-qualified reader, idempotent recovery |
 | M5 — separate Release | implemented for local site/standalone artifacts | published-digest input, independent attempt/error receipts and retries; external hosted deployment remains an explicit separate operation |
 
