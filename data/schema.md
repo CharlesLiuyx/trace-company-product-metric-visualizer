@@ -921,12 +921,16 @@ operatingMetrics: [{
 ```
 
 Values use exact decimal strings. Units are `K/M/B/T` with an explicit supported
-ISO currency (`USD/EUR/GBP/JPY/CNY/HKD`), or `%/count` with `currency: null`.
+ISO currency (`USD/EUR/GBP/JPY/CNY/HKD/BRL`), or `%/count` with `currency: null`.
 Comparison is explicit: `eq/gt/gte/lt/lte`; literal must carry the same value,
 unit, currency and inequality. Counts are nonnegative integers. A count literal
 may preserve a Source `K/M/B/T` suffix: `value: '112000000', unit: 'count',
 currency: null, literal: '112M'`. Exact decimal arithmetic must reconcile the
 scaled literal to the integer value; a currency prefix or fractional count fails.
+Money literals may omit a scale suffix when the Source reports base-currency
+amounts, such as `value: '0.301', unit: 'K', currency: 'USD', literal: '$301'`.
+Exact decimal arithmetic reconciles the base amount with the declared scale;
+the original literal stays unchanged in SVG, Table and CSV.
 Quotes retain
 the label, literal and all notes; anchors use native Source pixels.
 `basis: "unspecified"` preserves an unstated Source basis.
