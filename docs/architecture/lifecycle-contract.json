@@ -267,7 +267,7 @@
       "pushed-and-merged-to-main"
     ],
     "operatorSignalAppliesToAllProcessing": true,
-    "operatorRelocationRequiresPreMoveListConfirmation": true,
+    "operatorRelocationListBoundToSignalScope": true,
     "operatorSignalIsOnlyRelocationTrigger": true,
     "operatorRelocationMustNotClobber": true
   },

@@ -143,9 +143,8 @@ chore(deps): pin playwright 1.61.0
   Git-tracked 共享队列；提交属于该数据集的 queue/claim 变更，让其他项目能看到
   当前归属。`input/processed/` 是整目录忽略的本机归档，不论 Source availability
   为何都不得强制纳入 Git 或改写 availability。只有操作者完成信号（人工审阅完毕
-  或已推送并合入 `main`）按工作流 owning 规则移动 Source：先枚举整批并呈清单
-  给操作者确认，确认后 no-clobber 移动（细则见
-  `docs/dynamic-dataset-workflow.md` §Operator Review-Completion Signal）；
+  或已推送并合入 `main`）在其所指范围内 no-clobber 移动 Source（细则见
+  `docs/asset-workflow.md` §7 Operator Review-Completion Signal）；
   Build close-out 本身不移动文件。移动后提交 Git-tracked processing queue 中的
   删除，但不要 force-add processed PNG。该 Source locator 变更
   不是 M4 Publication；processed 图片永不改名或覆盖。
@@ -175,8 +174,7 @@ chore(deps): pin playwright 1.61.0
 ## 提交前检查
 
 本文档只拥有 commit 格式和原子提交边界，不拥有另一份验证矩阵。按
-[`docs/dynamic-dataset-workflow.md`](dynamic-dataset-workflow.md) 的当前
-Verification Checklist 执行；架构迁移后的 `ChangeImpact → VerificationPlan`
+[`docs/asset-workflow.md`](asset-workflow.md) §3 检查边界执行；架构迁移后的 `ChangeImpact → VerificationPlan`
 语义由 [`docs/architecture/`](architecture/README.md) 拥有。不得用本提交规范中
 较短的示例命令替代工作流要求的 fresh final verification、人工 closure 或
 per-key baseline 记录。

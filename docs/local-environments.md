@@ -8,22 +8,19 @@
 
 ## 你的日常操作
 
-1. 在任意 Session 指定 `input/pending/` 的一份或多份文件。执行者先按
-   [输入流程](asset-workflow.md) 完成 Type Gate，再使用 `record:workflow start`。
-   `start` 返回 Build、workspace、Session owner 和 generation，后续命令保存并携带这些值。
-2. 运行一次 `pnpm dev`（不同 Session 或端口请求自动复用同项目已有服务），打开根目录 `index.html` 或 <http://127.0.0.1:8000/>。
-   文件入口会发现同一项目的服务并进入工作台；服务未运行时仍能离线查看。
-   默认进入统一验收：已准备的草稿与项目现有数据在同一个公司/期间列表中查看。
-   顶部“上一项 / 下一项”依次定位，指定任务使用 `/?review=<build-id>#<key>`，
-   无需在左侧切换十个环境。执行者应提供这个统一入口及当前 key。
-3. 在工作台审阅当前显示的候选，在原 Session 明确确认。执行者把详情 `displayed` 中
-   对应 `members[].buildId` 的 `reviewToken` 和这份候选的 `id`（作为 `previewId`）
-   放入原有人类审阅输入，继续
-   finish、baseline、seal、Publication；无需再次询问是否执行已授权的本地发布。
-4. 准备 Git 集成候选，展示当前代码与已发布贡献的完整结果。如果集成改变了已看过的
-   结果，先明确指出变化并记录该候选的审阅。你在 Session 发出推送指令后，才执行 push。
-5. CI 检查同一份 Pages 产物并部署。工作台显示当前 Git 提交对应的 CI、线上版本、
-   内容摘要及最后成功核查时间；最终上线还需打开对应 key 验证实际页面。
+处理步骤、检查边界与交付格式只由 [输入流程](asset-workflow.md) 定义。本文件只补充同一检出
+多 Session 并发、工作台与 Git 传输的机制。
+
+1. 在任意 Session 指定 `input/pending/` 的一份或多份文件。`record:workflow start` 返回
+   Build、workspace、Session owner 和 generation，后续命令携带这些值。
+2. 运行一次 `pnpm dev`（不同 Session 自动复用同项目已有服务），打开根目录 `index.html`
+   或 <http://127.0.0.1:8000/>。默认进入统一验收：已准备的草稿与项目数据在同一个公司/期间
+   列表中，「上一项 / 下一项」依次定位；指定任务使用 `/?review=<build-id>#<key>`。
+3. 在工作台审阅当前候选，在原 Session 明确确认。执行者按输入流程 §5 记录审阅，继续 seal
+   与本机发布，不再另问。
+4. 你要求推送时，执行者准备 Git 集成候选；继承 Build 接受的候选直接提交推送，否则先说明
+   变化并等待确认。
+5. CI 检查同一份 Pages 产物并部署；执行者用 `verify:release -- --online` 以 HTTP 核对线上版本。
 
 ## 统一验收与辅助视图
 
@@ -108,9 +105,12 @@ pnpm release:git -- commit <transport-id>
 pnpm release:git -- push <transport-id>
 ```
 
-`human-review.json` 使用 `{ "operator": "...", "accepted": true, "candidateDigest": "sha256:..." }`，
-只能记录任务中对已展示集成候选的真实确认。当前 Git 传输明确记录这层审阅，不自动把
-较早的 Build 接受推定为对当前应用代码的接受。既有数据处理单的历史不会被重写。
+`human-review.json` 使用 `{ "operator": "...", "accepted": true, "candidateDigest": "sha256:...", "basis": "..." }`。
+`basis: "inherited-build-acceptance"` 只在 prepare 结果的 `acceptance.inheritsBuildAcceptance`
+为 `true`（候选与各 Build 审阅时使用相同应用代码）时被接受，此时你的推送指令即覆盖该候选；
+否则使用 `basis: "displayed-candidate"`，记录你对已展示候选的真实确认。默认 prepare 只跑
+`check` 与 `build:site`，浏览器检查由 CI 执行；`prepare --full` 在本机追加 render regression
+与 `verify:site`。既有数据处理单的历史不会被重写。
 
 prepare 要求应用、数据与执行工具已进入 Git，以 HEAD 作为可复现起点，沿发布收据链
 只整合已接受贡献；应用代码采用 HEAD。同路径先比较基线，必要时走上述类型化合并。
@@ -145,22 +145,10 @@ pnpm 版本以 packageManager 为准，依赖以锁文件为准。
 
 ## 一次合入的验证边界
 
-先完成共享工具/应用代码修改，再刷新有影响的 Build，避免在已经完成逐语言保真后
-反复升级工具、使整批证据失效。开发中先跑直接受影响的测试；最终候选只跑一次
-`pnpm check`，它已包含单元测试和各个结构/一致性检查，之后不要再单独补跑相同命令。
-
-Publication 将本批所有 key 交给一次 `verify:dataset -- <key> [...] --skip-render`，
-全局 SSOT/注册/metadata 共享一次，逐 key strict i18n 保留。Git transport prepare
-随后检查合并后的实际候选（check、相关图表、site）；它和 Build 单项检查的输入不同，
-不能凭“都通过过”互相替代。
-
-成功 prepare 之后，如果 commit 的精确路径/内容校验通过且没有新增改动，候选内的
-check/site 结果已经覆盖这些字节，不必再在共享根目录重跑同一套聚合门、build:site 和
-verify:site。根 file 入口仍验证发布结果；Git hooks 仍检查提交后 metadata。若应用、
-工具、数据、依赖或队列在检查后改变，按新输入重新检查，禁止按时间或人工印象复用。
-CI 仍在 fresh checkout 独立执行，从最近成功 main 祖先覆盖所有未通过的改动；线上只核对
-部署版本和必要的数据冒烟，不再重复本机全量诊断。失败时先修复并跑失败的最小检查，
-最终再执行受影响的完整门禁；不要原样重复运行未改变且已通过的本机全套检查。
+检查边界只由 [输入流程](asset-workflow.md) §3 定义。补充两点机制：Publication 把本批所有
+key 交给一次 `verify:dataset -- <key> [...] --skip-render`；Git transport prepare 检查合并后的
+实际候选，它与 Build 单项检查的输入不同，不能凭「都通过过」互相替代。若应用、工具、
+数据、依赖或队列在检查后改变，按新输入重新检查，禁止按时间或印象复用。
 
 ## 退出与收尾清理
 

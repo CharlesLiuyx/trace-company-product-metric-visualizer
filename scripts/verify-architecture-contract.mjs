@@ -102,6 +102,7 @@ async function verifyFidelityRuleContract({ workflow, flowchart }) {
   assert.match(source, /fidelity-feedback-casebook\.md/, 'fidelity rules must route the feedback casebook');
 
   assertNoSecondaryFidelityRuleDefinitions(workflow, 'docs/dynamic-dataset-workflow.md');
+  assertNoSecondaryFidelityRuleDefinitions(await readFile(projectPath('docs/asset-workflow.md'), 'utf8'), 'docs/asset-workflow.md');
   assertNoSecondaryFidelityRuleDefinitions(flowchart, 'docs/workflow-flowchart.zh-CN.html');
   assertNoSecondaryFidelityRuleDefinitions(casebook, 'docs/fidelity-feedback-casebook.md');
   for (const [label, secondarySource] of [
@@ -376,9 +377,9 @@ async function main() {
     'operator completion signal must cover all current processing Sources'
   );
   assert.equal(
-    contract.sourceLocations.operatorRelocationRequiresPreMoveListConfirmation,
+    contract.sourceLocations.operatorRelocationListBoundToSignalScope,
     true,
-    'operator relocation must present the enumerated batch for confirmation before moving'
+    'operator relocation must move exactly the Source list named by the completion signal'
   );
   assert.equal(
     contract.sourceLocations.operatorSignalIsOnlyRelocationTrigger,
@@ -522,9 +523,11 @@ async function main() {
     'docs/AGENTS.zh-CN.review.md must mirror the AGENTS.md command table (row count)'
   );
 
-  const [flowchart, workflow, inputReadme, dataReadme, context, archIndex, lifecycle, verification] = await Promise.all([
+  const [flowchart, workflow, processDoc, localEnvironments, inputReadme, dataReadme, context, archIndex, lifecycle, verification] = await Promise.all([
     readFile(projectPath('docs/workflow-flowchart.zh-CN.html'), 'utf8'),
     readFile(projectPath('docs/dynamic-dataset-workflow.md'), 'utf8'),
+    readFile(projectPath('docs/asset-workflow.md'), 'utf8'),
+    readFile(projectPath('docs/local-environments.md'), 'utf8'),
     readFile(projectPath('input/README.md'), 'utf8'),
     readFile(projectPath('data/README.md'), 'utf8'),
     readFile(projectPath('CONTEXT.md'), 'utf8'),
@@ -533,12 +536,25 @@ async function main() {
     readFile(projectPath('docs/architecture/verification-publication.md'), 'utf8'),
   ]);
 
-  // The operator relocation rule has exactly one owning definition. The owner
-  // must keep the operational steps (pre-move confirmation, no-clobber
-  // failure); every other context document may only summarize and point.
-  assert.match(workflow, /## Operator Review-Completion Signal/, 'workflow must own the operator relocation rule');
-  assert.match(workflow, /wait for their explicit confirmation/, 'operator relocation must require pre-move batch confirmation');
-  assert.match(workflow, /same-name destination/, 'operator relocation must keep the no-clobber failure step');
+  // The operator relocation rule has exactly one owning definition in the
+  // process owner. It keeps the scope rule (stop only for Sources outside the
+  // signalled scope) and the no-clobber failure; other documents only point.
+  assert.match(processDoc, /## 7\. Operator Review-Completion Signal/, 'asset-workflow must own the operator relocation rule');
+  assert.match(processDoc, /outside the scope the signal names/, 'operator relocation must stop for Sources outside the signalled scope');
+  assert.match(processDoc, /same-name destination/, 'operator relocation must keep the no-clobber failure step');
+  assert.doesNotMatch(workflow, /Operator Review-Completion Signal\n/, 'modeling rules must not redefine the operator relocation rule');
+  // One process, one owner: the modeling rules and the process owner name
+  // only the record:workflow entry, never the historical low-level pipeline
+  // (kept in docs/archive/ and the AGENTS command table).
+  for (const [name, source] of [['docs/asset-workflow.md', processDoc], ['docs/dynamic-dataset-workflow.md', workflow]]) {
+    assert.doesNotMatch(source, /record:(?:intake|build|verification|fidelity)\b|verify:closeout/, `${name} must use record:workflow instead of the historical low-level pipeline`);
+  }
+  // The no-browser delivery rule is owned once by asset-workflow; no other
+  // document may reintroduce a final browser check of the viewer.
+  assert.match(processDoc, /不用浏览器查看页面/, 'asset-workflow must own the no-browser delivery rule');
+  for (const [name, source] of [['AGENTS.md', agents], ['docs/AGENTS.zh-CN.review.md', mirror], ['docs/dynamic-dataset-workflow.md', workflow], ['docs/local-environments.md', localEnvironments], ['docs/fidelity-loop-rules.md', await readFile(projectPath('docs/fidelity-loop-rules.md'), 'utf8')]]) {
+    assert.doesNotMatch(source, /Verify the actual file entry|inspect the root file entry|实际打开|打开对应 key|实际验证文件入口/, `${name} reintroduces a browser check of the viewer; asset-workflow owns delivery`);
+  }
   for (const [name, source] of [
     ['CONTEXT.md', context],
     ['AGENTS.md', agents],

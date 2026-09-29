@@ -1,163 +1,141 @@
-# 图片与文字的指标入库流程
+# 输入资产处理流程
 
-项目的主线是：**处理材料 → 在根目录 `index.html` 审阅 → 确认通过 → 同一页面显示正式结果**。
-图片和文字是来源格式；利润表、收入序列、通用指标是内容类型，分别判断。
-本文件是新输入的操作入口。桑基图的详细质量规则仍只由
-[fidelity-loop-rules.md](fidelity-loop-rules.md) 定义。
+本文件是新材料（PNG、UTF-8 TXT / Markdown）处理流程的**唯一属主**：命令、顺序、
+检查范围、人工审阅、发布、上线、归档与汇报都只在这里定义。
+读图与建模规则见 [dynamic-dataset-workflow.md](dynamic-dataset-workflow.md)，
+桑基图保真规则见 [fidelity-loop-rules.md](fidelity-loop-rules.md)，字段见
+[data/schema.md](../data/schema.md)，命令与协议清单见
+[workflow-command-reference.md](workflow-command-reference.md)（自动生成）。
+`review-candidate/v1` 之前的历史 Build 按
+[archive/legacy-direct-edit-workflow.md](archive/legacy-direct-edit-workflow.md) 解释。
 
-## 一份材料怎样处理
+## 1. 三条原则
 
-1. 执行者先完整阅读原图或原文，把事实、原文位置、必要说明和疑问写入
-   `source-facts/v1`。识别由执行者完成；程序负责校验与编译，不宣称能可靠地
-   自动识别任意图片。读不清的内容放进 `questions`，不得猜测后通过检查。
-2. `record:workflow start` 接收材料，检查重复，固定原始字节的摘要，在
-   `input/processing/` 认领来源，并建立该 Build 的独立工作目录。
-   正式目录和其他 Build 不会被草稿修改。
-3. `record:workflow continue` 根据现有 Build 记录继续。通用指标自动生成
-   数据文件、对象清单、来源覆盖、检查计划、审阅包和检查证据。桑基图与收入
-   序列在返回的工作目录内编写原有 SSOT / Adapter，再由同一个入口编译记录。
-4. `prepare` 成功后，根目录 `index.html` 自动显示本次完整查看器，并标注「待人工审阅」。
-   直接双击文件即可，无须启动本地服务。数据检查通过后，用 `record:workflow report` 生成 HTML 处理单，直接对照
-   原材料和结果。要求还原的桑基图先完成结构、文字、细节与语言三个阶段；
-   执行者查看每轮图形证据，再记录冻结决定。修改相关输入会重开受影响阶段。
-5. 审阅者在根目录 `index.html` 检查实际交互结果，并结合处理单核对原材料。
-   可以在处理单逐项选择并导出记录，或在当前任务明确回复「人工审阅通过」，由执行者
-   将该明确确认绑定当前审阅包及所有必需决定；不得补造未确认的判断。`record:workflow review` 校验该记录
-   是否对应当前结果。机器通过不能替代人工接受；旧版本的审阅不能接受变化后的数据。
-6. `record:workflow continue` 完成已审阅结果的基线暂存和最终检查，记录
-   `SEALED`。这里仍没有正式写入。只有 `publish:datasets plan` 检查整批合并结果，
-   再由 `publish:datasets commit` 完成正式版本切换。执行者收到本次明确通过后连续完成
-   这些已授权步骤，不再另问是否发布。根目录页面自动切换为「已审阅通过 · 已发布」。
+1. **做完即待人工审阅。** 机器只查人眼不易发现的问题：来源覆盖与金额对账、数据
+   一致性、每种语言一次渲染硬门槛。同一份字节只检查一次。人看得出的问题留给审阅。
+2. **人工接受是唯一的闭环决定。** 机器全绿只是「待审阅」；操作员的一句通过由工具
+   展开为逐项记录，并注明依据，执行者不另行补造判断。
+3. **执行者在数据处理任务中不用浏览器查看页面。** 交付、审阅、发布、上线核对都
+   只用命令与 HTTP。唯一例外：渲染硬门槛失败、需要看候选图排错时，查看
+   `record:workflow` 已生成的证据图片，仍不打开查看器页面。
 
-源文件支持 PNG、UTF-8 TXT 与 Markdown。文字位置采用解码后字符串的 UTF-16
-区间；图片位置采用原始像素矩形。格式不支持时明确报错，不转换成虚构坐标。
+## 2. 一份材料的步骤
 
-## 最少需要填写什么
+| # | 执行者做什么 | 命令 |
+| --- | --- | --- |
+| 1 | 完整读原材料，按建模规则过 Type Gate，写 `source-facts/v1`；读不清的写进 `questions` | — |
+| 2 | 接收并认领来源，建立独立草稿 | `pnpm record:workflow -- start --source <pending> --key <key> --facts <facts.json> --session <owner>` |
+| 3 | 桑基图 / 收入序列：在返回的 workspace 中编写 SSOT、Adapter、i18n | — |
+| 4 | 连续跑完全部自动步骤：准备与对账 → 数据一致性 → 一次全语言渲染，停在待审阅 | `pnpm record:workflow -- continue <build> --session <owner> --generation <gen>` |
+| 5 | 交付审阅链接（§4），等待操作员 | — |
+| 6 | 操作员通过后：记录审阅 → seal → 本机发布（无需再问） | `review` / `seal` / `publish:datasets plan` + `commit` |
+| 7 | 操作员要求推送时：Git 交接与上线核对（§6） | `release:git` 等 |
+| 8 | 操作员给出完成信号时：归档来源（§7），流程全部结束后清理（§8） | `archive-list` / `archive` |
 
-通用指标只填写一份事实文件，不手工拼装多个清单和摘要。
-完整示例见 [source-facts.example.json](examples/source-facts.example.json)，
-对应 [source-facts.example.txt](examples/source-facts.example.txt)。字段含义：
+`continue` 任一步失败即停，并给出原因。修改事实或草稿后再跑 `continue`，它按
+实际输入变化自动决定重新准备、重跑检查或重新渲染。编写期间需要看图时，只渲染
+源语言做诊断：`pnpm verify:d3 -- <key> --build <build> --language en`；该命令
+只读，不产生证据。材料有 `questions` 或建模规则的阻断项时，不能推进到审阅。
 
-| 字段 | 要求 |
-| --- | --- |
-| `subject` | 公司或产品的类型、稳定名称标识、来源中的名称 |
-| `period` | 原材料明确给出的时间；不要擅自把财年改成自然年 |
-| `basis` | 指标口径；来源未说明时明确写 `unspecified`，不冒充 GAAP 或审计数据 |
-| `metrics` | 每项指标的稳定标识、名称、十进制字符串、单位、币种、原文及位置 |
-| `context` | 主体、日期、单位、口径、必要脚注的原文与位置 |
-| `exclusions` | 不进入系统的非语义内容及原因，例如作者水印；“其他”金额不可排除 |
-| `questions` | 暂未解决的问题；非空时不能生成可接受的结果 |
+多份材料可用 `record:workflow batch --input <batch.json> --concurrency 2` 以独立进程
+并行，各自失败互不影响。
 
-PNG 中的指标用 `image-box`；文本用 `text-range`。同一事实文件同时生成
-SourceCoverage 和 ObjectInventory，避免重复抄录。文本还会检查是否存在未交代的
-非空白、非标点内容；图片是否完整读取仍须在全图审阅中确认。
+## 3. 检查边界
 
-桑基图事实文件使用 `objects`：每项包含一次 Source 观察和对应的 `object`
-映射、特征及原始测量。原有金额精度、Other、小额可见性、接口和语言要求保留。
-[dynamic-dataset-workflow.md](dynamic-dataset-workflow.md) 的九步细节适用于这些
-专业处理步骤；在新 Build 的独立目录中执行。
+| 场景 | 必须运行 | 不运行 |
+| --- | --- | --- |
+| 单份材料处理 | `continue` 内置：prepare 对账、`verify:dataset --skip-render`、每语言一次渲染证据 | `pnpm check`、`pnpm test`、`verify:app`、`verify:site`、`verify:standalone`、`verify:workbench`、手写浏览器脚本 |
+| 审阅后 seal | 重新哈希输入、重跑数据一致性；渲染复用已接受的逐语言证据（输入未变即同一字节） | 再次渲染；需要时显式 `seal --fresh-render` |
+| 本机发布 | `publish:datasets plan` 对整批跑一次 `verify:dataset --skip-render` | 浏览器检查 |
+| Git 交接 | `release:git prepare`：`check` + `build:site` | render regression、`verify:site`（交给 CI；本机要跑用 `--full`） |
+| 推送后 | CI 全套；`pnpm verify:release -- --online --key <key> ...`（HTTP） | 打开线上页面 |
+| 修改共享代码 / 文档 | 直接相关测试；最终候选跑一次 `pnpm check` | 未变输入上的重复运行 |
 
-## 检查和返工怎样安排
+修改共享代码、渲染器或检查程序时，先改完再刷新受影响的草稿（`record:workflow
+refresh`），避免整批证据反复失效。
 
-处理状态只有现有的 DatasetBuild 状态。处理单、耗时、资产计划和下一步都是
-这些记录的视图；批次清单只记录任务成员，不增加一套人工状态账本。
+## 4. 交付待审阅
 
-- 每个 Build 自动记录工具、规则、数据、原材料及资产依赖。检查也会发现新增、
-  删除或变化的依赖，不仅检查调用者列出的文件。
-- 共享目录与公司文件的**本项贡献**单独固定；其他公司的注册变更不会让本项
-  审阅失效。共享文件整体仍由最终检查和整批投影验证。
-- 三阶段记录绑定相应数据与图形范围。只改 `layout.labels` 的位置会重开文字与
-  后续阶段；数据与结构未变时，其阶段记录可以保留。未知变化保守重查。
-- 新独立 Build 的 `prepare-review` 强制生成完整依赖和阶段策略，不能通过少填
-  文件列表绕过。历史 Build 保留原记录；不会补写虚构的冻结或审阅。
-- 最终 seal 始终重新执行适用的完整检查。阶段复用不代替最后一道检查。
+`continue` 返回 `next: "review"`、`fresh: true` 且带 `reviewToken` 即可交付，不等待
+统一预览重建、不打开浏览器。操作员运行 `pnpm dev` 后使用审阅链接
+`http://127.0.0.1:8000/?review=<build>#<key>`（根目录 `index.html` 会自动发现同一服务）。
 
-新反馈仍写入现有 FeedbackLedger。独立 Build 的新反馈或明确重开会更新审阅上下文，使旧完成状态失效，须重新准备与审阅。`record:workflow feedback` 同时列出同批需要
-横向排查的 Build。跨检出案例索引由 casebook 自动生成；准备阶段按所用规则列出
-命中案例。执行者须按 [fidelity-loop-rules.md](fidelity-loop-rules.md) §5 关闭问题、
-记录同批检查，并落实要求的防错升级。
+最终回复不超过 8 行，写清：
 
-## 图标先查再做
+- key、Adapter、Build 与当前状态；
+- 审阅链接；
+- 录入的指标 / 节点数量，Other 与最小值的处理；
+- 未决问题或偏离原图之处（没有就写「无」）；
+- 没有运行、或失败后跳过的检查。
 
-`record:workflow assets <build-id>` 查看资产来源、裁剪说明、内容摘要、直接及
-间接使用位置。只有绑定当前字节、当前裁剪说明且有明确接受记录的版本标为可复用。
-没有独立接受记录的历史资产显示为需审阅，不能自动冒充已确认版本。
+不写处理记录文件。需要更多细节时，操作员可运行 `record:workflow report` 生成处理单。
 
-裁剪 JSON 进入 Git，并随资产进入正式快照；原始 processed 图片仍只保存在本机。新版本在 Build 草稿中
-通过 `asset-version` 记录，随数据一起发布。矢量与经检查的运行时栅格两条路径都
-允许，具体要求只由 [data/assets/README.md](../data/assets/README.md) 定义。
+## 5. 记录审阅、seal 与本机发布
 
-## 批量输入、发布与恢复
+操作员在对话中明确表示通过（如「人工审阅通过」「全部审阅完毕」）后，执行者写
+简式审阅记录，不再逐项询问：
 
-`record:workflow batch --input <batch.json> --concurrency 2` 先认领并保存成员清单，
-再用独立进程继续各自的 Build。一个任务失败不会替另一个任务标记完成。
-同一批同一路径若有不同修改，会报明确冲突；不会自动覆盖。相同主体、时间、
-指标标识和口径的通用指标也会报重复，需明确处理新旧来源关系。
+```json
+{ "reviewToken": "<show 返回>", "previewId": "<工作台候选 id>", "reviewer": "<操作员>", "decision": "accepted", "note": "<操作员原话与日期>" }
+```
 
-正式版本位于 `output/publications/trees/<digest>/`。发布前已完成整批检查，提交时
-只原子替换 `current.json`。浏览器先进入带版本摘要的路径，再加载该版本全部文件，
-不会混用两版脚本或资产。再次提交同一计划返回原收据；提交前失败保留旧正式版本；
-提交结果未知时按原计划摘要查询并恢复收据。
+`previewId` 用 HTTP 读取，不开浏览器：
+`curl -s 'http://127.0.0.1:8000/__trace/status?source=review&key=<key>'`，取
+`preview.candidate.id`，并确认其 `members` 中该 Build 的 `reviewToken` 与 `show`
+一致。`record:workflow review` 校验候选仍是最新，把接受展开为逐项检查记录、
+interface matrix 与 attention，并标注依据。不通过或有问题时，用
+`record:workflow feedback` 记录，修复后重新 `continue`，不写 `decision` 为拒绝。
 
-当前版本发生变化时，旧计划不能盲目重试。`record:workflow refresh <build-id>`
-检查路径冲突、更新工作目录和工具，重新准备，再完成适用的审阅与新 seal，最后
-生成新发布计划。相同文件的实质冲突须先由执行者核对解决。
+随后依次执行 `record:workflow seal <build>`、`publish:datasets -- plan <build> [...]`、
+`publish:datasets -- commit <plan-digest>`。本机发布只切换本机正式快照，不代表已上线。
 
-根目录 `index.html` 是固定的本机审阅入口。运行一次 `pnpm dev` 后，文件入口发现同项目
-HTTP 工作台。默认将已准备草稿和项目数据汇入同一个完整 Pages 候选，在公司/期间列表
-内查看，用“上一项 / 下一项”依次验收。任务地址为 `/?review=<build-id>#<key>`。
-验收页自动载入最新成功候选，二次保存也会跟进；当前选择与显示设置保留。
-需要对照旧版本时在“更多”暂停自动更新。每次验收仍绑定实际展示的完整候选及成员。
-自动更新开发视图与单项排查放在“更多”，CI / 版本信息收在详情；线上对照仍可直接切换。
-没有服务时保留原来的离线选择，`?offline` 显式使用离线方式。
+## 6. 上线（仅在操作员要求推送后）
 
-并发处理必须记录 Session owner/generation，进入自己的普通 Build workspace，不创建
-Git worktree，也不在草稿中操作 Git。新 Session Build 的审阅输入还需 `previewId`，绑定
-工作台展示的有效生产预览。详细命令、恢复规则与环境状态由
-[local-environments.md](local-environments.md) 维护。
-`pnpm dev -- --draft` 查看原始静态源文件；`pnpm view:published` 查看正式快照。
+1. `pnpm release:git -- prepare <published-digest>` 在私有候选中合并已发布贡献与 HEAD，
+   跑 `check` 与 `build:site`。
+2. 结果中 `acceptance.inheritsBuildAcceptance` 为 `true`，说明候选使用与审阅时相同的
+   应用代码。此时推送指令已覆盖该候选，记录
+   `{ "operator": "...", "accepted": true, "candidateDigest": "...", "basis": "inherited-build-acceptance" }`
+   即可。为 `false` 时，向操作员说明应用变化并等待确认，再用 `basis: "displayed-candidate"` 记录。
+   记录命令：`pnpm record:transport-review -- <transport-id> --input <review.json>`。
+3. `pnpm release:git -- commit <transport-id>`，然后 `pnpm release:git -- push <transport-id>`。
+4. `gh run watch` 等待 CI；失败先修复，再只跑失败的最小检查。
+5. `pnpm verify:release -- --online --key <key> [--key ...]` 核对线上版本来自该提交，
+   且每个新 key 已部署。`verify:release` 的默认模式是 CI 专用门禁，本机不单独运行。
 
-`release:dataset <published-digest> site|standalone` 只从该正式版本生成并检查输出。
-失败保存独立 Attempt，不改变已经发布的数据；重试创建新 Attempt。这里不自动部署。
+## 7. Operator Review-Completion Signal
 
-### GitHub Pages 上线交接
+操作员明确表示人工审阅完成（包括「人工审阅完毕」「Processing 内所有图片已审阅
+通过」），或表示已推送并合入 `main`，即为完成信号。信号覆盖它所指的范围：
+点名「Processing 内所有」即整个 `input/processing/`，只说本任务则为本任务的 Build。
 
-当前 GitHub Pages CI 从 `main` 的 Git 工作树运行 `build:site`；它拿不到本机忽略的
-`output/publications/`。因此本机「已发布」只证明本机正式快照已切换，不能据此报告
-线上已更新。用户要求上线时，执行者须继续完成以下交接：
+1. 用 `record:workflow archive-list [<build>]` 枚举该范围的完整来源清单与摘要。
+2. 在回复中列出清单，**不再追问**。只有清单包含 outside the scope the signal names
+   的来源（例如信号只指本任务，而目录里还有其他 Session 的材料）时，才停下来询问。
+3. `record:workflow archive --input <signal.json>` 消费信号、`sourceListDigest` 与明确
+   的 `entries` 或 `buildIds`，把来源移到 `input/processed/`。若 same-name destination
+   已有不同字节则安全失败；相同字节只用于恢复中断的复制后删除。
+4. 把 tracked processing 队列中的删除随交接提交；`input/processed/` 永不 force-add。
 
-1. 用 `release:git prepare <published-digest>` 从已发布贡献和当前已提交代码生成完整候选。
-   它不覆盖应用代码或无关草稿，按记录合并同一公司文件，投影注册和固定的显示时间。
-2. 在工作台 `/?source=<transport-id>` 查看通过检查的候选，并把真实确认记录为
-   `record:transport-review <transport-id> --input <review.json>`。历史 Build 接受不自动
-   接受后来改变的应用或集成结果。
-3. `release:git commit <transport-id>` 使用共享发布写锁、明确的路径清单、私有临时
-   index 和恢复日志。有关 Source 的 tracked queue 变更随数据提交；processed 保持忽略。
-4. 你明确要求推送后执行 `release:git push <transport-id>`；等待 CI 及 Pages 部署成功，
-   读取线上清单并实际打开每个新增 key。CI 对 transport 提交校验审阅与实际产物映射。
+这是唯一的来源搬移授权。它不需要也不产生 Build 收据、seal 或审阅记录；没有信号时
+来源留在 `processing/`。
 
-这条交接保留本地 Publication 的单指针事务。Git 工作树应用是可恢复操作，
-不声称多文件原子替换。完整协议和失败恢复见 [local-environments.md](local-environments.md)。
+## 8. 收尾清理
 
-## 原材料何时归档
+所需审阅、发布、归档与交付都完成，且没有其他 Session 使用工作台与产物目录后，
+停止 `pnpm dev`，执行 `pnpm clean:artifacts -- --completed`。保留范围见
+[artifact-retention.md](artifact-retention.md)。
 
-来源在系统里的位置和摘要随数据发布；本机文件归档仍只接受明确的操作员完成信号，
-见 [dynamic-dataset-workflow.md](dynamic-dataset-workflow.md) 的 Operator Review-Completion
-Signal。`archive-list <build-id>` 只枚举所选 Build 的完整 Source 清单；省略 Build
-才枚举整个 processing。`archive --input <signal.json>` 消费对应摘要以及明确的 `entries`
-或 `buildIds` 和确认，不会带走其他 Session 的材料。目标不同内容则拒绝；相同内容仅用于恢复已经复制但尚未删除的中断移动。
-processed 永不 force-add。
+## 9. 协作、恢复与资产
 
-## 现有资料与命令
-
-[自动生成的命令及协议表](workflow-command-reference.md) 是当前可执行入口清单。
-底层 `record:build` / `record:fidelity` 继续可用；旧 Build 使用原版本协议，独立新
-Build 由完整依赖和检查点策略约束。架构分工与迁移状态只在
-[architecture/README.md](architecture/README.md) 维护。
-
-## 最后清理
-
-所需验证、Source 归档及交付全部完成后，停止工作台并执行
-`pnpm clean:artifacts -- --completed`。删除工作副本、图形证据、报告、预览与本机发布树，
-只保留精简历史 meta；已确认完成时不再重复询问。先验证再清理，清理后再统计目录大小。
-保留范围与旧 Build 不可恢复的含义只由 [artifact-retention.md](artifact-retention.md) 定义。
+- 多个 Session 共用同一检出：各自的普通 Build workspace、owner 与 generation，不建
+  Git worktree，草稿中不运行 Git。认领、转交、恢复与工作台细节见
+  [local-environments.md](local-environments.md)。
+- 正式版本变化后，旧草稿先 `record:workflow refresh <build>`，再按新结果审阅。
+- 新反馈写入 `record:workflow feedback`，会使旧审阅失效，并列出同批需要横向排查的
+  Build；防复发协议见 fidelity §5。
+- 图标先查 `record:workflow assets <build>`；新版本在草稿中用 `asset-version` 记录。
+  资产目录规则只由 [data/assets/README.md](../data/assets/README.md) 定义。
+- 通用指标的 `source-facts/v1` 字段示例见
+  [source-facts.example.json](examples/source-facts.example.json)。其中 `questions` 非空时不能审阅；
+  PNG 位置用 `image-box`，文本用 `text-range`（UTF-16 区间）。

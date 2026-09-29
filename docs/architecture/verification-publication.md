@@ -191,7 +191,7 @@ staging object must not be described as one transaction.
 
 Sealing is a fresh, non-mutating check after closure and baseline staging. It
 recomputes the build's seal-input digest, validates every ArtifactManifest
-reference, reruns the Adapter's final profile, and verifies that no open
+reference, completes the Adapter's final profile, and verifies that no open
 manual or automatic requirement remains.
 
 The seal verifier must not repair registration, regenerate metadata, update a
@@ -200,11 +200,15 @@ input differs, it returns a stale-input result; the Build reopens at the
 recovery point defined in the lifecycle document.
 
 The implemented `sealReviewedBuild` takes no caller pass JSON: it internally
-inspects and re-hashes the authored files, reruns the read-only Adapter final
-profile — the non-render dataset consistency profile plus, for Income
-Statement, the d3 render hard gates for every required Plan locale — requires
-the Build to be `BASELINE_STAGED` with an accepted closure, and only then
-records `SEALED`. The receipt stores each profile run in `finalProfiles`.
+inspects and re-hashes the authored files, reruns the read-only non-render
+dataset consistency profile, requires the Build to be `BASELINE_STAGED` with an
+accepted closure, and only then records `SEALED`. For Income Statement the d3
+render hard gates for every required Plan locale were already proven by the
+accepted FidelityResult on the exact authored snapshot; because freshness pins
+the renderer, fonts, Adapter and semantic data, seal reuses that proof
+(`reusedEvidence: true`, output digest = accepted locale evidence digest) and
+renders again only when that proof does not cover every locale or the caller
+passes `--fresh-render`. The receipt stores each profile row in `finalProfiles`.
 Manual decisions are consumed from the accepted closure rather than
 re-executed, and the staged baseline stays excluded from the verdict. The
 Source classification, Coverage, and node-face policy remain bound through
@@ -330,8 +334,9 @@ compatibility rule is replace, not layer indefinitely:
   sealing without changing canonical output (implemented; now the primary
   close-out path);
 - replace the freshness-only seal check with the complete Adapter
-  final-verification profile (implemented: non-render consistency plus
-  per-locale render hard gates);
+  final-verification profile (implemented: non-render consistency rerun plus
+  per-locale render hard gates, reused from the accepted evidence when the
+  authored snapshot is unchanged);
 - turn manifest, registration, baseline, and metadata writers into pure
   projectors;
 - add canonical CAS and only then route mutations through `publish:*`;
@@ -340,8 +345,8 @@ compatibility rule is replace, not layer indefinitely:
   cover the same behavior.
 
 Until each replacement lands, the current operational commands in
-[`dynamic-dataset-workflow.md`](../dynamic-dataset-workflow.md) remain the
-executable instructions, including their known transitional limitations.
+[`asset-workflow.md`](../asset-workflow.md) remain the executable
+instructions, including their known transitional limitations.
 
 ## Completed-work artifact retirement
 

@@ -22,11 +22,10 @@ Source folders are operational locators, not a fourth lifecycle scope.
 `record:intake` fixes the Source digest and claims the selected file from
 `input/pending/` into the Build-local `input/processing/` working locator and
 lease. The Source remains there until an explicit operator review-completion
-signal; after the operator confirms the enumerated processing batch, the
-confirmed Sources move no-clobber to `input/processed/`. That signal is the only
-current relocation trigger, changes no Source digest identity, and fabricates
-no Build state; its owning definition is `docs/dynamic-dataset-workflow.md`
-§Operator Review-Completion Signal. Publication records the stable Source locator and digest with the data;
+signal; the Sources inside the scope that signal names move no-clobber to
+`input/processed/`. That signal is the only current relocation trigger, changes
+no Source digest identity, and fabricates no Build state; its owning definition
+is `docs/asset-workflow.md` §7 Operator Review-Completion Signal. Publication records the stable Source locator and digest with the data;
 local archive relocation retains this explicit operator policy (ADR-0002).
 
 Git transport is separate from lifecycle state: `input/pending/` and
@@ -181,8 +180,9 @@ the authoritative value falls outside the primary literal's rounding
 interval, the literal is instead a confirmed numeric typo and may proceed
 only through the user-directed authoritative-correction path; without one of
 those typed records, the Build stops rather than writing zero.
-`record:build` exposes the deep prepare-review, finish-reviewed, stage, seal,
-and inspect operations. A stored `SEALED` receipt is historical fact, while
+`record:workflow` drives these operations for new Builds (`record:build`
+exposes the deep prepare-review, finish-reviewed, stage, seal, and inspect
+operations for historical ones). A stored `SEALED` receipt is historical fact, while
 inspection computes effective freshness: changing an authored file makes a
 historical `SEALED` Build effectively `AUTHORED`. `CloseoutReport`, Task
 information, and Loop Fidelity Summary are generated Views over structured

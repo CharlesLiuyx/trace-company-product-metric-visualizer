@@ -1,314 +1,149 @@
 # AGENTS.md
 
-Guidance for agents working in this repository. This file routes: each
-detailed rule lives in exactly one owning document, and this file gives a
-high-level workflow overview plus a one-line summary and pointer per domain.
-Keep this file and its Chinese mirror `docs/AGENTS.zh-CN.review.md` updated
-together.
+Agent guidance for this repository. This file only routes: every rule lives in
+exactly one owner below. Update it together with `docs/AGENTS.zh-CN.review.md`.
 
 ## Rule Ownership Map
 
 | rule domain | owning document |
 | --- | --- |
 | fast-loaded domain and architecture context | `CONTEXT.md`, then `docs/architecture/README.md` |
-| target dataset lifecycle: state scopes, lifecycle objects, input-type Adapters, seal invalidation, migration | `docs/architecture/dataset-lifecycle.md` |
-| target verification/publication architecture: evidence, baseline, verify/record/publish semantics, CAS, Release | `docs/architecture/verification-publication.md` |
-| machine-readable lifecycle protocol/state/Adapter contract | `docs/architecture/lifecycle-contract.json` (`pnpm verify:architecture` enforces parity) |
-| accepted architecture decisions | `docs/adr/` (start with `docs/adr/0001-dataset-build-transactions.md`) |
-| media-neutral intake, isolated drafts, generated processing sheets, batch orchestration and current publication commands | `docs/asset-workflow.md` (command/protocol table: `docs/workflow-command-reference.md`) |
-| dynamic dataset workflow: nine-step current pipeline, pre-intake Adapter Type Gate, Source → Inventory → SSOT → Adapter coverage, execution/delegation, traps, final checklist, reporting | `docs/dynamic-dataset-workflow.md` |
-| d3 fidelity: canonical numbered rules, preflight measurement, three-stage sweep state machine, automatic/manual evidence, acceptance conditions | `docs/fidelity-loop-rules.md` (its rule-catalog section is generated); rule-semantics SSOT: `scripts/lib/fidelity-rules-catalog.mjs` + derived contract `scripts/lib/fidelity-rule-contract.mjs`; regenerate with `pnpm update:fidelity-rules-doc` (`pnpm verify:architecture` enforces freshness and parity) |
-| historical user-feedback cases: root causes, current defenses, recurrence-upgrade paths (cross-checkout recurrence memory) | `docs/fidelity-feedback-casebook.md` (registration/consumption protocol owned by `docs/fidelity-loop-rules.md` §5) |
-| dataset / SSOT field-level format | `data/schema.md` |
-| commit message convention | `docs/commit-messages.md` |
-| data-adjacent asset layout (icon crops, raster annotations) | `data/assets/README.md` |
+| dataset lifecycle: state scopes, lifecycle objects, Adapters, seal invalidation, migration | `docs/architecture/dataset-lifecycle.md` |
+| verification/publication architecture: evidence, baseline, verify/record/publish semantics, CAS, Release | `docs/architecture/verification-publication.md` |
+| machine-readable lifecycle contract | `docs/architecture/lifecycle-contract.json` (`pnpm verify:architecture` enforces parity) |
+| accepted architecture decisions | `docs/adr/` (start with `0001-dataset-build-transactions.md`) |
+| **the input-processing process**: commands, order, check boundaries, review, publication, Git hand-off, Source archive, reporting | `docs/asset-workflow.md` (generated command/protocol table: `docs/workflow-command-reference.md`) |
+| dataset modeling rules: Adapter Type Gate, Source-object taxonomy, anti-omission invariants, Source Coverage, reconciliation, traps | `docs/dynamic-dataset-workflow.md` |
+| d3 fidelity rules, preflight measurement, review candidate, evidence, feedback, closure | `docs/fidelity-loop-rules.md` (catalog section generated from `scripts/lib/fidelity-rules-catalog.mjs` by `pnpm update:fidelity-rules-doc`) |
+| cross-checkout feedback recurrence memory | `docs/fidelity-feedback-casebook.md` (protocol: `docs/fidelity-loop-rules.md` §5) |
+| dataset / SSOT field format | `data/schema.md` |
+| data-adjacent assets (icon crops, raster annotations) | `data/assets/README.md` |
 | Trace product and data model | `docs/trace-specification.zh-CN.md` |
-| same-checkout Sessions, local workbench, Git transport and recovery | `docs/local-environments.md` |
-| output/compare retention, completed-work cleanup and historical metadata | `docs/artifact-retention.md` |
-| human quickstart, viewer usage | `README.md` |
-| CI check purpose, ChangeImpact routing, performance baseline, Pages artifact handoff | `docs/ci-verification.zh-CN.md` |
-| Pages runtime data projection, lazy detail loading, version retention and completeness | `docs/architecture/runtime-data.md` |
+| same-checkout Sessions, workbench, Git transport, recovery | `docs/local-environments.md` |
+| output/compare retention and cleanup | `docs/artifact-retention.md` |
+| CI checks, ChangeImpact routing, Pages hand-off | `docs/ci-verification.zh-CN.md` |
+| Pages runtime data projection | `docs/architecture/runtime-data.md` |
+| commit messages | `docs/commit-messages.md` |
+| human quickstart and viewer usage | `README.md` |
+| historical pipelines and implemented plans | `docs/archive/` (not current rules) |
 
-## Goal
+## Goal and Scope
 
 Turn metric assets (PNG images or UTF-8 text) into complete, auditable data
-and usable system views. Use `docs/asset-workflow.md` for new inputs. Income
-Statement inputs retain the complete d3-sankey fidelity loop.
+and usable views. A processed Source ends in "waiting for human review"; the
+operator's acceptance is the only closure decision.
 
-## Execution Scope
-
-Apply the dataset intake, review, publication and Source-archive procedures
-when processing dataset contributions or operating on Builds. For code,
-documentation and review-only tasks, use the relevant owning documents and
-ChangeImpact checks; editing workflow documentation alone does not require
-creating a Build or obtaining dataset acceptance. Changes that affect existing
-Build inputs still follow their freshness and re-review rules.
-
-In the dataset workflow, `STOP` blocks advancement past the failed gate.
-Continue diagnosis, authorized repairs and the necessary re-verification in
-the owning workspace. If progress needs an operator decision, permission or
-conflict resolution that cannot be inferred safely, pause only the dependent
-steps and complete independent work. Source corrections, human acceptance,
-freshness checks and other Sessions' ownership remain governed by their owning
-documents; a failed check never authorizes bypassing them.
+Dataset processing follows `docs/asset-workflow.md`. Code, documentation and
+review-only tasks use the relevant owner and ChangeImpact checks; they do not
+create Builds. A failed gate blocks only the dependent steps: diagnose and
+repair in the owning workspace, pause only for a decision that cannot be
+inferred safely, and never bypass Source corrections, human acceptance,
+freshness, or another Session's ownership.
 
 ## Architecture Boundaries
 
-Load `CONTEXT.md` and `docs/architecture/README.md` before changing the dataset
-lifecycle, verifier orchestration, generated registration/metadata, baseline,
-standalone release, or their docs. The architecture directory distinguishes
-the current Implementation from the accepted target. Until a migration
-milestone is implemented, the commands and operational steps below remain
-authoritative; never present a target command or atomicity guarantee as if it
-already exists.
+Load `CONTEXT.md` and `docs/architecture/README.md` before changing the
+lifecycle, verifiers, generated registration/metadata, baseline or release.
+Never present a target command or guarantee as already implemented.
 
-- The target separates three state scopes: `DatasetBuild`,
-  `PublicationBatch`, and `ReleaseAttempt`. A build-local `FidelityRun`
-  produces evidence but has no canonical-write authority. The governing
-  decision is `docs/adr/0001-dataset-build-transactions.md`.
-- In the command vocabulary, `verify:*` is read-only, `record:*` writes
-  build-local evidence or staging, `publish:*` is the only canonical
-  mutation, and `release:*` acts on a published digest. Implemented
-  `verify:*` / `record:*` commands satisfy that contract; `compat:baseline`
-  is deliberately named outside the classes because it mutates the canonical
-  baseline ledger for legacy direct-edit compatibility, and `publish:*` /
-  `release:*` are implemented for the isolated workflow; see `docs/asset-workflow.md`.
-- Git tracks Source files in `input/pending/` and `input/processing/` so the
-  shared queue and active claims are visible across project checkouts.
-  `input/processed/` is an ignored, machine-local archive; never force-add its
-  contents. Git visibility is transport, not lifecycle authority.
-
-- `data/income-statements/<company-key>.js` (income-statement family,
-  per-company files) and `data/revenue-metrics.js` (revenue family) are the
-  pure Metric SSOTs; `data/datasets/<dataset-key>.js` is the Sankey View
-  Adapter layer — a stable path the viewer, standalone builder, and
-  verifiers rely on. Keep Sankey nodes, links, layout, render, SVG, colors,
-  and pixel geometry out of the SSOTs.
-- `data/company-metadata/<company-key>.js` is the company-profile SSOT (one
- file per company; the file name is the metadata `key`). It powers the
- Table view and must be complete before a company's first dataset is
- registered.
-- Per-company SSOT files must be registered as `<script>` tags in
- `index.html`; dataset adapters register in the generated
- `data/dataset-manifest.js` (never hand-edited) and are progressively
- loaded on demand by the viewer through `src/dataset-registry.js` +
- `src/app/dataset-loader.js`. `verify:ssot` enforces disk ↔ registration
- parity for both surfaces and `pnpm sync:index-datasets` repairs them.
-- Pages alone projects these complete SSOTs into a light catalog and versioned
-  JSON details through `scripts/lib/site-data.mjs` + `src/runtime-data.js`.
-  Source/standalone retain full data. Read `docs/architecture/runtime-data.md`
-  before changing data readiness, table/CSV completeness, or runtime versions.
-- `data/metric-observations/<source-key>.json` is the pure generic Metric SSOT;
-  `data/metric-observations.js` is its generated catalog. The main viewer
-  `src/app/metric-library.js` exposes company/product identity, exact values,
-  units, period, basis and Source quotes without inventing a Sankey. Run
-  `pnpm update:metric-catalog` after authoring and `pnpm verify:metrics` to check.
-- `data/products.js` is an empty placeholder for a future Product SSOT (not
-  verifier-checked). Do not hide product identity or ownership history inside
-  Sankey adapters.
-- Keep Trace domain normalization in `src/trace-domain.js`; zh translation
- data lives in `src/i18n-dictionaries.js` (loads before `src/i18n.js`,
- which keeps the language-neutral rule pipeline). The viewer app is
- split across `src/app/` as ordered classic scripts sharing one top-level
- scope (load order lives in `index.html`): `dom`, `util`, `dataset-loader`,
- `hotkeys`, `i18n-runtime`, `state`, `selectors`, `financial`,
- `chart-theme` form the base layers; `shell`, `controls`, `company-panel`,
- `period-panel`, `tables`, `trend`, `comparison-zoom`,
- `comparison-metric-trend`, `sankey`, `exports`, `metric-library` own one UI concern each;
- `main.js` wires global events and boots last. Put new viewer code in the
- owning module (module map: `README.md` §How it's built). Load-time code
- may only reference earlier scripts, runtime calls may go either way —
- `pnpm check` enforces this and cross-file duplicate declarations
- statically (`verify:app-globals`).
-- When adding a metric family or SSOT, backfill this file and
-  `docs/trace-specification.zh-CN.md`.
-
-
-Income Statement records may carry supplemental `operatingMetrics` (ARR, retention, customer counts). The full-Source Type Gate records `supplemental-operating-metrics`; Source Coverage uses `operating-metric` with exact decimal/unit/currency/comparison and native Source anchors. These values are separate from accounting sums and Sankey flow metrics, and appear in typed SVG cards plus Table/CSV. Field and verification ownership: `data/schema.md`, `scripts/lib/operating-metrics.mjs`.
+- Three state scopes: `DatasetBuild`, `PublicationBatch`, `ReleaseAttempt`;
+  a build-local `FidelityRun` has no canonical-write authority (ADR-0001).
+- `verify:*` is read-only, `record:*` writes build-local state, `publish:*` is
+  the only canonical mutation, `release:*` acts on a published digest.
+  `compat:baseline` is deliberately outside these classes (legacy ledger).
+- Git tracks `input/pending/` and `input/processing/` as a shared queue;
+  `input/processed/` is an ignored local archive — never force-add it.
+- Pure Metric SSOTs: `data/income-statements/<company>.js`,
+  `data/revenue-metrics.js`, `data/metric-observations/<source>.json` (catalog
+  `data/metric-observations.js` via `pnpm update:metric-catalog`). Sankey View
+  Adapters live in `data/datasets/<key>.js`; keep nodes, links, layout, colors
+  and geometry out of SSOTs. `data/company-metadata/<company>.js` must be
+  complete before a company's first dataset. `data/products.js` is a
+  placeholder; never hide product identity in Sankey adapters.
+- Income Statement `operatingMetrics` (ARR, retention, customers) stay separate
+  from accounting sums; ownership: `data/schema.md`,
+  `scripts/lib/operating-metrics.mjs`.
+- SSOT `<script>` tags live in `index.html`; Adapters register in the generated
+  `data/dataset-manifest.js` (never hand-edited). `pnpm sync:index-datasets`
+  repairs both; `verify:ssot` enforces parity.
+- Pages projects SSOTs into a light catalog plus versioned JSON details; read
+  `docs/architecture/runtime-data.md` before changing it.
+- Domain normalization lives in `src/trace-domain.js`; zh data in
+  `src/i18n-dictionaries.js`. `src/app/` is ordered classic scripts sharing
+  one scope (order in `index.html`, module map in `README.md`); put code in the
+  owning module. `verify:app-globals` enforces load order and duplicates.
+- A new metric family or SSOT also updates this file, its mirror, and the spec.
 
 ## Commands
 
-Install once; the d3/standalone verifiers render in Chromium:
+Install once (render verifiers use Chromium):
 
     pnpm install --frozen-lockfile && pnpm exec playwright install chromium
 
 | command | purpose |
 | --- | --- |
-| `pnpm dev` | local review workbench on port 8000 (Dev / automatically updated Pages preview / production) |
-| `pnpm plan:ci -- --base <sha> --head <sha>` | classify a Git diff into the conservative CI verification plan; missing/unknown executable impact falls back to the full browser suite |
-| `pnpm check` | fast aggregate gate (two bounded workers, one native parser process): repo-wide JS syntax, unit tests, pending guard, architecture/app-global contracts, manifest and render-baseline structure freshness, SSOT parity, i18n coverage, metadata freshness (seconds, no rendering); active files in `input/processing/` do not fail this global gate; reproducible on fresh checkouts and run by CI |
-| `pnpm test` | node:test unit tests in `tests/` — Source claim/relocation, engine layout math + label passes, trace-domain parsing/FX, i18n translation rules, png-diff metrics, script-source parsing, dataset registry |
-| `pnpm verify:app` | headless boot + interaction smoke of the modular viewer (`src/app/*`): module count, persisted-prefs boot, hash routing, comparison zoom + metric trend, revenue trend, mobile viewport |
-| `pnpm verify:app-globals` | static gate for the shared-top-level-scope contract: cross-file duplicate declarations and load-time references to later scripts (also part of `pnpm check`) |
-| `pnpm verify:architecture` | enforce lifecycle protocol/state/Adapter parity, command mutation semantics, architecture routes, and local context-document links (also part of `pnpm check`) |
-| `pnpm check:pending [-- --file input/pending/<file>.png --key <final-key>]` | pending duplicate / active-processing claim / processed and key-collision guard; use `--file` for one Build and `--key` after naming, omit both only to audit the shared queue |
-| `pnpm record:intake -- <pending.png> --key <key> --adapter <kind> --signal <signal> [--signal <signal> ...] [--availability <policy>]` | enforce the full-Source Adapter signature, record `source-classification/v1`, then no-clobber claim the Source at `input/processing/<key>.png`; this is not Publication |
-| `pnpm record:build -- prepare-review <build-id> --input <review-input.json>` | validate and record Source Coverage, Object Inventory, authored-value reconciliation, Plan v5, and Packet v4; advance to `AUTHORED` and return a `reviewToken`, without human acceptance |
-| `pnpm record:verification -- <build-id> [--json]` | run the non-render dataset consistency profile and record Build-bound `dataset-verification/v1` evidence; pass its returned reference to `finish` |
-| `pnpm record:fidelity -- <key> --focus <stage-focus> [--language <code> ...] --build <build-id>` | record durable, Build-bound automatic evidence as `evidence-ready`; `--focus` must be a canonical stage focus (`structure-sweep`, `text-sweep`, `polish-l10n-sweep`, `closeout-refresh`); `--language` repeats to render several locales in one command (one run per locale). Without `--build`, explicit-focus output is legacy compatibility evidence only and cannot close a Build |
-| `pnpm record:build -- finish <build-id> --review <review.json>` | consume the `reviewToken` (legacy `packetDigest` is accepted), automatic evidence, human attestation, region/risk/feedback decisions, and Interface Matrix; only an accepted `FidelityResult` advances to `CLOSED` |
-| `pnpm record:build -- stage-baseline <build-id> --input <baseline.json>` | record a build-local, `future-regression-only` baseline stage; Revenue Metric records an explicit `notApplicable` disposition |
-| `pnpm record:build -- seal <build-id>` | recompute artifact freshness, rerun the Adapter final profile (non-render consistency plus render hard gates for every required locale in a single `verify:d3` run for Income Statement), and record `SEALED` only for an accepted, closed, baseline-staged Build with fresh exact digests; does not publish canonical data |
-| `pnpm record:build -- inspect <build-id> [--json]` | read historical/effective state, freshness, review status, Task information, and Loop Fidelity Summary without mutation |
-| `pnpm verify:closeout -- <build-id> [--json]` | read-only close-out gate: requires historical and effective `SEALED`, fresh inputs, and an accepted human review |
-| `pnpm sync:index-datasets` | syncs every data registration surface with disk: `index.html` SSOT `<script>` tags (income statements, company metadata) and the generated dataset manifest (`--check` reports drift) |
-| `pnpm update:dataset-manifest` / `pnpm verify:dataset-manifest` | regenerate / freshness-check `data/dataset-manifest.js` (dataset registration SSOT) |
-| `pnpm update:fidelity-rules-doc [-- --check]` | regenerate (or freshness-check) the generated rule-catalog section of `docs/fidelity-loop-rules.md` from `scripts/lib/fidelity-rules-catalog.mjs` |
-| `pnpm verify:dataset -- <key> [...] [--skip-render]` | read-only batch diagnostic: global SSOT/metadata once, syntax and strict i18n for every key, then a read-only d3 render per key/language |
-| `pnpm verify:ssot` | SSOT ↔ dataset parity, registration parity, and currency/unit + FX coverage (global) |
-| `pnpm verify:i18n -- [--strict] [keys]` | i18n overlay coverage |
-| `pnpm verify:d3 -- <key> [--build <build-id>] [--focus <dir>] [--keep] [--language <code>]` | read-only d3 diagnostic + automatic hard gates; `--build` loads the fresh Plan/node-face policy (required for typed floor exceptions) without archiving or advancing evidence lineage |
-| `pnpm verify:render-regression [-- <keys>]` | read-only batch render regression against `data/render-baselines.json` (reference images are local-only, so machines without them run render hard gates only); incremental by default via a machine-local fingerprint cache under `output/render-regression/` — unchanged keys are skipped and reported, explicit keys and `--update` always render, `--no-cache` forces a full render, CI always runs cold |
-| `pnpm compat:baseline -- <key> [...]` | canonical baseline ledger mutation, deliberately named outside the verify/record/publish/release classes; M4 Publication has not replaced it, and it cannot prove the producing Build correct |
-| `pnpm setup:git-hooks` | enable repository-managed post-commit refresh and pre-push enforcement for Git-time dataset metadata; refuses to overwrite a custom `core.hooksPath` |
-| `pnpm update:dataset-file-metadata` | regenerate `data/dataset-file-metadata.js` from git author times; the managed post-commit hook runs this after a Dataset/revenue commit, and the result must be amended or committed before push |
-| `pnpm verify:dataset-file-metadata` | generated metadata is current in the working tree; the managed pre-push hook additionally requires the current result to be committed |
-| `pnpm build:site` / `pnpm verify:site` | build the optimized Pages runtime projection / browser-check its deferred bundles, on-demand Adapter budget, lazy Chart runtime, and company-switch path |
-| `pnpm build:standalone` | build the self-contained HTML without mutating tracked metadata; inlines all dataset adapters |
-| `pnpm verify:standalone` | standalone artifact needs no sibling files |
-| `sh scripts/clean-compare.sh` | clean legacy top-level scratch files only; d3 diagnostic/evidence runs own and clean their private `compare/runs/` directories, so never use global deletion during concurrent runs |
+| `pnpm record:workflow -- <action>` | the dataset process: `start`, `continue`, `show`, `review`, `seal`, `feedback`, `refresh`, `archive-list`, `archive`, … (see `docs/asset-workflow.md`) |
+| `pnpm publish:datasets -- plan\|commit` | validate a combined candidate and atomically switch the local published tree |
+| `pnpm release:git -- prepare\|inspect\|commit\|push` | Git hand-off of published contributions (`prepare --full` adds local browser checks) |
+| `pnpm record:transport-review -- <id> --input <json>` | record acceptance of a Git hand-off candidate |
+| `pnpm verify:release [-- --online --key <key>]` | CI release gate; `--online` is the HTTP-only post-push production check |
+| `pnpm verify:d3 -- <key> [--build <id>] [--language <code>]` | read-only render diagnosis while authoring |
+| `pnpm dev` | local review workbench on port 8000 |
+| `pnpm check` | fast aggregate gate without rendering (syntax, tests, contracts, SSOT, i18n, metadata); run once per code/doc change |
+| `pnpm test` | node:test unit tests |
+| `pnpm verify:app` | headless viewer boot and interaction smoke |
+| `pnpm verify:architecture` | lifecycle contract, document ownership and drift guards (part of `check`) |
+| `pnpm verify:render-regression [-- <keys>]` | read-only render regression against `data/render-baselines.json` |
+| `pnpm build:site` / `pnpm verify:site` | build / browser-check the Pages projection |
+| `pnpm build:standalone` / `pnpm verify:standalone` | self-contained HTML and its check |
+| `pnpm sync:index-datasets` | sync `index.html` SSOT tags and the dataset manifest with disk |
+| `pnpm update:fidelity-rules-doc` | regenerate the fidelity rule catalog section |
+| `pnpm plan:ci -- --base <sha> --head <sha>` | classify a diff into the CI verification plan |
+| `pnpm clean:artifacts [-- --completed]` | report / remove local artifacts after all work completes |
+| `pnpm record:build` / `record:intake` / `record:fidelity` / `record:verification` / `verify:closeout` | low-level Build commands used inside `record:workflow`; direct use only for historical Builds (`docs/archive/legacy-direct-edit-workflow.md`) |
 
-CI (`.github/workflows/ci.yml`) always runs `pnpm check`, then uses the
-ChangeImpact plan to select app, Pages, full/changed-key render,
-and standalone checks. Unknown executable impact falls back to the complete
-suite. On `main`, the exact verified `_site` artifact is handed to the Pages
-deploy job without a second checkout/install/build. The plain-language
-purpose, mechanism, blind spots, and trigger matrix for every check live in
-`docs/ci-verification.zh-CN.md`. Main push coverage starts at the last successful
-CI ancestor; unknown/missing impact still falls back to the full suite. Avoid
-rerunning a completed aggregate or its children on unchanged inputs; the
-exact-candidate reuse boundary is in `docs/local-environments.md`.
+CI always runs `pnpm check`, then selects app, Pages, render and standalone
+checks by ChangeImpact (unknown impact runs everything).
 
-## Workflow
+## Dataset Processing
 
-Before stopping the shared workbench or running global cleanup, read
-`docs/artifact-retention.md`. Run `pnpm clean:artifacts -- --completed` only
-after all affected local processing, verification and required delivery are
-complete, the operator's completion confirmation covers that scope, and no
-other Session is using the shared workbench or artifact directories. Reuse an
-existing confirmation for that same scope. Keep only compact historical meta
-in output/compare. If another Session still needs these resources, deliver the
-current task's result and report global cleanup as deferred.
+`docs/asset-workflow.md` is the single owner; do not follow restatements
+elsewhere. Its load-bearing points, for orientation only:
 
-New Sources use `record:workflow start` and `continue` in isolated Build
-workspaces. Read `docs/asset-workflow.md` before processing any new asset.
-The existing Build ledger remains authoritative; processing sheets and batch
-membership are derived/grouping records. `publish:datasets plan/commit`
-validates a complete candidate and swaps an immutable-tree pointer with CAS.
-`release:dataset` operates only on a published digest. Legacy Build records
-retain their actual protocol and review history.
+- `record:workflow continue` runs every automatic step and stops at "waiting
+  for human review"; deliver the review link without opening a browser.
+- Single-Source tasks do not run `pnpm check` or browser suites; seal reuses
+  the accepted render evidence; Git hand-off leaves browser checks to CI.
+- The operator's explicit approval covers review, seal and local publication;
+  a push instruction covers a Git candidate that inherits Build acceptance.
+- Only the operator's completion signal relocates Sources, within the scope it
+  names; `input/processed/` stays local.
 
+Multiple Codex / Claude Code Sessions share this checkout without worktrees;
+each works in its own Build workspace with owner and generation
+(`docs/local-environments.md`).
 
-`docs/dynamic-dataset-workflow.md` owns the current nine-step pipeline, Type
-Gate, Source Coverage, execution/delegation, traps, final checklist, and
-reporting. Load it before processing pending Sources and before the final
-response for dataset-processing work. M0–M5 implementation status remains
-owned by `docs/architecture/README.md`; never present target state as current.
-Five-phase summary:
+## d3-Sankey Fidelity
 
-1. Guard, classify, intake — inspect the complete Source and pass the
-   signal-based Adapter Type Gate before `record:intake`; ambiguous or
-   unrecognized input stops before the no-clobber processing claim.
-2. Source coverage and preparation — record complete Source Coverage and
-   `ObjectInventory`, explicitly including Other-like objects (a value-bearing
-   Other is a data metric and keeps a visible bar — T22), smallest
-   non-zero values, face intent, and casebook hits; only then parallelize
-   metadata/SSOT, preflight measurement, and optional icons. A confirmed
-   Source unit or numeric typo may proceed only through the typed,
-   user-directed, authoritative-source-bound correction recorded by Source
-   Coverage; the original literal remains auditable. A zero-looking literal
-   uses precision recovery when the authoritative value is inside its rounding
-   interval, and only a user-directed `numeric-typo` correction when outside.
-3. Adapter & i18n — reconcile Source → Inventory → SSOT → Adapter/data,
-   author the applicable view, localize, and register; a missing icon never
-   removes a semantic object.
-4. Verify and review — `record:build prepare-review`, `record:verification`,
-   per-locale `record:fidelity`, human attestation via `record:build finish`,
-   then `stage-baseline` and `seal`.
-5. Close out — only an explicit operator review-completion signal relocates
-   confirmed Sources to `input/processed/` (owning rule:
-   `docs/dynamic-dataset-workflow.md` §Operator Review-Completion Signal).
-   Present the complete selected Source list before requesting completion
-   confirmation, so one explicit reply can confirm both completion and that
-   list. If the list was not presented or has changed, obtain its explicit
-   confirmation before moving anything; retries retain the confirmed scope.
-   The confirmed move is committed as a removal from the tracked processing
-   queue while the ignored processed PNG stays machine-local;
-   `verify:closeout` is the read-only audit per that document's close-out
-   requirement policy; finish with `pnpm check` and commit per
-   `docs/commit-messages.md`.
-
-## d3-Sankey Fidelity Loop
-
-`docs/fidelity-loop-rules.md` is the single source of truth for fidelity-loop
-behavior. Load it before running or reporting any loop. It owns each canonical
-G/B/R/L/T/A/Z/I definition exactly once; secondary docs may invoke IDs but may
-not restate their formulas or thresholds. Treat every user correction as a
-process-improvement signal: fix the current problem, classify it as a missing
-rule, execution gap, or ambiguous rule, then add an automated/required check
-or a dataset-specific evidence-bound decision. Record durable candidates with
-Build-bound `record:fidelity`; plain `verify:d3` remains diagnostic and never
-creates an evidence run. Machine evidence alone must be reported as
-`review-pending`, never as accepted or converged.
+`docs/fidelity-loop-rules.md` owns every G/B/R/L/T/A/Z/I rule exactly once;
+other documents may cite IDs but not restate formulas or thresholds. Treat each
+user correction as a process signal: fix it, classify it (missing rule,
+execution gap, ambiguous rule), and add an automated check or evidence-bound
+decision per §5 of that document. Machine evidence alone is `review-pending`.
 
 ## Commit Messages
 
 Follow `docs/commit-messages.md`: lightweight Conventional Commits
-(`<type>(<scope>): <summary>`, English lowercase summary). It owns the type
-and scope tables and the rule that a new dataset's adapter, manifest
-registration, and relevant tracked queue change ship coherently, while the
-processed PNG remains local-only. Reusable renderer support is split into a
-prior `render(engine)` commit.
+(`<type>(<scope>): <summary>`, English lowercase). Dataset adapter, manifest
+registration and the tracked queue change ship together; reusable renderer
+support goes in a prior `render(engine)` commit.
 
-## Cursor Cloud specific instructions
+## Fresh Checkouts and Cloud Agents
 
-The environment is a static site plus Node tooling: dependencies
-(`pnpm install --frozen-lockfile`) and the pinned Playwright Chromium
-(`pnpm exec playwright install chromium`) are refreshed by the startup update
-script, so you do not need to reinstall them. Non-obvious caveats for this VM:
-
-- Run the app with `pnpm dev` (zero-dependency static server on
-  `http://127.0.0.1:8000`). It is a long-running process — start it in a
-  background/tmux session, not a blocking foreground call.
-- Reference images under `input/processed/` are Git-ignored and stay in each
-  author's local archive. A fresh checkout has no such PNGs, so
-  `pnpm verify:d3 -- <key>` fails with ENOENT unless that key's reference was
-  restored locally.
-  For engine-wide changes use `pnpm verify:render-regression` instead: it
-  renders every registered dataset, applies the hard gates, and skips
-  similarity scoring for keys without a local reference image.
-- `pnpm check`, `pnpm test`, `pnpm verify:app`, `pnpm build:standalone`, and
-  `pnpm verify:standalone` run green on a fresh checkout. `pnpm verify:d3`
-  additionally requires the selected reference in the machine-local archive.
-
-
-## Local review entry / 本机审阅入口
-
-Use the root `index.html` as the operator’s stable entry. Start `pnpm dev` once;
-the file entry discovers the same-project workbench. The default unified review
-combines prepared drafts and project data in one company/period view; next/previous
-navigates the displayed candidate member list. Successful updates, including subsequent draft edits, load automatically and preserve selection/preferences; More can explicitly pause updates. Provide `/?review=<build-id>#<key>` for
-the current task. Each browser tab records the complete displayed candidate; never infer
-acceptance from another tab, navigating items, or an automatic rebuild.
-
-Multiple Codex / Claude Code Sessions use this same checkout without worktrees.
-Use `record:workflow start` and its ordinary workspace, owner and generation;
-carry that generation on subsequent writes. Low-level record commands need the
-same `TRACE_SESSION_ID` / `TRACE_SESSION_GENERATION`. Do not write shared data,
-registrations or Git from a draft. Refresh historical drafts before resuming.
-
-Successful `prepare` advertises the draft. New Session Build review requires
-the displayed candidate `previewId` and that Build's current reviewToken from
-`displayed.members` in workbench details. Individual Build/transport inspection
-remains under More and `?source=...`; it is not the default operator workflow.
-After explicit Build acceptance, complete review, seal and local Publication
-without another publication question. Git transport separately requires
-explicit human acceptance of its displayed integration candidate: prepare and
-check that candidate before requesting approval, then use `release:git` for
-the exact-path commit. Reuse an existing acceptance only when its required
-candidate and plan bindings remain valid; Build acceptance alone is not
-transport acceptance. Only push on the operator's explicit push instruction.
-Archive only the confirmed selected Source list. Verify the actual file entry
-before reporting dataset delivery complete.
-Machine-local selection is UI preference, never evidence or canonical authority.
-Details and recovery: `docs/local-environments.md` and `docs/asset-workflow.md`.
+The startup script installs dependencies and Chromium; run `pnpm dev` in the
+background. Reference images under `input/processed/` are machine-local, so
+`verify:d3` fails on a fresh checkout unless the key's reference was restored;
+engine-wide changes use `pnpm verify:render-regression`, which skips
+similarity for missing references.
+`pnpm check`, `pnpm test`, `pnpm verify:app`, `pnpm build:standalone` and
+`pnpm verify:standalone` run green on a fresh checkout.
