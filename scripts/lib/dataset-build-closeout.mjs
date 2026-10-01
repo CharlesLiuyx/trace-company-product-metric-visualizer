@@ -496,7 +496,7 @@ function derivedRiskChecks(plan, evidence) {
       const measuredNodes = new Set(sideLabels.map((label) => label.node));
       const complete = [...expectedNodes].every((node) => measuredNodes.has(node));
       checks.push({
-        id: `B3-T7-side-label-center:${item.locale}`,
+        id: `T7-side-label-center:${item.locale}`,
         status: complete ? 'passed' : 'failed',
         measurements: sideLabels.map((label) => ({
           id: `${label.node || 'unknown'}-${label.labelIndex ?? 0}`,
@@ -521,7 +521,7 @@ function derivedRiskChecks(plan, evidence) {
         id: `T18-label-position:${item.locale}`,
         status: audit ? (complete ? 'passed' : 'failed') : 'open',
         // Only enforced (source-language) deltas are threshold measurements:
-        // localized layout acceptance is owned by Z2/Z5/Z6, so a legitimate
+        // localized layout is covered by B6 and human review, so a legitimate
         // locale shift must not become a RISK_THRESHOLD_VIOLATION blocker.
         measurements: (audit?.measurements || [])
           .filter((measurement) => measurement.candidateBBox && measurement.enforced)
@@ -554,7 +554,7 @@ function derivedRiskChecks(plan, evidence) {
     for (const item of evidence) {
       const audit = item.metrics?.textLayoutAudit;
       checks.push({
-        id: `B6-Z5-text-bounds:${item.locale}`,
+        id: `B6-text-bounds:${item.locale}`,
         status: audit ? 'passed' : 'open',
         measurements: audit
           ? [{ id: 'overflow-count', value: audit.overflowViolations?.length || 0, operator: 'eq', threshold: 0 }]
@@ -567,7 +567,7 @@ function derivedRiskChecks(plan, evidence) {
     for (const item of evidence) {
       const audit = item.metrics?.annotationLayoutAudit;
       checks.push({
-        id: `B5-A6-annotation-clearance:${item.locale}`,
+        id: `A6-annotation-clearance:${item.locale}`,
         status: audit ? 'passed' : 'open',
         measurements: audit
           ? [{ id: 'overlap-count', value: audit.overlapViolations?.length || 0, operator: 'eq', threshold: 0 }]

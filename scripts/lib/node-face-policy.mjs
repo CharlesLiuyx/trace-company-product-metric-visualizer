@@ -150,18 +150,18 @@ export function assessNodePaintAudit(audit, policy = null, options = {}) {
       let message = '';
       if (!node) {
         status = 'failed';
-        message = 'B15/T13 expected visible, observed missing';
+        message = 'B15 expected visible, observed missing';
       } else if (node.faceVisible !== true) {
         status = 'failed';
-        message = 'B15/T13 expected visible, observed not-painted';
+        message = 'B15 expected visible, observed not-painted';
       } else if (isFaceBelowVisibilityFloor(node.faceHeight ?? node.bbox?.height)) {
         const exception = exceptionByNode.get(id);
         if (!exception) {
           status = 'failed';
-          message = `T21 faceHeight=${Number(node.faceHeight ?? node.bbox?.height)}px is below minVisibleFacePx=${MIN_VISIBLE_FACE_PX}px; no Source-bound exception`;
+          message = `B15 faceHeight=${Number(node.faceHeight ?? node.bbox?.height)}px is below minVisibleFacePx=${MIN_VISIBLE_FACE_PX}px; no Source-bound exception`;
         } else if (Number(node.faceHeight ?? node.bbox?.height) + FACE_FLOOR_RASTER_TOLERANCE_PX < Number(exception.referenceFaceHeightPx)) {
           status = 'failed';
-          message = `T21 faceHeight=${Number(node.faceHeight ?? node.bbox?.height)}px is below Source referenceFaceHeightPx=${exception.referenceFaceHeightPx}px beyond rasterTolerancePx=${FACE_FLOOR_RASTER_TOLERANCE_PX}px`;
+          message = `B15 faceHeight=${Number(node.faceHeight ?? node.bbox?.height)}px is below Source referenceFaceHeightPx=${exception.referenceFaceHeightPx}px beyond rasterTolerancePx=${FACE_FLOOR_RASTER_TOLERANCE_PX}px`;
         }
       }
       checks[`visible:${id}`] = { nodeId: id, intent: 'visible', status, ...(message ? { message } : {}) };
@@ -199,7 +199,7 @@ export function assessNodePaintAudit(audit, policy = null, options = {}) {
       violations.push({
         code: 'visibility-floor-failed',
         nodeId,
-        message: `T21 face is below minVisibleFacePx=${MIN_VISIBLE_FACE_PX}px; a typed Source-bound exception requires a Plan-bound run`,
+        message: `B15 face is below minVisibleFacePx=${MIN_VISIBLE_FACE_PX}px; a typed Source-bound exception requires a Plan-bound run`,
       });
     }
   }

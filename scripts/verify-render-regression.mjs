@@ -254,7 +254,7 @@ async function renderLanguageForGates(page, pageErrors, key, language) {
   // Catalog regression has no Build-local inventory, but still rejects
   // ambiguous duplicate semantic IDs and records every face for inspection.
   // Catalog regression has no Build-bound Source Coverage or node-face
-  // policy. Validate audit integrity here, while leaving T21 exception
+  // policy. Validate audit integrity here, while leaving B15 exception
   // adjudication to Plan-bound fidelity and seal runs.
   assertNodePaintAudit(nodePaintAudit, {}, { enforceUnboundFloor: false });
   const renderedTypographyAudit = await typographyAudit(page, {

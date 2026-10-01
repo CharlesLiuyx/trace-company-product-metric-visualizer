@@ -5,8 +5,7 @@ Type Gate, the Source-object taxonomy and anti-omission invariants, Source
 Coverage scanning, authoring reconciliation, and recurring traps. The process
 (commands, order, checks, review, publication, archive, reporting) is owned by
 [asset-workflow.md](asset-workflow.md). Fields belong to `data/schema.md`;
-fidelity rules to `docs/fidelity-loop-rules.md`; recurrence triggers to
-`docs/fidelity-feedback-casebook.md`; assets to `data/assets/README.md`.
+fidelity rules to `docs/fidelity-loop-rules.md`; assets to `data/assets/README.md`.
 Builds created before `review-candidate/v1` keep the historical pipeline in
 [archive/legacy-direct-edit-workflow.md](archive/legacy-direct-edit-workflow.md).
 
@@ -58,7 +57,7 @@ annotation classing or an invisible-node mapping fails coverage assembly (T22).
 Painted-face invariant: every node-mapped object has a Source-painted face,
 1–2px strips included, recorded at native measured height. If the Source paints
 no face, the object is not a node; use a structural flow or semantic annotation.
-T21 blocks expected-visible faces below 3px; a genuine sub-floor face keeps its
+B15 blocks expected-visible faces below 3px; a genuine sub-floor face keeps its
 bar through the typed `source-visible-face-below-floor` exception bound to
 Source digest, native bbox/crop, pixel scan, and one node — never inflated or
 suppressed. `source-coverage/v2` requires the `semantic-value` / `geometry` /
@@ -104,8 +103,7 @@ Each item records native bbox, inventory IDs, mapping roles, and where relevant
 exact amount, typed SSOT reference, and face observation; every inventory object
 has one Source owner. Measurement locators may use either the processing or the
 processed path of the Build Source; the digest must be this Build's Source
-digest (T19). Match casebook triggers: wrong-type and short/Other risks consume
-CB-024 and CB-003/CB-007/CB-023 when applicable.
+digest (T19).
 
 Blocking findings: a semantic skip; Other treated as icon residue; a
 value-bearing Other classed as annotation or mapped to a non-painted node; a
@@ -126,11 +124,11 @@ unclassified face; or a contradiction with the intaked Adapter.
   Other, the three smallest non-zero values, and visible faces. `prepare`
   rejects any Source ↔ SSOT ↔ Adapter amount mismatch.
 - Author `sourceOrder`/`targetOrder` only from the recorded per-face order —
-  never from the other end's geometry or a value sort; crossing links invert it
-  (CB-001). Same-color multi-inflow faces are G12/L11-blind, so check the B8 /
-  L1–L4 per-link identity against Source crops.
-- Fixed labels use native-scale Source measurements from fidelity §2 before the
-  first render; never rough-place and converge through repeated renders.
+  never from the other end's geometry or a value sort; crossing links invert it.
+  The G12 audit cannot tell same-color multi-inflow links apart, so check their
+  per-link identity and order against Source crops.
+- Fixed labels use native-scale Source measurements (T18/T19) before the first
+  render; never rough-place and converge through repeated renders.
 - i18n is display-only. Recovered values stay non-zero: raise SSOT decimals for
   Table; raise Adapter decimals or use exact non-zero `valueText` for Sankey.
 - Icons are conditional: check the asset catalog first (`record:workflow
@@ -139,12 +137,12 @@ unclassified face; or a contradiction with the intaked Adapter.
 ## Traps and hard constraints
 
 - Fidelity definitions and formulas live only in the fidelity catalog.
-- Title/period placement uses rendered bboxes, not authored baselines (CB-015).
-- Preserve displayed integer decimals through schema `valueText` (CB-016).
-- Resolve raster/localized-text collisions per Z6a/CB-017 without shared
-  geometry changes.
+- Title/period placement uses rendered bboxes, not authored baselines.
+- Preserve displayed integer decimals through schema `valueText`.
+- Resolve raster/localized-text collisions by moving the annotation in that
+  locale's raster list, without shared geometry changes.
 - Interim spans (`3M`, `H1`, `YTD`, etc.) keep the intended viewer variant
-  label/order/state (CB-020).
-- Reference crops never become runtime rasters; follow the asset doc/R-series.
+  label/order/state.
+- Reference crops never become runtime rasters; follow the asset doc and G4.
 - Abnormal claims are recovery: never overwrite, silently requeue, or invent a
   lifecycle command.

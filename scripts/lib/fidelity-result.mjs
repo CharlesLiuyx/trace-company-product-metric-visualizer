@@ -200,9 +200,9 @@ function normalizeAttention(input) {
   };
 }
 
-// Optional structured audit trail for sweep-stage freeze/reopen events
-// (docs/fidelity-loop-rules.md §4). Recording is voluntary and never blocks
-// acceptance; when present, each event must bind real evidence.
+// Optional structured audit trail for sweep-stage freeze/reopen events (stage
+// enum: scripts/lib/fidelity-stages.mjs). Recording is voluntary and never
+// blocks acceptance; when present, each event must bind real evidence.
 function normalizeStageDecisions(input) {
   if (input == null) return [];
   invariant(Array.isArray(input), 'STAGE_DECISION_INVALID', 'stageDecisions must be an array');

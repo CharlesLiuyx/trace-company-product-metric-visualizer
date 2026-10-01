@@ -214,8 +214,8 @@ The owning documents:
   process: commands, check boundaries, review, publication, and delivery.
 - [`docs/dynamic-dataset-workflow.md`](docs/dynamic-dataset-workflow.md) —
   dataset modeling rules and hard constraints.
-- [`docs/fidelity-loop-rules.md`](docs/fidelity-loop-rules.md) — review
-  gates, measurement rules, and known blind spots.
+- [`docs/fidelity-loop-rules.md`](docs/fidelity-loop-rules.md) — machine
+  fidelity gates, the reviewer checklist, and the feedback protocol.
 - [`CONTEXT.md`](CONTEXT.md) and [`docs/architecture/`](docs/architecture/README.md) —
   domain language and lifecycle architecture.
 - [`data/assets/README.md`](data/assets/README.md) — icon crop extraction

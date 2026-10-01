@@ -133,7 +133,7 @@ interface matrix 与 attention，并标注依据。不通过或有问题时，�
   [local-environments.md](local-environments.md)。
 - 正式版本变化后，旧草稿先 `record:workflow refresh <build>`，再按新结果审阅。
 - 新反馈写入 `record:workflow feedback`，会使旧审阅失效，并列出同批需要横向排查的
-  Build；防复发协议见 fidelity §5。
+  Build；反馈协议见 [fidelity-loop-rules.md](fidelity-loop-rules.md) §4。
 - 图标先查 `record:workflow assets <build>`；新版本在草稿中用 `asset-version` 记录。
   资产目录规则只由 [data/assets/README.md](../data/assets/README.md) 定义。
 - 通用指标的 `source-facts/v1` 字段示例见

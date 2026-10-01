@@ -32,9 +32,8 @@ export async function verifyWorkflowContract(root = rootDir) {
   assert.equal(contract.workflow.canonicalVisibility, 'immutable-tree-with-atomic-pointer');
   const actual = await readFile(path.join(root, 'docs/workflow-command-reference.md'), 'utf8');
   assert.equal(actual, await workflowCommandReference(root), 'Run pnpm update:workflow-reference');
-  const fidelity = await readFile(path.join(root, 'docs/fidelity-loop-rules.md'), 'utf8');
-  assert.ok(fidelity.includes('### VerificationPlan v5') && fidelity.includes('`verification-plan/v5` 从 inventory feature'), 'Current prose Plan version drift');
   const lifecycle = await readFile(path.join(root, 'docs/architecture/dataset-lifecycle.md'), 'utf8');
+  assert.ok(lifecycle.includes(`\`${VERIFICATION_PLAN_PROTOCOL}\` is a versioned dependency graph`), 'Current prose Plan version drift');
   assert.ok(!lifecycle.includes('prepare a fresh v4 Plan/v3 packet'), 'Freshness recovery cannot use stale Plan/Packet versions');
   const crop = await readFile(path.join(root, 'input/icon-crop-specs/README.md'), 'utf8');
   assert.ok(!crop.includes('SVG/vector assets before using them in d3 output'), 'Crop guidance conflicts with the runtime raster owner');

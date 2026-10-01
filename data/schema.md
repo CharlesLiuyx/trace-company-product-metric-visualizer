@@ -727,8 +727,8 @@ render: {
 ```
 
 `mode` accepts `error`, `warning`, or `off`. New or materially changed fixed-
-layout datasets use `error`; the acceptance meaning, migration behavior and
-geometry thresholds are owned by `docs/fidelity-loop-rules.md`.
+layout datasets use `error`; the acceptance meaning and geometry thresholds
+are owned by `docs/fidelity-loop-rules.md` (G12).
 
 `fullFaceIds` is optional and contains semantic
 `'<node-id>:left|right'` interface IDs whose declared coverage intent is
@@ -741,7 +741,7 @@ SSOT data.
 Do not put reference pixel intervals into the income-statement SSOT or an i18n
 overlay. Author measured `sourceWidth`, `targetWidth`, `y0`, and `y1` on links as
 needed; the detailed measurement and acceptance rules live in
-`docs/fidelity-loop-rules.md` (G12 and L5-L15).
+`docs/fidelity-loop-rules.md` (G12).
 
 ### i18n overlay
 
@@ -814,7 +814,7 @@ builds label blocks from node text.
 
 Fixed-layout label blocks may set
 `semanticRole: "name" | "amount" | "note" | "top-aligned-side-label"`.
-The rendered group exposes this as `data-label-role`; B3/T7 uses it to
+The rendered group exposes this as `data-label-role`; T7 uses it to
 distinguish a centered side-aligned semantic name from explanatory note copy
 when a separate amount block is present. Use `top-aligned-side-label` only
 when the Source visibly anchors a side name to the top of its node rather
@@ -894,7 +894,7 @@ splitting internal links by colour or identity; do not use `sourceWidth` /
 
 Hover Share（所占比例）is renderer-owned. Adapters provide authored amounts
 and semantic topology only; the single human-readable surface/formula contract
-lives in `CONTEXT.md` and the fidelity acceptance rule lives in
+lives in `CONTEXT.md` and the reviewer check lives in the checklist of
 `docs/fidelity-loop-rules.md`.
 
 `hoverPercentMode`, `nodeHoverPercentDenominator`, `percent`, `percentage`,

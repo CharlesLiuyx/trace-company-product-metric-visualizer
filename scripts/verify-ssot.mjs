@@ -81,7 +81,7 @@ function validateHoverShareContract(dataset, errors) {
 
 // G2 enforces "rendered viewBox equals the reference-image dimensions", but
 // only at render time. Authored canvas drift (salesforce-q1-fy27 declared
-// render.width 3050 against a 2958px reference, casebook CB-011) previously
+// render.width 3050 against a 2958px reference) previously
 // survived until the CI d3 smoke; check the same invariant statically so any
 // checkout catches it at pnpm check time without a browser.
 function validateRenderCanvas(dataset, errors) {

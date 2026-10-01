@@ -89,7 +89,7 @@ function fixture(overrides = {}) {
     ],
     regions: [
       { id: 'REG-001', status: 'resolved', ruleIds: ['G12'] },
-      { id: 'REG-002', status: 'resolved', ruleIds: ['B3', 'T7'] },
+      { id: 'REG-002', status: 'resolved', ruleIds: ['T7'] },
     ],
     attention: { status: 'closed', closureNote: 'No open red-box region remains.' },
     feedbackSummary: {
@@ -97,7 +97,7 @@ function fixture(overrides = {}) {
       automationUpgradesRequired: [],
     },
     riskChecks: [{
-      id: 'B3-T7-side-label-center',
+      id: 'T7-side-label-center',
       status: 'passed',
       measurements: [
         { id: 'interest-expense', value: 1.5, operator: 'lte', threshold: 4, unit: 'px' },
@@ -152,7 +152,7 @@ test('stage decisions are optional, validated, and never block acceptance', () =
 test('Live Nation 38.5px and 43px side-label measurements block acceptance even if marked passed', () => {
   const result = createFidelityResult(fixture({
     riskChecks: [{
-      id: 'B3-T7-side-label-center',
+      id: 'T7-side-label-center',
       status: 'passed',
       measurements: [
         { id: 'interest-expense', value: 38.5, operator: 'lte', threshold: 4, unit: 'px' },

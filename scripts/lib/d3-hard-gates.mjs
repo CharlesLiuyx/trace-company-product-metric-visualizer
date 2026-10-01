@@ -1,6 +1,6 @@
 // SVG purity / raster-whitelist hard gates for the d3 fidelity loop,
 // extracted verbatim from scripts/verify-d3.mjs. Gate semantics are owned by
-// docs/fidelity-loop-rules.md §自动硬门槛 — keep failures byte-compatible.
+// docs/fidelity-loop-rules.md (G4) — keep failures byte-compatible.
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { rootDir } from './project.mjs';

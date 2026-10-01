@@ -260,8 +260,8 @@ function sequenceSegment(sequence) {
 export async function planFidelityRun(run, options) {
   const previousRuns = await comparableRuns(run);
   const previous = previousRuns[0] || null;
-  // The archive sequence only records run order (docs/fidelity-loop-rules.md
-  // §1 "evidence run"); it is derived, never caller-supplied.
+  // The archive sequence only records evidence-run order; it is derived,
+  // never caller-supplied.
   const sequence = sequenceSegment(previousRuns.length + 1);
   const improvement = improvementSegment(previous?.full, options.fullMetrics);
   const focus = archiveSegment(options.focus, 'unspecified');
