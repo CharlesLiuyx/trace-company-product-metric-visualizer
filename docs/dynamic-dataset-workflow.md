@@ -128,8 +128,7 @@ unclassified face; or a contradiction with the intaked Adapter.
 - Author `sourceOrder`/`targetOrder` only from the recorded per-face order —
   never from the other end's geometry or a value sort; crossing links invert it
   (CB-001). Same-color multi-inflow faces are G12/L11-blind, so check the B8 /
-  L1–L4 per-link identity against Source crops; a recurring face gets a dataset
-  contract test.
+  L1–L4 per-link identity against Source crops.
 - Fixed labels use native-scale Source measurements from fidelity §2 before the
   first render; never rough-place and converge through repeated renders.
 - i18n is display-only. Recovered values stay non-zero: raise SSOT decimals for
