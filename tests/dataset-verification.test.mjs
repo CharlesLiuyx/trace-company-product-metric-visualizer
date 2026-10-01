@@ -11,9 +11,8 @@ import { parseArgs, runRecordVerification } from '../scripts/record-verification
 import { createHash } from 'node:crypto';
 import {
   SOURCE_CLASSIFICATION_REVIEW_METHOD,
-  SOURCE_COVERAGE_SCAN_PASSES,
   createSourceClassification,
-} from '../scripts/lib/source-coverage.mjs';
+} from '../scripts/lib/source-objects.mjs';
 
 const now = () => '2026-07-11T08:00:00.000Z';
 const digest = (value) => digestValue({ value });
@@ -60,34 +59,13 @@ async function fixture(t) {
   await initializeDatasetBuild(build, { buildRoot });
   const prepared = await prepareBuildReview({
     buildId: build.buildId,
-    inventory: {
-      datasetKey: build.key,
+    sourceObjects: {
       objects: [{
-        id: 'label:revenue',
-        kind: 'label',
-        disposition: 'render',
-        mapping: [{ role: 'render', target: 'layout.labels.revenue' }],
-        features: ['text', 'measured-label-position'],
-        featureEvidence: {
-          'measured-label-position': {
-            source: 'reference-measurement',
-            locator: `${sourcePath}#revenue-label-group`,
-            digest: sourceDigest,
-            referenceBBox: [180, 420, 160, 44],
-            inspectionMethod: 'native-scale-reference-measurement',
-          },
-        },
-      }],
-    },
-    sourceCoverage: {
-      classification: sourceClassification,
-      scanPasses: SOURCE_COVERAGE_SCAN_PASSES,
-      items: [{
-        sourceId: 'source:revenue-label',
-        sourceClass: 'label-or-annotation',
-        sourceLabel: 'Revenue label',
-        contentBBox: [180, 420, 160, 44],
-        inventoryObjectIds: ['label:revenue'],
+        id: 'revenue-label',
+        class: 'label',
+        label: 'Revenue',
+        referenceBBox: [180, 420, 160, 44],
+        labelGroup: 'revenue',
       }],
     },
     artifacts: [{ path: artifact }, { path: sourcePath, role: 'reference-image' }],

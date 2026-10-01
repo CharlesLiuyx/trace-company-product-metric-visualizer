@@ -2,7 +2,8 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import { rootDir } from './project.mjs';
-import { SOURCE_FACTS_PROTOCOL, METRIC_COVERAGE_PROTOCOL, METRIC_RECORD_PROTOCOL } from './metric-source.mjs';
+import { SOURCE_FACTS_PROTOCOL, METRIC_RECORD_PROTOCOL } from './metric-source.mjs';
+import { SOURCE_OBJECTS_PROTOCOL } from './source-objects.mjs';
 import { ARTIFACT_MANIFEST_PROTOCOL, CHECKPOINT_PROTOCOL, REVIEW_CANDIDATE_PROTOCOL } from './workflow-dependencies.mjs';
 import { PUBLICATION_PROTOCOL } from './workflow-publication.mjs';
 import { VERIFICATION_PLAN_PROTOCOL } from './verification-plan.mjs';
@@ -19,7 +20,7 @@ export const WORKFLOW_ACTIONS = Object.freeze({
   assets: '只读查找资产版本、来源与使用位置', 'asset-version': '在草稿中记录绑定字节的资产接受', feedback: '记录反馈并列出同批检查范围',
   'archive-list': '只读枚举完整的待归档来源', archive: '消费操作员确认的精确清单并归档',
 });
-export const WORKFLOW_PROTOCOLS = Object.freeze({ sourceFacts: SOURCE_FACTS_PROTOCOL, textSourceClassification: 'source-classification/v2', metricSourceCoverage: METRIC_COVERAGE_PROTOCOL, metricObservations: METRIC_RECORD_PROTOCOL, artifactManifest: ARTIFACT_MANIFEST_PROTOCOL, checkpoint: CHECKPOINT_PROTOCOL, reviewCandidate: REVIEW_CANDIDATE_PROTOCOL, publication: PUBLICATION_PROTOCOL, releaseAttempt: 'release-attempt/v1', session: 'workflow-session/v1', gitTransport: 'git-transport/v1', workbench: 'trace-workbench/v1', workflowTimestamps: 'workflow-timestamps/v1', application: 'workflow-application/v1' });
+export const WORKFLOW_PROTOCOLS = Object.freeze({ sourceFacts: SOURCE_FACTS_PROTOCOL, sourceObjects: SOURCE_OBJECTS_PROTOCOL, textSourceClassification: 'source-classification/v2', metricObservations: METRIC_RECORD_PROTOCOL, artifactManifest: ARTIFACT_MANIFEST_PROTOCOL, checkpoint: CHECKPOINT_PROTOCOL, reviewCandidate: REVIEW_CANDIDATE_PROTOCOL, publication: PUBLICATION_PROTOCOL, releaseAttempt: 'release-attempt/v1', session: 'workflow-session/v1', gitTransport: 'git-transport/v1', workbench: 'trace-workbench/v1', workflowTimestamps: 'workflow-timestamps/v1', application: 'workflow-application/v1' });
 export async function workflowCommandReference(root = rootDir) {
   const pkg = JSON.parse(await readFile(path.join(root, 'package.json'), 'utf8'));
   const scripts = Object.entries(pkg.scripts).filter(([key]) => /^(clean:artifacts|record:workflow|record:transport-review|publish:datasets|release:dataset|release:git|verify:release|verify:workbench|view:published|(?:verify|update):(?:metric-catalog|metrics|asset-catalog|feedback-patterns|workflow|workflow-reference|workflow-graph))$/.test(key));
@@ -33,7 +34,7 @@ export async function verifyWorkflowContract(root = rootDir) {
   const actual = await readFile(path.join(root, 'docs/workflow-command-reference.md'), 'utf8');
   assert.equal(actual, await workflowCommandReference(root), 'Run pnpm update:workflow-reference');
   const lifecycle = await readFile(path.join(root, 'docs/architecture/dataset-lifecycle.md'), 'utf8');
-  assert.ok(lifecycle.includes(`\`${VERIFICATION_PLAN_PROTOCOL}\` is a versioned dependency graph`), 'Current prose Plan version drift');
+  assert.ok(lifecycle.includes(`\`${VERIFICATION_PLAN_PROTOCOL}\` is a fixed per-Adapter checklist`), 'Current prose Plan version drift');
   assert.ok(!lifecycle.includes('prepare a fresh v4 Plan/v3 packet'), 'Freshness recovery cannot use stale Plan/Packet versions');
   const crop = await readFile(path.join(root, 'input/icon-crop-specs/README.md'), 'utf8');
   assert.ok(!crop.includes('SVG/vector assets before using them in d3 output'), 'Crop guidance conflicts with the runtime raster owner');

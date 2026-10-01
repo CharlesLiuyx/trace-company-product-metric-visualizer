@@ -42,8 +42,8 @@ verify preflight (read-only)
   -> record seal
 ```
 
-Revenue Metric builds use the Adapter's data-level Verification Plan and may
-mark render/fidelity steps `notApplicable`. All plans still produce a
+Revenue Metric and Metric Observation builds use the Adapter's data-level
+checklist, which contains no render step. All plans still produce a
 machine-readable `FidelityResult` or equivalent verification result and a
 fresh seal.
 
@@ -52,10 +52,10 @@ ordering through the Dataset Build Module:
 
 ```text
 record:intake --signal ...  -> source-classification/v1 + INTAKED
-record:build prepare-review -> source-coverage/v2
+record:build prepare-review -> source-objects/v1
                             -> actual authored-value reconciliation
-                            -> node-face-policy/v2 + verification-plan/v5
-                            -> review-packet/v4 reviewToken + AUTHORED
+                            -> verification-plan/v6 (fixed per-Adapter checklist)
+                            -> review-packet/v5 reviewToken + AUTHORED
 record:verification          -> dataset-verification/v1 consistency evidence
 record:fidelity --build ... -> fidelity-run/2 evidence-ready
 record:build finish         -> review-pending, or accepted FidelityResult -> CLOSED
@@ -74,13 +74,10 @@ itself is implemented by the isolated Publication module.
 The intake Type Gate is a current M3 guard, not a target command: explicit
 whole-Source signals must derive exactly one Adapter and agree with
 `--adapter` before Build initialization or the working-Source claim. During
-review preparation, Source Coverage must own every inventory object exactly
-once. The Build Module then reads the actual loaded SSOT and, for Income
-Statement node mappings, the Sankey View Adapter values. A mismatch fails
-before the new authored snapshot, Plan, or packet can become review input.
-For an Income Statement financial value mapped to `nonNodeMetrics.*`, the
-same Module also pixel-checks its Source-bound zero-paint slot before the Plan
-exists.
+review preparation, the Build Module validates the flat Source object list,
+then reads the actual loaded SSOT and, for Income Statement values, the Sankey
+View Adapter node or non-node metric each value names. A mismatch fails before
+the new authored snapshot, Plan, or packet can become review input.
 These are build-local validation and recording operations; they neither
 publish canonical files nor materialize a stable Source projection.
 
@@ -111,8 +108,9 @@ review, not to automatic rendering.
 Finalization order is:
 
 1. Produce provisional artifacts in the private workspace.
-2. Run page-error, purity, size, label, interface, localization, and other
-   plan gates.
+2. Run page-error, purity, size, font, node-face, label, text, interface, and
+   attribute-driven gates; contact sheet and region metrics are produced for
+   failed runs (archived evidence still keeps the contact sheet).
 3. In a `record:*` operation, atomically promote the automatic artifacts with
    an unambiguous `evidence-ready` or failed status.
 4. Separately record manual evidence where required.
@@ -141,15 +139,12 @@ and the `FeedbackLedger`, then creates the deterministic `FidelityResult`.
 Missing attestation or any open obligation produces `review-pending` rather
 than inferred success.
 
-VerificationPlan v5 also carries two Source-derived closure boundaries. The
-automatic `source-coverage` check cites the recorded coverage digest; the
-global manual coverage decision must cite both that digest and the immutable
-Source digest. Its embedded `node-face-policy/v2` converts every semantic
-node mapping into an expected-visible locale render check. Expected-visible
-small nodes therefore cannot disappear merely because their candidate face is
-below the normal visibility floor; only a Source-bound exception compiled by
-the policy is admissible. The fidelity rules document remains the owner of
-rule semantics and thresholds.
+VerificationPlan v6 binds the source-objects digest and the immutable Source
+digest; the global `human-review` decision must cite both. Each Build-bound
+render expects every value node from the source objects to paint a face, and
+every rendered node to reach the 3px floor unless the author declared it in
+`shortNodes`. The fidelity rules document remains the owner of rule semantics
+and thresholds.
 
 ## Baseline does not prove itself
 
@@ -211,8 +206,8 @@ renders again only when that proof does not cover every locale or the caller
 passes `--fresh-render`. The receipt stores each profile row in `finalProfiles`.
 Manual decisions are consumed from the accepted closure rather than
 re-executed, and the staged baseline stays excluded from the verdict. The
-Source classification, Coverage, and node-face policy remain bound through
-their authored/Plan digests; sealing does not reinterpret the Source. If a
+Source classification and source objects remain bound through their
+authored/Plan digests; sealing does not reinterpret the Source. If a
 loaded SSOT or View artifact changed after preparation, artifact freshness
 fails and a new preparation must reconcile the new values. New isolated Builds derive the complete artifact set and semantic contributions
 at preparation and recompute those dependencies at inspection; Publication
@@ -307,7 +302,7 @@ new Attempt, but against the newer digest.
 
 | failure | durable state | recovery |
 | --- | --- | --- |
-| Type Gate or Source Coverage/authored-value reconciliation failure | no new intake/authored receipt for the failed operation | correct the classification or authored mapping, then rerun the same current M3 operation |
+| Type Gate or source-object/authored-value reconciliation failure | no new intake/authored receipt for the failed operation | correct the classification or authored mapping, then rerun the same current M3 operation |
 | provisional render/gate failure | Build stays `AUTHORED`; run rejected or blocked | fix/retry in a new or continued FidelityRun |
 | missing human decision | run stays review-pending | add attestation; do not infer pass |
 | closure dependency changed | closure stale; effective state `AUTHORED` | run affected plan steps again |
@@ -327,9 +322,9 @@ compatibility rule is replace, not layer indefinitely:
   Adapters in shadow mode;
 - keep `verify:d3` read-only and route durable automatic evidence through
   `record:fidelity`;
-- record SourceClassification at fresh intake, then SourceCoverage,
-  ObjectInventory, NodeFacePolicy-bearing Plan v5, ReviewPacket v4, human
-  decisions, FeedbackLedger, and FidelityResult through the Build Module;
+- record SourceClassification at fresh intake, then SourceObjects, Plan v6,
+  ReviewPacket v5, human decisions, FeedbackLedger, and FidelityResult through
+  the Build Module;
 - exercise closure, build-local baseline staging, freshness inspection, and
   sealing without changing canonical output (implemented; now the primary
   close-out path);

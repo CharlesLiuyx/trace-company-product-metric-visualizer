@@ -13,7 +13,7 @@ exactly one owner below. Update it together with `docs/AGENTS.zh-CN.review.md`.
 | machine-readable lifecycle contract | `docs/architecture/lifecycle-contract.json` (`pnpm verify:architecture` enforces parity) |
 | accepted architecture decisions | `docs/adr/` (start with `0001-dataset-build-transactions.md`) |
 | **the input-processing process**: commands, order, check boundaries, review, publication, Git hand-off, Source archive, reporting | `docs/asset-workflow.md` (generated command/protocol table: `docs/workflow-command-reference.md`) |
-| dataset modeling rules: Adapter Type Gate, Source-object taxonomy, anti-omission invariants, Source Coverage, reconciliation, traps | `docs/dynamic-dataset-workflow.md` |
+| dataset modeling rules: Adapter Type Gate, flat Source-object list, anti-omission invariants, reconciliation, traps | `docs/dynamic-dataset-workflow.md` |
 | d3 fidelity machine gates, reviewer checklist, feedback protocol | `docs/fidelity-loop-rules.md` (catalog section generated from `scripts/lib/fidelity-rules-catalog.mjs` by `pnpm update:fidelity-rules-doc`) |
 | user-reported fidelity defects that landed a machine gate | `docs/fidelity-feedback-casebook.md` (protocol: `docs/fidelity-loop-rules.md` §4) |
 | dataset / SSOT field format | `data/schema.md` |

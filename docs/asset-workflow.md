@@ -11,7 +11,7 @@
 
 ## 1. 三条原则
 
-1. **做完即待人工审阅。** 机器只查人眼不易发现的问题：来源覆盖与金额对账、数据
+1. **做完即待人工审阅。** 机器只查人眼不易发现的问题：来源对象与金额对账、数据
    一致性、每种语言一次渲染硬门槛。同一份字节只检查一次。人看得出的问题留给审阅。
 2. **人工接受是唯一的闭环决定。** 机器全绿只是「待审阅」；操作员的一句通过由工具
    展开为逐项记录，并注明依据，执行者不另行补造判断。
@@ -23,7 +23,7 @@
 
 | # | 执行者做什么 | 命令 |
 | --- | --- | --- |
-| 1 | 完整读原材料，按建模规则过 Type Gate，写 `source-facts/v1`；读不清的写进 `questions` | — |
+| 1 | 完整读原材料，按建模规则过 Type Gate，写 `source-facts/v1`（桑基图与收入序列用扁平 `objects[]` 来源对象清单）；读不清的写进 `questions` | — |
 | 2 | 接收并认领来源，建立独立草稿 | `pnpm record:workflow -- start --source <pending> --key <key> --facts <facts.json> --session <owner>` |
 | 3 | 桑基图 / 收入序列：在返回的 workspace 中编写 SSOT、Adapter、i18n | — |
 | 4 | 连续跑完全部自动步骤：准备与对账 → 数据一致性 → 一次全语言渲染，停在待审阅 | `pnpm record:workflow -- continue <build> --session <owner> --generation <gen>` |
@@ -138,4 +138,5 @@ interface matrix 与 attention，并标注依据。不通过或有问题时，�
   资产目录规则只由 [data/assets/README.md](../data/assets/README.md) 定义。
 - 通用指标的 `source-facts/v1` 字段示例见
   [source-facts.example.json](examples/source-facts.example.json)。其中 `questions` 非空时不能审阅；
-  PNG 位置用 `image-box`，文本用 `text-range`（UTF-16 区间）。
+  PNG 位置用 `image-box`，文本用 `text-range`（UTF-16 区间）。桑基图与收入序列的扁平
+  `objects[]` 写法见 [dynamic-dataset-workflow.md](dynamic-dataset-workflow.md)。

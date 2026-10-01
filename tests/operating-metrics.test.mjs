@@ -1,9 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { normalizeOperatingObservation, assertOperatingMetricView } from '../scripts/lib/operating-metrics.mjs';
-import { createSourceCoverage, createSourceClassification, classifySourceSignals } from '../scripts/lib/source-coverage.mjs';
-import { createObjectInventory } from '../scripts/lib/object-inventory.mjs';
-import { assertSourceCoverageAuthoredValues } from '../scripts/lib/source-coverage-authored.mjs';
+import { createSourceClassification, classifySourceSignals, createSourceObjects, reconcileSourceObjects } from '../scripts/lib/source-objects.mjs';
 import { loadClassicScripts } from './helpers/vm-load.mjs';
 
 const metrics = [
@@ -17,16 +15,16 @@ function fixture() {
   const annotationsSvg = record.operatingMetrics.map((metric) => `<text data-operating-metric="${metric.id}">${metric.literal.replaceAll('>', '&gt;')}</text>`).join('');
   const dataset = { key: record.key, nodes: [], operatingMetrics: structuredClone(metrics), annotationsSvg, i18n: { zh: { annotationsSvg } } };
   const classification = createSourceClassification({ datasetKey: record.key, adapter: 'income-statement', signals, reviewMethod: 'full-source-type-gate', source: { locator: 'input/processed/example.png', digest: `sha256:${'a'.repeat(64)}`, width: 1000, height: 800 }, fullImageBBox: [0, 0, 1000, 800] });
-  const inventory = createObjectInventory({ datasetKey: record.key, objects: metrics.map((metric) => ({ id: `supplement:${metric.id}`, kind: 'operating-metric', disposition: 'render', mapping: [{ role: 'data', target: `incomeStatement.operatingMetrics.${metric.id}` }, { role: 'render', target: `operatingMetrics.${metric.id}` }], features: ['text'] })) });
-  const input = { classification, source: classification.source, scanPasses: ['geometry', 'residual', 'semantic-value'], items: metrics.map((metric) => ({ sourceId: `source:${metric.id}`, sourceClass: 'operating-metric', sourceLabel: metric.label, quote: metric.quote, contentBBox: metric.anchor.box, inventoryObjectIds: [`supplement:${metric.id}`], observation: normalizeOperatingObservation(metric), ssotRef: { family: 'income-statement', path: 'operatingMetrics', id: metric.id } })) };
-  return { record, dataset, input, inventory, loadedData: { records: [record], datasets: [dataset] } };
+  const input = { objects: metrics.map((metric) => ({ id: metric.id, class: 'value', label: metric.label, literal: metric.literal, value: metric.value, unit: metric.unit, currency: metric.currency, comparison: metric.comparison, quote: metric.quote, ssotRef: { family: 'income-statement', path: 'operatingMetrics', id: metric.id } })) };
+  const context = { datasetKey: record.key, adapter: 'income-statement', classification, source: { ...classification.source }, reconcile: false };
+  return { record, dataset, input, context, loadedData: { records: [record], datasets: [dataset] } };
 }
 test('supplemental observations retain money, bounds and count without currency conversion', () => {
   const f = fixture();
-  const coverage = createSourceCoverage(f.input, { inventory: f.inventory, adapter: 'income-statement' });
-  assert.deepEqual(assertSourceCoverageAuthoredValues(coverage, f), { checked: 3, unit: 'M' });
-  assert.deepEqual(coverage.summary.visibleNodeIds, []);
-  assert.deepEqual(coverage.summary.smallestNonZero, []);
+  const sourceObjects = createSourceObjects(f.input, f.context);
+  assert.deepEqual(reconcileSourceObjects(sourceObjects, f), { status: 'passed', checked: 3, unit: 'M' });
+  assert.deepEqual(sourceObjects.summary.valueNodeIds, []);
+  assert.deepEqual(sourceObjects.summary.smallestNonZero, []);
   assert.equal(f.record.operatingMetrics[0].value, '1.66');
 });
 test('the supplemental signal requires a full income statement and matching coverage', () => {
@@ -34,8 +32,8 @@ test('the supplemental signal requires a full income statement and matching cove
   assert.throws(() => classifySourceSignals(['metric-observations', 'supplemental-operating-metrics']));
   assert.throws(() => classifySourceSignals(['revenue-metric-definition', 'time-series-observations', 'supplemental-operating-metrics']));
   const f = fixture();
-  f.input.classification = createSourceClassification({ ...f.input.classification, classificationDigest: undefined, signals: signals.slice(0, 2) });
-  assert.throws(() => createSourceCoverage(f.input, { inventory: f.inventory, adapter: 'income-statement' }), /Type Gate signal/);
+  f.context.classification = createSourceClassification({ ...f.context.classification, classificationDigest: undefined, signals: signals.slice(0, 2) });
+  assert.throws(() => createSourceObjects(f.input, f.context), /Type Gate signal/);
 });
 test('rejects dropped inequality, wrong unit/currency and rounded or floating-point values', () => {
   for (const update of [{ comparison: 'eq' }, { literal: '119%' }, { value: 119 }, { value: '120' }, { currency: 'USD' }, { unit: 'B' }]) {
@@ -44,15 +42,15 @@ test('rejects dropped inequality, wrong unit/currency and rounded or floating-po
   assert.throws(() => normalizeOperatingObservation({ ...metrics[0], currency: 'EUR' }));
   assert.throws(() => normalizeOperatingObservation({ ...metrics[2], value: '3084.5', literal: '3,084.5' }));
 });
-test('rejects missing/duplicate source coverage and stale visible locale values', () => {
+test('rejects a missing source value entry, changed quotes and stale visible locale values', () => {
   const f = fixture();
-  const coverage = createSourceCoverage(f.input, { inventory: f.inventory, adapter: 'income-statement' });
-  assert.throws(() => assertSourceCoverageAuthoredValues({ ...coverage, items: coverage.items.slice(1) }, f), /exactly one Source/);
+  const sourceObjects = createSourceObjects(f.input, f.context);
+  assert.throws(() => reconcileSourceObjects({ ...sourceObjects, objects: sourceObjects.objects.slice(1) }, f), /exactly one Source value entry/);
   f.dataset.i18n.zh.annotationsSvg = f.dataset.annotationsSvg.replace('&gt; 119%', '119%');
   assert.throws(() => assertOperatingMetricView(f.record, f.dataset), /literal mismatch/);
   f.dataset.i18n.zh.annotationsSvg = f.dataset.annotationsSvg;
-  f.record.operatingMetrics[0].anchor.box[0]++;
-  assert.throws(() => assertSourceCoverageAuthoredValues(coverage, f), /Source value or anchor/);
+  f.record.operatingMetrics[0].quote = `${f.record.operatingMetrics[0].quote}\nrestated`;
+  assert.throws(() => reconcileSourceObjects(sourceObjects, f), /differs from its Source value entry/);
 });
 test('abbreviated counts preserve source literals and exact integer magnitude', () => {
   const count = { ...metrics[2], value: '1800000', literal: '1.8M' };

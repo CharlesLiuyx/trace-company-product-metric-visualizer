@@ -70,7 +70,7 @@ The target deepens four Modules:
 
 | Module | Interface responsibility | Implementation hidden behind the Seam |
 | --- | --- | --- |
-| Dataset Build Transaction | advance one Source-derived build through explicit states | whole-Source Type Gate, intake and working-Source claim, exhaustive Source Coverage, actual authored-value reconciliation, typed inventory and Plan compilation, review closure, staging, freshness, invalidation |
+| Dataset Build Transaction | advance one Source-derived build through explicit states | whole-Source Type Gate, intake and working-Source claim, flat Source-object validation, actual authored-value reconciliation, fixed per-Adapter Plan, review closure, staging, freshness, invalidation |
 | Fidelity Run | produce immutable automatic evidence for one authored digest | private workspace, rendering, Diff, gates, evidence-ready archive finalization |
 | Publication | plan and atomically publish a set of sealed contributions | global projections, path claims, baseline ledger, metadata, CAS and recovery |
 | Release | build or deploy one published digest | standalone build, hosted release, retries and receipts |
@@ -82,10 +82,12 @@ the input-type Seam; future input types add an Adapter instead of branching
 through every caller.
 
 The implemented M3 Build path uses `source-classification/v1` before fresh
-intake, then `source-coverage/v2` plus actual SSOT/View reconciliation to
-compile `node-face-policy/v2`, `verification-plan/v5`, and
-`review-packet/v4`. Every current semantic node is expected painted; geometry
-without a Source face is modeled as flow or annotation. These remain build-local guards. Publication consumes the resulting fresh seals.
+intake, then the author's flat `source-objects/v1` list plus actual SSOT/View
+reconciliation, a fixed per-Adapter `verification-plan/v6`, and
+`review-packet/v5`. Every value node is expected painted at render (B15);
+geometry without a Source face is modeled as a non-node metric, flow, or
+annotation. These remain build-local guards. Publication consumes the
+resulting fresh seals.
 
 ## Non-negotiable invariants
 
@@ -96,16 +98,14 @@ without a Source face is modeled as flow or annotation. These remain build-local
   region decisions, or feedback closure.
 - Fresh intake requires a whole-Source Type Gate whose signals derive exactly
   one Adapter and agree with the requested Adapter.
-- A new review Plan requires exactly-once Source Coverage of every inventory
-  object. `Other` / `All Other` cannot be classified as non-semantic residual,
-  and Source values must reconcile against the actually loaded Adapter-owned
-  SSOT/View before `AUTHORED`.
-- An Income Statement financial value may use `nonNodeMetrics.*` only with a
-  Source-bound zero-paint slot that `prepare-review` verifies from native
-  pixels before Plan compilation.
-- Source-visible and hidden node intent is compiled into a complete node-face
-  policy. A small expected-visible face may use only a Source-bound exception;
-  candidate disappearance is not evidence of Source absence.
+- A new review Plan requires the flat Source object list. `Other` / `All
+  Other` cannot be classified as non-semantic residual, and every Source value
+  must reconcile against the actually loaded Adapter-owned SSOT/View (one SSOT
+  field and, for Income Statement, one node or non-node metric) before
+  `AUTHORED`.
+- Every rendered node in a Build-bound run must paint a face of at least 3px;
+  a genuinely thinner Source face is declared in `shortNodes`. Candidate
+  disappearance is not evidence of Source absence.
 - A staged baseline is future regression evidence. It cannot prove the build
   that produced it is correct.
 - `SEALED` binds exact source, authored, renderer, protocol, locale, closure,

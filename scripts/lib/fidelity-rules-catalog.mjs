@@ -1,27 +1,19 @@
 // Structured SSOT for every canonical fidelity rule. The Markdown catalog in
 // docs/fidelity-loop-rules.md is a generated view over this data
-// (pnpm update:fidelity-rules-doc); enforcement/feature registries in
-// fidelity-rule-contract.mjs are derived from it. Only rules with a real
+// (pnpm update:fidelity-rules-doc); the enforcement registry in
+// fidelity-rule-contract.mjs is derived from it. Only rules with a real
 // execution point are recorded. Rule IDs are stable forever: never renumber,
 // never change a recorded ID's meaning, and never reuse a deleted ID.
 const RULE_ENFORCEMENTS = Object.freeze([
   'hard-gate',
   'build-gate',
   'conditional-gate',
-  'quantified-audit',
-  'manual',
 ]);
 const RULE_TEXT_FIELDS = Object.freeze(['trigger', 'check', 'pass', 'evidence', 'rationale']);
 const RULE_ID_RE = /^[GBRLTAZI][1-9][0-9]*[a-z]?$/;
 
 function rule(id, enforcement, fields) {
-  return Object.freeze({
-    id,
-    enforcement,
-    features: Object.freeze([]),
-    ...fields,
-    ...(fields.features ? { features: Object.freeze([...fields.features]) } : {}),
-  });
+  return Object.freeze({ id, enforcement, ...fields });
 }
 
 export const FIDELITY_RULES = Object.freeze([
@@ -96,7 +88,6 @@ export const FIDELITY_RULES = Object.freeze([
   }),
   rule('G12', 'hard-gate', {
     title: '可见接口',
-    features: ['visible-interface'],
     trigger: '每个可见候选接口。',
     check:
       '自动检查 candidate-rendered ID、path endpoint、link interval containment 与每个端面的 occupancy ' +
@@ -112,159 +103,91 @@ export const FIDELITY_RULES = Object.freeze([
       '`interfaceAudit` 分别保留 `mode`、`candidateStatus`、`referenceStatus`、`status` 与 `enforcementStatus`；' +
       'coverage 只来自候选已渲染接口，不声称发现了 reference-only 接口。',
   }),
-  rule('B6', 'conditional-gate', {
+  rule('B6', 'hard-gate', {
     title: '文本在画布内',
-    features: ['text'],
-    trigger: 'Plan 含 `text` feature 或 `display-text-only` 影响时。',
+    trigger: '每个 evidence run，每个 required locale。',
     pass:
       '每个 required locale 的 rendered text bbox 全在画布内，overflow 为 0；必要时使用 locale-specific ' +
       'wrap/x/top/font-size，不改共享几何。',
     evidence: '逐 locale 的 `textLayoutAudit`。',
   }),
-  rule('B15', 'conditional-gate', {
+  rule('B15', 'hard-gate', {
     title: 'node 柱面可见且不低于 3px',
-    features: ['visible-node-face'],
-    trigger: '每个 `nodes.*` render mapping 自动触发，不依赖作者声明。',
+    trigger: '每个 evidence run；Build-bound run 另以 `source-objects/v1` 的 value node 与 `shortNodes` 为期望。',
     check:
       '逐 ID、逐 locale 的 `nodePaintAudit` 基于 node face 元素自身判定有效 fill 或可见 stroke 与渲染 ' +
       '`faceHeight`；共享最小可见高度 `MIN_VISIBLE_FACE_PX` 为 3px，另有 0.5px raster 容差。',
     pass:
-      '每个映射自 Source 对象的 node 都绘制出区别于背景的柱面，且高度加容差不低于 3px；透明、none、零 opacity、' +
-      '隐藏，或只有 bbox、link、hitbox、接口都失败。真实 Source 柱面本身低于 3px 时，只接受 source-facts ' +
-      '中绑定唯一 node、写明理由的显式短柱声明。',
-    evidence: '逐 locale 的 `nodePaintAudit` 与 Plan 绑定的 `node-face-policy/v2`。',
+      'Build-bound run 中每个 value 对象映射的 node 都渲染出区别于背景的柱面，且每个渲染出的 node 都有柱面、' +
+      '高度加容差不低于 3px；透明、none、零 opacity、隐藏，或只有 bbox、link、hitbox、接口都失败。真实 Source ' +
+      '柱面本身低于 3px 时，只接受 source-facts 顶层 `shortNodes` 中写明 node 与理由的声明，该 node 仍须绘制高度大于 0 ' +
+      '的柱面。无 Build 的诊断只检查已绘制柱面的 3px 下限。',
+    evidence: '逐 locale 的 `nodePaintAudit`。',
   }),
   rule('T22', 'build-gate', {
     title: '带值 Other 是数据柱',
-    trigger: 'Source Coverage 对象命中 Other/All Other 语义且显示数值时。',
+    trigger: 'prepare 校验 `source-objects/v1` 时，对象的 id、label 或 literal 命中 Other/All Other 语义。',
     check:
-      'Source Coverage 组装时强制带值 Other 是数据指标而非标注：sourceLabel 含 K/M/B/T 金额而 sourceClass ' +
-      '记为非 value-bearing 类立即失败（`SOURCE_COVERAGE_OTHER_CLASS_INVALID`）；映射为 node 时必须有唯一 ' +
-      'observed face。',
-    pass: '把带值 Other 记成不可见节点或标注一律失败；真实柱面低于 3px 时按 B15 的短柱声明处理，而不是隐藏。',
+      '带值 Other 是数据指标而非标注：label 或 literal 含 K/M/B/T 金额而 class 不是 `value` 立即失败' +
+      '（`SOURCE_OBJECTS_OTHER_CLASS_INVALID`）；Other 对象不得记为 `residual`。映射到 node 的 value 对象由 B15 ' +
+      '在渲染时确认柱面已绘制。',
+    pass: '把带值 Other 记成标签、流带、资产或残留一律失败；真实柱面低于 3px 时按 B15 的 `shortNodes` 声明处理，而不是隐藏。',
   }),
-  rule('T6', 'quantified-audit', {
+  rule('T6', 'conditional-gate', {
     title: '侧置 label 列对齐',
-    features: ['aligned-side-label-column'],
-    trigger: 'Plan 含 `aligned-side-label-column`：同一视觉列中两个及以上同类侧置 label。',
+    trigger:
+      '侧置 label 声明 `semanticRole: \'aligned-side-label-column\'`（渲染为 `data-label-role`）时；同侧且所属 node ' +
+      '边缘相距不超过 24px 的声明 label 构成一列。',
     check: '侧置 label 对齐 reference 的实际左/右缘 x，不默认贴 node。',
-    pass: '同列同类 label 位于同一 node 列和同一侧，渲染边缘的最大差值 `<=2px`。',
-    evidence: '逐 locale 的 `labelLayoutAudit.horizontalSideLabels` 边缘位置与跨组 spread。',
+    pass: '每列至少两个 label，渲染 label 边缘的最大差值 `<=2px`。',
+    evidence: '逐 locale 的 `labelLayoutAudit.sideLabelColumns`。',
   }),
   rule('T7', 'conditional-gate', {
     title: '侧置 label 垂直居中',
-    features: ['centered-side-label'],
     trigger:
-      'Plan 含 `centered-side-label`，或渲染结果中同一 node 同时出现独立金额同轴块与侧置名称块时。',
+      '侧置 label 声明 `semanticRole: \'centered-side-label\'`，或渲染结果中同一 node 同时出现独立金额同轴块与侧置名称块时。',
     pass:
       '侧置 label 渲染中心与 node 中心的垂直差 `<=4px`，使用实际 bbox/ascent 反推 top；顶对齐或分组侧标' +
-      '不得声明该 feature。',
-    evidence: '逐 locale 的 `labelLayoutAudit`。',
+      '不得声明该 role。',
+    evidence: '逐 locale 的 `labelLayoutAudit.inferredCenteredSideLabels`。',
   }),
   rule('A6', 'conditional-gate', {
     title: 'annotation 净空',
-    features: ['annotation-near-label'],
-    trigger: 'Plan 含 `annotation-near-label`。',
-    check: 'annotation 文本与带 `data-annotation-clearance` 的 annotation 图形，同 label、title、period 的渲染 bbox 比较。',
+    trigger:
+      '渲染结果含带 `data-annotation-clearance` 的 annotation 图形时（作者在 `annotationsSvg` 中声明，或 renderer ' +
+      '为 paired raster 图标添加）。',
+    check: '该 View 的全部 annotation 文本与 annotation 图形，同 label、title、period 的渲染 bbox 比较。',
     pass: 'overlap 为 0。',
     evidence: '逐 locale 的 `annotationLayoutAudit`。',
   }),
   rule('A10', 'conditional-gate', {
     title: '交互 annotation 绑定 node',
-    features: ['semantic-annotation'],
-    trigger: 'Plan 要求某个 node 对象以 annotation 呈现时。',
+    trigger: '渲染结果含 `.sankey-interactive-annotation` group 时，期望来自 DOM 而非作者声明。',
     pass:
-      '实际 group 必须带 `sankey-interactive-annotation` 和可解析的 `data-node`，含文本且由 renderer 提供' +
-      '透明 hitbox；同名 node-like annotation text 未绑定该 group 或 node 不存在即失败。',
+      '每个 group 都带可解析到 node 或 non-node metric 的 `data-node`，含文本且由 renderer 提供透明 hitbox；' +
+      '同名 node-like annotation text 未绑定到该 group 即失败。',
     evidence: '逐 locale 的 `semanticAnnotationAudit`。',
   }),
-  rule('I12', 'quantified-audit', {
+  rule('I12', 'conditional-gate', {
     title: '图标簇与 paired 目标对齐',
-    features: ['paired-node-annotation'],
-    trigger: '业务或产品图标簇与 paired node / 侧置名称构成同一横向语义组时。',
+    trigger: '图标簇声明 `data-annotation-paired-node` 时（raster annotation 的 `pairedNode`）。',
     check:
-      '图标簇声明 `data-annotation-paired-node`；默认对齐 node face，用户要求与侧置 label 对齐时再声明 ' +
-      '`data-annotation-paired-target="label"` 与 side。render audit 在外层 SVG 坐标系比较图标 union bbox ' +
-      '与目标的纵向中心。',
+      '默认对齐 node face，用户要求与侧置 label 对齐时再声明 `data-annotation-paired-target="label"` 与 side。' +
+      'render audit 在外层 SVG 坐标系比较图标 union bbox 与目标的纵向中心。',
     pass: '每个 required locale 的 paired 图标簇均有对应目标，且 centerY 差 `<=4px`。',
     evidence: '`annotationPairingAudit` 的逐簇 bbox、target kind/bbox、center delta 与 violation。',
   }),
   rule('T18', 'conditional-gate', {
-    title: 'label 组位置',
-    features: ['measured-label-position'],
-    trigger: '对声明了原生 reference bbox 的固定布局 label 组运行。',
-    check:
-      '每次 evidence run 将该组渲染 union bbox 与持久化的原生 `referenceBBox` 比对；只有明确的用户布局纠正' +
-      '才可另以 `approvedTargetBBox`、`approvedTargetAuthority: user-directed-layout-correction` 与理由声明' +
-      '待验目标，并保留原 `referenceBBox`。',
+    title: 'label 组位置（可选）',
+    trigger:
+      '仅当 source-facts 中某个 `label` 或 `value` 对象声明原生像素 `referenceBBox` 与 `labelGroup`（`layout.labels` 的键）时，' +
+      '对该组运行；未声明的组不做位置审计。',
+    check: '每次 evidence run 将该组渲染 union bbox 与声明的 `referenceBBox` 比对；用户要求改动布局时，作者更新或删除该 bbox。',
     pass:
-      '源语言 locale 的中心差（X 与 Y 各自）`<=6px`。非源语言 locale 不做中心 gate，但每个已测量组都必须' +
+      '源语言 locale 的中心差（X 与 Y 各自）`<=6px`。非源语言 locale 不做中心 gate，但每个声明的组都必须' +
       '渲染出可测 label，缺组即失败。',
     rationale: '6px = 通用 4px 中心约定加 2px 的 ink-bbox 对 em-box 测量余量。',
     evidence: '逐 locale 的 `labelPositionAudit`。',
-  }),
-  rule('T19', 'build-gate', {
-    title: '测量来源绑定',
-    features: ['measured-label-position'],
-    trigger: 'Plan 编译与 prepare-review 时。',
-    check:
-      'income-statement Plan 要求每个映射 `layout.labels.*`（icon 位除外）的 render 对象声明 ' +
-      '`measured-label-position`（`MEASURED_LABEL_POSITION_REQUIRED`）。prepare-review 校验所有 Source 测量' +
-      '的 featureEvidence（`measured-label-position`、`semantic-annotation`、`ambiguous-label-slot`）：带 ' +
-      'fragment 的 locator 指向本 Build Source（processing 或 processed 路径），evidence digest、reference-image ' +
-      'artifact digest 与 Build Source digest 一致，`referenceBBox` 不越 Source 边界。',
-    pass: '相邻期间或其他数据集的坐标携带外来 digest，直接拒绝。',
-  }),
-  rule('T23', 'build-gate', {
-    title: 'non-node 金额的 zero-paint 槽位',
-    features: ['zero-paint-node-slot'],
-    trigger: 'Income Statement `financial-value` 映射到 `nonNodeMetrics.*` 时。',
-    check:
-      '必须声明 Source-bound `zero-paint-node-slot`；prepare-review 对同列 peer x/width 的原生 `referenceBBox` ' +
-      '做像素扫描，任一行出现横跨至少 75% 槽宽的有色连续段即判定存在 node face。',
-    pass: '只有扫描确认为 zero-paint 的对象可保留 non-node 表达；1px/2px 连续横条同样失败，须改建模为 node。',
-  }),
-  rule('T14', 'manual', {
-    title: '可见短柱端点',
-    features: ['visible-short-node'],
-    trigger: '声明 `visible-short-node`：reference 中短而仍可见的 node 柱面。',
-    check: '逐对象核对 reference/candidate 直线段端点、宽高与 deltas，区分曲线与文字像素。',
-    pass: '审阅确认覆盖同一可见直线段；任何接受的非零差异写明理由。',
-  }),
-  rule('T20', 'manual', {
-    title: 'label 槽位歧义裁决',
-    features: ['ambiguous-label-slot'],
-    trigger: '声明 `ambiguous-label-slot`：label 槽位或归属在参考图上有多种读法时。',
-    check: '渲染前提交绑定 reference crop 的操作者槽位裁决。',
-  }),
-  rule('B14', 'manual', {
-    title: '指定字重的量化',
-    features: ['specified-label-weight'],
-    trigger: '声明 `specified-label-weight` 时。',
-    check: '逐 heading 量化 computed `font-weight`，并提交绑定来源证据的人工决定。',
-    pass: '不能拿 title、金额或 wordmark 字重替代。',
-  }),
-  rule('T16', 'manual', {
-    title: '指定字重的来源',
-    features: ['specified-label-weight'],
-    trigger: '声明 `specified-label-weight` 时。',
-    check: '对每个语义 heading 比较 computed weight 与来源规格。',
-    pass: 'title、金额、备注和 wordmark 分开；缺来源时不得声明该 feature，也不得臆造统一字重。',
-  }),
-  rule('T17', 'manual', {
-    title: 'annotation 分类',
-    features: ['semantic-annotation'],
-    check:
-      '名称/金额/备注与 node 或其 micro-flow 属于同一语义对象时默认使用 `layout.labels`；只有真实 ' +
-      'callout/guide 必须作为 annotation 时才声明 `semantic-annotation`。',
-    pass: '逐 locale Hover 该文字本身，确认高亮和 Tooltip。',
-  }),
-  rule('B16', 'conditional-gate', {
-    title: 'annotation 来源证据',
-    features: ['semantic-annotation'],
-    trigger: 'node object 映射 `annotations.*` 时。',
-    check: '必须声明 `semantic-annotation` 并携带原生 Source 分类证据。',
-    pass: '缺 feature、crop、bbox、Source digest、inspection method、classification claim 或理由均失败。',
   }),
 ]);
 
@@ -296,22 +219,4 @@ validateCatalog(FIDELITY_RULES);
 
 export function catalogEnforcements(rules = FIDELITY_RULES) {
   return Object.freeze(Object.fromEntries(rules.map((entry) => [entry.id, entry.enforcement])));
-}
-
-export function catalogFeatureMappings(rules = FIDELITY_RULES) {
-  const byFeature = new Map();
-  for (const entry of rules) {
-    for (const feature of entry.features) {
-      const bucket = byFeature.get(feature) || [];
-      bucket.push(entry.id);
-      byFeature.set(feature, bucket);
-    }
-  }
-  return Object.freeze(
-    Object.fromEntries(
-      [...byFeature.entries()]
-        .sort(([left], [right]) => left.localeCompare(right))
-        .map(([feature, ruleIds]) => [feature, Object.freeze(ruleIds.sort((a, b) => a.localeCompare(b)))])
-    )
-  );
 }

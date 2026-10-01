@@ -26,7 +26,7 @@ import {
   SOURCE_CLASSIFICATION_REVIEW_METHOD,
   classifySourceSignals,
   createSourceClassification,
-} from './lib/source-coverage.mjs';
+} from './lib/source-objects.mjs';
 
 const BUILD_ROOT = projectPath('output', 'builds');
 

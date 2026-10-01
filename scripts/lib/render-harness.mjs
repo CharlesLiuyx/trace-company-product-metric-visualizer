@@ -5,12 +5,10 @@
 // on. Extracted from scripts/verify-d3.mjs; behavior is unchanged.
 import { PROJECT_FONT_FAMILIES, localFontFaces } from './local-fonts.mjs';
 import {
-  FACE_FLOOR_RASTER_TOLERANCE_PX,
   MIN_VISIBLE_FACE_PX,
   assertNodePaintPolicy,
   isFaceBelowVisibilityFloor,
 } from './node-face-policy.mjs';
-import { LEGACY_HIDDEN_ANCHOR_FEATURE } from './legacy/object-inventory-v3.mjs';
 
 export { MIN_VISIBLE_FACE_PX } from './node-face-policy.mjs';
 
@@ -354,156 +352,62 @@ export async function auditNodePaint(page, options = {}) {
   return classifyNodePaintAudit(collected);
 }
 
-function nodeIdFromEvidenceTarget(target) {
-  const parts = String(target || '').split(/[.:/]/).filter(Boolean);
-  return parts.at(-1) || '';
-}
-
-export function nodeFaceExpectationsFromPlan(plan) {
-  if (plan?.nodeFacePolicy?.protocol === 'node-face-policy/v2') {
-    return {
-      visible: [...plan.nodeFacePolicy.visibleNodeIds],
-      hidden: [],
-      floorExceptions: plan.nodeFacePolicy.belowFloorExceptions.map((item) => ({ ...item })),
-      policyDigest: plan.nodeFacePolicy.policyDigest,
-      complete: plan.nodeFacePolicy.complete === true,
-      protocol: 'node-face-policy/v2',
-    };
-  }
-  if (plan?.nodeFacePolicy?.protocol === 'node-face-policy/v1') {
-    return {
-      visible: [...plan.nodeFacePolicy.visibleNodeIds],
-      hidden: [...plan.nodeFacePolicy.hiddenNodeIds],
-      floorExceptions: plan.nodeFacePolicy.belowFloorExceptions.map((item) => ({ ...item })),
-      policyDigest: plan.nodeFacePolicy.policyDigest,
-      complete: plan.nodeFacePolicy.complete === true,
-      protocol: 'node-face-policy/v1',
-    };
-  }
-  const checks = Array.isArray(plan?.requiredChecks) ? plan.requiredChecks : [];
-  const targetsFor = (checkId) => checks
-    .filter((check) => check.id === checkId)
-    .flatMap((check) => check.evidenceTargets || [])
-    .map(nodeIdFromEvidenceTarget)
-    .filter(Boolean);
-  const explicitVisible = targetsFor('feature:visible-node-face');
-  const legacyVisible = targetsFor('feature:visible-short-node');
-  return {
-    visible: [...new Set([...explicitVisible, ...legacyVisible])].sort(),
-    hidden: [...new Set(targetsFor(`feature:${LEGACY_HIDDEN_ANCHOR_FEATURE}`))].sort(),
-    complete: ['verification-plan/v3', 'verification-plan/v4', 'verification-plan/v5'].includes(plan?.protocol),
-    protocol: plan?.protocol === 'verification-plan/v5'
-      ? 'node-face-policy/v2'
-      : 'node-face-policy/v1',
-  };
-}
-
+// B15 expectations come from node-face-policy's nodeFaceExpectations(); an
+// empty object leaves only the unbound floor check (diagnostics and catalog
+// regression).
 export function assertNodePaintAudit(audit, expectations = {}, options = {}) {
-  const hasExpectations = (expectations.visible?.length || 0) > 0 ||
-    (expectations.hidden?.length || 0) > 0 || expectations.complete;
-  const policy = hasExpectations
-    ? {
-        schemaVersion: expectations.protocol === 'node-face-policy/v2' ? 2 : 1,
-        protocol: expectations.protocol || 'node-face-policy/v1',
-        minVisibleFacePx: MIN_VISIBLE_FACE_PX,
-        rasterTolerancePx: FACE_FLOOR_RASTER_TOLERANCE_PX,
-        complete: Boolean(expectations.complete),
-        visibleNodeIds: [...new Set(expectations.visible || [])].sort(),
-        ...(expectations.protocol === 'node-face-policy/v2'
-          ? {}
-          : { hiddenNodeIds: [...new Set(expectations.hidden || [])].sort() }),
-        belowFloorExceptions: (expectations.floorExceptions || []).map((item) => typeof item === 'string'
-          ? { nodeId: item, referenceFaceHeightPx: 0 }
-          : item),
-        policyDigest: expectations.policyDigest || null,
-      }
-    : null;
-  return assertNodePaintPolicy(audit, policy, options);
+  const bound = (expectations?.visible?.length || 0) > 0 ||
+    (expectations?.short?.length || 0) > 0 || expectations?.complete === true;
+  return assertNodePaintPolicy(audit, bound ? expectations : null, options);
 }
 
-function evidenceTargetsForCheck(check) {
-  return [...new Set((check?.evidenceTargets || [])
-    .map((target) => String(target).split(/[.:/]/).filter(Boolean).at(-1))
-    .filter(Boolean))];
+function failureList(items, describe) {
+  return items.slice(0, 5).map(describe).join(',') + (items.length > 5 ? `,+${items.length - 5}` : '');
 }
 
-// Executes feature/impact gates whose evidence is already present in the
-// current render. This prevents record:fidelity from archiving a known-failed
-// Plan check and leaving finish() to discover it much later.
-export function assertPlannedRenderAudits(plan, audits) {
-  const checks = Array.isArray(plan?.requiredChecks) ? plan.requiredChecks : [];
+// Render audits beyond purity, fonts, B15, G8 and G12. B6 runs on every
+// render; A6 (data-annotation-clearance), I12 (data-annotation-paired-node),
+// A10 (.sankey-interactive-annotation) and T6 (aligned-side-label-column) run
+// when the rendered DOM carries their attribute; T18 runs only for label
+// groups the author declared with a referenceBBox. Returns one failure string
+// per failing rule.
+export function renderAuditFailures({
+  textLayoutAudit,
+  annotationLayoutAudit,
+  annotationPairingAudit,
+  semanticAnnotationAudit,
+  labelLayoutAudit,
+  labelPositionAudit,
+} = {}) {
   const failures = [];
-  for (const check of checks) {
-    if (check.enforcement === 'manual') continue;
-    if (check.evidenceKind === 'label-layout-audit') {
-      const expectedNodes = evidenceTargetsForCheck(check);
-      const measurements = audits.labelLayoutAudit?.horizontalSideLabels || [];
-      if ((check.ruleIds || []).includes('T6')) {
-        const columnAudit = classifySideLabelColumnAlignment(measurements, expectedNodes);
-        if (columnAudit.violations.length) {
-          failures.push(`${check.id}=${columnAudit.violations.map((item) => item.code).join(',')}`);
-        }
-      } else {
-        for (const node of expectedNodes) {
-          const matches = measurements.filter((item) => item.node === node);
-          if (!matches.length) failures.push(`${check.id}/${node}=missing-measurement`);
-          else if (!matches.some((item) => Number(item.verticalCenterDelta) <= 4)) {
-            failures.push(`${check.id}/${node}=center-delta`);
-          }
-        }
-      }
-    } else if (check.evidenceKind === 'text-layout-audit') {
-      const audit = audits.textLayoutAudit;
-      if (!audit) failures.push(`${check.id}=missing-audit`);
-      else {
-        if ((check.objectIds || []).length > 0 && Number(audit.checkedTexts) < 1) {
-          failures.push(`${check.id}=no-rendered-text`);
-        }
-        if ((audit.overflowViolations || []).length > 0) failures.push(`${check.id}=overflow`);
-      }
-    } else if (check.evidenceKind === 'annotation-layout-audit') {
-      const audit = audits.annotationLayoutAudit;
-      if (!audit) failures.push(`${check.id}=missing-audit`);
-      else {
-        const checkedAnnotations = Number(
-          audit.checkedAnnotations
-          ?? (Number(audit.checkedAnnotationTexts || 0) + Number(audit.checkedAnnotationGraphics || 0))
-        );
-        if ((check.objectIds || []).length > 0 && checkedAnnotations < 1) {
-          failures.push(`${check.id}=no-rendered-annotation`);
-        }
-        if ((audit.overlapViolations || []).length > 0) failures.push(`${check.id}=overlap`);
-      }
-    } else if (check.evidenceKind === 'annotation-pairing-audit') {
-      const audit = audits.annotationPairingAudit;
-      if (!audit) failures.push(`${check.id}=missing-audit`);
-      else {
-        const expectedAnnotations = evidenceTargetsForCheck(check);
-        const measured = new Set((audit.measurements || []).map((item) => item.annotationId));
-        for (const annotationId of expectedAnnotations) {
-          if (!measured.has(annotationId)) failures.push(`${check.id}/${annotationId}=missing-pair`);
-        }
-        if ((audit.violations || []).length > 0) {
-          failures.push(`${check.id}=${audit.violations.map((item) => `${item.annotationId}:${item.code}`).join(',')}`);
-        }
-      }
-    } else if (check.evidenceKind === 'annotation-semantics-audit') {
-      const audit = audits.semanticAnnotationAudit;
-      if (!audit) failures.push(`${check.id}=missing-audit`);
-      else if ((audit.violations || []).length > 0) {
-        failures.push(`${check.id}=${audit.violations.map((item) => `${item.nodeId}:${item.code}`).join(',')}`);
-      }
-    } else if (check.evidenceKind === 'label-position-audit') {
-      const audit = audits.labelPositionAudit;
-      if (!audit) failures.push(`${check.id}=missing-audit`);
-      else if ((audit.violations || []).length > 0) {
-        failures.push(`${check.id}=${audit.violations.map((item) => `${item.node}:${item.code}`).join(',')}`);
-      }
-    }
+  if (!textLayoutAudit) failures.push('B6=missing-audit');
+  else if ((textLayoutAudit.overflowViolations || []).length) {
+    failures.push(`B6=overflow:${failureList(textLayoutAudit.overflowViolations, (item) => item.identity)}`);
   }
-  if (failures.length) {
-    throw new Error(`Planned render checks failed: ${failures.join(', ')}`);
+  // A6 is opt-in: it runs once the DOM carries data-annotation-clearance
+  // (authored in annotationsSvg, or added by the renderer to paired rasters).
+  if (Number(annotationLayoutAudit?.checkedAnnotationGraphics) > 0 && (annotationLayoutAudit.overlapViolations || []).length) {
+    failures.push(`A6=overlap:${failureList(annotationLayoutAudit.overlapViolations, (item) => `${item.annotation?.identity}/${item.protectedText?.identity}`)}`);
   }
+  if (Number(annotationPairingAudit?.expectedPairs) > 0 && (annotationPairingAudit.violations || []).length) {
+    failures.push(`I12=${failureList(annotationPairingAudit.violations, (item) => `${item.annotationId}:${item.code}`)}`);
+  }
+  if ((semanticAnnotationAudit?.violations || []).length) {
+    failures.push(`A10=${failureList(semanticAnnotationAudit.violations, (item) => `${item.nodeId || '?'}:${item.code}`)}`);
+  }
+  const columnViolations = (labelLayoutAudit?.sideLabelColumns || []).flatMap((column) => column.violations);
+  if (columnViolations.length) {
+    failures.push(`T6=${failureList(columnViolations, (item) => `${item.node || 'column'}:${item.code}`)}`);
+  }
+  if ((labelPositionAudit?.violations || []).length) {
+    failures.push(`T18=${failureList(labelPositionAudit.violations, (item) => `${item.node}:${item.code}`)}`);
+  }
+  return failures;
+}
+
+export function assertRenderAudits(audits) {
+  const failures = renderAuditFailures(audits);
+  if (failures.length) throw new Error(`Render audits failed: ${failures.join('; ')}`);
 }
 
 // Explicitly loads every project font face and throws when any family is
@@ -1163,62 +1067,44 @@ export async function auditTextAndAnnotationLayout(page) {
   return classifyTextAndAnnotationLayout(geometry);
 }
 
-function annotationMetricIdFromObjectId(objectId) {
-  const match = String(objectId || '').match(/^(?:node|metric):(.+)$/);
-  return match ? match[1].replace(/-/g, '_') : '';
-}
-
-export function semanticAnnotationNodeIdsFromPlan(plan) {
-  const checks = Array.isArray(plan?.requiredChecks) ? plan.requiredChecks : [];
-  return [...new Set(
-    checks
-      .filter((check) => check.id === 'feature:semantic-annotation')
-      .flatMap((check) => check.objectIds || [])
-      .map(annotationMetricIdFromObjectId)
-      .filter(Boolean)
-  )].sort();
-}
-
-// Pure classifier so synthetic evidence tests and browser collection share
-// exactly the same semantic-annotation contract.
+// A10: every interactive annotation group in the DOM must resolve its
+// data-node to a node or non-node metric, carry text, and own the renderer's
+// transparent hitbox; annotation text naming such a metric outside its group
+// is unbound. Expectations come from the rendered DOM, not from authored input.
 export function classifySemanticAnnotationAudit({
   annotations = [],
-  expectedNodeIds = [],
   unboundNodeLikeTexts = [],
 } = {}) {
-  if (!Array.isArray(annotations) || !Array.isArray(expectedNodeIds) || !Array.isArray(unboundNodeLikeTexts)) {
+  if (!Array.isArray(annotations) || !Array.isArray(unboundNodeLikeTexts)) {
     throw new TypeError('Semantic annotation audit inputs must be arrays');
   }
-  const expected = [...new Set(expectedNodeIds.map((id) => String(id || '').trim()).filter(Boolean))].sort();
   const normalized = annotations.map((item, index) => ({
     nodeId: String(item?.nodeId || '').trim(),
-    interactive: item?.interactive === true,
     metricExists: item?.metricExists === true || item?.nodeExists === true,
     textCount: Number.isInteger(item?.textCount) ? item.textCount : 0,
     hasHitbox: item?.hasHitbox === true,
     index,
   }));
   const violations = [];
-  for (const nodeId of expected) {
-    const matches = normalized.filter((item) => item.nodeId === nodeId);
-    if (!matches.length) {
-      violations.push({ nodeId, code: 'missing-semantic-annotation' });
+  for (const item of normalized) {
+    if (!item.nodeId) {
+      violations.push({ nodeId: '', index: item.index, code: 'missing-data-node' });
       continue;
     }
-    if (!matches.some((item) => item.interactive)) violations.push({ nodeId, code: 'missing-interactive-class' });
-    if (!matches.some((item) => item.metricExists)) violations.push({ nodeId, code: 'unknown-data-node' });
-    if (!matches.some((item) => item.textCount > 0)) violations.push({ nodeId, code: 'missing-annotation-text' });
-    if (!matches.some((item) => item.hasHitbox)) violations.push({ nodeId, code: 'missing-annotation-hitbox' });
+    if (!item.metricExists) violations.push({ nodeId: item.nodeId, code: 'unknown-data-node' });
+    if (item.textCount < 1) violations.push({ nodeId: item.nodeId, code: 'missing-annotation-text' });
+    if (!item.hasHitbox) violations.push({ nodeId: item.nodeId, code: 'missing-annotation-hitbox' });
   }
+  const annotatedNodeIds = [...new Set(normalized.map((item) => item.nodeId).filter(Boolean))].sort();
   for (const item of unboundNodeLikeTexts) {
     const nodeId = String(item?.nodeId || '').trim();
-    if (expected.includes(nodeId)) violations.push({ nodeId, code: 'unbound-node-like-text' });
+    if (annotatedNodeIds.includes(nodeId)) violations.push({ nodeId, code: 'unbound-node-like-text' });
   }
   return {
-    schemaVersion: 1,
-    expectedNodeIds: expected,
+    schemaVersion: 2,
+    ruleId: 'A10',
     checkedAnnotations: normalized.length,
-    semanticAnnotationNodeIds: [...new Set(normalized.filter((item) => item.nodeId).map((item) => item.nodeId))].sort(),
+    semanticAnnotationNodeIds: annotatedNodeIds,
     unboundNodeLikeTexts: unboundNodeLikeTexts.map((item) => ({
       nodeId: String(item?.nodeId || '').trim(),
       text: String(item?.text || '').trim(),
@@ -1230,7 +1116,7 @@ export function classifySemanticAnnotationAudit({
 // Collects annotation semantics after the renderer has inserted its standard
 // transparent hitboxes. A metric-like text in the annotation layer is only
 // valid when its semantic node or non-node metric is explicitly interactive.
-export async function auditSemanticAnnotations(page, { datasetKey, language, expectedNodeIds = [] } = {}) {
+export async function auditSemanticAnnotations(page, { datasetKey, language } = {}) {
   const collected = await page.evaluate(({ key, requestedLanguage }) => {
     const svg = document.querySelector('#chart > svg');
     if (!svg) throw new Error('SankeyEngine.render did not create #chart > svg');
@@ -1251,7 +1137,6 @@ export async function auditSemanticAnnotations(page, { datasetKey, language, exp
     const annotations = Array.from(svg.querySelectorAll('.sankey-annotations .sankey-interactive-annotation'))
       .map((element) => ({
         nodeId: element.getAttribute('data-node') || '',
-        interactive: element.classList.contains('sankey-interactive-annotation'),
         metricExists: semanticMetricIds.has(element.getAttribute('data-node') || ''),
         textCount: element.querySelectorAll('text').length,
         hasHitbox: Boolean(element.querySelector(':scope > .sankey-annotation-hitbox')),
@@ -1263,7 +1148,7 @@ export async function auditSemanticAnnotations(page, { datasetKey, language, exp
       .filter((item) => item.nodeId);
     return { annotations, unboundNodeLikeTexts };
   }, { key: datasetKey, requestedLanguage: language || 'en' });
-  return classifySemanticAnnotationAudit({ ...collected, expectedNodeIds });
+  return classifySemanticAnnotationAudit(collected);
 }
 
 // Rendered-bbox audit of the label-node spacing hard gate (G8 in
@@ -1431,6 +1316,7 @@ export function classifyLabelLayoutAudit(geometry) {
   );
   return {
     thresholds,
+    sideLabelColumns: classifyDeclaredSideLabelColumns(horizontalSideLabels),
     verticalStacks,
     verticalViolations,
     centerViolations,
@@ -1443,8 +1329,11 @@ export function classifyLabelLayoutAudit(geometry) {
 }
 
 export const SIDE_LABEL_COLUMN_TOLERANCE = 2;
+// Node faces of one Sankey column may be staggered by a few pixels; declared
+// side labels whose node edges lie within this distance share one column.
+export const SIDE_LABEL_NODE_COLUMN_PX = 24;
 
-export function classifySideLabelColumnAlignment(horizontalSideLabels, expectedNodes) {
+export function classifySideLabelColumnAlignment(horizontalSideLabels, expectedNodes, { nodeColumnTolerance = SIDE_LABEL_COLUMN_TOLERANCE } = {}) {
   const nodes = [...new Set(expectedNodes || [])].sort();
   const measurements = [];
   const violations = [];
@@ -1471,7 +1360,7 @@ export function classifySideLabelColumnAlignment(horizontalSideLabels, expectedN
     : null;
   const nodeEdgeSpread = spread('nodeEdge');
   const labelEdgeSpread = spread('labelEdge');
-  if (nodeEdgeSpread != null && nodeEdgeSpread > SIDE_LABEL_COLUMN_TOLERANCE) {
+  if (nodeEdgeSpread != null && nodeEdgeSpread > nodeColumnTolerance) {
     violations.push({ node: null, code: 'mixed-node-columns', spread: nodeEdgeSpread });
   }
   if (labelEdgeSpread != null && labelEdgeSpread > SIDE_LABEL_COLUMN_TOLERANCE) {
@@ -1486,6 +1375,37 @@ export function classifySideLabelColumnAlignment(horizontalSideLabels, expectedN
     labelEdgeSpread,
     violations,
   };
+}
+
+// T6 runs when side labels declare semanticRole 'aligned-side-label-column'
+// (rendered as data-label-role). Declared labels on one side of node faces
+// within SIDE_LABEL_NODE_COLUMN_PX of each other form one column whose label
+// edges must align.
+export function classifyDeclaredSideLabelColumns(horizontalSideLabels) {
+  const bySide = new Map();
+  for (const item of horizontalSideLabels || []) {
+    if (item.semanticRole !== 'aligned-side-label-column') continue;
+    const side = String(item.side || '').startsWith('left') ? 'left' : 'right';
+    if (!bySide.has(side)) bySide.set(side, []);
+    bySide.get(side).push(item);
+  }
+  const columns = [];
+  for (const [side, items] of [...bySide.entries()].sort(([left], [right]) => left.localeCompare(right))) {
+    const sorted = [...items].sort((left, right) => Number(left.nodeEdge) - Number(right.nodeEdge));
+    let current = [];
+    for (const item of sorted) {
+      if (current.length && Number(item.nodeEdge) - Number(current.at(-1).nodeEdge) > SIDE_LABEL_NODE_COLUMN_PX) {
+        columns.push({ side, items: current });
+        current = [];
+      }
+      current.push(item);
+    }
+    if (current.length) columns.push({ side, items: current });
+  }
+  return columns.map(({ side, items }) => ({
+    side,
+    ...classifySideLabelColumnAlignment(items, items.map((item) => item.node), { nodeColumnTolerance: SIDE_LABEL_NODE_COLUMN_PX }),
+  }));
 }
 
 async function collectLabelGeometry(page) {
@@ -1520,38 +1440,13 @@ export async function auditLabelLayout(page) {
 
 export const LABEL_POSITION_CENTER_TOLERANCE = 6;
 
-// T18 expectations come from the Plan's objectCoverage: every object that
-// persisted a measured-label-position referenceBBox names one fixed-layout
-// label group (`layout.labels.<node>`), so the audit can pair the preflight
-// reference measurement with the group rendered for that node. An explicit,
-// user-directed correction may supply an approved target while retaining the
-// immutable Source measurement alongside it.
-export function labelPositionExpectationsFromPlan(plan) {
-  const coverage = Array.isArray(plan?.objectCoverage) ? plan.objectCoverage : [];
-  const expectations = [];
-  for (const entry of coverage) {
-    const evidence = entry.featureEvidence?.['measured-label-position'];
-    if (!evidence?.referenceBBox) continue;
-    const node = (entry.mapping || [])
-      .filter((item) => item.startsWith('render:'))
-      .map((item) => item.slice('render:'.length))
-      .filter((target) => !/(?:^|[./:])icons?$/i.test(target))
-      .map((target) => target.match(/(?:^|[./:])labels[./:]([A-Za-z0-9_-]+)/i)?.[1])
-      .find(Boolean);
-    if (!node) continue;
-    const approvedTarget = evidence.approvedTargetBBox;
-    expectations.push({
-      objectId: entry.objectId,
-      node,
-      referenceBBox: approvedTarget || evidence.referenceBBox,
-      ...(approvedTarget ? {
-        sourceReferenceBBox: evidence.referenceBBox,
-        approvedTargetAuthority: evidence.approvedTargetAuthority,
-        approvedTargetReason: evidence.approvedTargetReason,
-      } : {}),
-    });
-  }
-  return expectations.sort((left, right) => left.node.localeCompare(right.node));
+// T18 is opt-in: only source objects that declare a native-pixel
+// referenceBBox plus the layout.labels group it measures are audited.
+export function labelPositionExpectations(sourceObjects) {
+  return (sourceObjects?.objects || [])
+    .filter((entry) => Array.isArray(entry.referenceBBox) && entry.labelGroup)
+    .map((entry) => ({ objectId: entry.id, node: entry.labelGroup, referenceBBox: [...entry.referenceBBox] }))
+    .sort((left, right) => left.node.localeCompare(right.node) || left.objectId.localeCompare(right.objectId));
 }
 
 // T18 label-position audit: compare each measured label group's rendered
@@ -1594,11 +1489,6 @@ export function classifyLabelPositionAudit(geometry, expectations, { locale = 'e
         objectId: expectation.objectId,
         node: expectation.node,
         referenceBBox: expectation.referenceBBox,
-        ...(expectation.sourceReferenceBBox ? {
-          sourceReferenceBBox: expectation.sourceReferenceBBox,
-          approvedTargetAuthority: expectation.approvedTargetAuthority,
-          approvedTargetReason: expectation.approvedTargetReason,
-        } : {}),
         candidateBBox: null,
         deltaX: null,
         deltaY: null,
@@ -1614,11 +1504,6 @@ export function classifyLabelPositionAudit(geometry, expectations, { locale = 'e
       objectId: expectation.objectId,
       node: expectation.node,
       referenceBBox: expectation.referenceBBox,
-      ...(expectation.sourceReferenceBBox ? {
-        sourceReferenceBBox: expectation.sourceReferenceBBox,
-        approvedTargetAuthority: expectation.approvedTargetAuthority,
-        approvedTargetReason: expectation.approvedTargetReason,
-      } : {}),
       candidateBBox: [round(union.left), round(union.top), round(union.right - union.left), round(union.bottom - union.top)],
       deltaX,
       deltaY,
@@ -1646,8 +1531,7 @@ export function classifyLabelPositionAudit(geometry, expectations, { locale = 'e
   };
 }
 
-export async function auditLabelPosition(page, plan, { language = 'en' } = {}) {
-  const expectations = labelPositionExpectationsFromPlan(plan);
+export async function auditLabelPosition(page, expectations = [], { language = 'en' } = {}) {
   const geometry = await collectLabelGeometry(page);
   return classifyLabelPositionAudit(geometry, expectations, { locale: language || 'en' });
 }

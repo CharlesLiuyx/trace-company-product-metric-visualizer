@@ -1,6 +1,6 @@
 import { createHash, randomUUID } from 'node:crypto';
 import { DATASET_ADAPTERS } from './dataset-adapters.mjs';
-import { createSourceClassification } from './source-coverage.mjs';
+import { SOURCE_OBJECTS_PROTOCOL, createSourceClassification } from './source-objects.mjs';
 
 export { DATASET_ADAPTERS } from './dataset-adapters.mjs';
 
@@ -184,23 +184,19 @@ function authoredPayload(build, command) {
       return { path: artifact.path, digest: artifact.digest, role: artifact.role || 'authored' };
     })
     .sort((left, right) => left.path.localeCompare(right.path));
-  invariant(command.inventory && typeof command.inventory === 'object', 'INVENTORY_REQUIRED', 'Object inventory is required');
-  const inventoryDigest = command.inventory.inventoryDigest || command.inventory.digest;
-  assertDigest(inventoryDigest, 'Inventory digest');
-  let sourceCoverage = null;
-  if (command.sourceCoverage) {
-    const coverageDigest = command.sourceCoverage.coverageDigest || command.sourceCoverage.digest;
-    assertDigest(coverageDigest, 'Source Coverage digest');
+  invariant(command.sourceObjects && typeof command.sourceObjects === 'object', 'SOURCE_OBJECTS_REQUIRED', 'Source objects are required');
+  const sourceObjectsDigest = command.sourceObjects.sourceObjectsDigest || command.sourceObjects.digest;
+  assertDigest(sourceObjectsDigest, 'Source objects digest');
+  if (command.sourceObjects.protocol != null) {
     invariant(
-      ['source-coverage/v1', 'source-coverage/v2', 'source-coverage/v3'].includes(command.sourceCoverage.protocol) &&
-        command.sourceCoverage.datasetKey === build.key &&
-        command.sourceCoverage.adapter === build.adapter &&
-        command.sourceCoverage.inventoryDigest === inventoryDigest,
-      'SOURCE_COVERAGE_INVALID',
-      'Source Coverage must match the Build Adapter and ObjectInventory'
+      command.sourceObjects.protocol === SOURCE_OBJECTS_PROTOCOL &&
+        command.sourceObjects.datasetKey === build.key &&
+        command.sourceObjects.adapter === build.adapter,
+      'SOURCE_OBJECTS_INVALID',
+      'Source objects must match the Build key and Adapter'
     );
-    sourceCoverage = { ...command.sourceCoverage, digest: coverageDigest };
   }
+  const sourceObjects = { ...command.sourceObjects, digest: sourceObjectsDigest };
   const changeImpact = [...new Set(command.changeImpact || [])].sort();
   invariant(changeImpact.length > 0, 'CHANGE_IMPACT_REQUIRED', 'At least one ChangeImpact is required');
   for (const impact of changeImpact) {
@@ -220,12 +216,11 @@ function authoredPayload(build, command) {
       'VERIFICATION_PLAN_INVALID',
       'VerificationPlan Adapter does not match the Build'
     );
-    if (['verification-plan/v4', 'verification-plan/v5', 'verification-plan/v6'].includes(command.verificationPlan.protocol)) {
-      invariant(sourceCoverage, 'SOURCE_COVERAGE_REQUIRED', 'Versioned VerificationPlan requires Source Coverage in the authored snapshot');
+    if (command.verificationPlan.protocol != null) {
       invariant(
-        command.verificationPlan.sourceCoverageDigest === sourceCoverage.digest,
+        command.verificationPlan.sourceObjectsDigest === sourceObjects.digest,
         'VERIFICATION_PLAN_INVALID',
-        'VerificationPlan Source Coverage digest does not match the authored command'
+        'VerificationPlan source objects digest does not match the authored command'
       );
     }
     invariant(
@@ -247,8 +242,7 @@ function authoredPayload(build, command) {
   }
   const snapshot = {
     artifacts,
-    inventory: { ...command.inventory, digest: inventoryDigest },
-    ...(sourceCoverage ? { sourceCoverage } : {}),
+    sourceObjects,
     changeImpact,
     ...(verificationPlan ? { verificationPlan } : {}),
   };

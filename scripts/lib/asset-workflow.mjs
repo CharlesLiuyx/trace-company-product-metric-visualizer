@@ -8,8 +8,8 @@ import { mkdir, readFile, writeFile, readdir, symlink, copyFile } from 'node:fs/
 import { spawnSync } from 'node:child_process';
 import { rootDir } from './project.mjs';
 import { recordIntake } from '../record-intake.mjs';
-import { classifySourceSignals } from './source-coverage.mjs';
-import { createObjectInventory } from './object-inventory.mjs';
+import { classifySourceSignals } from './source-objects.mjs';
+import { VERIFICATION_PLAN_PROTOCOL } from './verification-plan.mjs';
 import { compileMetricFacts, SOURCE_FACTS_PROTOCOL } from './metric-source.mjs';
 import { updateMetricCatalog } from './metric-catalog.mjs';
 import { recordDatasetBuildCommand, readDatasetBuild, recordBuildObject, inspectDatasetBuild, readBuildObject } from './dataset-build-store.mjs';
@@ -113,9 +113,8 @@ async function authoredFacts(build, root, input) {
   if (input?.protocol !== SOURCE_FACTS_PROTOCOL) throw new Error(`Expected ${SOURCE_FACTS_PROTOCOL}`);
   if (input.questions?.length) throw new Error(`Please resolve these Source questions: ${input.questions.join('; ')}`);
   if (build.adapter !== 'metric-observation') {
-    if (!input.objects?.length) throw new Error('Sankey/revenue facts need complete Source objects with mappings and measurements');
-    const inventory = createObjectInventory({ datasetKey: build.key, objects: input.objects.map((item) => item.object) });
-    return { inventory, coverageInput: { scanPasses: ['geometry', 'residual', 'semantic-value'], items: input.objects.map((item) => ({ ...item.source, inventoryObjectIds: [item.object.id] })) } };
+    if (!Array.isArray(input.objects) || !input.objects.length) throw new Error('Sankey/revenue facts need the complete flat Source object list (source-facts/v1 objects[])');
+    return { sourceObjects: { objects: input.objects, ...(input.shortNodes == null ? {} : { shortNodes: input.shortNodes }) } };
   }
   const source = build.sources[0];
   const descriptor = { locator: source.processedUri, digest: source.digest, availability: source.availability,
@@ -127,7 +126,7 @@ async function authoredFacts(build, root, input) {
   await mkdir(path.dirname(destination), { recursive: true });
   await atomicJson(destination, compiled.record);
   await updateMetricCatalog(root);
-  return compiled;
+  return { record: compiled.record, sourceObjects: { objects: compiled.objects } };
 }
 export async function prepareAsset(buildId, facts = null, root = rootDir) {
   return operation(buildId, 'prepare', root, async (options) => {
@@ -142,20 +141,14 @@ export async function prepareAsset(buildId, facts = null, root = rootDir) {
     }
     const { manifest, loaded } = await deriveArtifactManifest(options.build, options.projectRoot);
     const previous = options.build.receipts.filter((receipt) => receipt.state === 'AUTHORED').at(-1)?.payload;
-    if (previous && digestValue(previous.artifacts) === digestValue(manifest.artifacts)) return showAsset(buildId, root);
+    // A snapshot prepared under an older Plan protocol is re-prepared even when its bytes are unchanged.
+    if (previous?.verificationPlan?.protocol === VERIFICATION_PLAN_PROTOCOL && digestValue(previous.artifacts) === digestValue(manifest.artifacts)) return showAsset(buildId, root);
     await recordBuildObject(buildId, 'source-facts', input, options);
     await recordBuildObject(buildId, 'artifact-manifest', manifest, options);
-    const prepared = await prepareBuildReview({ buildId, inventory: compiled.inventory, sourceCoverage: compiled.coverageInput, artifacts: manifest.artifacts,
+    await prepareBuildReview({ buildId, sourceObjects: compiled.sourceObjects, artifacts: manifest.artifacts,
       changeImpact: input.changeImpact || ['new-dataset'], requiredLocales: input.requiredLocales || (options.build.adapter === 'income-statement' ? ['en', 'zh'] : ['en']),
       checkpointProtocol: REVIEW_CANDIDATE_PROTOCOL, dependencyScopes: manifest.scopes,
     }, { ...options, loadedData: loaded });
-    const { projectFeedbackPatterns } = await import('./workflow-feedback.mjs');
-    const patterns = await projectFeedbackPatterns(options.projectRoot);
-    const ruleIds = new Set(prepared.build.receipts.at(-1).payload.verificationPlan.requiredChecks.flatMap((check) => check.ruleIds));
-    await recordBuildObject(buildId, 'feedback-pattern-hits', { protocol: 'feedback-pattern-hits/v1', indexDigest: digestValue(patterns), hits: patterns.patterns.filter((pattern) => pattern.ruleIds.some((id) => ruleIds.has(id))) }, options);
-    const { projectAssetCatalog } = await import('./workflow-assets.mjs');
-    const catalog = await projectAssetCatalog(options.projectRoot);
-    await recordBuildObject(buildId, 'asset-plan', { protocol: 'asset-plan/v1', inventoryDigest: compiled.inventory.inventoryDigest, requiredObjects: compiled.inventory.objects.filter((item) => item.mapping.some((mapping) => mapping.role === 'asset')), candidates: catalog.entries.filter((item) => item.consumers.includes(options.build.key)) }, options);
     return showAsset(buildId, root);
   }).then(async (result) => {
     await selectBuildPreview(root, result);
@@ -194,7 +187,9 @@ export async function showAsset(buildId, root = rootDir) {
   const verification = (await buildObjects(buildId, 'dataset-verification', options)).find(({ value }) => value.identity.authoredDigest === authored?.snapshotDigest);
   const checkpoints = (await buildObjects(buildId, 'fidelity-checkpoint', options)).sort((a, b) => (a.value.sequence || 0) - (b.value.sequence || 0) || a.value.recordedAt.localeCompare(b.value.recordedAt));
   let next = 'prepare';
-  if (authored && inspection.fresh) {
+  // An AUTHORED snapshot from an older Plan protocol stays readable; continue re-prepares it.
+  const currentPlan = authored?.verificationPlan?.protocol === VERIFICATION_PLAN_PROTOCOL || build.state !== 'AUTHORED';
+  if (authored && inspection.fresh && currentPlan) {
     if (build.state === 'AUTHORED') next = verification ? 'review' : 'verify';
     if (build.state === 'CLOSED') next = 'seal';
     if (build.state === 'BASELINE_STAGED') next = 'seal';

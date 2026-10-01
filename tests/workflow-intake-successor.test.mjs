@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createDatasetBuild } from '../scripts/lib/dataset-build.mjs';
-import { createSourceClassification } from '../scripts/lib/source-coverage.mjs';
+import { createSourceClassification } from '../scripts/lib/source-objects.mjs';
 import { successorClassification } from '../scripts/lib/workflow-intake-successor.mjs';
 const digest = 'sha256:' + 'a'.repeat(64);
 const classification = createSourceClassification({datasetKey:'example-q1',adapter:'income-statement',signals:['income-statement-values','sankey-flow-topology'],reviewMethod:'full-source-type-gate',source:{locator:'input/pending/example.png',digest,width:10,height:10},fullImageBBox:[0,0,10,10]});

@@ -63,8 +63,8 @@
 | 对象 | 协议 |
 | --- | --- |
 | sourceFacts | `source-facts/v1` |
+| sourceObjects | `source-objects/v1` |
 | textSourceClassification | `source-classification/v2` |
-| metricSourceCoverage | `source-coverage/v3` |
 | metricObservations | `metric-observations/v1` |
 | artifactManifest | `artifact-manifest/v1` |
 | checkpoint | `fidelity-checkpoints/v1` |
@@ -76,7 +76,7 @@
 | workbench | `trace-workbench/v1` |
 | workflowTimestamps | `workflow-timestamps/v1` |
 | application | `workflow-application/v1` |
-| verificationPlan | `verification-plan/v5` |
-| reviewPacket | `review-packet/v4` |
+| verificationPlan | `verification-plan/v6` |
+| reviewPacket | `review-packet/v5` |
 
 历史 Build 不因本表更新而获得新的审阅或检查点。

@@ -5,7 +5,7 @@ import { randomUUID } from 'node:crypto';
 import { existsSync } from 'node:fs';
 import { mkdir, symlink, readFile } from 'node:fs/promises';
 import { createDatasetBuild } from './dataset-build.mjs';
-import { createSourceClassification } from './source-coverage.mjs';
+import { createSourceClassification } from './source-objects.mjs';
 import { readDatasetBuild, initializeDatasetBuild, recordDatasetBuildCommand, recordBuildObject } from './dataset-build-store.mjs';
 import { assertBuildSession, acquireBuildSession } from './workflow-session.mjs';
 import { workflowOptions, canonicalSnapshot } from './asset-workflow.mjs';

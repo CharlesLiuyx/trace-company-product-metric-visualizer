@@ -6,18 +6,15 @@
     "datasetBuild": "dataset-build/v1",
     "fidelityRun": "fidelity-run/2",
     "sourceClassification": "source-classification/v1",
-    "sourceCoverage": "source-coverage/v2",
-    "objectInventory": "object-inventory/v4",
-    "nodeFacePolicy": "node-face-policy/v2",
-    "verificationPlan": "verification-plan/v5",
-    "reviewPacket": "review-packet/v4",
+    "sourceObjects": "source-objects/v1",
+    "verificationPlan": "verification-plan/v6",
+    "reviewPacket": "review-packet/v5",
     "datasetVerification": "dataset-verification/v1",
     "interfaceMatrix": "interface-matrix/v1",
     "fidelityResult": "fidelity-result/v2",
     "publication": "dataset-publication/v2",
     "sourceFacts": "source-facts/v1",
     "textSourceClassification": "source-classification/v2",
-    "metricSourceCoverage": "source-coverage/v3",
     "metricObservations": "metric-observations/v1",
     "artifactManifest": "artifact-manifest/v1",
     "checkpoint": "fidelity-checkpoints/v1",
@@ -131,27 +128,13 @@
     "bindsWholeNativeSource": true,
     "derivedAdapterMustMatchRequestedAdapter": true
   },
-  "sourceCoverage": {
-    "scanPasses": [
-      "geometry",
-      "residual",
-      "semantic-value"
-    ],
+  "sourceObjects": {
     "objectClasses": [
-      "financial-value",
-      "operating-metric",
-      "metric-observation",
-      "structural-flow",
-      "label-or-annotation",
-      "asset-or-brand",
-      "non-semantic-residual"
-    ],
-    "residualKinds": [
-      "publisher-attribution",
-      "creator-branding",
-      "website-url",
-      "social-badge",
-      "decorative-residue"
+      "value",
+      "flow",
+      "label",
+      "asset",
+      "residual"
     ],
     "amountUnits": [
       "K",
@@ -185,25 +168,18 @@
       "profit.operating.items",
       "profit.net"
     ],
-    "precisionRecoveryMethod": "authoritative-supplemental-source",
-    "authoritativeCorrectionMethod": "authoritative-source-correction",
     "authoritativeCorrectionApproval": "user-directed-source-correction",
-    "authoritativeCorrectionIssues": [
-      "unit-typo",
-      "numeric-typo"
-    ],
     "amountWithinLiteralResolution": true,
-    "inventoryOwnership": "exactly-once",
     "otherLabelsMayBeNonSemanticResidual": false,
-    "zeroLookingNumericTypoRequiresAuthoritativeCorrection": true,
+    "valueBearingOtherMustBeValue": true,
     "roundedNonZeroMayBeAuthoredAsZero": false,
     "recoveredNonZeroMustSurviveAuthoredDisplayPrecision": true,
     "prepareReviewReconcilesLoadedAuthoredValues": true,
     "incomeStatementFinancialViewOwnership": "exactly-one-node-or-non-node-metric",
-    "semanticNodesRequireObservedFace": true,
-    "invisibleSemanticNodesSupported": false,
-    "incomeStatementNonNodeMetricsRequireZeroPaintEvidence": true,
-    "prepareReviewPixelChecksZeroPaintNodeSlots": true,
+    "adapterTargetOwnership": "exactly-once",
+    "sourcePixelEvidence": false,
+    "subFloorNodeDeclaration": "shortNodes",
+    "labelPositionAudit": "opt-in-referenceBBox",
     "incomeStatementReconciliationTargets": [
       "metric-ssot",
       "sankey-view-adapter"
@@ -214,7 +190,7 @@
     "supplementalOperatingMetrics": {
       "ssotPath": "operatingMetrics",
       "viewPath": "operatingMetrics",
-      "sourceClass": "operating-metric",
+      "sourceClass": "value",
       "units": [
         "K",
         "M",
@@ -234,12 +210,11 @@
       "dedicatedVisibleValueText": true
     }
   },
-  "nodeFacePolicy": {
-    "derivedFrom": "source-coverage/v2",
-    "embeddedIn": "verification-plan/v5",
-    "completeRenderedNodeClassification": true,
-    "allCurrentSemanticNodesExpectedVisible": true,
-    "sourceBoundFloorExceptionsOnly": true
+  "nodeFaceExpectations": {
+    "derivedFrom": "source-objects/v1",
+    "valueNodesExpectedVisible": true,
+    "everyRenderedNodePainted": true,
+    "subFloorExceptions": "shortNodes"
   },
   "sankeyAdapter": {
     "semanticNodesRequirePaintedFaces": true,
@@ -286,18 +261,16 @@
   "durableObjects": [
     "ChangeImpact",
     "SourceClassification",
-    "SourceCoverage",
+    "SourceObjects",
     "VerificationPlan",
     "DatasetVerification",
     "ArtifactManifest",
     "InterfaceMatrix",
     "FidelityResult",
-    "ObjectInventory",
     "ManualAttestation",
     "RegionDecision",
     "FeedbackRecord",
     "FeedbackLedger",
-    "NodeFacePolicy",
     "ReviewPacket"
   ],
   "invariants": {

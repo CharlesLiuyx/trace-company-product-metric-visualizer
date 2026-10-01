@@ -251,11 +251,9 @@ async function renderLanguageForGates(page, pageErrors, key, language) {
     );
   }
   const nodePaintAudit = await auditNodePaint(page, { dataset: key, language: meta.language });
-  // Catalog regression has no Build-local inventory, but still rejects
-  // ambiguous duplicate semantic IDs and records every face for inspection.
-  // Catalog regression has no Build-bound Source Coverage or node-face
-  // policy. Validate audit integrity here, while leaving B15 exception
-  // adjudication to Plan-bound fidelity and seal runs.
+  // Catalog regression has no Build-bound source objects (value nodes and
+  // shortNodes), so it validates audit integrity, rejects duplicate semantic
+  // IDs and records every face, leaving the B15 floor to Build-bound runs.
   assertNodePaintAudit(nodePaintAudit, {}, { enforceUnboundFloor: false });
   const renderedTypographyAudit = await typographyAudit(page, {
     dataset: key,

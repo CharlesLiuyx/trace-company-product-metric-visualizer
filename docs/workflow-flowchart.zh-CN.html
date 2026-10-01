@@ -28,7 +28,7 @@ pre{max-width:100%;overflow:auto;padding:12px;background:var(--soft);font-size:1
 <p><strong>你通常只需给材料、回答具体疑问、核对最终结果。</strong>识别图片和理解原文由执行者完成；生成中间清单、执行检查、记录结果与安排下一步由工具接手。</p>
 </div></section>
 <section id="example"><h2>02 · 用一段文字，看最后得到什么</h2><div class="section-body"><figure id="example-flow" data-toc="图 2-1 一份材料的数据化结果"><figcaption>图 2-1 · 示例：两项指标完整入库</figcaption><div class="legend"><span><i class="swatch blue"></i>你提供的原文</span><span><i class="swatch green"></i>系统保存的指标</span></div><div class="example-source">示例公司 A，2026 年第一季度收入 100 亿元，净利润 20 亿元。</div><div class="g-arrow">↓ 整理、核对并审阅</div><div class="result-line"><div><b>收入 · 100 亿元</b>主体：示例公司 A<br>时间：2026 年第一季度<br>保留“收入 100 亿元”的原文位置</div><div><b>净利润 · 20 亿元</b>主体：示例公司 A<br>时间：2026 年第一季度<br>保留“净利润 20 亿元”的原文位置</div></div><p class="caption">这是虚构示例，未纳入正式数据。如果提供相同内容的图片，数据记录一致，来源位置改为原图中的区域。未说明的统计口径会明确保留为“未说明”。</p></figure><p>最后得到的是可搜索、可导出的记录，而且能查回每个数值来自哪里。如果某个字看不清，处理单就指出这一处，等待确认。</p></div></section>
-<section id="changes"><h2>03 · Loop：改了哪里，就复查哪里</h2><div class="section-body"><figure id="repair-loop" data-toc="图 3-1 修正与复查循环"><figcaption>图 3-1 · 未变化的阶段可以保留</figcaption><div class="legend"><span><i class="swatch blue"></i>执行者与程序处理</span><span><i class="human-key"></i>需要人工判断</span><span><i class="swatch green"></i>检查与正式结果</span><span><i class="swatch neutral"></i>按需要处理</span><span><i class="arrow-key">↓</i>处理顺序</span></div><div class="graph-tools"><label for="changeCase">这次发现的是</label><select id="changeCase"><option value="label">一个标签挤在一起</option><option value="number">一项原始数值改了</option><option value="company">另一家公司新增了数据</option><option value="rules">绘图或检查程序发生变化</option></select></div><div class="mini-loop"><div class="g-box"><b>发现具体问题</b><p id="changeProblem"></p></div><div class="g-box"><b>修正并检查相关部分</b><p id="changeChecks"></p></div><div class="g-box green"><b>保留仍有效的工作</b><p id="changeKeep"></p></div></div><div class="return-edge">检查仍有问题 ↶ 再修正；问题已关闭 → 更新审阅 → 最终检查 → 纳入系统</div><p class="caption">依赖范围由实际数据、图表、资产、字体与检查程序推导。输入未变时 seal 复用已接受的渲染结果，只重跑数据一致性。</p></figure><p>你指出的问题会写入反馈记录，并列出同批需要检查的材料。历史案例会在下次准备时被提示；执行者仍需落实防错措施与同批排查，不能把“已记录”当作“已解决”。</p></div></section>
+<section id="changes"><h2>03 · Loop：改了哪里，就复查哪里</h2><div class="section-body"><figure id="repair-loop" data-toc="图 3-1 修正与复查循环"><figcaption>图 3-1 · 未变化的阶段可以保留</figcaption><div class="legend"><span><i class="swatch blue"></i>执行者与程序处理</span><span><i class="human-key"></i>需要人工判断</span><span><i class="swatch green"></i>检查与正式结果</span><span><i class="swatch neutral"></i>按需要处理</span><span><i class="arrow-key">↓</i>处理顺序</span></div><div class="graph-tools"><label for="changeCase">这次发现的是</label><select id="changeCase"><option value="label">一个标签挤在一起</option><option value="number">一项原始数值改了</option><option value="company">另一家公司新增了数据</option><option value="rules">绘图或检查程序发生变化</option></select></div><div class="mini-loop"><div class="g-box"><b>发现具体问题</b><p id="changeProblem"></p></div><div class="g-box"><b>修正并检查相关部分</b><p id="changeChecks"></p></div><div class="g-box green"><b>保留仍有效的工作</b><p id="changeKeep"></p></div></div><div class="return-edge">检查仍有问题 ↶ 再修正；问题已关闭 → 更新审阅 → 最终检查 → 纳入系统</div><p class="caption">依赖范围由实际数据、图表、资产、字体与检查程序推导。输入未变时 seal 复用已接受的渲染结果，只重跑数据一致性。</p></figure><p>你指出的问题会写入反馈记录，并列出同批需要检查的材料。执行者仍需落实修正与同批排查，不能把“已记录”当作“已解决”。</p></div></section>
 <section id="standards"><h2>04 · Spec：始终按同一套标准做</h2><div class="section-body"><div class="table-wrap" id="standards-table" data-toc="表 4-1 入库的基本标准"><div class="asset-caption">表 4-1 · 六条基本要求</div><table><colgroup><col style="width:23%"><col style="width:47%"><col style="width:30%"></colgroup><thead><tr><th>要求</th><th>实际怎么做</th><th>由谁判断</th></tr></thead><tbody>
 <tr><td>不能漏</td><td>每项有意义的数据和必要说明都有记录；忽略的内容有原因。</td><td>程序检查覆盖，人工核对全文 / 全图。</td></tr><tr><td>不能改错</td><td>主体、时间、指标、数值、单位和统计口径与来源对应。</td><td>程序核对格式与一致性，人工确认含义。</td></tr><tr><td>不能瞎补</td><td>未说明、读不清、有冲突的内容明确标出。</td><td>执行者记录，必要时由你补充判断。</td></tr><tr><td>不能误覆盖</td><td>重复材料、重复指标和并发改动在正式生效前核对。</td><td>程序拦截，执行者解决冲突。</td></tr><tr><td>需要的展示要完整</td><td>需要还原图表时，关系、文字、图标都有去向。</td><td>图形检查加实际看图。</td></tr><tr><td>能核对才算完成</td><td>结果审阅通过、版本未变、最终检查完成后才能入库。</td><td>程序约束顺序，人工接受当前版本。</td></tr>
 </tbody></table></div><p>每类详细规则只保留一个负责定义的文件。命令和协议表由代码生成，再由检查程序验证一致，避免不同说明互相打架。</p></div></section>
@@ -76,9 +76,8 @@ const TERMS={
 'Loop':['迭代检查循环。发现差异、修改、取证、复查，直到必需问题被关闭。'],
 'SSOT':['Single Source of Truth，唯一事实源。某种信息只在一个地方拥有最终定义，其余位置引用或从它生成。'],
 'Adapter':['适配层。把某一种输入类型接到统一处理流程；本项目也用 View Adapter 表达图形显示方式，数据事实仍单独保存。'],
-'SourceCoverage':['来源覆盖记录。把原图里的每个独立对象连到后续处理结果，明确哪里保留、转换或合法跳过。','Source Coverage','Coverage'],
-'ObjectInventory':['对象清单。登记要处理的节点、标签、图标与其他对象，以及它们的显示方式和风险特征。','Inventory'],
-'VerificationPlan':['检查计划。根据对象、变更和语言生成必做检查，执行者不能随意删掉其中要求。','Plan'],
+'SourceObjects':['来源对象清单。原图里每个独立对象各记一条：数值、流带、标签、资产或无语义残留；数值条目对到 SSOT 字段与节点。','Source objects','source-objects'],
+'VerificationPlan':['检查计划。按输入类型固定的必做检查与必需语言，执行者不能随意删掉其中要求。','Plan'],
 'ReviewPacket':['审阅包。把当前输入、候选、差异、证据和未决问题组织成一份具体可确认的材料。','Packet'],
 'ArtifactManifest':['产物与依赖清单。记录实际参与本次结果的文件和内容指纹，是判断旧证据是否仍适用的依据。'],
 'FidelityRun':['保真证据运行。针对一个确切候选渲染并保存检查证据；运行成功不表示人工已经接受。'],
@@ -102,26 +101,22 @@ const TERMS={
 'supersede':['取代旧记录。新决定接替旧决定的效力，旧记录仍保留供追溯。','supersession'],
 'locale':['语言和地区配置。英文通过不能证明中文排版与数值显示也正确。','locales'],
 'i18n':['Internationalization，国际化。支持多种语言和地区，同时保持财务含义与结构一致。'],
-'bbox':['Bounding Box，边界框。包住文字或图形的矩形，用于比较位置、间距、对齐和重叠。','referenceBBox','approvedTargetBBox'],
+'bbox':['Bounding Box，边界框。包住文字或图形的矩形，用于比较位置、间距、对齐和重叠。','referenceBBox'],
 'node':['节点。本项目中有语义的收入或费用对象；图形节点必须对应 Source 上实际绘制的柱面。'],
 'flow':['流带。连接节点、表达关系的图形；它的几何不能冒充节点柱面。'],
 'socket':['接口槽位。流带在节点端面占据的位置和范围；位置或顺序错了会形成缝隙或错误连接。'],
 'Interface Matrix':['接口核对矩阵。按每个端面列出原图与候选的几何和证据，防止只看全图分数漏掉局部错误。','Matrix'],
 'Other':['其他项。财务图里通常代表真实金额，即使很小或缺少图标，也不能当装饰跳过。'],
-'below-floor':['低于通用可见高度下限。原图确实存在这种细柱时，要用绑定原图的明确例外保留它。','floor exception'],
-'zero-paint':['零着色。原图的预期槽位没有实际柱面；需要原生像素检查，不能仅凭金额小来猜。'],
+'below-floor':['低于通用可见高度下限。原图确实存在这种细柱时，在 shortNodes 中写明节点与理由保留它。','shortNodes'],
 'precision recovery':['精度恢复。原图因四舍五入看似为零，用更精确的权威数值还原真实非零金额。','precisionRecovery'],
 'rounding interval':['舍入区间。哪些真实数值会被显示成当前字面量；用来区分精度不足与确实写错。'],
 'numeric typo':['数值笔误。显示量级确实错了，需要用户指向的权威来源和明确修正记录。'],
-'feature':['对象特征。用来判断哪些条件检查适用，例如侧置标签、细柱或图标配对。','features'],
 'checker':['检查实现。实际测量并判断某条规则是否满足的代码，不能用“规则已登记”替代。'],
 'hard-gate':['自动硬门。检测失败就不能作为有效通过证据，人工不能用一句说明绕过。'],
 'build-gate':['构建级检查。对一个构建输入执行的独立门槛，不必在每张截图里重复。'],
-'conditional-gate':['条件门。对象具备指定特征时必须执行，不能通过漏声明特征规避。'],
-'quantified-audit':['量化审计。程序给出可核对的测量事实，语义上是否正确仍可能需要人判断。'],
+'conditional-gate':['条件门。渲染结果带有对应属性，或作者声明了可选输入时执行；失败即阻断。'],
 'manual':['人工判断。需要人确认并留下与具体证据对应的决定；不是自动通过。'],
 'attestation':['人工确认记录。说明谁对哪一份输入和证据作出了接受、拒绝或阻断决定。','ManualAttestation'],
-'notApplicable':['不适用。必须由输入类型与检查计划决定，不能因为执行困难而自行标为不适用。'],
 'baseline':['回归基线。记录已接受的输出，供未来检查变化；不能用刚生成的基线证明自己正确。'],
 'fresh':['仍然有效。当前输入与证据所绑定的内容指纹一致；只对确实纳入检查的依赖范围有意义。'],
 'stale':['已失效。至少一个被绑定的输入改变或丢失，需要重新确认相关结果。'],

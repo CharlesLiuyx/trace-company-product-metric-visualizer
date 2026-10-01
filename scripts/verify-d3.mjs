@@ -31,9 +31,9 @@ import {
 } from './lib/interface-fidelity.mjs';
 import {
   assertNodePaintAudit,
-  assertPlannedRenderAudits,
   assertProjectFontsLoaded,
   assertRawSvgCanvas,
+  assertRenderAudits,
   assertTypographyAudit,
   auditLabelLayout,
   auditLabelPosition,
@@ -42,13 +42,14 @@ import {
   auditTextAndAnnotationLayout,
   collectRenderedRegions,
   datasetRenderMeta,
-  nodeFaceExpectationsFromPlan,
+  labelPositionExpectations,
   openHarnessPage,
   renderDatasetForPurity,
-  semanticAnnotationNodeIdsFromPlan,
   sizeRenderedSvgForCapture,
   typographyAudit,
 } from './lib/render-harness.mjs';
+import { nodeFaceExpectations } from './lib/node-face-policy.mjs';
+import { VERIFICATION_PLAN_PROTOCOL } from './lib/verification-plan.mjs';
 
 function usage() {
   console.error(
@@ -242,7 +243,7 @@ export async function main(argv = process.argv, runtime = {}) {
     hashFiles(i18nIdentityPaths),
   ]);
   let reviewIdentity = {};
-  let reviewPlan = null;
+  let reviewSourceObjects = null;
   if (buildId) {
     const build = await readDatasetBuild(buildId);
     if (build.key !== datasetKey) {
@@ -257,7 +258,11 @@ export async function main(argv = process.argv, runtime = {}) {
     if (!verificationPlanDigest) {
       throw new Error(`Dataset Build ${buildId} has no versioned VerificationPlan; record the authored snapshot first`);
     }
-    reviewPlan = authored.payload?.verificationPlan || null;
+    const planProtocol = authored.payload?.verificationPlan?.protocol;
+    if (executionMode === 'review-evidence' && planProtocol !== VERIFICATION_PLAN_PROTOCOL) {
+      throw new Error(`Dataset Build ${buildId} was prepared under ${planProtocol || 'an unversioned Plan'}; re-prepare it with record:workflow continue or refresh before recording ${VERIFICATION_PLAN_PROTOCOL} evidence`);
+    }
+    reviewSourceObjects = authored.payload?.sourceObjects || null;
     reviewIdentity = {
       buildId,
       authoredDigest: authored.payload.snapshotDigest,
@@ -281,7 +286,7 @@ export async function main(argv = process.argv, runtime = {}) {
         keep,
         focus,
         executionMode,
-        reviewPlan,
+        reviewSourceObjects,
         reviewIdentity,
         datasetHash,
         renderHash,
@@ -303,7 +308,7 @@ async function renderLocaleRun({
   keep,
   focus,
   executionMode,
-  reviewPlan,
+  reviewSourceObjects,
   reviewIdentity,
   datasetHash,
   renderHash,
@@ -364,14 +369,11 @@ async function renderLocaleRun({
       );
     }
 
+    const planBound = executionMode === 'review-evidence' || executionMode === 'plan-diagnostic';
     const labelLayoutAudit = await auditLabelLayout(page);
-    const labelPositionAudit = await auditLabelPosition(page, reviewPlan, { language: meta.language });
+    const labelPositionAudit = await auditLabelPosition(page, labelPositionExpectations(reviewSourceObjects), { language: meta.language });
     const { textLayoutAudit, annotationLayoutAudit, annotationPairingAudit } = await auditTextAndAnnotationLayout(page);
-    const semanticAnnotationAudit = await auditSemanticAnnotations(page, {
-      datasetKey,
-      language: meta.language,
-      expectedNodeIds: semanticAnnotationNodeIdsFromPlan(reviewPlan),
-    });
+    const semanticAnnotationAudit = await auditSemanticAnnotations(page, { datasetKey, language: meta.language });
     const renderedTypographyAudit = await typographyAudit(page, {
       dataset: datasetKey,
       language: meta.language,
@@ -380,24 +382,7 @@ async function renderLocaleRun({
       dataset: datasetKey,
       language: meta.language,
     });
-    const renderedRegions = await collectRenderedRegions(page);
     const interfaceGeometry = await collectCandidateInterfaceGeometry(page, datasetKey, language);
-
-    // Diagnostics report all faces without claiming inventory intent. A
-    // Build-bound run must prove every planned semantic node is painted per locale.
-    const nodeFaceExpectations = nodeFaceExpectationsFromPlan(reviewPlan);
-    const planBound = executionMode === 'review-evidence' || executionMode === 'plan-diagnostic';
-    assertNodePaintAudit(nodePaintAudit, planBound ? nodeFaceExpectations : {});
-    if (planBound) {
-      assertPlannedRenderAudits(reviewPlan, {
-        labelLayoutAudit,
-        labelPositionAudit,
-        textLayoutAudit,
-        annotationLayoutAudit,
-        annotationPairingAudit,
-        semanticAnnotationAudit,
-      });
-    }
 
     await page.locator('#chart > svg').screenshot({ path: candidatePath });
     await copyFile(referencePath, referenceComparePath);
@@ -407,19 +392,57 @@ async function renderLocaleRun({
       referencePath,
     });
     await writeFile(interfaceAuditPath, `${JSON.stringify(interfaceAudit, null, 2)}\n`);
-    const contactPage = await context.newPage();
-    try {
-      const urlForProjectPath = (filePath) =>
-        `${baseUrl}/${path.relative(rootDir, filePath).split(path.sep).map(encodeURIComponent).join('/')}`;
-      await writeInterfaceContactSheet(contactPage, {
-        report: interfaceAudit,
-        referenceUrl: urlForProjectPath(referencePath),
-        candidateUrl: urlForProjectPath(candidatePath),
-        outputPath: interfaceContactSheetPath,
-      });
-    } finally {
-      await contactPage.close();
+
+    // Every gate runs before any verdict so a failed run reports all of them.
+    // Diagnostics without a Build check the unbound 3px floor only; a
+    // Build-bound run expects every value node painted and honours shortNodes.
+    const faceExpectations = planBound ? nodeFaceExpectations(reviewSourceObjects) : null;
+    const gateErrors = [];
+    const gate = (check) => {
+      try {
+        check();
+      } catch (error) {
+        gateErrors.push(error);
+      }
+    };
+    gate(() => assertNodePaintAudit(nodePaintAudit, faceExpectations || {}));
+    gate(() => assertRenderAudits({
+      textLayoutAudit,
+      annotationLayoutAudit,
+      annotationPairingAudit,
+      semanticAnnotationAudit,
+      labelLayoutAudit,
+      labelPositionAudit,
+    }));
+    gate(() => assertTypographyAudit(renderedTypographyAudit));
+    gate(() => assertLabelLayoutAudit(labelLayoutAudit));
+    gate(() => assertInterfaceAudit(interfaceAudit));
+    if (planBound) gate(() => assertInterfaceEvidenceReady(interfaceAudit));
+    if (pageErrors.length) {
+      gateErrors.push(new Error(`Page errors during render; no comparison archive accepted:\n${pageErrors.join('\n')}`));
     }
+    const gatesFailed = gateErrors.length > 0;
+    const archiving = executionMode === 'review-evidence' || executionMode === 'legacy-manual';
+
+    // Diagnostic artifacts are produced only when a gate failed. Archived runs
+    // keep the contact sheet because Build closeout still binds it.
+    const contactSheetWritten = gatesFailed || archiving;
+    if (contactSheetWritten) {
+      const contactPage = await context.newPage();
+      try {
+        const urlForProjectPath = (filePath) =>
+          `${baseUrl}/${path.relative(rootDir, filePath).split(path.sep).map(encodeURIComponent).join('/')}`;
+        await writeInterfaceContactSheet(contactPage, {
+          report: interfaceAudit,
+          referenceUrl: urlForProjectPath(referencePath),
+          candidateUrl: urlForProjectPath(candidatePath),
+          outputPath: interfaceContactSheetPath,
+        });
+      } finally {
+        await contactPage.close();
+      }
+    }
+    const renderedRegions = gatesFailed ? await collectRenderedRegions(page) : [];
     const metrics = await pngMetrics(referencePath, candidatePath, diffPath, renderedRegions);
     const metricsDocument = {
       dataset: datasetKey,
@@ -442,7 +465,7 @@ async function renderLocaleRun({
       semanticAnnotationAudit,
       interfaceAudit: {
         path: path.relative(rootDir, interfaceAuditPath),
-        contactSheet: path.relative(rootDir, interfaceContactSheetPath),
+        contactSheet: contactSheetWritten ? path.relative(rootDir, interfaceContactSheetPath) : null,
         mode: interfaceAudit.mode,
         status: interfaceAudit.status,
         enforcementStatus: interfaceAudit.enforcementStatus,
@@ -455,13 +478,13 @@ async function renderLocaleRun({
     // draft with the accepted archive identity only after every gate passes.
     await writeFile(metricsPath, `${JSON.stringify(metricsDocument, null, 2)}\n`);
 
-    if (pageErrors.length) {
-      throw new Error(`Page errors during render; no comparison archive accepted:\n${pageErrors.join('\n')}`);
+    if (gatesFailed) {
+      const summary = gateErrors.map((error) => error.message).join('\n');
+      const hint = keep ? '' : '\n(rerun with --keep to inspect the contact sheet, region metrics and diff)';
+      const error = new Error(`${gateErrors.length} render gate(s) failed:\n${summary}${hint}`);
+      error.gateErrors = gateErrors;
+      throw error;
     }
-    assertTypographyAudit(renderedTypographyAudit);
-    assertLabelLayoutAudit(labelLayoutAudit);
-    assertInterfaceAudit(interfaceAudit);
-    if (planBound) assertInterfaceEvidenceReady(interfaceAudit);
 
     const archive =
       executionMode === 'diagnostic' || executionMode === 'plan-diagnostic'
@@ -511,23 +534,26 @@ async function renderLocaleRun({
       `G2 canvas: rawViewBox=${purity.viewBox || 'missing'} rawWidth=${purity.widthAttribute || 'responsive'} rawHeight=${purity.heightAttribute || 'responsive'} capture=${captureSize.width}x${captureSize.height}`
     );
     console.log(
-      `node paint audit: checked=${nodePaintAudit.checkedNodes} visible=${nodePaintAudit.visibleNodeIds.length} invisible=${nodePaintAudit.invisibleNodeIds.length} expectedVisible=${nodeFaceExpectations.visible.length}`
+      `node paint audit: checked=${nodePaintAudit.checkedNodes} visible=${nodePaintAudit.visibleNodeIds.length} invisible=${nodePaintAudit.invisibleNodeIds.length} expectedValueNodes=${faceExpectations?.visible.length ?? 0} shortNodes=${faceExpectations?.short.length ?? 0} belowFloor=${nodePaintAudit.belowVisibilityFloorNodeIds.length} rule=B15`
     );
     logLabelLayoutAudit(labelLayoutAudit);
     console.log(
-      `label position audit: expected=${labelPositionAudit.expectedGroups} measured=${labelPositionAudit.measuredGroups} enforced=${labelPositionAudit.enforced} violations=${labelPositionAudit.violations.length} tolerance=${labelPositionAudit.tolerance}px rule=T18`
+      `label position audit: declared=${labelPositionAudit.expectedGroups} measured=${labelPositionAudit.measuredGroups} enforced=${labelPositionAudit.enforced} violations=${labelPositionAudit.violations.length} tolerance=${labelPositionAudit.tolerance}px rule=T18 (opt-in)`
+    );
+    console.log(
+      `side-label column audit: declaredColumns=${labelLayoutAudit.sideLabelColumns.length} violations=${labelLayoutAudit.sideLabelColumns.reduce((total, column) => total + column.violations.length, 0)} rule=T6`
     );
     console.log(
       `text layout audit: checked=${textLayoutAudit.checkedTexts} overflow=${textLayoutAudit.overflowViolations.length} tolerance=${textLayoutAudit.tolerance}px`
     );
     console.log(
-      `annotation clearance audit: annotations=${annotationLayoutAudit.checkedAnnotations} (text=${annotationLayoutAudit.checkedAnnotationTexts}, graphic=${annotationLayoutAudit.checkedAnnotationGraphics}) protected=${annotationLayoutAudit.checkedProtectedTexts} overlaps=${annotationLayoutAudit.overlapViolations.length} tolerance=${annotationLayoutAudit.tolerance}px`
+      `annotation clearance audit: annotations=${annotationLayoutAudit.checkedAnnotations} (text=${annotationLayoutAudit.checkedAnnotationTexts}, graphic=${annotationLayoutAudit.checkedAnnotationGraphics}) protected=${annotationLayoutAudit.checkedProtectedTexts} overlaps=${annotationLayoutAudit.overlapViolations.length} tolerance=${annotationLayoutAudit.tolerance}px rule=A6 (${annotationLayoutAudit.checkedAnnotationGraphics > 0 ? 'enforced: data-annotation-clearance present' : 'not triggered'})`
     );
     console.log(
       `annotation pairing audit: expected=${annotationPairingAudit.expectedPairs} measured=${annotationPairingAudit.measuredPairs} violations=${annotationPairingAudit.violations.length} tolerance=${annotationPairingAudit.tolerance}px rule=I12`
     );
     console.log(
-      `semantic annotation audit: expected=${semanticAnnotationAudit.expectedNodeIds.length} checked=${semanticAnnotationAudit.checkedAnnotations} unbound=${semanticAnnotationAudit.unboundNodeLikeTexts.length} violations=${semanticAnnotationAudit.violations.length}`
+      `semantic annotation audit: interactive=${semanticAnnotationAudit.checkedAnnotations} unbound=${semanticAnnotationAudit.unboundNodeLikeTexts.length} violations=${semanticAnnotationAudit.violations.length} rule=A10`
     );
     console.log(
       `G12 interface audit: mode=${interfaceAudit.mode} status=${interfaceAudit.status} enforcement=${interfaceAudit.enforcementStatus} candidate=${interfaceAudit.candidateStatus} reference=${interfaceAudit.referenceStatus} expected=${interfaceAudit.summary.expectedInterfaces} audited=${interfaceAudit.summary.auditedInterfaces} passed=${interfaceAudit.summary.passedInterfaces} failed=${interfaceAudit.summary.failedInterfaces} pending=${interfaceAudit.summary.pendingInterfaces} exceptions=${interfaceAudit.summary.documentedExceptions} notScored=${interfaceAudit.summary.notScoredInterfaces} violations=${interfaceAudit.summary.violations}`
@@ -536,7 +562,7 @@ async function renderLocaleRun({
       `interface report: ${archive ? `${archive.dir}/${path.basename(interfaceAuditPath)}` : keep ? path.relative(rootDir, interfaceAuditPath) : '(diagnostic scratch cleaned)'}`
     );
     console.log(
-      `interface contact sheet: ${archive ? `${archive.dir}/${path.basename(interfaceContactSheetPath)}` : keep ? path.relative(rootDir, interfaceContactSheetPath) : '(diagnostic scratch cleaned)'}`
+      `interface contact sheet: ${archive ? `${archive.dir}/${path.basename(interfaceContactSheetPath)}` : !contactSheetWritten ? '(not generated: every gate passed)' : keep ? path.relative(rootDir, interfaceContactSheetPath) : '(diagnostic scratch cleaned)'}`
     );
     console.log(`viewport: ${metrics.full.width}x${metrics.full.height}`);
     console.log(`RGB MAE: ${metrics.full.mae.toFixed(4)}`);
@@ -545,7 +571,7 @@ async function renderLocaleRun({
     console.log(`same-pixel ratio: ${metrics.full.samePixelRatio.toFixed(6)}`);
     console.log(`changed-pixel ratio: ${metrics.full.changedPixelRatio.toFixed(6)}`);
     console.log(`diff bounding box: ${formatDiffBoundingBox(metrics.full.diffBoundingBox)}`);
-    console.log(`region metrics: ${metrics.regions.length} region(s)`);
+    console.log(`region metrics: ${metrics.regions.length ? `${metrics.regions.length} region(s)` : 'not collected (every gate passed)'}`);
     metrics.regions
       .slice()
       .sort((a, b) => b.changedPixelRatio - a.changedPixelRatio || b.mae - a.mae)
