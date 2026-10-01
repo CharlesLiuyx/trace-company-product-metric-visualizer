@@ -35,7 +35,7 @@ For an Income Statement build, the target sequence is:
 ```text
 verify preflight (read-only)
   -> FidelityRun candidate/reference evidence (private workspace)
-  -> manual attestation
+  -> operator acceptance
   -> record closure
   -> record staged baseline
   -> verify final seal profile (fresh and read-only)
@@ -44,8 +44,7 @@ verify preflight (read-only)
 
 Revenue Metric and Metric Observation builds use the Adapter's data-level
 checklist, which contains no render step. All plans still produce a
-machine-readable `FidelityResult` or equivalent verification result and a
-fresh seal.
+machine-readable `FidelityResult` and a fresh seal.
 
 The implemented M3 lane — the primary Build close-out path — exposes the same
 ordering through the Dataset Build Module:
@@ -58,7 +57,7 @@ record:build prepare-review -> source-objects/v1
                             -> review-packet/v5 reviewToken + AUTHORED
 record:verification          -> dataset-verification/v1 consistency evidence
 record:fidelity --build ... -> fidelity-run/2 evidence-ready
-record:build finish         -> review-pending, or accepted FidelityResult -> CLOSED
+record:build finish         -> operator acceptance -> fidelity-result/v3 -> CLOSED
 record:build stage-baseline -> BASELINE_STAGED
 record:build seal           -> re-hash + Adapter final profile + SEALED
 record:build inspect / verify:closeout
@@ -69,7 +68,10 @@ record:build inspect / verify:closeout
 Interfaces behind that CLI. The review token is the digest of the recorded
 ReviewPacket; a JSON document cannot redirect an operation to another Build.
 This lane is the primary Build close-out workflow; canonical publication
-itself is implemented by the isolated Publication module.
+itself is implemented by the isolated Publication module. For new isolated
+Builds `record:workflow` drives the same Interfaces: `continue` prepares, records
+consistency, and records one fidelity run per required locale (the review
+candidate); `review` finishes; `seal` stages the baseline and seals.
 
 The intake Type Gate is a current M3 guard, not a target command: explicit
 whole-Source signals must derive exactly one Adapter and agree with
@@ -100,26 +102,29 @@ accidental acceptance gate.
 ## FidelityRun finalization
 
 Each run has a private workspace and immutable run identity. Candidate images,
-Diffs, metrics, interface audit, and contact sheet are provisional until all
-automatic steps for that run have resolved. Human region decisions, feedback,
-attention closure, and the final attestation belong to the subsequent Build
-review, not to automatic rendering.
+Diffs, metrics, and the interface audit are provisional until all automatic
+steps for that run have resolved. The operator acceptance belongs to the
+subsequent Build review, not to automatic rendering.
 
 Finalization order is:
 
 1. Produce provisional artifacts in the private workspace.
 2. Run page-error, purity, size, font, node-face, label, text, interface, and
-   attribute-driven gates; contact sheet and region metrics are produced for
-   failed runs (archived evidence still keeps the contact sheet).
-3. In a `record:*` operation, atomically promote the automatic artifacts with
-   an unambiguous `evidence-ready` or failed status.
-4. Separately record manual evidence where required.
-5. Build and hash the complete `FidelityResult`.
-6. Only an accepted result may contribute to Build closure.
+   attribute-driven gates, plus T18 when the source objects declare a label
+   position, and record a per-gate summary in the metrics document. The
+   interface contact sheet and region metrics are diagnostics produced only
+   when a gate fails.
+3. In a `record:*` operation, atomically promote the reference, candidate,
+   Diff, metrics, and interface audit with an `evidence-ready` status. A run
+   with a failed gate is never archived, so an archive never contains a
+   contact sheet.
+4. At review, join the operator acceptance with the current evidence.
+5. Build and hash the accepted `FidelityResult`.
+6. Only that accepted result contributes to Build closure.
 
-A failed run may retain diagnostic artifacts, but its status and archive must
-unambiguously say failed. It cannot become the previous accepted round merely
-because files were written.
+A failed run keeps its diagnostics only in private scratch (`--keep`) and is
+never promoted. It cannot become the previous accepted round merely because
+files were written.
 
 Current review evidence uses `fidelity-run/2`. `verify:d3` is strictly
 read-only diagnostic execution: it may use ephemeral scratch but does not
@@ -132,15 +137,20 @@ the v1 compatibility identity and explicitly do not imply Build closure.
 
 `evidence-ready` is not `ACCEPTED` and is not `DatasetBuild.CLOSED`.
 `record:verification` first records the non-render dataset consistency profile
-against the current Build/authored/Plan identity. `finishReviewedBuild` requires
-that reference, re-hashes the fidelity evidence artifacts, and reconciles required
-locales, attestation, regions, risk checks, Interface Matrix, attention status,
-and the `FeedbackLedger`, then creates the deterministic `FidelityResult`.
-Missing attestation or any open obligation produces `review-pending` rather
-than inferred success.
+against the current Build/authored/Plan identity. `finishReviewedBuild`
+requires the ReviewPacket's `reviewToken`, that consistency reference, and,
+for Income Statement, one evidence-ready run per required locale bound to the
+current Build, authored digest, and Plan digest. It re-hashes each run's
+artifacts, rejects a run whose recorded gate summary contains a failed gate,
+and records the operator acceptance `{ reviewer, decision: "accepted", note,
+reviewedAt, previewId? }` in an accepted `fidelity-result/v3`. There is no
+pending or rejected result: a missing acceptance, a missing locale, or stale
+evidence fails the operation and the Build stays `AUTHORED`. Problems are
+recorded with `record:workflow feedback` as a `FeedbackNote`, which expires
+the current review candidate.
 
 VerificationPlan v6 binds the source-objects digest and the immutable Source
-digest; the global `human-review` decision must cite both. Each Build-bound
+digest, and the accepted result binds the Plan digest. Each Build-bound
 render expects every value node from the source objects to paint a face, and
 every rendered node to reach the 3px floor unless the author declared it in
 `shortNodes`. The fidelity rules document remains the owner of rule semantics
@@ -204,8 +214,8 @@ the renderer, fonts, Adapter and semantic data, seal reuses that proof
 (`reusedEvidence: true`, output digest = accepted locale evidence digest) and
 renders again only when that proof does not cover every locale or the caller
 passes `--fresh-render`. The receipt stores each profile row in `finalProfiles`.
-Manual decisions are consumed from the accepted closure rather than
-re-executed, and the staged baseline stays excluded from the verdict. The
+The operator acceptance is consumed from the accepted closure rather than
+re-collected, and the staged baseline stays excluded from the verdict. The
 Source classification and source objects remain bound through their
 authored/Plan digests; sealing does not reinterpret the Source. If a
 loaded SSOT or View artifact changed after preparation, artifact freshness
@@ -222,11 +232,11 @@ and review status is `accepted`.
 
 ## Reporting Views
 
-`inspectBuildCloseout` may join the recorded `FidelityResult` and
-`FeedbackLedger` into a deterministic `CloseoutReport`, then render Task
-information and Loop Fidelity Summary. These are pure Views: status and
+`inspectBuildCloseout` may read the recorded `FidelityResult` (any version)
+into a deterministic `CloseoutReport`, then render Task information and Loop
+Fidelity Summary. These are pure Views: status and
 confidence are derived from structured facts, and the rendered text is never
-fed back as evidence, attestation, or a state-transition input.
+fed back as evidence, acceptance, or a state-transition input.
 
 The root `index.html` is also a stable local review View. Preparation selects a
 Build workspace; successful publication selects the current published tree. The
@@ -303,8 +313,8 @@ new Attempt, but against the newer digest.
 | failure | durable state | recovery |
 | --- | --- | --- |
 | Type Gate or source-object/authored-value reconciliation failure | no new intake/authored receipt for the failed operation | correct the classification or authored mapping, then rerun the same current M3 operation |
-| provisional render/gate failure | Build stays `AUTHORED`; run rejected or blocked | fix/retry in a new or continued FidelityRun |
-| missing human decision | run stays review-pending | add attestation; do not infer pass |
+| provisional render/gate failure | Build stays `AUTHORED`; the run is not archived | fix, then record a new FidelityRun |
+| missing operator acceptance | Build stays `AUTHORED`; finish fails | deliver the review candidate and wait for acceptance; do not infer pass |
 | closure dependency changed | closure stale; effective state `AUTHORED` | run affected plan steps again |
 | baseline staging failure | Build stays `CLOSED` | retry recording with the same closed digest |
 | final seal failure | Build stays `BASELINE_STAGED` or reopens per invalidation | fix or refresh evidence, then reseal |
@@ -323,8 +333,8 @@ compatibility rule is replace, not layer indefinitely:
 - keep `verify:d3` read-only and route durable automatic evidence through
   `record:fidelity`;
 - record SourceClassification at fresh intake, then SourceObjects, Plan v6,
-  ReviewPacket v5, human decisions, FeedbackLedger, and FidelityResult through
-  the Build Module;
+  ReviewPacket v5, the operator acceptance, and FidelityResult v3 through the
+  Build Module;
 - exercise closure, build-local baseline staging, freshness inspection, and
   sealing without changing canonical output (implemented; now the primary
   close-out path);

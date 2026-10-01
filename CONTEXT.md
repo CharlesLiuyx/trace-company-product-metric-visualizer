@@ -155,18 +155,30 @@ SourceClassification v1 -> INTAKED
   -> SourceObjects v1 (flat list + actual authored-value reconciliation)
   -> VerificationPlan v6 (fixed per-Adapter checklist) -> ReviewPacket v5
   -> dataset-verification/v1 consistency evidence
-  -> fidelity-run/2 EVIDENCE_READY
-  -> ManualAttestation + RegionDecision + FeedbackLedger
-  -> FidelityResult v2 + checkResults -> CLOSED -> BASELINE_STAGED -> fresh SEALED
+  -> fidelity-run/2 EVIDENCE_READY (one review candidate per required locale)
+  -> operator acceptance -> FidelityResult v3 -> CLOSED -> BASELINE_STAGED -> fresh SEALED
 ```
+
+- **SourceObjects** (`source-objects/v1`): the author's flat `objects[]` list in
+  `source-facts/v1`, one entry per Source object with class `value`, `flow`,
+  `label`, `asset`, or `residual`; values reconcile to SSOT and Adapter targets.
+- **shortNodes**: the top-level facts declaration `{ node, reason }` for a
+  genuine Source face thinner than 3px; B15 accepts it below the floor.
+- **Opt-in label position**: a `label` or `value` entry with `referenceBBox`
+  and `labelGroup` turns on T18 for that group; undeclared groups are not
+  position-audited.
+- **FidelityResult** (`fidelity-result/v3`): the operator acceptance plus the
+  per-locale render evidence digests and the automatic gate summary.
+- **FeedbackNote** (`feedback-note/v1`): what the operator said about a review
+  candidate; recording it expires that candidate and is not a review outcome.
 
 `verify:d3` is read-only diagnostic execution and never records durable
 evidence. `record:fidelity` owns durable automatic evidence; its
 `evidence-ready` result still requires human review and cannot close a Build.
-The Plan's human-review decision cites both the immutable Source digest and
-the source-objects digest. Every value node must render a painted face (B15);
-geometry without a Source-painted face is modeled as a non-node metric, flow
-geometry, or annotation, never as an invisible node. A genuinely sub-floor
+The Plan binds the immutable Source digest and the source-objects digest, and
+the accepted FidelityResult binds the Plan. Every value node must render a
+painted face (B15); geometry without a Source-painted face is modeled as a
+non-node metric, flow geometry, or annotation, never as an invisible node. A genuinely sub-floor
 Source face is declared once in `shortNodes`. Neither an omitted small value
 nor an `Other` label can be accepted as decorative residue. A primary
 zero-looking literal that masks a real non-zero amount must bind

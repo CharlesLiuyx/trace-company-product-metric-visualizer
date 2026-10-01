@@ -29,7 +29,7 @@ INTAKED -> AUTHORED -> CLOSED -> BASELINE_STAGED -> SEALED
 | --- | --- | --- |
 | `INTAKED` | key, Source digest, dimensions, provenance, availability, whole-Source Type Gate, selected Adapter, and base canonical snapshot are fixed; the current compatibility implementation also claims the working Source locator | intake record with `SourceClassification` |
 | `AUTHORED` | the selected Adapter accepts the Source objects and authored contribution | `ArtifactManifest` |
-| `CLOSED` | the required verification evidence and human decisions close with no open requirement | closure digest plus accepted `FidelityResult` references |
+| `CLOSED` | every check of the Adapter's fixed Plan has current evidence and the operator accepted the authored snapshot | closure digest plus the accepted `FidelityResult` reference |
 | `BASELINE_STAGED` | a future-regression record has been derived from the closed candidate but is not canonical | staged baseline artifact bound to the closure digest |
 | `SEALED` | a fresh, read-only final verification accepts the exact build inputs and publication contribution | seal digest and `acceptedAt` |
 
@@ -57,8 +57,8 @@ The current compatibility workflow uses three directory roles:
   machine-local archive. An explicit operator completion signal — confirmed
   against the enumerated processing batch — is
   the only current relocation authority (owning rule:
-  [`dynamic-dataset-workflow.md`](../dynamic-dataset-workflow.md)
-  §Operator Review-Completion Signal); passing Build close-out
+  [`asset-workflow.md`](../asset-workflow.md)
+  §7 Operator Review-Completion Signal); passing Build close-out
   alone does not move files, and relocation records no Build transition or
   receipt.
 
@@ -126,8 +126,9 @@ or compatible accepted evidence set it consumes.
 The current review-evidence protocol is `fidelity-run/2`. Its durable
 automatic terminal is `EVIDENCE_READY`, not human acceptance. `verify:d3`
 uses only ephemeral diagnostic scratch; `record:fidelity` is the operation
-that may finalize a build-bound `evidence-ready` archive. Manual decisions are
-joined later by the Dataset Build Module rather than inferred from this run.
+that may finalize a build-bound `evidence-ready` archive, and only after every
+gate of that run passed. The operator acceptance is joined later by the Dataset
+Build Module rather than inferred from this run.
 
 ## Durable lifecycle objects
 
@@ -227,12 +228,16 @@ strictest applicable plan rather than silently skipping work.
 
 `verification-plan/v6` is a fixed per-Adapter checklist. Income Statement
 plans require `data-consistency` (G11), one `render-fidelity` evidence run per
-required locale, and a global `human-review` decision; Revenue Metric and
-Metric Observation plans require `data-consistency` and `human-review`. The
-render check lists the always-on and attribute-driven gates, plus T18 when the
-source objects declare a label position. The Plan binds the source-objects
-digest, the immutable Source digest, the required locales, and the recorded
-`ChangeImpact`.
+required locale, and a global `human-review` check that only the operator
+acceptance satisfies; Revenue Metric and Metric Observation plans require
+`data-consistency` and `human-review`. The render check lists the always-on and
+attribute-driven gates, plus T18 when the source objects declare a label
+position. The Plan binds the source-objects digest, the immutable Source
+digest, the required locales, and the recorded `ChangeImpact`. Plans prepared
+through `record:workflow` also carry `checkpointProtocol: review-candidate/v1`
+and the derived dependency scopes: one all-locale review candidate and no stage
+freezes. Historical `fidelity-checkpoints/v1` Plans keep their ordered stage
+freezes.
 
 Local execution and CI consume the same plan. A plan change invalidates any
 closure or seal that depended on its old digest. Builds authored under older
@@ -256,9 +261,8 @@ by `record:verification`. It runs the current dataset profile for syntax, SSOT,
 strict i18n, and generated metadata with rendering skipped, then binds the pass
 to the Build, Adapter, authored digest, and Verification Plan digest. A failed
 check records no ready object; a Build or authored-file change during the run
-invalidates the result. Income Statement and Revenue Metric closure both require
-this evidence; Sankey render evidence remains an additional Income Statement
-obligation.
+invalidates the result. Closure for every Adapter requires this evidence;
+Sankey render evidence remains an additional Income Statement obligation.
 
 ### ArtifactManifest
 
@@ -278,63 +282,65 @@ Each reference is content-addressed. A filesystem path may be a locator or a
 future projection path, but never the evidence identity. The working and stable
 Source paths follow the locator/projection rules above.
 
-### InterfaceMatrix
-
-`interface-matrix/v1` stores one row per reference/candidate interface identity,
-including both-side geometry where present, derived deltas, endpoint/tangent
-results, coverage intent, and evidence digests. Its summary is derived from the
-rows. New-dataset, geometry, and render-engine review require the full Matrix;
-text/localization-only review still reruns candidate interface gates without
-rebuilding unaffected rows.
+The `AUTHORED` receipt does not embed the SourceObjects or the VerificationPlan.
+Each is recorded once as a build-local object, and the receipt keeps
+`{ digest, protocol, object: { kind, digest, path } }`; recording fails unless
+the object reference matches the content digest. Readers resolve the reference
+and re-check the object digest. Receipts recorded before this format embedded
+the content inline and remain readable as recorded.
 
 ### FidelityResult
 
-`fidelity-result/v2` is the immutable result of one review closure attempt:
+`fidelity-result/v3` is the immutable record of one accepted review closure:
 
-- subject and dependency digests;
-- step-level facts and pass/fail/not-applicable disposition;
-- candidate, reference, Diff, metrics, interface audit, and contact-sheet
-  artifacts when applicable;
-- human attestation and region decisions;
-- open, accepted, skipped, and exceptional items;
-- run status and result digest.
-- one `checkResults` entry for every Plan-required global or locale-scoped check.
+- `subject`: Build ID, dataset key, Adapter, authored digest, and Verification
+  Plan digest;
+- `acceptance`: the operator's `{ reviewer, decision: "accepted", note,
+  reviewedAt, previewId? }`;
+- `evidence`: for Income Statement, one entry per required locale with the run
+  manifest locator, evidence digest, candidate PNG digest, full-image
+  similarity/MAE/size, and the per-gate summary that run recorded;
+- `automatic`: the dataset-consistency digest and the per-locale gate verdicts;
+- `resultDigest`.
 
-It contains facts and decisions, not canonical mutations.
+It contains facts and one human decision, not canonical mutations.
+`finishReviewedBuild` creates it only from an explicit acceptance on fresh
+inputs and never records a pending or rejected result. A missing acceptance, a
+required locale without evidence-ready render evidence on the current authored
+snapshot, a recorded failed gate, or missing or stale consistency evidence
+fails the operation and leaves the Build `AUTHORED`. Render gates decided
+pass/fail when the run was recorded, so the result does not re-judge them;
+everything outside the machine gates is covered by the operator's acceptance,
+not by per-check entries.
 
-The current result joins `fidelity-run/2` automatic evidence with a
-`ManualAttestation`, stable `RegionDecision` records, caller-supplied risk
-checks, Interface Matrix facts, attention/red-box closure, and a
-`FeedbackLedger`.
-Machine-green evidence without the required attestation remains
-`review-pending`; open regions, open feedback, incomplete Matrix coverage, or
-a required recurrence upgrade prevent `accepted`.
+Closed or sealed v1/v2 results are never rewritten. They stay inspectable and
+sealable because one read model surfaces their status, subject, consistency, and
+per-locale evidence. A new closure requires VerificationPlan v6 and
+ReviewPacket v5; Builds authored under older protocols are re-prepared first.
 
-Closed/sealed v1 results remain inspectable and are never rewritten. Only a
-fresh `FidelityResult` v2 closure using VerificationPlan v6 and ReviewPacket
-v5 may enter the current finish path; older Builds are re-prepared first.
+### FeedbackNote
 
-### ManualAttestation, RegionDecision, and FeedbackLedger
-
-`ManualAttestation` binds reviewer, decision, authored digest, and Plan digest.
-It is the explicit human judgment boundary. Each `RegionDecision` uses a
-stable `REG-###` identity, disposition, rules, and evidence digests.
-`FeedbackRecord` uses stable feedback/region/rule identities and records
-cause, before/after evidence, remedy, and automation disposition. The
-`FeedbackLedger` is a deterministic projection across build-local records;
-the second cross-Build execution-gap occurrence requires an automation
-disposition. These objects remain build-local and do not mutate canonical
-data.
+`feedback-note/v1` records what the operator said about the current review
+candidate: `{ note, date, locales?, objectIds? }` plus the Build ID and record
+time. `record:workflow feedback` stores it as a build-local object, expires the
+current review candidate (the review context is a semantic input of the Build
+workspace, so the next `continue` re-prepares and re-renders), and lists the
+other Builds of the same batch for a same-pattern sweep. A note carries no
+disposition, recurrence count, or escalation state; closure later depends only
+on a new candidate and a new acceptance. Whether a defect also lands a machine
+gate follows the feedback protocol in
+[`fidelity-loop-rules.md`](../fidelity-loop-rules.md) §4.
 
 ## Input-type Adapter Seam
 
-Input type is the real extension Seam. There are already two Adapters, so the
-Seam is not hypothetical.
+Input type is the real extension Seam. There are already three Adapters, so
+the Seam is not hypothetical.
 
 | Adapter | authoring contribution | verification profile |
 | --- | --- | --- |
-| Income Statement | company record, financial SSOT, Sankey View, i18n, optional icon/raster assets | data consistency, all required language renders, d3 hard gates, reference fidelity, manual closure |
-| Revenue Metric | company record and revenue Metric observations with source, definition, conditions, confidence, and lineage | data/schema/source/i18n checks; no Sankey or d3 fidelity unless a later View requires it |
+| Income Statement | company record, financial SSOT, Sankey View, i18n, optional icon/raster assets | data consistency, one evidence-ready render per required locale that passes the d3 gates, operator acceptance |
+| Revenue Metric | company record and revenue Metric observations with source, definition, conditions, confidence, and lineage | data/schema/source/i18n consistency and operator acceptance; no Sankey or d3 fidelity unless a later View requires it |
+| Metric Observation | company/product metric observations with exact decimal values, units/basis, and real Source anchors | data consistency and operator acceptance; no Sankey render |
 
 An Adapter owns classification signatures, the Source object classes and typed
 SSOT references it accepts, authored validation, its fixed Verification Plan
@@ -404,8 +410,8 @@ historical `SEALED` receipt remains auditable while `effectiveState` becomes
 - A new `AUTHORED` review snapshot requires the complete flat Source object
   list and successful reconciliation against the actually loaded authored SSOT/View;
   declared intent cannot substitute for the authored values.
-- `CLOSED` requires every check in the Adapter's fixed Plan; absence is not
-  success.
+- `CLOSED` requires current evidence for every check in the Adapter's fixed
+  Plan plus the operator acceptance; absence is not success.
 - `SEALED` is fresh only for its exact digest set.
 - Only fresh sealed contributions enter Publication.
 
@@ -415,10 +421,12 @@ The M3 build-local chain is the primary close-out path, exposed through the
 deep `prepareBuildReview`, `finishReviewedBuild`, `stageReviewedBaseline`,
 `sealReviewedBuild`, and `inspectBuildCloseout` Interfaces, surfaced by
 `record:build`. Together with `record:verification`, it records content-addressed
-SourceObjects, VerificationPlan, ReviewPacket,
-DatasetVerification, FidelityResult, FeedbackLedger, closure, staged baseline, and seal objects
-under the per-Build store. `inspect` also produces `CloseoutReport`, Task
-information, and Loop Fidelity Summary as pure Views over those objects.
+SourceObjects, VerificationPlan, ReviewPacket, DatasetVerification,
+FidelityResult, FeedbackNote, closure, staged baseline, and seal objects under
+the per-Build store. `inspect` also produces `CloseoutReport`, Task
+information, and Loop Fidelity Summary as pure Views over the recorded
+`FidelityResult`. Closures recorded before `fidelity-result/v3` may still
+reference a feedback-ledger object; it is no longer read.
 
 At current intake, `record:intake` first records `source-classification/v1`
 from the whole-Source Type Gate, then claims the selected Source from
@@ -426,8 +434,8 @@ from the whole-Source Type Gate, then claims the selected Source from
 preparation, SourceObjects with actual SSOT/View reconciliation, Plan v6, and
 ReviewPacket v5 are current M3 behavior. The operator
 review-completion signal (owning rule:
-[`dynamic-dataset-workflow.md`](../dynamic-dataset-workflow.md)
-§Operator Review-Completion Signal) is the only current authority to relocate
+[`asset-workflow.md`](../asset-workflow.md)
+§7 Operator Review-Completion Signal) is the only current authority to relocate
 Sources from `processing/` to `processed/`, and it moves only the batch the
 operator has confirmed. The destination is a Git-ignored local archive, so the
 repository records removal from the shared processing queue rather than the
