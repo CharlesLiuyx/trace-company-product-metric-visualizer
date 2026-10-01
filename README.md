@@ -5,7 +5,7 @@
 **Turn metric images and text into traceable company and product data.**
 Trace turns company financials into the earnings infographics you see go
 viral — green for value retained, red for costs, teal for revenue collected —
-covering **200+ companies** from NVIDIA, Apple, and Microsoft to TSMC, LVMH,
+covering **235+ companies** from NVIDIA, Apple, and Microsoft to TSMC, LVMH,
 Tencent, and SpaceX, across quarterly and annual periods.
 
 ### [▶ Open the live viewer](https://charlesliuyx.github.io/trace-company-product-metric-visualizer/) — nothing to install, runs entirely in your browser.
@@ -41,9 +41,9 @@ its offline viewer. `pnpm dev -- --draft` opens the plain static source viewer.
 
 ## Highlights
 
-- **A large, growing catalog** — 1,000+ income-statement datasets across 200+
+- **A large, growing catalog** — 1,080+ income-statement datasets across 235+
   public and private companies, plus ARR trend series for OpenAI and
-  Anthropic. NVIDIA alone spans 15 quarters back to Q3 FY23.
+  Anthropic. NVIDIA alone spans 16 quarters back to Q3 FY23.
 - **Traced, not approximated** — every chart is hand-authored against a
   published reference infographic, then pixel-diffed against it by a
   headless-Chromium verifier. The source image is the standard to measure
