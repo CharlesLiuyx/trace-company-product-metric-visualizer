@@ -51,7 +51,6 @@ const steps = [
   ['verify:workflow', () => runVerifier('update-workflow-reference.mjs', ['--check'])],
   ['verify:workflow-graph', () => runVerifier('update-workflow-graph.mjs', ['--check'])],
   ['verify:asset-catalog', () => runVerifier('update-asset-catalog.mjs', ['--check'])],
-  ['verify:feedback-patterns', () => runVerifier('update-feedback-patterns.mjs', ['--check'])],
   ['verify:metrics', () => runVerifier('verify-metrics.mjs')],
   ['verify:ssot', () => runVerifier('verify-ssot.mjs')],
   ['verify:i18n', () => runVerifier('verify-i18n.mjs')],

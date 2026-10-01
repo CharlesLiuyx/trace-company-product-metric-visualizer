@@ -1,4 +1,4 @@
-import { readBuildObject, recordBuildObject, DEFAULT_BUILD_ROOT } from './dataset-build-store.mjs';
+import { readAuthoredObject, readBuildObject, recordBuildObject, DEFAULT_BUILD_ROOT } from './dataset-build-store.mjs';
 import { digestValue } from './dataset-build.mjs';
 import { SWEEP_STAGES } from './fidelity-stages.mjs';
 import { readFile, readdir } from 'node:fs/promises';
@@ -65,7 +65,8 @@ export async function validateCheckpointClosure(build, plan, references, options
       const manifest = await readJson(inside(options.projectRoot, entry.locator));
       if (digestValue(manifest) !== entry.digest || manifest.identity?.buildId !== build.buildId) throw new Error(`Checkpoint evidence changed: ${entry.locator}`);
       const receipt = build.receipts.find((receipt) => receipt.state === 'AUTHORED' && receipt.payload.snapshotDigest === manifest.identity.authoredDigest);
-      if (receipt?.payload.verificationPlan?.dependencyScopes?.[stage] !== latest.inputDigest) throw new Error('Checkpoint lacks matching historical dependency proof');
+      const historicalPlan = receipt ? await readAuthoredObject(build.buildId, receipt.payload.verificationPlan, options) : null;
+      if (historicalPlan?.dependencyScopes?.[stage] !== latest.inputDigest) throw new Error('Checkpoint lacks matching historical dependency proof');
       for (const [kind, expected] of Object.entries(entry.artifactDigests)) if (bytesDigest(await readFile(inside(options.projectRoot, manifest.artifacts[kind]))) !== expected) throw new Error('Checkpoint artifact changed');
     }
   }

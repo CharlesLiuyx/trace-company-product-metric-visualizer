@@ -573,8 +573,7 @@ export function assertInterfaceAudit(report) {
 }
 
 // Stronger contract for durable Build evidence. A warning/off diagnostic may
-// still help an author iterate, but it cannot become evidence-ready or later
-// be repaired by a hand-written Interface Matrix.
+// still help an author iterate, but it cannot become evidence-ready.
 export function interfaceEvidenceProblems(report) {
   const problems = [];
   if (!report || typeof report !== 'object') return ['missing-audit'];

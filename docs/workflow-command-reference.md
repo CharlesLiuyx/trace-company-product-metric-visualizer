@@ -18,13 +18,13 @@
 | `pnpm record:workflow -- show` | 只读查看处理进度 |
 | `pnpm record:workflow -- report` | 按需生成 HTML 处理单（非必需） |
 | `pnpm record:workflow -- checkpoint` | 仅历史 fidelity-checkpoints/v1 Build：记录阶段冻结或重开 |
-| `pnpm record:workflow -- review` | 消费人工审阅（简式：reviewToken、previewId、reviewer、decision、note） |
+| `pnpm record:workflow -- review` | 记录操作员接受（reviewToken、previewId、reviewer、decision、note）并关闭 Build |
 | `pnpm record:workflow -- seal` | 暂存基线、重跑数据一致性；渲染复用已接受证据（--fresh-render 强制重渲染） |
 | `pnpm record:workflow -- batch` | 记录成员并以独立进程继续多个 Build |
 | `pnpm record:workflow -- refresh` | 核对冲突后更新工作目录、准备新计划 |
 | `pnpm record:workflow -- assets` | 只读查找资产版本、来源与使用位置 |
 | `pnpm record:workflow -- asset-version` | 在草稿中记录绑定字节的资产接受 |
-| `pnpm record:workflow -- feedback` | 记录反馈并列出同批检查范围 |
+| `pnpm record:workflow -- feedback` | 记录反馈说明（note、date，可选 locales、objectIds），使当前审阅候选失效，并列出同批 Build |
 | `pnpm record:workflow -- archive-list` | 只读枚举完整的待归档来源 |
 | `pnpm record:workflow -- archive` | 消费操作员确认的精确清单并归档 |
 
@@ -45,8 +45,6 @@
 | `pnpm view:published` | `node scripts/dev-server.mjs --published --port 8001` |
 | `pnpm update:asset-catalog` | `node scripts/update-asset-catalog.mjs` |
 | `pnpm verify:asset-catalog` | `node scripts/update-asset-catalog.mjs --check` |
-| `pnpm update:feedback-patterns` | `node scripts/update-feedback-patterns.mjs` |
-| `pnpm verify:feedback-patterns` | `node scripts/update-feedback-patterns.mjs --check` |
 | `pnpm update:workflow-reference` | `node scripts/update-workflow-reference.mjs` |
 | `pnpm verify:workflow` | `node scripts/update-workflow-reference.mjs --check` |
 | `pnpm update:workflow-graph` | `node scripts/update-workflow-graph.mjs` |

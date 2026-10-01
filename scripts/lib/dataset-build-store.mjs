@@ -151,31 +151,15 @@ export async function recordDatasetBuildReviewOutcome(buildId, outcome, options 
     if (!freshness.fresh) {
       throw buildError('REVIEW_OUTCOME_STALE', `Authored inputs are stale: ${freshness.reasons.join(', ')}`);
     }
-    if (!['review-pending', 'accepted', 'rejected', 'blocked'].includes(outcome.status)) {
+    // Only an explicit acceptance is a review outcome; problems are feedback.
+    if (outcome.status !== 'accepted') {
       throw buildError('REVIEW_OUTCOME_INVALID', `Unsupported review status: ${outcome.status || '<missing>'}`);
     }
-    const references = {
-      fidelityResult: outcome.fidelityResult,
-      feedbackLedger: outcome.feedbackLedger,
-      feedbackRecords: outcome.feedbackRecords || [],
-    };
-    for (const [field, expectedKind] of [
-      ['fidelityResult', 'fidelity-result'],
-      ['feedbackLedger', 'feedback-ledger'],
-    ]) {
-      const reference = references[field];
-      if (reference?.kind !== expectedKind || !/^sha256:[a-f0-9]{64}$/.test(String(reference.digest || ''))) {
-        throw buildError('REVIEW_OUTCOME_INVALID', `${field} must reference a ${expectedKind} object`);
-      }
+    const reference = outcome.fidelityResult;
+    if (reference?.kind !== 'fidelity-result' || !/^sha256:[a-f0-9]{64}$/.test(String(reference.digest || ''))) {
+      throw buildError('REVIEW_OUTCOME_INVALID', 'fidelityResult must reference a fidelity-result object');
     }
-    if (!Array.isArray(references.feedbackRecords)) {
-      throw buildError('REVIEW_OUTCOME_INVALID', 'feedbackRecords must be an array');
-    }
-    for (const [index, reference] of references.feedbackRecords.entries()) {
-      if (reference?.kind !== 'feedback-record' || !/^sha256:[a-f0-9]{64}$/.test(String(reference.digest || ''))) {
-        throw buildError('REVIEW_OUTCOME_INVALID', `feedbackRecords[${index}] must reference a feedback-record object`);
-      }
-    }
+    const references = { fidelityResult: reference };
     const review = {
       reviewRevision: (build.review?.reviewRevision ?? -1) + 1,
       buildRevision: build.revision,
@@ -241,6 +225,18 @@ export async function readBuildObject(buildId, reference, options = {}) {
     throw buildError('OBJECT_DIGEST_MISMATCH', `Build object no longer matches ${reference.digest}`);
   }
   return value;
+}
+
+/**
+ * Resolve an authored receipt entry (source objects or VerificationPlan) to its
+ * content. Current receipts hold { digest, protocol, object } and the content
+ * lives once as a Build object; receipts recorded before that embedded the
+ * content inline and are returned unchanged.
+ */
+export async function readAuthoredObject(buildId, entry, options = {}) {
+  if (!entry || typeof entry !== 'object') return null;
+  if (!entry.object) return entry;
+  return readBuildObject(buildId, entry.object, options);
 }
 
 async function digestFile(filePath) {

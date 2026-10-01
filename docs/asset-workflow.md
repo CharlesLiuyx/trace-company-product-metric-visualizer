@@ -13,8 +13,8 @@
 
 1. **做完即待人工审阅。** 机器只查人眼不易发现的问题：来源对象与金额对账、数据
    一致性、每种语言一次渲染硬门槛。同一份字节只检查一次。人看得出的问题留给审阅。
-2. **人工接受是唯一的闭环决定。** 机器全绿只是「待审阅」；操作员的一句通过由工具
-   展开为逐项记录，并注明依据，执行者不另行补造判断。
+2. **人工接受是唯一的闭环决定。** 机器全绿只是「待审阅」；操作员的一句通过按原话
+   记录为接受，与逐语言渲染证据一起关闭 Build，执行者不另行补造逐项判断。
 3. **执行者在数据处理任务中不用浏览器查看页面。** 交付、审阅、发布、上线核对都
    只用命令与 HTTP。唯一例外：渲染硬门槛失败、需要看候选图排错时，查看
    `record:workflow` 已生成的证据图片，仍不打开查看器页面。
@@ -73,7 +73,7 @@ refresh`），避免整批证据反复失效。
 ## 5. 记录审阅、seal 与本机发布
 
 操作员在对话中明确表示通过（如「人工审阅通过」「全部审阅完毕」）后，执行者写
-简式审阅记录，不再逐项询问：
+审阅记录，不再逐项询问：
 
 ```json
 { "reviewToken": "<show 返回>", "previewId": "<工作台候选 id>", "reviewer": "<操作员>", "decision": "accepted", "note": "<操作员原话与日期>" }
@@ -82,9 +82,11 @@ refresh`），避免整批证据反复失效。
 `previewId` 用 HTTP 读取，不开浏览器：
 `curl -s 'http://127.0.0.1:8000/__trace/status?source=review&key=<key>'`，取
 `preview.candidate.id`，并确认其 `members` 中该 Build 的 `reviewToken` 与 `show`
-一致。`record:workflow review` 校验候选仍是最新，把接受展开为逐项检查记录、
-interface matrix 与 attention，并标注依据。不通过或有问题时，用
-`record:workflow feedback` 记录，修复后重新 `continue`，不写 `decision` 为拒绝。
+一致。`record:workflow review` 校验候选仍是最新，记录这份接受，并绑定每个 required
+locale 最新的渲染证据与数据一致性证据。缺少某语言证据、证据或输入已过期时 review
+失败。不通过或有问题时，用 `record:workflow feedback` 记录
+`{ "note": "<操作员原话>", "date": "YYYY-MM-DD" }`（可选 `locales`、`objectIds`），
+它使当前审阅候选失效；修复后重新 `continue`，不写 `decision` 为拒绝。
 
 随后依次执行 `record:workflow seal <build>`、`publish:datasets -- plan <build> [...]`、
 `publish:datasets -- commit <plan-digest>`。本机发布只切换本机正式快照，不代表已上线。
@@ -132,8 +134,8 @@ interface matrix 与 attention，并标注依据。不通过或有问题时，�
   Git worktree，草稿中不运行 Git。认领、转交、恢复与工作台细节见
   [local-environments.md](local-environments.md)。
 - 正式版本变化后，旧草稿先 `record:workflow refresh <build>`，再按新结果审阅。
-- 新反馈写入 `record:workflow feedback`，会使旧审阅失效，并列出同批需要横向排查的
-  Build；反馈协议见 [fidelity-loop-rules.md](fidelity-loop-rules.md) §4。
+- 新反馈写入 `record:workflow feedback`，只记录说明并使当前审阅候选失效，同时列出
+  同批需要横向排查的 Build；反馈协议见 [fidelity-loop-rules.md](fidelity-loop-rules.md) §4。
 - 图标先查 `record:workflow assets <build>`；新版本在草稿中用 `asset-version` 记录。
   资产目录规则只由 [data/assets/README.md](../data/assets/README.md) 定义。
 - 通用指标的 `source-facts/v1` 字段示例见

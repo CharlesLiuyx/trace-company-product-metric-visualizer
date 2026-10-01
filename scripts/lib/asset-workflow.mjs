@@ -12,7 +12,8 @@ import { classifySourceSignals } from './source-objects.mjs';
 import { VERIFICATION_PLAN_PROTOCOL } from './verification-plan.mjs';
 import { compileMetricFacts, SOURCE_FACTS_PROTOCOL } from './metric-source.mjs';
 import { updateMetricCatalog } from './metric-catalog.mjs';
-import { recordDatasetBuildCommand, readDatasetBuild, recordBuildObject, inspectDatasetBuild, readBuildObject } from './dataset-build-store.mjs';
+import { recordDatasetBuildCommand, readDatasetBuild, recordBuildObject, inspectDatasetBuild, readBuildObject, readAuthoredObject } from './dataset-build-store.mjs';
+import { FIDELITY_RESULT_PROTOCOL } from './fidelity-result.mjs';
 import { prepareBuildReview, finishReviewedBuild, stageReviewedBaseline, sealReviewedBuild, evidenceFromManifest } from './dataset-build-closeout.mjs';
 import { recordDatasetVerification } from './dataset-verification.mjs';
 import { deriveArtifactManifest, CHECKPOINT_PROTOCOL, REVIEW_CANDIDATE_PROTOCOL, nextCheckpoint } from './workflow-dependencies.mjs';
@@ -186,20 +187,22 @@ export async function showAsset(buildId, root = rootDir) {
   const packet = (await buildObjects(buildId, 'review-packet', options)).find(({ value }) => value.authoredDigest === authored?.snapshotDigest);
   const verification = (await buildObjects(buildId, 'dataset-verification', options)).find(({ value }) => value.identity.authoredDigest === authored?.snapshotDigest);
   const checkpoints = (await buildObjects(buildId, 'fidelity-checkpoint', options)).sort((a, b) => (a.value.sequence || 0) - (b.value.sequence || 0) || a.value.recordedAt.localeCompare(b.value.recordedAt));
+  // Receipts reference the Plan by Build object digest; older receipts embed it.
+  const plan = authored ? await readAuthoredObject(buildId, authored.verificationPlan, options) : null;
   let next = 'prepare';
   // An AUTHORED snapshot from an older Plan protocol stays readable; continue re-prepares it.
-  const currentPlan = authored?.verificationPlan?.protocol === VERIFICATION_PLAN_PROTOCOL || build.state !== 'AUTHORED';
+  const currentPlan = plan?.protocol === VERIFICATION_PLAN_PROTOCOL || build.state !== 'AUTHORED';
   if (authored && inspection.fresh && currentPlan) {
     if (build.state === 'AUTHORED') next = verification ? 'review' : 'verify';
     if (build.state === 'CLOSED') next = 'seal';
     if (build.state === 'BASELINE_STAGED') next = 'seal';
     if (build.state === 'SEALED') next = 'publish';
     if (build.state === 'AUTHORED' && verification && build.adapter === 'income-statement') {
-      const policy = authored.verificationPlan.checkpointProtocol;
-      if (policy === CHECKPOINT_PROTOCOL) next = nextCheckpoint({ scopes: authored.verificationPlan.dependencyScopes }, checkpoints.map(({ value }) => value)) || 'review';
+      const policy = plan.checkpointProtocol;
+      if (policy === CHECKPOINT_PROTOCOL) next = nextCheckpoint({ scopes: plan.dependencyScopes }, checkpoints.map(({ value }) => value)) || 'review';
       else if (policy === REVIEW_CANDIDATE_PROTOCOL) {
-        const locales = authored.verificationPlan.requiredLocales || [];
-        const evidence = await currentEvidence({ workspace: options.projectRoot, key: build.key, buildId, plan: authored.verificationPlan }, authored.snapshotDigest);
+        const locales = plan.requiredLocales || [];
+        const evidence = await currentEvidence({ workspace: options.projectRoot, key: build.key, buildId, plan }, authored.snapshotDigest);
         next = latestPerLocale(evidence, locales).length === locales.length ? 'review' : 'render';
       }
     }
@@ -211,7 +214,7 @@ export async function showAsset(buildId, root = rootDir) {
   return { buildId, key: build.key, adapter: build.adapter, workspace: options.projectRoot, session: await readBuildSession(root, buildId), reviewUrl: `http://127.0.0.1:8000/?review=${buildId}#${build.key}`, state: inspection.effectiveState, historicalState: inspection.historicalState, fresh: inspection.fresh, staleArtifacts: inspection.staleArtifacts, next,
     source: build.sources[0], subject: facts?.subject, period: facts?.period, metrics: facts?.metrics || [], questions: facts?.questions || [], authoredRecord,
     authoredDigest: authored?.snapshotDigest, reviewToken: packet?.reference.digest, verificationReference: verification?.reference,
-    checkpoints: checkpoints.map(({ reference }) => reference), plan: authored?.verificationPlan,
+    checkpoints: checkpoints.map(({ reference }) => reference), plan,
     timing: (await buildObjects(buildId, 'operation-report', options)).map(({ value }) => value),
   };
 }
@@ -272,16 +275,17 @@ export async function sealAsset(buildId, root = rootDir, { freshRender = false }
       if (options.build.adapter === 'income-statement') {
         const closure = options.build.receipts.filter((receipt) => receipt.state === 'CLOSED').at(-1).payload;
         const result = await readBuildObject(buildId, closure.reviewObjects.fidelityResult, options);
-        const baseline = result.automaticEvidence.locales.find((item) => item.locale === 'en');
         // Baseline values come from the exact English evidence the reviewer accepted.
-        for (const { locator } of (await currentEvidence(current)).filter(({ manifest }) => manifest.identity.language === 'en').reverse()) {
-          const entry = await evidenceFromManifest(locator, { buildId, key: current.key, authoredDigest: current.authoredDigest, verificationPlanDigest: current.plan.planDigest, projectRoot: options.projectRoot });
-          if (entry.digest !== baseline?.digest) continue;
-          const measured = entry.metrics;
-          metrics = { similarity: measured.full?.similarity ?? measured.comparison?.full?.similarity, mae: measured.full?.mae ?? measured.comparison?.full?.mae, width: measured.full?.width, height: measured.full?.height };
-          break;
+        if (result.protocol === FIDELITY_RESULT_PROTOCOL) metrics = result.evidence.find((item) => item.locale === 'en')?.metrics;
+        else {
+          // fidelity-result/v2 closures: find the archived run whose digest was accepted.
+          const baseline = result.automaticEvidence.locales.find((item) => item.locale === 'en');
+          for (const { locator } of (await currentEvidence(current)).filter(({ manifest }) => manifest.identity.language === 'en').reverse()) {
+            const entry = await evidenceFromManifest(locator, { buildId, key: current.key, authoredDigest: current.authoredDigest, verificationPlanDigest: current.plan.planDigest, projectRoot: options.projectRoot });
+            if (baseline && entry.digest === baseline.digest) { metrics = entry.metrics; break; }
+          }
         }
-        if (!baseline || !Number.isFinite(metrics?.similarity)) throw new Error('Accepted English baseline measurements missing');
+        if (!Number.isFinite(metrics?.similarity)) throw new Error('Accepted English baseline measurements missing');
       }
       await stageReviewedBaseline({ buildId, metrics }, options);
     }

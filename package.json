@@ -45,8 +45,6 @@
     "view:published": "node scripts/dev-server.mjs --published --port 8001",
     "update:asset-catalog": "node scripts/update-asset-catalog.mjs",
     "verify:asset-catalog": "node scripts/update-asset-catalog.mjs --check",
-    "update:feedback-patterns": "node scripts/update-feedback-patterns.mjs",
-    "verify:feedback-patterns": "node scripts/update-feedback-patterns.mjs --check",
     "update:workflow-reference": "node scripts/update-workflow-reference.mjs",
     "verify:workflow": "node scripts/update-workflow-reference.mjs --check",
     "update:workflow-graph": "node scripts/update-workflow-graph.mjs",

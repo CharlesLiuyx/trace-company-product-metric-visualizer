@@ -14,9 +14,9 @@ main push 作为 base，覆盖上次失败或仍在运行的提交。历史查�
 
 ## 新输入流程的快速检查
 
-`pnpm check` 现在还运行 `verify:workflow`、`verify:metrics`、
-`verify:asset-catalog` 和 `verify:feedback-patterns`。它们分别防止命令/协议/文档漂移、
-通用指标值与来源及登记失配、资产版本和使用目录过期、历史反馈索引过期。
+`pnpm check` 现在还运行 `verify:workflow`、`verify:metrics` 和
+`verify:asset-catalog`。它们分别防止命令/协议/文档漂移、通用指标值与来源及登记失配、
+资产版本和使用目录过期。
 这些检查从项目文件重新推导结果，不需要本机 Build 记录，不替人完成审阅。
 通用 Source 的原始文本存在时会逐段核验；本机私有原件缺失时只校验保存的结构与摘要，
 完整图片语义仍依赖实际人工核对。
@@ -313,7 +313,7 @@ CI 无缓存持久化，仍按 ChangeImpact 矩阵冷跑；上表只改变本机
 
 - baseline 缺失是确定的账目错误，必须失败；现在只是不再渲染后才失败。
 - 没有本地 reference image 时，不做 similarity 结论，只报告 hard gates。
-- automatic evidence 不能代替 `ManualAttestation`、RegionDecision 或 FidelityResult。
+- automatic evidence 不能代替操作员接受（FidelityResult 的 `acceptance`）。
 - ChangeImpact 计划失败不会跳过检查，而是全量回退。
 - 选择 Module 的每条分支都有纯函数测试；CI workflow 自身或 planner 变化会触发全量。
 - `verify:*` 保持只读；部署只消费已经验证的 `_site` artifact。

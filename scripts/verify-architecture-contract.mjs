@@ -13,13 +13,9 @@ import {
 import { FIDELITY_PROTOCOL_VERSION } from './lib/compare-workspace.mjs';
 import { DATASET_VERIFICATION_PROTOCOL } from './lib/dataset-verification.mjs';
 import { REVIEW_PACKET_PROTOCOL } from './lib/dataset-build-closeout.mjs';
-import {
-  FIDELITY_RESULT_PROTOCOL,
-  INTERFACE_MATRIX_PROTOCOL,
-} from './lib/fidelity-result.mjs';
+import { FIDELITY_RESULT_PROTOCOL } from './lib/fidelity-result.mjs';
 import {
   FIDELITY_RULE_CONTRACT,
-  assertNoSecondaryFidelityRuleDefinitions,
   extractFidelityRuleReferences,
 } from './lib/fidelity-rule-contract.mjs';
 import { validateFidelityRulesDocument } from './lib/fidelity-rules-doc.mjs';
@@ -79,36 +75,10 @@ async function executableScriptPaths(directory) {
   return paths;
 }
 
-async function verifyFidelityRuleContract({ workflow, flowchart }) {
-  const source = await readFile(projectPath('docs/fidelity-loop-rules.md'), 'utf8');
+async function verifyFidelityRuleContract() {
   // The structured catalog is the rule-semantics SSOT; the Markdown catalog
-  // section must be its fresh generated view and the handwritten remainder
-  // must not define rules.
-  const document = validateFidelityRulesDocument(source);
-  assert.match(source, /REG-001/, 'fidelity rules must reserve the region namespace');
-  assert.match(source, /FB-001/, 'fidelity rules must reserve the feedback namespace');
-
-  // The feedback casebook is the Git-tracked cross-checkout recurrence
-  // memory (the machine ledger only sees the local build root). It must
-  // stay routed, reference only known rules, and never become a second
-  // rule-definition surface.
-  const casebook = await readFile(projectPath('docs/fidelity-feedback-casebook.md'), 'utf8');
-  assert.match(source, /fidelity-feedback-casebook\.md/, 'fidelity rules must route the feedback casebook');
-
-  assertNoSecondaryFidelityRuleDefinitions(workflow, 'docs/dynamic-dataset-workflow.md');
-  assertNoSecondaryFidelityRuleDefinitions(await readFile(projectPath('docs/asset-workflow.md'), 'utf8'), 'docs/asset-workflow.md');
-  assertNoSecondaryFidelityRuleDefinitions(flowchart, 'docs/workflow-flowchart.zh-CN.html');
-  assertNoSecondaryFidelityRuleDefinitions(casebook, 'docs/fidelity-feedback-casebook.md');
-  for (const [label, secondarySource] of [
-    ['docs/dynamic-dataset-workflow.md', workflow],
-    ['docs/workflow-flowchart.zh-CN.html', flowchart],
-    ['docs/fidelity-feedback-casebook.md', casebook],
-  ]) {
-    const unknown = extractFidelityRuleReferences(secondarySource).filter(
-      (id) => !(id in FIDELITY_RULE_CONTRACT.enforcements) && !(id in FIDELITY_RULE_CONTRACT.aliases)
-    );
-    assert.deepEqual(unknown, [], `${label} references unknown fidelity rule IDs`);
-  }
+  // section must be its fresh generated view.
+  const document = validateFidelityRulesDocument(await readFile(projectPath('docs/fidelity-loop-rules.md'), 'utf8'));
 
   const excluded = new Set([
     projectPath('scripts/lib/fidelity-rule-contract.mjs'),
@@ -163,7 +133,7 @@ async function main() {
     DATASET_VERIFICATION_PROTOCOL,
     'DatasetVerification protocol drift'
   );
-  assert.equal(contract.protocols.interfaceMatrix, INTERFACE_MATRIX_PROTOCOL, 'Interface Matrix protocol drift');
+  assert.equal(contract.protocols.interfaceMatrix, undefined, 'interfaceMatrix is retired; FidelityResult records acceptance plus render evidence');
   assert.equal(contract.protocols.fidelityResult, FIDELITY_RESULT_PROTOCOL, 'FidelityResult protocol drift');
   assert.deepEqual(contract.scopes.DatasetBuild.states, DATASET_BUILD_STATES, 'DatasetBuild state drift');
   assert.deepEqual(sorted(contract.adapters), sorted(DATASET_ADAPTERS), 'Adapter drift');
@@ -322,7 +292,16 @@ async function main() {
   assert.equal(contract.invariants.humanAttestationRequiredForIncomeStatement, true, 'Income Statement closure must require human attestation');
   assert.equal(contract.invariants.verifyCommandsWriteDurableEvidence, false, 'verify:* must remain read-only');
   assert.equal(contract.invariants.sourceRelocationChangesIdentity, false, 'Source relocation must preserve digest identity');
-  for (const retired of ['SourceCoverage', 'ObjectInventory', 'NodeFacePolicy']) {
+  for (const retired of [
+    'SourceCoverage',
+    'ObjectInventory',
+    'NodeFacePolicy',
+    'ManualAttestation',
+    'RegionDecision',
+    'InterfaceMatrix',
+    'FeedbackRecord',
+    'FeedbackLedger',
+  ]) {
     assert.ok(!contract.durableObjects.includes(retired), `${retired} is retired from the lifecycle contract`);
   }
   for (const objectName of [
@@ -331,11 +310,7 @@ async function main() {
     'VerificationPlan',
     'DatasetVerification',
     'ReviewPacket',
-    'ManualAttestation',
-    'RegionDecision',
-    'InterfaceMatrix',
-    'FeedbackRecord',
-    'FeedbackLedger',
+    'FeedbackNote',
     'FidelityResult',
   ]) {
     assert.ok(contract.durableObjects.includes(objectName), `lifecycle contract must include ${objectName}`);
@@ -495,7 +470,7 @@ async function main() {
   await Promise.all(
     [...CONTEXT_DOCS, 'docs/fidelity-feedback-casebook.md'].map(verifyLocalMarkdownLinks)
   );
-  const fidelityRuleCount = await verifyFidelityRuleContract({ workflow, flowchart });
+  const fidelityRuleCount = await verifyFidelityRuleContract();
   console.log(
     `architecture contract passed: ${DATASET_BUILD_STATES.length} Build states, ` +
       `${DATASET_ADAPTERS.length} Adapters, ${CHANGE_IMPACTS.length} ChangeImpact values, ` +

@@ -175,6 +175,24 @@ export function createDatasetBuild(input, options = {}) {
   );
 }
 
+// Receipts keep only the semantic digest, protocol and Build object reference
+// of the authored source objects and VerificationPlan; the content lives once
+// in objects/<kind>/. Receipts recorded before this embedded the content.
+function objectReference(reference, kind, content, label) {
+  invariant(
+    reference?.kind === kind && typeof reference.path === 'string' && reference.path,
+    'AUTHORED_OBJECT_REFERENCE_REQUIRED',
+    `${label} must be recorded as a ${kind} Build object and referenced by digest`
+  );
+  assertDigest(reference.digest, `${label} object digest`);
+  invariant(
+    reference.digest === digestValue(content),
+    'AUTHORED_OBJECT_REFERENCE_MISMATCH',
+    `${label} object reference does not match the authored content`
+  );
+  return { kind, digest: reference.digest, path: reference.path };
+}
+
 function authoredPayload(build, command) {
   invariant(Array.isArray(command.artifacts) && command.artifacts.length > 0, 'ARTIFACTS_REQUIRED', 'Authored artifacts are required');
   const artifacts = command.artifacts
@@ -187,6 +205,7 @@ function authoredPayload(build, command) {
   invariant(command.sourceObjects && typeof command.sourceObjects === 'object', 'SOURCE_OBJECTS_REQUIRED', 'Source objects are required');
   const sourceObjectsDigest = command.sourceObjects.sourceObjectsDigest || command.sourceObjects.digest;
   assertDigest(sourceObjectsDigest, 'Source objects digest');
+  let sourceObjects = { digest: sourceObjectsDigest };
   if (command.sourceObjects.protocol != null) {
     invariant(
       command.sourceObjects.protocol === SOURCE_OBJECTS_PROTOCOL &&
@@ -195,8 +214,12 @@ function authoredPayload(build, command) {
       'SOURCE_OBJECTS_INVALID',
       'Source objects must match the Build key and Adapter'
     );
+    sourceObjects = {
+      digest: sourceObjectsDigest,
+      protocol: command.sourceObjects.protocol,
+      object: objectReference(command.sourceObjectsReference, 'source-objects', command.sourceObjects, 'Source objects'),
+    };
   }
-  const sourceObjects = { ...command.sourceObjects, digest: sourceObjectsDigest };
   const changeImpact = [...new Set(command.changeImpact || [])].sort();
   invariant(changeImpact.length > 0, 'CHANGE_IMPACT_REQUIRED', 'At least one ChangeImpact is required');
   for (const impact of changeImpact) {
@@ -204,41 +227,33 @@ function authoredPayload(build, command) {
   }
   let verificationPlan = null;
   if (command.verificationPlan) {
-    const planDigest = command.verificationPlan.planDigest || command.verificationPlan.digest;
+    const plan = command.verificationPlan;
+    const planDigest = plan.planDigest || plan.digest;
     assertDigest(planDigest, 'VerificationPlan digest');
+    invariant(plan.datasetKey === build.key, 'VERIFICATION_PLAN_INVALID', 'VerificationPlan dataset key does not match the Build');
+    invariant(plan.adapter === build.adapter, 'VERIFICATION_PLAN_INVALID', 'VerificationPlan Adapter does not match the Build');
+    invariant(plan.protocol != null, 'VERIFICATION_PLAN_INVALID', 'VerificationPlan protocol is required');
     invariant(
-      command.verificationPlan.datasetKey === build.key,
+      plan.sourceObjectsDigest === sourceObjects.digest,
       'VERIFICATION_PLAN_INVALID',
-      'VerificationPlan dataset key does not match the Build'
+      'VerificationPlan source objects digest does not match the authored command'
     );
     invariant(
-      command.verificationPlan.adapter === build.adapter,
-      'VERIFICATION_PLAN_INVALID',
-      'VerificationPlan Adapter does not match the Build'
-    );
-    if (command.verificationPlan.protocol != null) {
-      invariant(
-        command.verificationPlan.sourceObjectsDigest === sourceObjects.digest,
-        'VERIFICATION_PLAN_INVALID',
-        'VerificationPlan source objects digest does not match the authored command'
-      );
-    }
-    invariant(
-      Array.isArray(command.verificationPlan.requiredLocales) && command.verificationPlan.requiredLocales.length > 0,
+      Array.isArray(plan.requiredLocales) && plan.requiredLocales.length > 0,
       'VERIFICATION_PLAN_INVALID',
       'VerificationPlan requires at least one locale'
     );
+    invariant(Array.isArray(plan.changeImpact), 'VERIFICATION_PLAN_INVALID', 'VerificationPlan ChangeImpact is required');
     invariant(
-      Array.isArray(command.verificationPlan.changeImpact),
-      'VERIFICATION_PLAN_INVALID',
-      'VerificationPlan ChangeImpact is required'
-    );
-    invariant(
-      digestValue([...command.verificationPlan.changeImpact].sort()) === digestValue(changeImpact),
+      digestValue([...plan.changeImpact].sort()) === digestValue(changeImpact),
       'VERIFICATION_PLAN_INVALID',
       'VerificationPlan ChangeImpact does not match the authored command'
     );
-    verificationPlan = { ...command.verificationPlan, digest: planDigest };
+    verificationPlan = {
+      digest: planDigest,
+      protocol: plan.protocol,
+      object: objectReference(command.verificationPlanReference, 'verification-plan', plan, 'VerificationPlan'),
+    };
   }
   const snapshot = {
     artifacts,
@@ -282,27 +297,11 @@ function closurePayload(build, command) {
   }
   let reviewObjects = null;
   if (authored.verificationPlan) {
-    invariant(command.reviewObjects && typeof command.reviewObjects === 'object', 'REVIEW_OBJECTS_REQUIRED', 'Versioned closure requires review object references');
-    const expectedKinds = {
-      fidelityResult: 'fidelity-result',
-      feedbackLedger: 'feedback-ledger',
-    };
-    reviewObjects = {};
-    for (const [field, kind] of Object.entries(expectedKinds)) {
-      const reference = command.reviewObjects[field];
-      invariant(reference?.kind === kind, 'REVIEW_OBJECTS_INVALID', `${field} must reference a ${kind} object`);
-      assertDigest(reference.digest, `${field} object digest`);
-      invariant(typeof reference.path === 'string' && reference.path, 'REVIEW_OBJECTS_INVALID', `${field} object path is required`);
-      reviewObjects[field] = { kind, digest: reference.digest, path: reference.path };
-    }
-    const feedbackRecords = command.reviewObjects.feedbackRecords || [];
-    invariant(Array.isArray(feedbackRecords), 'REVIEW_OBJECTS_INVALID', 'feedbackRecords must be an array');
-    reviewObjects.feedbackRecords = feedbackRecords.map((reference, index) => {
-      invariant(reference?.kind === 'feedback-record', 'REVIEW_OBJECTS_INVALID', `feedbackRecords[${index}] must reference a feedback-record object`);
-      assertDigest(reference.digest, `feedbackRecords[${index}] digest`);
-      invariant(typeof reference.path === 'string' && reference.path, 'REVIEW_OBJECTS_INVALID', `feedbackRecords[${index}] path is required`);
-      return { kind: reference.kind, digest: reference.digest, path: reference.path };
-    });
+    const reference = command.reviewObjects?.fidelityResult;
+    invariant(reference?.kind === 'fidelity-result', 'REVIEW_OBJECTS_REQUIRED', 'Versioned closure must reference its fidelity-result object');
+    assertDigest(reference.digest, 'fidelityResult object digest');
+    invariant(typeof reference.path === 'string' && reference.path, 'REVIEW_OBJECTS_INVALID', 'fidelityResult object path is required');
+    reviewObjects = { fidelityResult: { kind: 'fidelity-result', digest: reference.digest, path: reference.path } };
   }
   const evidence = command.evidence || {};
   const requiredAxes = ['candidate', 'reference', 'process', 'human'];
