@@ -1,6 +1,6 @@
 # ADR-0001: Separate Dataset Build, Publication, and Release Transactions
 
-- Status: Accepted
+- Status: Accepted; amended 2026-10-01 (see Amendments)
 - Date: 2026-07-10
 - Owners: repository architecture maintainers
 
@@ -141,3 +141,26 @@ The migration is incremental:
 
 The authoritative milestone table and current-versus-target summary are in
 the [`architecture index`](../architecture/README.md).
+
+## Amendments
+
+### 2026-10-01: acceptance-based review closure
+
+The three state scopes, operation classes, baseline restriction, seal
+binding, and CAS rules are unchanged. The fidelity evidence model is
+simplified:
+
+- A `FidelityRun` holds automatic evidence only. The human decision is one
+  operator acceptance recorded at review, not manual evidence inside the run.
+- The Adapter-owned Source contract is the flat `source-objects/v1` list, and
+  the `VerificationPlan` is a fixed per-Adapter checklist
+  (`verification-plan/v6`).
+- `FidelityResult` (`fidelity-result/v3`) records that acceptance, the
+  per-locale render evidence digests, and the automatic gate summary. The
+  Interface Matrix, manual attestation, region decisions, and feedback ledger
+  are retired; operator feedback is a `FeedbackNote` that expires the current
+  review candidate.
+- Recorded v1/v2 results are not rewritten; they stay readable and sealable.
+
+The detailed contracts are in the lifecycle and verification documents linked
+above.

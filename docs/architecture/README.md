@@ -70,7 +70,7 @@ The target deepens four Modules:
 
 | Module | Interface responsibility | Implementation hidden behind the Seam |
 | --- | --- | --- |
-| Dataset Build Transaction | advance one Source-derived build through explicit states | whole-Source Type Gate, intake and working-Source claim, flat Source-object validation, actual authored-value reconciliation, fixed per-Adapter Plan, review closure, staging, freshness, invalidation |
+| Dataset Build Transaction | advance one Source-derived build through explicit states | whole-Source Type Gate, intake and working-Source claim, flat Source-object validation, actual authored-value reconciliation, fixed per-Adapter Plan, acceptance-based review closure, staging, freshness, invalidation |
 | Fidelity Run | produce immutable automatic evidence for one authored digest | private workspace, rendering, Diff, gates, evidence-ready archive finalization |
 | Publication | plan and atomically publish a set of sealed contributions | global projections, path claims, baseline ledger, metadata, CAS and recovery |
 | Release | build or deploy one published digest | standalone build, hosted release, retries and receipts |
@@ -84,8 +84,11 @@ through every caller.
 The implemented M3 Build path uses `source-classification/v1` before fresh
 intake, then the author's flat `source-objects/v1` list plus actual SSOT/View
 reconciliation, a fixed per-Adapter `verification-plan/v6`, and
-`review-packet/v5`. Every value node is expected painted at render (B15);
-geometry without a Source face is modeled as a non-node metric, flow, or
+`review-packet/v5`. Review closes on the operator's acceptance recorded in
+`fidelity-result/v3` together with the per-locale render evidence and the
+consistency evidence; operator feedback is a `feedback-note/v1` that expires
+the current review candidate. Every value node is expected painted at render
+(B15); geometry without a Source face is modeled as a non-node metric, flow, or
 annotation. These remain build-local guards. Publication consumes the
 resulting fresh seals.
 
@@ -94,8 +97,9 @@ resulting fresh seals.
 - `verify:*` is read-only; `record:*` writes only build-local evidence or
   staging; `publish:*` is the only canonical mutation; `release:*` acts on an
   already-published digest.
-- Automatic evidence is necessary but cannot stand in for a human attestation,
-  region decisions, or feedback closure.
+- Automatic evidence is necessary but cannot stand in for the operator's
+  acceptance, and a review never records a pending or rejected result: problems
+  are feedback, and only an explicit acceptance closes a Build.
 - Fresh intake requires a whole-Source Type Gate whose signals derive exactly
   one Adapter and agree with the requested Adapter.
 - A new review Plan requires the flat Source object list. `Other` / `All
@@ -138,9 +142,10 @@ Metric and the new generic Metric Observation Adapter. The latter has exact
 decimal strings, explicit units/basis, real Source anchors and a viewer library.
 
 Build workspaces isolate data authoring. Preparation derives ArtifactManifest,
-semantic contributions, coverage and the Plan, generates review sheets, and
-records timings. New isolated Sankey Builds (`review-candidate/v1`) render one
-all-locale review candidate and close on human acceptance; Builds prepared under
+semantic contributions, the source objects and the Plan, generates review
+sheets, and records timings. New isolated Sankey Builds
+(`review-candidate/v1`) render one all-locale review candidate and close on
+human acceptance; Builds prepared under
 `fidelity-checkpoints/v1` keep their digest-bound stage checkpoints. Historical
 Builds are not silently upgraded.
 
@@ -172,7 +177,7 @@ Source metadata is published with the data.
 | M0 — record the decision | implemented | architecture owners, vocabulary, invariants, and ADR exist |
 | M1 — isolate FidelityRun | implemented with operation separation and `fidelity-run/2` review identity | `verify:d3` remains ephemeral/read-only; `record:fidelity` alone finalizes durable automatic evidence, with legacy v1 archives explicitly non-closure |
 | M2 — introduce DatasetBuild | implemented for the new workflow | isolated authoring workspace, existing ledger, PNG/text identity, facts compilation and derived dependencies; historical direct-edit Builds remain readable |
-| M3 — close and stage | implemented | coverage, consistency, one per-locale review candidate and human attestation (historical checkpoint Builds keep stage freezes); baseline and final seal remain separate |
+| M3 — close and stage | implemented | source objects, consistency, one per-locale review candidate and operator acceptance (historical checkpoint Builds keep stage freezes); baseline and final seal remain separate |
 | M4 — publish atomically | implemented for local dataset publication | private combined candidate, pure-in-candidate shared projections, owned-path conflicts, fresh seal check, immutable tree and pointer CAS, digest-qualified reader, idempotent recovery |
 | M5 — separate Release | implemented for local site/standalone artifacts | published-digest input, independent attempt/error receipts and retries; external hosted deployment remains an explicit separate operation |
 
