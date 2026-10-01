@@ -94,7 +94,10 @@ function renderAll() {
 function refresh() {
   renderAll();
   draw({ syncView: false });
-  scheduleIdleTask(() => preloadScopeCompanyDatasets());
+  // The short idle timeout starts the period sweep about when the clicked
+  // period's own requests land, so the other period chips are usually
+  // warm before the operator reaches them.
+  scheduleIdleTask(() => preloadScopeCompanyDatasets(), { timeout: 400 });
 }
 function renderMetricModeButtons(availableModes) {
   metricMode.innerHTML = availableModes.map((mode) => {

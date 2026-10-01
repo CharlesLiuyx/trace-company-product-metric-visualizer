@@ -20,7 +20,7 @@ function viewer(fetchOverride) {
     ok: true, status: 200,
     arrayBuffer: async () => new TextEncoder().encode(projection.chunks.get(url)).buffer,
   });
-  context.fetch = async (url) => { requests++; return fetchOverride ? fetchOverride(url, requests, response) : response(url); };
+  context.fetch = async (url, options) => { requests++; return fetchOverride ? fetchOverride(url, requests, response, options) : response(url); };
   context.crypto = webcrypto;
   context.TextDecoder = TextDecoder;
   vm.runInContext(projection.source, context);
@@ -76,6 +76,39 @@ test('company hydration deduplicates requests and preserves catalog record ident
   assert.ok(catalog.financialRecordByKey.get('apple-q1-fy23').__runtimeSummary);
   await loader.ensure(requirement);
   assert.equal(requests(), 1);
+});
+
+test('preload hydrates in the background at low priority and shares its request with ensure', async () => {
+  const priorities = [];
+  const { catalog, loader, requests } = viewer((url, count, response, options) => { priorities.push(options?.priority ?? null); return response(url); });
+  const requirement = { companies: ['Salesforce'] };
+  const warm = loader.preload(requirement);
+  await Promise.all([warm, loader.ensure(requirement)]);
+  assert.equal(requests(), 1, 'ensure must reuse the in-flight preload');
+  assert.deepEqual(priorities, ['low']);
+  assert.equal(loader.ready(requirement), true);
+  assert.ok(catalog.companyMetadataByName.get('salesforce').description);
+  await loader.ensure(requirement);
+  assert.equal(requests(), 1, 'a warmed company needs no request on click');
+  assert.equal(await loader.preload(requirement), undefined);
+  assert.equal(requests(), 1);
+});
+
+test('preload never rejects: failures stay retryable and unknown companies are skipped', async () => {
+  const warnings = [];
+  const { context, loader, catalog, requests } = viewer((url, count, response) => count <= 2 ? { ok: false, status: 503 } : response(url));
+  context.console = { ...console, warn: (...args) => warnings.push(args[0]) };
+  const requirement = { companies: ['Salesforce'] };
+  await loader.preload(requirement);
+  await loader.preload(requirement);
+  assert.equal(requests(), 2, 'a failed preload must not block the retry');
+  assert.equal(loader.ready(requirement), false);
+  assert.ok(catalog.financialRecordByKey.get('salesforce-q1-fy27').__runtimeSummary);
+  assert.equal(warnings.filter((message) => /preload failed/.test(message)).length, 1, 'warn once per failing chunk');
+  await loader.ensure(requirement);
+  assert.equal(loader.ready(requirement), true);
+  await loader.preload({ companies: ['No Such Company'] });
+  assert.ok(warnings.some((message) => /unknown requirement/.test(message)));
 });
 
 test('family load hydrates the full table without loading unrelated profiles', async () => {

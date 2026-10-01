@@ -1,7 +1,8 @@
 /* Pages Runtime Data Module. Source/standalone pages retain their complete
  * SSOTs; only the generated Pages catalog installs a split-data manifest.
  * The Interface owns readiness, deduplication, retry, immutable-version
- * validation and in-place hydration. Callers never fetch SSOT files. */
+ * validation, in-place hydration and background preloading. Callers never
+ * fetch SSOT files. */
 (function (global) {
   'use strict';
   let manifest = null;
@@ -9,6 +10,7 @@
   const loaded = new Set();
   const pending = new Map();
   const listeners = new Set();
+  const preloadWarnedIds = new Set();
 
   function install(input) {
     if (manifest) throw new Error('Runtime data manifest already installed');
@@ -72,13 +74,14 @@
     }));
   }
 
-  function load(id) {
+  function load(id, { priority = '' } = {}) {
     if (isLoaded(id)) return Promise.resolve();
     if (pending.has(id)) return pending.get(id);
     const entry = manifest.chunks[id];
     if (!entry) return Promise.reject(new Error(`Missing runtime data chunk: ${id}`));
     const promise = (async () => {
-      const response = await global.fetch(entry.src);
+      // Speculative loads yield to the requests a draw is waiting on.
+      const response = await global.fetch(entry.src, priority ? { priority } : {});
       if (!response.ok) throw new Error(`Runtime data unavailable (${response.status}): ${id}`);
       const bytes = await response.arrayBuffer();
       const digest = await global.crypto.subtle.digest('SHA-256', bytes);
@@ -96,7 +99,27 @@
   }
 
   function ensure(requirement) {
-    return Promise.all(idsFor(requirement).map(load)).then(() => undefined);
+    return Promise.all(idsFor(requirement).map((id) => load(id))).then(() => undefined);
+  }
+
+  /* Background hydration of a requirement the View is predicted to need
+   * next (the company under the pointer, companies visible in the list).
+   * Shares in-flight requests with ensure(), settles every chunk on its
+   * own, never rejects, and warns once per failing chunk; a later
+   * user-driven ensure() retries and owns the error UI. */
+  function preload(requirement) {
+    let ids;
+    try {
+      ids = idsFor(requirement);
+    } catch (error) {
+      console.warn('Runtime data preload skipped an unknown requirement.', error);
+      return Promise.resolve();
+    }
+    return Promise.all(ids.map((id) => load(id, { priority: 'low' }).catch((error) => {
+      if (preloadWarnedIds.has(id)) return;
+      preloadWarnedIds.add(id);
+      console.warn(`Runtime data preload failed for ${id}; it will retry on demand.`, error);
+    }))).then(() => undefined);
   }
 
   function subscribe(listener) {
@@ -104,5 +127,5 @@
     return () => listeners.delete(listener);
   }
 
-  global.TraceRuntimeData = Object.freeze({ install, bind, ready, ensure, subscribe });
+  global.TraceRuntimeData = Object.freeze({ install, bind, ready, ensure, preload, subscribe });
 })(window);

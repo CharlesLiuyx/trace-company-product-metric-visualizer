@@ -134,19 +134,76 @@ await scenario('boot: default sankey', async (page) => {
     companies: document.querySelectorAll('#companyList .company-item').length,
     pendingDatasets: window.TraceDatasetRegistry?.pendingKeys().length || 0,
     totalDatasets: window.__DATASET_MANIFEST__?.datasets?.length || 0,
-    // Boot may preload the active company's full adapter set, nothing more.
-    activeCompanyDatasetCount: records.filter((record) => record.company === state.company).length,
+    // Boot may preload the active company's full adapter set plus the click
+    // layer (default adapter) of the companies visible in the list, nothing
+    // more.
+    outOfScopeLoaded: (() => {
+      const registry = window.TraceDatasetRegistry;
+      const allowed = new Set(records.filter((record) => record.company === state.company).map((record) => record.dataset.key));
+      visibleWarmCompanies().forEach((company) => (companyWarmPlan(company)?.datasetKeys || []).forEach((key) => allowed.add(key)));
+      return records.map((record) => record.dataset.key).filter((key) => registry.isLoaded(key) && !allowed.has(key));
+    })(),
   }));
   assert(state.scripts === APP_MODULE_COUNT, `expected ${APP_MODULE_COUNT} app scripts, got ${state.scripts}`);
   assert(state.hasSvg, 'no sankey svg rendered');
   assert(state.actionTitle.trim(), 'empty action title');
   assert(state.companies > 0, 'company list empty');
+  assert(state.pendingDatasets > 0, 'idle boot exhausted the adapter manifest');
   assert(
-    state.pendingDatasets >= state.totalDatasets - Math.max(2, state.activeCompanyDatasetCount),
-    `idle boot hydrated adapters beyond the active company scope ` +
-    `(${state.totalDatasets - state.pendingDatasets}/${state.totalDatasets} loaded, ` +
-    `active company registers ${state.activeCompanyDatasetCount})`
+    state.outOfScopeLoaded.length === 0,
+    `idle boot hydrated adapters beyond the active company and visible click layer: ${state.outOfScopeLoaded.join(', ')}`
   );
+});
+
+// The visible company list is the next click's search space: after the first
+// Sankey render and an idle period, every visible company whose click lands
+// on a Sankey must already hold its default adapter (and its rasters), so the
+// click swaps charts synchronously — no loading placeholder, no adapter
+// request.
+await scenario('dataset loading: visible companies are warm and switch without a loading state', async (page) => {
+  await boot(page);
+  await page.waitForTimeout(1500);
+  const warm = await page.evaluate(() => {
+    const registry = window.TraceDatasetRegistry;
+    return visibleWarmCompanies()
+      .filter((company) => company !== state.company)
+      .map((company) => ({ company, plan: companyWarmPlan(company) }))
+      .filter(({ plan }) => plan)
+      .map(({ company, plan }) => ({
+        company,
+        key: plan.datasetKeys[0],
+        loaded: plan.datasetKeys.every((key) => registry.isLoaded(key)),
+      }));
+  });
+  assert(warm.length >= 3, `expected several visible companies with a Sankey click layer, got ${warm.length}`);
+  const cold = warm.filter((item) => !item.loaded);
+  assert(cold.length === 0, `visible companies still cold after idle: ${cold.map((item) => item.company).join(', ')}`);
+  // A warm click is synchronous: when click() returns the chart is already
+  // swapped, no loading placeholder was needed, and the target's adapter was
+  // not requested (neighbours of the newly scrolled-to row may start warming,
+  // which is intended background traffic).
+  const target = warm[warm.length - 1];
+  const result = await page.evaluate(({ company, key }) => {
+    const resourceCount = performance.getEntriesByType('resource').length;
+    const observer = new MutationObserver(() => {});
+    observer.observe(document.getElementById('chart'), { childList: true, subtree: true });
+    [...document.querySelectorAll('#companyList .company-item')].find((item) => item.dataset.company === company).click();
+    const mutations = observer.takeRecords().length;
+    observer.disconnect();
+    const src = window.TraceDatasetRegistry.srcForKey(key);
+    return {
+      mutations,
+      current: currentRecord()?.dataset?.key,
+      nodes: document.querySelectorAll('#chart svg .sankey-node').length,
+      loading: Boolean(document.querySelector('.chart-loading')),
+      requestedOwnAdapter: performance.getEntriesByType('resource').slice(resourceCount).some((entry) => entry.name.endsWith(`/${src}`)),
+      expected: key,
+    };
+  }, target);
+  assert(result.current === result.expected, `click selected ${result.current}, expected ${result.expected}`);
+  assert(result.mutations > 0 && result.nodes > 0, 'warm click did not swap the chart in the click task');
+  assert(!result.loading, 'warm click left a loading placeholder');
+  assert(!result.requestedOwnAdapter, 'warm click requested its own adapter');
 });
 
 await scenario('typography: Chrome and View scopes survive theme + language changes', async (page) => {

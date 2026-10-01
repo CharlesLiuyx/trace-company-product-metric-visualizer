@@ -349,6 +349,20 @@ function sankeyDrawDatasetKeys(compare) {
   return [...keys];
 }
 let sankeyDrawGeneration = 0;
+let sankeyWarmScheduled = false;
+/* The first successful Sankey render is the hand-off from boot to browsing:
+ * mark it (verify:site bounds the data the first render needed), then once
+ * the page is idle warm what the next clicks need — remaining font faces
+ * and the click layer of the companies visible in the list. */
+function markSankeyRendered() {
+  if (sankeyWarmScheduled) return;
+  sankeyWarmScheduled = true;
+  if (typeof performance?.mark === 'function') performance.mark('trace:sankey-rendered');
+  scheduleIdleTask(() => {
+    warmDeclaredFonts();
+    startCompanyWarm();
+  });
+}
 /* Async loads usually resolve well below the ~200ms perception threshold
  * (preloaded, prefetched, or cached adapters), so the loading placeholder
  * only renders when a load is genuinely slow. Below the delay the previous
@@ -515,6 +529,7 @@ function draw({ renderTable = true, syncView = true } = {}) {
     try {
       clearSingleChart();
       renderSankeyComparison();
+      markSankeyRendered();
     } catch (error) {
       renderComparisonScaleError(comparisonRuntimeFailure('dispatch', error));
     }
@@ -533,6 +548,7 @@ function draw({ renderTable = true, syncView = true } = {}) {
     if (d) window.SankeyEngine.render('#chart', d);
     svgBtn.disabled = !chartHost?.querySelector('svg');
     pngBtn.disabled = !chartHost?.querySelector('svg');
+    if (chartHost?.querySelector('svg')) markSankeyRendered();
   } catch (error) {
     console.error('[sankey] render failed', error);
     renderSankeyLoadError(false);

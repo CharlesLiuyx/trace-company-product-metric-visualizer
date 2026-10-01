@@ -131,11 +131,14 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
 
 - **白话作用**：确认部署版没有偷偷把全部 Dataset 或 Chart.js 提前下载。
 - **原理**：启动 `_site` 静态服务器并观察真实请求，检查 defer bundle 数、启动 Adapter
-  请求必须落在当前公司的注册 Adapter 集合内（选中公司的空闲预载允许、全目录扫库不允许）、
-  空闲后仍有 pending Adapter、公司切换按需加载、首次趋势交互只取一次 Chart.js、
+  请求必须落在当前公司的注册 Adapter 集合加列表可见公司的点击层（默认期间 Adapter）内
+  （选中公司的空闲预载与可见公司预热允许、全目录扫库不允许）、空闲后仍有 pending Adapter、
+  可见公司在空闲后必须已预热且点击它不出现加载占位、不发公司详情/Adapter/raster 请求、
+  列表可见带之外的公司切换仍按需加载、首次趋势交互只取一次 Chart.js、
   字体与页面错误；随后用与开发版相同、但不调用生产校准模块的 Adapter + Metric SSOT +
   实绘 DOM oracle 验证 Apple 全期间统一金额比例尺，防止 bundle 顺序或投影漏文件。
-  首页只允许一个公司详情 JSON、零全局 Table JSON；catalog 加默认公司详情的 gzip
+  首个 Sankey 渲染前（`trace:sankey-rendered` performance mark）只允许一个公司详情 JSON、
+  零全局 Table JSON；空闲后额外的公司详情只能属于列表可见公司；catalog 加默认公司详情的 gzip
   总量不超过 **150 KiB**，catalog 原始大小不超过 **1 MiB**。另以完整源码 SSOT 为
   oracle 核验 Table/CSV 完整性、中文缓存更新、多公司范围、失败重试、损坏字节拒绝、
   收入趋势无多余详情依赖和快速切换公司时的旧请求隔离。

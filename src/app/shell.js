@@ -168,6 +168,16 @@ function syncResponsiveLayout() {
   applySidebarWidth(state.sidebarWidth);
   syncSidebarControls();
 }
+/* Font faces load on first use (font-display: swap), so the first chart
+ * that needs a weight no earlier chart used repaints its text once the
+ * face arrives. Loading every declared face while idle lets later
+ * switches paint with final glyphs. */
+function warmDeclaredFonts() {
+  if (!document.fonts?.forEach || !datasetLoader.speculativeLoadsAllowed()) return;
+  document.fonts.forEach((face) => {
+    if (face.status === 'unloaded') face.load().catch(() => {});
+  });
+}
 
 function createHeaderSearchController({ section, input, toggle, render, navigate }) {
   const isOpen = () => section.classList.contains('search-open');

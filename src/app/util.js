@@ -97,12 +97,12 @@ function websiteHtml(url) {
   return safe ? `<a href="${escapeHtml(safe)}" target="_blank" rel="noopener">${escapeHtml(safe.replace(/^https?:\/\//, '').replace(/\/$/, ''))}</a>` : '';
 }
 
-function scheduleIdleTask(callback) {
+function scheduleIdleTask(callback, { timeout = 1200 } = {}) {
   if ('requestIdleCallback' in window) {
-    window.requestIdleCallback(callback, { timeout: 1200 });
+    window.requestIdleCallback(callback, { timeout });
     return;
   }
-  window.setTimeout(() => callback({ timeRemaining: () => 0 }), 160);
+  window.setTimeout(() => callback({ timeRemaining: () => 0 }), Math.min(160, timeout));
 }
 
 function escapeSelector(value) {

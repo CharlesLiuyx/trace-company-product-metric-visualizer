@@ -126,6 +126,64 @@ function moveCompanySelection(offset, { returnBoundary = false } = {}) {
   selectCompanyGroup(visibleGroups[nextIndex], { focusCompany: true });
   return true;
 }
+/* Visible-company warm. The companies shown in the list are the ones a
+ * click can land on next, so every item that stays inside the list
+ * viewport (plus a short look-ahead below it) for COMPANY_WARM_DWELL_MS
+ * gets its click layer warmed through companyWarmPlan(): detail JSON,
+ * default period adapter, raster annotations. It starts only after the
+ * first Sankey has rendered and the page is idle, so boot still needs
+ * exactly one company detail, and it re-targets the rebuilt buttons on
+ * every list render. The dwell filters fast scrolling; a pointer/focus
+ * on an item warms it immediately. */
+const COMPANY_WARM_DWELL_MS = 200;
+const COMPANY_WARM_LOOKAHEAD = '0px 0px 240px 0px';
+let companyWarmObserver = null;
+const companyWarmTimers = new Map();
+function clearCompanyWarmTimer(button) {
+  const timer = companyWarmTimers.get(button);
+  if (timer === undefined) return;
+  window.clearTimeout(timer);
+  companyWarmTimers.delete(button);
+}
+function observeCompanyWarmTargets() {
+  if (!companyWarmObserver) return;
+  companyWarmObserver.disconnect();
+  companyWarmTimers.forEach((timer) => window.clearTimeout(timer));
+  companyWarmTimers.clear();
+  companyList.querySelectorAll('.company-item').forEach((button) => {
+    if (button.dataset.company !== state.company) companyWarmObserver.observe(button);
+  });
+}
+/* The companies the observer treats as visible: list items inside the list
+ * viewport plus the look-ahead band. Mirrors the observer geometry so the
+ * browser verifiers can bound idle requests to this set and require it to
+ * be warm. */
+function visibleWarmCompanies() {
+  const listRect = companyList.getBoundingClientRect();
+  const lookahead = Number.parseFloat(COMPANY_WARM_LOOKAHEAD.split(' ')[2]) || 0;
+  return [...companyList.querySelectorAll('.company-item')]
+    .filter((button) => {
+      const rect = button.getBoundingClientRect();
+      return rect.bottom > listRect.top && rect.top < listRect.bottom + lookahead;
+    })
+    .map((button) => button.dataset.company);
+}
+function startCompanyWarm() {
+  if (companyWarmObserver || typeof IntersectionObserver !== 'function') return;
+  companyWarmObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const button = entry.target;
+      clearCompanyWarmTimer(button);
+      if (!entry.isIntersecting) return;
+      companyWarmTimers.set(button, window.setTimeout(() => {
+        companyWarmTimers.delete(button);
+        companyWarmObserver.unobserve(button);
+        warmCompany(button.dataset.company);
+      }, COMPANY_WARM_DWELL_MS));
+    });
+  }, { root: companyList, rootMargin: COMPANY_WARM_LOOKAHEAD });
+  observeCompanyWarmTargets();
+}
 function renderCompanies() {
   const visibleGroups = visibleCompanyGroups();
   syncEntityScopeCounts();
@@ -137,6 +195,7 @@ function renderCompanies() {
   if (!visibleGroups.length) {
     companyList.removeAttribute('aria-activedescendant');
     companyList.innerHTML = `<div class="empty-state">${escapeHtml(t('noMatchingCompanies'))}</div>`;
+    observeCompanyWarmTargets();
     return;
   }
   const selectedVisible = visibleGroups.some((group) => group.company === state.company);
@@ -170,12 +229,13 @@ function renderCompanies() {
       }
       selectCompanyGroup(group, { closeSearch: true, focusCompany: true });
     });
-    // Hover/focus intent warms the whole company: the default record first
-    // (it renders on click), then every other period so the follow-up
-    // period/metric clicks find their adapters already in cache.
+    // Hover/focus intent warms the whole company: the click layer first
+    // (detail JSON, default adapter and its rasters render on click), then
+    // every other period is prefetched so the follow-up period/metric
+    // clicks find their adapters already in cache.
     const prefetchCompanyDatasets = () => {
-      const record = defaultRecordForCompanyMetric(group.company, 'incomeStatement');
-      datasetLoader.prefetch([record?.dataset?.key, ...companyDatasetKeys(group.company)]);
+      warmCompany(group.company);
+      datasetLoader.prefetch(companyDatasetKeys(group.company));
     };
     button.addEventListener('pointerenter', prefetchCompanyDatasets, { once: true });
     button.addEventListener('focus', prefetchCompanyDatasets, { once: true });
@@ -184,6 +244,7 @@ function renderCompanies() {
   const activeId = selectedVisible ? `company-option-${companyKey(state.company)}` : '';
   if (activeId) companyList.setAttribute('aria-activedescendant', activeId);
   else companyList.removeAttribute('aria-activedescendant');
+  observeCompanyWarmTargets();
 }
 
 function companySortLabel(sortKey = state.companySort) {

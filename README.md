@@ -234,7 +234,7 @@ scripts, and a hand-rolled d3-sankey engine.
 | `index.html`                | static viewer shell and ordered script registration           |
 | `src/app.css`               | viewer layout, controls, sidebar, and responsive styles       |
 | `src/app/`                  | viewer app modules (classic scripts, ordered in `index.html`, shared top-level scope) |
-| `src/app/dom.js` · `util.js` · `dataset-loader.js` · `hotkeys.js` · `i18n-runtime.js` | DOM refs · generic helpers/formatters · on-demand + company-scope preload Adapter loading, intent prefetch, and retry · modifier-combo shortcut registry · localization caches over `SANKEY_I18N` |
+| `src/app/dom.js` · `util.js` · `dataset-loader.js` · `hotkeys.js` · `i18n-runtime.js` | DOM refs · generic helpers/formatters · on-demand + company-scope preload Adapter loading, intent prefetch, raster-annotation warm, and retry · modifier-combo shortcut registry · localization caches over `SANKEY_I18N` |
 | `src/app/state.js` · `selectors.js` · `financial.js` · `chart-theme.js` | prefs + mode rules + UI state/scope · display/search derivations · USD/FX totals + company sort values · shared Chart.js theme plus lazy runtime loading |
 | `src/app/shell.js` · `controls.js` | theme/language/sidebar/toolbar chrome · metric/view switching + `renderAll()` |
 | `src/app/company-panel.js` · `period-panel.js` | company list, sort menu, multi-select · period tree, timeline, multi-select |
@@ -245,7 +245,7 @@ scripts, and a hand-rolled d3-sankey engine.
 | `src/comparison-scale.js`   | Deep Comparison Visual Scale Module: validates renderer anchor geometry against Metric SSOT revenue lineage + money dimensions and produces one group-atomic USD normalization plan |
 | `src/sankey-engine.js`      | **d3-sankey** renderer: compiled fixed/dynamic graph geometry + custom nodes/links/labels/logo/interactions; owns the public compiled node-value Geometry Interface |
 | `src/dataset-registry.js`   | manifest-driven dataset stubs + in-place adapter upgrades on `DATASETS.push` |
-| `src/runtime-data.js` · `scripts/lib/site-data.mjs` | Pages summary/detail projection, version/integrity validation, deduplication, retry and in-place data hydration; full source/standalone no-op |
+| `src/runtime-data.js` · `scripts/lib/site-data.mjs` | Pages summary/detail projection, version/integrity validation, deduplication, retry, background preload and in-place data hydration; full source/standalone no-op |
 | `src/i18n-dictionaries.js` · `src/i18n.js` | per-language translation data · language-neutral rule pipeline + deny-by-default overlays and visible-financial-token guard |
 | `src/icons.js`              | Lucide icon set (inline SVG) + the NVIDIA brand glyph         |
 | `scripts/build-site.mjs` · `verify-site.mjs` | builds the optimized Pages projection and enforces request/on-demand-loading budgets plus the all-period monetary-scale oracle |
