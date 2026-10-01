@@ -49,7 +49,7 @@ test('Dataset Build store persists revision-checked state transitions and conten
       digest: fileDigest(contents),
       role: 'view-adapter',
     }],
-    inventory: { digest: digest('inventory'), rendered: 1, dataOnly: 0, skipped: 0 },
+    sourceObjects: { digest: digest('source-objects') },
     changeImpact: ['new-dataset', 'geometry'],
   }, { buildRoot, now });
   assert.equal(authored.state, 'AUTHORED');
@@ -70,7 +70,7 @@ test('Dataset Build store rejects stale revisions without changing the manifest'
       type: 'record-authored',
       expectedRevision: 99,
       artifacts: [],
-      inventory: {},
+      sourceObjects: {},
       changeImpact: ['new-dataset'],
     }, { buildRoot, now }),
     (error) => error.code === 'STALE_REVISION'
@@ -89,7 +89,7 @@ test('inspect reports effective AUTHORED when an authored artifact changes', asy
       digest: fileDigest(original),
       role: 'view-adapter',
     }],
-    inventory: { digest: digest('inventory'), rendered: 1, dataOnly: 0, skipped: 0 },
+    sourceObjects: { digest: digest('source-objects') },
     changeImpact: ['geometry'],
   }, { buildRoot, now });
 
@@ -108,7 +108,7 @@ test('inspect treats a re-authored Build as fresh while retaining historical clo
     type: 'record-authored',
     expectedRevision: build.revision,
     artifacts: [{ path: 'data/datasets/example-q4-fy25.js', digest: fileDigest(original), role: 'view-adapter' }],
-    inventory: { digest: digest('inventory-v1'), rendered: 1, dataOnly: 0, skipped: 0 },
+    sourceObjects: { digest: digest('source-objects-v1') },
     changeImpact: ['geometry'],
   }, { buildRoot, now });
   const firstSnapshot = current.receipts.at(-1).payload.snapshotDigest;
@@ -139,7 +139,7 @@ test('inspect treats a re-authored Build as fresh while retaining historical clo
     type: 'record-authored',
     expectedRevision: current.revision,
     artifacts: [{ path: 'data/datasets/example-q4-fy25.js', digest: fileDigest(revised), role: 'view-adapter' }],
-    inventory: { digest: digest('inventory-v2'), rendered: 1, dataOnly: 0, skipped: 0 },
+    sourceObjects: { digest: digest('source-objects-v2') },
     changeImpact: ['geometry'],
   }, { buildRoot, now });
 
@@ -196,7 +196,7 @@ test('inspect follows a new-style Source across processing freshness and direct 
       digest: fileDigest(sourceBytes),
       role: 'reference-image-working-claim',
     }],
-    inventory: { digest: digest('source-inventory'), rendered: 1, dataOnly: 0, skipped: 0 },
+    sourceObjects: { digest: digest('source-objects') },
     changeImpact: ['new-dataset'],
   }, { buildRoot, now });
 

@@ -1,15 +1,13 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { mkdir, mkdtemp, rename, rm, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, readFile, rename, rm, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
-import { PNG } from 'pngjs';
 import { createDatasetBuild, digestValue } from '../scripts/lib/dataset-build.mjs';
 import { projectFeedbackLedger } from '../scripts/lib/feedback-ledger.mjs';
 import { digestFidelityValue } from '../scripts/lib/fidelity-result.mjs';
 import {
-  checkFeatureEvidence,
   finishReviewedBuild,
   inspectBuildCloseout,
   prepareBuildReview,
@@ -27,50 +25,6 @@ import {
 const now = () => '2026-07-11T07:00:00.000Z';
 const digest = (value) => digestValue({ value });
 
-test('closeout consumes T6 side-label evidence with the shared column classifier', () => {
-  const check = {
-    evidenceKind: 'label-layout-audit',
-    evidenceTargets: ['layout.labels.europe', 'layout.labels.amesa'],
-    ruleIds: ['T6'],
-  };
-  const entry = {
-    metrics: {
-      labelLayoutAudit: {
-        horizontalSideLabels: [
-          { node: 'europe', side: 'left-of-node', nodeEdge: 793, labelEdge: 768, gap: 25 },
-          { node: 'amesa', side: 'left-of-node', nodeEdge: 791, labelEdge: 768, gap: 23 },
-        ],
-      },
-    },
-  };
-  assert.equal(checkFeatureEvidence(check, entry, {}), true);
-  entry.metrics.labelLayoutAudit.horizontalSideLabels[1].labelEdge = 764;
-  assert.equal(checkFeatureEvidence(check, entry, {}), false);
-});
-
-function sourcePng({ paintedNonNodeFace = false } = {}) {
-  const png = new PNG({ width: 100, height: 80 });
-  for (let index = 0; index < png.data.length; index += 4) {
-    png.data[index] = 242;
-    png.data[index + 1] = 242;
-    png.data[index + 2] = 242;
-    png.data[index + 3] = 255;
-  }
-  const paint = ([x, y, width, height]) => {
-    for (let row = y; row < y + height; row += 1) {
-      for (let column = x; column < x + width; column += 1) {
-        const index = (row * png.width + column) * 4;
-        png.data[index] = 207;
-        png.data[index + 1] = 60;
-        png.data[index + 2] = 35;
-      }
-    }
-  };
-  paint([20, 10, 40, 8]);
-  if (paintedNonNodeFace) paint([20, 46, 40, 2]);
-  return PNG.sync.write(png);
-}
-
 function sourceClassification({ key, adapter, sourcePath, sourceDigest, width, height }) {
   return {
     datasetKey: key,
@@ -86,34 +40,6 @@ function sourceClassification({ key, adapter, sourcePath, sourceDigest, width, h
     signals: adapter === 'income-statement'
       ? ['income-statement-values', 'sankey-flow-topology']
       : ['revenue-metric-definition', 'time-series-observations'],
-  };
-}
-
-function incomeSourceCoverage(inventoryInput) {
-  return {
-    scanPasses: ['geometry', 'residual', 'semantic-value'],
-    items: inventoryInput.objects.map((object, index) => {
-      const nodeMapped = object.mapping.some((mapping) =>
-        mapping.role === 'render' && /(^|[./:])nodes?[./:]/i.test(mapping.target)
-      );
-      const y = 20 + index * 40;
-      const face = nodeMapped
-        ? {
-            searchBBox: [20, y, 100, 20],
-            observedBBox: [30, y + 8, 72, 4],
-          }
-        : null;
-      return {
-        sourceId: `source:${object.id.replace(/[^a-z0-9]+/g, '-')}`,
-        sourceClass: nodeMapped || object.mapping.some((mapping) => /link|interface/i.test(mapping.target))
-          ? 'structural-flow'
-          : 'label-or-annotation',
-        sourceLabel: object.id,
-        inventoryObjectIds: [object.id],
-        contentBBox: [20, y, 100, 20],
-        ...(face ? { face } : {}),
-      };
-    }),
   };
 }
 
@@ -155,189 +81,8 @@ async function fixture(t, key = 'example-q4-fy25') {
   return { root, buildRoot, build, artifact, sourcePath, sourceDigest };
 }
 
-test('prepare-review rejects a legacy invisible-node claim instead of compiling it into a new Plan', async (t) => {
-  const root = await mkdtemp(path.join(os.tmpdir(), 'dataset-build-hidden-anchor-test-'));
-  const buildRoot = path.join(root, 'output', 'builds');
-  const key = 'hidden-anchor-q4-fy25';
-  const sourcePath = `input/processing/${key}.png`;
-  const adapterPath = `data/datasets/${key}.js`;
-  const sourceBytes = 'source-image-bytes';
-  const sourceDigest = bytesDigest(sourceBytes);
-  await mkdir(path.join(root, 'input', 'processing'), { recursive: true });
-  await mkdir(path.join(root, 'data', 'datasets'), { recursive: true });
-  await writeFile(path.join(root, sourcePath), sourceBytes);
-  await writeFile(path.join(root, adapterPath), 'export const marker = 1;\n');
-  const build = createDatasetBuild({
-    key,
-    adapter: 'income-statement',
-    baseCanonicalDigest: digest('canonical-v1'),
-    sources: [{
-      uri: `input/pending/${key}.png`,
-      processingUri: sourcePath,
-      processedUri: `input/processed/${key}.png`,
-      availability: 'local-only',
-      digest: sourceDigest,
-      width: 400,
-      height: 300,
-    }],
-    sourceClassification: sourceClassification({
-      key,
-      adapter: 'income-statement',
-      sourcePath: `input/pending/${key}.png`,
-      sourceDigest,
-      width: 400,
-      height: 300,
-    }),
-  }, { now, id: () => `build-${key}` });
-  await initializeDatasetBuild(build, { buildRoot });
-  t.after(() => rm(root, { recursive: true, force: true }));
-
-  const hiddenInventory = (evidenceDigest) => ({
-    schemaVersion: 3,
-    protocol: 'object-inventory/v3',
-    datasetKey: key,
-    objects: [{
-      id: 'node:guide-end',
-      kind: 'hidden-anchor',
-      disposition: 'render',
-      mapping: [{ role: 'render', target: 'nodes.guide_end' }],
-      features: ['hidden-anchor'],
-      featureEvidence: {
-        'hidden-anchor': {
-          source: 'reference-crop',
-          locator: `${sourcePath}#guide-end`,
-          digest: evidenceDigest,
-          referenceBBox: [120, 200, 72, 1],
-          inspectionMethod: 'native-scale-crop-and-pixel-scan',
-          classificationClaim: 'no-visible-node-face-observed',
-          reason: 'The native crop contains only a guide endpoint and no independent node face.',
-        },
-      },
-    }],
-  });
-  const artifacts = [
-    { path: sourcePath, role: 'reference-image' },
-    { path: adapterPath, role: 'view-adapter' },
-  ];
-
-  await assert.rejects(
-    prepareBuildReview({
-      buildId: build.buildId,
-      inventory: hiddenInventory(digest('wrong-source')),
-      sourceCoverage: incomeSourceCoverage(hiddenInventory(digest('wrong-source'))),
-      artifacts,
-      changeImpact: ['geometry'],
-      requiredLocales: ['en'],
-    }, { buildRoot, projectRoot: root, now }),
-    (error) => error.code === 'INVENTORY_HIDDEN_NODE_UNSUPPORTED'
-  );
-});
-
-async function zeroPaintBuildFixture(t, suffix, { paintedNonNodeFace }) {
-  const root = await mkdtemp(path.join(os.tmpdir(), `dataset-build-zero-paint-${suffix}-`));
-  const buildRoot = path.join(root, 'output', 'builds');
-  const key = `zero-paint-${suffix}-q3-fy26`;
-  const sourcePath = `input/processing/${key}.png`;
-  const adapterPath = `data/datasets/${key}.js`;
-  const sourceBytes = sourcePng({ paintedNonNodeFace });
-  const sourceDigest = bytesDigest(sourceBytes);
-  await mkdir(path.join(root, 'input', 'processing'), { recursive: true });
-  await mkdir(path.join(root, 'data', 'datasets'), { recursive: true });
-  await writeFile(path.join(root, sourcePath), sourceBytes);
-  await writeFile(path.join(root, adapterPath), 'export const marker = 1;\n');
-  const build = createDatasetBuild({
-    key,
-    adapter: 'income-statement',
-    baseCanonicalDigest: digest('canonical-v1'),
-    sources: [{
-      uri: `input/pending/${key}.png`,
-      processingUri: sourcePath,
-      processedUri: `input/processed/${key}.png`,
-      availability: 'local-only',
-      digest: sourceDigest,
-      width: 100,
-      height: 80,
-    }],
-    sourceClassification: sourceClassification({
-      key,
-      adapter: 'income-statement',
-      sourcePath: `input/pending/${key}.png`,
-      sourceDigest,
-      width: 100,
-      height: 80,
-    }),
-  }, { now, id: () => `build-${key}` });
-  await initializeDatasetBuild(build, { buildRoot });
-  t.after(() => rm(root, { recursive: true, force: true }));
-
-  const inventory = {
-    datasetKey: key,
-    objects: [
-      {
-        id: 'node:revenue',
-        kind: 'financial-line-item',
-        disposition: 'render',
-        mapping: [
-          { role: 'data', target: 'incomeStatement.revenue.total' },
-          { role: 'render', target: 'nodes.revenue' },
-        ],
-        features: ['visible-node-face'],
-      },
-      {
-        id: 'metric:restructuring',
-        kind: 'financial-line-item',
-        disposition: 'render',
-        mapping: [
-          { role: 'data', target: 'incomeStatement.costs.operatingExpenses.items.restructuring' },
-          { role: 'render', target: 'nonNodeMetrics.restructuring' },
-        ],
-        features: ['zero-paint-node-slot'],
-        featureEvidence: {
-          'zero-paint-node-slot': {
-            source: 'same-column-node-slot',
-            locator: `${sourcePath}#restructuring-node-slot`,
-            digest: sourceDigest,
-            referenceBBox: [20, 40, 40, 20],
-            inspectionMethod: 'native-scale-node-slot-pixel-scan',
-            classificationClaim: 'no-painted-node-face-observed',
-            reason: 'The native Source slot has no painted node face.',
-          },
-        },
-      },
-    ],
-  };
-  const sourceCoverage = {
-    scanPasses: ['geometry', 'residual', 'semantic-value'],
-    items: [
-      {
-        sourceId: 'source:revenue',
-        sourceClass: 'financial-value',
-        sourceLabel: 'Revenue',
-        contentBBox: [10, 5, 70, 25],
-        inventoryObjectIds: ['node:revenue'],
-        amount: { literal: '$1B', value: '1', unit: 'B', resolution: '1' },
-        ssotRef: { family: 'income-statement', path: 'revenue.total', id: 'revenue' },
-        face: {
-          searchBBox: [15, 5, 50, 20],
-          observedBBox: [20, 10, 40, 8],
-        },
-      },
-      {
-        sourceId: 'source:restructuring',
-        sourceClass: 'financial-value',
-        sourceLabel: 'Restructuring',
-        contentBBox: [20, 40, 40, 20],
-        inventoryObjectIds: ['metric:restructuring'],
-        amount: { literal: '$5M', value: '5', unit: 'M', resolution: '1' },
-        ssotRef: {
-          family: 'income-statement',
-          path: 'costs.operatingExpenses.items',
-          id: 'restructuring',
-        },
-      },
-    ],
-  };
-  const loadedData = {
+function financialLoadedData(key, { restructuringTarget = 'nonNodeMetric' } = {}) {
+  return {
     records: [{
       key,
       unit: 'B',
@@ -345,108 +90,74 @@ async function zeroPaintBuildFixture(t, suffix, { paintedNonNodeFace }) {
       revenue: { total: 1, items: [] },
       costs: {
         costOfRevenue: { id: 'cost_of_revenue', value: 0, items: [] },
-        operatingExpenses: {
-          total: 0.005,
-          items: [{ id: 'restructuring', value: 0.005 }],
-        },
+        operatingExpenses: { total: 0.005, items: [{ id: 'restructuring', value: 0.005 }] },
       },
     }],
     datasets: [{
       key,
       meta: { unit: 'B', decimals: 3 },
       nodes: [{ id: 'revenue', value: 1, valueText: '$1B' }],
-      nonNodeMetrics: [{ id: 'restructuring', representation: 'flow', value: 0.005 }],
+      nonNodeMetrics: restructuringTarget === 'nonNodeMetric'
+        ? [{ id: 'restructuring', representation: 'flow', value: 0.005 }]
+        : [],
     }],
-  };
-  return {
-    root,
-    buildRoot,
-    build,
-    inventory,
-    sourceCoverage,
-    loadedData,
-    sourcePath,
-    adapterPath,
   };
 }
 
-test('prepare-review rejects a painted financial non-node slot before recording AUTHORED', async (t) => {
-  const painted = await zeroPaintBuildFixture(t, 'painted', { paintedNonNodeFace: true });
-  const reviewInput = {
-    buildId: painted.build.buildId,
-    inventory: painted.inventory,
-    sourceCoverage: painted.sourceCoverage,
+function financialSourceObjects() {
+  return {
+    objects: [
+      { id: 'revenue', class: 'value', label: 'Revenue', literal: '$1B', value: '1', unit: 'B', ssotRef: { family: 'income-statement', path: 'revenue.total' }, node: 'revenue' },
+      { id: 'restructuring', class: 'value', label: 'Restructuring', literal: '$5M', value: '5', unit: 'M', ssotRef: { family: 'income-statement', path: 'costs.operatingExpenses.items', id: 'restructuring' }, nonNodeMetric: 'restructuring' },
+      { id: 'flow-revenue-restructuring', class: 'flow' },
+      { id: 'watermark', class: 'residual' },
+    ],
+  };
+}
+
+test('prepare-review validates and reconciles the flat Source objects before recording AUTHORED', async (t) => {
+  const base = await fixture(t, 'source-objects-q3-fy26');
+  const input = {
+    buildId: base.build.buildId,
+    sourceObjects: financialSourceObjects(),
     artifacts: [
-      { path: painted.adapterPath, role: 'view-adapter' },
-      { path: painted.sourcePath, role: 'reference-image' },
+      { path: base.artifact, role: 'view-adapter' },
+      { path: base.sourcePath, role: 'reference-image' },
     ],
     changeImpact: ['geometry'],
     requiredLocales: ['en'],
   };
+  const options = { buildRoot: base.buildRoot, projectRoot: base.root, now };
   await assert.rejects(
-    prepareBuildReview(reviewInput, {
-      buildRoot: painted.buildRoot,
-      projectRoot: painted.root,
-      loadedData: painted.loadedData,
-      now,
-    }),
-    (error) => error.code === 'SOURCE_FACE_PRESENT_FOR_NON_NODE'
+    prepareBuildReview(input, { ...options, loadedData: financialLoadedData(base.build.key, { restructuringTarget: 'missing' }) }),
+    (error) => error.code === 'SOURCE_OBJECTS_ADAPTER_TARGET_MISSING'
   );
-  const rejectedBuild = await readDatasetBuild(painted.build.buildId, {
-    buildRoot: painted.buildRoot,
-  });
-  assert.equal(rejectedBuild.state, 'INTAKED');
-  assert.equal(
-    rejectedBuild.receipts.some((receipt) => receipt.type === 'record-authored'),
-    false
+  await assert.rejects(
+    prepareBuildReview({ ...input, sourceObjects: { objects: [{ object: { id: 'node:revenue' }, source: { sourceId: 'source:revenue' } }] } }, options),
+    (error) => error.code === 'SOURCE_OBJECTS_LEGACY_SHAPE'
   );
+  assert.equal((await readDatasetBuild(base.build.buildId, { buildRoot: base.buildRoot })).state, 'INTAKED');
 
-  const empty = await zeroPaintBuildFixture(t, 'empty', { paintedNonNodeFace: false });
-  const prepared = await prepareBuildReview({
-    ...reviewInput,
-    buildId: empty.build.buildId,
-    inventory: empty.inventory,
-    sourceCoverage: empty.sourceCoverage,
-    artifacts: [
-      { path: empty.adapterPath, role: 'view-adapter' },
-      { path: empty.sourcePath, role: 'reference-image' },
-    ],
-  }, {
-    buildRoot: empty.buildRoot,
-    projectRoot: empty.root,
-    loadedData: empty.loadedData,
-    now,
-  });
+  const prepared = await prepareBuildReview(input, { ...options, loadedData: financialLoadedData(base.build.key) });
+  const payload = prepared.build.receipts.at(-1).payload;
   assert.equal(prepared.build.state, 'AUTHORED');
+  assert.equal(payload.sourceObjects.protocol, 'source-objects/v1');
+  assert.deepEqual(payload.sourceObjects.reconciliation, { status: 'passed', checked: 2, unit: 'B' });
+  assert.deepEqual(payload.sourceObjects.summary.valueNodeIds, ['revenue']);
+  assert.deepEqual(payload.sourceObjects.summary.nonNodeMetricIds, ['restructuring']);
+  assert.equal(payload.verificationPlan.protocol, 'verification-plan/v6');
+  assert.equal(payload.verificationPlan.sourceObjectsDigest, prepared.sourceObjects.sourceObjectsDigest);
+  assert.equal(prepared.packet.protocol, 'review-packet/v5');
+  assert.equal(prepared.packet.sourceObjectsDigest, prepared.sourceObjects.sourceObjectsDigest);
+  assert.equal(prepared.packet.sourceObjects.kind, 'source-objects');
+  assert.equal(Object.hasOwn(payload, 'inventory'), false);
 });
 
-function inventory(key, sourceDigest) {
+function sourceObjectsInput() {
   return {
-    datasetKey: key,
     objects: [
-      {
-        id: 'label:revenue',
-        kind: 'label',
-        disposition: 'render',
-        mapping: [{ role: 'render', target: 'layout.labels.revenue' }],
-        features: ['centered-side-label', 'measured-label-position'],
-        featureEvidence: {
-          'measured-label-position': {
-            source: 'reference-measurement',
-            locator: `input/processing/${key}.png#revenue-label-group`,
-            digest: sourceDigest,
-            referenceBBox: [180, 420, 160, 44],
-            inspectionMethod: 'native-scale-reference-measurement',
-          },
-        },
-      },
-      {
-        id: 'interface:revenue-right',
-        kind: 'interface',
-        disposition: 'render',
-        mapping: [{ role: 'render', target: 'links.revenue-right' }],
-        features: ['visible-interface'],
-      },
+      { id: 'revenue-label', class: 'label', label: 'Revenue', referenceBBox: [180, 420, 160, 44], labelGroup: 'revenue' },
+      { id: 'flow-revenue-profit', class: 'flow' },
     ],
   };
 }
@@ -516,11 +227,9 @@ async function writeEvidence(root, prepared, verticalCenterDelta = 0, options = 
     language: 'en',
     ...(options.interfaceAudit || {}),
   });
-  const nodeFacePolicy = prepared.build.receipts.at(-1).payload.verificationPlan.nodeFacePolicy;
-  const nodePaintRecords = [
-    ...(nodeFacePolicy.visibleNodeIds || []).map((id) => ({ id, faceVisible: true, faceHeight: 4 })),
-    ...(nodeFacePolicy.hiddenNodeIds || []).map((id) => ({ id, faceVisible: false, faceHeight: 0 })),
-  ];
+  const valueNodeIds = prepared.build.receipts.at(-1).payload.sourceObjects.summary.valueNodeIds;
+  const nodePaintRecords = [...new Set(['revenue', ...valueNodeIds])]
+    .map((id) => ({ id, faceVisible: true, faceHeight: 4 }));
   const relative = (name) => path.relative(root, path.join(archive, name)).split(path.sep).join('/');
   for (const [kind, name] of Object.entries(names)) {
     const contents = kind === 'metrics'
@@ -672,21 +381,11 @@ function matrix(key = 'example-q4-fy25') {
 
 function manualCheckDecisions(prepared) {
   const plan = prepared.build.receipts.at(-1).payload.verificationPlan;
-  return [
-    {
-      checkId: 'adapter:source-coverage-review',
-      status: 'passed',
-      evidenceDigests: [plan.sourceCoverageDigest, plan.sourceDigest],
-    },
-    ...(plan.requiredChecks.some((check) => check.id === 'adapter:manual-visual-closure')
-      ? [{
-          checkId: 'adapter:manual-visual-closure',
-          locale: 'en',
-          status: 'passed',
-          evidenceDigests: [bytesDigest('interfaceContactSheet\n')],
-        }]
-      : []),
-  ];
+  return [{
+    checkId: 'adapter:human-review',
+    status: 'passed',
+    evidenceDigests: [plan.sourceObjectsDigest, plan.sourceDigest],
+  }];
 }
 
 function pendingReviewInput(prepared, evidenceManifest, verificationReference) {
@@ -707,11 +406,9 @@ function pendingReviewInput(prepared, evidenceManifest, verificationReference) {
 
 async function prepare(t, policy = {}) {
   const base = await fixture(t);
-  const authoredInventory = inventory(base.build.key, base.sourceDigest);
   const prepared = await prepareBuildReview({
     buildId: base.build.buildId,
-    inventory: authoredInventory,
-    sourceCoverage: incomeSourceCoverage(authoredInventory),
+    sourceObjects: sourceObjectsInput(),
     artifacts: [
       { path: base.artifact, role: 'view-adapter' },
       { path: base.sourcePath, role: 'reference-image' },
@@ -728,63 +425,37 @@ test('prepare-review accepts a processing-bound Source after operator relocation
   const processedPath = `input/processed/${base.build.key}.png`;
   await mkdir(path.join(base.root, 'input', 'processed'), { recursive: true });
   await rename(path.join(base.root, base.sourcePath), path.join(base.root, processedPath));
-  const authoredInventory = inventory(base.build.key, base.sourceDigest);
-  authoredInventory.objects.push({
-    id: 'node:short',
-    kind: 'short-node',
-    disposition: 'render',
-    mapping: [{ role: 'render', target: 'nodes.short' }],
-    features: ['visible-node-face', 'visible-short-node'],
-    featureEvidence: {
-      'visible-short-node': {
-        source: 'reference-crop',
-        locator: `${base.sourcePath}#short-node`,
-      },
-    },
+  const loadedData = financialLoadedData(base.build.key);
+  loadedData.datasets[0].nodes.push({ id: 'short', value: 0.002, valueText: '$2M' });
+  loadedData.records[0].revenue.items = [{ id: 'short', value: 0.002 }];
+  const sourceObjects = financialSourceObjects();
+  sourceObjects.objects.push({
+    id: 'short',
+    class: 'value',
+    literal: '$2M',
+    value: '2',
+    unit: 'M',
+    ssotRef: { family: 'income-statement', path: 'revenue.items', id: 'short' },
+    node: 'short',
   });
-  const sourceCoverage = incomeSourceCoverage(authoredInventory);
-  const shortNodeCoverage = sourceCoverage.items.find((item) => item.sourceId === 'source:node-short');
-  shortNodeCoverage.face.observedBBox[3] = 2;
-  shortNodeCoverage.face.floorException = {
-    type: 'source-visible-face-below-floor',
-    inspectionMethod: 'native-scale-crop-and-pixel-scan',
-    locator: `${base.sourcePath}#short-node`,
-    digest: base.sourceDigest,
-    reason: 'The native Source paints a genuine two-pixel node face.',
-  };
+  sourceObjects.shortNodes = [{ node: 'short', reason: 'The native Source paints a genuine two-pixel node face.' }];
   const prepared = await prepareBuildReview({
     buildId: base.build.buildId,
-    inventory: authoredInventory,
-    sourceCoverage: {
-      ...sourceCoverage,
-      source: {
-        locator: base.sourcePath,
-        digest: base.sourceDigest,
-        width: 2400,
-        height: 1800,
-      },
-    },
+    sourceObjects,
     artifacts: [
       { path: base.artifact, role: 'view-adapter' },
       { path: base.sourcePath, role: 'reference-image' },
     ],
     changeImpact: ['new-dataset', 'geometry'],
     requiredLocales: ['en'],
-  }, { buildRoot: base.buildRoot, projectRoot: base.root, now });
+  }, { buildRoot: base.buildRoot, projectRoot: base.root, now, loadedData });
 
   assert.equal(prepared.build.state, 'AUTHORED');
-  assert.equal(
-    prepared.build.receipts.at(-1).payload.sourceCoverage.source.locator,
-    processedPath
-  );
-  assert.equal(
-    prepared.build.receipts.at(-1).payload.sourceCoverage.items
-      .find((item) => item.sourceId === 'source:node-short')
-      .face.floorException.locator,
-    `${processedPath}#short-node`
-  );
+  const payload = prepared.build.receipts.at(-1).payload;
+  assert.equal(payload.sourceObjects.source.locator, processedPath);
+  assert.deepEqual(payload.sourceObjects.shortNodes, [{ node: 'short', reason: 'The native Source paints a genuine two-pixel node face.' }]);
   assert.deepEqual(
-    prepared.build.receipts.at(-1).payload.artifacts.find((artifact) => artifact.role === 'reference-image'),
+    payload.artifacts.find((artifact) => artifact.role === 'reference-image'),
     {
       path: base.sourcePath,
       role: 'reference-image',
@@ -792,140 +463,6 @@ test('prepare-review accepts a processing-bound Source after operator relocation
     }
   );
 });
-
-async function prepareWithManualFeatures(t) {
-  const base = await fixture(t, 'manual-features-fy25');
-  const authoredInventory = {
-    datasetKey: base.build.key,
-    objects: [
-      {
-        id: 'label:revenue',
-        kind: 'label',
-        disposition: 'render',
-        mapping: [{ role: 'render', target: 'layout.labels.revenue' }],
-        features: ['specified-label-weight', 'measured-label-position'],
-        featureEvidence: {
-          'specified-label-weight': {
-            source: 'reference-measurement',
-            locator: 'input/processing/manual-features-fy25.png#revenue-label',
-            expectedWeight: 600,
-          },
-          'measured-label-position': {
-            source: 'reference-measurement',
-            locator: 'input/processing/manual-features-fy25.png#revenue-label-group',
-            digest: base.sourceDigest,
-            referenceBBox: [180, 420, 160, 44],
-            inspectionMethod: 'native-scale-reference-measurement',
-          },
-        },
-      },
-      {
-        id: 'node:tax',
-        kind: 'short-node',
-        disposition: 'render',
-        mapping: [{ role: 'render', target: 'nodes.tax' }],
-        features: ['visible-node-face', 'visible-short-node'],
-        featureEvidence: {
-          'visible-short-node': {
-            source: 'reference-crop',
-            locator: 'input/processing/manual-features-fy25.png#tax-node',
-          },
-        },
-      },
-    ],
-  };
-  const prepared = await prepareBuildReview({
-    buildId: base.build.buildId,
-    inventory: authoredInventory,
-    sourceCoverage: incomeSourceCoverage(authoredInventory),
-    artifacts: [
-      { path: base.artifact, role: 'view-adapter' },
-      { path: base.sourcePath, role: 'reference-image' },
-    ],
-    changeImpact: ['geometry'],
-    requiredLocales: ['en'],
-  }, { buildRoot: base.buildRoot, projectRoot: base.root, now });
-  return { ...base, prepared };
-}
-
-async function prepareWithSharedNodeLabelMeasurements(t, { locatorPath = null, locatorDigest = null } = {}) {
-  const base = await fixture(t, 'shared-node-label-measurements-fy25');
-  const measured = (id, target, referenceBBox) => ({
-    id,
-    kind: 'label',
-    disposition: 'render',
-    mapping: [{ role: 'render', target }],
-    features: ['measured-label-position'],
-    featureEvidence: {
-      'measured-label-position': {
-        source: 'reference-measurement',
-        locator: `${locatorPath || base.sourcePath}#${id}`,
-        digest: locatorDigest || base.sourceDigest,
-        referenceBBox,
-        inspectionMethod: 'native-scale-reference-measurement',
-      },
-    },
-  });
-  const authoredInventory = {
-    datasetKey: base.build.key,
-    objects: [
-      measured('label:revenue', 'layout.labels.revenue', [180, 420, 160, 44]),
-      measured('asset:revenue-wordmark', 'layout.labels.revenue.blocks.1', [180, 470, 160, 44]),
-    ],
-  };
-  const prepared = await prepareBuildReview({
-    buildId: base.build.buildId,
-    inventory: authoredInventory,
-    sourceCoverage: incomeSourceCoverage(authoredInventory),
-    artifacts: [
-      { path: base.artifact, role: 'view-adapter' },
-      { path: base.sourcePath, role: 'reference-image' },
-    ],
-    changeImpact: ['geometry'],
-    requiredLocales: ['en'],
-  }, { buildRoot: base.buildRoot, projectRoot: base.root, now });
-  return { ...base, prepared };
-}
-
-async function prepareWithSemanticAnnotation(t) {
-  const base = await fixture(t, 'semantic-annotation-q4-fy25');
-  const authoredInventory = {
-    datasetKey: base.build.key,
-    objects: [{
-      id: 'node:other-income',
-      kind: 'short-income-node',
-      disposition: 'render',
-      mapping: [
-        { role: 'render', target: 'nodes.other_income' },
-        { role: 'render', target: 'annotations.other_income' },
-      ],
-      features: ['semantic-annotation', 'visible-node-face'],
-      featureEvidence: {
-        'semantic-annotation': {
-          source: 'reference-crop',
-          locator: `${base.sourcePath}#other-income-callout`,
-          digest: base.sourceDigest,
-          referenceBBox: [2080, 230, 88, 96],
-          inspectionMethod: 'native-scale-crop-and-object-inventory',
-          classificationClaim: 'semantic-node-annotation-required',
-          reason: 'The source uses one callout group to name and value the Other income micro-flow.',
-        },
-      },
-    }],
-  };
-  const prepared = await prepareBuildReview({
-    buildId: base.build.buildId,
-    inventory: authoredInventory,
-    sourceCoverage: incomeSourceCoverage(authoredInventory),
-    artifacts: [
-      { path: base.artifact, role: 'view-adapter' },
-      { path: base.sourcePath, role: 'reference-image' },
-    ],
-    changeImpact: ['interaction'],
-    requiredLocales: ['en'],
-  }, { buildRoot: base.buildRoot, projectRoot: base.root, now });
-  return { ...base, prepared };
-}
 
 async function prepareRevenueMetric(t, changeImpact = ['financial-data-only']) {
   const root = await mkdtemp(path.join(os.tmpdir(), 'dataset-build-closeout-revenue-test-'));
@@ -961,28 +498,16 @@ async function prepareRevenueMetric(t, changeImpact = ['financial-data-only']) {
     }),
   }, { now, id: () => 'build-example-arr-2026' });
   await initializeDatasetBuild(build, { buildRoot });
-  const authoredInventory = {
-    datasetKey: build.key,
-    objects: [{
-      id: 'metric:arr',
-      kind: 'metric-observation',
-      disposition: 'data-only',
-      mapping: [{ role: 'data', target: 'revenueMetrics.arr' }],
-      features: [],
-    }],
-  };
   const prepared = await prepareBuildReview({
     buildId: build.buildId,
-    inventory: authoredInventory,
-    sourceCoverage: {
-      scanPasses: ['geometry', 'residual', 'semantic-value'],
-      items: [{
-        sourceId: 'source:arr-2026-01-01',
-        sourceClass: 'metric-observation',
-        sourceLabel: 'ARR on 2026-01-01',
-        inventoryObjectIds: ['metric:arr'],
-        contentBBox: [100, 100, 260, 40],
-        amount: { literal: '$120M', value: '120', unit: 'M', resolution: '1' },
+    sourceObjects: {
+      objects: [{
+        id: 'arr-2026-01-01',
+        class: 'value',
+        label: 'ARR on 2026-01-01',
+        literal: '$120M',
+        value: '120',
+        unit: 'M',
         ssotRef: { family: 'revenue-metric', path: 'observations', date: '2026-01-01' },
       }],
     },
@@ -1041,69 +566,6 @@ test('automatic evidence without human attestation cannot close a Build', async 
   assert.equal(inspection.reviewStatus, 'review-pending');
   assert.equal(inspection.report.status, 'review-pending');
   assert.match(inspection.taskInformation, /review=review-pending/);
-});
-
-test('T18 risk measurements stay unique when several inventory objects share one node label group', async (t) => {
-  const { root, buildRoot, prepared } = await prepareWithSharedNodeLabelMeasurements(t);
-  const labelPositionAudit = {
-    schemaVersion: 1,
-    ruleId: 'T18',
-    locale: 'en',
-    enforcedLocale: 'en',
-    enforced: true,
-    tolerance: 6,
-    expectedGroups: 2,
-    measuredGroups: 2,
-    measurements: [
-      {
-        objectId: 'label:revenue',
-        node: 'revenue',
-        referenceBBox: [180, 420, 160, 44],
-        candidateBBox: [182, 421, 158, 42],
-        deltaX: 0,
-        deltaY: -0.5,
-        enforced: true,
-      },
-      {
-        objectId: 'asset:revenue-wordmark',
-        node: 'revenue',
-        referenceBBox: [180, 470, 160, 44],
-        candidateBBox: [181, 471, 160, 44],
-        deltaX: 1,
-        deltaY: 1,
-        enforced: true,
-      },
-    ],
-    violations: [],
-  };
-  const evidenceManifest = await writeEvidence(root, prepared, 0, { labelPositionAudit });
-  const verificationReference = await writeDatasetVerification(root, buildRoot, prepared);
-  const outcome = await finishReviewedBuild({
-    buildId: prepared.build.buildId,
-    reviewToken: prepared.reviewToken,
-    evidenceManifests: [evidenceManifest],
-    verificationReference,
-    attestation: { reviewer: 'human:reviewer', decision: 'accepted' },
-    regions: [],
-    attention: { status: 'closed', closureNote: 'No open red-box region remains.' },
-    feedback: [],
-    riskChecks: [],
-    manualCheckDecisions: manualCheckDecisions(prepared),
-    interfaceMatrix: matrix(prepared.build.key),
-  }, { buildRoot, projectRoot: root, now });
-
-  assert.equal(outcome.build.state, 'CLOSED');
-  assert.deepEqual(
-    outcome.fidelityResult.riskChecks
-      .find((check) => check.id === 'T18-label-position:en')
-      .measurements.map((measurement) => measurement.id),
-    [
-      'asset:revenue-wordmark-center-x',
-      'asset:revenue-wordmark-center-y',
-      'label:revenue-center-x',
-      'label:revenue-center-y',
-    ]
-  );
 });
 
 test('review rejects fidelity evidence without a passing G3 typography audit', async (t) => {
@@ -1207,32 +669,6 @@ test('a previously passing review cannot close after authored bytes change', asy
   assert.equal((await readDatasetBuild(prepared.build.buildId, { buildRoot })).state, 'AUTHORED');
 });
 
-test('Live Nation-sized side-label deltas block closure even when automatic rendering passed', async (t) => {
-  const { root, buildRoot, prepared } = await prepare(t);
-  const evidenceManifest = await writeEvidence(root, prepared, 38.5);
-  const verificationReference = await writeDatasetVerification(root, buildRoot, prepared);
-  const outcome = await finishReviewedBuild({
-    buildId: prepared.build.buildId,
-    packetDigest: prepared.packetReference.digest,
-    evidenceManifests: [evidenceManifest],
-    verificationReference,
-    attestation: { reviewer: 'human:reviewer', decision: 'accepted' },
-    regions: [],
-    attention: { status: 'closed', closureNote: 'No open red-box region remains.' },
-    feedback: [],
-    riskChecks: [],
-    manualCheckDecisions: manualCheckDecisions(prepared),
-    interfaceMatrix: matrix(prepared.build.key),
-  }, { buildRoot, projectRoot: root, now });
-
-  assert.equal(outcome.fidelityResult.status, 'blocked');
-  assert.ok(outcome.fidelityResult.blockers.some((item) => item.code === 'RISK_THRESHOLD_VIOLATION'));
-  assert.equal((await readDatasetBuild(prepared.build.buildId, { buildRoot })).state, 'AUTHORED');
-  const inspection = await inspectBuildCloseout(prepared.build.buildId, { buildRoot, projectRoot: root });
-  assert.equal(inspection.reviewStatus, 'blocked');
-  assert.equal(inspection.report.status, 'blocked');
-});
-
 test('Interface Matrix candidate geometry must exactly match the archived G12 row', async (t) => {
   const { root, buildRoot, prepared } = await prepare(t);
   const evidenceManifest = await writeEvidence(root, prepared);
@@ -1255,134 +691,6 @@ test('Interface Matrix candidate geometry must exactly match the archived G12 ro
     }, { buildRoot, projectRoot: root, now }),
     (error) => error.code === 'INTERFACE_MATRIX_GEOMETRY_MISMATCH'
   );
-});
-
-test('semantic annotation checks consume the archived metrics document', async (t) => {
-  const { root, buildRoot, sourceDigest, prepared } = await prepareWithSemanticAnnotation(t);
-  const evidenceManifest = await writeEvidence(root, prepared, 0, {
-    semanticAnnotationAudit: {
-      schemaVersion: 1,
-      ruleIds: ['A10', 'B16'],
-      dataset: prepared.build.key,
-      language: 'en',
-      expectedSemanticAnnotationNodeIds: ['other_income'],
-      semanticAnnotationNodeIds: ['other_income'],
-      checked: 1,
-      unbound: 0,
-      violations: [],
-      status: 'passed',
-    },
-  });
-  const verificationReference = await writeDatasetVerification(root, buildRoot, prepared);
-  const plan = prepared.build.receipts.at(-1).payload.verificationPlan;
-  const localeEvidenceDigest = bytesDigest('interfaceContactSheet\n');
-  const manualDecisions = [
-    ...manualCheckDecisions(prepared),
-    ...plan.requiredChecks
-      .filter((check) => check.enforcement === 'manual' &&
-        !['adapter:source-coverage-review', 'adapter:manual-visual-closure'].includes(check.id)
-      )
-      .flatMap((check) => (check.localeScope === 'required-locales'
-        ? plan.requiredLocales.map((locale) => ({
-            checkId: check.id,
-            locale,
-            status: 'passed',
-            evidenceDigests: [localeEvidenceDigest],
-          }))
-        : [{
-            checkId: check.id,
-            status: 'passed',
-            evidenceDigests: [sourceDigest],
-          }])),
-  ];
-
-  const outcome = await finishReviewedBuild({
-    buildId: prepared.build.buildId,
-    reviewToken: prepared.reviewToken,
-    evidenceManifests: [evidenceManifest],
-    verificationReference,
-    attestation: { reviewer: 'human:reviewer', decision: 'accepted' },
-    regions: [],
-    attention: { status: 'closed', closureNote: 'No open red-box region remains.' },
-    feedback: [],
-    riskChecks: [],
-    manualCheckDecisions: manualDecisions,
-    interfaceMatrix: null,
-  }, { buildRoot, projectRoot: root, now });
-
-  assert.equal(outcome.build.state, 'CLOSED');
-  assert.equal(outcome.fidelityResult.status, 'accepted');
-  assert.equal(
-    outcome.fidelityResult.checkResults.find((check) => check.checkId === 'feature:semantic-annotation')?.status,
-    'passed'
-  );
-});
-
-test('specified label weight and short-node geometry consume per-locale manual decisions', async (t) => {
-  const { root, buildRoot, prepared } = await prepareWithManualFeatures(t);
-  const evidenceManifest = await writeEvidence(root, prepared);
-  const verificationReference = await writeDatasetVerification(root, buildRoot, prepared);
-  const baseInput = {
-    buildId: prepared.build.buildId,
-    reviewToken: prepared.reviewToken,
-    evidenceManifests: [evidenceManifest],
-    verificationReference,
-    attestation: { reviewer: 'human:reviewer', decision: 'accepted' },
-    regions: [],
-    attention: { status: 'closed', closureNote: 'No open red-box region remains.' },
-    feedback: [],
-    riskChecks: [],
-    interfaceMatrix: matrix(prepared.build.key),
-  };
-
-  await assert.rejects(
-    finishReviewedBuild({
-      ...baseInput,
-      manualCheckDecisions: [
-        ...manualCheckDecisions(prepared),
-        {
-          checkId: 'feature:specified-label-weight',
-          locale: 'en',
-          status: 'passed',
-          evidenceDigests: [digest('forged-but-well-formed')],
-        },
-      ],
-    }, { buildRoot, projectRoot: root, now }),
-    (error) => error.code === 'MANUAL_CHECK_EVIDENCE_MISMATCH'
-  );
-
-  const incomplete = await finishReviewedBuild({
-    ...baseInput,
-    manualCheckDecisions: manualCheckDecisions(prepared),
-  }, { buildRoot, projectRoot: root, now });
-  assert.equal(incomplete.fidelityResult.status, 'blocked');
-  assert.ok(incomplete.fidelityResult.blockers.some((item) =>
-    item.code === 'REQUIRED_CHECK_MISSING' && item.subject === 'feature:specified-label-weight@en'
-  ));
-  assert.ok(incomplete.fidelityResult.blockers.some((item) =>
-    item.code === 'REQUIRED_CHECK_MISSING' && item.subject === 'feature:visible-short-node@en'
-  ));
-
-  const complete = await finishReviewedBuild({
-    ...baseInput,
-    manualCheckDecisions: [
-      ...manualCheckDecisions(prepared),
-      {
-        checkId: 'feature:specified-label-weight',
-        locale: 'en',
-        status: 'passed',
-        evidenceDigests: [bytesDigest('interfaceContactSheet\n')],
-      },
-      {
-        checkId: 'feature:visible-short-node',
-        locale: 'en',
-        status: 'passed',
-        evidenceDigests: [bytesDigest('interfaceContactSheet\n')],
-      },
-    ],
-  }, { buildRoot, projectRoot: root, now });
-  assert.equal(complete.fidelityResult.status, 'accepted');
-  assert.equal(complete.build.state, 'CLOSED');
 });
 
 test('reviewed evidence closes, stages, seals, and becomes stale when authored bytes change', async (t) => {
@@ -1575,12 +883,12 @@ test('seal refuses to record when the non-render consistency profile fails', asy
   assert.equal(after.historicalState, 'BASELINE_STAGED');
 });
 
-test('Revenue Metric display-text review uses dataset consistency without render metrics', async (t) => {
+test('Revenue Metric display-text review closes on the same data-only checklist', async (t) => {
   const { root, buildRoot, prepared } = await prepareRevenueMetric(t, ['display-text-only']);
+  const plan = prepared.build.receipts.at(-1).payload.verificationPlan;
+  assert.deepEqual(plan.requiredChecks.map((check) => check.id), ['adapter:data-consistency', 'adapter:human-review']);
+  assert.deepEqual(plan.changeImpact, ['display-text-only']);
   const verificationReference = await writeDatasetVerification(root, buildRoot, prepared);
-  const displayCheck = prepared.build.receipts.at(-1).payload.verificationPlan.requiredChecks
-    .find((check) => check.id === 'impact:display-text');
-  assert.equal(displayCheck?.evidenceKind, 'dataset-consistency');
   const reviewed = await finishReviewedBuild({
     buildId: prepared.build.buildId,
     reviewToken: prepared.reviewToken,
@@ -1594,12 +902,63 @@ test('Revenue Metric display-text review uses dataset consistency without render
     interfaceMatrix: null,
   }, { buildRoot, projectRoot: root, now });
   assert.equal(reviewed.fidelityResult.status, 'accepted');
-  assert.equal(reviewed.build.state, 'CLOSED');
-  assert.ok(reviewed.fidelityResult.checkResults.some((result) =>
-    result.checkId === 'impact:display-text' &&
-      result.locale === 'en' &&
-      result.evidenceKind === 'dataset-consistency'
-  ));
+  assert.deepEqual(
+    reviewed.fidelityResult.checkResults.map((result) => [result.checkId, result.evidenceKind]),
+    [['adapter:data-consistency', 'dataset-consistency'], ['adapter:human-review', 'manual-decision']]
+  );
+});
+
+test('the human-review decision must cite the source objects and Source digests', async (t) => {
+  const { root, buildRoot, prepared } = await prepareRevenueMetric(t);
+  const verificationReference = await writeDatasetVerification(root, buildRoot, prepared);
+  const plan = prepared.build.receipts.at(-1).payload.verificationPlan;
+  const review = (evidenceDigests) => finishReviewedBuild({
+    buildId: prepared.build.buildId,
+    reviewToken: prepared.reviewToken,
+    verificationReference,
+    attestation: { reviewer: 'human:data-reviewer', decision: 'accepted' },
+    regions: [],
+    attention: { status: 'closed', closureNote: 'No visual red-box surface applies.' },
+    feedback: [],
+    riskChecks: [],
+    manualCheckDecisions: [{ checkId: 'adapter:human-review', status: 'passed', evidenceDigests }],
+    interfaceMatrix: null,
+  }, { buildRoot, projectRoot: root, now });
+  await assert.rejects(review([plan.sourceDigest]), (error) => error.code === 'MANUAL_CHECK_EVIDENCE_MISMATCH');
+  await assert.rejects(review([plan.sourceDigest, plan.sourceObjectsDigest, digest('forged')]), (error) => error.code === 'MANUAL_CHECK_EVIDENCE_MISMATCH');
+  const pending = await finishReviewedBuild({
+    buildId: prepared.build.buildId,
+    reviewToken: prepared.reviewToken,
+    verificationReference,
+    attestation: { reviewer: 'human:data-reviewer', decision: 'accepted' },
+    regions: [],
+    attention: { status: 'closed', closureNote: 'No visual red-box surface applies.' },
+    feedback: [],
+    riskChecks: [],
+    manualCheckDecisions: [],
+    interfaceMatrix: null,
+  }, { buildRoot, projectRoot: root, now });
+  assert.ok(pending.fidelityResult.blockers.some((item) => item.code === 'REQUIRED_CHECK_MISSING' && item.subject === 'adapter:human-review'));
+});
+
+test('a Build authored under an older Plan protocol stays inspectable but must be re-prepared to finish', async (t) => {
+  const { root, buildRoot, prepared } = await prepare(t);
+  const manifestPath = path.join(buildRoot, prepared.build.buildId, 'manifest.json');
+  const manifest = JSON.parse(await readFile(manifestPath, 'utf8'));
+  const authored = manifest.receipts.at(-1).payload;
+  // Historical shape: inventory + Source Coverage and a v5 Plan, no source objects.
+  authored.inventory = { digest: digest('historical-inventory') };
+  authored.sourceCoverage = { protocol: 'source-coverage/v2', digest: digest('historical-coverage') };
+  delete authored.sourceObjects;
+  authored.verificationPlan = { ...authored.verificationPlan, schemaVersion: 5, protocol: 'verification-plan/v5' };
+  await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+
+  const inspection = await inspectBuildCloseout(prepared.build.buildId, { buildRoot, projectRoot: root });
+  assert.equal(inspection.historicalState, 'AUTHORED');
+  await assert.rejects(
+    finishReviewedBuild({ buildId: prepared.build.buildId, reviewToken: prepared.reviewToken }, { buildRoot, projectRoot: root, now }),
+    (error) => error.code === 'VERIFICATION_PLAN_STALE'
+  );
 });
 
 test('inspect keeps a historical SEALED FidelityResult v1 readable', async (t) => {
@@ -1762,13 +1121,4 @@ test('review-candidate/v1 Sankey Builds close on one evidence set and human acce
   const review = { ...pendingReviewInput(prepared, evidence, verificationReference), attestation: { reviewer: 'synthetic-reviewer', decision: 'accepted' } };
   const closed = await finishReviewedBuild(review, { buildRoot, projectRoot: root, now });
   assert.equal(closed.build.state, 'CLOSED');
-});
-
-test('measurement provenance accepts either locator of the same Build Source digest, never a foreign digest', async (t) => {
-  const processed = await prepareWithSharedNodeLabelMeasurements(t, { locatorPath: 'input/processed/shared-node-label-measurements-fy25.png' });
-  assert.equal(processed.prepared.build.state, 'AUTHORED');
-  await assert.rejects(
-    prepareWithSharedNodeLabelMeasurements(t, { locatorPath: 'input/processed/shared-node-label-measurements-fy25.png', locatorDigest: digest('adjacent-period-source') }),
-    (error) => error.code === 'FEATURE_EVIDENCE_SOURCE_DIGEST_MISMATCH'
-  );
 });

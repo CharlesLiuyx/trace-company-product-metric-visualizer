@@ -146,15 +146,14 @@ publication or human acceptance. See `docs/architecture/runtime-data.md`.
 
 The current M3 build-local chain is the primary close-out authority and runs
 end to end. Fresh intake first records a whole-Source Type Gate; authored
-review then records exhaustive Source Coverage and reconciles Source amounts
-against the actually loaded SSOT (and exactly one mapped Sankey node or
+review then validates the author's flat Source object list and reconciles every
+Source amount against the actually loaded SSOT (and exactly one Sankey node or
 non-node metric for Income Statement) before a Plan can exist:
 
 ```text
 SourceClassification v1 -> INTAKED
-  -> ObjectInventory v4 + SourceCoverage v2
-  -> actual authored-value reconciliation
-  -> NodeFacePolicy v2 + VerificationPlan v5 -> ReviewPacket v4
+  -> SourceObjects v1 (flat list + actual authored-value reconciliation)
+  -> VerificationPlan v6 (fixed per-Adapter checklist) -> ReviewPacket v5
   -> dataset-verification/v1 consistency evidence
   -> fidelity-run/2 EVIDENCE_READY
   -> ManualAttestation + RegionDecision + FeedbackLedger
@@ -164,40 +163,32 @@ SourceClassification v1 -> INTAKED
 `verify:d3` is read-only diagnostic execution and never records durable
 evidence. `record:fidelity` owns durable automatic evidence; its
 `evidence-ready` result still requires human review and cannot close a Build.
-The Plan's Source Coverage review is also human-bound: its decision cites both
-the immutable Source digest and the coverage digest. Every semantic node
-mapping is expected visible by definition; geometry without a Source-painted
-face must be modeled as flow geometry or a semantic annotation, never as an
-invisible node. An Income Statement financial value mapped to
-`nonNodeMetrics.*` must bind a Source slot that the Build Module pixel-checks
-as zero-paint before it creates the Plan. The embedded node-face policy
-includes Source-bound handling
-for genuinely sub-floor visible faces; neither an omitted small value nor an
-`Other` label can be accepted as decorative residue. A primary zero-looking
-literal that masks a real non-zero amount must bind authoritative
-higher-precision recovery and remain non-zero in the authored SSOT/View. If
-the authoritative value falls outside the primary literal's rounding
-interval, the literal is instead a confirmed numeric typo and may proceed
-only through the user-directed authoritative-correction path; without one of
-those typed records, the Build stops rather than writing zero.
+The Plan's human-review decision cites both the immutable Source digest and
+the source-objects digest. Every value node must render a painted face (B15);
+geometry without a Source-painted face is modeled as a non-node metric, flow
+geometry, or annotation, never as an invisible node. A genuinely sub-floor
+Source face is declared once in `shortNodes`. Neither an omitted small value
+nor an `Other` label can be accepted as decorative residue. A primary
+zero-looking literal that masks a real non-zero amount must bind
+higher-precision recovery and remain non-zero in the authored SSOT/View; a
+value outside its literal's rounding interval is a confirmed typo and may
+proceed only through the user-directed authoritative-correction path. Without
+one of those typed records, the Build stops rather than writing zero.
 `record:workflow` drives these operations for new Builds (`record:build`
 exposes the deep prepare-review, finish-reviewed, stage, seal, and inspect
 operations for historical ones). A stored `SEALED` receipt is historical fact, while
 inspection computes effective freshness: changing an authored file makes a
-historical `SEALED` Build effectively `AUTHORED`. `CloseoutReport`, Task
-information, and Loop Fidelity Summary are generated Views over structured
-Build objects, not acceptance inputs.
+historical `SEALED` Build effectively `AUTHORED`. Builds prepared under an
+older Plan protocol stay readable; `record:workflow continue` or `refresh`
+re-prepares them. `CloseoutReport`, Task information, and Loop Fidelity Summary
+are generated Views over structured Build objects, not acceptance inputs.
 
-When a Source literal has a confirmed unit or numeric typo, Source Coverage
-keeps the original literal immutable and may apply only a
-user-directed, authoritative-source-bound correction. The typed correction
-records whether the suffix or displayed magnitude is wrong, plus approval,
-official locator and literal, corrected display literal, and reason;
-both the official value and corrected display must support the authored amount
-within the declared resolution. This is distinct from rounded-zero precision
-recovery and the two mechanisms cannot be combined. Zero-looking literals may
-use only the numeric-typo branch, and only when the authoritative value lies
-outside the primary literal's rounding interval.
+When a Source literal has a confirmed unit or numeric typo, the source objects
+keep the original literal immutable and may apply only a user-directed
+correction that records the corrected display literal, the approval, and a
+reason naming the authoritative source; the corrected display must express the
+authored amount within its own resolution. This is distinct from rounded-zero
+precision recovery and the two mechanisms cannot be combined.
 
 Load context in this order:
 

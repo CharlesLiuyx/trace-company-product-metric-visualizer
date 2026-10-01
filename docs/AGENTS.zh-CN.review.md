@@ -13,7 +13,7 @@
 | 机器可读 lifecycle 契约 | `docs/architecture/lifecycle-contract.json`（`pnpm verify:architecture` 强制一致） |
 | 已接受的架构决策 | `docs/adr/`（从 `0001-dataset-build-transactions.md` 开始） |
 | **输入资产处理流程**：命令、顺序、检查边界、审阅、发布、Git 交接、来源归档、汇报 | `docs/asset-workflow.md`（自动生成的命令/协议表：`docs/workflow-command-reference.md`） |
-| 数据集建模规则：Adapter 分型门、来源对象分类、防漏不变量、Source Coverage、对账、陷阱 | `docs/dynamic-dataset-workflow.md` |
+| 数据集建模规则：Adapter 分型门、扁平来源对象清单、防漏不变量、对账、陷阱 | `docs/dynamic-dataset-workflow.md` |
 | d3 保真机器门槛、审阅者清单、反馈协议 | `docs/fidelity-loop-rules.md`（规则目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rules-catalog.mjs` 生成） |
 | 用户反馈过且落地了机器门槛的保真缺陷 | `docs/fidelity-feedback-casebook.md`（协议见 `docs/fidelity-loop-rules.md` §4） |
 | 数据集 / SSOT 字段格式 | `data/schema.md` |

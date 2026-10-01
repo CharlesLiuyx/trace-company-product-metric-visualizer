@@ -12,18 +12,10 @@ import {
   createInterfaceMatrix,
   digestFidelityValue,
 } from './fidelity-result.mjs';
-import { createObjectInventory } from './object-inventory.mjs';
-import { LEGACY_HIDDEN_ANCHOR_FEATURE } from './legacy/object-inventory-v3.mjs';
-import { createSourceCoverage } from './source-coverage.mjs';
-import { assertSourceCoverageAuthoredValues } from './source-coverage-authored.mjs';
-import {
-  ZERO_PAINT_NODE_SLOT_FEATURE,
-  assertZeroPaintNodeSlots,
-} from './source-face-observation.mjs';
-import { compileVerificationPlan } from './verification-plan.mjs';
+import { createSourceObjects } from './source-objects.mjs';
+import { VERIFICATION_PLAN_PROTOCOL, compileVerificationPlan } from './verification-plan.mjs';
 import { assertInterfaceEvidenceReady } from './interface-fidelity.mjs';
-import { assessNodePaintAudit, assertNodePaintPolicy } from './node-face-policy.mjs';
-import { classifySideLabelColumnAlignment } from './render-harness.mjs';
+import { assertNodePaintPolicy } from './node-face-policy.mjs';
 import {
   createCloseoutReport,
   renderLoopFidelitySummary,
@@ -40,8 +32,7 @@ import {
 } from './dataset-build-store.mjs';
 import { rootDir, buildProjectRoot } from './project.mjs';
 
-export const REVIEW_PACKET_PROTOCOL = 'review-packet/v4';
-const LEGACY_REVIEW_PACKET_PROTOCOL = 'review-packet/v3';
+export const REVIEW_PACKET_PROTOCOL = 'review-packet/v5';
 
 function closeoutError(code, message, details = undefined) {
   const error = new Error(message);
@@ -110,109 +101,22 @@ async function normalizeArtifacts(artifacts, projectRoot, sources = []) {
   return normalized.sort((left, right) => left.path.localeCompare(right.path));
 }
 
-// Source-bound feature evidence must bind locator, digest, and referenceBBox
-// to THIS Build's Source. Coordinates copied from an adjacent period carry
-// that period's digest and are rejected here instead of passing later gates.
-const SOURCE_BOUND_FEATURES = Object.freeze([
-  'semantic-annotation',
-  'measured-label-position',
-  'ambiguous-label-slot',
-  ZERO_PAINT_NODE_SLOT_FEATURE,
-]);
-
-function assertSourceBoundFeatureEvidence(build, inventory, artifacts) {
-  const boundObjects = inventory.objects
-    .flatMap((object) => SOURCE_BOUND_FEATURES
-      .filter((feature) => object.features.includes(feature))
-      .map((feature) => ({ object, feature })));
-  if (boundObjects.length === 0) return;
-
-  const sourceByLocator = new Map();
-  for (const source of build.sources || []) {
-    for (const locator of [source.uri, source.processingUri, source.processedUri].filter(Boolean)) {
-      sourceByLocator.set(locator, source);
-    }
-  }
-  const referenceArtifacts = new Map(
-    artifacts.filter((artifact) => ['reference-image', 'reference-text'].includes(artifact.role))
-      .map((artifact) => [artifact.path, artifact])
-  );
-
-  for (const { object, feature } of boundObjects) {
-    const evidence = object.featureEvidence[feature];
-    const sourceLocator = String(evidence.locator || '').split('#', 1)[0];
-    const source = sourceByLocator.get(sourceLocator);
-    invariant(
-      source,
-      'FEATURE_EVIDENCE_SOURCE_MISMATCH',
-      `${feature} evidence for ${object.id} is not bound to a Build Source: ${sourceLocator || '(missing locator)'}`
-    );
-    // processing and processed are two locators of one Source digest; the
-    // artifact is recorded at whichever exists, so accept either spelling.
-    const artifact = [source.uri, source.processingUri, source.processedUri]
-      .filter(Boolean)
-      .map((locator) => referenceArtifacts.get(locator))
-      .find(Boolean);
-    invariant(
-      artifact && artifact.digest === source.digest && evidence.digest === source.digest,
-      'FEATURE_EVIDENCE_SOURCE_DIGEST_MISMATCH',
-      `${feature} evidence for ${object.id} must bind its locator, reference-image artifact, and Build Source to one digest (stale or foreign measurements are rejected)`
-    );
-    invariant(
-      Number.isInteger(source.width) && Number.isInteger(source.height) && source.width > 0 && source.height > 0,
-      'FEATURE_EVIDENCE_SOURCE_DIMENSIONS_REQUIRED',
-      `${feature} evidence for ${object.id} requires Build Source dimensions`
-    );
-    if (evidence.referenceBBox) {
-      const [x, y, width, height] = evidence.referenceBBox;
-      invariant(
-        x + width <= source.width && y + height <= source.height,
-        'FEATURE_EVIDENCE_REFERENCE_BBOX_OUT_OF_BOUNDS',
-        `${feature} evidence for ${object.id} has a referenceBBox exceeding the Build Source dimensions`
-      );
-    }
-  }
-}
-
 function planForFidelityResult(authored) {
   const plan = authored?.verificationPlan;
   invariant(plan, 'VERIFICATION_PLAN_REQUIRED', 'The authored snapshot has no VerificationPlan');
   invariant(
-    (plan.schemaVersion === 5 && plan.protocol === 'verification-plan/v5') ||
-      (plan.schemaVersion === 4 && plan.protocol === 'verification-plan/v4'),
+    plan.schemaVersion === 6 && plan.protocol === VERIFICATION_PLAN_PROTOCOL,
     'VERIFICATION_PLAN_STALE',
-    'Finishing review requires a supported Source Coverage-bound VerificationPlan'
+    `Finishing review requires ${VERIFICATION_PLAN_PROTOCOL}; re-prepare the Build with record:workflow continue or refresh`
   );
   return {
     digest: authored.verificationPlanDigest || plan.digest || plan.planDigest,
     requiredLocales: plan.requiredLocales,
     changeImpact: plan.changeImpact,
     requiredChecks: plan.requiredChecks,
-    sourceCoverageDigest: plan.sourceCoverageDigest,
+    sourceObjectsDigest: plan.sourceObjectsDigest,
     sourceDigest: plan.sourceDigest,
-    nodeFacePolicy: plan.nodeFacePolicy,
   };
-}
-
-function currentInventoryInput(input) {
-  if (input?.schemaVersion !== 3 || input?.protocol !== 'object-inventory/v3') {
-    return input;
-  }
-  const obsoleteObjects = (input.objects || []).filter((object) =>
-    (object.features || []).includes(LEGACY_HIDDEN_ANCHOR_FEATURE)
-  );
-  invariant(
-    obsoleteObjects.length === 0,
-    'INVENTORY_HIDDEN_NODE_UNSUPPORTED',
-    `ObjectInventory v4 cannot upgrade invisible semantic nodes: ${obsoleteObjects.map((object) => object.id).join(', ')}`
-  );
-  const {
-    schemaVersion: _schemaVersion,
-    protocol: _protocol,
-    inventoryDigest: _inventoryDigest,
-    ...current
-  } = input;
-  return current;
 }
 
 export async function prepareBuildReview(input, options = {}) {
@@ -225,108 +129,65 @@ export async function prepareBuildReview(input, options = {}) {
     input = { ...input, artifacts: derived.manifest.artifacts, checkpointProtocol: REVIEW_CANDIDATE_PROTOCOL, dependencyScopes: derived.manifest.scopes };
     options = { ...options, loadedData: derived.loaded };
   }
-  const inventory = createObjectInventory(currentInventoryInput(input.inventory));
-  invariant(inventory.datasetKey === build.key, 'INVENTORY_BUILD_MISMATCH', 'ObjectInventory dataset key does not match the Build');
   const primarySource = (build.sources || []).find((source) => source.role === 'primary-reference') || build.sources?.[0];
-  invariant(primarySource, 'SOURCE_COVERAGE_BUILD_SOURCE_MISSING', 'Build has no primary Source for Source Coverage');
+  invariant(primarySource, 'SOURCE_OBJECTS_BUILD_SOURCE_MISSING', 'Build has no primary Source');
   const sourceLocator = [primarySource.processingUri, primarySource.processedUri, primarySource.uri]
     .filter(Boolean)
     .find((locator) => existsSync(resolveProjectLocator(locator, projectRoot))) ||
     primarySource.processingUri || primarySource.processedUri || primarySource.uri;
-  const authoritativeSource = {
-    locator: sourceLocator,
-    digest: primarySource.digest,
-    ...(primarySource.format ? { format: primarySource.format, charLength: primarySource.charLength } : {}),
-    width: primarySource.width,
-    height: primarySource.height,
-  };
-  const requestedCoverage = input.sourceCoverage;
-  invariant(requestedCoverage && typeof requestedCoverage === 'object', 'SOURCE_COVERAGE_REQUIRED', 'prepare-review requires Source Coverage');
   const sourceLocators = new Set(
     [primarySource.uri, primarySource.processingUri, primarySource.processedUri].filter(Boolean)
   );
-  if (requestedCoverage.source) {
-    invariant(
-      sourceLocators.has(requestedCoverage.source.locator) &&
-        requestedCoverage.source.digest === authoritativeSource.digest &&
-        requestedCoverage.source.width === authoritativeSource.width &&
-        requestedCoverage.source.height === authoritativeSource.height,
-      'SOURCE_COVERAGE_BUILD_SOURCE_MISMATCH',
-      'Source Coverage must bind a Build Source locator, digest, and dimensions'
-    );
-  }
-  const coverageItems = (requestedCoverage.items || []).map((item) => {
-    const floorException = item?.face?.floorException;
-    const floorLocator = String(floorException?.locator || '');
-    const floorSourceLocator = floorLocator.split('#', 1)[0];
-    if (!floorException || !sourceLocators.has(floorSourceLocator)) return item;
-    return {
-      ...item,
-      face: {
-        ...item.face,
-        floorException: {
-          ...floorException,
-          locator: `${authoritativeSource.locator}${floorLocator.slice(floorSourceLocator.length)}`,
-        },
-      },
-    };
-  });
-  const sourceCoverage = createSourceCoverage({
-    ...requestedCoverage,
-    items: coverageItems,
-    classification: build.sourceClassification || requestedCoverage.classification,
-    source: authoritativeSource,
-  }, {
+  invariant(input.sourceObjects && typeof input.sourceObjects === 'object', 'SOURCE_OBJECTS_REQUIRED', 'prepare-review requires the flat Source object list');
+  invariant(build.sourceClassification, 'SOURCE_CLASSIFICATION_REQUIRED', 'prepare-review requires the Build Source classification recorded at intake');
+  // Validates the flat list, T22, shortNodes and label positions, then
+  // reconciles every value entry against the loaded SSOT and Adapter.
+  const sourceObjects = createSourceObjects(input.sourceObjects, {
+    datasetKey: build.key,
     adapter: build.adapter,
-    inventory,
-  });
-  assertSourceCoverageAuthoredValues(sourceCoverage, {
+    classification: build.sourceClassification,
+    source: {
+      locator: sourceLocator,
+      digest: primarySource.digest,
+      ...(primarySource.format === 'text'
+        ? { format: 'text', charLength: primarySource.charLength }
+        : { width: primarySource.width, height: primarySource.height }),
+    },
     ...(options.loadedData ? { loadedData: options.loadedData } : {}),
     ...(options.loadBrowserData ? { loadBrowserData: options.loadBrowserData } : {}),
   });
   const artifacts = await normalizeArtifacts(input.artifacts, projectRoot, build.sources);
-  assertSourceBoundFeatureEvidence(build, inventory, artifacts);
   const referenceArtifact = artifacts.find((artifact) =>
     ['reference-image', 'reference-text'].includes(artifact.role) && sourceLocators.has(artifact.path)
   );
   invariant(
-    referenceArtifact?.digest === authoritativeSource.digest,
-    'SOURCE_COVERAGE_REFERENCE_ARTIFACT_MISMATCH',
-    'Source Coverage requires a reference-image artifact bound to a Build Source locator'
+    referenceArtifact?.digest === primarySource.digest,
+    'SOURCE_OBJECTS_REFERENCE_ARTIFACT_MISMATCH',
+    'prepare-review requires a reference artifact bound to the Build Source digest'
   );
-  // T23: a financial value may use a non-node metric only after prepare-review
-  // verifies its Source-bound node slot is genuinely zero-paint.
-  assertZeroPaintNodeSlots({
-    sourceCoverage,
-    inventory,
-    sourcePath: resolveProjectLocator(authoritativeSource.locator, projectRoot),
-  });
   const verificationPlan = compileVerificationPlan({
     adapter: build.adapter,
-    inventory,
-    sourceCoverage,
+    sourceObjects,
     changeImpact: input.changeImpact,
     requiredLocales: input.requiredLocales,
     checkpointProtocol: input.checkpointProtocol,
     dependencyScopes: input.dependencyScopes,
   });
-  const [inventoryReference, sourceCoverageReference, planReference] = await Promise.all([
-    recordBuildObject(build.buildId, 'object-inventory', inventory, { buildRoot, projectRoot }),
-    recordBuildObject(build.buildId, 'source-coverage', sourceCoverage, { buildRoot, projectRoot }),
+  const [sourceObjectsReference, planReference] = await Promise.all([
+    recordBuildObject(build.buildId, 'source-objects', sourceObjects, { buildRoot, projectRoot }),
     recordBuildObject(build.buildId, 'verification-plan', verificationPlan, { buildRoot, projectRoot }),
   ]);
   const authored = await recordDatasetBuildCommand(build.buildId, {
     type: 'record-authored',
     expectedRevision: build.revision,
     artifacts,
-    inventory,
-    sourceCoverage,
+    sourceObjects,
     verificationPlan,
     changeImpact: verificationPlan.changeImpact,
   }, { buildRoot, projectRoot, now: options.now });
   const authoredPayload = authored.receipts.at(-1).payload;
   const packetValue = {
-    schemaVersion: 4,
+    schemaVersion: 5,
     protocol: REVIEW_PACKET_PROTOCOL,
     kind: 'review-packet',
     buildId: build.buildId,
@@ -334,10 +195,9 @@ export async function prepareBuildReview(input, options = {}) {
     adapter: build.adapter,
     authoredDigest: authoredPayload.snapshotDigest,
     verificationPlanDigest: authoredPayload.verificationPlanDigest,
-    sourceCoverageDigest: sourceCoverage.coverageDigest,
+    sourceObjectsDigest: sourceObjects.sourceObjectsDigest,
     requiredLocales: verificationPlan.requiredLocales,
-    inventory: inventoryReference,
-    sourceCoverage: sourceCoverageReference,
+    sourceObjects: sourceObjectsReference,
     verificationPlan: planReference,
     status: 'evidence-required',
   };
@@ -351,9 +211,8 @@ export async function prepareBuildReview(input, options = {}) {
   });
   return {
     build: authored,
-    inventory,
-    sourceCoverage,
-    sourceCoverageReference,
+    sourceObjects,
+    sourceObjectsReference,
     packet,
     packetReference,
     reviewToken: packetReference.digest,
@@ -480,236 +339,13 @@ async function consistencyFromReference(reference, context) {
   return { status: 'passed', digest: reference.digest };
 }
 
-function derivedRiskChecks(plan, evidence) {
-  const requiredIds = new Set(plan.requiredChecks.map((check) => check.id));
-  const checks = [];
-  if (requiredIds.has('feature:centered-side-label')) {
-    const featureCheck = plan.requiredChecks.find((check) => check.id === 'feature:centered-side-label');
-    const expectedNodes = new Set((featureCheck.evidenceTargets || []).map((target) => target.split(/[.:/]/).at(-1)));
-    for (const item of evidence) {
-      const labelAudit = item.metrics?.labelLayoutAudit;
-      const measuredSideLabels = Array.isArray(labelAudit?.inferredCenteredSideLabels)
-        ? labelAudit.inferredCenteredSideLabels
-        : (labelAudit?.horizontalSideLabels || []);
-      const sideLabels = measuredSideLabels
-        .filter((label) => expectedNodes.has(label.node));
-      const measuredNodes = new Set(sideLabels.map((label) => label.node));
-      const complete = [...expectedNodes].every((node) => measuredNodes.has(node));
-      checks.push({
-        id: `T7-side-label-center:${item.locale}`,
-        status: complete ? 'passed' : 'failed',
-        measurements: sideLabels.map((label) => ({
-          id: `${label.node || 'unknown'}-${label.labelIndex ?? 0}`,
-          value: Number(label.verticalCenterDelta),
-          operator: 'lte',
-          threshold: 4,
-          unit: 'px',
-        })),
-        ...(complete
-          ? {}
-          : { reason: 'Not every inventoried centered-side-label produced a matching measurement' }),
-      });
-    }
-  }
-  if (requiredIds.has('feature:measured-label-position')) {
-    for (const item of evidence) {
-      const audit = item.metrics?.labelPositionAudit;
-      const complete = Boolean(audit) &&
-        Number(audit.measuredGroups) === Number(audit.expectedGroups) &&
-        (audit.violations?.length || 0) === 0;
-      checks.push({
-        id: `T18-label-position:${item.locale}`,
-        status: audit ? (complete ? 'passed' : 'failed') : 'open',
-        // Only enforced (source-language) deltas are threshold measurements:
-        // localized layout is covered by B6 and human review, so a legitimate
-        // locale shift must not become a RISK_THRESHOLD_VIOLATION blocker.
-        measurements: (audit?.measurements || [])
-          .filter((measurement) => measurement.candidateBBox && measurement.enforced)
-          .flatMap((measurement) => {
-            const measurementId = measurement.objectId || measurement.node;
-            return [
-            {
-              id: `${measurementId}-center-x`,
-              value: Math.abs(Number(measurement.deltaX)),
-              operator: 'lte',
-              threshold: Number(audit.tolerance),
-              unit: 'px',
-            },
-            {
-              id: `${measurementId}-center-y`,
-              value: Math.abs(Number(measurement.deltaY)),
-              operator: 'lte',
-              threshold: Number(audit.tolerance),
-              unit: 'px',
-            },
-            ];
-          }),
-        ...(audit
-          ? (complete ? {} : { reason: 'A measured label group is missing or outside the T18 reference-position tolerance' })
-          : { reason: 'The evidence predates label-position measurement' }),
-      });
-    }
-  }
-  if (requiredIds.has('feature:text')) {
-    for (const item of evidence) {
-      const audit = item.metrics?.textLayoutAudit;
-      checks.push({
-        id: `B6-text-bounds:${item.locale}`,
-        status: audit ? 'passed' : 'open',
-        measurements: audit
-          ? [{ id: 'overflow-count', value: audit.overflowViolations?.length || 0, operator: 'eq', threshold: 0 }]
-          : [],
-        ...(audit ? {} : { reason: 'The evidence predates text-bound measurement' }),
-      });
-    }
-  }
-  if (requiredIds.has('feature:annotation-near-label')) {
-    for (const item of evidence) {
-      const audit = item.metrics?.annotationLayoutAudit;
-      checks.push({
-        id: `A6-annotation-clearance:${item.locale}`,
-        status: audit ? 'passed' : 'open',
-        measurements: audit
-          ? [{ id: 'overlap-count', value: audit.overlapViolations?.length || 0, operator: 'eq', threshold: 0 }]
-          : [],
-        ...(audit ? {} : { reason: 'The evidence predates annotation-clearance measurement' }),
-      });
-    }
-  }
-  if (requiredIds.has('feature:paired-node-annotation')) {
-    for (const item of evidence) {
-      const audit = item.metrics?.annotationPairingAudit;
-      checks.push({
-        id: `I12-paired-node-annotation:${item.locale}`,
-        status: audit ? 'passed' : 'open',
-        measurements: audit
-          ? [{ id: 'violation-count', value: audit.violations?.length || 0, operator: 'eq', threshold: 0 }]
-          : [],
-        ...(audit ? {} : { reason: 'The evidence predates paired-node annotation measurement' }),
-      });
-    }
-  }
-  if (requiredIds.has('feature:semantic-annotation')) {
-    for (const item of evidence) {
-      const audit = item.metrics?.semanticAnnotationAudit;
-      checks.push({
-        id: `B16-A10-semantic-annotation:${item.locale}`,
-        status: audit ? 'passed' : 'open',
-        measurements: audit
-          ? [{ id: 'violation-count', value: audit.violations?.length || 0, operator: 'eq', threshold: 0 }]
-          : [],
-        ...(audit ? {} : { reason: 'The evidence predates semantic-annotation measurement' }),
-      });
-    }
-  }
-  return checks;
-}
-
-export function checkFeatureEvidence(check, entry, plan) {
-  const expectedTargets = (check.evidenceTargets || []).map((target) => target.split(/[.:/]/).at(-1));
-  if (check.evidenceKind === 'label-layout-audit') {
-    const audit = entry.metrics?.labelLayoutAudit;
-    if ((check.ruleIds || []).includes('T6')) {
-      return Boolean(audit) && classifySideLabelColumnAlignment(
-        audit.horizontalSideLabels || [],
-        expectedTargets,
-      ).violations.length === 0;
-    }
-    const labels = Array.isArray(audit?.inferredCenteredSideLabels)
-      ? audit.inferredCenteredSideLabels
-      : (audit?.horizontalSideLabels || []);
-    return Boolean(entry.metrics?.labelLayoutAudit) && expectedTargets.every((target) => labels.some((label) =>
-      label.node === target && Number.isFinite(Number(label.verticalCenterDelta)) && Number(label.verticalCenterDelta) <= 4
-    ));
-  }
-  if (check.evidenceKind === 'label-position-audit') {
-    const audit = entry.metrics?.labelPositionAudit;
-    return Boolean(audit) &&
-      Number(audit.expectedGroups) === (check.objectIds || []).length &&
-      Number(audit.measuredGroups) === Number(audit.expectedGroups) &&
-      (audit.violations?.length || 0) === 0;
-  }
-  if (check.evidenceKind === 'text-layout-audit') {
-    const audit = entry.metrics?.textLayoutAudit;
-    return Boolean(audit) &&
-      ((check.objectIds || []).length === 0 || Number(audit.checkedTexts) > 0) &&
-      (audit.overflowViolations?.length || 0) === 0;
-  }
-  if (check.evidenceKind === 'annotation-layout-audit') {
-    const audit = entry.metrics?.annotationLayoutAudit;
-    const checkedAnnotations = Number(
-      audit?.checkedAnnotations
-      ?? (Number(audit?.checkedAnnotationTexts || 0) + Number(audit?.checkedAnnotationGraphics || 0))
-    );
-    return Boolean(audit) &&
-      ((check.objectIds || []).length === 0 || checkedAnnotations > 0) &&
-      (audit.overlapViolations?.length || 0) === 0;
-  }
-  if (check.evidenceKind === 'annotation-pairing-audit') {
-    const audit = entry.metrics?.annotationPairingAudit;
-    const expectedTargets = new Set((check.evidenceTargets || [])
-      .map((target) => String(target).split(/[.:/]/).filter(Boolean).at(-1)));
-    const measuredTargets = new Set((audit?.measurements || []).map((item) => item.annotationId));
-    return Boolean(audit) &&
-      [...expectedTargets].every((target) => measuredTargets.has(target)) &&
-      (audit.violations?.length || 0) === 0;
-  }
-  if (check.evidenceKind === 'annotation-semantics-audit') {
-    const audit = entry.metrics?.semanticAnnotationAudit;
-    const expectedNodes = (check.objectIds || [])
-      .map((objectId) => String(objectId).match(/^(?:node|metric):(.+)$/)?.[1]?.replace(/-/g, '_'))
-      .filter(Boolean);
-    const auditedNodes = new Set(audit?.semanticAnnotationNodeIds || []);
-    return Boolean(audit) &&
-      expectedNodes.every((nodeId) => auditedNodes.has(nodeId)) &&
-      (audit.violations?.length || 0) === 0;
-  }
-  if (check.evidenceKind === 'interface-audit') {
-    return entry.interfaceAudit?.enforcementStatus === 'passed';
-  }
-  if (check.evidenceKind === 'node-paint-audit') {
-    const assessment = assessNodePaintAudit(entry.metrics?.nodePaintAudit, plan.nodeFacePolicy);
-    return assessment.passed && expectedTargets.length > 0 && expectedTargets.every((target) =>
-      assessment.checks[
-        `${check.id === `feature:${LEGACY_HIDDEN_ANCHOR_FEATURE}` ? 'hidden' : 'visible'}:${target}`
-      ]?.status === 'passed'
-    );
-  }
-  return false;
-}
-
-function localeEvidenceForCheck(check, entry, consistency, plan) {
+function localeEvidenceForCheck(check, entry, consistency) {
   if (!entry) return null;
   if (check.evidenceKind === 'dataset-consistency') {
-    return {
-      passed: consistency.status === 'passed',
-      evidenceDigests: [consistency.digest],
-    };
+    return { passed: consistency.status === 'passed', evidenceDigests: [consistency.digest] };
   }
   if (check.evidenceKind === 'fidelity-run') {
     return { passed: entry.status === 'passed', evidenceDigests: [entry.digest] };
-  }
-  if (check.evidenceKind === 'full-review-profile') {
-    return {
-      passed: entry.status === 'passed' && consistency.status === 'passed',
-      evidenceDigests: [...new Set([consistency.digest, entry.digest])],
-    };
-  }
-  if (check.evidenceKind === 'interface-audit') {
-    const evidenceDigests = [
-      entry.artifactDigests?.reference,
-      entry.artifactDigests?.interfaceAudit,
-      entry.artifactDigests?.interfaceContactSheet,
-    ].filter(Boolean);
-    invariant(evidenceDigests.length === 3, 'CHECK_EVIDENCE_PROVIDER_MISSING', `Check ${check.id} needs archived reference, interface audit, and contact sheet`);
-    return { passed: checkFeatureEvidence(check, entry, plan), evidenceDigests };
-  }
-  if (['label-layout-audit', 'label-position-audit', 'text-layout-audit', 'annotation-layout-audit', 'annotation-pairing-audit', 'annotation-semantics-audit', 'node-paint-audit'].includes(check.evidenceKind)) {
-    invariant(entry.artifactDigests?.metrics, 'CHECK_EVIDENCE_PROVIDER_MISSING', `Check ${check.id} needs the archived metrics document`);
-    return {
-      passed: checkFeatureEvidence(check, entry, plan),
-      evidenceDigests: [entry.artifactDigests.metrics],
-    };
   }
   throw closeoutError('CHECK_EVIDENCE_PROVIDER_INVALID', `No locale evidence provider exists for ${check.id}/${check.evidenceKind}`);
 }
@@ -726,42 +362,30 @@ function deriveCheckResults(
   for (const check of plan.requiredChecks) {
     if (check.enforcement === 'manual') continue;
     if (check.localeScope === 'global') {
-      let status;
-      let evidenceDigests;
-      if (check.evidenceKind === 'dataset-consistency') {
-        status = consistency.status === 'passed' ? 'passed' : 'failed';
-        evidenceDigests = [consistency.digest];
-      } else if (check.evidenceKind === 'verification-plan') {
-        const planDigest = plan.planDigest || plan.digest;
-        invariant(planDigest, 'CHECK_EVIDENCE_PROVIDER_MISSING', `Check ${check.id} needs the VerificationPlan digest`);
-        status = 'passed';
-        evidenceDigests = [planDigest];
-      } else if (check.evidenceKind === 'source-coverage') {
-        invariant(plan.sourceCoverageDigest, 'CHECK_EVIDENCE_PROVIDER_MISSING', `Check ${check.id} needs the Source Coverage digest`);
-        status = 'passed';
-        evidenceDigests = [plan.sourceCoverageDigest];
-      } else {
-        throw closeoutError('CHECK_EVIDENCE_PROVIDER_INVALID', `No global evidence provider exists for ${check.id}/${check.evidenceKind}`);
-      }
+      invariant(
+        check.evidenceKind === 'dataset-consistency',
+        'CHECK_EVIDENCE_PROVIDER_INVALID',
+        `No global evidence provider exists for ${check.id}/${check.evidenceKind}`
+      );
       results.push({
         checkId: check.id,
-        status,
+        status: consistency.status === 'passed' ? 'passed' : 'failed',
         source: 'automatic',
-        objectIds: [...(check.objectIds || [])],
-        evidenceDigests,
+        objectIds: [],
+        evidenceDigests: [consistency.digest],
       });
       continue;
     }
     for (const locale of plan.requiredLocales) {
       const entry = entriesByLocale.get(locale);
       if (!entry) continue;
-      const derived = localeEvidenceForCheck(check, entry, consistency, plan);
+      const derived = localeEvidenceForCheck(check, entry, consistency);
       results.push({
         checkId: check.id,
         locale,
         status: derived.passed ? 'passed' : 'failed',
         source: 'automatic',
-        objectIds: [...(check.objectIds || [])],
+        objectIds: [],
         evidenceDigests: derived.evidenceDigests,
       });
     }
@@ -769,12 +393,10 @@ function deriveCheckResults(
 
   invariant(Array.isArray(manualCheckDecisions), 'MANUAL_CHECK_DECISIONS_INVALID', 'manualCheckDecisions must be an array');
   const checkById = new Map(plan.requiredChecks.map((check) => [check.id, check]));
-  const entriesByManualLocale = new Map(evidenceEntries.map((entry) => [entry.locale, entry]));
   const globalEvidenceDigests = new Set([
     consistency.digest,
     plan.planDigest,
-    plan.inventoryDigest,
-    plan.sourceCoverageDigest,
+    plan.sourceObjectsDigest,
     plan.sourceDigest,
     ...authoredArtifacts.map((artifact) => artifact.digest),
   ].filter(Boolean));
@@ -782,63 +404,28 @@ function deriveCheckResults(
     invariant(decision && typeof decision === 'object', 'MANUAL_CHECK_DECISIONS_INVALID', `manualCheckDecisions[${index}] must be an object`);
     const check = checkById.get(decision.checkId);
     invariant(check?.enforcement === 'manual', 'MANUAL_CHECK_DECISION_NOT_ALLOWED', `Check ${decision.checkId || index} is not a required manual check`);
-    const locale = decision.locale == null ? null : String(decision.locale).trim();
-    invariant(
-      (check.localeScope === 'global' && locale == null) ||
-        (check.localeScope === 'required-locales' && plan.requiredLocales.includes(locale)),
-      'MANUAL_CHECK_DECISIONS_INVALID',
-      `Manual check ${check.id} has an invalid locale`
-    );
+    invariant(decision.locale == null, 'MANUAL_CHECK_DECISIONS_INVALID', `Manual check ${check.id} is global and takes no locale`);
     invariant(
       Array.isArray(decision.evidenceDigests) && decision.evidenceDigests.length > 0,
       'MANUAL_CHECK_EVIDENCE_MISMATCH',
-      `Manual check ${check.id}${locale ? `@${locale}` : ''} needs bound evidence`
+      `Manual check ${check.id} needs bound evidence`
     );
     const evidenceDigests = [...new Set(decision.evidenceDigests.map(String))].sort();
-    const featureEvidenceDigests = new Set(check.featureEvidenceDigests || []);
-    if (locale != null) {
-      const entry = entriesByManualLocale.get(locale);
-      invariant(entry, 'MANUAL_CHECK_EVIDENCE_MISMATCH', `Manual check ${check.id}@${locale} has no locale evidence run`);
-      const localeEvidenceDigests = new Set([
-        entry.digest,
-        ...Object.values(entry.artifactDigests || {}),
-      ].filter(Boolean));
-      const allowed = new Set([...localeEvidenceDigests, ...featureEvidenceDigests]);
-      invariant(
-        evidenceDigests.some((digest) => localeEvidenceDigests.has(digest)) &&
-          evidenceDigests.every((digest) => allowed.has(digest)),
-        'MANUAL_CHECK_EVIDENCE_MISMATCH',
-        `Manual check ${check.id}@${locale} cites evidence outside that locale run`
-      );
-      if (check.id === 'feature:visible-short-node' && featureEvidenceDigests.has(plan.sourceCoverageDigest)) {
-        invariant(
-          evidenceDigests.includes(plan.sourceCoverageDigest),
-          'MANUAL_CHECK_EVIDENCE_MISMATCH',
-          `Manual check ${check.id}@${locale} must cite its locale run and Source Coverage exception digest ${plan.sourceCoverageDigest}`
-        );
-      }
-    } else {
-      const allowed = new Set([...globalEvidenceDigests, ...featureEvidenceDigests]);
-      invariant(
-        evidenceDigests.some((digest) => globalEvidenceDigests.has(digest)) &&
-          evidenceDigests.every((digest) => allowed.has(digest)),
-        'MANUAL_CHECK_EVIDENCE_MISMATCH',
-        `Manual check ${check.id} cites evidence outside the Build-bound global evidence`
-      );
-      if (check.id === 'adapter:source-coverage-review') {
-        invariant(
-          evidenceDigests.includes(plan.sourceCoverageDigest) && evidenceDigests.includes(plan.sourceDigest),
-          'MANUAL_CHECK_EVIDENCE_MISMATCH',
-          `Manual check ${check.id} must cite both Source Coverage ${plan.sourceCoverageDigest} and Source ${plan.sourceDigest}`
-        );
-      }
-    }
+    invariant(
+      evidenceDigests.every((digest) => globalEvidenceDigests.has(digest)),
+      'MANUAL_CHECK_EVIDENCE_MISMATCH',
+      `Manual check ${check.id} cites evidence outside the Build-bound global evidence`
+    );
+    invariant(
+      evidenceDigests.includes(plan.sourceObjectsDigest) && evidenceDigests.includes(plan.sourceDigest),
+      'MANUAL_CHECK_EVIDENCE_MISMATCH',
+      `Manual check ${check.id} must cite both source objects ${plan.sourceObjectsDigest} and Source ${plan.sourceDigest}`
+    );
     results.push({
       checkId: check.id,
-      ...(locale == null ? {} : { locale }),
       status: decision.status,
       source: 'manual',
-      objectIds: [...(check.objectIds || [])],
+      objectIds: [],
       evidenceDigests,
       ...(decision.note == null ? {} : { note: String(decision.note) }),
     });
@@ -955,20 +542,19 @@ export async function finishReviewedBuild(input, options = {}) {
     digest: input.reviewToken || input.packetDigest,
   }, { buildRoot });
   invariant(
-    (packet.schemaVersion === 4 && packet.protocol === REVIEW_PACKET_PROTOCOL) ||
-      (packet.schemaVersion === 3 && packet.protocol === LEGACY_REVIEW_PACKET_PROTOCOL),
+    packet.schemaVersion === 5 && packet.protocol === REVIEW_PACKET_PROTOCOL,
     'REVIEW_PACKET_STALE',
-    'Finishing review requires a supported Source Coverage-bound review packet'
+    `Finishing review requires a ${REVIEW_PACKET_PROTOCOL} packet; re-prepare the Build`
   );
   const { packetDigest, ...packetValue } = packet;
   invariant(packetDigest === digestFidelityValue(packetValue), 'REVIEW_PACKET_DIGEST_MISMATCH', 'Review packet digest does not match its content');
   invariant(packet.authoredDigest === authored.snapshotDigest, 'REVIEW_PACKET_STALE', 'Review packet was prepared for an older authored snapshot');
   invariant(packet.verificationPlanDigest === plan.digest, 'REVIEW_PACKET_STALE', 'Review packet was prepared for an older VerificationPlan');
   invariant(
-    packet.sourceCoverageDigest === plan.sourceCoverageDigest &&
-      authored.sourceCoverage?.digest === plan.sourceCoverageDigest,
+    packet.sourceObjectsDigest === plan.sourceObjectsDigest &&
+      authored.sourceObjects?.digest === plan.sourceObjectsDigest,
     'REVIEW_PACKET_STALE',
-    'Review packet was prepared for older Source Coverage'
+    'Review packet was prepared for older source objects'
   );
 
   // review-candidate/v1 has no stage freezes: the per-locale evidence below
@@ -1053,10 +639,7 @@ export async function finishReviewedBuild(input, options = {}) {
         reviewedAt: input.attestation.reviewedAt || (options.now || (() => new Date().toISOString()))(),
       }
     : null;
-  const riskChecks = [
-    ...derivedRiskChecks(authored.verificationPlan, evidenceEntries),
-    ...(input.riskChecks || []),
-  ];
+  const riskChecks = input.riskChecks || [];
   const interfaceMatrix = await normalizeMatrix(input.interfaceMatrix, projectRoot);
   const matrixRequired = build.adapter === 'income-statement'
     && plan.changeImpact.some((impact) =>

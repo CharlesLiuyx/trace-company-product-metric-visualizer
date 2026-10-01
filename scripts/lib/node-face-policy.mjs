@@ -1,23 +1,9 @@
-import { createHash } from 'node:crypto';
-
-export const NODE_FACE_POLICY_PROTOCOL = 'node-face-policy/v2';
-const LEGACY_NODE_FACE_POLICY_PROTOCOL = 'node-face-policy/v1';
+// B15 node-face policy. A Build-bound render expects every value node in the
+// Build's source-objects/v1 to render a painted face, and every rendered node
+// to be painted and at least MIN_VISIBLE_FACE_PX tall unless the author listed
+// it in `shortNodes` (then it must still paint a face taller than 0px).
 export const MIN_VISIBLE_FACE_PX = 3;
 export const FACE_FLOOR_RASTER_TOLERANCE_PX = 0.5;
-
-function canonicalValue(value) {
-  if (Array.isArray(value)) return value.map(canonicalValue);
-  if (!value || typeof value !== 'object') return value;
-  return Object.fromEntries(
-    Object.keys(value)
-      .sort((left, right) => left.localeCompare(right))
-      .map((key) => [key, canonicalValue(value[key])])
-  );
-}
-
-function digestCanonical(value) {
-  return `sha256:${createHash('sha256').update(JSON.stringify(canonicalValue(value))).digest('hex')}`;
-}
 
 function deepFreeze(value) {
   if (!value || typeof value !== 'object' || Object.isFrozen(value)) return value;
@@ -32,54 +18,19 @@ export function isFaceBelowVisibilityFloor(height) {
     value + FACE_FLOOR_RASTER_TOLERANCE_PX < MIN_VISIBLE_FACE_PX;
 }
 
-export function compileNodeFacePolicy(sourceCoverage) {
-  if (!sourceCoverage || sourceCoverage.protocol !== 'source-coverage/v2') {
-    const error = new Error('Node face policy requires source-coverage/v2');
-    error.code = 'NODE_FACE_POLICY_SOURCE_COVERAGE_REQUIRED';
-    throw error;
-  }
-  const visibleNodeIds = [...new Set(sourceCoverage.summary?.visibleNodeIds || [])].sort();
-  const belowFloorExceptions = (sourceCoverage.items || [])
-    .filter((item) => item.face?.floorException)
-    .map((item) => {
-      if (item.nodeTargets?.length !== 1) {
-        const error = new Error(`${item.sourceId} visibility floor exception must map to exactly one nodes.* target`);
-        error.code = 'VISIBILITY_FLOOR_EXCEPTION_TARGET_INVALID';
-        throw error;
-      }
-      return {
-        sourceId: item.sourceId,
-        nodeId: item.nodeTargets[0],
-        referenceFaceHeightPx: item.face.observedBBox[3],
-        evidenceDigest: sourceCoverage.coverageDigest,
-      };
-    })
-    .sort((left, right) => left.nodeId.localeCompare(right.nodeId));
-  const duplicateExceptions = belowFloorExceptions
-    .map((item) => item.nodeId)
-    .filter((nodeId, index, values) => values.indexOf(nodeId) !== index);
-  if (duplicateExceptions.length) {
-    const error = new Error(`Node face policy repeats floor exception node(s): ${[...new Set(duplicateExceptions)].join(', ')}`);
-    error.code = 'VISIBILITY_FLOOR_EXCEPTION_TARGET_INVALID';
-    throw error;
-  }
-  const unclassifiedExceptions = belowFloorExceptions.filter((item) => !visibleNodeIds.includes(item.nodeId));
-  if (unclassifiedExceptions.length) {
-    const error = new Error(`Floor exception node(s) are not expected-visible: ${unclassifiedExceptions.map((item) => item.nodeId).join(', ')}`);
-    error.code = 'VISIBILITY_FLOOR_EXCEPTION_TARGET_INVALID';
-    throw error;
-  }
-  const value = {
-    schemaVersion: 2,
-    protocol: NODE_FACE_POLICY_PROTOCOL,
-    sourceCoverageDigest: sourceCoverage.coverageDigest,
-    minVisibleFacePx: MIN_VISIBLE_FACE_PX,
-    rasterTolerancePx: FACE_FLOOR_RASTER_TOLERANCE_PX,
+// Expectations for a Build-bound render. Only Income Statement Builds render
+// Sankey nodes; other Adapters (and diagnostics without a Build) return null.
+export function nodeFaceExpectations(sourceObjects) {
+  if (!sourceObjects || sourceObjects.adapter !== 'income-statement') return null;
+  return {
+    visible: [...(sourceObjects.summary?.valueNodeIds || [])].sort(),
+    short: [...(sourceObjects.summary?.shortNodeIds || [])].sort(),
     complete: true,
-    visibleNodeIds,
-    belowFloorExceptions,
   };
-  return deepFreeze({ ...value, policyDigest: digestCanonical(value) });
+}
+
+function faceHeight(node) {
+  return node?.faceHeight ?? node?.bbox?.height;
 }
 
 function recomputedAuditFacts(audit) {
@@ -92,7 +43,7 @@ function recomputedAuditFacts(audit) {
     byId.set(id, node);
   }
   const belowFloorNodeIds = nodes
-    .filter((node) => node.faceVisible === true && isFaceBelowVisibilityFloor(node.faceHeight ?? node.bbox?.height))
+    .filter((node) => node.faceVisible === true && isFaceBelowVisibilityFloor(faceHeight(node)))
     .map((node) => String(node.id || ''))
     .sort();
   return { nodes, byId, duplicates: [...new Set(duplicates)].sort(), belowFloorNodeIds };
@@ -102,7 +53,15 @@ function sameSortedValues(left, right) {
   return JSON.stringify([...(left || [])].sort()) === JSON.stringify([...(right || [])].sort());
 }
 
-export function assessNodePaintAudit(audit, policy = null, options = {}) {
+function hasExpectations(expectations) {
+  return Boolean(expectations) && (
+    (expectations.visible?.length || 0) > 0 ||
+    (expectations.short?.length || 0) > 0 ||
+    expectations.complete === true
+  );
+}
+
+export function assessNodePaintAudit(audit, expectations = null, options = {}) {
   const violations = [];
   if (!audit || audit.schemaVersion !== 1) {
     violations.push({ code: 'audit-schema-invalid', message: 'Node paint audit must use schemaVersion 1' });
@@ -112,7 +71,7 @@ export function assessNodePaintAudit(audit, policy = null, options = {}) {
     violations.push({ code: 'checked-node-count-mismatch', message: 'checkedNodes disagrees with the node audit rows' });
   }
   for (const node of facts.nodes) {
-    const height = node?.faceHeight ?? node?.bbox?.height;
+    const height = faceHeight(node);
     if (!node?.id || typeof node.faceVisible !== 'boolean') {
       violations.push({ code: 'node-row-invalid', nodeId: node?.id || '', message: 'node rows require a stable id and boolean faceVisible' });
     } else if (node.faceVisible && (!Number.isFinite(Number(height)) || Number(height) < 0)) {
@@ -127,103 +86,61 @@ export function assessNodePaintAudit(audit, policy = null, options = {}) {
     });
   }
   if (Number(audit?.minVisibleFacePx) !== MIN_VISIBLE_FACE_PX) {
-    violations.push({ code: 'visibility-floor-drift', message: `minVisibleFacePx=${audit.minVisibleFacePx}, expected ${MIN_VISIBLE_FACE_PX}` });
+    violations.push({ code: 'visibility-floor-drift', message: `minVisibleFacePx=${audit?.minVisibleFacePx}, expected ${MIN_VISIBLE_FACE_PX}` });
   }
   if (Array.isArray(audit?.belowVisibilityFloorNodeIds) && !sameSortedValues(audit.belowVisibilityFloorNodeIds, facts.belowFloorNodeIds)) {
     violations.push({ code: 'visibility-floor-summary-mismatch', message: 'belowVisibilityFloorNodeIds disagrees with node face heights' });
   }
 
   const checks = {};
-  if (policy) {
-    const currentPolicy = policy.protocol === NODE_FACE_POLICY_PROTOCOL && policy.schemaVersion === 2;
-    const legacyPolicy = policy.protocol === LEGACY_NODE_FACE_POLICY_PROTOCOL && policy.schemaVersion === 1;
-    if (!currentPolicy && !legacyPolicy) {
-      violations.push({ code: 'policy-schema-invalid', message: `Node face policy must use ${NODE_FACE_POLICY_PROTOCOL}` });
+  const bound = hasExpectations(expectations);
+  const short = new Set(bound ? expectations.short || [] : []);
+  const expected = new Set(bound ? expectations.visible || [] : []);
+  if (bound && expectations.complete) for (const id of facts.byId.keys()) expected.add(id);
+  for (const id of [...expected].sort()) {
+    const node = facts.byId.get(id);
+    const height = Number(faceHeight(node));
+    let message = '';
+    if (!node) message = 'B15 expected visible, observed missing';
+    else if (node.faceVisible !== true) message = 'B15 expected visible, observed not-painted';
+    else if (isFaceBelowVisibilityFloor(height) && !short.has(id)) {
+      message = `B15 faceHeight=${height}px is below minVisibleFacePx=${MIN_VISIBLE_FACE_PX}px and is not declared in shortNodes`;
+    } else if (short.has(id) && !(height > 0)) {
+      message = 'B15 short node renders no face height';
     }
-    if (Number(policy.minVisibleFacePx) !== MIN_VISIBLE_FACE_PX || Number(policy.rasterTolerancePx) !== FACE_FLOOR_RASTER_TOLERANCE_PX) {
-      violations.push({ code: 'policy-threshold-drift', message: 'Node face policy threshold differs from the shared implementation' });
-    }
-    const exceptionByNode = new Map((policy.belowFloorExceptions || []).map((item) => [item.nodeId, item]));
-    for (const id of policy.visibleNodeIds || []) {
-      const node = facts.byId.get(id);
-      let status = 'passed';
-      let message = '';
-      if (!node) {
-        status = 'failed';
-        message = 'B15 expected visible, observed missing';
-      } else if (node.faceVisible !== true) {
-        status = 'failed';
-        message = 'B15 expected visible, observed not-painted';
-      } else if (isFaceBelowVisibilityFloor(node.faceHeight ?? node.bbox?.height)) {
-        const exception = exceptionByNode.get(id);
-        if (!exception) {
-          status = 'failed';
-          message = `B15 faceHeight=${Number(node.faceHeight ?? node.bbox?.height)}px is below minVisibleFacePx=${MIN_VISIBLE_FACE_PX}px; no Source-bound exception`;
-        } else if (Number(node.faceHeight ?? node.bbox?.height) + FACE_FLOOR_RASTER_TOLERANCE_PX < Number(exception.referenceFaceHeightPx)) {
-          status = 'failed';
-          message = `B15 faceHeight=${Number(node.faceHeight ?? node.bbox?.height)}px is below Source referenceFaceHeightPx=${exception.referenceFaceHeightPx}px beyond rasterTolerancePx=${FACE_FLOOR_RASTER_TOLERANCE_PX}px`;
-        }
-      }
-      checks[`visible:${id}`] = { nodeId: id, intent: 'visible', status, ...(message ? { message } : {}) };
-      if (status === 'failed') violations.push({ code: 'expected-visible-failed', nodeId: id, message });
-    }
-    if (legacyPolicy) {
-      for (const id of policy.hiddenNodeIds || []) {
-        const node = facts.byId.get(id);
-        let status = 'passed';
-        let message = '';
-        if (!node) {
-          status = 'failed';
-          message = 'Legacy hidden node missing';
-        } else if (node.faceVisible === true) {
-          status = 'failed';
-          message = 'Legacy hidden node observed painted';
-        }
-        checks[`hidden:${id}`] = { nodeId: id, intent: 'legacy-hidden', status, ...(message ? { message } : {}) };
-        if (status === 'failed') violations.push({ code: 'expected-hidden-failed', nodeId: id, message });
-      }
-    }
-    if (policy.complete) {
-      const classified = new Set([
-        ...(policy.visibleNodeIds || []),
-        ...(legacyPolicy ? policy.hiddenNodeIds || [] : []),
-      ]);
-      for (const id of facts.byId.keys()) {
-        if (!classified.has(id)) {
-          violations.push({ code: 'unclassified-node', nodeId: id, message: `${id} is not classified by Source Coverage` });
-        }
-      }
-    }
-  } else if (options.enforceUnboundFloor !== false) {
+    checks[`visible:${id}`] = {
+      nodeId: id,
+      intent: short.has(id) ? 'short' : 'visible',
+      status: message ? 'failed' : 'passed',
+      ...(message ? { message } : {}),
+    };
+    if (message) violations.push({ code: 'expected-visible-failed', nodeId: id, message });
+  }
+  if (!bound && options.enforceUnboundFloor !== false) {
     for (const nodeId of facts.belowFloorNodeIds) {
       violations.push({
         code: 'visibility-floor-failed',
         nodeId,
-        message: `B15 face is below minVisibleFacePx=${MIN_VISIBLE_FACE_PX}px; a typed Source-bound exception requires a Plan-bound run`,
+        message: `B15 face is below minVisibleFacePx=${MIN_VISIBLE_FACE_PX}px; a shortNodes declaration applies only to a Build-bound run`,
       });
     }
   }
   return deepFreeze({
     schemaVersion: 1,
     passed: violations.length === 0,
-    policyDigest: policy?.policyDigest || null,
     belowVisibilityFloorNodeIds: facts.belowFloorNodeIds,
     checks,
     violations,
     summary: {
       checkedNodes: facts.nodes.length,
-      expectedVisible: policy?.visibleNodeIds?.length || 0,
-      ...(policy?.protocol === LEGACY_NODE_FACE_POLICY_PROTOCOL
-        ? { expectedHidden: policy?.hiddenNodeIds?.length || 0 }
-        : {}),
-      floorExceptions: policy?.belowFloorExceptions?.length || 0,
-      unclassified: violations.filter((item) => item.code === 'unclassified-node').length,
+      expectedVisible: expected.size,
+      shortNodes: short.size,
     },
   });
 }
 
-export function assertNodePaintPolicy(audit, policy = null, options = {}) {
-  const assessment = assessNodePaintAudit(audit, policy, options);
+export function assertNodePaintPolicy(audit, expectations = null, options = {}) {
+  const assessment = assessNodePaintAudit(audit, expectations, options);
   if (assessment.passed) return assessment;
   const error = new Error(`Node face policy failed: ${assessment.violations.map((item) => item.nodeId ? `${item.nodeId}=${item.message}` : item.message).join(', ')}`);
   error.code = 'NODE_FACE_POLICY_FAILED';

@@ -4,15 +4,16 @@ import {
   LABEL_POSITION_CENTER_TOLERANCE,
   MIN_VISIBLE_FACE_PX,
   assertNodePaintAudit,
-  assertPlannedRenderAudits,
   assertRawSvgCanvas,
+  assertRenderAudits,
+  classifyDeclaredSideLabelColumns,
   classifyLabelLayoutAudit,
   classifyLabelPositionAudit,
   classifySideLabelColumnAlignment,
   classifyNodePaintAudit,
   classifySemanticAnnotationAudit,
-  labelPositionExpectationsFromPlan,
-  nodeFaceExpectationsFromPlan,
+  labelPositionExpectations,
+  renderAuditFailures,
 } from '../scripts/lib/render-harness.mjs';
 
 test('T6 measures a shared rendered side-label edge across a column', () => {
@@ -155,26 +156,24 @@ test('B15 flags faceVisible nodes rendering below the shared MIN_VISIBLE_FACE_PX
   assert.throws(
     () => assertNodePaintAudit(audit, { visible: ['hairline'] }),
     (error) => error.code === 'NODE_FACE_POLICY_FAILED' &&
-      error.assessment?.checks['visible:hairline']?.message.includes('no Source-bound exception')
+      error.assessment?.checks['visible:hairline']?.message.includes('not declared in shortNodes')
+  );
+  assert.doesNotThrow(
+    () => assertNodePaintAudit(audit, { visible: ['hairline'], short: ['hairline'] }),
+    'a shortNodes declaration accepts the painted sub-floor face'
   );
   assert.doesNotThrow(
     () => assertNodePaintAudit(audit, {}, { enforceUnboundFloor: false }),
-    'catalog regression records below-floor faces but cannot adjudicate Plan-bound exceptions'
+    'catalog regression records below-floor faces but leaves the floor to Build-bound runs'
   );
 });
 
-test('the current node paint policy has no invisible semantic-node category', () => {
+test('the node paint policy has no invisible semantic-node category', () => {
   const invisible = classify([node('anchor', { fill: 'none' })]);
   assert.throws(
-    () => assertNodePaintAudit(invisible, {
-      visible: ['anchor'],
-      hidden: [],
-      complete: true,
-      protocol: 'node-face-policy/v2',
-    }),
+    () => assertNodePaintAudit(invisible, { visible: ['anchor'], complete: true }),
     (error) => error.code === 'NODE_FACE_POLICY_FAILED' &&
-      error.assessment?.checks['visible:anchor']?.message.includes('not-painted') &&
-      !Object.hasOwn(error.assessment?.summary || {}, 'expectedHidden')
+      error.assessment?.checks['visible:anchor']?.message.includes('not-painted')
   );
 });
 
@@ -184,31 +183,13 @@ test('node paint audit rejects duplicate semantic node IDs', () => {
   assert.throws(() => assertNodePaintAudit(audit), /duplicate semantic IDs: tax/);
 });
 
-test('node face expectations compile every v5 semantic node as visible', () => {
-  const expectations = nodeFaceExpectationsFromPlan({
-    protocol: 'verification-plan/v5',
-    requiredChecks: [
-      { id: 'feature:visible-node-face', evidenceTargets: ['nodes.revenue', 'nodes.tax'] },
-      { id: 'feature:visible-short-node', evidenceTargets: ['nodes.tax', 'nodes.interest'] },
-    ],
-  });
-
-  assert.deepEqual(expectations, {
-    visible: ['interest', 'revenue', 'tax'],
-    hidden: [],
-    complete: true,
-    protocol: 'node-face-policy/v2',
-  });
-});
-
-test('v3 node paint audit rejects every rendered node omitted from inventory intent', () => {
-  const audit = classify([node('revenue'), node('unplanned')]);
+test('a Build-bound node audit checks every rendered node, not only value nodes', () => {
+  const audit = classify([node('revenue'), node('unlisted', { fill: 'none' })]);
   assert.throws(
-    () => assertNodePaintAudit(audit, { visible: ['revenue'], hidden: [], complete: true }),
+    () => assertNodePaintAudit(audit, { visible: ['revenue'], short: [], complete: true }),
     (error) => error.code === 'NODE_FACE_POLICY_FAILED' &&
-      error.assessment?.violations.some((item) =>
-        item.code === 'unclassified-node' && item.nodeId === 'unplanned'
-      )
+      error.assessment?.checks['visible:unlisted']?.status === 'failed' &&
+      error.assessment?.checks['visible:revenue']?.status === 'passed'
   );
 });
 
@@ -408,98 +389,111 @@ test('T7 inferred side-name centering respects explicit fixed-block semantic rol
   assert.deepEqual(audit.inferredCenteredSideLabelViolations, []);
 });
 
-test('Build-bound render evidence cannot archive a failed planned text, annotation, or centered-label gate', () => {
-  const plan = {
-    requiredChecks: [
-      {
-        id: 'feature:centered-side-label',
-        enforcement: 'conditional-gate',
-        evidenceKind: 'label-layout-audit',
-        evidenceTargets: ['layout.labels.revenue'],
-        objectIds: ['label:revenue'],
-      },
-      {
-        id: 'feature:text',
-        enforcement: 'conditional-gate',
-        evidenceKind: 'text-layout-audit',
-        objectIds: ['label:revenue'],
-      },
-      {
-        id: 'feature:annotation-near-label',
-        enforcement: 'conditional-gate',
-        evidenceKind: 'annotation-layout-audit',
-        objectIds: ['annotation:margin'],
-      },
-    ],
-  };
-  const passing = {
-    labelLayoutAudit: { horizontalSideLabels: [{ node: 'revenue', verticalCenterDelta: 4 }] },
+test('B6 text overflow fails every render; A6 overlap fails only once data-annotation-clearance renders', () => {
+  const clean = {
     textLayoutAudit: { checkedTexts: 1, overflowViolations: [] },
-    annotationLayoutAudit: { checkedAnnotationTexts: 1, overlapViolations: [] },
+    annotationLayoutAudit: { checkedAnnotations: 0, overlapViolations: [] },
   };
-  assert.doesNotThrow(() => assertPlannedRenderAudits(plan, passing));
-
+  assert.deepEqual(renderAuditFailures(clean), []);
+  assert.deepEqual(renderAuditFailures({}), ['B6=missing-audit']);
   assert.throws(
-    () => assertPlannedRenderAudits(plan, {
-      labelLayoutAudit: { horizontalSideLabels: [{ node: 'revenue', verticalCenterDelta: 4.1 }] },
-      textLayoutAudit: { checkedTexts: 1, overflowViolations: [{ identity: 'label:revenue#0' }] },
-      annotationLayoutAudit: { checkedAnnotationTexts: 0, overlapViolations: [] },
-    }),
-    /center-delta.*overflow.*no-rendered-annotation/
+    () => assertRenderAudits({ ...clean, textLayoutAudit: { checkedTexts: 1, overflowViolations: [{ identity: 'label:revenue#0' }] } }),
+    /B6=overflow:label:revenue#0/
+  );
+  const overlapViolations = [{ annotation: { identity: 'annotation#3' }, protectedText: { identity: 'label:tax#1' } }];
+  assert.deepEqual(
+    renderAuditFailures({ ...clean, annotationLayoutAudit: { checkedAnnotations: 1, checkedAnnotationGraphics: 0, overlapViolations } }),
+    [],
+    'annotation text alone does not opt a View into A6'
+  );
+  assert.deepEqual(
+    renderAuditFailures({ ...clean, annotationLayoutAudit: { checkedAnnotations: 2, checkedAnnotationGraphics: 1, overlapViolations } }),
+    ['A6=overlap:annotation#3/label:tax#1']
   );
 });
 
-test('Build-bound T6 evidence rejects a drifting side-label column', () => {
-  const plan = {
-    requiredChecks: [{
-      id: 'feature:aligned-side-label-column',
-      enforcement: 'quantified-audit',
-      evidenceKind: 'label-layout-audit',
-      evidenceTargets: ['layout.labels.a', 'layout.labels.b'],
-      objectIds: ['label:a', 'label:b'],
-      ruleIds: ['T6'],
-    }],
-  };
-  const aligned = {
-    labelLayoutAudit: { horizontalSideLabels: [
-      { node: 'a', side: 'left-of-node', nodeEdge: 477, labelEdge: 450, gap: 27 },
-      { node: 'b', side: 'left-of-node', nodeEdge: 477, labelEdge: 450, gap: 27 },
-    ] },
-  };
-  assert.doesNotThrow(() => assertPlannedRenderAudits(plan, aligned));
-  aligned.labelLayoutAudit.horizontalSideLabels[1].labelEdge = 440;
-  assert.throws(() => assertPlannedRenderAudits(plan, aligned), /label-edge-spread/);
+test('I12 and A10 run when their attributes render', () => {
+  const base = { textLayoutAudit: { checkedTexts: 1, overflowViolations: [] } };
+  assert.deepEqual(renderAuditFailures({
+    ...base,
+    annotationPairingAudit: { expectedPairs: 1, measurements: [{ annotationId: 'product-icon', centerDeltaY: 4 }], violations: [] },
+  }), []);
+  assert.deepEqual(renderAuditFailures({
+    ...base,
+    annotationPairingAudit: {
+      expectedPairs: 1,
+      measurements: [],
+      violations: [{ annotationId: 'product-icon', nodeId: 'product', code: 'center-y-delta' }],
+    },
+  }), ['I12=product-icon:center-y-delta']);
+  const failedSemantic = classifySemanticAnnotationAudit({
+    annotations: [{ nodeId: 'other_income', metricExists: true, textCount: 2, hasHitbox: false }],
+    unboundNodeLikeTexts: [{ nodeId: 'other_income', text: 'Other' }],
+  });
+  assert.throws(
+    () => assertRenderAudits({ ...base, semanticAnnotationAudit: failedSemantic }),
+    /A10=other_income:missing-annotation-hitbox,other_income:unbound-node-like-text/
+  );
 });
 
-test('T18 pairs plan reference measurements with rendered label groups by node', () => {
-  const plan = {
-    objectCoverage: [
-      {
-        objectId: 'node:tax',
-        mapping: ['render:layout.labels.tax', 'render:nodes.tax'],
-        featureEvidence: {
-          'measured-label-position': {
-            source: 'reference-measurement',
-            locator: 'input/processing/example-fy25.png#tax-label-group',
-            digest: `sha256:${'c'.repeat(64)}`,
-            referenceBBox: [100, 200, 80, 40],
-            inspectionMethod: 'native-scale-reference-measurement',
-          },
-        },
-      },
-      { objectId: 'asset:tax-icon', mapping: ['render:layout.labels.tax.icons'] },
-      { objectId: 'node:revenue', mapping: ['render:nodes.revenue'] },
+test('T6 audits side labels that declare an aligned column', () => {
+  const columns = classifyDeclaredSideLabelColumns([
+    { node: 'a', side: 'left-of-node', semanticRole: 'aligned-side-label-column', nodeEdge: 477, labelEdge: 450, gap: 27 },
+    { node: 'b', side: 'left-of-node', semanticRole: 'aligned-side-label-column', nodeEdge: 477, labelEdge: 449.5, gap: 27.5 },
+    { node: 'c', side: 'right-of-node', semanticRole: 'name', nodeEdge: 600, labelEdge: 610, gap: 10 },
+  ]);
+  assert.equal(columns.length, 1);
+  assert.equal(columns[0].side, 'left');
+  assert.deepEqual(columns[0].violations, []);
+  assert.deepEqual(classifyDeclaredSideLabelColumns([{ node: 'c', side: 'right-of-node', semanticRole: 'name' }]), []);
+
+  const declared = (node, nodeEdge, labelEdge) => ({ node, side: 'left-of-node', semanticRole: 'aligned-side-label-column', nodeEdge, labelEdge, gap: nodeEdge - labelEdge });
+  const staggered = classifyDeclaredSideLabelColumns([declared('latam', 796, 768), declared('europe', 793, 768), declared('amesa', 791, 768)]);
+  assert.equal(staggered.length, 1, 'staggered faces of one Sankey column form one column');
+  assert.deepEqual(staggered[0].violations, []);
+  const twoColumns = classifyDeclaredSideLabelColumns([declared('a', 300, 250), declared('b', 302, 251), declared('c', 800, 700)]);
+  assert.deepEqual(twoColumns.map((column) => column.expectedNodes), [['a', 'b'], ['c']]);
+  assert.deepEqual(twoColumns[1].violations.map((item) => item.code), ['column-needs-multiple-labels']);
+
+  const drifting = classifyLabelLayoutAudit({
+    nodes: [
+      { id: 'a', box: { x: 477, y: 100, width: 20, height: 40 } },
+      { id: 'b', box: { x: 477, y: 200, width: 20, height: 40 } },
+    ],
+    labels: [
+      { node: 'a', labelIndex: 0, text: 'A', semanticRole: 'aligned-side-label-column', box: { x: 400, y: 110, width: 50, height: 20 } },
+      { node: 'b', labelIndex: 1, text: 'B', semanticRole: 'aligned-side-label-column', box: { x: 380, y: 210, width: 60, height: 20 } },
+    ],
+  });
+  assert.deepEqual(drifting.sideLabelColumns[0].violations.map((item) => item.code), ['label-edge-spread']);
+  assert.throws(
+    () => assertRenderAudits({ textLayoutAudit: { checkedTexts: 2, overflowViolations: [] }, labelLayoutAudit: drifting }),
+    /T6=column:label-edge-spread/
+  );
+});
+
+test('T18 expectations come only from source objects that declare a referenceBBox', () => {
+  const sourceObjects = {
+    objects: [
+      { id: 'tax-label', class: 'label', referenceBBox: [100, 200, 80, 40], labelGroup: 'tax' },
+      { id: 'revenue', class: 'value', node: 'revenue' },
+      { id: 'title', class: 'label' },
     ],
   };
-  assert.deepEqual(labelPositionExpectationsFromPlan(plan), [{
-    objectId: 'node:tax',
+  assert.deepEqual(labelPositionExpectations(sourceObjects), [{
+    objectId: 'tax-label',
     node: 'tax',
     referenceBBox: [100, 200, 80, 40],
   }]);
+  assert.deepEqual(labelPositionExpectations(null), []);
+  assert.deepEqual(labelPositionExpectations({ objects: [{ id: 'title', class: 'label' }] }), []);
+  const noneDeclared = classifyLabelPositionAudit({ labels: [] }, [], { locale: 'en' });
+  assert.equal(noneDeclared.expectedGroups, 0);
+  assert.deepEqual(noneDeclared.violations, []);
 });
 
 test('T18 gates the source-language center deltas and only measures other locales', () => {
-  const expectations = [{ objectId: 'node:tax', node: 'tax', referenceBBox: [100, 200, 80, 40] }];
+  const expectations = [{ objectId: 'tax-label', node: 'tax', referenceBBox: [100, 200, 80, 40] }];
   const centered = { labels: [{ node: 'tax', labelIndex: 0, box: { x: 102, y: 203, width: 80, height: 40 } }] };
   const shifted = { labels: [{ node: 'tax', labelIndex: 0, box: { x: 100, y: 222, width: 80, height: 40 } }] };
 
@@ -512,133 +506,37 @@ test('T18 gates the source-language center deltas and only measures other locale
 
   const fail = classifyLabelPositionAudit(shifted, expectations, { locale: 'en' });
   assert.deepEqual(fail.violations.map((item) => item.code), ['center-y-delta']);
+  assert.throws(
+    () => assertRenderAudits({ textLayoutAudit: { checkedTexts: 1, overflowViolations: [] }, labelPositionAudit: fail }),
+    /T18=tax:center-y-delta/
+  );
 
   const localized = classifyLabelPositionAudit(shifted, expectations, { locale: 'zh' });
   assert.equal(localized.enforced, false);
   assert.deepEqual(localized.violations, [], 'localized layout is covered by B6 and human review');
 
   const missing = classifyLabelPositionAudit({ labels: [] }, expectations, { locale: 'zh' });
-  assert.deepEqual(missing.violations.map((item) => item.code), ['missing-label-group'], 'every locale must render each measured group');
+  assert.deepEqual(missing.violations.map((item) => item.code), ['missing-label-group'], 'every locale must render each declared group');
 });
 
-test('T18 uses an explicitly approved user target while retaining the Source measurement', () => {
-  const plan = {
-    objectCoverage: [{
-      objectId: 'node:tax',
-      mapping: ['render:layout.labels.tax', 'render:nodes.tax'],
-      featureEvidence: {
-        'measured-label-position': {
-          referenceBBox: [100, 200, 80, 40],
-          approvedTargetBBox: [60, 200, 80, 40],
-          approvedTargetAuthority: 'user-directed-layout-correction',
-          approvedTargetReason: 'Move the label left to clear the adjacent flow.',
-        },
-      },
-    }],
-  };
-  const [expectation] = labelPositionExpectationsFromPlan(plan);
-  assert.deepEqual(expectation, {
-    objectId: 'node:tax',
-    node: 'tax',
-    referenceBBox: [60, 200, 80, 40],
-    sourceReferenceBBox: [100, 200, 80, 40],
-    approvedTargetAuthority: 'user-directed-layout-correction',
-    approvedTargetReason: 'Move the label left to clear the adjacent flow.',
+test('A10 derives its expectations from interactive annotation groups in the DOM', () => {
+  const passing = classifySemanticAnnotationAudit({
+    annotations: [{ nodeId: 'other_income', metricExists: true, textCount: 2, hasHitbox: true }],
   });
-  const audit = classifyLabelPositionAudit({ labels: [{ node: 'tax', labelIndex: 0, box: { x: 60, y: 200, width: 80, height: 40 } }] }, [expectation]);
-  assert.deepEqual(audit.violations, []);
-  assert.deepEqual(audit.measurements[0].sourceReferenceBBox, [100, 200, 80, 40]);
-});
+  assert.deepEqual(passing.semanticAnnotationNodeIds, ['other_income']);
+  assert.deepEqual(passing.violations, []);
+  assert.deepEqual(classifySemanticAnnotationAudit({ annotations: [] }).violations, []);
 
-test('Build-bound render evidence cannot archive a failed planned label-position gate', () => {
-  const plan = {
-    requiredChecks: [{
-      id: 'feature:measured-label-position',
-      enforcement: 'conditional-gate',
-      evidenceKind: 'label-position-audit',
-      objectIds: ['node:tax'],
-    }],
-  };
-  assert.doesNotThrow(() => assertPlannedRenderAudits(plan, {
-    labelPositionAudit: { violations: [] },
-  }));
-  assert.throws(
-    () => assertPlannedRenderAudits(plan, {
-      labelPositionAudit: { violations: [{ node: 'tax', code: 'center-y-delta', delta: 19 }] },
-    }),
-    /tax:center-y-delta/
-  );
-  assert.throws(() => assertPlannedRenderAudits(plan, {}), /missing-audit/);
-});
-
-test('I12 paired-node annotation evidence requires every planned cluster and <=4px center delta', () => {
-  const plan = {
-    requiredChecks: [{
-      id: 'feature:paired-node-annotation',
-      enforcement: 'quantified-audit',
-      evidenceKind: 'annotation-pairing-audit',
-      evidenceTargets: ['annotations.product-icon'],
-      objectIds: ['asset:product-icon'],
-    }],
-  };
-  const passing = {
-    annotationPairingAudit: {
-      measurements: [{ annotationId: 'product-icon', nodeId: 'product', centerDeltaY: 4 }],
-      violations: [],
-    },
-  };
-  assert.doesNotThrow(() => assertPlannedRenderAudits(plan, passing));
-  assert.throws(() => assertPlannedRenderAudits(plan, {
-    annotationPairingAudit: {
-      measurements: [{ annotationId: 'product-icon', nodeId: 'product', centerDeltaY: 5 }],
-      violations: [{ annotationId: 'product-icon', nodeId: 'product', code: 'center-y-delta' }],
-    },
-  }), /product-icon:center-y-delta/);
-  assert.throws(() => assertPlannedRenderAudits(plan, {
-    annotationPairingAudit: { measurements: [], violations: [] },
-  }), /product-icon=missing-pair/);
-});
-
-test('semantic annotations require a bound metric, text, and renderer hitbox', () => {
-  const passingAudit = classifySemanticAnnotationAudit({
-    expectedNodeIds: ['other_income'],
-    annotations: [{
-      nodeId: 'other_income',
-      interactive: true,
-      metricExists: true,
-      textCount: 2,
-      hasHitbox: true,
-    }],
-  });
-  assert.deepEqual(passingAudit.violations, []);
-
-  const plan = {
-    requiredChecks: [{
-      id: 'feature:semantic-annotation',
-      enforcement: 'conditional-gate',
-      evidenceKind: 'annotation-semantics-audit',
-      objectIds: ['node:other-income'],
-    }],
-  };
-  assert.doesNotThrow(() => assertPlannedRenderAudits(plan, { semanticAnnotationAudit: passingAudit }));
-
-  const failedAudit = classifySemanticAnnotationAudit({
-    expectedNodeIds: ['other_income'],
-    annotations: [{
-      nodeId: 'other_income',
-      interactive: true,
-      metricExists: true,
-      textCount: 2,
-      hasHitbox: false,
-    }],
-    unboundNodeLikeTexts: [{ nodeId: 'other_income', text: 'Other' }],
+  const failing = classifySemanticAnnotationAudit({
+    annotations: [
+      { nodeId: '', metricExists: false, textCount: 1, hasHitbox: true },
+      { nodeId: 'ghost', metricExists: false, textCount: 0, hasHitbox: true },
+    ],
+    unboundNodeLikeTexts: [{ nodeId: 'revenue', text: 'Revenue' }],
   });
   assert.deepEqual(
-    failedAudit.violations.map((item) => item.code),
-    ['missing-annotation-hitbox', 'unbound-node-like-text']
-  );
-  assert.throws(
-    () => assertPlannedRenderAudits(plan, { semanticAnnotationAudit: failedAudit }),
-    /other_income:missing-annotation-hitbox.*other_income:unbound-node-like-text/
+    failing.violations.map((item) => `${item.nodeId}:${item.code}`),
+    [':missing-data-node', 'ghost:unknown-data-node', 'ghost:missing-annotation-text'],
+    'unbound text naming a node without an interactive group is not an A10 violation'
   );
 });

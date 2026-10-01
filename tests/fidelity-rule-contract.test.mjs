@@ -12,7 +12,6 @@ import {
 import {
   FIDELITY_RULES,
   catalogEnforcements,
-  catalogFeatureMappings,
 } from '../scripts/lib/fidelity-rules-catalog.mjs';
 import {
   GENERATED_BEGIN,
@@ -22,9 +21,8 @@ import {
 } from '../scripts/lib/fidelity-rules-doc.mjs';
 
 const SMALL_CONTRACT = Object.freeze({
-  enforcements: Object.freeze({ G1: 'hard-gate', T1: 'manual' }),
+  enforcements: Object.freeze({ G1: 'hard-gate', T1: 'conditional-gate' }),
   aliases: Object.freeze({ G9: 'G1' }),
-  featureMappings: Object.freeze({ text: Object.freeze(['T1']) }),
   codeRuleIds: Object.freeze(['G1']),
 });
 
@@ -44,50 +42,27 @@ function generatedDocument({ handwritten = '', generated = null } = {}) {
   ].join('\n');
 }
 
-test('default fidelity rule contract preserves the machine-gate catalog and feature mappings', () => {
-  assert.equal(Object.keys(FIDELITY_RULE_CONTRACT.enforcements).length, 25);
-  assert.equal(FIDELITY_RULES.length, 25);
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.G1, 'hard-gate');
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.G3d, 'hard-gate');
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.G4, 'hard-gate');
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.G8, 'hard-gate');
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.G11, 'build-gate');
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.G12, 'hard-gate');
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.B6, 'conditional-gate');
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.B15, 'conditional-gate');
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T22, 'build-gate');
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T6, 'quantified-audit');
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T7, 'conditional-gate');
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.A6, 'conditional-gate');
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.A10, 'conditional-gate');
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.I12, 'quantified-audit');
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T18, 'conditional-gate');
-  // Feature rules still compiled by VerificationPlan or checked by close-out.
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T19, 'build-gate');
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T23, 'build-gate');
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.B16, 'conditional-gate');
-  for (const id of ['B14', 'T14', 'T16', 'T17', 'T20']) {
-    assert.equal(FIDELITY_RULE_CONTRACT.enforcements[id], 'manual', id);
+test('default fidelity rule contract keeps only rules with a real execution point', () => {
+  assert.equal(Object.keys(FIDELITY_RULE_CONTRACT.enforcements).length, 17);
+  assert.equal(FIDELITY_RULES.length, 17);
+  for (const id of ['G1', 'G2', 'G3', 'G3d', 'G4', 'G8', 'G12', 'B6', 'B15']) {
+    assert.equal(FIDELITY_RULE_CONTRACT.enforcements[id], 'hard-gate', id);
+  }
+  for (const id of ['G11', 'T22']) {
+    assert.equal(FIDELITY_RULE_CONTRACT.enforcements[id], 'build-gate', id);
+  }
+  // Attribute-driven audits, plus the opt-in T18 label position.
+  for (const id of ['A6', 'A10', 'I12', 'T6', 'T7', 'T18']) {
+    assert.equal(FIDELITY_RULE_CONTRACT.enforcements[id], 'conditional-gate', id);
   }
   // Deleted IDs are gone for good and are never reused.
-  for (const id of ['G3a', 'G5', 'G9', 'G10', 'B3', 'B5', 'B8', 'L11', 'L15', 'R3', 'T13', 'T21', 'Z5', 'I11']) {
+  for (const id of [
+    'G3a', 'G5', 'G9', 'G10', 'B3', 'B5', 'B8', 'L11', 'L15', 'R3', 'T13', 'T21', 'Z5', 'I11',
+    'T14', 'T16', 'T17', 'T19', 'T20', 'T23', 'B14', 'B16',
+  ]) {
     assert.equal(FIDELITY_RULE_CONTRACT.enforcements[id], undefined, id);
   }
-  assert.deepEqual(FIDELITY_RULE_CONTRACT.featureMappings, {
-    'aligned-side-label-column': ['T6'],
-    'ambiguous-label-slot': ['T20'],
-    'annotation-near-label': ['A6'],
-    'centered-side-label': ['T7'],
-    'measured-label-position': ['T18', 'T19'],
-    'paired-node-annotation': ['I12'],
-    'semantic-annotation': ['A10', 'B16', 'T17'],
-    'specified-label-weight': ['B14', 'T16'],
-    text: ['B6'],
-    'visible-interface': ['G12'],
-    'visible-node-face': ['B15'],
-    'visible-short-node': ['T14'],
-    'zero-paint-node-slot': ['T23'],
-  });
+  assert.equal(Object.hasOwn(FIDELITY_RULE_CONTRACT, 'featureMappings'), false);
   assert.deepEqual(FIDELITY_RULE_CONTRACT.aliases, {});
 });
 
@@ -98,7 +73,6 @@ test('contract registries are derived from the structured catalog', () => {
     ),
     FIDELITY_RULE_CONTRACT.enforcements
   );
-  assert.deepEqual(catalogFeatureMappings(), FIDELITY_RULE_CONTRACT.featureMappings);
   for (const entry of FIDELITY_RULES) {
     assert.ok(entry.title.trim(), `${entry.id} has a title`);
   }
@@ -107,14 +81,14 @@ test('contract registries are derived from the structured catalog', () => {
 test('generated document validates as fresh and reference-complete', () => {
   const document = generatedDocument();
   const validated = validateFidelityRulesDocument(document);
-  assert.equal(validated.ruleCount, 25);
+  assert.equal(validated.ruleCount, 17);
   assert.ok(validated.references.includes('G1'));
   assert.ok(validated.references.includes('B15'));
   assert.ok(!validated.references.includes('T21'));
 });
 
 test('stale or tampered generated sections are rejected', () => {
-  const tampered = generatedDocument().replace('#### <a id="rule-g1"></a>G1 · hard-gate ·', '#### <a id="rule-g1"></a>G1 · manual ·');
+  const tampered = generatedDocument().replace('#### <a id="rule-g1"></a>G1 · hard-gate ·', '#### <a id="rule-g1"></a>G1 · build-gate ·');
   assert.throws(
     () => validateFidelityRulesDocument(tampered),
     (error) => error.code === 'RULE_DOCUMENT_STALE'
@@ -175,10 +149,10 @@ test('aliases must point directly to a canonical rule without replacing it', () 
   );
 });
 
-test('feature and executable mappings cannot reference unknown rules', () => {
+test('executable rule references cannot name unknown rules or retired enforcements', () => {
   assert.throws(
-    () => validateFidelityRuleContract({ ...SMALL_CONTRACT, featureMappings: { text: ['T2'] } }),
-    (error) => error.code === 'RULE_FEATURE_UNKNOWN'
+    () => validateFidelityRuleContract({ ...SMALL_CONTRACT, enforcements: { G1: 'manual' } }),
+    (error) => error.code === 'RULE_ENFORCEMENT_INVALID'
   );
   assert.throws(
     () => validateFidelityRuleContract({ ...SMALL_CONTRACT, codeRuleIds: ['G2'] }),

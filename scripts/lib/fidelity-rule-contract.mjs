@@ -1,4 +1,4 @@
-import { catalogEnforcements, catalogFeatureMappings } from './fidelity-rules-catalog.mjs';
+import { catalogEnforcements } from './fidelity-rules-catalog.mjs';
 
 const RULE_ID_SOURCE = '[GBRLTAZI][1-9][0-9]*[a-z]?';
 const RULE_ID_RE = new RegExp(`^${RULE_ID_SOURCE}$`);
@@ -8,13 +8,11 @@ export const FIDELITY_RULE_ENFORCEMENT = Object.freeze([
   'hard-gate',
   'build-gate',
   'conditional-gate',
-  'quantified-audit',
-  'manual',
 ]);
 
-// Enforcement and feature registries are derived from the structured rule
-// catalog (scripts/lib/fidelity-rules-catalog.mjs), which is the single
-// registration surface for rule semantics.
+// The enforcement registry is derived from the structured rule catalog
+// (scripts/lib/fidelity-rules-catalog.mjs), the single registration surface
+// for rule semantics.
 export const FIDELITY_RULE_ENFORCEMENTS = catalogEnforcements();
 
 // Aliases are intentionally empty until two existing rules are proven to have
@@ -22,17 +20,15 @@ export const FIDELITY_RULE_ENFORCEMENTS = catalogEnforcements();
 // prevents an old ID from silently acquiring a new meaning.
 export const FIDELITY_RULE_ALIASES = Object.freeze({});
 
-export const FIDELITY_FEATURE_RULE_IDS = catalogFeatureMappings();
-
 // This allow-list is deliberately smaller than the full catalog. The
 // architecture verifier scans executable scripts (excluding this registry)
 // and rejects any rule reference that is not declared here first.
 export const FIDELITY_CODE_RULE_IDS = Object.freeze([
   'A6', 'A10',
-  'B6', 'B14', 'B15', 'B16',
+  'B6', 'B15',
   'G1', 'G2', 'G3', 'G3d', 'G4', 'G8', 'G11', 'G12',
   'I12',
-  'T6', 'T7', 'T14', 'T16', 'T17', 'T18', 'T19', 'T20', 'T22', 'T23',
+  'T6', 'T7', 'T18', 'T22',
 ]);
 
 function contractError(code, message) {
@@ -88,18 +84,6 @@ export function validateFidelityRuleContract(input) {
   }
 
   const resolve = (id) => aliases[id] || id;
-  const featureMappings = {};
-  for (const [feature, ids] of Object.entries(input.featureMappings || {})) {
-    if (!feature.trim()) contractError('RULE_FEATURE_INVALID', 'Fidelity feature names cannot be empty');
-    const normalized = sortedUniqueStrings(ids, `feature ${feature}`);
-    if (!normalized.length) contractError('RULE_FEATURE_INVALID', `Feature ${feature} needs at least one rule`);
-    const unknown = normalized.filter((id) => !(resolve(id) in rules));
-    if (unknown.length) {
-      contractError('RULE_FEATURE_UNKNOWN', `Feature ${feature} references unknown rules: ${unknown.join(', ')}`);
-    }
-    featureMappings[feature] = normalized;
-  }
-
   const codeRuleIds = sortedUniqueStrings(input.codeRuleIds || [], 'codeRuleIds');
   const unknownCodeIds = codeRuleIds.filter((id) => !(resolve(id) in rules));
   if (unknownCodeIds.length) {
@@ -109,9 +93,6 @@ export function validateFidelityRuleContract(input) {
   return deepFreeze({
     enforcements: Object.fromEntries(Object.entries(rules).sort(([left], [right]) => left.localeCompare(right))),
     aliases: Object.fromEntries(Object.entries(aliases).sort(([left], [right]) => left.localeCompare(right))),
-    featureMappings: Object.fromEntries(
-      Object.entries(featureMappings).sort(([left], [right]) => left.localeCompare(right))
-    ),
     codeRuleIds,
   });
 }
@@ -119,7 +100,6 @@ export function validateFidelityRuleContract(input) {
 export const FIDELITY_RULE_CONTRACT = validateFidelityRuleContract({
   enforcements: FIDELITY_RULE_ENFORCEMENTS,
   aliases: FIDELITY_RULE_ALIASES,
-  featureMappings: FIDELITY_FEATURE_RULE_IDS,
   codeRuleIds: FIDELITY_CODE_RULE_IDS,
 });
 

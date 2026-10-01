@@ -1,9 +1,9 @@
 // Pure, media-neutral facts. Text anchors are UTF-16 ranges (String.slice);
 // image anchors are native pixel boxes. Neither is synthesized from the other.
-import { digestCanonical, createObjectInventory } from './object-inventory.mjs';
+// compileMetricFacts also emits the flat source-objects/v1 list for the Build.
+import { digestCanonical } from './source-objects.mjs';
 
 export const SOURCE_FACTS_PROTOCOL = 'source-facts/v1';
-export const METRIC_COVERAGE_PROTOCOL = 'source-coverage/v3';
 export const METRIC_RECORD_PROTOCOL = 'metric-observations/v1';
 const ID = /^[a-z0-9]+(?:[._:-][a-z0-9]+)*$/;
 const DECIMAL = /^-?(?:0|[1-9]\d*)(?:\.\d+)?$/;
@@ -57,7 +57,7 @@ export function compileMetricFacts(input, { key, source, text = null }) {
   requireThat(Array.isArray(input.metrics) && input.metrics.length > 0, 'At least one metric is required');
   requireThat(Array.isArray(input.questions || []), 'questions must be an array');
   const ids = new Set();
-  const items = [];
+  const objects = [];
   const metrics = input.metrics.map((item) => {
     requireThat(ID.test(item.id) && !ids.has(item.id), 'Metric ids must be stable and unique within a Source');
     ids.add(item.id);
@@ -74,14 +74,14 @@ export function compileMetricFacts(input, { key, source, text = null }) {
       ...(item.period ? { period: nonempty(item.period, 'Metric period') } : {}),
       ...(item.basis ? { basis: nonempty(item.basis, 'Metric basis') } : {}),
     };
-    items.push({ sourceId: `source:${item.id}`, sourceClass: 'metric-observation', sourceLabel: name, inventoryObjectIds: [`metric:${item.id}`], anchor, quote: item.quote, amount: { literal, value, unit }, ssotRef: { family: 'metric-observation', id: item.id } });
+    objects.push({ id: `metric.${item.id}`, class: 'value', label: name, literal, value, unit, ssotRef: { family: 'metric-observation', id: item.id } });
     return metric;
   });
   const context = (input.context || []).map((item, i) => {
     requireThat(['subject', 'period', 'unit', 'basis', 'annotation'].includes(item.field), 'Context needs an explicit field');
     const anchor = validateAnchor(item.anchor, item.quote, source, text);
     if (item.field === 'annotation') nonempty(item.reason, 'Annotation context reason');
-    items.push({ sourceId: `source:context-${i}`, sourceClass: 'label-or-annotation', sourceLabel: item.quote, inventoryObjectIds: [`context:${i}`], anchor, quote: item.quote });
+    objects.push({ id: `context.${i}`, class: 'label', literal: item.quote });
     return { field: item.field, quote: item.quote, anchor, ...(item.reason ? { reason: item.reason } : {}) };
   });
   const exclusions = (input.exclusions || []).map((item, i) => {
@@ -89,7 +89,7 @@ export function compileMetricFacts(input, { key, source, text = null }) {
     requireThat(!/其他|other/i.test(item.quote), 'Other-like content must remain a semantic object');
     const reason = nonempty(item.reason, 'Exclusion reason');
     const anchor = validateAnchor(item.anchor, item.quote, source, text);
-    items.push({ sourceId: `source:excluded-${i}`, sourceClass: 'non-semantic-residual', sourceLabel: item.quote, inventoryObjectIds: [`excluded:${i}`], anchor, quote: item.quote, reason, residualKind: item.kind });
+    objects.push({ id: `excluded.${i}`, class: 'residual', literal: item.quote, reason });
     return { kind: item.kind, reason, quote: item.quote, anchor };
   });
   const quoted = [...metrics, ...context].map((item) => item.quote).join('\n');
@@ -116,32 +116,7 @@ export function compileMetricFacts(input, { key, source, text = null }) {
     questions: (input.questions || []).map((question) => nonempty(question, 'Question')),
     source: { ...source },
   };
-  const inventory = createObjectInventory({ datasetKey: key, objects: items.map((item) => ({
-    id: item.inventoryObjectIds[0], kind: item.sourceClass,
-    disposition: item.sourceClass === 'non-semantic-residual' ? 'skip' : 'data-only',
-    mapping: item.sourceClass === 'non-semantic-residual' ? [] : [{ role: 'data', target: `metrics.${item.inventoryObjectIds[0].replace(':', '.')}` }],
-    features: [], ...(item.reason ? { skipReason: item.reason } : {}),
-  })) });
-  return { record: { ...record, recordDigest: digestCanonical(record) }, inventory, coverageInput: { items, scanPasses: source.format === 'text' ? ['semantic-value', 'residual'] : ['semantic-value', 'geometry', 'residual'] } };
-}
-
-export function createMetricCoverage(input, { source, classification, inventory }) {
-  requireThat(source.digest === classification.source.digest && source.charLength === classification.source.charLength && source.width === classification.source.width && source.height === classification.source.height, 'Coverage differs from the classified Source');
-  const required = source.format === 'text' ? ['residual', 'semantic-value'] : ['geometry', 'residual', 'semantic-value'];
-  requireThat(JSON.stringify([...(input.scanPasses || [])].sort()) === JSON.stringify(required), 'Complete Source scans are required');
-  const seen = new Set();
-  const objectIds = new Set(inventory.objects.map((item) => item.id));
-  const items = (input.items || []).map((item) => {
-    requireThat(!seen.has(item.sourceId) && item.sourceId.startsWith('source:'), 'Source object ids must be unique');
-    seen.add(item.sourceId);
-    validateAnchor(item.anchor, item.quote, source);
-    requireThat(item.inventoryObjectIds?.length === 1 && objectIds.delete(item.inventoryObjectIds[0]), 'Each Source object must map to exactly one inventory object');
-    return { ...item };
-  });
-  requireThat(items.length && !objectIds.size, 'Source coverage must account for every inventoried object');
-  const value = { schemaVersion: 3, protocol: METRIC_COVERAGE_PROTOCOL, kind: 'source-coverage', datasetKey: inventory.datasetKey, adapter: 'metric-observation', classificationDigest: classification.classificationDigest, inventoryDigest: inventory.inventoryDigest, source, scanPasses: required, items,
-    summary: { sourceObjects: items.length, inventoryObjects: inventory.objects.length, semantic: items.filter((i) => i.amount).length, skippedResidual: items.filter((i) => i.residualKind).length, visibleNodeIds: [], visibilityFloorExceptionNodeIds: [] } };
-  return { ...value, coverageDigest: digestCanonical(value) };
+  return { record: { ...record, recordDigest: digestCanonical(record) }, objects };
 }
 
 export function validateMetricRecord(record) {

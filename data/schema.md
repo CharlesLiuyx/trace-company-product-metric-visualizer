@@ -313,7 +313,7 @@ types: their signs remain authoritative.
 view of the same reported revenue total (for example, customer type alongside
 license type). It never participates in the primary `revenue.items` sum. Each
 breakdown must have a stable id, a `total` equal to `revenue.total`, and items
-that sum to that breakdown total. Source Coverage may reference either a
+that sum to that breakdown total. A value Source object may reference either a
 breakdown total or one of its items through
 `{ family: 'income-statement', path: 'revenue.breakdowns', id }` so every
 visible value in an orthogonal Source breakdown still reconciles to pure SSOT
@@ -323,13 +323,13 @@ data and exactly one Sankey node or non-node metric.
 gross profit, such as gross profit split by ecosystem or business line. Its
 items must sum to `profit.gross.value` within `roundingTolerance`; each item
 uses a stable id and may carry notes and localized labels like other financial
-items. Source Coverage references these values through
+items. Value Source objects reference these values through
 `{ family: 'income-statement', path: 'profit.gross.items', id }`.
 
 `profit.operating.items` is the parallel optional breakdown for
 Source-visible contributions to operating profit, such as operating profit by
 business unit. Its items must sum to `profit.operating.value` within
-`roundingTolerance`. Source Coverage references them through
+`roundingTolerance`. Value Source objects reference them through
 `{ family: 'income-statement', path: 'profit.operating.items', id }`; a Source
 callout without an independent node face uses an Adapter non-node metric rather
 than inventing Sankey node geometry.
@@ -338,7 +338,7 @@ Payment-network income statements may additionally preserve the Source's
 gross-to-net bridge under `revenue.paymentNetwork`: `gross` is the unlabeled or
 labeled gross payment-network total, `grossItems` are the Source-visible fee
 inputs, and `rebates` is the positive-magnitude contra-revenue face used by the
-Sankey View. These observations reconcile through the typed Source Coverage
+Sankey View. These observations reconcile through the typed `ssotRef`
 paths with the same names. They do not replace `revenue.total` or the ordinary
 `revenue.items` net-revenue composition, and they must not be flattened into
 ordinary positive revenue items when doing so would break net-revenue
@@ -403,113 +403,78 @@ Observation-level `notes` are optional, user-visible methodology or caveat
 strings attached to individual data points. Localize them through the revenue
 metric i18n flow when present.
 
-### Source Coverage value references
+### Source object value references
 
-`source-coverage/v2` keeps Source-reading facts separate from the Metric SSOT,
-but every value-bearing Source observation must point back to an actual SSOT
-value with a typed `ssotRef`. Its `amount` preserves the literal Source text,
-exact decimal `value`, display `unit` (`K`, `M`, `B`, or `T`), and positive
-`resolution`, all as strings so author input is not silently rounded before
-verification. The exact value must remain inside the half-resolution rounding
-interval implied by the literal; a supplemental source cannot justify a value
-that the primary display could not have rounded to.
+The `source-objects/v1` list (authored as `source-facts/v1` `objects[]`; rules in
+[`docs/dynamic-dataset-workflow.md`](../docs/dynamic-dataset-workflow.md)) keeps
+Source-reading facts separate from the Metric SSOT, but every `value` entry must
+point back to an actual SSOT value with a typed `ssotRef`. It preserves the
+literal Source text, the exact decimal `value`, and the display `unit` (`K`, `M`,
+`B`, or `T`) as strings so author input is not silently rounded before
+verification. The exact value must remain inside the rounding interval of its
+own literal (`$18.5B` covers 18.45–18.55B); a supplemental source cannot justify
+a value that the primary display could not have rounded to.
 
 When the primary Source literal displays zero only because it rounded a real
 non-zero value (for example, `$0.0B`), preserve the primary literal but recover
 the actual amount from an authoritative supplemental source:
 
 ```js
-amount: {
-  literal: '$0.0B',
-  value: '0.04',
-  unit: 'B',
-  resolution: '0.1',
-  precisionRecovery: {
-    method: 'authoritative-supplemental-source',
-    locator: 'https://example.com/authoritative-filing',
-    literal: '$40M',
-  },
-}
+{ id: 'other', class: 'value', literal: '$0.0B', value: '0.04', unit: 'B',
+  ssotRef: { family: 'income-statement', path: 'revenue.items', id: 'other' }, node: 'other',
+  precisionRecovery: { literal: '$40M', reason: 'FY26 10-K segment note' } }
 ```
 
-The supplemental literal must include a numeric K/M/B/T amount and normalize
-to exactly the same effective value as `amount.value` (here `$40M = $0.04B`).
-`precisionRecovery` is forbidden when the primary literal did not round a
-non-zero value to zero. If no authoritative higher-precision value can be
-recovered, stop the Build; do not write `0` as a guess.
+The recovered literal must include a numeric K/M/B/T amount and normalize to
+exactly the same effective value (here `$40M = $0.04B`). `precisionRecovery` is
+forbidden when the primary literal did not round a non-zero value to zero. If no
+authoritative higher-precision value can be recovered, stop the Build; do not
+write `0` as a guess.
 
-If a zero-looking primary literal conflicts with the authoritative value even
-after applying its declared rounding resolution, it is not precision recovery.
-It may proceed only as a user-approved `numeric-typo`
-`authoritativeCorrection`, preserving the original zero-looking literal and
-recording an official literal plus a corrected display literal in the authored
-unit. A zero-looking literal cannot use the `unit-typo` branch.
-
-For a confirmed non-zero unit typo, preserve the original Source literal and
-record an explicit, user-approved correction:
+For a confirmed unit or numeric typo, preserve the original Source literal and
+record an explicit, user-approved correction whose `literal` is the corrected
+display:
 
 ```js
-amount: {
-  literal: '$3.3M',
-  value: '3.3',
-  unit: 'B',
-  resolution: '0.1',
+{ id: 'cost-of-revenue', class: 'value', literal: '$3.3M', value: '3.3', unit: 'B',
+  ssotRef: { family: 'income-statement', path: 'costs.costOfRevenue', id: 'cost_of_revenue' },
+  node: 'cost_of_revenue',
   authoritativeCorrection: {
-    method: 'authoritative-source-correction',
-    issue: 'unit-typo',
+    literal: '$3.3B',
     approval: 'user-directed-source-correction',
-    locator: 'https://www.sec.gov/example',
-    authoritativeLiteral: '$3,334M',
-    correctedLiteral: '$3.3B',
-    reason: 'The Source suffix conflicts with the official filing and chart geometry.',
-  },
-}
+    reason: 'The Source suffix conflicts with the official filing ($3,334M) and chart geometry.',
+  } }
 ```
 
 This correction is valid only when the original literal conflicts with the
-authored amount, while both the authoritative value and corrected literal
-support it inside the declared rounding interval. The corrected literal unit
-must match `amount.unit`. Do not use this mechanism for an unverified
-discrepancy, a value change, or a zero-looking rounded amount; the latter uses
+authored amount; the corrected literal must use the authored unit and express
+the amount within its own rounding interval. Do not use it for an unverified
+discrepancy or a zero-looking rounded amount; the latter uses
 `precisionRecovery`. The two mechanisms are mutually exclusive.
 
 | Adapter | typed reference | resolved authored value |
 | --- | --- | --- |
-| Income Statement | `{ family: 'income-statement', path, id }` | the matching record selected by dataset key; `path` covers revenue (including optional independent `revenue.breakdowns`), cost (including `costs.costOfRevenue.items`), profit (including optional `profit.gross.items` and `profit.operating.items`), and operating/non-operating other-income/expense totals or items; item paths search nested `children` by `id`, while total paths use their stable node ID |
+| Income Statement | `{ family: 'income-statement', path, id }` | the matching record selected by dataset key; `path` covers revenue (including optional independent `revenue.breakdowns`), cost (including `costs.costOfRevenue.items`), profit (including optional `profit.gross.items` and `profit.operating.items`), and operating/non-operating other-income/expense totals or items; item paths search nested `children` by `id`, while total paths use their stable node ID (and may omit `id`) |
 | Revenue Metric | `{ family: 'revenue-metric', path: 'observations', date }` | the matching record's observation at the exact `YYYY-MM-DD` date |
 
-During current M3 `prepare-review`, verification converts the Source amount
-to the SSOT record's unit and compares it with the value loaded from these
-registered records. Income Statement preparation also loads the registered
-Sankey View and requires each financial Source fact to match exactly one
-Adapter node or non-node metric target. Only a node target may carry a face
-observation. The review input cannot
-replace those loaded values: a missing record/View, unsupported unit or path,
-wrong ID/date, or unequal amount fails before a new authored review snapshot
-is recorded. A recovered non-zero amount must also remain non-zero at display
-precision: increase the SSOT record's `decimals`, and for an Income Statement
-increase Adapter `meta.decimals` or provide an exact non-zero node
-`valueText`. The lifecycle ownership and coverage rules live in
+During `prepare`, verification converts the Source amount to the SSOT record's
+unit and compares it with the value loaded from these registered records.
+Income Statement preparation also loads the registered Sankey View and requires
+each financial value to name exactly one Adapter `node` or `nonNodeMetric` with
+the same value. The review input cannot replace those loaded values: a missing
+record/View, unsupported unit or path, wrong ID/date, missing target, or unequal
+amount fails before a new authored review snapshot is recorded. A recovered
+non-zero amount must also remain non-zero at display precision: increase the
+SSOT record's `decimals`, and for an Income Statement increase Adapter
+`meta.decimals` or provide an exact non-zero node `valueText`. The lifecycle
+ownership rules live in
 [`docs/architecture/dataset-lifecycle.md`](../docs/architecture/dataset-lifecycle.md).
 
-Semantic nodes normally declare a Source-painted face with `claim: 'visible'`,
-`searchBBox`, and `observedBBox`. When an operator explicitly directs the
-restoration of missing Sankey topology supported by Source values and labels
-but absent from the exported raster, use:
-
-```js
-face: {
-  claim: 'design-specified',
-  authority: 'user-directed-topology-restoration',
-  reason: 'Restore the missing right-hand continuation and bar.',
-  targetBBox: [x, y, width, height],
-}
-```
-
-This is forbidden for agent-only inference. It records intended candidate
-geometry without claiming Source pixels; the affected interfaces must use
-design-specified full-face G12 coverage and pass the normal node-paint, value,
-and review gates.
+A value mapped to a node must render a painted face (B15). A genuine Source face
+thinner than 3px is declared at the top level of the facts as
+`shortNodes: [{ node, reason }]`. When the operator directs the restoration of
+Sankey topology absent from the exported raster, author the node and its value
+entry as usual; the human review records that decision.
 
 ---
 
@@ -694,11 +659,9 @@ DOM text and remain governed by the existing raster whitelist.
 Use `layout.labels.<node-id>` for Sankey node name/value/note copy by default.
 If the reference image proves that a metric has no node face and appears only
 as a bespoke callout or guide in `annotationsSvg`, declare it in
-`nonNodeMetrics` with `representation: "annotation"`. Its `ObjectInventory`
-object maps both `nonNodeMetrics.<id>` and `annotations.*`, declares
-`semantic-annotation`, and binds a native-pixel
-source crop, bbox, Source digest, inspection method, classification claim, and
-reason. The SVG group must be explicit:
+`nonNodeMetrics` with `representation: "annotation"`; its value Source object
+names that `nonNodeMetric`. The SVG group must be explicit (A10 audits every
+such group):
 
 ```html
 <g class="sankey-interactive-annotation" data-node="other_income">
@@ -935,19 +898,16 @@ Quotes retain
 the label, literal and all notes; anchors use native Source pixels.
 `basis: "unspecified"` preserves an unstated Source basis.
 
-Source Coverage class `operating-metric` requires `observation` containing the
-five value fields (`value`, `unit`, `currency`, `comparison`, `literal`),
-`quote`, `contentBBox`, and typed
-`ssotRef: { family: "income-statement", path: "operatingMetrics", id }`.
-Its inventory maps once to `incomeStatement.operatingMetrics.<id>` (data) and
-`operatingMetrics.<id>` (render), with `text` and applicable annotation features.
-It cannot map to a financial node or use a node-face observation.
+Each card is one `value` Source object with the five value fields (`value`,
+`unit`, `currency`, `comparison`, `literal`), its `label`, the `quote`, and typed
+`ssotRef: { family: "income-statement", path: "operatingMetrics", id }`. It
+cannot name a financial node or non-node metric.
 
 The View Adapter mirrors each item's `id` and five value fields in its own
 `operatingMetrics` array. Its SVG uses exactly one plain
 `<text data-operating-metric="dbnr">&gt; 119%</text>` per metric, in every locale.
 `verify:ssot` validates the exact SSOT/View/literal parity; review preparation
-also rejects missing or duplicated Source coverage and changed quotes/anchors.
+also rejects a missing or duplicated value entry and changed labels or quotes.
 Normal text/annotation fidelity and per-locale visual inspection apply to the
 card and its dedicated value text. Labels and notes localize through the
 financial overlay; values, literals, units, comparisons, quotes and anchors

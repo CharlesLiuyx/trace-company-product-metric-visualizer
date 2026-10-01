@@ -9,7 +9,7 @@ import {
 import {
   SOURCE_CLASSIFICATION_REVIEW_METHOD,
   createSourceClassification,
-} from '../scripts/lib/source-coverage.mjs';
+} from '../scripts/lib/source-objects.mjs';
 
 const digest = (value) => digestValue({ value });
 const now = () => '2026-07-10T12:00:00.000Z';
@@ -38,7 +38,7 @@ function authored(build) {
       { path: `data/datasets/${build.key}.js`, digest: digest(`${build.key}-adapter`) },
       { path: 'data/income-statements/example.js', digest: digest(`${build.key}-ssot`) },
     ],
-    inventory: { digest: digest(`${build.key}-inventory`), rendered: 8, dataOnly: 1, skipped: 2 },
+    sourceObjects: { digest: digest(`${build.key}-source-objects`) },
     changeImpact: ['new-dataset', 'geometry'],
   }, { now });
 }
@@ -155,7 +155,7 @@ test('SEALED Build re-authors with an explicit reopen marker while retaining pri
     type: 'record-authored',
     expectedRevision: build.revision,
     artifacts: [{ path: `data/datasets/${build.key}.js`, digest: digest('corrected-adapter') }],
-    inventory: { digest: digest('corrected-inventory'), rendered: 8, dataOnly: 1, skipped: 2 },
+    sourceObjects: { digest: digest('corrected-source-objects') },
     changeImpact: ['geometry', 'interaction'],
   }, { now });
 
@@ -197,7 +197,7 @@ test('Build revision is an item-level CAS', () => {
       type: 'record-authored',
       expectedRevision: 9,
       artifacts: [],
-      inventory: {},
+      sourceObjects: {},
       changeImpact: ['new-dataset'],
     }, { now }),
     (error) => error.code === 'STALE_REVISION'

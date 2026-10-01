@@ -13,7 +13,7 @@ export async function workflowHtml(title, content, script = '') {
   return template.replaceAll('{{TITLE}}', escapeHtml(title)).replace('{{CONTENT}}', content).replace('{{SCRIPT}}', script.replace(/<\/script/gi, '<\\/script'));
 }
 export { currentEvidence };
-const MANUAL_LABELS = { 'adapter:source-coverage-review': '原材料中的数据和必要说明已完整处理，没有漏项或误读', 'adapter:manual-visual-closure': '图形、标签和图标已逐项看过，显示正确', 'impact:documentation-contract': '本次说明与实际处理一致' };
+const MANUAL_LABELS = { 'adapter:human-review': '对照原材料核对了全部数据、必要说明与候选图，没有漏项、误读或显示错误' };
 function manualScopes(current) {
   return (current.plan?.requiredChecks || []).filter((check) => check.enforcement === 'manual').flatMap((check) => (check.localeScope === 'global' ? [null] : current.plan.requiredLocales).map((locale) => ({ check, locale })));
 }
@@ -26,7 +26,7 @@ export async function reviewInputsFor(current) {
     reviewToken: current.reviewToken,
     evidenceManifests: latest.map(({ locator }) => locator),
     interfaceMatrix: entries.length ? matrixFromEvidence(entries.find((entry) => entry.locale === 'en') || entries[0], current.plan.sourceDigest) : null,
-    manual: manualScopes(current).map(({ check, locale }) => ({ checkId: check.id, ...(locale ? { locale } : {}), evidenceDigests: [...new Set([...(locale ? [entries.find((entry) => entry.locale === locale)?.digest].filter(Boolean) : [current.plan.sourceCoverageDigest, current.plan.sourceDigest]), ...(check.featureEvidenceDigests || [])])] })),
+    manual: manualScopes(current).map(({ check, locale }) => ({ checkId: check.id, ...(locale ? { locale } : {}), evidenceDigests: locale ? [entries.find((entry) => entry.locale === locale)?.digest].filter(Boolean) : [current.plan.sourceObjectsDigest, current.plan.sourceDigest] })),
   };
 }
 // Short form: { reviewToken, previewId, reviewer, decision, note }. The

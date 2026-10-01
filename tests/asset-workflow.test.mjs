@@ -34,7 +34,7 @@ test('text and PNG facts normalize to identical metric identities and exact valu
   for (const [i, item] of [...picture.context, ...picture.metrics].entries()) item.anchor = { type: 'image-box', box: [0, i * 10, 100, 10] };
   const image = compileMetricFacts(picture, { key: 'example', source: { locator: 'source.png', digest: bytesDigest('image'), width: 100, height: 100 } });
   assert.deepEqual(text.record.metrics.map((item) => [metricIdentity(text.record, item), item.value, item.unit, item.currency]), image.record.metrics.map((item) => [metricIdentity(image.record, item), item.value, item.unit, item.currency]));
-  assert.equal(text.inventory.objects.length, 4);
+  assert.deepEqual(text.objects.map((item) => [item.id, item.class]), [['metric.revenue', 'value'], ['metric.net-profit', 'value'], ['context.0', 'label'], ['context.1', 'label']]);
 });
 test('omissions, wrong anchors, fabricated values and currency swaps fail before authoring', () => {
   const input = facts(); input.metrics.pop();
@@ -91,7 +91,7 @@ test('two actual CLI Sessions intake independently, fence wrong writers, and arc
   assert.ok(existsSync(path.join(root, 'input/processing/session-b.txt')));
 });
 function reviewFor(current, decision = 'accepted') {
-  return { reviewToken: current.reviewToken, attestation: { reviewer: 'synthetic-test-reviewer', decision, note: 'Synthetic fixture; not a real dataset acceptance' }, attention: { status: 'closed', closureNote: 'Source and rows inspected in the fixture' }, manualCheckDecisions: [{ checkId: 'adapter:source-coverage-review', status: 'passed', evidenceDigests: [current.plan.sourceDigest, current.plan.sourceCoverageDigest], note: 'Fixture coverage compared' }] };
+  return { reviewToken: current.reviewToken, attestation: { reviewer: 'synthetic-test-reviewer', decision, note: 'Synthetic fixture; not a real dataset acceptance' }, attention: { status: 'closed', closureNote: 'Source and rows inspected in the fixture' }, manualCheckDecisions: [{ checkId: 'adapter:human-review', status: 'passed', evidenceDigests: [current.plan.sourceDigest, current.plan.sourceObjectsDigest], note: 'Fixture Source objects compared' }] };
 }
 async function completed(root, key, input) {
   const started = await intake(root, key, input);
@@ -134,6 +134,27 @@ test('text intake to sealed Build preserves source, isolates drafts, requires re
   assert.equal((await showAsset(started.buildId, root)).fresh, true);
   await writeFile(path.join(started.workspace, 'src/new-runtime.js'), '// newly introduced executable dependency\n');
   assert.equal((await showAsset(started.buildId, root)).fresh, false);
+});
+test('a Build prepared under an older Plan protocol still shows and continue re-prepares it', async (t) => {
+  const root = await fixture(t);
+  const started = await intake(root);
+  const prepared = await continueAsset(started.buildId, root);
+  assert.equal(prepared.plan.protocol, 'verification-plan/v6');
+  const manifestPath = path.join(root, 'output/builds', started.buildId, 'manifest.json');
+  const manifest = JSON.parse(await readFile(manifestPath, 'utf8'));
+  const authored = manifest.receipts.at(-1).payload;
+  authored.verificationPlan = { ...authored.verificationPlan, schemaVersion: 5, protocol: 'verification-plan/v5' };
+  authored.inventory = { digest: authored.sourceObjects.digest };
+  delete authored.sourceObjects;
+  await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+
+  const stale = await showAsset(started.buildId, root);
+  assert.equal(stale.state, 'AUTHORED');
+  assert.equal(stale.plan.protocol, 'verification-plan/v5');
+  assert.equal(stale.next, 'prepare');
+  const current = await continueAsset(started.buildId, root);
+  assert.equal(current.plan.protocol, 'verification-plan/v6');
+  assert.equal(current.next, 'review');
 });
 test('publication rejects partial or changed candidates, commits atomically, recovers unknown outcomes and is idempotent', async (t) => {
   const root = await fixture(t);

@@ -5,46 +5,12 @@ import {
   MIN_VISIBLE_FACE_PX,
   assessNodePaintAudit,
   assertNodePaintPolicy,
-  compileNodeFacePolicy,
   isFaceBelowVisibilityFloor,
+  nodeFaceExpectations,
 } from '../scripts/lib/node-face-policy.mjs';
 
-const COVERAGE_DIGEST = `sha256:${'c'.repeat(64)}`;
-const SOURCE_DIGEST = `sha256:${'a'.repeat(64)}`;
-
-function sourceCoverage({
-  visible = ['other'],
-  exceptionNode = null,
-  referenceFaceHeightPx = 2,
-} = {}) {
-  const visibleItems = visible.map((nodeId) => ({
-    sourceId: `source:${nodeId.replaceAll('_', '-')}`,
-    nodeTargets: [nodeId],
-    face: {
-      searchBBox: [100, 200, 80, 12],
-      observedBBox: [104, 205, 72, referenceFaceHeightPx],
-      ...(nodeId === exceptionNode
-        ? {
-            floorException: {
-              type: 'source-visible-face-below-floor',
-              inspectionMethod: 'native-scale-crop-and-pixel-scan',
-              locator: `input/processing/example-fy25.png#${nodeId}-face`,
-              digest: SOURCE_DIGEST,
-              reason: `The native Source contains a genuine ${referenceFaceHeightPx}px visible face.`,
-            },
-          }
-        : {}),
-    },
-  }));
-  return {
-    schemaVersion: 2,
-    protocol: 'source-coverage/v2',
-    coverageDigest: COVERAGE_DIGEST,
-    summary: {
-      visibleNodeIds: [...visible].sort(),
-    },
-    items: visibleItems,
-  };
+function sourceObjects({ valueNodeIds = ['other'], shortNodeIds = [], adapter = 'income-statement' } = {}) {
+  return { adapter, summary: { valueNodeIds, shortNodeIds } };
 }
 
 function node(id, { faceVisible = true, faceHeight = 4 } = {}) {
@@ -72,122 +38,83 @@ function violationCodes(assessment) {
   return assessment.violations.map((item) => item.code);
 }
 
+test('expectations come from source-objects value nodes and shortNodes, and only for Sankey Builds', () => {
+  assert.deepEqual(
+    nodeFaceExpectations(sourceObjects({ valueNodeIds: ['tax', 'other'], shortNodeIds: ['other'] })),
+    { visible: ['other', 'tax'], short: ['other'], complete: true }
+  );
+  assert.equal(nodeFaceExpectations(sourceObjects({ adapter: 'revenue-metric' })), null);
+  assert.equal(nodeFaceExpectations(null), null);
+});
+
 test('an unbound diagnostic treats every below-floor visible face as a B15 failure', () => {
   const assessment = assessNodePaintAudit(audit([node('other', { faceHeight: 2 })]));
-
   assert.equal(assessment.passed, false);
   assert.deepEqual(violationCodes(assessment), ['visibility-floor-failed']);
   assert.throws(
     () => assertNodePaintPolicy(audit([node('other', { faceHeight: 2 })])),
-    (error) => error.code === 'NODE_FACE_POLICY_FAILED' && /Plan-bound run/.test(error.message)
+    (error) => error.code === 'NODE_FACE_POLICY_FAILED'
+  );
+  assert.equal(
+    assessNodePaintAudit(audit([node('other', { faceHeight: 2 })]), null, { enforceUnboundFloor: false }).passed,
+    true,
+    'catalog regression records but does not adjudicate the floor'
   );
 });
 
-test('zero or missing painted-face geometry cannot bypass the B15 floor audit', () => {
-  const zero = assessNodePaintAudit(audit([node('other', { faceHeight: 0 })]));
-  assert.equal(zero.passed, false);
-  assert.ok(violationCodes(zero).includes('visibility-floor-failed'));
-
-  const missing = audit([node('other', { faceHeight: 4 })]);
-  delete missing.nodes[0].faceHeight;
-  missing.belowVisibilityFloorNodeIds = [];
-  const missingAssessment = assessNodePaintAudit(missing);
-  assert.equal(missingAssessment.passed, false);
-  assert.ok(violationCodes(missingAssessment).includes('face-height-invalid'));
-});
-
-test('B15 rejects an expected-visible face below 3px by default', () => {
-  const policy = compileNodeFacePolicy(sourceCoverage());
-  const assessment = assessNodePaintAudit(audit([node('other', { faceHeight: 2 })]), policy);
-
+test('the floor applies the shared raster tolerance', () => {
   assert.equal(MIN_VISIBLE_FACE_PX, 3);
   assert.equal(FACE_FLOOR_RASTER_TOLERANCE_PX, 0.5);
-  assert.equal(assessment.passed, false);
-  assert.deepEqual(violationCodes(assessment), ['expected-visible-failed']);
-  assert.match(assessment.checks['visible:other'].message, /no Source-bound exception/);
-  assert.throws(
-    () => assertNodePaintPolicy(audit([node('other', { faceHeight: 2 })]), policy),
-    (error) => error.code === 'NODE_FACE_POLICY_FAILED' &&
-      error.assessment?.checks['visible:other']?.status === 'failed'
-  );
+  assert.equal(isFaceBelowVisibilityFloor(2.5), false);
+  assert.equal(isFaceBelowVisibilityFloor(2.49), true);
+  assert.equal(isFaceBelowVisibilityFloor(0), true);
 });
 
-test('a typed Source-bound exception permits the matching measured short face', () => {
-  const policy = compileNodeFacePolicy(sourceCoverage({
-    exceptionNode: 'other',
-    referenceFaceHeightPx: 2,
-  }));
-  const assessment = assertNodePaintPolicy(
-    audit([node('other', { faceHeight: 2 })]),
-    policy
-  );
-
-  assert.equal(assessment.passed, true);
-  assert.equal(assessment.checks['visible:other'].status, 'passed');
-  assert.deepEqual(policy.belowFloorExceptions, [{
-    sourceId: 'source:other',
-    nodeId: 'other',
-    referenceFaceHeightPx: 2,
-    evidenceDigest: COVERAGE_DIGEST,
-  }]);
-});
-
-test('a floor exception does not permit a candidate materially shorter than the Source face', () => {
-  const policy = compileNodeFacePolicy(sourceCoverage({
-    exceptionNode: 'other',
-    referenceFaceHeightPx: 2,
-  }));
-  const assessment = assessNodePaintAudit(
-    audit([node('other', { faceHeight: 1 })]),
-    policy
-  );
-
-  assert.equal(assessment.passed, false);
-  assert.match(
-    assessment.checks['visible:other'].message,
-    /below Source referenceFaceHeightPx=2px beyond rasterTolerancePx=0.5px/
-  );
-});
-
-test('a floor exception never waives a missing expected-visible node', () => {
-  const policy = compileNodeFacePolicy(sourceCoverage({ exceptionNode: 'other' }));
-  const assessment = assessNodePaintAudit(audit([]), policy);
-
-  assert.equal(assessment.passed, false);
-  assert.match(assessment.checks['visible:other'].message, /observed missing/);
-});
-
-test('a valid short-face exception never waives an unclassified rendered node', () => {
-  const policy = compileNodeFacePolicy(sourceCoverage({
-    visible: ['other'],
-    exceptionNode: 'other',
-  }));
+test('B15 rejects a value node that is missing, unpainted, or below 3px without a shortNodes entry', () => {
+  const expectations = nodeFaceExpectations(sourceObjects({ valueNodeIds: ['missing', 'unpainted', 'thin'] }));
   const assessment = assessNodePaintAudit(audit([
-    node('other', { faceHeight: 2 }),
-    node('balance_anchor', { faceHeight: 1 }),
-  ]), policy);
-
+    node('unpainted', { faceVisible: false, faceHeight: 0 }),
+    node('thin', { faceHeight: 2 }),
+  ]), expectations);
   assert.equal(assessment.passed, false);
-  assert.equal(assessment.checks['visible:other'].status, 'passed');
-  assert.deepEqual(
-    assessment.violations
-      .filter((item) => item.code === 'unclassified-node')
-      .map((item) => item.nodeId),
-    ['balance_anchor']
-  );
+  assert.equal(assessment.checks['visible:missing'].message, 'B15 expected visible, observed missing');
+  assert.equal(assessment.checks['visible:unpainted'].message, 'B15 expected visible, observed not-painted');
+  assert.match(assessment.checks['visible:thin'].message, /not declared in shortNodes/);
 });
 
-test('a valid short-face exception never classifies an extra rendered node', () => {
-  const policy = compileNodeFacePolicy(sourceCoverage({ exceptionNode: 'other' }));
-  const assessment = assessNodePaintAudit(audit([
-    node('other', { faceHeight: 2 }),
-    node('unplanned', { faceHeight: 1 }),
-  ]), policy);
-
-  assert.equal(assessment.passed, false);
+test('a shortNodes declaration accepts a painted sub-floor face at the 3px floor', () => {
+  const expectations = nodeFaceExpectations(sourceObjects({ valueNodeIds: ['other'], shortNodeIds: ['other'] }));
+  const assessment = assertNodePaintPolicy(audit([node('other', { faceHeight: 1 })]), expectations);
   assert.equal(assessment.checks['visible:other'].status, 'passed');
-  assert.deepEqual(
-    assessment.violations.filter((item) => item.code === 'unclassified-node').map((item) => item.nodeId),
-    ['unplanned']
-  );
+  assert.equal(assessment.checks['visible:other'].intent, 'short');
+  assert.equal(assessment.summary.shortNodes, 1);
+
+  const vanished = assessNodePaintAudit(audit([node('other', { faceHeight: 0 })]), expectations);
+  assert.equal(vanished.checks['visible:other'].message, 'B15 short node renders no face height');
+  const unpainted = assessNodePaintAudit(audit([node('other', { faceVisible: false, faceHeight: 0 })]), expectations);
+  assert.equal(unpainted.passed, false, 'a shortNodes entry never waives the painted face');
+});
+
+test('every rendered node in a Build-bound run must be painted and reach the floor', () => {
+  const expectations = nodeFaceExpectations(sourceObjects({ valueNodeIds: ['revenue'] }));
+  const assessment = assessNodePaintAudit(audit([
+    node('revenue'),
+    node('structural', { faceHeight: 2 }),
+    node('hidden', { faceVisible: false, faceHeight: 0 }),
+  ]), expectations);
+  assert.equal(assessment.passed, false);
+  assert.equal(assessment.checks['visible:revenue'].status, 'passed');
+  assert.equal(assessment.checks['visible:structural'].status, 'failed');
+  assert.equal(assessment.checks['visible:hidden'].status, 'failed');
+  assert.equal(assessment.summary.expectedVisible, 3);
+});
+
+test('audit integrity failures are reported with or without expectations', () => {
+  const duplicated = audit([node('tax'), node('tax')]);
+  duplicated.duplicateNodeIds = ['tax'];
+  assert.deepEqual(violationCodes(assessNodePaintAudit(duplicated, null, { enforceUnboundFloor: false })), ['duplicate-node-id']);
+  const drifted = { ...audit([node('tax')]), minVisibleFacePx: 2 };
+  assert.ok(violationCodes(assessNodePaintAudit(drifted)).includes('visibility-floor-drift'));
+  const miscounted = { ...audit([node('tax')]), checkedNodes: 3 };
+  assert.ok(violationCodes(assessNodePaintAudit(miscounted)).includes('checked-node-count-mismatch'));
 });

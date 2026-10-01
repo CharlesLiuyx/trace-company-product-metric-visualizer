@@ -24,25 +24,19 @@ import {
 } from './lib/fidelity-rule-contract.mjs';
 import { validateFidelityRulesDocument } from './lib/fidelity-rules-doc.mjs';
 import { projectPath, rootDir } from './lib/project.mjs';
-import { OBJECT_INVENTORY_PROTOCOL } from './lib/object-inventory.mjs';
-import { NODE_FACE_POLICY_PROTOCOL } from './lib/node-face-policy.mjs';
 import { OPERATING_METRIC_UNITS, OPERATING_METRIC_COMPARISONS } from './lib/operating-metrics.mjs';
 import {
   AUTHORITATIVE_CORRECTION_APPROVAL,
-  AUTHORITATIVE_CORRECTION_ISSUES,
-  AUTHORITATIVE_CORRECTION_METHOD,
   INCOME_STATEMENT_SSOT_PATHS,
-  PRECISION_RECOVERY_METHOD,
+  OPERATING_METRIC_SSOT_PATH,
   SOURCE_AMOUNT_UNITS,
   SOURCE_CLASSIFICATION_PROTOCOL,
   SOURCE_CLASSIFICATION_REVIEW_METHOD,
   SOURCE_CLASSIFICATION_SIGNALS,
-  SOURCE_COVERAGE_PROTOCOL,
-  SOURCE_COVERAGE_SCAN_PASSES,
+  SOURCE_OBJECTS_PROTOCOL,
   SOURCE_OBJECT_CLASSES,
-  SOURCE_RESIDUAL_KINDS,
-} from './lib/source-coverage.mjs';
-import { FEATURE_REQUIRED_CHECKS, VERIFICATION_PLAN_PROTOCOL } from './lib/verification-plan.mjs';
+} from './lib/source-objects.mjs';
+import { VERIFICATION_PLAN_PROTOCOL } from './lib/verification-plan.mjs';
 import { sourceGitIgnorePolicy } from './lib/source-git-policy.mjs';
 
 const CONTRACT_PATH = 'docs/architecture/lifecycle-contract.json';
@@ -116,20 +110,6 @@ async function verifyFidelityRuleContract({ workflow, flowchart }) {
     assert.deepEqual(unknown, [], `${label} references unknown fidelity rule IDs`);
   }
 
-  const featureMappings = Object.fromEntries(
-    Object.entries(FEATURE_REQUIRED_CHECKS)
-      .sort(([left], [right]) => left.localeCompare(right))
-      .map(([feature, configured]) => {
-        const checks = Array.isArray(configured) ? configured : [configured];
-        return [feature, checks.flatMap((check) => check.ruleIds).sort((left, right) => left.localeCompare(right))];
-      })
-  );
-  assert.deepEqual(
-    featureMappings,
-    FIDELITY_RULE_CONTRACT.featureMappings,
-    'ObjectInventory feature-to-rule mapping drift'
-  );
-
   const excluded = new Set([
     projectPath('scripts/lib/fidelity-rule-contract.mjs'),
     projectPath('scripts/lib/fidelity-rules-catalog.mjs'),
@@ -172,9 +152,10 @@ async function main() {
     SOURCE_CLASSIFICATION_PROTOCOL,
     'SourceClassification protocol drift'
   );
-  assert.equal(contract.protocols.sourceCoverage, SOURCE_COVERAGE_PROTOCOL, 'SourceCoverage protocol drift');
-  assert.equal(contract.protocols.objectInventory, OBJECT_INVENTORY_PROTOCOL, 'ObjectInventory protocol drift');
-  assert.equal(contract.protocols.nodeFacePolicy, NODE_FACE_POLICY_PROTOCOL, 'NodeFacePolicy protocol drift');
+  assert.equal(contract.protocols.sourceObjects, SOURCE_OBJECTS_PROTOCOL, 'SourceObjects protocol drift');
+  for (const retired of ['sourceCoverage', 'objectInventory', 'nodeFacePolicy', 'metricSourceCoverage']) {
+    assert.equal(contract.protocols[retired], undefined, `${retired} is retired; source-objects/v1 replaces it`);
+  }
   assert.equal(contract.protocols.verificationPlan, VERIFICATION_PLAN_PROTOCOL, 'VerificationPlan protocol drift');
   assert.equal(contract.protocols.reviewPacket, REVIEW_PACKET_PROTOCOL, 'ReviewPacket protocol drift');
   assert.equal(
@@ -211,123 +192,65 @@ async function main() {
     true,
     'Source facts must select the requested Adapter'
   );
-  assert.deepEqual(contract.sourceCoverage.scanPasses, SOURCE_COVERAGE_SCAN_PASSES, 'Source Coverage scan-pass drift');
-  assert.deepEqual(contract.sourceCoverage.objectClasses, SOURCE_OBJECT_CLASSES, 'Source Coverage object-class drift');
-  assert.deepEqual(contract.sourceCoverage.residualKinds, SOURCE_RESIDUAL_KINDS, 'Source Coverage residual-kind drift');
-  assert.deepEqual(contract.sourceCoverage.amountUnits, SOURCE_AMOUNT_UNITS, 'Source Coverage amount-unit drift');
-  assert.deepEqual(contract.sourceCoverage.supplementalOperatingMetrics, {
-    ssotPath: 'operatingMetrics', viewPath: 'operatingMetrics', sourceClass: 'operating-metric',
+  const sourceObjects = contract.sourceObjects;
+  assert.deepEqual(sourceObjects.objectClasses, SOURCE_OBJECT_CLASSES, 'Source object class drift');
+  assert.deepEqual(sourceObjects.amountUnits, SOURCE_AMOUNT_UNITS, 'Source object amount-unit drift');
+  assert.deepEqual(sourceObjects.supplementalOperatingMetrics, {
+    ssotPath: OPERATING_METRIC_SSOT_PATH, viewPath: 'operatingMetrics', sourceClass: 'value',
     units: OPERATING_METRIC_UNITS, comparisons: OPERATING_METRIC_COMPARISONS,
     participatesInAccountingSums: false, dedicatedVisibleValueText: true,
   }, 'Supplemental operating metric contract drift');
   assert.deepEqual(
-    contract.sourceCoverage.incomeStatementSsotPaths,
+    sourceObjects.incomeStatementSsotPaths,
     INCOME_STATEMENT_SSOT_PATHS,
-    'Source Coverage Income Statement SSOT path drift'
+    'Source object Income Statement SSOT path drift'
   );
   assert.equal(
-    contract.sourceCoverage.precisionRecoveryMethod,
-    PRECISION_RECOVERY_METHOD,
-    'Source Coverage precision-recovery method drift'
-  );
-  assert.equal(
-    contract.sourceCoverage.authoritativeCorrectionMethod,
-    AUTHORITATIVE_CORRECTION_METHOD,
-    'Source Coverage authoritative-correction method drift'
-  );
-  assert.equal(
-    contract.sourceCoverage.authoritativeCorrectionApproval,
+    sourceObjects.authoritativeCorrectionApproval,
     AUTHORITATIVE_CORRECTION_APPROVAL,
-    'Source Coverage authoritative-correction approval drift'
+    'Source object authoritative-correction approval drift'
   );
-  assert.deepEqual(
-    contract.sourceCoverage.authoritativeCorrectionIssues,
-    AUTHORITATIVE_CORRECTION_ISSUES,
-    'Source Coverage authoritative-correction issue drift'
-  );
+  for (const [field, expected, message] of [
+    ['amountWithinLiteralResolution', true, 'exact amounts must stay within the literal rounding interval'],
+    ['otherLabelsMayBeNonSemanticResidual', false, 'Other/All Other Source objects must remain semantic'],
+    ['valueBearingOtherMustBeValue', true, 'a value-bearing Other must be a value entry (T22)'],
+    ['roundedNonZeroMayBeAuthoredAsZero', false, 'rounded non-zero Source values must not be authored as zero'],
+    ['recoveredNonZeroMustSurviveAuthoredDisplayPrecision', true, 'recovered non-zero values must remain non-zero in authored display precision'],
+    ['prepareReviewReconcilesLoadedAuthoredValues', true, 'prepare-review must reconcile Source values against loaded authored data'],
+    ['sourcePixelEvidence', false, 'source objects carry no Source pixel evidence'],
+  ]) {
+    assert.equal(sourceObjects[field], expected, `Source objects: ${message}`);
+  }
   assert.equal(
-    contract.sourceCoverage.zeroLookingNumericTypoRequiresAuthoritativeCorrection,
-    true,
-    'zero-looking Source numeric typos must use user-directed authoritative correction'
-  );
-  assert.equal(
-    contract.sourceCoverage.amountWithinLiteralResolution,
-    true,
-    'Source Coverage exact amounts must stay within the literal rounding interval'
-  );
-  assert.equal(contract.sourceCoverage.inventoryOwnership, 'exactly-once', 'Source Coverage ownership drift');
-  assert.equal(
-    contract.sourceCoverage.otherLabelsMayBeNonSemanticResidual,
-    false,
-    'Other/All Other Source objects must remain semantic'
-  );
-  assert.equal(
-    contract.sourceCoverage.roundedNonZeroMayBeAuthoredAsZero,
-    false,
-    'rounded non-zero Source values must not be authored as zero'
-  );
-  assert.equal(
-    contract.sourceCoverage.recoveredNonZeroMustSurviveAuthoredDisplayPrecision,
-    true,
-    'recovered non-zero values must remain non-zero in authored display precision'
-  );
-  assert.equal(
-    contract.sourceCoverage.prepareReviewReconcilesLoadedAuthoredValues,
-    true,
-    'prepare-review must reconcile Source values against loaded authored data'
-  );
-  assert.equal(
-    contract.sourceCoverage.incomeStatementFinancialViewOwnership,
+    sourceObjects.incomeStatementFinancialViewOwnership,
     'exactly-one-node-or-non-node-metric',
-    'each Income Statement financial Source fact must reach exactly one Adapter node or non-node metric'
+    'each Income Statement financial value must reach exactly one Adapter node or non-node metric'
   );
-  assert.equal(
-    contract.sourceCoverage.semanticNodesRequireObservedFace,
-    true,
-    'every current semantic node must bind an observed Source face'
-  );
-  assert.equal(
-    contract.sourceCoverage.invisibleSemanticNodesSupported,
-    false,
-    'current Source Coverage must not support invisible semantic nodes'
-  );
-  assert.equal(
-    contract.sourceCoverage.incomeStatementNonNodeMetricsRequireZeroPaintEvidence,
-    true,
-    'Income Statement financial non-node metrics must bind zero-paint Source evidence'
-  );
-  assert.equal(
-    contract.sourceCoverage.prepareReviewPixelChecksZeroPaintNodeSlots,
-    true,
-    'prepare-review must pixel-check zero-paint node slots'
-  );
+  assert.equal(sourceObjects.adapterTargetOwnership, 'exactly-once', 'an Adapter target belongs to one value entry');
+  assert.equal(sourceObjects.subFloorNodeDeclaration, 'shortNodes', 'sub-floor faces are declared through shortNodes');
+  assert.equal(sourceObjects.labelPositionAudit, 'opt-in-referenceBBox', 'T18 runs only for declared label positions');
   assert.deepEqual(
-    contract.sourceCoverage.incomeStatementReconciliationTargets,
+    sourceObjects.incomeStatementReconciliationTargets,
     ['metric-ssot', 'sankey-view-adapter'],
     'Income Statement authored reconciliation target drift'
   );
   assert.deepEqual(
-    contract.sourceCoverage.revenueMetricReconciliationTargets,
+    sourceObjects.revenueMetricReconciliationTargets,
     ['metric-ssot'],
     'Revenue Metric authored reconciliation target drift'
   );
-  assert.equal(contract.nodeFacePolicy.derivedFrom, SOURCE_COVERAGE_PROTOCOL, 'Node face policy source drift');
-  assert.equal(contract.nodeFacePolicy.embeddedIn, VERIFICATION_PLAN_PROTOCOL, 'Node face policy Plan drift');
+  assert.equal(contract.nodeFaceExpectations.derivedFrom, SOURCE_OBJECTS_PROTOCOL, 'Node face expectation source drift');
   assert.equal(
-    contract.nodeFacePolicy.completeRenderedNodeClassification,
+    contract.nodeFaceExpectations.valueNodesExpectedVisible,
     true,
-    'Node face policy must classify every rendered semantic node'
+    'every value node must render a painted face'
   );
   assert.equal(
-    contract.nodeFacePolicy.allCurrentSemanticNodesExpectedVisible,
+    contract.nodeFaceExpectations.everyRenderedNodePainted,
     true,
-    'current NodeFacePolicy must expect every semantic node to be painted'
+    'every rendered node in a Build-bound run must be painted'
   );
-  assert.equal(
-    contract.nodeFacePolicy.sourceBoundFloorExceptionsOnly,
-    true,
-    'node visibility-floor exceptions must remain Source-bound'
-  );
+  assert.equal(contract.nodeFaceExpectations.subFloorExceptions, 'shortNodes', 'B15 floor exceptions come from shortNodes');
   assert.equal(
     contract.sankeyAdapter.semanticNodesRequirePaintedFaces,
     true,
@@ -399,11 +322,12 @@ async function main() {
   assert.equal(contract.invariants.humanAttestationRequiredForIncomeStatement, true, 'Income Statement closure must require human attestation');
   assert.equal(contract.invariants.verifyCommandsWriteDurableEvidence, false, 'verify:* must remain read-only');
   assert.equal(contract.invariants.sourceRelocationChangesIdentity, false, 'Source relocation must preserve digest identity');
+  for (const retired of ['SourceCoverage', 'ObjectInventory', 'NodeFacePolicy']) {
+    assert.ok(!contract.durableObjects.includes(retired), `${retired} is retired from the lifecycle contract`);
+  }
   for (const objectName of [
     'SourceClassification',
-    'SourceCoverage',
-    'ObjectInventory',
-    'NodeFacePolicy',
+    'SourceObjects',
     'VerificationPlan',
     'DatasetVerification',
     'ReviewPacket',
@@ -488,13 +412,8 @@ async function main() {
   assert.match(recordIntake, /createSourceClassification\(\{/, 'record:intake must persist SourceClassification before claim');
   assert.match(
     buildCloseout,
-    /assertSourceCoverageAuthoredValues\(sourceCoverage/,
-    'prepare-review must reconcile Source Coverage with loaded authored values'
-  );
-  assert.match(
-    buildCloseout,
-    /assertZeroPaintNodeSlots\(\{/,
-    'prepare-review must pixel-check Source-bound zero-paint node slots'
+    /createSourceObjects\(input\.sourceObjects/,
+    'prepare-review must validate and reconcile the flat Source objects'
   );
 
   const [agents, mirror] = await Promise.all([
