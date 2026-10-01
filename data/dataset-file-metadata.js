@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-09-29T20:00:24.522Z",
+  "generatedAt": "2026-10-01T06:06:30.168Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -6491,6 +6491,12 @@
       "path": "data/datasets/zillow-q2-fy26.js",
       "updatedAtMs": 1790711510036,
       "updatedAt": "2026-09-29T19:51:50.036Z",
+      "timeSource": "publication"
+    },
+    "fox-q4-fy26": {
+      "path": "data/datasets/fox-q4-fy26.js",
+      "updatedAtMs": 1790834790168,
+      "updatedAt": "2026-10-01T06:06:30.168Z",
       "timeSource": "publication"
     },
     "data/revenue-metrics.js": {

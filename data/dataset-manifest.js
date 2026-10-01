@@ -24150,6 +24150,29 @@
             }
           }
         }
+      },
+      {
+        "key": "fox-q4-fy26",
+        "src": "data/datasets/fox-q4-fy26.js",
+        "data": {
+          "name": "FOX · Q4 FY26",
+          "company": "FOX",
+          "meta": {
+            "title": "FOX Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending June 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "FOX · 2026 财年第四季度",
+              "meta": {
+                "title": "FOX 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

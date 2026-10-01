@@ -3587,10 +3587,12 @@
         }
       ],
       "directConsumers": [
-        "fox-q3-fy26"
+        "fox-q3-fy26",
+        "fox-q4-fy26"
       ],
       "consumers": [
-        "fox-q3-fy26"
+        "fox-q3-fy26",
+        "fox-q4-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -3607,10 +3609,12 @@
         }
       ],
       "directConsumers": [
-        "fox-q3-fy26"
+        "fox-q3-fy26",
+        "fox-q4-fy26"
       ],
       "consumers": [
-        "fox-q3-fy26"
+        "fox-q3-fy26",
+        "fox-q4-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -3627,10 +3631,12 @@
         }
       ],
       "directConsumers": [
-        "fox-q3-fy26"
+        "fox-q3-fy26",
+        "fox-q4-fy26"
       ],
       "consumers": [
-        "fox-q3-fy26"
+        "fox-q3-fy26",
+        "fox-q4-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
