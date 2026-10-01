@@ -15,15 +15,15 @@ export const WORKFLOW_ACTIONS = Object.freeze({
   'recover-session': '核对当前 generation 后恢复并更换执行代次',
   session: '取得已释放 Build 的执行权（--session）', 'release-session': '当前 Session 显式释放 Build 执行权',
   start: '接收来源、生成独立工作目录', prepare: '从事实生成数据与检查记录', continue: '连续执行全部自动步骤（准备、数据检查、一次全语言渲染），停在待人工审阅',
-  show: '只读查看处理进度', report: '按需生成 HTML 处理单（非必需）', checkpoint: '仅历史 fidelity-checkpoints/v1 Build：记录阶段冻结或重开', review: '消费人工审阅（简式：reviewToken、previewId、reviewer、decision、note）',
+  show: '只读查看处理进度', report: '按需生成 HTML 处理单（非必需）', checkpoint: '仅历史 fidelity-checkpoints/v1 Build：记录阶段冻结或重开', review: '记录操作员接受（reviewToken、previewId、reviewer、decision、note）并关闭 Build',
   seal: '暂存基线、重跑数据一致性；渲染复用已接受证据（--fresh-render 强制重渲染）', batch: '记录成员并以独立进程继续多个 Build', refresh: '核对冲突后更新工作目录、准备新计划',
-  assets: '只读查找资产版本、来源与使用位置', 'asset-version': '在草稿中记录绑定字节的资产接受', feedback: '记录反馈并列出同批检查范围',
+  assets: '只读查找资产版本、来源与使用位置', 'asset-version': '在草稿中记录绑定字节的资产接受', feedback: '记录反馈说明（note、date，可选 locales、objectIds），使当前审阅候选失效，并列出同批 Build',
   'archive-list': '只读枚举完整的待归档来源', archive: '消费操作员确认的精确清单并归档',
 });
 export const WORKFLOW_PROTOCOLS = Object.freeze({ sourceFacts: SOURCE_FACTS_PROTOCOL, sourceObjects: SOURCE_OBJECTS_PROTOCOL, textSourceClassification: 'source-classification/v2', metricObservations: METRIC_RECORD_PROTOCOL, artifactManifest: ARTIFACT_MANIFEST_PROTOCOL, checkpoint: CHECKPOINT_PROTOCOL, reviewCandidate: REVIEW_CANDIDATE_PROTOCOL, publication: PUBLICATION_PROTOCOL, releaseAttempt: 'release-attempt/v1', session: 'workflow-session/v1', gitTransport: 'git-transport/v1', workbench: 'trace-workbench/v1', workflowTimestamps: 'workflow-timestamps/v1', application: 'workflow-application/v1' });
 export async function workflowCommandReference(root = rootDir) {
   const pkg = JSON.parse(await readFile(path.join(root, 'package.json'), 'utf8'));
-  const scripts = Object.entries(pkg.scripts).filter(([key]) => /^(clean:artifacts|record:workflow|record:transport-review|publish:datasets|release:dataset|release:git|verify:release|verify:workbench|view:published|(?:verify|update):(?:metric-catalog|metrics|asset-catalog|feedback-patterns|workflow|workflow-reference|workflow-graph))$/.test(key));
+  const scripts = Object.entries(pkg.scripts).filter(([key]) => /^(clean:artifacts|record:workflow|record:transport-review|publish:datasets|release:dataset|release:git|verify:release|verify:workbench|view:published|(?:verify|update):(?:metric-catalog|metrics|asset-catalog|workflow|workflow-reference|workflow-graph))$/.test(key));
   return `# 当前 Workflow 命令与协议\n\n由 \`scripts/lib/workflow-contract.mjs\` 与 \`package.json\` 生成，请勿手工修改。\n操作说明：[asset-workflow.md](asset-workflow.md)。\n\n## 一张处理单的操作\n\n| 命令 | 作用 |\n| --- | --- |\n${Object.entries(WORKFLOW_ACTIONS).map(([name, label]) => `| \`pnpm record:workflow -- ${name}\` | ${label} |`).join('\n')}\n\n\`start\` 需要 \`--source <pending-file> --key <key> --facts <facts.json>\`；\n其他单项操作使用 \`<build-id>\`。\`review\`、\`checkpoint\`、\`feedback\`、\`asset-version\`、\`archive\`\n使用 \`--input <json>\`。\`batch\` 使用 \`--input <json> --concurrency 2\`。\n\n## 项目入口\n\n| 命令 | 执行文件 |\n| --- | --- |\n${scripts.map(([name, script]) => `| \`pnpm ${name}\` | \`${script}\` |`).join('\n')}\n\n发布先 \`publish:datasets -- plan <build-id> [...]\`，再 \`publish:datasets -- commit <plan-digest>\`。\n输出使用 \`release:dataset -- <published-digest> site|standalone [failed-attempt-id]\`。\n\n## 当前协议\n\n| 对象 | 协议 |\n| --- | --- |\n${Object.entries({ ...WORKFLOW_PROTOCOLS, verificationPlan: VERIFICATION_PLAN_PROTOCOL, reviewPacket: REVIEW_PACKET_PROTOCOL }).map(([key, value]) => `| ${key} | \`${value}\` |`).join('\n')}\n\n历史 Build 不因本表更新而获得新的审阅或检查点。\n`;
 }
 export async function verifyWorkflowContract(root = rootDir) {

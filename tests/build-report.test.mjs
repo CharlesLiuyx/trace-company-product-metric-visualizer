@@ -6,17 +6,11 @@ import {
   renderTaskInformation,
 } from '../scripts/lib/build-report.mjs';
 import {
-  createFeedbackRecord,
-  digestFeedbackValue,
-  projectFeedbackLedger,
-} from '../scripts/lib/feedback-ledger.mjs';
-import {
   createFidelityResult,
   digestFidelityValue,
 } from '../scripts/lib/fidelity-result.mjs';
 
 const digest = (value) => digestFidelityValue({ value });
-const feedbackEvidence = (value) => digestFeedbackValue({ value });
 
 function inspection(overrides = {}) {
   return {
@@ -39,128 +33,75 @@ function inspection(overrides = {}) {
   };
 }
 
-function matrix() {
-  const side = {
-    nodeBbox: { left: 10, right: 20, top: 30, bottom: 50 },
-    unionIntervals: [{ top: 30, bottom: 50 }],
-    linkIntervals: [{ linkId: 'revenue->profit#0', top: 30, bottom: 50 }],
-  };
+function evidence(locale) {
   return {
-    schemaVersion: 1,
-    protocol: 'interface-matrix/v1',
-    expectedInterfaceIds: ['revenue:right'],
-    rows: [{
-      id: 'revenue:right',
-      node: 'revenue',
-      side: 'right',
-      coverageIntent: 'reference',
-      reference: side,
-      candidate: side,
-      deltas: { top: 0, bottom: 0, center: 0, width: 0 },
-      endpointStatus: 'passed',
-      tangentStatus: 'passed',
-      result: 'passed',
-      evidenceDigests: {
-        referenceCrop: digest('reference'),
-        audit: digest('interface-audit'),
-        contactSheet: digest('interface-contact-sheet'),
-      },
-    }],
+    locale,
+    manifest: `output/compare/live-nation-fy25/01-baseline-review-candidate/fidelity-run-${locale}.json`,
+    digest: digest(`automatic-${locale}`),
+    candidateDigest: digest(`candidate-${locale}`),
+    metrics: { similarity: 0.97, mae: 7.6, width: 2667, height: 1500 },
+    gates: { purity: 'passed', interface: 'passed' },
   };
 }
 
-function fidelity({ attested = true } = {}) {
-  const authoredDigest = digest('authored');
-  const planDigest = digest('plan');
+function fidelity() {
   return createFidelityResult({
     buildId: 'build-live-nation-fy25',
     key: 'live-nation-fy25',
     adapter: 'income-statement',
-    authoredDigest,
-    verificationPlan: {
-      digest: planDigest,
-      requiredLocales: ['en', 'zh'],
-      changeImpact: ['geometry'],
-      requiredChecks: [
-        { id: 'adapter:data-consistency', enforcement: 'build-gate', localeScope: 'global', evidenceKind: 'dataset-consistency', objectIds: [] },
-        { id: 'adapter:render-fidelity', enforcement: 'hard-gate', localeScope: 'required-locales', evidenceKind: 'fidelity-run', objectIds: [] },
-        { id: 'adapter:manual-visual-closure', enforcement: 'manual', localeScope: 'required-locales', evidenceKind: 'manual-decision', objectIds: [] },
-      ],
-    },
-    checkResults: [
-      { checkId: 'adapter:data-consistency', status: 'passed', source: 'automatic', objectIds: [], evidenceDigests: [digest('dataset-verification')] },
-      { checkId: 'adapter:render-fidelity', locale: 'en', status: 'passed', source: 'automatic', objectIds: [], evidenceDigests: [digest('automatic-en')] },
-      { checkId: 'adapter:render-fidelity', locale: 'zh', status: 'passed', source: 'automatic', objectIds: [], evidenceDigests: [digest('automatic-zh')] },
-      { checkId: 'adapter:manual-visual-closure', locale: 'en', status: 'passed', source: 'manual', objectIds: [], evidenceDigests: [digest('manual-en')] },
-      { checkId: 'adapter:manual-visual-closure', locale: 'zh', status: 'passed', source: 'manual', objectIds: [], evidenceDigests: [digest('manual-zh')] },
-    ],
-    automaticEvidence: {
-      authoredDigest,
-      verificationPlanDigest: planDigest,
-      consistency: { status: 'passed', digest: digest('dataset-verification') },
-      locales: [
-        { locale: 'en', status: 'passed', digest: digest('automatic-en') },
-        { locale: 'zh', status: 'passed', digest: digest('automatic-zh') },
-      ],
-    },
-    attestation: attested ? {
+    authoredDigest: digest('authored'),
+    verificationPlanDigest: digest('plan'),
+    requiredLocales: ['en', 'zh'],
+    acceptance: {
       reviewer: 'human:reviewer',
-      reviewedAt: '2026-07-11T08:00:00.000Z',
       decision: 'accepted',
-      authoredDigest,
-      verificationPlanDigest: planDigest,
-    } : null,
-    regions: [{ id: 'REG-001', status: 'resolved', ruleIds: ['T7'], evidenceDigests: [] }],
-    attention: { status: 'closed', closureNote: 'No open red-box region remains.' },
-    feedbackSummary: { openItems: [], automationUpgradesRequired: [] },
-    riskChecks: [{ id: 'T7', status: 'passed', measurements: [] }],
-    interfaceMatrix: matrix(),
+      note: 'Compared both locales with the Source',
+      reviewedAt: '2026-07-11T08:00:00.000Z',
+    },
+    consistency: { status: 'passed', digest: digest('dataset-verification') },
+    evidence: [evidence('en'), evidence('zh')],
   });
-}
-
-function emptyLedger() {
-  return projectFeedbackLedger([]);
 }
 
 function report(input = {}) {
   return createCloseoutReport({
     inspection: inspection(),
     fidelityResult: fidelity(),
-    feedbackLedger: emptyLedger(),
     ...input,
   });
 }
 
-function legacyV1FidelityResult() {
-  const current = structuredClone(fidelity());
-  delete current.resultDigest;
-  current.schemaVersion = 1;
-  delete current.checkResults;
-  delete current.verificationPlan.requiredChecks;
-  current.interfaceMatrix = {
-    summary: { ...current.interfaceMatrix.summary },
-    digest: digest('legacy-interface-matrix'),
+function legacyV2FidelityResult({ status = 'accepted', locales = ['en', 'zh'] } = {}) {
+  const content = {
+    schemaVersion: 2,
+    protocol: 'fidelity-result/v2',
+    kind: 'fidelity-result',
+    status,
+    subject: {
+      buildId: 'build-live-nation-fy25',
+      key: 'live-nation-fy25',
+      adapter: 'income-statement',
+      authoredDigest: digest('authored'),
+      verificationPlanDigest: digest('plan'),
+    },
+    verificationPlan: { digest: digest('plan'), requiredLocales: ['en', 'zh'], changeImpact: ['geometry'], requiredChecks: [] },
+    automaticEvidence: {
+      authoredDigest: digest('authored'),
+      verificationPlanDigest: digest('plan'),
+      consistency: { status: 'passed', digest: digest('dataset-verification') },
+      locales: locales.map((locale) => ({ locale, status: 'passed', digest: digest(`automatic-${locale}`) })),
+    },
+    checkResults: [],
+    attestation: status === 'accepted' ? { reviewer: 'human:reviewer', reviewedAt: '2026-07-11T08:00:00.000Z', decision: 'accepted' } : null,
+    regions: [{ id: 'REG-001', status: 'resolved', ruleIds: ['T7'], evidenceDigests: [] }],
+    feedbackSummary: { openItems: [], automationUpgradesRequired: [] },
+    riskChecks: [],
+    interfaceMatrix: { summary: { expectedInterfaces: 1, auditedInterfaces: 1 }, digest: digest('legacy-matrix') },
+    attention: { status: 'closed', closureNote: 'Legacy review closed.' },
+    blockers: [],
   };
-  return { ...current, resultDigest: digestFidelityValue(current) };
+  return { ...content, resultDigest: digestFidelityValue(content) };
 }
-
-test('machine-green evidence without review is review-pending and never rendered as converged', () => {
-  const pending = report({
-    inspection: inspection({
-      historicalState: 'AUTHORED',
-      effectiveState: 'AUTHORED',
-      digests: { ...inspection().digests, closure: null, seal: null },
-    }),
-    fidelityResult: fidelity({ attested: false }),
-  });
-  const summary = renderLoopFidelitySummary(pending);
-
-  assert.equal(pending.reviewStatus, 'review-pending');
-  assert.equal(pending.status, 'review-pending');
-  assert.equal(pending.confidence, 'low');
-  assert.match(summary, /Status: review-pending/);
-  assert.doesNotMatch(summary, /Status: converged/);
-});
 
 test('only a fresh SEALED Build with accepted review is converged', () => {
   const converged = report();
@@ -168,12 +109,26 @@ test('only a fresh SEALED Build with accepted review is converged', () => {
 
   assert.equal(converged.status, 'converged');
   assert.equal(converged.confidence, 'high');
-  assert.equal(converged.build.historicalState, 'SEALED');
-  assert.equal(converged.build.effectiveState, 'SEALED');
   assert.equal(converged.consistencyEvidence.status, 'passed');
+  assert.deepEqual(converged.locales, ['en', 'zh']);
   assert.match(taskInformation, /status=converged; confidence=high; review=accepted/);
+  assert.match(taskInformation, /Acceptance: human:reviewer at 2026-07-11T08:00:00.000Z \(fidelity-result\/v3\)/);
   assert.match(taskInformation, /Dataset consistency evidence: passed/);
+  assert.doesNotMatch(taskInformation, /Interface Matrix|Regions|Risk checks|Feedback recurrence/);
   assert.match(converged.reportDigest, /^sha256:[a-f0-9]{64}$/);
+});
+
+test('an accepted closure that is not yet sealed is in progress, not converged', () => {
+  const closed = report({
+    inspection: inspection({
+      historicalState: 'CLOSED',
+      effectiveState: 'CLOSED',
+      digests: { ...inspection().digests, seal: null },
+    }),
+  });
+  assert.equal(closed.status, 'in-progress');
+  assert.equal(closed.confidence, 'medium');
+  assert.doesNotMatch(renderLoopFidelitySummary(closed), /Status: converged/);
 });
 
 test('a stale historical seal is downgraded and reports historical versus effective state', () => {
@@ -193,42 +148,28 @@ test('a stale historical seal is downgraded and reports historical versus effect
   assert.match(summary, /historical=SEALED; effective=AUTHORED; fresh=false/);
 });
 
-test('repeated feedback automation obligations appear in the report and block convergence', () => {
-  const feedback = (buildId, feedbackId, regionId) => createFeedbackRecord({
-    buildId,
-    feedbackId,
-    regionId,
-    ruleIds: ['T7'],
-    cause: 'execution-gap',
-    status: 'closed',
-    beforeEvidenceDigests: [feedbackEvidence(`${buildId}-before`)],
-    afterEvidenceDigests: [feedbackEvidence(`${buildId}-after`)],
-    remedy: 'Aligned the side label.',
-  });
-  const ledger = projectFeedbackLedger([
-    feedback('build-live-nation-fy25', 'FB-001', 'REG-001'),
-    feedback('build-other', 'FB-001', 'REG-001'),
-  ]);
-  const blocked = report({ feedbackLedger: ledger });
-  const taskInformation = renderTaskInformation(blocked);
-
-  assert.equal(blocked.status, 'blocked');
-  assert.deepEqual(blocked.feedback.automationUpgradesRequired, ['T7']);
-  assert.ok(blocked.blockers.some((item) => item.code === 'FEEDBACK_AUTOMATION_UPGRADE_REQUIRED'));
-  assert.match(taskInformation, /T7: occurrences=2, execution-gaps=2, automation-upgrade=required/);
-});
-
-test('historical v1 inspection remains readable without v2 checks or Matrix rows', () => {
-  const historical = report({ fidelityResult: legacyV1FidelityResult() });
+test('historical fidelity-result/v2 closures remain readable', () => {
+  const historical = report({ fidelityResult: legacyV2FidelityResult() });
   assert.equal(historical.status, 'converged');
   assert.equal(historical.reviewStatus, 'accepted');
-  assert.deepEqual(historical.interfaceMatrix.summary, {
-    expectedInterfaces: 1,
-    auditedInterfaces: 1,
-    passedInterfaces: 1,
-    failedInterfaces: 0,
-    documentedExceptions: 0,
-    pendingInterfaces: 0,
-    notScoredInterfaces: 0,
+  assert.equal(historical.fidelityResultProtocol, 'fidelity-result/v2');
+  assert.deepEqual(historical.automaticEvidence.map((item) => item.locale), ['en', 'zh']);
+
+  const missingLocale = report({ fidelityResult: legacyV2FidelityResult({ locales: ['en'] }) });
+  assert.equal(missingLocale.status, 'blocked');
+  assert.ok(missingLocale.blockers.some((item) => item.code === 'AUTOMATIC_LOCALE_MISSING' && item.subject === 'zh'));
+
+  const pending = report({
+    inspection: inspection({ historicalState: 'AUTHORED', effectiveState: 'AUTHORED', digests: { ...inspection().digests, closure: null, seal: null } }),
+    fidelityResult: legacyV2FidelityResult({ status: 'review-pending' }),
   });
+  assert.equal(pending.status, 'review-pending');
+  assert.match(renderLoopFidelitySummary(pending), /Status: review-pending/);
+});
+
+test('a result for another Build is rejected', () => {
+  assert.throws(
+    () => report({ inspection: inspection({ buildId: 'build-other' }) }),
+    (error) => error.code === 'CLOSEOUT_SUBJECT_MISMATCH'
+  );
 });

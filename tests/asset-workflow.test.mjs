@@ -18,6 +18,7 @@ import { startStaticServer } from '../scripts/dev-server.mjs';
 import { recordAssetBatch } from '../scripts/lib/workflow-batch.mjs';
 import { recordWorkflowFeedback } from '../scripts/lib/workflow-feedback.mjs';
 import { recordAssetVersion } from '../scripts/lib/workflow-assets.mjs';
+import { readBuildObject } from '../scripts/lib/dataset-build-store.mjs';
 
 const literal = '示例公司 A，2026 年第一季度收入 100 亿元，净利润 20 亿元。';
 function facts(text = literal, id = 'example-a') {
@@ -91,7 +92,7 @@ test('two actual CLI Sessions intake independently, fence wrong writers, and arc
   assert.ok(existsSync(path.join(root, 'input/processing/session-b.txt')));
 });
 function reviewFor(current, decision = 'accepted') {
-  return { reviewToken: current.reviewToken, attestation: { reviewer: 'synthetic-test-reviewer', decision, note: 'Synthetic fixture; not a real dataset acceptance' }, attention: { status: 'closed', closureNote: 'Source and rows inspected in the fixture' }, manualCheckDecisions: [{ checkId: 'adapter:human-review', status: 'passed', evidenceDigests: [current.plan.sourceDigest, current.plan.sourceObjectsDigest], note: 'Fixture Source objects compared' }] };
+  return { reviewToken: current.reviewToken, reviewer: 'synthetic-test-reviewer', decision, note: 'Synthetic fixture; not a real dataset acceptance' };
 }
 async function completed(root, key, input) {
   const started = await intake(root, key, input);
@@ -125,8 +126,9 @@ test('text intake to sealed Build preserves source, isolates drafts, requires re
   const sheet = await renderAssetReview(started.buildId, root);
   const html = await readFile(sheet.path, 'utf8');
   assert.ok(html.includes('100') && html.includes('downloadReview') && !html.includes('{{CONTENT}}'));
-  const missingHuman = reviewFor(current); delete missingHuman.attestation;
-  assert.equal((await reviewAsset(started.buildId, missingHuman, root)).state, 'AUTHORED');
+  const missingHuman = reviewFor(current); delete missingHuman.reviewer;
+  await assert.rejects(reviewAsset(started.buildId, missingHuman, root), /reviewer, decision and a concrete note/);
+  assert.equal((await showAsset(started.buildId, root)).state, 'AUTHORED');
   await reviewAsset(started.buildId, reviewFor(current), root);
   assert.equal((await sealAsset(started.buildId, root)).state, 'SEALED');
   // A shared catalog addition is not a change to this Build's contribution.
@@ -143,7 +145,9 @@ test('a Build prepared under an older Plan protocol still shows and continue re-
   const manifestPath = path.join(root, 'output/builds', started.buildId, 'manifest.json');
   const manifest = JSON.parse(await readFile(manifestPath, 'utf8'));
   const authored = manifest.receipts.at(-1).payload;
-  authored.verificationPlan = { ...authored.verificationPlan, schemaVersion: 5, protocol: 'verification-plan/v5' };
+  // Historical receipts embedded the Plan; this one also predates source objects.
+  const plan = await readBuildObject(started.buildId, authored.verificationPlan.object, { buildRoot: path.join(root, 'output/builds') });
+  authored.verificationPlan = { ...plan, digest: plan.planDigest, schemaVersion: 5, protocol: 'verification-plan/v5' };
   authored.inventory = { digest: authored.sourceObjects.digest };
   delete authored.sourceObjects;
   await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
@@ -243,18 +247,48 @@ test('PNG Source follows the same complete data-only workflow and wrong image re
   assert.throws(() => compileMetricFacts(input, { key: 'picture-source', source: { width: 100, height: 100 } }), /outside/);
 });
 
-test('new feedback invalidates a sealed isolated result and blocks review until resolved', async (t) => {
+test('feedback records a note, expires the current candidate, and the fixed Build reviews again', async (t) => {
   const root = await fixture(t);
   const started = await completed(root, 'feedback-source');
   const current = await showAsset(started.buildId, root);
-  await recordWorkflowFeedback(started.buildId, { feedbackId: 'FB-001', regionId: 'REG-001', ruleIds: ['G11'], cause: 'execution-gap', status: 'open', beforeEvidenceDigests: [current.plan.sourceDigest] }, await buildContext(started.buildId, root));
+  await assert.rejects(
+    recordWorkflowFeedback(started.buildId, { feedbackId: 'FB-001', regionId: 'REG-001', note: 'legacy ledger shape' }, await buildContext(started.buildId, root)),
+    /Unsupported feedback field/
+  );
+  const recorded = await recordWorkflowFeedback(started.buildId, { note: 'Operator: the revenue row reads 100, check the unit', date: '2026-10-01', objectIds: ['metric.revenue'] }, await buildContext(started.buildId, root));
+  assert.equal(recorded.reference.kind, 'feedback-note');
+  assert.deepEqual(recorded.batchPeers, []);
+  const note = await readBuildObject(started.buildId, recorded.reference, { buildRoot: path.join(root, 'output/builds') });
+  assert.deepEqual([note.note, note.date, note.objectIds], ['Operator: the revenue row reads 100, check the unit', '2026-10-01', ['metric.revenue']]);
   assert.equal((await showAsset(started.buildId, root)).fresh, false);
   await assert.rejects(planAssetPublication([started.buildId], root), /not fresh/);
+  await assert.rejects(reviewAsset(started.buildId, reviewFor(current), root), /must be AUTHORED/);
   const refreshed = await continueAsset(started.buildId, root);
   assert.notEqual(refreshed.reviewToken, current.reviewToken);
+  assert.equal(refreshed.next, 'review');
   const reviewed = await reviewAsset(started.buildId, reviewFor(refreshed), root);
-  assert.equal(reviewed.state, 'AUTHORED');
-  await assert.rejects(sealAsset(started.buildId, root), /BASELINE_STAGED/);
+  assert.equal(reviewed.state, 'CLOSED');
+  assert.equal((await sealAsset(started.buildId, root)).state, 'SEALED');
+});
+test('a sealed Build whose receipts embed the source objects and Plan still shows', async (t) => {
+  const root = await fixture(t);
+  const started = await completed(root, 'embedded-receipts');
+  const buildRoot = path.join(root, 'output/builds');
+  const manifestPath = path.join(buildRoot, started.buildId, 'manifest.json');
+  const manifest = JSON.parse(await readFile(manifestPath, 'utf8'));
+  for (const receipt of manifest.receipts.filter((item) => item.state === 'AUTHORED')) {
+    const { sourceObjects, verificationPlan } = receipt.payload;
+    const plan = await readBuildObject(started.buildId, verificationPlan.object, { buildRoot });
+    const objects = await readBuildObject(started.buildId, sourceObjects.object, { buildRoot });
+    receipt.payload.verificationPlan = { ...plan, digest: plan.planDigest };
+    receipt.payload.sourceObjects = { ...objects, digest: objects.sourceObjectsDigest };
+  }
+  await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+  const shown = await showAsset(started.buildId, root);
+  assert.equal(shown.state, 'SEALED');
+  assert.equal(shown.fresh, true);
+  assert.equal(shown.next, 'publish');
+  assert.equal(shown.plan.protocol, 'verification-plan/v6');
 });
 test('refresh after an unrelated publication preserves owned data and requires a new seal', async (t) => {
   const root = await fixture(t);
@@ -290,7 +324,7 @@ test('batch workers persist independent progress and one rejected source cannot 
   assert.equal(existsSync(path.join(root, 'output/publications/current.json')), false);
 });
 
-test('a short operator review expands into derived per-check decisions and only acceptance closes', async (t) => {
+test('a short operator review records only the acceptance and only acceptance closes', async (t) => {
   const root = await fixture(t);
   const started = await intake(root);
   const current = await continueAsset(started.buildId, root);
@@ -299,7 +333,14 @@ test('a short operator review expands into derived per-check decisions and only 
   const short = { reviewToken: current.reviewToken, reviewer: 'synthetic-test-reviewer', note: 'Synthetic fixture; not a real dataset acceptance' };
   await assert.rejects(reviewAsset(started.buildId, { ...short, decision: 'rejected' }, root), /Only an explicit acceptance/);
   await assert.rejects(reviewAsset(started.buildId, { ...short, note: ' ', decision: 'accepted' }, root), /concrete note/);
+  await assert.rejects(
+    reviewAsset(started.buildId, { ...short, decision: 'accepted', manualCheckDecisions: [], attention: { status: 'closed' } }, root),
+    /Unsupported review field\(s\): manualCheckDecisions, attention/
+  );
   const reviewed = await reviewAsset(started.buildId, { ...short, decision: 'accepted' }, root);
   assert.equal(reviewed.state, 'CLOSED');
+  const manifest = JSON.parse(await readFile(path.join(root, 'output/builds', started.buildId, 'manifest.json'), 'utf8'));
+  const result = await readBuildObject(started.buildId, manifest.review.references.fidelityResult, { buildRoot: path.join(root, 'output/builds') });
+  assert.deepEqual([result.protocol, result.acceptance.reviewer, result.acceptance.note], ['fidelity-result/v3', short.reviewer, short.note]);
   assert.equal((await sealAsset(started.buildId, root)).state, 'SEALED');
 });

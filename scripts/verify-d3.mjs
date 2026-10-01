@@ -18,7 +18,7 @@ import {
   hashFiles,
   markFidelityRunFailed,
 } from './lib/compare-workspace.mjs';
-import { readDatasetBuild } from './lib/dataset-build-store.mjs';
+import { readAuthoredObject, readDatasetBuild } from './lib/dataset-build-store.mjs';
 import { STAGE_FOCUS_VALUES, assertStageFocus } from './lib/fidelity-stages.mjs';
 import { resolveSourcePath } from './lib/source-lifecycle.mjs';
 import { assertPurity } from './lib/d3-hard-gates.mjs';
@@ -262,7 +262,8 @@ export async function main(argv = process.argv, runtime = {}) {
     if (executionMode === 'review-evidence' && planProtocol !== VERIFICATION_PLAN_PROTOCOL) {
       throw new Error(`Dataset Build ${buildId} was prepared under ${planProtocol || 'an unversioned Plan'}; re-prepare it with record:workflow continue or refresh before recording ${VERIFICATION_PLAN_PROTOCOL} evidence`);
     }
-    reviewSourceObjects = authored.payload?.sourceObjects || null;
+    // Current receipts reference the source objects by Build object digest.
+    reviewSourceObjects = await readAuthoredObject(buildId, authored.payload?.sourceObjects);
     reviewIdentity = {
       buildId,
       authoredDigest: authored.payload.snapshotDigest,
@@ -397,16 +398,22 @@ async function renderLocaleRun({
     // Diagnostics without a Build check the unbound 3px floor only; a
     // Build-bound run expects every value node painted and honours shortNodes.
     const faceExpectations = planBound ? nodeFaceExpectations(reviewSourceObjects) : null;
+    // Purity, raw canvas and fonts were asserted above; reaching here means
+    // they passed. The per-gate summary is the run's own verdict and is what
+    // a FidelityResult records for this locale.
     const gateErrors = [];
-    const gate = (check) => {
+    const gates = { purity: 'passed', canvas: 'passed', fonts: 'passed' };
+    const gate = (name, check) => {
       try {
         check();
+        gates[name] = 'passed';
       } catch (error) {
+        gates[name] = 'failed';
         gateErrors.push(error);
       }
     };
-    gate(() => assertNodePaintAudit(nodePaintAudit, faceExpectations || {}));
-    gate(() => assertRenderAudits({
+    gate('node-paint', () => assertNodePaintAudit(nodePaintAudit, faceExpectations || {}));
+    gate('render-audits', () => assertRenderAudits({
       textLayoutAudit,
       annotationLayoutAudit,
       annotationPairingAudit,
@@ -414,19 +421,19 @@ async function renderLocaleRun({
       labelLayoutAudit,
       labelPositionAudit,
     }));
-    gate(() => assertTypographyAudit(renderedTypographyAudit));
-    gate(() => assertLabelLayoutAudit(labelLayoutAudit));
-    gate(() => assertInterfaceAudit(interfaceAudit));
-    if (planBound) gate(() => assertInterfaceEvidenceReady(interfaceAudit));
+    gate('typography', () => assertTypographyAudit(renderedTypographyAudit));
+    gate('label-layout', () => assertLabelLayoutAudit(labelLayoutAudit));
+    gate('interface', () => assertInterfaceAudit(interfaceAudit));
+    if (planBound) gate('interface-evidence', () => assertInterfaceEvidenceReady(interfaceAudit));
+    gates['page-errors'] = pageErrors.length ? 'failed' : 'passed';
     if (pageErrors.length) {
       gateErrors.push(new Error(`Page errors during render; no comparison archive accepted:\n${pageErrors.join('\n')}`));
     }
     const gatesFailed = gateErrors.length > 0;
-    const archiving = executionMode === 'review-evidence' || executionMode === 'legacy-manual';
 
-    // Diagnostic artifacts are produced only when a gate failed. Archived runs
-    // keep the contact sheet because Build closeout still binds it.
-    const contactSheetWritten = gatesFailed || archiving;
+    // Diagnostic artifacts (contact sheet, region metrics) are produced only
+    // when a gate failed; a passing run, archived or not, has neither.
+    const contactSheetWritten = gatesFailed;
     if (contactSheetWritten) {
       const contactPage = await context.newPage();
       try {
@@ -455,6 +462,7 @@ async function renderLocaleRun({
       fontStatus,
       typographyAudit: renderedTypographyAudit,
       nodePaintAudit,
+      gates,
       full: metrics.full,
       regions: metrics.regions,
       labelLayoutAudit,
@@ -561,9 +569,7 @@ async function renderLocaleRun({
     console.log(
       `interface report: ${archive ? `${archive.dir}/${path.basename(interfaceAuditPath)}` : keep ? path.relative(rootDir, interfaceAuditPath) : '(diagnostic scratch cleaned)'}`
     );
-    console.log(
-      `interface contact sheet: ${archive ? `${archive.dir}/${path.basename(interfaceContactSheetPath)}` : !contactSheetWritten ? '(not generated: every gate passed)' : keep ? path.relative(rootDir, interfaceContactSheetPath) : '(diagnostic scratch cleaned)'}`
-    );
+    console.log('interface contact sheet: not generated (every gate passed)');
     console.log(`viewport: ${metrics.full.width}x${metrics.full.height}`);
     console.log(`RGB MAE: ${metrics.full.mae.toFixed(4)}`);
     console.log(`MAE similarity: ${metrics.full.similarity.toFixed(6)}`);

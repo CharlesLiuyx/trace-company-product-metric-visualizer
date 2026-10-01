@@ -10,8 +10,7 @@
     "verificationPlan": "verification-plan/v6",
     "reviewPacket": "review-packet/v5",
     "datasetVerification": "dataset-verification/v1",
-    "interfaceMatrix": "interface-matrix/v1",
-    "fidelityResult": "fidelity-result/v2",
+    "fidelityResult": "fidelity-result/v3",
     "publication": "dataset-publication/v2",
     "sourceFacts": "source-facts/v1",
     "textSourceClassification": "source-classification/v2",
@@ -265,12 +264,8 @@
     "VerificationPlan",
     "DatasetVerification",
     "ArtifactManifest",
-    "InterfaceMatrix",
     "FidelityResult",
-    "ManualAttestation",
-    "RegionDecision",
-    "FeedbackRecord",
-    "FeedbackLedger",
+    "FeedbackNote",
     "ReviewPacket"
   ],
   "invariants": {

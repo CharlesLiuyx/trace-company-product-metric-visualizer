@@ -17,13 +17,14 @@ export const LEGACY_FIDELITY_PROTOCOL_VERSION = 'fidelity-run/1';
 export const FIDELITY_PROTOCOL_VERSION = 'fidelity-run/2';
 
 const RUN_MANIFEST_NAME = 'fidelity-run.json';
+// A run is archived only after every gate passed, so the failure-only
+// interface contact sheet is never part of an archive.
 const ARCHIVED_ARTIFACT_KEYS = Object.freeze([
   'reference',
   'candidate',
   'diff',
   'metrics',
   'interfaceAudit',
-  'interfaceContactSheet',
 ]);
 const PREVIOUS_IDENTITY_KEYS = Object.freeze([
   'dataset',
@@ -357,14 +358,12 @@ export async function finalizeFidelityRun(run, options) {
       const archivedDiff = `${archive.dir}/${run.artifactNames.diff}`;
       const archivedMetrics = `${archive.dir}/${run.artifactNames.metrics}`;
       const archivedInterfaceAudit = `${archive.dir}/${run.artifactNames.interfaceAudit}`;
-      const archivedInterfaceContactSheet = `${archive.dir}/${run.artifactNames.interfaceContactSheet}`;
       const acceptedArtifacts = {
         reference: archivedReference,
         candidate: archivedCandidate,
         diff: archivedDiff,
         metrics: archivedMetrics,
         interfaceAudit: archivedInterfaceAudit,
-        interfaceContactSheet: archivedInterfaceContactSheet,
       };
       const metrics = {
         ...options.metricsDocument,
@@ -375,7 +374,7 @@ export async function finalizeFidelityRun(run, options) {
               interfaceAudit: {
                 ...options.metricsDocument.interfaceAudit,
                 path: archivedInterfaceAudit,
-                contactSheet: archivedInterfaceContactSheet,
+                contactSheet: null,
               },
             }
           : {}),

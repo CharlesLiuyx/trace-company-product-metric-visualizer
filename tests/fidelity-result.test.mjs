@@ -1,255 +1,133 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
+  FIDELITY_RESULT_PROTOCOL,
   createFidelityResult,
   digestFidelityValue,
+  summarizeFidelityResult,
 } from '../scripts/lib/fidelity-result.mjs';
 
 const digest = (value) => digestFidelityValue({ value });
 
-function interfaceSide() {
+function evidence(locale, overrides = {}) {
   return {
-    nodeBbox: { left: 10, right: 20, top: 30, bottom: 50 },
-    unionIntervals: [{ top: 30, bottom: 50 }],
-    linkIntervals: [{ linkId: 'revenue->profit#0', top: 30, bottom: 50 }],
+    locale,
+    manifest: `output/compare/live-nation-fy25/01-baseline-review-candidate/${locale}/fidelity-run.json`,
+    digest: digest(`evidence-${locale}`),
+    candidateDigest: digest(`candidate-${locale}`),
+    metrics: { similarity: 0.97, mae: 7.6, width: 2667, height: 1500 },
+    gates: { purity: 'passed', interface: 'passed', 'node-paint': 'passed' },
+    ...overrides,
   };
 }
 
-function matrix(overrides = {}) {
-  const row = {
-    id: 'revenue:right',
-    node: 'revenue',
-    side: 'right',
-    coverageIntent: 'reference',
-    reference: interfaceSide(),
-    candidate: interfaceSide(),
-    deltas: { top: 0, bottom: 0, center: 0, width: 0 },
-    endpointStatus: 'passed',
-    tangentStatus: 'passed',
-    result: 'passed',
-    evidenceDigests: {
-      referenceCrop: digest('reference'),
-      audit: digest('audit'),
-      contactSheet: digest('contact-sheet'),
-    },
-    ...(overrides.row || {}),
-  };
+function input(overrides = {}) {
   return {
-    schemaVersion: 1,
-    protocol: 'interface-matrix/v1',
-    expectedInterfaceIds: overrides.expectedInterfaceIds || ['revenue:right'],
-    rows: overrides.rows || [row],
-  };
-}
-
-function acceptedAttestation(authoredDigest, verificationPlanDigest) {
-  return {
-    reviewer: 'human:workflow-reviewer',
-    reviewedAt: '2026-07-11T06:30:00.000Z',
-    decision: 'accepted',
-    authoredDigest,
-    verificationPlanDigest,
-  };
-}
-
-function fixture(overrides = {}) {
-  const authoredDigest = digest('authored-v1');
-  const planDigest = digest('plan-v1');
-  const base = {
     buildId: 'build-live-nation-fy25',
     key: 'live-nation-fy25',
     adapter: 'income-statement',
-    authoredDigest,
-    verificationPlan: {
-      digest: planDigest,
-      requiredLocales: ['en', 'zh'],
-      changeImpact: ['new-dataset', 'geometry'],
-      requiredChecks: [
-        { id: 'adapter:data-consistency', enforcement: 'build-gate', localeScope: 'global', evidenceKind: 'dataset-consistency', objectIds: [] },
-        { id: 'adapter:render-fidelity', enforcement: 'hard-gate', localeScope: 'required-locales', evidenceKind: 'fidelity-run', objectIds: [] },
-        { id: 'adapter:manual-visual-closure', enforcement: 'manual', localeScope: 'required-locales', evidenceKind: 'manual-decision', objectIds: [] },
-      ],
+    authoredDigest: digest('authored'),
+    verificationPlanDigest: digest('plan'),
+    requiredLocales: ['en', 'zh'],
+    acceptance: {
+      reviewer: 'human:reviewer',
+      decision: 'accepted',
+      note: 'Compared both locales with the Source',
+      reviewedAt: '2026-10-01T08:00:00.000Z',
+      previewId: '0b7f3c5e-1111-4222-8333-944445555666',
     },
-    automaticEvidence: {
-      authoredDigest,
-      verificationPlanDigest: planDigest,
-      consistency: { status: 'passed', digest: digest('dataset-verification') },
-      locales: [
-        { locale: 'en', status: 'passed', digest: digest('automatic-en') },
-        { locale: 'zh', status: 'passed', digest: digest('automatic-zh') },
-      ],
-    },
-    attestation: acceptedAttestation(authoredDigest, planDigest),
-    checkResults: [
-      { checkId: 'adapter:data-consistency', status: 'passed', source: 'automatic', objectIds: [], evidenceDigests: [digest('dataset-verification')] },
-      { checkId: 'adapter:render-fidelity', locale: 'en', status: 'passed', source: 'automatic', objectIds: [], evidenceDigests: [digest('automatic-en')] },
-      { checkId: 'adapter:render-fidelity', locale: 'zh', status: 'passed', source: 'automatic', objectIds: [], evidenceDigests: [digest('automatic-zh')] },
-      { checkId: 'adapter:manual-visual-closure', locale: 'en', status: 'passed', source: 'manual', objectIds: [], evidenceDigests: [digest('manual-en')] },
-      { checkId: 'adapter:manual-visual-closure', locale: 'zh', status: 'passed', source: 'manual', objectIds: [], evidenceDigests: [digest('manual-zh')] },
-    ],
-    regions: [
-      { id: 'REG-001', status: 'resolved', ruleIds: ['G12'] },
-      { id: 'REG-002', status: 'resolved', ruleIds: ['T7'] },
-    ],
-    attention: { status: 'closed', closureNote: 'No open red-box region remains.' },
-    feedbackSummary: {
-      openItems: [],
-      automationUpgradesRequired: [],
-    },
-    riskChecks: [{
-      id: 'T7-side-label-center',
-      status: 'passed',
-      measurements: [
-        { id: 'interest-expense', value: 1.5, operator: 'lte', threshold: 4, unit: 'px' },
-      ],
-    }],
-    interfaceMatrix: matrix(),
+    consistency: { status: 'passed', digest: digest('dataset-verification') },
+    evidence: [evidence('zh'), evidence('en')],
+    ...overrides,
   };
-  return { ...base, ...overrides };
 }
 
-test('machine-green evidence without a human attestation stays review-pending', () => {
-  const result = createFidelityResult(fixture({ attestation: null }));
-  assert.equal(result.status, 'review-pending');
-  assert.notEqual(result.status, 'accepted');
-  assert.equal(result.blockers.length, 0);
+test('a short acceptance plus per-locale render evidence is the whole result', () => {
+  const result = createFidelityResult(input());
+  assert.equal(result.protocol, FIDELITY_RESULT_PROTOCOL);
+  assert.equal(result.status, 'accepted');
+  assert.deepEqual(Object.keys(result).sort(), [
+    'acceptance', 'automatic', 'evidence', 'kind', 'protocol', 'resultDigest', 'schemaVersion', 'status', 'subject',
+  ]);
+  assert.deepEqual(result.evidence.map((item) => item.locale), ['en', 'zh']);
+  assert.deepEqual(result.automatic.locales.map((item) => [item.locale, item.status, item.gates.interface]), [
+    ['en', 'passed', 'passed'],
+    ['zh', 'passed', 'passed'],
+  ]);
+  assert.equal(result.acceptance.previewId, '0b7f3c5e-1111-4222-8333-944445555666');
+  const { resultDigest, ...content } = result;
+  assert.equal(resultDigest, digestFidelityValue(content));
+  // Deterministic: the same inputs in another order produce the same digest.
+  assert.equal(createFidelityResult(input({ evidence: [evidence('en'), evidence('zh')] })).resultDigest, resultDigest);
 });
 
-test('stage decisions are optional, validated, and never block acceptance', () => {
-  const without = createFidelityResult(fixture());
-  assert.equal(without.stageDecisions, undefined);
-  assert.equal(without.status, 'accepted');
-
-  const withDecisions = createFidelityResult(fixture({
-    stageDecisions: [
-      { stage: 'structure', status: 'frozen', evidenceDigest: digest('automatic-en') },
-      { stage: 'structure', status: 'reopened', evidenceDigest: digest('automatic-zh'), note: 'user feedback' },
-      { stage: 'text', status: 'frozen', evidenceDigest: digest('automatic-en') },
-      { stage: 'polish-l10n', status: 'frozen', evidenceDigest: digest('automatic-zh') },
-    ],
-  }));
-  assert.equal(withDecisions.status, 'accepted');
-  assert.equal(withDecisions.stageDecisions.length, 4);
-  assert.deepEqual(withDecisions.stageDecisions[1], {
-    stage: 'structure',
-    status: 'reopened',
-    evidenceDigest: digest('automatic-zh'),
-    note: 'user feedback',
-  });
-
-  for (const invalid of [
-    [{ stage: 'render', status: 'frozen', evidenceDigest: digest('x') }],
-    [{ stage: 'structure', status: 'done', evidenceDigest: digest('x') }],
-    [{ stage: 'structure', status: 'frozen', evidenceDigest: 'not-a-digest' }],
-  ]) {
-    assert.throws(
-      () => createFidelityResult(fixture({ stageDecisions: invalid })),
-      (error) => error.code === 'STAGE_DECISION_INVALID'
-    );
-  }
-});
-
-test('Live Nation 38.5px and 43px side-label measurements block acceptance even if marked passed', () => {
-  const result = createFidelityResult(fixture({
-    riskChecks: [{
-      id: 'T7-side-label-center',
-      status: 'passed',
-      measurements: [
-        { id: 'interest-expense', value: 38.5, operator: 'lte', threshold: 4, unit: 'px' },
-        { id: 'other-income', value: 43, operator: 'lte', threshold: 4, unit: 'px' },
-      ],
-    }],
-  }));
-  assert.equal(result.status, 'blocked');
-  assert.deepEqual(
-    result.blockers.filter((item) => item.code === 'RISK_THRESHOLD_VIOLATION').map((item) => item.value),
-    [38.5, 43]
+test('the acceptance must be explicit and complete', () => {
+  assert.throws(() => createFidelityResult(input({ acceptance: null })), (error) => error.code === 'ACCEPTANCE_REQUIRED');
+  assert.throws(
+    () => createFidelityResult(input({ acceptance: { ...input().acceptance, decision: 'rejected' } })),
+    (error) => error.code === 'ACCEPTANCE_REQUIRED'
+  );
+  assert.throws(
+    () => createFidelityResult(input({ acceptance: { ...input().acceptance, note: ' ' } })),
+    (error) => error.code === 'ACCEPTANCE_INVALID'
   );
 });
 
-test('complete automatic, human, region, feedback, risk, and Matrix evidence is accepted deterministically', () => {
-  const first = createFidelityResult(fixture());
-  const secondInput = fixture();
-  secondInput.regions.reverse();
-  secondInput.automaticEvidence.locales.reverse();
-  secondInput.checkResults.reverse();
-  const second = createFidelityResult(secondInput);
-
-  assert.equal(first.status, 'accepted');
-  assert.match(first.resultDigest, /^sha256:[a-f0-9]{64}$/);
-  assert.equal(second.resultDigest, first.resultDigest);
-  assert.ok(Object.isFrozen(first));
+test('every required locale needs passing evidence and consistency must pass', () => {
+  assert.throws(
+    () => createFidelityResult(input({ evidence: [evidence('en')] })),
+    (error) => error.code === 'EVIDENCE_LOCALE_MISSING' && /zh/.test(error.message)
+  );
+  assert.throws(
+    () => createFidelityResult(input({ evidence: [evidence('en'), evidence('zh', { gates: { interface: 'failed' } })] })),
+    (error) => error.code === 'EVIDENCE_GATE_FAILED'
+  );
+  assert.throws(
+    () => createFidelityResult(input({ consistency: { status: 'failed', digest: digest('dataset-verification') } })),
+    (error) => error.code === 'AUTOMATIC_CONSISTENCY_NOT_PASSED'
+  );
+  // Runs recorded before per-gate summaries carry only their evidence-ready verdict.
+  const legacyRun = createFidelityResult(input({ evidence: [evidence('en', { gates: undefined }), evidence('zh')] }));
+  assert.equal(legacyRun.automatic.locales[0].gates, null);
 });
 
-test('automatic evidence bound to an old authored digest is rejected as stale', () => {
-  const input = fixture();
-  input.automaticEvidence = {
-    ...input.automaticEvidence,
-    authoredDigest: digest('authored-v0'),
+test('data-only Adapters close on consistency evidence alone', () => {
+  const result = createFidelityResult(input({ adapter: 'revenue-metric', requiredLocales: ['en'], evidence: [] }));
+  assert.deepEqual(result.evidence, []);
+  assert.throws(
+    () => createFidelityResult(input({ adapter: 'revenue-metric', evidence: [evidence('en')] })),
+    (error) => error.code === 'ADAPTER_EVIDENCE_INVALID'
+  );
+});
+
+test('summaries read v3 and historical v2 results alike', () => {
+  const current = summarizeFidelityResult(createFidelityResult(input()));
+  assert.deepEqual(current.locales.map((item) => [item.locale, item.status]), [['en', 'passed'], ['zh', 'passed']]);
+  assert.equal(current.acceptance.reviewer, 'human:reviewer');
+
+  const v2 = {
+    schemaVersion: 2,
+    protocol: 'fidelity-result/v2',
+    kind: 'fidelity-result',
+    status: 'accepted',
+    subject: { buildId: 'build-x', key: 'x', adapter: 'income-statement', authoredDigest: digest('a'), verificationPlanDigest: digest('p') },
+    verificationPlan: { digest: digest('p'), requiredLocales: ['en', 'zh'], changeImpact: ['geometry'], requiredChecks: [] },
+    automaticEvidence: {
+      consistency: { status: 'passed', digest: digest('c') },
+      locales: [{ locale: 'en', status: 'passed', digest: digest('en') }],
+    },
+    checkResults: [],
+    attestation: { reviewer: 'human:old', reviewedAt: '2026-09-01T00:00:00.000Z', decision: 'accepted' },
+    regions: [],
+    interfaceMatrix: null,
+    attention: { status: 'closed', closureNote: 'closed' },
+    blockers: [],
   };
-  assert.throws(
-    () => createFidelityResult(input),
-    (error) => error.code === 'STALE_AUTOMATIC_EVIDENCE'
-  );
-});
-
-test('a geometry Matrix derives its summary from rows and blocks missing identities', () => {
-  const result = createFidelityResult(fixture({
-    interfaceMatrix: matrix({ expectedInterfaceIds: ['cost:right', 'revenue:right'] }),
-  }));
-  assert.equal(result.status, 'blocked');
-  assert.ok(result.blockers.some((item) => item.code === 'INTERFACE_MATRIX_INCOMPLETE'));
-  assert.ok(result.blockers.some((item) => item.code === 'INTERFACE_MATRIX_IDENTITY_MISMATCH'));
-  assert.ok(result.blockers.some((item) => item.code === 'INTERFACE_MATRIX_NOT_CLOSED'));
-});
-
-test('missing required check result blocks acceptance', () => {
-  const input = fixture();
-  input.checkResults = input.checkResults.filter((item) => !(item.checkId === 'adapter:manual-visual-closure' && item.locale === 'zh'));
-  const result = createFidelityResult(input);
-  assert.equal(result.status, 'blocked');
-  assert.ok(result.blockers.some((item) =>
-    item.code === 'REQUIRED_CHECK_MISSING' && item.subject === 'adapter:manual-visual-closure@zh'
-  ));
-});
-
-test('summary-only Matrix, full-face intent, and documented exceptions require structured rows/provenance', () => {
-  assert.throws(
-    () => createFidelityResult(fixture({ interfaceMatrix: { summary: {} } })),
-    (error) => error.code === 'INTERFACE_MATRIX_INVALID'
-  );
-  assert.throws(
-    () => createFidelityResult(fixture({ interfaceMatrix: matrix({ row: { coverageIntent: 'full-face' } }) })),
-    (error) => error.code === 'INTERFACE_MATRIX_FULL_FACE_PROVENANCE_REQUIRED'
-  );
-  assert.throws(
-    () => createFidelityResult(fixture({ interfaceMatrix: matrix({ row: { result: 'documented-exception' } }) })),
-    (error) => error.code === 'INTERFACE_MATRIX_EXCEPTION_PROVENANCE_REQUIRED'
-  );
-});
-
-test('a passing row cannot hide failed or unscored endpoint geometry', () => {
-  const result = createFidelityResult(fixture({
-    interfaceMatrix: matrix({
-      row: { endpointStatus: 'failed', tangentStatus: 'not-scored', result: 'passed' },
-    }),
-  }));
-  assert.equal(result.status, 'blocked');
-  assert.ok(result.blockers.some((item) => item.code === 'INTERFACE_MATRIX_ENDPOINT_NOT_PASSED'));
-  assert.ok(result.blockers.some((item) => item.code === 'INTERFACE_MATRIX_TANGENT_NOT_PASSED'));
-});
-
-test('render-engine changes require a full Matrix while text-only changes do not', () => {
-  const engineInput = fixture();
-  engineInput.verificationPlan.changeImpact = ['render-engine'];
-  engineInput.interfaceMatrix = null;
-  const engineResult = createFidelityResult(engineInput);
-  assert.equal(engineResult.status, 'blocked');
-  assert.ok(engineResult.blockers.some((item) => item.code === 'INTERFACE_MATRIX_REQUIRED'));
-
-  const textInput = fixture();
-  textInput.verificationPlan.changeImpact = ['display-text-only'];
-  textInput.interfaceMatrix = null;
-  const textResult = createFidelityResult(textInput);
-  assert.equal(textResult.status, 'accepted');
+  const legacy = summarizeFidelityResult(v2);
+  assert.equal(legacy.protocol, 'fidelity-result/v2');
+  assert.deepEqual(legacy.locales, [
+    { locale: 'en', status: 'passed', digest: digest('en') },
+    { locale: 'zh', status: 'missing', digest: null },
+  ]);
+  assert.equal(legacy.acceptance.reviewer, 'human:old');
 });

@@ -45,7 +45,6 @@ async function seedArtifacts(run, marker) {
     writeFile(run.artifacts.candidate, `candidate-${marker}`),
     writeFile(run.artifacts.diff, `diff-${marker}`),
     writeFile(run.artifacts.interfaceAudit, JSON.stringify({ marker })),
-    writeFile(run.artifacts.interfaceContactSheet, `contact-${marker}`),
   ]);
 }
 
@@ -106,7 +105,6 @@ test('parallel fidelity runs keep private scratch and finalize without cross-arc
   const expectedFiles = [
     'example-fy25-d3.png',
     'example-fy25-interface-audit.json',
-    'example-fy25-interface-contact-sheet.png',
     'example-fy25-metrics.json',
     'example-fy25-pixel-diff-x4.png',
     'example-fy25-reference.png',
@@ -147,11 +145,11 @@ test('failed fidelity run remains private and is never promoted as previous', as
   const root = await testRoot(t);
   const failed = await createRun(root);
   await seedArtifacts(failed, 'failed');
-  await rm(failed.artifacts.interfaceContactSheet);
+  await rm(failed.artifacts.interfaceAudit);
   const gateError = new Error('G12 failed');
   await assert.rejects(
     finalizeFidelityRun(failed, finalizationOptions(0.91)),
-    /Missing declared fidelity artifact: interfaceContactSheet/
+    /Missing declared fidelity artifact: interfaceAudit/
   );
   await markFidelityRunFailed(failed, gateError);
 

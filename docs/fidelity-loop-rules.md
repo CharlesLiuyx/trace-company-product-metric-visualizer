@@ -9,7 +9,8 @@
 规则语义的 SSOT 是 `scripts/lib/fidelity-rules-catalog.mjs`；§2 是它的生成视图
 （`pnpm update:fidelity-rules-doc`），也是规则条目的唯一呈现面。
 `scripts/lib/fidelity-rule-contract.mjs` 从 catalog 派生执行方式注册表；
-`pnpm verify:architecture` 校验生成区新鲜、手写区不另定义规则、引用可解析。
+`pnpm verify:architecture` 校验生成区新鲜，并校验脚本引用的规则 ID 与
+`FIDELITY_CODE_RULE_IDS` 一致。
 
 ## 1. 判定原则
 
@@ -29,8 +30,7 @@
 - `build-gate`：prepare 或数据一致性阶段的 Build-bound 检查，不随每次截图重复；
 - `conditional-gate`：渲染 DOM 带有对应属性（或作者声明了可选输入）时执行，失败即阻断本次证据。
 
-`REG-001` 表示审阅区域、`FB-001` 表示 Build 内反馈记录、`CB-###` 表示登记簿案例；
-三者都不是规则 ID，也不互相复用。
+`CB-###` 表示登记簿案例，不是规则 ID。
 
 ## 2. 规则目录
 

@@ -3,10 +3,7 @@ import test from 'node:test';
 
 import {
   FIDELITY_RULE_CONTRACT,
-  assertNoSecondaryFidelityRuleDefinitions,
   extractFidelityRuleReferences,
-  findSecondaryFidelityRuleDefinitions,
-  parseFidelityRuleDefinitions,
   validateFidelityRuleContract,
 } from '../scripts/lib/fidelity-rule-contract.mjs';
 import {
@@ -22,7 +19,6 @@ import {
 
 const SMALL_CONTRACT = Object.freeze({
   enforcements: Object.freeze({ G1: 'hard-gate', T1: 'conditional-gate' }),
-  aliases: Object.freeze({ G9: 'G1' }),
   codeRuleIds: Object.freeze(['G1']),
 });
 
@@ -31,7 +27,6 @@ function generatedDocument({ handwritten = '', generated = null } = {}) {
   return [
     '# 保真循环规则',
     '',
-    'REG-001 与 FB-001 保留命名空间。',
     handwritten,
     GENERATED_BEGIN,
     '',
@@ -63,7 +58,7 @@ test('default fidelity rule contract keeps only rules with a real execution poin
     assert.equal(FIDELITY_RULE_CONTRACT.enforcements[id], undefined, id);
   }
   assert.equal(Object.hasOwn(FIDELITY_RULE_CONTRACT, 'featureMappings'), false);
-  assert.deepEqual(FIDELITY_RULE_CONTRACT.aliases, {});
+  assert.equal(Object.hasOwn(FIDELITY_RULE_CONTRACT, 'aliases'), false);
 });
 
 test('contract registries are derived from the structured catalog', () => {
@@ -78,13 +73,9 @@ test('contract registries are derived from the structured catalog', () => {
   }
 });
 
-test('generated document validates as fresh and reference-complete', () => {
-  const document = generatedDocument();
-  const validated = validateFidelityRulesDocument(document);
+test('the generated section validates as fresh', () => {
+  const validated = validateFidelityRulesDocument(generatedDocument({ handwritten: '\nHandwritten principles may cite G1 and B15.\n' }));
   assert.equal(validated.ruleCount, 17);
-  assert.ok(validated.references.includes('G1'));
-  assert.ok(validated.references.includes('B15'));
-  assert.ok(!validated.references.includes('T21'));
 });
 
 test('stale or tampered generated sections are rejected', () => {
@@ -99,57 +90,8 @@ test('stale or tampered generated sections are rejected', () => {
   );
 });
 
-test('handwritten sections cannot define rules outside the generated catalog', () => {
-  const withTable = generatedDocument({
-    handwritten: '\n| 规则 | 执行方式 | 说明 |\n| --- | --- | --- |\n| G1 | hard-gate | duplicate |\n',
-  });
-  assert.throws(
-    () => validateFidelityRulesDocument(withTable),
-    (error) => error.code === 'RULE_DOCUMENT_DUPLICATE_SURFACE'
-  );
-  const withHeading = generatedDocument({ handwritten: '\n#### T18 · conditional-gate duplicate\n' });
-  assert.throws(
-    () => validateFidelityRulesDocument(withHeading),
-    (error) => error.code === 'RULE_DOCUMENT_DUPLICATE_SURFACE'
-  );
-  const withAnchor = generatedDocument({ handwritten: '\nsee <a id="rule-t18"></a> here\n' });
-  assert.throws(
-    () => validateFidelityRulesDocument(withAnchor),
-    (error) => error.code === 'RULE_DOCUMENT_DUPLICATE_SURFACE'
-  );
-});
-
-test('unknown references anywhere in the document are rejected', () => {
-  const withUnknown = generatedDocument({ handwritten: '\nT99 is not a rule.\n' });
-  assert.throws(
-    () => validateFidelityRulesDocument(withUnknown),
-    (error) => error.code === 'RULE_DOCUMENT_REFERENCE_UNKNOWN' && /T99/.test(error.message)
-  );
-});
-
-test('legacy rule tables are still detected as definition surfaces', () => {
-  const table = '\n| 规则 | 执行方式 | 说明 |\n| --- | --- | --- |\n| G1 | hard-gate | gate |\n';
-  const definitions = parseFidelityRuleDefinitions(table);
-  assert.deepEqual(
-    definitions.map(({ id, enforcement }) => ({ id, enforcement })),
-    [{ id: 'G1', enforcement: 'hard-gate' }]
-  );
-});
-
-test('aliases must point directly to a canonical rule without replacing it', () => {
-  const valid = validateFidelityRuleContract(SMALL_CONTRACT);
-  assert.equal(valid.aliases.G9, 'G1');
-  assert.throws(
-    () => validateFidelityRuleContract({ ...SMALL_CONTRACT, aliases: { G1: 'T1' } }),
-    (error) => error.code === 'RULE_ALIAS_COLLISION'
-  );
-  assert.throws(
-    () => validateFidelityRuleContract({ ...SMALL_CONTRACT, aliases: { G9: 'G2' } }),
-    (error) => error.code === 'RULE_ALIAS_TARGET_INVALID'
-  );
-});
-
 test('executable rule references cannot name unknown rules or retired enforcements', () => {
+  assert.deepEqual(validateFidelityRuleContract(SMALL_CONTRACT).codeRuleIds, ['G1']);
   assert.throws(
     () => validateFidelityRuleContract({ ...SMALL_CONTRACT, enforcements: { G1: 'manual' } }),
     (error) => error.code === 'RULE_ENFORCEMENT_INVALID'
@@ -160,24 +102,6 @@ test('executable rule references cannot name unknown rules or retired enforcemen
   );
 });
 
-test('secondary documents may reference rules but cannot define another catalog', () => {
-  const referenceOnly = 'Run G1–G12 here; definitions remain in docs/fidelity-loop-rules.md.';
-  assert.deepEqual(findSecondaryFidelityRuleDefinitions(referenceOnly), []);
-  assert.deepEqual(extractFidelityRuleReferences(referenceOnly), ['G1', 'G12']);
-
-  assert.throws(
-    () => assertNoSecondaryFidelityRuleDefinitions('- **G1 — parallel preparation.**', 'workflow.md'),
-    (error) => error.code === 'SECONDARY_RULE_CATALOG_FORBIDDEN'
-  );
-  assert.throws(
-    () => assertNoSecondaryFidelityRuleDefinitions('#### T18 · conditional-gate copied entry', 'workflow.md'),
-    (error) => error.code === 'SECONDARY_RULE_CATALOG_FORBIDDEN'
-  );
-  assert.throws(
-    () => assertNoSecondaryFidelityRuleDefinitions(
-      '<details><summary>自动硬门槛 G1–G12</summary><ol><li>another definition</li></ol></details>',
-      'flowchart.html'
-    ),
-    (error) => error.code === 'SECONDARY_RULE_CATALOG_FORBIDDEN'
-  );
+test('rule references are extracted for the executable-script parity check', () => {
+  assert.deepEqual(extractFidelityRuleReferences('Run G1, G3d and G12; not CB-043 or FB.'), ['G1', 'G12', 'G3d']);
 });

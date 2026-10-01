@@ -215,3 +215,32 @@ test('Publication Batch plans one shared base and conflicts instead of retrying 
   assert.equal(conflicted.state, 'CONFLICTED');
   assert.equal(conflicted.recovery, 'replan-reverify-reseal');
 });
+
+test('record-authored references source objects and the Plan by Build object digest instead of embedding them', () => {
+  const build = intake();
+  const sourceObjects = { protocol: 'source-objects/v1', kind: 'source-objects', datasetKey: build.key, adapter: build.adapter, objects: [{ id: 'revenue', class: 'value' }], sourceObjectsDigest: digest('source-objects') };
+  const plan = { protocol: 'verification-plan/v6', datasetKey: build.key, adapter: build.adapter, sourceObjectsDigest: digest('source-objects'), requiredLocales: ['en'], changeImpact: ['geometry'], requiredChecks: [], planDigest: digest('plan') };
+  const reference = (kind, value) => ({ kind, digest: digestValue(value), path: `objects/${kind}/x.json` });
+  const command = {
+    type: 'record-authored',
+    expectedRevision: build.revision,
+    artifacts: [{ path: `data/datasets/${build.key}.js`, digest: digest('adapter') }],
+    sourceObjects,
+    sourceObjectsReference: reference('source-objects', sourceObjects),
+    verificationPlan: plan,
+    verificationPlanReference: reference('verification-plan', plan),
+    changeImpact: ['geometry'],
+  };
+  const payload = advanceDatasetBuild(build, command, { now }).receipts.at(-1).payload;
+  assert.deepEqual(payload.sourceObjects, { digest: digest('source-objects'), protocol: 'source-objects/v1', object: command.sourceObjectsReference });
+  assert.deepEqual(payload.verificationPlan, { digest: digest('plan'), protocol: 'verification-plan/v6', object: command.verificationPlanReference });
+  assert.equal(payload.verificationPlanDigest, digest('plan'));
+  assert.throws(
+    () => advanceDatasetBuild(build, { ...command, sourceObjectsReference: undefined }, { now }),
+    (error) => error.code === 'AUTHORED_OBJECT_REFERENCE_REQUIRED'
+  );
+  assert.throws(
+    () => advanceDatasetBuild(build, { ...command, verificationPlanReference: reference('verification-plan', { ...plan, requiredLocales: ['zh'] }) }, { now }),
+    (error) => error.code === 'AUTHORED_OBJECT_REFERENCE_MISMATCH'
+  );
+});

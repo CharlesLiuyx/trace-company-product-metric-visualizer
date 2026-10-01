@@ -695,12 +695,12 @@ are owned by `docs/fidelity-loop-rules.md` (G12).
 
 `fullFaceIds` is optional and contains semantic
 `'<node-id>:left|right'` interface IDs whose declared coverage intent is
-`full-face`. Each ID must have a matching `interface-matrix/v1` row with
-reference measurement or design-spec provenance; the Adapter field alone is
-not acceptance evidence. Do not use it for a real socket gap.
+`full-face`. The G12 audit scores those faces against full-face coverage;
+the Adapter field alone is not acceptance evidence. Do not use it for a real
+socket gap.
 
-The Interface Matrix, report and contact sheet are verifier artifacts, not
-SSOT data.
+The interface audit report and its failure-only contact sheet are verifier
+artifacts, not SSOT data.
 Do not put reference pixel intervals into the income-statement SSOT or an i18n
 overlay. Author measured `sourceWidth`, `targetWidth`, `y0`, and `y1` on links as
 needed; the detailed measurement and acceptance rules live in

@@ -1,13 +1,8 @@
 // Renders the generated rule-catalog section of docs/fidelity-loop-rules.md
-// from the structured catalog, and validates that the committed document is
+// from the structured catalog, and validates that the committed section is
 // fresh. The Markdown between the markers is a generated view; the catalog
 // module is the rule-semantics SSOT.
 import { FIDELITY_RULES } from './fidelity-rules-catalog.mjs';
-import {
-  FIDELITY_RULE_CONTRACT,
-  extractFidelityRuleReferences,
-  findSecondaryFidelityRuleDefinitions,
-} from './fidelity-rule-contract.mjs';
 
 export const GENERATED_BEGIN = '<!-- fidelity-rules:generated:begin -->';
 export const GENERATED_END = '<!-- fidelity-rules:generated:end -->';
@@ -73,17 +68,12 @@ export function splitFidelityRulesDocument(source) {
   ) {
     documentError('RULE_DOCUMENT_MARKERS_DUPLICATE', 'Generated rule-catalog markers must appear exactly once');
   }
-  return {
-    handwritten: `${text.slice(0, beginIndex)}\n${text.slice(endIndex + GENERATED_END.length)}`,
-    generated: text.slice(beginIndex + GENERATED_BEGIN.length, endIndex).trim(),
-  };
+  return { generated: text.slice(beginIndex + GENERATED_BEGIN.length, endIndex).trim() };
 }
 
 export function validateFidelityRulesDocument(source, options = {}) {
   const rules = options.rules || FIDELITY_RULES;
-  const contract = options.contract || FIDELITY_RULE_CONTRACT;
-  const { handwritten, generated } = splitFidelityRulesDocument(source);
-
+  const { generated } = splitFidelityRulesDocument(source);
   const expected = renderFidelityRulesSection(rules).trim();
   if (generated !== expected) {
     documentError(
@@ -91,28 +81,7 @@ export function validateFidelityRulesDocument(source, options = {}) {
       'Generated rule catalog is stale: run pnpm update:fidelity-rules-doc after editing the catalog'
     );
   }
-
-  const stray = findSecondaryFidelityRuleDefinitions(handwritten);
-  if (stray.length) {
-    const detail = stray
-      .slice(0, 8)
-      .map((finding) => `${finding.kind}@${finding.line}:${finding.detail}`)
-      .join(', ');
-    documentError(
-      'RULE_DOCUMENT_DUPLICATE_SURFACE',
-      `The generated catalog is the only rule-definition surface: ${detail}`
-    );
-  }
-
-  const references = extractFidelityRuleReferences(source);
-  const unresolved = references.filter(
-    (id) => !(id in contract.enforcements) && !(id in contract.aliases)
-  );
-  if (unresolved.length) {
-    documentError('RULE_DOCUMENT_REFERENCE_UNKNOWN', `Fidelity rules reference undefined IDs: ${unresolved.join(', ')}`);
-  }
-
-  return Object.freeze({ ruleCount: rules.length, references });
+  return Object.freeze({ ruleCount: rules.length });
 }
 
 export function replaceGeneratedSection(source, rules = FIDELITY_RULES) {

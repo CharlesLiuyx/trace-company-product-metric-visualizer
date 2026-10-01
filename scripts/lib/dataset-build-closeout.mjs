@@ -1,21 +1,15 @@
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { existsSync } from 'node:fs';
-import { readFile, readdir } from 'node:fs/promises';
+import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import {
-  createFeedbackRecord,
-  projectFeedbackLedger,
-} from './feedback-ledger.mjs';
-import {
   createFidelityResult,
-  createInterfaceMatrix,
   digestFidelityValue,
+  summarizeFidelityResult,
 } from './fidelity-result.mjs';
 import { createSourceObjects } from './source-objects.mjs';
 import { VERIFICATION_PLAN_PROTOCOL, compileVerificationPlan } from './verification-plan.mjs';
-import { assertInterfaceEvidenceReady } from './interface-fidelity.mjs';
-import { assertNodePaintPolicy } from './node-face-policy.mjs';
 import {
   createCloseoutReport,
   renderLoopFidelitySummary,
@@ -24,13 +18,14 @@ import {
 import {
   DEFAULT_BUILD_ROOT,
   inspectDatasetBuild,
+  readAuthoredObject,
   readBuildObject,
   readDatasetBuild,
   recordBuildObject,
   recordDatasetBuildCommand,
   recordDatasetBuildReviewOutcome,
 } from './dataset-build-store.mjs';
-import { rootDir, buildProjectRoot } from './project.mjs';
+import { buildProjectRoot } from './project.mjs';
 
 export const REVIEW_PACKET_PROTOCOL = 'review-packet/v5';
 
@@ -101,22 +96,15 @@ async function normalizeArtifacts(artifacts, projectRoot, sources = []) {
   return normalized.sort((left, right) => left.path.localeCompare(right.path));
 }
 
-function planForFidelityResult(authored) {
-  const plan = authored?.verificationPlan;
+async function currentPlan(build, authored, buildRoot) {
+  const plan = await readAuthoredObject(build.buildId, authored?.verificationPlan, { buildRoot });
   invariant(plan, 'VERIFICATION_PLAN_REQUIRED', 'The authored snapshot has no VerificationPlan');
   invariant(
     plan.schemaVersion === 6 && plan.protocol === VERIFICATION_PLAN_PROTOCOL,
     'VERIFICATION_PLAN_STALE',
     `Finishing review requires ${VERIFICATION_PLAN_PROTOCOL}; re-prepare the Build with record:workflow continue or refresh`
   );
-  return {
-    digest: authored.verificationPlanDigest || plan.digest || plan.planDigest,
-    requiredLocales: plan.requiredLocales,
-    changeImpact: plan.changeImpact,
-    requiredChecks: plan.requiredChecks,
-    sourceObjectsDigest: plan.sourceObjectsDigest,
-    sourceDigest: plan.sourceDigest,
-  };
+  return plan;
 }
 
 export async function prepareBuildReview(input, options = {}) {
@@ -182,7 +170,9 @@ export async function prepareBuildReview(input, options = {}) {
     expectedRevision: build.revision,
     artifacts,
     sourceObjects,
+    sourceObjectsReference,
     verificationPlan,
+    verificationPlanReference: planReference,
     changeImpact: verificationPlan.changeImpact,
   }, { buildRoot, projectRoot, now: options.now });
   const authoredPayload = authored.receipts.at(-1).payload;
@@ -219,6 +209,16 @@ export async function prepareBuildReview(input, options = {}) {
   };
 }
 
+function metricsSummary(metrics) {
+  const full = metrics.full || metrics.comparison?.full || {};
+  return { similarity: full.similarity, mae: full.mae, width: full.width, height: full.height };
+}
+
+/**
+ * Read one archived, evidence-ready fidelity run bound to the current authored
+ * snapshot and Plan. The run's own gates already decided pass/fail at render
+ * time; this only binds identity and artifact bytes.
+ */
 export async function evidenceFromManifest(locator, context) {
   const manifest = await readJsonLocator(locator, context.projectRoot);
   invariant(manifest.status === 'evidence-ready', 'EVIDENCE_NOT_READY', `Fidelity evidence is not review-ready: ${locator}`);
@@ -235,6 +235,7 @@ export async function evidenceFromManifest(locator, context) {
     invariant(existsSync(absolute), 'EVIDENCE_ARTIFACT_MISSING', `Fidelity evidence artifact is missing: ${artifactLocator}`);
     artifactDigests[name] = await fileDigest(absolute);
   }
+  invariant(artifactDigests.candidate, 'EVIDENCE_ARTIFACT_MISSING', `Fidelity evidence has no candidate image: ${locator}`);
   const metrics = manifest.artifacts?.metrics
     ? await readJsonLocator(manifest.artifacts.metrics, context.projectRoot)
     : null;
@@ -246,84 +247,14 @@ export async function evidenceFromManifest(locator, context) {
     'EVIDENCE_METRICS_IDENTITY_MISMATCH',
     `Fidelity metrics dataset/language do not match the Build manifest: ${locator}`
   );
-  const loadedFonts = metrics.fontStatus?.loaded;
-  invariant(
-    metrics.fontStatus?.allLoaded === true &&
-      loadedFonts &&
-      Object.keys(loadedFonts).length > 0 &&
-      Object.values(loadedFonts).every(Boolean),
-    'EVIDENCE_FONT_STATUS_INVALID',
-    `Fidelity evidence did not prove every project font loaded: ${locator}`
-  );
-  const typography = metrics.typographyAudit;
-  invariant(
-    typography?.schemaVersion === 1 &&
-      typography.ruleId === 'G3' &&
-      typography.status === 'passed' &&
-      Array.isArray(typography.violations) &&
-      typography.violations.length === 0,
-    'EVIDENCE_TYPOGRAPHY_INVALID',
-    `Fidelity evidence has no passing G3 typography audit: ${locator}`
-  );
-  invariant(
-    manifest.artifacts?.interfaceAudit && manifest.artifacts?.interfaceContactSheet,
-    'EVIDENCE_INTERFACE_ARTIFACT_REQUIRED',
-    `Fidelity evidence must archive the G12 audit and contact sheet: ${locator}`
-  );
-  const interfaceAudit = await readJsonLocator(manifest.artifacts.interfaceAudit, context.projectRoot);
-  const interfaceMetrics = metrics.interfaceAudit;
-  invariant(
-    interfaceAudit?.gate === 'G12' && interfaceAudit.version >= 3,
-    'EVIDENCE_INTERFACE_AUDIT_INVALID',
-    `Fidelity evidence has no current G12 interface audit: ${locator}`
-  );
-  invariant(
-    interfaceAudit.dataset === metrics.dataset && interfaceAudit.language === metrics.language,
-    'EVIDENCE_INTERFACE_IDENTITY_MISMATCH',
-    `G12 audit dataset/language do not match its metrics document: ${locator}`
-  );
-  const nodePaintAudit = metrics.nodePaintAudit;
-  invariant(
-    nodePaintAudit?.schemaVersion === 1 &&
-      nodePaintAudit.dataset === metrics.dataset &&
-      nodePaintAudit.language === metrics.language,
-    'EVIDENCE_NODE_PAINT_IDENTITY_MISMATCH',
-    `Node paint audit dataset/language do not match its metrics document: ${locator}`
-  );
-  try {
-    assertNodePaintPolicy(nodePaintAudit, null, { enforceUnboundFloor: false });
-  } catch (error) {
-    throw closeoutError('EVIDENCE_NODE_PAINT_INVALID', `${locator}; ${error.message}`);
-  }
-  try {
-    assertInterfaceEvidenceReady(interfaceAudit);
-  } catch (error) {
-    throw closeoutError(
-      'EVIDENCE_INTERFACE_AUDIT_NOT_PASSED',
-      `G12 must be enforced and fully passed (candidate plus reference): ${locator}; ${error.message}`
-    );
-  }
-  invariant(
-    interfaceMetrics?.path === manifest.artifacts.interfaceAudit &&
-      interfaceMetrics.contactSheet === manifest.artifacts.interfaceContactSheet &&
-      interfaceMetrics.mode === interfaceAudit.mode &&
-      interfaceMetrics.status === interfaceAudit.status &&
-      interfaceMetrics.enforcementStatus === interfaceAudit.enforcementStatus &&
-      interfaceMetrics.candidateStatus === interfaceAudit.candidateStatus &&
-      interfaceMetrics.referenceStatus === interfaceAudit.referenceStatus,
-    'EVIDENCE_INTERFACE_IDENTITY_MISMATCH',
-    `G12 metrics do not identify the archived audit artifacts: ${locator}`
-  );
-  const digest = digestFidelityValue({ manifest, artifactDigests });
   return {
     locale: manifest.identity.language,
-    status: 'passed',
-    digest,
-    metrics,
-    manifest,
-    artifactDigests,
-    interfaceAudit,
-    locator,
+    manifest: locator,
+    digest: digestFidelityValue({ manifest, artifactDigests }),
+    candidateDigest: artifactDigests.candidate,
+    metrics: metricsSummary(metrics),
+    // Runs recorded before per-gate summaries carry only their evidence-ready verdict.
+    gates: metrics.gates || null,
   };
 }
 
@@ -339,196 +270,12 @@ async function consistencyFromReference(reference, context) {
   return { status: 'passed', digest: reference.digest };
 }
 
-function localeEvidenceForCheck(check, entry, consistency) {
-  if (!entry) return null;
-  if (check.evidenceKind === 'dataset-consistency') {
-    return { passed: consistency.status === 'passed', evidenceDigests: [consistency.digest] };
-  }
-  if (check.evidenceKind === 'fidelity-run') {
-    return { passed: entry.status === 'passed', evidenceDigests: [entry.digest] };
-  }
-  throw closeoutError('CHECK_EVIDENCE_PROVIDER_INVALID', `No locale evidence provider exists for ${check.id}/${check.evidenceKind}`);
-}
-
-function deriveCheckResults(
-  plan,
-  evidenceEntries,
-  consistency,
-  manualCheckDecisions = [],
-  authoredArtifacts = []
-) {
-  const entriesByLocale = new Map(evidenceEntries.map((entry) => [entry.locale, entry]));
-  const results = [];
-  for (const check of plan.requiredChecks) {
-    if (check.enforcement === 'manual') continue;
-    if (check.localeScope === 'global') {
-      invariant(
-        check.evidenceKind === 'dataset-consistency',
-        'CHECK_EVIDENCE_PROVIDER_INVALID',
-        `No global evidence provider exists for ${check.id}/${check.evidenceKind}`
-      );
-      results.push({
-        checkId: check.id,
-        status: consistency.status === 'passed' ? 'passed' : 'failed',
-        source: 'automatic',
-        objectIds: [],
-        evidenceDigests: [consistency.digest],
-      });
-      continue;
-    }
-    for (const locale of plan.requiredLocales) {
-      const entry = entriesByLocale.get(locale);
-      if (!entry) continue;
-      const derived = localeEvidenceForCheck(check, entry, consistency);
-      results.push({
-        checkId: check.id,
-        locale,
-        status: derived.passed ? 'passed' : 'failed',
-        source: 'automatic',
-        objectIds: [],
-        evidenceDigests: derived.evidenceDigests,
-      });
-    }
-  }
-
-  invariant(Array.isArray(manualCheckDecisions), 'MANUAL_CHECK_DECISIONS_INVALID', 'manualCheckDecisions must be an array');
-  const checkById = new Map(plan.requiredChecks.map((check) => [check.id, check]));
-  const globalEvidenceDigests = new Set([
-    consistency.digest,
-    plan.planDigest,
-    plan.sourceObjectsDigest,
-    plan.sourceDigest,
-    ...authoredArtifacts.map((artifact) => artifact.digest),
-  ].filter(Boolean));
-  for (const [index, decision] of manualCheckDecisions.entries()) {
-    invariant(decision && typeof decision === 'object', 'MANUAL_CHECK_DECISIONS_INVALID', `manualCheckDecisions[${index}] must be an object`);
-    const check = checkById.get(decision.checkId);
-    invariant(check?.enforcement === 'manual', 'MANUAL_CHECK_DECISION_NOT_ALLOWED', `Check ${decision.checkId || index} is not a required manual check`);
-    invariant(decision.locale == null, 'MANUAL_CHECK_DECISIONS_INVALID', `Manual check ${check.id} is global and takes no locale`);
-    invariant(
-      Array.isArray(decision.evidenceDigests) && decision.evidenceDigests.length > 0,
-      'MANUAL_CHECK_EVIDENCE_MISMATCH',
-      `Manual check ${check.id} needs bound evidence`
-    );
-    const evidenceDigests = [...new Set(decision.evidenceDigests.map(String))].sort();
-    invariant(
-      evidenceDigests.every((digest) => globalEvidenceDigests.has(digest)),
-      'MANUAL_CHECK_EVIDENCE_MISMATCH',
-      `Manual check ${check.id} cites evidence outside the Build-bound global evidence`
-    );
-    invariant(
-      evidenceDigests.includes(plan.sourceObjectsDigest) && evidenceDigests.includes(plan.sourceDigest),
-      'MANUAL_CHECK_EVIDENCE_MISMATCH',
-      `Manual check ${check.id} must cite both source objects ${plan.sourceObjectsDigest} and Source ${plan.sourceDigest}`
-    );
-    results.push({
-      checkId: check.id,
-      status: decision.status,
-      source: 'manual',
-      objectIds: [],
-      evidenceDigests,
-      ...(decision.note == null ? {} : { note: String(decision.note) }),
-    });
-  }
-  return results;
-}
-
-async function feedbackRecordsInBuildRoot(buildRoot) {
-  if (!existsSync(buildRoot)) return [];
-  const records = [];
-  const builds = await readdir(buildRoot, { withFileTypes: true });
-  for (const buildEntry of builds) {
-    if (!buildEntry.isDirectory() || !buildEntry.name.startsWith('build-')) continue;
-    const feedbackDir = path.join(buildRoot, buildEntry.name, 'objects', 'feedback-record');
-    if (!existsSync(feedbackDir)) continue;
-    for (const file of await readdir(feedbackDir)) {
-      if (!file.endsWith('.json')) continue;
-      records.push(JSON.parse(await readFile(path.join(feedbackDir, file), 'utf8')));
-    }
-  }
-  return records;
-}
-
-async function normalizeMatrix(input, projectRoot) {
-  if (input == null) return null;
-  const value = typeof input === 'string' ? await readJsonLocator(input, projectRoot) : input;
-  return createInterfaceMatrix(value);
-}
-
-function validateMatrixEvidence(matrix, evidenceEntries, required) {
-  if (!required) return;
-  invariant(
-    matrix,
-    'INTERFACE_MATRIX_REQUIRED',
-    'New-dataset, geometry, and render-engine review require interface-matrix/v1'
-  );
-  const auditedIds = new Set(evidenceEntries.flatMap((entry) => entry.interfaceAudit?.expectedInterfaceIds || []));
-  const candidateIds = new Set(matrix.rows.filter((row) => row.candidate).map((row) => row.id));
-  invariant(
-    JSON.stringify([...auditedIds].sort()) === JSON.stringify([...candidateIds].sort()),
-    'INTERFACE_MATRIX_CANDIDATE_COVERAGE_MISMATCH',
-    'Interface Matrix candidate rows must exactly cover the automatic G12 candidate interfaces'
-  );
-  const evidenceSets = evidenceEntries.map((entry) => ({
-    audit: entry.artifactDigests?.interfaceAudit,
-    contactSheet: entry.artifactDigests?.interfaceContactSheet,
-  }));
-  for (const row of matrix.rows) {
-    invariant(
-      evidenceSets.some((digests) =>
-        digests.audit === row.evidenceDigests.audit &&
-        digests.contactSheet === row.evidenceDigests.contactSheet
-      ),
-      'INTERFACE_MATRIX_EVIDENCE_MISMATCH',
-      `Interface Matrix row ${row.id} does not bind to one archived evidence run`
-    );
-    for (const entry of evidenceEntries) {
-      const auditRow = entry.interfaceAudit?.interfaces?.find((item) => item.id === row.id);
-      if (!auditRow) continue;
-      invariant(
-        auditRow.node === row.node && auditRow.face === row.side,
-        'INTERFACE_MATRIX_GEOMETRY_MISMATCH',
-        `Interface Matrix row ${row.id} names a different node face than G12`
-      );
-      const auditCandidate = {
-        nodeBbox: {
-          left: auditRow.nodeBox?.left,
-          right: auditRow.nodeBox?.right,
-          top: auditRow.nodeBox?.top,
-          bottom: auditRow.nodeBox?.bottom,
-        },
-        unionIntervals: (auditRow.candidateUnion || [])
-          .map((interval) => ({ top: interval.top, bottom: interval.bottom }))
-          .sort((left, right) => left.top - right.top || left.bottom - right.bottom),
-        linkIntervals: (auditRow.links || [])
-          .map((link) => ({
-            linkId: link.link,
-            top: link.interval?.top,
-            bottom: link.interval?.bottom,
-          }))
-          .sort((left, right) => left.linkId.localeCompare(right.linkId) || left.top - right.top || left.bottom - right.bottom),
-      };
-      invariant(
-        digestFidelityValue(auditCandidate) === digestFidelityValue(row.candidate),
-        'INTERFACE_MATRIX_GEOMETRY_MISMATCH',
-        `Interface Matrix row ${row.id} candidate geometry does not match the archived G12 row`
-      );
-      const auditIntent = auditRow.coverageIntent === 'full-face' ? 'full-face' : 'reference';
-      invariant(
-        auditIntent === row.coverageIntent,
-        'INTERFACE_MATRIX_COVERAGE_INTENT_MISMATCH',
-        `Interface Matrix row ${row.id} conflicts with the G12 coverage intent`
-      );
-      invariant(
-        /^sha256:[a-f0-9]{64}$/.test(String(auditRow.referenceCropDigest || '')) &&
-          auditRow.referenceCropDigest === row.evidenceDigests.referenceCrop,
-        'INTERFACE_MATRIX_REFERENCE_CROP_MISMATCH',
-        `Interface Matrix row ${row.id} does not bind to the deterministic G12 reference crop`
-      );
-    }
-  }
-}
-
+/**
+ * Close one AUTHORED Build from the operator's acceptance. It fails only when
+ * the inputs are stale, a required locale lacks evidence-ready render evidence
+ * on the current authored snapshot, consistency evidence is missing or stale,
+ * or the acceptance is missing.
+ */
 export async function finishReviewedBuild(input, options = {}) {
   const buildRoot = options.buildRoot || DEFAULT_BUILD_ROOT;
   const build = await readDatasetBuild(input.buildId, { buildRoot });
@@ -536,7 +283,8 @@ export async function finishReviewedBuild(input, options = {}) {
   const authoredReceipt = latestReceipt(build, 'AUTHORED');
   invariant(build.state === 'AUTHORED' && authoredReceipt, 'BUILD_NOT_AUTHORED', 'Build must be AUTHORED before review can finish');
   const authored = authoredReceipt.payload;
-  const plan = planForFidelityResult(authored);
+  const plan = await currentPlan(build, authored, buildRoot);
+  const planDigest = authored.verificationPlanDigest;
   const packet = await readBuildObject(build.buildId, {
     kind: 'review-packet',
     digest: input.reviewToken || input.packetDigest,
@@ -549,187 +297,100 @@ export async function finishReviewedBuild(input, options = {}) {
   const { packetDigest, ...packetValue } = packet;
   invariant(packetDigest === digestFidelityValue(packetValue), 'REVIEW_PACKET_DIGEST_MISMATCH', 'Review packet digest does not match its content');
   invariant(packet.authoredDigest === authored.snapshotDigest, 'REVIEW_PACKET_STALE', 'Review packet was prepared for an older authored snapshot');
-  invariant(packet.verificationPlanDigest === plan.digest, 'REVIEW_PACKET_STALE', 'Review packet was prepared for an older VerificationPlan');
+  invariant(packet.verificationPlanDigest === planDigest, 'REVIEW_PACKET_STALE', 'Review packet was prepared for an older VerificationPlan');
   invariant(
     packet.sourceObjectsDigest === plan.sourceObjectsDigest &&
       authored.sourceObjects?.digest === plan.sourceObjectsDigest,
     'REVIEW_PACKET_STALE',
     'Review packet was prepared for older source objects'
   );
+  invariant(input.acceptance, 'ACCEPTANCE_REQUIRED', 'Finishing review needs the operator acceptance { reviewer, decision: accepted, note }');
 
-  // review-candidate/v1 has no stage freezes: the per-locale evidence below
-  // and the human attestation close the Build. Historical checkpoint Builds
+  // review-candidate/v1 has no stage freezes. Historical checkpoint Builds
   // keep their original ordered-freeze requirement.
-  const checkpointPolicy = authored.verificationPlan.checkpointProtocol;
+  const checkpointPolicy = plan.checkpointProtocol;
   if (checkpointPolicy && build.adapter === 'income-statement') {
     invariant(['fidelity-checkpoints/v1', 'review-candidate/v1'].includes(checkpointPolicy), 'CHECKPOINT_PROTOCOL_INVALID', 'Unsupported checkpoint policy');
     if (checkpointPolicy === 'fidelity-checkpoints/v1') {
       const { validateCheckpointClosure } = await import('./workflow-checkpoints.mjs');
-      await validateCheckpointClosure(build, authored.verificationPlan, input.checkpoints || [], { buildRoot, projectRoot });
+      await validateCheckpointClosure(build, plan, input.checkpoints || [], { buildRoot, projectRoot });
     }
   }
 
-  let automaticEvidence;
-  let evidenceEntries = [];
-  if (input.automaticEvidence) {
-    invariant(options.allowInlineEvidence === true, 'INLINE_EVIDENCE_FORBIDDEN', 'Inline automatic evidence is test-only; provide evidenceManifests');
-    automaticEvidence = input.automaticEvidence;
-  } else {
-    const consistency = await consistencyFromReference(
-      input.verificationReference || input.datasetVerification,
-      {
+  const consistency = await consistencyFromReference(
+    input.verificationReference || input.datasetVerification,
+    {
+      buildId: build.buildId,
+      key: build.key,
+      adapter: build.adapter,
+      authoredDigest: authored.snapshotDigest,
+      verificationPlanDigest: planDigest,
+      buildRoot,
+    }
+  );
+  let evidence = [];
+  if (build.adapter === 'income-statement') {
+    invariant(Array.isArray(input.evidenceManifests) && input.evidenceManifests.length > 0, 'AUTOMATIC_EVIDENCE_REQUIRED', 'Income Statement review needs record:fidelity evidence manifests');
+    evidence = await Promise.all(input.evidenceManifests.map((locator) =>
+      evidenceFromManifest(locator, {
         buildId: build.buildId,
         key: build.key,
-        adapter: build.adapter,
         authoredDigest: authored.snapshotDigest,
-        verificationPlanDigest: plan.digest,
-        buildRoot,
-      }
-    );
-    if (build.adapter === 'income-statement') {
-      invariant(Array.isArray(input.evidenceManifests) && input.evidenceManifests.length > 0, 'AUTOMATIC_EVIDENCE_REQUIRED', 'Income Statement review needs record:fidelity evidence manifests');
-      evidenceEntries = await Promise.all(input.evidenceManifests.map((locator) =>
-        evidenceFromManifest(locator, {
-          buildId: build.buildId,
-          key: build.key,
-          authoredDigest: authored.snapshotDigest,
-          verificationPlanDigest: plan.digest,
-          projectRoot,
-        })
-      ));
-    } else {
-      invariant(!input.evidenceManifests?.length, 'ADAPTER_EVIDENCE_INVALID', 'Revenue Metric review does not accept Sankey fidelity evidence');
-      evidenceEntries = plan.requiredLocales.map((locale) => ({
-        locale,
-        status: 'passed',
-        digest: consistency.digest,
-        metrics: null,
-      }));
-    }
-    automaticEvidence = {
-      authoredDigest: authored.snapshotDigest,
-      verificationPlanDigest: plan.digest,
-      consistency,
-      locales: evidenceEntries.map(({ locale, status, digest }) => ({ locale, status, digest })),
-    };
+        verificationPlanDigest: planDigest,
+        projectRoot,
+      })
+    ));
+  } else {
+    invariant(!input.evidenceManifests?.length, 'ADAPTER_EVIDENCE_INVALID', `${build.adapter} review does not accept Sankey fidelity evidence`);
   }
 
-  const currentFeedback = (input.feedback || []).map((feedback) => createFeedbackRecord({
-    ...feedback,
-    buildId: build.buildId,
-  }));
-  const previousFeedback = await feedbackRecordsInBuildRoot(buildRoot);
-  const previousDigests = new Set(previousFeedback.map((record) => record.digest));
-  const ledger = projectFeedbackLedger([
-    ...previousFeedback,
-    ...currentFeedback.filter((record) => !previousDigests.has(record.digest)),
-  ]);
-  const openItems = ledger.openFeedback
-    .filter((feedback) => feedback.buildId === build.buildId)
-    .map((feedback) => `${feedback.feedbackId}/${feedback.regionId}`);
-  const automationUpgradesRequired = ledger.byRule
-    .filter((rule) => rule.automationUpgradeRequired)
-    .map((rule) => rule.ruleId);
-
-  const attestation = input.attestation
-    ? {
-        ...input.attestation,
-        authoredDigest: authored.snapshotDigest,
-        verificationPlanDigest: plan.digest,
-        reviewedAt: input.attestation.reviewedAt || (options.now || (() => new Date().toISOString()))(),
-      }
-    : null;
-  const riskChecks = input.riskChecks || [];
-  const interfaceMatrix = await normalizeMatrix(input.interfaceMatrix, projectRoot);
-  const matrixRequired = build.adapter === 'income-statement'
-    && plan.changeImpact.some((impact) =>
-      impact === 'geometry' || impact === 'new-dataset' || impact === 'render-engine'
-    );
-  validateMatrixEvidence(interfaceMatrix, evidenceEntries, matrixRequired);
-  const checkResults = deriveCheckResults(
-    authored.verificationPlan,
-    evidenceEntries,
-    automaticEvidence.consistency,
-    input.manualCheckDecisions || [],
-    authored.artifacts || []
-  );
   const fidelityResult = createFidelityResult({
     buildId: build.buildId,
     key: build.key,
     adapter: build.adapter,
     authoredDigest: authored.snapshotDigest,
-    verificationPlan: plan,
-    automaticEvidence,
-    checkResults,
-    attestation,
-    regions: input.regions || [],
-    attention: input.attention,
-    stageDecisions: input.stageDecisions || [],
-    feedbackSummary: { openItems, automationUpgradesRequired },
-    riskChecks,
-    interfaceMatrix,
+    verificationPlanDigest: planDigest,
+    requiredLocales: plan.requiredLocales,
+    acceptance: {
+      ...input.acceptance,
+      reviewedAt: input.acceptance.reviewedAt || (options.now || (() => new Date().toISOString()))(),
+    },
+    consistency,
+    evidence,
   });
-
-  const feedbackReferences = [];
-  for (const feedback of currentFeedback) {
-    feedbackReferences.push(await recordBuildObject(build.buildId, 'feedback-record', feedback, {
-      buildRoot,
-      projectRoot,
-    }));
-  }
-  const [resultReference, ledgerReference] = await Promise.all([
-    recordBuildObject(build.buildId, 'fidelity-result', fidelityResult, { buildRoot, projectRoot }),
-    recordBuildObject(build.buildId, 'feedback-ledger', ledger, { buildRoot, projectRoot }),
-  ]);
-  const reviewedBuild = await recordDatasetBuildReviewOutcome(build.buildId, {
+  const resultReference = await recordBuildObject(build.buildId, 'fidelity-result', fidelityResult, { buildRoot, projectRoot });
+  await recordDatasetBuildReviewOutcome(build.buildId, {
     expectedRevision: build.revision,
     status: fidelityResult.status,
     authoredDigest: authored.snapshotDigest,
-    verificationPlanDigest: plan.digest,
+    verificationPlanDigest: planDigest,
     fidelityResult: resultReference,
-    feedbackLedger: ledgerReference,
-    feedbackRecords: feedbackReferences,
   }, { buildRoot, projectRoot, now: options.now });
 
-  if (fidelityResult.status !== 'accepted') {
-    return {
-      build: reviewedBuild,
-      fidelityResult,
-      fidelityResultReference: resultReference,
-      feedbackReferences,
-      feedbackLedger: ledger,
-      feedbackLedgerReference: ledgerReference,
-    };
-  }
-
-  const evidence = {
-    candidate: { status: 'passed', digest: fidelityResult.automaticEvidence.evidenceDigest },
-    reference: {
-      status: build.adapter !== 'income-statement' ? 'not-applicable' : 'passed',
-      digest: fidelityResult.interfaceMatrix?.digest || fidelityResult.resultDigest,
-    },
-    process: { status: 'passed', digest: plan.digest },
-    human: { status: 'passed', digest: fidelityResult.attestation.attestationDigest },
-  };
+  const resultEvidenceDigest = digestFidelityValue({
+    consistency: fidelityResult.automatic.consistency,
+    evidence: fidelityResult.evidence,
+  });
   const closed = await recordDatasetBuildCommand(build.buildId, {
     type: 'record-closed',
     expectedRevision: build.revision,
     snapshotDigest: authored.snapshotDigest,
     fidelityResult,
-    evidence,
-    reviewObjects: {
-      fidelityResult: resultReference,
-      feedbackLedger: ledgerReference,
-      feedbackRecords: feedbackReferences,
+    evidence: {
+      candidate: { status: 'passed', digest: resultEvidenceDigest },
+      reference: {
+        status: build.adapter === 'income-statement' ? 'passed' : 'not-applicable',
+        digest: fidelityResult.resultDigest,
+      },
+      process: { status: 'passed', digest: planDigest },
+      human: { status: 'passed', digest: digestFidelityValue(fidelityResult.acceptance) },
     },
+    reviewObjects: { fidelityResult: resultReference },
   }, { buildRoot, projectRoot, requireFresh: true, now: options.now });
   return {
     build: closed,
     fidelityResult,
     fidelityResultReference: resultReference,
-    feedbackReferences,
-    feedbackLedger: ledger,
-    feedbackLedgerReference: ledgerReference,
   };
 }
 
@@ -841,7 +502,8 @@ export async function sealReviewedBuild(input, options = {}) {
   // that proof unless the caller asks for a fresh render. Revenue Metric
   // render obligations are Adapter-owned notApplicable and record no row.
   if (build.adapter === 'income-statement') {
-    const requiredLocales = authored.payload.verificationPlan?.requiredLocales;
+    const plan = await readAuthoredObject(build.buildId, authored.payload.verificationPlan, { buildRoot });
+    const requiredLocales = plan?.requiredLocales;
     invariant(
       Array.isArray(requiredLocales) && requiredLocales.length > 0,
       'SEAL_PLAN_LOCALES_REQUIRED',
@@ -850,18 +512,19 @@ export async function sealReviewedBuild(input, options = {}) {
     const acceptedResult = !options.freshRender && closure.payload.reviewObjects?.fidelityResult
       ? await readBuildObject(build.buildId, closure.payload.reviewObjects.fidelityResult, { buildRoot })
       : null;
-    const acceptedEvidence = acceptedResult?.automaticEvidence;
-    const reusable = Boolean(acceptedResult)
-      && acceptedResult.status === 'accepted'
+    // fidelity-result/v2 closures remain sealable: the summary reads either version.
+    const accepted = acceptedResult ? summarizeFidelityResult(acceptedResult) : null;
+    const reusable = Boolean(accepted)
+      && accepted.status === 'accepted'
       && acceptedResult.resultDigest === closure.payload.fidelityResult?.resultDigest
-      && acceptedEvidence?.authoredDigest === authored.payload.snapshotDigest
-      && acceptedEvidence?.verificationPlanDigest === authored.payload.verificationPlanDigest
-      && requiredLocales.every((locale) => acceptedEvidence.locales?.some((item) => item.locale === locale && item.status === 'passed'));
+      && accepted.subject?.authoredDigest === authored.payload.snapshotDigest
+      && accepted.subject?.verificationPlanDigest === authored.payload.verificationPlanDigest
+      && requiredLocales.every((locale) => accepted.locales.some((item) => item.locale === locale && item.status === 'passed'));
     if (reusable) {
       const checkedAt = now();
       for (const locale of requiredLocales) {
-        const accepted = acceptedEvidence.locales.find((item) => item.locale === locale);
-        finalProfiles.push({ profile: SEAL_RENDER_PROFILE, locale, status: 'passed', outputDigest: accepted.digest, reusedEvidence: true, checkedAt });
+        const acceptedLocale = accepted.locales.find((item) => item.locale === locale);
+        finalProfiles.push({ profile: SEAL_RENDER_PROFILE, locale, status: 'passed', outputDigest: acceptedLocale.digest, reusedEvidence: true, checkedAt });
       }
     }
     if (!reusable) {
@@ -944,17 +607,11 @@ export async function inspectBuildCloseout(buildId, options = {}) {
   };
   const references = inspectionResult.reviewObjects;
   if (reviewStale) return inspectionResult;
-  if (!references?.fidelityResult || !references?.feedbackLedger) return inspectionResult;
-  const [fidelityResult, feedbackLedger] = await Promise.all([
-    readBuildObject(buildId, references.fidelityResult, { buildRoot }),
-    readBuildObject(buildId, references.feedbackLedger, { buildRoot }),
-  ]);
+  // Older closures also reference a feedback ledger; it is no longer read.
+  if (!references?.fidelityResult) return inspectionResult;
+  const fidelityResult = await readBuildObject(buildId, references.fidelityResult, { buildRoot });
   inspectionResult.fidelityResultDigest = fidelityResult.resultDigest;
-  const report = createCloseoutReport({
-    inspection: inspectionResult,
-    fidelityResult,
-    feedbackLedger,
-  });
+  const report = createCloseoutReport({ inspection: inspectionResult, fidelityResult });
   return {
     ...inspectionResult,
     report,
