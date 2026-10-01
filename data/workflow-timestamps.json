@@ -340,6 +340,11 @@
       "digest": "sha256:4a7f24ca16a82449148597fb80b3266ebb76187686f9736aa08333b3ef17278b",
       "updatedAt": "2026-09-29T19:51:50.036Z",
       "publishedDigest": "sha256:4ba8a540a34545f4a481170f664dffaf5c0b5803d6ad6d9450fa660307ed0fa3"
+    },
+    "data/datasets/fox-q4-fy26.js": {
+      "digest": "sha256:8c16aa3e74464309ff17301a2990ee99065b4fd6c25224df1774ca847a144032",
+      "updatedAt": "2026-10-01T06:06:30.168Z",
+      "publishedDigest": "sha256:c122540bf02c93ebac7c8b99748581fa040c30922a4898b4178b67ccb22030cc"
     }
   }
 }
