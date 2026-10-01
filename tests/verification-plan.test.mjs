@@ -395,11 +395,11 @@ test('Income Statement plan compiles object features into mandatory rule checks'
   });
   const checks = Object.fromEntries(plan.requiredChecks.map((check) => [check.id, check]));
 
-  assert.deepEqual(checks['feature:centered-side-label'].ruleIds, ['B3', 'T7']);
+  assert.deepEqual(checks['feature:centered-side-label'].ruleIds, ['T7']);
   assert.deepEqual(checks['feature:aligned-side-label-column'].ruleIds, ['T6']);
   assert.equal(checks['feature:aligned-side-label-column'].enforcement, 'quantified-audit');
-  assert.deepEqual(checks['feature:text'].ruleIds, ['B6', 'Z5']);
-  assert.deepEqual(checks['feature:annotation-near-label'].ruleIds, ['A6', 'B5']);
+  assert.deepEqual(checks['feature:text'].ruleIds, ['B6']);
+  assert.deepEqual(checks['feature:annotation-near-label'].ruleIds, ['A6']);
   assert.deepEqual(checks['feature:paired-node-annotation'].ruleIds, ['I12']);
   assert.equal(checks['feature:paired-node-annotation'].evidenceKind, 'annotation-pairing-audit');
   assert.equal(checks['feature:paired-node-annotation'].enforcement, 'quantified-audit');
@@ -408,8 +408,8 @@ test('Income Statement plan compiles object features into mandatory rule checks'
   assert.deepEqual(checks['feature:specified-label-weight'].ruleIds, ['B14', 'T16']);
   assert.equal(checks['feature:specified-label-weight'].enforcement, 'manual');
   assert.equal(checks['feature:specified-label-weight'].localeScope, 'required-locales');
-  assert.deepEqual(checks['feature:visible-interface'].ruleIds, ['G12', 'L11']);
-  assert.deepEqual(checks['feature:visible-node-face'].ruleIds, ['B15', 'T13', 'T21']);
+  assert.deepEqual(checks['feature:visible-interface'].ruleIds, ['G12']);
+  assert.deepEqual(checks['feature:visible-node-face'].ruleIds, ['B15']);
   assert.equal(checks['feature:visible-node-face'].enforcement, 'conditional-gate');
   assert.equal(checks['feature:visible-node-face'].localeScope, 'required-locales');
   assert.deepEqual(checks['feature:centered-side-label'].objectIds, ['label:revenue']);

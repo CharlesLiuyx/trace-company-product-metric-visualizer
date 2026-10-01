@@ -259,12 +259,12 @@ function paintAudit(value, paintOpacity, elementOpacity, background) {
   };
 }
 
-// T21: a node the audit judges faceVisible can still render a sub-pixel bar that
-// is invisible to the eye — B15/faceVisible only test alpha>0 and a non-zero
-// box, not rendered height. MIN_VISIBLE_FACE_PX is the shared minimum visible
-// face-height floor; visible faces rendering below it (beyond a raster
-// tolerance) are reported in belowVisibilityFloorNodeIds so adapters stop
-// guessing a per-node minimum (this session shipped Visa=6px, SAP/Comcast=3px).
+// B15 height floor: a node the audit judges faceVisible can still render a
+// sub-pixel bar that is invisible to the eye — faceVisible only tests alpha>0
+// and a non-zero box, not rendered height. MIN_VISIBLE_FACE_PX is the shared
+// minimum visible face-height floor; visible faces rendering below it (beyond
+// a raster tolerance) are reported in belowVisibilityFloorNodeIds so adapters
+// stop guessing a per-node minimum.
 export function classifyNodePaintAudit({ dataset = '', language = '', background = '', nodes = [] }) {
   const backgroundColour = parseComputedColour(background);
   const seen = new Set();
@@ -1266,7 +1266,7 @@ export async function auditSemanticAnnotations(page, { datasetKey, language, exp
   return classifySemanticAnnotationAudit({ ...collected, expectedNodeIds });
 }
 
-// Rendered-bbox audit of the label-node spacing hard gates (G8-G10 in
+// Rendered-bbox audit of the label-node spacing hard gate (G8 in
 // docs/fidelity-loop-rules.md): same-axis vertical gap >= 4px (5px target),
 // short-node center delta <= 4px, horizontal side-label overlap forbidden.
 // The classifier is pure so the exact hard/target boundaries stay unit tested.
@@ -1560,8 +1560,8 @@ export function labelPositionExpectationsFromPlan(plan) {
 // share one coordinate system. The reference measurement is ink bounds while
 // getBBox is an em box, so the tolerance is 6px: the repo-wide 4px center
 // convention plus a 2px measurement-protocol allowance. The center gate binds
-// on the source-language locale only — localized layout acceptance is owned
-// by Z2/Z5/Z6 — but every measured group must render measurably per locale.
+// on the source-language locale only — localized layout is covered by B6 and
+// human review — but every measured group must render measurably per locale.
 export function classifyLabelPositionAudit(geometry, expectations, { locale = 'en', enforcedLocale = 'en' } = {}) {
   const round = (value) => Math.round(value * 10) / 10;
   const enforced = locale === enforcedLocale;

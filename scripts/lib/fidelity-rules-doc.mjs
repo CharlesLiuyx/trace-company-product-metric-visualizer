@@ -2,21 +2,23 @@
 // from the structured catalog, and validates that the committed document is
 // fresh. The Markdown between the markers is a generated view; the catalog
 // module is the rule-semantics SSOT.
-import {
-  FIDELITY_RULES,
-  FIDELITY_RULE_SERIES,
-  FIDELITY_RULE_STAGES,
-  FIDELITY_RULE_TOPICS,
-} from './fidelity-rules-catalog.mjs';
+import { FIDELITY_RULES } from './fidelity-rules-catalog.mjs';
 import {
   FIDELITY_RULE_CONTRACT,
-  FIDELITY_RULE_ENFORCEMENT,
   extractFidelityRuleReferences,
   findSecondaryFidelityRuleDefinitions,
 } from './fidelity-rule-contract.mjs';
 
 export const GENERATED_BEGIN = '<!-- fidelity-rules:generated:begin -->';
 export const GENERATED_END = '<!-- fidelity-rules:generated:end -->';
+
+const ENTRY_FIELDS = Object.freeze([
+  ['trigger', '触发'],
+  ['check', '检查'],
+  ['pass', '通过'],
+  ['evidence', '证据'],
+  ['rationale', '理由'],
+]);
 
 function ruleAnchor(id) {
   return `rule-${id.toLowerCase()}`;
@@ -26,29 +28,10 @@ function ruleLink(id) {
   return `[${id}](#${ruleAnchor(id)})`;
 }
 
-function indexTable(header, groups) {
-  const lines = [`| ${header} | 规则 |`, '| --- | --- |'];
-  for (const [label, ids] of groups) {
-    if (!ids.length) continue;
-    lines.push(`| ${label} | ${ids.map(ruleLink).join(' ')} |`);
-  }
-  return lines;
-}
-
 function ruleEntry(entry) {
-  const lines = [`#### <a id="${ruleAnchor(entry.id)}"></a>${entry.id} · ${entry.enforcement}`, ''];
-  const meta = [`阶段：${entry.stage}`, `主题：${entry.topics.join('、')}`];
-  lines.push(`- ${meta.join(' · ')}`);
-  if (entry.trigger) lines.push(`- 触发：${entry.trigger}`);
-  if (entry.check) lines.push(`- 检查：${entry.check}`);
-  if (entry.pass) lines.push(`- 通过：${entry.pass}`);
-  if (entry.evidence) lines.push(`- 证据：${entry.evidence}`);
-  if (entry.compensates.length) lines.push(`- 补偿：${entry.compensates.map(ruleLink).join('、')}`);
-  if (entry.features.length) lines.push(`- feature：${entry.features.map((name) => `\`${name}\``).join('、')}`);
-  if (entry.rationale) lines.push(`- 理由：${entry.rationale}`);
-  if (entry.origin) lines.push(`- 来源：commit ${entry.origin}`);
-  if (entry.status !== 'active') {
-    lines.push(`- 状态：${entry.status}${entry.supersededBy ? `（由 ${ruleLink(entry.supersededBy)} 替代）` : ''}`);
+  const lines = [`#### <a id="${ruleAnchor(entry.id)}"></a>${entry.id} · ${entry.enforcement} · ${entry.title}`, ''];
+  for (const [field, label] of ENTRY_FIELDS) {
+    if (entry[field]) lines.push(`- ${label}：${entry[field]}`);
   }
   return lines;
 }
@@ -58,44 +41,13 @@ export function renderFidelityRulesSection(rules = FIDELITY_RULES) {
     '_本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rules-catalog.mjs`',
     '生成；不要手改，改规则请编辑 catalog 后重新生成。_',
     '',
-    '### 索引',
-    '',
-    '**按 sweep stage：**',
-    '',
-    ...indexTable(
-      '阶段',
-      FIDELITY_RULE_STAGES.map((stage) => [stage, rules.filter((entry) => entry.stage === stage).map((entry) => entry.id)])
-    ),
-    '',
-    '**按主题：**',
-    '',
-    ...indexTable(
-      '主题',
-      FIDELITY_RULE_TOPICS.map((topic) => [topic, rules.filter((entry) => entry.topics.includes(topic)).map((entry) => entry.id)])
-    ),
-    '',
-    '**按执行方式：**',
-    '',
-    ...indexTable(
-      '类别',
-      FIDELITY_RULE_ENFORCEMENT.map((enforcement) => [
-        `\`${enforcement}\``,
-        rules.filter((entry) => entry.enforcement === enforcement).map((entry) => entry.id),
-      ])
-    ),
+    '| 规则 | 执行方式 | 名称 |',
+    '| --- | --- | --- |',
+    ...rules.map((entry) => `| ${ruleLink(entry.id)} | \`${entry.enforcement}\` | ${entry.title} |`),
   ];
-
-  for (const [letter, series] of Object.entries(FIDELITY_RULE_SERIES)) {
-    const seriesRules = rules.filter((entry) => entry.id[0] === letter);
-    if (!seriesRules.length) continue;
-    lines.push('', `### ${letter} 系列：${series.title}`, '');
-    if (series.preamble) lines.push(series.preamble, '');
-    for (const entry of seriesRules) {
-      lines.push(...ruleEntry(entry), '');
-    }
-    while (lines[lines.length - 1] === '') lines.pop();
+  for (const entry of rules) {
+    lines.push('', ...ruleEntry(entry));
   }
-
   return lines.join('\n');
 }
 

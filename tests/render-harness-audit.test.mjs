@@ -131,7 +131,7 @@ test('Toast/Alibaba short-node paint regression rejects transparent, background-
   );
 });
 
-test('T21 flags faceVisible nodes rendering below the shared MIN_VISIBLE_FACE_PX floor', () => {
+test('B15 flags faceVisible nodes rendering below the shared MIN_VISIBLE_FACE_PX floor', () => {
   assert.equal(MIN_VISIBLE_FACE_PX, 3);
   const audit = classify([
     node('tall', { bbox: { x: 10, y: 20, width: 18, height: 12 } }),
@@ -234,7 +234,7 @@ test('G8 uses 5px as the target and 4px as the inclusive hard boundary', () => {
   assert.equal(failure.verticalViolations.length, 1);
 });
 
-test('G9 accepts a 4px short-node center delta and rejects 4.1px', () => {
+test('G8 accepts a 4px short-node center delta and rejects 4.1px', () => {
   const boundary = labelAudit({ x: 104, y: 86, width: 20, height: 10 });
   assert.equal(boundary.verticalStacks[0].centerDelta, 4);
   assert.deepEqual(boundary.centerViolations, []);
@@ -244,7 +244,7 @@ test('G9 accepts a 4px short-node center delta and rejects 4.1px', () => {
   assert.equal(failure.centerViolations.length, 1);
 });
 
-test('G10 reports the 5px side target and fails only positive overlap', () => {
+test('G8 reports the 5px side target and fails only positive overlap', () => {
   const target = labelAudit(
     { x: 75, y: 105, width: 20, height: 10 },
     { x: 100, y: 100, width: 20, height: 20 }
@@ -268,7 +268,7 @@ test('G10 reports the 5px side target and fails only positive overlap', () => {
   assert.equal(failure.horizontalViolations.length, 1);
 });
 
-test('B3/T7 infer centered-side-label from a separate amount block and side name block', () => {
+test('T7 infers centered-side-label from a separate amount block and side name block', () => {
   const geometry = (sideY) => classifyLabelLayoutAudit({
     nodes: [{ id: 'region', box: { x: 100, y: 100, width: 20, height: 40 } }],
     labels: [
@@ -296,7 +296,7 @@ test('B3/T7 infer centered-side-label from a separate amount block and side name
   assert.equal(failure.inferredCenteredSideLabelViolations[0].verticalCenterDelta, 10);
 });
 
-test('B3/T7 recognizes Brazilian real amounts when inferring centered side labels', () => {
+test('T7 recognizes Brazilian real amounts when inferring centered side labels', () => {
   const audit = classifyLabelLayoutAudit({
     nodes: [{ id: 'transaction_services', box: { x: 100, y: 100, width: 20, height: 40 } }],
     labels: [
@@ -322,7 +322,7 @@ test('B3/T7 recognizes Brazilian real amounts when inferring centered side label
   assert.deepEqual(audit.inferredCenteredSideLabelViolations, []);
 });
 
-test('B3/T7 inferred side-name centering excludes side notes and margin text', () => {
+test('T7 inferred side-name centering excludes side notes and margin text', () => {
   const audit = classifyLabelLayoutAudit({
     nodes: [{ id: 'subscription', box: { x: 100, y: 100, width: 20, height: 100 } }],
     labels: [
@@ -354,7 +354,7 @@ test('B3/T7 inferred side-name centering excludes side notes and margin text', (
   assert.deepEqual(audit.inferredCenteredSideLabelViolations, []);
 });
 
-test('B3/T7 audits an explicitly centered combined side label', () => {
+test('T7 audits an explicitly centered combined side label', () => {
   const audit = classifyLabelLayoutAudit({
     nodes: [{ id: 'cloud_software', box: { x: 100, y: 100, width: 20, height: 80 } }],
     labels: [{
@@ -373,7 +373,7 @@ test('B3/T7 audits an explicitly centered combined side label', () => {
   assert.deepEqual(audit.inferredCenteredSideLabelViolations, []);
 });
 
-test('B3/T7 inferred side-name centering respects explicit fixed-block semantic roles', () => {
+test('T7 inferred side-name centering respects explicit fixed-block semantic roles', () => {
   const audit = classifyLabelLayoutAudit({
     nodes: [{ id: 'segment', box: { x: 100, y: 100, width: 20, height: 40 } }],
     labels: [
@@ -515,7 +515,7 @@ test('T18 gates the source-language center deltas and only measures other locale
 
   const localized = classifyLabelPositionAudit(shifted, expectations, { locale: 'zh' });
   assert.equal(localized.enforced, false);
-  assert.deepEqual(localized.violations, [], 'localized layout acceptance is owned by Z2/Z5/Z6');
+  assert.deepEqual(localized.violations, [], 'localized layout is covered by B6 and human review');
 
   const missing = classifyLabelPositionAudit({ labels: [] }, expectations, { locale: 'zh' });
   assert.deepEqual(missing.violations.map((item) => item.code), ['missing-label-group'], 'every locale must render each measured group');

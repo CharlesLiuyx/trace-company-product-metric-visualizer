@@ -14,8 +14,8 @@
 | 已接受的架构决策 | `docs/adr/`（从 `0001-dataset-build-transactions.md` 开始） |
 | **输入资产处理流程**：命令、顺序、检查边界、审阅、发布、Git 交接、来源归档、汇报 | `docs/asset-workflow.md`（自动生成的命令/协议表：`docs/workflow-command-reference.md`） |
 | 数据集建模规则：Adapter 分型门、来源对象分类、防漏不变量、Source Coverage、对账、陷阱 | `docs/dynamic-dataset-workflow.md` |
-| d3 保真规则、渲染前测量、审阅候选、证据、反馈、结束条件 | `docs/fidelity-loop-rules.md`（规则目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rules-catalog.mjs` 生成） |
-| 跨检出的反馈复发记忆 | `docs/fidelity-feedback-casebook.md`（协议见 `docs/fidelity-loop-rules.md` §5） |
+| d3 保真机器门槛、审阅者清单、反馈协议 | `docs/fidelity-loop-rules.md`（规则目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rules-catalog.mjs` 生成） |
+| 用户反馈过且落地了机器门槛的保真缺陷 | `docs/fidelity-feedback-casebook.md`（协议见 `docs/fidelity-loop-rules.md` §4） |
 | 数据集 / SSOT 字段格式 | `data/schema.md` |
 | 数据相邻资产（图标 crop、raster annotation） | `data/assets/README.md` |
 | Trace 产品与数据模型 | `docs/trace-specification.zh-CN.md` |
@@ -113,10 +113,10 @@ workspace 中工作，携带 owner 与 generation（`docs/local-environments.md`
 
 ## d3-Sankey 保真
 
-`docs/fidelity-loop-rules.md` 对每条 G/B/R/L/T/A/Z/I 规则只定义一次；其他文档可以引用
-ID，但不得重写公式或阈值。每次用户更正都是流程信号：修复问题，归类（缺规则、执行
-缺口、规则含糊），并按该文档 §5 增加自动检查或绑定证据的决定。只有机器证据时报告为
-`review-pending`。
+`docs/fidelity-loop-rules.md` 拥有机器保真门槛（由规则 catalog 生成）与审阅者清单；其他
+文档可以引用规则 ID，但不得重写公式或阈值。每次用户更正都要修复；若确定性的机器门槛本可
+发现它，就新增或扩展门槛并补测试，并在 `docs/fidelity-feedback-casebook.md` 登记一行。
+只有机器证据时报告为 `review-pending`。
 
 ## 提交信息
 

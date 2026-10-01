@@ -44,40 +44,50 @@ function generatedDocument({ handwritten = '', generated = null } = {}) {
   ].join('\n');
 }
 
-test('default fidelity rule contract preserves the complete catalog and feature mappings', () => {
-  assert.equal(Object.keys(FIDELITY_RULE_CONTRACT.enforcements).length, 112);
-  assert.equal(FIDELITY_RULES.length, 112);
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T21, 'conditional-gate');
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T22, 'build-gate');
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T23, 'build-gate');
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T6, 'quantified-audit');
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.G11, 'build-gate');
+test('default fidelity rule contract preserves the machine-gate catalog and feature mappings', () => {
+  assert.equal(Object.keys(FIDELITY_RULE_CONTRACT.enforcements).length, 25);
+  assert.equal(FIDELITY_RULES.length, 25);
+  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.G1, 'hard-gate');
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.G3d, 'hard-gate');
+  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.G4, 'hard-gate');
+  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.G8, 'hard-gate');
+  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.G11, 'build-gate');
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.G12, 'hard-gate');
+  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.B6, 'conditional-gate');
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.B15, 'conditional-gate');
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.B16, 'conditional-gate');
+  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T22, 'build-gate');
+  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T6, 'quantified-audit');
+  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T7, 'conditional-gate');
+  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.A6, 'conditional-gate');
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.A10, 'conditional-gate');
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.B14, 'manual');
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.L11, 'quantified-audit');
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T14, 'manual');
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T12, 'manual');
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T16, 'manual');
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T17, 'manual');
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.I11, 'manual');
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.I12, 'quantified-audit');
-  assert.deepEqual(FIDELITY_RULE_CONTRACT.featureMappings['visible-short-node'], ['T14']);
-  assert.deepEqual(FIDELITY_RULE_CONTRACT.featureMappings['visible-node-face'], ['B15', 'T13', 'T21']);
-  assert.equal(FIDELITY_RULE_CONTRACT.featureMappings['hidden-anchor'], undefined);
-  assert.deepEqual(FIDELITY_RULE_CONTRACT.featureMappings['specified-label-weight'], ['B14', 'T16']);
-  assert.deepEqual(FIDELITY_RULE_CONTRACT.featureMappings['semantic-annotation'], ['A10', 'B16', 'T17']);
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T18, 'conditional-gate');
+  // Feature rules still compiled by VerificationPlan or checked by close-out.
   assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T19, 'build-gate');
-  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T20, 'manual');
-  assert.deepEqual(FIDELITY_RULE_CONTRACT.featureMappings['measured-label-position'], ['T18', 'T19']);
-  assert.deepEqual(FIDELITY_RULE_CONTRACT.featureMappings['ambiguous-label-slot'], ['T20']);
-  assert.deepEqual(FIDELITY_RULE_CONTRACT.featureMappings['zero-paint-node-slot'], ['T23']);
-  assert.deepEqual(FIDELITY_RULE_CONTRACT.featureMappings['paired-node-annotation'], ['I12']);
-  assert.deepEqual(FIDELITY_RULE_CONTRACT.featureMappings['aligned-side-label-column'], ['T6']);
+  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.T23, 'build-gate');
+  assert.equal(FIDELITY_RULE_CONTRACT.enforcements.B16, 'conditional-gate');
+  for (const id of ['B14', 'T14', 'T16', 'T17', 'T20']) {
+    assert.equal(FIDELITY_RULE_CONTRACT.enforcements[id], 'manual', id);
+  }
+  // Deleted IDs are gone for good and are never reused.
+  for (const id of ['G3a', 'G5', 'G9', 'G10', 'B3', 'B5', 'B8', 'L11', 'L15', 'R3', 'T13', 'T21', 'Z5', 'I11']) {
+    assert.equal(FIDELITY_RULE_CONTRACT.enforcements[id], undefined, id);
+  }
+  assert.deepEqual(FIDELITY_RULE_CONTRACT.featureMappings, {
+    'aligned-side-label-column': ['T6'],
+    'ambiguous-label-slot': ['T20'],
+    'annotation-near-label': ['A6'],
+    'centered-side-label': ['T7'],
+    'measured-label-position': ['T18', 'T19'],
+    'paired-node-annotation': ['I12'],
+    'semantic-annotation': ['A10', 'B16', 'T17'],
+    'specified-label-weight': ['B14', 'T16'],
+    text: ['B6'],
+    'visible-interface': ['G12'],
+    'visible-node-face': ['B15'],
+    'visible-short-node': ['T14'],
+    'zero-paint-node-slot': ['T23'],
+  });
   assert.deepEqual(FIDELITY_RULE_CONTRACT.aliases, {});
 });
 
@@ -89,33 +99,22 @@ test('contract registries are derived from the structured catalog', () => {
     FIDELITY_RULE_CONTRACT.enforcements
   );
   assert.deepEqual(catalogFeatureMappings(), FIDELITY_RULE_CONTRACT.featureMappings);
-  const superseded = new Map([
-    ['B7', 'B15'],
-    ['T12', 'B15'],
-    ['T12a', 'A10'],
-  ]);
   for (const entry of FIDELITY_RULES) {
-    assert.equal(entry.status, superseded.has(entry.id) ? 'superseded' : 'active');
-    if (superseded.has(entry.id)) assert.equal(entry.supersededBy, superseded.get(entry.id));
-    for (const target of entry.compensates) {
-      assert.ok(
-        FIDELITY_RULES.some((other) => other.id === target),
-        `${entry.id} compensates a known rule (${target})`
-      );
-    }
+    assert.ok(entry.title.trim(), `${entry.id} has a title`);
   }
 });
 
 test('generated document validates as fresh and reference-complete', () => {
   const document = generatedDocument();
   const validated = validateFidelityRulesDocument(document);
-  assert.equal(validated.ruleCount, 112);
+  assert.equal(validated.ruleCount, 25);
   assert.ok(validated.references.includes('G1'));
-  assert.ok(validated.references.includes('T21'));
+  assert.ok(validated.references.includes('B15'));
+  assert.ok(!validated.references.includes('T21'));
 });
 
 test('stale or tampered generated sections are rejected', () => {
-  const tampered = generatedDocument().replace('#### <a id="rule-g1"></a>G1 · hard-gate', '#### <a id="rule-g1"></a>G1 · manual');
+  const tampered = generatedDocument().replace('#### <a id="rule-g1"></a>G1 · hard-gate ·', '#### <a id="rule-g1"></a>G1 · manual ·');
   assert.throws(
     () => validateFidelityRulesDocument(tampered),
     (error) => error.code === 'RULE_DOCUMENT_STALE'

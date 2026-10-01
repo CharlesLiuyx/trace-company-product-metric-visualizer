@@ -72,7 +72,7 @@ function violationCodes(assessment) {
   return assessment.violations.map((item) => item.code);
 }
 
-test('an unbound diagnostic treats every below-floor visible face as a T21 failure', () => {
+test('an unbound diagnostic treats every below-floor visible face as a B15 failure', () => {
   const assessment = assessNodePaintAudit(audit([node('other', { faceHeight: 2 })]));
 
   assert.equal(assessment.passed, false);
@@ -83,7 +83,7 @@ test('an unbound diagnostic treats every below-floor visible face as a T21 failu
   );
 });
 
-test('zero or missing painted-face geometry cannot bypass the T21 audit', () => {
+test('zero or missing painted-face geometry cannot bypass the B15 floor audit', () => {
   const zero = assessNodePaintAudit(audit([node('other', { faceHeight: 0 })]));
   assert.equal(zero.passed, false);
   assert.ok(violationCodes(zero).includes('visibility-floor-failed'));
@@ -96,7 +96,7 @@ test('zero or missing painted-face geometry cannot bypass the T21 audit', () => 
   assert.ok(violationCodes(missingAssessment).includes('face-height-invalid'));
 });
 
-test('T21 rejects an expected-visible face below 3px by default', () => {
+test('B15 rejects an expected-visible face below 3px by default', () => {
   const policy = compileNodeFacePolicy(sourceCoverage());
   const assessment = assessNodePaintAudit(audit([node('other', { faceHeight: 2 })]), policy);
 

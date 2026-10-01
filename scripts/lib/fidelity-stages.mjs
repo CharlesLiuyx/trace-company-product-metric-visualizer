@@ -1,5 +1,5 @@
-// Shared vocabulary for Build-bound fidelity evidence. Semantics are owned by
-// docs/fidelity-loop-rules.md §4; this module is the machine enum so evidence
+// Shared vocabulary for Build-bound fidelity evidence. The review candidate is
+// owned by docs/asset-workflow.md; this module is the machine enum so evidence
 // archives stay queryable instead of free-form focus strings.
 // `review-candidate` is the single all-locale run of review-candidate/v1
 // Builds. The three sweep stages remain for historical fidelity-checkpoints/v1

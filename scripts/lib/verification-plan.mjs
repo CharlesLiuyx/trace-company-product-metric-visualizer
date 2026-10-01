@@ -14,18 +14,18 @@ export const CHECK_ENFORCEMENTS = Object.freeze([
 export const CHECK_LOCALE_SCOPES = Object.freeze(['global', 'required-locales']);
 
 export const FEATURE_REQUIRED_CHECKS = Object.freeze({
-  'centered-side-label': Object.freeze({ axis: 'render', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'label-layout-audit', ruleIds: Object.freeze(['B3', 'T7']) }),
+  'centered-side-label': Object.freeze({ axis: 'render', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'label-layout-audit', ruleIds: Object.freeze(['T7']) }),
   'aligned-side-label-column': Object.freeze({ axis: 'render', enforcement: 'quantified-audit', localeScope: 'required-locales', evidenceKind: 'label-layout-audit', ruleIds: Object.freeze(['T6']) }),
-  text: Object.freeze({ axis: 'render', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'text-layout-audit', ruleIds: Object.freeze(['B6', 'Z5']) }),
-  'annotation-near-label': Object.freeze({ axis: 'render', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'annotation-layout-audit', ruleIds: Object.freeze(['A6', 'B5']) }),
+  text: Object.freeze({ axis: 'render', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'text-layout-audit', ruleIds: Object.freeze(['B6']) }),
+  'annotation-near-label': Object.freeze({ axis: 'render', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'annotation-layout-audit', ruleIds: Object.freeze(['A6']) }),
   'paired-node-annotation': Object.freeze({ axis: 'render', enforcement: 'quantified-audit', localeScope: 'required-locales', evidenceKind: 'annotation-pairing-audit', ruleIds: Object.freeze(['I12']) }),
   'semantic-annotation': Object.freeze([
     Object.freeze({ checkId: 'semantic-annotation', axis: 'interaction', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'annotation-semantics-audit', ruleIds: Object.freeze(['A10', 'B16']) }),
     Object.freeze({ checkId: 'semantic-annotation-source-classification', axis: 'render', enforcement: 'manual', localeScope: 'global', evidenceKind: 'manual-decision', ruleIds: Object.freeze(['T17']) }),
   ]),
   'visible-short-node': Object.freeze({ axis: 'render', enforcement: 'manual', localeScope: 'required-locales', evidenceKind: 'manual-decision', ruleIds: Object.freeze(['T14']) }),
-  'visible-interface': Object.freeze({ axis: 'render', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'interface-audit', ruleIds: Object.freeze(['G12', 'L11']) }),
-  'visible-node-face': Object.freeze({ axis: 'render', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'node-paint-audit', ruleIds: Object.freeze(['B15', 'T13', 'T21']) }),
+  'visible-interface': Object.freeze({ axis: 'render', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'interface-audit', ruleIds: Object.freeze(['G12']) }),
+  'visible-node-face': Object.freeze({ axis: 'render', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'node-paint-audit', ruleIds: Object.freeze(['B15']) }),
   'specified-label-weight': Object.freeze({ axis: 'render', enforcement: 'manual', localeScope: 'required-locales', evidenceKind: 'manual-decision', ruleIds: Object.freeze(['B14', 'T16']) }),
   'measured-label-position': Object.freeze([
     Object.freeze({ checkId: 'measured-label-position', axis: 'render', enforcement: 'conditional-gate', localeScope: 'required-locales', evidenceKind: 'label-position-audit', ruleIds: Object.freeze(['T18']) }),
@@ -54,8 +54,8 @@ const CHANGE_IMPACT_REQUIREMENTS = Object.freeze({
   geometry: { axis: 'render', checkId: 'geometry-regression', enforcement: 'hard-gate', localeScope: 'required-locales', evidenceKind: 'fidelity-run', ruleIds: [] },
   'render-engine': { axis: 'render', checkId: 'render-engine-regression', enforcement: 'hard-gate', localeScope: 'required-locales', evidenceKind: 'fidelity-run', ruleIds: [] },
   interaction: { axis: 'interaction', checkId: 'interaction-regression', enforcement: 'manual', localeScope: 'required-locales', evidenceKind: 'manual-decision', ruleIds: [] },
-  'localized-layout': { axis: 'localization', checkId: 'localized-layout', enforcement: 'hard-gate', localeScope: 'required-locales', evidenceKind: 'fidelity-run', ruleIds: ['Z5'] },
-  'display-text-only': { axis: 'localization', checkId: 'display-text', enforcement: 'quantified-audit', localeScope: 'required-locales', evidenceKind: 'text-layout-audit', ruleIds: ['B6', 'Z5'] },
+  'localized-layout': { axis: 'localization', checkId: 'localized-layout', enforcement: 'hard-gate', localeScope: 'required-locales', evidenceKind: 'fidelity-run', ruleIds: ['B6'] },
+  'display-text-only': { axis: 'localization', checkId: 'display-text', enforcement: 'quantified-audit', localeScope: 'required-locales', evidenceKind: 'text-layout-audit', ruleIds: ['B6'] },
   asset: { axis: 'asset', checkId: 'asset-integrity', enforcement: 'manual', localeScope: 'global', evidenceKind: 'manual-decision', ruleIds: [] },
   'financial-data-only': { axis: 'data', checkId: 'financial-consistency', enforcement: 'build-gate', localeScope: 'global', evidenceKind: 'dataset-consistency', ruleIds: ['G11'] },
   'company-metadata-only': { axis: 'metadata', checkId: 'company-metadata', enforcement: 'build-gate', localeScope: 'global', evidenceKind: 'dataset-consistency', ruleIds: [] },
@@ -71,7 +71,7 @@ const ADAPTER_PROFILES = Object.freeze({
       { id: 'source-lineage', axis: 'data', disposition: 'required', enforcement: 'build-gate', localeScope: 'global', evidenceKind: 'verification-plan', ruleIds: [] },
       { id: 'source-coverage', axis: 'data', disposition: 'required', enforcement: 'build-gate', localeScope: 'global', evidenceKind: 'source-coverage', ruleIds: [] },
       { id: 'source-coverage-review', axis: 'data', disposition: 'required', enforcement: 'manual', localeScope: 'global', evidenceKind: 'manual-decision', ruleIds: [] },
-      { id: 'render-fidelity', axis: 'render', disposition: 'required', enforcement: 'hard-gate', localeScope: 'required-locales', evidenceKind: 'fidelity-run', ruleIds: ['G1', 'G2', 'G3', 'G4', 'G5', 'G6', 'G7', 'G8', 'G9', 'G10', 'G12'] },
+      { id: 'render-fidelity', axis: 'render', disposition: 'required', enforcement: 'hard-gate', localeScope: 'required-locales', evidenceKind: 'fidelity-run', ruleIds: ['G1', 'G2', 'G3', 'G3d', 'G4', 'G8', 'G12'] },
       { id: 'reference-fidelity', axis: 'render', disposition: 'required', enforcement: 'hard-gate', localeScope: 'required-locales', evidenceKind: 'interface-audit', ruleIds: [] },
       { id: 'manual-visual-closure', axis: 'render', disposition: 'required', enforcement: 'manual', localeScope: 'required-locales', evidenceKind: 'manual-decision', ruleIds: [] },
       { id: 'future-regression-baseline', axis: 'baseline', disposition: 'post-review', enforcement: 'build-gate', localeScope: 'global', evidenceKind: 'baseline-stage', purpose: 'future-regression' },
@@ -251,7 +251,7 @@ function semanticNodePaintCheck(inventory) {
     objectIds: objects.map(({ object }) => object.id).sort(),
     evidenceTargets: [...new Set(objects.flatMap(({ targets }) => targets))].sort(),
     featureEvidenceDigests: [],
-    ruleIds: ['B15', 'T13', 'T21'],
+    ruleIds: ['B15'],
   }];
 }
 

@@ -14,8 +14,8 @@ exactly one owner below. Update it together with `docs/AGENTS.zh-CN.review.md`.
 | accepted architecture decisions | `docs/adr/` (start with `0001-dataset-build-transactions.md`) |
 | **the input-processing process**: commands, order, check boundaries, review, publication, Git hand-off, Source archive, reporting | `docs/asset-workflow.md` (generated command/protocol table: `docs/workflow-command-reference.md`) |
 | dataset modeling rules: Adapter Type Gate, Source-object taxonomy, anti-omission invariants, Source Coverage, reconciliation, traps | `docs/dynamic-dataset-workflow.md` |
-| d3 fidelity rules, preflight measurement, review candidate, evidence, feedback, closure | `docs/fidelity-loop-rules.md` (catalog section generated from `scripts/lib/fidelity-rules-catalog.mjs` by `pnpm update:fidelity-rules-doc`) |
-| cross-checkout feedback recurrence memory | `docs/fidelity-feedback-casebook.md` (protocol: `docs/fidelity-loop-rules.md` §5) |
+| d3 fidelity machine gates, reviewer checklist, feedback protocol | `docs/fidelity-loop-rules.md` (catalog section generated from `scripts/lib/fidelity-rules-catalog.mjs` by `pnpm update:fidelity-rules-doc`) |
+| user-reported fidelity defects that landed a machine gate | `docs/fidelity-feedback-casebook.md` (protocol: `docs/fidelity-loop-rules.md` §4) |
 | dataset / SSOT field format | `data/schema.md` |
 | data-adjacent assets (icon crops, raster annotations) | `data/assets/README.md` |
 | Trace product and data model | `docs/trace-specification.zh-CN.md` |
@@ -125,11 +125,12 @@ each works in its own Build workspace with owner and generation
 
 ## d3-Sankey Fidelity
 
-`docs/fidelity-loop-rules.md` owns every G/B/R/L/T/A/Z/I rule exactly once;
-other documents may cite IDs but not restate formulas or thresholds. Treat each
-user correction as a process signal: fix it, classify it (missing rule,
-execution gap, ambiguous rule), and add an automated check or evidence-bound
-decision per §5 of that document. Machine evidence alone is `review-pending`.
+`docs/fidelity-loop-rules.md` owns the machine fidelity gates (generated from
+the rule catalog) and the reviewer checklist; other documents may cite rule IDs
+but not restate formulas or thresholds. Fix each user correction; when a
+deterministic machine gate could have caught it, add or extend a gate with a
+test and log one row in `docs/fidelity-feedback-casebook.md`. Machine evidence
+alone is `review-pending`.
 
 ## Commit Messages
 

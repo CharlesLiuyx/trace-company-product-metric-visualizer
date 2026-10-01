@@ -113,7 +113,7 @@ function fidelity({ attested = true } = {}) {
     regions: [{ id: 'REG-001', status: 'resolved', ruleIds: ['T7'], evidenceDigests: [] }],
     attention: { status: 'closed', closureNote: 'No open red-box region remains.' },
     feedbackSummary: { openItems: [], automationUpgradesRequired: [] },
-    riskChecks: [{ id: 'B3-T7', status: 'passed', measurements: [] }],
+    riskChecks: [{ id: 'T7', status: 'passed', measurements: [] }],
     interfaceMatrix: matrix(),
   });
 }
