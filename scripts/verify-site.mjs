@@ -89,9 +89,10 @@ function printSummary(metrics, origin) {
   console.log(`  defer bundles          ${value(metrics.deferBundles)} / ${DEFER_BUNDLE_BUDGET} (${bundlePaths})`);
   console.log(`  boot script DOM nodes  ${value(metrics.bootScriptNodes)} / <= ${SCRIPT_TAG_BUDGET}`);
   console.log(`  boot script requests   ${value(metrics.bootScriptRequests)} (${bootAdapters} adapter requests)`);
-  console.log(`  adapters after idle    ${value(metrics.bootAdapterRequests)} / <= ${value(metrics.bootAdapterBudget)} (active company scope)`);
+  console.log(`  adapters after idle    ${value(metrics.bootAdapterRequests)} / <= ${value(metrics.bootAdapterBudget)} (active company + visible click layer)`);
   console.log(`  pending after ${IDLE_OBSERVATION_MS}ms   ${value(metrics.pendingAfterIdle)} / > 0`);
-  console.log(`  company switch         ${value(metrics.switchLabel)} (${duration(metrics.switchMs)})`);
+  console.log(`  warm company switch    ${value(metrics.warmSwitchLabel)} (${duration(metrics.warmSwitchMs)}, no requests, no loading state)`);
+  console.log(`  cold company switch    ${value(metrics.switchLabel)} (${duration(metrics.switchMs)})`);
   console.log(`  lazy Chart runtime     ${value(metrics.chartRuntime)} (${duration(metrics.chartRuntimeMs)})`);
   console.log(`  all-period scale       ${value(metrics.comparisonScale)}`);
   console.log(`  project font faces     ${value(metrics.fontFaces)}`);
@@ -215,7 +216,9 @@ try {
   const datasetResponses = [];
   const pageErrors = [];
 
+  const rasterRequests = [];
   page.on('request', (request) => {
+    if (/\/data\/assets\/raster-annotations\//.test(new URL(request.url()).pathname)) rasterRequests.push(request.url());
     if (request.resourceType() !== 'script') return;
     scriptRequests.push(request.url());
     const pathname = adapterPath(request.url());
@@ -314,8 +317,11 @@ try {
   }
 
   // Give idle callbacks enough time to expose an eager background sweep.
-  // Idle preloading may hydrate the active company's complete adapter set —
-  // and only it — so the catalog at large must remain manifest stubs.
+  // Before the first Sankey render exactly one company detail may load.
+  // Afterwards idle warming may hydrate the active company's complete
+  // adapter set plus the click layer (detail JSON + default adapter) of the
+  // companies visible in the list — and nothing else — so the catalog at
+  // large must remain manifest stubs.
   await page.waitForTimeout(IDLE_OBSERVATION_MS);
   const idleState = await page.evaluate(() => {
     const registry = window.TraceDatasetRegistry;
@@ -325,11 +331,29 @@ try {
           .filter((record) => record.company === active.company)
           .map((record) => `/${registry.srcForKey(record.dataset.key)}`)
       : [];
+    const warmTargets = visibleWarmCompanies()
+      .filter((company) => company !== active?.company)
+      .map((company) => {
+        const plan = companyWarmPlan(company);
+        return {
+          company,
+          detailSuffix: `/data/companies/${metadataFor(company)?.key}.json`,
+          adapterPaths: (plan?.datasetKeys || []).map((key) => `/${registry.srcForKey(key)}`),
+          plan: Boolean(plan),
+          warm: Boolean(plan)
+            && runtimeData.ready({ companies: [company] })
+            && plan.datasetKeys.every((key) => registry.isLoaded(key)),
+        };
+      });
     return {
       pending: registry?.pendingKeys?.().length ?? -1,
       externalScriptCount: document.querySelectorAll('script[src]').length,
       activeCompanyAdapterPaths,
-      companyDetails: performance.getEntriesByType('resource').filter((entry) => /\/data\/companies\/.*\.json$/.test(entry.name)).map((entry) => new URL(entry.name).pathname),
+      firstRenderMs: performance.getEntriesByName('trace:sankey-rendered')[0]?.startTime ?? -1,
+      warmTargets,
+      companyDetails: performance.getEntriesByType('resource')
+        .filter((entry) => /\/data\/companies\/.*\.json$/.test(entry.name))
+        .map((entry) => ({ pathname: new URL(entry.name).pathname, startTime: entry.startTime })),
       tableDetails: performance.getEntriesByType('resource').filter((entry) => /\/data\/tables\/.*\.json$/.test(entry.name)).map((entry) => entry.name),
       fullFinancialRecords: financialRecords.filter((record) => !record.__runtimeSummary).map((record) => record.key),
     };
@@ -337,12 +361,20 @@ try {
   metrics.pendingAfterIdle = idleState.pending;
   metrics.bootScriptNodes = idleState.externalScriptCount;
   metrics.bootAdapterRequests = datasetRequests.length;
-  metrics.bootAdapterBudget = idleState.activeCompanyAdapterPaths.length;
   metrics.bootAdapterPaths = datasetRequests.map((request) => request.url);
-  assert(idleState.companyDetails.length === 1, 'default boot must load exactly one company detail');
+  assert(idleState.firstRenderMs > 0, 'the first Sankey render did not record its performance mark');
+  const bootDetails = idleState.companyDetails.filter((entry) => entry.startTime < idleState.firstRenderMs);
+  assert(bootDetails.length === 1, `the first render must need exactly one company detail, saw ${bootDetails.length}`);
   assert(idleState.tableDetails.length === 0, 'default boot must not load global table details');
+  const allowedDetailSuffixes = idleState.warmTargets.map((target) => target.detailSuffix);
+  const outOfScopeDetails = idleState.companyDetails
+    .filter((entry) => entry !== bootDetails[0] && entry.pathname !== bootDetails[0].pathname)
+    .filter((entry) => !allowedDetailSuffixes.some((suffix) => entry.pathname.endsWith(suffix)));
+  if (outOfScopeDetails.length) {
+    failures.push(`idle warming loaded company details outside the visible list: ${outOfScopeDetails.map((entry) => entry.pathname).join(', ')}`);
+  }
   const initialCatalog = readFileSync(path.join(runtimeRoot, 'assets/catalog.js'));
-  const initialDetails = idleState.companyDetails.map((pathname) => readFileSync(path.join(SITE_ROOT, pathname)));
+  const initialDetails = bootDetails.map((entry) => readFileSync(path.join(SITE_ROOT, entry.pathname)));
   const bootstrapGzip = [initialCatalog, ...initialDetails].reduce((sum, bytes) => sum + gzipSync(bytes).length, 0);
   assert(bootstrapGzip <= 150 * 1024, `bootstrap data gzip budget exceeded: ${bootstrapGzip} bytes / 150 KiB`);
   assert(initialCatalog.length <= 1024 * 1024, `bootstrap catalog exceeds 1 MiB: ${initialCatalog.length}`);
@@ -354,30 +386,96 @@ try {
   if (idleState.pending <= 0) {
     failures.push(`idle loading exhausted the adapter manifest; expected pendingKeys() > 0 after ${IDLE_OBSERVATION_MS}ms`);
   }
-  const allowedBootAdapterPaths = new Set(idleState.activeCompanyAdapterPaths);
+  const allowedBootAdapterPaths = new Set([
+    ...idleState.activeCompanyAdapterPaths,
+    ...idleState.warmTargets.flatMap((target) => target.adapterPaths),
+  ]);
+  metrics.bootAdapterBudget = allowedBootAdapterPaths.size;
   const outOfScopeBootAdapters = datasetRequests.filter((request) => !allowedBootAdapterPaths.has(request.pathname));
   if (outOfScopeBootAdapters.length) {
     failures.push(
-      'default boot requested adapters outside the active company scope: '
+      'default boot requested adapters outside the active company scope and visible click layer: '
       + outOfScopeBootAdapters.map((request) => request.pathname).join(', ')
     );
   }
   if (datasetRequests.length > allowedBootAdapterPaths.size) {
     failures.push(
       `default boot requested ${datasetRequests.length} dataset adapters `
-      + `(active company registers ${allowedBootAdapterPaths.size})`
+      + `(active company and visible click layer register ${allowedBootAdapterPaths.size})`
     );
   }
 
+  // The visible click layer must actually be warm after idle, and a click on
+  // it must swap charts in the click task: no loading placeholder and no
+  // detail, adapter or raster request.
+  const warmCandidates = idleState.warmTargets.filter((target) => target.plan);
+  assert(warmCandidates.length >= 3, `expected several visible companies with a Sankey click layer, got ${warmCandidates.length}`);
+  const coldVisible = warmCandidates.filter((target) => !target.warm);
+  if (coldVisible.length) {
+    failures.push(`visible companies still cold after ${IDLE_OBSERVATION_MS}ms idle: ${coldVisible.map((target) => target.company).join(', ')}`);
+  } else {
+    // The click is synchronous when warm: the chart has already been swapped
+    // when click() returns, with no loading placeholder in between. Only the
+    // target's own layer is asserted request-free — the list scrolls to the
+    // new company and its neighbours start warming, which is the intended
+    // background traffic.
+    const warmTarget = warmCandidates[warmCandidates.length - 1];
+    const requestsBeforeWarmSwitch = { datasets: datasetRequests.length, rasters: rasterRequests.length };
+    const warmSwitch = await page.evaluate((company) => {
+      const registry = window.TraceDatasetRegistry;
+      const resourceCount = performance.getEntriesByType('resource').length;
+      const observer = new MutationObserver(() => {});
+      observer.observe(document.getElementById('chart'), { childList: true, subtree: true });
+      const started = performance.now();
+      [...document.querySelectorAll('#companyList .company-item')].find((item) => item.dataset.company === company).click();
+      const elapsedMs = performance.now() - started;
+      const mutations = observer.takeRecords().length;
+      observer.disconnect();
+      const record = currentRecord();
+      const key = record?.dataset?.key || '';
+      const rasterHrefs = (record?.dataset?.rasterAnnotations || []).map((item) => new URL(item.href || item.src, location.href).href);
+      return {
+        elapsedMs,
+        mutations,
+        current: record?.company,
+        key,
+        adapterPath: `/${registry.srcForKey(key)}`,
+        detailSuffix: `/data/companies/${metadataFor(company)?.key}.json`,
+        rasterHrefs,
+        nodes: document.querySelectorAll('#chart svg .sankey-node').length,
+        images: document.querySelectorAll('#chart svg image').length,
+        loading: Boolean(document.querySelector('.chart-loading')),
+        detailRequests: performance.getEntriesByType('resource').slice(resourceCount).filter((entry) => /\/data\/companies\//.test(entry.name)).map((entry) => entry.name),
+      };
+    }, warmTarget.company);
+    await page.waitForTimeout(300);
+    metrics.warmSwitchLabel = `${bootState.currentCompany} -> ${warmTarget.company} (${warmSwitch.key})`;
+    metrics.warmSwitchMs = Math.round(warmSwitch.elapsedMs * 10) / 10;
+    if (warmSwitch.current !== warmTarget.company) failures.push(`warm click selected ${warmSwitch.current}, expected ${warmTarget.company}`);
+    if (!warmSwitch.mutations || !warmSwitch.nodes) failures.push('warm click did not swap the chart inside the click task');
+    if (warmSwitch.loading) failures.push('warm click left a loading placeholder');
+    if (warmSwitch.detailRequests.some((name) => name.endsWith(warmSwitch.detailSuffix))) failures.push('warm click requested its company detail');
+    if (datasetRequests.slice(requestsBeforeWarmSwitch.datasets).some((request) => request.pathname === warmSwitch.adapterPath)) {
+      failures.push('warm click requested its dataset adapter');
+    }
+    const clickRasterRequests = rasterRequests.slice(requestsBeforeWarmSwitch.rasters).filter((url) => warmSwitch.rasterHrefs.includes(url));
+    if (warmSwitch.images && clickRasterRequests.length) {
+      failures.push(`warm click requested its raster annotations: ${clickRasterRequests.join(', ')}`);
+    }
+    if (warmSwitch.images) metrics.warmSwitchLabel += `, ${warmSwitch.images} raster annotation(s) from memory`;
+  }
+
   // Choose the record that the normal company-list click will activate, and
-  // require it to still be pending. This proves navigation performs a fresh
-  // on-demand adapter request rather than rendering an already hydrated row.
+  // require it to still be pending and outside the warmed visible band. This
+  // proves navigation performs a fresh on-demand adapter request rather than
+  // rendering an already hydrated row.
   const target = await page.evaluate(() => {
     const registry = window.TraceDatasetRegistry;
     const active = typeof currentRecord === 'function' ? currentRecord() : null;
     if (!registry || !active || typeof groups === 'undefined') return null;
+    const visible = new Set(visibleWarmCompanies());
     for (const group of groups) {
-      if (!group || group.company === active.company || !group.records?.length) continue;
+      if (!group || group.company === active.company || !group.records?.length || visible.has(group.company)) continue;
       const ordered = typeof sortedRecords === 'function' ? sortedRecords(group) : group.records;
       const record = ordered[0];
       const key = record?.dataset?.key;
@@ -397,6 +495,7 @@ try {
   } else {
     const expectedPath = new URL(target.src, server.url).pathname;
     const requestsBeforeSwitch = datasetRequests.length;
+    const switchFromCompany = await page.evaluate(() => state.company);
     const switchStartedAt = Date.now();
     const clicked = await page.evaluate((company) => {
       const button = [...document.querySelectorAll('#companyList .company-item')]
@@ -416,7 +515,7 @@ try {
       }, target.key, { timeout: FIRST_RENDER_TIMEOUT_MS });
     }
     metrics.switchMs = Date.now() - switchStartedAt;
-    metrics.switchLabel = `${bootState.currentCompany} -> ${target.company} (${target.key})`;
+    metrics.switchLabel = `${switchFromCompany} -> ${target.company} (${target.key})`;
 
     const switchRequests = datasetRequests.slice(requestsBeforeSwitch);
     if (!switchRequests.some((request) => request.pathname === expectedPath)) {

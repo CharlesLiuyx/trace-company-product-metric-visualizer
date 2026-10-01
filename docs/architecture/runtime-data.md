@@ -37,11 +37,14 @@ Generated details retain all authored fields rather than a reduced CSV schema.
 ## Runtime Data Module
 
 `scripts/lib/site-data.mjs` owns the build projection. `src/runtime-data.js`
-owns the runtime Interface: `ready`, `ensure`, and cache-change subscription,
-with one-time manifest installation and catalog binding during boot. Requests,
-deduplication, retry, byte integrity, version checking, and in-place record
-hydration remain inside this Module. The existing Dataset Loader continues to
-own executable View Adapter scripts.
+owns the runtime Interface: `ready`, `ensure`, `preload`, and cache-change
+subscription, with one-time manifest installation and catalog binding during
+boot. Requests, deduplication, retry, byte integrity, version checking, and
+in-place record hydration remain inside this Module. `preload` is the
+background form of `ensure`: it shares in-flight requests, fetches at low
+priority, settles every chunk on its own, never rejects, and warns once per
+failing chunk; the next user-driven `ensure` retries and owns the error UI.
+The existing Dataset Loader continues to own executable View Adapter scripts.
 
 The app expresses its view requirement before drawing or enabling CSV export.
 Financial/profile summaries are upgraded in place to preserve the catalog's
@@ -57,6 +60,45 @@ leave no successful-load marker and can be retried. Across several requested
 chunks, successfully loaded records may be retained, but the requested View
 does not render until all its requirements succeed. A draw generation prevents
 an earlier company request from replacing the currently selected company.
+
+## Click-layer warm
+
+On GitHub Pages every request costs one round trip (about 300 ms observed),
+and a company click needs three of them in sequence: the company detail JSON
+and the default period adapter in parallel, then the raster annotations that
+the committed SVG references. Without warming, a click shows the previous
+chart, the loading placeholder, the new chart, and finally its logos. The
+viewer therefore warms the data a click is predicted to need before it
+happens, in memory rather than only in the HTTP cache, so `ready()` is true
+synchronously and `draw()` swaps charts inside the click task.
+
+- **Click layer of a company** (`companyWarmPlan` in `src/app/state.js`):
+  the plan mirrors `selectCompanyGroup`. When the click would land on a
+  Sankey, it names the company's detail chunk and its default period
+  adapter; the Dataset Loader warms that adapter's raster annotations through
+  detached, pre-decoded `Image` elements once the adapter is in memory
+  (`data:` URIs are skipped). Table and trend Views depend on family chunks
+  and the lazy Chart runtime, which warm once for every company, so they
+  produce no plan.
+- **Visible companies** (`src/app/company-panel.js`): after the first
+  successful Sankey render and an idle period, an `IntersectionObserver`
+  rooted at the company list warms every item that stays inside the list
+  viewport plus a 240 px look-ahead for 200 ms; it re-targets the rebuilt
+  buttons on every list render and follows scrolling. Pointer or keyboard
+  focus on an item warms it immediately and link-prefetches its other
+  periods.
+- **Periods of the selected company**: selecting a company still preloads
+  every period adapter of the scope, now about 400 ms after the click and
+  including each adapter's raster annotations, so period chips swap without a
+  request even where periods use different crops.
+- **Fonts**: the same first idle loads every declared font face that no
+  chart has used yet, so a later chart does not repaint when a new weight
+  arrives.
+
+Warming is speculative and bounded: it never starts before the first render,
+it is limited to the visible list, every request is low priority, and it is
+skipped under `Save-Data` or a 2G effective connection. The budgets below
+hold this boundary.
 
 ## Version and deployment behavior
 
@@ -90,10 +132,15 @@ catalog. New pages continue to request only their immutable runtime paths.
 
 - `tests/runtime-data.test.mjs`: whole-corpus summary identity/sort parity,
   full-record equality, in-place upgrades, request deduplication, retry,
-  tampered/wrong-version response rejection, and complete-source no-op mode.
+  low-priority background preload that never rejects, tampered/wrong-version
+  response rejection, and complete-source no-op mode.
 - `verify:site`: initial catalog plus default-company detail at most **150 KiB
-  gzip**, raw catalog at most **1 MiB**, one initial company detail and no
-  global table chunk; lazy Chart/Adapter budgets remain enforced.
+  gzip**, raw catalog at most **1 MiB**, exactly one company detail before the
+  first Sankey render (`trace:sankey-rendered` performance mark) and no global
+  table chunk; after idle, extra details and adapters only for the active
+  company scope and the visible click layer, that layer must be warm, and a
+  click on it renders without a loading placeholder or any detail, adapter or
+  raster request; lazy Chart/Adapter budgets remain enforced.
 - `scripts/lib/site-data-browser.mjs`: an independent authored-data oracle
   checks global tables/CSV, locale changes, multi-company filtering, failed
   loads, integrity rejection, and rapid company changes.
@@ -116,8 +163,8 @@ diagnostic, not a production percentile or a wall-clock CI gate. Measured
 results and check routing are recorded in
 [CI verification](../ci-verification.zh-CN.md).
 
-An uncached company switch adds one JSON request; global Tables still download
-the requested full family. Database adoption should be reconsidered for
+An uncached company switch adds one JSON request; a warmed one adds none.
+Global Tables still download the requested full family. Database adoption should be reconsidered for
 server-side queries over much larger data, concurrent writes, permissions, or
 frequent incremental updates. It is not a prerequisite for this Pages loading
 improvement.

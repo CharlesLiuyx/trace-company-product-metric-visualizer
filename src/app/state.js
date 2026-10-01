@@ -368,6 +368,34 @@ function companyDatasetKeys(company) {
 function preloadScopeCompanyDatasets(companies = scopeCompanies()) {
   datasetLoader.preload(uniqueCompanies(companies).flatMap((company) => companyDatasetKeys(company)));
 }
+/* Company warm: everything a company-list click would have to fetch,
+ * predicted before the click. selectCompanyGroup() picks the best Metric
+ * for the company and resets the View to that Metric's default only when
+ * the Metric changes; when the resulting View is the Sankey, the click
+ * needs the company's runtime-data detail (financial records + profile),
+ * its default period adapter, and that adapter's raster annotations.
+ * Table and trend Views run on family chunks and the lazy Chart runtime,
+ * which warm once for every company, so they return no plan. Both
+ * loaders are idempotent and share in-flight requests with a real click. */
+function companyWarmPlan(company) {
+  if (!company || !datasetLoader.speculativeLoadsAllowed()) return null;
+  const metricMode = bestMetricModeForCompany(company, state.metricMode);
+  const viewMode = metricMode !== state.metricMode
+    ? defaultViewModeForMetric(metricMode)
+    : normalizeViewModeForMetric(metricMode, state.viewMode);
+  if (metricMode !== 'incomeStatement' || viewMode !== 'sankey') return null;
+  const record = defaultRecordForCompanyMetric(company, 'incomeStatement');
+  if (!record?.dataset?.key) return null;
+  return { companies: [company], datasetKeys: [record.dataset.key] };
+}
+function warmCompany(company) {
+  const plan = companyWarmPlan(company);
+  if (!plan) return Promise.resolve();
+  return Promise.all([
+    runtimeData.preload({ companies: plan.companies }),
+    datasetLoader.preload(plan.datasetKeys),
+  ]).then(() => undefined);
+}
 
 function viewDataRequirement() {
   // Single-company tables deliberately show every company, not just the
