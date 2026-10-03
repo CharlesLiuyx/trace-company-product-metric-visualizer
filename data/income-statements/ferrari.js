@@ -1199,5 +1199,241 @@
         ]
       }
     }
+  },
+  {
+    "key": "ferrari-q4-fy24",
+    "company": "Ferrari",
+    "period": "Q4 FY24",
+    "currency": "€",
+    "unit": "B",
+    "decimals": 3,
+    "sourceImage": "input/processing/ferrari-q4-fy24.png",
+    "roundingTolerance": 0.15,
+    "revenue": {
+      "total": 1.7,
+      "notes": [
+        "+14% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "cars_and_spare_parts",
+          "label": "Cars and spare parts",
+          "value": 1.5,
+          "valueText": "€1.5B",
+          "notes": [
+            "+14% Y/Y"
+          ]
+        },
+        {
+          "id": "sponsorships_commercial_brands",
+          "label": "Sponsorships, commercial & brands",
+          "value": 0.2,
+          "valueText": "€0.2B",
+          "notes": [
+            "+22% Y/Y"
+          ]
+        },
+        {
+          "id": "other",
+          "label": "Other",
+          "value": 0.1,
+          "valueText": "€0.1B",
+          "notes": [
+            "(4%) Y/Y"
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_sales",
+        "label": "Cost of sales",
+        "value": 0.9,
+        "valueText": "(€0.9B)",
+        "notes": []
+      },
+      "operatingExpenses": {
+        "total": 0.4,
+        "items": [
+          {
+            "id": "rnd",
+            "label": "R&D",
+            "value": 0.2,
+            "valueText": "(€0.2B)",
+            "notes": [
+              "14% of revenue",
+              "(2pp) Y/Y"
+            ]
+          },
+          {
+            "id": "sga",
+            "label": "SG&A",
+            "value": 0.2,
+            "valueText": "(€0.2B)",
+            "notes": [
+              "9% of revenue",
+              "+1pp Y/Y"
+            ]
+          },
+          {
+            "id": "other_opex",
+            "label": "Other",
+            "value": 0.002,
+            "valueText": "(€2M)",
+            "notes": []
+          }
+        ]
+      },
+      "tax": {
+        "id": "tax",
+        "label": "Tax",
+        "value": 0.1,
+        "valueText": "(€0.1B)",
+        "notes": []
+      }
+    },
+    "otherIncome": {
+      "total": 0.004,
+      "items": [
+        {
+          "id": "finance",
+          "label": "Finance",
+          "value": 0.004,
+          "valueText": "€4M"
+        }
+      ]
+    },
+    "otherExpenses": {
+      "total": 0,
+      "items": []
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 0.9,
+        "valueText": "€0.9B",
+        "notes": [
+          "50% margin",
+          "+1pp Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_profit",
+        "label": "Operating profit",
+        "value": 0.5,
+        "valueText": "€0.5B",
+        "notes": [
+          "27% margin",
+          "+3pp Y/Y"
+        ]
+      },
+      "net": {
+        "id": "net_profit",
+        "label": "Net profit",
+        "value": 0.4,
+        "valueText": "€0.4B",
+        "notes": [
+          "22% margin",
+          "+3pp Y/Y"
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "revenue": {
+          "notes": [
+            "同比 +14%"
+          ],
+          "items": [
+            {
+              "id": "cars_and_spare_parts",
+              "label": "汽车及零部件",
+              "notes": [
+                "同比 +14%"
+              ]
+            },
+            {
+              "id": "sponsorships_commercial_brands",
+              "label": "赞助、商业与品牌",
+              "notes": [
+                "同比 +22%"
+              ]
+            },
+            {
+              "id": "other",
+              "label": "其他",
+              "notes": [
+                "同比 (4%)"
+              ]
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "销售成本"
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "rnd",
+                "label": "研发 R&D",
+                "notes": [
+                  "占收入 14%",
+                  "同比 (2 个百分点)"
+                ]
+              },
+              {
+                "id": "sga",
+                "label": "销管 SG&A",
+                "notes": [
+                  "占收入 9%",
+                  "同比 +1 个百分点"
+                ]
+              },
+              {
+                "id": "other_opex",
+                "label": "其他",
+                "notes": []
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费"
+          }
+        },
+        "otherIncome": {
+          "items": [
+            {
+              "id": "finance",
+              "label": "财务收益"
+            }
+          ]
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 50%",
+              "同比 +1 个百分点"
+            ]
+          },
+          "operating": {
+            "label": "营业利润",
+            "notes": [
+              "利润率 27%",
+              "同比 +3 个百分点"
+            ]
+          },
+          "net": {
+            "label": "净利润",
+            "notes": [
+              "利润率 22%",
+              "同比 +3 个百分点"
+            ]
+          }
+        }
+      }
+    }
   }
 ]);})(window);

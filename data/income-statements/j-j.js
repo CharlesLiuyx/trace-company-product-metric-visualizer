@@ -411,4 +411,185 @@
       }
     }
   }
-});})(window);
+});  global.INCOME_STATEMENT_SSOT.records.push({
+  "key": "j-j-q4-fy24",
+  "company": "Johnson & Johnson",
+  "period": "Q4 FY24",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processing/j-j-q4-fy24.png",
+  "roundingTolerance": 0.2,
+  "revenue": {
+    "total": 22.5,
+    "notes": [
+      "+5% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "innovative_medicine",
+        "label": "Innovative Medicine",
+        "value": 14.3,
+        "notes": [
+          "+4% Y/Y"
+        ]
+      },
+      {
+        "id": "medtech",
+        "label": "MedTech",
+        "value": 8.2,
+        "notes": [
+          "+7% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_products_sold",
+      "label": "Cost of products sold",
+      "value": 7.1
+    },
+    "operatingExpenses": {
+      "total": 11.9,
+      "items": [
+        {
+          "id": "sga",
+          "label": "Sales, marketing & administrative",
+          "value": 6.5
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 5.3
+        },
+        {
+          "id": "other_opex",
+          "label": "Other",
+          "value": 0.1
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.5
+    }
+  },
+  "operatingOtherIncome": {
+    "total": 0.3,
+    "items": [
+      {
+        "id": "interest",
+        "label": "Interest",
+        "value": 0.3
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 15.4,
+      "notes": [
+        "68% margin",
+        "+0pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "pretax_income",
+      "label": "Pretax income",
+      "value": 3.9,
+      "notes": [
+        "23% margin",
+        "(5pp) Y/Y",
+        "Source displays $3.9B; gross profit less expenses plus interest totals $3.8B using the displayed rounded amounts."
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net income",
+      "value": 3.4,
+      "notes": [
+        "19% margin",
+        "(4pp) Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2024 财年第四季度",
+      "revenue": {
+        "notes": [
+          "同比 +5%"
+        ],
+        "items": [
+          {
+            "label": "创新制药",
+            "notes": [
+              "同比 +4%"
+            ]
+          },
+          {
+            "label": "医疗科技",
+            "notes": [
+              "同比 +7%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "产品销售成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "label": "销售、市场及行政费用"
+            },
+            {
+              "label": "研发"
+            },
+            {
+              "label": "其他"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "operatingOtherIncome": {
+        "items": [
+          {
+            "label": "利息"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 68%",
+            "同比 +0 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "税前利润",
+          "notes": [
+            "利润率 23%",
+            "同比 (5 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 19%",
+            "同比 (4 个百分点)"
+          ]
+        }
+      }
+    }
+  }
+});
+})(window);

@@ -6962,6 +6962,180 @@
       "mae": 6.311239928342291,
       "width": 2667,
       "height": 1500
+    },
+    "airbnb-q4-fy24": {
+      "similarity": 0.9697087811735952,
+      "mae": 7.724260800733242,
+      "width": 2667,
+      "height": 1500
+    },
+    "american-express-q1-fy25": {
+      "similarity": 0.9636733091370114,
+      "mae": 9.263306170062076,
+      "width": 2667,
+      "height": 1500
+    },
+    "boeing-q1-fy25": {
+      "similarity": 0.972400931909655,
+      "mae": 7.037762363037953,
+      "width": 2667,
+      "height": 1500
+    },
+    "boeing-q4-fy24": {
+      "similarity": 0.9667585885097696,
+      "mae": 8.476559930008749,
+      "width": 2667,
+      "height": 1500
+    },
+    "chevron-q4-fy24": {
+      "similarity": 0.9696612292744453,
+      "mae": 7.7363865350164565,
+      "width": 2667,
+      "height": 1500
+    },
+    "fedex-q3-fy25": {
+      "similarity": 0.9677618863001602,
+      "mae": 8.220718993459151,
+      "width": 2667,
+      "height": 1500
+    },
+    "ferrari-q4-fy24": {
+      "similarity": 0.9627389272419379,
+      "mae": 9.501573553305837,
+      "width": 2667,
+      "height": 1500
+    },
+    "ford-fy24": {
+      "similarity": 0.9729803287660937,
+      "mae": 6.890016164646086,
+      "width": 2667,
+      "height": 1500
+    },
+    "goldman-sachs-q1-fy25": {
+      "similarity": 0.9714179629507096,
+      "mae": 7.288419447569054,
+      "width": 2667,
+      "height": 1500
+    },
+    "goldman-sachs-q4-fy24": {
+      "similarity": 0.969289820798544,
+      "mae": 7.831095696371287,
+      "width": 2667,
+      "height": 1500
+    },
+    "hermes-fy24": {
+      "similarity": 0.9672937872961959,
+      "mae": 8.340084239470066,
+      "width": 2667,
+      "height": 1500
+    },
+    "j-j-q4-fy24": {
+      "similarity": 0.9797440078160164,
+      "mae": 5.165278006915802,
+      "width": 2667,
+      "height": 1500
+    },
+    "jpmorganchase-q1-fy25": {
+      "similarity": 0.967257088615557,
+      "mae": 8.349442403032954,
+      "width": 2667,
+      "height": 1500
+    },
+    "jpmorganchase-q4-fy24": {
+      "similarity": 0.9548279308223727,
+      "mae": 11.518877640294964,
+      "width": 2667,
+      "height": 1500
+    },
+    "loreal-fy24": {
+      "similarity": 0.9585274915798924,
+      "mae": 10.575489647127442,
+      "width": 2667,
+      "height": 1500
+    },
+    "lvmh-fy24": {
+      "similarity": 0.9740044755843428,
+      "mae": 6.628858725992584,
+      "width": 2667,
+      "height": 1500
+    },
+    "netflix-q1-fy25": {
+      "similarity": 0.9740101944773243,
+      "mae": 6.627400408282298,
+      "width": 2667,
+      "height": 1500
+    },
+    "nintendo-q3-fy25": {
+      "similarity": 0.9545687426326611,
+      "mae": 11.584970628671416,
+      "width": 2667,
+      "height": 1500
+    },
+    "paypal-q1-fy25": {
+      "similarity": 0.968186296320803,
+      "mae": 8.112494438195226,
+      "width": 2667,
+      "height": 1500
+    },
+    "paypal-q4-fy24": {
+      "similarity": 0.9639295117522074,
+      "mae": 9.197974503187101,
+      "width": 2667,
+      "height": 1500
+    },
+    "pfizer-q1-fy25": {
+      "similarity": 0.9683310014352781,
+      "mae": 8.075594634004084,
+      "width": 2667,
+      "height": 1500
+    },
+    "pfizer-q4-fy24": {
+      "similarity": 0.9606555343980695,
+      "mae": 10.032838728492273,
+      "width": 2667,
+      "height": 1500
+    },
+    "spotify-q1-fy25": {
+      "similarity": 0.9721536539958648,
+      "mae": 7.100818231054451,
+      "width": 2667,
+      "height": 1500
+    },
+    "spotify-q4-fy24": {
+      "similarity": 0.9753623901587465,
+      "mae": 6.282590509519643,
+      "width": 2667,
+      "height": 1500
+    },
+    "starbucks-q1-fy25": {
+      "similarity": 0.9628750461747837,
+      "mae": 9.466863225430155,
+      "width": 2667,
+      "height": 1500
+    },
+    "ups-q1-fy25": {
+      "similarity": 0.9699442919308289,
+      "mae": 7.6642055576386285,
+      "width": 2667,
+      "height": 1500
+    },
+    "ups-q4-fy24": {
+      "similarity": 0.9660601637213649,
+      "mae": 8.654658251051952,
+      "width": 2667,
+      "height": 1500
+    },
+    "visa-q2-fy25": {
+      "similarity": 0.9687439442618693,
+      "mae": 7.970294213223347,
+      "width": 2667,
+      "height": 1500
+    },
+    "walmart-q4-fy25": {
+      "similarity": 0.9765095493782231,
+      "mae": 5.990064908553098,
+      "width": 2667,
+      "height": 1500
     }
   }
 }

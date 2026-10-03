@@ -939,4 +939,226 @@
       }
     }
   }
-]);})(window);
+,
+{
+  "key": "ford-fy24",
+  "company": "Ford",
+  "period": "FY24",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/ford-fy24.png",
+  "roundingTolerance": 0.21,
+  "revenue": {
+    "total": 185.0,
+    "notes": [
+      "+5% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "ford_blue",
+        "label": "Ford Blue",
+        "value": 101.9,
+        "notes": [
+          "+0% Y/Y"
+        ]
+      },
+      {
+        "id": "model_e",
+        "label": "Ford Model e",
+        "value": 3.8,
+        "notes": [
+          "(35%) Y/Y"
+        ]
+      },
+      {
+        "id": "ford_pro",
+        "label": "Ford Pro",
+        "value": 66.9,
+        "notes": [
+          "+15% Y/Y"
+        ]
+      },
+      {
+        "id": "ford_credit",
+        "label": "Ford Credit",
+        "value": 12.3,
+        "notes": [
+          "+19% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_sales",
+      "label": "Cost of sales",
+      "value": 158.4,
+      "notes": []
+    },
+    "operatingExpenses": {
+      "total": 21.3,
+      "items": [
+        {
+          "id": "ford_credit_expenses",
+          "label": "Ford Credit expenses",
+          "value": 11.1,
+          "notes": []
+        },
+        {
+          "id": "sga",
+          "label": "SG&A",
+          "value": 10.3,
+          "notes": []
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax & other",
+      "value": 2.5,
+      "notes": []
+    }
+  },
+  "otherIncome": {
+    "total": 3.1,
+    "items": [
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 3.1,
+        "notes": []
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 26.6,
+      "notes": [
+        "14% margin",
+        "(0pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 5.2,
+      "notes": [
+        "3% margin",
+        "(0pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 5.9,
+      "notes": [
+        "3% margin",
+        "+1pp Y/Y"
+      ]
+    }
+  },
+  "notes": [
+    "Source amounts retained: segment revenue sums to $184.9B versus $185.0B; expenses sum to $21.4B versus $21.3B; gross less operating expenses is $5.3B versus $5.2B; operating plus Other less Tax & other is $5.8B versus $5.9B."
+  ],
+  "i18n": {
+    "zh": {
+      "period": "2024 财年",
+      "revenue": {
+        "notes": [
+          "同比 +5%"
+        ],
+        "items": [
+          {
+            "id": "ford_blue",
+            "label": "Ford Blue 燃油车业务",
+            "notes": [
+              "同比 +0%"
+            ]
+          },
+          {
+            "id": "model_e",
+            "label": "Ford Model e 电动车业务",
+            "notes": [
+              "同比 (35%)"
+            ]
+          },
+          {
+            "id": "ford_pro",
+            "label": "Ford Pro 商用车业务",
+            "notes": [
+              "同比 +15%"
+            ]
+          },
+          {
+            "id": "ford_credit",
+            "label": "福特信贷",
+            "notes": [
+              "同比 +19%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "销售成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "ford_credit_expenses",
+              "label": "福特信贷费用"
+            },
+            {
+              "id": "sga",
+              "label": "销售、一般及管理费用"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费及其他"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "other",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 14%",
+            "同比 (0 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 3%",
+            "同比 (0 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 3%",
+            "同比 +1 个百分点"
+          ]
+        }
+      },
+      "notes": [
+        "保留原图金额；各项金额分别取整，存在加总差异。"
+      ]
+    }
+  }
+}]);})(window);
