@@ -5250,6 +5250,78 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/lowes/building-products.png",
+      "digest": "sha256:44865b3d65308e71c648f75cbc7662d2e23709bd86b9bb77a36f3b77c5add9d2",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/lowes-business-icons.json",
+          "recipeDigest": "sha256:bd63988eb827e1c89717e8bac8fc33805ce85f1da9840d9c1363dd4f40cc741f",
+          "source": "input/processed/lowes-q1-fy26.png",
+          "cropKey": "lowes-building-products-icons"
+        }
+      ],
+      "directConsumers": [
+        "lowes-q1-fy26",
+        "lowes-q4-fy25"
+      ],
+      "consumers": [
+        "lowes-q1-fy26",
+        "lowes-q4-fy25"
+      ],
+      "acceptedVersions": [
+        "sha256:d2a098366661440436ce3ee7a0565c9a29f6297a23e0fc1320f2b529544c21c5"
+      ],
+      "reusable": true
+    },
+    {
+      "path": "data/assets/raster-annotations/lowes/hardlines.png",
+      "digest": "sha256:36a74265cb9a3c3ebf9ae083e9bcce8b824a157fa13af97767f1a957444ec8e4",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/lowes-business-icons.json",
+          "recipeDigest": "sha256:bd63988eb827e1c89717e8bac8fc33805ce85f1da9840d9c1363dd4f40cc741f",
+          "source": "input/processed/lowes-q1-fy26.png",
+          "cropKey": "lowes-hardlines-icons"
+        }
+      ],
+      "directConsumers": [
+        "lowes-q1-fy26",
+        "lowes-q4-fy25"
+      ],
+      "consumers": [
+        "lowes-q1-fy26",
+        "lowes-q4-fy25"
+      ],
+      "acceptedVersions": [
+        "sha256:c0884782e68c823069d245ab72a3cb16ce73a27855638d1e34537c4f1a48c50a"
+      ],
+      "reusable": true
+    },
+    {
+      "path": "data/assets/raster-annotations/lowes/home-decor.png",
+      "digest": "sha256:1d3c72178c144d47327fc1bef674c30f8d7236241772d631f7fd347a9f13f729",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/lowes-business-icons.json",
+          "recipeDigest": "sha256:bd63988eb827e1c89717e8bac8fc33805ce85f1da9840d9c1363dd4f40cc741f",
+          "source": "input/processed/lowes-q1-fy26.png",
+          "cropKey": "lowes-home-decor-icons"
+        }
+      ],
+      "directConsumers": [
+        "lowes-q1-fy26",
+        "lowes-q4-fy25"
+      ],
+      "consumers": [
+        "lowes-q1-fy26",
+        "lowes-q4-fy25"
+      ],
+      "acceptedVersions": [
+        "sha256:6605b1cfd2065aee2b8b5147a8e064d895c0d44a209e8db4e184e8e9ed6a6d77"
+      ],
+      "reusable": true
+    },
+    {
       "path": "data/assets/raster-annotations/lululemon/direct-to-consumer-phones.png",
       "digest": "sha256:3fb6307fc55994a2f2734775d884432d0c8fde690f1f8d0fe10a3ed1a49b0822",
       "provenance": [],
@@ -12347,6 +12419,11 @@
       "path": "input/icon-crop-specs/loreal-fy25.json",
       "digest": "sha256:7b50a4b978de8cffa44ab91cb72ff16504f81557b5713f9ef5282864267eb6ed",
       "source": "input/processed/loreal-fy25.png"
+    },
+    {
+      "path": "input/icon-crop-specs/lowes-business-icons.json",
+      "digest": "sha256:bd63988eb827e1c89717e8bac8fc33805ce85f1da9840d9c1363dd4f40cc741f",
+      "source": "input/processed/lowes-q1-fy26.png"
     },
     {
       "path": "input/icon-crop-specs/lululemon-q1-fy26.json",

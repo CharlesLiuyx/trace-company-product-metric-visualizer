@@ -33,30 +33,6 @@
     <text x="250" y="164" text-anchor="middle" font-family="Montserrat,Arial,sans-serif" font-size="106" font-weight="800" letter-spacing="-7" textLength="384" lengthAdjust="spacingAndGlyphs" fill="#ffffff">LOWE'S</text>
     <text x="423" y="105" font-family="Montserrat,Arial,sans-serif" font-size="17" font-weight="700" fill="#ffffff">®</text>`;
 
-  const iconClusters = () => `
-    <g fill="none" stroke="#151515" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-      <g class="sankey-interactive-annotation" data-node="home_decor" transform="translate(82 351)">
-        <path d="M2 76H188M17 76V35H55V76M19 35H53V10H21Z"/>
-        <path d="M93 76V45H172V76M91 45Q92 25 113 25H151Q172 25 174 45M107 25V16H156V25"/>
-        <path d="M183 76V45H214V76M192 45V10H210V45M193 10H209"/>
-        <path d="M245 76V44H280V76M252 44V16H275V44M258 16V4H269V16"/>
-        <path d="M300 76H340M320 76V39M306 58Q320 47 334 58M304 42Q320 30 336 42M320 39V24"/>
-      </g>
-      <g class="sankey-interactive-annotation" data-node="building_products" transform="translate(35 612)">
-        <path d="M4 56H142M72 56V30M20 56L8 62M123 56L138 62M35 56V72M103 56V72"/>
-        <path d="M72 30V10M60 10H84M59 18H85"/>
-        <path d="M171 76V31H215V76M165 31H221M182 31V9M204 31V9M178 9H186M200 9H208"/>
-        <path d="M257 76V25M257 25Q281 24 281 47V58Q281 72 296 72H309"/>
-        <path d="M302 76V58H332V76M316 58V21M304 21H328M316 21V10"/>
-      </g>
-      <g class="sankey-interactive-annotation" data-node="hardlines" transform="translate(104 861)">
-        <path d="M7 76H104M20 76V58Q35 39 61 43L84 53L76 67H40L29 76M48 43L65 12M65 12L60 5M65 12L72 8"/>
-        <circle cx="31" cy="76" r="9"/><circle cx="75" cy="76" r="9"/>
-        <path d="M129 43H180V66H129Z M180 48H203V61H180 M144 43V27H164V43 M149 27V16H160V27"/>
-        <path d="M137 66V76M177 66V76"/>
-      </g>
-    </g>`;
-
   const kpiCard = (x, width, headerLines, value, note) => `
     <g>
       <rect x="${x}" y="1205" width="${width}" height="150" rx="31" fill="${BLUE}"/>
@@ -65,9 +41,26 @@
       ${note ? `<text x="${x + width / 2}" y="${headerLines.length > 1 ? 1354 : 1325}" text-anchor="middle" font-family="Roboto,Arial,sans-serif" font-size="22" font-weight="500" fill="#ffffff">${note}</text>` : ''}
     </g>`;
 
+  const businessText = (isZh) => `
+    <g class="sankey-interactive-annotation" data-node="home_decor">
+      <text x="228" y="491" text-anchor="middle" font-size="40" font-weight="800" fill="${BLUE}">${isZh ? '家居装饰' : 'Home Décor'}</text>
+      <text x="228" y="526" text-anchor="middle" font-family="Roboto,Arial,sans-serif" font-size="27" fill="${NOTE}">${isZh ? '家电、装饰、地板、' : 'Appliances, Décor, Flooring,'}</text>
+      <text x="228" y="557" text-anchor="middle" font-family="Roboto,Arial,sans-serif" font-size="27" fill="${NOTE}">${isZh ? '厨卫及涂料' : 'Kitchen & Bath, and Paint'}</text>
+    </g>
+    <g class="sankey-interactive-annotation" data-node="building_products">
+      <text x="226" y="750" text-anchor="middle" font-size="40" font-weight="800" fill="${BLUE}">${isZh ? '建筑产品' : 'Building Products'}</text>
+      <text x="226" y="790" text-anchor="middle" font-family="Roboto,Arial,sans-serif" font-size="27" fill="${NOTE}">${isZh ? '电气及照明、木材、' : 'Electrical/Lighting, Lumber,'}</text>
+      <text x="226" y="821" text-anchor="middle" font-family="Roboto,Arial,sans-serif" font-size="27" fill="${NOTE}">${isZh ? '木制品及管道' : 'Millwork, and Plumbing'}</text>
+    </g>
+    <g class="sankey-interactive-annotation" data-node="hardlines">
+      <text x="228" y="996" text-anchor="middle" font-size="40" font-weight="800" fill="${BLUE}">${isZh ? '耐用品' : 'Hardlines'}</text>
+      <text x="228" y="1033" text-anchor="middle" font-family="Roboto,Arial,sans-serif" font-size="27" fill="${NOTE}">${isZh ? '五金、室内园艺、' : 'Hardware, Indoor Garden,'}</text>
+      <text x="228" y="1064" text-anchor="middle" font-family="Roboto,Arial,sans-serif" font-size="27" fill="${NOTE}">${isZh ? '户外园艺及工具' : 'Outdoor Garden, and Tools'}</text>
+    </g>`;
+
   const annotations = (isZh) => `
     <g font-family="Noto Sans,Arial,sans-serif">
-      ${iconClusters()}
+      ${businessText(isZh)}
       <g class="sankey-interactive-annotation" data-node="home_decor">
         ${kpiCard(32, 275, [isZh ? '可比销售额' : 'Comparable sales'], isZh ? '同比 +0.6%' : '+0.6% Y/Y', '')}
       </g>
@@ -82,18 +75,12 @@
   const labels = {
     home_decor: { blocks: [
       block(466, 319, [line('$value', 39), line('+1% Y/Y', 29, { color: NOTE })]),
-      block(219, 450, [line('Home Décor', 40, { weight: 800 })]),
-      block(219, 503, [line('Appliances, Décor, Flooring,', 27, { color: NOTE }), line('Kitchen & Bath, and Paint', 27, { color: NOTE })], { lineGap: 3 }),
     ] },
     building_products: { blocks: [
       block(466, 608, [line('$value', 39), line('(0%) Y/Y', 29, { color: NOTE })]),
-      block(219, 710, [line('Building Products', 40, { weight: 800 })]),
-      block(219, 764, [line('Electrical/Lighting, Lumber,', 27, { color: NOTE }), line('Millwork, and Plumbing', 27, { color: NOTE })], { lineGap: 3 }),
     ] },
     hardlines: { blocks: [
       block(466, 838, [line('$value', 39), line('+3% Y/Y', 29, { color: NOTE })]),
-      block(219, 959, [line('Hardlines', 40, { weight: 800 })]),
-      block(219, 1012, [line('Hardware, Indoor Garden,', 27, { color: NOTE }), line('Outdoor Garden, and Tools', 27, { color: NOTE })], { lineGap: 3 }),
     ] },
     other: { blocks: [
       block(466, 1063, [line('$value', 39), line('+4444% Y/Y', 29, { color: NOTE })]),
@@ -114,18 +101,12 @@
   const zhLabels = {
     home_decor: { blocks: [
       block(466, 319, [line('$value', 39), line('同比 +1%', 29, { color: NOTE })]),
-      block(219, 454, [line('家居装饰', 40, { weight: 800 })]),
-      block(219, 503, [line('家电、装饰、地板、', 27, { color: NOTE }), line('厨卫及涂料', 27, { color: NOTE })], { lineGap: 3 }),
     ] },
     building_products: { blocks: [
       block(466, 608, [line('$value', 39), line('同比 (0%)', 29, { color: NOTE })]),
-      block(219, 714, [line('建筑产品', 40, { weight: 800 })]),
-      block(219, 764, [line('电气及照明、木材、', 27, { color: NOTE }), line('木制品及管道', 27, { color: NOTE })], { lineGap: 3 }),
     ] },
     hardlines: { blocks: [
       block(466, 838, [line('$value', 39), line('同比 +3%', 29, { color: NOTE })]),
-      block(219, 963, [line('耐用品', 40, { weight: 800 })]),
-      block(219, 1012, [line('五金、室内园艺、', 27, { color: NOTE }), line('户外园艺及工具', 27, { color: NOTE })], { lineGap: 3 }),
     ] },
     other: { blocks: [
       block(466, 1063, [line('$value', 39), line('同比 +4444%', 29, { color: NOTE })]),
@@ -176,6 +157,7 @@
       height: 1500,
       background: BG,
       nodeRadius: 0,
+      allowRasterAnnotations: true,
       interfaceAudit: { mode: 'error' },
       titleColor: TITLE,
       subtitleColor: NOTE,
@@ -191,6 +173,11 @@
       type: { name: 40, value: 39, note: 29, lineGap: 8 },
     },
     annotationsSvg: annotations(false),
+    rasterAnnotations: [
+      { key: 'lowes-home-decor-icons', href: 'data/assets/raster-annotations/lowes/home-decor.png', x: 79, y: 349, width: 283, height: 96 },
+      { key: 'lowes-building-products-icons', href: 'data/assets/raster-annotations/lowes/building-products.png', x: 30, y: 608, width: 360, height: 105 },
+      { key: 'lowes-hardlines-icons', href: 'data/assets/raster-annotations/lowes/hardlines.png', x: 116, y: 857, width: 224, height: 97 },
+    ],
     layout: {
       scale: 13.65,
       nodes: {
@@ -199,15 +186,15 @@
         hardlines: { x: 428, y: 935, width: 73, height: 93 },
         other: { x: 428, y: 1157, width: 73, height: 31 },
         revenue: { x: 897, y: 676, width: 73, height: 315 },
-        gross_profit: { x: 1364, y: 564, width: 73, height: 113 },
-        cost_of_sales: { x: 1364, y: 877, width: 73, height: 215 },
+        gross_profit: { x: 1364, y: 564, width: 73, height: 104 },
+        cost_of_sales: { x: 1364, y: 877, width: 73, height: 213 },
         operating_profit: { x: 1831, y: 450, width: 73, height: 35 },
-        operating_expenses: { x: 1831, y: 722, width: 73, height: 78 },
+        operating_expenses: { x: 1831, y: 722, width: 73, height: 70 },
         net_profit: { x: 2298, y: 323, width: 73, height: 23 },
         tax: { x: 2298, y: 536, width: 73, height: 7 },
         interest: { x: 2298, y: 656, width: 73, height: 7 },
         sga: { x: 2298, y: 884, width: 73, height: 60 },
-        depreciation_amortization: { x: 2298, y: 1124, width: 73, height: 8 },
+        depreciation_amortization: { x: 2298, y: 1124, width: 73, height: 6 },
       },
       labels,
     },
@@ -232,15 +219,15 @@
       { source: 'building_products', target: 'revenue', value: 6.8, sourceWidth: 93, targetWidth: 93, y0: 750.5, y1: 820.5, sourceOrder: 0, targetOrder: 1, linkTint: BLUE_LINK },
       { source: 'hardlines', target: 'revenue', value: 6.8, sourceWidth: 93, targetWidth: 93, y0: 981.5, y1: 913.5, sourceOrder: 0, targetOrder: 2, linkTint: BLUE_LINK },
       { source: 'other', target: 'revenue', value: 2.3, sourceWidth: 31, targetWidth: 31, y0: 1172.5, y1: 975.5, sourceOrder: 0, targetOrder: 3, linkTint: BLUE_LINK },
-      { source: 'revenue', target: 'gross_profit', value: 7.5, sourceWidth: 113, targetWidth: 113, y0: 732.5, y1: 620.5, sourceOrder: 0, targetOrder: 0, linkTint: GREEN_LINK },
-      { source: 'revenue', target: 'cost_of_sales', value: 15.5, sourceWidth: 202, targetWidth: 215, y0: 889, y1: 984.5, sourceOrder: 1, targetOrder: 0, linkTint: RED_LINK },
+      { source: 'revenue', target: 'gross_profit', value: 7.5, sourceWidth: 104, targetWidth: 104, y0: 728, y1: 616, sourceOrder: 0, targetOrder: 0, linkTint: GREEN_LINK },
+      { source: 'revenue', target: 'cost_of_sales', value: 15.5, sourceWidth: 211, targetWidth: 213, y0: 885.5, y1: 983.5, sourceOrder: 1, targetOrder: 0, linkTint: RED_LINK },
       { source: 'gross_profit', target: 'operating_profit', value: 2.6, sourceWidth: 35, targetWidth: 35, y0: 581.5, y1: 467.5, sourceOrder: 0, targetOrder: 0, linkTint: GREEN_LINK },
-      { source: 'gross_profit', target: 'operating_expenses', value: 5.0, sourceWidth: 78, targetWidth: 78, y0: 638, y1: 761, sourceOrder: 1, targetOrder: 0, linkTint: RED_LINK },
+      { source: 'gross_profit', target: 'operating_expenses', value: 5.0, sourceWidth: 69, targetWidth: 70, y0: 633.5, y1: 757, sourceOrder: 1, targetOrder: 0, linkTint: RED_LINK },
       { source: 'operating_profit', target: 'net_profit', value: 1.6, sourceWidth: 23, targetWidth: 23, y0: 461.5, y1: 334.5, sourceOrder: 0, targetOrder: 0, linkTint: GREEN_LINK },
       { source: 'operating_profit', target: 'tax', value: 0.5, sourceWidth: 6, targetWidth: 7, y0: 476, y1: 539.5, sourceOrder: 1, targetOrder: 0, linkTint: RED_LINK },
       { source: 'operating_profit', target: 'interest', value: 0.4, sourceWidth: 6, targetWidth: 7, y0: 482, y1: 659.5, sourceOrder: 2, targetOrder: 0, linkTint: RED_LINK },
-      { source: 'operating_expenses', target: 'sga', value: 4.4, sourceWidth: 68, targetWidth: 60, y0: 756, y1: 914, sourceOrder: 0, targetOrder: 0, linkTint: RED_LINK },
-      { source: 'operating_expenses', target: 'depreciation_amortization', value: 0.6, sourceWidth: 10, targetWidth: 8, y0: 795, y1: 1128, sourceOrder: 1, targetOrder: 0, linkTint: RED_LINK },
+      { source: 'operating_expenses', target: 'sga', value: 4.4, sourceWidth: 60, targetWidth: 60, y0: 752, y1: 914, sourceOrder: 0, targetOrder: 0, linkTint: RED_LINK },
+      { source: 'operating_expenses', target: 'depreciation_amortization', value: 0.6, sourceWidth: 10, targetWidth: 6, y0: 787, y1: 1127, sourceOrder: 1, targetOrder: 0, linkTint: RED_LINK },
     ],
     i18n: {
       zh: {

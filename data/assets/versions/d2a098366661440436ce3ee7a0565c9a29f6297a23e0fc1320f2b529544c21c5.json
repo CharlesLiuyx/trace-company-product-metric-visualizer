@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Lowe's building-products business icon cluster",
+  "artifact": {
+    "path": "data/assets/raster-annotations/lowes/building-products.png",
+    "digest": "sha256:44865b3d65308e71c648f75cbc7662d2e23709bd86b9bb77a36f3b77c5add9d2"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/lowes-business-icons.json",
+    "digest": "sha256:bd63988eb827e1c89717e8bac8fc33805ce85f1da9840d9c1363dd4f40cc741f"
+  },
+  "source": {
+    "path": "input/processed/lowes-q1-fy26.png",
+    "digest": "sha256:d0c047310b6b6fab126384a85528cce3c3e18b9015df32ec89512ad9534b608b"
+  },
+  "review": {
+    "reviewer": "Codex visual crop validation",
+    "decision": "accepted",
+    "artifactDigest": "sha256:44865b3d65308e71c648f75cbc7662d2e23709bd86b9bb77a36f3b77c5add9d2",
+    "note": "Inspected the generated validation sheet against the complete original: subject is complete, centered, and contains no adjacent label, amount, connector or publisher mark. This records crop validation; dataset acceptance awaits the operator."
+  },
+  "versionDigest": "sha256:d2a098366661440436ce3ee7a0565c9a29f6297a23e0fc1320f2b529544c21c5"
+}
