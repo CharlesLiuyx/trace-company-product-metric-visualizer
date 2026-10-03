@@ -24173,6 +24173,320 @@
             }
           }
         }
+      },
+      {
+        "key": "alibaba-q1-fy27",
+        "src": "data/datasets/alibaba-q1-fy27.js",
+        "data": {
+          "name": "Alibaba · Q1 FY27",
+          "company": "Alibaba",
+          "meta": {
+            "title": "Alibaba Q1 FY27 Income Statement",
+            "period": "Q1 FY27",
+            "periodNote": "Ending June 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Alibaba · 2027 财年第一季度",
+              "meta": {
+                "title": "Alibaba 2027 财年第一季度利润表",
+                "period": "2027 财年第一季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "disney-q3-fy26-by-segment",
+        "src": "data/datasets/disney-q3-fy26-by-segment.js",
+        "data": {
+          "name": "Disney · Q3 FY26 by Segment",
+          "company": "Disney",
+          "meta": {
+            "title": "Disney Q3 FY26 by Segment",
+            "period": "Q3 FY26",
+            "periodNote": "Ending June 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Disney · 2026 财年第三季度（按分部）",
+              "meta": {
+                "title": "Disney 2026 财年第三季度分部",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "duolingo-q2-fy26",
+        "src": "data/datasets/duolingo-q2-fy26.js",
+        "data": {
+          "name": "Duolingo · Q2 FY26",
+          "company": "Duolingo",
+          "meta": {
+            "title": "Duolingo Q2 FY26 Income Statement",
+            "period": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Duolingo · 2026 财年第二季度",
+              "meta": {
+                "title": "Duolingo 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "jd-com-q2-fy26",
+        "src": "data/datasets/jd-com-q2-fy26.js",
+        "data": {
+          "name": "JD.com · Q2 FY26",
+          "company": "JD.com",
+          "meta": {
+            "title": "JD.com Q2 FY26 Income Statement",
+            "period": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "JD.com · 2026 财年第二季度",
+              "meta": {
+                "title": "JD.com 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "match-group-q2-fy26",
+        "src": "data/datasets/match-group-q2-fy26.js",
+        "data": {
+          "name": "Match Group · Q2 FY26",
+          "company": "Match Group",
+          "meta": {
+            "title": "Match Group Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Match Group · 2026 财年第二季度",
+              "meta": {
+                "title": "Match Group 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "netease-q2-fy26",
+        "src": "data/datasets/netease-q2-fy26.js",
+        "data": {
+          "name": "NetEase · Q2 FY26",
+          "company": "NetEase",
+          "meta": {
+            "title": "NetEase Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "NetEase · 2026 财年第二季度",
+              "meta": {
+                "title": "NetEase 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nintendo-q1-fy27",
+        "src": "data/datasets/nintendo-q1-fy27.js",
+        "data": {
+          "name": "Nintendo · Q1 FY27",
+          "company": "Nintendo",
+          "meta": {
+            "title": "Nintendo Q1 FY27 Income Statement",
+            "period": "Q1 FY27",
+            "periodNote": "Ending June 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Nintendo · 2027 财年第一季度",
+              "meta": {
+                "title": "Nintendo 2027 财年第一季度利润表",
+                "period": "2027 财年第一季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pdd-holdings-q2-fy26",
+        "src": "data/datasets/pdd-holdings-q2-fy26.js",
+        "data": {
+          "name": "PDD Holdings · Q2 FY26",
+          "company": "PDD Holdings",
+          "meta": {
+            "title": "PDD Holdings Q2 FY26 Income Statement",
+            "period": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "PDD Holdings · 2026 财年第二季度",
+              "meta": {
+                "title": "PDD Holdings 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pinterest-q2-fy26",
+        "src": "data/datasets/pinterest-q2-fy26.js",
+        "data": {
+          "name": "Pinterest · Q2 FY26",
+          "company": "Pinterest",
+          "meta": {
+            "title": "Pinterest Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Pinterest · 2026 财年第二季度",
+              "meta": {
+                "title": "Pinterest 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "snap-q2-fy26",
+        "src": "data/datasets/snap-q2-fy26.js",
+        "data": {
+          "name": "Snap · Q2 FY26",
+          "company": "Snap",
+          "meta": {
+            "title": "Snap Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Snap · 2026 财年第二季度",
+              "meta": {
+                "title": "Snap 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sony-q1-fy26",
+        "src": "data/datasets/sony-q1-fy26.js",
+        "data": {
+          "name": "Sony · Q1 FY26",
+          "company": "Sony",
+          "meta": {
+            "title": "Sony Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending June 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Sony · 2026 财年第一季度",
+              "meta": {
+                "title": "Sony 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "spotify-q2-fy26",
+        "src": "data/datasets/spotify-q2-fy26.js",
+        "data": {
+          "name": "Spotify · Q2 FY26",
+          "company": "Spotify",
+          "meta": {
+            "title": "Spotify Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Spotify · 2026 财年第二季度",
+              "meta": {
+                "title": "Spotify 2026 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "take-two-q1-fy27",
+        "src": "data/datasets/take-two-q1-fy27.js",
+        "data": {
+          "name": "Take-Two · Q1 FY27",
+          "company": "Take-Two",
+          "meta": {
+            "title": "Take-Two Q1 FY27 Income Statement",
+            "period": "Q1 FY27",
+            "periodNote": "Ending June 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Take-Two · 2027 财年第一季度",
+              "meta": {
+                "title": "Take-Two 2027 财年第一季度利润表",
+                "period": "2027 财年第一季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tencent-q2-fy26",
+        "src": "data/datasets/tencent-q2-fy26.js",
+        "data": {
+          "name": "Tencent · Q2 FY26",
+          "company": "Tencent",
+          "meta": {
+            "title": "Tencent Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tencent · 2026 财年第二季度",
+              "meta": {
+                "title": "Tencent 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

@@ -1276,6 +1276,291 @@
           },
         },
       },
+    },
+{
+  "key": "alibaba-q1-fy27",
+  "company": "Alibaba",
+  "period": "Q1 FY27",
+  "periodNote": "Ending June 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/alibaba-q1-fy27.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 39.6,
+    "notes": [
+      "+9% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "china_ecommerce",
+        "label": "China E-commerce",
+        "value": 16.3,
+        "notes": [
+          "(8%) Y/Y"
+        ]
+      },
+      {
+        "id": "china_quick_commerce",
+        "label": "China Quick Commerce",
+        "value": 7.9,
+        "notes": [
+          "+45% Y/Y"
+        ]
+      },
+      {
+        "id": "international_commerce",
+        "label": "International Commerce",
+        "value": 6.1,
+        "notes": [
+          "+1% Y/Y"
+        ]
+      },
+      {
+        "id": "cloud",
+        "label": "Cloud",
+        "value": 7.1,
+        "notes": [
+          "+45% Y/Y",
+          "12% adjusted margin"
+        ]
+      },
+      {
+        "id": "ai_apps_others",
+        "label": "AI Apps & Others",
+        "value": 4.9,
+        "notes": [
+          "+3% Y/Y",
+          "(53%) adjusted margin"
+        ]
+      },
+      {
+        "id": "intersegment_eliminations",
+        "label": "Inter-segment Eliminations",
+        "value": -2.7
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 24.5
+    },
+    "operatingExpenses": {
+      "total": 13.0,
+      "items": [
+        {
+          "id": "sm",
+          "label": "Sales & marketing",
+          "value": 7.0,
+          "notes": [
+            "18% of revenue"
+          ]
+        },
+        {
+          "id": "product_development",
+          "label": "Product development",
+          "value": 3.3,
+          "notes": [
+            "8% of revenue"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "General & Administrative",
+          "value": 1.9,
+          "notes": [
+            "5% of revenue"
+          ]
+        },
+        {
+          "id": "amortization_impairment",
+          "label": "Amortization & impairment",
+          "value": 0.8,
+          "notes": [
+            "2% of revenue"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 1.9
     }
+  },
+  "otherIncome": {
+    "total": 1.2,
+    "items": [
+      {
+        "id": "other_income",
+        "label": "Other",
+        "value": 1.2
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 15.2,
+      "notes": [
+        "38% margin",
+        "(7pp) Y/Y",
+        "Source revenue less cost of revenue is $15.1B; displayed gross profit is $15.2B due to rounding."
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 2.2,
+      "notes": [
+        "6% margin",
+        "(8pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 1.5,
+      "notes": [
+        "4% margin",
+        "(13pp) Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2027 财年第一季度",
+      "periodNote": "截至 2026 年 6 月",
+      "revenue": {
+        "notes": [
+          "同比 +9%"
+        ],
+        "items": [
+          {
+            "id": "china_ecommerce",
+            "label": "中国电子商务",
+            "notes": [
+              "同比 (8%)"
+            ]
+          },
+          {
+            "id": "china_quick_commerce",
+            "label": "中国即时零售",
+            "notes": [
+              "同比 +45%"
+            ]
+          },
+          {
+            "id": "international_commerce",
+            "label": "国际商业",
+            "notes": [
+              "同比 +1%"
+            ]
+          },
+          {
+            "id": "cloud",
+            "label": "云",
+            "notes": [
+              "同比 +45%",
+              "调整后利润率 12%"
+            ]
+          },
+          {
+            "id": "ai_apps_others",
+            "label": "AI 应用及其他",
+            "notes": [
+              "同比 +3%",
+              "调整后利润率 (53%)"
+            ]
+          },
+          {
+            "id": "intersegment_eliminations",
+            "label": "分部间抵销"
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sm",
+              "label": "销售与市场",
+              "notes": [
+                "占收入 18%"
+              ]
+            },
+            {
+              "id": "product_development",
+              "label": "产品开发",
+              "notes": [
+                "占收入 8%"
+              ]
+            },
+            {
+              "id": "ga",
+              "label": "一般及行政",
+              "notes": [
+                "占收入 5%"
+              ]
+            },
+            {
+              "id": "amortization_impairment",
+              "label": "摊销与减值",
+              "notes": [
+                "占收入 2%"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "other_income",
+            "label": "其他收益"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 38%",
+            "同比 (7 个百分点)",
+            "源图收入减收入成本为 151 亿美元，展示的毛利润为 152 亿美元，差异来自舍入。"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 6%",
+            "同比 (8 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 4%",
+            "同比 (13 个百分点)"
+          ]
+        }
+      }
+    }
+  }
+}
   );
 })(window);

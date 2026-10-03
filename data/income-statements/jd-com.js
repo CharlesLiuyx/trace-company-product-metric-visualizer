@@ -1,286 +1,946 @@
-/* Pure income-statement SSOT records. Financial data only — Sankey view
- * geometry stays in data/datasets/<dataset-key>.js. Format: data/schema.md. */
-(function (global) {
-  'use strict';
-
-  const ssot = (global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || {
-    schemaVersion: 1,
-    records: [],
-  });
-
-  ssot.records.push(
-    {
-      key: 'jd-com-q3-fy25',
-      company: 'JD.com',
-      period: 'Q3 FY25',
-      periodNote: 'Ending Sep. 2025',
-      currency: '$',
-      unit: 'B',
-      decimals: 1,
-      sourceImage: 'input/processed/jd-com-q3-fy25.png',
-      roundingTolerance: 0.15,
-      revenue: {
-        total: 42.0,
-        notes: ['+15% Y/Y'],
-        items: [
-          { id: 'jd_retail', label: 'JD Retail', value: 35.2, notes: ['+11% Y/Y', '6% operating margin', '+1pp Y/Y'] },
-          { id: 'jd_logistics', label: 'JD Logistics', value: 7.7, notes: ['+24% Y/Y', '2% operating margin', '(2pp) Y/Y'] },
-          {
-            id: 'new_businesses',
-            label: 'New Businesses',
-            value: 2.2,
-            notes: ['+214% Y/Y', '(101%) operating margin', '(88pp) Y/Y'],
-          },
-          { id: 'intersegment_eliminations', label: 'Inter-segment eliminations', value: -3.1 },
-        ],
-      },
-      costs: {
-        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 34.9 },
-        operatingExpenses: {
-          total: 7.3,
-          items: [
-            { id: 'fulfillment', label: 'Fulfillment', value: 3.1 },
-            { id: 'marketing', label: 'Marketing', value: 3.0 },
-            { id: 'rnd', label: 'R&D', value: 0.8 },
-            { id: 'ga', label: 'General & admin', value: 0.4 },
-          ],
+(function(global){const ssot=global.INCOME_STATEMENT_SSOT=global.INCOME_STATEMENT_SSOT||{schemaVersion:1,records:[]};ssot.records.push(...[
+  {
+    "key": "jd-com-q3-fy25",
+    "company": "JD.com",
+    "period": "Q3 FY25",
+    "periodNote": "Ending Sep. 2025",
+    "currency": "$",
+    "unit": "B",
+    "decimals": 1,
+    "sourceImage": "input/processed/jd-com-q3-fy25.png",
+    "roundingTolerance": 0.15,
+    "revenue": {
+      "total": 42,
+      "notes": [
+        "+15% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "jd_retail",
+          "label": "JD Retail",
+          "value": 35.2,
+          "notes": [
+            "+11% Y/Y",
+            "6% operating margin",
+            "+1pp Y/Y"
+          ]
         },
-        tax: { label: 'Tax', value: 0 },
-      },
-      otherIncome: {
-        total: 0,
-        items: [],
-      },
-      otherExpenses: {
-        total: 0,
-        items: [],
-      },
-      // The Source ends at operating loss; it shows no separate tax, other
-      // income/expense, or net-profit bridge.
-      profit: {
-        gross: { id: 'gross_profit', label: 'Gross profit', value: 7.1, notes: ['17% margin', '(0pp) Y/Y'] },
-        operating: { id: 'operating_loss', label: 'Operating loss', value: -0.1, notes: ['(0%) margin', '(5pp) Y/Y'] },
-        net: { id: 'operating_loss', label: 'Operating loss', value: -0.1, notes: ['(0%) margin', '(5pp) Y/Y'] },
-      },
-      i18n: {
-        zh: {
-          period: '2025 财年第三季度',
-          periodNote: '截至 2025 年 9 月',
-          revenue: {
-            notes: ['同比 +15%'],
-            items: [
-              { id: 'jd_retail', label: '京东零售', notes: ['同比 +11%', '营业利润率 6%', '同比 +1 个百分点'] },
-              { id: 'jd_logistics', label: '京东物流', notes: ['同比 +24%', '营业利润率 2%', '同比 (2 个百分点)'] },
-              { id: 'new_businesses', label: '新业务', notes: ['同比 +214%', '营业利润率 (101%)', '同比 (88 个百分点)'] },
-              { id: 'intersegment_eliminations', label: '分部间抵销' },
-            ],
-          },
-          costs: {
-            costOfRevenue: { label: '收入成本' },
-            operatingExpenses: {
-              items: [
-                { id: 'fulfillment', label: '履约' },
-                { id: 'marketing', label: '营销' },
-                { id: 'rnd', label: '研发' },
-                { id: 'ga', label: '管理费用' },
-              ],
-            },
-            tax: { label: '税费' },
-          },
-          profit: {
-            gross: { label: '毛利润', notes: ['利润率 17%', '同比 (0 个百分点)'] },
-            operating: { label: '营业亏损', notes: ['利润率 (0%)', '同比 (5 个百分点)'] },
-            net: { label: '营业亏损', notes: ['利润率 (0%)', '同比 (5 个百分点)'] },
-          },
+        {
+          "id": "jd_logistics",
+          "label": "JD Logistics",
+          "value": 7.7,
+          "notes": [
+            "+24% Y/Y",
+            "2% operating margin",
+            "(2pp) Y/Y"
+          ]
         },
-      },
+        {
+          "id": "new_businesses",
+          "label": "New Businesses",
+          "value": 2.2,
+          "notes": [
+            "+214% Y/Y",
+            "(101%) operating margin",
+            "(88pp) Y/Y"
+          ]
+        },
+        {
+          "id": "intersegment_eliminations",
+          "label": "Inter-segment eliminations",
+          "value": -3.1
+        }
+      ]
     },
-    {
-      key: 'jd-com-q4-fy25',
-      company: 'JD.com',
-      period: 'Q4 FY25',
-      periodNote: 'Ending Dec. 2025',
-      currency: '$',
-      unit: 'B',
-      decimals: 1,
-      sourceImage: 'input/processed/jd-com-q4-fy25.png',
-      roundingTolerance: 0.15,
-      revenue: {
-        total: 50.4,
-        notes: ['+2% Y/Y'],
-        items: [
-          { id: 'jd_retail', label: 'JD Retail', value: 43.2, notes: ['(2%) Y/Y', '3% operating margin', '(0pp) Y/Y'] },
-          { id: 'jd_logistics', label: 'JD Logistics', value: 9.1, notes: ['+22% Y/Y', '4% operating margin', '(1pp) Y/Y'] },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_revenue",
+        "label": "Cost of revenue",
+        "value": 34.9
+      },
+      "operatingExpenses": {
+        "total": 7.3,
+        "items": [
           {
-            id: 'new_businesses',
-            label: 'New Businesses',
-            value: 2.0,
-            notes: ['+201% Y/Y', '(105%) operating margin', '(86pp) Y/Y'],
+            "id": "fulfillment",
+            "label": "Fulfillment",
+            "value": 3.1
           },
-          { id: 'intersegment_eliminations', label: 'Inter-segment eliminations', value: -3.9 },
-        ],
-      },
-      costs: {
-        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 42.5 },
-        operatingExpenses: {
-          total: 8.7,
-          items: [
-            { id: 'fulfillment', label: 'Fulfillment', value: 3.5 },
-            { id: 'marketing', label: 'Marketing', value: 3.6 },
-            { id: 'rnd', label: 'R&D', value: 1.0 },
-            { id: 'ga', label: 'G&A', value: 0.5 },
-            { id: 'goodwill', label: 'Goodwill', value: 0.2 },
-          ],
-        },
-        tax: { label: 'Tax', value: 0 },
-      },
-      otherIncome: {
-        total: 0,
-        items: [],
-      },
-      otherExpenses: {
-        total: 0,
-        items: [],
-      },
-      // The source chart shows no tax, other-income bridge, or separate net
-      // line; its bottom line is the operating loss.
-      profit: {
-        gross: { id: 'gross_profit', label: 'Gross profit', value: 7.9, notes: ['16% margin', '+0pp Y/Y'] },
-        operating: { id: 'operating_loss', label: 'Operating loss', value: -0.8, notes: ['(2%) margin', '+4pp Y/Y'] },
-        net: { id: 'operating_loss', label: 'Operating loss', value: -0.8, notes: ['(2%) margin', '+4pp Y/Y'] },
-      },
-      i18n: {
-        zh: {
-          period: '2025 财年第四季度',
-          periodNote: '截至 2025 年 12 月',
-          revenue: {
-            notes: ['同比 +2%'],
-            items: [
-              { id: 'jd_retail', label: '京东零售', notes: ['同比 (2%)', '营业利润率 3%', '同比 (0 个百分点)'] },
-              { id: 'jd_logistics', label: '京东物流', notes: ['同比 +22%', '营业利润率 4%', '同比 (1 个百分点)'] },
-              { id: 'new_businesses', label: '新业务', notes: ['同比 +201%', '营业利润率 (105%)', '同比 (86 个百分点)'] },
-              { id: 'intersegment_eliminations', label: '分部间抵销' },
-            ],
+          {
+            "id": "marketing",
+            "label": "Marketing",
+            "value": 3
           },
-          costs: {
-            costOfRevenue: { label: '收入成本' },
-            operatingExpenses: {
-              items: [
-                { id: 'fulfillment', label: '履约' },
-                { id: 'marketing', label: '营销' },
-                { id: 'rnd', label: '研发' },
-                { id: 'ga', label: '管理费用' },
-                { id: 'goodwill', label: '商誉' },
-              ],
-            },
-            tax: { label: '税费' },
+          {
+            "id": "rnd",
+            "label": "R&D",
+            "value": 0.8
           },
-          profit: {
-            gross: { label: '毛利润', notes: ['利润率 16%', '同比 +0 个百分点'] },
-            operating: { label: '营业亏损', notes: ['利润率 (2%)', '同比 +4 个百分点'] },
-            net: { label: '营业亏损', notes: ['利润率 (2%)', '同比 +4 个百分点'] },
-          },
-        },
+          {
+            "id": "ga",
+            "label": "General & admin",
+            "value": 0.4
+          }
+        ]
       },
+      "tax": {
+        "label": "Tax",
+        "value": 0
+      }
     },
-    {
-      key: 'jd-com-q1-fy26',
-      company: 'JD.com',
-      period: 'Q1 FY26',
-      periodNote: 'Ending Mar. 2026',
-      currency: '$',
-      unit: 'B',
-      decimals: 1,
-      sourceImage: 'input/processed/jd-com-q1-fy26.png',
-      roundingTolerance: 0.15,
-      revenue: {
-        total: 45.8,
-        notes: ['+5% Y/Y'],
-        items: [
-          { id: 'jd_retail', label: 'JD Retail', value: 38.9, notes: ['+2% Y/Y', '6% operating margin', '+1pp Y/Y'] },
-          { id: 'jd_logistics', label: 'JD Logistics', value: 8.8, notes: ['+29% Y/Y', '2% operating margin', '+2pp Y/Y'] },
-          {
-            id: 'new_businesses',
-            label: 'New Businesses',
-            value: 0.9,
-            notes: ['+9% Y/Y', '(165%) operating margin', '(188pp) Y/Y'],
-          },
-          {
-            label: 'Inter-segment eliminations',
-            value: -2.9,
-            notes: ['Source chart rounds segment revenue and eliminations; items sum to $45.7B versus $45.8B reported total.'],
-          },
-        ],
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 0,
+      "items": []
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 7.1,
+        "notes": [
+          "17% margin",
+          "(0pp) Y/Y"
+        ]
       },
-      costs: {
-        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 38.1 },
-        operatingExpenses: {
-          total: 7.1,
-          items: [
-            { id: 'fulfillment', label: 'Fulfillment', value: 3.4 },
-            { id: 'marketing', label: 'Marketing', value: 2.2 },
-            { id: 'rnd', label: 'R&D', value: 1.0 },
-            { id: 'ga', label: 'General & admin', value: 0.5 },
+      "operating": {
+        "id": "operating_loss",
+        "label": "Operating loss",
+        "value": -0.1,
+        "notes": [
+          "(0%) margin",
+          "(5pp) Y/Y"
+        ]
+      },
+      "net": {
+        "id": "operating_loss",
+        "label": "Operating loss",
+        "value": -0.1,
+        "notes": [
+          "(0%) margin",
+          "(5pp) Y/Y"
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2025 财年第三季度",
+        "periodNote": "截至 2025 年 9 月",
+        "revenue": {
+          "notes": [
+            "同比 +15%"
           ],
-        },
-        tax: { id: 'tax', label: 'Tax', value: 0.2 },
-      },
-      otherIncome: {
-        total: 0.5,
-        items: [{ id: 'other', label: 'Other', value: 0.5 }],
-      },
-      otherExpenses: {
-        total: 0,
-        items: [],
-      },
-      profit: {
-        gross: { id: 'gross_profit', label: 'Gross profit', value: 7.7, notes: ['17% margin', '+1pp Y/Y'] },
-        operating: { id: 'operating_profit', label: 'Operating profit', value: 0.6, notes: ['1% margin', '(2pp) Y/Y'] },
-        net: {
-          id: 'net_profit',
-          label: 'Net profit',
-          value: 0.8,
-          notes: ['2% margin', '(2pp) Y/Y', 'Official release rounds net income to US$0.7B; source chart displays $0.8B.'],
-        },
-      },
-      i18n: {
-        zh: {
-          period: '2026 财年第一季度',
-          periodNote: '截至 2026 年 3 月',
-          revenue: {
-            notes: ['同比 +5%'],
-            items: [
-              { label: '京东零售', notes: ['同比 +2%', '营业利润率 6%', '同比 +1 个百分点'] },
-              { label: '京东物流', notes: ['同比 +29%', '营业利润率 2%', '同比 +2 个百分点'] },
-              { label: '新业务', notes: ['同比 +9%', '营业利润率 (165%)', '同比 (188 个百分点)'] },
-              { label: '分部间抵销', notes: ['源图对分部收入和抵销额做了四舍五入；分项合计为 $45.7B，报告总收入为 $45.8B。'] },
-            ],
-          },
-          costs: {
-            costOfRevenue: { label: '收入成本' },
-            operatingExpenses: {
-              items: [
-                { label: '履约' },
-                { label: '营销' },
-                { label: '研发' },
-                { label: '管理费用' },
-              ],
+          "items": [
+            {
+              "id": "jd_retail",
+              "label": "京东零售",
+              "notes": [
+                "同比 +11%",
+                "营业利润率 6%",
+                "同比 +1 个百分点"
+              ]
             },
-            tax: { label: '税费' },
-          },
-          otherIncome: {
-            items: [{ label: '其他' }],
-          },
-          profit: {
-            gross: { label: '毛利润', notes: ['利润率 17%', '同比 +1 个百分点'] },
-            operating: { label: '营业利润', notes: ['利润率 1%', '同比 (2 个百分点)'] },
-            net: {
-              label: '净利润',
-              notes: ['利润率 2%', '同比 (2 个百分点)', '官方公告将净利润四舍五入为 7 亿美元；源图显示为 8 亿美元。'],
+            {
+              "id": "jd_logistics",
+              "label": "京东物流",
+              "notes": [
+                "同比 +24%",
+                "营业利润率 2%",
+                "同比 (2 个百分点)"
+              ]
             },
-          },
+            {
+              "id": "new_businesses",
+              "label": "新业务",
+              "notes": [
+                "同比 +214%",
+                "营业利润率 (101%)",
+                "同比 (88 个百分点)"
+              ]
+            },
+            {
+              "id": "intersegment_eliminations",
+              "label": "分部间抵销"
+            }
+          ]
         },
-      },
+        "costs": {
+          "costOfRevenue": {
+            "label": "收入成本"
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "fulfillment",
+                "label": "履约"
+              },
+              {
+                "id": "marketing",
+                "label": "营销"
+              },
+              {
+                "id": "rnd",
+                "label": "研发"
+              },
+              {
+                "id": "ga",
+                "label": "管理费用"
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费"
+          }
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 17%",
+              "同比 (0 个百分点)"
+            ]
+          },
+          "operating": {
+            "label": "营业亏损",
+            "notes": [
+              "利润率 (0%)",
+              "同比 (5 个百分点)"
+            ]
+          },
+          "net": {
+            "label": "营业亏损",
+            "notes": [
+              "利润率 (0%)",
+              "同比 (5 个百分点)"
+            ]
+          }
+        }
+      }
     }
-  );
-})(window);
+  },
+  {
+    "key": "jd-com-q4-fy25",
+    "company": "JD.com",
+    "period": "Q4 FY25",
+    "periodNote": "Ending Dec. 2025",
+    "currency": "$",
+    "unit": "B",
+    "decimals": 1,
+    "sourceImage": "input/processed/jd-com-q4-fy25.png",
+    "roundingTolerance": 0.15,
+    "revenue": {
+      "total": 50.4,
+      "notes": [
+        "+2% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "jd_retail",
+          "label": "JD Retail",
+          "value": 43.2,
+          "notes": [
+            "(2%) Y/Y",
+            "3% operating margin",
+            "(0pp) Y/Y"
+          ]
+        },
+        {
+          "id": "jd_logistics",
+          "label": "JD Logistics",
+          "value": 9.1,
+          "notes": [
+            "+22% Y/Y",
+            "4% operating margin",
+            "(1pp) Y/Y"
+          ]
+        },
+        {
+          "id": "new_businesses",
+          "label": "New Businesses",
+          "value": 2,
+          "notes": [
+            "+201% Y/Y",
+            "(105%) operating margin",
+            "(86pp) Y/Y"
+          ]
+        },
+        {
+          "id": "intersegment_eliminations",
+          "label": "Inter-segment eliminations",
+          "value": -3.9
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_revenue",
+        "label": "Cost of revenue",
+        "value": 42.5
+      },
+      "operatingExpenses": {
+        "total": 8.7,
+        "items": [
+          {
+            "id": "fulfillment",
+            "label": "Fulfillment",
+            "value": 3.5
+          },
+          {
+            "id": "marketing",
+            "label": "Marketing",
+            "value": 3.6
+          },
+          {
+            "id": "rnd",
+            "label": "R&D",
+            "value": 1
+          },
+          {
+            "id": "ga",
+            "label": "G&A",
+            "value": 0.5
+          },
+          {
+            "id": "goodwill",
+            "label": "Goodwill",
+            "value": 0.2
+          }
+        ]
+      },
+      "tax": {
+        "label": "Tax",
+        "value": 0
+      }
+    },
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 0,
+      "items": []
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 7.9,
+        "notes": [
+          "16% margin",
+          "+0pp Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_loss",
+        "label": "Operating loss",
+        "value": -0.8,
+        "notes": [
+          "(2%) margin",
+          "+4pp Y/Y"
+        ]
+      },
+      "net": {
+        "id": "operating_loss",
+        "label": "Operating loss",
+        "value": -0.8,
+        "notes": [
+          "(2%) margin",
+          "+4pp Y/Y"
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2025 财年第四季度",
+        "periodNote": "截至 2025 年 12 月",
+        "revenue": {
+          "notes": [
+            "同比 +2%"
+          ],
+          "items": [
+            {
+              "id": "jd_retail",
+              "label": "京东零售",
+              "notes": [
+                "同比 (2%)",
+                "营业利润率 3%",
+                "同比 (0 个百分点)"
+              ]
+            },
+            {
+              "id": "jd_logistics",
+              "label": "京东物流",
+              "notes": [
+                "同比 +22%",
+                "营业利润率 4%",
+                "同比 (1 个百分点)"
+              ]
+            },
+            {
+              "id": "new_businesses",
+              "label": "新业务",
+              "notes": [
+                "同比 +201%",
+                "营业利润率 (105%)",
+                "同比 (86 个百分点)"
+              ]
+            },
+            {
+              "id": "intersegment_eliminations",
+              "label": "分部间抵销"
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "收入成本"
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "fulfillment",
+                "label": "履约"
+              },
+              {
+                "id": "marketing",
+                "label": "营销"
+              },
+              {
+                "id": "rnd",
+                "label": "研发"
+              },
+              {
+                "id": "ga",
+                "label": "管理费用"
+              },
+              {
+                "id": "goodwill",
+                "label": "商誉"
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费"
+          }
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 16%",
+              "同比 +0 个百分点"
+            ]
+          },
+          "operating": {
+            "label": "营业亏损",
+            "notes": [
+              "利润率 (2%)",
+              "同比 +4 个百分点"
+            ]
+          },
+          "net": {
+            "label": "营业亏损",
+            "notes": [
+              "利润率 (2%)",
+              "同比 +4 个百分点"
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "key": "jd-com-q1-fy26",
+    "company": "JD.com",
+    "period": "Q1 FY26",
+    "periodNote": "Ending Mar. 2026",
+    "currency": "$",
+    "unit": "B",
+    "decimals": 1,
+    "sourceImage": "input/processed/jd-com-q1-fy26.png",
+    "roundingTolerance": 0.15,
+    "revenue": {
+      "total": 45.8,
+      "notes": [
+        "+5% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "jd_retail",
+          "label": "JD Retail",
+          "value": 38.9,
+          "notes": [
+            "+2% Y/Y",
+            "6% operating margin",
+            "+1pp Y/Y"
+          ]
+        },
+        {
+          "id": "jd_logistics",
+          "label": "JD Logistics",
+          "value": 8.8,
+          "notes": [
+            "+29% Y/Y",
+            "2% operating margin",
+            "+2pp Y/Y"
+          ]
+        },
+        {
+          "id": "new_businesses",
+          "label": "New Businesses",
+          "value": 0.9,
+          "notes": [
+            "+9% Y/Y",
+            "(165%) operating margin",
+            "(188pp) Y/Y"
+          ]
+        },
+        {
+          "label": "Inter-segment eliminations",
+          "value": -2.9,
+          "notes": [
+            "Source chart rounds segment revenue and eliminations; items sum to $45.7B versus $45.8B reported total."
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_revenue",
+        "label": "Cost of revenue",
+        "value": 38.1
+      },
+      "operatingExpenses": {
+        "total": 7.1,
+        "items": [
+          {
+            "id": "fulfillment",
+            "label": "Fulfillment",
+            "value": 3.4
+          },
+          {
+            "id": "marketing",
+            "label": "Marketing",
+            "value": 2.2
+          },
+          {
+            "id": "rnd",
+            "label": "R&D",
+            "value": 1
+          },
+          {
+            "id": "ga",
+            "label": "General & admin",
+            "value": 0.5
+          }
+        ]
+      },
+      "tax": {
+        "id": "tax",
+        "label": "Tax",
+        "value": 0.2
+      }
+    },
+    "otherIncome": {
+      "total": 0.5,
+      "items": [
+        {
+          "id": "other",
+          "label": "Other",
+          "value": 0.5
+        }
+      ]
+    },
+    "otherExpenses": {
+      "total": 0,
+      "items": []
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 7.7,
+        "notes": [
+          "17% margin",
+          "+1pp Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_profit",
+        "label": "Operating profit",
+        "value": 0.6,
+        "notes": [
+          "1% margin",
+          "(2pp) Y/Y"
+        ]
+      },
+      "net": {
+        "id": "net_profit",
+        "label": "Net profit",
+        "value": 0.8,
+        "notes": [
+          "2% margin",
+          "(2pp) Y/Y",
+          "Official release rounds net income to US$0.7B; source chart displays $0.8B."
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2026 财年第一季度",
+        "periodNote": "截至 2026 年 3 月",
+        "revenue": {
+          "notes": [
+            "同比 +5%"
+          ],
+          "items": [
+            {
+              "label": "京东零售",
+              "notes": [
+                "同比 +2%",
+                "营业利润率 6%",
+                "同比 +1 个百分点"
+              ]
+            },
+            {
+              "label": "京东物流",
+              "notes": [
+                "同比 +29%",
+                "营业利润率 2%",
+                "同比 +2 个百分点"
+              ]
+            },
+            {
+              "label": "新业务",
+              "notes": [
+                "同比 +9%",
+                "营业利润率 (165%)",
+                "同比 (188 个百分点)"
+              ]
+            },
+            {
+              "label": "分部间抵销",
+              "notes": [
+                "源图对分部收入和抵销额做了四舍五入；分项合计为 $45.7B，报告总收入为 $45.8B。"
+              ]
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "收入成本"
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "label": "履约"
+              },
+              {
+                "label": "营销"
+              },
+              {
+                "label": "研发"
+              },
+              {
+                "label": "管理费用"
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费"
+          }
+        },
+        "otherIncome": {
+          "items": [
+            {
+              "label": "其他"
+            }
+          ]
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 17%",
+              "同比 +1 个百分点"
+            ]
+          },
+          "operating": {
+            "label": "营业利润",
+            "notes": [
+              "利润率 1%",
+              "同比 (2 个百分点)"
+            ]
+          },
+          "net": {
+            "label": "净利润",
+            "notes": [
+              "利润率 2%",
+              "同比 (2 个百分点)",
+              "官方公告将净利润四舍五入为 7 亿美元；源图显示为 8 亿美元。"
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "key": "jd-com-q2-fy26",
+    "company": "JD.com",
+    "period": "Q2 FY26",
+    "periodNote": "",
+    "currency": "$",
+    "unit": "B",
+    "decimals": 1,
+    "sourceImage": "input/processing/jd-com-q2-fy26.png",
+    "roundingTolerance": 0.15,
+    "revenue": {
+      "total": 51.1,
+      "notes": [
+        "(3%) Y/Y"
+      ],
+      "items": [
+        {
+          "id": "jd_retail",
+          "label": "JD Retail",
+          "value": 43.5,
+          "notes": [
+            "(5%) Y/Y",
+            "5% operating margin",
+            "(9pp) Y/Y"
+          ]
+        },
+        {
+          "id": "jd_logistics",
+          "label": "JD Logistics",
+          "value": 9.4,
+          "notes": [
+            "+24% Y/Y",
+            "4% operating margin",
+            "+21pp Y/Y"
+          ]
+        },
+        {
+          "id": "new_businesses",
+          "label": "New Businesses",
+          "value": 1.1,
+          "notes": [
+            "(48%) Y/Y",
+            "(136%) operating margin",
+            "+59pp Y/Y"
+          ]
+        },
+        {
+          "label": "Inter-segment eliminations",
+          "value": -3,
+          "notes": [],
+          "id": "intersegment_eliminations"
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_revenue",
+        "label": "Cost of revenue",
+        "value": 42.3
+      },
+      "operatingExpenses": {
+        "total": 8.1,
+        "items": [
+          {
+            "id": "fulfillment",
+            "label": "Fulfillment",
+            "value": 3.6
+          },
+          {
+            "id": "marketing",
+            "label": "Marketing",
+            "value": 3
+          },
+          {
+            "id": "rnd",
+            "label": "R&D",
+            "value": 1.1
+          },
+          {
+            "id": "ga",
+            "label": "General & admin",
+            "value": 0.5
+          }
+        ]
+      },
+      "tax": {
+        "id": "tax",
+        "label": "Tax",
+        "value": 0.3
+      }
+    },
+    "otherIncome": {
+      "total": 1,
+      "items": [
+        {
+          "id": "other_operating",
+          "label": "Other",
+          "value": 0.1,
+          "notes": [
+            "Operating-expenses bridge"
+          ]
+        },
+        {
+          "id": "other",
+          "label": "Other",
+          "value": 0.9,
+          "notes": [
+            "Net-profit bridge"
+          ]
+        }
+      ]
+    },
+    "otherExpenses": {
+      "total": 0,
+      "items": []
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 8.7,
+        "notes": [
+          "17% margin",
+          "+1pp Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_profit",
+        "label": "Operating profit",
+        "value": 0.7,
+        "notes": [
+          "1% margin",
+          "+2pp Y/Y"
+        ]
+      },
+      "net": {
+        "id": "net_profit",
+        "label": "Net profit",
+        "value": 1.3,
+        "notes": [
+          "3% margin",
+          "+3pp Y/Y"
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2026 财年第二季度",
+        "periodNote": "",
+        "revenue": {
+          "notes": [
+            "同比 (3%)"
+          ],
+          "items": [
+            {
+              "id": "jd_retail",
+              "label": "京东零售",
+              "notes": [
+                "同比 (5%)",
+                "营业利润率 5%",
+                "同比 (9 个百分点)"
+              ]
+            },
+            {
+              "id": "jd_logistics",
+              "label": "京东物流",
+              "notes": [
+                "同比 +24%",
+                "营业利润率 4%",
+                "同比 +21 个百分点"
+              ]
+            },
+            {
+              "id": "new_businesses",
+              "label": "新业务",
+              "notes": [
+                "同比 (48%)",
+                "营业利润率 (136%)",
+                "同比 +59 个百分点"
+              ]
+            },
+            {
+              "id": "intersegment_eliminations",
+              "label": "分部间抵销",
+              "notes": []
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "收入成本"
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "label": "履约"
+              },
+              {
+                "label": "营销"
+              },
+              {
+                "label": "研发"
+              },
+              {
+                "label": "管理费用"
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费"
+          }
+        },
+        "otherIncome": {
+          "items": [
+            {
+              "id": "other_operating",
+              "label": "其他",
+              "notes": [
+                "运营费用过桥"
+              ]
+            },
+            {
+              "id": "other",
+              "label": "其他",
+              "notes": [
+                "净利润过桥"
+              ]
+            }
+          ]
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 17%",
+              "同比 +1 个百分点"
+            ]
+          },
+          "operating": {
+            "label": "营业利润",
+            "notes": [
+              "利润率 1%",
+              "同比 +2 个百分点"
+            ]
+          },
+          "net": {
+            "label": "净利润",
+            "notes": [
+              "利润率 3%",
+              "同比 +3 个百分点"
+            ]
+          }
+        }
+      }
+    }
+  }
+]);})(window);

@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-10-01T06:06:30.168Z",
+  "generatedAt": "2026-10-03T05:44:42.322Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -6497,6 +6497,90 @@
       "path": "data/datasets/fox-q4-fy26.js",
       "updatedAtMs": 1790834790168,
       "updatedAt": "2026-10-01T06:06:30.168Z",
+      "timeSource": "publication"
+    },
+    "alibaba-q1-fy27": {
+      "path": "data/datasets/alibaba-q1-fy27.js",
+      "updatedAtMs": 1791006268652,
+      "updatedAt": "2026-10-03T05:44:28.652Z",
+      "timeSource": "publication"
+    },
+    "disney-q3-fy26-by-segment": {
+      "path": "data/datasets/disney-q3-fy26-by-segment.js",
+      "updatedAtMs": 1791006207802,
+      "updatedAt": "2026-10-03T05:43:27.802Z",
+      "timeSource": "publication"
+    },
+    "duolingo-q2-fy26": {
+      "path": "data/datasets/duolingo-q2-fy26.js",
+      "updatedAtMs": 1791006252842,
+      "updatedAt": "2026-10-03T05:44:12.842Z",
+      "timeSource": "publication"
+    },
+    "jd-com-q2-fy26": {
+      "path": "data/datasets/jd-com-q2-fy26.js",
+      "updatedAtMs": 1791006225041,
+      "updatedAt": "2026-10-03T05:43:45.041Z",
+      "timeSource": "publication"
+    },
+    "match-group-q2-fy26": {
+      "path": "data/datasets/match-group-q2-fy26.js",
+      "updatedAtMs": 1791006244353,
+      "updatedAt": "2026-10-03T05:44:04.353Z",
+      "timeSource": "publication"
+    },
+    "netease-q2-fy26": {
+      "path": "data/datasets/netease-q2-fy26.js",
+      "updatedAtMs": 1791006230890,
+      "updatedAt": "2026-10-03T05:43:50.890Z",
+      "timeSource": "publication"
+    },
+    "nintendo-q1-fy27": {
+      "path": "data/datasets/nintendo-q1-fy27.js",
+      "updatedAtMs": 1791006211912,
+      "updatedAt": "2026-10-03T05:43:31.912Z",
+      "timeSource": "publication"
+    },
+    "pdd-holdings-q2-fy26": {
+      "path": "data/datasets/pdd-holdings-q2-fy26.js",
+      "updatedAtMs": 1791006242045,
+      "updatedAt": "2026-10-03T05:44:02.045Z",
+      "timeSource": "publication"
+    },
+    "pinterest-q2-fy26": {
+      "path": "data/datasets/pinterest-q2-fy26.js",
+      "updatedAtMs": 1791006257790,
+      "updatedAt": "2026-10-03T05:44:17.790Z",
+      "timeSource": "publication"
+    },
+    "snap-q2-fy26": {
+      "path": "data/datasets/snap-q2-fy26.js",
+      "updatedAtMs": 1791006281197,
+      "updatedAt": "2026-10-03T05:44:41.197Z",
+      "timeSource": "publication"
+    },
+    "sony-q1-fy26": {
+      "path": "data/datasets/sony-q1-fy26.js",
+      "updatedAtMs": 1791006221943,
+      "updatedAt": "2026-10-03T05:43:41.943Z",
+      "timeSource": "publication"
+    },
+    "spotify-q2-fy26": {
+      "path": "data/datasets/spotify-q2-fy26.js",
+      "updatedAtMs": 1791006231545,
+      "updatedAt": "2026-10-03T05:43:51.545Z",
+      "timeSource": "publication"
+    },
+    "take-two-q1-fy27": {
+      "path": "data/datasets/take-two-q1-fy27.js",
+      "updatedAtMs": 1791006259064,
+      "updatedAt": "2026-10-03T05:44:19.064Z",
+      "timeSource": "publication"
+    },
+    "tencent-q2-fy26": {
+      "path": "data/datasets/tencent-q2-fy26.js",
+      "updatedAtMs": 1791006282322,
+      "updatedAt": "2026-10-03T05:44:42.322Z",
       "timeSource": "publication"
     },
     "data/revenue-metrics.js": {

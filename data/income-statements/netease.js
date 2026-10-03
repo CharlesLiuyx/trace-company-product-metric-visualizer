@@ -285,3 +285,250 @@
     }
   );
 })(window);
+
+window.INCOME_STATEMENT_SSOT.records.push({
+  "key": "netease-q2-fy26",
+  "company": "NetEase",
+  "period": "Q2 FY26",
+  "periodNote": "Ending Jun. 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/netease-q2-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 4.4,
+    "notes": [
+      "+8% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "games",
+        "label": "Games and related value-added services",
+        "value": 3.7,
+        "notes": [
+          "+10% Y/Y",
+          "76% gross margin"
+        ]
+      },
+      {
+        "id": "cloud_music",
+        "label": "Cloud Music",
+        "value": 0.3,
+        "notes": [
+          "Flat Y/Y",
+          "37% gross margin"
+        ]
+      },
+      {
+        "id": "youdao",
+        "label": "Youdao",
+        "value": 0.2,
+        "notes": [
+          "+4% Y/Y",
+          "49% gross margin"
+        ]
+      },
+      {
+        "id": "innovative_businesses",
+        "label": "Innovative Businesses & Others",
+        "value": 0.2,
+        "notes": [
+          "(4%) Y/Y",
+          "43% gross margin"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 1.3
+    },
+    "operatingExpenses": {
+      "total": 1.3,
+      "items": [
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 0.7,
+          "notes": [
+            "15% of revenue",
+            "(0pp) Y/Y"
+          ]
+        },
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 0.5,
+          "notes": [
+            "12% of revenue",
+            "(1pp) Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 0.1,
+          "notes": [
+            "3% of revenue",
+            "(1pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.4
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0.4,
+    "items": [
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 0.4
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 3.1,
+      "notes": [
+        "70% margin",
+        "+6pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 1.8,
+      "notes": [
+        "40% margin",
+        "+8pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 1.1,
+      "notes": [
+        "24% margin",
+        "(9pp) Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "periodNote": "截至 2026 年 6 月",
+      "revenue": {
+        "notes": [
+          "同比 +8%"
+        ],
+        "items": [
+          {
+            "label": "游戏及相关增值服务",
+            "notes": [
+              "同比 +10%",
+              "毛利率 76%"
+            ]
+          },
+          {
+            "label": "云音乐",
+            "notes": [
+              "同比持平",
+              "毛利率 37%"
+            ]
+          },
+          {
+            "label": "有道",
+            "notes": [
+              "同比 +4%",
+              "毛利率 49%"
+            ]
+          },
+          {
+            "label": "创新业务及其他",
+            "notes": [
+              "同比 (4%)",
+              "毛利率 43%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "label": "研发",
+              "notes": [
+                "占收入 15%",
+                "同比 (0 个百分点)"
+              ]
+            },
+            {
+              "label": "销售与营销",
+              "notes": [
+                "占收入 12%",
+                "同比 (1 个百分点)"
+              ]
+            },
+            {
+              "label": "管理费用",
+              "notes": [
+                "占收入 3%",
+                "同比 (1 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 70%",
+            "同比 +6 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 40%",
+            "同比 +8 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 24%",
+            "同比 (9 个百分点)"
+          ]
+        }
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "label": "其他"
+          }
+        ]
+      }
+    }
+  }
+});

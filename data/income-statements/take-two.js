@@ -222,6 +222,333 @@
           },
         },
       },
+    },
+{
+  "key": "take-two-q1-fy27",
+  "company": "Take-Two",
+  "period": "Q1 FY27",
+  "periodNote": "Ending June 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 3,
+  "sourceImage": "input/processing/take-two-q1-fy27.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 1.5,
+    "notes": [
+      "+2% Y/Y",
+      "Amounts follow rounded source labels."
+    ],
+    "items": [
+      {
+        "id": "mobile",
+        "label": "Mobile",
+        "value": 0.8,
+        "notes": [
+          "(5%) Y/Y"
+        ]
+      },
+      {
+        "id": "console",
+        "label": "Console",
+        "value": 0.6,
+        "notes": [
+          "+16% Y/Y"
+        ]
+      },
+      {
+        "id": "pc_other",
+        "label": "PC & other",
+        "value": 0.1,
+        "notes": [
+          "(13%) Y/Y"
+        ]
+      }
+    ],
+    "breakdowns": [
+      {
+        "id": "revenue_type",
+        "label": "Revenue by type",
+        "total": 1.5,
+        "items": [
+          {
+            "id": "game",
+            "label": "Game",
+            "value": 1.4,
+            "notes": [
+              "+3% Y/Y"
+            ]
+          },
+          {
+            "id": "advertising",
+            "label": "Advertising",
+            "value": 0.1,
+            "notes": [
+              "(8%) Y/Y"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": [
+        "Cost of",
+        "revenue"
+      ],
+      "value": 0.7
+    },
+    "operatingExpenses": {
+      "total": 0.9,
+      "items": [
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 0.4,
+          "notes": [
+            "23% of revenue",
+            "(3pp) Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 0.3,
+          "notes": [
+            "18% of revenue",
+            "+0pp Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 0.2,
+          "notes": [
+            "15% of revenue",
+            "+1pp Y/Y"
+          ]
+        },
+        {
+          "id": "other",
+          "label": "Other",
+          "value": 0.048,
+          "notes": [
+            "3% of revenue",
+            "+0pp Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0,
+      "notes": [
+        "No separate tax line is shown in the source chart."
+      ]
     }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 0.9,
+      "notes": [
+        "58% margin",
+        "(5pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_loss",
+      "label": [
+        "Operating",
+        "loss"
+      ],
+      "value": -0.036,
+      "notes": [
+        "(2%) margin",
+        "(4pp) Y/Y"
+      ]
+    },
+    "net": {
+      "availability": "not-reported",
+      "value": null,
+      "label": "Net result not reported",
+      "notes": [
+        "Source ends at operating loss."
+      ]
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "net_bookings",
+      "label": "Net bookings",
+      "value": "1.39",
+      "unit": "B",
+      "currency": "USD",
+      "comparison": "eq",
+      "literal": "$1.39B",
+      "basis": "unspecified",
+      "notes": [
+        "-3% Y/Y"
+      ],
+      "quote": "Net bookings $1.39B (-3% Y/Y)",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          77,
+          1176,
+          490,
+          74
+        ]
+      }
+    }
+  ],
+  "i18n": {
+    "zh": {
+      "period": "2027 财年第一季度",
+      "periodNote": "截至 2026 年 6 月",
+      "revenue": {
+        "notes": [
+          "同比 +2%",
+          "金额采用来源图的取整标签。"
+        ],
+        "items": [
+          {
+            "id": "mobile",
+            "label": "移动端",
+            "notes": [
+              "同比 (5%)"
+            ]
+          },
+          {
+            "id": "console",
+            "label": "主机",
+            "notes": [
+              "同比 +16%"
+            ]
+          },
+          {
+            "id": "pc_other",
+            "label": "PC 及其他",
+            "notes": [
+              "同比 (13%)"
+            ]
+          }
+        ],
+        "breakdowns": [
+          {
+            "id": "revenue_type",
+            "label": "按类型划分的收入",
+            "items": [
+              {
+                "id": "game",
+                "label": "游戏",
+                "notes": [
+                  "同比 +3%"
+                ]
+              },
+              {
+                "id": "advertising",
+                "label": "广告",
+                "notes": [
+                  "同比 (8%)"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sm",
+              "label": "销售与市场营销",
+              "notes": [
+                "占收入 23%",
+                "同比 (3 个百分点)"
+              ]
+            },
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 18%",
+                "同比 +0 个百分点"
+              ]
+            },
+            {
+              "id": "ga",
+              "label": "管理费用",
+              "notes": [
+                "占收入 15%",
+                "同比 +1 个百分点"
+              ]
+            },
+            {
+              "id": "other",
+              "label": "其他",
+              "notes": [
+                "占收入 3%",
+                "同比 +0 个百分点"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费",
+          "notes": [
+            "来源图未单独显示税费项目。"
+          ]
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 58%",
+            "同比 (5 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业亏损",
+          "notes": [
+            "利润率 (2%)",
+            "同比 (4 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "未报告净利润",
+          "notes": [
+            "来源图止于营业亏损。"
+          ]
+        }
+      },
+      "operatingMetrics": [
+        {
+          "id": "net_bookings",
+          "label": "净预订额",
+          "notes": [
+            "同比 -3%"
+          ]
+        }
+      ]
+    }
+  }
+}
   );
 })(window);

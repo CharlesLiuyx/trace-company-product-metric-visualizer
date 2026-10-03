@@ -1,278 +1,1113 @@
-/* Pure income-statement SSOT records. Financial data only — Sankey view
- * geometry stays in data/datasets/<dataset-key>.js. Format: data/schema.md. */
-(function (global) {
-  'use strict';
-
-  const ssot = (global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || {
-    schemaVersion: 1,
-    records: [],
-  });
-
-  ssot.records.push(
-    {
-      key: 'match-group-q3-fy25',
-      company: 'Match Group',
-      period: 'Q3 FY25',
-      periodNote: 'Ending Sep. 2025',
-      currency: '$',
-      unit: 'M',
-      decimals: 0,
-      sourceImage: 'input/processed/match-group-q3-fy25.png',
-      roundingTolerance: 2.1,
-      revenue: {
-        total: 914,
-        notes: ['+2% Y/Y'],
-        items: [
-          { id: 'tinder', label: 'Tinder', value: 491, notes: ['(3%) Y/Y'] },
-          { id: 'hinge', label: 'Hinge', value: 185, notes: ['+27% Y/Y'] },
-          { id: 'asia', label: 'Asia', value: 69, notes: ['(4%) Y/Y'] },
-          { id: 'evergreen_emerging', label: 'Evergreen & Emerging', value: 152, notes: ['(4%) Y/Y'] },
-          { id: 'indirect', label: 'Indirect', value: 18, notes: ['+8% Y/Y'] },
-        ],
-      },
-      costs: {
-        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 247 },
-        operatingExpenses: {
-          total: 446,
-          items: [
-            { id: 'sm', label: 'S&M', value: 169, notes: ['19% of revenue', '+1pp Y/Y'] },
-            { id: 'ga', label: 'G&A', value: 148, notes: ['16% of revenue', '+5pp Y/Y'] },
-            { id: 'product', label: 'Product', value: 105, notes: ['11% of revenue', '(0pp) Y/Y'] },
-            { id: 'da', label: 'D&A', value: 24, notes: ['3% of revenue', '(0pp) Y/Y'] },
-          ],
+/* Pure financial SSOT; geometry belongs to the View Adapter. */
+window.INCOME_STATEMENT_SSOT = window.INCOME_STATEMENT_SSOT || { schemaVersion: 1, records: [] };
+window.INCOME_STATEMENT_SSOT.records.push(...[
+  {
+    "key": "match-group-q3-fy25",
+    "company": "Match Group",
+    "period": "Q3 FY25",
+    "periodNote": "Ending Sep. 2025",
+    "currency": "$",
+    "unit": "M",
+    "decimals": 0,
+    "sourceImage": "input/processed/match-group-q3-fy25.png",
+    "roundingTolerance": 2.1,
+    "revenue": {
+      "total": 914,
+      "notes": [
+        "+2% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "tinder",
+          "label": "Tinder",
+          "value": 491,
+          "notes": [
+            "(3%) Y/Y"
+          ]
         },
-        tax: { id: 'tax', label: 'Tax', value: 33 },
-      },
-      otherIncome: {
-        total: 0,
-        items: [],
-      },
-      otherExpenses: {
-        total: 28,
-        items: [{ id: 'other_non_operating', label: 'Other', value: 28 }],
-      },
-      profit: {
-        gross: { id: 'gross_profit', label: 'Gross profit', value: 667, notes: ['73% margin', '+1pp Y/Y'] },
-        operating: { id: 'operating_profit', label: 'Operating profit', value: 221, notes: ['24% margin', '+1pp Y/Y'] },
-        net: { id: 'net_profit', label: 'Net profit', value: 161, notes: ['18% margin', '+2pp Y/Y'] },
-      },
-      i18n: {
-        zh: {
-          period: '2025 财年第三季度',
-          periodNote: '截至 2025 年 9 月',
-          revenue: {
-            notes: ['同比 +2%'],
-            items: [
-              { id: 'tinder', label: 'Tinder', notes: ['同比 (3%)'] },
-              { id: 'hinge', label: 'Hinge', notes: ['同比 +27%'] },
-              { id: 'asia', label: '亚洲', notes: ['同比 (4%)'] },
-              { id: 'evergreen_emerging', label: '常青与新兴品牌', notes: ['同比 (4%)'] },
-              { id: 'indirect', label: '间接收入', notes: ['同比 +8%'] },
-            ],
-          },
-          costs: {
-            costOfRevenue: { label: '收入成本' },
-            operatingExpenses: {
-              items: [
-                { id: 'sm', label: '销售与市场', notes: ['占收入 19%', '同比 +1 个百分点'] },
-                { id: 'ga', label: '管理费用', notes: ['占收入 16%', '同比 +5 个百分点'] },
-                { id: 'product', label: '产品开发', notes: ['占收入 11%', '同比 (0 个百分点)'] },
-                { id: 'da', label: '折旧及摊销', notes: ['占收入 3%', '同比 (0 个百分点)'] },
-              ],
-            },
-            tax: { label: '税费' },
-          },
-          otherExpenses: { items: [{ id: 'other_non_operating', label: '其他' }] },
-          profit: {
-            gross: { label: '毛利润', notes: ['利润率 73%', '同比 +1 个百分点'] },
-            operating: { label: '营业利润', notes: ['利润率 24%', '同比 +1 个百分点'] },
-            net: { label: '净利润', notes: ['利润率 18%', '同比 +2 个百分点'] },
-          },
+        {
+          "id": "hinge",
+          "label": "Hinge",
+          "value": 185,
+          "notes": [
+            "+27% Y/Y"
+          ]
         },
-      },
+        {
+          "id": "asia",
+          "label": "Asia",
+          "value": 69,
+          "notes": [
+            "(4%) Y/Y"
+          ]
+        },
+        {
+          "id": "evergreen_emerging",
+          "label": "Evergreen & Emerging",
+          "value": 152,
+          "notes": [
+            "(4%) Y/Y"
+          ]
+        },
+        {
+          "id": "indirect",
+          "label": "Indirect",
+          "value": 18,
+          "notes": [
+            "+8% Y/Y"
+          ]
+        }
+      ]
     },
-
-    {
-      key: 'match-group-q4-fy25',
-      company: 'Match Group',
-      period: 'Q4 FY25',
-      periodNote: 'Ending Dec. 2025',
-      currency: '$',
-      unit: 'M',
-      decimals: 0,
-      sourceImage: 'input/processed/match-group-q4-fy25.png',
-      roundingTolerance: 2.1,
-      revenue: {
-        total: 878,
-        notes: ['+2% Y/Y'],
-        items: [
-          { id: 'tinder', label: 'Tinder', value: 464, notes: ['(3%) Y/Y'] },
-          { id: 'hinge', label: 'Hinge', value: 187, notes: ['+26% Y/Y'] },
-          { id: 'asia', label: 'Asia', value: 66, notes: ['(2%) Y/Y'] },
-          { id: 'evergreen_emerging', label: 'Evergreen & Emerging', value: 145, notes: ['(7%) Y/Y'] },
-          { id: 'indirect', label: 'Indirect', value: 18, notes: ['+19% Y/Y'] },
-        ],
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_revenue",
+        "label": "Cost of revenue",
+        "value": 247
       },
-      costs: {
-        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 222 },
-        operatingExpenses: {
-          total: 371,
-          items: [
-            { id: 'sm', label: 'S&M', value: 151, notes: ['17% of revenue', '+0pp Y/Y'] },
-            { id: 'product', label: 'Product', value: 109, notes: ['12% of revenue', '(0pp) Y/Y'] },
-            { id: 'ga', label: 'G&A', value: 89, notes: ['10% of revenue', '(3pp) Y/Y'] },
-            { id: 'da', label: 'D&A', value: 12, notes: ['1% of revenue', '(0pp) Y/Y'] },
-            { id: 'other_operating', label: 'Other', value: 9 },
-          ],
-        },
-        tax: { id: 'tax', label: 'Tax', value: 45 },
-      },
-      otherIncome: {
-        total: 0,
-        items: [],
-      },
-      otherExpenses: {
-        total: 30,
-        items: [
+      "operatingExpenses": {
+        "total": 446,
+        "items": [
           {
-            id: 'other_non_operating',
-            label: 'Other',
-            value: 30,
-            notes: ['Net of $43M interest expense and $13M other income'],
+            "id": "sm",
+            "label": "S&M",
+            "value": 169,
+            "notes": [
+              "19% of revenue",
+              "+1pp Y/Y"
+            ]
           },
-        ],
+          {
+            "id": "ga",
+            "label": "G&A",
+            "value": 148,
+            "notes": [
+              "16% of revenue",
+              "+5pp Y/Y"
+            ]
+          },
+          {
+            "id": "product",
+            "label": "Product",
+            "value": 105,
+            "notes": [
+              "11% of revenue",
+              "(0pp) Y/Y"
+            ]
+          },
+          {
+            "id": "da",
+            "label": "D&A",
+            "value": 24,
+            "notes": [
+              "3% of revenue",
+              "(0pp) Y/Y"
+            ]
+          }
+        ]
       },
-      profit: {
-        gross: { id: 'gross_profit', label: 'Gross profit', value: 656, notes: ['75% margin', '+2pp Y/Y'] },
-        operating: { id: 'operating_profit', label: 'Operating profit', value: 285, notes: ['32% margin', '+6pp Y/Y'] },
-        net: { id: 'net_profit', label: 'Net profit', value: 210, notes: ['24% margin', '+5pp Y/Y'] },
+      "tax": {
+        "id": "tax",
+        "label": "Tax",
+        "value": 33
+      }
+    },
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 28,
+      "items": [
+        {
+          "id": "other_non_operating",
+          "label": "Other",
+          "value": 28
+        }
+      ]
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 667,
+        "notes": [
+          "73% margin",
+          "+1pp Y/Y"
+        ]
       },
-      i18n: {
-        zh: {
-          period: '2025 财年第四季度',
-          periodNote: '截至 2025 年 12 月',
-          revenue: {
-            notes: ['同比 +2%'],
-            items: [
-              { id: 'tinder', label: 'Tinder', notes: ['同比 (3%)'] },
-              { id: 'hinge', label: 'Hinge', notes: ['同比 +26%'] },
-              { id: 'asia', label: '亚洲', notes: ['同比 (2%)'] },
-              { id: 'evergreen_emerging', label: '常青与新兴品牌', notes: ['同比 (7%)'] },
-              { id: 'indirect', label: '间接收入', notes: ['同比 +19%'] },
-            ],
-          },
-          costs: {
-            costOfRevenue: { label: '收入成本' },
-            operatingExpenses: {
-              items: [
-                { id: 'sm', label: '销售与市场', notes: ['占收入 17%', '同比 +0 个百分点'] },
-                { id: 'product', label: '产品开发', notes: ['占收入 12%', '同比 (0 个百分点)'] },
-                { id: 'ga', label: '管理费用', notes: ['占收入 10%', '同比 (3 个百分点)'] },
-                { id: 'da', label: '折旧及摊销', notes: ['占收入 1%', '同比 (0 个百分点)'] },
-                { id: 'other_operating', label: '其他' },
-              ],
-            },
-            tax: { label: '税费' },
-          },
-          otherExpenses: {
-            items: [
-              {
-                id: 'other_non_operating',
-                label: '其他',
-                notes: ['由 4,300 万美元利息费用与 1,300 万美元其他收入净额构成'],
-              },
-            ],
-          },
-          profit: {
-            gross: { label: '毛利润', notes: ['利润率 75%', '同比 +2 个百分点'] },
-            operating: { label: '营业利润', notes: ['利润率 32%', '同比 +6 个百分点'] },
-            net: { label: '净利润', notes: ['利润率 24%', '同比 +5 个百分点'] },
-          },
-        },
+      "operating": {
+        "id": "operating_profit",
+        "label": "Operating profit",
+        "value": 221,
+        "notes": [
+          "24% margin",
+          "+1pp Y/Y"
+        ]
       },
-    }
-    ,
-    {
-      key: 'match-group-q1-fy26',
-      company: 'Match Group',
-      period: 'Q1 FY26',
-      periodNote: 'Ending Mar. 2026',
-      currency: '$',
-      unit: 'M',
-      decimals: 0,
-      sourceImage: 'input/processed/match-group-q1-fy26.png',
-      roundingTolerance: 2.1,
-      revenue: {
-        total: 864,
-        notes: ['+4% Y/Y'],
-        items: [
-          { id: 'tinder', label: 'Tinder', value: 455, notes: ['+2% Y/Y'] },
-          { id: 'hinge', label: 'Hinge', value: 194, notes: ['+28% Y/Y'] },
-          { id: 'asia', label: 'Asia', value: 60, notes: ['(7%) Y/Y'] },
-          { id: 'evergreen_emerging', label: 'Evergreen & Emerging', value: 139, notes: ['(7%) Y/Y'] },
-          { id: 'indirect', label: 'Indirect', value: 16, notes: ['(14%) Y/Y'] },
-        ],
-      },
-      costs: {
-        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 211 },
-        operatingExpenses: {
-          total: 417,
-          items: [
-            { id: 'sm', label: 'S&M', value: 163, notes: ['19% of revenue', '(0pp) Y/Y'] },
-            { id: 'product', label: 'Product', value: 117, notes: ['14% of revenue', '(1pp) Y/Y'] },
-            { id: 'ga', label: 'G&A', value: 89, notes: ['10% of revenue', '(3pp) Y/Y'] },
-            { id: 'da', label: 'D&A', value: 48, notes: ['6% of revenue', '+2pp Y/Y'] },
+      "net": {
+        "id": "net_profit",
+        "label": "Net profit",
+        "value": 161,
+        "notes": [
+          "18% margin",
+          "+2pp Y/Y"
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2025 财年第三季度",
+        "periodNote": "截至 2025 年 9 月",
+        "revenue": {
+          "notes": [
+            "同比 +2%"
           ],
-        },
-        tax: { id: 'tax', label: 'Tax', value: 34 },
-      },
-      otherIncome: {
-        total: 0,
-        items: [],
-      },
-      otherExpenses: {
-        total: 36,
-        items: [{ id: 'other_non_operating', label: 'Other', value: 36 }],
-      },
-      profit: {
-        gross: { id: 'gross_profit', label: 'Gross profit', value: 653, notes: ['76% margin', '+4pp Y/Y'] },
-        operating: { id: 'operating_profit', label: 'Operating profit', value: 236, notes: ['27% margin', '+7pp Y/Y'] },
-        net: { id: 'net_profit', label: 'Net profit', value: 167, notes: ['19% margin', '+5pp Y/Y'] },
-      },
-      i18n: {
-        zh: {
-          period: '2026 财年第一季度',
-          periodNote: '截至 2026 年 3 月',
-          revenue: {
-            notes: ['同比 +4%'],
-            items: [
-              { id: 'tinder', label: 'Tinder', notes: ['同比 +2%'] },
-              { id: 'hinge', label: 'Hinge', notes: ['同比 +28%'] },
-              { id: 'asia', label: '亚洲', notes: ['同比 (7%)'] },
-              { id: 'evergreen_emerging', label: '常青与新兴品牌', notes: ['同比 (7%)'] },
-              { id: 'indirect', label: '间接收入', notes: ['同比 (14%)'] },
-            ],
-          },
-          costs: {
-            costOfRevenue: { label: '收入成本' },
-            operatingExpenses: {
-              items: [
-                { id: 'sm', label: '销售与市场', notes: ['占收入 19%', '同比 (0 个百分点)'] },
-                { id: 'product', label: '产品开发', notes: ['占收入 14%', '同比 (1 个百分点)'] },
-                { id: 'ga', label: '管理费用', notes: ['占收入 10%', '同比 (3 个百分点)'] },
-                { id: 'da', label: '折旧及摊销', notes: ['占收入 6%', '同比 +2 个百分点'] },
-              ],
+          "items": [
+            {
+              "id": "tinder",
+              "label": "Tinder",
+              "notes": [
+                "同比 (3%)"
+              ]
             },
-            tax: { label: '税费' },
-          },
-          otherExpenses: { items: [{ id: 'other_non_operating', label: '其他' }] },
-          profit: {
-            gross: { label: '毛利润', notes: ['利润率 76%', '同比 +4 个百分点'] },
-            operating: { label: '营业利润', notes: ['利润率 27%', '同比 +7 个百分点'] },
-            net: { label: '净利润', notes: ['利润率 19%', '同比 +5 个百分点'] },
-          },
+            {
+              "id": "hinge",
+              "label": "Hinge",
+              "notes": [
+                "同比 +27%"
+              ]
+            },
+            {
+              "id": "asia",
+              "label": "亚洲",
+              "notes": [
+                "同比 (4%)"
+              ]
+            },
+            {
+              "id": "evergreen_emerging",
+              "label": "常青与新兴品牌",
+              "notes": [
+                "同比 (4%)"
+              ]
+            },
+            {
+              "id": "indirect",
+              "label": "间接收入",
+              "notes": [
+                "同比 +8%"
+              ]
+            }
+          ]
         },
-      },
+        "costs": {
+          "costOfRevenue": {
+            "label": "收入成本"
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "sm",
+                "label": "销售与市场",
+                "notes": [
+                  "占收入 19%",
+                  "同比 +1 个百分点"
+                ]
+              },
+              {
+                "id": "ga",
+                "label": "管理费用",
+                "notes": [
+                  "占收入 16%",
+                  "同比 +5 个百分点"
+                ]
+              },
+              {
+                "id": "product",
+                "label": "产品开发",
+                "notes": [
+                  "占收入 11%",
+                  "同比 (0 个百分点)"
+                ]
+              },
+              {
+                "id": "da",
+                "label": "折旧及摊销",
+                "notes": [
+                  "占收入 3%",
+                  "同比 (0 个百分点)"
+                ]
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费"
+          }
+        },
+        "otherExpenses": {
+          "items": [
+            {
+              "id": "other_non_operating",
+              "label": "其他"
+            }
+          ]
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 73%",
+              "同比 +1 个百分点"
+            ]
+          },
+          "operating": {
+            "label": "营业利润",
+            "notes": [
+              "利润率 24%",
+              "同比 +1 个百分点"
+            ]
+          },
+          "net": {
+            "label": "净利润",
+            "notes": [
+              "利润率 18%",
+              "同比 +2 个百分点"
+            ]
+          }
+        }
+      }
     }
-  );
-})(window);
+  },
+  {
+    "key": "match-group-q4-fy25",
+    "company": "Match Group",
+    "period": "Q4 FY25",
+    "periodNote": "Ending Dec. 2025",
+    "currency": "$",
+    "unit": "M",
+    "decimals": 0,
+    "sourceImage": "input/processed/match-group-q4-fy25.png",
+    "roundingTolerance": 2.1,
+    "revenue": {
+      "total": 878,
+      "notes": [
+        "+2% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "tinder",
+          "label": "Tinder",
+          "value": 464,
+          "notes": [
+            "(3%) Y/Y"
+          ]
+        },
+        {
+          "id": "hinge",
+          "label": "Hinge",
+          "value": 187,
+          "notes": [
+            "+26% Y/Y"
+          ]
+        },
+        {
+          "id": "asia",
+          "label": "Asia",
+          "value": 66,
+          "notes": [
+            "(2%) Y/Y"
+          ]
+        },
+        {
+          "id": "evergreen_emerging",
+          "label": "Evergreen & Emerging",
+          "value": 145,
+          "notes": [
+            "(7%) Y/Y"
+          ]
+        },
+        {
+          "id": "indirect",
+          "label": "Indirect",
+          "value": 18,
+          "notes": [
+            "+19% Y/Y"
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_revenue",
+        "label": "Cost of revenue",
+        "value": 222
+      },
+      "operatingExpenses": {
+        "total": 371,
+        "items": [
+          {
+            "id": "sm",
+            "label": "S&M",
+            "value": 151,
+            "notes": [
+              "17% of revenue",
+              "+0pp Y/Y"
+            ]
+          },
+          {
+            "id": "product",
+            "label": "Product",
+            "value": 109,
+            "notes": [
+              "12% of revenue",
+              "(0pp) Y/Y"
+            ]
+          },
+          {
+            "id": "ga",
+            "label": "G&A",
+            "value": 89,
+            "notes": [
+              "10% of revenue",
+              "(3pp) Y/Y"
+            ]
+          },
+          {
+            "id": "da",
+            "label": "D&A",
+            "value": 12,
+            "notes": [
+              "1% of revenue",
+              "(0pp) Y/Y"
+            ]
+          },
+          {
+            "id": "other_operating",
+            "label": "Other",
+            "value": 9
+          }
+        ]
+      },
+      "tax": {
+        "id": "tax",
+        "label": "Tax",
+        "value": 45
+      }
+    },
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 30,
+      "items": [
+        {
+          "id": "other_non_operating",
+          "label": "Other",
+          "value": 30,
+          "notes": [
+            "Net of $43M interest expense and $13M other income"
+          ]
+        }
+      ]
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 656,
+        "notes": [
+          "75% margin",
+          "+2pp Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_profit",
+        "label": "Operating profit",
+        "value": 285,
+        "notes": [
+          "32% margin",
+          "+6pp Y/Y"
+        ]
+      },
+      "net": {
+        "id": "net_profit",
+        "label": "Net profit",
+        "value": 210,
+        "notes": [
+          "24% margin",
+          "+5pp Y/Y"
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2025 财年第四季度",
+        "periodNote": "截至 2025 年 12 月",
+        "revenue": {
+          "notes": [
+            "同比 +2%"
+          ],
+          "items": [
+            {
+              "id": "tinder",
+              "label": "Tinder",
+              "notes": [
+                "同比 (3%)"
+              ]
+            },
+            {
+              "id": "hinge",
+              "label": "Hinge",
+              "notes": [
+                "同比 +26%"
+              ]
+            },
+            {
+              "id": "asia",
+              "label": "亚洲",
+              "notes": [
+                "同比 (2%)"
+              ]
+            },
+            {
+              "id": "evergreen_emerging",
+              "label": "常青与新兴品牌",
+              "notes": [
+                "同比 (7%)"
+              ]
+            },
+            {
+              "id": "indirect",
+              "label": "间接收入",
+              "notes": [
+                "同比 +19%"
+              ]
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "收入成本"
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "sm",
+                "label": "销售与市场",
+                "notes": [
+                  "占收入 17%",
+                  "同比 +0 个百分点"
+                ]
+              },
+              {
+                "id": "product",
+                "label": "产品开发",
+                "notes": [
+                  "占收入 12%",
+                  "同比 (0 个百分点)"
+                ]
+              },
+              {
+                "id": "ga",
+                "label": "管理费用",
+                "notes": [
+                  "占收入 10%",
+                  "同比 (3 个百分点)"
+                ]
+              },
+              {
+                "id": "da",
+                "label": "折旧及摊销",
+                "notes": [
+                  "占收入 1%",
+                  "同比 (0 个百分点)"
+                ]
+              },
+              {
+                "id": "other_operating",
+                "label": "其他"
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费"
+          }
+        },
+        "otherExpenses": {
+          "items": [
+            {
+              "id": "other_non_operating",
+              "label": "其他",
+              "notes": [
+                "由 4,300 万美元利息费用与 1,300 万美元其他收入净额构成"
+              ]
+            }
+          ]
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 75%",
+              "同比 +2 个百分点"
+            ]
+          },
+          "operating": {
+            "label": "营业利润",
+            "notes": [
+              "利润率 32%",
+              "同比 +6 个百分点"
+            ]
+          },
+          "net": {
+            "label": "净利润",
+            "notes": [
+              "利润率 24%",
+              "同比 +5 个百分点"
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "key": "match-group-q1-fy26",
+    "company": "Match Group",
+    "period": "Q1 FY26",
+    "periodNote": "Ending Mar. 2026",
+    "currency": "$",
+    "unit": "M",
+    "decimals": 0,
+    "sourceImage": "input/processed/match-group-q1-fy26.png",
+    "roundingTolerance": 2.1,
+    "revenue": {
+      "total": 864,
+      "notes": [
+        "+4% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "tinder",
+          "label": "Tinder",
+          "value": 455,
+          "notes": [
+            "+2% Y/Y"
+          ]
+        },
+        {
+          "id": "hinge",
+          "label": "Hinge",
+          "value": 194,
+          "notes": [
+            "+28% Y/Y"
+          ]
+        },
+        {
+          "id": "asia",
+          "label": "Asia",
+          "value": 60,
+          "notes": [
+            "(7%) Y/Y"
+          ]
+        },
+        {
+          "id": "evergreen_emerging",
+          "label": "Evergreen & Emerging",
+          "value": 139,
+          "notes": [
+            "(7%) Y/Y"
+          ]
+        },
+        {
+          "id": "indirect",
+          "label": "Indirect",
+          "value": 16,
+          "notes": [
+            "(14%) Y/Y"
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_revenue",
+        "label": "Cost of revenue",
+        "value": 211
+      },
+      "operatingExpenses": {
+        "total": 417,
+        "items": [
+          {
+            "id": "sm",
+            "label": "S&M",
+            "value": 163,
+            "notes": [
+              "19% of revenue",
+              "(0pp) Y/Y"
+            ]
+          },
+          {
+            "id": "product",
+            "label": "Product",
+            "value": 117,
+            "notes": [
+              "14% of revenue",
+              "(1pp) Y/Y"
+            ]
+          },
+          {
+            "id": "ga",
+            "label": "G&A",
+            "value": 89,
+            "notes": [
+              "10% of revenue",
+              "(3pp) Y/Y"
+            ]
+          },
+          {
+            "id": "da",
+            "label": "D&A",
+            "value": 48,
+            "notes": [
+              "6% of revenue",
+              "+2pp Y/Y"
+            ]
+          }
+        ]
+      },
+      "tax": {
+        "id": "tax",
+        "label": "Tax",
+        "value": 34
+      }
+    },
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 36,
+      "items": [
+        {
+          "id": "other_non_operating",
+          "label": "Other",
+          "value": 36
+        }
+      ]
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 653,
+        "notes": [
+          "76% margin",
+          "+4pp Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_profit",
+        "label": "Operating profit",
+        "value": 236,
+        "notes": [
+          "27% margin",
+          "+7pp Y/Y"
+        ]
+      },
+      "net": {
+        "id": "net_profit",
+        "label": "Net profit",
+        "value": 167,
+        "notes": [
+          "19% margin",
+          "+5pp Y/Y"
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2026 财年第一季度",
+        "periodNote": "截至 2026 年 3 月",
+        "revenue": {
+          "notes": [
+            "同比 +4%"
+          ],
+          "items": [
+            {
+              "id": "tinder",
+              "label": "Tinder",
+              "notes": [
+                "同比 +2%"
+              ]
+            },
+            {
+              "id": "hinge",
+              "label": "Hinge",
+              "notes": [
+                "同比 +28%"
+              ]
+            },
+            {
+              "id": "asia",
+              "label": "亚洲",
+              "notes": [
+                "同比 (7%)"
+              ]
+            },
+            {
+              "id": "evergreen_emerging",
+              "label": "常青与新兴品牌",
+              "notes": [
+                "同比 (7%)"
+              ]
+            },
+            {
+              "id": "indirect",
+              "label": "间接收入",
+              "notes": [
+                "同比 (14%)"
+              ]
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "收入成本"
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "sm",
+                "label": "销售与市场",
+                "notes": [
+                  "占收入 19%",
+                  "同比 (0 个百分点)"
+                ]
+              },
+              {
+                "id": "product",
+                "label": "产品开发",
+                "notes": [
+                  "占收入 14%",
+                  "同比 (1 个百分点)"
+                ]
+              },
+              {
+                "id": "ga",
+                "label": "管理费用",
+                "notes": [
+                  "占收入 10%",
+                  "同比 (3 个百分点)"
+                ]
+              },
+              {
+                "id": "da",
+                "label": "折旧及摊销",
+                "notes": [
+                  "占收入 6%",
+                  "同比 +2 个百分点"
+                ]
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费"
+          }
+        },
+        "otherExpenses": {
+          "items": [
+            {
+              "id": "other_non_operating",
+              "label": "其他"
+            }
+          ]
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 76%",
+              "同比 +4 个百分点"
+            ]
+          },
+          "operating": {
+            "label": "营业利润",
+            "notes": [
+              "利润率 27%",
+              "同比 +7 个百分点"
+            ]
+          },
+          "net": {
+            "label": "净利润",
+            "notes": [
+              "利润率 19%",
+              "同比 +5 个百分点"
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "key": "match-group-q2-fy26",
+    "company": "Match Group",
+    "period": "Q2 FY26",
+    "periodNote": "Ending Jun. 2026",
+    "currency": "$",
+    "unit": "M",
+    "decimals": 0,
+    "sourceImage": "input/processing/match-group-q2-fy26.png",
+    "roundingTolerance": 2.1,
+    "revenue": {
+      "total": 853,
+      "notes": [
+        "(1%) Y/Y"
+      ],
+      "items": [
+        {
+          "id": "tinder",
+          "label": "Tinder",
+          "value": 469,
+          "notes": [
+            "(2%) Y/Y"
+          ]
+        },
+        {
+          "id": "hinge",
+          "label": "Hinge",
+          "value": 204,
+          "notes": [
+            "+22% Y/Y"
+          ]
+        },
+        {
+          "id": "evergreen_emerging",
+          "label": "Evergreen & Emerging",
+          "value": 182,
+          "notes": [
+            "(17%) Y/Y"
+          ]
+        },
+        {
+          "id": "elimination",
+          "label": "Elimination",
+          "value": -2
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_revenue",
+        "label": "Cost of revenue",
+        "value": 204
+      },
+      "operatingExpenses": {
+        "total": 403,
+        "items": [
+          {
+            "id": "sm",
+            "label": "S&M",
+            "value": 158,
+            "notes": [
+              "19% of revenue",
+              "+1pp Y/Y"
+            ]
+          },
+          {
+            "id": "product",
+            "label": "Product",
+            "value": 115,
+            "notes": [
+              "13% of revenue",
+              "+0pp Y/Y"
+            ]
+          },
+          {
+            "id": "ga",
+            "label": "G&A",
+            "value": 106,
+            "notes": [
+              "12% of revenue",
+              "(3pp) Y/Y"
+            ]
+          },
+          {
+            "id": "da",
+            "label": "D&A",
+            "value": 24,
+            "notes": [
+              "3% of revenue",
+              "(1pp) Y/Y"
+            ]
+          }
+        ]
+      },
+      "tax": {
+        "id": "tax",
+        "label": "Tax",
+        "value": 44
+      }
+    },
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 31,
+      "items": [
+        {
+          "id": "other_non_operating",
+          "label": "Other",
+          "value": 31
+        }
+      ]
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 649,
+        "notes": [
+          "76% margin",
+          "+4pp Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_profit",
+        "label": "Operating profit",
+        "value": 245,
+        "notes": [
+          "29% margin",
+          "+6pp Y/Y"
+        ]
+      },
+      "net": {
+        "id": "net_profit",
+        "label": "Net profit",
+        "value": 171,
+        "notes": [
+          "20% margin",
+          "+5pp Y/Y"
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2026 财年第二季度",
+        "periodNote": "截至 2026 年 6 月",
+        "revenue": {
+          "notes": [
+            "同比 (1%)"
+          ],
+          "items": [
+            {
+              "id": "tinder",
+              "label": "Tinder",
+              "notes": [
+                "同比 (2%)"
+              ]
+            },
+            {
+              "id": "hinge",
+              "label": "Hinge",
+              "notes": [
+                "同比 +22%"
+              ]
+            },
+            {
+              "id": "evergreen_emerging",
+              "label": [
+                "常青与",
+                "新兴品牌"
+              ],
+              "notes": [
+                "同比 (17%)"
+              ]
+            },
+            {
+              "id": "elimination",
+              "label": "抵销"
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "收入成本"
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "sm",
+                "label": "销售与市场",
+                "notes": [
+                  "占收入 19%",
+                  "同比 +1 个百分点"
+                ]
+              },
+              {
+                "id": "product",
+                "label": "产品开发",
+                "notes": [
+                  "占收入 13%",
+                  "同比 +0 个百分点"
+                ]
+              },
+              {
+                "id": "ga",
+                "label": "管理费用",
+                "notes": [
+                  "占收入 12%",
+                  "同比 (3 个百分点)"
+                ]
+              },
+              {
+                "id": "da",
+                "label": "折旧及摊销",
+                "notes": [
+                  "占收入 3%",
+                  "同比 (1 个百分点)"
+                ]
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费"
+          }
+        },
+        "otherExpenses": {
+          "items": [
+            {
+              "id": "other_non_operating",
+              "label": "其他"
+            }
+          ]
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 76%",
+              "同比 +4 个百分点"
+            ]
+          },
+          "operating": {
+            "label": "营业利润",
+            "notes": [
+              "利润率 29%",
+              "同比 +6 个百分点"
+            ]
+          },
+          "net": {
+            "label": "净利润",
+            "notes": [
+              "利润率 20%",
+              "同比 +5 个百分点"
+            ]
+          }
+        }
+      }
+    }
+  }
+]);

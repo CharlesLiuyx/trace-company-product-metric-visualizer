@@ -223,3 +223,387 @@
     }
   );
 })(window);
+
+window.INCOME_STATEMENT_SSOT.records.push({
+  "key": "pinterest-q2-fy26",
+  "company": "Pinterest",
+  "period": "Q2 FY26",
+  "periodNote": "Ending Jun. 2026",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/pinterest-q2-fy26.png",
+  "roundingTolerance": 1.1,
+  "revenue": {
+    "total": 1180,
+    "notes": [
+      "+18% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "us_canada",
+        "label": "US & Canada",
+        "value": 880,
+        "notes": [
+          "+18% Y/Y"
+        ]
+      },
+      {
+        "id": "europe",
+        "label": "Europe",
+        "value": 213,
+        "notes": [
+          "+12% Y/Y"
+        ]
+      },
+      {
+        "id": "rest_of_world",
+        "label": "Rest of the world",
+        "value": 87,
+        "notes": [
+          "+38% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 257
+    },
+    "operatingExpenses": {
+      "total": 978,
+      "notes": [
+        "Source-rounded expense items total $977M versus the reported $978M total."
+      ],
+      "items": [
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 451,
+          "notes": [
+            "38% of revenue",
+            "+2pp Y/Y"
+          ]
+        },
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 374,
+          "notes": [
+            "32% of revenue",
+            "+0pp Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 138,
+          "notes": [
+            "12% of revenue",
+            "(1pp) Y/Y"
+          ]
+        },
+        {
+          "id": "restructuring",
+          "label": "Restructuring",
+          "value": 14,
+          "notes": [
+            "1% of revenue"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 923,
+      "notes": [
+        "78% margin",
+        "(1pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_loss",
+      "label": "Operating loss",
+      "value": -55,
+      "notes": [
+        "(5%) of revenue",
+        "(4pp) Y/Y"
+      ]
+    },
+    "net": {
+      "availability": "not-reported",
+      "value": null,
+      "label": "Net result not reported",
+      "notes": [
+        "Source ends at operating loss."
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "periodNote": "截至 2026 年 6 月",
+      "revenue": {
+        "notes": [
+          "同比 +18%"
+        ],
+        "items": [
+          {
+            "label": "美国和加拿大",
+            "notes": [
+              "同比 +18%"
+            ]
+          },
+          {
+            "label": "欧洲",
+            "notes": [
+              "同比 +12%"
+            ]
+          },
+          {
+            "label": "世界其他地区",
+            "notes": [
+              "同比 +38%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "notes": [
+            "原图费用明细取整后合计 $977M，总额为 $978M。"
+          ],
+          "items": [
+            {
+              "label": "研发",
+              "notes": [
+                "占收入 38%",
+                "同比 +2 个百分点"
+              ]
+            },
+            {
+              "label": "销售与营销",
+              "notes": [
+                "占收入 32%",
+                "同比 0 个百分点"
+              ]
+            },
+            {
+              "label": "管理费用",
+              "notes": [
+                "占收入 12%",
+                "同比 (1 个百分点)"
+              ]
+            },
+            {
+              "label": "重组",
+              "notes": [
+                "占收入 1%"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 78%",
+            "同比 (1 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业亏损",
+          "notes": [
+            "占收入 (5%)",
+            "同比 (4 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "未披露净利润",
+          "notes": [
+            "源图止于营业亏损。"
+          ]
+        }
+      },
+      "operatingMetrics": [
+        {
+          "id": "mau",
+          "label": "月活跃用户",
+          "notes": [
+            "同比 +11%"
+          ]
+        },
+        {
+          "id": "mau_us_canada",
+          "label": "美国和加拿大月活跃用户",
+          "notes": [
+            "同比 +11%"
+          ]
+        },
+        {
+          "id": "mau_europe",
+          "label": "欧洲月活跃用户",
+          "notes": [
+            "同比 +8%"
+          ]
+        },
+        {
+          "id": "mau_rest_of_world",
+          "label": "世界其他地区月活跃用户",
+          "notes": [
+            "同比 +15%"
+          ]
+        },
+        {
+          "id": "arpu",
+          "label": "每用户平均收入",
+          "notes": [
+            "同比 +7%"
+          ]
+        }
+      ]
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "mau",
+      "label": "MAU",
+      "value": "640000000",
+      "unit": "count",
+      "currency": null,
+      "literal": "640M",
+      "notes": [
+        "+11% Y/Y"
+      ],
+      "comparison": "eq",
+      "basis": "unspecified",
+      "quote": "MAU\n640M\n+11% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          34,
+          226,
+          187,
+          168
+        ]
+      }
+    },
+    {
+      "id": "mau_us_canada",
+      "label": "US & Canada MAU",
+      "value": "106000000",
+      "unit": "count",
+      "currency": null,
+      "literal": "106M",
+      "notes": [
+        "+11% Y/Y"
+      ],
+      "comparison": "eq",
+      "basis": "unspecified",
+      "quote": "US & Canada MAU\n106M\n+11% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          59,
+          530,
+          133,
+          94
+        ]
+      }
+    },
+    {
+      "id": "mau_europe",
+      "label": "Europe MAU",
+      "value": "157000000",
+      "unit": "count",
+      "currency": null,
+      "literal": "157M",
+      "notes": [
+        "+8% Y/Y"
+      ],
+      "comparison": "eq",
+      "basis": "unspecified",
+      "quote": "Europe MAU\n157M\n+8% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          59,
+          818,
+          133,
+          94
+        ]
+      }
+    },
+    {
+      "id": "mau_rest_of_world",
+      "label": "Rest of the world MAU",
+      "value": "377000000",
+      "unit": "count",
+      "currency": null,
+      "literal": "377M",
+      "notes": [
+        "+15% Y/Y"
+      ],
+      "comparison": "eq",
+      "basis": "unspecified",
+      "quote": "Rest of the world MAU\n377M\n+15% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          59,
+          990,
+          133,
+          94
+        ]
+      }
+    },
+    {
+      "id": "arpu",
+      "label": "ARPU",
+      "value": "0.00186",
+      "unit": "K",
+      "currency": "USD",
+      "literal": "$1.86",
+      "notes": [
+        "+7% Y/Y"
+      ],
+      "comparison": "eq",
+      "basis": "unspecified",
+      "quote": "ARPU\n$1.86\n+7% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          321,
+          1128,
+          209,
+          151
+        ]
+      }
+    }
+  ]
+});

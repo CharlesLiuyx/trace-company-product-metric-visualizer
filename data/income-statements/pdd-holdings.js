@@ -258,3 +258,218 @@
     }
   );
 })(window);
+
+window.INCOME_STATEMENT_SSOT.records.push({
+  "key": "pdd-holdings-q2-fy26",
+  "company": "PDD Holdings",
+  "period": "Q2 FY26",
+  "periodNote": "",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/pdd-holdings-q2-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 16.6,
+    "notes": [
+      "+8% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "online_marketing",
+        "label": "Online Marketing & Others",
+        "value": 8.5,
+        "notes": [
+          "+3% Y/Y",
+          "Performance-based services"
+        ]
+      },
+      {
+        "id": "transaction_services",
+        "label": "Transaction Services",
+        "value": 8.1,
+        "notes": [
+          "+13% Y/Y",
+          "Merchant fee"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 7.1
+    },
+    "operatingExpenses": {
+      "total": 5.4,
+      "items": [
+        {
+          "id": "sm",
+          "label": "Sales & marketing",
+          "value": 4.4,
+          "notes": [
+            "26% of revenue",
+            "+0pp Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 0.7,
+          "notes": [
+            "4% of revenue",
+            "+1pp Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 0.3,
+          "notes": [
+            "2% of revenue",
+            "+1pp Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.9
+    }
+  },
+  "otherIncome": {
+    "total": 0.8,
+    "items": [
+      {
+        "id": "interest",
+        "label": "Interest & investment",
+        "value": 0.8
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 9.5,
+      "notes": [
+        "57% margin",
+        "+1pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 4.1,
+      "notes": [
+        "25% margin",
+        "(0pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 4,
+      "notes": [
+        "24% margin",
+        "(5pp) Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "periodNote": "",
+      "revenue": {
+        "notes": [
+          "同比 +8%"
+        ],
+        "items": [
+          {
+            "label": "在线营销及其他",
+            "notes": [
+              "同比 +3%",
+              "基于绩效的服务"
+            ]
+          },
+          {
+            "label": "交易服务",
+            "notes": [
+              "同比 +13%",
+              "商户费用"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "label": "销售与市场",
+              "notes": [
+                "占收入 26%",
+                "同比 +0 个百分点"
+              ]
+            },
+            {
+              "label": "研发",
+              "notes": [
+                "占收入 4%",
+                "同比 +1 个百分点"
+              ]
+            },
+            {
+              "label": "管理费用",
+              "notes": [
+                "占收入 2%",
+                "同比 +1 个百分点"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "label": "利息及投资收益"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 57%",
+            "同比 +1 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 25%",
+            "同比 (0 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 24%",
+            "同比 (5 个百分点)"
+          ]
+        }
+      }
+    }
+  }
+});

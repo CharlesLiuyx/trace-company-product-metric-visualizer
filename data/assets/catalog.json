@@ -648,6 +648,84 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/alibaba-q1-fy27/ai-apps-brands.png",
+      "digest": "sha256:89821f4a468e65fadf578e05bc39289b3249252b4f9bb759d7e68ed2a1a56c58",
+      "provenance": [],
+      "directConsumers": [
+        "alibaba-q1-fy27"
+      ],
+      "consumers": [
+        "alibaba-q1-fy27"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/alibaba-q1-fy27/amap-logo.png",
+      "digest": "sha256:fc12bc9d5e9e3d40eb3e716f8bd3b478009f703c985c82c6d995cc81bfe6b502",
+      "provenance": [],
+      "directConsumers": [
+        "alibaba-q1-fy27"
+      ],
+      "consumers": [
+        "alibaba-q1-fy27"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/alibaba-q1-fy27/china-brands.png",
+      "digest": "sha256:cd317795bd006b782c55c13c3e9598f1827070210bbd17435be2cc625601cbb4",
+      "provenance": [],
+      "directConsumers": [
+        "alibaba-q1-fy27"
+      ],
+      "consumers": [
+        "alibaba-q1-fy27"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/alibaba-q1-fy27/cloud-logo.png",
+      "digest": "sha256:d9d049a29049bb08154d7e80faccb0b2d07f438e2a4117daf0b3529944673162",
+      "provenance": [],
+      "directConsumers": [
+        "alibaba-q1-fy27"
+      ],
+      "consumers": [
+        "alibaba-q1-fy27"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/alibaba-q1-fy27/company-logo.png",
+      "digest": "sha256:fac9401d6d16de208cca81ad5e38756e59497e64a5d4647f3679a858e0211014",
+      "provenance": [],
+      "directConsumers": [
+        "alibaba-q1-fy27"
+      ],
+      "consumers": [
+        "alibaba-q1-fy27"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/alibaba-q1-fy27/international-brands.png",
+      "digest": "sha256:105296d6347dd425e4a412ffce20bc6f09a8e7d74b28c32430ed245fb979cb70",
+      "provenance": [],
+      "directConsumers": [
+        "alibaba-q1-fy27"
+      ],
+      "consumers": [
+        "alibaba-q1-fy27"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/align/align-company-wordmark.png",
       "digest": "sha256:d632686b62af48d343c060877f409c42b1ce7fa8605c40a6fe06d3871474b2e3",
       "provenance": [
@@ -2975,10 +3053,12 @@
       "digest": "sha256:8dc8c3c003c01a9bfe23c6a74d26e3d2f534e52cbabed1ef262cdd7fe259494e",
       "provenance": [],
       "directConsumers": [
-        "disney-q2-fy26-by-segment"
+        "disney-q2-fy26-by-segment",
+        "disney-q3-fy26-by-segment"
       ],
       "consumers": [
-        "disney-q2-fy26-by-segment"
+        "disney-q2-fy26-by-segment",
+        "disney-q3-fy26-by-segment"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -2988,10 +3068,12 @@
       "digest": "sha256:cc6dbc7011ee4d89489f3bad6c36ce218bcf5b44bbfcff4abf4c96354e0a8be8",
       "provenance": [],
       "directConsumers": [
-        "disney-q2-fy26-by-segment"
+        "disney-q2-fy26-by-segment",
+        "disney-q3-fy26-by-segment"
       ],
       "consumers": [
-        "disney-q2-fy26-by-segment"
+        "disney-q2-fy26-by-segment",
+        "disney-q3-fy26-by-segment"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -3001,10 +3083,12 @@
       "digest": "sha256:590e7ca8c8551e8b0a1c02b160814baa8bb79741ae8f6adcac7c1a1bbb2fab51",
       "provenance": [],
       "directConsumers": [
-        "disney-q2-fy26-by-segment"
+        "disney-q2-fy26-by-segment",
+        "disney-q3-fy26-by-segment"
       ],
       "consumers": [
-        "disney-q2-fy26-by-segment"
+        "disney-q2-fy26-by-segment",
+        "disney-q3-fy26-by-segment"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -3014,10 +3098,12 @@
       "digest": "sha256:1a2b60ebdafdb9fe4fb30d51d2425869166e5cd03156c98bc23508a3db413059",
       "provenance": [],
       "directConsumers": [
-        "disney-q2-fy26-by-segment"
+        "disney-q2-fy26-by-segment",
+        "disney-q3-fy26-by-segment"
       ],
       "consumers": [
-        "disney-q2-fy26-by-segment"
+        "disney-q2-fy26-by-segment",
+        "disney-q3-fy26-by-segment"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -3027,10 +3113,12 @@
       "digest": "sha256:4047cbc99ef35994398a2943c4bc90f4e7a061fef106ed958e7a6c059f47cde4",
       "provenance": [],
       "directConsumers": [
-        "disney-q2-fy26-by-segment"
+        "disney-q2-fy26-by-segment",
+        "disney-q3-fy26-by-segment"
       ],
       "consumers": [
-        "disney-q2-fy26-by-segment"
+        "disney-q2-fy26-by-segment",
+        "disney-q3-fy26-by-segment"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -3040,10 +3128,12 @@
       "digest": "sha256:f59d01fc96b9f3396166b2b0899d6508adcb408e1eb77b111f88d7c05b62f78f",
       "provenance": [],
       "directConsumers": [
-        "disney-q2-fy26-by-segment"
+        "disney-q2-fy26-by-segment",
+        "disney-q3-fy26-by-segment"
       ],
       "consumers": [
-        "disney-q2-fy26-by-segment"
+        "disney-q2-fy26-by-segment",
+        "disney-q3-fy26-by-segment"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -3169,11 +3259,13 @@
       "provenance": [],
       "directConsumers": [
         "duolingo-q1-fy26",
+        "duolingo-q2-fy26",
         "duolingo-q3-fy25",
         "duolingo-q4-fy25"
       ],
       "consumers": [
         "duolingo-q1-fy26",
+        "duolingo-q2-fy26",
         "duolingo-q3-fy25",
         "duolingo-q4-fy25"
       ],
@@ -3186,11 +3278,13 @@
       "provenance": [],
       "directConsumers": [
         "duolingo-q1-fy26",
+        "duolingo-q2-fy26",
         "duolingo-q3-fy25",
         "duolingo-q4-fy25"
       ],
       "consumers": [
         "duolingo-q1-fy26",
+        "duolingo-q2-fy26",
         "duolingo-q3-fy25",
         "duolingo-q4-fy25"
       ],
@@ -4678,11 +4772,13 @@
       "provenance": [],
       "directConsumers": [
         "jd-com-q1-fy26",
+        "jd-com-q2-fy26",
         "jd-com-q3-fy25",
         "jd-com-q4-fy25"
       ],
       "consumers": [
         "jd-com-q1-fy26",
+        "jd-com-q2-fy26",
         "jd-com-q3-fy25",
         "jd-com-q4-fy25"
       ],
@@ -4695,11 +4791,13 @@
       "provenance": [],
       "directConsumers": [
         "jd-com-q1-fy26",
+        "jd-com-q2-fy26",
         "jd-com-q3-fy25",
         "jd-com-q4-fy25"
       ],
       "consumers": [
         "jd-com-q1-fy26",
+        "jd-com-q2-fy26",
         "jd-com-q3-fy25",
         "jd-com-q4-fy25"
       ],
@@ -4712,11 +4810,13 @@
       "provenance": [],
       "directConsumers": [
         "jd-com-q1-fy26",
+        "jd-com-q2-fy26",
         "jd-com-q3-fy25",
         "jd-com-q4-fy25"
       ],
       "consumers": [
         "jd-com-q1-fy26",
+        "jd-com-q2-fy26",
         "jd-com-q3-fy25",
         "jd-com-q4-fy25"
       ],
@@ -4729,11 +4829,13 @@
       "provenance": [],
       "directConsumers": [
         "jd-com-q1-fy26",
+        "jd-com-q2-fy26",
         "jd-com-q3-fy25",
         "jd-com-q4-fy25"
       ],
       "consumers": [
         "jd-com-q1-fy26",
+        "jd-com-q2-fy26",
         "jd-com-q3-fy25",
         "jd-com-q4-fy25"
       ],
@@ -4746,11 +4848,13 @@
       "provenance": [],
       "directConsumers": [
         "jd-com-q1-fy26",
+        "jd-com-q2-fy26",
         "jd-com-q3-fy25",
         "jd-com-q4-fy25"
       ],
       "consumers": [
         "jd-com-q1-fy26",
+        "jd-com-q2-fy26",
         "jd-com-q3-fy25",
         "jd-com-q4-fy25"
       ],
@@ -5371,10 +5475,12 @@
       "digest": "sha256:5c716016fd9d20bf81bd5275028a5f3c5404654dfee1575883ed83f44799af52",
       "provenance": [],
       "directConsumers": [
-        "match-group-q1-fy26"
+        "match-group-q1-fy26",
+        "match-group-q2-fy26"
       ],
       "consumers": [
-        "match-group-q1-fy26"
+        "match-group-q1-fy26",
+        "match-group-q2-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -5399,10 +5505,12 @@
       "digest": "sha256:d5928e179d1ff96d794428c51a9788b1c0485b9ee6f2ed0c18b42f756f7a3ec1",
       "provenance": [],
       "directConsumers": [
-        "match-group-q1-fy26"
+        "match-group-q1-fy26",
+        "match-group-q2-fy26"
       ],
       "consumers": [
-        "match-group-q1-fy26"
+        "match-group-q1-fy26",
+        "match-group-q2-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -5428,10 +5536,12 @@
       "provenance": [],
       "directConsumers": [
         "match-group-q1-fy26",
+        "match-group-q2-fy26",
         "match-group-q3-fy25"
       ],
       "consumers": [
         "match-group-q1-fy26",
+        "match-group-q2-fy26",
         "match-group-q3-fy25"
       ],
       "acceptedVersions": [],
@@ -5455,10 +5565,12 @@
       "digest": "sha256:b8913057287564a8dc85c47449d47329506d21ce574c0944f5284c3353292185",
       "provenance": [],
       "directConsumers": [
-        "match-group-q1-fy26"
+        "match-group-q1-fy26",
+        "match-group-q2-fy26"
       ],
       "consumers": [
-        "match-group-q1-fy26"
+        "match-group-q1-fy26",
+        "match-group-q2-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -6326,11 +6438,13 @@
       "provenance": [],
       "directConsumers": [
         "netease-q1-fy26",
+        "netease-q2-fy26",
         "netease-q3-fy25",
         "netease-q4-fy25"
       ],
       "consumers": [
         "netease-q1-fy26",
+        "netease-q2-fy26",
         "netease-q3-fy25",
         "netease-q4-fy25"
       ],
@@ -6343,11 +6457,13 @@
       "provenance": [],
       "directConsumers": [
         "netease-q1-fy26",
+        "netease-q2-fy26",
         "netease-q3-fy25",
         "netease-q4-fy25"
       ],
       "consumers": [
         "netease-q1-fy26",
+        "netease-q2-fy26",
         "netease-q3-fy25",
         "netease-q4-fy25"
       ],
@@ -6360,11 +6476,13 @@
       "provenance": [],
       "directConsumers": [
         "netease-q1-fy26",
+        "netease-q2-fy26",
         "netease-q3-fy25",
         "netease-q4-fy25"
       ],
       "consumers": [
         "netease-q1-fy26",
+        "netease-q2-fy26",
         "netease-q3-fy25",
         "netease-q4-fy25"
       ],
@@ -6377,11 +6495,13 @@
       "provenance": [],
       "directConsumers": [
         "netease-q1-fy26",
+        "netease-q2-fy26",
         "netease-q3-fy25",
         "netease-q4-fy25"
       ],
       "consumers": [
         "netease-q1-fy26",
+        "netease-q2-fy26",
         "netease-q3-fy25",
         "netease-q4-fy25"
       ],
@@ -6394,11 +6514,13 @@
       "provenance": [],
       "directConsumers": [
         "netease-q1-fy26",
+        "netease-q2-fy26",
         "netease-q3-fy25",
         "netease-q4-fy25"
       ],
       "consumers": [
         "netease-q1-fy26",
+        "netease-q2-fy26",
         "netease-q3-fy25",
         "netease-q4-fy25"
       ],
@@ -6660,12 +6782,14 @@
       "directConsumers": [
         "nintendo-9m-fy26",
         "nintendo-fy26",
-        "nintendo-h1-fy26"
+        "nintendo-h1-fy26",
+        "nintendo-q1-fy27"
       ],
       "consumers": [
         "nintendo-9m-fy26",
         "nintendo-fy26",
-        "nintendo-h1-fy26"
+        "nintendo-h1-fy26",
+        "nintendo-q1-fy27"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -6704,10 +6828,12 @@
         }
       ],
       "directConsumers": [
-        "nintendo-fy26"
+        "nintendo-fy26",
+        "nintendo-q1-fy27"
       ],
       "consumers": [
-        "nintendo-fy26"
+        "nintendo-fy26",
+        "nintendo-q1-fy27"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -6746,10 +6872,12 @@
         }
       ],
       "directConsumers": [
-        "nintendo-fy26"
+        "nintendo-fy26",
+        "nintendo-q1-fy27"
       ],
       "consumers": [
-        "nintendo-fy26"
+        "nintendo-fy26",
+        "nintendo-q1-fy27"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -6788,10 +6916,12 @@
         }
       ],
       "directConsumers": [
-        "nintendo-fy26"
+        "nintendo-fy26",
+        "nintendo-q1-fy27"
       ],
       "consumers": [
-        "nintendo-fy26"
+        "nintendo-fy26",
+        "nintendo-q1-fy27"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -10361,11 +10491,13 @@
         }
       ],
       "directConsumers": [
+        "take-two-q1-fy27",
         "take-two-q2-fy26",
         "take-two-q3-fy26",
         "take-two-q4-fy26"
       ],
       "consumers": [
+        "take-two-q1-fy27",
         "take-two-q2-fy26",
         "take-two-q3-fy26",
         "take-two-q4-fy26"
@@ -10385,11 +10517,13 @@
         }
       ],
       "directConsumers": [
+        "take-two-q1-fy27",
         "take-two-q2-fy26",
         "take-two-q3-fy26",
         "take-two-q4-fy26"
       ],
       "consumers": [
+        "take-two-q1-fy27",
         "take-two-q2-fy26",
         "take-two-q3-fy26",
         "take-two-q4-fy26"
@@ -10409,11 +10543,13 @@
         }
       ],
       "directConsumers": [
+        "take-two-q1-fy27",
         "take-two-q2-fy26",
         "take-two-q3-fy26",
         "take-two-q4-fy26"
       ],
       "consumers": [
+        "take-two-q1-fy27",
         "take-two-q2-fy26",
         "take-two-q3-fy26",
         "take-two-q4-fy26"
@@ -10433,11 +10569,13 @@
         }
       ],
       "directConsumers": [
+        "take-two-q1-fy27",
         "take-two-q2-fy26",
         "take-two-q3-fy26",
         "take-two-q4-fy26"
       ],
       "consumers": [
+        "take-two-q1-fy27",
         "take-two-q2-fy26",
         "take-two-q3-fy26",
         "take-two-q4-fy26"
@@ -10457,11 +10595,13 @@
         }
       ],
       "directConsumers": [
+        "take-two-q1-fy27",
         "take-two-q2-fy26",
         "take-two-q3-fy26",
         "take-two-q4-fy26"
       ],
       "consumers": [
+        "take-two-q1-fy27",
         "take-two-q2-fy26",
         "take-two-q3-fy26",
         "take-two-q4-fy26"
@@ -10481,6 +10621,7 @@
         "tencent-q2-fy23",
         "tencent-q2-fy24",
         "tencent-q2-fy25",
+        "tencent-q2-fy26",
         "tencent-q3-fy22",
         "tencent-q3-fy23",
         "tencent-q3-fy24",
@@ -10498,6 +10639,7 @@
         "tencent-q2-fy23",
         "tencent-q2-fy24",
         "tencent-q2-fy25",
+        "tencent-q2-fy26",
         "tencent-q3-fy22",
         "tencent-q3-fy23",
         "tencent-q3-fy24",
@@ -10522,6 +10664,7 @@
         "tencent-q2-fy23",
         "tencent-q2-fy24",
         "tencent-q2-fy25",
+        "tencent-q2-fy26",
         "tencent-q3-fy22",
         "tencent-q3-fy23",
         "tencent-q3-fy24",
@@ -10539,6 +10682,7 @@
         "tencent-q2-fy23",
         "tencent-q2-fy24",
         "tencent-q2-fy25",
+        "tencent-q2-fy26",
         "tencent-q3-fy22",
         "tencent-q3-fy23",
         "tencent-q3-fy24",
@@ -10563,6 +10707,7 @@
         "tencent-q2-fy23",
         "tencent-q2-fy24",
         "tencent-q2-fy25",
+        "tencent-q2-fy26",
         "tencent-q3-fy22",
         "tencent-q3-fy23",
         "tencent-q3-fy24",
@@ -10580,6 +10725,7 @@
         "tencent-q2-fy23",
         "tencent-q2-fy24",
         "tencent-q2-fy25",
+        "tencent-q2-fy26",
         "tencent-q3-fy22",
         "tencent-q3-fy23",
         "tencent-q3-fy24",
@@ -10604,6 +10750,7 @@
         "tencent-q2-fy23",
         "tencent-q2-fy24",
         "tencent-q2-fy25",
+        "tencent-q2-fy26",
         "tencent-q3-fy22",
         "tencent-q3-fy23",
         "tencent-q3-fy24",
@@ -10621,6 +10768,7 @@
         "tencent-q2-fy23",
         "tencent-q2-fy24",
         "tencent-q2-fy25",
+        "tencent-q2-fy26",
         "tencent-q3-fy22",
         "tencent-q3-fy23",
         "tencent-q3-fy24",
@@ -10678,6 +10826,7 @@
         "tencent-q1-fy25",
         "tencent-q1-fy26",
         "tencent-q2-fy25",
+        "tencent-q2-fy26",
         "tencent-q3-fy22",
         "tencent-q3-fy25",
         "tencent-q4-fy24",
@@ -10688,6 +10837,7 @@
         "tencent-q1-fy25",
         "tencent-q1-fy26",
         "tencent-q2-fy25",
+        "tencent-q2-fy26",
         "tencent-q3-fy22",
         "tencent-q3-fy25",
         "tencent-q4-fy24",
@@ -11617,6 +11767,11 @@
       "path": "input/icon-crop-specs/airbus-q2-fy26.json",
       "digest": "sha256:2090e00b77b4b82120bb46d5d5ed82c6409e2e24f32c29803b1d550761071c5a",
       "source": "input/processed/airbus-q2-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/alibaba-q1-fy27.json",
+      "digest": "sha256:929c400b7a875760076ef5628b1ffebbffe3f319cdfe2c153982e28b56d34cfd",
+      "source": "input/processed/alibaba-q1-fy27.png"
     },
     {
       "path": "input/icon-crop-specs/align-q4-fy25.json",

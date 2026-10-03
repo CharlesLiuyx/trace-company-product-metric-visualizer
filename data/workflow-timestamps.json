@@ -345,6 +345,76 @@
       "digest": "sha256:8c16aa3e74464309ff17301a2990ee99065b4fd6c25224df1774ca847a144032",
       "updatedAt": "2026-10-01T06:06:30.168Z",
       "publishedDigest": "sha256:c122540bf02c93ebac7c8b99748581fa040c30922a4898b4178b67ccb22030cc"
+    },
+    "data/datasets/alibaba-q1-fy27.js": {
+      "digest": "sha256:2fec136cf4c0fb6f338090d80c133789dd5f4859fc3fae545d33437d87c97f89",
+      "updatedAt": "2026-10-03T05:44:28.652Z",
+      "publishedDigest": "sha256:1855e760c17a13fbc54db9b3416547a4a763f975d8ed9f23fede5ada5728ed15"
+    },
+    "data/datasets/disney-q3-fy26-by-segment.js": {
+      "digest": "sha256:649400c6ce09490363f9df1327d90af47e4f4351ce22ef5443990412d29f63a7",
+      "updatedAt": "2026-10-03T05:43:27.802Z",
+      "publishedDigest": "sha256:1855e760c17a13fbc54db9b3416547a4a763f975d8ed9f23fede5ada5728ed15"
+    },
+    "data/datasets/duolingo-q2-fy26.js": {
+      "digest": "sha256:f2f96e5d6b71e9a14735486af7b8ff220e24725ff2a17d66050c12c0741053da",
+      "updatedAt": "2026-10-03T05:44:12.842Z",
+      "publishedDigest": "sha256:1855e760c17a13fbc54db9b3416547a4a763f975d8ed9f23fede5ada5728ed15"
+    },
+    "data/datasets/jd-com-q2-fy26.js": {
+      "digest": "sha256:8138821cd72c3f0f553aae6a10455f74b15a3244742053116517e93ac26433a9",
+      "updatedAt": "2026-10-03T05:43:45.041Z",
+      "publishedDigest": "sha256:1855e760c17a13fbc54db9b3416547a4a763f975d8ed9f23fede5ada5728ed15"
+    },
+    "data/datasets/match-group-q2-fy26.js": {
+      "digest": "sha256:3a06a568f0af9cdcdc183161b21a59d5da67c88ba97385152de4003e92db4969",
+      "updatedAt": "2026-10-03T05:44:04.353Z",
+      "publishedDigest": "sha256:1855e760c17a13fbc54db9b3416547a4a763f975d8ed9f23fede5ada5728ed15"
+    },
+    "data/datasets/netease-q2-fy26.js": {
+      "digest": "sha256:9fab090fbb9c1c562243cd34f41967a9a4a0d79b86d37c20688345ec6299814e",
+      "updatedAt": "2026-10-03T05:43:50.890Z",
+      "publishedDigest": "sha256:1855e760c17a13fbc54db9b3416547a4a763f975d8ed9f23fede5ada5728ed15"
+    },
+    "data/datasets/nintendo-q1-fy27.js": {
+      "digest": "sha256:6d07fd32218421f047481a8cb95b21459163300714410b5d8edadeb3c4b4f16e",
+      "updatedAt": "2026-10-03T05:43:31.912Z",
+      "publishedDigest": "sha256:1855e760c17a13fbc54db9b3416547a4a763f975d8ed9f23fede5ada5728ed15"
+    },
+    "data/datasets/pdd-holdings-q2-fy26.js": {
+      "digest": "sha256:890be1176ddf803c808972437cd31cad012b482ee44c7d0d303f5461e1266f0f",
+      "updatedAt": "2026-10-03T05:44:02.045Z",
+      "publishedDigest": "sha256:1855e760c17a13fbc54db9b3416547a4a763f975d8ed9f23fede5ada5728ed15"
+    },
+    "data/datasets/pinterest-q2-fy26.js": {
+      "digest": "sha256:12c33e37410d30aa2062ee6ba13cb5ab6a620faffd0d9c34aa35d9731354ed88",
+      "updatedAt": "2026-10-03T05:44:17.790Z",
+      "publishedDigest": "sha256:1855e760c17a13fbc54db9b3416547a4a763f975d8ed9f23fede5ada5728ed15"
+    },
+    "data/datasets/snap-q2-fy26.js": {
+      "digest": "sha256:6d5a33bdb2badeeef1e14bf1281ce93e3f0f940259307fccb9b4184a57a80b76",
+      "updatedAt": "2026-10-03T05:44:41.197Z",
+      "publishedDigest": "sha256:1855e760c17a13fbc54db9b3416547a4a763f975d8ed9f23fede5ada5728ed15"
+    },
+    "data/datasets/sony-q1-fy26.js": {
+      "digest": "sha256:783fd5b69da8c255c778a19315a87b7170308523c929dc33cc7555b9d9d0a91a",
+      "updatedAt": "2026-10-03T05:43:41.943Z",
+      "publishedDigest": "sha256:1855e760c17a13fbc54db9b3416547a4a763f975d8ed9f23fede5ada5728ed15"
+    },
+    "data/datasets/spotify-q2-fy26.js": {
+      "digest": "sha256:9df82d6005985a2fbe5d3f78b13bab24983de4792b88114accee2f0c54c35f49",
+      "updatedAt": "2026-10-03T05:43:51.545Z",
+      "publishedDigest": "sha256:1855e760c17a13fbc54db9b3416547a4a763f975d8ed9f23fede5ada5728ed15"
+    },
+    "data/datasets/take-two-q1-fy27.js": {
+      "digest": "sha256:9eea8e60ce2aeb2bfbed4d4dcc89fe24fb3457b2b0aef16f58297ef8f402da36",
+      "updatedAt": "2026-10-03T05:44:19.064Z",
+      "publishedDigest": "sha256:1855e760c17a13fbc54db9b3416547a4a763f975d8ed9f23fede5ada5728ed15"
+    },
+    "data/datasets/tencent-q2-fy26.js": {
+      "digest": "sha256:1e6874fb196abddccbfe5e866c3a1b8faa715b1755edb8a67c5047aff32f1762",
+      "updatedAt": "2026-10-03T05:44:42.322Z",
+      "publishedDigest": "sha256:1855e760c17a13fbc54db9b3416547a4a763f975d8ed9f23fede5ada5728ed15"
     }
   }
 }
