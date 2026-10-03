@@ -98,4 +98,191 @@
       },
     }
   );
+
+  ssot.records.push({
+  "key": "cerebras-q2-fy26",
+  "company": "Cerebras",
+  "period": "Q2 FY26",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/cerebras-q2-fy26.png",
+  "roundingTolerance": 1.1,
+  "revenue": {
+    "total": 180,
+    "notes": [
+      "+74% Y/Y",
+      "Displayed gross profit and cost of revenue sum to $181M due to source rounding."
+    ],
+    "items": [
+      {
+        "id": "hardware",
+        "label": "Hardware",
+        "value": 54,
+        "notes": [
+          "(23%) Y/Y",
+          "2% gross margin"
+        ]
+      },
+      {
+        "id": "cloud_services",
+        "label": "Cloud & Other services",
+        "value": 126,
+        "notes": [
+          "+281% Y/Y",
+          "20% gross margin"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 155
+    },
+    "operatingExpenses": {
+      "total": 503,
+      "items": [
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 87,
+          "notes": [
+            "48% of revenue",
+            "+31pp Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 96,
+          "notes": [
+            "53% of revenue",
+            "+43pp Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 320,
+          "notes": [
+            "178% of revenue",
+            "+119pp Y/Y"
+          ]
+        }
+      ]
+    }
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 26,
+      "notes": [
+        "14% margin",
+        "(17pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_loss",
+      "label": "Operating loss",
+      "value": -477,
+      "notes": [
+        "(265%) margin",
+        "(210pp) Y/Y"
+      ]
+    },
+    "net": {
+      "availability": "not-reported",
+      "value": null,
+      "label": "Net result not reported",
+      "notes": [
+        "Source ends at operating loss."
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "revenue": {
+        "notes": [
+          "同比 +74%"
+        ],
+        "items": [
+          {
+            "id": "hardware",
+            "label": "硬件",
+            "notes": [
+              "同比 (23%)",
+              "毛利率 2%"
+            ]
+          },
+          {
+            "id": "cloud_services",
+            "label": "云与 其他服务",
+            "notes": [
+              "同比 +281%",
+              "毛利率 20%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sm",
+              "label": "销售与市场",
+              "notes": [
+                "占收入 48%",
+                "同比 +31 个百分点"
+              ]
+            },
+            {
+              "id": "ga",
+              "label": "管理费用",
+              "notes": [
+                "占收入 53%",
+                "同比 +43 个百分点"
+              ]
+            },
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 178%",
+                "同比 +119 个百分点"
+              ]
+            }
+          ]
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 14%",
+            "同比 (17 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业亏损",
+          "notes": [
+            "利润率 (265%)",
+            "同比 (210 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "未报告净利润",
+          "notes": [
+            "来源图止于营业亏损。"
+          ]
+        }
+      }
+    }
+  }
+});
 })(window);

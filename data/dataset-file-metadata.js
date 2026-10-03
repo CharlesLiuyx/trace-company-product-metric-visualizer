@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-10-03T06:50:33.000Z",
+  "generatedAt": "2026-10-03T07:49:34.073Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -6617,6 +6617,186 @@
       "path": "data/datasets/walmart-q2-fy27.js",
       "updatedAtMs": 1791008158221,
       "updatedAt": "2026-10-03T06:15:58.221Z",
+      "timeSource": "publication"
+    },
+    "airbnb-q1-fy25": {
+      "path": "data/datasets/airbnb-q1-fy25.js",
+      "updatedAtMs": 1791013764791,
+      "updatedAt": "2026-10-03T07:49:24.791Z",
+      "timeSource": "publication"
+    },
+    "amd-q2-fy26": {
+      "path": "data/datasets/amd-q2-fy26.js",
+      "updatedAtMs": 1791013763929,
+      "updatedAt": "2026-10-03T07:49:23.929Z",
+      "timeSource": "publication"
+    },
+    "analog-devices-q3-fy26": {
+      "path": "data/datasets/analog-devices-q3-fy26.js",
+      "updatedAtMs": 1791013763058,
+      "updatedAt": "2026-10-03T07:49:23.058Z",
+      "timeSource": "publication"
+    },
+    "applied-materials-q3-fy26": {
+      "path": "data/datasets/applied-materials-q3-fy26.js",
+      "updatedAtMs": 1791013772540,
+      "updatedAt": "2026-10-03T07:49:32.540Z",
+      "timeSource": "publication"
+    },
+    "astera-labs-q2-fy26": {
+      "path": "data/datasets/astera-labs-q2-fy26.js",
+      "updatedAtMs": 1791013762287,
+      "updatedAt": "2026-10-03T07:49:22.287Z",
+      "timeSource": "publication"
+    },
+    "cerebras-q2-fy26": {
+      "path": "data/datasets/cerebras-q2-fy26.js",
+      "updatedAtMs": 1791013759041,
+      "updatedAt": "2026-10-03T07:49:19.041Z",
+      "timeSource": "publication"
+    },
+    "chevron-q1-fy25": {
+      "path": "data/datasets/chevron-q1-fy25.js",
+      "updatedAtMs": 1791013770922,
+      "updatedAt": "2026-10-03T07:49:30.922Z",
+      "timeSource": "publication"
+    },
+    "coreweave-q2-fy26": {
+      "path": "data/datasets/coreweave-q2-fy26.js",
+      "updatedAtMs": 1791013759732,
+      "updatedAt": "2026-10-03T07:49:19.732Z",
+      "timeSource": "publication"
+    },
+    "crowdstrike-q2-fy27": {
+      "path": "data/datasets/crowdstrike-q2-fy27.js",
+      "updatedAtMs": 1791013766553,
+      "updatedAt": "2026-10-03T07:49:26.553Z",
+      "timeSource": "publication"
+    },
+    "doordash-q2-fy26": {
+      "path": "data/datasets/doordash-q2-fy26.js",
+      "updatedAtMs": 1791013768916,
+      "updatedAt": "2026-10-03T07:49:28.916Z",
+      "timeSource": "publication"
+    },
+    "ferrari-q1-fy25": {
+      "path": "data/datasets/ferrari-q1-fy25.js",
+      "updatedAtMs": 1791013774073,
+      "updatedAt": "2026-10-03T07:49:34.073Z",
+      "timeSource": "publication"
+    },
+    "ford-q1-fy25": {
+      "path": "data/datasets/ford-q1-fy25.js",
+      "updatedAtMs": 1791013767142,
+      "updatedAt": "2026-10-03T07:49:27.142Z",
+      "timeSource": "publication"
+    },
+    "gm-q1-fy25": {
+      "path": "data/datasets/gm-q1-fy25.js",
+      "updatedAtMs": 1791013758288,
+      "updatedAt": "2026-10-03T07:49:18.288Z",
+      "timeSource": "publication"
+    },
+    "grab-q2-fy26": {
+      "path": "data/datasets/grab-q2-fy26.js",
+      "updatedAtMs": 1791013772084,
+      "updatedAt": "2026-10-03T07:49:32.084Z",
+      "timeSource": "publication"
+    },
+    "hp-q3-fy26": {
+      "path": "data/datasets/hp-q3-fy26.js",
+      "updatedAtMs": 1791013773553,
+      "updatedAt": "2026-10-03T07:49:33.553Z",
+      "timeSource": "publication"
+    },
+    "j-j-q1-fy25": {
+      "path": "data/datasets/j-j-q1-fy25.js",
+      "updatedAtMs": 1791013767767,
+      "updatedAt": "2026-10-03T07:49:27.767Z",
+      "timeSource": "publication"
+    },
+    "lenovo-q1-fy27": {
+      "path": "data/datasets/lenovo-q1-fy27.js",
+      "updatedAtMs": 1791013768504,
+      "updatedAt": "2026-10-03T07:49:28.504Z",
+      "timeSource": "publication"
+    },
+    "marvell-q2-fy27": {
+      "path": "data/datasets/marvell-q2-fy27.js",
+      "updatedAtMs": 1791013751515,
+      "updatedAt": "2026-10-03T07:49:11.515Z",
+      "timeSource": "publication"
+    },
+    "mastercard-q1-fy25": {
+      "path": "data/datasets/mastercard-q1-fy25.js",
+      "updatedAtMs": 1791013765788,
+      "updatedAt": "2026-10-03T07:49:25.788Z",
+      "timeSource": "publication"
+    },
+    "nebius-q2-fy26": {
+      "path": "data/datasets/nebius-q2-fy26.js",
+      "updatedAtMs": 1791013760761,
+      "updatedAt": "2026-10-03T07:49:20.761Z",
+      "timeSource": "publication"
+    },
+    "nintendo-fy25": {
+      "path": "data/datasets/nintendo-fy25.js",
+      "updatedAtMs": 1791013770373,
+      "updatedAt": "2026-10-03T07:49:30.373Z",
+      "timeSource": "publication"
+    },
+    "salesforce-q2-fy27": {
+      "path": "data/datasets/salesforce-q2-fy27.js",
+      "updatedAtMs": 1791013752039,
+      "updatedAt": "2026-10-03T07:49:12.039Z",
+      "timeSource": "publication"
+    },
+    "sandisk-q4-fy26": {
+      "path": "data/datasets/sandisk-q4-fy26.js",
+      "updatedAtMs": 1791013755294,
+      "updatedAt": "2026-10-03T07:49:15.294Z",
+      "timeSource": "publication"
+    },
+    "spacex-q2-fy26": {
+      "path": "data/datasets/spacex-q2-fy26.js",
+      "updatedAtMs": 1791013769572,
+      "updatedAt": "2026-10-03T07:49:29.572Z",
+      "timeSource": "publication"
+    },
+    "starbucks-q2-fy25": {
+      "path": "data/datasets/starbucks-q2-fy25.js",
+      "updatedAtMs": 1791013773068,
+      "updatedAt": "2026-10-03T07:49:33.068Z",
+      "timeSource": "publication"
+    },
+    "synopsys-q3-fy26": {
+      "path": "data/datasets/synopsys-q3-fy26.js",
+      "updatedAtMs": 1791013761674,
+      "updatedAt": "2026-10-03T07:49:21.674Z",
+      "timeSource": "publication"
+    },
+    "twilio-q2-fy26": {
+      "path": "data/datasets/twilio-q2-fy26.js",
+      "updatedAtMs": 1791013752572,
+      "updatedAt": "2026-10-03T07:49:12.572Z",
+      "timeSource": "publication"
+    },
+    "uber-q2-fy26": {
+      "path": "data/datasets/uber-q2-fy26.js",
+      "updatedAtMs": 1791013771606,
+      "updatedAt": "2026-10-03T07:49:31.606Z",
+      "timeSource": "publication"
+    },
+    "veeva-q2-fy27": {
+      "path": "data/datasets/veeva-q2-fy27.js",
+      "updatedAtMs": 1791013752975,
+      "updatedAt": "2026-10-03T07:49:12.975Z",
+      "timeSource": "publication"
+    },
+    "walmart-q1-fy26": {
+      "path": "data/datasets/walmart-q1-fy26.js",
+      "updatedAtMs": 1791013756076,
+      "updatedAt": "2026-10-03T07:49:16.076Z",
       "timeSource": "publication"
     },
     "data/revenue-metrics.js": {

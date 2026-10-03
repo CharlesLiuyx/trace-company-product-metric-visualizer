@@ -1,0 +1,1 @@
+Source-specific mobile-store cluster and Mario crops visually reviewed against the Source. Complete subjects preserved; publisher residue and financial labels excluded. Crop validation passed. Pending operator acceptance.

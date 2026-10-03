@@ -1,0 +1,94 @@
+{
+  "source": "input/processed/doordash-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/doordash/q2-fy26",
+  "runtimeOutputDir": "data/assets/raster-annotations/doordash",
+  "report": "crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "crops": [
+    {
+      "key": "mark",
+      "output": "crops/mark.png",
+      "runtimeOutput": "q2-fy26-mark.png",
+      "searchBox": {
+        "x": 742,
+        "y": 341,
+        "width": 254,
+        "height": 146
+      },
+      "cropBox": {
+        "x": 742,
+        "y": 341,
+        "width": 254,
+        "height": 146
+      },
+      "threshold": 16,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.25,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete brand cluster, excludes financial labels and graph."
+    },
+    {
+      "key": "wordmark",
+      "output": "crops/wordmark.png",
+      "runtimeOutput": "q2-fy26-wordmark.png",
+      "searchBox": {
+        "x": 82,
+        "y": 539,
+        "width": 263,
+        "height": 44
+      },
+      "cropBox": {
+        "x": 82,
+        "y": 539,
+        "width": 263,
+        "height": 44
+      },
+      "threshold": 16,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.25,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete brand cluster, excludes financial labels and graph."
+    },
+    {
+      "key": "international",
+      "output": "crops/international.png",
+      "runtimeOutput": "q2-fy26-international.png",
+      "searchBox": {
+        "x": 64,
+        "y": 915,
+        "width": 270,
+        "height": 133
+      },
+      "cropBox": {
+        "x": 64,
+        "y": 915,
+        "width": 270,
+        "height": 133
+      },
+      "threshold": 16,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.25,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete brand cluster, excludes financial labels and graph."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "publisher",
+      "reason": "Publisher and creator residuals."
+    }
+  ]
+}

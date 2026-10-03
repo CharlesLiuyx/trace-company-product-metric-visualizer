@@ -272,5 +272,326 @@
         },
       },
     }
-  );
+,
+{
+  "key": "grab-q2-fy26",
+  "company": "Grab",
+  "period": "Q2 FY26",
+  "periodNote": "",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/grab-q2-fy26.png",
+  "roundingTolerance": 2,
+  "revenue": {
+    "total": 997,
+    "notes": [
+      "+22% Y/Y",
+      "Source rounding: segments sum to $996M; revenue less cost of revenue is $435M vs displayed gross profit $434M; gross profit less operating expenses is $18M vs displayed operating profit $19M; operating profit plus Other and Tax benefit is $235M vs displayed net profit $234M."
+    ],
+    "items": [
+      {
+        "id": "deliveries",
+        "label": "Deliveries",
+        "value": 531,
+        "notes": [
+          "+21% Y/Y",
+          "18% adjusted margin",
+          "+4pp Y/Y"
+        ]
+      },
+      {
+        "id": "mobility",
+        "label": "Mobility",
+        "value": 331,
+        "notes": [
+          "+12% Y/Y",
+          "58% adjusted margin",
+          "+2pp Y/Y"
+        ]
+      },
+      {
+        "id": "financial_services",
+        "label": "Financial Services",
+        "value": 134,
+        "notes": [
+          "+59% Y/Y",
+          "(11%) adjusted margin",
+          "+20pp Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 562,
+      "notes": []
+    },
+    "operatingExpenses": {
+      "total": 416,
+      "items": [
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 139,
+          "notes": [
+            "14% of revenue",
+            "(0pp) Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 103,
+          "notes": [
+            "10% of revenue",
+            "(3pp) Y/Y"
+          ]
+        },
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 102,
+          "notes": [
+            "10% of revenue",
+            "(1pp) Y/Y"
+          ]
+        },
+        {
+          "id": "other_opex",
+          "label": "Other",
+          "value": 72,
+          "notes": [
+            "7% of revenue",
+            "+4pp Y/Y"
+          ]
+        }
+      ]
+    }
+  },
+  "otherIncome": {
+    "total": 216,
+    "items": [
+      {
+        "id": "other_income",
+        "label": "Other",
+        "value": 173,
+        "notes": []
+      },
+      {
+        "id": "tax_benefit",
+        "label": "Tax benefit",
+        "value": 43,
+        "notes": []
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 434,
+      "notes": [
+        "44% margin",
+        "+0pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 19,
+      "notes": [
+        "2% margin",
+        "+1pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 234,
+      "notes": []
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "on_demand_gmv",
+      "label": "On-Demand GMV",
+      "value": "6.4",
+      "unit": "B",
+      "currency": "USD",
+      "comparison": "eq",
+      "literal": "$6.4B",
+      "quote": "On-Demand GMV\n$6.4B\n+21% Y/Y",
+      "basis": "unspecified",
+      "notes": [
+        "+21% Y/Y"
+      ],
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          65,
+          1125,
+          380,
+          164
+        ]
+      }
+    },
+    {
+      "id": "group_mtus",
+      "label": "Group MTUs",
+      "value": "54000000",
+      "unit": "count",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "54M",
+      "quote": "Group MTUs\n54M\n+17% Y/Y",
+      "basis": "unspecified",
+      "notes": [
+        "+17% Y/Y"
+      ],
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          454,
+          1125,
+          333,
+          164
+        ]
+      }
+    }
+  ],
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "revenue": {
+        "items": [
+          {
+            "id": "deliveries",
+            "label": "配送",
+            "notes": [
+              "同比 +21%",
+              "经调整利润率 18%",
+              "同比 +4 个百分点"
+            ]
+          },
+          {
+            "id": "mobility",
+            "label": "出行",
+            "notes": [
+              "同比 +12%",
+              "经调整利润率 58%",
+              "同比 +2 个百分点"
+            ]
+          },
+          {
+            "id": "financial_services",
+            "label": "金融服务",
+            "notes": [
+              "同比 +59%",
+              "经调整利润率 (11%)",
+              "同比 +20 个百分点"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "ga",
+              "label": "一般及行政",
+              "notes": [
+                "占收入 14%",
+                "同比 (0 个百分点)"
+              ]
+            },
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 10%",
+                "同比 (3 个百分点)"
+              ]
+            },
+            {
+              "id": "sm",
+              "label": "销售与营销",
+              "notes": [
+                "占收入 10%",
+                "同比 (1 个百分点)"
+              ]
+            },
+            {
+              "id": "other_opex",
+              "label": "其他",
+              "notes": [
+                "占收入 7%",
+                "同比 +4 个百分点"
+              ]
+            }
+          ]
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "other_income",
+            "label": "其他",
+            "notes": []
+          },
+          {
+            "id": "tax_benefit",
+            "label": "税收收益",
+            "notes": []
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "毛利率 44%",
+            "同比 +0 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 2%",
+            "同比 +1 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": []
+        }
+      },
+      "operatingMetrics": [
+        {
+          "id": "on_demand_gmv",
+          "label": "按需 GMV",
+          "notes": [
+            "同比 +21%"
+          ]
+        },
+        {
+          "id": "group_mtus",
+          "label": "集团 MTUs",
+          "notes": [
+            "同比 +17%"
+          ]
+        }
+      ]
+    }
+  }
+}  );
 })(window);

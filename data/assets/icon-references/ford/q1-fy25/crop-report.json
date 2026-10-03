@@ -1,0 +1,499 @@
+{
+  "source": "input/processed/ford-q1-fy25.png",
+  "spec": "input/icon-crop-specs/ford-q1-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-03T07:50:15.645027+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/ford/q1-fy25",
+  "crops": [
+    {
+      "key": "ford-company-logo",
+      "output": "data/assets/icon-references/ford/q1-fy25/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 8363,
+        "losslessBytes": 43555,
+        "savingsVsLossless": 0.808,
+        "metrics": {
+          "meanAbsoluteError": 0.4743,
+          "rootMeanSquareError": 1.8451,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.2722
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 24605,
+        "transparentPixelRatio": 0.2317
+      },
+      "searchBox": {
+        "x": 787,
+        "y": 236,
+        "width": 539,
+        "height": 197
+      },
+      "componentCount": 4,
+      "subjectBox": {
+        "x0": 788,
+        "y0": 238,
+        "x1": 1321,
+        "y1": 431
+      },
+      "cropBox": {
+        "x0": 787,
+        "y0": 236,
+        "x1": 1326,
+        "y1": 433
+      },
+      "validation": {
+        "width": 539,
+        "height": 197,
+        "foregroundPixels": 60645,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 1,
+          "right": 5,
+          "top": 2,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": -0.0037,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/ford/q1-fy25/company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 8363,
+        "losslessBytes": 43555,
+        "savingsVsLossless": 0.808,
+        "metrics": {
+          "meanAbsoluteError": 0.4743,
+          "rootMeanSquareError": 1.8451,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.2722
+        }
+      },
+      "validationSheet": "data/assets/icon-references/ford/q1-fy25/validation-sheets/ford-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 283174,
+        "losslessBytes": 283174,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "ford-blue",
+      "output": "data/assets/icon-references/ford/q1-fy25/crops/blue.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 21930,
+        "losslessBytes": 21930,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          6,
+          111,
+          239
+        ],
+        "transparentPixels": 0,
+        "transparentPixelRatio": 0.0
+      },
+      "searchBox": {
+        "x": 85,
+        "y": 483,
+        "width": 279,
+        "height": 129
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 87,
+        "y0": 484,
+        "x1": 362,
+        "y1": 609
+      },
+      "cropBox": {
+        "x0": 85,
+        "y0": 483,
+        "x1": 364,
+        "y1": 612
+      },
+      "validation": {
+        "width": 279,
+        "height": 129,
+        "foregroundPixels": 32463,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 2,
+          "right": 2,
+          "top": 1,
+          "bottom": 3
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0078
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/ford/q1-fy25/blue.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 21930,
+        "losslessBytes": 21930,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/ford/q1-fy25/validation-sheets/ford-blue.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 279085,
+        "losslessBytes": 279085,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "ford-model-e",
+      "output": "data/assets/icon-references/ford/q1-fy25/crops/model-e.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4643,
+        "losslessBytes": 25371,
+        "savingsVsLossless": 0.817,
+        "metrics": {
+          "meanAbsoluteError": 1.0302,
+          "rootMeanSquareError": 2.3735,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 20,
+          "changedPixelRatio": 0.3891
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          0,
+          9,
+          91
+        ],
+        "transparentPixels": 0,
+        "transparentPixelRatio": 0.0
+      },
+      "searchBox": {
+        "x": 81,
+        "y": 754,
+        "width": 280,
+        "height": 128
+      },
+      "componentCount": 7,
+      "subjectBox": {
+        "x0": 83,
+        "y0": 755,
+        "x1": 358,
+        "y1": 880
+      },
+      "cropBox": {
+        "x0": 81,
+        "y0": 754,
+        "x1": 361,
+        "y1": 882
+      },
+      "validation": {
+        "width": 280,
+        "height": 128,
+        "foregroundPixels": 31691,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 2,
+          "right": 3,
+          "top": 1,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": -0.0018,
+          "y": -0.0039
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/ford/q1-fy25/model-e.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4643,
+        "losslessBytes": 25371,
+        "savingsVsLossless": 0.817,
+        "metrics": {
+          "meanAbsoluteError": 1.0302,
+          "rootMeanSquareError": 2.3735,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 20,
+          "changedPixelRatio": 0.3891
+        }
+      },
+      "validationSheet": "data/assets/icon-references/ford/q1-fy25/validation-sheets/ford-model-e.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 288889,
+        "losslessBytes": 288889,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "ford-pro",
+      "output": "data/assets/icon-references/ford/q1-fy25/crops/pro.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 3060,
+        "losslessBytes": 21097,
+        "savingsVsLossless": 0.855,
+        "metrics": {
+          "meanAbsoluteError": 1.0424,
+          "rootMeanSquareError": 2.8707,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 28,
+          "changedPixelRatio": 0.3156
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          0,
+          20,
+          46
+        ],
+        "transparentPixels": 0,
+        "transparentPixelRatio": 0.0
+      },
+      "searchBox": {
+        "x": 78,
+        "y": 956,
+        "width": 279,
+        "height": 129
+      },
+      "componentCount": 5,
+      "subjectBox": {
+        "x0": 80,
+        "y0": 958,
+        "x1": 354,
+        "y1": 1082
+      },
+      "cropBox": {
+        "x0": 78,
+        "y0": 956,
+        "x1": 357,
+        "y1": 1085
+      },
+      "validation": {
+        "width": 279,
+        "height": 129,
+        "foregroundPixels": 32716,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 2,
+          "right": 3,
+          "top": 2,
+          "bottom": 3
+        },
+        "centerOffset": {
+          "x": -0.0018,
+          "y": -0.0039
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/ford/q1-fy25/pro.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 3060,
+        "losslessBytes": 21097,
+        "savingsVsLossless": 0.855,
+        "metrics": {
+          "meanAbsoluteError": 1.0424,
+          "rootMeanSquareError": 2.8707,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 28,
+          "changedPixelRatio": 0.3156
+        }
+      },
+      "validationSheet": "data/assets/icon-references/ford/q1-fy25/validation-sheets/ford-pro.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 279675,
+        "losslessBytes": 279675,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "ford-credit",
+      "output": "data/assets/icon-references/ford/q1-fy25/crops/credit.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4171,
+        "losslessBytes": 24338,
+        "savingsVsLossless": 0.8286,
+        "metrics": {
+          "meanAbsoluteError": 1.1281,
+          "rootMeanSquareError": 2.3382,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 11,
+          "changedPixelRatio": 0.9473
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          23,
+          0,
+          243
+        ],
+        "transparentPixels": 0,
+        "transparentPixelRatio": 0.0
+      },
+      "searchBox": {
+        "x": 76,
+        "y": 1156,
+        "width": 284,
+        "height": 130
+      },
+      "componentCount": 5,
+      "subjectBox": {
+        "x0": 78,
+        "y0": 1158,
+        "x1": 357,
+        "y1": 1285
+      },
+      "cropBox": {
+        "x0": 76,
+        "y0": 1156,
+        "x1": 360,
+        "y1": 1286
+      },
+      "validation": {
+        "width": 284,
+        "height": 130,
+        "foregroundPixels": 33088,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 2,
+          "right": 3,
+          "top": 2,
+          "bottom": 1
+        },
+        "centerOffset": {
+          "x": -0.0018,
+          "y": 0.0038
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/ford/q1-fy25/credit.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4171,
+        "losslessBytes": 24338,
+        "savingsVsLossless": 0.8286,
+        "metrics": {
+          "meanAbsoluteError": 1.1281,
+          "rootMeanSquareError": 2.3382,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 11,
+          "changedPixelRatio": 0.9473
+        }
+      },
+      "validationSheet": "data/assets/icon-references/ford/q1-fy25/validation-sheets/ford-credit.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 284603,
+        "losslessBytes": 284603,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

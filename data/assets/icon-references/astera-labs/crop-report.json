@@ -1,0 +1,133 @@
+{
+  "source": "input/processing/astera-labs-q2-fy26.png",
+  "spec": "input/icon-crop-specs/astera-labs-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-03T07:51:08.296982+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/astera-labs",
+  "crops": [
+    {
+      "key": "company-logo",
+      "output": "data/assets/icon-references/astera-labs/crops/company-logo-q2-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 5984,
+        "losslessBytes": 35956,
+        "savingsVsLossless": 0.8336,
+        "metrics": {
+          "meanAbsoluteError": 0.4688,
+          "rootMeanSquareError": 2.5206,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 57,
+          "changedPixelRatio": 0.1561
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 83968,
+        "transparentPixelRatio": 0.7595
+      },
+      "searchBox": {
+        "x": 535,
+        "y": 251,
+        "width": 662,
+        "height": 167
+      },
+      "componentCount": 12,
+      "subjectBox": {
+        "x0": 544,
+        "y0": 255,
+        "x1": 1190,
+        "y1": 410
+      },
+      "cropBox": {
+        "x0": 535,
+        "y0": 251,
+        "x1": 1197,
+        "y1": 418
+      },
+      "validation": {
+        "width": 662,
+        "height": 167,
+        "foregroundPixels": 23070,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 9,
+          "right": 7,
+          "top": 4,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0015,
+          "y": -0.012
+        },
+        "passes": true
+      },
+      "note": "Complete Astera Labs logo only; excludes title and graph.",
+      "runtimeOutput": "data/assets/raster-annotations/astera-labs/company-logo-q2-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 5984,
+        "losslessBytes": 35956,
+        "savingsVsLossless": 0.8336,
+        "metrics": {
+          "meanAbsoluteError": 0.4688,
+          "rootMeanSquareError": 2.5206,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 57,
+          "changedPixelRatio": 0.1561
+        }
+      },
+      "validationSheet": "data/assets/icon-references/astera-labs/validation-sheets/q2-fy26/company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 235366,
+        "losslessBytes": 235366,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,595 @@
+{
+  "source": "input/processing/spacex-q2-fy26.png",
+  "spec": "input/icon-crop-specs/spacex-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-03T10:48:51.158867+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/spacex",
+  "crops": [
+    {
+      "key": "spacex-q2-fy26-company-symbol",
+      "output": "data/assets/icon-references/spacex/crops/q2-fy26-company-symbol.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 13772,
+        "losslessBytes": 13772,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 88076,
+        "transparentPixelRatio": 0.8424
+      },
+      "searchBox": {
+        "x": 810,
+        "y": 280,
+        "width": 510,
+        "height": 205
+      },
+      "componentCount": 4,
+      "subjectBox": {
+        "x0": 818,
+        "y0": 286,
+        "x1": 1317,
+        "y1": 478
+      },
+      "cropBox": {
+        "x0": 810,
+        "y0": 280,
+        "x1": 1320,
+        "y1": 485
+      },
+      "validation": {
+        "width": 510,
+        "height": 205,
+        "foregroundPixels": 15045,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 8,
+          "right": 3,
+          "top": 6,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": 0.0049,
+          "y": -0.0024
+        },
+        "passes": true
+      },
+      "note": "Complete source X symbol. Excludes neighboring gross-profit text in the empty lower-right region. Runtime uses two adjacent fragments to measure clearance against painted regions.",
+      "excludedPixels": 15950,
+      "runtimeOutput": "data/assets/raster-annotations/spacex/q2-fy26-company-symbol.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 13772,
+        "losslessBytes": 13772,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/spacex/validation-sheets/spacex-q2-fy26-company-symbol.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 213974,
+        "losslessBytes": 213974,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "spacex-q2-fy26-company-symbol-body",
+      "output": "data/assets/icon-references/spacex/crops/q2-fy26-company-symbol-body.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1943,
+        "losslessBytes": 11212,
+        "savingsVsLossless": 0.8267,
+        "metrics": {
+          "meanAbsoluteError": 0.0988,
+          "rootMeanSquareError": 0.7697,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.031
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 66584,
+        "transparentPixelRatio": 0.812
+      },
+      "searchBox": {
+        "x": 810,
+        "y": 280,
+        "width": 400,
+        "height": 205
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 818,
+        "y0": 297,
+        "x1": 1210,
+        "y1": 478
+      },
+      "cropBox": {
+        "x0": 810,
+        "y0": 280,
+        "x1": 1210,
+        "y1": 485
+      },
+      "validation": {
+        "width": 400,
+        "height": 205,
+        "foregroundPixels": 14714,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 8,
+          "right": 0,
+          "top": 17,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": 0.01,
+          "y": 0.0244
+        },
+        "passes": true
+      },
+      "note": "Extracted from Q2 FY26 source at native coordinates. Company symbol body and tail meet at x=1210 without rescaling.",
+      "runtimeOutput": "data/assets/raster-annotations/spacex/q2-fy26-company-symbol-body.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1943,
+        "losslessBytes": 11212,
+        "savingsVsLossless": 0.8267,
+        "metrics": {
+          "meanAbsoluteError": 0.0988,
+          "rootMeanSquareError": 0.7697,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.031
+        }
+      },
+      "validationSheet": "data/assets/icon-references/spacex/validation-sheets/spacex-q2-fy26-company-symbol-body.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 217363,
+        "losslessBytes": 217363,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "spacex-q2-fy26-company-symbol-tail",
+      "output": "data/assets/icon-references/spacex/crops/q2-fy26-company-symbol-tail.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 379,
+        "losslessBytes": 1254,
+        "savingsVsLossless": 0.6978,
+        "metrics": {
+          "meanAbsoluteError": 0.3156,
+          "rootMeanSquareError": 1.2808,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 14,
+          "changedPixelRatio": 0.1338
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 3063,
+        "transparentPixelRatio": 0.8702
+      },
+      "searchBox": {
+        "x": 1210,
+        "y": 280,
+        "width": 110,
+        "height": 32
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 1210,
+        "y0": 286,
+        "x1": 1317,
+        "y1": 304
+      },
+      "cropBox": {
+        "x0": 1210,
+        "y0": 280,
+        "x1": 1320,
+        "y1": 312
+      },
+      "validation": {
+        "width": 110,
+        "height": 32,
+        "foregroundPixels": 331,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 0,
+          "right": 3,
+          "top": 6,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": -0.0136,
+          "y": -0.0312
+        },
+        "passes": true
+      },
+      "note": "Extracted from Q2 FY26 source at native coordinates. Company symbol body and tail meet at x=1210 without rescaling.",
+      "runtimeOutput": "data/assets/raster-annotations/spacex/q2-fy26-company-symbol-tail.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 379,
+        "losslessBytes": 1254,
+        "savingsVsLossless": 0.6978,
+        "metrics": {
+          "meanAbsoluteError": 0.3156,
+          "rootMeanSquareError": 1.2808,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 14,
+          "changedPixelRatio": 0.1338
+        }
+      },
+      "validationSheet": "data/assets/icon-references/spacex/validation-sheets/spacex-q2-fy26-company-symbol-tail.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 210323,
+        "losslessBytes": 210323,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "spacex-q2-fy26-business-space-rocket",
+      "output": "data/assets/icon-references/spacex/crops/q2-fy26-business-space-rocket.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 3726,
+        "losslessBytes": 20133,
+        "savingsVsLossless": 0.8149,
+        "metrics": {
+          "meanAbsoluteError": 0.6833,
+          "rootMeanSquareError": 1.9399,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 26,
+          "changedPixelRatio": 0.2478
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 28085,
+        "transparentPixelRatio": 0.7591
+      },
+      "searchBox": {
+        "x": 110,
+        "y": 275,
+        "width": 185,
+        "height": 200
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 112,
+        "y0": 280,
+        "x1": 292,
+        "y1": 475
+      },
+      "cropBox": {
+        "x0": 110,
+        "y0": 275,
+        "x1": 295,
+        "y1": 475
+      },
+      "validation": {
+        "width": 185,
+        "height": 200,
+        "foregroundPixels": 8445,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 2,
+          "right": 3,
+          "top": 5,
+          "bottom": 0
+        },
+        "centerOffset": {
+          "x": -0.0027,
+          "y": 0.0125
+        },
+        "passes": true
+      },
+      "note": "Extracted from Q2 FY26 source at native coordinates. Company symbol body and tail meet at x=1210 without rescaling.",
+      "runtimeOutput": "data/assets/raster-annotations/spacex/q2-fy26-business-space-rocket.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 3726,
+        "losslessBytes": 20133,
+        "savingsVsLossless": 0.8149,
+        "metrics": {
+          "meanAbsoluteError": 0.6833,
+          "rootMeanSquareError": 1.9399,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 26,
+          "changedPixelRatio": 0.2478
+        }
+      },
+      "validationSheet": "data/assets/icon-references/spacex/validation-sheets/spacex-q2-fy26-business-space-rocket.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 264027,
+        "losslessBytes": 264027,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "spacex-q2-fy26-business-connectivity-starlink",
+      "output": "data/assets/icon-references/spacex/crops/q2-fy26-business-connectivity-starlink.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1617,
+        "losslessBytes": 8202,
+        "savingsVsLossless": 0.8029,
+        "metrics": {
+          "meanAbsoluteError": 0.2258,
+          "rootMeanSquareError": 1.1724,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.0694
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 25068,
+        "transparentPixelRatio": 0.8353
+      },
+      "searchBox": {
+        "x": 150,
+        "y": 696,
+        "width": 244,
+        "height": 123
+      },
+      "componentCount": 12,
+      "subjectBox": {
+        "x0": 152,
+        "y0": 697,
+        "x1": 390,
+        "y1": 817
+      },
+      "cropBox": {
+        "x0": 150,
+        "y0": 696,
+        "x1": 394,
+        "y1": 819
+      },
+      "validation": {
+        "width": 244,
+        "height": 123,
+        "foregroundPixels": 4238,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 2,
+          "right": 4,
+          "top": 1,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": -0.0041,
+          "y": -0.0041
+        },
+        "passes": true
+      },
+      "note": "Extracted from Q2 FY26 source at native coordinates. Company symbol body and tail meet at x=1210 without rescaling.",
+      "runtimeOutput": "data/assets/raster-annotations/spacex/q2-fy26-business-connectivity-starlink.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1617,
+        "losslessBytes": 8202,
+        "savingsVsLossless": 0.8029,
+        "metrics": {
+          "meanAbsoluteError": 0.2258,
+          "rootMeanSquareError": 1.1724,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.0694
+        }
+      },
+      "validationSheet": "data/assets/icon-references/spacex/validation-sheets/spacex-q2-fy26-business-connectivity-starlink.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 226230,
+        "losslessBytes": 226230,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "spacex-q2-fy26-business-ai-cluster",
+      "output": "data/assets/icon-references/spacex/crops/q2-fy26-business-ai-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2335,
+        "losslessBytes": 11124,
+        "savingsVsLossless": 0.7901,
+        "metrics": {
+          "meanAbsoluteError": 0.3219,
+          "rootMeanSquareError": 1.373,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.1052
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 18259,
+        "transparentPixelRatio": 0.6325
+      },
+      "searchBox": {
+        "x": 80,
+        "y": 1048,
+        "width": 283,
+        "height": 102
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 86,
+        "y0": 1055,
+        "x1": 356,
+        "y1": 1142
+      },
+      "cropBox": {
+        "x0": 80,
+        "y0": 1048,
+        "x1": 363,
+        "y1": 1150
+      },
+      "validation": {
+        "width": 283,
+        "height": 102,
+        "foregroundPixels": 9676,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 7,
+          "top": 7,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": -0.0018,
+          "y": -0.0049
+        },
+        "passes": true
+      },
+      "note": "Extracted from Q2 FY26 source at native coordinates. Company symbol body and tail meet at x=1210 without rescaling.",
+      "runtimeOutput": "data/assets/raster-annotations/spacex/q2-fy26-business-ai-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2335,
+        "losslessBytes": 11124,
+        "savingsVsLossless": 0.7901,
+        "metrics": {
+          "meanAbsoluteError": 0.3219,
+          "rootMeanSquareError": 1.373,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.1052
+        }
+      },
+      "validationSheet": "data/assets/icon-references/spacex/validation-sheets/spacex-q2-fy26-business-ai-cluster.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 228857,
+        "losslessBytes": 228857,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

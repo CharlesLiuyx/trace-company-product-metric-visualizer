@@ -1,298 +1,975 @@
-/* Pure income-statement SSOT records. Financial data only — Sankey view
- * geometry stays in data/datasets/<dataset-key>.js. Format: data/schema.md. */
-(function (global) {
-  'use strict';
-
-  const ssot = (global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || {
-    schemaVersion: 1,
-    records: [],
-  });
-
-  ssot.records.push(
-    {
-      key: 'twilio-q3-fy25',
-      company: 'Twilio',
-      period: 'Q3 FY25',
-      periodNote: 'Ending Sep. 2025',
-      currency: '$',
-      unit: 'M',
-      decimals: 0,
-      sourceImage: 'input/processed/twilio-q3-fy25.png',
-      roundingTolerance: 1.5,
-      revenue: {
-        total: 1300,
-        notes: ['+15% Y/Y'],
-        items: [
-          { id: 'united_states', label: 'United States', value: 830, notes: ['+13% Y/Y'] },
-          { id: 'international', label: 'International', value: 470, notes: ['+18% Y/Y'] },
-        ],
-      },
-      costs: {
-        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 668 },
-        operatingExpenses: {
-          total: 591,
-          items: [
-            { id: 'rnd', label: 'R&D', value: 262, notes: ['20% of revenue', '(3pp) Y/Y'] },
-            { id: 'sm', label: 'S&M', value: 221, notes: ['17% of revenue', '(2pp) Y/Y'] },
-            { id: 'ga', label: 'G&A', value: 108, notes: ['8% of revenue', '(1pp) Y/Y'] },
-          ],
+(function(global){const ssot=global.INCOME_STATEMENT_SSOT=global.INCOME_STATEMENT_SSOT||{schemaVersion:1,records:[]};ssot.records.push(...[
+  {
+    "key": "twilio-q3-fy25",
+    "company": "Twilio",
+    "period": "Q3 FY25",
+    "periodNote": "Ending Sep. 2025",
+    "currency": "$",
+    "unit": "M",
+    "decimals": 0,
+    "sourceImage": "input/processed/twilio-q3-fy25.png",
+    "roundingTolerance": 1.5,
+    "revenue": {
+      "total": 1300,
+      "notes": [
+        "+15% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "united_states",
+          "label": "United States",
+          "value": 830,
+          "notes": [
+            "+13% Y/Y"
+          ]
         },
-        tax: { label: 'Tax expense', value: 0 },
-      },
-      otherIncome: {
-        total: 5,
-        items: [
-          { id: 'tax', label: 'Tax', value: 5, notes: ['Displayed as a positive green tax benefit in the source flow.'] },
-        ],
-      },
-      otherExpenses: {
-        total: 8,
-        items: [{ id: 'other', label: 'Other', value: 8 }],
-      },
-      profit: {
-        gross: { id: 'gross_profit', label: 'Gross profit', value: 632, notes: ['49% margin', '(2pp) Y/Y'] },
-        operating: {
-          id: 'operating_profit', label: 'Operating profit', value: 40,
-          notes: ['3% margin', '+3pp Y/Y', 'Gross profit less operating expenses totals $41M; the source chart reports $40M because of rounded displayed values.'],
-        },
-        net: { id: 'net_profit', label: 'Net profit', value: 37, notes: ['3% margin', '+4pp Y/Y'] },
-      },
-      i18n: {
-        zh: {
-          period: '2025 财年第三季度',
-          periodNote: '截至 2025 年 9 月',
-          revenue: {
-            notes: ['同比 +15%'],
-            items: [
-              { id: 'united_states', label: '美国', notes: ['同比 +13%'] },
-              { id: 'international', label: '国际', notes: ['同比 +18%'] },
-            ],
-          },
-          costs: {
-            costOfRevenue: { label: '收入成本' },
-            operatingExpenses: {
-              items: [
-                { id: 'rnd', label: '研发', notes: ['占收入 20%', '同比 (3 个百分点)'] },
-                { id: 'sm', label: '销售与市场', notes: ['占收入 17%', '同比 (2 个百分点)'] },
-                { id: 'ga', label: '管理费用', notes: ['占收入 8%', '同比 (1 个百分点)'] },
-              ],
-            },
-            tax: { label: '所得税费用' },
-          },
-          otherIncome: {
-            items: [{ id: 'tax', label: '税项收益', notes: ['来源图以绿色正向流显示税项收益。'] }],
-          },
-          otherExpenses: { items: [{ id: 'other', label: '其他' }] },
-          profit: {
-            gross: { label: '毛利润', notes: ['利润率 49%', '同比 (2 个百分点)'] },
-            operating: { label: '营业利润', notes: ['利润率 3%', '同比 +3 个百分点', '毛利润减运营费用合计为 $41M；来源图因显示值取整报告 $40M 营业利润。'] },
-            net: { label: '净利润', notes: ['利润率 3%', '同比 +4 个百分点'] },
-          },
-        },
-      },
+        {
+          "id": "international",
+          "label": "International",
+          "value": 470,
+          "notes": [
+            "+18% Y/Y"
+          ]
+        }
+      ]
     },
-    {
-      key: 'twilio-q4-fy25',
-      company: 'Twilio',
-      period: 'Q4 FY25',
-      periodNote: 'Ending Dec. 2025',
-      currency: '$',
-      unit: 'M',
-      decimals: 0,
-      sourceImage: 'input/processed/twilio-q4-fy25.png',
-      roundingTolerance: 6.5,
-      revenue: {
-        total: 1366,
-        notes: ['+14% Y/Y'],
-        items: [
-          { id: 'united_states', label: 'United States', value: 880, notes: ['+14% Y/Y'] },
-          { id: 'international', label: 'International', value: 486, notes: ['+14% Y/Y'] },
-        ],
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_revenue",
+        "label": "Cost of revenue",
+        "value": 668
       },
-      costs: {
-        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 704 },
-        operatingExpenses: {
-          total: 606,
-          notes: ['R&D, S&M, and G&A line items sum to $600M because the source chart rounds each item.'],
-          items: [
-            { id: 'rnd', label: 'R&D', value: 269, notes: ['20% of revenue', '(1pp) Y/Y'] },
-            { id: 'sm', label: 'S&M', value: 222, notes: ['16% of revenue', '(2pp) Y/Y'] },
-            { id: 'ga', label: 'G&A', value: 109, notes: ['8% of revenue', '(2pp) Y/Y'] },
-          ],
-        },
-        tax: {
-          label: 'Tax',
-          value: 0,
-          notes: ['The source chart does not show a separate income tax line; non-operating items are grouped as Other.'],
-        },
-      },
-      otherIncome: {
-        total: 0,
-        items: [],
-      },
-      otherExpenses: {
-        total: 103,
-        items: [
+      "operatingExpenses": {
+        "total": 591,
+        "items": [
           {
-            id: 'other',
-            label: 'Other',
-            value: 103,
-            notes: ['Non-operating items grouped in the source chart; this deduction turns $57M operating profit into a $45M net loss.'],
+            "id": "rnd",
+            "label": "R&D",
+            "value": 262,
+            "notes": [
+              "20% of revenue",
+              "(3pp) Y/Y"
+            ]
           },
-        ],
+          {
+            "id": "sm",
+            "label": "S&M",
+            "value": 221,
+            "notes": [
+              "17% of revenue",
+              "(2pp) Y/Y"
+            ]
+          },
+          {
+            "id": "ga",
+            "label": "G&A",
+            "value": 108,
+            "notes": [
+              "8% of revenue",
+              "(1pp) Y/Y"
+            ]
+          }
+        ]
       },
-      profit: {
-        gross: { id: 'gross_profit', label: 'Gross profit', value: 662, notes: ['48% margin', '(2pp) Y/Y'] },
-        operating: {
-          id: 'operating_profit',
-          label: 'Operating profit',
-          value: 57,
-          notes: [
-            '4% margin',
-            '+3pp Y/Y',
-            'Gross profit less operating expenses sums to $56M; the source chart reports $57M operating profit due to rounded line items.',
-          ],
-        },
-        net: {
-          id: 'net_loss',
-          label: 'Net loss',
-          value: -45,
-          notes: [
-            'Operating profit of $57M less Other of $103M sums to a $46M net loss; the source chart reports $45M net loss due to rounded line items.',
-          ],
-        },
-      },
-      i18n: {
-        zh: {
-          period: '2025 财年第四季度',
-          periodNote: '截至 2025 年 12 月',
-          revenue: {
-            notes: ['同比 +14%'],
-            items: [
-              { id: 'united_states', label: '美国', notes: ['同比 +14%'] },
-              { id: 'international', label: '国际', notes: ['同比 +14%'] },
-            ],
-          },
-          costs: {
-            costOfRevenue: { label: '收入成本' },
-            operatingExpenses: {
-              notes: ['研发、销售与市场、管理费用项目因来源图逐项取整合计为 $600M。'],
-              items: [
-                { id: 'rnd', label: '研发', notes: ['占收入 20%', '同比 (1 个百分点)'] },
-                { id: 'sm', label: '销售与市场', notes: ['占收入 16%', '同比 (2 个百分点)'] },
-                { id: 'ga', label: '管理费用', notes: ['占收入 8%', '同比 (2 个百分点)'] },
-              ],
-            },
-            tax: {
-              label: '税费',
-              notes: ['来源图未单列所得税；非经营性项目合并显示为“其他”。'],
-            },
-          },
-          otherExpenses: {
-            items: [
-              {
-                id: 'other',
-                label: '其他',
-                notes: ['来源图合并显示的非经营性项目；该扣减将 $57M 营业利润转为 $45M 净亏损。'],
-              },
-            ],
-          },
-          profit: {
-            gross: { label: '毛利润', notes: ['利润率 48%', '同比 (2 个百分点)'] },
-            operating: {
-              label: '营业利润',
-              notes: [
-                '利润率 4%',
-                '同比 +3 个百分点',
-                '毛利润减运营费用合计为 $56M；来源图因项目取整报告 $57M 营业利润。',
-              ],
-            },
-            net: {
-              label: '净亏损',
-              notes: ['$57M 营业利润减 $103M 其他项目合计为 $46M 净亏损；来源图因项目取整报告 $45M 净亏损。'],
-            },
-          },
-        },
-      },
+      "tax": {
+        "label": "Tax expense",
+        "value": 0
+      }
     },
-    {
-      key: 'twilio-q1-fy26',
-      company: 'Twilio',
-      period: 'Q1 FY26',
-      periodNote: 'Ending Mar. 2026',
-      currency: '$',
-      unit: 'M',
-      decimals: 0,
-      sourceImage: 'input/processed/twilio-q1-fy26.png',
-      roundingTolerance: 6.5,
-      revenue: {
-        total: 1407,
-        notes: ['+20% Y/Y'],
-        items: [
-          { id: 'united_states', label: 'United States', value: 899, notes: ['+20% Y/Y'] },
-          { id: 'international', label: 'International', value: 508, notes: ['+20% Y/Y'] },
-        ],
+    "otherIncome": {
+      "total": 5,
+      "items": [
+        {
+          "id": "tax",
+          "label": "Tax",
+          "value": 5,
+          "notes": [
+            "Displayed as a positive green tax benefit in the source flow."
+          ]
+        }
+      ]
+    },
+    "otherExpenses": {
+      "total": 8,
+      "items": [
+        {
+          "id": "other",
+          "label": "Other",
+          "value": 8
+        }
+      ]
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 632,
+        "notes": [
+          "49% margin",
+          "(2pp) Y/Y"
+        ]
       },
-      costs: {
-        costOfRevenue: { id: 'cost_of_revenue', label: 'Cost of revenue', value: 723 },
-        operatingExpenses: {
-          total: 577,
-          notes: ['R&D, S&M, and G&A line items sum to $576M because the source chart rounds each item.'],
-          items: [
-            { id: 'rnd', label: 'R&D', value: 262, notes: ['19% of revenue', '(3pp) Y/Y'] },
-            { id: 'sm', label: 'S&M', value: 211, notes: ['15% of revenue', '(3pp) Y/Y'] },
-            { id: 'ga', label: 'G&A', value: 103, notes: ['7% of revenue', '(1pp) Y/Y'] },
+      "operating": {
+        "id": "operating_profit",
+        "label": "Operating profit",
+        "value": 40,
+        "notes": [
+          "3% margin",
+          "+3pp Y/Y",
+          "Gross profit less operating expenses totals $41M; the source chart reports $40M because of rounded displayed values."
+        ]
+      },
+      "net": {
+        "id": "net_profit",
+        "label": "Net profit",
+        "value": 37,
+        "notes": [
+          "3% margin",
+          "+4pp Y/Y"
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2025 财年第三季度",
+        "periodNote": "截至 2025 年 9 月",
+        "revenue": {
+          "notes": [
+            "同比 +15%"
           ],
-        },
-        tax: { id: 'tax', label: 'Tax', value: 12 },
-      },
-      otherIncome: { total: 0, items: [] },
-      otherExpenses: {
-        total: 5,
-        items: [{ id: 'other', label: 'Other', value: 5 }],
-      },
-      profit: {
-        gross: { id: 'gross_profit', label: 'Gross profit', value: 684, notes: ['49% margin', '(1pp) Y/Y'] },
-        operating: {
-          id: 'operating_profit', label: 'Operating profit', value: 108,
-          notes: ['8% margin', '+6pp Y/Y', 'Gross profit less operating expenses totals $107M; the source chart reports $108M due to rounded line items.'],
-        },
-        net: {
-          id: 'net_profit', label: 'Net profit', value: 90,
-          notes: ['6% margin', '+5pp Y/Y', 'Operating profit less Tax and Other totals $91M; the source chart reports $90M due to rounded line items.'],
-        },
-      },
-      i18n: {
-        zh: {
-          period: '2026 财年第一季度',
-          periodNote: '截至 2026 年 3 月',
-          revenue: {
-            notes: ['同比 +20%'],
-            items: [
-              { id: 'united_states', label: '美国', notes: ['同比 +20%'] },
-              { id: 'international', label: '国际', notes: ['同比 +20%'] },
-            ],
-          },
-          costs: {
-            costOfRevenue: { label: '收入成本' },
-            operatingExpenses: {
-              notes: ['研发、销售与市场、管理费用项目因来源图逐项取整合计为 $576M。'],
-              items: [
-                { id: 'rnd', label: '研发', notes: ['占收入 19%', '同比 (3 个百分点)'] },
-                { id: 'sm', label: '销售与市场', notes: ['占收入 15%', '同比 (3 个百分点)'] },
-                { id: 'ga', label: '管理费用', notes: ['占收入 7%', '同比 (1 个百分点)'] },
-              ],
+          "items": [
+            {
+              "id": "united_states",
+              "label": "美国",
+              "notes": [
+                "同比 +13%"
+              ]
             },
-            tax: { label: '税费' },
-          },
-          otherExpenses: { items: [{ id: 'other', label: '其他' }] },
-          profit: {
-            gross: { label: '毛利润', notes: ['利润率 49%', '同比 (1 个百分点)'] },
-            operating: { label: '营业利润', notes: ['利润率 8%', '同比 +6 个百分点', '毛利润减运营费用合计为 $107M；来源图因项目取整报告 $108M 营业利润。'] },
-            net: { label: '净利润', notes: ['利润率 6%', '同比 +5 个百分点', '营业利润减税费和其他项目合计为 $91M；来源图因项目取整报告 $90M 净利润。'] },
-          },
+            {
+              "id": "international",
+              "label": "国际",
+              "notes": [
+                "同比 +18%"
+              ]
+            }
+          ]
         },
-      },
+        "costs": {
+          "costOfRevenue": {
+            "label": "收入成本"
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "rnd",
+                "label": "研发",
+                "notes": [
+                  "占收入 20%",
+                  "同比 (3 个百分点)"
+                ]
+              },
+              {
+                "id": "sm",
+                "label": "销售与市场",
+                "notes": [
+                  "占收入 17%",
+                  "同比 (2 个百分点)"
+                ]
+              },
+              {
+                "id": "ga",
+                "label": "管理费用",
+                "notes": [
+                  "占收入 8%",
+                  "同比 (1 个百分点)"
+                ]
+              }
+            ]
+          },
+          "tax": {
+            "label": "所得税费用"
+          }
+        },
+        "otherIncome": {
+          "items": [
+            {
+              "id": "tax",
+              "label": "税项收益",
+              "notes": [
+                "来源图以绿色正向流显示税项收益。"
+              ]
+            }
+          ]
+        },
+        "otherExpenses": {
+          "items": [
+            {
+              "id": "other",
+              "label": "其他"
+            }
+          ]
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 49%",
+              "同比 (2 个百分点)"
+            ]
+          },
+          "operating": {
+            "label": "营业利润",
+            "notes": [
+              "利润率 3%",
+              "同比 +3 个百分点",
+              "毛利润减运营费用合计为 $41M；来源图因显示值取整报告 $40M 营业利润。"
+            ]
+          },
+          "net": {
+            "label": "净利润",
+            "notes": [
+              "利润率 3%",
+              "同比 +4 个百分点"
+            ]
+          }
+        }
+      }
     }
-  );
-})(window);
+  },
+  {
+    "key": "twilio-q4-fy25",
+    "company": "Twilio",
+    "period": "Q4 FY25",
+    "periodNote": "Ending Dec. 2025",
+    "currency": "$",
+    "unit": "M",
+    "decimals": 0,
+    "sourceImage": "input/processed/twilio-q4-fy25.png",
+    "roundingTolerance": 6.5,
+    "revenue": {
+      "total": 1366,
+      "notes": [
+        "+14% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "united_states",
+          "label": "United States",
+          "value": 880,
+          "notes": [
+            "+14% Y/Y"
+          ]
+        },
+        {
+          "id": "international",
+          "label": "International",
+          "value": 486,
+          "notes": [
+            "+14% Y/Y"
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_revenue",
+        "label": "Cost of revenue",
+        "value": 704
+      },
+      "operatingExpenses": {
+        "total": 606,
+        "notes": [
+          "R&D, S&M, and G&A line items sum to $600M because the source chart rounds each item."
+        ],
+        "items": [
+          {
+            "id": "rnd",
+            "label": "R&D",
+            "value": 269,
+            "notes": [
+              "20% of revenue",
+              "(1pp) Y/Y"
+            ]
+          },
+          {
+            "id": "sm",
+            "label": "S&M",
+            "value": 222,
+            "notes": [
+              "16% of revenue",
+              "(2pp) Y/Y"
+            ]
+          },
+          {
+            "id": "ga",
+            "label": "G&A",
+            "value": 109,
+            "notes": [
+              "8% of revenue",
+              "(2pp) Y/Y"
+            ]
+          }
+        ]
+      },
+      "tax": {
+        "label": "Tax",
+        "value": 0,
+        "notes": [
+          "The source chart does not show a separate income tax line; non-operating items are grouped as Other."
+        ]
+      }
+    },
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 103,
+      "items": [
+        {
+          "id": "other",
+          "label": "Other",
+          "value": 103,
+          "notes": [
+            "Non-operating items grouped in the source chart; this deduction turns $57M operating profit into a $45M net loss."
+          ]
+        }
+      ]
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 662,
+        "notes": [
+          "48% margin",
+          "(2pp) Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_profit",
+        "label": "Operating profit",
+        "value": 57,
+        "notes": [
+          "4% margin",
+          "+3pp Y/Y",
+          "Gross profit less operating expenses sums to $56M; the source chart reports $57M operating profit due to rounded line items."
+        ]
+      },
+      "net": {
+        "id": "net_loss",
+        "label": "Net loss",
+        "value": -45,
+        "notes": [
+          "Operating profit of $57M less Other of $103M sums to a $46M net loss; the source chart reports $45M net loss due to rounded line items."
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2025 财年第四季度",
+        "periodNote": "截至 2025 年 12 月",
+        "revenue": {
+          "notes": [
+            "同比 +14%"
+          ],
+          "items": [
+            {
+              "id": "united_states",
+              "label": "美国",
+              "notes": [
+                "同比 +14%"
+              ]
+            },
+            {
+              "id": "international",
+              "label": "国际",
+              "notes": [
+                "同比 +14%"
+              ]
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "收入成本"
+          },
+          "operatingExpenses": {
+            "notes": [
+              "研发、销售与市场、管理费用项目因来源图逐项取整合计为 $600M。"
+            ],
+            "items": [
+              {
+                "id": "rnd",
+                "label": "研发",
+                "notes": [
+                  "占收入 20%",
+                  "同比 (1 个百分点)"
+                ]
+              },
+              {
+                "id": "sm",
+                "label": "销售与市场",
+                "notes": [
+                  "占收入 16%",
+                  "同比 (2 个百分点)"
+                ]
+              },
+              {
+                "id": "ga",
+                "label": "管理费用",
+                "notes": [
+                  "占收入 8%",
+                  "同比 (2 个百分点)"
+                ]
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费",
+            "notes": [
+              "来源图未单列所得税；非经营性项目合并显示为“其他”。"
+            ]
+          }
+        },
+        "otherExpenses": {
+          "items": [
+            {
+              "id": "other",
+              "label": "其他",
+              "notes": [
+                "来源图合并显示的非经营性项目；该扣减将 $57M 营业利润转为 $45M 净亏损。"
+              ]
+            }
+          ]
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 48%",
+              "同比 (2 个百分点)"
+            ]
+          },
+          "operating": {
+            "label": "营业利润",
+            "notes": [
+              "利润率 4%",
+              "同比 +3 个百分点",
+              "毛利润减运营费用合计为 $56M；来源图因项目取整报告 $57M 营业利润。"
+            ]
+          },
+          "net": {
+            "label": "净亏损",
+            "notes": [
+              "$57M 营业利润减 $103M 其他项目合计为 $46M 净亏损；来源图因项目取整报告 $45M 净亏损。"
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "key": "twilio-q1-fy26",
+    "company": "Twilio",
+    "period": "Q1 FY26",
+    "periodNote": "Ending Mar. 2026",
+    "currency": "$",
+    "unit": "M",
+    "decimals": 0,
+    "sourceImage": "input/processed/twilio-q1-fy26.png",
+    "roundingTolerance": 6.5,
+    "revenue": {
+      "total": 1407,
+      "notes": [
+        "+20% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "united_states",
+          "label": "United States",
+          "value": 899,
+          "notes": [
+            "+20% Y/Y"
+          ]
+        },
+        {
+          "id": "international",
+          "label": "International",
+          "value": 508,
+          "notes": [
+            "+20% Y/Y"
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_revenue",
+        "label": "Cost of revenue",
+        "value": 723
+      },
+      "operatingExpenses": {
+        "total": 577,
+        "notes": [
+          "R&D, S&M, and G&A line items sum to $576M because the source chart rounds each item."
+        ],
+        "items": [
+          {
+            "id": "rnd",
+            "label": "R&D",
+            "value": 262,
+            "notes": [
+              "19% of revenue",
+              "(3pp) Y/Y"
+            ]
+          },
+          {
+            "id": "sm",
+            "label": "S&M",
+            "value": 211,
+            "notes": [
+              "15% of revenue",
+              "(3pp) Y/Y"
+            ]
+          },
+          {
+            "id": "ga",
+            "label": "G&A",
+            "value": 103,
+            "notes": [
+              "7% of revenue",
+              "(1pp) Y/Y"
+            ]
+          }
+        ]
+      },
+      "tax": {
+        "id": "tax",
+        "label": "Tax",
+        "value": 12
+      }
+    },
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 5,
+      "items": [
+        {
+          "id": "other",
+          "label": "Other",
+          "value": 5
+        }
+      ]
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 684,
+        "notes": [
+          "49% margin",
+          "(1pp) Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_profit",
+        "label": "Operating profit",
+        "value": 108,
+        "notes": [
+          "8% margin",
+          "+6pp Y/Y",
+          "Gross profit less operating expenses totals $107M; the source chart reports $108M due to rounded line items."
+        ]
+      },
+      "net": {
+        "id": "net_profit",
+        "label": "Net profit",
+        "value": 90,
+        "notes": [
+          "6% margin",
+          "+5pp Y/Y",
+          "Operating profit less Tax and Other totals $91M; the source chart reports $90M due to rounded line items."
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2026 财年第一季度",
+        "periodNote": "截至 2026 年 3 月",
+        "revenue": {
+          "notes": [
+            "同比 +20%"
+          ],
+          "items": [
+            {
+              "id": "united_states",
+              "label": "美国",
+              "notes": [
+                "同比 +20%"
+              ]
+            },
+            {
+              "id": "international",
+              "label": "国际",
+              "notes": [
+                "同比 +20%"
+              ]
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "收入成本"
+          },
+          "operatingExpenses": {
+            "notes": [
+              "研发、销售与市场、管理费用项目因来源图逐项取整合计为 $576M。"
+            ],
+            "items": [
+              {
+                "id": "rnd",
+                "label": "研发",
+                "notes": [
+                  "占收入 19%",
+                  "同比 (3 个百分点)"
+                ]
+              },
+              {
+                "id": "sm",
+                "label": "销售与市场",
+                "notes": [
+                  "占收入 15%",
+                  "同比 (3 个百分点)"
+                ]
+              },
+              {
+                "id": "ga",
+                "label": "管理费用",
+                "notes": [
+                  "占收入 7%",
+                  "同比 (1 个百分点)"
+                ]
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费"
+          }
+        },
+        "otherExpenses": {
+          "items": [
+            {
+              "id": "other",
+              "label": "其他"
+            }
+          ]
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 49%",
+              "同比 (1 个百分点)"
+            ]
+          },
+          "operating": {
+            "label": "营业利润",
+            "notes": [
+              "利润率 8%",
+              "同比 +6 个百分点",
+              "毛利润减运营费用合计为 $107M；来源图因项目取整报告 $108M 营业利润。"
+            ]
+          },
+          "net": {
+            "label": "净利润",
+            "notes": [
+              "利润率 6%",
+              "同比 +5 个百分点",
+              "营业利润减税费和其他项目合计为 $91M；来源图因项目取整报告 $90M 净利润。"
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "key": "twilio-q2-fy26",
+    "company": "Twilio",
+    "period": "Q2 FY26",
+    "currency": "$",
+    "unit": "M",
+    "decimals": 0,
+    "sourceImage": "input/processing/twilio-q2-fy26.png",
+    "roundingTolerance": 1.5,
+    "revenue": {
+      "total": 1499,
+      "notes": [
+        "+22% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "united_states",
+          "label": "United States",
+          "value": 961,
+          "notes": [
+            "+22% Y/Y"
+          ]
+        },
+        {
+          "id": "international",
+          "label": "International",
+          "value": 538,
+          "notes": [
+            "+22% Y/Y"
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_revenue",
+        "label": "Cost of revenue",
+        "value": 773,
+        "notes": []
+      },
+      "operatingExpenses": {
+        "total": 641,
+        "items": [
+          {
+            "id": "rnd",
+            "label": "R&D",
+            "value": 273,
+            "notes": [
+              "18% of revenue",
+              "(2pp) Y/Y"
+            ]
+          },
+          {
+            "id": "sm",
+            "label": "S&M",
+            "value": 217,
+            "notes": [
+              "14% of revenue",
+              "(4pp) Y/Y"
+            ]
+          },
+          {
+            "id": "ga",
+            "label": "G&A",
+            "value": 118,
+            "notes": [
+              "8% of revenue",
+              "(0pp) Y/Y"
+            ]
+          },
+          {
+            "id": "other_opex",
+            "label": "Other",
+            "value": 33,
+            "notes": []
+          }
+        ]
+      },
+      "tax": {
+        "label": "Tax expense",
+        "value": 0
+      }
+    },
+    "otherIncome": {
+      "total": 992,
+      "items": [
+        {
+          "id": "tax_benefit",
+          "label": "Tax benefit",
+          "value": 992,
+          "notes": []
+        }
+      ]
+    },
+    "otherExpenses": {
+      "total": 9,
+      "items": [
+        {
+          "id": "other",
+          "label": "Other",
+          "value": 9,
+          "notes": []
+        }
+      ]
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 726,
+        "notes": [
+          "48% margin",
+          "(1pp) Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_profit",
+        "label": "Operating profit",
+        "value": 85,
+        "notes": [
+          "6% margin",
+          "+3pp Y/Y"
+        ]
+      },
+      "net": {
+        "id": "net_profit",
+        "label": "Net profit",
+        "value": 1067,
+        "notes": [
+          "71% margin",
+          "+69pp Y/Y",
+          "Displayed rounded values give $85M + $992M - $9M = $1,068M; the Source reports $1,067M net profit."
+        ]
+      }
+    },
+    "operatingMetrics": [
+      {
+        "id": "dbne",
+        "label": "DBNE",
+        "value": "116",
+        "unit": "%",
+        "currency": null,
+        "comparison": "eq",
+        "literal": "116%",
+        "basis": "unspecified",
+        "notes": [
+          "+8pp Y/Y"
+        ],
+        "quote": "DBNE\n116%\n+8pp Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            186,
+            1155,
+            191,
+            159
+          ]
+        }
+      }
+    ],
+    "i18n": {
+      "zh": {
+        "period": "2026 财年第二季度",
+        "revenue": {
+          "notes": [
+            "同比 +22%"
+          ],
+          "items": [
+            {
+              "id": "united_states",
+              "label": "美国",
+              "notes": [
+                "同比 +22%"
+              ]
+            },
+            {
+              "id": "international",
+              "label": "国际",
+              "notes": [
+                "同比 +22%"
+              ]
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "收入成本"
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "rnd",
+                "label": "研发 (R&D)",
+                "notes": [
+                  "占收入 18%",
+                  "同比 (2 个百分点)"
+                ]
+              },
+              {
+                "id": "sm",
+                "label": "销售与市场 (S&M)",
+                "notes": [
+                  "占收入 14%",
+                  "同比 (4 个百分点)"
+                ]
+              },
+              {
+                "id": "ga",
+                "label": "管理费用 (G&A)",
+                "notes": [
+                  "占收入 8%",
+                  "同比 (0 个百分点)"
+                ]
+              },
+              {
+                "id": "other_opex",
+                "label": "其他",
+                "notes": []
+              }
+            ]
+          },
+          "tax": {
+            "label": "所得税费用"
+          }
+        },
+        "otherIncome": {
+          "items": [
+            {
+              "id": "tax_benefit",
+              "label": "税项收益"
+            }
+          ]
+        },
+        "otherExpenses": {
+          "items": [
+            {
+              "id": "other",
+              "label": "其他"
+            }
+          ]
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 48%",
+              "同比 (1 个百分点)"
+            ]
+          },
+          "operating": {
+            "label": "营业利润",
+            "notes": [
+              "利润率 6%",
+              "同比 +3 个百分点"
+            ]
+          },
+          "net": {
+            "label": "净利润",
+            "notes": [
+              "利润率 71%",
+              "同比 +69 个百分点",
+              "显示金额取整后为 $85M + $992M - $9M = $1,068M；原图净利润为 $1,067M。"
+            ]
+          }
+        },
+        "operatingMetrics": [
+          {
+            "id": "dbne",
+            "label": "DBNE",
+            "notes": [
+              "同比 +8 个百分点"
+            ]
+          }
+        ]
+      }
+    }
+  }
+]);})(window);

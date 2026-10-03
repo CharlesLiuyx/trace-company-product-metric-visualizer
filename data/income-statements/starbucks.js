@@ -9,6 +9,391 @@
   });
 
   ssot.records.push(
+{
+  "key": "starbucks-q2-fy25",
+  "company": "Starbucks",
+  "period": "Q2 FY25",
+  "periodNote": "Ending March. 2025",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/starbucks-q2-fy25.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 8.8,
+    "notes": [
+      "+2% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "beverage",
+        "label": "Beverage",
+        "value": 5.3,
+        "notes": [
+          "+3% Y/Y"
+        ]
+      },
+      {
+        "id": "food",
+        "label": "Food",
+        "value": 1.7,
+        "notes": [
+          "+7% Y/Y"
+        ]
+      },
+      {
+        "id": "other_revenue",
+        "label": "Other",
+        "value": 1.8,
+        "notes": [
+          "(2%) Y/Y",
+          "Packaged beverages, royalty and",
+          "licensing revenue, ingredients"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "label": "Cost of revenue",
+      "value": 7,
+      "items": [
+        {
+          "id": "product_distribution",
+          "label": "Product & distribution",
+          "value": 2.7
+        },
+        {
+          "id": "store_opex",
+          "label": "Store opex",
+          "value": 4.2
+        }
+      ],
+      "notes": [
+        "Source components total $6.9B; revenue less gross profit is $7.0B. Source independently rounded amounts."
+      ]
+    },
+    "operatingExpenses": {
+      "total": 1.3,
+      "items": [
+        {
+          "id": "ga",
+          "label": "General & administrative",
+          "value": 0.6
+        },
+        {
+          "id": "depreciation_amortization",
+          "label": "Depreciation & amortization",
+          "value": 0.4
+        },
+        {
+          "id": "restructuring",
+          "label": "Restructuring",
+          "value": 0.1
+        },
+        {
+          "id": "other_opex",
+          "label": "Other opex",
+          "value": 0.1
+        }
+      ],
+      "notes": [
+        "Source components total $1.2B; displayed operating expenses are $1.3B. Source independently rounded amounts."
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.1
+    }
+  },
+  "operatingOtherIncome": {
+    "total": 0.1,
+    "items": [
+      {
+        "id": "other_income",
+        "label": "Other",
+        "value": 0.1
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0.1,
+    "items": [
+      {
+        "id": "other_expense",
+        "label": "Other",
+        "value": 0.1
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 1.8,
+      "notes": [
+        "21% margin",
+        "(4pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 0.6,
+      "notes": [
+        "7% margin",
+        "(6pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 0.4,
+      "notes": [
+        "4% margin",
+        "(5pp) Y/Y"
+      ]
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "store_count",
+      "label": "Store count",
+      "value": "40789",
+      "unit": "count",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "40,789",
+      "basis": "unspecified",
+      "notes": [
+        "+5% Y/Y"
+      ],
+      "quote": "Store count 40,789 +5% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          26,
+          1205,
+          273,
+          148
+        ]
+      }
+    },
+    {
+      "id": "same_store_sale",
+      "label": "Same Store Sale",
+      "value": "1",
+      "unit": "%",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "1%",
+      "basis": "Year-over-year decline magnitude",
+      "notes": [
+        "(1%) Y/Y"
+      ],
+      "quote": "Same Store Sale (1%) Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          307,
+          1205,
+          421,
+          59
+        ]
+      }
+    },
+    {
+      "id": "ticket",
+      "label": "Ticket",
+      "value": "1",
+      "unit": "%",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "+1%",
+      "basis": "unspecified",
+      "notes": [
+        "Y/Y"
+      ],
+      "quote": "Ticket +1% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          391,
+          1271,
+          234,
+          33
+        ]
+      }
+    },
+    {
+      "id": "transactions",
+      "label": "Transactions",
+      "value": "2",
+      "unit": "%",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "2%",
+      "basis": "Year-over-year decline magnitude",
+      "notes": [
+        "(2%) Y/Y"
+      ],
+      "quote": "Transactions (2%) Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          391,
+          1305,
+          247,
+          34
+        ]
+      }
+    }
+  ],
+  "i18n": {
+    "zh": {
+      "period": "2025 财年第二季度",
+      "periodNote": "截至 2025 年 3 月",
+      "revenue": {
+        "notes": [
+          "同比 +2%"
+        ],
+        "items": [
+          {
+            "id": "beverage",
+            "label": "饮品",
+            "notes": [
+              "同比 +3%"
+            ]
+          },
+          {
+            "id": "food",
+            "label": "食品",
+            "notes": [
+              "同比 +7%"
+            ]
+          },
+          {
+            "id": "other_revenue",
+            "label": "其他",
+            "notes": [
+              "同比 (2%)",
+              "包装饮品、版税和",
+              "授权收入、原料"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本",
+          "items": [
+            {
+              "id": "product_distribution",
+              "label": "产品与分销"
+            },
+            {
+              "id": "store_opex",
+              "label": "门店运营费用"
+            }
+          ]
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "ga",
+              "label": "一般及行政"
+            },
+            {
+              "id": "depreciation_amortization",
+              "label": "折旧与摊销"
+            },
+            {
+              "id": "restructuring",
+              "label": "重组"
+            },
+            {
+              "id": "other_opex",
+              "label": "其他运营费用"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "operatingOtherIncome": {
+        "items": [
+          {
+            "id": "other_income",
+            "label": "其他"
+          }
+        ]
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other_expense",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 21%",
+            "同比 (4 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 7%",
+            "同比 (6 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 4%",
+            "同比 (5 个百分点)"
+          ]
+        }
+      },
+      "operatingMetrics": [
+        {
+          "id": "store_count",
+          "label": "门店数",
+          "notes": [
+            "同比 +5%"
+          ]
+        },
+        {
+          "id": "same_store_sale",
+          "label": "同店销售额",
+          "notes": [
+            "同比 (1%)"
+          ]
+        },
+        {
+          "id": "ticket",
+          "label": "客单价",
+          "notes": [
+            "同比"
+          ]
+        },
+        {
+          "id": "transactions",
+          "label": "交易量",
+          "notes": [
+            "同比 (2%)"
+          ]
+        }
+      ]
+    }
+  }
+},
     {
       key: 'starbucks-q1-fy26',
       company: 'Starbucks',

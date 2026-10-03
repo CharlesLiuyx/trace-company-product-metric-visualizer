@@ -1,0 +1,123 @@
+{
+  "source": "input/processed/ford-q1-fy25.png",
+  "outputDir": "data/assets/icon-references/ford/q1-fy25",
+  "runtimeOutputDir": "data/assets/raster-annotations/ford/q1-fy25",
+  "validationSheetDir": "data/assets/icon-references/ford/q1-fy25/validation-sheets",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "crops": [
+    {
+      "key": "ford-company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": {
+        "x": 787,
+        "y": 236,
+        "width": 539,
+        "height": 197
+      },
+      "cropBox": {
+        "x": 787,
+        "y": 236,
+        "width": 539,
+        "height": 197
+      },
+      "minComponentArea": 20,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "ford-blue",
+      "output": "crops/blue.png",
+      "searchBox": {
+        "x": 85,
+        "y": 483,
+        "width": 279,
+        "height": 129
+      },
+      "cropBox": {
+        "x": 85,
+        "y": 483,
+        "width": 279,
+        "height": 129
+      },
+      "minComponentArea": 20,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "ford-model-e",
+      "output": "crops/model-e.png",
+      "searchBox": {
+        "x": 81,
+        "y": 754,
+        "width": 280,
+        "height": 128
+      },
+      "cropBox": {
+        "x": 81,
+        "y": 754,
+        "width": 280,
+        "height": 128
+      },
+      "minComponentArea": 20,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "ford-pro",
+      "output": "crops/pro.png",
+      "searchBox": {
+        "x": 78,
+        "y": 956,
+        "width": 279,
+        "height": 129
+      },
+      "cropBox": {
+        "x": 78,
+        "y": 956,
+        "width": 279,
+        "height": 129
+      },
+      "minComponentArea": 20,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "ford-credit",
+      "output": "crops/credit.png",
+      "searchBox": {
+        "x": 76,
+        "y": 1156,
+        "width": 284,
+        "height": 130
+      },
+      "cropBox": {
+        "x": 76,
+        "y": 1156,
+        "width": 284,
+        "height": 130
+      },
+      "minComponentArea": 20,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.1,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ]
+}

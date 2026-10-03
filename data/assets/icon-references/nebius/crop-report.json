@@ -1,0 +1,124 @@
+{
+  "source": "input/processed/nebius-q2-fy26.png",
+  "spec": "input/icon-crop-specs/nebius-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-03T07:51:33.866235+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": false,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/nebius",
+  "crops": [
+    {
+      "key": "nebius-company-logo",
+      "output": "data/assets/icon-references/nebius/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 128,
+        "bytes": 27669,
+        "losslessBytes": 59719,
+        "savingsVsLossless": 0.5367,
+        "metrics": {
+          "meanAbsoluteError": 0.6477,
+          "rootMeanSquareError": 1.9493,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 44,
+          "changedPixelRatio": 0.3572
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 508,
+        "y": 233,
+        "width": 668,
+        "height": 195
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 515,
+        "y0": 241,
+        "x1": 1169,
+        "y1": 421
+      },
+      "cropBox": {
+        "x0": 508,
+        "y0": 233,
+        "x1": 1176,
+        "y1": 428
+      },
+      "validation": {
+        "width": 668,
+        "height": 195,
+        "foregroundPixels": 115846,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 7,
+          "top": 8,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0026
+        },
+        "passes": true
+      },
+      "note": "Complete Nebius brand cluster; no chart text or connectors.",
+      "runtimeOutput": "data/assets/raster-annotations/nebius/company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 128,
+        "bytes": 27669,
+        "losslessBytes": 59719,
+        "savingsVsLossless": 0.5367,
+        "metrics": {
+          "meanAbsoluteError": 0.6477,
+          "rootMeanSquareError": 1.9493,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 44,
+          "changedPixelRatio": 0.3572
+        }
+      },
+      "validationSheet": "data/assets/icon-references/nebius/validation-sheets/nebius-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 218171,
+        "losslessBytes": 218171,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

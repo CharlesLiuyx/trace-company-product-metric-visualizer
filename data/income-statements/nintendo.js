@@ -1,5 +1,4 @@
-/* Pure financial records; geometry belongs to the View Adapter. */
-(function(global){ const ssot=global.INCOME_STATEMENT_SSOT=global.INCOME_STATEMENT_SSOT||{schemaVersion:1,records:[]}; ssot.records.push(...[
+(function(g){const s=g.INCOME_STATEMENT_SSOT=g.INCOME_STATEMENT_SSOT||{schemaVersion:1,records:[]};s.records.push(...[
   {
     "key": "nintendo-fy26",
     "company": "Nintendo",
@@ -1027,5 +1026,381 @@
     "notes": [
       "Source amounts are rounded to ¥1B: revenue less cost of sales differs from gross profit by ¥1B; gross profit less operating expenses differs from operating profit by ¥1B; operating profit plus Other less tax differs from net profit by ¥1B."
     ]
+  },
+  {
+    "key": "nintendo-fy25",
+    "company": "Nintendo",
+    "period": "FY25",
+    "periodNote": "Ending Mar. 2025",
+    "currency": "JPY",
+    "unit": "B",
+    "decimals": 0,
+    "sourceImage": "input/processed/nintendo-fy25.png",
+    "roundingTolerance": 1.2,
+    "revenue": {
+      "total": 1165,
+      "notes": [
+        "(30%) Y/Y"
+      ],
+      "items": [
+        {
+          "id": "dedicated_video_game_platform",
+          "label": "Nintendo Switch",
+          "value": 1084,
+          "notes": [
+            "(31%) Y/Y"
+          ],
+          "children": [
+            {
+              "id": "software",
+              "label": "Software",
+              "value": 610,
+              "notes": [
+                "(46%) Y/Y"
+              ]
+            },
+            {
+              "id": "hardware",
+              "label": "Hardware",
+              "value": 474,
+              "notes": [
+                "(31%) Y/Y"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mobile_ip",
+          "label": "Mobile & IP related",
+          "value": 68,
+          "notes": [
+            "(27%) Y/Y"
+          ]
+        },
+        {
+          "id": "other_revenue",
+          "label": "Other",
+          "value": 14,
+          "notes": [
+            "+21% Y/Y"
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_sales",
+        "label": "Cost of sales",
+        "value": 455,
+        "notes": []
+      },
+      "operatingExpenses": {
+        "total": 428,
+        "items": [
+          {
+            "id": "other_sga",
+            "label": "Other SG&A",
+            "value": 197,
+            "notes": [
+              "17% of revenue",
+              "+6pp Y/Y"
+            ]
+          },
+          {
+            "id": "rnd",
+            "label": "R&D",
+            "value": 144,
+            "notes": [
+              "12% of revenue",
+              "+4pp Y/Y"
+            ]
+          },
+          {
+            "id": "advertising",
+            "label": "Advertising",
+            "value": 87,
+            "notes": [
+              "7% of revenue",
+              "+1pp Y/Y"
+            ]
+          }
+        ]
+      },
+      "tax": {
+        "id": "tax",
+        "label": "Tax",
+        "value": 94,
+        "notes": []
+      }
+    },
+    "otherIncome": {
+      "total": 90,
+      "items": [
+        {
+          "id": "other_income",
+          "label": "Other",
+          "value": 90,
+          "notes": []
+        }
+      ]
+    },
+    "otherExpenses": {
+      "total": 0,
+      "items": []
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 710,
+        "notes": [
+          "61% margin",
+          "+4pp Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_profit",
+        "label": "Operating profit",
+        "value": 283,
+        "notes": [
+          "24% margin",
+          "(7pp) Y/Y"
+        ]
+      },
+      "net": {
+        "id": "net_profit",
+        "label": "Net profit",
+        "value": 279,
+        "notes": [
+          "24% margin",
+          "(5pp) Y/Y"
+        ]
+      }
+    },
+    "operatingMetrics": [
+      {
+        "id": "software_units",
+        "label": "Software units",
+        "value": "155000000",
+        "unit": "count",
+        "currency": null,
+        "comparison": "eq",
+        "literal": "155M",
+        "basis": "unspecified",
+        "notes": [
+          "(22%) Y/Y"
+        ],
+        "quote": "Software units\n155M units\n(22%) Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            152,
+            537,
+            156,
+            36
+          ]
+        }
+      },
+      {
+        "id": "hardware_units",
+        "label": "Hardware units",
+        "value": "11000000",
+        "unit": "count",
+        "currency": null,
+        "comparison": "eq",
+        "literal": "11M",
+        "basis": "unspecified",
+        "notes": [
+          "(31%) Y/Y"
+        ],
+        "quote": "Hardware units\n11M units\n(31%) Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            154,
+            947,
+            156,
+            35
+          ]
+        }
+      },
+      {
+        "id": "digital_share",
+        "label": "Digital share",
+        "value": "54",
+        "unit": "%",
+        "currency": null,
+        "comparison": "eq",
+        "literal": "54%",
+        "basis": "unspecified",
+        "notes": [
+          "+3pp Y/Y"
+        ],
+        "quote": "Digital share\n54%\n+3pp Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            154,
+            616,
+            156,
+            35
+          ]
+        }
+      }
+    ],
+    "notes": [
+      "Source rounds to ¥1B: revenue items sum to ¥1,166B versus ¥1,165B total; ¥710B gross profit less ¥428B operating expenses equals ¥282B versus ¥283B operating profit."
+    ],
+    "i18n": {
+      "zh": {
+        "period": "2025 财年",
+        "periodNote": "截至 2025 年 3 月",
+        "revenue": {
+          "notes": [
+            "同比 (30%)"
+          ],
+          "items": [
+            {
+              "id": "dedicated_video_game_platform",
+              "label": "Nintendo Switch 平台",
+              "notes": [
+                "同比 (31%)"
+              ],
+              "children": [
+                {
+                  "id": "software",
+                  "label": "软件",
+                  "notes": [
+                    "同比 (46%)"
+                  ]
+                },
+                {
+                  "id": "hardware",
+                  "label": "硬件",
+                  "notes": [
+                    "同比 (31%)"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "mobile_ip",
+              "label": "移动业务与 IP 相关收入",
+              "notes": [
+                "同比 (27%)"
+              ]
+            },
+            {
+              "id": "other_revenue",
+              "label": "其他",
+              "notes": [
+                "同比 +21%"
+              ]
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "id": "cost_of_sales",
+            "label": "销售成本",
+            "notes": []
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "other_sga",
+                "label": "其他 SG&A",
+                "notes": [
+                  "占收入 17%",
+                  "同比 +6pp"
+                ]
+              },
+              {
+                "id": "rnd",
+                "label": "研发（R&D）",
+                "notes": [
+                  "占收入 12%",
+                  "同比 +4pp"
+                ]
+              },
+              {
+                "id": "advertising",
+                "label": "广告",
+                "notes": [
+                  "占收入 7%",
+                  "同比 +1pp"
+                ]
+              }
+            ]
+          },
+          "tax": {
+            "id": "tax",
+            "label": "税费",
+            "notes": []
+          }
+        },
+        "otherIncome": {
+          "items": [
+            {
+              "id": "other_income",
+              "label": "其他",
+              "notes": []
+            }
+          ]
+        },
+        "profit": {
+          "gross": {
+            "id": "gross_profit",
+            "label": "毛利润",
+            "notes": [
+              "利润率 61%",
+              "同比 +4pp"
+            ]
+          },
+          "operating": {
+            "id": "operating_profit",
+            "label": "营业利润",
+            "notes": [
+              "利润率 24%",
+              "同比 (7pp)"
+            ]
+          },
+          "net": {
+            "id": "net_profit",
+            "label": "净利润",
+            "notes": [
+              "利润率 24%",
+              "同比 (5pp)"
+            ]
+          }
+        },
+        "operatingMetrics": [
+          {
+            "id": "software_units",
+            "label": "软件销量",
+            "notes": [
+              "同比 (22%)"
+            ]
+          },
+          {
+            "id": "hardware_units",
+            "label": "硬件销量",
+            "notes": [
+              "同比 (31%)"
+            ]
+          },
+          {
+            "id": "digital_share",
+            "label": "数字版占比",
+            "notes": [
+              "同比 +3pp"
+            ]
+          }
+        ],
+        "notes": [
+          "原图金额取整至 ¥1B：收入分项合计 ¥1,166B，总收入为 ¥1,165B；¥710B 毛利润减去 ¥428B 运营费用等于 ¥282B，原图营业利润为 ¥283B。"
+        ]
+      }
+    }
   }
-]); })(window);
+]);})(window);

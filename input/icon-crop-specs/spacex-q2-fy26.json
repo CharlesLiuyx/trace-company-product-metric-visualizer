@@ -1,0 +1,251 @@
+{
+  "source": "input/processing/spacex-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/spacex",
+  "runtimeOutputDir": "data/assets/raster-annotations/spacex",
+  "validationSheetDir": "data/assets/icon-references/spacex/validation-sheets",
+  "report": "crop-report-q2-fy26.json",
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6,
+    "color": [
+      242,
+      242,
+      242
+    ]
+  },
+  "crops": [
+    {
+      "key": "spacex-q2-fy26-company-symbol",
+      "output": "crops/q2-fy26-company-symbol.png",
+      "searchBox": {
+        "x": 810,
+        "y": 280,
+        "width": 510,
+        "height": 205
+      },
+      "cropBox": {
+        "x": 810,
+        "y": 280,
+        "width": 510,
+        "height": 205
+      },
+      "threshold": 8,
+      "minComponentArea": 2,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete source X symbol. Excludes neighboring gross-profit text in the empty lower-right region. Runtime uses two adjacent fragments to measure clearance against painted regions.",
+      "foreground": {
+        "channels": {
+          "r": [
+            0,
+            160
+          ],
+          "g": [
+            0,
+            160
+          ],
+          "b": [
+            0,
+            160
+          ]
+        }
+      },
+      "excludeBoxes": [
+        {
+          "x": 1210,
+          "y": 340,
+          "width": 110,
+          "height": 145
+        }
+      ]
+    },
+    {
+      "key": "spacex-q2-fy26-company-symbol-body",
+      "output": "crops/q2-fy26-company-symbol-body.png",
+      "searchBox": {
+        "x": 810,
+        "y": 280,
+        "width": 400,
+        "height": 205
+      },
+      "cropBox": {
+        "x": 810,
+        "y": 280,
+        "width": 400,
+        "height": 205
+      },
+      "threshold": 8,
+      "minComponentArea": 2,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Extracted from Q2 FY26 source at native coordinates. Company symbol body and tail meet at x=1210 without rescaling.",
+      "foreground": {
+        "channels": {
+          "r": [
+            0,
+            160
+          ],
+          "g": [
+            0,
+            160
+          ],
+          "b": [
+            0,
+            160
+          ]
+        }
+      }
+    },
+    {
+      "key": "spacex-q2-fy26-company-symbol-tail",
+      "output": "crops/q2-fy26-company-symbol-tail.png",
+      "searchBox": {
+        "x": 1210,
+        "y": 280,
+        "width": 110,
+        "height": 32
+      },
+      "cropBox": {
+        "x": 1210,
+        "y": 280,
+        "width": 110,
+        "height": 32
+      },
+      "threshold": 8,
+      "minComponentArea": 2,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Extracted from Q2 FY26 source at native coordinates. Company symbol body and tail meet at x=1210 without rescaling.",
+      "foreground": {
+        "channels": {
+          "r": [
+            0,
+            160
+          ],
+          "g": [
+            0,
+            160
+          ],
+          "b": [
+            0,
+            160
+          ]
+        }
+      }
+    },
+    {
+      "key": "spacex-q2-fy26-business-space-rocket",
+      "output": "crops/q2-fy26-business-space-rocket.png",
+      "searchBox": {
+        "x": 110,
+        "y": 275,
+        "width": 185,
+        "height": 200
+      },
+      "cropBox": {
+        "x": 110,
+        "y": 275,
+        "width": 185,
+        "height": 200
+      },
+      "threshold": 8,
+      "minComponentArea": 2,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Extracted from Q2 FY26 source at native coordinates. Company symbol body and tail meet at x=1210 without rescaling."
+    },
+    {
+      "key": "spacex-q2-fy26-business-connectivity-starlink",
+      "output": "crops/q2-fy26-business-connectivity-starlink.png",
+      "searchBox": {
+        "x": 150,
+        "y": 696,
+        "width": 244,
+        "height": 123
+      },
+      "cropBox": {
+        "x": 150,
+        "y": 696,
+        "width": 244,
+        "height": 123
+      },
+      "threshold": 8,
+      "minComponentArea": 2,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Extracted from Q2 FY26 source at native coordinates. Company symbol body and tail meet at x=1210 without rescaling.",
+      "foreground": {
+        "channels": {
+          "r": [
+            0,
+            160
+          ],
+          "g": [
+            0,
+            160
+          ],
+          "b": [
+            0,
+            160
+          ]
+        }
+      }
+    },
+    {
+      "key": "spacex-q2-fy26-business-ai-cluster",
+      "output": "crops/q2-fy26-business-ai-cluster.png",
+      "searchBox": {
+        "x": 80,
+        "y": 1048,
+        "width": 283,
+        "height": 102
+      },
+      "cropBox": {
+        "x": 80,
+        "y": 1048,
+        "width": 283,
+        "height": 102
+      },
+      "threshold": 8,
+      "minComponentArea": 2,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Extracted from Q2 FY26 source at native coordinates. Company symbol body and tail meet at x=1210 without rescaling.",
+      "foreground": {
+        "channels": {
+          "r": [
+            0,
+            160
+          ],
+          "g": [
+            0,
+            160
+          ],
+          "b": [
+            0,
+            160
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -8,7 +8,380 @@
     records: [],
   });
 
-  ssot.records.push(
+  ssot.records.push({
+  "key": "mastercard-q1-fy25",
+  "company": "Mastercard",
+  "period": "Q1 FY25",
+  "periodNote": "Ending Mar. 2025",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/mastercard-q1-fy25.png",
+  "roundingTolerance": 0.15,
+  "notes": [
+    "Amounts preserve the source rounding: 4.4 + 2.8 = 7.2 versus 7.3 net revenue; 4.1 + 3.1 = 7.2 versus 7.3; 4.1 - 0.8 - 0.1 = 3.2 versus 3.3 net profit; expense items sum to 3.2 versus 3.1."
+  ],
+  "revenue": {
+    "total": 7.3,
+    "notes": [
+      "+14% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "payment_network",
+        "label": "Payment Network",
+        "value": 4.4,
+        "notes": [
+          "+13% Y/Y"
+        ]
+      },
+      {
+        "id": "value_added",
+        "label": "Value-added Services & Solutions",
+        "value": 2.8,
+        "notes": [
+          "+16% Y/Y"
+        ]
+      }
+    ],
+    "paymentNetwork": {
+      "gross": {
+        "id": "network_revenue",
+        "label": "Gross payment-network revenue",
+        "value": 9
+      },
+      "grossItems": [
+        {
+          "id": "domestic",
+          "label": "Domestic assessments",
+          "value": 2.7,
+          "notes": [
+            "+8% Y/Y"
+          ]
+        },
+        {
+          "id": "cross_border",
+          "label": "Cross-border volume fees",
+          "value": 2.6,
+          "notes": [
+            "+16% Y/Y"
+          ]
+        },
+        {
+          "id": "transaction",
+          "label": "Transaction processing",
+          "value": 3.5,
+          "notes": [
+            "+14% Y/Y"
+          ]
+        },
+        {
+          "id": "other_rev",
+          "label": "Other",
+          "value": 0.2,
+          "notes": [
+            "+2% Y/Y"
+          ]
+        }
+      ],
+      "rebates": {
+        "id": "rebates",
+        "label": "Rebates & incentives",
+        "value": 4.6
+      }
+    }
+  },
+  "costs": {
+    "costOfRevenue": {
+      "label": "Cost of revenue",
+      "value": 0,
+      "notes": [
+        "No cost-of-revenue subtotal appears; net revenue flows directly to operating profit and operating expenses."
+      ]
+    },
+    "operatingExpenses": {
+      "total": 3.1,
+      "items": [
+        {
+          "id": "general_admin",
+          "label": "General & admin",
+          "value": 2.5
+        },
+        {
+          "id": "dna",
+          "label": "D&A",
+          "value": 0.3
+        },
+        {
+          "id": "marketing",
+          "label": "Marketing",
+          "value": 0.2
+        },
+        {
+          "id": "litigation",
+          "label": "Litigation",
+          "value": 0.2
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.8
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0.1,
+    "items": [
+      {
+        "id": "other_ded",
+        "label": "Other",
+        "value": 0.1
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "label": "Net revenue",
+      "value": 7.3,
+      "notes": [
+        "Balancing subtotal; source does not show gross profit."
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 4.1,
+      "notes": [
+        "57% margin",
+        "+0pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 3.3,
+      "notes": [
+        "45% margin",
+        "(2pp) Y/Y"
+      ]
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "gdv",
+      "label": "Gross Dollar Volume",
+      "value": "9",
+      "unit": "%",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "+9%",
+      "basis": "unspecified",
+      "notes": [
+        "Y/Y"
+      ],
+      "quote": "Gross Dollar Volume\n+9% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          18,
+          1194,
+          263,
+          148
+        ]
+      }
+    },
+    {
+      "id": "cbv",
+      "label": "Cross-Border Volume",
+      "value": "15",
+      "unit": "%",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "+15%",
+      "basis": "unspecified",
+      "notes": [
+        "Y/Y"
+      ],
+      "quote": "Cross-Border Volume\n+15% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          290,
+          1194,
+          292,
+          148
+        ]
+      }
+    },
+    {
+      "id": "switched",
+      "label": "Switched Transactions",
+      "value": "9",
+      "unit": "%",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "+9%",
+      "basis": "unspecified",
+      "notes": [
+        "Y/Y"
+      ],
+      "quote": "Switched Transactions\n+9% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          590,
+          1194,
+          292,
+          148
+        ]
+      }
+    }
+  ],
+  "i18n": {
+    "zh": {
+      "period": "2025 财年第一季度",
+      "periodNote": "截至 2025 年 3 月",
+      "revenue": {
+        "items": [
+          {
+            "id": "payment_network",
+            "label": "支付网络",
+            "notes": [
+              "同比 +13%"
+            ]
+          },
+          {
+            "id": "value_added",
+            "label": "增值服务与解决方案",
+            "notes": [
+              "同比 +16%"
+            ]
+          }
+        ],
+        "paymentNetwork": {
+          "gross": {
+            "label": "支付网络毛收入"
+          },
+          "grossItems": [
+            {
+              "id": "domestic",
+              "label": "境内评估费",
+              "notes": [
+                "同比 +8%"
+              ]
+            },
+            {
+              "id": "cross_border",
+              "label": "跨境交易量费",
+              "notes": [
+                "同比 +16%"
+              ]
+            },
+            {
+              "id": "transaction",
+              "label": "交易处理",
+              "notes": [
+                "同比 +14%"
+              ]
+            },
+            {
+              "id": "other_rev",
+              "label": "其他",
+              "notes": [
+                "同比 +2%"
+              ]
+            }
+          ],
+          "rebates": {
+            "label": "返利与激励"
+          }
+        }
+      },
+      "costs": {
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "general_admin",
+              "label": "一般及行政"
+            },
+            {
+              "id": "dna",
+              "label": "折旧与摊销"
+            },
+            {
+              "id": "marketing",
+              "label": "营销"
+            },
+            {
+              "id": "litigation",
+              "label": "诉讼"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other_ded",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "净收入"
+        },
+        "operating": {
+          "id": "operating_profit",
+          "label": "营业利润",
+          "notes": [
+            "利润率 57%",
+            "同比 +0pp"
+          ]
+        },
+        "net": {
+          "id": "net_profit",
+          "label": "净利润",
+          "notes": [
+            "利润率 45%",
+            "同比 (2pp)"
+          ]
+        }
+      },
+      "operatingMetrics": [
+        {
+          "id": "gdv",
+          "label": "总美元交易额",
+          "notes": [
+            "同比"
+          ]
+        },
+        {
+          "id": "cbv",
+          "label": "跨境交易额",
+          "notes": [
+            "同比"
+          ]
+        },
+        {
+          "id": "switched",
+          "label": "已处理交易笔数",
+          "notes": [
+            "同比"
+          ]
+        }
+      ]
+    }
+  }
+},
     {
       key: 'mastercard-q4-fy25',
       company: 'Mastercard',

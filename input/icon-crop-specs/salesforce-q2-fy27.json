@@ -1,0 +1,100 @@
+{
+  "source": "input/processing/salesforce-q2-fy27.png",
+  "outputDir": "data/assets/icon-references/salesforce/q2-fy27",
+  "validationSheetDir": "data/assets/icon-references/salesforce/q2-fy27/validation-sheets",
+  "runtimeOutputDir": "data/assets/raster-annotations/salesforce",
+  "report": "crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "salesforce-q2-fy27-company-logo",
+      "output": "crops/q2-fy27-company-logo.png",
+      "runtimeOutput": "q2-fy27-company-logo.png",
+      "searchBox": {
+        "x": 1040,
+        "y": 267,
+        "width": 344,
+        "height": 240
+      },
+      "cropBox": {
+        "x": 1040,
+        "y": 267,
+        "width": 344,
+        "height": 240
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete brand cluster only; excludes labels, values, chart marks and publisher."
+    },
+    {
+      "key": "salesforce-q2-fy27-agentforce-icons",
+      "output": "crops/q2-fy27-agentforce-icons.png",
+      "runtimeOutput": "q2-fy27-agentforce-icons.png",
+      "searchBox": {
+        "x": 20,
+        "y": 688,
+        "width": 408,
+        "height": 69
+      },
+      "cropBox": {
+        "x": 20,
+        "y": 688,
+        "width": 408,
+        "height": 69
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete brand cluster only; excludes labels, values, chart marks and publisher."
+    },
+    {
+      "key": "salesforce-q2-fy27-data360-icons",
+      "output": "crops/q2-fy27-data360-icons.png",
+      "runtimeOutput": "q2-fy27-data360-icons.png",
+      "searchBox": {
+        "x": 73,
+        "y": 1097,
+        "width": 326,
+        "height": 81
+      },
+      "cropBox": {
+        "x": 73,
+        "y": 1097,
+        "width": 326,
+        "height": 81
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete brand cluster only; excludes labels, values, chart marks and publisher."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "publisher",
+      "reason": "Publisher branding and URL are nonsemantic."
+    }
+  ]
+}

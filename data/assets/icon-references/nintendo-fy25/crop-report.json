@@ -1,0 +1,215 @@
+{
+  "source": "input/processed/nintendo-fy25.png",
+  "spec": "output/builds/build-c6827760-d27c-47eb-bd80-d738aeed4381/workspace/input/icon-crop-specs/nintendo-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-03T07:52:09.341202+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/nintendo",
+  "crops": [
+    {
+      "key": "mobile-store-icons-fy25",
+      "output": "data/assets/icon-references/nintendo-fy25/crops/mobile-store-icons-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 1783,
+        "losslessBytes": 6643,
+        "savingsVsLossless": 0.7316,
+        "metrics": {
+          "meanAbsoluteError": 0.7458,
+          "rootMeanSquareError": 2.4567,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 44,
+          "changedPixelRatio": 0.5306
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 7838,
+        "transparentPixelRatio": 0.4275
+      },
+      "searchBox": {
+        "x": 404,
+        "y": 1073,
+        "width": 96,
+        "height": 191
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 410,
+        "y0": 1078,
+        "x1": 493,
+        "y1": 1258
+      },
+      "cropBox": {
+        "x0": 404,
+        "y0": 1073,
+        "x1": 500,
+        "y1": 1264
+      },
+      "validation": {
+        "width": 96,
+        "height": 191,
+        "foregroundPixels": 9552,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 7,
+          "top": 5,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": -0.0052,
+          "y": -0.0026
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/nintendo/mobile-store-icons-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 1783,
+        "losslessBytes": 6643,
+        "savingsVsLossless": 0.7316,
+        "metrics": {
+          "meanAbsoluteError": 0.7458,
+          "rootMeanSquareError": 2.4567,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 44,
+          "changedPixelRatio": 0.5306
+        }
+      },
+      "validationSheet": "data/assets/icon-references/nintendo-fy25/validation-sheets/mobile-store-icons-fy25.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 274030,
+        "losslessBytes": 274030,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "mario-fy25",
+      "output": "data/assets/icon-references/nintendo-fy25/crops/mario-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 97380,
+        "losslessBytes": 97380,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 44866,
+        "transparentPixelRatio": 0.5087
+      },
+      "searchBox": {
+        "x": 1660,
+        "y": 1005,
+        "width": 210,
+        "height": 420
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 1674,
+        "y0": 1021,
+        "x1": 1854,
+        "y1": 1412
+      },
+      "cropBox": {
+        "x0": 1660,
+        "y0": 1005,
+        "x1": 1870,
+        "y1": 1425
+      },
+      "validation": {
+        "width": 210,
+        "height": 420,
+        "foregroundPixels": 41468,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 14,
+          "right": 16,
+          "top": 16,
+          "bottom": 13
+        },
+        "centerOffset": {
+          "x": -0.0048,
+          "y": 0.0036
+        },
+        "passes": true
+      },
+      "note": "Mario character illustration; excludes neighboring operating expense text above its right edge.",
+      "excludedPixels": 3900,
+      "runtimeOutput": "data/assets/raster-annotations/nintendo/mario-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 97380,
+        "losslessBytes": 97380,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/nintendo-fy25/validation-sheets/mario-fy25.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 333775,
+        "losslessBytes": 333775,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

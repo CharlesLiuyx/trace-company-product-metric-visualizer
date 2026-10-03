@@ -1,378 +1,1203 @@
-/* Pure income-statement SSOT records. Financial data only — Sankey view
- * geometry stays in data/datasets/<dataset-key>.js. Format: data/schema.md. */
-(function (global) {
-  'use strict';
-
-  const ssot = (global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || {
-    schemaVersion: 1,
-    records: [],
-  });
-
-  ssot.records.push(
-    {
-      key: 'ferrari-q2-fy26',
-      company: 'Ferrari',
-      period: 'Q2 FY26',
-      periodNote: 'Ending Jun. 2026',
-      currency: '€',
-      unit: 'B',
-      decimals: 3,
-      sourceImage: 'input/processed/ferrari-q2-fy26.png',
-      roundingTolerance: 0.16,
-      revenue: {
-        total: 1.9,
-        notes: ['+8% Y/Y'],
-        items: [
-          { id: 'cars_and_spare_parts', label: 'Cars and spare parts', value: 1.6, notes: ['+8% Y/Y'] },
-          { id: 'sponsorships_commercial_brands', label: 'Sponsorships, commercial & brands', value: 0.2, notes: ['+2% Y/Y'] },
-          { id: 'other', label: 'Other', value: 0.1, notes: ['+33% Y/Y'] },
-        ],
-      },
-      costs: {
-        costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 0.9 },
-        operatingExpenses: {
-          total: 0.4,
-          items: [
-            { id: 'rnd', label: 'R&D', value: 0.2, notes: ['11% of revenue', '(1pp) Y/Y'] },
-            { id: 'sga', label: 'SG&A', value: 0.2, notes: ['10% of revenue', '+1pp Y/Y'] },
-            { id: 'other_opex', label: 'Other', value: 0.012, notes: ['€12M'] },
-          ],
+(function(global){const ssot=global.INCOME_STATEMENT_SSOT=global.INCOME_STATEMENT_SSOT||{schemaVersion:1,records:[]};ssot.records.push(...[
+  {
+    "key": "ferrari-q2-fy26",
+    "company": "Ferrari",
+    "period": "Q2 FY26",
+    "periodNote": "Ending Jun. 2026",
+    "currency": "€",
+    "unit": "B",
+    "decimals": 3,
+    "sourceImage": "input/processed/ferrari-q2-fy26.png",
+    "roundingTolerance": 0.16,
+    "revenue": {
+      "total": 1.9,
+      "notes": [
+        "+8% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "cars_and_spare_parts",
+          "label": "Cars and spare parts",
+          "value": 1.6,
+          "notes": [
+            "+8% Y/Y"
+          ]
         },
-        tax: { id: 'tax', label: 'Tax', value: 0.1 },
-      },
-      operatingOtherIncome: {
-        total: 0.004,
-        items: [{ id: 'investments', label: 'Investments', value: 0.004, notes: ['€4M'] }],
-      },
-      otherIncome: {
-        total: 0,
-        items: [],
-      },
-      otherExpenses: {
-        total: 0.004,
-        items: [{ id: 'finance', label: 'Finance', value: 0.004, notes: ['€4M'] }],
-      },
-      profit: {
-        gross: { id: 'gross_profit', label: 'Gross profit', value: 1.0, notes: ['53% margin', '(0pp) Y/Y'] },
-        operating: {
-          id: 'operating_profit',
-          label: 'Operating profit',
-          value: 0.6,
-          notes: [
-            '31% margin',
-            '+0pp Y/Y',
-            'Gross profit plus €4M investments less €0.4B operating expenses sums to €0.604B; the source chart reports €0.6B after rounding.',
-          ],
+        {
+          "id": "sponsorships_commercial_brands",
+          "label": "Sponsorships, commercial & brands",
+          "value": 0.2,
+          "notes": [
+            "+2% Y/Y"
+          ]
         },
-        net: {
-          id: 'net_profit',
-          label: 'Net profit',
-          value: 0.5,
-          notes: [
-            '24% margin',
-            '+0pp Y/Y',
-            'Operating profit less tax and €4M finance expense sums to €0.496B; the source chart reports €0.5B after rounding.',
-          ],
-        },
-      },
-      i18n: {
-        zh: {
-          period: '2026 财年第二季度',
-          periodNote: '截至 2026 年 6 月',
-          revenue: {
-            notes: ['同比 +8%'],
-            items: [
-              { id: 'cars_and_spare_parts', label: '汽车及零部件', notes: ['同比 +8%'] },
-              { id: 'sponsorships_commercial_brands', label: '赞助、商业与品牌', notes: ['同比 +2%'] },
-              { id: 'other', label: '其他', notes: ['同比 +33%'] },
-            ],
-          },
-          costs: {
-            costOfRevenue: { label: '销售成本' },
-            operatingExpenses: {
-              items: [
-                { id: 'rnd', label: '研发', notes: ['占收入 11%', '同比（1 个百分点）'] },
-                { id: 'sga', label: '销售、一般及管理费用', notes: ['占收入 10%', '同比 +1 个百分点'] },
-                { id: 'other_opex', label: '其他', notes: ['€12M'] },
-              ],
-            },
-            tax: { label: '税费' },
-          },
-          operatingOtherIncome: {
-            items: [{ id: 'investments', label: '投资收益', notes: ['€4M'] }],
-          },
-          otherExpenses: {
-            items: [{ id: 'finance', label: '财务费用', notes: ['€4M'] }],
-          },
-          profit: {
-            gross: { label: '毛利润', notes: ['利润率 53%', '同比（0 个百分点）'] },
-            operating: { label: '营业利润', notes: ['利润率 31%', '同比 +0 个百分点'] },
-            net: { label: '净利润', notes: ['利润率 24%', '同比 +0 个百分点'] },
-          },
-        },
-      },
+        {
+          "id": "other",
+          "label": "Other",
+          "value": 0.1,
+          "notes": [
+            "+33% Y/Y"
+          ]
+        }
+      ]
     },
-    {
-      key: 'ferrari-q1-fy26',
-      company: 'Ferrari',
-      period: 'Q1 FY26',
-      periodNote: 'Ending Mar. 2026',
-      currency: '€',
-      unit: 'B',
-      decimals: 1,
-      sourceImage: 'input/processed/ferrari-q1-fy26.png',
-      roundingTolerance: 0.16,
-      revenue: {
-        total: 1.8,
-        notes: ['+3% Y/Y'],
-        items: [
-          { id: 'cars_and_spare_parts', label: 'Cars and spare parts', value: 1.6, notes: ['+1% Y/Y'] },
-          { id: 'sponsorships_commercial_brands', label: 'Sponsorships, commercial & brands', value: 0.2, notes: ['+14% Y/Y'] },
-          { id: 'other', label: 'Other', value: 0.1, notes: ['+16% Y/Y'] },
-        ],
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_sales",
+        "label": "Cost of sales",
+        "value": 0.9
       },
-      costs: {
-        costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 0.9 },
-        operatingExpenses: {
-          total: 0.4,
-          items: [
-            { id: 'rnd', label: 'R&D', value: 0.2, notes: ['13% of revenue', '+0pp Y/Y'] },
-            { id: 'sga', label: 'SG&A', value: 0.2, notes: ['9% of revenue', '+0pp Y/Y'] },
-          ],
-        },
-        tax: { id: 'tax', label: 'Tax', value: 0.1 },
-      },
-      operatingOtherIncome: {
-        total: 0.003,
-        items: [{ id: 'investments', label: 'Investments', value: 0.003, notes: ['€3M'] }],
-      },
-      otherIncome: {
-        total: 0,
-        items: [],
-      },
-      otherExpenses: {
-        total: 0.011,
-        items: [{ id: 'finance', label: 'Finance', value: 0.011, notes: ['€11M'] }],
-      },
-      profit: {
-        gross: { id: 'gross_profit', label: 'Gross profit', value: 1.0, notes: ['52% margin', '(0pp) Y/Y'] },
-        operating: { id: 'operating_profit', label: 'Operating profit', value: 0.5, notes: ['30% margin', '(1pp) Y/Y'] },
-        net: {
-          id: 'net_profit',
-          label: 'Net profit',
-          value: 0.4,
-          notes: [
-            '22% margin',
-            '(1pp) Y/Y',
-            'Operating profit plus €3M investments less tax and finance expense sums to €0.392B; the source chart reports €0.4B net profit after rounding.',
-          ],
-        },
-      },
-      i18n: {
-        zh: {
-          period: '2026 财年第一季度',
-          periodNote: '截至 2026 年 3 月',
-          revenue: {
-            notes: ['同比 +3%'],
-            items: [
-              { id: 'cars_and_spare_parts', label: '汽车及零部件', notes: ['同比 +1%'] },
-              { id: 'sponsorships_commercial_brands', label: '赞助、商业与品牌', notes: ['同比 +14%'] },
-              { id: 'other', label: '其他', notes: ['同比 +16%'] },
-            ],
+      "operatingExpenses": {
+        "total": 0.4,
+        "items": [
+          {
+            "id": "rnd",
+            "label": "R&D",
+            "value": 0.2,
+            "notes": [
+              "11% of revenue",
+              "(1pp) Y/Y"
+            ]
           },
-          costs: {
-            costOfRevenue: { label: '销售成本' },
-            operatingExpenses: {
-              items: [
-                { id: 'rnd', label: '研发', notes: ['占收入 13%', '同比 +0 个百分点'] },
-                { id: 'sga', label: '销售、一般及管理费用', notes: ['占收入 9%', '同比 +0 个百分点'] },
-              ],
-            },
-            tax: { label: '税费' },
+          {
+            "id": "sga",
+            "label": "SG&A",
+            "value": 0.2,
+            "notes": [
+              "10% of revenue",
+              "+1pp Y/Y"
+            ]
           },
-          operatingOtherIncome: {
-            items: [{ id: 'investments', label: '投资收益', notes: ['€3M'] }],
-          },
-          otherExpenses: {
-            items: [{ id: 'finance', label: '财务费用', notes: ['€11M'] }],
-          },
-          profit: {
-            gross: { label: '毛利润', notes: ['利润率 52%', '同比（0 个百分点）'] },
-            operating: { label: '营业利润', notes: ['利润率 30%', '同比（1 个百分点）'] },
-            net: { label: '净利润', notes: ['利润率 22%', '同比（1 个百分点）'] },
-          },
-        },
+          {
+            "id": "other_opex",
+            "label": "Other",
+            "value": 0.012,
+            "notes": [
+              "€12M"
+            ]
+          }
+        ]
       },
+      "tax": {
+        "id": "tax",
+        "label": "Tax",
+        "value": 0.1
+      }
     },
-    {
-      key: 'ferrari-q4-fy25',
-      company: 'Ferrari',
-      period: 'Q4 FY25',
-      periodNote: 'Ending Dec. 2025',
-      currency: '€',
-      unit: 'B',
-      decimals: 1,
-      sourceImage: 'input/processed/ferrari-q4-fy25.png',
-      roundingTolerance: 0.16,
-      revenue: {
-        total: 1.8,
-        notes: ['+4% Y/Y'],
-        items: [
-          { id: 'cars_and_spare_parts', label: 'Cars and spare parts', value: 1.5, notes: ['+1% Y/Y'] },
-          { id: 'sponsorships_commercial_brands', label: 'Sponsorships, commercial & brands', value: 0.2, notes: ['+16% Y/Y'] },
-          { id: 'other', label: 'Other', value: 0.1, notes: ['+31% Y/Y'] },
-        ],
-      },
-      costs: {
-        costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 0.9 },
-        operatingExpenses: {
-          total: 0.4,
-          items: [
-            { id: 'rnd', label: 'R&D', value: 0.2, notes: ['13% of revenue', '(1pp) Y/Y'] },
-            { id: 'sga', label: 'SG&A', value: 0.2, notes: ['10% of revenue', '+0pp Y/Y'] },
-          ],
-        },
-        tax: { id: 'tax', label: 'Tax', value: 0.1 },
-      },
-      otherIncome: {
-        total: 0,
-        items: [],
-      },
-      otherExpenses: {
-        total: 0.012,
-        items: [{ id: 'finance', label: 'Finance', value: 0.012, notes: ['€12M'] }],
-      },
-      profit: {
-        gross: { id: 'gross_profit', label: 'Gross profit', value: 0.9, notes: ['52% margin', '+2pp Y/Y'] },
-        operating: { id: 'operating_profit', label: 'Operating profit', value: 0.5, notes: ['28% margin', '+2pp Y/Y'] },
-        net: {
-          id: 'net_profit',
-          label: 'Net profit',
-          value: 0.4,
-          notes: [
-            '21% margin',
-            '(1pp) Y/Y',
-            'Operating profit less tax and finance expense sums to €0.388B; the source chart reports €0.4B net profit after rounding.',
-          ],
-        },
-      },
-      i18n: {
-        zh: {
-          period: '2025 财年第四季度',
-          periodNote: '截至 2025 年 12 月',
-          revenue: {
-            notes: ['同比 +4%'],
-            items: [
-              { id: 'cars_and_spare_parts', label: '汽车及零部件', notes: ['同比 +1%'] },
-              { id: 'sponsorships_commercial_brands', label: '赞助、商业与品牌', notes: ['同比 +16%'] },
-              { id: 'other', label: '其他', notes: ['同比 +31%'] },
-            ],
-          },
-          costs: {
-            costOfRevenue: { label: '销售成本' },
-            operatingExpenses: {
-              items: [
-                { id: 'rnd', label: '研发', notes: ['占收入 13%', '同比 (1 个百分点)'] },
-                { id: 'sga', label: '销售、一般及管理费用', notes: ['占收入 10%', '同比 +0 个百分点'] },
-              ],
-            },
-            tax: { label: '税费' },
-          },
-          otherExpenses: {
-            items: [{ id: 'finance', label: '财务费用', notes: ['€12M'] }],
-          },
-          profit: {
-            gross: { label: '毛利润', notes: ['利润率 52%', '同比 +2 个百分点'] },
-            operating: { label: '营业利润', notes: ['利润率 28%', '同比 +2 个百分点'] },
-            net: { label: '净利润', notes: ['利润率 21%', '同比 (1 个百分点)'] },
-          },
-        },
-      },
+    "operatingOtherIncome": {
+      "total": 0.004,
+      "items": [
+        {
+          "id": "investments",
+          "label": "Investments",
+          "value": 0.004,
+          "notes": [
+            "€4M"
+          ]
+        }
+      ]
     },
-    {
-      key: 'ferrari-q3-fy25',
-      company: 'Ferrari',
-      period: 'Q3 FY25',
-      periodNote: 'Ending Sep. 2025',
-      currency: '€',
-      unit: 'B',
-      decimals: 2,
-      sourceImage: 'input/processed/ferrari-q3-fy25.png',
-      roundingTolerance: 0.16,
-      revenue: {
-        total: 1.8,
-        notes: ['+7% Y/Y'],
-        items: [
-          { id: 'cars_and_spare_parts', label: 'Cars and spare parts', value: 1.5, notes: ['+6% Y/Y'] },
-          { id: 'sponsorships_commercial_brands', label: 'Sponsorships, commercial & brands', value: 0.2, notes: ['+21% Y/Y'] },
-          { id: 'other', label: 'Other', value: 0.1, notes: ['+9% Y/Y'] },
-        ],
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 0.004,
+      "items": [
+        {
+          "id": "finance",
+          "label": "Finance",
+          "value": 0.004,
+          "notes": [
+            "€4M"
+          ]
+        }
+      ]
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 1,
+        "notes": [
+          "53% margin",
+          "(0pp) Y/Y"
+        ]
       },
-      costs: {
-        costOfRevenue: { id: 'cost_of_sales', label: 'Cost of sales', value: 0.9 },
-        operatingExpenses: {
-          total: 0.4,
-          items: [
-            { id: 'rnd', label: 'R&D', value: 0.2, notes: ['13% of revenue', '(0pp) Y/Y'] },
-            { id: 'sga', label: 'SG&A', value: 0.2, notes: ['9% of revenue', '+1pp Y/Y'] },
+      "operating": {
+        "id": "operating_profit",
+        "label": "Operating profit",
+        "value": 0.6,
+        "notes": [
+          "31% margin",
+          "+0pp Y/Y",
+          "Gross profit plus €4M investments less €0.4B operating expenses sums to €0.604B; the source chart reports €0.6B after rounding."
+        ]
+      },
+      "net": {
+        "id": "net_profit",
+        "label": "Net profit",
+        "value": 0.5,
+        "notes": [
+          "24% margin",
+          "+0pp Y/Y",
+          "Operating profit less tax and €4M finance expense sums to €0.496B; the source chart reports €0.5B after rounding."
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2026 财年第二季度",
+        "periodNote": "截至 2026 年 6 月",
+        "revenue": {
+          "notes": [
+            "同比 +8%"
           ],
-        },
-        tax: { id: 'tax', label: 'Tax', value: 0.1 },
-      },
-      otherIncome: {
-        total: 0,
-        items: [],
-      },
-      otherExpenses: {
-        total: 0.01,
-        items: [{ id: 'finance', label: 'Finance', value: 0.01, notes: ['€10M'] }],
-      },
-      profit: {
-        gross: { id: 'gross_profit', label: 'Gross profit', value: 0.9, notes: ['50% margin', '+0pp Y/Y'] },
-        operating: { id: 'operating_profit', label: 'Operating profit', value: 0.5, notes: ['28% margin', '+0pp Y/Y'] },
-        net: {
-          id: 'net_profit',
-          label: 'Net profit',
-          value: 0.4,
-          notes: [
-            '22% margin',
-            '(1pp) Y/Y',
-            'Operating profit less tax and finance expense sums to €0.39B; the source chart reports €0.4B net profit after rounding.',
-          ],
-        },
-      },
-      i18n: {
-        zh: {
-          period: '2025 财年第三季度',
-          periodNote: '截至 2025 年 9 月',
-          revenue: {
-            notes: ['同比 +7%'],
-            items: [
-              { id: 'cars_and_spare_parts', label: '汽车及零部件', notes: ['同比 +6%'] },
-              { id: 'sponsorships_commercial_brands', label: '赞助、商业与品牌', notes: ['同比 +21%'] },
-              { id: 'other', label: '其他', notes: ['同比 +9%'] },
-            ],
-          },
-          costs: {
-            costOfRevenue: { label: '销售成本' },
-            operatingExpenses: {
-              items: [
-                { id: 'rnd', label: '研发', notes: ['占收入 13%', '同比（0 个百分点）'] },
-                { id: 'sga', label: '销售、一般及管理费用', notes: ['占收入 9%', '同比 +1 个百分点'] },
-              ],
+          "items": [
+            {
+              "id": "cars_and_spare_parts",
+              "label": "汽车及零部件",
+              "notes": [
+                "同比 +8%"
+              ]
             },
-            tax: { label: '税费' },
-          },
-          otherExpenses: {
-            items: [{ id: 'finance', label: '财务费用', notes: ['€10M'] }],
-          },
-          profit: {
-            gross: { label: '毛利润', notes: ['利润率 50%', '同比 +0 个百分点'] },
-            operating: { label: '营业利润', notes: ['利润率 28%', '同比 +0 个百分点'] },
-            net: { label: '净利润', notes: ['利润率 22%', '同比（1 个百分点）'] },
-          },
+            {
+              "id": "sponsorships_commercial_brands",
+              "label": "赞助、商业与品牌",
+              "notes": [
+                "同比 +2%"
+              ]
+            },
+            {
+              "id": "other",
+              "label": "其他",
+              "notes": [
+                "同比 +33%"
+              ]
+            }
+          ]
         },
-      },
+        "costs": {
+          "costOfRevenue": {
+            "label": "销售成本"
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "rnd",
+                "label": "研发",
+                "notes": [
+                  "占收入 11%",
+                  "同比（1 个百分点）"
+                ]
+              },
+              {
+                "id": "sga",
+                "label": "销售、一般及管理费用",
+                "notes": [
+                  "占收入 10%",
+                  "同比 +1 个百分点"
+                ]
+              },
+              {
+                "id": "other_opex",
+                "label": "其他",
+                "notes": [
+                  "€12M"
+                ]
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费"
+          }
+        },
+        "operatingOtherIncome": {
+          "items": [
+            {
+              "id": "investments",
+              "label": "投资收益",
+              "notes": [
+                "€4M"
+              ]
+            }
+          ]
+        },
+        "otherExpenses": {
+          "items": [
+            {
+              "id": "finance",
+              "label": "财务费用",
+              "notes": [
+                "€4M"
+              ]
+            }
+          ]
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 53%",
+              "同比（0 个百分点）"
+            ]
+          },
+          "operating": {
+            "label": "营业利润",
+            "notes": [
+              "利润率 31%",
+              "同比 +0 个百分点"
+            ]
+          },
+          "net": {
+            "label": "净利润",
+            "notes": [
+              "利润率 24%",
+              "同比 +0 个百分点"
+            ]
+          }
+        }
+      }
     }
-  );
-})(window);
+  },
+  {
+    "key": "ferrari-q1-fy26",
+    "company": "Ferrari",
+    "period": "Q1 FY26",
+    "periodNote": "Ending Mar. 2026",
+    "currency": "€",
+    "unit": "B",
+    "decimals": 1,
+    "sourceImage": "input/processed/ferrari-q1-fy26.png",
+    "roundingTolerance": 0.16,
+    "revenue": {
+      "total": 1.8,
+      "notes": [
+        "+3% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "cars_and_spare_parts",
+          "label": "Cars and spare parts",
+          "value": 1.6,
+          "notes": [
+            "+1% Y/Y"
+          ]
+        },
+        {
+          "id": "sponsorships_commercial_brands",
+          "label": "Sponsorships, commercial & brands",
+          "value": 0.2,
+          "notes": [
+            "+14% Y/Y"
+          ]
+        },
+        {
+          "id": "other",
+          "label": "Other",
+          "value": 0.1,
+          "notes": [
+            "+16% Y/Y"
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_sales",
+        "label": "Cost of sales",
+        "value": 0.9
+      },
+      "operatingExpenses": {
+        "total": 0.4,
+        "items": [
+          {
+            "id": "rnd",
+            "label": "R&D",
+            "value": 0.2,
+            "notes": [
+              "13% of revenue",
+              "+0pp Y/Y"
+            ]
+          },
+          {
+            "id": "sga",
+            "label": "SG&A",
+            "value": 0.2,
+            "notes": [
+              "9% of revenue",
+              "+0pp Y/Y"
+            ]
+          }
+        ]
+      },
+      "tax": {
+        "id": "tax",
+        "label": "Tax",
+        "value": 0.1
+      }
+    },
+    "operatingOtherIncome": {
+      "total": 0.003,
+      "items": [
+        {
+          "id": "investments",
+          "label": "Investments",
+          "value": 0.003,
+          "notes": [
+            "€3M"
+          ]
+        }
+      ]
+    },
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 0.011,
+      "items": [
+        {
+          "id": "finance",
+          "label": "Finance",
+          "value": 0.011,
+          "notes": [
+            "€11M"
+          ]
+        }
+      ]
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 1,
+        "notes": [
+          "52% margin",
+          "(0pp) Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_profit",
+        "label": "Operating profit",
+        "value": 0.5,
+        "notes": [
+          "30% margin",
+          "(1pp) Y/Y"
+        ]
+      },
+      "net": {
+        "id": "net_profit",
+        "label": "Net profit",
+        "value": 0.4,
+        "notes": [
+          "22% margin",
+          "(1pp) Y/Y",
+          "Operating profit plus €3M investments less tax and finance expense sums to €0.392B; the source chart reports €0.4B net profit after rounding."
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2026 财年第一季度",
+        "periodNote": "截至 2026 年 3 月",
+        "revenue": {
+          "notes": [
+            "同比 +3%"
+          ],
+          "items": [
+            {
+              "id": "cars_and_spare_parts",
+              "label": "汽车及零部件",
+              "notes": [
+                "同比 +1%"
+              ]
+            },
+            {
+              "id": "sponsorships_commercial_brands",
+              "label": "赞助、商业与品牌",
+              "notes": [
+                "同比 +14%"
+              ]
+            },
+            {
+              "id": "other",
+              "label": "其他",
+              "notes": [
+                "同比 +16%"
+              ]
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "销售成本"
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "rnd",
+                "label": "研发",
+                "notes": [
+                  "占收入 13%",
+                  "同比 +0 个百分点"
+                ]
+              },
+              {
+                "id": "sga",
+                "label": "销售、一般及管理费用",
+                "notes": [
+                  "占收入 9%",
+                  "同比 +0 个百分点"
+                ]
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费"
+          }
+        },
+        "operatingOtherIncome": {
+          "items": [
+            {
+              "id": "investments",
+              "label": "投资收益",
+              "notes": [
+                "€3M"
+              ]
+            }
+          ]
+        },
+        "otherExpenses": {
+          "items": [
+            {
+              "id": "finance",
+              "label": "财务费用",
+              "notes": [
+                "€11M"
+              ]
+            }
+          ]
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 52%",
+              "同比（0 个百分点）"
+            ]
+          },
+          "operating": {
+            "label": "营业利润",
+            "notes": [
+              "利润率 30%",
+              "同比（1 个百分点）"
+            ]
+          },
+          "net": {
+            "label": "净利润",
+            "notes": [
+              "利润率 22%",
+              "同比（1 个百分点）"
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "key": "ferrari-q4-fy25",
+    "company": "Ferrari",
+    "period": "Q4 FY25",
+    "periodNote": "Ending Dec. 2025",
+    "currency": "€",
+    "unit": "B",
+    "decimals": 1,
+    "sourceImage": "input/processed/ferrari-q4-fy25.png",
+    "roundingTolerance": 0.16,
+    "revenue": {
+      "total": 1.8,
+      "notes": [
+        "+4% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "cars_and_spare_parts",
+          "label": "Cars and spare parts",
+          "value": 1.5,
+          "notes": [
+            "+1% Y/Y"
+          ]
+        },
+        {
+          "id": "sponsorships_commercial_brands",
+          "label": "Sponsorships, commercial & brands",
+          "value": 0.2,
+          "notes": [
+            "+16% Y/Y"
+          ]
+        },
+        {
+          "id": "other",
+          "label": "Other",
+          "value": 0.1,
+          "notes": [
+            "+31% Y/Y"
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_sales",
+        "label": "Cost of sales",
+        "value": 0.9
+      },
+      "operatingExpenses": {
+        "total": 0.4,
+        "items": [
+          {
+            "id": "rnd",
+            "label": "R&D",
+            "value": 0.2,
+            "notes": [
+              "13% of revenue",
+              "(1pp) Y/Y"
+            ]
+          },
+          {
+            "id": "sga",
+            "label": "SG&A",
+            "value": 0.2,
+            "notes": [
+              "10% of revenue",
+              "+0pp Y/Y"
+            ]
+          }
+        ]
+      },
+      "tax": {
+        "id": "tax",
+        "label": "Tax",
+        "value": 0.1
+      }
+    },
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 0.012,
+      "items": [
+        {
+          "id": "finance",
+          "label": "Finance",
+          "value": 0.012,
+          "notes": [
+            "€12M"
+          ]
+        }
+      ]
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 0.9,
+        "notes": [
+          "52% margin",
+          "+2pp Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_profit",
+        "label": "Operating profit",
+        "value": 0.5,
+        "notes": [
+          "28% margin",
+          "+2pp Y/Y"
+        ]
+      },
+      "net": {
+        "id": "net_profit",
+        "label": "Net profit",
+        "value": 0.4,
+        "notes": [
+          "21% margin",
+          "(1pp) Y/Y",
+          "Operating profit less tax and finance expense sums to €0.388B; the source chart reports €0.4B net profit after rounding."
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2025 财年第四季度",
+        "periodNote": "截至 2025 年 12 月",
+        "revenue": {
+          "notes": [
+            "同比 +4%"
+          ],
+          "items": [
+            {
+              "id": "cars_and_spare_parts",
+              "label": "汽车及零部件",
+              "notes": [
+                "同比 +1%"
+              ]
+            },
+            {
+              "id": "sponsorships_commercial_brands",
+              "label": "赞助、商业与品牌",
+              "notes": [
+                "同比 +16%"
+              ]
+            },
+            {
+              "id": "other",
+              "label": "其他",
+              "notes": [
+                "同比 +31%"
+              ]
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "销售成本"
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "rnd",
+                "label": "研发",
+                "notes": [
+                  "占收入 13%",
+                  "同比 (1 个百分点)"
+                ]
+              },
+              {
+                "id": "sga",
+                "label": "销售、一般及管理费用",
+                "notes": [
+                  "占收入 10%",
+                  "同比 +0 个百分点"
+                ]
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费"
+          }
+        },
+        "otherExpenses": {
+          "items": [
+            {
+              "id": "finance",
+              "label": "财务费用",
+              "notes": [
+                "€12M"
+              ]
+            }
+          ]
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 52%",
+              "同比 +2 个百分点"
+            ]
+          },
+          "operating": {
+            "label": "营业利润",
+            "notes": [
+              "利润率 28%",
+              "同比 +2 个百分点"
+            ]
+          },
+          "net": {
+            "label": "净利润",
+            "notes": [
+              "利润率 21%",
+              "同比 (1 个百分点)"
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "key": "ferrari-q3-fy25",
+    "company": "Ferrari",
+    "period": "Q3 FY25",
+    "periodNote": "Ending Sep. 2025",
+    "currency": "€",
+    "unit": "B",
+    "decimals": 2,
+    "sourceImage": "input/processed/ferrari-q3-fy25.png",
+    "roundingTolerance": 0.16,
+    "revenue": {
+      "total": 1.8,
+      "notes": [
+        "+7% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "cars_and_spare_parts",
+          "label": "Cars and spare parts",
+          "value": 1.5,
+          "notes": [
+            "+6% Y/Y"
+          ]
+        },
+        {
+          "id": "sponsorships_commercial_brands",
+          "label": "Sponsorships, commercial & brands",
+          "value": 0.2,
+          "notes": [
+            "+21% Y/Y"
+          ]
+        },
+        {
+          "id": "other",
+          "label": "Other",
+          "value": 0.1,
+          "notes": [
+            "+9% Y/Y"
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_sales",
+        "label": "Cost of sales",
+        "value": 0.9
+      },
+      "operatingExpenses": {
+        "total": 0.4,
+        "items": [
+          {
+            "id": "rnd",
+            "label": "R&D",
+            "value": 0.2,
+            "notes": [
+              "13% of revenue",
+              "(0pp) Y/Y"
+            ]
+          },
+          {
+            "id": "sga",
+            "label": "SG&A",
+            "value": 0.2,
+            "notes": [
+              "9% of revenue",
+              "+1pp Y/Y"
+            ]
+          }
+        ]
+      },
+      "tax": {
+        "id": "tax",
+        "label": "Tax",
+        "value": 0.1
+      }
+    },
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 0.01,
+      "items": [
+        {
+          "id": "finance",
+          "label": "Finance",
+          "value": 0.01,
+          "notes": [
+            "€10M"
+          ]
+        }
+      ]
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 0.9,
+        "notes": [
+          "50% margin",
+          "+0pp Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_profit",
+        "label": "Operating profit",
+        "value": 0.5,
+        "notes": [
+          "28% margin",
+          "+0pp Y/Y"
+        ]
+      },
+      "net": {
+        "id": "net_profit",
+        "label": "Net profit",
+        "value": 0.4,
+        "notes": [
+          "22% margin",
+          "(1pp) Y/Y",
+          "Operating profit less tax and finance expense sums to €0.39B; the source chart reports €0.4B net profit after rounding."
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2025 财年第三季度",
+        "periodNote": "截至 2025 年 9 月",
+        "revenue": {
+          "notes": [
+            "同比 +7%"
+          ],
+          "items": [
+            {
+              "id": "cars_and_spare_parts",
+              "label": "汽车及零部件",
+              "notes": [
+                "同比 +6%"
+              ]
+            },
+            {
+              "id": "sponsorships_commercial_brands",
+              "label": "赞助、商业与品牌",
+              "notes": [
+                "同比 +21%"
+              ]
+            },
+            {
+              "id": "other",
+              "label": "其他",
+              "notes": [
+                "同比 +9%"
+              ]
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "销售成本"
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "rnd",
+                "label": "研发",
+                "notes": [
+                  "占收入 13%",
+                  "同比（0 个百分点）"
+                ]
+              },
+              {
+                "id": "sga",
+                "label": "销售、一般及管理费用",
+                "notes": [
+                  "占收入 9%",
+                  "同比 +1 个百分点"
+                ]
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费"
+          }
+        },
+        "otherExpenses": {
+          "items": [
+            {
+              "id": "finance",
+              "label": "财务费用",
+              "notes": [
+                "€10M"
+              ]
+            }
+          ]
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 50%",
+              "同比 +0 个百分点"
+            ]
+          },
+          "operating": {
+            "label": "营业利润",
+            "notes": [
+              "利润率 28%",
+              "同比 +0 个百分点"
+            ]
+          },
+          "net": {
+            "label": "净利润",
+            "notes": [
+              "利润率 22%",
+              "同比（1 个百分点）"
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "key": "ferrari-q1-fy25",
+    "company": "Ferrari",
+    "period": "Q1 FY25",
+    "currency": "€",
+    "unit": "B",
+    "decimals": 3,
+    "sourceImage": "input/processing/ferrari-q1-fy25.png",
+    "roundingTolerance": 0.1,
+    "revenue": {
+      "total": 1.8,
+      "notes": [
+        "+13% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "cars_and_spare_parts",
+          "label": "Cars and spare parts",
+          "value": 1.5,
+          "notes": [
+            "+11% Y/Y"
+          ]
+        },
+        {
+          "id": "sponsorships_commercial_brands",
+          "label": "Sponsorships, commercial & brands",
+          "value": 0.2,
+          "notes": [
+            "+32% Y/Y"
+          ]
+        },
+        {
+          "id": "other",
+          "label": "Other",
+          "value": 0.1,
+          "notes": [
+            "+10% Y/Y"
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_sales",
+        "label": "Cost of sales",
+        "value": 0.9
+      },
+      "operatingExpenses": {
+        "total": 0.4,
+        "items": [
+          {
+            "id": "rnd",
+            "label": "R&D",
+            "value": 0.2,
+            "notes": [
+              "13% of revenue",
+              "(2pp) Y/Y"
+            ]
+          },
+          {
+            "id": "sga",
+            "label": "SG&A",
+            "value": 0.1,
+            "notes": [
+              "8% of revenue",
+              "+0pp Y/Y"
+            ]
+          },
+          {
+            "id": "other_opex",
+            "label": "Other",
+            "value": 0.012,
+            "notes": []
+          }
+        ]
+      },
+      "tax": {
+        "id": "tax",
+        "label": "Tax",
+        "value": 0.1
+      }
+    },
+    "operatingOtherIncome": {
+      "total": 0.001,
+      "items": [
+        {
+          "id": "investments",
+          "label": "Investments",
+          "value": 0.001,
+          "notes": [
+            "€1M; source guide enters operating expenses."
+          ]
+        }
+      ]
+    },
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 0.014,
+      "items": [
+        {
+          "id": "finance",
+          "label": "Finance",
+          "value": 0.014
+        }
+      ]
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 0.9,
+        "notes": [
+          "52% margin",
+          "+1pp Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_profit",
+        "label": "Operating profit",
+        "value": 0.5,
+        "notes": [
+          "30% margin",
+          "+2pp Y/Y"
+        ]
+      },
+      "net": {
+        "id": "net_profit",
+        "label": "Net profit",
+        "value": 0.4,
+        "notes": [
+          "23% margin",
+          "+1pp Y/Y"
+        ]
+      }
+    },
+    "notes": [
+      "Source rounded amounts retained: operating-expense items sum to €0.312B versus €0.4B total; net bridge gives €0.386B versus €0.4B reported."
+    ],
+    "i18n": {
+      "zh": {
+        "period": "2025 财年第一季度",
+        "revenue": {
+          "notes": [
+            "同比 +13%"
+          ],
+          "items": [
+            {
+              "id": "cars_and_spare_parts",
+              "label": "汽车及零部件",
+              "notes": [
+                "同比 +11%"
+              ]
+            },
+            {
+              "id": "sponsorships_commercial_brands",
+              "label": "赞助、商业与品牌",
+              "notes": [
+                "同比 +32%"
+              ]
+            },
+            {
+              "id": "other",
+              "label": "其他",
+              "notes": [
+                "同比 +10%"
+              ]
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "销售成本"
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "rnd",
+                "label": "研发 R&D",
+                "notes": [
+                  "占收入 13%",
+                  "同比 -2pp"
+                ]
+              },
+              {
+                "id": "sga",
+                "label": "销管 SG&A",
+                "notes": [
+                  "占收入 8%",
+                  "同比 +0pp"
+                ]
+              },
+              {
+                "id": "other_opex",
+                "label": "其他",
+                "notes": []
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费"
+          }
+        },
+        "operatingOtherIncome": {
+          "items": [
+            {
+              "id": "investments",
+              "label": "投资",
+              "notes": [
+                "€1M；原图引导线接入营业费用。"
+              ]
+            }
+          ]
+        },
+        "otherExpenses": {
+          "items": [
+            {
+              "id": "finance",
+              "label": "财务费用"
+            }
+          ]
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 52%",
+              "同比 +1pp"
+            ]
+          },
+          "operating": {
+            "label": "营业利润",
+            "notes": [
+              "利润率 30%",
+              "同比 +2pp"
+            ]
+          },
+          "net": {
+            "label": "净利润",
+            "notes": [
+              "利润率 23%",
+              "同比 +1pp"
+            ]
+          }
+        },
+        "notes": [
+          "保留原图舍入金额：营业费用明细合计 €0.312B，总额为 €0.4B；净利润桥接结果为 €0.386B，图示为 €0.4B。"
+        ]
+      }
+    }
+  }
+]);})(window);

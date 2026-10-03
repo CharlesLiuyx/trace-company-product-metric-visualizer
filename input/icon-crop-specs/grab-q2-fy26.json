@@ -1,0 +1,109 @@
+{
+  "source": "input/processed/grab-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/grab-q2-fy26",
+  "runtimeOutputDir": "data/assets/raster-annotations/grab-q2-fy26",
+  "validationSheetDir": "data/assets/icon-references/grab-q2-fy26/validation-sheets",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "crops": [
+    {
+      "key": "logo",
+      "output": "crops/logo.png",
+      "runtimeOutput": "logo.png",
+      "searchBox": {
+        "x": 697,
+        "y": 247,
+        "width": 488,
+        "height": 184
+      },
+      "cropBox": {
+        "x": 697,
+        "y": 247,
+        "width": 488,
+        "height": 184
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "deliveries",
+      "output": "crops/deliveries.png",
+      "runtimeOutput": "deliveries.png",
+      "searchBox": {
+        "x": 143,
+        "y": 323,
+        "width": 216,
+        "height": 107
+      },
+      "cropBox": {
+        "x": 143,
+        "y": 323,
+        "width": 216,
+        "height": 107
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "mobility",
+      "output": "crops/mobility.png",
+      "runtimeOutput": "mobility.png",
+      "searchBox": {
+        "x": 135,
+        "y": 625,
+        "width": 224,
+        "height": 107
+      },
+      "cropBox": {
+        "x": 135,
+        "y": 625,
+        "width": 224,
+        "height": 107
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "financial_services",
+      "output": "crops/financial_services.png",
+      "runtimeOutput": "financial_services.png",
+      "searchBox": {
+        "x": 137,
+        "y": 887,
+        "width": 220,
+        "height": 107
+      },
+      "cropBox": {
+        "x": 137,
+        "y": 887,
+        "width": 220,
+        "height": 107
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ]
+}
