@@ -99,6 +99,10 @@ CI 总是先跑 `pnpm check`，再按 ChangeImpact 选择 app、Pages、渲染�
 
 ## 数据集处理
 
+使用 Codex 或 Claude Code 处理 `input/pending/` 中的新图片时，只需输入提示词
+`处理{文件名}`（将 `{文件名}` 替换为图片的完整文件名，含扩展名），即可启动
+`docs/asset-workflow.md` 定义的 Workflow，无需复杂的提示词。
+
 `docs/asset-workflow.md` 是唯一属主；不要依据其他地方的转述。以下要点仅供定位：
 
 - `record:workflow continue` 跑完全部自动步骤，停在「待人工审阅」；不开浏览器，直接交付
