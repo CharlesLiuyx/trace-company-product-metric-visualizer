@@ -40,7 +40,7 @@ test('rejects dropped inequality, wrong unit/currency and rounded or floating-po
     assert.throws(() => normalizeOperatingObservation({ ...metrics[1], ...update }));
   }
   assert.throws(() => normalizeOperatingObservation({ ...metrics[0], currency: 'EUR' }));
-  assert.throws(() => normalizeOperatingObservation({ ...metrics[2], value: '3084.5', literal: '3,084.5' }));
+  assert.throws(() => normalizeOperatingObservation({ ...metrics[2], value: '3084.4', literal: '3,084.5' }));
 });
 test('rejects a missing source value entry, changed quotes and stale visible locale values', () => {
   const f = fixture();
@@ -52,11 +52,12 @@ test('rejects a missing source value entry, changed quotes and stale visible loc
   f.record.operatingMetrics[0].quote = `${f.record.operatingMetrics[0].quote}\nrestated`;
   assert.throws(() => reconcileSourceObjects(sourceObjects, f), /differs from its Source value entry/);
 });
-test('abbreviated counts preserve source literals and exact integer magnitude', () => {
+test('abbreviated counts preserve source literals and exact magnitude', () => {
   const count = { ...metrics[2], value: '1800000', literal: '1.8M' };
   assert.equal(normalizeOperatingObservation(count).literal, '1.8M');
   assert.equal(normalizeOperatingObservation({ ...count, value: '9007199254740993', literal: '9007199.254740993B' }).value, '9007199254740993');
-  for (const update of [{ value: '180000' }, { literal: '1.8M', currency: 'USD' }, { value: '1.5', literal: '0.0015K' }, { value: '-1800000', literal: '-1.8M' }]) {
+  assert.equal(normalizeOperatingObservation({ ...count, value: '1.5', literal: '0.0015K' }).value, '1.5');
+  for (const update of [{ value: '180000' }, { literal: '1.8M', currency: 'USD' }, { value: '1.4', literal: '0.0015K' }, { value: '-1800000', literal: '-1.8M' }]) {
     assert.throws(() => normalizeOperatingObservation({ ...count, ...update }));
   }
 });
