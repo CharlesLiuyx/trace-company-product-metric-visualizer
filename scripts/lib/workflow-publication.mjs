@@ -44,7 +44,6 @@ export async function planAssetPublication(buildIds, root = rootDir, options = {
   const application = await applicationManifest(root);
   const contexts = await Promise.all(buildIds.map((id) => buildContext(id, root)));
   for (const context of contexts) {
-    if ((await fileManifest(context.projectRoot, ['scripts', 'package.json', 'pnpm-lock.yaml'])).digest !== (await fileManifest(root, ['scripts', 'package.json', 'pnpm-lock.yaml'])).digest) throw new Error('Workflow tools changed after intake; refresh the workspace and reverify under the current rules');
     if (!context.build.authoringRoot) throw new Error('Publication requires an isolated Build; legacy direct authoring must be migrated explicitly');
     const inspection = await inspectDatasetBuild(context.build.buildId, context);
     if (!inspection.fresh || inspection.effectiveState !== 'SEALED' || context.build.review?.status !== 'accepted') throw new Error(`Build is not fresh, sealed and reviewed: ${context.build.buildId}`);

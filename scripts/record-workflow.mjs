@@ -7,7 +7,7 @@ import { acquireBuildSession, assertBuildSession, sessionIdentity } from './lib/
 import { WORKFLOW_ACTIONS } from './lib/workflow-contract.mjs';
 import { rootDir, isBuildWorkspace } from './lib/project.mjs';
 import { readJson, atomicJson, inside, recoverFileLock } from './lib/workflow-files.mjs';
-import { startAsset, prepareAsset, continueAsset, checkpointAsset, reviewAsset, sealAsset, showAsset } from './lib/asset-workflow.mjs';
+import { startAsset, prepareAsset, continueAsset, checkpointAsset, reviewAsset, acceptAsset, acceptAssets, sealAsset, showAsset } from './lib/asset-workflow.mjs';
 import { renderAssetReview } from './lib/workflow-review.mjs';
 
 export function parseWorkflowArgs(args) {
@@ -15,6 +15,7 @@ export function parseWorkflowArgs(args) {
   for (let i = 0; i < args.length; i++) {
     if (args[i] === '--') continue;
     if (args[i] === '--json') { values.json = true; continue; }
+    if (args[i] === '--fresh-checks') { values.freshChecks = true; continue; }
     if (args[i] === '--fresh-render') { values.freshRender = true; continue; }
     if (args[i].startsWith('--')) {
       if (!['--source', '--key', '--facts', '--input', '--availability', '--concurrency', '--session', '--generation', '--lock', '--token'].includes(args[i]) || !args[i + 1] || args[i + 1].startsWith('--')) throw new Error(`Invalid option: ${args[i]}`);
@@ -52,7 +53,13 @@ export async function main(args = process.argv.slice(2)) {
   else if (input.command === 'continue') result = await continueAsset(input.buildId);
   else if (input.command === 'show') result = await showAsset(input.buildId);
   else if (input.command === 'report') result = await renderAssetReview(input.buildId);
-  else if (input.command === 'seal') result = await sealAsset(input.buildId, rootDir, { freshRender: input.freshRender === true });
+  else if (input.command === 'seal') result = await sealAsset(input.buildId, rootDir, { freshRender: input.freshRender === true, freshChecks: input.freshChecks === true });
+  else if (input.command === 'accept') {
+    if (!input.input) throw new Error('accept requires --input');
+    const acceptance = await readJson(path.resolve(input.input));
+    result = input.buildId ? await acceptAsset(input.buildId, acceptance) : await acceptAssets(acceptance, rootDir, { concurrency: Number(input.concurrency || 2), session: input.session, generation: input.generation });
+    if (result.status === 'partial-failure') process.exitCode = 1;
+  }
   else if (input.command === 'checkpoint' || input.command === 'review') {
     if (!input.input) throw new Error(`${input.command} requires --input`);
     result = await (input.command === 'checkpoint' ? checkpointAsset : reviewAsset)(input.buildId, await readJson(path.resolve(input.input)));
@@ -81,7 +88,7 @@ export async function main(args = process.argv.slice(2)) {
   } else if (input.command === 'refresh') {
     const { refreshAssetWorkspace } = await import('./lib/workflow-recovery.mjs');
     result = await refreshAssetWorkspace(input.buildId);
-  } else throw new Error('Usage: pnpm record:workflow -- start|prepare|continue|show|report|checkpoint|review|seal|batch|refresh [build-id] [options]');
+  } else throw new Error('Usage: pnpm record:workflow -- start|prepare|continue|show|report|checkpoint|review|accept|seal|batch|refresh [build-id] [options]');
   if (input.json) console.log(JSON.stringify(result, null, 2));
   else {
     console.log(JSON.stringify(result.path ? result : { buildId: result.buildId, workspace: result.workspace, session: result.session, state: result.state, next: result.next, actionRequired: result.actionRequired, retention: result.retention, ...(!result.buildId ? result : {}) }, null, 2));

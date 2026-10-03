@@ -28,7 +28,7 @@
 | 3 | 桑基图 / 收入序列：在返回的 workspace 中编写 SSOT、Adapter、i18n | — |
 | 4 | 连续跑完全部自动步骤：准备与对账 → 数据一致性 → 一次全语言渲染，停在待审阅 | `pnpm record:workflow -- continue <build> --session <owner> --generation <gen>` |
 | 5 | 交付审阅链接（§4），等待操作员 | — |
-| 6 | 操作员通过后：记录审阅 → seal → 本机发布（无需再问） | `review` / `seal` / `publish:datasets plan` + `commit` |
+| 6 | 操作员通过后：一次接受并封存 → 本机发布（无需再问） | `accept` / `publish:datasets plan` + `commit` |
 | 7 | 操作员要求推送时：Git 交接与上线核对（§6） | `release:git` 等 |
 | 8 | 操作员给出完成信号时：归档来源（§7），流程全部结束后清理（§8） | `archive-list` / `archive` |
 
@@ -45,14 +45,15 @@
 | 场景 | 必须运行 | 不运行 |
 | --- | --- | --- |
 | 单份材料处理 | `continue` 内置：prepare 对账、`verify:dataset --skip-render`、每语言一次渲染证据 | `pnpm check`、`pnpm test`、`verify:app`、`verify:site`、`verify:standalone`、`verify:workbench`、手写浏览器脚本 |
-| 审阅后 seal | 重新哈希输入、重跑数据一致性；渲染复用已接受的逐语言证据（输入未变即同一字节） | 再次渲染；需要时显式 `seal --fresh-render` |
+| 审阅后 seal | 一次核对输入字节，复用已接受的数据一致性与逐语言渲染证据 | 重跑数据检查或渲染；诊断需要时显式 `seal --fresh-checks` 或 `seal --fresh-render` |
 | 本机发布 | `publish:datasets plan` 对整批跑一次 `verify:dataset --skip-render` | 浏览器检查 |
 | Git 交接 | `release:git prepare`：`check` + `build:site` | render regression、`verify:site`（交给 CI；本机要跑用 `--full`） |
 | 推送后 | CI 全套；`pnpm verify:release -- --online --key <key> ...`（HTTP） | 打开线上页面 |
 | 修改共享代码 / 文档 | 直接相关测试；最终候选跑一次 `pnpm check` | 未变输入上的重复运行 |
 
-修改共享代码、渲染器或检查程序时，先改完再刷新受影响的草稿（`record:workflow
-refresh`），避免整批证据反复失效。
+审阅前完成所需的共享代码修改与自动检查。审阅后的接受绑定实际看过的不可变候选与
+Build workspace；根目录后续工具、文档更新不会要求整批刷新。只有 Build 输入或
+实际应用代码需要改变时，才刷新受影响草稿并重新审阅。
 
 ## 4. 交付待审阅
 
@@ -82,14 +83,39 @@ refresh`），避免整批证据反复失效。
 `previewId` 用 HTTP 读取，不开浏览器：
 `curl -s 'http://127.0.0.1:8000/__trace/status?source=review&key=<key>'`，取
 `preview.candidate.id`，并确认其 `members` 中该 Build 的 `reviewToken` 与 `show`
-一致。`record:workflow review` 校验候选仍是最新，记录这份接受，并绑定每个 required
-locale 最新的渲染证据与数据一致性证据。缺少某语言证据、证据或输入已过期时 review
+一致。`record:workflow accept` 核对实际显示候选的成员 token、源文件摘要与站点字节，
+并绑定每个 required locale 的渲染证据与数据一致性证据。候选不必是工作台最新构建，
+但必须仍可读取且与该 Build 的当前字节相符。缺少某语言证据、证据或输入已过期时接受
 失败。不通过或有问题时，用 `record:workflow feedback` 记录
 `{ "note": "<操作员原话>", "date": "YYYY-MM-DD" }`（可选 `locales`、`objectIds`），
 它使当前审阅候选失效；修复后重新 `continue`，不写 `decision` 为拒绝。
 
-随后依次执行 `record:workflow seal <build>`、`publish:datasets -- plan <build> [...]`、
-`publish:datasets -- commit <plan-digest>`。本机发布只切换本机正式快照，不代表已上线。
+单份使用 `record:workflow accept <build> --input <review.json> --session <owner> --generation <gen>`。
+多份已人工通过的材料合成一份清单：
+
+```json
+{
+  "previewId": "<实际看过的候选 id>",
+  "reviewer": "<操作员>",
+  "decision": "accepted",
+  "note": "<操作员原话与日期>",
+  "builds": [
+    { "buildId": "<build-a>", "reviewToken": "<token-a>", "generation": "<gen-a>" },
+    { "buildId": "<build-b>", "reviewToken": "<token-b>", "generation": "<gen-b>" }
+  ]
+}
+```
+
+运行 `record:workflow accept --input <acceptances.json> --session <owner> --concurrency 2`。
+成员可单独指定 `previewId`；Session 身份始终来自执行者，清单不能代替转交或恢复授权。
+同一预览整批只校验一次站点字节，每个 Build 在锁内核对当前 generation 和输入，
+依次产生 CLOSED、BASELINE_STAGED、SEALED 收据后一次写入。任一步失败都保留原 manifest。
+每个成员独立完成；部分失败时命令返回非零并列出原因，修复后可重试同一清单，已封存且
+接受内容一致的成员直接复用。`review` + `seal` 保留给旧调用；`seal` 默认同样复用证据。
+
+随后执行 `publish:datasets -- plan <build> [...]`、`publish:datasets -- commit <plan-digest>`。
+整批合并候选只跑一次数据一致性检查。正式基线冲突仍须重新规划；应用代码与审阅版本
+不同仍须刷新受影响 Build。本机发布只切换本机正式快照，不代表已上线。
 
 ## 6. 上线（仅在操作员要求推送后）
 
@@ -101,7 +127,7 @@ locale 最新的渲染证据与数据一致性证据。缺少某语言证据、�
    即可。为 `false` 时，向操作员说明应用变化并等待确认，再用 `basis: "displayed-candidate"` 记录。
    记录命令：`pnpm record:transport-review -- <transport-id> --input <review.json>`。
 3. `pnpm release:git -- commit <transport-id>`，然后 `pnpm release:git -- push <transport-id>`。
-4. `gh run watch` 等待 CI；失败先修复，再只跑失败的最小检查。
+4. 推送后先报告「已推送，CI 进行中」，再用 `gh run watch` 等待 CI；失败先修复，再只跑失败的最小检查。
 5. `pnpm verify:release -- --online --key <key> [--key ...]` 核对线上版本来自该提交，
    且每个新 key 已部署。`verify:release` 的默认模式是 CI 专用门禁，本机不单独运行。
 

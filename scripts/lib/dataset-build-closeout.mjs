@@ -23,7 +23,7 @@ import {
   readDatasetBuild,
   recordBuildObject,
   recordDatasetBuildCommand,
-  recordDatasetBuildReviewOutcome,
+  recordDatasetBuildReviewClosure,
 } from './dataset-build-store.mjs';
 import { buildProjectRoot } from './project.mjs';
 
@@ -358,20 +358,20 @@ export async function finishReviewedBuild(input, options = {}) {
     consistency,
     evidence,
   });
-  const resultReference = await recordBuildObject(build.buildId, 'fidelity-result', fidelityResult, { buildRoot, projectRoot });
-  await recordDatasetBuildReviewOutcome(build.buildId, {
+  const resultReference = await recordBuildObject(build.buildId, 'fidelity-result', fidelityResult, { ...options, buildRoot, projectRoot });
+  const outcome = {
     expectedRevision: build.revision,
     status: fidelityResult.status,
     authoredDigest: authored.snapshotDigest,
     verificationPlanDigest: planDigest,
     fidelityResult: resultReference,
-  }, { buildRoot, projectRoot, now: options.now });
+  };
 
   const resultEvidenceDigest = digestFidelityValue({
     consistency: fidelityResult.automatic.consistency,
     evidence: fidelityResult.evidence,
   });
-  const closed = await recordDatasetBuildCommand(build.buildId, {
+  const closure = {
     type: 'record-closed',
     expectedRevision: build.revision,
     snapshotDigest: authored.snapshotDigest,
@@ -386,7 +386,11 @@ export async function finishReviewedBuild(input, options = {}) {
       human: { status: 'passed', digest: digestFidelityValue(fidelityResult.acceptance) },
     },
     reviewObjects: { fidelityResult: resultReference },
-  }, { buildRoot, projectRoot, requireFresh: true, now: options.now });
+  };
+  const closed = await recordDatasetBuildReviewClosure(build.buildId, {
+    outcome, closure,
+    ...(options.seal ? { seal: { finalProfiles: acceptedSealProfiles(fidelityResult, options) } } : {}),
+  }, { ...options, buildRoot, projectRoot });
   return {
     build: closed,
     fidelityResult,
@@ -426,6 +430,15 @@ export async function stageReviewedBaseline(input, options = {}) {
 
 const SEAL_CONSISTENCY_PROFILE = 'verify:dataset --skip-render';
 const SEAL_RENDER_PROFILE = 'verify:d3';
+
+function acceptedSealProfiles(result, options = {}) {
+  const accepted = summarizeFidelityResult(result);
+  const checkedAt = (options.now || (() => new Date().toISOString()))();
+  return [
+    { profile: SEAL_CONSISTENCY_PROFILE, status: 'passed', outputDigest: accepted.consistency.digest, reusedEvidence: true, checkedAt },
+    ...accepted.locales.map((entry) => ({ profile: SEAL_RENDER_PROFILE, locale: entry.locale, status: 'passed', outputDigest: entry.digest, reusedEvidence: true, checkedAt })),
+  ];
+}
 
 function defaultSealProfileRunner({ key, projectRoot }) {
   return spawnSync(
@@ -470,35 +483,42 @@ export async function sealReviewedBuild(input, options = {}) {
   const buildRoot = options.buildRoot || DEFAULT_BUILD_ROOT;
   const build = await readDatasetBuild(input.buildId, { buildRoot });
   const projectRoot = buildProjectRoot(build, options.projectRoot);
-  const inspection = await inspectDatasetBuild(build.buildId, {
-    ...options,
-    buildRoot,
-  });
   const authored = latestReceipt(build, 'AUTHORED');
   const closure = latestReceipt(build, 'CLOSED');
   invariant(build.state === 'BASELINE_STAGED' && authored && closure, 'BUILD_NOT_BASELINE_STAGED', 'Build must be BASELINE_STAGED before sealing');
-  invariant(inspection.fresh, 'SEAL_INPUT_STALE', `Build inputs are stale: ${inspection.reasons.join(', ')}`);
   const now = options.now || (() => new Date().toISOString());
   const finalProfiles = [];
 
-  const runSealProfile = options.runSealProfile || defaultSealProfileRunner;
-  const consistencyRun = await runSealProfile({ key: build.key, buildId: build.buildId, projectRoot });
-  const consistencyStatus = runExitStatus(consistencyRun);
-  invariant(consistencyStatus === 0, 'SEAL_PROFILE_FAILED', `Non-render dataset consistency profile failed for ${build.key}`, {
-    status: consistencyStatus ?? null,
-    stdout: String(consistencyRun?.stdout || ''),
-    stderr: String(consistencyRun?.stderr || ''),
-  });
-  finalProfiles.push({
-    profile: SEAL_CONSISTENCY_PROFILE,
-    status: 'passed',
-    outputDigest: runOutputDigest(consistencyRun),
-    checkedAt: now(),
-  });
+  const acceptedResult = closure.payload.reviewObjects?.fidelityResult
+    ? await readBuildObject(build.buildId, closure.payload.reviewObjects.fidelityResult, { buildRoot }) : null;
+  const accepted = acceptedResult ? summarizeFidelityResult(acceptedResult) : null;
+  const sameAcceptance = accepted?.status === 'accepted'
+    && acceptedResult.resultDigest === closure.payload.fidelityResult?.resultDigest
+    && accepted.subject?.buildId === build.buildId
+    && accepted.subject?.authoredDigest === authored.payload.snapshotDigest
+    && accepted.subject?.verificationPlanDigest === authored.payload.verificationPlanDigest;
+  if (!options.freshChecks && sameAcceptance && accepted.consistency?.status === 'passed') {
+    finalProfiles.push({ profile: SEAL_CONSISTENCY_PROFILE, status: 'passed', outputDigest: accepted.consistency.digest, reusedEvidence: true, checkedAt: now() });
+  } else {
+    const runSealProfile = options.runSealProfile || defaultSealProfileRunner;
+    const consistencyRun = await runSealProfile({ key: build.key, buildId: build.buildId, projectRoot });
+    const consistencyStatus = runExitStatus(consistencyRun);
+    invariant(consistencyStatus === 0, 'SEAL_PROFILE_FAILED', `Non-render dataset consistency profile failed for ${build.key}`, {
+      status: consistencyStatus ?? null,
+      stdout: String(consistencyRun?.stdout || ''),
+      stderr: String(consistencyRun?.stderr || ''),
+    });
+    finalProfiles.push({
+      profile: SEAL_CONSISTENCY_PROFILE,
+      status: 'passed',
+      outputDigest: runOutputDigest(consistencyRun),
+      checkedAt: now(),
+    });
+  }
 
   // Income Statement render hard gates: the accepted FidelityResult already
   // proved them per locale on this exact authored snapshot, and freshness
-  // (checked above) pins renderer, fonts, adapter and semantic data. Reuse
+  // (checked under the final write lock) pins renderer, fonts, adapter and semantic data. Reuse
   // that proof unless the caller asks for a fresh render. Revenue Metric
   // render obligations are Adapter-owned notApplicable and record no row.
   if (build.adapter === 'income-statement') {
@@ -509,16 +529,8 @@ export async function sealReviewedBuild(input, options = {}) {
       'SEAL_PLAN_LOCALES_REQUIRED',
       'Sealing an Income Statement Build requires the authored VerificationPlan locales'
     );
-    const acceptedResult = !options.freshRender && closure.payload.reviewObjects?.fidelityResult
-      ? await readBuildObject(build.buildId, closure.payload.reviewObjects.fidelityResult, { buildRoot })
-      : null;
-    // fidelity-result/v2 closures remain sealable: the summary reads either version.
-    const accepted = acceptedResult ? summarizeFidelityResult(acceptedResult) : null;
-    const reusable = Boolean(accepted)
-      && accepted.status === 'accepted'
-      && acceptedResult.resultDigest === closure.payload.fidelityResult?.resultDigest
-      && accepted.subject?.authoredDigest === authored.payload.snapshotDigest
-      && accepted.subject?.verificationPlanDigest === authored.payload.verificationPlanDigest
+    // Historical v2 accepted results retain their original evidence.
+    const reusable = !options.freshRender && !options.freshChecks && sameAcceptance
       && requiredLocales.every((locale) => accepted.locales.some((item) => item.locale === locale && item.status === 'passed'));
     if (reusable) {
       const checkedAt = now();
@@ -569,6 +581,7 @@ export async function sealReviewedBuild(input, options = {}) {
     verdictInputDigests: Object.values(closure.payload.evidence).map((item) => item.digest),
     finalProfiles,
   }, {
+    ...options,
     buildRoot,
     projectRoot,
     requireFresh: true,

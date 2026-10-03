@@ -197,7 +197,7 @@ async function writeEvidence(root, prepared, options = {}) {
       ? JSON.stringify({
           dataset: prepared.build.key,
           language,
-          full: { similarity: 0.97, mae: 7.65, width: 2667, height: 1500 },
+          full: options.metrics || { similarity: 0.97, mae: 7.65, width: 2667, height: 1500 },
           gates: { purity: 'passed', canvas: 'passed', fonts: 'passed', 'node-paint': 'passed', 'render-audits': 'passed', typography: 'passed', 'label-layout': 'passed', interface: 'passed', 'interface-evidence': 'passed', 'page-errors': 'passed' },
         })
       : `${kind}-${language}\n`;
@@ -508,8 +508,9 @@ test('a short acceptance closes, stages, seals, and becomes stale when authored 
     },
   });
   assert.equal(sealed.state, 'SEALED');
-  assert.equal(profileCalls.length, 1);
-  assert.equal(profileCalls[0].key, prepared.build.key);
+  assert.deepEqual(profileCalls, []);
+  assert.equal(sealed.receipts.at(-1).payload.finalProfiles[0].reusedEvidence, true);
+  assert.equal(sealed.receipts.at(-1).payload.finalProfiles[0].outputDigest, verificationReference.digest);
   // The accepted per-locale render proof on this exact snapshot is reused.
   assert.deepEqual(renderCalls, []);
   const sealPayload = sealed.receipts.at(-1).payload;
@@ -603,7 +604,7 @@ test('seal --fresh-render refuses to record when a locale render final profile f
   assert.equal(after.historicalState, 'BASELINE_STAGED');
 });
 
-test('seal refuses to record when the non-render consistency profile fails', async (t) => {
+test('seal --fresh-checks refuses to record when the non-render consistency profile fails', async (t) => {
   const { root, buildRoot, prepared } = await prepareRevenueMetric(t);
   const verificationReference = await writeDatasetVerification(root, buildRoot, prepared);
   await finishReviewedBuild(reviewInput(prepared, null, verificationReference), { buildRoot, projectRoot: root, now });
@@ -613,6 +614,7 @@ test('seal refuses to record when the non-render consistency profile fails', asy
       buildRoot,
       projectRoot: root,
       now,
+      freshChecks: true,
       runSealProfile: () => ({ status: 1, stdout: '', stderr: 'ssot mismatch' }),
     }),
     (error) => error.code === 'SEAL_PROFILE_FAILED'
@@ -813,4 +815,47 @@ test('review-candidate/v1 Sankey Builds close on one evidence set and human acce
   const verificationReference = await writeDatasetVerification(root, buildRoot, prepared);
   const closed = await finishReviewedBuild(reviewInput(prepared, [evidence], verificationReference), { buildRoot, projectRoot: root, now });
   assert.equal(closed.build.state, 'CLOSED');
+});
+
+test('accept atomically records closure, exact baseline and seal without running checks again', async (t) => {
+  const { root, buildRoot, prepared } = await prepare(t, { requiredLocales: ['en', 'zh'] });
+  const english = await writeEvidence(root, prepared), chinese = await writeEvidence(root, prepared, { language: 'zh' });
+  const verification = await writeDatasetVerification(root, buildRoot, prepared);
+  const result = await finishReviewedBuild(reviewInput(prepared, [english, chinese], verification), {
+    buildRoot, projectRoot: root, now, seal: true,
+    runSealProfile: () => assert.fail('accept must reuse consistency evidence'),
+    runRenderProfile: () => assert.fail('accept must reuse render evidence'),
+  });
+  assert.equal(result.build.state, 'SEALED');
+  assert.deepEqual(result.build.receipts.slice(-3).map((item) => item.state), ['CLOSED', 'BASELINE_STAGED', 'SEALED']);
+  assert.deepEqual(result.build.receipts.at(-2).payload.metrics, result.fidelityResult.evidence.find((item) => item.locale === 'en').metrics);
+  assert.deepEqual(result.build.receipts.at(-1).payload.finalProfiles.map((row) => [row.profile, row.locale, row.reusedEvidence]), [
+    ['verify:dataset --skip-render', undefined, true], ['verify:d3', 'en', true], ['verify:d3', 'zh', true],
+  ]);
+  assert.equal((await inspectBuildCloseout(prepared.build.buildId, { buildRoot, projectRoot: root })).fresh, true);
+});
+
+test('failed atomic accept leaves the authored manifest byte-identical, without partial human acceptance', async (t) => {
+  const { root, buildRoot, artifact, prepared } = await prepare(t);
+  const evidence = await writeEvidence(root, prepared);
+  const verification = await writeDatasetVerification(root, buildRoot, prepared);
+  const file = path.join(buildRoot, prepared.build.buildId, 'manifest.json');
+  const before = await readFile(file, 'utf8');
+  await writeFile(path.join(root, artifact), 'changed after review');
+  await assert.rejects(finishReviewedBuild(reviewInput(prepared, [evidence], verification), {
+    buildRoot, projectRoot: root, now, seal: true,
+  }), (error) => error.code === 'REVIEW_OUTCOME_STALE');
+  assert.equal(await readFile(file, 'utf8'), before);
+});
+
+test('a baseline validation failure also rolls back the acceptance and closure', async (t) => {
+  const { root, buildRoot, prepared } = await prepare(t);
+  const evidence = await writeEvidence(root, prepared, { metrics: { similarity: null } });
+  const verification = await writeDatasetVerification(root, buildRoot, prepared);
+  const file = path.join(buildRoot, prepared.build.buildId, 'manifest.json');
+  const before = await readFile(file, 'utf8');
+  await assert.rejects(finishReviewedBuild(reviewInput(prepared, [evidence], verification), {
+    buildRoot, projectRoot: root, now, seal: true,
+  }), /similarity/);
+  assert.equal(await readFile(file, 'utf8'), before);
 });

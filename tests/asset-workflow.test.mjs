@@ -9,7 +9,7 @@ import { PNG } from 'pngjs';
 import { rootDir } from '../scripts/lib/project.mjs';
 import { compileMetricFacts, metricIdentity } from '../scripts/lib/metric-source.mjs';
 import { bytesDigest, fileManifest } from '../scripts/lib/workflow-files.mjs';
-import { startAsset, continueAsset, reviewAsset, sealAsset, showAsset, buildContext } from '../scripts/lib/asset-workflow.mjs';
+import { startAsset, continueAsset, reviewAsset, acceptAsset, acceptAssets, sealAsset, showAsset, buildContext } from '../scripts/lib/asset-workflow.mjs';
 import { planAssetPublication, publishAssetPlan, releasePublished } from '../scripts/lib/workflow-publication.mjs';
 import { refreshAssetWorkspace, processingSourceList, archiveProcessingSources } from '../scripts/lib/workflow-recovery.mjs';
 import { renderAssetReview } from '../scripts/lib/workflow-review.mjs';
@@ -19,6 +19,8 @@ import { recordAssetBatch } from '../scripts/lib/workflow-batch.mjs';
 import { recordWorkflowFeedback } from '../scripts/lib/workflow-feedback.mjs';
 import { recordAssetVersion } from '../scripts/lib/workflow-assets.mjs';
 import { readBuildObject } from '../scripts/lib/dataset-build-store.mjs';
+import { acquireBuildSession } from '../scripts/lib/workflow-session.mjs';
+import { siteContentDigest } from '../scripts/lib/site-release-identity.mjs';
 import { runRetention } from '../scripts/lib/workflow-retention.mjs';
 import { randomUUID } from 'node:crypto';
 import { atomicJson } from '../scripts/lib/workflow-files.mjs';
@@ -417,4 +419,74 @@ test('retention removes finished Builds and snapshots no unpushed publication or
   assert.deepEqual(final.builds.removed.map((item) => item.buildId), [b.buildId]);
   assert.deepEqual(final.snapshots.removed, [`output/publications/trees/${first.publishedDigest.slice(7)}`]);
   assert.deepEqual(await trees(), [second.publishedDigest.slice(7)]);
+});
+
+test('batch accept isolates failure, reuses exact seals on retry, and survives unrelated root tool changes', async (t) => {
+  const root = await fixture(t);
+  const a = await intake(root, 'fast-a');
+  // Source claims are byte identities, so give the second fixture a distinct source.
+  const secondText = literal + ' ';
+  await writeFile(path.join(root, 'input/pending/fast-b.txt'), secondText);
+  const b = await startAsset({ source: 'input/pending/fast-b.txt', key: 'fast-b', facts: facts(secondText, 'example-b') }, root);
+  const ca = await continueAsset(a.buildId, root), cb = await continueAsset(b.buildId, root);
+  const input = { reviewer: 'synthetic-test-reviewer', decision: 'accepted', note: 'Synthetic fixture; not a real dataset acceptance', builds: [
+    { buildId: a.buildId, reviewToken: ca.reviewToken }, { buildId: b.buildId, reviewToken: bytesDigest('wrong-token') },
+  ] };
+  await writeFile(path.join(root, 'scripts/unrelated-new-tool.mjs'), '// unrelated tool added after human review\n');
+  const result = await acceptAssets(input, root);
+  assert.equal(result.status, 'partial-failure');
+  assert.equal(result.results[0].state, 'SEALED');
+  assert.match(result.results[1].error, /exact processing-sheet token/);
+  assert.equal((await showAsset(b.buildId, root)).state, 'AUTHORED');
+  await atomicJson(path.join(root, 'acceptance.json'), input);
+  const cli = await new Promise((resolve, reject) => {
+    const child = spawn(process.execPath, [path.join(root, 'scripts/record-workflow.mjs'), 'accept', '--input', 'acceptance.json', '--concurrency', '2', '--json'], { cwd: root });
+    let stdout = '', stderr = '';
+    child.stdout.on('data', (chunk) => { stdout += chunk; }); child.stderr.on('data', (chunk) => { stderr += chunk; });
+    child.on('error', reject); child.on('close', (code) => resolve({ code, stdout, stderr }));
+  });
+  assert.equal(cli.code, 1, cli.stderr);
+  assert.equal(JSON.parse(cli.stdout).status, 'partial-failure');
+  assert.equal(JSON.parse(cli.stdout).results[0].alreadySealed, true);
+  const manifest = path.join(root, 'output/builds', a.buildId, 'manifest.json');
+  const sealed = await readFile(manifest, 'utf8');
+  input.builds[1].reviewToken = cb.reviewToken;
+  const retried = await acceptAssets(input, root);
+  assert.equal(retried.status, 'sealed');
+  assert.equal(retried.results[0].alreadySealed, true);
+  assert.equal(await readFile(manifest, 'utf8'), sealed);
+  // Root tool updates no longer force accepted workspaces to refresh/re-render.
+  const plan = await planAssetPublication([a.buildId, b.buildId], root);
+  assert.equal(plan.state, 'PLANNED');
+  await assert.rejects(acceptAsset(a.buildId, { ...reviewFor(ca), note: 'different acceptance' }, root), /does not match this acceptance/);
+  await assert.rejects(acceptAssets({ ...input, builds: [input.builds[0], input.builds[0]] }, root), /unique buildId/);
+});
+
+test('accept binds the displayed immutable preview and fences changed bytes and stale owners', async (t) => {
+  const root = await fixture(t), started = await intake(root, 'pinned-review');
+  const current = await continueAsset(started.buildId, root);
+  const lease = await acquireBuildSession(root, started.buildId, 'accept-owner');
+  const previewId = randomUUID(), version = 'a'.repeat(64);
+  const directory = path.join(root, 'output/workbench/previews/review', previewId), site = path.join(directory, 'site');
+  await mkdir(path.join(site, 'releases', version), { recursive: true });
+  await writeFile(path.join(site, 'index.html'), '<h1>Synthetic reviewed candidate</h1>');
+  const contentDigest = await siteContentDigest(site, version);
+  await atomicJson(path.join(site, 'site-release.json'), { schema: 'trace-site-release/v1', version, contentDigest });
+  const preview = { id: previewId, source: 'review', version, contentDigest, toolDigest: (await fileManifest(root, ['scripts', 'package.json', 'pnpm-lock.yaml'])).digest,
+    members: [{ buildId: started.buildId, reviewToken: current.reviewToken, sourceDigest: (await fileManifest(started.workspace)).digest }] };
+  await atomicJson(path.join(directory, 'candidate.json'), preview);
+  const acceptance = { ...reviewFor(current), previewId }, credentials = { session: lease.owner, generation: lease.generation };
+  await assert.rejects(acceptAsset(started.buildId, acceptance, root, { ...credentials, generation: 'stale' }), /current generation/);
+  await writeFile(path.join(site, 'index.html'), 'tampered preview');
+  await assert.rejects(acceptAsset(started.buildId, acceptance, root, credentials), /Site bytes/);
+  await writeFile(path.join(site, 'index.html'), '<h1>Synthetic reviewed candidate</h1>');
+  const runtime = path.join(started.workspace, 'src/runtime.js'), bytes = await readFile(runtime);
+  await writeFile(runtime, 'changed after review');
+  await assert.rejects(acceptAsset(started.buildId, acceptance, root, credentials), /preview is stale/);
+  await writeFile(runtime, bytes);
+  // Workbench tool updates do not alter the displayed, bound candidate.
+  await writeFile(path.join(root, 'scripts/unrelated-tool.mjs'), '// later root-only change');
+  const result = await acceptAsset(started.buildId, acceptance, root, credentials);
+  assert.equal(result.state, 'SEALED');
+  assert.equal((await acceptAsset(started.buildId, acceptance, root, credentials)).alreadySealed, true);
 });

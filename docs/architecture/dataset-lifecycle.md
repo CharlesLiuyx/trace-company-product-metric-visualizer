@@ -446,8 +446,8 @@ The preceding path describes legacy direct-edit compatibility. New isolated Buil
 `compat:baseline` remains only the legacy baseline writer. New isolated Builds
 use immutable-tree Publication and path-claim CAS. The local Source archive
 move remains separate from that canonical publication boundary. The current seal operation re-hashes
-authored files, reruns the non-render consistency profile and, for Income
-Statement, reuses the accepted per-locale d3 render proof on the same authored
-snapshot (or renders again with `--fresh-render`) before recording `SEALED`
+authored files and reuses the accepted non-render consistency evidence and, for
+Income Statement, per-locale d3 render proof on the same authored snapshot
+(`--fresh-checks` reruns both; `--fresh-render` reruns rendering) before recording `SEALED`
 against an accepted closure.
 See the live status table in [`README.md`](README.md).
