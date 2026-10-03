@@ -107,6 +107,11 @@ checks by ChangeImpact (unknown impact runs everything).
 
 ## Dataset Processing
 
+To process a new image in `input/pending/` with Codex or Claude Code, simply
+prompt `处理{文件名}` (replace `{文件名}` with the image's full filename,
+including its extension). This starts the Workflow defined in
+`docs/asset-workflow.md`; no complex prompt is needed.
+
 `docs/asset-workflow.md` is the single owner; do not follow restatements
 elsewhere. Its load-bearing points, for orientation only:
 
