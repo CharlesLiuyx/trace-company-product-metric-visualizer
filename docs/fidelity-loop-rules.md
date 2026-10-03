@@ -155,7 +155,7 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 #### <a id="rule-a10"></a>A10 · conditional-gate · 交互 annotation 绑定 node
 
 - 触发：渲染结果含 `.sankey-interactive-annotation` group 时，期望来自 DOM 而非作者声明。
-- 通过：每个 group 都带可解析到 node 或 non-node metric 的 `data-node`，含文本且由 renderer 提供透明 hitbox；同名 node-like annotation text 未绑定到该 group 即失败。
+- 通过：每个 group 都带可解析到 node 或 non-node metric 的 `data-node`，含文本且由 renderer 提供透明 hitbox；同名 node-like annotation text 未绑定到该 group 即失败；同一指标在 annotation 与 label 层绘制的同文文本不得交叠。
 - 证据：逐 locale 的 `semanticAnnotationAudit`。
 
 #### <a id="rule-i12"></a>I12 · conditional-gate · 图标簇与 paired 目标对齐

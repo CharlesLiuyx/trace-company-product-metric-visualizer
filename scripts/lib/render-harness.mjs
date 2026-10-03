@@ -1074,8 +1074,9 @@ export async function auditTextAndAnnotationLayout(page) {
 export function classifySemanticAnnotationAudit({
   annotations = [],
   unboundNodeLikeTexts = [],
+  duplicateMetricTexts = [],
 } = {}) {
-  if (!Array.isArray(annotations) || !Array.isArray(unboundNodeLikeTexts)) {
+  if (!Array.isArray(annotations) || !Array.isArray(unboundNodeLikeTexts) || !Array.isArray(duplicateMetricTexts)) {
     throw new TypeError('Semantic annotation audit inputs must be arrays');
   }
   const normalized = annotations.map((item, index) => ({
@@ -1099,6 +1100,9 @@ export function classifySemanticAnnotationAudit({
   for (const item of unboundNodeLikeTexts) {
     const nodeId = String(item?.nodeId || '').trim();
     if (annotatedNodeIds.includes(nodeId)) violations.push({ nodeId, code: 'unbound-node-like-text' });
+  }
+  for (const item of duplicateMetricTexts) {
+    violations.push({ nodeId: String(item.nodeId || '').trim(), text: item.text, code: 'duplicate-metric-text' });
   }
   return {
     schemaVersion: 2,
@@ -1146,7 +1150,27 @@ export async function auditSemanticAnnotations(page, { datasetKey, language } = 
       .map((element) => ({ text: String(element.textContent || '').replace(/\s+/g, ' ').trim() }))
       .map((item) => ({ ...item, nodeId: metricIdsByLabel.get(normalize(item.text)) || '' }))
       .filter((item) => item.nodeId);
-    return { annotations, unboundNodeLikeTexts };
+    // Compare actual text faces, not group unions: a callout may safely share
+    // a metric with a label when its text is distinct or spatially separate.
+    const duplicateMetricTexts = [];
+    for (const group of svg.querySelectorAll('.sankey-annotations .sankey-interactive-annotation[data-node]')) {
+      const nodeId = group.getAttribute('data-node');
+      const labels = Array.from(svg.querySelectorAll('.sankey-label[data-node]'))
+        .filter((label) => label.getAttribute('data-node') === nodeId);
+      for (const text of group.querySelectorAll('text')) {
+        const a = text.getBoundingClientRect();
+        if (a.width <= 0 || a.height <= 0) continue;
+        for (const labelText of labels.flatMap((label) => Array.from(label.querySelectorAll('text')))) {
+          if (!normalize(text.textContent) || normalize(text.textContent) !== normalize(labelText.textContent)) continue;
+          const b = labelText.getBoundingClientRect();
+          if (Math.min(a.right, b.right) > Math.max(a.left, b.left)
+              && Math.min(a.bottom, b.bottom) > Math.max(a.top, b.top)) {
+            duplicateMetricTexts.push({ nodeId, text: text.textContent.trim() });
+          }
+        }
+      }
+    }
+    return { annotations, unboundNodeLikeTexts, duplicateMetricTexts };
   }, { key: datasetKey, requestedLanguage: language || 'en' });
   return classifySemanticAnnotationAudit(collected);
 }

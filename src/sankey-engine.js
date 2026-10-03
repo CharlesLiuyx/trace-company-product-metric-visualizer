@@ -1113,6 +1113,9 @@
         .attr('preserveAspectRatio', item.preserveAspectRatio || 'none')
         .style('pointer-events', item.pointerEvents || 'none');
 
+      if (!pairedNode && item.clearance === true) {
+        image.attr('data-annotation-clearance', item.key || item.id || 'raster');
+      }
       if (item.key || item.id) image.attr('data-key', item.key || item.id);
       if (item.opacity != null) image.attr('opacity', item.opacity);
     });
