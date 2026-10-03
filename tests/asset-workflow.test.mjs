@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import path from 'node:path';
 import os from 'node:os';
-import { mkdtemp, mkdir, writeFile, readFile, cp, symlink, rm } from 'node:fs/promises';
+import { mkdtemp, mkdir, writeFile, readFile, readdir, cp, symlink, rm } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { PNG } from 'pngjs';
 import { rootDir } from '../scripts/lib/project.mjs';
@@ -202,9 +202,15 @@ test('concurrent plans conflict without blind retry and duplicate observations c
   await assert.rejects(planAssetPublication([a.buildId, b.buildId], root), /Metric already exists/);
   const planA = await planAssetPublication([a.buildId], root);
   const planB = await planAssetPublication([b.buildId], root);
+  const planFolder = (plan) => path.join(root, 'output/publications/plans', plan.planDigest.slice(7));
+  assert.ok(existsSync(path.join(planFolder(planB), 'data')), 'an open plan carries its verified candidate tree');
   await publishAssetPlan(planA.planDigest, root);
+  // The committed plan and the plan whose base moved keep only their identity.
+  assert.deepEqual(await readdir(planFolder(planA)), ['plan.json']);
+  assert.deepEqual(await readdir(planFolder(planB)), ['plan.json']);
   await assert.rejects(publishAssetPlan(planB.planDigest, root), (error) => error.code === 'PUBLICATION_CONFLICT');
   await assert.rejects(publishAssetPlan(planB.planDigest, root), (error) => error.code === 'PUBLICATION_CONFLICT');
+  assert.deepEqual((await readdir(planFolder(planB))).sort(), ['conflict.json', 'plan.json']);
 });
 test('source relocation consumes an exact operator-confirmed full list and never overwrites a different archive', async (t) => {
   const root = await fixture(t); const started = await intake(root);
@@ -297,9 +303,14 @@ test('refresh after an unrelated publication preserves owned data and requires a
   await writeFile(path.join(root, 'input/pending/other-source.md'), text);
   const b = await startAsset({ source: 'input/pending/other-source.md', key: 'other-source', facts: facts(text, 'other-subject') }, root);
   const next = await continueAsset(b.buildId, root); await reviewAsset(b.buildId, reviewFor(next), root); await sealAsset(b.buildId, root);
-  const plan = await planAssetPublication([a.buildId], root); await publishAssetPlan(plan.planDigest, root);
+  const plan = await planAssetPublication([a.buildId], root); const published = await publishAssetPlan(plan.planDigest, root);
+  const frozenBases = await readdir(path.join(root, 'output/workflow-bases'));
   const refreshed = await refreshAssetWorkspace(b.buildId, root);
   assert.equal(refreshed.state, 'AUTHORED');
+  // A published base is already immutable: the draft references it directly.
+  const base = JSON.parse(await readFile(path.join(refreshed.workspace, 'output/workflow/base.json'), 'utf8'));
+  assert.equal(base.root, path.join(root, 'output/publications/trees', published.publishedDigest.slice(7)));
+  assert.deepEqual(await readdir(path.join(root, 'output/workflow-bases')), frozenBases);
   await assert.rejects(planAssetPublication([b.buildId], root), /not fresh, sealed/);
   const current = await continueAsset(b.buildId, root); await reviewAsset(b.buildId, reviewFor(current), root); await sealAsset(b.buildId, root);
   const newPlan = await planAssetPublication([b.buildId], root);

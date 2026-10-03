@@ -18,7 +18,7 @@ import { prepareBuildReview, finishReviewedBuild, stageReviewedBaseline, sealRev
 import { recordDatasetVerification } from './dataset-verification.mjs';
 import { deriveArtifactManifest, CHECKPOINT_PROTOCOL, REVIEW_CANDIDATE_PROTOCOL, nextCheckpoint } from './workflow-dependencies.mjs';
 import { recordCheckpoint } from './workflow-checkpoints.mjs';
-import { CANONICAL_ROOTS, TOOL_ROOTS, bytesDigest, fileManifest, copyFiles, filesUnder, inside, atomicJson, readJson, withFileLock, freezeSnapshot } from './workflow-files.mjs';
+import { CANONICAL_ROOTS, TOOL_ROOTS, bytesDigest, fileManifest, copyFiles, cloneFiles, filesUnder, inside, atomicJson, readJson, withFileLock, freezeSnapshot } from './workflow-files.mjs';
 import { digestValue } from './dataset-build.mjs';
 import { verifySiteIdentity } from './site-release-identity.mjs';
 import { readReviewPreview } from './workbench-review.mjs';
@@ -97,7 +97,7 @@ export async function startAsset(input, root = rootDir) {
     const workspace = inside(root, authoringRoot);
     if (build.authoringRoot) return { buildId: build.buildId, workspace, session: lease, next: 'show' };
     await mkdir(workspace, { recursive: true });
-    await copyFiles(snapshot.root, workspace, snapshot.entries.map((entry) => entry.path));
+    await cloneFiles(snapshot.root, workspace, snapshot.entries.map((entry) => entry.path));
     await adoptApplication(root, workspace);
     await prepareWorkspaceTools(root, workspace);
     await copyFiles(root, workspace, [build.sources[0].processingUri]);

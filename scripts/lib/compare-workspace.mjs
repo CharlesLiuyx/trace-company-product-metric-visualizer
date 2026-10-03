@@ -18,11 +18,11 @@ export const FIDELITY_PROTOCOL_VERSION = 'fidelity-run/2';
 
 const RUN_MANIFEST_NAME = 'fidelity-run.json';
 // A run is archived only after every gate passed, so the failure-only
-// interface contact sheet is never part of an archive.
+// interface contact sheet is never part of an archive. The reference stays
+// in its Source location and the diff is a debugging aid (`--keep`); neither
+// is read after the run, so neither is archived.
 const ARCHIVED_ARTIFACT_KEYS = Object.freeze([
-  'reference',
   'candidate',
-  'diff',
   'metrics',
   'interfaceAudit',
 ]);
@@ -219,6 +219,10 @@ export async function cleanupFidelityRun(run) {
   await rm(resolvedScratch, { recursive: true, force: true });
 }
 
+function runTimestamp(manifest) {
+  return Date.parse(manifest?.reviewedAt || manifest?.evidenceReadyAt || manifest?.acceptedAt) || 0;
+}
+
 async function comparableRuns(run) {
   const datasetDir = path.join(run.outputRoot, run.identity.dataset);
   if (!existsSync(datasetDir)) return [];
@@ -241,7 +245,7 @@ async function comparableRuns(run) {
       archive: relativeToProject(run, archiveDir),
       manifest,
       full: metrics.full,
-      timestamp: Date.parse(manifest.reviewedAt || manifest.evidenceReadyAt || manifest.acceptedAt) || info.mtimeMs,
+      timestamp: runTimestamp(manifest) || info.mtimeMs,
     });
   }
 
@@ -262,8 +266,10 @@ export async function planFidelityRun(run, options) {
   const previousRuns = await comparableRuns(run);
   const previous = previousRuns[0] || null;
   // The archive sequence only records evidence-run order; it is derived,
-  // never caller-supplied.
-  const sequence = sequenceSegment(previousRuns.length + 1);
+  // never caller-supplied. Superseded archives are removed, so continue from
+  // the highest retained sequence rather than the retained count.
+  const retainedSequence = Math.max(0, ...previousRuns.map((item) => Number(item.manifest.archive?.sequence) || 0));
+  const sequence = sequenceSegment(Math.max(previousRuns.length, retainedSequence) + 1);
   const improvement = improvementSegment(previous?.full, options.fullMetrics);
   const focus = archiveSegment(options.focus, 'unspecified');
   return {
@@ -291,28 +297,22 @@ async function assertDeclaredArtifacts(run) {
   }
 }
 
-async function filesEqual(leftPath, rightPath) {
-  if (!existsSync(rightPath)) return false;
-  const [left, right] = await Promise.all([readFile(leftPath), readFile(rightPath)]);
-  return left.equals(right);
-}
-
-async function publishSharedReference(run, datasetCompareDir) {
-  const outputPath = path.join(datasetCompareDir, run.artifactNames.reference);
-  if (await filesEqual(run.artifacts.reference, outputPath)) {
-    return { path: outputPath, changed: false };
+// Build evidence is consumed only as the latest run per Build, locale and
+// focus (review binds it; seal reuses the accepted result object). Once a
+// newer run of the same kind lands, older ones are dead weight. Strictly
+// older only, so two concurrent finalizers can never remove each other.
+async function removeSupersededRuns(run, datasetCompareDir, keepName, focus, finalizedAt) {
+  if (!run.identity.buildId) return;
+  const cutoff = Date.parse(finalizedAt);
+  for (const entry of await readdir(datasetCompareDir, { withFileTypes: true })) {
+    if (!entry.isDirectory() || entry.name.startsWith('.') || entry.name === keepName) continue;
+    const archiveDir = path.join(datasetCompareDir, entry.name);
+    const manifest = await readJson(path.join(archiveDir, RUN_MANIFEST_NAME));
+    if (!COMPARABLE_RUN_STATUSES.has(manifest?.status)) continue;
+    if (manifest.identity?.buildId !== run.identity.buildId || manifest.identity?.language !== run.identity.language) continue;
+    if (manifest.archive?.focus !== focus || !(runTimestamp(manifest) < cutoff)) continue;
+    await rm(archiveDir, { recursive: true, force: true });
   }
-  const temporaryPath = path.join(
-    datasetCompareDir,
-    `.${run.artifactNames.reference}.tmp-${randomUUID()}`
-  );
-  try {
-    await copyFile(run.artifacts.reference, temporaryPath);
-    await rename(temporaryPath, outputPath);
-  } finally {
-    await rm(temporaryPath, { force: true });
-  }
-  return { path: outputPath, changed: true };
 }
 
 function isArchiveCollision(error) {
@@ -354,21 +354,17 @@ export async function finalizeFidelityRun(run, options) {
         previousArchive: plan.previousArchive,
       };
       const archivedCandidate = `${archive.dir}/${run.artifactNames.candidate}`;
-      const archivedReference = `${archive.dir}/${run.artifactNames.reference}`;
-      const archivedDiff = `${archive.dir}/${run.artifactNames.diff}`;
       const archivedMetrics = `${archive.dir}/${run.artifactNames.metrics}`;
       const archivedInterfaceAudit = `${archive.dir}/${run.artifactNames.interfaceAudit}`;
       const acceptedArtifacts = {
-        reference: archivedReference,
         candidate: archivedCandidate,
-        diff: archivedDiff,
         metrics: archivedMetrics,
         interfaceAudit: archivedInterfaceAudit,
       };
       const metrics = {
         ...options.metricsDocument,
         candidate: archivedCandidate,
-        diff: archivedDiff,
+        diff: null,
         ...(options.metricsDocument?.interfaceAudit
           ? {
               interfaceAudit: {
@@ -407,18 +403,12 @@ export async function finalizeFidelityRun(run, options) {
         // scratch is best-effort so a post-commit scratch failure cannot turn
         // a successfully promoted run into a reported finalize failure.
         await writeJson(run.manifestPath, manifest).catch(() => {});
-        const sharedReference = await publishSharedReference(run, plan.datasetCompareDir).catch((error) => ({
-          path: path.join(archiveDir, run.artifactNames.reference),
-          changed: false,
-          error: error.message,
-        }));
+        // Pruning is housekeeping; it never turns a committed run into a failure.
+        await removeSupersededRuns(run, plan.datasetCompareDir, archiveName, plan.focus, finalizedAt).catch(() => {});
         const archivedNames = [...ARCHIVED_ARTIFACT_KEYS.map((key) => run.artifactNames[key]), RUN_MANIFEST_NAME];
         return {
           ...archive,
           files: archivedNames.map((name) => relativeToProject(run, path.join(archiveDir, name))),
-          reference: relativeToProject(run, sharedReference.path),
-          referenceChanged: sharedReference.changed,
-          ...(sharedReference.error ? { sharedReferenceError: sharedReference.error } : {}),
           identity: run.identity,
         };
       } catch (error) {

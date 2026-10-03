@@ -6,7 +6,7 @@ import { readFile, writeFile, mkdir, rm } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 import { randomUUID } from 'node:crypto';
 import vm from 'node:vm';
-import { CANONICAL_ROOTS, TOOL_ROOTS, atomicJson, readJson, fileManifest, filesUnder, copyFiles, inside, bytesDigest, withFileLock } from './workflow-files.mjs';
+import { CANONICAL_ROOTS, TOOL_ROOTS, atomicJson, readJson, fileManifest, filesUnder, copyFiles, cloneFiles, inside, bytesDigest, withFileLock } from './workflow-files.mjs';
 import { prepareWorkspaceTools } from './workspace-tools.mjs';
 import { mergeSource, containsSsotRecords } from './workflow-merge.mjs';
 import { runWorkspace } from './asset-workflow.mjs';
@@ -77,7 +77,7 @@ export async function prepareGitTransport(publishedDigest, root, options = {}) {
   if ((await fileManifest(publishedRoot)).digest !== publishedDigest) throw new Error('Published tree changed');
   const id = `transport-${randomUUID()}`, directory = folder(root, id), candidate = path.join(directory, 'workspace');
   await mkdir(candidate, { recursive: true });
-  await copyFiles(root, candidate, await filesUnder(root, [...CANONICAL_ROOTS, ...TOOL_ROOTS]));
+  await cloneFiles(root, candidate, await filesUnder(root, [...CANONICAL_ROOTS, ...TOOL_ROOTS]));
   await prepareWorkspaceTools(root, candidate);
   // Reproduce the committed shared queue, then overlay only this release's
   // intake/archive changes. Other Sessions' uncommitted claims stay outside it.

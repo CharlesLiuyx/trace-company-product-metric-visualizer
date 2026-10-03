@@ -9,7 +9,7 @@ import { rootDir } from './project.mjs';
 import { buildContext, canonicalSnapshot, prepareAsset, showAsset } from './asset-workflow.mjs';
 import { recordDatasetBuildCommand } from './dataset-build-store.mjs';
 import { digestValue } from './dataset-build.mjs';
-import { fileManifest, filesUnder, copyFiles, TOOL_ROOTS, readJson, inside, atomicJson, bytesDigest, withFileLock, freezeSnapshot } from './workflow-files.mjs';
+import { fileManifest, filesUnder, cloneFiles, TOOL_ROOTS, readJson, inside, atomicJson, bytesDigest, withFileLock, freezeSnapshot } from './workflow-files.mjs';
 
 export async function refreshAssetWorkspace(buildId, root = rootDir) {
   const initial = await buildContext(buildId, root);
@@ -41,7 +41,7 @@ export async function refreshAssetWorkspace(buildId, root = rootDir) {
       }
     }
     const ownedPaths = new Set(owned.map((entry) => entry.path));
-    await copyFiles(current.root, context.projectRoot, current.entries.filter((entry) => !ownedPaths.has(entry.path)).map((entry) => entry.path));
+    await cloneFiles(current.root, context.projectRoot, current.entries.filter((entry) => !ownedPaths.has(entry.path)).map((entry) => entry.path));
     for (const entry of oldBase.entries) if (!after.has(entry.path) && !ownedPaths.has(entry.path)) await rm(inside(context.projectRoot, entry.path), { force: true });
     for (const [file, source] of merged) await writeFile(inside(context.projectRoot, file), source);
     await adoptApplication(root, context.projectRoot);

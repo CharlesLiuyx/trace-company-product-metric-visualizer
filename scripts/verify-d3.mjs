@@ -519,11 +519,6 @@ async function renderLocaleRun({
       console.log(`archive sequence: ${archive.sequence}`);
       console.log(`archive improvement: ${archive.improvement}${archive.previousArchive ? ` vs ${archive.previousArchive}` : ' (baseline)'}`);
       console.log(`archive focus: ${archive.focus}`);
-      if (archive.sharedReferenceError) {
-        console.log(`shared reference mirror: failed (${archive.sharedReferenceError}); archived reference: ${archive.reference}`);
-      } else if (archive.reference) {
-        console.log(`shared reference: ${archive.reference}${archive.referenceChanged ? '' : ' (unchanged)'}`);
-      }
     } else {
       console.log('archive: none (read-only diagnostic; automatic pass is not human acceptance)');
     }
