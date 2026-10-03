@@ -42,6 +42,21 @@ SSOT 或执行 Git 推送。
 重复执行不会增生备份或全量文件清单。不扫描嵌套符号链接的目标，不接受符号链接根目录。
 该命令是显式本机维护操作，不属于 `verify/record/publish/release` 的生命周期转换。
 
+## 运行中自动清理
+
+以下清理挂在完成工作的命令末尾，在对应锁内执行；遇到正在运行的操作或锁超时即跳过，
+由下一次触发补做。删除的都是后续生命周期步骤不再读取的产物，小型 JSON 记录保留。
+
+| 触发 | 删除 | 保留 |
+| --- | --- | --- |
+| `publish:datasets commit`、`archive`、`recover-intake` | 已本机发布且全部 Source 已按完成信号归档的 Build，以及被 intake successor 接替的前任 Build：`workspace/`、`objects/`、其工作台预览与 local-view 条目 | `manifest.json`、`session.json`、`successor.json` 等，并写 `cleaned.json`；此后 `record:workflow` 对它报 `BUILD_CLEANED` |
+| `release:git push` 成功 | 该候选的 `workspace/`（含 `_site`）与私有 index | plan、approval、journal、receipt |
+| `release:git prepare` | 失败的本次候选目录；基线 HEAD 已过期且未开始提交的旧候选 workspace | 同上 |
+| 上述四个命令之后（持发布锁） | 不再被引用的 `output/publications/trees/*` 与 `output/workflow-bases/*` | 当前指针树；尚未推送的发布的基线与结果树；未清理 Build 的 `base.json` 所指基线。尚无发布时不清扫 |
+
+命令输出的 `retention` 列出删除与跳过的条目。全局 `clean:artifacts --completed` 仍是
+最终复位入口。
+
 ## 处理中减少输出
 
 - 整树副本（Build workspace、冻结基线、发布 plan 与快照树、release 与 Git 交接候选、

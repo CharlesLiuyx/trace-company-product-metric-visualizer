@@ -5,7 +5,7 @@ import { realpathSync } from 'node:fs';
 import { randomUUID } from 'node:crypto';
 import { acquireBuildSession, assertBuildSession, sessionIdentity } from './lib/workflow-session.mjs';
 import { WORKFLOW_ACTIONS } from './lib/workflow-contract.mjs';
-import { rootDir } from './lib/project.mjs';
+import { rootDir, isBuildWorkspace } from './lib/project.mjs';
 import { readJson, atomicJson, inside, recoverFileLock } from './lib/workflow-files.mjs';
 import { startAsset, prepareAsset, continueAsset, checkpointAsset, reviewAsset, sealAsset, showAsset } from './lib/asset-workflow.mjs';
 import { renderAssetReview } from './lib/workflow-review.mjs';
@@ -24,6 +24,8 @@ export function parseWorkflowArgs(args) {
   return { command: positional[0], buildId: positional[1], ...values };
 }
 export async function main(args = process.argv.slice(2)) {
+  // Root-scoped state (Sessions, intake claims, local-view registrations) would land inside the workspace.
+  if (isBuildWorkspace(rootDir)) throw new Error(`record:workflow must run from the project root, not a Build workspace (${rootDir})`);
   const input = parseWorkflowArgs(args);
   if (input.session) process.env.TRACE_SESSION_ID = input.session;
   if (input.generation) process.env.TRACE_SESSION_GENERATION = input.generation;
@@ -33,6 +35,8 @@ export async function main(args = process.argv.slice(2)) {
     if (!input.facts) throw new Error('recover-intake requires --facts');
     const { recoverIntakeSuccessor } = await import('./lib/workflow-intake-successor.mjs');
     result = await recoverIntakeSuccessor(input.buildId, await readJson(path.resolve(input.facts)), rootDir);
+    const { runRetention } = await import('./lib/workflow-retention.mjs');
+    result = { ...result, retention: await runRetention(rootDir) };
   } else if (input.command === 'recover-lock') {
     if (!/^(?:output\/(?:workflow-intake|source-relocation)\.lock|output\/publications\/\.publish\.lock|output\/builds\/build-[a-z0-9-]+\/\.(?:workflow-operation|record|session-write)\.lock)$/.test(input.lock || '')) throw new Error('Recovery only accepts known workflow lock paths');
     result = await recoverFileLock(inside(rootDir, input.lock), input.token);
@@ -70,13 +74,17 @@ export async function main(args = process.argv.slice(2)) {
   } else if (input.command === 'archive-list' || input.command === 'archive') {
     const { processingSourceList, archiveProcessingSources } = await import('./lib/workflow-recovery.mjs');
     result = input.command === 'archive-list' ? await processingSourceList(rootDir, input.buildId ? [input.buildId] : null) : await archiveProcessingSources(await readJson(path.resolve(input.input)));
+    if (input.command === 'archive') {
+      const { runRetention } = await import('./lib/workflow-retention.mjs');
+      result = { ...result, retention: await runRetention(rootDir) };
+    }
   } else if (input.command === 'refresh') {
     const { refreshAssetWorkspace } = await import('./lib/workflow-recovery.mjs');
     result = await refreshAssetWorkspace(input.buildId);
   } else throw new Error('Usage: pnpm record:workflow -- start|prepare|continue|show|report|checkpoint|review|seal|batch|refresh [build-id] [options]');
   if (input.json) console.log(JSON.stringify(result, null, 2));
   else {
-    console.log(JSON.stringify(result.path ? result : { buildId: result.buildId, workspace: result.workspace, session: result.session, state: result.state, next: result.next, actionRequired: result.actionRequired, ...(!result.buildId ? result : {}) }, null, 2));
+    console.log(JSON.stringify(result.path ? result : { buildId: result.buildId, workspace: result.workspace, session: result.session, state: result.state, next: result.next, actionRequired: result.actionRequired, retention: result.retention, ...(!result.buildId ? result : {}) }, null, 2));
     if (result.output) console.log(result.output);
   }
   return result;

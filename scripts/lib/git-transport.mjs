@@ -2,7 +2,7 @@
 // candidate folders and a private temporary index; no worktrees or branches.
 import path from 'node:path';
 import { existsSync } from 'node:fs';
-import { readFile, writeFile, mkdir, rm } from 'node:fs/promises';
+import { readFile, readdir, writeFile, mkdir, rm } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 import { randomUUID } from 'node:crypto';
 import vm from 'node:vm';
@@ -44,15 +44,24 @@ async function publications(root, digest) {
   if (!/^sha256:[a-f0-9]{64}$/.test(digest)) throw new Error('A published digest is required');
   const receipts = (await Promise.all((await filesUnder(root, ['output/publications/receipts'])).filter((f) => f.endsWith('.json')).map((f) => readJson(inside(root, f)))));
   if (existsSync(path.join(root, 'output/publications/current.json'))) receipts.push(await readJson(path.join(root, 'output/publications/current.json')));
+  // A pushed publication's contributions are already in HEAD, and its trees
+  // may be swept; its Builds still carry Source queue changes (archives).
+  const pushed = new Set();
+  for (const id of await readdir(path.join(root, 'output/git-transports')).catch(() => [])) {
+    const receipt = /^transport-[a-f0-9-]+$/.test(id) ? await readJson(path.join(folder(root, id), 'receipt.json')).catch(() => null) : null;
+    if (receipt?.state === 'PUSHED') pushed.add(receipt.publishedDigest);
+  }
   const result = [], seen = new Set();
+  let inHead = false;
   for (let next = digest; next && !seen.has(next);) {
     seen.add(next);
+    inHead ||= pushed.has(next);
     const receipt = receipts.find((item) => item.publishedDigest === next);
     if (!receipt) { if (!result.length) throw new Error('Digest has never been published'); break; }
     const plan = await readJson(inside(root, `output/publications/plans/${receipt.planDigest.slice(7)}/plan.json`));
     const { planDigest, ...value } = plan;
     if (plan.projectedTreeDigest !== next || planDigest !== receipt.planDigest || digestValue(value) !== planDigest) throw new Error('Publication lineage mismatch');
-    result.unshift({ receipt, plan }); next = receipt.previousDigest;
+    result.unshift({ receipt, plan, pushed: inHead }); next = receipt.previousDigest;
   }
   return result;
 }
@@ -69,13 +78,34 @@ async function originalBytes(root, entry, plan) {
   }
   throw new Error(`Original bytes are unavailable for ${entry.path}; an explicit migration is required`);
 }
+// C2: a candidate workspace is dead once pushed, or once HEAD moved past the
+// base of a candidate that never started committing. Plan, approval and
+// receipt stay as the hand-off record.
+async function removeCandidate(directory) {
+  for (const name of ['workspace', 'index']) await rm(path.join(directory, name), { recursive: true, force: true });
+}
+async function removeStaleCandidates(root, head) {
+  for (const id of await readdir(path.join(root, 'output/git-transports')).catch(() => [])) {
+    if (!/^transport-[a-f0-9-]+$/.test(id)) continue;
+    const directory = folder(root, id);
+    if (!existsSync(path.join(directory, 'workspace')) || existsSync(path.join(directory, 'receipt.json')) || existsSync(path.join(directory, 'journal.json'))) continue;
+    const plan = await readJson(path.join(directory, 'plan.json')).catch(() => null);
+    if (plan?.baseHead && plan.baseHead !== head) await removeCandidate(directory);
+  }
+}
 export async function prepareGitTransport(publishedDigest, root, options = {}) {
   const baseHead = git(root, ['rev-parse', 'HEAD']).trim();
+  await removeStaleCandidates(root, baseHead);
+  const directory = folder(root, `transport-${randomUUID()}`);
+  try { return await prepareCandidate(publishedDigest, root, options, baseHead, directory); }
+  catch (error) { await rm(directory, { recursive: true, force: true }); throw error; }
+}
+async function prepareCandidate(publishedDigest, root, options, baseHead, directory) {
   if (git(root, ['status', '--porcelain', '--', ...runtimeRoots]).trim()) throw new Error('Commit application/tool changes first; the transport candidate must start from reproducible Git inputs');
   const lineage = await publications(root, publishedDigest);
   const publishedRoot = inside(root, `output/publications/trees/${publishedDigest.slice(7)}`);
   if ((await fileManifest(publishedRoot)).digest !== publishedDigest) throw new Error('Published tree changed');
-  const id = `transport-${randomUUID()}`, directory = folder(root, id), candidate = path.join(directory, 'workspace');
+  const id = path.basename(directory), candidate = path.join(directory, 'workspace');
   await mkdir(candidate, { recursive: true });
   await cloneFiles(root, candidate, await filesUnder(root, [...CANONICAL_ROOTS, ...TOOL_ROOTS]));
   await prepareWorkspaceTools(root, candidate);
@@ -87,7 +117,7 @@ export async function prepareGitTransport(publishedDigest, root, options = {}) {
     await writeFile(destination, headBytes(root, baseHead, file));
   }
   const owned = new Map();
-  for (const { plan } of lineage) for (const entry of plan.contributions) if (!owned.has(entry.path)) owned.set(entry.path, { entry, plan });
+  for (const { plan, pushed } of lineage) if (!pushed) for (const entry of plan.contributions) if (!owned.has(entry.path)) owned.set(entry.path, { entry, plan });
   const changed = [];
   for (const [file, { entry, plan }] of owned) {
     if (!file.startsWith('data/') && !/^input\/icon-crop-specs\/[^/]+\.json$/.test(file)) throw new Error(`Publication contains an unowned Git path: ${file}`);
@@ -210,6 +240,7 @@ export async function commitGitTransport(id, root, options = {}) {
     const directory = folder(root, id), candidate = path.join(directory, 'workspace'), plan = await readPlan(root, id);
     const receiptFile = path.join(directory, 'receipt.json');
     if (existsSync(receiptFile)) return readJson(receiptFile);
+    if (!existsSync(candidate)) throw new Error('This candidate was removed because Git HEAD moved past its base; prepare and review a fresh integrated candidate');
     const approval = await readJson(path.join(directory, 'approval.json'));
     if (approval.accepted !== true || approval.candidateDigest !== plan.candidateDigest || approval.planDigest !== plan.planDigest) throw new Error('Exact candidate acceptance is required');
     if ((await fileManifest(candidate, runtimeRoots)).digest !== plan.candidateDigest) throw new Error('Candidate changed after approval');
@@ -264,6 +295,8 @@ export async function pushGitTransport(id, root) {
     const remote = git(root, ['ls-remote', 'origin', 'refs/heads/main']).split(/\s/)[0];
     if (remote !== receipt.commit) throw new Error('Remote main readback differs; inspect remote before retry');
     const next = { ...receipt, state: 'PUSHED', pushedAt: new Date().toISOString() };
-    await atomicJson(path.join(directory, 'receipt.json'), next); return next;
+    await atomicJson(path.join(directory, 'receipt.json'), next);
+    await removeCandidate(directory);
+    return next;
   });
 }

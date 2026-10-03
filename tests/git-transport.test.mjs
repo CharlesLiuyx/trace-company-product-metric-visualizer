@@ -2,9 +2,10 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import path from 'node:path';
 import os from 'node:os';
-import { mkdtemp, mkdir, writeFile, readFile, rm } from 'node:fs/promises';
+import { mkdtemp, mkdir, writeFile, readFile, readdir, rm } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
-import { prepareGitTransport, reviewGitTransport, commitGitTransport } from '../scripts/lib/git-transport.mjs';
+import { prepareGitTransport, reviewGitTransport, commitGitTransport, pushGitTransport } from '../scripts/lib/git-transport.mjs';
 import { atomicJson, fileManifest, copyFiles, bytesDigest, CANONICAL_ROOTS } from '../scripts/lib/workflow-files.mjs';
 import { createPreviewManifest } from '../scripts/lib/workbench-manifest.mjs';
 import { digestValue } from '../scripts/lib/dataset-build.mjs';
@@ -69,6 +70,40 @@ test('staged or overlapping user work blocks before mutation; a competing prepar
   assert.equal(await readFile(path.join(root, file), 'utf8'), 'unowned draft'); await rm(path.join(root, file));
   await commitGitTransport(a.id, root);
   await assert.rejects(commitGitTransport(b.id, root), /HEAD changed/);
+});
+test('a new prepare removes candidates whose base HEAD moved and keeps committed ones', async (t) => {
+  const { root, prepare } = await fixture(t), a = await prepare(), b = await prepare();
+  await approve(a, root); await approve(b, root);
+  await commitGitTransport(a.id, root);
+  const c = await prepare();
+  const exists = (id, name) => existsSync(path.join(root, 'output/git-transports', id, name));
+  assert.equal(exists(b.id, 'workspace'), false, 'a candidate on an old HEAD can never commit');
+  assert.equal(exists(b.id, 'plan.json') && exists(b.id, 'approval.json'), true);
+  assert.equal(exists(a.id, 'workspace') && exists(c.id, 'workspace'), true);
+  await assert.rejects(commitGitTransport(b.id, root), /HEAD moved past its base/);
+});
+test('push removes the candidate workspace and keeps the hand-off record', async (t) => {
+  const { root, prepare } = await fixture(t), plan = await prepare();
+  const remote = path.join(root, 'output/remote.git'); git(root, ['init', '-q', '--bare', remote]); git(root, ['remote', 'add', 'origin', remote]);
+  await approve(plan, root); await commitGitTransport(plan.id, root);
+  const pushed = await pushGitTransport(plan.id, root);
+  assert.equal(pushed.state, 'PUSHED');
+  assert.deepEqual((await readdir(path.join(root, 'output/git-transports', plan.id))).sort(), ['approval.json', 'journal.json', 'plan.json', 'receipt.json']);
+});
+test('a failed prepare leaves no candidate folder behind', async (t) => {
+  const { root } = await fixture(t);
+  const published = JSON.parse(await readFile(path.join(root, 'output/publications/current.json'), 'utf8')).publishedDigest;
+  await assert.rejects(prepareGitTransport(published, root, { validate: async () => { throw new Error('simulated check failure'); } }), /simulated check/);
+  assert.deepEqual(await readdir(path.join(root, 'output/git-transports')), []);
+});
+test('contributions of a pushed publication are not re-applied over later HEAD edits', async (t) => {
+  const { root, file, prepare } = await fixture(t), plan = await prepare();
+  await approve(plan, root); const receipt = await commitGitTransport(plan.id, root);
+  await atomicJson(path.join(root, 'output/git-transports', plan.id, 'receipt.json'), { ...receipt, state: 'PUSHED' });
+  await writeFile(path.join(root, file), '{"value":43}\n'); git(root, ['commit', '-qam', 'data: later hand edit']);
+  const next = await prepare();
+  assert.equal(next.paths.some((item) => item.path === file), false);
+  assert.equal(await readFile(path.join(next.workspace, file), 'utf8'), '{"value":43}\n');
 });
 test('an interrupted application is resumable and an edited approved candidate is rejected', async (t) => {
   const { root, prepare } = await fixture(t), plan = await prepare(); await approve(plan, root);
