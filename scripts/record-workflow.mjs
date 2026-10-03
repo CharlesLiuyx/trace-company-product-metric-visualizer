@@ -5,7 +5,7 @@ import { realpathSync } from 'node:fs';
 import { randomUUID } from 'node:crypto';
 import { acquireBuildSession, assertBuildSession, sessionIdentity } from './lib/workflow-session.mjs';
 import { WORKFLOW_ACTIONS } from './lib/workflow-contract.mjs';
-import { rootDir, isBuildWorkspace } from './lib/project.mjs';
+import { rootDir } from './lib/project.mjs';
 import { readJson, atomicJson, inside, recoverFileLock } from './lib/workflow-files.mjs';
 import { startAsset, prepareAsset, continueAsset, checkpointAsset, reviewAsset, sealAsset, showAsset } from './lib/asset-workflow.mjs';
 import { renderAssetReview } from './lib/workflow-review.mjs';
@@ -24,8 +24,6 @@ export function parseWorkflowArgs(args) {
   return { command: positional[0], buildId: positional[1], ...values };
 }
 export async function main(args = process.argv.slice(2)) {
-  // Root-scoped state (Sessions, intake claims, local-view registrations) would land inside the workspace.
-  if (isBuildWorkspace(rootDir)) throw new Error(`record:workflow must run from the project root, not a Build workspace (${rootDir})`);
   const input = parseWorkflowArgs(args);
   if (input.session) process.env.TRACE_SESSION_ID = input.session;
   if (input.generation) process.env.TRACE_SESSION_GENERATION = input.generation;
