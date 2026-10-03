@@ -1,7 +1,4 @@
-/* Pure income-statement SSOT; source-stated operating counts retain their own dimensions. */
-(function(global) {
-const ssot = global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || {schemaVersion:1, records:[]};
-ssot.records.push(...[
+(function(global){const ssot=global.INCOME_STATEMENT_SSOT=global.INCOME_STATEMENT_SSOT||{schemaVersion:1,records:[]};ssot.records.push(...[
   {
     "key": "airbnb-fy25",
     "company": "Airbnb",
@@ -930,7 +927,7 @@ ssot.records.push(...[
       "gross": {
         "id": "gross_profit",
         "label": "Gross profit",
-        "value": 3.0,
+        "value": 3,
         "notes": [
           "82% margin",
           "+0pp Y/Y"
@@ -1143,6 +1140,356 @@ ssot.records.push(...[
         ]
       }
     }
+  },
+  {
+    "key": "airbnb-q1-fy25",
+    "company": "Airbnb",
+    "period": "Q1 FY25",
+    "periodNote": "",
+    "currency": "$",
+    "unit": "B",
+    "decimals": 3,
+    "sourceImage": "input/processed/airbnb-q1-fy25.png",
+    "roundingTolerance": 0.15,
+    "revenue": {
+      "total": 2.3,
+      "notes": [
+        "+6% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "north_america",
+          "label": "North America",
+          "value": 1.1,
+          "valueText": "$1.1B",
+          "notes": [
+            "+4% Y/Y"
+          ]
+        },
+        {
+          "id": "emea",
+          "label": "EMEA",
+          "value": 0.6,
+          "valueText": "$0.6B",
+          "notes": [
+            "+5% Y/Y"
+          ]
+        },
+        {
+          "id": "latam",
+          "label": "LATAM",
+          "value": 0.3,
+          "valueText": "$0.3B",
+          "notes": [
+            "+12% Y/Y"
+          ]
+        },
+        {
+          "id": "apac",
+          "label": "APAC",
+          "value": 0.3,
+          "valueText": "$0.3B",
+          "notes": [
+            "+10% Y/Y"
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_revenue",
+        "label": "Cost of revenue",
+        "value": 0.5,
+        "valueText": "($0.5B)",
+        "notes": []
+      },
+      "operatingExpenses": {
+        "total": 1.7,
+        "items": [
+          {
+            "id": "product",
+            "label": "Product",
+            "value": 0.6,
+            "valueText": "($0.6B)",
+            "notes": [
+              "25% of revenue",
+              "+3pp Y/Y"
+            ]
+          },
+          {
+            "id": "sm",
+            "label": "S&M",
+            "value": 0.6,
+            "valueText": "($0.6B)",
+            "notes": [
+              "25% of revenue",
+              "+1pp Y/Y"
+            ]
+          },
+          {
+            "id": "support",
+            "label": "Support",
+            "value": 0.3,
+            "valueText": "($0.3B)",
+            "notes": [
+              "13% of revenue",
+              "(0pp) Y/Y"
+            ]
+          },
+          {
+            "id": "ga",
+            "label": "G&A",
+            "value": 0.3,
+            "valueText": "($0.3B)",
+            "notes": [
+              "13% of revenue",
+              "+0pp Y/Y"
+            ]
+          }
+        ]
+      },
+      "tax": {
+        "id": "tax",
+        "label": "Tax",
+        "value": 0.019,
+        "valueText": "($19M)",
+        "notes": []
+      }
+    },
+    "otherIncome": {
+      "total": 0.1,
+      "items": [
+        {
+          "id": "other_income",
+          "label": "Other",
+          "value": 0.1,
+          "valueText": "$0.1B",
+          "notes": []
+        }
+      ]
+    },
+    "otherExpenses": {
+      "total": 0,
+      "items": []
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 1.8,
+        "valueText": "$1.8B",
+        "notes": [
+          "78% margin",
+          "(1pp) Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_profit",
+        "label": "Operating profit",
+        "value": 0.038,
+        "valueText": "$38M",
+        "notes": [
+          "2% margin",
+          "(3pp) Y/Y"
+        ]
+      },
+      "net": {
+        "id": "net_profit",
+        "label": "Net profit",
+        "value": 0.2,
+        "valueText": "$0.2B",
+        "notes": [
+          "7% margin",
+          "(6pp) Y/Y"
+        ]
+      }
+    },
+    "operatingMetrics": [
+      {
+        "id": "nights_booked",
+        "label": "Nights booked",
+        "value": "143000000",
+        "unit": "count",
+        "currency": null,
+        "comparison": "eq",
+        "literal": "143M",
+        "basis": "unspecified",
+        "notes": [
+          "+8% Y/Y"
+        ],
+        "quote": "Nights booked\n143M\n+8% Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            102,
+            1175,
+            306,
+            148
+          ]
+        }
+      },
+      {
+        "id": "gbv",
+        "label": "GBV",
+        "value": "24.5",
+        "unit": "B",
+        "currency": "USD",
+        "comparison": "eq",
+        "literal": "$24.5B",
+        "basis": "unspecified",
+        "notes": [
+          "+7% Y/Y"
+        ],
+        "quote": "GBV\n$24.5B\n+7% Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            417,
+            1175,
+            146,
+            150
+          ]
+        }
+      }
+    ],
+    "i18n": {
+      "zh": {
+        "revenue": {
+          "notes": [
+            "同比 +6%"
+          ],
+          "items": [
+            {
+              "id": "north_america",
+              "label": "北美",
+              "notes": [
+                "同比 +4%"
+              ]
+            },
+            {
+              "id": "emea",
+              "label": "欧洲、中东和非洲",
+              "notes": [
+                "同比 +5%"
+              ]
+            },
+            {
+              "id": "latam",
+              "label": "拉美",
+              "notes": [
+                "同比 +12%"
+              ]
+            },
+            {
+              "id": "apac",
+              "label": "亚太",
+              "notes": [
+                "同比 +10%"
+              ]
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "id": "cost_of_revenue",
+            "label": "收入成本",
+            "notes": []
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "product",
+                "label": "产品",
+                "notes": [
+                  "占收入 25%",
+                  "同比 +3 个百分点"
+                ]
+              },
+              {
+                "id": "sm",
+                "label": "销售与市场",
+                "notes": [
+                  "占收入 25%",
+                  "同比 +1 个百分点"
+                ]
+              },
+              {
+                "id": "support",
+                "label": "客服支持",
+                "notes": [
+                  "占收入 13%",
+                  "同比 (0 个百分点)"
+                ]
+              },
+              {
+                "id": "ga",
+                "label": "管理费用",
+                "notes": [
+                  "占收入 13%",
+                  "同比 +0 个百分点"
+                ]
+              }
+            ]
+          },
+          "tax": {
+            "id": "tax",
+            "label": "税费",
+            "notes": []
+          }
+        },
+        "otherIncome": {
+          "items": [
+            {
+              "id": "other_income",
+              "label": "其他",
+              "notes": []
+            }
+          ]
+        },
+        "profit": {
+          "gross": {
+            "id": "gross_profit",
+            "label": "毛利润",
+            "notes": [
+              "利润率 78%",
+              "同比 (1 个百分点)"
+            ]
+          },
+          "operating": {
+            "id": "operating_profit",
+            "label": "营业利润",
+            "notes": [
+              "利润率 2%",
+              "同比 (3 个百分点)"
+            ]
+          },
+          "net": {
+            "id": "net_profit",
+            "label": "净利润",
+            "notes": [
+              "利润率 7%",
+              "同比 (6 个百分点)"
+            ]
+          }
+        },
+        "period": "2025 财年第一季度",
+        "operatingMetrics": [
+          {
+            "id": "nights_booked",
+            "label": "预订间夜数",
+            "notes": [
+              "同比 +8%"
+            ]
+          },
+          {
+            "id": "gbv",
+            "label": "总预订价值",
+            "notes": [
+              "同比 +7%"
+            ]
+          }
+        ]
+      }
+    }
   }
-]);
-})(window);
+]);})(window);

@@ -6614,6 +6614,186 @@
       "mae": 6.258354039078449,
       "width": 2667,
       "height": 1500
+    },
+    "airbnb-q1-fy25": {
+      "similarity": 0.973217092307906,
+      "mae": 6.829641461483981,
+      "width": 2667,
+      "height": 1500
+    },
+    "amd-q2-fy26": {
+      "similarity": 0.9606501177548885,
+      "mae": 10.034219972503436,
+      "width": 2667,
+      "height": 1500
+    },
+    "analog-devices-q3-fy26": {
+      "similarity": 0.9748080525881977,
+      "mae": 6.4239465900095825,
+      "width": 2667,
+      "height": 1500
+    },
+    "applied-materials-q3-fy26": {
+      "similarity": 0.9768036962699924,
+      "mae": 5.915057451151939,
+      "width": 2667,
+      "height": 1500
+    },
+    "astera-labs-q2-fy26": {
+      "similarity": 0.9741493068268428,
+      "mae": 6.591926759155106,
+      "width": 2667,
+      "height": 1500
+    },
+    "cerebras-q2-fy26": {
+      "similarity": 0.9775955397732147,
+      "mae": 5.713137357830271,
+      "width": 2667,
+      "height": 1500
+    },
+    "chevron-q1-fy25": {
+      "similarity": 0.9630526899823797,
+      "mae": 9.421564054493189,
+      "width": 2667,
+      "height": 1500
+    },
+    "coreweave-q2-fy26": {
+      "similarity": 0.9595647900221622,
+      "mae": 10.310978544348623,
+      "width": 2667,
+      "height": 1500
+    },
+    "crowdstrike-q2-fy27": {
+      "similarity": 0.9765954749120412,
+      "mae": 5.968153897429488,
+      "width": 2667,
+      "height": 1500
+    },
+    "doordash-q2-fy26": {
+      "similarity": 0.9722141003616378,
+      "mae": 7.08540440778236,
+      "width": 2667,
+      "height": 1500
+    },
+    "ferrari-q1-fy25": {
+      "similarity": 0.9625107485747288,
+      "mae": 9.559759113444153,
+      "width": 2667,
+      "height": 1500
+    },
+    "ford-q1-fy25": {
+      "similarity": 0.9738459699073564,
+      "mae": 6.66927767362413,
+      "width": 2667,
+      "height": 1500
+    },
+    "gm-q1-fy25": {
+      "similarity": 0.9754773895093178,
+      "mae": 6.253265675123943,
+      "width": 2667,
+      "height": 1500
+    },
+    "grab-q2-fy26": {
+      "similarity": 0.9719562757269721,
+      "mae": 7.15114968962213,
+      "width": 2667,
+      "height": 1500
+    },
+    "hp-q3-fy26": {
+      "similarity": 0.9711316222727061,
+      "mae": 7.3614363204599425,
+      "width": 2667,
+      "height": 1500
+    },
+    "j-j-q1-fy25": {
+      "similarity": 0.9764857304601631,
+      "mae": 5.996138732658418,
+      "width": 2667,
+      "height": 1500
+    },
+    "lenovo-q1-fy27": {
+      "similarity": 0.9723931328845332,
+      "mae": 7.0397511144440275,
+      "width": 2667,
+      "height": 1500
+    },
+    "marvell-q2-fy27": {
+      "similarity": 0.9702300967281051,
+      "mae": 7.5913253343332086,
+      "width": 2667,
+      "height": 1500
+    },
+    "mastercard-q1-fy25": {
+      "similarity": 0.9715569312005934,
+      "mae": 7.2529825438486855,
+      "width": 2667,
+      "height": 1500
+    },
+    "nebius-q2-fy26": {
+      "similarity": 0.9750654367550461,
+      "mae": 6.358313627463234,
+      "width": 2667,
+      "height": 1500
+    },
+    "nintendo-fy25": {
+      "similarity": 0.9592635551275045,
+      "mae": 10.387793442486355,
+      "width": 2667,
+      "height": 1500
+    },
+    "salesforce-q2-fy27": {
+      "similarity": 0.9735856246727329,
+      "mae": 6.73566570845311,
+      "width": 2667,
+      "height": 1500
+    },
+    "sandisk-q4-fy26": {
+      "similarity": 0.9783130974641242,
+      "mae": 5.530160146648336,
+      "width": 2667,
+      "height": 1500
+    },
+    "spacex-q2-fy26": {
+      "similarity": 0.9745483794917792,
+      "mae": 6.4901632295963,
+      "width": 2667,
+      "height": 1500
+    },
+    "starbucks-q2-fy25": {
+      "similarity": 0.9622653178156652,
+      "mae": 9.622343957005373,
+      "width": 2667,
+      "height": 1500
+    },
+    "synopsys-q3-fy26": {
+      "similarity": 0.9761094039715624,
+      "mae": 6.092101987251594,
+      "width": 2667,
+      "height": 1500
+    },
+    "twilio-q2-fy26": {
+      "similarity": 0.975304947339099,
+      "mae": 6.297238428529767,
+      "width": 2667,
+      "height": 1500
+    },
+    "uber-q2-fy26": {
+      "similarity": 0.9585027414056903,
+      "mae": 10.581800941548973,
+      "width": 2667,
+      "height": 1500
+    },
+    "veeva-q2-fy27": {
+      "similarity": 0.9777530638735518,
+      "mae": 5.672968712244303,
+      "width": 2667,
+      "height": 1500
+    },
+    "walmart-q1-fy26": {
+      "similarity": 0.9735977649852592,
+      "mae": 6.732569928758905,
+      "width": 2667,
+      "height": 1500
     }
   }
 }

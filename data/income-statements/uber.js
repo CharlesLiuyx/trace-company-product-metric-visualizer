@@ -8,7 +8,342 @@
     records: [],
   });
 
-  ssot.records.push(
+  ssot.records.push({
+  "key": "uber-q2-fy26",
+  "company": "Uber",
+  "period": "Q2 FY26",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processing/uber-q2-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 14.2,
+    "notes": [
+      "+12% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "mobility",
+        "label": "Mobility",
+        "value": 7.4,
+        "notes": [
+          "+1% Y/Y",
+          "30% adjusted margin",
+          "+6pp Y/Y"
+        ]
+      },
+      {
+        "id": "delivery",
+        "label": "Delivery",
+        "value": 5.2,
+        "notes": [
+          "+28% Y/Y",
+          "20% adjusted margin",
+          "+1pp Y/Y"
+        ]
+      },
+      {
+        "id": "freight",
+        "label": "Uber Freight",
+        "value": 1.6,
+        "notes": [
+          "+26% Y/Y",
+          "(2%) adjusted margin",
+          "+1pp Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 7.8,
+      "notes": []
+    },
+    "operatingExpenses": {
+      "total": 4.5,
+      "items": [
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 1.5,
+          "notes": [
+            "11% of revenue",
+            "+1pp Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 1.0,
+          "notes": [
+            "7% of revenue",
+            "+1pp Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 0.9,
+          "notes": [
+            "7% of revenue",
+            "+1pp Y/Y"
+          ]
+        },
+        {
+          "id": "operations",
+          "label": "Operations",
+          "value": 0.8,
+          "notes": [
+            "6% of revenue",
+            "+0pp Y/Y"
+          ]
+        },
+        {
+          "id": "da",
+          "label": "D&A",
+          "value": 0.2,
+          "notes": [
+            "1% of revenue",
+            "(0pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.8,
+      "notes": []
+    }
+  },
+  "otherIncome": {
+    "total": 1.4,
+    "items": [
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 1.4,
+        "notes": []
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 6.4,
+      "notes": [
+        "45% margin",
+        "+5pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 1.9,
+      "notes": [
+        "13% margin",
+        "+2pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 2.4,
+      "notes": []
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "trips",
+      "label": "Trips",
+      "value": "3900000000",
+      "unit": "count",
+      "currency": null,
+      "literal": "3.9B",
+      "comparison": "eq",
+      "basis": "unspecified",
+      "notes": [
+        "+18% Y/Y"
+      ],
+      "quote": "Trips\n3.9B\n+18% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          30,
+          1163,
+          158,
+          148
+        ]
+      }
+    },
+    {
+      "id": "mapc",
+      "label": "MAPC",
+      "value": "208000000",
+      "unit": "count",
+      "currency": null,
+      "literal": "208M",
+      "comparison": "eq",
+      "basis": "unspecified",
+      "notes": [
+        "+16% Y/Y"
+      ],
+      "quote": "MAPC\n208M\n+16% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          193,
+          1163,
+          172,
+          148
+        ]
+      }
+    },
+    {
+      "id": "gross_bookings",
+      "label": "Gross Bookings",
+      "value": "58.0",
+      "unit": "B",
+      "currency": "USD",
+      "literal": "$58.0B",
+      "comparison": "eq",
+      "basis": "unspecified",
+      "notes": [
+        "+24% Y/Y"
+      ],
+      "quote": "Gross Bookings\n$58.0B\n+24% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          371,
+          1163,
+          331,
+          148
+        ]
+      }
+    },
+    {
+      "id": "mobility_take_rate",
+      "label": "Mobility take rate",
+      "value": "25.4",
+      "unit": "%",
+      "currency": null,
+      "literal": "25.4%",
+      "comparison": "eq",
+      "basis": "unspecified",
+      "notes": [
+        "-5.3pp Y/Y"
+      ],
+      "quote": "Mobility take rate\n25.4%\n-5.3pp Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          708,
+          1163,
+          380,
+          148
+        ]
+      }
+    },
+    {
+      "id": "delivery_take_rate",
+      "label": "Delivery take rate",
+      "value": "19.1",
+      "unit": "%",
+      "currency": null,
+      "literal": "19.1%",
+      "comparison": "eq",
+      "basis": "unspecified",
+      "notes": [
+        "+0.2pp Y/Y"
+      ],
+      "quote": "Delivery take rate\n19.1%\n+0.2pp Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          708,
+          1163,
+          380,
+          148
+        ]
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "App Economy Insights source infographic",
+      "url": "https://www.appeconomyinsights.com/"
+    }
+  ],
+  "notes": [
+    "Source rounded values: operating expense items sum to $4.4B versus $4.5B total; operating profit + Other - Tax equals $2.5B versus $2.4B reported net profit."
+  ],
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "revenue": {
+        "items": [
+          {
+            "id": "mobility",
+            "label": "出行",
+            "notes": [
+              "同比 +1%",
+              "调整后利润率 30%",
+              "同比 +6 个百分点"
+            ]
+          },
+          {
+            "id": "delivery",
+            "label": "配送",
+            "notes": [
+              "同比 +28%",
+              "调整后利润率 20%",
+              "同比 +1 个百分点"
+            ]
+          },
+          {
+            "id": "freight",
+            "label": "Uber Freight 货运",
+            "notes": [
+              "同比 +26%",
+              "调整后利润率 (2%)",
+              "同比 +1 个百分点"
+            ]
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 45%",
+            "同比 +5 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 13%",
+            "同比 +2 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": []
+        }
+      }
+    }
+  }
+},
+
     {
       key: 'uber-q3-fy22',
       company: 'Uber',

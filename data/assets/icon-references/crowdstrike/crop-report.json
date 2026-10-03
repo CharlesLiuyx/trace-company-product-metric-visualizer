@@ -1,0 +1,133 @@
+{
+  "source": "input/processing/crowdstrike-q2-fy27.png",
+  "spec": "input/icon-crop-specs/crowdstrike-q2-fy27.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-03T07:51:48.488893+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/crowdstrike",
+  "crops": [
+    {
+      "key": "crowdstrike-company-wordmark",
+      "output": "data/assets/icon-references/crowdstrike/crops/company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 5761,
+        "losslessBytes": 28239,
+        "savingsVsLossless": 0.796,
+        "metrics": {
+          "meanAbsoluteError": 0.2785,
+          "rootMeanSquareError": 1.5143,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 34,
+          "changedPixelRatio": 0.2953
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 99143,
+        "transparentPixelRatio": 0.7073
+      },
+      "searchBox": {
+        "x": 145,
+        "y": 258,
+        "width": 860,
+        "height": 163
+      },
+      "componentCount": 13,
+      "subjectBox": {
+        "x0": 155,
+        "y0": 269,
+        "x1": 992,
+        "y1": 420
+      },
+      "cropBox": {
+        "x0": 145,
+        "y0": 258,
+        "x1": 1005,
+        "y1": 421
+      },
+      "validation": {
+        "width": 860,
+        "height": 163,
+        "foregroundPixels": 38692,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 10,
+          "right": 13,
+          "top": 11,
+          "bottom": 1
+        },
+        "centerOffset": {
+          "x": -0.0017,
+          "y": 0.0307
+        },
+        "passes": true
+      },
+      "note": "CrowdStrike symbol and complete wordmark only.",
+      "runtimeOutput": "data/assets/raster-annotations/crowdstrike/company-wordmark-q2-fy27.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 5761,
+        "losslessBytes": 28239,
+        "savingsVsLossless": 0.796,
+        "metrics": {
+          "meanAbsoluteError": 0.2785,
+          "rootMeanSquareError": 1.5143,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 34,
+          "changedPixelRatio": 0.2953
+        }
+      },
+      "validationSheet": "data/assets/icon-references/crowdstrike/validation-sheets/crowdstrike-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 220625,
+        "losslessBytes": 220625,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

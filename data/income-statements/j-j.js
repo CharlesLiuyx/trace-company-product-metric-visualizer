@@ -215,3 +215,200 @@
     },
   });
 })(window);
+
+(function(global){global.INCOME_STATEMENT_SSOT.records.push({
+  "key": "j-j-q1-fy25",
+  "company": "Johnson & Johnson",
+  "period": "Q1 FY25",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 3,
+  "sourceImage": "input/processed/j-j-q1-fy25.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 21.9,
+    "notes": [
+      "+2% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "innovative_medicine",
+        "label": "Innovative Medicine",
+        "value": 13.9,
+        "notes": [
+          "+2% Y/Y"
+        ]
+      },
+      {
+        "id": "medtech",
+        "label": "MedTech",
+        "value": 8,
+        "notes": [
+          "+3% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_products_sold",
+      "label": "Cost of products sold",
+      "value": 7.4
+    },
+    "operatingExpenses": {
+      "total": 8.4,
+      "notes": [
+        "Source-rounded components total $8.317B; the displayed total is $8.4B."
+      ],
+      "items": [
+        {
+          "id": "sga",
+          "label": "Sales, marketing & administrative",
+          "value": 5.1
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 3.2
+        },
+        {
+          "id": "restructuring",
+          "label": "Restructuring",
+          "value": 0.017
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 2.6
+    }
+  },
+  "operatingOtherIncome": {
+    "total": 7.4,
+    "items": [
+      {
+        "id": "other_income",
+        "label": "Other income",
+        "value": 7.3
+      },
+      {
+        "id": "interest",
+        "label": "Interest",
+        "value": 0.1
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 14.5,
+      "notes": [
+        "66% margin",
+        "(3pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "pretax_income",
+      "label": "Pretax income",
+      "value": 13.5,
+      "notes": [
+        "62% margin",
+        "+45pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net income",
+      "value": 11,
+      "notes": [
+        "50% margin",
+        "+35pp Y/Y",
+        "Source-rounded pretax income less tax is $10.9B; displayed net income is $11.0B."
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2025 财年第一季度",
+      "revenue": {
+        "notes": [
+          "同比 +2%"
+        ],
+        "items": [
+          {
+            "label": "创新制药",
+            "notes": [
+              "同比 +2%"
+            ]
+          },
+          {
+            "label": "医疗科技",
+            "notes": [
+              "同比 +3%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "产品销售成本"
+        },
+        "operatingExpenses": {
+          "notes": [
+            "来源四舍五入后的费用项目合计 $8.317B，展示总额为 $8.4B。"
+          ],
+          "items": [
+            {
+              "label": "销售、市场及行政费用"
+            },
+            {
+              "label": "研发"
+            },
+            {
+              "label": "重组费用"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "operatingOtherIncome": {
+        "items": [
+          {
+            "label": "其他收入"
+          },
+          {
+            "label": "利息"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 66%",
+            "同比 (3 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "税前利润",
+          "notes": [
+            "利润率 62%",
+            "同比 +45 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 50%",
+            "同比 +35 个百分点",
+            "来源四舍五入后的税前利润减税费为 $10.9B，展示净利润为 $11.0B。"
+          ]
+        }
+      }
+    }
+  }
+});})(window);

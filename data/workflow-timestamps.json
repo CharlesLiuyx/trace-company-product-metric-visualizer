@@ -445,6 +445,156 @@
       "digest": "sha256:f74d7877f0a739b6621b5971ca3b6ef8e9306c00f6b8a4dd8d3620399cc45a1e",
       "updatedAt": "2026-10-03T06:15:58.221Z",
       "publishedDigest": "sha256:171baa855011465498797fd45ecf7181ed8f1610d54480b731794d00fbd404d7"
+    },
+    "data/datasets/airbnb-q1-fy25.js": {
+      "digest": "sha256:f7aa43c517e740af950611e8751ec5e62ad11ec949e99fefdaf1a3c37dd0e7d2",
+      "updatedAt": "2026-10-03T07:49:24.791Z",
+      "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
+    },
+    "data/datasets/amd-q2-fy26.js": {
+      "digest": "sha256:8024a7ce9fae30718e830bc4efb241e2d67814e7ee190710f8c4348308abfcc7",
+      "updatedAt": "2026-10-03T07:49:23.929Z",
+      "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
+    },
+    "data/datasets/analog-devices-q3-fy26.js": {
+      "digest": "sha256:0a5d1eb62fea92db8670793ce040d84c02cd13f20e65d771f217761aefc4c0b8",
+      "updatedAt": "2026-10-03T07:49:23.058Z",
+      "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
+    },
+    "data/datasets/applied-materials-q3-fy26.js": {
+      "digest": "sha256:3217fff58a6464333117f416bd5933772a3d67643952171ad7f509e6a1276960",
+      "updatedAt": "2026-10-03T07:49:32.540Z",
+      "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
+    },
+    "data/datasets/astera-labs-q2-fy26.js": {
+      "digest": "sha256:183c3f596b89aa25d77bc7f8286c804c1305355fd67530408657bed6664e8690",
+      "updatedAt": "2026-10-03T07:49:22.287Z",
+      "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
+    },
+    "data/datasets/cerebras-q2-fy26.js": {
+      "digest": "sha256:eb7bfc6d7cd30085c365121922554e5c4a42aa12aeca6477c2ee548b9367cdd9",
+      "updatedAt": "2026-10-03T07:49:19.041Z",
+      "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
+    },
+    "data/datasets/chevron-q1-fy25.js": {
+      "digest": "sha256:0bb2b41efbaad04b4c2e5b8850521635d6ea7f8629b6b4d7946f45bcfa62b3eb",
+      "updatedAt": "2026-10-03T07:49:30.922Z",
+      "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
+    },
+    "data/datasets/coreweave-q2-fy26.js": {
+      "digest": "sha256:3ecbea5356bb892af1e4484266a957cde35544bcdc3739ec6aa78ea30c0d989c",
+      "updatedAt": "2026-10-03T07:49:19.732Z",
+      "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
+    },
+    "data/datasets/crowdstrike-q2-fy27.js": {
+      "digest": "sha256:4aa03b9864779cec73c8baba9dfa2eb0d8487486a993cee672558b0be169261e",
+      "updatedAt": "2026-10-03T07:49:26.553Z",
+      "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
+    },
+    "data/datasets/doordash-q2-fy26.js": {
+      "digest": "sha256:33aa933923025c85c1b57228efd6f5ab2e3005f409c310a3de0b7b9f7960eef6",
+      "updatedAt": "2026-10-03T07:49:28.916Z",
+      "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
+    },
+    "data/datasets/ferrari-q1-fy25.js": {
+      "digest": "sha256:3ebecd1fe139198964f082e9a6a2d761f88c185b68b3585ffcbfccb52d8af965",
+      "updatedAt": "2026-10-03T07:49:34.073Z",
+      "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
+    },
+    "data/datasets/ford-q1-fy25.js": {
+      "digest": "sha256:df4a7a677cf1052badd9b5cf7553a050ada9b5e9116a57276bfaddcf9af531f5",
+      "updatedAt": "2026-10-03T07:49:27.142Z",
+      "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
+    },
+    "data/datasets/gm-q1-fy25.js": {
+      "digest": "sha256:51edb81c75f8cdea485f378d845deb916ee36e50cea2707a362b3f23523509bb",
+      "updatedAt": "2026-10-03T07:49:18.288Z",
+      "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
+    },
+    "data/datasets/grab-q2-fy26.js": {
+      "digest": "sha256:0f9191270f5258f915be2462c2b0433668ff5b1b8f9ccde270fffc5e34189c39",
+      "updatedAt": "2026-10-03T07:49:32.084Z",
+      "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
+    },
+    "data/datasets/hp-q3-fy26.js": {
+      "digest": "sha256:1651af69ae24cf377d34dd8dc7703abb57d2c33838db6b63099688f5389e6dc7",
+      "updatedAt": "2026-10-03T07:49:33.553Z",
+      "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
+    },
+    "data/datasets/j-j-q1-fy25.js": {
+      "digest": "sha256:9d22acbee9576df6d512e42ec049d2175bd58fa2e8907684b71826e88693a630",
+      "updatedAt": "2026-10-03T07:49:27.767Z",
+      "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
+    },
+    "data/datasets/lenovo-q1-fy27.js": {
+      "digest": "sha256:d5d146d959a3e221717f91bc85d6d9a45754ac2c15d0fbde458e82868c7c6845",
+      "updatedAt": "2026-10-03T07:49:28.504Z",
+      "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
+    },
+    "data/datasets/marvell-q2-fy27.js": {
+      "digest": "sha256:0eab04a93972358f464fbd4693f075bcf795ebc284960c0a1db50df1aa9c3393",
+      "updatedAt": "2026-10-03T07:49:11.515Z",
+      "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
+    },
+    "data/datasets/mastercard-q1-fy25.js": {
+      "digest": "sha256:a6b7caad456639720b72f5eb621894b409368268cc17455653a78b27a2dd48cf",
+      "updatedAt": "2026-10-03T07:49:25.788Z",
+      "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
+    },
+    "data/datasets/nebius-q2-fy26.js": {
+      "digest": "sha256:1ed2b23f8eca69e37aac49024ddb43ca21f48ef113a6d9c758b8ecd764959415",
+      "updatedAt": "2026-10-03T07:49:20.761Z",
+      "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
+    },
+    "data/datasets/nintendo-fy25.js": {
+      "digest": "sha256:ab47f6b0ef6b8b3c61e98b172b5e34c4d04121c3bb57d73541bf9975b33fa986",
+      "updatedAt": "2026-10-03T07:49:30.373Z",
+      "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
+    },
+    "data/datasets/salesforce-q2-fy27.js": {
+      "digest": "sha256:558fa3a3ae42ae21a3f845b23cfe974263688ba263452f855622d93e3273f5af",
+      "updatedAt": "2026-10-03T07:49:12.039Z",
+      "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
+    },
+    "data/datasets/sandisk-q4-fy26.js": {
+      "digest": "sha256:9864e9241d8930de9a1dddde8f19ee03c754b6824388eed1bd2105f2dd90da5c",
+      "updatedAt": "2026-10-03T07:49:15.294Z",
+      "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
+    },
+    "data/datasets/spacex-q2-fy26.js": {
+      "digest": "sha256:06d57787f4adf9ba33740a0bed954a3597b65bf2a3938f5af5efb86035d4a3d7",
+      "updatedAt": "2026-10-03T07:49:29.572Z",
+      "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
+    },
+    "data/datasets/starbucks-q2-fy25.js": {
+      "digest": "sha256:f830ceec1765d3919bbaa03759975537af972dae9544dcc79934a00b4ce4ac5f",
+      "updatedAt": "2026-10-03T07:49:33.068Z",
+      "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
+    },
+    "data/datasets/synopsys-q3-fy26.js": {
+      "digest": "sha256:08e434812a99d14bf84bfda88b2f843d28d6061889c52567c05ec1a2724ef66e",
+      "updatedAt": "2026-10-03T07:49:21.674Z",
+      "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
+    },
+    "data/datasets/twilio-q2-fy26.js": {
+      "digest": "sha256:65f262b8d7350accdfda4ae9a291b0489e64d4a71247b263b1f8f6fd63ee42da",
+      "updatedAt": "2026-10-03T07:49:12.572Z",
+      "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
+    },
+    "data/datasets/uber-q2-fy26.js": {
+      "digest": "sha256:7a2de4ab1a8f58e2d7c993eb1587bd86b2c7f27dc9a2e3ba2cfc7c6c86ffac9d",
+      "updatedAt": "2026-10-03T07:49:31.606Z",
+      "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
+    },
+    "data/datasets/veeva-q2-fy27.js": {
+      "digest": "sha256:2d0bc29c1bf6c9441f5cac0c037c7798f03a88091e03b119c6cff23692622752",
+      "updatedAt": "2026-10-03T07:49:12.975Z",
+      "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
+    },
+    "data/datasets/walmart-q1-fy26.js": {
+      "digest": "sha256:9cfd28591180f2c4e0b380ceba02cd30fcdae5a9f3dd4cf1b8a73b2c79f950a4",
+      "updatedAt": "2026-10-03T07:49:16.076Z",
+      "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
     }
   }
 }

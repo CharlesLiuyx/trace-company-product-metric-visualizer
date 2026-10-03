@@ -517,3 +517,154 @@
     }
   );
 })(window);
+
+(function(global){global.INCOME_STATEMENT_SSOT.records.push({
+  "key": "marvell-q2-fy27",
+  "company": "Marvell",
+  "period": "Q2 FY27",
+  "periodNote": "Ending Aug. 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processing/marvell-q2-fy27.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 2.7,
+    "notes": [
+      "+37% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "data_center",
+        "label": "Data center",
+        "value": 2.2,
+        "notes": [
+          "+46% Y/Y"
+        ]
+      },
+      {
+        "id": "communications_and_other",
+        "label": "Communications and Other",
+        "value": 0.6,
+        "notes": [
+          "+10% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 1.3,
+      "notes": []
+    },
+    "operatingExpenses": {
+      "total": 1,
+      "items": [
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 0.7,
+          "notes": [
+            "27% of revenue",
+            "+1pp Y/Y"
+          ]
+        },
+        {
+          "id": "sga",
+          "label": "SG&A",
+          "value": 0.3,
+          "notes": [
+            "9% of revenue",
+            "(0pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax_and_other",
+      "label": "Tax & other",
+      "value": 0.2,
+      "notes": []
+    }
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 1.5,
+      "notes": [
+        "53% margin",
+        "+3pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 0.5,
+      "notes": [
+        "17% margin",
+        "+2pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 0.3,
+      "notes": [
+        "11% margin",
+        "+2pp Y/Y"
+      ]
+    }
+  },
+  "notes": [
+    "Source amounts rounded to $0.1B; revenue composition and gross/cost bridge each differ from displayed revenue by $0.1B."
+  ],
+  "i18n": {
+    "zh": {
+      "periodNote": "截至 2026 年 8 月",
+      "revenue": {
+        "items": [
+          {
+            "id": "data_center",
+            "label": "数据中心",
+            "notes": [
+              "同比 +46%"
+            ]
+          },
+          {
+            "id": "communications_and_other",
+            "label": "通信及其他",
+            "notes": [
+              "同比 +10%"
+            ]
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 53%",
+            "同比 +3 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 17%",
+            "同比 +2 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 11%",
+            "同比 +2 个百分点"
+          ]
+        }
+      }
+    }
+  }
+});})(window);

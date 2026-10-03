@@ -1,0 +1,296 @@
+{
+  "source": "input/processed/doordash-q2-fy26.png",
+  "spec": "output/builds/build-47f9457c-c93a-4792-bee9-c8c175938efb/workspace/input/icon-crop-specs/doordash-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-03T07:51:04.617914+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/doordash",
+  "crops": [
+    {
+      "key": "mark",
+      "output": "data/assets/icon-references/doordash/q2-fy26/crops/mark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1113,
+        "losslessBytes": 4220,
+        "savingsVsLossless": 0.7363,
+        "metrics": {
+          "meanAbsoluteError": 0.1822,
+          "rootMeanSquareError": 0.743,
+          "p99AbsoluteError": 2.0,
+          "maxChannelDiff": 23,
+          "changedPixelRatio": 0.5163
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 17884,
+        "transparentPixelRatio": 0.4823
+      },
+      "searchBox": {
+        "x": 742,
+        "y": 341,
+        "width": 254,
+        "height": 146
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 747,
+        "y0": 346,
+        "x1": 989,
+        "y1": 482
+      },
+      "cropBox": {
+        "x0": 742,
+        "y0": 341,
+        "x1": 996,
+        "y1": 487
+      },
+      "validation": {
+        "width": 254,
+        "height": 146,
+        "foregroundPixels": 19161,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 5,
+          "right": 7,
+          "top": 5,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": -0.0039,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Complete brand cluster, excludes financial labels and graph.",
+      "runtimeOutput": "data/assets/raster-annotations/doordash/q2-fy26-mark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1113,
+        "losslessBytes": 4220,
+        "savingsVsLossless": 0.7363,
+        "metrics": {
+          "meanAbsoluteError": 0.1822,
+          "rootMeanSquareError": 0.743,
+          "p99AbsoluteError": 2.0,
+          "maxChannelDiff": 23,
+          "changedPixelRatio": 0.5163
+        }
+      }
+    },
+    {
+      "key": "wordmark",
+      "output": "data/assets/icon-references/doordash/q2-fy26/crops/wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1472,
+        "losslessBytes": 7322,
+        "savingsVsLossless": 0.799,
+        "metrics": {
+          "meanAbsoluteError": 0.5287,
+          "rootMeanSquareError": 1.5525,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 20,
+          "changedPixelRatio": 0.4291
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 6692,
+        "transparentPixelRatio": 0.5783
+      },
+      "searchBox": {
+        "x": 82,
+        "y": 539,
+        "width": 263,
+        "height": 44
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 88,
+        "y0": 545,
+        "x1": 338,
+        "y1": 575
+      },
+      "cropBox": {
+        "x0": 82,
+        "y0": 539,
+        "x1": 345,
+        "y1": 583
+      },
+      "validation": {
+        "width": 263,
+        "height": 44,
+        "foregroundPixels": 3901,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 7,
+          "top": 6,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": -0.0019,
+          "y": -0.0227
+        },
+        "passes": true
+      },
+      "note": "Complete brand cluster, excludes financial labels and graph.",
+      "runtimeOutput": "data/assets/raster-annotations/doordash/q2-fy26-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1472,
+        "losslessBytes": 7322,
+        "savingsVsLossless": 0.799,
+        "metrics": {
+          "meanAbsoluteError": 0.5287,
+          "rootMeanSquareError": 1.5525,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 20,
+          "changedPixelRatio": 0.4291
+        }
+      }
+    },
+    {
+      "key": "international",
+      "output": "data/assets/icon-references/doordash/q2-fy26/crops/international.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 3139,
+        "losslessBytes": 15261,
+        "savingsVsLossless": 0.7943,
+        "metrics": {
+          "meanAbsoluteError": 0.481,
+          "rootMeanSquareError": 1.6569,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 25,
+          "changedPixelRatio": 0.2708
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 23909,
+        "transparentPixelRatio": 0.6658
+      },
+      "searchBox": {
+        "x": 64,
+        "y": 915,
+        "width": 270,
+        "height": 133
+      },
+      "componentCount": 13,
+      "subjectBox": {
+        "x0": 69,
+        "y0": 921,
+        "x1": 326,
+        "y1": 1044
+      },
+      "cropBox": {
+        "x0": 64,
+        "y0": 915,
+        "x1": 334,
+        "y1": 1048
+      },
+      "validation": {
+        "width": 270,
+        "height": 133,
+        "foregroundPixels": 9606,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 5,
+          "right": 8,
+          "top": 6,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": -0.0056,
+          "y": 0.0075
+        },
+        "passes": true
+      },
+      "note": "Complete brand cluster, excludes financial labels and graph.",
+      "runtimeOutput": "data/assets/raster-annotations/doordash/q2-fy26-international.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 3139,
+        "losslessBytes": 15261,
+        "savingsVsLossless": 0.7943,
+        "metrics": {
+          "meanAbsoluteError": 0.481,
+          "rootMeanSquareError": 1.6569,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 25,
+          "changedPixelRatio": 0.2708
+        }
+      }
+    }
+  ]
+}

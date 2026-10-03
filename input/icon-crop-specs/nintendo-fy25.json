@@ -1,0 +1,68 @@
+{
+  "source": "input/processed/nintendo-fy25.png",
+  "outputDir": "data/assets/icon-references/nintendo-fy25",
+  "runtimeOutputDir": "data/assets/raster-annotations/nintendo",
+  "validationSheetDir": "data/assets/icon-references/nintendo-fy25/validation-sheets",
+  "report": "crop-report.json",
+  "crops": [
+    {
+      "key": "mobile-store-icons-fy25",
+      "output": "crops/mobile-store-icons-fy25.png",
+      "runtimeOutput": "mobile-store-icons-fy25.png",
+      "searchBox": {
+        "x": 404,
+        "y": 1073,
+        "width": 96,
+        "height": 191
+      },
+      "cropBox": {
+        "x": 404,
+        "y": 1073,
+        "width": 96,
+        "height": 191
+      },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "padding": 0,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "mario-fy25",
+      "output": "crops/mario-fy25.png",
+      "runtimeOutput": "mario-fy25.png",
+      "searchBox": {
+        "x": 1660,
+        "y": 1005,
+        "width": 210,
+        "height": 420
+      },
+      "cropBox": {
+        "x": 1660,
+        "y": 1005,
+        "width": 210,
+        "height": 420
+      },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "padding": 0,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "excludeBoxes": [
+        {
+          "x": 1810,
+          "y": 1005,
+          "width": 60,
+          "height": 65
+        }
+      ],
+      "note": "Mario character illustration; excludes neighboring operating expense text above its right edge."
+    }
+  ]
+}

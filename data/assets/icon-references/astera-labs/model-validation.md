@@ -1,0 +1,1 @@
+Company logo Q2 FY26: inspected the full Source and extracted crop. Triangle symbol and complete Astera Labs wordmark are intact and centered; no financial label, ribbon, title or publisher branding is included. Crop validation passed. Runtime PNG is palette compressed. Human acceptance pending.

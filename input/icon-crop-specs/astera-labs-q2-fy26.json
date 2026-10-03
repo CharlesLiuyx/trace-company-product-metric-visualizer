@@ -1,0 +1,33 @@
+{
+  "source": "input/processing/astera-labs-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/astera-labs",
+  "runtimeOutputDir": "data/assets/raster-annotations/astera-labs",
+  "validationSheetDir": "data/assets/icon-references/astera-labs/validation-sheets/q2-fy26",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "crops": [
+    {
+      "key": "company-logo",
+      "output": "crops/company-logo-q2-fy26.png",
+      "runtimeOutput": "company-logo-q2-fy26.png",
+      "searchBox": {
+        "x": 535,
+        "y": 251,
+        "width": 662,
+        "height": 167
+      },
+      "cropBox": {
+        "x": 535,
+        "y": 251,
+        "width": 662,
+        "height": 167
+      },
+      "threshold": 18,
+      "minComponentArea": 15,
+      "note": "Complete Astera Labs logo only; excludes title and graph."
+    }
+  ]
+}

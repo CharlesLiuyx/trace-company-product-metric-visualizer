@@ -1,0 +1,35 @@
+{
+  "source": "input/processing/j-j-q1-fy25.png",
+  "crops": [
+    {
+      "key": "company-logo",
+      "box": [
+        833,
+        283,
+        267,
+        244
+      ],
+      "runtime": "data/assets/raster-annotations/j-j/q1-fy25-company-logo.png"
+    },
+    {
+      "key": "medicine-icon",
+      "box": [
+        13,
+        607,
+        164,
+        185
+      ],
+      "runtime": "data/assets/raster-annotations/j-j/q1-fy25-medicine-icon.png"
+    },
+    {
+      "key": "medtech-wordmark",
+      "box": [
+        90,
+        1038,
+        332,
+        128
+      ],
+      "runtime": "data/assets/raster-annotations/j-j/q1-fy25-medtech-wordmark.png"
+    }
+  ]
+}

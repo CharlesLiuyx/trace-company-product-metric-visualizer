@@ -273,3 +273,269 @@
     }
   );
 })(window);
+
+window.INCOME_STATEMENT_SSOT.records.push({
+  "key": "analog-devices-q3-fy26",
+  "company": "Analog Devices",
+  "period": "Q3 FY26",
+  "periodNote": "Ending July 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 3,
+  "sourceImage": "input/processing/analog-devices-q3-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 4,
+    "notes": [
+      "+40% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "industrial",
+        "label": "Industrial",
+        "value": 2,
+        "notes": [
+          "+53% Y/Y"
+        ]
+      },
+      {
+        "id": "automotive",
+        "label": "Automotive",
+        "value": 1,
+        "notes": [
+          "+16% Y/Y"
+        ]
+      },
+      {
+        "id": "communications",
+        "label": "Communications",
+        "value": 0.7,
+        "notes": [
+          "+84% Y/Y"
+        ]
+      },
+      {
+        "id": "consumer",
+        "label": "Consumer",
+        "value": 0.4,
+        "notes": [
+          "+6% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_sales",
+      "label": "Cost of sales",
+      "value": 1.3
+    },
+    "operatingExpenses": {
+      "total": 1.1,
+      "items": [
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 0.5,
+          "notes": [
+            "13% of revenue",
+            "(3pp) Y/Y"
+          ]
+        },
+        {
+          "id": "sga",
+          "label": "SG&A",
+          "value": 0.4,
+          "notes": [
+            "10% of revenue",
+            "(1pp) Y/Y"
+          ]
+        },
+        {
+          "id": "amortization",
+          "label": "Amortization",
+          "value": 0.2,
+          "notes": [
+            "5% of revenue",
+            "(2pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.2
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0.1,
+    "items": [
+      {
+        "id": "interest",
+        "label": "Interest",
+        "value": 0.1
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 2.7,
+      "notes": [
+        "67% margin",
+        "+5pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 1.6,
+      "notes": [
+        "40% margin",
+        "+12pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 1.3,
+      "notes": [
+        "33% margin",
+        "+15pp Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "periodNote": "截至 2026 年 7 月",
+      "revenue": {
+        "notes": [
+          "同比 +40%"
+        ],
+        "items": [
+          {
+            "id": "industrial",
+            "label": "工业",
+            "notes": [
+              "同比 +53%"
+            ]
+          },
+          {
+            "id": "automotive",
+            "label": "汽车",
+            "notes": [
+              "同比 +16%"
+            ]
+          },
+          {
+            "id": "communications",
+            "label": "通信",
+            "notes": [
+              "同比 +84%"
+            ]
+          },
+          {
+            "id": "consumer",
+            "label": "消费者",
+            "notes": [
+              "同比 +6%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "销售成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 13%",
+                "同比 (3 个百分点)"
+              ]
+            },
+            {
+              "id": "sga",
+              "label": "销售及管理",
+              "notes": [
+                "占收入 10%",
+                "同比 (1 个百分点)"
+              ]
+            },
+            {
+              "id": "amortization",
+              "label": "摊销",
+              "notes": [
+                "占收入 5%",
+                "同比 (2 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "interest",
+            "label": "利息"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 67%",
+            "同比 +5 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 40%",
+            "同比 +12 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 33%",
+            "同比 +15 个百分点"
+          ]
+        }
+      },
+      "operatingOtherIncome": {
+        "items": [
+          {
+            "id": "other",
+            "label": "其他"
+          }
+        ]
+      }
+    }
+  },
+  "operatingOtherIncome": {
+    "total": 0.024,
+    "items": [
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 0.024,
+        "valueText": "$24M"
+      }
+    ]
+  }
+});

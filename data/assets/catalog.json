@@ -448,9 +448,11 @@
         }
       ],
       "directConsumers": [
+        "airbnb-q1-fy25",
         "airbnb-q2-fy26"
       ],
       "consumers": [
+        "airbnb-q1-fy25",
         "airbnb-q2-fy26"
       ],
       "acceptedVersions": [
@@ -470,9 +472,11 @@
         }
       ],
       "directConsumers": [
+        "airbnb-q1-fy25",
         "airbnb-q2-fy26"
       ],
       "consumers": [
+        "airbnb-q1-fy25",
         "airbnb-q2-fy26"
       ],
       "acceptedVersions": [
@@ -492,9 +496,11 @@
         }
       ],
       "directConsumers": [
+        "airbnb-q1-fy25",
         "airbnb-q2-fy26"
       ],
       "consumers": [
+        "airbnb-q1-fy25",
         "airbnb-q2-fy26"
       ],
       "acceptedVersions": [
@@ -514,9 +520,11 @@
         }
       ],
       "directConsumers": [
+        "airbnb-q1-fy25",
         "airbnb-q2-fy26"
       ],
       "consumers": [
+        "airbnb-q1-fy25",
         "airbnb-q2-fy26"
       ],
       "acceptedVersions": [
@@ -536,9 +544,11 @@
         }
       ],
       "directConsumers": [
+        "airbnb-q1-fy25",
         "airbnb-q2-fy26"
       ],
       "consumers": [
+        "airbnb-q1-fy25",
         "airbnb-q2-fy26"
       ],
       "acceptedVersions": [
@@ -1203,6 +1213,26 @@
       ],
       "consumers": [
         "arm-holdings-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/astera-labs/company-logo-q2-fy26.png",
+      "digest": "sha256:4fe47f2a16cef882a9373512bba6ecce262f41df6d7382747bf1498813e98b9c",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/astera-labs-q2-fy26.json",
+          "recipeDigest": "sha256:c3b38865d4b837b9a4e8aee46a3924821c160499aa796a0c8faaa2154d89f7f4",
+          "source": "input/processing/astera-labs-q2-fy26.png",
+          "cropKey": "company-logo"
+        }
+      ],
+      "directConsumers": [
+        "astera-labs-q2-fy26"
+      ],
+      "consumers": [
+        "astera-labs-q2-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -2866,6 +2896,26 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/crowdstrike/company-wordmark-q2-fy27.png",
+      "digest": "sha256:db5b4950c3d6d1220dbe3dbf43bc3e8f13be3d20eb8977a0ebfa66407f36843e",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/crowdstrike-q2-fy27.json",
+          "recipeDigest": "sha256:6a4a09742ef7e67559c91233adf423a3ed52e9dcbb509abafa81528bdd4a624d",
+          "source": "input/processing/crowdstrike-q2-fy27.png",
+          "cropKey": "crowdstrike-company-wordmark"
+        }
+      ],
+      "directConsumers": [
+        "crowdstrike-q2-fy27"
+      ],
+      "consumers": [
+        "crowdstrike-q2-fy27"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/darden/company-logo-q3-fy26.png",
       "digest": "sha256:a6ba7aa0bdd794d8df2c4dfcaf0773f6cc21f7f53c5bf3e369fdac10f695b348",
       "provenance": [],
@@ -3154,6 +3204,66 @@
       ],
       "consumers": [
         "docebo-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/doordash/q2-fy26-international.png",
+      "digest": "sha256:f324df6b8bca775cec0abfa21f86c29ce2517452a26cb58153dc12570df04146",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/doordash-q2-fy26.json",
+          "recipeDigest": "sha256:ec3a59d731a44485e08a598ada1e38fb250366c944b439aeb242520aabb545a5",
+          "source": "input/processed/doordash-q2-fy26.png",
+          "cropKey": "international"
+        }
+      ],
+      "directConsumers": [
+        "doordash-q2-fy26"
+      ],
+      "consumers": [
+        "doordash-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/doordash/q2-fy26-mark.png",
+      "digest": "sha256:5bf80d529d0f3e6d787cca8bf0cc1b9e8edec2d63cf056e4bdb557093f42c401",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/doordash-q2-fy26.json",
+          "recipeDigest": "sha256:ec3a59d731a44485e08a598ada1e38fb250366c944b439aeb242520aabb545a5",
+          "source": "input/processed/doordash-q2-fy26.png",
+          "cropKey": "mark"
+        }
+      ],
+      "directConsumers": [
+        "doordash-q2-fy26"
+      ],
+      "consumers": [
+        "doordash-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/doordash/q2-fy26-wordmark.png",
+      "digest": "sha256:b9f9c0252d9959d0847c163fea7ecc3369b1efda3a0300afc72016be5b12a2fd",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/doordash-q2-fy26.json",
+          "recipeDigest": "sha256:ec3a59d731a44485e08a598ada1e38fb250366c944b439aeb242520aabb545a5",
+          "source": "input/processed/doordash-q2-fy26.png",
+          "cropKey": "wordmark"
+        }
+      ],
+      "directConsumers": [
+        "doordash-q2-fy26"
+      ],
+      "consumers": [
+        "doordash-q2-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -3500,12 +3610,14 @@
       "digest": "sha256:46e2369953426fcb093f488e8ce253667b1a7d4aca5ea305cb3c45a1aa596913",
       "provenance": [],
       "directConsumers": [
+        "ferrari-q1-fy25",
         "ferrari-q1-fy26",
         "ferrari-q2-fy26",
         "ferrari-q3-fy25",
         "ferrari-q4-fy25"
       ],
       "consumers": [
+        "ferrari-q1-fy25",
         "ferrari-q1-fy26",
         "ferrari-q2-fy26",
         "ferrari-q3-fy25",
@@ -3519,12 +3631,14 @@
       "digest": "sha256:61a07c8fa90078ad932669173773cd30e5effb59edb8b5d77b7c56ad2111ddb1",
       "provenance": [],
       "directConsumers": [
+        "ferrari-q1-fy25",
         "ferrari-q1-fy26",
         "ferrari-q2-fy26",
         "ferrari-q3-fy25",
         "ferrari-q4-fy25"
       ],
       "consumers": [
+        "ferrari-q1-fy25",
         "ferrari-q1-fy26",
         "ferrari-q2-fy26",
         "ferrari-q3-fy25",
@@ -3538,12 +3652,14 @@
       "digest": "sha256:0cf2021b6836627195045a0917ba210a9d8c78a6ca4f377f4481613676850e6f",
       "provenance": [],
       "directConsumers": [
+        "ferrari-q1-fy25",
         "ferrari-q1-fy26",
         "ferrari-q2-fy26",
         "ferrari-q3-fy25",
         "ferrari-q4-fy25"
       ],
       "consumers": [
+        "ferrari-q1-fy25",
         "ferrari-q1-fy26",
         "ferrari-q2-fy26",
         "ferrari-q3-fy25",
@@ -3557,12 +3673,14 @@
       "digest": "sha256:504f796d9db4f8b91728e71f0511272e8cf2ed71619a40e8fe3fa2e440ad721d",
       "provenance": [],
       "directConsumers": [
+        "ferrari-q1-fy25",
         "ferrari-q1-fy26",
         "ferrari-q2-fy26",
         "ferrari-q3-fy25",
         "ferrari-q4-fy25"
       ],
       "consumers": [
+        "ferrari-q1-fy25",
         "ferrari-q1-fy26",
         "ferrari-q2-fy26",
         "ferrari-q3-fy25",
@@ -3665,6 +3783,71 @@
         "flutter-q2-fy26",
         "flutter-q3-fy25",
         "flutter-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/ford/q1-fy25/blue.png",
+      "digest": "sha256:f55d172dc39084572d2a049194c268cecd6ada0024bc4eac3791219f857bae0a",
+      "provenance": [],
+      "directConsumers": [
+        "ford-q1-fy25"
+      ],
+      "consumers": [
+        "ford-q1-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/ford/q1-fy25/company-logo.png",
+      "digest": "sha256:f5a6a4e979751380097136bde42f5d4cd118a2cbc8d9db5b1ed68ca6a87cafd9",
+      "provenance": [],
+      "directConsumers": [
+        "ford-q1-fy25"
+      ],
+      "consumers": [
+        "ford-q1-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/ford/q1-fy25/credit.png",
+      "digest": "sha256:e5da7e95e7cd774d2151a0f37010de6389909a9c68a2eb1dc879d0bb0a85c8bd",
+      "provenance": [],
+      "directConsumers": [
+        "ford-q1-fy25"
+      ],
+      "consumers": [
+        "ford-q1-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/ford/q1-fy25/model-e.png",
+      "digest": "sha256:44edc9cfc6cf825afbddf13d7cb2bf6192ae660982ccf66d6d635b485f61741e",
+      "provenance": [],
+      "directConsumers": [
+        "ford-q1-fy25"
+      ],
+      "consumers": [
+        "ford-q1-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/ford/q1-fy25/pro.png",
+      "digest": "sha256:fb727d40b0cbf0271788a14eab2a4b674d077ef1db08b43d9d9c64d222d3974c",
+      "provenance": [],
+      "directConsumers": [
+        "ford-q1-fy25"
+      ],
+      "consumers": [
+        "ford-q1-fy25"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -4064,11 +4247,13 @@
       ],
       "directConsumers": [
         "gm-fy25",
+        "gm-q1-fy25",
         "gm-q1-fy26",
         "gm-q2-fy26"
       ],
       "consumers": [
         "gm-fy25",
+        "gm-q1-fy25",
         "gm-q1-fy26",
         "gm-q2-fy26"
       ],
@@ -4088,13 +4273,95 @@
       ],
       "directConsumers": [
         "gm-fy25",
+        "gm-q1-fy25",
         "gm-q1-fy26",
         "gm-q2-fy26"
       ],
       "consumers": [
         "gm-fy25",
+        "gm-q1-fy25",
         "gm-q1-fy26",
         "gm-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/grab-q2-fy26/deliveries.png",
+      "digest": "sha256:b2a9adae45857a9f41105fca3f55085dc66ea16f020dcc343bbb3dbfac53b84b",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/grab-q2-fy26.json",
+          "recipeDigest": "sha256:dc7d66b1c07f2ab457c12c5ed21bb71941ef5a31c18e94d67a9a7ab1c811519f",
+          "source": "input/processed/grab-q2-fy26.png",
+          "cropKey": "deliveries"
+        }
+      ],
+      "directConsumers": [
+        "grab-q2-fy26"
+      ],
+      "consumers": [
+        "grab-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/grab-q2-fy26/financial_services.png",
+      "digest": "sha256:bfb07009adc203b201df891f3e071828a12e04ea988829d16653fb009994c938",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/grab-q2-fy26.json",
+          "recipeDigest": "sha256:dc7d66b1c07f2ab457c12c5ed21bb71941ef5a31c18e94d67a9a7ab1c811519f",
+          "source": "input/processed/grab-q2-fy26.png",
+          "cropKey": "financial_services"
+        }
+      ],
+      "directConsumers": [
+        "grab-q2-fy26"
+      ],
+      "consumers": [
+        "grab-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/grab-q2-fy26/logo.png",
+      "digest": "sha256:6880bf85a6f6446c7fbe838af204ba03ba603774e18dc33b24ffa5ca9391bdd4",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/grab-q2-fy26.json",
+          "recipeDigest": "sha256:dc7d66b1c07f2ab457c12c5ed21bb71941ef5a31c18e94d67a9a7ab1c811519f",
+          "source": "input/processed/grab-q2-fy26.png",
+          "cropKey": "logo"
+        }
+      ],
+      "directConsumers": [
+        "grab-q2-fy26"
+      ],
+      "consumers": [
+        "grab-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/grab-q2-fy26/mobility.png",
+      "digest": "sha256:dd260df99dc2b701f38ec744c0def3e1ba299b128b27aecca34d6ea4fa19657e",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/grab-q2-fy26.json",
+          "recipeDigest": "sha256:dc7d66b1c07f2ab457c12c5ed21bb71941ef5a31c18e94d67a9a7ab1c811519f",
+          "source": "input/processed/grab-q2-fy26.png",
+          "cropKey": "mobility"
+        }
+      ],
+      "directConsumers": [
+        "grab-q2-fy26"
+      ],
+      "consumers": [
+        "grab-q2-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -4772,6 +5039,45 @@
         "j-j-q1-fy26",
         "j-j-q2-fy26",
         "j-j-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/j-j/q1-fy25-company-logo.png",
+      "digest": "sha256:c6f8362629f43a83c7d539123eff912e2134ab3eb577720e6f9b0ea5a6ed78c4",
+      "provenance": [],
+      "directConsumers": [
+        "j-j-q1-fy25"
+      ],
+      "consumers": [
+        "j-j-q1-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/j-j/q1-fy25-medicine-icon.png",
+      "digest": "sha256:4d2f282761bc4e71423117c20ae0a21f254a5d5435342365d60a263e176a9ede",
+      "provenance": [],
+      "directConsumers": [
+        "j-j-q1-fy25"
+      ],
+      "consumers": [
+        "j-j-q1-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/j-j/q1-fy25-medtech-wordmark.png",
+      "digest": "sha256:daf2ba86d42de1859a0ac16ef2abb3d85f4578f6a4742d303023a86bb665b838",
+      "provenance": [],
+      "directConsumers": [
+        "j-j-q1-fy25"
+      ],
+      "consumers": [
+        "j-j-q1-fy25"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -6201,6 +6507,26 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/nebius/company-logo.png",
+      "digest": "sha256:778c0167549633e675b2d97d0c0d67be1dea4d8cd6d5618678c6a2788b502f2c",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/nebius-q2-fy26.json",
+          "recipeDigest": "sha256:f8692230ede787e9a7fda3f0a083143a1291230ac10ca225e6f2ed346485fceb",
+          "source": "input/processed/nebius-q2-fy26.png",
+          "cropKey": "nebius-company-logo"
+        }
+      ],
+      "directConsumers": [
+        "nebius-q2-fy26"
+      ],
+      "consumers": [
+        "nebius-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/nestle/business-confectionery-cluster.png",
       "digest": "sha256:f0dc474b25429026454123bef6803f210bb531d804b25f771b9f97ecf9f6dd37",
       "provenance": [
@@ -6869,15 +7195,37 @@
       ],
       "directConsumers": [
         "nintendo-9m-fy26",
+        "nintendo-fy25",
         "nintendo-fy26",
         "nintendo-h1-fy26",
         "nintendo-q1-fy27"
       ],
       "consumers": [
         "nintendo-9m-fy26",
+        "nintendo-fy25",
         "nintendo-fy26",
         "nintendo-h1-fy26",
         "nintendo-q1-fy27"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/nintendo/mario-fy25.png",
+      "digest": "sha256:19850d24115633afb916f735b38b6f34ac5506f0d4a2f055c5d8da74af105047",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/nintendo-fy25.json",
+          "recipeDigest": "sha256:f6a5f3ab2d9c99a00a74607abb4bb14bb4e6e890ff20b431a15879a9f4b46012",
+          "source": "input/processed/nintendo-fy25.png",
+          "cropKey": "mario-fy25"
+        }
+      ],
+      "directConsumers": [
+        "nintendo-fy25"
+      ],
+      "consumers": [
+        "nintendo-fy25"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -6900,6 +7248,26 @@
       "consumers": [
         "nintendo-9m-fy26",
         "nintendo-h1-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/nintendo/mobile-store-icons-fy25.png",
+      "digest": "sha256:e78f6302a69483d4162a416e170faf78c2991f8aab663d67d3ad475d4ac23acd",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/nintendo-fy25.json",
+          "recipeDigest": "sha256:f6a5f3ab2d9c99a00a74607abb4bb14bb4e6e890ff20b431a15879a9f4b46012",
+          "source": "input/processed/nintendo-fy25.png",
+          "cropKey": "mobile-store-icons-fy25"
+        }
+      ],
+      "directConsumers": [
+        "nintendo-fy25"
+      ],
+      "consumers": [
+        "nintendo-fy25"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -6960,10 +7328,12 @@
         }
       ],
       "directConsumers": [
+        "nintendo-fy25",
         "nintendo-fy26",
         "nintendo-q1-fy27"
       ],
       "consumers": [
+        "nintendo-fy25",
         "nintendo-fy26",
         "nintendo-q1-fy27"
       ],
@@ -6983,10 +7353,12 @@
       ],
       "directConsumers": [
         "nintendo-9m-fy26",
+        "nintendo-fy25",
         "nintendo-h1-fy26"
       ],
       "consumers": [
         "nintendo-9m-fy26",
+        "nintendo-fy25",
         "nintendo-h1-fy26"
       ],
       "acceptedVersions": [],
@@ -9956,6 +10328,66 @@
       "reusable": true
     },
     {
+      "path": "data/assets/raster-annotations/salesforce/q2-fy27-agentforce-icons.png",
+      "digest": "sha256:0bfe188ae060691828b730eec7065019d7ec6abb7031d9850c546e51700a53d8",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/salesforce-q2-fy27.json",
+          "recipeDigest": "sha256:df258092c1dcdfbb99f1d36c96bad272a4dca3c2b2be7c1175e04d3405f00ad1",
+          "source": "input/processing/salesforce-q2-fy27.png",
+          "cropKey": "salesforce-q2-fy27-agentforce-icons"
+        }
+      ],
+      "directConsumers": [
+        "salesforce-q2-fy27"
+      ],
+      "consumers": [
+        "salesforce-q2-fy27"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q2-fy27-company-logo.png",
+      "digest": "sha256:6c74a3c2f4a9015e2570de69010b0a5f665a43f8fa3e7f4d016ae1982c178849",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/salesforce-q2-fy27.json",
+          "recipeDigest": "sha256:df258092c1dcdfbb99f1d36c96bad272a4dca3c2b2be7c1175e04d3405f00ad1",
+          "source": "input/processing/salesforce-q2-fy27.png",
+          "cropKey": "salesforce-q2-fy27-company-logo"
+        }
+      ],
+      "directConsumers": [
+        "salesforce-q2-fy27"
+      ],
+      "consumers": [
+        "salesforce-q2-fy27"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q2-fy27-data360-icons.png",
+      "digest": "sha256:7566b780fbee8f8ee9561906ee50d3c977e5e53bd8bea53b4851c34241b29235",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/salesforce-q2-fy27.json",
+          "recipeDigest": "sha256:df258092c1dcdfbb99f1d36c96bad272a4dca3c2b2be7c1175e04d3405f00ad1",
+          "source": "input/processing/salesforce-q2-fy27.png",
+          "cropKey": "salesforce-q2-fy27-data360-icons"
+        }
+      ],
+      "directConsumers": [
+        "salesforce-q2-fy27"
+      ],
+      "consumers": [
+        "salesforce-q2-fy27"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/sandisk/company-wordmark.png",
       "digest": "sha256:fe955e3ddde8f23262c95cb8f95baad5b5aa29edf54d86d8ee3198da4dc983a1",
       "provenance": [
@@ -9967,10 +10399,12 @@
         }
       ],
       "directConsumers": [
-        "sandisk-q2-fy26"
+        "sandisk-q2-fy26",
+        "sandisk-q4-fy26"
       ],
       "consumers": [
-        "sandisk-q2-fy26"
+        "sandisk-q2-fy26",
+        "sandisk-q4-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -9987,10 +10421,12 @@
         }
       ],
       "directConsumers": [
-        "sandisk-q2-fy26"
+        "sandisk-q2-fy26",
+        "sandisk-q4-fy26"
       ],
       "consumers": [
-        "sandisk-q2-fy26"
+        "sandisk-q2-fy26",
+        "sandisk-q4-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -10007,10 +10443,12 @@
         }
       ],
       "directConsumers": [
-        "sandisk-q2-fy26"
+        "sandisk-q2-fy26",
+        "sandisk-q4-fy26"
       ],
       "consumers": [
-        "sandisk-q2-fy26"
+        "sandisk-q2-fy26",
+        "sandisk-q4-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -10027,10 +10465,12 @@
         }
       ],
       "directConsumers": [
-        "sandisk-q2-fy26"
+        "sandisk-q2-fy26",
+        "sandisk-q4-fy26"
       ],
       "consumers": [
-        "sandisk-q2-fy26"
+        "sandisk-q2-fy26",
+        "sandisk-q4-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -10488,6 +10928,80 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/spacex/q2-fy26-business-ai-cluster.png",
+      "digest": "sha256:ec964f2e88c5b31027d3202857304a7f42f0cdcf3221aaf3b6ba5a2c0508aebf",
+      "provenance": [],
+      "directConsumers": [
+        "spacex-q2-fy26"
+      ],
+      "consumers": [
+        "spacex-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/spacex/q2-fy26-business-connectivity-starlink.png",
+      "digest": "sha256:399b081ff09a9bc589d5e3b88c626c2916eee78d9f3cae3362489f34f240c3a4",
+      "provenance": [],
+      "directConsumers": [
+        "spacex-q2-fy26"
+      ],
+      "consumers": [
+        "spacex-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/spacex/q2-fy26-business-space-rocket.png",
+      "digest": "sha256:85731194dcd2b7315303b2161a22cb6cc8a054545eded37bc4f695a3c8fc86e1",
+      "provenance": [],
+      "directConsumers": [
+        "spacex-q2-fy26"
+      ],
+      "consumers": [
+        "spacex-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/spacex/q2-fy26-company-symbol-body.png",
+      "digest": "sha256:c85d78bb107bb70c2efde64747ac6abe13823cb0c97038ac9603f33db8e1593a",
+      "provenance": [],
+      "directConsumers": [
+        "spacex-q2-fy26"
+      ],
+      "consumers": [
+        "spacex-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/spacex/q2-fy26-company-symbol-tail.png",
+      "digest": "sha256:eb296eed5c40cf2be72698202de2e01fb4eca117de874341de10ae01830cd5c5",
+      "provenance": [],
+      "directConsumers": [
+        "spacex-q2-fy26"
+      ],
+      "consumers": [
+        "spacex-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/spacex/q2-fy26-company-symbol.png",
+      "digest": "sha256:ee0da11e3f83d7f4949ef199b5b8ee06db773894ed4c139fefc31b95364f7481",
+      "provenance": [],
+      "directConsumers": [],
+      "consumers": [],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/starbucks/q1-fy26-business-beverage.png",
       "digest": "sha256:7a748f96e64f7ca9e09c06269391d9275c68b35cba82f3cea70007e9546da586",
       "provenance": [
@@ -10499,10 +11013,12 @@
         }
       ],
       "directConsumers": [
-        "starbucks-q1-fy26"
+        "starbucks-q1-fy26",
+        "starbucks-q2-fy25"
       ],
       "consumers": [
-        "starbucks-q1-fy26"
+        "starbucks-q1-fy26",
+        "starbucks-q2-fy25"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -10519,10 +11035,12 @@
         }
       ],
       "directConsumers": [
-        "starbucks-q1-fy26"
+        "starbucks-q1-fy26",
+        "starbucks-q2-fy25"
       ],
       "consumers": [
-        "starbucks-q1-fy26"
+        "starbucks-q1-fy26",
+        "starbucks-q2-fy25"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -10539,10 +11057,12 @@
         }
       ],
       "directConsumers": [
-        "starbucks-q1-fy26"
+        "starbucks-q1-fy26",
+        "starbucks-q2-fy25"
       ],
       "consumers": [
-        "starbucks-q1-fy26"
+        "starbucks-q1-fy26",
+        "starbucks-q2-fy25"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -10559,10 +11079,12 @@
         }
       ],
       "directConsumers": [
-        "starbucks-q1-fy26"
+        "starbucks-q1-fy26",
+        "starbucks-q2-fy25"
       ],
       "consumers": [
-        "starbucks-q1-fy26"
+        "starbucks-q1-fy26",
+        "starbucks-q2-fy25"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -11947,6 +12469,11 @@
       "source": "input/processed/asml-q1-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/astera-labs-q2-fy26.json",
+      "digest": "sha256:c3b38865d4b837b9a4e8aee46a3924821c160499aa796a0c8faaa2154d89f7f4",
+      "source": "input/processing/astera-labs-q2-fy26.png"
+    },
+    {
       "path": "input/icon-crop-specs/astrazeneca-q4-fy25.json",
       "digest": "sha256:81ff2b5d91cbf8d410ef9346c93e08601f224d9c9b297d773b6468ada0e607e3",
       "source": "input/processed/astrazeneca-q4-fy25.png"
@@ -12142,6 +12669,11 @@
       "source": "input/processed/coupang-q4-fy25.png"
     },
     {
+      "path": "input/icon-crop-specs/crowdstrike-q2-fy27.json",
+      "digest": "sha256:6a4a09742ef7e67559c91233adf423a3ed52e9dcbb509abafa81528bdd4a624d",
+      "source": "input/processing/crowdstrike-q2-fy27.png"
+    },
+    {
       "path": "input/icon-crop-specs/darden-q3-fy26.json",
       "digest": "sha256:262cc202930d1e852d2187cc991a38b696231c1affab4136566ed71e61e97795",
       "source": "input/processing/darden-q3-fy26.png"
@@ -12185,6 +12717,11 @@
       "path": "input/icon-crop-specs/docebo-q2-fy26-company-logo.json",
       "digest": "sha256:a5689c008cc58e32f3dbb30dccfef454a2b00c83b66bdbcefb5feadd4e5c0e85",
       "source": "input/processing/docebo-q2-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/doordash-q2-fy26.json",
+      "digest": "sha256:ec3a59d731a44485e08a598ada1e38fb250366c944b439aeb242520aabb545a5",
+      "source": "input/processed/doordash-q2-fy26.png"
     },
     {
       "path": "input/icon-crop-specs/doordash-q4-fy25.json",
@@ -12262,6 +12799,11 @@
       "source": "input/processed/flutter-q4-fy25.png"
     },
     {
+      "path": "input/icon-crop-specs/ford-q1-fy25.json",
+      "digest": "sha256:db143840200d52e48585a0e1662ad2aab9409dfc08dd45ac18d515ad32f80def",
+      "source": "input/processed/ford-q1-fy25.png"
+    },
+    {
       "path": "input/icon-crop-specs/fox-q3-fy26.json",
       "digest": "sha256:cf54a42eca8ae3cebdbc2103cfc4fded8250d122ffa464c10ba68ddc1414cdad",
       "source": "input/processed/fox-q3-fy26.png"
@@ -12305,6 +12847,11 @@
       "path": "input/icon-crop-specs/goldman-sachs-q1-fy26.json",
       "digest": "sha256:959a859a021a9390212845afab6a090e2590124598a49eb816619f5adc9ab5bd",
       "source": "input/processed/goldman-sachs-q1-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/grab-q2-fy26.json",
+      "digest": "sha256:dc7d66b1c07f2ab457c12c5ed21bb71941ef5a31c18e94d67a9a7ab1c811519f",
+      "source": "input/processed/grab-q2-fy26.png"
     },
     {
       "path": "input/icon-crop-specs/hermes-fy25.json",
@@ -12375,6 +12922,11 @@
       "path": "input/icon-crop-specs/intuitive-q4-fy25.json",
       "digest": "sha256:d8a3030c44f9ae7f176ac30ea10498f988e1078443ef7e8d465de4d80ae326a6",
       "source": "input/processed/intuitive-q4-fy25.png"
+    },
+    {
+      "path": "input/icon-crop-specs/j-j-q1-fy25.json",
+      "digest": "sha256:e5693914a8457868c6a0ca0dcc73cbe2c46ac817bb8a317e582dfc76f643aa46",
+      "source": "input/processing/j-j-q1-fy25.png"
     },
     {
       "path": "input/icon-crop-specs/j-j-q4-fy25.json",
@@ -12547,6 +13099,11 @@
       "source": "input/processed/mondelez-q4-fy25.png"
     },
     {
+      "path": "input/icon-crop-specs/nebius-q2-fy26.json",
+      "digest": "sha256:f8692230ede787e9a7fda3f0a083143a1291230ac10ca225e6f2ed346485fceb",
+      "source": "input/processed/nebius-q2-fy26.png"
+    },
+    {
       "path": "input/icon-crop-specs/nestle-fy23.json",
       "digest": "sha256:2b9621aabb43102b497121eddafd0f94b69371bccd1a52f9ec89ade76499ba6a",
       "source": "input/processed/nestle-fy23.png"
@@ -12585,6 +13142,11 @@
       "path": "input/icon-crop-specs/nintendo-9m-fy26.json",
       "digest": "sha256:aa64edfdd766acd1bdd6b370e393bc4c948821ca45bfcf756d89900843922240",
       "source": "input/processed/nintendo-9m-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/nintendo-fy25.json",
+      "digest": "sha256:f6a5f3ab2d9c99a00a74607abb4bb14bb4e6e890ff20b431a15879a9f4b46012",
+      "source": "input/processed/nintendo-fy25.png"
     },
     {
       "path": "input/icon-crop-specs/nintendo-fy26.json",
@@ -12832,6 +13394,11 @@
       "source": "input/processed/rubrik-q2-fy27.png"
     },
     {
+      "path": "input/icon-crop-specs/salesforce-q2-fy27.json",
+      "digest": "sha256:df258092c1dcdfbb99f1d36c96bad272a4dca3c2b2be7c1175e04d3405f00ad1",
+      "source": "input/processing/salesforce-q2-fy27.png"
+    },
+    {
       "path": "input/icon-crop-specs/salesforce-q4-fy26.json",
       "digest": "sha256:cb9a58f7313864200ac5b1c4e6a8917a57a83889c41a3cab067336257f2069a4",
       "source": "input/processed/salesforce-q4-fy26.png"
@@ -12915,6 +13482,11 @@
       "path": "input/icon-crop-specs/spacex-fy25.json",
       "digest": "sha256:bdd01738963231aa63d9efd78a06c203bea9807ec99b0f2c3b442c5248b386fb",
       "source": "input/processed/spacex-fy25.png"
+    },
+    {
+      "path": "input/icon-crop-specs/spacex-q2-fy26.json",
+      "digest": "sha256:af59fecd8dbee900322cdef87aa10d3a0f6e11226628cceec5d3c1a13d81c3ab",
+      "source": "input/processing/spacex-q2-fy26.png"
     },
     {
       "path": "input/icon-crop-specs/starbucks-q1-fy26.json",

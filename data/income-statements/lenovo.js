@@ -289,3 +289,243 @@
     }
   );
 })(window);
+
+(function(global) { global.INCOME_STATEMENT_SSOT.records.push({
+  "key": "lenovo-q1-fy27",
+  "company": "Lenovo",
+  "period": "Q1 FY27",
+  "periodNote": "Ending June 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 3,
+  "sourceImage": "input/processing/lenovo-q1-fy27.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 26.9,
+    "notes": [
+      "+43% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "idg",
+        "label": "IDG Intelligent Devices Group",
+        "value": 17.1,
+        "notes": [
+          "+27% Y/Y",
+          "7% operating margin"
+        ]
+      },
+      {
+        "id": "isg",
+        "label": "ISG Infrastructure Solutions Group",
+        "value": 8.5,
+        "notes": [
+          "+98% Y/Y",
+          "9% operating margin"
+        ]
+      },
+      {
+        "id": "ssg",
+        "label": "SSG Solutions & Services Group",
+        "value": 2.9,
+        "notes": [
+          "+28% Y/Y",
+          "24% operating margin"
+        ]
+      },
+      {
+        "id": "eliminations",
+        "label": "Eliminations",
+        "value": -1.6
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 22.5
+    },
+    "operatingExpenses": {
+      "total": 4.4,
+      "items": [
+        {
+          "id": "selling_distribution",
+          "label": "Selling & Distribution",
+          "value": 1.3,
+          "notes": [
+            "5% of revenue",
+            "(0pp) Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 0.7,
+          "notes": [
+            "3% of revenue",
+            "(0pp) Y/Y"
+          ]
+        },
+        {
+          "id": "administrative",
+          "label": "Administrative",
+          "value": 0.6,
+          "notes": [
+            "2% of revenue",
+            "(1pp) Y/Y"
+          ]
+        },
+        {
+          "id": "other_operating",
+          "label": "Other",
+          "value": 1.8
+        }
+      ]
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0.5,
+    "items": [
+      {
+        "id": "other_nonoperating",
+        "label": "Other",
+        "value": 0.5
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 4.5,
+      "notes": [
+        "17% margin",
+        "+2pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 0.019,
+      "notes": [
+        "0% margin",
+        "(4pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_loss",
+      "label": "Net loss",
+      "value": -0.5
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2027 财年第一季度",
+      "periodNote": "截至 2026 年 6 月",
+      "revenue": {
+        "notes": [
+          "同比 +43%"
+        ],
+        "items": [
+          {
+            "id": "idg",
+            "label": "IDG 智能设备集团",
+            "notes": [
+              "同比 +27%",
+              "营业利润率 7%"
+            ]
+          },
+          {
+            "id": "isg",
+            "label": "ISG 基础设施方案集团",
+            "notes": [
+              "同比 +98%",
+              "营业利润率 9%"
+            ]
+          },
+          {
+            "id": "ssg",
+            "label": "SSG 方案与服务集团",
+            "notes": [
+              "同比 +28%",
+              "营业利润率 24%"
+            ]
+          },
+          {
+            "id": "eliminations",
+            "label": "抵销"
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "selling_distribution",
+              "label": "销售与分销",
+              "notes": [
+                "占收入 5%",
+                "同比 (0 个百分点)"
+              ]
+            },
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 3%",
+                "同比 (0 个百分点)"
+              ]
+            },
+            {
+              "id": "administrative",
+              "label": "行政",
+              "notes": [
+                "占收入 2%",
+                "同比 (1 个百分点)"
+              ]
+            },
+            {
+              "id": "other_operating",
+              "label": "其他"
+            }
+          ]
+        }
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other_nonoperating",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 17%",
+            "同比 +2 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 0%",
+            "同比 (4 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净亏损"
+        }
+      }
+    }
+  }
+}); })(window);

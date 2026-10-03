@@ -1,0 +1,418 @@
+{
+  "source": "input/processed/grab-q2-fy26.png",
+  "spec": "output/builds/build-802ee497-8988-4435-976f-3b6921aaf4b8/workspace/input/icon-crop-specs/grab-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-03T07:51:40.741917+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/grab-q2-fy26",
+  "crops": [
+    {
+      "key": "logo",
+      "output": "data/assets/icon-references/grab-q2-fy26/crops/logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 5868,
+        "losslessBytes": 33477,
+        "savingsVsLossless": 0.8247,
+        "metrics": {
+          "meanAbsoluteError": 0.2312,
+          "rootMeanSquareError": 1.2978,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 26,
+          "changedPixelRatio": 0.0982
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 59299,
+        "transparentPixelRatio": 0.6604
+      },
+      "searchBox": {
+        "x": 697,
+        "y": 247,
+        "width": 488,
+        "height": 184
+      },
+      "componentCount": 10,
+      "subjectBox": {
+        "x0": 709,
+        "y0": 256,
+        "x1": 1179,
+        "y1": 424
+      },
+      "cropBox": {
+        "x0": 697,
+        "y0": 247,
+        "x1": 1185,
+        "y1": 431
+      },
+      "validation": {
+        "width": 488,
+        "height": 184,
+        "foregroundPixels": 29845,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 12,
+          "right": 6,
+          "top": 9,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": 0.0061,
+          "y": 0.0054
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/grab-q2-fy26/logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 5868,
+        "losslessBytes": 33477,
+        "savingsVsLossless": 0.8247,
+        "metrics": {
+          "meanAbsoluteError": 0.2312,
+          "rootMeanSquareError": 1.2978,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 26,
+          "changedPixelRatio": 0.0982
+        }
+      },
+      "validationSheet": "data/assets/icon-references/grab-q2-fy26/validation-sheets/logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 298550,
+        "losslessBytes": 298550,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "deliveries",
+      "output": "data/assets/icon-references/grab-q2-fy26/crops/deliveries.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 128,
+        "bytes": 3660,
+        "losslessBytes": 15824,
+        "savingsVsLossless": 0.7687,
+        "metrics": {
+          "meanAbsoluteError": 1.0094,
+          "rootMeanSquareError": 2.5386,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.5803
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 9748,
+        "transparentPixelRatio": 0.4218
+      },
+      "searchBox": {
+        "x": 143,
+        "y": 323,
+        "width": 216,
+        "height": 107
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 154,
+        "y0": 332,
+        "x1": 349,
+        "y1": 424
+      },
+      "cropBox": {
+        "x0": 143,
+        "y0": 323,
+        "x1": 359,
+        "y1": 430
+      },
+      "validation": {
+        "width": 216,
+        "height": 107,
+        "foregroundPixels": 12222,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 11,
+          "right": 10,
+          "top": 9,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": 0.0023,
+          "y": 0.014
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/grab-q2-fy26/deliveries.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 128,
+        "bytes": 3660,
+        "losslessBytes": 15824,
+        "savingsVsLossless": 0.7687,
+        "metrics": {
+          "meanAbsoluteError": 1.0094,
+          "rootMeanSquareError": 2.5386,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.5803
+        }
+      },
+      "validationSheet": "data/assets/icon-references/grab-q2-fy26/validation-sheets/deliveries.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 305710,
+        "losslessBytes": 305710,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "mobility",
+      "output": "data/assets/icon-references/grab-q2-fy26/crops/mobility.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 3286,
+        "losslessBytes": 15311,
+        "savingsVsLossless": 0.7854,
+        "metrics": {
+          "meanAbsoluteError": 0.8495,
+          "rootMeanSquareError": 2.3758,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 56,
+          "changedPixelRatio": 0.6061
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 9458,
+        "transparentPixelRatio": 0.3946
+      },
+      "searchBox": {
+        "x": 135,
+        "y": 625,
+        "width": 224,
+        "height": 107
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 145,
+        "y0": 632,
+        "x1": 347,
+        "y1": 726
+      },
+      "cropBox": {
+        "x0": 135,
+        "y0": 625,
+        "x1": 359,
+        "y1": 732
+      },
+      "validation": {
+        "width": 224,
+        "height": 107,
+        "foregroundPixels": 13874,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 10,
+          "right": 12,
+          "top": 7,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": -0.0045,
+          "y": 0.0047
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/grab-q2-fy26/mobility.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 3286,
+        "losslessBytes": 15311,
+        "savingsVsLossless": 0.7854,
+        "metrics": {
+          "meanAbsoluteError": 0.8495,
+          "rootMeanSquareError": 2.3758,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 56,
+          "changedPixelRatio": 0.6061
+        }
+      },
+      "validationSheet": "data/assets/icon-references/grab-q2-fy26/validation-sheets/mobility.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 303617,
+        "losslessBytes": 303617,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "financial_services",
+      "output": "data/assets/icon-references/grab-q2-fy26/crops/financial_services.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 2452,
+        "losslessBytes": 9664,
+        "savingsVsLossless": 0.7463,
+        "metrics": {
+          "meanAbsoluteError": 0.5659,
+          "rootMeanSquareError": 1.9754,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.5061
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 10360,
+        "transparentPixelRatio": 0.4401
+      },
+      "searchBox": {
+        "x": 137,
+        "y": 887,
+        "width": 220,
+        "height": 107
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 150,
+        "y0": 896,
+        "x1": 345,
+        "y1": 988
+      },
+      "cropBox": {
+        "x0": 137,
+        "y0": 887,
+        "x1": 357,
+        "y1": 994
+      },
+      "validation": {
+        "width": 220,
+        "height": 107,
+        "foregroundPixels": 13052,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 13,
+          "right": 12,
+          "top": 9,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": 0.0023,
+          "y": 0.014
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/grab-q2-fy26/financial_services.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 2452,
+        "losslessBytes": 9664,
+        "savingsVsLossless": 0.7463,
+        "metrics": {
+          "meanAbsoluteError": 0.5659,
+          "rootMeanSquareError": 1.9754,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.5061
+        }
+      },
+      "validationSheet": "data/assets/icon-references/grab-q2-fy26/validation-sheets/financial_services.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 294749,
+        "losslessBytes": 294749,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

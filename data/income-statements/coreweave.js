@@ -580,3 +580,169 @@
     }
   );
 })(window);
+
+(function(global){global.INCOME_STATEMENT_SSOT.records.push({
+  "key": "coreweave-q2-fy26",
+  "company": "CoreWeave",
+  "period": "Q2 FY26",
+  "periodNote": "",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 3,
+  "sourceImage": "input/processing/coreweave-q2-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 2.6,
+    "notes": [
+      "+112% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "united_states",
+        "label": "United States",
+        "value": 2.4,
+        "notes": [
+          "+108% Y/Y"
+        ]
+      },
+      {
+        "id": "rest_of_world",
+        "label": "Rest of World",
+        "value": 0.2,
+        "notes": [
+          "+186% Y/Y"
+        ]
+      }
+    ],
+    "breakdowns": [
+      {
+        "id": "contract_mix",
+        "label": "Revenue by contract type",
+        "total": 2.6,
+        "items": [
+          {
+            "id": "committed_contracts",
+            "label": "Committed Contracts",
+            "value": 2.5,
+            "notes": [
+              "98% of revenue"
+            ]
+          },
+          {
+            "id": "on_demand_services",
+            "label": "On-demand Services",
+            "value": 0.1,
+            "notes": [
+              "2% of revenue"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 0.9,
+      "notes": []
+    },
+    "operatingExpenses": {
+      "total": 1.7,
+      "items": [
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 1.5,
+          "notes": [
+            "59% of revenue",
+            "+3pp Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 0.2,
+          "notes": [
+            "7% of revenue",
+            "(7pp) Y/Y"
+          ]
+        },
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 0.1,
+          "notes": [
+            "2% of revenue",
+            "(1pp) Y/Y"
+          ]
+        }
+      ],
+      "notes": [
+        "Source rounded items total $1.8B while displayed total is $1.7B."
+      ]
+    }
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 1.7,
+      "notes": [
+        "66% margin",
+        "(8pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_loss",
+      "label": "Operating loss",
+      "value": -0.049,
+      "notes": [
+        "(2%) margin",
+        "(3pp) Y/Y"
+      ]
+    },
+    "net": {
+      "availability": "not-reported",
+      "value": null,
+      "label": "Net result not reported",
+      "notes": [
+        "Source ends at operating loss."
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "profit": {
+        "net": {
+          "label": "净利润未报告",
+          "notes": [
+            "来源图截至营业亏损。"
+          ]
+        }
+      },
+      "revenue": {
+        "notes": [
+          "同比 +112%"
+        ],
+        "items": [
+          {
+            "id": "united_states",
+            "label": "美国",
+            "notes": [
+              "同比 +108%"
+            ]
+          },
+          {
+            "id": "rest_of_world",
+            "label": "世界其他地区",
+            "notes": [
+              "同比 +186%"
+            ]
+          }
+        ]
+      }
+    }
+  }
+});})(window);

@@ -1,0 +1,31 @@
+{
+  "source": "input/processed/nebius-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/nebius",
+  "runtimeOutputDir": "data/assets/raster-annotations/nebius",
+  "validationSheetDir": "data/assets/icon-references/nebius/validation-sheets",
+  "backgroundRemoval": {
+    "enabled": false
+  },
+  "crops": [
+    {
+      "key": "nebius-company-logo",
+      "output": "crops/company-logo.png",
+      "runtimeOutput": "company-logo.png",
+      "searchBox": {
+        "x": 508,
+        "y": 233,
+        "width": 668,
+        "height": 195
+      },
+      "cropBox": {
+        "x": 508,
+        "y": 233,
+        "width": 668,
+        "height": 195
+      },
+      "threshold": 18,
+      "minComponentArea": 35,
+      "note": "Complete Nebius brand cluster; no chart text or connectors."
+    }
+  ]
+}
