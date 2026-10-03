@@ -1084,6 +1084,9 @@ export function classifySemanticAnnotationAudit({
     metricExists: item?.metricExists === true || item?.nodeExists === true,
     textCount: Number.isInteger(item?.textCount) ? item.textCount : 0,
     hasHitbox: item?.hasHitbox === true,
+    requiresLinkEndpoints: item?.requiresLinkEndpoints === true,
+    linkEndpointsValid: item?.linkEndpointsValid === true,
+    hasDuplicateRouteLabel: item?.hasDuplicateRouteLabel === true,
     index,
   }));
   const violations = [];
@@ -1095,6 +1098,10 @@ export function classifySemanticAnnotationAudit({
     if (!item.metricExists) violations.push({ nodeId: item.nodeId, code: 'unknown-data-node' });
     if (item.textCount < 1) violations.push({ nodeId: item.nodeId, code: 'missing-annotation-text' });
     if (!item.hasHitbox) violations.push({ nodeId: item.nodeId, code: 'missing-annotation-hitbox' });
+    if (item.hasDuplicateRouteLabel) violations.push({ nodeId: item.nodeId, code: 'duplicate-route-metric-label' });
+    if (item.requiresLinkEndpoints && !item.linkEndpointsValid) {
+      violations.push({ nodeId: item.nodeId, code: 'missing-annotation-link-endpoints' });
+    }
   }
   const annotatedNodeIds = [...new Set(normalized.map((item) => item.nodeId).filter(Boolean))].sort();
   for (const item of unboundNodeLikeTexts) {
@@ -1143,7 +1150,28 @@ export async function auditSemanticAnnotations(page, { datasetKey, language } = 
         nodeId: element.getAttribute('data-node') || '',
         metricExists: semanticMetricIds.has(element.getAttribute('data-node') || ''),
         textCount: element.querySelectorAll('text').length,
+        hasDuplicateRouteLabel: Boolean(localized?.layout?.routes?.[element.getAttribute('data-node')]) &&
+          Array.from(svg.querySelectorAll('.sankey-label[data-node]'))
+            .filter((label) => label.getAttribute('data-node') === element.getAttribute('data-node'))
+            .some((label) => Array.from(label.querySelectorAll('text')).some((text) =>
+              Array.from(element.querySelectorAll('text')).some((annotationText) =>
+                normalize(text.textContent) && normalize(text.textContent) === normalize(annotationText.textContent)
+              )
+            )),
         hasHitbox: Boolean(element.querySelector(':scope > .sankey-annotation-hitbox')),
+        requiresLinkEndpoints: [
+          ...element.querySelectorAll(':scope > path[fill="none"], :scope > line, :scope > polyline'),
+          element.previousElementSibling,
+        ].some((guide) => guide && (
+          guide.matches('line, polyline') || (
+            guide.matches('path[fill="none"]') && !/[zZ]/.test(guide.getAttribute('d') || '')
+          )
+        )) && (localized?.nonNodeMetrics || []).some((metric) =>
+          metric.id === element.getAttribute('data-node') && metric.representation === 'annotation'
+        ),
+        linkEndpointsValid: ['data-link-numerator', 'data-link-denominator'].every((attribute) =>
+          semanticMetricIds.has(element.getAttribute(attribute) || '')
+        ),
       }));
     const unboundNodeLikeTexts = Array.from(svg.querySelectorAll('.sankey-annotations text'))
       .filter((element) => !element.closest('.sankey-interactive-annotation[data-node]'))

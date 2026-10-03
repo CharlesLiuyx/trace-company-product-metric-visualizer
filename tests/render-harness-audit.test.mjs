@@ -559,3 +559,18 @@ test('B15 requires the Lenovo operating profit horizontal face even with a short
     (error) => error.code === 'NODE_FACE_POLICY_FAILED');
   assert.doesNotThrow(() => assertNodePaintAudit(classify([node('operating_profit', { ...geometry, fill: '#249e28' })]), expected));
 });
+
+test('A10 requires resolvable hover endpoints for annotation-only metrics', () => {
+  const finance = { nodeId: 'finance', metricExists: true, textCount: 2, hasHitbox: true, requiresLinkEndpoints: true };
+  for (const linkEndpointsValid of [undefined, false]) {
+    assert.deepEqual(classifySemanticAnnotationAudit({ annotations: [{ ...finance, linkEndpointsValid }] }).violations.map((v) => v.code), ['missing-annotation-link-endpoints']);
+  }
+  assert.deepEqual(classifySemanticAnnotationAudit({ annotations: [{ ...finance, linkEndpointsValid: true }] }).violations, []);
+  assert.deepEqual(classifySemanticAnnotationAudit({ annotations: [{ ...finance, requiresLinkEndpoints: false }] }).violations, []);
+});
+
+test('A10 rejects a repeated route metric label even when the two text boxes do not overlap', () => {
+  const interest = { nodeId: 'interest', metricExists: true, textCount: 2, hasHitbox: true, hasDuplicateRouteLabel: true };
+  assert.deepEqual(classifySemanticAnnotationAudit({ annotations: [interest] }).violations.map((v) => v.code), ['duplicate-route-metric-label']);
+  assert.deepEqual(classifySemanticAnnotationAudit({ annotations: [{ ...interest, hasDuplicateRouteLabel: false }] }).violations, []);
+});
