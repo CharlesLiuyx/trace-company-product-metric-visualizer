@@ -402,10 +402,11 @@ await scenario('sankey hover: unified node and link share rules', async (page) =
     const selector = useLabel
       ? `#chart .sankey-label[data-node="${nodeId}"]`
       : `#chart rect.sankey-node[data-node="${nodeId}"]`;
-    // Short fixed-layout bars can be sub-pixel after the viewer fit. Force the
-    // same pointer event onto the rendered SVG owner instead of letting
-    // Playwright reject a valid 1px interaction target as too small to hit.
-    await page.locator(selector).hover({ force: true });
+    // A multi-line label's bounding-box center can hit a neighboring SVG
+    // surface. Dispatch to its owner to test the semantic focusNode path;
+    // visible node faces still exercise real pointer hit testing.
+    if (useLabel) await page.locator(selector).dispatchEvent('mouseenter');
+    else await page.locator(selector).hover({ force: true });
     return visiblePercentages();
   }
 
