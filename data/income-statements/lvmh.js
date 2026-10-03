@@ -177,3 +177,262 @@
     }
   );
 })(window);
+
+window.INCOME_STATEMENT_SSOT.records.push({
+  "key": "lvmh-fy24",
+  "company": "LVMH",
+  "period": "FY24",
+  "periodNote": "",
+  "currency": "€",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/lvmh-fy24.png",
+  "roundingTolerance": 0.2,
+  "revenue": {
+    "total": 84.7,
+    "notes": [
+      "(2%) Y/Y"
+    ],
+    "items": [
+      {
+        "id": "wines_spirits",
+        "label": "Wines & Spirits",
+        "value": 5.9,
+        "notes": [
+          "(11%) Y/Y"
+        ]
+      },
+      {
+        "id": "fashion_leather_goods",
+        "label": "Fashion & Leather Goods",
+        "value": 41,
+        "notes": [
+          "(3%) Y/Y"
+        ]
+      },
+      {
+        "id": "perfumes_cosmetics",
+        "label": "Perfumes & Cosmetics",
+        "value": 8.4,
+        "notes": [
+          "+2% Y/Y"
+        ]
+      },
+      {
+        "id": "watches_jewelry",
+        "label": "Watches & Jewelry",
+        "value": 10.6,
+        "notes": [
+          "(3%) Y/Y"
+        ]
+      },
+      {
+        "id": "selective_retailing",
+        "label": "Selective retailing",
+        "value": 18.3,
+        "notes": [
+          "+2% Y/Y"
+        ]
+      },
+      {
+        "id": "other_activities_eliminations",
+        "label": "Other activities and eliminations",
+        "value": 0.5
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_sales",
+      "label": "Cost of sales",
+      "value": 27.9
+    },
+    "operatingExpenses": {
+      "total": 37.9,
+      "items": [
+        {
+          "id": "sales_marketing",
+          "label": "Sales & Marketing",
+          "value": 31,
+          "notes": [
+            "37% of revenue"
+          ]
+        },
+        {
+          "id": "general_administrative",
+          "label": "General & Administrative",
+          "value": 6.2,
+          "notes": [
+            "7% of revenue"
+          ]
+        },
+        {
+          "id": "other_opex",
+          "label": "Other opex",
+          "value": 0.6
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 5.2
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0.8,
+    "items": [
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 0.8
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 56.8,
+      "notes": [
+        "67% of revenue",
+        "(2pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 18.9,
+      "notes": [
+        "22% of revenue",
+        "(4pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 13,
+      "notes": [
+        "15% of revenue",
+        "(4pp) Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2024 财年",
+      "periodNote": "",
+      "revenue": {
+        "notes": [
+          "同比 (2%)"
+        ],
+        "items": [
+          {
+            "id": "wines_spirits",
+            "label": "葡萄酒与烈酒",
+            "notes": [
+              "同比 (11%)"
+            ]
+          },
+          {
+            "id": "fashion_leather_goods",
+            "label": "时装与皮具",
+            "notes": [
+              "同比 (3%)"
+            ]
+          },
+          {
+            "id": "perfumes_cosmetics",
+            "label": "香水与美妆",
+            "notes": [
+              "同比 +2%"
+            ]
+          },
+          {
+            "id": "watches_jewelry",
+            "label": "腕表与珠宝",
+            "notes": [
+              "同比 (3%)"
+            ]
+          },
+          {
+            "id": "selective_retailing",
+            "label": "精选零售",
+            "notes": [
+              "同比 +2%"
+            ]
+          },
+          {
+            "id": "other_activities_eliminations",
+            "label": "其他业务及抵销"
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "销售成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sales_marketing",
+              "label": "销售与市场费用",
+              "notes": [
+                "占收入 37%"
+              ]
+            },
+            {
+              "id": "general_administrative",
+              "label": "一般及行政费用",
+              "notes": [
+                "占收入 7%"
+              ]
+            },
+            {
+              "id": "other_opex",
+              "label": "其他运营费用"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "占收入 67%",
+            "同比 (2 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "占收入 22%",
+            "同比 (4 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "占收入 15%",
+            "同比 (4 个百分点)"
+          ]
+        }
+      }
+    }
+  }
+});

@@ -25907,6 +25907,615 @@
             }
           }
         }
+      },
+      {
+        "key": "airbnb-q4-fy24",
+        "src": "data/datasets/airbnb-q4-fy24.js",
+        "data": {
+          "name": "Airbnb · Q4 FY24",
+          "company": "Airbnb",
+          "meta": {
+            "title": "Airbnb Q4 FY24 Income Statement",
+            "period": "Q4 FY24"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Airbnb · 2024 财年第四季度",
+              "meta": {
+                "title": "Airbnb 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "american-express-q1-fy25",
+        "src": "data/datasets/american-express-q1-fy25.js",
+        "data": {
+          "name": "American Express · Q1 FY25",
+          "company": "American Express",
+          "meta": {
+            "title": "American Express Q1 FY25 Income Statement",
+            "period": "Q1 FY25"
+          },
+          "i18n": {
+            "zh": {
+              "name": "American Express · 2025 财年第一季度",
+              "meta": {
+                "title": "American Express 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "boeing-q1-fy25",
+        "src": "data/datasets/boeing-q1-fy25.js",
+        "data": {
+          "name": "Boeing · Q1 FY25",
+          "company": "Boeing",
+          "meta": {
+            "title": "Boeing Q1 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "波音 · 2025 财年第一季度",
+              "meta": {
+                "title": "波音 2025 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "boeing-q4-fy24",
+        "src": "data/datasets/boeing-q4-fy24.js",
+        "data": {
+          "name": "Boeing · Q4 FY24",
+          "company": "Boeing",
+          "meta": {
+            "title": "Boeing Q4 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "波音 · 2024 财年第四季度",
+              "meta": {
+                "title": "波音 2024 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "chevron-q4-fy24",
+        "src": "data/datasets/chevron-q4-fy24.js",
+        "data": {
+          "name": "Chevron · Q4 FY24",
+          "company": "Chevron",
+          "meta": {
+            "title": "Chevron Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "雪佛龙 · 2024 财年第四季度",
+              "meta": {
+                "title": "雪佛龙 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "fedex-q3-fy25",
+        "src": "data/datasets/fedex-q3-fy25.js",
+        "data": {
+          "name": "FedEx · Q3 FY25",
+          "company": "FedEx",
+          "meta": {
+            "title": "FedEx Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Feb. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "联邦快递 · 2025 财年第三季度",
+              "meta": {
+                "title": "联邦快递 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 2 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ferrari-q4-fy24",
+        "src": "data/datasets/ferrari-q4-fy24.js",
+        "data": {
+          "name": "Ferrari · Q4 FY24",
+          "company": "Ferrari",
+          "meta": {
+            "title": "Ferrari Q4 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "法拉利 · 2024 财年第四季度",
+              "meta": {
+                "title": "法拉利 2024 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ford-fy24",
+        "src": "data/datasets/ford-fy24.js",
+        "data": {
+          "name": "Ford · FY24",
+          "company": "Ford",
+          "meta": {
+            "title": "Ford FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "福特 · 2024 财年",
+              "meta": {
+                "title": "福特 2024 财年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "goldman-sachs-q1-fy25",
+        "src": "data/datasets/goldman-sachs-q1-fy25.js",
+        "data": {
+          "name": "Goldman Sachs · Q1 FY25",
+          "company": "Goldman Sachs",
+          "meta": {
+            "title": "Goldman Sachs Q1 FY25 Income Statement",
+            "period": "Q1 FY25"
+          },
+          "i18n": {
+            "zh": {
+              "name": "高盛 · 2025 财年第一季度",
+              "meta": {
+                "title": "高盛 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "goldman-sachs-q4-fy24",
+        "src": "data/datasets/goldman-sachs-q4-fy24.js",
+        "data": {
+          "name": "Goldman Sachs · Q4 FY24",
+          "company": "Goldman Sachs",
+          "meta": {
+            "title": "Goldman Sachs Q4 FY24 Income Statement",
+            "period": "Q4 FY24"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Goldman Sachs · 2024 财年第四季度",
+              "meta": {
+                "title": "Goldman Sachs 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hermes-fy24",
+        "src": "data/datasets/hermes-fy24.js",
+        "data": {
+          "name": "Hermès · FY24",
+          "company": "Hermès",
+          "meta": {
+            "title": "Hermès FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "爱马仕 · 2024 财年",
+              "meta": {
+                "title": "爱马仕 2024 财年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "j-j-q4-fy24",
+        "src": "data/datasets/j-j-q4-fy24.js",
+        "data": {
+          "name": "J&J · Q4 FY24",
+          "company": "Johnson & Johnson",
+          "meta": {
+            "title": "J&J Q4 FY24 Income Statement",
+            "period": "Q4 FY24"
+          },
+          "i18n": {
+            "zh": {
+              "name": "强生 · 2024 财年第四季度",
+              "meta": {
+                "title": "强生 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "jpmorganchase-q1-fy25",
+        "src": "data/datasets/jpmorganchase-q1-fy25.js",
+        "data": {
+          "name": "JPMorganChase · Q1 FY25",
+          "company": "JPMorganChase",
+          "meta": {
+            "title": "JPMorganChase Q1 FY25 Income Statement",
+            "period": "Q1 FY25"
+          },
+          "i18n": {
+            "zh": {
+              "name": "摩根大通 · 2025 财年第一季度",
+              "meta": {
+                "title": "摩根大通 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "jpmorganchase-q4-fy24",
+        "src": "data/datasets/jpmorganchase-q4-fy24.js",
+        "data": {
+          "name": "JPMorganChase · Q4 FY24",
+          "company": "JPMorganChase",
+          "meta": {
+            "title": "JPMorganChase Q4 FY24 Income Statement",
+            "period": "Q4 FY24"
+          },
+          "i18n": {
+            "zh": {
+              "name": "摩根大通 · 2024 财年第四季度",
+              "meta": {
+                "title": "摩根大通 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "loreal-fy24",
+        "src": "data/datasets/loreal-fy24.js",
+        "data": {
+          "name": "L’Oréal · FY24",
+          "company": "L'Oréal",
+          "meta": {
+            "title": "L’Oréal FY24 Income Statement",
+            "period": "FY24",
+            "periodNote": "Year ended Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "欧莱雅 · 2024 财年",
+              "meta": {
+                "title": "欧莱雅 2024 财年利润表",
+                "period": "2024 财年",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lvmh-fy24",
+        "src": "data/datasets/lvmh-fy24.js",
+        "data": {
+          "name": "LVMH · FY24",
+          "company": "LVMH",
+          "meta": {
+            "title": "LVMH FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "路威酩轩 · 2024 财年",
+              "meta": {
+                "title": "路威酩轩 2024 财年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "netflix-q1-fy25",
+        "src": "data/datasets/netflix-q1-fy25.js",
+        "data": {
+          "name": "Netflix - Q1 FY25",
+          "company": "Netflix",
+          "meta": {
+            "title": "Netflix Q1 FY25 Income Statement",
+            "period": "Q1 FY25"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Netflix · 2025 财年第一季度",
+              "meta": {
+                "title": "Netflix 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nintendo-q3-fy25",
+        "src": "data/datasets/nintendo-q3-fy25.js",
+        "data": {
+          "name": "Nintendo · Q3 FY25",
+          "company": "Nintendo",
+          "meta": {
+            "title": "Nintendo Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Nintendo · 2025 财年第三季度",
+              "meta": {
+                "title": "Nintendo 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "paypal-q1-fy25",
+        "src": "data/datasets/paypal-q1-fy25.js",
+        "data": {
+          "name": "PayPal · Q1 FY25",
+          "company": "PayPal",
+          "meta": {
+            "title": "PayPal Q1 FY25 Income Statement",
+            "period": "Q1 FY25"
+          },
+          "i18n": {
+            "zh": {
+              "name": "PayPal · 2025 财年第一季度",
+              "meta": {
+                "title": "PayPal 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "paypal-q4-fy24",
+        "src": "data/datasets/paypal-q4-fy24.js",
+        "data": {
+          "name": "PayPal · Q4 FY24",
+          "company": "PayPal",
+          "meta": {
+            "title": "PayPal Q4 FY24 Income Statement",
+            "period": "Q4 FY24"
+          },
+          "i18n": {
+            "zh": {
+              "name": "PayPal · 2024 财年第四季度",
+              "meta": {
+                "title": "PayPal 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pfizer-q1-fy25",
+        "src": "data/datasets/pfizer-q1-fy25.js",
+        "data": {
+          "name": "Pfizer · Q1 FY25",
+          "company": "Pfizer",
+          "meta": {
+            "title": "Pfizer Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Source-stated Q1 FY25"
+          },
+          "i18n": {
+            "zh": {
+              "name": "辉瑞 · 2025 财年第一季度",
+              "meta": {
+                "title": "辉瑞 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "来源标注为 2025 财年第一季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pfizer-q4-fy24",
+        "src": "data/datasets/pfizer-q4-fy24.js",
+        "data": {
+          "name": "Pfizer · Q4 FY24",
+          "company": "Pfizer",
+          "meta": {
+            "title": "Pfizer Q4 FY24 Income Statement",
+            "period": "Q4 FY24"
+          },
+          "i18n": {
+            "zh": {
+              "name": "辉瑞 · 2024 财年第四季度",
+              "meta": {
+                "title": "辉瑞 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "spotify-q1-fy25",
+        "src": "data/datasets/spotify-q1-fy25.js",
+        "data": {
+          "name": "Spotify · Q1 FY25",
+          "company": "Spotify",
+          "meta": {
+            "title": "Spotify Q1 FY25 Income Statement",
+            "period": "Q1 FY25"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Spotify · 2025 财年第一季度",
+              "meta": {
+                "title": "Spotify 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "spotify-q4-fy24",
+        "src": "data/datasets/spotify-q4-fy24.js",
+        "data": {
+          "name": "Spotify · Q4 FY24",
+          "company": "Spotify",
+          "meta": {
+            "title": "Spotify Q4 FY24 Income Statement",
+            "period": "Q4 FY24"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Spotify · 2024 财年第四季度",
+              "meta": {
+                "title": "Spotify 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "starbucks-q1-fy25",
+        "src": "data/datasets/starbucks-q1-fy25.js",
+        "data": {
+          "name": "Starbucks · Q1 FY25",
+          "company": "Starbucks",
+          "meta": {
+            "title": "Starbucks Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Starbucks · 2025 财年第一季度",
+              "meta": {
+                "title": "Starbucks 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ups-q1-fy25",
+        "src": "data/datasets/ups-q1-fy25.js",
+        "data": {
+          "name": "UPS · Q1 FY25",
+          "company": "UPS",
+          "meta": {
+            "title": "UPS Q1 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "联合包裹 · 2025 财年第一季度",
+              "meta": {
+                "title": "联合包裹 2025 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ups-q4-fy24",
+        "src": "data/datasets/ups-q4-fy24.js",
+        "data": {
+          "name": "UPS · Q4 FY24",
+          "company": "UPS",
+          "meta": {
+            "title": "UPS Q4 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "联合包裹 · 2024 财年第四季度",
+              "meta": {
+                "title": "联合包裹 2024 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "visa-q2-fy25",
+        "src": "data/datasets/visa-q2-fy25.js",
+        "data": {
+          "name": "Visa · Q2 FY25",
+          "company": "Visa",
+          "meta": {
+            "title": "Visa Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Mar. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Visa · 2025 财年第二季度",
+              "meta": {
+                "title": "Visa 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "walmart-q4-fy25",
+        "src": "data/datasets/walmart-q4-fy25.js",
+        "data": {
+          "name": "Walmart · Q4 FY25",
+          "company": "Walmart",
+          "meta": {
+            "title": "Walmart Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Jan. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "沃尔玛 · 2025 财年第四季度",
+              "meta": {
+                "title": "沃尔玛 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 1 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

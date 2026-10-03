@@ -750,6 +750,151 @@
       "digest": "sha256:83db841d6259cd06b6b7a09882237d162f55d8027294c093e423b47263a9dde1",
       "updatedAt": "2026-10-03T12:31:54.537Z",
       "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/airbnb-q4-fy24.js": {
+      "digest": "sha256:dba0ecf24fa32a123b5ff1ee9188b4f0dff3e37d694693a5df3aa95d27ffe2c5",
+      "updatedAt": "2026-10-03T13:46:12.349Z",
+      "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6"
+    },
+    "data/datasets/american-express-q1-fy25.js": {
+      "digest": "sha256:dc756dfb114260eb8e50835f2dadff34dee839ead2eac476661283a1de8ab775",
+      "updatedAt": "2026-10-03T13:46:11.690Z",
+      "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6"
+    },
+    "data/datasets/boeing-q1-fy25.js": {
+      "digest": "sha256:d54d3b99e000f8757c82add84a0095cd168aad8de949ee8d28eddc4eda16789e",
+      "updatedAt": "2026-10-03T13:45:26.479Z",
+      "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6"
+    },
+    "data/datasets/boeing-q4-fy24.js": {
+      "digest": "sha256:43067dc02b5b55f38ac8c96b40a7e5b9066e32e2672965746740ab2ed41e0a41",
+      "updatedAt": "2026-10-03T13:45:37.294Z",
+      "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6"
+    },
+    "data/datasets/chevron-q4-fy24.js": {
+      "digest": "sha256:567546f5c68b0eeb6b5bb533f00100d1e3419679e7ee89f2312a01c1aa22c23b",
+      "updatedAt": "2026-10-03T13:45:32.573Z",
+      "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6"
+    },
+    "data/datasets/fedex-q3-fy25.js": {
+      "digest": "sha256:220fe701b6956638d14e99e7c79a107b51e7eafe06be61d22b2a170a83154a1a",
+      "updatedAt": "2026-10-03T13:45:24.821Z",
+      "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6"
+    },
+    "data/datasets/ferrari-q4-fy24.js": {
+      "digest": "sha256:17ddb1aed96aff5f72b3ecb8bcb3e0e2c0426bdb41baf29b27ebde31e8c7191f",
+      "updatedAt": "2026-10-03T13:45:39.831Z",
+      "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6"
+    },
+    "data/datasets/ford-fy24.js": {
+      "digest": "sha256:9257eace090d3fa8cc0fbdbaa7815a77c9ed6e8a932dcca990f536ea1778bd11",
+      "updatedAt": "2026-10-03T13:45:29.727Z",
+      "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6"
+    },
+    "data/datasets/goldman-sachs-q1-fy25.js": {
+      "digest": "sha256:3016c2837388ac8df8712fc23b832ca016b6df23cc7c8ffdc049b24b92ed6410",
+      "updatedAt": "2026-10-03T13:45:36.741Z",
+      "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6"
+    },
+    "data/datasets/goldman-sachs-q4-fy24.js": {
+      "digest": "sha256:5018d51f1d34a4dad6814a96652a83ae92056d1100c19f72ca1d1e83960ea562",
+      "updatedAt": "2026-10-03T13:45:41.270Z",
+      "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6"
+    },
+    "data/datasets/hermes-fy24.js": {
+      "digest": "sha256:86eee754f9f84b878a1dc3fc1d3603fae92968671c4f97c327a538df36da61f4",
+      "updatedAt": "2026-10-03T13:45:31.513Z",
+      "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6"
+    },
+    "data/datasets/j-j-q4-fy24.js": {
+      "digest": "sha256:11e05b55e830bc3d9c7b0016d1d31d8e632ed7e6d88a4571e73d595d22257dca",
+      "updatedAt": "2026-10-03T13:46:06.996Z",
+      "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6"
+    },
+    "data/datasets/jpmorganchase-q1-fy25.js": {
+      "digest": "sha256:0ffc8f4e1b7278f8d823ccd40b7dc96a3504f2c0908d8d837f7b4d8178e4d76f",
+      "updatedAt": "2026-10-03T13:45:43.283Z",
+      "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6"
+    },
+    "data/datasets/jpmorganchase-q4-fy24.js": {
+      "digest": "sha256:8ec39a377b684855453711e26709e38f2b82f5078cc082352bfd447867e5c07d",
+      "updatedAt": "2026-10-03T13:45:58.876Z",
+      "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6"
+    },
+    "data/datasets/loreal-fy24.js": {
+      "digest": "sha256:6940b2f90e2f82e00cd7937e8e7e366949ed9395407c0451ac65d4d0202e1bc4",
+      "updatedAt": "2026-10-03T13:45:28.237Z",
+      "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6"
+    },
+    "data/datasets/lvmh-fy24.js": {
+      "digest": "sha256:5ea188bf726aa58a1afe4dd473aaf72aa32ac8734844ede7ed231588913fbaec",
+      "updatedAt": "2026-10-03T13:45:34.865Z",
+      "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6"
+    },
+    "data/datasets/netflix-q1-fy25.js": {
+      "digest": "sha256:e1dd636f21da018b92707245a9e446e9c2f775598e57c2f119fc2c31b21800cd",
+      "updatedAt": "2026-10-03T13:45:29.807Z",
+      "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6"
+    },
+    "data/datasets/nintendo-q3-fy25.js": {
+      "digest": "sha256:ff3d66da48688822a59a18c9984179a203af5451014376bfdbd0cf51aa5106c1",
+      "updatedAt": "2026-10-03T13:47:51.471Z",
+      "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6"
+    },
+    "data/datasets/paypal-q1-fy25.js": {
+      "digest": "sha256:a3afed4b66500724be0e841912add8cb23841704fa78a1ec5fe0873c840ef7a9",
+      "updatedAt": "2026-10-03T13:45:32.053Z",
+      "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6"
+    },
+    "data/datasets/paypal-q4-fy24.js": {
+      "digest": "sha256:cbcb924c825d731f62093c6910bc1cde2f8f9f2bbc3305c89f08f58c96142579",
+      "updatedAt": "2026-10-03T13:45:46.346Z",
+      "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6"
+    },
+    "data/datasets/pfizer-q1-fy25.js": {
+      "digest": "sha256:32d562f04de1980ea19d4ff0b67f4502e253eea32fd274828c30f1bbdc984b67",
+      "updatedAt": "2026-10-03T13:45:24.197Z",
+      "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6"
+    },
+    "data/datasets/pfizer-q4-fy24.js": {
+      "digest": "sha256:7845d616737ac487fb12b8114306dd54803ce1227c43ecfc070e0216adb5054c",
+      "updatedAt": "2026-10-03T13:45:46.938Z",
+      "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6"
+    },
+    "data/datasets/spotify-q1-fy25.js": {
+      "digest": "sha256:0e141b449299e9a0f46984feebc255607ea8d8d46c89a0f2178f38bfb0ad5301",
+      "updatedAt": "2026-10-03T13:45:25.516Z",
+      "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6"
+    },
+    "data/datasets/spotify-q4-fy24.js": {
+      "digest": "sha256:521d133ddaff36b3f10885768e11f212d73ee05424ce2faedd1d2acb48b7ebbe",
+      "updatedAt": "2026-10-03T13:45:47.536Z",
+      "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6"
+    },
+    "data/datasets/starbucks-q1-fy25.js": {
+      "digest": "sha256:7b9d5b77fa2953f4b17122f9aedd5e10eccc39c82f5a96df8ff6f3e761a11a30",
+      "updatedAt": "2026-10-03T13:45:48.196Z",
+      "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6"
+    },
+    "data/datasets/ups-q1-fy25.js": {
+      "digest": "sha256:1c9040dd0028882fe6a87c440d6122222a40701567a310ce95481265ec02424d",
+      "updatedAt": "2026-10-03T13:45:21.082Z",
+      "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6"
+    },
+    "data/datasets/ups-q4-fy24.js": {
+      "digest": "sha256:96f1000539ed92781a1de905c20c7dfb8fbaa0b93eb228e777ae89d53869d4a3",
+      "updatedAt": "2026-10-03T13:45:34.303Z",
+      "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6"
+    },
+    "data/datasets/visa-q2-fy25.js": {
+      "digest": "sha256:04241c02d8abfa8a2298c05d148ea7fe62274f1886295405ca4c95975386ccdb",
+      "updatedAt": "2026-10-03T13:46:17.134Z",
+      "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6"
+    },
+    "data/datasets/walmart-q4-fy25.js": {
+      "digest": "sha256:ff831f933b9f8a5f724cf7d780d458085bfbeef00caf02ef5f03fdcf73034d19",
+      "updatedAt": "2026-10-03T13:45:41.806Z",
+      "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6"
     }
   }
 }

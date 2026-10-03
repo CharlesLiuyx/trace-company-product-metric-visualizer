@@ -1,9 +1,9 @@
 {
   "schema": "reviewed-git-release/v1",
-  "id": "transport-05c84ca6-f93c-4bdd-bec5-b400c57eea0b",
-  "baseHead": "31cdf41762bf4059dd405a67aea46fbce162d8fc",
-  "planDigest": "sha256:7c0e6665d8cb7df9c358b537bd230e16664d4c6a72b3298a2860310f44ef1821",
-  "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab",
+  "id": "transport-72b0a506-143b-4e99-9354-5e9ed82baedf",
+  "baseHead": "167738795d73e637b5e9496c68a8c62190cb1ddf",
+  "planDigest": "sha256:09bcd8d06cb47252c2caa7fa4a283ec3922eb48be32a95158cea4bc3f432847b",
+  "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6",
   "builds": [
     {
       "buildId": "build-2b3667e7-f440-48b3-808f-5f49f2094f84",
@@ -144,749 +144,620 @@
       "buildId": "build-a3b3ee50-9dc1-4a6a-a506-3faeed311c2d",
       "key": "zscaler-q4-fy26",
       "sealDigest": "sha256:3457ab51d8f874ff2fa8920fcaa339a5a103942835392061713343be57006f57"
+    },
+    {
+      "buildId": "build-1163aa42-0da1-446e-9fb7-9fb856cc906b",
+      "key": "airbnb-q4-fy24",
+      "sealDigest": "sha256:95fbc491fe38d6b85d86b3d608e8d9f777e3ad984859ec7c379fd8f8fea02f19"
+    },
+    {
+      "buildId": "build-5f6ce4c4-0adf-4959-a1f8-181cc1cb718d",
+      "key": "american-express-q1-fy25",
+      "sealDigest": "sha256:ca32095550d94ed9c94363b798787e73198daea9cb284b11f875cafd64a15767"
+    },
+    {
+      "buildId": "build-72fa7354-0a31-4312-a249-b4003f6c4fab",
+      "key": "boeing-q1-fy25",
+      "sealDigest": "sha256:54281fb3e6d1e4f37f68276179da5913aba1ca2d98a1c4e1e9bc9c7049d2bfa3"
+    },
+    {
+      "buildId": "build-c82aff44-a13d-4b6f-b42c-79455b8e1c5b",
+      "key": "boeing-q4-fy24",
+      "sealDigest": "sha256:f8ce92d7f31267068c9dbd45658550a0971bc2242f57c90c9d960682294f9260"
+    },
+    {
+      "buildId": "build-c772e440-f879-4e2d-a483-e6b20aa51b6c",
+      "key": "chevron-q4-fy24",
+      "sealDigest": "sha256:fdc3ad67a96a359cdae0a57623c0f7645161b5f3b96a935beef8df50e869cfd6"
+    },
+    {
+      "buildId": "build-26e72a72-ee26-4558-adf3-d97b96ff7c7e",
+      "key": "fedex-q3-fy25",
+      "sealDigest": "sha256:07f8721264d89ed23b1ddfab10873109d11f5473f0d2bd98e209226c2ac54471"
+    },
+    {
+      "buildId": "build-878ed9a9-b5aa-4ff1-9923-048067f9774a",
+      "key": "ferrari-q4-fy24",
+      "sealDigest": "sha256:f56a80839b6a103fc5777dfb3c4ff8eadfe737487275c55169384f93c2df516a"
+    },
+    {
+      "buildId": "build-7ef1ed23-73d9-4706-aa9e-9a0fcb311572",
+      "key": "ford-fy24",
+      "sealDigest": "sha256:ea948734261cd9019a468caef8c9ab76486ac0213c230e07ce5cdbe439ca96f3"
+    },
+    {
+      "buildId": "build-92068109-f8f5-4308-a345-ffa13cb9aafb",
+      "key": "goldman-sachs-q1-fy25",
+      "sealDigest": "sha256:29370ff8f56d8a5b84b11b5f75e1f10eb47e9b2e014098b8dad34fd32f862fe0"
+    },
+    {
+      "buildId": "build-913a63f2-bfac-4bf2-ac5c-1b1834d87529",
+      "key": "goldman-sachs-q4-fy24",
+      "sealDigest": "sha256:7b3ee9347c146aa9e73e3c9050a738d051478cb740ddc3450bfeb1c7a553c1da"
+    },
+    {
+      "buildId": "build-dbc6630b-531b-49b3-8bbd-92ce9bfc12b3",
+      "key": "hermes-fy24",
+      "sealDigest": "sha256:d63d40fb256b5b596ce271a04726b070de351aea81266091d7fff8375a7bd8ee"
+    },
+    {
+      "buildId": "build-e7451291-67e5-4806-9515-92c8d04dd58f",
+      "key": "j-j-q4-fy24",
+      "sealDigest": "sha256:d4c2afd8a7877550bbabc2ca8ed163eed1f8994163e5ec50d9f0e40b6e983e35"
+    },
+    {
+      "buildId": "build-7254715a-a7cf-4ac6-9816-f5dd3334ef23",
+      "key": "jpmorganchase-q1-fy25",
+      "sealDigest": "sha256:171f894959ff401ca5768ac00689b1a51af63939efa9a84565f5f96858f6b897"
+    },
+    {
+      "buildId": "build-27920003-f53e-4403-a90c-e6b1d6bbf717",
+      "key": "jpmorganchase-q4-fy24",
+      "sealDigest": "sha256:b52dbaa728d96819c87c47df8919f778c718b024cd73698c6695f1795256540d"
+    },
+    {
+      "buildId": "build-93f4da4d-230b-4c89-beb8-6ae543a3d125",
+      "key": "loreal-fy24",
+      "sealDigest": "sha256:aa0fa77ace67ce141eb1d3b829de3d7a2563443011b7e3d4ab8bc5bcd29e12df"
+    },
+    {
+      "buildId": "build-c460bff3-fbf5-4133-ab93-25c1b0d6b012",
+      "key": "lvmh-fy24",
+      "sealDigest": "sha256:d8261b6aed225e1551c3a3c64204dfc7a145b290a1801e8a738353080381af13"
+    },
+    {
+      "buildId": "build-05ff7b8a-97e9-4e57-a63d-1b31a06e130b",
+      "key": "netflix-q1-fy25",
+      "sealDigest": "sha256:d2a821fc4aabc60c7e8c8d128a00e7b7eadee1987b84b19abaa0d98cd467a4dc"
+    },
+    {
+      "buildId": "build-ce91d5ac-03d0-4e1a-aa4b-3418f637da77",
+      "key": "nintendo-q3-fy25",
+      "sealDigest": "sha256:2e2adfdc9bfa523b6281c0eea36bbf600b79b74d2311dc2e47043e7f7a1939fd"
+    },
+    {
+      "buildId": "build-3110fc52-e2f7-4259-a29b-f1292de22054",
+      "key": "paypal-q1-fy25",
+      "sealDigest": "sha256:9b42eb208163fcf8bb9e78ee28ac43d690a09294a511a04b23af03e5bdc45f6f"
+    },
+    {
+      "buildId": "build-5c5acac5-6c67-44a6-a974-b4b121fb546e",
+      "key": "paypal-q4-fy24",
+      "sealDigest": "sha256:6cdab0c3cb0f8bc4df2ff273723ad2e183b2ef167ac1fbd1055c9406008da6bd"
+    },
+    {
+      "buildId": "build-7e05d554-68d1-4b2d-a4d9-ed7f393a1aaf",
+      "key": "pfizer-q1-fy25",
+      "sealDigest": "sha256:03a8506f6074e670c58fc3b4d0535a33a2332ca1046f9cd47dd8cc80f19eb32a"
+    },
+    {
+      "buildId": "build-030c3a30-0f2e-446a-ba7c-73a11a549d67",
+      "key": "pfizer-q4-fy24",
+      "sealDigest": "sha256:3429bd7635e98ded35f8d170fef490e20c9b13c4b784d3376d2fc727b3a474f7"
+    },
+    {
+      "buildId": "build-177f9b8f-bf00-4d9b-a704-84a1216ba1fb",
+      "key": "spotify-q1-fy25",
+      "sealDigest": "sha256:681a20450dd560408a79d8bcaae6aad35e60fc47a044ac6f4d4d292715c3c7a8"
+    },
+    {
+      "buildId": "build-6ba3b9a0-a341-44ff-a674-1c9140349dae",
+      "key": "spotify-q4-fy24",
+      "sealDigest": "sha256:01c1226adccc9987ad8008e4f11283d3bf31a9491250f2606609b4b3cc17d287"
+    },
+    {
+      "buildId": "build-14bc6c0a-cc6f-477b-9f84-eeed4ae96a67",
+      "key": "starbucks-q1-fy25",
+      "sealDigest": "sha256:f1c7d6c041975aac351e905248e93c200f73d1086e36425d2ed1b979e64a48c8"
+    },
+    {
+      "buildId": "build-03b26604-e6a3-463c-b58c-a9da88f1e812",
+      "key": "ups-q1-fy25",
+      "sealDigest": "sha256:9adc0699899d6740aabb59ddafa76d501cca30d060843203f3951da2032ceebc"
+    },
+    {
+      "buildId": "build-ad8a81d2-f930-4dc2-abf8-25b24b8848a1",
+      "key": "ups-q4-fy24",
+      "sealDigest": "sha256:829975182976865f7d5406a02b2f7ba5f86905bfe7c155285807eee21a86e453"
+    },
+    {
+      "buildId": "build-6f246356-dd40-4eea-a66d-9debddebe49a",
+      "key": "visa-q2-fy25",
+      "sealDigest": "sha256:99ed9abf3010025b7eb87a36ef44521b0e641176fbcfdd85f81b8c0784339c0f"
+    },
+    {
+      "buildId": "build-379ea64c-eff4-4ed6-8430-245ec96a1f92",
+      "key": "walmart-q4-fy25",
+      "sealDigest": "sha256:702e415e13216f56e30b3a7bc12944a51dd9e16abbf8cfc335ade244a6c2900b"
     }
   ],
-  "candidateDigest": "sha256:952b163fa90cd80f8c70a943e9c2b97b08c268259f8cc36f79d9e50bac81ca66",
+  "candidateDigest": "sha256:f1342a33fc84e05d86e5f9cd8c84b9e8187beb0544b87c064eae008f9dd9c8b8",
   "paths": [
     {
       "path": "data/assets/catalog.json",
-      "digest": "sha256:92cb177b96d77d5535fdafd3b6e6719015474d6f8a2faf4d922525c46e5c0e47",
-      "before": "sha256:a71b914ecbdd9d783455e2711d32dca52649934a2ad6c09d956b2aed66f772ce"
-    },
-    {
-      "path": "data/assets/icon-references/adobe/crop-report-q3-fy26.json",
-      "digest": "sha256:97c76a0076ac75fccd09ebfb31bc917188925d544bc66c295355d3dd23ff00b5",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/adobe/crops/adobe-app-q3-fy26.png",
-      "digest": "sha256:287517d147bfe2ea8d71f0f6a1f24270acddb0224710ab39190b7f951560cf6d",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/adobe/crops/company-logo-q3-fy26.png",
-      "digest": "sha256:018379b5134dae2b2383d203ba0bc3850d5f0bfbdf52ea7534798415cc4f9c17",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/adobe/crops/creative-cloud-acrobat-q3-fy26.png",
-      "digest": "sha256:49c692b739dae43b5b66d20eb185de9335ff9633bc36b44d0d3b1549a839654e",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/adobe/model-validation.md",
-      "digest": "sha256:c0437fc62a2e916b414727b0c380e0d21e1743f7d28bd8f46e0fc65a6c51ad0b",
-      "before": "sha256:660a341c97b83a816b4c7bf1373f3b1165637ebd9c470f5ffa84a737fd6a9b43"
-    },
-    {
-      "path": "data/assets/icon-references/adobe/validation-sheets/adobe-q3-fy26/adobe-adobe-app-q3-fy26.png",
-      "digest": "sha256:5d90523ab032b30974bb82d40caf73573e141b5dd872e11e5cbee2478fdcd0db",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/adobe/validation-sheets/adobe-q3-fy26/adobe-company-logo-q3-fy26.png",
-      "digest": "sha256:c40a387866cede577d2f01f19a384994b3662928cd4eeaac9fed889f8a1650c4",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/adobe/validation-sheets/adobe-q3-fy26/adobe-creative-cloud-acrobat-q3-fy26.png",
-      "digest": "sha256:f89fdbacf9c46158cb4cc3e806d8d2f0d89ab3f5a8d4be54172a63ec60e072ed",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/chewy/crop-report-q2-fy26.json",
-      "digest": "sha256:5b5656940128cea87f97c848bd4a7d8f92a1b9129ffa52e1deaed47cabcd67ee",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/chewy/crops/dog-box-q2-fy26.png",
-      "digest": "sha256:8073e5a839263ba0e44e122d63355b8b022db7755b6406a67cb9cd121626d2e9",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/chewy/validation-sheets/q2-fy26/chewy-dog-box-q2-fy26.png",
-      "digest": "sha256:f8abefd000bd1459d5ab3744e375a36cbdec0fcf2fe3311688d920be57272f50",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/gamestop/q2-fy26/crop-report.json",
-      "digest": "sha256:e0580cf5ff119bed270288f14ebc06bdaf441b490977d0e74b1940fee0639652",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/gamestop/q2-fy26/crops/australia-flag.png",
-      "digest": "sha256:07ddb9330bcefc6b3b1ba3d4a25580ee8fda08612225d12e3270dc138b636860",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/gamestop/q2-fy26/crops/batman.png",
-      "digest": "sha256:1743546b64ad3e2d2bad29c131b1bd59a85e2acf6486d9eb1499eca4c6b5c71b",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/gamestop/q2-fy26/crops/consoles.png",
-      "digest": "sha256:0837f2f7454ee8aea62243f6a7b7a6ac071ad53b7788dd68392f58002cf92487",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/gamestop/q2-fy26/crops/europe-flag.png",
-      "digest": "sha256:04643be19c4cbcbbe7de68df60e8381c8a3786302cd263f98824a053d2fc7883",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/gamestop/q2-fy26/crops/games.png",
-      "digest": "sha256:8856d94ef416a28e2af1694b3c369e7a70f94a91e54665cc48eeea0eae1594bb",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/gamestop/q2-fy26/crops/us-flag.png",
-      "digest": "sha256:f077fe6d653177847727f536c674f421edcbf279b83899f1df0cd34e21ef7c08",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/gamestop/q2-fy26/crops/wordmark.png",
-      "digest": "sha256:a386a84f950845cce5b7060aa494d7751df8506e46199a4892e50ed1cbf94da2",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/nio/company-logo-crop-report.json",
-      "digest": "sha256:da827b937fea9571b28d6bbf6c3c184ecdcc275f75a9f6dea915b100c7c0155e",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/nio/crops/company-logo-source.png",
-      "digest": "sha256:b2fb712884452f0a75581d8e77f39d3d0fb2dff765e359bf6b9439611bad132f",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/nio/model-validation.md",
-      "digest": "sha256:8bc8150244b296051a8739291cbeb0a16d928221f801384240ce2db99fa677af",
-      "before": "sha256:a6f1629a12bbf1c823cede797fefa0111dd6dfc062022d2fee6daf1a98d8054f"
-    },
-    {
-      "path": "data/assets/icon-references/nio/validation-sheets/nio-company-logo-source.png",
-      "digest": "sha256:5375b8d4415f17030eaa8e2f933200d32115613b2214fdedb77e1954fc6d5e3e",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/wealthfront/crop-report.json",
-      "digest": "sha256:4606fa22fdeb2eba8e06ed9cdfdc5e8042daa716222e4360c8f5073a7f12c66e",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/wealthfront/crops/company-logo.png",
-      "digest": "sha256:5ce55e5bc6ed401f312d3409bc6af1f94ade3b1ec35735f7feb6535ba59ed640",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/wealthfront/model-validation.md",
-      "digest": "sha256:b95b1e95e15ed4a9efb634dfdc34d4d3411d5cc4b3b2c4cd2dcccd67ec915fd2",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/wealthfront/validation-sheets/wealthfront-logo.png",
-      "digest": "sha256:b21a16d27fdfe29467aaa9284dd4bd7d918960b23b3b615960284854a9c16ccb",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/adobe/adobe-app-q3-fy26.png",
-      "digest": "sha256:287517d147bfe2ea8d71f0f6a1f24270acddb0224710ab39190b7f951560cf6d",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/adobe/company-logo-q3-fy26.png",
-      "digest": "sha256:018379b5134dae2b2383d203ba0bc3850d5f0bfbdf52ea7534798415cc4f9c17",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/adobe/creative-cloud-acrobat-q3-fy26.png",
-      "digest": "sha256:49c692b739dae43b5b66d20eb185de9335ff9633bc36b44d0d3b1549a839654e",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/chewy/dog-box-q2-fy26.png",
-      "digest": "sha256:8073e5a839263ba0e44e122d63355b8b022db7755b6406a67cb9cd121626d2e9",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/gamestop/australia-flag-q2-fy26.png",
-      "digest": "sha256:07ddb9330bcefc6b3b1ba3d4a25580ee8fda08612225d12e3270dc138b636860",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/gamestop/batman-q2-fy26.png",
-      "digest": "sha256:1743546b64ad3e2d2bad29c131b1bd59a85e2acf6486d9eb1499eca4c6b5c71b",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/gamestop/consoles-q2-fy26.png",
-      "digest": "sha256:0837f2f7454ee8aea62243f6a7b7a6ac071ad53b7788dd68392f58002cf92487",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/gamestop/europe-flag-q2-fy26.png",
-      "digest": "sha256:04643be19c4cbcbbe7de68df60e8381c8a3786302cd263f98824a053d2fc7883",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/gamestop/games-q2-fy26.png",
-      "digest": "sha256:8856d94ef416a28e2af1694b3c369e7a70f94a91e54665cc48eeea0eae1594bb",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/gamestop/us-flag-q2-fy26.png",
-      "digest": "sha256:f077fe6d653177847727f536c674f421edcbf279b83899f1df0cd34e21ef7c08",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/gamestop/wordmark-q2-fy26.png",
-      "digest": "sha256:a386a84f950845cce5b7060aa494d7751df8506e46199a4892e50ed1cbf94da2",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/nio/company-logo-source.png",
-      "digest": "sha256:b2fb712884452f0a75581d8e77f39d3d0fb2dff765e359bf6b9439611bad132f",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/samsara/company-wordmark-q2-fy27.png",
-      "digest": "sha256:54f379c77f1246ef45e073faa4d1f50120b87fc378708e69d1bf2d4eefc2cacf",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/wealthfront/company-logo.png",
-      "digest": "sha256:5ce55e5bc6ed401f312d3409bc6af1f94ade3b1ec35735f7feb6535ba59ed640",
-      "before": null
-    },
-    {
-      "path": "data/company-metadata/wealthfront.js",
-      "digest": "sha256:19372d41d8846f1432b7768df3046cd26fe1351d2ca3438877a20bdb220549c4",
-      "before": null
+      "digest": "sha256:f7db34b923287b2f5c0b687cbe8d56d3e7ed11da788aceea9c3c735c3f694be7",
+      "before": "sha256:92cb177b96d77d5535fdafd3b6e6719015474d6f8a2faf4d922525c46e5c0e47"
     },
     {
       "path": "data/dataset-file-metadata.js",
-      "digest": "sha256:68fdae3283afa4956f753fc047578b402d6a6d5de2fc04aa66a5ccd1731d1c0f",
-      "before": "sha256:453f91c53b7518b84136b30900c1f7a6fbb367bc0f7d5134d0b354d2c456d47c"
+      "digest": "sha256:dcf5c2e4e11ac2f619baace32c5ba24cd7b7170458e81f335240a61aba5cc471",
+      "before": "sha256:68fdae3283afa4956f753fc047578b402d6a6d5de2fc04aa66a5ccd1731d1c0f"
     },
     {
       "path": "data/dataset-manifest.js",
-      "digest": "sha256:053ccfdfa9a9a63231364a5067a400aba791edd14d232121ea77615d2384489b",
-      "before": "sha256:d4bc772d1b26bffc4cdbaeea49dc9f7afeaa3266783d0eaacdd4293340eefe46"
+      "digest": "sha256:588ee21863183acce0f2148d3b69563978ac993aefe66d1b9a821a660d37338c",
+      "before": "sha256:053ccfdfa9a9a63231364a5067a400aba791edd14d232121ea77615d2384489b"
     },
     {
-      "path": "data/datasets/adobe-q3-fy26.js",
-      "digest": "sha256:8bad8f5a288fdd9d1b9bdc1550a409e996a336a54ccd696d7d49f22540c3efdc",
+      "path": "data/datasets/airbnb-q4-fy24.js",
+      "digest": "sha256:dba0ecf24fa32a123b5ff1ee9188b4f0dff3e37d694693a5df3aa95d27ffe2c5",
       "before": null
     },
     {
-      "path": "data/datasets/asana-q2-fy27.js",
-      "digest": "sha256:2c47b5f1a3eb63f7bfdfe26f2e723033196a3c3c0eecea3446282b51dccb37b2",
+      "path": "data/datasets/american-express-q1-fy25.js",
+      "digest": "sha256:dc756dfb114260eb8e50835f2dadff34dee839ead2eac476661283a1de8ab775",
       "before": null
     },
     {
-      "path": "data/datasets/broadcom-q3-fy26.js",
-      "digest": "sha256:d7ef5d37050b17377f6c1b3fd060a294d1931d60e8ddede2045dad2e9f3d3982",
+      "path": "data/datasets/boeing-q1-fy25.js",
+      "digest": "sha256:d54d3b99e000f8757c82add84a0095cd168aad8de949ee8d28eddc4eda16789e",
       "before": null
     },
     {
-      "path": "data/datasets/c3-ai-q1-fy27.js",
-      "digest": "sha256:91e2221ff723f352573ef35bdde6be8c66f18ba34a7367d98dc549ebc1372dc4",
+      "path": "data/datasets/boeing-q4-fy24.js",
+      "digest": "sha256:43067dc02b5b55f38ac8c96b40a7e5b9066e32e2672965746740ab2ed41e0a41",
       "before": null
     },
     {
-      "path": "data/datasets/carnival-q3-fy26.js",
-      "digest": "sha256:143cdc023f04e671d207d08a99081e691f306fac1e013f7008b716f9803dd713",
+      "path": "data/datasets/chevron-q4-fy24.js",
+      "digest": "sha256:567546f5c68b0eeb6b5bb533f00100d1e3419679e7ee89f2312a01c1aa22c23b",
       "before": null
     },
     {
-      "path": "data/datasets/chewy-q2-fy26.js",
-      "digest": "sha256:93f1977afcaf6345afbbe426c73d1f0d0755d294e26e6ae2f8308aa4497bcc72",
+      "path": "data/datasets/fedex-q3-fy25.js",
+      "digest": "sha256:220fe701b6956638d14e99e7c79a107b51e7eafe06be61d22b2a170a83154a1a",
       "before": null
     },
     {
-      "path": "data/datasets/costco-q4-fy26.js",
-      "digest": "sha256:cf00065bb6dd0e2dd0a804081ef642f3bb715b184e7c3b89e010f821594925b9",
+      "path": "data/datasets/ferrari-q4-fy24.js",
+      "digest": "sha256:17ddb1aed96aff5f72b3ecb8bcb3e0e2c0426bdb41baf29b27ebde31e8c7191f",
       "before": null
     },
     {
-      "path": "data/datasets/darden-q1-fy27.js",
-      "digest": "sha256:de907ceb75e8d700935f160fa0fbd095d46fed9e4888e49b703ef0e11d16e90a",
+      "path": "data/datasets/ford-fy24.js",
+      "digest": "sha256:9257eace090d3fa8cc0fbdbaa7815a77c9ed6e8a932dcca990f536ea1778bd11",
       "before": null
     },
     {
-      "path": "data/datasets/dell-q2-fy27.js",
-      "digest": "sha256:c5e996456b21a7e3d2da8270b9aee9464fa395b69774886324ffe3a4950f07ad",
+      "path": "data/datasets/goldman-sachs-q1-fy25.js",
+      "digest": "sha256:3016c2837388ac8df8712fc23b832ca016b6df23cc7c8ffdc049b24b92ed6410",
       "before": null
     },
     {
-      "path": "data/datasets/didi-q2-fy26.js",
-      "digest": "sha256:52680be680566f210ecd5d04748751805fcc90bb30cb5a35a8570aa1a810ca97",
+      "path": "data/datasets/goldman-sachs-q4-fy24.js",
+      "digest": "sha256:5018d51f1d34a4dad6814a96652a83ae92056d1100c19f72ca1d1e83960ea562",
       "before": null
     },
     {
-      "path": "data/datasets/docusign-q2-fy27.js",
-      "digest": "sha256:5f3c70448e5757ad038d0c19266280fc6f7c6a0aedd4cdfa161f328dae069226",
+      "path": "data/datasets/hermes-fy24.js",
+      "digest": "sha256:86eee754f9f84b878a1dc3fc1d3603fae92968671c4f97c327a538df36da61f4",
       "before": null
     },
     {
-      "path": "data/datasets/gamestop-q2-fy26.js",
-      "digest": "sha256:567d50b4154a33d30b0db6d3434693d705c05df87470fa0dacb107b9684ec580",
+      "path": "data/datasets/j-j-q4-fy24.js",
+      "digest": "sha256:11e05b55e830bc3d9c7b0016d1d31d8e632ed7e6d88a4571e73d595d22257dca",
       "before": null
     },
     {
-      "path": "data/datasets/general-mills-q1-fy27.js",
-      "digest": "sha256:7f8f47c780f58337730269f8e22960e760d96c58894dda0f3ed62247f199d310",
+      "path": "data/datasets/jpmorganchase-q1-fy25.js",
+      "digest": "sha256:0ffc8f4e1b7278f8d823ccd40b7dc96a3504f2c0908d8d837f7b4d8178e4d76f",
       "before": null
     },
     {
-      "path": "data/datasets/gitlab-q2-fy27.js",
-      "digest": "sha256:7c6a2af882154cea58a70be19e6af8b7f3b20c1cfb004749bddd65dd82fa7979",
+      "path": "data/datasets/jpmorganchase-q4-fy24.js",
+      "digest": "sha256:8ec39a377b684855453711e26709e38f2b82f5078cc082352bfd447867e5c07d",
       "before": null
     },
     {
-      "path": "data/datasets/hpe-q3-fy26.js",
-      "digest": "sha256:247a390f792e35dd6eb587c64d589c9e5344e02206753856e0e983e2509d4c6d",
+      "path": "data/datasets/loreal-fy24.js",
+      "digest": "sha256:6940b2f90e2f82e00cd7937e8e7e366949ed9395407c0451ac65d4d0202e1bc4",
       "before": null
     },
     {
-      "path": "data/datasets/lululemon-q2-fy26.js",
-      "digest": "sha256:2e6d53049274465f23f3b82125a8998410a7b7d496524f7985f6596d6b1ad212",
+      "path": "data/datasets/lvmh-fy24.js",
+      "digest": "sha256:5ea188bf726aa58a1afe4dd473aaf72aa32ac8734844ede7ed231588913fbaec",
       "before": null
     },
     {
-      "path": "data/datasets/meituan-q2-fy26.js",
-      "digest": "sha256:519289c2d8d135c97ec6e750aeaec5505966655780021014eead220c5d87bc29",
+      "path": "data/datasets/netflix-q1-fy25.js",
+      "digest": "sha256:e1dd636f21da018b92707245a9e446e9c2f775598e57c2f119fc2c31b21800cd",
       "before": null
     },
     {
-      "path": "data/datasets/micron-q4-fy26.js",
-      "digest": "sha256:61d7bc8a1dfe4efa82fa23fdf95f8ec09e1c42a34b2707dbd5ae1184208c9de9",
+      "path": "data/datasets/nintendo-q3-fy25.js",
+      "digest": "sha256:ff3d66da48688822a59a18c9984179a203af5451014376bfdbd0cf51aa5106c1",
       "before": null
     },
     {
-      "path": "data/datasets/mongodb-q2-fy27.js",
-      "digest": "sha256:8e47bd04182ac45670ef2564014158a839f38e9c4730d6398f322a72145b8970",
+      "path": "data/datasets/paypal-q1-fy25.js",
+      "digest": "sha256:a3afed4b66500724be0e841912add8cb23841704fa78a1ec5fe0873c840ef7a9",
       "before": null
     },
     {
-      "path": "data/datasets/nio-q1-fy26.js",
-      "digest": "sha256:9241f5074ccdb69de07e4c4cbc44c6357e46a1072973830aa8651dfefd59c96f",
-      "before": "sha256:a268dbc0b4baef1993d2d064d9a45e3276035a789b22134359e27cf6a293c950"
-    },
-    {
-      "path": "data/datasets/nio-q2-fy26.js",
-      "digest": "sha256:6323575f95739ae912a9c5ab072279dc609671f355a22322e207becb1631cb36",
+      "path": "data/datasets/paypal-q4-fy24.js",
+      "digest": "sha256:cbcb924c825d731f62093c6910bc1cde2f8f9f2bbc3305c89f08f58c96142579",
       "before": null
     },
     {
-      "path": "data/datasets/nio-q3-fy25.js",
-      "digest": "sha256:2e82333e24564edaf5213467ab7bcb67c732c3e59d128ceb2b57a2568254011b",
-      "before": "sha256:e4e273ab76d131232e368ca5319cc78eee259bf56a6a45f4024c03c7c6e5a83b"
-    },
-    {
-      "path": "data/datasets/nio-q4-fy25.js",
-      "digest": "sha256:c5809e3fcba69d5a9fc30ad75006284bf21a23f694146151057bd5449d7b3362",
-      "before": "sha256:99a684275be83dcbe2d287a6325fc83bd4120f1a953d4811736f7387e0c26710"
-    },
-    {
-      "path": "data/datasets/oracle-q1-fy27.js",
-      "digest": "sha256:d04c3fe09fada21ed6c41f40e9fbc9d1eea538a43168281f03f1feef657d4641",
+      "path": "data/datasets/pfizer-q1-fy25.js",
+      "digest": "sha256:32d562f04de1980ea19d4ff0b67f4502e253eea32fd274828c30f1bbdc984b67",
       "before": null
     },
     {
-      "path": "data/datasets/palo-alto-q4-fy26.js",
-      "digest": "sha256:ad1e779f02d69ddbff360c9ff61c06706892f9e3ff5658e9ec81b33c19235f86",
+      "path": "data/datasets/pfizer-q4-fy24.js",
+      "digest": "sha256:7845d616737ac487fb12b8114306dd54803ce1227c43ecfc070e0216adb5054c",
       "before": null
     },
     {
-      "path": "data/datasets/samsara-q2-fy27.js",
-      "digest": "sha256:5133d9014599751e969e2eda644e92cc48d2692c4e3dea15def241a4db064f67",
+      "path": "data/datasets/spotify-q1-fy25.js",
+      "digest": "sha256:0e141b449299e9a0f46984feebc255607ea8d8d46c89a0f2178f38bfb0ad5301",
       "before": null
     },
     {
-      "path": "data/datasets/snowflake-q2-fy27.js",
-      "digest": "sha256:982fd1dd914b8342bc173f26975433412db71091699ad1770f759755f0b96e79",
+      "path": "data/datasets/spotify-q4-fy24.js",
+      "digest": "sha256:521d133ddaff36b3f10885768e11f212d73ee05424ce2faedd1d2acb48b7ebbe",
       "before": null
     },
     {
-      "path": "data/datasets/uipath-q2-fy27.js",
-      "digest": "sha256:ab0bae28e38ed84877d38ec35b6d8e7b3cf3d47d2ddb4b287486d77d9deb815c",
+      "path": "data/datasets/starbucks-q1-fy25.js",
+      "digest": "sha256:7b9d5b77fa2953f4b17122f9aedd5e10eccc39c82f5a96df8ff6f3e761a11a30",
       "before": null
     },
     {
-      "path": "data/datasets/vail-resorts-fy26.js",
-      "digest": "sha256:541b9af968d0a6fb596c434a43a507e9404546263a62df59c781e19bb6c18d27",
+      "path": "data/datasets/ups-q1-fy25.js",
+      "digest": "sha256:1c9040dd0028882fe6a87c440d6122222a40701567a310ce95481265ec02424d",
       "before": null
     },
     {
-      "path": "data/datasets/wealthfront-q2-fy27.js",
-      "digest": "sha256:69c4bebf444b64d1f0c9280f791ff8e4ec56d291476f3adfd0ed3fd7e65ea8b1",
+      "path": "data/datasets/ups-q4-fy24.js",
+      "digest": "sha256:96f1000539ed92781a1de905c20c7dfb8fbaa0b93eb228e777ae89d53869d4a3",
       "before": null
     },
     {
-      "path": "data/datasets/zscaler-q4-fy26.js",
-      "digest": "sha256:83db841d6259cd06b6b7a09882237d162f55d8027294c093e423b47263a9dde1",
+      "path": "data/datasets/visa-q2-fy25.js",
+      "digest": "sha256:04241c02d8abfa8a2298c05d148ea7fe62274f1886295405ca4c95975386ccdb",
       "before": null
     },
     {
-      "path": "data/income-statements/adobe.js",
-      "digest": "sha256:ae56accadc4a13d6226da939b098dfd56828f36d5677ac84e0e8145b0b7db1bb",
-      "before": "sha256:39b4fae16a1b5e39613c0b7138687dfdf94df510f2c341217c09f37d8780a7a0"
-    },
-    {
-      "path": "data/income-statements/asana.js",
-      "digest": "sha256:7801888533f14cf878690aa1acd2f54b6194dee5c47341a270c1b25bc498b4b2",
-      "before": "sha256:bc421199f8c54dacdc2048a334b0fd349ed3f671dae48e5c7d4b73379f241e83"
-    },
-    {
-      "path": "data/income-statements/broadcom.js",
-      "digest": "sha256:637121616c820aa081cb0e37582e8bb4a1a1b865e11280f1f087f7569aa87a90",
-      "before": "sha256:76c578f93fc146a0a7e6ce50dc709c549233c568f31ab6d0cdbfea8204cf739f"
-    },
-    {
-      "path": "data/income-statements/c3-ai.js",
-      "digest": "sha256:24e5ad703bdf28a7176fe78b5685de3d3ae56a33e8a3e1aad8208b83e151ea1b",
-      "before": "sha256:4a12a486f7b55b216a3b5277e5ed56f782743951f86b7769e1f643ebab6ec9e0"
-    },
-    {
-      "path": "data/income-statements/carnival.js",
-      "digest": "sha256:858cc44301aa4ec136e9bb905b950ed7aaa5173202559295a1fa50ff7c452f26",
-      "before": "sha256:e7e6f1b5cecb47f24b45cd7c064560a75ea38fa20432f892c4666213c23f7596"
-    },
-    {
-      "path": "data/income-statements/chewy.js",
-      "digest": "sha256:f5749d43032b5d2764a2c86777ef44f504bafe250ed17a8fdbb3e00a62617d17",
-      "before": "sha256:b426db4c1251c61af21947c1de1c31b02b3cd8a972ae9048dd3ff24027422c71"
-    },
-    {
-      "path": "data/income-statements/costco.js",
-      "digest": "sha256:923c6e4f06520e284f003e78e593436d30ee9b3fe42b8aa66821ee4f72d4941a",
-      "before": "sha256:851ce897ea0bf65683d81941596e0dcbf5658f4316d3ad2c312dfd5f368019db"
-    },
-    {
-      "path": "data/income-statements/darden.js",
-      "digest": "sha256:0cfb778aa1265a7c32c1b1ce7bb35417670e46cad75bc2158fe33aec82006c6a",
-      "before": "sha256:4e66563e5d677ac9647528dbee91657cf6eb479d1044073c0c8bfb9f7310f02d"
-    },
-    {
-      "path": "data/income-statements/dell.js",
-      "digest": "sha256:304bf34d253ccf158cf8b99ec4787f195e71566cf46cf28fa6d7175e55b5ce31",
-      "before": "sha256:f5bd47ef9b0c38b082170aeb80c7077864b8cb803dad65a309bd1ca4f6258c93"
-    },
-    {
-      "path": "data/income-statements/didi.js",
-      "digest": "sha256:5ee896583dcc9a012448e0e536194ba71734e63a14594cbff6f968394c3bc54c",
-      "before": "sha256:dc7f9afdfa4b3d98e6488ad8482bfc8eddcb638af54722eb08f36eb4e24f01fb"
-    },
-    {
-      "path": "data/income-statements/docusign.js",
-      "digest": "sha256:ad1ab209f25dd13836acf216b656124a1a9b75110f843d2ad31e337b34a4c609",
-      "before": "sha256:b794f707988816067c15d864515a7310f78da865c92d2dcaa1aab98551df807e"
-    },
-    {
-      "path": "data/income-statements/gamestop.js",
-      "digest": "sha256:6ecfab3860ff056ec5d259f0cdb3fde97d00fccf191b388b73adcc90fed5963c",
-      "before": "sha256:4f919925855d0be90027043c246bc654e169a643428a0158fa4a98c2a56094bf"
-    },
-    {
-      "path": "data/income-statements/general-mills.js",
-      "digest": "sha256:8d48080d3400a89ddcd777b46361afecbc8ad575d9450762e59190365c942277",
-      "before": "sha256:414c39968f3c5a56b7cd6ffb34a9caf07abdcc31b48060e36bbb930379608db5"
-    },
-    {
-      "path": "data/income-statements/gitlab.js",
-      "digest": "sha256:c2f627c7117309d9266997dc995ad617f3de69795266b9ffafc939429b2c6e74",
-      "before": "sha256:95f0971233a71e5241ae312f8c031a64be607dc9a553db233b6497368cb7e737"
-    },
-    {
-      "path": "data/income-statements/hpe.js",
-      "digest": "sha256:5b794732707173ad4f579319529a75e5663273abe67e60a7e9e36f2c146233a5",
-      "before": "sha256:dac818c76fb0c53783ed9432dc7a8304f43827f911a8e33ffe9cd94088219190"
-    },
-    {
-      "path": "data/income-statements/lululemon.js",
-      "digest": "sha256:6879695d85948e054ccecc24d1b38a592812b51a9548c0388256924373c105a7",
-      "before": "sha256:4f4596a864bdc69425d4534ba484ad3feed469ca5abf12b8b414f7e2b9101c73"
-    },
-    {
-      "path": "data/income-statements/meituan.js",
-      "digest": "sha256:34d7eeb4462f45e3758ea51d08b62034b8df01a8bacd9e3c9f2f04a92801060f",
-      "before": "sha256:742b5e1b962b02f64fa36ff8e064337d422c050313470d237133499041f1d307"
-    },
-    {
-      "path": "data/income-statements/micron.js",
-      "digest": "sha256:c222cabe3292fab71b91b7fd56e85100160b0629d626b842e797eb4ff4d11d23",
-      "before": "sha256:04334ca10daf32ed02ec660817df2fcd7e47d7c8fb97b4a5d3a66b9ef8de5c4e"
-    },
-    {
-      "path": "data/income-statements/mongodb.js",
-      "digest": "sha256:f6168250530438edfab3c819c92fc060bab1f2848249bd1afb72a276b3a623f0",
-      "before": "sha256:a581da6a1c921f12eb5eef2ea6557e85fb3e3e0699b5409679e861fc6c301764"
-    },
-    {
-      "path": "data/income-statements/nio.js",
-      "digest": "sha256:e09481739801143570cb360d4ebf77eced649cff12bd7ff75f376d546242ce5e",
-      "before": "sha256:ae619dd9fd299b0362c527a13284fe9be1c82d2d251507189534f4c28e3275df"
-    },
-    {
-      "path": "data/income-statements/oracle.js",
-      "digest": "sha256:967694fe2b323a85b4865888086c6542dda5f67cfc780742872c68a947613c4b",
-      "before": "sha256:796fe9f9928af3a782562461ae063a35b1aec4c0437c51c0e30f29ba30f1c524"
-    },
-    {
-      "path": "data/income-statements/palo-alto.js",
-      "digest": "sha256:95883bbba4c06cc009df679b674a5d8619bc3a76d0297217834fca65e28fffe1",
-      "before": "sha256:914730a99d278fb37f8bc6f9defcb065ef0c3ba5bc82e9daee5ce823ad142ccc"
-    },
-    {
-      "path": "data/income-statements/samsara.js",
-      "digest": "sha256:f41cfacbdd2ccadd8a01a583bf51d1ae2faf7584a85c701fe0c81120371565b7",
-      "before": "sha256:1c384637fe8e21bf5c071c259bcf818b834af93afd63c9adbe6600ce8144e3b8"
-    },
-    {
-      "path": "data/income-statements/snowflake.js",
-      "digest": "sha256:4836155d74759b6adc6f7e4c238cde9d765d8ef02524da348ce554c443d41a9a",
-      "before": "sha256:dc9f6536912d503113c6627812f3cc53cf044d82195f379d758222d568b282dc"
-    },
-    {
-      "path": "data/income-statements/uipath.js",
-      "digest": "sha256:8aa34ea7e5b5c8405ec3a5086efbf8e5dcd7712314fa3a43080d103632febec2",
-      "before": "sha256:fd2991cc274fe821c6cdffb40f3eab8c67c6b9a45790a9568d69c7d078ab0a07"
-    },
-    {
-      "path": "data/income-statements/vail-resorts.js",
-      "digest": "sha256:70f5e3de1a4fa2a76d32ac38eed86d229568da9a0ad8c9b628cee8bfcce15840",
-      "before": "sha256:b833d6965670102f8a1c60bb78150be63d784ac74ba076849a2b9123d2109a41"
-    },
-    {
-      "path": "data/income-statements/wealthfront.js",
-      "digest": "sha256:7a68ddeff0f54aafaf2117cb0ee45188a38aa5b803992cf3b25b0a4b1f0e920f",
+      "path": "data/datasets/walmart-q4-fy25.js",
+      "digest": "sha256:ff831f933b9f8a5f724cf7d780d458085bfbeef00caf02ef5f03fdcf73034d19",
       "before": null
     },
     {
-      "path": "data/income-statements/zscaler.js",
-      "digest": "sha256:9620d26ba8dd91bb297c7af546dc5aa099d4c926639ec3d3fa206940e00a4014",
-      "before": "sha256:2a0d750f836f8b1ab3cb1accc004c83901b96a9c0ce36d92f3d4ae9e87b177a2"
+      "path": "data/income-statements/airbnb.js",
+      "digest": "sha256:3c279b6b6848fe8147556c5845a8bf604117260dfae81e51dd04b0cb7f072b12",
+      "before": "sha256:c9344b864e755eb4d1b354be5b55e2fb41d05d25f058f6929bc3cde324a957d0"
+    },
+    {
+      "path": "data/income-statements/american-express.js",
+      "digest": "sha256:b7359a5d81694e07d4c9f2630630ac1de817eab4e96901e51cb324565f469e28",
+      "before": "sha256:431f63c61c1b936a05ddbc874b3d800cf21eb891ee14a606062c0a31bc09b0dd"
+    },
+    {
+      "path": "data/income-statements/boeing.js",
+      "digest": "sha256:7f0ef05748bd336a06769f495855f36d66f390bc16c417104d8c7398afe28447",
+      "before": "sha256:166bd0a8ce9d2f1b039050d494aa3d6b3fdec45532b041ca1a77c6fda40b3878"
+    },
+    {
+      "path": "data/income-statements/chevron.js",
+      "digest": "sha256:a1a3baaaa42980df0dc7b3afc74c5aa05d6e72b2a5d125277933b16afb21d703",
+      "before": "sha256:5d631278be4bfaabea5e203cc5ecb7ab8b914e7f560ad413b64e64d8d8c653d9"
+    },
+    {
+      "path": "data/income-statements/fedex.js",
+      "digest": "sha256:9e2b4e4917d3c18620041ff8cc9db6a182a046df229e8e480611c7058ed85976",
+      "before": "sha256:73321136297c1a940e28a162e5ed052538e5990eb957bdb37becd37e7b19bc97"
+    },
+    {
+      "path": "data/income-statements/ferrari.js",
+      "digest": "sha256:87949a8ce3b846d8a8b43b23b352e5152eec90c75c8eb82c8d244c2898d752cc",
+      "before": "sha256:060d537090a92d3b5a23e0a7c2d02cb94ba8ab4d9c0d976a45872a24df451d94"
+    },
+    {
+      "path": "data/income-statements/ford.js",
+      "digest": "sha256:cb1a0ad04c6be952411429bb5504648485f271fffe43af777fdd0f1e35fb7483",
+      "before": "sha256:abcb383352678483df40b46f91cb2eacf61f7136d60c85cc1f1744b3e3b4403a"
+    },
+    {
+      "path": "data/income-statements/goldman-sachs.js",
+      "digest": "sha256:e8cc8ee8413a497b69b90bc8e9c255b358c2d9d6a34afb6d9f0617cd33335080",
+      "before": "sha256:582e9f2e966db47be4c00fecc89294dca72992529a6e3f2b20b273c357c12351"
+    },
+    {
+      "path": "data/income-statements/hermes.js",
+      "digest": "sha256:bb96b5493558a5aa94165d7c604d546c8bc22ae44e35900e815b553f718208c2",
+      "before": "sha256:4e7017fdaa9d4a3d0240f395a9cb83f62a59caf5f1820dfe682e640de9c8ddd5"
+    },
+    {
+      "path": "data/income-statements/j-j.js",
+      "digest": "sha256:1863cba5452e2887fab2ec13029fd7ba31a2d8a0e8e19efb3c782d301cc4a6e0",
+      "before": "sha256:179e7fe54a27211492f3113ee9ebae8ca74ae3a71cafd12715815f1ba7491386"
+    },
+    {
+      "path": "data/income-statements/jpmorganchase.js",
+      "digest": "sha256:7a496696c2a2b49bccce7c1849542198a3d2d5684219fc1d35fb54ce155cbe1b",
+      "before": "sha256:3b274b796abb10bd2d2ea597ce6589ffb01ba4be170f3e62102b0132752578cd"
+    },
+    {
+      "path": "data/income-statements/loreal.js",
+      "digest": "sha256:cc301561353056d33db362e4f63e96ac88d27e9fca33fddda14bba7d45d95c1e",
+      "before": "sha256:19ed2b062cdc3bb248dbd7d9dd64be6356da52e203ce186dc11a5bed613e1bea"
+    },
+    {
+      "path": "data/income-statements/lvmh.js",
+      "digest": "sha256:c91b546986566c61761505903546f5d9a875cc004aee0afcf14f77a69ab434f3",
+      "before": "sha256:020b510adab65401abb22c2a19962c35002836f0f4a6816059583c90147d36c6"
+    },
+    {
+      "path": "data/income-statements/netflix.js",
+      "digest": "sha256:54f3a780061fb1e2fd9a89b24986b6422ec90d06ef187df54ec0ac6319b0c0fb",
+      "before": "sha256:4ecee39703cb43d8ceb33a138f3c9e284b1be89fe3a87735aaa8c079b763966f"
+    },
+    {
+      "path": "data/income-statements/nintendo.js",
+      "digest": "sha256:50cdc701fa16a0ea222afbcd86e4a76f7a6dde6a8df4e14bde2505219d85c668",
+      "before": "sha256:89f62600fa508e352dd703956c8c8dc80993019d9654a201475909e3b1599979"
+    },
+    {
+      "path": "data/income-statements/paypal.js",
+      "digest": "sha256:9d3023edf6053bb51b20c0cf55f5ab5109366887346e671ba4663abab4296173",
+      "before": "sha256:45bb01b09d6d0efe272cb640325b7343ae891a3863cc1b199f2de455dfc4219d"
+    },
+    {
+      "path": "data/income-statements/pfizer.js",
+      "digest": "sha256:d9ef284235c03857263451e658c82eb0c762c77d8262f060a21ad66194fef1e2",
+      "before": "sha256:e8d9b1d4a58d73bc159c139bac5a42a424c0b70e62ea5da98f5ae569d6b5c11a"
+    },
+    {
+      "path": "data/income-statements/spotify.js",
+      "digest": "sha256:de987ac35942539d45db778df3d84420b2c143710cb021e16b295fabf507f507",
+      "before": "sha256:ff0bb1553ce721ba64e72cb940c2f49af40c057c92e7a9e4fd8fae6e14f09465"
+    },
+    {
+      "path": "data/income-statements/starbucks.js",
+      "digest": "sha256:e79a67f95e01dd940afb786f26180826035ce15ed6f9928c6b277051afda0b33",
+      "before": "sha256:3445935cfe783831a2fd7fbfbc5027fd4f19c461e6997a349a6c558760b10977"
+    },
+    {
+      "path": "data/income-statements/ups.js",
+      "digest": "sha256:d544d34eccb94237bfc6337d28d26dbf5ba96c8b453be932ec6910a2250328fe",
+      "before": "sha256:617d37bbabedff318d7dd1749e2201bcd6b452821a604ef6e1f6a3bc2278da48"
+    },
+    {
+      "path": "data/income-statements/visa.js",
+      "digest": "sha256:e12ba4c57c1551f4479d966958da1c92ba2247f7f6f247a90efba3d7704029c8",
+      "before": "sha256:3d8609df3c5395f35b0e620b2eb2f09bb73a00144bd26bc92473f0dbaec24a33"
+    },
+    {
+      "path": "data/income-statements/walmart.js",
+      "digest": "sha256:247049878ab4c7b1ea4878dcbb660aec0fa968b1ed9f4a5a4c4a1ab3204e1753",
+      "before": "sha256:72994de0ea49d8033592d4440a4126f15e177cce13f751f4a5a94d6ef90e8d27"
     },
     {
       "path": "data/render-baselines.json",
-      "digest": "sha256:e9888d698bd71508d16fa5efec085d3ff99eaf54d85f83068f5c1883029b6ad7",
-      "before": "sha256:441d610a0a8d7ef9df4f4dfc76705c02b55b1522e37943826e4a37c22e0006fb"
+      "digest": "sha256:99ebc4e0a3ea8cb30eda9a7ade2646b406befbfda2e769f88166d1ca94585b2b",
+      "before": "sha256:e9888d698bd71508d16fa5efec085d3ff99eaf54d85f83068f5c1883029b6ad7"
     },
     {
       "path": "data/workflow-timestamps.json",
-      "digest": "sha256:102a26ebc72877f7decee59b7a4d2d59e9c4859b155ecf1b3cebe41fe47f3217",
-      "before": "sha256:98670bb556970151d501978be3bfa265da81f475e2f18567bbef3e17522e77a8"
+      "digest": "sha256:af347c214d2586e0c0b4933dc4cbaa603dc9c4a520470bcc2643bfb16320ed72",
+      "before": "sha256:102a26ebc72877f7decee59b7a4d2d59e9c4859b155ecf1b3cebe41fe47f3217"
     },
     {
-      "path": "index.html",
-      "digest": "sha256:0c543678342209a175a9c0b847d0c915af170f34bdedc4e90ff163d1cee25aeb",
-      "before": "sha256:343c16d3a5cf459c42c739e92e7adf3df8b0548f5bb9baefc531565e1509f8a4"
-    },
-    {
-      "path": "input/icon-crop-specs/adobe-q3-fy26.json",
-      "digest": "sha256:8c514a83141e7ca3e341f97aa6f66603e6d2337a5cf229eb6dd4b6cab3c616d7",
-      "before": null
-    },
-    {
-      "path": "input/icon-crop-specs/chewy-q2-fy26.json",
-      "digest": "sha256:a50e3f57abfba2fc473b31e2439e9692c201e26951d1171f3e0ccfd4f75f4625",
-      "before": null
-    },
-    {
-      "path": "input/icon-crop-specs/gamestop-q2-fy26.json",
-      "digest": "sha256:a2a74b1d4f350a1959260af6f0744f87c55df075d217dae4c5ab98f1c46f9bfe",
-      "before": null
-    },
-    {
-      "path": "input/icon-crop-specs/nio-company-logo.json",
-      "digest": "sha256:6f565ba9624a1ab4fadd2daa3f1184f88b57ac07ce4d321b776861cdb6728e6f",
-      "before": null
-    },
-    {
-      "path": "input/icon-crop-specs/wealthfront-q2-fy27.json",
-      "digest": "sha256:313f4b7a114768bbf8686d1c6a82cb14fbfe3919a598e8317df064849fbcd6ff",
-      "before": null
-    },
-    {
-      "path": "input/pending/page-0007-Adobe-Q3-FY26-Income-Statement.png",
-      "before": "sha256:882ef4d26305eb8ef8f6b78516c003bcb095362944e4ddc6b10375adf48a2a88",
+      "path": "input/pending/page-0092-Airbnb-Q4-FY24-Income-Statement.png",
+      "before": "sha256:e65491159d195dfbf7fe56ff8747cc30b63785f599fd20964aff985bec0869e1",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0042-Asana-Q2-FY27-Income-Statement.png",
-      "before": "sha256:fd47e37c8670e97ed73aaa81f4c28b3b384768a65deb985c7094a780c6c53f4e",
+      "path": "input/pending/page-0044-American-Express-Q1-FY25-Income-Statement.png",
+      "before": "sha256:d9483bb75679cf1726282bd2426028c776d0950026586b2851f4cdba45d501f4",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0002-Broadcom-Q3-FY26-Income-Statement.png",
-      "before": "sha256:64d218b3f367746549f559a40e4fdfdbbb7ac0059df9a4a800dc90c178d65f3d",
+      "path": "input/pending/page-0073-Boeing-Q1-FY25-Income-Statement.png",
+      "before": "sha256:b20601e41527aabaef562a6b10e607b326540d1b91961d572ce0420fe0036372",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0014-C3.ai-Q1-FY27-Income-Statement.png",
-      "before": "sha256:acc9dc0b06434716ecec8d2283cfa5bb2eee472c3da25ca5cfd06980af9267e7",
+      "path": "input/pending/page-0052-Boeing-Q4-FY24-Income-Statement.png",
+      "before": "sha256:bda5410ec8d3d01c36d97f17b52e03aa0282514f647885da04e284fda8df3b2a",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0046-Carnival-Q3-FY26-Income-Statement.png",
-      "before": "sha256:f4eb5d59760ba0e291ec3bae61da011a16280798bf2bf2302993f7f9389985f1",
+      "path": "input/pending/page-0089-Chevron-Q4-FY24-Income-Statement.png",
+      "before": "sha256:62329a49be0574b2443ba5431f0d9fca8228d88e81b5f4bc43b5246f12a2a176",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0045-Chewy-Q2-FY27-Income-Statement.png",
-      "before": "sha256:79c387be081cc43675d70042920e7a2d179c9c8520461aa639507bfab22ef7b0",
+      "path": "input/pending/page-0047-FedEx-Q3-FY25-Income-Statement.png",
+      "before": "sha256:a123657fef979c72178ee4644ee563ae59264e0a93703421385bf97d6e553d14",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0043-Costco-Q4-FY26-Income-Statement.png",
-      "before": "sha256:557617cb0878ce2f63aec850bdc03f05a2e6d3eb41a63ef2e4a4d38b7a83bec0",
+      "path": "input/pending/page-0085-Ferrari-Q4-FY24-Income-Statement.png",
+      "before": "sha256:e65c57fd63620593e8d45d9711e5add40dda01427374a28057b43b212ce415d2",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0048-Darden-Q1-FY27-Income-Statement.png",
-      "before": "sha256:03fdb8897e11adf1495666aa4ca6d05c8ceb06a480c7e14243b732d54cc0401c",
+      "path": "input/pending/page-0086-Ford-FY24-Income-Statement.png",
+      "before": "sha256:1e204e31b2222bee7af7013300258ac379dc46ff7bf05e4b138e0e0587d76c3c",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0008-DELL-Q2-FY27-Income-Statement.png",
-      "before": "sha256:2bd9c1184911cb6d1c6a95c1a2bf86b88159bc7b0916d20fe1c9fdeceec57f91",
+      "path": "input/pending/page-0056-Goldman-Sachs-Q1-FY25-Income-Statement.png",
+      "before": "sha256:dda0574370d4d3890f7b21073695eddb275044540b6282a76680dc1479bb39b8",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0051-Didi-Q2-FY26-Income-Statement.png",
-      "before": "sha256:f2f11abdc499b35e74b9bd80ae2c52d4486877a35ff23c8854bffd3e30aae502",
+      "path": "input/pending/page-0043-Goldman-Sachs-Q4-FY24-Income-Statement.png",
+      "before": "sha256:2471fe0a214520087c129d7f4e831ada959a3224450d382dacac8bf45b69247c",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0010-DocuSign-Q2-FY27-Income-Statement.png",
-      "before": "sha256:3cddabacdd3be8696a4a13fca52e439499001e883874d3002aa4a9abad4d7a42",
+      "path": "input/pending/page-0149-Hermès-FY24-Income-Statement.png",
+      "before": "sha256:5642088d9aa55c510254fad10cf88f463fa217c6a4b58e05625b3d58dbd48431",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0044-GameStop-Q2-FY26-Income-Statement.png",
-      "before": "sha256:1d8133d921aaea94be766c939557bf34f58ecc751dc3992c7610d6ff0b42c190",
+      "path": "input/pending/page-0063-J-J-Q4-FY24-Income-Statement.png",
+      "before": "sha256:3f68254d99834c99806b1f5b03e103309da67e59eb3477bdd2cc4a7e905c8a75",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0049-General-Mills-Q1-FY27-Income-Statement.png",
-      "before": "sha256:d1a66da39b1e1233b160ff1b84e32870c670fe818b2ea6a44726ef5686c7ba75",
+      "path": "input/pending/page-0051-JPMorganChase-Q1-FY25-Income-Statement.png",
+      "before": "sha256:1cc67a4d197858e2c4c442f1622fa2e48557c5cfed563e33126cf401c5e6cefb",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0017-GitLab-Q2-FY27-Income-Statement.png",
-      "before": "sha256:2048ce960e727f86c2a0b411b4978fa81ce0ace3aefdb3adfb7551cf59796df9",
+      "path": "input/pending/page-0038-JPMorganChase-Q4-FY24-Income-Statement.png",
+      "before": "sha256:5e72527191ca56e39a049a388db7a5aa2f19200c205bf68504284c131988a165",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0009-HPE-Q3-FY26-Income-Statement.png",
-      "before": "sha256:1ad1f3ec0ed0d348e23c42aba7ba5c479cd292b9fb35ea59d1ae4028f98c47ca",
+      "path": "input/pending/page-0148-L-Oréal-FY24-Income-Statement.png",
+      "before": "sha256:ff6085ecd6618a49cf3ebffd35ac4297cad3bf244c1b8bc2b4b17a0ef9437547",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0041-Lululemon-Q2-FY26-Income-Statement.png",
-      "before": "sha256:d2fb1b9e1d8225d5c6852316bf96ba73942cf7bb1103e9034632412c74f96f4b",
+      "path": "input/pending/page-0051-LVMH-FY24-Income-Statement.png",
+      "before": "sha256:10afd768f008c9f9fa20172fdab3129c5f2814d380bf751a5fbbb951908c74b8",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0052-Meituan-Q2-FY26-Income-Statement.png",
-      "before": "sha256:1240e5a5d234d9b35f4dbdd89cadcf00cc5de6312a683476ea795c7385ac5f20",
+      "path": "input/pending/page-0011-Netflix-Q1-FY25-Income-Statement.png",
+      "before": "sha256:43a4a6cc84ddfd255e9534aee1af060508f2857c22565fa571c0afc5d7f6cb4e",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0004-Micron-Q4-FY26-Income-Statement.png",
-      "before": "sha256:1fdda6f08b6044c24df646324fde7d85ffaf160afd28cf1811c8896082f32e40",
+      "path": "input/pending/page-0038-Nintendo-Q3-FY25-Income-Statement.png",
+      "before": "sha256:ddc0ecc713a2b3be588b2d51bbd939aacec40a5b75d01133a2fe3dde45ffef2c",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0012-MongoDB-Q2-FY27-Income-Statement.png",
-      "before": "sha256:6b8c85c83538e535d02514d6835ff4f495c3b782402ab8d212e9bb9da46fea54",
+      "path": "input/pending/page-0059-PayPal-Q1-FY25-Income-Statement.png",
+      "before": "sha256:302b8b0e9b5a9331216436881c019a89de93acc4ec8a57aaa17802ae5a62da56",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0050-NIO-Q2-FY26-Income-Statement.png",
-      "before": "sha256:d5616f779035976ed2adbfa62c68ff5383c00562bf70cf66d7dc05f7d818ee97",
+      "path": "input/pending/page-0060-PayPal-Q4-FY24-Income-Statement.png",
+      "before": "sha256:fbe4464bb6c43ceb9712222e409e8b2e8621c881ad3484587b4527f952726a1b",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0005-Oracle-Q1-FY27-Income-Statement.png",
-      "before": "sha256:22fe18f89f9a1ee47a1a9e4b0886b7765d8de7d9be2ab06c6506fe56a2da4ee9",
+      "path": "input/pending/page-0083-Pfizer-Q1-FY25-Income-Statement.png",
+      "before": "sha256:554c8fafe8f52edb15e007da6f95760dd063d7a6a03ab5d0c32134ab58abbb37",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0015-Palo-Alto-Q4-FY26-Income-Statement.png",
-      "before": "sha256:2387b8e9d913e0420cd61a481b2a0987072ccae9946e6e1b187d36ed7cbc9724",
+      "path": "input/pending/page-0082-Pfizer-Q4-FY24-Income-Statement.png",
+      "before": "sha256:0ba6d762b6ec45274abfd61cd90cdfbe6bf8aeef852323d7591903fdb0563e52",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0016-Samsara-Q2-FY27-Income-Statement.png",
-      "before": "sha256:af5f5e2042e507461c0fa5bac843b8fa65b0aac0de61f9d8b84a1a0c614fd6bf",
+      "path": "input/pending/page-0014-Spotify-Q1-FY25-Income-Statement.png",
+      "before": "sha256:f664b34d1b8ef8e21372f7eeb87abd3f9e74503aa202a501536e208b5e69070f",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0011-Snowflake-Q2-FY27-Income-Statement.png",
-      "before": "sha256:cacc08dc7f8fd8a847f125fce6727f19dfd4757d81d2aef63f812641308206ac",
+      "path": "input/pending/page-0031-Spotify-Q4-FY24-Income-Statement.png",
+      "before": "sha256:9da3f1172bb4552f01a31e0a97470f992f360b96d7c12036dfb852fa1a79a158",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0018-UiPath-Q2-FY27-Income-Statement.png",
-      "before": "sha256:409f655722fe05a6233eab8c332fce9e2b58d13c3268de786105db3513066fe6",
+      "path": "input/pending/page-0049-Starbucks-Q1-FY25-Income-Statement.png",
+      "before": "sha256:412119b3cc243febe2b99cb30b52e83c803881b5fc9d4d93d1488e629221fc41",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0047-Vail-Resorts-FY26-Income-Statement.png",
-      "before": "sha256:f3af35405463de182ca8484f4f4e88a74ea18686ac303bdd9734a95146284097",
+      "path": "input/pending/page-0079-UPS-Q1-FY25-Income-Statement.png",
+      "before": "sha256:d72536ecc9dbf5c341eb1aebed7fd71752f080f508b36107a5ff58792a903309",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0019-Wealthfront-Q2-FY27-Income-Statement.png",
-      "before": "sha256:514a106dcb705768b26e9a7619422400486f25d37d9decb80234fed60d5a4bc8",
+      "path": "input/pending/page-0058-UPS-Q4-FY24-Income-Statement.png",
+      "before": "sha256:10e0edbd747156f3d89f8e25b8c0f43015b4ac7461707602fcf624b7aa8ba58b",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0013-Zscaler-Q4-FY26-Income-Statement.png",
-      "before": "sha256:07f2bae866b21f4b606d67dd0d1b6a60fa33451323e45bea6a1e8bd2e7941b7e",
+      "path": "input/pending/page-0042-Visa-Q2-FY25-Income-Statement.png",
+      "before": "sha256:f882b468cc5131bda75a53ec4853e6b9007ad42f5692be858c319f09ced6282a",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0030-Walmart-Q4-FY25-Income-Statement.png",
+      "before": "sha256:d5d134956c7395409b1cbacb5affb9115d6dee045abfb047eb148df508c64716",
       "digest": null,
       "intakeOwned": true
     }
   ],
   "release": {
-    "version": "f661b54646afe10ded57337e4deac9e73170d72adbf839aacc545f94ea6ad7ae",
-    "contentDigest": "sha256:bcc94994efdb30f5f161449120ea3d2b519227fce1d1aba94eccbf3a91380b55"
+    "version": "b269e9ff111cab20ab1e98c5a657c2f6b40b220b7407592e12f9e13be832cdb3",
+    "contentDigest": "sha256:d12ddbba222cf89a34c256388d7c88fee7203e7b69e1aebf2c32237d0de83bc4"
   },
   "approval": {
     "operator": "Charles Liu",
     "accepted": true,
-    "candidateDigest": "sha256:952b163fa90cd80f8c70a943e9c2b97b08c268259f8cc36f79d9e50bac81ca66",
+    "candidateDigest": "sha256:f1342a33fc84e05d86e5f9cd8c84b9e8187beb0544b87c064eae008f9dd9c8b8",
     "basis": "inherited-build-acceptance",
-    "planDigest": "sha256:7c0e6665d8cb7df9c358b537bd230e16664d4c6a72b3298a2860310f44ef1821",
-    "recordedAt": "2026-10-03T13:41:02.287Z"
+    "planDigest": "sha256:09bcd8d06cb47252c2caa7fa4a283ec3922eb48be32a95158cea4bc3f432847b",
+    "recordedAt": "2026-10-03T14:40:04.326Z"
   }
 }

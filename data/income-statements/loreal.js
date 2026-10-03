@@ -175,3 +175,260 @@
     }
   );
 })(window);
+
+(function(global){global.INCOME_STATEMENT_SSOT.records.push({
+  "key": "loreal-fy24",
+  "company": "L'Oréal",
+  "period": "FY24",
+  "periodNote": "Year ended Dec. 2024",
+  "currency": "€",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/loreal-fy24.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 43.5,
+    "notes": [
+      "+6% Y/Y",
+      "Source rounded figures retained: below-operating-profit components produce €6.7B versus displayed net profit €6.8B ; rounding difference €0.1B."
+    ],
+    "items": [
+      {
+        "id": "professional_products",
+        "label": "Professional Products",
+        "value": 4.9,
+        "notes": [
+          "+5% Y/Y"
+        ]
+      },
+      {
+        "id": "consumer_products",
+        "label": "Consumer Products",
+        "value": 16,
+        "notes": [
+          "+5% Y/Y"
+        ]
+      },
+      {
+        "id": "loreal_luxe",
+        "label": "L'Oréal Luxe",
+        "value": 15.6,
+        "notes": [
+          "+4% Y/Y"
+        ]
+      },
+      {
+        "id": "active_cosmetics",
+        "label": "Active Cosmetics",
+        "value": 7,
+        "notes": [
+          "+9% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_sales",
+      "label": "Cost of sales",
+      "value": 11.2
+    },
+    "operatingExpenses": {
+      "total": 23.6,
+      "items": [
+        {
+          "id": "advertising_promotion",
+          "label": "Advertising & Promotion",
+          "value": 14,
+          "notes": [
+            "32% of revenue"
+          ]
+        },
+        {
+          "id": "sga",
+          "label": "SG&A",
+          "value": 8.2,
+          "notes": [
+            "19% of revenue"
+          ]
+        },
+        {
+          "id": "research_innovation",
+          "label": "Research & Innovation",
+          "value": 1.4,
+          "notes": [
+            "3% of revenue"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 2.1
+    }
+  },
+  "otherIncome": {
+    "total": 0.4,
+    "items": [
+      {
+        "id": "sanofi_dividend",
+        "label": "Sanofi Dividend",
+        "value": 0.4
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0.3,
+    "items": [
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 0.3
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 32.3,
+      "notes": [
+        "74% of revenue",
+        "+4pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 8.7,
+      "notes": [
+        "20% of revenue",
+        "+1pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 6.8,
+      "notes": [
+        "16% of revenue",
+        "+1pp Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2024 财年",
+      "periodNote": "截至 2024 年 12 月的年度",
+      "revenue": {
+        "notes": [
+          "同比 +6%",
+          "保留来源图舍入金额：营业利润、股息、税费和其他项计算为 €6.7B，原图净利润为 €6.8B，相差 €0.1B。"
+        ],
+        "items": [
+          {
+            "id": "professional_products",
+            "label": "专业产品事业部",
+            "notes": [
+              "同比 +5%"
+            ]
+          },
+          {
+            "id": "consumer_products",
+            "label": "大众化妆品事业部",
+            "notes": [
+              "同比 +5%"
+            ]
+          },
+          {
+            "id": "loreal_luxe",
+            "label": "欧莱雅高档化妆品",
+            "notes": [
+              "同比 +4%"
+            ]
+          },
+          {
+            "id": "active_cosmetics",
+            "label": "皮肤科学美容事业部",
+            "notes": [
+              "同比 +9%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "销售成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "advertising_promotion",
+              "label": "广告与推广",
+              "notes": [
+                "占收入 32%"
+              ]
+            },
+            {
+              "id": "sga",
+              "label": "销售、一般及管理费用",
+              "notes": [
+                "占收入 19%"
+              ]
+            },
+            {
+              "id": "research_innovation",
+              "label": "研发与创新",
+              "notes": [
+                "占收入 3%"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "sanofi_dividend",
+            "label": "赛诺菲股息"
+          }
+        ]
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "占收入 74%",
+            "同比 +4 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "占收入 20%",
+            "同比 +1 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "占收入 16%",
+            "同比 +1 个百分点"
+          ]
+        }
+      }
+    }
+  }
+});})(window);

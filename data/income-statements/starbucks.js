@@ -818,3 +818,413 @@
     }
   );
 })(window);
+
+(function(g){g.INCOME_STATEMENT_SSOT.records.push({
+  "key": "starbucks-q1-fy25",
+  "company": "Starbucks",
+  "period": "Q1 FY25",
+  "periodNote": "Ending Dec. 2024",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processing/starbucks-q1-fy25.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 9.4,
+    "notes": [
+      "(0%) Y/Y"
+    ],
+    "items": [
+      {
+        "id": "beverage",
+        "label": "Beverage",
+        "value": 5.7,
+        "notes": [
+          "(0%) Y/Y"
+        ]
+      },
+      {
+        "id": "food",
+        "label": "Food",
+        "value": 1.8,
+        "notes": [
+          "+2% Y/Y"
+        ]
+      },
+      {
+        "id": "other_revenue",
+        "label": "Other",
+        "value": 1.9,
+        "notes": [
+          "(2%) Y/Y",
+          "Packaged beverages, royalty and",
+          "licensing revenue, ingredients"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "label": "Cost of revenue",
+      "value": 7.1,
+      "items": [
+        {
+          "id": "product_distribution",
+          "label": "Product & distribution",
+          "value": 2.9
+        },
+        {
+          "id": "store_opex",
+          "label": "Store opex",
+          "value": 4.2
+        }
+      ],
+      "notes": []
+    },
+    "operatingExpenses": {
+      "total": 1.2,
+      "items": [
+        {
+          "id": "ga",
+          "label": "General & administrative",
+          "value": 0.7
+        },
+        {
+          "id": "depreciation_amortization",
+          "label": "Depreciation & amortization",
+          "value": 0.4
+        },
+        {
+          "id": "other_opex",
+          "label": "Other opex",
+          "value": 0.2
+        }
+      ],
+      "notes": [
+        "Source displays $1.2B operating expenses while its displayed components sum to $1.3B; original rounded amounts retained."
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.2
+    }
+  },
+  "operatingOtherIncome": {
+    "total": 0.1,
+    "items": [
+      {
+        "id": "other_income",
+        "label": "Other",
+        "value": 0.1
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0.1,
+    "items": [
+      {
+        "id": "other_expense",
+        "label": "Other",
+        "value": 0.1
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 2.3,
+      "notes": [
+        "24% margin",
+        "(3pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 1.1,
+      "notes": [
+        "12% margin",
+        "(4pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 0.8,
+      "notes": [
+        "8% margin",
+        "(3pp) Y/Y"
+      ]
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "store_count",
+      "label": "Store count",
+      "value": "22000000",
+      "unit": "count",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "22.0M",
+      "basis": "unspecified",
+      "notes": [
+        "+7% Y/Y"
+      ],
+      "quote": "Store count 22.0M +7% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          27,
+          1207,
+          272,
+          150
+        ]
+      }
+    },
+    {
+      "id": "active_rewards",
+      "label": "US Active Rewards",
+      "value": "34600000",
+      "unit": "count",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "34.6M",
+      "basis": "unspecified",
+      "notes": [
+        "members",
+        "+1% Y/Y"
+      ],
+      "quote": "US Active Rewards 34.6M members +1% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          313,
+          1207,
+          379,
+          150
+        ]
+      }
+    },
+    {
+      "id": "same_store_sale",
+      "label": "Same Store Sale",
+      "value": "4",
+      "unit": "%",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "4%",
+      "basis": "Year-over-year decline magnitude",
+      "notes": [
+        "(4%) Y/Y"
+      ],
+      "quote": "Same Store Sale (4%) Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          706,
+          1207,
+          421,
+          65
+        ]
+      }
+    },
+    {
+      "id": "ticket",
+      "label": "Ticket",
+      "value": "3",
+      "unit": "%",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "+3%",
+      "basis": "unspecified",
+      "notes": [
+        "Y/Y"
+      ],
+      "quote": "Ticket +3% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          755,
+          1274,
+          327,
+          30
+        ]
+      }
+    },
+    {
+      "id": "transactions",
+      "label": "Transactions",
+      "value": "6",
+      "unit": "%",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "6%",
+      "basis": "Year-over-year decline magnitude",
+      "notes": [
+        "(6%) Y/Y"
+      ],
+      "quote": "Transactions (6%) Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          755,
+          1305,
+          327,
+          33
+        ]
+      }
+    }
+  ],
+  "i18n": {
+    "zh": {
+      "period": "2025 财年第一季度",
+      "periodNote": "截至 2024 年 12 月",
+      "revenue": {
+        "notes": [
+          "同比 (0%)"
+        ],
+        "items": [
+          {
+            "id": "beverage",
+            "label": "饮品",
+            "notes": [
+              "同比 (0%)"
+            ]
+          },
+          {
+            "id": "food",
+            "label": "食品",
+            "notes": [
+              "同比 +2%"
+            ]
+          },
+          {
+            "id": "other_revenue",
+            "label": "其他",
+            "notes": [
+              "同比 (2%)",
+              "包装饮品、版税和",
+              "授权收入、原料"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本",
+          "items": [
+            {
+              "id": "product_distribution",
+              "label": "产品与分销"
+            },
+            {
+              "id": "store_opex",
+              "label": "门店运营费用"
+            }
+          ]
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "ga",
+              "label": "一般及行政"
+            },
+            {
+              "id": "depreciation_amortization",
+              "label": "折旧与摊销"
+            },
+            {
+              "id": "other_opex",
+              "label": "其他运营费用"
+            }
+          ],
+          "notes": [
+            "原图运营费用合计为 $1.2B，所列分项合计为 $1.3B；保留原图舍入数值。"
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "operatingOtherIncome": {
+        "items": [
+          {
+            "id": "other_income",
+            "label": "其他"
+          }
+        ]
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other_expense",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 24%",
+            "同比 (3 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 12%",
+            "同比 (4 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 8%",
+            "同比 (3 个百分点)"
+          ]
+        }
+      },
+      "operatingMetrics": [
+        {
+          "id": "store_count",
+          "label": "门店数",
+          "notes": [
+            "同比 +7%"
+          ]
+        },
+        {
+          "id": "active_rewards",
+          "label": "美国活跃奖励会员",
+          "notes": [
+            "会员",
+            "同比 +1%"
+          ]
+        },
+        {
+          "id": "same_store_sale",
+          "label": "同店销售额",
+          "notes": [
+            "同比 (4%)"
+          ]
+        },
+        {
+          "id": "ticket",
+          "label": "客单价",
+          "notes": [
+            "同比"
+          ]
+        },
+        {
+          "id": "transactions",
+          "label": "交易量",
+          "notes": [
+            "同比 (6%)"
+          ]
+        }
+      ]
+    }
+  }
+});})(window);

@@ -509,11 +509,13 @@
       ],
       "directConsumers": [
         "airbnb-q1-fy25",
-        "airbnb-q2-fy26"
+        "airbnb-q2-fy26",
+        "airbnb-q4-fy24"
       ],
       "consumers": [
         "airbnb-q1-fy25",
-        "airbnb-q2-fy26"
+        "airbnb-q2-fy26",
+        "airbnb-q4-fy24"
       ],
       "acceptedVersions": [
         "sha256:e41d28e3e17c3b6c768ed73c2ac7018f3ee5bce798579aecfa4f94dcf18a5bc8"
@@ -533,11 +535,13 @@
       ],
       "directConsumers": [
         "airbnb-q1-fy25",
-        "airbnb-q2-fy26"
+        "airbnb-q2-fy26",
+        "airbnb-q4-fy24"
       ],
       "consumers": [
         "airbnb-q1-fy25",
-        "airbnb-q2-fy26"
+        "airbnb-q2-fy26",
+        "airbnb-q4-fy24"
       ],
       "acceptedVersions": [
         "sha256:282bedcb350520569cef0bf2f37fabae58e019c8c1492e507e78d15a4075d9f9"
@@ -557,11 +561,13 @@
       ],
       "directConsumers": [
         "airbnb-q1-fy25",
-        "airbnb-q2-fy26"
+        "airbnb-q2-fy26",
+        "airbnb-q4-fy24"
       ],
       "consumers": [
         "airbnb-q1-fy25",
-        "airbnb-q2-fy26"
+        "airbnb-q2-fy26",
+        "airbnb-q4-fy24"
       ],
       "acceptedVersions": [
         "sha256:5d6c4b2cd44bc36181f1cf9fa65cf8bc4f4401e705c818fb67a3b43796fecfa8"
@@ -581,11 +587,13 @@
       ],
       "directConsumers": [
         "airbnb-q1-fy25",
-        "airbnb-q2-fy26"
+        "airbnb-q2-fy26",
+        "airbnb-q4-fy24"
       ],
       "consumers": [
         "airbnb-q1-fy25",
-        "airbnb-q2-fy26"
+        "airbnb-q2-fy26",
+        "airbnb-q4-fy24"
       ],
       "acceptedVersions": [
         "sha256:c9f006b6af4f24dc149f77a9b361a57e5d5cecb5a7134d8bd1ab3464c8250b7f"
@@ -605,11 +613,13 @@
       ],
       "directConsumers": [
         "airbnb-q1-fy25",
-        "airbnb-q2-fy26"
+        "airbnb-q2-fy26",
+        "airbnb-q4-fy24"
       ],
       "consumers": [
         "airbnb-q1-fy25",
-        "airbnb-q2-fy26"
+        "airbnb-q2-fy26",
+        "airbnb-q4-fy24"
       ],
       "acceptedVersions": [
         "sha256:d8bb983e194d5247de6dc08652279135bff87aa394aa92089659d884eaa18273"
@@ -1785,9 +1795,13 @@
       "digest": "sha256:2cda14d1394e8c18e3a72023393fad91b956b83fc15045455fe67fbe5396e9eb",
       "provenance": [],
       "directConsumers": [
+        "boeing-q1-fy25",
+        "boeing-q4-fy24",
         "boeing-q4-fy25"
       ],
       "consumers": [
+        "boeing-q1-fy25",
+        "boeing-q4-fy24",
         "boeing-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -1798,9 +1812,13 @@
       "digest": "sha256:42a1870c8714d7aad0b2b849d1cc115abf69bc8f2465b8b3c38a61215da45a93",
       "provenance": [],
       "directConsumers": [
+        "boeing-q1-fy25",
+        "boeing-q4-fy24",
         "boeing-q4-fy25"
       ],
       "consumers": [
+        "boeing-q1-fy25",
+        "boeing-q4-fy24",
         "boeing-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -3716,6 +3734,7 @@
         "ferrari-q1-fy26",
         "ferrari-q2-fy26",
         "ferrari-q3-fy25",
+        "ferrari-q4-fy24",
         "ferrari-q4-fy25"
       ],
       "consumers": [
@@ -3723,6 +3742,7 @@
         "ferrari-q1-fy26",
         "ferrari-q2-fy26",
         "ferrari-q3-fy25",
+        "ferrari-q4-fy24",
         "ferrari-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -3737,6 +3757,7 @@
         "ferrari-q1-fy26",
         "ferrari-q2-fy26",
         "ferrari-q3-fy25",
+        "ferrari-q4-fy24",
         "ferrari-q4-fy25"
       ],
       "consumers": [
@@ -3744,6 +3765,7 @@
         "ferrari-q1-fy26",
         "ferrari-q2-fy26",
         "ferrari-q3-fy25",
+        "ferrari-q4-fy24",
         "ferrari-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -3779,6 +3801,7 @@
         "ferrari-q1-fy26",
         "ferrari-q2-fy26",
         "ferrari-q3-fy25",
+        "ferrari-q4-fy24",
         "ferrari-q4-fy25"
       ],
       "consumers": [
@@ -3786,6 +3809,7 @@
         "ferrari-q1-fy26",
         "ferrari-q2-fy26",
         "ferrari-q3-fy25",
+        "ferrari-q4-fy24",
         "ferrari-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -3894,9 +3918,11 @@
       "digest": "sha256:f55d172dc39084572d2a049194c268cecd6ada0024bc4eac3791219f857bae0a",
       "provenance": [],
       "directConsumers": [
+        "ford-fy24",
         "ford-q1-fy25"
       ],
       "consumers": [
+        "ford-fy24",
         "ford-q1-fy25"
       ],
       "acceptedVersions": [],
@@ -3907,9 +3933,11 @@
       "digest": "sha256:f5a6a4e979751380097136bde42f5d4cd118a2cbc8d9db5b1ed68ca6a87cafd9",
       "provenance": [],
       "directConsumers": [
+        "ford-fy24",
         "ford-q1-fy25"
       ],
       "consumers": [
+        "ford-fy24",
         "ford-q1-fy25"
       ],
       "acceptedVersions": [],
@@ -3920,9 +3948,11 @@
       "digest": "sha256:e5da7e95e7cd774d2151a0f37010de6389909a9c68a2eb1dc879d0bb0a85c8bd",
       "provenance": [],
       "directConsumers": [
+        "ford-fy24",
         "ford-q1-fy25"
       ],
       "consumers": [
+        "ford-fy24",
         "ford-q1-fy25"
       ],
       "acceptedVersions": [],
@@ -3933,9 +3963,11 @@
       "digest": "sha256:44edc9cfc6cf825afbddf13d7cb2bf6192ae660982ccf66d6d635b485f61741e",
       "provenance": [],
       "directConsumers": [
+        "ford-fy24",
         "ford-q1-fy25"
       ],
       "consumers": [
+        "ford-fy24",
         "ford-q1-fy25"
       ],
       "acceptedVersions": [],
@@ -3946,9 +3978,11 @@
       "digest": "sha256:fb727d40b0cbf0271788a14eab2a4b674d077ef1db08b43d9d9c64d222d3974c",
       "provenance": [],
       "directConsumers": [
+        "ford-fy24",
         "ford-q1-fy25"
       ],
       "consumers": [
+        "ford-fy24",
         "ford-q1-fy25"
       ],
       "acceptedVersions": [],
@@ -4623,10 +4657,12 @@
       "digest": "sha256:8d85a284b7969ac17baaf63fdc553cd3f665bb9322c1aceac2848327638fa73b",
       "provenance": [],
       "directConsumers": [
+        "hermes-fy24",
         "hermes-fy25",
         "hermes-h1-fy26"
       ],
       "consumers": [
+        "hermes-fy24",
         "hermes-fy25",
         "hermes-h1-fy26"
       ],
@@ -4638,10 +4674,12 @@
       "digest": "sha256:4ea29b5e6dc7e36e427dab10ffd68ab5da42d31ee2c48021395b49210f3183d9",
       "provenance": [],
       "directConsumers": [
+        "hermes-fy24",
         "hermes-fy25",
         "hermes-h1-fy26"
       ],
       "consumers": [
+        "hermes-fy24",
         "hermes-fy25",
         "hermes-h1-fy26"
       ],
@@ -4653,10 +4691,12 @@
       "digest": "sha256:d3e9703e21f9fa77432990c6bdd56b16ab0a30a530e0743309aa494e026987bf",
       "provenance": [],
       "directConsumers": [
+        "hermes-fy24",
         "hermes-fy25",
         "hermes-h1-fy26"
       ],
       "consumers": [
+        "hermes-fy24",
         "hermes-fy25",
         "hermes-h1-fy26"
       ],
@@ -4668,10 +4708,12 @@
       "digest": "sha256:a1597fa60700b32688c7009e2c5d59575dbe053b60a5d2a78f2b3a1aec831eb1",
       "provenance": [],
       "directConsumers": [
+        "hermes-fy24",
         "hermes-fy25",
         "hermes-h1-fy26"
       ],
       "consumers": [
+        "hermes-fy24",
         "hermes-fy25",
         "hermes-h1-fy26"
       ],
@@ -4683,10 +4725,12 @@
       "digest": "sha256:08e8fd9a2b01f0f42e73b432688b591010fee01fa4a7cf7f7aae34ecabcb5b86",
       "provenance": [],
       "directConsumers": [
+        "hermes-fy24",
         "hermes-fy25",
         "hermes-h1-fy26"
       ],
       "consumers": [
+        "hermes-fy24",
         "hermes-fy25",
         "hermes-h1-fy26"
       ],
@@ -4698,10 +4742,12 @@
       "digest": "sha256:c23de7f06af749c7564f9be94b22bb9bef7930db84ba263b7b49c671fb41d816",
       "provenance": [],
       "directConsumers": [
+        "hermes-fy24",
         "hermes-fy25",
         "hermes-h1-fy26"
       ],
       "consumers": [
+        "hermes-fy24",
         "hermes-fy25",
         "hermes-h1-fy26"
       ],
@@ -5300,10 +5346,12 @@
       "digest": "sha256:c6f8362629f43a83c7d539123eff912e2134ab3eb577720e6f9b0ea5a6ed78c4",
       "provenance": [],
       "directConsumers": [
-        "j-j-q1-fy25"
+        "j-j-q1-fy25",
+        "j-j-q4-fy24"
       ],
       "consumers": [
-        "j-j-q1-fy25"
+        "j-j-q1-fy25",
+        "j-j-q4-fy24"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -5313,10 +5361,12 @@
       "digest": "sha256:4d2f282761bc4e71423117c20ae0a21f254a5d5435342365d60a263e176a9ede",
       "provenance": [],
       "directConsumers": [
-        "j-j-q1-fy25"
+        "j-j-q1-fy25",
+        "j-j-q4-fy24"
       ],
       "consumers": [
-        "j-j-q1-fy25"
+        "j-j-q1-fy25",
+        "j-j-q4-fy24"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -5326,10 +5376,12 @@
       "digest": "sha256:daf2ba86d42de1859a0ac16ef2abb3d85f4578f6a4742d303023a86bb665b838",
       "provenance": [],
       "directConsumers": [
-        "j-j-q1-fy25"
+        "j-j-q1-fy25",
+        "j-j-q4-fy24"
       ],
       "consumers": [
-        "j-j-q1-fy25"
+        "j-j-q1-fy25",
+        "j-j-q4-fy24"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -5762,10 +5814,12 @@
       "digest": "sha256:42eec56d0be0aa37a40684cd1d2120a4296fbb10334b5a8c79b6185de5e6736a",
       "provenance": [],
       "directConsumers": [
+        "loreal-fy24",
         "loreal-fy25",
         "loreal-h1-fy26"
       ],
       "consumers": [
+        "loreal-fy24",
         "loreal-fy25",
         "loreal-h1-fy26"
       ],
@@ -5777,10 +5831,12 @@
       "digest": "sha256:1fd982c456dbdaae2dfe408702cfedfcf5e55d4afde280b876675ba1fe51b099",
       "provenance": [],
       "directConsumers": [
+        "loreal-fy24",
         "loreal-fy25",
         "loreal-h1-fy26"
       ],
       "consumers": [
+        "loreal-fy24",
         "loreal-fy25",
         "loreal-h1-fy26"
       ],
@@ -5792,10 +5848,12 @@
       "digest": "sha256:12a37388f9a8bc6efe7f6830bde6d11164212554c7cb0eb09ce6505c9def1bc6",
       "provenance": [],
       "directConsumers": [
+        "loreal-fy24",
         "loreal-fy25",
         "loreal-h1-fy26"
       ],
       "consumers": [
+        "loreal-fy24",
         "loreal-fy25",
         "loreal-h1-fy26"
       ],
@@ -5807,10 +5865,12 @@
       "digest": "sha256:60fa23b1ac85aba98d7383821b5925b78eadc6820625d9fb9f1a35f469c81d3c",
       "provenance": [],
       "directConsumers": [
+        "loreal-fy24",
         "loreal-fy25",
         "loreal-h1-fy26"
       ],
       "consumers": [
+        "loreal-fy24",
         "loreal-fy25",
         "loreal-h1-fy26"
       ],
@@ -5934,10 +5994,12 @@
       "digest": "sha256:0b5331c7f4dbe45c492ab90271a0435565fa529469dfcbc8a739cec24930edb4",
       "provenance": [],
       "directConsumers": [
+        "lvmh-fy24",
         "lvmh-fy25",
         "lvmh-h1-fy26"
       ],
       "consumers": [
+        "lvmh-fy24",
         "lvmh-fy25",
         "lvmh-h1-fy26"
       ],
@@ -5949,10 +6011,12 @@
       "digest": "sha256:55320c55ba877a1841fb307e6a1b769de01146c4763f8fc47a96be4d1d7f53a6",
       "provenance": [],
       "directConsumers": [
+        "lvmh-fy24",
         "lvmh-fy25",
         "lvmh-h1-fy26"
       ],
       "consumers": [
+        "lvmh-fy24",
         "lvmh-fy25",
         "lvmh-h1-fy26"
       ],
@@ -5984,9 +6048,11 @@
       "digest": "sha256:025b7b31b32a32d934de7d6bb63d3f5701f16231d32801645d3698618d394f5b",
       "provenance": [],
       "directConsumers": [
+        "lvmh-fy24",
         "lvmh-fy25"
       ],
       "consumers": [
+        "lvmh-fy24",
         "lvmh-fy25"
       ],
       "acceptedVersions": [],
@@ -6017,9 +6083,11 @@
       "digest": "sha256:4e268ddc9777cb8a46713be7725316a7a721841bbe96bc92e6ba2cad4ff1b772",
       "provenance": [],
       "directConsumers": [
+        "lvmh-fy24",
         "lvmh-fy25"
       ],
       "consumers": [
+        "lvmh-fy24",
         "lvmh-fy25"
       ],
       "acceptedVersions": [],
@@ -6030,10 +6098,12 @@
       "digest": "sha256:6a8c17459d2d09e3e94a368dd59d79e29dc1b28a636184dbf714107371363179",
       "provenance": [],
       "directConsumers": [
+        "lvmh-fy24",
         "lvmh-fy25",
         "lvmh-h1-fy26"
       ],
       "consumers": [
+        "lvmh-fy24",
         "lvmh-fy25",
         "lvmh-h1-fy26"
       ],
@@ -6045,10 +6115,12 @@
       "digest": "sha256:f1fa254d37152ba83ca348c98c2e03e18c5de987c9fce138eb1242950832868f",
       "provenance": [],
       "directConsumers": [
+        "lvmh-fy24",
         "lvmh-fy25",
         "lvmh-h1-fy26"
       ],
       "consumers": [
+        "lvmh-fy24",
         "lvmh-fy25",
         "lvmh-h1-fy26"
       ],
@@ -6060,10 +6132,12 @@
       "digest": "sha256:08884b35c6ba6a58244315772154bc7f629f094475cc3c4406f3a43424189184",
       "provenance": [],
       "directConsumers": [
+        "lvmh-fy24",
         "lvmh-fy25",
         "lvmh-h1-fy26"
       ],
       "consumers": [
+        "lvmh-fy24",
         "lvmh-fy25",
         "lvmh-h1-fy26"
       ],
@@ -7456,14 +7530,16 @@
         "nintendo-fy25",
         "nintendo-fy26",
         "nintendo-h1-fy26",
-        "nintendo-q1-fy27"
+        "nintendo-q1-fy27",
+        "nintendo-q3-fy25"
       ],
       "consumers": [
         "nintendo-9m-fy26",
         "nintendo-fy25",
         "nintendo-fy26",
         "nintendo-h1-fy26",
-        "nintendo-q1-fy27"
+        "nintendo-q1-fy27",
+        "nintendo-q3-fy25"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -7480,10 +7556,12 @@
         }
       ],
       "directConsumers": [
-        "nintendo-fy25"
+        "nintendo-fy25",
+        "nintendo-q3-fy25"
       ],
       "consumers": [
-        "nintendo-fy25"
+        "nintendo-fy25",
+        "nintendo-q3-fy25"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -7522,10 +7600,12 @@
         }
       ],
       "directConsumers": [
-        "nintendo-fy25"
+        "nintendo-fy25",
+        "nintendo-q3-fy25"
       ],
       "consumers": [
-        "nintendo-fy25"
+        "nintendo-fy25",
+        "nintendo-q3-fy25"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -7588,12 +7668,14 @@
       "directConsumers": [
         "nintendo-fy25",
         "nintendo-fy26",
-        "nintendo-q1-fy27"
+        "nintendo-q1-fy27",
+        "nintendo-q3-fy25"
       ],
       "consumers": [
         "nintendo-fy25",
         "nintendo-fy26",
-        "nintendo-q1-fy27"
+        "nintendo-q1-fy27",
+        "nintendo-q3-fy25"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -7612,12 +7694,14 @@
       "directConsumers": [
         "nintendo-9m-fy26",
         "nintendo-fy25",
-        "nintendo-h1-fy26"
+        "nintendo-h1-fy26",
+        "nintendo-q3-fy25"
       ],
       "consumers": [
         "nintendo-9m-fy26",
         "nintendo-fy25",
-        "nintendo-h1-fy26"
+        "nintendo-h1-fy26",
+        "nintendo-q3-fy25"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -8872,9 +8956,13 @@
         }
       ],
       "directConsumers": [
+        "paypal-q1-fy25",
+        "paypal-q4-fy24",
         "paypal-q4-fy25"
       ],
       "consumers": [
+        "paypal-q1-fy25",
+        "paypal-q4-fy24",
         "paypal-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -8914,9 +9002,13 @@
         }
       ],
       "directConsumers": [
+        "paypal-q1-fy25",
+        "paypal-q4-fy24",
         "paypal-q4-fy25"
       ],
       "consumers": [
+        "paypal-q1-fy25",
+        "paypal-q4-fy24",
         "paypal-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -10101,13 +10193,17 @@
         }
       ],
       "directConsumers": [
+        "pfizer-q1-fy25",
         "pfizer-q2-fy26",
         "pfizer-q3-fy25",
+        "pfizer-q4-fy24",
         "pfizer-q4-fy25"
       ],
       "consumers": [
+        "pfizer-q1-fy25",
         "pfizer-q2-fy26",
         "pfizer-q3-fy25",
+        "pfizer-q4-fy24",
         "pfizer-q4-fy25"
       ],
       "acceptedVersions": [
@@ -10149,11 +10245,15 @@
         }
       ],
       "directConsumers": [
+        "pfizer-q1-fy25",
         "pfizer-q3-fy25",
+        "pfizer-q4-fy24",
         "pfizer-q4-fy25"
       ],
       "consumers": [
+        "pfizer-q1-fy25",
         "pfizer-q3-fy25",
+        "pfizer-q4-fy24",
         "pfizer-q4-fy25"
       ],
       "acceptedVersions": [
@@ -10253,13 +10353,17 @@
         }
       ],
       "directConsumers": [
+        "pfizer-q1-fy25",
         "pfizer-q2-fy26",
         "pfizer-q3-fy25",
+        "pfizer-q4-fy24",
         "pfizer-q4-fy25"
       ],
       "consumers": [
+        "pfizer-q1-fy25",
         "pfizer-q2-fy26",
         "pfizer-q3-fy25",
+        "pfizer-q4-fy24",
         "pfizer-q4-fy25"
       ],
       "acceptedVersions": [
@@ -10279,13 +10383,17 @@
         }
       ],
       "directConsumers": [
+        "pfizer-q1-fy25",
         "pfizer-q2-fy26",
         "pfizer-q3-fy25",
+        "pfizer-q4-fy24",
         "pfizer-q4-fy25"
       ],
       "consumers": [
+        "pfizer-q1-fy25",
         "pfizer-q2-fy26",
         "pfizer-q3-fy25",
+        "pfizer-q4-fy24",
         "pfizer-q4-fy25"
       ],
       "acceptedVersions": [
@@ -11312,10 +11420,12 @@
         }
       ],
       "directConsumers": [
+        "starbucks-q1-fy25",
         "starbucks-q1-fy26",
         "starbucks-q2-fy25"
       ],
       "consumers": [
+        "starbucks-q1-fy25",
         "starbucks-q1-fy26",
         "starbucks-q2-fy25"
       ],
@@ -11334,10 +11444,12 @@
         }
       ],
       "directConsumers": [
+        "starbucks-q1-fy25",
         "starbucks-q1-fy26",
         "starbucks-q2-fy25"
       ],
       "consumers": [
+        "starbucks-q1-fy25",
         "starbucks-q1-fy26",
         "starbucks-q2-fy25"
       ],
@@ -11356,10 +11468,12 @@
         }
       ],
       "directConsumers": [
+        "starbucks-q1-fy25",
         "starbucks-q1-fy26",
         "starbucks-q2-fy25"
       ],
       "consumers": [
+        "starbucks-q1-fy25",
         "starbucks-q1-fy26",
         "starbucks-q2-fy25"
       ],
@@ -11378,10 +11492,12 @@
         }
       ],
       "directConsumers": [
+        "starbucks-q1-fy25",
         "starbucks-q1-fy26",
         "starbucks-q2-fy25"
       ],
       "consumers": [
+        "starbucks-q1-fy25",
         "starbucks-q1-fy26",
         "starbucks-q2-fy25"
       ],

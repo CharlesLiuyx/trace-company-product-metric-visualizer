@@ -1402,5 +1402,386 @@
         ]
       }
     }
+  },
+  {
+    "key": "nintendo-q3-fy25",
+    "company": "Nintendo",
+    "period": "Q3 FY25",
+    "periodNote": "Ending Dec. 2024",
+    "currency": "¥",
+    "unit": "B",
+    "decimals": 0,
+    "sourceImage": "input/processed/nintendo-q3-fy25.png",
+    "roundingTolerance": 1.2,
+    "revenue": {
+      "total": 433,
+      "notes": [
+        "(28%) Y/Y"
+      ],
+      "items": [
+        {
+          "id": "dedicated_video_game_platform",
+          "label": "Nintendo Switch",
+          "value": 410,
+          "notes": [
+            "(29%) Y/Y"
+          ],
+          "children": [
+            {
+              "id": "hardware",
+              "label": "Hardware",
+              "value": 212,
+              "notes": [
+                "(26%) Y/Y",
+                "4.8M units",
+                "(31%) Y/Y"
+              ]
+            },
+            {
+              "id": "software",
+              "label": "Software",
+              "value": 198,
+              "notes": [
+                "(31%) Y/Y",
+                "53.7M units",
+                "(30%) Y/Y",
+                "43% Digital",
+                "(2pp) Y/Y"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mobile_ip",
+          "label": "Mobile & IP related",
+          "value": 19,
+          "notes": [
+            "(8%) Y/Y"
+          ]
+        },
+        {
+          "id": "other_revenue",
+          "label": "Other",
+          "value": 4,
+          "notes": [
+            "Flat Y/Y"
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_sales",
+        "label": "Cost of sales",
+        "value": 185,
+        "notes": []
+      },
+      "operatingExpenses": {
+        "total": 122,
+        "items": [
+          {
+            "id": "other_sga",
+            "label": "Other SG&A",
+            "value": 53,
+            "notes": [
+              "12% of revenue",
+              "+4pp Y/Y"
+            ]
+          },
+          {
+            "id": "rnd",
+            "label": "R&D",
+            "value": 36,
+            "notes": [
+              "8% of revenue",
+              "+3pp Y/Y"
+            ]
+          },
+          {
+            "id": "advertising",
+            "label": "Advertising",
+            "value": 33,
+            "notes": [
+              "8% of revenue",
+              "+1pp Y/Y"
+            ]
+          }
+        ]
+      },
+      "tax": {
+        "id": "tax",
+        "label": "Tax",
+        "value": 52,
+        "notes": []
+      }
+    },
+    "otherIncome": {
+      "total": 54,
+      "items": [
+        {
+          "id": "other_income",
+          "label": "Other",
+          "value": 54,
+          "notes": []
+        }
+      ]
+    },
+    "otherExpenses": {
+      "total": 0,
+      "items": []
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 248,
+        "notes": [
+          "57% margin",
+          "+6pp Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_profit",
+        "label": "Operating profit",
+        "value": 126,
+        "notes": [
+          "29% margin",
+          "(2pp) Y/Y"
+        ]
+      },
+      "net": {
+        "id": "net_profit",
+        "label": "Net profit",
+        "value": 129,
+        "notes": [
+          "30% margin",
+          "+7pp Y/Y"
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "periodNote": "截至 2024 年 12 月",
+        "revenue": {
+          "notes": [
+            "同比 -28%"
+          ],
+          "items": [
+            {
+              "id": "dedicated_video_game_platform",
+              "label": "任天堂 Switch",
+              "notes": [
+                "同比 -29%"
+              ],
+              "children": [
+                {
+                  "id": "hardware",
+                  "label": "硬件",
+                  "notes": [
+                    "同比 -26%",
+                    "4.8M 台/份",
+                    "同比 -31%"
+                  ]
+                },
+                {
+                  "id": "software",
+                  "label": "软件",
+                  "notes": [
+                    "同比 -31%",
+                    "53.7M 台/份",
+                    "同比 -30%",
+                    "数字化占比 43%",
+                    "同比 -2 个百分点"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "mobile_ip",
+              "label": "移动与 IP 相关",
+              "notes": [
+                "同比 -8%"
+              ]
+            },
+            {
+              "id": "other_revenue",
+              "label": "其他",
+              "notes": [
+                "同比持平"
+              ]
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "id": "cost_of_sales",
+            "label": "销售成本",
+            "notes": []
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "other_sga",
+                "label": "其他 SG&A",
+                "notes": [
+                  "占收入 12%",
+                  "同比 +4 个百分点"
+                ]
+              },
+              {
+                "id": "rnd",
+                "label": "研发（R&D）",
+                "notes": [
+                  "占收入 8%",
+                  "同比 +3 个百分点"
+                ]
+              },
+              {
+                "id": "advertising",
+                "label": "广告费用",
+                "notes": [
+                  "占收入 8%",
+                  "同比 +1 个百分点"
+                ]
+              }
+            ]
+          },
+          "tax": {
+            "id": "tax",
+            "label": "税项",
+            "notes": []
+          }
+        },
+        "otherIncome": {
+          "items": [
+            {
+              "id": "other_income",
+              "label": "其他",
+              "notes": []
+            }
+          ]
+        },
+        "profit": {
+          "gross": {
+            "id": "gross_profit",
+            "label": "毛利润",
+            "notes": [
+              "利润率 57%",
+              "同比 +6 个百分点"
+            ]
+          },
+          "operating": {
+            "id": "operating_profit",
+            "label": "营业利润",
+            "notes": [
+              "利润率 29%",
+              "同比 -2 个百分点"
+            ]
+          },
+          "net": {
+            "id": "net_profit",
+            "label": "净利润",
+            "notes": [
+              "利润率 30%",
+              "同比 +7 个百分点"
+            ]
+          }
+        },
+        "operatingMetrics": [
+          {
+            "id": "hardware_units",
+            "label": "硬件销量",
+            "notes": [
+              "同比 -31%"
+            ]
+          },
+          {
+            "id": "software_units",
+            "label": "软件销量",
+            "notes": [
+              "同比 -30%"
+            ]
+          },
+          {
+            "id": "digital_share",
+            "label": "数字化占比",
+            "notes": [
+              "同比 -2 个百分点"
+            ]
+          }
+        ]
+      }
+    },
+    "operatingMetrics": [
+      {
+        "id": "hardware_units",
+        "label": "Hardware units",
+        "value": "4800000",
+        "unit": "count",
+        "currency": null,
+        "comparison": "eq",
+        "literal": "4.8M",
+        "basis": "unspecified",
+        "notes": [
+          "(31%) Y/Y"
+        ],
+        "quote": "Hardware units\n4.8M units\n(31%) Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            145,
+            588,
+            154,
+            73
+          ]
+        }
+      },
+      {
+        "id": "software_units",
+        "label": "Software units",
+        "value": "53700000",
+        "unit": "count",
+        "currency": null,
+        "comparison": "eq",
+        "literal": "53.7M",
+        "basis": "unspecified",
+        "notes": [
+          "(30%) Y/Y"
+        ],
+        "quote": "Software units\n53.7M units\n(30%) Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            144,
+            872,
+            164,
+            74
+          ]
+        }
+      },
+      {
+        "id": "digital_share",
+        "label": "Digital share",
+        "value": "43",
+        "unit": "%",
+        "currency": null,
+        "comparison": "eq",
+        "literal": "43%",
+        "basis": "unspecified",
+        "notes": [
+          "(2pp) Y/Y"
+        ],
+        "quote": "Digital share\n43%\n(2pp) Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            145,
+            950,
+            158,
+            68
+          ]
+        }
+      }
+    ]
   }
 ]);})(window);

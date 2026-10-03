@@ -1,4 +1,3 @@
-/* Pure Chevron financial SSOT. */
 (function(global){const ssot=global.INCOME_STATEMENT_SSOT=global.INCOME_STATEMENT_SSOT||{schemaVersion:1,records:[]};ssot.records.push(...[
   {
     "key": "chevron-q3-fy25",
@@ -1131,6 +1130,290 @@
             "notes": [
               "利润率 7%",
               "同比 (4 个百分点)"
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "key": "chevron-q4-fy24",
+    "company": "Chevron",
+    "period": "Q4 FY24",
+    "periodNote": "Ending Dec. 2024",
+    "currency": "$",
+    "unit": "B",
+    "decimals": 3,
+    "sourceImage": "input/processing/chevron-q4-fy24.png",
+    "roundingTolerance": 0.15,
+    "revenue": {
+      "total": 52.2,
+      "notes": [
+        "+7% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "sales_and_other_operating_revenues",
+          "label": "Sales & other operating revenues",
+          "value": 48.3,
+          "notes": [
+            "+4% Y/Y"
+          ],
+          "children": [
+            {
+              "id": "upstream",
+              "label": "Upstream",
+              "value": 13,
+              "notes": [
+                "+14% Y/Y"
+              ]
+            },
+            {
+              "id": "downstream",
+              "label": "Downstream",
+              "value": 35.3,
+              "notes": [
+                "+1% Y/Y"
+              ]
+            },
+            {
+              "id": "all_other",
+              "label": "All other",
+              "value": 0.045,
+              "notes": [
+                "+67 Y/Y"
+              ],
+              "valueText": "$45M"
+            }
+          ]
+        },
+        {
+          "id": "income_from_equity_affiliates",
+          "label": "Income from equity affiliates",
+          "value": 0.7,
+          "notes": [
+            "(52%) Y/Y"
+          ]
+        },
+        {
+          "id": "other_income",
+          "label": "Other",
+          "value": 3.2,
+          "notes": [
+            "+361% Y/Y"
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "value": 0,
+        "label": "No separate cost-of-revenue subtotal",
+        "notes": [
+          "The Source groups all pretax deductions together."
+        ]
+      },
+      "operatingExpenses": {
+        "total": 46.2,
+        "items": [
+          {
+            "id": "purchased_crude_oil_and_products",
+            "label": "Crude Oil & Products",
+            "value": 30.1
+          },
+          {
+            "id": "opex",
+            "label": "Opex",
+            "value": 7.6
+          },
+          {
+            "id": "sga",
+            "label": "SG&A",
+            "value": 1.6
+          },
+          {
+            "id": "exploration",
+            "label": "Exploration",
+            "value": 0.5
+          },
+          {
+            "id": "depreciation_depletion_amortization",
+            "label": "D&A",
+            "value": 5
+          },
+          {
+            "id": "taxes_non_income",
+            "label": "Taxes (non income)",
+            "value": 1.1
+          },
+          {
+            "id": "interest",
+            "label": "Interest",
+            "value": 0.2
+          }
+        ]
+      },
+      "tax": {
+        "id": "tax",
+        "label": "Tax",
+        "value": 2.8
+      }
+    },
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 0,
+      "items": []
+    },
+    "profit": {
+      "gross": {
+        "label": "Revenue before reported deductions",
+        "value": 52.2,
+        "notes": [
+          "The Source does not show a separate gross-profit subtotal."
+        ]
+      },
+      "operating": {
+        "id": "pretax_income",
+        "label": "Pretax income",
+        "value": 6.1,
+        "notes": [
+          "12% margin",
+          "(5pp) Y/Y"
+        ]
+      },
+      "net": {
+        "id": "net_income",
+        "label": "Net income",
+        "value": 3.3,
+        "notes": [
+          "6% margin",
+          "(5pp) Y/Y"
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2024 财年第四季度",
+        "periodNote": "截至 2024 年 12 月",
+        "revenue": {
+          "notes": [
+            "同比 +7%"
+          ],
+          "items": [
+            {
+              "id": "sales_and_other_operating_revenues",
+              "label": "销售及其他营业收入",
+              "notes": [
+                "同比 +4%"
+              ],
+              "children": [
+                {
+                  "id": "upstream",
+                  "label": "上游业务",
+                  "notes": [
+                    "同比 +14%"
+                  ]
+                },
+                {
+                  "id": "downstream",
+                  "label": "下游业务",
+                  "notes": [
+                    "同比 +1%"
+                  ]
+                },
+                {
+                  "id": "all_other",
+                  "label": "其他",
+                  "notes": [
+                    "同比 +67"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "income_from_equity_affiliates",
+              "label": "权益法被投资单位收益",
+              "notes": [
+                "同比 (52%)"
+              ]
+            },
+            {
+              "id": "other_income",
+              "label": "其他收入",
+              "notes": [
+                "同比 +361%"
+              ]
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "未单列销售成本小计",
+            "notes": [
+              "来源将所有税前扣除项合并为一个小计。"
+            ]
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "purchased_crude_oil_and_products",
+                "label": "原油及产品采购成本"
+              },
+              {
+                "id": "opex",
+                "label": "运营费用"
+              },
+              {
+                "id": "sga",
+                "label": "销售、一般及管理费用（SG&A）"
+              },
+              {
+                "id": "exploration",
+                "label": "勘探费用"
+              },
+              {
+                "id": "depreciation_depletion_amortization",
+                "label": "折旧、耗竭及摊销"
+              },
+              {
+                "id": "taxes_non_income",
+                "label": "非所得税税费"
+              },
+              {
+                "id": "interest",
+                "label": "利息"
+              }
+            ]
+          },
+          "tax": {
+            "id": "tax",
+            "label": "所得税"
+          }
+        },
+        "profit": {
+          "gross": {
+            "label": "扣除项前收入",
+            "notes": [
+              "来源未单列毛利润小计。"
+            ]
+          },
+          "operating": {
+            "id": "pretax_income",
+            "label": "所得税前利润",
+            "notes": [
+              "利润率 12%",
+              "同比 (5 个百分点)"
+            ]
+          },
+          "net": {
+            "id": "net_income",
+            "label": "净利润",
+            "notes": [
+              "利润率 6%",
+              "同比 (5 个百分点)"
             ]
           }
         }

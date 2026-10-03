@@ -1177,5 +1177,257 @@
         "periodNote": "截至 2025 年 4 月"
       }
     }
+  },
+  {
+    "key": "walmart-q4-fy25",
+    "company": "Walmart",
+    "period": "Q4 FY25",
+    "periodNote": "Ending Jan. 2025",
+    "currency": "$",
+    "unit": "B",
+    "decimals": 1,
+    "sourceImage": "input/processing/walmart-q4-fy25.png",
+    "roundingTolerance": 0.15,
+    "revenue": {
+      "total": 180.6,
+      "notes": [
+        "+4% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "walmart_us",
+          "label": "Walmart US",
+          "value": 123.5,
+          "notes": [
+            "+5% Y/Y",
+            "5% operating margin"
+          ]
+        },
+        {
+          "id": "walmart_international",
+          "label": "Walmart International",
+          "value": 32.2,
+          "notes": [
+            "(1%) Y/Y",
+            "4% operating margin"
+          ]
+        },
+        {
+          "id": "sams_club",
+          "label": "Sam's Club",
+          "value": 23.1,
+          "notes": [
+            "+6% Y/Y",
+            "3% operating margin"
+          ]
+        },
+        {
+          "id": "membership",
+          "label": "Membership",
+          "value": 1.7,
+          "notes": [
+            "+17% Y/Y"
+          ]
+        }
+      ],
+      "breakdowns": [
+        {
+          "id": "reported_revenue_components",
+          "label": "Reported revenue components",
+          "total": 180.6,
+          "items": [
+            {
+              "id": "net_sales",
+              "label": "Net Sales",
+              "value": 178.8,
+              "notes": [
+                "+4% Y/Y"
+              ]
+            },
+            {
+              "id": "membership",
+              "label": "Membership",
+              "value": 1.7,
+              "notes": [
+                "+17% Y/Y"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_sales",
+        "label": "Cost of sales",
+        "value": 136.2
+      },
+      "operatingExpenses": {
+        "total": 36.5,
+        "items": [
+          {
+            "id": "operating_expenses",
+            "label": "Operating expenses",
+            "value": 36.5
+          }
+        ]
+      },
+      "tax": {
+        "id": "tax",
+        "label": "Tax",
+        "value": 1.5
+      }
+    },
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 0.9,
+      "items": [
+        {
+          "id": "other",
+          "label": "Other",
+          "value": 0.3
+        },
+        {
+          "id": "interest",
+          "label": "Interest",
+          "value": 0.6
+        }
+      ]
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 44.4,
+        "notes": [
+          "25% margin",
+          "+0.6pp Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_profit",
+        "label": "Operating profit",
+        "value": 7.9,
+        "notes": [
+          "4% margin",
+          "+0.2pp Y/Y"
+        ]
+      },
+      "net": {
+        "id": "net_profit",
+        "label": "Net profit",
+        "value": 5.4,
+        "notes": [
+          "3% margin",
+          "(0.3pp) Y/Y"
+        ]
+      }
+    },
+    "operatingMetrics": [
+      {
+        "id": "us_comp_sales",
+        "label": "US comp sales",
+        "value": "5",
+        "unit": "%",
+        "currency": null,
+        "comparison": "eq",
+        "literal": "+5%",
+        "basis": "unspecified",
+        "notes": [
+          "Y/Y"
+        ],
+        "quote": "US comp sales +5% Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            33,
+            1194,
+            275,
+            150
+          ]
+        }
+      },
+      {
+        "id": "ecommerce",
+        "label": "E-commerce",
+        "value": "16",
+        "unit": "%",
+        "currency": null,
+        "comparison": "eq",
+        "literal": "+16%",
+        "basis": "unspecified",
+        "notes": [
+          "Y/Y"
+        ],
+        "quote": "E-commerce +16% Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            326,
+            1231,
+            353,
+            42
+          ]
+        }
+      },
+      {
+        "id": "advertising",
+        "label": "Advertising",
+        "value": "29",
+        "unit": "%",
+        "currency": null,
+        "comparison": "eq",
+        "literal": "+29%",
+        "basis": "unspecified",
+        "notes": [
+          "Y/Y"
+        ],
+        "quote": "Advertising +29% Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            326,
+            1275,
+            353,
+            42
+          ]
+        }
+      }
+    ],
+    "notes": [
+      "Source rounding retained: net sales 178.8B + membership 1.7B = 180.5B vs revenue 180.6B; operating profit 7.9B less tax 1.5B, interest 0.6B and Other 0.3B = 5.5B vs net profit 5.4B."
+    ],
+    "i18n": {
+      "zh": {
+        "period": "2025 财年第四季度",
+        "periodNote": "截至 2025 年 1 月",
+        "operatingMetrics": [
+          {
+            "id": "us_comp_sales",
+            "label": "美国可比销售额",
+            "notes": [
+              "同比"
+            ]
+          },
+          {
+            "id": "ecommerce",
+            "label": "电商",
+            "notes": [
+              "同比"
+            ]
+          },
+          {
+            "id": "advertising",
+            "label": "广告",
+            "notes": [
+              "同比"
+            ]
+          }
+        ]
+      }
+    }
   }
 ]);})(window);
