@@ -129,7 +129,7 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 #### <a id="rule-t22"></a>T22 · build-gate · 带值 Other 是数据柱
 
 - 触发：prepare 校验 `source-objects/v1` 时，对象的 id、label 或 literal 命中 Other/All Other 语义。
-- 检查：带值 Other 是数据指标而非标注：label 或 literal 含 K/M/B/T 金额而 class 不是 `value` 立即失败（`SOURCE_OBJECTS_OTHER_CLASS_INVALID`）；Other 对象不得记为 `residual`。映射到 node 的 value 对象由 B15 在渲染时确认柱面已绘制。
+- 检查：带值 Other 是数据指标而非标注：label 或 literal 含 K/M/B/T 金额而 class 不是 `value` 立即失败（`SOURCE_OBJECTS_OTHER_CLASS_INVALID`）；Other 对象不得记为 `residual`。收入构成中的 Other 必须绑定 node，不能用 nonNodeMetric 路由省略柱面（`SOURCE_OBJECTS_OTHER_REVENUE_NODE_REQUIRED`）。映射到 node 的 value 对象由 B15 在渲染时确认柱面已绘制。
 - 通过：把带值 Other 记成标签、流带、资产或残留一律失败；真实柱面低于 3px 时按 B15 的 `shortNodes` 声明处理，而不是隐藏。
 
 #### <a id="rule-t6"></a>T6 · conditional-gate · 侧置 label 列对齐
@@ -148,7 +148,7 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 #### <a id="rule-a6"></a>A6 · conditional-gate · annotation 净空
 
 - 触发：渲染结果含带 `data-annotation-clearance` 的 annotation 图形时（作者在 `annotationsSvg` 中声明，或 renderer 为 paired raster 图标添加）。
-- 检查：该 View 的全部 annotation 文本与 annotation 图形，同 label、title、period 的渲染 bbox 比较。
+- 检查：该 View 的全部 annotation 文本与 annotation 图形，同 label、title、period 的渲染 bbox 比较。卡片背景声明 `data-annotation-clearance`，卡片内文字在同一 annotation 层的背景之后绘制，避免后绘制的背景遮住 label 层文字。
 - 通过：overlap 为 0。
 - 证据：逐 locale 的 `annotationLayoutAudit`。
 

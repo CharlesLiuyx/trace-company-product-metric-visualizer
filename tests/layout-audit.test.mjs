@@ -209,3 +209,24 @@ test('SpaceX wordmark clearance rejects overlap and accepts proportional centere
     logo.bbox.width * scale, logo.bbox.height * scale);
   assert.doesNotThrow(() => assertRenderAudits(audit(cleared)));
 });
+
+test('Wealthfront card backgrounds reject label-layer captions and accept captions in the annotation layer', () => {
+  const captions = [
+    item('label:cash_management', 'Cash Management', 84.646, 565.175, 245, 92),
+    item('label:investment_advisory', 'Investment Advisory', 91.157, 882.923, 245, 92),
+  ];
+  const cards = [
+    item('annotation-graphic:cash-management-card', '[card]', 67.717, 470.110, 330.771, 208.359),
+    item('annotation-graphic:investment-advisory-card', '[card]', 74.228, 781.348, 330.771, 208.359),
+  ];
+  const classify = (annotations, protectedTexts) => classifyTextAndAnnotationLayout({
+    width: 2667, height: 1500, texts: captions,
+    annotations, annotationGraphics: cards, protectedTexts,
+  });
+  const covered = classify([], captions);
+  assert.equal(covered.annotationLayoutAudit.overlapViolations.length, 2);
+  assert.throws(() => assertRenderAudits(covered), /A6=overlap/);
+  const corrected = classify(captions, []);
+  assert.deepEqual(corrected.annotationLayoutAudit.overlapViolations, []);
+  assert.doesNotThrow(() => assertRenderAudits(corrected));
+});

@@ -106,3 +106,9 @@ test('financial localization changes supplemental labels/notes but rejects value
   assert.throws(() => normalizeOperatingObservation({ ...raw, currency: 'USD' }));
   assert.throws(() => normalizeOperatingObservation({ ...raw, literal: '$142.2B' }));
 });
+test('accepts the RMB code prefix for CNY amounts', () => {
+  const base = { id: 'gtv', label: 'GTV', value: '133.9', unit: 'B', currency: 'CNY', comparison: 'eq' };
+  assert.equal(normalizeOperatingObservation({ ...base, literal: 'RMB 133.9B' }).literal, 'RMB 133.9B');
+  assert.equal(normalizeOperatingObservation({ ...base, literal: 'CN¥133.9B' }).value, '133.9');
+  assert.throws(() => normalizeOperatingObservation({ ...base, literal: 'HK$133.9B' }));
+});

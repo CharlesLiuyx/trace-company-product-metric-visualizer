@@ -257,6 +257,13 @@ function validateDatasetParity(record, dataset, domain, errors) {
   for (const item of record.otherExpenses?.items || []) checkNode(item, 'other expense item');
   for (const item of flattenItems(record.profit.gross?.items)) checkNode(item, 'gross profit item');
   for (const item of flattenItems(record.profit.operating?.items)) checkNode(item, 'operating profit item');
+  // Orthogonal revenue breakdowns may surface as Sankey nodes or as non-node
+  // metrics (e.g. segment cards); they are optional, so only check those shown.
+  for (const breakdown of record.revenue.breakdowns || []) {
+    for (const item of [{ id: breakdown.id, value: breakdown.total }, ...flattenItems(breakdown.items)]) {
+      if (nodeById.has(item.id) || nonNodeById.has(item.id)) checkNode(item, 'revenue breakdown item');
+    }
+  }
   for (const id of nonNodeById.keys()) {
     assert(
       referencedMetricIds.has(id),

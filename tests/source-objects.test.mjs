@@ -182,6 +182,25 @@ test('Other is never residual and a value-bearing Other must be a value entry (T
   assert.deepEqual(create([otherIncome()]).summary.otherIds, ['other-income']);
 });
 
+test('T22 rejects Other revenue routing without a face and preserves a declared short node', () => {
+  const other = otherIncome({
+    id: 'other-revenue', literal: '$0.2B', value: '0.2', unit: 'B',
+    ssotRef: { family: 'income-statement', path: 'revenue.items', id: 'other_revenue' },
+    node: undefined, nonNodeMetric: 'other_revenue',
+  });
+  for (const label of ['Other', 'All Other', '其他']) {
+    assert.throws(() => create([{ ...other, label }]),
+      (error) => error.code === 'SOURCE_OBJECTS_OTHER_REVENUE_NODE_REQUIRED');
+  }
+  const fixed = create([{ ...other, node: 'other_revenue', nonNodeMetric: undefined }], {
+    shortNodes: [{ node: 'other_revenue', reason: 'Source paints a 1px blue face.' }],
+  });
+  assert.deepEqual(fixed.summary.valueNodeIds, ['other_revenue']);
+  assert.deepEqual(fixed.summary.shortNodeIds, ['other_revenue']);
+  assert.deepEqual(fixed.summary.nonNodeMetricIds, []);
+  assert.doesNotThrow(() => create([otherIncome({ node: undefined, nonNodeMetric: 'other_income' })]));
+});
+
 test('shortNodes names a value node and its Source reason', () => {
   const sourceObjects = create([otherIncome()], { shortNodes: [{ node: 'other_income', reason: 'Source paints a 1px bar' }] });
   assert.deepEqual(sourceObjects.shortNodes, [{ node: 'other_income', reason: 'Source paints a 1px bar' }]);

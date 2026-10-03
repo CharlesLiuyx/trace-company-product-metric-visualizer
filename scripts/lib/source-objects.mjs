@@ -535,6 +535,12 @@ function normalizeEntry(raw, index, context) {
     `${id} is an Other object displaying an amount; classify it as a value entry, not ${raw.class}`
   );
   invariant(
+    !(context.adapter === 'income-statement' && otherLike && raw.class === 'value' &&
+      raw.ssotRef?.path === 'revenue.items' && raw.nonNodeMetric != null),
+    'SOURCE_OBJECTS_OTHER_REVENUE_NODE_REQUIRED',
+    `${id} is an Other revenue component; map it to a painted node and declare a thin Source face in shortNodes`
+  );
+  invariant(
     !(raw.class === 'residual' && amountBearing),
     'SOURCE_OBJECTS_RESIDUAL_VALUE',
     `${id} displays an amount and is semantic; it cannot be a non-semantic residual`

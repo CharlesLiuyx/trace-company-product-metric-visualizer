@@ -6,6 +6,10 @@ export const OPERATING_METRIC_COMPARISONS = Object.freeze(['eq', 'gt', 'gte', 'l
 const COMPARISONS = { eq: '', gt: '>', gte: '>=', lt: '<', lte: '<=' };
 const MONEY = new Set(['K', 'M', 'B', 'T']);
 const CURRENCY_PREFIX = { USD: '$', EUR: '€', GBP: '£', JPY: '¥', CNY: 'CN¥', HKD: 'HK$', BRL: 'R$' };
+// Sources also print some currencies with a code-style prefix (e.g. "RMB 133.9B").
+const CURRENCY_PREFIX_ALIASES = { CNY: ['RMB'] };
+const literalPrefix = (currency, literal) =>
+  [CURRENCY_PREFIX[currency], ...(CURRENCY_PREFIX_ALIASES[currency] || [])].find((prefix) => literal.replace(/^\(/, '').startsWith(prefix)) ?? CURRENCY_PREFIX[currency];
 const ID = /^[a-z0-9]+(?:[._:-][a-z0-9]+)*$/;
 function requireThat(ok, message) {
   if (!ok) throw Object.assign(new Error(message), { code: 'OPERATING_METRIC_INVALID' });
@@ -27,7 +31,8 @@ export function normalizeOperatingObservation(raw) {
   literal = literal.slice(comparison.length);
   // Accounting parentheses retain a negative supplemental monetary amount.
   if (MONEY.has(raw.unit) && /^\([^()]+\)$/.test(literal)) {
-    literal = literal.slice(1, -1).replace(CURRENCY_PREFIX[raw.currency], CURRENCY_PREFIX[raw.currency] + '-');
+    const accountingPrefix = literalPrefix(raw.currency, literal);
+    literal = literal.slice(1, -1).replace(accountingPrefix, accountingPrefix + '-');
   }
   if (raw.unit === 'count') {
     requireThat(!value.includes('.') && !value.startsWith('-'), 'Counts must be nonnegative integers');
@@ -40,7 +45,7 @@ export function normalizeOperatingObservation(raw) {
     requireThat(numerator % denominator === 0n && numerator / denominator === BigInt(value), 'Count literal does not equal its exact integer value');
     return { value, unit: raw.unit, currency: raw.currency, comparison: raw.comparison, literal: raw.literal };
   }
-  const prefix = MONEY.has(raw.unit) ? CURRENCY_PREFIX[raw.currency] : '';
+  const prefix = MONEY.has(raw.unit) ? literalPrefix(raw.currency, literal) : '';
   if (MONEY.has(raw.unit) && literal.startsWith(prefix) && /^-?\d+(?:\.\d+)?$/.test(literal.slice(prefix.length))) {
     // Source dollar-per-customer cards often omit a scale suffix. Keep their
     // literal while comparing base-currency magnitude with the declared scale.
