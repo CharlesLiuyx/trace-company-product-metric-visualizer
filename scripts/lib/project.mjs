@@ -32,8 +32,14 @@ export function assert(condition, message, errors) {
   else throw new Error(message);
 }
 
+// A Build workspace carries its own cloned scripts/, so a command started
+// there resolves rootDir to the workspace instead of the project root.
+export function isBuildWorkspace(root = rootDir) {
+  return existsSync(path.join(root, 'output/workflow/base.json'));
+}
+
 export function buildProjectRoot(build, requested) {
   if (requested) return requested;
-  if (!build?.authoringRoot || existsSync(projectPath('output/workflow/base.json'))) return rootDir;
+  if (!build?.authoringRoot || isBuildWorkspace()) return rootDir;
   return projectPath(build.authoringRoot);
 }

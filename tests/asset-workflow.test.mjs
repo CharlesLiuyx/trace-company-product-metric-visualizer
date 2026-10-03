@@ -94,6 +94,20 @@ test('two actual CLI Sessions intake independently, fence wrong writers, and arc
   assert.ok(!existsSync(path.join(root, 'input/processing/session-a.txt')));
   assert.ok(existsSync(path.join(root, 'input/processing/session-b.txt')));
 });
+test('record:workflow refuses to run from a Build workspace and leaves root registrations to the project root', async (t) => {
+  const root = await fixture(t), started = await intake(root, 'workspace-cwd');
+  const run = await new Promise((resolve, reject) => {
+    const child = spawn(process.execPath, [path.join(started.workspace, 'scripts/record-workflow.mjs'), 'continue', started.buildId, '--json'], { cwd: started.workspace });
+    let stderr = '';
+    child.stderr.on('data', (chunk) => { stderr += chunk; });
+    child.on('error', reject); child.on('close', (code) => resolve({ code, stderr }));
+  });
+  assert.notEqual(run.code, 0); assert.match(run.stderr, /must run from the project root, not a Build workspace/);
+  assert.ok(!existsSync(path.join(started.workspace, 'output/local-view')));
+  const current = await continueAsset(started.buildId, root);
+  assert.equal(current.next, 'review');
+  assert.equal(JSON.parse(await readFile(path.join(root, `output/local-view/builds/${started.buildId}.json`), 'utf8')).revision, current.reviewToken);
+});
 function reviewFor(current, decision = 'accepted') {
   return { reviewToken: current.reviewToken, reviewer: 'synthetic-test-reviewer', decision, note: 'Synthetic fixture; not a real dataset acceptance' };
 }
