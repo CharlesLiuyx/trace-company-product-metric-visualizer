@@ -1,0 +1,190 @@
+{
+  "source": "input/processing/gamestop-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/gamestop/q2-fy26",
+  "runtimeOutputDir": "data/assets/raster-annotations/gamestop",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [
+      242,
+      242,
+      242
+    ]
+  },
+  "crops": [
+    {
+      "key": "batman",
+      "output": "crops/batman.png",
+      "runtimeOutput": "batman-q2-fy26.png",
+      "searchBox": {
+        "x": 124,
+        "y": 983,
+        "width": 167,
+        "height": 210
+      },
+      "cropBox": {
+        "x": 124,
+        "y": 983,
+        "width": 167,
+        "height": 210
+      },
+      "threshold": 10,
+      "minComponentArea": 4,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "us-flag",
+      "output": "crops/us-flag.png",
+      "runtimeOutput": "us-flag-q2-fy26.png",
+      "searchBox": {
+        "x": 1027,
+        "y": 530,
+        "width": 60,
+        "height": 44
+      },
+      "cropBox": {
+        "x": 1027,
+        "y": 530,
+        "width": 60,
+        "height": 44
+      },
+      "threshold": 10,
+      "minComponentArea": 4,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "australia-flag",
+      "output": "crops/australia-flag.png",
+      "runtimeOutput": "australia-flag-q2-fy26.png",
+      "searchBox": {
+        "x": 1027,
+        "y": 957,
+        "width": 60,
+        "height": 44
+      },
+      "cropBox": {
+        "x": 1027,
+        "y": 957,
+        "width": 60,
+        "height": 44
+      },
+      "threshold": 10,
+      "minComponentArea": 4,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "europe-flag",
+      "output": "crops/europe-flag.png",
+      "runtimeOutput": "europe-flag-q2-fy26.png",
+      "searchBox": {
+        "x": 1037,
+        "y": 1163,
+        "width": 60,
+        "height": 44
+      },
+      "cropBox": {
+        "x": 1037,
+        "y": 1163,
+        "width": 60,
+        "height": 44
+      },
+      "threshold": 10,
+      "minComponentArea": 4,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "wordmark",
+      "output": "crops/wordmark.png",
+      "runtimeOutput": "wordmark-q2-fy26.png",
+      "searchBox": {
+        "x": 732,
+        "y": 275,
+        "width": 781,
+        "height": 182
+      },
+      "cropBox": {
+        "x": 732,
+        "y": 275,
+        "width": 781,
+        "height": 182
+      },
+      "threshold": 10,
+      "minComponentArea": 4,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "consoles",
+      "output": "crops/consoles.png",
+      "runtimeOutput": "consoles-q2-fy26.png",
+      "searchBox": {
+        "x": 57,
+        "y": 392,
+        "width": 290,
+        "height": 186
+      },
+      "cropBox": {
+        "x": 57,
+        "y": 392,
+        "width": 290,
+        "height": 186
+      },
+      "threshold": 10,
+      "minComponentArea": 4,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "games",
+      "output": "crops/games.png",
+      "runtimeOutput": "games-q2-fy26.png",
+      "searchBox": {
+        "x": 126,
+        "y": 706,
+        "width": 171,
+        "height": 126
+      },
+      "cropBox": {
+        "x": 126,
+        "y": 706,
+        "width": 171,
+        "height": 126
+      },
+      "threshold": 10,
+      "minComponentArea": 4,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ]
+}

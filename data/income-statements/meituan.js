@@ -197,3 +197,382 @@
     }
   );
 })(window);
+
+(function(window){window.INCOME_STATEMENT_SSOT.records.push({
+  "key": "meituan-q2-fy26",
+  "company": "Meituan",
+  "period": "Q2 FY26",
+  "periodNote": "",
+  "currency": "RMB",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/meituan-q2-fy26.png",
+  "roundingTolerance": 0.2,
+  "revenue": {
+    "total": 104.6,
+    "notes": [
+      "+14% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "delivery",
+        "label": [
+          "Delivery",
+          "services"
+        ],
+        "value": 27.8,
+        "notes": [
+          "+18% Y/Y"
+        ]
+      },
+      {
+        "id": "merchant",
+        "label": [
+          "Marchant",
+          "services"
+        ],
+        "value": 42.4,
+        "notes": [
+          "+7% Y/Y"
+        ]
+      },
+      {
+        "id": "product_sales",
+        "label": [
+          "Product sales"
+        ],
+        "value": 26.7,
+        "notes": [
+          "+49% Y/Y"
+        ]
+      },
+      {
+        "id": "other_seg",
+        "label": [
+          "Other"
+        ],
+        "value": 7.8,
+        "notes": [
+          "(24%) Y/Y"
+        ]
+      }
+    ],
+    "breakdowns": [
+      {
+        "id": "business_segments",
+        "label": "Revenue by business segment",
+        "total": 104.6,
+        "items": [
+          {
+            "id": "core_local_commerce",
+            "label": "Core Local Commerce",
+            "value": 71.5,
+            "notes": [
+              "+10% Y/Y"
+            ]
+          },
+          {
+            "id": "new_initiatives",
+            "label": "New initiatives",
+            "value": 33.1,
+            "notes": [
+              "+25% Y/Y"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": [
+        "Cost of",
+        "revenue"
+      ],
+      "value": 69.5,
+      "notes": []
+    },
+    "operatingExpenses": {
+      "total": 35.6,
+      "items": [
+        {
+          "id": "sm",
+          "label": [
+            "S&M"
+          ],
+          "value": 24.7,
+          "notes": [
+            "24% of revenue",
+            "(1pp) Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": [
+            "R&D"
+          ],
+          "value": 7.7,
+          "notes": [
+            "7% of revenue",
+            "+0pp Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": [
+            "G&A"
+          ],
+          "value": 3.2,
+          "notes": [
+            "3% of revenue",
+            "+0pp Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": [
+        "Tax"
+      ],
+      "value": 0.1,
+      "notes": []
+    }
+  },
+  "operatingOtherIncome": {
+    "total": 3.2,
+    "items": [
+      {
+        "id": "other_income",
+        "label": [
+          "Other"
+        ],
+        "value": 3.2,
+        "notes": []
+      }
+    ]
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0.4,
+    "items": [
+      {
+        "id": "other_expense",
+        "label": [
+          "Other"
+        ],
+        "value": 0.4,
+        "notes": []
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": [
+        "Gross profit"
+      ],
+      "value": 35.1,
+      "notes": [
+        "34% margin",
+        "+1pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": [
+        "Operating",
+        "profit"
+      ],
+      "value": 2.7,
+      "notes": [
+        "3% margin",
+        "+2pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": [
+        "Net profit"
+      ],
+      "value": 2.2,
+      "notes": [
+        "2% margin",
+        "+2pp Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "revenue": {
+        "notes": [
+          "同比 +14%"
+        ],
+        "items": [
+          {
+            "id": "delivery",
+            "label": [
+              "配送",
+              "服务"
+            ],
+            "notes": [
+              "同比 +18%"
+            ]
+          },
+          {
+            "id": "merchant",
+            "label": [
+              "商家",
+              "服务"
+            ],
+            "notes": [
+              "同比 +7%"
+            ]
+          },
+          {
+            "id": "product_sales",
+            "label": [
+              "商品销售"
+            ],
+            "notes": [
+              "同比 +49%"
+            ]
+          },
+          {
+            "id": "other_seg",
+            "label": [
+              "其他"
+            ],
+            "notes": [
+              "同比 (24%)"
+            ]
+          }
+        ],
+        "breakdowns": [
+          {
+            "id": "business_segments",
+            "label": "按业务分部划分的收入",
+            "items": [
+              {
+                "id": "core_local_commerce",
+                "label": "核心本地商业",
+                "notes": [
+                  "同比 +10%"
+                ]
+              },
+              {
+                "id": "new_initiatives",
+                "label": "新业务",
+                "notes": [
+                  "同比 +25%"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": [
+            "收入",
+            "成本"
+          ]
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sm",
+              "label": [
+                "销售与营销"
+              ],
+              "notes": [
+                "占收入 24%",
+                "同比 (1 个百分点)"
+              ]
+            },
+            {
+              "id": "rnd",
+              "label": [
+                "研发"
+              ],
+              "notes": [
+                "占收入 7%",
+                "同比 +0 个百分点"
+              ]
+            },
+            {
+              "id": "ga",
+              "label": [
+                "一般及行政"
+              ],
+              "notes": [
+                "占收入 3%",
+                "同比 +0 个百分点"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": [
+            "税费"
+          ]
+        }
+      },
+      "operatingOtherIncome": {
+        "items": [
+          {
+            "id": "other_income",
+            "label": [
+              "其他"
+            ]
+          }
+        ]
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other_expense",
+            "label": [
+              "其他"
+            ]
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": [
+            "毛利润"
+          ],
+          "notes": [
+            "毛利率 34%",
+            "同比 +1 个百分点"
+          ]
+        },
+        "operating": {
+          "label": [
+            "营业",
+            "利润"
+          ],
+          "notes": [
+            "利润率 3%",
+            "同比 +2 个百分点"
+          ]
+        },
+        "net": {
+          "label": [
+            "净利润"
+          ],
+          "notes": [
+            "利润率 2%",
+            "同比 +2 个百分点"
+          ]
+        }
+      }
+    }
+  }
+});})(window);

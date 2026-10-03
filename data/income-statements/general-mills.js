@@ -137,3 +137,221 @@
     },
   });
 })(window);
+
+(function(global){ global.INCOME_STATEMENT_SSOT.records.push({
+  "key": "general-mills-q1-fy27",
+  "company": "General Mills",
+  "period": "Q1 FY27",
+  "periodNote": "Ending Aug. 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 3,
+  "sourceImage": "input/processed/general-mills-q1-fy27.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 4.4,
+    "notes": [
+      "(3%) Y/Y"
+    ],
+    "items": [
+      {
+        "id": "north_america_retail",
+        "label": "North America Retail",
+        "value": 2.5,
+        "notes": [
+          "(7%) Y/Y",
+          "20% segment margin"
+        ]
+      },
+      {
+        "id": "pet",
+        "label": "Pet",
+        "value": 0.6,
+        "notes": [
+          "+0% Y/Y",
+          "16% segment margin"
+        ]
+      },
+      {
+        "id": "north_america_foodservice",
+        "label": "North America Foodservice",
+        "value": 0.5,
+        "notes": [
+          "+1% Y/Y",
+          "15% segment margin"
+        ]
+      },
+      {
+        "id": "international",
+        "label": "International",
+        "value": 0.8,
+        "notes": [
+          "+5% Y/Y",
+          "9% segment margin"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_sales",
+      "label": "Cost of sales",
+      "value": 2.9
+    },
+    "operatingExpenses": {
+      "total": 0.821,
+      "items": [
+        {
+          "id": "sga",
+          "label": "SG&A expenses",
+          "value": 0.8
+        },
+        {
+          "id": "restructuring",
+          "label": "Restructuring",
+          "value": 0.021
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.1
+    }
+  },
+  "otherExpenses": {
+    "total": 0.1,
+    "items": [
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 0.1
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 1.5,
+      "notes": [
+        "34% margin",
+        "(0pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 0.6,
+      "notes": [
+        "14% margin",
+        "(24pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 0.4,
+      "notes": [
+        "9% margin",
+        "(18pp) Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2027 财年第一季度",
+      "periodNote": "截至 2026 年 8 月",
+      "revenue": {
+        "notes": [
+          "同比 (3%)"
+        ],
+        "items": [
+          {
+            "id": "north_america_retail",
+            "label": "北美零售",
+            "notes": [
+              "同比 (7%)",
+              "分部利润率 20%"
+            ]
+          },
+          {
+            "id": "pet",
+            "label": "宠物业务",
+            "notes": [
+              "同比 +0%",
+              "分部利润率 16%"
+            ]
+          },
+          {
+            "id": "north_america_foodservice",
+            "label": "北美餐饮服务",
+            "notes": [
+              "同比 +1%",
+              "分部利润率 15%"
+            ]
+          },
+          {
+            "id": "international",
+            "label": "国际业务",
+            "notes": [
+              "同比 +5%",
+              "分部利润率 9%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "销售成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sga",
+              "label": "销售、一般及管理费用"
+            },
+            {
+              "id": "restructuring",
+              "label": "重组费用"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 34%",
+            "同比 (0 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 14%",
+            "同比 (24 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 9%",
+            "同比 (18 个百分点)"
+          ]
+        }
+      }
+    }
+  }
+}); })(window);

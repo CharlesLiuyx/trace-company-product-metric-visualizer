@@ -154,4 +154,317 @@
       },
     },
   });
+  ssot.records.push({
+  "key": "chewy-q2-fy26",
+  "company": "Chewy",
+  "period": "Q2 FY26",
+  "periodNote": "Ending Aug. 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 3,
+  "sourceImage": "input/processed/chewy-q2-fy26.png",
+  "roundingTolerance": 0.05,
+  "revenue": {
+    "total": 3.3,
+    "notes": [
+      "+7% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "consumables",
+        "label": "Consumables",
+        "value": 2.2,
+        "notes": [
+          "+4% Y/Y"
+        ]
+      },
+      {
+        "id": "hardgoods",
+        "label": "Hardgoods",
+        "value": 0.4,
+        "notes": [
+          "+14% Y/Y"
+        ]
+      },
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 0.7,
+        "notes": [
+          "+15% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 2.3
+    },
+    "operatingExpenses": {
+      "total": 0.9,
+      "items": [
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 0.7,
+          "notes": [
+            "21% of revenue",
+            "(0pp) Y/Y"
+          ]
+        },
+        {
+          "id": "advertising_marketing",
+          "label": "Advertising & Marketing",
+          "value": 0.2,
+          "notes": [
+            "6% of revenue",
+            "(0pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.031
+    }
+  },
+  "otherIncome": {
+    "total": 0.02,
+    "items": [
+      {
+        "id": "interest",
+        "label": "Interest",
+        "value": 0.02
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 1.0,
+      "notes": [
+        "30% margin",
+        "+0pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 0.1,
+      "notes": [
+        "3% margin",
+        "+1pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 0.1,
+      "notes": [
+        "2% margin",
+        "+0pp Y/Y"
+      ]
+    }
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "operatingMetrics": [
+    {
+      "id": "active_customers",
+      "label": "Active customers",
+      "value": "22000000",
+      "unit": "count",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "22M",
+      "quote": "Active customers\n22M (+4% Y/Y)",
+      "notes": [
+        "+4% Y/Y"
+      ],
+      "basis": "unspecified",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          48,
+          1186,
+          332,
+          164
+        ]
+      }
+    },
+    {
+      "id": "net_sales_per_customer",
+      "label": "Net sale per customer",
+      "value": "0.602",
+      "unit": "K",
+      "currency": "USD",
+      "comparison": "eq",
+      "literal": "$602",
+      "quote": "Net sale per customer\n$602 (+2% Y/Y)",
+      "notes": [
+        "+2% Y/Y"
+      ],
+      "basis": "unspecified",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          393,
+          1186,
+          380,
+          164
+        ]
+      }
+    },
+    {
+      "id": "autoship_sales",
+      "label": "Autoship sales",
+      "value": "85",
+      "unit": "%",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "85%",
+      "quote": "Autoship sales\n85% (+2pp Y/Y)",
+      "notes": [
+        "+2pp Y/Y"
+      ],
+      "basis": "unspecified",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          785,
+          1186,
+          306,
+          164
+        ]
+      }
+    }
+  ],
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "periodNote": "截至 2026 年 8 月",
+      "revenue": {
+        "notes": [
+          "同比 +7%"
+        ],
+        "items": [
+          {
+            "id": "consumables",
+            "label": "消耗品",
+            "notes": [
+              "同比 +4%"
+            ]
+          },
+          {
+            "id": "hardgoods",
+            "label": "耐用品",
+            "notes": [
+              "同比 +14%"
+            ]
+          },
+          {
+            "id": "other",
+            "label": "其他",
+            "notes": [
+              "同比 +15%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "id": "cost_of_revenue",
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "ga",
+              "label": "一般及行政费用",
+              "notes": [
+                "占收入 21%",
+                "同比 (0 个百分点)"
+              ]
+            },
+            {
+              "id": "advertising_marketing",
+              "label": "广告与营销",
+              "notes": [
+                "占收入 6%",
+                "同比 (0 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "id": "tax",
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "interest",
+            "label": "利息"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "id": "gross_profit",
+          "label": "毛利润",
+          "notes": [
+            "利润率 30%",
+            "同比 +0 个百分点"
+          ]
+        },
+        "operating": {
+          "id": "operating_profit",
+          "label": "营业利润",
+          "notes": [
+            "利润率 3%",
+            "同比 +1 个百分点"
+          ]
+        },
+        "net": {
+          "id": "net_profit",
+          "label": "净利润",
+          "notes": [
+            "利润率 2%",
+            "同比 +0 个百分点"
+          ]
+        }
+      },
+      "operatingMetrics": [
+        {
+          "id": "active_customers",
+          "label": "活跃客户",
+          "notes": [
+            "同比 +4%"
+          ]
+        },
+        {
+          "id": "net_sales_per_customer",
+          "label": "每位客户净销售额",
+          "notes": [
+            "同比 +2%"
+          ]
+        },
+        {
+          "id": "autoship_sales",
+          "label": "Autoship 销售额",
+          "notes": [
+            "同比 +2 个百分点"
+          ]
+        }
+      ]
+    }
+  }
+});
 })(window);

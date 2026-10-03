@@ -1,0 +1,49 @@
+{
+  "source": "input/processed/chewy-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/chewy",
+  "runtimeOutputDir": "data/assets/raster-annotations/chewy",
+  "validationSheetDir": "data/assets/icon-references/chewy/validation-sheets/q2-fy26",
+  "report": "crop-report-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [
+      242,
+      242,
+      242
+    ],
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "chewy-dog-box-q2-fy26",
+      "output": "crops/dog-box-q2-fy26.png",
+      "runtimeOutput": "dog-box-q2-fy26.png",
+      "cropBox": {
+        "x": 1573,
+        "y": 1008,
+        "width": 500,
+        "height": 300
+      },
+      "searchBox": {
+        "x": 1573,
+        "y": 1008,
+        "width": 500,
+        "height": 300
+      },
+      "threshold": 15,
+      "minComponentArea": 16,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.25,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete dog and Chewy box brand cluster; no financial text, chart marks or publisher footer."
+    }
+  ]
+}

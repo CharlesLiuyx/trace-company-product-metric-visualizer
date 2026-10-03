@@ -143,3 +143,272 @@
     },
   });
 })(window);
+
+window.INCOME_STATEMENT_SSOT.records.push({
+  "key": "samsara-q2-fy27",
+  "company": "Samsara",
+  "period": "Q2 FY27",
+  "periodNote": "Ending July 2026",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processing/samsara-q2-fy27.png",
+  "roundingTolerance": 1.1,
+  "revenue": {
+    "total": 508,
+    "notes": [
+      "+30% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "subscription",
+        "label": "Subscription",
+        "value": 498
+      },
+      {
+        "id": "other_revenue",
+        "label": "Other",
+        "value": 10
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 116
+    },
+    "operatingExpenses": {
+      "total": 388,
+      "items": [
+        {
+          "id": "sm",
+          "label": "Sales & marketing",
+          "value": 218,
+          "notes": [
+            "43% of revenue",
+            "(2pp) Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "Research & development",
+          "value": 103,
+          "notes": [
+            "20% of revenue",
+            "(2pp) Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "General & admin",
+          "value": 67,
+          "notes": [
+            "13% of revenue",
+            "(4pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 1
+    }
+  },
+  "otherIncome": {
+    "total": 13,
+    "items": [
+      {
+        "id": "other_income",
+        "label": "Other",
+        "value": 13
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 393,
+      "notes": [
+        "77% margin",
+        "+0pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 5,
+      "notes": [
+        "1% margin",
+        "+8pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 16,
+      "notes": [
+        "3% margin",
+        "+7pp Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2027 财年第二季度",
+      "periodNote": "截至 2026 年 7 月",
+      "revenue": {
+        "notes": [
+          "同比 +30%"
+        ],
+        "items": [
+          {
+            "id": "subscription",
+            "label": "订阅"
+          },
+          {
+            "id": "other_revenue",
+            "label": "其他"
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sm",
+              "label": "销售与营销",
+              "notes": [
+                "占收入 43%",
+                "同比 (2 个百分点)"
+              ]
+            },
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 20%",
+                "同比 (2 个百分点)"
+              ]
+            },
+            {
+              "id": "ga",
+              "label": "一般及行政",
+              "notes": [
+                "占收入 13%",
+                "同比 (4 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "other_income",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 77%",
+            "同比 +0 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 1%",
+            "同比 +8 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 3%",
+            "同比 +7 个百分点"
+          ]
+        }
+      },
+      "operatingMetrics": [
+        {
+          "id": "arr",
+          "label": "ARR",
+          "notes": [
+            "同比 +30%"
+          ]
+        },
+        {
+          "id": "large_customer_arr",
+          "label": "ARR 来自 > $100K ARR 客户",
+          "notes": [
+            "同比 +38%"
+          ]
+        }
+      ]
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "arr",
+      "label": "ARR",
+      "value": "2.1",
+      "unit": "B",
+      "currency": "USD",
+      "comparison": "eq",
+      "literal": "$2.1B",
+      "basis": "unspecified",
+      "notes": [
+        "+30% Y/Y"
+      ],
+      "quote": "ARR $2.1B\n+30% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          92,
+          1152,
+          294,
+          151
+        ]
+      }
+    },
+    {
+      "id": "large_customer_arr",
+      "label": "ARR from > $100K ARR Customers",
+      "value": "1.3",
+      "unit": "B",
+      "currency": "USD",
+      "comparison": "eq",
+      "literal": "$1.3B",
+      "basis": "unspecified",
+      "notes": [
+        "+38% Y/Y"
+      ],
+      "quote": "ARR from > $100K ARR Customers $1.3B\n+38% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          397,
+          1152,
+          448,
+          151
+        ]
+      }
+    }
+  ]
+});

@@ -231,4 +231,289 @@
       },
     },
   });
+ssot.records.push({
+  "key": "darden-q1-fy27",
+  "company": "Darden Restaurants",
+  "period": "Q1 FY27",
+  "periodNote": "Ending Aug. 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 3,
+  "sourceImage": "input/processing/darden-q1-fy27.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 3.2,
+    "notes": [
+      "+5% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "olive_garden",
+        "label": "Olive Garden",
+        "value": 1.3,
+        "notes": [
+          "+2% Y/Y",
+          "20% segment margin"
+        ]
+      },
+      {
+        "id": "longhorn",
+        "label": "LongHorn Steakhouse",
+        "value": 0.9,
+        "notes": [
+          "+11% Y/Y",
+          "18% segment margin"
+        ]
+      },
+      {
+        "id": "fine_dining",
+        "label": "Fine Dining",
+        "value": 0.3,
+        "notes": [
+          "+6% Y/Y",
+          "13% segment margin"
+        ]
+      },
+      {
+        "id": "other_business",
+        "label": "Other Business",
+        "value": 0.7,
+        "notes": [
+          "+4% Y/Y",
+          "16% segment margin"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue (not separately presented)",
+      "value": 0,
+      "notes": [
+        "The source infographic moves directly from revenue to operating profit and operating expenses."
+      ]
+    },
+    "operatingExpenses": {
+      "total": 2.9,
+      "items": [
+        {
+          "id": "restaurant_labor",
+          "label": "Restaurant Labor",
+          "value": 1
+        },
+        {
+          "id": "food_beverage",
+          "label": "Food & Beverage",
+          "value": 1
+        },
+        {
+          "id": "restaurant_expenses",
+          "label": "Restaurant expenses",
+          "value": 0.5
+        },
+        {
+          "id": "da",
+          "label": "D&A",
+          "value": 0.1
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 0.1
+        },
+        {
+          "id": "marketing",
+          "label": "Marketing",
+          "value": 0.1
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.035
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0.1,
+    "items": [
+      {
+        "id": "interest",
+        "label": "Interest",
+        "value": 0.1
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit (not separately presented)",
+      "value": 3.2,
+      "notes": [
+        "Bookkeeping value for SSOT parity; the source infographic has no gross-profit stage."
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 0.3,
+      "notes": [
+        "10% margin",
+        "(1pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 0.2,
+      "notes": [
+        "7% margin",
+        "(1pp) Y/Y"
+      ]
+    }
+  },
+  "sources": [
+    {
+      "name": "Provided Darden Q1 FY27 infographic",
+      "url": "https://www.appeconomyinsights.com/"
+    }
+  ],
+  "i18n": {
+    "zh": {
+      "period": "2027 财年第一季度",
+      "periodNote": "截至 2026 年 8 月",
+      "revenue": {
+        "notes": [
+          "同比 +5%"
+        ],
+        "items": [
+          {
+            "id": "olive_garden",
+            "label": "橄榄花园",
+            "notes": [
+              "同比 +2%",
+              "分部利润率 20%"
+            ]
+          },
+          {
+            "id": "longhorn",
+            "label": "长角牛排馆",
+            "notes": [
+              "同比 +11%",
+              "分部利润率 18%"
+            ]
+          },
+          {
+            "id": "fine_dining",
+            "label": "高端餐饮",
+            "notes": [
+              "同比 +6%",
+              "分部利润率 13%"
+            ]
+          },
+          {
+            "id": "other_business",
+            "label": "其他业务",
+            "notes": [
+              "同比 +4%",
+              "分部利润率 16%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本（未单列）",
+          "notes": [
+            "来源信息图从收入直接拆分为营业利润和运营费用。"
+          ]
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "restaurant_labor",
+              "label": "餐厅人工"
+            },
+            {
+              "id": "food_beverage",
+              "label": "食品和饮料"
+            },
+            {
+              "id": "restaurant_expenses",
+              "label": "餐厅费用"
+            },
+            {
+              "id": "da",
+              "label": "折旧与摊销"
+            },
+            {
+              "id": "ga",
+              "label": "一般及行政费用"
+            },
+            {
+              "id": "marketing",
+              "label": "营销费用"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "interest",
+            "label": "利息"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润（未单列）",
+          "notes": [
+            "用于 SSOT 对齐的账面值；来源信息图未展示毛利润阶段。"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 10%",
+            "同比下降 1 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 7%",
+            "同比下降 1 个百分点"
+          ]
+        }
+      },
+      "operatingOtherIncome": {
+        "items": [
+          {
+            "id": "other_gains",
+            "label": "其他收益"
+          }
+        ]
+      }
+    }
+  },
+  "operatingOtherIncome": {
+    "total": 0.004,
+    "items": [
+      {
+        "id": "other_gains",
+        "label": "Other gains",
+        "value": 0.004
+      }
+    ]
+  }
+});
 })(window);

@@ -1,0 +1,133 @@
+{
+  "source": "input/processing/nio-q2-fy26.png",
+  "spec": "input/icon-crop-specs/nio-company-logo.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-03T13:29:10.086459+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/nio",
+  "crops": [
+    {
+      "key": "nio-company-logo-source",
+      "output": "data/assets/icon-references/nio/crops/company-logo-source.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4011,
+        "losslessBytes": 16360,
+        "savingsVsLossless": 0.7548,
+        "metrics": {
+          "meanAbsoluteError": 0.1187,
+          "rootMeanSquareError": 0.7768,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.0565
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 81098,
+        "transparentPixelRatio": 0.5994
+      },
+      "searchBox": {
+        "x": 425,
+        "y": 260,
+        "width": 615,
+        "height": 220
+      },
+      "componentCount": 5,
+      "subjectBox": {
+        "x0": 433,
+        "y0": 267,
+        "x1": 1032,
+        "y1": 477
+      },
+      "cropBox": {
+        "x0": 425,
+        "y0": 260,
+        "x1": 1040,
+        "y1": 480
+      },
+      "validation": {
+        "width": 615,
+        "height": 220,
+        "foregroundPixels": 51055,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 8,
+          "right": 8,
+          "top": 7,
+          "bottom": 3
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0091
+        },
+        "passes": true
+      },
+      "note": "Complete original NIO horizon symbol and wordmark; excludes title, values, flows and publisher branding. Same logo placement and shape in all four NIO Sources.",
+      "runtimeOutput": "data/assets/raster-annotations/nio/company-logo-source.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4011,
+        "losslessBytes": 16360,
+        "savingsVsLossless": 0.7548,
+        "metrics": {
+          "meanAbsoluteError": 0.1187,
+          "rootMeanSquareError": 0.7768,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.0565
+        }
+      },
+      "validationSheet": "data/assets/icon-references/nio/validation-sheets/nio-company-logo-source.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 192712,
+        "losslessBytes": 192712,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

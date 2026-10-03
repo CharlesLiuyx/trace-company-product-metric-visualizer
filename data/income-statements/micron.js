@@ -660,6 +660,236 @@
           },
         },
       },
+    },
+{
+  "key": "micron-q4-fy26",
+  "company": "Micron",
+  "period": "Q4 FY26",
+  "periodNote": "Ending Aug. 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processing/micron-q4-fy26.png",
+  "roundingTolerance": 0.2,
+  "revenue": {
+    "total": 54.2,
+    "notes": [
+      "+379% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "cloud_memory",
+        "label": "Cloud Memory",
+        "value": 16.3,
+        "notes": [
+          "+258% Y/Y",
+          "76% operating margin"
+        ]
+      },
+      {
+        "id": "core_data_center",
+        "label": "Core Data Center",
+        "value": 18,
+        "notes": [
+          "+1,042% Y/Y",
+          "85% operating margin"
+        ]
+      },
+      {
+        "id": "mobile_client",
+        "label": "Mobile & Client",
+        "value": 13.1,
+        "notes": [
+          "+249% Y/Y",
+          "85% operating margin"
+        ]
+      },
+      {
+        "id": "automotive_embedded",
+        "label": "Automotive & Embedded",
+        "value": 6.8,
+        "notes": [
+          "+376% Y/Y",
+          "88% operating margin"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 7.2
+    },
+    "operatingExpenses": {
+      "total": 3.3,
+      "items": [
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 1.9
+        },
+        {
+          "id": "sga",
+          "label": "SG&A",
+          "value": 0.9
+        },
+        {
+          "id": "other_opex",
+          "label": "Other",
+          "value": 0.5
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 6.6
     }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0.5,
+    "items": [
+      {
+        "id": "other_non_operating",
+        "label": "Other",
+        "value": 0.5
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 47,
+      "notes": [
+        "87% margin",
+        "+42pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 43.8,
+      "notes": [
+        "81% margin",
+        "+48pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 36.7,
+      "notes": [
+        "68% margin",
+        "+39pp Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第四季度",
+      "periodNote": "截至 2026 年 8 月",
+      "revenue": {
+        "notes": [
+          "同比 +379%"
+        ],
+        "items": [
+          {
+            "id": "cloud_memory",
+            "label": "云内存",
+            "notes": [
+              "同比 +258%",
+              "营业利润率 76%"
+            ]
+          },
+          {
+            "id": "core_data_center",
+            "label": "核心数据中心",
+            "notes": [
+              "同比 +1,042%",
+              "营业利润率 85%"
+            ]
+          },
+          {
+            "id": "mobile_client",
+            "label": "移动与客户端",
+            "notes": [
+              "同比 +249%",
+              "营业利润率 85%"
+            ]
+          },
+          {
+            "id": "automotive_embedded",
+            "label": "汽车与嵌入式",
+            "notes": [
+              "同比 +376%",
+              "营业利润率 88%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "rnd",
+              "label": "研发"
+            },
+            {
+              "id": "sga",
+              "label": "销售、一般及行政"
+            },
+            {
+              "id": "other_opex",
+              "label": "其他"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other_non_operating",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 87%",
+            "同比 +42 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 81%",
+            "同比 +48 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 68%",
+            "同比 +39 个百分点"
+          ]
+        }
+      }
+    }
+  }
+}
   );
 })(window);

@@ -304,3 +304,242 @@
     }
   );
 })(window);
+
+window.INCOME_STATEMENT_SSOT.records.push({
+  "key": "nio-q2-fy26",
+  "company": "NIO",
+  "period": "Q2 FY26",
+  "periodNote": "Ending Jun. 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 3,
+  "sourceImage": "input/processing/nio-q2-fy26.png",
+  "roundingTolerance": 0.11,
+  "revenue": {
+    "total": 4.7,
+    "notes": [
+      "+69% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "vehicle_sales",
+        "label": "Vehicle sales",
+        "value": 4.3,
+        "notes": [
+          "+80% Y/Y",
+          "19% gross margin"
+        ]
+      },
+      {
+        "id": "other_sales",
+        "label": "Other sales",
+        "value": 0.5,
+        "notes": [
+          "+7% Y/Y",
+          "17% gross margin"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 3.9
+    },
+    "operatingExpenses": {
+      "total": 1,
+      "notes": [
+        "Gross R&D plus SG&A before the separately charted other operating income."
+      ],
+      "items": [
+        {
+          "id": "sga",
+          "label": "SG&A",
+          "value": 0.7,
+          "notes": [
+            "14% of revenue",
+            "(7pp) Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 0.3,
+          "notes": [
+            "7% of revenue",
+            "(9pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "label": "Tax",
+      "value": 0
+    }
+  },
+  "operatingOtherIncome": {
+    "total": 0.047,
+    "items": [
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 0.047,
+        "notes": []
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 0.9,
+      "notes": [
+        "18% margin",
+        "+8pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_loss",
+      "label": "Operating loss",
+      "value": -0.1,
+      "notes": [
+        "(1%) margin",
+        "+27pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "operating_loss",
+      "label": "Operating loss",
+      "value": -0.1,
+      "notes": [
+        "No separate net loss line is shown in the source chart."
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "periodNote": "截至 2026 年 6 月",
+      "revenue": {
+        "notes": [
+          "同比 +69%"
+        ],
+        "items": [
+          {
+            "id": "vehicle_sales",
+            "label": "汽车销售",
+            "notes": [
+              "同比 +80%",
+              "毛利率 19%"
+            ]
+          },
+          {
+            "id": "other_sales",
+            "label": "其他销售",
+            "notes": [
+              "同比 +7%",
+              "毛利率 17%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "notes": [
+            "研发与销售、一般及行政费用的总额，未扣除图中单列的其他经营收入。"
+          ],
+          "items": [
+            {
+              "id": "sga",
+              "label": "销售、一般及行政费用",
+              "notes": [
+                "占收入 14%",
+                "同比 (7 个百分点)"
+              ]
+            },
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 7%",
+                "同比 (9 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "operatingOtherIncome": {
+        "items": [
+          {
+            "id": "other",
+            "label": "其他",
+            "notes": []
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 18%",
+            "同比 +8 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业亏损",
+          "notes": [
+            "利润率 (1%)",
+            "同比 +27 个百分点"
+          ]
+        },
+        "net": {
+          "label": "营业亏损",
+          "notes": [
+            "来源图未单独显示净亏损。"
+          ]
+        }
+      },
+      "operatingMetrics": [
+        {
+          "id": "deliveries",
+          "label": "交付量",
+          "notes": [
+            "同比 +49%"
+          ]
+        }
+      ]
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "deliveries",
+      "label": "Deliveries",
+      "value": "107658",
+      "unit": "count",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "107,658",
+      "basis": "unspecified",
+      "notes": [
+        "+49% Y/Y"
+      ],
+      "quote": "Deliveries\n107,658\n+49% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          145,
+          1175,
+          313,
+          165
+        ]
+      }
+    }
+  ]
+});

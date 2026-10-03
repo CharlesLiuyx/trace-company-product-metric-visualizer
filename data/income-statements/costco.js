@@ -976,6 +976,274 @@
           },
         },
       },
+    },
+{
+  "key": "costco-q4-fy26",
+  "company": "Costco",
+  "period": "Q4 FY26",
+  "periodNote": "Ending Aug. 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processing/costco-q4-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 95.7,
+    "notes": [
+      "+11% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "net_sales",
+        "label": "Net Sales",
+        "value": 93.9,
+        "notes": [
+          "+11% Y/Y"
+        ]
+      },
+      {
+        "id": "membership_fee",
+        "label": "Membership Fee",
+        "value": 1.9,
+        "notes": [
+          "+7% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "merchandise_costs",
+      "label": "Merchandise costs",
+      "value": 83.5
+    },
+    "operatingExpenses": {
+      "total": 8.4,
+      "items": [
+        {
+          "id": "operating_expenses",
+          "label": "SG&A expenses",
+          "value": 8.4
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 1.0
     }
+  },
+  "otherIncome": {
+    "total": 0.2,
+    "items": [
+      {
+        "id": "interest",
+        "label": "Interest",
+        "value": 0.2
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 12.2,
+      "notes": [
+        "12.9% margin",
+        "(0.2pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 3.8,
+      "notes": [
+        "4.0% margin",
+        "+0.1pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 3.0,
+      "notes": [
+        "3.1% margin",
+        "+0.1pp Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第四季度",
+      "periodNote": "截至 2026 年 8 月",
+      "revenue": {
+        "notes": [
+          "同比 +11%"
+        ],
+        "items": [
+          {
+            "id": "net_sales",
+            "label": "净销售额",
+            "notes": [
+              "同比 +11%"
+            ]
+          },
+          {
+            "id": "membership_fee",
+            "label": "会员费",
+            "notes": [
+              "同比 +7%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "商品成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "operating_expenses",
+              "label": "销售、一般及行政费用"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "interest",
+            "label": "利息"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 12.9%",
+            "同比 -0.2 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 4.0%",
+            "同比 +0.1 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 3.1%",
+            "同比 +0.1 个百分点"
+          ]
+        }
+      },
+      "operatingMetrics": [
+        {
+          "id": "adj-us-comp",
+          "label": "调整后美国可比销售额",
+          "notes": [
+            "同比"
+          ]
+        },
+        {
+          "id": "adj-company-comp",
+          "label": "调整后公司可比销售额",
+          "notes": [
+            "同比"
+          ]
+        },
+        {
+          "id": "adj-digital",
+          "label": "调整后数字化销售额",
+          "notes": [
+            "同比"
+          ]
+        }
+      ]
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "adj-us-comp",
+      "label": "Adj. US Comp sales",
+      "literal": "+7.2%",
+      "value": "7.2",
+      "unit": "%",
+      "currency": null,
+      "comparison": "eq",
+      "basis": "unspecified",
+      "notes": [
+        "Y/Y"
+      ],
+      "quote": "Adj. US Comp sales\n+7.2% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          36,
+          1215,
+          276,
+          142
+        ]
+      }
+    },
+    {
+      "id": "adj-company-comp",
+      "label": "Adj. Company Comp sales",
+      "literal": "+6.7%",
+      "value": "6.7",
+      "unit": "%",
+      "currency": null,
+      "comparison": "eq",
+      "basis": "unspecified",
+      "notes": [
+        "Y/Y"
+      ],
+      "quote": "Adj. Company Comp sales\n+6.7% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          320,
+          1215,
+          330,
+          142
+        ]
+      }
+    },
+    {
+      "id": "adj-digital",
+      "label": "Adj. Digitally-Enabled",
+      "literal": "+19.8%",
+      "value": "19.8",
+      "unit": "%",
+      "currency": null,
+      "comparison": "eq",
+      "basis": "unspecified",
+      "notes": [
+        "Y/Y"
+      ],
+      "quote": "Adj. Digitally-Enabled\n+19.8% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          660,
+          1215,
+          276,
+          142
+        ]
+      }
+    }
+  ]
+}
   );
 })(window);

@@ -1,0 +1,37 @@
+{
+  "source": "input/processing/wealthfront-q2-fy27.png",
+  "outputDir": "data/assets/icon-references/wealthfront",
+  "runtimeOutputDir": "data/assets/raster-annotations/wealthfront",
+  "validationSheetDir": "data/assets/icon-references/wealthfront/validation-sheets",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "crops": [
+    {
+      "key": "wealthfront-logo",
+      "output": "crops/company-logo.png",
+      "runtimeOutput": "company-logo.png",
+      "searchBox": {
+        "x": 818,
+        "y": 253,
+        "width": 228,
+        "height": 217
+      },
+      "cropBox": {
+        "x": 818,
+        "y": 253,
+        "width": 228,
+        "height": 217
+      },
+      "threshold": 15,
+      "minComponentArea": 2,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ]
+}

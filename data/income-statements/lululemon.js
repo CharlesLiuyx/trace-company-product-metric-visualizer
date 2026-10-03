@@ -8,7 +8,336 @@
     records: [],
   });
 
-  ssot.records.push(
+  ssot.records.push({
+  "key": "lululemon-q2-fy26",
+  "company": "lululemon athletica",
+  "period": "Q2 FY26",
+  "periodNote": "Ending July 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 3,
+  "sourceImage": "input/processed/lululemon-q2-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 2.4,
+    "notes": [
+      "(4%) Y/Y",
+      "Women (4%) Y/Y",
+      "Men (1%) Y/Y",
+      "Other (13%) Y/Y"
+    ],
+    "items": [
+      {
+        "id": "operated_stores",
+        "label": "Operated stores",
+        "value": 1.6,
+        "notes": [
+          "(8%) Y/Y"
+        ]
+      },
+      {
+        "id": "direct_to_consumer",
+        "label": "Direct to consumer",
+        "value": 0.4,
+        "notes": [
+          "+4% Y/Y"
+        ]
+      },
+      {
+        "id": "other_revenue",
+        "label": "Other revenue",
+        "value": 0.4,
+        "notes": [
+          "+21% Y/Y",
+          "Outlets, temporary locations, wholesale accounts, license and supply arrangement"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_sales",
+      "label": "Cost of sales",
+      "value": 1
+    },
+    "operatingExpenses": {
+      "total": 1,
+      "items": [
+        {
+          "id": "sga",
+          "label": "SG&A",
+          "value": 1,
+          "notes": [
+            "42% of revenue",
+            "+4pp Y/Y"
+          ]
+        },
+        {
+          "id": "amortization",
+          "label": "Amortization",
+          "value": 0.002,
+          "notes": [
+            "Shown as ($2M) in the source image"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.1
+    }
+  },
+  "otherIncome": {
+    "total": 0.014,
+    "items": [
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 0.014,
+        "notes": [
+          "Shown as $14M in the source image"
+        ]
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 1.5,
+      "notes": [
+        "61% margin",
+        "+2pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 0.5,
+      "notes": [
+        "19% margin",
+        "(2pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 0.3,
+      "notes": [
+        "14% margin",
+        "(1pp) Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "periodNote": "截至 2026 年 7 月",
+      "revenue": {
+        "notes": [
+          "同比 (4%)",
+          "女装同比 (4%)",
+          "男装同比 (1%)",
+          "其他同比 (13%)"
+        ],
+        "items": [
+          {
+            "id": "operated_stores",
+            "label": "自营门店",
+            "notes": [
+              "同比 (8%)"
+            ]
+          },
+          {
+            "id": "direct_to_consumer",
+            "label": "直接面向消费者",
+            "notes": [
+              "同比 +4%"
+            ]
+          },
+          {
+            "id": "other_revenue",
+            "label": "其他收入",
+            "notes": [
+              "同比 +21%",
+              "奥特莱斯、临时店铺、批发客户、授权与供应安排"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "销售成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sga",
+              "label": "销售及管理费用",
+              "notes": [
+                "占收入 42%",
+                "同比 +4 个百分点"
+              ]
+            },
+            {
+              "id": "amortization",
+              "label": "摊销",
+              "notes": [
+                "源图中显示为 ($2M)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "other",
+            "label": "其他",
+            "notes": [
+              "源图中显示为 $14M"
+            ]
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 61%",
+            "同比 +2 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 19%",
+            "同比 (2 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 14%",
+            "同比 (1 个百分点)"
+          ]
+        }
+      },
+      "operatingMetrics": [
+        {
+          "id": "stores",
+          "label": "门店",
+          "notes": [
+            "同比 +5%"
+          ]
+        },
+        {
+          "id": "comparable_sales",
+          "label": "同店销售",
+          "notes": [
+            "同比"
+          ]
+        },
+        {
+          "id": "americas",
+          "label": "美洲",
+          "notes": [
+            "同比"
+          ]
+        },
+        {
+          "id": "international",
+          "label": "国际",
+          "notes": [
+            "同比"
+          ]
+        }
+      ]
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "stores",
+      "label": "stores",
+      "value": "825",
+      "unit": "count",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "825",
+      "basis": "unspecified",
+      "notes": [
+        "+5% Y/Y"
+      ],
+      "quote": "825 stores\n+5% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [1832, 1195, 230, 154]
+      }
+    },
+    {
+      "id": "comparable_sales",
+      "label": "Comparable sales",
+      "value": "-9",
+      "unit": "%",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "-9%",
+      "basis": "unspecified",
+      "notes": [
+        "Y/Y"
+      ],
+      "quote": "Comparable sales -9% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [2079, 1195, 496, 154]
+      }
+    },
+    {
+      "id": "americas",
+      "label": "Americas",
+      "value": "-12",
+      "unit": "%",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "-12%",
+      "basis": "unspecified",
+      "notes": [
+        "Y/Y"
+      ],
+      "quote": "Americas -12% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [2079, 1195, 496, 154]
+      }
+    },
+    {
+      "id": "international",
+      "label": "International",
+      "value": "-3",
+      "unit": "%",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "-3%",
+      "basis": "unspecified",
+      "notes": [
+        "Y/Y"
+      ],
+      "quote": "International -3% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [2079, 1195, 496, 154]
+      }
+    }
+  ]
+},
     {
       key: 'lululemon-q1-fy26',
       company: 'lululemon athletica',

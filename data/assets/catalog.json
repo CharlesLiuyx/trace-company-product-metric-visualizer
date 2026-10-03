@@ -415,6 +415,66 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/adobe/adobe-app-q3-fy26.png",
+      "digest": "sha256:287517d147bfe2ea8d71f0f6a1f24270acddb0224710ab39190b7f951560cf6d",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/adobe-q3-fy26.json",
+          "recipeDigest": "sha256:8c514a83141e7ca3e341f97aa6f66603e6d2337a5cf229eb6dd4b6cab3c616d7",
+          "source": "input/processing/adobe-q3-fy26.png",
+          "cropKey": "adobe-adobe-app-q3-fy26"
+        }
+      ],
+      "directConsumers": [
+        "adobe-q3-fy26"
+      ],
+      "consumers": [
+        "adobe-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/adobe/company-logo-q3-fy26.png",
+      "digest": "sha256:018379b5134dae2b2383d203ba0bc3850d5f0bfbdf52ea7534798415cc4f9c17",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/adobe-q3-fy26.json",
+          "recipeDigest": "sha256:8c514a83141e7ca3e341f97aa6f66603e6d2337a5cf229eb6dd4b6cab3c616d7",
+          "source": "input/processing/adobe-q3-fy26.png",
+          "cropKey": "adobe-company-logo-q3-fy26"
+        }
+      ],
+      "directConsumers": [
+        "adobe-q3-fy26"
+      ],
+      "consumers": [
+        "adobe-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/adobe/creative-cloud-acrobat-q3-fy26.png",
+      "digest": "sha256:49c692b739dae43b5b66d20eb185de9335ff9633bc36b44d0d3b1549a839654e",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/adobe-q3-fy26.json",
+          "recipeDigest": "sha256:8c514a83141e7ca3e341f97aa6f66603e6d2337a5cf229eb6dd4b6cab3c616d7",
+          "source": "input/processing/adobe-q3-fy26.png",
+          "cropKey": "adobe-creative-cloud-acrobat-q3-fy26"
+        }
+      ],
+      "directConsumers": [
+        "adobe-q3-fy26"
+      ],
+      "consumers": [
+        "adobe-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/affirm/company-logo-affirm-q4-fy26.png",
       "digest": "sha256:08b2792c6829cc4fb4c9cada06b3172b60514face0b1ba99e890cf261b06c95e",
       "provenance": [
@@ -1951,11 +2011,13 @@
       ],
       "directConsumers": [
         "carnival-q1-fy26",
-        "carnival-q2-fy26"
+        "carnival-q2-fy26",
+        "carnival-q3-fy26"
       ],
       "consumers": [
         "carnival-q1-fy26",
-        "carnival-q2-fy26"
+        "carnival-q2-fy26",
+        "carnival-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -1973,11 +2035,13 @@
       ],
       "directConsumers": [
         "carnival-q1-fy26",
-        "carnival-q2-fy26"
+        "carnival-q2-fy26",
+        "carnival-q3-fy26"
       ],
       "consumers": [
         "carnival-q1-fy26",
-        "carnival-q2-fy26"
+        "carnival-q2-fy26",
+        "carnival-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -1995,11 +2059,13 @@
       ],
       "directConsumers": [
         "carnival-q1-fy26",
-        "carnival-q2-fy26"
+        "carnival-q2-fy26",
+        "carnival-q3-fy26"
       ],
       "consumers": [
         "carnival-q1-fy26",
-        "carnival-q2-fy26"
+        "carnival-q2-fy26",
+        "carnival-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -2193,11 +2259,33 @@
       ],
       "directConsumers": [
         "chewy-q1-fy26",
+        "chewy-q2-fy26",
         "chewy-q4-fy25"
       ],
       "consumers": [
         "chewy-q1-fy26",
+        "chewy-q2-fy26",
         "chewy-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/chewy/dog-box-q2-fy26.png",
+      "digest": "sha256:8073e5a839263ba0e44e122d63355b8b022db7755b6406a67cb9cd121626d2e9",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/chewy-q2-fy26.json",
+          "recipeDigest": "sha256:a50e3f57abfba2fc473b31e2439e9692c201e26951d1171f3e0ccfd4f75f4625",
+          "source": "input/processed/chewy-q2-fy26.png",
+          "cropKey": "chewy-dog-box-q2-fy26"
+        }
+      ],
+      "directConsumers": [
+        "chewy-q2-fy26"
+      ],
+      "consumers": [
+        "chewy-q2-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -2920,9 +3008,11 @@
       "digest": "sha256:a6ba7aa0bdd794d8df2c4dfcaf0773f6cc21f7f53c5bf3e369fdac10f695b348",
       "provenance": [],
       "directConsumers": [
+        "darden-q1-fy27",
         "darden-q3-fy26"
       ],
       "consumers": [
+        "darden-q1-fy27",
         "darden-q3-fy26"
       ],
       "acceptedVersions": [],
@@ -2946,10 +3036,12 @@
       "digest": "sha256:d35b0e10ba9511ae8ef73ffaa65c4ab95733f16754d5e5e5b162144eea9c38b2",
       "provenance": [],
       "directConsumers": [
+        "darden-q1-fy27",
         "darden-q3-fy26",
         "darden-q4-fy26"
       ],
       "consumers": [
+        "darden-q1-fy27",
         "darden-q3-fy26",
         "darden-q4-fy26"
       ],
@@ -2961,9 +3053,11 @@
       "digest": "sha256:50c6ef8e28bd6d68962ff5acb722a20f52ee57a71943d94d6244e99c32a9555b",
       "provenance": [],
       "directConsumers": [
+        "darden-q1-fy27",
         "darden-q3-fy26"
       ],
       "consumers": [
+        "darden-q1-fy27",
         "darden-q3-fy26"
       ],
       "acceptedVersions": [],
@@ -2987,10 +3081,12 @@
       "digest": "sha256:59134b1e4a62ec695e54f1b704ec622e97e3fbdccbc6ac39f22ea4aae4be7624",
       "provenance": [],
       "directConsumers": [
+        "darden-q1-fy27",
         "darden-q3-fy26",
         "darden-q4-fy26"
       ],
       "consumers": [
+        "darden-q1-fy27",
         "darden-q3-fy26",
         "darden-q4-fy26"
       ],
@@ -3002,10 +3098,12 @@
       "digest": "sha256:fbcbe9f81811db88ae8083c567ffbed75930cf4ce4df5ac6768af7320e46856c",
       "provenance": [],
       "directConsumers": [
+        "darden-q1-fy27",
         "darden-q3-fy26",
         "darden-q4-fy26"
       ],
       "consumers": [
+        "darden-q1-fy27",
         "darden-q3-fy26",
         "darden-q4-fy26"
       ],
@@ -3054,10 +3152,12 @@
       "provenance": [],
       "directConsumers": [
         "didi-q1-fy26",
+        "didi-q2-fy26",
         "didi-q4-fy25"
       ],
       "consumers": [
         "didi-q1-fy26",
+        "didi-q2-fy26",
         "didi-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -3069,10 +3169,12 @@
       "provenance": [],
       "directConsumers": [
         "didi-q1-fy26",
+        "didi-q2-fy26",
         "didi-q4-fy25"
       ],
       "consumers": [
         "didi-q1-fy26",
+        "didi-q2-fy26",
         "didi-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -3919,6 +4021,46 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/gamestop/australia-flag-q2-fy26.png",
+      "digest": "sha256:07ddb9330bcefc6b3b1ba3d4a25580ee8fda08612225d12e3270dc138b636860",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/gamestop-q2-fy26.json",
+          "recipeDigest": "sha256:a2a74b1d4f350a1959260af6f0744f87c55df075d217dae4c5ab98f1c46f9bfe",
+          "source": "input/processing/gamestop-q2-fy26.png",
+          "cropKey": "australia-flag"
+        }
+      ],
+      "directConsumers": [
+        "gamestop-q2-fy26"
+      ],
+      "consumers": [
+        "gamestop-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/gamestop/batman-q2-fy26.png",
+      "digest": "sha256:1743546b64ad3e2d2bad29c131b1bd59a85e2acf6486d9eb1499eca4c6b5c71b",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/gamestop-q2-fy26.json",
+          "recipeDigest": "sha256:a2a74b1d4f350a1959260af6f0744f87c55df075d217dae4c5ab98f1c46f9bfe",
+          "source": "input/processing/gamestop-q2-fy26.png",
+          "cropKey": "batman"
+        }
+      ],
+      "directConsumers": [
+        "gamestop-q2-fy26"
+      ],
+      "consumers": [
+        "gamestop-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/gamestop/collectibles-figure-q1-fy26.png",
       "digest": "sha256:5d357af40d5266de4b57aecc2cbdcd26ecaa39678d40d9c0c9a012f155ca2cd5",
       "provenance": [
@@ -3954,6 +4096,66 @@
       ],
       "consumers": [
         "gamestop-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/gamestop/consoles-q2-fy26.png",
+      "digest": "sha256:0837f2f7454ee8aea62243f6a7b7a6ac071ad53b7788dd68392f58002cf92487",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/gamestop-q2-fy26.json",
+          "recipeDigest": "sha256:a2a74b1d4f350a1959260af6f0744f87c55df075d217dae4c5ab98f1c46f9bfe",
+          "source": "input/processing/gamestop-q2-fy26.png",
+          "cropKey": "consoles"
+        }
+      ],
+      "directConsumers": [
+        "gamestop-q2-fy26"
+      ],
+      "consumers": [
+        "gamestop-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/gamestop/europe-flag-q2-fy26.png",
+      "digest": "sha256:04643be19c4cbcbbe7de68df60e8381c8a3786302cd263f98824a053d2fc7883",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/gamestop-q2-fy26.json",
+          "recipeDigest": "sha256:a2a74b1d4f350a1959260af6f0744f87c55df075d217dae4c5ab98f1c46f9bfe",
+          "source": "input/processing/gamestop-q2-fy26.png",
+          "cropKey": "europe-flag"
+        }
+      ],
+      "directConsumers": [
+        "gamestop-q2-fy26"
+      ],
+      "consumers": [
+        "gamestop-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/gamestop/games-q2-fy26.png",
+      "digest": "sha256:8856d94ef416a28e2af1694b3c369e7a70f94a91e54665cc48eeea0eae1594bb",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/gamestop-q2-fy26.json",
+          "recipeDigest": "sha256:a2a74b1d4f350a1959260af6f0744f87c55df075d217dae4c5ab98f1c46f9bfe",
+          "source": "input/processing/gamestop-q2-fy26.png",
+          "cropKey": "games"
+        }
+      ],
+      "directConsumers": [
+        "gamestop-q2-fy26"
+      ],
+      "consumers": [
+        "gamestop-q2-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -4034,6 +4236,46 @@
       ],
       "consumers": [
         "gamestop-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/gamestop/us-flag-q2-fy26.png",
+      "digest": "sha256:f077fe6d653177847727f536c674f421edcbf279b83899f1df0cd34e21ef7c08",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/gamestop-q2-fy26.json",
+          "recipeDigest": "sha256:a2a74b1d4f350a1959260af6f0744f87c55df075d217dae4c5ab98f1c46f9bfe",
+          "source": "input/processing/gamestop-q2-fy26.png",
+          "cropKey": "us-flag"
+        }
+      ],
+      "directConsumers": [
+        "gamestop-q2-fy26"
+      ],
+      "consumers": [
+        "gamestop-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/gamestop/wordmark-q2-fy26.png",
+      "digest": "sha256:a386a84f950845cce5b7060aa494d7751df8506e46199a4892e50ed1cbf94da2",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/gamestop-q2-fy26.json",
+          "recipeDigest": "sha256:a2a74b1d4f350a1959260af6f0744f87c55df075d217dae4c5ab98f1c46f9bfe",
+          "source": "input/processing/gamestop-q2-fy26.png",
+          "cropKey": "wordmark"
+        }
+      ],
+      "directConsumers": [
+        "gamestop-q2-fy26"
+      ],
+      "consumers": [
+        "gamestop-q2-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -4146,9 +4388,11 @@
         }
       ],
       "directConsumers": [
+        "general-mills-q1-fy27",
         "general-mills-q3-fy26"
       ],
       "consumers": [
+        "general-mills-q1-fy27",
         "general-mills-q3-fy26"
       ],
       "acceptedVersions": [],
@@ -4166,9 +4410,11 @@
         }
       ],
       "directConsumers": [
+        "general-mills-q1-fy27",
         "general-mills-q3-fy26"
       ],
       "consumers": [
+        "general-mills-q1-fy27",
         "general-mills-q3-fy26"
       ],
       "acceptedVersions": [],
@@ -4186,9 +4432,11 @@
         }
       ],
       "directConsumers": [
+        "general-mills-q1-fy27",
         "general-mills-q3-fy26"
       ],
       "consumers": [
+        "general-mills-q1-fy27",
         "general-mills-q3-fy26"
       ],
       "acceptedVersions": [],
@@ -4206,9 +4454,11 @@
         }
       ],
       "directConsumers": [
+        "general-mills-q1-fy27",
         "general-mills-q3-fy26"
       ],
       "consumers": [
+        "general-mills-q1-fy27",
         "general-mills-q3-fy26"
       ],
       "acceptedVersions": [],
@@ -4226,9 +4476,11 @@
         }
       ],
       "directConsumers": [
+        "general-mills-q1-fy27",
         "general-mills-q3-fy26"
       ],
       "consumers": [
+        "general-mills-q1-fy27",
         "general-mills-q3-fy26"
       ],
       "acceptedVersions": [],
@@ -5649,11 +5901,13 @@
       "provenance": [],
       "directConsumers": [
         "lululemon-fy25",
-        "lululemon-q1-fy26"
+        "lululemon-q1-fy26",
+        "lululemon-q2-fy26"
       ],
       "consumers": [
         "lululemon-fy25",
-        "lululemon-q1-fy26"
+        "lululemon-q1-fy26",
+        "lululemon-q2-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -5664,11 +5918,13 @@
       "provenance": [],
       "directConsumers": [
         "lululemon-fy25",
-        "lululemon-q1-fy26"
+        "lululemon-q1-fy26",
+        "lululemon-q2-fy26"
       ],
       "consumers": [
         "lululemon-fy25",
-        "lululemon-q1-fy26"
+        "lululemon-q1-fy26",
+        "lululemon-q2-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -5990,10 +6246,12 @@
       "provenance": [],
       "directConsumers": [
         "meituan-q1-fy26",
+        "meituan-q2-fy26",
         "meituan-q4-fy25"
       ],
       "consumers": [
         "meituan-q1-fy26",
+        "meituan-q2-fy26",
         "meituan-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -7387,6 +7645,32 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/nio/company-logo-source.png",
+      "digest": "sha256:b2fb712884452f0a75581d8e77f39d3d0fb2dff765e359bf6b9439611bad132f",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/nio-company-logo.json",
+          "recipeDigest": "sha256:6f565ba9624a1ab4fadd2daa3f1184f88b57ac07ce4d321b776861cdb6728e6f",
+          "source": "input/processing/nio-q2-fy26.png",
+          "cropKey": "nio-company-logo-source"
+        }
+      ],
+      "directConsumers": [
+        "nio-q1-fy26",
+        "nio-q2-fy26",
+        "nio-q3-fy25",
+        "nio-q4-fy25"
+      ],
+      "consumers": [
+        "nio-q1-fy26",
+        "nio-q2-fy26",
+        "nio-q3-fy25",
+        "nio-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/nio/vehicle-sales-cars.png",
       "digest": "sha256:e186158e9d8b10469218cc00741609e406161b437977aa96798266f05fdbf163",
       "provenance": [
@@ -7399,11 +7683,13 @@
       ],
       "directConsumers": [
         "nio-q1-fy26",
+        "nio-q2-fy26",
         "nio-q3-fy25",
         "nio-q4-fy25"
       ],
       "consumers": [
         "nio-q1-fy26",
+        "nio-q2-fy26",
         "nio-q3-fy25",
         "nio-q4-fy25"
       ],
@@ -10388,6 +10674,19 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/samsara/company-wordmark-q2-fy27.png",
+      "digest": "sha256:54f379c77f1246ef45e073faa4d1f50120b87fc378708e69d1bf2d4eefc2cacf",
+      "provenance": [],
+      "directConsumers": [
+        "samsara-q2-fy27"
+      ],
+      "consumers": [
+        "samsara-q2-fy27"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/sandisk/company-wordmark.png",
       "digest": "sha256:fe955e3ddde8f23262c95cb8f95baad5b5aa29edf54d86d8ee3198da4dc983a1",
       "provenance": [
@@ -11692,10 +11991,12 @@
         }
       ],
       "directConsumers": [
+        "vail-resorts-fy26",
         "vail-resorts-q2-fy26",
         "vail-resorts-q3-fy26"
       ],
       "consumers": [
+        "vail-resorts-fy26",
         "vail-resorts-q2-fy26",
         "vail-resorts-q3-fy26"
       ],
@@ -11714,10 +12015,12 @@
         }
       ],
       "directConsumers": [
+        "vail-resorts-fy26",
         "vail-resorts-q2-fy26",
         "vail-resorts-q3-fy26"
       ],
       "consumers": [
+        "vail-resorts-fy26",
         "vail-resorts-q2-fy26",
         "vail-resorts-q3-fy26"
       ],
@@ -11736,10 +12039,12 @@
         }
       ],
       "directConsumers": [
+        "vail-resorts-fy26",
         "vail-resorts-q2-fy26",
         "vail-resorts-q3-fy26"
       ],
       "consumers": [
+        "vail-resorts-fy26",
         "vail-resorts-q2-fy26",
         "vail-resorts-q3-fy26"
       ],
@@ -11758,10 +12063,12 @@
         }
       ],
       "directConsumers": [
+        "vail-resorts-fy26",
         "vail-resorts-q2-fy26",
         "vail-resorts-q3-fy26"
       ],
       "consumers": [
+        "vail-resorts-fy26",
         "vail-resorts-q2-fy26",
         "vail-resorts-q3-fy26"
       ],
@@ -11780,10 +12087,12 @@
         }
       ],
       "directConsumers": [
+        "vail-resorts-fy26",
         "vail-resorts-q2-fy26",
         "vail-resorts-q3-fy26"
       ],
       "consumers": [
+        "vail-resorts-fy26",
         "vail-resorts-q2-fy26",
         "vail-resorts-q3-fy26"
       ],
@@ -12009,6 +12318,26 @@
         "warner-bros-q1-fy26",
         "warner-bros-q3-fy25",
         "warner-bros-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/wealthfront/company-logo.png",
+      "digest": "sha256:5ce55e5bc6ed401f312d3409bc6af1f94ade3b1ec35735f7feb6535ba59ed640",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/wealthfront-q2-fy27.json",
+          "recipeDigest": "sha256:313f4b7a114768bbf8686d1c6a82cb14fbfe3919a598e8317df064849fbcd6ff",
+          "source": "input/processing/wealthfront-q2-fy27.png",
+          "cropKey": "wealthfront-logo"
+        }
+      ],
+      "directConsumers": [
+        "wealthfront-q2-fy27"
+      ],
+      "consumers": [
+        "wealthfront-q2-fy27"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -12344,6 +12673,11 @@
       "source": "input/processed/adobe-q2-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/adobe-q3-fy26.json",
+      "digest": "sha256:8c514a83141e7ca3e341f97aa6f66603e6d2337a5cf229eb6dd4b6cab3c616d7",
+      "source": "input/processing/adobe-q3-fy26.png"
+    },
+    {
       "path": "input/icon-crop-specs/affirm-q2-fy26.json",
       "digest": "sha256:2a2412a34795c3fca50712ec7be1e5daa3c0958ad32c6568afa2359e66bd9636",
       "source": "input/processed/affirm-q2-fy26.png"
@@ -12599,6 +12933,11 @@
       "source": "input/processed/chewy-q1-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/chewy-q2-fy26.json",
+      "digest": "sha256:a50e3f57abfba2fc473b31e2439e9692c201e26951d1171f3e0ccfd4f75f4625",
+      "source": "input/processed/chewy-q2-fy26.png"
+    },
+    {
       "path": "input/icon-crop-specs/chime-q1-fy26.json",
       "digest": "sha256:6173c8dd3769fb673daabd46a632a8b7dbf48539b9529f233c4b2be5ea00b2b9",
       "source": "input/processed/chime-q1-fy26.png"
@@ -12812,6 +13151,11 @@
       "path": "input/icon-crop-specs/gamestop-q1-fy26.json",
       "digest": "sha256:9e0b5e295abb6ec8b36bea130d4f0c0e4b1e4cef2e8d78ea27024da4a35d358a",
       "source": "input/processed/gamestop-q1-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/gamestop-q2-fy26.json",
+      "digest": "sha256:a2a74b1d4f350a1959260af6f0744f87c55df075d217dae4c5ab98f1c46f9bfe",
+      "source": "input/processing/gamestop-q2-fy26.png"
     },
     {
       "path": "input/icon-crop-specs/gamestop-q4-fy25.json",
@@ -13152,6 +13496,11 @@
       "path": "input/icon-crop-specs/nintendo-fy26.json",
       "digest": "sha256:759500e992896a19e6b5f105b1aa9f1cbcf39543e4d30a04c2dd4bf3f7010066",
       "source": "input/processed/nintendo-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/nio-company-logo.json",
+      "digest": "sha256:6f565ba9624a1ab4fadd2daa3f1184f88b57ac07ce4d321b776861cdb6728e6f",
+      "source": "input/processing/nio-q2-fy26.png"
     },
     {
       "path": "input/icon-crop-specs/nio-q1-fy26.json",
@@ -13592,6 +13941,11 @@
       "path": "input/icon-crop-specs/warner-bros-q2-fy26.json",
       "digest": "sha256:6c3a42f9c2a77c3fee88db5004d54b2bccbd4731318e90332b8bff78a5195fce",
       "source": "input/processing/warner-bros-q2-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/wealthfront-q2-fy27.json",
+      "digest": "sha256:313f4b7a114768bbf8686d1c6a82cb14fbfe3919a598e8317df064849fbcd6ff",
+      "source": "input/processing/wealthfront-q2-fy27.png"
     },
     {
       "path": "input/icon-crop-specs/workday-q1-fy27.json",

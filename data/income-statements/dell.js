@@ -1129,3 +1129,316 @@
     }
   );
 })(window);
+
+(function(g){g.INCOME_STATEMENT_SSOT.records.push({
+  "key": "dell-q2-fy27",
+  "company": "Dell",
+  "period": "Q2 FY27",
+  "periodNote": "Ending July 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/dell-q2-fy27.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 47,
+    "notes": [
+      "+58% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "isg",
+        "label": "ISG (Infrastructure)",
+        "value": 31.8,
+        "notes": [
+          "+89% Y/Y"
+        ],
+        "children": [
+          {
+            "id": "server_networking",
+            "label": "Server & Networking",
+            "value": 16.4,
+            "notes": [
+              "+100% Y/Y"
+            ]
+          },
+          {
+            "id": "traditional_servers_networking",
+            "label": "Traditional Servers & Networking",
+            "value": 10.5,
+            "notes": [
+              "+122% Y/Y"
+            ]
+          },
+          {
+            "id": "storage",
+            "label": "Storage",
+            "value": 4.9,
+            "notes": [
+              "+26% Y/Y"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "csg",
+        "label": "CSG (Client)",
+        "value": 15,
+        "notes": [
+          "+20% Y/Y"
+        ],
+        "children": [
+          {
+            "id": "commercial",
+            "label": "Commercial",
+            "value": 13.2,
+            "notes": [
+              "+22% Y/Y"
+            ]
+          },
+          {
+            "id": "consumer",
+            "label": "Consumer",
+            "value": 1.8,
+            "notes": [
+              "+7% Y/Y"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "other_revenue",
+        "label": "Other",
+        "value": 0.2,
+        "notes": [
+          "(67%) Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 37.1
+    },
+    "operatingExpenses": {
+      "total": 4.4,
+      "items": [
+        {
+          "id": "sga",
+          "label": "SG&A",
+          "value": 3.3,
+          "notes": [
+            "7% of revenue",
+            "(3pp) Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 1.1,
+          "notes": [
+            "2% of revenue",
+            "(0pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 1
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0.3,
+    "items": [
+      {
+        "id": "other_expense",
+        "label": "Other",
+        "value": 0.3
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 9.8,
+      "notes": [
+        "21% margin",
+        "+3pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 5.4,
+      "notes": [
+        "11% margin",
+        "+6pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 4.1,
+      "notes": [
+        "9% margin",
+        "+5pp Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2027 财年第二季度",
+      "periodNote": "截至 2026 年 7 月",
+      "revenue": {
+        "notes": [
+          "同比 +58%"
+        ],
+        "items": [
+          {
+            "id": "isg",
+            "label": "ISG（基础设施）",
+            "notes": [
+              "同比 +89%"
+            ],
+            "children": [
+              {
+                "id": "server_networking",
+                "label": [
+                  "服务器与",
+                  "网络"
+                ],
+                "notes": [
+                  "同比 +100%"
+                ]
+              },
+              {
+                "id": "traditional_servers_networking",
+                "label": [
+                  "传统服务器",
+                  "与网络"
+                ],
+                "notes": [
+                  "同比 +122%"
+                ]
+              },
+              {
+                "id": "storage",
+                "label": "存储",
+                "notes": [
+                  "同比 +26%"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "csg",
+            "label": "CSG（客户端）",
+            "notes": [
+              "同比 +20%"
+            ],
+            "children": [
+              {
+                "id": "commercial",
+                "label": "商业",
+                "notes": [
+                  "同比 +22%"
+                ]
+              },
+              {
+                "id": "consumer",
+                "label": "消费者",
+                "notes": [
+                  "同比 +7%"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "other_revenue",
+            "label": "其他",
+            "notes": []
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "id": "cost_of_revenue",
+          "label": [
+            "收入",
+            "成本"
+          ]
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sga",
+              "label": "SG&A（销售及行政）",
+              "notes": [
+                "占收入 7%",
+                "同比 (3 个百分点)"
+              ]
+            },
+            {
+              "id": "rnd",
+              "label": "R&D（研发）",
+              "notes": [
+                "占收入 2%",
+                "同比 (0 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "id": "tax",
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": []
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other_expense",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "id": "gross_profit",
+          "label": "毛利润",
+          "notes": [
+            "利润率 21%",
+            "同比 +3 个百分点"
+          ]
+        },
+        "operating": {
+          "id": "operating_profit",
+          "label": "营业利润",
+          "notes": [
+            "利润率 11%",
+            "同比 +6 个百分点"
+          ]
+        },
+        "net": {
+          "id": "net_profit",
+          "label": "净利润",
+          "notes": [
+            "利润率 9%",
+            "同比 +5 个百分点"
+          ]
+        }
+      }
+    }
+  }
+});})(window);
