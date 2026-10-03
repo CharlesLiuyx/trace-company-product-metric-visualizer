@@ -57,20 +57,22 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
   base/head 两个提交。
 - **抓不到什么**：它本身不判断代码对错，只提供后续检查需要的输入。
 
-### 2. Plan checks from ChangeImpact (`pnpm plan:ci`)
+### 2. Install JavaScript dependencies
+
+- **白话作用**：严格按 lockfile 安装运行检查需要的包，包括增量规划使用的静态解析器。
+- **原理**：`pnpm install --frozen-lockfile`；lockfile 与 `package.json` 不一致会失败。
+- **避免误报**：pnpm store 由 `actions/setup-node` 缓存，但 `node_modules` 每次从锁定依赖重建。
+
+### 3. Plan checks from ChangeImpact (`pnpm plan:ci`)
 
 - **白话作用**：回答“这次改动真正可能影响哪些表面”。
 - **原理**：读取 `git diff --name-status`，把文件映射成 pending、数据、单个 Adapter、
-  viewer、共享 renderer、构建工具等影响；Income Statement SSOT 会提取其记录 key。
+  viewer、共享 renderer、构建工具等影响；Income Statement SSOT 静态解析 base/head 的
+  完整记录，按 key 比较，只渲染新增、修改或删除记录关联的 Adapter。
 - **通过条件**：能够给出确定计划；缺 SHA、diff 失败或遇到未知可执行代码时自动全量。
 - **不会做的事**：不会把某个真实失败改成通过；它只选择检查集合。
-- **防漏规则**：未知 `scripts/`、`src/`、`vendor/` 改动一律全量，不能静默跳过。
-
-### 3. Install JavaScript dependencies
-
-- **白话作用**：严格按 lockfile 安装运行检查需要的包。
-- **原理**：`pnpm install --frozen-lockfile`；lockfile 与 `package.json` 不一致会失败。
-- **避免误报**：pnpm store 由 `actions/setup-node` 缓存，但 `node_modules` 每次从锁定依赖重建。
+- **防漏规则**：未知 `scripts/`、`src/`、`vendor/` 改动一律全量；财务记录解析失败、
+  重复 key 或缺失任一版本时保留原整家公司覆盖。站点及 standalone 的既有检查仍执行。
 
 ### 4. Fast deterministic checks (`pnpm check`)
 
@@ -98,8 +100,9 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
 
 - **白话作用**：只有后续确实需要浏览器时才安装 Chromium。
 - **原理**：`playwright install --with-deps chromium` 同时校准浏览器版本和 Linux 系统库。
-- **为什么不盲目缓存浏览器目录**：缓存浏览器但漏掉系统库可能在 runner 镜像升级后产生
-  难解释的启动错误；当前最稳妥的提速是对 pending-only、文档和纯数据 PR 完全跳过安装。
+- **下载缓存**：按 runner OS、架构及 lockfile 缓存 `~/.cache/ms-playwright`，只有成功的
+  main 检查保存缓存。缓存命中仍执行 `--with-deps`，校准系统库并补齐缺失浏览器；
+  pending-only、文档和纯数据 PR 继续完全跳过安装。
 
 ### 6. Verify viewer interactions (`pnpm verify:app`)
 
@@ -211,7 +214,7 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
 | 文档 / 测试 | 必跑 | 通常不装 | 不跑 | 不跑 | 不跑 | 不跑 |
 | Revenue Metric / company metadata | 必跑 | PR 不装 | 不跑 | 不跑 | 构建；main 部署前浏览器验证 | 不跑 |
 | 单个或多个 Dataset Adapter | 必跑 | 安装 | 只跑受影响 key | 不跑 | 构建；main 部署前浏览器验证 | 构建 + 浏览器验证 |
-| Income Statement SSOT | 必跑 | 有对应 key 时安装 | 对应记录 key | 不跑 | 构建；main 部署前浏览器验证 | 对应 Adapter 存在时验证 |
+| Income Statement SSOT | 必跑 | 有对应 key 时安装 | 仅变化记录 key；解析失败整家公司 | 不跑 | 构建；main 部署前浏览器验证 | 对应 Adapter 存在时验证 |
 | `src/app/*` / app CSS / Chart.js | 必跑 | 安装 | 不重复跑全目录 | 跑 | 跑 | 跑 |
 | engine / i18n / icons / d3 / 未识别 render asset | 必跑 | 安装 | 全目录 | 跑 | 跑 | 跑 |
 | `verify-app.mjs` / `verify-workbench.mjs` | 必跑 | 安装 | 不跑 | 跑 | 不重建 | 不跑 |
