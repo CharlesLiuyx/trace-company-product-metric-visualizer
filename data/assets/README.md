@@ -77,3 +77,7 @@ icons should reuse the existing reference and the derived runtime asset
 (vector icon or approved raster annotation) instead of creating near-duplicate
 icon references. Add a new company directory only when no existing company-level
 reference applies.
+
+Runtime `rasterAnnotations` may declare `clearance: true` to enable A6
+label/title/period clearance for an unpaired logo. Paired raster annotations
+already enable this check automatically.

@@ -192,3 +192,20 @@ test('paired annotation audit can target a side label instead of the node face',
   assert.equal(result.annotationPairingAudit.measurements[0].centerDeltaY, 0);
   assert.deepEqual(result.annotationPairingAudit.violations, []);
 });
+
+test('SpaceX wordmark clearance rejects overlap and accepts proportional centered shrink', () => {
+  const label = item('label:gross_profit', 'Gross profit', 1260, 365, 272, 54);
+  const logo = item('annotation-graphic:company-wordmark', '[graphic annotation]',
+    817.810546875, 285.19189453125, 500.0625, 194.03466796875);
+  const audit = (graphic) => classifyTextAndAnnotationLayout({
+    width: 2667, height: 1500, texts: [label], annotations: [],
+    annotationGraphics: [graphic], protectedTexts: [label],
+  });
+  assert.throws(() => assertRenderAudits(audit(logo)), /A6=overlap/);
+  const scale = 0.75;
+  const cleared = item(logo.identity, logo.text,
+    logo.bbox.x + logo.bbox.width * (1 - scale) / 2,
+    logo.bbox.y + logo.bbox.height * (1 - scale) / 2,
+    logo.bbox.width * scale, logo.bbox.height * scale);
+  assert.doesNotThrow(() => assertRenderAudits(audit(cleared)));
+});

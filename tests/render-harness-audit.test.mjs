@@ -540,3 +540,22 @@ test('A10 derives its expectations from interactive annotation groups in the DOM
     'unbound text naming a node without an interactive group is not an A10 violation'
   );
 });
+
+ test('A10 rejects overlapping repeated metric text across annotation and label layers', () => {
+  const annotation = { nodeId: 'operating_profit', metricExists: true, textCount: 4, hasHitbox: true };
+  const failing = classifySemanticAnnotationAudit({
+    annotations: [annotation],
+    duplicateMetricTexts: [{ nodeId: 'operating_profit', text: 'Operating profit' }, { nodeId: 'operating_profit', text: '$19M' }],
+  });
+  assert.deepEqual(failing.violations.map((item) => item.code), ['duplicate-metric-text', 'duplicate-metric-text']);
+  assert.deepEqual(classifySemanticAnnotationAudit({ annotations: [annotation], duplicateMetricTexts: [] }).violations, []);
+});
+
+test('B15 requires the Lenovo operating profit horizontal face even with a shortNodes declaration', () => {
+  const expected = { visible: ['operating_profit'], short: ['operating_profit'], complete: true };
+  assert.throws(() => assertNodePaintAudit(classify([]), expected), (error) => error.code === 'NODE_FACE_POLICY_FAILED');
+  const geometry = { bbox: { x: 1891, y: 518, width: 72, height: 1 } };
+  assert.throws(() => assertNodePaintAudit(classify([node('operating_profit', { ...geometry, fill: 'none' })]), expected),
+    (error) => error.code === 'NODE_FACE_POLICY_FAILED');
+  assert.doesNotThrow(() => assertNodePaintAudit(classify([node('operating_profit', { ...geometry, fill: '#249e28' })]), expected));
+});
