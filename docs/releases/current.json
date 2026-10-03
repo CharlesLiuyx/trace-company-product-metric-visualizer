@@ -1,448 +1,176 @@
 {
   "schema": "reviewed-git-release/v1",
-  "id": "transport-5d78b2cc-8da5-4dff-aef9-47b8bb29c125",
-  "baseHead": "be7931a7ec9d1969584c664bec7030de06c31147",
-  "planDigest": "sha256:76a9908a76269f1a8ddb6bb27859d655efea840b02b75ef71ff49e34bd1b54db",
-  "publishedDigest": "sha256:1855e760c17a13fbc54db9b3416547a4a763f975d8ed9f23fede5ada5728ed15",
+  "id": "transport-f00fb7a4-f7cb-435d-93cb-f5e2c615ba99",
+  "baseHead": "b6984e44747b7a6e693af2d413cef07f1d0339df",
+  "planDigest": "sha256:aa6142cb513111e5bb7b2eeb77022ff370e04006af9422e30e4210a69d4d08cb",
+  "publishedDigest": "sha256:171baa855011465498797fd45ecf7181ed8f1610d54480b731794d00fbd404d7",
   "builds": [
     {
-      "buildId": "build-528c0a08-5388-4cf7-a619-ebf3ad9d183e",
-      "key": "fox-q4-fy26",
-      "sealDigest": "sha256:23d24ec9be256fc01bfad19788be12a95032080e5d182f5bf4f8d3029aba2887"
+      "buildId": "build-b09bafce-c8bb-4cc0-ac07-6bcb30d332c4",
+      "key": "best-buy-q2-fy27",
+      "sealDigest": "sha256:936dfffc73fa51ad463da82e146b0a7427c5c05c89ab133cf3fe49f9214be13f"
     },
     {
-      "buildId": "build-7fd34657-8c44-41aa-a8c1-20bbca6f983a",
-      "key": "alibaba-q1-fy27",
-      "sealDigest": "sha256:f42f988cbe5c41e098b72d8086911c98c3c88e77b29fa15ef671ea09379afe48"
+      "buildId": "build-5d150e0b-43b4-4603-a2c0-c86f88973872",
+      "key": "home-depot-q2-fy26",
+      "sealDigest": "sha256:c75f41364cdaf51c020f9b9aefc493d81acee613fcddc0c9a64fe956d9d9625c"
     },
     {
-      "buildId": "build-ca23d3d5-6f19-46b9-801a-eaba782ed852",
-      "key": "disney-q3-fy26-by-segment",
-      "sealDigest": "sha256:d9d9705734081967a171961a76e85336c6bd9ff0935c928aa9f03cd4ad940bc5"
+      "buildId": "build-ef9544f4-8cd4-4f30-a94f-9be36d57662e",
+      "key": "instacart-q2-fy26",
+      "sealDigest": "sha256:fe577c25afa1220767e91f2f89a1d0e3d034f448db32c519d7a4c16a827b6de8"
     },
     {
-      "buildId": "build-6e5dac72-6b1b-4897-a8aa-8f6aa8898305",
-      "key": "duolingo-q2-fy26",
-      "sealDigest": "sha256:6e67331bac2908e4cfd048413955a5e8ec33a99cafc98cb0cdb6e6e66972449e"
+      "buildId": "build-4c9d382b-2d15-48b8-9eb2-b2d4e9b3bb20",
+      "key": "lowes-q2-fy26",
+      "sealDigest": "sha256:2a1c3728ee496773a87846c4ac0911ac8745f548d71397827a960d2534e53217"
     },
     {
-      "buildId": "build-1ab219b1-e9d0-4c47-b485-1aad556ad00b",
-      "key": "jd-com-q2-fy26",
-      "sealDigest": "sha256:1f632258fae1c57a1ad908a978f1efec47ba9ab75e58fa5fc8faff53ef77feb6"
+      "buildId": "build-cb0471a9-08cb-415e-a1db-af0ed3e5cb2f",
+      "key": "target-q2-fy27",
+      "sealDigest": "sha256:c7e619be82a6fdb767d9ad7fc73c4cbf76cb2d4f8faf3e2da31ab604cb1c0a2e"
     },
     {
-      "buildId": "build-4e28356c-dace-4196-82d3-b1294b6f6af2",
-      "key": "match-group-q2-fy26",
-      "sealDigest": "sha256:108e3ccddff95927012696954f8e046cf0a8cb9ffa7229154968224a04a79b97"
-    },
-    {
-      "buildId": "build-8367e167-3ecd-42c3-9155-70c39b447ae7",
-      "key": "netease-q2-fy26",
-      "sealDigest": "sha256:0abbf9485253f89820cdf0969c84a85ae9c16557a1675b6f9367066ef67c0f9b"
-    },
-    {
-      "buildId": "build-21ee3139-ebe8-42a8-9861-3054ad91d1e6",
-      "key": "nintendo-q1-fy27",
-      "sealDigest": "sha256:633d86fe8e287c6794030743f4ab054e20f8c473afdaa603af6e75f9cb730b50"
-    },
-    {
-      "buildId": "build-58589a58-5a28-4e7a-ae47-bf314d62fca8",
-      "key": "pdd-holdings-q2-fy26",
-      "sealDigest": "sha256:670ff480fd4147afa223f8cc5b0fbbaa1ea8168ac8c45c5989379038ae809f15"
-    },
-    {
-      "buildId": "build-2773b81d-e040-479d-8e07-6c1c339442f1",
-      "key": "pinterest-q2-fy26",
-      "sealDigest": "sha256:7c7e9c3bb79aff2c92e360f9f7cd2bb8bb7fec5e6c208df3f2267e5890b60bc3"
-    },
-    {
-      "buildId": "build-1194e1e5-fd87-459f-b8fc-a28010e30788",
-      "key": "snap-q2-fy26",
-      "sealDigest": "sha256:5452de97db7e9e04678d193ccadf3d2d0e9a39411534babcdb957afc54285b23"
-    },
-    {
-      "buildId": "build-473145fc-a341-44a7-a89d-2b541bcc1ebf",
-      "key": "sony-q1-fy26",
-      "sealDigest": "sha256:30c36b3e6018e0abf5612e504a77f6439d7a7e9a347e584120e736e81acf8cfd"
-    },
-    {
-      "buildId": "build-48df6035-4d82-4ad4-8c63-c74f668345fc",
-      "key": "spotify-q2-fy26",
-      "sealDigest": "sha256:efb5df614926486a62de93d93090386cb0f8a0ff7713e64e90be50ec6c41639c"
-    },
-    {
-      "buildId": "build-feb97dca-a468-440e-883a-4ec9ef7c6846",
-      "key": "take-two-q1-fy27",
-      "sealDigest": "sha256:6deeeb50c9d5ef25f639c94f2ba11c6daa6a7c81d43305bc5e34baf6de213f5d"
-    },
-    {
-      "buildId": "build-214c0684-f34e-4d49-bcc2-9886030cd933",
-      "key": "tencent-q2-fy26",
-      "sealDigest": "sha256:221ac5ee0200282fff6f97405f5fe43c2438b7f8f267d80d62ed4b5166d727d2"
+      "buildId": "build-d4b6574f-ab09-4599-bb31-7005cd940a68",
+      "key": "walmart-q2-fy27",
+      "sealDigest": "sha256:428e0f28d29bbc1e96bea6e575ff6fa2307818203054edd70d340aee4f6daaa2"
     }
   ],
-  "candidateDigest": "sha256:a23d9553825a418c4b43070a29147f89cda0308c922775e02873cfa987590476",
+  "candidateDigest": "sha256:64f5b57ea0e273ef5d27ece2738c0d21100e6f12cbc527e0ede3c6ce287a09d0",
   "paths": [
     {
       "path": "data/assets/catalog.json",
-      "digest": "sha256:c8202578afe8753f8e4a5414590542273ca7585a636015762cc30c76f5ae6fd0",
-      "before": "sha256:a5b6fe5115a314aacc0c81f2ac13aef23151d5aab9af92c3c1758e2e5c3d8b6c"
-    },
-    {
-      "path": "data/assets/icon-references/alibaba-q1-fy27/crop-report.json",
-      "digest": "sha256:b9448b607de7a71733304614bcd60771d52392afe43be0db2f959dd95ff92345",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/alibaba-q1-fy27/crops/ai-apps-brands.png",
-      "digest": "sha256:89821f4a468e65fadf578e05bc39289b3249252b4f9bb759d7e68ed2a1a56c58",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/alibaba-q1-fy27/crops/amap-logo.png",
-      "digest": "sha256:fc12bc9d5e9e3d40eb3e716f8bd3b478009f703c985c82c6d995cc81bfe6b502",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/alibaba-q1-fy27/crops/china-brands.png",
-      "digest": "sha256:cd317795bd006b782c55c13c3e9598f1827070210bbd17435be2cc625601cbb4",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/alibaba-q1-fy27/crops/cloud-logo.png",
-      "digest": "sha256:d9d049a29049bb08154d7e80faccb0b2d07f438e2a4117daf0b3529944673162",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/alibaba-q1-fy27/crops/company-logo.png",
-      "digest": "sha256:fac9401d6d16de208cca81ad5e38756e59497e64a5d4647f3679a858e0211014",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/alibaba-q1-fy27/crops/international-brands.png",
-      "digest": "sha256:105296d6347dd425e4a412ffce20bc6f09a8e7d74b28c32430ed245fb979cb70",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/alibaba-q1-fy27/model-validation.md",
-      "digest": "sha256:9ad453b38b67df8bef9cebd6e3afd9038210265e664208d4e693545cfec85c4a",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/alibaba-q1-fy27/validation-sheets/ai-apps-brands.png",
-      "digest": "sha256:210ba67b0fa9fd0d3d974404fb23388e7cd61c9faa9165e4a723efb766315e03",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/alibaba-q1-fy27/validation-sheets/amap-logo.png",
-      "digest": "sha256:08990aee9d09233dcd1589565f99ddda2951bb3c3db184048864ca3983bf5c32",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/alibaba-q1-fy27/validation-sheets/china-brands.png",
-      "digest": "sha256:f366ff70e5e166445145af46ea38ff2d8bfb0f05bbf5e79d9df1e6eed1312404",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/alibaba-q1-fy27/validation-sheets/cloud-logo.png",
-      "digest": "sha256:d7f1bae88d58e1a39ad9374caffedf4ff5e18a13d8f912ee056431e991b26ab5",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/alibaba-q1-fy27/validation-sheets/company-logo.png",
-      "digest": "sha256:9efcd34ea855991f8880788cdc7c165978e6e3a6e9f6eb4dc488f25f915383d7",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/alibaba-q1-fy27/validation-sheets/international-brands.png",
-      "digest": "sha256:14ee2df24c2f09dc8a94690c04751eeadd375e5a1a49d136a767bbc3711cad12",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/alibaba-q1-fy27/ai-apps-brands.png",
-      "digest": "sha256:89821f4a468e65fadf578e05bc39289b3249252b4f9bb759d7e68ed2a1a56c58",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/alibaba-q1-fy27/amap-logo.png",
-      "digest": "sha256:fc12bc9d5e9e3d40eb3e716f8bd3b478009f703c985c82c6d995cc81bfe6b502",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/alibaba-q1-fy27/china-brands.png",
-      "digest": "sha256:cd317795bd006b782c55c13c3e9598f1827070210bbd17435be2cc625601cbb4",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/alibaba-q1-fy27/cloud-logo.png",
-      "digest": "sha256:d9d049a29049bb08154d7e80faccb0b2d07f438e2a4117daf0b3529944673162",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/alibaba-q1-fy27/company-logo.png",
-      "digest": "sha256:fac9401d6d16de208cca81ad5e38756e59497e64a5d4647f3679a858e0211014",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/alibaba-q1-fy27/international-brands.png",
-      "digest": "sha256:105296d6347dd425e4a412ffce20bc6f09a8e7d74b28c32430ed245fb979cb70",
-      "before": null
+      "digest": "sha256:9ed8c86727aacfd332f47a00020c7a8cdcbabfa7d6a2023d5e2e0e9b125687c6",
+      "before": "sha256:9bd72417e5923e92c6b1dce492256842088c99843da81e186c940f79ed3ae051"
     },
     {
       "path": "data/dataset-file-metadata.js",
-      "digest": "sha256:51472f4f6bdbe73dbc3d2e6158b667b69591fc61788decbf2e2c8e053842c029",
-      "before": "sha256:f8064ebd831e6bbdba892f45a57a12e1690aa4d64dc6e594ee956584f83e5a81"
+      "digest": "sha256:19f92e5e3814071716a23ab9532e2d72288268555ca3ede18d3932f21e05c3b3",
+      "before": "sha256:9391068fadab0d47221b1e0bd1a7b4edc2cb178e40b0996dfab34cabee0931ad"
     },
     {
       "path": "data/dataset-manifest.js",
-      "digest": "sha256:7c27621c5aec99ec2af015dd93b6d2b29ecbf2c2a0f78c4744847bb4c02bbe8e",
-      "before": "sha256:e83975e163d5752a7834252f10c3e555bc1e787580f440ae2220f742a72d98f1"
+      "digest": "sha256:3b6250e045e5998ba69ca1b31f49c895c2dec37013c45e15b1224d1afcfe56c6",
+      "before": "sha256:7c27621c5aec99ec2af015dd93b6d2b29ecbf2c2a0f78c4744847bb4c02bbe8e"
     },
     {
-      "path": "data/datasets/alibaba-q1-fy27.js",
-      "digest": "sha256:2fec136cf4c0fb6f338090d80c133789dd5f4859fc3fae545d33437d87c97f89",
+      "path": "data/datasets/best-buy-q2-fy27.js",
+      "digest": "sha256:c696d552ffeadb7d50f1d00bd4c0506c7592fe8e4584542a31fd4d67b31b395e",
       "before": null
     },
     {
-      "path": "data/datasets/disney-q3-fy26-by-segment.js",
-      "digest": "sha256:649400c6ce09490363f9df1327d90af47e4f4351ce22ef5443990412d29f63a7",
+      "path": "data/datasets/home-depot-q2-fy26.js",
+      "digest": "sha256:3893e55fd85ac623bd8bb06c44fd1de39ce40c63e75d9daf81ac177a3098724a",
       "before": null
     },
     {
-      "path": "data/datasets/duolingo-q2-fy26.js",
-      "digest": "sha256:f2f96e5d6b71e9a14735486af7b8ff220e24725ff2a17d66050c12c0741053da",
+      "path": "data/datasets/instacart-q2-fy26.js",
+      "digest": "sha256:c7991903f7242a2d06a9ee780dfc418ef28d672a8bbbd8150fcfcb08aa32301d",
       "before": null
     },
     {
-      "path": "data/datasets/jd-com-q2-fy26.js",
-      "digest": "sha256:8138821cd72c3f0f553aae6a10455f74b15a3244742053116517e93ac26433a9",
+      "path": "data/datasets/lowes-q2-fy26.js",
+      "digest": "sha256:bc5f5c16cd50ee2439fbd9799a85ca13c6e6c1ea05656b307e1009a0ac256c5e",
       "before": null
     },
     {
-      "path": "data/datasets/match-group-q2-fy26.js",
-      "digest": "sha256:3a06a568f0af9cdcdc183161b21a59d5da67c88ba97385152de4003e92db4969",
+      "path": "data/datasets/target-q2-fy27.js",
+      "digest": "sha256:4b8974bc0bf2a0e5826f27c0a250853f4f0788fb3cfc48235ff2104973f42064",
       "before": null
     },
     {
-      "path": "data/datasets/netease-q2-fy26.js",
-      "digest": "sha256:9fab090fbb9c1c562243cd34f41967a9a4a0d79b86d37c20688345ec6299814e",
+      "path": "data/datasets/walmart-q2-fy27.js",
+      "digest": "sha256:f74d7877f0a739b6621b5971ca3b6ef8e9306c00f6b8a4dd8d3620399cc45a1e",
       "before": null
     },
     {
-      "path": "data/datasets/nintendo-q1-fy27.js",
-      "digest": "sha256:6d07fd32218421f047481a8cb95b21459163300714410b5d8edadeb3c4b4f16e",
-      "before": null
+      "path": "data/income-statements/best-buy.js",
+      "digest": "sha256:18ab6708253f0d44dbadcf17a60d29a369398baec1a31345418af254c5648304",
+      "before": "sha256:b2c70ee093df09f7757d79a105860f9b3afda56cf31607910ca1785db6ab7a38"
     },
     {
-      "path": "data/datasets/pdd-holdings-q2-fy26.js",
-      "digest": "sha256:890be1176ddf803c808972437cd31cad012b482ee44c7d0d303f5461e1266f0f",
-      "before": null
+      "path": "data/income-statements/home-depot.js",
+      "digest": "sha256:d4db04a4e891cf6c1f8f29fa94007899d93008283fee2d7bb2d2af8211874246",
+      "before": "sha256:6b94f577ce570d9f2176ef12b02a2ba999f85c00f7ed93aaa8e3617ed06cb1f5"
     },
     {
-      "path": "data/datasets/pinterest-q2-fy26.js",
-      "digest": "sha256:12c33e37410d30aa2062ee6ba13cb5ab6a620faffd0d9c34aa35d9731354ed88",
-      "before": null
+      "path": "data/income-statements/instacart.js",
+      "digest": "sha256:557571c95c02296e9b74ed95e6a8a8fb11b2ea446aaab06bf1e6646099c55ac3",
+      "before": "sha256:d96bfd11b7051eee64b5e4f7b21e53e24269c1ac17a84bba43206d96b82d7c00"
     },
     {
-      "path": "data/datasets/snap-q2-fy26.js",
-      "digest": "sha256:6d5a33bdb2badeeef1e14bf1281ce93e3f0f940259307fccb9b4184a57a80b76",
-      "before": null
+      "path": "data/income-statements/lowes.js",
+      "digest": "sha256:c6bcddf440f2231ef284059d37250adcdd0b29353cec8ae160991b8787876f00",
+      "before": "sha256:3d5ff796f2dd14e5c4296d7e11fa8301621fd42ff9e349bff8e09bad0d29f246"
     },
     {
-      "path": "data/datasets/sony-q1-fy26.js",
-      "digest": "sha256:783fd5b69da8c255c778a19315a87b7170308523c929dc33cc7555b9d9d0a91a",
-      "before": null
+      "path": "data/income-statements/target.js",
+      "digest": "sha256:c99addefe16961a5421262554377ae184a69254e92caabe50e59029ad2d0f0da",
+      "before": "sha256:fbacbe1c3f28a40c764e2c71ccc4217c2f5f0b9fdf649172a8e3e9570eeddeb2"
     },
     {
-      "path": "data/datasets/spotify-q2-fy26.js",
-      "digest": "sha256:9df82d6005985a2fbe5d3f78b13bab24983de4792b88114accee2f0c54c35f49",
-      "before": null
-    },
-    {
-      "path": "data/datasets/take-two-q1-fy27.js",
-      "digest": "sha256:9eea8e60ce2aeb2bfbed4d4dcc89fe24fb3457b2b0aef16f58297ef8f402da36",
-      "before": null
-    },
-    {
-      "path": "data/datasets/tencent-q2-fy26.js",
-      "digest": "sha256:1e6874fb196abddccbfe5e866c3a1b8faa715b1755edb8a67c5047aff32f1762",
-      "before": null
-    },
-    {
-      "path": "data/income-statements/alibaba.js",
-      "digest": "sha256:f572d5222cca2837c26dc4f63536e1785613cad5c19fae3dda87effb80ce6459",
-      "before": "sha256:85ec696769c8dc2bcbb12811c3874739b58380517f1fa07af15d609d4733704f"
-    },
-    {
-      "path": "data/income-statements/disney.js",
-      "digest": "sha256:2ba716177fb1e1685d45397f81d395a2d398f50acc51703274cf2ed0018ad386",
-      "before": "sha256:eb72e21d3d9fb0830e5ea15fe4d239fd75ddcb305d0cf6b850952f5f1826a5c5"
-    },
-    {
-      "path": "data/income-statements/duolingo.js",
-      "digest": "sha256:b63447c62b7bd903645168cb23d4734e8383218bcfa0ea43f3aca37248b95729",
-      "before": "sha256:65b5df425a662b64295eb2e05eab8886ef5e0dc0feb4abc8f05f9e688a4a39a0"
-    },
-    {
-      "path": "data/income-statements/jd-com.js",
-      "digest": "sha256:0b3801829b7037ed60480ca67f65a4b7eee8f77a5b1c83e46c42fb1c85dc25d3",
-      "before": "sha256:a8775c4474aae8b02831f7068dc35956f9114ff1fed98c592788c855b8a15185"
-    },
-    {
-      "path": "data/income-statements/match-group.js",
-      "digest": "sha256:34cd94ec1ebc196d8434ba7116acc6224040ed3493aa371b071554364bfc4b6c",
-      "before": "sha256:700a82886712ec80284878097e3785e7754d544e5ef865bd160885454d169fcf"
-    },
-    {
-      "path": "data/income-statements/netease.js",
-      "digest": "sha256:ecdc6fa4e943400cb91ffc009115d7d5336096039c5aa5228574adaff05e7545",
-      "before": "sha256:74e95cfdc9880f1f894ff4a3348dd33d262efaf7e3961ef384d8409cef3944f4"
-    },
-    {
-      "path": "data/income-statements/nintendo.js",
-      "digest": "sha256:8f06f763ab35e4743330a5cd548fe185e30a7ea69a42a681a45023298063617e",
-      "before": "sha256:1f3d92e1b669e2fe7f6701112717cd4784b51822e8dc7a45d4461fe37f7bfd9c"
-    },
-    {
-      "path": "data/income-statements/pdd-holdings.js",
-      "digest": "sha256:c8d860afc8deeff82cb02ffbec81795eedccea705f57922dfd749c65bf240163",
-      "before": "sha256:fa6bee38244a2a71c7bc69983d1e158e241d847a6c055d56efd2187704009c84"
-    },
-    {
-      "path": "data/income-statements/pinterest.js",
-      "digest": "sha256:262f9a2cb51daa12893444123432748f2e75ac9c6e2ec793d4daa717b84562a0",
-      "before": "sha256:eb81d636874bb19c7b20ef597f0ce34131544531c00a5ddb91b098f20b679ba0"
-    },
-    {
-      "path": "data/income-statements/snap.js",
-      "digest": "sha256:175ed32d74408f711cea9547e8825735956650fae35960e39875505fede38cee",
-      "before": "sha256:7549b7d18e3318f3a26c9ae6161ce900ae720c778751574ed3abc5368cdbe17f"
-    },
-    {
-      "path": "data/income-statements/sony.js",
-      "digest": "sha256:083e5c282423b85d9de982b177efe1e4f8e594eedb1bb6ffe35edab62d5e7cdd",
-      "before": "sha256:f5e173c9b111dac381e91ab132997a5a8b2b9f75b93c7f7405f3ac4faad43cb5"
-    },
-    {
-      "path": "data/income-statements/spotify.js",
-      "digest": "sha256:ff0bb1553ce721ba64e72cb940c2f49af40c057c92e7a9e4fd8fae6e14f09465",
-      "before": "sha256:2dafbbf9c9b4b4b8d2f780a28779ac2dcbdab36b5bd16ec4377993c75df28b96"
-    },
-    {
-      "path": "data/income-statements/take-two.js",
-      "digest": "sha256:a67bca5176718e2799a9acacbb19b9d08580cb8d2dae94f2e56973e58d2033ba",
-      "before": "sha256:4a08240fe80e59c81fe796802d06504ff0e437a901dd133028043e375ac0b2de"
-    },
-    {
-      "path": "data/income-statements/tencent.js",
-      "digest": "sha256:04eaccebce0e757367e6907dfb08d28c660a04fe25bf255e790cb8206f2f9553",
-      "before": "sha256:219f41ce0d99d859282dd605aa64f2a1d9fc1b9f839d8dc2de9b348839aadfcb"
+      "path": "data/income-statements/walmart.js",
+      "digest": "sha256:7af29fdc934b2542428cb3a2e97df4bde3185e69cadf8197fe529e7fd12149f4",
+      "before": "sha256:f5d435c0abf50711cfc76bd875d5c15485247c4fa2fa630e62155e86135b1fff"
     },
     {
       "path": "data/render-baselines.json",
-      "digest": "sha256:acf884201a290360a3409b118e9ee8e88e4809113a6535d4abad3183fe792b05",
-      "before": "sha256:14667ac9ac81b9406ec757d1100b1a18a3f07fb5d1bd6de6f92fb71261cf4fbd"
+      "digest": "sha256:fc61b1275c83423b71825db42e3ad723d2c34e662adcaa8338f6a3652a416e2a",
+      "before": "sha256:acf884201a290360a3409b118e9ee8e88e4809113a6535d4abad3183fe792b05"
     },
     {
       "path": "data/workflow-timestamps.json",
-      "digest": "sha256:23d2c3684a95c4d7246185c20fe72d262969d9c99bfff2cd6391e5c76ce42a3c",
-      "before": "sha256:4cc55bd5f7dc61b402ae8aa37da80e27ff488af0de7476f03bed48ff1f313066"
+      "digest": "sha256:f31f67847856b934d8c776b11739eb64f797ef7a58a0753d8898887a87069b07",
+      "before": "sha256:23d2c3684a95c4d7246185c20fe72d262969d9c99bfff2cd6391e5c76ce42a3c"
     },
     {
-      "path": "input/icon-crop-specs/alibaba-q1-fy27.json",
-      "digest": "sha256:929c400b7a875760076ef5628b1ffebbffe3f319cdfe2c153982e28b56d34cfd",
-      "before": null
-    },
-    {
-      "path": "input/pending/page-0041-Alibaba-Q1-FY27-Income-Statement.png",
-      "before": "sha256:ac33cad21d010f226f2cad1529ef2a483c1dcd23fd415e3cbc971e962612d0e8",
+      "path": "input/pending/page-0038-Best-Buy-Q2-FY27-Income-Statement.png",
+      "before": "sha256:b5218b57ab43b92eb0f399a3c658b0644dcb276975b6137b63d638357b2a6994",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0058-Duolingo-Q2-FY26-Income-Statement.png",
-      "before": "sha256:3aee2c50f75924380095e06d58c7ed16d4f13f09630c0844733dc1a108b9572c",
+      "path": "input/pending/page-0039-Home-Depot-Q2-FY26-Income-Statement.png",
+      "before": "sha256:1b87876d10bf3c2e65cfbf6ff842aada7b449553b39e1710849c5b46b677162d",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0045-JD.com-Q2-FY26-Income-Statement.png",
-      "before": "sha256:f6f9c5a5c13c4792d2d42a5903e36a0e43ef1956c1fd08ad00efbc7c4894b494",
+      "path": "input/pending/page-0034-Instacart-Q2-FY26-Income-Statement.png",
+      "before": "sha256:82b19b0d07b35ac9c2b0db1ebd6308fc749f8348fe92dbfea0c9836ad135525c",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0057-Match-Group-Q2-FY26-Income-Statement.png",
-      "before": "sha256:df21e44d0cb8653826de849ab9a0ce929e187f2c473d2344f53eada9d6bfa7a2",
+      "path": "input/pending/page-0040-Lowe-s-Q2-FY26-Income-Statement.png",
+      "before": "sha256:1674a9a5edd869ab76d70e034f3037bffd6785d3ce4d86affdf6329122d9ce0f",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0046-NetEase-Q2-FY26-Income-Statement.png",
-      "before": "sha256:55e7cee56b3b9befc1e16801b960734e167cf24d55136c5600840c5967efded4",
+      "path": "input/pending/page-0037-Target-Q2-FY27-Income-Statement.png",
+      "before": "sha256:eb67d8af8ff1d99bca97b1bce3f0484e0feb00a463530f9ad73948b774e85694",
       "digest": null,
       "intakeOwned": true
     },
     {
-      "path": "input/pending/page-0048-Nintendo-Q1-FY27-Income-Statement.png",
-      "before": "sha256:64f7d0267ca75db2d350fc76ec81878e53fc8451299e368d121706dda887570a",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0043-PDD-Holdings-Q2-FY26-Income-Statement.png",
-      "before": "sha256:6782074d79556dfa0c2a819a7a463cacb4e69f733b50960f7e85578bf7fc24a0",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0055-Pinterest-Q2-FY26-Income-Statement.png",
-      "before": "sha256:34be428aa2a2e972f93c09c8619dde3194416229d219082f2513a24110d90942",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0051-Snap-Q2-FY26-Income-Statement.png",
-      "before": "sha256:15856c502641dc9c1788eadfbde4edb8653379b10912b2a4b5da03453bcb5106",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0047-Sony-Q1-FY26-Income-Statement.png",
-      "before": "sha256:17ebcddc30d636e4e94622558134fb52f0d5cc942e51b13e39494b58f4e7ca4e",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0053-Spotify-Q2-FY26-Income-Statement.png",
-      "before": "sha256:902641fc572ca53f22e9a7b184576cb1f2789ac15a0c353786c49a07deb75d35",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0050-Take-Two-Q1-FY27-Income-Statement.png",
-      "before": "sha256:b841e2b2ea643cfd28ae6e826997adcc59a692a85bea8d6875200fa7a2843478",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0044-Tencent-Q2-FY26-Income-Statement.png",
-      "before": "sha256:4abe230414facf6015e4bdfc5befe94bb04fb3268a3ad8403e4584cad4ca05fb",
+      "path": "input/pending/page-0035-Walmart-Q2-FY27-Income-Statement.png",
+      "before": "sha256:1bc7dac43a17d92d97d5885af6cb028c40fdaf07d2e5d09a9ab634e7f53bdd53",
       "digest": null,
       "intakeOwned": true
     }
   ],
   "release": {
-    "version": "6c6350cee218a9336f1c32d3658d20da541f743131a0bdee54ffdcc303277a10",
-    "contentDigest": "sha256:3c9b6534457f00a04767cf70b5d919ff8dbb0bc631341f46ff550b6f83cabbc7"
+    "version": "f00b2405edda6c30aa12912aa7d2a3816340ea38579bc28dbd9437c70e8324e5",
+    "contentDigest": "sha256:5ce40f901cc7a9bbcd1d460e6606fc84804fa5bbf7de33abaaab323746940975"
   },
   "approval": {
-    "operator": "Charles Liu",
+    "operator": "charlesliu",
     "accepted": true,
-    "candidateDigest": "sha256:a23d9553825a418c4b43070a29147f89cda0308c922775e02873cfa987590476",
+    "candidateDigest": "sha256:64f5b57ea0e273ef5d27ece2738c0d21100e6f12cbc527e0ede3c6ce287a09d0",
     "basis": "inherited-build-acceptance",
-    "note": "2026-10-03：所有更改 main 推送远端合并；全部验收通过。腾讯差额按用户委托明确标注计算值。",
-    "planDigest": "sha256:76a9908a76269f1a8ddb6bb27859d655efea840b02b75ef71ff49e34bd1b54db",
-    "recordedAt": "2026-10-03T06:04:43.223Z"
+    "note": "2026-10-03 用户授权：所有更改 main 推送远端合并；刷新候选确认通过了。",
+    "planDigest": "sha256:aa6142cb513111e5bb7b2eeb77022ff370e04006af9422e30e4210a69d4d08cb",
+    "recordedAt": "2026-10-03T06:55:17.434Z"
   }
 }

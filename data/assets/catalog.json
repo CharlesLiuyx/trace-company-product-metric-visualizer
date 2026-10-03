@@ -4363,11 +4363,13 @@
       ],
       "directConsumers": [
         "home-depot-q1-fy26",
+        "home-depot-q2-fy26",
         "home-depot-q3-fy25",
         "home-depot-q4-fy25"
       ],
       "consumers": [
         "home-depot-q1-fy26",
+        "home-depot-q2-fy26",
         "home-depot-q3-fy25",
         "home-depot-q4-fy25"
       ],
@@ -4386,10 +4388,12 @@
         }
       ],
       "directConsumers": [
-        "home-depot-q1-fy26"
+        "home-depot-q1-fy26",
+        "home-depot-q2-fy26"
       ],
       "consumers": [
-        "home-depot-q1-fy26"
+        "home-depot-q1-fy26",
+        "home-depot-q2-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -4429,11 +4433,13 @@
       ],
       "directConsumers": [
         "home-depot-q1-fy26",
+        "home-depot-q2-fy26",
         "home-depot-q3-fy25",
         "home-depot-q4-fy25"
       ],
       "consumers": [
         "home-depot-q1-fy26",
+        "home-depot-q2-fy26",
         "home-depot-q3-fy25",
         "home-depot-q4-fy25"
       ],
@@ -4453,11 +4459,13 @@
       ],
       "directConsumers": [
         "home-depot-q1-fy26",
+        "home-depot-q2-fy26",
         "home-depot-q3-fy25",
         "home-depot-q4-fy25"
       ],
       "consumers": [
         "home-depot-q1-fy26",
+        "home-depot-q2-fy26",
         "home-depot-q3-fy25",
         "home-depot-q4-fy25"
       ],
@@ -4477,10 +4485,12 @@
       ],
       "directConsumers": [
         "home-depot-q1-fy26",
+        "home-depot-q2-fy26",
         "home-depot-q4-fy25"
       ],
       "consumers": [
         "home-depot-q1-fy26",
+        "home-depot-q2-fy26",
         "home-depot-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -5262,10 +5272,12 @@
       ],
       "directConsumers": [
         "lowes-q1-fy26",
+        "lowes-q2-fy26",
         "lowes-q4-fy25"
       ],
       "consumers": [
         "lowes-q1-fy26",
+        "lowes-q2-fy26",
         "lowes-q4-fy25"
       ],
       "acceptedVersions": [
@@ -5286,10 +5298,12 @@
       ],
       "directConsumers": [
         "lowes-q1-fy26",
+        "lowes-q2-fy26",
         "lowes-q4-fy25"
       ],
       "consumers": [
         "lowes-q1-fy26",
+        "lowes-q2-fy26",
         "lowes-q4-fy25"
       ],
       "acceptedVersions": [
@@ -5310,10 +5324,12 @@
       ],
       "directConsumers": [
         "lowes-q1-fy26",
+        "lowes-q2-fy26",
         "lowes-q4-fy25"
       ],
       "consumers": [
         "lowes-q1-fy26",
+        "lowes-q2-fy26",
         "lowes-q4-fy25"
       ],
       "acceptedVersions": [
