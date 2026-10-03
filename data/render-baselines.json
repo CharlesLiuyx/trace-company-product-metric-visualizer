@@ -6794,6 +6794,174 @@
       "mae": 6.732569928758905,
       "width": 2667,
       "height": 1500
+    },
+    "adobe-q3-fy26": {
+      "similarity": 0.976026233975655,
+      "mae": 6.113310336207974,
+      "width": 2667,
+      "height": 1500
+    },
+    "asana-q2-fy27": {
+      "similarity": 0.9753320308817607,
+      "mae": 6.290332125151023,
+      "width": 2667,
+      "height": 1500
+    },
+    "broadcom-q3-fy26": {
+      "similarity": 0.9641449204470356,
+      "mae": 9.143045286005917,
+      "width": 2667,
+      "height": 1500
+    },
+    "c3-ai-q1-fy27": {
+      "similarity": 0.979530017571333,
+      "mae": 5.219845519310086,
+      "width": 2667,
+      "height": 1500
+    },
+    "carnival-q3-fy26": {
+      "similarity": 0.9588165025123494,
+      "mae": 10.501791859350915,
+      "width": 2667,
+      "height": 1500
+    },
+    "chewy-q2-fy26": {
+      "similarity": 0.9778382094395064,
+      "mae": 5.6512565929258844,
+      "width": 2667,
+      "height": 1500
+    },
+    "costco-q4-fy26": {
+      "similarity": 0.9647241470633164,
+      "mae": 8.99534249885431,
+      "width": 2667,
+      "height": 1500
+    },
+    "darden-q1-fy27": {
+      "similarity": 0.9637040115083654,
+      "mae": 9.25547706536683,
+      "width": 2667,
+      "height": 1500
+    },
+    "dell-q2-fy27": {
+      "similarity": 0.9724726275228668,
+      "mae": 7.019479981668958,
+      "width": 2667,
+      "height": 1500
+    },
+    "didi-q2-fy26": {
+      "similarity": 0.972948935631412,
+      "mae": 6.898021413989918,
+      "width": 2667,
+      "height": 1500
+    },
+    "docusign-q2-fy27": {
+      "similarity": 0.9647294745019618,
+      "mae": 8.99398400199975,
+      "width": 2667,
+      "height": 1500
+    },
+    "gamestop-q2-fy26": {
+      "similarity": 0.9668280049961075,
+      "mae": 8.458858725992584,
+      "width": 2667,
+      "height": 1500
+    },
+    "general-mills-q1-fy27": {
+      "similarity": 0.9607948385536775,
+      "mae": 9.997316168812231,
+      "width": 2667,
+      "height": 1500
+    },
+    "gitlab-q2-fy27": {
+      "similarity": 0.969052522356274,
+      "mae": 7.891606799150106,
+      "width": 2667,
+      "height": 1500
+    },
+    "hpe-q3-fy26": {
+      "similarity": 0.9756271524882919,
+      "mae": 6.215076115485564,
+      "width": 2667,
+      "height": 1500
+    },
+    "lululemon-q2-fy26": {
+      "similarity": 0.9625030099995671,
+      "mae": 9.561732450110403,
+      "width": 2667,
+      "height": 1500
+    },
+    "meituan-q2-fy26": {
+      "similarity": 0.965285447162242,
+      "mae": 8.852210973628296,
+      "width": 2667,
+      "height": 1500
+    },
+    "micron-q4-fy26": {
+      "similarity": 0.962764374387842,
+      "mae": 9.495084531100279,
+      "width": 2667,
+      "height": 1500
+    },
+    "mongodb-q2-fy27": {
+      "similarity": 0.9724776193825445,
+      "mae": 7.018207057451152,
+      "width": 2667,
+      "height": 1500
+    },
+    "nio-q2-fy26": {
+      "similarity": 0.9728837460676892,
+      "mae": 6.914644752739241,
+      "width": 2667,
+      "height": 1500
+    },
+    "oracle-q1-fy27": {
+      "similarity": 0.9622910348624722,
+      "mae": 9.615786110069575,
+      "width": 2667,
+      "height": 1500
+    },
+    "palo-alto-q4-fy26": {
+      "similarity": 0.9699851077438849,
+      "mae": 7.653797525309336,
+      "width": 2667,
+      "height": 1500
+    },
+    "samsara-q2-fy27": {
+      "similarity": 0.9728518964541197,
+      "mae": 6.922766404199475,
+      "width": 2667,
+      "height": 1500
+    },
+    "snowflake-q2-fy27": {
+      "similarity": 0.9771084683042071,
+      "mae": 5.8373405824271964,
+      "width": 2667,
+      "height": 1500
+    },
+    "uipath-q2-fy27": {
+      "similarity": 0.9782393099555367,
+      "mae": 5.548975961338166,
+      "width": 2667,
+      "height": 1500
+    },
+    "vail-resorts-fy26": {
+      "similarity": 0.9720130130792475,
+      "mae": 7.136681664791901,
+      "width": 2667,
+      "height": 1500
+    },
+    "wealthfront-q2-fy27": {
+      "similarity": 0.9759873956931854,
+      "mae": 6.12321409823772,
+      "width": 2667,
+      "height": 1500
+    },
+    "zscaler-q4-fy26": {
+      "similarity": 0.9752500394966969,
+      "mae": 6.311239928342291,
+      "width": 2667,
+      "height": 1500
     }
   }
 }

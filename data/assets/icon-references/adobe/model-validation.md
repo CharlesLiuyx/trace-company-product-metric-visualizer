@@ -45,3 +45,7 @@ duplicated, cropped, or semantically wrong).
 
 All relevant Adobe company and business/segment icon clusters in the source
 image were extracted.
+
+## Adobe Q3 FY26 source crops
+
+The company wordmark, Creative Cloud + Acrobat cluster, and Adobe application icon were visually checked against the complete Source. Each includes the full icon subject and excludes financial labels, connectors and publisher residue. The crop extractor passed all three isolation/centering checks. Runtime compressed crops preserve the Source colours and shape. This author validation does not imply human acceptance.

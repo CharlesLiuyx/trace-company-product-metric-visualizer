@@ -245,3 +245,353 @@
     }
   );
 })(window);
+
+(function(global){global.INCOME_STATEMENT_SSOT.records.push({
+  "key": "mongodb-q2-fy27",
+  "company": "MongoDB",
+  "period": "Q2 FY27",
+  "periodNote": "Ending July 2026",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processing/mongodb-q2-fy27.png",
+  "roundingTolerance": 1.1,
+  "revenue": {
+    "total": 772,
+    "notes": [
+      "+30% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "subscription",
+        "label": "Subscription",
+        "value": 747,
+        "notes": [
+          "+31% Y/Y"
+        ],
+        "children": [
+          {
+            "id": "atlas",
+            "label": "Atlas",
+            "value": 566,
+            "notes": [
+              "+29% Y/Y",
+              "73% of revenue",
+              "(1pp) Y/Y"
+            ]
+          },
+          {
+            "id": "enterprise",
+            "label": "Enterprise Advanced and other",
+            "value": 181,
+            "notes": [
+              "+36% Y/Y"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "services",
+        "label": "Services",
+        "value": 25,
+        "notes": [
+          "+29% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 202,
+      "notes": []
+    },
+    "operatingExpenses": {
+      "total": 541,
+      "items": [
+        {
+          "id": "sm",
+          "label": "Sales & marketing",
+          "value": 253,
+          "notes": [
+            "33% of revenue",
+            "(8pp) Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "Research & development",
+          "value": 214,
+          "notes": [
+            "28% of revenue",
+            "(3pp) Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "General & admin",
+          "value": 74,
+          "notes": [
+            "10% of revenue",
+            "(0pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "label": "Tax",
+      "value": 0,
+      "notes": [
+        "No separate tax line is shown in the source chart."
+      ]
+    }
+  },
+  "otherIncome": {
+    "total": 18,
+    "items": [
+      {
+        "id": "other_income",
+        "label": "Other",
+        "value": 18,
+        "notes": []
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 5,
+    "items": [
+      {
+        "id": "other_expenses",
+        "label": "Other",
+        "value": 5,
+        "notes": []
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 570,
+      "notes": [
+        "74% margin",
+        "+3pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 28,
+      "notes": [
+        "4% margin",
+        "+15pp Y/Y",
+        "Gross profit less operating expenses differs by $1M due to rounded source-chart values."
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 41,
+      "notes": [
+        "5% margin",
+        "+13pp Y/Y"
+      ]
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "customers",
+      "label": "Customers",
+      "value": "70600",
+      "unit": "count",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "70,600",
+      "basis": "unspecified",
+      "notes": [
+        "+18% Y/Y"
+      ],
+      "quote": "Customers 70,600 +18% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          38,
+          1220,
+          529,
+          125
+        ]
+      }
+    },
+    {
+      "id": "large-customers",
+      "label": "> $100K",
+      "value": "2999",
+      "unit": "count",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "2,999",
+      "basis": "unspecified",
+      "notes": [
+        "+17% Y/Y"
+      ],
+      "quote": "> $100K 2,999 +17% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          38,
+          1220,
+          529,
+          125
+        ]
+      }
+    }
+  ],
+  "i18n": {
+    "zh": {
+      "period": "2027 财年第二季度",
+      "periodNote": "截至 2026 年 7 月",
+      "revenue": {
+        "notes": [
+          "同比 +30%"
+        ],
+        "items": [
+          {
+            "id": "subscription",
+            "label": "订阅",
+            "notes": [
+              "同比 +31%"
+            ],
+            "children": [
+              {
+                "id": "atlas",
+                "label": "Atlas",
+                "notes": [
+                  "同比 +29%",
+                  "占收入 73%",
+                  "同比 (1 个百分点)"
+                ]
+              },
+              {
+                "id": "enterprise",
+                "label": "Enterprise Advanced 及其他",
+                "notes": [
+                  "同比 +36%"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "services",
+            "label": "服务",
+            "notes": [
+              "同比 +29%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "id": "cost_of_revenue",
+          "label": "收入成本",
+          "notes": []
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sm",
+              "label": "销售与市场",
+              "notes": [
+                "占收入 33%",
+                "同比 (8 个百分点)"
+              ]
+            },
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 28%",
+                "同比 (3 个百分点)"
+              ]
+            },
+            {
+              "id": "ga",
+              "label": "一般及行政",
+              "notes": [
+                "占收入 10%",
+                "同比 (0 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费",
+          "notes": [
+            "来源图未展示单独税费项目。"
+          ]
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "other_income",
+            "label": "其他",
+            "notes": []
+          }
+        ]
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other_expenses",
+            "label": "其他",
+            "notes": []
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "id": "gross_profit",
+          "label": "毛利润",
+          "notes": [
+            "利润率 74%",
+            "同比 +3 个百分点"
+          ]
+        },
+        "operating": {
+          "id": "operating_profit",
+          "label": "营业利润",
+          "notes": [
+            "利润率 4%",
+            "同比 +15 个百分点",
+            "毛利润减营业费用因来源图数值取整相差 $1M。"
+          ]
+        },
+        "net": {
+          "id": "net_profit",
+          "label": "净利润",
+          "notes": [
+            "利润率 5%",
+            "同比 +13 个百分点"
+          ]
+        }
+      },
+      "operatingMetrics": [
+        {
+          "id": "customers",
+          "label": "客户",
+          "notes": [
+            "同比 +18%"
+          ]
+        },
+        {
+          "id": "large-customers",
+          "label": "$100K 以上",
+          "notes": [
+            "同比 +17%"
+          ]
+        }
+      ]
+    }
+  }
+});})(window);

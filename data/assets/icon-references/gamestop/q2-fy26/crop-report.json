@@ -1,0 +1,584 @@
+{
+  "source": "input/processing/gamestop-q2-fy26.png",
+  "spec": "input/icon-crop-specs/gamestop-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-03T12:34:04.195410+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/gamestop",
+  "crops": [
+    {
+      "key": "batman",
+      "output": "data/assets/icon-references/gamestop/q2-fy26/crops/batman.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 128,
+        "bytes": 7581,
+        "losslessBytes": 32489,
+        "savingsVsLossless": 0.7667,
+        "metrics": {
+          "meanAbsoluteError": 1.0895,
+          "rootMeanSquareError": 2.8106,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 44,
+          "changedPixelRatio": 0.376
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 22058,
+        "transparentPixelRatio": 0.629
+      },
+      "searchBox": {
+        "x": 124,
+        "y": 983,
+        "width": 167,
+        "height": 210
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 135,
+        "y0": 991,
+        "x1": 283,
+        "y1": 1185
+      },
+      "cropBox": {
+        "x0": 124,
+        "y0": 983,
+        "x1": 291,
+        "y1": 1193
+      },
+      "validation": {
+        "width": 167,
+        "height": 210,
+        "foregroundPixels": 13003,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 11,
+          "right": 8,
+          "top": 8,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.009,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/gamestop/batman-q2-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 128,
+        "bytes": 7581,
+        "losslessBytes": 32489,
+        "savingsVsLossless": 0.7667,
+        "metrics": {
+          "meanAbsoluteError": 1.0895,
+          "rootMeanSquareError": 2.8106,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 44,
+          "changedPixelRatio": 0.376
+        }
+      }
+    },
+    {
+      "key": "us-flag",
+      "output": "data/assets/icon-references/gamestop/q2-fy26/crops/us-flag.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 4066,
+        "losslessBytes": 4066,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 1294,
+        "transparentPixelRatio": 0.4902
+      },
+      "searchBox": {
+        "x": 1027,
+        "y": 530,
+        "width": 60,
+        "height": 44
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 1036,
+        "y0": 536,
+        "x1": 1081,
+        "y1": 569
+      },
+      "cropBox": {
+        "x0": 1027,
+        "y0": 530,
+        "x1": 1087,
+        "y1": 574
+      },
+      "validation": {
+        "width": 60,
+        "height": 44,
+        "foregroundPixels": 1281,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 9,
+          "right": 6,
+          "top": 6,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.025,
+          "y": 0.0114
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/gamestop/us-flag-q2-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 4066,
+        "losslessBytes": 4066,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "australia-flag",
+      "output": "data/assets/icon-references/gamestop/q2-fy26/crops/australia-flag.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 3035,
+        "losslessBytes": 3035,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 1297,
+        "transparentPixelRatio": 0.4913
+      },
+      "searchBox": {
+        "x": 1027,
+        "y": 957,
+        "width": 60,
+        "height": 44
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 1033,
+        "y0": 960,
+        "x1": 1078,
+        "y1": 993
+      },
+      "cropBox": {
+        "x0": 1027,
+        "y0": 957,
+        "x1": 1087,
+        "y1": 1001
+      },
+      "validation": {
+        "width": 60,
+        "height": 44,
+        "foregroundPixels": 1330,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 9,
+          "top": 3,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": -0.025,
+          "y": -0.0568
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/gamestop/australia-flag-q2-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 3035,
+        "losslessBytes": 3035,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "europe-flag",
+      "output": "data/assets/icon-references/gamestop/q2-fy26/crops/europe-flag.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 2164,
+        "losslessBytes": 2164,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 1287,
+        "transparentPixelRatio": 0.4875
+      },
+      "searchBox": {
+        "x": 1037,
+        "y": 1163,
+        "width": 60,
+        "height": 44
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 1044,
+        "y0": 1169,
+        "x1": 1089,
+        "y1": 1202
+      },
+      "cropBox": {
+        "x0": 1037,
+        "y0": 1163,
+        "x1": 1097,
+        "y1": 1207
+      },
+      "validation": {
+        "width": 60,
+        "height": 44,
+        "foregroundPixels": 1352,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 8,
+          "top": 6,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": -0.0083,
+          "y": 0.0114
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/gamestop/europe-flag-q2-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 2164,
+        "losslessBytes": 2164,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "wordmark",
+      "output": "data/assets/icon-references/gamestop/q2-fy26/crops/wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 5112,
+        "losslessBytes": 22608,
+        "savingsVsLossless": 0.7739,
+        "metrics": {
+          "meanAbsoluteError": 0.3293,
+          "rootMeanSquareError": 2.0341,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 57,
+          "changedPixelRatio": 0.2465
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 76158,
+        "transparentPixelRatio": 0.5358
+      },
+      "searchBox": {
+        "x": 732,
+        "y": 275,
+        "width": 781,
+        "height": 182
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 748,
+        "y0": 293,
+        "x1": 1501,
+        "y1": 450
+      },
+      "cropBox": {
+        "x0": 732,
+        "y0": 275,
+        "x1": 1513,
+        "y1": 457
+      },
+      "validation": {
+        "width": 781,
+        "height": 182,
+        "foregroundPixels": 64251,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 16,
+          "right": 12,
+          "top": 18,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": 0.0026,
+          "y": 0.0302
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/gamestop/wordmark-q2-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 5112,
+        "losslessBytes": 22608,
+        "savingsVsLossless": 0.7739,
+        "metrics": {
+          "meanAbsoluteError": 0.3293,
+          "rootMeanSquareError": 2.0341,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 57,
+          "changedPixelRatio": 0.2465
+        }
+      }
+    },
+    {
+      "key": "consoles",
+      "output": "data/assets/icon-references/gamestop/q2-fy26/crops/consoles.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 5411,
+        "losslessBytes": 33476,
+        "savingsVsLossless": 0.8384,
+        "metrics": {
+          "meanAbsoluteError": 1.1544,
+          "rootMeanSquareError": 2.3792,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 52,
+          "changedPixelRatio": 0.5223
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 25686,
+        "transparentPixelRatio": 0.4762
+      },
+      "searchBox": {
+        "x": 57,
+        "y": 392,
+        "width": 290,
+        "height": 186
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 63,
+        "y0": 401,
+        "x1": 341,
+        "y1": 573
+      },
+      "cropBox": {
+        "x0": 57,
+        "y0": 392,
+        "x1": 347,
+        "y1": 578
+      },
+      "validation": {
+        "width": 290,
+        "height": 186,
+        "foregroundPixels": 27747,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 6,
+          "top": 9,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0108
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/gamestop/consoles-q2-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 5411,
+        "losslessBytes": 33476,
+        "savingsVsLossless": 0.8384,
+        "metrics": {
+          "meanAbsoluteError": 1.1544,
+          "rootMeanSquareError": 2.3792,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 52,
+          "changedPixelRatio": 0.5223
+        }
+      }
+    },
+    {
+      "key": "games",
+      "output": "data/assets/icon-references/gamestop/q2-fy26/crops/games.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 31836,
+        "losslessBytes": 31836,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 5645,
+        "transparentPixelRatio": 0.262
+      },
+      "searchBox": {
+        "x": 126,
+        "y": 706,
+        "width": 171,
+        "height": 126
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 133,
+        "y0": 711,
+        "x1": 290,
+        "y1": 824
+      },
+      "cropBox": {
+        "x0": 126,
+        "y0": 706,
+        "x1": 297,
+        "y1": 832
+      },
+      "validation": {
+        "width": 171,
+        "height": 126,
+        "foregroundPixels": 15676,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 7,
+          "top": 5,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0119
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/gamestop/games-q2-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 31836,
+        "losslessBytes": 31836,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

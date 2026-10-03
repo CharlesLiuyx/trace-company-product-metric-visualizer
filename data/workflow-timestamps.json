@@ -595,6 +595,161 @@
       "digest": "sha256:9cfd28591180f2c4e0b380ceba02cd30fcdae5a9f3dd4cf1b8a73b2c79f950a4",
       "updatedAt": "2026-10-03T07:49:16.076Z",
       "publishedDigest": "sha256:2c785ff2e2434996526c12c66189b25eaf83af446325836c4629e4671cd6699a"
+    },
+    "data/datasets/adobe-q3-fy26.js": {
+      "digest": "sha256:8bad8f5a288fdd9d1b9bdc1550a409e996a336a54ccd696d7d49f22540c3efdc",
+      "updatedAt": "2026-10-03T12:31:45.382Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/asana-q2-fy27.js": {
+      "digest": "sha256:2c47b5f1a3eb63f7bfdfe26f2e723033196a3c3c0eecea3446282b51dccb37b2",
+      "updatedAt": "2026-10-03T12:31:43.438Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/broadcom-q3-fy26.js": {
+      "digest": "sha256:d7ef5d37050b17377f6c1b3fd060a294d1931d60e8ddede2045dad2e9f3d3982",
+      "updatedAt": "2026-10-03T12:31:49.135Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/c3-ai-q1-fy27.js": {
+      "digest": "sha256:91e2221ff723f352573ef35bdde6be8c66f18ba34a7367d98dc549ebc1372dc4",
+      "updatedAt": "2026-10-03T12:31:44.208Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/carnival-q3-fy26.js": {
+      "digest": "sha256:143cdc023f04e671d207d08a99081e691f306fac1e013f7008b716f9803dd713",
+      "updatedAt": "2026-10-03T12:31:56.115Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/chewy-q2-fy26.js": {
+      "digest": "sha256:93f1977afcaf6345afbbe426c73d1f0d0755d294e26e6ae2f8308aa4497bcc72",
+      "updatedAt": "2026-10-03T12:54:04.172Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/costco-q4-fy26.js": {
+      "digest": "sha256:cf00065bb6dd0e2dd0a804081ef642f3bb715b184e7c3b89e010f821594925b9",
+      "updatedAt": "2026-10-03T12:31:50.553Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/darden-q1-fy27.js": {
+      "digest": "sha256:de907ceb75e8d700935f160fa0fbd095d46fed9e4888e49b703ef0e11d16e90a",
+      "updatedAt": "2026-10-03T12:31:52.541Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/dell-q2-fy27.js": {
+      "digest": "sha256:c5e996456b21a7e3d2da8270b9aee9464fa395b69774886324ffe3a4950f07ad",
+      "updatedAt": "2026-10-03T12:31:54.956Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/didi-q2-fy26.js": {
+      "digest": "sha256:52680be680566f210ecd5d04748751805fcc90bb30cb5a35a8570aa1a810ca97",
+      "updatedAt": "2026-10-03T12:31:55.606Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/docusign-q2-fy27.js": {
+      "digest": "sha256:5f3c70448e5757ad038d0c19266280fc6f7c6a0aedd4cdfa161f328dae069226",
+      "updatedAt": "2026-10-03T12:31:51.788Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/gamestop-q2-fy26.js": {
+      "digest": "sha256:567d50b4154a33d30b0db6d3434693d705c05df87470fa0dacb107b9684ec580",
+      "updatedAt": "2026-10-03T12:31:37.149Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/general-mills-q1-fy27.js": {
+      "digest": "sha256:7f8f47c780f58337730269f8e22960e760d96c58894dda0f3ed62247f199d310",
+      "updatedAt": "2026-10-03T12:31:57.820Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/gitlab-q2-fy27.js": {
+      "digest": "sha256:7c6a2af882154cea58a70be19e6af8b7f3b20c1cfb004749bddd65dd82fa7979",
+      "updatedAt": "2026-10-03T12:31:47.289Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/hpe-q3-fy26.js": {
+      "digest": "sha256:247a390f792e35dd6eb587c64d589c9e5344e02206753856e0e983e2509d4c6d",
+      "updatedAt": "2026-10-03T12:31:45.964Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/lululemon-q2-fy26.js": {
+      "digest": "sha256:2e6d53049274465f23f3b82125a8998410a7b7d496524f7985f6596d6b1ad212",
+      "updatedAt": "2026-10-03T12:31:59.179Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/meituan-q2-fy26.js": {
+      "digest": "sha256:519289c2d8d135c97ec6e750aeaec5505966655780021014eead220c5d87bc29",
+      "updatedAt": "2026-10-03T12:32:01.049Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/micron-q4-fy26.js": {
+      "digest": "sha256:61d7bc8a1dfe4efa82fa23fdf95f8ec09e1c42a34b2707dbd5ae1184208c9de9",
+      "updatedAt": "2026-10-03T12:31:51.416Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/mongodb-q2-fy27.js": {
+      "digest": "sha256:8e47bd04182ac45670ef2564014158a839f38e9c4730d6398f322a72145b8970",
+      "updatedAt": "2026-10-03T12:31:56.610Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/nio-q1-fy26.js": {
+      "digest": "sha256:9241f5074ccdb69de07e4c4cbc44c6357e46a1072973830aa8651dfefd59c96f",
+      "updatedAt": "2026-07-12T18:33:31.000Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/nio-q2-fy26.js": {
+      "digest": "sha256:6323575f95739ae912a9c5ab072279dc609671f355a22322e207becb1631cb36",
+      "updatedAt": "2026-10-03T12:31:46.441Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/nio-q3-fy25.js": {
+      "digest": "sha256:2e82333e24564edaf5213467ab7bcb67c732c3e59d128ceb2b57a2568254011b",
+      "updatedAt": "2026-07-18T06:47:44.000Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/nio-q4-fy25.js": {
+      "digest": "sha256:c5809e3fcba69d5a9fc30ad75006284bf21a23f694146151057bd5449d7b3362",
+      "updatedAt": "2026-07-26T04:15:34.000Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/oracle-q1-fy27.js": {
+      "digest": "sha256:d04c3fe09fada21ed6c41f40e9fbc9d1eea538a43168281f03f1feef657d4641",
+      "updatedAt": "2026-10-03T12:31:58.880Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/palo-alto-q4-fy26.js": {
+      "digest": "sha256:ad1e779f02d69ddbff360c9ff61c06706892f9e3ff5658e9ec81b33c19235f86",
+      "updatedAt": "2026-10-03T12:31:58.415Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/samsara-q2-fy27.js": {
+      "digest": "sha256:5133d9014599751e969e2eda644e92cc48d2692c4e3dea15def241a4db064f67",
+      "updatedAt": "2026-10-03T12:31:42.968Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/snowflake-q2-fy27.js": {
+      "digest": "sha256:982fd1dd914b8342bc173f26975433412db71091699ad1770f759755f0b96e79",
+      "updatedAt": "2026-10-03T12:32:33.462Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/uipath-q2-fy27.js": {
+      "digest": "sha256:ab0bae28e38ed84877d38ec35b6d8e7b3cf3d47d2ddb4b287486d77d9deb815c",
+      "updatedAt": "2026-10-03T12:31:57.083Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/vail-resorts-fy26.js": {
+      "digest": "sha256:541b9af968d0a6fb596c434a43a507e9404546263a62df59c781e19bb6c18d27",
+      "updatedAt": "2026-10-03T12:31:48.487Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/wealthfront-q2-fy27.js": {
+      "digest": "sha256:69c4bebf444b64d1f0c9280f791ff8e4ec56d291476f3adfd0ed3fd7e65ea8b1",
+      "updatedAt": "2026-10-03T12:32:02.371Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
+    },
+    "data/datasets/zscaler-q4-fy26.js": {
+      "digest": "sha256:83db841d6259cd06b6b7a09882237d162f55d8027294c093e423b47263a9dde1",
+      "updatedAt": "2026-10-03T12:31:54.537Z",
+      "publishedDigest": "sha256:fcc8f50c0f1094f4664857497709c53534309332895254516f1f5acff9ad1fab"
     }
   }
 }

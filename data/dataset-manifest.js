@@ -25269,6 +25269,644 @@
             }
           }
         }
+      },
+      {
+        "key": "adobe-q3-fy26",
+        "src": "data/datasets/adobe-q3-fy26.js",
+        "data": {
+          "name": "Adobe · Q3 FY26",
+          "company": "Adobe",
+          "meta": {
+            "title": "Adobe Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Aug. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Adobe · 2026 财年第三季度",
+              "meta": {
+                "title": "Adobe 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 8 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "asana-q2-fy27",
+        "src": "data/datasets/asana-q2-fy27.js",
+        "data": {
+          "name": "Asana · Q2 FY27",
+          "company": "Asana",
+          "meta": {
+            "title": "Asana Q2 FY27 Income Statement",
+            "period": "Q2 FY27",
+            "periodNote": "Ending July 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Asana · 2027 财年第二季度",
+              "meta": {
+                "title": "Asana 2027 财年第二季度利润表",
+                "period": "2027 财年第二季度",
+                "periodNote": "截至 2026 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "broadcom-q3-fy26",
+        "src": "data/datasets/broadcom-q3-fy26.js",
+        "data": {
+          "name": "Broadcom · Q3 FY26",
+          "company": "Broadcom",
+          "meta": {
+            "title": "Broadcom Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending July 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Broadcom · 2026 财年第三季度",
+              "meta": {
+                "title": "Broadcom 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "c3-ai-q1-fy27",
+        "src": "data/datasets/c3-ai-q1-fy27.js",
+        "data": {
+          "name": "C3.ai · Q1 FY27",
+          "company": "C3.ai",
+          "meta": {
+            "title": "C3.ai Q1 FY27 Income Statement",
+            "period": "Q1 FY27",
+            "periodNote": "Ending July 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "C3.ai · 2027 财年第一季度",
+              "meta": {
+                "title": "C3.ai 2027 财年第一季度利润表",
+                "period": "2027 财年第一季度",
+                "periodNote": "截至 2026 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "carnival-q3-fy26",
+        "src": "data/datasets/carnival-q3-fy26.js",
+        "data": {
+          "name": "Carnival · Q3 FY26",
+          "company": "Carnival",
+          "meta": {
+            "title": "Carnival Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Aug. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "嘉年华 · 2026 财年第三季度",
+              "meta": {
+                "title": "嘉年华 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 8 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "chewy-q2-fy26",
+        "src": "data/datasets/chewy-q2-fy26.js",
+        "data": {
+          "name": "Chewy · Q2 FY26",
+          "company": "Chewy",
+          "meta": {
+            "title": "Chewy Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Aug. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Chewy · 2026 财年第二季度",
+              "meta": {
+                "title": "Chewy 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 8 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "costco-q4-fy26",
+        "src": "data/datasets/costco-q4-fy26.js",
+        "data": {
+          "name": "Costco · Q4 FY26",
+          "company": "Costco",
+          "meta": {
+            "title": "Costco Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending Aug. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Costco · 2026 财年第四季度",
+              "meta": {
+                "title": "Costco 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 8 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "darden-q1-fy27",
+        "src": "data/datasets/darden-q1-fy27.js",
+        "data": {
+          "name": "Darden Restaurants · Q1 FY27",
+          "company": "Darden Restaurants",
+          "meta": {
+            "title": "Darden Q1 FY27 Income Statement",
+            "period": "Q1 FY27",
+            "periodNote": "Ending Aug. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "达登餐饮集团 · 2027 财年第一季度",
+              "meta": {
+                "title": "达登餐饮集团 2027 财年第一季度利润表",
+                "period": "2027 财年第一季度",
+                "periodNote": "截至 2026 年 8 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "dell-q2-fy27",
+        "src": "data/datasets/dell-q2-fy27.js",
+        "data": {
+          "name": "Dell - Q2 FY27",
+          "company": "Dell",
+          "meta": {
+            "title": "DELL Q2 FY27 Income Statement",
+            "period": "Q2 FY27",
+            "periodNote": "Ending July 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Dell · 2027 财年第二季度",
+              "meta": {
+                "title": "DELL 2027 财年第二季度利润表",
+                "period": "2027 财年第二季度",
+                "periodNote": "截至 2026 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "didi-q2-fy26",
+        "src": "data/datasets/didi-q2-fy26.js",
+        "data": {
+          "name": "DiDi · Q2 FY26",
+          "company": "DiDi",
+          "meta": {
+            "title": "Didi Q2 FY26 Income Statement",
+            "period": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "滴滴 · 2026 财年第二季度",
+              "meta": {
+                "title": "Didi 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "docusign-q2-fy27",
+        "src": "data/datasets/docusign-q2-fy27.js",
+        "data": {
+          "name": "DocuSign · Q2 FY27",
+          "company": "DocuSign",
+          "meta": {
+            "title": "DocuSign Q2 FY27 Income Statement",
+            "period": "Q2 FY27",
+            "periodNote": "Ending July 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "DocuSign · 2027 财年第二季度",
+              "meta": {
+                "title": "DocuSign 2027 财年第二季度利润表",
+                "period": "2027 财年第二季度",
+                "periodNote": "截至 2026 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "gamestop-q2-fy26",
+        "src": "data/datasets/gamestop-q2-fy26.js",
+        "data": {
+          "name": "GameStop · Q2 FY26",
+          "company": "GameStop",
+          "meta": {
+            "title": "GameStop Q2 FY26 Income Statement",
+            "period": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "游戏驿站 · 2026 财年第二季度",
+              "meta": {
+                "title": "游戏驿站 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "general-mills-q1-fy27",
+        "src": "data/datasets/general-mills-q1-fy27.js",
+        "data": {
+          "name": "General Mills · Q1 FY27",
+          "company": "General Mills",
+          "meta": {
+            "title": "General Mills Q1 FY27 Income Statement",
+            "period": "Q1 FY27",
+            "periodNote": "Ending Aug. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "通用磨坊 · 2027 财年第一季度",
+              "meta": {
+                "title": "通用磨坊 2027 财年第一季度利润表",
+                "period": "2027 财年第一季度",
+                "periodNote": "截至 2026 年 8 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "gitlab-q2-fy27",
+        "src": "data/datasets/gitlab-q2-fy27.js",
+        "data": {
+          "name": "GitLab · Q2 FY27",
+          "company": "GitLab",
+          "meta": {
+            "title": "GitLab Q2 FY27 Income Statement",
+            "period": "Q2 FY27",
+            "periodNote": "Ending July 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "GitLab · 2027 财年第二季度",
+              "meta": {
+                "title": "GitLab 2027 财年第二季度利润表",
+                "period": "2027 财年第二季度",
+                "periodNote": "截至 2026 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hpe-q3-fy26",
+        "src": "data/datasets/hpe-q3-fy26.js",
+        "data": {
+          "name": "HPE · Q3 FY26",
+          "company": "HPE",
+          "meta": {
+            "title": "HPE Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending July 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "慧与 · 2026 财年第三季度",
+              "meta": {
+                "title": "慧与 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lululemon-q2-fy26",
+        "src": "data/datasets/lululemon-q2-fy26.js",
+        "data": {
+          "name": "lululemon · Q2 FY26",
+          "company": "lululemon athletica",
+          "meta": {
+            "title": "Lululemon Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending July 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "lululemon · 2026 财年第二季度",
+              "meta": {
+                "title": "Lululemon 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "meituan-q2-fy26",
+        "src": "data/datasets/meituan-q2-fy26.js",
+        "data": {
+          "name": "Meituan · Q2 FY26",
+          "company": "Meituan",
+          "meta": {
+            "title": "Meituan Q2 FY26 Income Statement",
+            "period": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美团 · 2026 财年第二季度",
+              "meta": {
+                "title": "美团 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "micron-q4-fy26",
+        "src": "data/datasets/micron-q4-fy26.js",
+        "data": {
+          "name": "Micron · Q4 FY26",
+          "company": "Micron",
+          "meta": {
+            "title": "Micron Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending Aug. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Micron · 2026 财年第四季度",
+              "meta": {
+                "title": "Micron 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 8 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mongodb-q2-fy27",
+        "src": "data/datasets/mongodb-q2-fy27.js",
+        "data": {
+          "name": "MongoDB · Q2 FY27",
+          "company": "MongoDB",
+          "meta": {
+            "title": "MongoDB Q2 FY27 Income Statement",
+            "period": "Q2 FY27",
+            "periodNote": "Ending July 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "MongoDB · 2027 财年第二季度",
+              "meta": {
+                "title": "MongoDB 2027 财年第二季度利润表",
+                "period": "2027 财年第二季度",
+                "periodNote": "截至 2026 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nio-q2-fy26",
+        "src": "data/datasets/nio-q2-fy26.js",
+        "data": {
+          "name": "NIO · Q2 FY26",
+          "company": "NIO",
+          "meta": {
+            "title": "NIO Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "蔚来 · 2026 财年第二季度",
+              "meta": {
+                "title": "蔚来 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "oracle-q1-fy27",
+        "src": "data/datasets/oracle-q1-fy27.js",
+        "data": {
+          "name": "Oracle · Q1 FY27",
+          "company": "Oracle",
+          "meta": {
+            "title": "Oracle Q1 FY27 Income Statement",
+            "period": "Q1 FY27",
+            "periodNote": "Ending Aug. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Oracle · 2027 财年第一季度",
+              "meta": {
+                "title": "Oracle 2027 财年第一季度利润表",
+                "period": "2027 财年第一季度",
+                "periodNote": "截至 2026 年 8 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "palo-alto-q4-fy26",
+        "src": "data/datasets/palo-alto-q4-fy26.js",
+        "data": {
+          "name": "Palo Alto Networks · Q4 FY26",
+          "company": "Palo Alto Networks",
+          "meta": {
+            "title": "Palo Alto Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending July 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "帕洛阿尔托网络 · 2026 财年第四季度",
+              "meta": {
+                "title": "帕洛阿尔托网络 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "samsara-q2-fy27",
+        "src": "data/datasets/samsara-q2-fy27.js",
+        "data": {
+          "name": "Samsara · Q2 FY27",
+          "company": "Samsara",
+          "meta": {
+            "title": "Samsara Q2 FY27 Income Statement",
+            "period": "Q2 FY27",
+            "periodNote": "Ending July 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Samsara · 2027 财年第二季度",
+              "meta": {
+                "title": "Samsara 2027 财年第二季度利润表",
+                "period": "2027 财年第二季度",
+                "periodNote": "截至 2026 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "snowflake-q2-fy27",
+        "src": "data/datasets/snowflake-q2-fy27.js",
+        "data": {
+          "name": "Snowflake · Q2 FY27",
+          "company": "Snowflake",
+          "meta": {
+            "title": "Snowflake Q2 FY27 Income Statement",
+            "period": "Q2 FY27",
+            "periodNote": "Ending July 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Snowflake · 2027 财年第二季度",
+              "meta": {
+                "title": "Snowflake 2027 财年第二季度利润表",
+                "period": "2027 财年第二季度",
+                "periodNote": "截至 2026 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "uipath-q2-fy27",
+        "src": "data/datasets/uipath-q2-fy27.js",
+        "data": {
+          "name": "UiPath · Q2 FY27",
+          "company": "UiPath",
+          "meta": {
+            "title": "UiPath Q2 FY27 Income Statement",
+            "period": "Q2 FY27",
+            "periodNote": "Ending July 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "UiPath · 2027 财年第二季度",
+              "meta": {
+                "title": "UiPath 2027 财年第二季度利润表",
+                "period": "2027 财年第二季度",
+                "periodNote": "截至 2026 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "vail-resorts-fy26",
+        "src": "data/datasets/vail-resorts-fy26.js",
+        "data": {
+          "name": "Vail Resorts · FY26",
+          "company": "Vail Resorts",
+          "meta": {
+            "title": "Vail Resorts FY26 Income Statement",
+            "period": "FY26",
+            "periodNote": "Ending July 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "韦尔度假村 · 2026 财年",
+              "meta": {
+                "title": "韦尔度假村 2026 财年利润表",
+                "period": "2026 财年",
+                "periodNote": "截至 2026 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "wealthfront-q2-fy27",
+        "src": "data/datasets/wealthfront-q2-fy27.js",
+        "data": {
+          "name": "Wealthfront · Q2 FY27",
+          "company": "Wealthfront",
+          "meta": {
+            "title": "Wealthfront Q2 FY27 Income Statement",
+            "period": "Q2 FY27",
+            "periodNote": "Ending July 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Wealthfront · 2027 财年第二季度",
+              "meta": {
+                "title": "Wealthfront 2027 财年第二季度利润表",
+                "period": "2027 财年第二季度",
+                "periodNote": "截至 2026 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "zscaler-q4-fy26",
+        "src": "data/datasets/zscaler-q4-fy26.js",
+        "data": {
+          "name": "Zscaler · Q4 FY26",
+          "company": "Zscaler",
+          "meta": {
+            "title": "Zscaler Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending July 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Zscaler · 2026 财年第四季度",
+              "meta": {
+                "title": "Zscaler 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 7 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

@@ -1154,3 +1154,285 @@
     }
   );
 })(window);
+
+window.INCOME_STATEMENT_SSOT.records.push({
+  "key": "adobe-q3-fy26",
+  "company": "Adobe",
+  "period": "Q3 FY26",
+  "periodNote": "Ending Aug. 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 3,
+  "sourceImage": "input/processing/adobe-q3-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 6.8,
+    "notes": [
+      "+13% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "creative_marketing",
+        "label": "Creative & Marketing Professionals",
+        "value": 4.7,
+        "notes": [
+          "+13% Y/Y"
+        ]
+      },
+      {
+        "id": "business_consumers",
+        "label": "Business Professionals & Consumers",
+        "value": 1.9,
+        "notes": [
+          "+16% Y/Y"
+        ]
+      },
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 0.2
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 0.8
+    },
+    "operatingExpenses": {
+      "total": 3.6,
+      "notes": [
+        "Source-rounded expense components total $3.64B."
+      ],
+      "items": [
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 1.8,
+          "notes": [
+            "27% of revenue",
+            "+1pp Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 1.3,
+          "notes": [
+            "19% of revenue",
+            "+2pp Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 0.5,
+          "notes": [
+            "7% of revenue",
+            "(0pp) Y/Y"
+          ]
+        },
+        {
+          "id": "amortization",
+          "label": "Amortization",
+          "value": 0.04,
+          "valueText": "$40M"
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.5
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 6,
+      "notes": [
+        "89% margin",
+        "+5pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 2.4,
+      "notes": [
+        "35% margin",
+        "+2pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 1.8,
+      "notes": [
+        "27% margin",
+        "(1pp) Y/Y"
+      ]
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "arr",
+      "label": "ARR",
+      "value": "27.5",
+      "unit": "B",
+      "currency": "USD",
+      "comparison": "eq",
+      "literal": "$27.5B",
+      "basis": "unspecified",
+      "notes": [
+        "+11% Y/Y"
+      ],
+      "quote": "ARR\n$27.5B\n+11% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [76,1113,219,165]
+      }
+    },
+    {
+      "id": "rpo",
+      "label": "RPO",
+      "value": "22.2",
+      "unit": "B",
+      "currency": "USD",
+      "comparison": "eq",
+      "literal": "$22.2B",
+      "basis": "unspecified",
+      "notes": [
+        "+8% Y/Y"
+      ],
+      "quote": "RPO\n$22.2B\n+8% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [298,1113,241,165]
+      }
+    }
+  ],
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "periodNote": "截至 2026 年 8 月",
+      "revenue": {
+        "notes": [
+          "同比 +13%"
+        ],
+        "items": [
+          {
+            "id": "creative_marketing",
+            "label": "创意与营销专业人士",
+            "notes": [
+              "同比 +13%"
+            ]
+          },
+          {
+            "id": "business_consumers",
+            "label": "企业专业人士与消费者",
+            "notes": [
+              "同比 +16%"
+            ]
+          },
+          {
+            "id": "other",
+            "label": "其他"
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "notes": [
+            "原图取整后的费用明细合计为 $3.64B。"
+          ],
+          "items": [
+            {
+              "id": "sm",
+              "label": "销售与市场",
+              "notes": [
+                "占收入 27%",
+                "同比 +1 个百分点"
+              ]
+            },
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 19%",
+                "同比 +2 个百分点"
+              ]
+            },
+            {
+              "id": "ga",
+              "label": "一般及行政",
+              "notes": [
+                "占收入 7%",
+                "同比 (0 个百分点)"
+              ]
+            },
+            {
+              "id": "amortization",
+              "label": "摊销"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 89%",
+            "同比 +5 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 35%",
+            "同比 +2 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 27%",
+            "同比 (1 个百分点)"
+          ]
+        }
+      },
+      "operatingMetrics": [
+        {
+          "id": "arr",
+          "label": "ARR",
+          "notes": [
+            "同比 +11%"
+          ]
+        },
+        {
+          "id": "rpo",
+          "label": "RPO",
+          "notes": [
+            "同比 +8%"
+          ]
+        }
+      ]
+    }
+  }
+});

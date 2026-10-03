@@ -1,0 +1,133 @@
+{
+  "source": "input/processing/wealthfront-q2-fy27.png",
+  "spec": "input/icon-crop-specs/wealthfront-q2-fy27.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-03T12:34:05.161599+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/wealthfront",
+  "crops": [
+    {
+      "key": "wealthfront-logo",
+      "output": "data/assets/icon-references/wealthfront/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 3329,
+        "losslessBytes": 15500,
+        "savingsVsLossless": 0.7852,
+        "metrics": {
+          "meanAbsoluteError": 0.2432,
+          "rootMeanSquareError": 1.2252,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 17,
+          "changedPixelRatio": 0.0903
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 23810,
+        "transparentPixelRatio": 0.4812
+      },
+      "searchBox": {
+        "x": 818,
+        "y": 253,
+        "width": 228,
+        "height": 217
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 821,
+        "y0": 256,
+        "x1": 1041,
+        "y1": 466
+      },
+      "cropBox": {
+        "x0": 818,
+        "y0": 253,
+        "x1": 1046,
+        "y1": 470
+      },
+      "validation": {
+        "width": 228,
+        "height": 217,
+        "foregroundPixels": 25334,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 3,
+          "right": 5,
+          "top": 3,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": -0.0044,
+          "y": -0.0023
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/wealthfront/company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 3329,
+        "losslessBytes": 15500,
+        "savingsVsLossless": 0.7852,
+        "metrics": {
+          "meanAbsoluteError": 0.2432,
+          "rootMeanSquareError": 1.2252,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 17,
+          "changedPixelRatio": 0.0903
+        }
+      },
+      "validationSheet": "data/assets/icon-references/wealthfront/validation-sheets/wealthfront-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 281390,
+        "losslessBytes": 281390,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

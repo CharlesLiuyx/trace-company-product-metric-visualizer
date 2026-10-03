@@ -235,4 +235,271 @@
       },
     },
   });
+ssot.records.push({
+  "key": "palo-alto-q4-fy26",
+  "company": "Palo Alto Networks",
+  "period": "Q4 FY26",
+  "periodNote": "Ending July 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processing/palo-alto-q4-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 3.4,
+    "notes": [
+      "+34% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "product",
+        "label": "Products",
+        "value": 0.7,
+        "notes": [
+          "+29% Y/Y",
+          "73% gross margin"
+        ]
+      },
+      {
+        "id": "subscription_and_support",
+        "label": "Subscriptions and support",
+        "value": 2.7,
+        "notes": [
+          "+36% Y/Y",
+          "66% gross margin"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 1.1
+    },
+    "operatingExpenses": {
+      "total": 2.1,
+      "items": [
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 1.1,
+          "notes": [
+            "33% of revenue",
+            "+0pp Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 0.8,
+          "notes": [
+            "23% of revenue",
+            "+3pp Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 0.2,
+          "notes": [
+            "7% of revenue",
+            "+6pp Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "label": "Tax",
+      "value": 0
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0.5,
+    "items": [
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 0.5
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 2.3,
+      "notes": [
+        "68% margin",
+        "(6pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 0.2,
+      "notes": [
+        "5% margin",
+        "(15pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_loss",
+      "label": "Net loss",
+      "value": -0.3,
+      "notes": [
+        "(8%) margin",
+        "(18pp) Y/Y"
+      ]
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "rpo",
+      "label": "RPO",
+      "value": "21.2",
+      "unit": "B",
+      "currency": "USD",
+      "comparison": "eq",
+      "literal": "$21.2B",
+      "basis": "unspecified",
+      "notes": [
+        "+34% Y/Y"
+      ],
+      "quote": "RPO\n$21.2B\n+34% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          238,
+          1096,
+          190,
+          158
+        ]
+      }
+    },
+    {
+      "id": "ngs_arr",
+      "label": "NGS ARR",
+      "value": "9.1",
+      "unit": "B",
+      "currency": "USD",
+      "comparison": "eq",
+      "literal": "$9.1B",
+      "basis": "unspecified",
+      "notes": [
+        "+63% Y/Y"
+      ],
+      "quote": "NGS ARR\n$9.1B\n+63% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          452,
+          1096,
+          238,
+          158
+        ]
+      }
+    }
+  ],
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第四季度",
+      "periodNote": "截至 2026 年 7 月",
+      "revenue": {
+        "notes": [
+          "同比 +34%"
+        ],
+        "items": [
+          {
+            "id": "product",
+            "label": "产品",
+            "notes": [
+              "同比 +29%",
+              "毛利率 73%"
+            ]
+          },
+          {
+            "id": "subscription_and_support",
+            "label": "订阅和支持",
+            "notes": [
+              "同比 +36%",
+              "毛利率 66%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sm",
+              "label": "销售与市场",
+              "notes": [
+                "占收入 33%",
+                "同比 +0 个百分点"
+              ]
+            },
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 23%",
+                "同比 +3 个百分点"
+              ]
+            },
+            {
+              "id": "ga",
+              "label": "管理费用",
+              "notes": [
+                "占收入 7%",
+                "同比 +6 个百分点"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 68%",
+            "同比 (6 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 5%",
+            "同比 (15 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净亏损",
+          "notes": [
+            "利润率 (8%)",
+            "同比 (18 个百分点)"
+          ]
+        }
+      }
+    }
+  }
+});
 })(window);

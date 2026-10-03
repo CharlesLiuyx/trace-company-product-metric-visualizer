@@ -1,0 +1,140 @@
+{
+  "source": "input/processed/chewy-q2-fy26.png",
+  "spec": "output/builds/build-9530840e-c543-4827-8498-d7593299fba0/workspace/input/icon-crop-specs/chewy-q2-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-03T12:56:16.071943+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/chewy",
+  "crops": [
+    {
+      "key": "chewy-dog-box-q2-fy26",
+      "output": "data/assets/icon-references/chewy/crops/dog-box-q2-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 20813,
+        "losslessBytes": 97138,
+        "savingsVsLossless": 0.7857,
+        "metrics": {
+          "meanAbsoluteError": 1.1787,
+          "rootMeanSquareError": 2.8407,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 29,
+          "changedPixelRatio": 0.4222
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 86661,
+        "transparentPixelRatio": 0.5777
+      },
+      "searchBox": {
+        "x": 1573,
+        "y": 1008,
+        "width": 500,
+        "height": 300
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 1580,
+        "y0": 1014,
+        "x1": 2069,
+        "y1": 1303
+      },
+      "cropBox": {
+        "x0": 1573,
+        "y0": 1008,
+        "x1": 2073,
+        "y1": 1308
+      },
+      "validation": {
+        "width": 500,
+        "height": 300,
+        "foregroundPixels": 63055,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 4,
+          "top": 6,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.003,
+          "y": 0.0017
+        },
+        "passes": true
+      },
+      "note": "Complete dog and Chewy box brand cluster; no financial text, chart marks or publisher footer.",
+      "runtimeOutput": "data/assets/raster-annotations/chewy/dog-box-q2-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 20813,
+        "losslessBytes": 97138,
+        "savingsVsLossless": 0.7857,
+        "metrics": {
+          "meanAbsoluteError": 1.1787,
+          "rootMeanSquareError": 2.8407,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 29,
+          "changedPixelRatio": 0.4222
+        }
+      },
+      "validationSheet": "data/assets/icon-references/chewy/validation-sheets/q2-fy26/chewy-dog-box-q2-fy26.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 104234,
+        "losslessBytes": 306153,
+        "savingsVsLossless": 0.6595,
+        "metrics": {
+          "meanAbsoluteError": 0.4321,
+          "rootMeanSquareError": 2.2423,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 71,
+          "changedPixelRatio": 0.112
+        }
+      }
+    }
+  ]
+}

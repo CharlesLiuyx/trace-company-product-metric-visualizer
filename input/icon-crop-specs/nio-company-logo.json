@@ -1,0 +1,49 @@
+{
+  "source": "input/processing/nio-q2-fy26.png",
+  "outputDir": "data/assets/icon-references/nio",
+  "runtimeOutputDir": "data/assets/raster-annotations/nio",
+  "validationSheetDir": "data/assets/icon-references/nio/validation-sheets",
+  "report": "company-logo-crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [
+      242,
+      242,
+      242
+    ]
+  },
+  "crops": [
+    {
+      "key": "nio-company-logo-source",
+      "output": "crops/company-logo-source.png",
+      "runtimeOutput": "company-logo-source.png",
+      "searchBox": {
+        "x": 425,
+        "y": 260,
+        "width": 615,
+        "height": 220
+      },
+      "cropBox": {
+        "x": 425,
+        "y": 260,
+        "width": 615,
+        "height": 220
+      },
+      "threshold": 10,
+      "minComponentArea": 18,
+      "validation": {
+        "borderBand": 3,
+        "maxCenterOffset": 0.04,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete original NIO horizon symbol and wordmark; excludes title, values, flows and publisher branding. Same logo placement and shape in all four NIO Sources."
+    }
+  ]
+}

@@ -2,7 +2,7 @@
  * NIO - Q3 FY25 income statement ($B)
  * Reconstructed from input/processed/nio-q3-fy25.png as a fixed d3-sankey
  * layout. The three-vehicle revenue cluster reuses NIO's validated runtime
- * raster; the NIO horizon symbol and wordmark are dataset-owned SVG.
+ * raster; the NIO horizon symbol and wordmark use the original Source crop.
  * ==================================================================== */
 (function () {
   const BLACK = '#000000';
@@ -17,12 +17,7 @@
   const RED_LINK = '#e08585';
   const RIGHT_LABEL_X = 2439;
 
-  const nioLogo = `
-    <g data-typography-role="brand" transform="translate(431 268)">
-      <path d="M0 111C0 50 47 0 105 0s105 50 105 111H145c0-35-18-61-40-61s-40 26-40 61Z" fill="#000000"/>
-      <path d="M12 124h186L176 181l-44-42a12 12 0 0 0-17 0l-44 42Z" fill="#000000"/>
-      <text x="258" y="161" font-family="Arial Black,Arial,sans-serif" font-size="146" font-weight="900" letter-spacing="-7" fill="#000000">NIO</text>
-    </g>`;
+  const nioLogo = '';
 
   const deliveryCard = (title, note) => `
     <g font-family="'Noto Sans',Arial,sans-serif">
@@ -130,6 +125,7 @@
     },
     annotationsSvg: annotationsEn,
     rasterAnnotations: [
+      { key: 'nio-company-logo-source', href: 'data/assets/raster-annotations/nio/company-logo-source.png', x: 425, y: 256, width: 615, height: 220, clearance: true },
       {
         key: 'nio-vehicle-sales-cars',
         href: 'data/assets/raster-annotations/nio/vehicle-sales-cars.png',

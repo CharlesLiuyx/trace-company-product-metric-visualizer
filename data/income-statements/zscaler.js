@@ -280,3 +280,367 @@
     }
   );
 })(window);
+
+(function(global){global.INCOME_STATEMENT_SSOT.records.push({
+  "key": "zscaler-q4-fy26",
+  "company": "Zscaler",
+  "period": "Q4 FY26",
+  "periodNote": "Ending July 2026",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processing/zscaler-q4-fy26.png",
+  "roundingTolerance": 1.1,
+  "revenue": {
+    "total": 898,
+    "notes": [
+      "+25% Y/Y",
+      "Regional values sum to $897M because the source rounds each displayed amount."
+    ],
+    "items": [
+      {
+        "id": "united_states",
+        "label": "United States",
+        "value": 480,
+        "notes": [
+          "+30% Y/Y"
+        ]
+      },
+      {
+        "id": "emea",
+        "label": "EMEA",
+        "value": 246,
+        "notes": [
+          "+17% Y/Y"
+        ]
+      },
+      {
+        "id": "asia_pacific",
+        "label": "Asia Pacific",
+        "value": 140,
+        "notes": [
+          "+23% Y/Y"
+        ]
+      },
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 31,
+        "notes": [
+          "+23% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 209
+    },
+    "operatingExpenses": {
+      "total": 705,
+      "items": [
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 381,
+          "notes": [
+            "42% of revenue",
+            "(4pp) Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 241,
+          "notes": [
+            "27% of revenue",
+            "+2pp Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 82,
+          "notes": [
+            "9% of revenue",
+            "(1pp) Y/Y"
+          ]
+        }
+      ],
+      "notes": [
+        "Displayed expense items sum to $704M because the source rounds each amount."
+      ]
+    },
+    "tax": {
+      "label": "Tax",
+      "value": 0
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 689,
+      "notes": [
+        "77% margin",
+        "+1pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_loss",
+      "label": "Operating loss",
+      "value": -15,
+      "notes": [
+        "(2%) margin",
+        "+3pp Y/Y",
+        "Gross profit less operating expenses differs by $1M because the source rounds each amount."
+      ]
+    },
+    "net": {
+      "id": "operating_loss",
+      "label": "Operating loss",
+      "value": -15,
+      "notes": [
+        "No separate net income or loss line is shown in the source chart."
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第四季度",
+      "periodNote": "截至 2026 年 7 月",
+      "revenue": {
+        "notes": [
+          "同比 +25%",
+          "地区收入加总为 $897M，因来源图对各显示金额取整。"
+        ],
+        "items": [
+          {
+            "id": "united_states",
+            "label": "美国",
+            "notes": [
+              "同比 +30%"
+            ]
+          },
+          {
+            "id": "emea",
+            "label": "欧洲、中东和非洲",
+            "notes": [
+              "同比 +17%"
+            ]
+          },
+          {
+            "id": "asia_pacific",
+            "label": "亚太",
+            "notes": [
+              "同比 +23%"
+            ]
+          },
+          {
+            "id": "other",
+            "label": "其他",
+            "notes": [
+              "同比 +23%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sm",
+              "label": "销售与市场",
+              "notes": [
+                "占收入 42%",
+                "同比 (4 个百分点)"
+              ]
+            },
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 27%",
+                "同比 +2 个百分点"
+              ]
+            },
+            {
+              "id": "ga",
+              "label": "管理费用",
+              "notes": [
+                "占收入 9%",
+                "同比 (1 个百分点)"
+              ]
+            }
+          ],
+          "notes": [
+            "各项显示费用加总为 $704M，因来源图对各金额取整。"
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 77%",
+            "同比 +1 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业亏损",
+          "notes": [
+            "利润率 (2%)",
+            "同比 +3 个百分点",
+            "毛利润减去营业费用相差 $1M，因来源图对各金额取整。"
+          ]
+        },
+        "net": {
+          "label": "营业亏损",
+          "notes": [
+            "来源图未单独显示净利润或净亏损项目。"
+          ]
+        }
+      },
+      "operatingMetrics": [
+        {
+          "id": "arr",
+          "label": "ARR",
+          "notes": [
+            "同比 +25%"
+          ]
+        },
+        {
+          "id": "rpo",
+          "label": "RPO",
+          "notes": [
+            "同比 +27%"
+          ]
+        },
+        {
+          "id": "customers_100k",
+          "label": "客户 > $100K",
+          "notes": [
+            "同比 +20%"
+          ]
+        },
+        {
+          "id": "customers_1m",
+          "label": "客户 > $1M",
+          "notes": [
+            "同比 +18%"
+          ]
+        }
+      ]
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "arr",
+      "label": "ARR",
+      "value": "3.8",
+      "unit": "B",
+      "currency": "USD",
+      "comparison": "eq",
+      "literal": "$3.8B",
+      "notes": [
+        "+25% Y/Y"
+      ],
+      "quote": "ARR\n$3.8B\n+25% Y/Y",
+      "basis": "unspecified",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          74,
+          1116,
+          209,
+          148
+        ]
+      }
+    },
+    {
+      "id": "rpo",
+      "label": "RPO",
+      "value": "7.4",
+      "unit": "B",
+      "currency": "USD",
+      "comparison": "eq",
+      "literal": "$7.4B",
+      "notes": [
+        "+27% Y/Y"
+      ],
+      "quote": "RPO\n$7.4B\n+27% Y/Y",
+      "basis": "unspecified",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          294,
+          1116,
+          209,
+          148
+        ]
+      }
+    },
+    {
+      "id": "customers_100k",
+      "label": "Customers > $100K",
+      "value": "4182",
+      "unit": "count",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "4,182",
+      "notes": [
+        "+20% Y/Y"
+      ],
+      "quote": "Customers > $100K 4,182 +20% Y/Y",
+      "basis": "unspecified",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          515,
+          1170,
+          352,
+          40
+        ]
+      }
+    },
+    {
+      "id": "customers_1m",
+      "label": "Customers > $1M",
+      "value": "785",
+      "unit": "count",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "785",
+      "notes": [
+        "+18% Y/Y"
+      ],
+      "quote": "Customers > $1M 785 +18% Y/Y",
+      "basis": "unspecified",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          515,
+          1210,
+          352,
+          40
+        ]
+      }
+    }
+  ]
+});})(window);

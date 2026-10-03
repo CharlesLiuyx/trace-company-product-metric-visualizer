@@ -1,0 +1,309 @@
+{
+  "source": "input/processing/adobe-q3-fy26.png",
+  "spec": "input/icon-crop-specs/adobe-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-03T12:33:49.471149+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/adobe",
+  "crops": [
+    {
+      "key": "adobe-company-logo-q3-fy26",
+      "output": "data/assets/icon-references/adobe/crops/company-logo-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4124,
+        "losslessBytes": 17000,
+        "savingsVsLossless": 0.7574,
+        "metrics": {
+          "meanAbsoluteError": 0.2973,
+          "rootMeanSquareError": 1.5982,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 34,
+          "changedPixelRatio": 0.3407
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 55776,
+        "transparentPixelRatio": 0.6632
+      },
+      "searchBox": {
+        "x": 651,
+        "y": 255,
+        "width": 557,
+        "height": 151
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 657,
+        "y0": 260,
+        "x1": 1203,
+        "y1": 403
+      },
+      "cropBox": {
+        "x0": 651,
+        "y0": 255,
+        "x1": 1208,
+        "y1": 406
+      },
+      "validation": {
+        "width": 557,
+        "height": 151,
+        "foregroundPixels": 25910,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 5,
+          "top": 5,
+          "bottom": 3
+        },
+        "centerOffset": {
+          "x": 0.0009,
+          "y": 0.0066
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/adobe/company-logo-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4124,
+        "losslessBytes": 17000,
+        "savingsVsLossless": 0.7574,
+        "metrics": {
+          "meanAbsoluteError": 0.2973,
+          "rootMeanSquareError": 1.5982,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 34,
+          "changedPixelRatio": 0.3407
+        }
+      },
+      "validationSheet": "data/assets/icon-references/adobe/validation-sheets/adobe-q3-fy26/adobe-company-logo-q3-fy26.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 253188,
+        "losslessBytes": 253188,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "adobe-creative-cloud-acrobat-q3-fy26",
+      "output": "data/assets/icon-references/adobe/crops/creative-cloud-acrobat-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 19218,
+        "losslessBytes": 19218,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 2903,
+        "transparentPixelRatio": 0.1017
+      },
+      "searchBox": {
+        "x": 122,
+        "y": 379,
+        "width": 244,
+        "height": 117
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 124,
+        "y0": 380,
+        "x1": 364,
+        "y1": 493
+      },
+      "cropBox": {
+        "x0": 122,
+        "y0": 379,
+        "x1": 366,
+        "y1": 496
+      },
+      "validation": {
+        "width": 244,
+        "height": 117,
+        "foregroundPixels": 22396,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 2,
+          "right": 2,
+          "top": 1,
+          "bottom": 3
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0085
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/adobe/creative-cloud-acrobat-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 19218,
+        "losslessBytes": 19218,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/adobe/validation-sheets/adobe-q3-fy26/adobe-creative-cloud-acrobat-q3-fy26.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 288246,
+        "losslessBytes": 288246,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "adobe-adobe-app-q3-fy26",
+      "output": "data/assets/icon-references/adobe/crops/adobe-app-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1067,
+        "losslessBytes": 5601,
+        "savingsVsLossless": 0.8095,
+        "metrics": {
+          "meanAbsoluteError": 0.765,
+          "rootMeanSquareError": 1.7876,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 37,
+          "changedPixelRatio": 0.9178
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 1184,
+        "transparentPixelRatio": 0.0822
+      },
+      "searchBox": {
+        "x": 184,
+        "y": 680,
+        "width": 120,
+        "height": 120
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 186,
+        "y0": 682,
+        "x1": 301,
+        "y1": 797
+      },
+      "cropBox": {
+        "x0": 184,
+        "y0": 680,
+        "x1": 304,
+        "y1": 800
+      },
+      "validation": {
+        "width": 120,
+        "height": 120,
+        "foregroundPixels": 10615,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 2,
+          "right": 3,
+          "top": 2,
+          "bottom": 3
+        },
+        "centerOffset": {
+          "x": -0.0042,
+          "y": -0.0042
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/adobe/adobe-app-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1067,
+        "losslessBytes": 5601,
+        "savingsVsLossless": 0.8095,
+        "metrics": {
+          "meanAbsoluteError": 0.765,
+          "rootMeanSquareError": 1.7876,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 37,
+          "changedPixelRatio": 0.9178
+        }
+      },
+      "validationSheet": "data/assets/icon-references/adobe/validation-sheets/adobe-q3-fy26/adobe-adobe-app-q3-fy26.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 278092,
+        "losslessBytes": 278092,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}
