@@ -704,9 +704,14 @@ export function collectCandidateInterfaceGeometry(page, datasetKey, language) {
     Array.from(svg.querySelectorAll('path.sankey-link')).forEach((element, index) => {
       const datum = element.__data__;
       if (!datum || !datum.source || !datum.target || !isVisiblePath(element)) return;
-      const source = nodeById.get(element.getAttribute('data-source'));
-      const target = nodeById.get(element.getAttribute('data-target'));
-      if (!source || !target) return;
+      // A route-only endpoint (faceless Source flow) has no node face of its
+      // own, but its ribbon still occupies the real node face it touches.
+      const resolveNode = (id, datumNode) => nodeById.get(id) || (datumNode?.routeOnly
+        ? { id, x0: number(datumNode.x0), x1: number(datumNode.x1), y0: number(datumNode.y0), y1: number(datumNode.y1), routeOnly: true }
+        : null);
+      const source = resolveNode(element.getAttribute('data-source'), datum.source);
+      const target = resolveNode(element.getAttribute('data-target'), datum.target);
+      if (!source || !target || (source.routeOnly && target.routeOnly)) return;
       const raw = datum.raw || {};
       const curve = raw.curve || {};
       const x0 = curve.x0 != null ? number(curve.x0) : source.x1;
@@ -765,6 +770,7 @@ export function collectCandidateInterfaceGeometry(page, datasetKey, language) {
     const interfaceMap = new Map();
     for (const link of links) {
       for (const endpoint of [link.sourceEndpoint, link.targetEndpoint]) {
+        if (!nodeById.has(endpoint.node)) continue;
         const id = `${endpoint.node}:${endpoint.face}`;
         if (!interfaceMap.has(id)) {
           const node = nodeById.get(endpoint.node);

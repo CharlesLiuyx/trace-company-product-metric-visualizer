@@ -77,9 +77,10 @@ test('a combined view binds only identical semantic content and application with
   members[0].build.receipts = [{ state: 'AUTHORED', payload: { artifacts: [
     { path: 'data/assets/catalog.json', role: 'asset', digest: 'derived-catalog-for-this-draft' },
     { path: 'data/assets/logo.svg', role: 'asset', digest: bytesDigest('<svg/>') },
+    { path: 'data/assets/model-validation.md', role: 'asset', digest: 'note-before-another-draft-appended' },
   ] } }];
   const inspect = async () => ({ fresh: true, reviewToken: a.revision });
-  assert.equal((await bindReviewMembers(root, target, members, inspect))[0].reviewToken, a.revision);
+  assert.equal((await bindReviewMembers(root, target, members, inspect))[0].reviewToken, a.revision, 'another draft\'s asset documentation note does not unbind a member');
   await writeFile(path.join(target, 'data/assets/logo.svg'), '<svg>changed</svg>');
   assert.equal((await bindReviewMembers(root, target, members, inspect))[0].reviewToken, null, 'real assets remain review-bound, unlike the derived global catalog');
   await writeFile(path.join(target, 'data/assets/logo.svg'), '<svg/>');
