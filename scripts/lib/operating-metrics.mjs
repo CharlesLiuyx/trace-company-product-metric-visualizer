@@ -35,14 +35,17 @@ export function normalizeOperatingObservation(raw) {
     literal = literal.slice(1, -1).replace(accountingPrefix, accountingPrefix + '-');
   }
   if (raw.unit === 'count') {
-    requireThat(!value.includes('.') && !value.startsWith('-'), 'Counts must be nonnegative integers');
+    // A count is a nonnegative exact decimal: whole quantities (112M) and
+    // Source-stated ratios such as transactions per account (59.4) alike.
+    requireThat(!value.startsWith('-'), 'Counts must be nonnegative');
     const match = literal.match(/^(\d+)(?:\.(\d+))?([KMBT])?$/);
     requireThat(match, 'Count literal must be a nonnegative number with an optional K/M/B/T scale');
     const fraction = match[2] || '';
     const power = { K: 3, M: 6, B: 9, T: 12 }[match[3]] || 0;
     const numerator = BigInt(match[1] + fraction) * (10n ** BigInt(power));
     const denominator = 10n ** BigInt(fraction.length);
-    requireThat(numerator % denominator === 0n && numerator / denominator === BigInt(value), 'Count literal does not equal its exact integer value');
+    const [whole, valueFraction = ''] = value.split('.');
+    requireThat(numerator * (10n ** BigInt(valueFraction.length)) === BigInt(whole + valueFraction) * denominator, 'Count literal does not equal its exact value');
     return { value, unit: raw.unit, currency: raw.currency, comparison: raw.comparison, literal: raw.literal };
   }
   const prefix = MONEY.has(raw.unit) ? literalPrefix(raw.currency, literal) : '';
